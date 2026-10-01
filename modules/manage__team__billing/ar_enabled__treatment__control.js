@@ -6863,7 +6863,7 @@
           trackCancellationFirstVideoSkipped: _v44
         } = (0, _v18.useBillingTracking)(),
         _v45 = _v15.cancellation_first_video_interstitial && !_v13,
-        _v46 = !!_v4.isImpactedByGermanConsumerLaw,
+        _v46 = !!_v4.defaultAutorenewRestrictionsYearlies,
         [_v47, _v48] = (0, _v7.useState)(_v7),
         [_v49, _v50] = (0, _v7.useState)(_v13 ?? ("none" === _v19 ? _v23 ? "lapsingSelection" : "confirm" : "survey")),
         [_v51, _v52] = (0, _v7.useState)(!1),
@@ -7871,7 +7871,7 @@
         _v94 = (0, _v7.useMemo)(() => [_v92, _v93, ...(_v102.cancelFeatureList[_v88][_v4.tier ?? "starter"] ?? [])], [_v88, _v4.tier, _v92, _v93]),
         _v95 = _v4.tier,
         _v96 = _v4.billingPeriod === _v101.UserPlanType.Year ? "annual" : "monthly",
-        _v97 = _v4.isImpactedByGermanConsumerLaw ? "german_two_click" : "standard",
+        _v97 = _v4.defaultAutorenewRestrictionsYearlies ? "german_two_click" : "standard",
         _v98 = (0, _v7.useCallback)(async () => {
           if (!_v14 || !_v62) return void Promise.resolve(_v25());
           try {
@@ -8718,7 +8718,7 @@
             renewalDate: _v24,
             tier: _v25,
             status: _v26,
-            isImpactedByGermanConsumerLaw: _v27,
+            defaultAutorenewRestrictionsYearlies: _v27,
             userEntity: _v28,
             tierForDisplay: _v29,
             billingPeriod: _v30,
@@ -8941,7 +8941,7 @@
             tier: _v25,
             subscriptionId: _v31,
             rejoinOfferEligible: _v32,
-            isImpactedByGermanConsumerLaw: _v27
+            defaultAutorenewRestrictionsYearlies: _v27
           },
           renewalPrice: _v6,
           renewalPeriodLabel: _v7,
@@ -10860,7 +10860,7 @@
                 }), _v19({
                   teamSeats: 1,
                   adminSeats: null,
-                  restrictedStorage: "1 GB",
+                  restrictedStorage: "3 GB",
                   bandwidth: "1 TB",
                   bandwidthIsYearly: !1
                 }, "auto"), (0, _v5.jsx)(_v33.Text, {
@@ -12370,7 +12370,7 @@
                     }), _v6({
                       teamSeats: 1,
                       adminSeats: null,
-                      restrictedStorage: "1 GB",
+                      restrictedStorage: "3 GB",
                       bandwidth: "1 TB",
                       bandwidthIsYearly: !1
                     }), (0, _v5.jsx)(_v11.Button, {
@@ -14918,7 +14918,7 @@
         _v91 = (0, _v7.useRef)(0),
         _v92 = _v102.T.Year;
       _v11.billingPeriod === _v101.UserPlanType.Month ? _v92 = _v102.T.Month : _v11.billingPeriod === _v101.UserPlanType.Week && (_v92 = _v102.T.Week);
-      let _v93 = _v11.isImpactedByGermanConsumerLaw && _v11.tier !== _v101.Tier.Free,
+      let _v93 = _v11.defaultAutorenewRestrictionsYearlies && _v11.tier !== _v101.Tier.Free,
         _v94 = _v93 && _v11.userEntity === _v101.UserEntity.Personal,
         _v95 = _v22?.xsrft ?? "",
         _v96 = _v25?.data?.aiCreditsQuota,
@@ -15884,7 +15884,7 @@
                       maxWidth: "200px",
                       children: (0, _v5.jsx)(_v72.PopoverBody, {
                         textStyle: "body-md",
-                        children: _v11.isImpactedByGermanConsumerLaw ? _v102.T.AccountUsageGerman : _v102.T.AccountUsageNonGerman
+                        children: _v11.defaultAutorenewRestrictionsYearlies ? _v102.T.AccountUsageGerman : _v102.T.AccountUsageNonGerman
                       })
                     })]
                   })]

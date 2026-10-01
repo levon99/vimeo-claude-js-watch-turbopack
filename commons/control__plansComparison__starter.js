@@ -141,6 +141,7 @@
     release_single_event_customization: !1,
     release_event_series_v1: !1,
     enable_event_series_in_dev_features: !1,
+    enable_event_series_announcement: !1,
     analytics_freshness_refactored: !1,
     enable_svv_redesign: !1,
     expired_share_link_variant: "non_recoverable",
@@ -148,7 +149,7 @@
     card_verification_modal_variant: "none",
     enable_auto_renew_encouragement: !1,
     enable_auto_renew_encouragement_always: !1,
-    enable_content_space_team_gate: !1,
+    enable_content_space_team_gate: !0,
     pre_libraries_merge_date: "control",
     enable_player_settings: !1,
     enable_live_event_basics_thumbnail: !1,
@@ -160,7 +161,6 @@
     enable_whats_new_page: !1,
     enable_browser_studio_camera_position_presets: !1,
     enable_video_customization_v2_new_badge: !1,
-    enable_admin_forced_preset: !1,
     enable_email_defaults: !1,
     library_marketing_video_id: "control",
     videocard_overflow_menu_arm: "control",
@@ -174,7 +174,6 @@
     enable_prewarm_filmstrip_sprite: !1,
     show_ai_credits_revamp: !0,
     record_upload_approach: "live",
-    enable_folder_upload_presets: !1,
     enabled_new_live_engagement_ui: !1,
     enable_non_video_upload_fake_door: !1,
     universal_hosting_enabled: !1,
@@ -213,7 +212,9 @@
     reverse_ft_delay_offer_paywall_on_trigger: !1,
     reverse_ft_delay_announcement_on_trigger: !1,
     reverse_ft_delay_trial_days: 7,
-    onboarding_paywall_weekly_enabled: !1
+    onboarding_paywall_weekly_enabled: !1,
+    enable_live_engagement_announcement: !1,
+    enable_smart_search_intro_announcement: !0
   };
   function _v12() {
     return "vimeo.dev" === window.location.hostname || window.location.hostname.endsWith(".vimeows.com");

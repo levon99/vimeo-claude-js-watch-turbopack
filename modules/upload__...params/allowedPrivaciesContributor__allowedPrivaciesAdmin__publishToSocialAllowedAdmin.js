@@ -3,7 +3,7 @@
 
   let _v1 = ["allowedPrivaciesContributor", "allowedPrivaciesAdmin", "publishToSocialAllowedAdmin", "publishToSocialAllowedContributor", "embedDomainEditEnabledAdmin", "embedDomainEditEnabledContributor", "videoFileLinkAccessEnabledAdmin", "videoFileLinkAccessEnabledContributor"],
     _v2 = _v1.concat(["orgAllowedPrivaciesAdmin", "orgPublishToSocialAllowedAdmin", "orgEmbedDomainEditEnabledAdmin", "orgVideoFileLinkAccessEnabledAdmin"]);
-  _v0.s(["NOTIFICATION_DURATION", 0, 0, "PREF_EMBED_DOMAIN_EDIT_ENABLED_ADMIN", 0, "edeea", "PREF_EMBED_DOMAIN_EDIT_ENABLED_CONTRIBUTOR", 0, "edeec", "PREF_PUBLIC_PRIVACY_DISABLED", 0, "ecdppr", "PUBLIC_PRIVACY_CANT_BE_USED_AT_DOMAIN", 0, "vimeo.work", "PermissionLevel", 0, {
+  _v0.s(["NOTIFICATION_DURATION", 0, 0, "PREF_EMBED_DOMAIN_EDIT_ENABLED_ADMIN", 0, "edeea", "PREF_EMBED_DOMAIN_EDIT_ENABLED_CONTRIBUTOR", 0, "edeec", "PREF_PUBLIC_PRIVACY_DISABLED", 0, "ecdppr", "PREF_VIDEO_FILE_LINK_ACCESS_ENABLED_ADMIN", 0, "vflaea", "PREF_VIDEO_FILE_LINK_ACCESS_ENABLED_CONTRIBUTOR", 0, "vflaec", "PUBLIC_PRIVACY_CANT_BE_USED_AT_DOMAIN", 0, "vimeo.work", "PermissionLevel", 0, {
     Owner: 1,
     Admin: 2,
     ContributorPlus: 3,

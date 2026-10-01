@@ -283,28 +283,29 @@
       });
     });
   };
-  function _v59(_v0, _v1) {
+  class _v59 extends Error {}
+  function _v60(_v0, _v1) {
     if (_v0.id) return `#${_v0.id}`;
     let _v2 = `juno-checkout-${_v1}-${crypto.randomUUID()}`;
     return _v0.setAttribute("id", _v2), `#${_v2}`;
   }
-  class _v60 extends Error {
+  class _v61 extends Error {
     details;
     constructor(_v0, _v1) {
       super(_v0), this.details = _v1;
     }
   }
-  function _v61(_v0) {
+  function _v62(_v0) {
     return "pan_alias" === _v0 || _v0.includes("number") || _v0.includes("card") ? "pan" : "cvv_alias" === _v0 || _v0.includes("cvv") || _v0.includes("cvc") ? "cvv" : null;
   }
-  function _v62(_v0, _v1) {
+  function _v63(_v0, _v1) {
     let _v2 = void 0 === _v1 ? "Card setup failed" : `Card setup failed (${_v1})`;
-    if (!_v0 || "object" != typeof _v0) return new _v60(_v2, {
+    if (!_v0 || "object" != typeof _v0) return new _v61(_v2, {
       kind: "unknown"
     });
     let _v3 = "string" == typeof _v0.error_code ? _v0.error_code : null,
       _v4 = _v0.error_description ?? _v0.error;
-    if ("string" == typeof _v4 && "" !== _v4.trim()) return new _v60(`${_v2}: ${_v4}`, {
+    if ("string" == typeof _v4 && "" !== _v4.trim()) return new _v61(`${_v2}: ${_v4}`, {
       kind: "http",
       status: _v1 ?? 0,
       errorCode: _v3,
@@ -313,31 +314,33 @@
     let _v5 = _v0.errors;
     if (Array.isArray(_v5) && _v5.length > 0) {
       let _v0 = _v5.map(_v0 => [_v0.path, _v0.detail].filter(Boolean).join(": ")).join("; "),
-        _v1 = _v5.map(_v0 => _v0.path ? _v61(_v0.path) : null).filter(_v0 => null !== _v0);
-      return new _v60(`${_v2}: ${_v0}`, {
+        _v1 = _v5.map(_v0 => _v0.path ? _v62(_v0.path) : null).filter(_v0 => null !== _v0);
+      return new _v61(`${_v2}: ${_v0}`, {
         kind: _v1.length > 0 ? "field_validation" : "unknown",
         ...(_v1.length > 0 ? {
           fields: _v1
         } : {})
       });
     }
-    let _v6 = Object.keys(_v0).map(_v61).filter(_v0 => null !== _v0);
-    return _v6.length > 0 ? new _v60(`${_v2}: check ${_v6.join(", ")}`, {
+    let _v6 = Object.keys(_v0).map(_v62).filter(_v0 => null !== _v0);
+    return _v6.length > 0 ? new _v61(`${_v2}: check ${_v6.join(", ")}`, {
       kind: "field_validation",
       fields: _v6
-    }) : new _v60(_v2, {
+    }) : new _v61(_v2, {
       kind: "http",
       status: _v1 ?? 0,
       errorCode: _v3,
       errorDescription: null
     });
   }
-  let _v63 = {
+  let _v64 = {
       mount: async function (_v0) {
         let _v1 = (await _v58({
           vaultId: _v0.authorization.vault_id,
           environment: _v0.authorization.environment,
           version: "3.3.0"
+        }).catch(_v0 => {
+          throw new _v59("string" == typeof _v0 && _v0 ? _v0 : "VGS Collect.js script was not loaded.");
         })).init(_v0.onStateChange);
         _v1.setRouteId(_v0.authorization.inbound_route_id);
         let _v2 = function (_v0) {
@@ -384,7 +387,7 @@
             };
           }(_v0.cardFieldStyle),
           _v3 = _v0.cardFieldPlaceholders;
-        return _v1.field(_v59(_v0.fieldHosts.number, "number"), {
+        return _v1.field(_v60(_v0.fieldHosts.number, "number"), {
           name: "pan_alias",
           type: "card-number",
           validations: ["required", "validCardNumber"],
@@ -396,7 +399,7 @@
             showCardIcon: !1
           }),
           css: _v2
-        }), _v1.field(_v59(_v0.fieldHosts.cvc, "cvc"), {
+        }), _v1.field(_v60(_v0.fieldHosts.cvc, "cvc"), {
           name: "cvv_alias",
           type: "card-security-code",
           validations: ["required", "validCardSecurityCode"],
@@ -431,39 +434,49 @@
               };
             }
           }, (_v0, _v1) => {
-            _v0 >= 200 && _v0 < 300 ? _v0(_v1) : _v1(_v62(_v1, _v0));
-          }, _v0 => _v1(_v62(_v0, void 0)));
+            _v0 >= 200 && _v0 < 300 ? _v0(_v1) : _v1(_v63(_v1, _v0));
+          }, _v0 => _v1(_v63(_v0, void 0)));
         });
       }
     },
-    _v64 = null;
-  async function _v65(_v0, _v1) {
-    let _v2 = await (window.hcaptcha ? Promise.resolve(window.hcaptcha) : _v64 || (_v64 = new Promise((_v0, _v1) => {
+    _v65 = null;
+  class _v66 extends Error {}
+  async function _v67(_v0, _v1) {
+    let _v2,
+      _v3 = await (window.hcaptcha ? Promise.resolve(window.hcaptcha) : _v65 || (_v65 = new Promise((_v0, _v1) => {
         let _v2 = document.createElement("script");
         window.__vimeoJunoHcaptchaOnload = () => {
-          (window.__vimeoJunoHcaptchaOnload = void 0, window.hcaptcha) ? _v0(window.hcaptcha) : (_v64 = null, _v1(Error("hCaptcha did not load.")));
+          (window.__vimeoJunoHcaptchaOnload = void 0, window.hcaptcha) ? _v0(window.hcaptcha) : (_v65 = null, _v1(new _v66("hCaptcha did not load.")));
         }, _v2.src = "https://js.hcaptcha.com/1/api.js?render=explicit&onload=__vimeoJunoHcaptchaOnload", _v2.async = !0, _v2.onerror = () => {
-          window.__vimeoJunoHcaptchaOnload = void 0, _v64 = null, _v1(Error("hCaptcha failed to load."));
+          window.__vimeoJunoHcaptchaOnload = void 0, _v65 = null, _v1(new _v66("hCaptcha failed to load."));
         }, document.head.appendChild(_v2);
-      }))),
-      _v3 = _v2.render(_v0, {
+      })));
+    try {
+      _v2 = _v3.render(_v0, {
         sitekey: _v1,
         size: "invisible"
       });
+    } catch (_v0) {
+      throw new _v66(_v0 instanceof Error ? _v0.message : "hCaptcha failed to initialize.");
+    }
     return async () => {
       try {
-        _v2.reset(_v3);
+        _v3.reset(_v2);
       } catch {}
-      return (await _v2.execute(_v3, {
-        async: !0
-      })).response;
+      try {
+        return (await _v3.execute(_v2, {
+          async: !0
+        })).response;
+      } catch (_v0) {
+        throw new _v66(_v0 instanceof Error ? _v0.message : "hCaptcha failed to execute.");
+      }
     };
   }
-  let _v66 = {
+  let _v68 = {
     production: "https://public.juno.bendingspoons.com",
     preproduction: "https://public.preproduction.juno.bendingspoons.com"
   };
-  async function _v67(_v0, _v1, _v2) {
+  async function _v69(_v0, _v1, _v2) {
     let _v3 = await fetch(_v0, {
         method: "POST",
         credentials: "omit",
@@ -477,16 +490,16 @@
     if (!_v3.ok) throw Error((_v4 && "object" == typeof _v4 && "error" in _v4 ? String(_v4.error) : _v3.statusText) || `Request failed (${_v3.status}).`);
     return _v4;
   }
-  function _v68(_v0, _v1, _v2, _v3) {
-    return _v67(`${_v66[_v0]}/products/${encodeURIComponent(_v1)}/setup-intents/${encodeURIComponent(_v3)}/confirm-authentication`, _v2, {});
+  function _v70(_v0, _v1, _v2, _v3) {
+    return _v69(`${_v68[_v0]}/products/${encodeURIComponent(_v1)}/setup-intents/${encodeURIComponent(_v3)}/confirm-authentication`, _v2, {});
   }
-  class _v69 extends Error {
+  class _v71 extends Error {
     failure;
     constructor(_v0, _v1) {
       super(_v0), this.failure = _v1;
     }
   }
-  function _v70(_v0, _v1, _v2) {
+  function _v72(_v0, _v1, _v2) {
     return {
       category: "validation",
       stage: _v0,
@@ -496,14 +509,14 @@
       }
     };
   }
-  function _v71(_v0, _v1 = "unexpected") {
+  function _v73(_v0, _v1 = "unexpected") {
     return {
       category: "unexpected",
       stage: _v0,
       code: _v1
     };
   }
-  function _v72(_v0) {
+  function _v74(_v0) {
     if ("succeeded" === _v0.status) return {
       status: "succeeded",
       setupIntentId: _v0.id
@@ -529,17 +542,17 @@
           stage: "finalization",
           code: _v2,
           declineKind: "retryable"
-        } : _v71("finalization", _v2)
+        } : _v73("finalization", _v2)
       };
     }
     return null;
   }
-  async function _v73(_v0, _v1, _v2, _v3, _v4) {
+  async function _v75(_v0, _v1, _v2, _v3, _v4) {
     let _v5 = _v0.latest_attempt;
     if (!_v5 || _v5?.authentication.status !== "required") try {
-      return await _v68(_v4, _v3, _v2, _v0.id);
+      return await _v70(_v4, _v3, _v2, _v0.id);
     } catch (_v0) {
-      throw new _v69(_v0 instanceof Error ? _v0.message : "Authentication confirmation failed.", _v71("finalization", "authentication_confirmation_failed"));
+      throw new _v71(_v0 instanceof Error ? _v0.message : "Authentication confirmation failed.", _v73("finalization", "authentication_confirmation_failed"));
     }
     let _v6 = _v5.authentication.provider_data.type,
       _v7 = _v31[_v6];
@@ -552,7 +565,7 @@
         token: _v2
       });
     } catch (_v0) {
-      throw new _v69(_v0 instanceof Error ? _v0.message : "3D Secure authentication failed.", {
+      throw new _v71(_v0 instanceof Error ? _v0.message : "3D Secure authentication failed.", {
         category: "decline",
         stage: "authentication",
         code: "three_ds_failed",
@@ -560,16 +573,17 @@
       });
     }
     try {
-      return await _v68(_v4, _v3, _v2, _v0.id);
+      return await _v70(_v4, _v3, _v2, _v0.id);
     } catch (_v0) {
-      throw new _v69(_v0 instanceof Error ? _v0.message : "Authentication confirmation failed.", _v71("finalization", "authentication_confirmation_failed"));
+      throw new _v71(_v0 instanceof Error ? _v0.message : "Authentication confirmation failed.", _v73("finalization", "authentication_confirmation_failed"));
     }
   }
-  var _v74 = _v0.i(0);
-  function _v75(_v0) {
+  let _v76 = [];
+  var _v77 = _v0.i(0);
+  function _v78(_v0) {
     throw Error(`Unhandled failure category: ${JSON.stringify(_v0)}`);
   }
-  function _v76(_v0) {
+  function _v79(_v0) {
     if (!_v0) return (0, _v13.translate)({
       singular: "Something went wrong on our side. Please try again later or contact support if the problem persists.",
       dictionary: {
@@ -601,8 +615,9 @@
         {
           let _v0 = _v0.validation.invalidInputs,
             _v1 = _v0.some(_v0 => "pan" === _v0.field),
-            _v2 = _v0.some(_v0 => "cvv" === _v0.field);
-          if (_v0.some(_v0 => "expiration" === _v0.field), _v1 && _v2) return (0, _v13.translate)({
+            _v2 = _v0.some(_v0 => "cvv" === _v0.field),
+            _v3 = _v0.some(_v0 => "expiration" === _v0.field);
+          if (_v1 && _v2) return (0, _v13.translate)({
             singular: "Please check the format of your card number and CVV.",
             dictionary: {
               es: {
@@ -680,6 +695,32 @@
               }
             }
           });
+          if (_v3) return (0, _v13.translate)({
+            singular: "Please enter a valid expiration date.",
+            dictionary: {
+              es: {
+                singular: "Por favor, introduzca una fecha de caducidad válida."
+              },
+              "de-DE": {
+                singular: "Bitte geben Sie ein gültiges Ablaufdatum ein."
+              },
+              "fr-FR": {
+                singular: "Veuillez saisir une date d'expiration valide."
+              },
+              "ja-JP": {
+                singular: "有効期限を正しく入力してください。"
+              },
+              "ko-KR": {
+                singular: "유효한 만료일을 입력해 주세요."
+              },
+              "pt-BR": {
+                singular: "Por favor, insira uma data de expiração válida."
+              },
+              "zh-CN": {
+                singular: "请输入有效的到期日期。"
+              }
+            }
+          });
           return (0, _v13.translate)({
             singular: "Some of your payment details are missing or invalid. Please check the form and try again.",
             dictionary: {
@@ -734,6 +775,226 @@
             }
           }
         });
+        switch (_v0.code) {
+          case "insufficient_funds":
+            return (0, _v13.translate)({
+              singular: "Your card was declined due to insufficient funds. Please try a different payment method.",
+              dictionary: {
+                es: {
+                  singular: "Su tarjeta fue rechazada por fondos insuficientes. Intente con otro método de pago."
+                },
+                "de-DE": {
+                  singular: "Ihre Karte wurde aufgrund unzureichender Deckung abgelehnt. Bitte versuchen Sie eine andere Zahlungsmethode."
+                },
+                "fr-FR": {
+                  singular: "Votre paiement a été refusé pour insuffisance de fonds. Veuillez essayer un autre moyen de paiement."
+                },
+                "ja-JP": {
+                  singular: "残高不足のためカードが拒否されました。別の支払い方法をお試しください。"
+                },
+                "ko-KR": {
+                  singular: "잔액 부족으로 카드 결제가 거부되었습니다. 다른 결제 수단을 사용해 보세요."
+                },
+                "pt-BR": {
+                  singular: "O cartão foi recusado por fundos insuficientes. Tente um método de pagamento diferente."
+                },
+                "zh-CN": {
+                  singular: "因账户余额不足，卡片被拒绝。请尝试其他付款方式。"
+                }
+              }
+            });
+          case "expired_card":
+            return (0, _v13.translate)({
+              singular: "Your card has expired. Please try a different card.",
+              dictionary: {
+                es: {
+                  singular: "Su tarjeta ha caducado. Por favor, pruebe con otra tarjeta."
+                },
+                "de-DE": {
+                  singular: "Ihre Karte ist abgelaufen. Bitte versuchen Sie es mit einer anderen Karte."
+                },
+                "fr-FR": {
+                  singular: "Votre carte a expiré. Veuillez essayer une autre carte."
+                },
+                "ja-JP": {
+                  singular: "カードの有効期限が切れています。別のカードをお試しください。"
+                },
+                "ko-KR": {
+                  singular: "카드의 유효기간이 만료되었습니다. 다른 카드를 사용해 주세요."
+                },
+                "pt-BR": {
+                  singular: "Seu cartão expirou. Por favor, tente outro cartão."
+                },
+                "zh-CN": {
+                  singular: "您的信用卡已过期。请尝试使用其他卡。"
+                }
+              }
+            });
+          case "incorrect_cvc":
+            return (0, _v13.translate)({
+              singular: "Please check your card security code and try again.",
+              dictionary: {
+                es: {
+                  singular: "Por favor, compruebe el código de seguridad de su tarjeta y vuelva a intentarlo."
+                },
+                "de-DE": {
+                  singular: "Bitte überprüfen Sie den Sicherheitscode Ihrer Karte und versuchen Sie es erneut."
+                },
+                "fr-FR": {
+                  singular: "Veuillez vérifier le code de sécurité de votre carte et réessayer."
+                },
+                "ja-JP": {
+                  singular: "カードのセキュリティコードを確認して、もう一度お試しください。"
+                },
+                "ko-KR": {
+                  singular: "카드 보안 코드를 확인한 다음 다시 시도해 주세요."
+                },
+                "pt-BR": {
+                  singular: "Por favor, verifique o código de segurança do seu cartão e tente novamente."
+                },
+                "zh-CN": {
+                  singular: "请检查您的信用卡安全码并重试。"
+                }
+              }
+            });
+          case "incorrect_number":
+            return (0, _v13.translate)({
+              singular: "Please check your card number and try again.",
+              dictionary: {
+                es: {
+                  singular: "Por favor, compruebe el número de su tarjeta y vuelva a intentarlo."
+                },
+                "de-DE": {
+                  singular: "Bitte überprüfen Sie Ihre Kartennummer und versuchen Sie es erneut."
+                },
+                "fr-FR": {
+                  singular: "Veuillez vérifier le numéro de votre carte et réessayer."
+                },
+                "ja-JP": {
+                  singular: "カード番号を確認して、もう一度お試しください。"
+                },
+                "ko-KR": {
+                  singular: "카드 번호를 확인한 다음 다시 시도해 주세요."
+                },
+                "pt-BR": {
+                  singular: "Por favor, verifique o número do seu cartão e tente novamente."
+                },
+                "zh-CN": {
+                  singular: "请检查您的信用卡号码并重试。"
+                }
+              }
+            });
+          case "incorrect_zip":
+          case "incorrect_address":
+            return (0, _v13.translate)({
+              singular: "Please check your billing address and try again.",
+              dictionary: {
+                es: {
+                  singular: "Por favor, compruebe su dirección de facturación y vuelva a intentarlo."
+                },
+                "de-DE": {
+                  singular: "Bitte überprüfen Sie Ihre Rechnungsadresse und versuchen Sie es erneut."
+                },
+                "fr-FR": {
+                  singular: "Veuillez vérifier votre adresse de facturation et réessayer."
+                },
+                "ja-JP": {
+                  singular: "請求先の住所を確認して、もう一度お試しください。"
+                },
+                "ko-KR": {
+                  singular: "청구지 주소를 확인한 다음 다시 시도해 주세요."
+                },
+                "pt-BR": {
+                  singular: "Por favor, verifique seu endereço de cobrança e tente novamente."
+                },
+                "zh-CN": {
+                  singular: "请检查您的账单地址并重试。"
+                }
+              }
+            });
+          case "invalid_expiry_month":
+          case "invalid_expiry_year":
+            return (0, _v13.translate)({
+              singular: "Please check your card expiration date and try again.",
+              dictionary: {
+                es: {
+                  singular: "Por favor, compruebe la fecha de vencimiento de su tarjeta y vuelva a intentarlo."
+                },
+                "de-DE": {
+                  singular: "Bitte überprüfen Sie das Ablaufdatum Ihrer Karte und versuchen Sie es erneut."
+                },
+                "fr-FR": {
+                  singular: "Veuillez vérifier la date d'expiration de votre carte et réessayer."
+                },
+                "ja-JP": {
+                  singular: "カードの有効期限を確認して、もう一度お試しください。"
+                },
+                "ko-KR": {
+                  singular: "카드의 만료일을 확인한 다음 다시 시도해 주세요."
+                },
+                "pt-BR": {
+                  singular: "Por favor, verifique a data de validade do seu cartão e tente novamente."
+                },
+                "zh-CN": {
+                  singular: "请检查您的信用卡有效期并重试。"
+                }
+              }
+            });
+          case "card_not_supported":
+            return (0, _v13.translate)({
+              singular: "This card type is not supported. Please try a different card.",
+              dictionary: {
+                es: {
+                  singular: "Este tipo de tarjeta no es compatible. Por favor, pruebe con otra tarjeta."
+                },
+                "de-DE": {
+                  singular: "Dieser Kartentyp wird nicht unterstützt. Bitte versuchen Sie es mit einer anderen Karte."
+                },
+                "fr-FR": {
+                  singular: "Ce type de carte n'est pas pris en charge. Veuillez essayer une autre carte."
+                },
+                "ja-JP": {
+                  singular: "このカードの種類はサポートされていません。別のカードをお試しください。"
+                },
+                "ko-KR": {
+                  singular: "이 카드 유형은 지원되지 않습니다. 다른 카드를 사용해 주세요."
+                },
+                "pt-BR": {
+                  singular: "Este tipo de cartão não é aceito. Por favor, tente outro cartão."
+                },
+                "zh-CN": {
+                  singular: "不支持此卡类型。请尝试使用其他卡。"
+                }
+              }
+            });
+          case "processing_error":
+            return (0, _v13.translate)({
+              singular: "We couldn't process your card right now. Please try again.",
+              dictionary: {
+                es: {
+                  singular: "No pudimos procesar su tarjeta en este momento. Por favor, inténtelo de nuevo."
+                },
+                "de-DE": {
+                  singular: "Wir konnten Ihre Karte derzeit nicht verarbeiten. Bitte versuchen Sie es erneut."
+                },
+                "fr-FR": {
+                  singular: "Nous n'avons pas pu traiter votre carte pour le moment. Veuillez réessayer."
+                },
+                "ja-JP": {
+                  singular: "現在、お客様のカードを処理できませんでした。もう一度お試しください。"
+                },
+                "ko-KR": {
+                  singular: "지금은 카드 결제를 처리할 수 없습니다. 다시 시도해 주세요."
+                },
+                "pt-BR": {
+                  singular: "Não conseguimos processar seu cartão agora. Por favor, tente novamente."
+                },
+                "zh-CN": {
+                  singular: "我们目前无法处理您的卡. 请重试."
+                }
+              }
+            });
+        }
         switch (_v0.declineKind) {
           case "retryable":
             return (0, _v13.translate)({
@@ -817,7 +1078,7 @@
               }
             });
           default:
-            return _v75(_v0.declineKind);
+            return _v78(_v0.declineKind);
         }
       case "retryable":
         return (0, _v13.translate)({
@@ -847,6 +1108,32 @@
           }
         });
       case "unexpected":
+        if ("card_capture_unavailable" === _v0.code || "bot_check_protection_unavailable" === _v0.code) return (0, _v13.translate)({
+          singular: "We couldn't load the secure payment form. Check your internet connection and disable any ad blockers, then reload the page.",
+          dictionary: {
+            es: {
+              singular: "No pudimos cargar el formulario de pago seguro. Comprueba tu conexión a Internet y desactiva cualquier bloqueador de anuncios, luego vuelve a cargar la página."
+            },
+            "de-DE": {
+              singular: "Wir konnten das sichere Zahlungsformular nicht laden. Überprüfen Sie Ihre Internetverbindung und deaktivieren Sie gegebenenfalls Werbeblocker, und laden Sie dann die Seite neu."
+            },
+            "fr-FR": {
+              singular: "Nous n'avons pas pu charger le formulaire de paiement sécurisé. Vérifiez votre connexion Internet et désactivez tout bloqueur de publicités, puis rechargez la page."
+            },
+            "ja-JP": {
+              singular: "セキュアな支払いフォームを読み込めませんでした。 インターネット接続を確認し、広告ブロッカーを無効にしてからページを再読み込みしてください。"
+            },
+            "ko-KR": {
+              singular: "보안 결제 양식을 불러올 수 없습니다. 인터넷 연결을 확인하고 광고 차단기를 비활성화한 다음 페이지를 다시 로드하세요."
+            },
+            "pt-BR": {
+              singular: "Não foi possível carregar o formulário de pagamento seguro. Verifique sua conexão com a internet e desative quaisquer bloqueadores de anúncios, então recarregue a página."
+            },
+            "zh-CN": {
+              singular: "无法加载安全支付表单。请检查您的网络连接并禁用任何广告拦截器，然后重新加载页面。"
+            }
+          }
+        });
         return (0, _v13.translate)({
           singular: "Something went wrong on our side. Please try again later or contact support if the problem persists.",
           dictionary: {
@@ -874,10 +1161,10 @@
           }
         });
       default:
-        return _v75(_v0);
+        return _v78(_v0);
     }
   }
-  let _v77 = ({
+  let _v80 = ({
       children: _v0,
       defaultPaymentFormType: _v1 = _v23.PaymentFormTypes.TYPE_CREDIT_CARD,
       formAlert: _v2,
@@ -912,7 +1199,7 @@
             paymentAlert: _v28
           },
           dispatch: _v29
-        } = (0, _v74.useStateContext)(),
+        } = (0, _v77.useStateContext)(),
         _v30 = (0, _v4.useRef)(null),
         _v31 = (0, _v4.useRef)(null),
         _v32 = (0, _v4.useRef)(null),
@@ -945,7 +1232,8 @@
               category: _v0?.category,
               declineKind: _v2,
               code: _v0?.code,
-              message: _v1 ?? _v76(_v0)
+              message: _v1 ?? _v79(_v0),
+              invalidFields: _v0?.category === "validation" ? _v0.validation.invalidInputs.map(_v0 => _v0.field) : void 0
             });
           _v51({
             tier: _v25?.tier ?? _v21 ?? "unknown",
@@ -970,14 +1258,22 @@
           billingAddress: _v17,
           iosJwt: _v54,
           trackStep: _v50
-        });
+        }),
+        _v59 = (0, _v4.useRef)(_v28);
       (0, _v4.useEffect)(() => {
-        _v45.current = _v10, _v44.current = _v9, _v42.current = _v7, _v43.current = _v8;
+        _v45.current = _v10, _v44.current = _v9, _v42.current = _v7, _v43.current = _v8, _v59.current = _v28;
       });
-      let _v59 = (0, _v4.useCallback)(_v0 => {
-          _v34.current = _v0, _v38(_v0);
-        }, []),
-        _v60 = (0, _v4.useCallback)(() => {
+      let _v60 = (0, _v4.useCallback)(() => {
+          let _v0 = _v59.current;
+          _v0?.status === "error" && "billing" !== _v0.source && _v29({
+            type: _v23.ActionTypes.PAYMENT_ALERT,
+            payload: void 0
+          });
+        }, [_v29]),
+        _v61 = (0, _v4.useCallback)(_v0 => {
+          _v34.current = _v0, _v38(_v0), _v60();
+        }, [_v60]),
+        _v62 = (0, _v4.useCallback)(() => {
           let {
             month: _v0,
             year: _v1
@@ -989,38 +1285,39 @@
             year: _v1
           };
         }, []),
-        _v61 = (0, _v4.useCallback)(() => _v34.current.trim() || null, []),
-        _v62 = (0, _v4.useCallback)((_v0, _v1) => {
+        _v63 = (0, _v4.useCallback)(() => _v34.current.trim() || null, []),
+        _v64 = (0, _v4.useCallback)((_v0, _v1) => {
           _v49(_v0 => {
             let _v1 = {
               ..._v0,
               [_v0]: Number(_v1)
             };
             return _v33.current = _v1, _v1;
-          });
-        }, []),
-        [_v63, _v64] = (0, _v4.useState)({}),
-        _v65 = (0, _v4.useCallback)(_v0 => {
-          _v64(_v0 => {
-            let _v1 = _v0.pan_alias,
-              _v2 = _v0.cvv_alias;
-            return _v0.pan_alias?.isEmpty === _v1?.isEmpty && _v0.pan_alias?.isFocused === _v1?.isFocused && _v0.cvv_alias?.isEmpty === _v2?.isEmpty && _v0.cvv_alias?.isFocused === _v2?.isFocused ? _v0 : {
-              pan_alias: _v1,
-              cvv_alias: _v2
-            };
-          });
-        }, []),
-        _v66 = (0, _v4.useCallback)(_v0 => {
+          }), _v60();
+        }, [_v60]),
+        [_v65, _v66] = (0, _v4.useState)({}),
+        _v67 = (0, _v4.useRef)(void 0),
+        _v68 = (0, _v4.useRef)(void 0),
+        _v69 = (0, _v4.useCallback)(_v0 => {
+          let _v1 = _v0.pan_alias,
+            _v2 = _v0.cvv_alias;
+          _v66(_v0 => _v0.pan_alias?.isEmpty === _v1?.isEmpty && _v0.pan_alias?.isFocused === _v1?.isFocused && _v0.cvv_alias?.isEmpty === _v2?.isEmpty && _v0.cvv_alias?.isFocused === _v2?.isFocused ? _v0 : {
+            pan_alias: _v1,
+            cvv_alias: _v2
+          }), (_v1?.isEmpty !== void 0 && _v1.isEmpty !== _v67.current || _v2?.isEmpty !== void 0 && _v2.isEmpty !== _v68.current) && _v60(), _v1?.isEmpty !== void 0 && (_v67.current = _v1.isEmpty), _v2?.isEmpty !== void 0 && (_v68.current = _v2.isEmpty);
+        }, [_v60]),
+        _v70 = (0, _v4.useCallback)(_v0 => {
           _v45.current && _v42.current?.({
             kind: "juno",
             ..._v0
           });
         }, []),
-        _v67 = (0, _v4.useCallback)(() => {
+        _v71 = (0, _v4.useCallback)(() => {
           _v29({
             type: _v23.ActionTypes.PAYMENT_ALERT,
             payload: {
               status: "error",
+              source: "card",
               message: (0, _v13.translate)({
                 singular: "Something went wrong on our side. Please try again later or contact support if the problem persists.",
                 dictionary: {
@@ -1050,7 +1347,7 @@
             }
           });
         }, [_v29]),
-        _v68 = (0, _v4.useCallback)((_v0, _v1) => {
+        _v72 = (0, _v4.useCallback)((_v0, _v1) => {
           if ((_v40.current || _v1) && ("succeeded" === _v0.status ? _v50({
             stage: "setup_succeeded",
             outcome: "completed"
@@ -1063,35 +1360,38 @@
               paymentMethodType: "vgs_card"
             }
           })), "succeeded" !== _v0.status) {
-            let _v0 = _v76(_v0.failure);
-            _v53(_v0.failure), _v66({
+            let _v0 = _v79(_v0.failure);
+            _v53(_v0.failure), _v70({
               success: !1,
               errorMessage: _v0
             }), _v29({
               type: _v23.ActionTypes.PAYMENT_ALERT,
               payload: {
                 status: "error",
+                source: "card",
                 message: _v0
               }
             });
             return;
           }
           _v1 && _v58(_v0.setupIntentId).then(_v0 => {
-            ((0, _v25.clearCachedToken)(), _v45.current) ? _v66({
+            ((0, _v25.clearCachedToken)(), _v45.current) ? _v70({
               success: !0,
               paymentMethodId: _v0,
               setupIntentId: _v0.setupIntentId
             }) : _v44.current?.(_v0);
           }).catch(_v0 => {
-            _v66({
+            _v70({
               success: !1,
               errorMessage: _v0 instanceof Error ? _v0.message : "Payment method creation failed."
-            }), _v67();
+            }), _v71();
           });
-        }, [_v58, _v29, _v67, _v66, _v53, _v50]),
+        }, [_v58, _v29, _v71, _v70, _v53, _v50]),
         {
-          state: _v69,
-          submit: _v70
+          state: _v73,
+          submit: _v74,
+          invalidFields: _v75,
+          clearInvalidFields: _v76
         } = function ({
           cardFieldRefs: _v0,
           cardFieldStyle: _v1,
@@ -1108,7 +1408,32 @@
           onCardFieldsStateChange: _v12
         }) {
           let [_v13, _v14] = (0, _v4.useState)("idle"),
-            _v15 = (0, _v4.useRef)(null);
+            [_v15, _v16] = (0, _v4.useState)(_v76),
+            _v17 = (0, _v4.useRef)(null),
+            _v18 = (0, _v4.useRef)({
+              onResult: _v8,
+              onUnexpectedError: _v9,
+              preauthorize: _v10,
+              getCardholderName: _v3,
+              getExpiration: _v4,
+              returnUrl: _v11,
+              onCardFieldsStateChange: _v12
+            });
+          (0, _v4.useEffect)(() => {
+            _v18.current = {
+              onResult: _v8,
+              onUnexpectedError: _v9,
+              preauthorize: _v10,
+              getCardholderName: _v3,
+              getExpiration: _v4,
+              returnUrl: _v11,
+              onCardFieldsStateChange: _v12
+            };
+          }, [_v3, _v4, _v12, _v8, _v9, _v10, _v11]);
+          let _v19 = (0, _v4.useCallback)((_v0, _v1) => {
+              _v16("failed" !== _v0.status || "validation" !== _v0.failure.category ? _v76 : _v0.failure.validation.invalidInputs.map(_v0 => _v0.field)), _v18.current.onResult(_v0, _v1);
+            }, []),
+            _v20 = (0, _v4.useCallback)(() => _v16(_v76), []);
           return (0, _v4.useEffect)(() => {
             if (!_v5) return;
             let _v0 = !1,
@@ -1116,7 +1441,7 @@
               _v2 = () => {
                 var _v0;
                 let _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9, _v10;
-                if (_v0 || _v15.current) return;
+                if (_v0 || _v17.current) return;
                 let {
                   cardNumber: _v11,
                   securityCode: _v12,
@@ -1129,16 +1454,16 @@
                 let _v14 = (_v1 = (_v0 = {
                   junoEnvironment: _v6,
                   userId: _v7,
-                  onResult: _v8,
-                  onUnexpectedError: _v9,
-                  preauthorize: _v10,
-                  getCardholderName: _v3,
-                  getExpiration: _v4,
+                  onResult: _v19,
+                  onUnexpectedError: _v0 => _v18.current.onUnexpectedError?.(_v0),
+                  preauthorize: () => _v18.current.preauthorize(),
+                  getCardholderName: () => _v18.current.getCardholderName(),
+                  getExpiration: () => _v18.current.getExpiration(),
                   cardFieldStyle: _v1,
                   cardFieldPlaceholders: _v2,
-                  returnUrl: _v11,
+                  returnUrl: _v18.current.returnUrl,
                   onStateChange: _v14,
-                  onCardFieldsStateChange: _v12
+                  onCardFieldsStateChange: _v0 => _v18.current.onCardFieldsStateChange?.(_v0)
                 }).junoEnvironment, _v2 = null, _v3 = null, _v4 = null, _v5 = null, _v6 = null, _v7 = () => Promise.reject(Error("Checkout hCaptcha is unavailable.")), _v8 = !1, _v9 = (_v0, _v1 = !1, _v2 = "terminal") => (_v0.onResult(_v0, _v1), _v0.onStateChange(_v2), _v0), _v10 = _v0 => {
                   _v0.onUnexpectedError?.(_v0);
                 }, {
@@ -1162,16 +1487,16 @@
                       if (_v29(_v3), (_v0 = new URL(window.location.href)).searchParams.delete(_v28), window.history.replaceState(null, "", `${_v0.pathname}${_v0.search}${_v0.hash}`), _v1) {
                         _v0.onStateChange("resuming");
                         try {
-                          let _v0 = await _v68(_v1, _v1.productId, _v1.token, _v1.setupIntentId),
-                            _v1 = _v72(_v0);
+                          let _v0 = await _v70(_v1, _v1.productId, _v1.token, _v1.setupIntentId),
+                            _v1 = _v74(_v0);
                           _v1 && !_v8 ? _v9(_v1, !0) : _v8 || _v9({
                             status: "failed",
-                            failure: _v71("finalization", "intent_incomplete")
+                            failure: _v73("finalization", "intent_incomplete")
                           });
                         } catch (_v0) {
                           _v8 || (_v10(_v0), _v9({
                             status: "failed",
-                            failure: _v71("finalization", "resume_failed")
+                            failure: _v73("finalization", "resume_failed")
                           }));
                         }
                         return;
@@ -1190,7 +1515,7 @@
                       let _v2 = (0, _v27.firstAuthorization)(_v1);
                       if (!(0, _v27.isVgsCardAuthorization)(_v2)) throw Error("Checkout token authorizes an unsupported payment method.");
                       if (_v4 = _v2, _v3 = function (_v0) {
-                        if ("vgs_card" === _v0) return _v63;
+                        if ("vgs_card" === _v0) return _v64;
                         throw Error(`Unsupported card-capture method: ${String(_v0)}`);
                       }(_v2.type), _v2 = await _v3.mount({
                         authorization: _v2,
@@ -1202,11 +1527,11 @@
                         cardFieldStyle: _v0.cardFieldStyle,
                         cardFieldPlaceholders: _v0.cardFieldPlaceholders
                       }), !_v1.hcaptcha_site_key) throw Error("Checkout hCaptcha site key is missing.");
-                      _v7 = await _v65(_v0.captcha, _v1.hcaptcha_site_key), _v8 || _v0.onStateChange("ready");
+                      _v7 = await _v67(_v0.captcha, _v1.hcaptcha_site_key), _v8 || _v0.onStateChange("ready");
                     } catch (_v0) {
                       _v8 || (_v10(_v0), _v9({
                         status: "failed",
-                        failure: _v71("initiation", "start_failed")
+                        failure: _v0 instanceof _v59 ? _v73("initiation", "card_capture_unavailable") : _v0 instanceof _v66 ? _v73("initiation", "bot_check_protection_unavailable") : _v73("initiation", "start_failed")
                       }));
                     }
                   },
@@ -1224,7 +1549,7 @@
                       let _v1 = _v0.getExpiration();
                       if (!_v1) return _v9({
                         status: "failed",
-                        failure: _v70("capture", "invalid_expiration", [{
+                        failure: _v72("capture", "invalid_expiration", [{
                           field: "expiration",
                           reason: "invalid_format"
                         }])
@@ -1239,16 +1564,17 @@
                           cardholderName: _v0.getCardholderName(),
                           expiration: _v1
                         }),
-                        _v4 = "requires_action" === _v3.status ? await _v73(_v3, _v0, _v5, _v6, _v1) : _v3,
-                        _v5 = _v72(_v4);
+                        _v4 = "requires_action" === _v3.status ? await _v75(_v3, _v0, _v5, _v6, _v1) : _v3,
+                        _v5 = _v74(_v4);
                       if (!_v5) return _v9({
                         status: "failed",
-                        failure: _v71("finalization", "intent_incomplete")
+                        failure: _v73("finalization", "intent_incomplete")
                       }, !1, "ready");
                       return _v9(_v5, !1, "succeeded" === _v5.status ? "terminal" : "ready");
                     } catch (_v0) {
-                      let _v1 = _v0 instanceof _v69 ? _v0.failure : function (_v0) {
-                        if (!(_v0 instanceof _v60)) return _v71("capture");
+                      let _v1 = _v0 instanceof _v71 ? _v0.failure : function (_v0) {
+                        if (_v0 instanceof _v66) return _v73("capture", "bot_check_protection_unavailable");
+                        if (!(_v0 instanceof _v61)) return _v73("capture");
                         if ("field_validation" === _v0.details.kind) {
                           let {
                               fields: _v0
@@ -1257,9 +1583,9 @@
                               field: _v0,
                               reason: "invalid_format"
                             }));
-                          return _v70("capture", 1 === _v0.length ? `invalid_${_v0[0]}` : "invalid_card_details", _v1);
+                          return _v72("capture", 1 === _v0.length ? `invalid_${_v0[0]}` : "invalid_card_details", _v1);
                         }
-                        return "http" === _v0.details.kind ? _v71("capture", _v0.details.errorCode ?? "unexpected") : _v71("capture");
+                        return "http" === _v0.details.kind ? _v73("capture", _v0.details.errorCode ?? "unexpected") : _v73("capture");
                       }(_v0);
                       return "unexpected" === _v1.category && _v10(_v0), _v9({
                         status: "failed",
@@ -1271,55 +1597,57 @@
                     _v8 = !0, _v2?.unmount?.(), _v2 = null;
                   }
                 });
-                _v15.current = _v14, _v14.mount({
+                _v17.current = _v14, _v14.mount({
                   cardNumber: _v11.current,
                   securityCode: _v12.current,
                   captcha: _v13.current
                 });
               };
             return _v1 = requestAnimationFrame(_v2), () => {
-              _v0 = !0, cancelAnimationFrame(_v1), _v15.current?.destroy(), _v15.current = null;
+              _v0 = !0, cancelAnimationFrame(_v1), _v17.current?.destroy(), _v17.current = null;
             };
-          }, [_v0.cardNumber, _v0.securityCode, _v0.captcha, _v1, _v2, _v5, _v6, _v7, _v8, _v9, _v10, _v3, _v4, _v11, _v12]), {
+          }, [_v0.cardNumber, _v0.securityCode, _v0.captcha, _v1, _v2, _v5, _v6, _v7, _v19]), {
             state: _v13,
-            submit: (0, _v4.useCallback)(() => _v15.current?.submit() ?? Promise.resolve(null), [])
+            submit: (0, _v4.useCallback)(() => _v17.current?.submit() ?? Promise.resolve(null), []),
+            invalidFields: _v15,
+            clearInvalidFields: _v20
           };
         }({
           isActive: _v46 === _v23.PaymentFormTypes.TYPE_CREDIT_CARD,
           junoEnvironment: "production" !== (0, _v11.default)() || (0, _v12.isClientNonProduction)() ? "preproduction" : "production",
           userId: void 0 === _v55 ? void 0 : String(_v55),
           preauthorize: _v56,
-          getCardholderName: _v61,
-          getExpiration: _v60,
+          getCardholderName: _v63,
+          getExpiration: _v62,
           cardFieldRefs: {
             cardNumber: _v30,
             securityCode: _v31,
             captcha: _v32
           },
           returnUrl: window.location.href,
-          onResult: _v68,
+          onResult: _v72,
           onUnexpectedError: _v10.reportError,
-          cardFieldStyle: _v15 ? _v82 : void 0,
-          cardFieldPlaceholders: _v15 ? _v81 : void 0,
-          onCardFieldsStateChange: _v15 ? _v65 : void 0
+          cardFieldStyle: _v15 ? _v85 : void 0,
+          cardFieldPlaceholders: _v15 ? _v84 : void 0,
+          onCardFieldsStateChange: _v15 ? _v69 : void 0
         }),
-        _v71 = (0, _v4.useMemo)(() => ({
+        _v77 = (0, _v4.useMemo)(() => ({
           prepare: async (_v0, _v1) => {
             let _v2;
             _v43.current?.(), _v50({
               stage: "submission_started",
               outcome: "completed"
-            });
+            }), _v76();
             try {
               await _v57();
             } catch (_v0) {
               let _v1 = _v0 instanceof Error ? _v0.message : "Failed to ensure customer account.";
-              throw _v53(void 0, _v1), _v66({
+              throw _v53(void 0, _v1), _v70({
                 success: !1,
                 errorMessage: _v1
-              }), _v67(), _v0;
+              }), _v71(), _v0;
             }
-            let _v3 = await _v70();
+            let _v3 = await _v74();
             if (null === _v3) {
               let _v0 = (0, _v13.translate)({
                 singular: "Card setup did not complete.",
@@ -1354,14 +1682,14 @@
                 validation: {
                   invalidInputs: []
                 }
-              }, _v0), _v66({
+              }, _v0), _v70({
                 success: !1,
                 errorMessage: _v0
               }), Error(_v0);
             }
             if ("succeeded" !== _v3.status) {
-              let _v0 = _v76(_v3.failure);
-              throw _v53(_v3.failure), _v66({
+              let _v0 = _v79(_v3.failure);
+              throw _v53(_v3.failure), _v70({
                 success: !1,
                 errorMessage: _v0
               }), Error(_v0);
@@ -1370,12 +1698,12 @@
               _v2 = await _v58(_v3.setupIntentId, _v1), (0, _v25.clearCachedToken)();
             } catch (_v0) {
               let _v1 = _v0 instanceof Error ? _v0.message : "Payment method creation failed.";
-              throw _v53(void 0, _v1), _v66({
+              throw _v53(void 0, _v1), _v70({
                 success: !1,
                 errorMessage: _v1
-              }), _v67(), Error("Payment method creation failed.");
+              }), _v71(), Error("Payment method creation failed.");
             }
-            return _v66({
+            return _v70({
               success: !0,
               paymentMethodId: _v2,
               setupIntentId: _v3.setupIntentId
@@ -1386,15 +1714,15 @@
             };
           },
           dispose: () => void 0
-        }), [_v58, _v67, _v57, _v66, _v70, _v53, _v50]);
-      if ((0, _v4.useEffect)(() => (_v5?.(_v71), () => _v5?.(null)), [_v71, _v5]), (0, _v4.useEffect)(() => {
+        }), [_v76, _v58, _v71, _v57, _v70, _v74, _v53, _v50]);
+      if ((0, _v4.useEffect)(() => (_v5?.(_v77), () => _v5?.(null)), [_v77, _v5]), (0, _v4.useEffect)(() => {
         if (_v46 === _v23.PaymentFormTypes.TYPE_PAYPAL) return void _v3?.(_v23.PaymentFormTypes.TYPE_PAYPAL);
-        if ("ready" !== _v69) {
-          _v39.current = !1, "terminal" !== _v69 || _v40.current || _v41.current || (_v41.current = !0, _v50({
+        if ("ready" !== _v73) {
+          _v39.current = !1, "terminal" !== _v73 || _v40.current || _v41.current || (_v41.current = !0, _v50({
             stage: "form_ready",
             outcome: "failed",
             failure: void 0
-          })), _v6?.("submitting" === _v69 || "resuming" === _v69 ? {
+          })), _v6?.("submitting" === _v73 || "resuming" === _v73 ? {
             status: "preparing",
             attemptId: ""
           } : {
@@ -1408,37 +1736,37 @@
         })), _v39.current || (_v39.current = !0, _v3?.(_v23.PaymentFormTypes.TYPE_CREDIT_CARD)), _v6?.({
           status: "ready"
         });
-      }, [_v46, _v69, _v3, _v6, _v50]), !_v20 && !_v10) return null;
-      let _v72 = {
+      }, [_v46, _v73, _v3, _v6, _v50]), !_v20 && !_v10) return null;
+      let _v78 = {
           type: _v23.PaymentFormTypes.TYPE_CREDIT_CARD,
           data: (0, _v17.getFormType)(_v23.PaymentFormTypes.TYPE_CREDIT_CARD)
         },
-        _v73 = {
+        _v79 = {
           type: _v23.PaymentFormTypes.TYPE_PAYPAL,
           data: (0, _v17.getFormType)(_v23.PaymentFormTypes.TYPE_PAYPAL)
         },
-        _v74 = _v13 ? [_v72, _v73] : [_v72],
-        _v75 = _v46 === _v23.PaymentFormTypes.TYPE_PAYPAL ? _v73 : _v72;
+        _v80 = _v13 ? [_v78, _v79] : [_v78],
+        _v81 = _v46 === _v23.PaymentFormTypes.TYPE_PAYPAL ? _v79 : _v78;
       return (0, _v1.jsxs)(_v19.PaymentMethodForm, {
         formAlert: _v2?.message ? _v2 : void 0,
-        formIsLoading: "loading" === _v69 || "resuming" === _v69,
-        formTypes: _v74,
-        renderedFormType: _v75,
+        formIsLoading: "loading" === _v73 || "resuming" === _v73,
+        formTypes: _v80,
+        renderedFormType: _v81,
         showExistingPaymentMethods: _v12,
         bspStyling: _v14,
         wetransferInspired: _v15,
-        hasError: _v15 && _v28?.status === "error",
+        hasError: _v15 && _v28?.status === "error" && "billing" !== _v28.source,
         storedMethod: _v15 ? _v16 : void 0,
         onPaymentTypeChanged: _v0 => {
-          _v47(_v0), _v4?.(_v0), _v0 === _v23.PaymentFormTypes.TYPE_PAYPAL && _v3?.(_v0);
+          _v47(_v0), _v4?.(_v0), _v0 === _v23.PaymentFormTypes.TYPE_PAYPAL && (_v3?.(_v0), _v76());
         },
         children: [_v46 === _v23.PaymentFormTypes.TYPE_CREDIT_CARD && (_v15 ? (0, _v1.jsxs)(_v6.Flex, {
           flexDirection: "column",
           gap: (0, _v9.rem)(8),
           width: "100%",
-          children: [(0, _v1.jsx)(_v84, {
+          children: [(0, _v1.jsx)(_v87, {
             value: _v37,
-            onChange: _v59,
+            onChange: _v61,
             inputRef: _v35
           }), (0, _v1.jsxs)(_v6.Flex, {
             flexDirection: {
@@ -1448,7 +1776,7 @@
             gap: (0, _v9.rem)(6),
             alignItems: "stretch",
             width: "100%",
-            children: [(0, _v1.jsx)(_v83, {
+            children: [(0, _v1.jsx)(_v86, {
               flex: {
                 base: "none",
                 md: "1"
@@ -1480,8 +1808,9 @@
                   }
                 }
               }),
-              isFloating: _v63.pan_alias?.isEmpty === !1 || _v63.pan_alias?.isFocused === !0,
-              isFocused: _v63.pan_alias?.isFocused === !0
+              isInvalid: _v75.includes("pan"),
+              isFloating: _v65.pan_alias?.isEmpty === !1 || _v65.pan_alias?.isFocused === !0,
+              isFocused: _v65.pan_alias?.isFocused === !0
             }), (0, _v1.jsxs)(_v6.Flex, {
               gap: (0, _v9.rem)(6),
               alignItems: "stretch",
@@ -1489,14 +1818,15 @@
                 base: "100%",
                 md: "auto"
               },
-              children: [(0, _v1.jsx)(_v85, {
-                onChange: _v62,
+              children: [(0, _v1.jsx)(_v88, {
+                onChange: _v64,
                 inputRef: _v36,
+                isInvalid: _v75.includes("expiration"),
                 onComplete: () => {
                   let _v0 = _v31.current?.querySelector("iframe");
                   _v0 instanceof HTMLIFrameElement && _v0.focus();
                 }
-              }), (0, _v1.jsx)(_v83, {
+              }), (0, _v1.jsx)(_v86, {
                 flex: {
                   base: "1",
                   md: `0 0 ${(0, _v9.rem)(76)}`
@@ -1510,8 +1840,9 @@
                     }
                   }
                 }),
-                isFloating: _v63.cvv_alias?.isEmpty === !1 || _v63.cvv_alias?.isFocused === !0,
-                isFocused: _v63.cvv_alias?.isFocused === !0
+                isInvalid: _v75.includes("cvv"),
+                isFloating: _v65.cvv_alias?.isEmpty === !1 || _v65.cvv_alias?.isFocused === !0,
+                isFocused: _v65.cvv_alias?.isFocused === !0
               })]
             })]
           }), (0, _v1.jsx)("div", {
@@ -1521,10 +1852,10 @@
           flexDirection: "column",
           gap: "100",
           width: "100%",
-          children: [(0, _v1.jsx)(_v79, {
+          children: [(0, _v1.jsx)(_v82, {
             value: _v37,
-            onChange: _v59
-          }), (0, _v1.jsx)(_v78, {
+            onChange: _v61
+          }), (0, _v1.jsx)(_v81, {
             label: (0, _v13.translate)({
               singular: "Card Number",
               dictionary: {
@@ -1551,7 +1882,8 @@
                 }
               }
             }),
-            ref: _v30
+            ref: _v30,
+            isInvalid: _v75.includes("pan")
           }), (0, _v1.jsxs)(_v6.Flex, {
             flexDirection: {
               base: "column",
@@ -1559,10 +1891,11 @@
             },
             gap: "100",
             width: "100%",
-            children: [(0, _v1.jsx)(_v80, {
+            children: [(0, _v1.jsx)(_v83, {
               value: _v48,
-              onChange: _v62
-            }), (0, _v1.jsx)(_v78, {
+              onChange: _v64,
+              isInvalid: _v75.includes("expiration")
+            }), (0, _v1.jsx)(_v81, {
               label: (0, _v13.translate)({
                 singular: "CVV",
                 dictionary: {
@@ -1571,7 +1904,8 @@
                   }
                 }
               }),
-              ref: _v31
+              ref: _v31,
+              isInvalid: _v75.includes("cvv")
             })]
           }), (0, _v1.jsx)("div", {
             ref: _v32
@@ -1579,21 +1913,23 @@
         })), _v0]
       });
     },
-    _v78 = _v4.default.forwardRef(function ({
+    _v81 = _v4.default.forwardRef(function ({
       flex: _v0,
-      label: _v1
-    }, _v2) {
+      label: _v1,
+      isInvalid: _v2 = !1
+    }, _v3) {
       return (0, _v1.jsx)(_v18.LabelContainer, {
         flex: _v0 ?? "1",
         labelCopy: _v1,
         useBoldLabel: !1,
         children: (0, _v1.jsx)(_v5.Box, {
+          "aria-invalid": _v2,
           backgroundColor: "surface",
-          borderColor: "stroke",
+          borderColor: _v2 ? "status-destructive-primary" : "stroke",
           borderWidth: "1px",
           borderRadius: "input-md",
           height: "40px",
-          ref: _v2,
+          ref: _v3,
           sx: {
             "& > iframe": {
               width: "100%",
@@ -1603,7 +1939,7 @@
         })
       });
     }),
-    _v79 = ({
+    _v82 = ({
       value: _v0,
       onChange: _v1
     }) => (0, _v1.jsx)(_v18.LabelContainer, {
@@ -1669,11 +2005,12 @@
         value: _v0
       })
     }),
-    _v80 = ({
+    _v83 = ({
       value: _v0,
-      onChange: _v1
+      onChange: _v1,
+      isInvalid: _v2 = !1
     }) => {
-      let _v2 = (0, _v4.useMemo)(() => Array.from({
+      let _v3 = (0, _v4.useMemo)(() => Array.from({
           length: 12
         }, (_v0, _v1) => {
           let _v2 = String(_v1 + 1).padStart(2, "0");
@@ -1682,7 +2019,7 @@
             label: _v2
           };
         }), []),
-        _v3 = (0, _v4.useMemo)(() => {
+        _v4 = (0, _v4.useMemo)(() => {
           let _v0 = new Date().getFullYear();
           return Array.from({
             length: 20
@@ -1728,8 +2065,9 @@
           gap: "75",
           width: "100%",
           children: [(0, _v1.jsx)(_v5.Box, {
+            "aria-invalid": _v2,
             backgroundColor: "surface",
-            borderColor: "stroke",
+            borderColor: _v2 ? "status-destructive-primary" : "stroke",
             borderRadius: "input-md",
             borderWidth: "1px",
             flex: "1",
@@ -1807,7 +2145,7 @@
                     }
                   }
                 })
-              }), _v2.map(_v0 => (0, _v1.jsx)("option", {
+              }), _v3.map(_v0 => (0, _v1.jsx)("option", {
                 value: _v0.value,
                 children: _v0.label
               }, _v0.value))]
@@ -1817,8 +2155,9 @@
             variant: "body-lg",
             children: "/"
           }), (0, _v1.jsx)(_v5.Box, {
+            "aria-invalid": _v2,
             backgroundColor: "surface",
-            borderColor: "stroke",
+            borderColor: _v2 ? "status-destructive-primary" : "stroke",
             borderRadius: "input-md",
             borderWidth: "1px",
             flex: "1",
@@ -1896,7 +2235,7 @@
                     }
                   }
                 })
-              }), _v3.map(_v0 => (0, _v1.jsx)("option", {
+              }), _v4.map(_v0 => (0, _v1.jsx)("option", {
                 value: _v0.value,
                 children: _v0.label
               }, _v0.value))]
@@ -1905,11 +2244,11 @@
         })
       });
     },
-    _v81 = {
+    _v84 = {
       cardNumber: "Card number",
       cvv: "CVV"
     },
-    _v82 = {
+    _v85 = {
       fontFace: {
         fontFamily: "ABCRepro-Regular",
         fontStyle: "normal",
@@ -1927,12 +2266,13 @@
       backgroundColor: "rgba(255, 255, 255, 1)",
       transition: "all 0.12s ease-in-out"
     },
-    _v83 = _v4.default.forwardRef(function ({
+    _v86 = _v4.default.forwardRef(function ({
       flex: _v0,
       label: _v1,
       isFloating: _v2 = !1,
-      isFocused: _v3 = !1
-    }, _v4) {
+      isFocused: _v3 = !1,
+      isInvalid: _v4 = !1
+    }, _v5) {
       return (0, _v1.jsxs)(_v5.Box, {
         position: "relative",
         flex: _v0,
@@ -1948,11 +2288,12 @@
         children: [(0, _v1.jsx)(_v5.Box, {
           height: (0, _v9.rem)(40),
           backgroundColor: "background",
-          borderColor: "stroke",
+          "aria-invalid": _v4,
+          borderColor: _v4 ? "status-destructive-primary" : "stroke",
           borderWidth: (0, _v9.rem)(1),
           borderRadius: (0, _v9.rem)(12),
           overflow: "hidden",
-          ref: _v4,
+          ref: _v5,
           outline: _v3 ? "2px solid" : void 0,
           outlineOffset: _v3 ? "-2px" : void 0,
           outlineColor: _v3 ? "var(--vimeo-colors-focus-alt)" : void 0
@@ -1978,7 +2319,7 @@
         })]
       });
     }),
-    _v84 = ({
+    _v87 = ({
       value: _v0,
       onChange: _v1,
       inputRef: _v2
@@ -2015,14 +2356,15 @@
       autoComplete: "cc-name",
       inputRef: _v2
     }),
-    _v85 = ({
+    _v88 = ({
       onChange: _v0,
       inputRef: _v1,
-      onComplete: _v2
+      onComplete: _v2,
+      isInvalid: _v3
     }) => {
-      let _v3,
-        _v4,
-        [_v5, _v6] = (0, _v4.useState)("");
+      let _v4,
+        _v5,
+        [_v6, _v7] = (0, _v4.useState)("");
       return (0, _v1.jsx)(_v5.Box, {
         flex: {
           base: "1",
@@ -2039,22 +2381,23 @@
             }
           }),
           name: "cardExpiration",
-          value: (_v3 = _v5.slice(0, 2), _v4 = _v5.slice(2, 4), _v5.length <= 2 ? _v3 : `${_v3} / ${_v4}`),
+          value: (_v4 = _v6.slice(0, 2), _v5 = _v6.slice(2, 4), _v6.length <= 2 ? _v4 : `${_v4} / ${_v5}`),
           onValueChange: _v0 => {
             let _v1 = _v0.replaceAll(/\D/g, "").slice(0, 4);
-            _v6(_v1), _v1.length >= 2 && _v0("month", _v1.slice(0, 2)), _v1.length > 2 && _v0("year", `20${_v1.slice(2, 4)}`), _v1.length < 2 && _v0("month", ""), _v1.length < 4 && _v0("year", ""), 4 === _v1.length && _v2?.();
+            _v7(_v1), _v1.length >= 2 && _v0("month", _v1.slice(0, 2)), _v1.length > 2 && _v0("year", `20${_v1.slice(2, 4)}`), _v1.length < 2 && _v0("month", ""), _v1.length < 4 && _v0("year", ""), 4 === _v1.length && _v2?.();
           },
+          isInvalid: _v3,
           inputMode: "numeric",
           autoComplete: "cc-exp",
           inputRef: _v1
         })
       });
     };
-  var _v86 = _v0.i(0),
-    _v87 = _v0.i(0),
-    _v88 = _v0.i(0),
-    _v89 = _v0.i(0);
-  let _v90 = () => {
+  var _v89 = _v0.i(0),
+    _v90 = _v0.i(0),
+    _v91 = _v0.i(0),
+    _v92 = _v0.i(0);
+  let _v93 = () => {
     let _v0 = (0, _v17.getFormType)(_v23.PaymentFormTypes.TYPE_PAYPAL);
     return (0, _v1.jsxs)(_v6.Flex, {
       align: "center",
@@ -2067,10 +2410,10 @@
         height: (0, _v9.rem)(75),
         src: _v0.imageSource,
         alt: _v0.name
-      }), (0, _v1.jsx)(_v88.Alert, {
+      }), (0, _v1.jsx)(_v91.Alert, {
         maxW: (0, _v9.rem)(468),
         status: "info",
-        children: (0, _v1.jsx)(_v89.AlertDescription, {
+        children: (0, _v1.jsx)(_v92.AlertDescription, {
           children: (0, _v13.translate)({
             singular: "To add your payment method, you will be redirected to PayPal. Once you have completed the process, you will be automatically returned to this page.",
             dictionary: {
@@ -2101,8 +2444,8 @@
       })]
     });
   };
-  _v0.s(["PayPalBox", 0, _v90], 0);
-  let _v91 = ({
+  _v0.s(["PayPalBox", 0, _v93], 0);
+  let _v94 = ({
     children: _v0,
     formAlert: _v1,
     onFormLoaded: _v2,
@@ -2120,7 +2463,7 @@
           order: _v11
         },
         dispatch: _v12
-      } = (0, _v74.useStateContext)(),
+      } = (0, _v77.useStateContext)(),
       [_v13, _v14] = (0, _v4.useState)({
         type: _v23.PaymentFormTypes.TYPE_STRIPE,
         data: (0, _v17.getFormType)(_v23.PaymentFormTypes.TYPE_STRIPE)
@@ -2182,7 +2525,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v87.Button, {
+        }), (0, _v1.jsx)(_v90.Button, {
           variant: "secondary",
           size: "sm",
           onClick: _v5,
@@ -2213,7 +2556,7 @@
             }
           })
         })]
-      }), _v9 ? null : _v13.type === _v23.PaymentFormTypes.TYPE_PAYPAL ? (0, _v1.jsx)(_v90, {}) : (0, _v1.jsxs)(_v5.Box, {
+      }), _v9 ? null : _v13.type === _v23.PaymentFormTypes.TYPE_PAYPAL ? (0, _v1.jsx)(_v93, {}) : (0, _v1.jsxs)(_v5.Box, {
         as: "form",
         width: "100%",
         children: [(0, _v1.jsx)(_v18.LabelContainer, {
@@ -2254,7 +2597,7 @@
             },
             size: "md"
           })
-        }), (0, _v1.jsx)(_v86.PaymentElement, {
+        }), (0, _v1.jsx)(_v89.PaymentElement, {
           onReady: () => _v2?.(_v23.PaymentFormTypes.TYPE_STRIPE),
           onLoadError: _v0 => {
             _v0.error?.message && _v12({
@@ -2280,13 +2623,13 @@
       }), _v0]
     });
   };
-  var _v92 = _v0.i(0),
-    _v93 = _v0.i(0),
-    _v94 = _v0.i(0),
-    _v95 = _v0.i(0),
-    _v96 = _v23;
-  let _v97 = ["en", "es", "de_DE", "fr_FR", "ja_JP", "pt_BR", "ko_KR"];
-  async function _v98(_v0) {
+  var _v95 = _v0.i(0),
+    _v96 = _v0.i(0),
+    _v97 = _v0.i(0),
+    _v98 = _v0.i(0),
+    _v99 = _v23;
+  let _v100 = ["en", "es", "de_DE", "fr_FR", "ja_JP", "pt_BR", "ko_KR"];
+  async function _v101(_v0) {
     let _v1,
       _v2 = await fetch("/payments/hosted_pages/token", {
         method: "POST",
@@ -2306,10 +2649,10 @@
     if (!_v1?.token || !_v1.signature || !_v1.tenantId || !_v1.url || !_v1.key) throw Error("Received a malformed Zuora hosted page response");
     return _v1;
   }
-  let _v99 = ({
+  let _v102 = ({
     children: _v0,
     currency: _v1,
-    defaultPaymentFormType: _v2 = _v96.PaymentFormTypes.TYPE_CREDIT_CARD,
+    defaultPaymentFormType: _v2 = _v99.PaymentFormTypes.TYPE_CREDIT_CARD,
     formAlert: _v3,
     includeAddressFields: _v4,
     onErrorLoadingForm: _v5,
@@ -2331,7 +2674,7 @@
     onControllerChange: _v21,
     onStatusChange: _v22
   }) => {
-    let [_v23] = (0, _v92.useTrackCheckoutFormAction)(),
+    let [_v23] = (0, _v95.useTrackCheckoutFormAction)(),
       _v24 = (0, _v16.useViewer)(),
       {
         state: {
@@ -2343,7 +2686,7 @@
           iosUserId: _v30
         },
         dispatch: _v31
-      } = (0, _v74.useStateContext)(),
+      } = (0, _v77.useStateContext)(),
       _v32 = (0, _v3.useRouter)(),
       {
         trackCheckoutFailed: _v33
@@ -2386,7 +2729,7 @@
       _v51 = (0, _v4.useRef)(null),
       _v52 = (0, _v4.useRef)(() => void 0),
       _v53 = "";
-    _v53 = (_v24?.locale || "en").replace(/-/g, "_").replace(/_([a-z])/g, (_v0, _v1) => `_${_v1.toUpperCase()}`), _v53 = _v97.includes(_v53) ? _v53 : "en";
+    _v53 = (_v24?.locale || "en").replace(/-/g, "_").replace(/_([a-z])/g, (_v0, _v1) => `_${_v1.toUpperCase()}`), _v53 = _v100.includes(_v53) ? _v53 : "en";
     let _v54 = (0, _v4.useEffectEvent)(_v0 => {
         _v22?.(_v0);
       }),
@@ -2435,12 +2778,12 @@
             message: _v3 ? "Zuora completed without a payment method reference" : "Zuora could not prepare the payment method"
           });
         }
-        _v24 && ((0, _v93.trackZuoraOrderStep)({
+        _v24 && ((0, _v96.trackZuoraOrderStep)({
           hpm_session_id: _v24.xsrft,
           user_id: `${_v24.user?.id}`,
           step_name: "HPM On Submit Callback",
           step_message: _v3 ? "success" : "failure"
-        }), (0, _v93.trackZuoraOrderStep)({
+        }), (0, _v96.trackZuoraOrderStep)({
           hpm_session_id: _v24.xsrft,
           user_id: `${_v24.user?.id}`,
           step_name: "HPM onSubmissionComplete",
@@ -2480,7 +2823,7 @@
             }
           });
           _v36(_v0), _v31({
-            type: _v96.ActionTypes.PAYMENT_ALERT,
+            type: _v99.ActionTypes.PAYMENT_ALERT,
             payload: {
               status: "error",
               message: _v0
@@ -2491,11 +2834,11 @@
       _v58 = (0, _v4.useEffectEvent)(_v0 => {
         if (_v0 !== _v46.current) return;
         let _v1 = _v49.current;
-        _v1.generation !== _v0 || _v1.settled || (_v24 && (0, _v93.trackZuoraOrderStep)({
+        _v1.generation !== _v0 || _v1.settled || (_v24 && (0, _v96.trackZuoraOrderStep)({
           hpm_session_id: _v24.xsrft,
           user_id: `${_v24.user?.id}`,
           step_name: "Vimeo defined HPM Timeout"
-        }), (0, _v93.trackOrderFailure)({
+        }), (0, _v96.trackOrderFailure)({
           userId: Number(_v24?.user?.id),
           description: "Timed out. Did not receive a response from Zuora"
         }), _v35("Timed out. Did not receive a response from Zuora"), _v56(_v0, {
@@ -2508,9 +2851,9 @@
       }),
       _v59 = (0, _v4.useEffectEvent)(_v0 => {
         _v0 === _v46.current && (_v31({
-          type: _v96.ActionTypes.PAYMENT_ALERT,
+          type: _v99.ActionTypes.PAYMENT_ALERT,
           payload: void 0
-        }), (0, _v22.resetCheckoutFailedLatch)(), _v24 && (0, _v93.trackZuoraOrderStep)({
+        }), (0, _v22.resetCheckoutFailedLatch)(), _v24 && (0, _v96.trackZuoraOrderStep)({
           hpm_session_id: _v24.xsrft,
           user_id: `${_v24.user?.id}`,
           step_name: "HPM Submit Started"
@@ -2524,7 +2867,7 @@
       }),
       _v60 = (0, _v4.useEffectEvent)(_v0 => {
         if (_v0 !== _v46.current || _v47.current !== _v0) return;
-        _v43(!1), window?.Z?.setFieldValue("callbackFunctionEnabled", "true"), _v24 && (0, _v93.trackZuoraOrderStep)({
+        _v43(!1), window?.Z?.setFieldValue("callbackFunctionEnabled", "true"), _v24 && (0, _v96.trackZuoraOrderStep)({
           hpm_session_id: _v24.xsrft,
           user_id: `${_v24.user?.id}`,
           step_name: "HPM - OnLoadCallback"
@@ -2539,7 +2882,7 @@
         let _v2 = _v45.current,
           _v3 = _v1[2],
           _v4 = _v51.current,
-          _v5 = _v2?.type === _v96.PaymentFormTypes.TYPE_CREDIT_CARD && _v3?.includes("ThreeDs2_Authentication_Exception"),
+          _v5 = _v2?.type === _v99.PaymentFormTypes.TYPE_CREDIT_CARD && _v3?.includes("ThreeDs2_Authentication_Exception"),
           _v6 = null === _v4 || _v4.generation === _v0,
           _v7 = {
             kind: "validation",
@@ -2555,7 +2898,7 @@
       }),
       _v62 = async (_v0, _v1, _v2) => {
         if (!window.Z) return;
-        let _v3 = await _v98({
+        let _v3 = await _v101({
           form_type: _v0,
           include_address_fields: _v4,
           token: _v24?.xsrft || "",
@@ -2587,7 +2930,7 @@
             let _v0;
             _v3.pmId = _v0.pmId, _v3.field_agreementSupportedBrands = "Visa,MasterCard,AmericanExpress,Discover", _v3.field_mitConsentAgreementSrc = "External", _v3.field_mitCredentialProfileType = "Recurring", _v0 = "u" > typeof crypto && "function" == typeof crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`, _v3.field_mitConsentAgreementRef = `vimeo-card-verify:${_v0}`;
           }
-          return _v1 === _v96.PaymentFormTypes.TYPE_CREDIT_CARD && (_v3.param_gwOptions_IndustryType = "EC"), _v3;
+          return _v1 === _v99.PaymentFormTypes.TYPE_CREDIT_CARD && (_v3.param_gwOptions_IndustryType = "EC"), _v3;
         }({
           data: _v3,
           paymentType: _v0,
@@ -2601,7 +2944,7 @@
         let _v1 = _v55(_v0);
         _v44.current && (_v44.current.innerHTML = ""), _v43(!0);
         try {
-          await _v62(_v96.PaymentFormTypes.TYPE_CREDIT_CARD, _v1);
+          await _v62(_v99.PaymentFormTypes.TYPE_CREDIT_CARD, _v1);
         } catch {
           let _v0 = (0, _v13.translate)({
             singular: "Unable to submit payment",
@@ -2633,7 +2976,7 @@
             kind: "transport",
             message: _v0
           }), _v31({
-            type: _v96.ActionTypes.PAYMENT_ALERT,
+            type: _v99.ActionTypes.PAYMENT_ALERT,
             payload: {
               status: "error",
               message: _v0
@@ -2649,7 +2992,7 @@
       _v45.current = _v40 || null;
     }, [_v40]), (0, _v4.useEffect)(() => {
       if (_v38 || _v20) return;
-      _v24 && (0, _v93.trackZuoraOrderStep)({
+      _v24 && (0, _v96.trackZuoraOrderStep)({
         hpm_session_id: _v24.xsrft,
         user_id: `${_v24.user?.id}`,
         flow_type: "classic",
@@ -2672,7 +3015,7 @@
         if (_v41({
           type: _v2,
           data: (0, _v17.getFormType)(_v2)
-        }), _v2 === _v96.PaymentFormTypes.TYPE_PAYPAL) {
+        }), _v2 === _v99.PaymentFormTypes.TYPE_PAYPAL) {
           _v43(!1), _v6?.(_v2), _v54({
             status: "ready"
           });
@@ -2690,9 +3033,9 @@
         _v0 = !0;
       };
     }, [_v2, _v38, _v20, _v4, _v6, _v12, _v24, _v1, _v5, _v53, _v37, _v17, _v40, _v55, _v54]), (0, _v4.useEffect)(() => {
-      if (!_v42 && _v40?.type === _v96.PaymentFormTypes.TYPE_CREDIT_CARD && window.Z && document.getElementById(_v94.ZUORA_HPM_IFRAME_ID) && (!1 !== _v19 && _v18?.postalCode !== void 0 && window.Z.post(_v94.ZUORA_HPM_IFRAME_ID, `setField(creditCardPostalCode:${_v18.postalCode ?? ""})`), _v18?.state !== void 0 && window.Z.post(_v94.ZUORA_HPM_IFRAME_ID, `setField(creditCardState:${_v18.state ?? ""})`), _v18?.country)) {
-        let _v0 = _v95.countries[_v18.country]?.iso3;
-        window.Z.post(_v94.ZUORA_HPM_IFRAME_ID, `setField(creditCardCountry:${_v0})`);
+      if (!_v42 && _v40?.type === _v99.PaymentFormTypes.TYPE_CREDIT_CARD && window.Z && document.getElementById(_v97.ZUORA_HPM_IFRAME_ID) && (!1 !== _v19 && _v18?.postalCode !== void 0 && window.Z.post(_v97.ZUORA_HPM_IFRAME_ID, `setField(creditCardPostalCode:${_v18.postalCode ?? ""})`), _v18?.state !== void 0 && window.Z.post(_v97.ZUORA_HPM_IFRAME_ID, `setField(creditCardState:${_v18.state ?? ""})`), _v18?.country)) {
+        let _v0 = _v98.countries[_v18.country]?.iso3;
+        window.Z.post(_v97.ZUORA_HPM_IFRAME_ID, `setField(creditCardCountry:${_v0})`);
       }
     }, [_v18, _v42, _v40, _v19]);
     let [_v64] = (0, _v4.useState)(() => ({
@@ -2743,36 +3086,36 @@
       formAlert: _v3?.message ? _v3 : void 0,
       hidePaymentTypeSelector: _v16,
       formTypes: _v14 ? [{
-        type: _v96.PaymentFormTypes.TYPE_CREDIT_CARD,
-        data: (0, _v17.getFormType)(_v96.PaymentFormTypes.TYPE_CREDIT_CARD)
+        type: _v99.PaymentFormTypes.TYPE_CREDIT_CARD,
+        data: (0, _v17.getFormType)(_v99.PaymentFormTypes.TYPE_CREDIT_CARD)
       }, {
-        type: _v96.PaymentFormTypes.TYPE_PAYPAL,
-        data: (0, _v17.getFormType)(_v96.PaymentFormTypes.TYPE_PAYPAL)
+        type: _v99.PaymentFormTypes.TYPE_PAYPAL,
+        data: (0, _v17.getFormType)(_v99.PaymentFormTypes.TYPE_PAYPAL)
       }] : [{
-        type: _v96.PaymentFormTypes.TYPE_CREDIT_CARD,
-        data: (0, _v17.getFormType)(_v96.PaymentFormTypes.TYPE_CREDIT_CARD)
+        type: _v99.PaymentFormTypes.TYPE_CREDIT_CARD,
+        data: (0, _v17.getFormType)(_v99.PaymentFormTypes.TYPE_CREDIT_CARD)
       }],
       renderedFormType: _v40,
       bspStyling: _v15,
       onPaymentTypeChanged: _v0 => {
         let _v1 = (0, _v17.getFormType)(_v0);
-        _v23(_v94.CHECKOUT_FORM_ACTION_TYPE_CLICK, _v0 === _v96.PaymentFormTypes.TYPE_PAYPAL ? _v94.CHECKOUT_FORM_ACTION_LOCATION_PAYMENT_TYPE_PAYPAL : _v94.CHECKOUT_FORM_ACTION_LOCATION_PAYMENT_TYPE_CREDIT_CARD), _v7?.(_v0);
+        _v23(_v97.CHECKOUT_FORM_ACTION_TYPE_CLICK, _v0 === _v99.PaymentFormTypes.TYPE_PAYPAL ? _v97.CHECKOUT_FORM_ACTION_LOCATION_PAYMENT_TYPE_PAYPAL : _v97.CHECKOUT_FORM_ACTION_LOCATION_PAYMENT_TYPE_CREDIT_CARD), _v7?.(_v0);
         let _v2 = _v55();
         if (_v44.current && (_v44.current.innerHTML = ""), _v31({
-          type: _v96.ActionTypes.PAYMENT_ALERT,
+          type: _v99.ActionTypes.PAYMENT_ALERT,
           payload: void 0
         }), _v43(!0), _v41({
           type: _v0,
           data: _v1
-        }), _v0 === _v96.PaymentFormTypes.TYPE_PAYPAL || _v20) {
-          _v43(!1), _v0 === _v96.PaymentFormTypes.TYPE_PAYPAL && (_v6?.(_v0), _v54({
+        }), _v0 === _v99.PaymentFormTypes.TYPE_PAYPAL || _v20) {
+          _v43(!1), _v0 === _v99.PaymentFormTypes.TYPE_PAYPAL && (_v6?.(_v0), _v54({
             status: "ready"
           }));
           return;
         }
         _v62(_v0, _v2, {
           onBeforeSubmitError: _v0 => {
-            _v24 && (0, _v93.trackZuoraOrderStep)({
+            _v24 && (0, _v96.trackZuoraOrderStep)({
               hpm_session_id: _v24.xsrft,
               user_id: `${_v24.user?.id}`,
               step_name: "HPM onSubmitError",
@@ -2808,17 +3151,17 @@
       settings: _v1,
       isLoadingResponse: _v2
     } = (0, _v2.useOrionSettings)();
-    return _v0.defaultPaymentFormType === _v23.PaymentFormTypes.TYPE_STRIPE ? (0, _v1.jsx)(_v91, {
+    return _v0.defaultPaymentFormType === _v23.PaymentFormTypes.TYPE_STRIPE ? (0, _v1.jsx)(_v94, {
       ..._v0,
       children: _v0.children
-    }) : _v2 && !_v0.pmId ? null : _v1.vgs_checkout_enabled && !_v0.pmId ? (0, _v1.jsx)(_v77, {
+    }) : _v2 && !_v0.pmId ? null : _v1.vgs_checkout_enabled && !_v0.pmId ? (0, _v1.jsx)(_v80, {
       ..._v0,
       children: _v0.children
-    }) : (0, _v1.jsx)(_v99, {
+    }) : (0, _v1.jsx)(_v102, {
       ..._v0
     });
   }], 0);
-  var _v100 = _v0.i(0);
+  var _v103 = _v0.i(0);
   _v0.s(["UserConsentContainer", 0, ({
     onChecked: _v0
   }) => {
@@ -2826,7 +3169,7 @@
     return (0, _v1.jsx)(_v5.Box, {
       paddingTop: "2",
       paddingBottom: "6",
-      children: (0, _v1.jsx)(_v100.Checkbox, {
+      children: (0, _v1.jsx)(_v103.Checkbox, {
         alignItems: "flex-start",
         isChecked: !!_v1,
         onChange: () => {

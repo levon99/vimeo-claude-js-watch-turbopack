@@ -96,7 +96,7 @@
       {
         capabilities: _v50
       } = (0, _v21.useCapability)(["folderUploadPresets"], _v49?.teamUser?.ownerId ?? _v49?.user?.id),
-      _v51 = _v46.enable_folder_upload_presets || !0 === _v50.folderUploadPresets,
+      _v51 = !0 === _v50.folderUploadPresets,
       _v52 = _v3 && !_v42 && (_v35 || _v37 || _v40),
       _v53 = {
         share: _v4 ? {

@@ -1020,8 +1020,9 @@
     _v78 = _v0.i(0),
     _v79 = _v0.i(0),
     _v80 = _v0.i(0),
-    _v81 = _v0.i(0);
-  let _v82 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+    _v81 = _v0.i(0),
+    _v82 = _v0.i(0);
+  let _v83 = _v0 => (0, _v6.jsx)(_v82.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -1034,8 +1035,7 @@
       fill: "currentColor"
     })
   });
-  var _v83 = _v0.i(0),
-    _v84 = _v0.i(0),
+  var _v84 = _v0.i(0),
     _v85 = _v0.i(0),
     _v86 = _v0.i(0),
     _v87 = _v0.i(0),
@@ -1052,8 +1052,11 @@
     _v98 = _v0.i(0),
     _v99 = _v0.i(0),
     _v100 = _v0.i(0),
-    _v101 = _v0.i(0);
-  function _v102({
+    _v101 = _v0.i(0),
+    _v102 = _v0.i(0),
+    _v103 = _v0.i(0),
+    _v104 = _v0.i(0);
+  function _v105({
     children: _v0,
     fitContent: _v1,
     onCloseCallback: _v2,
@@ -1066,12 +1069,12 @@
   }) {
     let _v9 = (0, _v7.useRef)(null),
       _v10 = (0, _v7.useRef)(null);
-    return (0, _v100.default)(_v9, _v2, _v10), (0, _v6.jsxs)("div", {
+    return (0, _v103.default)(_v9, _v2, _v10), (0, _v6.jsxs)("div", {
       ref: _v10,
-      children: [(0, _v6.jsx)(_v103, {
+      children: [(0, _v6.jsx)(_v106, {
         zIndex: _v3 - 1,
         opacity: _v6
-      }), (0, _v6.jsx)(_v105, {
+      }), (0, _v6.jsx)(_v108, {
         "data-testid": _v8,
         fitContent: _v1,
         ref: _v9,
@@ -1083,7 +1086,7 @@
       })]
     });
   }
-  let _v103 = (0, _v9.default)("div").withConfig({
+  let _v106 = (0, _v9.default)("div").withConfig({
       displayName: "CustomModal__Overlay",
       componentId: "sc-de677e76-0"
     })`
@@ -1099,11 +1102,11 @@
   transition: all 300ms ease-in-out 0s;
   overflow: hidden;
   display: none;
-  ${_v101.media.sm`
+  ${_v104.media.sm`
     display: block;
   `};
 `,
-    _v104 = _v9.keyframes`
+    _v107 = _v9.keyframes`
   0% {
     opacity: 0;
   }
@@ -1111,7 +1114,7 @@
     opacity: 1;
   }
 `,
-    _v105 = (0, _v9.default)("div").withConfig({
+    _v108 = (0, _v9.default)("div").withConfig({
       displayName: "CustomModal__ModalContent",
       componentId: "sc-de677e76-1"
     })`
@@ -1122,12 +1125,12 @@
   transform: translate(-50%, -50%);
   border-radius: ${(0, _v61.rem)(3)};
   overflow: hidden;
-  animation: 0.2s ${_v104} linear 1 forwards;
+  animation: 0.2s ${_v107} linear 1 forwards;
   width: ${_v0 => _v0.autoWidth ? "auto" : "100%"};
   height: ${_v0 => _v0.autoHeight ? "auto" : "100%"};
-  background-color: ${_v92.bokehTheme.colors.white};
+  background-color: ${_v97.bokehTheme.colors.white};
   margin-top: ${(0, _v61.rem)(20)};
-  ${_v101.media.sm`
+  ${_v104.media.sm`
     width: auto;
     height: auto;
     background-color: transparent;
@@ -1143,7 +1146,7 @@
   height: ${_v0 => _v0.height ? (0, _v61.rem)(_v0.height) : "auto"};
   overflow: ${_v0 => _v0.overflow || "visible"};
 `;
-  let _v106 = _v9.default.div.withConfig({
+  let _v109 = _v9.default.div.withConfig({
     displayName: "CommonStyles__ContentWrapper",
     componentId: "sc-6fd3c08a-1"
   })`
@@ -1152,7 +1155,7 @@
   flex-wrap: wrap;
   margin-bottom: ${(0, _v61.rem)(35)};
 `;
-  (0, _v9.default)(_v106).withConfig({
+  (0, _v9.default)(_v109).withConfig({
     displayName: "CommonStyles__QuotaContentWrapper",
     componentId: "sc-6fd3c08a-2"
   })`
@@ -1241,7 +1244,7 @@
     margin-left: -1rem;
   }
 `;
-  let _v107 = _v9.default.a.withConfig({
+  let _v110 = _v9.default.a.withConfig({
     displayName: "CommonStyles__Link",
     componentId: "sc-6fd3c08a-11"
   })`
@@ -1252,6 +1255,7 @@
     color: ${_v0 => _v0.color ? _v0.hoverColor : "#044b5c"};
   }
 `;
+  var _v111 = _v0.i(0);
   _v9.default.div.withConfig({
     displayName: "UpsellCard__Wrapper",
     componentId: "sc-a85d4d33-0"
@@ -1310,7 +1314,7 @@
   color: #788c99;
   margin-bottom: ${(0, _v61.rem)(2)};
 `;
-  let _v108 = _v9.default.div.withConfig({
+  let _v112 = _v9.default.div.withConfig({
     displayName: "UpsellCard__Price",
     componentId: "sc-a85d4d33-6"
   })`
@@ -1320,14 +1324,14 @@
   font-weight: 300;
   line-height: ${(0, _v61.rem)(28)};
 `;
-  (0, _v9.default)(_v108).withConfig({
+  (0, _v9.default)(_v112).withConfig({
     displayName: "UpsellCard__PriceMo",
     componentId: "sc-a85d4d33-7"
   })`
   font-size: ${(0, _v61.rem)(18)};
   margin-left: ${(0, _v61.rem)(5)};
   margin-right: ${(0, _v61.rem)(8)};
-`, (0, _v9.default)(_v35.Button).withConfig({
+`, (0, _v9.default)(_v92.Button).withConfig({
     displayName: "UpsellCard__CtaButton",
     componentId: "sc-a85d4d33-8"
   })`
@@ -1339,7 +1343,7 @@
     ${_v0 => _v0.hasDarkCTA && "border-color: #2a5e8b;"}
   }
   ${_v0 => !_v0.isFreeTrial && `margin-bottom: ${(0, _v61.rem)(41)};`}
-`, (0, _v9.default)(_v87.Text).withConfig({
+`, (0, _v9.default)(_v80.Text).withConfig({
     displayName: "UpsellCard__WeeklyLimit",
     componentId: "sc-a85d4d33-9"
   })`
@@ -1348,7 +1352,7 @@
   font-weight: 500;
   line-height: ${(0, _v61.rem)(18)};
   display: block;
-`, (0, _v9.default)(_v87.Text).withConfig({
+`, (0, _v9.default)(_v80.Text).withConfig({
     displayName: "UpsellCard__AnnualLimit",
     componentId: "sc-a85d4d33-10"
   })`
@@ -1368,7 +1372,7 @@
   color: #000000;
   margin-bottom: ${(0, _v61.rem)(15)};
 `;
-  let _v109 = _v9.default.div.withConfig({
+  let _v113 = _v9.default.div.withConfig({
     displayName: "UpsellCard__PurchaseNow",
     componentId: "sc-a85d4d33-12"
   })`
@@ -1379,7 +1383,7 @@
   justify-content: center;
   margin-top: ${(0, _v61.rem)(6)};
 `;
-  function _v110({
+  function _v114({
     onDismiss: _v0,
     handleUpgrade: _v1,
     bpLocation: _v2,
@@ -1398,14 +1402,14 @@
   }) {
     let {
         auth: _v15
-      } = (0, _v7.useContext)(_v99.MagistoSessionContext),
-      _v16 = _v15 && _v15.response && _v15.response.vimeo && _v15.response.vimeo.vimeoAccountType || _v97.Tier.Basic,
+      } = (0, _v7.useContext)(_v102.MagistoSessionContext),
+      _v16 = _v15 && _v15.response && _v15.response.vimeo && _v15.response.vimeo.vimeoAccountType || _v100.Tier.Basic,
       _v17 = _v65.default.StartFreeTrial,
       {
         user: _v18,
         locale: _v19,
         vuid: _v20
-      } = (0, _v7.useContext)(_v98.ConfigContext);
+      } = (0, _v7.useContext)(_v101.ConfigContext);
     return (0, _v7.useEffect)(() => {
       _v38.BigPictureClient.sendEvent(new _v38.Event("view_an_upsell", 13, {
         type: "impression",
@@ -1417,7 +1421,7 @@
         path: window.location.pathname,
         layout_id: null,
         vsid: _v4 || null,
-        plan: _v84.UPSELL_PLAN_TYPES.PRO,
+        plan: _v85.UPSELL_PLAN_TYPES.PRO,
         location: _v9 ?? "",
         flow: _v10 ?? null,
         cta: _v17,
@@ -1428,22 +1432,22 @@
         current_tier: _v16,
         third_party_integration: _v14 ?? null,
         trigger_capability: _v12 ?? null,
-        ..._v96.NON_WEB_FIELDS
+        ..._v99.NON_WEB_FIELDS
       }));
-    }, [_v2, _v19, _v18, _v20, _v4, _v9, _v10, _v17, _v5, _v11, _v13, _v16, _v14, _v12]), (0, _v6.jsxs)(_v102, {
+    }, [_v2, _v19, _v18, _v20, _v4, _v9, _v10, _v17, _v5, _v11, _v13, _v16, _v14, _v12]), (0, _v6.jsxs)(_v105, {
       testId: "pro-upsell-container",
       onCloseCallback: _v0,
       autoHeight: !0,
       autoWidth: !0,
       zIndex: 0,
       overlayOpacity: .7,
-      children: [(0, _v6.jsxs)(_v112, {
-        children: [(0, _v6.jsx)(_v113, {}), (0, _v6.jsx)(_v114, {
-          children: (0, _v6.jsx)(_v35.Button, {
+      children: [(0, _v6.jsxs)(_v116, {
+        children: [(0, _v6.jsx)(_v117, {}), (0, _v6.jsx)(_v118, {
+          children: (0, _v6.jsx)(_v94.IconButton, {
+            "aria-label": _v65.default.Close,
             "data-testid": "close-upsell-button",
-            icon: (0, _v6.jsx)(_v93.DismissX, {}),
-            format: "basic",
-            variant: "hyperminimal",
+            icon: (0, _v6.jsx)(_v96.CloseX, {}),
+            variant: "tertiary",
             size: "sm",
             onClick: () => {
               _v0(), _v38.BigPictureClient.sendEvent(new _v38.Event("click_to_close_upsell_screen", 13, {
@@ -1455,7 +1459,7 @@
                 device_id: _v20,
                 layout_id: null,
                 vsid: _v4 || null,
-                displayed_plan: _v84.UPSELL_PLAN_TYPES.PRO,
+                displayed_plan: _v85.UPSELL_PLAN_TYPES.PRO,
                 plan: null,
                 location: _v9 ?? "",
                 flow: _v10 ?? null,
@@ -1467,34 +1471,36 @@
                 current_tier: _v16,
                 third_party_integration: _v14 ?? null,
                 trigger_capability: _v12 ?? null,
-                ..._v96.NON_WEB_FIELDS
+                ..._v99.NON_WEB_FIELDS
               }));
             }
           })
         })]
-      }), (0, _v6.jsxs)(_v115, {
-        children: [(0, _v6.jsx)(_v116, {
-          size: "3",
+      }), (0, _v6.jsxs)(_v119, {
+        children: [(0, _v6.jsx)(_v120, {
+          as: "h3",
+          size: "md",
           children: _v8 || _v65.default.GetMoreWithPro
-        }), (0, _v6.jsxs)(_v117, {
-          children: [(0, _v6.jsx)(_v111, {
+        }), (0, _v6.jsxs)(_v121, {
+          children: [(0, _v6.jsx)(_v115, {
             content: _v65.default.UnlockExclusiveTemplates
-          }), (0, _v6.jsx)(_v111, {
+          }), (0, _v6.jsx)(_v115, {
             content: _v65.default.UnlimitedStockClipsAndImages
-          }), (0, _v6.jsx)(_v111, {
+          }), (0, _v6.jsx)(_v115, {
             content: _v65.default.AccessToAllStyles
-          }), (0, _v6.jsx)(_v111, {
+          }), (0, _v6.jsx)(_v115, {
             content: _v65.default.CreateLongerVideos
           })]
-        }), (0, _v6.jsxs)(_v118, {
-          children: [(0, _v6.jsx)(_v35.Button, {
+        }), (0, _v6.jsxs)(_v122, {
+          children: [(0, _v6.jsx)(_v92.Button, {
             onClick: () => _v1(!0),
-            fluid: !0,
-            format: "upsell",
+            width: "full",
+            variant: "upsell",
             children: _v65.default.StartFreeTrial
-          }), !_v13 && (0, _v6.jsx)(_v119, {
-            children: (0, _v6.jsx)(_v35.Button, {
-              format: "secondary",
+          }), !_v13 && (0, _v6.jsx)(_v123, {
+            children: (0, _v6.jsx)(_v92.Button, {
+              variant: "outline",
+              colorScheme: "gray",
               onClick: () => {
                 _v38.BigPictureClient.sendEvent(new _v38.Event("click_on_upsell", 15, {
                   product: "Vimeo Create",
@@ -1506,9 +1512,9 @@
                   user_id: `${_v18 && _v18.id}`,
                   layout_id: null,
                   vsid: _v4 || null,
-                  displayed_plan: _v84.UPSELL_PLAN_TYPES.PRO,
-                  plan: _v84.UPSELL_PLAN_TYPES.PRO,
-                  duration: _v96.UpsellDuration.YEARLY,
+                  displayed_plan: _v85.UPSELL_PLAN_TYPES.PRO,
+                  plan: _v85.UPSELL_PLAN_TYPES.PRO,
+                  duration: _v99.UpsellDuration.YEARLY,
                   location: _v9 ?? "",
                   flow: _v10 ?? null,
                   cta: _v65.default.ContinueAndUpgradeLater,
@@ -1519,7 +1525,7 @@
                   current_tier: _v16,
                   third_party_integration: _v14 ?? null,
                   trigger_capability: _v12 ?? null,
-                  ..._v96.NON_WEB_FIELDS
+                  ..._v99.NON_WEB_FIELDS
                 })), _v3(), _v38.BigPictureClient.sendEvent(new _v38.Event("click_to_close_upsell_screen", 13, {
                   product: "Vimeo Create",
                   path: window.location.pathname,
@@ -1529,7 +1535,7 @@
                   device_id: _v20,
                   layout_id: null,
                   vsid: _v4 || null,
-                  displayed_plan: _v84.UPSELL_PLAN_TYPES.PRO,
+                  displayed_plan: _v85.UPSELL_PLAN_TYPES.PRO,
                   plan: null,
                   location: _v9 ?? "",
                   flow: _v10 ?? null,
@@ -1541,20 +1547,20 @@
                   current_tier: _v16,
                   third_party_integration: _v14 ?? null,
                   trigger_capability: _v12 ?? null,
-                  ..._v96.NON_WEB_FIELDS
+                  ..._v99.NON_WEB_FIELDS
                 }));
               },
-              fluid: !0,
+              width: "full",
               children: _v65.default.ContinueAndUpgradeLater
             })
-          }), _v13 && (0, _v6.jsx)(_v109, {
+          }), _v13 && (0, _v6.jsx)(_v113, {
             translate: "no",
             children: (0, _v62.translate)({
               singular: "or {A}purchase now{/A}",
               replacements: {
-                A: _v0 => (0, _v6.jsxs)(_v107, {
-                  color: _v92.bokehTheme.colors.blue["500"],
-                  hoverColor: _v95.COLORS.hoverBluePrimary,
+                A: _v0 => (0, _v6.jsxs)(_v110, {
+                  color: _v97.bokehTheme.colors.blue["500"],
+                  hoverColor: _v98.COLORS.hoverBluePrimary,
                   onClick: () => {
                     _v6(_v7, !1), _v38.BigPictureClient.sendEvent(new _v38.Event("click_on_upsell", 15, {
                       product: "Vimeo Create",
@@ -1566,9 +1572,9 @@
                       user_id: `${_v18 && _v18.id}`,
                       layout_id: null,
                       vsid: _v4 || null,
-                      displayed_plan: _v84.UPSELL_PLAN_TYPES.PRO,
-                      plan: _v84.UPSELL_PLAN_TYPES.PRO,
-                      duration: _v96.UpsellDuration.YEARLY,
+                      displayed_plan: _v85.UPSELL_PLAN_TYPES.PRO,
+                      plan: _v85.UPSELL_PLAN_TYPES.PRO,
+                      duration: _v99.UpsellDuration.YEARLY,
                       location: _v9 ?? "",
                       flow: _v10 ?? null,
                       cta: _v0,
@@ -1579,7 +1585,7 @@
                       current_tier: _v16,
                       third_party_integration: _v14 ?? null,
                       trigger_capability: _v12 ?? null,
-                      ..._v96.NON_WEB_FIELDS
+                      ..._v99.NON_WEB_FIELDS
                     }));
                   },
                   children: [" ", _v0]
@@ -1614,41 +1620,41 @@
       })]
     });
   }
-  function _v111({
+  function _v115({
     content: _v0
   }) {
-    return (0, _v6.jsx)(_v120, {
-      size: "2",
-      element: "li",
+    return (0, _v6.jsx)(_v124, {
+      as: "li",
+      size: "md",
       children: _v0
     });
   }
-  (0, _v9.default)(_v63.Link).withConfig({
+  (0, _v9.default)(_v111.Link).withConfig({
     displayName: "UpsellCard__CustomLink",
     componentId: "sc-a85d4d33-13"
   })`
   cursor: pointer;
-  color: ${_v92.bokehTheme.colors.blue["500"]};
+  color: ${_v97.bokehTheme.colors.blue["500"]};
   &:hover {
-    color: ${_v92.bokehTheme.colors.blue["400"]};
+    color: ${_v97.bokehTheme.colors.blue["400"]};
   }
 `;
-  let _v112 = _v9.default.div.withConfig({
+  let _v116 = _v9.default.div.withConfig({
       displayName: "ProUpsell__MastHead",
       componentId: "sc-e5569cce-0"
     })`
-  background: ${_v92.bokehTheme.colors.white};
+  background: ${_v97.bokehTheme.colors.white};
   height: ${(0, _v61.rem)(150)};
   width: ${(0, _v61.rem)(400)};
 `,
-    _v113 = _v9.default.div.withConfig({
+    _v117 = _v9.default.div.withConfig({
       displayName: "ProUpsell__ImgWrapper",
       componentId: "sc-e5569cce-1"
     })`
-  background: url(${_v95.IMAGE_ASSETS_PATH}1393.jpg) center/contain no-repeat ${_v92.bokehTheme.colors.gray["50"]};
+  background: url(${_v98.IMAGE_ASSETS_PATH}1393.jpg) center/contain no-repeat ${_v97.bokehTheme.colors.gray["50"]};
   height: ${(0, _v61.rem)(150)};
 `,
-    _v114 = _v9.default.div.withConfig({
+    _v118 = _v9.default.div.withConfig({
       displayName: "ProUpsell__DismissButton",
       componentId: "sc-e5569cce-2"
     })`
@@ -1657,17 +1663,17 @@
   top: ${(0, _v61.rem)(16)};
   right: ${(0, _v61.rem)(16)};
   button {
-    color: ${_v92.bokehTheme.colors.white};
+    color: ${_v97.bokehTheme.colors.white};
     &:hover {
       background: #404040;
     }
   }
 `,
-    _v115 = _v9.default.div.withConfig({
+    _v119 = _v9.default.div.withConfig({
       displayName: "ProUpsell__Content",
       componentId: "sc-e5569cce-3"
     })`
-  background: ${_v92.bokehTheme.colors.white};
+  background: ${_v97.bokehTheme.colors.white};
   padding: ${(0, _v61.rem)(30)} ${(0, _v61.rem)(70)} ${(0, _v61.rem)(40)};
   height: ${(0, _v61.rem)(403)};
   width: ${(0, _v61.rem)(400)};
@@ -1676,21 +1682,21 @@
     padding: ${(0, _v61.rem)(15)} ${(0, _v61.rem)(70)} ${(0, _v61.rem)(20)};
   }
 `,
-    _v116 = (0, _v9.default)(_v94.Header).withConfig({
+    _v120 = (0, _v9.default)(_v93.Header).withConfig({
       displayName: "ProUpsell__StyledHeader",
       componentId: "sc-e5569cce-4"
     })`
   margin-bottom: ${(0, _v61.rem)(20)};
   text-align: center;
 `,
-    _v117 = _v9.default.ul.withConfig({
+    _v121 = _v9.default.ul.withConfig({
       displayName: "ProUpsell__Features",
       componentId: "sc-e5569cce-5"
     })`
   list-style: inside;
   margin-top: ${(0, _v61.rem)(20)};
 `,
-    _v118 = _v9.default.div.withConfig({
+    _v122 = _v9.default.div.withConfig({
       displayName: "ProUpsell__ButtonsWrapper",
       componentId: "sc-e5569cce-6"
     })`
@@ -1701,69 +1707,70 @@
     margin-top: ${(0, _v61.rem)(24)};
   }
 `,
-    _v119 = _v9.default.div.withConfig({
+    _v123 = _v9.default.div.withConfig({
       displayName: "ProUpsell__ContinueButtonWrapper",
       componentId: "sc-e5569cce-7"
     })`
   margin-top: ${(0, _v61.rem)(12)};
 `,
-    _v120 = (0, _v9.default)(_v64.Paragraph).withConfig({
+    _v124 = (0, _v9.default)(_v95.Paragraph).withConfig({
       displayName: "ProUpsell__StyledParagraph",
       componentId: "sc-e5569cce-8"
     })`
   margin-bottom: ${(0, _v61.rem)(10)};
   display: list-item;
 `;
-  var _v121 = _v0.i(0),
-    _v122 = _v0.i(0);
-  let _v123 = _v7.default.memo(({
+  var _v125 = _v0.i(0),
+    _v126 = _v0.i(0);
+  let _v127 = _v7.default.memo(({
     onDismiss: _v0,
     thirdPartyIntegration: _v1
   }) => {
     (0, _v7.useEffect)(() => {
-      (0, _v122.trackTeamUpgradeBlocker)(_v1);
+      (0, _v126.trackTeamUpgradeBlocker)(_v1);
     }, [_v1]);
     let _v2 = (0, _v7.useCallback)(() => {
-      _v0(), (0, _v122.trackTeamUpgradeBlockerCta)(_v1);
+      _v0(), (0, _v126.trackTeamUpgradeBlockerCta)(_v1);
     }, [_v0, _v1]);
-    return (0, _v6.jsxs)(_v125, {
-      children: [(0, _v6.jsx)(_v128, {
+    return (0, _v6.jsxs)(_v129, {
+      children: [(0, _v6.jsx)(_v132, {
         onClick: _v2
-      }), (0, _v6.jsx)(_v126, {
-        size: "4",
+      }), (0, _v6.jsx)(_v130, {
+        as: "h4",
+        size: "md",
         children: _v65.default.OnlyOwnerCanUpgrade
-      }), (0, _v6.jsx)(_v64.Paragraph, {
-        size: "2",
+      }), (0, _v6.jsx)(_v95.Paragraph, {
+        size: "md",
         children: _v65.default.ReachOutToTeamOwner
-      }), (0, _v6.jsx)(_v127, {
-        children: (0, _v6.jsx)(_v35.Button, {
+      }), (0, _v6.jsx)(_v131, {
+        children: (0, _v6.jsx)(_v92.Button, {
           onClick: _v2,
           children: _v65.default.GotIt
         })
       })]
     });
   });
-  function _v124({
+  function _v128({
     onDismiss: _v0,
     thirdPartyIntegration: _v1
   }) {
-    return (0, _v6.jsx)(_v121.Modal, {
+    return (0, _v6.jsx)(_v125.Modal, {
       active: !0,
-      content: (0, _v6.jsx)(_v123, {
+      content: (0, _v6.jsx)(_v127, {
         onDismiss: _v0,
         thirdPartyIntegration: _v1
       })
     });
   }
-  let _v125 = _v9.default.div.withConfig({
+  let _v129 = _v9.default.div.withConfig({
       displayName: "TeamMemberUpgradeBlockingModal__ContentWrapper",
       componentId: "sc-efbe467a-0"
     })`
-  background-color: ${_v92.bokehTheme.colors.white};
+  background-color: ${_v97.bokehTheme.colors.white};
   padding: ${(0, _v61.rem)(24)};
   box-shadow: 0 ${(0, _v61.rem)(3)} ${(0, _v61.rem)(10)} rgba(0, 0, 0, 0.12);
 `,
-    _v126 = (0, _v9.default)(_v94.Header).withConfig({
+    _v130 = (0, _v9.default)(_v93.Header).withConfig({
       displayName: "TeamMemberUpgradeBlockingModal__ModalHeader",
       componentId: "sc-efbe467a-1"
     })`
@@ -1772,7 +1779,7 @@
   max-width: ${(0, _v61.rem)(320)};
   margin-bottom: ${(0, _v61.rem)(16)};
 `,
-    _v127 = _v9.default.div.withConfig({
+    _v131 = _v9.default.div.withConfig({
       displayName: "TeamMemberUpgradeBlockingModal__Footer",
       componentId: "sc-efbe467a-2"
     })`
@@ -1781,7 +1788,7 @@
   justify-content: flex-end;
   margin-top: ${(0, _v61.rem)(32)};
 `,
-    _v128 = (0, _v9.default)(_v93.DismissX).withConfig({
+    _v132 = (0, _v9.default)(_v96.CloseX).withConfig({
       displayName: "TeamMemberUpgradeBlockingModal__DismissIcon",
       componentId: "sc-efbe467a-3"
     })`
@@ -1792,7 +1799,7 @@
   right: ${(0, _v61.rem)(24)};
   cursor: pointer;
 `,
-    _v129 = () => (0, _v6.jsxs)("svg", {
+    _v133 = () => (0, _v6.jsxs)("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 64 64",
       children: [(0, _v6.jsx)("defs", {}), (0, _v6.jsxs)("g", {
@@ -1840,16 +1847,16 @@
         })]
       })]
     });
-  function _v130() {
-    return (0, _v6.jsx)(_v133, {
-      children: (0, _v6.jsxs)(_v132, {
-        children: [(0, _v6.jsx)(_v131, {
-          children: (0, _v6.jsx)(_v129, {})
+  function _v134() {
+    return (0, _v6.jsx)(_v137, {
+      children: (0, _v6.jsxs)(_v136, {
+        children: [(0, _v6.jsx)(_v135, {
+          children: (0, _v6.jsx)(_v133, {})
         }), _v65.default.BrandKitUpsellTextWindowOpen]
       })
     });
   }
-  let _v131 = _v9.default.div.withConfig({
+  let _v135 = _v9.default.div.withConfig({
       displayName: "WaitingScreen__Icon",
       componentId: "sc-174d02d-0"
     })`
@@ -1857,7 +1864,7 @@
   width: ${(0, _v61.rem)(64)};
   margin: 0 auto ${(0, _v61.rem)(26)};
 `,
-    _v132 = _v9.default.div.withConfig({
+    _v136 = _v9.default.div.withConfig({
       displayName: "WaitingScreen__Message",
       componentId: "sc-174d02d-1"
     })`
@@ -1866,16 +1873,16 @@
   text-align: center;
   width: ${(0, _v61.rem)(300)};
 `,
-    _v133 = _v9.default.div.withConfig({
+    _v137 = _v9.default.div.withConfig({
       displayName: "WaitingScreen__Wrapper",
       componentId: "sc-174d02d-2"
     })`
   height: ${(0, _v61.rem)(316)};
   width: ${(0, _v61.rem)(400)};
 `,
-    _v134 = "show_teams_onboarding=false",
-    _v135 = new Set(["creator", "professional", "studio", "production"]);
-  function _v136({
+    _v138 = "show_teams_onboarding=false",
+    _v139 = new Set(["creator", "professional", "studio", "production"]);
+  function _v140({
     isPaidUser: _v0,
     showUpsell: _v1,
     upsellType: _v2,
@@ -1904,28 +1911,28 @@
         vuid: _v23,
         partnerConfig: _v24,
         teamUser: _v25
-      } = (0, _v7.useContext)(_v98.ConfigContext),
+      } = (0, _v7.useContext)(_v101.ConfigContext),
       {
         thirdPartyIntegration: _v26
-      } = (0, _v7.useContext)(_v98.ConfigContext),
+      } = (0, _v7.useContext)(_v101.ConfigContext),
       [_v27, _v28] = (0, _v7.useState)(!1),
       [_v29, _v30] = (0, _v7.useState)(!1),
       _v31 = _v21 && (_v21.capabilities.hasPaid || _v21.capabilities.hasBeenInFreeTrial),
       {
         auth: _v32
-      } = (0, _v7.useContext)(_v99.MagistoSessionContext),
+      } = (0, _v7.useContext)(_v102.MagistoSessionContext),
       _v33 = (0, _v7.useContext)(_v91.ViewerContext),
-      _v34 = _v32 && _v32.response && _v32.response.vimeo && _v32.response.vimeo.vimeoAccountType || _v97.Tier.Basic,
+      _v34 = _v32 && _v32.response && _v32.response.vimeo && _v32.response.vimeo.vimeoAccountType || _v100.Tier.Basic,
       _v35 = _v65.default.StartFreeTrial,
       _v36 = _v21 && _v21.id || 0;
-    (0, _v122.initialBI)({
+    (0, _v126.initialBI)({
       containerName: _v13 || "",
       userId: _v36,
       vuid: _v23,
       locale: _v22,
       vsid: _v7 || null
     });
-    let _v37 = (0, _v7.useCallback)(_v0 => "save_preview" === _v3 || "create_draft_limit_modal" === _v3 ? _v0 ? _v84.UPSELL_PLAN_TYPES.PRO_BUSINESS : _v84.UPSELL_PLAN_TYPES.PLUS_PRO : _v95.UpsellType[_v0].toLowerCase(), [_v3, _v0]),
+    let _v37 = (0, _v7.useCallback)(_v0 => "save_preview" === _v3 || "create_draft_limit_modal" === _v3 ? _v0 ? _v85.UPSELL_PLAN_TYPES.PRO_BUSINESS : _v85.UPSELL_PLAN_TYPES.PLUS_PRO : _v98.UpsellType[_v0].toLowerCase(), [_v3, _v0]),
       _v38 = (0, _v89.useGetSubscriptionPlansData)();
     (0, _v7.useEffect)(() => {
       ("save_preview" === _v3 || "create_draft_limit_modal" === _v3) && _v38.BigPictureClient.sendEvent(new _v38.Event("view_an_upsell", 13, {
@@ -1949,22 +1956,22 @@
         current_tier: _v34,
         third_party_integration: _v26,
         trigger_capability: _v16 ?? null,
-        ..._v96.NON_WEB_FIELDS
+        ..._v99.NON_WEB_FIELDS
       }));
     }, [_v22, _v3, _v2, _v21, _v23, _v7, _v13, _v14, _v31, _v15, _v17, _v34, _v16, _v26, _v35, _v0, _v37]);
-    let _v39 = _v2 === _v95.UpsellType.STARTER_BLOCKING || _v2 === _v95.UpsellType.STANDARD_BLOCKING || _v2 === _v95.UpsellType.ADVANCED_BLOCKING || _v2 === _v95.UpsellType.ENTERPRISE_BLOCKING,
+    let _v39 = _v2 === _v98.UpsellType.STARTER_BLOCKING || _v2 === _v98.UpsellType.STANDARD_BLOCKING || _v2 === _v98.UpsellType.ADVANCED_BLOCKING || _v2 === _v98.UpsellType.ENTERPRISE_BLOCKING,
       _v40 = (0, _v7.useCallback)((_v0, _v1, _v2 = "", _v3) => {
-        if ((0, _v11.clearCookie)(_v83.BI_UPSELL_IS_TRIAL), (0, _v11.clearCookie)(_v83.BI_UPSELL_PLAN), _v25) return void _v30(!0);
+        if ((0, _v11.clearCookie)(_v84.BI_UPSELL_IS_TRIAL), (0, _v11.clearCookie)(_v84.BI_UPSELL_PLAN), _v25) return void _v30(!0);
         if (_v24?.handleUpgrade) return void _v24.handleUpgrade(_v0, _v3);
         let _v4 = null;
         switch (_v6) {
-          case _v85.UpgradeWindowOption.NEW_WINDOW:
-            _v0 += (_v0.includes("?") ? "&" : "?") + _v134, _v4 = window.open(_v0, "_blank", `height=${window.innerHeight},width=${window.innerWidth / 1.5},centerscreen=yes,scrolling=yes,scrollbars=yes,resizable=yes`);
+          case _v86.UpgradeWindowOption.NEW_WINDOW:
+            _v0 += (_v0.includes("?") ? "&" : "?") + _v138, _v4 = window.open(_v0, "_blank", `height=${window.innerHeight},width=${window.innerWidth / 1.5},centerscreen=yes,scrolling=yes,scrollbars=yes,resizable=yes`);
             break;
-          case _v85.UpgradeWindowOption.NEW_TAB:
-            _v0 += (_v0.includes("?") ? "&" : "?") + _v134, _v4 = window.open(_v0, "_blank");
+          case _v86.UpgradeWindowOption.NEW_TAB:
+            _v0 += (_v0.includes("?") ? "&" : "?") + _v138, _v4 = window.open(_v0, "_blank");
             break;
-          case _v85.UpgradeWindowOption.SELF:
+          case _v86.UpgradeWindowOption.SELF:
           default:
             window.location.href = _v0;
         }
@@ -1972,11 +1979,11 @@
           _v4 && _v4.closed && (_v4 = null, _v28(!1));
         }, 0)), window.successfulUpgradeCallback = () => {
           if (_v28(!1), _v5) {
-            let _v0 = (0, _v11.loadCookie)(_v83.BI_UPSELL_IS_TRIAL),
-              _v1 = (0, _v11.loadCookie)(_v83.BI_UPSELL_PLAN),
+            let _v0 = (0, _v11.loadCookie)(_v84.BI_UPSELL_IS_TRIAL),
+              _v1 = (0, _v11.loadCookie)(_v84.BI_UPSELL_PLAN),
               _v2 = _v1 || "all",
               _v3 = _v1 || _v2;
-            (0, _v122.trackSuccessfulClientTransaction)(_v2, _v3, _v15, _v34, _v16, _v0 ? "true" === _v0 : _v3, _v26), _v5();
+            (0, _v126.trackSuccessfulClientTransaction)(_v2, _v3, _v15, _v34, _v16, _v0 ? "true" === _v0 : _v3, _v26), _v5();
           }
           -1 !== window.location.pathname.indexOf("/create/templates") && window.location.reload();
         };
@@ -1998,7 +2005,7 @@
         capabilities: {
           canSeePerSeatPricingPages: _v44
         }
-      } = (0, _v86.useCapability)(["canSeePerSeatPricingPages"]);
+      } = (0, _v87.useCapability)(["canSeePerSeatPricingPages"]);
     if (!_v38) return null;
     let _v45 = [(0, _v62.translate)({
         singular: "Define brand colors and logos for your team to use",
@@ -2153,7 +2160,7 @@
           }
         }
       })],
-      _v48 = _v38.map(_v0 => _v0.tier).some(_v0 => _v135.has(_v0)),
+      _v48 = _v38.map(_v0 => _v0.tier).some(_v0 => _v139.has(_v0)),
       _v49 = _v48 ? "professional" : _v44 ? "standard" : "business",
       _v50 = _v48 ? "professional" : _v44 ? "standard" : "pro",
       _v51 = _v0 => ({
@@ -2226,15 +2233,15 @@
       size: "md",
       children: [(0, _v6.jsx)(_v79.ModalOverlay, {}), (0, _v6.jsxs)(_v78.ModalContent, {
         children: [(0, _v6.jsx)(_v77.ModalCloseButton, {}), (0, _v6.jsx)(_v76.ModalBody, {
-          children: (0, _v6.jsx)(_v130, {})
+          children: (0, _v6.jsx)(_v134, {})
         })]
       })]
     }) : (0, _v6.jsxs)(_v6.Fragment, {
-      children: [_v29 ? (0, _v6.jsx)(_v124, {
+      children: [_v29 ? (0, _v6.jsx)(_v128, {
         onDismiss: _v41,
         thirdPartyIntegration: _v26
       }) : (0, _v6.jsxs)(_v6.Fragment, {
-        children: [[_v95.UpsellType.BRAND].includes(_v2) && (0, _v6.jsx)(_v90.default, {
+        children: [[_v98.UpsellType.BRAND].includes(_v2) && (0, _v6.jsx)(_v90.default, {
           apiUrl: _v33?.apiUrl,
           userConfig: {
             jwt: _v33?.jwt,
@@ -2271,11 +2278,11 @@
             }),
             subHeaderText: "",
             imgSrc: "https://i.vimeocdn.com/custom_asset/16b27dda44f589329e5024078f0ee88d",
-            body: (0, _v6.jsx)(_v80.VStack, {
+            body: (0, _v6.jsx)(_v81.VStack, {
               gap: "sm",
               children: _v45.map(_v0 => (0, _v6.jsxs)(_v74.Flex, {
                 gap: "sm",
-                children: [(0, _v6.jsx)(_v82, {}), (0, _v6.jsx)(_v87.Text, {
+                children: [(0, _v6.jsx)(_v83, {}), (0, _v6.jsx)(_v80.Text, {
                   children: _v0
                 })]
               }, _v0))
@@ -2328,7 +2335,7 @@
               paywallFeature: "brand_kit"
             }
           }
-        }), [_v95.UpsellType.STOCK].includes(_v2) && (0, _v6.jsx)(_v90.default, {
+        }), [_v98.UpsellType.STOCK].includes(_v2) && (0, _v6.jsx)(_v90.default, {
           apiUrl: _v33?.apiUrl,
           userConfig: {
             jwt: _v33?.jwt,
@@ -2367,7 +2374,7 @@
             imgSrc: "https://i.vimeocdn.com/custom_asset/2b9052492c34630523351ab53c79a128",
             body: (0, _v6.jsx)(_v74.Flex, {
               gap: "sm",
-              children: (0, _v6.jsx)(_v87.Text, {
+              children: (0, _v6.jsx)(_v80.Text, {
                 children: _v47
               })
             }),
@@ -2419,7 +2426,7 @@
               paywallFeature: "stock"
             }
           }
-        }), [_v95.UpsellType.TVE].includes(_v2) && (0, _v6.jsx)(_v90.default, {
+        }), [_v98.UpsellType.TVE].includes(_v2) && (0, _v6.jsx)(_v90.default, {
           apiUrl: _v33?.apiUrl,
           userConfig: {
             jwt: _v33?.jwt,
@@ -2459,7 +2466,7 @@
             body: (0, _v6.jsx)("tbody", {
               children: _v46.map(_v0 => (0, _v6.jsxs)(_v74.Flex, {
                 gap: "sm",
-                children: [(0, _v6.jsx)(_v82, {}), (0, _v6.jsx)(_v87.Text, {
+                children: [(0, _v6.jsx)(_v83, {}), (0, _v6.jsx)(_v80.Text, {
                   children: _v0
                 })]
               }, _v0))
@@ -2512,7 +2519,7 @@
               paywallFeature: "text_video_editing"
             }
           }
-        }), [_v95.UpsellType.TIER_BADGE].includes(_v2) && (0, _v6.jsx)(_v90.default, {
+        }), [_v98.UpsellType.TIER_BADGE].includes(_v2) && (0, _v6.jsx)(_v90.default, {
           apiUrl: _v33?.apiUrl,
           userConfig: {
             jwt: _v33?.jwt,
@@ -2538,10 +2545,10 @@
               paywallFeature: "general"
             }
           }
-        }), _v2 === _v95.UpsellType.PRO && (0, _v6.jsx)(_v110, {
+        }), _v2 === _v98.UpsellType.PRO && (0, _v6.jsx)(_v114, {
           onDismiss: _v4,
           handleUpgrade: _v0 => {
-            _v40(_v42(_v38, "pro") ?? "/upgrade", _v84.UPSELL_PLAN_TYPES.PRO, _v84.UPSELL_PLAN_TYPES.PRO, _v0), _v38.BigPictureClient.sendEvent(new _v38.Event("click_on_upsell", 15, {
+            _v40(_v42(_v38, "pro") ?? "/upgrade", _v85.UPSELL_PLAN_TYPES.PRO, _v85.UPSELL_PLAN_TYPES.PRO, _v0), _v38.BigPictureClient.sendEvent(new _v38.Event("click_on_upsell", 15, {
               product: "Vimeo Create",
               path: window.location.pathname,
               type: "click",
@@ -2551,9 +2558,9 @@
               user_id: `${_v21 && _v21.id}`,
               layout_id: null,
               vsid: _v7 || null,
-              displayed_plan: _v84.UPSELL_PLAN_TYPES.PRO,
-              plan: _v84.UPSELL_PLAN_TYPES.PRO,
-              duration: _v96.UpsellDuration.YEARLY,
+              displayed_plan: _v85.UPSELL_PLAN_TYPES.PRO,
+              plan: _v85.UPSELL_PLAN_TYPES.PRO,
+              duration: _v99.UpsellDuration.YEARLY,
               location: _v13 ?? "",
               flow: _v14 ?? null,
               cta: _v65.default.StartFreeTrial,
@@ -2564,11 +2571,11 @@
               current_tier: _v34,
               third_party_integration: _v26,
               trigger_capability: _v16 ?? null,
-              ..._v96.NON_WEB_FIELDS
+              ..._v99.NON_WEB_FIELDS
             }));
           },
           onContinueAndUpgradeLater: _v8,
-          handleUpgradeFlow: (_v0, _v1) => _v40(_v0, _v84.UPSELL_PLAN_TYPES.PRO, _v84.UPSELL_PLAN_TYPES.PRO, _v1),
+          handleUpgradeFlow: (_v0, _v1) => _v40(_v0, _v85.UPSELL_PLAN_TYPES.PRO, _v85.UPSELL_PLAN_TYPES.PRO, _v1),
           ctaLink: _v42(_v38, "pro") ?? "/upgrade",
           title: _v9,
           pageLocation: _v13,
@@ -2577,7 +2584,7 @@
           triggerCapability: _v16,
           isBlocker: _v17,
           thirdPartyIntegration: _v26
-        }), [_v95.UpsellType.CREATE_QUOTA_NOTIFICATION].includes(_v2) && (0, _v6.jsx)(_v90.default, {
+        }), [_v98.UpsellType.CREATE_QUOTA_NOTIFICATION].includes(_v2) && (0, _v6.jsx)(_v90.default, {
           apiUrl: _v33?.apiUrl,
           userConfig: {
             jwt: _v33?.jwt,
@@ -2683,21 +2690,21 @@
       })]
     });
   }
-  var _v137 = _v0.i(0),
-    _v138 = _v0.i(0),
-    _v139 = _v0.i(0);
-  let _v140 = () => Error("Not implemented"),
-    _v141 = _v7.default.createContext({
-      trackFAEvent: _v140,
-      trackBPEvent: _v140
+  var _v141 = _v0.i(0),
+    _v142 = _v0.i(0),
+    _v143 = _v0.i(0);
+  let _v144 = () => Error("Not implemented"),
+    _v145 = _v7.default.createContext({
+      trackFAEvent: _v144,
+      trackBPEvent: _v144
     });
-  function _v142({
+  function _v146({
     children: _v0
   }) {
     let {
       thirdPartyIntegration: _v1
-    } = (0, _v7.useContext)(_v98.ConfigContext);
-    return (0, _v6.jsx)(_v141.Provider, {
+    } = (0, _v7.useContext)(_v101.ConfigContext);
+    return (0, _v6.jsx)(_v145.Provider, {
       value: {
         trackFAEvent: (_v0, _v1) => {
           let _v2;
@@ -2708,25 +2715,25 @@
             third_party_integration: _v1
           }), _v0) {
             case 0:
-              _v139.FatalAttraction.trackClick({
+              _v143.FatalAttraction.trackClick({
                 ..._v1,
                 keyword: _v2
               });
               break;
             case 1:
-              _v139.FatalAttraction.trackEvent({
+              _v143.FatalAttraction.trackEvent({
                 ..._v1,
                 keyword: _v2
               });
               break;
             case 2:
-              _v139.FatalAttraction.trackImpression({
+              _v143.FatalAttraction.trackImpression({
                 ..._v1,
                 keyword: _v2
               });
               break;
             case 3:
-              _v139.FatalAttraction.trackPageView();
+              _v143.FatalAttraction.trackPageView();
           }
         },
         trackBPEvent: (_v0, _v1, _v2) => {
@@ -2739,16 +2746,12 @@
       children: _v0
     });
   }
-  var _v143 = _v0.i(0),
-    _v144 = _v0.i(0),
-    _v145 = _v0.i(0),
-    _v146 = _v0.i(0);
-  _v0.i(0);
   var _v147 = _v0.i(0),
     _v148 = _v0.i(0),
     _v149 = _v0.i(0),
-    _v150 = _v0.i(0),
-    _v151 = _v0.i(0),
+    _v150 = _v0.i(0);
+  _v0.i(0);
+  var _v151 = _v0.i(0),
     _v152 = _v0.i(0),
     _v153 = _v0.i(0),
     _v154 = _v0.i(0),
@@ -2769,8 +2772,11 @@
     _v169 = _v0.i(0),
     _v170 = _v0.i(0),
     _v171 = _v0.i(0),
-    _v172 = _v0.i(0);
-  let _v173 = {
+    _v172 = _v0.i(0),
+    _v173 = _v0.i(0),
+    _v174 = _v0.i(0),
+    _v175 = _v0.i(0);
+  let _v176 = {
       direction: "column",
       position: "fixed",
       right: "0",
@@ -2796,26 +2802,26 @@
         animation: "fadeIn 300ms ease-in-out"
       }
     },
-    _v174 = (0, _v7.memo)(({
+    _v177 = (0, _v7.memo)(({
       children: _v0
     }) => {
-      let _v1 = (0, _v167.useAppDispatch)(),
-        _v2 = (0, _v167.useAppSelector)(_v166.videoSessionIdSelector),
-        _v3 = (0, _v7.useContext)(_v160.FlowHooksContext),
+      let _v1 = (0, _v170.useAppDispatch)(),
+        _v2 = (0, _v170.useAppSelector)(_v169.videoSessionIdSelector),
+        _v3 = (0, _v7.useContext)(_v163.FlowHooksContext),
         [_v4, _v5] = (0, _v7.useState)(!1),
         {
           initialUploadLocalMediaFile: _v6,
           initialUploadLocalSoundFile: _v7
-        } = (0, _v162.useLocalFile)(),
+        } = (0, _v165.useLocalFile)(),
         {
           alertFileTooSmall: _v8,
           alertUploadFailed: _v9,
           alertUploadVideoLowResolution: _v10,
           alertMusicUploadTerms: _v11
-        } = (0, _v161.useAlerts)(),
+        } = (0, _v164.useAlerts)(),
         {
           notifyMaximumFilesUploadsLimit: _v12
-        } = (0, _v163.useNotifications)(),
+        } = (0, _v166.useNotifications)(),
         _v13 = (0, _v7.useCallback)(() => new Promise(_v0 => _v11({
           onPrimaryClick: _v0.bind(null, {
             agree: !0
@@ -2825,7 +2831,7 @@
           })
         })), [_v11]),
         _v14 = (0, _v7.useCallback)(async _v0 => {
-          (0, _v171.sendTrackUploadMediaFromComputer)({
+          (0, _v174.sendTrackUploadMediaFromComputer)({
             location: "filepicker",
             copy: null,
             element: "drag_and_drop"
@@ -2834,28 +2840,28 @@
             audioFiles: _v1,
             mediaFile: _v2
           } = [...(_v0.dataTransfer?.files ?? [])].reduce((_v0, _v1) => {
-            let _v2 = (0, _v172.getUploadTypeBySupportedExtension)(_v1.name);
-            return _v2 === _v170.UploadQueueFileType.VIDEO || _v2 === _v170.UploadQueueFileType.IMAGE ? _v0.mediaFile.push(_v1) : _v2 === _v170.UploadQueueFileType.AUDIO && _v0.audioFiles.push(_v1), _v0;
+            let _v2 = (0, _v175.getUploadTypeBySupportedExtension)(_v1.name);
+            return _v2 === _v173.UploadQueueFileType.VIDEO || _v2 === _v173.UploadQueueFileType.IMAGE ? _v0.mediaFile.push(_v1) : _v2 === _v173.UploadQueueFileType.AUDIO && _v0.audioFiles.push(_v1), _v0;
           }, {
             audioFiles: [],
             mediaFile: []
           });
-          if (_v2.length > 0 ? (_v1((0, _v165.updateInspectorDataAction)({
-            inspectorType: _v168.InspectorType.MEDIA,
+          if (_v2.length > 0 ? (_v1((0, _v168.updateInspectorDataAction)({
+            inspectorType: _v171.InspectorType.MEDIA,
             data: {
-              tab: _v168.MediaInspectorTabType.UPLOADS
+              tab: _v171.MediaInspectorTabType.UPLOADS
             }
-          })), _v1((0, _v165.openInspectorAction)({
-            inspectorType: _v168.InspectorType.MEDIA
-          }))) : _v1.length > 0 && (_v1((0, _v165.updateInspectorDataAction)({
-            inspectorType: _v168.InspectorType.MUSIC,
+          })), _v1((0, _v168.openInspectorAction)({
+            inspectorType: _v171.InspectorType.MEDIA
+          }))) : _v1.length > 0 && (_v1((0, _v168.updateInspectorDataAction)({
+            inspectorType: _v171.InspectorType.MUSIC,
             data: {
-              tab: _v168.MusicInspectorTabType.UPLOADS
+              tab: _v171.MusicInspectorTabType.UPLOADS
             }
-          })), _v1((0, _v165.openInspectorAction)({
-            inspectorType: _v168.InspectorType.MUSIC
+          })), _v1((0, _v168.openInspectorAction)({
+            inspectorType: _v171.InspectorType.MUSIC
           }))), _v2.length > 0) for (let _v0 of _v2) _v6(_v0).catch(_v0 => {
-            _v0.message === _v158.THE_VIDEO_HAS_UNSUPPORTED_RESOLUTION ? _v10() : _v0.message === _v158.THE_VIDEO_FILE_TOO_SMALL ? _v8() : _v0.message === _v158.THE_MAXIMUM_NUMBER_OF_FILES_REACHED ? _v12(_v3?.showQuotaUpsell) : (_v9(_v0.name), _v164.default.sendLog(_v159.FAILED_TO_UPLOAD_MEDIA, _v169.LogComponent.EDITOR_UPLOAD_ERROR, {
+            _v0.message === _v161.THE_VIDEO_HAS_UNSUPPORTED_RESOLUTION ? _v10() : _v0.message === _v161.THE_VIDEO_FILE_TOO_SMALL ? _v8() : _v0.message === _v161.THE_MAXIMUM_NUMBER_OF_FILES_REACHED ? _v12(_v3?.showQuotaUpsell) : (_v9(_v0.name), _v167.default.sendLog(_v162.FAILED_TO_UPLOAD_MEDIA, _v172.LogComponent.EDITOR_UPLOAD_ERROR, {
               fileName: _v0.name,
               vsid: _v2,
               error: _v0.message
@@ -2870,7 +2876,7 @@
                 errcode: _v1,
                 error: _v2
               } = _v0.data || {};
-              _v9(_v0.name), _v164.default.sendLog(_v159.FAILED_TO_UPLOAD_MUSIC, _v169.LogComponent.EDITOR_UPLOAD_ERROR, {
+              _v9(_v0.name), _v167.default.sendLog(_v162.FAILED_TO_UPLOAD_MUSIC, _v172.LogComponent.EDITOR_UPLOAD_ERROR, {
                 fileName: _v0.name,
                 vsid: _v2,
                 error: _v2,
@@ -2893,18 +2899,18 @@
         }, [_v14, _v15]);
       return (0, _v6.jsxs)(_v6.Fragment, {
         children: [_v4 && (0, _v6.jsx)(_v74.Flex, {
-          ..._v173,
+          ..._v176,
           height: window.innerHeight,
           width: window.innerWidth,
           children: (0, _v6.jsxs)(_v74.Flex, {
             direction: "column",
-            width: (0, _v155.rem)(200),
+            width: (0, _v159.rem)(200),
             textAlign: "center",
             align: "center",
             gap: "md",
-            children: [(0, _v6.jsx)(_v157.Upload, {
+            children: [(0, _v6.jsx)(_v160.Upload, {
               boxSize: "2xl"
-            }), (0, _v6.jsx)(_v156.Text, {
+            }), (0, _v6.jsx)(_v80.Text, {
               variant: "heading-md",
               whiteSpace: "break-spaces",
               textAlign: "center",
@@ -2936,7 +2942,7 @@
               })
             })]
           })
-        }), (0, _v6.jsx)(_v154.Dropzone, {
+        }), (0, _v6.jsx)(_v158.Dropzone, {
           onDragLeave: _v16,
           onDragOver: _v17,
           onChange: _v18,
@@ -2950,40 +2956,39 @@
         })]
       });
     });
-  var _v175 = _v0.i(0);
-  let _v176 = (0, _v7.memo)(({
+  var _v178 = _v0.i(0);
+  let _v179 = (0, _v7.memo)(({
     children: _v0
-  }) => (0, _v167.useAppSelector)(_v175.isInteractiveSelector) ? (0, _v6.jsx)(_v6.Fragment, {
+  }) => (0, _v170.useAppSelector)(_v178.isInteractiveSelector) ? (0, _v6.jsx)(_v6.Fragment, {
     children: _v0
-  }) : (0, _v6.jsx)(_v174, {
+  }) : (0, _v6.jsx)(_v177, {
     children: _v0
   }));
-  var _v177 = _v0.i(0),
-    _v178 = _v0.i(0),
-    _v179 = _v0.i(0),
-    _v180 = _v0.i(0),
-    _v181 = _v0.i(0);
-  let _v182 = () => {
-    let _v0 = (0, _v167.useAppSelector)(_v165.inspectorWidthSelector);
-    return (0, _v167.useAppSelector)(_v181.isTemplateBeingAddedSelector) ? (0, _v6.jsx)(_v179.ContentLoaderContainer, {
+  var _v180 = _v0.i(0),
+    _v181 = _v0.i(0),
+    _v182 = _v0.i(0),
+    _v183 = _v0.i(0),
+    _v184 = _v0.i(0);
+  let _v185 = () => {
+    let _v0 = (0, _v170.useAppSelector)(_v168.inspectorWidthSelector);
+    return (0, _v170.useAppSelector)(_v184.isTemplateBeingAddedSelector) ? (0, _v6.jsx)(_v182.ContentLoaderContainer, {
       inspectorWidth: _v0,
-      "data-testid": _v180.testIds.contentLoader,
-      children: (0, _v6.jsx)(_v178.Spinner, {
+      "data-testid": _v183.testIds.contentLoader,
+      children: (0, _v6.jsx)(_v181.Spinner, {
         size: "xl"
       })
     }) : null;
   };
-  var _v183 = _v0.i(0),
-    _v184 = _v0.i(0),
-    _v185 = _v0.i(0),
-    _v186 = _v0.i(0),
+  var _v186 = _v0.i(0),
     _v187 = _v0.i(0),
     _v188 = _v0.i(0),
     _v189 = _v0.i(0),
     _v190 = _v0.i(0),
-    _v191 = _v0.i(0);
-  let _v192 = () => {
-    let _v0 = (0, _v167.useAppDispatch)(),
+    _v191 = _v0.i(0),
+    _v192 = _v0.i(0),
+    _v193 = _v0.i(0);
+  let _v194 = () => {
+    let _v0 = (0, _v170.useAppDispatch)(),
       {
         active: _v1,
         title: _v2,
@@ -2997,10 +3002,10 @@
         via: _v10,
         notificationName: _v11,
         showAgainConfig: _v12
-      } = (0, _v167.useAppSelector)(_v190.alertSelector),
+      } = (0, _v170.useAppSelector)(_v192.alertSelector),
       _v13 = (0, _v7.useRef)(_v12?.value),
       _v14 = (0, _v7.useCallback)(() => {
-        (0, _v191.sendTrackViewEditorNotification)({
+        (0, _v193.sendTrackViewEditorNotification)({
           notificationName: _v11,
           mainCta: _v4?.content || null,
           errorCode: _v9 || null,
@@ -3010,7 +3015,7 @@
         });
       }, [_v9, _v8, _v11, _v4?.content, _v12, _v10]),
       _v15 = (0, _v7.useCallback)(_v0 => {
-        (0, _v191.sendTrackSelectEditorNotificationOption)({
+        (0, _v193.sendTrackSelectEditorNotificationOption)({
           notificationName: _v11,
           mainCta: _v4?.content || null,
           errorCode: _v9 || null,
@@ -3023,13 +3028,13 @@
         });
       }, [_v9, _v8, _v11, _v4?.content, _v12, _v10]),
       _v16 = (0, _v7.useCallback)(() => {
-        _v15("X"), _v0((0, _v190.hideAlertAction)()), _v6?.();
+        _v15("X"), _v0((0, _v192.hideAlertAction)()), _v6?.();
       }, [_v0, _v6, _v15]),
       _v17 = (0, _v7.useCallback)(() => {
-        _v5?.content && _v15(_v5?.content), _v0((0, _v190.hideAlertAction)()), _v5?.onClick();
+        _v5?.content && _v15(_v5?.content), _v0((0, _v192.hideAlertAction)()), _v5?.onClick();
       }, [_v0, _v5, _v15]),
       _v18 = (0, _v7.useCallback)(() => {
-        _v4?.content && _v15(_v4?.content), _v0((0, _v190.hideAlertAction)()), _v4?.onClick();
+        _v4?.content && _v15(_v4?.content), _v0((0, _v192.hideAlertAction)()), _v4?.onClick();
       }, [_v0, _v4, _v15]),
       _v19 = (0, _v7.useCallback)(() => {
         _v12 && (_v12.toggle(!_v13.current), _v13.current = !_v13.current);
@@ -3044,8 +3049,8 @@
         "data-testid": "alert-container",
         translate: "no",
         className: "notranslate",
-        children: [(0, _v6.jsx)(_v189.ModalHeader, {
-          children: (0, _v6.jsx)(_v156.Text, {
+        children: [(0, _v6.jsx)(_v191.ModalHeader, {
+          children: (0, _v6.jsx)(_v80.Text, {
             variant: "heading-md",
             "data-testid": "alert-title",
             children: _v2
@@ -3053,11 +3058,11 @@
         }), _v7 && (0, _v6.jsx)(_v77.ModalCloseButton, {
           onClick: _v16
         }), (0, _v6.jsxs)(_v76.ModalBody, {
-          children: [_v3, _v12 && (0, _v6.jsx)(_v185.Box, {
-            children: (0, _v6.jsx)(_v187.Checkbox, {
+          children: [_v3, _v12 && (0, _v6.jsx)(_v188.Box, {
+            children: (0, _v6.jsx)(_v189.Checkbox, {
               marginTop: "10px",
               onChange: _v19,
-              children: (0, _v6.jsx)(_v156.Text, {
+              children: (0, _v6.jsx)(_v80.Text, {
                 variant: "body-sm",
                 children: (0, _v62.translate)({
                   singular: "Don't show this message again",
@@ -3088,14 +3093,14 @@
               })
             })
           })]
-        }), (0, _v6.jsxs)(_v188.ModalFooter, {
-          children: [_v5 && (0, _v6.jsx)(_v186.Button, {
+        }), (0, _v6.jsxs)(_v190.ModalFooter, {
+          children: [_v5 && (0, _v6.jsx)(_v92.Button, {
             variant: "tertiary",
             onClick: _v17,
             minWidth: 96,
             "data-testid": "alert-secondary-button",
             children: _v5.content
-          }), _v4 && (0, _v6.jsx)(_v186.Button, {
+          }), _v4 && (0, _v6.jsx)(_v92.Button, {
             variant: "primary",
             onClick: _v18,
             minWidth: 96,
@@ -3106,9 +3111,7 @@
       })]
     });
   };
-  var _v193 = _v0.i(0),
-    _v194 = _v0.i(0),
-    _v195 = _v0.i(0),
+  var _v195 = _v0.i(0),
     _v196 = _v0.i(0),
     _v197 = _v0.i(0),
     _v198 = _v0.i(0),
@@ -3130,10 +3133,10 @@
 `,
     _v206 = "none",
     _v207 = () => {
-      let _v0 = (0, _v167.useAppSelector)(_v166.videoSessionIdSelector),
+      let _v0 = (0, _v170.useAppSelector)(_v169.videoSessionIdSelector),
         [_v1, _v2] = (0, _v7.useState)(!1),
         _v3 = (0, _v7.useRef)(_v206),
-        _v4 = (0, _v7.useContext)(_v160.FlowHooksContext),
+        _v4 = (0, _v7.useContext)(_v163.FlowHooksContext),
         {
           canToggleWatermark: _v5
         } = (0, _v7.useContext)(_v202.LabeledCapabilitiesContext) || {},
@@ -3143,24 +3146,24 @@
         _v7 = _v4 && !_v6;
       return (0, _v7.useEffect)(() => {
         _v3.current === _v206 && _v7 && (_v3.current = "initial", _v2(!0), (0, _v204.sendTrackWatermarkBannerImpression)()), _v7 || _v2(!1);
-      }, [_v7]), (0, _v6.jsxs)(_v196.Popover, {
+      }, [_v7]), (0, _v6.jsxs)(_v197.Popover, {
         placement: "top",
         isOpen: _v1,
-        children: [(0, _v6.jsx)(_v200.Portal, {
-          children: (0, _v6.jsx)(_v195.LightMode, {
-            children: (0, _v6.jsx)(_v198.PopoverContent, {
+        children: [(0, _v6.jsx)(_v201.Portal, {
+          children: (0, _v6.jsx)(_v196.LightMode, {
+            children: (0, _v6.jsx)(_v199.PopoverContent, {
               color: "#341070",
               bgColor: "#efeafa",
               fontWeight: "500",
               fontSize: "14",
               borderRadius: 10,
               maxWidth: "100%",
-              "data-testid": _v180.testIds.upsellBanner,
-              children: (0, _v6.jsxs)(_v193.HStack, {
+              "data-testid": _v183.testIds.upsellBanner,
+              children: (0, _v6.jsxs)(_v195.HStack, {
                 spacing: 20,
                 paddingLeft: 2,
                 height: 30,
-                children: [(0, _v6.jsx)(_v197.PopoverBody, {
+                children: [(0, _v6.jsx)(_v198.PopoverBody, {
                   children: (0, _v62.translate)({
                     singular: "Remove Vimeo watermark & unlock top-notch tools.",
                     dictionary: {
@@ -3187,7 +3190,7 @@
                       }
                     }
                   })
-                }), (0, _v6.jsx)(_v185.Box, {
+                }), (0, _v6.jsx)(_v188.Box, {
                   borderRadius: "5px",
                   as: "button",
                   backgroundColor: "#8a5ee8",
@@ -3202,7 +3205,7 @@
                       tier: _v0.name
                     });
                   },
-                  "data-testid": _v180.testIds.upsellBannerUpgradeButton,
+                  "data-testid": _v183.testIds.upsellBannerUpgradeButton,
                   children: (0, _v62.translate)({
                     singular: "Upgrade",
                     dictionary: {
@@ -3226,18 +3229,18 @@
                       }
                     }
                   })
-                }), (0, _v6.jsx)(_v194.IconButton, {
+                }), (0, _v6.jsx)(_v94.IconButton, {
                   "aria-label": "Dismiss",
                   backgroundColor: "transparent",
                   variant: "transparent xs",
-                  icon: (0, _v6.jsx)(_v201.CloseX, {}),
+                  icon: (0, _v6.jsx)(_v96.CloseX, {}),
                   onClick: () => _v2(!1),
-                  "data-testid": _v180.testIds.upsellBannerCloseButton
+                  "data-testid": _v183.testIds.upsellBannerCloseButton
                 })]
               })
             })
           })
-        }), (0, _v6.jsx)(_v199.PopoverTrigger, {
+        }), (0, _v6.jsx)(_v200.PopoverTrigger, {
           children: (0, _v6.jsx)(_v205, {})
         })]
       });
@@ -3348,8 +3351,8 @@
           settings: _v0
         } = (0, _v234.useOrionSettings)(),
         _v1 = (0, _v7.useContext)(_v235.PartnershipAppContext),
-        _v2 = (0, _v167.useAppSelector)(_v175.isInteractiveSelector),
-        _v3 = (0, _v167.useAppSelector)(_v237.editedTeamTemplateHashSelector);
+        _v2 = (0, _v170.useAppSelector)(_v178.isInteractiveSelector),
+        _v3 = (0, _v170.useAppSelector)(_v237.editedTeamTemplateHashSelector);
       return _v0.editor_ui_reworked && !_v2 && !_v3 && !_v1?.app && !_v236.default.isEditingTeamTemplate;
     },
     _v239 = () => {
@@ -3374,7 +3377,7 @@
     _v243 = _v0.i(0),
     _v244 = _v0.i(0);
   let _v245 = () => {
-    let _v0 = (0, _v167.useAppSelector)(_v242.urlMapSelector);
+    let _v0 = (0, _v170.useAppSelector)(_v242.urlMapSelector);
     return {
       resolveStoryboardUrls: (0, _v7.useCallback)(_v0 => {
         let _v1 = [];
@@ -3411,21 +3414,21 @@
         let _v1 = JSON.parse(JSON.stringify(_v0));
         return _v1.layers.forEach(_v0 => {
           _v0.composition.forEach(_v0 => {
-            (0, _v247.isValidRect)(_v0.rect) || (0, _v243.isTransitionElement)(_v0) || _v164.default.sendLog(_v159.INVALID_RECT, _v169.LogComponent.EDITOR_ERROR, {
+            (0, _v247.isValidRect)(_v0.rect) || (0, _v243.isTransitionElement)(_v0) || _v167.default.sendLog(_v162.INVALID_RECT, _v172.LogComponent.EDITOR_ERROR, {
               storyboardId: _v0.id,
               flow: "save"
-            }), (0, _v247.isValidCompositionTiming)(_v0) || (0, _v243.isTransitionElement)(_v0) || _v164.default.sendLog(_v159.TOO_SHORT_COMPOSITION_TIMING, _v169.LogComponent.EDITOR_ERROR, {
+            }), (0, _v247.isValidCompositionTiming)(_v0) || (0, _v243.isTransitionElement)(_v0) || _v167.default.sendLog(_v162.TOO_SHORT_COMPOSITION_TIMING, _v172.LogComponent.EDITOR_ERROR, {
               storyboardId: _v0.id,
               flow: "save"
-            }), (0, _v247.isNegativeCompositionTiming)(_v0) && _v164.default.sendLog(_v159.INVALID_COMPOSITION_TIMING, _v169.LogComponent.EDITOR_ERROR, {
+            }), (0, _v247.isNegativeCompositionTiming)(_v0) && _v167.default.sendLog(_v162.INVALID_COMPOSITION_TIMING, _v172.LogComponent.EDITOR_ERROR, {
               storyboardId: _v0.id,
               flow: "save"
-            }), ((0, _v243.isSoundElement)(_v0) || (0, _v243.isVideoElement)(_v0)) && !(0, _v247.validateSoundEffects)(_v0) && _v164.default.sendLog(_v159.INVALID_SOUND_EFFECTS_TIMING, _v169.LogComponent.EDITOR_ERROR, {
+            }), ((0, _v243.isSoundElement)(_v0) || (0, _v243.isVideoElement)(_v0)) && !(0, _v247.validateSoundEffects)(_v0) && _v167.default.sendLog(_v162.INVALID_SOUND_EFFECTS_TIMING, _v172.LogComponent.EDITOR_ERROR, {
               storyboardId: _v0.id,
               flow: "save"
             });
           });
-        }), (0, _v246.removeStaleCredits)(_v1.layers) && _v164.default.sendLog(_v159.STALE_CREDITS, _v169.LogComponent.EDITOR_ERROR, {
+        }), (0, _v246.removeStaleCredits)(_v1.layers) && _v167.default.sendLog(_v162.STALE_CREDITS, _v172.LogComponent.EDITOR_ERROR, {
           storyboardId: _v0.id,
           flow: "save"
         }), _v0(_v1);
@@ -3443,13 +3446,13 @@
     _v257 = _v0.i(0),
     _v258 = _v0.i(0);
   let _v259 = () => {
-    let _v0 = (0, _v167.useAppDispatch)(),
+    let _v0 = (0, _v170.useAppDispatch)(),
       _v1 = (0, _v8.useHistory)(),
       _v2 = _v238(),
-      _v3 = (0, _v167.useAppSelector)(_v166.videoSessionIdSelector),
-      _v4 = (0, _v167.useAppSelector)(_v256.folderUriSelector),
+      _v3 = (0, _v170.useAppSelector)(_v169.videoSessionIdSelector),
+      _v4 = (0, _v170.useAppSelector)(_v256.folderUriSelector),
       _v5 = (0, _v216.useIsStaff)(),
-      _v6 = (0, _v167.useAppSelector)(_v0 => _v0.featureFlags.kiteRender.value) || _v5 || !0,
+      _v6 = (0, _v170.useAppSelector)(_v0 => _v0.featureFlags.kiteRender.value) || _v5 || !0,
       _v7 = (0, _v7.useRef)(""),
       [_v8] = (0, _v255.useSaveStoryboardMutation)({
         fixedCacheKey: _v255.SHARED_SAVE_STORYBOARD_KEY
@@ -3464,13 +3467,13 @@
         alertUnauthorized: _v13,
         alertStoryboardNotFound: _v14,
         alertVideoIsDeleted: _v15
-      } = (0, _v161.useAlerts)(),
+      } = (0, _v164.useAlerts)(),
       {
         updateTotalSavedEdits: _v16
       } = (0, _v241.useEditorCsat)(),
       {
         jwt: _v17
-      } = (0, _v151.useGctlConfig)(),
+      } = (0, _v155.useGctlConfig)(),
       {
         getSavedStoryboardStorageValue: _v18,
         removeSavedStoryboard: _v19,
@@ -3479,7 +3482,7 @@
       {
         validateStoryboard: _v21
       } = _v248(),
-      _v22 = (0, _v7.useContext)(_v160.FlowHooksContext),
+      _v22 = (0, _v7.useContext)(_v163.FlowHooksContext),
       _v23 = (0, _v7.useContext)(_v235.PartnershipAppContext),
       {
         canRemoveCreateWatermark: _v24 = !1
@@ -3490,14 +3493,14 @@
         }), !1;
         let _v6 = _v0.data && _v0.data.error_code,
           _v7 = _v0.data?.error;
-        if (_v6 === _v250.RESTRICTED_VIDEO_STORAGE_LIMIT_EXCEEDED || _v6 === _v250.UPLOAD_RESTRICTED_STORAGE_LIMIT_EXCEEDED) (0, _v204.sendTrackTriggerQuotaUpsell)(!!_v3), _v22?.showStorageQuotaUpsell ? _v22.showStorageQuotaUpsell() : _v22?.showQuotaUpsell(), (0, _v191.sendTrackViewEditorNotification)({
+        if (_v6 === _v250.RESTRICTED_VIDEO_STORAGE_LIMIT_EXCEEDED || _v6 === _v250.UPLOAD_RESTRICTED_STORAGE_LIMIT_EXCEEDED) (0, _v204.sendTrackTriggerQuotaUpsell)(!!_v3), _v22?.showStorageQuotaUpsell ? _v22.showStorageQuotaUpsell() : _v22?.showQuotaUpsell(), (0, _v193.sendTrackViewEditorNotification)({
           notificationName: _v252.notificationName.quoteUpsell,
           mainCta: null,
           errorCode: _v6?.toString() || null,
           errorName: _v0.data?.error || null,
           via: null,
           isCheckbox: null
-        });else if (_v6 === _v250.QUOTA_LIMIT || _v6 === _v250.DISK_SIZE_LIMIT || "out of quota" === _v7) (0, _v204.sendTrackTriggerQuotaUpsell)(!!_v3), _v22?.showQuotaUpsell(), (0, _v191.sendTrackViewEditorNotification)({
+        });else if (_v6 === _v250.QUOTA_LIMIT || _v6 === _v250.DISK_SIZE_LIMIT || "out of quota" === _v7) (0, _v204.sendTrackTriggerQuotaUpsell)(!!_v3), _v22?.showQuotaUpsell(), (0, _v193.sendTrackViewEditorNotification)({
           notificationName: _v252.notificationName.quoteUpsell,
           mainCta: null,
           errorCode: _v6?.toString() || null,
@@ -3510,7 +3513,7 @@
           upsellTrigger: "save",
           triggerCapability: "capability",
           pageLocation: "editor_screen"
-        }), (0, _v191.sendTrackViewEditorNotification)({
+        }), (0, _v193.sendTrackViewEditorNotification)({
           notificationName: _v252.notificationName.insufficientAccountLevel,
           mainCta: null,
           errorCode: _v6?.toString(),
@@ -3520,7 +3523,7 @@
         });else if (_v6 === _v250.INVALID_STORYBOARD_ID) {
           let _v0,
             _v1 = (_v0 = _v0.data?.error.match(/\b(\w+)$/), _v0?.[0]);
-          if (_v1) return _v236.default.setVideoHash(_v1), _v0((0, _v166.setStoryboardIdAction)(_v1)), _v2.current = _v1, _v1();
+          if (_v1) return _v236.default.setVideoHash(_v1), _v0((0, _v169.setStoryboardIdAction)(_v1)), _v2.current = _v1, _v1();
         } else _v6 === _v250.STORYBOARD_NOT_FOUND ? _v14() : _v0.status === _v250.UNAUTHORIZED ? _v13() : _v0.status === _v250.NOT_FOUND ? _v15() : _v0.status.toString() === _v250.FETCH_ERROR ? (_v5?.(), _v12({
           onPrimaryClick: _v4
         })) : _v6 === _v250.SESSION_IS_ARCHIVED ? _v15() : _v11(_v0, _v230.default.getState().storyboard);
@@ -3553,7 +3556,7 @@
           });
           _v0((0, _v256.setFolderUriAction)(_v0.uri));
         } catch (_v0) {
-          _v164.default.sendLog(_v158.FAILED_TO_CREATE_VIMEO_CREATE_FOLDER, _v169.LogComponent.EDITOR_ERROR, {
+          _v167.default.sendLog(_v161.FAILED_TO_CREATE_VIMEO_CREATE_FOLDER, _v172.LogComponent.EDITOR_ERROR, {
             storyboardId: _v230.default.getState().storyboard.id,
             flow: "create folder"
           });
@@ -3588,13 +3591,13 @@
           if (!_v5) return _v11({
             data: {
               error_code: 0,
-              error: _v158.NO_PERMISSIONS_TO_CREATE
+              error: _v161.NO_PERMISSIONS_TO_CREATE
             }
           }, _v230.default.getState().storyboard), !1;
           if (_v16(), _v2 && _v0((0, _v229.setAppliedStoryboardAction)(_v0)), _v2 && (_v2 ? _v20(_v0.id, _v1) : _v19()), _v0?.shouldNavigate === !1) return _v0.onExitSaveSuccess?.(), !0;
           if (_v23?.app) return (0, _v244.partnerRouteToPreview)(_v4.storyboardId), !0;
           let _v6 = (0, _v257.getMemoryUsage)(_v2);
-          return _v6 && _v164.default.sendAction(_v251.EditorMemoryUsage, _v6), _v1.push(`${_v253.MANAGE_VIDEO_PATH}${_v5}`), !0;
+          return _v6 && _v167.default.sendAction(_v251.EditorMemoryUsage, _v6), _v1.push(`${_v253.MANAGE_VIDEO_PATH}${_v5}`), !0;
         } catch (_v0) {
           return _v25(_v0, async () => _v26(_v0), _v7, _v0?.isNewClip, async () => (_v0?.onRetryStarted?.(), _v26(_v0)), _v0?.onRetryableError);
         }
@@ -3639,7 +3642,7 @@
       children: _v0,
       isEnabled: _v1
     }) => {
-      let _v2 = (0, _v167.useAppDispatch)(),
+      let _v2 = (0, _v170.useAppDispatch)(),
         {
           isOnline: _v3
         } = _v239(),
@@ -3658,21 +3661,21 @@
         {
           removeSavedStoryboardFor: _v10
         } = _v227(),
-        _v11 = (0, _v167.useAppSelector)(_v229.isAppliedStoryboardReadySelector),
-        _v12 = (0, _v167.useAppSelector)(_v260.pausedSelector),
-        _v13 = (0, _v167.useAppSelector)(_v255.isStoryboardSavingSelector),
-        _v14 = (0, _v167.useAppSelector)(_v229.isLocalAutoSaveSelector),
-        _v15 = (0, _v167.useAppSelector)(_v190.isAlertVisibleSelector),
-        _v16 = (0, _v167.useAppSelector)(_v261.openModalIdSelector),
+        _v11 = (0, _v170.useAppSelector)(_v229.isAppliedStoryboardReadySelector),
+        _v12 = (0, _v170.useAppSelector)(_v260.pausedSelector),
+        _v13 = (0, _v170.useAppSelector)(_v255.isStoryboardSavingSelector),
+        _v14 = (0, _v170.useAppSelector)(_v229.isLocalAutoSaveSelector),
+        _v15 = (0, _v170.useAppSelector)(_v192.isAlertVisibleSelector),
+        _v16 = (0, _v170.useAppSelector)(_v261.openModalIdSelector),
         {
           isShown: _v17
-        } = (0, _v167.useAppSelector)(_v262.recordSelector),
-        _v18 = (0, _v167.useAppSelector)(_v166.isElementsLoadingSelector),
-        _v19 = (0, _v167.useAppSelector)(_v242.isLoadingElementInUseSelector),
-        _v20 = (0, _v167.useAppSelector)(_v181.isTemplateBeingAddedSelector),
-        _v21 = (0, _v167.useAppSelector)(_v263.hasPendingUploadsSelector),
-        _v22 = (0, _v167.useAppSelector)(_v166.someLayersHaveCompositionSelector),
-        _v23 = (0, _v167.useAppSelector)(_v166.storyboardIdSelector),
+        } = (0, _v170.useAppSelector)(_v262.recordSelector),
+        _v18 = (0, _v170.useAppSelector)(_v169.isElementsLoadingSelector),
+        _v19 = (0, _v170.useAppSelector)(_v242.isLoadingElementInUseSelector),
+        _v20 = (0, _v170.useAppSelector)(_v184.isTemplateBeingAddedSelector),
+        _v21 = (0, _v170.useAppSelector)(_v263.hasPendingUploadsSelector),
+        _v22 = (0, _v170.useAppSelector)(_v169.someLayersHaveCompositionSelector),
+        _v23 = (0, _v170.useAppSelector)(_v169.storyboardIdSelector),
         [_v24, _v25] = (0, _v7.useState)(!1),
         [_v26, _v27] = (0, _v7.useState)(!1),
         [_v28, _v29] = (0, _v7.useState)(!1),
@@ -3814,17 +3817,17 @@
     isSaveOrExitEditorDisabled: _v1,
     onBackButtonClick: _v2
   }) => {
-    let _v3 = (0, _v167.useAppSelector)(_v273.hasUnsavedOverlayChangesSelector),
+    let _v3 = (0, _v170.useAppSelector)(_v273.hasUnsavedOverlayChangesSelector),
       {
         alertDiscardOverlayChanges: _v4
-      } = (0, _v161.useAlerts)(),
+      } = (0, _v164.useAlerts)(),
       {
         closeOverlayEditor: _v5
       } = (0, _v272.useInteractiveOverlay)(),
       {
         requestExit: _v6
       } = _v269();
-    return (0, _v6.jsx)(_v194.IconButton, {
+    return (0, _v6.jsx)(_v94.IconButton, {
       icon: (0, _v6.jsx)(_v218.ArrowLeft, {}),
       "aria-label": "back",
       variant: "secondary",
@@ -3873,11 +3876,11 @@
   var _v285 = _v0.i(0),
     _v286 = _v0.i(0),
     _v287 = _v0.i(0);
-  let _v288 = (0, _v155.rem)(16),
+  let _v288 = (0, _v159.rem)(16),
     _v289 = "85vw",
     _v290 = "85vh",
     _v291 = (_v0, _v1) => {
-      (0, _v191.sendTrackPlayPauseVideo)({
+      (0, _v193.sendTrackPlayPauseVideo)({
         totalDuration: _v0.duration,
         action: _v1 ? "pause" : "play",
         via: "preview",
@@ -3945,7 +3948,7 @@
         }(),
         _v3 = function () {
           let [_v0, _v1] = (0, _v7.useState)(),
-            _v2 = (0, _v167.useAppSelector)(_v166.storyboardSelector);
+            _v2 = (0, _v170.useAppSelector)(_v169.storyboardSelector);
           return (0, _v7.useEffect)(function () {
             let _v0 = new AbortController();
             return _v283(_v2, {
@@ -3964,7 +3967,7 @@
           }, [_v2]), _v0;
         }(),
         [_v4, _v5] = (0, _v7.useState)(!0),
-        _v6 = (0, _v167.useAppSelector)(_v166.orientationSelector),
+        _v6 = (0, _v170.useAppSelector)(_v169.orientationSelector),
         _v7 = `calc(${_v289} * ${_v296(_v6, "height")})`;
       return (0, _v6.jsxs)(_v75.Modal, {
         isOpen: !0,
@@ -4035,8 +4038,8 @@
       });
     },
     _v295 = (0, _v7.forwardRef)((_v0, _v1) => {
-      let _v2 = (0, _v167.useAppSelector)(_v261.openModalIdSelector),
-        _v3 = (0, _v167.useAppDispatch)(),
+      let _v2 = (0, _v170.useAppSelector)(_v261.openModalIdSelector),
+        _v3 = (0, _v170.useAppDispatch)(),
         {
           pause: _v4
         } = (0, _v222.useDragonfly)(),
@@ -4046,7 +4049,7 @@
         };
       return ((0, _v7.useImperativeHandle)(_v1, () => ({
         open: () => {
-          _v4(), _v3((0, _v261.setOpenModalIdAction)(_v5)), (0, _v191.sendTrackPreviewEditor)();
+          _v4(), _v3((0, _v261.setOpenModalIdAction)(_v5)), (0, _v193.sendTrackPreviewEditor)();
         },
         close: () => _v6()
       })), _v2 !== _v5) ? null : (0, _v6.jsx)(_v278.PlayerContextProvider, {
@@ -4067,60 +4070,59 @@
     _v300 = _v0.i(0),
     _v301 = _v0.i(0),
     _v302 = _v0.i(0),
-    _v303 = _v0.i(0),
-    _v304 = _v0.i(0);
-  let _v305 = `
+    _v303 = _v0.i(0);
+  let _v304 = `
     Changing this feature requires reload.
     All unsaved changes (if any) will be lost.
     Do you want to continue?
 `,
-    _v306 = "vimeo-editor-feature-flags";
-  var _v307 = _v0.i(0),
-    _v308 = _v0.i(0);
-  let _v309 = () => {
-      let _v0 = (0, _v167.useAppDispatch)(),
+    _v305 = "vimeo-editor-feature-flags";
+  var _v306 = _v0.i(0),
+    _v307 = _v0.i(0);
+  let _v308 = () => {
+      let _v0 = (0, _v170.useAppDispatch)(),
         _v1 = (0, _v216.useIsStaff)(),
         _v2 = (0, _v7.useCallback)((_v0, _v1, _v2 = !0) => {
-          let _v3 = JSON.parse(sessionStorage.getItem(_v306) || "{}");
-          _v2 && sessionStorage.setItem(_v306, JSON.stringify({
+          let _v3 = JSON.parse(sessionStorage.getItem(_v305) || "{}");
+          _v2 && sessionStorage.setItem(_v305, JSON.stringify({
             ..._v3,
             [_v0]: _v1
-          })), _v0((0, _v175.setFeatureFlagValueAction)({
+          })), _v0((0, _v178.setFeatureFlagValueAction)({
             featureFlag: _v0,
             value: _v1
           }));
         }, [_v0]);
       return {
         initFeatureFlags: (0, _v7.useCallback)(async _v0 => {
-          let _v1 = JSON.parse(sessionStorage.getItem(_v306) || "{}"),
+          let _v1 = JSON.parse(sessionStorage.getItem(_v305) || "{}"),
             _v2 = {},
             _v3 = new URLSearchParams(window.location.search);
-          for (let _v0 in _v307.FeatureFlags) {
-            let _v0 = _v3.get(_v307.FeatureFlags[_v0]);
-            ("true" === _v0 || "false" === _v0) && (_v2[_v307.FeatureFlags[_v0]] = "true" === _v0);
+          for (let _v0 in _v306.FeatureFlags) {
+            let _v0 = _v3.get(_v306.FeatureFlags[_v0]);
+            ("true" === _v0 || "false" === _v0) && (_v2[_v306.FeatureFlags[_v0]] = "true" === _v0);
           }
           let _v4 = {
             ..._v1,
             ...(_v1 && _v2)
           };
-          sessionStorage.setItem(_v306, JSON.stringify(_v4));
+          sessionStorage.setItem(_v305, JSON.stringify(_v4));
           let _v5 = {
               ..._v0,
               ..._v4
             },
             _v6 = [],
-            _v7 = Object.values(_v307.FeatureFlags);
+            _v7 = Object.values(_v306.FeatureFlags);
           Object.keys(_v5).forEach(_v0 => {
-            (0, _v308.isValueInArray)(_v0, _v7) && _v6.push({
+            (0, _v307.isValueInArray)(_v0, _v7) && _v6.push({
               featureFlag: _v0,
               value: _v5[_v0]
             });
-          }), _v0((0, _v175.initFeatureFlagsAction)(_v6));
+          }), _v0((0, _v178.initFeatureFlagsAction)(_v6));
         }, [_v0, _v1]),
         setFeatureFlagValue: _v2
       };
     },
-    _v310 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
+    _v309 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
       ref: _v1,
       ..._v0,
       width: "24",
@@ -4135,14 +4137,14 @@
         fill: "currentcolor"
       })
     })),
-    _v311 = () => {
-      let _v0 = (0, _v167.useAppSelector)(_v175.featureFlagsSelector),
-        _v1 = (0, _v167.useAppSelector)(_v166.videoSessionIdSelector),
+    _v310 = () => {
+      let _v0 = (0, _v170.useAppSelector)(_v178.featureFlagsSelector),
+        _v1 = (0, _v170.useAppSelector)(_v169.videoSessionIdSelector),
         {
           setFeatureFlagValue: _v2
-        } = _v309(),
+        } = _v308(),
         _v3 = (0, _v7.useCallback)((_v0, _v1 = !1, _v2) => {
-          _v1 ? window.confirm(_v305) && (_v2(_v0, _v2), window.location.reload()) : _v2(_v0, _v2);
+          _v1 ? window.confirm(_v304) && (_v2(_v0, _v2), window.location.reload()) : _v2(_v0, _v2);
         }, [_v2]),
         _v4 = _v0 => {
           let _v1 = `/admin/${_v0}`,
@@ -4152,52 +4154,52 @@
         _v5 = Object.entries(_v0).filter(([, {
           value: _v0
         }]) => _v0).map(([_v0]) => _v0);
-      return (0, _v6.jsxs)(_v298.Menu, {
+      return (0, _v6.jsxs)(_v297.Menu, {
         closeOnSelect: !1,
-        children: [(0, _v6.jsx)(_v299.MenuButton, {
-          as: _v194.IconButton,
-          icon: (0, _v6.jsx)(_v310, {}),
+        children: [(0, _v6.jsx)(_v298.MenuButton, {
+          as: _v94.IconButton,
+          icon: (0, _v6.jsx)(_v309, {}),
           size: "md",
           variant: "secondary"
-        }), (0, _v6.jsxs)(_v303.MenuList, {
-          children: [(0, _v6.jsx)(_v301.MenuItem, {
-            children: (0, _v6.jsx)(_v297.Link, {
+        }), (0, _v6.jsxs)(_v302.MenuList, {
+          children: [(0, _v6.jsx)(_v300.MenuItem, {
+            children: (0, _v6.jsx)(_v111.Link, {
               href: window.location.href.replace("edit", "customize"),
               rel: "noopener noreferrer",
-              children: (0, _v6.jsx)(_v156.Text, {
+              children: (0, _v6.jsx)(_v80.Text, {
                 variant: "body-md",
                 children: "Open in Editor 1.0"
               })
             })
-          }), (0, _v6.jsxs)(_v301.MenuItem, {
-            children: [(0, _v6.jsx)(_v156.Text, {
+          }), (0, _v6.jsxs)(_v300.MenuItem, {
+            children: [(0, _v6.jsx)(_v80.Text, {
               variant: "body-md",
               marginRight: "4px",
               children: "Admin:"
-            }), (0, _v6.jsx)(_v297.Link, {
+            }), (0, _v6.jsx)(_v111.Link, {
               href: _v4(`video/videosession/?pk__exact=${_v1}`),
               target: "_blank",
               rel: "noopener noreferrer",
-              children: (0, _v6.jsx)(_v156.Text, {
+              children: (0, _v6.jsx)(_v80.Text, {
                 variant: "body-md",
                 children: _v1
               })
             })]
-          }), (0, _v6.jsxs)(_v301.MenuItem, {
-            children: [(0, _v6.jsx)(_v156.Text, {
+          }), (0, _v6.jsxs)(_v300.MenuItem, {
+            children: [(0, _v6.jsx)(_v80.Text, {
               variant: "body-md",
               marginRight: "4px",
               children: "Debug Session:"
-            }), (0, _v6.jsx)(_v297.Link, {
+            }), (0, _v6.jsx)(_v111.Link, {
               href: _v4(`process/debug_session/${_v1}`),
               target: "_blank",
               rel: "noopener noreferrer",
-              children: (0, _v6.jsx)(_v156.Text, {
+              children: (0, _v6.jsx)(_v80.Text, {
                 variant: "body-md",
                 children: _v1
               })
             })]
-          }), (0, _v6.jsx)(_v300.MenuDivider, {}), (0, _v6.jsx)(_v304.MenuOptionGroup, {
+          }), (0, _v6.jsx)(_v299.MenuDivider, {}), (0, _v6.jsx)(_v303.MenuOptionGroup, {
             title: "Feature flags",
             type: "checkbox",
             value: _v5,
@@ -4205,7 +4207,7 @@
               value: _v1,
               displayName: _v2,
               shouldReload: _v3
-            }]) => (0, _v6.jsx)(_v302.MenuItemOption, {
+            }]) => (0, _v6.jsx)(_v301.MenuItemOption, {
               value: _v0,
               paddingLeft: "32px",
               onClick: () => _v3(_v0, _v3, !_v1),
@@ -4215,16 +4217,16 @@
         })]
       });
     };
-  var _v312 = _v0.i(0),
+  var _v311 = _v0.i(0),
+    _v312 = _v0.i(0),
     _v313 = _v0.i(0),
     _v314 = _v0.i(0),
     _v315 = _v0.i(0),
-    _v316 = _v0.i(0),
-    _v317 = _v0.i(0);
-  let _v318 = () => {
-      let _v0 = (0, _v315.getTranslations)(),
-        _v1 = (0, _v167.useAppDispatch)(),
-        _v2 = (0, _v167.useAppSelector)(_v317.getActiveOverlaySelector),
+    _v316 = _v0.i(0);
+  let _v317 = () => {
+      let _v0 = (0, _v314.getTranslations)(),
+        _v1 = (0, _v170.useAppDispatch)(),
+        _v2 = (0, _v170.useAppSelector)(_v316.getActiveOverlaySelector),
         [_v3, _v4] = (0, _v7.useState)(() => _v0.overlay),
         _v5 = (0, _v7.useMemo)(() => _v2?.name || _v0.overlay, [_v2?.name, _v0.overlay]),
         _v6 = (0, _v7.useCallback)(_v0 => {
@@ -4234,10 +4236,10 @@
         }, [_v2, _v1, _v5]);
       return (0, _v7.useEffect)(() => {
         _v4(_v5);
-      }, [_v5]), (0, _v6.jsx)(_v316.Input, {
+      }, [_v5]), (0, _v6.jsx)(_v315.Input, {
         translate: "no",
         className: "notranslate",
-        "data-testid": _v180.testIds.header.interactiveOverlayName,
+        "data-testid": _v183.testIds.header.interactiveOverlayName,
         backgroundColor: "transparent",
         outline: "none",
         size: "sm",
@@ -4247,12 +4249,12 @@
         isInvalid: "" === _v3
       });
     },
-    _v319 = () => {
-      let _v0 = (0, _v315.getTranslations)(),
-        _v1 = (0, _v167.useAppSelector)(_v256.folderUriSelector),
-        _v2 = (0, _v167.useAppSelector)(_v166.projectNameSelector) || _v0.untitled,
-        _v3 = (0, _v167.useAppSelector)(_v273.isEditingInteractiveOverlaySelector),
-        [_v4, _v5] = (0, _v314.useGetUserProjectLazy)();
+    _v318 = () => {
+      let _v0 = (0, _v314.getTranslations)(),
+        _v1 = (0, _v170.useAppSelector)(_v256.folderUriSelector),
+        _v2 = (0, _v170.useAppSelector)(_v169.projectNameSelector) || _v0.untitled,
+        _v3 = (0, _v170.useAppSelector)(_v273.isEditingInteractiveOverlaySelector),
+        [_v4, _v5] = (0, _v313.useGetUserProjectLazy)();
       (0, _v7.useEffect)(() => {
         let _v0 = (0, _v244.getFolderIdFromUri)(_v1);
         _v236.default.teamOwnerId && _v0 && _v4({
@@ -4266,15 +4268,15 @@
       let _v6 = _v5?.data,
         _v7 = _v6?.name,
         _v8 = _v1.replace("users", "user").replace("projects", "folder") ?? "#";
-      return (0, _v6.jsxs)(_v312.Breadcrumb, {
-        children: [_v7 && (0, _v6.jsx)(_v312.BreadcrumbItem, {
-          children: (0, _v6.jsx)(_v313.BreadcrumbLink, {
+      return (0, _v6.jsxs)(_v311.Breadcrumb, {
+        children: [_v7 && (0, _v6.jsx)(_v311.BreadcrumbItem, {
+          children: (0, _v6.jsx)(_v312.BreadcrumbLink, {
             "data-testid": "video-folder-title",
             href: _v8,
             children: _v7
           })
-        }), (0, _v6.jsx)(_v312.BreadcrumbItem, {
-          children: (0, _v6.jsx)(_v313.BreadcrumbLink, {
+        }), (0, _v6.jsx)(_v311.BreadcrumbItem, {
+          children: (0, _v6.jsx)(_v312.BreadcrumbLink, {
             color: "text-primary",
             _hover: {
               color: "text-primary"
@@ -4282,31 +4284,31 @@
             "data-testid": "video-title",
             children: _v2
           })
-        }), _v3 && (0, _v6.jsx)(_v312.BreadcrumbItem, {
-          children: (0, _v6.jsx)(_v318, {})
+        }), _v3 && (0, _v6.jsx)(_v311.BreadcrumbItem, {
+          children: (0, _v6.jsx)(_v317, {})
         })]
       });
     };
-  var _v320 = _v0.i(0),
+  var _v319 = _v0.i(0),
+    _v320 = _v0.i(0),
     _v321 = _v0.i(0),
     _v322 = _v0.i(0),
-    _v323 = _v0.i(0),
-    _v324 = _v0.i(0);
-  let _v325 = ({
+    _v323 = _v0.i(0);
+  let _v324 = ({
       storyboardFetchResponse: _v0,
       videoHash: _v1,
       isThirdPartyIntegration: _v2
     }) => {
-      let _v3 = (0, _v167.useAppDispatch)(),
+      let _v3 = (0, _v170.useAppDispatch)(),
         _v4 = _v238(),
-        _v5 = (0, _v167.useAppSelector)(_v166.storyboardSelector),
-        _v6 = (0, _v167.useAppSelector)(_v0 => _v0.editorExit.hasUnresolvedRecovery),
-        _v7 = (0, _v167.useAppSelector)(_v229.isAutoSavePausedForExitSelector),
-        _v8 = (0, _v167.useAppSelector)(_v175.isInteractiveSelector),
-        _v9 = (0, _v167.useAppSelector)(_v166.videoSessionIdSelector),
-        _v10 = (0, _v167.useAppSelector)(_v0 => _v0.interactiveOverlay),
-        _v11 = (0, _v167.useAppSelector)(_v256.folderUriSelector),
-        _v12 = (0, _v167.useAppSelector)(_v255.isStoryboardSavingSelector),
+        _v5 = (0, _v170.useAppSelector)(_v169.storyboardSelector),
+        _v6 = (0, _v170.useAppSelector)(_v0 => _v0.editorExit.hasUnresolvedRecovery),
+        _v7 = (0, _v170.useAppSelector)(_v229.isAutoSavePausedForExitSelector),
+        _v8 = (0, _v170.useAppSelector)(_v178.isInteractiveSelector),
+        _v9 = (0, _v170.useAppSelector)(_v169.videoSessionIdSelector),
+        _v10 = (0, _v170.useAppSelector)(_v0 => _v0.interactiveOverlay),
+        _v11 = (0, _v170.useAppSelector)(_v256.folderUriSelector),
+        _v12 = (0, _v170.useAppSelector)(_v255.isStoryboardSavingSelector),
         _v13 = (0, _v7.useRef)(null),
         _v14 = (0, _v7.useRef)(!1),
         _v15 = (0, _v7.useRef)(!1),
@@ -4321,7 +4323,7 @@
           alertAutoSavedChanges: _v21,
           alertLocalAutoSavedChanges: _v22,
           alertCrossEditingToolAutoSave: _v23
-        } = (0, _v161.useAlerts)(),
+        } = (0, _v164.useAlerts)(),
         {
           validateStoryboard: _v24
         } = _v248(),
@@ -4341,14 +4343,14 @@
         [_v30] = (0, _v255.useLazyFetchStoryboardQuery)(),
         {
           loadStoryboard: _v31
-        } = (0, _v322.useLoadStoryboard)(),
+        } = (0, _v321.useLoadStoryboard)(),
         {
           resolveStoryboardUrls: _v32
         } = _v245(),
         {
           changeInvalidFonts: _v33
-        } = (0, _v321.useFontDeprecation)(),
-        [_v34] = (0, _v324.useLazyCreateMediaSourceQuery)(),
+        } = (0, _v320.useFontDeprecation)(),
+        [_v34] = (0, _v323.useLazyCreateMediaSourceQuery)(),
         _v35 = (0, _v7.useRef)(_v0 => _v31(_v33(_v0, !0), !1, !1)),
         _v36 = (0, _v7.useRef)(0),
         _v37 = (0, _v7.useRef)(null),
@@ -4375,15 +4377,15 @@
               id: _v4,
               videoSessionId: _v5
             } = _v3;
-          _v2 && (_v236.default.setVideoHash(_v4), _v323.default.setVideoSessionId(_v5), (0, _v191.sendTrackViewEditor)({
+          _v2 && (_v236.default.setVideoHash(_v4), _v322.default.setVideoSessionId(_v5), (0, _v193.sendTrackViewEditor)({
             viewStatus: "enable"
-          })), (0, _v191.sendTrackLoadStoryboard)({
+          })), (0, _v193.sendTrackLoadStoryboard)({
             loadedStoryboardId: _v4,
             previousStoryboardId: _v1 ? _v0.storyboard.id : _v4,
             isAutoSavedVersion: _v1
           });
           let _v6 = _v31(_v3);
-          _v1 || (_v38(), _v3((0, _v229.setAppliedStoryboardAction)(_v6))), _v14.current && _v164.default.sendAction(_v251.RaceCondition, {
+          _v1 || (_v38(), _v3((0, _v229.setAppliedStoryboardAction)(_v6))), _v14.current && _v167.default.sendAction(_v251.RaceCondition, {
             step: "race condition while loading storyboard"
           }), _v14.current = !0, _v236.default.setIsPendoGuideAllowed(!0);
         }, [_v33, _v38, _v3, _v31, _v0]),
@@ -4442,7 +4444,7 @@
             _v0 && _v4.push(_v0);
           } catch (_v0) {
             _v3[_v0].name && _v20(_v3[_v0].name);
-          } else _v164.default.sendAction(_v159.MISSING_SOURCE, {
+          } else _v167.default.sendAction(_v162.MISSING_SOURCE, {
             step: "load autosaved storyboard",
             status: "missing source",
             hash: _v0
@@ -4462,7 +4464,7 @@
           }), _v19());
         }, [_v41, _v19, _v40, _v0]),
         _v47 = (0, _v7.useCallback)(_v0 => {
-          _v38(), _v3((0, _v229.setHasUnresolvedRecoveryAction)(!1)), _v3((0, _v166.resetStoryboardAction)()), _v28({
+          _v38(), _v3((0, _v229.setHasUnresolvedRecoveryAction)(!1)), _v3((0, _v169.resetStoryboardAction)()), _v28({
             videoHash: _v0,
             isInteractive: _v8,
             useRevision: !0,
@@ -4528,7 +4530,7 @@
         sources: _v53,
         id: _v54
       } = _v5;
-      return (0, _v320.useDebouncedEffect)(() => {
+      return (0, _v319.useDebouncedEffect)(() => {
         if (!_v54 || !_v0 || _v236.default.isEditingTeamTemplate || _v230.default.getState().editorExit.isAutoSavePausedForExit || !_v14.current || _v39) return;
         let _v0 = _v8 && 1 === _v52.length,
           _v1 = _v10.isEditingOverlay && _v0;
@@ -4560,16 +4562,16 @@
         loadStoryboardFromResponse: _v41
       }), [_v40, _v17, _v19, _v48, _v49, _v50, _v41]);
     },
-    _v326 = () => {
-      let _v0 = (0, _v167.useAppSelector)(_v317.isLoadingMediaOrApplyingTemplateSelector),
-        _v1 = (0, _v167.useAppSelector)(_v242.isLoadingElementInUseSelector),
-        _v2 = (0, _v167.useAppSelector)(_v166.durationSelector),
+    _v325 = () => {
+      let _v0 = (0, _v170.useAppSelector)(_v316.isLoadingMediaOrApplyingTemplateSelector),
+        _v1 = (0, _v170.useAppSelector)(_v242.isLoadingElementInUseSelector),
+        _v2 = (0, _v170.useAppSelector)(_v169.durationSelector),
         {
           saveAndPublishInteractiveStoryboard: _v3
         } = (() => {
-          let _v0 = (0, _v167.useAppDispatch)(),
+          let _v0 = (0, _v170.useAppDispatch)(),
             _v1 = (0, _v8.useHistory)(),
-            _v2 = (0, _v167.useAppSelector)(_v166.storyboardSelector),
+            _v2 = (0, _v170.useAppSelector)(_v169.storyboardSelector),
             {
               handleSaveStoryboardError: _v3
             } = _v259(),
@@ -4585,11 +4587,11 @@
             } = (0, _v241.useEditorCsat)(),
             {
               removeSavedStoryboard: _v8
-            } = _v325({}),
+            } = _v324({}),
             {
               alertFailedToSave: _v9,
               alertFailedToPublishInteractive: _v10
-            } = (0, _v161.useAlerts)(),
+            } = (0, _v164.useAlerts)(),
             {
               validateStoryboard: _v11
             } = _v248(),
@@ -4612,10 +4614,10 @@
                 if (!_v4) return _v9({
                   data: {
                     error_code: 0,
-                    error: _v158.NO_PERMISSIONS_TO_CREATE
+                    error: _v161.NO_PERMISSIONS_TO_CREATE
                   }
                 }, _v2), !1;
-                _v0((0, _v166.setStoryboardIdAction)(_v3.storyboardId)), _v6.current = _v3.storyboardId;
+                _v0((0, _v169.setStoryboardIdAction)(_v3.storyboardId)), _v6.current = _v3.storyboardId;
                 let _v5 = await _v5({
                   vimeoVideoId: _v2,
                   storyboardId: _v4
@@ -4637,11 +4639,11 @@
           }), await _v3();
         }, [_v3]);
       return (0, _v6.jsx)(_v211.Tooltip, {
-        label: (0, _v315.getTranslations)().saveWhileLoadingInUse,
+        label: (0, _v314.getTranslations)().saveWhileLoadingInUse,
         placement: "bottom-end",
         shouldWrapChildren: !0,
         isDisabled: !_v1,
-        children: (0, _v6.jsx)(_v186.Button, {
+        children: (0, _v6.jsx)(_v92.Button, {
           variant: "primary",
           "data-testid": "header-save-button",
           isDisabled: 0 === _v2 || _v0,
@@ -4675,9 +4677,9 @@
         })
       });
     };
-  var _v327 = _v0.i(0),
-    _v328 = _v0.i(0);
-  let _v329 = ({
+  var _v326 = _v0.i(0),
+    _v327 = _v0.i(0);
+  let _v328 = ({
       text: _v0,
       tooltipText: _v1,
       disabledTooltipText: _v2,
@@ -4685,7 +4687,7 @@
       isDisabled: _v4 = !1,
       ..._v5
     }) => {
-      let _v6 = (0, _v6.jsx)(_v301.MenuItem, {
+      let _v6 = (0, _v6.jsx)(_v300.MenuItem, {
         onClick: _v3,
         isDisabled: _v4,
         ..._v5,
@@ -4695,13 +4697,13 @@
             alignItems: "center",
             opacity: _v4 ? .5 : 1
           },
-          children: [(0, _v6.jsx)(_v156.Text, {
+          children: [(0, _v6.jsx)(_v80.Text, {
             variant: "body-md",
             children: _v0
           }), _v1 && !_v4 && (0, _v6.jsx)(_v211.Tooltip, {
             label: _v1,
-            children: (0, _v6.jsx)(_v185.Box, {
-              children: (0, _v6.jsx)(_v328.CircleInfoSmall, {
+            children: (0, _v6.jsx)(_v188.Box, {
+              children: (0, _v6.jsx)(_v327.CircleInfoSmall, {
                 width: "18px",
                 height: "18px"
               })
@@ -4717,28 +4719,27 @@
         })
       }) : _v6;
     },
-    _v330 = _v9.default.div.withConfig({
+    _v329 = _v9.default.div.withConfig({
       displayName: "SaveOptions.style__SaveButtonWithOptions",
       componentId: "sc-d5c866d9-0"
     })`
   display: flex;
   gap: 1px;
 `;
-  var _v331 = _v0.i(0),
+  var _v330 = _v0.i(0),
+    _v331 = _v0.i(0),
     _v332 = _v0.i(0),
     _v333 = _v0.i(0),
-    _v334 = _v0.i(0),
-    _v335 = _v0.i(0),
-    _v336 = _v0.i(0);
-  let _v337 = ({
+    _v334 = _v0.i(0);
+  let _v335 = ({
       navigateToTeamTemplates: _v0
     }) => {
-      let _v1 = (0, _v167.useAppDispatch)(),
-        _v2 = (0, _v167.useAppSelector)(_v166.storyboardSelector),
+      let _v1 = (0, _v170.useAppDispatch)(),
+        _v2 = (0, _v170.useAppSelector)(_v169.storyboardSelector),
         [_v3, _v4] = (0, _v7.useState)(_v2.projectName || "Untitled template"),
         [_v5, {
           isError: _v6
-        }] = (0, _v332.useSaveTemplateMutation)(),
+        }] = (0, _v331.useSaveTemplateMutation)(),
         _v7 = () => {
           (0, _v267.sendTrackSelectSaveAsModal)({
             copy: _v266.SAVE_COPY.SAVE_AS_NEW_TEMPLATE
@@ -4764,11 +4765,11 @@
       }, []), (0, _v6.jsxs)(_v75.Modal, {
         isOpen: !0,
         onClose: _v7,
-        "data-testid": _v180.testIds.saveAsTeamTemplate.modal,
+        "data-testid": _v183.testIds.saveAsTeamTemplate.modal,
         children: [(0, _v6.jsx)(_v79.ModalOverlay, {}), (0, _v6.jsxs)(_v78.ModalContent, {
           translate: "no",
           className: "notranslate",
-          children: [(0, _v6.jsx)(_v189.ModalHeader, {
+          children: [(0, _v6.jsx)(_v191.ModalHeader, {
             children: _v6 ? (0, _v62.translate)({
               singular: "There was a problem saving this template",
               dictionary: {
@@ -4821,7 +4822,7 @@
               }
             })
           }), !_v6 && (0, _v6.jsxs)(_v76.ModalBody, {
-            children: [(0, _v6.jsx)(_v334.Paragraph, {
+            children: [(0, _v6.jsx)(_v95.Paragraph, {
               size: "md",
               children: (0, _v62.translate)({
                 singular: "Your team members can use it to create new videos.",
@@ -4849,10 +4850,10 @@
                   }
                 }
               })
-            }), (0, _v6.jsxs)(_v335.FormControl, {
+            }), (0, _v6.jsxs)(_v333.FormControl, {
               marginTop: "sm",
               pos: "relative",
-              children: [(0, _v6.jsx)(_v336.FormLabel, {
+              children: [(0, _v6.jsx)(_v334.FormLabel, {
                 size: "sm",
                 children: (0, _v62.translate)({
                   singular: "Template name",
@@ -4880,7 +4881,7 @@
                     }
                   }
                 })
-              }), (0, _v6.jsx)(_v316.Input, {
+              }), (0, _v6.jsx)(_v315.Input, {
                 translate: "no",
                 className: "notranslate",
                 placeholder: (0, _v62.translate)({
@@ -4912,14 +4913,14 @@
                 maxLength: 100,
                 value: _v3,
                 onChange: _v0 => _v4(_v0.target.value),
-                "data-testid": _v180.testIds.saveAsTeamTemplate.input
+                "data-testid": _v183.testIds.saveAsTeamTemplate.input
               })]
             })]
-          }), (0, _v6.jsxs)(_v188.ModalFooter, {
-            children: [(0, _v6.jsx)(_v186.Button, {
+          }), (0, _v6.jsxs)(_v190.ModalFooter, {
+            children: [(0, _v6.jsx)(_v92.Button, {
               onClick: _v7,
               variant: "secondary",
-              "data-testid": _v180.testIds.saveAsTeamTemplate.cancelButton,
+              "data-testid": _v183.testIds.saveAsTeamTemplate.cancelButton,
               children: (0, _v62.translate)({
                 singular: "Cancel",
                 dictionary: {
@@ -4946,11 +4947,11 @@
                   }
                 }
               })
-            }), (0, _v6.jsx)(_v186.Button, {
+            }), (0, _v6.jsx)(_v92.Button, {
               isDisabled: !_v3.trim(),
               onClick: _v8,
               variant: "primary",
-              "data-testid": _v6 ? _v180.testIds.saveAsTeamTemplate.tryagainButton : _v180.testIds.saveAsTeamTemplate.submitButton,
+              "data-testid": _v6 ? _v183.testIds.saveAsTeamTemplate.tryagainButton : _v183.testIds.saveAsTeamTemplate.submitButton,
               children: _v6 ? (0, _v62.translate)({
                 singular: "Try again",
                 dictionary: {
@@ -5007,26 +5008,26 @@
         })]
       });
     },
-    _v338 = () => {
-      let _v0 = (0, _v167.useAppDispatch)(),
-        _v1 = (0, _v167.useAppSelector)(_v166.storyboardIdSelector),
+    _v336 = () => {
+      let _v0 = (0, _v170.useAppDispatch)(),
+        _v1 = (0, _v170.useAppSelector)(_v169.storyboardIdSelector),
         {
           trackEditorSaved: _v2
         } = (0, _v220.useEditorTracking)(),
-        _v3 = (0, _v167.useAppSelector)(_v166.isElementsLoadingSelector),
-        _v4 = (0, _v167.useAppSelector)(_v242.isLoadingElementInUseSelector),
-        _v5 = (0, _v167.useAppSelector)(_v166.orientationSelector),
-        _v6 = [_v333.Orientation.LANDSCAPE, _v333.Orientation.SQUARE, _v333.Orientation.PORTRAIT].includes(_v5),
-        _v7 = (0, _v167.useAppSelector)(_v181.isTemplateBeingAddedSelector),
-        _v8 = (0, _v167.useAppSelector)(_v0 => !!_v0.history.undoSnapshots.length),
-        _v9 = (0, _v167.useAppSelector)(_v237.editedTeamTemplateHashSelector),
-        _v10 = (0, _v167.useAppSelector)(_v166.projectNameSelector),
-        _v11 = (0, _v167.useAppSelector)(_v166.someLayersHaveCompositionSelector),
-        _v12 = (0, _v167.useAppSelector)(_v263.isUploadsInProgressSelector),
-        _v13 = (0, _v167.useAppSelector)(_v0 => _v0.teamTemplates.isShowTeamTemplatesModal),
+        _v3 = (0, _v170.useAppSelector)(_v169.isElementsLoadingSelector),
+        _v4 = (0, _v170.useAppSelector)(_v242.isLoadingElementInUseSelector),
+        _v5 = (0, _v170.useAppSelector)(_v169.orientationSelector),
+        _v6 = [_v332.Orientation.LANDSCAPE, _v332.Orientation.SQUARE, _v332.Orientation.PORTRAIT].includes(_v5),
+        _v7 = (0, _v170.useAppSelector)(_v184.isTemplateBeingAddedSelector),
+        _v8 = (0, _v170.useAppSelector)(_v0 => !!_v0.history.undoSnapshots.length),
+        _v9 = (0, _v170.useAppSelector)(_v237.editedTeamTemplateHashSelector),
+        _v10 = (0, _v170.useAppSelector)(_v169.projectNameSelector),
+        _v11 = (0, _v170.useAppSelector)(_v169.someLayersHaveCompositionSelector),
+        _v12 = (0, _v170.useAppSelector)(_v263.isUploadsInProgressSelector),
+        _v13 = (0, _v170.useAppSelector)(_v0 => _v0.teamTemplates.isShowTeamTemplatesModal),
         {
           exitEditTeamTemplateMode: _v14
-        } = (0, _v331.useEditTeamTemplate)(),
+        } = (0, _v330.useEditTeamTemplate)(),
         {
           hasCreateTeamTemplateEdit: _v15
         } = (0, _v7.useContext)(_v203.PermissionsContext),
@@ -5035,8 +5036,8 @@
         } = _v259(),
         {
           alertSaveAs: _v17
-        } = (0, _v161.useAlerts)(),
-        [_v18] = (0, _v332.useSaveTemplateMutation)(),
+        } = (0, _v164.useAlerts)(),
+        [_v18] = (0, _v331.useSaveTemplateMutation)(),
         _v19 = (0, _v7.useContext)(_v235.PartnershipAppContext),
         _v20 = _v15 && !_v236.default.isEditingTeamTemplate && !_v19?.app,
         _v21 = _v236.default.isSaveAsAllowed && !_v236.default.isEditingTeamTemplate,
@@ -5044,12 +5045,12 @@
         _v23 = (0, _v7.useRef)(""),
         _v24 = "" !== _v10 ? _v10 : _v249.DEFAULT_VIDEO_NAME,
         _v25 = (0, _v7.useCallback)(() => {
-          _v0((0, _v165.openInspectorAction)({
-            inspectorType: _v168.InspectorType.TEMPLATES
-          })), _v0((0, _v165.updateInspectorDataAction)({
-            inspectorType: _v168.InspectorType.TEMPLATES,
+          _v0((0, _v168.openInspectorAction)({
+            inspectorType: _v171.InspectorType.TEMPLATES
+          })), _v0((0, _v168.updateInspectorDataAction)({
+            inspectorType: _v171.InspectorType.TEMPLATES,
             data: {
-              tab: _v168.TemplatesInspectorTabType.TEAM
+              tab: _v171.TemplatesInspectorTabType.TEAM
             }
           }));
         }, [_v0]),
@@ -5077,14 +5078,14 @@
           }));
         }, [_v9, _v14, _v25, _v16, _v18, _v24, _v1, _v2]);
       return (0, _v6.jsxs)(_v6.Fragment, {
-        children: [(0, _v6.jsxs)(_v330, {
+        children: [(0, _v6.jsxs)(_v329, {
           "data-testid": "header-save-menu-with-options",
           children: [(0, _v6.jsx)(_v211.Tooltip, {
-            label: (0, _v315.getTranslations)().saveWhileLoadingInUse,
+            label: (0, _v314.getTranslations)().saveWhileLoadingInUse,
             placement: "bottom-end",
             shouldWrapChildren: !0,
             isDisabled: !_v4,
-            children: (0, _v6.jsx)(_v186.Button, {
+            children: (0, _v6.jsx)(_v92.Button, {
               variant: "primary",
               "data-testid": "header-save-button",
               isDisabled: _v22 || _v4 || _v3 || _v7 || _v12 || _v236.default.isEditingTeamTemplate && !_v8,
@@ -5152,22 +5153,22 @@
                 }
               })
             })
-          }), (_v20 || _v21) && (0, _v6.jsxs)(_v298.Menu, {
+          }), (_v20 || _v21) && (0, _v6.jsxs)(_v297.Menu, {
             children: [(0, _v6.jsx)(_v211.Tooltip, {
-              label: (0, _v315.getTranslations)().moreSavingOptions,
+              label: (0, _v314.getTranslations)().moreSavingOptions,
               placement: "bottom-end",
-              children: (0, _v6.jsx)(_v299.MenuButton, {
-                as: _v194.IconButton,
+              children: (0, _v6.jsx)(_v298.MenuButton, {
+                as: _v94.IconButton,
                 variant: "primary",
                 "data-testid": "header-save-button",
                 isDisabled: _v22 || _v3 || _v4,
-                icon: (0, _v6.jsx)(_v327.ChevronDownSmall, {}),
+                icon: (0, _v6.jsx)(_v326.ChevronDownSmall, {}),
                 onClick: _v267.sendTrackSelectSaveDropdown,
                 borderBottomLeftRadius: "0 !important",
                 borderTopLeftRadius: "0 !important"
               })
-            }), (0, _v6.jsxs)(_v303.MenuList, {
-              children: [_v21 && (0, _v6.jsx)(_v329, {
+            }), (0, _v6.jsxs)(_v302.MenuList, {
+              children: [_v21 && (0, _v6.jsx)(_v328, {
                 "data-testid": "header-save-as-button",
                 text: (0, _v62.translate)({
                   singular: "Save as new video",
@@ -5218,7 +5219,7 @@
                     }
                   });
                 }
-              }), _v20 && (0, _v6.jsx)(_v329, {
+              }), _v20 && (0, _v6.jsx)(_v328, {
                 "data-testid": "header-save-as-new-template-button",
                 text: (0, _v62.translate)({
                   singular: "Save as new template",
@@ -5307,29 +5308,29 @@
               })]
             })]
           })]
-        }), _v13 && (0, _v6.jsx)(_v337, {
+        }), _v13 && (0, _v6.jsx)(_v335, {
           navigateToTeamTemplates: _v25
         })]
       });
     };
-  var _v339 = _v0.i(0),
+  var _v337 = _v0.i(0),
+    _v338 = _v0.i(0),
+    _v339 = _v0.i(0),
     _v340 = _v0.i(0),
     _v341 = _v0.i(0),
     _v342 = _v0.i(0),
     _v343 = _v0.i(0),
     _v344 = _v0.i(0),
-    _v345 = _v0.i(0),
-    _v346 = _v0.i(0),
-    _v347 = _v0.i(0);
-  let _v348 = ({
+    _v345 = _v0.i(0);
+  let _v346 = ({
     setThumbnailId: _v0
   }) => {
     let {
         alertFailedToUploadOverlayThumbnail: _v1
-      } = (0, _v161.useAlerts)(),
+      } = (0, _v164.useAlerts)(),
       [_v2, _v3] = (0, _v7.useState)(null),
       [_v4, _v5] = (0, _v7.useState)(!1),
-      [_v6] = (0, _v347.useGetOverlayThumbnailUploadLinkMutation)(),
+      [_v6] = (0, _v345.useGetOverlayThumbnailUploadLinkMutation)(),
       _v7 = async _v0 => {
         let _v1 = _v0.target.files ? _v0.target.files[0] : null;
         if (_v1) {
@@ -5367,7 +5368,7 @@
         src: _v2,
         alt: "thumbnail",
         width: "100%"
-      }) : (0, _v6.jsx)(_v344.FileInput, {
+      }) : (0, _v6.jsx)(_v342.FileInput, {
         label: (0, _v6.jsx)(_v211.Tooltip, {
           label: "Upload Overlay Template Thumbnail",
           children: (0, _v6.jsx)(_v210.Center, {
@@ -5375,10 +5376,10 @@
             width: "100%",
             height: "100%",
             backgroundColor: "darkBlueAlpha.200",
-            children: (0, _v6.jsx)(_v345.Plus, {})
+            children: (0, _v6.jsx)(_v343.Plus, {})
           })
         }),
-        accept: _v346.ALLOWED_THUMBNAIL_IMAGE_FORMATS.join(","),
+        accept: _v344.ALLOWED_THUMBNAIL_IMAGE_FORMATS.join(","),
         onChange: _v7,
         isDisabled: _v4,
         isLoading: _v4,
@@ -5394,9 +5395,9 @@
       })
     });
   };
-  var _v349 = _v0.i(0),
-    _v350 = _v0.i(0);
-  let _v351 = ({
+  var _v347 = _v0.i(0),
+    _v348 = _v0.i(0);
+  let _v349 = ({
     active: _v0,
     onConfirm: _v1,
     onDismiss: _v2,
@@ -5405,16 +5406,16 @@
   }) => {
     let {
         saveOverlayAsTemplate: _v5
-      } = (0, _v349.useOverlayTemplates)(),
+      } = (0, _v347.useOverlayTemplates)(),
       [_v6, _v7] = (0, _v7.useState)(_v3),
-      [_v8, _v9] = (0, _v7.useState)((0, _v350.validateTemplateName)(_v6)),
+      [_v8, _v9] = (0, _v7.useState)((0, _v348.validateTemplateName)(_v6)),
       [_v10, _v11] = (0, _v7.useState)("");
     return (0, _v6.jsxs)(_v75.Modal, {
       isOpen: _v0,
       onClose: _v2,
       children: [(0, _v6.jsx)(_v79.ModalOverlay, {}), (0, _v6.jsxs)(_v78.ModalContent, {
-        children: [(0, _v6.jsx)(_v189.ModalHeader, {
-          children: (0, _v6.jsx)(_v156.Text, {
+        children: [(0, _v6.jsx)(_v191.ModalHeader, {
+          children: (0, _v6.jsx)(_v80.Text, {
             variant: "heading-md",
             children: (0, _v62.translate)({
               singular: "Save overlay as a new system template",
@@ -5444,12 +5445,12 @@
             })
           })
         }), (0, _v6.jsxs)(_v76.ModalBody, {
-          children: [(0, _v6.jsxs)(_v335.FormControl, {
+          children: [(0, _v6.jsxs)(_v333.FormControl, {
             isInvalid: !_v8,
-            children: [(0, _v6.jsx)(_v336.FormLabel, {
+            children: [(0, _v6.jsx)(_v334.FormLabel, {
               size: "sm",
               fontWeight: "400",
-              marginBottom: (0, _v155.rem)(10),
+              marginBottom: (0, _v159.rem)(10),
               children: (0, _v62.translate)({
                 singular: "Template name",
                 dictionary: {
@@ -5476,23 +5477,23 @@
                   }
                 }
               })
-            }), (0, _v6.jsx)(_v316.Input, {
+            }), (0, _v6.jsx)(_v315.Input, {
               translate: "no",
               className: "notranslate",
               onChange: _v0 => {
                 let _v1 = _v0.target.value;
-                _v7(_v1), _v9((0, _v350.validateTemplateName)(_v1));
+                _v7(_v1), _v9((0, _v348.validateTemplateName)(_v1));
               },
               autoFocus: !0,
               defaultValue: _v6,
               maxLength: 256
             })]
-          }), (0, _v6.jsxs)(_v335.FormControl, {
+          }), (0, _v6.jsxs)(_v333.FormControl, {
             marginTop: "md",
-            children: [(0, _v6.jsx)(_v336.FormLabel, {
+            children: [(0, _v6.jsx)(_v334.FormLabel, {
               size: "sm",
               fontWeight: "400",
-              marginBottom: (0, _v155.rem)(10),
+              marginBottom: (0, _v159.rem)(10),
               children: (0, _v62.translate)({
                 singular: "Upload thumbnail",
                 dictionary: {
@@ -5519,12 +5520,12 @@
                   }
                 }
               })
-            }), (0, _v6.jsx)(_v348, {
+            }), (0, _v6.jsx)(_v346, {
               setThumbnailId: _v0 => _v11(_v0)
             })]
           })]
-        }), (0, _v6.jsxs)(_v188.ModalFooter, {
-          children: [(0, _v6.jsx)(_v186.Button, {
+        }), (0, _v6.jsxs)(_v190.ModalFooter, {
+          children: [(0, _v6.jsx)(_v92.Button, {
             variant: "secondary",
             onClick: _v2,
             children: (0, _v62.translate)({
@@ -5553,7 +5554,7 @@
                 }
               }
             })
-          }), (0, _v6.jsx)(_v186.Button, {
+          }), (0, _v6.jsx)(_v92.Button, {
             isDisabled: !_v8,
             variant: "primary",
             onClick: () => {
@@ -5597,23 +5598,23 @@
       })]
     });
   };
-  var _v352 = _v0.i(0);
-  let _v353 = () => {
-      let _v0 = (0, _v167.useAppDispatch)(),
-        _v1 = (0, _v315.getTranslations)(),
-        _v2 = (0, _v167.useAppSelector)(_v166.storyboardSelector),
+  var _v350 = _v0.i(0);
+  let _v351 = () => {
+      let _v0 = (0, _v170.useAppDispatch)(),
+        _v1 = (0, _v314.getTranslations)(),
+        _v2 = (0, _v170.useAppSelector)(_v169.storyboardSelector),
         {
           activeOverlayId: _v3,
           activeOverlayName: _v4
-        } = (0, _v167.useAppSelector)(_v0 => _v0.interactiveOverlay),
-        _v5 = (0, _v167.useAppSelector)(_v261.openModalIdSelector),
-        _v6 = (0, _v167.useAppSelector)(_v317.isLoadingMediaOrApplyingTemplateSelector),
+        } = (0, _v170.useAppSelector)(_v0 => _v0.interactiveOverlay),
+        _v5 = (0, _v170.useAppSelector)(_v261.openModalIdSelector),
+        _v6 = (0, _v170.useAppSelector)(_v316.isLoadingMediaOrApplyingTemplateSelector),
         {
           closeOverlayEditor: _v7
         } = (0, _v272.useInteractiveOverlay)(),
         {
           takeScreenshot: _v8
-        } = (0, _v341.useStageScreenshot)(),
+        } = (0, _v339.useStageScreenshot)(),
         {
           hasCreateInteractiveTeamOverlayTemplateCreate: _v9,
           hasCreateSystemTemplate: _v10
@@ -5623,23 +5624,23 @@
         _v13 = _v9 && _v5 === _v221.MODAL_IDS.saveAsTeamTemplateModal,
         _v14 = _v10 && _v5 === _v221.MODAL_IDS.saveAsSystemTemplateModal;
       return (0, _v6.jsxs)(_v6.Fragment, {
-        children: [_v13 && (0, _v6.jsx)(_v352.SaveOverlayAsTeamTemplateModal, {
+        children: [_v13 && (0, _v6.jsx)(_v350.SaveOverlayAsTeamTemplateModal, {
           active: !0,
           onConfirm: _v12,
           onDismiss: _v12,
           initialTemplateName: _v4,
           overlayId: _v3
-        }), _v14 && (0, _v6.jsx)(_v351, {
+        }), _v14 && (0, _v6.jsx)(_v349, {
           active: !0,
           onConfirm: _v12,
           onDismiss: _v12,
           initialTemplateName: _v4,
           overlayId: _v3
-        }), (0, _v6.jsxs)(_v339.SplitButton, {
+        }), (0, _v6.jsxs)(_v337.SplitButton, {
           variant: "primary",
-          children: [(0, _v6.jsx)(_v339.SplitButtonPrimary, {
+          children: [(0, _v6.jsx)(_v337.SplitButtonPrimary, {
             isDisabled: _v11,
-            onClick: () => void ((0, _v343.sendTrackSaveOverlayElement)(), _v0((0, _v342.setOverlayThumbnailObjectUrlAction)({
+            onClick: () => void ((0, _v341.sendTrackSaveOverlayElement)(), _v0((0, _v340.setOverlayThumbnailObjectUrlAction)({
               overlayId: _v3,
               objectUrl: ""
             })), _v7({
@@ -5648,21 +5649,21 @@
               _v8(_v2.layers, _v3);
             }, 0)),
             children: _v1.saveOverlay
-          }), (_v9 || _v10) && (0, _v6.jsxs)(_v298.Menu, {
+          }), (_v9 || _v10) && (0, _v6.jsxs)(_v297.Menu, {
             placement: "bottom",
-            children: [(0, _v6.jsx)(_v339.SplitButtonSecondaryMenu, {
+            children: [(0, _v6.jsx)(_v337.SplitButtonSecondaryMenu, {
               "aria-label": _v1.saveOptionsMenu,
               isDisabled: _v11,
-              onClick: _v343.sendTrackOpenSaveOverlayDropdown
-            }), (0, _v6.jsxs)(_v303.MenuList, {
-              children: [_v9 && (0, _v6.jsx)(_v301.MenuItem, {
-                icon: (0, _v6.jsx)(_v340.OverlayTemplate, {}),
+              onClick: _v341.sendTrackOpenSaveOverlayDropdown
+            }), (0, _v6.jsxs)(_v302.MenuList, {
+              children: [_v9 && (0, _v6.jsx)(_v300.MenuItem, {
+                icon: (0, _v6.jsx)(_v338.OverlayTemplate, {}),
                 onClick: () => {
-                  (0, _v343.sendTrackOverlaySaveAsAction)("header"), _v0((0, _v261.setOpenModalIdAction)(_v221.MODAL_IDS.saveAsTeamTemplateModal));
+                  (0, _v341.sendTrackOverlaySaveAsAction)("header"), _v0((0, _v261.setOpenModalIdAction)(_v221.MODAL_IDS.saveAsTeamTemplateModal));
                 },
                 children: _v1.saveOverlayAsTemplate
-              }), _v10 && (0, _v6.jsx)(_v301.MenuItem, {
-                icon: (0, _v6.jsx)(_v340.OverlayTemplate, {}),
+              }), _v10 && (0, _v6.jsx)(_v300.MenuItem, {
+                icon: (0, _v6.jsx)(_v338.OverlayTemplate, {}),
                 onClick: () => {
                   _v0((0, _v261.setOpenModalIdAction)(_v221.MODAL_IDS.saveAsSystemTemplateModal));
                 },
@@ -5673,15 +5674,15 @@
         })]
       });
     },
-    _v354 = ({
+    _v352 = ({
       isEditingOverlay: _v0,
       isInteractive: _v1,
       exitEditTeamTemplateMode: _v2
     }) => {
-      let _v3 = (0, _v167.useAppSelector)(_v237.editedTeamTemplateHashSelector);
-      return _v0 ? (0, _v6.jsx)(_v353, {}) : _v1 ? (0, _v6.jsx)(_v326, {}) : (0, _v6.jsxs)(_v193.HStack, {
+      let _v3 = (0, _v170.useAppSelector)(_v237.editedTeamTemplateHashSelector);
+      return _v0 ? (0, _v6.jsx)(_v351, {}) : _v1 ? (0, _v6.jsx)(_v325, {}) : (0, _v6.jsxs)(_v195.HStack, {
         spacing: "8px",
-        children: [(_v236.default.isEditingTeamTemplate || _v3) && (0, _v6.jsx)(_v186.Button, {
+        children: [(_v236.default.isEditingTeamTemplate || _v3) && (0, _v6.jsx)(_v92.Button, {
           variant: "secondary",
           "data-testid": "header-cancel-button",
           onClick: _v2,
@@ -5711,24 +5712,24 @@
               }
             }
           })
-        }), (0, _v6.jsx)(_v338, {})]
+        }), (0, _v6.jsx)(_v336, {})]
       });
     };
-  var _v355 = _v0.i(0),
-    _v356 = _v0.i(0);
-  let _v357 = "click",
-    _v358 = ({
+  var _v353 = _v0.i(0),
+    _v354 = _v0.i(0);
+  let _v355 = "click",
+    _v356 = ({
       isClick: _v0,
       isUndo: _v1
     }) => {
-      _v323.default.send({
+      _v322.default.send({
         eventName: "vimeo.undo_redo_action",
         version: -1,
         contexts: {
-          ..._v323.default.buildWebContext(),
-          ..._v323.default.buildActionContext(_v0 ? "click" : "keyboard_shortcut"),
-          ..._v323.default.buildTeamContext(),
-          ..._v323.default.buildProductAnalyticsContext({
+          ..._v322.default.buildWebContext(),
+          ..._v322.default.buildActionContext(_v0 ? "click" : "keyboard_shortcut"),
+          ..._v322.default.buildTeamContext(),
+          ..._v322.default.buildProductAnalyticsContext({
             feature: "general",
             location: "header",
             copy: _v1 ? "undo" : "redo"
@@ -5736,16 +5737,16 @@
         }
       });
     },
-    _v359 = _v0 => {
-      let _v1 = (0, _v167.useAppDispatch)(),
-        _v2 = _v0 === _v357;
+    _v357 = _v0 => {
+      let _v1 = (0, _v170.useAppDispatch)(),
+        _v2 = _v0 === _v355;
       return {
         undo: (0, _v7.useCallback)(() => {
           let _v0 = _v230.default.getState().history.undoSnapshots;
           if (!_v0.length) return;
-          _v1((0, _v355.addRedoSnapshotAction)(_v230.default.getState().storyboard));
+          _v1((0, _v353.addRedoSnapshotAction)(_v230.default.getState().storyboard));
           let _v1 = _v0[_v0.length - 1];
-          _v1 && (_v1((0, _v166.updateStoryboardAction)(_v1)), _v1((0, _v355.undoAction)()), _v1((0, _v356.resetOverridesAction)())), _v358({
+          _v1 && (_v1((0, _v169.updateStoryboardAction)(_v1)), _v1((0, _v353.undoAction)()), _v1((0, _v354.resetOverridesAction)())), _v356({
             isClick: _v2,
             isUndo: !0
           });
@@ -5753,16 +5754,16 @@
         redo: (0, _v7.useCallback)(() => {
           let _v0 = _v230.default.getState().history.redoSnapshots;
           if (!_v0.length) return;
-          _v1((0, _v355.addUndoSnapshotAction)(_v230.default.getState().storyboard));
+          _v1((0, _v353.addUndoSnapshotAction)(_v230.default.getState().storyboard));
           let _v1 = _v0[_v0.length - 1];
-          _v1 && (_v1((0, _v166.updateStoryboardAction)(_v1)), _v1((0, _v355.redoAction)()), _v1((0, _v356.resetOverridesAction)())), _v358({
+          _v1 && (_v1((0, _v169.updateStoryboardAction)(_v1)), _v1((0, _v353.redoAction)()), _v1((0, _v354.resetOverridesAction)())), _v356({
             isClick: _v2,
             isUndo: !1
           });
         }, [_v1, _v2])
       };
     },
-    _v360 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
+    _v358 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
       ref: _v1,
       ..._v0,
       width: "24",
@@ -5775,7 +5776,7 @@
         fill: "currentcolor"
       })
     })),
-    _v361 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
+    _v359 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
       ref: _v1,
       ..._v0,
       width: "24",
@@ -5788,22 +5789,22 @@
         fill: "currentcolor"
       })
     })),
-    _v362 = _v9.default.div.withConfig({
+    _v360 = _v9.default.div.withConfig({
       displayName: "UndoRedo__UndoRedoContainer",
       componentId: "sc-9fe76d21-0"
     })`
   display: flex;
   gap: 8px;
 `,
-    _v363 = () => {
-      let _v0 = (0, _v167.useAppSelector)(_v0 => !!_v0.history.undoSnapshots.length),
-        _v1 = (0, _v167.useAppSelector)(_v0 => !!_v0.history.redoSnapshots.length),
+    _v361 = () => {
+      let _v0 = (0, _v170.useAppSelector)(_v0 => !!_v0.history.undoSnapshots.length),
+        _v1 = (0, _v170.useAppSelector)(_v0 => !!_v0.history.redoSnapshots.length),
         {
           undo: _v2,
           redo: _v3
-        } = _v359(_v357);
-      return (0, _v6.jsxs)(_v362, {
-        "data-testid": _v180.testIds.header.undoRedo,
+        } = _v357(_v355);
+      return (0, _v6.jsxs)(_v360, {
+        "data-testid": _v183.testIds.header.undoRedo,
         children: [(0, _v6.jsx)(_v211.Tooltip, {
           label: (0, _v62.translate)({
             singular: "Undo",
@@ -5832,11 +5833,11 @@
             }
           }),
           "data-testid": "tooltip",
-          children: (0, _v6.jsx)(_v194.IconButton, {
+          children: (0, _v6.jsx)(_v94.IconButton, {
             "aria-label": "undo",
             variant: "tertiary",
             "data-testid": "undo-header-button",
-            icon: (0, _v6.jsx)(_v361, {}),
+            icon: (0, _v6.jsx)(_v359, {}),
             isDisabled: !_v0,
             onClick: _v2
           })
@@ -5868,23 +5869,23 @@
             }
           }),
           "data-testid": "tooltip",
-          children: (0, _v6.jsx)(_v194.IconButton, {
+          children: (0, _v6.jsx)(_v94.IconButton, {
             "aria-label": "redo",
             variant: "tertiary",
             "data-testid": "redo-header-button",
-            icon: (0, _v6.jsx)(_v360, {}),
+            icon: (0, _v6.jsx)(_v358, {}),
             isDisabled: !_v1,
             onClick: _v3
           })
         })]
       });
     };
-  var _v364 = _v0.i(0),
+  var _v362 = _v0.i(0),
+    _v363 = _v0.i(0),
+    _v364 = _v0.i(0),
     _v365 = _v0.i(0),
-    _v366 = _v0.i(0),
-    _v367 = _v0.i(0),
-    _v368 = _v0.i(0);
-  let _v369 = _v9.default.div.withConfig({
+    _v366 = _v0.i(0);
+  let _v367 = _v9.default.div.withConfig({
       displayName: "UploadRow.style__Container",
       componentId: "sc-e02bf5a6-0"
     })`
@@ -5893,7 +5894,7 @@
   gap: 10px;
   width: 346px;
 `,
-    _v370 = _v9.default.div.withConfig({
+    _v368 = _v9.default.div.withConfig({
       displayName: "UploadRow.style__ThumbnailWrapper",
       componentId: "sc-e02bf5a6-1"
     })`
@@ -5905,7 +5906,7 @@
     border-radius: 2px;
   }
 `,
-    _v371 = _v9.default.div.withConfig({
+    _v369 = _v9.default.div.withConfig({
       displayName: "UploadRow.style__RowContent",
       componentId: "sc-e02bf5a6-2"
     })`
@@ -5921,23 +5922,23 @@
   })`
   transform: rotate(180deg);
 `;
-  var _v372 = _v0.i(0),
-    _v373 = _v0.i(0),
-    _v374 = _v0.i(0);
-  let _v375 = ({
+  var _v370 = _v0.i(0),
+    _v371 = _v0.i(0),
+    _v372 = _v0.i(0);
+  let _v373 = ({
       uploadingItem: _v0,
       allElements: _v1
     }) => {
       let {
           scrollToLayerOrElementById: _v2,
           animateSeek: _v3
-        } = (0, _v184.useTimelineContext)(),
+        } = (0, _v187.useTimelineContext)(),
         {
           retryUploadLocalMediaFile: _v4,
           deleteFailedLocalMediaFile: _v5
-        } = (0, _v162.useLocalFile)(),
-        _v6 = _v0.status === _v372.STATUS.PROGRESS,
-        _v7 = _v0.status === _v372.STATUS.ERROR,
+        } = (0, _v165.useLocalFile)(),
+        _v6 = _v0.status === _v370.STATUS.PROGRESS,
+        _v7 = _v0.status === _v370.STATUS.ERROR,
         {
           data: _v8
         } = _v0,
@@ -5945,17 +5946,17 @@
           let _v0 = _v1.filter(_v0 => (0, _v243.isMediaElement)(_v0) && _v0.sourceHash === _v0.sourceHash).sort((_v0, _v1) => _v0.compositionTiming.start - _v1.compositionTiming.start);
           return 0 === _v0.length ? null : _v0[0];
         }, [_v1, _v0.sourceHash]);
-      return (0, _v6.jsxs)(_v369, {
+      return (0, _v6.jsxs)(_v367, {
         "data-testid": (_v6 ? "uploading" : "failed") + "-uploads-modal-row",
-        children: [(0, _v6.jsx)(_v370, {
+        children: [(0, _v6.jsx)(_v368, {
           "data-testid": "uploads-modal-row-thumbnail",
-          children: (0, _v373.isMediaUploadItem)(_v0) ? (0, _v373.isVideoUploadItem)(_v0.data) ? (0, _v6.jsxs)(_v185.Box, {
+          children: (0, _v371.isMediaUploadItem)(_v0) ? (0, _v371.isVideoUploadItem)(_v0.data) ? (0, _v6.jsxs)(_v188.Box, {
             position: "relative",
             children: [(0, _v6.jsx)("video", {
               src: _v8.url,
               crossOrigin: "anonymous"
-            }), _v7 && (0, _v6.jsx)(_v374.Overlay, {
-              icon: (0, _v6.jsx)(_v366.CircleExclamationFilled, {
+            }), _v7 && (0, _v6.jsx)(_v372.Overlay, {
+              icon: (0, _v6.jsx)(_v364.CircleExclamationFilled, {
                 boxSize: "2xs",
                 color: "status-destructive-primary"
               }),
@@ -5970,19 +5971,19 @@
             bg: "stroke",
             width: 48,
             height: 36,
-            children: (0, _v6.jsx)(_v368.Music, {
+            children: (0, _v6.jsx)(_v366.Music, {
               boxSize: "2xs"
             })
           })
-        }), (0, _v6.jsxs)(_v371, {
-          children: [(0, _v6.jsx)(_v156.Text, {
+        }), (0, _v6.jsxs)(_v369, {
+          children: [(0, _v6.jsx)(_v80.Text, {
             variant: "heading-xs",
             textOverflow: "ellipsis",
             overflow: "hidden",
             whiteSpace: "nowrap",
             "data-testid": "uploads-modal-row-title",
             children: _v0.data.name
-          }), _v6 && (0, _v6.jsx)(_v156.Text, {
+          }), _v6 && (0, _v6.jsx)(_v80.Text, {
             variant: "body-sm",
             color: "text-secondary",
             children: (0, _v62.translate)({
@@ -6014,7 +6015,7 @@
           }), _v7 && (0, _v6.jsxs)(_v74.Flex, {
             gap: "3px",
             alignItems: "center",
-            children: [(0, _v6.jsx)(_v156.Text, {
+            children: [(0, _v6.jsx)(_v80.Text, {
               variant: "body-sm",
               color: "text-secondary",
               children: (0, _v62.translate)({
@@ -6043,12 +6044,12 @@
                   }
                 }
               })
-            }), _v9 && (0, _v6.jsx)(_v297.Link, {
+            }), _v9 && (0, _v6.jsx)(_v111.Link, {
               variant: "inline-secondary",
               fontSize: "12",
               cursor: "pointer",
               onClick: () => {
-                if ((0, _v191.sendTrackFindInTimeline)(), !_v9) throw Error(_v158.ELEMENT_NOT_IN_TIMELINE);
+                if ((0, _v193.sendTrackFindInTimeline)(), !_v9) throw Error(_v161.ELEMENT_NOT_IN_TIMELINE);
                 _v2(_v9.id), _v3(_v9.compositionTiming.start, !0);
               },
               "data-testid": "find-in-timeline",
@@ -6080,9 +6081,9 @@
               })
             })]
           })]
-        }), _v6 && (0, _v6.jsx)(_v178.Spinner, {
+        }), _v6 && (0, _v6.jsx)(_v181.Spinner, {
           size: "sm"
-        }), _v7 && ((0, _v373.isMediaUploadItem)(_v0) ? (0, _v6.jsxs)(_v74.Flex, {
+        }), _v7 && ((0, _v371.isMediaUploadItem)(_v0) ? (0, _v6.jsxs)(_v74.Flex, {
           gap: "4px",
           children: [(0, _v6.jsx)(_v211.Tooltip, {
             label: (0, _v62.translate)({
@@ -6112,14 +6113,14 @@
               }
             }),
             placement: "top",
-            children: (0, _v6.jsx)(_v194.IconButton, {
+            children: (0, _v6.jsx)(_v94.IconButton, {
               "aria-label": "close icon button",
-              icon: (0, _v6.jsx)(_v367.CloseXSmall, {}),
+              icon: (0, _v6.jsx)(_v365.CloseXSmall, {}),
               size: "xs",
               variant: "tertiary",
               onClick: () => _v5(_v0)
             })
-          }), (0, _v6.jsx)(_v186.Button, {
+          }), (0, _v6.jsx)(_v92.Button, {
             "aria-label": "retry button",
             size: "xs",
             variant: "secondary",
@@ -6155,7 +6156,7 @@
           label: "File could not be uploaded",
           placement: "top",
           children: (0, _v6.jsx)("span", {
-            children: (0, _v6.jsx)(_v366.CircleExclamationFilled, {
+            children: (0, _v6.jsx)(_v364.CircleExclamationFilled, {
               boxSize: "xs",
               color: "status-destructive-primary"
             })
@@ -6163,34 +6164,34 @@
         }))]
       });
     },
-    _v376 = () => {
-      let _v0 = (0, _v167.useAppSelector)(_v166.allElementsSelector),
-        _v1 = (0, _v167.useAppSelector)(_v242.loadingMediaSelector),
-        _v2 = (0, _v167.useAppSelector)(_v242.loadingSoundSelector),
-        _v3 = (0, _v7.useMemo)(() => [..._v1, ..._v2].filter(_v0 => _v0.status !== _v372.STATUS.DONE), [_v1, _v2]),
+    _v374 = () => {
+      let _v0 = (0, _v170.useAppSelector)(_v169.allElementsSelector),
+        _v1 = (0, _v170.useAppSelector)(_v242.loadingMediaSelector),
+        _v2 = (0, _v170.useAppSelector)(_v242.loadingSoundSelector),
+        _v3 = (0, _v7.useMemo)(() => [..._v1, ..._v2].filter(_v0 => _v0.status !== _v370.STATUS.DONE), [_v1, _v2]),
         _v4 = _v3.length,
-        _v5 = _v3.filter(_v0 => _v0.status === _v372.STATUS.ERROR).length,
-        _v6 = _v3.filter(_v0 => _v0.status === _v372.STATUS.PROGRESS).length,
+        _v5 = _v3.filter(_v0 => _v0.status === _v370.STATUS.ERROR).length,
+        _v6 = _v3.filter(_v0 => _v0.status === _v370.STATUS.PROGRESS).length,
         _v7 = _v5 > 0;
       return 0 === _v4 ? null : (0, _v6.jsx)(_v74.Flex, {
         position: "relative",
         zIndex: 40,
         gap: "4px",
-        children: (0, _v6.jsxs)(_v196.Popover, {
+        children: (0, _v6.jsxs)(_v197.Popover, {
           placement: "bottom-start",
           trigger: "hover",
-          children: [(0, _v6.jsx)(_v199.PopoverTrigger, {
-            children: (0, _v6.jsxs)(_v193.HStack, {
+          children: [(0, _v6.jsx)(_v200.PopoverTrigger, {
+            children: (0, _v6.jsxs)(_v195.HStack, {
               "data-testid": "uploads-modal-trigger",
               gap: "4px",
               cursor: "pointer",
-              children: [(0, _v6.jsx)(_v157.Upload, {
+              children: [(0, _v6.jsx)(_v160.Upload, {
                 color: "text-secondary"
-              }), _v7 && (0, _v6.jsx)(_v185.Box, {
+              }), _v7 && (0, _v6.jsx)(_v188.Box, {
                 position: "absolute",
                 left: "10px",
                 bottom: "10px",
-                children: (0, _v6.jsx)(_v366.CircleExclamationFilled, {
+                children: (0, _v6.jsx)(_v364.CircleExclamationFilled, {
                   boxSize: "2xs",
                   color: "status-destructive-primary",
                   style: {
@@ -6198,7 +6199,7 @@
                     borderRadius: "50%"
                   }
                 })
-              }), (0, _v6.jsx)(_v334.Paragraph, {
+              }), (0, _v6.jsx)(_v95.Paragraph, {
                 size: "md",
                 color: "text-secondary",
                 children: _v7 && _v6 > 0 ? (0, _v6.jsx)(_v6.Fragment, {
@@ -6312,11 +6313,11 @@
                 })
               })]
             })
-          }), (0, _v6.jsx)(_v198.PopoverContent, {
+          }), (0, _v6.jsx)(_v199.PopoverContent, {
             p: "12px",
             gap: 2,
             zIndex: 0,
-            children: _v3.map(_v0 => (0, _v6.jsx)(_v375, {
+            children: _v3.map(_v0 => (0, _v6.jsx)(_v373, {
               uploadingItem: _v0,
               allElements: _v0
             }, _v0.id))
@@ -6324,9 +6325,9 @@
         })
       });
     },
-    _v377 = {
+    _v375 = {
       gridArea: "header",
-      height: _v179.HEADER_HEIGHT + "px",
+      height: _v182.HEADER_HEIGHT + "px",
       padding: "12px 24px",
       alignItems: "center",
       flexGrow: 1,
@@ -6342,20 +6343,20 @@
   }) => _v0.content.color};
   }
 `;
-  let _v378 = () => {
+  let _v376 = () => {
     let _v0 = (0, _v209.useDispatch)(),
       _v1 = (0, _v8.useHistory)(),
       _v2 = (0, _v216.useIsStaff)(),
-      _v3 = (0, _v167.useAppSelector)(_v175.isInteractiveSelector),
-      _v4 = (0, _v167.useAppSelector)(_v317.isLoadingMediaOrApplyingTemplateSelector),
+      _v3 = (0, _v170.useAppSelector)(_v178.isInteractiveSelector),
+      _v4 = (0, _v170.useAppSelector)(_v316.isLoadingMediaOrApplyingTemplateSelector),
       _v5 = (0, _v7.useContext)(_v235.PartnershipAppContext),
-      _v6 = (0, _v167.useAppSelector)(_v273.isEditingInteractiveOverlaySelector),
+      _v6 = (0, _v170.useAppSelector)(_v273.isEditingInteractiveOverlaySelector),
       {
         colorMode: _v7
       } = (0, _v212.useColorMode)(),
       {
         exitEditTeamTemplateMode: _v8
-      } = (0, _v331.useEditTeamTemplate)(),
+      } = (0, _v330.useEditTeamTemplate)(),
       {
         isEnabled: _v9,
         requestExit: _v10
@@ -6364,7 +6365,7 @@
       _v12 = async () => {
         if (_v9) {
           let _v0 = await _v10("team_switch");
-          return _v0 && _v0((0, _v364.setIsTeamSwitchingAction)(!0)), _v0;
+          return _v0 && _v0((0, _v362.setIsTeamSwitchingAction)(!0)), _v0;
         }
         return !!confirm(`${(0, _v62.translate)({
           singular: "Leave site?",
@@ -6416,12 +6417,12 @@
               singular: "您所做的更改可能无法保存。"
             }
           }
-        })}`) && (_v0((0, _v364.setIsTeamSwitchingAction)(!0)), !0);
+        })}`) && (_v0((0, _v362.setIsTeamSwitchingAction)(!0)), !0);
       },
       _v13 = _v5?.mode === "iframe" || _v6;
     return (0, _v6.jsxs)(_v6.Fragment, {
-      children: [(0, _v6.jsx)(_v365.UITransitionContainer, {
-        type: _v365.UITransitionType.FADE,
+      children: [(0, _v6.jsx)(_v363.UITransitionContainer, {
+        type: _v363.UITransitionType.FADE,
         options: {
           enterDuration: "lg",
           exitDuration: "md"
@@ -6430,12 +6431,12 @@
           borderColor: "transparent",
           background: "transparent",
           "data-testid": "editor-header",
-          ..._v377,
+          ..._v375,
           children: [(0, _v6.jsxs)(_v74.Flex, {
             height: "100%",
             gap: "0 12px",
             alignItems: "center",
-            children: [!_v13 && (0, _v6.jsx)(_v194.IconButton, {
+            children: [!_v13 && (0, _v6.jsx)(_v94.IconButton, {
               icon: (0, _v6.jsx)(_v215.VimeoV, {}),
               "aria-label": "logo",
               variant: "secondary",
@@ -6474,34 +6475,34 @@
                 isSaveOrExitEditorDisabled: _v4,
                 onBackButtonClick: _v5?.iframeModeConfig?.headerConfig?.onBackButtonClick
               })
-            }), _v2 && (0, _v6.jsx)(_v311, {}), (0, _v6.jsx)(_v185.Box, {
+            }), _v2 && (0, _v6.jsx)(_v310, {}), (0, _v6.jsx)(_v188.Box, {
               padding: "6px",
-              children: (0, _v6.jsx)(_v319, {})
-            }), (0, _v6.jsx)(_v376, {})]
-          }), (0, _v6.jsx)(_v185.Box, {
+              children: (0, _v6.jsx)(_v318, {})
+            }), (0, _v6.jsx)(_v374, {})]
+          }), (0, _v6.jsx)(_v188.Box, {
             flexGrow: "1",
             height: "100%",
             alignItems: "center",
-            "data-testid": _v180.testIds.centerHeaderContainer,
-            children: _v5?.logo && (0, _v6.jsx)(_v379, {
+            "data-testid": _v183.testIds.centerHeaderContainer,
+            children: _v5?.logo && (0, _v6.jsx)(_v377, {
               $_css: "dark" === _v7 ? "grayscale(1) invert(1);" : "",
               children: _v5.logo
             })
           }), (0, _v6.jsxs)(_v74.Flex, {
             height: "100%",
             gap: "12px",
-            children: [(0, _v6.jsx)(_v363, {}), _v3 && !_v6 && (0, _v6.jsx)(_v186.Button, {
+            children: [(0, _v6.jsx)(_v361, {}), _v3 && !_v6 && (0, _v6.jsx)(_v92.Button, {
               variant: "secondary",
               "data-testid": "header-preview-button",
               isDisabled: _v4,
               onClick: () => _v11.current?.open(),
               leftIcon: (0, _v6.jsx)(_v213.Eye, {}),
-              children: _v315.translations.preview
-            }), (0, _v6.jsx)(_v354, {
+              children: _v314.translations.preview
+            }), (0, _v6.jsx)(_v352, {
               isEditingOverlay: _v6,
               isInteractive: _v3,
               exitEditTeamTemplateMode: _v8
-            }), !_v5?.app && (0, _v6.jsx)(_v185.Box, {
+            }), !_v5?.app && (0, _v6.jsx)(_v188.Box, {
               className: "notranslate",
               children: (0, _v6.jsx)(_v217.AccountMenu, {
                 onConfirmTeamSwitch: _v12
@@ -6514,7 +6515,7 @@
       })]
     });
   };
-  var _v379 = (0, _v9.default)(_v210.Center).withConfig({
+  var _v377 = (0, _v9.default)(_v210.Center).withConfig({
       displayName: "Header___StyledCenter",
       componentId: "sc-fd829d18-1"
     })`
@@ -6526,35 +6527,34 @@
                     filter: ${_v0 => _v0.$_css};
                   }
                 `,
+    _v378 = _v0.i(0),
+    _v379 = _v0.i(0),
     _v380 = _v0.i(0),
     _v381 = _v0.i(0),
     _v382 = _v0.i(0),
-    _v383 = _v0.i(0),
-    _v384 = _v0.i(0),
-    _v385 = _v0.i(0);
-  let _v386 = `${(0, _v155.rem)(16)} ${(0, _v155.rem)(16)}`,
-    _v387 = () => {
+    _v383 = _v0.i(0);
+  let _v384 = `${(0, _v159.rem)(16)} ${(0, _v159.rem)(16)}`,
+    _v385 = () => {
       let _v0 = (0, _v212.useColorModeValue)("gray.200", "gray.700"),
         _v1 = (0, _v212.useColorModeValue)("gray.100", "gray.800"),
-        [_v2, _v3] = (0, _v177.useToken)("colors", [_v0, _v1]);
-      return (0, _v6.jsx)(_v185.Box, {
+        [_v2, _v3] = (0, _v180.useToken)("colors", [_v0, _v1]);
+      return (0, _v6.jsx)(_v188.Box, {
         sx: {
           position: "absolute",
           height: "100%",
           width: "100%",
           overflow: "hidden",
-          background: `repeating-conic-gradient(${_v2} 0% 25%, ${_v3} 0% 50%) 50% / ${_v386}`,
+          background: `repeating-conic-gradient(${_v2} 0% 25%, ${_v3} 0% 50%) 50% / ${_v384}`,
           borderRadius: "6px",
           pointerEvents: "none"
         }
       });
     };
-  var _v388 = _v0.i(0),
-    _v389 = _v0.i(0),
-    _v390 = _v0.i(0),
-    _v391 = _v0.i(0),
-    _v392 = _v0.i(0);
-  let _v393 = _v9.default.div.withConfig({
+  var _v386 = _v0.i(0),
+    _v387 = _v0.i(0),
+    _v388 = _v0.i(0),
+    _v389 = _v0.i(0);
+  let _v390 = _v9.default.div.withConfig({
       displayName: "StageLoader__LoadingInfoContainer",
       componentId: "sc-2349de63-0"
     })`
@@ -6570,7 +6570,7 @@
       opacity: 1;
     `};
 `,
-    _v394 = _v9.default.div.withConfig({
+    _v391 = _v9.default.div.withConfig({
       displayName: "StageLoader__LoaderContainer",
       componentId: "sc-2349de63-1"
     })`
@@ -6579,7 +6579,7 @@
     }) => _v0 ? "translateY(0)" : "translateY(50px)"};
   transition: transform 500ms ease;
 `,
-    _v395 = _v9.default.div.withConfig({
+    _v392 = _v9.default.div.withConfig({
       displayName: "StageLoader__LoadingContainer",
       componentId: "sc-2349de63-2"
     })`
@@ -6590,7 +6590,7 @@
   justify-content: center;
   gap: 16px;
 `,
-    _v396 = _v9.default.div.withConfig({
+    _v393 = _v9.default.div.withConfig({
       displayName: "StageLoader__LoadingText",
       componentId: "sc-2349de63-3"
     })`
@@ -6599,7 +6599,7 @@
   align-items: center;
   margin-bottom: 16px;
 `,
-    _v397 = () => {
+    _v394 = () => {
       let [_v0, _v1] = (0, _v7.useState)(!1),
         _v2 = (0, _v7.useRef)(0),
         _v3 = (0, _v7.useCallback)(() => {
@@ -6609,16 +6609,16 @@
         _v1(!0);
       }, 0), () => {
         clearTimeout(_v2.current);
-      })), (0, _v6.jsxs)(_v395, {
-        children: [(0, _v6.jsx)(_v394, {
+      })), (0, _v6.jsxs)(_v392, {
+        children: [(0, _v6.jsx)(_v391, {
           isTransformed: _v0,
-          children: (0, _v6.jsx)(_v178.Spinner, {
+          children: (0, _v6.jsx)(_v181.Spinner, {
             size: "xl"
           })
-        }), (0, _v6.jsxs)(_v393, {
+        }), (0, _v6.jsxs)(_v390, {
           isVisible: _v0,
-          children: [(0, _v6.jsxs)(_v396, {
-            children: [(0, _v6.jsx)(_v392.Header, {
+          children: [(0, _v6.jsxs)(_v393, {
+            children: [(0, _v6.jsx)(_v93.Header, {
               size: "sm",
               mb: 75,
               children: (0, _v62.translate)({
@@ -6647,7 +6647,7 @@
                   }
                 }
               })
-            }), (0, _v6.jsx)(_v156.Text, {
+            }), (0, _v6.jsx)(_v80.Text, {
               variant: "body-md",
               children: (0, _v62.translate)({
                 singular: "This shouldn’t take long.",
@@ -6675,7 +6675,7 @@
                   }
                 }
               })
-            }), (0, _v6.jsx)(_v156.Text, {
+            }), (0, _v6.jsx)(_v80.Text, {
               variant: "body-md",
               children: (0, _v62.translate)({
                 singular: "You can wait or come back later.",
@@ -6704,7 +6704,7 @@
                 }
               })
             })]
-          }), (0, _v6.jsx)(_v186.Button, {
+          }), (0, _v6.jsx)(_v92.Button, {
             variant: "tertiary",
             onClick: _v3,
             children: (0, _v62.translate)({
@@ -6737,20 +6737,20 @@
         })]
       });
     },
-    _v398 = () => {
-      let _v0 = (0, _v167.useAppDispatch)(),
-        _v1 = (0, _v167.useAppSelector)(_v356.overridesSelector),
-        _v2 = (0, _v167.useAppSelector)(_v273.isEditingInteractiveOverlaySelector),
-        _v3 = (0, _v167.useAppSelector)(_v317.scorecardTimeTriggerSelector),
-        _v4 = (0, _v167.useAppSelector)(_v166.durationSelector),
-        _v5 = (0, _v167.useAppSelector)(_v166.storyboardSelector),
-        _v6 = (0, _v167.useAppSelector)(_v388.fontsSelector),
+    _v395 = () => {
+      let _v0 = (0, _v170.useAppDispatch)(),
+        _v1 = (0, _v170.useAppSelector)(_v354.overridesSelector),
+        _v2 = (0, _v170.useAppSelector)(_v273.isEditingInteractiveOverlaySelector),
+        _v3 = (0, _v170.useAppSelector)(_v316.scorecardTimeTriggerSelector),
+        _v4 = (0, _v170.useAppSelector)(_v169.durationSelector),
+        _v5 = (0, _v170.useAppSelector)(_v169.storyboardSelector),
+        _v6 = (0, _v170.useAppSelector)(_v386.fontsSelector),
         {
           currentTime: _v7
-        } = (0, _v167.useAppSelector)(_v260.dragonflyStateSelector),
-        _v8 = (0, _v167.useAppSelector)(_v242.elementsStatusesSelector),
-        _v9 = (0, _v167.useAppSelector)(_v317.pollListSelector),
-        _v10 = (0, _v167.useAppSelector)(_v166.quizQuestionProgressSelector),
+        } = (0, _v170.useAppSelector)(_v260.dragonflyStateSelector),
+        _v8 = (0, _v170.useAppSelector)(_v242.elementsStatusesSelector),
+        _v9 = (0, _v170.useAppSelector)(_v316.pollListSelector),
+        _v10 = (0, _v170.useAppSelector)(_v169.quizQuestionProgressSelector),
         {
           DFRef: _v11,
           handleEnded: _v12,
@@ -6759,8 +6759,8 @@
         _v14 = (0, _v7.useRef)(null),
         _v15 = _v14.current,
         _v16 = (0, _v7.useMemo)(() => {
-          let _v0 = _v10 ? (0, _v391.getDFStoryboardWithQuestionProgress)(_v5, _v4, _v9) : _v5;
-          return _v2 ? (0, _v390.getDFStoryboardForOverlayEditor)(_v0) : _v3 && !_v2 && "overlayId" in _v3.action ? (0, _v391.getDFStoryboardWithScorecardOverlay)(_v0, _v3.action.overlayId, _v4) : (0, _v282.lowerCaseUnderscore)(_v0);
+          let _v0 = _v10 ? (0, _v389.getDFStoryboardWithQuestionProgress)(_v5, _v4, _v9) : _v5;
+          return _v2 ? (0, _v388.getDFStoryboardForOverlayEditor)(_v0) : _v3 && !_v2 && "overlayId" in _v3.action ? (0, _v389.getDFStoryboardWithScorecardOverlay)(_v0, _v3.action.overlayId, _v4) : (0, _v282.lowerCaseUnderscore)(_v0);
         }, [_v2, _v9, _v10, _v3, _v5, _v4]),
         _v17 = (0, _v7.useCallback)(async () => {
           _v14.current = (await _v0.A(0)).default, _v0((0, _v260.setDragonflyInitializedAction)());
@@ -6775,48 +6775,48 @@
         onTimeUpdate: _v13,
         isPosterMode: 0 === _v7,
         compositionOverride: _v1,
-        fontFamilyDecorator: _v389.getFontFamily,
+        fontFamilyDecorator: _v387.getFontFamily,
         isAssumeFontsLoaded: !0,
         "data-testid": "dragonfly",
         elementsStatuses: _v8,
-        loader: (0, _v6.jsx)(_v178.Spinner, {
+        loader: (0, _v6.jsx)(_v181.Spinner, {
           size: "xl"
         }),
         isShowLogs: !1
-      }) : (0, _v6.jsx)(_v397, {});
+      }) : (0, _v6.jsx)(_v394, {});
     };
-  var _v399 = _v0.i(0),
+  var _v396 = _v0.i(0),
+    _v397 = _v0.i(0),
+    _v398 = _v0.i(0),
+    _v399 = _v0.i(0),
     _v400 = _v0.i(0),
     _v401 = _v0.i(0),
     _v402 = _v0.i(0),
-    _v403 = _v0.i(0),
-    _v404 = _v0.i(0),
-    _v405 = _v0.i(0),
-    _v406 = _v0.i(0);
-  let _v407 = () => {
-    let _v0 = (0, _v167.useAppSelector)(_v405.stageSizeSelector),
-      _v1 = (0, _v167.useAppSelector)(_v0 => _v0.featureFlags.dragoniteLogs.value),
+    _v403 = _v0.i(0);
+  let _v404 = () => {
+    let _v0 = (0, _v170.useAppSelector)(_v402.stageSizeSelector),
+      _v1 = (0, _v170.useAppSelector)(_v0 => _v0.featureFlags.dragoniteLogs.value),
       [_v2, _v3] = (0, _v7.useState)(!1),
-      _v4 = (0, _v167.useAppSelector)(_v382.currentCropElementIdSelector),
-      _v5 = (0, _v167.useAppSelector)(_v260.currentTimeSelector),
-      _v6 = (0, _v167.useAppSelector)(_v260.pausedSelector),
-      _v7 = (0, _v167.useAppSelector)(_v166.storyboardSelector),
-      _v8 = (0, _v167.useAppSelector)(_v242.elementsStatusesSelector),
-      _v9 = (0, _v167.useAppSelector)(_v356.overridesSelector),
-      _v10 = (0, _v167.useAppSelector)(_v388.fontsSelector),
-      _v11 = (0, _v167.useAppSelector)(_v175.shouldShowTestAssetsSelector),
+      _v4 = (0, _v170.useAppSelector)(_v380.currentCropElementIdSelector),
+      _v5 = (0, _v170.useAppSelector)(_v260.currentTimeSelector),
+      _v6 = (0, _v170.useAppSelector)(_v260.pausedSelector),
+      _v7 = (0, _v170.useAppSelector)(_v169.storyboardSelector),
+      _v8 = (0, _v170.useAppSelector)(_v242.elementsStatusesSelector),
+      _v9 = (0, _v170.useAppSelector)(_v354.overridesSelector),
+      _v10 = (0, _v170.useAppSelector)(_v386.fontsSelector),
+      _v11 = (0, _v170.useAppSelector)(_v178.shouldShowTestAssetsSelector),
       [_v12, _v13] = (0, _v7.useState)(!1),
       [_v14, _v15] = (0, _v7.useState)(!1),
       _v16 = (0, _v7.useRef)(-1),
       {
         data: _v17
-      } = (0, _v403.useFetchAssetsQuery)({
+      } = (0, _v400.useFetchAssetsQuery)({
         isTest: _v11,
         select: ["animations", "fonts"]
       }),
       {
         data: _v18
-      } = (0, _v404.useFetchTransitionLibraryQuery)(),
+      } = (0, _v401.useFetchTransitionLibraryQuery)(),
       {
         DFRef: _v19,
         handleEnded: _v20,
@@ -6824,7 +6824,7 @@
       } = (0, _v222.useDragonfly)(),
       {
         alertMissingWebGL: _v22
-      } = (0, _v161.useAlerts)(),
+      } = (0, _v164.useAlerts)(),
       _v23 = (0, _v7.useCallback)(() => {
         _v13(!0), setTimeout(() => {
           _v13(!1);
@@ -6833,24 +6833,24 @@
       _v24 = (0, _v7.useCallback)(() => {
         _v15(!0);
         let _v0 = performance.now();
-        _v402.default.setEditorLoadEnd(_v0), -1 !== _v16.current && (_v164.default.sendAction(_v251.EditorLoad, {
+        _v399.default.setEditorLoadEnd(_v0), -1 !== _v16.current && (_v167.default.sendAction(_v251.EditorLoad, {
           step: "end load dragonite",
-          durationMs: (0, _v406.durationSince)(_v16.current)
+          durationMs: (0, _v403.durationSince)(_v16.current)
         }), _v16.current = -1);
-        let _v1 = _v402.default.editorLoadStartTime;
-        0 !== _v1 && (_v164.default.sendAction(_v251.EditorLoad, {
+        let _v1 = _v399.default.editorLoadStartTime;
+        0 !== _v1 && (_v167.default.sendAction(_v251.EditorLoad, {
           step: "end load editor",
           timestamp: Math.round(_v0),
           loadingTime: Math.round(_v0 - _v1),
           ...(_v236.default.isEVV && {
             flow: "edit_vimeo_video"
           })
-        }), _v402.default.resetEditorLoadStart());
+        }), _v399.default.resetEditorLoadStart());
       }, []),
       _v25 = _v17?.animations && _v10 && _v7.videoSessionId,
       _v26 = Object.entries(_v9).filter(([, _v0]) => "compositionTiming" in _v0).map(([_v0]) => _v0);
     return (0, _v7.useLayoutEffect)(() => {
-      _v25 && (_v16.current = performance.now(), _v164.default.sendAction(_v251.EditorLoad, {
+      _v25 && (_v16.current = performance.now(), _v167.default.sendAction(_v251.EditorLoad, {
         step: "start load dragonite"
       }));
     }, [_v25]), (0, _v7.useLayoutEffect)(() => {
@@ -6862,7 +6862,7 @@
           opacity: +!!_v14,
           position: "absolute",
           pointerEvents: "none",
-          children: _v25 && _v2 && (0, _v6.jsx)(_v401.Dragonite, {
+          children: _v25 && _v2 && (0, _v6.jsx)(_v398.Dragonite, {
             ref: _v19,
             storyboard: _v7,
             elementsStatuses: _v8,
@@ -6883,8 +6883,8 @@
             onLoadedData: _v24,
             onWebGLError: _v22
           })
-        }), !_v14 && (0, _v6.jsx)(_v397, {})]
-      }), _v1 && (0, _v6.jsx)(_v194.IconButton, {
+        }), !_v14 && (0, _v6.jsx)(_v394, {})]
+      }), _v1 && (0, _v6.jsx)(_v94.IconButton, {
         variant: "secondary",
         size: "xs",
         "aria-label": "reset-dragonite",
@@ -6892,14 +6892,14 @@
         right: 8,
         bottom: 8,
         zIndex: 0,
-        icon: (0, _v6.jsx)(_v400.SyncRefresh, {}),
+        icon: (0, _v6.jsx)(_v397.SyncRefresh, {}),
         onClick: _v23
       })]
     });
   };
-  var _v408 = _v0.i(0);
-  let _v409 = "Vertical",
-    _v410 = "Horizontal";
+  var _v405 = _v0.i(0);
+  let _v406 = "Vertical",
+    _v407 = "Horizontal";
   _v9.default.div.withConfig({
     displayName: "Guides.style__GuidesDropdownContainer",
     componentId: "sc-959faad4-0"
@@ -6919,7 +6919,7 @@
   height: 32px;
 
   &:hover {
-    background: ${_v92.bokehTheme.colors.gray["50"]};
+    background: ${_v97.bokehTheme.colors.gray["50"]};
   }
 `, _v9.default.div.withConfig({
     displayName: "Guides.style__GuidesCheckboxIconContainer",
@@ -6928,7 +6928,7 @@
   width: 16px;
   height: 16px;
 `;
-  let _v411 = _v9.default.div.withConfig({
+  let _v408 = _v9.default.div.withConfig({
       displayName: "Guides.style__GuidesContainer",
       componentId: "sc-959faad4-3"
     })`
@@ -6937,7 +6937,7 @@
   overflow: hidden;
   pointer-events: none;
 `,
-    _v412 = _v9.default.div.withConfig({
+    _v409 = _v9.default.div.withConfig({
       displayName: "Guides.style__SnapGuideline",
       componentId: "sc-959faad4-4"
     })`
@@ -6951,99 +6951,99 @@
       type: _v2,
       isDragging: _v3,
       dragPosition: _v4
-    }) => _v2 === _v409 ? _v9.css`
+    }) => _v2 === _v406 ? _v9.css`
         width: 1px;
         background-color: transparent;
-        left: ${_v1 - _v408.GUIDES_BORDER_WIDTH}px;
+        left: ${_v1 - _v405.GUIDES_BORDER_WIDTH}px;
         top: 0px;
         bottom: 0px;
         ${_v3 && _v4 && `transform: translateX(${_v4.x}px)`};
-        border-right: ${_v408.GUIDES_BORDER_WIDTH}px solid transparent;
-        border-left: ${_v408.GUIDES_BORDER_WIDTH}px solid transparent;
-      ` : _v2 === _v410 ? _v9.css`
+        border-right: ${_v405.GUIDES_BORDER_WIDTH}px solid transparent;
+        border-left: ${_v405.GUIDES_BORDER_WIDTH}px solid transparent;
+      ` : _v2 === _v407 ? _v9.css`
         height: 1px;
         background-color: transparent;
-        top: ${_v0 - _v408.GUIDES_BORDER_WIDTH}px;
+        top: ${_v0 - _v405.GUIDES_BORDER_WIDTH}px;
         left: 0px;
         right: 0px;
         ${_v3 && _v4 && `transform: translateY(${_v4.y}px)`};
-        border-top: ${_v408.GUIDES_BORDER_WIDTH}px solid transparent;
-        border-bottom: ${_v408.GUIDES_BORDER_WIDTH}px solid transparent;
+        border-top: ${_v405.GUIDES_BORDER_WIDTH}px solid transparent;
+        border-bottom: ${_v405.GUIDES_BORDER_WIDTH}px solid transparent;
       ` : void 0}
 `,
-    _v413 = _v9.default.div.withConfig({
+    _v410 = _v9.default.div.withConfig({
       displayName: "Guides.style__Guideline",
       componentId: "sc-959faad4-5"
     })`
-  background-color: ${_v92.bokehTheme.colors.blue["500"]};
+  background-color: ${_v97.bokehTheme.colors.blue["500"]};
   height: 100%;
   width: 100%;
 `;
-  var _v414 = _v0.i(0),
-    _v415 = _v0.i(0);
-  let _v416 = (_v0, _v1) => {
+  var _v411 = _v0.i(0),
+    _v412 = _v0.i(0);
+  let _v413 = (_v0, _v1) => {
       let _v2 = {
           ceId: _v1 || null,
           top: 0,
           left: _v0.xMiddle,
-          type: _v409,
+          type: _v406,
           isEdge: !1,
           isMiddle: !0,
-          id: `guide_${(0, _v415.createUuidV4)()}`
+          id: `guide_${(0, _v412.createUuidV4)()}`
         },
         _v3 = {
           ceId: _v1 || null,
           top: _v0.yMiddle,
           left: 0,
-          type: _v410,
+          type: _v407,
           isEdge: !1,
           isMiddle: !0,
-          id: `guide_${(0, _v415.createUuidV4)()}`
+          id: `guide_${(0, _v412.createUuidV4)()}`
         };
       return [{
         ceId: _v1 || null,
         top: _v0.top,
         left: 0,
-        type: _v410,
+        type: _v407,
         isEdge: !0,
         isMiddle: !1,
-        id: `guide_${(0, _v415.createUuidV4)()}`
+        id: `guide_${(0, _v412.createUuidV4)()}`
       }, _v3, {
         ceId: _v1 || null,
         top: _v0.bottom,
         left: 0,
-        type: _v410,
+        type: _v407,
         isEdge: !0,
         isMiddle: !1,
-        id: `guide_${(0, _v415.createUuidV4)()}`
+        id: `guide_${(0, _v412.createUuidV4)()}`
       }, {
         ceId: _v1 || null,
         top: 0,
         left: _v0.left,
-        type: _v409,
+        type: _v406,
         isEdge: !0,
         isMiddle: !1,
-        id: `guide_${(0, _v415.createUuidV4)()}`
+        id: `guide_${(0, _v412.createUuidV4)()}`
       }, _v2, {
         ceId: _v1 || null,
         top: 0,
         left: _v0.right,
-        type: _v409,
+        type: _v406,
         isEdge: !0,
         isMiddle: !1,
-        id: `guide_${(0, _v415.createUuidV4)()}`
+        id: `guide_${(0, _v412.createUuidV4)()}`
       }];
     },
-    _v417 = _v0 => {
-      let _v1 = (0, _v167.useAppSelector)(_v414.textAnimationsMetadataSelector),
-        _v2 = (0, _v167.useAppSelector)(_v382.selectedElementsIdsSelector),
-        _v3 = (0, _v167.useAppSelector)(_v317.elementsInCurrentTimeSelector),
+    _v414 = _v0 => {
+      let _v1 = (0, _v170.useAppSelector)(_v411.textAnimationsMetadataSelector),
+        _v2 = (0, _v170.useAppSelector)(_v380.selectedElementsIdsSelector),
+        _v3 = (0, _v170.useAppSelector)(_v316.elementsInCurrentTimeSelector),
         _v4 = (0, _v7.useMemo)(() => {
           if (!_v0) return null;
           let _v0 = _v0.width === _v0.height,
-            _v1 = _v0 ? _v0.height * _v408.GUIDES_SQUARE_VERTICAL_PADDING : _v0.height * _v408.GUIDES_VERTICAL_PADDING,
-            _v2 = _v0 ? _v0.width * _v408.GUIDES_SQUARE_HORIZONTAL_PADDING : _v0.width * _v408.GUIDES_HORIZONTAL_PADDING;
-          return _v416({
+            _v1 = _v0 ? _v0.height * _v405.GUIDES_SQUARE_VERTICAL_PADDING : _v0.height * _v405.GUIDES_VERTICAL_PADDING,
+            _v2 = _v0 ? _v0.width * _v405.GUIDES_SQUARE_HORIZONTAL_PADDING : _v0.width * _v405.GUIDES_HORIZONTAL_PADDING;
+          return _v413({
             top: _v1,
             left: _v2,
             bottom: _v0.height - _v1,
@@ -7058,7 +7058,7 @@
           return _v3.forEach(_v0 => {
             if (!_v2.includes(_v0.id)) {
               let _v0 = (0, _v243.getPadding)(_v0, _v1),
-                _v1 = _v416({
+                _v1 = _v413({
                   left: (_v0.rect.x - (_v0.left || 0) * _v0.rect.width) * _v0.width,
                   right: (_v0.rect.x + _v0.rect.width + (_v0.right || 0) * _v0.rect.width) * _v0.width,
                   top: (_v0.rect.y - (_v0.top || 0) * _v0.rect.height) * _v0.height,
@@ -7074,7 +7074,7 @@
           rect: _v0,
           padding: _v1
         }) => {
-          let _v2 = _v408.GUIDES_SNAPPING_DISTANCE,
+          let _v2 = _v405.GUIDES_SNAPPING_DISTANCE,
             _v3 = [],
             _v4 = [],
             _v5 = [...(_v4 || []), ..._v5];
@@ -7103,7 +7103,7 @@
               isMiddle: _v2,
               type: _v3
             } = _v0;
-            _v2 && _v3 === _v409 ? Math.abs(_v0.left - (_v6.left + _v6.width / 2)) < _v2 && (_v6.left = _v0.left - _v6.width / 2, _v3.push(_v0), _v0.ceId && _v4.push(_v0.ceId)) : _v2 && _v3 === _v410 ? Math.abs(_v0.top - (_v6.top + _v6.height / 2)) < _v2 && (_v6.top = _v0.top - _v6.height / 2, _v3.push(_v0), _v0.ceId && _v4.push(_v0.ceId)) : _v1 && _v3 === _v409 ? (Math.abs(_v0.left + _v7.left - _v6.left) < _v2 && (_v6.left = _v0.left + _v7.left, _v3.push(_v0), _v0.ceId && _v4.push(_v0.ceId)), Math.abs(_v0.left - _v7.right - _v6.right) < _v2 && (_v6.left = _v0.left - _v7.right - _v6.width, _v3.push(_v0), _v0.ceId && _v4.push(_v0.ceId))) : _v1 && _v3 === _v410 && (Math.abs(_v0.top + _v7.top - _v6.top) < _v2 && (_v6.top = _v0.top + _v7.top, _v3.push(_v0), _v0.ceId && _v4.push(_v0.ceId)), Math.abs(_v0.top - _v7.bottom - _v6.bottom) < _v2 && (_v6.top = _v0.top - _v7.bottom - _v6.height, _v3.push(_v0), _v0.ceId && _v4.push(_v0.ceId)));
+            _v2 && _v3 === _v406 ? Math.abs(_v0.left - (_v6.left + _v6.width / 2)) < _v2 && (_v6.left = _v0.left - _v6.width / 2, _v3.push(_v0), _v0.ceId && _v4.push(_v0.ceId)) : _v2 && _v3 === _v407 ? Math.abs(_v0.top - (_v6.top + _v6.height / 2)) < _v2 && (_v6.top = _v0.top - _v6.height / 2, _v3.push(_v0), _v0.ceId && _v4.push(_v0.ceId)) : _v1 && _v3 === _v406 ? (Math.abs(_v0.left + _v7.left - _v6.left) < _v2 && (_v6.left = _v0.left + _v7.left, _v3.push(_v0), _v0.ceId && _v4.push(_v0.ceId)), Math.abs(_v0.left - _v7.right - _v6.right) < _v2 && (_v6.left = _v0.left - _v7.right - _v6.width, _v3.push(_v0), _v0.ceId && _v4.push(_v0.ceId))) : _v1 && _v3 === _v407 && (Math.abs(_v0.top + _v7.top - _v6.top) < _v2 && (_v6.top = _v0.top + _v7.top, _v3.push(_v0), _v0.ceId && _v4.push(_v0.ceId)), Math.abs(_v0.top - _v7.bottom - _v6.bottom) < _v2 && (_v6.top = _v0.top - _v7.bottom - _v6.height, _v3.push(_v0), _v0.ceId && _v4.push(_v0.ceId)));
           }), {
             snappedRect: {
               ..._v0,
@@ -7119,34 +7119,34 @@
         getSnappingGuidesRect: _v6
       };
     },
-    _v418 = () => {
-      let _v0 = (0, _v167.useAppSelector)(_v405.stageSizeSelector),
-        _v1 = (0, _v167.useAppSelector)(_v405.activeStageGuidesSelector),
-        _v2 = (0, _v167.useAppSelector)(_v0 => _v0.stage.guides.isShow),
+    _v415 = () => {
+      let _v0 = (0, _v170.useAppSelector)(_v402.stageSizeSelector),
+        _v1 = (0, _v170.useAppSelector)(_v402.activeStageGuidesSelector),
+        _v2 = (0, _v170.useAppSelector)(_v0 => _v0.stage.guides.isShow),
         {
           stageGuides: _v3
-        } = _v417(_v0);
-      return (0, _v6.jsxs)(_v411, {
-        "data-testid": _v180.testIds.guidesContainer,
-        children: [_v3 && _v2 && _v3.map(_v0 => !_v0.isMiddle && (0, _v6.jsx)(_v412, {
+        } = _v414(_v0);
+      return (0, _v6.jsxs)(_v408, {
+        "data-testid": _v183.testIds.guidesContainer,
+        children: [_v3 && _v2 && _v3.map(_v0 => !_v0.isMiddle && (0, _v6.jsx)(_v409, {
           left: _v0.left,
           top: _v0.top,
           type: _v0.type,
-          children: (0, _v6.jsx)(_v413, {
+          children: (0, _v6.jsx)(_v410, {
             "data-testid": `stage-bounds-${_v0.type}-guide`
           })
-        }, _v0.id)), _v1 && _v1.map(_v0 => (0, _v6.jsx)(_v412, {
+        }, _v0.id)), _v1 && _v1.map(_v0 => (0, _v6.jsx)(_v409, {
           left: _v0.left,
           top: _v0.top,
           type: _v0.type,
-          children: (0, _v6.jsx)(_v413, {
+          children: (0, _v6.jsx)(_v410, {
             "data-testid": `active-${_v0.type}-guide`
           })
         }, _v0.id))]
       });
     };
-  var _v419 = _v0.i(0);
-  let _v420 = _v9.default.div.withConfig({
+  var _v416 = _v0.i(0);
+  let _v417 = _v9.default.div.withConfig({
       displayName: "Stage.style__StageContainer",
       componentId: "sc-aadc139b-0"
     })`
@@ -7157,7 +7157,7 @@
   justify-content: center;
   z-index: 0;
 `,
-    _v421 = _v9.default.div.attrs(({
+    _v418 = _v9.default.div.attrs(({
       size: _v0
     }) => ({
       style: {
@@ -7209,7 +7209,7 @@
       }
     `}
 `,
-    _v422 = _v9.default.div.withConfig({
+    _v419 = _v9.default.div.withConfig({
       displayName: "Stage.style__RoundCorners",
       componentId: "sc-aadc139b-2"
     })`
@@ -7219,7 +7219,7 @@
   border-radius: 6px;
   overflow: hidden;
 `,
-    _v423 = _v9.default.div.withConfig({
+    _v420 = _v9.default.div.withConfig({
       displayName: "Stage.style__LogoPlaceholder",
       componentId: "sc-aadc139b-3"
     })`
@@ -7244,13 +7244,13 @@
     background: rgba(0, 0, 0, 0.6);
   }
 `,
-    _v424 = _v9.default.div.attrs(({
+    _v421 = _v9.default.div.attrs(({
       orientation: _v0
     }) => {
       let {
         width: _v1,
         height: _v2
-      } = _v419.ORIENTATION_MAP[_v0];
+      } = _v416.ORIENTATION_MAP[_v0];
       return {
         style: {
           width: `${209 / _v1 * 100}%`,
@@ -7267,7 +7267,7 @@
   z-index: ${0};
   border-radius: 10px;
 `,
-    _v425 = _v9.default.div.attrs(({
+    _v422 = _v9.default.div.attrs(({
       rect: _v0
     }) => ({
       style: {
@@ -7301,7 +7301,7 @@
     }
   }
 `,
-    _v426 = (0, _v7.memo)(({
+    _v423 = (0, _v7.memo)(({
       stageSize: _v0,
       rect: _v1,
       backgroundURL: _v2,
@@ -7320,7 +7320,7 @@
           width: _v7 * _v0.width,
           height: _v8 * _v0.height
         };
-      return (0, _v6.jsx)(_v425, {
+      return (0, _v6.jsx)(_v422, {
         rect: _v9,
         zIndex: _v4,
         children: (0, _v6.jsx)(_v210.Center, {
@@ -7357,24 +7357,24 @@
             backgroundURL: _v2,
             isTransparent: _v3
           }),
-          "data-testid": _v180.testIds.selectionLayerLoaderContainer,
-          children: (0, _v6.jsx)(_v178.Spinner, {})
+          "data-testid": _v183.testIds.selectionLayerLoaderContainer,
+          children: (0, _v6.jsx)(_v181.Spinner, {})
         })
       });
     });
-  var _v427 = _v0.i(0);
-  let _v428 = () => {
-    let _v0 = (0, _v167.useAppSelector)(_v175.isInteractiveSelector),
-      _v1 = (0, _v167.useAppSelector)(_v356.overridesSelector),
-      _v2 = (0, _v167.useAppSelector)(_v405.stageSizeSelector),
-      _v3 = (0, _v167.useAppSelector)(_v166.loadingElementsInCurrentTimeSelector),
-      _v4 = (0, _v167.useAppSelector)(_v242.allSourcesStatusSelector);
+  var _v424 = _v0.i(0);
+  let _v425 = () => {
+    let _v0 = (0, _v170.useAppSelector)(_v178.isInteractiveSelector),
+      _v1 = (0, _v170.useAppSelector)(_v354.overridesSelector),
+      _v2 = (0, _v170.useAppSelector)(_v402.stageSizeSelector),
+      _v3 = (0, _v170.useAppSelector)(_v169.loadingElementsInCurrentTimeSelector),
+      _v4 = (0, _v170.useAppSelector)(_v242.allSourcesStatusSelector);
     return _v3 ? (0, _v6.jsx)(_v6.Fragment, {
       children: _v3.map(_v0 => {
-        if (_v4[_v0.sourceHash] === _v372.STATUS.ERROR) return null;
+        if (_v4[_v0.sourceHash] === _v370.STATUS.ERROR) return null;
         let _v1 = (0, _v243.getPadding)(_v0),
-          _v2 = (0, _v427.getRectWithPadding)(_v1?.[_v0.id]?.rect || _v0.rect, _v1);
-        return (0, _v6.jsx)(_v426, {
+          _v2 = (0, _v424.getRectWithPadding)(_v1?.[_v0.id]?.rect || _v0.rect, _v1);
+        return (0, _v6.jsx)(_v423, {
           rect: _v2,
           stageSize: _v2,
           backgroundURL: _v0 ? _v0.thumbnailUrl : "",
@@ -7384,21 +7384,21 @@
       })
     }) : null;
   };
-  var _v429 = _v0.i(0),
+  var _v426 = _v0.i(0),
+    _v427 = _v0.i(0),
+    _v428 = _v0.i(0),
+    _v429 = _v0.i(0),
     _v430 = _v0.i(0),
-    _v431 = _v0.i(0),
-    _v432 = _v0.i(0),
-    _v433 = _v0.i(0),
-    _v434 = _v0.i(0);
-  let _v435 = () => {
-    let _v0 = (0, _v167.useAppSelector)(_v356.overridesSelector),
-      _v1 = (0, _v167.useAppSelector)(_v405.stageSizeSelector),
-      _v2 = (0, _v167.useAppSelector)(_v382.selectedElementsSelector),
+    _v431 = _v0.i(0);
+  let _v432 = () => {
+    let _v0 = (0, _v170.useAppSelector)(_v354.overridesSelector),
+      _v1 = (0, _v170.useAppSelector)(_v402.stageSizeSelector),
+      _v2 = (0, _v170.useAppSelector)(_v380.selectedElementsSelector),
       _v3 = (0, _v209.useDispatch)(),
       _v4 = (0, _v7.useCallback)((_v0, _v1) => {
-        _v3((0, _v382.setMutationAction)(_v433.Mutation.RECT)), (0, _v430.batch)(() => {
+        _v3((0, _v380.setMutationAction)(_v430.Mutation.RECT)), (0, _v427.batch)(() => {
           _v2.forEach(_v0 => {
-            (0, _v243.isMediaElement)(_v0) && _v3((0, _v356.addOverrideAction)({
+            (0, _v243.isMediaElement)(_v0) && _v3((0, _v354.addOverrideAction)({
               ceId: _v0.id,
               overrides: {
                 rect: _v0,
@@ -7414,7 +7414,7 @@
             rect: _v1,
             sourceFootageRect: _v2
           } = _v0[_v0];
-          _v3((0, _v166.updateElementAction)({
+          _v3((0, _v169.updateElementAction)({
             ceId: _v0,
             element: {
               ...(_v2 && {
@@ -7424,26 +7424,26 @@
                 rect: _v1
               })
             }
-          })), _v3((0, _v356.removeOverrideAction)({
+          })), _v3((0, _v354.removeOverrideAction)({
             ceId: _v0,
             key: "rect"
           }));
         }), setTimeout(() => {
-          _v3((0, _v382.setMutationAction)(null));
+          _v3((0, _v380.setMutationAction)(null));
         });
       }, [_v3, _v0]);
     return {
       handleCrop: _v4,
       handleCropEnd: _v5,
       handleCropDrag: (0, _v7.useCallback)((_v0, _v1, _v2) => {
-        _v3((0, _v382.setMutationAction)(_v433.Mutation.SOURCE_FOOTAGE_RECT)), _v2.forEach(_v0 => {
+        _v3((0, _v380.setMutationAction)(_v430.Mutation.SOURCE_FOOTAGE_RECT)), _v2.forEach(_v0 => {
           let _v1 = _v2.width * _v1.width,
             _v2 = _v2.height * _v1.height,
             _v3 = 1 - _v2.width,
             _v4 = 1 - _v2.height,
             _v5 = Math.min(Math.max(_v2.x - _v0 / _v1, 0), _v3),
             _v6 = Math.min(Math.max(_v2.y - _v1 / _v2, 0), _v4);
-          _v3((0, _v356.addOverrideAction)({
+          _v3((0, _v354.addOverrideAction)({
             ceId: _v0.id,
             overrides: {
               sourceFootageRect: {
@@ -7458,7 +7458,7 @@
       changeCropOrientation: (0, _v7.useCallback)(_v0 => {
         _v2.forEach(_v0 => {
           if (!(0, _v243.isMediaElement)(_v0)) return;
-          let _v1 = (0, _v427.getSourceFootageRectRelativeToStage)(_v0.rect, _v0.sourceFootageRect);
+          let _v1 = (0, _v424.getSourceFootageRectRelativeToStage)(_v0.rect, _v0.sourceFootageRect);
           if (_v1) {
             let _v0 = _v286.OrientationRatio[_v0],
               _v1 = _v1.width * _v1.width,
@@ -7473,17 +7473,17 @@
                 x: _v1.x + _v4 / 2,
                 y: _v1.y + _v5 / 2
               };
-            _v3((0, _v356.addOverrideAction)({
+            _v3((0, _v354.addOverrideAction)({
               ceId: _v0.id,
               overrides: {
                 rect: _v6,
-                sourceFootageRect: (0, _v434.rectToSourceFootageRect)(_v1, _v6, _v1)
+                sourceFootageRect: (0, _v431.rectToSourceFootageRect)(_v1, _v6, _v1)
               }
-            })), _v3((0, _v166.updateElementAction)({
+            })), _v3((0, _v169.updateElementAction)({
               ceId: _v0.id,
               element: {
                 rect: _v6,
-                sourceFootageRect: (0, _v434.rectToSourceFootageRect)(_v1, _v6, _v1)
+                sourceFootageRect: (0, _v431.rectToSourceFootageRect)(_v1, _v6, _v1)
               }
             }));
           }
@@ -7491,19 +7491,19 @@
       }, [_v3, _v2, _v1])
     };
   };
-  var _v436 = _v0.i(0),
+  var _v433 = _v0.i(0),
+    _v434 = _v0.i(0),
+    _v435 = _v0.i(0),
+    _v436 = _v0.i(0),
     _v437 = _v0.i(0),
     _v438 = _v0.i(0),
-    _v439 = _v0.i(0),
-    _v440 = _v0.i(0),
-    _v441 = _v0.i(0),
-    _v442 = _v0.i(0);
-  let _v443 = () => {
-      let _v0 = (0, _v167.useAppSelector)(_v166.nonHiddenLayersSelector),
-        _v1 = (0, _v167.useAppSelector)(_v317.overlayEditorDurationSelector),
-        _v2 = (0, _v167.useAppSelector)(_v166.durationSelector),
-        _v3 = (0, _v167.useAppSelector)(_v382.computedRectByCEIdSelector),
-        _v4 = (0, _v167.useAppSelector)(_v414.textAnimationsMetadataSelector),
+    _v439 = _v0.i(0);
+  let _v440 = () => {
+      let _v0 = (0, _v170.useAppSelector)(_v169.nonHiddenLayersSelector),
+        _v1 = (0, _v170.useAppSelector)(_v316.overlayEditorDurationSelector),
+        _v2 = (0, _v170.useAppSelector)(_v169.durationSelector),
+        _v3 = (0, _v170.useAppSelector)(_v380.computedRectByCEIdSelector),
+        _v4 = (0, _v170.useAppSelector)(_v411.textAnimationsMetadataSelector),
         _v5 = _v1 || _v2,
         {
           getCurrentTimeFromRef: _v6
@@ -7514,11 +7514,11 @@
           return (0, _v247.getElementsInTime)(_v0, _v0, _v0, _v4).forEach(_v0 => {
             let _v1;
             if (!(0, _v243.isSoundElement)(_v0) && !((_v0.zindex || 0) < (_v3?.zindex || 0))) {
-              if ((0, _v440.hasComputedRect)(_v0)) {
+              if ((0, _v437.hasComputedRect)(_v0)) {
                 if (!(_v1 = _v3.get(_v0.id))) return;
               } else {
                 let _v0 = (0, _v243.getPadding)(_v0, _v4);
-                _v1 = (0, _v427.getRectWithPadding)(_v0.rect, _v0);
+                _v1 = (0, _v424.getRectWithPadding)(_v0.rect, _v0);
               }
               if ((0, _v243.isGraphicElement)(_v0) && _v0.rotate) {
                 let _v0 = _v1.x + _v1.width / 2,
@@ -7535,8 +7535,8 @@
                   }, {
                     x: _v1.x,
                     y: _v1.y + _v1.height
-                  }].map(_v0 => (0, _v427.rotate)(_v0.x, _v0.y, _v0, _v1, _v0.rotate));
-                (0, _v427.pointInPolygon)(_v1, _v2, _v2) && (_v3 = _v0);
+                  }].map(_v0 => (0, _v424.rotate)(_v0.x, _v0.y, _v0, _v1, _v0.rotate));
+                (0, _v424.pointInPolygon)(_v1, _v2, _v2) && (_v3 = _v0);
               } else _v1 >= _v1.x && _v1 <= _v1.x + _v1.width && _v2 >= _v1.y && _v2 <= _v1.y + _v1.height && (_v3 = _v0);
             }
           }), _v3;
@@ -7553,17 +7553,17 @@
         getCEUnderPointer: _v8
       };
     },
-    _v444 = _v0 => {
+    _v441 = _v0 => {
       let {
           getCEUnderPointer: _v1
-        } = _v443(),
-        _v2 = (0, _v167.useAppSelector)(_v382.selectedElementsIdsSelector),
+        } = _v440(),
+        _v2 = (0, _v170.useAppSelector)(_v380.selectedElementsIdsSelector),
         [_v3, _v4] = (0, _v7.useState)(!1),
         _v5 = _v2.includes(_v0);
       return (0, _v7.useEffect)(function () {
         if (!_v5) return;
         _v4(!0);
-        let _v0 = (0, _v442.default)(_v0 => {
+        let _v0 = (0, _v439.default)(_v0 => {
           let _v1 = _v1(_v0.clientX, _v0.clientY);
           _v1 && _v4(_v1.id === _v0);
         }, 100);
@@ -7572,20 +7572,20 @@
         };
       }, [_v5, _v0, _v1]), _v3;
     };
-  var _v445 = _v0.i(0);
-  function _v446(_v0, _v1) {
+  var _v442 = _v0.i(0);
+  function _v443(_v0, _v1) {
     if (!(_v0 instanceof _v1)) throw TypeError("Cannot call a class as a function");
   }
-  function _v447(_v0, _v1) {
+  function _v444(_v0, _v1) {
     for (var _v2 = 0; _v2 < _v1.length; _v2++) {
       var _v3 = _v1[_v2];
       _v3.enumerable = _v3.enumerable || !1, _v3.configurable = !0, "value" in _v3 && (_v3.writable = !0), Object.defineProperty(_v0, _v3.key, _v3);
     }
   }
-  function _v448(_v0, _v1, _v2) {
-    return _v1 && _v447(_v0.prototype, _v1), _v2 && _v447(_v0, _v2), _v0;
+  function _v445(_v0, _v1, _v2) {
+    return _v1 && _v444(_v0.prototype, _v1), _v2 && _v444(_v0, _v2), _v0;
   }
-  function _v449(_v0, _v1, _v2) {
+  function _v446(_v0, _v1, _v2) {
     return _v1 in _v0 ? Object.defineProperty(_v0, _v1, {
       value: _v2,
       enumerable: !0,
@@ -7593,7 +7593,7 @@
       writable: !0
     }) : _v0[_v1] = _v2, _v0;
   }
-  function _v450(_v0, _v1) {
+  function _v447(_v0, _v1) {
     if ("function" != typeof _v1 && null !== _v1) throw TypeError("Super expression must either be null or a function");
     _v0.prototype = Object.create(_v1 && _v1.prototype, {
       constructor: {
@@ -7601,56 +7601,56 @@
         writable: !0,
         configurable: !0
       }
-    }), _v1 && _v452(_v0, _v1);
+    }), _v1 && _v449(_v0, _v1);
   }
-  function _v451(_v0) {
-    return (_v451 = Object.setPrototypeOf ? Object.getPrototypeOf : function (_v0) {
+  function _v448(_v0) {
+    return (_v448 = Object.setPrototypeOf ? Object.getPrototypeOf : function (_v0) {
       return _v0.__proto__ || Object.getPrototypeOf(_v0);
     })(_v0);
   }
-  function _v452(_v0, _v1) {
-    return (_v452 = Object.setPrototypeOf || function (_v0, _v1) {
+  function _v449(_v0, _v1) {
+    return (_v449 = Object.setPrototypeOf || function (_v0, _v1) {
       return _v0.__proto__ = _v1, _v0;
     })(_v0, _v1);
   }
-  function _v453(_v0) {
+  function _v450(_v0) {
     if (void 0 === _v0) throw ReferenceError("this hasn't been initialised - super() hasn't been called");
     return _v0;
   }
-  function _v454(_v0, _v1) {
-    return _v1 && ("object" == typeof _v1 || "function" == typeof _v1) ? _v1 : _v453(_v0);
+  function _v451(_v0, _v1) {
+    return _v1 && ("object" == typeof _v1 || "function" == typeof _v1) ? _v1 : _v450(_v0);
   }
-  var _v455 = function (_v0, _v1) {
+  var _v452 = function (_v0, _v1) {
       var _v2 = _v0.x,
         _v3 = _v0.y,
         _v4 = _v1.x,
         _v5 = _v1.y;
       return (Math.atan2(_v2 * _v5 - _v3 * _v4, _v2 * _v4 + _v3 * _v5) / Math.PI * 180 + 360) % 360;
     },
-    _v456 = function (_v0) {
+    _v453 = function (_v0) {
       return _v0 * Math.PI / 180;
     },
-    _v457 = function (_v0) {
-      return Math.cos(_v456(_v0));
+    _v454 = function (_v0) {
+      return Math.cos(_v453(_v0));
     },
-    _v458 = function (_v0) {
-      return Math.sin(_v456(_v0));
+    _v455 = function (_v0) {
+      return Math.sin(_v453(_v0));
     },
-    _v459 = function (_v0, _v1, _v2) {
+    _v456 = function (_v0, _v1, _v2) {
       var _v3 = _v0 + _v1;
       return _v3 > _v2 ? _v0 = _v3 : (_v1 = _v2 - _v0, _v0 = _v2), {
         width: _v0,
         deltaW: _v1
       };
     },
-    _v460 = function (_v0, _v1, _v2) {
+    _v457 = function (_v0, _v1, _v2) {
       var _v3 = _v0 + _v1;
       return _v3 > _v2 ? _v0 = _v3 : (_v1 = _v2 - _v0, _v0 = _v2), {
         height: _v0,
         deltaH: _v1
       };
     },
-    _v461 = function (_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
+    _v458 = function (_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
       var _v7 = _v1.width,
         _v8 = _v1.height,
         _v9 = _v1.centerX,
@@ -7660,46 +7660,46 @@
         _v13 = _v8 < 0 ? -1 : 1;
       switch (_v7 = Math.abs(_v7), _v8 = Math.abs(_v8), _v0) {
         case "r":
-          var _v14 = _v459(_v7, _v2, _v5);
-          _v7 = _v14.width, _v2 = _v14.deltaW, _v4 ? (_v3 = _v2 / _v4, _v8 = _v7 / _v4, _v9 += _v2 / 2 * _v457(_v11) - _v3 / 2 * _v458(_v11), _v10 += _v2 / 2 * _v458(_v11) + _v3 / 2 * _v457(_v11)) : (_v9 += _v2 / 2 * _v457(_v11), _v10 += _v2 / 2 * _v458(_v11));
+          var _v14 = _v456(_v7, _v2, _v5);
+          _v7 = _v14.width, _v2 = _v14.deltaW, _v4 ? (_v3 = _v2 / _v4, _v8 = _v7 / _v4, _v9 += _v2 / 2 * _v454(_v11) - _v3 / 2 * _v455(_v11), _v10 += _v2 / 2 * _v455(_v11) + _v3 / 2 * _v454(_v11)) : (_v9 += _v2 / 2 * _v454(_v11), _v10 += _v2 / 2 * _v455(_v11));
           break;
         case "tr":
           _v3 = -_v3;
-          var _v15 = _v459(_v7, _v2, _v5);
+          var _v15 = _v456(_v7, _v2, _v5);
           _v7 = _v15.width, _v2 = _v15.deltaW;
-          var _v16 = _v460(_v8, _v3, _v6);
-          _v8 = _v16.height, _v3 = _v16.deltaH, _v4 && (_v2 = _v3 * _v4, _v7 = _v8 * _v4), _v9 += _v2 / 2 * _v457(_v11) + _v3 / 2 * _v458(_v11), _v10 += _v2 / 2 * _v458(_v11) - _v3 / 2 * _v457(_v11);
+          var _v16 = _v457(_v8, _v3, _v6);
+          _v8 = _v16.height, _v3 = _v16.deltaH, _v4 && (_v2 = _v3 * _v4, _v7 = _v8 * _v4), _v9 += _v2 / 2 * _v454(_v11) + _v3 / 2 * _v455(_v11), _v10 += _v2 / 2 * _v455(_v11) - _v3 / 2 * _v454(_v11);
           break;
         case "br":
-          var _v17 = _v459(_v7, _v2, _v5);
+          var _v17 = _v456(_v7, _v2, _v5);
           _v7 = _v17.width, _v2 = _v17.deltaW;
-          var _v18 = _v460(_v8, _v3, _v6);
-          _v8 = _v18.height, _v3 = _v18.deltaH, _v4 && (_v2 = _v3 * _v4, _v7 = _v8 * _v4), _v9 += _v2 / 2 * _v457(_v11) - _v3 / 2 * _v458(_v11), _v10 += _v2 / 2 * _v458(_v11) + _v3 / 2 * _v457(_v11);
+          var _v18 = _v457(_v8, _v3, _v6);
+          _v8 = _v18.height, _v3 = _v18.deltaH, _v4 && (_v2 = _v3 * _v4, _v7 = _v8 * _v4), _v9 += _v2 / 2 * _v454(_v11) - _v3 / 2 * _v455(_v11), _v10 += _v2 / 2 * _v455(_v11) + _v3 / 2 * _v454(_v11);
           break;
         case "b":
-          var _v19 = _v460(_v8, _v3, _v6);
-          _v8 = _v19.height, _v3 = _v19.deltaH, _v4 ? (_v2 = _v3 * _v4, _v7 = _v8 * _v4, _v9 += _v2 / 2 * _v457(_v11) - _v3 / 2 * _v458(_v11), _v10 += _v2 / 2 * _v458(_v11) + _v3 / 2 * _v457(_v11)) : (_v9 -= _v3 / 2 * _v458(_v11), _v10 += _v3 / 2 * _v457(_v11));
+          var _v19 = _v457(_v8, _v3, _v6);
+          _v8 = _v19.height, _v3 = _v19.deltaH, _v4 ? (_v2 = _v3 * _v4, _v7 = _v8 * _v4, _v9 += _v2 / 2 * _v454(_v11) - _v3 / 2 * _v455(_v11), _v10 += _v2 / 2 * _v455(_v11) + _v3 / 2 * _v454(_v11)) : (_v9 -= _v3 / 2 * _v455(_v11), _v10 += _v3 / 2 * _v454(_v11));
           break;
         case "bl":
-          var _v20 = _v459(_v7, _v2 = -_v2, _v5);
+          var _v20 = _v456(_v7, _v2 = -_v2, _v5);
           _v7 = _v20.width, _v2 = _v20.deltaW;
-          var _v21 = _v460(_v8, _v3, _v6);
-          _v8 = _v21.height, _v3 = _v21.deltaH, _v4 && (_v8 = _v7 / _v4, _v3 = _v2 / _v4), _v9 -= _v2 / 2 * _v457(_v11) + _v3 / 2 * _v458(_v11), _v10 -= _v2 / 2 * _v458(_v11) - _v3 / 2 * _v457(_v11);
+          var _v21 = _v457(_v8, _v3, _v6);
+          _v8 = _v21.height, _v3 = _v21.deltaH, _v4 && (_v8 = _v7 / _v4, _v3 = _v2 / _v4), _v9 -= _v2 / 2 * _v454(_v11) + _v3 / 2 * _v455(_v11), _v10 -= _v2 / 2 * _v455(_v11) - _v3 / 2 * _v454(_v11);
           break;
         case "l":
-          var _v22 = _v459(_v7, _v2 = -_v2, _v5);
-          _v7 = _v22.width, _v2 = _v22.deltaW, _v4 ? (_v8 = _v7 / _v4, _v3 = _v2 / _v4, _v9 -= _v2 / 2 * _v457(_v11) + _v3 / 2 * _v458(_v11), _v10 -= _v2 / 2 * _v458(_v11) - _v3 / 2 * _v457(_v11)) : (_v9 -= _v2 / 2 * _v457(_v11), _v10 -= _v2 / 2 * _v458(_v11));
+          var _v22 = _v456(_v7, _v2 = -_v2, _v5);
+          _v7 = _v22.width, _v2 = _v22.deltaW, _v4 ? (_v8 = _v7 / _v4, _v3 = _v2 / _v4, _v9 -= _v2 / 2 * _v454(_v11) + _v3 / 2 * _v455(_v11), _v10 -= _v2 / 2 * _v455(_v11) - _v3 / 2 * _v454(_v11)) : (_v9 -= _v2 / 2 * _v454(_v11), _v10 -= _v2 / 2 * _v455(_v11));
           break;
         case "tl":
           _v3 = -_v3;
-          var _v23 = _v459(_v7, _v2 = -_v2, _v5);
+          var _v23 = _v456(_v7, _v2 = -_v2, _v5);
           _v7 = _v23.width, _v2 = _v23.deltaW;
-          var _v24 = _v460(_v8, _v3, _v6);
-          _v8 = _v24.height, _v3 = _v24.deltaH, _v4 && (_v7 = _v8 * _v4, _v2 = _v3 * _v4), _v9 -= _v2 / 2 * _v457(_v11) - _v3 / 2 * _v458(_v11), _v10 -= _v2 / 2 * _v458(_v11) + _v3 / 2 * _v457(_v11);
+          var _v24 = _v457(_v8, _v3, _v6);
+          _v8 = _v24.height, _v3 = _v24.deltaH, _v4 && (_v7 = _v8 * _v4, _v2 = _v3 * _v4), _v9 -= _v2 / 2 * _v454(_v11) - _v3 / 2 * _v455(_v11), _v10 -= _v2 / 2 * _v455(_v11) + _v3 / 2 * _v454(_v11);
           break;
         case "t":
-          var _v25 = _v460(_v8, _v3 = -_v3, _v6);
-          _v8 = _v25.height, _v3 = _v25.deltaH, _v4 ? (_v7 = _v8 * _v4, _v9 += (_v2 = _v3 * _v4) / 2 * _v457(_v11) + _v3 / 2 * _v458(_v11), _v10 += _v2 / 2 * _v458(_v11) - _v3 / 2 * _v457(_v11)) : (_v9 += _v3 / 2 * _v458(_v11), _v10 -= _v3 / 2 * _v457(_v11));
+          var _v25 = _v457(_v8, _v3 = -_v3, _v6);
+          _v8 = _v25.height, _v3 = _v25.deltaH, _v4 ? (_v7 = _v8 * _v4, _v9 += (_v2 = _v3 * _v4) / 2 * _v454(_v11) + _v3 / 2 * _v455(_v11), _v10 += _v2 / 2 * _v455(_v11) - _v3 / 2 * _v454(_v11)) : (_v9 += _v3 / 2 * _v455(_v11), _v10 -= _v3 / 2 * _v454(_v11));
       }
       return {
         position: {
@@ -7712,7 +7712,7 @@
         }
       };
     },
-    _v462 = {
+    _v459 = {
       n: 0,
       ne: 1,
       e: 2,
@@ -7722,8 +7722,8 @@
       w: 6,
       nw: 7
     },
-    _v463 = ["n", "ne", "e", "se", "s", "sw", "w", "nw"],
-    _v464 = {
+    _v460 = ["n", "ne", "e", "se", "s", "sw", "w", "nw"],
+    _v461 = {
       0: 0,
       1: 1,
       2: 2,
@@ -7737,11 +7737,11 @@
       10: 7,
       11: 8
     },
-    _v465 = function (_v0, _v1) {
-      var _v2 = _v464[Math.floor(_v0 / 30)];
-      return _v463[(_v462[_v1] + _v2) % 8];
+    _v462 = function (_v0, _v1) {
+      var _v2 = _v461[Math.floor(_v0 / 30)];
+      return _v460[(_v459[_v1] + _v2) % 8];
     },
-    _v466 = function (_v0) {
+    _v463 = function (_v0) {
       var _v1 = _v0.centerX,
         _v2 = _v0.centerY,
         _v3 = _v0.width,
@@ -7754,7 +7754,7 @@
         rotateAngle: _v0.rotateAngle
       };
     },
-    _v467 = function (_v0) {
+    _v464 = function (_v0) {
       var _v1 = _v0.top,
         _v2 = _v0.left,
         _v3 = _v0.width,
@@ -7773,11 +7773,11 @@
         }
       };
     },
-    _v468 = _v9.default.div.withConfig({
+    _v465 = _v9.default.div.withConfig({
       displayName: "StyledRect",
       componentId: "sc-1uso172-0"
     })(['position:absolute;border:1px solid #eb5648;.square{position:absolute;width:7px;height:7px;background:white;border:1px solid #eb5648;border-radius:1px;}.resizable-handler{position:absolute;width:14px;height:14px;cursor:pointer;z-index:1;&.tl,&.t,&.tr{top:-7px;}&.tl,&.l,&.bl{left:-7px;}&.bl,&.b,&.br{bottom:-7px;}&.br,&.r,&.tr{right:-7px;}&.l,&.r{margin-top:-7px;}&.t,&.b{margin-left:-7px;}}.rotate{position:absolute;cursor:pointer;left:50%;top:-26px;transform:translateX(-50%);& i{font-size:18px;display:inline-block;width:1em;height:1em;background-size:1em 1em;background-repeat:no-repeat;background-position:center center;background-image:url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNOC4zIDUuNEw4IC40bDMuMiAyLjEgMS43IDF6Ii8+PG1hc2sgaWQ9ImIiIHg9IjAiIHk9IjAiIHdpZHRoPSI0LjkiIGhlaWdodD0iNC45IiBmaWxsPSIjZmZmIj48dXNlIHhsaW5rOmhyZWY9IiNhIi8+PC9tYXNrPjwvZGVmcz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxIDEpIiBzdHJva2U9IiNGNTVENTQiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTExIDkuMkE2IDYgMCAwIDEgMCA2YTYgNiAwIDAgMSAxMC43LTMuOCIvPjx1c2UgbWFzaz0idXJsKCNiKSIgc3Ryb2tlLXdpZHRoPSIyIiB0cmFuc2Zvcm09Im1hdHJpeCgtMSAwIDAgMSAyMSAwKSIgeGxpbms6aHJlZj0iI2EiLz48L2c+PC9zdmc+Cg==");}}.t,.tl,.tr{top:-3px;}.b,.bl,.br{bottom:-3px;}.r,.tr,.br{right:-3px;}.tl,.l,.bl{left:-3px;}.l,.r{top:50%;margin-top:-3px;}.t,.b{left:50%;margin-left:-3px;}']),
-    _v469 = {
+    _v466 = {
       n: "t",
       s: "b",
       e: "r",
@@ -7787,13 +7787,13 @@
       se: "br",
       sw: "bl"
     },
-    _v470 = function (_v0) {
+    _v467 = function (_v0) {
       function _v1() {
-        _v446(this, _v1);
+        _v443(this, _v1);
         for (var _v0, _v1, _v2 = arguments.length, _v3 = Array(_v2), _v4 = 0; _v4 < _v2; _v4++) _v3[_v4] = arguments[_v4];
-        return _v449(_v453(_v453(_v1 = _v454(this, (_v0 = _v451(_v1)).call.apply(_v0, [this].concat(_v3))))), "setElementRef", function (_v0) {
+        return _v446(_v450(_v450(_v1 = _v451(this, (_v0 = _v448(_v1)).call.apply(_v0, [this].concat(_v3))))), "setElementRef", function (_v0) {
           _v1.$element = _v0;
-        }), _v449(_v453(_v453(_v1)), "startDrag", function (_v0) {
+        }), _v446(_v450(_v450(_v1)), "startDrag", function (_v0) {
           var _v1 = _v0.clientX,
             _v2 = _v0.clientY;
           _v1.props.onDragStart && _v1.props.onDragStart(), _v1._isMouseDown = !0;
@@ -7810,7 +7810,7 @@
           document.addEventListener("mousemove", _v3), document.addEventListener("mouseup", function _v0() {
             document.removeEventListener("mousemove", _v3), document.removeEventListener("mouseup", _v0), _v1._isMouseDown && (_v1._isMouseDown = !1, _v1.props.onDragEnd && _v1.props.onDragEnd());
           });
-        }), _v449(_v453(_v453(_v1)), "startRotate", function (_v0) {
+        }), _v446(_v450(_v450(_v1)), "startRotate", function (_v0) {
           if (0 === _v0.button) {
             var _v1 = _v0.clientX,
               _v2 = _v0.clientY,
@@ -7830,7 +7830,7 @@
                 _v0.stopImmediatePropagation();
                 var _v1 = _v0.clientX,
                   _v2 = _v0.clientY,
-                  _v3 = _v455(_v6, {
+                  _v3 = _v452(_v6, {
                     x: _v1 - _v5.x,
                     y: _v2 - _v5.y
                   });
@@ -7841,7 +7841,7 @@
               document.removeEventListener("mousemove", _v7), document.removeEventListener("mouseup", _v0), _v1._isMouseDown && (_v1._isMouseDown = !1, _v1.props.onRotateEnd && _v1.props.onRotateEnd());
             });
           }
-        }), _v449(_v453(_v453(_v1)), "startResize", function (_v0, _v1) {
+        }), _v446(_v450(_v450(_v1)), "startResize", function (_v0, _v1) {
           if (0 === _v0.button) {
             document.body.style.cursor = _v1;
             var _v2 = _v1.props.styles,
@@ -7882,7 +7882,7 @@
           }
         }), _v1;
       }
-      return _v450(_v1, _v0), _v448(_v1, [{
+      return _v447(_v1, _v0), _v445(_v1, [{
         key: "render",
         value: function () {
           var _v0 = this,
@@ -7903,7 +7903,7 @@
             }).filter(function (_v0) {
               return _v0;
             });
-          return _v7.default.createElement(_v468, {
+          return _v7.default.createElement(_v465, {
             ref: this.setElementRef,
             onMouseDown: this.startDrag,
             className: "rect single-resizer",
@@ -7918,13 +7918,13 @@
             className: "rotate",
             onMouseDown: this.startRotate
           }, _v7.default.createElement("i", null)), _v13.map(function (_v0) {
-            var _v1 = "".concat(_v465(_v9 + _v12, _v0), "-resize");
+            var _v1 = "".concat(_v462(_v9 + _v12, _v0), "-resize");
             return _v7.default.createElement("div", {
               key: _v0,
               style: {
                 cursor: _v1
               },
-              className: "".concat(_v469[_v0], " resizable-handler"),
+              className: "".concat(_v466[_v0], " resizable-handler"),
               onMouseDown: function (_v0) {
                 return _v0.startResize(_v0, _v1);
               }
@@ -7932,55 +7932,55 @@
           }), _v13.map(function (_v0) {
             return _v7.default.createElement("div", {
               key: _v0,
-              className: "".concat(_v469[_v0], " square")
+              className: "".concat(_v466[_v0], " square")
             });
           }));
         }
       }]), _v1;
     }(_v7.PureComponent);
-  _v449(_v470, "propTypes", {
-    styles: _v445.default.object,
-    zoomable: _v445.default.string,
-    rotatable: _v445.default.bool,
-    onResizeStart: _v445.default.func,
-    onResize: _v445.default.func,
-    onResizeEnd: _v445.default.func,
-    onRotateStart: _v445.default.func,
-    onRotate: _v445.default.func,
-    onRotateEnd: _v445.default.func,
-    onDragStart: _v445.default.func,
-    onDrag: _v445.default.func,
-    onDragEnd: _v445.default.func,
-    parentRotateAngle: _v445.default.number
+  _v446(_v467, "propTypes", {
+    styles: _v442.default.object,
+    zoomable: _v442.default.string,
+    rotatable: _v442.default.bool,
+    onResizeStart: _v442.default.func,
+    onResize: _v442.default.func,
+    onResizeEnd: _v442.default.func,
+    onRotateStart: _v442.default.func,
+    onRotate: _v442.default.func,
+    onRotateEnd: _v442.default.func,
+    onDragStart: _v442.default.func,
+    onDrag: _v442.default.func,
+    onDragEnd: _v442.default.func,
+    parentRotateAngle: _v442.default.number
   });
-  var _v471 = function (_v0) {
+  var _v468 = function (_v0) {
     function _v1() {
-      _v446(this, _v1);
+      _v443(this, _v1);
       for (var _v0, _v1, _v2 = arguments.length, _v3 = Array(_v2), _v4 = 0; _v4 < _v2; _v4++) _v3[_v4] = arguments[_v4];
-      return _v449(_v453(_v453(_v1 = _v454(this, (_v0 = _v451(_v1)).call.apply(_v0, [this].concat(_v3))))), "handleRotate", function (_v0, _v1) {
+      return _v446(_v450(_v450(_v1 = _v451(this, (_v0 = _v448(_v1)).call.apply(_v0, [this].concat(_v3))))), "handleRotate", function (_v0, _v1) {
         if (_v1.props.onRotate) {
           var _v2 = Math.round(_v1 + _v0);
           _v2 >= 360 ? _v2 -= 360 : _v2 < 0 && (_v2 += 360), _v2 > 356 || _v2 < 4 ? _v2 = 0 : _v2 > 86 && _v2 < 94 ? _v2 = 90 : _v2 > 176 && _v2 < 184 ? _v2 = 180 : _v2 > 266 && _v2 < 274 && (_v2 = 270), _v1.props.onRotate(_v2);
         }
-      }), _v449(_v453(_v453(_v1)), "handleResize", function (_v0, _v1, _v2, _v3, _v4) {
+      }), _v446(_v450(_v450(_v1)), "handleResize", function (_v0, _v1, _v2, _v3, _v4) {
         if (_v1.props.onResize) {
           var _v5 = _v1.props,
             _v6 = _v5.rotateAngle,
             _v7 = _v5.aspectRatio,
             _v8 = _v5.minWidth,
             _v9 = _v5.minHeight,
-            _v10 = _v1 - _v456(_v6 + _v5.parentRotateAngle),
+            _v10 = _v1 - _v453(_v6 + _v5.parentRotateAngle),
             _v11 = _v0 * Math.cos(_v10),
             _v12 = _v0 * Math.sin(_v10),
             _v13 = _v4 && !_v7 ? _v2.width / _v2.height : _v7,
-            _v14 = _v461(_v3, function (_v0) {
+            _v14 = _v458(_v3, function (_v0) {
               for (var _v1 = 1; _v1 < arguments.length; _v1++) {
                 var _v2 = null != arguments[_v1] ? arguments[_v1] : {},
                   _v3 = Object.keys(_v2);
                 "function" == typeof Object.getOwnPropertySymbols && (_v3 = _v3.concat(Object.getOwnPropertySymbols(_v2).filter(function (_v0) {
                   return Object.getOwnPropertyDescriptor(_v2, _v0).enumerable;
                 }))), _v3.forEach(function (_v0) {
-                  _v449(_v0, _v0, _v2[_v0]);
+                  _v446(_v0, _v0, _v2[_v0]);
                 });
               }
               return _v0;
@@ -7993,7 +7993,7 @@
             _v18 = _v14.size,
             _v19 = _v18.width,
             _v20 = _v18.height;
-          _v1.props.onResize(_v466({
+          _v1.props.onResize(_v463({
             centerX: _v16,
             centerY: _v17,
             width: _v19,
@@ -8001,11 +8001,11 @@
             rotateAngle: _v6
           }), _v4, _v3);
         }
-      }), _v449(_v453(_v453(_v1)), "handleDrag", function (_v0, _v1) {
+      }), _v446(_v450(_v450(_v1)), "handleDrag", function (_v0, _v1) {
         _v1.props.onDrag && _v1.props.onDrag(_v0, _v1);
       }), _v1;
     }
-    return _v450(_v1, _v0), _v448(_v1, [{
+    return _v447(_v1, _v0), _v445(_v1, [{
       key: "render",
       value: function () {
         var _v0 = this.props,
@@ -8024,14 +8024,14 @@
           _v13 = _v0.onRotateEnd,
           _v14 = _v0.onDragStart,
           _v15 = _v0.onDragEnd,
-          _v16 = _v467({
+          _v16 = _v464({
             top: _v1,
             left: _v2,
             width: _v3,
             height: _v4,
             rotateAngle: _v5
           });
-        return _v7.default.createElement(_v470, {
+        return _v7.default.createElement(_v467, {
           styles: _v16,
           zoomable: _v7,
           rotatable: !!(_v8 && _v9),
@@ -8049,28 +8049,28 @@
       }
     }]), _v1;
   }(_v7.Component);
-  _v449(_v471, "propTypes", {
-    left: _v445.default.number.isRequired,
-    top: _v445.default.number.isRequired,
-    width: _v445.default.number.isRequired,
-    height: _v445.default.number.isRequired,
-    rotatable: _v445.default.bool,
-    rotateAngle: _v445.default.number,
-    parentRotateAngle: _v445.default.number,
-    zoomable: _v445.default.string,
-    minWidth: _v445.default.number,
-    minHeight: _v445.default.number,
-    aspectRatio: _v445.default.oneOfType([_v445.default.number, _v445.default.bool]),
-    onRotateStart: _v445.default.func,
-    onRotate: _v445.default.func,
-    onRotateEnd: _v445.default.func,
-    onResizeStart: _v445.default.func,
-    onResize: _v445.default.func,
-    onResizeEnd: _v445.default.func,
-    onDragStart: _v445.default.func,
-    onDrag: _v445.default.func,
-    onDragEnd: _v445.default.func
-  }), _v449(_v471, "defaultProps", {
+  _v446(_v468, "propTypes", {
+    left: _v442.default.number.isRequired,
+    top: _v442.default.number.isRequired,
+    width: _v442.default.number.isRequired,
+    height: _v442.default.number.isRequired,
+    rotatable: _v442.default.bool,
+    rotateAngle: _v442.default.number,
+    parentRotateAngle: _v442.default.number,
+    zoomable: _v442.default.string,
+    minWidth: _v442.default.number,
+    minHeight: _v442.default.number,
+    aspectRatio: _v442.default.oneOfType([_v442.default.number, _v442.default.bool]),
+    onRotateStart: _v442.default.func,
+    onRotate: _v442.default.func,
+    onRotateEnd: _v442.default.func,
+    onResizeStart: _v442.default.func,
+    onResize: _v442.default.func,
+    onResizeEnd: _v442.default.func,
+    onDragStart: _v442.default.func,
+    onDrag: _v442.default.func,
+    onDragEnd: _v442.default.func
+  }), _v446(_v468, "defaultProps", {
     parentRotateAngle: 0,
     rotateAngle: 0,
     rotatable: !0,
@@ -8078,7 +8078,7 @@
     minWidth: 10,
     minHeight: 10
   });
-  let _v472 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
+  let _v469 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
       ..._v0,
       ref: _v1,
       width: "17",
@@ -8091,7 +8091,7 @@
         fill: "#17D5FF"
       })
     })),
-    _v473 = _v9.default.div.attrs(({
+    _v470 = _v9.default.div.attrs(({
       rect: _v0
     }) => ({
       style: {
@@ -8276,7 +8276,7 @@
       `}
   }
 `,
-    _v474 = (0, _v9.default)(_v472).withConfig({
+    _v471 = (0, _v9.default)(_v469).withConfig({
       displayName: "ResizableRect.style__BaseCropHandle",
       componentId: "sc-2f292cf2-1"
     })`
@@ -8284,7 +8284,7 @@
   z-index: 1100;
   pointer-events: none;
 `,
-    _v475 = (0, _v9.default)(_v474).withConfig({
+    _v472 = (0, _v9.default)(_v471).withConfig({
       displayName: "ResizableRect.style__TopLeftCropHandle",
       componentId: "sc-2f292cf2-2"
     })`
@@ -8293,7 +8293,7 @@
   transform: rotate(180deg);
   cursor: nw-resize;
 `,
-    _v476 = (0, _v9.default)(_v474).withConfig({
+    _v473 = (0, _v9.default)(_v471).withConfig({
       displayName: "ResizableRect.style__BottomLeftCropHandle",
       componentId: "sc-2f292cf2-3"
     })`
@@ -8302,7 +8302,7 @@
   transform: rotate(90deg);
   cursor: sw-resize;
 `,
-    _v477 = (0, _v9.default)(_v474).withConfig({
+    _v474 = (0, _v9.default)(_v471).withConfig({
       displayName: "ResizableRect.style__TopRightCropHandle",
       componentId: "sc-2f292cf2-4"
     })`
@@ -8311,7 +8311,7 @@
   transform: rotate(270deg);
   cursor: ne-resize;
 `,
-    _v478 = (0, _v9.default)(_v474).withConfig({
+    _v475 = (0, _v9.default)(_v471).withConfig({
       displayName: "ResizableRect.style__BottomRightCropHandle",
       componentId: "sc-2f292cf2-5"
     })`
@@ -8319,7 +8319,7 @@
   bottom: -${2.5}px;
   cursor: se-resize;
 `,
-    _v479 = ({
+    _v476 = ({
       testId: _v0,
       dataSelectionId: _v1,
       dataDragSelectionTag: _v2,
@@ -8343,10 +8343,10 @@
       minWidth: _v20,
       minHeight: _v21
     }) => {
-      let [_v22] = (0, _v177.useToken)("colors", ["fill-brand"]),
-        _v23 = (0, _v167.useAppSelector)(_v405.stageSizeSelector),
-        _v24 = (0, _v427.getRectInPx)(_v8, _v23);
-      return (0, _v6.jsxs)(_v473, {
+      let [_v22] = (0, _v180.useToken)("colors", ["fill-brand"]),
+        _v23 = (0, _v170.useAppSelector)(_v402.stageSizeSelector),
+        _v24 = (0, _v424.getRectInPx)(_v8, _v23);
+      return (0, _v6.jsxs)(_v470, {
         "data-testid": _v0,
         "data-selection-id": _v1,
         "data-drag-selection-tag": _v2,
@@ -8360,7 +8360,7 @@
         onDoubleClick: _v13,
         rect: _v24,
         isGuidingElement: _v9,
-        children: [(0, _v6.jsx)(_v471, {
+        children: [(0, _v6.jsx)(_v468, {
           left: _v24.x,
           top: _v24.y,
           width: _v24.width,
@@ -8376,11 +8376,11 @@
           minWidth: _v20,
           minHeight: _v21
         }), _v7 && (0, _v6.jsxs)(_v6.Fragment, {
-          children: [(0, _v6.jsx)(_v475, {}), (0, _v6.jsx)(_v476, {}), (0, _v6.jsx)(_v477, {}), (0, _v6.jsx)(_v478, {})]
+          children: [(0, _v6.jsx)(_v472, {}), (0, _v6.jsx)(_v473, {}), (0, _v6.jsx)(_v474, {}), (0, _v6.jsx)(_v475, {})]
         })]
       });
     },
-    _v480 = (0, _v7.memo)(({
+    _v477 = (0, _v7.memo)(({
       stageSize: _v0,
       rect: _v1,
       sourceFootageRect: _v2,
@@ -8389,11 +8389,11 @@
       onCrop: _v5,
       onCropEnd: _v6
     }) => {
-      let _v7 = (0, _v167.useAppSelector)(_v382.selectedElementsIdsSelector),
-        _v8 = (0, _v167.useAppSelector)(_v0 => _v0.selection.currentMutation),
-        _v9 = (0, _v167.useAppSelector)(_v0 => (0, _v166.elementByIdSelector)(_v0, _v7[0])),
-        _v10 = (0, _v167.useAppSelector)(_v166.orientationSelector),
-        _v11 = (0, _v167.useAppDispatch)(),
+      let _v7 = (0, _v170.useAppSelector)(_v380.selectedElementsIdsSelector),
+        _v8 = (0, _v170.useAppSelector)(_v0 => _v0.selection.currentMutation),
+        _v9 = (0, _v170.useAppSelector)(_v0 => (0, _v169.elementByIdSelector)(_v0, _v7[0])),
+        _v10 = (0, _v170.useAppSelector)(_v169.orientationSelector),
+        _v11 = (0, _v170.useAppDispatch)(),
         _v12 = (0, _v7.useRef)(0),
         _v13 = (0, _v7.useRef)(0),
         _v14 = (0, _v7.useRef)(0),
@@ -8405,8 +8405,8 @@
           width: 0,
           height: 0
         }),
-        _v19 = _v444(_v3),
-        _v20 = _v8 === _v433.Mutation.RECT || _v8 === _v433.Mutation.SOURCE_FOOTAGE_RECT,
+        _v19 = _v441(_v3),
+        _v20 = _v8 === _v430.Mutation.RECT || _v8 === _v430.Mutation.SOURCE_FOOTAGE_RECT,
         _v21 = (0, _v7.useCallback)((_v0, _v1) => {
           _v4(_v0 * _v2.width, _v1 * _v2.height, _v2);
         }, [_v4, _v2]),
@@ -8415,28 +8415,28 @@
         }, [_v20, _v6]),
         _v23 = (0, _v7.useCallback)((_v0, _v1, _v2) => {
           if (0 === _v17.width) return;
-          let _v3 = (0, _v427.getRoundedRect)((0, _v427.getRectInPercentage)((0, _v427.getRectFromResizableRect)(_v0), _v0)),
-            _v4 = (0, _v441.default)(_v17.x + _v17.width, 5),
-            _v5 = (0, _v441.default)(_v3.x + _v3.width, 5),
-            _v6 = (0, _v441.default)(_v17.y + _v17.height, 5),
-            _v7 = (0, _v441.default)(_v3.y + _v3.height, 5);
+          let _v3 = (0, _v424.getRoundedRect)((0, _v424.getRectInPercentage)((0, _v424.getRectFromResizableRect)(_v0), _v0)),
+            _v4 = (0, _v438.default)(_v17.x + _v17.width, 5),
+            _v5 = (0, _v438.default)(_v3.x + _v3.width, 5),
+            _v6 = (0, _v438.default)(_v17.y + _v17.height, 5),
+            _v7 = (0, _v438.default)(_v3.y + _v3.height, 5);
           _v5 > _v4 && (_v3.width = _v3.width - (_v5 - _v4)), _v7 > _v6 && (_v3.height = _v3.height - (_v7 - _v6)), _v3.width > _v17.width && (_v3.width = _v17.width), _v3.height > _v17.height && (_v3.height = _v17.height), _v3.x < _v17.x && (_v3.x = _v17.x), _v3.y < _v17.y && (_v3.y = _v17.y);
           let _v8 = _v13.current > 0 && _v12.current >= _v3.x && _v3.x <= _v17.x,
             _v9 = _v15.current > 0 && _v14.current >= _v3.y && _v3.y <= _v17.y;
-          if ((0, _v434.isLeftDrag)(_v2) && _v8) {
+          if ((0, _v431.isLeftDrag)(_v2) && _v8) {
             let _v0 = _v12.current - _v3.x;
             _v3.width = _v13.current + _v0;
           }
-          if ((0, _v434.isTopDrag)(_v2) && _v9) {
+          if ((0, _v431.isTopDrag)(_v2) && _v9) {
             let _v0 = _v14.current - _v3.y;
             _v3.height = _v15.current + _v0;
           }
           _v13.current = _v3.width, _v15.current = _v3.height, _v12.current = _v3.x, _v14.current = _v3.y;
-          let _v10 = (0, _v434.rectToSourceFootageRect)(_v17, _v3, _v0);
+          let _v10 = (0, _v431.rectToSourceFootageRect)(_v17, _v3, _v0);
           _v5(_v3, _v10);
         }, [_v17, _v0, _v5]),
         _v24 = (0, _v7.useCallback)(() => {
-          _v18((0, _v427.getSourceFootageRectRelativeToStage)(_v1, _v2));
+          _v18((0, _v424.getSourceFootageRectRelativeToStage)(_v1, _v2));
         }, [_v1, _v2]),
         _v25 = (0, _v7.useCallback)(() => {
           _v20 && _v6();
@@ -8448,15 +8448,15 @@
           _v16.current = _v10;
           return;
         }
-        _v16.current === _v10 || _v18((0, _v427.getSourceFootageRectRelativeToStage)(_v1, _v2));
+        _v16.current === _v10 || _v18((0, _v424.getSourceFootageRectRelativeToStage)(_v1, _v2));
       }, [_v10]), (0, _v7.useEffect)(() => {
-        _v11((0, _v356.addOverrideAction)({
+        _v11((0, _v354.addOverrideAction)({
           ceId: _v9.id,
           overrides: {
             sourceFootageRect: _v9.sourceFootageRect
           }
         }));
-      }, [_v9.sourceFootageRect]), (0, _v6.jsx)(_v479, {
+      }, [_v9.sourceFootageRect]), (0, _v6.jsx)(_v476, {
         testId: `crop-layer-${_v3}`,
         rect: _v1,
         onResize: _v23,
@@ -8471,10 +8471,10 @@
         isCrop: !0
       });
     });
-  var _v481 = _v0.i(0),
-    _v482 = _v0.i(0);
-  let _v483 = _v0 => (0, _v243.isMediaElement)(_v0) && !(0, _v243.isImageHotspot)(_v0),
-    _v484 = (0, _v7.memo)(({
+  var _v478 = _v0.i(0),
+    _v479 = _v0.i(0);
+  let _v480 = _v0 => (0, _v243.isMediaElement)(_v0) && !(0, _v243.isImageHotspot)(_v0),
+    _v481 = (0, _v7.memo)(({
       isMultiselect: _v0,
       isShowHandles: _v1 = !0,
       stageSize: _v2,
@@ -8489,49 +8489,49 @@
       onResize: _v11,
       onResizeEnd: _v12
     }) => {
-      let _v13 = (0, _v167.useAppDispatch)(),
-        _v14 = (0, _v167.useAppSelector)(_v382.selectedElementsIdsSelector),
-        _v15 = (0, _v167.useAppSelector)(_v382.selectedElementsSelector),
-        _v16 = (0, _v167.useAppSelector)(_v0 => _v0.dragonflyState.currentTime),
-        _v17 = (0, _v167.useAppSelector)(_v0 => _v0.selection.currentMutation) === _v433.Mutation.RECT,
+      let _v13 = (0, _v170.useAppDispatch)(),
+        _v14 = (0, _v170.useAppSelector)(_v380.selectedElementsIdsSelector),
+        _v15 = (0, _v170.useAppSelector)(_v380.selectedElementsSelector),
+        _v16 = (0, _v170.useAppSelector)(_v0 => _v0.dragonflyState.currentTime),
+        _v17 = (0, _v170.useAppSelector)(_v0 => _v0.selection.currentMutation) === _v430.Mutation.RECT,
         {
           getHighestElementByCoordinates: _v18,
           getCEUnderPointer: _v19
-        } = _v443(),
-        _v20 = _v444(_v5),
+        } = _v440(),
+        _v20 = _v441(_v5),
         _v21 = 0 === _v14.length,
         _v22 = _v14.includes(_v5),
         _v23 = _v14.length > 1,
-        _v24 = (0, _v427.getRectInPx)(_v3, _v2),
-        _v25 = (0, _v427.getRectInPx)(_v4, _v2),
+        _v24 = (0, _v424.getRectInPx)(_v3, _v2),
+        _v25 = (0, _v424.getRectInPx)(_v4, _v2),
         _v26 = (0, _v7.useCallback)(_v0 => {
           if (_v22 && _v23) return;
           let _v1 = _v19(_v0.clientX, _v0.clientY);
-          _v1 && _v13((0, _v382.selectCEsAction)({
+          _v1 && _v13((0, _v380.selectCEsAction)({
             ceIds: [_v1.id],
-            isMultiSelect: (0, _v482.isMultiSelect)(_v0)
+            isMultiSelect: (0, _v479.isMultiSelect)(_v0)
           }));
         }, [_v22, _v23, _v19, _v13]),
         _v27 = (0, _v7.useCallback)((_v0, _v1) => {
           if (_v0) return _v9(_v0, _v1);
-          _v21 ? _v13((0, _v382.selectCEsAction)({
+          _v21 ? _v13((0, _v380.selectCEsAction)({
             ceIds: [_v5]
-          })) : _v22 ? _v9(_v0, _v1) : _v13((0, _v382.resetSelectionAction)());
+          })) : _v22 ? _v9(_v0, _v1) : _v13((0, _v380.resetSelectionAction)());
         }, [_v0, _v9, _v21, _v22, _v13, _v5]),
         _v28 = (0, _v7.useCallback)((_v0, _v1, _v2) => {
-          let _v3 = (0, _v427.getDeltaRect)({
+          let _v3 = (0, _v424.getDeltaRect)({
             prevRect: _v24,
-            nextRect: (0, _v427.getRectFromResizableRect)(_v0)
+            nextRect: (0, _v424.getRectFromResizableRect)(_v0)
           });
-          _v21 ? _v13((0, _v382.selectCEsAction)({
+          _v21 ? _v13((0, _v380.selectCEsAction)({
             ceIds: [_v5]
-          })) : _v22 ? _v11(_v3, _v2) : _v13((0, _v382.resetSelectionAction)());
+          })) : _v22 ? _v11(_v3, _v2) : _v13((0, _v380.resetSelectionAction)());
         }, [_v5, _v11, _v24, _v13, _v21, _v22]),
         _v29 = (0, _v7.useCallback)((_v0, _v1, _v2) => {
-          let _v3 = (0, _v427.getRectInPercentage)((0, _v427.getRectFromResizableRect)(_v0), _v2),
-            _v4 = (0, _v427.getResizedRect)(_v3, _v3, _v2),
-            _v5 = (0, _v427.getRectInPx)(_v4, _v2);
-          _v11((0, _v427.getDeltaRect)({
+          let _v3 = (0, _v424.getRectInPercentage)((0, _v424.getRectFromResizableRect)(_v0), _v2),
+            _v4 = (0, _v424.getResizedRect)(_v3, _v3, _v2),
+            _v5 = (0, _v424.getRectInPx)(_v4, _v2);
+          _v11((0, _v424.getDeltaRect)({
             prevRect: _v25,
             nextRect: _v5
           }), _v2);
@@ -8548,27 +8548,27 @@
               _v1 = _v18(_v16, _v0.x, _v0.y);
             if (_v17 || !_v1) return;
             let _v2 = _v0.button,
-              _v3 = (0, _v482.isMultiSelect)(_v0);
+              _v3 = (0, _v479.isMultiSelect)(_v0);
             if (_v2 && _v14.includes(_v1.id)) return;
-            _v13((0, _v382.selectCEsAction)({
+            _v13((0, _v380.selectCEsAction)({
               ceIds: [_v1.id],
               isMultiSelect: _v3
-            })), _v3 && _v14.includes(_v1.id) && _v13((0, _v382.deselectCEsAction)({
+            })), _v3 && _v14.includes(_v1.id) && _v13((0, _v380.deselectCEsAction)({
               ceIdsToRemove: [_v1.id]
             }));
           }
         }, [_v16, _v13, _v18, _v17, _v14]),
         {
           handleElementDoubleClick: _v31
-        } = (0, _v481.useElementDoubleClick)({
-          isCropAllowed: _v483
+        } = (0, _v478.useElementDoubleClick)({
+          isCropAllowed: _v480
         });
-      return (0, _v6.jsx)(_v383.default, {
+      return (0, _v6.jsx)(_v381.default, {
         onContextMenu: _v26,
-        children: (0, _v6.jsx)(_v479, {
+        children: (0, _v6.jsx)(_v476, {
           testId: `selection-layer-${_v5}${_v22 ? "-selected" : ""}`,
           dataSelectionId: _v5,
-          dataDragSelectionTag: _v381.STAGE_DRAG_SELECT_DATA_TAG,
+          dataDragSelectionTag: _v379.STAGE_DRAG_SELECT_DATA_TAG,
           isSelected: _v22,
           isHovered: _v20,
           isMultiselect: !!_v0,
@@ -8587,7 +8587,7 @@
         })
       });
     }),
-    _v485 = ({
+    _v482 = ({
       rect: _v0,
       originalRect: _v1,
       stageSize: _v2,
@@ -8599,7 +8599,7 @@
       let _v7 = (0, _v7.useCallback)((_v0, _v1) => {
         _v5(_v0, _v1, _v1);
       }, [_v5, _v1]);
-      return (0, _v6.jsx)(_v484, {
+      return (0, _v6.jsx)(_v481, {
         isMultiselect: !0,
         isShowHandles: !0,
         rect: _v0,
@@ -8611,22 +8611,22 @@
         onResizeEnd: _v6
       });
     },
-    _v486 = () => {
-      let _v0 = (0, _v167.useAppDispatch)(),
-        _v1 = (0, _v167.useAppSelector)(_v405.stageSizeSelector),
-        _v2 = (0, _v167.useAppSelector)(_v166.orientationSelector),
-        _v3 = (0, _v167.useAppSelector)(_v317.isSomeSelectedElementsInCurrentTimeSelector),
-        _v4 = (0, _v167.useAppSelector)(_v317.isSomeSelectedNonSoundElementsInCurrentTimeSelector),
-        _v5 = (0, _v167.useAppSelector)(_v356.overridesWithoutTimingSelector, _v431.shallowEqual),
-        _v6 = (0, _v167.useAppSelector)(_v166.interactiveOverlaysSelector),
-        _v7 = (0, _v167.useAppSelector)(_v382.selectedElementsWithComputedRectsSelector),
-        _v8 = (0, _v167.useAppSelector)(_v317.elementsInCurrentTimeSelector, _v431.shallowEqual),
-        _v9 = (0, _v167.useAppSelector)(_v382.selectedElementsIdsSelector),
-        _v10 = (0, _v167.useAppSelector)(_v414.textAnimationsMetadataSelector),
-        _v11 = (0, _v167.useAppSelector)(_v382.computedRectByCEIdSelector),
-        _v12 = (0, _v167.useAppSelector)(_v0 => _v0.stage.guides.isSnap),
-        _v13 = (0, _v167.useAppSelector)(_v0 => _v0.toolbar.currentToolbar === _v437.ToolbarType.CROP),
-        _v14 = (0, _v167.useAppSelector)(_v317.isDraggingAndResizingDisabledSelector),
+    _v483 = () => {
+      let _v0 = (0, _v170.useAppDispatch)(),
+        _v1 = (0, _v170.useAppSelector)(_v402.stageSizeSelector),
+        _v2 = (0, _v170.useAppSelector)(_v169.orientationSelector),
+        _v3 = (0, _v170.useAppSelector)(_v316.isSomeSelectedElementsInCurrentTimeSelector),
+        _v4 = (0, _v170.useAppSelector)(_v316.isSomeSelectedNonSoundElementsInCurrentTimeSelector),
+        _v5 = (0, _v170.useAppSelector)(_v354.overridesWithoutTimingSelector, _v428.shallowEqual),
+        _v6 = (0, _v170.useAppSelector)(_v169.interactiveOverlaysSelector),
+        _v7 = (0, _v170.useAppSelector)(_v380.selectedElementsWithComputedRectsSelector),
+        _v8 = (0, _v170.useAppSelector)(_v316.elementsInCurrentTimeSelector, _v428.shallowEqual),
+        _v9 = (0, _v170.useAppSelector)(_v380.selectedElementsIdsSelector),
+        _v10 = (0, _v170.useAppSelector)(_v411.textAnimationsMetadataSelector),
+        _v11 = (0, _v170.useAppSelector)(_v380.computedRectByCEIdSelector),
+        _v12 = (0, _v170.useAppSelector)(_v0 => _v0.stage.guides.isSnap),
+        _v13 = (0, _v170.useAppSelector)(_v0 => _v0.toolbar.currentToolbar === _v434.ToolbarType.CROP),
+        _v14 = (0, _v170.useAppSelector)(_v316.isDraggingAndResizingDisabledSelector),
         [_v15, _v16] = (0, _v7.useState)([]),
         _v17 = (0, _v7.useRef)({
           x: 0,
@@ -8634,13 +8634,13 @@
         }),
         {
           getSnappingGuidesRect: _v18
-        } = _v417(_v1),
+        } = _v414(_v1),
         {
           handleCrop: _v19,
           handleCropDrag: _v20,
           handleCropEnd: _v21
-        } = _v435(),
-        _v22 = (0, _v7.useMemo)(() => _v7.filter(_v0 => _v0.type != _v432.CompositionElementType.SOUND), [_v7]),
+        } = _v432(),
+        _v22 = (0, _v7.useMemo)(() => _v7.filter(_v0 => _v0.type != _v429.CompositionElementType.SOUND), [_v7]),
         _v23 = (0, _v7.useMemo)(() => {
           let _v0 = [],
             _v1 = [],
@@ -8648,10 +8648,10 @@
           return _v22.forEach(_v0 => {
             let _v1 = _v5?.[_v0.id]?.rect,
               _v2 = (0, _v243.getPadding)(_v0, _v10);
-            _v0.push((0, _v427.getRectWithPadding)(_v1 || _v0.rect, _v2)), _v1.push((0, _v427.getRectWithPadding)(_v0.rect, _v2)), _v2 = Math.max(_v0.zindex || 0, _v2);
+            _v0.push((0, _v424.getRectWithPadding)(_v1 || _v0.rect, _v2)), _v1.push((0, _v424.getRectWithPadding)(_v0.rect, _v2)), _v2 = Math.max(_v0.zindex || 0, _v2);
           }), {
-            overridingRect: (0, _v438.getBoundingBoxRect)(_v0),
-            originalRect: (0, _v438.getBoundingBoxRect)(_v1),
+            overridingRect: (0, _v435.getBoundingBoxRect)(_v0),
+            originalRect: (0, _v435.getBoundingBoxRect)(_v1),
             zindex: _v2
           };
         }, [_v22, _v5, _v10]),
@@ -8662,9 +8662,9 @@
         _v26 = (0, _v7.useCallback)((_v0, _v1) => {
           let _v2 = _v1.rect,
             _v3 = _v0.height / _v2.height,
-            _v4 = (0, _v389.getActualFontSize)(_v1.fontSize * _v3, _v2),
-            _v5 = (0, _v389.getRelativeFontSize)(_v4, _v2);
-          _v0((0, _v356.addOverrideAction)({
+            _v4 = (0, _v387.getActualFontSize)(_v1.fontSize * _v3, _v2),
+            _v5 = (0, _v387.getRelativeFontSize)(_v4, _v2);
+          _v0((0, _v354.addOverrideAction)({
             ceId: _v1.id,
             overrides: {
               fontSize: _v5
@@ -8688,7 +8688,7 @@
             rect: _v0,
             padding: _v1
           });
-          return _v16(_v4 || []), _v0((0, _v405.setActiveGuidesStageAction)(_v3)), _v2;
+          return _v16(_v4 || []), _v0((0, _v402.setActiveGuidesStageAction)(_v3)), _v2;
         }, [_v0, _v18]),
         _v29 = (0, _v7.useCallback)(({
           deltaRectBeforeSnap: _v0,
@@ -8696,7 +8696,7 @@
           compositionElements: _v2
         }) => {
           let _v3,
-            _v4 = (0, _v427.getRectWithDelta)({
+            _v4 = (0, _v424.getRectWithDelta)({
               rect: _v1,
               deltaRect: _v0
             });
@@ -8709,16 +8709,16 @@
               right: 0
             }
           }) : _v4;
-          let _v5 = (0, _v427.getDeltaRect)({
+          let _v5 = (0, _v424.getDeltaRect)({
             prevRect: _v1,
             nextRect: _v3
           });
           _v2.forEach(_v0 => {
-            let _v1 = (0, _v427.getRectWithDelta)({
+            let _v1 = (0, _v424.getRectWithDelta)({
               rect: _v0.rect,
               deltaRect: _v5
             });
-            _v0((0, _v356.addOverrideAction)({
+            _v0((0, _v354.addOverrideAction)({
               ceId: _v0.id,
               overrides: {
                 rect: _v1
@@ -8746,23 +8746,23 @@
         _v32 = (0, _v7.useCallback)((_v0, _v1) => {
           let _v2;
           if (_v14) return;
-          _v0((0, _v382.setMutationAction)(_v433.Mutation.RECT)), _v17.current.x += _v0, _v17.current.y += _v1;
-          let _v3 = (0, _v427.getRectInPercentage)({
+          _v0((0, _v380.setMutationAction)(_v430.Mutation.RECT)), _v17.current.x += _v0, _v17.current.y += _v1;
+          let _v3 = (0, _v424.getRectInPercentage)({
             ..._v17.current,
             width: 0,
             height: 0
           }, _v1);
           if (_v24) return void _v30(_v3);
           let _v4 = _v7[0];
-          if ((0, _v440.hasComputedRect)(_v4)) return void _v31(_v3, _v4);
-          let _v5 = (0, _v427.getRectWithDelta)({
+          if ((0, _v437.hasComputedRect)(_v4)) return void _v31(_v3, _v4);
+          let _v5 = (0, _v424.getRectWithDelta)({
             deltaRect: _v3,
             rect: _v4 ? _v4.rect : _v249.DEFAULT_RECT
           });
           _v2 = _v12 ? _v28({
             rect: _v5,
             padding: (0, _v243.getPadding)(_v4, _v10)
-          }) : _v5, _v0((0, _v356.addOverrideAction)({
+          }) : _v5, _v0((0, _v354.addOverrideAction)({
             ceId: _v4.id,
             overrides: {
               rect: _v2
@@ -8772,22 +8772,22 @@
         _v33 = (0, _v7.useCallback)((_v0, _v1) => {
           let _v2 = _v11.get(_v0.id);
           if (!_v2) throw Error(`Computed rect not found for overlay with id ${_v0.id}`);
-          let _v3 = (0, _v427.getDeltaRect)({
+          let _v3 = (0, _v424.getDeltaRect)({
             prevRect: _v2,
             nextRect: _v1
           });
-          _v0((0, _v356.addOverrideAction)({
+          _v0((0, _v354.addOverrideAction)({
             ceId: _v0.id,
             overrides: {
               rect: _v1
             }
           })), _v27(_v0.overlayId).forEach(_v0 => {
-            let _v1 = (0, _v427.getResizedRectByResizedMultiRect)({
+            let _v1 = (0, _v424.getResizedRectByResizedMultiRect)({
               originalRect: _v0.rect,
               originalMultiRect: _v2,
               deltaMultiRect: _v3
             });
-            _v0((0, _v356.addOverrideAction)({
+            _v0((0, _v354.addOverrideAction)({
               ceId: _v0.id,
               overrides: {
                 rect: _v1
@@ -8796,7 +8796,7 @@
           });
         }, [_v11, _v0, _v27]),
         _v34 = (0, _v7.useCallback)((_v0, _v1) => {
-          (0, _v440.hasComputedRect)(_v0) ? _v33(_v0, _v1) : ((0, _v243.isTextElement)(_v0) && _v26(_v1, _v0), _v0((0, _v356.addOverrideAction)({
+          (0, _v437.hasComputedRect)(_v0) ? _v33(_v0, _v1) : ((0, _v243.isTextElement)(_v0) && _v26(_v1, _v0), _v0((0, _v354.addOverrideAction)({
             ceId: _v0.id,
             overrides: {
               rect: _v1
@@ -8804,31 +8804,31 @@
           })));
         }, [_v26, _v33, _v0]),
         _v35 = (0, _v7.useCallback)((_v0, _v1) => {
-          _v14 || (_v0((0, _v382.setMutationAction)(_v433.Mutation.RECT)), (0, _v430.batch)(() => {
+          _v14 || (_v0((0, _v380.setMutationAction)(_v430.Mutation.RECT)), (0, _v427.batch)(() => {
             _v7.forEach(_v0 => {
               let _v1 = _v5[_v0.id],
-                _v2 = (0, _v427.getRectInPercentage)(_v0, _v1),
+                _v2 = (0, _v424.getRectInPercentage)(_v0, _v1),
                 _v3 = {
                   ..._v249.DEFAULT_RECT,
                   ..._v0.rect,
                   ..._v1?.rect
                 },
-                _v4 = (0, _v427.getRectWithDelta)({
+                _v4 = (0, _v424.getRectWithDelta)({
                   rect: _v3,
                   deltaRect: _v2
                 }),
-                _v5 = _v0.type === _v432.CompositionElementType.SOLID || _v0.type === _v432.CompositionElementType.BUTTON || _v0.type === _v432.CompositionElementType.IFRAME || (0, _v243.isPollElement)(_v0) && _v0.styleId === _v439.POLL_STYLE_ID.resizableBox ? _v4 : (0, _v427.getResizedRect)(_v0?.rect, _v4, _v1);
+                _v5 = _v0.type === _v429.CompositionElementType.SOLID || _v0.type === _v429.CompositionElementType.BUTTON || _v0.type === _v429.CompositionElementType.IFRAME || (0, _v243.isPollElement)(_v0) && _v0.styleId === _v436.POLL_STYLE_ID.resizableBox ? _v4 : (0, _v424.getResizedRect)(_v0?.rect, _v4, _v1);
               _v34(_v0, _v5);
             });
           }));
         }, [_v14, _v0, _v7, _v5, _v1, _v34]),
         _v36 = (0, _v7.useCallback)((_v0, _v1, _v2) => {
           if (_v14) return;
-          _v0((0, _v382.setMutationAction)(_v433.Mutation.RECT));
-          let _v3 = (0, _v427.getRectInPercentage)(_v0, _v1);
-          (0, _v430.batch)(() => {
+          _v0((0, _v380.setMutationAction)(_v430.Mutation.RECT));
+          let _v3 = (0, _v424.getRectInPercentage)(_v0, _v1);
+          (0, _v427.batch)(() => {
             _v7.forEach(_v0 => {
-              let _v1 = (0, _v427.getResizedRectByResizedMultiRect)({
+              let _v1 = (0, _v424.getResizedRectByResizedMultiRect)({
                 originalRect: _v0.rect,
                 originalMultiRect: _v2,
                 deltaMultiRect: _v3
@@ -8838,28 +8838,28 @@
           });
         }, [_v14, _v0, _v1, _v7, _v34]),
         _v37 = (0, _v7.useCallback)(() => {
-          _v14 || (_v16([]), _v0((0, _v405.setActiveGuidesStageAction)([])), _v0((_v0, _v1) => {
+          _v14 || (_v16([]), _v0((0, _v402.setActiveGuidesStageAction)([])), _v0((_v0, _v1) => {
             let _v2 = _v1(),
-              _v3 = (0, _v356.overridesWithoutTimingSelector)(_v2),
-              _v4 = (0, _v166.nonHiddenLayersSelector)(_v2),
-              _v5 = (0, _v166.interactiveOverlaysSelector)(_v2),
-              _v6 = (0, _v166.orientationSelector)(_v2),
-              _v7 = (0, _v388.fontsSelector)(_v2),
-              _v8 = (0, _v388.languagesSelector)(_v2);
+              _v3 = (0, _v354.overridesWithoutTimingSelector)(_v2),
+              _v4 = (0, _v169.nonHiddenLayersSelector)(_v2),
+              _v5 = (0, _v169.interactiveOverlaysSelector)(_v2),
+              _v6 = (0, _v169.orientationSelector)(_v2),
+              _v7 = (0, _v386.fontsSelector)(_v2),
+              _v8 = (0, _v386.languagesSelector)(_v2);
             Object.keys(_v3).forEach(_v0 => {
               let _v1,
                 _v2,
                 _v3 = _v3[_v0].rect;
-              if (!_v3 || (_v0((0, _v356.removeOverrideAction)({
+              if (!_v3 || (_v0((0, _v354.removeOverrideAction)({
                 ceId: _v0,
                 key: "rect"
-              })), _v0((0, _v356.removeOverrideAction)({
+              })), _v0((0, _v354.removeOverrideAction)({
                 ceId: _v0,
                 key: "fontSize"
-              })), (_v2 = (0, _v436.getLayerDataByCeId)(_v0, _v4).layer) || ({
+              })), (_v2 = (0, _v433.getLayerDataByCeId)(_v0, _v4).layer) || ({
                 interactiveOverlay: _v1,
                 layer: _v2
-              } = (0, _v436.getInteractiveOverlayLayerDataByCeId)(_v0, _v5)), !_v2)) return;
+              } = (0, _v433.getInteractiveOverlayLayerDataByCeId)(_v0, _v5)), !_v2)) return;
               let _v4 = _v2.composition.find(_v0 => _v0.id === _v0),
                 _v5 = _v4?.rect;
               if (_v4 && _v5) if ((0, _v247.isValidRect)(_v3)) {
@@ -8870,43 +8870,43 @@
                   let _v0 = _v3.height / _v5.height;
                   (_v0 = (0, _v243.createPartialTextElement)({
                     textElement: _v4,
-                    fontSize: (0, _v389.getActualFontSize)(_v4.fontSize * _v0, _v6),
+                    fontSize: (0, _v387.getActualFontSize)(_v4.fontSize * _v0, _v6),
                     fetchedFonts: _v7,
                     languages: _v8,
                     orientation: _v6
                   })).rect = _v3;
                 }
-                _v0((0, _v166.updateElementAction)({
+                _v0((0, _v169.updateElementAction)({
                   ceId: _v0,
                   layerId: _v2.id,
                   interactiveOverlayId: _v1?.id,
                   element: _v0
                 }));
-              } else _v0((0, _v166.deleteElementAction)({
+              } else _v0((0, _v169.deleteElementAction)({
                 ceId: _v0,
                 interactiveOverlayId: _v1?.id
-              })), _v164.default.sendLog(_v159.INVALID_RECT, _v169.LogComponent.EDITOR_ERROR, {
+              })), _v167.default.sendLog(_v162.INVALID_RECT, _v172.LogComponent.EDITOR_ERROR, {
                 element: JSON.stringify(_v4),
                 newRect: JSON.stringify(_v3),
                 flow: "updateRect"
               });
             });
           }), setTimeout(() => {
-            _v0((0, _v382.setMutationAction)(null));
+            _v0((0, _v380.setMutationAction)(null));
           }));
         }, [_v14, _v0]),
         _v38 = (0, _v7.useMemo)(() => {
           let _v0,
             _v1 = _v9.length > 1;
-          return (_v0 = _v1 ? _v8 ? (0, _v429.default)([..._v8, ..._v7], (_v0, _v1) => _v0.id === _v1.id) : _v7 : _v8) && 0 !== _v0.length ? _v0.map(_v0 => {
-            let _v1 = _v0.type !== _v432.CompositionElementType.TRANSITION && _v0.type !== _v432.CompositionElementType.SOUND,
+          return (_v0 = _v1 ? _v8 ? (0, _v426.default)([..._v8, ..._v7], (_v0, _v1) => _v0.id === _v1.id) : _v7 : _v8) && 0 !== _v0.length ? _v0.map(_v0 => {
+            let _v1 = _v0.type !== _v429.CompositionElementType.TRANSITION && _v0.type !== _v429.CompositionElementType.SOUND,
               _v2 = function ({
                 element: _v0,
                 isMultiSelect: _v1,
                 isSomeSelectedElementsInCurrentTime: _v2,
                 selectedCEIds: _v3
               }) {
-                return !!((0, _v440.isStageSelectable)(_v0) || _v1 && _v2 && _v3.includes(_v0.id));
+                return !!((0, _v437.isStageSelectable)(_v0) || _v1 && _v2 && _v3.includes(_v0.id));
               }({
                 isMultiSelect: _v1,
                 isSomeSelectedElementsInCurrentTime: _v3,
@@ -8915,12 +8915,12 @@
               });
             if (!_v1 || !_v2) return null;
             let _v3 = (0, _v243.getPadding)(_v0, _v10),
-              _v4 = (0, _v427.getRectWithPadding)(_v5?.[_v0.id]?.rect ?? _v11.get(_v0.id) ?? _v0.rect, _v3),
+              _v4 = (0, _v424.getRectWithPadding)(_v5?.[_v0.id]?.rect ?? _v11.get(_v0.id) ?? _v0.rect, _v3),
               _v5 = _v15.includes(_v0.id),
               _v6 = _v5?.[_v0.id]?.rotate ?? _v0?.rotate ?? 0,
               _v7 = _v9.includes(_v0.id),
               _v8 = (0, _v243.isMediaElement)(_v0);
-            return _v13 && _v7 && _v8 ? (0, _v6.jsx)(_v480, {
+            return _v13 && _v7 && _v8 ? (0, _v6.jsx)(_v477, {
               isCrop: _v13,
               rect: _v4,
               stageSize: _v1,
@@ -8929,7 +8929,7 @@
               onDrag: _v20,
               onCrop: _v19,
               onCropEnd: _v21
-            }, _v0.id) : (0, _v6.jsx)(_v484, {
+            }, _v0.id) : (0, _v6.jsx)(_v481, {
               isShowHandles: 1 === _v9.length,
               rect: _v4,
               originalRect: _v0.rect,
@@ -8946,7 +8946,7 @@
           }) : null;
         }, [_v11, _v8, _v15, _v19, _v20, _v21, _v32, _v35, _v13, _v3, _v5, _v9, _v7, _v1, _v10, _v37]);
       return (0, _v6.jsxs)(_v6.Fragment, {
-        children: [_v38, _v22.length > 1 && _v4 && (0, _v6.jsx)(_v485, {
+        children: [_v38, _v22.length > 1 && _v4 && (0, _v6.jsx)(_v482, {
           rect: _v23.overridingRect,
           originalRect: _v23.originalRect,
           stageSize: _v1,
@@ -8957,9 +8957,9 @@
         })]
       });
     };
-  var _v487 = _v0.i(0),
-    _v488 = (0, _v7.forwardRef)(function (_v0, _v1) {
-      return _v7.default.createElement("svg", (0, _v487.c)({
+  var _v484 = _v0.i(0),
+    _v485 = (0, _v7.forwardRef)(function (_v0, _v1) {
+      return _v7.default.createElement("svg", (0, _v484.c)({
         viewBox: "0 0 24 24",
         ref: _v1
       }, _v0), _v7.default.createElement("path", {
@@ -8968,10 +8968,10 @@
         d: "M11.5934 1.60272C11.8846 1.45947 12.2271 1.4664 12.5123 1.62131L21.4774 6.49216C21.7995 6.66714 22 7.00431 22 7.37085V16.7535C22 17.1245 21.7946 17.4649 21.4665 17.638L12.4665 22.3845C12.1746 22.5385 11.8254 22.5385 11.5335 22.3845L2.53351 17.638C2.20537 17.4649 2 17.1245 2 16.7535V6.9451C2 6.56401 2.2166 6.21605 2.55854 6.04782L11.5934 1.60272ZM4 7.56758V16.1503L12 20.3695L20 16.1503V7.9656L12.0121 3.62569L4 7.56758ZM8 8H12V10H11V14H14V12.5H16V14V14.5V16H8V14H9V10H8V8Z"
       }));
     });
-  _v488.tags = ["brand", "company", "custom", "customization", "customize", "edit", "logo", "logomark", "watermark"];
-  var _v489 = _v0.i(0),
-    _v490 = _v0.i(0);
-  let _v491 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsxs)("svg", {
+  _v485.tags = ["brand", "company", "custom", "customization", "customize", "edit", "logo", "logomark", "watermark"];
+  var _v486 = _v0.i(0),
+    _v487 = _v0.i(0);
+  let _v488 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsxs)("svg", {
       ref: _v1,
       ..._v0,
       viewBox: "0 0 100 54",
@@ -9013,15 +9013,15 @@
         })
       })]
     })),
-    _v492 = () => {
-      let _v0 = (0, _v167.useAppDispatch)(),
-        _v1 = (0, _v167.useAppSelector)(_v166.orientationSelector),
-        _v2 = (0, _v167.useAppSelector)(_v405.stageSizeSelector),
-        _v3 = (0, _v167.useAppSelector)(_v175.isInteractiveSelector),
+    _v489 = () => {
+      let _v0 = (0, _v170.useAppDispatch)(),
+        _v1 = (0, _v170.useAppSelector)(_v169.orientationSelector),
+        _v2 = (0, _v170.useAppSelector)(_v402.stageSizeSelector),
+        _v3 = (0, _v170.useAppSelector)(_v178.isInteractiveSelector),
         {
           showUpsell: _v4,
           shouldShowUpsell: _v5
-        } = (0, _v489.useBrandUpsell)(),
+        } = (0, _v486.useBrandUpsell)(),
         {
           hasCreateBrandView: _v6,
           hasCreateBrandApply: _v7,
@@ -9034,8 +9034,8 @@
           padding: .1375 * _v2.height >= 68 ? 20 : .1375 * _v2.height / 3.4
         }), [_v2]),
         _v11 = (0, _v7.useCallback)(() => {
-          _v7 && !_v5 ? _v0((0, _v165.openInspectorAction)({
-            inspectorType: _v168.InspectorType.BRAND_KIT
+          _v7 && !_v5 ? _v0((0, _v168.openInspectorAction)({
+            inspectorType: _v171.InspectorType.BRAND_KIT
           })) : ((0, _v204.sendTrackLogoPlaceholderTrigger)(), _v4({
             pageLocation: "stage",
             feature: "brand",
@@ -9043,9 +9043,9 @@
             trackingFeature: "logo"
           }));
         }, [_v0, _v7, _v5, _v4]);
-      return (0, _v490.useEffectOnce)(() => {
+      return (0, _v487.useEffectOnce)(() => {
         _v5 && (0, _v204.sendTrackLogoPlaceholderImpression)();
-      }), (0, _v6.jsxs)(_v185.Box, {
+      }), (0, _v6.jsxs)(_v188.Box, {
         position: "absolute",
         left: 0,
         top: 0,
@@ -9079,40 +9079,40 @@
               }
             }
           }),
-          children: (0, _v6.jsx)(_v423, {
+          children: (0, _v6.jsx)(_v420, {
             style: _v10,
             onClick: _v11,
-            "data-testid": _v180.testIds.logoPlaceholder,
-            children: (0, _v6.jsx)(_v488, {})
+            "data-testid": _v183.testIds.logoPlaceholder,
+            children: (0, _v6.jsx)(_v485, {})
           })
-        }), !_v8 && (0, _v6.jsx)(_v424, {
+        }), !_v8 && (0, _v6.jsx)(_v421, {
           orientation: _v1,
-          children: (0, _v6.jsx)(_v491, {
-            "data-testid": _v180.testIds.watermark
+          children: (0, _v6.jsx)(_v488, {
+            "data-testid": _v183.testIds.watermark
           })
         })]
       });
     };
-  var _v493 = _v0.i(0);
-  let _v494 = [_v493.DnDItemType.GRID_ELEMENT_MEDIA, _v493.DnDItemType.GRID_ELEMENT_GRAPHIC, _v493.DnDItemType.GRID_ELEMENT_TEXT, _v493.DnDItemType.GRID_ELEMENT_TEMPLATE, _v493.DnDItemType.GRID_ELEMENT_IFRAME],
-    _v495 = ({
+  var _v490 = _v0.i(0);
+  let _v491 = [_v490.DnDItemType.GRID_ELEMENT_MEDIA, _v490.DnDItemType.GRID_ELEMENT_GRAPHIC, _v490.DnDItemType.GRID_ELEMENT_TEXT, _v490.DnDItemType.GRID_ELEMENT_TEMPLATE, _v490.DnDItemType.GRID_ELEMENT_IFRAME],
+    _v492 = ({
       children: _v0,
       shouldDisplayOverlayEditorEmptyView: _v1
     }) => {
-      let _v2 = (0, _v167.useAppSelector)(_v405.stageSizeSelector),
+      let _v2 = (0, _v170.useAppSelector)(_v402.stageSizeSelector),
         {
           isOver: _v3,
           active: _v4,
           setNodeRef: _v5
-        } = (0, _v384.useDroppable)({
+        } = (0, _v382.useDroppable)({
           id: "stage-droppable",
           data: {
-            accepts: _v494,
-            type: _v493.DndDropAreaType.STAGE
+            accepts: _v491,
+            type: _v490.DndDropAreaType.STAGE
           }
         }),
-        _v6 = _v3 && _v4?.data?.current && _v494.includes(_v4.data.current.type);
-      return (0, _v6.jsx)(_v421, {
+        _v6 = _v3 && _v4?.data?.current && _v491.includes(_v4.data.current.type);
+      return (0, _v6.jsx)(_v418, {
         size: _v2,
         ref: _v5,
         isActive: _v6,
@@ -9120,27 +9120,27 @@
         children: _v0
       });
     };
-  var _v496 = _v0.i(0),
-    _v497 = _v0.i(0),
-    _v498 = _v0.i(0),
-    _v499 = _v0.i(0),
-    _v500 = _v0.i(0);
-  let _v501 = {
+  var _v493 = _v0.i(0),
+    _v494 = _v0.i(0),
+    _v495 = _v0.i(0),
+    _v496 = _v0.i(0),
+    _v497 = _v0.i(0);
+  let _v498 = {
       direction: "column",
       alignItems: "center",
       position: "absolute",
       top: "53%",
       transform: "translateY(-50%)",
-      maxWidth: (0, _v155.rem)(268)
+      maxWidth: (0, _v159.rem)(268)
     },
-    _v502 = () => {
-      let _v0 = (0, _v167.useAppDispatch)(),
-        _v1 = (0, _v167.useAppSelector)(_v166.orientationSelector),
-        _v2 = (0, _v167.useAppSelector)(_v175.isInteractiveSelector),
-        _v3 = (0, _v167.useAppSelector)(_v166.storyboardIdSelector),
-        _v4 = (0, _v167.useAppSelector)(_v273.hasVisibleLayersOnTimelineSelector),
-        _v5 = (0, _v167.useAppSelector)(_v166.isLoadingStoryboardSelector),
-        _v6 = (0, _v167.useAppSelector)(_v273.isEditingInteractiveOverlaySelector),
+    _v499 = () => {
+      let _v0 = (0, _v170.useAppDispatch)(),
+        _v1 = (0, _v170.useAppSelector)(_v169.orientationSelector),
+        _v2 = (0, _v170.useAppSelector)(_v178.isInteractiveSelector),
+        _v3 = (0, _v170.useAppSelector)(_v169.storyboardIdSelector),
+        _v4 = (0, _v170.useAppSelector)(_v273.hasVisibleLayersOnTimelineSelector),
+        _v5 = (0, _v170.useAppSelector)(_v169.isLoadingStoryboardSelector),
+        _v6 = (0, _v170.useAppSelector)(_v273.isEditingInteractiveOverlaySelector),
         _v7 = (0, _v7.useRef)(!1),
         _v8 = (0, _v7.useRef)({
           width: 0,
@@ -9158,21 +9158,21 @@
         } = (0, _v222.useDragonfly)(),
         {
           isReplacing: _v14
-        } = (0, _v498.useReplaceElement)(),
+        } = (0, _v495.useReplaceElement)(),
         {
           addElement: _v15
-        } = (0, _v496.useAddElement)(),
+        } = (0, _v493.useAddElement)(),
         _v16 = !_v5 && _v6 && !_v4,
         _v17 = !_v5 && _v6 && _v4,
         _v18 = (0, _v7.useRef)(null),
-        _v19 = (0, _v499.default)(_v18),
+        _v19 = (0, _v496.default)(_v18),
         _v20 = (0, _v7.useCallback)(async _v0 => {
           let {
               active: _v1,
               over: _v2
             } = _v0,
             _v3 = _v10();
-          if (_v2 && _v1.data.current && _v2.data.current?.accepts.includes(_v1.data.current.type) && _v2.data.current.type === _v493.DndDropAreaType.STAGE) {
+          if (_v2 && _v1.data.current && _v2.data.current?.accepts.includes(_v1.data.current.type) && _v2.data.current.type === _v490.DndDropAreaType.STAGE) {
             let _v0 = _v1.rect.current.translated;
             if (_v0) {
               let _v0 = _v2.rect,
@@ -9212,41 +9212,41 @@
           }, (_v2 !== _v9.current.width || _v1 !== _v9.current.height) && (_v9.current = {
             width: _v2,
             height: _v1
-          }, _v0((0, _v405.setSizeAction)({
+          }, _v0((0, _v402.setSizeAction)({
             width: _v2,
             height: _v1
           })));
         }
-      }, [_v1, _v19, _v0, _v13, _v11]), (0, _v320.useDebouncedEffect)(() => {
+      }, [_v1, _v19, _v0, _v13, _v11]), (0, _v319.useDebouncedEffect)(() => {
         _v7.current && (_v12(), _v7.current = !1);
       }, [_v19, _v12]), (0, _v7.useEffect)(() => {
-        _v6 && (0, _v343.sendTrackViewOverlayEditor)();
-      }, [_v6]), (0, _v384.useDndMonitor)({
+        _v6 && (0, _v341.sendTrackViewOverlayEditor)();
+      }, [_v6]), (0, _v382.useDndMonitor)({
         onDragEnd: _v20
-      }), (0, _v497.useFocusArea)(_v18, _v500.FocusAreaType.STAGE), (0, _v6.jsxs)(_v420, {
+      }), (0, _v494.useFocusArea)(_v18, _v497.FocusAreaType.STAGE), (0, _v6.jsxs)(_v417, {
         ref: _v18,
-        "data-testid": _v180.testIds.stageContainer,
-        className: _v381.STAGE_DRAG_SELECT_ALLOWED_CLASS,
-        children: [(0, _v6.jsxs)(_v495, {
+        "data-testid": _v183.testIds.stageContainer,
+        className: _v379.STAGE_DRAG_SELECT_ALLOWED_CLASS,
+        children: [(0, _v6.jsxs)(_v492, {
           shouldDisplayOverlayEditorEmptyView: _v16,
-          children: [(0, _v6.jsxs)(_v422, {
-            "data-testid": _v180.testIds.canvas,
-            className: _v381.STAGE_DRAG_SELECT_ALLOWED_CLASS,
+          children: [(0, _v6.jsxs)(_v419, {
+            "data-testid": _v183.testIds.canvas,
+            className: _v379.STAGE_DRAG_SELECT_ALLOWED_CLASS,
             ...(_v3 && {
               "data-stage-element": _v2 ? "dragonfly" : "dragonite"
             }),
             children: [_v2 ? (0, _v6.jsxs)(_v6.Fragment, {
-              children: [_v17 && (0, _v6.jsx)(_v387, {}), (0, _v6.jsx)(_v398, {}), (0, _v6.jsx)(_v399.ScreenshotContainer, {})]
-            }) : (0, _v6.jsx)(_v407, {}), (0, _v6.jsx)(_v428, {})]
-          }), (0, _v6.jsx)(_v486, {
+              children: [_v17 && (0, _v6.jsx)(_v385, {}), (0, _v6.jsx)(_v395, {}), (0, _v6.jsx)(_v396.ScreenshotContainer, {})]
+            }) : (0, _v6.jsx)(_v404, {}), (0, _v6.jsx)(_v425, {})]
+          }), (0, _v6.jsx)(_v483, {
             "data-testid": "selection-layers"
-          }), (0, _v6.jsx)(_v418, {}), (0, _v6.jsx)(_v492, {})]
+          }), (0, _v6.jsx)(_v415, {}), (0, _v6.jsx)(_v489, {})]
         }), _v16 && (0, _v6.jsxs)(_v74.Flex, {
-          ..._v501,
-          children: [(0, _v6.jsx)(_v385.Interactive, {
+          ..._v498,
+          children: [(0, _v6.jsx)(_v383.Interactive, {
             boxSize: "xs",
             color: "text-primary"
-          }), (0, _v6.jsx)(_v156.Text, {
+          }), (0, _v6.jsx)(_v80.Text, {
             variant: "body-md",
             color: "text-primary",
             align: "center",
@@ -9281,13 +9281,13 @@
         })]
       });
     };
-  var _v503 = _v0.i(0),
-    _v504 = _v0.i(0);
-  let _v505 = ({
+  var _v500 = _v0.i(0),
+    _v501 = _v0.i(0);
+  let _v502 = ({
     outerRef: _v0
   }) => {
-    let _v1 = (0, _v167.useAppDispatch)(),
-      _v2 = (0, _v167.useAppSelector)(_v382.selectedElementsIdsSelector),
+    let _v1 = (0, _v170.useAppDispatch)(),
+      _v2 = (0, _v170.useAppSelector)(_v380.selectedElementsIdsSelector),
       _v3 = (0, _v7.useRef)(null),
       _v4 = (0, _v7.useRef)(null),
       _v5 = (0, _v7.useRef)(0),
@@ -9297,7 +9297,7 @@
         x2: 0,
         y2: 0
       }),
-      _v8 = (0, _v499.default)(_v3),
+      _v8 = (0, _v496.default)(_v3),
       _v9 = (0, _v7.useCallback)(_v0 => ({
         ..._v0,
         x: _v0.x - _v8.x,
@@ -9321,14 +9321,14 @@
       _v12 = (0, _v7.useCallback)(_v0 => {
         if (!_v3?.current) return;
         let _v1 = _v0.target.className;
-        "string" == typeof _v1 && _v1.indexOf(_v381.STAGE_DRAG_SELECT_ALLOWED_CLASS) > -1 && (document.addEventListener("mouseup", _v11, !0), _v0.current?.addEventListener("mousemove", _v10, !0), _v1((0, _v382.resetSelectionAction)()), _v4.current = document.querySelectorAll(`[data-drag-selection-tag*="${_v381.STAGE_DRAG_SELECT_DATA_TAG}"]`), _v7({
+        "string" == typeof _v1 && _v1.indexOf(_v379.STAGE_DRAG_SELECT_ALLOWED_CLASS) > -1 && (document.addEventListener("mouseup", _v11, !0), _v0.current?.addEventListener("mousemove", _v10, !0), _v1((0, _v380.resetSelectionAction)()), _v4.current = document.querySelectorAll(`[data-drag-selection-tag*="${_v379.STAGE_DRAG_SELECT_DATA_TAG}"]`), _v7({
           x1: _v0.clientX,
           y1: _v0.clientY,
           x2: _v0.clientX,
           y2: _v0.clientY
         }));
       }, [_v11, _v0, _v10, _v1]),
-      _v13 = (0, _v442.default)(_v0 => {
+      _v13 = (0, _v439.default)(_v0 => {
         let _v1 = _v0.y,
           _v2 = _v1 + _v0.height,
           _v3 = _v0.x,
@@ -9348,11 +9348,11 @@
           window.cancelAnimationFrame(_v5.current), _v5.current = window.requestAnimationFrame(() => {
             let _v0 = _v2.slice();
             _v5.forEach(_v0 => {
-              _v2.includes(_v0) || _v1((0, _v382.selectCEsAction)({
+              _v2.includes(_v0) || _v1((0, _v380.selectCEsAction)({
                 ceIds: [_v0],
                 isMultiSelect: !0
               })), _v0.splice(_v0.indexOf(_v0), 1);
-            }), _v0.length > 0 && _v1((0, _v382.deselectCEsAction)({
+            }), _v0.length > 0 && _v1((0, _v380.deselectCEsAction)({
               ceIdsToRemove: _v0
             })), window.cancelAnimationFrame(_v5.current);
           });
@@ -9365,34 +9365,34 @@
         _v0 && _v0.removeEventListener("mousedown", _v12, !0);
       };
     }, [_v12, _v10, _v11, _v0]), (0, _v7.useEffect)(() => {
-      (0, _v503.isCoordinatesBelowMovementThreshold)(_v6) || _v13((0, _v503.getRectFromAreaCoordinates)(_v6));
-    }, [_v6, _v13]), (0, _v6.jsx)(_v504.DragSelectionContainer, {
+      (0, _v500.isCoordinatesBelowMovementThreshold)(_v6) || _v13((0, _v500.getRectFromAreaCoordinates)(_v6));
+    }, [_v6, _v13]), (0, _v6.jsx)(_v501.DragSelectionContainer, {
       ref: _v3,
-      children: !(0, _v503.isCoordinatesBelowMovementThreshold)(_v6) && (0, _v6.jsx)(_v504.DragSelectionRect, {
-        ..._v9((0, _v503.getRectFromAreaCoordinates)(_v6))
+      children: !(0, _v500.isCoordinatesBelowMovementThreshold)(_v6) && (0, _v6.jsx)(_v501.DragSelectionRect, {
+        ..._v9((0, _v500.getRectFromAreaCoordinates)(_v6))
       })
     });
   };
-  var _v506 = _v0.i(0),
-    _v507 = _v0.i(0),
-    _v508 = _v0.i(0),
-    _v509 = _v0.i(0);
-  let _v510 = ({
+  var _v503 = _v0.i(0),
+    _v504 = _v0.i(0),
+    _v505 = _v0.i(0),
+    _v506 = _v0.i(0);
+  let _v507 = ({
     height: _v0
-  }) => (0, _v6.jsx)(_v185.Box, {
+  }) => (0, _v6.jsx)(_v188.Box, {
     display: "inline-block",
     alignSelf: "center",
     backgroundColor: "stroke",
     width: "1px",
     height: _v0 ? `${_v0}px` : "100%"
   });
-  var _v511 = _v0.i(0),
+  var _v508 = _v0.i(0),
+    _v509 = _v0.i(0),
+    _v510 = _v0.i(0),
+    _v511 = _v0.i(0),
     _v512 = _v0.i(0),
-    _v513 = _v0.i(0),
-    _v514 = _v0.i(0),
-    _v515 = _v0.i(0),
-    _v516 = _v0.i(0);
-  let _v517 = ({
+    _v513 = _v0.i(0);
+  let _v514 = ({
       variant: _v0,
       size: _v1,
       className: _v2,
@@ -9402,7 +9402,7 @@
       multiColor: _v6,
       isActive: _v7
     }) => (0, _v6.jsx)(_v6.Fragment, {
-      children: (0, _v6.jsx)(_v186.Button, {
+      children: (0, _v6.jsx)(_v92.Button, {
         "aria-label": _v4 || "color-button",
         variant: _v0,
         size: _v1,
@@ -9419,7 +9419,7 @@
         gap: "1px",
         padding: "2px 6px",
         isActive: _v7,
-        children: (0, _v6.jsx)(_v185.Box, {
+        children: (0, _v6.jsx)(_v188.Box, {
           "data-testid": _v4,
           height: 2,
           width: 18,
@@ -9430,7 +9430,7 @@
         })
       })
     }),
-    _v518 = _v9.default.div.withConfig({
+    _v515 = _v9.default.div.withConfig({
       displayName: "ColorPicker.style__DynamicColorIcon",
       componentId: "sc-5ebcb88f-0"
     })`
@@ -9447,10 +9447,10 @@
     }
   }`};
 `;
-  var _v519 = _v0.i(0),
-    _v520 = _v0.i(0),
-    _v521 = _v0.i(0);
-  let _v522 = (0, _v7.memo)(({
+  var _v516 = _v0.i(0),
+    _v517 = _v0.i(0),
+    _v518 = _v0.i(0);
+  let _v519 = (0, _v7.memo)(({
     icon: _v0,
     value: _v1,
     bgAlpha: _v2,
@@ -9469,12 +9469,12 @@
     showButtonBorder: _v15 = !0,
     title: _v16
   }) => {
-    let _v17 = (0, _v167.useAppSelector)(_v166.brandColorsSelector),
-      _v18 = (0, _v520.useThrottledCallback)(_v4, [_v4], 150),
-      _v19 = (0, _v520.useThrottledCallback)(_v0 => {
+    let _v17 = (0, _v170.useAppSelector)(_v169.brandColorsSelector),
+      _v18 = (0, _v517.useThrottledCallback)(_v4, [_v4], 150),
+      _v19 = (0, _v517.useThrottledCallback)(_v0 => {
         _v5 && _v5(_v0);
       }, [_v5], 150),
-      _v20 = (0, _v7.useRef)((0, _v515.parseColor)(_v1)),
+      _v20 = (0, _v7.useRef)((0, _v512.parseColor)(_v1)),
       _v21 = (0, _v7.useRef)(!1),
       _v22 = (0, _v7.useRef)(!1),
       _v23 = (0, _v7.useRef)(_v2),
@@ -9485,7 +9485,7 @@
         _v25(!1), _v9?.();
       },
       _v30 = (0, _v7.useCallback)(_v0 => {
-        _v20.current = _v0.value, _v6(_v0.value.toString("hex")), _v13 && _v7?.((0, _v521.hexToOpacityPercentage)(_v0.value.toString("hexa")));
+        _v20.current = _v0.value, _v6(_v0.value.toString("hex")), _v13 && _v7?.((0, _v518.hexToOpacityPercentage)(_v0.value.toString("hexa")));
       }, [_v13, _v6, _v7]),
       _v31 = (0, _v7.useCallback)(_v0 => {
         if (_v22.current) {
@@ -9496,23 +9496,23 @@
           _v21.current = !1;
           return;
         }
-        _v18(_v0.value.toString("hex")), _v13 && _v5 && _v19((0, _v521.hexToOpacityPercentage)(_v0.value.toString("hexa")));
+        _v18(_v0.value.toString("hex")), _v13 && _v5 && _v19((0, _v518.hexToOpacityPercentage)(_v0.value.toString("hexa")));
       }, [_v13, _v30, _v5, _v18, _v19]),
       _v32 = (0, _v7.useCallback)(_v0 => {
-        if ("key" in _v0 && _v0.key === _v519.KEYBOARD_KEYS.ENTER || "type" in _v0 && "blur" === _v0.type) {
+        if ("key" in _v0 && _v0.key === _v516.KEYBOARD_KEYS.ENTER || "type" in _v0 && "blur" === _v0.type) {
           let _v0 = _v0.target.value;
-          _v21.current = !0, (0, _v521.isHexColor)(_v0) ? _v6?.(_v0) : _v6?.(_v1.slice(0, 7));
+          _v21.current = !0, (0, _v518.isHexColor)(_v0) ? _v6?.(_v0) : _v6?.(_v1.slice(0, 7));
         }
       }, [_v6, _v1]),
       _v33 = (0, _v7.useCallback)(_v0 => {
-        if ([_v519.KEYBOARD_KEYS.DOWN, _v519.KEYBOARD_KEYS.UP].includes(_v0.key)) {
-          let _v0 = (0, _v511.default)(100 * _v0.target.value, 0, 100);
+        if ([_v516.KEYBOARD_KEYS.DOWN, _v516.KEYBOARD_KEYS.UP].includes(_v0.key)) {
+          let _v0 = (0, _v508.default)(100 * _v0.target.value, 0, 100);
           _v21.current = !0, _v0.repeat ? _v5?.(_v0) : _v7?.(_v0);
         }
       }, [_v5, _v7]),
       _v34 = (0, _v7.useCallback)(_v0 => {
-        if ("key" in _v0 && [_v519.KEYBOARD_KEYS.DOWN, _v519.KEYBOARD_KEYS.UP, _v519.KEYBOARD_KEYS.ENTER].includes(_v0.key) || "type" in _v0 && "blur" === _v0.type) {
-          let _v0 = (0, _v511.default)(100 * _v0.target.value, 0, 100);
+        if ("key" in _v0 && [_v516.KEYBOARD_KEYS.DOWN, _v516.KEYBOARD_KEYS.UP, _v516.KEYBOARD_KEYS.ENTER].includes(_v0.key) || "type" in _v0 && "blur" === _v0.type) {
+          let _v0 = (0, _v508.default)(100 * _v0.target.value, 0, 100);
           _v21.current = !0, _v7?.(_v0);
         }
       }, [_v7]),
@@ -9530,9 +9530,9 @@
     let _v37 = _v20.current.toString("hex"),
       _v38 = _v20.current.toString("hexa");
     return (0, _v7.useEffect)(() => {
-      _v37 === _v1 || _v13 || (_v20.current = (0, _v515.parseColor)(_v1)), _v38 !== _v1 && _v13 && (_v20.current = (0, _v515.parseColor)(_v1));
-    }, [_v13, _v37, _v38, _v1]), (0, _v6.jsxs)(_v512.ColorPickerRoot, {
-      defaultValue: (0, _v515.parseColor)((0, _v521.hex2Rgba)(_v1, _v2 ? _v2 / 100 : 1)),
+      _v37 === _v1 || _v13 || (_v20.current = (0, _v512.parseColor)(_v1)), _v38 !== _v1 && _v13 && (_v20.current = (0, _v512.parseColor)(_v1));
+    }, [_v13, _v37, _v38, _v1]), (0, _v6.jsxs)(_v509.ColorPickerRoot, {
+      defaultValue: (0, _v512.parseColor)((0, _v518.hex2Rgba)(_v1, _v2 ? _v2 / 100 : 1)),
       onValueChange: _v31,
       onValueChangeEnd: _v30,
       positioning: {
@@ -9545,8 +9545,8 @@
       }) => {
         _v0 ? (_v25(!0), _v8?.()) : (_v29(), _v27(!_v13 || 0 !== _v23.current));
       },
-      children: [(0, _v6.jsx)(_v513.ColorPickerControl, {
-        children: (0, _v6.jsx)(_v512.ColorPickerTrigger, {
+      children: [(0, _v6.jsx)(_v510.ColorPickerControl, {
+        children: (0, _v6.jsx)(_v509.ColorPickerTrigger, {
           children: (0, _v6.jsx)("span", {
             children: _v12 ? (0, _v6.jsxs)(_v74.Flex, {
               "data-testid": `${_v10}-color-picker`,
@@ -9562,14 +9562,14 @@
               ...(!_v24 && _v15 && {
                 outlineColor: "stroke"
               }),
-              children: [(0, _v6.jsx)(_v518, {
+              children: [(0, _v6.jsx)(_v515, {
                 color: _v3,
                 children: _v0
-              }), (0, _v6.jsx)(_v156.Text, {
+              }), (0, _v6.jsx)(_v80.Text, {
                 variant: "body-md",
                 children: _v12.toUpperCase()
               })]
-            }) : (0, _v6.jsx)(_v517, {
+            }) : (0, _v6.jsx)(_v514, {
               multiColor: _v11,
               variant: "tertiary",
               size: "sm",
@@ -9581,19 +9581,19 @@
             })
           })
         })
-      }), (0, _v6.jsx)(_v200.Portal, {
-        children: (0, _v6.jsx)(_v512.ColorPickerPositioner, {
-          children: (0, _v6.jsxs)(_v512.ColorPickerContent, {
+      }), (0, _v6.jsx)(_v201.Portal, {
+        children: (0, _v6.jsx)(_v509.ColorPickerPositioner, {
+          children: (0, _v6.jsxs)(_v509.ColorPickerContent, {
             style: {
               height: "max-content",
               width: 236
             },
             children: [_v16 && (0, _v6.jsxs)(_v74.Flex, {
               justifyContent: "space-between",
-              children: [(0, _v6.jsx)(_v156.Text, {
+              children: [(0, _v6.jsx)(_v80.Text, {
                 variant: "heading-xs",
                 children: _v16
-              }), _v13 && (0, _v6.jsx)(_v516.Switch, {
+              }), _v13 && (0, _v6.jsx)(_v513.Switch, {
                 size: "sm",
                 isChecked: _v26,
                 onChange: _v35,
@@ -9602,11 +9602,11 @@
                 }
               })]
             }), _v26 && (0, _v6.jsxs)(_v6.Fragment, {
-              children: [(0, _v6.jsx)(_v512.ColorPickerArea, {
+              children: [(0, _v6.jsx)(_v509.ColorPickerArea, {
                 style: {
                   height: 120
                 }
-              }), (0, _v6.jsxs)(_v514.Grid, {
+              }), (0, _v6.jsxs)(_v511.Grid, {
                 gap: "200",
                 gridTemplateColumns: "1fr " + (_v13 ? "max-content" : ""),
                 children: [(0, _v6.jsxs)(_v74.Flex, {
@@ -9614,49 +9614,49 @@
                   direction: "column",
                   gap: "200",
                   justifyContent: "center",
-                  children: [(0, _v6.jsxs)(_v512.ColorPickerChannelSlider, {
+                  children: [(0, _v6.jsxs)(_v509.ColorPickerChannelSlider, {
                     channel: "hue",
-                    children: [(0, _v6.jsx)(_v512.ColorPickerChannelSliderTrack, {}), (0, _v6.jsx)(_v512.ColorPickerChannelSliderThumb, {})]
-                  }), _v13 && (0, _v6.jsxs)(_v512.ColorPickerChannelSlider, {
+                    children: [(0, _v6.jsx)(_v509.ColorPickerChannelSliderTrack, {}), (0, _v6.jsx)(_v509.ColorPickerChannelSliderThumb, {})]
+                  }), _v13 && (0, _v6.jsxs)(_v509.ColorPickerChannelSlider, {
                     channel: "alpha",
-                    children: [(0, _v6.jsx)(_v512.ColorPickerTransparencyGrid, {}), (0, _v6.jsx)(_v512.ColorPickerChannelSliderTrack, {}), (0, _v6.jsx)(_v512.ColorPickerChannelSliderThumb, {})]
+                    children: [(0, _v6.jsx)(_v509.ColorPickerTransparencyGrid, {}), (0, _v6.jsx)(_v509.ColorPickerChannelSliderTrack, {}), (0, _v6.jsx)(_v509.ColorPickerChannelSliderThumb, {})]
                   })]
-                }), _v13 && (0, _v6.jsx)(_v512.ColorPickerEyeDropperTrigger, {
+                }), _v13 && (0, _v6.jsx)(_v509.ColorPickerEyeDropperTrigger, {
                   size: "md",
                   onClick: _v36
                 })]
-              }), (0, _v6.jsxs)(_v514.Grid, {
+              }), (0, _v6.jsxs)(_v511.Grid, {
                 width: "100%",
                 gap: "200",
                 gridTemplateColumns: "auto " + (_v13 ? "auto" : "32px"),
-                children: [(0, _v6.jsx)(_v512.ColorPickerChannelInput, {
+                children: [(0, _v6.jsx)(_v509.ColorPickerChannelInput, {
                   channel: "hex",
                   onKeyDown: _v32,
                   onBlur: _v32,
                   style: {
                     padding: "0 12px"
                   }
-                }), _v13 ? (0, _v6.jsx)(_v523, {
+                }), _v13 ? (0, _v6.jsx)(_v520, {
                   onKeyDown: _v33,
                   onKeyUp: _v34,
                   onBlur: _v34,
                   style: {
                     padding: "0 12px"
                   }
-                }) : (0, _v6.jsx)(_v512.ColorPickerEyeDropperTrigger, {
+                }) : (0, _v6.jsx)(_v509.ColorPickerEyeDropperTrigger, {
                   size: "sm",
                   onClick: _v36
                 })]
-              }), (0, _v6.jsx)(_v185.Box, {
+              }), (0, _v6.jsx)(_v188.Box, {
                 width: "100%",
-                children: (0, _v6.jsxs)(_v512.ColorPickerSwatchGroup, {
+                children: (0, _v6.jsxs)(_v509.ColorPickerSwatchGroup, {
                   style: {
                     display: "inline-flex",
                     alignItems: "center",
                     flexWrap: "wrap",
                     width: "100%"
                   },
-                  children: [(0, _v6.jsx)(_v156.Text, {
+                  children: [(0, _v6.jsx)(_v80.Text, {
                     variant: "heading-2xs",
                     whiteSpace: "nowrap",
                     children: (0, _v62.translate)({
@@ -9688,13 +9688,13 @@
                   }), (0, _v6.jsx)(_v74.Flex, {
                     alignItems: "center",
                     justifyContent: "flex-end",
-                    children: _v28.map(_v0 => (0, _v6.jsx)(_v512.ColorPickerSwatchTrigger, {
+                    children: _v28.map(_v0 => (0, _v6.jsx)(_v509.ColorPickerSwatchTrigger, {
                       style: {
                         marginLeft: "10px"
                       },
                       value: _v0,
                       onClick: () => _v6(_v0),
-                      children: (0, _v6.jsx)(_v512.ColorPickerSwatch, {
+                      children: (0, _v6.jsx)(_v509.ColorPickerSwatch, {
                         value: _v0,
                         boxSize: "xs",
                         sx: {
@@ -9712,7 +9712,7 @@
       })]
     });
   });
-  var _v523 = (0, _v9.default)(_v512.ColorPickerChannelInputAlpha).withConfig({
+  var _v520 = (0, _v9.default)(_v509.ColorPickerChannelInputAlpha).withConfig({
       displayName: "ColorPicker___StyledColorPickerChannelInputAlpha",
       componentId: "sc-aedd1206-0"
     })({
@@ -9722,8 +9722,8 @@
       },
       "-moz-appearance": "textfield"
     }),
-    _v524 = _v0.i(0);
-  (0, _v9.default)(_v524.Highlight).withConfig({
+    _v521 = _v0.i(0);
+  (0, _v9.default)(_v521.Highlight).withConfig({
     displayName: "Toolbar.style__HighlightIcon",
     componentId: "sc-927f95ea-0"
   })`
@@ -9732,13 +9732,13 @@
   width: 17px !important;
   height: 17px !important;
 `;
-  var _v525 = _v0.i(0),
+  var _v522 = _v0.i(0),
+    _v523 = _v0.i(0),
+    _v524 = _v0.i(0),
+    _v525 = _v0.i(0),
     _v526 = _v0.i(0),
-    _v527 = _v0.i(0),
-    _v528 = _v0.i(0),
-    _v529 = _v0.i(0),
-    _v530 = _v0.i(0);
-  let _v531 = ({
+    _v527 = _v0.i(0);
+  let _v528 = ({
       aspectConfig: _v0,
       width: _v1 = 20,
       height: _v2 = 20,
@@ -9776,59 +9776,59 @@
         })
       });
     },
-    _v532 = {
+    _v529 = {
       x: 4,
       y: 1,
       width: 12,
+      height: 15
+    },
+    _v530 = {
+      x: 2,
+      y: 4,
+      width: 16,
+      height: 10
+    },
+    _v531 = {
+      x: 4,
+      y: 2,
+      width: 12,
+      height: 16
+    },
+    _v532 = {
+      x: 5,
+      y: 2,
+      width: 10,
       height: 15
     },
     _v533 = {
       x: 2,
       y: 4,
       width: 16,
-      height: 10
-    },
-    _v534 = {
-      x: 4,
-      y: 2,
-      width: 12,
-      height: 16
-    },
-    _v535 = {
-      x: 5,
-      y: 2,
-      width: 10,
-      height: 15
-    },
-    _v536 = {
-      x: 2,
-      y: 4,
-      width: 16,
       height: 12
     },
-    _v537 = {
+    _v534 = {
       x: 1,
       y: 5,
       width: 18,
       height: 9
     },
-    _v538 = ({
+    _v535 = ({
       children: _v0,
       ..._v1
-    }) => (0, _v6.jsx)(_v156.Text, {
+    }) => (0, _v6.jsx)(_v80.Text, {
       p: "4px 4px 12px",
       variant: "heading-xs",
       ..._v1,
       children: _v0
     }),
-    _v539 = {
-      [_v333.Orientation.LANDSCAPE]: {
-        icon: (0, _v6.jsx)(_v527.FormatLandscape, {
+    _v536 = {
+      [_v332.Orientation.LANDSCAPE]: {
+        icon: (0, _v6.jsx)(_v524.FormatLandscape, {
           width: "20",
           height: "20",
           "data-testid": "canvas-ratio-menu-landscape-option"
         }),
-        label: _v286.OrientationRatioString[_v333.Orientation.LANDSCAPE],
+        label: _v286.OrientationRatioString[_v332.Orientation.LANDSCAPE],
         tooltip: (0, _v62.translate)({
           singular: "Good for Vimeo, YouTube\nand widescreen TVs.",
           dictionary: {
@@ -9856,13 +9856,13 @@
           }
         })
       },
-      [_v333.Orientation.SQUARE]: {
-        icon: (0, _v6.jsx)(_v529.FormatSquare, {
+      [_v332.Orientation.SQUARE]: {
+        icon: (0, _v6.jsx)(_v526.FormatSquare, {
           width: "20",
           height: "20",
           "data-testid": "canvas-ratio-menu-square-option"
         }),
-        label: _v286.OrientationRatioString[_v333.Orientation.SQUARE],
+        label: _v286.OrientationRatioString[_v332.Orientation.SQUARE],
         tooltip: (0, _v62.translate)({
           singular: "Ideal for Instagram\nand Facebook feeds.",
           dictionary: {
@@ -9890,13 +9890,13 @@
           }
         })
       },
-      [_v333.Orientation.PORTRAIT]: {
-        icon: (0, _v6.jsx)(_v528.FormatPortrait, {
+      [_v332.Orientation.PORTRAIT]: {
+        icon: (0, _v6.jsx)(_v525.FormatPortrait, {
           width: "20",
           height: "20",
           "data-testid": "canvas-ratio-menu-portrait-option"
         }),
-        label: _v286.OrientationRatioString[_v333.Orientation.PORTRAIT],
+        label: _v286.OrientationRatioString[_v332.Orientation.PORTRAIT],
         tooltip: (0, _v62.translate)({
           singular: "Best for TikTok, Instagram Reels,\nand mobile viewing.",
           dictionary: {
@@ -9924,9 +9924,9 @@
           }
         })
       },
-      [_v333.Orientation.OR_2_3]: {
-        icon: (0, _v6.jsx)(_v0 => (0, _v6.jsx)(_v531, {
-          aspectConfig: _v535,
+      [_v332.Orientation.OR_2_3]: {
+        icon: (0, _v6.jsx)(_v0 => (0, _v6.jsx)(_v528, {
+          aspectConfig: _v532,
           darker: !0,
           ..._v0
         }), {
@@ -9961,9 +9961,9 @@
           }
         })
       },
-      [_v333.Orientation.OR_3_4]: {
-        icon: (0, _v6.jsx)(_v0 => (0, _v6.jsx)(_v531, {
-          aspectConfig: _v534,
+      [_v332.Orientation.OR_3_4]: {
+        icon: (0, _v6.jsx)(_v0 => (0, _v6.jsx)(_v528, {
+          aspectConfig: _v531,
           darker: !0,
           ..._v0
         }), {
@@ -9998,9 +9998,9 @@
           }
         })
       },
-      [_v333.Orientation.OR_4_5]: {
-        icon: (0, _v6.jsx)(_v0 => (0, _v6.jsx)(_v531, {
-          aspectConfig: _v532,
+      [_v332.Orientation.OR_4_5]: {
+        icon: (0, _v6.jsx)(_v0 => (0, _v6.jsx)(_v528, {
+          aspectConfig: _v529,
           darker: !0,
           ..._v0
         }), {
@@ -10035,9 +10035,9 @@
           }
         })
       },
-      [_v333.Orientation.OR_4_3]: {
-        icon: (0, _v6.jsx)(_v0 => (0, _v6.jsx)(_v531, {
-          aspectConfig: _v536,
+      [_v332.Orientation.OR_4_3]: {
+        icon: (0, _v6.jsx)(_v0 => (0, _v6.jsx)(_v528, {
+          aspectConfig: _v533,
           darker: !0,
           ..._v0
         }), {
@@ -10072,9 +10072,9 @@
           }
         })
       },
-      [_v333.Orientation.OR_16_10]: {
-        icon: (0, _v6.jsx)(_v0 => (0, _v6.jsx)(_v531, {
-          aspectConfig: _v533,
+      [_v332.Orientation.OR_16_10]: {
+        icon: (0, _v6.jsx)(_v0 => (0, _v6.jsx)(_v528, {
+          aspectConfig: _v530,
           darker: !0,
           ..._v0
         }), {
@@ -10109,9 +10109,9 @@
           }
         })
       },
-      [_v333.Orientation.OR_2_1]: {
-        icon: (0, _v6.jsx)(_v0 => (0, _v6.jsx)(_v531, {
-          aspectConfig: _v537,
+      [_v332.Orientation.OR_2_1]: {
+        icon: (0, _v6.jsx)(_v0 => (0, _v6.jsx)(_v528, {
+          aspectConfig: _v534,
           darker: !0,
           ..._v0
         }), {
@@ -10147,37 +10147,37 @@
         })
       }
     },
-    _v540 = ({
+    _v537 = ({
       selectedOrientation: _v0,
       onChange: _v1
     }) => {
-      let _v2 = (0, _v167.useAppSelector)(_v166.storyboardIdSelector),
+      let _v2 = (0, _v170.useAppSelector)(_v169.storyboardIdSelector),
         {
           trackEditorAspectRatioChanged: _v3
         } = (0, _v220.useEditorTracking)(),
         _v4 = (0, _v7.useRef)(null),
-        _v5 = _v539[_v0],
+        _v5 = _v536[_v0],
         {
           isOpen: _v6,
           onOpen: _v7,
           onClose: _v8
-        } = (0, _v525.useDisclosure)(),
+        } = (0, _v522.useDisclosure)(),
         {
           isOpen: _v9,
           onOpen: _v10,
           onClose: _v11
-        } = (0, _v525.useDisclosure)(),
+        } = (0, _v522.useDisclosure)(),
         _v12 = (0, _v212.useColorModeValue)("blackAlpha.200", "whiteAlpha.200"),
         _v13 = () => {
-          _v7(), (0, _v191.sendTrackOpenOrientationDropdown)({
+          _v7(), (0, _v193.sendTrackOpenOrientationDropdown)({
             location: "top_toolbar",
             copy: _v5.label
           });
         },
-        _v14 = [_v333.Orientation.LANDSCAPE, _v333.Orientation.SQUARE, _v333.Orientation.PORTRAIT],
-        _v15 = [_v333.Orientation.OR_2_1, _v333.Orientation.OR_16_10, _v333.Orientation.OR_4_3, _v333.Orientation.OR_4_5, _v333.Orientation.OR_3_4, _v333.Orientation.OR_2_3],
+        _v14 = [_v332.Orientation.LANDSCAPE, _v332.Orientation.SQUARE, _v332.Orientation.PORTRAIT],
+        _v15 = [_v332.Orientation.OR_2_1, _v332.Orientation.OR_16_10, _v332.Orientation.OR_4_3, _v332.Orientation.OR_4_5, _v332.Orientation.OR_3_4, _v332.Orientation.OR_2_3],
         _v16 = (_v0, _v1 = !1) => {
-          let _v2 = _v539[_v0],
+          let _v2 = _v536[_v0],
             _v3 = (0, _v6.jsxs)(_v74.Flex, {
               gap: "sm",
               alignItems: "center",
@@ -10186,17 +10186,17 @@
               children: [(0, _v6.jsxs)(_v74.Flex, {
                 alignItems: "center",
                 gap: "sm",
-                children: [_v2.icon, (0, _v6.jsx)(_v185.Box, {
+                children: [_v2.icon, (0, _v6.jsx)(_v188.Box, {
                   fontSize: _v1 ? "0.9em" : void 0,
                   children: _v2.label
                 })]
-              }), _v0 === _v0 && (0, _v6.jsx)(_v526.CheckSmall, {
+              }), _v0 === _v0 && (0, _v6.jsx)(_v523.CheckSmall, {
                 width: "20px",
                 height: "20px"
               })]
             }),
             _v4 = _v0 => {
-              _v0.preventDefault(), _v0.stopPropagation(), _v1(_v0), (0, _v191.sendTrackSelectCanvasSize)({
+              _v0.preventDefault(), _v0.stopPropagation(), _v1(_v0), (0, _v193.sendTrackSelectCanvasSize)({
                 location: "top_toolbar",
                 copy: _v5.label,
                 prevSize: _v286.OrientationRatioString[_v0],
@@ -10206,7 +10206,7 @@
                 editorNewAspectRatio: _v286.OrientationRatioString[_v0].replace(":", "_")
               });
             },
-            _v5 = _v1 ? (0, _v6.jsx)(_v185.Box, {
+            _v5 = _v1 ? (0, _v6.jsx)(_v188.Box, {
               as: "button",
               width: "100%",
               padding: "8px",
@@ -10221,7 +10221,7 @@
                 backgroundColor: _v12
               },
               children: _v3
-            }, _v0) : (0, _v6.jsx)(_v301.MenuItem, {
+            }, _v0) : (0, _v6.jsx)(_v300.MenuItem, {
               icon: _v2.icon,
               onClick: _v4,
               "data-testid": `orientation-${_v0}`,
@@ -10231,16 +10231,16 @@
                 alignItems: "center",
                 width: "100%",
                 justifyContent: "space-between",
-                children: [(0, _v6.jsx)(_v185.Box, {
+                children: [(0, _v6.jsx)(_v188.Box, {
                   children: _v2.label
-                }), _v0 === _v0 && (0, _v6.jsx)(_v526.CheckSmall, {
+                }), _v0 === _v0 && (0, _v6.jsx)(_v523.CheckSmall, {
                   width: "20px",
                   height: "20px"
                 })]
               })
             }, _v0);
           return (0, _v6.jsx)(_v211.Tooltip, {
-            label: (0, _v6.jsx)(_v185.Box, {
+            label: (0, _v6.jsx)(_v188.Box, {
               whiteSpace: "pre-line",
               textAlign: "left",
               children: _v2.tooltip
@@ -10249,16 +10249,16 @@
             children: _v5
           }, _v0);
         };
-      return (0, _v6.jsxs)(_v298.Menu, {
+      return (0, _v6.jsxs)(_v297.Menu, {
         closeOnSelect: !1,
         onOpen: _v13,
         onClose: () => {
           _v9 || _v8();
         },
         isOpen: _v6,
-        children: [(0, _v6.jsx)(_v299.MenuButton, {
-          "data-testid": _v180.testIds.canvasRationButton,
-          as: _v186.Button,
+        children: [(0, _v6.jsx)(_v298.MenuButton, {
+          "data-testid": _v183.testIds.canvasRationButton,
+          as: _v92.Button,
           leftIcon: _v5.icon,
           variant: "tertiary",
           size: "sm",
@@ -10267,10 +10267,10 @@
             _v6 ? _v8() : _v13();
           },
           children: _v5.label
-        }), (0, _v6.jsxs)(_v303.MenuList, {
+        }), (0, _v6.jsxs)(_v302.MenuList, {
           "data-testid": "canvas-ratio-menu",
           onClick: _v0 => _v0.stopPropagation(),
-          children: [(0, _v6.jsx)(_v538, {
+          children: [(0, _v6.jsx)(_v535, {
             children: (0, _v62.translate)({
               singular: "Ratio",
               dictionary: {
@@ -10297,11 +10297,11 @@
                 }
               }
             })
-          }), (0, _v6.jsxs)(_v185.Box, {
+          }), (0, _v6.jsxs)(_v188.Box, {
             marginTop: "4px",
-            children: [_v14.map(_v0 => _v16(_v0)), (0, _v6.jsx)(_v300.MenuDivider, {
+            children: [_v14.map(_v0 => _v16(_v0)), (0, _v6.jsx)(_v299.MenuDivider, {
               marginY: 2
-            }), (0, _v6.jsxs)(_v196.Popover, {
+            }), (0, _v6.jsxs)(_v197.Popover, {
               trigger: "hover",
               placement: "right-start",
               openDelay: 100,
@@ -10315,8 +10315,8 @@
               offset: [-8, -4],
               closeOnBlur: !1,
               closeOnEsc: !1,
-              children: [(0, _v6.jsx)(_v199.PopoverTrigger, {
-                children: (0, _v6.jsx)(_v185.Box, {
+              children: [(0, _v6.jsx)(_v200.PopoverTrigger, {
+                children: (0, _v6.jsx)(_v188.Box, {
                   as: "button",
                   width: "100%",
                   padding: "8px",
@@ -10326,7 +10326,7 @@
                   children: (0, _v6.jsxs)(_v74.Flex, {
                     justifyContent: "space-between",
                     alignItems: "center",
-                    children: [(0, _v6.jsx)(_v156.Text, {
+                    children: [(0, _v6.jsx)(_v80.Text, {
                       fontSize: "0.9em",
                       variant: "body-xl",
                       children: (0, _v62.translate)({
@@ -10355,18 +10355,18 @@
                           }
                         }
                       })
-                    }), (0, _v6.jsx)(_v530.ChevronRightSmall, {})]
+                    }), (0, _v6.jsx)(_v527.ChevronRightSmall, {})]
                   })
                 })
-              }), (0, _v6.jsx)(_v200.Portal, {
-                children: (0, _v6.jsx)(_v198.PopoverContent, {
+              }), (0, _v6.jsx)(_v201.Portal, {
+                children: (0, _v6.jsx)(_v199.PopoverContent, {
                   zIndex: 0,
                   width: "160px",
                   minWidth: "auto",
                   onMouseEnter: _v0 => _v0.stopPropagation(),
                   onMouseLeave: _v0 => _v0.stopPropagation(),
                   onClick: _v0 => _v0.stopPropagation(),
-                  children: (0, _v6.jsx)(_v197.PopoverBody, {
+                  children: (0, _v6.jsx)(_v198.PopoverBody, {
                     padding: "4px",
                     children: _v15.map(_v0 => _v16(_v0, !0))
                   })
@@ -10377,15 +10377,15 @@
         })]
       });
     },
-    _v541 = () => {
-      let _v0 = (0, _v167.useAppDispatch)(),
-        _v1 = (0, _v167.useAppSelector)(_v356.overridesWithoutRectSelector, _v431.shallowEqual),
-        _v2 = (0, _v167.useAppSelector)(_v166.orientationSelector),
-        _v3 = (0, _v167.useAppSelector)(_v509.selectedToolbarButtonSelector),
-        _v4 = (0, _v167.useAppSelector)(_v0 => _v0.storyboard.canvas.color),
+    _v538 = () => {
+      let _v0 = (0, _v170.useAppDispatch)(),
+        _v1 = (0, _v170.useAppSelector)(_v354.overridesWithoutRectSelector, _v428.shallowEqual),
+        _v2 = (0, _v170.useAppSelector)(_v169.orientationSelector),
+        _v3 = (0, _v170.useAppSelector)(_v506.selectedToolbarButtonSelector),
+        _v4 = (0, _v170.useAppSelector)(_v0 => _v0.storyboard.canvas.color),
         _v5 = _v1?.canvas?.color,
         _v6 = (0, _v7.useCallback)(_v0 => {
-          _v0((0, _v356.addGlobalOverrideAction)({
+          _v0((0, _v354.addGlobalOverrideAction)({
             key: "canvas",
             value: {
               color: _v0
@@ -10393,17 +10393,17 @@
           }));
         }, [_v0]),
         _v7 = (0, _v7.useCallback)(_v0 => {
-          _v0((0, _v356.removeGlobalOverrideAction)("canvas")), _v0((0, _v166.setCanvasColorAction)({
+          _v0((0, _v354.removeGlobalOverrideAction)("canvas")), _v0((0, _v169.setCanvasColorAction)({
             color: _v0
           }));
         }, [_v0]),
         _v8 = (0, _v7.useCallback)(_v0 => {
-          _v2 !== _v0 && (_v0((0, _v166.updateOrientationAction)(_v0)), _v0((0, _v181.setTemplatesOrientationAction)(_v0)), _v0((0, _v237.setTeamTemplatesOrientationAction)(_v0)));
+          _v2 !== _v0 && (_v0((0, _v169.updateOrientationAction)(_v0)), _v0((0, _v184.setTemplatesOrientationAction)(_v0)), _v0((0, _v237.setTeamTemplatesOrientationAction)(_v0)));
         }, [_v0, _v2]),
-        _v9 = (0, _v7.useCallback)(() => _v0((0, _v509.selectToolbarButtonAction)(_v508.ToolbarButtons.CANVAS_COLOR)), [_v0]),
-        _v10 = (0, _v7.useCallback)(() => _v0((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.CANVAS_COLOR)), [_v0]);
+        _v9 = (0, _v7.useCallback)(() => _v0((0, _v506.selectToolbarButtonAction)(_v505.ToolbarButtons.CANVAS_COLOR)), [_v0]),
+        _v10 = (0, _v7.useCallback)(() => _v0((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.CANVAS_COLOR)), [_v0]);
       return (0, _v6.jsxs)(_v74.Flex, {
-        "data-testid": _v180.testIds.canvasToolbar,
+        "data-testid": _v183.testIds.canvasToolbar,
         gap: "8px",
         children: [(0, _v6.jsx)(_v211.Tooltip, {
           label: (0, _v62.translate)({
@@ -10433,11 +10433,11 @@
             }
           }),
           placement: "bottom",
-          "data-testid": _v180.testIds.canvasTooltip,
-          isDisabled: _v3 === _v508.ToolbarButtons.CANVAS_COLOR,
+          "data-testid": _v183.testIds.canvasTooltip,
+          isDisabled: _v3 === _v505.ToolbarButtons.CANVAS_COLOR,
           children: (0, _v6.jsx)("span", {
-            children: (0, _v6.jsx)(_v522, {
-              icon: (0, _v6.jsx)(_v507.FillPaintBucket, {}),
+            children: (0, _v6.jsx)(_v519, {
+              icon: (0, _v6.jsx)(_v504.FillPaintBucket, {}),
               value: _v5 || _v4,
               title: (0, _v62.translate)({
                 singular: "Canvas color",
@@ -10471,18 +10471,18 @@
               onClose: _v10,
               onChange: _v6,
               onChangeEnd: _v7,
-              isActive: _v3 === _v508.ToolbarButtons.CANVAS_COLOR
+              isActive: _v3 === _v505.ToolbarButtons.CANVAS_COLOR
             })
           })
-        }), (0, _v6.jsx)(_v510, {
+        }), (0, _v6.jsx)(_v507, {
           height: 24
-        }), (0, _v6.jsx)(_v540, {
+        }), (0, _v6.jsx)(_v537, {
           selectedOrientation: _v2,
           onChange: _v8
         })]
       });
     },
-    _v542 = ({
+    _v539 = ({
       children: _v0,
       isVisible: _v1,
       currentToolbar: _v2,
@@ -10504,8 +10504,8 @@
       "data-current-toolbar": _v2,
       children: _v0
     });
-  var _v543 = _v0.i(0);
-  let _v544 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+  var _v540 = _v0.i(0);
+  let _v541 = _v0 => (0, _v6.jsx)(_v82.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -10516,11 +10516,11 @@
       fill: "currentColor"
     })
   });
-  var _v545 = _v0.i(0),
-    _v546 = _v0.i(0),
-    _v547 = _v0.i(0),
-    _v548 = _v0.i(0);
-  let _v549 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsxs)("svg", {
+  var _v542 = _v0.i(0),
+    _v543 = _v0.i(0),
+    _v544 = _v0.i(0),
+    _v545 = _v0.i(0);
+  let _v546 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsxs)("svg", {
       ref: _v1,
       ..._v0,
       width: "24",
@@ -10541,7 +10541,7 @@
         fill: "currentcolor"
       })]
     })),
-    _v550 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+    _v547 = _v0 => (0, _v6.jsx)(_v82.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -10552,7 +10552,7 @@
         fill: "currentColor"
       })
     }),
-    _v551 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+    _v548 = _v0 => (0, _v6.jsx)(_v82.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -10563,33 +10563,33 @@
         fill: "currentColor"
       })
     });
-  var _v552 = _v0.i(0),
+  var _v549 = _v0.i(0),
+    _v550 = _v0.i(0),
+    _v551 = _v0.i(0),
+    _v552 = _v0.i(0),
     _v553 = _v0.i(0),
     _v554 = _v0.i(0),
-    _v555 = _v0.i(0),
-    _v556 = _v0.i(0),
-    _v557 = _v0.i(0),
-    _v558 = _v0.i(0);
-  let _v559 = _v7.default.forwardRef((_v0, _v1) => (0, _v6.jsx)(_v74.Flex, {
+    _v555 = _v0.i(0);
+  let _v556 = _v7.default.forwardRef((_v0, _v1) => (0, _v6.jsx)(_v74.Flex, {
     direction: "column",
     p: "0 4px 4px",
     gap: "8px",
     ref: _v1,
     ..._v0
   }));
-  var _v560 = _v0.i(0);
-  function _v561({
+  var _v557 = _v0.i(0);
+  function _v558({
     buttons: _v0,
     tooltipPlacement: _v1 = "bottom",
     maxItemsPerRow: _v2
   }) {
-    let _v3 = _v2 ? (0, _v308.splitToSubArraysByN)(_v0, _v2) : [_v0];
-    return (0, _v6.jsx)(_v185.Box, {
+    let _v3 = _v2 ? (0, _v307.splitToSubArraysByN)(_v0, _v2) : [_v0];
+    return (0, _v6.jsx)(_v188.Box, {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       gap: "8",
-      children: _v3.map((_v0, _v1) => (0, _v6.jsx)(_v185.Box, {
+      children: _v3.map((_v0, _v1) => (0, _v6.jsx)(_v188.Box, {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -10607,9 +10607,9 @@
           "data-testid": "tooltip",
           isDisabled: !_v1,
           children: (0, _v6.jsx)("span", {
-            children: (0, _v6.jsx)(_v560.SelectionBorder, {
+            children: (0, _v6.jsx)(_v557.SelectionBorder, {
               isSelected: _v2,
-              children: (0, _v6.jsx)(_v194.IconButton, {
+              children: (0, _v6.jsx)(_v94.IconButton, {
                 "aria-label": _v5,
                 variant: "secondary",
                 size: "sm",
@@ -10623,35 +10623,35 @@
       }, `row-${_v1}`))
     });
   }
-  let _v562 = ({
+  let _v559 = ({
     title: _v0,
     buttons: _v1,
     maxItemsPerRow: _v2
   }) => (0, _v6.jsxs)(_v6.Fragment, {
-    children: [(0, _v6.jsx)(_v538, {
+    children: [(0, _v6.jsx)(_v535, {
       children: _v0
-    }), (0, _v6.jsx)(_v559, {
-      children: (0, _v6.jsx)(_v561, {
+    }), (0, _v6.jsx)(_v556, {
+      children: (0, _v6.jsx)(_v558, {
         buttons: _v1,
         maxItemsPerRow: _v2
       })
     })]
   });
-  function _v563({
+  function _v560({
     validatedElements: _v0,
     title: _v1,
     animationKeyName: _v2
   }) {
-    let _v3 = (0, _v167.useAppDispatch)(),
+    let _v3 = (0, _v170.useAppDispatch)(),
       {
         currentTime: _v4
-      } = (0, _v167.useAppSelector)(_v260.dragonflyStateSelector),
+      } = (0, _v170.useAppSelector)(_v260.dragonflyStateSelector),
       {
         seek: _v5,
         play: _v6,
         pause: _v7
       } = (0, _v222.useDragonfly)(),
-      _v8 = (0, _v152.shouldShowInDevelopmentFeature)("slideAnimation", !0),
+      _v8 = (0, _v156.shouldShowInDevelopmentFeature)("slideAnimation", !0),
       _v9 = (0, _v7.useRef)(!1),
       _v10 = _v0[0];
     if ((0, _v7.useEffect)(() => {
@@ -10661,7 +10661,7 @@
     }, [_v7]), !_v0) return null;
     let _v11 = _v0 => {
         _v0.forEach(_v0 => {
-          _v3((0, _v166.updateElementAction)({
+          _v3((0, _v169.updateElementAction)({
             ceId: _v0.id,
             element: {
               [_v2]: _v0
@@ -10669,8 +10669,8 @@
           }));
         }), _v5(_v10.compositionTiming.start), _v6(), _v9.current = !0;
       },
-      _v12 = _v10?.[_v2] ?? _v558.AnimationType.NONE,
-      _v13 = void 0 === _v12 || _v12 === _v558.AnimationType.NONE,
+      _v12 = _v10?.[_v2] ?? _v555.AnimationType.NONE,
+      _v13 = void 0 === _v12 || _v12 === _v555.AnimationType.NONE,
       _v14 = [{
         tooltipText: (0, _v62.translate)({
           singular: "None",
@@ -10699,9 +10699,9 @@
           }
         }),
         isSelected: _v13,
-        icon: (0, _v6.jsx)(_v557.StopBanRight, {}),
-        onClick: () => _v11(_v558.AnimationType.NONE),
-        testId: `${_v558.AnimationType.NONE}-animation-button`
+        icon: (0, _v6.jsx)(_v554.StopBanRight, {}),
+        onClick: () => _v11(_v555.AnimationType.NONE),
+        testId: `${_v555.AnimationType.NONE}-animation-button`
       }, {
         tooltipText: (0, _v62.translate)({
           singular: "Fade",
@@ -10729,10 +10729,10 @@
             }
           }
         }),
-        isSelected: _v12 === _v558.AnimationType.FADE,
-        icon: (0, _v6.jsx)(_v554.Blur, {}),
-        onClick: () => _v11(_v558.AnimationType.FADE),
-        testId: `${_v558.AnimationType.FADE}-animation-button`
+        isSelected: _v12 === _v555.AnimationType.FADE,
+        icon: (0, _v6.jsx)(_v551.Blur, {}),
+        onClick: () => _v11(_v555.AnimationType.FADE),
+        testId: `${_v555.AnimationType.FADE}-animation-button`
       }, {
         tooltipText: (0, _v62.translate)({
           singular: "Stamp",
@@ -10760,10 +10760,10 @@
             }
           }
         }),
-        isSelected: _v12 === _v558.AnimationType.STAMP,
-        icon: (0, _v6.jsx)(_v555.CompressArrows, {}),
-        onClick: () => _v11(_v558.AnimationType.STAMP),
-        testId: `${_v558.AnimationType.STAMP}-animation-button`
+        isSelected: _v12 === _v555.AnimationType.STAMP,
+        icon: (0, _v6.jsx)(_v552.CompressArrows, {}),
+        onClick: () => _v11(_v555.AnimationType.STAMP),
+        testId: `${_v555.AnimationType.STAMP}-animation-button`
       }, {
         tooltipText: (0, _v62.translate)({
           singular: "Pop",
@@ -10782,10 +10782,10 @@
             }
           }
         }),
-        isSelected: _v12 === _v558.AnimationType.POP,
-        icon: (0, _v6.jsx)(_v556.ExpandArrowsAlt, {}),
-        onClick: () => _v11(_v558.AnimationType.POP),
-        testId: `${_v558.AnimationType.POP}-animation-button`
+        isSelected: _v12 === _v555.AnimationType.POP,
+        icon: (0, _v6.jsx)(_v553.ExpandArrowsAlt, {}),
+        onClick: () => _v11(_v555.AnimationType.POP),
+        testId: `${_v555.AnimationType.POP}-animation-button`
       }, ...(_v8 ? [{
         tooltipText: (0, _v62.translate)({
           singular: "Slide Right",
@@ -10813,10 +10813,10 @@
             }
           }
         }),
-        isSelected: _v12 === _v558.AnimationType.SLIDE_RIGHT,
-        icon: (0, _v6.jsx)(_v552.ArrowRightFilled, {}),
-        onClick: () => _v11(_v558.AnimationType.SLIDE_RIGHT),
-        testId: `${_v558.AnimationType.SLIDE_RIGHT}-animation-button`
+        isSelected: _v12 === _v555.AnimationType.SLIDE_RIGHT,
+        icon: (0, _v6.jsx)(_v549.ArrowRightFilled, {}),
+        onClick: () => _v11(_v555.AnimationType.SLIDE_RIGHT),
+        testId: `${_v555.AnimationType.SLIDE_RIGHT}-animation-button`
       }, {
         tooltipText: (0, _v62.translate)({
           singular: "Slide Left",
@@ -10844,10 +10844,10 @@
             }
           }
         }),
-        isSelected: _v12 === _v558.AnimationType.SLIDE_LEFT,
-        icon: (0, _v6.jsx)(_v551, {}),
-        onClick: () => _v11(_v558.AnimationType.SLIDE_LEFT),
-        testId: `${_v558.AnimationType.SLIDE_LEFT}-animation-button`
+        isSelected: _v12 === _v555.AnimationType.SLIDE_LEFT,
+        icon: (0, _v6.jsx)(_v548, {}),
+        onClick: () => _v11(_v555.AnimationType.SLIDE_LEFT),
+        testId: `${_v555.AnimationType.SLIDE_LEFT}-animation-button`
       }, {
         tooltipText: (0, _v62.translate)({
           singular: "Slide Bottom",
@@ -10875,10 +10875,10 @@
             }
           }
         }),
-        isSelected: _v12 === _v558.AnimationType.SLIDE_BOTTOM,
-        icon: (0, _v6.jsx)(_v550, {}),
-        onClick: () => _v11(_v558.AnimationType.SLIDE_BOTTOM),
-        testId: `${_v558.AnimationType.SLIDE_BOTTOM}-animation-button`
+        isSelected: _v12 === _v555.AnimationType.SLIDE_BOTTOM,
+        icon: (0, _v6.jsx)(_v547, {}),
+        onClick: () => _v11(_v555.AnimationType.SLIDE_BOTTOM),
+        testId: `${_v555.AnimationType.SLIDE_BOTTOM}-animation-button`
       }, {
         tooltipText: (0, _v62.translate)({
           singular: "Slide Top",
@@ -10903,23 +10903,23 @@
             }
           }
         }),
-        isSelected: _v12 === _v558.AnimationType.SLIDE_TOP,
-        icon: (0, _v6.jsx)(_v553.ArrowUpFilled, {}),
-        onClick: () => _v11(_v558.AnimationType.SLIDE_TOP),
-        testId: `${_v558.AnimationType.SLIDE_TOP}-animation-button`
+        isSelected: _v12 === _v555.AnimationType.SLIDE_TOP,
+        icon: (0, _v6.jsx)(_v550.ArrowUpFilled, {}),
+        onClick: () => _v11(_v555.AnimationType.SLIDE_TOP),
+        testId: `${_v555.AnimationType.SLIDE_TOP}-animation-button`
       }] : [])];
-    return (0, _v6.jsx)(_v562, {
+    return (0, _v6.jsx)(_v559, {
       title: _v1,
       buttons: _v14,
       maxItemsPerRow: 4
     });
   }
-  var _v564 = _v0.i(0);
-  let _v565 = {
+  var _v561 = _v0.i(0);
+  let _v562 = {
       lineHeight: "1.8",
       fontSize: "0.875rem"
     },
-    _v566 = ({
+    _v563 = ({
       isActive: _v0,
       ariaLabel: _v1,
       icon: _v2,
@@ -10931,7 +10931,7 @@
       variant: _v8
     }) => {
       let _v9 = _v8 || "tertiary";
-      return _v5 ? (0, _v6.jsx)(_v186.Button, {
+      return _v5 ? (0, _v6.jsx)(_v92.Button, {
         variant: _v9,
         size: "sm",
         "data-testid": _v3,
@@ -10944,7 +10944,7 @@
           rightIcon: _v2
         }),
         children: _v5
-      }) : (0, _v6.jsx)(_v194.IconButton, {
+      }) : (0, _v6.jsx)(_v94.IconButton, {
         "aria-label": _v1 ?? "toolbar button",
         variant: _v9,
         size: "sm",
@@ -10955,7 +10955,7 @@
         isDisabled: _v7
       });
     },
-    _v567 = ({
+    _v564 = ({
       buttonId: _v0,
       content: _v1,
       icon: _v2,
@@ -10971,27 +10971,27 @@
       closeOnBlur: _v10 = !0,
       isDisabled: _v11 = !1
     }) => {
-      let _v12 = (0, _v167.useAppDispatch)(),
-        _v13 = (0, _v167.useAppSelector)(_v0 => _v0.toolbar.selectedToolbarButton === _v0),
+      let _v12 = (0, _v170.useAppDispatch)(),
+        _v13 = (0, _v170.useAppSelector)(_v0 => _v0.toolbar.selectedToolbarButton === _v0),
         _v14 = !_v4 || _v13;
-      return (0, _v6.jsxs)(_v196.Popover, {
+      return (0, _v6.jsxs)(_v197.Popover, {
         onOpen: () => {
-          _v12((0, _v509.selectToolbarButtonAction)(_v0)), _v9?.();
+          _v12((0, _v506.selectToolbarButtonAction)(_v0)), _v9?.();
         },
-        onClose: () => _v12((0, _v509.deselectToolbarButtonAction)(_v0)),
+        onClose: () => _v12((0, _v506.deselectToolbarButtonAction)(_v0)),
         isOpen: _v13,
         isLazy: !0,
         closeOnBlur: _v10,
         children: [(0, _v6.jsx)(_v211.Tooltip, {
           label: _v4,
-          sx: _v565,
+          sx: _v562,
           "data-testid": _v5,
           isDisabled: _v14,
-          children: (0, _v6.jsx)(_v185.Box, {
+          children: (0, _v6.jsx)(_v188.Box, {
             display: "inline-block",
-            children: (0, _v6.jsx)(_v199.PopoverTrigger, {
-              children: (0, _v6.jsx)(_v185.Box, {
-                children: (0, _v6.jsx)(_v566, {
+            children: (0, _v6.jsx)(_v200.PopoverTrigger, {
+              children: (0, _v6.jsx)(_v188.Box, {
+                children: (0, _v6.jsx)(_v563, {
                   ...(_v8 && {
                     iconPosition: _v8
                   }),
@@ -11001,7 +11001,7 @@
                   isActive: _v13,
                   icon: _v2,
                   onClick: function () {
-                    _v13 ? _v12((0, _v509.deselectToolbarButtonAction)(_v0)) : _v12((0, _v509.selectToolbarButtonAction)(_v0));
+                    _v13 ? _v12((0, _v506.deselectToolbarButtonAction)(_v0)) : _v12((0, _v506.selectToolbarButtonAction)(_v0));
                   },
                   isDisabled: _v11,
                   testId: _v3
@@ -11009,23 +11009,23 @@
               })
             })
           })
-        }), (0, _v6.jsx)(_v200.Portal, {
-          children: (0, _v6.jsx)(_v198.PopoverContent, {
+        }), (0, _v6.jsx)(_v201.Portal, {
+          children: (0, _v6.jsx)(_v199.PopoverContent, {
             style: _v7,
             children: _v13 ? _v1 : null
           })
         })]
       });
     };
-  var _v568 = _v0.i(0),
-    _v569 = _v0.i(0),
-    _v570 = _v0.i(0),
-    _v571 = _v0.i(0);
-  let _v572 = ({
+  var _v565 = _v0.i(0),
+    _v566 = _v0.i(0),
+    _v567 = _v0.i(0),
+    _v568 = _v0.i(0);
+  let _v569 = ({
       title: _v0,
       value: _v1,
       onChange: _v2
-    }) => (0, _v6.jsx)(_v562, {
+    }) => (0, _v6.jsx)(_v559, {
       title: _v0,
       buttons: [{
         tooltipText: (0, _v62.translate)({
@@ -11054,10 +11054,10 @@
             }
           }
         }),
-        isSelected: _v1 === _v571.DropShadow.NONE,
-        icon: (0, _v6.jsx)(_v557.StopBanRight, {}),
-        onClick: () => _v2(_v571.DropShadow.NONE),
-        testId: _v180.testIds.dropShadowController.noneButton
+        isSelected: _v1 === _v568.DropShadow.NONE,
+        icon: (0, _v6.jsx)(_v554.StopBanRight, {}),
+        onClick: () => _v2(_v568.DropShadow.NONE),
+        testId: _v183.testIds.dropShadowController.noneButton
       }, {
         tooltipText: (0, _v62.translate)({
           singular: "Soft",
@@ -11085,10 +11085,10 @@
             }
           }
         }),
-        isSelected: _v1 === _v571.DropShadow.SOFT,
-        icon: (0, _v6.jsx)(_v569.DropShadowSoft, {}),
-        onClick: () => _v2(_v571.DropShadow.SOFT),
-        testId: _v180.testIds.dropShadowController.softButton
+        isSelected: _v1 === _v568.DropShadow.SOFT,
+        icon: (0, _v6.jsx)(_v566.DropShadowSoft, {}),
+        onClick: () => _v2(_v568.DropShadow.SOFT),
+        testId: _v183.testIds.dropShadowController.softButton
       }, {
         tooltipText: (0, _v62.translate)({
           singular: "Normal",
@@ -11107,10 +11107,10 @@
             }
           }
         }),
-        isSelected: _v1 === _v571.DropShadow.NORMAL,
-        icon: (0, _v6.jsx)(_v568.DropShadowDefault, {}),
-        onClick: () => _v2(_v571.DropShadow.NORMAL),
-        testId: _v180.testIds.dropShadowController.normalButton
+        isSelected: _v1 === _v568.DropShadow.NORMAL,
+        icon: (0, _v6.jsx)(_v565.DropShadowDefault, {}),
+        onClick: () => _v2(_v568.DropShadow.NORMAL),
+        testId: _v183.testIds.dropShadowController.normalButton
       }, {
         tooltipText: (0, _v62.translate)({
           singular: "Strong",
@@ -11138,21 +11138,21 @@
             }
           }
         }),
-        isSelected: _v1 === _v571.DropShadow.SHARP,
-        icon: (0, _v6.jsx)(_v570.DropShadowStrong, {}),
-        onClick: () => _v2(_v571.DropShadow.SHARP),
-        testId: _v180.testIds.dropShadowController.strongButton
+        isSelected: _v1 === _v568.DropShadow.SHARP,
+        icon: (0, _v6.jsx)(_v567.DropShadowStrong, {}),
+        onClick: () => _v2(_v568.DropShadow.SHARP),
+        testId: _v183.testIds.dropShadowController.strongButton
       }]
     }),
-    _v573 = ({
+    _v570 = ({
       buttonId: _v0,
       testId: _v1,
       value: _v2,
       onChange: _v3,
       onClick: _v4
-    }) => (0, _v6.jsx)(_v567, {
+    }) => (0, _v6.jsx)(_v564, {
       buttonId: _v0,
-      content: (0, _v6.jsx)(_v572, {
+      content: (0, _v6.jsx)(_v569, {
         value: _v2,
         onChange: _v3,
         title: (0, _v62.translate)({
@@ -11182,7 +11182,7 @@
           }
         })
       }),
-      icon: (0, _v6.jsx)(_v564.DropShadow, {}),
+      icon: (0, _v6.jsx)(_v561.DropShadow, {}),
       testId: _v1,
       tooltipText: (0, _v62.translate)({
         singular: "Drop shadow",
@@ -11212,17 +11212,17 @@
       }),
       onClick: _v4
     });
-  var _v574 = _v0.i(0);
-  let _v575 = "__brand__";
-  function _v576({
+  var _v571 = _v0.i(0);
+  let _v572 = "__brand__";
+  function _v573({
     selectedFont: _v0,
     inspectorType: _v1,
     handleClick: _v2
   }) {
-    let _v3 = (0, _v167.useAppSelector)(_v165.currentInspectorSelector),
-      _v4 = (0, _v167.useAppSelector)(_v388.fontsSelector),
+    let _v3 = (0, _v170.useAppSelector)(_v168.currentInspectorSelector),
+      _v4 = (0, _v170.useAppSelector)(_v386.fontsSelector),
       _v5 = _v4?.[_v0],
-      _v6 = (0, _v7.useMemo)(() => _v5 ? _v5.family + (_v5.style ? " " + _v5.style : "") : _v0.indexOf(_v575) > -1 ? _v0.substring(0, _v0.indexOf(_v575)) : _v0, [_v0, _v5]);
+      _v6 = (0, _v7.useMemo)(() => _v5 ? _v5.family + (_v5.style ? " " + _v5.style : "") : _v0.indexOf(_v572) > -1 ? _v0.substring(0, _v0.indexOf(_v572)) : _v0, [_v0, _v5]);
     return (0, _v6.jsx)(_v211.Tooltip, {
       label: (0, _v62.translate)({
         singular: "Font",
@@ -11254,30 +11254,30 @@
       "data-testid": "tooltip",
       "aria-disabled": !1,
       isDisabled: _v3 === _v1,
-      children: (0, _v6.jsx)(_v186.Button, {
+      children: (0, _v6.jsx)(_v92.Button, {
         variant: "tertiary",
         size: "sm",
-        "data-testid": _v180.testIds.fontController,
+        "data-testid": _v183.testIds.fontController,
         onClick: () => {
-          (0, _v574.sendTrackSelectFontOptions)({
+          (0, _v571.sendTrackSelectFontOptions)({
             fontBefore: _v5?.name || ""
           }), _v2();
         },
-        fontFamily: _v5?.name ? (0, _v389.getFontFamily)(_v5.name) : "",
+        fontFamily: _v5?.name ? (0, _v387.getFontFamily)(_v5.name) : "",
         isActive: _v3 === _v1,
         children: _v6
       })
     });
   }
-  var _v577 = _v0.i(0);
-  let _v578 = [32, 40, 48, 72, 80, 96, 120, 140, 180, 220],
-    _v579 = ({
+  var _v574 = _v0.i(0);
+  let _v575 = [32, 40, 48, 72, 80, 96, 120, 140, 180, 220],
+    _v576 = ({
       onChange: _v0,
       value: _v1,
       valueOverride: _v2,
       buttonId: _v3
     }) => {
-      let _v4 = (0, _v167.useAppDispatch)(),
+      let _v4 = (0, _v170.useAppDispatch)(),
         [_v5, _v6] = (0, _v7.useState)(0),
         _v7 = (0, _v7.useRef)(null),
         _v8 = (0, _v7.useRef)(null),
@@ -11286,11 +11286,11 @@
           isOpen: _v10,
           onClose: _v11,
           onOpen: _v12
-        } = (0, _v525.useDisclosure)(),
+        } = (0, _v522.useDisclosure)(),
         _v13 = (0, _v7.useCallback)((_v0, _v1) => {
           _v6(_v0), _v0(_v0, _v1), _v10 && _v9.current?.focus();
         }, [_v10, _v0]),
-        _v14 = (0, _v7.useMemo)(() => _v578.map(_v0 => (0, _v6.jsx)(_v186.Button, {
+        _v14 = (0, _v7.useMemo)(() => _v575.map(_v0 => (0, _v6.jsx)(_v92.Button, {
           width: "100%",
           variant: "tertiary",
           size: "sm",
@@ -11300,7 +11300,7 @@
           children: _v0
         }, _v0)), [_v5, _v13]),
         _v15 = (0, _v7.useCallback)(() => {
-          _v4((0, _v509.deselectToolbarButtonAction)(_v3)), _v11();
+          _v4((0, _v506.deselectToolbarButtonAction)(_v3)), _v11();
         }, [_v3, _v4, _v11]);
       return (0, _v7.useEffect)(() => {
         _v6(_v1);
@@ -11312,16 +11312,16 @@
           document.removeEventListener("mousedown", _v0);
         };
       }, [_v15]), (0, _v6.jsx)(_v210.Center, {
-        children: (0, _v6.jsxs)(_v196.Popover, {
+        children: (0, _v6.jsxs)(_v197.Popover, {
           initialFocusRef: _v7,
           onOpen: () => {
-            _v4((0, _v509.selectToolbarButtonAction)(_v3)), _v12();
+            _v4((0, _v506.selectToolbarButtonAction)(_v3)), _v12();
           },
           onClose: _v15,
           isOpen: _v10,
           children: [(0, _v6.jsx)("span", {
             ref: _v7,
-            children: (0, _v6.jsxs)(_v577.NumberInput, {
+            children: (0, _v6.jsxs)(_v574.NumberInput, {
               size: "sm",
               border: 1,
               borderRadius: "button",
@@ -11336,28 +11336,28 @@
               keepWithinRange: !0,
               clampValueOnBlur: !0,
               "data-testid": "text-size-input",
-              children: [(0, _v6.jsx)(_v199.PopoverTrigger, {
-                children: (0, _v6.jsx)(_v577.NumberInputField, {
+              children: [(0, _v6.jsx)(_v200.PopoverTrigger, {
+                children: (0, _v6.jsx)(_v574.NumberInputField, {
                   ref: _v9,
                   height: "sm",
                   width: `${4 === _v5.toString().length ? 82 : 76}px`,
                   borderRadius: "button"
                 })
-              }), (0, _v6.jsxs)(_v577.NumberInputStepper, {
+              }), (0, _v6.jsxs)(_v574.NumberInputStepper, {
                 width: "xs",
                 marginRight: 0,
                 height: "calc(100% - 1px)",
                 borderBottomRightRadius: "button",
                 borderTopRightRadius: "button",
-                children: [(0, _v6.jsx)(_v577.NumberIncrementStepper, {
+                children: [(0, _v6.jsx)(_v574.NumberIncrementStepper, {
                   "data-testid": "text-size-control-up"
-                }), (0, _v6.jsx)(_v577.NumberDecrementStepper, {
+                }), (0, _v6.jsx)(_v574.NumberDecrementStepper, {
                   "data-testid": "text-size-control-down"
                 })]
               })]
             })
-          }), (0, _v6.jsx)(_v200.Portal, {
-            children: (0, _v6.jsx)(_v198.PopoverContent, {
+          }), (0, _v6.jsx)(_v201.Portal, {
+            children: (0, _v6.jsx)(_v199.PopoverContent, {
               minWidth: "fit-content",
               padding: "4px",
               ref: _v8,
@@ -11367,14 +11367,14 @@
         })
       });
     },
-    _v580 = ({
+    _v577 = ({
       testId: _v0,
       buttonId: _v1,
       value: _v2,
       valueOverride: _v3,
       onChange: _v4
     }) => {
-      let _v5 = (0, _v167.useAppSelector)(_v509.selectedToolbarButtonSelector);
+      let _v5 = (0, _v170.useAppSelector)(_v506.selectedToolbarButtonSelector);
       return (0, _v6.jsx)(_v211.Tooltip, {
         label: (0, _v62.translate)({
           singular: "Font Size",
@@ -11408,7 +11408,7 @@
         isDisabled: _v1 === _v5,
         children: (0, _v6.jsx)("span", {
           "data-testid": _v0,
-          children: (0, _v6.jsx)(_v579, {
+          children: (0, _v6.jsx)(_v576, {
             value: _v2,
             valueOverride: _v3,
             onChange: _v4,
@@ -11417,18 +11417,18 @@
         })
       });
     },
-    _v581 = {
+    _v578 = {
       height: "unset",
       width: "unset"
     },
-    _v582 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
+    _v579 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
       ref: _v1,
       width: "16",
       height: "17",
       viewBox: "0 0 16 17",
       fill: "none",
       xmlns: "http://www.w3.org/2000/svg",
-      style: _v581,
+      style: _v578,
       ..._v0,
       children: (0, _v6.jsx)("path", {
         fillRule: "evenodd",
@@ -11437,21 +11437,21 @@
         fill: "currentColor"
       })
     }));
-  var _v583 = _v0.i(0);
-  let _v584 = _v7.default.forwardRef(({
+  var _v580 = _v0.i(0);
+  let _v581 = _v7.default.forwardRef(({
     addPaddingBottom: _v0,
     ..._v1
   }, _v2) => {
     let _v3 = `4px 4px ${_v0 ? "4px" : "0"} 4px`;
-    return (0, _v6.jsx)(_v559, {
+    return (0, _v6.jsx)(_v556, {
       padding: _v3,
       ref: _v2,
       gap: "xs",
       ..._v1
     });
   });
-  var _v585 = _v0.i(0);
-  function _v586({
+  var _v582 = _v0.i(0);
+  function _v583({
     validatedElements: _v0,
     sourceHashPropertyPath: _v1,
     opacityPropertyPath: _v2,
@@ -11460,7 +11460,7 @@
     zoomOverriddenPropertyPath: _v5,
     sourceHashOverriddenPropertyPath: _v6
   }) {
-    let _v7 = (0, _v167.useAppDispatch)(),
+    let _v7 = (0, _v170.useAppDispatch)(),
       _v8 = (0, _v7.useRef)(null),
       _v9 = _v0[0],
       _v10 = _v9?.id,
@@ -11470,31 +11470,31 @@
       [_v14, _v15] = (0, _v7.useState)(_v11),
       [_v16, _v17] = (0, _v7.useState)(_v12),
       [_v18] = (0, _v7.useState)(_v9?.rect || null);
-    (0, _v583.useOnClickOutside)(_v8, () => {
-      _v7((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.HOVER_STATE_CONTROLLER));
+    (0, _v580.useOnClickOutside)(_v8, () => {
+      _v7((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.HOVER_STATE_CONTROLLER));
     }, !0);
     let _v19 = (0, _v7.useCallback)(_v0 => {
-        _v10 && _v7((0, _v166.updateElementAction)({
+        _v10 && _v7((0, _v169.updateElementAction)({
           ceId: _v10,
           element: (0, _v282.createNestedObject)(_v2, _v0)
         }));
       }, [_v7, _v10, _v2]),
       _v20 = (0, _v7.useCallback)(_v0 => {
-        _v10 && _v7((0, _v166.updateElementAction)({
+        _v10 && _v7((0, _v169.updateElementAction)({
           ceId: _v10,
           element: (0, _v282.createNestedObject)(_v3, _v0 / 100)
         }));
       }, [_v7, _v10, _v3]);
     (0, _v7.useEffect)(function () {
       return () => {
-        (_v14 !== _v11 || _v16 !== _v12) && (0, _v430.batch)(() => {
+        (_v14 !== _v11 || _v16 !== _v12) && (0, _v427.batch)(() => {
           _v19(_v14), _v20(_v16);
         });
       };
     }, [_v11, _v12, _v14, _v16, _v19, _v20]);
     let _v21 = (0, _v7.useCallback)(_v0 => {
       let _v1 = [_v4, "rect"];
-      _v5 && _v1.push(_v5), _v6 && _v1.push(_v6), _v7((0, _v356.removeOverridesAction)({
+      _v5 && _v1.push(_v5), _v6 && _v1.push(_v6), _v7((0, _v354.removeOverridesAction)({
         ceIds: [_v0],
         keys: _v1
       }));
@@ -11506,11 +11506,11 @@
             [_v5]: _v12 / 100
           } : {},
           _v2 = _v6 ? (0, _v282.createNestedObject)(_v6, _v13) : {};
-        _v18 && _v7((0, _v356.addOverrideAction)({
+        _v18 && _v7((0, _v354.addOverrideAction)({
           ceId: _v10,
           overrides: {
             ..._v0,
-            rect: _v587(_v18, _v12),
+            rect: _v584(_v18, _v12),
             ..._v1,
             ..._v2
           }
@@ -11523,7 +11523,7 @@
         if (!_v10) return;
         _v15(_v0);
         let _v1 = (0, _v282.createNestedObject)(_v4, _v0);
-        _v7((0, _v356.addOverrideAction)({
+        _v7((0, _v354.addOverrideAction)({
           ceId: _v10,
           overrides: {
             ..._v1
@@ -11534,68 +11534,68 @@
         if (!_v9 || !_v10) return;
         _v17(_v0);
         let _v1 = {
-          rect: _v587(_v9.rect, _v0),
+          rect: _v584(_v9.rect, _v0),
           ...(_v5 && {
             [_v5]: _v0 / 100
           })
         };
-        _v7((0, _v356.addOverrideAction)({
+        _v7((0, _v354.addOverrideAction)({
           ceId: _v10,
           overrides: _v1
         }));
       }, [_v7, _v9, _v10, _v5]);
-    return (0, _v6.jsxs)(_v584, {
+    return (0, _v6.jsxs)(_v581, {
       addPaddingBottom: !0,
       ref: _v8,
       width: 240,
-      children: [(0, _v6.jsxs)(_v80.VStack, {
+      children: [(0, _v6.jsxs)(_v81.VStack, {
         spacing: 50,
         align: "flex-start",
-        children: [(0, _v6.jsx)(_v156.Text, {
+        children: [(0, _v6.jsx)(_v80.Text, {
           variant: "body-md",
           marginBottom: "4px",
-          children: _v315.translations.hoverOpacity
-        }), (0, _v6.jsx)(_v193.HStack, {
+          children: _v314.translations.hoverOpacity
+        }), (0, _v6.jsx)(_v195.HStack, {
           spacing: 200,
           width: "100%",
-          children: (0, _v6.jsx)(_v585.NumericSliderInput, {
+          children: (0, _v6.jsx)(_v582.NumericSliderInput, {
             min: 0,
             max: 100,
             id: "top",
             onChange: _v22,
             defaultValue: _v11,
             value: _v14,
-            sliderDataTestId: _v180.testIds.hotspotHoverOpacitySlider,
-            sliderThumbDataTestId: _v180.testIds.hotspotHoverOpacitySliderHandle,
-            sliderInputTestId: _v180.testIds.hotspotHoverOpacityInputSlider
+            sliderDataTestId: _v183.testIds.hotspotHoverOpacitySlider,
+            sliderThumbDataTestId: _v183.testIds.hotspotHoverOpacitySliderHandle,
+            sliderInputTestId: _v183.testIds.hotspotHoverOpacityInputSlider
           })
         })]
-      }), (0, _v6.jsxs)(_v80.VStack, {
+      }), (0, _v6.jsxs)(_v81.VStack, {
         spacing: 50,
         align: "flex-start",
-        children: [(0, _v6.jsx)(_v156.Text, {
+        children: [(0, _v6.jsx)(_v80.Text, {
           variant: "body-md",
           marginBottom: "4px",
-          children: _v315.translations.hoverSize
-        }), (0, _v6.jsx)(_v193.HStack, {
+          children: _v314.translations.hoverSize
+        }), (0, _v6.jsx)(_v195.HStack, {
           spacing: 200,
           width: "100%",
-          children: (0, _v6.jsx)(_v585.NumericSliderInput, {
+          children: (0, _v6.jsx)(_v582.NumericSliderInput, {
             min: 0,
             max: 200,
             id: "bottom",
             onChange: _v23,
             value: _v16,
             defaultValue: _v12,
-            sliderDataTestId: _v180.testIds.hoverSizeSlider,
-            sliderThumbDataTestId: _v180.testIds.hoverSizeSliderHandle,
-            sliderInputTestId: _v180.testIds.hotspotHoverSizeInputSlider
+            sliderDataTestId: _v183.testIds.hoverSizeSlider,
+            sliderThumbDataTestId: _v183.testIds.hoverSizeSliderHandle,
+            sliderInputTestId: _v183.testIds.hotspotHoverSizeInputSlider
           })
         })]
       })]
     });
   }
-  function _v587(_v0, _v1) {
+  function _v584(_v0, _v1) {
     return {
       width: _v0.width * (_v1 / 100),
       height: _v0.height * (_v1 / 100),
@@ -11603,7 +11603,7 @@
       y: _v0.y - _v0.height * (_v1 / 100 - 1) / 2
     };
   }
-  function _v588({
+  function _v585({
     validatedElements: _v0,
     opacityOverriddenPropertyPath: _v1,
     opacityPropertyPath: _v2,
@@ -11612,9 +11612,9 @@
     sourceHashPropertyPath: _v5,
     sourceHashOverriddenPropertyPath: _v6
   }) {
-    return (0, _v6.jsx)(_v567, {
-      buttonId: _v508.ToolbarButtons.HOVER_STATE_CONTROLLER,
-      content: (0, _v6.jsx)(_v586, {
+    return (0, _v6.jsx)(_v564, {
+      buttonId: _v505.ToolbarButtons.HOVER_STATE_CONTROLLER,
+      content: (0, _v6.jsx)(_v583, {
         validatedElements: _v0,
         opacityPropertyPath: _v2,
         zoomPropertyPath: _v3,
@@ -11623,8 +11623,8 @@
         sourceHashPropertyPath: _v5,
         sourceHashOverriddenPropertyPath: _v6
       }),
-      icon: (0, _v6.jsx)(_v582, {}),
-      testId: _v180.testIds.hoverStateToolbarButton,
+      icon: (0, _v6.jsx)(_v579, {}),
+      testId: _v183.testIds.hoverStateToolbarButton,
       tooltipText: (0, _v62.translate)({
         singular: "Hover state",
         dictionary: {
@@ -11653,7 +11653,7 @@
       })
     });
   }
-  let _v589 = ({
+  let _v586 = ({
     inspectorId: _v0,
     icon: _v1,
     testId: _v2,
@@ -11663,19 +11663,19 @@
     iconPosition: _v6 = "left",
     toggleInspectorOptions: _v7 = {}
   }) => {
-    let _v8 = (0, _v167.useAppSelector)(_v165.currentInspectorSelector),
+    let _v8 = (0, _v170.useAppSelector)(_v168.currentInspectorSelector),
       {
         toggleInspector: _v9
-      } = (0, _v548.useInspector)(),
+      } = (0, _v545.useInspector)(),
       _v10 = _v8 === _v0,
       _v11 = !_v4 || _v10;
     return (0, _v6.jsx)(_v211.Tooltip, {
       label: _v4,
-      sx: _v565,
+      sx: _v562,
       "data-testid": _v5,
       isDisabled: _v11,
       children: (0, _v6.jsx)("span", {
-        children: (0, _v6.jsx)(_v566, {
+        children: (0, _v6.jsx)(_v563, {
           isActive: _v10,
           icon: _v1,
           onClick: function () {
@@ -11688,9 +11688,9 @@
       })
     });
   };
-  var _v590 = _v0.i(0),
-    _v591 = _v0.i(0);
-  let _v592 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+  var _v587 = _v0.i(0),
+    _v588 = _v0.i(0);
+  let _v589 = _v0 => (0, _v6.jsx)(_v82.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -11699,9 +11699,9 @@
       fill: "currentColor"
     })
   });
-  var _v593 = _v0.i(0),
-    _v594 = _v0.i(0);
-  let _v595 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsxs)("svg", {
+  var _v590 = _v0.i(0),
+    _v591 = _v0.i(0);
+  let _v592 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsxs)("svg", {
       ref: _v1,
       ..._v0,
       width: "16",
@@ -11720,15 +11720,15 @@
         fill: "currentColor"
       })]
     })),
-    _v596 = ({
+    _v593 = ({
       title: _v0,
       ce: _v1
     }) => {
-      let _v2 = (0, _v167.useAppDispatch)(),
-        _v3 = _v1.verticalAlign ?? _v594.VerticalAlignment.MIDDLE,
-        _v4 = _v1.textAlign ?? _v594.Alignment.CENTER,
+      let _v2 = (0, _v170.useAppDispatch)(),
+        _v3 = _v1.verticalAlign ?? _v591.VerticalAlignment.MIDDLE,
+        _v4 = _v1.textAlign ?? _v591.Alignment.CENTER,
         _v5 = (0, _v7.useCallback)(_v0 => {
-          _v2((0, _v166.updateElementAction)({
+          _v2((0, _v169.updateElementAction)({
             ceId: _v1.id,
             element: {
               textAlign: _v0
@@ -11736,17 +11736,17 @@
           }));
         }, [_v2, _v1.id]),
         _v6 = (0, _v7.useCallback)(_v0 => {
-          _v2((0, _v166.updateElementAction)({
+          _v2((0, _v169.updateElementAction)({
             ceId: _v1.id,
             element: {
               verticalAlign: _v0
             }
           }));
         }, [_v2, _v1.id]);
-      return (0, _v6.jsxs)(_v559, {
-        children: [(0, _v6.jsx)(_v538, {
+      return (0, _v6.jsxs)(_v556, {
+        children: [(0, _v6.jsx)(_v535, {
           children: _v0
-        }), (0, _v6.jsx)(_v561, {
+        }), (0, _v6.jsx)(_v558, {
           buttons: [{
             tooltipText: (0, _v62.translate)({
               singular: "Left",
@@ -11774,10 +11774,10 @@
                 }
               }
             }),
-            isSelected: _v4 === _v594.Alignment.LEFT,
-            icon: (0, _v6.jsx)(_v543.AlignLeft, {}),
-            onClick: () => _v5(_v594.Alignment.LEFT),
-            testId: _v180.testIds.button.toolbar.alignmentController.leftButton
+            isSelected: _v4 === _v591.Alignment.LEFT,
+            icon: (0, _v6.jsx)(_v540.AlignLeft, {}),
+            onClick: () => _v5(_v591.Alignment.LEFT),
+            testId: _v183.testIds.button.toolbar.alignmentController.leftButton
           }, {
             tooltipText: (0, _v62.translate)({
               singular: "Center",
@@ -11805,10 +11805,10 @@
                 }
               }
             }),
-            isSelected: _v4 === _v594.Alignment.CENTER,
-            icon: (0, _v6.jsx)(_v590.AlignCenter, {}),
-            onClick: () => _v5(_v594.Alignment.CENTER),
-            testId: _v180.testIds.button.toolbar.alignmentController.centerButton
+            isSelected: _v4 === _v591.Alignment.CENTER,
+            icon: (0, _v6.jsx)(_v587.AlignCenter, {}),
+            onClick: () => _v5(_v591.Alignment.CENTER),
+            testId: _v183.testIds.button.toolbar.alignmentController.centerButton
           }, {
             tooltipText: (0, _v62.translate)({
               singular: "Right",
@@ -11836,12 +11836,12 @@
                 }
               }
             }),
-            isSelected: _v4 === _v594.Alignment.RIGHT,
-            icon: (0, _v6.jsx)(_v591.AlignRight, {}),
-            onClick: () => _v5(_v594.Alignment.RIGHT),
-            testId: _v180.testIds.button.toolbar.alignmentController.rightButton
+            isSelected: _v4 === _v591.Alignment.RIGHT,
+            icon: (0, _v6.jsx)(_v588.AlignRight, {}),
+            onClick: () => _v5(_v591.Alignment.RIGHT),
+            testId: _v183.testIds.button.toolbar.alignmentController.rightButton
           }]
-        }), (0, _v6.jsx)(_v561, {
+        }), (0, _v6.jsx)(_v558, {
           buttons: [{
             tooltipText: (0, _v62.translate)({
               singular: "Top",
@@ -11869,10 +11869,10 @@
                 }
               }
             }),
-            isSelected: _v3 === _v594.VerticalAlignment.TOP,
-            icon: (0, _v6.jsx)(_v592, {}),
-            onClick: () => _v6(_v594.VerticalAlignment.TOP),
-            testId: _v180.testIds.button.toolbar.alignmentController.topButton
+            isSelected: _v3 === _v591.VerticalAlignment.TOP,
+            icon: (0, _v6.jsx)(_v589, {}),
+            onClick: () => _v6(_v591.VerticalAlignment.TOP),
+            testId: _v183.testIds.button.toolbar.alignmentController.topButton
           }, {
             tooltipText: (0, _v62.translate)({
               singular: "Middle",
@@ -11900,10 +11900,10 @@
                 }
               }
             }),
-            isSelected: _v3 === _v594.VerticalAlignment.MIDDLE,
-            icon: (0, _v6.jsx)(_v595, {}),
-            onClick: () => _v6(_v594.VerticalAlignment.MIDDLE),
-            testId: _v180.testIds.button.toolbar.alignmentController.middleButton
+            isSelected: _v3 === _v591.VerticalAlignment.MIDDLE,
+            icon: (0, _v6.jsx)(_v592, {}),
+            onClick: () => _v6(_v591.VerticalAlignment.MIDDLE),
+            testId: _v183.testIds.button.toolbar.alignmentController.middleButton
           }, {
             tooltipText: (0, _v62.translate)({
               singular: "Bottom",
@@ -11931,15 +11931,15 @@
                 }
               }
             }),
-            isSelected: _v3 === _v594.VerticalAlignment.BOTTOM,
-            icon: (0, _v6.jsx)(_v593.ArrowToBottom, {}),
-            onClick: () => _v6(_v594.VerticalAlignment.BOTTOM),
-            testId: _v180.testIds.button.toolbar.alignmentController.bottomButton
+            isSelected: _v3 === _v591.VerticalAlignment.BOTTOM,
+            icon: (0, _v6.jsx)(_v590.ArrowToBottom, {}),
+            onClick: () => _v6(_v591.VerticalAlignment.BOTTOM),
+            testId: _v183.testIds.button.toolbar.alignmentController.bottomButton
           }]
         })]
       });
     },
-    _v597 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+    _v594 = _v0 => (0, _v6.jsx)(_v82.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -11950,9 +11950,9 @@
         fill: "currentColor"
       })
     });
-  var _v598 = _v0.i(0),
-    _v599 = _v0.i(0);
-  let _v600 = (0, _v7.forwardRef)((_v0, _v1) => {
+  var _v595 = _v0.i(0),
+    _v596 = _v0.i(0);
+  let _v597 = (0, _v7.forwardRef)((_v0, _v1) => {
       let _v2 = (0, _v9.useTheme)(),
         _v3 = _v2?.name === "dark";
       return (0, _v6.jsx)(_v6.Fragment, {
@@ -11997,16 +11997,16 @@
         })
       });
     }),
-    _v601 = ({
+    _v598 = ({
       title: _v0,
       ce: _v1,
       showPreset: _v2 = !0
     }) => {
-      let _v3 = (0, _v167.useAppDispatch)(),
+      let _v3 = (0, _v170.useAppDispatch)(),
         _v4 = _v1.borderWidth,
         _v5 = _v1.borderColor,
         _v6 = (0, _v7.useCallback)(_v0 => {
-          _v3((0, _v166.updateElementAction)({
+          _v3((0, _v169.updateElementAction)({
             ceId: _v1.id,
             element: {
               borderWidth: _v0
@@ -12014,22 +12014,22 @@
           }));
         }, [_v3, _v1.id]),
         _v7 = (0, _v7.useCallback)(_v0 => {
-          _v3((0, _v166.updateElementAction)({
+          _v3((0, _v169.updateElementAction)({
             ceId: _v1.id,
             element: {
               borderColor: _v0
             }
           }));
         }, [_v3, _v1.id]);
-      return (0, _v6.jsxs)(_v559, {
+      return (0, _v6.jsxs)(_v556, {
         width: 240,
-        children: [(0, _v6.jsx)(_v185.Box, {
+        children: [(0, _v6.jsx)(_v188.Box, {
           mb: 2,
-          children: (0, _v6.jsx)(_v538, {
+          children: (0, _v6.jsx)(_v535, {
             children: _v0
           })
         }), _v2 && (0, _v6.jsxs)(_v6.Fragment, {
-          children: [(0, _v6.jsx)(_v561, {
+          children: [(0, _v6.jsx)(_v558, {
             buttons: [{
               tooltipText: (0, _v62.translate)({
                 singular: "None",
@@ -12058,9 +12058,9 @@
                 }
               }),
               isSelected: 0 === _v4,
-              icon: (0, _v6.jsx)(_v557.StopBanRight, {}),
+              icon: (0, _v6.jsx)(_v554.StopBanRight, {}),
               onClick: () => _v6(0),
-              testId: _v180.testIds.button.toolbar.borderController.noneButton
+              testId: _v183.testIds.button.toolbar.borderController.noneButton
             }, {
               tooltipText: (0, _v62.translate)({
                 singular: "Light",
@@ -12089,9 +12089,9 @@
                 }
               }),
               isSelected: 2 === _v4,
-              icon: (0, _v6.jsx)(_v598.LineShape, {}),
+              icon: (0, _v6.jsx)(_v595.LineShape, {}),
               onClick: () => _v6(2),
-              testId: _v180.testIds.button.toolbar.borderController.lightButton
+              testId: _v183.testIds.button.toolbar.borderController.lightButton
             }, {
               tooltipText: (0, _v62.translate)({
                 singular: "Middleweight",
@@ -12120,9 +12120,9 @@
                 }
               }),
               isSelected: 8 === _v4,
-              icon: (0, _v6.jsx)(_v599.MediumStroke, {}),
+              icon: (0, _v6.jsx)(_v596.MediumStroke, {}),
               onClick: () => _v6(8),
-              testId: _v180.testIds.button.toolbar.borderController.middleweightButton
+              testId: _v183.testIds.button.toolbar.borderController.middleweightButton
             }, {
               tooltipText: (0, _v62.translate)({
                 singular: "Heavy",
@@ -12151,13 +12151,13 @@
                 }
               }),
               isSelected: 24 === _v4,
-              icon: (0, _v6.jsx)(_v597, {}),
+              icon: (0, _v6.jsx)(_v594, {}),
               onClick: () => _v6(24),
-              testId: _v180.testIds.button.toolbar.borderController.heavyButton
+              testId: _v183.testIds.button.toolbar.borderController.heavyButton
             }]
-          }), (0, _v6.jsx)(_v185.Box, {
+          }), (0, _v6.jsx)(_v188.Box, {
             mt: 2,
-            children: (0, _v6.jsx)(_v538, {
+            children: (0, _v6.jsx)(_v535, {
               children: (0, _v62.translate)({
                 singular: "Weight",
                 dictionary: {
@@ -12186,7 +12186,7 @@
               })
             })
           })]
-        }), (0, _v6.jsx)(_v585.NumericSliderInput, {
+        }), (0, _v6.jsx)(_v582.NumericSliderInput, {
           max: 48,
           numberInputMax: 999,
           min: 0,
@@ -12194,13 +12194,13 @@
           value: _v4,
           sliderMinWidth: 20,
           mt: 2
-        }), (0, _v6.jsx)(_v185.Box, {
+        }), (0, _v6.jsx)(_v188.Box, {
           mt: "15px",
           mx: "auto",
           w: "100",
-          children: (0, _v6.jsx)(_v522, {
-            testid: _v180.testIds.button.toolbar.borderController.borderColor,
-            icon: (0, _v6.jsx)(_v600, {}),
+          children: (0, _v6.jsx)(_v519, {
+            testid: _v183.testIds.button.toolbar.borderController.borderColor,
+            icon: (0, _v6.jsx)(_v597, {}),
             value: _v5,
             text: _v5,
             iconColor: _v5,
@@ -12211,7 +12211,7 @@
         })]
       });
     },
-    _v602 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
+    _v599 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
       ref: _v1,
       ..._v0,
       width: "21",
@@ -12226,15 +12226,15 @@
         fill: "currentColor"
       })
     })),
-    _v603 = ({
+    _v600 = ({
       buttonId: _v0,
       testId: _v1,
       ce: _v2,
       onClick: _v3,
       showPresets: _v4
-    }) => (0, _v6.jsx)(_v567, {
+    }) => (0, _v6.jsx)(_v564, {
       buttonId: _v0,
-      content: (0, _v6.jsx)(_v601, {
+      content: (0, _v6.jsx)(_v598, {
         ce: _v2,
         title: (0, _v62.translate)({
           singular: "Border",
@@ -12264,7 +12264,7 @@
         }),
         showPreset: _v4
       }),
-      icon: (0, _v6.jsx)(_v602, {}),
+      icon: (0, _v6.jsx)(_v599, {}),
       testId: _v1,
       tooltipText: (0, _v62.translate)({
         singular: "Border",
@@ -12295,7 +12295,7 @@
       onClick: _v3,
       closeOnBlur: !1
     }),
-    _v604 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+    _v601 = _v0 => (0, _v6.jsx)(_v82.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -12306,8 +12306,8 @@
         fill: "currentColor"
       })
     });
-  var _v605 = _v0.i(0);
-  let _v606 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+  var _v602 = _v0.i(0);
+  let _v603 = _v0 => (0, _v6.jsx)(_v82.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -12316,7 +12316,7 @@
         fill: "currentColor"
       })
     }),
-    _v607 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+    _v604 = _v0 => (0, _v6.jsx)(_v82.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -12325,20 +12325,20 @@
         fill: "currentColor"
       })
     }),
-    _v608 = ({
+    _v605 = ({
       title: _v0,
       value: _v1,
       onChange: _v2,
       showPresets: _v3
-    }) => (0, _v6.jsxs)(_v559, {
+    }) => (0, _v6.jsxs)(_v556, {
       width: 240,
-      children: [(0, _v6.jsx)(_v185.Box, {
+      children: [(0, _v6.jsx)(_v188.Box, {
         mb: 2,
-        children: (0, _v6.jsx)(_v538, {
+        children: (0, _v6.jsx)(_v535, {
           children: _v0
         })
       }), _v3 && (0, _v6.jsxs)(_v6.Fragment, {
-        children: [(0, _v6.jsx)(_v561, {
+        children: [(0, _v6.jsx)(_v558, {
           buttons: [{
             tooltipText: (0, _v62.translate)({
               singular: "Sharp",
@@ -12364,9 +12364,9 @@
               }
             }),
             isSelected: 0 === _v1,
-            icon: (0, _v6.jsx)(_v607, {}),
+            icon: (0, _v6.jsx)(_v604, {}),
             onClick: () => _v2(0),
-            testId: _v180.testIds.button.toolbar.cornerRadiusController.rectangleButton
+            testId: _v183.testIds.button.toolbar.cornerRadiusController.rectangleButton
           }, {
             tooltipText: (0, _v62.translate)({
               singular: "Rounded",
@@ -12395,9 +12395,9 @@
               }
             }),
             isSelected: 25 === _v1,
-            icon: (0, _v6.jsx)(_v606, {}),
+            icon: (0, _v6.jsx)(_v603, {}),
             onClick: () => _v2(25),
-            testId: _v180.testIds.button.toolbar.cornerRadiusController.softButton
+            testId: _v183.testIds.button.toolbar.cornerRadiusController.softButton
           }, {
             tooltipText: (0, _v62.translate)({
               singular: "Pill",
@@ -12426,13 +12426,13 @@
               }
             }),
             isSelected: 50 === _v1,
-            icon: (0, _v6.jsx)(_v605.CircleShape, {}),
+            icon: (0, _v6.jsx)(_v602.CircleShape, {}),
             onClick: () => _v2(50),
-            testId: _v180.testIds.button.toolbar.cornerRadiusController.circleButton
+            testId: _v183.testIds.button.toolbar.cornerRadiusController.circleButton
           }]
-        }), (0, _v6.jsx)(_v185.Box, {
+        }), (0, _v6.jsx)(_v188.Box, {
           mt: 2,
-          children: (0, _v6.jsx)(_v538, {
+          children: (0, _v6.jsx)(_v535, {
             children: (0, _v62.translate)({
               singular: "Radius",
               dictionary: {
@@ -12458,7 +12458,7 @@
             })
           })
         })]
-      }), (0, _v6.jsx)(_v585.NumericSliderInput, {
+      }), (0, _v6.jsx)(_v582.NumericSliderInput, {
         max: 400,
         numberInputMax: 999,
         min: 0,
@@ -12467,16 +12467,16 @@
         sliderMinWidth: 20
       })]
     }),
-    _v609 = ({
+    _v606 = ({
       buttonId: _v0,
       testId: _v1,
       value: _v2,
       onChange: _v3,
       onClick: _v4,
       showPresets: _v5
-    }) => (0, _v6.jsx)(_v567, {
+    }) => (0, _v6.jsx)(_v564, {
       buttonId: _v0,
-      content: (0, _v6.jsx)(_v608, {
+      content: (0, _v6.jsx)(_v605, {
         value: _v2,
         onChange: _v3,
         title: (0, _v62.translate)({
@@ -12507,7 +12507,7 @@
         }),
         showPresets: _v5
       }),
-      icon: (0, _v6.jsx)(_v604, {}),
+      icon: (0, _v6.jsx)(_v601, {}),
       testId: _v1,
       tooltipText: (0, _v62.translate)({
         singular: "Corners",
@@ -12537,10 +12537,10 @@
       }),
       onClick: _v4
     });
-  var _v610 = _v0.i(0),
-    _v611 = _v0.i(0),
-    _v612 = _v0.i(0);
-  let _v613 = (0, _v9.default)(_v527.FormatLandscape).withConfig({
+  var _v607 = _v0.i(0),
+    _v608 = _v0.i(0),
+    _v609 = _v0.i(0);
+  let _v610 = (0, _v9.default)(_v524.FormatLandscape).withConfig({
     displayName: "OrientationDropdown.style__FormatPortrait",
     componentId: "sc-2aa866c2-0"
   })`
@@ -12555,7 +12555,7 @@
   width: 235px;
   gap: 4px;
 `;
-  let _v614 = ({
+  let _v611 = ({
       children: _v0,
       testId: _v1
     }) => (0, _v6.jsx)(_v210.Center, {
@@ -12563,8 +12563,8 @@
       "data-testid": _v1,
       children: _v0
     }),
-    _v615 = "graphicsMultiColor",
-    _v616 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
+    _v612 = "graphicsMultiColor",
+    _v613 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
       ref: _v1,
       ..._v0,
       width: "24",
@@ -12579,8 +12579,8 @@
         fill: "currentcolor"
       })
     }));
-  var _v617 = _v0.i(0);
-  let _v618 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
+  var _v614 = _v0.i(0);
+  let _v615 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
       ref: _v1,
       ..._v0,
       width: "24",
@@ -12595,7 +12595,7 @@
         fill: "currentcolor"
       })
     })),
-    _v619 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
+    _v616 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
       ref: _v1,
       ..._v0,
       width: "24",
@@ -12610,7 +12610,7 @@
         fill: "currentcolor"
       })
     })),
-    _v620 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
+    _v617 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsx)("svg", {
       ref: _v1,
       ..._v0,
       width: "24",
@@ -12625,11 +12625,11 @@
         fill: "currentcolor"
       })
     })),
-    _v621 = ({
+    _v618 = ({
       validatedElements: _v0,
       title: _v1
     }) => {
-      let _v2 = (0, _v167.useAppDispatch)();
+      let _v2 = (0, _v170.useAppDispatch)();
       if (!_v0) return null;
       let _v3 = _v0 => {
         _v0.forEach(_v0 => {
@@ -12637,7 +12637,7 @@
             horizontal: _v0.flip.horizontal,
             vertical: _v0.flip.vertical
           };
-          _v0 === _v617.FlipType.HORIZONTAL ? _v1.horizontal = !_v1.horizontal : _v1.vertical = !_v1.vertical, _v2((0, _v166.updateElementAction)({
+          _v0 === _v614.FlipType.HORIZONTAL ? _v1.horizontal = !_v1.horizontal : _v1.vertical = !_v1.vertical, _v2((0, _v169.updateElementAction)({
             ceId: _v0.id,
             element: {
               flip: _v1
@@ -12646,10 +12646,10 @@
         });
       };
       return (0, _v6.jsxs)(_v6.Fragment, {
-        children: [(0, _v6.jsx)(_v538, {
+        children: [(0, _v6.jsx)(_v535, {
           children: _v1
-        }), (0, _v6.jsx)(_v559, {
-          children: (0, _v6.jsxs)(_v193.HStack, {
+        }), (0, _v6.jsx)(_v556, {
+          children: (0, _v6.jsxs)(_v195.HStack, {
             children: [(0, _v6.jsx)(_v211.Tooltip, {
               label: (0, _v62.translate)({
                 singular: "Flip horizontally",
@@ -12679,13 +12679,13 @@
               }),
               placement: "bottom",
               "data-testid": "tooltip",
-              children: (0, _v6.jsx)(_v194.IconButton, {
+              children: (0, _v6.jsx)(_v94.IconButton, {
                 variant: "secondary",
-                "aria-label": _v180.testIds.horizontalFlipButton,
+                "aria-label": _v183.testIds.horizontalFlipButton,
                 size: "sm",
-                icon: _v0[0]?.flip.horizontal ? (0, _v6.jsx)(_v619, {}) : (0, _v6.jsx)(_v616, {}),
-                onClick: () => _v3(_v617.FlipType.HORIZONTAL),
-                "data-testid": _v180.testIds.horizontalFlipButton,
+                icon: _v0[0]?.flip.horizontal ? (0, _v6.jsx)(_v616, {}) : (0, _v6.jsx)(_v613, {}),
+                onClick: () => _v3(_v614.FlipType.HORIZONTAL),
+                "data-testid": _v183.testIds.horizontalFlipButton,
                 "data-flipped": _v0[0]?.flip.horizontal
               })
             }), (0, _v6.jsx)(_v211.Tooltip, {
@@ -12717,13 +12717,13 @@
               }),
               placement: "bottom",
               "data-testid": "tooltip",
-              children: (0, _v6.jsx)(_v194.IconButton, {
-                "aria-label": _v180.testIds.verticalFlipButton,
+              children: (0, _v6.jsx)(_v94.IconButton, {
+                "aria-label": _v183.testIds.verticalFlipButton,
                 variant: "secondary",
                 size: "sm",
-                icon: _v0[0]?.flip.vertical ? (0, _v6.jsx)(_v618, {}) : (0, _v6.jsx)(_v620, {}),
-                onClick: () => _v3(_v617.FlipType.VERTICAL),
-                "data-testid": _v180.testIds.verticalFlipButton,
+                icon: _v0[0]?.flip.vertical ? (0, _v6.jsx)(_v615, {}) : (0, _v6.jsx)(_v617, {}),
+                onClick: () => _v3(_v614.FlipType.VERTICAL),
+                "data-testid": _v183.testIds.verticalFlipButton,
                 "data-flipped": _v0[0]?.flip.vertical
               })
             })]
@@ -12731,12 +12731,12 @@
         })]
       });
     },
-    _v622 = ({
+    _v619 = ({
       validatedElements: _v0,
       testId: _v1
-    }) => (0, _v6.jsx)(_v567, {
-      buttonId: _v508.ToolbarButtons.GRAPHICS_FLIP,
-      content: (0, _v6.jsx)(_v621, {
+    }) => (0, _v6.jsx)(_v564, {
+      buttonId: _v505.ToolbarButtons.GRAPHICS_FLIP,
+      content: (0, _v6.jsx)(_v618, {
         validatedElements: _v0,
         title: (0, _v62.translate)({
           singular: "Flip",
@@ -12762,7 +12762,7 @@
           }
         })
       }),
-      icon: (0, _v6.jsx)(_v616, {}),
+      icon: (0, _v6.jsx)(_v613, {}),
       testId: _v1,
       tooltipText: (0, _v62.translate)({
         singular: "Flip",
@@ -12788,7 +12788,7 @@
         }
       })
     }),
-    _v623 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+    _v620 = _v0 => (0, _v6.jsx)(_v82.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -12797,7 +12797,7 @@
         fill: "currentColor"
       })
     }),
-    _v624 = ({
+    _v621 = ({
       validatedElements: _v0,
       title: _v1,
       name: _v2,
@@ -12807,24 +12807,24 @@
       buttonDataTestId: _v6,
       onClick: _v7
     }) => {
-      let _v8 = (0, _v167.useAppDispatch)(),
-        _v9 = (0, _v167.useAppSelector)(_v356.overridesWithoutRectAndTimingSelector, _v431.shallowEqual),
+      let _v8 = (0, _v170.useAppDispatch)(),
+        _v9 = (0, _v170.useAppSelector)(_v354.overridesWithoutRectAndTimingSelector, _v428.shallowEqual),
         _v10 = _v0[0],
         _v11 = _v9[_v10?.id]?.[_v2] ?? _v10?.[_v2],
         _v12 = (0, _v7.useRef)(_v11),
         _v13 = (0, _v7.useCallback)(_v0 => {
           _v0.forEach(_v0 => {
-            _v0 !== _v10?.[_v2] && _v8((0, _v166.updateElementAction)({
+            _v0 !== _v10?.[_v2] && _v8((0, _v169.updateElementAction)({
               ceId: _v0.id,
               element: {
                 [_v2]: _v0
               }
             }));
-          }), _v8((0, _v356.resetOverridesAction)());
+          }), _v8((0, _v354.resetOverridesAction)());
         }, [_v8, _v2, _v10, _v0]),
         _v14 = (0, _v7.useCallback)(_v0 => {
           _v2 && _v0.forEach(_v0 => {
-            _v8((0, _v356.addOverrideAction)({
+            _v8((0, _v354.addOverrideAction)({
               ceId: _v0.id,
               overrides: {
                 [_v2]: _v0
@@ -12836,46 +12836,46 @@
           _v0 !== _v11 && (_v12.current = _v0, _v14(_v0));
         }, [_v11, _v14]);
       return (0, _v6.jsxs)(_v6.Fragment, {
-        children: [(0, _v6.jsx)(_v538, {
+        children: [(0, _v6.jsx)(_v535, {
           children: _v1
-        }), (0, _v6.jsxs)(_v559, {
+        }), (0, _v6.jsxs)(_v556, {
           width: 240,
-          children: [_v5 && (0, _v6.jsx)(_v194.IconButton, {
+          children: [_v5 && (0, _v6.jsx)(_v94.IconButton, {
             variant: "tertiary",
             size: "sm",
             icon: _v5,
             onClick: _v7,
             "aria-label": _v6 || "icon-button"
-          }), (0, _v6.jsx)(_v585.NumericSliderInput, {
+          }), (0, _v6.jsx)(_v582.NumericSliderInput, {
             min: _v3,
             max: _v4,
             value: _v11,
             onChange: _v15,
             onChangeEnd: _v13,
-            sliderInputTestId: `${_v180.testIds.toolbarSliderInput}-${_v2}`,
-            sliderThumbDataTestId: `${_v180.testIds.toolbarSliderHandle}-${_v2}`,
-            sliderDataTestId: _v180.testIds.toolbarSlider
+            sliderInputTestId: `${_v183.testIds.toolbarSliderInput}-${_v2}`,
+            sliderThumbDataTestId: `${_v183.testIds.toolbarSliderHandle}-${_v2}`,
+            sliderDataTestId: _v183.testIds.toolbarSlider
           })]
         })]
       });
     },
-    _v625 = ({
+    _v622 = ({
       validatedElements: _v0,
       buttonId: _v1,
       testId: _v2,
       propertyName: _v3 = "bgAlpha"
-    }) => (0, _v6.jsx)(_v567, {
+    }) => (0, _v6.jsx)(_v564, {
       buttonId: _v1,
-      content: (0, _v6.jsx)(_v624, {
+      content: (0, _v6.jsx)(_v621, {
         validatedElements: _v0,
-        title: _v315.translations.opacity,
+        title: _v314.translations.opacity,
         name: _v3
       }),
-      tooltipText: _v315.translations.opacity,
-      icon: (0, _v6.jsx)(_v623, {}),
+      tooltipText: _v314.translations.opacity,
+      icon: (0, _v6.jsx)(_v620, {}),
       testId: _v2
     }),
-    _v626 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+    _v623 = _v0 => (0, _v6.jsx)(_v82.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "currentColor",
@@ -12883,46 +12883,46 @@
         d: "M12 4C7.58172 4 4 7.58172 4 12H6C6 8.68629 8.68629 6 12 6C13.6549 6 15.1518 6.6687 16.2383 7.75302C16.3232 7.83774 16.4057 7.92008 16.4857 8H15C14.4477 8 14 8.44772 14 9C14 9.55228 14.4477 10 15 10H19C19.5523 10 20 9.55228 20 9V5C20 4.44772 19.5523 4 19 4C18.4477 4 18 4.44772 18 5V6.68569C17.8887 6.57453 17.7723 6.45836 17.6511 6.33737C16.2049 4.89414 14.2059 4 12 4ZM5 14C4.44772 14 4 14.4477 4 15V19C4 19.5523 4.44772 20 5 20C5.55228 20 6 19.5523 6 19V17.3689L6.29424 17.6626C7.7404 19.1059 9.7394 20 11.9453 20C16.3636 20 19.9453 16.4183 19.9453 12H17.9453C17.9453 15.3137 15.259 18 11.9453 18C10.2904 18 8.79354 17.3313 7.70701 16.247L7.45958 16H9C9.55228 16 10 15.5523 10 15C10 14.4477 9.55228 14 9 14H5Z"
       })
     }),
-    _v627 = ({
+    _v624 = ({
       validatedElements: _v0
     }) => {
       let {
           enterReplaceMode: _v1
-        } = (0, _v498.useReplaceElement)(),
-        _v2 = (0, _v167.useAppSelector)(_v166.orientationSelector),
-        _v3 = (0, _v167.useAppSelector)(_v166.storyboardIdSelector),
+        } = (0, _v495.useReplaceElement)(),
+        _v2 = (0, _v170.useAppSelector)(_v169.orientationSelector),
+        _v3 = (0, _v170.useAppSelector)(_v169.storyboardIdSelector),
         {
           trackEditorClipReplaced: _v4
         } = (0, _v220.useEditorTracking)(),
         _v5 = _v0[0];
       return (0, _v6.jsx)(_v211.Tooltip, {
-        label: _v315.translations.replaceElement.media,
+        label: _v314.translations.replaceElement.media,
         placement: "bottom",
-        children: (0, _v6.jsx)(_v186.Button, {
+        children: (0, _v6.jsx)(_v92.Button, {
           variant: "tertiary",
           size: "sm",
           onClick: () => {
-            _v1(_v5), (0, _v574.sendTrackSelectReplaceOption)({
+            _v1(_v5), (0, _v571.sendTrackSelectReplaceOption)({
               orientation: _v2
             }), _v4({
               editorSessionId: _v3
             });
           },
-          leftIcon: (0, _v6.jsx)(_v626, {
+          leftIcon: (0, _v6.jsx)(_v623, {
             marginBottom: "-2px"
           }),
-          "data-testid": _v180.testIds.replaceButton,
-          children: _v315.translations.replace
+          "data-testid": _v183.testIds.replaceButton,
+          children: _v314.translations.replace
         })
       });
     };
-  var _v628 = _v0.i(0);
-  let _v629 = ({
+  var _v625 = _v0.i(0);
+  let _v626 = ({
       validatedElements: _v0,
       testId: _v1
-    }) => (0, _v6.jsx)(_v567, {
-      buttonId: _v508.ToolbarButtons.GRAPHICS_ROTATION,
-      content: (0, _v6.jsx)(_v624, {
+    }) => (0, _v6.jsx)(_v564, {
+      buttonId: _v505.ToolbarButtons.GRAPHICS_ROTATION,
+      content: (0, _v6.jsx)(_v621, {
         validatedElements: _v0,
         title: (0, _v62.translate)({
           singular: "Rotate",
@@ -12953,7 +12953,7 @@
         name: "rotate",
         maxValue: 360
       }),
-      icon: (0, _v6.jsx)(_v628.Reset, {}),
+      icon: (0, _v6.jsx)(_v625.Reset, {}),
       testId: _v1,
       tooltipText: (0, _v62.translate)({
         singular: "Rotate",
@@ -12982,45 +12982,45 @@
         }
       })
     }),
-    _v630 = "primary",
-    _v631 = "secondary",
-    _v632 = [],
-    _v633 = function ({
+    _v627 = "primary",
+    _v628 = "secondary",
+    _v629 = [],
+    _v630 = function ({
       selectedCE: _v0,
       keys: _v1,
-      headers: _v2 = _v632,
+      headers: _v2 = _v629,
       testIdPrefix: _v3,
       handleColorChange: _v4,
       handleColorChangeEnd: _v5
     }) {
-      let _v6 = (0, _v167.useAppDispatch)(),
-        _v7 = (0, _v167.useAppSelector)(_v356.overridesWithoutRectSelector, _v431.shallowEqual),
+      let _v6 = (0, _v170.useAppDispatch)(),
+        _v7 = (0, _v170.useAppSelector)(_v354.overridesWithoutRectSelector, _v428.shallowEqual),
         [_v8, _v9] = (0, _v7.useState)("");
-      return (0, _v6.jsx)(_v559, {
+      return (0, _v6.jsx)(_v556, {
         p: "4px",
         children: _v1.map((_v0, _v1) => {
           let _v2 = _v0 + "Color",
             _v3 = _v7[_v0?.id]?.[_v2] ?? _v0[_v2] ?? "#000000",
             _v4 = _v2[_v1];
-          return (0, _v6.jsxs)(_v185.Box, {
+          return (0, _v6.jsxs)(_v188.Box, {
             minW: "115px",
-            children: [_v4 && (0, _v6.jsx)(_v392.Header, {
+            children: [_v4 && (0, _v6.jsx)(_v93.Header, {
               size: "2xs",
               mb: "8",
               children: _v4
-            }), (0, _v6.jsx)(_v560.SelectionBorder, {
+            }), (0, _v6.jsx)(_v557.SelectionBorder, {
               isSelected: _v8 === _v0,
-              children: (0, _v6.jsx)(_v185.Box, {
-                children: (0, _v6.jsx)(_v522, {
+              children: (0, _v6.jsx)(_v188.Box, {
+                children: (0, _v6.jsx)(_v519, {
                   testid: `multi-${_v3}-${_v0}`,
-                  icon: (0, _v6.jsx)(_v600, {}),
+                  icon: (0, _v6.jsx)(_v597, {}),
                   value: _v3,
                   text: _v3,
                   iconColor: _v3,
                   onOpen: () => {
-                    _v6((0, _v509.showToolbarColorPickerAction)(_v615)), _v9(_v0);
+                    _v6((0, _v506.showToolbarColorPickerAction)(_v612)), _v9(_v0);
                   },
-                  onClose: () => void (_v9(""), _v6((0, _v509.hideToolbarColorPickerAction)())),
+                  onClose: () => void (_v9(""), _v6((0, _v506.hideToolbarColorPickerAction)())),
                   onChange: _v0 => _v4(_v0, _v0),
                   onChangeEnd: _v0 => _v5(_v0, _v0),
                   showButtonBorder: !1
@@ -13031,14 +13031,14 @@
         })
       });
     },
-    _v634 = [_v630, _v631],
-    _v635 = ({
+    _v631 = [_v627, _v628],
+    _v632 = ({
       selectedCE: _v0
     }) => {
-      let _v1 = (0, _v167.useAppDispatch)(),
-        _v2 = (0, _v167.useAppSelector)(_v356.overridesWithoutRectAndTimingSelector, _v431.shallowEqual),
-        _v3 = (0, _v167.useAppSelector)(_v509.selectedToolbarColorPickerSelector),
-        _v4 = (0, _v167.useAppSelector)(_v509.selectedToolbarButtonSelector),
+      let _v1 = (0, _v170.useAppDispatch)(),
+        _v2 = (0, _v170.useAppSelector)(_v354.overridesWithoutRectAndTimingSelector, _v428.shallowEqual),
+        _v3 = (0, _v170.useAppSelector)(_v506.selectedToolbarColorPickerSelector),
+        _v4 = (0, _v170.useAppSelector)(_v506.selectedToolbarButtonSelector),
         _v5 = _v2[_v0.id],
         {
           primaryColor: _v6 = "#000000"
@@ -13048,8 +13048,8 @@
         },
         _v7 = !!_v0.secondaryColor && !!_v0.primaryColor,
         _v8 = (0, _v7.useCallback)((_v0, _v1) => {
-          let _v2 = (0, _v521.getColorKeyName)(_v1);
-          _v0[_v2] !== _v0 && _v1((0, _v356.addOverrideAction)({
+          let _v2 = (0, _v518.getColorKeyName)(_v1);
+          _v0[_v2] !== _v0 && _v1((0, _v354.addOverrideAction)({
             ceId: _v0.id,
             overrides: {
               [_v2]: _v0
@@ -13057,77 +13057,77 @@
           }));
         }, [_v1, _v0]),
         _v9 = (0, _v7.useCallback)((_v0, _v1) => {
-          let _v2 = (0, _v521.getColorKeyName)(_v1);
-          _v1((0, _v356.removeOverrideAction)({
+          let _v2 = (0, _v518.getColorKeyName)(_v1);
+          _v1((0, _v354.removeOverrideAction)({
             ceId: _v0.id,
             key: _v2
-          })), _v0[_v2] !== _v0 && _v1((0, _v166.updateElementAction)({
+          })), _v0[_v2] !== _v0 && _v1((0, _v169.updateElementAction)({
             ceId: _v0.id,
             element: {
               [_v2]: _v0
             }
           }));
         }, [_v1, _v0]),
-        _v10 = (0, _v7.useCallback)(_v0 => _v8(_v0, _v630), [_v8]);
+        _v10 = (0, _v7.useCallback)(_v0 => _v8(_v0, _v627), [_v8]);
       return (0, _v6.jsx)(_v6.Fragment, {
-        children: _v7 ? (0, _v6.jsxs)(_v196.Popover, {
-          onClose: () => _v1((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.GRAPHICS_COLOR)),
-          onOpen: () => _v1((0, _v509.selectToolbarButtonAction)(_v508.ToolbarButtons.GRAPHICS_COLOR)),
+        children: _v7 ? (0, _v6.jsxs)(_v197.Popover, {
+          onClose: () => _v1((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.GRAPHICS_COLOR)),
+          onOpen: () => _v1((0, _v506.selectToolbarButtonAction)(_v505.ToolbarButtons.GRAPHICS_COLOR)),
           isOpen: !!_v3 || void 0,
-          children: [(0, _v6.jsx)(_v185.Box, {
+          children: [(0, _v6.jsx)(_v188.Box, {
             display: "inline-block",
-            children: (0, _v6.jsx)(_v199.PopoverTrigger, {
-              children: (0, _v6.jsx)(_v185.Box, {
-                children: (0, _v6.jsx)(_v517, {
+            children: (0, _v6.jsx)(_v200.PopoverTrigger, {
+              children: (0, _v6.jsx)(_v188.Box, {
+                children: (0, _v6.jsx)(_v514, {
                   multiColor: !0,
                   variant: "tertiary",
                   size: "sm",
                   className: "color-circle-button",
-                  icon: (0, _v6.jsx)(_v507.FillPaintBucket, {}),
+                  icon: (0, _v6.jsx)(_v504.FillPaintBucket, {}),
                   dataTestId: "graphic-multi-color-menu",
-                  isActive: _v4 === _v508.ToolbarButtons.GRAPHICS_COLOR
+                  isActive: _v4 === _v505.ToolbarButtons.GRAPHICS_COLOR
                 })
               })
             })
-          }), (0, _v6.jsx)(_v198.PopoverContent, {
-            children: (0, _v6.jsx)(_v633, {
+          }), (0, _v6.jsx)(_v199.PopoverContent, {
+            children: (0, _v6.jsx)(_v630, {
               selectedCE: _v0,
               handleColorChange: _v8,
               handleColorChangeEnd: _v9,
-              keys: _v634,
+              keys: _v631,
               testIdPrefix: "graphics"
             })
           })]
-        }) : (0, _v6.jsx)(_v522, {
-          icon: (0, _v6.jsx)(_v507.FillPaintBucket, {}),
+        }) : (0, _v6.jsx)(_v519, {
+          icon: (0, _v6.jsx)(_v504.FillPaintBucket, {}),
           value: _v6,
           iconColor: _v6,
           testid: "graphics",
-          onOpen: () => _v1((0, _v509.selectToolbarButtonAction)(_v508.ToolbarButtons.GRAPHICS_COLOR)),
-          onClose: () => _v1((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.GRAPHICS_COLOR)),
+          onOpen: () => _v1((0, _v506.selectToolbarButtonAction)(_v505.ToolbarButtons.GRAPHICS_COLOR)),
+          onClose: () => _v1((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.GRAPHICS_COLOR)),
           onChange: _v10,
-          onChangeEnd: _v0 => _v9(_v0, _v630),
-          isActive: _v4 === _v508.ToolbarButtons.GRAPHICS_COLOR
+          onChangeEnd: _v0 => _v9(_v0, _v627),
+          isActive: _v4 === _v505.ToolbarButtons.GRAPHICS_COLOR
         }, _v0.id)
       });
     };
-  var _v636 = _v0.i(0),
-    _v637 = _v0.i(0),
-    _v638 = _v0.i(0),
-    _v639 = _v0.i(0);
-  let _v640 = ({
+  var _v633 = _v0.i(0),
+    _v634 = _v0.i(0),
+    _v635 = _v0.i(0),
+    _v636 = _v0.i(0);
+  let _v637 = ({
     validatedElements: _v0,
     validateURL: _v1,
     handleUserInputSrc: _v2
   }) => {
-    let _v3 = (0, _v167.useAppDispatch)(),
+    let _v3 = (0, _v170.useAppDispatch)(),
       _v4 = (0, _v7.useRef)(_v0[0]?.userProvidedUrl ?? ""),
-      _v5 = _v0 => _v1 ? _v1(_v0) : (0, _v639.isValidUrl)(_v0).isValid,
+      _v5 = _v0 => _v1 ? _v1(_v0) : (0, _v636.isValidUrl)(_v0).isValid,
       [_v6, _v7] = (0, _v7.useState)(!_v5(_v4.current)),
-      _v8 = (0, _v638.useDebounce)(() => {
+      _v8 = (0, _v635.useDebounce)(() => {
         let _v0 = _v4.current;
         _v5(_v0) ? _v0.forEach(_v0 => {
-          _v3((0, _v166.updateElementAction)({
+          _v3((0, _v169.updateElementAction)({
             ceId: _v0.id,
             element: {
               userProvidedUrl: _v0,
@@ -13138,9 +13138,9 @@
           }));
         }) : _v7(!0);
       }, 300);
-    return (0, _v6.jsxs)(_v559, {
+    return (0, _v6.jsxs)(_v556, {
       width: 240,
-      children: [(0, _v6.jsx)(_v538, {
+      children: [(0, _v6.jsx)(_v535, {
         pb: 0,
         children: (0, _v62.translate)({
           singular: "URL",
@@ -13150,35 +13150,35 @@
             }
           }
         })
-      }), (0, _v6.jsx)(_v316.Input, {
+      }), (0, _v6.jsx)(_v315.Input, {
         translate: "no",
         className: "notranslate",
         size: "xs",
         defaultValue: _v4.current,
         onChange: _v0 => {
           _v4.current = _v0.target.value;
-          let _v1 = (0, _v639.isValidUrl)(_v4.current).isValid;
+          let _v1 = (0, _v636.isValidUrl)(_v4.current).isValid;
           _v7(!_v1), _v1 && _v8();
         },
         isInvalid: _v6
       })]
     });
   };
-  var _v641 = _v0.i(0),
-    _v642 = _v0.i(0);
-  let _v643 = _v0 => `${_v0}%`,
-    _v644 = ({
+  var _v638 = _v0.i(0),
+    _v639 = _v0.i(0);
+  let _v640 = _v0 => `${_v0}%`,
+    _v641 = ({
       validatedElements: _v0
     }) => {
-      let _v1 = (0, _v167.useAppDispatch)(),
+      let _v1 = (0, _v170.useAppDispatch)(),
         _v2 = _v0[0],
-        _v3 = (0, _v7.useMemo)(() => (0, _v642.parseLocationFromMapUrl)(_v2.src ?? ""), [_v2.src]),
+        _v3 = (0, _v7.useMemo)(() => (0, _v639.parseLocationFromMapUrl)(_v2.src ?? ""), [_v2.src]),
         [_v4, _v5] = (0, _v7.useState)(_v3.zoom),
         [_v6, _v7] = (0, _v7.useState)(_v3.location),
-        _v8 = (0, _v638.useDebounce)(() => {
+        _v8 = (0, _v635.useDebounce)(() => {
           _v0.forEach(_v0 => {
-            let _v1 = (0, _v642.buildMapUrl)(_v6 || _v642.DEFAULT_LOCATION, _v4);
-            _v1((0, _v166.updateElementAction)({
+            let _v1 = (0, _v639.buildMapUrl)(_v6 || _v639.DEFAULT_LOCATION, _v4);
+            _v1((0, _v169.updateElementAction)({
               ceId: _v0.id,
               element: {
                 src: _v1
@@ -13187,14 +13187,14 @@
           });
         }, 300),
         _v9 = _v0 => {
-          _v5(Math.round(_v0 / 100 * _v642.GOOGLE_MAPS_MAX_ZOOM)), _v8();
+          _v5(Math.round(_v0 / 100 * _v639.GOOGLE_MAPS_MAX_ZOOM)), _v8();
         },
-        _v10 = Math.round(_v4 / _v642.GOOGLE_MAPS_MAX_ZOOM * 100);
-      return (0, _v6.jsx)(_v567, {
-        buttonId: _v508.ToolbarButtons.IFRAME_LOCATION,
-        content: (0, _v6.jsxs)(_v559, {
+        _v10 = Math.round(_v4 / _v639.GOOGLE_MAPS_MAX_ZOOM * 100);
+      return (0, _v6.jsx)(_v564, {
+        buttonId: _v505.ToolbarButtons.IFRAME_LOCATION,
+        content: (0, _v6.jsxs)(_v556, {
           width: 240,
-          children: [(0, _v6.jsx)(_v538, {
+          children: [(0, _v6.jsx)(_v535, {
             pb: 0,
             children: (0, _v62.translate)({
               singular: "Location",
@@ -13222,7 +13222,7 @@
                 }
               }
             })
-          }), (0, _v6.jsx)(_v316.Input, {
+          }), (0, _v6.jsx)(_v315.Input, {
             size: "xs",
             value: _v6,
             onChange: _v0 => {
@@ -13231,7 +13231,7 @@
             isInvalid: !_v6,
             translate: "no",
             className: "notranslate"
-          }), (0, _v6.jsx)(_v538, {
+          }), (0, _v6.jsx)(_v535, {
             pb: 0,
             children: (0, _v62.translate)({
               singular: "Zoom",
@@ -13244,51 +13244,51 @@
                 }
               }
             })
-          }), (0, _v6.jsx)(_v585.NumericSliderInput, {
+          }), (0, _v6.jsx)(_v582.NumericSliderInput, {
             id: "map-zoom",
             max: 100,
             min: 1,
-            step: _v642.GOOGLE_MAPS_ZOOM_INPUT_STEP,
+            step: _v639.GOOGLE_MAPS_ZOOM_INPUT_STEP,
             onChange: _v9,
             onChangeEnd: _v9,
             value: _v10,
-            format: _v643
+            format: _v640
           })]
         }),
-        icon: (0, _v6.jsx)(_v641.SearchMagnifier, {}),
-        title: _v3.location ?? _v642.DEFAULT_LOCATION,
-        testId: _v180.testIds.iframe.toolbar.linkButton
+        icon: (0, _v6.jsx)(_v638.SearchMagnifier, {}),
+        title: _v3.location ?? _v639.DEFAULT_LOCATION,
+        testId: _v183.testIds.iframe.toolbar.linkButton
       });
     };
-  var _v645 = _v0.i(0);
-  let _v646 = ({
+  var _v642 = _v0.i(0);
+  let _v643 = ({
       name: _v0,
       value: _v1,
       onChange: _v2
     }) => (0, _v6.jsxs)(_v74.Flex, {
       justifyContent: "space-between",
       alignItems: "center",
-      children: [(0, _v6.jsx)(_v156.Text, {
+      children: [(0, _v6.jsx)(_v80.Text, {
         variant: "body-md",
         whiteSpace: "nowrap",
         children: _v0
-      }), (0, _v6.jsx)(_v516.Switch, {
+      }), (0, _v6.jsx)(_v513.Switch, {
         size: "sm",
         ml: "md",
         isChecked: _v1,
         onChange: _v2
       })]
     }),
-    _v647 = ({
+    _v644 = ({
       validatedElements: _v0
     }) => {
-      let _v1 = (0, _v167.useAppDispatch)(),
-        _v2 = (0, _v315.getTranslations)(),
+      let _v1 = (0, _v170.useAppDispatch)(),
+        _v2 = (0, _v314.getTranslations)(),
         _v3 = _v0[0],
         _v4 = (_v0, _v1) => {
           _v0.forEach(_v0 => {
-            let _v1 = (0, _v642.updateVimeoVideoSrcParams)(_v0.src, _v0, _v1);
-            _v1((0, _v166.updateElementAction)({
+            let _v1 = (0, _v639.updateVimeoVideoSrcParams)(_v0.src, _v0, _v1);
+            _v1((0, _v169.updateElementAction)({
               ceId: _v0.id,
               element: {
                 settings: {
@@ -13299,34 +13299,34 @@
             }));
           });
         };
-      return (0, _v6.jsxs)(_v559, {
+      return (0, _v6.jsxs)(_v556, {
         minWidth: 172,
         pt: "4px",
-        children: [(0, _v6.jsx)(_v646, {
-          name: _v2[_v645.VIDEO_BEHAVIOR_FIELDS.AUTO_PLAY],
+        children: [(0, _v6.jsx)(_v643, {
+          name: _v2[_v642.VIDEO_BEHAVIOR_FIELDS.AUTO_PLAY],
           value: _v3.settings.autoPlay,
-          onChange: () => _v4(_v645.VIDEO_BEHAVIOR_FIELDS.AUTO_PLAY, !_v3.settings.autoPlay)
-        }), (0, _v6.jsx)(_v646, {
-          name: _v2[_v645.VIDEO_BEHAVIOR_FIELDS.LOOP],
+          onChange: () => _v4(_v642.VIDEO_BEHAVIOR_FIELDS.AUTO_PLAY, !_v3.settings.autoPlay)
+        }), (0, _v6.jsx)(_v643, {
+          name: _v2[_v642.VIDEO_BEHAVIOR_FIELDS.LOOP],
           value: _v3.settings.loop,
-          onChange: () => _v4(_v645.VIDEO_BEHAVIOR_FIELDS.LOOP, !_v3.settings.loop)
-        }), (0, _v6.jsx)(_v646, {
-          name: _v2[_v645.VIDEO_BEHAVIOR_FIELDS.SHOW_CONTROLS],
+          onChange: () => _v4(_v642.VIDEO_BEHAVIOR_FIELDS.LOOP, !_v3.settings.loop)
+        }), (0, _v6.jsx)(_v643, {
+          name: _v2[_v642.VIDEO_BEHAVIOR_FIELDS.SHOW_CONTROLS],
           value: _v3.settings.showControls,
-          onChange: () => _v4(_v645.VIDEO_BEHAVIOR_FIELDS.SHOW_CONTROLS, !_v3.settings.showControls)
+          onChange: () => _v4(_v642.VIDEO_BEHAVIOR_FIELDS.SHOW_CONTROLS, !_v3.settings.showControls)
         })]
       });
     },
-    _v648 = ({
+    _v645 = ({
       validatedElements: _v0
-    }) => (0, _v6.jsx)(_v567, {
-      buttonId: _v508.ToolbarButtons.IFRAME_URL,
-      content: (0, _v6.jsx)(_v640, {
+    }) => (0, _v6.jsx)(_v564, {
+      buttonId: _v505.ToolbarButtons.IFRAME_URL,
+      content: (0, _v6.jsx)(_v637, {
         validatedElements: _v0,
-        validateURL: _v642.isValidVideoUrl,
-        handleUserInputSrc: _v642.createVimeoVideoUrlUpdate
+        validateURL: _v639.isValidVideoUrl,
+        handleUserInputSrc: _v639.createVimeoVideoUrlUpdate
       }),
-      icon: (0, _v6.jsx)(_v636.Link, {}),
+      icon: (0, _v6.jsx)(_v633.Link, {}),
       title: (0, _v62.translate)({
         singular: "Link",
         dictionary: {
@@ -13347,10 +13347,10 @@
           }
         }
       }),
-      testId: _v180.testIds.iframe.toolbar.linkButton
+      testId: _v183.testIds.iframe.toolbar.linkButton
     });
-  var _v649 = _v0.i(0);
-  let _v650 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsxs)("svg", {
+  var _v646 = _v0.i(0);
+  let _v647 = (0, _v7.forwardRef)((_v0, _v1) => (0, _v6.jsxs)("svg", {
       ref: _v1,
       ..._v0,
       width: "20",
@@ -13375,10 +13375,10 @@
         })
       })]
     })),
-    _v651 = () => {
-      let _v0 = (0, _v167.useAppDispatch)(),
-        _v1 = (0, _v167.useAppSelector)(_v509.selectedToolbarButtonSelector),
-        _v2 = (0, _v167.useAppSelector)(_v382.firstSelectedElementSelector);
+    _v648 = () => {
+      let _v0 = (0, _v170.useAppDispatch)(),
+        _v1 = (0, _v170.useAppSelector)(_v506.selectedToolbarButtonSelector),
+        _v2 = (0, _v170.useAppSelector)(_v380.firstSelectedElementSelector);
       return (0, _v6.jsx)(_v211.Tooltip, {
         label: (0, _v62.translate)({
           singular: "Crop",
@@ -13407,16 +13407,16 @@
           }
         }),
         placement: "bottom",
-        children: (0, _v6.jsx)(_v194.IconButton, {
+        children: (0, _v6.jsx)(_v94.IconButton, {
           "aria-label": "crop",
           variant: "tertiary",
           size: "sm",
           onClick: () => {
-            _v0((0, _v509.showToolbarAction)(_v437.ToolbarType.CROP)), (0, _v612.trackSelectCrop)({
+            _v0((0, _v506.showToolbarAction)(_v434.ToolbarType.CROP)), (0, _v609.trackSelectCrop)({
               mediaType: _v2?.type ?? "",
               cropRatio: "",
               actionCTA: "crop_icon"
-            }), (0, _v243.isMediaElement)(_v2) && _v0((0, _v356.addOverrideAction)({
+            }), (0, _v243.isMediaElement)(_v2) && _v0((0, _v354.addOverrideAction)({
               ceId: _v2.id,
               overrides: {
                 sourceFootageRect: _v2.sourceFootageRect,
@@ -13424,14 +13424,14 @@
               }
             }));
           },
-          icon: (0, _v6.jsx)(_v650, {}),
-          "data-testid": _v180.testIds.cropButton,
-          isActive: _v1 === _v508.ToolbarButtons.CROP
+          icon: (0, _v6.jsx)(_v647, {}),
+          "data-testid": _v183.testIds.cropButton,
+          isActive: _v1 === _v505.ToolbarButtons.CROP
         })
       });
     };
-  var _v652 = _v0.i(0);
-  let _v653 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+  var _v649 = _v0.i(0);
+  let _v650 = _v0 => (0, _v6.jsx)(_v82.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -13440,28 +13440,28 @@
       fill: "currentColor"
     })
   });
-  var _v654 = _v0.i(0);
-  let _v655 = () => {
-      let _v0 = (0, _v167.useAppDispatch)(),
-        _v1 = (0, _v167.useAppSelector)(_v166.orientationSelector),
-        _v2 = (0, _v167.useAppSelector)(_v166.storyboardIdSelector),
+  var _v651 = _v0.i(0);
+  let _v652 = () => {
+      let _v0 = (0, _v170.useAppDispatch)(),
+        _v1 = (0, _v170.useAppSelector)(_v169.orientationSelector),
+        _v2 = (0, _v170.useAppSelector)(_v169.storyboardIdSelector),
         {
           trackEditorClipFitTypeChanged: _v3
         } = (0, _v220.useEditorTracking)(),
-        _v4 = (0, _v167.useAppSelector)(_v382.selectedElementsSelector).filter(_v243.isMediaElement),
+        _v4 = (0, _v170.useAppSelector)(_v380.selectedElementsSelector).filter(_v243.isMediaElement),
         _v5 = () => {
           if (0 === _v4.length) return "";
           let _v0 = new Set(_v4.map(_v0 => _v0.type));
-          return _v0.has(_v432.CompositionElementType.IMAGE) && _v0.has(_v432.CompositionElementType.VIDEO) ? "mixed_media" : _v4[0].type;
+          return _v0.has(_v429.CompositionElementType.IMAGE) && _v0.has(_v429.CompositionElementType.VIDEO) ? "mixed_media" : _v4[0].type;
         },
         _v6 = async () => {
-          (0, _v430.batch)(() => {
+          (0, _v427.batch)(() => {
             _v4.forEach(_v0 => {
               if (_v0?.rect) {
                 let _v0, _v1;
                 _v0.rect.width < _v0.rect.height ? (_v1 = 1, _v0 = _v0.rect.width * (1 / _v0.rect.height)) : (_v0 = 1, _v1 = _v0.rect.height * (1 / _v0.rect.width));
-                let _v2 = (0, _v438.recenterRect)(_v249.DEFAULT_RECT, _v0, _v1);
-                _v0((0, _v166.updateElementAction)({
+                let _v2 = (0, _v435.recenterRect)(_v249.DEFAULT_RECT, _v0, _v1);
+                _v0((0, _v169.updateElementAction)({
                   ceId: _v0.id,
                   element: {
                     rect: _v2
@@ -13469,7 +13469,7 @@
                 }));
               }
             });
-          }), _v4.length > 0 && ((0, _v574.sendTrackSelectFitType)({
+          }), _v4.length > 0 && ((0, _v571.sendTrackSelectFitType)({
             orientation: _v1,
             elementType: _v5(),
             fitType: "fit_to_canvas",
@@ -13480,13 +13480,13 @@
           }));
         },
         _v7 = async () => {
-          (0, _v430.batch)(() => {
+          (0, _v427.batch)(() => {
             _v4.forEach(_v0 => {
               if (_v0?.rect) {
                 let _v0, _v1;
                 _v0.rect.width > _v0.rect.height ? (_v1 = 1, _v0 = _v0.rect.width * (1 / _v0.rect.height)) : (_v0 = 1, _v1 = _v0.rect.height * (1 / _v0.rect.width));
-                let _v2 = (0, _v438.recenterRect)(_v249.DEFAULT_RECT, _v0, _v1);
-                _v0((0, _v166.updateElementAction)({
+                let _v2 = (0, _v435.recenterRect)(_v249.DEFAULT_RECT, _v0, _v1);
+                _v0((0, _v169.updateElementAction)({
                   ceId: _v0.id,
                   element: {
                     rect: _v2
@@ -13494,7 +13494,7 @@
                 }));
               }
             });
-          }), _v4.length > 0 && ((0, _v574.sendTrackSelectFitType)({
+          }), _v4.length > 0 && ((0, _v571.sendTrackSelectFitType)({
             orientation: _v1,
             elementType: _v5(),
             fitType: "fill_canvas",
@@ -13504,7 +13504,7 @@
             editorClipFitType: "fill"
           }));
         };
-      return (0, _v6.jsx)(_v562, {
+      return (0, _v6.jsx)(_v559, {
         title: "Fit types",
         buttons: [{
           tooltipText: (0, _v62.translate)({
@@ -13534,7 +13534,7 @@
             }
           }),
           isSelected: !1,
-          icon: (0, _v6.jsx)(_v654.Fullscreen, {}),
+          icon: (0, _v6.jsx)(_v651.Fullscreen, {}),
           onClick: _v7,
           testId: "fill-canvas-button"
         }, {
@@ -13565,19 +13565,19 @@
             }
           }),
           isSelected: !1,
-          icon: (0, _v6.jsx)(_v653, {}),
+          icon: (0, _v6.jsx)(_v650, {}),
           onClick: _v6,
           testId: "fit-canvas-button"
         }]
       });
     },
-    _v656 = () => {
-      let _v0 = (0, _v167.useAppSelector)(_v166.orientationSelector),
-        _v1 = (0, _v167.useAppSelector)(_v382.selectedElementsSelector);
-      return (0, _v6.jsx)(_v567, {
-        buttonId: _v508.ToolbarButtons.FIT_TYPE,
-        content: (0, _v6.jsx)(_v655, {}),
-        icon: (0, _v6.jsx)(_v652.ExpandAlt, {}),
+    _v653 = () => {
+      let _v0 = (0, _v170.useAppSelector)(_v169.orientationSelector),
+        _v1 = (0, _v170.useAppSelector)(_v380.selectedElementsSelector);
+      return (0, _v6.jsx)(_v564, {
+        buttonId: _v505.ToolbarButtons.FIT_TYPE,
+        content: (0, _v6.jsx)(_v652, {}),
+        icon: (0, _v6.jsx)(_v649.ExpandAlt, {}),
         testId: "fit-type-button-image-toolbar",
         tooltipText: (0, _v62.translate)({
           singular: "Fit types",
@@ -13605,45 +13605,45 @@
             }
           }
         }),
-        onClick: () => (0, _v574.sendTrackSelectFitTypeOptions)({
+        onClick: () => (0, _v571.sendTrackSelectFitTypeOptions)({
           orientation: _v0,
           elementType: (() => {
             if (0 === _v1.length) return "";
             let _v0 = new Set(_v1.map(_v0 => _v0.type));
-            return _v0.has(_v432.CompositionElementType.IMAGE) && _v0.has(_v432.CompositionElementType.VIDEO) ? "mixed_media" : _v1[0].type;
+            return _v0.has(_v429.CompositionElementType.IMAGE) && _v0.has(_v429.CompositionElementType.VIDEO) ? "mixed_media" : _v1[0].type;
           })(),
           numberOfElements: _v1.length
         })
       });
     };
-  var _v657 = _v0.i(0),
-    _v658 = _v0.i(0),
-    _v659 = _v0.i(0);
-  let _v660 = {
+  var _v654 = _v0.i(0),
+    _v655 = _v0.i(0),
+    _v656 = _v0.i(0);
+  let _v657 = {
       display: "flex",
       flexDirection: "column",
       padding: 12,
       gap: 12
     },
-    _v661 = {
+    _v658 = {
       width: 156,
       display: "block"
     },
-    _v662 = {
+    _v659 = {
       display: "flex",
       flexDirection: "column",
       gap: 6
     },
-    _v663 = ({
+    _v660 = ({
       validatedElements: _v0
     }) => {
-      let _v1 = (0, _v167.useAppDispatch)(),
+      let _v1 = (0, _v170.useAppDispatch)(),
         _v2 = _v0[0],
         _v3 = _v2?.interactiveHotspot.altText ?? "";
-      return _v2 ? (0, _v6.jsx)(_v185.Box, {
-        sx: _v660,
-        children: (0, _v6.jsxs)(_v185.Box, {
-          children: [(0, _v6.jsx)(_v156.Text, {
+      return _v2 ? (0, _v6.jsx)(_v188.Box, {
+        sx: _v657,
+        children: (0, _v6.jsxs)(_v188.Box, {
+          children: [(0, _v6.jsx)(_v80.Text, {
             variant: "body-md",
             pb: 6,
             children: (0, _v62.translate)({
@@ -13669,9 +13669,9 @@
                 }
               }
             })
-          }), (0, _v6.jsxs)(_v185.Box, {
-            sx: _v662,
-            children: [(0, _v6.jsx)(_v657.Textarea, {
+          }), (0, _v6.jsxs)(_v188.Box, {
+            sx: _v659,
+            children: [(0, _v6.jsx)(_v654.Textarea, {
               placeholder: (0, _v62.translate)({
                 singular: "Enter alternative text",
                 dictionary: {
@@ -13697,11 +13697,11 @@
               }),
               resize: "both",
               value: _v3,
-              isInvalid: _v3.length > _v658.ALT_TEXT_MAX_LENGTH,
+              isInvalid: _v3.length > _v655.ALT_TEXT_MAX_LENGTH,
               onChange: _v0 => {
                 if (!_v2?.id) return;
-                let _v1 = _v0.target.value.slice(0, _v658.ALT_TEXT_MAX_LENGTH);
-                _v1 !== _v3 && _v1((0, _v166.updateElementAction)({
+                let _v1 = _v0.target.value.slice(0, _v655.ALT_TEXT_MAX_LENGTH);
+                _v1 !== _v3 && _v1((0, _v169.updateElementAction)({
                   ceId: _v2.id,
                   element: {
                     interactiveHotspot: {
@@ -13710,34 +13710,34 @@
                   }
                 }));
               },
-              sx: _v661
-            }), (0, _v6.jsx)(_v659.CharacterCounter, {
+              sx: _v658
+            }), (0, _v6.jsx)(_v656.CharacterCounter, {
               currentLength: _v3.length,
-              maxLength: _v658.ALT_TEXT_MAX_LENGTH
+              maxLength: _v655.ALT_TEXT_MAX_LENGTH
             })]
           })]
         })
       }) : null;
     },
-    _v664 = [_v630, _v631],
-    _v665 = ({
+    _v661 = [_v627, _v628],
+    _v662 = ({
       validatedElements: _v0
     }) => {
-      let _v1 = (0, _v167.useAppDispatch)(),
-        _v2 = (0, _v167.useAppSelector)(_v356.overridesWithoutRectAndTimingSelector),
-        _v3 = (0, _v167.useAppSelector)(_v509.selectedToolbarColorPickerSelector),
-        _v4 = (0, _v167.useAppSelector)(_v509.selectedToolbarButtonSelector),
+      let _v1 = (0, _v170.useAppDispatch)(),
+        _v2 = (0, _v170.useAppSelector)(_v354.overridesWithoutRectAndTimingSelector),
+        _v3 = (0, _v170.useAppSelector)(_v506.selectedToolbarColorPickerSelector),
+        _v4 = (0, _v170.useAppSelector)(_v506.selectedToolbarButtonSelector),
         _v5 = _v0[0],
         _v6 = _v2[_v5?.id],
         _v7 = {
-          [_v630]: _v6?.primaryColor || "",
-          [_v631]: _v6?.secondaryColor || ""
+          [_v627]: _v6?.primaryColor || "",
+          [_v628]: _v6?.secondaryColor || ""
         },
         _v8 = _v5?.primaryColor || "",
         _v9 = !!_v5?.secondaryColor && !!_v8,
         _v10 = (0, _v7.useCallback)((_v0, _v1) => {
-          let _v2 = (0, _v521.getColorKeyName)(_v1);
-          _v1((0, _v356.addOverrideAction)({
+          let _v2 = (0, _v518.getColorKeyName)(_v1);
+          _v1((0, _v354.addOverrideAction)({
             ceId: _v5.id,
             overrides: {
               [_v2]: _v0
@@ -13745,21 +13745,21 @@
           }));
         }, [_v1, _v5?.id]),
         _v11 = (0, _v7.useCallback)((_v0, _v1) => {
-          let _v2 = (0, _v521.getColorKeyName)(_v1);
-          _v1((0, _v356.removeOverrideAction)({
+          let _v2 = (0, _v518.getColorKeyName)(_v1);
+          _v1((0, _v354.removeOverrideAction)({
             ceId: _v5.id,
             key: _v2
-          })), _v5[_v2] !== _v0 && _v1((0, _v166.updateElementAction)({
+          })), _v5[_v2] !== _v0 && _v1((0, _v169.updateElementAction)({
             ceId: _v5.id,
             element: {
               [_v2]: _v0
             }
           }));
         }, [_v1, _v5]),
-        _v12 = (0, _v7.useCallback)(() => _v1((0, _v509.selectToolbarButtonAction)(_v508.ToolbarButtons.HOTSPOT_COLORS)), [_v1]),
-        _v13 = (0, _v7.useCallback)(() => _v1((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.HOTSPOT_COLORS)), [_v1]),
-        _v14 = (0, _v7.useCallback)(_v0 => _v10(_v0, _v630), [_v10]),
-        _v15 = _v4 === _v508.ToolbarButtons.HOTSPOT_COLORS;
+        _v12 = (0, _v7.useCallback)(() => _v1((0, _v506.selectToolbarButtonAction)(_v505.ToolbarButtons.HOTSPOT_COLORS)), [_v1]),
+        _v13 = (0, _v7.useCallback)(() => _v1((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.HOTSPOT_COLORS)), [_v1]),
+        _v14 = (0, _v7.useCallback)(_v0 => _v10(_v0, _v627), [_v10]),
+        _v15 = _v4 === _v505.ToolbarButtons.HOTSPOT_COLORS;
       return (0, _v243.isImageHotspot)(_v5) && _v5.primaryColor ? (0, _v6.jsx)(_v211.Tooltip, {
         label: (0, _v62.translate)({
           singular: "Colors",
@@ -13791,50 +13791,50 @@
         "data-testid": "tooltip",
         isDisabled: _v15,
         children: (0, _v6.jsx)("span", {
-          children: _v9 ? (0, _v6.jsxs)(_v196.Popover, {
+          children: _v9 ? (0, _v6.jsxs)(_v197.Popover, {
             onClose: _v13,
             onOpen: _v12,
             isOpen: !!_v3 || void 0,
-            children: [(0, _v6.jsx)(_v185.Box, {
+            children: [(0, _v6.jsx)(_v188.Box, {
               display: "inline-block",
-              children: (0, _v6.jsx)(_v199.PopoverTrigger, {
-                children: (0, _v6.jsx)(_v185.Box, {
-                  children: (0, _v6.jsx)(_v517, {
+              children: (0, _v6.jsx)(_v200.PopoverTrigger, {
+                children: (0, _v6.jsx)(_v188.Box, {
+                  children: (0, _v6.jsx)(_v514, {
                     multiColor: !0,
                     variant: "tertiary",
                     size: "sm",
                     className: "color-circle-button",
-                    icon: (0, _v6.jsx)(_v507.FillPaintBucket, {}),
+                    icon: (0, _v6.jsx)(_v504.FillPaintBucket, {}),
                     dataTestId: "hotspot-multi-color-menu",
                     isActive: _v15
                   })
                 })
               })
-            }), (0, _v6.jsx)(_v198.PopoverContent, {
-              children: (0, _v6.jsx)(_v633, {
+            }), (0, _v6.jsx)(_v199.PopoverContent, {
+              children: (0, _v6.jsx)(_v630, {
                 selectedCE: _v5,
                 handleColorChange: _v10,
                 handleColorChangeEnd: _v11,
-                keys: _v664,
+                keys: _v661,
                 testIdPrefix: "hotspot"
               })
             })]
-          }) : (0, _v6.jsx)(_v522, {
-            icon: (0, _v6.jsx)(_v507.FillPaintBucket, {}),
-            value: _v7[_v630] || _v8 || "#000000",
-            iconColor: _v7[_v630] || _v8,
+          }) : (0, _v6.jsx)(_v519, {
+            icon: (0, _v6.jsx)(_v504.FillPaintBucket, {}),
+            value: _v7[_v627] || _v8 || "#000000",
+            iconColor: _v7[_v627] || _v8,
             testid: "hotspot",
             onOpen: _v12,
             onClose: _v13,
             onChange: _v14,
-            onChangeEnd: _v0 => _v11(_v0, _v630),
+            onChangeEnd: _v0 => _v11(_v0, _v627),
             isActive: _v15
           }, _v5.id)
         })
       }) : null;
     };
-  var _v666 = _v0.i(0);
-  let _v667 = ({
+  var _v663 = _v0.i(0);
+  let _v664 = ({
       children: _v0,
       testId: _v1
     }) => (0, _v6.jsx)(_v210.Center, {
@@ -13842,7 +13842,7 @@
       "data-testid": _v1,
       children: _v0
     }),
-    _v668 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+    _v665 = _v0 => (0, _v6.jsx)(_v82.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -13851,8 +13851,8 @@
         fill: "currentColor"
       })
     });
-  var _v669 = _v0.i(0);
-  let _v670 = ({
+  var _v666 = _v0.i(0);
+  let _v667 = ({
     validatedElements: _v0
   }) => {
     let {
@@ -13860,17 +13860,17 @@
         pause: _v2,
         seek: _v3
       } = (0, _v222.useDragonfly)(),
-      _v4 = (0, _v167.useAppDispatch)(),
+      _v4 = (0, _v170.useAppDispatch)(),
       _v5 = (0, _v7.useRef)(null),
       _v6 = (0, _v7.useRef)(null),
-      _v7 = _v0[0]?.animationMid || _v558.AnimationMid.NONE,
+      _v7 = _v0[0]?.animationMid || _v555.AnimationMid.NONE,
       _v8 = () => {
         _v5.current && (clearTimeout(_v5.current), _v5.current = null), _v6.current && (clearTimeout(_v6.current), _v6.current = null);
       };
     (0, _v7.useEffect)(() => () => _v8(), []);
     let _v9 = _v0 => {
       if (_v0[0]) {
-        _v8(), _v4((0, _v166.updateElementAction)({
+        _v8(), _v4((0, _v169.updateElementAction)({
           ceId: _v0[0].id,
           element: {
             animationMid: _v0
@@ -13896,7 +13896,7 @@
         _v5.current = _v0.playTimeout, _v6.current = _v0.pauseTimeout;
       }
     };
-    return (0, _v6.jsx)(_v562, {
+    return (0, _v6.jsx)(_v559, {
       title: (0, _v62.translate)({
         singular: "Effects",
         dictionary: {
@@ -13950,10 +13950,10 @@
             }
           }
         }),
-        isSelected: _v7 === _v558.AnimationMid.NONE,
-        icon: (0, _v6.jsx)(_v669.StopBanLeft, {}),
-        onClick: () => _v9(_v558.AnimationMid.NONE),
-        testId: _v180.testIds.breathAnimation.noneOption
+        isSelected: _v7 === _v555.AnimationMid.NONE,
+        icon: (0, _v6.jsx)(_v666.StopBanLeft, {}),
+        onClick: () => _v9(_v555.AnimationMid.NONE),
+        testId: _v183.testIds.breathAnimation.noneOption
       }, {
         tooltipText: (0, _v62.translate)({
           singular: "Breath",
@@ -13981,60 +13981,60 @@
             }
           }
         }),
-        isSelected: _v7 === _v558.AnimationMid.BREATH,
-        icon: (0, _v6.jsx)(_v668, {}),
-        onClick: () => _v9(_v558.AnimationMid.BREATH),
-        testId: _v180.testIds.breathAnimation.breathOption
+        isSelected: _v7 === _v555.AnimationMid.BREATH,
+        icon: (0, _v6.jsx)(_v665, {}),
+        onClick: () => _v9(_v555.AnimationMid.BREATH),
+        testId: _v183.testIds.breathAnimation.breathOption
       }]
     });
   };
-  var _v671 = _v0.i(0),
-    _v672 = _v0.i(0),
-    _v673 = _v0.i(0),
-    _v674 = _v0.i(0);
-  let _v675 = ({
+  var _v668 = _v0.i(0),
+    _v669 = _v0.i(0),
+    _v670 = _v0.i(0),
+    _v671 = _v0.i(0);
+  let _v672 = ({
     validatedElements: _v0,
     title: _v1
   }) => {
     let _v2,
-      _v3 = (0, _v167.useAppDispatch)(),
+      _v3 = (0, _v170.useAppDispatch)(),
       _v4 = _v0[0],
       {
         updateBreathEffect: _v5
-      } = (_v2 = (0, _v167.useAppSelector)(_v166.nonHiddenLayersSelector), {
+      } = (_v2 = (0, _v170.useAppSelector)(_v169.nonHiddenLayersSelector), {
         updateBreathEffect: (0, _v7.useCallback)(({
           ceId: _v0,
           newScale: _v1,
           newCompositionTiming: _v2
-        }) => (0, _v672.getUpdatedBreathEffect)({
+        }) => (0, _v669.getUpdatedBreathEffect)({
           ceId: _v0,
           layers: _v2,
           newScale: _v1,
           newCompositionTiming: _v2
         }), [_v2])
       }),
-      _v6 = (0, _v167.useAppSelector)(_v166.orientationSelector),
+      _v6 = (0, _v170.useAppSelector)(_v169.orientationSelector),
       _v7 = (0, _v7.useMemo)(() => {
         let _v0 = _v4?.layers[0]?.effects,
-          _v1 = _v0?.find(_v0 => _v0.name === _v673.ImageEffectName.breath);
+          _v1 = _v0?.find(_v0 => _v0.name === _v670.ImageEffectName.breath);
         return (!_v1 || 1 !== _v1.options.transformsFromFootageRect[0].transform.scale) && !0;
       }, [_v4?.layers]),
       _v8 = _v0 => {
-        let _v1 = _v671.BREATH_EFFECT_SCALES[(0, _v674.getUpperSnakeCase)(_v0)],
+        let _v1 = _v668.BREATH_EFFECT_SCALES[(0, _v671.getUpperSnakeCase)(_v0)],
           _v2 = _v5({
             ceId: _v4.id,
             newScale: _v1
           });
-        _v3((0, _v166.updateElementAction)({
+        _v3((0, _v169.updateElementAction)({
           ceId: _v4.id,
           element: _v2
-        })), (0, _v574.sendTrackChangeMotionEffect)({
+        })), (0, _v571.sendTrackChangeMotionEffect)({
           orientation: _v6,
           elementType: _v4.type,
           motionEffectValue: _v0
         });
       };
-    return (0, _v6.jsx)(_v562, {
+    return (0, _v6.jsx)(_v559, {
       title: _v1,
       buttons: [{
         tooltipText: (0, _v62.translate)({
@@ -14064,8 +14064,8 @@
           }
         }),
         isSelected: !_v7,
-        icon: (0, _v6.jsx)(_v669.StopBanLeft, {}),
-        onClick: () => _v8(_v673.ImageBreathEffect.NONE),
+        icon: (0, _v6.jsx)(_v666.StopBanLeft, {}),
+        onClick: () => _v8(_v670.ImageBreathEffect.NONE),
         testId: "none-motion-effect"
       }, {
         tooltipText: (0, _v62.translate)({
@@ -14095,14 +14095,14 @@
           }
         }),
         isSelected: _v7,
-        icon: (0, _v6.jsx)(_v556.ExpandArrowsAlt, {}),
-        onClick: () => _v8(_v673.ImageBreathEffect.ZOOM_IN),
+        icon: (0, _v6.jsx)(_v553.ExpandArrowsAlt, {}),
+        onClick: () => _v8(_v670.ImageBreathEffect.ZOOM_IN),
         testId: "zoom-in-motion-effect"
       }]
     });
   };
-  var _v676 = _v0.i(0);
-  let _v677 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+  var _v673 = _v0.i(0);
+  let _v674 = _v0 => (0, _v6.jsx)(_v82.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -14111,12 +14111,12 @@
         fill: "currentColor"
       })
     }),
-    _v678 = () => (0, _v6.jsxs)(_v185.Box, {
+    _v675 = () => (0, _v6.jsxs)(_v188.Box, {
       display: "flex",
       flexDir: "column",
       alignItems: "center",
       gap: "1px",
-      children: [(0, _v6.jsx)(_v544, {}), (0, _v6.jsx)(_v185.Box, {
+      children: [(0, _v6.jsx)(_v541, {}), (0, _v6.jsx)(_v188.Box, {
         height: 2,
         width: 18,
         borderRadius: "xs",
@@ -14124,11 +14124,11 @@
         backgroundColor: "text-primary"
       })]
     }),
-    _v679 = ({
+    _v676 = ({
       pollElement: _v0
     }) => {
-      let _v1 = (0, _v167.useAppDispatch)(),
-        _v2 = (0, _v167.useAppSelector)(_v166.orientationSelector),
+      let _v1 = (0, _v170.useAppDispatch)(),
+        _v2 = (0, _v170.useAppSelector)(_v169.orientationSelector),
         {
           keys: _v3,
           headers: _v4
@@ -14161,7 +14161,7 @@
                 }
               }
             })],
-            _v2 = _v439.POLL_STYLES[_v0.styleId][_v2];
+            _v2 = _v436.POLL_STYLES[_v0.styleId][_v2];
           return _v2.hasQuestionBackgroundColor && (_v0.push("questionBackground"), _v1.push((0, _v62.translate)({
             singular: "Question Background",
             dictionary: {
@@ -14217,22 +14217,22 @@
             headers: _v1
           };
         }, [_v2, _v0]);
-      return _v0 ? (0, _v6.jsx)(_v633, {
+      return _v0 ? (0, _v6.jsx)(_v630, {
         selectedCE: _v0,
         handleColorChange: (_v0, _v1) => {
-          _v1((0, _v356.addOverrideAction)({
+          _v1((0, _v354.addOverrideAction)({
             ceId: _v0.id,
             overrides: {
-              [(0, _v521.getColorKeyName)(_v1)]: _v0
+              [(0, _v518.getColorKeyName)(_v1)]: _v0
             }
           }));
         },
         handleColorChangeEnd: (_v0, _v1) => {
-          let _v2 = (0, _v521.getColorKeyName)(_v1);
-          _v1((0, _v356.removeOverrideAction)({
+          let _v2 = (0, _v518.getColorKeyName)(_v1);
+          _v1((0, _v354.removeOverrideAction)({
             ceId: _v0.id,
             key: _v2
-          })), _v0[_v2] !== _v0 && _v1((0, _v166.updateElementAction)({
+          })), _v0[_v2] !== _v0 && _v1((0, _v169.updateElementAction)({
             ceId: _v0.id,
             element: {
               [_v2]: _v0
@@ -14244,8 +14244,8 @@
         testIdPrefix: "poll"
       }) : null;
     },
-    _v680 = ["questionText", "answerText"],
-    _v681 = ({
+    _v677 = ["questionText", "answerText"],
+    _v678 = ({
       validatedElements: _v0
     }) => {
       let _v1 = (0, _v7.useMemo)(() => [(0, _v62.translate)({
@@ -14296,13 +14296,13 @@
             }
           }
         })], []),
-        _v2 = (0, _v167.useAppDispatch)(),
+        _v2 = (0, _v170.useAppDispatch)(),
         _v3 = _v0[0];
-      return _v3 ? (0, _v6.jsx)(_v633, {
+      return _v3 ? (0, _v6.jsx)(_v630, {
         selectedCE: _v3,
         handleColorChange: (_v0, _v1) => {
-          let _v2 = (0, _v521.getColorKeyName)(_v1);
-          _v3[_v2] !== _v0 && _v2((0, _v356.addOverrideAction)({
+          let _v2 = (0, _v518.getColorKeyName)(_v1);
+          _v3[_v2] !== _v0 && _v2((0, _v354.addOverrideAction)({
             ceId: _v3.id,
             overrides: {
               [_v2]: _v0
@@ -14310,23 +14310,23 @@
           }));
         },
         handleColorChangeEnd: (_v0, _v1) => {
-          let _v2 = (0, _v521.getColorKeyName)(_v1);
-          _v2((0, _v356.removeOverrideAction)({
+          let _v2 = (0, _v518.getColorKeyName)(_v1);
+          _v2((0, _v354.removeOverrideAction)({
             ceId: _v3.id,
             key: _v2
-          })), _v3[_v2] !== _v0 && _v2((0, _v166.updateElementAction)({
+          })), _v3[_v2] !== _v0 && _v2((0, _v169.updateElementAction)({
             ceId: _v3.id,
             element: {
               [_v2]: _v0
             }
           }));
         },
-        keys: _v680,
+        keys: _v677,
         headers: _v1,
         testIdPrefix: "poll"
       }) : null;
     },
-    _v682 = _v9.default.div.withConfig({
+    _v679 = _v9.default.div.withConfig({
       displayName: "ReplaceToolbar__ReplaceToolbarContainer",
       componentId: "sc-cd8e1ec5-0"
     })`
@@ -14335,29 +14335,29 @@
   align-items: center;
   gap: ${8}px;
 `;
-  var _v683 = _v0.i(0),
-    _v684 = _v0.i(0),
-    _v685 = _v0.i(0);
-  let _v686 = _v0 => {
-    let _v1 = (0, _v167.useAppDispatch)(),
+  var _v680 = _v0.i(0),
+    _v681 = _v0.i(0),
+    _v682 = _v0.i(0);
+  let _v683 = _v0 => {
+    let _v1 = (0, _v170.useAppDispatch)(),
       _v2 = (0, _v7.useMemo)(() => {
         if (!_v0.effects) return 0;
-        let _v0 = (0, _v672.getVolumeEffect)(_v0.effects);
+        let _v0 = (0, _v669.getVolumeEffect)(_v0.effects);
         return _v0 ? 100 * _v0.level : 0;
       }, [_v0]),
       _v3 = (0, _v7.useMemo)(() => {
         if (!_v0.effects) return 0;
-        let _v0 = (0, _v672.getFadeInEffect)(_v0.effects);
+        let _v0 = (0, _v669.getFadeInEffect)(_v0.effects);
         return _v0 ? (_v0.endTime - _v0.startTime) * 0 : 0;
       }, [_v0]),
       _v4 = (0, _v7.useMemo)(() => {
         if (!_v0.effects) return 0;
-        let _v0 = (0, _v672.getFadeOutEffect)(_v0.effects);
+        let _v0 = (0, _v669.getFadeOutEffect)(_v0.effects);
         return _v0 ? (_v0.endTime - _v0.startTime) * 0 : 0;
       }, [_v0]),
       _v5 = (0, _v7.useMemo)(() => 0 * Math.min(_v0.compositionTiming.end - _v0.compositionTiming.start, 5), [_v0]),
       _v6 = (0, _v7.useCallback)(() => {
-        _v1((0, _v166.updateElementAction)({
+        _v1((0, _v169.updateElementAction)({
           ceId: _v0.id,
           element: {
             muted: !_v0.muted
@@ -14365,12 +14365,12 @@
         }));
       }, [_v1, _v0]),
       _v7 = (0, _v7.useCallback)(_v0 => {
-        _v1((0, _v356.addOverrideAction)({
+        _v1((0, _v354.addOverrideAction)({
           ceId: _v0.id,
           overrides: {
             muted: 0 === _v0,
             effects: [{
-              type: _v685.SoundEffectType.volume,
+              type: _v682.SoundEffectType.volume,
               level: _v0 / 100,
               startTime: 0,
               endTime: _v0.compositionTiming.end - _v0.compositionTiming.start
@@ -14381,10 +14381,10 @@
       _v8 = (0, _v7.useCallback)(_v0 => {
         let {
           fadeInEffect: _v1 = null,
-          volumeEffect: _v2 = (0, _v672.getDefaultVolumeEffect)(_v0),
+          volumeEffect: _v2 = (0, _v669.getDefaultVolumeEffect)(_v0),
           fadeOutEffect: _v3 = null
-        } = _v0.effects ? (0, _v672.deconstructSoundEffects)(_v0) : {};
-        _v0 /= 100, _v1((0, _v356.removeOverrideAction)({
+        } = _v0.effects ? (0, _v669.deconstructSoundEffects)(_v0) : {};
+        _v0 /= 100, _v1((0, _v354.removeOverrideAction)({
           ceId: _v0.id
         }));
         let _v4 = [];
@@ -14397,7 +14397,7 @@
         }), _v3 && _v4.push({
           ..._v3,
           fromLevel: _v0
-        }), _v1((0, _v166.updateElementAction)({
+        }), _v1((0, _v169.updateElementAction)({
           ceId: _v0.id,
           element: {
             muted: 0 === _v0,
@@ -14416,14 +14416,14 @@
         let _v1,
           _v2 = _v0.compositionTiming.end - _v0.compositionTiming.start,
           _v3 = (0, _v258.toNearestFrame)(_v0 / 0);
-        if (_v3 > _v2 || _v3 < 0) throw Error(_v158.WRONG_DURATION);
+        if (_v3 > _v2 || _v3 < 0) throw Error(_v161.WRONG_DURATION);
         let {
-            volumeEffect: _v4 = (0, _v672.getDefaultVolumeEffect)(_v0),
+            volumeEffect: _v4 = (0, _v669.getDefaultVolumeEffect)(_v0),
             fadeOutEffect: _v5 = null
-          } = _v0.effects ? (0, _v672.deconstructSoundEffects)(_v0) : {},
+          } = _v0.effects ? (0, _v669.deconstructSoundEffects)(_v0) : {},
           _v6 = [];
         _v3 > 0 && _v6.push({
-          type: _v685.SoundEffectType.fade,
+          type: _v682.SoundEffectType.fade,
           fromLevel: 0,
           level: _v4.level,
           startTime: 0,
@@ -14436,7 +14436,7 @@
           ..._v4,
           startTime: _v3,
           endTime: _v3 === _v1?.startTime ? _v3 : Math.min(_v2, Math.max(_v4.endTime, _v3))
-        }), _v1 && _v6.push(_v1), _v1((0, _v166.updateElementAction)({
+        }), _v1 && _v6.push(_v1), _v1((0, _v169.updateElementAction)({
           ceId: _v0.id,
           element: {
             effects: _v6
@@ -14447,11 +14447,11 @@
         let _v1,
           _v2 = _v0.compositionTiming.end - _v0.compositionTiming.start,
           _v3 = (0, _v258.toNearestFrame)(_v0 / 0);
-        if (_v3 > _v2 || _v3 < 0) throw Error(_v158.WRONG_DURATION);
+        if (_v3 > _v2 || _v3 < 0) throw Error(_v161.WRONG_DURATION);
         let {
             fadeInEffect: _v4 = null,
-            volumeEffect: _v5 = (0, _v672.getDefaultVolumeEffect)(_v0)
-          } = _v0.effects ? (0, _v672.deconstructSoundEffects)(_v0) : {},
+            volumeEffect: _v5 = (0, _v669.getDefaultVolumeEffect)(_v0)
+          } = _v0.effects ? (0, _v669.deconstructSoundEffects)(_v0) : {},
           _v6 = (0, _v258.toNearestFrame)(_v2 - _v3),
           _v7 = [];
         _v4 && _v6 > 0 && (_v1 = {
@@ -14463,12 +14463,12 @@
           startTime: _v6 === _v1?.endTime ? _v6 : Math.min(_v2, Math.min(_v5.startTime, _v6)),
           endTime: _v6
         }), _v3 > 0 && _v7.push({
-          type: _v685.SoundEffectType.fade,
+          type: _v682.SoundEffectType.fade,
           fromLevel: _v5.level,
           level: 0,
           startTime: _v6,
           endTime: _v2
-        }), _v1((0, _v166.updateElementAction)({
+        }), _v1((0, _v169.updateElementAction)({
           ceId: _v0.id,
           element: {
             effects: _v7
@@ -14478,9 +14478,9 @@
       muteVolume: _v6
     };
   };
-  var _v687 = _v0.i(0);
-  let _v688 = _v0 => `${Number(_v0).toFixed(1)}s`,
-    _v689 = (0, _v7.forwardRef)(({
+  var _v684 = _v0.i(0);
+  let _v685 = _v0 => `${Number(_v0).toFixed(1)}s`,
+    _v686 = (0, _v7.forwardRef)(({
       volume: _v0,
       fadeIn: _v1,
       fadeOut: _v2,
@@ -14491,16 +14491,16 @@
       onClick: _v7,
       icon: _v8,
       buttonDataTestId: _v9
-    }, _v10) => (0, _v6.jsx)(_v559, {
+    }, _v10) => (0, _v6.jsx)(_v556, {
       "data-testid": "popover-sound-controls",
       ref: _v10,
       p: "4px",
-      children: (0, _v6.jsxs)(_v80.VStack, {
+      children: (0, _v6.jsxs)(_v81.VStack, {
         spacing: 100,
-        children: [(0, _v6.jsxs)(_v80.VStack, {
+        children: [(0, _v6.jsxs)(_v81.VStack, {
           spacing: 50,
           align: "flex-start",
-          children: [(0, _v6.jsx)(_v392.Header, {
+          children: [(0, _v6.jsx)(_v93.Header, {
             size: "2xs",
             mb: 2,
             children: (0, _v62.translate)({
@@ -14523,18 +14523,18 @@
                 }
               }
             })
-          }), (0, _v6.jsxs)(_v193.HStack, {
+          }), (0, _v6.jsxs)(_v195.HStack, {
             spacing: 100,
-            children: [(0, _v6.jsx)(_v194.IconButton, {
+            children: [(0, _v6.jsx)(_v94.IconButton, {
               "aria-label": "audio volume",
               variant: "tertiary",
               size: "sm",
               icon: _v8,
               onClick: _v7,
               "data-testid": _v9
-            }), (0, _v6.jsx)(_v193.HStack, {
+            }), (0, _v6.jsx)(_v195.HStack, {
               spacing: 200,
-              children: (0, _v6.jsx)(_v585.NumericSliderInput, {
+              children: (0, _v6.jsx)(_v582.NumericSliderInput, {
                 min: 0,
                 max: _v0.maxValue,
                 step: 1,
@@ -14545,9 +14545,9 @@
               })
             })]
           })]
-        }), (0, _v6.jsx)(_v687.default, {}), (0, _v6.jsxs)(_v185.Box, {
+        }), (0, _v6.jsx)(_v684.default, {}), (0, _v6.jsxs)(_v188.Box, {
           width: "100%",
-          children: [(0, _v6.jsx)(_v392.Header, {
+          children: [(0, _v6.jsx)(_v93.Header, {
             size: "2xs",
             mb: 2,
             children: (0, _v62.translate)({
@@ -14576,10 +14576,10 @@
                 }
               }
             })
-          }), (0, _v6.jsx)(_v193.HStack, {
+          }), (0, _v6.jsx)(_v195.HStack, {
             spacing: "16px",
             justifyContent: "space-between",
-            children: (0, _v6.jsx)(_v585.NumericSliderInput, {
+            children: (0, _v6.jsx)(_v582.NumericSliderInput, {
               min: 0,
               max: _v1.maxValue / 0,
               numberInputMax: _v1.maxValue / 0,
@@ -14588,12 +14588,12 @@
               sliderDataTestId: "fadein-slider",
               sliderInputTestId: "fadein-slider-input",
               step: .1,
-              format: _v688
+              format: _v685
             })
           })]
-        }), (0, _v6.jsxs)(_v185.Box, {
+        }), (0, _v6.jsxs)(_v188.Box, {
           width: "100%",
-          children: [(0, _v6.jsx)(_v392.Header, {
+          children: [(0, _v6.jsx)(_v93.Header, {
             size: "2xs",
             mb: 2,
             children: (0, _v62.translate)({
@@ -14622,7 +14622,7 @@
                 }
               }
             })
-          }), (0, _v6.jsx)(_v585.NumericSliderInput, {
+          }), (0, _v6.jsx)(_v582.NumericSliderInput, {
             min: 0,
             max: _v2.maxValue / 0,
             numberInputMax: _v2.maxValue / 0,
@@ -14630,14 +14630,14 @@
             value: _v2.value / 0,
             sliderDataTestId: "fadeout-slider",
             sliderInputTestId: "fadeout-slider-input",
-            format: _v688,
+            format: _v685,
             step: .1
           })]
         })]
       })
     })),
-    _v690 = (0, _v7.memo)(_v689),
-    _v691 = _v0 => (0, _v6.jsx)(_v81.Icon, {
+    _v687 = (0, _v7.memo)(_v686),
+    _v688 = _v0 => (0, _v6.jsx)(_v82.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -14648,23 +14648,23 @@
         fill: "currentColor"
       })
     });
-  var _v692 = _v0.i(0);
-  let _v693 = "fontColor",
-    _v694 = "colorOne",
-    _v695 = "highlight",
-    _v696 = ({
+  var _v689 = _v0.i(0);
+  let _v690 = "fontColor",
+    _v691 = "colorOne",
+    _v692 = "highlight",
+    _v693 = ({
       validatedElements: _v0,
       title: _v1
     }) => {
-      let _v2 = (0, _v167.useAppDispatch)();
+      let _v2 = (0, _v170.useAppDispatch)();
       if (!_v0) return null;
       let _v3 = _v0[0],
         _v4 = _v0 => {
           _v0.forEach(_v0 => {
-            (0, _v574.sendTrackSelectTextAlignment)({
+            (0, _v571.sendTrackSelectTextAlignment)({
               alignmentBefore: _v3?.align,
               alignmentAfter: _v0
-            }), _v2((0, _v166.updateElementAction)({
+            }), _v2((0, _v169.updateElementAction)({
               ceId: _v0.id,
               element: {
                 align: _v0
@@ -14672,7 +14672,7 @@
             }));
           });
         };
-      return (0, _v6.jsx)(_v562, {
+      return (0, _v6.jsx)(_v559, {
         title: _v1,
         buttons: [{
           tooltipText: (0, _v62.translate)({
@@ -14701,9 +14701,9 @@
               }
             }
           }),
-          isSelected: _v3?.align === _v594.Alignment.LEFT,
-          icon: (0, _v6.jsx)(_v543.AlignLeft, {}),
-          onClick: () => _v4(_v594.Alignment.LEFT),
+          isSelected: _v3?.align === _v591.Alignment.LEFT,
+          icon: (0, _v6.jsx)(_v540.AlignLeft, {}),
+          onClick: () => _v4(_v591.Alignment.LEFT),
           testId: "align-left-button"
         }, {
           tooltipText: (0, _v62.translate)({
@@ -14732,9 +14732,9 @@
               }
             }
           }),
-          isSelected: _v3?.align === _v594.Alignment.CENTER,
-          icon: (0, _v6.jsx)(_v590.AlignCenter, {}),
-          onClick: () => _v4(_v594.Alignment.CENTER),
+          isSelected: _v3?.align === _v591.Alignment.CENTER,
+          icon: (0, _v6.jsx)(_v587.AlignCenter, {}),
+          onClick: () => _v4(_v591.Alignment.CENTER),
           testId: "align-center-button"
         }, {
           tooltipText: (0, _v62.translate)({
@@ -14763,57 +14763,57 @@
               }
             }
           }),
-          isSelected: _v3?.align === _v594.Alignment.RIGHT,
-          icon: (0, _v6.jsx)(_v591.AlignRight, {}),
-          onClick: () => _v4(_v594.Alignment.RIGHT),
+          isSelected: _v3?.align === _v591.Alignment.RIGHT,
+          icon: (0, _v6.jsx)(_v588.AlignRight, {}),
+          onClick: () => _v4(_v591.Alignment.RIGHT),
           testId: "align-right-button"
         }]
       });
     },
-    _v697 = ({
+    _v694 = ({
       validatedElements: _v0
     }) => {
       let _v1 = _v0[0],
-        _v2 = (0, _v167.useAppDispatch)();
-      return (0, _v6.jsx)(_v573, {
-        buttonId: _v508.ToolbarButtons.TEXT_DROP_SHADOW,
+        _v2 = (0, _v170.useAppDispatch)();
+      return (0, _v6.jsx)(_v570, {
+        buttonId: _v505.ToolbarButtons.TEXT_DROP_SHADOW,
         value: _v1.dropShadow,
         onChange: _v0 => {
           _v0.forEach(_v0 => {
-            _v2((0, _v166.updateElementAction)({
+            _v2((0, _v169.updateElementAction)({
               ceId: _v0.id,
               element: {
                 dropShadow: _v0
               }
-            })), (0, _v574.sendTrackSelectTextDropShadow)({
+            })), (0, _v571.sendTrackSelectTextDropShadow)({
               shadowBefore: _v1?.dropShadow,
               shadowAfter: _v0
             });
           });
         },
         testId: "drop-shadow-button-text-toolbar",
-        onClick: _v574.sendTrackSelectTextDropShadowOptions
+        onClick: _v571.sendTrackSelectTextDropShadowOptions
       });
     };
-  var _v698 = _v0.i(0);
-  let _v699 = ({
+  var _v695 = _v0.i(0);
+  let _v696 = ({
       ce: _v0,
       elementOverrides: _v1
     }) => {
-      let _v2 = (0, _v167.useAppDispatch)(),
-        _v3 = (0, _v167.useAppSelector)(_v166.orientationSelector),
+      let _v2 = (0, _v170.useAppDispatch)(),
+        _v3 = (0, _v170.useAppSelector)(_v169.orientationSelector),
         {
           createPartial: _v4
-        } = (0, _v698.useTextElement)(),
+        } = (0, _v695.useTextElement)(),
         _v5 = _v0?.fontSize || 0,
         _v6 = _v0 && _v1?.rect?.height,
         _v7 = _v0?.rect?.height,
-        _v8 = (0, _v7.useMemo)(() => Math.round((0, _v389.getActualFontSize)(_v5, _v3)), [_v3, _v5]),
+        _v8 = (0, _v7.useMemo)(() => Math.round((0, _v387.getActualFontSize)(_v5, _v3)), [_v3, _v5]),
         _v9 = (0, _v7.useMemo)(() => {
           if (_v6 && _v7) return Math.round(_v6 / _v7 * _v8);
         }, [_v6, _v7, _v8]),
         _v10 = (0, _v7.useCallback)((_v0, _v1) => {
-          if ((0, _v574.sendTrackChangeFontSize)({
+          if ((0, _v571.sendTrackChangeFontSize)({
             fontSizeAfter: _v0,
             fontSizeBefore: _v8,
             action: _v1
@@ -14822,31 +14822,31 @@
               textElement: _v0,
               fontSize: _v0
             });
-            _v0 && _v2((0, _v166.updateElementAction)({
+            _v0 && _v2((0, _v169.updateElementAction)({
               ceId: _v0.id,
               element: _v0
             }));
           }
         }, [_v4, _v2, _v0, _v8]);
-      return (0, _v6.jsx)(_v580, {
+      return (0, _v6.jsx)(_v577, {
         testId: "font-size-text-toolbar",
-        buttonId: _v508.ToolbarButtons.TEXT_FONT_SIZE,
+        buttonId: _v505.ToolbarButtons.TEXT_FONT_SIZE,
         value: _v8,
         valueOverride: _v9,
         onChange: _v10
       });
     },
-    _v700 = {
-      [_v437.ToolbarType.GRAPHICS]: ({
+    _v697 = {
+      [_v434.ToolbarType.GRAPHICS]: ({
         validatedElements: _v0
       }) => {
-        let _v1 = (0, _v167.useAppSelector)(_v509.selectedToolbarColorPickerSelector),
-          _v2 = (0, _v167.useAppSelector)(_v175.isInteractiveSelector),
-          _v3 = (0, _v167.useAppSelector)(_v509.selectedToolbarButtonSelector),
-          _v4 = (0, _v167.useAppSelector)(_v165.currentInspectorSelector),
+        let _v1 = (0, _v170.useAppSelector)(_v506.selectedToolbarColorPickerSelector),
+          _v2 = (0, _v170.useAppSelector)(_v178.isInteractiveSelector),
+          _v3 = (0, _v170.useAppSelector)(_v506.selectedToolbarButtonSelector),
+          _v4 = (0, _v170.useAppSelector)(_v168.currentInspectorSelector),
           {
             toggleInspector: _v5
-          } = (0, _v548.useInspector)(),
+          } = (0, _v545.useInspector)(),
           _v6 = _v0[0];
         return (0, _v6.jsxs)(_v6.Fragment, {
           children: [_v6.isEditable && (0, _v6.jsx)(_v211.Tooltip, {
@@ -14878,25 +14878,25 @@
             }),
             placement: "bottom",
             "data-testid": "tooltip",
-            isDisabled: _v3 === _v508.ToolbarButtons.GRAPHICS_COLOR || _v1 === _v615,
+            isDisabled: _v3 === _v505.ToolbarButtons.GRAPHICS_COLOR || _v1 === _v612,
             children: (0, _v6.jsx)("span", {
-              children: (0, _v6.jsx)(_v635, {
+              children: (0, _v6.jsx)(_v632, {
                 selectedCE: _v6
               })
             })
-          }), (0, _v6.jsx)(_v629, {
+          }), (0, _v6.jsx)(_v626, {
             validatedElements: _v0,
             testId: "rotate-button-graphic-toolbar"
+          }), (0, _v6.jsx)(_v619, {
+            validatedElements: _v0,
+            testId: _v183.testIds.flipButtonGraphicToolbar
           }), (0, _v6.jsx)(_v622, {
             validatedElements: _v0,
-            testId: _v180.testIds.flipButtonGraphicToolbar
-          }), (0, _v6.jsx)(_v625, {
-            validatedElements: _v0,
-            buttonId: _v508.ToolbarButtons.GRAPHICS_OPACITY,
+            buttonId: _v505.ToolbarButtons.GRAPHICS_OPACITY,
             testId: "opacity-button-graphic-toolbar"
-          }), _v2 ? (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.GRAPHICS_ANIMATIONS,
-            content: (0, _v6.jsx)(_v563, {
+          }), _v2 ? (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.GRAPHICS_ANIMATIONS,
+            content: (0, _v6.jsx)(_v560, {
               validatedElements: _v0,
               title: (0, _v62.translate)({
                 singular: "Animation",
@@ -14920,7 +14920,7 @@
               }),
               animationKeyName: "style"
             }),
-            icon: (0, _v6.jsx)(_v549, {}),
+            icon: (0, _v6.jsx)(_v546, {}),
             testId: "animation-button-graphic-toolbar",
             tooltipText: (0, _v62.translate)({
               singular: "Animation",
@@ -14943,7 +14943,7 @@
               }
             })
           }) : (0, _v6.jsx)(_v6.Fragment, {
-            children: (0, _v6.jsx)(_v194.IconButton, {
+            children: (0, _v6.jsx)(_v94.IconButton, {
               "aria-label": (0, _v62.translate)({
                 singular: "Animation",
                 dictionary: {
@@ -14966,32 +14966,32 @@
               }),
               variant: "tertiary",
               size: "sm",
-              icon: (0, _v6.jsx)(_v549, {}),
+              icon: (0, _v6.jsx)(_v546, {}),
               "data-testid": "animation-button-graphic-toolbar",
               onClick: () => {
-                (0, _v191.trackOpenAnimationsInspector)({
+                (0, _v193.trackOpenAnimationsInspector)({
                   type: "graphics"
-                }), _v5(_v168.InspectorType.MEDIA_ANIMATIONS);
+                }), _v5(_v171.InspectorType.MEDIA_ANIMATIONS);
               },
-              isActive: _v4 === _v168.InspectorType.MEDIA_ANIMATIONS
+              isActive: _v4 === _v171.InspectorType.MEDIA_ANIMATIONS
             })
-          }), (0, _v6.jsx)(_v510, {
+          }), (0, _v6.jsx)(_v507, {
             height: 24
-          }), (0, _v6.jsx)(_v627, {
+          }), (0, _v6.jsx)(_v624, {
             validatedElements: _v0
           })]
         });
       },
-      [_v437.ToolbarType.VIDEO]: ({
+      [_v434.ToolbarType.VIDEO]: ({
         validatedElements: _v0
       }) => {
-        let _v1 = (0, _v167.useAppDispatch)(),
-          _v2 = (0, _v167.useAppSelector)(_v0 => _v0.toolbar?.selectedToolbarButton),
-          _v3 = (0, _v167.useAppSelector)(_v175.isInteractiveSelector),
-          _v4 = (0, _v167.useAppSelector)(_v356.overridesWithoutRectSelector, _v431.shallowEqual),
-          _v5 = (0, _v167.useAppSelector)(_v165.currentInspectorSelector),
-          _v6 = (0, _v167.useAppSelector)(_v166.sourceMapSelector),
-          _v7 = (0, _v167.useAppSelector)(_v166.storyboardIdSelector),
+        let _v1 = (0, _v170.useAppDispatch)(),
+          _v2 = (0, _v170.useAppSelector)(_v0 => _v0.toolbar?.selectedToolbarButton),
+          _v3 = (0, _v170.useAppSelector)(_v178.isInteractiveSelector),
+          _v4 = (0, _v170.useAppSelector)(_v354.overridesWithoutRectSelector, _v428.shallowEqual),
+          _v5 = (0, _v170.useAppSelector)(_v168.currentInspectorSelector),
+          _v6 = (0, _v170.useAppSelector)(_v169.sourceMapSelector),
+          _v7 = (0, _v170.useAppSelector)(_v169.storyboardIdSelector),
           {
             trackEditorClipVolumeChanged: _v8
           } = (0, _v220.useEditorTracking)(),
@@ -15004,7 +15004,7 @@
         }, []);
         let {
             toggleInspector: _v13
-          } = (0, _v548.useInspector)(),
+          } = (0, _v545.useInspector)(),
           [_v14, _v15] = (0, _v7.useState)(!1),
           _v16 = (0, _v7.useRef)(null),
           _v17 = _v0.length > 1,
@@ -15013,9 +15013,9 @@
           _v20 = _v6[_v18.sourceHash],
           _v21 = _v20?.hasAudio,
           _v22 = _v18.muted,
-          _v23 = _v18.effects && (0, _v672.getVolumeEffect)(_v18.effects),
-          _v24 = _v19?.effects && (0, _v672.getVolumeEffect)(_v19.effects),
-          _v25 = 100 * (_v24 ?? _v23 ?? (0, _v672.getDefaultVolumeEffect)(_v18)).level,
+          _v23 = _v18.effects && (0, _v669.getVolumeEffect)(_v18.effects),
+          _v24 = _v19?.effects && (0, _v669.getVolumeEffect)(_v19.effects),
+          _v25 = 100 * (_v24 ?? _v23 ?? (0, _v669.getDefaultVolumeEffect)(_v18)).level,
           _v26 = _v24 && 100 * _v24.level,
           {
             volume: _v27,
@@ -15027,13 +15027,13 @@
             updateFadeIn: _v33,
             updateFadeOut: _v34,
             muteVolume: _v35
-          } = _v686(_v18),
-          _v36 = (0, _v7.useMemo)(() => _v22 || !_v21 ? (0, _v6.jsx)(_v683.VolumeOff, {}) : (0, _v6.jsx)(_v684.VolumeOn, {}), [_v22, _v21]),
+          } = _v683(_v18),
+          _v36 = (0, _v7.useMemo)(() => _v22 || !_v21 ? (0, _v6.jsx)(_v680.VolumeOff, {}) : (0, _v6.jsx)(_v681.VolumeOn, {}), [_v22, _v21]),
           _v37 = (0, _v7.useCallback)(_v0 => {
             _v31(_v0);
           }, [_v31]),
           _v38 = (0, _v7.useCallback)(_v0 => {
-            (0, _v574.sendTrackChangeAudioFadeIn)({
+            (0, _v571.sendTrackChangeAudioFadeIn)({
               fadeInBefore: (_v28 / 0).toFixed(1),
               fadeInAfter: (_v0 / 0).toFixed(1)
             }), clearTimeout(_v10.current), _v10.current = setTimeout(() => {
@@ -15044,7 +15044,7 @@
             }, 0), _v33(_v0);
           }, [_v28, _v7, _v33]),
           _v39 = (0, _v7.useCallback)(_v0 => {
-            (0, _v574.sendTrackChangeAudioFadeOut)({
+            (0, _v571.sendTrackChangeAudioFadeOut)({
               fadeOutBefore: (_v29 / 0).toFixed(1),
               fadeOutAfter: (_v0 / 0).toFixed(1)
             }), clearTimeout(_v11.current), _v11.current = setTimeout(() => {
@@ -15055,7 +15055,7 @@
             }, 0), _v34(_v0);
           }, [_v29, _v7, _v34]),
           _v40 = (0, _v7.useCallback)(_v0 => {
-            (0, _v574.sendTrackChangeAudioVolume)({
+            (0, _v571.sendTrackChangeAudioVolume)({
               volumeBefore: _v27,
               volumeAfter: _v0
             }), clearTimeout(_v9.current), _v9.current = setTimeout(() => {
@@ -15066,15 +15066,15 @@
             }, 0), _v32(_v0);
           }, [_v7, _v32, _v27]),
           _v41 = (0, _v7.useCallback)(() => {
-            _v14 || (0, _v574.sendTrackSelectMediaSoundOptions)(), _v15(!_v14);
+            _v14 || (0, _v571.sendTrackSelectMediaSoundOptions)(), _v15(!_v14);
           }, [_v14]),
           _v42 = (0, _v7.useCallback)(() => {
-            _v35(), _v1((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.VIDEO_VOLUME));
+            _v35(), _v1((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.VIDEO_VOLUME));
           }, [_v1, _v35]);
-        return (0, _v6.jsxs)(_v667, {
-          testId: _v180.testIds.videoToolbar,
-          children: [!_v17 && (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.VIDEO_VOLUME,
+        return (0, _v6.jsxs)(_v664, {
+          testId: _v183.testIds.videoToolbar,
+          children: [!_v17 && (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.VIDEO_VOLUME,
             testId: _v22 ? "unmute-button-video-toolbar" : "mute-button-video-toolbar",
             icon: _v36,
             onClick: _v41,
@@ -15131,7 +15131,7 @@
             }),
             isDisabled: !_v21,
             tooltipTestId: "tooltip",
-            content: _v18 && _v2 === _v508.ToolbarButtons.VIDEO_VOLUME ? (0, _v6.jsx)(_v690, {
+            content: _v18 && _v2 === _v505.ToolbarButtons.VIDEO_VOLUME ? (0, _v6.jsx)(_v687, {
               volume: {
                 value: _v26 ?? (_v22 ? 0 : _v25),
                 maxValue: 100
@@ -15150,10 +15150,10 @@
               onFadeOutChangeEnd: _v39,
               onClick: _v42,
               icon: _v36,
-              buttonDataTestId: _v22 || !_v21 ? _v180.testIds.button.toolbar.soundController.unmuteButton : _v180.testIds.button.toolbar.soundController.muteButton,
+              buttonDataTestId: _v22 || !_v21 ? _v183.testIds.button.toolbar.soundController.unmuteButton : _v183.testIds.button.toolbar.soundController.muteButton,
               ref: _v16
             }) : null
-          }), !_v17 && (0, _v6.jsx)(_v651, {}), (0, _v6.jsx)(_v656, {}), !_v3 && !_v17 && (0, _v6.jsx)(_v211.Tooltip, {
+          }), !_v17 && (0, _v6.jsx)(_v648, {}), (0, _v6.jsx)(_v653, {}), !_v3 && !_v17 && (0, _v6.jsx)(_v211.Tooltip, {
             label: (0, _v62.translate)({
               singular: "Animation",
               dictionary: {
@@ -15174,7 +15174,7 @@
                 }
               }
             }),
-            children: (0, _v6.jsx)(_v194.IconButton, {
+            children: (0, _v6.jsx)(_v94.IconButton, {
               "aria-label": (0, _v62.translate)({
                 singular: "Animation",
                 dictionary: {
@@ -15197,76 +15197,76 @@
               }),
               variant: "tertiary",
               size: "sm",
-              icon: (0, _v6.jsx)(_v549, {}),
+              icon: (0, _v6.jsx)(_v546, {}),
               "data-testid": "animation-button-video-toolbar",
               onClick: () => {
-                (0, _v191.trackOpenAnimationsInspector)({
+                (0, _v193.trackOpenAnimationsInspector)({
                   type: "media"
-                }), _v13(_v168.InspectorType.MEDIA_ANIMATIONS);
+                }), _v13(_v171.InspectorType.MEDIA_ANIMATIONS);
               },
-              isActive: _v5 === _v168.InspectorType.MEDIA_ANIMATIONS
+              isActive: _v5 === _v171.InspectorType.MEDIA_ANIMATIONS
             })
           }), !_v17 && (0, _v6.jsxs)(_v6.Fragment, {
-            children: [(0, _v6.jsx)(_v510, {
+            children: [(0, _v6.jsx)(_v507, {
               height: 24
-            }), (0, _v6.jsx)(_v627, {
+            }), (0, _v6.jsx)(_v624, {
               validatedElements: _v0
             })]
           })]
         });
       },
-      [_v437.ToolbarType.REPLACE]: ({
+      [_v434.ToolbarType.REPLACE]: ({
         validatedElements: _v0
       }) => {
-        let _v1 = (0, _v167.useAppSelector)(_v260.pausedSelector),
+        let _v1 = (0, _v170.useAppSelector)(_v260.pausedSelector),
           {
             exitReplaceMode: _v2
-          } = (0, _v498.useReplaceElement)(),
+          } = (0, _v495.useReplaceElement)(),
           _v3 = _v0[0],
           _v4 = (0, _v7.useCallback)(() => {
             _v2(_v3);
           }, [_v2, _v3]);
         return (0, _v7.useEffect)(() => {
           let _v0 = _v0 => {
-            (_v0.key === _v519.KEYBOARD_KEYS.ESC || _v0.key === _v519.KEYBOARD_KEYS.ENTER) && (_v4(), _v0.stopPropagation());
+            (_v0.key === _v516.KEYBOARD_KEYS.ESC || _v0.key === _v516.KEYBOARD_KEYS.ENTER) && (_v4(), _v0.stopPropagation());
           };
           return document.addEventListener("keydown", _v0), () => document.removeEventListener("keydown", _v0);
         }, [_v4]), (0, _v7.useEffect)(() => {
           _v1 || _v4();
-        }, [_v1, _v4]), (0, _v6.jsxs)(_v682, {
-          "data-testid": _v180.testIds.replaceToolbar,
-          children: [(0, _v6.jsx)(_v392.Header, {
+        }, [_v1, _v4]), (0, _v6.jsxs)(_v679, {
+          "data-testid": _v183.testIds.replaceToolbar,
+          children: [(0, _v6.jsx)(_v93.Header, {
             size: "xs",
             padding: [0, 2],
-            children: _v315.translations.replace
-          }), (0, _v6.jsx)(_v194.IconButton, {
+            children: _v314.translations.replace
+          }), (0, _v6.jsx)(_v94.IconButton, {
             size: "sm",
             variant: "primary",
-            "aria-label": _v180.testIds.confirmReplaceButton,
-            icon: (0, _v6.jsx)(_v610.Checkmark, {}),
+            "aria-label": _v183.testIds.confirmReplaceButton,
+            icon: (0, _v6.jsx)(_v607.Checkmark, {}),
             onClick: _v4,
-            "data-testid": _v180.testIds.confirmReplaceButton
+            "data-testid": _v183.testIds.confirmReplaceButton
           })]
         });
       },
-      [_v437.ToolbarType.IMAGE]: ({
+      [_v434.ToolbarType.IMAGE]: ({
         validatedElements: _v0
       }) => {
-        let _v1 = (0, _v167.useAppSelector)(_v175.isInteractiveSelector),
-          _v2 = (0, _v167.useAppSelector)(_v166.orientationSelector),
-          _v3 = (0, _v167.useAppSelector)(_v165.currentInspectorSelector),
-          _v4 = (0, _v167.useAppSelector)(_v382.selectedElementsSelector),
+        let _v1 = (0, _v170.useAppSelector)(_v178.isInteractiveSelector),
+          _v2 = (0, _v170.useAppSelector)(_v169.orientationSelector),
+          _v3 = (0, _v170.useAppSelector)(_v168.currentInspectorSelector),
+          _v4 = (0, _v170.useAppSelector)(_v380.selectedElementsSelector),
           {
             toggleInspector: _v5
-          } = (0, _v548.useInspector)();
-        return _v4.length > 1 && _v4.every(_v0 => _v0.type === _v432.CompositionElementType.IMAGE || _v0.type === _v432.CompositionElementType.VIDEO) ? (0, _v6.jsx)(_v667, {
-          testId: _v180.testIds.imageToolbar,
-          children: (0, _v6.jsx)(_v656, {})
-        }) : (0, _v6.jsxs)(_v667, {
-          testId: _v180.testIds.imageToolbar,
-          children: [_v1 && (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.IMAGE_MOTION_EFFECT,
-            content: (0, _v6.jsx)(_v675, {
+          } = (0, _v545.useInspector)();
+        return _v4.length > 1 && _v4.every(_v0 => _v0.type === _v429.CompositionElementType.IMAGE || _v0.type === _v429.CompositionElementType.VIDEO) ? (0, _v6.jsx)(_v664, {
+          testId: _v183.testIds.imageToolbar,
+          children: (0, _v6.jsx)(_v653, {})
+        }) : (0, _v6.jsxs)(_v664, {
+          testId: _v183.testIds.imageToolbar,
+          children: [_v1 && (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.IMAGE_MOTION_EFFECT,
+            content: (0, _v6.jsx)(_v672, {
               validatedElements: _v0,
               title: (0, _v62.translate)({
                 singular: "Motion effect",
@@ -15295,7 +15295,7 @@
                 }
               })
             }),
-            icon: (0, _v6.jsx)(_v549, {}),
+            icon: (0, _v6.jsx)(_v546, {}),
             testId: "motion-effect-button-image-toolbar",
             tooltipText: (0, _v62.translate)({
               singular: "Motion effect",
@@ -15324,18 +15324,18 @@
               }
             }),
             onClick: () => {
-              (0, _v574.sendTrackSelectMotionEffectOptions)({
+              (0, _v571.sendTrackSelectMotionEffectOptions)({
                 orientation: _v2,
                 elementType: _v0[0].type
               });
             }
-          }), (0, _v6.jsx)(_v651, {}), (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.BREATH_ANIMATION,
-            content: (0, _v6.jsx)(_v670, {
+          }), (0, _v6.jsx)(_v648, {}), (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.BREATH_ANIMATION,
+            content: (0, _v6.jsx)(_v667, {
               validatedElements: _v0
             }),
-            icon: (0, _v6.jsx)(_v666.MagicWand, {}),
-            testId: _v180.testIds.breathAnimation.menu,
+            icon: (0, _v6.jsx)(_v663.MagicWand, {}),
+            testId: _v183.testIds.breathAnimation.menu,
             tooltipText: (0, _v62.translate)({
               singular: "Effects",
               dictionary: {
@@ -15362,7 +15362,7 @@
                 }
               }
             })
-          }), (0, _v6.jsx)(_v656, {}), (0, _v6.jsx)(_v211.Tooltip, {
+          }), (0, _v6.jsx)(_v653, {}), (0, _v6.jsx)(_v211.Tooltip, {
             label: (0, _v62.translate)({
               singular: "Animation",
               dictionary: {
@@ -15383,7 +15383,7 @@
                 }
               }
             }),
-            children: (0, _v6.jsx)(_v194.IconButton, {
+            children: (0, _v6.jsx)(_v94.IconButton, {
               "aria-label": (0, _v62.translate)({
                 singular: "Animation",
                 dictionary: {
@@ -15406,33 +15406,33 @@
               }),
               variant: "tertiary",
               size: "sm",
-              icon: (0, _v6.jsx)(_v549, {}),
-              "data-testid": _v180.testIds.animation.imageToolbarButton,
+              icon: (0, _v6.jsx)(_v546, {}),
+              "data-testid": _v183.testIds.animation.imageToolbarButton,
               onClick: () => {
-                (0, _v191.trackOpenAnimationsInspector)({
+                (0, _v193.trackOpenAnimationsInspector)({
                   type: "media"
-                }), _v5(_v168.InspectorType.MEDIA_ANIMATIONS);
+                }), _v5(_v171.InspectorType.MEDIA_ANIMATIONS);
               },
-              isActive: _v3 === _v168.InspectorType.MEDIA_ANIMATIONS
+              isActive: _v3 === _v171.InspectorType.MEDIA_ANIMATIONS
             })
-          }), (0, _v6.jsx)(_v510, {
+          }), (0, _v6.jsx)(_v507, {
             height: 24
-          }), (0, _v6.jsx)(_v627, {
+          }), (0, _v6.jsx)(_v624, {
             validatedElements: _v0
           })]
         });
       },
-      [_v437.ToolbarType.IMAGE_HOTSPOT]: ({
+      [_v434.ToolbarType.IMAGE_HOTSPOT]: ({
         validatedElements: _v0
       }) => {
-        let _v1 = (0, _v167.useAppSelector)(_v0 => !!_v0.featureFlags.hotspotColors?.value),
+        let _v1 = (0, _v170.useAppSelector)(_v0 => !!_v0.featureFlags.hotspotColors?.value),
           _v2 = _v0[0],
-          _v3 = _v2?.interactiveHotspot?.action?.type !== _v547.HotspotActionType.NONE;
+          _v3 = _v2?.interactiveHotspot?.action?.type !== _v544.HotspotActionType.NONE;
         return (0, _v6.jsxs)(_v6.Fragment, {
-          children: [(0, _v6.jsx)(_v589, {
-            icon: (0, _v6.jsx)(_v546.SettingsGear, {}),
-            inspectorId: _v168.InspectorType.HOTSPOTS_SETTINGS,
-            testId: _v180.testIds.hotspots.toolbar.hotspotSettingsButton,
+          children: [(0, _v6.jsx)(_v586, {
+            icon: (0, _v6.jsx)(_v543.SettingsGear, {}),
+            inspectorId: _v171.InspectorType.HOTSPOTS_SETTINGS,
+            testId: _v183.testIds.hotspots.toolbar.hotspotSettingsButton,
             tooltipText: (0, _v62.translate)({
               singular: "Settings",
               dictionary: {
@@ -15459,23 +15459,23 @@
                 }
               }
             })
-          }), (0, _v6.jsx)(_v510, {
+          }), (0, _v6.jsx)(_v507, {
             height: 24
-          }), (0, _v6.jsx)(_v656, {}), _v1 && (0, _v6.jsx)(_v665, {
+          }), (0, _v6.jsx)(_v653, {}), _v1 && (0, _v6.jsx)(_v662, {
             validatedElements: _v0
+          }), (0, _v6.jsx)(_v619, {
+            validatedElements: _v0,
+            testId: _v183.testIds.hotspots.toolbar.flipButton
+          }), (0, _v6.jsx)(_v626, {
+            validatedElements: _v0,
+            testId: _v183.testIds.hotspots.toolbar.rotateButton
           }), (0, _v6.jsx)(_v622, {
             validatedElements: _v0,
-            testId: _v180.testIds.hotspots.toolbar.flipButton
-          }), (0, _v6.jsx)(_v629, {
-            validatedElements: _v0,
-            testId: _v180.testIds.hotspots.toolbar.rotateButton
-          }), (0, _v6.jsx)(_v625, {
-            validatedElements: _v0,
-            buttonId: _v508.ToolbarButtons.HOTSPOT_OPACITY,
+            buttonId: _v505.ToolbarButtons.HOTSPOT_OPACITY,
             testId: "opacity-button-hotspot-toolbar"
-          }), (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.HOTSPOT_ANIMATION,
-            content: (0, _v6.jsx)(_v563, {
+          }), (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.HOTSPOT_ANIMATION,
+            content: (0, _v6.jsx)(_v560, {
               validatedElements: _v0,
               title: (0, _v62.translate)({
                 singular: "Animation",
@@ -15499,7 +15499,7 @@
               }),
               animationKeyName: "animationName"
             }),
-            icon: (0, _v6.jsx)(_v549, {}),
+            icon: (0, _v6.jsx)(_v546, {}),
             testId: "animation-button-hotspot-toolbar",
             tooltipText: (0, _v62.translate)({
               singular: "Animation",
@@ -15521,20 +15521,20 @@
                 }
               }
             })
-          }), _v3 && (0, _v6.jsx)(_v588, {
+          }), _v3 && (0, _v6.jsx)(_v585, {
             validatedElements: _v0,
             opacityPropertyPath: "interactiveHotspot.hover.bgAlpha",
             zoomPropertyPath: "interactiveHotspot.hover.zoom",
             opacityOverriddenPropertyPath: "bgAlpha",
             sourceHashPropertyPath: "interactiveHotspot.hover.sourceHash",
             sourceHashOverriddenPropertyPath: "sourceHash"
-          }), (0, _v6.jsx)(_v651, {}), (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.HOTSPOT_MORE,
-            content: (0, _v6.jsx)(_v663, {
+          }), (0, _v6.jsx)(_v648, {}), (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.HOTSPOT_MORE,
+            content: (0, _v6.jsx)(_v660, {
               validatedElements: _v0
             }),
-            icon: (0, _v6.jsx)(_v649.EllipsisV, {}),
-            testId: _v180.testIds.hotspots.toolbar.moreButton,
+            icon: (0, _v6.jsx)(_v646.EllipsisV, {}),
+            testId: _v183.testIds.hotspots.toolbar.moreButton,
             tooltipText: (0, _v62.translate)({
               singular: "More",
               dictionary: {
@@ -15561,32 +15561,32 @@
                 }
               }
             })
-          }), (0, _v6.jsx)(_v510, {
+          }), (0, _v6.jsx)(_v507, {
             height: 24
-          }), (0, _v6.jsx)(_v627, {
+          }), (0, _v6.jsx)(_v624, {
             validatedElements: _v0
           })]
         });
       },
-      [_v437.ToolbarType.BUTTON]: ({
+      [_v434.ToolbarType.BUTTON]: ({
         validatedElements: _v0,
         showPresets: _v1 = !1
       }) => {
-        let _v2 = (0, _v167.useAppDispatch)(),
-          _v3 = (0, _v167.useAppSelector)(_v509.selectedToolbarButtonSelector),
-          _v4 = (0, _v167.useAppSelector)(_v356.overridesWithoutRectAndTimingSelector, _v431.shallowEqual),
+        let _v2 = (0, _v170.useAppDispatch)(),
+          _v3 = (0, _v170.useAppSelector)(_v506.selectedToolbarButtonSelector),
+          _v4 = (0, _v170.useAppSelector)(_v354.overridesWithoutRectAndTimingSelector, _v428.shallowEqual),
           _v5 = _v0[0],
           _v6 = _v5?.textContent?.length > 0,
           _v7 = _v4[_v5.id],
           _v8 = _v7?.bgAlpha ?? _v5.bgAlpha ?? 100,
           _v9 = _v7?.backgroundColor ?? _v5.backgroundColor,
           _v10 = _v7?.textColor ?? _v5.textColor,
-          _v11 = _v5?.interactiveHotspot?.action?.type !== _v547.HotspotActionType.NONE,
+          _v11 = _v5?.interactiveHotspot?.action?.type !== _v544.HotspotActionType.NONE,
           {
             toggleInspector: _v12
-          } = (0, _v548.useInspector)(),
+          } = (0, _v545.useInspector)(),
           _v13 = (0, _v7.useCallback)(_v0 => {
-            _v2((0, _v166.updateElementAction)({
+            _v2((0, _v169.updateElementAction)({
               ceId: _v5.id,
               element: {
                 fontSize: _v0
@@ -15594,7 +15594,7 @@
             }));
           }, [_v2, _v5.id]),
           _v14 = (0, _v7.useCallback)(_v0 => {
-            _v2((0, _v166.updateElementAction)({
+            _v2((0, _v169.updateElementAction)({
               ceId: _v5.id,
               element: {
                 borderRadius: _v0
@@ -15602,18 +15602,18 @@
             }));
           }, [_v2, _v5.id]),
           _v15 = (0, _v7.useCallback)((_v0, _v1, _v2) => {
-            _v2((0, _v166.updateElementAction)({
+            _v2((0, _v169.updateElementAction)({
               ceId: _v0,
               element: {
                 [_v1]: _v2
               }
-            })), _v2((0, _v356.removeOverrideAction)({
+            })), _v2((0, _v354.removeOverrideAction)({
               ceId: _v0,
               key: _v1
             }));
           }, [_v2]),
           _v16 = (0, _v7.useCallback)((_v0, _v1, _v2) => {
-            _v2((0, _v356.addOverrideAction)({
+            _v2((0, _v354.addOverrideAction)({
               ceId: _v0,
               overrides: {
                 [_v1]: _v2
@@ -15621,10 +15621,10 @@
             }));
           }, [_v2]);
         return (0, _v6.jsxs)(_v6.Fragment, {
-          children: [(0, _v6.jsx)(_v589, {
-            icon: (0, _v6.jsx)(_v546.SettingsGear, {}),
-            inspectorId: _v168.InspectorType.HOTSPOTS_SETTINGS,
-            testId: _v180.testIds.hotspots.toolbar.hotspotSettingsButton,
+          children: [(0, _v6.jsx)(_v586, {
+            icon: (0, _v6.jsx)(_v543.SettingsGear, {}),
+            inspectorId: _v171.InspectorType.HOTSPOTS_SETTINGS,
+            testId: _v183.testIds.hotspots.toolbar.hotspotSettingsButton,
             tooltipText: (0, _v62.translate)({
               singular: "Settings",
               dictionary: {
@@ -15651,16 +15651,16 @@
                 }
               }
             })
-          }), (0, _v6.jsx)(_v510, {
+          }), (0, _v6.jsx)(_v507, {
             height: 24
           }), _v6 && (0, _v6.jsxs)(_v6.Fragment, {
-            children: [(0, _v6.jsx)(_v576, {
+            children: [(0, _v6.jsx)(_v573, {
               selectedFont: _v5.font,
-              inspectorType: _v168.InspectorType.BUTTON_FONT_EDIT,
-              handleClick: () => _v12(_v168.InspectorType.BUTTON_FONT_EDIT)
-            }), (0, _v6.jsx)(_v580, {
-              buttonId: _v508.ToolbarButtons.BUTTON_FONT_SIZE,
-              testId: _v180.testIds.button.toolbar.fontSizeButton,
+              inspectorType: _v171.InspectorType.BUTTON_FONT_EDIT,
+              handleClick: () => _v12(_v171.InspectorType.BUTTON_FONT_EDIT)
+            }), (0, _v6.jsx)(_v577, {
+              buttonId: _v505.ToolbarButtons.BUTTON_FONT_SIZE,
+              testId: _v183.testIds.button.toolbar.fontSizeButton,
               value: _v5.fontSize,
               onChange: _v13
             }), (0, _v6.jsx)(_v211.Tooltip, {
@@ -15691,10 +15691,10 @@
                 }
               }),
               placement: "bottom",
-              isDisabled: _v3 === _v508.ToolbarButtons.TEXT_COLOR,
+              isDisabled: _v3 === _v505.ToolbarButtons.TEXT_COLOR,
               children: (0, _v6.jsx)("span", {
-                children: (0, _v6.jsx)(_v522, {
-                  icon: (0, _v6.jsx)(_v544, {}),
+                children: (0, _v6.jsx)(_v519, {
+                  icon: (0, _v6.jsx)(_v541, {}),
                   value: _v10,
                   title: (0, _v62.translate)({
                     singular: "Text color",
@@ -15724,12 +15724,12 @@
                   }),
                   iconColor: _v10,
                   onOpen: () => {
-                    _v2((0, _v509.selectToolbarButtonAction)(_v508.ToolbarButtons.TEXT_COLOR));
+                    _v2((0, _v506.selectToolbarButtonAction)(_v505.ToolbarButtons.TEXT_COLOR));
                   },
-                  onClose: () => _v2((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.TEXT_COLOR)),
+                  onClose: () => _v2((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.TEXT_COLOR)),
                   onChange: _v0 => _v16(_v5.id, "textColor", _v0),
                   onChangeEnd: _v0 => _v15(_v5.id, "textColor", _v0),
-                  isActive: _v3 === _v508.ToolbarButtons.TEXT_COLOR,
+                  isActive: _v3 === _v505.ToolbarButtons.TEXT_COLOR,
                   testid: "button-text"
                 }, _v5.id)
               })
@@ -15762,10 +15762,10 @@
               }
             }),
             placement: "bottom",
-            isDisabled: _v3 === _v508.ToolbarButtons.TEXT_FILL_COLOR,
+            isDisabled: _v3 === _v505.ToolbarButtons.TEXT_FILL_COLOR,
             children: (0, _v6.jsx)("span", {
-              children: (0, _v6.jsx)(_v522, {
-                icon: (0, _v6.jsx)(_v507.FillPaintBucket, {}),
+              children: (0, _v6.jsx)(_v519, {
+                icon: (0, _v6.jsx)(_v504.FillPaintBucket, {}),
                 title: (0, _v62.translate)({
                   singular: "Background color",
                   dictionary: {
@@ -15792,25 +15792,25 @@
                     }
                   }
                 }),
-                value: _v9 + (0, _v521.opacityPercentageToHex)(_v8),
+                value: _v9 + (0, _v518.opacityPercentageToHex)(_v8),
                 iconColor: _v9,
                 onOpen: () => {
-                  _v2((0, _v509.selectToolbarButtonAction)(_v508.ToolbarButtons.TEXT_FILL_COLOR));
+                  _v2((0, _v506.selectToolbarButtonAction)(_v505.ToolbarButtons.TEXT_FILL_COLOR));
                 },
-                onClose: () => _v2((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.TEXT_FILL_COLOR)),
+                onClose: () => _v2((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.TEXT_FILL_COLOR)),
                 onChange: _v0 => _v16(_v5.id, "backgroundColor", _v0),
                 onChangeEnd: _v0 => _v15(_v5.id, "backgroundColor", _v0),
                 allowOpacity: !0,
                 bgAlpha: _v8,
                 onOpacityChange: _v0 => _v16(_v5.id, "bgAlpha", _v0),
                 onOpacityChangeEnd: _v0 => _v15(_v5.id, "bgAlpha", _v0),
-                isActive: _v3 === _v508.ToolbarButtons.TEXT_FILL_COLOR,
+                isActive: _v3 === _v505.ToolbarButtons.TEXT_FILL_COLOR,
                 testid: "button-background"
               }, _v5.id)
             })
-          }), _v6 && (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.BUTTON_ALIGNMENT,
-            content: (0, _v6.jsx)(_v596, {
+          }), _v6 && (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.BUTTON_ALIGNMENT,
+            content: (0, _v6.jsx)(_v593, {
               ce: _v5,
               title: (0, _v62.translate)({
                 singular: "Alignment",
@@ -15839,8 +15839,8 @@
                 }
               })
             }),
-            icon: (0, _v6.jsx)(_v543.AlignLeft, {}),
-            testId: _v180.testIds.button.toolbar.alignmentButton,
+            icon: (0, _v6.jsx)(_v540.AlignLeft, {}),
+            testId: _v183.testIds.button.toolbar.alignmentButton,
             tooltipText: (0, _v62.translate)({
               singular: "Alignment",
               dictionary: {
@@ -15868,30 +15868,30 @@
               }
             }),
             closeOnBlur: !1
-          }), (0, _v6.jsx)(_v609, {
-            testId: _v180.testIds.button.toolbar.borderRadiusButton,
-            buttonId: _v508.ToolbarButtons.BUTTON_BORDER_RADIUS,
+          }), (0, _v6.jsx)(_v606, {
+            testId: _v183.testIds.button.toolbar.borderRadiusButton,
+            buttonId: _v505.ToolbarButtons.BUTTON_BORDER_RADIUS,
             value: _v5.borderRadius,
             onChange: _v14,
             showPresets: _v1
-          }), (0, _v6.jsx)(_v603, {
-            testId: _v180.testIds.button.toolbar.borderButton,
-            buttonId: _v508.ToolbarButtons.BUTTON_BORDER,
+          }), (0, _v6.jsx)(_v600, {
+            testId: _v183.testIds.button.toolbar.borderButton,
+            buttonId: _v505.ToolbarButtons.BUTTON_BORDER,
             ce: _v5,
             showPresets: _v1
-          }), (0, _v6.jsx)(_v573, {
-            buttonId: _v508.ToolbarButtons.BUTTON_DROP_SHADOW,
-            testId: _v180.testIds.button.toolbar.dropShadowButton,
+          }), (0, _v6.jsx)(_v570, {
+            buttonId: _v505.ToolbarButtons.BUTTON_DROP_SHADOW,
+            testId: _v183.testIds.button.toolbar.dropShadowButton,
             value: _v5.dropShadow,
-            onChange: _v0 => _v2((0, _v166.updateElementAction)({
+            onChange: _v0 => _v2((0, _v169.updateElementAction)({
               ceId: _v5.id,
               element: {
                 dropShadow: _v0
               }
             }))
-          }), (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.BUTTON_ANIMATION,
-            content: (0, _v6.jsx)(_v563, {
+          }), (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.BUTTON_ANIMATION,
+            content: (0, _v6.jsx)(_v560, {
               validatedElements: _v0,
               title: (0, _v62.translate)({
                 singular: "Animation",
@@ -15915,8 +15915,8 @@
               }),
               animationKeyName: "animationName"
             }),
-            icon: (0, _v6.jsx)(_v549, {}),
-            testId: _v180.testIds.button.toolbar.animationButton,
+            icon: (0, _v6.jsx)(_v546, {}),
+            testId: _v183.testIds.button.toolbar.animationButton,
             tooltipText: (0, _v62.translate)({
               singular: "Animation",
               dictionary: {
@@ -15937,18 +15937,18 @@
                 }
               }
             })
-          }), _v11 && (0, _v6.jsx)(_v588, {
+          }), _v11 && (0, _v6.jsx)(_v585, {
             validatedElements: _v0,
             opacityPropertyPath: "interactiveHotspot.hover.opacity",
             zoomPropertyPath: "interactiveHotspot.hover.zoom",
             opacityOverriddenPropertyPath: "opacity",
             zoomOverriddenPropertyPath: "zoom"
-          }), (0, _v6.jsx)(_v510, {
+          }), (0, _v6.jsx)(_v507, {
             height: 24
-          }), (0, _v6.jsx)(_v589, {
-            inspectorId: _v168.InspectorType.BUTTON_TEXT_EDIT,
-            icon: (0, _v6.jsx)(_v545.EditPencil, {}),
-            testId: _v180.testIds.button.toolbar.textButton,
+          }), (0, _v6.jsx)(_v586, {
+            inspectorId: _v171.InspectorType.BUTTON_TEXT_EDIT,
+            icon: (0, _v6.jsx)(_v542.EditPencil, {}),
+            testId: _v183.testIds.button.toolbar.textButton,
             tooltipText: (0, _v62.translate)({
               singular: "Edit text",
               dictionary: {
@@ -15978,20 +15978,20 @@
           })]
         });
       },
-      [_v437.ToolbarType.CANVAS]: _v541,
-      [_v437.ToolbarType.TEXT]: ({
+      [_v434.ToolbarType.CANVAS]: _v538,
+      [_v434.ToolbarType.TEXT]: ({
         validatedElements: _v0
       }) => {
-        let _v1 = (0, _v167.useAppDispatch)(),
-          _v2 = (0, _v167.useAppSelector)(_v165.currentInspectorSelector),
+        let _v1 = (0, _v170.useAppDispatch)(),
+          _v2 = (0, _v170.useAppSelector)(_v168.currentInspectorSelector),
           {
             toggleInspector: _v3
-          } = (0, _v548.useInspector)(),
-          _v4 = (0, _v167.useAppSelector)(_v356.overridesWithoutRectAndTimingSelector, _v431.shallowEqual),
-          _v5 = (0, _v167.useAppSelector)(_v509.selectedToolbarButtonSelector),
+          } = (0, _v545.useInspector)(),
+          _v4 = (0, _v170.useAppSelector)(_v354.overridesWithoutRectAndTimingSelector, _v428.shallowEqual),
+          _v5 = (0, _v170.useAppSelector)(_v506.selectedToolbarButtonSelector),
           {
             saveUserBgAlphaSelection: _v6
-          } = (0, _v692.useStoryboardMetadata)(),
+          } = (0, _v689.useStoryboardMetadata)(),
           _v7 = _v0[0],
           _v8 = _v4[_v7.id],
           {
@@ -16004,7 +16004,7 @@
           },
           _v12 = _v8?.bgAlpha || _v7.bgAlpha,
           _v13 = (0, _v7.useCallback)((_v0, _v1) => {
-            _v7.colors[_v1] !== _v0 && _v1((0, _v356.addOverrideAction)({
+            _v7.colors[_v1] !== _v0 && _v1((0, _v354.addOverrideAction)({
               ceId: _v7.id,
               overrides: {
                 colors: {
@@ -16014,10 +16014,10 @@
             }));
           }, [_v1, _v7.colors, _v7.id]),
           _v14 = (0, _v7.useCallback)((_v0, _v1) => {
-            _v1((0, _v356.removeOverrideAction)({
+            _v1((0, _v354.removeOverrideAction)({
               ceId: _v7.id,
               key: "colors"
-            })), _v7.colors[_v1] !== _v0 && _v1((0, _v166.updateElementAction)({
+            })), _v7.colors[_v1] !== _v0 && _v1((0, _v169.updateElementAction)({
               ceId: _v7.id,
               element: {
                 colors: {
@@ -16027,7 +16027,7 @@
             }));
           }, [_v1, _v7.colors, _v7.id]),
           _v15 = (0, _v7.useCallback)(_v0 => {
-            _v7.bgAlpha !== _v0 && _v1((0, _v356.addOverrideAction)({
+            _v7.bgAlpha !== _v0 && _v1((0, _v354.addOverrideAction)({
               ceId: _v7.id,
               overrides: {
                 bgAlpha: _v0
@@ -16035,38 +16035,38 @@
             }));
           }, [_v1, _v7]),
           _v16 = (0, _v7.useCallback)(_v0 => {
-            _v1((0, _v356.removeOverrideAction)({
+            _v1((0, _v354.removeOverrideAction)({
               ceId: _v7.id,
               key: "bgAlpha"
-            })), _v7.bgAlpha !== _v0 && (_v6(_v7.id), _v1((0, _v166.updateElementAction)({
+            })), _v7.bgAlpha !== _v0 && (_v6(_v7.id), _v1((0, _v169.updateElementAction)({
               ceId: _v7.id,
               element: {
                 bgAlpha: _v0
               }
             })));
           }, [_v1, _v7.bgAlpha, _v7.id, _v6]),
-          _v17 = (0, _v7.useCallback)(_v0 => _v13(_v0, _v693), [_v13]),
-          _v18 = (0, _v7.useCallback)(_v0 => _v13(_v0, _v694), [_v13]),
-          _v19 = (0, _v7.useCallback)(_v0 => _v13(_v0, _v695), [_v13]),
+          _v17 = (0, _v7.useCallback)(_v0 => _v13(_v0, _v690), [_v13]),
+          _v18 = (0, _v7.useCallback)(_v0 => _v13(_v0, _v691), [_v13]),
+          _v19 = (0, _v7.useCallback)(_v0 => _v13(_v0, _v692), [_v13]),
           _v20 = (0, _v7.useMemo)(() => {
             switch (_v7.align) {
-              case _v594.Alignment.CENTER:
-                return (0, _v6.jsx)(_v590.AlignCenter, {});
-              case _v594.Alignment.LEFT:
-                return (0, _v6.jsx)(_v543.AlignLeft, {});
-              case _v594.Alignment.RIGHT:
-                return (0, _v6.jsx)(_v591.AlignRight, {});
+              case _v591.Alignment.CENTER:
+                return (0, _v6.jsx)(_v587.AlignCenter, {});
+              case _v591.Alignment.LEFT:
+                return (0, _v6.jsx)(_v540.AlignLeft, {});
+              case _v591.Alignment.RIGHT:
+                return (0, _v6.jsx)(_v588.AlignRight, {});
             }
           }, [_v7.align]);
         return (0, _v6.jsxs)(_v6.Fragment, {
-          children: [(0, _v6.jsx)(_v576, {
+          children: [(0, _v6.jsx)(_v573, {
             selectedFont: _v7.font,
-            inspectorType: _v168.InspectorType.FONT_EDIT,
-            handleClick: () => _v3(_v168.InspectorType.FONT_EDIT)
-          }), (0, _v6.jsx)(_v699, {
+            inspectorType: _v171.InspectorType.FONT_EDIT,
+            handleClick: () => _v3(_v171.InspectorType.FONT_EDIT)
+          }), (0, _v6.jsx)(_v696, {
             ce: _v7,
             elementOverrides: _v8
-          }), (0, _v6.jsx)(_v510, {
+          }), (0, _v6.jsx)(_v507, {
             height: 24
           }), (0, _v6.jsx)(_v211.Tooltip, {
             label: (0, _v62.translate)({
@@ -16097,10 +16097,10 @@
             }),
             placement: "bottom",
             "data-testid": "tooltip",
-            isDisabled: _v5 === _v508.ToolbarButtons.TEXT_COLOR,
+            isDisabled: _v5 === _v505.ToolbarButtons.TEXT_COLOR,
             children: (0, _v6.jsx)("span", {
-              children: (0, _v6.jsx)(_v522, {
-                icon: (0, _v6.jsx)(_v544, {}),
+              children: (0, _v6.jsx)(_v519, {
+                icon: (0, _v6.jsx)(_v541, {}),
                 value: _v9,
                 title: (0, _v62.translate)({
                   singular: "Text color",
@@ -16131,14 +16131,14 @@
                 iconColor: _v9,
                 testid: "text",
                 onOpen: () => {
-                  (0, _v574.sendTrackSelectTextColorOptions)({
+                  (0, _v571.sendTrackSelectTextColorOptions)({
                     colorType: "text_color"
-                  }), _v1((0, _v509.selectToolbarButtonAction)(_v508.ToolbarButtons.TEXT_COLOR));
+                  }), _v1((0, _v506.selectToolbarButtonAction)(_v505.ToolbarButtons.TEXT_COLOR));
                 },
-                onClose: () => _v1((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.TEXT_COLOR)),
+                onClose: () => _v1((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.TEXT_COLOR)),
                 onChange: _v17,
-                onChangeEnd: _v0 => _v14(_v0, _v693),
-                isActive: _v5 === _v508.ToolbarButtons.TEXT_COLOR
+                onChangeEnd: _v0 => _v14(_v0, _v690),
+                isActive: _v5 === _v505.ToolbarButtons.TEXT_COLOR
               }, _v7.id)
             })
           }), (0, _v6.jsx)(_v211.Tooltip, {
@@ -16170,10 +16170,10 @@
             }),
             placement: "bottom",
             "data-testid": "tooltip",
-            isDisabled: _v5 === _v508.ToolbarButtons.TEXT_FILL_COLOR,
+            isDisabled: _v5 === _v505.ToolbarButtons.TEXT_FILL_COLOR,
             children: (0, _v6.jsx)("span", {
-              children: (0, _v6.jsx)(_v522, {
-                icon: (0, _v6.jsx)(_v507.FillPaintBucket, {}),
+              children: (0, _v6.jsx)(_v519, {
+                icon: (0, _v6.jsx)(_v504.FillPaintBucket, {}),
                 title: (0, _v62.translate)({
                   singular: "Background color",
                   dictionary: {
@@ -16200,20 +16200,20 @@
                     }
                   }
                 }),
-                value: _v10 + (0, _v521.opacityPercentageToHex)(_v12),
+                value: _v10 + (0, _v518.opacityPercentageToHex)(_v12),
                 iconColor: _v10,
                 testid: "text-fill-color-picker",
                 onOpen: () => {
-                  (0, _v574.sendTrackSelectTextColorOptions)({
+                  (0, _v571.sendTrackSelectTextColorOptions)({
                     colorType: "fill_color"
-                  }), _v1((0, _v509.selectToolbarButtonAction)(_v508.ToolbarButtons.TEXT_FILL_COLOR));
+                  }), _v1((0, _v506.selectToolbarButtonAction)(_v505.ToolbarButtons.TEXT_FILL_COLOR));
                 },
-                onClose: () => _v1((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.TEXT_FILL_COLOR)),
+                onClose: () => _v1((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.TEXT_FILL_COLOR)),
                 onChange: _v18,
-                onChangeEnd: _v0 => _v14(_v0, _v694),
+                onChangeEnd: _v0 => _v14(_v0, _v691),
                 allowOpacity: !0,
                 bgAlpha: _v12,
-                isActive: _v5 === _v508.ToolbarButtons.TEXT_FILL_COLOR,
+                isActive: _v5 === _v505.ToolbarButtons.TEXT_FILL_COLOR,
                 onOpacityChange: _v15,
                 onOpacityChangeEnd: _v16
               }, _v7.id)
@@ -16247,10 +16247,10 @@
             }),
             placement: "bottom",
             "data-testid": "tooltip",
-            isDisabled: _v5 === _v508.ToolbarButtons.TEXT_HIGHLIGHT_COLOR,
+            isDisabled: _v5 === _v505.ToolbarButtons.TEXT_HIGHLIGHT_COLOR,
             children: (0, _v6.jsx)("span", {
-              children: (0, _v6.jsx)(_v522, {
-                icon: (0, _v6.jsx)(_v691, {}),
+              children: (0, _v6.jsx)(_v519, {
+                icon: (0, _v6.jsx)(_v688, {}),
                 value: _v11,
                 title: (0, _v62.translate)({
                   singular: "Highlight color",
@@ -16281,19 +16281,19 @@
                 iconColor: _v11,
                 testid: "text-highlight",
                 onOpen: () => {
-                  (0, _v574.sendTrackSelectTextColorOptions)({
+                  (0, _v571.sendTrackSelectTextColorOptions)({
                     colorType: "highlight_color"
-                  }), _v1((0, _v509.selectToolbarButtonAction)(_v508.ToolbarButtons.TEXT_HIGHLIGHT_COLOR));
+                  }), _v1((0, _v506.selectToolbarButtonAction)(_v505.ToolbarButtons.TEXT_HIGHLIGHT_COLOR));
                 },
-                onClose: () => _v1((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.TEXT_HIGHLIGHT_COLOR)),
+                onClose: () => _v1((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.TEXT_HIGHLIGHT_COLOR)),
                 onChange: _v19,
-                onChangeEnd: _v0 => _v14(_v0, _v695),
-                isActive: _v5 === _v508.ToolbarButtons.TEXT_HIGHLIGHT_COLOR
+                onChangeEnd: _v0 => _v14(_v0, _v692),
+                isActive: _v5 === _v505.ToolbarButtons.TEXT_HIGHLIGHT_COLOR
               }, _v7.id)
             })
-          }), (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.TEXT_ALIGNMENT,
-            content: (0, _v6.jsx)(_v696, {
+          }), (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.TEXT_ALIGNMENT,
+            content: (0, _v6.jsx)(_v693, {
               validatedElements: _v0,
               title: (0, _v62.translate)({
                 singular: "Alignment",
@@ -16350,8 +16350,8 @@
                 }
               }
             }),
-            onClick: _v574.sendTrackSelectAlignmentOptions
-          }), (0, _v6.jsx)(_v697, {
+            onClick: _v571.sendTrackSelectAlignmentOptions
+          }), (0, _v6.jsx)(_v694, {
             validatedElements: _v0
           }), (0, _v6.jsx)(_v211.Tooltip, {
             label: (0, _v62.translate)({
@@ -16376,8 +16376,8 @@
             }),
             placement: "bottom",
             "data-testid": "tooltip",
-            isDisabled: _v2 === _v168.InspectorType.TEXT_ANIMATIONS,
-            children: (0, _v6.jsx)(_v194.IconButton, {
+            isDisabled: _v2 === _v171.InspectorType.TEXT_ANIMATIONS,
+            children: (0, _v6.jsx)(_v94.IconButton, {
               "aria-label": (0, _v62.translate)({
                 singular: "Animation",
                 dictionary: {
@@ -16400,12 +16400,12 @@
               }),
               variant: "tertiary",
               size: "sm",
-              icon: (0, _v6.jsx)(_v549, {}),
+              icon: (0, _v6.jsx)(_v546, {}),
               "data-testid": "animation-button-text-toolbar",
               onClick: () => {
-                (0, _v574.sendTrackSelectTextAnimation)(), _v3(_v168.InspectorType.TEXT_ANIMATIONS);
+                (0, _v571.sendTrackSelectTextAnimation)(), _v3(_v171.InspectorType.TEXT_ANIMATIONS);
               },
-              isActive: _v2 === _v168.InspectorType.TEXT_ANIMATIONS
+              isActive: _v2 === _v171.InspectorType.TEXT_ANIMATIONS
             })
           }), (0, _v6.jsx)(_v211.Tooltip, {
             label: (0, _v62.translate)({
@@ -16436,32 +16436,32 @@
             }),
             placement: "bottom",
             "data-testid": "tooltip",
-            isDisabled: _v2 === _v168.InspectorType.TEXT_EDIT,
-            children: (0, _v6.jsx)(_v194.IconButton, {
+            isDisabled: _v2 === _v171.InspectorType.TEXT_EDIT,
+            children: (0, _v6.jsx)(_v94.IconButton, {
               variant: "tertiary",
               size: "sm",
-              icon: (0, _v6.jsx)(_v545.EditPencil, {}),
+              icon: (0, _v6.jsx)(_v542.EditPencil, {}),
               "data-testid": "edit-text-button-text-toolbar",
               "aria-label": "edit-text-button-text-toolbar",
               onClick: () => {
-                (0, _v574.sendTrackSelectTextEdit)(), _v3(_v168.InspectorType.TEXT_EDIT);
+                (0, _v571.sendTrackSelectTextEdit)(), _v3(_v171.InspectorType.TEXT_EDIT);
               },
-              isActive: _v2 === _v168.InspectorType.TEXT_EDIT
+              isActive: _v2 === _v171.InspectorType.TEXT_EDIT
             })
           })]
         });
       },
-      [_v437.ToolbarType.SOLID]: ({
+      [_v434.ToolbarType.SOLID]: ({
         validatedElements: _v0
       }) => {
-        let _v1 = (0, _v167.useAppDispatch)(),
-          _v2 = (0, _v167.useAppSelector)(_v356.overridesWithoutRectSelector, _v431.shallowEqual),
-          _v3 = (0, _v167.useAppSelector)(_v509.selectedToolbarButtonSelector),
+        let _v1 = (0, _v170.useAppDispatch)(),
+          _v2 = (0, _v170.useAppSelector)(_v354.overridesWithoutRectSelector, _v428.shallowEqual),
+          _v3 = (0, _v170.useAppSelector)(_v506.selectedToolbarButtonSelector),
           _v4 = _v0[0],
           _v5 = _v2[_v4?.id],
           _v6 = _v5?.fill || _v4?.fill;
         return (0, _v6.jsx)("div", {
-          "data-testid": _v180.testIds.solidToolbar,
+          "data-testid": _v183.testIds.solidToolbar,
           children: (0, _v6.jsx)(_v211.Tooltip, {
             label: (0, _v62.translate)({
               singular: "Colors",
@@ -16492,15 +16492,15 @@
             placement: "bottom",
             "data-testid": "tooltip",
             children: (0, _v6.jsx)("span", {
-              children: (0, _v6.jsx)(_v522, {
-                icon: (0, _v6.jsx)(_v507.FillPaintBucket, {}),
+              children: (0, _v6.jsx)(_v519, {
+                icon: (0, _v6.jsx)(_v504.FillPaintBucket, {}),
                 value: _v6,
                 iconColor: _v6,
                 testid: "solid",
-                onOpen: () => _v1((0, _v509.selectToolbarButtonAction)(_v508.ToolbarButtons.SOLID_COLOR)),
-                onClose: () => _v1((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.SOLID_COLOR)),
+                onOpen: () => _v1((0, _v506.selectToolbarButtonAction)(_v505.ToolbarButtons.SOLID_COLOR)),
+                onClose: () => _v1((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.SOLID_COLOR)),
                 onChange: _v0 => {
-                  _v1((0, _v356.addOverrideAction)({
+                  _v1((0, _v354.addOverrideAction)({
                     ceId: _v4.id,
                     overrides: {
                       fill: _v0
@@ -16508,35 +16508,35 @@
                   }));
                 },
                 onChangeEnd: _v0 => {
-                  _v1((0, _v356.removeOverrideAction)({
+                  _v1((0, _v354.removeOverrideAction)({
                     ceId: _v4.id,
                     key: "fill"
-                  })), _v1((0, _v166.updateElementAction)({
+                  })), _v1((0, _v169.updateElementAction)({
                     ceId: _v4.id,
                     element: {
                       fill: _v0
                     }
                   }));
                 },
-                isActive: _v3 === _v508.ToolbarButtons.SOLID_COLOR
+                isActive: _v3 === _v505.ToolbarButtons.SOLID_COLOR
               }, _v4.id)
             })
           })
         });
       },
-      [_v437.ToolbarType.SOUND]: ({
+      [_v434.ToolbarType.SOUND]: ({
         validatedElements: _v0
       }) => {
-        let _v1 = (0, _v167.useAppDispatch)(),
-          _v2 = (0, _v167.useAppSelector)(_v356.overridesWithoutRectSelector, _v431.shallowEqual),
-          _v3 = (0, _v167.useAppSelector)(_v0 => _v0.toolbar?.selectedToolbarButton),
+        let _v1 = (0, _v170.useAppDispatch)(),
+          _v2 = (0, _v170.useAppSelector)(_v354.overridesWithoutRectSelector, _v428.shallowEqual),
+          _v3 = (0, _v170.useAppSelector)(_v0 => _v0.toolbar?.selectedToolbarButton),
           _v4 = (0, _v7.useRef)(null),
           _v5 = _v0[0],
           _v6 = _v2[_v5?.id],
           _v7 = _v5.muted,
-          _v8 = _v5.effects && (0, _v672.getVolumeEffect)(_v5.effects),
-          _v9 = _v6?.effects && (0, _v672.getVolumeEffect)(_v6.effects),
-          _v10 = 100 * (_v9 ?? _v8 ?? (0, _v672.getDefaultVolumeEffect)(_v5)).level,
+          _v8 = _v5.effects && (0, _v669.getVolumeEffect)(_v5.effects),
+          _v9 = _v6?.effects && (0, _v669.getVolumeEffect)(_v6.effects),
+          _v10 = 100 * (_v9 ?? _v8 ?? (0, _v669.getDefaultVolumeEffect)(_v5)).level,
           _v11 = _v9 && 100 * _v9.level,
           {
             fadeIn: _v12,
@@ -16547,15 +16547,15 @@
             updateFadeIn: _v17,
             updateFadeOut: _v18,
             muteVolume: _v19
-          } = _v686(_v5),
-          _v20 = (0, _v7.useMemo)(() => _v5?.muted ? (0, _v6.jsx)(_v683.VolumeOff, {}) : (0, _v6.jsx)(_v684.VolumeOn, {}), [_v5]),
+          } = _v683(_v5),
+          _v20 = (0, _v7.useMemo)(() => _v5?.muted ? (0, _v6.jsx)(_v680.VolumeOff, {}) : (0, _v6.jsx)(_v681.VolumeOn, {}), [_v5]),
           _v21 = (0, _v7.useCallback)(() => {
-            _v19(), _v1((0, _v509.deselectToolbarButtonAction)(_v508.ToolbarButtons.SOUND_VOLUME));
+            _v19(), _v1((0, _v506.deselectToolbarButtonAction)(_v505.ToolbarButtons.SOUND_VOLUME));
           }, [_v1, _v19]);
-        return (0, _v6.jsx)(_v185.Box, {
-          "data-testid": _v180.testIds.soundToolbar,
-          children: (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.SOUND_VOLUME,
+        return (0, _v6.jsx)(_v188.Box, {
+          "data-testid": _v183.testIds.soundToolbar,
+          children: (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.SOUND_VOLUME,
             testId: "sound-toolbar-button",
             icon: _v20,
             tooltipText: (0, _v62.translate)({
@@ -16585,7 +16585,7 @@
               }
             }),
             tooltipTestId: "tooltip",
-            content: _v5 && _v3 === _v508.ToolbarButtons.SOUND_VOLUME ? (0, _v6.jsx)(_v690, {
+            content: _v5 && _v3 === _v505.ToolbarButtons.SOUND_VOLUME ? (0, _v6.jsx)(_v687, {
               volume: {
                 value: _v11 ?? (_v7 ? 0 : _v10),
                 maxValue: 100
@@ -16610,20 +16610,20 @@
           })
         });
       },
-      [_v437.ToolbarType.CROP]: ({
+      [_v434.ToolbarType.CROP]: ({
         validatedElements: _v0
       }) => {
-        let _v1 = (0, _v167.useAppDispatch)(),
-          _v2 = (0, _v167.useAppSelector)(_v405.stageSizeSelector),
-          _v3 = (0, _v167.useAppSelector)(_v356.overridesSelector),
-          _v4 = (0, _v167.useAppSelector)(_v260.pausedSelector),
-          _v5 = (0, _v167.useAppSelector)(_v166.storyboardIdSelector),
+        let _v1 = (0, _v170.useAppDispatch)(),
+          _v2 = (0, _v170.useAppSelector)(_v402.stageSizeSelector),
+          _v3 = (0, _v170.useAppSelector)(_v354.overridesSelector),
+          _v4 = (0, _v170.useAppSelector)(_v260.pausedSelector),
+          _v5 = (0, _v170.useAppSelector)(_v169.storyboardIdSelector),
           {
             trackEditorClipCropRatioChanged: _v6
           } = (0, _v220.useEditorTracking)(),
           {
             changeCropOrientation: _v7
-          } = _v435(),
+          } = _v432(),
           _v8 = _v0[0],
           _v9 = (0, _v7.useRef)(_v0[0]),
           _v10 = (0, _v7.useMemo)(() => {
@@ -16631,22 +16631,22 @@
                 ..._v8?.rect,
                 ..._v3[_v8?.id]?.rect
               },
-              _v1 = (0, _v427.getRectInPx)(_v0, _v2);
-            return (0, _v434.getCropRatio)(_v1);
+              _v1 = (0, _v424.getRectInPx)(_v0, _v2);
+            return (0, _v431.getCropRatio)(_v1);
           }, [_v3, _v8?.id, _v8?.rect, _v2]),
           _v11 = (0, _v7.useCallback)(() => {
-            if (!_v8) throw Error(_v158.CE_NOT_FOUND);
-            _v1((0, _v356.resetOverridesAction)()), _v1((0, _v509.showToolbarAction)((0, _v243.getToolbarTypeForElement)(_v8)));
+            if (!_v8) throw Error(_v161.CE_NOT_FOUND);
+            _v1((0, _v354.resetOverridesAction)()), _v1((0, _v506.showToolbarAction)((0, _v243.getToolbarTypeForElement)(_v8)));
           }, [_v1, _v8]),
           _v12 = (0, _v7.useCallback)(() => {
-            (0, _v612.trackApplyCrop)({
+            (0, _v609.trackApplyCrop)({
               mediaType: _v8.type,
               cropRatio: _v10,
               actionCTA: "V"
             }), _v11();
           }, [_v10, _v11, _v8]),
           _v13 = _v0 => {
-            _v7(_v0), (0, _v612.trackChangeCropFormat)({
+            _v7(_v0), (0, _v609.trackChangeCropFormat)({
               mediaType: _v8.type,
               cropRatio: _v0
             }), _v0 !== _v10 && _v6({
@@ -16656,7 +16656,7 @@
           };
         return (0, _v7.useEffect)(() => {
           let _v0 = _v0 => {
-            (_v0.key === _v519.KEYBOARD_KEYS.ESC || _v0.key === _v519.KEYBOARD_KEYS.ENTER) && ((0, _v612.trackApplyCrop)({
+            (_v0.key === _v516.KEYBOARD_KEYS.ESC || _v0.key === _v516.KEYBOARD_KEYS.ENTER) && ((0, _v609.trackApplyCrop)({
               mediaType: _v8.type,
               cropRatio: _v10,
               actionCTA: `keyboard_${_v0.key}`
@@ -16668,22 +16668,22 @@
         }, [_v8, _v11, _v10]), (0, _v7.useEffect)(() => {
           _v4 || _v11();
         }, [_v4, _v11]), (0, _v7.useEffect)(() => {
-          _v8.id !== _v9.current?.id && (_v1((0, _v356.resetOverridesAction)()), (0, _v612.trackApplyCrop)({
+          _v8.id !== _v9.current?.id && (_v1((0, _v354.resetOverridesAction)()), (0, _v609.trackApplyCrop)({
             mediaType: _v8.type,
             cropRatio: _v10,
             actionCTA: "outside_the_box"
           }));
         }, [_v10, _v1, _v11, _v8]), (0, _v7.useEffect)(() => () => {
-          _v1((0, _v356.resetOverridesAction)()), (0, _v612.trackApplyCrop)({
+          _v1((0, _v354.resetOverridesAction)()), (0, _v609.trackApplyCrop)({
             mediaType: _v8.type,
             cropRatio: _v10,
             actionCTA: "outside_the_box"
           });
-        }, [_v1]), (0, _v6.jsxs)(_v614, {
-          testId: _v180.testIds.replaceToolbar,
-          children: [(0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.CROP_RATIO,
-            content: (0, _v6.jsx)(_v562, {
+        }, [_v1]), (0, _v6.jsxs)(_v611, {
+          testId: _v183.testIds.replaceToolbar,
+          children: [(0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.CROP_RATIO,
+            content: (0, _v6.jsx)(_v559, {
               title: (0, _v62.translate)({
                 singular: "Crop ratio",
                 dictionary: {
@@ -16711,26 +16711,26 @@
                 }
               }),
               buttons: [{
-                isSelected: _v10 === _v333.Orientation.LANDSCAPE,
-                icon: (0, _v6.jsx)(_v527.FormatLandscape, {}),
-                onClick: () => _v13(_v333.Orientation.LANDSCAPE),
+                isSelected: _v10 === _v332.Orientation.LANDSCAPE,
+                icon: (0, _v6.jsx)(_v524.FormatLandscape, {}),
+                onClick: () => _v13(_v332.Orientation.LANDSCAPE),
                 testId: "crop-landscape-ratio",
                 tooltipText: "16:9"
               }, {
-                isSelected: _v10 === _v333.Orientation.SQUARE,
-                icon: (0, _v6.jsx)(_v529.FormatSquare, {}),
-                onClick: () => _v13(_v333.Orientation.SQUARE),
+                isSelected: _v10 === _v332.Orientation.SQUARE,
+                icon: (0, _v6.jsx)(_v526.FormatSquare, {}),
+                onClick: () => _v13(_v332.Orientation.SQUARE),
                 testId: "crop-square-ratio",
                 tooltipText: "1:1"
               }, {
-                isSelected: _v10 === _v333.Orientation.PORTRAIT,
-                icon: (0, _v6.jsx)(_v613, {}),
-                onClick: () => _v13(_v333.Orientation.PORTRAIT),
+                isSelected: _v10 === _v332.Orientation.PORTRAIT,
+                icon: (0, _v6.jsx)(_v610, {}),
+                onClick: () => _v13(_v332.Orientation.PORTRAIT),
                 testId: "crop-portrait-ratio",
                 tooltipText: "9:16"
               }]
             }),
-            icon: (0, _v6.jsx)(_v611.ChevronDown, {}),
+            icon: (0, _v6.jsx)(_v608.ChevronDown, {}),
             iconPosition: "right",
             title: (0, _v62.translate)({
               singular: "Crop ratio",
@@ -16759,35 +16759,35 @@
               }
             }),
             testId: "crop-ratio-toolbar"
-          }), (0, _v6.jsx)(_v510, {
+          }), (0, _v6.jsx)(_v507, {
             height: 24
-          }), (0, _v6.jsx)(_v566, {
+          }), (0, _v6.jsx)(_v563, {
             ariaLabel: "crop-confirm",
             variant: "primary",
-            icon: (0, _v6.jsx)(_v610.Checkmark, {}),
+            icon: (0, _v6.jsx)(_v607.Checkmark, {}),
             onClick: _v12,
-            testId: _v180.testIds.confirmReplaceButton
+            testId: _v183.testIds.confirmReplaceButton
           })]
         });
       },
-      [_v437.ToolbarType.POLL]: ({
+      [_v434.ToolbarType.POLL]: ({
         validatedElements: _v0
       }) => {
         let {
           toggleInspector: _v1
-        } = (0, _v548.useInspector)();
+        } = (0, _v545.useInspector)();
         return 0 === _v0.length ? null : (0, _v6.jsxs)(_v6.Fragment, {
-          children: [(0, _v6.jsx)(_v576, {
+          children: [(0, _v6.jsx)(_v573, {
             selectedFont: _v0[0]?.font,
-            inspectorType: _v168.InspectorType.POLL_FONT_EDIT,
-            handleClick: () => _v1(_v168.InspectorType.POLL_FONT_EDIT)
-          }), (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.POLL_TEXT_COLOR,
-            content: (0, _v6.jsx)(_v681, {
+            inspectorType: _v171.InspectorType.POLL_FONT_EDIT,
+            handleClick: () => _v1(_v171.InspectorType.POLL_FONT_EDIT)
+          }), (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.POLL_TEXT_COLOR,
+            content: (0, _v6.jsx)(_v678, {
               validatedElements: _v0
             }),
-            icon: (0, _v6.jsx)(_v678, {}),
-            testId: _v180.testIds.polls.toolbar.textColorButton,
+            icon: (0, _v6.jsx)(_v675, {}),
+            testId: _v183.testIds.polls.toolbar.textColorButton,
             tooltipText: (0, _v62.translate)({
               singular: "Text colors",
               dictionary: {
@@ -16815,13 +16815,13 @@
               }
             }),
             closeOnBlur: !1
-          }, _v0[0].id + _v508.ToolbarButtons.POLL_TEXT_COLOR), (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.POLL_BACKGROUND_COLOR,
-            content: (0, _v6.jsx)(_v679, {
+          }, _v0[0].id + _v505.ToolbarButtons.POLL_TEXT_COLOR), (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.POLL_BACKGROUND_COLOR,
+            content: (0, _v6.jsx)(_v676, {
               pollElement: _v0[0]
             }),
-            icon: (0, _v6.jsx)(_v507.FillPaintBucket, {}),
-            testId: _v180.testIds.polls.toolbar.backgroundColorButton,
+            icon: (0, _v6.jsx)(_v504.FillPaintBucket, {}),
+            testId: _v183.testIds.polls.toolbar.backgroundColorButton,
             tooltipText: (0, _v62.translate)({
               singular: "Background colors",
               dictionary: {
@@ -16849,12 +16849,12 @@
               }
             }),
             closeOnBlur: !1
-          }, _v0[0].id + _v508.ToolbarButtons.POLL_BACKGROUND_COLOR), (0, _v6.jsx)(_v629, {
+          }, _v0[0].id + _v505.ToolbarButtons.POLL_BACKGROUND_COLOR), (0, _v6.jsx)(_v626, {
             validatedElements: _v0,
-            testId: _v180.testIds.polls.toolbar.rotateButton
-          }), (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.GRAPHICS_ANIMATIONS,
-            content: (0, _v6.jsx)(_v563, {
+            testId: _v183.testIds.polls.toolbar.rotateButton
+          }), (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.GRAPHICS_ANIMATIONS,
+            content: (0, _v6.jsx)(_v560, {
               validatedElements: _v0,
               title: (0, _v62.translate)({
                 singular: "Animation",
@@ -16878,8 +16878,8 @@
               }),
               animationKeyName: "animationName"
             }),
-            icon: (0, _v6.jsx)(_v677, {}),
-            testId: _v180.testIds.polls.toolbar.animationButton,
+            icon: (0, _v6.jsx)(_v674, {}),
+            testId: _v183.testIds.polls.toolbar.animationButton,
             tooltipText: (0, _v62.translate)({
               singular: "Animation",
               dictionary: {
@@ -16900,9 +16900,9 @@
                 }
               }
             })
-          }), (0, _v6.jsx)(_v589, {
-            inspectorId: _v168.InspectorType.POLL_EDIT,
-            icon: (0, _v6.jsx)(_v545.EditPencil, {}),
+          }), (0, _v6.jsx)(_v586, {
+            inspectorId: _v171.InspectorType.POLL_EDIT,
+            icon: (0, _v6.jsx)(_v542.EditPencil, {}),
             tooltipText: (0, _v62.translate)({
               singular: "Edit",
               dictionary: {
@@ -16929,22 +16929,22 @@
                 }
               }
             }),
-            testId: _v180.testIds.polls.toolbar.settingsButton
-          }, _v0[0]?.id + _v508.ToolbarButtons.POLL_SETTINGS)]
+            testId: _v183.testIds.polls.toolbar.settingsButton
+          }, _v0[0]?.id + _v505.ToolbarButtons.POLL_SETTINGS)]
         });
       },
-      [_v437.ToolbarType.OVERLAY]: ({
+      [_v434.ToolbarType.OVERLAY]: ({
         validatedElements: _v0
       }) => {
-        let _v1 = (0, _v167.useAppDispatch)(),
-          _v2 = (0, _v167.useAppSelector)(_v261.openModalIdSelector),
-          _v3 = (0, _v167.useAppSelector)(_v317.isLoadingMediaOrApplyingTemplateSelector),
+        let _v1 = (0, _v170.useAppDispatch)(),
+          _v2 = (0, _v170.useAppSelector)(_v261.openModalIdSelector),
+          _v3 = (0, _v170.useAppSelector)(_v316.isLoadingMediaOrApplyingTemplateSelector),
           {
             editOverlay: _v4,
             editBlankTimeTriggeredOverlay: _v5
           } = (0, _v272.useInteractiveOverlay)(),
           _v6 = _v0[0],
-          _v7 = (0, _v167.useAppSelector)(_v0 => (0, _v166.selectInteractiveOverlayById)(_v0, _v6.overlayId)),
+          _v7 = (0, _v170.useAppSelector)(_v0 => (0, _v169.selectInteractiveOverlayById)(_v0, _v6.overlayId)),
           {
             hasCreateInteractiveTeamOverlayTemplateCreate: _v8,
             hasCreateSystemTemplate: _v9
@@ -16953,25 +16953,25 @@
           _v11 = _v8 && _v7 && _v2 === _v221.MODAL_IDS.saveAsTeamTemplateModal,
           _v12 = _v9 && _v7 && _v2 === _v221.MODAL_IDS.saveAsSystemTemplateModal;
         return (0, _v6.jsxs)(_v6.Fragment, {
-          children: [_v7 && (0, _v6.jsx)(_v676.RenameOverlayModal, {
+          children: [_v7 && (0, _v6.jsx)(_v673.RenameOverlayModal, {
             overlayId: _v6.overlayId
-          }), _v11 && (0, _v6.jsx)(_v352.SaveOverlayAsTeamTemplateModal, {
+          }), _v11 && (0, _v6.jsx)(_v350.SaveOverlayAsTeamTemplateModal, {
             active: !0,
             onConfirm: _v10,
             onDismiss: _v10,
             initialTemplateName: _v7.name,
             overlayId: _v6.overlayId
-          }), _v12 && (0, _v6.jsx)(_v351, {
+          }), _v12 && (0, _v6.jsx)(_v349, {
             active: !0,
             onConfirm: _v10,
             onDismiss: _v10,
             initialTemplateName: _v7.name,
             overlayId: _v6.overlayId
-          }), (0, _v6.jsx)(_v566, {
-            testId: _v180.testIds.overlay.toolbar.editButton,
-            icon: (0, _v6.jsx)(_v545.EditPencil, {}),
+          }), (0, _v6.jsx)(_v563, {
+            testId: _v183.testIds.overlay.toolbar.editButton,
+            icon: (0, _v6.jsx)(_v542.EditPencil, {}),
             onClick: () => {
-              (0, _v343.sendTrackSelectEditOverlay)(), _v6.overlayId ? _v4({
+              (0, _v341.sendTrackSelectEditOverlay)(), _v6.overlayId ? _v4({
                 overlayId: _v6.overlayId,
                 linkedElementId: _v6.id
               }) : _v5(_v6.id);
@@ -17004,7 +17004,7 @@
             }),
             iconPosition: "left",
             isDisabled: _v3
-          }), (0, _v6.jsxs)(_v298.Menu, {
+          }), (0, _v6.jsxs)(_v297.Menu, {
             placement: "bottom",
             autoSelect: !1,
             children: [(0, _v6.jsx)(_v211.Tooltip, {
@@ -17035,8 +17035,8 @@
                 }
               }),
               placement: "top",
-              children: (0, _v6.jsx)(_v299.MenuButton, {
-                as: _v194.IconButton,
+              children: (0, _v6.jsx)(_v298.MenuButton, {
+                as: _v94.IconButton,
                 "aria-label": (0, _v62.translate)({
                   singular: "More options",
                   dictionary: {
@@ -17063,19 +17063,19 @@
                     }
                   }
                 }),
-                icon: (0, _v6.jsx)(_v649.EllipsisV, {}),
+                icon: (0, _v6.jsx)(_v646.EllipsisV, {}),
                 variant: "tertiary",
                 size: "sm",
-                onClick: _v343.sendTrackSelectOverlayMoreOptions,
+                onClick: _v341.sendTrackSelectOverlayMoreOptions,
                 isDisabled: _v3
               })
-            }), (0, _v6.jsxs)(_v303.MenuList, {
-              children: [_v8 && (0, _v6.jsx)(_v301.MenuItem, {
-                icon: (0, _v6.jsx)(_v340.OverlayTemplate, {
+            }), (0, _v6.jsxs)(_v302.MenuList, {
+              children: [_v8 && (0, _v6.jsx)(_v300.MenuItem, {
+                icon: (0, _v6.jsx)(_v338.OverlayTemplate, {
                   boxSize: "xs"
                 }),
                 onClick: () => {
-                  (0, _v343.sendTrackOverlaySaveAsAction)("top_toolbar"), _v1((0, _v261.setOpenModalIdAction)(_v221.MODAL_IDS.saveAsTeamTemplateModal));
+                  (0, _v341.sendTrackOverlaySaveAsAction)("top_toolbar"), _v1((0, _v261.setOpenModalIdAction)(_v221.MODAL_IDS.saveAsTeamTemplateModal));
                 },
                 children: (0, _v62.translate)({
                   singular: "Save overlay as template",
@@ -17103,8 +17103,8 @@
                     }
                   }
                 })
-              }), _v9 && (0, _v6.jsx)(_v301.MenuItem, {
-                icon: (0, _v6.jsx)(_v340.OverlayTemplate, {}),
+              }), _v9 && (0, _v6.jsx)(_v300.MenuItem, {
+                icon: (0, _v6.jsx)(_v338.OverlayTemplate, {}),
                 onClick: () => {
                   _v1((0, _v261.setOpenModalIdAction)(_v221.MODAL_IDS.saveAsSystemTemplateModal));
                 },
@@ -17134,8 +17134,8 @@
                     }
                   }
                 })
-              }), (0, _v6.jsx)(_v301.MenuItem, {
-                icon: (0, _v6.jsx)(_v545.EditPencil, {}),
+              }), (0, _v6.jsx)(_v300.MenuItem, {
+                icon: (0, _v6.jsx)(_v542.EditPencil, {}),
                 onClick: () => _v1((0, _v261.setOpenModalIdAction)(_v221.MODAL_IDS.renameOverlayModal)),
                 children: (0, _v62.translate)({
                   singular: "Rename",
@@ -17168,7 +17168,7 @@
           })]
         });
       },
-      [_v437.ToolbarType.IFRAME]: ({
+      [_v434.ToolbarType.IFRAME]: ({
         validatedElements: _v0
       }) => {
         let _v1 = _v0[0],
@@ -17177,12 +17177,12 @@
           _v4 = (0, _v243.isIframeGoogleMapsElement)(_v1),
           _v5 = _v0.filter(_v243.isIframeVimeoVideoElement);
         return (0, _v6.jsxs)(_v6.Fragment, {
-          children: [_v3 && (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.IFRAME_URL,
-            content: (0, _v6.jsx)(_v640, {
+          children: [_v3 && (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.IFRAME_URL,
+            content: (0, _v6.jsx)(_v637, {
               validatedElements: _v0
             }),
-            icon: (0, _v6.jsx)(_v636.Link, {}),
+            icon: (0, _v6.jsx)(_v633.Link, {}),
             title: (0, _v62.translate)({
               singular: "Link",
               dictionary: {
@@ -17203,20 +17203,20 @@
                 }
               }
             }),
-            testId: _v180.testIds.iframe.toolbar.linkButton
-          }), _v2 && (0, _v6.jsx)(_v648, {
+            testId: _v183.testIds.iframe.toolbar.linkButton
+          }), _v2 && (0, _v6.jsx)(_v645, {
             validatedElements: _v5
-          }), _v4 && (0, _v6.jsx)(_v644, {
+          }), _v4 && (0, _v6.jsx)(_v641, {
             validatedElements: _v0
-          }), (0, _v6.jsx)(_v510, {
+          }), (0, _v6.jsx)(_v507, {
             height: 24
           }), _v2 && (0, _v6.jsxs)(_v6.Fragment, {
-            children: [(0, _v6.jsx)(_v567, {
-              buttonId: _v508.ToolbarButtons.IFRAME_VIDEO_BEHAVIOR,
-              content: (0, _v6.jsx)(_v647, {
+            children: [(0, _v6.jsx)(_v564, {
+              buttonId: _v505.ToolbarButtons.IFRAME_VIDEO_BEHAVIOR,
+              content: (0, _v6.jsx)(_v644, {
                 validatedElements: _v5
               }),
-              icon: (0, _v6.jsx)(_v637.VideoBehavior, {}),
+              icon: (0, _v6.jsx)(_v634.VideoBehavior, {}),
               tooltipText: (0, _v62.translate)({
                 singular: "Video behavior",
                 dictionary: {
@@ -17243,18 +17243,18 @@
                   }
                 }
               }),
-              testId: _v180.testIds.iframe.toolbar.linkButton
-            }), (0, _v6.jsx)(_v510, {
+              testId: _v183.testIds.iframe.toolbar.linkButton
+            }), (0, _v6.jsx)(_v507, {
               height: 24
             })]
-          }), (0, _v6.jsx)(_v625, {
+          }), (0, _v6.jsx)(_v622, {
             validatedElements: _v0,
-            buttonId: _v508.ToolbarButtons.IFRAME_OPACITY,
+            buttonId: _v505.ToolbarButtons.IFRAME_OPACITY,
             testId: "opacity-button-graphic-toolbar",
             propertyName: "opacity"
-          }), (0, _v6.jsx)(_v567, {
-            buttonId: _v508.ToolbarButtons.IFRAME_ANIMATION,
-            content: (0, _v6.jsx)(_v563, {
+          }), (0, _v6.jsx)(_v564, {
+            buttonId: _v505.ToolbarButtons.IFRAME_ANIMATION,
+            content: (0, _v6.jsx)(_v560, {
               validatedElements: _v0,
               title: (0, _v62.translate)({
                 singular: "Animation",
@@ -17278,8 +17278,8 @@
               }),
               animationKeyName: "animationName"
             }),
-            icon: (0, _v6.jsx)(_v549, {}),
-            testId: _v180.testIds.iframe.toolbar.animationButton,
+            icon: (0, _v6.jsx)(_v546, {}),
+            testId: _v183.testIds.iframe.toolbar.animationButton,
             tooltipText: (0, _v62.translate)({
               singular: "Animation",
               dictionary: {
@@ -17304,22 +17304,22 @@
         });
       }
     };
-  var _v701 = _v0.i(0);
-  let _v702 = () => {
-      let _v0 = (0, _v167.useAppDispatch)(),
+  var _v698 = _v0.i(0);
+  let _v699 = () => {
+      let _v0 = (0, _v170.useAppDispatch)(),
         {
           isReplacing: _v1
-        } = (0, _v498.useReplaceElement)(),
-        _v2 = (0, _v167.useAppSelector)(_v382.selectedElementsIdsSelector),
-        _v3 = (0, _v167.useAppSelector)(_v382.selectedElementsSelector),
-        _v4 = (0, _v167.useAppSelector)(_v175.isInteractiveSelector),
-        _v5 = (0, _v167.useAppSelector)(_v166.isLoadingStoryboardSelector),
+        } = (0, _v495.useReplaceElement)(),
+        _v2 = (0, _v170.useAppSelector)(_v380.selectedElementsIdsSelector),
+        _v3 = (0, _v170.useAppSelector)(_v380.selectedElementsSelector),
+        _v4 = (0, _v170.useAppSelector)(_v178.isInteractiveSelector),
+        _v5 = (0, _v170.useAppSelector)(_v169.isLoadingStoryboardSelector),
         _v6 = (0, _v7.useRef)({
           selectedCEIds: _v2
         }),
-        _v7 = (0, _v506.default)(_v6.current.selectedCEIds, _v2),
-        _v8 = (0, _v167.useAppSelector)(_v509.currentToolbarSelector),
-        _v9 = _v8 === _v437.ToolbarType.GRAPHICS ? [_v432.CompositionElementCategoryType.GRAPHICS] : _v8 === _v437.ToolbarType.VIDEO ? [_v432.CompositionElementCategoryType.VIDEO] : _v8 === _v437.ToolbarType.IMAGE_HOTSPOT ? [_v432.CompositionElementCategoryType.IMAGE_HOTSPOT] : _v8 === _v437.ToolbarType.IMAGE ? [_v432.CompositionElementCategoryType.IMAGE] : _v8 === _v437.ToolbarType.TEXT ? [_v432.CompositionElementCategoryType.TEXT] : _v8 === _v437.ToolbarType.SOLID ? [_v432.CompositionElementCategoryType.SOLID] : _v8 === _v437.ToolbarType.SOUND ? [_v432.CompositionElementCategoryType.SOUND] : _v8 === _v437.ToolbarType.POLL ? [_v432.CompositionElementCategoryType.POLL] : _v8 === _v437.ToolbarType.BUTTON ? [_v432.CompositionElementCategoryType.BUTTON] : _v8 === _v437.ToolbarType.OVERLAY ? [_v432.CompositionElementCategoryType.OVERLAY] : _v8 === _v437.ToolbarType.IFRAME ? [_v432.CompositionElementCategoryType.IFRAME] : _v8 === _v437.ToolbarType.CROP ? [_v432.CompositionElementCategoryType.VIDEO, _v432.CompositionElementCategoryType.IMAGE, _v432.CompositionElementCategoryType.IMAGE_HOTSPOT] : _v8 === _v437.ToolbarType.REPLACE ? [_v432.CompositionElementCategoryType.VIDEO, _v432.CompositionElementCategoryType.IMAGE, _v432.CompositionElementCategoryType.GRAPHICS, _v432.CompositionElementCategoryType.IMAGE_HOTSPOT] : [],
+        _v7 = (0, _v503.default)(_v6.current.selectedCEIds, _v2),
+        _v8 = (0, _v170.useAppSelector)(_v506.currentToolbarSelector),
+        _v9 = _v8 === _v434.ToolbarType.GRAPHICS ? [_v429.CompositionElementCategoryType.GRAPHICS] : _v8 === _v434.ToolbarType.VIDEO ? [_v429.CompositionElementCategoryType.VIDEO] : _v8 === _v434.ToolbarType.IMAGE_HOTSPOT ? [_v429.CompositionElementCategoryType.IMAGE_HOTSPOT] : _v8 === _v434.ToolbarType.IMAGE ? [_v429.CompositionElementCategoryType.IMAGE] : _v8 === _v434.ToolbarType.TEXT ? [_v429.CompositionElementCategoryType.TEXT] : _v8 === _v434.ToolbarType.SOLID ? [_v429.CompositionElementCategoryType.SOLID] : _v8 === _v434.ToolbarType.SOUND ? [_v429.CompositionElementCategoryType.SOUND] : _v8 === _v434.ToolbarType.POLL ? [_v429.CompositionElementCategoryType.POLL] : _v8 === _v434.ToolbarType.BUTTON ? [_v429.CompositionElementCategoryType.BUTTON] : _v8 === _v434.ToolbarType.OVERLAY ? [_v429.CompositionElementCategoryType.OVERLAY] : _v8 === _v434.ToolbarType.IFRAME ? [_v429.CompositionElementCategoryType.IFRAME] : _v8 === _v434.ToolbarType.CROP ? [_v429.CompositionElementCategoryType.VIDEO, _v429.CompositionElementCategoryType.IMAGE, _v429.CompositionElementCategoryType.IMAGE_HOTSPOT] : _v8 === _v434.ToolbarType.REPLACE ? [_v429.CompositionElementCategoryType.VIDEO, _v429.CompositionElementCategoryType.IMAGE, _v429.CompositionElementCategoryType.GRAPHICS, _v429.CompositionElementCategoryType.IMAGE_HOTSPOT] : [],
         _v10 = (0, _v7.useMemo)(() => _v3.filter(_v0 => {
           let _v1 = (0, _v243.getCategoryType)({
             type: _v0.type,
@@ -17327,23 +17327,23 @@
           });
           return _v9.includes(_v1);
         }), [_v3, _v9]);
-      (0, _v701.default)(({
+      (0, _v698.default)(({
         selectionType: _v0,
         isMultiSelect: _v1
       }) => {
         if (_v1 && (0, _v243.isReplaceableType)(_v0) && _v7) return;
         let _v2 = _v0 => {
-          _v0 !== _v8 && _v0((0, _v509.showToolbarAction)(_v0));
+          _v0 !== _v8 && _v0((0, _v506.showToolbarAction)(_v0));
         };
-        (_v6.current.selectedCEIds = _v2, _v0 === _v432.CompositionElementCategoryType.TIME_TRIGGER) ? _v0((0, _v509.hideToolbarAction)()) : _v0 === _v432.CompositionElementCategoryType.MIXED && _v1 && _v3.map(_v0 => (0, _v243.getCategoryType)({
+        (_v6.current.selectedCEIds = _v2, _v0 === _v429.CompositionElementCategoryType.TIME_TRIGGER) ? _v0((0, _v506.hideToolbarAction)()) : _v0 === _v429.CompositionElementCategoryType.MIXED && _v1 && _v3.map(_v0 => (0, _v243.getCategoryType)({
           type: _v0.type,
           interactiveHotspot: (0, _v243.isImageHotspot)(_v0)
-        })).every(_v0 => _v0 === _v432.CompositionElementCategoryType.IMAGE || _v0 === _v432.CompositionElementCategoryType.VIDEO) ? _v2(_v437.ToolbarType.IMAGE) : _v0 === _v432.CompositionElementCategoryType.VIDEO ? _v2(_v437.ToolbarType.VIDEO) : _v0 !== _v432.CompositionElementCategoryType.IMAGE_HOTSPOT || _v1 ? _v0 !== _v432.CompositionElementCategoryType.BUTTON || _v1 ? _v0 === _v432.CompositionElementCategoryType.IMAGE ? _v2(_v437.ToolbarType.IMAGE) : _v0 !== _v432.CompositionElementCategoryType.TEXT || _v1 ? _v0 !== _v432.CompositionElementCategoryType.GRAPHICS || _v1 ? _v0 === _v432.CompositionElementCategoryType.EMPTY ? _v2(_v437.ToolbarType.CANVAS) : _v0 !== _v432.CompositionElementCategoryType.SOLID || _v1 ? _v0 !== _v432.CompositionElementCategoryType.POLL || _v1 ? _v0 !== _v432.CompositionElementCategoryType.SOUND || _v1 ? _v0 !== _v432.CompositionElementCategoryType.OVERLAY || _v1 ? _v0 !== _v432.CompositionElementCategoryType.IFRAME || _v1 ? (_v0 === _v432.CompositionElementCategoryType.MIXED || _v1) && _v0((0, _v509.hideToolbarAction)()) : _v2(_v437.ToolbarType.IFRAME) : _v2(_v437.ToolbarType.OVERLAY) : _v2(_v437.ToolbarType.SOUND) : _v2(_v437.ToolbarType.POLL) : _v2(_v437.ToolbarType.SOLID) : _v2(_v437.ToolbarType.GRAPHICS) : _v2(_v437.ToolbarType.TEXT) : _v2(_v437.ToolbarType.BUTTON) : _v2(_v437.ToolbarType.IMAGE_HOTSPOT);
+        })).every(_v0 => _v0 === _v429.CompositionElementCategoryType.IMAGE || _v0 === _v429.CompositionElementCategoryType.VIDEO) ? _v2(_v434.ToolbarType.IMAGE) : _v0 === _v429.CompositionElementCategoryType.VIDEO ? _v2(_v434.ToolbarType.VIDEO) : _v0 !== _v429.CompositionElementCategoryType.IMAGE_HOTSPOT || _v1 ? _v0 !== _v429.CompositionElementCategoryType.BUTTON || _v1 ? _v0 === _v429.CompositionElementCategoryType.IMAGE ? _v2(_v434.ToolbarType.IMAGE) : _v0 !== _v429.CompositionElementCategoryType.TEXT || _v1 ? _v0 !== _v429.CompositionElementCategoryType.GRAPHICS || _v1 ? _v0 === _v429.CompositionElementCategoryType.EMPTY ? _v2(_v434.ToolbarType.CANVAS) : _v0 !== _v429.CompositionElementCategoryType.SOLID || _v1 ? _v0 !== _v429.CompositionElementCategoryType.POLL || _v1 ? _v0 !== _v429.CompositionElementCategoryType.SOUND || _v1 ? _v0 !== _v429.CompositionElementCategoryType.OVERLAY || _v1 ? _v0 !== _v429.CompositionElementCategoryType.IFRAME || _v1 ? (_v0 === _v429.CompositionElementCategoryType.MIXED || _v1) && _v0((0, _v506.hideToolbarAction)()) : _v2(_v434.ToolbarType.IFRAME) : _v2(_v434.ToolbarType.OVERLAY) : _v2(_v434.ToolbarType.SOUND) : _v2(_v434.ToolbarType.POLL) : _v2(_v434.ToolbarType.SOLID) : _v2(_v434.ToolbarType.GRAPHICS) : _v2(_v434.ToolbarType.TEXT) : _v2(_v434.ToolbarType.BUTTON) : _v2(_v434.ToolbarType.IMAGE_HOTSPOT);
       });
-      let _v11 = _v8 ? _v700[_v8] : null;
-      _v10.length || (_v11 = _v541);
+      let _v11 = _v8 ? _v697[_v8] : null;
+      _v10.length || (_v11 = _v538);
       let _v12 = !!_v8 && !_v5 && !(_v4 && !_v3.length);
-      return (0, _v6.jsx)(_v542, {
+      return (0, _v6.jsx)(_v539, {
         testId: "toolbar",
         isVisible: _v12,
         currentToolbar: _v8,
@@ -17352,7 +17352,7 @@
         })
       });
     },
-    _v703 = {
+    _v700 = {
       height: "100%",
       width: "100%",
       background: "transparent",
@@ -17362,57 +17362,57 @@
       overflow: "hidden",
       position: "relative"
     },
-    _v704 = () => {
-      let _v0 = (0, _v167.useAppDispatch)(),
-        _v1 = (0, _v167.useAppSelector)(_v273.isEditorUITransitioningSelector),
+    _v701 = () => {
+      let _v0 = (0, _v170.useAppDispatch)(),
+        _v1 = (0, _v170.useAppSelector)(_v273.isEditorUITransitioningSelector),
         _v2 = (0, _v7.useRef)(null),
         _v3 = (0, _v7.useCallback)(() => {
-          _v0((0, _v382.resetSelectionAction)());
+          _v0((0, _v380.resetSelectionAction)());
         }, [_v0]);
-      return (0, _v6.jsx)(_v383.default, {
+      return (0, _v6.jsx)(_v381.default, {
         onContextMenu: _v3,
         children: (0, _v6.jsxs)(_v74.Flex, {
-          "data-testid": _v180.testIds.mainContainer,
+          "data-testid": _v183.testIds.mainContainer,
           ref: _v2,
-          className: _v381.STAGE_DRAG_SELECT_ALLOWED_CLASS,
-          ..._v703,
+          className: _v379.STAGE_DRAG_SELECT_ALLOWED_CLASS,
+          ..._v700,
           ...{
             opacity: +!_v1,
             transition: "opacity 0.2s ease-in-out, transform 0.2s ease-in-out"
           },
-          children: [(0, _v6.jsx)(_v702, {}), (0, _v6.jsx)(_v502, {}), (0, _v6.jsx)(_v505, {
+          children: [(0, _v6.jsx)(_v699, {}), (0, _v6.jsx)(_v499, {}), (0, _v6.jsx)(_v502, {
             outerRef: _v2
           })]
         })
       });
     };
-  var _v705 = _v0.i(0);
-  let _v706 = () => (0, _v6.jsxs)(_v75.Modal, {
+  var _v702 = _v0.i(0);
+  let _v703 = () => (0, _v6.jsxs)(_v75.Modal, {
       isOpen: !0,
       onClose: () => null,
       children: [(0, _v6.jsx)(_v79.ModalOverlay, {}), (0, _v6.jsx)(_v78.ModalContent, {
         backgroundColor: "transparent !important",
         boxShadow: "none",
         width: "fit-content",
-        children: (0, _v6.jsx)(_v178.Spinner, {
+        children: (0, _v6.jsx)(_v181.Spinner, {
           size: "xl"
         })
       })]
     }),
-    _v707 = (0, _v7.lazy)(() => _v0.A(0).then(({
+    _v704 = (0, _v7.lazy)(() => _v0.A(0).then(({
       RecordStudio: _v0
     }) => ({
       default: _v0
     }))),
-    _v708 = (0, _v7.memo)(() => {
+    _v705 = (0, _v7.memo)(() => {
       let {
           isShown: _v0,
           integrationConfiguration: _v1
-        } = (0, _v705.useRecord)(),
-        _v2 = (0, _v167.useAppSelector)(_v256.folderUriSelector);
+        } = (0, _v702.useRecord)(),
+        _v2 = (0, _v170.useAppSelector)(_v256.folderUriSelector);
       return _v0 ? (0, _v6.jsx)(_v7.Suspense, {
-        fallback: (0, _v6.jsx)(_v706, {}),
-        children: (0, _v6.jsx)(_v707, {
+        fallback: (0, _v6.jsx)(_v703, {}),
+        children: (0, _v6.jsx)(_v704, {
           zIndex: 200,
           mode: "integration",
           sessionId: _v236.default.videoHash,
@@ -17422,7 +17422,7 @@
         })
       }) : null;
     }),
-    _v709 = _v9.default.div.withConfig({
+    _v706 = _v9.default.div.withConfig({
       displayName: "DraggedOverlayElement__DraggedElement",
       componentId: "sc-5bf33c3c-0"
     })`
@@ -17446,28 +17446,28 @@
     }
   }
 `,
-    _v710 = ({
+    _v707 = ({
       elementNode: _v0
     }) => {
       let _v1 = (0, _v7.useRef)(null);
       return (0, _v7.useEffect)(() => {
         _v0 ? (_v0.removeAttribute("data-id"), _v0.removeAttribute("id"), _v0.classList.add("dragged"), _v1?.current?.appendChild(_v0)) : _v1?.current?.hasChildNodes() && _v1?.current?.removeChild(_v1?.current?.firstChild);
-      }, [_v0]), (0, _v6.jsx)(_v709, {
+      }, [_v0]), (0, _v6.jsx)(_v706, {
         ref: _v1
       });
     };
-  var _v711 = _v0.i(0);
-  let _v712 = "playhead";
-  var _v713 = _v0.i(0),
-    _v714 = _v0.i(0),
-    _v715 = _v0.i(0),
-    _v716 = _v0.i(0);
-  let _v717 = {
+  var _v708 = _v0.i(0);
+  let _v709 = "playhead";
+  var _v710 = _v0.i(0),
+    _v711 = _v0.i(0),
+    _v712 = _v0.i(0),
+    _v713 = _v0.i(0);
+  let _v714 = {
       cursor: "not-allowed"
     },
-    _v718 = (_v0, _v1) => _v0.data.current?.accepts.includes(_v1.data.current?.type) && _v0.data.current.type === _v493.DndDropAreaType.TIMELINE,
-    _v719 = (_v0, _v1) => _v1.length > 1 && _v1.includes(_v0),
-    _v720 = _v0 => {
+    _v715 = (_v0, _v1) => _v0.data.current?.accepts.includes(_v1.data.current?.type) && _v0.data.current.type === _v490.DndDropAreaType.TIMELINE,
+    _v716 = (_v0, _v1) => _v1.length > 1 && _v1.includes(_v0),
+    _v717 = _v0 => {
       let _v1 = _v0?.cloneNode(!0),
         _v2 = _v0?.querySelector("canvas");
       if (_v0 && null !== _v2) {
@@ -17476,14 +17476,14 @@
       }
       return _v1;
     },
-    _v721 = ({
+    _v718 = ({
       children: _v0
     }) => {
-      let _v1 = (0, _v167.useAppDispatch)(),
-        _v2 = (0, _v167.useAppSelector)(_v0 => _v0.timeline.secondsPerPixel),
-        _v3 = (0, _v167.useAppSelector)(_v0 => _v0.timeline.guides.isSnap),
-        _v4 = (0, _v167.useAppSelector)(_v0 => _v0.timeline.isDropAllowed),
-        _v5 = (0, _v167.useAppSelector)(_v382.selectedElementsIdsSelector),
+      let _v1 = (0, _v170.useAppDispatch)(),
+        _v2 = (0, _v170.useAppSelector)(_v0 => _v0.timeline.secondsPerPixel),
+        _v3 = (0, _v170.useAppSelector)(_v0 => _v0.timeline.guides.isSnap),
+        _v4 = (0, _v170.useAppSelector)(_v0 => _v0.timeline.isDropAllowed),
+        _v5 = (0, _v170.useAppSelector)(_v380.selectedElementsIdsSelector),
         _v6 = (0, _v7.useRef)({}),
         _v7 = (0, _v7.useRef)(null),
         _v8 = (0, _v7.useRef)(null),
@@ -17499,11 +17499,11 @@
           getLayerTimePoints: _v18,
           getPlayheadTimePoint: _v19
         } = ((_v0, _v1) => {
-          let _v2 = (0, _v167.useAppSelector)(_v166.nonHiddenLayersSelector),
+          let _v2 = (0, _v170.useAppSelector)(_v169.nonHiddenLayersSelector),
             {
               getCurrentTimeFromRef: _v3
             } = (0, _v222.useDragonfly)(),
-            _v4 = (0, _v7.useMemo)(() => _v0 ? [] : (0, _v714.layersToTimepoints)(_v2), [_v0, _v2]);
+            _v4 = (0, _v7.useMemo)(() => _v0 ? [] : (0, _v711.layersToTimepoints)(_v2), [_v0, _v2]);
           return {
             getTimePoints: (0, _v7.useCallback)((_v0, _v1) => {
               if (!_v4) return [];
@@ -17511,40 +17511,40 @@
                 let _v1 = !0;
                 return _v0.ceId && (_v1 = _v1 && !_v0.includes(_v0.ceId)), _v1;
               });
-              if (_v4.sort((_v0, _v1) => _v0.value - _v1.value), _v1.includes(_v712)) {
+              if (_v4.sort((_v0, _v1) => _v0.value - _v1.value), _v1.includes(_v709)) {
                 let _v0 = void 0 !== _v1 && _v1 > -1 ? _v1 : _v3();
                 _v2.unshift({
                   value: _v0,
-                  type: _v713.SnapTimePointType.PLAYHEAD
+                  type: _v710.SnapTimePointType.PLAYHEAD
                 });
               }
               return _v2;
             }, [_v4, _v1, _v3]),
-            getLayerTimePoints: (0, _v7.useCallback)((_v0, _v1, _v2 = [_v713.SnapTimePointType.START, _v713.SnapTimePointType.END]) => _v4 ? _v4.filter(_v0 => {
+            getLayerTimePoints: (0, _v7.useCallback)((_v0, _v1, _v2 = [_v710.SnapTimePointType.START, _v710.SnapTimePointType.END]) => _v4 ? _v4.filter(_v0 => {
               let _v1 = _v0.layerId === _v1;
               return _v1 = _v1 && _v2.includes(_v0.type), _v0.ceId && (_v1 = _v1 && !_v0.includes(_v0.ceId)), _v1;
             }) : [], [_v4]),
             getPlayheadTimePoint: () => ({
               value: _v3(),
-              type: _v713.SnapTimePointType.PLAYHEAD
+              type: _v710.SnapTimePointType.PLAYHEAD
             })
           };
-        })(!_v3, (0, _v7.useMemo)(() => [_v712, "storyboard_elements"], [])),
-        _v20 = (0, _v384.useSensor)(_v384.MouseSensor, {
+        })(!_v3, (0, _v7.useMemo)(() => [_v709, "storyboard_elements"], [])),
+        _v20 = (0, _v382.useSensor)(_v382.MouseSensor, {
           activationConstraint: _v249.DEFAULT_DND_CONSTRAINTS
         }),
-        _v21 = (0, _v384.useSensors)(_v20),
+        _v21 = (0, _v382.useSensors)(_v20),
         _v22 = (0, _v7.useCallback)(_v0 => {
           let _v1,
             _v2 = _v0.active.id,
             _v3 = _v0.active.data.current?.type;
-          _v1 = _v3 === _v493.DnDItemType.TIMELINE_ELEMENT ? `[data-testid="${_v180.testIds.timelineContainer}"]` : "body";
+          _v1 = _v3 === _v490.DnDItemType.TIMELINE_ELEMENT ? `[data-testid="${_v183.testIds.timelineContainer}"]` : "body";
           let _v4 = document.querySelector(_v1);
-          if (_v3 !== _v493.DnDItemType.INTERACTIVE_TIMESTAMP && _v4) if (_v719(_v2, _v5)) {
+          if (_v3 !== _v490.DnDItemType.INTERACTIVE_TIMESTAMP && _v4) if (_v716(_v2, _v5)) {
             let _v0 = _v4.querySelector(`[data-id="${_v2}"]`),
               _v1 = _v0?.getBoundingClientRect();
             if (!_v1) return;
-            let _v2 = [..._v4.querySelectorAll(`[data-testid="${_v180.testIds.timeline.transition}"]`)],
+            let _v2 = [..._v4.querySelectorAll(`[data-testid="${_v183.testIds.timeline.transition}"]`)],
               _v3 = [],
               _v4 = {};
             _v5.forEach(_v0 => {
@@ -17553,7 +17553,7 @@
               let _v2 = _v2 === _v0,
                 _v3 = _v1.getBoundingClientRect(),
                 _v4 = 0,
-                _v5 = _v720(_v1);
+                _v5 = _v717(_v1);
               _v2 ? _v4 = 0 : (_v5.style.top = `${_v3.top - _v1.top}px`, _v4 = _v3.left - _v1.left), _v5.style.left = `${_v4}px`;
               let [_v6, _v7, _v8] = ((_v0, _v1, _v2) => {
                 let _v3 = _v1.find(_v0 => {
@@ -17569,7 +17569,7 @@
                       _v1 = _v0[0],
                       _v2 = _v0[1];
                     if (!_v1 || !_v2) return [null, "", !1];
-                    if (_v0 = _v2.includes(_v1) && _v2.includes(_v2), _v1 = _v0 === _v1, _v0) return [_v720(_v3), _v2, _v1];
+                    if (_v0 = _v2.includes(_v1) && _v2.includes(_v2), _v1 = _v0 === _v1, _v0) return [_v717(_v3), _v2, _v1];
                   }
                 }
                 return [null, "", !1];
@@ -17581,7 +17581,7 @@
               node: _v5
             });
           } else _v16({
-            node: _v720(_v4.querySelector(`[data-id="${_v2}"]`))
+            node: _v717(_v4.querySelector(`[data-id="${_v2}"]`))
           });
         }, [_v5]),
         _v23 = (0, _v7.useCallback)(_v0 => {
@@ -17590,13 +17590,13 @@
               over: _v2
             } = _v0,
             _v3 = _v0.active.id;
-          if (_v2?.data.current && _v1?.data.current && _v718(_v2, _v1) && !_v719(_v3, _v5) && _v13.length > 0) {
+          if (_v2?.data.current && _v1?.data.current && _v715(_v2, _v1) && !_v716(_v3, _v5) && _v13.length > 0) {
             let {
                 type: _v0,
                 ceType: _v1
               } = _v1.data.current,
               _v2 = _v230.default.getState().storyboard.layers.find(_v0 => _v0.id === _v2.data.current?.layerId),
-              _v3 = _v2 && (0, _v436.isMixingSoundAndVisual)(_v2.type, _v1 || _v0),
+              _v3 = _v2 && (0, _v433.isMixingSoundAndVisual)(_v2.type, _v1 || _v0),
               _v4 = _v1.rect.current.translated,
               _v5 = _v2.rect;
             if (_v4 && _v5 && !_v3) {
@@ -17607,34 +17607,34 @@
                 {
                   snapPoint: _v4,
                   collisionProps: _v5
-                } = (0, _v716.getCollisionElement)(_v1, _v2, _v13, _v3, _v2, _v10.current);
-              (_v5?.elementId !== _v8.current?.elementId || _v5?.elementOffset !== _v8.current?.elementOffset) && (_v4 ? _v1((0, _v715.setCollisionPointsTimelineAction)([_v4])) : _v1((0, _v715.setCollisionPointsTimelineAction)([]))), _v5 ? _v8.current = {
+                } = (0, _v713.getCollisionElement)(_v1, _v2, _v13, _v3, _v2, _v10.current);
+              (_v5?.elementId !== _v8.current?.elementId || _v5?.elementOffset !== _v8.current?.elementOffset) && (_v4 ? _v1((0, _v712.setCollisionPointsTimelineAction)([_v4])) : _v1((0, _v712.setCollisionPointsTimelineAction)([]))), _v5 ? _v8.current = {
                 elementId: _v5.elementId,
                 elementOffset: _v5.elementOffset,
                 layerId: _v5.layerId
               } : _v8.current = null;
             }
-          } else _v8.current = null, _v1((0, _v715.setCollisionPointsTimelineAction)([]));
-          _v2?.data.current && _v1?.data.current && _v718(_v2, _v1) && (_v7.current && !_v8.current ? _v1((0, _v715.setSnapPointsTimelineAction)([_v7.current])) : _v1((0, _v715.setSnapPointsTimelineAction)([])));
+          } else _v8.current = null, _v1((0, _v712.setCollisionPointsTimelineAction)([]));
+          _v2?.data.current && _v1?.data.current && _v715(_v2, _v1) && (_v7.current && !_v8.current ? _v1((0, _v712.setSnapPointsTimelineAction)([_v7.current])) : _v1((0, _v712.setSnapPointsTimelineAction)([])));
         }, [_v1, _v19, _v13, _v2, _v5]),
         _v24 = (0, _v7.useCallback)(() => {
           _v16({
             node: null
-          }), _v12([]), _v14([]), _v1((0, _v715.setCollisionPointsTimelineAction)([])), _v1((0, _v715.setSnapPointsTimelineAction)([])), _v1((0, _v715.setIsTimelineVerticalScrollDisabled)(!1));
+          }), _v12([]), _v14([]), _v1((0, _v712.setCollisionPointsTimelineAction)([])), _v1((0, _v712.setSnapPointsTimelineAction)([])), _v1((0, _v712.setIsTimelineVerticalScrollDisabled)(!1));
         }, [_v1]),
         _v25 = (0, _v7.useCallback)(_v0 => {
           let {
             over: _v1,
             active: _v2
           } = _v0;
-          if (_v1?.data.current && _v2?.data.current && _v718(_v1, _v2)) {
+          if (_v1?.data.current && _v2?.data.current && _v715(_v1, _v2)) {
             if (_v3) {
               let _v0 = _v2.data.current.elementId,
                 _v1 = _v0 ? [_v0] : [];
-              _v719(_v0, _v5) && (_v1 = _v5), _v12(_v17(_v1));
+              _v716(_v0, _v5) && (_v1 = _v5), _v12(_v17(_v1));
             }
-            _v1.data.current.layerId && !_v1.data.current.layerOffset ? _v14(_v18(_v2.data.current.elementId ? [_v2.data.current.elementId] : [], _v1.data.current.layerId, [_v713.SnapTimePointType.START])) : _v14([]);
-          } else _v12([]), _v14([]), _v1((0, _v715.setSnapPointsTimelineAction)([]));
+            _v1.data.current.layerId && !_v1.data.current.layerOffset ? _v14(_v18(_v2.data.current.elementId ? [_v2.data.current.elementId] : [], _v1.data.current.layerId, [_v710.SnapTimePointType.START])) : _v14([]);
+          } else _v12([]), _v14([]), _v1((0, _v712.setSnapPointsTimelineAction)([]));
         }, [_v1, _v18, _v17, _v3, _v5]),
         _v26 = (0, _v7.useCallback)(({
           transform: _v0,
@@ -17642,7 +17642,7 @@
           active: _v2
         }) => {
           let _v3 = _v0.x;
-          if (_v1?.data.current && _v2?.data.current && _v718(_v1, _v2) && _v11.length > 0) {
+          if (_v1?.data.current && _v2?.data.current && _v715(_v1, _v2) && _v11.length > 0) {
             let _v0 = _v2.data.current?.type,
               _v1 = _v2.rect.current.translated,
               _v2 = _v1.rect,
@@ -17652,16 +17652,16 @@
               {
                 snapPoint: _v6,
                 pxPositionSnapped: _v7
-              } = (0, _v716.getSnappedPxValue)(_v4, _v11, _v2),
+              } = (0, _v713.getSnappedPxValue)(_v4, _v11, _v2),
               _v8 = Math.abs(_v7 - _v4),
               _v9 = 0,
               _v10 = 0,
               _v11 = null;
-            if (_v0 === _v493.DnDItemType.TIMELINE_ELEMENT) {
+            if (_v0 === _v490.DnDItemType.TIMELINE_ELEMENT) {
               let {
                 snapPoint: _v0,
                 pxPositionSnapped: _v1
-              } = (0, _v716.getSnappedPxValue)(_v5, _v11, _v2);
+              } = (0, _v713.getSnappedPxValue)(_v5, _v11, _v2);
               _v9 = Math.abs(_v1 - _v5), _v10 = _v1 - _v5, _v11 = _v0;
             }
             if (_v8 > 0 || _v9 > 0) {
@@ -17681,26 +17681,26 @@
           transform: _v1
         }) => {
           let _v2 = _v0?.data.current?.ceType || _v0?.data.current?.type;
-          return _v2 !== _v432.CompositionElementType.TIME_TRIGGER && _v2 !== _v493.DnDItemType.INTERACTIVE_TIMESTAMP ? _v1 : (_v1((0, _v715.setIsTimelineVerticalScrollDisabled)(!0)), {
+          return _v2 !== _v429.CompositionElementType.TIME_TRIGGER && _v2 !== _v490.DnDItemType.INTERACTIVE_TIMESTAMP ? _v1 : (_v1((0, _v712.setIsTimelineVerticalScrollDisabled)(!0)), {
             ..._v1,
             y: 0
           });
         }, [_v1]),
         _v28 = (0, _v7.useMemo)(() => [_v26, _v27], [_v27, _v26]),
         _v29 = _v0 => _v6.current.hasOwnProperty(_v0) ? _v6.current[_v0] : null;
-      return (0, _v6.jsxs)(_v384.DndContext, {
+      return (0, _v6.jsxs)(_v382.DndContext, {
         sensors: _v21,
-        collisionDetection: _v384.pointerWithin,
+        collisionDetection: _v382.pointerWithin,
         onDragStart: _v22,
         onDragEnd: _v24,
         onDragOver: _v25,
         onDragMove: _v23,
         measuring: {
           droppable: {
-            strategy: _v384.MeasuringStrategy.Always
+            strategy: _v382.MeasuringStrategy.Always
           }
         },
-        children: [(0, _v6.jsx)(_v711.DndProviderContext.Provider, {
+        children: [(0, _v6.jsx)(_v708.DndProviderContext.Provider, {
           value: {
             getOverrideForId: _v29,
             resetDragValues: () => {
@@ -17709,40 +17709,40 @@
             getCollisionElementProps: () => _v8.current
           },
           children: _v0
-        }), (0, _v6.jsx)(_v384.DragOverlay, {
+        }), (0, _v6.jsx)(_v382.DragOverlay, {
           dropAnimation: null,
           modifiers: _v28,
-          style: _v4 ? void 0 : _v717,
-          children: _v15.node ? (0, _v6.jsx)(_v710, {
+          style: _v4 ? void 0 : _v714,
+          children: _v15.node ? (0, _v6.jsx)(_v707, {
             elementNode: _v15.node
           }) : null
         })]
       });
     },
-    _v722 = () => {
+    _v719 = () => {
       let {
           isModalOpen: _v0
         } = _v269(),
-        _v1 = (0, _v167.useAppSelector)(_v0 => _v0.teamTemplates.isTeamTemplateDoneSaving),
-        _v2 = (0, _v167.useAppSelector)(_v273.isSavingOverlayTemplateSelector),
-        _v3 = (0, _v167.useAppSelector)(_v255.isStoryboardSavingOrSavedSelector);
-      return !_v0 && (_v3 || _v2 || !_v1) ? (0, _v6.jsx)(_v706, {}) : null;
+        _v1 = (0, _v170.useAppSelector)(_v0 => _v0.teamTemplates.isTeamTemplateDoneSaving),
+        _v2 = (0, _v170.useAppSelector)(_v273.isSavingOverlayTemplateSelector),
+        _v3 = (0, _v170.useAppSelector)(_v255.isStoryboardSavingOrSavedSelector);
+      return !_v0 && (_v3 || _v2 || !_v1) ? (0, _v6.jsx)(_v703, {}) : null;
     };
-  var _v723 = _v0.i(0),
-    _v724 = _v0.i(0);
-  let _v725 = () => {
+  var _v720 = _v0.i(0),
+    _v721 = _v0.i(0);
+  let _v722 = () => {
       let {
           notifications: _v0
-        } = (0, _v167.useAppSelector)(_v0 => _v0.notifications),
-        _v1 = (0, _v723.useToast)(),
-        _v2 = (0, _v167.useAppDispatch)();
+        } = (0, _v170.useAppSelector)(_v0 => _v0.notifications),
+        _v1 = (0, _v720.useToast)(),
+        _v2 = (0, _v170.useAppDispatch)();
       return (0, _v7.useEffect)(() => {
         _v0.forEach(_v0 => {
           _v1(_v0);
-        }), _v0.length && _v2((0, _v724.clearNotificationsAction)());
+        }), _v0.length && _v2((0, _v721.clearNotificationsAction)());
       }, [_v2, _v0, _v1]), null;
     },
-    _v726 = () => {
+    _v723 = () => {
       let _v0 = (0, _v7.useRef)(null),
         {
           cancelExit: _v1,
@@ -17764,7 +17764,7 @@
         children: [(0, _v6.jsx)(_v79.ModalOverlay, {}), (0, _v6.jsxs)(_v78.ModalContent, {
           maxWidth: "30rem",
           "data-testid": "editor-exit-modal",
-          children: [(0, _v6.jsx)(_v189.ModalHeader, {
+          children: [(0, _v6.jsx)(_v191.ModalHeader, {
             children: (0, _v62.translate)({
               singular: "Leave without saving?",
               dictionary: {
@@ -17796,7 +17796,7 @@
             onClick: _v2
           }), (0, _v6.jsx)(_v76.ModalBody, {
             paddingY: "3",
-            children: (0, _v6.jsx)(_v156.Text, {
+            children: (0, _v6.jsx)(_v80.Text, {
               variant: "body-md",
               children: _v3 ? (0, _v62.translate)({
                 singular: "You've made changes that haven't been saved yet. If you leave now, you'll lose them.",
@@ -17850,10 +17850,10 @@
                 }
               })
             })
-          }), (0, _v6.jsxs)(_v188.ModalFooter, {
+          }), (0, _v6.jsxs)(_v190.ModalFooter, {
             paddingTop: "4",
             paddingBottom: "6",
-            children: [(0, _v6.jsx)(_v186.Button, {
+            children: [(0, _v6.jsx)(_v92.Button, {
               size: "md",
               variant: "tertiary",
               onClick: _v8,
@@ -17909,7 +17909,7 @@
                   }
                 }
               })
-            }), (0, _v6.jsx)(_v186.Button, {
+            }), (0, _v6.jsx)(_v92.Button, {
               ref: _v0,
               size: "md",
               variant: "primary",
@@ -17947,59 +17947,59 @@
         })]
       });
     },
-    _v727 = (0, _v7.lazy)(() => _v0.A(0)),
-    _v728 = (0, _v7.lazy)(() => _v0.A(0)),
-    _v729 = (0, _v7.memo)(() => {
-      let [_v0] = (0, _v177.useToken)("colors", ["background"]);
+    _v724 = (0, _v7.lazy)(() => _v0.A(0)),
+    _v725 = (0, _v7.lazy)(() => _v0.A(0)),
+    _v726 = (0, _v7.memo)(() => {
+      let [_v0] = (0, _v180.useToken)("colors", ["background"]);
       return (0, _v6.jsxs)(_v6.Fragment, {
-        children: [(0, _v6.jsxs)(_v179.EditorContainer, {
+        children: [(0, _v6.jsxs)(_v182.EditorContainer, {
           backgroundColor: _v0,
-          children: [(0, _v6.jsx)(_v721, {
-            children: (0, _v6.jsx)(_v183.FocusAreaProvider, {
-              children: (0, _v6.jsxs)(_v184.TimelineProvider, {
-                children: [(0, _v6.jsx)(_v378, {}), (0, _v6.jsxs)(_v179.Body, {
-                  children: [(0, _v6.jsx)(_v727, {}), (0, _v6.jsx)(_v380.InspectorManager, {}), (0, _v6.jsxs)(_v179.Content, {
-                    children: [(0, _v6.jsx)(_v208.ReplaceOverlay, {}), (0, _v6.jsx)(_v704, {}), (0, _v6.jsx)(_v728, {}), (0, _v6.jsx)(_v207, {}), (0, _v6.jsx)(_v182, {})]
+          children: [(0, _v6.jsx)(_v718, {
+            children: (0, _v6.jsx)(_v186.FocusAreaProvider, {
+              children: (0, _v6.jsxs)(_v187.TimelineProvider, {
+                children: [(0, _v6.jsx)(_v376, {}), (0, _v6.jsxs)(_v182.Body, {
+                  children: [(0, _v6.jsx)(_v724, {}), (0, _v6.jsx)(_v378.InspectorManager, {}), (0, _v6.jsxs)(_v182.Content, {
+                    children: [(0, _v6.jsx)(_v208.ReplaceOverlay, {}), (0, _v6.jsx)(_v701, {}), (0, _v6.jsx)(_v725, {}), (0, _v6.jsx)(_v207, {}), (0, _v6.jsx)(_v185, {})]
                   })]
                 })]
               })
             })
-          }), (0, _v6.jsx)(_v192, {}), (0, _v6.jsx)(_v708, {}), (0, _v6.jsx)(_v725, {}), (0, _v6.jsx)(_v722, {}), (0, _v6.jsx)(_v726, {})]
-        }), (0, _v6.jsx)(_v179.GlobalStyles, {})]
+          }), (0, _v6.jsx)(_v194, {}), (0, _v6.jsx)(_v705, {}), (0, _v6.jsx)(_v722, {}), (0, _v6.jsx)(_v719, {}), (0, _v6.jsx)(_v723, {})]
+        }), (0, _v6.jsx)(_v182.GlobalStyles, {})]
       });
     });
-  var _v730 = _v0.i(0);
+  var _v727 = _v0.i(0);
   _v0.i(0);
-  var _v731 = _v0.i(0),
+  var _v728 = _v0.i(0),
+    _v729 = _v0.i(0),
+    _v730 = _v0.i(0),
+    _v731 = _v0.i(0),
     _v732 = _v0.i(0),
     _v733 = _v0.i(0),
     _v734 = _v0.i(0),
-    _v735 = _v0.i(0),
-    _v736 = _v0.i(0),
-    _v737 = _v0.i(0),
-    _v738 = _v0.i(0);
-  let _v739 = _v0 => new Promise(_v0 => setTimeout(_v0, _v0));
-  var _v740 = _v0.i(0),
+    _v735 = _v0.i(0);
+  let _v736 = _v0 => new Promise(_v0 => setTimeout(_v0, _v0));
+  var _v737 = _v0.i(0),
+    _v738 = _v0.i(0),
+    _v739 = _v0.i(0),
+    _v740 = _v0.i(0),
     _v741 = _v0.i(0),
     _v742 = _v0.i(0),
     _v743 = _v0.i(0),
     _v744 = _v0.i(0),
-    _v745 = _v0.i(0),
-    _v746 = _v0.i(0),
-    _v747 = _v0.i(0),
-    _v748 = _v0.i(0);
-  let _v749 = ["QUEUED", "PREPARING", "READY", "FAILED", "CANCELED"],
-    _v750 = ["NOT_STARTED", "RENDERING", "VIMEO_READY", "RENDER_READY", "FAILED"],
-    _v751 = ["NOT_STARTED", "SESSION_REQUESTED", "DELIVERING", "COMPLETED", "FAILED"];
-  var _v752 = _v0.i(0);
-  let _v753 = function () {
+    _v745 = _v0.i(0);
+  let _v746 = ["QUEUED", "PREPARING", "READY", "FAILED", "CANCELED"],
+    _v747 = ["NOT_STARTED", "RENDERING", "VIMEO_READY", "RENDER_READY", "FAILED"],
+    _v748 = ["NOT_STARTED", "SESSION_REQUESTED", "DELIVERING", "COMPLETED", "FAILED"];
+  var _v749 = _v0.i(0);
+  let _v750 = function () {
     let _v0 = _v238(),
-      _v1 = (0, _v167.useAppSelector)(_v0 => !!_v0.history.undoSnapshots.length),
-      _v2 = (0, _v167.useAppSelector)(_v0 => _v0.teamTemplates.isShowTeamTemplatesModal),
-      _v3 = (0, _v167.useAppSelector)(_v0 => _v0.history.undoSnapshots.length > 0),
-      _v4 = (0, _v167.useAppSelector)(_v255.isStoryboardSavedSelector),
-      _v5 = (0, _v167.useAppSelector)(_v364.teamSwitcherSelector),
-      _v6 = (0, _v167.useAppSelector)(_v0 => _v0.alert.notificationName),
+      _v1 = (0, _v170.useAppSelector)(_v0 => !!_v0.history.undoSnapshots.length),
+      _v2 = (0, _v170.useAppSelector)(_v0 => _v0.teamTemplates.isShowTeamTemplatesModal),
+      _v3 = (0, _v170.useAppSelector)(_v0 => _v0.history.undoSnapshots.length > 0),
+      _v4 = (0, _v170.useAppSelector)(_v255.isStoryboardSavedSelector),
+      _v5 = (0, _v170.useAppSelector)(_v362.teamSwitcherSelector),
+      _v6 = (0, _v170.useAppSelector)(_v0 => _v0.alert.notificationName),
       _v7 = _v6 === _v252.notificationName.partnerConnect;
     (0, _v7.useEffect)(() => {
       if (_v0) return;
@@ -18062,10 +18062,10 @@
       };
     }, [_v6, _v1, _v3, _v7, _v2, _v4, _v5, _v0]);
   };
-  var _v754 = _v0.i(0),
-    _v755 = _v0.i(0),
-    _v756 = _v0.i(0);
-  let _v757 = ({
+  var _v751 = _v0.i(0),
+    _v752 = _v0.i(0),
+    _v753 = _v0.i(0);
+  let _v754 = ({
       videoHash: _v0,
       isBlankEntry: _v1,
       useRevision: _v2 = !1,
@@ -18075,7 +18075,7 @@
       videoUploadAttemptId: _v6,
       isThirdPartyIntegration: _v7
     }) => {
-      let _v8 = (0, _v167.useAppDispatch)();
+      let _v8 = (0, _v170.useAppDispatch)();
       return (({
         videoHash: _v0,
         isBlankEntry: _v1,
@@ -18086,10 +18086,10 @@
         videoUploadAttemptId: _v6,
         isThirdPartyIntegration: _v7
       }) => {
-        let _v8 = (0, _v167.useAppDispatch)(),
+        let _v8 = (0, _v170.useAppDispatch)(),
           _v9 = (0, _v7.useContext)(_v91.ViewerContext)?.jwt,
-          _v10 = (0, _v167.useAppSelector)(_v166.videoSessionIdSelector),
-          _v11 = (0, _v167.useAppSelector)(_v388.fontsSelector),
+          _v10 = (0, _v170.useAppSelector)(_v169.videoSessionIdSelector),
+          _v11 = (0, _v170.useAppSelector)(_v386.fontsSelector),
           {
             trackEditorPageDisplayed: _v12
           } = (0, _v220.useEditorTracking)();
@@ -18097,63 +18097,63 @@
           isBlankEntry: _v0,
           isThirdPartyIntegration: _v1
         }) => {
-          let _v2 = (0, _v167.useAppDispatch)(),
+          let _v2 = (0, _v170.useAppDispatch)(),
             {
               settings: _v3
             } = (0, _v234.useOrionSettings)();
           (0, _v7.useLayoutEffect)(() => {
-            _v0 || _v1 || !_v3.editor_ui_reworked || _v2((0, _v165.closeInspectorAction)());
+            _v0 || _v1 || !_v3.editor_ui_reworked || _v2((0, _v168.closeInspectorAction)());
           }, [_v2, _v0, _v1, _v3.editor_ui_reworked]);
         })({
           isBlankEntry: _v1,
           isThirdPartyIntegration: _v7
         });
-        let _v13 = (0, _v167.useAppSelector)(_v175.isInteractiveSelector),
+        let _v13 = (0, _v170.useAppSelector)(_v178.isInteractiveSelector),
           _v14 = (0, _v216.useIsStaff)(),
           {
             initFeatureFlags: _v15
-          } = _v309(),
+          } = _v308(),
           [_v16, {
             data: _v17,
             isSuccess: _v18
           }] = (0, _v255.useLazyFetchStoryboardQuery)(),
           [_v19] = (0, _v255.useLazyInitStoryboardQuery)(),
           [_v20] = (0, _v255.useLazyInitStoryboardFromClipQuery)(),
-          [_v21] = (0, _v756.useLazyFetchGraphicsCategoriesQuery)(),
+          [_v21] = (0, _v753.useLazyFetchGraphicsCategoriesQuery)(),
           [_v22, {
             isUninitialized: _v23
-          }] = (0, _v755.useLazyFetchFontsQuery)(),
+          }] = (0, _v752.useLazyFetchFontsQuery)(),
           {
             handleKeyboardShortcuts: _v24
           } = (() => {
-            let _v0 = (0, _v167.useAppDispatch)(),
-              _v1 = (0, _v167.useAppSelector)(_v382.selectedElementsIdsSelector),
-              _v2 = (0, _v167.useAppSelector)(_v382.selectedElementsSelector),
-              _v3 = (0, _v167.useAppSelector)(_v746.clipboardElementsSelector),
-              _v4 = (0, _v167.useAppSelector)(_v260.pausedSelector),
+            let _v0 = (0, _v170.useAppDispatch)(),
+              _v1 = (0, _v170.useAppSelector)(_v380.selectedElementsIdsSelector),
+              _v2 = (0, _v170.useAppSelector)(_v380.selectedElementsSelector),
+              _v3 = (0, _v170.useAppSelector)(_v743.clipboardElementsSelector),
+              _v4 = (0, _v170.useAppSelector)(_v260.pausedSelector),
               {
                 isShown: _v5
-              } = (0, _v167.useAppSelector)(_v262.recordSelector),
+              } = (0, _v170.useAppSelector)(_v262.recordSelector),
               {
                 active: _v6
-              } = (0, _v167.useAppSelector)(_v0 => _v0.alert),
-              _v7 = "" !== (0, _v167.useAppSelector)(_v261.openModalIdSelector),
+              } = (0, _v170.useAppSelector)(_v0 => _v0.alert),
+              _v7 = "" !== (0, _v170.useAppSelector)(_v261.openModalIdSelector),
               {
                 undo: _v8,
                 redo: _v9
-              } = _v359("keyboard"),
+              } = _v357("keyboard"),
               {
                 DFRef: _v10,
                 play: _v11,
                 pause: _v12,
                 seek: _v13
               } = (0, _v222.useDragonfly)(),
-              _v14 = (0, _v167.useAppSelector)(_v744.focusAreaSelector),
+              _v14 = (0, _v170.useAppSelector)(_v741.focusAreaSelector),
               {
                 selectedTransition: _v15,
                 deleteSelectedTransitionElement: _v16
-              } = (0, _v740.default)(),
-              _v17 = (0, _v167.useAppSelector)(_v166.storyboardIdSelector),
+              } = (0, _v737.default)(),
+              _v17 = (0, _v170.useAppSelector)(_v169.storyboardIdSelector),
               {
                 trackEditorAssetDeleted: _v18
               } = (0, _v220.useEditorTracking)(),
@@ -18167,27 +18167,27 @@
                   direction: _v1
                 }) => (_v0, _v1) => {
                   let _v2 = _v1(),
-                    _v3 = (0, _v744.focusAreaSelector)(_v2),
-                    _v4 = (0, _v166.elementByIdSelector)(_v2, _v0),
-                    _v5 = (0, _v405.stageSizeSelector)(_v2);
-                  if (!_v4 || _v3 === _v500.FocusAreaType.TRANSCRIPT) return;
-                  let _v6 = 1 / (_v1 === _v519.KEYBOARD_KEYS.UP || _v1 === _v519.KEYBOARD_KEYS.DOWN ? _v5.height : _v5.width),
+                    _v3 = (0, _v741.focusAreaSelector)(_v2),
+                    _v4 = (0, _v169.elementByIdSelector)(_v2, _v0),
+                    _v5 = (0, _v402.stageSizeSelector)(_v2);
+                  if (!_v4 || _v3 === _v497.FocusAreaType.TRANSCRIPT) return;
+                  let _v6 = 1 / (_v1 === _v516.KEYBOARD_KEYS.UP || _v1 === _v516.KEYBOARD_KEYS.DOWN ? _v5.height : _v5.width),
                     _v7 = {
                       ..._v4.rect,
-                      ...(_v1 === _v519.KEYBOARD_KEYS.UP && {
+                      ...(_v1 === _v516.KEYBOARD_KEYS.UP && {
                         y: _v4.rect.y - _v6
                       }),
-                      ...(_v1 === _v519.KEYBOARD_KEYS.DOWN && {
+                      ...(_v1 === _v516.KEYBOARD_KEYS.DOWN && {
                         y: _v4.rect.y + _v6
                       }),
-                      ...(_v1 === _v519.KEYBOARD_KEYS.RIGHT && {
+                      ...(_v1 === _v516.KEYBOARD_KEYS.RIGHT && {
                         x: _v4.rect.x + _v6
                       }),
-                      ...(_v1 === _v519.KEYBOARD_KEYS.LEFT && {
+                      ...(_v1 === _v516.KEYBOARD_KEYS.LEFT && {
                         x: _v4.rect.x - _v6
                       })
                     };
-                  _v0((0, _v166.updateElementAction)({
+                  _v0((0, _v169.updateElementAction)({
                     ceId: _v0,
                     element: {
                       rect: _v7
@@ -18209,49 +18209,49 @@
                   _v6 = _v230.default.getState().storyboard.layers,
                   _v7 = (0, _v258.getDurationFromLayers)(_v6);
                 if (!_v5 && !_v7 && !_v6) {
-                  if ((_v4 === _v519.KEYBOARD_KEYS.TAB && (_v19.current = !0, window.removeEventListener("mouseup", _v20), window.addEventListener("mouseup", _v20)), !_v5.classList?.contains("ql-editor")) && !_v741.INPUT_TAGS.includes(_v5.tagName)) {
-                    if (_v4 !== _v519.KEYBOARD_KEYS.SPACE || 0 === _v7 || _v19.current || (_v0.stopPropagation(), _v0.preventDefault(), document.activeElement?.blur(), _v4 ? (_v7 === _v10.current?.currentTime && _v13(0), _v11(), (0, _v191.sendTrackPlayPauseVideo)({
+                  if ((_v4 === _v516.KEYBOARD_KEYS.TAB && (_v19.current = !0, window.removeEventListener("mouseup", _v20), window.addEventListener("mouseup", _v20)), !_v5.classList?.contains("ql-editor")) && !_v738.INPUT_TAGS.includes(_v5.tagName)) {
+                    if (_v4 !== _v516.KEYBOARD_KEYS.SPACE || 0 === _v7 || _v19.current || (_v0.stopPropagation(), _v0.preventDefault(), document.activeElement?.blur(), _v4 ? (_v7 === _v10.current?.currentTime && _v13(0), _v11(), (0, _v193.sendTrackPlayPauseVideo)({
                       totalDuration: _v7,
                       action: "play",
                       via: "keyboard"
-                    })) : (_v12(), (0, _v191.sendTrackPlayPauseVideo)({
+                    })) : (_v12(), (0, _v193.sendTrackPlayPauseVideo)({
                       totalDuration: _v7,
                       action: "pause",
                       via: "keyboard"
-                    }))), _v4 === _v519.KEYBOARD_KEYS.ESC && (_v19.current = !1, window.removeEventListener("mouseup", _v20), document.activeElement?.blur()), _v741.TAB_TRIGGERED_TAGS.includes(_v5.tagName) && !_v19.current && _v4 !== _v519.KEYBOARD_KEYS.M) {
+                    }))), _v4 === _v516.KEYBOARD_KEYS.ESC && (_v19.current = !1, window.removeEventListener("mouseup", _v20), document.activeElement?.blur()), _v738.TAB_TRIGGERED_TAGS.includes(_v5.tagName) && !_v19.current && _v4 !== _v516.KEYBOARD_KEYS.M) {
                       _v0.stopPropagation(), _v0.preventDefault();
                       return;
                     }
                     if ((_v1 || _v3) && !_v2 && "KeyZ" === _v4 && _v8(), (_v1 && _v2 && "KeyZ" === _v4 || _v3 && "KeyY" === _v4) && _v9(), _v1 && _v1.length > 0) {
-                      if ((_v1 && "KeyF" === _v4 || _v3 && "KeyF" === _v4) && (_v0.preventDefault(), _v0((0, _v166.changeElementLayerByOffsetAction)({
+                      if ((_v1 && "KeyF" === _v4 || _v3 && "KeyF" === _v4) && (_v0.preventDefault(), _v0((0, _v169.changeElementLayerByOffsetAction)({
                         ceIds: _v1,
                         offset: 1 / 0
-                      }))), _v4 === _v519.KEYBOARD_KEYS.UP && (_v1 || _v3 ? _v0((0, _v166.changeElementLayerByOffsetAction)({
+                      }))), _v4 === _v516.KEYBOARD_KEYS.UP && (_v1 || _v3 ? _v0((0, _v169.changeElementLayerByOffsetAction)({
                         ceIds: _v1,
                         offset: 1
                       })) : _v1.forEach(_v0 => {
-                        _v21(_v0, _v519.KEYBOARD_KEYS.UP);
-                      })), _v4 === _v519.KEYBOARD_KEYS.DOWN && (_v1 || _v2 ? _v0((0, _v166.changeElementLayerByOffsetAction)({
+                        _v21(_v0, _v516.KEYBOARD_KEYS.UP);
+                      })), _v4 === _v516.KEYBOARD_KEYS.DOWN && (_v1 || _v2 ? _v0((0, _v169.changeElementLayerByOffsetAction)({
                         ceIds: _v1,
                         offset: -1
                       })) : _v1.forEach(_v0 => {
-                        _v21(_v0, _v519.KEYBOARD_KEYS.DOWN);
-                      })), _v4 === _v519.KEYBOARD_KEYS.LEFT && _v1.forEach(_v0 => {
-                        _v21(_v0, _v519.KEYBOARD_KEYS.LEFT);
-                      }), _v4 === _v519.KEYBOARD_KEYS.RIGHT && _v1.forEach(_v0 => {
-                        _v21(_v0, _v519.KEYBOARD_KEYS.RIGHT);
-                      }), (_v1 && "KeyB" === _v4 || _v3 && "KeyB" === _v4) && _v0((0, _v166.changeElementLayerByOffsetAction)({
+                        _v21(_v0, _v516.KEYBOARD_KEYS.DOWN);
+                      })), _v4 === _v516.KEYBOARD_KEYS.LEFT && _v1.forEach(_v0 => {
+                        _v21(_v0, _v516.KEYBOARD_KEYS.LEFT);
+                      }), _v4 === _v516.KEYBOARD_KEYS.RIGHT && _v1.forEach(_v0 => {
+                        _v21(_v0, _v516.KEYBOARD_KEYS.RIGHT);
+                      }), (_v1 && "KeyB" === _v4 || _v3 && "KeyB" === _v4) && _v0((0, _v169.changeElementLayerByOffsetAction)({
                         ceIds: _v1,
                         offset: -1 / 0
-                      })), (_v1 && "KeyC" === _v4 || _v3 && "KeyC" === _v4) && _v0((0, _v746.copySelectedCEsAction)()), _v4 === _v519.KEYBOARD_KEYS.M) {
+                      })), (_v1 && "KeyC" === _v4 || _v3 && "KeyC" === _v4) && _v0((0, _v743.copySelectedCEsAction)()), _v4 === _v516.KEYBOARD_KEYS.M) {
                         _v0.stopPropagation(), _v0.preventDefault();
-                        let _v0 = _v2.filter(_v0 => _v0.type === _v432.CompositionElementType.SOUND || _v0.type === _v432.CompositionElementType.VIDEO),
+                        let _v0 = _v2.filter(_v0 => _v0.type === _v429.CompositionElementType.SOUND || _v0.type === _v429.CompositionElementType.VIDEO),
                           _v1 = !0;
                         _v0.map(_v0 => {
-                          let _v1 = (_v0.type === _v432.CompositionElementType.SOUND, _v0);
+                          let _v1 = (_v0.type === _v429.CompositionElementType.SOUND, _v0);
                           return _v1.muted || (_v1 = !1), _v1;
                         }).forEach(_v0 => {
-                          _v0((0, _v166.updateElementAction)({
+                          _v0((0, _v169.updateElementAction)({
                             ceId: _v0.id,
                             element: {
                               muted: !_v1
@@ -18259,26 +18259,26 @@
                           }));
                         });
                       }
-                      (_v4 === _v519.KEYBOARD_KEYS.BACKSPACE || _v4 === _v519.KEYBOARD_KEYS.DELETE) && _v14 !== _v500.FocusAreaType.TRANSCRIPT && ((0, _v747.trackDeleteElements)({
+                      (_v4 === _v516.KEYBOARD_KEYS.BACKSPACE || _v4 === _v516.KEYBOARD_KEYS.DELETE) && _v14 !== _v497.FocusAreaType.TRANSCRIPT && ((0, _v744.trackDeleteElements)({
                         ceIds: _v1,
                         via: "keyboard",
                         layers: _v6
                       }), _v2.forEach(_v0 => _v18({
                         editorSessionId: _v17,
                         assetType: _v0.type
-                      })), _v0((0, _v742.deleteSelectedCEsAction)()));
+                      })), _v0((0, _v739.deleteSelectedCEsAction)()));
                     }
-                    if (_v15 && (_v4 === _v519.KEYBOARD_KEYS.BACKSPACE || _v4 === _v519.KEYBOARD_KEYS.DELETE) && _v14 !== _v500.FocusAreaType.TRANSCRIPT && ((0, _v747.trackDeleteElements)({
+                    if (_v15 && (_v4 === _v516.KEYBOARD_KEYS.BACKSPACE || _v4 === _v516.KEYBOARD_KEYS.DELETE) && _v14 !== _v497.FocusAreaType.TRANSCRIPT && ((0, _v744.trackDeleteElements)({
                       ceIds: [_v15.id],
                       via: "footer_top_bar",
                       layers: _v6
                     }), _v18({
                       editorSessionId: _v17,
                       assetType: "transition"
-                    }), _v16()), _v3.length > 0 && (_v1 && "KeyV" === _v4 || _v3 && "KeyV" === _v4) && _v0((0, _v745.pasteCopiedElementsThunkAction)()), _v1.length > 0 && (_v1 && "KeyD" === _v4 || _v3 && "KeyD" === _v4) && (_v0.preventDefault(), _v0((0, _v743.duplicateSelectedElementsThunkAction)())), (_v1 || _v3) && "KeyA" === _v4) {
+                    }), _v16()), _v3.length > 0 && (_v1 && "KeyV" === _v4 || _v3 && "KeyV" === _v4) && _v0((0, _v742.pasteCopiedElementsThunkAction)()), _v1.length > 0 && (_v1 && "KeyD" === _v4 || _v3 && "KeyD" === _v4) && (_v0.preventDefault(), _v0((0, _v740.duplicateSelectedElementsThunkAction)())), (_v1 || _v3) && "KeyA" === _v4) {
                       _v0.preventDefault();
-                      let _v0 = (0, _v440.getAllSelectableElements)(_v6).map(_v0 => _v0.id);
-                      _v0.length > 0 && _v0((0, _v382.selectCEsAction)({
+                      let _v0 = (0, _v437.getAllSelectableElements)(_v6).map(_v0 => _v0.id);
+                      _v0.length > 0 && _v0((0, _v380.selectCEsAction)({
                         ceIds: _v0,
                         isMultiSelect: !1
                       }));
@@ -18298,13 +18298,13 @@
             alertLowResolution: _v27,
             alertNoPermissionsToEdit: _v28,
             alertVideoIsDeletedForLoad: _v29
-          } = (0, _v161.useAlerts)(),
+          } = (0, _v164.useAlerts)(),
           {
             isOnline: _v30
           } = _v239(),
-          [_v31] = (0, _v730.default)(_v408.SHOW_GUIDES_LOCAL_STORAGE_KEY, !1),
-          [_v32] = (0, _v730.default)(_v408.SNAP_GUIDES_LOCAL_STORAGE_KEY, !0),
-          [_v33, _v34] = (0, _v730.default)(_v408.SAVE_AS_GUIDE_LOCAL_STORAGE_KEY, !0),
+          [_v31] = (0, _v727.default)(_v405.SHOW_GUIDES_LOCAL_STORAGE_KEY, !1),
+          [_v32] = (0, _v727.default)(_v405.SNAP_GUIDES_LOCAL_STORAGE_KEY, !0),
+          [_v33, _v34] = (0, _v727.default)(_v405.SAVE_AS_GUIDE_LOCAL_STORAGE_KEY, !0),
           {
             resetAutoSaveStatus: _v35,
             savedLocalStoryboardData: _v36,
@@ -18313,23 +18313,23 @@
             showAutoSaveAlert: _v39,
             showLocalAutoSaveAlert: _v40,
             showCrossEditingToolAlert: _v41
-          } = _v325({
+          } = _v324({
             storyboardFetchResponse: _v17,
             videoHash: _v0,
             isThirdPartyIntegration: _v7
           });
-        (0, _v737.default)(), (() => {
-          let _v0 = (0, _v167.useAppDispatch)(),
-            _v1 = (0, _v167.useAppSelector)(_v317.hasQuizzesSelector),
-            _v2 = (0, _v167.useAppSelector)(_v317.hasTimeTriggerScorecardSelector),
+        (0, _v734.default)(), (() => {
+          let _v0 = (0, _v170.useAppDispatch)(),
+            _v1 = (0, _v170.useAppSelector)(_v316.hasQuizzesSelector),
+            _v2 = (0, _v170.useAppSelector)(_v316.hasTimeTriggerScorecardSelector),
             {
               notifyResultScreenRemoved: _v3
-            } = (0, _v163.useNotifications)(),
+            } = (0, _v166.useNotifications)(),
             _v4 = (0, _v7.useRef)(null),
             _v5 = (0, _v7.useRef)(!1);
           (0, _v7.useEffect)(() => {
             if (_v2) return _v5.current && !_v1 && (_v4.current = setTimeout(() => {
-              _v3(), _v0((0, _v748.deleteScorecardThunkAction)()), _v4.current = null;
+              _v3(), _v0((0, _v745.deleteScorecardThunkAction)()), _v4.current = null;
             }, 0)), _v5.current = _v1, () => {
               _v4.current && (clearTimeout(_v4.current), _v4.current = null);
             };
@@ -18338,27 +18338,27 @@
         let {
             totalSavedEdits: _v42
           } = (0, _v241.useEditorCsat)(),
-          _v43 = (0, _v152.shouldShowInDevelopmentFeature)("hideSidebar"),
-          _v44 = (0, _v152.shouldShowInDevelopmentFeature)("transcript"),
+          _v43 = (0, _v156.shouldShowInDevelopmentFeature)("hideSidebar"),
+          _v44 = (0, _v156.shouldShowInDevelopmentFeature)("transcript"),
           _v45 = _v236.default.isShopifyUser,
           _v46 = (0, _v7.useCallback)(async () => {
             let {
               default: _v0
             } = await _v0.A(0);
-            _v8((0, _v414.initTextAnimationsAction)(_v0));
+            _v8((0, _v411.initTextAnimationsAction)(_v0));
           }, [_v8]),
           _v47 = (0, _v7.useCallback)(async (_v0, _v1) => {
             let _v2 = "",
               _v3 = !1;
             try {
               let _v0 = performance.now();
-              _v164.default.sendAction(_v251.EditorLoad, {
+              _v167.default.sendAction(_v251.EditorLoad, {
                 step: "start fetch storyboard"
               });
               let _v1 = await _v0().unwrap();
-              _v3 = !0, _v164.default.sendAction(_v251.EditorLoad, {
+              _v3 = !0, _v167.default.sendAction(_v251.EditorLoad, {
                 step: "end fetch storyboard",
-                durationMs: (0, _v406.durationSince)(_v0)
+                durationMs: (0, _v403.durationSince)(_v0)
               });
               let {
                 createdBy: _v2,
@@ -18366,17 +18366,17 @@
                 vimeoVideo: _v4
               } = _v1 ?? {};
               if (_v3) {
-                _v236.default.setVideoHash(_v3.videoHash || _v3.id), _v323.default.setVideoSessionId(_v3.videoSessionId), _v323.default.setFlow(_v3.id, _v2);
+                _v236.default.setVideoHash(_v3.videoHash || _v3.id), _v322.default.setVideoSessionId(_v3.videoSessionId), _v322.default.setFlow(_v3.id, _v2);
                 let {
                   id: _v0
                 } = _v3;
                 _v2 = _v0, _v236.default.setIsTemplate((0, _v247.isTemplate)(_v0, _v2)), _v236.default.setHasBeenRendered(!!_v4?.id), _v4?.id && (0, _v244.replaceUrlParams)("vid", _v4.id.toString());
                 let _v1 = !_v13 && (null !== (0, _v244.getVimeoVideoId)() || !!_v236.default.hasBeenRendered && !_v236.default.isTemplate);
-                _v236.default.setIsSaveAsAllowed(_v1), 0 === _v42 ? _v34(!1) : _v1 && _v33 && (_v731.PendoClient.showGuideById(_v735.EDITOR_SAVE_AS_GUIDE_ID), _v34(!1));
+                _v236.default.setIsSaveAsAllowed(_v1), 0 === _v42 ? _v34(!1) : _v1 && _v33 && (_v728.PendoClient.showGuideById(_v732.EDITOR_SAVE_AS_GUIDE_ID), _v34(!1));
               }
               return _v1;
             } catch (_v0) {
-              _v3 || _v164.default.sendAction(_v251.EditorLoad, {
+              _v3 || _v167.default.sendAction(_v251.EditorLoad, {
                 step: "fetch storyboard failed",
                 error: _v0.data?.error_code || _v0.status || "unknown"
               });
@@ -18392,20 +18392,20 @@
                 onPrimaryClick: _v0
               });
             } finally {
-              _v1 && (0, _v191.sendTrackViewEditor)({
+              _v1 && (0, _v193.sendTrackViewEditor)({
                 viewStatus: "enable"
               }), _v1 && _v2 && _v12(_v2);
             }
           }, [_v42, _v33, _v13, _v34, _v30, _v26, _v27, _v3, _v28, _v29, _v25, _v12]);
         !function () {
-          let _v0 = (0, _v167.useAppSelector)(_v166.sourcesSelector),
+          let _v0 = (0, _v170.useAppSelector)(_v169.sourcesSelector),
             {
               settings: _v1
             } = (0, _v234.useOrionSettings)(),
-            [_v2] = (0, _v324.useLazyGetThumbnailsForSourceQuery)(),
-            [_v3] = (0, _v324.useLazyGetPrewarmSpriteForClipQuery)(),
+            [_v2] = (0, _v323.useLazyGetThumbnailsForSourceQuery)(),
+            [_v3] = (0, _v323.useLazyGetPrewarmSpriteForClipQuery)(),
             _v4 = (0, _v7.useRef)(new Set()),
-            _v5 = (0, _v7.useMemo)(() => _v0.filter(_v0 => (_v0.previewUrl && !(0, _v244.isLocalUrl)(_v0.previewUrl) || !_v0.previewUrl) && _v0.type === _v738.SourceType.CLIP), [_v0]);
+            _v5 = (0, _v7.useMemo)(() => _v0.filter(_v0 => (_v0.previewUrl && !(0, _v244.isLocalUrl)(_v0.previewUrl) || !_v0.previewUrl) && _v0.type === _v735.SourceType.CLIP), [_v0]);
           (0, _v7.useEffect)(function () {
             _v5.forEach(_v0 => {
               _v2({
@@ -18416,7 +18416,7 @@
           }, [_v5, _v2]), (0, _v7.useEffect)(function () {
             if (!_v1.enable_prewarm_filmstrip_sprite) return;
             let _v0 = (0, _v244.getVimeoVideoIdString)(),
-              _v1 = new Set(Object.values((0, _v324.resolveClipIdBySourceHash)(_v0, _v0)));
+              _v1 = new Set(Object.values((0, _v323.resolveClipIdBySourceHash)(_v0, _v0)));
             null !== _v0 && _v1.add(_v0);
             let _v2 = !1,
               _v3 = async _v0 => {
@@ -18426,7 +18426,7 @@
                     clipId: _v0
                   }, !1);
                   if (_v0.data?.thumbnailsSprites?.[0]?.url) return void _v4.current.add(_v0);
-                  _v0 < 5 && (await _v739(0));
+                  _v0 < 5 && (await _v736(0));
                 }
               };
             return _v1.forEach(_v0 => {
@@ -18436,25 +18436,25 @@
             };
           }, [_v1.enable_prewarm_filmstrip_sprite, _v3, _v0]);
         }(), (_v0 => {
-          let _v1 = (0, _v167.useAppSelector)(_v166.storyboardIdSelector),
-            _v2 = (0, _v167.useAppSelector)(_v166.storyboardSelector),
+          let _v1 = (0, _v170.useAppSelector)(_v169.storyboardIdSelector),
+            _v2 = (0, _v170.useAppSelector)(_v169.storyboardSelector),
             _v3 = (0, _v7.useRef)(null),
             _v4 = (0, _v7.useRef)(!1),
-            [_v5] = (0, _v324.useLazyGetStreamYardInitialSourceQuery)(),
-            [_v6] = (0, _v324.useLazyPollStreamYardInitialSourceQuery)(),
+            [_v5] = (0, _v323.useLazyGetStreamYardInitialSourceQuery)(),
+            [_v6] = (0, _v323.useLazyPollStreamYardInitialSourceQuery)(),
             [_v7] = (0, _v255.useSaveStoryboardMutation)(),
             {
               addPreparedMediaSourceToStoryboard: _v8,
               replacePreparedMediaSource: _v9
-            } = (0, _v162.useLocalFile)(),
+            } = (0, _v165.useLocalFile)(),
             {
               alertProblemOccurred: _v10
-            } = (0, _v161.useAlerts)(),
+            } = (0, _v164.useAlerts)(),
             _v11 = _v0?.streamyardContext;
           (0, _v7.useEffect)(() => (_v4.current = !0, () => {
             _v4.current = !1;
           }), []), (0, _v7.useEffect)(() => {
-            let _v0 = () => _v4.current && (0, _v166.storyboardIdSelector)(_v230.default.getState()) === _v1;
+            let _v0 = () => _v4.current && (0, _v169.storyboardIdSelector)(_v230.default.getState()) === _v1;
             if ("object" == typeof _v11 && null !== _v11 && !0 === _v11.isStreamYard && !0 === _v11.contextError) {
               let _v0 = `context-error:${_v1}`;
               if (_v3.current === _v0) return;
@@ -18463,7 +18463,7 @@
               });
               return;
             }
-            if (!("object" == typeof _v11 && null !== _v11 && !0 === _v11.isStreamYard && ("string" == typeof _v11.sourceHash || null === _v11.sourceHash) && _v749.includes(_v11.sourceStatus) && "string" == typeof _v11.targetElementId && ("PENDING" === _v11.attachmentStatus || "ATTACHED" === _v11.attachmentStatus) && ("VIMEO" === _v11.outputDestination || "STREAMYARD" === _v11.outputDestination) && _v750.includes(_v11.renderStatus) && _v751.includes(_v11.deliveryStatus) && ("number" == typeof _v11.errorCode || null === _v11.errorCode) && "boolean" == typeof _v11.errorRetryable) || "FAILED" === _v11.sourceStatus || "CANCELED" === _v11.sourceStatus || _v1 !== _v0?.storyboard.id || _v3.current === _v11.targetElementId) return;
+            if (!("object" == typeof _v11 && null !== _v11 && !0 === _v11.isStreamYard && ("string" == typeof _v11.sourceHash || null === _v11.sourceHash) && _v746.includes(_v11.sourceStatus) && "string" == typeof _v11.targetElementId && ("PENDING" === _v11.attachmentStatus || "ATTACHED" === _v11.attachmentStatus) && ("VIMEO" === _v11.outputDestination || "STREAMYARD" === _v11.outputDestination) && _v747.includes(_v11.renderStatus) && _v748.includes(_v11.deliveryStatus) && ("number" == typeof _v11.errorCode || null === _v11.errorCode) && "boolean" == typeof _v11.errorRetryable) || "FAILED" === _v11.sourceStatus || "CANCELED" === _v11.sourceStatus || _v1 !== _v0?.storyboard.id || _v3.current === _v11.targetElementId) return;
             let _v1 = (0, _v247.getAllElements)(_v2.layers),
               _v2 = _v1.find(({
                 id: _v0
@@ -18515,7 +18515,7 @@
                   if (!_v0 || _v0.hash !== _v0.hash) throw Error("StreamYard prepared source mismatch");
                   _v9(_v0);
                 } else _v5 && _v9(_v0);
-                _v230.default.dispatch(_v752.mediaApi.util.invalidateTags(["MediaUploads"]));
+                _v230.default.dispatch(_v749.mediaApi.util.invalidateTags(["MediaUploads"]));
               }).catch(() => {
                 _v0() && (_v3.current = null, _v10({
                   onPrimaryClick: () => window.location.reload()
@@ -18529,7 +18529,7 @@
               storyboards: {}
             };
             try {
-              let _v0 = window.localStorage.getItem(_v736.TVE_IGNORED_SOURCES_KEY);
+              let _v0 = window.localStorage.getItem(_v733.TVE_IGNORED_SOURCES_KEY);
               _v0 && (_v0 = JSON.parse(_v0));
             } catch (_v0) {}
             let _v1 = {
@@ -18538,13 +18538,13 @@
               _v2 = Date.now();
             Object.keys(_v0.storyboards).forEach(_v0 => {
               let _v1 = _v0.storyboards[_v0];
-              (_v2 - _v1.lastModified) / 0 < _v736.TVE_IGNORED_SOURCES_CACHE_KEEP_DAYS && (_v1.storyboards[_v0] = _v1);
-            }), window.localStorage.setItem(_v736.TVE_IGNORED_SOURCES_KEY, JSON.stringify(_v1));
+              (_v2 - _v1.lastModified) / 0 < _v733.TVE_IGNORED_SOURCES_CACHE_KEEP_DAYS && (_v1.storyboards[_v0] = _v1);
+            }), window.localStorage.setItem(_v733.TVE_IGNORED_SOURCES_KEY, JSON.stringify(_v1));
           };
           return window.addEventListener("beforeunload", _v0), () => {
             window.removeEventListener("beforeunload", _v0);
           };
-        }, []), _v753(), (0, _v7.useEffect)(() => {
+        }, []), _v750(), (0, _v7.useEffect)(() => {
           _v10 || _v18 || (_v0 ? (_v236.default.setHasBeenRendered(!!_v3), _v47(() => _v16({
             videoHash: _v0,
             useRevision: _v2,
@@ -18589,47 +18589,47 @@
             } = _v17,
             _v3 = _v36 && _v236.default.isLocalAutoSaveAllowed && !_v236.default.isEditingTeamTemplate,
             _v4 = _v0 && !_v236.default.isLocalAutoSaveAllowed;
-          _v3 ? _v40() : _v4 ? _v1 === _v732.EditingToolType.INTERACTIVE && !_v13 || _v1 === _v732.EditingToolType.EDITOR && _v13 ? _v41() : _v39() : _v38({
+          _v3 ? _v40() : _v4 ? _v1 === _v729.EditingToolType.INTERACTIVE && !_v13 || _v1 === _v729.EditingToolType.EDITOR && _v13 ? _v41() : _v39() : _v38({
             storyboard: _v2
           });
         }, [_v11, _v38, _v40, _v36, _v17, _v13, _v41, _v39, _v35]), (0, _v7.useLayoutEffect)(() => {
           if (_v9 && _v23) {
             _v21({
-              tag: _v13 ? _v754.GraphicsTag.INTERACTIVE : _v754.GraphicsTag.EDITOR
+              tag: _v13 ? _v751.GraphicsTag.INTERACTIVE : _v751.GraphicsTag.EDITOR
             });
             let _v0 = performance.now();
-            _v164.default.sendAction(_v251.EditorLoad, {
+            _v167.default.sendAction(_v251.EditorLoad, {
               step: "start fetch fonts"
             }), _v22().unwrap().then(() => {
-              _v164.default.sendAction(_v251.EditorLoad, {
+              _v167.default.sendAction(_v251.EditorLoad, {
                 step: "end fetch fonts",
-                durationMs: (0, _v406.durationSince)(_v0)
-              }), (0, _v389.loadFont)(_v733.CREDITS_FONT);
+                durationMs: (0, _v403.durationSince)(_v0)
+              }), (0, _v387.loadFont)(_v730.CREDITS_FONT);
             }).catch(_v0 => {
-              _v164.default.sendAction(_v251.EditorLoad, {
+              _v167.default.sendAction(_v251.EditorLoad, {
                 step: "fetch fonts failed",
                 error: _v0?.status || "unknown",
-                durationMs: (0, _v406.durationSince)(_v0)
+                durationMs: (0, _v403.durationSince)(_v0)
               });
             });
           }
         }, [_v21, _v22, _v13, _v23, _v9]), (0, _v7.useLayoutEffect)(() => {
-          _v8((0, _v165.setInspectorInitialWidthAction)(_v45 ? _v734.INSPECTOR_WIDTH_LG : _v734.INSPECTOR_WIDTH));
-        }, [_v8, _v45]), (0, _v490.useEffectOnce)(() => {
-          _v15(_v4), _v8((0, _v405.setIsShowGuidesStageAction)(_v31)), _v8((0, _v405.setIsSnapStageAction)(_v32)), _v323.default.setIsStaff(_v14), _v164.default.sendPageView();
+          _v8((0, _v168.setInspectorInitialWidthAction)(_v45 ? _v731.INSPECTOR_WIDTH_LG : _v731.INSPECTOR_WIDTH));
+        }, [_v8, _v45]), (0, _v487.useEffectOnce)(() => {
+          _v15(_v4), _v8((0, _v402.setIsShowGuidesStageAction)(_v31)), _v8((0, _v402.setIsSnapStageAction)(_v32)), _v322.default.setIsStaff(_v14), _v167.default.sendPageView();
         }), (0, _v7.useLayoutEffect)(() => {
           _v46();
         }, [_v8, _v46]), (0, _v7.useEffect)(() => (window.addEventListener("keydown", _v24), () => {
           window.removeEventListener("keydown", _v24);
         }), [_v24]), (0, _v7.useLayoutEffect)(() => {
-          _v43 || (_v7 ? _v8((0, _v165.initInspectorAction)({
-            inspectorType: _v168.InspectorType.TEMPLATES
-          })) : _v13 ? _v8((0, _v165.initInspectorAction)({
-            inspectorType: _v168.InspectorType.HOTSPOTS
-          })) : _v44 ? _v8((0, _v165.initInspectorAction)({
-            inspectorType: _v168.InspectorType.TRANSCRIPT
-          })) : _v8((0, _v165.initInspectorAction)({
-            inspectorType: _v168.InspectorType.MEDIA
+          _v43 || (_v7 ? _v8((0, _v168.initInspectorAction)({
+            inspectorType: _v171.InspectorType.TEMPLATES
+          })) : _v13 ? _v8((0, _v168.initInspectorAction)({
+            inspectorType: _v171.InspectorType.HOTSPOTS
+          })) : _v44 ? _v8((0, _v168.initInspectorAction)({
+            inspectorType: _v171.InspectorType.TRANSCRIPT
+          })) : _v8((0, _v168.initInspectorAction)({
+            inspectorType: _v171.InspectorType.MEDIA
           })));
         }, [_v8, _v43, _v44, _v13, _v7]);
       })({
@@ -18645,7 +18645,7 @@
         _v8((0, _v230.appResetAction)());
       }, [_v8]), null;
     },
-    _v758 = ({
+    _v755 = ({
       partnerApp: _v0,
       redirectUri: _v1,
       handleUpgrade: _v2,
@@ -18653,7 +18653,7 @@
     }) => {
       let {
           alertPartnerConnect: _v4
-        } = (0, _v161.useAlerts)(),
+        } = (0, _v164.useAlerts)(),
         _v5 = (0, _v7.useCallback)(() => {
           _v2("", _v219.PRODUCT.EDITOR, !0);
         }, [_v2]),
@@ -18664,42 +18664,42 @@
         _v6();
       }, [_v6]), null;
     };
-  var _v759 = _v0.i(0),
-    _v760 = _v0.i(0),
-    _v761 = _v0.i(0),
-    _v762 = _v0.i(0),
-    _v763 = _v0.i(0);
-  let _v764 = _v0 => {
+  var _v756 = _v0.i(0),
+    _v757 = _v0.i(0),
+    _v758 = _v0.i(0),
+    _v759 = _v0.i(0),
+    _v760 = _v0.i(0);
+  let _v761 = _v0 => {
       let {
           baseUrl: _v1,
           jwt: _v2,
           xVimeoPage: _v3,
           locale: _v4
-        } = (0, _v151.useGctlConfig)(),
+        } = (0, _v155.useGctlConfig)(),
         _v5 = (0, _v7.useMemo)(() => ({
-          baseUrl: (0, _v152.shouldShowInDevelopmentFeature)("useMasterCiApi", !0) ? _v759.MASTER_CI_API : _v1,
+          baseUrl: (0, _v156.shouldShowInDevelopmentFeature)("useMasterCiApi", !0) ? _v756.MASTER_CI_API : _v1,
           jwt: _v2,
           xVimeoPage: _v3,
           locale: _v4
         }), [_v1, _v2, _v3, _v4]);
-      return (0, _v6.jsx)(_v151.GctlProvider, {
+      return (0, _v6.jsx)(_v155.GctlProvider, {
         ..._v5,
-        children: (0, _v6.jsx)(_v767, {
+        children: (0, _v6.jsx)(_v764, {
           ..._v0
         })
       });
     },
-    _v765 = () => {
-      _v164.default.sendAction(_v251.EditorLoad, {
+    _v762 = () => {
+      _v167.default.sendAction(_v251.EditorLoad, {
         step: "start fetch auth"
       });
     },
-    _v766 = () => {
-      _v164.default.sendAction(_v251.EditorLoad, {
+    _v763 = () => {
+      _v167.default.sendAction(_v251.EditorLoad, {
         step: "end fetch auth"
       });
     },
-    _v767 = ({
+    _v764 = ({
       serverUrl: _v0,
       vimeoSessionId: _v1,
       history: _v2,
@@ -18717,16 +18717,16 @@
         vimeoSessionId: _v1,
         isShopifyUser: _v6,
         authenticate: _v9,
-        logAuthStart: _v765,
-        logAuthEnd: _v766
+        logAuthStart: _v762,
+        logAuthEnd: _v763
       }), (({
         vimeoVideoId: _v0
       }) => {
-        let [_v1, _v2] = (0, _v760.useGetUserFoldersPrivateToMeLazy)(),
-          [_v3, _v4] = (0, _v761.useGetUserProjectsLazy)(),
-          [_v5, _v6] = (0, _v761.useGetUserProjectsLazy)(),
-          [_v7, _v8] = (0, _v762.useGetUserTeamsLazy)(),
-          [_v9, _v10] = (0, _v314.useGetUserProjectLazy)(),
+        let [_v1, _v2] = (0, _v757.useGetUserFoldersPrivateToMeLazy)(),
+          [_v3, _v4] = (0, _v758.useGetUserProjectsLazy)(),
+          [_v5, _v6] = (0, _v758.useGetUserProjectsLazy)(),
+          [_v7, _v8] = (0, _v759.useGetUserTeamsLazy)(),
+          [_v9, _v10] = (0, _v313.useGetUserProjectLazy)(),
           _v11 = (0, _v7.useRef)(!!_v0),
           _v12 = (0, _v7.useContext)(_v91.ViewerContext),
           _v13 = _v12?.teamUser?.ownerId ?? _v12?.user?.id;
@@ -18738,14 +18738,14 @@
             _v3 = _v6?.data?.data?.find(_v0 => _v0.name === _v249.DEFAULT_FOLDER_NAME)?.uri;
           if (_v236.default.setPrivateToMeFolderUri(_v1 || ""), _v236.default.setUserRoleInSharedFolder(_v2?.userRole), _v8?.data?.data && _v236.default.setTeams(_v8.data.data), _v11.current) {
             let _v0, _v1;
-            return void (_v0 = _v230.default.dispatch, _v1 = Number(_v0), _v0(_v763.videoParentFolderApi.endpoints.fetchVideoParentFolder.initiate(_v1, {
+            return void (_v0 = _v230.default.dispatch, _v1 = Number(_v0), _v0(_v760.videoParentFolderApi.endpoints.fetchVideoParentFolder.initiate(_v1, {
               forceRefetch: !0
             })).unwrap()).then(_v0 => {
               _v230.default.dispatch((0, _v256.setFolderUriAction)(_v0 ?? ""));
             });
           }
           _v10.data?.metadata?.interactions?.uploadVideo ? _v230.default.dispatch((0, _v256.setFolderUriAction)(_v10.data?.uri || "")) : _v230.default.dispatch((0, _v256.setFolderUriAction)((_v12?.teamUser?.ownerId ? _v1 || _v0 : _v3) || ""));
-        }, [_v2, _v6, _v4, _v8, _v13, _v12?.teamUser?.ownerId, _v10.data, _v0]), (0, _v490.useEffectOnce)(() => {
+        }, [_v2, _v6, _v4, _v8, _v13, _v12?.teamUser?.ownerId, _v10.data, _v0]), (0, _v487.useEffectOnce)(() => {
           let _v0 = new URLSearchParams(window.location.search),
             _v1 = _v0.get("hash"),
             _v2 = "true" === _v0.get("et"),
@@ -18789,11 +18789,11 @@
         });
       })({
         vimeoVideoId: _v2.location.query?.vid
-      }), (0, _v490.useEffectOnce)(() => {
-        if (_v236.default.logInitialAuth(), _v3.interactive || (0, _v150.initScripts)(), 0 === _v402.default.editorLoadStartTime) {
+      }), (0, _v487.useEffectOnce)(() => {
+        if (_v236.default.logInitialAuth(), _v3.interactive || (0, _v154.initScripts)(), 0 === _v399.default.editorLoadStartTime) {
           let _v0 = !_v2.location.query?.hash && _v2.location.query?.vid,
             _v1 = performance.now();
-          _v402.default.setEditorLoadStart(_v1), _v164.default.sendAction(_v251.EditorLoad, {
+          _v399.default.setEditorLoadStart(_v1), _v167.default.sendAction(_v251.EditorLoad, {
             step: "start load editor",
             timestamp: Math.round(_v1),
             ...(_v0 && {
@@ -18801,30 +18801,30 @@
             })
           });
         }
-        _v323.default.init({
+        _v322.default.init({
           query: _v2.location.query,
           thirdPartyIntegration: _v4,
           teamUser: _v10?.teamUser,
           product: _v3.interactive ? _v219.PRODUCT.SIMPLIFIED_INTERACTIVE : _v219.PRODUCT.EDITOR
         });
       }), (0, _v6.jsx)(_v7.Suspense, {
-        children: (0, _v6.jsxs)(_v147.Provider, {
+        children: (0, _v6.jsxs)(_v151.Provider, {
           store: _v230.default,
-          children: [(0, _v6.jsx)(_v153.default, {
-            children: (0, _v6.jsx)(_v148.default, {
+          children: [(0, _v6.jsx)(_v157.default, {
+            children: (0, _v6.jsx)(_v152.default, {
               children: (0, _v6.jsx)(_v222.DragonflyProvider, {
-                children: (0, _v6.jsx)(_v692.StoryboardLocalStorageProvider, {
+                children: (0, _v6.jsx)(_v689.StoryboardLocalStorageProvider, {
                   children: (0, _v6.jsx)(_v235.PartnershipAppContext.Provider, {
                     value: _v5,
-                    children: (0, _v6.jsx)(_v160.FlowHooksContext.Provider, {
+                    children: (0, _v6.jsx)(_v163.FlowHooksContext.Provider, {
                       value: _v7,
                       children: (0, _v6.jsx)(_v202.LabeledCapabilitiesContext.Provider, {
                         value: _v8,
                         children: (0, _v6.jsx)(_v203.PermissionsProvider, {
                           children: (0, _v6.jsxs)(_v270, {
-                            children: [(0, _v6.jsx)(_v176, {
-                              children: (0, _v6.jsx)(_v729, {})
-                            }), (0, _v6.jsx)(_v757, {
+                            children: [(0, _v6.jsx)(_v179, {
+                              children: (0, _v6.jsx)(_v726, {})
+                            }), (0, _v6.jsx)(_v754, {
                               videoHash: _v2.location.query?.hash,
                               isBlankEntry: _v2.location.query?.blank === "true",
                               useRevision: _v2.location.state?.useRevision ?? _v2.location.query?.useRevision === "true",
@@ -18833,7 +18833,7 @@
                               vimeoVideoId: _v2.location.query?.vid,
                               featureFlags: _v3,
                               isThirdPartyIntegration: !!_v4
-                            }), !!_v4 && !!_v10?.user && _v5?.app && (0, _v6.jsx)(_v758, {
+                            }), !!_v4 && !!_v10?.user && _v5?.app && (0, _v6.jsx)(_v755, {
                               partnerApp: _v5.app,
                               redirectUri: _v5?.iframeModeConfig?.redirectUri,
                               handleUpgrade: _v5?.handleUpgrade,
@@ -18847,14 +18847,14 @@
                 })
               })
             })
-          }), (0, _v6.jsx)(_v149.MazeScript, {})]
+          }), (0, _v6.jsx)(_v153.MazeScript, {})]
         })
       });
     };
-  var _v768 = _v0.i(0),
-    _v769 = _v0.i(0),
-    _v770 = _v0.i(0);
-  function _v771({
+  var _v765 = _v0.i(0),
+    _v766 = _v0.i(0),
+    _v767 = _v0.i(0);
+  function _v768({
     history: _v0,
     isShopifyUser: _v1,
     routes: _v2,
@@ -18873,15 +18873,15 @@
       _v8 = _v7?.metadata?.isVimeoCreate,
       {
         hasReachedQuotaLimit: _v9
-      } = (0, _v770.default)(),
+      } = (0, _v767.default)(),
       {
         auth: _v10,
         authenticate: _v11
-      } = (0, _v7.useContext)(_v99.MagistoSessionContext),
+      } = (0, _v7.useContext)(_v102.MagistoSessionContext),
       {
         partnerConfig: _v12,
         teamUser: _v13
-      } = (0, _v7.useContext)(_v98.ConfigContext),
+      } = (0, _v7.useContext)(_v101.ConfigContext),
       {
         user: _v14
       } = (0, _v7.useContext)(_v91.ViewerContext) || {
@@ -18890,14 +18890,14 @@
       {
         showUpsellIfRequired: _v15,
         onPlanUpgrade: _v16
-      } = (0, _v7.useContext)(_v143.UpsellContext),
+      } = (0, _v7.useContext)(_v147.UpsellContext),
       _v17 = (0, _v7.useContext)(_v91.ViewerContext),
       {
         capabilities: {
           labeledCapabilities: _v18
         }
-      } = (0, _v7.useContext)(_v138.CreationCapabilityContext),
-      _v19 = _v1 ? _v145.FLOW_NAMES.SHOPIFY : _v145.FLOW_NAMES.EDITOR,
+      } = (0, _v7.useContext)(_v142.CreationCapabilityContext),
+      _v19 = _v1 ? _v149.FLOW_NAMES.SHOPIFY : _v149.FLOW_NAMES.EDITOR,
       _v20 = _v0.location.query.hash,
       _v21 = _v0.location.query.vsid,
       _v22 = !!_v0.location.query.blank,
@@ -18908,8 +18908,8 @@
       }), [_v3]),
       _v26 = (0, _v7.useCallback)(() => {
         _v15({
-          context: _v85.Context.CREATE_QUOTA_NOTIFICATION,
-          bpLocation: _v145.FLOW_NAMES.EDITOR,
+          context: _v86.Context.CREATE_QUOTA_NOTIFICATION,
+          bpLocation: _v149.FLOW_NAMES.EDITOR,
           pageLocation: "editor_screen",
           flow: _v19,
           upsellTrigger: "Quota",
@@ -18918,8 +18918,8 @@
       }, [_v19, _v15]),
       _v27 = (0, _v7.useCallback)(() => {
         _v15({
-          context: _v85.Context.STORAGE_QUOTA,
-          bpLocation: _v145.FLOW_NAMES.EDITOR,
+          context: _v86.Context.STORAGE_QUOTA,
+          bpLocation: _v149.FLOW_NAMES.EDITOR,
           pageLocation: "editor_screen",
           flow: _v19,
           upsellTrigger: "use_quota_limit",
@@ -18930,7 +18930,7 @@
       {
         capabilities: _v28,
         loading: _v29
-      } = (0, _v86.useCapability)(["hasUpsellsForFlatRateTiers", "canCreateCustomTemplates", "canUseFaceDetection", "hasCreateBrandView", "hasCreateBrandEdit", "hasCreateBrandApply", "hasCreateTeamTemplateView", "hasCreateTeamTemplateApply", "hasCreateTeamTemplateEdit"], `users/${_v13?.ownerId || _v14?.id}`),
+      } = (0, _v87.useCapability)(["hasUpsellsForFlatRateTiers", "canCreateCustomTemplates", "canUseFaceDetection", "hasCreateBrandView", "hasCreateBrandEdit", "hasCreateBrandApply", "hasCreateTeamTemplateView", "hasCreateTeamTemplateApply", "hasCreateTeamTemplateEdit"], `users/${_v13?.ownerId || _v14?.id}`),
       _v30 = !_v28.hasUpsellsForFlatRateTiers;
     (0, _v7.useEffect)(() => {
       !_v5 && !_v29 && _v30 && _v9 && (_v24 || !_v8) && (_v6(!0), _v26());
@@ -18938,14 +18938,14 @@
       _v32 && _v0.push(_v3 ? _v2.home() : "/upload/videos");
     }, [_v0, _v2, _v3]);
     let _v31 = (0, _v7.useMemo)(() => {
-      let _v0 = (0, _v769.upsellFlowHookFactory)(_v15);
+      let _v0 = (0, _v766.upsellFlowHookFactory)(_v15);
       return {
         onSelectWatermarkBannerUpgrade: _v0(({
           vsid: _v0,
           tier: _v1
         }) => ({
-          context: _v85.Context.TIER_BADGE,
-          shouldUpgradeIn: _v85.UpgradeWindowOption.NEW_WINDOW,
+          context: _v86.Context.TIER_BADGE,
+          shouldUpgradeIn: _v86.UpgradeWindowOption.NEW_WINDOW,
           pageLocation: "editor_screen",
           flow: _v19,
           upsellTrigger: "view_blue_banner",
@@ -18965,8 +18965,8 @@
           tier: _v1,
           upsellTitle: _v2
         }) => ({
-          context: _v85.Context.STOCK,
-          shouldUpgradeIn: _v85.UpgradeWindowOption.NEW_WINDOW,
+          context: _v86.Context.STOCK,
+          shouldUpgradeIn: _v86.UpgradeWindowOption.NEW_WINDOW,
           pageLocation: "media_modal",
           flow: _v19,
           upsellTrigger: "use_stock_asset",
@@ -18992,8 +18992,8 @@
           upsellName: _v6,
           trackingParams: _v7
         }) => ({
-          context: _v85.Context.BRAND,
-          shouldUpgradeIn: _v85.UpgradeWindowOption.NEW_WINDOW,
+          context: _v86.Context.BRAND,
+          shouldUpgradeIn: _v86.UpgradeWindowOption.NEW_WINDOW,
           pageLocation: _v3 || "editor_screen",
           flow: _v19,
           upsellTrigger: _v4 || "use_brand",
@@ -19013,22 +19013,22 @@
           upsellTrigger: _v3,
           triggerCapability: _v4
         }) => ({
-          context: _v85.Context.CREATE_BLOCKER,
-          shouldUpgradeIn: _v85.UpgradeWindowOption.NEW_WINDOW,
+          context: _v86.Context.CREATE_BLOCKER,
+          shouldUpgradeIn: _v86.UpgradeWindowOption.NEW_WINDOW,
           pageLocation: _v2,
           flow: _v19,
           upsellTrigger: _v3,
           triggerCapability: _v4,
           isBlocker: !0,
           vsid: _v0,
-          tier: _v768.blockingTier[_v1]
+          tier: _v765.blockingTier[_v1]
         })),
         onSelectTve: _v0(({
           vsid: _v0,
           tier: _v1
         }) => ({
-          context: _v85.Context.TVE,
-          shouldUpgradeIn: _v85.UpgradeWindowOption.NEW_WINDOW,
+          context: _v86.Context.TVE,
+          shouldUpgradeIn: _v86.UpgradeWindowOption.NEW_WINDOW,
           pageLocation: "media_modal",
           flow: _v19,
           upsellTrigger: "use_tve",
@@ -19053,7 +19053,7 @@
         let {
           apiProdUrl: _v0,
           apiDevUrl: _v1
-        } = (0, _v146.getMagistoResourceUrls)();
+        } = (0, _v150.getMagistoResourceUrls)();
         return `//${_v0}`;
       }, []),
       _v34 = _v12 ? {
@@ -19065,7 +19065,7 @@
         orientation: _v12?.orientation
       } : void 0;
     return (0, _v6.jsx)(_v6.Fragment, {
-      children: (0, _v6.jsx)(_v764, {
+      children: (0, _v6.jsx)(_v761, {
         serverUrl: _v33,
         history: _v0,
         vimeoSessionId: _v10?.sessionId || "",
@@ -19079,38 +19079,38 @@
       })
     });
   }
-  var _v772 = _v0.i(0);
-  let _v773 = (0, _v7.lazy)(() => _v0.A(0).then(({
+  var _v769 = _v0.i(0);
+  let _v770 = (0, _v7.lazy)(() => _v0.A(0).then(({
       TemplateGallery: _v0
     }) => ({
       default: _v0
     }))),
+    _v771 = (0, _v7.lazy)(() => _v0.A(0)),
+    _v772 = (0, _v7.lazy)(() => _v0.A(0)),
+    _v773 = (0, _v7.lazy)(() => _v0.A(0)),
     _v774 = (0, _v7.lazy)(() => _v0.A(0)),
     _v775 = (0, _v7.lazy)(() => _v0.A(0)),
     _v776 = (0, _v7.lazy)(() => _v0.A(0)),
     _v777 = (0, _v7.lazy)(() => _v0.A(0)),
-    _v778 = (0, _v7.lazy)(() => _v0.A(0)),
-    _v779 = (0, _v7.lazy)(() => _v0.A(0)),
-    _v780 = (0, _v7.lazy)(() => _v0.A(0)),
-    _v781 = (0, _v7.lazy)(() => _v0.A(0));
-  function _v782({
+    _v778 = (0, _v7.lazy)(() => _v0.A(0));
+  function _v779({
     viewer: _v0,
     history: _v1,
     playerAssetUrls: _v2,
     routes: _v3,
     partnerConfig: _v4
   }) {
-    return _v0 ? (0, _v6.jsx)(_v98.default, {
+    return _v0 ? (0, _v6.jsx)(_v101.default, {
       playerAssetUrls: _v2,
       ..._v0,
       partnerConfig: _v4,
-      children: (0, _v6.jsx)(_v99.default, {
+      children: (0, _v6.jsx)(_v102.default, {
         viewer: _v0,
         partnerConfig: _v4,
-        children: (0, _v6.jsx)(_v138.default, {
+        children: (0, _v6.jsx)(_v142.default, {
           user: _v0.user,
-          children: (0, _v6.jsx)(_v142, {
-            children: (0, _v6.jsx)(_v784, {
+          children: (0, _v6.jsx)(_v146, {
+            children: (0, _v6.jsx)(_v781, {
               history: _v1,
               routes: _v3
             })
@@ -19119,7 +19119,7 @@
       })
     }) : null;
   }
-  let _v783 = ({
+  let _v780 = ({
     children: _v0,
     canCreateUnlimitedDraftVideos: _v1,
     canSaveDraftVideos: _v2,
@@ -19129,10 +19129,10 @@
     draftsState: _v6,
     teamUser: _v7
   }) => {
-    let _v8 = (0, _v7.useContext)(_v98.ConfigContext);
-    return (0, _v6.jsx)(_v98.ConfigContext.Provider, {
+    let _v8 = (0, _v7.useContext)(_v101.ConfigContext);
+    return (0, _v6.jsx)(_v101.ConfigContext.Provider, {
       value: _v8,
-      children: (0, _v6.jsx)(_v143.UpsellContextProvider, {
+      children: (0, _v6.jsx)(_v147.UpsellContextProvider, {
         canCreateUnlimitedDraftVideos: _v1,
         canSaveDraftVideos: _v2,
         canUpgradeToPro: _v3,
@@ -19141,7 +19141,7 @@
         draftsState: _v6,
         teamUser: _v7,
         children: (0, _v6.jsxs)(_v6.Fragment, {
-          children: [_v0, (0, _v6.jsx)(_v143.UpsellContext.Consumer, {
+          children: [_v0, (0, _v6.jsx)(_v147.UpsellContext.Consumer, {
             children: ({
               showUpsell: _v0,
               upsellType: _v1,
@@ -19163,7 +19163,7 @@
               feature: _v17,
               upsellName: _v18,
               trackingParams: _v19
-            }) => _v0 && (0, _v6.jsx)(_v136, {
+            }) => _v0 && (0, _v6.jsx)(_v140, {
               showUpsell: _v0,
               upsellType: _v1,
               bpLocation: _v2,
@@ -19191,11 +19191,11 @@
       })
     });
   };
-  function _v784({
+  function _v781({
     history: _v0,
     routes: _v1
   }) {
-    let _v2 = (0, _v7.useContext)(_v98.ConfigContext),
+    let _v2 = (0, _v7.useContext)(_v101.ConfigContext),
       {
         user: _v3,
         magistoApiHost: _v4,
@@ -19212,7 +19212,7 @@
         auth: _v13,
         loading: _v14,
         authError: _v15
-      } = (0, _v7.useContext)(_v99.MagistoSessionContext),
+      } = (0, _v7.useContext)(_v102.MagistoSessionContext),
       _v16 = _v13?.response?.user?.videoMigrationStatus === 2,
       _v17 = _v0.location.pathname.includes("/create/edit") || _v0.location.pathname.includes("/create/interactive"),
       {
@@ -19226,7 +19226,7 @@
             teamUser: _v5,
             currentShopifyContext: _v6,
             updateShopifyContext: _v7
-          } = (0, _v7.useContext)(_v98.ConfigContext),
+          } = (0, _v7.useContext)(_v101.ConfigContext),
           [_v8, _v9] = (0, _v7.useState)({
             called: !1,
             loading: !1,
@@ -19241,7 +19241,7 @@
               loading: !0
             }));
             let _v1 = _v5?.plainTextPermissionLevel;
-            _v5 && (_v1 === _v60.TeamUserPermissionLevel.Contributor || _v1 === _v60.TeamUserPermissionLevel.ContributorPlus || _v1 === _v60.TeamUserPermissionLevel.Admin) && (_v0 = _v5.ownerId), _v144.default.getShopifyShopsIfConnected(_v2, _v3, _v0).then(_v0 => {
+            _v5 && (_v1 === _v60.TeamUserPermissionLevel.Contributor || _v1 === _v60.TeamUserPermissionLevel.ContributorPlus || _v1 === _v60.TeamUserPermissionLevel.Admin) && (_v0 = _v5.ownerId), _v148.default.getShopifyShopsIfConnected(_v2, _v3, _v0).then(_v0 => {
               let _v1 = _v0 && _v0.map(({
                 thirdPartyShopUrl: _v0
               }) => ({
@@ -19274,24 +19274,24 @@
           } = _v0.location.query,
           _v17 = _v12 && _v13 && _v14 && _v15 && _v16;
         if (_v16) (0, _v11.saveCookie)({
-          name: _v137.SHOPIFY_CONTEXT,
+          name: _v141.SHOPIFY_CONTEXT,
           value: JSON.stringify({
             shop: _v16
           }),
           path: "/"
-        });else if (_v8.shops.length > 0 && null === (0, _v11.loadCookie)(_v137.SHOPIFY_CONTEXT)) {
+        });else if (_v8.shops.length > 0 && null === (0, _v11.loadCookie)(_v141.SHOPIFY_CONTEXT)) {
           let _v0 = {
             shop: _v8.shops[0].thirdPartyShopUrl.replace(/(^\w+:|^)\/\//, "")
           };
           (0, _v11.saveCookie)({
-            name: _v137.SHOPIFY_CONTEXT,
+            name: _v141.SHOPIFY_CONTEXT,
             value: JSON.stringify(_v0),
             path: "/"
           }), _v6 || _v7(_v0);
         }
         return ((0, _v7.useEffect)(() => {
           let _v0 = !!_v8.shops.find(_v0 => _v0.thirdPartyShopUrl === _v16);
-          _v4?.uri && _v17 && !_v0 && _v144.default.completeShopifyConnection(_v3, _v11).then(() => {
+          _v4?.uri && _v17 && !_v0 && _v148.default.completeShopifyConnection(_v3, _v11).then(() => {
             _v9(_v0 => ({
               ..._v0,
               shops: _v0?.shops ? [..._v0?.shops, {
@@ -19315,21 +19315,21 @@
           setShopifyShops: _v9
         };
       }(_v0, void 0 !== _v9),
-      _v20 = !_v3 && (!!_v0.location.query[_v95.SHOPIFY_LP_URLPARAM] || localStorage.getItem(_v95.SHOPIFY_LP_KEY) === _v95.SHOPIFY_LP_FIRST_SO || localStorage.getItem(_v95.SHOPIFY_LP_KEY) === _v95.SHOPIFY_LP_SECOND_SO),
-      [_v21, _v22] = (0, _v7.useState)(!!_v3 && window.location.href.includes("/create/templates") && (!!_v0.location.query[_v95.SHOPIFY_LP_URLPARAM] || !!localStorage.getItem(_v95.SHOPIFY_LP_KEY))),
+      _v20 = !_v3 && (!!_v0.location.query[_v98.SHOPIFY_LP_URLPARAM] || localStorage.getItem(_v98.SHOPIFY_LP_KEY) === _v98.SHOPIFY_LP_FIRST_SO || localStorage.getItem(_v98.SHOPIFY_LP_KEY) === _v98.SHOPIFY_LP_SECOND_SO),
+      [_v21, _v22] = (0, _v7.useState)(!!_v3 && window.location.href.includes("/create/templates") && (!!_v0.location.query[_v98.SHOPIFY_LP_URLPARAM] || !!localStorage.getItem(_v98.SHOPIFY_LP_KEY))),
       _v23 = "1" === _v0.location.query.fl,
       _v24 = (_v20 || !!_v23) && !_v3,
       {
         shop: _v25
       } = _v0.location.query,
-      _v26 = "true" === _v0.location.query[_v95.DIRECT_CUSTOMIZE_URLPARAM] || !!_v0.location.query[_v95.LP_ONBOARDING_ID_URLPARAM],
+      _v26 = "true" === _v0.location.query[_v98.DIRECT_CUSTOMIZE_URLPARAM] || !!_v0.location.query[_v98.LP_ONBOARDING_ID_URLPARAM],
       _v27 = _v24 && _v25 || _v20,
       [_v28, _v29] = (0, _v7.useState)({
         isShowing: _v24,
         hideDismissButton: _v23
       });
     (0, _v7.useEffect)(() => {
-      !_v3 && _v0.location.query[_v95.SHOPIFY_LP_URLPARAM] ? (localStorage.setItem(_v95.SHOPIFY_LP_KEY, _v95.SHOPIFY_LP_FIRST_SO), window.history.replaceState(null, "", window.location.pathname)) : _v3 || localStorage.getItem(_v95.SHOPIFY_LP_KEY) !== _v95.SHOPIFY_LP_FIRST_SO ? _v3 || localStorage.getItem(_v95.SHOPIFY_LP_KEY) !== _v95.SHOPIFY_LP_SECOND_SO || localStorage.setItem(_v95.SHOPIFY_LP_KEY, _v95.SHOPIFY_LP_FIRST_SI) : localStorage.setItem(_v95.SHOPIFY_LP_KEY, _v95.SHOPIFY_LP_SECOND_SO), _v3 && (_v0.location.query[_v95.SHOPIFY_LP_URLPARAM] || localStorage.getItem(_v95.SHOPIFY_LP_KEY)) && (window.history.replaceState(null, "", window.location.pathname), localStorage.getItem(_v95.SHOPIFY_LP_KEY) === _v95.SHOPIFY_LP_SECOND_SI ? localStorage.removeItem(_v95.SHOPIFY_LP_KEY) : localStorage.setItem(_v95.SHOPIFY_LP_KEY, _v95.SHOPIFY_LP_SECOND_SI)), _v20 && _v29(_v0 => ({
+      !_v3 && _v0.location.query[_v98.SHOPIFY_LP_URLPARAM] ? (localStorage.setItem(_v98.SHOPIFY_LP_KEY, _v98.SHOPIFY_LP_FIRST_SO), window.history.replaceState(null, "", window.location.pathname)) : _v3 || localStorage.getItem(_v98.SHOPIFY_LP_KEY) !== _v98.SHOPIFY_LP_FIRST_SO ? _v3 || localStorage.getItem(_v98.SHOPIFY_LP_KEY) !== _v98.SHOPIFY_LP_SECOND_SO || localStorage.setItem(_v98.SHOPIFY_LP_KEY, _v98.SHOPIFY_LP_FIRST_SI) : localStorage.setItem(_v98.SHOPIFY_LP_KEY, _v98.SHOPIFY_LP_SECOND_SO), _v3 && (_v0.location.query[_v98.SHOPIFY_LP_URLPARAM] || localStorage.getItem(_v98.SHOPIFY_LP_KEY)) && (window.history.replaceState(null, "", window.location.pathname), localStorage.getItem(_v98.SHOPIFY_LP_KEY) === _v98.SHOPIFY_LP_SECOND_SI ? localStorage.removeItem(_v98.SHOPIFY_LP_KEY) : localStorage.setItem(_v98.SHOPIFY_LP_KEY, _v98.SHOPIFY_LP_SECOND_SI)), _v20 && _v29(_v0 => ({
         ..._v0,
         redirectUrl: "/create/templates"
       }));
@@ -19339,7 +19339,7 @@
         called: _v31,
         error: _v32,
         capabilities: _v33
-      } = (0, _v7.useContext)(_v138.CreationCapabilityContext),
+      } = (0, _v7.useContext)(_v142.CreationCapabilityContext),
       {
         canCreateUnlimitedDraftVideos: _v34,
         canSaveDraftVideos: _v35,
@@ -19362,7 +19362,7 @@
           loadingDrafts: !0,
           errorLoadingDrafts: !1
         }
-      })), _v772.default.getDrafts(1, _v4, _v12).then(_v0 => {
+      })), _v769.default.getDrafts(1, _v4, _v12).then(_v0 => {
         _v39(_v0 => ({
           ..._v0,
           draftsState: {
@@ -19413,13 +19413,13 @@
       draftsState: _v38,
       teamUser: _v8
     };
-    return _v17 ? (0, _v6.jsx)(_v783, {
+    return _v17 ? (0, _v6.jsx)(_v780, {
       ..._v45,
       children: (0, _v6.jsxs)(_v8.Switch, {
         children: [(0, _v6.jsx)(_v8.Route, {
           path: _v1.paths.edit,
           render: () => (0, _v6.jsx)(_v71, {
-            children: (0, _v6.jsx)(_v771, {
+            children: (0, _v6.jsx)(_v768, {
               history: _v0,
               routes: _v1.values,
               isShopifyUser: _v19
@@ -19428,7 +19428,7 @@
         }), (0, _v6.jsx)(_v8.Route, {
           path: _v1.paths.interactive,
           render: () => (0, _v6.jsx)(_v71, {
-            children: (0, _v6.jsx)(_v771, {
+            children: (0, _v6.jsx)(_v768, {
               history: _v0,
               routes: _v1.values,
               isShopifyUser: _v19,
@@ -19437,7 +19437,7 @@
           })
         })]
       })
-    }) : _v42 ? (0, _v6.jsx)(_v783, {
+    }) : _v42 ? (0, _v6.jsx)(_v780, {
       ..._v45,
       children: (0, _v6.jsxs)(_v6.Fragment, {
         children: [(0, _v6.jsx)(_v44, {
@@ -19446,7 +19446,7 @@
             _v22(!1);
           },
           callback: () => {
-            localStorage.removeItem(_v95.SHOPIFY_LP_KEY), window.location.href = "/create/templates";
+            localStorage.removeItem(_v98.SHOPIFY_LP_KEY), window.location.href = "/create/templates";
           }
         }), (0, _v6.jsx)(_v58.LoginJoinModal, {
           type: "join",
@@ -19460,7 +19460,7 @@
             }
             _v37.current ? _v37.current((0, _v10.camelizeDeep)(_v0)) : window.location.reload();
           },
-          faContainer: _v28.creationPath === _v95.CreationPath.Customize ? "customize_template" : _v28.creationPath === _v95.CreationPath.StartFromScratch ? "start_from_scratch" : _v28.creationPath === _v95.CreationPath.ProBadge ? "pro_badge" : void 0,
+          faContainer: _v28.creationPath === _v98.CreationPath.Customize ? "customize_template" : _v28.creationPath === _v98.CreationPath.StartFromScratch ? "start_from_scratch" : _v28.creationPath === _v98.CreationPath.ProBadge ? "pro_badge" : void 0,
           redirectUrl: _v9?.iframeModeConfig?.redirectUri ? _v9?.iframeModeConfig?.redirectUri : _v28.redirectUrl && !_v27 ? `/welcome-survey?type=segment&vimeoHref=${encodeURIComponent(_v43())}` : _v28.redirectUrl,
           redirectUrlAfterSocialLogin: _v9?.iframeModeConfig?.redirectUri ?? _v28.redirectUrl,
           isShowing: _v28.isShowing,
@@ -19477,7 +19477,7 @@
               children: [(0, _v6.jsx)(_v8.Route, {
                 path: _v1.paths.preview,
                 render: _v0 => (0, _v6.jsx)(_v71, {
-                  children: (0, _v6.jsx)(_v777, {
+                  children: (0, _v6.jsx)(_v774, {
                     hash: _v0.match.params.videoHash ?? "",
                     history: _v0,
                     canSaveDraftVideos: _v35 || !1,
@@ -19495,14 +19495,14 @@
                   let _v3 = {
                     keywords: `${_v1}${_v2 ? "," + _v2 : ""}`
                   };
-                  return (0, _v6.jsx)(_v143.UpsellContext.Consumer, {
+                  return (0, _v6.jsx)(_v147.UpsellContext.Consumer, {
                     children: ({
                       showUpsellIfRequired: _v0,
                       checkIfNeedUpgrade: _v1
-                    }) => (0, _v6.jsxs)(_v785, {
+                    }) => (0, _v6.jsxs)(_v782, {
                       children: [_v9?.mode === _v59.PartnerAppMode.IFRAME && _v9?.iframeModeConfig?.headerConfig && (0, _v6.jsx)(_v73.default, {
                         location: "create_homepage"
-                      }), (0, _v6.jsx)(_v773, {
+                      }), (0, _v6.jsx)(_v770, {
                         ..._v2,
                         checkIfNeedUpgrade: _v1,
                         query: _v3,
@@ -19517,7 +19517,7 @@
                         draftsCount: _v38.draftsCount,
                         routes: _v1.values,
                         translations: _v65.default,
-                        featureFlags: _v95.FEATURE_FLAGS,
+                        featureFlags: _v98.FEATURE_FLAGS,
                         userId: `${_v3 && _v3.id}`,
                         deviceId: _v7,
                         isShopifyUser: _v19 || _v20 || _v21,
@@ -19530,14 +19530,14 @@
               }), (0, _v6.jsx)(_v8.Route, {
                 exact: !0,
                 path: _v1.paths.home,
-                render: () => (0, _v6.jsx)(_v143.UpsellContext.Consumer, {
+                render: () => (0, _v6.jsx)(_v147.UpsellContext.Consumer, {
                   children: ({
                     showUpsellIfRequired: _v0,
                     checkIfNeedUpgrade: _v1
-                  }) => (0, _v6.jsxs)(_v785, {
+                  }) => (0, _v6.jsxs)(_v782, {
                     children: [_v9?.mode === _v59.PartnerAppMode.IFRAME && _v9?.iframeModeConfig?.headerConfig && (0, _v6.jsx)(_v73.default, {
                       location: "create_homepage"
-                    }), (0, _v6.jsx)(_v773, {
+                    }), (0, _v6.jsx)(_v770, {
                       ..._v2,
                       checkIfNeedUpgrade: _v1,
                       playerAssetUrls: _v6,
@@ -19551,7 +19551,7 @@
                       draftsCount: _v38.draftsCount,
                       routes: _v1.values,
                       translations: _v65.default,
-                      featureFlags: _v95.FEATURE_FLAGS,
+                      featureFlags: _v98.FEATURE_FLAGS,
                       userId: `${_v3 && _v3.id}`,
                       deviceId: _v7,
                       isShopifyUser: _v19 || _v20 || _v21,
@@ -19563,7 +19563,7 @@
               }), (0, _v6.jsx)(_v8.Route, {
                 path: _v1.paths.wizard,
                 render: () => (0, _v6.jsx)(_v71, {
-                  children: (0, _v6.jsx)(_v774, {
+                  children: (0, _v6.jsx)(_v771, {
                     history: _v0,
                     canSaveDraftVideos: _v35 || !1,
                     routes: _v1.values,
@@ -19573,7 +19573,7 @@
               }), (0, _v6.jsx)(_v8.Route, {
                 path: _v1.paths.script,
                 render: () => (0, _v6.jsx)(_v71, {
-                  children: (0, _v6.jsx)(_v778, {
+                  children: (0, _v6.jsx)(_v775, {
                     history: _v0,
                     canSaveDraftVideos: _v35 || !1,
                     draftsCount: _v38.draftsCount,
@@ -19586,7 +19586,7 @@
               }), (0, _v6.jsx)(_v8.Route, {
                 path: _v1.paths.customize,
                 render: () => (0, _v6.jsx)(_v71, {
-                  children: (0, _v6.jsx)(_v775, {
+                  children: (0, _v6.jsx)(_v772, {
                     history: _v0,
                     canSaveDraftVideos: _v35 || !1,
                     routes: _v1.values,
@@ -19596,7 +19596,7 @@
               }), (0, _v6.jsx)(_v8.Route, {
                 path: _v1.paths.trimmer,
                 render: () => (0, _v6.jsx)(_v71, {
-                  children: (0, _v6.jsx)(_v776, {
+                  children: (0, _v6.jsx)(_v773, {
                     history: _v0,
                     routes: _v1.values
                   })
@@ -19607,11 +19607,11 @@
                   children: [_v9?.mode === _v59.PartnerAppMode.IFRAME && _v9?.iframeModeConfig?.headerConfig && (0, _v6.jsx)(_v73.default, {
                     location: "create_homepage"
                   }), (0, _v6.jsxs)("div", {
-                    children: [_v26 && (0, _v6.jsx)(_v786, {
-                      children: (0, _v6.jsx)(_v787, {
+                    children: [_v26 && (0, _v6.jsx)(_v783, {
+                      children: (0, _v6.jsx)(_v784, {
                         children: (0, _v6.jsx)(_v72.Loader, {})
                       })
-                    }), (0, _v6.jsx)(_v779, {
+                    }), (0, _v6.jsx)(_v776, {
                       templateUri: _v0.match.params.template ?? "",
                       history: _v0,
                       magistoSessionLoading: _v14,
@@ -19627,10 +19627,10 @@
                 })
               }), (0, _v6.jsx)(_v8.Route, {
                 path: "/create/fb-permissions-check",
-                render: () => (0, _v6.jsx)(_v780, {})
+                render: () => (0, _v6.jsx)(_v777, {})
               }), (0, _v6.jsx)(_v8.Route, {
                 path: "/create/shopify",
-                render: () => (0, _v6.jsx)(_v781, {
+                render: () => (0, _v6.jsx)(_v778, {
                   history: _v0
                 })
               }), (0, _v6.jsx)(_v8.Route, {
@@ -19638,16 +19638,16 @@
                 render: () => {
                   let _v0 = _v8?.plainTextPermissionLevel === _v60.TeamUserPermissionLevel.Admin,
                     _v1 = _v8?.plainTextPermissionLevel === _v60.TeamUserPermissionLevel.Contributor || _v8?.plainTextPermissionLevel === _v60.TeamUserPermissionLevel.ContributorPlus;
-                  return _v8 && (_v0 || _v1) ? (_v1 && (0, _v11.clearCookie)(_v137.FB_CONTEXT), _v0 && _v144.default.getFBConnectedApp(_v11, _v10, _v8?.ownerId).then(() => {
+                  return _v8 && (_v0 || _v1) ? (_v1 && (0, _v11.clearCookie)(_v141.FB_CONTEXT), _v0 && _v148.default.getFBConnectedApp(_v11, _v10, _v8?.ownerId).then(() => {
                     (0, _v11.saveCookie)({
-                      name: _v137.FB_CONTEXT,
+                      name: _v141.FB_CONTEXT,
                       value: "1",
                       path: "/"
                     });
                   }).catch(() => {
-                    (0, _v11.clearCookie)(_v137.FB_CONTEXT);
+                    (0, _v11.clearCookie)(_v141.FB_CONTEXT);
                   })) : (0, _v11.saveCookie)({
-                    name: _v137.FB_CONTEXT,
+                    name: _v141.FB_CONTEXT,
                     value: "1",
                     path: "/"
                   }), (0, _v6.jsx)(_v8.Redirect, {
@@ -19665,13 +19665,13 @@
       loaderWithMessage: _v40
     });
   }
-  let _v785 = _v9.default.div.withConfig({
+  let _v782 = _v9.default.div.withConfig({
       displayName: "video-creation__TemplateGalleryWrapper",
       componentId: "sc-1b6984f2-0"
     })`
   min-height: calc(100vh - 60px);
 `,
-    _v786 = _v9.default.div.withConfig({
+    _v783 = _v9.default.div.withConfig({
       displayName: "video-creation__TotalOverlay",
       componentId: "sc-1b6984f2-1"
     })`
@@ -19687,7 +19687,7 @@
   overflow: hidden;
   display: block;
 `,
-    _v787 = _v9.default.div.withConfig({
+    _v784 = _v9.default.div.withConfig({
       displayName: "video-creation__InnerOverlay",
       componentId: "sc-1b6984f2-2"
     })`
@@ -19699,12 +19699,12 @@
   left: 0;
   display: block;
 `;
-  function _v788(_v0, _v1) {
+  function _v785(_v0, _v1) {
     _v1 || (_v1 = window.location.href);
     let _v2 = RegExp("[?&]" + (_v0 = _v0.replace(/[\[\]]/g, "\\$&")) + "(=([^&#]*)|&|#|$)").exec(_v1);
     return _v2 ? _v2[2] ? decodeURIComponent(_v2[2].replace(/\+/g, " ")) : "" : null;
   }
-  let _v789 = {
+  let _v786 = {
     paths: {
       preview: "/preview/:videoHash",
       category: "/create/templates/category/:category",
@@ -19733,19 +19733,19 @@
         let _v1,
           _v2 = "",
           _v3 = "?pid=";
-        _v1 = _v788("af_c") ? _v788("af_c") : _v788("utm_campaign") ? _v788("utm_campaign") : document.getElementsByTagName("title")[0] ? document.getElementsByTagName("title")[0].innerText : "unknown";
+        _v1 = _v785("af_c") ? _v785("af_c") : _v785("utm_campaign") ? _v785("utm_campaign") : document.getElementsByTagName("title")[0] ? document.getElementsByTagName("title")[0].innerText : "unknown";
         let _v4 = "&c=",
           _v5 = "&af_sub1=",
-          _v6 = _v788("gclid"),
+          _v6 = _v785("gclid"),
           _v7 = "&af_keywords=",
           _v8 = "",
-          _v9 = _v788("keyword");
-        if (_v788("af_pid") ? _v8 = _v788("af_pid") : _v788("utm_source") && (_v8 = _v788("utm_source")), _v8 && ["twitter_int", "facebook_int", "snapchat_int", "doubleclick_int", "yahoogemini_int", "yahoojapan_int"].includes(_v8)) return void alert("DO NOT USE NAMES OF SRNS IN af_pid or utm_source - use the names listed in Other SRNs: Add Parameter section in the landing page article\nhttps://support.appsflyer.com/hc/en-us/articles/360000677217#other-srns-add-parameter");
-        if (!_v788("af_redirect")) return _v6 ? (_v3 += "google_lp", _v4 += _v1, _v5 += _v6, _v9) ? (_v7 += _v9, _v2 = _v0 + _v3 + _v4 + _v5 + _v7) : _v2 = _v0 + _v3 + _v4 + _v5 : _v8 ? (_v4 += _v1, _v3 += _v8, _v2 = _v0 + _v3 + _v4) : document.referrer && "" != document.referrer && document.referrer.toLowerCase().includes("facebook") ? " " : (_v4 += _v1, _v3 += "website", _v2 = _v0 + _v3 + _v4);
+          _v9 = _v785("keyword");
+        if (_v785("af_pid") ? _v8 = _v785("af_pid") : _v785("utm_source") && (_v8 = _v785("utm_source")), _v8 && ["twitter_int", "facebook_int", "snapchat_int", "doubleclick_int", "yahoogemini_int", "yahoojapan_int"].includes(_v8)) return void alert("DO NOT USE NAMES OF SRNS IN af_pid or utm_source - use the names listed in Other SRNs: Add Parameter section in the landing page article\nhttps://support.appsflyer.com/hc/en-us/articles/360000677217#other-srns-add-parameter");
+        if (!_v785("af_redirect")) return _v6 ? (_v3 += "google_lp", _v4 += _v1, _v5 += _v6, _v9) ? (_v7 += _v9, _v2 = _v0 + _v3 + _v4 + _v5 + _v7) : _v2 = _v0 + _v3 + _v4 + _v5 : _v8 ? (_v4 += _v1, _v3 += _v8, _v2 = _v0 + _v3 + _v4) : document.referrer && "" != document.referrer && document.referrer.toLowerCase().includes("facebook") ? " " : (_v4 += _v1, _v3 += "website", _v2 = _v0 + _v3 + _v4);
       }("/mobileredirects?type=store&app=vimeo_create&pid=VC_template_page&c=Mobile_web_template_page&af_web_dp=https%3A%2F%2Fvimeo.com%2Fcreate%2Fvideo-maker") || "",
       category: _v0 => `/create/templates/category/${_v0}`,
       subCategory: (_v0, _v1) => `/create/templates/category/${_v0}/${_v1 || ""}`,
-      search: _v95.QUERY,
+      search: _v98.QUERY,
       preview: _v0 => `/preview/${_v0}`,
       script: (_v0, _v1) => `/create/script?hash=${_v0}&ornt=${_v1}`,
       video: _v0 => `/manage/videos/${_v0}`,
@@ -19758,11 +19758,11 @@
     playerAssetUrls: _v1
   }) {
     let _v2 = (0, _v7.useContext)(_v91.ViewerContext);
-    return (0, _v6.jsx)(_v782, {
+    return (0, _v6.jsx)(_v779, {
       playerAssetUrls: _v1,
       history: _v0,
       viewer: _v2,
-      routes: _v789
+      routes: _v786
     });
   }], 0);
 }

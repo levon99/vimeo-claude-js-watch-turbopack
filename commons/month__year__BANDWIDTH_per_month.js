@@ -5597,7 +5597,7 @@
       }
     }),
     tiers: {
-      free: _v5(_v0?.free, "1GB"),
+      free: _v5(_v0?.free, "3GB"),
       creator: _v5(_v0?.creator, "50GB"),
       core: _v5(_v0?.core, "300GB"),
       professional: _v5(_v0?.professional, "7TB"),

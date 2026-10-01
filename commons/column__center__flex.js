@@ -1323,21 +1323,18 @@
       children: "+"
     })]
   });
-  var _v93 = _v0.i(0);
-  let _v94 = "wnpi",
-    _v95 = new Date("2026-09-20T00:00:00Z"),
-    _v96 = new Date("2026-11-01T00:00:00Z"),
-    _v97 = new Date() > _v96,
-    _v98 = (0, _v2.createContext)(!1);
-  var _v99 = _v0.i(0);
-  function _v100({
+  var _v93 = _v0.i(0),
+    _v94 = _v0.i(0);
+  let _v95 = (0, _v2.createContext)(!1);
+  var _v96 = _v0.i(0);
+  function _v97({
     isOpen: _v0,
     onAcknowledge: _v1,
     children: _v2
   }) {
-    return _v0 ? (0, _v1.jsx)(_v98.Provider, {
+    return _v0 ? (0, _v1.jsx)(_v95.Provider, {
       value: !0,
-      children: (0, _v1.jsx)(_v99.AnnouncementPopover, {
+      children: (0, _v1.jsx)(_v96.AnnouncementPopover, {
         isOpen: _v0,
         anchorWithinChildren: !0,
         onAcknowledge: _v1,
@@ -1435,16 +1432,16 @@
       children: _v2
     });
   }
-  let _v101 = () => () => void 0,
-    _v102 = () => new URLSearchParams(window.location.search).get("changelog"),
-    _v103 = ({
+  let _v98 = () => () => void 0,
+    _v99 = () => new URLSearchParams(window.location.search).get("changelog"),
+    _v100 = ({
       children: _v0
-    }) => (0, _v2.useContext)(_v98) ? (0, _v1.jsx)(_v52.PopoverAnchor, {
+    }) => (0, _v2.useContext)(_v95) ? (0, _v1.jsx)(_v52.PopoverAnchor, {
       children: _v0
     }) : (0, _v1.jsx)(_v1.Fragment, {
       children: _v0
     }),
-    _v104 = ({
+    _v101 = ({
       variant: _v0 = "full",
       hideAnnouncementCount: _v1 = !1,
       isMobile: _v2 = !1,
@@ -1455,51 +1452,35 @@
         {
           acknowledge: _v6,
           showIntro: _v7
-        } = function () {
-          let _v0 = (0, _v20.useViewer)(),
-            _v1 = (0, _v51.useRouter)(),
-            _v2 = _v0?.user?.createdTime,
+        } = function ({
+          isMobile: _v0 = !1,
+          hideIntroPopover: _v1 = !1
+        } = {}) {
+          let _v2 = (0, _v51.useRouter)(),
             {
               settings: _v3
             } = (0, _v13.useOrionSettings)(),
-            _v4 = null != _v2 && new Date(_v2) > _v95,
-            _v5 = _v3.enable_whats_new_page && !_v4 && !_v97,
-            _v6 = "/whats-new" === _v1.pathname,
+            _v4 = "/whats-new" === _v2.pathname,
+            _v5 = (0, _v94.useIsAnnouncementAcknowledged)("whats_new_intro"),
             {
-              data: _v7,
-              mutate: _v8
-            } = (0, _v35.useGetMePreferences)(() => _v5 ? {
-              select: [_v94]
-            } : null, {
-              revalidateOnFocus: !1,
-              revalidateIfStale: !1
+              acknowledge: _v6,
+              isActive: _v7,
+              isLoaded: _v8
+            } = (0, _v94.useAnnouncement)({
+              id: "whats_new_intro",
+              isEligible: _v3.enable_whats_new_page && !_v4 && !_v0 && !_v1
             }),
-            [_v9] = (0, _v35.usePatchMePreferences)(),
-            _v10 = void 0 !== _v7,
-            _v11 = !!_v7?.[_v94],
-            _v12 = _v5 && _v10 && !_v11,
-            _v13 = _v12 && !_v6,
-            _v14 = (0, _v2.useCallback)(() => {
-              _v12 && (_v8({
-                ..._v7,
-                [_v94]: !0
-              }, {
-                revalidate: !1
-              }), _v9({
-                select: [_v94],
-                variables: {
-                  [_v94]: 1
-                }
-              }).then(() => _v8()));
-            }, [_v7, _v12, _v8, _v9]),
-            _v15 = (0, _v2.useRef)(!1);
+            _v9 = (0, _v2.useRef)(!1);
           return (0, _v2.useEffect)(() => {
-            _v12 && _v6 && !_v15.current && (_v15.current = !0, _v14());
-          }, [_v14, _v6, _v12]), {
-            acknowledge: _v14,
-            showIntro: _v13
+            _v3.enable_whats_new_page && _v4 && _v8 && !_v5 && !_v9.current && (_v9.current = !0, _v6());
+          }, [_v6, _v5, _v8, _v4, _v3.enable_whats_new_page]), {
+            acknowledge: _v6,
+            showIntro: _v7
           };
-        }(),
+        }({
+          isMobile: _v2,
+          hideIntroPopover: _v3
+        }),
         _v8 = _v7 && !_v2 && !_v3,
         {
           settings: _v9
@@ -1517,7 +1498,7 @@
           trackWhatsNewModalOpened: _v11
         } = _v68(),
         [_v12, _v13] = (0, _v2.useState)(!1),
-        _v14 = (0, _v2.useSyncExternalStore)(_v101, _v102, () => null),
+        _v14 = (0, _v2.useSyncExternalStore)(_v98, _v99, () => null),
         {
           newAnnouncementsCount: _v15,
           isLoading: _v16
@@ -1555,7 +1536,7 @@
             whatsNewModalOpenedManually: !0
           });
         },
-        _v25 = _v0 => _v8 ? (0, _v1.jsx)(_v100, {
+        _v25 = _v0 => _v8 ? (0, _v1.jsx)(_v97, {
           isOpen: !0,
           onAcknowledge: _v6,
           children: _v0
@@ -1600,7 +1581,7 @@
           children: (0, _v1.jsxs)(_v16.Box, {
             position: "relative",
             width: "max-content",
-            children: [(0, _v1.jsx)(_v103, {
+            children: [(0, _v1.jsx)(_v100, {
               children: (0, _v1.jsx)(_v4.IconButton, {
                 "aria-label": (0, _v12.translate)({
                   singular: "What's new",
@@ -1690,7 +1671,7 @@
         gap: 10,
         marginTop: -10,
         children: [_v9.enable_whats_new_page ? _v25((0, _v1.jsx)(_v50.MenuItem, {
-          icon: (0, _v1.jsx)(_v103, {
+          icon: (0, _v1.jsx)(_v100, {
             children: _v26
           }),
           iconSize: "1.5rem",
@@ -1922,7 +1903,7 @@
         children: _v10
       }, "bundle-promo"), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
         lastSeenSource: _v19,
-        children: (0, _v1.jsx)(_v104, {
+        children: (0, _v1.jsx)(_v101, {
           variant: "icons",
           hideAnnouncementCount: _v8,
           isMobile: _v1,
@@ -1993,7 +1974,7 @@
         children: _v10
       }, "bundle-promo"), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
         lastSeenSource: _v19,
-        children: (0, _v1.jsx)(_v104, {
+        children: (0, _v1.jsx)(_v101, {
           hideAnnouncementCount: _v8,
           isMobile: _v1,
           hideIntroPopover: _v9

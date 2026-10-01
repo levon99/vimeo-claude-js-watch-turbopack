@@ -75,7 +75,8 @@
   });
   var _v18 = _v0.i(0),
     _v19 = _v0.i(0),
-    _v20 = _v0.i(0);
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0);
   _v0.s(["FolderPermissionsList", 0, function ({
     teamUserId: _v0,
     ownerId: _v1,
@@ -231,7 +232,7 @@
       _v25 = (0, _v14.useFlattenedResponse)(_v18)?.map((0, _v14.itemsAdapter)(_v0)) ?? [],
       _v26 = _v13 ? _v25.filter(_v0 => _v0.name.toLowerCase().includes(_v13.toLowerCase())) : _v25;
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v18.FolderSearch, {
+      children: [(0, _v1.jsx)(_v19.FolderSearch, {
         searchTerm: _v13,
         onSearch: _v14
       }), (0, _v1.jsx)(_v7.Box, {
@@ -241,14 +242,14 @@
             name: _v5 ?? ""
           }]
         })
-      }), (0, _v1.jsx)(_v20.StateManager, {
+      }), (0, _v1.jsx)(_v21.StateManager, {
         items: _v26,
         isLoading: _v22,
-        emptyState: _v4 ?? (0, _v1.jsx)(_v17, {
+        emptyState: _v13 ? (0, _v1.jsx)(_v18.SearchNoResultsEmptyState, {}) : _v4 ?? (0, _v1.jsx)(_v17, {
           folderLink: _v12?.manageLink ?? ""
         }),
         error: _v19
-      }), (0, _v1.jsx)(_v19.LoadMore, {
+      }), (0, _v1.jsx)(_v20.LoadMore, {
         canLoadMore: !_v24,
         isLoadingMore: !!_v23,
         onClick: () => {

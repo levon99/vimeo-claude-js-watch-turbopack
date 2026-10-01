@@ -629,7 +629,7 @@
     let {
       canManagePresets: _v6,
       canViewRegistration: _v7
-    } = (0, _v9.getWorkspaceRegistrationAccess)(_v4?.adminForcedPreset, _v2.enable_admin_forced_preset, _v2.enable_email_defaults);
+    } = (0, _v9.getWorkspaceRegistrationAccess)(_v4?.adminForcedPreset, _v2.enable_email_defaults);
     if (!_v7) throw new _v3.UnauthorizedError();
     return (0, _v1.jsx)(_v2.Box, {
       paddingTop: "lg",

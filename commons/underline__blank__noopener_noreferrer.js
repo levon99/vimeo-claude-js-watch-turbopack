@@ -143,14 +143,16 @@
                     md: (0, _v6.rem)(24)
                   },
                   letterSpacing: {
-                    base: (0, _v6.rem)(-.8),
-                    md: (0, _v6.rem)(-.96)
+                    base: "-0.8px",
+                    md: "-0.96px"
                   },
                   children: (0, _v20.getBundleToggleBannerHeading)(_v3, _v11)
                 }), null === _v3 ? (0, _v1.jsxs)(_v2.Badge, {
                   variant: "info",
                   size: "sm",
                   gap: "4px",
+                  fontFamily: "heading",
+                  letterSpacing: "-0.36px",
                   children: [(0, _v1.jsx)(_v9.Gift, {
                     boxSize: "14px"
                   }), (0, _v20.getBundlePriceBadgeLabel)(null)]
@@ -163,14 +165,15 @@
                   gap: (0, _v6.rem)(4),
                   flexShrink: 0,
                   children: [(0, _v1.jsx)(_v8.Text, {
+                    fontFamily: "heading",
                     color: "text-button-inverted",
-                    fontSize: (0, _v6.rem)(16),
-                    letterSpacing: (0, _v6.rem)(-.48),
+                    fontSize: (0, _v6.rem)(14),
+                    letterSpacing: "-0.42px",
                     children: (0, _v21.formatBundlePrice)(_v3)
                   }), void 0 !== _v4 && (0, _v1.jsx)(_v8.Text, {
                     color: "text-button-inverted",
-                    fontSize: (0, _v6.rem)(14),
-                    letterSpacing: (0, _v6.rem)(-.42),
+                    fontSize: (0, _v6.rem)(12),
+                    letterSpacing: "-0.24px",
                     sx: {
                       textDecoration: "line-through",
                       opacity: .8

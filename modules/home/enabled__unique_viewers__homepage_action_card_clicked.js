@@ -13725,8 +13725,10 @@
           }), (0, _v1.jsx)(_v81.LibrariesNowOneModal, {
             isOpen: "now" === _v36.active,
             onClose: () => _v36.dismiss("now"),
-            onGoToLibrary: async () => {
-              await _v36.dismiss("now"), window.location.assign("/library?library_merge_toast=1");
+            onGoToLibrary: () => {
+              _v36.dismissAndWait("now").finally(() => {
+                window.location.assign("/library?library_merge_toast=1");
+              });
             }
           })]
         })

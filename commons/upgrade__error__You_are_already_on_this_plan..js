@@ -816,35 +816,75 @@
             })
           };
         case "juno_vgs":
-          let _v2 = (_v0.category ?? "").trim().toLowerCase(),
-            _v3 = (_v0.declineKind ?? "").trim().toLowerCase(),
-            _v4 = (_v0.code ?? "").trim().toLowerCase(),
-            _v5 = "" !== _v4 ? _v4 : "" !== _v2 ? _v2 : null;
-          if ("validation" === _v2) return _v28("juno_vgs", "client_validation", {
-            rawCode: _v5
-          });
-          if ("decline" === _v2 || "user_action_required" === _v2 || "terminal" === _v2) return "insufficient_funds" === _v4 ? _v28("juno_vgs", "insufficient_funds", {
-            rawCode: _v4
-          }) : "fraud" === _v4 || "suspected_fraud" === _v4 ? _v28("juno_vgs", "suspected_fraud", {
-            rawCode: _v4
-          }) : "expired_card" === _v4 || "invalid_card" === _v4 ? _v28("juno_vgs", "expired_or_invalid_card", {
-            rawCode: _v4
-          }) : "retryable" === _v3 ? _v28("juno_vgs", "issuer_unavailable", {
-            rawCode: _v5
-          }) : _v28("juno_vgs", "issuer_decline", {
-            rawCode: _v5
-          });
-          return "retryable" === _v2 ? _v28("juno_vgs", "issuer_unavailable", {
-            rawCode: _v5
-          }) : "" !== _v2 ? _v28("juno_vgs", "other_decline", {
-            rawCode: _v5
-          }) : {
-            source: "juno_vgs",
-            decline_category: null,
-            failing_field: null,
-            error_code: "" !== _v4 ? _v4 : null,
-            error_message: _v0.message ?? null
-          };
+          return (_v0 => {
+            let _v1 = (_v0.category ?? "").trim().toLowerCase(),
+              _v2 = (_v0.declineKind ?? "").trim().toLowerCase(),
+              _v3 = (_v0.code ?? "").trim().toLowerCase(),
+              _v4 = function (_v0) {
+                switch ((_v0 ?? "").trim().toLowerCase()) {
+                  case "insufficient_funds":
+                    return "insufficient_funds";
+                  case "expired_card":
+                  case "invalid_expiry_month":
+                  case "invalid_expiry_year":
+                  case "incorrect_number":
+                  case "incorrect_cvc":
+                  case "incorrect_zip":
+                  case "incorrect_address":
+                  case "card_not_supported":
+                    return "expired_or_invalid_card";
+                  case "fraudulent":
+                  case "lost_card":
+                  case "stolen_card":
+                  case "pickup_card":
+                  case "merchant_blacklist":
+                  case "restricted_card":
+                  case "card_velocity_exceeded":
+                    return "suspected_fraud";
+                  case "processing_error":
+                    return "issuer_unavailable";
+                  case "do_not_honor":
+                    return "do_not_honor";
+                  default:
+                    return null;
+                }
+              }(_v3),
+              _v5 = "" !== _v3 ? _v3 : "" !== _v1 ? _v1 : null;
+            if ("validation" === _v1) {
+              let _v0 = _v0.invalidFields ?? [];
+              return _v28("juno_vgs", "client_validation", {
+                failingField: _v0.length > 0 ? _v0.join(",") : null,
+                rawCode: _v5
+              });
+            }
+            return "decline" === _v1 || "user_action_required" === _v1 || "terminal" === _v1 ? _v4 ? _v28("juno_vgs", _v4, {
+              rawCode: _v3 || null
+            }) : "fraud" === _v3 || "suspected_fraud" === _v3 ? _v28("juno_vgs", "suspected_fraud", {
+              rawCode: _v3
+            }) : "invalid_card" === _v3 ? _v28("juno_vgs", "expired_or_invalid_card", {
+              rawCode: _v3
+            }) : "retryable" === _v2 ? _v28("juno_vgs", "issuer_unavailable", {
+              rawCode: _v5
+            }) : _v28("juno_vgs", "issuer_decline", {
+              rawCode: _v5
+            }) : "retryable" === _v1 ? _v28("juno_vgs", "issuer_unavailable", {
+              rawCode: _v5
+            }) : "card_capture_unavailable" === _v3 || "bot_check_protection_unavailable" === _v3 ? {
+              source: "juno_vgs",
+              decline_category: null,
+              failing_field: null,
+              error_code: _v3,
+              error_message: _v0.message ?? null
+            } : "" !== _v1 ? _v28("juno_vgs", "other_decline", {
+              rawCode: _v5
+            }) : {
+              source: "juno_vgs",
+              decline_category: null,
+              failing_field: null,
+              error_code: "" !== _v3 ? _v3 : null,
+              error_message: _v0.message ?? null
+            };
+          })(_v0);
       }
     },
     _v30 = !1,

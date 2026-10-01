@@ -32,8 +32,11 @@
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
-    _v32 = _v0.i(0);
-  let _v33 = _v0 => (0, _v1.jsx)(_v32.Icon, {
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0);
+  let _v36 = _v0 => (0, _v1.jsx)(_v35.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -42,34 +45,147 @@
       fill: "currentColor"
     })
   });
-  var _v34 = _v0.i(0);
-  let _v35 = "recently-deleted-bulk-toast";
-  function _v36({
+  var _v37 = _v0.i(0);
+  let _v38 = "recently-deleted-bulk-toast";
+  function _v39({
     numSelected: _v0,
-    onDelete: _v1,
-    onRestore: _v2,
-    onClear: _v3,
-    isRestoreDisabled: _v4
+    selectedItemType: _v1,
+    onDelete: _v2,
+    onRestore: _v3,
+    onClear: _v4,
+    isRestoreDisabled: _v5
   }) {
-    let [_v5, _v6] = (0, _v8.useState)(!1),
+    let [_v6, _v7] = (0, _v8.useState)(!1),
       {
-        colorMode: _v7
-      } = (0, _v30.useColorMode)(),
-      _v8 = async () => {
-        if (!_v5) {
-          _v6(!0);
+        colorMode: _v8
+      } = (0, _v33.useColorMode)(),
+      _v9 = async () => {
+        if (!_v6) {
+          _v7(!0);
           try {
-            await _v2();
+            await _v3();
           } finally {
-            _v6(!1);
+            _v7(!1);
           }
         }
       },
-      _v9 = "dark" === _v7 ? _v27.LightMode : _v27.DarkMode;
-    return (0, _v1.jsx)(_v9, {
-      children: (0, _v1.jsx)(_v34.BulkActionsBar.ActionBar, {
+      _v10 = "dark" === _v8 ? _v30.LightMode : _v30.DarkMode,
+      _v11 = "mixed" === _v1 ? (0, _v13.translate)({
+        singular: "{COUNT} item selected",
+        plural: "{COUNT} items selected",
+        count: _v0,
+        replacements: {
+          COUNT: _v0
+        },
+        dictionary: {
+          es: {
+            singular: "{COUNT} artículo seleccionado",
+            plural: "{COUNT} artículos seleccionados"
+          },
+          "de-DE": {
+            singular: "{COUNT} Element ausgewählt",
+            plural: "{COUNT} Elemente ausgewählt"
+          },
+          "fr-FR": {
+            singular: "{COUNT} élément sélectionné",
+            plural: "{COUNT} éléments sélectionnés"
+          },
+          "ja-JP": {
+            singular: "{COUNT}件のアイテムが選択されました",
+            plural: "{COUNT}件のアイテムが選択されました"
+          },
+          "ko-KR": {
+            singular: "{COUNT}개 항목이 선택되었습니다.",
+            plural: "{COUNT}개 항목이 선택되었습니다."
+          },
+          "pt-BR": {
+            singular: "{COUNT} iten selecionado",
+            plural: "{COUNT} itens selecionados"
+          },
+          "zh-CN": {
+            singular: "已选择 {COUNT} 个项目",
+            plural: "已选择 {COUNT} 个项目"
+          }
+        }
+      }) : "file" === _v1 ? (0, _v13.translate)({
+        singular: "{COUNT} file selected",
+        plural: "{COUNT} files selected",
+        count: _v0,
+        replacements: {
+          COUNT: _v0
+        },
+        dictionary: {
+          es: {
+            singular: "{COUNT} archivo seleccionado",
+            plural: "{COUNT} archivos seleccionados"
+          },
+          "de-DE": {
+            singular: "{COUNT} Datei ausgewählt",
+            plural: "{COUNT} Dateien ausgewählt"
+          },
+          "fr-FR": {
+            singular: "{COUNT} fichier sélectionné",
+            plural: "{COUNT} fichiers sélectionnés"
+          },
+          "ja-JP": {
+            singular: "{COUNT} 件のファイルが選択されています",
+            plural: "{COUNT} 件のファイルが選択されています"
+          },
+          "ko-KR": {
+            singular: "{COUNT}개 파일 선택됨",
+            plural: "{COUNT}개 파일 선택됨"
+          },
+          "pt-BR": {
+            singular: "{COUNT} arquivo selecionado",
+            plural: "{COUNT} arquivos selecionados"
+          },
+          "zh-CN": {
+            singular: "{COUNT} 个文件已被选中",
+            plural: "{COUNT} 个文件已被选中"
+          }
+        }
+      }) : (0, _v13.translate)({
+        singular: "{COUNT} video selected",
+        plural: "{COUNT} videos selected",
+        count: _v0,
+        replacements: {
+          COUNT: _v0
+        },
+        dictionary: {
+          es: {
+            singular: "{COUNT} video seleccionado",
+            plural: "{COUNT} videos seleccionados"
+          },
+          "de-DE": {
+            singular: "{COUNT} Video ausgewählt",
+            plural: "{COUNT} Videos ausgewählt"
+          },
+          "fr-FR": {
+            singular: "{COUNT} vidéo sélectionnée",
+            plural: "{COUNT} vidéos sélectionnées"
+          },
+          "ja-JP": {
+            singular: "{COUNT} 件の動画が選択されました",
+            plural: "{COUNT} 件の動画が選択されました"
+          },
+          "ko-KR": {
+            singular: "동영상 {COUNT}개 선택",
+            plural: "동영상 {COUNT}개 선택"
+          },
+          "pt-BR": {
+            singular: "{COUNT} vídeo selecionado",
+            plural: "{COUNT} vídeos selecionados"
+          },
+          "zh-CN": {
+            singular: "已选择 {COUNT} 个视频",
+            plural: "已选择 {COUNT} 个视频"
+          }
+        }
+      });
+    return (0, _v1.jsx)(_v10, {
+      children: (0, _v1.jsx)(_v37.BulkActionsBar.ActionBar, {
         isActive: _v0 > 0,
-        targetElementId: _v35,
+        targetElementId: _v38,
         children: (0, _v1.jsxs)(_v9.Flex, {
           alignItems: "center",
           gap: "0.5rem",
@@ -77,46 +193,9 @@
             color: "text-primary",
             variant: "body-lg",
             marginRight: "3rem",
-            children: (0, _v13.translate)({
-              singular: "{COUNT} video selected",
-              plural: "{COUNT} videos selected",
-              count: _v0,
-              replacements: {
-                COUNT: _v0
-              },
-              dictionary: {
-                es: {
-                  singular: "{COUNT} video seleccionado",
-                  plural: "{COUNT} videos seleccionados"
-                },
-                "de-DE": {
-                  singular: "{COUNT} Video ausgewählt",
-                  plural: "{COUNT} Videos ausgewählt"
-                },
-                "fr-FR": {
-                  singular: "{COUNT} vidéo sélectionnée",
-                  plural: "{COUNT} vidéos sélectionnées"
-                },
-                "ja-JP": {
-                  singular: "{COUNT} 件の動画が選択されました",
-                  plural: "{COUNT} 件の動画が選択されました"
-                },
-                "ko-KR": {
-                  singular: "동영상 {COUNT}개 선택",
-                  plural: "동영상 {COUNT}개 선택"
-                },
-                "pt-BR": {
-                  singular: "{COUNT} vídeo selecionado",
-                  plural: "{COUNT} vídeos selecionados"
-                },
-                "zh-CN": {
-                  singular: "已选择 {COUNT} 个视频",
-                  plural: "已选择 {COUNT} 个视频"
-                }
-              }
-            })
-          }), (0, _v1.jsx)(_v29.Tooltip, {
-            label: _v4 ? (0, _v13.translate)({
+            children: _v11
+          }), (0, _v1.jsx)(_v32.Tooltip, {
+            label: _v5 ? (0, _v13.translate)({
               singular: "Your storage is full. Permanently delete files to free up space.",
               dictionary: {
                 es: {
@@ -142,8 +221,8 @@
                 }
               }
             }) : void 0,
-            children: (0, _v1.jsx)(_v34.BulkActionsBar.ActionButton, {
-              icon: (0, _v1.jsx)(_v33, {}),
+            children: (0, _v1.jsx)(_v37.BulkActionsBar.ActionButton, {
+              icon: (0, _v1.jsx)(_v36, {}),
               label: (0, _v13.translate)({
                 singular: "Restore",
                 dictionary: {
@@ -170,10 +249,10 @@
                   }
                 }
               }),
-              disabled: _v5 || !!_v4,
-              onClick: _v8
+              disabled: _v6 || !!_v5,
+              onClick: _v9
             })
-          }), (0, _v1.jsx)(_v34.BulkActionsBar.ActionButton, {
+          }), (0, _v1.jsx)(_v37.BulkActionsBar.ActionButton, {
             icon: (0, _v1.jsx)(_v11.TrashBin, {}),
             label: (0, _v13.translate)({
               singular: "Delete forever",
@@ -201,8 +280,8 @@
                 }
               }
             }),
-            onClick: _v1
-          }), (0, _v1.jsx)(_v28.IconButton, {
+            onClick: _v2
+          }), (0, _v1.jsx)(_v31.IconButton, {
             "aria-label": (0, _v13.translate)({
               singular: "Deselect all",
               dictionary: {
@@ -229,20 +308,20 @@
                 }
               }
             }),
-            onClick: _v3,
-            icon: (0, _v1.jsx)(_v31.CloseX, {}),
+            onClick: _v4,
+            icon: (0, _v1.jsx)(_v34.CloseX, {}),
             variant: "tertiary"
           })]
         })
       })
     });
   }
-  var _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  let _v42 = _v0 => (0, _v1.jsx)(_v32.Icon, {
+  var _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0);
+  let _v45 = _v0 => (0, _v1.jsx)(_v35.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -257,13 +336,13 @@
       })]
     })
   });
-  var _v43 = _v0.i(0);
-  function _v44() {
-    let _v0 = (0, _v26.useViewer)(),
+  var _v46 = _v0.i(0);
+  function _v47() {
+    let _v0 = (0, _v29.useViewer)(),
       {
         capabilities: _v1
-      } = (0, _v43.useCapability)(["hasDataRetention"], _v0?.teamUser?.ownerId);
-    return _v1?.hasDataRetention ? (0, _v1.jsxs)(_v39.AlertRoot, {
+      } = (0, _v46.useCapability)(["hasDataRetention"], _v0?.teamUser?.ownerId);
+    return _v1?.hasDataRetention ? (0, _v1.jsxs)(_v42.AlertRoot, {
       size: "sm",
       padding: "sm",
       paddingLeft: "md",
@@ -271,9 +350,9 @@
       alignSelf: "stretch",
       borderRadius: "sm",
       backgroundColor: "fill-component",
-      children: [(0, _v1.jsx)(_v38.AlertIcon, {
+      children: [(0, _v1.jsx)(_v41.AlertIcon, {
         paddingY: "1",
-        children: (0, _v1.jsx)(_v42, {
+        children: (0, _v1.jsx)(_v45, {
           color: "text-primary"
         })
       }), (0, _v1.jsxs)(_v3.Box, {
@@ -281,7 +360,7 @@
         paddingY: "sm",
         fontSize: "body-md",
         lineHeight: "1.4",
-        children: [(0, _v1.jsx)(_v40.AlertTitle, {
+        children: [(0, _v1.jsx)(_v43.AlertTitle, {
           color: "text-primary",
           textStyle: "heading-xs",
           marginBottom: "0",
@@ -311,13 +390,13 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v37.AlertDescription, {
+        }), (0, _v1.jsx)(_v40.AlertDescription, {
           color: "text-primary",
           textStyle: "body-md",
           children: (0, _v13.translate)({
             singular: "This page only shows videos manually deleted by team members. Videos removed automatically by your organization's retention policy live in {LINK}Data retention history{/LINK}.",
             replacements: {
-              LINK: _v0 => (0, _v1.jsxs)(_v41.Link, {
+              LINK: _v0 => (0, _v1.jsxs)(_v44.Link, {
                 href: "/manage/team/settings/history",
                 target: "_blank",
                 variant: "inline-secondary",
@@ -354,7 +433,7 @@
       })]
     }) : null;
   }
-  function _v45({
+  function _v48({
     icon: _v0,
     title: _v1,
     description: _v2
@@ -378,13 +457,13 @@
       })]
     });
   }
-  var _v46 = _v0.i(0);
-  function _v47({
+  var _v49 = _v0.i(0);
+  function _v50({
     onEmptyTrash: _v0,
     recentlyDeletedDiskSpace: _v1
   }) {
-    let _v2 = (0, _v16.bytesToSize)(_v1, 1);
-    return (0, _v1.jsx)(_v39.AlertRoot, {
+    let _v2 = (0, _v17.bytesToSize)(_v1, 1);
+    return (0, _v1.jsx)(_v42.AlertRoot, {
       backgroundColor: "#BEE3F87A",
       sx: {
         _dark: {
@@ -396,7 +475,7 @@
       pl: "md",
       marginBottom: "0",
       alignItems: "center",
-      children: (0, _v1.jsx)(_v37.AlertDescription, {
+      children: (0, _v1.jsx)(_v40.AlertDescription, {
         width: "100%",
         children: (0, _v1.jsxs)(_v9.Flex, {
           width: "100%",
@@ -408,28 +487,28 @@
             variant: "body-sm",
             fontSize: (0, _v5.rem)(14),
             children: [(0, _v13.translate)({
-              singular: "Deleted videos are using",
+              singular: "Deleted items are using",
               dictionary: {
                 es: {
-                  singular: "Los videos eliminados están ocupando"
+                  singular: "Los elementos eliminados están ocupando"
                 },
                 "de-DE": {
-                  singular: "Gelöschte Videos belegen"
+                  singular: "Gelöschte Elemente belegen"
                 },
                 "fr-FR": {
-                  singular: "Les vidéos supprimées occupent"
+                  singular: "Les éléments supprimés occupent"
                 },
                 "ja-JP": {
-                  singular: "削除済みの動画は"
+                  singular: "削除済みアイテムが使用している"
                 },
                 "ko-KR": {
-                  singular: "삭제된 동영상이"
+                  singular: "삭제된 항목이 사용 중인"
                 },
                 "pt-BR": {
-                  singular: "Vídeos excluídos estão ocupando"
+                  singular: "Itens excluídos estão ocupando"
                 },
                 "zh-CN": {
-                  singular: "已删除的视频占用了您"
+                  singular: "已删除的项目正在占用"
                 }
               }
             }), " ", (0, _v1.jsx)("strong", {
@@ -463,7 +542,7 @@
                 }
               }
             })]
-          }), (0, _v1.jsx)(_v46.Button, {
+          }), (0, _v1.jsx)(_v49.Button, {
             variant: "secondary",
             size: "sm",
             onClick: _v0,
@@ -511,14 +590,14 @@
       })
     });
   }
-  var _v48 = _v0.i(0),
-    _v49 = _v0.i(0),
-    _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
+  var _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
-    _v54 = _v0.i(0);
-  let _v55 = _v0 => (0, _v1.jsx)(_v32.Icon, {
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0),
+    _v56 = _v0.i(0),
+    _v57 = _v0.i(0);
+  let _v58 = _v0 => (0, _v1.jsx)(_v35.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -527,9 +606,9 @@
       fill: "currentColor"
     })
   });
-  var _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  function _v58({
+  var _v59 = _v0.i(0),
+    _v60 = _v0.i(0);
+  function _v61({
     icon: _v0,
     title: _v1,
     subtitle: _v2
@@ -548,7 +627,7 @@
         justify: "center",
         flexShrink: 0,
         children: _v0
-      }), (0, _v1.jsxs)(_v53.Stack, {
+      }), (0, _v1.jsxs)(_v56.Stack, {
         gap: (0, _v5.rem)(4),
         flex: 1,
         children: [(0, _v1.jsx)(_v4.Text, {
@@ -563,34 +642,34 @@
       })]
     });
   }
-  function _v59({
+  function _v62({
     isOpen: _v0,
     isNewUser: _v1,
     onDismiss: _v2
   }) {
     let _v3 = (0, _v8.useRef)("overlay");
-    return (0, _v1.jsxs)(_v49.Modal, {
+    return (0, _v1.jsxs)(_v52.Modal, {
       isOpen: _v0,
       onClose: () => _v2(_v3.current),
-      children: [(0, _v1.jsx)(_v52.ModalOverlay, {}), (0, _v1.jsxs)(_v51.ModalContent, {
+      children: [(0, _v1.jsx)(_v55.ModalOverlay, {}), (0, _v1.jsxs)(_v54.ModalContent, {
         width: (0, _v5.rem)(488),
         maxWidth: (0, _v5.rem)(488),
         borderRadius: (0, _v5.rem)(20),
         padding: 0,
         overflow: "hidden",
-        children: [(0, _v1.jsx)(_v50.ModalCloseButton, {
+        children: [(0, _v1.jsx)(_v53.ModalCloseButton, {
           top: (0, _v5.rem)(20),
           right: (0, _v5.rem)(20),
           onClick: () => {
             _v3.current = "close_button";
           },
           color: "text-secondary"
-        }), (0, _v1.jsxs)(_v53.Stack, {
+        }), (0, _v1.jsxs)(_v56.Stack, {
           gap: (0, _v5.rem)(12),
           pt: (0, _v5.rem)(24),
           px: (0, _v5.rem)(24),
           pb: 0,
-          children: [!_v1 && (0, _v1.jsx)(_v48.Badge, {
+          children: [!_v1 && (0, _v1.jsx)(_v51.Badge, {
             variant: "new",
             size: "sm",
             fontFamily: "heading",
@@ -620,7 +699,7 @@
                 }
               }
             })
-          }), (0, _v1.jsxs)(_v53.Stack, {
+          }), (0, _v1.jsxs)(_v56.Stack, {
             gap: (0, _v5.rem)(4),
             children: [(0, _v1.jsx)(_v4.Text, {
               variant: "heading-md",
@@ -738,15 +817,15 @@
               })
             })]
           })]
-        }), (0, _v1.jsxs)(_v53.Stack, {
+        }), (0, _v1.jsxs)(_v56.Stack, {
           gap: (0, _v5.rem)(24),
           pt: (0, _v5.rem)(24),
           px: (0, _v5.rem)(24),
           pb: (0, _v5.rem)(8),
-          children: [(0, _v1.jsxs)(_v53.Stack, {
+          children: [(0, _v1.jsxs)(_v56.Stack, {
             gap: 0,
-            children: [(0, _v1.jsx)(_v58, {
-              icon: (0, _v1.jsx)(_v54.CircleCheck, {
+            children: [(0, _v1.jsx)(_v61, {
+              icon: (0, _v1.jsx)(_v57.CircleCheck, {
                 w: (0, _v5.rem)(24),
                 h: (0, _v5.rem)(24)
               }),
@@ -805,8 +884,8 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v58, {
-              icon: (0, _v1.jsx)(_v57.Reset, {
+            }), (0, _v1.jsx)(_v61, {
+              icon: (0, _v1.jsx)(_v60.Reset, {
                 w: (0, _v5.rem)(24),
                 h: (0, _v5.rem)(24)
               }),
@@ -865,8 +944,8 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v58, {
-              icon: (0, _v1.jsx)(_v55, {
+            }), (0, _v1.jsx)(_v61, {
+              icon: (0, _v1.jsx)(_v58, {
                 w: (0, _v5.rem)(24),
                 h: (0, _v5.rem)(24)
               }),
@@ -923,7 +1002,7 @@
                 }
               })
             })]
-          }), (0, _v1.jsxs)(_v39.AlertRoot, {
+          }), (0, _v1.jsxs)(_v42.AlertRoot, {
             size: "sm",
             backgroundColor: "#BEE3F87A",
             sx: {
@@ -933,10 +1012,10 @@
             },
             p: (0, _v5.rem)(16),
             borderRadius: "md",
-            children: [(0, _v1.jsx)(_v38.AlertIcon, {
+            children: [(0, _v1.jsx)(_v41.AlertIcon, {
               color: "status-info-primary",
-              children: (0, _v1.jsx)(_v56.InfoCircle, {})
-            }), (0, _v1.jsx)(_v37.AlertDescription, {
+              children: (0, _v1.jsx)(_v59.InfoCircle, {})
+            }), (0, _v1.jsx)(_v40.AlertDescription, {
               color: "text-secondary",
               fontSize: (0, _v5.rem)(14),
               children: (0, _v13.translate)({
@@ -970,11 +1049,11 @@
               })
             })]
           })]
-        }), (0, _v1.jsxs)(_v53.Stack, {
+        }), (0, _v1.jsxs)(_v56.Stack, {
           gap: (0, _v5.rem)(8),
           px: (0, _v5.rem)(24),
           py: (0, _v5.rem)(16),
-          children: [(0, _v1.jsx)(_v46.Button, {
+          children: [(0, _v1.jsx)(_v49.Button, {
             variant: "primary",
             size: "md",
             width: "100%",
@@ -1005,7 +1084,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v46.Button, {
+          }), (0, _v1.jsx)(_v49.Button, {
             variant: "tertiary",
             size: "md",
             width: "100%",
@@ -1043,33 +1122,34 @@
       })]
     });
   }
-  var _v60 = _v0.i(0),
-    _v61 = _v0.i(0),
-    _v62 = _v0.i(0);
-  function _v63({
+  var _v63 = _v0.i(0),
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
+  function _v66({
     isOpen: _v0,
     onClose: _v1,
     onConfirm: _v2,
     numItemsToDelete: _v3,
-    title: _v4,
-    headerText: _v5,
-    bodyText: _v6,
-    storageSize: _v7
+    selectedItemType: _v4 = "video",
+    title: _v5,
+    headerText: _v6,
+    bodyText: _v7,
+    storageSize: _v8
   }) {
-    let [_v8, _v9] = (0, _v8.useState)(!1),
-      _v10 = async () => {
-        _v9(!0);
+    let [_v9, _v10] = (0, _v8.useState)(!1),
+      _v11 = async () => {
+        _v10(!0);
         try {
           await _v2();
         } finally {
-          _v9(!1);
+          _v10(!1);
         }
       },
-      _v11 = _v4 && 1 === _v3 ? _v7 ? (0, _v13.translate)({
+      _v12 = _v5 && 1 === _v3 ? _v8 ? (0, _v13.translate)({
         singular: "{TITLE} will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
         replacements: {
-          TITLE: _v4,
-          STORAGE: _v7
+          TITLE: _v5,
+          STORAGE: _v8
         },
         dictionary: {
           es: {
@@ -1097,7 +1177,7 @@
       }) : (0, _v13.translate)({
         singular: "{TITLE} will be deleted forever. This action can't be undone.",
         replacements: {
-          TITLE: _v4
+          TITLE: _v5
         },
         dictionary: {
           es: {
@@ -1122,95 +1202,254 @@
             singular: "{TITLE} 将被永久删除。此操作不可撤销。"
           }
         }
-      }) : _v7 ? (0, _v13.translate)({
-        singular: "This video will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
-        plural: "{COUNT} videos will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
-        count: _v3,
-        replacements: {
-          COUNT: _v3,
-          STORAGE: _v7
-        },
-        dictionary: {
-          es: {
-            singular: "Este vídeo se eliminará permanentemente. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer.",
-            plural: "{COUNT} vídeos se eliminarán permanentemente. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer."
-          },
-          "de-DE": {
-            singular: "Dieses Video wird dauerhaft gelöscht. Dadurch werden {STORAGE} Speicherplatz frei. Diese Aktion kann nicht rückgängig gemacht werden.",
-            plural: "{COUNT} Videos werden dauerhaft gelöscht. Dadurch werden {STORAGE} Speicherplatz frei. Diese Aktion kann nicht rückgängig gemacht werden."
-          },
-          "fr-FR": {
-            singular: "Cette vidéo sera supprimée définitivement. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible.",
-            plural: "{COUNT} vidéos seront supprimées définitivement. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible."
-          },
-          "ja-JP": {
-            singular: "この動画は完全に削除されます。これにより{STORAGE}の容量が空きます。この操作は取り消せません。",
-            plural: "{COUNT}本の動画が完全に削除されます。これにより{STORAGE}の容量が空きます。この操作は取り消せません。"
-          },
-          "ko-KR": {
-            singular: "이 동영상은 영구적으로 삭제됩니다. 이로써 {STORAGE}의 저장 공간이 확보됩니다. 이 작업은 되돌릴 수 없습니다.",
-            plural: "{COUNT}개의 동영상이 영구적으로 삭제됩니다. 이로써 {STORAGE}의 저장 공간이 확보됩니다. 이 작업은 되돌릴 수 없습니다."
-          },
-          "pt-BR": {
-            singular: "Este vídeo será excluído permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita.",
-            plural: "{COUNT} vídeos serão excluídos permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita."
-          },
-          "zh-CN": {
-            singular: "该视频将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。",
-            plural: "{COUNT} 个视频将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。"
-          }
+      }) : (() => {
+        switch (_v4) {
+          case "file":
+            return _v8 ? (0, _v13.translate)({
+              singular: "This file will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
+              plural: "{COUNT} files will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
+              count: _v3,
+              replacements: {
+                COUNT: _v3,
+                STORAGE: _v8
+              },
+              dictionary: {
+                es: {
+                  singular: "Este archivo será borrado para siempre. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer.",
+                  plural: "{COUNT} archivos serán borrados para siempre. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer."
+                },
+                "de-DE": {
+                  singular: "Diese Datei wird dauerhaft gelöscht. Dadurch werden {STORAGE} Speicherplatz freigegeben. Diese Aktion kann nicht rückgängig gemacht werden.",
+                  plural: "{COUNT} Dateien werden dauerhaft gelöscht. Dadurch werden {STORAGE} Speicherplatz freigegeben. Diese Aktion kann nicht rückgängig gemacht werden."
+                },
+                "fr-FR": {
+                  singular: "Ce fichier sera définitivement supprimé. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible.",
+                  plural: "Les {COUNT} fichiers seront définitivement supprimés. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible."
+                },
+                "ja-JP": {
+                  singular: "このファイルは完全に削除されます。これにより {STORAGE} のストレージが解放されます。この操作は元に戻せません。",
+                  plural: "{COUNT} 件のファイルは完全に削除されます。これにより {STORAGE} のストレージが解放されます。この操作は元に戻せません。"
+                },
+                "ko-KR": {
+                  singular: "이 파일은 영구 삭제됩니다. 이로써 {STORAGE}의 저장공간이 확보됩니다. 이 작업은 취소할 수 없습니다.",
+                  plural: "{COUNT}개의 파일이 영구 삭제됩니다. 이로써 {STORAGE}의 저장공간이 확보됩니다. 이 작업은 취소할 수 없습니다."
+                },
+                "pt-BR": {
+                  singular: "Este arquivo será apagado permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita.",
+                  plural: "{COUNT} arquivos serão apagados permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita."
+                },
+                "zh-CN": {
+                  singular: "该文件将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。",
+                  plural: "{COUNT} 个文件将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。"
+                }
+              }
+            }) : (0, _v13.translate)({
+              singular: "This file will be deleted forever. This action can't be undone.",
+              plural: "{COUNT} files will be deleted forever. This action can't be undone.",
+              count: _v3,
+              replacements: {
+                COUNT: _v3
+              },
+              dictionary: {
+                es: {
+                  singular: "Este archivo será borrado para siempre. Esta acción no se puede deshacer.",
+                  plural: "{COUNT} archivos serán borrados para siempre. Esta acción no se puede deshacer."
+                },
+                "de-DE": {
+                  singular: "Diese Datei wird dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+                  plural: "{COUNT} Dateien werden dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden."
+                },
+                "fr-FR": {
+                  singular: "Ce fichier sera définitivement supprimé. Cette action est irréversible.",
+                  plural: "Les {COUNT} fichiers seront définitivement supprimés. Cette action est irréversible."
+                },
+                "ja-JP": {
+                  singular: "このファイルは完全に削除されます。この操作は元に戻せません。",
+                  plural: "{COUNT} 件のファイルは完全に削除されます。この操作は元に戻せません。"
+                },
+                "ko-KR": {
+                  singular: "이 파일은 영구 삭제됩니다. 이 작업은 취소할 수 없습니다.",
+                  plural: "{COUNT}개의 파일이 영구 삭제됩니다. 이 작업은 취소할 수 없습니다."
+                },
+                "pt-BR": {
+                  singular: "Este arquivo será apagado permanentemente. Esta ação não pode ser desfeita.",
+                  plural: "{COUNT} arquivos serão apagados permanentemente. Esta ação não pode ser desfeita."
+                },
+                "zh-CN": {
+                  singular: "该文件将被永久删除。此操作无法撤销。",
+                  plural: "{COUNT} 个文件将被永久删除。此操作无法撤销。"
+                }
+              }
+            });
+          case "mixed":
+            return _v8 ? (0, _v13.translate)({
+              singular: "This item will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
+              plural: "{COUNT} items will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
+              count: _v3,
+              replacements: {
+                COUNT: _v3,
+                STORAGE: _v8
+              },
+              dictionary: {
+                es: {
+                  singular: "Este elemento será borrado para siempre. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer.",
+                  plural: "{COUNT} elementos serán borrados para siempre. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer."
+                },
+                "de-DE": {
+                  singular: "Dieses Element wird dauerhaft gelöscht. Dadurch werden {STORAGE} Speicherplatz freigegeben. Diese Aktion kann nicht rückgängig gemacht werden.",
+                  plural: "{COUNT} Elemente werden dauerhaft gelöscht. Dadurch werden {STORAGE} Speicherplatz freigegeben. Diese Aktion kann nicht rückgängig gemacht werden."
+                },
+                "fr-FR": {
+                  singular: "Cet élément sera définitivement supprimé. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible.",
+                  plural: "Les {COUNT} éléments seront définitivement supprimés. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible."
+                },
+                "ja-JP": {
+                  singular: "このアイテムは完全に削除されます。これにより {STORAGE} のストレージが解放されます。この操作は元に戻せません。",
+                  plural: "{COUNT} 件のアイテムは完全に削除されます。これにより {STORAGE} のストレージが解放されます。この操作は元に戻せません。"
+                },
+                "ko-KR": {
+                  singular: "이 항목은 영구 삭제됩니다. 이로써 {STORAGE}의 저장공간이 확보됩니다. 이 작업은 취소할 수 없습니다.",
+                  plural: "{COUNT}개의 항목이 영구 삭제됩니다. 이로써 {STORAGE}의 저장공간이 확보됩니다. 이 작업은 취소할 수 없습니다."
+                },
+                "pt-BR": {
+                  singular: "Este item será apagado permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita.",
+                  plural: "{COUNT} itens serão apagados permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita."
+                },
+                "zh-CN": {
+                  singular: "该项目将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。",
+                  plural: "{COUNT} 个项目将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。"
+                }
+              }
+            }) : (0, _v13.translate)({
+              singular: "This item will be deleted forever. This action can't be undone.",
+              plural: "{COUNT} items will be deleted forever. This action can't be undone.",
+              count: _v3,
+              replacements: {
+                COUNT: _v3
+              },
+              dictionary: {
+                es: {
+                  singular: "Este elemento será borrado para siempre. Esta acción no se puede deshacer.",
+                  plural: "{COUNT} elementos serán borrados para siempre. Esta acción no se puede deshacer."
+                },
+                "de-DE": {
+                  singular: "Dieses Element wird dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+                  plural: "{COUNT} Elemente werden dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden."
+                },
+                "fr-FR": {
+                  singular: "Cet élément sera définitivement supprimé. Cette action est irréversible.",
+                  plural: "Les {COUNT} éléments seront définitivement supprimés. Cette action est irréversible."
+                },
+                "ja-JP": {
+                  singular: "このアイテムは完全に削除されます。この操作は元に戻せません。",
+                  plural: "{COUNT} 件のアイテムは完全に削除されます。この操作は元に戻せません。"
+                },
+                "ko-KR": {
+                  singular: "이 항목은 영구 삭제됩니다. 이 작업은 취소할 수 없습니다.",
+                  plural: "{COUNT}개의 항목이 영구 삭제됩니다. 이 작업은 취소할 수 없습니다."
+                },
+                "pt-BR": {
+                  singular: "Este item será apagado permanentemente. Esta ação não pode ser desfeita.",
+                  plural: "{COUNT} itens serão apagados permanentemente. Esta ação não pode ser desfeita."
+                },
+                "zh-CN": {
+                  singular: "该项目将被永久删除。此操作无法撤销。",
+                  plural: "{COUNT} 个项目将被永久删除。此操作无法撤销。"
+                }
+              }
+            });
+          default:
+            return _v8 ? (0, _v13.translate)({
+              singular: "This video will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
+              plural: "{COUNT} videos will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
+              count: _v3,
+              replacements: {
+                COUNT: _v3,
+                STORAGE: _v8
+              },
+              dictionary: {
+                es: {
+                  singular: "Este vídeo se eliminará permanentemente. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer.",
+                  plural: "{COUNT} vídeos se eliminarán permanentemente. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer."
+                },
+                "de-DE": {
+                  singular: "Dieses Video wird dauerhaft gelöscht. Dadurch werden {STORAGE} Speicherplatz frei. Diese Aktion kann nicht rückgängig gemacht werden.",
+                  plural: "{COUNT} Videos werden dauerhaft gelöscht. Dadurch werden {STORAGE} Speicherplatz frei. Diese Aktion kann nicht rückgängig gemacht werden."
+                },
+                "fr-FR": {
+                  singular: "Cette vidéo sera supprimée définitivement. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible.",
+                  plural: "{COUNT} vidéos seront supprimées définitivement. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible."
+                },
+                "ja-JP": {
+                  singular: "この動画は完全に削除されます。これにより{STORAGE}の容量が空きます。この操作は取り消せません。",
+                  plural: "{COUNT}本の動画が完全に削除されます。これにより{STORAGE}の容量が空きます。この操作は取り消せません。"
+                },
+                "ko-KR": {
+                  singular: "이 동영상은 영구적으로 삭제됩니다. 이로써 {STORAGE}의 저장 공간이 확보됩니다. 이 작업은 되돌릴 수 없습니다.",
+                  plural: "{COUNT}개의 동영상이 영구적으로 삭제됩니다. 이로써 {STORAGE}의 저장 공간이 확보됩니다. 이 작업은 되돌릴 수 없습니다."
+                },
+                "pt-BR": {
+                  singular: "Este vídeo será excluído permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita.",
+                  plural: "{COUNT} vídeos serão excluídos permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita."
+                },
+                "zh-CN": {
+                  singular: "该视频将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。",
+                  plural: "{COUNT} 个视频将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。"
+                }
+              }
+            }) : (0, _v13.translate)({
+              singular: "This video will be deleted forever. This action can't be undone.",
+              plural: "{COUNT} videos will be deleted forever. This action can't be undone.",
+              count: _v3,
+              replacements: {
+                COUNT: _v3
+              },
+              dictionary: {
+                es: {
+                  singular: "Este video se eliminará definitivamente. Esta acción no se puede deshacer.",
+                  plural: "{COUNT} videos se eliminarán definitivamente. Esta acción no se puede deshacer."
+                },
+                "de-DE": {
+                  singular: "Dieses Video wird endgültig gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+                  plural: "{COUNT} Videos werden endgültig gelöscht. Diese Aktion kann nicht rückgängig gemacht werden."
+                },
+                "fr-FR": {
+                  singular: "Cette vidéo sera supprimée définitivement. Cette action est irréversible.",
+                  plural: "{COUNT} vidéos seront supprimées définitivement. Cette action est irréversible."
+                },
+                "ja-JP": {
+                  singular: "この動画は完全に削除されます。この操作は元に戻せません。",
+                  plural: "{COUNT} 本の動画が完全に削除されます。この操作は元に戻せません。"
+                },
+                "ko-KR": {
+                  singular: "이 동영상은 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다.",
+                  plural: "{COUNT}개의 동영상이 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다."
+                },
+                "pt-BR": {
+                  singular: "Este vídeo será excluído permanentemente. Esta ação não pode ser desfeita.",
+                  plural: "{COUNT} vídeos serão excluídos permanentemente. Esta ação não pode ser desfeita."
+                },
+                "zh-CN": {
+                  singular: "该视频将被永久删除。此操作不可撤销。",
+                  plural: "{COUNT} 个视频将被永久删除。此操作不可撤销。"
+                }
+              }
+            });
         }
-      }) : (0, _v13.translate)({
-        singular: "This video will be deleted forever. This action can't be undone.",
-        plural: "{COUNT} videos will be deleted forever. This action can't be undone.",
-        count: _v3,
-        replacements: {
-          COUNT: _v3
-        },
-        dictionary: {
-          es: {
-            singular: "Este video se eliminará definitivamente. Esta acción no se puede deshacer.",
-            plural: "{COUNT} videos se eliminarán definitivamente. Esta acción no se puede deshacer."
-          },
-          "de-DE": {
-            singular: "Dieses Video wird endgültig gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
-            plural: "{COUNT} Videos werden endgültig gelöscht. Diese Aktion kann nicht rückgängig gemacht werden."
-          },
-          "fr-FR": {
-            singular: "Cette vidéo sera supprimée définitivement. Cette action est irréversible.",
-            plural: "{COUNT} vidéos seront supprimées définitivement. Cette action est irréversible."
-          },
-          "ja-JP": {
-            singular: "この動画は完全に削除されます。この操作は元に戻せません。",
-            plural: "{COUNT} 本の動画が完全に削除されます。この操作は元に戻せません。"
-          },
-          "ko-KR": {
-            singular: "이 동영상은 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다.",
-            plural: "{COUNT}개의 동영상이 영구적으로 삭제됩니다. 이 작업은 되돌릴 수 없습니다."
-          },
-          "pt-BR": {
-            singular: "Este vídeo será excluído permanentemente. Esta ação não pode ser desfeita.",
-            plural: "{COUNT} vídeos serão excluídos permanentemente. Esta ação não pode ser desfeita."
-          },
-          "zh-CN": {
-            singular: "该视频将被永久删除。此操作不可撤销。",
-            plural: "{COUNT} 个视频将被永久删除。此操作不可撤销。"
-          }
-        }
-      });
-    return (0, _v1.jsxs)(_v49.Modal, {
+      })();
+    return (0, _v1.jsxs)(_v52.Modal, {
       isOpen: _v0,
       onClose: _v1,
-      children: [(0, _v1.jsx)(_v52.ModalOverlay, {}), (0, _v1.jsxs)(_v51.ModalContent, {
+      children: [(0, _v1.jsx)(_v55.ModalOverlay, {}), (0, _v1.jsxs)(_v54.ModalContent, {
         borderRadius: "xl",
-        children: [(0, _v1.jsx)(_v50.ModalCloseButton, {}), (0, _v1.jsx)(_v62.ModalHeader, {
+        children: [(0, _v1.jsx)(_v53.ModalCloseButton, {}), (0, _v1.jsx)(_v65.ModalHeader, {
           px: "lg",
           pt: "lg",
           pb: "sm",
           fontSize: "heading-md",
           letterSpacing: "-0.03em",
           color: "text-primary",
-          children: _v5 ?? (0, _v13.translate)({
+          children: _v6 ?? (0, _v13.translate)({
             singular: "Permanently delete?",
             dictionary: {
               es: {
@@ -1236,19 +1475,19 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v60.ModalBody, {
+        }), (0, _v1.jsx)(_v63.ModalBody, {
           px: "lg",
           py: "sm",
           fontSize: "body-md",
           letterSpacing: "-0.03em",
           color: "text-primary",
-          children: _v6 ?? _v11
-        }), (0, _v1.jsxs)(_v61.ModalFooter, {
+          children: _v7 ?? _v12
+        }), (0, _v1.jsxs)(_v64.ModalFooter, {
           border: "0",
           px: "lg",
           pt: "sm",
           pb: "lg",
-          children: [(0, _v1.jsx)(_v46.Button, {
+          children: [(0, _v1.jsx)(_v49.Button, {
             onClick: _v1,
             variant: "tertiary",
             borderRadius: "md",
@@ -1278,12 +1517,12 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v46.Button, {
-            onClick: _v10,
+          }), (0, _v1.jsx)(_v49.Button, {
+            onClick: _v11,
             variant: "destructive",
             borderRadius: "md",
-            isDisabled: _v8,
-            isLoading: _v8,
+            isDisabled: _v9,
+            isLoading: _v9,
             children: (0, _v13.translate)({
               singular: "Delete forever",
               dictionary: {
@@ -1315,11 +1554,12 @@
       })]
     });
   }
-  var _v64 = _v0.i(0),
-    _v65 = _v0.i(0),
-    _v66 = _v0.i(0),
-    _v67 = _v0.i(0);
-  function _v68({
+  var _v67 = _v0.i(0),
+    _v68 = _v0.i(0),
+    _v69 = _v0.i(0),
+    _v70 = _v0.i(0),
+    _v71 = _v0.i(0);
+  function _v72({
     onDelete: _v0,
     onRestore: _v1,
     isRestoreDisabled: _v2
@@ -1342,7 +1582,7 @@
         opacity: 1
       },
       transition: "opacity 0.2s ease",
-      children: [(0, _v1.jsx)(_v29.Tooltip, {
+      children: [(0, _v1.jsx)(_v32.Tooltip, {
         label: _v2 ? (0, _v13.translate)({
           singular: "Your storage is full. Permanently delete files to free up space.",
           dictionary: {
@@ -1395,7 +1635,7 @@
           }
         }),
         placement: "top",
-        children: (0, _v1.jsx)(_v28.IconButton, {
+        children: (0, _v1.jsx)(_v31.IconButton, {
           "aria-label": (0, _v13.translate)({
             singular: "Restore file",
             dictionary: {
@@ -1422,14 +1662,14 @@
               }
             }
           }),
-          icon: (0, _v1.jsx)(_v33, {}),
+          icon: (0, _v1.jsx)(_v36, {}),
           variant: "minimal",
           size: "sm",
           isDisabled: _v3 || !!_v2,
           isLoading: _v3,
           onClick: _v5
         })
-      }), (0, _v1.jsx)(_v29.Tooltip, {
+      }), (0, _v1.jsx)(_v32.Tooltip, {
         label: (0, _v13.translate)({
           singular: "Delete forever",
           dictionary: {
@@ -1457,7 +1697,7 @@
           }
         }),
         placement: "top",
-        children: (0, _v1.jsx)(_v28.IconButton, {
+        children: (0, _v1.jsx)(_v31.IconButton, {
           "aria-label": (0, _v13.translate)({
             singular: "Delete forever",
             dictionary: {
@@ -1493,119 +1733,71 @@
       })]
     });
   }
-  let _v69 = `${(0, _v5.rem)(32)} ${(0, _v5.rem)(150)} 6fr ${(0, _v5.rem)(105)} ${(0, _v5.rem)(160)} ${(0, _v5.rem)(105)} ${(0, _v5.rem)(80)}`;
-  function _v70({
-    videos: _v0,
+  let _v73 = `${(0, _v5.rem)(32)} ${(0, _v5.rem)(150)} 6fr ${(0, _v5.rem)(105)} ${(0, _v5.rem)(160)} ${(0, _v5.rem)(105)} ${(0, _v5.rem)(80)}`;
+  function _v74({
+    items: _v0,
     viewerUserId: _v1,
     selectedUris: _v2,
     onToggleSelected: _v3,
-    onRestoreVideo: _v4,
-    onDeleteVideo: _v5,
+    onRestoreItem: _v4,
+    onDeleteItem: _v5,
     isRestoreDisabled: _v6
   }) {
     return (0, _v1.jsx)(_v1.Fragment, {
       children: _v0.map(_v0 => {
-        let _v1,
-          _v2 = _v0.filesSize && _v0.filesSize.totalSize > 0 ? (0, _v16.bytesToSize)(_v0.filesSize.totalSize) : "—",
-          _v3 = _v0.deletedBy?.uri ? (0, _v25.idFromUri)(_v0.deletedBy.uri) : null,
-          _v4 = _v0.modifiedTime ? (_v1 = Math.min(Math.ceil((new Date(_v0.modifiedTime).getTime() + 0 - Date.now()) / 0), 30)) <= 0 ? (0, _v13.translate)({
-            singular: "< 1 day",
-            dictionary: {
-              es: {
-                singular: "< 1 día"
-              },
-              "de-DE": {
-                singular: "< 1 Tag"
-              },
-              "fr-FR": {
-                singular: "< 1 jour"
-              },
-              "ja-JP": {
-                singular: "< 1日"
-              },
-              "ko-KR": {
-                singular: "< 1일"
-              },
-              "pt-BR": {
-                singular: "< 1 dia"
-              },
-              "zh-CN": {
-                singular: "< 1 天"
-              }
-            }
-          }) : (0, _v13.translate)({
-            singular: "{daysRemaining} day",
-            plural: "{daysRemaining} days",
-            replacements: {
-              daysRemaining: _v1
-            },
-            count: _v1,
-            dictionary: {
-              es: {
-                singular: "{daysRemaining} día",
-                plural: "{daysRemaining} días"
-              },
-              "de-DE": {
-                singular: "{daysRemaining} Tag",
-                plural: "{daysRemaining} Tage"
-              },
-              "fr-FR": {
-                singular: "{daysRemaining} jour",
-                plural: "{daysRemaining} jours"
-              },
-              "ja-JP": {
-                singular: "{daysRemaining}日",
-                plural: "{daysRemaining}日"
-              },
-              "ko-KR": {
-                singular: "{daysRemaining}일",
-                plural: "{daysRemaining}일"
-              },
-              "pt-BR": {
-                singular: "{daysRemaining} dia",
-                plural: "{daysRemaining} dias"
-              },
-              "zh-CN": {
-                singular: "{daysRemaining} 天",
-                plural: "{daysRemaining} 天"
-              }
-            }
-          }) : "—";
-        return (0, _v1.jsxs)(_v65.ContentRow, {
-          listGridColumns: _v69,
-          isSelected: !!_v0.uri && _v2.has(_v0.uri),
-          onToggleSelected: _v0.uri ? () => _v3(_v0.uri) : void 0,
-          children: [(0, _v1.jsx)(_v65.ContentRow.Column, {
+        let {
+            uri: _v1
+          } = _v0,
+          _v2 = "video" === _v0.kind ? _v0.video.name : _v0.file.name,
+          _v3 = "video" === _v0.kind ? _v0.video.deletedBy : _v0.file.deletedBy,
+          _v4 = "video" === _v0.kind ? _v0.video.modifiedTime : _v0.file.modifiedTime,
+          _v5 = _v3?.uri ? (0, _v28.idFromUri)(_v3.uri) : null;
+        return (0, _v1.jsxs)(_v68.ContentRow, {
+          listGridColumns: _v73,
+          isSelected: _v2.has(_v1),
+          onToggleSelected: () => _v3(_v1),
+          children: [(0, _v1.jsx)(_v68.ContentRow.Column, {
             overflow: "hidden",
-            children: (0, _v1.jsx)(_v65.ContentRow.SelectCheckbox, {
+            children: (0, _v1.jsx)(_v68.ContentRow.SelectCheckbox, {
               size: "md"
             })
-          }), (0, _v1.jsx)(_v65.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v68.ContentRow.Column, {
             overflow: "hidden",
-            children: (0, _v1.jsx)(_v66.VideoThumbnail, {
-              alt: _v0.name ?? "",
-              badgeText: (0, _v67.secondsToDisplay)(_v0.duration),
-              isDefaultPicture: _v0.pictures?.defaultPicture,
-              thumbnailSrc: _v0.pictures?.sizes[3]?.link
+            children: "video" === _v0.kind ? (0, _v1.jsx)(_v69.VideoThumbnail, {
+              alt: _v2 ?? "",
+              badgeText: (0, _v70.secondsToDisplay)(_v0.video.duration),
+              isDefaultPicture: _v0.video.pictures?.defaultPicture,
+              thumbnailSrc: _v0.video.pictures?.sizes[3]?.link
+            }) : (0, _v1.jsx)(_v71.FileRowThumbnail, {
+              name: _v0.file.name,
+              contentType: _v0.file.contentType,
+              thumbnailSrc: _v0.file.thumbnail?.url
             })
-          }), (0, _v1.jsx)(_v65.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v68.ContentRow.Column, {
             overflow: "hidden",
             children: (0, _v1.jsx)(_v4.Text, {
               variant: "heading-xs",
               noOfLines: 1,
               paddingLeft: (0, _v5.rem)(8),
-              children: _v0.name
+              children: _v2
             })
-          }), (0, _v1.jsx)(_v65.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v68.ContentRow.Column, {
             overflow: "hidden",
             children: (0, _v1.jsx)(_v4.Text, {
               variant: "body-md",
               color: "text-secondary",
-              children: _v2
+              children: function (_v0) {
+                if ("video" === _v0.kind) {
+                  let _v0 = _v0.video.filesSize?.totalSize ?? 0;
+                  return _v0 > 0 ? (0, _v17.bytesToSize)(_v0) : "—";
+                }
+                let _v1 = _v0.file.fileSize ?? 0;
+                return _v1 > 0 ? (0, _v17.bytesToSize)(_v1) : "—";
+              }(_v0)
             })
-          }), (0, _v1.jsx)(_v65.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v68.ContentRow.Column, {
             overflow: "hidden",
-            children: _v3 && _v3 === _v1 ? (0, _v1.jsx)(_v4.Text, {
+            children: _v5 && _v5 === _v1 ? (0, _v1.jsx)(_v4.Text, {
               variant: "body-md",
               color: "text-secondary",
               children: (0, _v13.translate)({
@@ -1634,10 +1826,10 @@
                   }
                 }
               })
-            }) : _v0.deletedBy ? (0, _v1.jsxs)(_v9.Flex, {
+            }) : _v3 ? (0, _v1.jsxs)(_v9.Flex, {
               alignItems: "center",
               gap: (0, _v5.rem)(8),
-              children: [(0, _v1.jsx)(_v64.Avatar, {
+              children: [(0, _v1.jsx)(_v67.Avatar, {
                 size: "sm",
                 alt: (0, _v13.translate)({
                   singular: "Display picture",
@@ -1665,65 +1857,131 @@
                     }
                   }
                 }),
-                src: _v0.deletedBy.pictures?.sizes?.[1]?.link,
+                src: _v3.pictures?.sizes?.[1]?.link,
                 nameProps: {
-                  name: _v0.deletedBy.name
+                  name: _v3.name
                 }
               }), (0, _v1.jsx)(_v4.Text, {
                 variant: "body-md",
                 color: "text-secondary",
                 noOfLines: 1,
-                children: _v0.deletedBy.name
+                children: _v3.name
               })]
             }) : (0, _v1.jsx)(_v4.Text, {
               variant: "body-md",
               color: "text-secondary",
               children: "—"
             })
-          }), (0, _v1.jsx)(_v65.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v68.ContentRow.Column, {
             overflow: "hidden",
             children: (0, _v1.jsx)(_v4.Text, {
               variant: "body-md",
               color: "text-secondary",
-              children: _v4
+              children: function (_v0) {
+                if (!_v0) return "—";
+                let _v1 = Math.min(Math.ceil((new Date(_v0).getTime() + 0 - Date.now()) / 0), 30);
+                return _v1 <= 0 ? (0, _v13.translate)({
+                  singular: "< 1 day",
+                  dictionary: {
+                    es: {
+                      singular: "< 1 día"
+                    },
+                    "de-DE": {
+                      singular: "< 1 Tag"
+                    },
+                    "fr-FR": {
+                      singular: "< 1 jour"
+                    },
+                    "ja-JP": {
+                      singular: "< 1日"
+                    },
+                    "ko-KR": {
+                      singular: "< 1일"
+                    },
+                    "pt-BR": {
+                      singular: "< 1 dia"
+                    },
+                    "zh-CN": {
+                      singular: "< 1 天"
+                    }
+                  }
+                }) : (0, _v13.translate)({
+                  singular: "{daysRemaining} day",
+                  plural: "{daysRemaining} days",
+                  replacements: {
+                    daysRemaining: _v1
+                  },
+                  count: _v1,
+                  dictionary: {
+                    es: {
+                      singular: "{daysRemaining} día",
+                      plural: "{daysRemaining} días"
+                    },
+                    "de-DE": {
+                      singular: "{daysRemaining} Tag",
+                      plural: "{daysRemaining} Tage"
+                    },
+                    "fr-FR": {
+                      singular: "{daysRemaining} jour",
+                      plural: "{daysRemaining} jours"
+                    },
+                    "ja-JP": {
+                      singular: "{daysRemaining}日",
+                      plural: "{daysRemaining}日"
+                    },
+                    "ko-KR": {
+                      singular: "{daysRemaining}일",
+                      plural: "{daysRemaining}일"
+                    },
+                    "pt-BR": {
+                      singular: "{daysRemaining} dia",
+                      plural: "{daysRemaining} dias"
+                    },
+                    "zh-CN": {
+                      singular: "{daysRemaining} 天",
+                      plural: "{daysRemaining} 天"
+                    }
+                  }
+                });
+              }(_v4)
             })
-          }), (0, _v1.jsx)(_v65.ContentRow.Column, {
+          }), (0, _v1.jsx)(_v68.ContentRow.Column, {
             justifyColumn: "flex-end",
-            children: (0, _v1.jsx)(_v68, {
-              onRestore: () => _v4(_v0.uri),
-              onDelete: () => _v5(_v0.uri),
+            children: (0, _v1.jsx)(_v72, {
+              onRestore: () => _v4(_v1),
+              onDelete: () => _v5(_v1),
               isRestoreDisabled: _v6
             })
           })]
-        }, _v0.uri);
+        }, _v1);
       })
     });
   }
-  function _v71({
-    videos: _v0,
+  function _v75({
+    items: _v0,
     selectedUris: _v1,
     onToggleSelected: _v2,
-    onRestoreVideo: _v3,
-    onDeleteVideo: _v4,
+    onRestoreItem: _v3,
+    onDeleteItem: _v4,
     isRestoreDisabled: _v5
   }) {
-    let _v6 = (0, _v26.useViewer)(),
+    let _v6 = (0, _v29.useViewer)(),
       _v7 = _v6?.user?.id;
     return (0, _v1.jsx)(_v3.Box, {
-      children: (0, _v1.jsx)(_v70, {
-        videos: _v0,
+      children: (0, _v1.jsx)(_v74, {
+        items: _v0,
         viewerUserId: _v7,
         selectedUris: _v1,
         onToggleSelected: _v2,
-        onRestoreVideo: _v3,
-        onDeleteVideo: _v4,
+        onRestoreItem: _v3,
+        onDeleteItem: _v4,
         isRestoreDisabled: _v5
       })
     });
   }
-  function _v72() {
-    return (0, _v1.jsxs)(_v65.ContentRow, {
-      listGridColumns: _v69,
+  function _v76() {
+    return (0, _v1.jsxs)(_v68.ContentRow, {
+      listGridColumns: _v73,
       cursor: "initial",
       disableHover: !0,
       backgroundColor: "fill-component",
@@ -1734,9 +1992,9 @@
         base: "none",
         sm: "grid"
       },
-      children: [(0, _v1.jsx)(_v65.ContentRow.Column, {
+      children: [(0, _v1.jsx)(_v68.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
-      }), (0, _v1.jsx)(_v65.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v68.ContentRow.Column, {
         children: (0, _v1.jsx)(_v4.Text, {
           variant: "label-sm",
           color: "text-secondary",
@@ -1767,9 +2025,9 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v65.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v68.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
-      }), (0, _v1.jsx)(_v65.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v68.ContentRow.Column, {
         children: (0, _v1.jsx)(_v4.Text, {
           variant: "label-sm",
           color: "text-secondary",
@@ -1800,7 +2058,7 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v65.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v68.ContentRow.Column, {
         children: (0, _v1.jsx)(_v4.Text, {
           variant: "label-sm",
           color: "text-secondary",
@@ -1831,7 +2089,7 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v65.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v68.ContentRow.Column, {
         children: (0, _v1.jsx)(_v4.Text, {
           variant: "label-sm",
           color: "text-secondary",
@@ -1862,17 +2120,17 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v65.ContentRow.Column, {
+      }), (0, _v1.jsx)(_v68.ContentRow.Column, {
         children: (0, _v1.jsx)(_v1.Fragment, {})
       })]
     });
   }
-  var _v73 = _v0.i(0);
-  function _v74({
+  var _v77 = _v0.i(0);
+  function _v78({
     total: _v0,
     isTotalCapped: _v1,
     selectedCount: _v2,
-    videoCount: _v3,
+    itemCount: _v3,
     isLoading: _v4,
     hasFilters: _v5,
     onSelectAll: _v6,
@@ -2056,7 +2314,7 @@
           plural: "{NUM_ITEMS} 项"
         }
       }
-    })), (0, _v1.jsx)(_v73.CheckboxItemCount, {
+    })), (0, _v1.jsx)(_v77.CheckboxItemCount, {
       hasCheckbox: _v0 > 0,
       isChecked: !!_v2,
       isIndeterminate: !!_v2 && _v2 < _v3,
@@ -2068,12 +2326,12 @@
       subtitle: _v9
     });
   }
-  var _v75 = _v0.i(0);
-  function _v76({
+  var _v79 = _v0.i(0);
+  function _v80({
     source: _v0,
     onClose: _v1
   }) {
-    return (0, _v1.jsx)(_v75.UpsellModal, {
+    return (0, _v1.jsx)(_v79.UpsellModal, {
       userConfig: {},
       onClose: _v1,
       templateType: "default",
@@ -2145,11 +2403,7 @@
       }
     });
   }
-  var _v77 = _v0.i(0),
-    _v78 = _v0.i(0);
-  let _v79 = ["video.createdTime", "video.deletedBy", "video.deletedBy.name", "video.deletedBy.pictures", "video.deletedBy.uri", "video.duration", "video.filesSize", "video.filesSize.fileSizeType", "video.filesSize.totalSize", "video.modifiedTime", "video.name", "video.pictures.defaultPicture", "video.pictures.sizes", "video.pictures.uri", "video.uri"];
-  var _v80 = _v0.i(0),
-    _v81 = _v0.i(0),
+  var _v81 = _v0.i(0),
     _v82 = _v0.i(0),
     _v83 = _v0.i(0),
     _v84 = _v0.i(0),
@@ -2157,6 +2411,28 @@
     _v86 = _v0.i(0),
     _v87 = _v0.i(0);
   async function _v88({
+    baseUrl: _v0,
+    variables: _v1,
+    where: {
+      userId: _v2
+    },
+    ..._v3
+  }) {
+    return (0, _v86.measureLatency)("postUserFilesPermanentDeletion", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/files/permanent-deletion`, {
+        ..._v3,
+        method: "POST",
+        body: JSON.stringify((0, _v87.deepSnakeCase)(_v1))
+      });
+      if (!_v0.ok) throw new _v87.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v87.deepCamelCase)(_v1);
+    });
+  }
+  var _v89 = _v0.i(0);
+  async function _v90({
     baseUrl: _v0,
     variables: _v1,
     ..._v2
@@ -2174,8 +2450,26 @@
       return (0, _v87.deepCamelCase)(_v1);
     });
   }
-  var _v89 = _v0.i(0);
-  async function _v90({
+  async function _v91({
+    baseUrl: _v0,
+    where: {
+      userId: _v1
+    },
+    ..._v2
+  }) {
+    return (0, _v86.measureLatency)("postUserFilesPermanentDeletionAll", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v1}/files/permanent-deletion/all`, {
+        ..._v2,
+        method: "POST"
+      });
+      if (!_v0.ok) throw new _v87.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v87.deepCamelCase)(_v1);
+    });
+  }
+  async function _v92({
     baseUrl: _v0,
     ..._v1
   }) {
@@ -2191,8 +2485,63 @@
       return (0, _v87.deepCamelCase)(_v1);
     });
   }
-  var _v91 = _v0.i(0);
-  function _v92() {
+  async function _v93({
+    baseUrl: _v0,
+    variables: _v1,
+    where: {
+      userId: _v2
+    },
+    ..._v3
+  }) {
+    return (0, _v86.measureLatency)("postUserFilesRestore", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/files/restore`, {
+        ..._v3,
+        method: "POST",
+        body: JSON.stringify((0, _v87.deepSnakeCase)(_v1))
+      });
+      if (!_v0.ok) throw new _v87.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v87.deepCamelCase)(_v1);
+    });
+  }
+  var _v94 = _v0.i(0);
+  function _v95(_v0, _v1) {
+    let _v2 = [],
+      _v3 = [];
+    return _v0.forEach(_v0 => {
+      "file" === _v1.get(_v0) ? _v3.push(_v0) : _v2.push(_v0);
+    }), {
+      videoUris: _v2,
+      fileUris: _v3
+    };
+  }
+  async function _v96(_v0) {
+    let _v1 = await Promise.allSettled(_v0),
+      _v2 = [],
+      _v3 = !1;
+    return _v1.forEach(_v0 => {
+      "fulfilled" === _v0.status ? _v2.push(..._v0.value) : _v3 = !0;
+    }), {
+      results: _v2,
+      anyRejected: _v3
+    };
+  }
+  var _v97 = _v0.i(0),
+    _v98 = _v0.i(0);
+  let _v99 = ["file.contentType", "file.createdTime", "file.deletedBy", "file.deletedBy.name", "file.deletedBy.pictures", "file.deletedBy.uri", "file.fileSize", "file.modifiedTime", "file.name", "file.thumbnail.url", "file.uri", "video.createdTime", "video.deletedBy", "video.deletedBy.name", "video.deletedBy.pictures", "video.deletedBy.uri", "video.duration", "video.filesSize", "video.filesSize.fileSizeType", "video.filesSize.totalSize", "video.modifiedTime", "video.name", "video.pictures.defaultPicture", "video.pictures.sizes", "video.pictures.uri", "video.uri"];
+  var _v100 = _v0.i(0);
+  let _v101 = ["video", "file"],
+    _v102 = ["video"];
+  function _v103(_v0, _v1) {
+    let _v2 = !1,
+      _v3 = !1;
+    return (_v1.forEach(_v0 => {
+      "file" === _v0.get(_v0) ? _v3 = !0 : _v2 = !0;
+    }), _v2 && _v3) ? "mixed" : _v3 ? "file" : "video";
+  }
+  function _v104() {
     let _v0,
       _v1,
       _v2,
@@ -2201,102 +2550,125 @@
       _v5,
       _v6,
       _v7,
-      _v8 = (0, _v26.useViewer)(),
-      _v9 = _v8?.teamUser?.ownerId ?? _v8?.user?.id,
+      _v8 = (0, _v29.useViewer)(),
+      _v9 = (0, _v14.useUniversalHostingEnabled)(),
+      _v10 = _v8?.teamUser?.ownerId ?? _v8?.user?.id,
+      _v11 = _v8?.user?.createdTime,
       {
-        data: _v10,
-        mutate: _v11
-      } = (0, _v12.useGetUser)(() => _v9 ? {
+        data: _v12,
+        mutate: _v13
+      } = (0, _v12.useGetUser)(() => _v10 ? {
         where: {
-          userId: _v9
+          userId: _v10
         },
         select: ["uploadQuota.recentlyDeletedDiskSpace", "uploadQuota.space.free", "uploadQuota.space.unit"]
       } : null),
-      [_v12, _v13] = (0, _v8.useState)("row_hover"),
-      [_v14, _v15] = (0, _v8.useState)(!1),
-      [_v16, _v17] = (0, _v8.useState)("row_hover"),
-      [_v18, _v19] = (0, _v8.useState)(_v20.DEFAULT_RECENTLY_DELETED_SORT),
-      [_v20, _v21] = (0, _v8.useState)([]),
-      [_v22, _v23] = (0, _v8.useState)(""),
+      _v14 = _v9 ? _v101 : _v102,
+      [_v15, _v16] = (0, _v8.useState)("row_hover"),
+      [_v17, _v18] = (0, _v8.useState)(!1),
+      [_v19, _v20] = (0, _v8.useState)("row_hover"),
+      [_v21, _v22] = (0, _v8.useState)(_v22.DEFAULT_RECENTLY_DELETED_SORT),
+      [_v23, _v24] = (0, _v8.useState)([]),
+      [_v25, _v26] = (0, _v8.useState)(new Set()),
+      [_v27, _v28] = (0, _v8.useState)(""),
       {
-        videos: _v24,
-        total: _v25,
-        isLoading: _v26,
-        isLoadingMore: _v27,
-        isDone: _v28,
-        loadMore: _v29,
-        mutate: _v30
-      } = function (_v0, _v1 = []) {
-        let _v2 = (0, _v26.useViewer)(),
-          _v3 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
-          _v4 = !_v2?.teamUser || _v2.teamUser.permissionLevel <= 2,
-          _v5 = _v1.length > 0 ? _v1.map(_v0 => _v0.userId).join(",") : void 0,
+        items: _v29,
+        total: _v30,
+        isLoading: _v31,
+        isLoadingMore: _v32,
+        isDone: _v33,
+        loadMore: _v34,
+        mutate: _v35
+      } = function (_v0, _v1, _v2, _v3) {
+        let _v4 = (0, _v29.useViewer)(),
+          _v5 = _v4?.teamUser?.ownerId ?? _v4?.user?.id,
+          _v6 = !_v4?.teamUser || _v4.teamUser.permissionLevel <= 2,
+          _v7 = (0, _v25.isContentTypeSelectionDefault)(_v2, _v3),
+          _v8 = _v7 || _v3.has("video"),
+          _v9 = _v2.includes("file") && (_v7 || _v3.has("file")),
+          _v10 = _v7 ? _v2 : [..._v3],
+          _v11 = 1 === _v10.length ? _v10[0] : void 0,
+          _v12 = _v1.length > 0 ? _v1.map(_v0 => _v0.userId).join(",") : void 0,
           {
-            data: _v6,
-            mutate: _v7,
-            setSize: _v8,
-            size: _v9
-          } = (0, _v77.useGetUserFoldersRootInfinite)(() => _v3 ? {
+            data: _v13,
+            mutate: _v14,
+            setSize: _v15,
+            size: _v16
+          } = (0, _v97.useGetUserFoldersRootInfinite)(() => _v5 ? {
             where: {
-              userId: _v3
+              userId: _v5
             },
-            select: _v79,
+            select: _v99,
             query: {
-              filter: "video",
-              includeOnlyDeletedClips: !0,
+              filter: _v11,
+              includeOnlyDeletedClips: _v8,
+              includeOnlyDeletedFiles: _v9,
               perPage: 25,
               sort: _v0.type,
               direction: _v0.direction,
-              clipDeletedByFilters: _v5,
-              clipCreatedByFilters: _v4 ? void 0 : _v2?.teamUser?.userId?.toString()
+              clipDeletedByFilters: _v12,
+              clipCreatedByFilters: _v6 ? void 0 : _v4?.teamUser?.userId?.toString()
             },
             headers: {
               Accept: "application/vnd.vimeo.*+json;version=3.4"
             }
           } : null),
-          _v10 = (0, _v8.useMemo)(() => _v6?.flatMap(_v0 => _v0?.data ?? []).flatMap(_v0 => _v0.video ? [_v0.video] : []) ?? [], [_v6]),
+          _v17 = (0, _v8.useMemo)(() => (_v13?.flatMap(_v0 => _v0?.data ?? []) ?? []).flatMap(_v0 => _v0.video ? [{
+            kind: "video",
+            uri: _v0.video.uri,
+            video: _v0.video
+          }] : _v0.file ? [{
+            kind: "file",
+            uri: _v0.file.uri,
+            file: _v0.file
+          }] : []), [_v13]),
           {
-            isDone: _v11,
-            isLoadingInitialData: _v12,
-            isLoadingMore: _v13
-          } = (0, _v78.getInfiniteRequestLoadingState)({
-            data: _v6,
+            isDone: _v18,
+            isLoadingInitialData: _v19,
+            isLoadingMore: _v20
+          } = (0, _v98.getInfiniteRequestLoadingState)({
+            data: _v13,
             itemsPerPage: 25,
-            size: _v9
+            size: _v16
           });
         return {
-          videos: _v10,
-          total: _v6?.[0]?.total ?? 0,
-          isLoading: _v12,
-          isLoadingMore: _v13,
-          isDone: _v11,
-          loadMore: () => _v8(_v9 + 1),
-          mutate: _v7
+          items: _v17,
+          total: _v13?.[0]?.total ?? 0,
+          isLoading: _v19,
+          isLoadingMore: _v20,
+          isDone: _v18,
+          loadMore: () => _v15(_v16 + 1),
+          mutate: _v14
         };
-      }(_v18, _v20),
-      _v31 = (_v8?.teamUser?.ownerIsSuperUser ?? _v8?.user?.isSuperUser ?? !1) && _v25 >= 0,
+      }(_v21, _v23, _v14, _v25),
+      _v36 = (_v8?.teamUser?.ownerIsSuperUser ?? _v8?.user?.isSuperUser ?? !1) && _v30 >= 0,
       {
-        users: _v32,
-        isLoadingMore: _v33,
-        isLoadingInitialData: _v34,
-        isDone: _v35,
-        setSize: _v36,
-        size: _v37
-      } = (0, _v24.useUserTeamMembers)(_v22),
-      [_v38, _v39] = (0, _v8.useState)(new Set()),
-      _v40 = (0, _v8.useCallback)(() => _v39(new Set()), []),
-      _v41 = (0, _v8.useCallback)(() => _v39(new Set(_v24.map(_v0 => _v0.uri).filter(_v0 => !!_v0))), [_v24]),
+        users: _v37,
+        isLoadingMore: _v38,
+        isLoadingInitialData: _v39,
+        isDone: _v40,
+        setSize: _v41,
+        size: _v42
+      } = (0, _v27.useUserTeamMembers)(_v27),
+      [_v43, _v44] = (0, _v8.useState)(new Set()),
+      _v45 = (0, _v8.useCallback)(() => _v44(new Set()), []),
+      _v46 = (0, _v8.useCallback)(() => _v44(new Set(_v29.map(_v0 => _v0.uri))), [_v29]),
+      _v47 = (0, _v8.useMemo)(() => new Map(_v29.map(_v0 => [_v0.uri, _v0.kind])), [_v29]),
+      _v48 = (0, _v8.useMemo)(() => _v103(_v47, [..._v43]), [_v47, _v43]),
+      _v49 = (0, _v8.useCallback)(_v0 => {
+        _v45(), _v26(_v0 => (0, _v25.toggleContentTypeSelection)(_v14, _v0, _v0));
+      }, [_v14, _v45]),
       {
-        trackPageDisplayed: _v42,
-        trackPermaDelete: _v43,
-        trackRestoreAsk: _v44,
-        trackItemSelected: _v45,
-        trackSortChanged: _v46,
-        trackFilterChanged: _v47,
-        trackEmptyTrash: _v48,
-        trackAllSelected: _v49,
-        trackIntroModalDismissed: _v50
-      } = (_v0 = (0, _v15.usePico)(), _v1 = (0, _v8.useCallback)(_v0 => {
+        trackPageDisplayed: _v50,
+        trackPermaDelete: _v51,
+        trackRestoreAsk: _v52,
+        trackItemSelected: _v53,
+        trackSortChanged: _v54,
+        trackFilterChanged: _v55,
+        trackEmptyTrash: _v56,
+        trackAllSelected: _v57,
+        trackIntroModalDismissed: _v58
+      } = (_v0 = (0, _v16.usePico)(), _v1 = (0, _v8.useCallback)(_v0 => {
         null !== _v0 && _v0.track("recently_deleted_page_displayed", {
           item_count: _v0
         });
@@ -2364,16 +2736,16 @@
         }, [_v0])
       }),
       {
-        isOpen: _v51,
-        acknowledge: _v52
+        isOpen: _v59,
+        acknowledge: _v60
       } = function () {
         let {
             data: _v0,
             mutate: _v1
-          } = (0, _v80.useGetMePreferences)({
+          } = (0, _v100.useGetMePreferences)({
             select: ["rdtim"]
           }),
-          [_v2] = (0, _v80.usePatchMePreferences)(),
+          [_v2] = (0, _v100.usePatchMePreferences)(),
           [_v3, _v4] = (0, _v8.useState)(!1),
           _v5 = (0, _v8.useRef)(!1),
           _v6 = void 0 !== _v0,
@@ -2405,106 +2777,49 @@
           acknowledge: _v9
         };
       }(),
-      _v53 = (0, _v8.useCallback)(_v0 => {
-        _v52(), _v50(_v0);
-      }, [_v52, _v50]);
-    (0, _v14.usePicoEffect)(() => {
-      _v26 || _v42(_v25);
-    }, [_v26]);
-    let _v54 = (0, _v8.useCallback)(_v0 => {
-        let _v1 = !_v38.has(_v0);
-        _v45(_v1 ? _v38.size + 1 : _v38.size - 1, _v1, (0, _v25.idFromUri)(_v0)), _v39(_v0 => {
+      _v61 = (0, _v8.useCallback)(_v0 => {
+        _v60(), _v58(_v0);
+      }, [_v60, _v58]);
+    (0, _v15.usePicoEffect)(() => {
+      _v31 || _v50(_v30);
+    }, [_v31]);
+    let _v62 = (0, _v8.useCallback)(_v0 => {
+        let _v1 = !_v43.has(_v0),
+          _v2 = _v1 ? _v43.size + 1 : _v43.size - 1;
+        "video" === _v47.get(_v0) && _v53(_v2, _v1, (0, _v28.idFromUri)(_v0)), _v44(_v0 => {
           let _v1 = new Set(_v0);
           return _v1.has(_v0) ? _v1.delete(_v0) : _v1.add(_v0), _v1;
         });
-      }, [_v38, _v45]),
+      }, [_v43, _v53, _v47]),
       {
-        handleRestore: _v55,
-        handleDeletePermanently: _v56,
-        handleEmptyTrashConfirm: _v57,
-        handleEmptyTrashClick: _v58,
-        handleSetSort: _v59,
-        handleSetFilteredTeamUsers: _v60,
-        pendingDeleteUris: _v61,
-        setPendingDeleteUris: _v62,
-        isEmptyTrashModalOpen: _v63,
-        setIsEmptyTrashModalOpen: _v64
+        handleRestore: _v63,
+        handleDeletePermanently: _v64,
+        handleEmptyTrashConfirm: _v65,
+        handleEmptyTrashClick: _v66,
+        handleSetSort: _v67,
+        handleSetFilteredTeamUsers: _v68,
+        pendingDeleteUris: _v69,
+        setPendingDeleteUris: _v70,
+        isEmptyTrashModalOpen: _v71,
+        setIsEmptyTrashModalOpen: _v72
       } = function ({
-        videos: _v0,
-        mutate: _v1,
-        mutateUser: _v2,
-        total: _v3,
-        deselectAllItems: _v4,
-        setSort: _v5,
-        setFilteredTeamUsers: _v6,
-        trackSortChanged: _v7,
-        trackFilterChanged: _v8,
-        trackEmptyTrash: _v9,
-        trackPermaDeleteAsk: _v10,
-        trackRestoreAsk: _v11
+        items: _v0,
+        ownerId: _v1,
+        filesEnabled: _v2,
+        mutate: _v3,
+        mutateUser: _v4,
+        total: _v5,
+        deselectAllItems: _v6,
+        setSort: _v7,
+        setFilteredTeamUsers: _v8,
+        trackSortChanged: _v9,
+        trackFilterChanged: _v10,
+        trackEmptyTrash: _v11,
+        trackPermaDeleteAsk: _v12,
+        trackRestoreAsk: _v13
       }) {
-        let _v12 = (0, _v85.useNotification)(),
-          _v13 = (0, _v82.useToast)(),
-          _v14 = function () {
-            let {
-              baseUrl: _v0,
-              jwt: _v1,
-              xVimeoPage: _v2,
-              locale: _v3
-            } = (0, _v89.useGctlConfig)();
-            return async _v0 => {
-              let _v1 = {
-                  baseUrl: _v0,
-                  headers: {
-                    "Content-Type": "application/json",
-                    Authorization: _v1 ? `jwt ${_v1}` : "",
-                    "Vimeo-Page": `${_v2}`,
-                    "Accept-Language": _v3 ?? "en"
-                  }
-                },
-                _v2 = [];
-              for (let _v0 = 0; _v0 < _v0.length; _v0 += 25) {
-                let _v0 = await (0, _v91.postVideosRestore)({
-                  variables: {
-                    uris: _v0.slice(_v0, _v0 + 25)
-                  },
-                  ..._v1
-                });
-                _v2.push(..._v0.data);
-              }
-              return _v2;
-            };
-          }(),
-          _v15 = function () {
-            let {
-              baseUrl: _v0,
-              jwt: _v1,
-              xVimeoPage: _v2,
-              locale: _v3
-            } = (0, _v89.useGctlConfig)();
-            return async _v0 => {
-              let _v1 = {
-                  baseUrl: _v0,
-                  headers: {
-                    "Content-Type": "application/json",
-                    Authorization: _v1 ? `jwt ${_v1}` : "",
-                    "Vimeo-Page": `${_v2}`,
-                    "Accept-Language": _v3 ?? "en"
-                  }
-                },
-                _v2 = [];
-              for (let _v0 = 0; _v0 < _v0.length; _v0 += 25) {
-                let _v0 = await _v88({
-                  variables: {
-                    uris: _v0.slice(_v0, _v0 + 25)
-                  },
-                  ..._v1
-                });
-                _v2.push(..._v0.data);
-              }
-              return _v2;
-            };
-          }(),
+        let _v14 = (0, _v85.useNotification)(),
+          _v15 = (0, _v82.useToast)(),
           _v16 = function () {
             let {
               baseUrl: _v0,
@@ -2512,8 +2827,136 @@
               xVimeoPage: _v2,
               locale: _v3
             } = (0, _v89.useGctlConfig)();
+            return async _v0 => {
+              let _v1 = {
+                  baseUrl: _v0,
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: _v1 ? `jwt ${_v1}` : "",
+                    "Vimeo-Page": `${_v2}`,
+                    "Accept-Language": _v3 ?? "en"
+                  }
+                },
+                _v2 = [];
+              for (let _v0 = 0; _v0 < _v0.length; _v0 += 25) {
+                let _v0 = await (0, _v94.postVideosRestore)({
+                  variables: {
+                    uris: _v0.slice(_v0, _v0 + 25)
+                  },
+                  ..._v1
+                });
+                _v2.push(..._v0.data);
+              }
+              return _v2;
+            };
+          }(),
+          _v17 = function (_v0) {
+            let {
+              baseUrl: _v1,
+              jwt: _v2,
+              xVimeoPage: _v3,
+              locale: _v4
+            } = (0, _v89.useGctlConfig)();
+            return async _v0 => {
+              if (!_v0 || 0 === _v0.length) return [];
+              let _v1 = {
+                  baseUrl: _v1,
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: _v2 ? `jwt ${_v2}` : "",
+                    "Vimeo-Page": `${_v3}`,
+                    "Accept-Language": _v4 ?? "en"
+                  }
+                },
+                _v2 = [];
+              for (let _v0 = 0; _v0 < _v0.length; _v0 += 25) {
+                let _v0 = await _v93({
+                  where: {
+                    userId: _v0
+                  },
+                  variables: {
+                    uris: _v0.slice(_v0, _v0 + 25)
+                  },
+                  ..._v1
+                });
+                _v2.push(..._v0.data);
+              }
+              return _v2;
+            };
+          }(_v1),
+          _v18 = function () {
+            let {
+              baseUrl: _v0,
+              jwt: _v1,
+              xVimeoPage: _v2,
+              locale: _v3
+            } = (0, _v89.useGctlConfig)();
+            return async _v0 => {
+              let _v1 = {
+                  baseUrl: _v0,
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: _v1 ? `jwt ${_v1}` : "",
+                    "Vimeo-Page": `${_v2}`,
+                    "Accept-Language": _v3 ?? "en"
+                  }
+                },
+                _v2 = [];
+              for (let _v0 = 0; _v0 < _v0.length; _v0 += 25) {
+                let _v0 = await _v90({
+                  variables: {
+                    uris: _v0.slice(_v0, _v0 + 25)
+                  },
+                  ..._v1
+                });
+                _v2.push(..._v0.data);
+              }
+              return _v2;
+            };
+          }(),
+          _v19 = function (_v0) {
+            let {
+              baseUrl: _v1,
+              jwt: _v2,
+              xVimeoPage: _v3,
+              locale: _v4
+            } = (0, _v89.useGctlConfig)();
+            return async _v0 => {
+              if (!_v0 || 0 === _v0.length) return [];
+              let _v1 = {
+                  baseUrl: _v1,
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: _v2 ? `jwt ${_v2}` : "",
+                    "Vimeo-Page": `${_v3}`,
+                    "Accept-Language": _v4 ?? "en"
+                  }
+                },
+                _v2 = [];
+              for (let _v0 = 0; _v0 < _v0.length; _v0 += 25) {
+                let _v0 = await _v88({
+                  where: {
+                    userId: _v0
+                  },
+                  variables: {
+                    uris: _v0.slice(_v0, _v0 + 25)
+                  },
+                  ..._v1
+                });
+                _v2.push(..._v0.data);
+              }
+              return _v2;
+            };
+          }(_v1),
+          _v20 = function () {
+            let {
+              baseUrl: _v0,
+              jwt: _v1,
+              xVimeoPage: _v2,
+              locale: _v3
+            } = (0, _v89.useGctlConfig)();
             return async () => {
-              await _v90({
+              await _v92({
                 baseUrl: _v0,
                 headers: {
                   "Content-Type": "application/json",
@@ -2524,61 +2967,59 @@
               });
             };
           }(),
-          [_v17, _v18] = (0, _v8.useState)([]),
-          [_v19, _v20] = (0, _v8.useState)(!1),
-          _v21 = (0, _v8.useRef)(void 0),
-          _v22 = (0, _v8.useCallback)(_v0 => {
-            _v7(`${_v0.type}_${_v0.direction}`), _v5(_v0);
-          }, [_v7, _v5]);
+          _v21 = function (_v0) {
+            let {
+              baseUrl: _v1,
+              jwt: _v2,
+              xVimeoPage: _v3,
+              locale: _v4
+            } = (0, _v89.useGctlConfig)();
+            return async () => {
+              _v0 && (await _v91({
+                where: {
+                  userId: _v0
+                },
+                baseUrl: _v1,
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: _v2 ? `jwt ${_v2}` : "",
+                  "Vimeo-Page": `${_v3}`,
+                  "Accept-Language": _v4 ?? "en"
+                }
+              }));
+            };
+          }(_v1),
+          [_v22, _v23] = (0, _v8.useState)([]),
+          [_v24, _v25] = (0, _v8.useState)(!1),
+          _v26 = (0, _v8.useRef)(void 0),
+          _v27 = (0, _v8.useMemo)(() => new Map(_v0.map(_v0 => [_v0.uri, _v0.kind])), [_v0]),
+          _v28 = (0, _v8.useCallback)(_v0 => {
+            _v9(`${_v0.type}_${_v0.direction}`), _v7(_v0);
+          }, [_v9, _v7]);
         return {
           handleRestore: async (_v0, _v1) => {
-            let _v2;
-            try {
-              _v2 = await _v14(_v0);
-            } catch {
-              _v12({
-                content: (0, _v13.translate)({
-                  singular: "Error restoring files",
-                  dictionary: {
-                    es: {
-                      singular: "Error al restaurar archivos"
-                    },
-                    "de-DE": {
-                      singular: "Fehler beim Wiederherstellen von Dateien"
-                    },
-                    "fr-FR": {
-                      singular: "Erreur lors de la restauration des fichiers"
-                    },
-                    "ja-JP": {
-                      singular: "ファイルの復元中にエラーが発生しました"
-                    },
-                    "ko-KR": {
-                      singular: "파일 복원 오류"
-                    },
-                    "pt-BR": {
-                      singular: "Erro ao restaurar arquivos"
-                    },
-                    "zh-CN": {
-                      singular: "恢复文件时出错"
-                    }
-                  }
-                }),
-                status: "error"
-              });
-              return;
-            }
-            let _v3 = _v2.filter(_v0 => "restored" === _v0.status);
-            _v3.forEach(_v0 => {
-              _v11(_v1, _v0.restoreDestination ?? "root_originally_root", _v0.length, [(0, _v25.idFromUri)(_v0.uri)]);
+            let {
+                videoUris: _v2,
+                fileUris: _v3
+              } = _v95(_v0, _v27),
+              {
+                results: _v4,
+                anyRejected: _v5
+              } = await _v96([_v2.length > 0 ? _v16(_v2) : Promise.resolve([]), _v3.length > 0 ? _v17(_v3) : Promise.resolve([])]),
+              _v6 = _v4.filter(_v0 => "restored" === _v0.status);
+            _v6.forEach(_v0 => {
+              let _v1 = _v0.restoreDestination ?? "root_originally_root",
+                _v2 = "video" === _v27.get(_v0.uri);
+              _v13(_v1, _v1, _v0.length, _v2 ? [(0, _v28.idFromUri)(_v0.uri)] : void 0);
             });
-            let _v4 = _v2.filter(_v0 => "not_found" === _v0.status || "error" === _v0.status).length;
-            if (_v4 > 0) _v12({
+            let _v7 = _v4.filter(_v0 => "not_found" === _v0.status || "error" === _v0.status).length + +!!_v5;
+            if (_v7 > 0) _v14({
               content: (0, _v13.translate)({
                 singular: "Error restoring 1 file",
                 plural: "Error restoring {COUNT} files",
-                count: _v4,
+                count: _v7,
                 replacements: {
-                  COUNT: _v4
+                  COUNT: _v7
                 },
                 dictionary: {
                   es: {
@@ -2612,13 +3053,16 @@
                 }
               }),
               status: "error"
-            });else if (1 === _v3.length) {
-              let _v0 = _v0.find(_v0 => _v0.uri === _v3[0].uri)?.name,
-                _v1 = _v3[0].folderUri,
-                _v2 = _v0 ? (0, _v13.translate)({
+            });else if (1 === _v6.length) {
+              let _v0 = _v0.find(_v0 => _v0.uri === _v6[0].uri),
+                _v1 = _v0?.kind === "video" ? _v0.video.name : void 0,
+                _v2 = _v0?.kind === "file" && _v0.file.name ? _v0.file.name : void 0,
+                _v3 = _v1 ?? _v2,
+                _v4 = _v6[0].folderUri,
+                _v5 = _v3 ? (0, _v13.translate)({
                   singular: '"{TITLE}" restored',
                   replacements: {
-                    TITLE: _v0
+                    TITLE: _v3
                   },
                   dictionary: {
                     es: {
@@ -2669,7 +3113,7 @@
                     }
                   }
                 });
-              _v13({
+              _v15({
                 isClosable: !0,
                 render: _v0 => (0, _v1.jsx)(_v82.ToastRoot, {
                   ..._v0,
@@ -2677,8 +3121,8 @@
                   children: (0, _v1.jsxs)(_v81.Center, {
                     gap: "sm",
                     children: [(0, _v1.jsx)(_v82.ToastIcon, {}), (0, _v1.jsx)(_v82.ToastTitle, {
-                      children: _v2
-                    }), _v1 && (0, _v1.jsx)(_v82.ToastButton, {
+                      children: _v5
+                    }), _v4 && (0, _v1.jsx)(_v82.ToastButton, {
                       bgColor: "white",
                       color: "black",
                       fontWeight: "medium",
@@ -2694,7 +3138,7 @@
                           bgColor: "gray.100"
                         }
                       },
-                      onClick: () => window.location.href = (0, _v84.getFolderPageUriFromApiUri)(_v1),
+                      onClick: () => window.location.href = (0, _v84.getFolderPageUriFromApiUri)(_v4),
                       children: (0, _v13.translate)({
                         singular: "Show file location",
                         dictionary: {
@@ -2725,11 +3169,11 @@
                   })
                 })
               });
-            } else _v3.length > 1 && _v12({
+            } else _v6.length > 1 && _v14({
               content: (0, _v13.translate)({
                 singular: "{COUNT} files restored",
                 replacements: {
-                  COUNT: _v3.length
+                  COUNT: _v6.length
                 },
                 dictionary: {
                   es: {
@@ -2757,53 +3201,26 @@
               }),
               status: "success"
             });
-            _v4(), await Promise.all([_v1(), _v2()]);
+            _v6(), await Promise.all([_v3(), _v4()]);
           },
           handleDeletePermanently: async () => {
-            let _v0;
-            try {
-              _v0 = await _v15(_v17);
-            } catch {
-              _v12({
-                content: (0, _v13.translate)({
-                  singular: "Error deleting files",
-                  dictionary: {
-                    es: {
-                      singular: "Error al eliminar archivos"
-                    },
-                    "de-DE": {
-                      singular: "Fehler beim Löschen von Dateien"
-                    },
-                    "fr-FR": {
-                      singular: "Erreur lors de la suppression des fichiers"
-                    },
-                    "ja-JP": {
-                      singular: "ファイルの削除中にエラーが発生しました"
-                    },
-                    "ko-KR": {
-                      singular: "파일 삭제 오류"
-                    },
-                    "pt-BR": {
-                      singular: "Erro ao excluir arquivos"
-                    },
-                    "zh-CN": {
-                      singular: "删除文件时出错"
-                    }
-                  }
-                }),
-                status: "error"
-              });
-              return;
-            }
-            let _v1 = _v0.filter(_v0 => "deleted" === _v0.status).length,
-              _v2 = _v0.filter(_v0 => "error" === _v0.status).length;
-            _v2 > 0 ? _v12({
+            let {
+                videoUris: _v0,
+                fileUris: _v1
+              } = _v95(_v22, _v27),
+              {
+                results: _v2,
+                anyRejected: _v3
+              } = await _v96([_v0.length > 0 ? _v18(_v0) : Promise.resolve([]), _v1.length > 0 ? _v19(_v1) : Promise.resolve([])]),
+              _v4 = _v2.filter(_v0 => "deleted" === _v0.status).length,
+              _v5 = _v2.filter(_v0 => "error" === _v0.status).length + +!!_v3;
+            _v5 > 0 ? _v14({
               content: (0, _v13.translate)({
                 singular: "Error deleting 1 file",
                 plural: "Error deleting {COUNT} files",
-                count: _v2,
+                count: _v5,
                 replacements: {
-                  COUNT: _v2
+                  COUNT: _v5
                 },
                 dictionary: {
                   es: {
@@ -2837,11 +3254,11 @@
                 }
               }),
               status: "error"
-            }) : _v1 > 0 && _v12({
+            }) : _v4 > 0 && _v14({
               content: (0, _v13.translate)({
                 singular: "File deleted forever",
                 plural: "Files deleted forever",
-                count: _v1,
+                count: _v4,
                 dictionary: {
                   es: {
                     singular: "Archivo eliminado permanentemente",
@@ -2874,10 +3291,10 @@
                 }
               }),
               status: "success"
-            }), _v18([]), _v4(), await Promise.all([_v1(), _v2()]);
+            }), _v23([]), _v6(), await Promise.all([_v3(), _v4()]);
           },
           handleEmptyTrashConfirm: async () => {
-            _v20(!1), _v21.current = _v13({
+            _v25(!1), _v26.current = _v15({
               title: (0, _v13.translate)({
                 singular: "Emptying trash",
                 dictionary: {
@@ -2909,242 +3326,253 @@
                 color: "status-positive-primary"
               })
             });
-            try {
-              await _v16();
-            } catch {
-              void 0 !== _v21.current && _v13.close(_v21.current), _v12({
-                content: (0, _v13.translate)({
-                  singular: "Error deleting files",
-                  dictionary: {
-                    es: {
-                      singular: "Error al eliminar archivos"
-                    },
-                    "de-DE": {
-                      singular: "Fehler beim Löschen von Dateien"
-                    },
-                    "fr-FR": {
-                      singular: "Erreur lors de la suppression des fichiers"
-                    },
-                    "ja-JP": {
-                      singular: "ファイルの削除中にエラーが発生しました"
-                    },
-                    "ko-KR": {
-                      singular: "파일 삭제 오류"
-                    },
-                    "pt-BR": {
-                      singular: "Erro ao excluir arquivos"
-                    },
-                    "zh-CN": {
-                      singular: "删除文件时出错"
-                    }
+            let _v0 = await Promise.allSettled([_v20(), _v2 ? _v21() : Promise.resolve()]);
+            await _v3(), void 0 !== _v26.current && _v15.close(_v26.current), _v4(), _v0.some(_v0 => "rejected" === _v0.status) && _v14({
+              content: (0, _v13.translate)({
+                singular: "Error deleting files",
+                dictionary: {
+                  es: {
+                    singular: "Error al eliminar archivos"
+                  },
+                  "de-DE": {
+                    singular: "Fehler beim Löschen von Dateien"
+                  },
+                  "fr-FR": {
+                    singular: "Erreur lors de la suppression des fichiers"
+                  },
+                  "ja-JP": {
+                    singular: "ファイルの削除中にエラーが発生しました"
+                  },
+                  "ko-KR": {
+                    singular: "파일 삭제 오류"
+                  },
+                  "pt-BR": {
+                    singular: "Erro ao excluir arquivos"
+                  },
+                  "zh-CN": {
+                    singular: "删除文件时出错"
                   }
-                }),
-                status: "error"
-              });
-              return;
-            }
-            await _v1(), void 0 !== _v21.current && _v13.close(_v21.current), _v2();
+                }
+              }),
+              status: "error"
+            });
           },
           handleEmptyTrashClick: () => {
-            _v9(_v3), _v10(_v3), _v20(!0);
+            _v11(_v5), _v12(_v5), _v25(!0);
           },
-          handleSetSort: _v22,
+          handleSetSort: _v28,
           handleSetFilteredTeamUsers: (0, _v8.useCallback)(_v0 => {
-            _v8(_v0.length), _v6(_v0);
-          }, [_v8, _v6]),
-          pendingDeleteUris: _v17,
-          setPendingDeleteUris: _v18,
-          isEmptyTrashModalOpen: _v19,
-          setIsEmptyTrashModalOpen: _v20
+            _v10(_v0.length), _v8(_v0);
+          }, [_v10, _v8]),
+          pendingDeleteUris: _v22,
+          setPendingDeleteUris: _v23,
+          isEmptyTrashModalOpen: _v24,
+          setIsEmptyTrashModalOpen: _v25
         };
       }({
-        videos: _v24,
-        mutate: _v30,
-        mutateUser: _v11,
-        total: _v25,
-        deselectAllItems: _v40,
-        setSort: _v19,
-        setFilteredTeamUsers: _v21,
-        trackSortChanged: _v46,
-        trackFilterChanged: _v47,
-        trackEmptyTrash: _v48,
-        trackPermaDeleteAsk: _v0 => _v43("ask", "empty_trash", _v0),
-        trackRestoreAsk: _v44
+        items: _v29,
+        ownerId: _v10,
+        filesEnabled: _v9,
+        mutate: _v35,
+        mutateUser: _v13,
+        total: _v30,
+        deselectAllItems: _v45,
+        setSort: _v22,
+        setFilteredTeamUsers: _v24,
+        trackSortChanged: _v54,
+        trackFilterChanged: _v55,
+        trackEmptyTrash: _v56,
+        trackPermaDeleteAsk: _v0 => _v51("ask", "empty_trash", _v0),
+        trackRestoreAsk: _v52
       }),
-      _v65 = (0, _v8.useMemo)(() => !_v26 && _v28 && _v24.length <= 25 && 0 === _v20.length ? _v24.filter(_v0 => _v0.filesSize?.fileSizeType === "UPLOAD" || _v0.filesSize?.fileSizeType === "PROCESSING").reduce((_v0, _v1) => _v0 + (_v1.filesSize?.totalSize ?? 0), 0) : _v10?.uploadQuota?.recentlyDeletedDiskSpace ?? 0, [_v20.length, _v28, _v26, _v10, _v24]),
-      _v66 = (_v10?.uploadQuota?.space?.free ?? 0) <= 0,
-      _v67 = (0, _v23.isPerSeatSelfServeTier)(_v8?.user?.account),
-      _v68 = _v61.reduce((_v0, _v1) => {
-        let _v2 = _v24.find(_v0 => _v0.uri === _v1);
-        return _v0 + (_v2?.filesSize?.totalSize ?? 0);
+      _v73 = !_v31 && _v33 && _v29.length <= 25 && 0 === _v23.length && (0, _v25.isContentTypeSelectionDefault)(_v14, _v25) ? _v29.reduce((_v0, _v1) => {
+        if ("video" === _v1.kind) {
+          let _v0 = _v1.video.filesSize;
+          return _v0 && ("UPLOAD" === _v0.fileSizeType || "PROCESSING" === _v0.fileSizeType) ? _v0 + (_v0.totalSize ?? 0) : _v0;
+        }
+        return _v0 + (_v1.file.fileSize ?? 0);
+      }, 0) : _v12?.uploadQuota?.recentlyDeletedDiskSpace ?? 0,
+      _v74 = (_v12?.uploadQuota?.space?.free ?? 0) <= 0,
+      _v75 = (0, _v26.isPerSeatSelfServeTier)(_v8?.user?.account),
+      _v76 = _v69.reduce((_v0, _v1) => {
+        let _v2 = _v29.find(_v0 => _v0.uri === _v1);
+        return _v2 ? "video" === _v2.kind ? _v0 + (_v2.video.filesSize?.totalSize ?? 0) : _v0 + (_v2.file.fileSize ?? 0) : _v0;
       }, 0),
-      _v69 = (0, _v1.jsx)(_v21.FilterSortBar, {
-        checkbox: (0, _v1.jsx)(_v74, {
-          total: _v25,
-          isTotalCapped: _v31,
-          selectedCount: _v38.size,
-          videoCount: _v24.length,
-          isLoading: _v26,
-          hasFilters: _v20.length > 0,
-          onSelectAll: _v41,
-          onDeselectAll: _v40,
-          onTrackAllSelected: _v49
+      _v77 = _v103(_v47, _v69),
+      _v78 = 1 === _v69.length ? _v29.find(_v0 => _v0.uri === _v69[0]) : void 0,
+      _v79 = _v78 ? "video" === _v78.kind ? _v78.video.name : _v78.file.name : void 0,
+      _v80 = (0, _v1.jsxs)(_v23.FilterSortBar, {
+        checkbox: (0, _v1.jsx)(_v78, {
+          total: _v30,
+          isTotalCapped: _v36,
+          selectedCount: _v43.size,
+          itemCount: _v29.length,
+          isLoading: _v31,
+          hasFilters: _v23.length > 0,
+          onSelectAll: _v46,
+          onDeselectAll: _v45,
+          onTrackAllSelected: _v57
         }),
-        sort: _v18,
-        setSort: _v59,
-        sortOptions: _v20.RECENTLY_DELETED_SORT_OPTIONS,
+        sort: _v21,
+        setSort: _v67,
+        sortOptions: _v22.RECENTLY_DELETED_SORT_OPTIONS,
         layout: "LIST_LAYOUT",
         setLayout: () => {},
         isLayoutToggleDisabled: !0,
         shouldHideLayoutSelector: !0,
-        children: (0, _v1.jsx)(_v22.DeletedByFilter, {
-          filter: _v20,
-          options: _v32,
-          setFilter: _v60,
-          searchQuery: _v22,
-          setSearchQuery: _v23,
-          isLoadingMore: _v33,
-          isLoadingInitialData: _v34,
-          isDone: _v35,
-          onLoadMore: () => _v36(_v37 + 1)
-        })
+        children: [_v9 && (0, _v1.jsx)(_v18.ContentTypeFilter, {
+          filter: _v25,
+          options: _v14,
+          onToggleType: _v49
+        }), (0, _v1.jsx)(_v24.DeletedByFilter, {
+          filter: _v23,
+          options: _v37,
+          setFilter: _v68,
+          searchQuery: _v27,
+          setSearchQuery: _v28,
+          isLoadingMore: _v38,
+          isLoadingInitialData: _v39,
+          isDone: _v40,
+          onLoadMore: () => _v41(_v42 + 1)
+        })]
       }),
-      _v70 = _v63 ? {
+      _v81 = _v71 ? {
         isOpen: !0,
         onClose: () => {
-          _v43("cancel", "empty_trash", _v25), _v64(!1);
+          _v51("cancel", "empty_trash", _v30), _v72(!1);
         },
         onConfirm: () => {
-          _v43("confirm", "empty_trash", _v25), _v57();
+          _v51("confirm", "empty_trash", _v30), _v65();
         },
-        numItemsToDelete: _v25,
+        numItemsToDelete: _v30,
         headerText: (0, _v13.translate)({
-          singular: "Permanently delete all files?",
+          singular: "Permanently delete all items?",
           dictionary: {
             es: {
-              singular: "¿Eliminar todos los archivos de forma permanente?"
+              singular: "¿Eliminar permanentemente todos los elementos?"
             },
             "de-DE": {
-              singular: "Alle Dateien endgültig löschen?"
+              singular: "Alle Elemente dauerhaft löschen?"
             },
             "fr-FR": {
-              singular: "Supprimer définitivement tous les fichiers ?"
+              singular: "Supprimer définitivement tous les éléments?"
             },
             "ja-JP": {
-              singular: "すべてのファイルを永久に削除しますか？"
+              singular: "すべてのアイテムを完全に削除しますか？"
             },
             "ko-KR": {
-              singular: "모든 파일을 영구적으로 삭제하시겠습니까?"
+              singular: "모든 항목을 영구 삭제하시겠습니까?"
             },
             "pt-BR": {
-              singular: "Excluir todos os arquivos permanentemente?"
+              singular: "Excluir todos os itens permanentemente?"
             },
             "zh-CN": {
-              singular: "永久删除所有文件？"
+              singular: "永久删除所有项目吗？"
             }
           }
         }),
-        bodyText: _v20.length > 0 || _v31 ? _v8?.teamUser ? (0, _v13.translate)({
-          singular: "All your organization's deleted files will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
+        bodyText: _v23.length > 0 || _v36 ? _v8?.teamUser ? (0, _v13.translate)({
+          singular: "All your organization's deleted items will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
           replacements: {
-            STORAGE: (0, _v16.bytesToSize)(_v65, 1)
+            STORAGE: (0, _v17.bytesToSize)(_v73, 1)
           },
           dictionary: {
             es: {
-              singular: "Todos los archivos eliminados de tu organización se eliminarán de forma permanente. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer."
+              singular: "Todos los elementos eliminados de tu organización serán borrados para siempre. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer."
             },
             "de-DE": {
-              singular: "Alle gelöschten Dateien Ihrer Organisation werden endgültig gelöscht. Dadurch werden {STORAGE} an Speicherplatz freigegeben. Diese Aktion kann nicht rückgängig gemacht werden."
+              singular: "Alle gelöschten Elemente Ihrer Organisation werden dauerhaft gelöscht. Dadurch werden {STORAGE} Speicherplatz freigegeben. Diese Aktion kann nicht rückgängig gemacht werden."
             },
             "fr-FR": {
-              singular: "Tous les fichiers supprimés de votre organisation seront supprimés définitivement. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible."
+              singular: "Tous les éléments supprimés de votre organisation seront définitivement supprimés. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible."
             },
             "ja-JP": {
-              singular: "組織の削除済みファイルはすべて永久に削除されます。これにより{STORAGE}の容量が解放されます。この操作は元に戻せません。"
+              singular: "あなたの組織の削除済みアイテムはすべて完全に削除されます。これにより {STORAGE} のストレージが解放されます。この操作は元に戻せません。"
             },
             "ko-KR": {
-              singular: "귀하의 조직에서 삭제된 모든 파일이 영구적으로 삭제됩니다. 이로써 {STORAGE}의 저장 공간이 확보됩니다. 이 작업은 취소할 수 없습니다."
+              singular: "귀하의 조직에 있는 삭제된 모든 항목이 영구 삭제됩니다. 이로써 {STORAGE}의 저장공간이 확보됩니다. 이 작업은 취소할 수 없습니다."
             },
             "pt-BR": {
-              singular: "Todos os arquivos excluídos da sua organização serão apagados permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita."
+              singular: "Todos os itens excluídos da sua organização serão apagados permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita."
             },
             "zh-CN": {
-              singular: "您所在组织的所有已删除文件将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。"
+              singular: "贵组织的所有已删除项目将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。"
             }
           }
         }) : (0, _v13.translate)({
-          singular: "All your deleted files will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
+          singular: "All your deleted items will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
           replacements: {
-            STORAGE: (0, _v16.bytesToSize)(_v65, 1)
+            STORAGE: (0, _v17.bytesToSize)(_v73, 1)
           },
           dictionary: {
             es: {
-              singular: "Todos tus archivos eliminados se eliminarán de forma permanente. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer."
+              singular: "Todos tus elementos eliminados serán borrados para siempre. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer."
             },
             "de-DE": {
-              singular: "Alle Ihre gelöschten Dateien werden endgültig gelöscht. Dadurch werden {STORAGE} an Speicherplatz freigegeben. Diese Aktion kann nicht rückgängig gemacht werden."
+              singular: "Alle Ihre gelöschten Elemente werden dauerhaft gelöscht. Dadurch werden {STORAGE} Speicherplatz freigegeben. Diese Aktion kann nicht rückgängig gemacht werden."
             },
             "fr-FR": {
-              singular: "Tous vos fichiers supprimés seront supprimés définitivement. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible."
+              singular: "Tous vos éléments supprimés seront définitivement supprimés. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible."
             },
             "ja-JP": {
-              singular: "削除済みのファイルはすべて永久に削除されます。これにより{STORAGE}の容量が解放されます。この操作は元に戻せません。"
+              singular: "削除済みのアイテムはすべて完全に削除されます。これにより {STORAGE} のストレージが解放されます。この操作は元に戻せません。"
             },
             "ko-KR": {
-              singular: "삭제된 모든 파일이 영구적으로 삭제됩니다. 이로써 {STORAGE}의 저장 공간이 확보됩니다. 이 작업은 취소할 수 없습니다."
+              singular: "삭제된 모든 항목이 영구 삭제됩니다. 이로써 {STORAGE}의 저장공간이 확보됩니다. 이 작업은 취소할 수 없습니다."
             },
             "pt-BR": {
-              singular: "Todos os seus arquivos excluídos serão apagados permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita."
+              singular: "Todos os seus itens excluídos serão apagados permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita."
             },
             "zh-CN": {
-              singular: "您所有已删除的文件将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。"
+              singular: "您所有已删除的项目将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。"
             }
           }
         }) : (0, _v13.translate)({
-          singular: "All {COUNT} files in your trash will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
+          singular: "All {COUNT} items in your trash will be deleted forever. This will free up {STORAGE} of storage. This action can't be undone.",
           replacements: {
-            COUNT: _v25,
-            STORAGE: (0, _v16.bytesToSize)(_v65, 1)
+            COUNT: _v30,
+            STORAGE: (0, _v17.bytesToSize)(_v73, 1)
           },
           dictionary: {
             es: {
-              singular: "Todos los {COUNT} archivos de tu papelera se eliminarán permanentemente. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer."
+              singular: "Los {COUNT} elementos en tu papelera serán borrados para siempre. Esto liberará {STORAGE} de espacio de almacenamiento. Esta acción no se puede deshacer."
             },
             "de-DE": {
-              singular: "Alle {COUNT} Dateien in Ihrem Papierkorb werden dauerhaft gelöscht. Dadurch werden {STORAGE} Speicherplatz frei. Diese Aktion kann nicht rückgängig gemacht werden."
+              singular: "Alle {COUNT} Elemente in Ihrem Papierkorb werden dauerhaft gelöscht. Dadurch werden {STORAGE} Speicherplatz freigegeben. Diese Aktion kann nicht rückgängig gemacht werden."
             },
             "fr-FR": {
-              singular: "Tous les {COUNT} fichiers de votre corbeille seront supprimés définitivement. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible."
+              singular: "Les {COUNT} éléments de votre corbeille seront définitivement supprimés. Cela libérera {STORAGE} d'espace de stockage. Cette action est irréversible."
             },
             "ja-JP": {
-              singular: "ゴミ箱内の{COUNT}件のファイルは完全に削除されます。これにより{STORAGE}の容量が空きます。この操作は取り消せません。"
+              singular: "ゴミ箱内の {COUNT} 件のアイテムはすべて完全に削除されます。これにより {STORAGE} のストレージが解放されます。この操作は元に戻せません。"
             },
             "ko-KR": {
-              singular: "휴지통에 있는 {COUNT}개의 파일이 영구적으로 삭제됩니다. 이로써 {STORAGE}의 저장 공간이 확보됩니다. 이 작업은 되돌릴 수 없습니다."
+              singular: "휴지통에 있는 {COUNT}개의 항목이 모두 영구 삭제됩니다. 이로써 {STORAGE}의 저장공간이 확보됩니다. 이 작업은 취소할 수 없습니다."
             },
             "pt-BR": {
-              singular: "Todos os {COUNT} arquivos na sua lixeira serão excluídos permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita."
+              singular: "Todos os {COUNT} itens na sua lixeira serão apagados permanentemente. Isso liberará {STORAGE} de armazenamento. Esta ação não pode ser desfeita."
             },
             "zh-CN": {
-              singular: "回收站中的全部 {COUNT} 个文件将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。"
+              singular: "您回收站中的全部 {COUNT} 个项目将被永久删除。这将释放 {STORAGE} 的存储空间。此操作无法撤销。"
             }
           }
         })
       } : {
-        isOpen: _v61.length > 0,
+        isOpen: _v69.length > 0,
         onClose: () => {
-          _v61.length > 0 && _v43("cancel", _v12, _v61.length), _v62([]);
+          _v69.length > 0 && _v51("cancel", _v15, _v69.length), _v70([]);
         },
-        onConfirm: () => (_v43("confirm", _v12, _v61.length), _v56()),
-        numItemsToDelete: _v61.length,
-        title: _v61.length > 1 ? void 0 : _v24.find(_v0 => _v0.uri === _v61[0])?.name,
-        storageSize: (0, _v16.bytesToSize)(_v68, 1)
+        onConfirm: () => (_v51("confirm", _v15, _v69.length), _v64()),
+        numItemsToDelete: _v69.length,
+        selectedItemType: _v77,
+        title: _v79,
+        storageSize: (0, _v17.bytesToSize)(_v76, 1)
       };
-    return (0, _v1.jsx)(_v18.Page, {
-      children: (0, _v1.jsxs)(_v18.Page.Main, {
-        children: [(0, _v1.jsxs)(_v18.Page.StickyTop, {
-          children: [(0, _v1.jsx)(_v19.PageHeader, {
-            bottomBar: _v69,
+    return (0, _v1.jsx)(_v20.Page, {
+      children: (0, _v1.jsxs)(_v20.Page.Main, {
+        children: [(0, _v1.jsxs)(_v20.Page.StickyTop, {
+          children: [(0, _v1.jsx)(_v21.PageHeader, {
+            bottomBar: _v80,
             title: (0, _v13.translate)({
               singular: "Recently deleted",
               dictionary: {
@@ -3171,39 +3599,39 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v44, {}), (_v26 || _v20.length > 0 || _v24.length > 0) && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(!_v8?.teamUser || _v8.teamUser.permissionLevel <= 2) && (0, _v1.jsx)(_v47, {
-              onEmptyTrash: _v58,
-              recentlyDeletedDiskSpace: _v65
-            }), (0, _v1.jsx)(_v72, {})]
+          }), (0, _v1.jsx)(_v47, {}), (_v31 || _v23.length > 0 || _v29.length > 0) && (0, _v1.jsxs)(_v1.Fragment, {
+            children: [(!_v8?.teamUser || _v8.teamUser.permissionLevel <= 2) && (0, _v1.jsx)(_v50, {
+              onEmptyTrash: _v66,
+              recentlyDeletedDiskSpace: _v73
+            }), (0, _v1.jsx)(_v76, {})]
           })]
-        }), _v26 && (0, _v1.jsx)(_v9.Flex, {
+        }), _v31 && (0, _v1.jsx)(_v9.Flex, {
           justifyContent: "center",
           alignItems: "center",
           height: "100%",
           children: (0, _v1.jsx)(_v10.Spinner, {})
-        }), !_v26 && (_v24.length > 0 ? (0, _v1.jsx)(_v71, {
-          videos: _v24,
-          selectedUris: _v38,
-          onToggleSelected: _v54,
-          isRestoreDisabled: _v66 && !_v67,
-          onRestoreVideo: _v0 => {
-            if (_v66 && _v67) {
-              _v17("row_hover"), _v15(!0);
+        }), !_v31 && (_v29.length > 0 ? (0, _v1.jsx)(_v75, {
+          items: _v29,
+          selectedUris: _v43,
+          onToggleSelected: _v62,
+          isRestoreDisabled: _v74 && !_v75,
+          onRestoreItem: _v0 => {
+            if (_v74 && _v75) {
+              _v20("row_hover"), _v18(!0);
               return;
             }
-            _v55([_v0], "row_hover");
+            _v63([_v0], "row_hover");
           },
-          onDeleteVideo: _v0 => {
-            _v43("ask", "row_hover", 1), _v13("row_hover"), _v62([_v0]);
+          onDeleteItem: _v0 => {
+            _v51("ask", "row_hover", 1), _v16("row_hover"), _v70([_v0]);
           }
-        }) : (0, _v1.jsx)(_v45, {
+        }) : (0, _v1.jsx)(_v48, {
           icon: (0, _v1.jsx)(_v11.TrashBin, {
             width: "lg",
             height: "lg",
             color: "text-primary"
           }),
-          title: _v20.length > 0 ? (0, _v13.translate)({
+          title: _v23.length > 0 ? (0, _v13.translate)({
             singular: "No results found",
             dictionary: {
               es: {
@@ -3229,28 +3657,28 @@
               }
             }
           }) : (0, _v13.translate)({
-            singular: "No deleted files",
+            singular: "No deleted items",
             dictionary: {
               es: {
-                singular: "No hay archivos eliminados"
+                singular: "No hay elementos eliminados"
               },
               "de-DE": {
-                singular: "Keine gelöschten Dateien"
+                singular: "Keine gelöschten Elemente"
               },
               "fr-FR": {
-                singular: "Aucun fichier supprimé"
+                singular: "Aucun élément supprimé"
               },
               "ja-JP": {
-                singular: "削除されたファイルはありません"
+                singular: "削除済みアイテムはありません"
               },
               "ko-KR": {
-                singular: "삭제된 파일이 없습니다"
+                singular: "삭제된 항목이 없습니다"
               },
               "pt-BR": {
-                singular: "Nenhum arquivo excluído"
+                singular: "Nenhum item excluído"
               },
               "zh-CN": {
-                singular: "没有已删除的文件"
+                singular: "没有已删除的项目"
               }
             }
           }),
@@ -3283,44 +3711,45 @@
               }
             }
           })
-        })), !_v28 && !_v27 && (0, _v1.jsx)(_v17.InfiniteScrollTrigger, {
-          isLoading: !!_v27,
-          onLoadMore: _v29
-        }), (0, _v1.jsx)(_v59, {
-          isOpen: _v51,
-          isNewUser: !!_v8?.user?.createdTime && new Date(_v8.user.createdTime) > new Date("2026-07-13T00:00:00Z"),
-          onDismiss: _v53
-        }), (0, _v1.jsx)(_v63, {
-          ..._v70
-        }), (0, _v1.jsx)(_v36, {
-          numSelected: _v38.size,
-          isRestoreDisabled: _v66 && !_v67,
+        })), !_v33 && !_v32 && (0, _v1.jsx)(_v19.InfiniteScrollTrigger, {
+          isLoading: !!_v32,
+          onLoadMore: _v34
+        }), (0, _v1.jsx)(_v62, {
+          isOpen: _v59,
+          isNewUser: null != _v11 && new Date(_v11) > new Date("2026-07-13T00:00:00Z"),
+          onDismiss: _v61
+        }), (0, _v1.jsx)(_v66, {
+          ..._v81
+        }), (0, _v1.jsx)(_v39, {
+          numSelected: _v43.size,
+          selectedItemType: _v48,
+          isRestoreDisabled: _v74 && !_v75,
           onDelete: () => {
-            _v43("ask", "bulk_toast", _v38.size, Array.from(_v38).map(_v25.idFromUri)), _v13("bulk_toast"), _v62(Array.from(_v38));
+            _v51("ask", "bulk_toast", _v43.size, Array.from(_v43).filter(_v0 => "video" === _v47.get(_v0)).map(_v28.idFromUri)), _v16("bulk_toast"), _v70(Array.from(_v43));
           },
           onRestore: () => {
-            if (_v66 && _v67) {
-              _v17("bulk_toast"), _v15(!0);
+            if (_v74 && _v75) {
+              _v20("bulk_toast"), _v18(!0);
               return;
             }
-            _v55(Array.from(_v38), "bulk_toast");
+            _v63(Array.from(_v43), "bulk_toast");
           },
-          onClear: _v40
+          onClear: _v45
         }), (0, _v1.jsx)(_v9.Flex, {
-          id: _v35,
+          id: _v38,
           justifyContent: "center"
-        }), _v14 && (0, _v1.jsx)(_v76, {
-          source: _v16,
-          onClose: () => _v15(!1)
+        }), _v17 && (0, _v1.jsx)(_v80, {
+          source: _v19,
+          onClose: () => _v18(!1)
         })]
       })
     });
   }
-  var _v93 = _v0.i(0),
-    _v94 = _v0.i(0);
-  let _v95 = () => {
-    let _v0 = (0, _v26.useViewer)();
-    return _v0 ? !_v0?.teamUser || _v0.teamUser.permissionLevel <= _v20.RECENTLY_DELETED_MAX_PERMISSION_LEVEL ? (0, _v1.jsxs)(_v1.Fragment, {
+  var _v105 = _v0.i(0),
+    _v106 = _v0.i(0);
+  let _v107 = () => {
+    let _v0 = (0, _v29.useViewer)();
+    return _v0 ? !_v0?.teamUser || _v0.teamUser.permissionLevel <= _v22.RECENTLY_DELETED_MAX_PERMISSION_LEVEL ? (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
           children: (0, _v7.translate)({
@@ -3350,7 +3779,7 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v92, {})]
+      }), (0, _v1.jsx)(_v104, {})]
     }) : (0, _v1.jsxs)(_v3.Box, {
       textAlign: "center",
       marginTop: "500",
@@ -3422,11 +3851,11 @@
       })]
     }) : null;
   };
-  _v95.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v94.VideoLibraryLayout, {
+  _v107.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v106.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
-    searchContentAlignment: _v18.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
-    sideNavContent: (0, _v1.jsx)(_v93.SideNavContent, {
+    searchContentAlignment: _v20.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
+    sideNavContent: (0, _v1.jsx)(_v105.SideNavContent, {
       surface: "home"
     }),
     sideNavSurface: "home",
@@ -3439,5 +3868,5 @@
   }), {
     requireLogin: !0,
     inlineViewer: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v95], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v107], 0);
 }

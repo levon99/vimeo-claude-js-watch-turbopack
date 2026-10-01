@@ -19,79 +19,30 @@
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
-    _v15 = _v0.i(0),
-    _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  let _v18 = new Date("2026-07-20T00:00:00Z");
-  function _v19() {
-    let _v0 = (0, _v17.useViewer)()?.user?.createdTime;
-    return !!_v0 && new Date(_v0) > _v18;
-  }
-  _v0.s(["useIsNewSidebarUser", 0, _v19], 0);
-  let _v20 = [-8, 16],
-    _v21 = [-8, 280];
-  function _v22({
+    _v15 = _v0.i(0);
+  let _v16 = [-8, 16],
+    _v17 = [-8, 280];
+  function _v18({
     children: _v0
   }) {
     let {
-        isOpen: _v1,
-        acknowledge: _v2
-      } = function () {
-        let _v0 = (0, _v17.useViewer)(),
-          _v1 = _v0?.user?.id,
-          _v2 = _v19(),
-          {
-            settings: _v3,
-            isLoadingResponse: _v4
-          } = (0, _v16.useOrionSettings)(),
-          {
-            data: _v5,
-            mutate: _v6
-          } = (0, _v14.useGetUserPreferences)(() => void 0 === _v1 || _v2 ? null : {
-            where: {
-              userId: _v1
-            },
-            select: ["nsim", "wnpi"]
-          }, {
-            revalidateOnFocus: !1,
-            revalidateIfStale: !1
-          }),
-          [_v7] = (0, _v14.usePatchUserPreferences)(),
-          _v8 = void 0 !== _v5,
-          _v9 = _v5?.nsim === !0,
-          _v10 = (_v4 || _v3.enable_whats_new_page) && _v5?.wnpi !== !0;
-        return {
-          isOpen: _v8 && !_v9 && !_v2 && !_v10,
-          acknowledge: (0, _v8.useCallback)(() => {
-            void 0 !== _v1 && (_v6({
-              nsim: !0,
-              wnpi: _v5?.wnpi === !0
-            }, {
-              revalidate: !1
-            }), _v7({
-              where: {
-                userId: _v1
-              },
-              select: ["nsim"],
-              variables: {
-                nsim: 1
-              }
-            }).then(() => _v6()));
-          }, [_v5, _v1, _v7, _v6])
-        };
-      }(),
+        acknowledge: _v1,
+        isActive: _v2
+      } = (0, _v11.useAnnouncement)({
+        id: "new_sidebar_intro"
+      }),
       {
         anchor: _v3
       } = _v10();
-    return _v1 ? (0, _v1.jsx)(_v11.AnnouncementPopover, {
-      isOpen: _v1,
-      onAcknowledge: _v2,
+    return _v2 ? (0, _v1.jsx)(_v12.AnnouncementPopover, {
+      isOpen: _v2,
+      onAcknowledge: _v1,
       placement: "right-start",
-      offset: "first" === _v3 ? _v21 : _v20,
-      badge: (0, _v1.jsx)(_v12.Badge, {
+      offset: "first" === _v3 ? _v17 : _v16,
+      badge: (0, _v1.jsx)(_v13.Badge, {
         variant: "new",
         size: "sm",
-        children: (0, _v1.jsx)(_v13.Text, {
+        children: (0, _v1.jsx)(_v14.Text, {
           color: "text-primary",
           variant: "heading-2xs",
           children: (0, _v15.translate)({
@@ -181,12 +132,12 @@
       children: _v0
     });
   }
-  _v0.s(["NewSidebarIntroPopover", 0, _v22], 0);
-  let _v23 = (0, _v6.rem)(24),
-    _v24 = (0, _v6.rem)(12),
-    _v25 = (0, _v6.rem)(12),
-    _v26 = (0, _v6.rem)(8),
-    _v27 = (0, _v6.rem)(6);
+  _v0.s(["NewSidebarIntroPopover", 0, _v18], 0);
+  let _v19 = (0, _v6.rem)(24),
+    _v20 = (0, _v6.rem)(12),
+    _v21 = (0, _v6.rem)(12),
+    _v22 = (0, _v6.rem)(8),
+    _v23 = (0, _v6.rem)(6);
   _v0.s(["PrimaryNavItem", 0, ({
     item: _v0,
     variant: _v1,
@@ -197,9 +148,12 @@
         anchor: _v4
       } = _v10(),
       _v5 = _v3 && ("active" === _v4 ? !!_v0.active : _v2),
-      _v6 = _v0 => _v5 ? (0, _v1.jsx)(_v22, {
-        children: _v0
-      }) : _v0;
+      _v6 = _v0 => {
+        let _v1 = void 0 !== _v0.wrap ? _v0.wrap(_v0) : _v0;
+        return _v5 ? (0, _v1.jsx)(_v18, {
+          children: _v1
+        }) : _v1;
+      };
     if ("icons" === _v1) {
       let _v0 = !!_v0.href;
       return _v6((0, _v1.jsx)(_v5.Tooltip, {
@@ -218,13 +172,13 @@
             icon: _v0.icon,
             variant: "tertiary",
             size: "md",
-            borderRadius: _v25,
+            borderRadius: _v21,
             onClick: _v0.onClick,
             "data-id": _v0.dataId,
             sx: {
               "> svg": {
-                width: _v23,
-                height: _v23
+                width: _v19,
+                height: _v19
               },
               ...(_v0.active && {
                 backgroundColor: "button-tertiary-hover",
@@ -248,11 +202,11 @@
       listStyleType: "none",
       children: _v6((0, _v1.jsx)(_v7.MenuItem, {
         icon: _v0.icon,
-        iconSize: _v23,
-        iconMarginRight: _v24,
-        borderRadius: _v25,
-        paddingX: _v26,
-        paddingLeft: _v27,
+        iconSize: _v19,
+        iconMarginRight: _v20,
+        borderRadius: _v21,
+        paddingX: _v22,
+        paddingLeft: _v23,
         label: _v0.label,
         href: _v0.href,
         active: _v0.active,

@@ -1102,11 +1102,13 @@
         let _v0 = _v5 ? _v5.trim() : "";
         _v0.length > 0 && !_v9 && (_v2({
           title: _v0,
-          streamTitle: _v0
+          ...(_v1?.automaticallyTitleStream ? {} : {
+            streamTitle: _v0
+          })
         }), _v10(!0), (0, _v12.trackAddEventTitle)(), _v3({
           liveStreamBasicsField: "title"
         })), _v6(_v0);
-      }, [_v5, _v2, _v9, _v10, _v6, _v3]),
+      }, [_v5, _v2, _v9, _v10, _v6, _v3, _v1?.automaticallyTitleStream]),
       _v26 = (0, _v5.useCallback)(() => {
         let _v0 = _v7?.trim() ?? "";
         _v11 || (_v2({

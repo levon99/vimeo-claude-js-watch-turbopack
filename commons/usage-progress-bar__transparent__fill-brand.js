@@ -1912,7 +1912,7 @@
       {
         settings: _v23
       } = (0, _v40.useOrionSettings)(),
-      _v24 = !!_v21.hasAdminForcedPreset || _v23.enable_admin_forced_preset,
+      _v24 = !!_v21.hasAdminForcedPreset,
       _v25 = _v23.enable_single_event_customization && !_v23.release_single_event_customization && _v3.hasLandingPageCustomizations,
       _v26 = _v18 && !_v2,
       _v27 = _v23.release_single_event_customization,

@@ -21,7 +21,7 @@
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0);
-  let _v21 = ["publicId", "uri", "name", "description", "contentType", "fileSize", "privacy", "allowDownloads", "createdTime", "modifiedTime", "metadata.connections.ancestorPath.name", "metadata.connections.ancestorPath.link", "parentFolder.name", "parentFolder.uri", "uploader.name"],
+  let _v21 = ["publicId", "uri", "name", "description", "contentType", "thumbnail.url", "fileSize", "privacy", "allowDownloads", "createdTime", "modifiedTime", "metadata.connections.ancestorPath.name", "metadata.connections.ancestorPath.link", "parentFolder.name", "parentFolder.uri", "uploader.name", "canUserEdit", "canUserDelete"],
     _v22 = {
       video: (0, _v17.translate)({
         singular: "Video",
@@ -111,7 +111,8 @@
       label: _v0,
       placeholder: _v1,
       value: _v2,
-      onSave: _v3
+      onSave: _v3,
+      isReadOnly: _v4 = !1
     }) => (0, _v1.jsxs)(_v5.Flex, {
       alignItems: "center",
       gap: "lg",
@@ -124,7 +125,9 @@
         "aria-label": _v0,
         defaultValue: _v2,
         flexGrow: 1,
+        isReadOnly: _v4,
         onBlur: _v0 => {
+          if (_v4) return;
           let _v1 = _v0.target.value.trim();
           _v1 !== _v2 && _v3(_v1);
         },
@@ -282,6 +285,7 @@
           flexDirection: "column",
           gap: "md",
           children: [(0, _v1.jsx)(_v23, {
+            isReadOnly: !_v2.canUserEdit,
             label: (0, _v17.translate)({
               singular: "Title",
               dictionary: {
@@ -313,6 +317,7 @@
               name: _v0
             })
           }), (0, _v1.jsx)(_v23, {
+            isReadOnly: !_v2.canUserEdit,
             label: (0, _v17.translate)({
               singular: "Description",
               dictionary: {
@@ -556,7 +561,9 @@
       [_v9, _v10] = (0, _v3.useState)(!1),
       [_v11, _v12] = (0, _v3.useState)(!1),
       [_v13, _v14] = (0, _v3.useState)(!1),
-      _v15 = async () => {
+      _v15 = _v2.canUserEdit,
+      _v16 = _v2.canUserDelete,
+      _v17 = async () => {
         _v10(!0);
         try {
           await (0, _v15.deleteUserFile)({
@@ -636,7 +643,7 @@
           _v10(!1);
         }
       };
-    return (0, _v1.jsxs)(_v1.Fragment, {
+    return _v15 || _v16 ? (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v35.Menu, {
         children: [(0, _v1.jsx)(_v36.MenuButton, {
           "aria-label": (0, _v17.translate)({
@@ -670,7 +677,7 @@
           size: "md",
           variant: "tertiary"
         }), (0, _v1.jsxs)(_v39.MenuList, {
-          children: [(0, _v1.jsx)(_v38.MenuItem, {
+          children: [_v15 && (0, _v1.jsx)(_v38.MenuItem, {
             icon: (0, _v1.jsx)(_v41.FolderOpen, {}),
             onClick: () => _v12(!0),
             children: (0, _v17.translate)({
@@ -699,7 +706,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v37.MenuDivider, {}), (0, _v1.jsx)(_v38.MenuItem, {
+          }), _v15 && _v16 && (0, _v1.jsx)(_v37.MenuDivider, {}), _v16 && (0, _v1.jsx)(_v38.MenuItem, {
             icon: (0, _v1.jsx)(_v42.TrashBin, {}),
             onClick: () => _v14(!0),
             children: (0, _v17.translate)({
@@ -871,9 +878,9 @@
         isLoading: _v9,
         isOpen: _v13,
         onClose: () => _v14(!1),
-        onConfirm: () => void _v15()
+        onConfirm: () => void _v17()
       })]
-    });
+    }) : (0, _v1.jsx)(_v1.Fragment, {});
   };
   var _v46 = _v0.i(0),
     _v47 = _v0.i(0),
@@ -916,7 +923,7 @@
           children: (0, _v1.jsxs)(_v5.Flex, {
             alignItems: "center",
             gap: "sm",
-            children: [(0, _v1.jsx)(_v26.Button, {
+            children: [_v2.canUserEdit && (0, _v1.jsx)(_v26.Button, {
               leftIcon: (0, _v1.jsx)(_v27.Globe, {}),
               onClick: _v3,
               variant: "primary",
@@ -1056,14 +1063,17 @@
     _v54 = ({
       file: _v0
     }) => {
-      let _v1, _v2;
+      let _v1,
+        _v2,
+        _v3 = _v0.thumbnail?.url,
+        _v4 = null != _v3 && "" !== _v3;
       return (0, _v1.jsxs)(_v5.Flex, {
         background: "fill-component",
         borderRadius: "lg",
         flexDirection: "column",
         justifyContent: "space-between",
         overflow: "hidden",
-        minHeight: "28rem",
+        minHeight: "37.5rem",
         children: [(0, _v1.jsxs)(_v5.Flex, {
           alignItems: "center",
           background: "surface",
@@ -1094,7 +1104,13 @@
           flexGrow: 1,
           justifyContent: "center",
           p: "lg",
-          children: (0, _v1.jsxs)(_v5.Flex, {
+          children: null != _v3 && "" !== _v3 ? (0, _v1.jsx)(_v51.Image, {
+            alt: "",
+            maxHeight: "100%",
+            maxWidth: "100%",
+            objectFit: "contain",
+            src: _v3
+          }) : (0, _v1.jsxs)(_v5.Flex, {
             alignItems: "center",
             flexDirection: "column",
             gap: "lg",
@@ -1211,7 +1227,32 @@
           children: (0, _v1.jsx)(_v12.Text, {
             variant: "body-sm",
             color: "text-tertiary",
-            children: (0, _v17.translate)({
+            children: _v4 ? (0, _v17.translate)({
+              singular: "Image preview",
+              dictionary: {
+                es: {
+                  singular: "Vista previa de la imagen"
+                },
+                "de-DE": {
+                  singular: "Bildvorschau"
+                },
+                "fr-FR": {
+                  singular: "Aperçu de l'image"
+                },
+                "ja-JP": {
+                  singular: "画像プレビュー"
+                },
+                "ko-KR": {
+                  singular: "이미지 미리보기"
+                },
+                "pt-BR": {
+                  singular: "Pré-visualização da imagem"
+                },
+                "zh-CN": {
+                  singular: "图片预览"
+                }
+              }
+            }) : (0, _v17.translate)({
               singular: "No preview available",
               dictionary: {
                 es: {

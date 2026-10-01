@@ -3936,6 +3936,58 @@
         }
       }
     }),
+    SearchGroups: (0, _v5.translate)({
+      singular: "Search groups",
+      dictionary: {
+        es: {
+          singular: "Buscar grupos"
+        },
+        "de-DE": {
+          singular: "Gruppen suchen"
+        },
+        "fr-FR": {
+          singular: "Rechercher parmi les groupes"
+        },
+        "ja-JP": {
+          singular: "グループを検索"
+        },
+        "ko-KR": {
+          singular: "그룹 검색"
+        },
+        "pt-BR": {
+          singular: "Pesquisar grupos"
+        },
+        "zh-CN": {
+          singular: "搜索群组"
+        }
+      }
+    }),
+    LoadMore: (0, _v5.translate)({
+      singular: "Load more",
+      dictionary: {
+        es: {
+          singular: "Cargar más"
+        },
+        "de-DE": {
+          singular: "Mehr laden"
+        },
+        "fr-FR": {
+          singular: "Afficher plus"
+        },
+        "ja-JP": {
+          singular: "もっとロードする"
+        },
+        "ko-KR": {
+          singular: "동영상 더 보기"
+        },
+        "pt-BR": {
+          singular: "Carregar mais"
+        },
+        "zh-CN": {
+          singular: "加载更多"
+        }
+      }
+    }),
     SearchMembers: (0, _v5.translate)({
       singular: "Search members",
       dictionary: {

@@ -3989,25 +3989,25 @@
         },
         dictionary: {
           es: {
-            singular: "Acceso gratuito hasta {DATE}"
+            singular: "Acceso de cortesía hasta {DATE}"
           },
           "de-DE": {
-            singular: "Kostenloser Zugang bis {DATE}"
+            singular: "Kostenfreier Zugang bis {DATE}"
           },
           "fr-FR": {
             singular: "Accès gratuit jusqu'au {DATE}"
           },
           "ja-JP": {
-            singular: "無償アクセスは {DATE} まで有効です"
+            singular: "無料でご利用いただけます {DATE}まで"
           },
           "ko-KR": {
-            singular: "무료 액세스는 {DATE}까지 제공됩니다."
+            singular: "무료 이용 가능: {DATE}까지"
           },
           "pt-BR": {
-            singular: "Acesso cortesia até {DATE}"
+            singular: "Acesso gratuito até {DATE}"
           },
           "zh-CN": {
-            singular: "免费访问直到 {DATE}"
+            singular: "免费访问至 {DATE}"
           }
         }
       }),
@@ -9006,36 +9006,7 @@
       let {
         headerDate: _v2,
         bodyDate: _v3
-      } = ((_v0, _v1 = "en-US") => {
-        let _v2 = _v0.split("-"),
-          _v3 = Number(_v2[0]),
-          _v4 = Number(_v2[1]) - 1,
-          _v5 = Number(_v2[2]);
-        if (Number.isNaN(_v3) || Number.isNaN(_v4) || Number.isNaN(_v5)) return {
-          headerDate: _v0,
-          bodyDate: _v0
-        };
-        let _v6 = new Date(_v3, _v4, _v5).toLocaleDateString(_v1, {
-          month: "long"
-        });
-        return {
-          headerDate: `${(_v0 => {
-            let _v1 = _v0 % 100;
-            if (_v1 >= 11 && _v1 <= 13) return `${_v0}th`;
-            switch (_v0 % 10) {
-              case 1:
-                return `${_v0}st`;
-              case 2:
-                return `${_v0}nd`;
-              case 3:
-                return `${_v0}rd`;
-              default:
-                return `${_v0}th`;
-            }
-          })(_v5)} ${_v6} ${_v3}`,
-          bodyDate: `${_v6} ${_v5}, ${_v3}`
-        };
-      })(_v0, _v1?.locale);
+      } = (0, _v209.formatTrialExpiryDates)(_v0, _v1?.locale);
       return (0, _v1.jsx)(_v175.Box, {
         width: "100%",
         borderBottomRadius: "lg",

@@ -637,8 +637,9 @@
     _v79 = _v0.i(0),
     _v80 = _v0.i(0),
     _v81 = _v0.i(0),
-    _v82 = _v0.i(0);
-  async function _v83({
+    _v82 = _v0.i(0),
+    _v83 = _v0.i(0);
+  async function _v84({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -646,23 +647,23 @@
     },
     ..._v3
   }) {
-    return (0, _v81.measureLatency)("postMeBspBundleProductRedeem", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/me/bsp_bundle/products/${_v2}/redeem?fields=${_v1.map(_v82.intoSnakeCase).join(",")}`, {
+    return (0, _v82.measureLatency)("postMeBspBundleProductRedeem", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/me/bsp_bundle/products/${_v2}/redeem?fields=${_v1.map(_v83.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "POST"
       });
-      if (!_v0.ok) throw new _v82.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v83.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v82.deepCamelCase)(_v1);
+      return (0, _v83.deepCamelCase)(_v1);
     });
   }
-  var _v84 = _v0.i(0);
-  let _v85 = (_v0, _v1) => _v0[_v1]?.status === "fetching",
-    _v86 = (_v0, _v1) => _v0[_v1]?.status === "error",
-    _v87 = _v0 => "coming_soon" === _v0 || "exhausted" === _v0 || "internal" === _v0,
-    _v88 = async _v0 => {
+  var _v85 = _v0.i(0);
+  let _v86 = (_v0, _v1) => _v0[_v1]?.status === "fetching",
+    _v87 = (_v0, _v1) => _v0[_v1]?.status === "error",
+    _v88 = _v0 => "coming_soon" === _v0 || "exhausted" === _v0 || "internal" === _v0,
+    _v89 = async _v0 => {
       try {
         let _v0 = await _v0.res.json();
         if ("object" != typeof _v0 || null === _v0 || Array.isArray(_v0) || !("developer_message" in _v0)) return;
@@ -674,8 +675,8 @@
         return;
       }
     },
-    _v89 = async _v0 => {
-      if (!(_v0 instanceof _v82.NetworkError)) return {
+    _v90 = async _v0 => {
+      if (!(_v0 instanceof _v83.NetworkError)) return {
         reason: "network",
         httpStatus: null
       };
@@ -692,26 +693,26 @@
         reason: (_v0 => {
           if (void 0 === _v0) return "internal";
           let _v1 = _v0.replace(/\.$/, "");
-          if (_v87(_v1)) return _v1;
+          if (_v88(_v1)) return _v1;
           let _v2 = _v1.slice(_v1.lastIndexOf(".") + 1).trim();
-          return _v87(_v2) ? _v2 : "internal";
-        })(await _v88(_v0)),
+          return _v88(_v2) ? _v2 : "internal";
+        })(await _v89(_v0)),
         httpStatus: _v1
       } : {
         reason: "internal",
         httpStatus: _v1
       };
     },
-    _v90 = {};
-  var _v91 = _v0.i(0),
-    _v92 = _v0.i(0),
+    _v91 = {};
+  var _v92 = _v0.i(0),
     _v93 = _v0.i(0),
     _v94 = _v0.i(0),
     _v95 = _v0.i(0),
     _v96 = _v0.i(0),
     _v97 = _v0.i(0),
-    _v98 = _v0.i(0);
-  let _v99 = ({
+    _v98 = _v0.i(0),
+    _v99 = _v0.i(0);
+  let _v100 = ({
     platforms: _v0,
     selectedId: _v1,
     label: _v2,
@@ -752,7 +753,7 @@
               background: _v1 ? "surface" : "fill-component-hover"
             },
             onClick: () => _v3(_v0.id),
-            children: [_v1 && (0, _v28.jsx)(_v98.CheckSmall, {
+            children: [_v1 && (0, _v28.jsx)(_v99.CheckSmall, {
               boxSize: (0, _v33.rem)(14)
             }), _v0.label]
           }, _v0.id);
@@ -760,8 +761,8 @@
       })]
     });
   };
-  var _v100 = _v0.i(0);
-  let _v101 = _v0 => (0, _v28.jsx)(_v100.Icon, {
+  var _v101 = _v0.i(0);
+  let _v102 = _v0 => (0, _v28.jsx)(_v101.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -770,7 +771,7 @@
         fill: "currentColor"
       })
     }),
-    _v102 = String((0, _v47.translate)({
+    _v103 = String((0, _v47.translate)({
       singular: "If you think this is a mistake, contact support.",
       dictionary: {
         es: {
@@ -796,7 +797,7 @@
         }
       }
     })),
-    _v103 = ({
+    _v104 = ({
       value: _v0
     }) => {
       let _v1 = (0, _v50.useBundleSurfaceTokens)();
@@ -861,7 +862,7 @@
         })
       });
     },
-    _v104 = ({
+    _v105 = ({
       platform: _v0
     }) => {
       let _v1 = ((_v0, _v1) => {
@@ -1421,7 +1422,7 @@
                   }
                 }
               })),
-              help: _v102
+              help: _v103
             } : "not_in_bundle" === _v5 ? {
               title: _v0 ? String((0, _v47.translate)({
                 singular: "This reward isn't part of your bundle.",
@@ -1474,7 +1475,7 @@
                   }
                 }
               })),
-              help: _v102
+              help: _v103
             } : {
               title: _v0 ? String((0, _v47.translate)({
                 singular: "There's an error getting your reward",
@@ -1630,7 +1631,7 @@
               onClick: _v0.onAction,
               variant: "primary",
               isLoading: !1,
-              icon: _v0 ? (0, _v28.jsx)(_v101, {
+              icon: _v0 ? (0, _v28.jsx)(_v102, {
                 boxSize: (0, _v33.rem)(16)
               }) : void 0
             }
@@ -1789,7 +1790,7 @@
           alignItems: "stretch",
           gap: (0, _v33.rem)(8),
           flexShrink: 0,
-          children: [void 0 !== _v1.code && (0, _v28.jsx)(_v103, {
+          children: [void 0 !== _v1.code && (0, _v28.jsx)(_v104, {
             value: _v1.code
           }), (0, _v28.jsx)(_v41.Button, {
             variant: _v1.action.variant,
@@ -1807,9 +1808,9 @@
         })]
       });
     };
-  var _v105 = _v0.i(0);
-  let _v106 = (0, _v33.rem)(28),
-    _v107 = ({
+  var _v106 = _v0.i(0);
+  let _v107 = (0, _v33.rem)(28),
+    _v108 = ({
       index: _v0
     }) => {
       let _v1 = (0, _v50.useBundleSurfaceTokens)();
@@ -1817,8 +1818,8 @@
         alignItems: "center",
         justifyContent: "center",
         flexShrink: 0,
-        width: _v106,
-        height: _v106,
+        width: _v107,
+        height: _v107,
         borderRadius: "full",
         background: _v1.background,
         border: _v1.border,
@@ -1830,7 +1831,7 @@
         })
       });
     },
-    _v108 = ({
+    _v109 = ({
       store: _v0
     }) => (0, _v28.jsx)(_v41.Button, {
       as: "a",
@@ -1842,7 +1843,7 @@
       onClick: _v0.onStoreClick,
       children: _v0.label
     }),
-    _v109 = ({
+    _v110 = ({
       step: _v0,
       layout: _v1,
       store: _v2
@@ -1864,7 +1865,7 @@
         children: _v0.action
       }) : void 0 !== _v2 && (0, _v28.jsx)(_v32.Flex, {
         marginTop: (0, _v33.rem)(6),
-        children: (0, _v28.jsx)(_v108, {
+        children: (0, _v28.jsx)(_v109, {
           store: _v2
         })
       }), "activation" === _v1 && void 0 !== _v0.media && (0, _v28.jsx)(_v32.Flex, {
@@ -1873,7 +1874,7 @@
         children: _v0.media
       })]
     }),
-    _v110 = ({
+    _v111 = ({
       steps: _v0,
       layout: _v1,
       store: _v2
@@ -1898,9 +1899,9 @@
           alignItems: "flex-start",
           gap: (0, _v33.rem)(16),
           minWidth: 0,
-          children: [(0, _v28.jsx)(_v107, {
+          children: [(0, _v28.jsx)(_v108, {
             index: _v1
-          }), (0, _v28.jsx)(_v109, {
+          }), (0, _v28.jsx)(_v110, {
             step: _v0,
             layout: _v1,
             store: _v2
@@ -1916,7 +1917,7 @@
           padding: 0,
           margin: 0,
           children: _v4.map(_v6)
-        }), _v5.length > 0 && (0, _v28.jsx)(_v105.SimpleGrid, {
+        }), _v5.length > 0 && (0, _v28.jsx)(_v106.SimpleGrid, {
           as: "ol",
           role: "list",
           columns: {
@@ -1933,7 +1934,7 @@
         })]
       });
     },
-    _v111 = ({
+    _v112 = ({
       isOpen: _v0,
       onClose: _v1,
       title: _v2,
@@ -1947,14 +1948,14 @@
     }) => {
       let [_v10, _v11] = (0, _v31.useState)(_v7),
         _v12 = _v6.find(_v0 => _v0.id === _v10) ?? _v6[0];
-      return void 0 === _v12 ? null : (0, _v28.jsxs)(_v91.Modal, {
+      return void 0 === _v12 ? null : (0, _v28.jsxs)(_v92.Modal, {
         isOpen: _v0,
         onClose: _v1,
         isCentered: !0,
         size: _v5,
         scrollBehavior: "inside",
-        children: [(0, _v28.jsx)(_v97.ModalOverlay, {}), (0, _v28.jsxs)(_v94.ModalContent, {
-          children: [(0, _v28.jsx)(_v93.ModalCloseButton, {
+        children: [(0, _v28.jsx)(_v98.ModalOverlay, {}), (0, _v28.jsxs)(_v95.ModalContent, {
+          children: [(0, _v28.jsx)(_v94.ModalCloseButton, {
             "aria-label": String((0, _v47.translate)({
               singular: "Close",
               dictionary: {
@@ -1981,14 +1982,14 @@
                 }
               }
             }))
-          }), (0, _v28.jsxs)(_v96.ModalHeader, {
+          }), (0, _v28.jsxs)(_v97.ModalHeader, {
             paddingRight: (0, _v33.rem)(40),
             children: [_v2, void 0 !== _v3 && (0, _v28.jsx)(_v44.Text, {
               variant: "body-md",
               color: "text-secondary",
               marginTop: (0, _v33.rem)(8),
               children: _v3
-            }), _v6.length > 1 && (0, _v28.jsx)(_v99, {
+            }), _v6.length > 1 && (0, _v28.jsx)(_v100, {
               platforms: _v6,
               selectedId: _v12.id,
               label: _v8,
@@ -1996,8 +1997,8 @@
                 _v11(_v0), _v9?.(_v0);
               }
             })]
-          }), (0, _v28.jsxs)(_v92.ModalBody, {
-            children: [(0, _v28.jsx)(_v110, {
+          }), (0, _v28.jsxs)(_v93.ModalBody, {
+            children: [(0, _v28.jsx)(_v111, {
               steps: _v12.steps,
               layout: _v4,
               store: _v12.store
@@ -2008,25 +2009,25 @@
               marginTop: (0, _v33.rem)(16),
               children: _v12.footnote
             })]
-          }), (0, _v28.jsx)(_v95.ModalFooter, {
-            children: (0, _v28.jsx)(_v104, {
+          }), (0, _v28.jsx)(_v96.ModalFooter, {
+            children: (0, _v28.jsx)(_v105, {
               platform: _v12
             })
           })]
         })]
       });
     },
-    _v112 = {
+    _v113 = {
       ios: "iOS",
       android: "Android"
     },
-    _v113 = (_v0, _v1) => {
+    _v114 = (_v0, _v1) => {
       void 0 === _v1 ? console.error(`Missing redeem URL for ${_v0}.`) : window.open(_v1, "_blank", "noopener");
     },
-    _v114 = _v0 => {
+    _v115 = _v0 => {
       void 0 !== _v0 && navigator.clipboard?.writeText(_v0).catch(() => void 0);
     },
-    _v115 = _v0 => void 0 === _v0 ? {
+    _v116 = _v0 => void 0 === _v0 ? {
       status: "masked"
     } : _v0.isCodeFetching ? {
       status: "fetching"
@@ -2041,63 +2042,63 @@
     } : {
       status: "masked"
     },
-    _v116 = (_v0, _v1, _v2, _v3, _v4) => "link" === _v0.kind ? {
+    _v117 = (_v0, _v1, _v2, _v3, _v4) => "link" === _v0.kind ? {
       appName: _v0.appName,
       action: "link",
-      state: _v115(_v1),
+      state: _v116(_v1),
       onAssign: () => {
         _v3?.onActionClick("fetch", _v2), (async () => {
           let _v0 = await _v1?.onFetch();
-          void 0 !== _v0 && _v4() && (_v3?.onActionClick("link", _v2), _v113(_v0.appName, _v0.redeemUrl));
+          void 0 !== _v0 && _v4() && (_v3?.onActionClick("link", _v2), _v114(_v0.appName, _v0.redeemUrl));
         })();
       },
       onAction: () => {
-        _v3?.onActionClick("link", _v2), _v113(_v0.appName, _v1?.redeemUrl);
+        _v3?.onActionClick("link", _v2), _v114(_v0.appName, _v1?.redeemUrl);
       }
     } : "copy" === _v0.redeemAction ? {
       appName: _v0.appName,
       action: "copy",
       copy: _v0.codeCopy,
-      state: _v115(_v1),
+      state: _v116(_v1),
       onAssign: () => {
         _v3?.onActionClick("fetch", _v2), _v1?.onFetch();
       },
       onAction: () => {
-        _v3?.onActionClick("copy", _v2), _v114(_v1?.code);
+        _v3?.onActionClick("copy", _v2), _v115(_v1?.code);
       }
     } : {
       appName: _v0.appName,
       action: "redeem",
       copy: _v0.codeCopy,
-      state: _v115(_v1),
+      state: _v116(_v1),
       onAssign: () => {
         _v3?.onActionClick("fetch", _v2), (async () => {
           let _v0 = await _v1?.onFetch();
-          void 0 !== _v0 && _v4() && (_v3?.onActionClick("copy", _v2), _v114(_v0.code), _v113(_v0.appName, _v0.redeemUrl));
+          void 0 !== _v0 && _v4() && (_v3?.onActionClick("copy", _v2), _v115(_v0.code), _v114(_v0.appName, _v0.redeemUrl));
         })();
       },
       onAction: () => {
-        _v3?.onActionClick("copy", _v2), _v114(_v1?.code), _v3?.onActionClick("redeem", _v2), _v113(_v0.appName, _v1?.redeemUrl);
+        _v3?.onActionClick("copy", _v2), _v115(_v1?.code), _v3?.onActionClick("redeem", _v2), _v114(_v0.appName, _v1?.redeemUrl);
       }
     },
-    _v117 = _v0 => _v0 => (0, _v28.jsx)(_v43.Link, {
+    _v118 = _v0 => _v0 => (0, _v28.jsx)(_v43.Link, {
       href: _v0,
       isExternal: !0,
       children: _v0
     }),
-    _v118 = (0, _v33.rem)(178),
-    _v119 = (0, _v33.rem)(386),
-    _v120 = {
+    _v119 = (0, _v33.rem)(178),
+    _v120 = (0, _v33.rem)(386),
+    _v121 = {
       iOS: ["https://i.vimeocdn.com/custom_asset/e2a07dc1814db21f4c35d26f394c0a88", "https://i.vimeocdn.com/custom_asset/10d2072e6d45a940f3919d4623a6448a"],
       Android: ["https://i.vimeocdn.com/custom_asset/5cb4ae4a0e00651aae55b866e666535c", "https://i.vimeocdn.com/custom_asset/acdecf75c8bb73d5d1c50aa5c63b2185"]
     },
-    _v121 = (_v0, _v1, _v2) => {
-      let _v3 = _v120[_v2]?.[_v1];
+    _v122 = (_v0, _v1, _v2) => {
+      let _v3 = _v121[_v2]?.[_v1];
       if (void 0 === _v3) return (0, _v28.jsx)(_v32.Flex, {
         alignItems: "center",
         justifyContent: "center",
-        width: _v118,
-        height: _v119,
+        width: _v119,
+        height: _v120,
         borderRadius: (0, _v33.rem)(12),
         background: "fill-component",
         children: (0, _v28.jsx)(_v44.Text, {
@@ -2166,13 +2167,13 @@
             }
           }
         })),
-        width: _v118,
-        height: _v119,
+        width: _v119,
+        height: _v120,
         objectFit: "contain",
         borderRadius: (0, _v33.rem)(12)
       });
     },
-    _v122 = _v0 => [{
+    _v123 = _v0 => [{
       id: "redeem",
       title: (0, _v77.translate)({
         singular: "Click on Redeem to navigate to the checkout page.",
@@ -2316,7 +2317,7 @@
         }
       })
     }],
-    _v123 = _v0 => [{
+    _v124 = _v0 => [{
       id: "redeem",
       title: (0, _v77.translate)({
         singular: "Click on Redeem to navigate to the code redemption page.",
@@ -2432,7 +2433,7 @@
         }
       })
     }],
-    _v124 = (_v0, _v1) => [{
+    _v125 = (_v0, _v1) => [{
       id: "install",
       title: (0, _v77.translate)({
         singular: "Install and open {appName}",
@@ -2621,7 +2622,7 @@
           }
         }
       }),
-      media: _v121(_v0, 0, _v1)
+      media: _v122(_v0, 0, _v1)
     }, {
       id: "enter",
       title: (0, _v77.translate)({
@@ -2679,9 +2680,9 @@
           }
         }
       }),
-      media: _v121(_v0, 1, _v1)
+      media: _v122(_v0, 1, _v1)
     }],
-    _v125 = () => String((0, _v77.translate)({
+    _v126 = () => String((0, _v77.translate)({
       singular: "Redeem to reveal your code, then enter it in the dedicated page.",
       dictionary: {
         es: {
@@ -2707,7 +2708,7 @@
         }
       }
     })),
-    _v126 = _v0 => String((0, _v77.translate)({
+    _v127 = _v0 => String((0, _v77.translate)({
       singular: "How to redeem your subscription to {productName}:",
       replacements: {
         productName: (0, _v49.getProductDisplayName)(_v0)
@@ -2736,35 +2737,35 @@
         }
       }
     })),
-    _v127 = {
+    _v128 = {
       wetransfer: {
-        title: _v126("wetransfer"),
+        title: _v127("wetransfer"),
         appName: "WeTransfer",
         codeCopy: {
-          initialHelp: _v125()
+          initialHelp: _v126()
         },
-        stepBuilder: () => _v123("WeTransfer")
+        stepBuilder: () => _v124("WeTransfer")
       },
       evernote: {
-        title: _v126("evernote"),
+        title: _v127("evernote"),
         appName: "Evernote",
-        stepBuilder: () => _v122("Evernote")
+        stepBuilder: () => _v123("Evernote")
       },
       issuu: {
-        title: _v126("issuu"),
+        title: _v127("issuu"),
         appName: "Issuu",
-        stepBuilder: () => _v122("Issuu")
+        stepBuilder: () => _v123("Issuu")
       },
       komoot: {
-        title: _v126("komoot"),
+        title: _v127("komoot"),
         appName: "Komoot",
         codeCopy: {
-          initialHelp: _v125()
+          initialHelp: _v126()
         },
-        stepBuilder: () => _v123("Komoot")
+        stepBuilder: () => _v124("Komoot")
       },
       harvest: {
-        title: _v126("harvest"),
+        title: _v127("harvest"),
         appName: "Harvest",
         redeemAction: "copy",
         stepBuilder: () => [{
@@ -2772,7 +2773,7 @@
           title: (0, _v77.translate)({
             singular: "Create your Harvest account by {LINK}clicking here{/LINK}.",
             replacements: {
-              LINK: _v117("https://www.getharvest.com/signup?ref=vimeo-bundle")
+              LINK: _v118("https://www.getharvest.com/signup?ref=vimeo-bundle")
             },
             dictionary: {
               es: {
@@ -2967,7 +2968,7 @@
         }))
       },
       mileiq: {
-        title: _v126("mileiq"),
+        title: _v127("mileiq"),
         appName: "MileIQ",
         codeCopy: {
           initialHelp: String((0, _v77.translate)({
@@ -3056,7 +3057,7 @@
           title: (0, _v77.translate)({
             singular: "Having trouble? Follow the {LINK}App Store gift code redemption guide{/LINK}.",
             replacements: {
-              LINK: _v117("https://support.apple.com/118242")
+              LINK: _v118("https://support.apple.com/118242")
             },
             dictionary: {
               es: {
@@ -3140,7 +3141,7 @@
         layout: "activation",
         appName: "Splice",
         redeemAction: "copy",
-        stepBuilder: _v0 => _v124("Splice", _v0 ?? "iOS"),
+        stepBuilder: _v0 => _v125("Splice", _v0 ?? "iOS"),
         footnote: (_v0 = "") => String((0, _v77.translate)({
           singular: "Screens shown on {platformLabel}.",
           replacements: {
@@ -3227,7 +3228,7 @@
         layout: "activation",
         appName: "Remini",
         redeemAction: "copy",
-        stepBuilder: _v0 => _v124("Remini", _v0 ?? "iOS"),
+        stepBuilder: _v0 => _v125("Remini", _v0 ?? "iOS"),
         footnote: (_v0 = "") => String((0, _v77.translate)({
           singular: "Screens shown on {platformLabel}.",
           replacements: {
@@ -3259,7 +3260,7 @@
         }))
       },
       streamyard: {
-        title: _v126("streamyard"),
+        title: _v127("streamyard"),
         appName: "StreamYard",
         kind: "link",
         stepBuilder: () => [{
@@ -3380,15 +3381,15 @@
         }]
       }
     },
-    _v128 = ({
+    _v129 = ({
       productId: _v0,
       getEntitlementProps: _v1,
       onClose: _v2
     }) => {
       let _v3 = (0, _v31.useMemo)(() => {
           let _v0;
-          return _v127[_v0] ?? (_v0 = (0, _v49.isProductId)(_v0) ? _v49.PRODUCT_NAMES[_v0] : _v0, {
-            title: _v126(_v0),
+          return _v128[_v0] ?? (_v0 = (0, _v49.isProductId)(_v0) ? _v49.PRODUCT_NAMES[_v0] : _v0, {
+            title: _v127(_v0),
             appName: _v0,
             stepBuilder: () => [{
               id: "redeem",
@@ -3469,10 +3470,10 @@
             id: _v0,
             steps: _v1.stepBuilder(),
             footnote: _v1.footnote?.(),
-            code: _v116(_v1, _v2(_v0), null, _v3, _v4)
+            code: _v117(_v1, _v2(_v0), null, _v3, _v4)
           }] : _v5.map(_v0 => {
             let _v1 = (0, _v73.getEntitlementId)(_v0, _v0),
-              _v2 = _v112[_v0],
+              _v2 = _v113[_v0],
               _v3 = (0, _v49.isProductId)(_v0) ? (0, _v49.getProductStoreUrl)(_v0, _v0) : void 0,
               _v4 = void 0 === _v3 ? void 0 : {
                 label: String((0, _v77.translate)({
@@ -3514,7 +3515,7 @@
               store: _v4,
               steps: _v1.stepBuilder(_v2),
               footnote: _v1.footnote?.(_v2),
-              code: _v116(_v1, _v2(_v1), _v0, _v3, _v4)
+              code: _v117(_v1, _v2(_v1), _v0, _v3, _v4)
             };
           });
         })(_v0, _v3, _v1, {
@@ -3536,7 +3537,7 @@
           codeAvailable: _v10.some(_v0 => "ready" === _v0.code.state.status),
           hasPicker: _v11
         }));
-      }, [_v0, _v11, _v10, _v4]), (0, _v28.jsx)(_v111, {
+      }, [_v0, _v11, _v10, _v4]), (0, _v28.jsx)(_v112, {
         isOpen: !0,
         onClose: _v2,
         title: _v3.title,
@@ -3578,26 +3579,26 @@
         } : {})
       });
     };
-  var _v129 = _v0.i(0),
-    _v130 = _v0.i(0),
+  var _v130 = _v0.i(0),
     _v131 = _v0.i(0),
     _v132 = _v0.i(0),
     _v133 = _v0.i(0),
     _v134 = _v0.i(0),
-    _v135 = _v0.i(0);
-  let _v136 = _v0 => _v0 => (0, _v28.jsx)(_v43.Link, {
+    _v135 = _v0.i(0),
+    _v136 = _v0.i(0);
+  let _v137 = _v0 => _v0 => (0, _v28.jsx)(_v43.Link, {
       href: _v0,
       variant: "inline-primary",
       children: _v0
     }, "link"),
-    _v137 = (0, _v33.rem)(80),
-    _v138 = (0, _v33.rem)(860),
-    _v139 = (0, _v33.rem)(24),
+    _v138 = (0, _v33.rem)(80),
+    _v139 = (0, _v33.rem)(860),
     _v140 = (0, _v33.rem)(24),
-    _v141 = (0, _v33.rem)(32),
-    _v142 = (0, _v33.rem)(10),
-    _v143 = (0, _v33.rem)(16),
-    _v144 = () => {
+    _v141 = (0, _v33.rem)(24),
+    _v142 = (0, _v33.rem)(32),
+    _v143 = (0, _v33.rem)(10),
+    _v144 = (0, _v33.rem)(16),
+    _v145 = () => {
       let _v0 = (0, _v50.useBundleSurfaceTokens)(),
         _v1 = [{
           question: String((0, _v77.translate)({
@@ -3682,7 +3683,7 @@
           answer: (0, _v77.translate)({
             singular: "Once redeemed, your access will run for the same duration as your current Vimeo subscription, at no extra cost. See the {LINK}Bundle Promotion Conditions{/LINK} for more details.",
             replacements: {
-              LINK: _v136(_v135.BUNDLE_LIBRARY_TERMS_PATH)
+              LINK: _v137(_v136.BUNDLE_LIBRARY_TERMS_PATH)
             },
             dictionary: {
               es: {
@@ -3791,7 +3792,7 @@
           answer: (0, _v77.translate)({
             singular: "Each code works on one product only and can be used once, so it's worth checking you're using the right one and that it hasn't already been redeemed. A few of the products also aren't available in every country. If it still doesn't work, {LINK}contact support{/LINK} with the code and we'll look into it.",
             replacements: {
-              LINK: _v136("https://vimeo.com/help/contact")
+              LINK: _v137("https://vimeo.com/help/contact")
             },
             dictionary: {
               es: {
@@ -3927,13 +3928,13 @@
       return (0, _v28.jsxs)(_v32.Flex, {
         direction: "column",
         gap: (0, _v33.rem)(40),
-        marginTop: _v137,
+        marginTop: _v138,
         children: [(0, _v28.jsxs)(_v32.Flex, {
           direction: "column",
           gap: (0, _v33.rem)(12),
-          paddingX: _v140,
+          paddingX: _v141,
           paddingY: (0, _v33.rem)(4),
-          children: [(0, _v28.jsx)(_v133.Header, {
+          children: [(0, _v28.jsx)(_v134.Header, {
             as: "h2",
             variant: "heading-xl",
             fontSize: (0, _v33.rem)(40),
@@ -3994,28 +3995,28 @@
               }
             }))
           })]
-        }), (0, _v28.jsx)(_v129.Accordion, {
+        }), (0, _v28.jsx)(_v130.Accordion, {
           allowMultiple: !0,
           width: "100%",
-          maxWidth: _v138,
-          gap: _v139,
+          maxWidth: _v139,
+          gap: _v140,
           children: _v1.map(({
             question: _v0,
             answer: _v1
-          }) => (0, _v28.jsx)(_v131.AccordionItem, {
+          }) => (0, _v28.jsx)(_v132.AccordionItem, {
             border: "none",
             background: "transparent",
             children: ({
               isExpanded: _v0
             }) => (0, _v28.jsxs)(_v35.Box, {
-              paddingX: _v140,
-              paddingY: _v0 ? _v140 : 0,
+              paddingX: _v141,
+              paddingY: _v0 ? _v141 : 0,
               border: _v0 ? _v0.border : "none",
-              borderRadius: _v143,
+              borderRadius: _v144,
               background: _v0 ? "surface" : "transparent",
-              children: [(0, _v28.jsx)(_v133.Header, {
+              children: [(0, _v28.jsx)(_v134.Header, {
                 as: "h3",
-                children: (0, _v28.jsxs)(_v130.AccordionButton, {
+                children: (0, _v28.jsxs)(_v131.AccordionButton, {
                   px: 0,
                   py: 0,
                   gap: (0, _v33.rem)(16),
@@ -4028,17 +4029,17 @@
                     color: "text-primary",
                     children: _v0
                   }), (0, _v28.jsx)(_v35.Box, {
-                    boxSize: _v141,
+                    boxSize: _v142,
                     flexShrink: 0,
                     opacity: +!_v0,
-                    children: (0, _v28.jsx)(_v134.Plus, {
-                      boxSize: _v141
+                    children: (0, _v28.jsx)(_v135.Plus, {
+                      boxSize: _v142
                     })
                   })]
                 })
-              }), (0, _v28.jsx)(_v132.AccordionPanel, {
+              }), (0, _v28.jsx)(_v133.AccordionPanel, {
                 p: 0,
-                marginTop: _v142,
+                marginTop: _v143,
                 children: (0, _v28.jsx)(_v44.Text, {
                   variant: "body-xl",
                   color: "text-secondary",
@@ -4050,13 +4051,13 @@
         })]
       });
     },
-    _v145 = _v0 => (0, _v28.jsx)(_v43.Link, {
-      href: _v135.BUNDLE_LIBRARY_TERMS_PATH,
+    _v146 = _v0 => (0, _v28.jsx)(_v43.Link, {
+      href: _v136.BUNDLE_LIBRARY_TERMS_PATH,
       variant: "inline-primary",
       fontFamily: "heading",
       children: _v0
     }, "link"),
-    _v146 = ({
+    _v147 = ({
       unlockStatus: _v0,
       productCount: _v1,
       isStudioOrScheduledStudio: _v2 = !1,
@@ -4115,7 +4116,7 @@
           subtitle: (0, _v77.translate)({
             singular: "You can redeem access to any of the subscriptions below, anytime during your current Vimeo billing cycle. Once redeemed, your access will run for the same duration as your current Vimeo subscription, at no extra cost. See the {LINK}Bundle Promotion Conditions{/LINK} for more details.",
             replacements: {
-              LINK: _v145
+              LINK: _v146
             },
             dictionary: {
               es: {
@@ -4187,7 +4188,7 @@
             count: _v4,
             replacements: {
               DAYS: `${_v4}`,
-              LINK: _v145
+              LINK: _v146
             },
             dictionary: {
               es: {
@@ -4251,7 +4252,7 @@
           subtitle: (0, _v77.translate)({
             singular: "Explore your curated selection of subscriptions. Reveal a code and redeem each one anytime. By redeeming your first product, you accept our {LINK}Bundle Promotion Terms and Conditions{/LINK}.",
             replacements: {
-              LINK: _v145
+              LINK: _v146
             },
             dictionary: {
               es: {
@@ -4354,7 +4355,7 @@
         direction: "column",
         gap: (0, _v33.rem)(8),
         paddingBottom: "400",
-        children: [(0, _v28.jsx)(_v133.Header, {
+        children: [(0, _v28.jsx)(_v134.Header, {
           variant: "heading-xl",
           children: _v5
         }), (0, _v28.jsx)(_v44.Text, {
@@ -4364,28 +4365,28 @@
         })]
       });
     };
-  var _v147 = _v0.i(0),
-    _v148 = _v0.i(0),
-    _v148 = _v148,
+  var _v148 = _v0.i(0),
     _v149 = _v0.i(0),
     _v149 = _v149,
     _v150 = _v0.i(0),
+    _v150 = _v150,
     _v151 = _v0.i(0),
-    _v152 = _v0.i(0);
-  let _v153 = [53.14, 50.41, 46.46, 43.6],
-    _v154 = {
+    _v152 = _v0.i(0),
+    _v153 = _v0.i(0);
+  let _v154 = [53.14, 50.41, 46.46, 43.6],
+    _v155 = {
       textDecoration: "underline",
       textUnderlineOffset: (0, _v33.rem)(2)
     },
-    _v155 = _v0 => (0, _v28.jsx)(_v43.Link, {
-      href: _v135.BUNDLE_LIBRARY_TERMS_PATH,
+    _v156 = _v0 => (0, _v28.jsx)(_v43.Link, {
+      href: _v136.BUNDLE_LIBRARY_TERMS_PATH,
       target: "_blank",
       rel: "noopener noreferrer",
       color: "text-secondary",
-      sx: _v154,
+      sx: _v155,
       children: _v0
     }),
-    _v156 = ({
+    _v157 = ({
       clusterTiles: _v0,
       otherProductsCount: _v1,
       onClaim: _v2,
@@ -4410,7 +4411,7 @@
           md: (0, _v33.rem)(20)
         },
         marginBottom: (0, _v33.rem)(32),
-        children: [(0, _v28.jsx)(_v147.BannerGlow, {
+        children: [(0, _v28.jsx)(_v148.BannerGlow, {
           geometry: {
             top: {
               base: 10,
@@ -4425,8 +4426,8 @@
               md: 540
             }
           },
-          asset: _v148.default
-        }), (0, _v28.jsx)(_v147.BannerGlow, {
+          asset: _v149.default
+        }), (0, _v28.jsx)(_v148.BannerGlow, {
           geometry: {
             top: {
               base: -120,
@@ -4441,7 +4442,7 @@
               md: 470
             }
           },
-          asset: _v149.default
+          asset: _v150.default
         }), (0, _v28.jsx)(_v35.Box, {
           width: "100%",
           sx: {
@@ -4469,12 +4470,12 @@
                   display: "block"
                 }
               },
-              children: (0, _v28.jsx)(_v150.BundleTileCluster, {
+              children: (0, _v28.jsx)(_v151.BundleTileCluster, {
                 hostTileSize: 67.5,
-                partnerTileSizes: _v153,
+                partnerTileSizes: _v154,
                 clusterTiles: _v0,
                 otherProductsCount: _v1,
-                infoTooltip: (0, _v152.getBundleIncludesTooltip)((0, _v40.getBundleProductOrder)(_v3 ?? "utility"))
+                infoTooltip: (0, _v153.getBundleIncludesTooltip)((0, _v40.getBundleProductOrder)(_v3 ?? "utility"))
               })
             }), (0, _v28.jsxs)(_v32.Flex, {
               flex: "1 1 34rem",
@@ -4540,14 +4541,14 @@
                   variant: "body-lg",
                   color: "text-secondary",
                   noOfLines: 2,
-                  children: (0, _v151.getBundleAppsBodyCopy)(_v0, _v1 ?? 0)
+                  children: (0, _v152.getBundleAppsBodyCopy)(_v0, _v1 ?? 0)
                 }), (0, _v28.jsx)(_v44.Text, {
                   variant: "body-xs",
                   color: "text-secondary",
                   children: (0, _v77.translate)({
                     singular: "Offer subject to {LINK}conditions{/LINK}.",
                     replacements: {
-                      LINK: _v155
+                      LINK: _v156
                     },
                     dictionary: {
                       es: {
@@ -4616,7 +4617,7 @@
         })]
       });
     },
-    _v157 = ({
+    _v158 = ({
       clusterTiles: _v0,
       otherProductsCount: _v1,
       onClaim: _v2,
@@ -4647,7 +4648,7 @@
           boxShadow: "0 8px 24px rgba(2, 6, 10, 0.48)"
         },
         pointerEvents: "auto",
-        children: (0, _v28.jsx)(_v156, {
+        children: (0, _v28.jsx)(_v157, {
           clusterTiles: _v0,
           otherProductsCount: _v1,
           onClaim: _v2,
@@ -4656,12 +4657,12 @@
         })
       })
     });
-  var _v158 = _v0.i(0),
-    _v159 = _v0.i(0),
-    _v160 = _v0.i(0);
-  let _v161 = ["free", "starter", "standard", "advanced"],
-    _v162 = "studio",
-    _v163 = _v0 => {
+  var _v159 = _v0.i(0),
+    _v160 = _v0.i(0),
+    _v161 = _v0.i(0);
+  let _v162 = ["free", "starter", "standard", "advanced"],
+    _v163 = "studio",
+    _v164 = _v0 => {
       let _v1 = _v0.parentElement;
       for (; null !== _v1;) {
         let {
@@ -4672,8 +4673,8 @@
       }
       return null;
     },
-    _v164 = "bundle_library",
-    _v165 = ({
+    _v165 = "bundle_library",
+    _v166 = ({
       data: _v0,
       onNavigate: _v1
     }) => {
@@ -4689,7 +4690,7 @@
           getEntitlementProps: _v9,
           resetFetchError: _v10
         } = (({
-          entitlements: _v0 = _v90,
+          entitlements: _v0 = _v91,
           onFetchError: _v1
         }) => {
           let {
@@ -4697,7 +4698,7 @@
               jwt: _v3,
               xVimeoPage: _v4,
               locale: _v5
-            } = (0, _v84.useGctlConfig)(),
+            } = (0, _v85.useGctlConfig)(),
             {
               trackBundleProductCodeFetchResult: _v6
             } = (0, _v78.useBundleTracking)(),
@@ -4709,7 +4710,7 @@
               } = _v0;
               if (_v9.current.has(_v1)) return;
               _v9.current.add(_v1);
-              let _v2 = _v86(_v7, _v1) ? "retry" : "first_attempt";
+              let _v2 = _v87(_v7, _v1) ? "retry" : "first_attempt";
               _v8(_v0 => ({
                 ..._v0,
                 [_v1]: {
@@ -4718,7 +4719,7 @@
                 }
               }));
               try {
-                let _v0 = await _v83({
+                let _v0 = await _v84({
                     baseUrl: _v2,
                     where: {
                       productId: _v1
@@ -4758,7 +4759,7 @@
                 let {
                   reason: _v1,
                   httpStatus: _v2
-                } = await _v89(_v0);
+                } = await _v90(_v0);
                 _v8(_v0 => ({
                   ..._v0,
                   [_v1]: {
@@ -4786,8 +4787,8 @@
                   entitlement: _v1,
                   code: _v0?.code ?? _v1.code,
                   redeemUrl: _v0?.redeemUrl ?? _v1.redeemUrl,
-                  isCodeFetching: _v85(_v7, _v0),
-                  fetchFailed: _v86(_v7, _v0),
+                  isCodeFetching: _v86(_v7, _v0),
+                  fetchFailed: _v87(_v7, _v0),
                   failureReason: _v0?.reason,
                   onFetch: () => _v10(_v1)
                 };
@@ -4851,9 +4852,9 @@
           trackBundleRedeemModalOpenClick: _v13,
           trackBundleRedeemModalClose: _v14
         } = (0, _v78.useBundleTracking)(),
-        _v15 = (0, _v80.useViewer)(),
+        _v15 = (0, _v81.useViewer)(),
         _v16 = (0, _v74.useBundleAddOnClaim)({
-          source: _v164,
+          source: _v165,
           onNavigate: _v1,
           onPurchased: () => {
             _v0.refresh?.();
@@ -4868,11 +4869,11 @@
           isScheduledStudio: _v20,
           daysToRenewal: _v21
         } = function () {
-          let _v0 = (0, _v80.useViewer)(),
+          let _v0 = (0, _v81.useViewer)(),
             _v1 = _v0?.user?.id ?? null,
             {
               data: _v2
-            } = (0, _v159.useGetUserSettingsBillingMembership)(() => null === _v1 ? null : {
+            } = (0, _v160.useGetUserSettingsBillingMembership)(() => null === _v1 ? null : {
               select: ["tier"],
               where: {
                 userId: _v1
@@ -4881,15 +4882,15 @@
             {
               tier: _v3,
               renewalDate: _v4
-            } = (0, _v158.useUpcomingTier)(),
-            _v5 = (0, _v160.useCampaignIdOverride)(),
+            } = (0, _v159.useUpcomingTier)(),
+            _v5 = (0, _v161.useCampaignIdOverride)(),
             _v6 = _v2?.tier,
-            _v7 = void 0 !== _v6 && _v3 === _v162 && _v6 !== _v162,
-            _v8 = null !== _v5 && _v160.REPACKAGING_CAMPAIGN_IDS.includes(_v5),
-            _v9 = void 0 !== _v6 && _v161.includes(_v6);
+            _v7 = void 0 !== _v6 && _v3 === _v163 && _v6 !== _v163,
+            _v8 = null !== _v5 && _v161.REPACKAGING_CAMPAIGN_IDS.includes(_v5),
+            _v9 = void 0 !== _v6 && _v162.includes(_v6);
           return {
-            showClaimCta: !_v7 && (_v6 === _v162 || _v9 && !_v8),
-            isStudioOrScheduledStudio: _v6 === _v162 || _v7,
+            showClaimCta: !_v7 && (_v6 === _v163 || _v9 && !_v8),
+            isStudioOrScheduledStudio: _v6 === _v163 || _v7,
             isScheduledStudio: _v7,
             daysToRenewal: ((_v0, _v1 = Date.now()) => {
               if (void 0 === _v0) return null;
@@ -4911,13 +4912,13 @@
             let _v0 = _v0.current;
             if (!window.IntersectionObserver || !_v0) return;
             let _v1 = new IntersectionObserver(([_v0]) => _v2(_v0.isIntersecting), {
-              root: _v163(_v0),
+              root: _v164(_v0),
               threshold: 0
             });
             return _v1.observe(_v0), () => _v1.disconnect();
           }, [_v0]), (0, _v31.useEffect)(() => {
             let _v0 = _v0.current,
-              _v1 = null != _v0 ? _v163(_v0) : null,
+              _v1 = null != _v0 ? _v164(_v0) : null,
               _v2 = () => {
                 _v4(!0);
               };
@@ -4953,13 +4954,13 @@
             md: (0, _v33.rem)(40)
           },
           paddingY: (0, _v33.rem)(24),
-          children: [(0, _v28.jsx)(_v146, {
+          children: [(0, _v28.jsx)(_v147, {
             unlockStatus: _v2,
             productCount: (0, _v40.getBundleMemberCount)(),
             isStudioOrScheduledStudio: _v19,
             isScheduledStudio: _v20,
             daysToRenewal: _v21
-          }), _v22 && (0, _v28.jsx)(_v156, {
+          }), _v22 && (0, _v28.jsx)(_v157, {
             clusterTiles: _v28,
             otherProductsCount: _v29,
             onClaim: _v16.openClaim,
@@ -4981,21 +4982,21 @@
             onComingSoonHover: _v0 => _v12({
               productId: _v0.id
             })
-          }), (0, _v28.jsx)(_v144, {}), _v22 && _v24 && (0, _v28.jsxs)(_v28.Fragment, {
+          }), (0, _v28.jsx)(_v145, {}), _v22 && _v24 && (0, _v28.jsxs)(_v28.Fragment, {
             children: [(0, _v28.jsx)(_v35.Box, {
               height: {
                 base: 0,
                 md: (0, _v33.rem)(168)
               },
               "aria-hidden": "true"
-            }), (0, _v28.jsx)(_v157, {
+            }), (0, _v28.jsx)(_v158, {
               clusterTiles: _v28,
               otherProductsCount: _v29,
               onClaim: _v16.openClaim,
               bundleType: _v3,
               showClaimCta: _v18
             })]
-          }), void 0 !== _v7 && (0, _v28.jsx)(_v128, {
+          }), void 0 !== _v7 && (0, _v28.jsx)(_v129, {
             productId: _v7,
             getEntitlementProps: _v9,
             onClose: () => {
@@ -5017,16 +5018,19 @@
           bundleOffer: {
             mode: "claim"
           },
+          modalConfig: {
+            excludePlans: [_v80.PLANS.ENTERPRISE]
+          },
           tracking: {
             params: {
               upsell_name: "bundle_add_on_claim",
-              page: _v164,
+              page: _v165,
               feature: "bundle_add_on_claim",
-              location: _v164
+              location: _v165
             },
             paywallTracking: {
               paywallTrigger: "bundle_add_on_claim",
-              paywallLocation: _v164,
+              paywallLocation: _v165,
               paywallType: "popup",
               paywallFeature: "bundle_add_on_claim"
             }
@@ -5035,47 +5039,47 @@
         })]
       });
     },
-    _v166 = ({
+    _v167 = ({
       data: _v0,
       onNavigate: _v1
     }) => (0, _v28.jsx)(_v36.ToastProvider, {
-      children: (0, _v28.jsx)(_v165, {
+      children: (0, _v28.jsx)(_v166, {
         data: _v0,
         onNavigate: _v1
       })
     });
-  var _v167 = _v0.i(0),
-    _v168 = _v0.i(0),
-    _v169 = _v0.i(0);
-  async function _v170({
+  var _v168 = _v0.i(0),
+    _v169 = _v0.i(0),
+    _v170 = _v0.i(0);
+  async function _v171({
     baseUrl: _v0,
     select: _v1,
     ..._v2
   }) {
-    return (0, _v81.measureLatency)("getMeBspBundleProducts", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/me/bsp_bundle/products?fields=${_v1.map(_v82.intoSnakeCase).join(",")}`, {
+    return (0, _v82.measureLatency)("getMeBspBundleProducts", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/me/bsp_bundle/products?fields=${_v1.map(_v83.intoSnakeCase).join(",")}`, {
         ..._v2,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v82.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v83.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v82.deepCamelCase)(_v1);
+      return (0, _v83.deepCamelCase)(_v1);
     });
   }
-  var _v171 = _v0.i(0),
-    _v172 = _v0.i(0),
-    _v173 = _v0.i(0);
-  function _v174(_v0, _v1) {
+  var _v172 = _v0.i(0),
+    _v173 = _v0.i(0),
+    _v174 = _v0.i(0);
+  function _v175(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v84.useGctlConfig)();
-    return (0, _v171.default)(_v2 ? `/me/bsp_bundle/products${(0, _v173.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v170({
+      } = (0, _v85.useGctlConfig)();
+    return (0, _v172.default)(_v2 ? `/me/bsp_bundle/products${(0, _v174.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v171({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -5087,26 +5091,26 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  "true" === _v169.default.env.STORYBOOK && (0, _v173.assignMswData)(_v174, {
+  "true" === _v170.default.env.STORYBOOK && (0, _v174.assignMswData)(_v175, {
     endpoint: "/me/bsp_bundle/products",
     method: "GET"
-  }), "true" === _v169.default.env.STORYBOOK && (0, _v173.assignMswData)(function () {
+  }), "true" === _v170.default.env.STORYBOOK && (0, _v174.assignMswData)(function () {
     let {
         mutate: _v0
-      } = (0, _v172.useSWRConfig)(),
+      } = (0, _v173.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v84.useGctlConfig)(),
-      [_v5, _v6] = (0, _v173.useInternalState)();
+      } = (0, _v85.useGctlConfig)(),
+      [_v5, _v6] = (0, _v174.useInternalState)();
     return [(0, _v31.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/me/bsp_bundle/products${(0, _v173.serializeQuery)(_v0)}`, _v170({
+        let _v0 = await _v0(`/me/bsp_bundle/products${(0, _v174.serializeQuery)(_v0)}`, _v171({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -5132,22 +5136,22 @@
     endpoint: "/me/bsp_bundle/products",
     method: "GET"
   });
-  let _v175 = ["membership.subscription.addOns"],
-    _v176 = _v0 => {
+  let _v176 = ["membership.subscription.addOns"],
+    _v177 = _v0 => {
       let _v1;
       if ("object" != typeof _v0 || null === _v0 || !("state" in _v0) || "unlocked" !== (_v1 = _v0.state) && "available" !== _v1 && "coming_soon" !== _v1) return !1;
       let _v2 = "code" in _v0 ? _v0.code : void 0,
         _v3 = "redeemUrl" in _v0 ? _v0.redeemUrl : void 0;
       return (void 0 === _v2 || "string" == typeof _v2) && (null == _v3 || "string" == typeof _v3);
     };
-  var _v177 = _v0.i(0),
-    _v178 = _v0.i(0);
-  let _v179 = (0, _v33.rem)(64),
-    _v180 = () => {
+  var _v178 = _v0.i(0),
+    _v179 = _v0.i(0);
+  let _v180 = (0, _v33.rem)(64),
+    _v181 = () => {
       let _v0 = (0, _v30.useRouter)(),
         {
           isLoadingResponse: _v1
-        } = (0, _v178.useOrionSettings)(),
+        } = (0, _v179.useOrionSettings)(),
         _v2 = (0, _v76.useBundleOffer)(),
         _v3 = (_v0 => {
           let {
@@ -5155,7 +5159,7 @@
               error: _v2,
               isLoading: _v3,
               mutate: _v4
-            } = _v174(() => ({
+            } = _v175(() => ({
               select: ["products"]
             })),
             {
@@ -5163,8 +5167,8 @@
               error: _v6,
               isLoading: _v7,
               mutate: _v8
-            } = (0, _v168.useGetMe)(() => ({
-              select: _v175,
+            } = (0, _v169.useGetMe)(() => ({
+              select: _v176,
               headers: {
                 Accept: "application/vnd.vimeo.*+json;version=3.4.14"
               }
@@ -5178,9 +5182,9 @@
               entitlements: _v1
             } = (_v0 => {
               let _v1 = {};
-              for (let _v0 of _v167.BUNDLE_PRODUCT_IDS) for (let _v0 of (0, _v73.getEntitlementIds)(_v0)) {
+              for (let _v0 of _v168.BUNDLE_PRODUCT_IDS) for (let _v0 of (0, _v73.getEntitlementIds)(_v0)) {
                 let _v0 = _v0[_v0],
-                  _v1 = _v176(_v0) ? _v0 : void 0,
+                  _v1 = _v177(_v0) ? _v0 : void 0,
                   _v2 = void 0 !== _v1 && "unlocked" === _v1.state && "string" == typeof _v1.code ? _v1.code : void 0,
                   _v3 = void 0 !== _v1 && "string" == typeof _v1.redeemUrl ? _v1.redeemUrl : void 0;
                 _v1[_v0] = {
@@ -5193,7 +5197,7 @@
                 };
               }
               return {
-                products: _v167.BUNDLE_PRODUCT_IDS.map(_v0 => {
+                products: _v168.BUNDLE_PRODUCT_IDS.map(_v0 => {
                   let _v1 = (0, _v73.getEntitlementIds)(_v0).map(_v0 => _v1[_v0]).every(_v0 => "comingSoon" === _v0.condition);
                   return {
                     id: _v0,
@@ -5206,7 +5210,7 @@
             return {
               unlockStatus: (_v5?.membership?.subscription?.addOns ?? []).some(_v0 => {
                 let _v1;
-                return _v1 = _v0.name, _v167.BUNDLE_TYPES.some(_v0 => _v1.startsWith(`bsp-${_v0}-bundle`)) && "expired" !== _v0.status;
+                return _v1 = _v0.name, _v168.BUNDLE_TYPES.some(_v0 => _v1.startsWith(`bsp-${_v0}-bundle`)) && "expired" !== _v0.status;
               }) ? "unlocked" : "locked",
               bundleType: _v0,
               products: _v0,
@@ -5221,17 +5225,16 @@
       return ((0, _v31.useEffect)(() => {
         !_v1 && _v4 && _v0.replace("/");
       }, [_v1, _v4, _v0]), _v5) ? (0, _v28.jsx)(_v32.Flex, {
-        minHeight: `calc(100vh - ${_v179})`,
+        minHeight: `calc(100vh - ${_v180})`,
         alignItems: "center",
         justifyContent: "center",
-        children: (0, _v28.jsx)(_v177.Spinner, {})
-      }) : _v4 ? null : (0, _v28.jsx)(_v166, {
+        children: (0, _v28.jsx)(_v178.Spinner, {})
+      }) : _v4 ? null : (0, _v28.jsx)(_v167, {
         data: _v3,
         onNavigate: _v0 => void _v0.push(_v0)
       });
     };
-  var _v181 = _v0.i(0),
-    _v182 = _v0.i(0),
+  var _v182 = _v0.i(0),
     _v183 = _v0.i(0),
     _v184 = _v0.i(0),
     _v185 = _v0.i(0),
@@ -5241,17 +5244,18 @@
     _v189 = _v0.i(0),
     _v190 = _v0.i(0),
     _v191 = _v0.i(0),
-    _v192 = _v0.i(0);
-  let _v193 = ({
+    _v192 = _v0.i(0),
+    _v193 = _v0.i(0);
+  let _v194 = ({
       children: _v0
     }) => {
-      let _v1 = (0, _v80.useViewer)(),
-        _v2 = (0, _v183.useIsMobile)(),
+      let _v1 = (0, _v81.useViewer)(),
+        _v2 = (0, _v184.useIsMobile)(),
         {
           isOpen: _v3,
           open: _v4,
           close: _v5
-        } = (0, _v192.useSideNavSurfaceState)({
+        } = (0, _v193.useSideNavSurfaceState)({
           surface: "bundle-library",
           userId: _v1?.user?.id,
           isMobile: _v2,
@@ -5259,17 +5263,17 @@
         }),
         {
           uploads: _v6
-        } = (0, _v187.useUploader)(),
+        } = (0, _v188.useUploader)(),
         [_v7, _v8] = (0, _v31.useState)(() => _v6.find(_v0 => void 0 !== _v0.clipId)?.clipId ?? ""),
         [_v9, _v10] = (0, _v31.useState)(!0);
-      return (0, _v186.useUploadLifecycle)((_v0, _v1) => {
+      return (0, _v187.useUploadLifecycle)((_v0, _v1) => {
         _v1.clipId && _v8(_v1.clipId);
       }, []), (0, _v28.jsxs)(_v28.Fragment, {
         children: [(0, _v28.jsxs)(_v32.Flex, {
           width: "100vw",
           height: "100vh",
           overflow: "hidden",
-          children: [(0, _v28.jsx)(_v190.WayfinderSideNav, {
+          children: [(0, _v28.jsx)(_v191.WayfinderSideNav, {
             isOpen: _v3,
             onClose: _v5,
             isMobile: _v2,
@@ -5277,10 +5281,10 @@
             children: (0, _v28.jsx)(_v32.Flex, {
               flexGrow: 1,
               direction: "column",
-              children: (0, _v28.jsx)(_v191.MenuItem, {
-                icon: (0, _v28.jsx)(_v182.ArrowLeft, {}),
+              children: (0, _v28.jsx)(_v192.MenuItem, {
+                icon: (0, _v28.jsx)(_v183.ArrowLeft, {}),
                 label: "Back to home",
-                href: _v188.Path.Home
+                href: _v189.Path.Home
               })
             })
           }), (0, _v28.jsx)(_v32.Flex, {
@@ -5289,7 +5293,7 @@
             width: "50%",
             children: (0, _v28.jsxs)(_v35.Box, {
               overflowY: "auto",
-              children: [(0, _v28.jsx)(_v184.DefaultNavigation, {
+              children: [(0, _v28.jsx)(_v185.DefaultNavigation, {
                 setIsSideNavActive: _v4,
                 isSideNavActive: _v3,
                 hasSideNavLayout: !_v2
@@ -5300,17 +5304,17 @@
                 backgroundColor: "background",
                 children: _v0
               }), (0, _v28.jsx)(_v35.Box, {
-                children: _v1 && (0, _v28.jsx)(_v185.EssentialFooter, {
+                children: _v1 && (0, _v28.jsx)(_v186.EssentialFooter, {
                   ..._v1,
                   enableQuotaMenu: !1
                 })
               })]
             })
           })]
-        }), (0, _v28.jsx)(_v181.ActivitiesContainer, {
+        }), (0, _v28.jsx)(_v182.ActivitiesContainer, {
           isShowing: _v9 && _v6.length > 0,
           isMobile: _v2,
-          children: (0, _v28.jsx)(_v189.ProgressToastContainer, {
+          children: (0, _v28.jsx)(_v190.ProgressToastContainer, {
             isShowing: _v9,
             uploadClipId: _v7,
             setUploadClipId: _v8,
@@ -5323,7 +5327,7 @@
         })]
       });
     },
-    _v194 = () => (0, _v28.jsx)(_v180, {});
+    _v195 = () => (0, _v28.jsx)(_v181, {});
   (0, _v29.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0,
@@ -5333,7 +5337,7 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v194.getLayout = _v0 => (0, _v28.jsx)(_v193, {
+  }), _v195.getLayout = _v0 => (0, _v28.jsx)(_v194, {
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v194], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v195], 0);
 }

@@ -42,7 +42,7 @@
         isLoading: _v11,
         mutate: _v12
       } = (0, _v2.useGetUserSettingsBillingMembership)(() => _v9 && null != _v5 ? {
-        select: ["billingPeriod", "hasAutorenew", "renewalDate", "gracePeriodType", "userEntity", "isImpactedByGermanConsumerLaw", "subscriptionId", "tier", "tierForDisplay"],
+        select: ["billingPeriod", "hasAutorenew", "renewalDate", "gracePeriodType", "userEntity", "defaultAutorenewRestrictionsYearlies", "subscriptionId", "tier", "tierForDisplay"],
         where: {
           userId: Number(_v5)
         }
@@ -76,7 +76,7 @@
           return Number.isNaN(_v2) ? null : Math.ceil((_v2 - _v1) / 0);
         }(_v0.renewalDate, _v2);
         return {
-          isAudienceMatch: _v1.canReadOwnBilling && null != _v0.subscriptionId && "" !== _v0.subscriptionId && null != _v1.accountType && !_v5.has(_v1.accountType) && null != (_v3 = _v0.tier) && "" !== _v3 && !_v6.has(_v3.toLowerCase()) && "year" === _v0.billingPeriod && !1 === _v0.hasAutorenew && null == _v0.gracePeriodType && "business" !== _v0.userEntity && !0 !== _v0.isImpactedByGermanConsumerLaw && null != _v4 && _v4 > 0,
+          isAudienceMatch: _v1.canReadOwnBilling && null != _v0.subscriptionId && "" !== _v0.subscriptionId && null != _v1.accountType && !_v5.has(_v1.accountType) && null != (_v3 = _v0.tier) && "" !== _v3 && !_v6.has(_v3.toLowerCase()) && "year" === _v0.billingPeriod && !1 === _v0.hasAutorenew && null == _v0.gracePeriodType && "business" !== _v0.userEntity && !0 !== _v0.defaultAutorenewRestrictionsYearlies && null != _v4 && _v4 > 0,
           daysToRenewal: _v4
         };
       }({
@@ -87,7 +87,7 @@
           renewalDate: _v10.renewalDate,
           gracePeriodType: _v10.gracePeriodType,
           userEntity: _v10.userEntity,
-          isImpactedByGermanConsumerLaw: _v10.isImpactedByGermanConsumerLaw,
+          defaultAutorenewRestrictionsYearlies: _v10.defaultAutorenewRestrictionsYearlies,
           subscriptionId: _v10.subscriptionId
         },
         viewer: {

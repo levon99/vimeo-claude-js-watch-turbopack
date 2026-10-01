@@ -287,8 +287,9 @@
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
-  let _v45 = {
+    _v44 = _v0.i(0),
+    _v45 = _v0.i(0);
+  let _v46 = {
       barebone_js: "",
       chromeless_css: "",
       chromeless_js: "",
@@ -296,11 +297,11 @@
       js: "",
       player_url: ""
     },
-    _v46 = ({
+    _v47 = ({
       playerAssetUrls: _v0
     }) => {
       let _v1 = (0, _v2.useMemo)(() => ({
-        title: (0, _v37.translate)({
+        title: (0, _v38.translate)({
           singular: "Presets",
           dictionary: {
             es: {
@@ -326,7 +327,7 @@
             }
           }
         }),
-        description: (0, _v37.translate)({
+        description: (0, _v38.translate)({
           singular: "Manage settings that anyone in your workspace can reuse across multiple videos",
           dictionary: {
             es: {
@@ -353,21 +354,21 @@
           }
         })
       }), []);
-      return (0, _v1.jsx)(_v41.PlayerContextProvider, {
-        type: _v42.PlayerType.VimeoPlayer,
-        assetUrls: _v0 ?? _v45,
+      return (0, _v1.jsx)(_v42.PlayerContextProvider, {
+        type: _v43.PlayerType.VimeoPlayer,
+        assetUrls: _v0 ?? _v46,
         children: (0, _v1.jsxs)(_v5.Box, {
-          maxW: _v39.SETTING_PAGES_MAX_WIDTH,
+          maxW: _v40.SETTING_PAGES_MAX_WIDTH,
           w: "100%",
           mx: "auto",
           py: "lg",
-          children: [(0, _v1.jsx)(_v40.SettingsPageContentHeader, {
+          children: [(0, _v1.jsx)(_v41.SettingsPageContentHeader, {
             title: _v1.title,
             description: _v1.description
-          }), (0, _v1.jsxs)(_v35.Flex, {
+          }), (0, _v1.jsxs)(_v36.Flex, {
             direction: "column",
             gap: "xl",
-            children: [(0, _v1.jsx)(_v3.EmbedPresetListModule, {}), (0, _v1.jsx)(_v34.VideoPagePresetListModule, {}), (0, _v1.jsx)(_v33, {}), (0, _v1.jsx)(_v38.PresetsDefaultsCrossLink, {
+            children: [(0, _v1.jsx)(_v3.EmbedPresetListModule, {}), (0, _v1.jsx)(_v34.VideoPagePresetListModule, {}), (0, _v1.jsx)(_v33, {}), (0, _v1.jsx)(_v35.VideoPageThemeBlock, {}), (0, _v1.jsx)(_v39.PresetsDefaultsCrossLink, {
               scope: "workspace",
               direction: "to-defaults"
             })]
@@ -375,9 +376,9 @@
         })
       });
     };
-  (0, _v36.withPageSetup)(_v44.getWspServerSideProps, {
+  (0, _v37.withPageSetup)(_v45.getWspServerSideProps, {
     requireLogin: !0,
     inlineViewer: !0,
     inlinePlayerAssets: !0
-  }), _v46.getLayout = (_v0, _v1) => (0, _v43.getLayout)(_v0, _v1, _v43.WORKSPACE_COMPACT_SETTINGS_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v46], 0);
+  }), _v47.getLayout = (_v0, _v1) => (0, _v44.getLayout)(_v0, _v1, _v44.WORKSPACE_COMPACT_SETTINGS_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v47], 0);
 }

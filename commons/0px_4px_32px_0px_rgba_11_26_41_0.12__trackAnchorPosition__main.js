@@ -73,7 +73,7 @@
           padding: (0, _v10.rem)(16),
           border: "none",
           rootProps: {
-            zIndex: "tooltip"
+            zIndex: "overlay"
           },
           sx: {
             "--popper-arrow-shadow-color": "transparent"

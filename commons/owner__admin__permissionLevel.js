@@ -208,7 +208,8 @@
   };
   var _v22 = _v0.i(0),
     _v23 = _v0.i(0),
-    _v24 = _v0.i(0);
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0);
   _v0.s(["PermissionsListRoot", 0, function ({
     teamUserId: _v0,
     ownerId: _v1,
@@ -245,15 +246,15 @@
       } = (0, _v7.getLoadMoreStates)(_v6, _v8, _v7),
       _v14 = (0, _v7.useFlattenedResponse)(_v6)?.map((0, _v7.itemsAdapter)(_v0)) ?? [],
       _v15 = (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v24.StateManager, {
+        children: [(0, _v1.jsx)(_v25.StateManager, {
           items: _v14,
           isLoading: _v10,
           error: _v7,
-          emptyState: (0, _v1.jsx)(_v21, {
+          emptyState: _v4 ? (0, _v1.jsx)(_v22.SearchNoResultsEmptyState, {}) : (0, _v1.jsx)(_v21, {
             onRevalidate: _v11,
             teamUserId: _v0
           })
-        }), (0, _v1.jsx)(_v23.LoadMore, {
+        }), (0, _v1.jsx)(_v24.LoadMore, {
           canLoadMore: !_v13,
           isLoadingMore: !!_v12,
           onClick: () => {
@@ -262,7 +263,7 @@
         })]
       });
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v22.FolderSearch, {
+      children: [(0, _v1.jsx)(_v23.FolderSearch, {
         searchTerm: _v4,
         onSearch: _v0 => {
           _v5(_v0), _v9(1);

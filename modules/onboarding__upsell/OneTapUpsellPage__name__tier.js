@@ -163,13 +163,13 @@
         data: _v15,
         isLoading: _v16
       } = (0, _v11.useGetUserSettingsBillingMembership)(() => _v3?.user?.id ? {
-        select: ["billingAddress", "isImpactedByGermanConsumerLaw"],
+        select: ["billingAddress", "defaultAutorenewRestrictionsYearlies"],
         where: {
           userId: Number(_v3.user.id)
         }
       } : null),
       _v17 = _v15?.billingAddress,
-      _v18 = (0, _v14.isAutorenewalOptInProtected)(_v17) || !!_v15?.isImpactedByGermanConsumerLaw,
+      _v18 = (0, _v14.isAutorenewalOptInProtected)(_v17) || !!_v15?.defaultAutorenewRestrictionsYearlies,
       {
         data: _v19,
         isLoading: _v20

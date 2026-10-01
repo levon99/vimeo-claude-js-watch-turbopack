@@ -2722,8 +2722,7 @@
         isSectionTitle: !0,
         type: _v90,
         sectionVisibility: {
-          capabilitiesToCheck: ["hasEventSeriesEnabled"],
-          orionFlagsToCheck: ["enable_registration_form_localization"]
+          orionFlagsToCheck: ["enable_registration_form_localization", "release_event_series_v1"]
         }
       }, {
         key: _v45.enableRegistrationFormAiUserTranslation,
@@ -2737,7 +2736,7 @@
         value: !1,
         type: _v89,
         sectionVisibility: {
-          capabilitiesToCheck: ["hasEventSeriesEnabled"]
+          orionFlagsToCheck: ["release_event_series_v1"]
         }
       }],
       videoDetails: [{
@@ -2902,24 +2901,26 @@
           });
         }), _v3), _v2),
         {
-          settings: _v5
+          settings: _v5,
+          isLoadingResponse: _v6
         } = (0, _v31.useOrionSettings)(),
         {
-          data: _v6,
-          mutate: _v7
+          data: _v7,
+          mutate: _v8
         } = (0, _v87.useGetUser)(() => _v2 ? {
           where: {
             userId: _v2
           },
           select: ["aiAnalyticsAccess"]
         } : null),
-        _v8 = (0, _v7.useMemo)(() => ({
-          aiAnalyticsAccess: _v6?.aiAnalyticsAccess
-        }), [_v6]);
+        _v9 = (0, _v7.useMemo)(() => ({
+          aiAnalyticsAccess: _v7?.aiAnalyticsAccess
+        }), [_v7]),
+        _v10 = !_v6 && _v5.enable_account_wide_dictionary_management;
       return {
-        SETTINGS: (0, _v7.useMemo)(() => function (_v0, _v1, _v2, _v3, _v4) {
+        SETTINGS: (0, _v7.useMemo)(() => function (_v0, _v1, _v2, _v3, _v4, _v5) {
           if (!_v0) return null;
-          let _v5 = {};
+          let _v6 = {};
           for (let _v0 in _v94) {
             let _v0 = _v94[_v0];
             _v0.some(_v0 => function (_v0, _v1, _v2, _v3, _v4) {
@@ -2940,18 +2941,19 @@
                 if (!_v5?.length && !_v11) return !0;
               }
               return _v5?.length || _v11 ? !!_v5?.some(_v0 => _v1[_v0]) || !!_v8?.some(_v0 => !0 === _v3[_v0]) : !!_v7?.length && _v7.some(_v0 => _v0 in _v2);
-            }(_v0, _v2, _v0, _v3, _v4)) && (_v5[_v0] = _v0.reduce((_v0, _v1) => {
-              let _v2 = _v1.key in _v93 || _v1.key in _v0,
-                _v3 = _v1.key in _v44,
-                _v4 = _v3 ? _v88(_v0, _v1.key) : void 0,
-                _v5 = _v3 && !0 === _v4,
-                _v6 = !_v3 || _v5,
-                _v7 = _v1.sectionVisibility?.capabilitiesToCheck,
-                _v8 = _v1.sectionVisibility?.orionFlagsToCheck,
-                _v9 = _v1.sectionVisibility?.userPropertyToCheck,
-                _v10 = void 0 === _v7 && void 0 === _v8 || !!_v7?.some(_v0 => _v2[_v0]) || !!_v8?.some(_v0 => !0 === _v3[_v0]),
-                _v11 = void 0 === _v9 || _v99(_v9, _v4);
-              return _v2 && _v6 && _v10 && _v11 && (!_v1 || _v1.key !== _v45.userRolePermissionAiTranslate) && _v0.push(function (_v0) {
+            }(_v0, _v2, _v0, _v3, _v4)) && (_v6[_v0] = _v0.reduce((_v0, _v1) => {
+              let _v2 = _v1.key === _v45.manageTranscriptionKeywords,
+                _v3 = _v1.key in _v93 || _v1.key in _v0 || _v2 && _v5,
+                _v4 = _v1.key in _v44,
+                _v5 = _v4 ? _v88(_v0, _v1.key) : void 0,
+                _v6 = _v4 && !0 === _v5,
+                _v7 = !_v4 || _v6,
+                _v8 = _v1.sectionVisibility?.capabilitiesToCheck,
+                _v9 = _v1.sectionVisibility?.orionFlagsToCheck,
+                _v10 = _v1.sectionVisibility?.userPropertyToCheck,
+                _v11 = void 0 === _v8 && void 0 === _v9 || !!_v8?.some(_v0 => _v2[_v0]) || !!_v9?.some(_v0 => !0 === _v3[_v0]),
+                _v12 = void 0 === _v10 || _v99(_v10, _v4);
+              return _v3 && _v7 && _v11 && _v12 && (!_v1 || _v1.key !== _v45.userRolePermissionAiTranslate) && _v0.push(function (_v0) {
                 return _v0 => {
                   let _v1 = _v0.value;
                   return _v0.key in _v93 || (_v1 = _v0 ? _v88(_v0, _v0.key) : _v0.value), {
@@ -2975,9 +2977,9 @@
               }(_v0)(_v1)), _v0;
             }, []));
           }
-          return _v5;
-        }(_v0, _v1, _v4, _v5, _v8), [_v0, _v1, _v4, _v5, _v8]),
-        mutateOwner: _v7
+          return _v6;
+        }(_v0, _v1, _v4, _v5, _v9, _v10), [_v0, _v1, _v4, _v5, _v9, _v10]),
+        mutateOwner: _v8
       };
     },
     _v101 = ({

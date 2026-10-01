@@ -443,7 +443,25 @@
       }
     });
   }
-  _v0.s(["fromNow", 0, function (_v0, _v1) {
+  let _v4 = ["th", "st", "nd", "rd"];
+  _v0.s(["formatTrialExpiryDates", 0, (_v0, _v1 = "en-US") => {
+    let _v2,
+      _v3 = _v0.split("-"),
+      _v4 = Number(_v3[0]),
+      _v5 = Number(_v3[1]) - 1,
+      _v6 = Number(_v3[2]);
+    if (Number.isNaN(_v4) || Number.isNaN(_v5) || Number.isNaN(_v6)) return {
+      headerDate: _v0,
+      bodyDate: _v0
+    };
+    let _v7 = new Date(_v4, _v5, _v6).toLocaleDateString(_v1, {
+      month: "long"
+    });
+    return {
+      headerDate: `${(_v2 = _v6 % 100) >= 11 && _v2 <= 13 ? `${_v6}th` : `${_v6}${_v4[_v6 % 10] ?? "th"}`} ${_v7} ${_v4}`,
+      bodyDate: `${_v7} ${_v6}, ${_v4}`
+    };
+  }, "fromNow", 0, function (_v0, _v1) {
     return _v3(_v0, new Date(Date.now()), _v1);
   }, "getDateObjFromFormat", 0, (_v0, _v1) => {
     if (!_v0) throw Error("Empty Date String");

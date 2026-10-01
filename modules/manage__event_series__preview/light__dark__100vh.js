@@ -272,13 +272,14 @@
     navConfig: _v14,
     previewLocale: _v15,
     onPreviewLocaleChange: _v16,
-    onEdit: _v17,
-    onRequestRemoveSection: _v18,
-    onViewPage: _v19
+    availableLocales: _v17,
+    onEdit: _v18,
+    onRequestRemoveSection: _v19,
+    onViewPage: _v20
   }) => {
-    let [_v20, _v21] = (0, _v2.useState)("web"),
-      _v22 = (0, _v2.useRef)(null),
-      _v23 = (0, _v2.useMemo)(() => ({
+    let [_v21, _v22] = (0, _v2.useState)("web"),
+      _v23 = (0, _v2.useRef)(null),
+      _v24 = (0, _v2.useMemo)(() => ({
         activeSection: _v5,
         sections: _v4,
         colorMode: _v12,
@@ -294,25 +295,25 @@
         previewOnDemandRecordings: _v3,
         faqItems: _v6
       }), [_v5, _v4, _v12, _v0, _v14, _v13, _v1, _v7, _v8, _v9, _v10, _v2, _v3, _v6]),
-      _v24 = (0, _v2.useMemo)(() => ({
+      _v25 = (0, _v2.useMemo)(() => ({
         type: "event-series-preview:update",
         locale: _v15,
-        previewMode: _v20,
-        data: _v23
-      }), [_v23, _v15, _v20]),
-      _v25 = (0, _v2.useRef)(_v24),
-      _v26 = (0, _v2.useCallback)((_v0 = _v25.current) => {
-        _v22.current?.contentWindow?.postMessage(_v0, window.location.origin);
+        previewMode: _v21,
+        data: _v24
+      }), [_v24, _v15, _v21]),
+      _v26 = (0, _v2.useRef)(_v25),
+      _v27 = (0, _v2.useCallback)((_v0 = _v26.current) => {
+        _v23.current?.contentWindow?.postMessage(_v0, window.location.origin);
       }, []);
     return (0, _v2.useEffect)(() => {
-      _v25.current = _v24, _v26(_v24);
-    }, [_v24, _v26]), (0, _v2.useEffect)(() => {
+      _v26.current = _v25, _v27(_v25);
+    }, [_v25, _v27]), (0, _v2.useEffect)(() => {
       let _v0 = _v0 => {
         let _v1;
-        _v0.origin === window.location.origin && _v0.source === _v22.current?.contentWindow && "object" == typeof (_v1 = _v0.data) && null !== _v1 && "type" in _v1 && ("event-series-preview:ready" === _v1.type || "event-series-preview:edit" === _v1.type || "event-series-preview:remove" === _v1.type) && ("event-series-preview:ready" === _v0.data.type ? _v26() : "event-series-preview:edit" === _v0.data.type ? _v17(_v0.data.sectionId) : _v18(_v0.data.sectionId));
+        _v0.origin === window.location.origin && _v0.source === _v23.current?.contentWindow && "object" == typeof (_v1 = _v0.data) && null !== _v1 && "type" in _v1 && ("event-series-preview:ready" === _v1.type || "event-series-preview:edit" === _v1.type || "event-series-preview:remove" === _v1.type) && ("event-series-preview:ready" === _v0.data.type ? _v27() : "event-series-preview:edit" === _v0.data.type ? _v18(_v0.data.sectionId) : _v19(_v0.data.sectionId));
       };
       return window.addEventListener("message", _v0), () => window.removeEventListener("message", _v0);
-    }, [_v17, _v18, _v26]), (0, _v1.jsx)(_v4.Flex, {
+    }, [_v18, _v19, _v27]), (0, _v1.jsx)(_v4.Flex, {
       direction: "column",
       flex: "1",
       minW: 0,
@@ -327,23 +328,24 @@
         flex: "1",
         minH: 0,
         overflow: "hidden",
-        ...("mobile" === _v20 && {
+        ...("mobile" === _v21 && {
           mx: "auto",
           minWidth: (0, _v5.rem)(360)
         }),
         children: [(0, _v1.jsx)(_v7.PreviewControlBar, {
+          availableLocales: _v17,
           onPreviewLocaleChange: _v16,
-          onPreviewModeChange: _v21,
-          onViewPage: _v19,
+          onPreviewModeChange: _v22,
+          onViewPage: _v20,
           previewLocale: _v15,
-          previewMode: _v20,
+          previewMode: _v21,
           viewUrl: _v11
         }), (0, _v1.jsx)(_v3.Box, {
           as: "iframe",
           border: 0,
           flex: "1",
-          onLoad: () => _v26(),
-          ref: _v22,
+          onLoad: () => _v27(),
+          ref: _v23,
           src: "/manage/event_series/preview",
           title: (0, _v6.translate)({
             singular: "Event series landing page preview",

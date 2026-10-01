@@ -209,7 +209,7 @@
         tier: void 0,
         billingAddress: void 0,
         billingPeriod: _v3.UserPlanType.Month,
-        isImpactedByGermanConsumerLaw: !1,
+        defaultAutorenewRestrictionsYearlies: !1,
         isWithdrawalEligible: !1,
         userEntity: void 0,
         isFreeTrial: !1,

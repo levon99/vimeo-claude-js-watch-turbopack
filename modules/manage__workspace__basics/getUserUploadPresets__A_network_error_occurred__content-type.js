@@ -2128,7 +2128,7 @@
         ready: _v17,
         error: _v18
       } = (0, _v26.useCapability)(["folderUploadPresets"], _v13),
-      _v19 = _v15.enable_folder_upload_presets || !0 === _v16.folderUploadPresets,
+      _v19 = !0 === _v16.folderUploadPresets,
       {
         data: _v20,
         error: _v21,

@@ -1763,7 +1763,7 @@
         return (0, _v131.buildVideoBpContext)({
           video_id: this.videoId,
           title: this.video?.name ?? "",
-          video_owner_id: parseInt(this.video?.user?.uri.split("/")[2] ?? ""),
+          video_owner_id: parseInt(this.video?.user?.uri?.split("/")[2] ?? ""),
           is_demo: !1,
           video_privacy: this.video?.privacy?.view || null,
           video_embed_privacy: this.video?.privacy?.embed || null,

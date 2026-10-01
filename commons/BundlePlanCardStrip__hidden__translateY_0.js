@@ -50,6 +50,7 @@
           size: "sm",
           gap: "4px",
           flexShrink: 0,
+          fontFamily: "heading",
           children: [(0, _v1.jsx)(_v6.Gift, {
             boxSize: "12px"
           }), (0, _v9.getBundlePriceBadgeLabel)(_v2)]

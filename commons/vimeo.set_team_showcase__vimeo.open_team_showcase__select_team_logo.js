@@ -346,7 +346,7 @@
       line2: _v0.billingAddress.line2 ?? _v0.billingAddress.line_2
     } : void 0,
     billingPeriod: _v11.UserPlanType[(0, _v4.default)(String(_v0.billingPeriod))],
-    isImpactedByGermanConsumerLaw: _v0?.isImpactedByGermanConsumerLaw,
+    defaultAutorenewRestrictionsYearlies: _v0?.defaultAutorenewRestrictionsYearlies,
     isWithdrawalEligible: _v0?.isWithdrawalEligible ?? !1,
     isFreeTrial: _v0?.isFreeTrial,
     isReverseFreeTrial: _v0?.isReverseFreeTrial ?? !1,

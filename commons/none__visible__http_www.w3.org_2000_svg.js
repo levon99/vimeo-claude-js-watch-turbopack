@@ -16,25 +16,25 @@
     return _v5.createElement("svg", _v6({
       preserveAspectRatio: "none",
       overflow: "visible",
-      width: 325.259,
-      height: 325.259,
+      width: 549.8,
+      height: 549.8,
       fill: "none",
       xmlns: "http://www.w3.org/2000/svg",
       display: "block"
     }, _v0), _v1 || (_v1 = _v5.createElement("g", {
-      filter: "url(#glow-blue_svg__filter0_f_0_130)"
+      filter: "url(#paywall-glow-blue_svg__filter0_f_0_4)"
     }, _v5.createElement("circle", {
-      cx: 162.629,
-      cy: 162.629,
-      r: 81.818,
+      cx: 274.9,
+      cy: 274.9,
+      r: 146.5,
       fill: "#3767EA",
       fillOpacity: .3
     }))), _v2 || (_v2 = _v5.createElement("defs", null, _v5.createElement("filter", {
-      id: "glow-blue_svg__filter0_f_0_130",
+      id: "paywall-glow-blue_svg__filter0_f_0_4",
       x: 0,
       y: 0,
-      width: 325.259,
-      height: 325.259,
+      width: 549.8,
+      height: 549.8,
       filterUnits: "userSpaceOnUse",
       colorInterpolationFilters: "sRGB"
     }, _v5.createElement("feFlood", {
@@ -45,32 +45,32 @@
       in2: "BackgroundImageFix",
       result: "shape"
     }), _v5.createElement("feGaussianBlur", {
-      stdDeviation: 40.406,
-      result: "effect1_foregroundBlur_0_130"
+      stdDeviation: 64.2,
+      result: "effect1_foregroundBlur_0_4"
     })))));
   }], 0), _v0.s(["default", 0, function (_v0) {
     return _v5.createElement("svg", _v7({
       preserveAspectRatio: "none",
       overflow: "visible",
-      width: 274.909,
-      height: 274.909,
+      width: 436.8,
+      height: 436.8,
       fill: "none",
       xmlns: "http://www.w3.org/2000/svg",
       display: "block"
     }, _v0), _v3 || (_v3 = _v5.createElement("g", {
-      filter: "url(#glow-purple_svg__filter0_f_0_125)"
+      filter: "url(#paywall-glow-purple_svg__filter0_f_0_4)"
     }, _v5.createElement("circle", {
-      cx: 137.455,
-      cy: 137.455,
-      r: 69.3,
+      cx: 218.4,
+      cy: 218.4,
+      r: 90,
       fill: "#8E21CC",
       fillOpacity: .3
     }))), _v4 || (_v4 = _v5.createElement("defs", null, _v5.createElement("filter", {
-      id: "glow-purple_svg__filter0_f_0_125",
+      id: "paywall-glow-purple_svg__filter0_f_0_4",
       x: 0,
       y: 0,
-      width: 274.909,
-      height: 274.909,
+      width: 436.8,
+      height: 436.8,
       filterUnits: "userSpaceOnUse",
       colorInterpolationFilters: "sRGB"
     }, _v5.createElement("feFlood", {
@@ -81,8 +81,8 @@
       in2: "BackgroundImageFix",
       result: "shape"
     }), _v5.createElement("feGaussianBlur", {
-      stdDeviation: 40.406,
-      result: "effect1_foregroundBlur_0_125"
+      stdDeviation: 64.2,
+      result: "effect1_foregroundBlur_0_4"
     })))));
   }], 0);
 }
