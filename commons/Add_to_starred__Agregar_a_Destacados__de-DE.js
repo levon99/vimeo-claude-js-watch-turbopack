@@ -131,7 +131,8 @@
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
-    _v26 = _v0.i(0);
+    _v26 = _v0.i(0),
+    _v27 = _v0.i(0);
   _v0.s(["HoverActions", 0, ({
     type: _v0,
     entity: _v1,
@@ -147,7 +148,7 @@
         getFolderShareLoopTrackingParams: _v9
       } = (0, _v16.useShareLoopTrackingParams)(),
       _v10 = (0, _v17.useCopyFolderLinkToast)(),
-      _v11 = "folder" === _v0 && (0, _v26.getFolderPermissions)(_v1).canEditSettings,
+      _v11 = "folder" === _v0 && (0, _v27.getFolderPermissions)(_v1).canEditSettings,
       _v12 = (0, _v20.useManageShareAction)({
         canEdit: _v11,
         entityUri: _v1.uri,
@@ -316,15 +317,12 @@
                       target_path: _v2 ?? null
                     }
                   });
-                } else if ("video" === _v0) _v13();else if ("file" === _v0) {
-                  let _v0 = `${window.location.protocol}//${window.location.hostname}/manage/files/${_v1.publicId}`;
-                  (0, _v10.default)(_v0) ? _v18({
-                    content: _v25.linkCopySuccess
-                  }) : _v18({
-                    content: _v25.linkCopyFailed,
-                    status: "error"
-                  });
-                }
+                } else "video" === _v0 ? _v13() : "file" === _v0 && ((0, _v10.default)((0, _v26.getFileManageLink)(_v1.publicId)) ? _v18({
+                  content: _v25.linkCopySuccess
+                }) : _v18({
+                  content: _v25.linkCopyFailed,
+                  status: "error"
+                }));
               })());
             }
           })

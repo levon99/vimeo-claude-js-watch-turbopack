@@ -19,35 +19,36 @@
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
-    _v18 = _v18,
     _v19 = _v0.i(0),
+    _v19 = _v19,
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
-    _v26 = _v0.i(0);
+    _v26 = _v0.i(0),
+    _v27 = _v0.i(0);
   _v0.s(["OneTapUpsellPage", 0, function ({
     next: _v0,
     checkoutTracking: _v1
   }) {
     let _v2 = function () {
-        let _v0 = (0, _v19.useViewer)(),
+        let _v0 = (0, _v20.useViewer)(),
           {
             settings: _v1,
             isLoadingResponse: _v2
-          } = (0, _v25.useOrionSettings)(),
+          } = (0, _v26.useOrionSettings)(),
           {
             isLoading: _v3,
             showIndividualPlans: _v4
-          } = (0, _v21.useB2BRepackagingContext)(),
-          _v5 = (0, _v24.useCampaignIdOverride)(),
+          } = (0, _v22.useB2BRepackagingContext)(),
+          _v5 = (0, _v25.useCampaignIdOverride)(),
           _v6 = !!_v1.onboarding_upsell_interstitial_enabled,
           {
             data: _v7,
             error: _v8
-          } = (0, _v22.useGetMeSubscriptionPlans)(() => _v0?.user ? {
+          } = (0, _v23.useGetMeSubscriptionPlans)(() => _v0?.user ? {
             select: ["id", "name", "tier", "currency", "price", "priceFormatted", "metadata"],
             query: {
               vuid: _v0.vuid,
@@ -56,7 +57,7 @@
               } : {})
             }
           } : null),
-          _v9 = (0, _v23.cheapPreGate)(_v0, _v6),
+          _v9 = (0, _v24.cheapPreGate)(_v0, _v6),
           _v10 = _v0?.teamUser?.accountType ?? _v0?.user?.account,
           _v11 = _v10 ? (0, _v2.default)(_v10) : null;
         if (_v2 || _v3) return {
@@ -69,11 +70,11 @@
         if (!_v12) return {
           status: "loading"
         };
-        let _v13 = (0, _v20.filterB2BRepackagingPlans)(_v12, _v4),
+        let _v13 = (0, _v21.filterB2BRepackagingPlans)(_v12, _v4),
           {
             tier: _v14,
             displayName: _v15
-          } = (0, _v26.getRecommendedTierDisplayName)({
+          } = (0, _v27.getRecommendedTierDisplayName)({
             currentTier: _v11,
             tierSetting: "one_up",
             variant: "generic",
@@ -92,12 +93,12 @@
           isMonthly: !!_v17?.metadata?.purchasedProduct?.isMonthly
         };
       }(),
-      _v3 = (0, _v19.useViewer)(),
+      _v3 = (0, _v20.useViewer)(),
       _v4 = (0, _v3.useRef)(!1),
       [_v5, _v6] = (0, _v3.useState)(!1),
       {
         trackPaywallDismissed: _v7
-      } = (0, _v15.usePaywallTracking)({
+      } = (0, _v16.usePaywallTracking)({
         ..._v1,
         paywallStyle: "one_tap_upsell",
         paywallPlansDisplayed: "eligible" === _v2.status ? [_v2.oneUpTier] : [],
@@ -105,7 +106,7 @@
         isVisible: "eligible" === _v2.status
       }),
       _v8 = (0, _v2.default)(_v3?.teamUser?.accountType ?? _v3?.user?.account ?? ""),
-      _v9 = (0, _v16.getTierDisplayName)(_v8) ?? (0, _v12.translate)({
+      _v9 = (0, _v17.getTierDisplayName)(_v8) ?? (0, _v12.translate)({
         singular: "current",
         dictionary: {
           es: {
@@ -168,7 +169,7 @@
           userId: Number(_v3.user.id)
         }
       } : null),
-      _v17 = _v15?.billingAddress,
+      _v17 = (0, _v15.membershipBillingAddressToOrderAddress)(_v15?.billingAddress),
       _v18 = (0, _v14.isAutorenewalOptInProtected)(_v17) || !!_v15?.defaultAutorenewRestrictionsYearlies,
       {
         data: _v19,
@@ -181,7 +182,7 @@
         }
       } : null),
       _v21 = _v19?.data?.[0]?.id;
-    return (0, _v1.jsx)(_v17.OnboardingShell, {
+    return (0, _v1.jsx)(_v18.OnboardingShell, {
       growLogo: !1,
       children: "eligible" !== _v2.status ? (0, _v1.jsx)(_v7.Flex, {
         flex: "1",
@@ -327,7 +328,7 @@
           children: (0, _v1.jsx)(_v13.UpsellCard, {
             plan: _v2.plan,
             displayName: _v2.oneUpDisplayName,
-            quota: (0, _v1.jsx)(_v18.default, {
+            quota: (0, _v1.jsx)(_v19.default, {
               planData: _v2.plan,
               displayMonthlyPlan: _v2.isMonthly
             }),

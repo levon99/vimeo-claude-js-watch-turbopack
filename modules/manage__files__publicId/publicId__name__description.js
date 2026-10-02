@@ -21,7 +21,7 @@
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0);
-  let _v21 = ["publicId", "uri", "name", "description", "contentType", "thumbnail.url", "fileSize", "privacy", "allowDownloads", "createdTime", "modifiedTime", "metadata.connections.ancestorPath.name", "metadata.connections.ancestorPath.link", "parentFolder.name", "parentFolder.uri", "uploader.name", "canUserEdit", "canUserDelete"],
+  let _v21 = ["publicId", "uri", "name", "description", "contentType", "thumbnail.url", "fileSize", "privacy", "allowDownloads", "downloadUrl", "createdTime", "modifiedTime", "metadata.connections.ancestorPath.name", "metadata.connections.ancestorPath.link", "parentFolder.name", "parentFolder.uri", "uploader.name", "canUserEdit", "canUserDelete"],
     _v22 = {
       video: (0, _v17.translate)({
         singular: "Video",
@@ -544,8 +544,9 @@
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
-  let _v45 = ({
+    _v44 = _v0.i(0),
+    _v45 = _v0.i(0);
+  let _v46 = ({
     publicId: _v0,
     ownerId: _v1,
     file: _v2
@@ -563,7 +564,9 @@
       [_v13, _v14] = (0, _v3.useState)(!1),
       _v15 = _v2.canUserEdit,
       _v16 = _v2.canUserDelete,
-      _v17 = async () => {
+      _v17 = _v2.downloadUrl,
+      _v18 = null != _v17,
+      _v19 = async () => {
         _v10(!0);
         try {
           await (0, _v15.deleteUserFile)({
@@ -586,19 +589,19 @@
               singular: "Moved to Recently Deleted",
               dictionary: {
                 es: {
-                  singular: "Movido a Eliminados recientemente"
+                  singular: "Movido a Recientemente eliminados"
                 },
                 "de-DE": {
-                  singular: "In 'Zuletzt gelöscht' verschoben"
+                  singular: 'In "Zuletzt gelöscht" verschoben'
                 },
                 "fr-FR": {
                   singular: "Déplacé vers Récemment supprimés"
                 },
                 "ja-JP": {
-                  singular: "最近削除済みに移動しました"
+                  singular: "最近削除した項目に移動しました"
                 },
                 "ko-KR": {
-                  singular: "최근 삭제됨으로 이동되었습니다"
+                  singular: "최근 삭제된 항목으로 이동됨"
                 },
                 "pt-BR": {
                   singular: "Movido para Excluídos recentemente"
@@ -643,7 +646,7 @@
           _v10(!1);
         }
       };
-    return _v15 || _v16 ? (0, _v1.jsxs)(_v1.Fragment, {
+    return _v18 || _v15 || _v16 ? (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v35.Menu, {
         children: [(0, _v1.jsx)(_v36.MenuButton, {
           "aria-label": (0, _v17.translate)({
@@ -673,12 +676,42 @@
             }
           }),
           as: _v34.IconButton,
-          icon: (0, _v1.jsx)(_v40.EllipsisV, {}),
+          icon: (0, _v1.jsx)(_v41.EllipsisV, {}),
           size: "md",
           variant: "tertiary"
         }), (0, _v1.jsxs)(_v39.MenuList, {
-          children: [_v15 && (0, _v1.jsx)(_v38.MenuItem, {
-            icon: (0, _v1.jsx)(_v41.FolderOpen, {}),
+          children: [_v18 && (0, _v1.jsxs)(_v38.MenuItem, {
+            as: "a",
+            href: _v17,
+            icon: (0, _v1.jsx)(_v40.DownloadImport, {}),
+            children: [(0, _v17.translate)({
+              singular: "Download",
+              dictionary: {
+                es: {
+                  singular: "Descargar"
+                },
+                "de-DE": {
+                  singular: "Herunterladen"
+                },
+                "fr-FR": {
+                  singular: "Télécharger "
+                },
+                "ja-JP": {
+                  singular: "ダウンロード"
+                },
+                "ko-KR": {
+                  singular: "다운로드"
+                },
+                "pt-BR": {
+                  singular: "Baixar"
+                },
+                "zh-CN": {
+                  singular: "下载"
+                }
+              }
+            }), "…"]
+          }), _v15 && (0, _v1.jsx)(_v38.MenuItem, {
+            icon: (0, _v1.jsx)(_v42.FolderOpen, {}),
             onClick: () => _v12(!0),
             children: (0, _v17.translate)({
               singular: "Move…",
@@ -706,8 +739,8 @@
                 }
               }
             })
-          }), _v15 && _v16 && (0, _v1.jsx)(_v37.MenuDivider, {}), _v16 && (0, _v1.jsx)(_v38.MenuItem, {
-            icon: (0, _v1.jsx)(_v42.TrashBin, {}),
+          }), (_v18 || _v15) && _v16 && (0, _v1.jsx)(_v37.MenuDivider, {}), _v16 && (0, _v1.jsx)(_v38.MenuItem, {
+            icon: (0, _v1.jsx)(_v43.TrashBin, {}),
             onClick: () => _v14(!0),
             children: (0, _v17.translate)({
               singular: "Delete",
@@ -737,7 +770,7 @@
             })
           })]
         })]
-      }), (0, _v1.jsx)(_v44.MoveModal, {
+      }), (0, _v1.jsx)(_v45.MoveModal, {
         feature: "file_manage",
         location: "file_manage",
         isActive: _v11,
@@ -812,7 +845,7 @@
             variant: "warning"
           });
         }
-      }), (0, _v1.jsx)(_v43.DeleteModal, {
+      }), (0, _v1.jsx)(_v44.DeleteModal, {
         headerContent: (0, _v17.translate)({
           singular: "Move to Recently deleted?",
           dictionary: {
@@ -853,46 +886,46 @@
           },
           dictionary: {
             es: {
-              singular: '"{NAME}" se eliminará para siempre después de 30 días.'
+              singular: '"{NAME}" se eliminará de forma permanente después de 30 días.'
             },
             "de-DE": {
-              singular: '"{NAME}" wird nach 30 Tagen endgültig gelöscht.'
+              singular: '"{NAME}" wird nach 30 Tagen dauerhaft gelöscht.'
             },
             "fr-FR": {
               singular: '"{NAME}" sera définitivement supprimé après 30 jours.'
             },
             "ja-JP": {
-              singular: '"{NAME}" は30日後に完全に削除されます。'
+              singular: '"{NAME}"は30日後に完全に削除されます。'
             },
             "ko-KR": {
-              singular: '"{NAME}"은(는) 30일 후 영구 삭제됩니다.'
+              singular: '"{NAME}"은 30일 후 영구적으로 삭제됩니다.'
             },
             "pt-BR": {
-              singular: '"{NAME}" será excluído(a) permanentemente após 30 dias.'
+              singular: '"{NAME}" será excluído permanentemente após 30 dias.'
             },
             "zh-CN": {
-              singular: '"{NAME}"将在30天后永久删除。'
+              singular: '"{NAME}" 将在 30 天后被永久删除。'
             }
           }
         }),
         isLoading: _v9,
         isOpen: _v13,
         onClose: () => _v14(!1),
-        onConfirm: () => void _v17()
+        onConfirm: () => void _v19()
       })]
     }) : (0, _v1.jsx)(_v1.Fragment, {});
   };
-  var _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  let _v49 = () => {
-      let _v0 = (0, _v46.useColorModeValue)("slate.800", "white");
-      return (0, _v1.jsx)(_v48.VimeoV, {
-        height: (0, _v47.rem)(26.7),
+  var _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0);
+  let _v50 = () => {
+      let _v0 = (0, _v47.useColorModeValue)("slate.800", "white");
+      return (0, _v1.jsx)(_v49.VimeoV, {
+        height: (0, _v48.rem)(26.7),
         color: _v0
       });
     },
-    _v50 = ({
+    _v51 = ({
       publicId: _v0,
       ownerId: _v1,
       file: _v2,
@@ -907,7 +940,7 @@
             children: (0, _v1.jsxs)(_v5.Flex, {
               alignItems: "center",
               children: [(0, _v1.jsx)(_v31.default, {
-                vimeoLogo: (0, _v1.jsx)(_v49, {})
+                vimeoLogo: (0, _v1.jsx)(_v50, {})
               }), (0, _v1.jsx)(_v4.Box, {
                 pl: "md",
                 children: (0, _v1.jsx)(_v28.ContentBreadcrumbs, {
@@ -953,7 +986,7 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v45, {
+            }), (0, _v1.jsx)(_v46, {
               file: _v2,
               ownerId: _v1,
               publicId: _v0
@@ -966,16 +999,243 @@
         })]
       });
     };
-  var _v51 = _v0.i(0);
-  let _v52 = {
-      src: _v0.i(0).default,
-      width: 661,
-      height: 731,
-      blurWidth: 7,
-      blurHeight: 8,
-      blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAYAAAA1BOUGAAAAgElEQVR42j3OvwpBYRjA4a/O6AaURf6UQZJFySCSwUAWJpPJgsFgM7kOmyuQ67G4Ds/X+c5565l+b71vCPlkzDhyY0cltVBlT50uB8Yx9JhwYUmLPtsYz7z48eZEm02Ma558U7zSYV7EOx8eLKgxLJ5psKKZbg7SQjnx0ymjJPsDleoQYNcZdD4AAAAASUVORK5CYII="
+  var _v52 = _v0.i(0);
+  let _v53 = {
+    src: _v0.i(0).default,
+    width: 661,
+    height: 731,
+    blurWidth: 7,
+    blurHeight: 8,
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAYAAAA1BOUGAAAAgElEQVR42j3OvwpBYRjA4a/O6AaURf6UQZJFySCSwUAWJpPJgsFgM7kOmyuQ67G4Ds/X+c5565l+b71vCPlkzDhyY0cltVBlT50uB8Yx9JhwYUmLPtsYz7z48eZEm02Ma558U7zSYV7EOx8eLKgxLJ5psKKZbg7SQjnx0ymjJPsDleoQYNcZdD4AAAAASUVORK5CYII="
+  };
+  var _v54 = _v0.i(0),
+    _v55 = _v0.i(0),
+    _v56 = _v0.i(0),
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0);
+  let _v60 = _v0 => {
+      if (!Number.isFinite(_v0) || _v0 < 0) return "0:00";
+      let _v1 = Math.floor(_v0),
+        _v2 = Math.floor(_v1 / 60);
+      return `${_v2}:${String(_v1 % 60).padStart(2, "0")}`;
     },
-    _v53 = {
+    _v61 = ({
+      src: _v0,
+      name: _v1
+    }) => {
+      let _v2 = (0, _v3.useRef)(null),
+        _v3 = (0, _v3.useRef)(!1),
+        [_v4, _v5] = (0, _v3.useState)(!1),
+        [_v6, _v7] = (0, _v3.useState)(!1),
+        [_v8, _v9] = (0, _v3.useState)(0),
+        [_v10, _v11] = (0, _v3.useState)(0),
+        _v12 = (0, _v3.useCallback)(() => {
+          let _v0 = _v2.current;
+          null !== _v0 && (_v0.paused ? _v0.play().catch(() => void 0) : _v0.pause());
+        }, []),
+        _v13 = (0, _v3.useCallback)(() => {
+          let _v0 = _v2.current;
+          null !== _v0 && (_v0.muted = !_v0.muted, _v7(_v0.muted));
+        }, []);
+      return (0, _v1.jsxs)(_v5.Flex, {
+        alignItems: "center",
+        bg: "surface",
+        borderRadius: "full",
+        gap: "md",
+        maxWidth: "45rem",
+        pl: "md",
+        pr: "lg",
+        py: "md",
+        width: "100%",
+        children: [(0, _v1.jsx)("audio", {
+          "aria-hidden": "true",
+          onEnded: () => _v5(!1),
+          onLoadedMetadata: _v0 => _v11(_v0.currentTarget.duration),
+          onPause: () => _v5(!1),
+          onPlay: () => _v5(!0),
+          onTimeUpdate: _v0 => {
+            _v3.current || _v9(_v0.currentTarget.currentTime);
+          },
+          preload: "metadata",
+          ref: _v2,
+          src: _v0,
+          tabIndex: -1
+        }), (0, _v1.jsx)(_v34.IconButton, {
+          "aria-label": _v4 ? (0, _v17.translate)({
+            singular: "Pause",
+            dictionary: {
+              es: {
+                singular: "Pausar"
+              },
+              "ja-JP": {
+                singular: "一時停止"
+              },
+              "ko-KR": {
+                singular: "일시중지"
+              },
+              "pt-BR": {
+                singular: "Pausar"
+              },
+              "zh-CN": {
+                singular: "暂停"
+              }
+            }
+          }) : (0, _v17.translate)({
+            singular: "Play",
+            dictionary: {
+              es: {
+                singular: "Reproducir"
+              },
+              "de-DE": {
+                singular: "Abspielen"
+              },
+              "fr-FR": {
+                singular: "Lire"
+              },
+              "ja-JP": {
+                singular: "再生"
+              },
+              "ko-KR": {
+                singular: "재생"
+              },
+              "zh-CN": {
+                singular: "播放"
+              }
+            }
+          }),
+          borderRadius: "full",
+          icon: _v4 ? (0, _v1.jsx)(_v56.PauseFilled, {}) : (0, _v1.jsx)(_v57.PlayFilled, {}),
+          onClick: _v12,
+          size: "sm",
+          variant: "primary"
+        }), (0, _v1.jsxs)(_v5.Flex, {
+          alignItems: "center",
+          flexGrow: 1,
+          gap: "md",
+          minWidth: 0,
+          children: [(0, _v1.jsx)(_v12.Text, {
+            flexShrink: 0,
+            variant: "body-sm",
+            children: (0, _v17.translate)({
+              singular: "{current} / {total}",
+              replacements: {
+                current: _v60(_v8),
+                total: _v60(_v10)
+              }
+            })
+          }), (0, _v1.jsx)(_v54.Slider, {
+            "aria-label": (0, _v17.translate)({
+              singular: "Seek in {name}",
+              replacements: {
+                name: _v1
+              },
+              dictionary: {
+                es: {
+                  singular: "Buscar en {name}"
+                },
+                "de-DE": {
+                  singular: "In {name} springen"
+                },
+                "fr-FR": {
+                  singular: "Se déplacer dans {name}"
+                },
+                "ja-JP": {
+                  singular: "{name}内をシーク"
+                },
+                "ko-KR": {
+                  singular: "{name}에서 탐색"
+                },
+                "pt-BR": {
+                  singular: "Procurar em {name}"
+                },
+                "zh-CN": {
+                  singular: "在 {name} 中跳转"
+                }
+              }
+            }),
+            flexGrow: 1,
+            max: _v10 > 0 ? _v10 : 1,
+            min: 0,
+            onChange: _v0 => _v9(_v0),
+            onChangeEnd: _v0 => {
+              let _v1 = _v2.current;
+              null !== _v1 && (_v1.currentTime = _v0), _v3.current = !1;
+            },
+            onChangeStart: () => {
+              _v3.current = !0;
+            },
+            step: 1,
+            value: _v8,
+            children: (0, _v1.jsxs)(_v55.SliderTrack, {
+              children: [(0, _v1.jsx)(_v55.SliderFilledTrack, {
+                bg: "gray.800"
+              }), (0, _v1.jsx)(_v55.SliderThumb, {
+                boxSize: "4"
+              })]
+            })
+          })]
+        }), (0, _v1.jsx)(_v34.IconButton, {
+          "aria-label": _v6 ? (0, _v17.translate)({
+            singular: "Unmute",
+            dictionary: {
+              es: {
+                singular: "Dejar de silenciar"
+              },
+              "de-DE": {
+                singular: "Stummschaltung aufheben"
+              },
+              "fr-FR": {
+                singular: "Rétablir le son"
+              },
+              "ja-JP": {
+                singular: "ミュートを解除"
+              },
+              "ko-KR": {
+                singular: "음소거 해제"
+              },
+              "pt-BR": {
+                singular: "Ativar som"
+              },
+              "zh-CN": {
+                singular: "取消静音"
+              }
+            }
+          }) : (0, _v17.translate)({
+            singular: "Mute",
+            dictionary: {
+              es: {
+                singular: "Silenciar"
+              },
+              "de-DE": {
+                singular: "Stummschalten"
+              },
+              "fr-FR": {
+                singular: "Mettre en sourdine"
+              },
+              "ja-JP": {
+                singular: "ミュート"
+              },
+              "ko-KR": {
+                singular: "음소거"
+              },
+              "pt-BR": {
+                singular: "Mudo"
+              },
+              "zh-CN": {
+                singular: "静音"
+              }
+            }
+          }),
+          flexShrink: 0,
+          icon: _v6 ? (0, _v1.jsx)(_v58.VolumeOff, {}) : (0, _v1.jsx)(_v59.VolumeOn, {}),
+          onClick: _v13,
+          size: "sm",
+          variant: "tertiary"
+        })]
+      });
+    },
+    _v62 = {
       video: (0, _v17.translate)({
         singular: "Video",
         dictionary: {
@@ -1060,13 +1320,15 @@
         }
       })
     },
-    _v54 = ({
+    _v63 = ({
       file: _v0
     }) => {
       let _v1,
         _v2,
         _v3 = _v0.thumbnail?.url,
-        _v4 = null != _v3 && "" !== _v3;
+        _v4 = null != _v3 && "" !== _v3,
+        _v5 = _v0.downloadUrl,
+        _v6 = "audio" === (0, _v14.getContentTypeCategory)(_v0.contentType) && null != _v5 && "" !== _v5;
       return (0, _v1.jsxs)(_v5.Flex, {
         background: "fill-component",
         borderRadius: "lg",
@@ -1096,7 +1358,7 @@
             }), (0, _v1.jsx)(_v12.Text, {
               variant: "body-sm",
               color: "text-secondary",
-              children: (_v1 = [_v53[(0, _v14.getContentTypeCategory)(_v0.contentType)]], "" !== (_v2 = (0, _v14.getFileExtension)(_v0.name)) && _v1.push(_v2), null != _v0.fileSize && _v0.fileSize > 0 && _v1.push(String((0, _v18.bytesToSize)(_v0.fileSize, 1))), _v1.join(" · "))
+              children: (_v1 = [_v62[(0, _v14.getContentTypeCategory)(_v0.contentType)]], "" !== (_v2 = (0, _v14.getFileExtension)(_v0.name)) && _v1.push(_v2), null != _v0.fileSize && _v0.fileSize > 0 && _v1.push(String((0, _v18.bytesToSize)(_v0.fileSize, 1))), _v1.join(" · "))
             })]
           })]
         }), (0, _v1.jsx)(_v5.Flex, {
@@ -1104,7 +1366,10 @@
           flexGrow: 1,
           justifyContent: "center",
           p: "lg",
-          children: null != _v3 && "" !== _v3 ? (0, _v1.jsx)(_v51.Image, {
+          children: _v6 ? (0, _v1.jsx)(_v61, {
+            name: _v0.name,
+            src: _v5
+          }) : null != _v3 && "" !== _v3 ? (0, _v1.jsx)(_v52.Image, {
             alt: "",
             maxHeight: "100%",
             maxWidth: "100%",
@@ -1115,11 +1380,11 @@
             flexDirection: "column",
             gap: "lg",
             maxWidth: "334px",
-            children: [(0, _v1.jsx)(_v51.Image, {
+            children: [(0, _v1.jsx)(_v52.Image, {
               "aria-hidden": "true",
               alt: "",
               height: "90px",
-              src: _v52.src,
+              src: _v53.src,
               width: "81px"
             }), (0, _v1.jsxs)(_v5.Flex, {
               alignItems: "center",
@@ -1227,7 +1492,32 @@
           children: (0, _v1.jsx)(_v12.Text, {
             variant: "body-sm",
             color: "text-tertiary",
-            children: _v4 ? (0, _v17.translate)({
+            children: _v6 ? (0, _v17.translate)({
+              singular: "Audio preview",
+              dictionary: {
+                es: {
+                  singular: "Vista previa de audio"
+                },
+                "de-DE": {
+                  singular: "Audio‑Vorschau"
+                },
+                "fr-FR": {
+                  singular: "Aperçu audio"
+                },
+                "ja-JP": {
+                  singular: "オーディオプレビュー"
+                },
+                "ko-KR": {
+                  singular: "오디오 미리보기"
+                },
+                "pt-BR": {
+                  singular: "Prévia de áudio"
+                },
+                "zh-CN": {
+                  singular: "音频预览"
+                }
+              }
+            }) : _v4 ? (0, _v17.translate)({
               singular: "Image preview",
               dictionary: {
                 es: {
@@ -1282,16 +1572,16 @@
         })]
       });
     };
-  var _v55 = _v0.i(0),
-    _v56 = _v0.i(0),
-    _v57 = _v0.i(0),
-    _v58 = _v0.i(0),
-    _v59 = _v0.i(0),
-    _v60 = _v0.i(0),
-    _v61 = _v0.i(0),
-    _v62 = _v0.i(0);
-  let _v63 = ["nobody", "team", "unlisted"],
-    _v64 = ({
+  var _v64 = _v0.i(0),
+    _v65 = _v0.i(0),
+    _v66 = _v0.i(0),
+    _v67 = _v0.i(0),
+    _v68 = _v0.i(0),
+    _v69 = _v0.i(0),
+    _v70 = _v0.i(0),
+    _v71 = _v0.i(0);
+  let _v72 = ["nobody", "team", "unlisted"],
+    _v73 = ({
       publicId: _v0,
       ownerId: _v1,
       file: _v2,
@@ -1308,14 +1598,14 @@
         } = (0, _v16.useGctlConfig)(),
         {
           capabilities: _v11
-        } = (0, _v58.useCapability)(["canAllowDownloads"], `/users/${_v1}`),
-        _v12 = (0, _v3.useMemo)(() => _v63.map(_v0 => {
-          let _v1 = _v60.DEFAULT_PRIVACY_OPTIONS.find(_v0 => _v0.privacy === _v0);
+        } = (0, _v67.useCapability)(["canAllowDownloads"], `/users/${_v1}`),
+        _v12 = (0, _v3.useMemo)(() => _v72.map(_v0 => {
+          let _v1 = _v69.DEFAULT_PRIVACY_OPTIONS.find(_v0 => _v0.privacy === _v0);
           return {
             privacy: _v0,
-            title: (0, _v62.getPrivacyLabel)(_v0, _v5?.teamUser),
+            title: (0, _v71.getPrivacyLabel)(_v0, _v5?.teamUser),
             description: _v1?.description,
-            icon: (0, _v60.videoPrivacyIcons)("xs")[_v0]?.icon
+            icon: (0, _v69.videoPrivacyIcons)("xs")[_v0]?.icon
           };
         }), [_v5?.teamUser]),
         _v13 = `https://vimeo.com/files/${_v2.publicId}`,
@@ -1462,7 +1752,7 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v56.CloseX, {}),
+            icon: (0, _v1.jsx)(_v65.CloseX, {}),
             onClick: _v3,
             size: "xs",
             variant: "tertiary"
@@ -1506,7 +1796,7 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v57.PrivacyDropdown, {
+              }), (0, _v1.jsx)(_v66.PrivacyDropdown, {
                 activePrivacy: _v2.privacy,
                 onSelect: _v0 => void _v15({
                   privacy: _v0
@@ -1574,7 +1864,7 @@
                       }
                     }
                   })
-                }), !0 !== _v14 && (0, _v1.jsx)(_v59.UpgradeBadge, {
+                }), !0 !== _v14 && (0, _v1.jsx)(_v68.UpgradeBadge, {
                   modalConfig: {
                     headerText: (0, _v17.translate)({
                       singular: "Upgrade to allow downloads",
@@ -1652,7 +1942,7 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v55.Switch, {
+                }), (0, _v1.jsx)(_v64.Switch, {
                   isChecked: _v2.allowDownloads,
                   isDisabled: !0 !== _v14,
                   onChange: _v0 => {
@@ -1697,7 +1987,7 @@
             }), (0, _v1.jsx)(_v26.Button, {
               variant: "primary",
               onClick: () => {
-                (0, _v61.default)(_v13) && _v6({
+                (0, _v70.default)(_v13) && _v6({
                   title: (0, _v17.translate)({
                     singular: "Copied!",
                     dictionary: {
@@ -1757,7 +2047,7 @@
         })]
       });
     },
-    _v65 = ({
+    _v74 = ({
       publicId: _v0
     }) => {
       let _v1 = (0, _v10.useViewer)(),
@@ -1806,7 +2096,7 @@
       return (0, _v1.jsxs)(_v5.Flex, {
         direction: "column",
         minHeight: "100vh",
-        children: [(0, _v1.jsx)(_v50, {
+        children: [(0, _v1.jsx)(_v51, {
           file: _v4.file,
           onShareClick: () => _v6(_v0 => !_v0),
           ownerId: _v7,
@@ -1828,7 +2118,7 @@
             marginX: "auto",
             maxWidth: "56rem",
             minWidth: 0,
-            children: [(0, _v1.jsx)(_v54, {
+            children: [(0, _v1.jsx)(_v63, {
               file: _v4.file
             }), (0, _v1.jsx)(_v25, {
               file: _v4.file,
@@ -1836,7 +2126,7 @@
               ownerId: _v7,
               publicId: _v0
             })]
-          }), _v5 && (0, _v1.jsx)(_v64, {
+          }), _v5 && (0, _v1.jsx)(_v73, {
             file: _v4.file,
             onChanged: _v4.refresh,
             onClose: () => _v6(!1),
@@ -1859,7 +2149,7 @@
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, ({
     publicId: _v0
-  }) => (0, _v1.jsx)(_v65, {
+  }) => (0, _v1.jsx)(_v74, {
     publicId: _v0
   }, _v0)], 0);
 }

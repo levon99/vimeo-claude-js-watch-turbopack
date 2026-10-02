@@ -3,8 +3,9 @@
 
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
-    _v3 = _v0.i(0);
-  function _v4({
+    _v3 = _v0.i(0),
+    _v4 = _v0.i(0);
+  function _v5({
     parentEnabled: _v0,
     requiredRole: _v1,
     teamUser: _v2
@@ -14,11 +15,11 @@
     let _v3 = _v2.permissionLevel;
     return "roleewea" === (_v1 ?? "roleewea") ? 1 === _v3 || 2 === _v3 || 4 === _v3 || 6 === _v3 : 1 === _v3 || 2 === _v3;
   }
-  _v0.s(["canEnableLiveCaptionsForLiveEvent", 0, _v4, "useCanEnableLiveCaptionsForLiveEvent", 0, function (_v0) {
-    let _v1 = (0, _v3.useOptionalViewer)(),
+  _v0.s(["canEnableLiveCaptionsForLiveEvent", 0, _v5, "useCanEnableLiveCaptionsForLiveEvent", 0, function (_v0) {
+    let _v1 = (0, _v4.useOptionalViewer)(),
       {
         data: _v2
-      } = (0, _v2.useGetUserPreferences)(() => _v0 ? {
+      } = (0, _v3.useGetUserPreferences)(() => _v0 ? {
         select: ["eppailc", "urpailc"],
         where: {
           userId: _v0
@@ -26,14 +27,21 @@
       } : null),
       {
         data: _v3
-      } = (0, _v1.useGetMePreferences)(() => _v0 ? null : {
+      } = (0, _v2.useGetMePreferences)(() => _v0 ? null : {
         select: ["eppailc", "urpailc"]
       }),
-      _v4 = _v2 ?? _v3;
-    return _v4({
-      parentEnabled: _v4?.eppailc,
-      requiredRole: _v4?.urpailc,
-      teamUser: _v1?.teamUser
-    });
+      _v4 = _v2 ?? _v3,
+      {
+        capabilities: {
+          enableAiLiveCaptions: _v5
+        },
+        ready: _v6
+      } = (0, _v1.useCapability)(["enableAiLiveCaptions"], _v0 ?? _v1?.teamUser?.ownerId),
+      _v7 = _v5({
+        parentEnabled: _v4?.eppailc,
+        requiredRole: _v4?.urpailc,
+        teamUser: _v1?.teamUser
+      });
+    return _v6 ? !!_v5 : _v7;
   }]);
 }

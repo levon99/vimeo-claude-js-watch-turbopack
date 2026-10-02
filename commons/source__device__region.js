@@ -3,16 +3,21 @@
 
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0);
-  let _v3 = {
-    embed_domains: "source",
-    device: "device",
-    region: "region",
-    streaming_type: "view_type",
-    text_language: "subtitles_and_captions_language",
-    text_type_and_provenance: "subtitles_and_caption_type",
-    audio_language: "audio_track_language",
-    audio_type_and_provenance: "audio_track_type"
-  };
+  let _v3 = _v0 => {
+      if (null == _v0) return {};
+      let _v1 = {};
+      return void 0 !== _v0.access && (_v1.analytics_ai_access = _v0.access), void 0 !== _v0.isCreditTrialActive && (_v1.analytics_ai_credit_trial_active = _v0.isCreditTrialActive), void 0 !== _v0.hasWeeklyLimit && (_v1.analytics_ai_has_weekly_limit = _v0.hasWeeklyLimit), void 0 !== _v0.weeklyLimit && (_v1.analytics_ai_weekly_limit = _v0.weeklyLimit), void 0 !== _v0.weeklyUsed && (_v1.analytics_ai_weekly_used = _v0.weeklyUsed), void 0 !== _v0.weeklyRemaining && (_v1.analytics_ai_weekly_remaining = _v0.weeklyRemaining), _v1;
+    },
+    _v4 = {
+      embed_domains: "source",
+      device: "device",
+      region: "region",
+      streaming_type: "view_type",
+      text_language: "subtitles_and_captions_language",
+      text_type_and_provenance: "subtitles_and_caption_type",
+      audio_language: "audio_track_language",
+      audio_type_and_provenance: "audio_track_type"
+    };
   _v0.s(["useAnalyticsTracking", 0, () => {
     let _v0 = (0, _v2.usePico)(),
       _v1 = (0, _v1.useCallback)(() => null !== _v0 && (_v0.track("analytics_page_displayed", {
@@ -45,7 +50,7 @@
       }), !0), [_v0]),
       _v5 = (0, _v1.useCallback)(_v0 => {
         if (null === _v0) return !1;
-        let _v1 = new Set(_v0.activeFilterKeys.map(_v0 => _v3[_v0]).filter(Boolean));
+        let _v1 = new Set(_v0.activeFilterKeys.map(_v0 => _v4[_v0]).filter(Boolean));
         return _v0.track("analytics_filter_applied", {
           analytics_report_type: _v0.analyticsReportType,
           analytics_filter_category_source: _v1.has("source"),
@@ -82,11 +87,13 @@
       }), !0), [_v0]),
       _v13 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_dashboard_displayed", {
         analytics_ai_widget_count: _v0.widgetCount,
-        analytics_ai_has_widgets: _v0.hasWidgets
+        analytics_ai_has_widgets: _v0.hasWidgets,
+        ..._v3(_v0.context)
       }), !0), [_v0]),
       _v14 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_prompt_submitted", {
         analytics_ai_prompt: _v0.prompt,
-        analytics_ai_prompt_source: _v0.promptSource
+        analytics_ai_prompt_source: _v0.promptSource,
+        ..._v3(_v0.context)
       }), !0), [_v0]),
       _v15 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_generation_completed", {
         analytics_ai_generation_status: _v0.generationStatus,
@@ -96,7 +103,8 @@
         analytics_ai_chart_type: _v0.chartType,
         analytics_ai_title: _v0.title,
         analytics_ai_suggestions_count: _v0.suggestionsCount,
-        error: _v0.error
+        error: _v0.error,
+        ..._v3(_v0.context)
       }), !0), [_v0]),
       _v16 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_widget_data_requested", {
         analytics_ai_dataset: _v0.dataset,
@@ -104,11 +112,13 @@
         analytics_ai_query_spec: _v0.querySpec,
         surface: _v0.surface,
         analytics_ai_widget_id: _v0.widgetId,
-        analytics_ai_request_outcome: _v0.requestOutcome
+        analytics_ai_request_outcome: _v0.requestOutcome,
+        ..._v3(_v0.context)
       }), !0), [_v0]),
       _v17 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_settings_toggled", {
         analytics_ai_enabled: _v0.enabled,
-        analytics_ai_setting_scope: _v0.scope
+        analytics_ai_setting_scope: _v0.scope,
+        ..._v3(_v0.context)
       }), !0), [_v0]);
     return {
       trackAnalyticsPageDisplayed: _v1,
@@ -129,9 +139,12 @@
       trackAnalyticsAiWidgetDataRequested: _v16,
       trackAnalyticsAiSettingsToggled: _v17,
       trackAnalyticsAiFeedback: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_feedback", {
-        analytics_ai_feedback_comment: _v0.comment
+        analytics_ai_feedback_comment: _v0.comment,
+        ..._v3(_v0.context)
       }), !0), [_v0]),
-      trackAnalyticsAiFeedbackDismissed: (0, _v1.useCallback)(() => null !== _v0 && (_v0.track("analytics_ai_feedback_dismissed", {}), !0), [_v0])
+      trackAnalyticsAiFeedbackDismissed: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("analytics_ai_feedback_dismissed", {
+        ..._v3(_v0)
+      }), !0), [_v0])
     };
   }]);
 }

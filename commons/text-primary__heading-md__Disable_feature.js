@@ -950,54 +950,54 @@
         },
         enableParentPermissionAiVideoDetails: {
           title: (0, _v22.translate)({
-            singular: "Video details",
+            singular: "Video details and chapters",
             dictionary: {
               es: {
-                singular: "Detalles del video"
+                singular: "Detalles del vídeo y capítulos"
               },
               "de-DE": {
-                singular: "Videodetails"
+                singular: "Videodetails und Kapitel"
               },
               "fr-FR": {
-                singular: "Détails de la vidéo"
+                singular: "Détails et chapitres de la vidéo"
               },
               "ja-JP": {
-                singular: "動画の詳細情報"
+                singular: "動画の詳細とチャプター"
               },
               "ko-KR": {
-                singular: "동영상 세부 사항"
+                singular: "동영상 세부 정보 및 챕터"
               },
               "pt-BR": {
-                singular: "Detalhes do vídeo"
+                singular: "Detalhes do vídeo e capítulos"
               },
               "zh-CN": {
-                singular: "视频详情"
+                singular: "视频详情与章节"
               }
             }
           }),
           description: (0, _v22.translate)({
-            singular: "Team members can generate titles, descriptions and tags for videos",
+            singular: "Team members can generate video titles, descriptions, tags, and chapters to organize videos into sections.",
             dictionary: {
               es: {
-                singular: "Los miembros del equipo pueden generar títulos, descripciones y etiquetas para los videos"
+                singular: "Los miembros del equipo pueden generar títulos de video, descripciones, etiquetas y capítulos para organizar los videos en secciones."
               },
               "de-DE": {
-                singular: "Teammitglieder können Titel, Beschreibungen und Tags für Videos erstellen"
+                singular: "Teammitglieder können Videotitel, Beschreibungen, Tags und Kapitel erstellen, um Videos in Abschnitte zu gliedern."
               },
               "fr-FR": {
-                singular: "Les collaborateurs peuvent générer des titres, des descriptions et des balises pour les vidéos."
+                singular: "Les membres de l'équipe peuvent générer des titres, des descriptions, des tags et des chapitres pour organiser les vidéos en sections."
               },
               "ja-JP": {
-                singular: "チームメンバーは動画のタイトル、説明、タグを生成できます"
+                singular: "チームメンバーは、動画をセクションに整理するために、動画のタイトル、説明、タグ、チャプターを生成できます。"
               },
               "ko-KR": {
-                singular: "팀원은 동영상 제목, 설명, 태그를 생성할 수 있습니다."
+                singular: "팀 구성원은 동영상 제목, 설명, 태그 및 챕터를 생성하여 동영상을 섹션으로 구성할 수 있습니다."
               },
               "pt-BR": {
-                singular: "Os integrantes da equipe podem gerar títulos, descrições e etiquetas para vídeos"
+                singular: "Membros da equipe podem gerar títulos, descrições, tags e capítulos para organizar vídeos em seções."
               },
               "zh-CN": {
-                singular: "团队成员可以为视频生成标题、描述和标签"
+                singular: "团队成员可以生成视频标题、描述、标签和章节，以将视频组织成若干部分。"
               }
             }
           })
@@ -1401,28 +1401,28 @@
         },
         userRolePermissionAiVideoDetails: {
           title: (0, _v22.translate)({
-            singular: "Who can generate video details",
+            singular: "Who can generate video details and chapters",
             dictionary: {
               es: {
-                singular: "Quién puede generar los detalles del video"
+                singular: "Quién puede generar detalles y capítulos del vídeo"
               },
               "de-DE": {
-                singular: "Wer kann Videodetails generieren"
+                singular: "Wer kann Videodetails und Kapitel erstellen"
               },
               "fr-FR": {
-                singular: "Qui peut générer les détails de la vidéo"
+                singular: "Qui peut générer les détails et les chapitres d'une vidéo"
               },
               "ja-JP": {
-                singular: "動画の詳細情報を生成できるユーザー"
+                singular: "ビデオの詳細とチャプターを生成できるのは誰ですか"
               },
               "ko-KR": {
-                singular: "동영상 세부 정보 생성 권한"
+                singular: "누가 동영상 세부 정보 및 챕터를 생성할 수 있습니까?"
               },
               "pt-BR": {
-                singular: "Quem pode gerar detalhes do vídeo"
+                singular: "Quem pode gerar os detalhes e capítulos do vídeo"
               },
               "zh-CN": {
-                singular: "谁可以生成视频详情"
+                singular: "谁可以生成视频详细信息和章节"
               }
             }
           }),
@@ -2979,7 +2979,8 @@
           }
           return _v6;
         }(_v0, _v1, _v4, _v5, _v9, _v10), [_v0, _v1, _v4, _v5, _v9, _v10]),
-        mutateOwner: _v8
+        mutateOwner: _v8,
+        aiAnalyticsAccess: _v7?.aiAnalyticsAccess
       };
     },
     _v101 = ({
@@ -3172,20 +3173,25 @@
           }, [_v11, _v18]),
           {
             SETTINGS: _v20,
-            mutateOwner: _v21
+            mutateOwner: _v21,
+            aiAnalyticsAccess: _v22
           } = _v100({
             mergedSettingsPrefs: _v19,
             isSelfServe: !_v17,
             ownerId: _v0 || _v1
           }),
-          _v22 = (0, _v7.useCallback)(async (_v0, _v1, _v2) => {
+          _v23 = (0, _v7.useMemo)(() => ({
+            access: _v22
+          }), [_v22]),
+          _v24 = (0, _v7.useCallback)(async (_v0, _v1, _v2) => {
             await _v10({
               [_v0]: _v1
             }), _v15(), _v0 === _v45.enableAiAnalyticsDashboard ? _v6({
               enabled: !!_v1,
-              scope: _v2 ? "workspace" : "team"
+              scope: _v2 ? "workspace" : "team",
+              context: _v23
             }) : _v2 === _v89 ? _v5.toggleEvent(_v0, _v1) : _v2 === _v92 && _v5.dropdownEvent(_v0, _v1), (_v0 === _v45.enableAiAnalyticsDashboard || _v0 === _v45.userRolePermissionAiAnalytics) && _v21();
-          }, [_v10, _v15, _v5, _v6, _v2, _v21]);
+          }, [_v23, _v10, _v15, _v5, _v6, _v2, _v21]);
         (0, _v7.useEffect)(function () {
           let _v0 = Date.now();
           (_v12 || _v8) && _v0 - _v7.current > 0 && (_v4({
@@ -3193,12 +3199,12 @@
             title: _v3.notifications.error
           }), _v7.current = _v0);
         }, [_v12, _v8, _v4, _v3]);
-        let _v23 = !_v19 && (_v13 || _v14);
+        let _v25 = !_v19 && (_v13 || _v14);
         return {
           settingsCofig: _v20,
-          updateTeamSettings: _v22,
+          updateTeamSettings: _v24,
           isDisabled: _v9 || _v14 || _v13,
-          isFirstLoad: _v23,
+          isFirstLoad: _v25,
           isSettingsResults: !!_v19,
           userId: _v0 || _v1
         };

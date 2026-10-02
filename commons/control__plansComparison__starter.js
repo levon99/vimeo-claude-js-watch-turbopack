@@ -43,6 +43,7 @@
     enable_new_library_drag_and_drop_upload: !1,
     add_to_folders_modal_select_all_folders: !1,
     show_granular_permissions: !1,
+    show_granular_permissions_announcement: !0,
     showcase_autoplay_video_preview: !1,
     bi_managed_client_accounts_fake_door_enabled: !1,
     bi_white_label_clip_pages_fake_door_enabled: !1,
@@ -86,7 +87,6 @@
     show_trial_renewal_date_in_billing_card: !1,
     enable_review_link_submenu: !1,
     should_switch_to_repackaging_free: !1,
-    should_switch_to_higher_storage_free: !1,
     should_have_permissive_review_links: !1,
     enable_seat_changes_for_tiered: !1,
     upload_max_simultaneous_uploads: 1,
@@ -135,9 +135,7 @@
     corporate_upgrade_modal_page: "billing",
     show_repackaging_notification_modal: !1,
     video_page_customization_v1: !1,
-    enable_event_series: !1,
     enable_single_event_new_ux: !1,
-    enable_single_event_customization: !1,
     release_single_event_customization: !1,
     release_event_series_v1: !1,
     enable_event_series_in_dev_features: !1,
@@ -156,7 +154,6 @@
     enable_cold_storage_plan_reorder: !1,
     enable_low_tier_below_fold: !1,
     new_replace_feature: !1,
-    enable_large_lead_capture_form_field_names: !1,
     enable_video_customization_v2: !1,
     enable_whats_new_page: !1,
     enable_browser_studio_camera_position_presets: !1,
@@ -209,12 +206,17 @@
     second_free_trial_ui_treatment: "modal",
     second_free_trial_plan_tier: "starter",
     replace_in_review: !1,
+    enable_folder_defaults_intro_popover: !1,
     reverse_ft_delay_offer_paywall_on_trigger: !1,
     reverse_ft_delay_announcement_on_trigger: !1,
     reverse_ft_delay_trial_days: 7,
     onboarding_paywall_weekly_enabled: !1,
     enable_live_engagement_announcement: !1,
-    enable_smart_search_intro_announcement: !0
+    enable_smart_search_intro_announcement: !0,
+    enable_dictionary_intro_live_events_announcement: !1,
+    enable_dictionary_intro_svv_announcement: !1,
+    enable_dictionary_settings_intro_announcement: !1,
+    enable_dictionary_announcements: !1
   };
   function _v12() {
     return "vimeo.dev" === window.location.hostname || window.location.hostname.endsWith(".vimeows.com");

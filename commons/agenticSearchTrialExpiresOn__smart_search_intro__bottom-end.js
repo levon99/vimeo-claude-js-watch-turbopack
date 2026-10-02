@@ -62,6 +62,7 @@
           value: !0,
           children: (0, _v1.jsx)(_v9.AnnouncementPopover, {
             isOpen: _v4,
+            trackingId: "smart_search",
             anchorWithinChildren: !0,
             onAcknowledge: _v9,
             placement: _v8,

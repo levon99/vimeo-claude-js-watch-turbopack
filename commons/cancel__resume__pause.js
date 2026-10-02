@@ -459,7 +459,7 @@
             document.body.addEventListener("focus", _v0);
           }
         },
-        fileInputAccept: _v0.enableUniversalHosting ? "video/*,.mkv,.m2ts,.txt,.jpg,.jpeg" : _v0.enableNonVideoUploadFakeDoor ? void 0 : _v20,
+        fileInputAccept: _v0.enableUniversalHosting ? "video/*,.mkv,.m2ts,.txt,.jpg,.jpeg,.mp3,.wav" : _v0.enableNonVideoUploadFakeDoor ? void 0 : _v20,
         enableUniversalHosting: !0 === _v0.enableUniversalHosting,
         addShouldUploadStartCallback: _v0 => (_v8.current.push(_v0), () => {
           _v8.current = _v8.current.filter(_v0 => _v0 !== _v0);

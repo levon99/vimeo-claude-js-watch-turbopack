@@ -199,10 +199,11 @@
         isLoaded: _v5
       } = (0, _v34.useAnnouncement)({
         id: "granular_permissions_intro",
-        isEligible: _v2.show_granular_permissions
+        isEligible: _v2.show_granular_permissions && _v2.show_granular_permissions_announcement
       });
     return (0, _v1.jsx)(_v35.AnnouncementPopover, {
       isOpen: _v5 && _v4,
+      trackingId: "granular_permissions",
       anchorWithinChildren: !0,
       placement: "left-start",
       acknowledgeLabel: (0, _v38.translate)({
@@ -265,8 +266,58 @@
           })
         })
       }),
-      title: (0, _v38.translate)("Manage AI Credits access per member"),
-      body: (0, _v38.translate)("Set AI features permissions or set custom credits limits for each member."),
+      title: (0, _v38.translate)({
+        singular: "Manage AI Credits access per member",
+        dictionary: {
+          es: {
+            singular: "Gestionar el acceso a créditos de IA por miembro"
+          },
+          "de-DE": {
+            singular: "Zugriff auf AI Credits pro Mitglied verwalten"
+          },
+          "fr-FR": {
+            singular: "Gérer l’accès aux AI Credits par membre"
+          },
+          "ja-JP": {
+            singular: "メンバーごとに AI クレジットへのアクセスを管理"
+          },
+          "ko-KR": {
+            singular: "멤버별 AI 크레딧 접근 권한 관리"
+          },
+          "pt-BR": {
+            singular: "Gerenciar acesso aos Créditos de IA por membro"
+          },
+          "zh-CN": {
+            singular: "管理每位成员的 AI 积分访问权限"
+          }
+        }
+      }),
+      body: (0, _v38.translate)({
+        singular: "Set AI features permissions or set custom credits limits for each member.",
+        dictionary: {
+          es: {
+            singular: "Configure permisos de funciones de IA o establezca límites de créditos personalizados para cada miembro."
+          },
+          "de-DE": {
+            singular: "Legen Sie Berechtigungen für AI‑Funktionen fest oder setzen Sie benutzerdefinierte Credits‑Limits für jedes Mitglied."
+          },
+          "fr-FR": {
+            singular: "Définir les autorisations des fonctionnalités AI ou définir des limites personnalisées de crédits pour chaque membre."
+          },
+          "ja-JP": {
+            singular: "AI 機能の権限を設定するか、各メンバーごとにカスタムクレジットの上限を設定します."
+          },
+          "ko-KR": {
+            singular: "AI 기능 권한을 설정하거나 멤버별 맞춤 크레딧 한도를 설정하세요."
+          },
+          "pt-BR": {
+            singular: "Defina permissões para recursos de IA ou limites personalizados de créditos para cada membro."
+          },
+          "zh-CN": {
+            singular: "为每位成员设置 AI 功能权限或自定义积分限制。"
+          }
+        }
+      }),
       children: (0, _v1.jsx)(_v37.PopoverAnchor, {
         children: (0, _v1.jsx)(_v11.Box, {
           display: "inline-flex",
@@ -661,7 +712,8 @@
             singular: "管理词汇表、术语翻译及用于 AI 生成内容的自定义规则"
           }
         }
-      })
+      }),
+      orionFlag: "enable_account_wide_dictionary_management"
     }, {
       key: "translation",
       label: (0, _v38.translate)({
@@ -719,54 +771,54 @@
     }, {
       key: "video_details",
       label: (0, _v38.translate)({
-        singular: "Video details",
+        singular: "Video details and chapters",
         dictionary: {
           es: {
-            singular: "Detalles del video"
+            singular: "Detalles del vídeo y capítulos"
           },
           "de-DE": {
-            singular: "Videodetails"
+            singular: "Videodetails und Kapitel"
           },
           "fr-FR": {
-            singular: "Détails de la vidéo"
+            singular: "Détails et chapitres de la vidéo"
           },
           "ja-JP": {
-            singular: "動画の詳細情報"
+            singular: "動画の詳細とチャプター"
           },
           "ko-KR": {
-            singular: "동영상 세부 사항"
+            singular: "동영상 세부 정보 및 챕터"
           },
           "pt-BR": {
-            singular: "Detalhes do vídeo"
+            singular: "Detalhes do vídeo e capítulos"
           },
           "zh-CN": {
-            singular: "视频详情"
+            singular: "视频详情与章节"
           }
         }
       }),
       description: (0, _v38.translate)({
-        singular: "Generation of video title, description, and tags.",
+        singular: "Video title, description, tags and chapters generation",
         dictionary: {
           es: {
-            singular: "Generación del título, la descripción y las etiquetas del video."
+            singular: "Generación del título, la descripción, las etiquetas y los capítulos del vídeo"
           },
           "de-DE": {
-            singular: "Erstellung von Videotitel, Beschreibung und Tags."
+            singular: "Generierung von Videotiteln, Beschreibungen, Tags und Kapiteln"
           },
           "fr-FR": {
-            singular: "Génération du titre, de la description et des mots-clés de la vidéo."
+            singular: "Génération du titre, de la description, des tags et des chapitres de la vidéo"
           },
           "ja-JP": {
-            singular: "動画のタイトル、説明、タグの生成。"
+            singular: "動画のタイトル、説明、タグおよびチャプターの生成"
           },
           "ko-KR": {
-            singular: "동영상 제목, 설명 및 태그 생성."
+            singular: "비디오 제목, 설명, 태그 및 챕터 생성"
           },
           "pt-BR": {
-            singular: "Geração de título, descrição e tags do vídeo."
+            singular: "Geração de título, descrição, tags e capítulos do vídeo"
           },
           "zh-CN": {
-            singular: "生成视频标题、描述和标签。"
+            singular: "生成视频标题、描述、标签和章节"
           }
         }
       })
@@ -850,28 +902,28 @@
         }
       }),
       description: (0, _v38.translate)({
-        singular: "Generation of video clips from a video.",
+        singular: "Generation of video clips from a video",
         dictionary: {
           es: {
-            singular: "Generación de clips de video a partir de un video."
+            singular: "Generación de clips de vídeo a partir de un vídeo"
           },
           "de-DE": {
-            singular: "Erstellung von Videoclips aus einem Video."
+            singular: "Generierung von Videoclips aus einem Video"
           },
           "fr-FR": {
-            singular: "Génération de clips vidéo à partir d'une vidéo."
+            singular: "Génération de clips vidéo à partir d’une vidéo"
           },
           "ja-JP": {
-            singular: "動画からのクリップ生成。"
+            singular: "動画からのクリップ生成"
           },
           "ko-KR": {
-            singular: "동영상에서 클립 생성."
+            singular: "비디오에서 클립 생성"
           },
           "pt-BR": {
-            singular: "Geração de clipes de vídeo a partir de um vídeo."
+            singular: "Geração de clipes de vídeo a partir de um vídeo"
           },
           "zh-CN": {
-            singular: "从视频中生成视频片段。"
+            singular: "从视频生成视频片段"
           }
         }
       })
@@ -982,7 +1034,8 @@
             singular: "生成并组合由 AI 驱动的数据小部件，以构建自定义仪表板"
           }
         }
-      })
+      }),
+      orionFlag: "enable_ai_analytics_dashboard"
     }],
     _v63 = async (_v0, _v1, _v2, _v3) => {
       if (_v0 && !(await fetch(`//${_v0.apiUrl}/users/${_v1}/team_users/${_v2}`, {
@@ -1003,12 +1056,16 @@
       selectedMemberIds: _v4
     }) => {
       let _v5 = (0, _v33.useViewer)(),
-        [_v6, _v7] = (0, _v10.useState)(!1),
-        [_v8, _v9] = (0, _v10.useState)(_v62.map(_v0 => _v0.key)),
-        [_v10, _v11] = (0, _v10.useState)("none"),
-        [_v12, _v13] = (0, _v10.useState)(""),
-        [_v14, _v15] = (0, _v10.useState)(!1),
-        [_v16, _v17] = (0, _v10.useState)({
+        {
+          settings: _v6
+        } = (0, _v31.useOrionSettings)(),
+        _v7 = _v62.filter(_v0 => !("orionFlag" in _v0) || _v6[_v0.orionFlag]),
+        [_v8, _v9] = (0, _v10.useState)(!1),
+        [_v10, _v11] = (0, _v10.useState)(_v62.map(_v0 => _v0.key)),
+        [_v12, _v13] = (0, _v10.useState)("none"),
+        [_v14, _v15] = (0, _v10.useState)(""),
+        [_v16, _v17] = (0, _v10.useState)(!1),
+        [_v18, _v19] = (0, _v10.useState)({
           limit: null,
           resetDate: null
         });
@@ -1025,7 +1082,7 @@
             });
             if (_v0.ok && !_v0) {
               let _v0 = await _v0.json();
-              _v17({
+              _v19({
                 limit: _v0.account_limit ?? null,
                 resetDate: _v0.quota_end ?? null
               });
@@ -1035,24 +1092,24 @@
           _v0 = !0;
         };
       }, [_v5, _v1]);
-      let _v18 = "" === _v12.trim() ? null : Number(_v12),
-        _v19 = "custom" === _v10 && null === _v18,
-        _v20 = async () => {
+      let _v20 = "" === _v14.trim() ? null : Number(_v14),
+        _v21 = "custom" === _v12 && null === _v20,
+        _v22 = async () => {
           if (!_v5 || !_v3) return;
-          _v15(!0);
+          _v17(!0);
           let _v0 = 0;
           for (let _v0 of _v4) try {
             await _v63(_v5, _v3, _v0, {
-              ai_permissions_override: _v6,
-              ...(_v6 ? {
-                ai_features: Object.fromEntries(_v62.map(_v0 => [_v0.key, _v8.includes(_v0.key)]))
+              ai_permissions_override: _v8,
+              ...(_v8 ? {
+                ai_features: Object.fromEntries(_v7.map(_v0 => [_v0.key, _v10.includes(_v0.key)]))
               } : {}),
-              ai_credit_limit: "custom" === _v10 ? _v18 : null
+              ai_credit_limit: "custom" === _v12 ? _v20 : null
             });
           } catch {
             _v0 += 1;
           }
-          _v15(!1), _v0 > 0 ? _v0((0, _v38.translate)({
+          _v17(!1), _v0 > 0 ? _v0((0, _v38.translate)({
             singular: "Something went wrong. Please try again.",
             dictionary: {
               es: {
@@ -1104,7 +1161,7 @@
             }
           })), _v2();
         },
-        _v21 = [{
+        _v23 = [{
           key: "ai",
           label: (0, _v38.translate)({
             singular: "Vimeo AI",
@@ -1176,12 +1233,12 @@
                   }
                 })
               }), (0, _v1.jsx)(_v54, {
-                mode: _v10,
-                onModeChange: _v11,
-                draft: _v12,
-                onDraftChange: _v13,
-                maxCredits: _v16.limit,
-                resetDate: _v16.resetDate
+                mode: _v12,
+                onModeChange: _v13,
+                draft: _v14,
+                onDraftChange: _v15,
+                maxCredits: _v18.limit,
+                resetDate: _v18.resetDate
               })]
             }), (0, _v1.jsx)(_v48.Divider, {
               borderColor: "stroke"
@@ -1280,8 +1337,8 @@
                     })
                   })]
                 }), (0, _v1.jsx)(_v50.Switch, {
-                  isChecked: _v6,
-                  onChange: () => _v7(_v0 => !_v0),
+                  isChecked: _v8,
+                  onChange: () => _v9(_v0 => !_v0),
                   "aria-label": (0, _v38.translate)({
                     singular: "Enable AI features overrides",
                     dictionary: {
@@ -1311,8 +1368,8 @@
                 })]
               }), (0, _v1.jsx)(_v49.Stack, {
                 spacing: (0, _v13.rem)(16),
-                opacity: _v6 ? 1 : .5,
-                children: _v62.map(_v0 => (0, _v1.jsxs)(_v12.HStack, {
+                opacity: _v8 ? 1 : .5,
+                children: _v7.map(_v0 => (0, _v1.jsxs)(_v12.HStack, {
                   justifyContent: "space-between",
                   alignItems: "center",
                   gap: (0, _v13.rem)(16),
@@ -1326,11 +1383,11 @@
                       children: _v0.description
                     })]
                   }), (0, _v1.jsx)(_v50.Switch, {
-                    isChecked: _v8.includes(_v0.key),
-                    isDisabled: !_v6,
+                    isChecked: _v10.includes(_v0.key),
+                    isDisabled: !_v8,
                     onChange: () => {
                       var _v0, _v1;
-                      return _v0 = _v0.key, _v1 = !_v8.includes(_v0.key), void _v9(_v0 => _v1 ? [..._v0, _v0] : _v0.filter(_v0 => _v0 !== _v0));
+                      return _v0 = _v0.key, _v1 = !_v10.includes(_v0.key), void _v11(_v0 => _v1 ? [..._v0, _v0] : _v0.filter(_v0 => _v0 !== _v0));
                     },
                     "aria-label": _v0.label
                   })]
@@ -1370,13 +1427,13 @@
             }
           })
         }),
-        sections: _v21,
+        sections: _v23,
         onClose: _v2,
         onSave: () => {
-          _v20();
+          _v22();
         },
-        isSaving: _v14,
-        isSaveDisabled: _v19,
+        isSaving: _v16,
+        isSaveDisabled: _v21,
         saveLabel: (0, _v38.translate)({
           singular: "Override access",
           dictionary: {
@@ -1716,9 +1773,8 @@
   var _v81 = _v0.i(0),
     _v82 = _v0.i(0),
     _v83 = _v0.i(0),
-    _v84 = _v0.i(0),
-    _v85 = _v0.i(0);
-  let _v86 = _v0 => (0, _v1.jsx)(_v85.Icon, {
+    _v84 = _v0.i(0);
+  let _v85 = _v0 => (0, _v1.jsx)(_v84.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -1727,7 +1783,8 @@
       fill: "currentColor"
     })
   });
-  var _v87 = _v0.i(0),
+  var _v86 = _v0.i(0),
+    _v87 = _v0.i(0),
     _v88 = _v0.i(0);
   let _v89 = ({
       children: _v0,
@@ -1778,7 +1835,7 @@
           children: (0, _v1.jsxs)(_v12.HStack, {
             alignItems: "center",
             gap: (0, _v13.rem)(8),
-            children: [(0, _v1.jsx)(_v87.FolderLock, {
+            children: [(0, _v1.jsx)(_v86.FolderLock, {
               boxSize: "xs"
             }), (0, _v1.jsx)(_v89, {
               children: _v9.ViewAccess
@@ -1835,7 +1892,7 @@
           children: (0, _v1.jsxs)(_v12.HStack, {
             alignItems: "center",
             gap: (0, _v13.rem)(8),
-            children: [(0, _v1.jsx)(_v87.FolderLock, {
+            children: [(0, _v1.jsx)(_v86.FolderLock, {
               boxSize: "xs"
             }), (0, _v1.jsx)(_v89, {
               children: _v4.ViewAccess
@@ -1873,7 +1930,7 @@
           children: (0, _v1.jsxs)(_v12.HStack, {
             alignItems: "center",
             gap: (0, _v13.rem)(8),
-            children: [(0, _v1.jsx)(_v86, {
+            children: [(0, _v1.jsx)(_v85, {
               boxSize: "xs"
             }), (0, _v1.jsx)(_v89, {
               children: _v6 ? _v8.ReminderSent : _v8.ResendInviteOption
@@ -1884,7 +1941,7 @@
           children: (0, _v1.jsxs)(_v12.HStack, {
             alignItems: "center",
             gap: (0, _v13.rem)(8),
-            children: [(0, _v1.jsx)(_v84.Clipboard, {
+            children: [(0, _v1.jsx)(_v87.Link, {
               boxSize: "xs"
             }), (0, _v1.jsx)(_v89, {
               children: _v8.CopyInviteLinkOption

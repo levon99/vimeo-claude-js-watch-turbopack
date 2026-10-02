@@ -276,8 +276,11 @@
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
     _v44 = _v0.i(0),
-    _v45 = _v0.i(0);
-  let _v46 = [{
+    _v45 = _v0.i(0),
+    _v46 = _v0.i(0),
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0);
+  let _v49 = [{
       key: "vocabulary",
       policyName: "AI Vocabulary",
       label: (0, _v12.translate)({
@@ -333,7 +336,8 @@
         }
       }),
       roleSetting: "userRolePermissionTranscriptionKeywords",
-      accountSetting: null
+      accountSetting: null,
+      orionFlag: "enable_account_wide_dictionary_management"
     }, {
       key: "translation",
       policyName: "AI Translator",
@@ -395,54 +399,54 @@
       key: "video_details",
       policyName: "AI Video Details",
       label: (0, _v12.translate)({
-        singular: "Video details",
+        singular: "Video details and chapters",
         dictionary: {
           es: {
-            singular: "Detalles del video"
+            singular: "Detalles del vídeo y capítulos"
           },
           "de-DE": {
-            singular: "Videodetails"
+            singular: "Videodetails und Kapitel"
           },
           "fr-FR": {
-            singular: "Détails de la vidéo"
+            singular: "Détails et chapitres de la vidéo"
           },
           "ja-JP": {
-            singular: "動画の詳細情報"
+            singular: "動画の詳細とチャプター"
           },
           "ko-KR": {
-            singular: "동영상 세부 사항"
+            singular: "동영상 세부 정보 및 챕터"
           },
           "pt-BR": {
-            singular: "Detalhes do vídeo"
+            singular: "Detalhes do vídeo e capítulos"
           },
           "zh-CN": {
-            singular: "视频详情"
+            singular: "视频详情与章节"
           }
         }
       }),
       description: (0, _v12.translate)({
-        singular: "Generation of video title, description, and tags.",
+        singular: "Video title, description, tags and chapters generation",
         dictionary: {
           es: {
-            singular: "Generación del título, la descripción y las etiquetas del video."
+            singular: "Generación del título, la descripción, las etiquetas y los capítulos del vídeo"
           },
           "de-DE": {
-            singular: "Erstellung von Videotitel, Beschreibung und Tags."
+            singular: "Generierung von Videotiteln, Beschreibungen, Tags und Kapiteln"
           },
           "fr-FR": {
-            singular: "Génération du titre, de la description et des mots-clés de la vidéo."
+            singular: "Génération du titre, de la description, des tags et des chapitres de la vidéo"
           },
           "ja-JP": {
-            singular: "動画のタイトル、説明、タグの生成。"
+            singular: "動画のタイトル、説明、タグおよびチャプターの生成"
           },
           "ko-KR": {
-            singular: "동영상 제목, 설명 및 태그 생성."
+            singular: "비디오 제목, 설명, 태그 및 챕터 생성"
           },
           "pt-BR": {
-            singular: "Geração de título, descrição e tags do vídeo."
+            singular: "Geração de título, descrição, tags e capítulos do vídeo"
           },
           "zh-CN": {
-            singular: "生成视频标题、描述和标签。"
+            singular: "生成视频标题、描述、标签和章节"
           }
         }
       }),
@@ -532,28 +536,28 @@
         }
       }),
       description: (0, _v12.translate)({
-        singular: "Generation of video clips from a video.",
+        singular: "Generation of video clips from a video",
         dictionary: {
           es: {
-            singular: "Generación de clips de video a partir de un video."
+            singular: "Generación de clips de vídeo a partir de un vídeo"
           },
           "de-DE": {
-            singular: "Erstellung von Videoclips aus einem Video."
+            singular: "Generierung von Videoclips aus einem Video"
           },
           "fr-FR": {
-            singular: "Génération de clips vidéo à partir d'une vidéo."
+            singular: "Génération de clips vidéo à partir d’une vidéo"
           },
           "ja-JP": {
-            singular: "動画からのクリップ生成。"
+            singular: "動画からのクリップ生成"
           },
           "ko-KR": {
-            singular: "동영상에서 클립 생성."
+            singular: "비디오에서 클립 생성"
           },
           "pt-BR": {
-            singular: "Geração de clipes de vídeo a partir de um vídeo."
+            singular: "Geração de clipes de vídeo a partir de um vídeo"
           },
           "zh-CN": {
-            singular: "从视频中生成视频片段。"
+            singular: "从视频生成视频片段"
           }
         }
       }),
@@ -672,14 +676,12 @@
         }
       }),
       roleSetting: "userRolePermissionAiAnalytics",
-      accountSetting: "enableAiAnalyticsDashboard"
+      accountSetting: "enableAiAnalyticsDashboard",
+      orionFlag: "enable_ai_analytics_dashboard"
     }],
-    _v47 = (_v0, _v1) => !!_v0?.some(_v0 => _v0.name === _v1),
-    _v48 = (_v0, _v1) => !!_v0?.includes(_v1);
-  var _v49 = _v0.i(0),
-    _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
-    _v52 = _v0.i(0),
+    _v50 = (_v0, _v1) => !!_v0?.some(_v0 => _v0.name === _v1),
+    _v51 = (_v0, _v1) => !!_v0?.includes(_v1);
+  var _v52 = _v0.i(0),
     _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
@@ -690,13 +692,16 @@
     _v60 = _v0.i(0),
     _v61 = _v0.i(0),
     _v62 = _v0.i(0),
-    _v63 = _v0.i(0);
-  let _v64 = _v0 => (0, _v1.jsx)(_v22.Text, {
+    _v63 = _v0.i(0),
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0),
+    _v66 = _v0.i(0);
+  let _v67 = _v0 => (0, _v1.jsx)(_v22.Text, {
       as: "span",
       fontFamily: "heading",
       children: _v0
     }),
-    _v65 = ({
+    _v68 = ({
       isOpen: _v0,
       memberName: _v1,
       currentLimit: _v2,
@@ -717,14 +722,14 @@
           month: "short",
           year: "numeric"
         }) : null;
-      return (0, _v1.jsxs)(_v56.Modal, {
+      return (0, _v1.jsxs)(_v59.Modal, {
         isOpen: _v0,
         onClose: _v6,
         size: "md",
         isCentered: !0,
-        children: [(0, _v1.jsx)(_v62.ModalOverlay, {}), (0, _v1.jsxs)(_v59.ModalContent, {
+        children: [(0, _v1.jsx)(_v65.ModalOverlay, {}), (0, _v1.jsxs)(_v62.ModalContent, {
           maxW: (0, _v9.rem)(480),
-          children: [(0, _v1.jsxs)(_v61.ModalHeader, {
+          children: [(0, _v1.jsxs)(_v64.ModalHeader, {
             pr: "7",
             pb: "sm",
             children: [(0, _v1.jsx)(_v22.Text, {
@@ -762,7 +767,7 @@
               children: (0, _v12.translate)({
                 singular: "Set the maximum number of AI credits {bold}{name}{/bold} can use during the current period. Credits aren't reserved or allocated to them.",
                 replacements: {
-                  bold: _v64,
+                  bold: _v67,
                   name: _v1
                 },
                 dictionary: {
@@ -790,11 +795,11 @@
                 }
               })
             })]
-          }), (0, _v1.jsx)(_v58.ModalCloseButton, {}), (0, _v1.jsx)(_v57.ModalBody, {
-            children: (0, _v1.jsxs)(_v34.Stack, {
+          }), (0, _v1.jsx)(_v61.ModalCloseButton, {}), (0, _v1.jsx)(_v60.ModalBody, {
+            children: (0, _v1.jsxs)(_v36.Stack, {
               spacing: (0, _v9.rem)(16),
-              children: [(0, _v1.jsxs)(_v51.FormControl, {
-                children: [(0, _v1.jsx)(_v52.FormLabel, {
+              children: [(0, _v1.jsxs)(_v54.FormControl, {
+                children: [(0, _v1.jsx)(_v55.FormLabel, {
                   fontFamily: "heading",
                   children: (0, _v12.translate)({
                     singular: "Credits limits",
@@ -822,7 +827,7 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v55.Select, {
+                }), (0, _v1.jsx)(_v58.Select, {
                   size: "md",
                   items: [{
                     label: (0, _v12.translate)({
@@ -881,22 +886,22 @@
                     }),
                     value: "custom"
                   }],
-                  leftIcon: "none" === _v8 ? (0, _v1.jsx)(_v63.PersonUser, {}) : (0, _v1.jsx)(_v10.FiltersLevers, {}),
+                  leftIcon: "none" === _v8 ? (0, _v1.jsx)(_v66.PersonUser, {}) : (0, _v1.jsx)(_v10.FiltersLevers, {}),
                   onValueChange: _v0 => _v9(_v0.value[0] ?? "none"),
                   value: [_v8],
-                  children: _v0 => (0, _v1.jsx)(_v55.SelectItem, {
+                  children: _v0 => (0, _v1.jsx)(_v58.SelectItem, {
                     label: _v0.label,
                     children: (0, _v1.jsxs)(_v21.HStack, {
                       spacing: (0, _v9.rem)(8),
-                      children: ["none" === _v0.value ? (0, _v1.jsx)(_v63.PersonUser, {}) : (0, _v1.jsx)(_v10.FiltersLevers, {}), (0, _v1.jsx)(_v55.SelectItemText, {
+                      children: ["none" === _v0.value ? (0, _v1.jsx)(_v66.PersonUser, {}) : (0, _v1.jsx)(_v10.FiltersLevers, {}), (0, _v1.jsx)(_v58.SelectItemText, {
                         children: _v0.label
                       })]
                     })
                   })
                 })]
-              }), "custom" === _v8 && (0, _v1.jsx)(_v51.FormControl, {
-                children: (0, _v1.jsx)(_v54.InputGroup, {
-                  children: (0, _v1.jsx)(_v53.Input, {
+              }), "custom" === _v8 && (0, _v1.jsx)(_v54.FormControl, {
+                children: (0, _v1.jsx)(_v57.InputGroup, {
+                  children: (0, _v1.jsx)(_v56.Input, {
                     inputMode: "numeric",
                     placeholder: "2,500",
                     value: _v10,
@@ -936,7 +941,7 @@
                     }
                   }
                 })
-              }), _v14 && (0, _v1.jsx)(_v49.Alert, {
+              }), _v14 && (0, _v1.jsx)(_v52.Alert, {
                 status: "info",
                 children: (0, _v1.jsx)(_v22.Text, {
                   variant: "body-md",
@@ -970,7 +975,7 @@
                     }
                   })
                 })
-              }), _v13 && (0, _v1.jsx)(_v49.Alert, {
+              }), _v13 && (0, _v1.jsx)(_v52.Alert, {
                 status: "info",
                 children: (0, _v1.jsx)(_v22.Text, {
                   variant: "body-md",
@@ -1003,7 +1008,7 @@
                 })
               })]
             })
-          }), (0, _v1.jsxs)(_v60.ModalFooter, {
+          }), (0, _v1.jsxs)(_v63.ModalFooter, {
             display: "block",
             children: [(0, _v1.jsx)(_v19.Divider, {
               borderColor: "stroke",
@@ -1012,7 +1017,7 @@
             }), (0, _v1.jsxs)(_v21.HStack, {
               justifyContent: "flex-end",
               gap: (0, _v9.rem)(8),
-              children: [(0, _v1.jsx)(_v50.Button, {
+              children: [(0, _v1.jsx)(_v53.Button, {
                 variant: "secondary",
                 onClick: _v6,
                 children: (0, _v12.translate)({
@@ -1041,7 +1046,7 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v50.Button, {
+              }), (0, _v1.jsx)(_v53.Button, {
                 variant: "primary",
                 isDisabled: !_v15,
                 onClick: () => {
@@ -1079,22 +1084,22 @@
         })]
       });
     };
-  var _v66 = _v0.i(0);
-  let _v67 = "account_disabled_ai_features,ai_credit_limit,user.name,permission_level,current_team_permission_policies,applicable_permission_policies.ai.name",
-    _v68 = (_v0, _v1) => `/users/${_v0}/team_users/${_v1}`,
-    _v69 = (_v0, _v1, _v2) => (0, _v66.makeApiCall)(`${_v68(_v1, _v2)}?fields=${encodeURIComponent(_v67)}`, _v0),
-    _v70 = async (_v0, _v1, _v2) => {
+  var _v69 = _v0.i(0);
+  let _v70 = "account_disabled_ai_features,ai_credit_limit,user.name,permission_level,current_team_permission_policies,applicable_permission_policies.ai.name",
+    _v71 = (_v0, _v1) => `/users/${_v0}/team_users/${_v1}`,
+    _v72 = (_v0, _v1, _v2) => (0, _v69.makeApiCall)(`${_v71(_v1, _v2)}?fields=${encodeURIComponent(_v70)}`, _v0),
+    _v73 = async (_v0, _v1, _v2) => {
       try {
-        return await (0, _v66.makeApiCall)(`/users/${_v1}/ai_credits/usage?spender_user_id=${_v2}`, _v0);
+        return await (0, _v69.makeApiCall)(`/users/${_v1}/ai_credits/usage?spender_user_id=${_v2}`, _v0);
       } catch {
         return null;
       }
     },
-    _v71 = ["userRolePermissionTranscriptionKeywords", "userRolePermissionAiTranslate", "enableParentPermissionAiTranslate", "userRolePermissionAiVideoDetails", "enableParentPermissionAiVideoDetails", "userRolePermissionAiScriptGeneration", "userRolePermissionAiHighlights", "enableParentPermissionAiHighlights", "userRolePermissionAiLiveCaptions", "enableParentPermissionAiLiveCaptions", "userRolePermissionAiAnalytics", "enableAiAnalyticsDashboard"],
-    _v72 = ({
+    _v74 = ["userRolePermissionTranscriptionKeywords", "userRolePermissionAiTranslate", "enableParentPermissionAiTranslate", "userRolePermissionAiVideoDetails", "enableParentPermissionAiVideoDetails", "userRolePermissionAiScriptGeneration", "userRolePermissionAiHighlights", "enableParentPermissionAiHighlights", "userRolePermissionAiLiveCaptions", "enableParentPermissionAiLiveCaptions", "userRolePermissionAiAnalytics", "enableAiAnalyticsDashboard"],
+    _v75 = ({
       teamUserId: _v0
     }) => {
-      let _v1 = (0, _v38.useToast)(),
+      let _v1 = (0, _v40.useToast)(),
         _v2 = (0, _v3.useContext)(_v27.ViewerContext),
         {
           userId: _v3
@@ -1103,7 +1108,7 @@
         {
           workspaceUuid: _v5,
           isLoading: _v6
-        } = (0, _v45.useCurrentWorkspaceDetails)(),
+        } = (0, _v48.useCurrentWorkspaceDetails)(),
         {
           trackAiOverrideToggled: _v7,
           trackAiFeatureToggled: _v8,
@@ -1111,32 +1116,36 @@
           trackAiCreditLimitSaved: _v10
         } = (0, _v13.useWorkspaceMemberTracking)(),
         {
-          data: _v11
-        } = (0, _v44.useGetWorkspaceSettings)(() => _v5 ? {
+          settings: _v11
+        } = (0, _v47.useOrionSettings)(),
+        {
+          data: _v12
+        } = (0, _v46.useGetWorkspaceSettings)(() => _v5 ? {
           where: {
             workspaceUuid: _v5
           },
-          select: _v71
+          select: _v74
         } : null),
         {
-          data: _v12
-        } = (0, _v43.useGetTeamSettings)(() => _v6 || _v5 || !_v4 ? null : {
+          data: _v13
+        } = (0, _v45.useGetTeamSettings)(() => _v6 || _v5 || !_v4 ? null : {
           where: {
             userId: _v4
           },
-          select: _v71
+          select: _v74
         }),
-        _v13 = _v5 ? _v11 : _v6 ? void 0 : _v12,
-        [_v14, _v15] = (0, _v3.useState)(null),
-        [_v16, _v17] = (0, _v3.useState)(null),
-        [_v18, _v19] = (0, _v3.useState)(!1),
-        [_v20, _v21] = (0, _v3.useState)(null);
+        _v14 = _v5 ? _v12 : _v6 ? void 0 : _v13,
+        [_v15, _v16] = (0, _v3.useState)(null),
+        [_v17, _v18] = (0, _v3.useState)(!0),
+        [_v19, _v20] = (0, _v3.useState)(null),
+        [_v21, _v22] = (0, _v3.useState)(!1),
+        [_v23, _v24] = (0, _v3.useState)(null);
       (0, _v3.useEffect)(() => {
         let _v0 = !1;
         return (async () => {
           if (_v2) try {
-            let _v0 = await _v69(_v2, _v4, _v0);
-            _v0 || _v15(_v0);
+            let _v0 = await _v72(_v2, _v4, _v0);
+            _v0 || _v16(_v0);
           } catch {
             _v0 || _v1({
               title: (0, _v12.translate)({
@@ -1169,6 +1178,8 @@
               duration: 0,
               isClosable: !0
             });
+          } finally {
+            _v0 || _v18(!1);
           }
         })(), () => {
           _v0 = !0;
@@ -1177,20 +1188,20 @@
         let _v0 = !1;
         return (async () => {
           if (!_v2 || !_v3 || !_v4) return;
-          let _v0 = await _v70(_v2, _v4, _v3);
-          _v0 || _v17(_v0);
+          let _v0 = await _v73(_v2, _v4, _v3);
+          _v0 || _v20(_v0);
         })(), () => {
           _v0 = !0;
         };
       }, [_v2, _v3, _v4]);
-      let _v22 = async () => {
-          _v2 && (_v15(await _v69(_v2, _v4, _v0)), _v3 && _v4 && _v17(await _v70(_v2, _v4, _v3)));
+      let _v25 = async () => {
+          _v2 && (_v16(await _v72(_v2, _v4, _v0)), _v3 && _v4 && _v20(await _v73(_v2, _v4, _v3)));
         },
-        _v23 = async (_v0, _v1) => {
+        _v26 = async (_v0, _v1) => {
           if (_v2) {
-            _v21(_v0);
+            _v24(_v0);
             try {
-              await (0, _v66.makeApiCall)(`${_v68(_v4, _v0)}?fields=${encodeURIComponent(_v67)}`, _v2, "PATCH", _v1), await _v22();
+              await (0, _v69.makeApiCall)(`${_v71(_v4, _v0)}?fields=${encodeURIComponent(_v70)}`, _v2, "PATCH", _v1), await _v25();
             } catch {
               _v1({
                 title: (0, _v12.translate)({
@@ -1224,35 +1235,39 @@
                 isClosable: !0
               });
             } finally {
-              _v21(null);
+              _v24(null);
             }
           }
         },
-        _v24 = _v47(_v14?.currentTeamPermissionPolicies, "AI Permissions Override"),
-        _v25 = _v14?.applicablePermissionPolicies?.ai,
-        _v26 = !!_v25?.length,
-        _v27 = _v14?.permissionLevel,
-        _v28 = "Owner" === _v27 || "Admin" === _v27 || "Contributor" === _v27 || "Contributor Plus" === _v27,
-        _v29 = "Owner" === _v27 || "Admin" === _v27,
-        _v30 = _v0 => {
-          if (!_v27 || !_v13) return !1;
-          let _v1 = "roleaao" === _v13[_v0.roleSetting] ? _v29 : _v28;
-          return (!_v0.accountSetting || !1 !== _v13[_v0.accountSetting]) && _v1;
+        _v27 = _v50(_v15?.currentTeamPermissionPolicies, "AI Permissions Override"),
+        _v28 = _v15?.applicablePermissionPolicies?.ai,
+        _v29 = !!_v28?.length,
+        _v30 = _v49.filter(_v0 => !("orionFlag" in _v0) || _v11[_v0.orionFlag]),
+        _v31 = _v15?.permissionLevel,
+        _v32 = "Owner" === _v31 || "Admin" === _v31 || "Contributor" === _v31 || "Contributor Plus" === _v31,
+        _v33 = "Owner" === _v31 || "Admin" === _v31,
+        _v34 = _v0 => {
+          if (!_v31 || !_v14) return !1;
+          let _v1 = "roleaao" === _v14[_v0.roleSetting] ? _v33 : _v32;
+          return (!_v0.accountSetting || !1 !== _v14[_v0.accountSetting]) && _v1;
         },
-        _v31 = () => {
+        _v35 = () => {
           _v9({
-            currentLimit: _v14?.aiCreditLimit ?? null
-          }), _v19(!0);
+            currentLimit: _v15?.aiCreditLimit ?? null
+          }), _v22(!0);
         },
-        _v32 = _v16?.quotaEnd ? new Date(_v16.quotaEnd).toLocaleDateString(void 0, {
+        _v36 = _v19?.quotaEnd ? new Date(_v19.quotaEnd).toLocaleDateString(void 0, {
           day: "numeric",
           month: "short",
           year: "numeric"
         }) : null,
-        _v33 = _v14?.aiCreditLimit === 0,
-        _v34 = _v14?.aiCreditLimit == null ? _v16?.accountLimit : _v16?.cap,
-        _v35 = _v16 && null != _v34 && _v34 > 0 ? Math.min(100, Math.round(_v16.usage / _v34 * 100)) : null;
-      return _v2 ? _v26 ? (0, _v1.jsx)(_v1.Fragment, {
+        _v37 = _v15?.aiCreditLimit === 0,
+        _v38 = _v15?.aiCreditLimit == null ? _v19?.accountLimit : _v19?.cap,
+        _v39 = _v19 && null != _v38 && _v38 > 0 ? Math.min(100, Math.round(_v19.usage / _v38 * 100)) : null;
+      return _v2 ? _v17 ? (0, _v1.jsx)(_v32.Center, {
+        py: (0, _v9.rem)(24),
+        children: (0, _v1.jsx)(_v35.Spinner, {})
+      }) : _v29 ? (0, _v1.jsx)(_v1.Fragment, {
         children: (0, _v1.jsxs)(_v15.Accordion, {
           allowMultiple: !0,
           defaultIndex: [0],
@@ -1277,10 +1292,10 @@
                     borderRadius: (0, _v9.rem)(8),
                     bgColor: "fill-component",
                     flexShrink: 0,
-                    children: (0, _v1.jsx)(_v39.AiSparkles, {
+                    children: (0, _v1.jsx)(_v41.AiSparkles, {
                       boxSize: "xs"
                     })
-                  }), (0, _v1.jsxs)(_v37.VStack, {
+                  }), (0, _v1.jsxs)(_v39.VStack, {
                     alignItems: "flex-start",
                     spacing: (0, _v9.rem)(2),
                     minWidth: 0,
@@ -1344,9 +1359,9 @@
                   })]
                 }), (0, _v1.jsx)(_v18.AccordionPanel, {
                   backgroundColor: "transparent",
-                  children: (0, _v1.jsxs)(_v34.Stack, {
+                  children: (0, _v1.jsxs)(_v36.Stack, {
                     spacing: (0, _v9.rem)(40),
-                    children: [(0, _v1.jsxs)(_v34.Stack, {
+                    children: [(0, _v1.jsxs)(_v36.Stack, {
                       spacing: (0, _v9.rem)(24),
                       children: [(0, _v1.jsx)(_v22.Text, {
                         variant: "heading-xs",
@@ -1377,9 +1392,9 @@
                             }
                           }
                         })
-                      }), (0, _v1.jsxs)(_v34.Stack, {
+                      }), (0, _v1.jsxs)(_v36.Stack, {
                         spacing: (0, _v9.rem)(16),
-                        children: [(0, _v1.jsxs)(_v34.Stack, {
+                        children: [(0, _v1.jsxs)(_v36.Stack, {
                           spacing: (0, _v9.rem)(4),
                           children: [(0, _v1.jsx)(_v22.Text, {
                             variant: "heading-xs",
@@ -1415,7 +1430,7 @@
                             children: [(0, _v1.jsx)(_v22.Text, {
                               variant: "body-xl",
                               fontFamily: "heading",
-                              children: _v14?.aiCreditLimit != null ? _v14.aiCreditLimit.toLocaleString() : (0, _v12.translate)({
+                              children: _v15?.aiCreditLimit != null ? _v15.aiCreditLimit.toLocaleString() : (0, _v12.translate)({
                                 singular: "no limits",
                                 dictionary: {
                                   es: {
@@ -1469,8 +1484,8 @@
                                   }
                                 }
                               })
-                            }), (0, _v1.jsx)(_v32.IconButton, {
-                              icon: (0, _v1.jsx)(_v41.EditPencil, {
+                            }), (0, _v1.jsx)(_v33.IconButton, {
+                              icon: (0, _v1.jsx)(_v43.EditPencil, {
                                 boxSize: "xs"
                               }),
                               "aria-label": (0, _v12.translate)({
@@ -1501,11 +1516,11 @@
                               }),
                               size: "sm",
                               variant: "secondary",
-                              onClick: _v31,
-                              isDisabled: "limit" === _v20
+                              onClick: _v35,
+                              isDisabled: "limit" === _v23
                             })]
                           })]
-                        }), !_v33 && _v16 && null != _v34 && null != _v35 && (0, _v1.jsxs)(_v34.Stack, {
+                        }), !_v37 && _v19 && null != _v38 && null != _v39 && (0, _v1.jsxs)(_v36.Stack, {
                           spacing: (0, _v9.rem)(12),
                           children: [(0, _v1.jsx)(_v22.Text, {
                             variant: "heading-xs",
@@ -1535,7 +1550,7 @@
                                 }
                               }
                             })
-                          }), (0, _v1.jsxs)(_v34.Stack, {
+                          }), (0, _v1.jsxs)(_v36.Stack, {
                             spacing: (0, _v9.rem)(8),
                             children: [(0, _v1.jsxs)(_v21.HStack, {
                               alignItems: "center",
@@ -1544,20 +1559,20 @@
                                 children: (0, _v12.translate)({
                                   singular: "{used} of {total} used",
                                   replacements: {
-                                    used: (_v1 = _v16.usage.toLocaleString(), () => (0, _v1.jsx)(_v22.Text, {
+                                    used: (_v1 = _v19.usage.toLocaleString(), () => (0, _v1.jsx)(_v22.Text, {
                                       as: "span",
                                       variant: "body-xl",
                                       fontFamily: "heading",
                                       children: _v1
                                     })),
-                                    total: _v34.toLocaleString()
+                                    total: _v38.toLocaleString()
                                   }
                                 })
-                              }), _v32 ? (0, _v1.jsx)(_v36.Tooltip, {
+                              }), _v36 ? (0, _v1.jsx)(_v38.Tooltip, {
                                 label: (0, _v12.translate)({
                                   singular: "Renews at {date}",
                                   replacements: {
-                                    date: _v32
+                                    date: _v36
                                   },
                                   dictionary: {
                                     es: {
@@ -1587,17 +1602,17 @@
                                   as: "span",
                                   display: "inline-flex",
                                   alignItems: "center",
-                                  children: (0, _v1.jsx)(_v42.InfoCircle, {
+                                  children: (0, _v1.jsx)(_v44.InfoCircle, {
                                     boxSize: (0, _v9.rem)(16),
                                     color: "text-secondary"
                                   })
                                 })
-                              }) : (0, _v1.jsx)(_v42.InfoCircle, {
+                              }) : (0, _v1.jsx)(_v44.InfoCircle, {
                                 boxSize: (0, _v9.rem)(16),
                                 color: "text-secondary"
                               })]
-                            }), (0, _v1.jsx)(_v33.Progress, {
-                              value: _v35,
+                            }), (0, _v1.jsx)(_v34.Progress, {
+                              value: _v39,
                               variant: "neutral",
                               height: (0, _v9.rem)(4),
                               borderRadius: (0, _v9.rem)(2)
@@ -1605,7 +1620,7 @@
                           })]
                         })]
                       })]
-                    }), (0, _v1.jsxs)(_v34.Stack, {
+                    }), (0, _v1.jsxs)(_v36.Stack, {
                       spacing: (0, _v9.rem)(24),
                       children: [(0, _v1.jsx)(_v22.Text, {
                         variant: "heading-xs",
@@ -1636,13 +1651,13 @@
                             }
                           }
                         })
-                      }), (0, _v1.jsxs)(_v34.Stack, {
+                      }), (0, _v1.jsxs)(_v36.Stack, {
                         spacing: (0, _v9.rem)(16),
                         children: [(0, _v1.jsxs)(_v21.HStack, {
                           justifyContent: "space-between",
                           alignItems: "center",
                           gap: (0, _v9.rem)(16),
-                          children: [(0, _v1.jsxs)(_v34.Stack, {
+                          children: [(0, _v1.jsxs)(_v36.Stack, {
                             spacing: 0,
                             children: [(0, _v1.jsx)(_v22.Text, {
                               variant: "heading-xs",
@@ -1701,25 +1716,25 @@
                                 }
                               })
                             })]
-                          }), (0, _v1.jsx)(_v35.Switch, {
-                            isChecked: _v24,
-                            isDisabled: "master" === _v20 || void 0 === _v13 && !_v24,
+                          }), (0, _v1.jsx)(_v37.Switch, {
+                            isChecked: _v27,
+                            isDisabled: "master" === _v23 || void 0 === _v14 && !_v27,
                             onChange: () => (_v0 => {
                               if (_v7({
                                 enabled: _v0
-                              }), !_v0) return void _v23("master", {
+                              }), !_v0) return void _v26("master", {
                                 ai_permissions_override: !1
                               });
                               let _v1 = {};
-                              _v46.forEach(_v0 => {
-                                let _v1 = _v47(_v25, _v0.policyName),
-                                  _v2 = _v48(_v14?.accountDisabledAiFeatures, _v0.policyName);
-                                _v1 && !_v2 && (_v1[_v0.key] = _v30(_v0));
-                              }), _v23("master", {
+                              _v30.forEach(_v0 => {
+                                let _v1 = _v50(_v28, _v0.policyName),
+                                  _v2 = _v51(_v15?.accountDisabledAiFeatures, _v0.policyName);
+                                _v1 && !_v2 && (_v1[_v0.key] = _v34(_v0));
+                              }), _v26("master", {
                                 ai_permissions_override: !0,
                                 ai_features: _v1
                               });
-                            })(!_v24),
+                            })(!_v27),
                             "aria-label": (0, _v12.translate)({
                               singular: "Enable AI features overrides",
                               dictionary: {
@@ -1747,19 +1762,19 @@
                               }
                             })
                           })]
-                        }), (0, _v1.jsx)(_v34.Stack, {
+                        }), (0, _v1.jsx)(_v36.Stack, {
                           spacing: (0, _v9.rem)(16),
-                          opacity: _v24 ? 1 : .5,
-                          children: _v46.map(_v0 => {
-                            let _v1 = _v47(_v14?.currentTeamPermissionPolicies, _v0.policyName),
-                              _v2 = _v47(_v25, _v0.policyName),
-                              _v3 = _v48(_v14?.accountDisabledAiFeatures, _v0.policyName),
-                              _v4 = _v24 ? _v1 : _v30(_v0);
+                          opacity: _v27 ? 1 : .5,
+                          children: _v30.map(_v0 => {
+                            let _v1 = _v50(_v15?.currentTeamPermissionPolicies, _v0.policyName),
+                              _v2 = _v50(_v28, _v0.policyName),
+                              _v3 = _v51(_v15?.accountDisabledAiFeatures, _v0.policyName),
+                              _v4 = _v27 ? _v1 : _v34(_v0);
                             return (0, _v1.jsxs)(_v21.HStack, {
                               justifyContent: "space-between",
                               alignItems: "center",
                               gap: (0, _v9.rem)(16),
-                              children: [(0, _v1.jsxs)(_v34.Stack, {
+                              children: [(0, _v1.jsxs)(_v36.Stack, {
                                 spacing: 0,
                                 children: [(0, _v1.jsx)(_v22.Text, {
                                   variant: "heading-xs",
@@ -1772,7 +1787,7 @@
                                 alignItems: "center",
                                 gap: (0, _v9.rem)(8),
                                 flexShrink: 0,
-                                children: [(_v3 || !_v2) && (0, _v1.jsx)(_v36.Tooltip, {
+                                children: [(_v3 || !_v2) && (0, _v1.jsx)(_v38.Tooltip, {
                                   label: _v3 ? (0, _v12.translate)({
                                     singular: "This feature is disabled at the account level. To allow this user to access it, re-enable it in the account's Vimeo AI settings.",
                                     dictionary: {
@@ -1825,20 +1840,20 @@
                                     }
                                   }),
                                   children: (0, _v1.jsx)("span", {
-                                    children: (0, _v1.jsx)(_v40.CircleExclamation, {
+                                    children: (0, _v1.jsx)(_v42.CircleExclamation, {
                                       boxSize: (0, _v9.rem)(20),
                                       color: _v3 ? "status-caution-primary" : "text-secondary"
                                     })
                                   })
-                                }), (0, _v1.jsx)(_v35.Switch, {
+                                }), (0, _v1.jsx)(_v37.Switch, {
                                   isChecked: _v4,
-                                  isDisabled: _v20 === _v0.key || !_v24 || _v3 || !_v2,
+                                  isDisabled: _v23 === _v0.key || !_v27 || _v3 || !_v2,
                                   onChange: () => {
                                     var _v0, _v1;
                                     _v8({
                                       feature: _v0 = _v0.key,
                                       enabled: _v1 = !_v4
-                                    }), _v23(_v0, {
+                                    }), _v26(_v0, {
                                       ai_features: {
                                         [_v0]: _v1
                                       }
@@ -1856,22 +1871,22 @@
                 })]
               });
             }
-          }), (0, _v1.jsx)(_v65, {
-            isOpen: _v18,
-            memberName: _v14?.user?.name ?? "",
-            currentLimit: _v14?.aiCreditLimit ?? null,
-            maxCredits: _v16?.accountLimit ?? null,
-            currentUsage: _v16?.usage ?? null,
-            resetDate: _v16?.quotaEnd ?? null,
-            onClose: () => _v19(!1),
+          }), (0, _v1.jsx)(_v68, {
+            isOpen: _v21,
+            memberName: _v15?.user?.name ?? "",
+            currentLimit: _v15?.aiCreditLimit ?? null,
+            maxCredits: _v19?.accountLimit ?? null,
+            currentUsage: _v19?.usage ?? null,
+            resetDate: _v19?.quotaEnd ?? null,
+            onClose: () => _v22(!1),
             onSave: _v0 => {
-              _v19(!1), _v10({
+              _v22(!1), _v10({
                 limit: _v0
-              }), _v23("limit", {
+              }), _v26("limit", {
                 ai_credit_limit: _v0
               });
             }
-          }, `${_v14?.aiCreditLimit ?? "none"}-${String(_v18)}`)]
+          }, `${_v15?.aiCreditLimit ?? "none"}-${String(_v21)}`)]
         })
       }) : (0, _v1.jsx)(_v22.Text, {
         color: "text-secondary",
@@ -2010,7 +2025,7 @@
         })]
       }), (0, _v1.jsxs)(_v8.TabPanels, {
         children: [(0, _v1.jsx)(_v7.TabPanel, {
-          children: (0, _v1.jsx)(_v72, {
+          children: (0, _v1.jsx)(_v75, {
             teamUserId: _v0
           })
         }), (0, _v1.jsx)(_v7.TabPanel, {

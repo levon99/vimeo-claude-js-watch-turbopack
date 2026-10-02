@@ -100,18 +100,19 @@
   }, "MenuAction", 0, ({
     icon: _v0,
     label: _v1,
-    children: _v2
+    badge: _v2,
+    children: _v3
   }) => {
     let {
-      closeDrawer: _v3,
-      isV2: _v4
+      closeDrawer: _v4,
+      isV2: _v5
     } = (0, _v11.useActionMenuContext)();
     return (0, _v1.jsxs)(_v6.NestedMenu, {
       positioning: {
         placement: "right-start"
       },
       children: [(0, _v1.jsx)(_v6.NestedMenuTriggerItem, {
-        children: _v4 ? (0, _v1.jsxs)(_v4.Flex, {
+        children: _v5 ? (0, _v1.jsxs)(_v4.Flex, {
           align: "center",
           gap: "sm",
           justify: "space-between",
@@ -120,7 +121,7 @@
             flex: "1 1",
             variant: "body-md",
             children: _v1
-          }), (0, _v1.jsx)(_v9.ChevronRightSmall, {})]
+          }), _v2, (0, _v1.jsx)(_v9.ChevronRightSmall, {})]
         }) : (0, _v1.jsxs)(_v4.Flex, {
           align: "center",
           gap: "sm",
@@ -132,7 +133,7 @@
             fontSize: (0, _v5.rem)(14),
             lineHeight: (0, _v5.rem)(20),
             children: _v1
-          }), (0, _v1.jsx)(_v9.ChevronRightSmall, {})]
+          }), _v2, (0, _v1.jsx)(_v9.ChevronRightSmall, {})]
         })
       }), (0, _v1.jsx)(_v7.NestedMenuPortal, {
         children: (0, _v1.jsx)(_v6.NestedMenuPositioner, {
@@ -144,10 +145,10 @@
             maxWidth: `calc(2 * ${_v10.MENU_MIN_WIDTH})`,
             children: (0, _v1.jsx)(_v11.ActionMenuContext.Provider, {
               value: {
-                closeDrawer: _v3,
+                closeDrawer: _v4,
                 isV2: !0
               },
-              children: _v2
+              children: _v3
             })
           })
         })

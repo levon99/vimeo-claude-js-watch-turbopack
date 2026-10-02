@@ -8669,7 +8669,7 @@
       return (0, _v1.jsx)(_v175.Box, {
         borderTop: "1px solid",
         borderColor: "stroke",
-        paddingTop: "md",
+        paddingTop: "sm",
         paddingBottom: "sm",
         paddingRight: "md",
         paddingLeft: {
@@ -9011,8 +9011,16 @@
         width: "100%",
         borderBottomRadius: "lg",
         background: "upsell-secondary",
-        padding: "md",
-        paddingTop: "xl",
+        paddingTop: "lg",
+        paddingRight: (0, _v9.rem)(12),
+        paddingBottom: {
+          base: (0, _v9.rem)(12),
+          md: "sm"
+        },
+        paddingLeft: {
+          base: (0, _v9.rem)(12),
+          md: "md"
+        },
         position: "relative",
         zIndex: 0,
         marginTop: (0, _v9.rem)(-16),
@@ -9026,10 +9034,24 @@
             base: "flex-start",
             md: "center"
           },
-          gap: "md",
+          gap: (0, _v9.rem)(12),
           children: [(0, _v1.jsxs)(_v8.Flex, {
             direction: "column",
-            gap: "xs",
+            gap: {
+              base: "xs",
+              md: 0
+            },
+            width: {
+              base: "100%",
+              md: "auto"
+            },
+            paddingLeft: {
+              base: "sm",
+              md: 0
+            },
+            paddingRight: "sm",
+            paddingTop: (0, _v9.rem)(2),
+            paddingBottom: (0, _v9.rem)(2),
             children: [(0, _v1.jsx)(_v179.Text, {
               variant: "heading-xs",
               color: "text-primary",
@@ -9045,6 +9067,10 @@
             variant: "upsell",
             size: "sm",
             flexShrink: 0,
+            width: {
+              base: "100%",
+              md: "auto"
+            },
             children: _v80.CONTACT_SALES
           })]
         })

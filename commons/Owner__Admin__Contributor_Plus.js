@@ -19,7 +19,7 @@
         capabilities: _v4,
         ready: _v5
       } = (0, _v1.useCapability)(["hasEventSeriesEnabled"], _v3),
-      _v6 = _v1.enable_event_series || _v1.release_event_series_v1,
+      _v6 = _v1.release_event_series_v1,
       {
         data: _v7,
         isLoading: _v8

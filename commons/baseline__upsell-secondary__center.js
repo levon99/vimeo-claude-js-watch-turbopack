@@ -9394,20 +9394,16 @@
         {
           capabilities: _v23,
           ready: _v24
-        } = (0, _v19.useCapability)(["hasAdminForcedPreset", "hasAllowLargeLeadCaptureNames"], _v18),
-        {
-          settings: _v25
-        } = (0, _v29.useOrionSettings)(),
-        _v26 = _v25.enable_large_lead_capture_form_field_names || _v24 && !!_v23?.hasAllowLargeLeadCaptureNames,
-        _v27 = _v24 && !!_v23?.hasAdminForcedPreset,
-        _v28 = _v0.map(_v0 => _v0.name),
-        _v29 = (_v0, _v1) => {
+        } = (0, _v19.useCapability)(["hasAdminForcedPreset"], _v18),
+        _v25 = _v24 && !!_v23?.hasAdminForcedPreset,
+        _v26 = _v0.map(_v0 => _v0.name),
+        _v27 = (_v0, _v1) => {
           _v9.current = _v0, _v13.current = _v1, _v6(!1);
         },
-        _v30 = () => {
+        _v28 = () => {
           _v4(!0);
         },
-        _v31 = () => {
+        _v29 = () => {
           let _v0 = [..._v0],
             _v1 = _v0.splice(_v9.current, 1)[0];
           _v0.splice(_v10.current, 0, _v1), _v0 = _v0.map((_v0, _v1) => ({
@@ -9415,11 +9411,11 @@
             position: _v1 + 1
           })), _v2?.(_v0), _v12(_v0.map(() => 0)), _v4(!1), _v8(_v10.current);
         },
-        _v32 = (_v0, _v1) => {
+        _v30 = (_v0, _v1) => {
           let _v2 = [..._v0];
           _v2[_v1] = _v21 ? (0, _v38.setLocalizedOptions)(_v2[_v1], _v19, _v0) : (0, _v38.syncOptionLocalizations)(_v2[_v1], _v0), _v2?.(_v2), _v8(_v1);
         },
-        _v33 = (_v0, _v1, _v2) => {
+        _v31 = (_v0, _v1, _v2) => {
           let _v3 = [..._v0];
           if (_v21 && "name" === _v0 && "string" == typeof _v1) {
             _v3[_v2] = (0, _v38.setLocalizedFieldName)(_v3[_v2], _v19, _v1), _v2?.(_v3), _v8(_v2);
@@ -9457,7 +9453,7 @@
             localizations: _v5
           }, _v2?.(_v3);
         },
-        _v34 = _v0 => {
+        _v32 = _v0 => {
           let _v1 = [..._v0],
             _v2 = _v112.FIELD_TO_TYPE_MAPPING[_v1[_v0].type];
           _v1.splice(_v0, 1), _v1 = _v1.map((_v0, _v1) => ({
@@ -9468,71 +9464,71 @@
             type: _v2
           });
         },
-        _v35 = (_v0, _v1) => {
+        _v33 = (_v0, _v1) => {
           let _v2 = (0, _v119.getUpdatedItemsAddProvider)([..._v0], _v0, _v1);
           _v2?.(_v2);
         },
-        _v36 = (_v0, _v1) => {
+        _v34 = (_v0, _v1) => {
           let _v2 = (0, _v119.getUpdatedItemsRemoveProvider)([..._v0], _v0, _v1);
           _v2?.(_v2);
         },
-        _v37 = (_v0, _v1) => {
+        _v35 = (_v0, _v1) => {
           let _v2 = _v0.find(_v0 => _v0.name === _v0);
-          (_v21 || !_v2) && _v33("name", _v0, _v1);
+          (_v21 || !_v2) && _v31("name", _v0, _v1);
         },
-        _v38 = _v0.map(_v0 => (0, _v38.resolveLocalizedField)(_v0, _v19, _v20));
+        _v36 = _v0.map(_v0 => (0, _v38.resolveLocalizedField)(_v0, _v19, _v20));
       return (0, _v1.jsxs)(_v8.Flex, {
         width: "100%",
         flexDirection: "column",
         position: "relative",
         gap: (0, _v16.rem)(_v1),
-        children: [_v38.map((_v0, _v1) => (0, _v1.jsxs)(_v5.Box, {
+        children: [_v36.map((_v0, _v1) => (0, _v1.jsxs)(_v5.Box, {
           position: "relative",
           onFocus: () => _v8(_v1),
           onClick: () => _v8(_v1),
-          children: [_v27 ? (0, _v1.jsx)(_v334, {
-            existingNames: _v28.filter((_v0, _v1) => _v1 !== _v1),
+          children: [_v25 ? (0, _v1.jsx)(_v334, {
+            existingNames: _v26.filter((_v0, _v1) => _v1 !== _v1),
             index: _v1,
             item: _v0,
             itemsGap: _v1,
             draggedItemRef: _v13.current ?? void 0,
             moveSteps: _v11[_v1],
-            onDragStart: _v29,
-            onDrag: _v30,
-            onDragEnd: _v31,
+            onDragStart: _v27,
+            onDrag: _v28,
+            onDragEnd: _v29,
             showOptions: _v7 === _v1,
             autoFocus: _v5,
             popoverPortalRef: _v22,
-            updateOptions: _v32,
-            updateFieldName: _v37,
-            updateRequired: (_v0, _v1) => _v33("isRequired", _v0, _v1),
-            updateLocked: (_v0, _v1) => _v33("isLocked", _v0, _v1),
-            updateStatic: (_v0, _v1) => _v33("isStatic", _v0, _v1),
-            deleteField: _v34,
-            addProviderField: _v35,
-            removeProviderField: _v36,
-            allowLargeNames: _v26,
+            updateOptions: _v30,
+            updateFieldName: _v35,
+            updateRequired: (_v0, _v1) => _v31("isRequired", _v0, _v1),
+            updateLocked: (_v0, _v1) => _v31("isLocked", _v0, _v1),
+            updateStatic: (_v0, _v1) => _v31("isStatic", _v0, _v1),
+            deleteField: _v32,
+            addProviderField: _v33,
+            removeProviderField: _v34,
+            allowLargeNames: !0,
             isTranslating: _v21
           }, _v0.cid) : (0, _v1.jsx)(_v337, {
-            existingNames: _v28.filter((_v0, _v1) => _v1 !== _v1),
+            existingNames: _v26.filter((_v0, _v1) => _v1 !== _v1),
             index: _v1,
             item: _v0,
             itemsGap: _v1,
             draggedItemRef: _v13.current ?? void 0,
             moveSteps: _v11[_v1],
-            onDragStart: _v29,
-            onDrag: _v30,
-            onDragEnd: _v31,
+            onDragStart: _v27,
+            onDrag: _v28,
+            onDragEnd: _v29,
             showOptions: _v7 === _v1,
             autoFocus: _v5,
             popoverPortalRef: _v22,
-            updateOptions: _v32,
-            updateFieldName: _v37,
-            updateRequired: (_v0, _v1) => _v33("isRequired", _v0, _v1),
-            deleteField: _v34,
-            addProviderField: _v35,
-            removeProviderField: _v36,
-            allowLargeNames: _v26,
+            updateOptions: _v30,
+            updateFieldName: _v35,
+            updateRequired: (_v0, _v1) => _v31("isRequired", _v0, _v1),
+            deleteField: _v32,
+            addProviderField: _v33,
+            removeProviderField: _v34,
+            allowLargeNames: !0,
             isTranslating: _v21
           }, _v0.cid), (0, _v1.jsx)(_v5.Box, {
             width: "100%",
@@ -9592,7 +9588,7 @@
               liveStreamFieldCategory: "registration_field"
             });
           },
-          showDescriptionField: _v26
+          showDescriptionField: !0
         }), (0, _v1.jsx)("div", {
           ref: _v22
         })]
@@ -9607,14 +9603,13 @@
       let {
           isOpen: _v4,
           onOpen: _v5,
-          onClose: _v6,
-          onToggle: _v7
+          onClose: _v6
         } = (0, _v163.useDisclosure)(),
-        _v8 = (0, _v4.useRef)(null),
-        _v9 = _v0 => {
+        _v7 = (0, _v4.useRef)(null),
+        _v8 = _v0 => {
           _v2(_v0);
         },
-        _v10 = (0, _v52.useEscapeKey)(_v4, _v6);
+        _v9 = (0, _v52.useEscapeKey)(_v4, _v6);
       return (0, _v1.jsxs)(_v195.Popover, {
         isLazy: !0,
         isOpen: _v4,
@@ -9649,9 +9644,9 @@
           })
         }), (0, _v1.jsx)(_v196.PopoverContent, {
           borderRadius: "md",
-          onKeyDown: _v10,
+          onKeyDown: _v9,
           children: (0, _v1.jsxs)(_v77.VStack, {
-            ref: _v8,
+            ref: _v7,
             tabIndex: 0,
             minWidth: (0, _v16.rem)(300),
             p: "sm",
@@ -9660,28 +9655,28 @@
               width: "100%",
               fontWeight: "normal",
               justifyContent: "flex-start",
-              onClick: () => _v9(_v338.CustomFieldTypes.Text),
+              onClick: () => _v8(_v338.CustomFieldTypes.Text),
               children: _v339.default.TextInput
             }), (0, _v1.jsx)(_v6.Button, {
               variant: "tertiary",
               width: "100%",
               fontWeight: "normal",
               justifyContent: "flex-start",
-              onClick: () => _v9(_v338.CustomFieldTypes.Dropdown),
+              onClick: () => _v8(_v338.CustomFieldTypes.Dropdown),
               children: _v339.default.Dropdown
             }), (0, _v1.jsx)(_v6.Button, {
               variant: "tertiary",
               width: "100%",
               fontWeight: "normal",
               justifyContent: "flex-start",
-              onClick: () => _v9(_v338.CustomFieldTypes.Checkbox),
+              onClick: () => _v8(_v338.CustomFieldTypes.Checkbox),
               children: _v339.default.Checkbox
             }), _v3 && (0, _v1.jsx)(_v6.Button, {
               variant: "tertiary",
               width: "100%",
               fontWeight: "normal",
               justifyContent: "flex-start",
-              onClick: () => _v9(_v338.CustomFieldTypes.Description),
+              onClick: () => _v8(_v338.CustomFieldTypes.Description),
               children: _v339.default.Description
             })]
           })
