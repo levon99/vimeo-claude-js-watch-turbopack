@@ -6,15 +6,14 @@
     _v3 = _v0.i(0),
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
-    _v6 = _v0.i(0),
-    _v7 = _v0.i(0);
+    _v6 = _v0.i(0);
   _v4.default.div.withConfig({
     displayName: "style__Divider",
     componentId: "sc-85e9034c-0"
   })`
   margin: 0;
   transform: translateY(-2px);
-  background-color: ${_v7.core.color.stroke};
+  background-color: var(--vimeo-colors-stroke);
   height: ${(0, _v3.rem)(1)};
 `, _v4.default.div.withConfig({
     displayName: "style__FlexWrapper",
@@ -25,15 +24,20 @@
   justify-content: center;
   gap: 0 ${(0, _v3.rem)(8)};
 `;
-  let _v8 = (0, _v4.default)(_v5.Button).withConfig({
+  let _v7 = (0, _v4.default)(_v5.IconButton).withConfig({
       displayName: "style__CloseIconStyle",
       componentId: "sc-85e9034c-2"
     })`
-  position: absolute;
-  top: ${(0, _v3.rem)(16)};
-  right: ${(0, _v3.rem)(24)};
+  /* Bokeh's Chakra IconButton base style hardcodes position: relative, which
+     beats this styled-components position. Double the class with && to raise
+     specificity and keep the close button pinned to the modal's top-right. */
+  && {
+    position: absolute;
+    top: ${(0, _v3.rem)(16)};
+    right: ${(0, _v3.rem)(24)};
+  }
 `,
-    _v9 = (0, _v4.default)(_v6.Modal.Header).withConfig({
+    _v8 = (0, _v4.default)(_v6.Modal.Header).withConfig({
       displayName: "style__ModalHeader",
       componentId: "sc-85e9034c-3"
     })`
@@ -41,7 +45,7 @@
   font-size: ${(0, _v3.rem)(18)};
   position: 'relative';
 `,
-    _v10 = _v4.default.div.withConfig({
+    _v9 = _v4.default.div.withConfig({
       displayName: "style__Row",
       componentId: "sc-85e9034c-4"
     })`
@@ -57,7 +61,7 @@
     flex-direction: ${_v2 ?? "row"};
   `}
 `,
-    _v11 = _v4.default.div.withConfig({
+    _v10 = _v4.default.div.withConfig({
       displayName: "style__Column",
       componentId: "sc-85e9034c-5"
     })`
@@ -74,11 +78,11 @@
     flex-direction: ${_v3 ?? "row"};
   `}
 `;
-  _v0.s(["CloseIconStyle", 0, _v8, "Column", 0, _v11, "ModalHeader", 0, _v9, "Row", 0, _v10], 0), _v0.s(["CloseButton", 0, _v0 => (0, _v1.jsx)(_v8, {
+  _v0.s(["CloseIconStyle", 0, _v7, "Column", 0, _v10, "ModalHeader", 0, _v8, "Row", 0, _v9], 0), _v0.s(["CloseButton", 0, _v0 => (0, _v1.jsx)(_v7, {
+    "aria-label": "Close",
     icon: (0, _v1.jsx)(_v2.CloseX, {}),
     size: "sm",
-    variant: "minimalTransparent",
-    format: "basic",
+    variant: "tertiary",
     ..._v0
   })], 0);
 }

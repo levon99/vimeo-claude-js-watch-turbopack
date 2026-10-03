@@ -19,10 +19,11 @@
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  let _v20 = (0, _v5.rem)(393),
-    _v21 = (0, _v5.rem)(0),
-    _v22 = ({
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0);
+  let _v22 = (0, _v5.rem)(393),
+    _v23 = ({
       sections: _v0,
       activeSection: _v1,
       colorMode: _v2 = "light",
@@ -43,213 +44,203 @@
     }) => {
       let {
           settings: _v17
-        } = (0, _v12.useOrionSettings)(),
+        } = (0, _v14.useOrionSettings)(),
         _v18 = "dark" === _v2 ? _v8.DarkMode : _v8.LightMode,
         _v19 = (0, _v2.useRef)(null),
         {
           upcoming: _v20
-        } = (0, _v17.splitSeriesEvents)(_v11),
-        _v21 = (0, _v17.expandUpcomingEntries)(_v20),
+        } = (0, _v19.splitSeriesEvents)(_v11),
+        _v21 = (0, _v19.expandUpcomingEntries)(_v20),
         _v22 = _v21.slice(0, 5),
         _v23 = _v21.length > _v22.length,
-        _v24 = _v12.slice(0, 5),
+        _v24 = _v12.slice(0, 8),
         _v25 = _v12.length > _v24.length;
       return (0, _v1.jsx)(_v3.Box, {
         height: "100vh",
         overflowY: "auto",
         ref: _v19,
-        children: (0, _v1.jsx)(_v18, {
-          children: (0, _v1.jsxs)(_v4.Flex, {
-            align: "center",
-            backgroundColor: "background",
-            direction: "column",
-            marginX: "auto",
-            maxWidth: "mobile" === _v14 ? _v20 : "100%",
-            minHeight: "100%",
-            transition: "max-width 0.2s linear",
-            width: "100%",
-            children: [(0, _v1.jsx)(_v15.PreviewNavbar, {
-              isMobilePreview: "mobile" === _v14,
-              isActive: "navigation" === _v1,
-              logo: _v5,
-              name: _v3,
-              navConfig: _v4,
-              onEdit: () => _v15("navigation"),
-              parentRef: _v19
-            }), (0, _v1.jsx)(_v4.Flex, {
+        children: (0, _v1.jsx)(_v12.MobilePreviewProvider, {
+          value: "mobile" === _v14,
+          children: (0, _v1.jsx)(_v18, {
+            children: (0, _v1.jsxs)(_v4.Flex, {
+              align: "center",
+              backgroundColor: "background",
               direction: "column",
-              gap: "xl",
-              maxWidth: _v21,
-              p: "md",
+              marginX: "auto",
+              maxWidth: "mobile" === _v14 ? _v22 : "100%",
+              minHeight: "100%",
+              transition: "max-width 0.2s linear",
               width: "100%",
-              children: _v0.map((_v0, _v1) => ((_v0, _v1) => {
-                let _v2 = {
+              children: [(0, _v1.jsx)(_v17.PreviewNavbar, {
+                isActive: "navigation" === _v1,
+                logo: _v5,
+                name: _v3,
+                navConfig: _v4,
+                onEdit: () => _v15("navigation"),
+                parentRef: _v19
+              }), (0, _v1.jsx)(_v13.PageContainer, {
+                children: _v0.map((_v0, _v1) => ((_v0, _v1) => {
+                  let _v2 = {
                     key: `${_v0}-${_v1}`,
                     isActive: _v1 === _v0,
                     onEdit: ("on-demand" !== _v0 || _v17.release_event_series_v1) && "agenda" !== _v0 ? () => _v15(_v0) : void 0,
                     onRemove: () => _v16(_v0)
-                  },
-                  _v3 = "mobile" === _v14;
-                switch (_v0) {
-                  case "banner":
-                    return (0, _v1.jsx)(_v19.SectionHoverOverlay, {
-                      ..._v2,
-                      title: (0, _v6.translate)({
-                        singular: "Hero banner",
-                        dictionary: {
-                          es: {
-                            singular: "Banner principal"
-                          },
-                          "de-DE": {
-                            singular: "Hero-Banner"
-                          },
-                          "fr-FR": {
-                            singular: "Bannière principale"
-                          },
-                          "ja-JP": {
-                            singular: "ヒーローバナー"
-                          },
-                          "ko-KR": {
-                            singular: "히어로 배너"
-                          },
-                          "pt-BR": {
-                            singular: "Banner principal"
-                          },
-                          "zh-CN": {
-                            singular: "主横幅"
-                          }
-                        }
-                      }),
-                      children: (0, _v1.jsx)(_v11.Hero, {
-                        dateRange: (0, _v18.formatHeroDateRange)(_v8, _v9),
-                        description: _v6,
-                        heroImageSrc: _v7,
-                        name: _v3,
-                        timeZoneLabel: (0, _v18.formatTimeZoneLabel)(_v10)
-                      })
-                    });
-                  case "upcoming":
-                    return (0, _v1.jsx)(_v16.UpcomingEventsSection, {
-                      ..._v2,
-                      entries: _v22,
-                      hasMore: _v23,
-                      isMobilePreview: _v3,
-                      remaining: _v21.length - _v22.length
-                    });
-                  case "on-demand":
-                    return (0, _v1.jsx)(_v14.OnDemandEventsSection, {
-                      ..._v2,
-                      title: (0, _v6.translate)({
-                        singular: "On demand videos",
-                        dictionary: {
-                          es: {
-                            singular: "Vídeos bajo demanda"
-                          },
-                          "de-DE": {
-                            singular: "On-Demand-Videos"
-                          },
-                          "fr-FR": {
-                            singular: "Vidéos à la demande"
-                          },
-                          "ja-JP": {
-                            singular: "オンデマンド動画"
-                          },
-                          "ko-KR": {
-                            singular: "주문형 비디오"
-                          },
-                          "pt-BR": {
-                            singular: "Vídeos sob demanda"
-                          },
-                          "zh-CN": {
-                            singular: "点播视频"
-                          }
-                        }
-                      }),
-                      hasMore: _v25,
-                      recordings: _v24,
-                      remaining: _v12.length - _v24.length,
-                      isMobilePreview: _v3
-                    });
-                  case "agenda":
-                    return (0, _v1.jsx)(_v19.SectionHoverOverlay, {
-                      ..._v2,
-                      title: (0, _v6.translate)({
-                        singular: "Agenda",
-                        dictionary: {
-                          "ja-JP": {
-                            singular: "アジェンダ"
-                          },
-                          "ko-KR": {
-                            singular: "일정"
-                          },
-                          "zh-CN": {
-                            singular: "议程"
-                          }
-                        }
-                      }),
-                      children: (0, _v1.jsx)(_v9.AgendaSection, {
-                        emptyState: (0, _v1.jsx)(_v13.EmptyStatePlaceholder, {
-                          message: (0, _v6.translate)({
-                            singular: "No upcoming events found.",
-                            dictionary: {
-                              es: {
-                                singular: "No se han encontrado eventos próximos."
-                              },
-                              "de-DE": {
-                                singular: "Keine bevorstehenden Veranstaltungen gefunden."
-                              },
-                              "fr-FR": {
-                                singular: "Aucun événement à venir n'a été trouvé."
-                              },
-                              "ja-JP": {
-                                singular: "今後のイベントは見つかりませんでした。"
-                              },
-                              "ko-KR": {
-                                singular: "다가오는 이벤트가 없습니다."
-                              },
-                              "pt-BR": {
-                                singular: "Nenhum evento futuro encontrado."
-                              },
-                              "zh-CN": {
-                                singular: "未找到即将举行的活动。"
-                              }
+                  };
+                  switch (_v0) {
+                    case "banner":
+                      return (0, _v1.jsx)(_v21.SectionHoverOverlay, {
+                        ..._v2,
+                        title: (0, _v6.translate)({
+                          singular: "Hero banner",
+                          dictionary: {
+                            es: {
+                              singular: "Banner principal"
+                            },
+                            "de-DE": {
+                              singular: "Hero-Banner"
+                            },
+                            "fr-FR": {
+                              singular: "Bannière principale"
+                            },
+                            "ja-JP": {
+                              singular: "ヒーローバナー"
+                            },
+                            "ko-KR": {
+                              singular: "히어로 배너"
+                            },
+                            "pt-BR": {
+                              singular: "Banner principal"
+                            },
+                            "zh-CN": {
+                              singular: "主横幅"
                             }
-                          })
-                        }),
-                        groups: (0, _v17.groupEventsByDay)(_v21),
-                        isMobilePreview: _v3
-                      })
-                    });
-                  case "faq":
-                    return (0, _v1.jsx)(_v19.SectionHoverOverlay, {
-                      ..._v2,
-                      title: (0, _v6.translate)({
-                        singular: "FAQ",
-                        dictionary: {
-                          es: {
-                            singular: "Preguntas frecuentes"
-                          },
-                          "ja-JP": {
-                            singular: "よくある質問"
-                          },
-                          "pt-BR": {
-                            singular: "Perguntas frequentes"
-                          },
-                          "zh-CN": {
-                            singular: "常见问题解答"
                           }
-                        }
-                      }),
-                      children: (0, _v1.jsx)(_v10.FaqSection, {
-                        isMobilePreview: _v3,
-                        items: _v13
-                      })
-                    });
-                  default:
-                    return null;
-                }
-              })(_v0, _v1))
-            })]
+                        }),
+                        children: (0, _v1.jsx)(_v11.Hero, {
+                          dateRange: (0, _v20.formatHeroDateRange)(_v8, _v9),
+                          description: _v6,
+                          heroImageSrc: _v7,
+                          name: _v3,
+                          timeZoneLabel: (0, _v20.formatTimeZoneLabel)(_v10)
+                        })
+                      });
+                    case "upcoming":
+                      return (0, _v1.jsx)(_v18.UpcomingEventsSection, {
+                        ..._v2,
+                        entries: _v22,
+                        hasMore: _v23
+                      });
+                    case "on-demand":
+                      return (0, _v1.jsx)(_v16.OnDemandEventsSection, {
+                        ..._v2,
+                        title: (0, _v6.translate)({
+                          singular: "On demand videos",
+                          dictionary: {
+                            es: {
+                              singular: "Vídeos bajo demanda"
+                            },
+                            "de-DE": {
+                              singular: "On-Demand-Videos"
+                            },
+                            "fr-FR": {
+                              singular: "Vidéos à la demande"
+                            },
+                            "ja-JP": {
+                              singular: "オンデマンド動画"
+                            },
+                            "ko-KR": {
+                              singular: "주문형 비디오"
+                            },
+                            "pt-BR": {
+                              singular: "Vídeos sob demanda"
+                            },
+                            "zh-CN": {
+                              singular: "点播视频"
+                            }
+                          }
+                        }),
+                        hasMore: _v25,
+                        recordings: _v24
+                      });
+                    case "agenda":
+                      return (0, _v1.jsx)(_v21.SectionHoverOverlay, {
+                        ..._v2,
+                        title: (0, _v6.translate)({
+                          singular: "Agenda",
+                          dictionary: {
+                            "ja-JP": {
+                              singular: "アジェンダ"
+                            },
+                            "ko-KR": {
+                              singular: "일정"
+                            },
+                            "zh-CN": {
+                              singular: "议程"
+                            }
+                          }
+                        }),
+                        children: (0, _v1.jsx)(_v9.AgendaSection, {
+                          emptyState: (0, _v1.jsx)(_v15.EmptyStatePlaceholder, {
+                            message: (0, _v6.translate)({
+                              singular: "No upcoming events found.",
+                              dictionary: {
+                                es: {
+                                  singular: "No se han encontrado eventos próximos."
+                                },
+                                "de-DE": {
+                                  singular: "Keine bevorstehenden Veranstaltungen gefunden."
+                                },
+                                "fr-FR": {
+                                  singular: "Aucun événement à venir n'a été trouvé."
+                                },
+                                "ja-JP": {
+                                  singular: "今後のイベントは見つかりませんでした。"
+                                },
+                                "ko-KR": {
+                                  singular: "다가오는 이벤트가 없습니다."
+                                },
+                                "pt-BR": {
+                                  singular: "Nenhum evento futuro encontrado."
+                                },
+                                "zh-CN": {
+                                  singular: "未找到即将举行的活动。"
+                                }
+                              }
+                            })
+                          }),
+                          groups: (0, _v19.groupEventsByDay)(_v21)
+                        })
+                      });
+                    case "faq":
+                      return (0, _v1.jsx)(_v21.SectionHoverOverlay, {
+                        ..._v2,
+                        title: (0, _v6.translate)({
+                          singular: "FAQ",
+                          dictionary: {
+                            es: {
+                              singular: "Preguntas frecuentes"
+                            },
+                            "ja-JP": {
+                              singular: "よくある質問"
+                            },
+                            "pt-BR": {
+                              singular: "Perguntas frequentes"
+                            },
+                            "zh-CN": {
+                              singular: "常见问题解答"
+                            }
+                          }
+                        }),
+                        children: (0, _v1.jsx)(_v10.FaqSection, {
+                          items: _v13
+                        })
+                      });
+                    default:
+                      return null;
+                  }
+                })(_v0, _v1))
+              })]
+            })
           })
         })
       });
@@ -392,7 +383,7 @@
     let _v2 = _v0 => {
       window.parent.postMessage(_v0, window.location.origin);
     };
-    return (0, _v1.jsx)(_v22, {
+    return (0, _v1.jsx)(_v23, {
       ..._v0.data,
       onEdit: _v0 => _v2({
         type: "event-series-preview:edit",

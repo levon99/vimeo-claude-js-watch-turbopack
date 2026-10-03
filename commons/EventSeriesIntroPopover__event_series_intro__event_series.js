@@ -20,27 +20,28 @@
     let _v2 = (0, _v2.useRouter)(),
       {
         expiresOn: _v3,
-        isTrialing: _v4
+        isTrialExpired: _v4,
+        isTrialing: _v5
       } = (0, _v11.useAccessEventSeriesEditor)(),
       {
-        settings: _v5,
-        isLoadingResponse: _v6
+        settings: _v6,
+        isLoadingResponse: _v7
       } = (0, _v10.useOrionSettings)(),
       {
-        acknowledge: _v7,
-        isActive: _v8,
-        isLoaded: _v9
+        acknowledge: _v8,
+        isActive: _v9,
+        isLoaded: _v10
       } = (0, _v3.useAnnouncement)({
         id: "event_series_intro",
-        isEligible: !_v6 && _v5.enable_event_series_announcement && _v1
+        isEligible: !_v7 && _v6.enable_event_series_announcement && !_v4 && _v1
       });
     return (0, _v1.jsx)(_v4.AnnouncementPopover, {
-      isOpen: _v9 && _v8,
+      isOpen: _v10 && _v9,
       trackingId: "event_series",
       anchorWithinChildren: !0,
       placement: "right-start",
       onAcknowledge: () => {
-        _v7(), _v2.push(_v12.Path.EventSeries);
+        _v8(), _v2.push(_v12.Path.EventSeries);
       },
       badge: (0, _v1.jsx)(_v5.Badge, {
         variant: "new",
@@ -153,7 +154,7 @@
           }
         }
       }),
-      note: _v4 && _v3 ? (0, _v9.translate)({
+      note: _v5 && _v3 ? (0, _v9.translate)({
         singular: "Complimentary access until {DATE}",
         replacements: {
           DATE: new Intl.DateTimeFormat((0, _v9.getCurrentLocale)(), {

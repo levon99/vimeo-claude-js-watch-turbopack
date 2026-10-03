@@ -769,6 +769,116 @@
         }
       })
     }, {
+      key: "registration_form_translations",
+      label: (0, _v38.translate)({
+        singular: "Registration form localisation",
+        dictionary: {
+          es: {
+            singular: "Localización del formulario de registro"
+          },
+          "de-DE": {
+            singular: "Lokalisierung des Registrierungsformulars"
+          },
+          "fr-FR": {
+            singular: "Localisation du formulaire d'inscription"
+          },
+          "ja-JP": {
+            singular: "登録フォームのローカリゼーション"
+          },
+          "ko-KR": {
+            singular: "등록 양식 현지화"
+          },
+          "pt-BR": {
+            singular: "Localização do formulário de cadastro"
+          },
+          "zh-CN": {
+            singular: "注册表单本地化"
+          }
+        }
+      }),
+      description: (0, _v38.translate)({
+        singular: "Translate registration form labels and answer options",
+        dictionary: {
+          es: {
+            singular: "Traducir las etiquetas del formulario de registro y las opciones de respuesta"
+          },
+          "de-DE": {
+            singular: "Beschriftungen und Antwortoptionen des Registrierungsformulars übersetzen"
+          },
+          "fr-FR": {
+            singular: "Traduire les libellés du formulaire d'inscription et les options de réponse"
+          },
+          "ja-JP": {
+            singular: "登録フォームのラベルと回答選択肢を翻訳する"
+          },
+          "ko-KR": {
+            singular: "등록 양식 라벨 및 응답 옵션 번역"
+          },
+          "pt-BR": {
+            singular: "Traduzir rótulos e opções de resposta do formulário de inscrição"
+          },
+          "zh-CN": {
+            singular: "翻译注册表单标签和回答选项"
+          }
+        }
+      }),
+      orionFlag: "enable_registration_form_localization"
+    }, {
+      key: "event_series_translations",
+      label: (0, _v38.translate)({
+        singular: "Event series localisation",
+        dictionary: {
+          es: {
+            singular: "Localización de series de eventos"
+          },
+          "de-DE": {
+            singular: "Lokalisierung von Veranstaltungsserien"
+          },
+          "fr-FR": {
+            singular: "Localisation des séries d'événements"
+          },
+          "ja-JP": {
+            singular: "イベントシリーズのローカライズ"
+          },
+          "ko-KR": {
+            singular: "이벤트 시리즈 현지화"
+          },
+          "pt-BR": {
+            singular: "Localização de séries de eventos"
+          },
+          "zh-CN": {
+            singular: "活动系列本地化"
+          }
+        }
+      }),
+      description: (0, _v38.translate)({
+        singular: "Translate event series content",
+        dictionary: {
+          es: {
+            singular: "Traducir el contenido de series de eventos"
+          },
+          "de-DE": {
+            singular: "Inhalte von Veranstaltungsserien übersetzen"
+          },
+          "fr-FR": {
+            singular: "Traduire le contenu des séries d'événements"
+          },
+          "ja-JP": {
+            singular: "イベントシリーズのコンテンツを翻訳する"
+          },
+          "ko-KR": {
+            singular: "이벤트 시리즈 콘텐츠 번역"
+          },
+          "pt-BR": {
+            singular: "Traduzir conteúdo de séries de eventos"
+          },
+          "zh-CN": {
+            singular: "翻译活动系列内容"
+          }
+        }
+      }),
+      orionFlag: "release_event_series_v1"
+    }, {
       key: "video_details",
       label: (0, _v38.translate)({
         singular: "Video details and chapters",

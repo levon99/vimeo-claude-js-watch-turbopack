@@ -14,7 +14,7 @@
         className: "chakra-menu__command"
       });
     });
-  _v5.displayName = "MenuCommand", _v0.s(["MenuCommand", 0, _v5], 62);
+  _v5.displayName = "MenuCommand", _v0.s(["MenuCommand", 0, _v5], 0);
   var _v6 = _v0.i(0),
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),

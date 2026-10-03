@@ -394,7 +394,124 @@
         }
       }),
       roleSetting: "userRolePermissionAiTranslate",
-      accountSetting: "enableParentPermissionAiTranslate"
+      accountSetting: "enableParentPermissionAiTranslate",
+      orionFlag: null
+    }, {
+      key: "registration_form_translations",
+      policyName: "AI Registration Form Translations",
+      label: (0, _v12.translate)({
+        singular: "Registration form localisation",
+        dictionary: {
+          es: {
+            singular: "Localización del formulario de registro"
+          },
+          "de-DE": {
+            singular: "Lokalisierung des Registrierungsformulars"
+          },
+          "fr-FR": {
+            singular: "Localisation du formulaire d'inscription"
+          },
+          "ja-JP": {
+            singular: "登録フォームのローカリゼーション"
+          },
+          "ko-KR": {
+            singular: "등록 양식 현지화"
+          },
+          "pt-BR": {
+            singular: "Localização do formulário de cadastro"
+          },
+          "zh-CN": {
+            singular: "注册表单本地化"
+          }
+        }
+      }),
+      description: (0, _v12.translate)({
+        singular: "Translate registration form labels and answer options",
+        dictionary: {
+          es: {
+            singular: "Traducir las etiquetas del formulario de registro y las opciones de respuesta"
+          },
+          "de-DE": {
+            singular: "Beschriftungen und Antwortoptionen des Registrierungsformulars übersetzen"
+          },
+          "fr-FR": {
+            singular: "Traduire les libellés du formulaire d'inscription et les options de réponse"
+          },
+          "ja-JP": {
+            singular: "登録フォームのラベルと回答選択肢を翻訳する"
+          },
+          "ko-KR": {
+            singular: "등록 양식 라벨 및 응답 옵션 번역"
+          },
+          "pt-BR": {
+            singular: "Traduzir rótulos e opções de resposta do formulário de inscrição"
+          },
+          "zh-CN": {
+            singular: "翻译注册表单标签和回答选项"
+          }
+        }
+      }),
+      roleSetting: "userRolePermissionAiRegistrationFormTranslations",
+      accountSetting: "enableRegistrationFormAiUserTranslation",
+      orionFlag: "enable_registration_form_localization"
+    }, {
+      key: "event_series_translations",
+      policyName: "AI Event Series Translations",
+      label: (0, _v12.translate)({
+        singular: "Event series localisation",
+        dictionary: {
+          es: {
+            singular: "Localización de series de eventos"
+          },
+          "de-DE": {
+            singular: "Lokalisierung von Veranstaltungsserien"
+          },
+          "fr-FR": {
+            singular: "Localisation des séries d'événements"
+          },
+          "ja-JP": {
+            singular: "イベントシリーズのローカライズ"
+          },
+          "ko-KR": {
+            singular: "이벤트 시리즈 현지화"
+          },
+          "pt-BR": {
+            singular: "Localização de séries de eventos"
+          },
+          "zh-CN": {
+            singular: "活动系列本地化"
+          }
+        }
+      }),
+      description: (0, _v12.translate)({
+        singular: "Translate event series content",
+        dictionary: {
+          es: {
+            singular: "Traducir el contenido de series de eventos"
+          },
+          "de-DE": {
+            singular: "Inhalte von Veranstaltungsserien übersetzen"
+          },
+          "fr-FR": {
+            singular: "Traduire le contenu des séries d'événements"
+          },
+          "ja-JP": {
+            singular: "イベントシリーズのコンテンツを翻訳する"
+          },
+          "ko-KR": {
+            singular: "이벤트 시리즈 콘텐츠 번역"
+          },
+          "pt-BR": {
+            singular: "Traduzir conteúdo de séries de eventos"
+          },
+          "zh-CN": {
+            singular: "翻译活动系列内容"
+          }
+        }
+      }),
+      roleSetting: "userRolePermissionAiEventSeriesTranslations",
+      accountSetting: "enableEventSeriesAiUserTranslation",
+      orionFlag: "release_event_series_v1"
     }, {
       key: "video_details",
       policyName: "AI Video Details",
@@ -1095,7 +1212,7 @@
         return null;
       }
     },
-    _v74 = ["userRolePermissionTranscriptionKeywords", "userRolePermissionAiTranslate", "enableParentPermissionAiTranslate", "userRolePermissionAiVideoDetails", "enableParentPermissionAiVideoDetails", "userRolePermissionAiScriptGeneration", "userRolePermissionAiHighlights", "enableParentPermissionAiHighlights", "userRolePermissionAiLiveCaptions", "enableParentPermissionAiLiveCaptions", "userRolePermissionAiAnalytics", "enableAiAnalyticsDashboard"],
+    _v74 = ["userRolePermissionTranscriptionKeywords", "userRolePermissionAiTranslate", "enableParentPermissionAiTranslate", "userRolePermissionAiRegistrationFormTranslations", "enableRegistrationFormAiUserTranslation", "userRolePermissionAiEventSeriesTranslations", "enableEventSeriesAiUserTranslation", "userRolePermissionAiVideoDetails", "enableParentPermissionAiVideoDetails", "userRolePermissionAiScriptGeneration", "userRolePermissionAiHighlights", "enableParentPermissionAiHighlights", "userRolePermissionAiLiveCaptions", "enableParentPermissionAiLiveCaptions", "userRolePermissionAiAnalytics", "enableAiAnalyticsDashboard"],
     _v75 = ({
       teamUserId: _v0
     }) => {
@@ -1242,7 +1359,10 @@
         _v27 = _v50(_v15?.currentTeamPermissionPolicies, "AI Permissions Override"),
         _v28 = _v15?.applicablePermissionPolicies?.ai,
         _v29 = !!_v28?.length,
-        _v30 = _v49.filter(_v0 => !("orionFlag" in _v0) || _v11[_v0.orionFlag]),
+        _v30 = _v49.filter(_v0 => {
+          let _v1;
+          return null === (_v1 = "orionFlag" in _v0 ? _v0.orionFlag : null) || _v11[_v1];
+        }),
         _v31 = _v15?.permissionLevel,
         _v32 = "Owner" === _v31 || "Admin" === _v31 || "Contributor" === _v31 || "Contributor Plus" === _v31,
         _v33 = "Owner" === _v31 || "Admin" === _v31,

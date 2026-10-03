@@ -889,13 +889,14 @@
         {
           appSections: _v2,
           hasStarredItems: _v3,
-          isInitialLoading: _v4
-        } = (0, _v15.useHomePrimaryNavItems)(),
-        _v5 = _v2[0]?.[0]?.key,
-        _v6 = (0, _v2.useCallback)(_v0 => _v1 ? _v0.map(_v0 => (0, _v1.jsx)(_v14.PrimaryNavItem, {
+          isInitialLoading: _v4,
+          modals: _v5
+        } = (0, _v15.useHomePrimaryNavItems)(_v0),
+        _v6 = _v2[0]?.[0]?.key,
+        _v7 = (0, _v2.useCallback)(_v0 => _v1 ? _v0.map(_v0 => (0, _v1.jsx)(_v14.PrimaryNavItem, {
           item: _v0,
           variant: "icons",
-          isFirst: _v0.key === _v5
+          isFirst: _v0.key === _v6
         }, _v0.key)) : (0, _v1.jsx)(_v6.ResizableSideNav.MenuItems, {
           customStyles: {
             gap: (0, _v5.rem)(2)
@@ -903,10 +904,10 @@
           children: _v0.map(_v0 => (0, _v1.jsx)(_v14.PrimaryNavItem, {
             item: _v0,
             variant: "full",
-            isFirst: _v0.key === _v5
+            isFirst: _v0.key === _v6
           }, _v0.key))
-        }), [_v1, _v5]);
-      return (0, _v1.jsx)(_v3.Box, {
+        }), [_v1, _v6]);
+      return (0, _v1.jsxs)(_v3.Box, {
         style: {
           flexGrow: 1,
           display: "flex",
@@ -915,7 +916,7 @@
         ...(_v1 ? {
           alignItems: "center"
         } : {}),
-        children: (0, _v1.jsxs)(_v4.Flex, {
+        children: [(0, _v1.jsxs)(_v4.Flex, {
           flexDirection: "column",
           gap: (0, _v5.rem)(2),
           paddingBottom: (0, _v5.rem)(8),
@@ -927,7 +928,7 @@
           }, _v1)) : _v2.map((_v0, _v1) => (0, _v1.jsxs)(_v2.Fragment, {
             children: [_v1 > 0 && (_v1 ? (0, _v1.jsx)(_v68, {}) : (0, _v1.jsx)(_v6.ResizableSideNav.Divider, {
               my: (0, _v5.rem)(8)
-            })), _v6(_v0)]
+            })), _v7(_v0)]
           }, _v1)), !_v1 && _v3 && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v6.ResizableSideNav.Divider, {
               my: (0, _v5.rem)(8)
@@ -935,7 +936,7 @@
               children: (0, _v1.jsx)(_v64, {})
             })]
           })]
-        })
+        }), _v5]
       });
     };
   _v0.s(["HomePrimaryNavbar", 0, _v69], 0);

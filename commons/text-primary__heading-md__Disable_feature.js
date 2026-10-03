@@ -1305,13 +1305,13 @@
                 singular: "Localisation du formulaire d'inscription"
               },
               "ja-JP": {
-                singular: "登録フォームのローカライズ"
+                singular: "登録フォームのローカリゼーション"
               },
               "ko-KR": {
                 singular: "등록 양식 현지화"
               },
               "pt-BR": {
-                singular: "Localização do formulário de inscrição"
+                singular: "Localização do formulário de cadastro"
               },
               "zh-CN": {
                 singular: "注册表单本地化"

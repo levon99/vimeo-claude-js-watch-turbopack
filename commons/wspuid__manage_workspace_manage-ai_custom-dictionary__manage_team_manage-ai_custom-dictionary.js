@@ -86,6 +86,7 @@
       });
     }, [_v11, _v22, _v0, _v19]), (0, _v1.jsx)(_v4.AnnouncementPopover, {
       isOpen: _v22,
+      trackingId: _v11,
       anchorWithinChildren: !0,
       placement: _v3,
       onAcknowledge: () => {

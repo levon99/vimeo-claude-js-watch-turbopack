@@ -308,8 +308,14 @@
       } = (0, _v50.useGetTeamSettingsWithMutate)({
         userId: _v0 ?? void 0,
         settings: ["enableRegistrationFormAiUserTranslation"]
-      });
-    return _v1?.enableRegistrationFormAiUserTranslation ?? !0;
+      }),
+      {
+        capabilities: {
+          enableRegistrationFormAiTranslation: _v2
+        },
+        ready: _v3
+      } = (0, _v19.useCapability)(["enableRegistrationFormAiTranslation"], _v0 ?? void 0);
+    return _v3 ? !!_v2 : _v1?.enableRegistrationFormAiUserTranslation ?? !0;
   };
   var _v52 = _v0.i(0);
   let _v53 = () => {

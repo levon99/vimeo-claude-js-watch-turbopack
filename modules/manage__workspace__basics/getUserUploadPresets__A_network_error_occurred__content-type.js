@@ -1538,29 +1538,29 @@
           }
         }
       }),
-      folderDefaultsSettings: (0, _v42.translate)({
-        singular: "Folder defaults settings",
+      privacyDefaultsSettings: (0, _v42.translate)({
+        singular: "Privacy defaults",
         dictionary: {
           es: {
-            singular: "Ajustes predeterminados de la carpeta"
+            singular: "Valores predeterminados de privacidad"
           },
           "de-DE": {
-            singular: "Standardeinstellungen für Ordner"
+            singular: "Datenschutz-Standardeinstellungen"
           },
           "fr-FR": {
-            singular: "Paramètres par défaut du dossier"
+            singular: "Confidentialité par défaut"
           },
           "ja-JP": {
-            singular: "フォルダのデフォルト設定"
+            singular: "プライバシーのデフォルト"
           },
           "ko-KR": {
-            singular: "폴더 기본 설정"
+            singular: "프라이버시 기본값"
           },
           "pt-BR": {
-            singular: "Configurações padrão da pasta"
+            singular: "Padrões de privacidade"
           },
           "zh-CN": {
-            singular: "文件夹默认设置"
+            singular: "隐私默认设置"
           }
         }
       }),
@@ -2294,7 +2294,7 @@
         children: [(0, _v1.jsx)(_v10.ModalHeader, {
           children: (0, _v1.jsx)(_v22.Text, {
             variant: "heading-md",
-            children: _v46.folderDefaultsSettings
+            children: _v46.privacyDefaultsSettings
           })
         }), (0, _v1.jsx)(_v7.ModalCloseButton, {}), (0, _v1.jsx)(_v19.ModalBody, {
           children: (0, _v1.jsxs)(_v12.Flex, {

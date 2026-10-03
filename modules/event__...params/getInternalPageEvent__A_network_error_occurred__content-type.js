@@ -7020,87 +7020,84 @@
         schedule: _v16,
         streamableClip: _v17
       } = _v3,
-      {
-        settings: _v18
-      } = (0, _v20.useOrionSettings)(),
-      _v19 = !!(_v17?.live?.chat?.roomId && _v4),
-      _v20 = (0, _v85.useBreakpointValue)({
+      _v18 = !!(_v17?.live?.chat?.roomId && _v4),
+      _v19 = (0, _v85.useBreakpointValue)({
         base: !0,
         md: !1
       }) ?? !0,
-      [_v21, _v22] = (0, _v7.useState)(!1),
-      [_v23, _v24] = (0, _v7.useState)(!1),
-      [_v25, _v26] = (0, _v7.useState)(!1),
-      _v27 = _v19 && (_v20 && _v21 || !_v20 && _v23),
-      _v28 = _v16 && "startTime" in _v16 ? _v16.startTime : void 0,
-      _v29 = _v16 && "timeZone" in _v16 ? _v16.timeZone : void 0,
-      _v30 = _v16 && "rrule" in _v16 ? _v16.rrule : void 0,
-      _v31 = (0, _v7.useMemo)(() => (0, _v114.getNextOccurrenceStartTime)({
-        rrule: _v30,
-        startTime: _v28
-      }), [_v30, _v28]),
-      _v32 = _v31 ? _v82.DateTime.fromISO(_v31, _v29 ? {
-        zone: _v29
+      [_v20, _v21] = (0, _v7.useState)(!1),
+      [_v22, _v23] = (0, _v7.useState)(!1),
+      [_v24, _v25] = (0, _v7.useState)(!1),
+      _v26 = _v18 && (_v19 && _v20 || !_v19 && _v22),
+      _v27 = _v16 && "startTime" in _v16 ? _v16.startTime : void 0,
+      _v28 = _v16 && "timeZone" in _v16 ? _v16.timeZone : void 0,
+      _v29 = _v16 && "rrule" in _v16 ? _v16.rrule : void 0,
+      _v30 = (0, _v7.useMemo)(() => (0, _v114.getNextOccurrenceStartTime)({
+        rrule: _v29,
+        startTime: _v27
+      }), [_v29, _v27]),
+      _v31 = _v30 ? _v82.DateTime.fromISO(_v30, _v28 ? {
+        zone: _v28
       } : {}) : null,
-      _v33 = (0, _v83.useRouter)(),
-      _v34 = (0, _v116.useViewer)(),
-      _v35 = _v34?.user ?? null,
-      _v36 = _v34?.ofcomQualifies,
-      _v37 = !!_v12?.interactions?.edit,
+      _v32 = (0, _v83.useRouter)(),
+      _v33 = (0, _v116.useViewer)(),
+      _v34 = _v33?.user ?? null,
+      _v35 = _v33?.ofcomQualifies,
+      _v36 = !!_v12?.interactions?.edit,
+      _v37 = (0, _v7.useRef)(null),
       _v38 = (0, _v7.useRef)(null),
-      _v39 = (0, _v7.useRef)(null),
-      _v40 = (0, _v7.useMemo)(() => _v62(), []),
-      _v41 = (0, _v113.useIsPortraitScreenOrientation)(),
-      _v42 = (0, _v105.useAnalyticsEvent)(),
-      _v43 = _v6?.contentRating ?? _v9?.contentRating ?? _v17?.contentRating,
-      _v44 = !!_v43?.includes(_v44),
-      _v45 = !!_v43?.includes(_v43),
-      _v46 = !!_v43?.includes(_v45),
-      _v47 = null === _v35 && _v36 && (_v14?.view === _v47 || _v14?.view === _v48 || _v14?.view === _v49) && !_v44,
-      _v48 = _v6 ? `${window.location.origin}/event/${_v4}${_v6.uri}` : window.location.href,
-      _v49 = _v1 ? _v22.PREVIEW_TYPE.CONFIRMATION : _v8,
+      _v39 = (0, _v7.useMemo)(() => _v62(), []),
+      _v40 = (0, _v113.useIsPortraitScreenOrientation)(),
+      _v41 = (0, _v105.useAnalyticsEvent)(),
+      _v42 = _v6?.contentRating ?? _v9?.contentRating ?? _v17?.contentRating,
+      _v43 = !!_v42?.includes(_v44),
+      _v44 = !!_v42?.includes(_v43),
+      _v45 = !!_v42?.includes(_v45),
+      _v46 = null === _v34 && _v35 && (_v14?.view === _v47 || _v14?.view === _v48 || _v14?.view === _v49) && !_v43,
+      _v47 = _v6 ? `${window.location.origin}/event/${_v4}${_v6.uri}` : window.location.href,
+      _v48 = _v1 ? _v22.PREVIEW_TYPE.CONFIRMATION : _v8,
       {
-        registrant: _v50,
+        registrant: _v49,
         liveStatus: {
           data: {
-            status: _v51
+            status: _v50
           },
-          initialDataLoaded: _v52
+          initialDataLoaded: _v51
         }
       } = _v81(),
-      _v53 = (_v50.data.isBlocked && _v50.called || !_v50.initialDataLoaded) && _v51 !== _v51,
-      _v54 = _v51 === _v51 || _v51 === _v50 && _v1 || _v1 && [4, 2].includes(_v5),
-      _v55 = _v33.asPath.split("?")[0].replace(/\/+$/, "").split("/").pop() ?? "",
-      _v56 = Object.values(_v52).includes(_v55),
-      _v57 = new URLSearchParams(_v33.asPath.split("?")[1] ?? "").get("fullscreen"),
-      _v58 = null === _v57 ? _v20 : ["1", "true"].includes(_v57.toLowerCase()),
-      _v59 = _v0 => {
+      _v52 = (_v49.data.isBlocked && _v49.called || !_v49.initialDataLoaded) && _v50 !== _v51,
+      _v53 = _v50 === _v51 || _v50 === _v50 && _v1 || _v1 && [4, 2].includes(_v5),
+      _v54 = _v32.asPath.split("?")[0].replace(/\/+$/, "").split("/").pop() ?? "",
+      _v55 = Object.values(_v52).includes(_v54),
+      _v56 = new URLSearchParams(_v32.asPath.split("?")[1] ?? "").get("fullscreen"),
+      _v57 = null === _v56 ? _v19 : ["1", "true"].includes(_v56.toLowerCase()),
+      _v58 = _v0 => {
         if (![_v22.PREVIEW_TYPE.FORM, _v22.PREVIEW_TYPE.LOGIN_SCREEN].includes(_v0)) return;
-        let _v1 = _v33.asPath.split("?"),
+        let _v1 = _v32.asPath.split("?"),
           _v2 = _v1[0].replace(/\/$/, ""),
           _v3 = _v2.split("/").pop(),
           _v4 = void 0 !== _v1[1] ? `?${_v1[1]}` : "",
           _v5 = _v0 === _v22.PREVIEW_TYPE.FORM ? _v52.REGISTER : _v52.SIGNIN;
         if (Object.values(_v52).includes(_v3)) {
           let _v0 = _v2.replace(_v3, _v5);
-          _v33.push(`${_v0}${_v4}`);
-        } else _v33.push(`${_v2}/${_v5}${_v4}`);
+          _v32.push(`${_v0}${_v4}`);
+        } else _v32.push(`${_v2}/${_v5}${_v4}`);
       },
-      _v60 = () => {
-        let _v0 = _v33.asPath.split("?"),
+      _v59 = () => {
+        let _v0 = _v32.asPath.split("?"),
           _v1 = _v0[0].replace(/\/$/, ""),
           _v2 = _v1.split("/").pop(),
           _v3 = void 0 !== _v0[1] ? `?${_v0[1]}` : "";
         if (Object.values(_v52).includes(_v2)) {
           let _v0 = _v1.replace(_v2, "");
-          _v33.push(`${_v0}${_v3}`);
+          _v32.push(`${_v0}${_v3}`);
         }
       };
     (0, _v7.useEffect)(() => {
-      !_v50.loading && _v50.called && !_v50.data.isValidRegistrant && (_v0?.(""), _v2 && (0, _v112.deleteCookie)(_v2));
-    }, [_v50, _v2]), (0, _v7.useEffect)(() => {
-      _v35 && 5 === _v5 && _v84.GoogleTagManager.trackEvent("live_event_ended_for_viewer");
-    }, [_v5, _v35]), (0, _v7.useEffect)(() => {
+      !_v49.loading && _v49.called && !_v49.data.isValidRegistrant && (_v0?.(""), _v2 && (0, _v112.deleteCookie)(_v2));
+    }, [_v49, _v2]), (0, _v7.useEffect)(() => {
+      _v34 && 5 === _v5 && _v84.GoogleTagManager.trackEvent("live_event_ended_for_viewer");
+    }, [_v5, _v34]), (0, _v7.useEffect)(() => {
       let {
           body: _v0
         } = document,
@@ -7114,7 +7111,7 @@
         attributeFilter: ["style"]
       }), () => _v2.disconnect();
     }, []), (0, _v7.useEffect)(() => {
-      _v42(_v168("workflow.visit_svv_recipient", 7, {
+      _v41(_v168("workflow.visit_svv_recipient", 7, {
         customizations: null,
         referer: window.location.href,
         speed_controls_enabled: _v9?.embed?.speed || null,
@@ -7122,71 +7119,71 @@
         live_event_privacy: _v3.streamPrivacy?.view || null,
         live_event_embed_privacy: _v3.streamPrivacy?.embed || null,
         is_live_chat_enabled: _v13,
-        is_mobile_web: _v40
+        is_mobile_web: _v39
       }));
-    }, [_v13, _v9?.embed?.speed, _v3.streamPrivacy?.embed, _v3.streamPrivacy?.view, _v4, _v40, _v42]);
-    let _v61 = (!_v54 || _v53) && _v7 ? (0, _v5.jsx)(_v324, {
-      isSmallScreen: _v20,
-      isPortrait: _v41,
-      isLoading: !_v52,
+    }, [_v13, _v9?.embed?.speed, _v3.streamPrivacy?.embed, _v3.streamPrivacy?.view, _v4, _v39, _v41]);
+    let _v60 = (!_v53 || _v52) && _v7 ? (0, _v5.jsx)(_v324, {
+      isSmallScreen: _v19,
+      isPortrait: _v40,
+      isLoading: !_v51,
       title: _v10,
-      previewType: _v49,
+      previewType: _v48,
       entityId: _v2,
       setLeadUuid: _v0,
-      onPreviewTypeChanged: _v59,
+      onPreviewTypeChanged: _v58,
       onMount: () => {
-        _v59(_v49);
+        _v58(_v48);
       },
-      onUnmount: _v60,
-      isMobileFormOpen: _v25 || _v56,
-      onOpenMobileForm: () => _v26(!0),
+      onUnmount: _v59,
+      isMobileFormOpen: _v24 || _v55,
+      onOpenMobileForm: () => _v25(!0),
       onCloseMobileForm: () => {
-        _v26(!1), _v60();
+        _v25(!1), _v59();
       },
-      isFullScreen: _v58
+      isFullScreen: _v57
     }) : null;
-    return _v61 && _v58 ? (0, _v5.jsxs)(_v5.Fragment, {
-      children: [_v37 && !_v20 && (0, _v5.jsx)(_v317, {
+    return _v60 && _v57 ? (0, _v5.jsxs)(_v5.Fragment, {
+      children: [_v36 && !_v19 && (0, _v5.jsx)(_v317, {
         href: _v15
-      }), _v61]
+      }), _v60]
     }) : (0, _v5.jsxs)(_v5.Fragment, {
-      children: [(0, _v5.jsx)(_v214, {}), (0, _v5.jsx)(_v240, {}), _v37 && !_v20 && (0, _v5.jsx)(_v317, {
+      children: [(0, _v5.jsx)(_v214, {}), (0, _v5.jsx)(_v240, {}), _v36 && !_v19 && (0, _v5.jsx)(_v317, {
         href: _v15
       }), (0, _v5.jsx)(_v215, {
         children: (0, _v5.jsxs)(_v216, {
-          isMobile: _v20,
+          isMobile: _v19,
           children: [(0, _v5.jsx)(_v173, {}), (0, _v5.jsxs)(_v217, {
-            ref: _v39,
-            isMobile: _v20,
-            isPortrait: _v41,
+            ref: _v38,
+            isMobile: _v19,
+            isPortrait: _v40,
             children: [(0, _v5.jsxs)(_v218, {
-              isMobile: _v20,
-              isPortrait: _v41,
-              isChatOpen: _v27 && !_v20,
+              isMobile: _v19,
+              isPortrait: _v40,
+              isChatOpen: _v26 && !_v19,
               children: [(0, _v5.jsxs)(_v219, {
-                isMobile: _v20,
-                isPortrait: _v41,
-                children: [_v61 ?? (_v47 ? (0, _v5.jsx)(_v316, {
-                  isUnrated: _v45,
-                  redirectUrl: _v48
+                isMobile: _v19,
+                isPortrait: _v40,
+                children: [_v60 ?? (_v46 ? (0, _v5.jsx)(_v316, {
+                  isUnrated: _v44,
+                  redirectUrl: _v47
                 }) : (0, _v5.jsx)(_v315, {
-                  ref: _v38,
-                  fullscreenTargetRef: _v20 ? void 0 : _v39,
+                  ref: _v37,
+                  fullscreenTargetRef: _v19 ? void 0 : _v38,
                   roundedCorners: !0
                 })), (0, _v5.jsx)(_v232, {
-                  isMobile: _v20,
-                  isPortrait: _v41,
+                  isMobile: _v19,
+                  isPortrait: _v40,
                   paddingEnabled: !1,
                   children: (0, _v5.jsxs)(_v220, {
                     isFullWidth: !1,
-                    children: [_v32 && (0, _v5.jsxs)(_v221, {
+                    children: [_v31 && (0, _v5.jsxs)(_v221, {
                       children: [(0, _v5.jsxs)(_v223, {
                         children: [(0, _v5.jsx)(_v86.Calendar, {}), (0, _v5.jsx)(_v224, {
-                          children: _v32.toFormat("LLL d")
+                          children: _v31.toFormat("LLL d")
                         })]
                       }), (0, _v5.jsxs)(_v223, {
                         children: [(0, _v5.jsx)(_v87.ClockThree, {}), (0, _v5.jsx)(_v224, {
-                          children: _v32.toFormat("t ZZZZ")
+                          children: _v31.toFormat("t ZZZZ")
                         })]
                       })]
                     }), (0, _v5.jsxs)(_v222, {
@@ -7196,42 +7193,42 @@
                         contentEditable: !1,
                         shouldDisplayLinks: !1
                       }), (0, _v5.jsx)(_v320, {
-                        display: !_v44 && _v14?.view === _v47,
-                        isUnrated: _v45
+                        display: !_v43 && _v14?.view === _v47,
+                        isUnrated: _v44
                       }), _v11 && (0, _v5.jsx)(_v107, {
                         contentEditable: !1,
                         text: _v11
                       })]
-                    }), _v46 && (0, _v5.jsxs)(_v236, {
+                    }), _v45 && (0, _v5.jsxs)(_v236, {
                       children: [(0, _v5.jsx)(_v238, {}), (0, _v5.jsx)(_v237, {
                         children: _v34.thisVideoContainsAdvertisment
                       })]
                     })]
                   })
-                }), _v20 && (0, _v5.jsx)(_v154, {
-                  isChatAvailable: _v19,
-                  isPanelExpanded: _v21,
+                }), _v19 && (0, _v5.jsx)(_v154, {
+                  isChatAvailable: _v18,
+                  isPanelExpanded: _v20,
                   isChatSheetView: !0,
-                  onOpen: () => _v22(!0),
-                  onClose: () => _v22(!1),
-                  onPanelOpenChange: _v24
+                  onOpen: () => _v21(!0),
+                  onClose: () => _v21(!1),
+                  onPanelOpenChange: _v23
                 })]
-              }), _v18.release_single_event_customization && _v4 ? (0, _v5.jsx)(_v328, {
+              }), _v4 ? (0, _v5.jsx)(_v328, {
                 eventId: _v4
-              }) : null, _v34 ? (0, _v5.jsx)(_v229, {
+              }) : null, _v33 ? (0, _v5.jsx)(_v229, {
                 children: (0, _v5.jsx)(_v115.EssentialFooter, {
-                  ..._v34,
+                  ..._v33,
                   enableQuotaMenu: !1,
                   position: "absolute"
                 })
               }) : null]
-            }), !_v20 && (0, _v5.jsx)(_v154, {
-              isChatAvailable: _v19,
+            }), !_v19 && (0, _v5.jsx)(_v154, {
+              isChatAvailable: _v18,
               isPanelExpanded: !1,
               isChatSheetView: !1,
-              onOpen: () => _v22(!0),
-              onClose: () => _v22(!1),
-              onPanelOpenChange: _v24
+              onOpen: () => _v21(!0),
+              onClose: () => _v21(!1),
+              onPanelOpenChange: _v23
             })]
           })]
         })

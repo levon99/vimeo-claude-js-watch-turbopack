@@ -2482,6 +2482,8 @@
     checkIsPlayableInterval;
     uploadApproach;
     pauseInterval;
+    patchLimitBytes;
+    throughputSamples;
     createSessionAbortController;
     currentVideoId;
     currentStreamKey;
@@ -2493,7 +2495,7 @@
     }
     retry;
     constructor(_v0, _v1, _v2 = _v140.createForCategory("Uploader")) {
-      super(_v0), this.options = _v1, this.log = _v2, this.pendingChunks = [], this.cancel = () => void 0, this.createSessionAbortController = new AbortController(), this.finalized = !1;
+      super(_v0), this.options = _v1, this.log = _v2, this.pendingChunks = [], this.cancel = () => void 0, this.patchLimitBytes = 0, this.throughputSamples = [], this.createSessionAbortController = new AbortController(), this.finalized = !1;
     }
     start(_v0, _v1) {
       this.uploadApproach = _v0, this.createVideo(_v1);
@@ -2778,7 +2780,8 @@
         return;
       }
       if (!this.session || this.session.uploadInProgress) return;
-      let _v0 = this.session;
+      let _v0 = this.session,
+        _v1 = 0;
       try {
         for (_v0.uploadInProgress = !0, this.callbacks.onStarted(), this.retry = void 0, await this.uploadThumbnail(), this.log.info("Starting chunk upload", {
           pendingChunks: this.pendingChunks.length
@@ -2801,59 +2804,68 @@
               }), this.handleErrors(_v0);
               return;
             }
-            _v0 > _v0.uploadOffset && (_v0 === _v0.uploadOffset + _v0.byteLength ? (this.pendingChunks.shift(), this.log.error(RangeError("Chunk is already uploaded"), {
-              category: _v124.NETWORK,
-              method: "upload",
-              component: "Uploader",
-              data: {
-                uploadOffset: _v0
-              }
-            })) : (this.pendingChunks[0] = this.pendingChunks[0].slice(_v0 - _v0.uploadOffset), this.log.error(RangeError("Chunk is partially uploaded"), {
-              category: _v124.NETWORK,
-              method: "upload",
-              component: "Uploader",
-              data: {
-                uploadOffset: _v0
-              }
-            })), _v0.uploadOffset = _v0, _v0 = this.pendingChunks[0]);
+            if (_v0 > _v0.uploadOffset) {
+              if (_v0 === _v0.uploadOffset + _v0.byteLength ? (this.pendingChunks.shift(), this.log.error(RangeError("Chunk is already uploaded"), {
+                category: _v124.NETWORK,
+                method: "upload",
+                component: "Uploader",
+                data: {
+                  uploadOffset: _v0
+                }
+              })) : (this.pendingChunks[0] = this.pendingChunks[0].slice(_v0 - _v0.uploadOffset), this.log.error(RangeError("Chunk is partially uploaded"), {
+                category: _v124.NETWORK,
+                method: "upload",
+                component: "Uploader",
+                data: {
+                  uploadOffset: _v0
+                }
+              })), _v0.uploadOffset = _v0, 0 === this.pendingChunks.length && "tus_stream" === this.uploadApproach) break;
+              _v0 = this.pendingChunks[0];
+            }
           }
-          this.log.debug("Uploading chunk", {
+          "tus_stream" === this.uploadApproach && (this.fitHeadChunkToPatchLimit(_v0.requestUploadOffset), _v0 = this.pendingChunks[0]), this.log.debug("Uploading chunk", {
             uploadOffset: _v0.uploadOffset,
             chunkSize: _v0.byteLength
           });
-          let _v1 = performance.now(),
-            _v2 = await _v103(_v0.uploadLink, {
-              method: "PATCH",
-              headers: {
-                "Tus-Resumable": "1.0.0",
-                "Upload-Offset": `${_v0.uploadOffset}`,
-                "Content-Type": "application/offset+octet-stream",
-                "Content-Length": `${_v0.byteLength}`
-              },
-              body: _v0
-            }, 0);
+          let _v1 = performance.now();
+          _v1 = _v0.byteLength;
+          let _v2 = await _v103(_v0.uploadLink, {
+            method: "PATCH",
+            headers: {
+              "Tus-Resumable": "1.0.0",
+              "Upload-Offset": `${_v0.uploadOffset}`,
+              "Content-Type": "application/offset+octet-stream",
+              "Content-Length": `${_v0.byteLength}`
+            },
+            body: _v0
+          }, 0);
+          _v1 = 0;
+          let _v3 = performance.now() - _v1;
           if (this.log.debug("Chunk upload response", {
             status: _v2.status,
-            durationMs: Math.round(performance.now() - _v1),
+            durationMs: Math.round(_v3),
             uploadOffset: _v0.uploadOffset,
             chunkSize: _v0.byteLength,
             pendingChunks: this.pendingChunks.length
           }), _v2.ok) {
             let _v0 = _v2.headers.get("Upload-Offset"),
               _v1 = parseInt(_v0 || "");
-            if (_v0.uploadOffset + _v0.byteLength === _v1) _v0.requestUploadOffset = !1, _v0.uploadOffset = _v1, this.pendingChunks.shift(), this.callbacks.onChunkUploaded();else if (_v0.requestUploadOffset) throw new _v93("Chunk upload offset mismatch");else _v0.requestUploadOffset = !0;
+            if (_v0.uploadOffset + _v0.byteLength === _v1) _v0.requestUploadOffset = !1, _v0.uploadOffset = _v1, this.pendingChunks.shift(), this.recordPatchSuccess(_v0.byteLength, _v3), this.callbacks.onChunkUploaded();else {
+              if (this.recordPatchFailure(_v0.byteLength), _v0.requestUploadOffset) throw new _v93("Chunk upload offset mismatch");
+              _v0.requestUploadOffset = !0;
+            }
           } else {
             if (this.log.warn("Chunk upload failed", {
               uploadOffset: _v0.uploadOffset,
               chunkSize: _v0.byteLength,
               status: _v2.status
-            }), _v0.requestUploadOffset) throw new _v91.NetworkError("Chunk upload failed", _v2.status, _v2);
+            }), this.recordPatchFailure(_v0.byteLength), _v0.requestUploadOffset) throw new _v91.NetworkError("Chunk upload failed", _v2.status, _v2);
             _v0.requestUploadOffset = !0;
           }
         }
         this.eofReceived && (await this.finalizeVideo(_v0, this.eofReceived));
       } catch (_v0) {
-        if (this.retry = () => {
+        if (_v1 > 0 && (this.recordPatchFailure(_v1), "tus_stream" === this.uploadApproach && (_v0.requestUploadOffset = !0)), this.retry = () => {
           this.log.debug("Retrying chunk upload", {
             reason: _v0.message,
             uploadOffset: _v0.uploadOffset
@@ -2881,6 +2893,37 @@
       } finally {
         _v0.uploadInProgress = !1;
       }
+    }
+    fitHeadChunkToPatchLimit(_v0) {
+      let _v1 = this.pendingChunks[0];
+      if (_v0) {
+        if (_v1.byteLength > this.patchLimitBytes) {
+          let _v0 = [];
+          for (let _v0 = 0; _v0 < _v1.byteLength; _v0 += this.patchLimitBytes) _v0.push(_v1.slice(_v0, _v0 + this.patchLimitBytes));
+          this.pendingChunks.splice(0, 1, ..._v0);
+        }
+        return;
+      }
+      let _v2 = 1,
+        _v3 = _v1.byteLength;
+      for (; _v2 < this.pendingChunks.length && _v3 + this.pendingChunks[_v2].byteLength <= this.patchLimitBytes;) _v3 += this.pendingChunks[_v2].byteLength, _v2 += 1;
+      if (1 === _v2) return;
+      let _v4 = new Uint8Array(_v3),
+        _v5 = 0;
+      for (let _v0 of this.pendingChunks.slice(0, _v2)) _v4.set(new Uint8Array(_v0), _v5), _v5 += _v0.byteLength;
+      this.pendingChunks.splice(0, _v2, _v4.buffer);
+    }
+    recordPatchSuccess(_v0, _v1) {
+      if ("tus_stream" !== this.uploadApproach) return;
+      let _v2 = 0 * _v0 / Math.max(_v1, 1);
+      _v0 < 0 && 40 * _v2 <= this.patchLimitBytes || (this.throughputSamples = [...this.throughputSamples, _v2].slice(-3), this.updatePatchLimit());
+    }
+    recordPatchFailure(_v0) {
+      "tus_stream" === this.uploadApproach && (this.throughputSamples = [Math.min(_v0 / 2 / 40, ...this.throughputSamples)], this.updatePatchLimit());
+    }
+    updatePatchLimit() {
+      let _v0 = Math.min(...this.throughputSamples);
+      this.patchLimitBytes = Math.min(0, Math.max(0, Math.floor(40 * _v0)));
     }
     async patchVideo(_v0, _v1) {
       await _v105.fetchWithRecordJWT(_v186.patchVideo, {

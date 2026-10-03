@@ -1,14 +1,13 @@
 {
   "use strict";
 
-  let _v1, _v2, _v3, _v4;
-  var _v5,
-    _v6 = _v0.i(0),
-    _v7 = _v0.i(0),
-    _v8 = _v0.i(0),
-    _v9 = _v0.i(0),
-    _v10 = ((_v5 = {}).Control = "control", _v5.T1 = "t1", _v5.T2 = "t2", _v5.T3 = "t3", _v5);
-  let _v11 = {
+  var _v1,
+    _v2 = _v0.i(0),
+    _v3 = _v0.i(0),
+    _v4 = _v0.i(0),
+    _v5 = _v0.i(0),
+    _v6 = ((_v1 = {}).Control = "control", _v1.T1 = "t1", _v1.T2 = "t2", _v1.T3 = "t3", _v1);
+  let _v7 = {
     enable_fuzzy_public_search: !1,
     enable_subscription_withdrawal: !1,
     enable_team_defaults_page: !1,
@@ -75,7 +74,6 @@
     enable_review_page_shortcut_from_main: !1,
     is_new_live_events_dashboard_enabled: !1,
     live_broadcaster_mic_meter: !1,
-    is_live_event_background_enabled: !1,
     block_live_streaming_free_trial: "control",
     creator_monetisation_creator_enabled: !1,
     creator_monetisation_viewer_treatment: "false",
@@ -218,22 +216,22 @@
     enable_dictionary_settings_intro_announcement: !1,
     enable_dictionary_announcements: !1
   };
-  function _v12() {
+  function _v8() {
     return "vimeo.dev" === window.location.hostname || window.location.hostname.endsWith(".vimeows.com");
   }
-  _v0.s(["ReviewAdoptionV3Arm", () => _v10, "defaultSettings", 0, _v11], 0);
-  let _v13 = "orion_overrides";
-  function _v14() {
-    if (!_v12()) return {};
+  _v0.s(["ReviewAdoptionV3Arm", () => _v6, "defaultSettings", 0, _v7], 0);
+  let _v9 = "orion_overrides";
+  function _v10() {
+    if (!_v8()) return {};
     try {
-      let _v0 = window.sessionStorage.getItem(_v13);
+      let _v0 = window.sessionStorage.getItem(_v9);
       return _v0 ? JSON.parse(_v0) : {};
     } catch {
       return {};
     }
   }
-  var _v15 = _v0.i(0);
-  async function _v16(_v0) {
+  var _v11 = _v0.i(0);
+  async function _v12(_v0) {
     return new Promise(_v0 => {
       _v0.then(_v0 => _v0({
         data: _v0,
@@ -244,13 +242,13 @@
       }));
     });
   }
-  class _v17 extends Error {
+  class _v13 extends Error {
     constructor(_v0) {
       super(_v0), this.name = "Error4xx";
     }
   }
-  async function _v18(_v0) {
-    if (_v0.status >= 400 && _v0.status < 500) throw new _v17(`Received invalid response! Code: ${_v0.status}, Message: ${_v0.statusText}, Source: proxy`);
+  async function _v14(_v0) {
+    if (_v0.status >= 400 && _v0.status < 500) throw new _v13(`Received invalid response! Code: ${_v0.status}, Message: ${_v0.statusText}, Source: proxy`);
     let _v1 = null;
     try {
       _v1 = await _v0.json();
@@ -281,12 +279,12 @@
     }
     return _v1;
   }
-  function _v19(_v0) {
+  function _v15(_v0) {
     async function _v1(_v0) {
-      return _v18(await _v0.fetcher(_v0.url, {
+      return _v14(await _v0.fetcher(_v0.url, {
         method: _v0.method,
         ...(_v0.body && {
-          body: JSON.stringify((0, _v15.default)(_v0.body))
+          body: JSON.stringify((0, _v11.default)(_v0.body))
         }),
         headers: {
           ...(_v0.body && {
@@ -353,9 +351,9 @@
       }
     };
   }
-  var _v20 = _v0.i(0);
-  async function _v21(_v0) {
-    let _v1 = new _v20.Mutex(),
+  var _v16 = _v0.i(0);
+  async function _v17(_v0) {
+    let _v1 = new _v16.Mutex(),
       _v2 = _v0 => ({
         isDefaultIdentity: _v0?.isDefaultIdentity ?? !0,
         settings: {
@@ -381,7 +379,7 @@
       },
       _v4 = async (_v0, _v1) => {
         _v0.logger.debug(`Requesting latest settings from remote at time: ${new Date().getTime()}`);
-        let _v2 = await _v16(_v0.apiManager.requestSettingsAndSegmentations(_v1));
+        let _v2 = await _v12(_v0.apiManager.requestSettingsAndSegmentations(_v1));
         if (_v2.err) return _v0.logger.debug(_v2.err.message), _v2(null);
         if (null == _v2.data) return _v2(null);
         try {
@@ -452,9 +450,9 @@
       refreshIdentity: () => _v7(!0)
     };
   }
-  async function _v22(_v0, _v1 = {}) {
-    let _v2 = _v1.createAPIManager || _v19,
-      _v3 = _v1.createEntityManager || _v21,
+  async function _v18(_v0, _v1 = {}) {
+    let _v2 = _v1.createAPIManager || _v15,
+      _v3 = _v1.createEntityManager || _v17,
       _v4 = _v2({
         fetcher: _v0.fetcher,
         appId: _v0.appId,
@@ -489,142 +487,23 @@
       }
     };
   }
-  let _v23 = (_v0, _v1) => _v1.some(_v0 => _v0 instanceof _v0),
-    _v24 = new WeakMap(),
-    _v25 = new WeakMap(),
-    _v26 = new WeakMap(),
-    _v27 = {
-      get(_v0, _v1, _v2) {
-        if (_v0 instanceof IDBTransaction) {
-          if ("done" === _v1) return _v24.get(_v0);
-          if ("store" === _v1) return _v2.objectStoreNames[1] ? void 0 : _v2.objectStore(_v2.objectStoreNames[0]);
-        }
-        return _v28(_v0[_v1]);
-      },
-      set: (_v0, _v1, _v2) => (_v0[_v1] = _v2, !0),
-      has: (_v0, _v1) => _v0 instanceof IDBTransaction && ("done" === _v1 || "store" === _v1) || _v1 in _v0
-    };
-  function _v28(_v0) {
-    if (_v0 instanceof IDBRequest) {
-      let _v0;
-      return _v0 = new Promise((_v0, _v1) => {
-        let _v2 = () => {
-            _v0.removeEventListener("success", _v3), _v0.removeEventListener("error", _v4);
-          },
-          _v3 = () => {
-            _v0(_v28(_v0.result)), _v2();
-          },
-          _v4 = () => {
-            _v1(_v0.error), _v2();
-          };
-        _v0.addEventListener("success", _v3), _v0.addEventListener("error", _v4);
-      }), _v26.set(_v0, _v0), _v0;
-    }
-    if (_v25.has(_v0)) return _v25.get(_v0);
-    let _v1 = function (_v0) {
-      if ("function" == typeof _v0) return (_v2 || (_v2 = [IDBCursor.prototype.advance, IDBCursor.prototype.continue, IDBCursor.prototype.continuePrimaryKey])).includes(_v0) ? function (..._v0) {
-        return _v0.apply(_v29(this), _v0), _v28(this.request);
-      } : function (..._v0) {
-        return _v28(_v0.apply(_v29(this), _v0));
-      };
-      return (_v0 instanceof IDBTransaction && function (_v0) {
-        if (_v24.has(_v0)) return;
-        let _v1 = new Promise((_v0, _v1) => {
-          let _v2 = () => {
-              _v0.removeEventListener("complete", _v3), _v0.removeEventListener("error", _v4), _v0.removeEventListener("abort", _v4);
-            },
-            _v3 = () => {
-              _v0(), _v2();
-            },
-            _v4 = () => {
-              _v1(_v0.error || new DOMException("AbortError", "AbortError")), _v2();
-            };
-          _v0.addEventListener("complete", _v3), _v0.addEventListener("error", _v4), _v0.addEventListener("abort", _v4);
-        });
-        _v24.set(_v0, _v1);
-      }(_v0), _v23(_v0, _v1 || (_v1 = [IDBDatabase, IDBObjectStore, IDBIndex, IDBCursor, IDBTransaction]))) ? new Proxy(_v0, _v27) : _v0;
-    }(_v0);
-    return _v1 !== _v0 && (_v25.set(_v0, _v1), _v26.set(_v1, _v0)), _v1;
-  }
-  let _v29 = _v0 => _v26.get(_v0),
-    _v30 = ["get", "getKey", "getAll", "getAllKeys", "count"],
-    _v31 = ["put", "add", "delete", "clear"],
-    _v32 = new Map();
-  function _v33(_v0, _v1) {
-    if (!(_v0 instanceof IDBDatabase && !(_v1 in _v0) && "string" == typeof _v1)) return;
-    if (_v32.get(_v1)) return _v32.get(_v1);
-    let _v2 = _v1.replace(/FromIndex$/, ""),
-      _v3 = _v1 !== _v2,
-      _v4 = _v31.includes(_v2);
-    if (!(_v2 in (_v3 ? IDBIndex : IDBObjectStore).prototype) || !(_v4 || _v30.includes(_v2))) return;
-    let _v5 = async function (_v0, ..._v1) {
-      let _v2 = this.transaction(_v0, _v4 ? "readwrite" : "readonly"),
-        _v3 = _v2.store;
-      return _v3 && (_v3 = _v3.index(_v1.shift())), (await Promise.all([_v3[_v2](..._v1), _v4 && _v2.done]))[0];
-    };
-    return _v32.set(_v1, _v5), _v5;
-  }
-  _v27 = {
-    ...(_v3 = _v27),
-    get: (_v0, _v1, _v2) => _v33(_v0, _v1) || _v3.get(_v0, _v1, _v2),
-    has: (_v0, _v1) => !!_v33(_v0, _v1) || _v3.has(_v0, _v1)
-  };
-  let _v34 = ["continue", "continuePrimaryKey", "advance"],
-    _v35 = {},
-    _v36 = new WeakMap(),
-    _v37 = new WeakMap(),
-    _v38 = {
-      get(_v0, _v1) {
-        if (!_v34.includes(_v1)) return _v0[_v1];
-        let _v2 = _v35[_v1];
-        return _v2 || (_v2 = _v35[_v1] = function (..._v0) {
-          _v36.set(this, _v37.get(this)[_v1](..._v0));
-        }), _v2;
-      }
-    };
-  async function* _v39(..._v0) {
-    let _v1 = this;
-    if (_v1 instanceof IDBCursor || (_v1 = await _v1.openCursor(..._v0)), !_v1) return;
-    let _v2 = new Proxy(_v1, _v38);
-    for (_v37.set(_v2, _v1), _v26.set(_v2, _v29(_v1)); _v1;) yield _v2, _v1 = await (_v36.get(_v2) || _v1.continue()), _v36.delete(_v2);
-  }
-  function _v40(_v0, _v1) {
-    return _v1 === Symbol.asyncIterator && _v23(_v0, [IDBIndex, IDBObjectStore, IDBCursor]) || "iterate" === _v1 && _v23(_v0, [IDBIndex, IDBObjectStore]);
-  }
-  _v27 = {
-    ...(_v4 = _v27),
-    get: (_v0, _v1, _v2) => _v40(_v0, _v1) ? _v39 : _v4.get(_v0, _v1, _v2),
-    has: (_v0, _v1) => _v40(_v0, _v1) || _v4.has(_v0, _v1)
-  };
-  let _v41 = "identity";
-  async function _v42() {
-    let _v0 = await function (_v0, {
-      blocked: _v1,
-      upgrade: _v2,
-      blocking: _v3,
-      terminated: _v4
-    } = {}) {
-      let _v5 = indexedDB.open(_v0, 1),
-        _v6 = _v28(_v5);
-      return _v2 && _v5.addEventListener("upgradeneeded", _v0 => {
-        _v2(_v28(_v5.result), _v0.oldVersion, _v0.newVersion, _v28(_v5.transaction), _v0);
-      }), _v1 && _v5.addEventListener("blocked", _v0 => _v1(_v0.oldVersion, _v0.newVersion, _v0)), _v6.then(_v0 => {
-        _v4 && _v0.addEventListener("close", () => _v4()), _v3 && _v0.addEventListener("versionchange", _v0 => _v3(_v0.oldVersion, _v0.newVersion, _v0));
-      }).catch(() => {}), _v6;
-    }("orionV3", {
+  var _v19 = _v0.i(0);
+  let _v20 = "identity";
+  async function _v21() {
+    let _v0 = await (0, _v19.openDB)("orionV3", 1, {
       upgrade(_v0) {
-        _v0.createObjectStore(_v41, {
+        _v0.createObjectStore(_v20, {
           keyPath: "userId"
         });
       }
     });
     return {
       clearEntities: async () => {
-        await _v0.clear(_v41);
+        await _v0.clear(_v20);
       },
       loadIdentity: async _v0 => {
         try {
-          let _v0 = await _v0.get(_v41, _v0);
+          let _v0 = await _v0.get(_v20, _v0);
           if (!_v0) return null;
           let {
             identity: _v1,
@@ -642,7 +521,7 @@
         }
       },
       saveIdentity: async (_v0, _v1) => {
-        await _v0.put(_v41, {
+        await _v0.put(_v20, {
           identity: JSON.stringify(_v0),
           updatedAt: Date.now().toString(),
           userId: _v1
@@ -650,10 +529,10 @@
       }
     };
   }
-  var _v43 = _v0.i(0);
-  let _v44 = () => Promise.resolve(_v43.isMobile ? "mobile" : _v43.isTablet ? "tablet" : _v43.isDesktop ? "desktop" : "unknown");
-  var _v45 = _v0.i(0);
-  let _v46 = {
+  var _v22 = _v0.i(0);
+  let _v23 = () => Promise.resolve(_v22.isMobile ? "mobile" : _v22.isTablet ? "tablet" : _v22.isDesktop ? "desktop" : "unknown");
+  var _v24 = _v0.i(0);
+  let _v25 = {
       trace(..._v0) {
         console.trace("[Orion]", ..._v0);
       },
@@ -673,7 +552,7 @@
         console.error("[Orion]", ..._v0);
       }
     },
-    _v47 = {
+    _v26 = {
       trace() {},
       info() {},
       debug() {},
@@ -681,21 +560,21 @@
       error() {},
       fatal() {}
     },
-    _v48 = {
+    _v27 = {
       production: "https://vimeo.com/flarepoint",
       staging: "https://vimeo.com/flarepoint"
     },
-    _v49 = (0, _v8.createContext)({
+    _v28 = (0, _v4.createContext)({
       client: void 0,
       identity: {
         isDefaultIdentity: !0,
-        settings: _v11,
+        settings: _v7,
         segmentations: {},
         settingsHash: ""
       },
       isLoadingResponse: !0
     }),
-    _v50 = () => (0, _v8.useContext)(_v49);
+    _v29 = () => (0, _v4.useContext)(_v28);
   _v0.s(["OrionProvider", 0, ({
     children: _v0,
     isLoggingEnabled: _v1 = !1,
@@ -703,8 +582,8 @@
   }) => {
     let _v3,
       _v4,
-      _v5 = _v1 ? _v46 : _v47,
-      _v6 = (0, _v9.useViewer)(),
+      _v5 = _v1 ? _v25 : _v26,
+      _v6 = (0, _v5.useViewer)(),
       _v7 = !_v6,
       _v8 = null,
       _v9 = null,
@@ -712,33 +591,33 @@
       _v11 = null,
       _v12 = null;
     _v7 || (_v3 = _v6?.user?.id?.toString() ?? null, _v4 = _v6.vuid, _v9 = (_v8 = _v6.teamUser?.ownerId?.toString() ?? null) ? `T_${_v8}` : _v3 ? `U_${_v3}` : null, _v10 = _v6.teamUser?.accountType?.toString() ?? _v6.user?.account?.toString() ?? null, _v11 = _v6.user?.productId?.toString() ?? null, _v12 = _v6.user?.currency?.toUpperCase() ?? null);
-    let _v13 = (0, _v8.useRef)(_v3),
-      _v14 = (0, _v8.useRef)(_v4),
-      _v15 = (0, _v8.useRef)(_v8),
-      _v16 = (0, _v8.useRef)(_v9),
-      _v17 = (0, _v8.useRef)(_v10),
-      _v18 = (0, _v8.useRef)(_v11),
-      _v19 = (0, _v8.useRef)(_v12),
-      _v20 = (0, _v8.useRef)(_v6);
+    let _v13 = (0, _v4.useRef)(_v3),
+      _v14 = (0, _v4.useRef)(_v4),
+      _v15 = (0, _v4.useRef)(_v8),
+      _v16 = (0, _v4.useRef)(_v9),
+      _v17 = (0, _v4.useRef)(_v10),
+      _v18 = (0, _v4.useRef)(_v11),
+      _v19 = (0, _v4.useRef)(_v12),
+      _v20 = (0, _v4.useRef)(_v6);
     _v13.current = _v3, _v14.current = _v4, _v15.current = _v8, _v16.current = _v9, _v17.current = _v10, _v18.current = _v11, _v19.current = _v12, _v20.current = _v6;
-    let [_v21, _v22] = (0, _v8.useState)(void 0),
-      _v23 = (0, _v8.useRef)(!1),
-      [_v24, _v25] = (0, _v8.useState)(0),
-      [_v26, _v27] = (0, _v8.useState)({
-        settings: _v11,
+    let [_v21, _v22] = (0, _v4.useState)(void 0),
+      _v23 = (0, _v4.useRef)(!1),
+      [_v24, _v25] = (0, _v4.useState)(0),
+      [_v26, _v27] = (0, _v4.useState)({
+        settings: _v7,
         segmentations: {},
         settingsHash: "",
         isDefaultIdentity: !0
       }),
-      [_v28, _v29] = (0, _v8.useState)(!0),
+      [_v28, _v29] = (0, _v4.useState)(!0),
       _v30 = function () {
-        let [_v0, _v1] = (0, _v8.useState)(_v14);
-        return (0, _v8.useEffect)(() => {
-          if (!_v12()) return;
+        let [_v0, _v1] = (0, _v4.useState)(_v10);
+        return (0, _v4.useEffect)(() => {
+          if (!_v8()) return;
           let _v0 = _v0 => {
-            let _v1 = _v0(_v14());
+            let _v1 = _v0(_v10());
             try {
-              window.sessionStorage.setItem(_v13, JSON.stringify(_v1));
+              window.sessionStorage.setItem(_v9, JSON.stringify(_v1));
             } catch {}
             _v1(_v1);
           };
@@ -760,19 +639,19 @@
             clearAllOverrides: () => {
               _v0(() => ({}));
             },
-            getOverrides: () => _v14()
+            getOverrides: () => _v10()
           }, () => {
             delete window._orion;
           };
         }, []), _v0;
       }(),
-      _v31 = (0, _v8.useRef)(!1);
-    (0, _v8.useEffect)(() => {
+      _v31 = (0, _v4.useRef)(!1);
+    (0, _v4.useEffect)(() => {
       _v7 || _v23.current || (_v23.current = !0, (async () => {
         try {
-          let _v0 = _v12() ? "staging" : "production",
-            _v1 = await _v42(),
-            _v2 = await _v22({
+          let _v0 = _v8() ? "staging" : "production",
+            _v1 = await _v21(),
+            _v2 = await _v18({
               goesThroughOrionProxy: !0,
               appId: "vimeo_web",
               appSpecificAttributeGetters: {
@@ -788,11 +667,11 @@
                   let _v1 = Date.parse(_v0);
                   return Number.isNaN(_v1) ? null : Math.max(0, Math.floor((Date.now() - _v1) / 0));
                 }(_v20.current?.user?.createdTime)),
-                clientEnvironment: () => Promise.resolve(_v12() ? "staging" : "production"),
+                clientEnvironment: () => Promise.resolve(_v8() ? "staging" : "production"),
                 surface: () => Promise.resolve(_v2)
               },
               persistenceManager: _v1,
-              defaultSettings: _v11,
+              defaultSettings: _v7,
               defaultSegmentations: {},
               deviceAttributeGetters: {
                 isLoggedIn: () => Promise.resolve(!!_v13.current),
@@ -801,16 +680,16 @@
                   return (_v0 = "LOCAL_STORAGE_ID_PICOX_ID", () => {
                     let _v0 = window.localStorage.getItem(_v0);
                     if (null == _v0) {
-                      let _v0 = (0, _v45.v4)();
+                      let _v0 = (0, _v24.v4)();
                       return window.localStorage.setItem(_v0, _v0), _v0;
                     }
                     return _v0;
                   })();
                 },
-                deviceType: _v44
+                deviceType: _v23
               },
               logger: _v5,
-              baseUrl: _v48[_v0],
+              baseUrl: _v27[_v0],
               shouldReturnDefaultsImmediately: !("u" < typeof navigator) && /(?:google|bing|msn|facebook)bot[-imagevdo]{0,6}|bingpreview|gptbot|slack(?:bot)?(?:-imgproxy|-linkexpanding)?/i.test(navigator.userAgent),
               fetcher: (..._v0) => fetch(..._v0),
               userIdGenerator: _v0 => Promise.resolve(["localStorageId", "vimeoUserId", "vuid", "teamOwnerId"].filter(_v0 => void 0 !== _v0[_v0]).map(_v0 => _v0[_v0]).join("_")),
@@ -821,7 +700,7 @@
           _v5.error("Failed to initialize Orion client", _v0), _v23.current = !1, _v25(_v0 => _v0 + 1);
         }
       })());
-    }, [_v7, _v24]), (0, _v8.useEffect)(() => {
+    }, [_v7, _v24]), (0, _v4.useEffect)(() => {
       let _v0;
       if (!_v21 || void 0 === _v3) return;
       _v29(!0);
@@ -845,7 +724,7 @@
         }, 0));
       Promise.race([_v1(), _v2]).finally(() => clearTimeout(_v0));
     }, [_v21, _v3, _v8]);
-    let _v32 = (0, _v8.useMemo)(() => 0 === Object.keys(_v30).length ? _v26 : {
+    let _v32 = (0, _v4.useMemo)(() => 0 === Object.keys(_v30).length ? _v26 : {
         ..._v26,
         settings: {
           ..._v26.settings,
@@ -853,12 +732,12 @@
         }
       }, [_v26, _v30]),
       _v33 = _v32.settings.orion_free_override;
-    return (0, _v8.useEffect)(() => {
-      !_v28 && _v33 && _v7.default.set("orion_free_override", "1", {
+    return (0, _v4.useEffect)(() => {
+      !_v28 && _v33 && _v3.default.set("orion_free_override", "1", {
         sameSite: "none",
         secure: !0
       });
-    }, [_v28, _v33]), (0, _v6.jsx)(_v49.Provider, {
+    }, [_v28, _v33]), (0, _v2.jsx)(_v28.Provider, {
       value: {
         client: _v21,
         identity: _v32,
@@ -866,11 +745,11 @@
       },
       children: _v0
     });
-  }, "useOrion", 0, _v50], 0), _v0.s(["useOrionSettings", 0, function () {
+  }, "useOrion", 0, _v29], 0), _v0.s(["useOrionSettings", 0, function () {
     let {
       identity: _v0,
       isLoadingResponse: _v1
-    } = _v50();
+    } = _v29();
     return {
       settings: _v0.settings,
       isLoadingResponse: _v1

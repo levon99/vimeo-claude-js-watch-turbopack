@@ -1403,5 +1403,5 @@
     }
     return _v2.exports;
   }
-  _v6.ab = "/ROOT/node_modules/.pnpm/next@16.3.1_patch_hash=hrh7hqwylvgxmobps5gtladac4_@babel+core@7.29.0_@opentelemetry+api@1.9.1_6vsyvbunm4zdjsfarv35x5pwxy/node_modules/next/dist/compiled/stream-browserify/", _v1.exports = _v6(854);
+  _v6.ab = "/ROOT/node_modules/.pnpm/next@16.3.1_patch_hash=b7bc31cfab0e02479a0ed36a8726a113ba4e375288e133cc90334ad8c6077b91_7c71c3d4101ba075800e0b9e3b4ae500/node_modules/next/dist/compiled/stream-browserify/", _v1.exports = _v6(854);
 }

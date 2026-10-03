@@ -107,6 +107,9 @@
       isVatInvalid: _v6,
       isVatServiceDown: _v8,
       isSlow: _v10,
+      onVatEdited: () => {
+        _v6 && _v7(!1), _v8 && _v9(!1);
+      },
       wetransferInspired: _v0
     });
   }]);

@@ -37,11 +37,13 @@
     isDisabled: _v6,
     inputMode: _v7,
     autoComplete: _v8,
-    "data-testid": _v9,
-    children: _v10,
-    onFocus: _v11,
-    onKeyDown: _v12,
-    inputRef: _v13
+    isRequired: _v9,
+    "aria-describedby": _v10,
+    "data-testid": _v11,
+    children: _v12,
+    onFocus: _v13,
+    onKeyDown: _v14,
+    inputRef: _v15
   }) => (0, _v1.jsxs)(_v2.Box, {
     position: "relative",
     flex: "1",
@@ -74,13 +76,15 @@
       placeholder: _v1,
       isInvalid: _v5,
       isDisabled: _v6,
+      isRequired: _v9,
+      "aria-describedby": _v10,
       inputMode: _v7,
       autoComplete: _v8,
-      "data-testid": _v9,
+      "data-testid": _v11,
       value: _v2,
-      ref: _v13,
-      onFocus: _v11,
-      onKeyDown: _v12,
+      ref: _v15,
+      onFocus: _v13,
+      onKeyDown: _v14,
       onChange: _v0 => _v4(_v0.currentTarget.value),
       size: "md",
       height: (0, _v4.rem)(40),
@@ -102,12 +106,12 @@
       transition: "0.2s ease all",
       ..._v7,
       children: _v1
-    }), _v10 && (0, _v1.jsx)(_v2.Box, {
+    }), _v12 && (0, _v1.jsx)(_v2.Box, {
       position: "absolute",
       right: (0, _v4.rem)(16),
       top: "50%",
       transform: "translateY(-50%)",
-      children: _v10
+      children: _v12
     })]
   }), "floatingLabelTypography", 0, _v5, "floatingPlaceholderTypography", 0, _v7]);
 }

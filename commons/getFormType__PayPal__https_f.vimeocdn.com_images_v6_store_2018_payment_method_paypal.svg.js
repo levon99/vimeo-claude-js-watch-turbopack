@@ -97,10 +97,41 @@
       storedMethod: _v5
     }) => {
       let [_v6, _v7] = (0, _v20.useState)("form"),
-        _v8 = _v0 => {
+        _v8 = (0, _v20.useRef)([]),
+        _v9 = _v0 => {
           _v7("form"), _v1?.(_v0);
         },
-        _v9 = !!_v5 && "stored" === _v6;
+        _v10 = () => {
+          _v7("stored"), _v5?.onSelectStored();
+        },
+        _v11 = _v0 => {
+          let _v1 = _v8.current.filter(Boolean);
+          if (0 === _v1.length) return;
+          let _v2 = (_v0 + _v1.length) % _v1.length;
+          _v1.forEach((_v0, _v1) => {
+            _v0.tabIndex = _v1 === _v2 ? 0 : -1;
+          }), _v1[_v2].focus(), (_v0 => {
+            if (_v5 && 0 === _v0) return _v10();
+            let _v1 = _v0[_v0 - !!_v5];
+            _v1 && _v9(_v1.type);
+          })(_v2);
+        },
+        _v12 = (_v0, _v1) => {
+          if (_v0.target === _v0.currentTarget) switch (_v0.key) {
+            case "ArrowRight":
+            case "ArrowDown":
+              _v0.preventDefault(), _v11(_v1 + 1);
+              break;
+            case "ArrowLeft":
+            case "ArrowUp":
+              _v0.preventDefault(), _v11(_v1 - 1);
+              break;
+            case "Enter":
+            case " ":
+              _v0.preventDefault(), _v11(_v1);
+          }
+        },
+        _v13 = !!_v5 && "stored" === _v6;
       return (0, _v2.jsxs)(_v7.Flex, {
         "data-testid": "wetransfer-inspired-payment-tiles",
         flexDirection: "column",
@@ -108,22 +139,21 @@
         width: "100%",
         role: "radiogroup",
         children: [_v5 && (0, _v2.jsx)(_v6.Box, {
+          ref: _v0 => {
+            _v8.current[0] = _v0;
+          },
           role: "radio",
-          "aria-checked": _v9,
-          tabIndex: _v9 ? 0 : -1,
-          onKeyDown: _v0 => {
-            _v0.target === _v0.currentTarget && ("Enter" === _v0.key || " " === _v0.key) && (_v0.preventDefault(), _v7("stored"), _v5.onSelectStored());
-          },
-          onClick: () => {
-            _v7("stored"), _v5.onSelectStored();
-          },
+          "aria-checked": _v13,
+          tabIndex: _v13 ? 0 : -1,
+          onKeyDown: _v0 => _v12(_v0, 0),
+          onClick: _v10,
           width: "100%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           textAlign: "left",
           border: "1px solid",
-          borderColor: _v9 ? _v4 ? "status-destructive-primary" : "text-primary" : "stroke",
+          borderColor: _v13 ? _v4 ? "status-destructive-primary" : "text-primary" : "stroke",
           borderRadius: (0, _v3.rem)(16),
           backgroundColor: "surface",
           paddingX: (0, _v3.rem)(16),
@@ -138,7 +168,7 @@
             alignItems: "center",
             gap: (0, _v3.rem)(12),
             children: [(0, _v2.jsx)(_v26, {
-              selected: _v9
+              selected: _v13
             }), (0, _v2.jsx)(_v6.Box, {
               width: (0, _v3.rem)(24),
               height: (0, _v3.rem)(24),
@@ -154,16 +184,18 @@
           let _v2 = _v0.type === _v1.PaymentFormTypes.TYPE_CREDIT_CARD || _v0.type === _v1.PaymentFormTypes.TYPE_STRIPE,
             _v3 = _v0.type === _v1.PaymentFormTypes.TYPE_PAYPAL,
             _v4 = "form" === _v6 && (_v0.type === _v2?.type || !_v2 && 0 === _v1),
-            _v5 = _v4 && (_v2 || _v3);
+            _v5 = _v4 && (_v2 || _v3),
+            _v6 = _v1 + +!!_v5;
           return (0, _v2.jsxs)(_v6.Box, {
+            ref: _v0 => {
+              _v8.current[_v6] = _v0;
+            },
             role: "radio",
             "aria-checked": _v4,
             tabIndex: _v4 ? 0 : -1,
-            onKeyDown: _v0 => {
-              _v0.target === _v0.currentTarget && ("Enter" === _v0.key || " " === _v0.key) && (_v0.preventDefault(), _v8(_v0.type));
-            },
+            onKeyDown: _v0 => _v12(_v0, _v6),
             onClick: _v0 => {
-              _v0.target !== _v0.currentTarget && _v4 || _v8(_v0.type);
+              _v0.target !== _v0.currentTarget && _v4 || _v9(_v0.type);
             },
             width: "100%",
             display: "flex",
@@ -289,8 +321,9 @@
                   }
                 })
               })]
-            }), _v2 && _v4 && _v3 && (0, _v2.jsx)(_v6.Box, {
-              marginTop: (0, _v3.rem)(16),
+            }), _v2 && _v3 && (0, _v2.jsx)(_v6.Box, {
+              display: _v5 ? "block" : "none",
+              marginTop: _v5 ? (0, _v3.rem)(16) : void 0,
               width: "100%",
               onClick: _v0 => _v0.stopPropagation(),
               onPointerDown: _v0 => _v0.stopPropagation(),
@@ -474,6 +507,7 @@
         })
       })]
     }), _v2 && (0, _v2.jsx)(_v4.Alert, {
+      alignItems: "center",
       maxW: (0, _v3.rem)(468),
       status: _v2.status,
       children: (0, _v2.jsx)(_v5.AlertDescription, {

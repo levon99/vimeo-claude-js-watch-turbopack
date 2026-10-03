@@ -238,8 +238,9 @@
     _v72 = _v0.i(0),
     _v73 = _v0.i(0),
     _v74 = _v0.i(0),
-    _v75 = _v0.i(0);
-  let _v76 = _v0 => (0, _v2.jsx)(_v25.Icon, {
+    _v75 = _v0.i(0),
+    _v76 = _v0.i(0);
+  let _v77 = _v0 => (0, _v2.jsx)(_v25.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -254,8 +255,8 @@
       })]
     })
   });
-  var _v77 = _v0.i(0);
-  let _v78 = _v0 => (0, _v2.jsx)(_v25.Icon, {
+  var _v78 = _v0.i(0);
+  let _v79 = _v0 => (0, _v2.jsx)(_v25.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -268,7 +269,7 @@
         })]
       })
     }),
-    _v79 = _v0 => (0, _v2.jsx)(_v25.Icon, {
+    _v80 = _v0 => (0, _v2.jsx)(_v25.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -283,11 +284,11 @@
         })]
       })
     });
-  var _v80 = _v0.i(0),
-    _v81 = _v0.i(0),
+  var _v81 = _v0.i(0),
     _v82 = _v0.i(0),
-    _v83 = _v0.i(0);
-  let _v84 = {
+    _v83 = _v0.i(0),
+    _v84 = _v0.i(0);
+  let _v85 = {
       name: "vimeo.click_in_team_member_menu",
       version: 1,
       actionContext: {
@@ -304,7 +305,7 @@
         search_result_qty: null
       }
     },
-    _v85 = {
+    _v86 = {
       name: "vimeo.open_team_member_menu",
       version: 1,
       actionContext: {
@@ -320,7 +321,7 @@
         search_result_qty: null
       }
     },
-    _v86 = ({
+    _v87 = ({
       deleteButtonText: _v0,
       isPending: _v1,
       onDelete: _v2,
@@ -349,7 +350,7 @@
         [_v24, _v25] = (0, _v3.useState)(!1),
         [_v26, _v27] = (0, _v3.useState)(!1),
         _v28 = (0, _v3.useRef)(null),
-        _v29 = (0, _v69.getIdFromLink)(_v5),
+        _v29 = (0, _v70.getIdFromLink)(_v5),
         _v30 = () => {
           _v25(!1);
         },
@@ -374,7 +375,7 @@
             hasContentSpaceEnabled: _v39
           },
           ready: _v40
-        } = (0, _v81.useCapability)(["hasContentSpaceEnabled", "hasTeamGroups"], _v37),
+        } = (0, _v82.useCapability)(["hasContentSpaceEnabled", "hasTeamGroups"], _v37),
         {
           updateModalToDisplay: _v41
         } = (0, _v3.useContext)(_v20.ManageTeamDispatchCtx),
@@ -382,33 +383,33 @@
         _v43 = (_v34 || _v35) && !_v1 && _v7 && _v42.includes(_v7),
         {
           settings: _v44
-        } = (0, _v82.useOrionSettings)(),
+        } = (0, _v83.useOrionSettings)(),
         _v45 = _v44.show_granular_permissions,
         _v46 = _v34 ? "/enterprise/contact" : _v45 ? `/manage/team/members/${_v29}/access?tab=content` : _v39 ? `/manage/team/members/${_v29}/team-library` : `/manage/team/members/${_v29}/shared-resources`,
-        _v47 = (_v22 = (0, _v83.useTeamManagementActionEvent)(), (0, _v3.useCallback)(() => _v22(_v85), [_v22]));
+        _v47 = (_v22 = (0, _v84.useTeamManagementActionEvent)(), (0, _v3.useCallback)(() => _v22(_v86), [_v22]));
       (0, _v3.useEffect)(() => {
         _v24 && _v47();
       }, [_v24, _v47]);
-      let _v48 = (_v23 = (0, _v83.useTeamManagementActionEvent)(), (0, _v3.useCallback)(({
+      let _v48 = (_v23 = (0, _v84.useTeamManagementActionEvent)(), (0, _v3.useCallback)(({
           copy: _v0,
           flow: _v1,
           feature: _v2
         }) => _v23({
-          ..._v84,
+          ..._v85,
           productAnalyticsContext: {
-            ..._v84.productAnalyticsContext,
+            ..._v85.productAnalyticsContext,
             copy: _v0,
             feature: _v2,
             flow: _v1
           }
         }), [_v23])),
-        _v49 = (0, _v69.getIdFromLink)(_v37);
-      return (0, _v75.useOutsideClick)({
+        _v49 = (0, _v70.getIdFromLink)(_v37);
+      return (0, _v76.useOutsideClick)({
         ref: _v28,
         handler: () => _v25(!1)
-      }), (0, _v2.jsxs)(_v70.Menu, {
+      }), (0, _v2.jsxs)(_v71.Menu, {
         isOpen: _v24,
-        children: [(0, _v2.jsx)(_v71.MenuButton, {
+        children: [(0, _v2.jsx)(_v72.MenuButton, {
           as: _v40.IconButton,
           "aria-label": "overflow-menu-dots",
           marginLeft: (0, _v8.rem)(8),
@@ -420,13 +421,13 @@
           borderRadius: "md",
           size: "md",
           onClick: () => _v25(!_v24)
-        }), (0, _v2.jsxs)(_v72.MenuList, {
+        }), (0, _v2.jsxs)(_v73.MenuList, {
           borderRadius: "md",
           py: (0, _v8.rem)(8),
           backgroundColor: "surface",
           ref: _v28,
           children: [_v1 && (0, _v2.jsxs)(_v2.Fragment, {
-            children: [(0, _v2.jsx)(_v73.MenuItem, {
+            children: [(0, _v2.jsx)(_v74.MenuItem, {
               "data-id": "roleMenuOptionResendInvite",
               isDisabled: _v10,
               as: "span",
@@ -435,7 +436,7 @@
                 variant: "header-xs",
                 children: _v10 ? _v28.T.ReminderSent : _v28.T.ResendInvite
               })
-            }), (0, _v2.jsx)(_v73.MenuItem, {
+            }), (0, _v2.jsx)(_v74.MenuItem, {
               "data-id": "roleMenuOptionCopyInvite",
               as: "span",
               onClick: _v9,
@@ -444,7 +445,7 @@
                 children: _v28.T.CopyLink
               })
             })]
-          }), !_v39 && !_v1 && _v33 && _v3 && (0, _v2.jsx)(_v73.MenuItem, {
+          }), !_v39 && !_v1 && _v33 && _v3 && (0, _v2.jsx)(_v74.MenuItem, {
             as: "span",
             "data-id": "roleMenuOptionViewMyVideos",
             onClick: () => window.open("/user/" + _v3?.split("/")[2] + "/folder/" + _v3?.split("/")[4], "_self"),
@@ -452,7 +453,7 @@
               variant: "header-xs",
               children: _v28.T.ViewMyVideos
             })
-          }), _v11 && (0, _v2.jsx)(_v73.MenuItem, {
+          }), _v11 && (0, _v2.jsx)(_v74.MenuItem, {
             as: "a",
             onClick: () => {
               _v25(!1), _v12();
@@ -461,14 +462,14 @@
             children: (0, _v2.jsxs)(_v33.HStack, {
               alignItems: "center",
               gap: (0, _v8.rem)(8),
-              children: [(0, _v2.jsx)(_v79, {
+              children: [(0, _v2.jsx)(_v80, {
                 boxSize: "xs"
               }), (0, _v2.jsx)(_v22.Text, {
                 variant: "header-xs",
                 children: _v28.T.ShareFolders
               })]
             })
-          }), _v45 && (0, _v2.jsx)(_v73.MenuItem, {
+          }), _v45 && (0, _v2.jsx)(_v74.MenuItem, {
             as: "a",
             href: `/manage/team/members/${_v29}/access`,
             "data-id": "roleMenuOptionManageFeaturesAccess",
@@ -476,7 +477,7 @@
             children: (0, _v2.jsxs)(_v33.HStack, {
               alignItems: "center",
               gap: (0, _v8.rem)(8),
-              children: [(0, _v2.jsx)(_v77.FiltersLevers, {
+              children: [(0, _v2.jsx)(_v78.FiltersLevers, {
                 boxSize: "xs"
               }), (0, _v2.jsx)(_v22.Text, {
                 variant: "header-xs",
@@ -529,7 +530,7 @@
                 }
               })
             })]
-          }) : (0, _v2.jsx)(_v73.MenuItem, {
+          }) : (0, _v2.jsx)(_v74.MenuItem, {
             as: "a",
             href: _v46,
             "data-id": "roleMenuOptionViewTeamMembersAccess",
@@ -537,16 +538,16 @@
             children: (0, _v2.jsxs)(_v33.HStack, {
               alignItems: "center",
               gap: (0, _v8.rem)(8),
-              children: [(0, _v2.jsx)(_v78, {
+              children: [(0, _v2.jsx)(_v79, {
                 boxSize: "xs"
               }), (0, _v2.jsx)(_v22.Text, {
                 variant: "header-xs",
                 children: _v28.T.ViewAccess
               })]
             })
-          })), _v6 && (0, _v2.jsx)(_v73.MenuItem, {
+          })), _v6 && (0, _v2.jsx)(_v74.MenuItem, {
             as: "a",
-            href: _v49 && !_v36 ? `/analytics/teams/${_v49}/users/${(0, _v69.getIdFromLink)(_v6)}` : "/enterprise/contact",
+            href: _v49 && !_v36 ? `/analytics/teams/${_v49}/users/${(0, _v70.getIdFromLink)(_v6)}` : "/enterprise/contact",
             "data-id": "roleMenuOptionViewTeamMemberActivity",
             onClick: () => {
               _v36 || _v14();
@@ -554,7 +555,7 @@
             children: (0, _v2.jsxs)(_v33.HStack, {
               alignItems: "center",
               gap: (0, _v8.rem)(8),
-              children: [(0, _v2.jsx)(_v76, {
+              children: [(0, _v2.jsx)(_v77, {
                 boxSize: "xs"
               }), (0, _v2.jsx)(_v22.Text, {
                 variant: "header-xs",
@@ -575,7 +576,7 @@
                 })
               })]
             })
-          }), _v38 && _v40 && (0, _v2.jsx)(_v73.MenuItem, {
+          }), _v38 && _v40 && (0, _v2.jsx)(_v74.MenuItem, {
             onClick: () => {
               _v25(!1), _v48({
                 copy: "Show groups",
@@ -589,7 +590,7 @@
               fontSize: "header-xs",
               children: _v28.T.ManageGroups
             })
-          }), _v31 && _v20 && (0, _v2.jsx)(_v73.MenuItem, {
+          }), _v31 && _v20 && (0, _v2.jsx)(_v74.MenuItem, {
             onClick: () => {
               _v27(!0), _v21();
             },
@@ -597,7 +598,7 @@
               variant: "header-xs",
               children: _v28.T.ManageLearnerIds
             })
-          }), _v19 && (0, _v2.jsx)(_v73.MenuItem, {
+          }), _v19 && (0, _v2.jsx)(_v74.MenuItem, {
             onClick: () => {
               _v25(!1), _v18();
             },
@@ -606,19 +607,19 @@
               children: _v17 ? _v28.T.TurnOffSSO : _v28.T.TurnOnSSO
             })
           }), _v2 && (0, _v2.jsxs)(_v2.Fragment, {
-            children: [(0, _v2.jsx)(_v74.MenuDivider, {
+            children: [(0, _v2.jsx)(_v75.MenuDivider, {
               my: (0, _v8.rem)(4)
-            }), (0, _v2.jsxs)(_v73.MenuItem, {
+            }), (0, _v2.jsxs)(_v74.MenuItem, {
               isDisabled: _v26,
               onClick: () => {
-                _v27(!0), (0, _v69.handleRemoveMember)(_v30, _v32, _v2, _v41, _v7, _v4, () => {
+                _v27(!0), (0, _v70.handleRemoveMember)(_v30, _v32, _v2, _v41, _v7, _v4, () => {
                   _v27(!1);
                 });
               },
               children: [(0, _v2.jsxs)(_v33.HStack, {
                 alignItems: "center",
                 gap: (0, _v8.rem)(8),
-                children: [(0, _v2.jsx)(_v80.TrashBin, {
+                children: [(0, _v2.jsx)(_v81.TrashBin, {
                   boxSize: "xs",
                   color: "status-destructive-primary"
                 }), (0, _v2.jsx)(_v22.Text, {
@@ -626,7 +627,7 @@
                   color: "status-destructive-primary",
                   children: _v0
                 })]
-              }), _v26 && (0, _v2.jsx)(_v60.Spinner, {
+              }), _v26 && (0, _v2.jsx)(_v61.Spinner, {
                 size: "xs",
                 float: "right",
                 ml: (0, _v8.rem)(8)
@@ -636,9 +637,9 @@
         })]
       });
     };
-  var _v87 = _v0.i(0),
-    _v88 = _v0.i(0);
-  let _v89 = () => {
+  var _v88 = _v0.i(0),
+    _v89 = _v0.i(0);
+  let _v90 = () => {
     let _v0 = (0, _v10.useToast)(),
       {
         teamInfo: _v1,
@@ -647,7 +648,7 @@
       [_v3, _v4] = (0, _v3.useState)(!1),
       [_v5, _v6] = (0, _v3.useState)(void 0),
       _v7 = (0, _v3.useRef)(null);
-    (0, _v75.useOutsideClick)({
+    (0, _v76.useOutsideClick)({
       ref: _v7,
       handler: () => _v4(!1)
     });
@@ -655,11 +656,11 @@
       _v9 = Number(_v8.uri.split("/users/").pop()),
       [_v10, {
         data: _v11
-      }] = (0, _v88.usePatchUserTeamUser)(),
+      }] = (0, _v89.usePatchUserTeamUser)(),
       {
         data: _v12,
         isLoading: _v13
-      } = (0, _v87.useGetUserTeammembers)(() => _v9 ? {
+      } = (0, _v88.useGetUserTeammembers)(() => _v9 ? {
         where: {
           userId: _v9
         },
@@ -691,9 +692,9 @@
         excludeSso: !_v5
       }
     });
-    return _v2 ? (0, _v2.jsxs)(_v70.Menu, {
+    return _v2 ? (0, _v2.jsxs)(_v71.Menu, {
       isOpen: _v3,
-      children: [(0, _v2.jsx)(_v71.MenuButton, {
+      children: [(0, _v2.jsx)(_v72.MenuButton, {
         as: _v40.IconButton,
         "aria-label": "owner-overflow-menu-dots",
         marginLeft: (0, _v8.rem)(8),
@@ -704,7 +705,7 @@
         borderRadius: "md",
         size: "md",
         onClick: () => _v4(!_v3)
-      }), (0, _v2.jsx)(_v72.MenuList, {
+      }), (0, _v2.jsx)(_v73.MenuList, {
         borderRadius: "md",
         py: (0, _v8.rem)(8),
         backgroundColor: "surface",
@@ -712,7 +713,7 @@
         children: _v13 ? (0, _v2.jsx)(_v9.Skeleton, {
           height: (0, _v8.rem)(36),
           width: (0, _v8.rem)(131)
-        }) : (0, _v2.jsx)(_v73.MenuItem, {
+        }) : (0, _v2.jsx)(_v74.MenuItem, {
           onClick: () => {
             _v4(!1), _v16();
           },
@@ -726,9 +727,9 @@
       })]
     }) : null;
   };
-  var _v90 = _v0.i(0),
-    _v91 = _v0.i(0);
-  let _v92 = (0, _v3.forwardRef)(({
+  var _v91 = _v0.i(0),
+    _v92 = _v0.i(0);
+  let _v93 = (0, _v3.forwardRef)(({
       item: _v0,
       children: _v1
     }, _v2) => (0, _v2.jsxs)(_v2.Fragment, {
@@ -755,7 +756,7 @@
           alignItems: "center",
           pl: (0, _v8.rem)(5),
           opacity: _v0.isPending ? "0.5" : "",
-          children: [(0, _v2.jsx)(_v91.Avatar, {
+          children: [(0, _v2.jsx)(_v92.Avatar, {
             size: "sm",
             src: _v0.avatarLink,
             alt: _v0.avatarLink,
@@ -790,7 +791,7 @@
         }), _v1]
       })]
     })),
-    _v93 = _v0 => (0, _v2.jsxs)(_v7.Flex, {
+    _v94 = _v0 => (0, _v2.jsxs)(_v7.Flex, {
       padding: `${(0, _v8.rem)(15)} ${(0, _v8.rem)(20)}`,
       justifyContent: "space-between",
       children: [(0, _v2.jsxs)(_v7.Flex, {
@@ -816,28 +817,28 @@
         })]
       }), _v0.children]
     });
-  var _v94 = _v0.i(0),
-    _v95 = _v0.i(0),
+  var _v95 = _v0.i(0),
     _v96 = _v0.i(0),
     _v97 = _v0.i(0),
     _v98 = _v0.i(0),
-    _v99 = _v0.i(0);
-  let _v100 = {
+    _v99 = _v0.i(0),
+    _v100 = _v0.i(0);
+  let _v101 = {
       members: _v28.T.SearchMembers,
       groups: _v28.T.SearchGroups,
       groupMembers: _v28.T.SearchGroupMembers
     },
-    _v101 = {
+    _v102 = {
       members: _v28.T.SearchMembers,
       settings: _v28.T.SearchMembers,
       groups: ""
     },
-    _v102 = _v0 => _v0.substring(_v0.lastIndexOf("/") + 1);
-  var _v103 = _v0.i(0);
-  let _v104 = (0, _v95.default)((_v0, _v1, _v2) => {
+    _v103 = _v0 => _v0.substring(_v0.lastIndexOf("/") + 1);
+  var _v104 = _v0.i(0);
+  let _v105 = (0, _v96.default)((_v0, _v1, _v2) => {
       !(_v0.length < 1) && (_v1(), _v2 && _v2());
     }, 500),
-    _v105 = ({
+    _v106 = ({
       afterSearch: _v0,
       entityToSearch: _v1,
       ..._v2
@@ -859,10 +860,10 @@
         } = ((_v0, _v1) => {
           let {
               pathname: _v2
-            } = (0, _v99.useRouter)(),
+            } = (0, _v100.useRouter)(),
             [_v3, _v4] = (0, _v3.useState)(""),
             [_v5, _v6] = (0, _v3.useState)(!0),
-            _v7 = _v1 === _v48.GROUP_MEMBERS ? _v1 : _v102(_v2),
+            _v7 = _v1 === _v48.GROUP_MEMBERS ? _v1 : _v103(_v2),
             {
               fetchTeamGroupsAction: _v8,
               fetchTeamMembers: _v9,
@@ -871,7 +872,7 @@
             } = (0, _v3.useContext)(_v20.ManageTeamDispatchCtx),
             _v12 = _v1 === _v48.GROUP_MEMBERS ? _v10 : _v11;
           return (0, _v3.useEffect)(() => {
-            _v4((_v0 ? _v100 : _v101)[_v1 ?? _v102(_v2)] || ""), _v12("");
+            _v4((_v0 ? _v101 : _v102)[_v1 ?? _v103(_v2)] || ""), _v12("");
           }, [_v2, _v0, _v1]), (0, _v3.useEffect)(() => {
             _v3 ? _v6(!1) : _v6(!0);
           }, [_v3]), {
@@ -879,14 +880,14 @@
             searchAction: {
               members: _v9,
               groups: _v8
-            }[_v7] || _v98.default,
+            }[_v7] || _v99.default,
             disabled: _v5
           };
         })(_v6.canShowSsoGroups, _v1),
         _v12 = _v1 === _v48.GROUP_MEMBERS ? _v8 : _v7,
         _v13 = _v1 === _v48.GROUP_MEMBERS ? _v5 : _v4;
       return (0, _v3.useEffect)(() => {
-        1 !== _v13.length && (_v104.cancel(), _v104(_v13, _v10, _v0));
+        1 !== _v13.length && (_v105.cancel(), _v105(_v13, _v10, _v0));
       }, [_v13, _v3]), (0, _v2.jsx)(_v6.Box, {
         maxWidth: (0, _v8.rem)(350),
         flex: "1",
@@ -896,7 +897,7 @@
           }
         },
         ..._v2,
-        children: (0, _v2.jsx)(_v97.Search, {
+        children: (0, _v2.jsx)(_v98.Search, {
           variant: "minimal",
           p: (0, _v8.rem)(15),
           borderRadius: "md",
@@ -906,7 +907,7 @@
           value: _v13,
           placeholder: _v9,
           onChange: _v0 => {
-            _v12(_v0.currentTarget.value), _v96.GoogleTagManager.trackEvent(_v103.GTMEvent.SEARCH);
+            _v12(_v0.currentTarget.value), _v97.GoogleTagManager.trackEvent(_v104.GTMEvent.SEARCH);
           },
           disabled: _v11,
           _placeholder: {
@@ -917,9 +918,9 @@
         })
       });
     };
-  var _v106 = _v0.i(0),
-    _v107 = _v0.i(0);
-  let _v108 = _v0 => (0, _v2.jsx)(_v25.Icon, {
+  var _v107 = _v0.i(0),
+    _v108 = _v0.i(0);
+  let _v109 = _v0 => (0, _v2.jsx)(_v25.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -928,7 +929,7 @@
         fill: "currentColor"
       })
     }),
-    _v109 = ({
+    _v110 = ({
       appliedFilters: _v0,
       label: _v1,
       filterType: _v2,
@@ -940,7 +941,7 @@
         [_v8, _v9] = (0, _v3.useState)(_v0);
       return (0, _v3.useEffect)(() => {
         _v9(_v0);
-      }, [_v0]), (0, _v75.useOutsideClick)({
+      }, [_v0]), (0, _v76.useOutsideClick)({
         ref: _v5,
         handler: () => {
           _v6 && _v7(!1);
@@ -952,7 +953,7 @@
           children: (0, _v2.jsx)(_v32.Button, {
             "data-id": `team-members-${_v2}-filter`,
             variant: "secondary",
-            rightIcon: _v6 ? (0, _v2.jsx)(_v108, {}) : (0, _v2.jsx)(_v107.ChevronDownSmall, {}),
+            rightIcon: _v6 ? (0, _v2.jsx)(_v109, {}) : (0, _v2.jsx)(_v108.ChevronDownSmall, {}),
             borderRadius: "md",
             onClick: () => _v7(!_v6),
             fontWeight: "medium",
@@ -967,7 +968,7 @@
             flexDirection: "column",
             alignItems: "start",
             width: "100%",
-            children: [_v8.map(_v0 => (0, _v2.jsx)(_v106.Checkbox, {
+            children: [_v8.map(_v0 => (0, _v2.jsx)(_v107.Checkbox, {
               alignSelf: "flex-start",
               padding: "75",
               id: "filter-" + _v1 + "-" + _v0.value,
@@ -1055,8 +1056,8 @@
         })]
       });
     };
-  var _v110 = _v0.i(0);
-  let _v111 = () => {
+  var _v111 = _v0.i(0);
+  let _v112 = () => {
       let _v0 = (0, _v3.useContext)(_v39.ViewerContext),
         _v1 = _v0?.user?.id,
         {
@@ -1079,14 +1080,14 @@
           capabilities: {
             hasEnableChinaDelivery: _v12
           }
-        } = (0, _v81.useCapability)(["hasEnableChinaDelivery"], _v5.owner.uri),
+        } = (0, _v82.useCapability)(["hasEnableChinaDelivery"], _v5.owner.uri),
         _v13 = _v5.owner.metadata?.connections?.teamMembers?.roles ?? [];
       (0, _v3.useEffect)(() => {
         _v16();
       }, []);
       let _v14 = (_v0, _v1) => _v0.some((_v0, _v1) => _v0.applied !== _v1[_v1].applied),
         _v15 = (_v0, _v1) => {
-          _v94.BigPictureClient.sendEvent(new _v94.Event("vimeo.filter_team_members_list", 4, {
+          _v95.BigPictureClient.sendEvent(new _v95.Event("vimeo.filter_team_members_list", 4, {
             product: "Collaboration",
             user_id: _v1 ? String(_v1) : null,
             filter: _v0,
@@ -1094,13 +1095,13 @@
           }));
         },
         _v16 = () => {
-          _v9((0, _v110.getDefaultApplicableRoleFilters)(_v13));
+          _v9((0, _v111.getDefaultApplicableRoleFilters)(_v13));
         },
         _v17 = () => {
           _v10(_v20.STATUSES_FILTER_DEFAULT);
         },
         _v18 = (0, _v3.useCallback)(() => {
-          _v11((0, _v110.getDefaultApplicableAccessFilters)({
+          _v11((0, _v111.getDefaultApplicableAccessFilters)({
             hasEnableChinaDelivery: _v12 ?? !1,
             isSSOAvailable: _v6,
             canLmsExport: _v8 ?? !1
@@ -1112,7 +1113,7 @@
         justifyContent: "space-between",
         alignItems: "center",
         borderColor: "surface",
-        children: [(0, _v2.jsx)(_v105, {
+        children: [(0, _v2.jsx)(_v106, {
           padding: (0, _v8.rem)(0)
         }), _v7 && (0, _v2.jsxs)(_v33.HStack, {
           gap: (0, _v8.rem)(16),
@@ -1152,7 +1153,7 @@
           }), (0, _v2.jsx)(_v22.Text, {
             variant: "body-md",
             children: _v28.T.FilterBy
-          }), (0, _v2.jsx)(_v109, {
+          }), (0, _v2.jsx)(_v110, {
             appliedFilters: _v2,
             filterType: "role",
             label: (0, _v36.translate)({
@@ -1185,7 +1186,7 @@
               _v14(_v2, _v0) && _v9(_v0), _v15("role", _v0);
             },
             onClearFilters: _v16
-          }), (0, _v2.jsx)(_v109, {
+          }), (0, _v2.jsx)(_v110, {
             appliedFilters: _v3,
             filterType: "status",
             label: (0, _v36.translate)({
@@ -1212,7 +1213,7 @@
               _v14(_v3, _v0) && _v10(_v0), _v15("status", _v0);
             },
             onClearFilters: _v17
-          }), !!_v4.length && (0, _v2.jsx)(_v109, {
+          }), !!_v4.length && (0, _v2.jsx)(_v110, {
             appliedFilters: _v4,
             filterType: "access",
             label: _v28.T.Access,
@@ -1224,7 +1225,7 @@
         })]
       });
     },
-    _v112 = _v0 => (0, _v2.jsx)(_v25.Icon, {
+    _v113 = _v0 => (0, _v2.jsx)(_v25.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -1233,7 +1234,7 @@
         fill: "currentColor"
       })
     }),
-    _v113 = ({
+    _v114 = ({
       label: _v0,
       sortField: _v1
     }) => {
@@ -1251,20 +1252,20 @@
         variant: "tertiary",
         onClick: () => {
           let _v0 = "asc" === _v4.direction ? "desc" : "asc";
-          _v5(_v1), _v6(_v0), _v94.BigPictureClient.sendEvent(new _v94.Event("vimeo.sort_team_members_list", 1, {
+          _v5(_v1), _v6(_v0), _v95.BigPictureClient.sendEvent(new _v95.Event("vimeo.sort_team_members_list", 1, {
             product: "Collaboration",
             user_id: _v3 ? String(_v3) : null,
             field: _v1,
             direction: _v0
           }));
         },
-        rightIcon: _v4.type !== _v1 ? (0, _v2.jsx)(_v112, {}) : "asc" === _v4.direction ? (0, _v2.jsx)(_v108, {}) : (0, _v2.jsx)(_v107.ChevronDownSmall, {}),
+        rightIcon: _v4.type !== _v1 ? (0, _v2.jsx)(_v113, {}) : "asc" === _v4.direction ? (0, _v2.jsx)(_v109, {}) : (0, _v2.jsx)(_v108.ChevronDownSmall, {}),
         fontWeight: "medium",
         color: "text-secondary",
         children: _v0
       });
     },
-    _v114 = _v51.default.div.withConfig({
+    _v115 = _v51.default.div.withConfig({
       displayName: "TeamMembersListHeading__ListHeaderContainer",
       componentId: "sc-1b55840f-0"
     })`
@@ -1279,7 +1280,7 @@
     flex: 0 0;
   }
 `,
-    _v115 = ({
+    _v116 = ({
       children: _v0
     }) => (0, _v2.jsx)(_v22.Text, {
       p: `${(0, _v8.rem)(10)} ${(0, _v8.rem)(16)}`,
@@ -1287,37 +1288,37 @@
       fontWeight: "medium",
       children: _v0
     }),
-    _v116 = () => {
+    _v117 = () => {
       let {
         teamCapabilities: {
           hasTeamMembersFilter: _v0
         }
       } = (0, _v3.useContext)(_v20.ManageTeamStateCtx);
-      return (0, _v2.jsx)(_v114, {
+      return (0, _v2.jsx)(_v115, {
         "data-id": "teamListHeader",
         children: _v0 ? (0, _v2.jsxs)(_v2.Fragment, {
-          children: [(0, _v2.jsx)(_v113, {
+          children: [(0, _v2.jsx)(_v114, {
             label: _v28.T.Name,
             sortField: "name"
-          }), (0, _v2.jsx)(_v113, {
+          }), (0, _v2.jsx)(_v114, {
             label: _v28.T.Role,
             sortField: "role"
           })]
         }) : (0, _v2.jsxs)(_v2.Fragment, {
-          children: [(0, _v2.jsx)(_v115, {
+          children: [(0, _v2.jsx)(_v116, {
             children: _v28.T.Name
-          }), (0, _v2.jsx)(_v115, {
+          }), (0, _v2.jsx)(_v116, {
             children: _v28.T.Role
           })]
         })
       });
     },
-    _v117 = () => (0, _v2.jsx)("div", {
-      children: [...Array(8)].map((_v0, _v1) => (0, _v2.jsx)(_v93, {
-        children: (0, _v2.jsx)(_v120, {})
+    _v118 = () => (0, _v2.jsx)("div", {
+      children: [...Array(8)].map((_v0, _v1) => (0, _v2.jsx)(_v94, {
+        children: (0, _v2.jsx)(_v121, {})
       }, _v1))
     }),
-    _v118 = () => {
+    _v119 = () => {
       let _v0 = (0, _v3.useContext)(_v39.ViewerContext),
         {
           teamInfo: _v1,
@@ -1361,14 +1362,14 @@
           trackTeamMemberChangeRole: _v33
         } = (0, _v3.useContext)(_v20.ManageTeamAnalytics),
         [_v34, _v35] = (0, _v3.useState)(!0),
-        [_v36, _v37] = (0, _v63.useInfiniteScroll)(_v34),
+        [_v36, _v37] = (0, _v64.useInfiniteScroll)(_v34),
         _v38 = _v1.owner,
         _v39 = 0 === _v9.length && (!_v10 || 1 === _v4),
-        _v40 = (0, _v66.useWindowSize)(),
+        _v40 = (0, _v67.useWindowSize)(),
         [_v41, _v42] = (0, _v3.useState)(!1),
         {
           sendDistributionAnalyticsEvent: _v43
-        } = (0, _v57.useDistributionAnalyticsEvent)(),
+        } = (0, _v58.useDistributionAnalyticsEvent)(),
         _v44 = (0, _v10.useToast)();
       (0, _v3.useEffect)(() => {
         _v11.content && !_v44.isActive(_v11.content) && _v44({
@@ -1426,8 +1427,8 @@
             return;
           }
           if (_v4 !== _v0) {
-            let _v0 = (0, _v64.camelizeString)(_v4.toLowerCase()),
-              _v1 = (0, _v64.camelizeString)(_v0.toLowerCase());
+            let _v0 = (0, _v65.camelizeString)(_v4.toLowerCase()),
+              _v1 = (0, _v65.camelizeString)(_v0.toLowerCase());
             _v26({
               ..._v1.teamMembersCount,
               [_v0]: _v1.teamMembersCount[_v0] - 1,
@@ -1455,8 +1456,8 @@
             old_role: _v4.toLowerCase(),
             team_member_id: _v7,
             is_live_permission_granted: !1,
-            old_global_capability: (0, _v68.getOldGlobalCapability)(_v1),
-            new_global_capability: (0, _v68.getNewGlobalCapability)(_v2)
+            old_global_capability: (0, _v69.getOldGlobalCapability)(_v1),
+            new_global_capability: (0, _v69.getNewGlobalCapability)(_v2)
           });
         },
         _v48 = _v0 => {
@@ -1474,14 +1475,14 @@
               ..._v12,
               currentUnassignedSeatCount: _v12.currentUnassignedSeatCount + 1
             }));
-            let _v1 = (0, _v64.camelizeString)(_v0.toLowerCase());
+            let _v1 = (0, _v65.camelizeString)(_v0.toLowerCase());
             _v26({
               ..._v1.teamMembersCount,
               [_v1]: _v1.teamMembersCount[_v1] - 1,
               unassigned: _v1.teamMembersCount.unassigned + 1
             });
           });
-          let _v1 = (0, _v69.getIdFromLink)(_v0.uri);
+          let _v1 = (0, _v70.getIdFromLink)(_v0.uri);
           _v30({
             role: _v0.role.toLowerCase(),
             team_member_id: _v1
@@ -1494,26 +1495,26 @@
       }, [_v0?.user, _v6, _v7, _v4, _v14]), (0, _v3.useEffect)(() => {
         !_v0 || _v8 || _v6 || _v29();
       }, [_v8, _v6, _v0?.user]);
-      let _v49 = Number(_v0?.user?.id) === (0, _v69.getIdFromLink)(_v38?.uri || "");
+      let _v49 = Number(_v0?.user?.id) === (0, _v70.getIdFromLink)(_v38?.uri || "");
       return (0, _v2.jsxs)(_v7.Flex, {
         mt: (0, _v8.rem)(20),
         p: (0, _v8.rem)(16),
         gap: (0, _v8.rem)(16),
         direction: "column",
-        children: [(0, _v2.jsx)(_v111, {}), (0, _v2.jsxs)(_v6.Box, {
-          children: [(0, _v2.jsx)(_v116, {}), _v39 && !_v5 && (0, _v2.jsx)(_v92, {
+        children: [(0, _v2.jsx)(_v112, {}), (0, _v2.jsxs)(_v6.Box, {
+          children: [(0, _v2.jsx)(_v117, {}), _v39 && !_v5 && (0, _v2.jsx)(_v93, {
             item: {
               avatarLink: _v38.pictures.sizes[1].link || "https://i.vimeocdn.com/portrait/defaults-blue_72x72.png",
               primaryDisplay: `${_v38.name}${_v49 ? " (" + _v28.T.You + ")" : ""}`,
               secondaryDisplay: _v38.email
             },
             children: (0, _v2.jsxs)(_v33.HStack, {
-              children: [(0, _v2.jsx)(_v119, {
+              children: [(0, _v2.jsx)(_v120, {
                 text: _v28.T.Owner
-              }), (0, _v2.jsx)(_v89, {})]
+              }), (0, _v2.jsx)(_v90, {})]
             })
-          }), _v9.length > 0 && !_v3 && !_v5 && (0, _v2.jsx)(_v122, {
-            children: (0, _v2.jsx)(_v123, {
+          }), _v9.length > 0 && !_v3 && !_v5 && (0, _v2.jsx)(_v123, {
+            children: (0, _v2.jsx)(_v124, {
               children: _v28.T.NoResults(_v9)
             })
           }), !_v5 && !_v1.currentTeamSize && _v1.maxTeamSize > 0 && !_v9.length && !_v15 && _v12.tier !== _v27.Tier.Free && (0, _v2.jsxs)(_v7.Flex, {
@@ -1525,7 +1526,7 @@
             height: {
               lg: (0, _v8.rem)(60)
             },
-            children: [(0, _v2.jsx)(_v61.PersonUserAdd, {
+            children: [(0, _v2.jsx)(_v62.PersonUserAdd, {
               display: "flex",
               height: (0, _v8.rem)(38),
               marginTop: (0, _v8.rem)(7),
@@ -1534,7 +1535,7 @@
               minWidth: {
                 sm: (0, _v8.rem)(50)
               }
-            }), (0, _v2.jsx)(_v58.Header, {
+            }), (0, _v2.jsx)(_v59.Header, {
               size: "sm",
               display: "flex",
               marginTop: (0, _v8.rem)(18),
@@ -1565,7 +1566,7 @@
                 };
               }) : [],
               _v4 = _v3.find(_v0 => _v0.value === _v0.permissionLevel) || {
-                label: (0, _v62.getTeamRoleLabel)(_v0.permissionLevel),
+                label: (0, _v63.getTeamRoleLabel)(_v0.permissionLevel),
                 value: _v0.permissionLevel,
                 toggles: []
               },
@@ -1573,7 +1574,7 @@
                 let {
                     user: _v2
                   } = _v0,
-                  _v3 = Number(_v1?.user?.id) === (0, _v69.getIdFromLink)(_v2?.uri || "");
+                  _v3 = Number(_v1?.user?.id) === (0, _v70.getIdFromLink)(_v2?.uri || "");
                 return {
                   avatarLink: _v2 ? _v2.pictures.sizes[1].link : "https://i.vimeocdn.com/portrait/defaults-blue_72x72.png",
                   primaryDisplay: `${_v2 ? _v2.name : _v0.email}${_v3 ? " (" + _v28.T.You + ")" : ""}`,
@@ -1582,13 +1583,13 @@
                 };
               })(_v0, _v0),
               _v6 = _v1 > _v2.length - 4;
-            return (0, _v2.jsx)(_v92, {
+            return (0, _v2.jsx)(_v93, {
               ref: _v2,
               item: _v5,
-              children: (0, _v2.jsx)(_v121, {
+              children: (0, _v2.jsx)(_v122, {
                 "data-id": "rolesMenuButton",
-                children: _v0.isLoading ? (0, _v2.jsx)(_v120, {}) : _v0.status === _v27.MemberStatus.Pending || !_v0.user || _v0 && _v0.user && _v0?.user.uri != _v0.user.uri ? (0, _v2.jsxs)(_v2.Fragment, {
-                  children: [(0, _v2.jsx)(_v90.default, {
+                children: _v0.isLoading ? (0, _v2.jsx)(_v121, {}) : _v0.status === _v27.MemberStatus.Pending || !_v0.user || _v0 && _v0.user && _v0?.user.uri != _v0.user.uri ? (0, _v2.jsxs)(_v2.Fragment, {
+                  children: [(0, _v2.jsx)(_v91.default, {
                     selectedRole: _v4,
                     permissionLevels: _v3,
                     permissionLevelDescriptions: _v0.applicableRoles ? _v0.applicableRoles.map(_v0 => ({
@@ -1608,7 +1609,7 @@
                     positionAbove: _v6,
                     oldRole: _v0.permissionLevel,
                     selectedUserName: _v5.primaryDisplay
-                  }), (0, _v2.jsx)(_v86, {
+                  }), (0, _v2.jsx)(_v87, {
                     triggerDataId: `team-member-${_v1 + 1}-overflow`,
                     teamMemberUri: _v0.uri,
                     teamMemberUserUri: _v0.user?.uri,
@@ -1623,7 +1624,7 @@
                     resendInvite: () => (_v0 => {
                       if (_v0.status === _v27.MemberStatus.Pending && _v0.inviteUrl) try {
                         _v22(_v0.uri);
-                        let _v0 = (0, _v69.getIdFromLink)(_v0.uri);
+                        let _v0 = (0, _v70.getIdFromLink)(_v0.uri);
                         _v32({
                           role: _v0.permissionLevel.toLowerCase(),
                           team_member_id: _v0
@@ -1634,8 +1635,8 @@
                     })(_v0),
                     copyInviteLink: () => (_v0 => {
                       if (_v0.status === _v27.MemberStatus.Pending && _v0.inviteUrl) try {
-                        (0, _v67.default)(_v0.inviteUrl), _v23(_v28.T.Copied);
-                        let _v0 = (0, _v69.getIdFromLink)(_v0.uri);
+                        (0, _v68.default)(_v0.inviteUrl), _v23(_v28.T.Copied);
+                        let _v0 = (0, _v70.getIdFromLink)(_v0.uri);
                         _v31({
                           role: _v0.role.toLowerCase(),
                           team_member_id: _v0
@@ -1693,17 +1694,17 @@
                     }
                   })]
                 }) : (0, _v2.jsx)("div", {
-                  children: (0, _v2.jsx)(_v119, {
+                  children: (0, _v2.jsx)(_v120, {
                     text: _v28.T.PermissionLevels.Admin
                   })
                 })
               })
             }, _v0.uri.substring(_v0.uri.lastIndexOf("/") + 1));
           })]
-        }), (_v5 || !_v10 && _v34) && (0, _v2.jsx)(_v117, {}), _v10 && _v3 > 25 && (0, _v2.jsx)(_v6.Box, {
+        }), (_v5 || !_v10 && _v34) && (0, _v2.jsx)(_v118, {}), _v10 && _v3 > 25 && (0, _v2.jsx)(_v6.Box, {
           margin: `${(0, _v8.rem)(20)} 0`,
           float: "right",
-          children: (0, _v2.jsx)(_v59.Pagination, {
+          children: (0, _v2.jsx)(_v60.Pagination, {
             page: _v4,
             pageSize: 25,
             count: _v3,
@@ -1713,16 +1714,16 @@
               _v0 <= 0 || _v3 <= (_v0 - 1) * 25 || _v17(_v0);
             }
           })
-        }), _v0?.user?.id && _v45 ? (0, _v2.jsx)(_v65.UserGroupsModal, {
+        }), _v0?.user?.id && _v45 ? (0, _v2.jsx)(_v66.UserGroupsModal, {
           teamMemberUri: _v45.uri,
-          ownerId: (0, _v69.getIdFromLink)(_v38.uri),
+          ownerId: (0, _v70.getIdFromLink)(_v38.uri),
           onClose: () => _v46(null),
           userAvatar: _v45.avatarLink,
           userTitle: _v45.primaryDisplay || _v45.secondaryDisplay
         }) : null]
       });
     },
-    _v119 = ({
+    _v120 = ({
       text: _v0
     }) => (0, _v2.jsx)(_v22.Text, {
       variant: "body-xl",
@@ -1735,19 +1736,19 @@
       color: "text-primary",
       children: _v0
     }),
-    _v120 = () => (0, _v2.jsx)(_v9.Skeleton, {
+    _v121 = () => (0, _v2.jsx)(_v9.Skeleton, {
       display: "flex",
       width: (0, _v8.rem)(150),
       height: (0, _v8.rem)(40)
     }),
-    _v121 = _v51.default.div.withConfig({
+    _v122 = _v51.default.div.withConfig({
       displayName: "TeamMembersList__RoleContainer",
       componentId: "sc-9b0cebe9-0"
     })`
   display: flex;
   align-items: center;
 `,
-    _v122 = _v51.default.div.withConfig({
+    _v123 = _v51.default.div.withConfig({
       displayName: "TeamMembersList__NoResultsWrapper",
       componentId: "sc-9b0cebe9-1"
     })`
@@ -1757,7 +1758,7 @@
   justify-content: center;
   align-items: center;
 `,
-    _v123 = ({
+    _v124 = ({
       children: _v0,
       dataId: _v1
     }) => (0, _v2.jsx)(_v22.Text, {
@@ -1771,80 +1772,64 @@
       "data-id": _v1,
       children: _v0
     }),
-    _v124 = () => (0, _v2.jsx)(_v60.Spinner, {
+    _v125 = () => (0, _v2.jsx)(_v61.Spinner, {
       display: "flex",
       justifyContent: "center"
     });
-  var _v125 = _v0.i(0),
-    _v126 = _v0.i(0),
+  var _v126 = _v0.i(0),
     _v127 = _v0.i(0),
-    _v128 = _v0.i(0),
-    _v129 = _v0.i(0);
-  let _v130 = _v51.default.div.withConfig({
+    _v128 = _v0.i(0);
+  let _v129 = _v51.default.div.withConfig({
       displayName: "styles__UpgradeRequestListItem",
       componentId: "sc-7a84386f-0"
     })`
-  @media (min-width: ${_v128.TABLET}) {
-    min-width: ${(0, _v125.rem)(600)};
+  @media (min-width: ${_v127.TABLET}) {
+    min-width: ${(0, _v126.rem)(600)};
   }
 
   display: flex;
-  padding: ${(0, _v125.rem)(20)};
-  border: ${(0, _v125.rem)(1)} solid ${({
-      theme: _v0
-    }) => "dark" === _v0.name ? (0, _v126.grayscale)(680) : (0, _v126.slate)(100)};
-  border-radius: ${(0, _v125.rem)(5)};
+  padding: ${(0, _v126.rem)(20)};
+  border: ${(0, _v126.rem)(1)} solid var(--vimeo-colors-stroke);
+  border-radius: ${(0, _v126.rem)(5)};
   justify-content: space-between;
-  gap: ${(0, _v125.rem)(10)} ${(0, _v125.rem)(100)};
+  gap: ${(0, _v126.rem)(10)} ${(0, _v126.rem)(100)};
   flex-wrap: wrap;
 
   font-family: Arial, system-ui, sans-serif;
   font-style: normal;
   font-weight: normal;
-  color: ${({
-      theme: _v0
-    }) => "dark" === _v0.name ? (0, _v126.slate)(300) : (0, _v126.slate)(800)};
-  font-size: ${(0, _v125.rem)(14)};
-  line-height: ${(0, _v125.rem)(20)};
+  color: var(--vimeo-colors-text-secondary);
+  font-size: ${(0, _v126.rem)(14)};
+  line-height: ${(0, _v126.rem)(20)};
 `,
-    _v131 = _v51.default.div.withConfig({
+    _v130 = _v51.default.div.withConfig({
       displayName: "styles__ButtonContainer",
       componentId: "sc-7a84386f-1"
     })`
-  min-width: ${(0, _v125.rem)(160)};
-  margin-top: ${(0, _v125.rem)(18)};
+  min-width: ${(0, _v126.rem)(160)};
+  margin-top: ${(0, _v126.rem)(18)};
   display: flex;
 `,
-    _v132 = (0, _v51.default)(_v52.Button).withConfig({
+    _v131 = (0, _v51.default)(_v32.Button).withConfig({
       displayName: "styles__ButtonStyled",
       componentId: "sc-7a84386f-2"
     })`
   width: 100%;
-  &:first-of-type {
-    margin-right: ${(0, _v125.rem)(8)};
-
-    border-right: ${(0, _v125.rem)(1)} solid slate(800);
-    border-radius: 0;
-  }
-  &:hover {
-    border-radius: ${(0, _v125.rem)(8)};
-  }
 `,
-    _v133 = (0, _v51.default)(_v132).withConfig({
+    _v132 = (0, _v51.default)(_v131).withConfig({
       displayName: "styles__ButtonReject",
       componentId: "sc-7a84386f-3"
     })`
-  font-weight: 700;
-  font-size: ${(0, _v125.rem)(14)};
+  margin-right: ${(0, _v126.rem)(8)};
 `,
-    _v134 = _v51.default.div.withConfig({
+    _v133 = _v51.default.div.withConfig({
       displayName: "styles__TeamUserInfo",
       componentId: "sc-7a84386f-4"
     })`
   display: flex;
   flex-direction: column;
 `,
-    _v135 = _v51.default.div.withConfig({
+    _v134 = _v51.default.div.withConfig({
       displayName: "styles__ActionButtonsStyled",
       componentId: "sc-7a84386f-5"
     })`
@@ -1852,12 +1837,12 @@
   justify-content: flex-end;
   flex: 1;
 `,
-    _v136 = _v51.default.div.withConfig({
+    _v135 = _v51.default.div.withConfig({
       displayName: "styles__LoaderWrapper",
       componentId: "sc-7a84386f-6"
     })`
   margin: auto;
-  margin-bottom: ${(0, _v125.rem)(24)};
+  margin-bottom: ${(0, _v126.rem)(24)};
 `;
   _v51.default.div.withConfig({
     displayName: "styles__StatusTextWrapper",
@@ -1866,7 +1851,7 @@
   margin: auto;
   font-style: italic;
 `;
-  let _v137 = _v51.default.div.withConfig({
+  let _v136 = _v51.default.div.withConfig({
       displayName: "styles__ModalContentWrapper",
       componentId: "sc-7a84386f-8"
     })`
@@ -1874,19 +1859,17 @@
       theme: _v0
     }) => _v0.shadows[200]}
   position: relative;
-  padding: ${(0, _v125.rem)(27)} ${(0, _v125.rem)(21)} ${(0, _v125.rem)(16)} ${(0, _v125.rem)(21)};
-  border-radius: ${(0, _v125.rem)(8)};
-  background: ${_v127.core.color.surface(500)};
+  padding: ${(0, _v126.rem)(27)} ${(0, _v126.rem)(21)} ${(0, _v126.rem)(16)} ${(0, _v126.rem)(21)};
+  border-radius: ${(0, _v126.rem)(8)};
+  background: var(--vimeo-colors-surface);
 
   h6 {
-    color: ${({
-      theme: _v0
-    }) => _v0.content.color2};
+    color: var(--vimeo-colors-text-primary);
     font-weight: 700;
-    font-size: ${(0, _v125.rem)(18)};
+    font-size: ${(0, _v126.rem)(18)};
   }
 `,
-    _v138 = _v51.default.div.withConfig({
+    _v137 = _v51.default.div.withConfig({
       displayName: "styles__StyledButtonContainer",
       componentId: "sc-7a84386f-9"
     })`
@@ -1897,7 +1880,7 @@
           width: 100%;
         ` : ""}
 `,
-    _v139 = _v51.default.div.withConfig({
+    _v138 = _v51.default.div.withConfig({
       displayName: "styles__ModalHeaderContainer",
       componentId: "sc-7a84386f-10"
     })`
@@ -1905,43 +1888,41 @@
   align-items: center;
   display: flex;
   margin-bottom: 20px;
-  color: ${({
-      theme: _v0
-    }) => "dark" === _v0.name ? (0, _v126.slate)(300) : (0, _v126.slate)(800)};
+  color: var(--vimeo-colors-text-primary);
 `,
-    _v140 = _v51.default.div.withConfig({
+    _v139 = _v51.default.div.withConfig({
       displayName: "styles__StyledModalFooter",
       componentId: "sc-7a84386f-11"
     })`
-  margin-top: ${(0, _v125.rem)(10)};
+  margin-top: ${(0, _v126.rem)(10)};
   & .invite-modal-footer {
     border-top: 0;
-    ${_v129.media.sm`
-      padding-top: ${(0, _v125.rem)(10)};
-      margin-top: ${(0, _v125.rem)(33)};
+    ${_v128.media.sm`
+      padding-top: ${(0, _v126.rem)(10)};
+      margin-top: ${(0, _v126.rem)(33)};
     `}
   }
 `;
-  var _v141 = _v0.i(0),
-    _v142 = _v0.i(0);
-  let _v143 = async (_v0, _v1, _v2, _v3, _v4 = null) => {
+  var _v140 = _v0.i(0),
+    _v141 = _v0.i(0);
+  let _v142 = async (_v0, _v1, _v2, _v3, _v4 = null) => {
       if (!_v3) throw Error("no viewer");
       let _v5 = _v2 ?? _v3.user?.id,
-        _v6 = encodeURIComponent(_v141.RoleUpgradeField.join(",")),
+        _v6 = encodeURIComponent(_v140.RoleUpgradeField.join(",")),
         _v7 = `/teams/${_v5}/role_upgrade/${_v0.id}?fields=${_v6}`;
-      return (0, _v142.makeApiCall)(_v7, _v3, "POST", {
+      return (0, _v141.makeApiCall)(_v7, _v3, "POST", {
         action: _v1,
         reject_reason: _v4
       });
     },
-    _v144 = async (_v0, _v1, _v2, _v3) => {
+    _v143 = async (_v0, _v1, _v2, _v3) => {
       let _v4, _v5;
       if (!_v1) throw Error("no viewer");
-      return (0, _v142.makeApiCall)((_v4 = _v2 ?? _v1.user?.id, _v5 = encodeURIComponent(_v141.RoleUpgradeField.join(",")), `/teams/${_v4}/role_upgrades?fields=${_v5}`), _v1).then(_v0 => {
+      return (0, _v141.makeApiCall)((_v4 = _v2 ?? _v1.user?.id, _v5 = encodeURIComponent(_v140.RoleUpgradeField.join(",")), `/teams/${_v4}/role_upgrades?fields=${_v5}`), _v1).then(_v0 => {
         _v0(_v0.data.filter(_v0 => _v0.user && _v0.teamUser)), _v3();
       });
     },
-    _v145 = (0, _v51.withTheme)(_v3.default.memo(({
+    _v144 = (0, _v51.withTheme)(_v3.default.memo(({
       theme: _v0,
       isOpen: _v1,
       onRejectReasonModalClosed: _v2,
@@ -1959,8 +1940,8 @@
           }
         } = (0, _v3.useContext)(_v20.ManageTeamStateCtx),
         _v12 = (0, _v3.useContext)(_v39.ViewerContext),
-        _v13 = (0, _v2.jsxs)(_v137, {
-          children: [(0, _v2.jsx)(_v139, {
+        _v13 = (0, _v2.jsxs)(_v136, {
+          children: [(0, _v2.jsx)(_v138, {
             children: _v3 && (0, _v2.jsx)("div", {
               children: (0, _v36.translate)({
                 singular: "Reject {USER_NAME} ({EMAIL}) from becoming {NEW_ROLE}",
@@ -1996,9 +1977,9 @@
                 }
               })
             })
-          }), (0, _v2.jsx)(_v56.CloseButton, {
+          }), (0, _v2.jsx)(_v57.CloseButton, {
             onClick: () => _v2()
-          }), _v7 && (0, _v2.jsx)(_v54.Notice, {
+          }), _v7 && (0, _v2.jsx)(_v56.Notice, {
             format: "negative",
             children: (0, _v36.translate)({
               singular: "Something went wrong. Please try again.",
@@ -2026,45 +2007,49 @@
                 }
               }
             })
-          }), (0, _v2.jsx)(_v55.TextArea, {
-            id: "reject-reason-text",
-            label: (0, _v36.translate)({
-              singular: "Reject reason",
-              dictionary: {
-                es: {
-                  singular: "Motivo del rechazo"
-                },
-                "de-DE": {
-                  singular: "Ablehnungsgrund"
-                },
-                "fr-FR": {
-                  singular: "Rejeter le motif"
-                },
-                "ja-JP": {
-                  singular: "拒否の理由"
-                },
-                "ko-KR": {
-                  singular: "거부 이유"
-                },
-                "pt-BR": {
-                  singular: "Motivo da rejeição"
-                },
-                "zh-CN": {
-                  singular: "拒绝原因"
+          }), (0, _v2.jsxs)(_v52.FormControl, {
+            isDisabled: _v9,
+            children: [(0, _v2.jsx)(_v53.FormLabel, {
+              htmlFor: "reject-reason-text",
+              children: (0, _v36.translate)({
+                singular: "Reject reason",
+                dictionary: {
+                  es: {
+                    singular: "Motivo del rechazo"
+                  },
+                  "de-DE": {
+                    singular: "Ablehnungsgrund"
+                  },
+                  "fr-FR": {
+                    singular: "Rejeter le motif"
+                  },
+                  "ja-JP": {
+                    singular: "拒否の理由"
+                  },
+                  "ko-KR": {
+                    singular: "거부 이유"
+                  },
+                  "pt-BR": {
+                    singular: "Motivo da rejeição"
+                  },
+                  "zh-CN": {
+                    singular: "拒绝原因"
+                  }
                 }
-              }
-            }),
-            disabled: _v9,
-            placeholder: "Type a message (optional)",
-            defaultValue: _v5 || "",
-            onChange: _v0 => _v6(_v0.target.value)
-          }), (0, _v2.jsx)(_v140, {
-            children: (0, _v2.jsx)(_v53.Modal.Footer, {
+              })
+            }), (0, _v2.jsx)(_v54.Textarea, {
+              id: "reject-reason-text",
+              placeholder: "Type a message (optional)",
+              defaultValue: _v5 || "",
+              onChange: _v0 => _v6(_v0.target.value)
+            })]
+          }), (0, _v2.jsx)(_v139, {
+            children: (0, _v2.jsx)(_v55.Modal.Footer, {
               className: "invite-modal-footer",
-              children: (0, _v2.jsx)(_v138, {
-                children: _v9 ? (0, _v2.jsx)(_v124, {}) : (0, _v2.jsx)(_v52.Button, {
+              children: (0, _v2.jsx)(_v137, {
+                children: _v9 ? (0, _v2.jsx)(_v125, {}) : (0, _v2.jsx)(_v32.Button, {
                   onClick: () => {
-                    _v3 && (_v10(!0), _v143(_v3, "reject", _v11, _v12, _v5).then(() => {
+                    _v3 && (_v10(!0), _v142(_v3, "reject", _v11, _v12, _v5).then(() => {
                       _v6(""), _v4(_v3), _v2();
                     }).catch(() => {
                       _v8(!0);
@@ -2106,7 +2091,7 @@
         });
       return (0, _v2.jsx)(_v51.ThemeProvider, {
         theme: _v0,
-        children: (0, _v2.jsx)(_v53.Modal, {
+        children: (0, _v2.jsx)(_v55.Modal, {
           size: "lg",
           theme: _v0,
           active: _v1,
@@ -2114,11 +2099,9 @@
         })
       });
     }));
-  var _v146 = _v0.i(0),
-    _v147 = _v0.i(0),
-    _v148 = _v0.i(0),
-    _v149 = _v0.i(0);
-  let _v150 = () => {
+  var _v145 = _v0.i(0),
+    _v146 = _v0.i(0);
+  let _v147 = () => {
     let {
         membership: {
           currentUnassignedSeatCount: _v0,
@@ -2139,7 +2122,7 @@
       _v9 = _v5 === _v27.Tier.Creator,
       {
         isBlocked: _v10
-      } = (0, _v149.useIsSeatChangeBlocked)({
+      } = (0, _v146.useIsSeatChangeBlocked)({
         tier: _v5
       }),
       _v11 = _v3 || _v7?.basePlanCount || 0,
@@ -2157,12 +2140,10 @@
       showContactOwnerBanner: _v14
     };
   };
-  var _v151 = _v0.i(0),
-    _v152 = _v0.i(0),
-    _v153 = _v0.i(0),
-    _v154 = _v0.i(0);
-  let _v155 = "accept",
-    _v156 = ({
+  var _v148 = _v0.i(0),
+    _v149 = _v0.i(0);
+  let _v150 = "accept",
+    _v151 = ({
       upgradeRequest: _v0,
       onUpgradeRequestRemoved: _v1,
       onError: _v2
@@ -2186,13 +2167,13 @@
         _v10 = (0, _v3.useContext)(_v39.ViewerContext),
         {
           approveDisabled: _v11
-        } = _v150(),
+        } = _v147(),
         _v12 = (_v0, _v1) => {
-          _v4(!0), _v7(!0), _v143(_v0, _v1, _v5, _v10).then(_v0 => {
+          _v4(!0), _v7(!0), _v142(_v0, _v1, _v5, _v10).then(_v0 => {
             _v1({
               ..._v0,
               status: _v0.status
-            }), _v1 === _v155 ? (_v8({
+            }), _v1 === _v150 ? (_v8({
               ..._v6,
               currentUnassignedSeatCount: _v6.currentUnassignedSeatCount - 1
             }), _v9({
@@ -2212,36 +2193,35 @@
             _v4(!1), _v7(!1);
           });
         };
-      return (0, _v2.jsx)(_v135, {
-        children: (0, _v2.jsx)(_v131, {
-          children: _v3 ? (0, _v2.jsx)(_v136, {
-            children: (0, _v2.jsx)(_v60.Spinner, {
+      return (0, _v2.jsx)(_v134, {
+        children: (0, _v2.jsx)(_v130, {
+          children: _v3 ? (0, _v2.jsx)(_v135, {
+            children: (0, _v2.jsx)(_v61.Spinner, {
               size: "md"
             })
           }) : _v3 || 0 !== _v0.status ? (0, _v2.jsx)(_v2.Fragment, {}) : (0, _v2.jsxs)(_v2.Fragment, {
-            children: [(0, _v2.jsx)(_v133, {
+            children: [(0, _v2.jsx)(_v132, {
               onClick: () => _v12(_v0, "reject"),
-              variant: "minimalTransparent",
-              format: "basic",
+              variant: "tertiary",
               size: "sm",
               children: _v28.T.Deny
-            }), (0, _v2.jsx)(_v132, {
-              onClick: () => _v12(_v0, _v155),
+            }), (0, _v2.jsx)(_v131, {
+              onClick: () => _v12(_v0, _v150),
               size: "sm",
-              status: "positive",
-              disabled: _v11(),
+              variant: "positive",
+              isDisabled: _v11(),
               children: _v28.T.Approve
             })]
           })
         })
       });
     },
-    _v157 = _v51.default.div.withConfig({
+    _v152 = _v51.default.div.withConfig({
       displayName: "UpgradeRequest__UpgradeRequestAnimated",
       componentId: "sc-d29bfdd3-0"
     })`
-  margin-bottom: ${(0, _v125.rem)(20)};
-  max-height: ${(0, _v125.rem)(100)};
+  margin-bottom: ${(0, _v126.rem)(20)};
+  max-height: ${(0, _v126.rem)(100)};
   opacity: 1;
   &.upgrade-request-animated {
     transition:
@@ -2254,29 +2234,30 @@
     overflow: hidden;
   }
 `,
-    _v158 = (0, _v51.default)(_v147.Header).withConfig({
+    _v153 = (0, _v51.default)(_v59.Header).withConfig({
       displayName: "UpgradeRequest__Title",
       componentId: "sc-d29bfdd3-1"
     })`
   margin: 0;
-  color: ${_v153.color.text.primary};
+  font-weight: 700;
+  color: var(--vimeo-colors-text-primary);
 `,
-    _v159 = (0, _v51.default)(_v154.Paragraph).withConfig({
+    _v154 = (0, _v51.default)(_v21.Paragraph).withConfig({
       displayName: "UpgradeRequest__Email",
       componentId: "sc-d29bfdd3-2"
     })`
   margin: 0;
-  color: ${_v153.color.text.secondary};
+  color: var(--vimeo-colors-text-secondary);
 `,
-    _v160 = (0, _v51.default)(_v158).withConfig({
+    _v155 = (0, _v51.default)(_v153).withConfig({
       displayName: "UpgradeRequest__RoleAccess",
       componentId: "sc-d29bfdd3-3"
     })`
-  margin-top: ${(0, _v125.rem)(8)};
+  margin-top: ${(0, _v126.rem)(8)};
   font-weight: 400;
-  color: ${_v153.color.text.primary};
+  color: var(--vimeo-colors-text-primary);
 `,
-    _v161 = ({
+    _v156 = ({
       upgradeRequest: _v0,
       onError: _v1,
       onUpgradeRequestRemoved: _v2,
@@ -2290,21 +2271,23 @@
         };
       return (0, _v3.useEffect)(() => {
         _v3 && _v6(_v3);
-      }, [_v3]), (0, _v2.jsx)(_v157, {
+      }, [_v3]), (0, _v2.jsx)(_v152, {
         className: _v4,
-        children: (0, _v2.jsxs)(_v130, {
-          children: [(0, _v2.jsxs)(_v134, {
-            children: [(0, _v2.jsx)(_v158, {
-              size: "5",
+        children: (0, _v2.jsxs)(_v129, {
+          children: [(0, _v2.jsxs)(_v133, {
+            children: [(0, _v2.jsx)(_v153, {
+              as: "h5",
+              size: "sm",
               children: _v0.user.name
-            }), (0, _v2.jsx)(_v159, {
-              size: "2",
+            }), (0, _v2.jsx)(_v154, {
+              size: "md",
               children: _v0.teamUser.email
-            }), (0, _v2.jsx)(_v160, {
-              size: "5",
+            }), (0, _v2.jsx)(_v155, {
+              as: "h5",
+              size: "sm",
               children: _v28.T.RoleUpgradeRequest(_v0.roleName)
             })]
-          }), (0, _v2.jsx)(_v156, {
+          }), (0, _v2.jsx)(_v151, {
             upgradeRequest: _v0,
             onError: _v1,
             onUpgradeRequestRemoved: _v6
@@ -2312,46 +2295,42 @@
         })
       });
     };
-  var _v162 = ((_v1 = _v162 || {})[_v1.PERMISSION_OWNER = 1] = "PERMISSION_OWNER", _v1[_v1.PERMISSION_ADMIN = 2] = "PERMISSION_ADMIN", _v1[_v1.PERMISSION_UPLOADER = 3] = "PERMISSION_UPLOADER", _v1[_v1.PERMISSION_CONTRIBUTOR = 4] = "PERMISSION_CONTRIBUTOR", _v1[_v1.PERMISSION_VIEWER = 5] = "PERMISSION_VIEWER", _v1);
-  let _v163 = (0, _v51.default)(_v52.Button).withConfig({
+  var _v157 = ((_v1 = _v157 || {})[_v1.PERMISSION_OWNER = 1] = "PERMISSION_OWNER", _v1[_v1.PERMISSION_ADMIN = 2] = "PERMISSION_ADMIN", _v1[_v1.PERMISSION_UPLOADER = 3] = "PERMISSION_UPLOADER", _v1[_v1.PERMISSION_CONTRIBUTOR = 4] = "PERMISSION_CONTRIBUTOR", _v1[_v1.PERMISSION_VIEWER = 5] = "PERMISSION_VIEWER", _v1);
+  let _v158 = (0, _v51.default)(_v32.Button).withConfig({
       displayName: "UpgradeRequestsModal__StyledTeamRequestsButton",
       componentId: "sc-3a03c8fa-0"
     })`
-  min-width: ${(0, _v125.rem)(108)};
+  min-width: ${(0, _v126.rem)(108)};
   margin-right: 0;
   background-color: transparent;
-  color: ${({
-      theme: _v0
-    }) => "dark" === _v0.name ? _v126.white : _v126.black};
+  color: var(--vimeo-colors-text-primary);
   border-color: transparent;
 
   &:hover {
-    color: ${({
-      theme: _v0
-    }) => "dark" === _v0.name ? _v126.white : _v126.black};
+    color: var(--vimeo-colors-text-primary);
   }
 `,
-    _v164 = (0, _v51.default)(_v147.Header).withConfig({
+    _v159 = (0, _v51.default)(_v59.Header).withConfig({
       displayName: "UpgradeRequestsModal__Count",
       componentId: "sc-3a03c8fa-1"
     })`
   border-radius: 50%;
-  width: ${(0, _v125.rem)(24)};
-  height: ${(0, _v125.rem)(24)};
-  background: ${(0, _v126.red)(600)};
-  color: ${_v126.white};
+  width: ${(0, _v126.rem)(24)};
+  height: ${(0, _v126.rem)(24)};
+  background: var(--vimeo-colors-red-600);
+  color: var(--vimeo-colors-white);
   text-align: center;
   display: inline-block;
-  margin-left: ${(0, _v125.rem)(10)};
-  line-height: ${(0, _v125.rem)(24)};
+  margin-left: ${(0, _v126.rem)(10)};
+  line-height: ${(0, _v126.rem)(24)};
 `,
-    _v165 = (0, _v51.default)(_v52.Button).withConfig({
+    _v160 = (0, _v51.default)(_v32.Button).withConfig({
       displayName: "UpgradeRequestsModal__ApproveAllButton",
       componentId: "sc-3a03c8fa-2"
     })`
-  margin-bottom: ${(0, _v125.rem)(20)};
+  margin-bottom: ${(0, _v126.rem)(20)};
 `,
-    _v166 = (0, _v51.default)(_v54.Notice).attrs({
+    _v161 = (0, _v51.default)(_v56.Notice).attrs({
       format: "primary"
     }).withConfig({
       displayName: "UpgradeRequestsModal__ContactNotice",
@@ -2359,16 +2338,16 @@
     })`
   display: flex;
   width: 100%;
-  background: ${(0, _v125.rgba)((0, _v126.blue)(500), .15)};
-  border: ${(0, _v125.rgba)((0, _v126.blue)(500), .15)} !important;
+  background: color-mix(in srgb, var(--vimeo-colors-vimeoBlue-500) 15%, transparent);
+  border: color-mix(in srgb, var(--vimeo-colors-vimeoBlue-500) 15%, transparent) !important;
   svg * {
-    fill: ${(0, _v126.blue)(500)};
+    fill: var(--vimeo-colors-vimeoBlue-500);
   }
   & svg {
-    margin-top: ${_v0 => _v0.marginTop ? (0, _v125.rem)(_v0.marginTop) : 0};
+    margin-top: ${_v0 => _v0.marginTop ? (0, _v126.rem)(_v0.marginTop) : 0};
   }
 `,
-    _v167 = (0, _v51.withTheme)(_v3.default.memo(({
+    _v162 = (0, _v51.withTheme)(_v3.default.memo(({
       theme: _v0,
       isOpen: _v1,
       upgradeRequests: _v2,
@@ -2401,9 +2380,9 @@
           showAddSeatsBanner: _v19,
           showContactOwnerBanner: _v20,
           approveAllDisabled: _v21
-        } = _v150(),
+        } = _v147(),
         _v22 = () => {
-          _v11(!0), Promise.all(_v2.map(_v0 => _v143(_v0, "accept", _v14, _v12))).then(_v0 => {
+          _v11(!0), Promise.all(_v2.map(_v0 => _v142(_v0, "accept", _v14, _v12))).then(_v0 => {
             for (let _v0 of _v0) 1 === _v0.status && _v23(_v0);
             _v3(_v0.filter(_v0 => 0 === _v0.status)), _v17({
               actor_team_role: _v2[0].teamUser.role.toLowerCase(),
@@ -2422,34 +2401,34 @@
             let _v0 = {
               ..._v0,
               role: _v0.roleName,
-              permissionLevel: _v162[_v0.roleName]
+              permissionLevel: _v157[_v0.roleName]
             };
-            _v15(_v162[_v0.roleName], _v0);
+            _v15(_v157[_v0.roleName], _v0);
           }
         },
         _v24 = () => {
           _v4(), _v16({
             currentModalInDisplay: _v27.TeamManagementModals.PURCHASE_SEATS_MODAL,
             data: {
-              purchaseSeatModalLocation: _v148.PURCHASE_TRIGGERED_FROM.ROLE_CHANGE_MENU,
+              purchaseSeatModalLocation: _v145.PURCHASE_TRIGGERED_FROM.ROLE_CHANGE_MENU,
               seatsCount: _v2.length
             }
           });
         },
-        _v25 = (0, _v2.jsxs)(_v137, {
-          children: [(0, _v2.jsx)(_v151.ModalHeader, {
+        _v25 = (0, _v2.jsxs)(_v136, {
+          children: [(0, _v2.jsx)(_v148.ModalHeader, {
             theme: _v0,
             style: {
-              fontSize: (0, _v125.rem)(18),
-              marginBottom: (0, _v125.rem)(28)
+              fontSize: (0, _v126.rem)(18),
+              marginBottom: (0, _v126.rem)(28)
             },
             children: _v28.T.Requests(_v2.length)
-          }), (0, _v2.jsx)(_v56.CloseButton, {
+          }), (0, _v2.jsx)(_v57.CloseButton, {
             onClick: () => _v4()
-          }), _v8 && (0, _v2.jsx)(_v54.Notice, {
+          }), _v8 && (0, _v2.jsx)(_v56.Notice, {
             format: "negative",
             children: _v28.T.SomethingWentWrong
-          }), _v2.map((_v0, _v1) => (0, _v2.jsx)(_v161, {
+          }), _v2.map((_v0, _v1) => (0, _v2.jsx)(_v156, {
             upgradeRequest: _v0,
             onError: () => _v9(!0),
             onUpgradeRequestRemoved: _v0 => {
@@ -2457,12 +2436,12 @@
             },
             onRejectReasonModalOpen: _v6,
             rejectedUpgradeRequest: _v7
-          }, _v1)), (0, _v2.jsx)(_v140, {
-            children: (0, _v2.jsx)(_v53.Modal.Footer, {
+          }, _v1)), (0, _v2.jsx)(_v139, {
+            children: (0, _v2.jsx)(_v55.Modal.Footer, {
               className: "invite-modal-footer",
-              children: (0, _v2.jsx)(_v138, {
+              children: (0, _v2.jsx)(_v137, {
                 fullWidth: _v18() || _v19() || _v20(),
-                children: (0, _v2.jsx)(() => _v18() ? (0, _v2.jsx)(_v152.ContactUsBanner, {
+                children: (0, _v2.jsx)(() => _v18() ? (0, _v2.jsx)(_v149.ContactUsBanner, {
                   message: _v28.T.RoleUpgradePurchaseSeats,
                   buttonMessage: _v28.T.PurchaseSeats,
                   isDismissable: !1,
@@ -2471,9 +2450,9 @@
                   buttonLink: "/manage/team/members",
                   style: {
                     width: "100%",
-                    borderRadius: (0, _v125.rem)(3)
+                    borderRadius: (0, _v126.rem)(3)
                   }
-                }) : _v19() ? (0, _v2.jsx)(_v152.ContactUsBanner, {
+                }) : _v19() ? (0, _v2.jsx)(_v149.ContactUsBanner, {
                   message: _v28.T.UpgradeRoleAddSeatsToTrial,
                   buttonMessage: _v28.T.AddSeats,
                   isDismissable: !1,
@@ -2482,23 +2461,23 @@
                   buttonLink: "/manage/team/members",
                   style: {
                     width: "100%",
-                    borderRadius: (0, _v125.rem)(3)
+                    borderRadius: (0, _v126.rem)(3)
                   }
-                }) : _v20() ? (0, _v2.jsx)(_v166, {
+                }) : _v20() ? (0, _v2.jsx)(_v161, {
                   format: "primary",
                   children: _v28.T.UpgradeRoleContactOwnerInTrial
-                }) : _v10 ? (0, _v2.jsx)(_v124, {}) : _v21(_v2) ? (0, _v2.jsx)(_v146.Tip, {
-                  attach: "top",
-                  content: _v28.T.ApproveAllDisabledTooltip,
-                  trigger: "hover",
-                  children: (0, _v2.jsx)(_v165, {
+                }) : _v10 ? (0, _v2.jsx)(_v125, {}) : _v21(_v2) ? (0, _v2.jsx)(_v23.Tooltip, {
+                  label: _v28.T.ApproveAllDisabledTooltip,
+                  placement: "top",
+                  hasArrow: !0,
+                  children: (0, _v2.jsx)(_v160, {
                     style: {
                       opacity: "0.5"
                     },
                     size: "sm",
                     children: _v28.T.ApproveAll
                   })
-                }) : (0, _v2.jsx)(_v165, {
+                }) : (0, _v2.jsx)(_v160, {
                   onClick: _v22,
                   size: "sm",
                   children: _v28.T.ApproveAll
@@ -2510,18 +2489,18 @@
       return (0, _v2.jsx)(_v2.Fragment, {
         children: _v2.length > 0 && (0, _v2.jsx)(_v51.ThemeProvider, {
           theme: _v0,
-          children: (0, _v2.jsx)(_v53.Modal, {
+          children: (0, _v2.jsx)(_v55.Modal, {
             size: "lg",
             theme: _v0,
             active: _v1,
             content: _v25,
             onOpen: () => _v4(),
-            children: (0, _v2.jsxs)(_v163, {
+            children: (0, _v2.jsxs)(_v158, {
               theme: _v0,
-              variant: "minimalTransparent",
+              variant: "ghost",
               onClick: () => _v5(),
-              children: [_v28.T.TeamRequests, (0, _v2.jsx)(_v164, {
-                size: "6",
+              children: [_v28.T.TeamRequests, (0, _v2.jsx)(_v159, {
+                size: "xs",
                 children: _v2.length
               })]
             })
@@ -2529,7 +2508,7 @@
         })
       });
     })),
-    _v168 = ({
+    _v163 = ({
       upgradeRequests: _v0,
       onUpgradeRequestsUpdate: _v1
     }) => {
@@ -2538,7 +2517,7 @@
         [_v6, _v7] = (0, _v3.useState)(null),
         [_v8, _v9] = (0, _v3.useState)(null);
       return (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsx)(_v167, {
+        children: [(0, _v2.jsx)(_v162, {
           upgradeRequests: _v0,
           isOpen: _v4,
           onUpgradeRequestsUpdate: _v1,
@@ -2548,7 +2527,7 @@
           onUpgradeRequestsModalClosed: () => _v5(!1),
           onUpgradeRequestsModalOpen: () => _v5(!0),
           rejectedUpgradeRequest: _v8
-        }), (0, _v2.jsx)(_v145, {
+        }), (0, _v2.jsx)(_v144, {
           isOpen: _v2,
           onRejectReasonModalClosed: () => {
             _v3(!1), _v5(!0);
@@ -2558,15 +2537,15 @@
         })]
       });
     };
-  var _v169 = _v0.i(0);
-  let _v170 = ({
+  var _v164 = _v0.i(0);
+  let _v165 = ({
       children: _v0,
       dataId: _v1,
       href: _v2,
       rightIcon: _v3,
       onClick: _v4
     }) => (0, _v2.jsx)(_v32.Button, {
-      as: _v169.default,
+      as: _v164.default,
       href: _v2,
       variant: "tertiary",
       justifyContent: "space-between",
@@ -2575,7 +2554,7 @@
       onClick: _v4,
       children: _v0
     }),
-    _v171 = ({
+    _v166 = ({
       upgradeRequests: _v0,
       setUpgradeRequests: _v1
     }) => {
@@ -2620,7 +2599,7 @@
       return (0, _v2.jsxs)(_v33.HStack, {
         alignContent: "center",
         children: [(0, _v2.jsxs)(_v45, {
-          children: [(0, _v2.jsx)(_v170, {
+          children: [(0, _v2.jsx)(_v165, {
             variant: "secondary",
             rightIcon: _v6 ? (0, _v2.jsx)(_v34, {
               style: {
@@ -2645,7 +2624,7 @@
             href: _v6 ? _v27 : _v26,
             onClick: _v22,
             children: _v28.T.DownloadUsers
-          }), (0, _v2.jsx)(_v170, {
+          }), (0, _v2.jsx)(_v165, {
             rightIcon: _v8 ? (0, _v2.jsx)(_v50, {
               href: _v26,
               children: (0, _v36.translate)({
@@ -2664,7 +2643,7 @@
             onClick: _v47.sendTeamManagementViewActivityEvent,
             children: _v28.T.ViewTeamActivity
           })]
-        }), _v0.length > 0 && (0, _v2.jsx)(_v168, {
+        }), _v0.length > 0 && (0, _v2.jsx)(_v163, {
           upgradeRequests: _v0,
           onUpgradeRequestsUpdate: _v0 => _v1(_v0)
         }), !_v3 && (0, _v2.jsx)(_v46.TeamApiConfigCtx.Provider, {
@@ -2706,8 +2685,8 @@
         })]
       });
     };
-  var _v172 = _v0.i(0);
-  function _v173() {
+  var _v167 = _v0.i(0);
+  function _v168() {
     let [_v0, _v1] = (0, _v3.useState)(!1),
       [_v2, _v3] = (0, _v3.useState)({
         format: "primary",
@@ -2764,7 +2743,7 @@
       let _v0 = new URLSearchParams(window.location.search).get("approve-upgrade-request");
       if (_v0) {
         if (!_v4) throw Error("No viewer");
-        (0, _v142.makeApiCall)(`/teams/${_v4.user?.id}/role_upgrade/${_v0}?fields=user.name`, _v4, "POST", {
+        (0, _v141.makeApiCall)(`/teams/${_v4.user?.id}/role_upgrade/${_v0}?fields=user.name`, _v4, "POST", {
           action: "accept"
         }).then(_v0 => {
           _v3({
@@ -2777,9 +2756,9 @@
             message: _v28.T.SomethingWentWrong
           });
         }).finally(() => {
-          _v1(!0), !_v5 && _v8.teamData.ownerId && _v144(_v27, _v4, null, () => _v24(!0));
+          _v1(!0), !_v5 && _v8.teamData.ownerId && _v143(_v27, _v4, null, () => _v24(!0));
         });
-      } else !_v5 && _v8.teamData.ownerId && _v144(_v27, _v4, _v8.teamData.ownerId, () => _v24(!0));
+      } else !_v5 && _v8.teamData.ownerId && _v143(_v27, _v4, _v8.teamData.ownerId, () => _v24(!0));
     }, [_v8.untranslatedUserRole, _v4, _v8.teamData.ownerId, _v5]), (0, _v3.useEffect)(() => {
       _v17 || _v25(_v26);
     }, [_v26]), (0, _v17.useOttRedirect)({
@@ -2868,7 +2847,7 @@
             mt: (0, _v8.rem)(16),
             height: (0, _v8.rem)(90),
             children: (0, _v2.jsx)(_v9.Skeleton, {})
-          }), (0, _v2.jsx)(_v117, {})]
+          }), (0, _v2.jsx)(_v118, {})]
         }) : (0, _v2.jsxs)(_v6.Box, {
           pb: (0, _v8.rem)(128),
           pt: (0, _v8.rem)(26),
@@ -2889,14 +2868,14 @@
               base: "column",
               sm: "row"
             },
-            children: [(0, _v2.jsx)(_v29, {}), (0, _v2.jsx)(_v171, {
+            children: [(0, _v2.jsx)(_v29, {}), (0, _v2.jsx)(_v166, {
               upgradeRequests: _v26,
               setUpgradeRequests: _v27
             })]
           }), (0, _v2.jsx)(_v6.Box, {
             backgroundColor: "surface",
             borderRadius: "lg",
-            children: (0, _v2.jsx)(_v118, {})
+            children: (0, _v2.jsx)(_v119, {})
           }), _v30 && _v32 && _v8.untranslatedUserRole === _v27.TeamRole.Owner && (0, _v2.jsx)(_v6.Box, {
             mt: (0, _v8.rem)(24),
             children: (0, _v2.jsx)(_v11.MergeLibrariesBanner, {
@@ -2917,5 +2896,5 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v173.getLayout = _v172.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v173], 0);
+  }), _v168.getLayout = _v167.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v168], 0);
 }

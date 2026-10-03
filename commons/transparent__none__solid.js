@@ -699,19 +699,18 @@
     _v80 = _v0.i(0),
     _v81 = _v0.i(0),
     _v82 = _v0.i(0),
-    _v83 = _v0.i(0),
-    _v84 = _v0.i(0);
-  function _v85(_v0) {
+    _v83 = _v0.i(0);
+  function _v84(_v0) {
     return _v0.split("/").filter(Boolean).pop() ?? "";
   }
-  var _v86 = _v20;
-  let _v87 = (0, _v24.rem)(64),
-    _v88 = (0, _v24.rem)(320),
-    _v89 = (0, _v24.rem)(960),
-    _v90 = `min(${(0, _v24.rem)(420)}, calc(100dvh - ${(0, _v24.rem)(280)}))`,
-    _v91 = (0, _v24.rem)(12),
-    _v92 = (0, _v24.rem)(24);
-  function _v93({
+  var _v85 = _v20;
+  let _v86 = (0, _v24.rem)(64),
+    _v87 = (0, _v24.rem)(320),
+    _v88 = (0, _v24.rem)(960),
+    _v89 = `min(${(0, _v24.rem)(420)}, calc(100dvh - ${(0, _v24.rem)(280)}))`,
+    _v90 = (0, _v24.rem)(12),
+    _v91 = (0, _v24.rem)(24);
+  function _v92({
     label: _v0,
     icon: _v1,
     isSelected: _v2,
@@ -734,18 +733,18 @@
       onClick: _v2 ? void 0 : _v4
     });
   }
-  function _v94({
+  function _v93({
     title: _v0,
     emptyLabel: _v1,
     isResponsive: _v2 = !1,
     children: _v3
   }) {
-    let _v4 = _v2 ? `repeat(auto-fill, minmax(${_v87}, 1fr))` : "repeat(4, minmax(0, 1fr))";
+    let _v4 = _v2 ? `repeat(auto-fill, minmax(${_v86}, 1fr))` : "repeat(4, minmax(0, 1fr))";
     return (0, _v1.jsxs)(_v39.Flex, {
       background: "fill-component",
       borderRadius: (0, _v24.rem)(16),
       direction: "column",
-      gap: _v91,
+      gap: _v90,
       padding: (0, _v24.rem)(8),
       children: [(0, _v1.jsx)(_v48.Header, {
         paddingX: (0, _v24.rem)(8),
@@ -763,7 +762,7 @@
       })]
     });
   }
-  function _v95(_v0) {
+  function _v94(_v0) {
     return (0, _v1.jsx)(_v25.Box, {
       position: "absolute",
       top: 0,
@@ -777,13 +776,13 @@
       backgroundRepeat: "no-repeat"
     });
   }
-  function _v96({
+  function _v95({
     selectedId: _v0,
     isDisabled: _v1,
     isResponsive: _v2,
     onSelect: _v3
   }) {
-    let _v4 = (0, _v83.useViewer)(),
+    let _v4 = (0, _v82.useViewer)(),
       _v5 = _v4?.teamUser?.ownerId ?? _v4?.user?.id,
       {
         data: _v6
@@ -801,28 +800,28 @@
           url: _v1
         }] : [];
       })), [_v6]);
-    return _v5 ? 0 === _v7.length ? (0, _v1.jsx)(_v94, {
+    return _v5 ? 0 === _v7.length ? (0, _v1.jsx)(_v93, {
       title: _v21.translations.brand,
       emptyLabel: _v21.translations.brandKitEmptyHint,
       isResponsive: _v2
-    }) : (0, _v1.jsx)(_v94, {
+    }) : (0, _v1.jsx)(_v93, {
       title: _v21.translations.brand,
       isResponsive: _v2,
       children: _v7.map(_v0 => (0, _v1.jsx)(_v25.Box, {
         aspectRatio: "1 / 1",
         minWidth: 0,
         width: "100%",
-        children: (0, _v1.jsx)(_v93, {
+        children: (0, _v1.jsx)(_v92, {
           label: _v0.name,
           isDisabled: _v1,
           isSelected: _v0 === _v0.url,
           onClick: () => _v3(_v0.url),
-          icon: _v95(_v0.url)
+          icon: _v94(_v0.url)
         })
       }, _v0.uri))
     }) : null;
   }
-  function _v97({
+  function _v96({
     selectedId: _v0,
     isDisabled: _v1,
     isResponsive: _v2,
@@ -839,8 +838,8 @@
         let {
             baseUrl: _v0,
             jwt: _v1
-          } = (0, _v84.useGctlConfig)(),
-          _v2 = (0, _v83.useViewer)(),
+          } = (0, _v83.useGctlConfig)(),
+          _v2 = (0, _v82.useViewer)(),
           _v3 = _v2?.user?.id,
           [_v4, _v5] = (0, _v3.useState)([]),
           _v6 = (0, _v3.useMemo)(() => ({
@@ -856,7 +855,7 @@
             if (!_v0.ok) return console.error(`Failed to load camera backgrounds: ${_v0.status} ${_v0.statusText} (${_v7})`), [];
             let _v1 = await _v0.json();
             return (Array.isArray(_v1?.data) ? _v1.data : []).map(_v0 => ({
-              uid: _v85(_v0.uri),
+              uid: _v84(_v0.uri),
               name: _v0.name,
               link: _v0.base_link
             }));
@@ -1009,7 +1008,7 @@
             }
             let _v4 = await _v3.json(),
               _v5 = {
-                uid: _v85(_v4.uri),
+                uid: _v84(_v4.uri),
                 name: _v4.name,
                 link: _v4.base_link
               };
@@ -1130,7 +1129,7 @@
           });
         }
       }, [_v9, _v0, _v4, _v10]);
-    return _v6 ? (0, _v1.jsxs)(_v94, {
+    return _v6 ? (0, _v1.jsxs)(_v93, {
       title: _v21.translations.uploadedImages,
       isResponsive: _v2,
       children: [!_v7 && (0, _v1.jsx)(_v25.Box, {
@@ -1170,12 +1169,12 @@
         aspectRatio: "1 / 1",
         minWidth: 0,
         width: "100%",
-        children: [(0, _v1.jsx)(_v93, {
+        children: [(0, _v1.jsx)(_v92, {
           label: _v0.name ?? _v21.translations.uploadedImages,
           isDisabled: _v1,
           isSelected: _v0 === _v0.link,
           onClick: () => _v3(_v0.link),
-          icon: _v95(_v0.link)
+          icon: _v94(_v0.link)
         }), (0, _v1.jsx)(_v27.IconButton, {
           "aria-label": _v21.translations.delete,
           icon: (0, _v1.jsx)(_v60.CloseXSmall, {}),
@@ -1196,9 +1195,9 @@
       }, _v0.uid))]
     }) : null;
   }
-  let _v98 = (0, _v3.forwardRef)(({
-    id: _v0 = (0, _v86.createLiveDomName)("media-devices-settings"),
-    className: _v1 = (0, _v86.createLiveDomName)("media-devices-settings"),
+  let _v97 = (0, _v3.forwardRef)(({
+    id: _v0 = (0, _v85.createLiveDomName)("media-devices-settings"),
+    className: _v1 = (0, _v85.createLiveDomName)("media-devices-settings"),
     video: _v2,
     isMirrored: _v3,
     onVideoMirroringChanged: _v4,
@@ -1212,12 +1211,8 @@
           sessionApplicationType: _v10
         }
       } = (0, _v79.useLiveGlobals)(),
-      {
-        settings: _v11
-      } = (0, _v82.useOrionSettings)(),
-      _v12 = _v17.EComposerApplicationType.GUEST === _v10,
-      _v13 = _v11.is_live_event_background_enabled,
-      _v14 = (0, _v3.useCallback)(() => {
+      _v11 = _v17.EComposerApplicationType.GUEST === _v10,
+      _v12 = (0, _v3.useCallback)(() => {
         if (!_v4) return;
         let _v0 = !_v3;
         _v4(_v0), _v0 && function (_v0 = !1) {
@@ -1239,9 +1234,9 @@
               device_type: _v44.browserConfig.BROWSER?.isMobile ? "mobile" : "desktop"
             })
           }), () => void 0)();
-        }(_v12);
-      }, [_v4, _v3, _v12]),
-      _v15 = (0, _v3.useCallback)(() => {
+        }(_v11);
+      }, [_v4, _v3, _v11]),
+      _v13 = (0, _v3.useCallback)(() => {
         _v2.isBlurred || function (_v0 = !1) {
           (0, _v81.createBPv2EventFactory)("vimeo.select_blur_background", -1, () => ({
             ...(0, _v80.newTeamCtx)(),
@@ -1261,10 +1256,10 @@
               device_type: _v44.browserConfig.BROWSER?.isMobile ? "mobile" : "desktop"
             })
           }), () => void 0)();
-        }(_v12), _v5();
-      }, [_v5, _v2.isBlurred, _v12]),
-      _v16 = !_v2.isBlurred && !_v2.backgroundImageId,
-      _v17 = (0, _v1.jsx)(_v78, {
+        }(_v11), _v5();
+      }, [_v5, _v2.isBlurred, _v11]),
+      _v14 = !_v2.isBlurred && !_v2.backgroundImageId,
+      _v15 = (0, _v1.jsx)(_v78, {
         isMirrored: _v3,
         margin: "0",
         children: (0, _v1.jsx)(_v25.Box, {
@@ -1275,35 +1270,22 @@
             label: _v21.translations.flipHorizontally,
             icon: (0, _v1.jsx)(_v59.FlipLeft, {}),
             variant: "blur",
-            onClick: _v14
+            onClick: _v12
           })
         })
       }),
-      _v18 = () => (0, _v1.jsx)(_v93, {
-        label: _v21.translations.noEffects,
-        icon: (0, _v1.jsx)(_v57.StopBanLeft, {}),
-        isSelected: _v16,
-        onClick: _v7
-      }),
-      _v19 = () => (0, _v1.jsx)(_v93, {
-        label: _v21.translations.blur,
-        icon: (0, _v1.jsx)(_v58.Blur, {}),
-        isDisabled: !_v8,
-        isSelected: !!_v2.isBlurred,
-        onClick: _v15
-      }),
-      _v20 = (0, _v55.useBreakpointValue)({
+      _v16 = (0, _v55.useBreakpointValue)({
         base: !0,
         md: !1
       }, {
         fallback: "md"
       }) ?? !1;
-    return _v13 ? (0, _v1.jsxs)(_v39.Flex, {
+    return (0, _v1.jsxs)(_v39.Flex, {
       id: _v0,
       className: _v1,
       ref: _v9,
       userSelect: "none",
-      width: _v89,
+      width: _v88,
       maxWidth: "100%",
       gap: (0, _v24.rem)(20),
       direction: {
@@ -1328,22 +1310,22 @@
           }
         },
         position: "relative",
-        children: _v17
+        children: _v15
       }), (0, _v1.jsxs)(_v39.Flex, {
         direction: "column",
         flex: {
           base: "0 1 auto",
-          md: `0 0 ${_v88}`
+          md: `0 0 ${_v87}`
         },
         width: {
           base: "100%",
-          md: _v88
+          md: _v87
         },
         minWidth: 0,
         gap: (0, _v24.rem)(20),
-        maxHeight: _v90,
+        maxHeight: _v89,
         overflowY: "auto",
-        paddingBottom: _v92,
+        paddingBottom: _v91,
         sx: {
           scrollbarColor: "transparent transparent",
           scrollbarGutter: "auto",
@@ -1367,98 +1349,66 @@
             backgroundColor: "darkBlueAlpha.200"
           }
         },
-        children: [(0, _v1.jsxs)(_v94, {
+        children: [(0, _v1.jsxs)(_v93, {
           title: _v21.translations.effects,
-          isResponsive: _v20,
+          isResponsive: _v16,
           children: [(0, _v1.jsx)(_v25.Box, {
             aspectRatio: "1 / 1",
             minWidth: 0,
             width: "100%",
-            children: _v18()
+            children: (0, _v1.jsx)(_v92, {
+              label: _v21.translations.noEffects,
+              icon: (0, _v1.jsx)(_v57.StopBanLeft, {}),
+              isSelected: _v14,
+              onClick: _v7
+            })
           }), (0, _v1.jsx)(_v25.Box, {
             aspectRatio: "1 / 1",
             minWidth: 0,
             width: "100%",
-            children: _v19()
+            children: (0, _v1.jsx)(_v92, {
+              label: _v21.translations.blur,
+              icon: (0, _v1.jsx)(_v58.Blur, {}),
+              isDisabled: !_v8,
+              isSelected: !!_v2.isBlurred,
+              onClick: _v13
+            })
           })]
-        }), (0, _v1.jsx)(_v97, {
+        }), (0, _v1.jsx)(_v96, {
           selectedId: _v2.backgroundImageId,
           isDisabled: !_v8,
-          isResponsive: _v20,
+          isResponsive: _v16,
           onSelect: _v6,
           onClearBackground: _v7
-        }), (0, _v1.jsx)(_v94, {
+        }), (0, _v1.jsx)(_v93, {
           title: _v21.translations.vimeoBackgrounds,
-          isResponsive: _v20,
+          isResponsive: _v16,
           children: _v72.LIVE_BACKGROUND_PRESETS.map(_v0 => (0, _v1.jsx)(_v25.Box, {
             aspectRatio: "1 / 1",
             minWidth: 0,
             width: "100%",
-            children: (0, _v1.jsx)(_v93, {
+            children: (0, _v1.jsx)(_v92, {
               label: _v0.label,
               isDisabled: !_v8,
               isSelected: _v2.backgroundImageId === _v0.id,
               onClick: () => _v6(_v0.id),
-              icon: _v95(_v0.previewUrl)
+              icon: _v94(_v0.previewUrl)
             })
           }, _v0.id))
-        }), (0, _v1.jsx)(_v96, {
+        }), (0, _v1.jsx)(_v95, {
           selectedId: _v2.backgroundImageId,
           isDisabled: !_v8,
-          isResponsive: _v20,
+          isResponsive: _v16,
           onSelect: _v6
-        })]
-      })]
-    }) : (0, _v1.jsxs)(_v25.Box, {
-      id: _v0,
-      className: _v1,
-      ref: _v9,
-      userSelect: "none",
-      position: "relative",
-      width: (0, _v24.rem)(400),
-      children: [(0, _v1.jsx)(_v78, {
-        isMirrored: _v3,
-        margin: "0 auto",
-        children: (0, _v1.jsx)(_v25.Box, {
-          position: "absolute",
-          bottom: (0, _v24.rem)(8),
-          right: (0, _v24.rem)(8),
-          children: (0, _v1.jsx)(_v64.TooltipIconButton, {
-            label: _v21.translations.flipHorizontally,
-            icon: (0, _v1.jsx)(_v59.FlipLeft, {}),
-            variant: "blur",
-            onClick: _v14
-          })
-        })
-      }), (0, _v1.jsxs)(_v39.Flex, {
-        direction: "column",
-        marginTop: (0, _v24.rem)(8),
-        marginBottom: (0, _v24.rem)(36),
-        gap: (0, _v24.rem)(8),
-        children: [(0, _v1.jsx)(_v48.Header, {
-          size: "xs",
-          children: _v21.translations.effects
-        }), (0, _v1.jsxs)(_v39.Flex, {
-          gap: (0, _v24.rem)(8),
-          flexWrap: "wrap",
-          children: [(0, _v1.jsx)(_v25.Box, {
-            width: _v87,
-            height: _v87,
-            children: _v18()
-          }), (0, _v1.jsx)(_v25.Box, {
-            width: _v87,
-            height: _v87,
-            children: _v19()
-          })]
         })]
       })]
     });
   });
-  _v0.s(["MediaDevicesSettingsModalContent", 0, _v98], 0);
-  var _v99 = _v0.i(0),
-    _v100 = _v0.i(0),
-    _v101 = _v0.i(0);
-  function _v102({
+  _v0.s(["MediaDevicesSettingsModalContent", 0, _v97], 0);
+  var _v98 = _v0.i(0),
+    _v99 = _v0.i(0),
+    _v100 = _v0.i(0);
+  function _v101({
     id: _v0 = (0, _v20.createLiveDomName)("video-control-button-menu"),
     className: _v1 = (0, _v20.createLiveDomName)("video-control-button-menu"),
     isLoading: _v2,
@@ -1529,7 +1479,7 @@
             background: "fill-component-hover"
           },
           onClick: _v17,
-          children: [(0, _v1.jsx)(_v101.MagicWand, {}), (0, _v1.jsx)(_v41.Paragraph, {
+          children: [(0, _v1.jsx)(_v100.MagicWand, {}), (0, _v1.jsx)(_v41.Paragraph, {
             size: "md",
             children: _v21.translations.effects
           })]
@@ -1616,9 +1566,9 @@
         hasDeviceBlockedError: _v14
       }),
       _v18 = (0, _v3.useMemo)(() => _v2 ? void 0 : _v5.isMuted || _v5.error ? "status-destructive-primary" : "text-button-inverted", [_v2, _v5.isMuted, _v5.error]),
-      _v19 = (0, _v3.useMemo)(() => _v2 || _v5.isMuted || _v5.error ? (0, _v1.jsx)(_v99.CameraOff, {
+      _v19 = (0, _v3.useMemo)(() => _v2 || _v5.isMuted || _v5.error ? (0, _v1.jsx)(_v98.CameraOff, {
         color: _v18
-      }) : (0, _v1.jsx)(_v100.CameraOn, {
+      }) : (0, _v1.jsx)(_v99.CameraOn, {
         color: _v18
       }), [_v2, _v5.isMuted, _v5.error, _v18]),
       _v20 = _v21.translations.mediaCameraSettings,
@@ -1654,7 +1604,7 @@
       errorTitle: _v17.title,
       errorDescription: _v17.text,
       onClick: _v9 ? _v16 : void 0,
-      buttonMenu: (0, _v1.jsx)(_v102, {
+      buttonMenu: (0, _v1.jsx)(_v101, {
         id: (0, _v20.createLiveDomName)(_v0, "control-menu"),
         className: (0, _v20.createLiveDomName)(_v1, "control-menu"),
         isLoading: _v11,
@@ -1669,9 +1619,9 @@
       })
     });
   }], 0);
-  var _v103 = _v0.i(0),
-    _v104 = _v0.i(0),
-    _v105 = _v0.i(0);
+  var _v102 = _v0.i(0),
+    _v103 = _v0.i(0),
+    _v104 = _v0.i(0);
   _v0.s(["TeleprompterButton", 0, function ({
     id: _v0 = (0, _v20.createLiveDomName)("teleprompter-button"),
     isDisabled: _v1,
@@ -1684,10 +1634,10 @@
       {
         isTeleprompterShown: _v5,
         toggleTeleprompter: _v6
-      } = (0, _v104.useTeleprompter)(_v2),
+      } = (0, _v103.useTeleprompter)(_v2),
       {
         sendToggleTeleprompterBpEvent: _v7
-      } = (0, _v105.useTeleprompterAnalytics)({
+      } = (0, _v104.useTeleprompterAnalytics)({
         element: "icon",
         feature: "teleprompter",
         location: "bottom_panel"
@@ -1708,7 +1658,7 @@
           "aria-label": _v8,
           variant: _v5 ? "primary" : "secondary",
           alignSelf: "center",
-          icon: (0, _v1.jsx)(_v103.Script, {}),
+          icon: (0, _v1.jsx)(_v102.Script, {}),
           isDisabled: _v1 || _v3,
           onClick: () => {
             let _v0 = !_v5;
