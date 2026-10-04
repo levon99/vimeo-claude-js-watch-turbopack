@@ -14351,6 +14351,32 @@
           }
         }
       }),
+      chatCooldownSeconds: (0, _v6.translate)({
+        singular: "Cooldown (seconds)",
+        dictionary: {
+          es: {
+            singular: "Tiempo de espera (segundos)"
+          },
+          "de-DE": {
+            singular: "Abklingzeit (Sekunden)"
+          },
+          "fr-FR": {
+            singular: "Temps de recharge (secondes)"
+          },
+          "ja-JP": {
+            singular: "クールダウン (秒)"
+          },
+          "ko-KR": {
+            singular: "쿨다운 (초)"
+          },
+          "pt-BR": {
+            singular: "Tempo de recarga (segundos)"
+          },
+          "zh-CN": {
+            singular: "冷却时间 (秒)"
+          }
+        }
+      }),
       chatIsClosed: (0, _v6.translate)({
         singular: "Chat is closed",
         dictionary: {
@@ -14374,6 +14400,84 @@
           },
           "zh-CN": {
             singular: "聊天已关闭"
+          }
+        }
+      }),
+      chatMaxMessageLength: (0, _v6.translate)({
+        singular: "Maximum message length",
+        dictionary: {
+          es: {
+            singular: "Longitud máxima del mensaje"
+          },
+          "de-DE": {
+            singular: "Maximale Nachrichtenlänge"
+          },
+          "fr-FR": {
+            singular: "Longueur maximale du message"
+          },
+          "ja-JP": {
+            singular: "メッセージの最大長"
+          },
+          "ko-KR": {
+            singular: "최대 메시지 길이"
+          },
+          "pt-BR": {
+            singular: "Tamanho máximo da mensagem"
+          },
+          "zh-CN": {
+            singular: "最大消息长度"
+          }
+        }
+      }),
+      chatMessagesPerWindow: (0, _v6.translate)({
+        singular: "Messages per window",
+        dictionary: {
+          es: {
+            singular: "Mensajes por ventana"
+          },
+          "de-DE": {
+            singular: "Nachrichten pro Zeitfenster"
+          },
+          "fr-FR": {
+            singular: "Messages par fenêtre"
+          },
+          "ja-JP": {
+            singular: "ウィンドウあたりのメッセージ数"
+          },
+          "ko-KR": {
+            singular: "기간당 메시지 수"
+          },
+          "pt-BR": {
+            singular: "Mensagens por janela"
+          },
+          "zh-CN": {
+            singular: "每个窗口的消息数"
+          }
+        }
+      }),
+      chatRateLimitWindowSeconds: (0, _v6.translate)({
+        singular: "Window (seconds)",
+        dictionary: {
+          es: {
+            singular: "Ventana (segundos)"
+          },
+          "de-DE": {
+            singular: "Zeitfenster (Sekunden)"
+          },
+          "fr-FR": {
+            singular: "Fenêtre (secondes)"
+          },
+          "ja-JP": {
+            singular: "ウィンドウ (秒)"
+          },
+          "ko-KR": {
+            singular: "기간 (초)"
+          },
+          "pt-BR": {
+            singular: "Janela (segundos)"
+          },
+          "zh-CN": {
+            singular: "窗口 (秒)"
           }
         }
       }),
@@ -14498,6 +14602,32 @@
           },
           "zh-CN": {
             singular: "嵌入"
+          }
+        }
+      }),
+      engagementSettings: (0, _v6.translate)({
+        singular: "Engagement settings",
+        dictionary: {
+          es: {
+            singular: "Ajustes de participación"
+          },
+          "de-DE": {
+            singular: "Engagement-Einstellungen"
+          },
+          "fr-FR": {
+            singular: "Paramètres d'engagement"
+          },
+          "ja-JP": {
+            singular: "エンゲージメント設定"
+          },
+          "ko-KR": {
+            singular: "참여 설정"
+          },
+          "pt-BR": {
+            singular: "Configurações de engajamento"
+          },
+          "zh-CN": {
+            singular: "互动设置"
           }
         }
       }),
