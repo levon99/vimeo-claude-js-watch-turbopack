@@ -43,6 +43,8 @@
       onAcknowledge: () => {
         _v8(), _v2.push(_v12.Path.EventSeries);
       },
+      onClose: _v8,
+      showCloseButton: !0,
       badge: (0, _v1.jsx)(_v5.Badge, {
         variant: "new",
         size: "sm",

@@ -65,6 +65,8 @@
             trackingId: "smart_search",
             anchorWithinChildren: !0,
             onAcknowledge: _v9,
+            onClose: _v3,
+            showCloseButton: !0,
             placement: _v8,
             acknowledgeLabel: (0, _v13.translate)({
               singular: "Try new smart search",

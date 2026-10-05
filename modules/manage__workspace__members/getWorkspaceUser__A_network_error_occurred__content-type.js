@@ -232,6 +232,8 @@
       onAcknowledge: () => {
         _v3(), _v1();
       },
+      onClose: _v3,
+      showCloseButton: !0,
       badge: (0, _v1.jsx)(_v36.Badge, {
         variant: "new",
         size: "sm",

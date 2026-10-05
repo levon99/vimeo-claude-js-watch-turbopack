@@ -47,6 +47,8 @@
       trackingId: "folder_defaults",
       anchorWithinChildren: !0,
       onAcknowledge: _v14,
+      onClose: _v12,
+      showCloseButton: !0,
       placement: _v4,
       offset: _v5,
       badge: (0, _v1.jsx)(_v5.Badge, {
