@@ -4575,9 +4575,7 @@
             {
               data: _v1
             } = (0, _v25.useGetVideoSharingData)(),
-            {
-              settings: _v2
-            } = (0, _v128.useOrionSettings)(),
+            _v2 = (0, _v128.useOrionSettingsFields)(["enable_team_defaults_page", "enable_workspace_defaults_page"]),
             _v3 = _v1?.user?.uri ? (0, _v74.idFromUri)(_v1.user.uri) : null,
             _v4 = _v0?.teamUser?.ownerId,
             _v5 = !!_v0?.teamUser?.isWorkspace;
@@ -4960,9 +4958,7 @@
           triggerCopied: _v101
         } = _v180(),
         [_v102, _v103] = (0, _v2.useState)(_v21?.link ?? ""),
-        {
-          settings: _v104
-        } = (0, _v128.useOrionSettings)(),
+        _v104 = (0, _v128.useOrionSettingsFields)(["bi_expiring_links_default_expiry_days", "review_adoption_v3_arm"]),
         _v105 = Math.min(Math.max(_v104?.bi_expiring_links_default_expiry_days ?? 0, 0), _v115.MAX_EXPIRY_DAYS),
         _v106 = _v104.review_adoption_v3_arm,
         {

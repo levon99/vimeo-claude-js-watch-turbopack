@@ -63,6 +63,7 @@
 - https://vimeo.com/experts/create-account
 - https://vimeo.com/experts/dashboard
 - https://vimeo.com/experts/transfer-videos
+- https://vimeo.com/files/[publicId]
 - https://vimeo.com/forbidden
 - https://vimeo.com/help/contact/billing
 - https://vimeo.com/help/contact/internal-request

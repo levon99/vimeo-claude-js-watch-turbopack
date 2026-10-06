@@ -43,9 +43,8 @@
       }
     };
   var _v28 = _v0.i(0),
-    _v29 = _v0.i(0),
-    _v30 = _v0.i(0);
-  async function _v31({
+    _v29 = _v0.i(0);
+  async function _v30({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -55,43 +54,23 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v29.measureLatency)("getUserLmsPlayerUrl", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/lms/player_url/${_v3}?${(0, _v30.searchQueryString)(_v4)}&fields=${_v1.map(_v30.intoSnakeCase).join(",")}`, {
+    return (0, _v28.measureLatency)("getUserLmsPlayerUrl", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/lms/player_url/${_v3}?${(0, _v29.searchQueryString)(_v4)}&fields=${_v1.map(_v29.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v30.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v29.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v30.deepCamelCase)(_v1);
+      return (0, _v29.deepCamelCase)(_v1);
     });
   }
-  var _v32 = _v0.i(0),
+  var _v31 = _v0.i(0),
+    _v32 = _v0.i(0),
     _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  function _v36(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v35.useGctlConfig)();
-    return (0, _v32.default)(_v2 ? `/users/${_v2.where.userId}/lms/player_url/${_v2.where.videoId}${(0, _v34.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v31({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  async function _v37({
+    _v34 = _v0.i(0);
+  async function _v35({
     baseUrl: _v0,
     variables: _v1,
     where: {
@@ -100,110 +79,23 @@
     },
     ..._v4
   }) {
-    return (0, _v29.measureLatency)("postUserClipLmsReport", "POST", async () => {
+    return (0, _v28.measureLatency)("postUserClipLmsReport", "POST", async () => {
       let _v0 = await fetch(`${_v0}/users/${_v2}/clip/${_v3}/lms/report`, {
         ..._v4,
         method: "POST",
-        body: JSON.stringify((0, _v30.deepSnakeCase)(_v1))
+        body: JSON.stringify((0, _v29.deepSnakeCase)(_v1))
       });
-      if (!_v0.ok) throw new _v30.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v29.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v30.deepCamelCase)(_v1);
+      return (0, _v29.deepCamelCase)(_v1);
     });
   }
-  function _v38() {
-    let {
-        mutate: _v0
-      } = (0, _v33.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v35.useGctlConfig)(),
-      [_v5, _v6] = (0, _v34.useInternalState)();
-    return [(0, _v14.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/clip/${_v0.where.videoId}/lms/report${(0, _v34.serializeQuery)(_v0)}`, _v37({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v28.default.env.STORYBOOK && (0, _v34.assignMswData)(_v36, {
-    endpoint: "/users/:userId/lms/player_url/:videoId",
-    method: "GET"
-  }), "true" === _v28.default.env.STORYBOOK && (0, _v34.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v33.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v35.useGctlConfig)(),
-      [_v5, _v6] = (0, _v34.useInternalState)();
-    return [(0, _v14.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/lms/player_url/${_v0.where.videoId}${(0, _v34.serializeQuery)(_v0)}`, _v31({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/users/:userId/lms/player_url/:videoId",
-    method: "GET"
-  }), "true" === _v28.default.env.STORYBOOK && (0, _v34.assignMswData)(_v38, {
-    endpoint: "/users/:userId/clip/:videoId/lms/report",
-    method: "POST"
-  });
-  var _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  let _v42 = ({
+  var _v36 = _v0.i(0),
+    _v37 = _v0.i(0),
+    _v38 = _v0.i(0);
+  let _v39 = ({
     handleCourseButtonClick: _v0,
     courseStatus: _v1,
     isEligibleForComplete: _v2,
@@ -216,11 +108,11 @@
     };
     switch (_v1) {
       case _v24:
-        return _v2 ? (0, _v1.jsx)(_v39.Button, {
-          leftIcon: (0, _v1.jsx)(_v41.Checkmark, {}),
+        return _v2 ? (0, _v1.jsx)(_v36.Button, {
+          leftIcon: (0, _v1.jsx)(_v38.Checkmark, {}),
           ..._v4,
           children: _v11.T.Complete
-        }) : (0, _v1.jsx)(_v39.Button, {
+        }) : (0, _v1.jsx)(_v36.Button, {
           ..._v4,
           children: _v11.T.Exit
         });
@@ -231,41 +123,41 @@
             alignItems: "center",
             gap: "75",
             opacity: "0.5",
-            children: [(0, _v1.jsx)(_v41.Checkmark, {}), (0, _v1.jsx)(_v40.Text, {
+            children: [(0, _v1.jsx)(_v38.Checkmark, {}), (0, _v1.jsx)(_v37.Text, {
               variant: "heading-xs",
               children: _v11.T.Completed
             })]
-          }), (0, _v1.jsx)(_v39.Button, {
+          }), (0, _v1.jsx)(_v36.Button, {
             ..._v4,
             children: _v11.T.Exit
           })]
         });
       default:
-        return (0, _v1.jsx)(_v39.Button, {
+        return (0, _v1.jsx)(_v36.Button, {
           ..._v4,
           children: _v11.T.Exit
         });
     }
   };
-  var _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0);
-  let _v46 = ({
+  var _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  let _v43 = ({
       onPlayerInitialized: _v0,
       style: _v1,
       iframeTitle: _v2,
       embedUrl: _v3
     }) => {
       let [_v4, _v5] = (0, _v14.useState)(!1),
-        _v6 = (0, _v44.getPlayerAssetUrls)()?.player_api_js ?? null,
+        _v6 = (0, _v41.getPlayerAssetUrls)()?.player_api_js ?? null,
         _v7 = (0, _v14.useCallback)(() => {
           window?.Vimeo?.Player && _v5(!0);
         }, []);
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v6 && (0, _v1.jsx)(_v43.default, {
+        children: [_v6 && (0, _v1.jsx)(_v40.default, {
           src: _v6,
           onLoad: _v7
-        }), _v3 && _v4 && (0, _v1.jsx)(_v45.EmbedPlayer, {
+        }), _v3 && _v4 && (0, _v1.jsx)(_v42.EmbedPlayer, {
           src: _v3,
           style: _v1,
           title: _v2,
@@ -273,7 +165,7 @@
         })]
       });
     },
-    _v47 = {
+    _v44 = {
       position: "absolute",
       top: 0,
       left: 0,
@@ -335,7 +227,26 @@
         let {
           data: _v5,
           error: _v6
-        } = _v36(() => _v0 && _v1 && _v4 ? {
+        } = function (_v0) {
+          let _v1 = "function" == typeof _v0 ? _v0() : _v0,
+            {
+              baseUrl: _v2,
+              jwt: _v3,
+              xVimeoPage: _v4,
+              locale: _v5
+            } = (0, _v34.useGctlConfig)();
+          return (0, _v31.default)(_v1 ? `/users/${_v1.where.userId}/lms/player_url/${_v1.where.videoId}${(0, _v33.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v30({
+            ..._v1,
+            headers: {
+              ..._v1.headers,
+              "Content-Type": "application/json",
+              Authorization: _v3 ? `jwt ${_v3}` : "",
+              "Vimeo-Page": `${_v4}`,
+              "Accept-Language": _v5 ?? "en"
+            },
+            baseUrl: _v2
+          }) : null, void 0);
+        }(() => _v0 && _v1 && _v4 ? {
           where: {
             userId: _v0,
             videoId: _v2 ? `${_v1}:${_v2}` : _v1
@@ -534,7 +445,45 @@
       pageIsReady: _v3
     }) => {
       let _v4 = (0, _v14.useRef)(!1),
-        [_v5] = _v38();
+        [_v5] = function () {
+          let {
+              mutate: _v0
+            } = (0, _v32.useSWRConfig)(),
+            {
+              baseUrl: _v1,
+              jwt: _v2,
+              xVimeoPage: _v3,
+              locale: _v4
+            } = (0, _v34.useGctlConfig)(),
+            [_v5, _v6] = (0, _v33.useInternalState)();
+          return [(0, _v14.useCallback)(async _v0 => {
+            _v6({
+              type: "REQUEST"
+            });
+            try {
+              let _v0 = await _v0(`/users/${_v0.where.userId}/clip/${_v0.where.videoId}/lms/report${(0, _v33.serializeQuery)(_v0)}`, _v35({
+                ..._v0,
+                baseUrl: _v1,
+                headers: {
+                  ..._v0.headers,
+                  "Content-Type": "application/json",
+                  Authorization: _v2 ? `jwt ${_v2}` : "",
+                  "Vimeo-Page": `${_v3}`,
+                  "Accept-Language": _v4 ?? "en"
+                }
+              }), !1);
+              _v6({
+                type: "SUCCESS",
+                payload: _v0
+              });
+            } catch (_v0) {
+              _v6({
+                type: "FAILURE",
+                payload: _v0
+              });
+            }
+          }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+        }();
       (0, _v14.useEffect)(() => {
         !_v4.current && _v1 && _v0 && _v2 && _v3 && (_v5({
           where: {
@@ -576,10 +525,10 @@
           width: (0, _v7.rem)(_v15),
           height: (0, _v7.rem)(_v16),
           children: [(0, _v1.jsx)(_v8.Skeleton, {
-            ..._v47
-          }), _v8 && (0, _v1.jsx)(_v46, {
+            ..._v44
+          }), _v8 && (0, _v1.jsx)(_v43, {
             embedUrl: _v8,
-            style: _v47,
+            style: _v44,
             iframeTitle: _v2,
             onPlayerInitialized: _v11
           })]
@@ -603,7 +552,7 @@
           textOverflow: "ellipsis",
           size: "xl",
           children: _v2
-        }), (0, _v1.jsx)(_v42, {
+        }), (0, _v1.jsx)(_v39, {
           ..._v18
         })]
       }), !_v14 && !_v9 && (0, _v1.jsx)(_v4.Center, {

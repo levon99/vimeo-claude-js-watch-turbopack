@@ -1070,9 +1070,7 @@
     let {
         trackLiveStreamBasicsChanged: _v3
       } = (0, _v14.useLiveStreamBroadcasterTracking)(),
-      {
-        settings: _v4
-      } = (0, _v13.useOrionSettings)(),
+      _v4 = (0, _v13.useOrionSettingsFields)(["enable_live_event_basics_thumbnail"]),
       [_v5, _v6] = (0, _v5.useState)(_v1?.title ?? null),
       [_v7, _v8] = (0, _v5.useState)(_v1?.streamDescription ?? null),
       [_v9, _v10] = (0, _v5.useState)(!1),

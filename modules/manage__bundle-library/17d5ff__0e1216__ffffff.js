@@ -5049,9 +5049,8 @@
       })
     });
   var _v168 = _v0.i(0),
-    _v169 = _v0.i(0),
-    _v170 = _v0.i(0);
-  async function _v171({
+    _v169 = _v0.i(0);
+  async function _v170({
     baseUrl: _v0,
     select: _v1,
     ..._v2
@@ -5068,90 +5067,23 @@
       return (0, _v83.deepCamelCase)(_v1);
     });
   }
-  var _v172 = _v0.i(0),
-    _v173 = _v0.i(0),
-    _v174 = _v0.i(0);
-  function _v175(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v85.useGctlConfig)();
-    return (0, _v172.default)(_v2 ? `/me/bsp_bundle/products${(0, _v174.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v171({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  "true" === _v170.default.env.STORYBOOK && (0, _v174.assignMswData)(_v175, {
-    endpoint: "/me/bsp_bundle/products",
-    method: "GET"
-  }), "true" === _v170.default.env.STORYBOOK && (0, _v174.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v173.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v85.useGctlConfig)(),
-      [_v5, _v6] = (0, _v174.useInternalState)();
-    return [(0, _v31.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/me/bsp_bundle/products${(0, _v174.serializeQuery)(_v0)}`, _v171({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/me/bsp_bundle/products",
-    method: "GET"
-  });
-  let _v176 = ["membership.subscription.addOns"],
-    _v177 = _v0 => {
+  var _v171 = _v0.i(0);
+  _v0.i(0);
+  var _v172 = _v0.i(0);
+  let _v173 = ["membership.subscription.addOns"],
+    _v174 = _v0 => {
       let _v1;
       if ("object" != typeof _v0 || null === _v0 || !("state" in _v0) || "unlocked" !== (_v1 = _v0.state) && "available" !== _v1 && "coming_soon" !== _v1) return !1;
       let _v2 = "code" in _v0 ? _v0.code : void 0,
         _v3 = "redeemUrl" in _v0 ? _v0.redeemUrl : void 0;
       return (void 0 === _v2 || "string" == typeof _v2) && (null == _v3 || "string" == typeof _v3);
     };
-  var _v178 = _v0.i(0),
-    _v179 = _v0.i(0);
-  let _v180 = (0, _v33.rem)(64),
-    _v181 = () => {
+  var _v175 = _v0.i(0),
+    _v176 = _v0.i(0);
+  let _v177 = (0, _v33.rem)(64),
+    _v178 = () => {
       let _v0 = (0, _v30.useRouter)(),
-        {
-          isLoadingResponse: _v1
-        } = (0, _v179.useOrionSettings)(),
+        _v1 = (0, _v176.useOrionLoading)(),
         _v2 = (0, _v76.useBundleOffer)(),
         _v3 = (_v0 => {
           let {
@@ -5159,7 +5091,26 @@
               error: _v2,
               isLoading: _v3,
               mutate: _v4
-            } = _v175(() => ({
+            } = function (_v0) {
+              let _v1 = "function" == typeof _v0 ? _v0() : _v0,
+                {
+                  baseUrl: _v2,
+                  jwt: _v3,
+                  xVimeoPage: _v4,
+                  locale: _v5
+                } = (0, _v85.useGctlConfig)();
+              return (0, _v171.default)(_v1 ? `/me/bsp_bundle/products${(0, _v172.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v170({
+                ..._v1,
+                headers: {
+                  ..._v1.headers,
+                  "Content-Type": "application/json",
+                  Authorization: _v3 ? `jwt ${_v3}` : "",
+                  "Vimeo-Page": `${_v4}`,
+                  "Accept-Language": _v5 ?? "en"
+                },
+                baseUrl: _v2
+              }) : null, void 0);
+            }(() => ({
               select: ["products"]
             })),
             {
@@ -5168,7 +5119,7 @@
               isLoading: _v7,
               mutate: _v8
             } = (0, _v169.useGetMe)(() => ({
-              select: _v176,
+              select: _v173,
               headers: {
                 Accept: "application/vnd.vimeo.*+json;version=3.4.14"
               }
@@ -5184,7 +5135,7 @@
               let _v1 = {};
               for (let _v0 of _v168.BUNDLE_PRODUCT_IDS) for (let _v0 of (0, _v73.getEntitlementIds)(_v0)) {
                 let _v0 = _v0[_v0],
-                  _v1 = _v177(_v0) ? _v0 : void 0,
+                  _v1 = _v174(_v0) ? _v0 : void 0,
                   _v2 = void 0 !== _v1 && "unlocked" === _v1.state && "string" == typeof _v1.code ? _v1.code : void 0,
                   _v3 = void 0 !== _v1 && "string" == typeof _v1.redeemUrl ? _v1.redeemUrl : void 0;
                 _v1[_v0] = {
@@ -5225,16 +5176,19 @@
       return ((0, _v31.useEffect)(() => {
         !_v1 && _v4 && _v0.replace("/");
       }, [_v1, _v4, _v0]), _v5) ? (0, _v28.jsx)(_v32.Flex, {
-        minHeight: `calc(100vh - ${_v180})`,
+        minHeight: `calc(100vh - ${_v177})`,
         alignItems: "center",
         justifyContent: "center",
-        children: (0, _v28.jsx)(_v178.Spinner, {})
+        children: (0, _v28.jsx)(_v175.Spinner, {})
       }) : _v4 ? null : (0, _v28.jsx)(_v167, {
         data: _v3,
         onNavigate: _v0 => void _v0.push(_v0)
       });
     };
-  var _v182 = _v0.i(0),
+  var _v179 = _v0.i(0),
+    _v180 = _v0.i(0),
+    _v181 = _v0.i(0),
+    _v182 = _v0.i(0),
     _v183 = _v0.i(0),
     _v184 = _v0.i(0),
     _v185 = _v0.i(0),
@@ -5242,20 +5196,17 @@
     _v187 = _v0.i(0),
     _v188 = _v0.i(0),
     _v189 = _v0.i(0),
-    _v190 = _v0.i(0),
-    _v191 = _v0.i(0),
-    _v192 = _v0.i(0),
-    _v193 = _v0.i(0);
-  let _v194 = ({
+    _v190 = _v0.i(0);
+  let _v191 = ({
       children: _v0
     }) => {
       let _v1 = (0, _v81.useViewer)(),
-        _v2 = (0, _v184.useIsMobile)(),
+        _v2 = (0, _v181.useIsMobile)(),
         {
           isOpen: _v3,
           open: _v4,
           close: _v5
-        } = (0, _v193.useSideNavSurfaceState)({
+        } = (0, _v190.useSideNavSurfaceState)({
           surface: "bundle-library",
           userId: _v1?.user?.id,
           isMobile: _v2,
@@ -5263,17 +5214,17 @@
         }),
         {
           uploads: _v6
-        } = (0, _v188.useUploader)(),
+        } = (0, _v185.useUploader)(),
         [_v7, _v8] = (0, _v31.useState)(() => _v6.find(_v0 => void 0 !== _v0.clipId)?.clipId ?? ""),
         [_v9, _v10] = (0, _v31.useState)(!0);
-      return (0, _v187.useUploadLifecycle)((_v0, _v1) => {
+      return (0, _v184.useUploadLifecycle)((_v0, _v1) => {
         _v1.clipId && _v8(_v1.clipId);
       }, []), (0, _v28.jsxs)(_v28.Fragment, {
         children: [(0, _v28.jsxs)(_v32.Flex, {
           width: "100vw",
           height: "100vh",
           overflow: "hidden",
-          children: [(0, _v28.jsx)(_v191.WayfinderSideNav, {
+          children: [(0, _v28.jsx)(_v188.WayfinderSideNav, {
             isOpen: _v3,
             onClose: _v5,
             isMobile: _v2,
@@ -5281,10 +5232,10 @@
             children: (0, _v28.jsx)(_v32.Flex, {
               flexGrow: 1,
               direction: "column",
-              children: (0, _v28.jsx)(_v192.MenuItem, {
-                icon: (0, _v28.jsx)(_v183.ArrowLeft, {}),
+              children: (0, _v28.jsx)(_v189.MenuItem, {
+                icon: (0, _v28.jsx)(_v180.ArrowLeft, {}),
                 label: "Back to home",
-                href: _v189.Path.Home
+                href: _v186.Path.Home
               })
             })
           }), (0, _v28.jsx)(_v32.Flex, {
@@ -5293,7 +5244,7 @@
             width: "50%",
             children: (0, _v28.jsxs)(_v35.Box, {
               overflowY: "auto",
-              children: [(0, _v28.jsx)(_v185.DefaultNavigation, {
+              children: [(0, _v28.jsx)(_v182.DefaultNavigation, {
                 setIsSideNavActive: _v4,
                 isSideNavActive: _v3,
                 hasSideNavLayout: !_v2
@@ -5304,17 +5255,17 @@
                 backgroundColor: "background",
                 children: _v0
               }), (0, _v28.jsx)(_v35.Box, {
-                children: _v1 && (0, _v28.jsx)(_v186.EssentialFooter, {
+                children: _v1 && (0, _v28.jsx)(_v183.EssentialFooter, {
                   ..._v1,
                   enableQuotaMenu: !1
                 })
               })]
             })
           })]
-        }), (0, _v28.jsx)(_v182.ActivitiesContainer, {
+        }), (0, _v28.jsx)(_v179.ActivitiesContainer, {
           isShowing: _v9 && _v6.length > 0,
           isMobile: _v2,
-          children: (0, _v28.jsx)(_v190.ProgressToastContainer, {
+          children: (0, _v28.jsx)(_v187.ProgressToastContainer, {
             isShowing: _v9,
             uploadClipId: _v7,
             setUploadClipId: _v8,
@@ -5327,7 +5278,7 @@
         })]
       });
     },
-    _v195 = () => (0, _v28.jsx)(_v181, {});
+    _v192 = () => (0, _v28.jsx)(_v178, {});
   (0, _v29.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0,
@@ -5337,7 +5288,7 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v195.getLayout = _v0 => (0, _v28.jsx)(_v194, {
+  }), _v192.getLayout = _v0 => (0, _v28.jsx)(_v191, {
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v195], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v192], 0);
 }

@@ -29,10 +29,7 @@
         return _v0;
     }
   }
-  let _v3 = new WeakMap();
-  _v0.s(["assignMswData", 0, function (_v0, _v1) {
-    _v3.set(_v0, _v1);
-  }, "serializeQuery", 0, function (_v0) {
+  new WeakMap(), _v0.s(["serializeQuery", 0, function (_v0) {
     let _v1 = [];
     return ("object" != typeof _v0.query || Array.isArray(_v0.query) || _v1.push(Object.entries(_v0?.query ?? {}).filter(([, _v0]) => void 0 !== _v0).sort(([_v0], [_v1]) => _v0 < _v1 ? 1 : -1).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&")), Array.isArray(_v0.select) && _v1.push("fields=" + _v0.select.slice().sort().join(",")), _v1.length > 0) ? "?" + _v1.join("&") : "";
   }, "useInternalState", 0, function (_v0) {

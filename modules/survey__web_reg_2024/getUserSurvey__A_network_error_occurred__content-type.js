@@ -17,9 +17,8 @@
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
-    _v17 = _v0.i(0),
-    _v18 = _v0.i(0);
-  async function _v19({
+    _v17 = _v0.i(0);
+  async function _v18({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -28,19 +27,19 @@
     },
     ..._v4
   }) {
-    return (0, _v17.measureLatency)("getUserSurvey", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/surveys/${_v3}?fields=${_v1.map(_v18.intoSnakeCase).join(",")}`, {
+    return (0, _v16.measureLatency)("getUserSurvey", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/surveys/${_v3}?fields=${_v1.map(_v17.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v18.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v18.deepCamelCase)(_v1);
+      return (0, _v17.deepCamelCase)(_v1);
     });
   }
-  async function _v20({
+  async function _v19({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -50,144 +49,37 @@
     },
     ..._v5
   }) {
-    return (0, _v17.measureLatency)("putUserSurvey", "PUT", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/surveys/${_v4}?fields=${_v1.map(_v18.intoSnakeCase).join(",")}`, {
+    return (0, _v16.measureLatency)("putUserSurvey", "PUT", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/surveys/${_v4}?fields=${_v1.map(_v17.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PUT",
-        body: JSON.stringify((0, _v18.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v17.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v18.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v18.deepCamelCase)(_v1);
+      return (0, _v17.deepCamelCase)(_v1);
     });
   }
-  var _v21 = _v0.i(0),
+  var _v20 = _v0.i(0),
+    _v21 = _v0.i(0),
     _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
-  function _v24(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v23.useGctlConfig)();
-    return (0, _v21.default)(_v2 ? `/users/${_v2.where.userId}/surveys/${_v2.where.surveyType}${(0, _v16.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v19({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  function _v25() {
-    let {
-        mutate: _v0
-      } = (0, _v22.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v23.useGctlConfig)(),
-      [_v5, _v6] = (0, _v16.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/surveys/${_v0.where.surveyType}${(0, _v16.serializeQuery)(_v0)}`, _v20({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v15.default.env.STORYBOOK && (0, _v16.assignMswData)(_v24, {
-    endpoint: "/users/:userId/surveys/:surveyType",
-    method: "GET"
-  }), "true" === _v15.default.env.STORYBOOK && (0, _v16.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v22.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v23.useGctlConfig)(),
-      [_v5, _v6] = (0, _v16.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/surveys/${_v0.where.surveyType}${(0, _v16.serializeQuery)(_v0)}`, _v19({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/users/:userId/surveys/:surveyType",
-    method: "GET"
-  }), "true" === _v15.default.env.STORYBOOK && (0, _v16.assignMswData)(_v25, {
-    endpoint: "/users/:userId/surveys/:surveyType",
-    method: "PUT"
-  });
-  var _v26 = _v0.i(0),
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0),
+    _v26 = _v0.i(0),
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  let _v36 = "web_reg_2024",
-    _v37 = {
-      market: _v32.ChartUp,
-      communicate: _v34.Users,
-      showcase: _v35.VideosStack,
+    _v32 = _v0.i(0);
+  let _v33 = "web_reg_2024",
+    _v34 = {
+      market: _v29.ChartUp,
+      communicate: _v31.Users,
+      showcase: _v32.VideosStack,
       manage: () => (0, _v1.jsx)("svg", {
         width: "36",
         height: "36",
@@ -201,7 +93,7 @@
           fill: "currentColor"
         })
       }),
-      deliver: _v33.Send,
+      deliver: _v30.Send,
       watch: () => (0, _v1.jsx)("svg", {
         width: "36",
         height: "36",
@@ -216,21 +108,21 @@
         })
       })
     },
-    _v38 = ({
+    _v35 = ({
       answers: _v0,
       selectedAnswer: _v1,
       onSelectAnswer: _v2,
       shouldShowIcon: _v3,
       alignment: _v4
     }) => {
-      let _v5 = (0, _v31.useColorModeValue)("gray.900", "gray.50"),
+      let _v5 = (0, _v28.useColorModeValue)("gray.900", "gray.50"),
         _v6 = "2px solid";
-      return (0, _v1.jsx)(_v30.SimpleGrid, {
+      return (0, _v1.jsx)(_v27.SimpleGrid, {
         spacing: "4",
         templateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
         paddingTop: "4",
         children: _v0.map(_v0 => {
-          let _v1 = _v37[_v0.id],
+          let _v1 = _v34[_v0.id],
             _v2 = _v1?.id === _v0.id;
           return (0, _v1.jsxs)(_v8.Flex, {
             as: "button",
@@ -271,30 +163,30 @@
         })
       });
     };
-  var _v39 = _v0.i(0);
-  let _v40 = () => (0, _v1.jsxs)(_v8.Flex, {
-    children: [(0, _v1.jsxs)(_v39.Box, {
+  var _v36 = _v0.i(0);
+  let _v37 = () => (0, _v1.jsxs)(_v8.Flex, {
+    children: [(0, _v1.jsxs)(_v36.Box, {
       id: "loading-background",
       w: "15rem",
       h: "100vh",
       bgColor: "slate.50",
-      children: [(0, _v1.jsx)(_v39.Box, {
+      children: [(0, _v1.jsx)(_v36.Box, {
         h: "4rem",
         padding: "4",
-        children: (0, _v1.jsx)(_v27.Logo, {
+        children: (0, _v1.jsx)(_v24.Logo, {
           width: "106px",
           height: "36px"
         })
-      }), (0, _v1.jsx)(_v39.Box, {
+      }), (0, _v1.jsx)(_v36.Box, {
         children: [1, 2, 3].map(_v0 => (0, _v1.jsxs)(_v8.Flex, {
           padding: "4",
           gap: "6",
-          children: [(0, _v1.jsx)(_v39.Box, {
+          children: [(0, _v1.jsx)(_v36.Box, {
             w: "1.5rem",
             h: "1.5rem",
             bgColor: "#BDCAD3",
             borderRadius: "sm"
-          }), (0, _v1.jsx)(_v39.Box, {
+          }), (0, _v1.jsx)(_v36.Box, {
             w: "124px",
             h: "1.5rem",
             bgColor: "#BDCAD3",
@@ -302,7 +194,7 @@
           })]
         }, _v0))
       })]
-    }), (0, _v1.jsx)(_v39.Box, {
+    }), (0, _v1.jsx)(_v36.Box, {
       w: "calc(100% - 240px)",
       h: "100vh",
       bgColor: "white",
@@ -315,22 +207,22 @@
         justifyContent: "flex-end",
         children: (0, _v1.jsxs)(_v8.Flex, {
           gap: "3",
-          children: [(0, _v1.jsx)(_v39.Box, {
+          children: [(0, _v1.jsx)(_v36.Box, {
             w: "2rem",
             h: "2rem",
             bgColor: "#BDCAD3",
             borderRadius: "sm"
-          }), (0, _v1.jsx)(_v39.Box, {
+          }), (0, _v1.jsx)(_v36.Box, {
             w: "2rem",
             h: "2rem",
             bgColor: "#BDCAD3",
             borderRadius: "sm"
-          }), (0, _v1.jsx)(_v39.Box, {
+          }), (0, _v1.jsx)(_v36.Box, {
             w: "88px",
             h: "2rem",
             bgColor: "#BDCAD3",
             borderRadius: "sm"
-          }), (0, _v1.jsx)(_v39.Box, {
+          }), (0, _v1.jsx)(_v36.Box, {
             w: "2rem",
             h: "2rem",
             bgColor: "#BDCAD3",
@@ -340,16 +232,16 @@
       })
     })]
   });
-  var _v41 = _v0.i(0),
+  var _v38 = _v0.i(0),
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
     _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  let _v49 = "onboarding_survey",
-    _v50 = _v0 => (0, _v43.buildProductAnalyticsBpContext)({
+    _v45 = _v0.i(0);
+  let _v46 = "onboarding_survey",
+    _v47 = _v0 => (0, _v40.buildProductAnalyticsBpContext)({
       product: "web_onboarding",
       feature: "onboarding_survey",
       location: "page_area",
@@ -357,36 +249,36 @@
       flow: null,
       element: null,
       copy: _v0,
-      device_type: (0, _v41.default)(),
+      device_type: (0, _v38.default)(),
       is_user_facing_data: null,
       entity_type: null
     }),
-    _v51 = (0, _v47.buildWebBpContext)({
+    _v48 = (0, _v44.buildWebBpContext)({
       page_name: "registration_survey",
       path: "/survey/web_reg_2024"
     }),
-    _v52 = _v0 => (0, _v44.buildTeamBpContext)({
+    _v49 = _v0 => (0, _v41.buildTeamBpContext)({
       is_team_member: _v0
     }),
-    _v53 = (0, _v45.buildThirdPartyIntegrationBpContext)({
+    _v50 = (0, _v42.buildThirdPartyIntegrationBpContext)({
       integration_id: null,
       integration_name: null,
       is_partner: null
     }),
-    _v54 = (_v0, _v1, _v2) => {
-      (0, _v48.sendBpEventWithContexts)("vimeo.survey_select_option", {
-        ..._v50(_v1.labelUntranslated),
-        ..._v51,
-        ..._v52(_v2),
-        ..._v53,
-        ...(0, _v42.buildActionBpContext)({
+    _v51 = (_v0, _v1, _v2) => {
+      (0, _v45.sendBpEventWithContexts)("vimeo.survey_select_option", {
+        ..._v47(_v1.labelUntranslated),
+        ..._v48,
+        ..._v49(_v2),
+        ..._v50,
+        ...(0, _v39.buildActionBpContext)({
           action_type: "click",
           feature: null
         })
       }, 2, {
-        survey_name: _v49,
+        survey_name: _v46,
         test_id: 0,
-        version_name: _v36,
+        version_name: _v33,
         question_group: _v0.id,
         question_name: _v0.questionUntranslated,
         question_description: _v0.descriptionUntranslated,
@@ -399,28 +291,47 @@
         answer_position: _v1.bpAnswerPosition
       });
     };
-  var _v55 = _v0.i(0);
-  let _v56 = !1,
-    _v57 = () => {
+  var _v52 = _v0.i(0);
+  let _v53 = !1,
+    _v54 = () => {
       let _v0 = (0, _v6.useRouter)(),
         [_v1, _v2] = (0, _v2.useState)(null),
         [_v3, _v4] = _v2.default.useState([]),
-        _v5 = (0, _v2.useContext)(_v29.ViewerContext),
+        _v5 = (0, _v2.useContext)(_v26.ViewerContext),
         _v6 = _v5?.user?.id,
-        _v7 = (0, _v28.useWindowSize)(),
+        _v7 = (0, _v25.useWindowSize)(),
         {
           data: _v8,
           isLoading: _v9
-        } = _v24(() => _v6 ? {
+        } = function (_v0) {
+          let _v1 = "function" == typeof _v0 ? _v0() : _v0,
+            {
+              baseUrl: _v2,
+              jwt: _v3,
+              xVimeoPage: _v4,
+              locale: _v5
+            } = (0, _v22.useGctlConfig)();
+          return (0, _v20.default)(_v1 ? `/users/${_v1.where.userId}/surveys/${_v1.where.surveyType}${(0, _v15.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v18({
+            ..._v1,
+            headers: {
+              ..._v1.headers,
+              "Content-Type": "application/json",
+              Authorization: _v3 ? `jwt ${_v3}` : "",
+              "Vimeo-Page": `${_v4}`,
+              "Accept-Language": _v5 ?? "en"
+            },
+            baseUrl: _v2
+          }) : null, void 0);
+        }(() => _v6 ? {
           where: {
             userId: _v6.toString(),
-            surveyType: _v36
+            surveyType: _v33
           },
           select: ["questions"]
         } : null),
         _v10 = _v8?.questions[0]?.answers[_v8?.questions[0]?.answers.length - 1];
       (0, _v2.useEffect)(() => {
-        if (_v8?.questions[0]?.answers && !_v56) {
+        if (_v8?.questions[0]?.answers && !_v53) {
           var _v0, _v1;
           let _v0,
             _v1 = (_v0 => {
@@ -436,48 +347,86 @@
               ..._v0,
               bpAnswerPosition: _v1 + 1
             }));
-          _v4(_v1), _v56 = !0;
+          _v4(_v1), _v53 = !0;
           let _v2 = _v1.find(_v0 => _v0.isSelected);
           _v2 && _v2(_v2), _v0 = _v8.questions[0], _v1 = _v5?.user?.isTeamUser ?? !1, _v0 = {
-            survey_name: _v49,
+            survey_name: _v46,
             test_id: 0,
-            version_name: _v36,
+            version_name: _v33,
             question_group: _v0.id,
             question_name: _v0.questionUntranslated,
             question_description: _v0.descriptionUntranslated,
             question_id: "1"
-          }, (0, _v48.sendBpEventWithContexts)("vimeo.user_survey_impression", {
-            ..._v50(_v0.questionUntranslated),
-            ..._v51,
-            ...(0, _v46.buildViewBpContext)({
+          }, (0, _v45.sendBpEventWithContexts)("vimeo.user_survey_impression", {
+            ..._v47(_v0.questionUntranslated),
+            ..._v48,
+            ...(0, _v43.buildViewBpContext)({
               view_type: "pageview",
               feature: null
             }),
-            ..._v52(_v1),
-            ..._v53
+            ..._v49(_v1),
+            ..._v50
           }, 1, _v0);
         }
       }, [_v8, _v5?.user?.isTeamUser]);
       let [_v11, {
           loading: _v12
-        }] = _v25(),
+        }] = function () {
+          let {
+              mutate: _v0
+            } = (0, _v21.useSWRConfig)(),
+            {
+              baseUrl: _v1,
+              jwt: _v2,
+              xVimeoPage: _v3,
+              locale: _v4
+            } = (0, _v22.useGctlConfig)(),
+            [_v5, _v6] = (0, _v15.useInternalState)();
+          return [(0, _v2.useCallback)(async _v0 => {
+            _v6({
+              type: "REQUEST"
+            });
+            try {
+              let _v0 = await _v0(`/users/${_v0.where.userId}/surveys/${_v0.where.surveyType}${(0, _v15.serializeQuery)(_v0)}`, _v19({
+                ..._v0,
+                baseUrl: _v1,
+                headers: {
+                  ..._v0.headers,
+                  "Content-Type": "application/json",
+                  Authorization: _v2 ? `jwt ${_v2}` : "",
+                  "Vimeo-Page": `${_v3}`,
+                  "Accept-Language": _v4 ?? "en"
+                }
+              }), !1);
+              _v6({
+                type: "SUCCESS",
+                payload: _v0
+              });
+            } catch (_v0) {
+              _v6({
+                type: "FAILURE",
+                payload: _v0
+              });
+            }
+          }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+        }(),
         _v13 = async _v0 => {
           if (_v6 && _v0 && _v8?.questions[0]) {
-            if (_v0.id === _v10?.id) _v54(_v8.questions[0], _v0, _v5?.user?.isTeamUser ?? !1);else {
+            if (_v0.id === _v10?.id) _v51(_v8.questions[0], _v0, _v5?.user?.isTeamUser ?? !1);else {
               var _v1, _v2;
-              _v1 = _v8.questions[0], _v2 = _v5?.user?.isTeamUser ?? !1, (0, _v48.sendBpEventWithContexts)("vimeo.survey_navigation_option", {
-                ..._v50("Continue"),
-                ..._v51,
-                ..._v52(_v2),
-                ..._v53,
-                ...(0, _v42.buildActionBpContext)({
+              _v1 = _v8.questions[0], _v2 = _v5?.user?.isTeamUser ?? !1, (0, _v45.sendBpEventWithContexts)("vimeo.survey_navigation_option", {
+                ..._v47("Continue"),
+                ..._v48,
+                ..._v49(_v2),
+                ..._v50,
+                ...(0, _v39.buildActionBpContext)({
                   action_type: "click",
                   feature: null
                 })
               }, 2, {
-                survey_name: _v49,
+                survey_name: _v46,
                 test_id: 0,
-                version_name: _v36,
+                version_name: _v33,
                 question_group: _v1.id,
                 question_name: _v1.questionUntranslated,
                 question_description: _v1.descriptionUntranslated,
@@ -493,7 +442,7 @@
             await _v11({
               where: {
                 userId: _v6.toString(),
-                surveyType: _v36
+                surveyType: _v33
               },
               select: ["questions"],
               variables: [{
@@ -503,14 +452,14 @@
                   position: _v0.bpAnswerPosition
                 }]
               }]
-            }), _v0.push((0, _v55.getRedirectUrl)());
+            }), _v0.push((0, _v52.getRedirectUrl)());
           }
         };
-      if (_v9 || !_v8?.questions[0]) return (0, _v1.jsx)(_v40, {});
+      if (_v9 || !_v8?.questions[0]) return (0, _v1.jsx)(_v37, {});
       let _v14 = _v7.width < 769,
         _v15 = _v7.width <= 480;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v40, {}), (0, _v1.jsxs)(_v9.Modal, {
+        children: [(0, _v1.jsx)(_v37, {}), (0, _v1.jsxs)(_v9.Modal, {
           isOpen: !0,
           size: _v14 ? "full" : "xl",
           onClose: () => "onClose is required by Modal",
@@ -529,7 +478,7 @@
               children: [_v14 ? (0, _v1.jsx)(_v8.Flex, {
                 h: "4rem",
                 justifyContent: "flex-start",
-                children: (0, _v1.jsx)(_v27.Logo, {
+                children: (0, _v1.jsx)(_v24.Logo, {
                   width: "106px",
                   height: "36px",
                   color: "currentColor"
@@ -543,11 +492,11 @@
                 color: "text-primary",
                 paddingTop: "4",
                 children: _v8?.questions[0]?.description
-              }), (0, _v1.jsx)(_v38, {
+              }), (0, _v1.jsx)(_v35, {
                 answers: _v3,
                 selectedAnswer: _v1,
                 onSelectAnswer: _v0 => {
-                  _v2(_v0 => _v0?.id === _v0.id ? null : _v0), _v0 && _v8?.questions[0] && _v54(_v8.questions[0], _v0, _v5?.user?.isTeamUser ?? !1);
+                  _v2(_v0 => _v0?.id === _v0.id ? null : _v0), _v0 && _v8?.questions[0] && _v51(_v8.questions[0], _v0, _v5?.user?.isTeamUser ?? !1);
                 },
                 shouldShowIcon: !_v15,
                 alignment: _v15 ? "left" : "center"
@@ -575,7 +524,7 @@
                   _v13(_v1);
                 },
                 isLoading: _v12 && !!_v1,
-                children: (0, _v26.translate)({
+                children: (0, _v23.translate)({
                   singular: "Continue",
                   dictionary: {
                     es: {
@@ -608,12 +557,12 @@
       });
     };
   _v0.s(["__N_SSG", 0, !0, "default", 0, () => {
-    if (!(0, _v2.useContext)(_v29.ViewerContext)) return null;
+    if (!(0, _v2.useContext)(_v26.ViewerContext)) return null;
     let _v0 = (0, _v3.createLocalStorageManager)("bokeh-color-mode");
     return (0, _v1.jsx)(_v4.ThemeProvider, {
       theme: _v5.bokehTheme,
       colorModeManager: _v0,
-      children: (0, _v1.jsx)(_v57, {})
+      children: (0, _v1.jsx)(_v54, {})
     });
   }], 0);
 }

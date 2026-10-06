@@ -1457,9 +1457,7 @@
           hideIntroPopover: _v1 = !1
         } = {}) {
           let _v2 = (0, _v51.useRouter)(),
-            {
-              settings: _v3
-            } = (0, _v13.useOrionSettings)(),
+            _v3 = (0, _v13.useOrionSetting)("enable_whats_new_page"),
             _v4 = "/whats-new" === _v2.pathname,
             _v5 = (0, _v94.useIsAnnouncementAcknowledged)("whats_new_intro"),
             {
@@ -1468,12 +1466,12 @@
               isLoaded: _v8
             } = (0, _v94.useAnnouncement)({
               id: "whats_new_intro",
-              isEligible: _v3.enable_whats_new_page && !_v4 && !_v0 && !_v1
+              isEligible: _v3 && !_v4 && !_v0 && !_v1
             }),
             _v9 = (0, _v2.useRef)(!1);
           return (0, _v2.useEffect)(() => {
-            _v3.enable_whats_new_page && _v4 && _v8 && !_v5 && !_v9.current && (_v9.current = !0, _v6());
-          }, [_v6, _v5, _v8, _v4, _v3.enable_whats_new_page]), {
+            _v3 && _v4 && _v8 && !_v5 && !_v9.current && (_v9.current = !0, _v6());
+          }, [_v6, _v5, _v8, _v4, _v3]), {
             acknowledge: _v6,
             showIntro: _v7
           };
@@ -1482,9 +1480,7 @@
           hideIntroPopover: _v3
         }),
         _v8 = _v7 && !_v2 && !_v3,
-        {
-          settings: _v9
-        } = (0, _v13.useOrionSettings)(),
+        _v9 = (0, _v13.useOrionSetting)("enable_whats_new_page"),
         _v10 = _v86(_v4, {
           productAnalyticsContextOverrides: {
             copy: "whats new",
@@ -1504,7 +1500,7 @@
           isLoading: _v16
         } = (0, _v8.useChangelog)(),
         _v17 = _v12 || "true" === _v14,
-        _v18 = _v9.enable_whats_new_page && "/whats-new" === _v5.pathname;
+        _v18 = _v9 && "/whats-new" === _v5.pathname;
       (0, _v93.usePicoEffect)(() => "true" === _v14 && (_v11({
         whatsNewModalOpenedManually: !1
       }), !0), [_v14], {
@@ -1625,7 +1621,7 @@
                     }
                   } : {})
                 },
-                ...(_v9.enable_whats_new_page ? {
+                ...(_v9 ? {
                   onClick: () => {
                     _v24(), _v5.push("/whats-new");
                   }
@@ -1655,7 +1651,7 @@
           })
         });
         return (0, _v1.jsxs)(_v1.Fragment, {
-          children: [_v25(_v0), !_v9.enable_whats_new_page && (0, _v1.jsx)(_v91, {
+          children: [_v25(_v0), !_v9 && (0, _v1.jsx)(_v91, {
             isOpen: _v17,
             onClose: _v23
           })]
@@ -1670,7 +1666,7 @@
         flexDirection: "column",
         gap: 10,
         marginTop: -10,
-        children: [_v9.enable_whats_new_page ? _v25((0, _v1.jsx)(_v50.MenuItem, {
+        children: [_v9 ? _v25((0, _v1.jsx)(_v50.MenuItem, {
           icon: (0, _v1.jsx)(_v100, {
             children: _v26
           }),
@@ -1777,7 +1773,7 @@
               showPlus: _v15.showPlus
             })
           })]
-        }), !_v9.enable_whats_new_page && (0, _v1.jsx)(_v91, {
+        }), !_v9 && (0, _v1.jsx)(_v91, {
           isOpen: _v17,
           onClose: _v23
         })]
@@ -1797,9 +1793,7 @@
     bundlePromo: _v10
   }) => {
     let _v11 = (0, _v2.useContext)(_v49.ViewerContext),
-      {
-        settings: _v12
-      } = (0, _v13.useOrionSettings)(),
+      _v12 = (0, _v13.useOrionSetting)("enable_whats_new_page"),
       {
         trackSidebarNavClicked: _v13
       } = (0, _v15.useWatchTracking)(),
@@ -1812,7 +1806,7 @@
       } = (0, _v11.useCapability)(["hasWatchButton"], _v11?.teamUser?.ownerId),
       _v17 = _v11?.isSimplifiedSite ?? !1,
       _v18 = !!(_v2 && !_v11?.isEnterpriseSite && !_v17 && !_v14?.hasSimplifiedEnterpriseAccount && _v16.hasWatchButton),
-      _v19 = _v12.enable_whats_new_page ? "server" : "local",
+      _v19 = _v12 ? "server" : "local",
       _v20 = _v5 || _v4 && !!_v6.uploadQuota,
       _v21 = _v3 && !_v20,
       _v22 = () => {

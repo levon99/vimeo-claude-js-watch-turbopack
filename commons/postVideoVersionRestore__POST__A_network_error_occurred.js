@@ -8,16 +8,18 @@
   async function _v5({
     baseUrl: _v0,
     select: _v1,
+    variables: _v2,
     where: {
-      videoId: _v2,
-      versionId: _v3
+      videoId: _v3,
+      versionId: _v4
     },
-    ..._v4
+    ..._v5
   }) {
     return (0, _v3.measureLatency)("postVideoVersionRestore", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v2}/versions/${_v3}/restore?fields=${_v1.map(_v4.intoSnakeCase).join(",")}`, {
-        ..._v4,
-        method: "POST"
+      let _v0 = await fetch(`${_v0}/videos/${_v3}/versions/${_v4}/restore?fields=${_v1.map(_v4.intoSnakeCase).join(",")}`, {
+        ..._v5,
+        method: "POST",
+        body: JSON.stringify((0, _v4.deepSnakeCase)(_v2))
       });
       if (!_v0.ok) throw new _v4.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;

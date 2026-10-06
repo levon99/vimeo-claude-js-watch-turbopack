@@ -220,9 +220,7 @@
     editableTitle: _v47,
     isEditingContentTitle: _v48
   }) => {
-    let {
-        settings: _v49
-      } = (0, _v14.useOrionSettings)(),
+    let _v49 = (0, _v14.useOrionSetting)("enable_uploader_tooltip"),
       [_v50, _v51] = (0, _v3.useState)(!1),
       [_v52, _v53] = (0, _v3.useState)(!1),
       [_v54, _v55] = (0, _v3.useState)(!1),
@@ -253,7 +251,7 @@
           name: _v7 || ""
         }
       });
-      _v58 = _v7 && _v49.enable_uploader_tooltip ? (0, _v1.jsx)(_v11.Tooltip, {
+      _v58 = _v7 && _v49 ? (0, _v1.jsx)(_v11.Tooltip, {
         label: _v7,
         children: (0, _v1.jsx)(_v6.Box, {
           display: "inline-flex",

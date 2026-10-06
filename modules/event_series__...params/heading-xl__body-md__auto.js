@@ -26,7 +26,7 @@
     },
     _v4 = {
       BOTTOM_PADDING_16: (0, _v1.rem)(16),
-      MOBILE_UPCOMING_X_PADDING_8: (0, _v1.rem)(8),
+      MOBILE_UPCOMING_X_PADDING_0: 0,
       DESKTOP_UPCOMING_X_PADDING_0: 0,
       ON_DEMAND_X_PADDING_0: 0
     },

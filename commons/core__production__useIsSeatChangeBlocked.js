@@ -7,13 +7,11 @@
     tier: _v0,
     hasScheduledDowngrade: _v1 = !1
   }) {
-    let {
-      settings: _v2
-    } = (0, _v1.useOrionSettings)();
+    let _v2 = (0, _v1.useOrionSetting)("enable_seat_changes_for_tiered");
     return _v1 ? {
       isBlocked: !0,
       reason: "scheduled_downgrade"
-    } : _v2.enable_seat_changes_for_tiered ? {
+    } : _v2 ? {
       isBlocked: !1,
       reason: null
     } : _v2.includes(_v0 ?? "") ? {

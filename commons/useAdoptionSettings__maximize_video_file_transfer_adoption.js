@@ -1,0 +1,19 @@
+{
+  "use strict";
+
+  var _v1 = _v0.i(0),
+    _v2 = _v0.i(0),
+    _v3 = _v0.i(0),
+    _v4 = _v0.i(0),
+    _v5 = _v0.i(0);
+  _v0.s(["useAdoptionSettings", 0, function () {
+    var _v0;
+    let _v1 = (0, _v5.useOrionSetting)("maximize_video_file_transfer_adoption"),
+      _v2 = (0, _v4.useOrionLoading)(),
+      _v3 = (0, _v3.useViewer)();
+    return {
+      maximizeVideoFileTransferAdoption: (_v0 = _v3?.teamUser, !(0, _v1.useMemo)(() => _v0?.accountType === _v2.AccountType.Enterprise, [_v0?.accountType]) && _v1),
+      isLoadingResponse: _v2
+    };
+  }]);
+}

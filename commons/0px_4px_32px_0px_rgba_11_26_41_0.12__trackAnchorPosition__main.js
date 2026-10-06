@@ -66,7 +66,8 @@
         trackAnnouncementPopoverDismissed: (0, _v2.useCallback)(_v0 => null !== _v16 && (_v16.track("announcement_popover_dismissed", {
           tracking_id: _v0.trackingId,
           title: _v0.title,
-          description: _v0.description
+          description: _v0.description,
+          dismissal_method: _v0.dismissalMethod
         }), !0), [_v16])
       }),
       _v19 = (0, _v2.useRef)(!1);
@@ -75,11 +76,12 @@
         trackingId: _v10
       }), _v19.current = _v0);
     }, [_v10, _v0, _v17]);
-    let _v20 = () => {
+    let _v20 = _v0 => {
       _v10 && _v18({
         trackingId: _v10,
         title: "string" == typeof _v3 ? _v3 : "",
-        description: "string" == typeof _v4 ? _v4 : ""
+        description: "string" == typeof _v4 ? _v4 : "",
+        dismissalMethod: _v0
       });
     };
     return (0, _v1.jsxs)(_v5.Popover, {
@@ -92,7 +94,7 @@
       isLazy: !0,
       closeOnBlur: !1,
       onClose: _v9 ? () => {
-        _v20(), _v8?.();
+        _v20("close"), _v8?.();
       } : void 0,
       children: [_v15 ? _v1 : (0, _v1.jsx)(_v9.PopoverTrigger, {
         children: _v1
@@ -194,7 +196,7 @@
                 variant: "primary",
                 size: "md",
                 onClick: () => {
-                  _v20(), _v7();
+                  _v20("cta"), _v7();
                 },
                 children: _v11 ?? (0, _v13.translate)({
                   singular: "Got it",

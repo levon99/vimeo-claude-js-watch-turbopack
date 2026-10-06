@@ -248,55 +248,52 @@
   }) {
     var _v16;
     let _v17,
-      {
-        settings: _v18
-      } = (0, _v16.useOrionSettings)(),
-      _v19 = _v18.onboarding_paywall_weekly_enabled,
-      [_v20, _v21] = (0, _v3.useState)(_v2),
-      [_v22, _v23] = (0, _v3.useState)(!1),
-      _v24 = (0, _v3.useRef)(!1);
+      _v18 = (0, _v16.useOrionSetting)("onboarding_paywall_weekly_enabled"),
+      [_v19, _v20] = (0, _v3.useState)(_v2),
+      [_v21, _v22] = (0, _v3.useState)(!1),
+      _v23 = (0, _v3.useRef)(!1);
     (0, _v3.useEffect)(() => {
-      _v24.current || _v21(_v19 || "weekly" !== _v2 ? _v2 : "yearly");
-    }, [_v2, _v19]);
-    let _v25 = _v4 && _v22,
-      _v26 = (0, _v19.useGetSubscriptionPlansData)([_v0], void 0, !1),
-      _v27 = (0, _v21.useViewer)(),
-      _v28 = (0, _v20.isUkLocation)(_v27?.location),
-      _v29 = _v26?.find(_v0 => _v0.tier === _v0) ?? _v26?.[0],
-      _v30 = _v29?.currency?.currencyCode || "USD",
-      _v31 = _v28 ? (0, _v20.formatUkVatPrice)(_v29?.price.annualMonthly, _v30) : _v29?.priceFormatted.annualMonthly,
-      _v32 = _v28 ? (0, _v20.formatUkVatPrice)(_v29?.price.monthly, _v30) : _v29?.priceFormatted.monthly,
-      _v33 = _v19 ? _v28 ? (0, _v20.formatUkVatPrice)(_v29?.price.weekly, _v30) : _v29?.priceFormatted.weekly : void 0,
-      _v34 = void 0 === _v26,
-      _v35 = (0, _v9.useColorModeValue)("https://i.vimeocdn.com/custom_asset/4a6f0f615c4cf9d30b48f79df970438e", "https://i.vimeocdn.com/custom_asset/edb2ec4f5620a90adb065894bbb08419"),
-      _v36 = (0, _v9.useColorModeValue)("var(--vimeo-colors-vimeoBlue-50)", "var(--vimeo-colors-vimeoBlue-900)"),
+      _v23.current || _v20(_v18 || "weekly" !== _v2 ? _v2 : "yearly");
+    }, [_v2, _v18]);
+    let _v24 = _v4 && _v21,
+      _v25 = (0, _v19.useGetSubscriptionPlansData)([_v0], void 0, !1),
+      _v26 = (0, _v21.useViewer)(),
+      _v27 = (0, _v20.isUkLocation)(_v26?.location),
+      _v28 = _v25?.find(_v0 => _v0.tier === _v0) ?? _v25?.[0],
+      _v29 = _v28?.currency?.currencyCode || "USD",
+      _v30 = _v27 ? (0, _v20.formatUkVatPrice)(_v28?.price.annualMonthly, _v29) : _v28?.priceFormatted.annualMonthly,
+      _v31 = _v27 ? (0, _v20.formatUkVatPrice)(_v28?.price.monthly, _v29) : _v28?.priceFormatted.monthly,
+      _v32 = _v18 ? _v27 ? (0, _v20.formatUkVatPrice)(_v28?.price.weekly, _v29) : _v28?.priceFormatted.weekly : void 0,
+      _v33 = void 0 === _v25,
+      _v34 = (0, _v9.useColorModeValue)("https://i.vimeocdn.com/custom_asset/4a6f0f615c4cf9d30b48f79df970438e", "https://i.vimeocdn.com/custom_asset/edb2ec4f5620a90adb065894bbb08419"),
+      _v35 = (0, _v9.useColorModeValue)("var(--vimeo-colors-vimeoBlue-50)", "var(--vimeo-colors-vimeoBlue-900)"),
       {
-        offer: _v37
+        offer: _v36
       } = (0, _v13.useTriggeredBundleOffer)({
         trigger: "onboarding",
-        periodicity: "monthly" === _v20 ? "monthly" : "annual",
-        enabled: _v15 && "weekly" !== _v20,
+        periodicity: "monthly" === _v19 ? "monthly" : "annual",
+        enabled: _v15 && "weekly" !== _v19,
         priceDisplay: "monthly-equivalent"
       }),
       {
-        trackBundleOfferCtaClick: _v38
+        trackBundleOfferCtaClick: _v37
       } = (0, _v18.useBundleTracking)();
     (0, _v12.useBundleOfferDisplayed)({
       surface: "intro_paywall",
       unit: "plan_tile_row",
-      bundleType: _v37?.bundleType ?? null,
-      bundlePrice: _v37?.priceTier ?? null,
-      enabled: null !== _v37 && !_v34
+      bundleType: _v36?.bundleType ?? null,
+      bundlePrice: _v36?.priceTier ?? null,
+      enabled: null !== _v36 && !_v33
     });
-    let _v39 = _v15 && null !== _v37 ? (0, _v1.jsx)(_v11.PlanTileBundleRow, {
-        bundleType: _v37.bundleType,
-        price: _v37.price
+    let _v38 = _v15 && null !== _v36 ? (0, _v1.jsx)(_v11.PlanTileBundleRow, {
+        bundleType: _v36.bundleType,
+        price: _v36.price
       }) : void 0,
-      _v40 = _v0 => {
-        _v24.current = !0, _v21(_v0), "weekly" !== _v0 && ("monthly" !== _v0 || _v3) || _v23(!1);
+      _v39 = _v0 => {
+        _v23.current = !0, _v20(_v0), "weekly" !== _v0 && ("monthly" !== _v0 || _v3) || _v22(!1);
       },
-      _v41 = _v29?.name ?? (0, _v2.default)(`${_v0}`),
-      _v42 = _v6 ?? (_v9 ? (0, _v15.translate)({
+      _v40 = _v28?.name ?? (0, _v2.default)(`${_v0}`),
+      _v41 = _v6 ?? (_v9 ? (0, _v15.translate)({
         singular: "Upgrade your plan",
         dictionary: {
           es: {
@@ -347,10 +344,10 @@
           }
         }
       })),
-      _v43 = _v7 ?? (_v9 ? (0, _v15.translate)({
+      _v42 = _v7 ?? (_v9 ? (0, _v15.translate)({
         singular: "Get more with {PLAN_NAME}.",
         replacements: {
-          PLAN_NAME: _v41
+          PLAN_NAME: _v40
         },
         dictionary: {
           es: {
@@ -401,8 +398,8 @@
           }
         }
       })),
-      _v44 = !_v8,
-      _v45 = _v42.length > 12;
+      _v43 = !_v8,
+      _v44 = _v41.length > 12;
     return (0, _v1.jsxs)(_v6.Flex, {
       direction: "column",
       alignItems: "center",
@@ -462,15 +459,15 @@
             children: [(0, _v1.jsx)(_v8.Text, {
               variant: {
                 base: "heading-lg",
-                md: _v45 ? "heading-xl" : "heading-2xl"
+                md: _v44 ? "heading-xl" : "heading-2xl"
               },
               textAlign: "center",
-              whiteSpace: _v44 ? "nowrap" : "normal",
-              children: _v42
-            }), _v44 && (0, _v1.jsx)(_v4.Box, {
+              whiteSpace: _v43 ? "nowrap" : "normal",
+              children: _v41
+            }), _v43 && (0, _v1.jsx)(_v4.Box, {
               pt: {
                 base: "0",
-                md: _v45 ? "4px" : "8px"
+                md: _v44 ? "4px" : "8px"
               },
               children: (0, _v1.jsx)(_v4.Box, {
                 bg: "#8a5ee8",
@@ -484,7 +481,7 @@
                   fontSize: "14px",
                   fontWeight: "medium",
                   color: "white",
-                  children: _v41
+                  children: _v40
                 })
               })
             })]
@@ -493,14 +490,14 @@
             fontWeight: "medium",
             color: "text-primary",
             textAlign: "center",
-            children: _v43
+            children: _v42
           })]
         }), _v11 ?? (0, _v1.jsx)(_v4.Box, {
           width: "100%",
           maxWidth: "252px",
           maxHeight: {
-            base: _v25 ? "120px" : "140px",
-            md: _v25 ? "180px" : "200px"
+            base: _v24 ? "120px" : "140px",
+            md: _v24 ? "180px" : "200px"
           },
           minHeight: {
             base: "80px",
@@ -508,11 +505,11 @@
           },
           aspectRatio: "1333/1058",
           flexShrink: "1",
-          backgroundImage: `url(${_v35})`,
+          backgroundImage: `url(${_v34})`,
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          transition: _v25 ? "all 0.3s ease" : "all 0.3s ease 0.1s"
+          transition: _v24 ? "all 0.3s ease" : "all 0.3s ease 0.1s"
         }), _v4 && (0, _v1.jsxs)(_v6.Flex, {
           direction: "column",
           gap: "8px",
@@ -525,22 +522,22 @@
             as: "button",
             type: "button",
             onClick: () => {
-              let _v0 = !_v22;
-              _v23(_v0), _v0 && ("weekly" === _v20 || !_v3) && _v21("yearly");
+              let _v0 = !_v21;
+              _v22(_v0), _v0 && ("weekly" === _v19 || !_v3) && _v20("yearly");
             },
             alignItems: "center",
             gap: "md",
             padding: "md",
             width: "100%",
             height: "78px",
-            borderColor: _v25 ? "fill-brand" : "input-stroke",
+            borderColor: _v24 ? "fill-brand" : "input-stroke",
             borderRadius: "16px",
             borderWidth: "1px",
             borderStyle: "solid",
             cursor: "pointer",
-            bg: _v25 ? _v36 : "surface",
+            bg: _v24 ? _v35 : "surface",
             _hover: {
-              bg: _v25 ? _v36 : "input-fill-hover"
+              bg: _v24 ? _v35 : "input-fill-hover"
             },
             transition: "background-color 0.15s ease, border-color 0.15s ease",
             sx: {
@@ -555,7 +552,7 @@
                 variant: "heading-sm",
                 fontWeight: "medium",
                 color: "text-primary",
-                children: _v25 ? (0, _v15.translate)({
+                children: _v24 ? (0, _v15.translate)({
                   singular: "Free trial enabled",
                   dictionary: {
                     es: {
@@ -606,7 +603,7 @@
                     }
                   }
                 })
-              }), !_v25 && (0, _v1.jsx)(_v8.Text, {
+              }), !_v24 && (0, _v1.jsx)(_v8.Text, {
                 variant: "body-md",
                 color: "text-tertiary",
                 children: (0, _v15.translate)({
@@ -637,16 +634,16 @@
                 })
               })]
             }), (0, _v1.jsx)(_v30, {
-              selected: _v25
+              selected: _v24
             })]
           }), (0, _v1.jsxs)(_v6.Flex, {
             width: "100%",
             px: "md",
             justifyContent: "space-between",
             alignItems: "center",
-            height: _v25 ? "20px" : "0px",
-            opacity: +!!_v25,
-            transition: _v25 ? "height 0.3s ease, opacity 0.3s ease 0.1s" : "height 0.3s ease 0.1s, opacity 0.3s ease",
+            height: _v24 ? "20px" : "0px",
+            opacity: +!!_v24,
+            transition: _v24 ? "height 0.3s ease, opacity 0.3s ease 0.1s" : "height 0.3s ease 0.1s, opacity 0.3s ease",
             overflow: "hidden",
             children: [(0, _v1.jsx)(_v8.Text, {
               variant: "heading-2xs",
@@ -654,7 +651,7 @@
               children: (0, _v15.translate)({
                 singular: "{amount} due today",
                 replacements: {
-                  amount: (_v16 = _v30, _v17 = (0, _v15.getCurrentLocale)(), new Intl.NumberFormat(_v17, {
+                  amount: (_v16 = _v29, _v17 = (0, _v15.getCurrentLocale)(), new Intl.NumberFormat(_v17, {
                     style: "currency",
                     currency: _v16,
                     minimumFractionDigits: 2,
@@ -720,7 +717,7 @@
           direction: "column",
           gap: "12px",
           width: "100%",
-          children: [_v34 ? (0, _v1.jsx)(_v4.Box, {
+          children: [_v33 ? (0, _v1.jsx)(_v4.Box, {
             position: "relative",
             width: "100%",
             children: (0, _v1.jsx)(_v7.Skeleton, {
@@ -755,7 +752,7 @@
                 }
               }
             }),
-            price: _v31 ? `${_v31}${(0, _v15.translate)({
+            price: _v30 ? `${_v30}${(0, _v15.translate)({
               singular: "/month",
               dictionary: {
                 es: {
@@ -781,8 +778,8 @@
                 }
               }
             })}` : "-",
-            selected: "yearly" === _v20,
-            onClick: () => _v40("yearly"),
+            selected: "yearly" === _v19,
+            onClick: () => _v39("yearly"),
             badge: (0, _v15.translate)({
               singular: "Most popular",
               dictionary: {
@@ -809,8 +806,8 @@
                 }
               }
             }),
-            bundleRow: "yearly" === _v20 ? _v39 : void 0
-          }), _v34 ? (0, _v1.jsx)(_v4.Box, {
+            bundleRow: "yearly" === _v19 ? _v38 : void 0
+          }), _v33 ? (0, _v1.jsx)(_v4.Box, {
             width: "100%",
             children: (0, _v1.jsx)(_v7.Skeleton, {
               width: "100%",
@@ -844,7 +841,7 @@
                 }
               }
             }),
-            price: _v32 ? `${_v32}${(0, _v15.translate)({
+            price: _v31 ? `${_v31}${(0, _v15.translate)({
               singular: "/month",
               dictionary: {
                 es: {
@@ -870,10 +867,10 @@
                 }
               }
             })}` : "-",
-            selected: "monthly" === _v20,
-            onClick: () => _v40("monthly"),
-            bundleRow: "monthly" === _v20 ? _v39 : void 0
-          }), !!_v33 && (0, _v1.jsx)(_v27, {
+            selected: "monthly" === _v19,
+            onClick: () => _v39("monthly"),
+            bundleRow: "monthly" === _v19 ? _v38 : void 0
+          }), !!_v32 && (0, _v1.jsx)(_v27, {
             title: (0, _v15.translate)({
               singular: "Weekly",
               dictionary: {
@@ -900,7 +897,7 @@
                 }
               }
             }),
-            price: _v33 ? `${_v33}${(0, _v15.translate)({
+            price: _v32 ? `${_v32}${(0, _v15.translate)({
               singular: "/week",
               dictionary: {
                 "fr-FR": {
@@ -920,13 +917,13 @@
                 }
               }
             })}` : "-",
-            selected: "weekly" === _v20,
-            onClick: () => _v40("weekly")
-          }), !_v34 && !_v12 && (0, _v1.jsx)(_v8.Text, {
+            selected: "weekly" === _v19,
+            onClick: () => _v39("weekly")
+          }), !_v33 && !_v12 && (0, _v1.jsx)(_v8.Text, {
             variant: "body-sm",
             color: "text-tertiary",
             textAlign: "center",
-            children: _v28 ? (0, _v15.translate)({
+            children: _v27 ? (0, _v15.translate)({
               singular: "incl. 20% VAT",
               dictionary: {
                 es: {
@@ -995,22 +992,22 @@
           size: "md",
           variant: "primary",
           onClick: () => {
-            _v14?.("primary"), null !== _v37 && _v38({
+            _v14?.("primary"), null !== _v36 && _v37({
               surface: "intro_paywall",
               cta: "checkout",
               bundleIncluded: !0
             });
-            let _v0 = "yearly" === _v20 ? _v0 : `${_v0}/${_v20}`,
+            let _v0 = "yearly" === _v19 ? _v0 : `${_v0}/${_v19}`,
               _v1 = (0, _v14.withBundleOfferToggleParam)((0, _v17.buildCheckoutUrl)({
                 ..._v1,
                 tier: _v0,
-                isTrial: _v25,
+                isTrial: _v24,
                 postCheckoutUrl: _v5
-              }), null !== _v37);
+              }), null !== _v36);
             window.location.assign(_v1);
           },
-          isDisabled: _v34,
-          children: _v25 ? (0, _v15.translate)({
+          isDisabled: _v33,
+          children: _v24 ? (0, _v15.translate)({
             singular: "Try for free",
             dictionary: {
               es: {

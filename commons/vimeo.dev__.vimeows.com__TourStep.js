@@ -819,9 +819,7 @@
       [_v37, _v38] = (0, _v5.useState)(),
       _v39 = (0, _v83.formatVersionNumber)(_v7 || _v59.DEFAULT_VERSION_NUMBER),
       [_v40, _v41] = (0, _v5.useState)(!1),
-      {
-        settings: _v42
-      } = (0, _v28.useOrionSettings)(),
+      _v42 = (0, _v28.useOrionSettingsFields)(["replace_in_review", "new_replace_feature"]),
       _v43 = (0, _v16.useToast)(),
       {
         setVersions: _v44

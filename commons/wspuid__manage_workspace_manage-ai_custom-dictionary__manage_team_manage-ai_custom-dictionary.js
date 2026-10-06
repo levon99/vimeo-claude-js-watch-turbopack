@@ -46,9 +46,7 @@
     anchorProps: _v8,
     children: _v9
   }) => {
-    let {
-        settings: _v10
-      } = (0, _v10.useOrionSettings)(),
+    let _v10 = (0, _v10.useOrionSettingsFields)(["enable_dictionary_announcements", "enable_account_wide_dictionary_management", "enable_dictionary_intro_live_events_announcement", "enable_dictionary_intro_svv_announcement", "enable_dictionary_settings_intro_announcement"]),
       {
         announcementId: _v11,
         flag: _v12,

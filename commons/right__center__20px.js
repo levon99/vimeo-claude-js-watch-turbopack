@@ -1306,9 +1306,8 @@
     _v59 = _v0.i(0),
     _v60 = _v0.i(0),
     _v61 = _v0.i(0),
-    _v62 = _v0.i(0),
-    _v63 = _v0.i(0);
-  async function _v64({
+    _v62 = _v0.i(0);
+  async function _v63({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1317,63 +1316,24 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v62.measureLatency)("getOrganizationAuditLogs", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/organizations/${_v2}/audit_logs?${(0, _v63.searchQueryString)(_v3)}&fields=${_v1.map(_v63.intoSnakeCase).join(",")}`, {
+    return (0, _v61.measureLatency)("getOrganizationAuditLogs", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/organizations/${_v2}/audit_logs?${(0, _v62.searchQueryString)(_v3)}&fields=${_v1.map(_v62.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v63.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v62.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v63.deepCamelCase)(_v1);
+      return (0, _v62.deepCamelCase)(_v1);
     });
   }
-  var _v65 = _v0.i(0),
-    _v66 = _v0.i(0),
-    _v67 = _v0.i(0),
-    _v68 = _v0.i(0),
-    _v69 = _v0.i(0);
-  function _v70() {
-    let {
-        mutate: _v0
-      } = (0, _v66.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v69.useGctlConfig)(),
-      [_v5, _v6] = (0, _v67.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/organizations/${_v0.where.orgUuid}/audit_logs${(0, _v67.serializeQuery)(_v0)}`, _v64({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  async function _v71({
+  _v0.i(0);
+  var _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
+  _v0.i(0);
+  var _v66 = _v0.i(0);
+  async function _v67({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1382,58 +1342,19 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v62.measureLatency)("getTeamAuditLogs", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/teams/${_v2}/audit_logs?${(0, _v63.searchQueryString)(_v3)}&fields=${_v1.map(_v63.intoSnakeCase).join(",")}`, {
+    return (0, _v61.measureLatency)("getTeamAuditLogs", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/teams/${_v2}/audit_logs?${(0, _v62.searchQueryString)(_v3)}&fields=${_v1.map(_v62.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v63.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v62.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v63.deepCamelCase)(_v1);
+      return (0, _v62.deepCamelCase)(_v1);
     });
   }
-  function _v72() {
-    let {
-        mutate: _v0
-      } = (0, _v66.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v69.useGctlConfig)(),
-      [_v5, _v6] = (0, _v67.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/teams/${_v0.where.userId}/audit_logs${(0, _v67.serializeQuery)(_v0)}`, _v71({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  async function _v73({
+  async function _v68({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1442,246 +1363,23 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v62.measureLatency)("getWorkspaceAuditLogs", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/workspaces/${_v2}/audit_logs?${(0, _v63.searchQueryString)(_v3)}&fields=${_v1.map(_v63.intoSnakeCase).join(",")}`, {
+    return (0, _v61.measureLatency)("getWorkspaceAuditLogs", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/workspaces/${_v2}/audit_logs?${(0, _v62.searchQueryString)(_v3)}&fields=${_v1.map(_v62.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v63.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v62.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v63.deepCamelCase)(_v1);
+      return (0, _v62.deepCamelCase)(_v1);
     });
   }
-  function _v74() {
-    let {
-        mutate: _v0
-      } = (0, _v66.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v69.useGctlConfig)(),
-      [_v5, _v6] = (0, _v67.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/audit_logs${(0, _v67.serializeQuery)(_v0)}`, _v73({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v61.default.env.STORYBOOK && (0, _v67.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v69.useGctlConfig)();
-    return (0, _v65.default)(_v2 ? `/organizations/${_v2.where.orgUuid}/audit_logs${(0, _v67.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v64({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/organizations/:orgUuid/audit_logs",
-    method: "GET"
-  }), "true" === _v61.default.env.STORYBOOK && (0, _v67.assignMswData)(_v70, {
-    endpoint: "/organizations/:orgUuid/audit_logs",
-    method: "GET"
-  }), "true" === _v61.default.env.STORYBOOK && (0, _v67.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v69.useGctlConfig)();
-    return (0, _v68.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/organizations/${_v2.where.orgUuid}/audit_logs?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v64({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/organizations/:orgUuid/audit_logs",
-    method: "GET"
-  }), "true" === _v61.default.env.STORYBOOK && (0, _v67.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v69.useGctlConfig)();
-    return (0, _v65.default)(_v2 ? `/teams/${_v2.where.userId}/audit_logs${(0, _v67.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v71({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/teams/:userId/audit_logs",
-    method: "GET"
-  }), "true" === _v61.default.env.STORYBOOK && (0, _v67.assignMswData)(_v72, {
-    endpoint: "/teams/:userId/audit_logs",
-    method: "GET"
-  }), "true" === _v61.default.env.STORYBOOK && (0, _v67.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v69.useGctlConfig)();
-    return (0, _v68.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/teams/${_v2.where.userId}/audit_logs?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v71({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/teams/:userId/audit_logs",
-    method: "GET"
-  }), "true" === _v61.default.env.STORYBOOK && (0, _v67.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v69.useGctlConfig)();
-    return (0, _v65.default)(_v2 ? `/workspaces/${_v2.where.workspaceUuid}/audit_logs${(0, _v67.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v73({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/workspaces/:workspaceUuid/audit_logs",
-    method: "GET"
-  }), "true" === _v61.default.env.STORYBOOK && (0, _v67.assignMswData)(_v74, {
-    endpoint: "/workspaces/:workspaceUuid/audit_logs",
-    method: "GET"
-  }), "true" === _v61.default.env.STORYBOOK && (0, _v67.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v69.useGctlConfig)();
-    return (0, _v68.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/workspaces/${_v2.where.workspaceUuid}/audit_logs?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v73({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/workspaces/:workspaceUuid/audit_logs",
-    method: "GET"
-  });
-  var _v75 = _v0.i(0),
-    _v76 = _v0.i(0),
-    _v77 = _v0.i(0),
-    _v78 = _v0.i(0);
-  let _v79 = _v0 => (0, _v1.jsx)(_v78.Icon, {
+  var _v69 = _v0.i(0),
+    _v70 = _v0.i(0),
+    _v71 = _v0.i(0),
+    _v72 = _v0.i(0);
+  let _v73 = _v0 => (0, _v1.jsx)(_v72.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -1704,29 +1402,29 @@
       })]
     })
   });
-  var _v80 = _v0.i(0),
-    _v81 = _v0.i(0);
-  let _v82 = ({
+  var _v74 = _v0.i(0),
+    _v75 = _v0.i(0);
+  let _v76 = ({
       children: _v0
-    }) => (0, _v1.jsx)(_v80.TeamSettingsTableCell, {
+    }) => (0, _v1.jsx)(_v74.TeamSettingsTableCell, {
       overflow: "hidden",
-      children: (0, _v1.jsx)(_v81.ShrinkableText, {
+      children: (0, _v1.jsx)(_v75.ShrinkableText, {
         variant: "body-md",
         children: _v0
       })
     }),
-    _v83 = {
+    _v77 = {
       "&:empty:before": {
         content: '"\\200b"'
       }
     },
-    _v84 = ({
+    _v78 = ({
       title: _v0,
       subtitle: _v1,
       byStaff: _v2,
       avaSrc: _v3,
       avaSrcSet: _v4
-    }) => (0, _v1.jsx)(_v80.TeamSettingsTableCell, {
+    }) => (0, _v1.jsx)(_v74.TeamSettingsTableCell, {
       overflow: "hidden",
       children: (0, _v1.jsxs)(_v5.Flex, {
         flexDirection: "row",
@@ -1737,7 +1435,7 @@
           flexDirection: "column",
           overflow: "hidden",
           minWidth: (0, _v15.rem)(32),
-          children: (0, _v1.jsx)(_v76.Avatar, {
+          children: (0, _v1.jsx)(_v70.Avatar, {
             size: "sm",
             alt: _v0 || "-",
             src: _v3,
@@ -1752,15 +1450,15 @@
           children: [(0, _v1.jsxs)(_v39.Box, {
             display: "flex",
             alignItems: "center",
-            children: [(0, _v1.jsx)(_v81.ShrinkableText, {
+            children: [(0, _v1.jsx)(_v75.ShrinkableText, {
               variant: "heading-xs",
-              sx: _v83,
+              sx: _v77,
               children: _v0
-            }), _v2 && (0, _v1.jsx)(_v77.Tooltip, {
+            }), _v2 && (0, _v1.jsx)(_v71.Tooltip, {
               closeOnScroll: !0,
               placement: "top",
               label: _v31.AuditLogMadeByStaff,
-              children: (0, _v1.jsx)(_v79, {
+              children: (0, _v1.jsx)(_v73, {
                 marginLeft: (0, _v15.rem)(6),
                 width: (0, _v15.rem)(18),
                 color: "black",
@@ -1769,16 +1467,16 @@
                 rounded: 7
               })
             })]
-          }), (0, _v1.jsx)(_v81.ShrinkableText, {
+          }), (0, _v1.jsx)(_v75.ShrinkableText, {
             variant: "body-md",
             color: "text-secondary",
-            sx: _v83,
+            sx: _v77,
             children: _v1
           })]
         })]
       })
     }),
-    _v85 = ({
+    _v79 = ({
       auditLog: _v0
     }) => {
       var _v1;
@@ -1791,30 +1489,30 @@
         [_v8, _v9] = (_v1 = _v0?.actorUserPictures?.sizes, _v2 = _v1?.find(_v0 => 72 === _v0.width)?.link || _v1?.[1]?.link || "https://i.vimeocdn.com/portrait/default-blue_40x40", _v3 = _v1?.find(_v0 => 144 === _v0.width)?.link || _v1?.[2]?.link || "https://i.vimeocdn.com/portrait/default-blue_80x80", [_v2, `${_v3} 2x`]),
         _v10 = _v0?.objectLink;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v84, {
+        children: [(0, _v1.jsx)(_v78, {
           title: _v6,
           subtitle: _v5,
           byStaff: _v7,
           avaSrc: _v8,
           avaSrcSet: _v9
-        }), (0, _v1.jsx)(_v82, {
+        }), (0, _v1.jsx)(_v76, {
           children: _v0.eventNameTranslated
-        }), (0, _v1.jsx)(_v82, {
+        }), (0, _v1.jsx)(_v76, {
           children: _v0?.privacyView || "-"
-        }), (0, _v1.jsx)(_v82, {
-          children: _v10 ? (0, _v1.jsx)(_v75.Link, {
+        }), (0, _v1.jsx)(_v76, {
+          children: _v10 ? (0, _v1.jsx)(_v69.Link, {
             href: _v10,
             target: "_blank",
             children: _v0.title
           }) : _v0.title || "-"
-        }), (0, _v1.jsx)(_v82, {
+        }), (0, _v1.jsx)(_v76, {
           children: _v4
-        }), (0, _v1.jsx)(_v82, {
+        }), (0, _v1.jsx)(_v76, {
           children: _v0.actorLocation || "-"
         })]
       });
     },
-    _v86 = [{
+    _v80 = [{
       title: _v31.User,
       width: "28%"
     }, {
@@ -1833,7 +1531,7 @@
       title: _v31.Location,
       width: "13%"
     }],
-    _v87 = ({
+    _v81 = ({
       userId: _v0,
       orgUuid: _v1,
       workspaceUuid: _v2,
@@ -1863,9 +1561,123 @@
           eventNameFilters: _v7,
           searchString: _v8
         }) => {
-          let [_v9, _v10] = _v72(),
-            [_v11, _v12] = _v70(),
-            [_v13, _v14] = _v74(),
+          let [_v9, _v10] = function () {
+              let {
+                  mutate: _v0
+                } = (0, _v64.useSWRConfig)(),
+                {
+                  baseUrl: _v1,
+                  jwt: _v2,
+                  xVimeoPage: _v3,
+                  locale: _v4
+                } = (0, _v66.useGctlConfig)(),
+                [_v5, _v6] = (0, _v65.useInternalState)();
+              return [(0, _v3.useCallback)(async _v0 => {
+                _v6({
+                  type: "REQUEST"
+                });
+                try {
+                  let _v0 = await _v0(`/teams/${_v0.where.userId}/audit_logs${(0, _v65.serializeQuery)(_v0)}`, _v67({
+                    ..._v0,
+                    baseUrl: _v1,
+                    headers: {
+                      ..._v0.headers,
+                      "Content-Type": "application/json",
+                      Authorization: _v2 ? `jwt ${_v2}` : "",
+                      "Vimeo-Page": `${_v3}`,
+                      "Accept-Language": _v4 ?? "en"
+                    }
+                  }));
+                  _v6({
+                    type: "SUCCESS",
+                    payload: _v0
+                  });
+                } catch (_v0) {
+                  _v6({
+                    type: "FAILURE",
+                    payload: _v0
+                  });
+                }
+              }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+            }(),
+            [_v11, _v12] = function () {
+              let {
+                  mutate: _v0
+                } = (0, _v64.useSWRConfig)(),
+                {
+                  baseUrl: _v1,
+                  jwt: _v2,
+                  xVimeoPage: _v3,
+                  locale: _v4
+                } = (0, _v66.useGctlConfig)(),
+                [_v5, _v6] = (0, _v65.useInternalState)();
+              return [(0, _v3.useCallback)(async _v0 => {
+                _v6({
+                  type: "REQUEST"
+                });
+                try {
+                  let _v0 = await _v0(`/organizations/${_v0.where.orgUuid}/audit_logs${(0, _v65.serializeQuery)(_v0)}`, _v63({
+                    ..._v0,
+                    baseUrl: _v1,
+                    headers: {
+                      ..._v0.headers,
+                      "Content-Type": "application/json",
+                      Authorization: _v2 ? `jwt ${_v2}` : "",
+                      "Vimeo-Page": `${_v3}`,
+                      "Accept-Language": _v4 ?? "en"
+                    }
+                  }));
+                  _v6({
+                    type: "SUCCESS",
+                    payload: _v0
+                  });
+                } catch (_v0) {
+                  _v6({
+                    type: "FAILURE",
+                    payload: _v0
+                  });
+                }
+              }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+            }(),
+            [_v13, _v14] = function () {
+              let {
+                  mutate: _v0
+                } = (0, _v64.useSWRConfig)(),
+                {
+                  baseUrl: _v1,
+                  jwt: _v2,
+                  xVimeoPage: _v3,
+                  locale: _v4
+                } = (0, _v66.useGctlConfig)(),
+                [_v5, _v6] = (0, _v65.useInternalState)();
+              return [(0, _v3.useCallback)(async _v0 => {
+                _v6({
+                  type: "REQUEST"
+                });
+                try {
+                  let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/audit_logs${(0, _v65.serializeQuery)(_v0)}`, _v68({
+                    ..._v0,
+                    baseUrl: _v1,
+                    headers: {
+                      ..._v0.headers,
+                      "Content-Type": "application/json",
+                      Authorization: _v2 ? `jwt ${_v2}` : "",
+                      "Vimeo-Page": `${_v3}`,
+                      "Accept-Language": _v4 ?? "en"
+                    }
+                  }));
+                  _v6({
+                    type: "SUCCESS",
+                    payload: _v0
+                  });
+                } catch (_v0) {
+                  _v6({
+                    type: "FAILURE",
+                    payload: _v0
+                  });
+                }
+              }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+            }(),
             [_v15, _v16] = (0, _v3.useState)(1),
             [_v17, _v18] = (0, _v3.useState)(),
             _v19 = _v2 ? _v12?.data : _v3 ? _v14?.data : _v10?.data,
@@ -1975,14 +1787,14 @@
       return (0, _v1.jsx)(_v39.Box, {
         marginBottom: "500",
         children: (0, _v1.jsx)(_v59.TeamSettingsTable, {
-          columns: _v86,
+          columns: _v80,
           ...(_v14 ? {
             pagination: _v15
           } : {}),
           rows: _v12,
           renderRow: ({
             row: _v0
-          }) => (0, _v1.jsx)(_v85, {
+          }) => (0, _v1.jsx)(_v79, {
             auditLog: _v0
           }, _v0.uri),
           toolBar: _v3,
@@ -2005,7 +1817,7 @@
         })
       });
     },
-    _v88 = (0, _v2.default)((_v0, _v1) => _v1(_v0), 0);
+    _v82 = (0, _v2.default)((_v0, _v1) => _v1(_v0), 0);
   _v0.s(["default", 0, ({
     ownerId: _v0,
     orgUuid: _v1,
@@ -2049,7 +1861,7 @@
         _v12(_v27.EVENT_NAMES_FILTER_LIST);
       };
     return (0, _v3.useEffect)(() => {
-      _v88.cancel(), _v88(_v13, _v14);
+      _v82.cancel(), _v82(_v13, _v14);
     }, [_v13]), (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v7.SettingsPageContentHeader, {
         title: (0, _v1.jsxs)(_v5.Flex, {
@@ -2064,7 +1876,7 @@
           })]
         }),
         description: _v31.AuditLogsPageDescription
-      }), (0, _v1.jsx)(_v87, {
+      }), (0, _v1.jsx)(_v81, {
         toolBar: (0, _v1.jsxs)(_v5.Flex, {
           justify: "space-between",
           align: "center",
@@ -2096,9 +1908,9 @@
             children: [(0, _v1.jsx)(_v25, {
               disabled: _v15,
               searchString: _v13,
-              onSearchChange: _v0 => _v88(_v0, _v14),
+              onSearchChange: _v0 => _v82(_v0, _v14),
               onSearchClear: () => {
-                _v88.cancel(), _v14("");
+                _v82.cancel(), _v14("");
               },
               placeholder: _v31.SearchByUser
             }), (0, _v1.jsx)(_v6.ExportCsvButton, {

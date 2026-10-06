@@ -24,9 +24,7 @@
     onSetDefaults: _v7,
     ..._v8
   }) {
-    let {
-        settings: _v9
-      } = (0, _v11.useOrionSettings)(),
+    let _v9 = (0, _v11.useOrionSetting)("enable_folder_defaults_intro_popover"),
       {
         capabilities: _v10
       } = (0, _v9.useCapability)(["folderUploadPresets"], _v2),
@@ -36,7 +34,7 @@
         isActive: _v13
       } = (0, _v3.useAnnouncement)({
         id: _v1,
-        isEligible: _v3 && _v11 && _v9.enable_folder_defaults_intro_popover
+        isEligible: _v3 && _v11 && _v9
       }),
       _v14 = (0, _v2.useCallback)(() => {
         _v12(), _v7();

@@ -345,14 +345,11 @@
     onToggleChange: _v3,
     onRemindersChange: _v4
   }) => {
-    let {
-        settings: _v5
-      } = (0, _v50.useOrionSettings)(),
-      _v6 = _v5.enable_configurable_event_reminders,
-      [_v7, _v8] = (0, _v3.useState)(!1),
-      [_v9, _v10] = (0, _v3.useState)(null),
-      _v11 = [..._v2].sort((_v0, _v1) => (0, _v49.offsetToSignedSeconds)(_v0) - (0, _v49.offsetToSignedSeconds)(_v1)),
-      _v12 = null === _v9 ? _v11 : _v11.filter((_v0, _v1) => _v1 !== _v9);
+    let _v5 = (0, _v50.useOrionSettingsFields)(["enable_configurable_event_reminders"]).enable_configurable_event_reminders,
+      [_v6, _v7] = (0, _v3.useState)(!1),
+      [_v8, _v9] = (0, _v3.useState)(null),
+      _v10 = [..._v2].sort((_v0, _v1) => (0, _v49.offsetToSignedSeconds)(_v0) - (0, _v49.offsetToSignedSeconds)(_v1)),
+      _v11 = null === _v8 ? _v10 : _v10.filter((_v0, _v1) => _v1 !== _v8);
     return (0, _v1.jsxs)(_v18.Card, {
       padding: "lg",
       children: [(0, _v1.jsxs)(_v8.Flex, {
@@ -376,13 +373,13 @@
             color: "text-secondary",
             children: _v38.default.RemindersDesc
           })]
-        }), _v6 && (0, _v1.jsx)(_v43.Button, {
+        }), _v5 && (0, _v1.jsx)(_v43.Button, {
           variant: "secondary",
           leftIcon: (0, _v1.jsx)(_v46.PlusCircle, {}),
           flexShrink: 0,
           isDisabled: _v2.length >= _v31.MAX_REMINDERS,
           onClick: () => {
-            _v10(null), _v8(!0);
+            _v9(null), _v7(!0);
           },
           "data-id": "email-defaults-add-reminder",
           children: _v38.default.AddReminder
@@ -426,13 +423,13 @@
             onChange: _v0 => _v3("followUp", _v0.target.checked),
             "data-id": "email-defaults-follow-up-switch"
           })]
-        }), _v6 && (0, _v1.jsx)(_v19.Divider, {
+        }), _v5 && (0, _v1.jsx)(_v19.Divider, {
           borderColor: "stroke",
           marginY: "300"
-        }), _v6 && (0, _v1.jsx)(_v8.Flex, {
+        }), _v5 && (0, _v1.jsx)(_v8.Flex, {
           flexDirection: "column",
           gap: (0, _v12.rem)(16),
-          children: _v11.map((_v0, _v1) => (0, _v1.jsxs)(_v8.Flex, {
+          children: _v10.map((_v0, _v1) => (0, _v1.jsxs)(_v8.Flex, {
             gap: (0, _v12.rem)(24),
             alignItems: {
               base: "flex-start",
@@ -497,7 +494,7 @@
                 justifyContent: "space-between",
                 rightIcon: (0, _v1.jsx)(_v45.ChevronDownSmall, {}),
                 onClick: () => {
-                  _v10(_v1), _v8(!0);
+                  _v9(_v1), _v7(!0);
                 },
                 "aria-label": `${_v38.default.EditReminder}: ${(0, _v49.getReminderOffsetLabel)(_v0)}`,
                 children: (0, _v49.getReminderOffsetLabel)(_v0)
@@ -506,21 +503,21 @@
                 variant: "tertiary",
                 icon: (0, _v1.jsx)(_v25.CloseX, {}),
                 "aria-label": `${_v38.default.DeleteReminder}: ${(0, _v49.getReminderOffsetLabel)(_v0)}`,
-                onClick: () => _v4(_v11.filter((_v0, _v1) => _v1 !== _v1))
+                onClick: () => _v4(_v10.filter((_v0, _v1) => _v1 !== _v1))
               })]
             })]
           }, `${_v0.value}_${_v0.unit}_${_v0.direction}`))
         })]
-      }), _v6 && (0, _v1.jsx)(_v48.ReminderTimingModal, {
-        isOpen: _v7,
-        onClose: () => _v8(!1),
+      }), _v5 && (0, _v1.jsx)(_v48.ReminderTimingModal, {
+        isOpen: _v6,
+        onClose: () => _v7(!1),
         onSave: _v0 => {
-          _v4((null === _v9 ? [..._v11, _v0] : _v11.map((_v0, _v1) => _v1 === _v9 ? _v0 : _v0)).sort((_v0, _v1) => (0, _v49.offsetToSignedSeconds)(_v0) - (0, _v49.offsetToSignedSeconds)(_v1)));
+          _v4((null === _v8 ? [..._v10, _v0] : _v10.map((_v0, _v1) => _v1 === _v8 ? _v0 : _v0)).sort((_v0, _v1) => (0, _v49.offsetToSignedSeconds)(_v0) - (0, _v49.offsetToSignedSeconds)(_v1)));
         },
-        usedOffsets: _v12,
-        title: null === _v9 ? void 0 : _v38.default.EditReminder,
-        initialOffset: null === _v9 ? void 0 : _v11[_v9]
-      }, _v7 ? _v9 ?? "new" : "closed")]
+        usedOffsets: _v11,
+        title: null === _v8 ? void 0 : _v38.default.EditReminder,
+        initialOffset: null === _v8 ? void 0 : _v10[_v8]
+      }, _v6 ? _v8 ?? "new" : "closed")]
     });
   };
   var _v52 = _v0.i(0),

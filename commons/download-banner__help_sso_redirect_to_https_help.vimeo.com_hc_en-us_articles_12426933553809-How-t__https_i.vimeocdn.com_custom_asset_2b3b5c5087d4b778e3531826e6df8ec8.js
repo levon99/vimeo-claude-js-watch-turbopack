@@ -1588,9 +1588,7 @@
       _v5 = (0, _v22.useIsVpaas)(),
       _v6 = (0, _v131.useCanSeeDebugTools)(),
       _v7 = !_v5,
-      {
-        settings: _v8
-      } = (0, _v133.useOrionSettings)(),
+      _v8 = (0, _v133.useOrionSettingsFields)(["release_single_event_customization"]),
       _v9 = (0, _v130.useLiveReactionsAvailable)(),
       {
         trackLiveStreamSidebarPanelClicked: _v10

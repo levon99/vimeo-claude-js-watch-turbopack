@@ -2680,9 +2680,7 @@
           getDisplayDateWithTime: _v22
         } = (0, _v185.useFormatDateTime)(),
         _v23 = (0, _v5.useContext)(_v101.ViewerContext),
-        {
-          settings: _v24
-        } = (0, _v26.useOrionSettings)(),
+        _v24 = (0, _v26.useOrionSettingsFields)(["enable_list_view_folder_upload"]),
         _v25 = (0, _v27.useUniversalHostingEnabled)(),
         _v26 = _v23?.teamUser?.ownerId ?? _v23?.user?.id,
         {
@@ -3431,9 +3429,7 @@
       [_v80, _v81] = (0, _v5.useState)(!0),
       [_v82, _v83] = (0, _v55.useLayoutPreference)(),
       _v84 = !!_v38.canCreateRootFolders,
-      {
-        settings: _v85
-      } = (0, _v26.useOrionSettings)(),
+      _v85 = (0, _v26.useOrionSettingsFields)(["enable_new_library_drag_and_drop_upload"]),
       _v86 = !!(_v80 && _v58),
       _v87 = _v85?.enable_new_library_drag_and_drop_upload ?? !1,
       _v88 = _v60 || _v62,

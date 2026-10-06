@@ -80,7 +80,7 @@
   }, "getEnterpriseFooterLinkText", 0, _v0 => void 0 === _v0 ? _v6.default.morePlanDetails : _v0, "getEnterpriseModalTitle", 0, _v0 => _v0 || _v6.default.doMoreWithEnterprise, "getEnterpriseSubtitle", 0, _v0 => void 0 === _v0 ? _v6.default.productBenefits : _v0, "getLanguage", 0, () => {
     let _v0 = document.cookie.match(/language=(\w+);?/);
     return _v0 && _v0.length >= 2 ? _v0[1] : null;
-  }, "getModalHeader", 0, _v0 => _v0 || _v6.default.defaultHeader, "getModalSubheader", 0, _v0 => void 0 === _v0 ? _v6.default.defaultSubHeader : _v0, "getPlanBillingFrequencyCopy", 0, (_v0, _v1, _v2, _v3 = !1) => !_v1 || _v2 ? _v0 ? _v6.default.billedMonthly : _v6.default.billedAnnually : _v0 ? _v3 ? _v6.default.orPriceBilledAnnually(_v1) : _v6.default.billedMonthly : [_v5.PLANS.PRO, _v5.PLANS.BUSINESS, _v5.PLANS.PREMIUM].includes(_v1.tier) ? _v6.default.billedAnnually : _v6.default.orPriceBilledMonthly(_v1), "getPlanCTALink", 0, (_v0, _v1, _v2) => {
+  }, "getModalHeader", 0, _v0 => _v0 || _v6.default.defaultHeader, "getModalSubheader", 0, _v0 => void 0 === _v0 ? _v6.default.defaultSubHeader : _v0, "getPlanBillingFrequencyCopy", 0, (_v0, _v1, _v2, _v3 = !1) => !_v1 || _v2 ? _v0 ? _v6.default.billedMonthly : _v6.default.billedAnnually : _v0 ? _v3 ? _v6.default.orPriceBilledAnnually(_v1) : _v6.default.billedMonthly : _v6.default.billedAnnually, "getPlanCTALink", 0, (_v0, _v1, _v2) => {
     let {
         annual: _v3,
         monthly: _v4

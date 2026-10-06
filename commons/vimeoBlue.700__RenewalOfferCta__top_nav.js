@@ -189,9 +189,7 @@
       })]
     });
   }, "useIsRenewalOfferShown", 0, function () {
-    let {
-        settings: _v0
-      } = (0, _v14.useOrionSettings)(),
+    let _v0 = (0, _v14.useOrionSetting)("b2b_offer_permanent_discount_when_arr_off_top_nav"),
       {
         areBusinessPlansEnforced: _v1,
         isWhitelistedForIndPlans: _v2
@@ -205,7 +203,7 @@
         isLoading: _v8
       } = (0, _v8.useUpcomingTier)(),
       _v9 = (0, _v3.isPermanentDiscountOfferEligible)({
-        isSettingEnabled: _v0.b2b_offer_permanent_discount_when_arr_off_top_nav,
+        isSettingEnabled: _v0,
         hasAutorenew: _v4,
         scheduledTier: _v3,
         areBusinessPlansEnforced: _v1,

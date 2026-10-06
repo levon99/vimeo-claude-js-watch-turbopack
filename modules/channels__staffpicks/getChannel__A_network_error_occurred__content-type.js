@@ -16,9 +16,8 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  async function _v18({
+    _v16 = _v0.i(0);
+  async function _v17({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -27,122 +26,22 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v16.measureLatency)("getChannel", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/channels/${_v2}?${(0, _v17.searchQueryString)(_v3)}&fields=${_v1.map(_v17.intoSnakeCase).join(",")}`, {
+    return (0, _v15.measureLatency)("getChannel", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/channels/${_v2}?${(0, _v16.searchQueryString)(_v3)}&fields=${_v1.map(_v16.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v16.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v17.deepCamelCase)(_v1);
+      return (0, _v16.deepCamelCase)(_v1);
     });
   }
-  async function _v19({
-    baseUrl: _v0,
-    where: {
-      channelId: _v1
-    },
-    ..._v2
-  }) {
-    return (0, _v16.measureLatency)("deleteChannel", "DELETE", async () => {
-      let _v0 = await fetch(`${_v0}/channels/${_v1}`, {
-        ..._v2,
-        method: "DELETE"
-      });
-      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v17.deepCamelCase)(_v1);
-    });
-  }
-  async function _v20({
-    baseUrl: _v0,
-    select: _v1,
-    variables: _v2,
-    where: {
-      channelId: _v3
-    },
-    ..._v4
-  }) {
-    return (0, _v16.measureLatency)("patchChannel", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/channels/${_v3}?fields=${_v1.map(_v17.intoSnakeCase).join(",")}`, {
-        ..._v4,
-        method: "PATCH",
-        body: JSON.stringify((0, _v17.deepSnakeCase)(_v2))
-      });
-      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v17.deepCamelCase)(_v1);
-    });
-  }
-  var _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
-  function _v24(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v23.useGctlConfig)();
-    return (0, _v21.default)(_v2 ? `/channels/${_v2.where.channelId}${(0, _v15.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v18({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  function _v25() {
-    let {
-        mutate: _v0
-      } = (0, _v22.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v23.useGctlConfig)(),
-      [_v5, _v6] = (0, _v15.useInternalState)();
-    return [(0, _v10.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/channels/${_v0.where.channelId}${(0, _v15.serializeQuery)(_v0)}`, _v18({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  async function _v26({
+  var _v18 = _v0.i(0),
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
+  async function _v21({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -151,499 +50,122 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v16.measureLatency)("getChannelCurationComponents", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/channels/${_v2}/curation_components?${(0, _v17.searchQueryString)(_v3)}&fields=${_v1.map(_v17.intoSnakeCase).join(",")}`, {
+    return (0, _v15.measureLatency)("getChannelCurationComponents", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/channels/${_v2}/curation_components?${(0, _v16.searchQueryString)(_v3)}&fields=${_v1.map(_v16.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v16.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v17.deepCamelCase)(_v1);
+      return (0, _v16.deepCamelCase)(_v1);
     });
   }
-  "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(_v24, {
-    endpoint: "/channels/:channelId",
-    method: "GET"
-  }), "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(_v25, {
-    endpoint: "/channels/:channelId",
-    method: "GET"
-  }), "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v22.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v23.useGctlConfig)(),
-      [_v5, _v6] = (0, _v15.useInternalState)();
-    return [(0, _v10.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
+  var _v22 = _v0.i(0),
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0),
+    _v26 = _v0.i(0),
+    _v27 = _v0.i(0),
+    _v28 = _v0.i(0),
+    _v29 = _v0.i(0);
+  async function _v30({
+    baseUrl: _v0,
+    select: _v1,
+    where: {
+      channelId: _v2
+    },
+    query: _v3,
+    ..._v4
+  }) {
+    return (0, _v15.measureLatency)("getChannelVideos", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/channels/${_v2}/videos?${(0, _v16.searchQueryString)(_v3)}&fields=${_v1.map(_v16.intoSnakeCase).join(",")}`, {
+        ..._v4,
+        method: "GET"
       });
-      try {
-        let _v0 = await _v0(`/channels/${_v0.where.channelId}${(0, _v15.serializeQuery)(_v0)}`, _v19({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/channels/:channelId",
-    method: "DELETE"
-  }), "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v22.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v23.useGctlConfig)(),
-      [_v5, _v6] = (0, _v15.useInternalState)();
-    return [(0, _v10.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/channels/${_v0.where.channelId}${(0, _v15.serializeQuery)(_v0)}`, _v20({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/channels/:channelId",
-    method: "PATCH"
-  });
-  var _v27 = _v0.i(0);
-  function _v28(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v23.useGctlConfig)();
-    return (0, _v21.default)(_v2 ? `/channels/${_v2.where.channelId}/curation_components${(0, _v15.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v26({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
+      if (!_v0.ok) throw new _v16.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v16.deepCamelCase)(_v1);
+    });
   }
-  "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(_v28, {
-    endpoint: "/channels/:channelId/curation_components",
-    method: "GET"
-  }), "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v22.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v23.useGctlConfig)(),
-      [_v5, _v6] = (0, _v15.useInternalState)();
-    return [(0, _v10.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/channels/${_v0.where.channelId}/curation_components${(0, _v15.serializeQuery)(_v0)}`, _v26({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/channels/:channelId/curation_components",
-    method: "GET"
-  }), "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v23.useGctlConfig)();
-    return (0, _v27.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/channels/${_v2.where.channelId}/curation_components?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v26({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/channels/:channelId/curation_components",
-    method: "GET"
-  });
-  var _v29 = _v0.i(0),
-    _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
+  var _v31 = _v0.i(0),
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
     _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  async function _v36({
-    baseUrl: _v0,
-    select: _v1,
-    where: {
-      channelId: _v2
-    },
-    query: _v3,
-    ..._v4
-  }) {
-    return (0, _v16.measureLatency)("getChannelVideos", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/channels/${_v2}/videos?${(0, _v17.searchQueryString)(_v3)}&fields=${_v1.map(_v17.intoSnakeCase).join(",")}`, {
-        ..._v4,
-        method: "GET"
-      });
-      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v17.deepCamelCase)(_v1);
-    });
-  }
-  async function _v37({
-    baseUrl: _v0,
-    variables: _v1,
-    where: {
-      channelId: _v2
-    },
-    ..._v3
-  }) {
-    return (0, _v16.measureLatency)("putChannelVideos", "PUT", async () => {
-      let _v0 = await fetch(`${_v0}/channels/${_v2}/videos`, {
-        ..._v3,
-        method: "PUT",
-        body: JSON.stringify((0, _v17.deepSnakeCase)(_v1))
-      });
-      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v17.deepCamelCase)(_v1);
-    });
-  }
-  async function _v38({
-    baseUrl: _v0,
-    variables: _v1,
-    where: {
-      channelId: _v2
-    },
-    ..._v3
-  }) {
-    return (0, _v16.measureLatency)("deleteChannelVideos", "DELETE", async () => {
-      let _v0 = await fetch(`${_v0}/channels/${_v2}/videos`, {
-        ..._v3,
-        method: "DELETE",
-        body: JSON.stringify((0, _v17.deepSnakeCase)(_v1))
-      });
-      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v17.deepCamelCase)(_v1);
-    });
-  }
-  function _v39(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v23.useGctlConfig)();
-    return (0, _v21.default)(_v2 ? `/channels/${_v2.where.channelId}/videos${(0, _v15.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v36({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  function _v40(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v23.useGctlConfig)();
-    return (0, _v27.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/channels/${_v2.where.channelId}/videos?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v36({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }
-  "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(_v39, {
-    endpoint: "/channels/:channelId/videos",
-    method: "GET"
-  }), "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v22.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v23.useGctlConfig)(),
-      [_v5, _v6] = (0, _v15.useInternalState)();
-    return [(0, _v10.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/channels/${_v0.where.channelId}/videos${(0, _v15.serializeQuery)(_v0)}`, _v36({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/channels/:channelId/videos",
-    method: "GET"
-  }), "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(_v40, {
-    endpoint: "/channels/:channelId/videos",
-    method: "GET"
-  }), "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(function () {
-    let {
-        baseUrl: _v0,
-        jwt: _v1,
-        xVimeoPage: _v2,
-        locale: _v3
-      } = (0, _v23.useGctlConfig)(),
-      [_v4, _v5] = (0, _v15.useInternalState)();
-    return [(0, _v10.useCallback)(async _v0 => {
-      _v5({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v37({
-          ..._v0,
-          baseUrl: _v0,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v1 ? `jwt ${_v1}` : "",
-            "Vimeo-Page": `${_v2}`,
-            "Accept-Language": _v3 ?? "en"
-          }
-        });
-        _v5({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v5({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v0, _v2, _v1, _v3, _v5]), _v4];
-  }, {
-    endpoint: "/channels/:channelId/videos",
-    method: "PUT"
-  }), "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(function () {
-    let {
-        baseUrl: _v0,
-        jwt: _v1,
-        xVimeoPage: _v2,
-        locale: _v3
-      } = (0, _v23.useGctlConfig)(),
-      [_v4, _v5] = (0, _v15.useInternalState)();
-    return [(0, _v10.useCallback)(async _v0 => {
-      _v5({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v38({
-          ..._v0,
-          baseUrl: _v0,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v1 ? `jwt ${_v1}` : "",
-            "Vimeo-Page": `${_v2}`,
-            "Accept-Language": _v3 ?? "en"
-          }
-        });
-        _v5({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v5({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v0, _v2, _v1, _v3, _v5]), _v4];
-  }, {
-    endpoint: "/channels/:channelId/videos",
-    method: "DELETE"
-  });
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
-    _v49 = _v0.i(0),
-    _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
-    _v52 = _v0.i(0);
-  let _v53 = ({
+    _v35 = _v0.i(0),
+    _v36 = _v0.i(0),
+    _v37 = _v0.i(0),
+    _v38 = _v0.i(0),
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  let _v43 = ({
     channel: _v0,
     channelId: _v1
   }) => {
-    let _v2 = (0, _v47.useViewer)(),
-      _v3 = (0, _v33.useBreakpointValue)({
+    let _v2 = (0, _v37.useViewer)(),
+      _v3 = (0, _v27.useBreakpointValue)({
         base: 3,
         xl: 4,
         "2xl": 5,
         "3xl": 6
       }) || 3,
-      _v4 = (0, _v33.useBreakpointValue)({
+      _v4 = (0, _v27.useBreakpointValue)({
         base: 1,
         md: 3,
         lg: 2
       }) || 2,
       [_v5, _v6] = (0, _v10.useState)(0),
-      _v7 = (0, _v33.useBreakpointValue)({
+      _v7 = (0, _v27.useBreakpointValue)({
         base: !0,
         md: !1
       }),
       _v8 = (0, _v10.useRef)(null),
       _v9 = (0, _v10.useRef)(!1),
-      _v10 = "desktop" === (0, _v46.default)(),
+      _v10 = "desktop" === (0, _v36.default)(),
       {
         data: _v11,
         size: _v12,
         setSize: _v13,
         isLoading: _v14
-      } = _v40(() => ({
+      } = function (_v0, _v1) {
+        let _v2 = "function" == typeof _v0 ? _v0() : _v0,
+          {
+            baseUrl: _v3,
+            jwt: _v4,
+            xVimeoPage: _v5,
+            locale: _v6
+          } = (0, _v20.useGctlConfig)();
+        return (0, _v22.default)((_v0, _v1) => {
+          if (null === _v2 || _v1 && !_v1.paging.next) return null;
+          let {
+              perPage: _v2 = 25,
+              page: _v3,
+              ..._v4
+            } = _v2.query ?? {},
+            _v5 = _v2.select.join(","),
+            _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
+          return [`/channels/${_v2.where.channelId}/videos?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
+        }, null !== _v2 ? ([_v0, _v1]) => _v30({
+          ..._v2,
+          baseUrl: _v3,
+          headers: {
+            ..._v2.headers,
+            "Content-Type": "application/json",
+            Authorization: _v4 ? `jwt ${_v4}` : "",
+            "Vimeo-Page": `${_v5}`,
+            "Accept-Language": _v6 ?? "en"
+          },
+          query: {
+            ..._v2.query,
+            page: _v1 + 1
+          }
+        }) : null, _v1);
+      }(() => ({
         where: {
           channelId: _v1
         },
@@ -665,22 +187,22 @@
     return (0, _v10.useEffect)(() => {
       _v5 > _v12 - 2 && !_v16 && _v13(_v12 + 1);
     }, [_v5, _v12, _v13, _v16]), (0, _v10.useEffect)(() => {
-      _v14 || _v9.current || !_v11 || (_v9.current = !0, (0, _v50.trackWidgetViewEvent)({
+      _v14 || _v9.current || !_v11 || (_v9.current = !0, (0, _v40.trackWidgetViewEvent)({
         viewer: _v2,
         widgetName: "Recently added",
         widgetPlacement: 2,
-        ..._v50.staffPicksBpValues
+        ..._v40.staffPicksBpValues
       }));
-    }, [_v14, _v11, _v2]), (0, _v1.jsxs)(_v42.Playlist, {
+    }, [_v14, _v11, _v2]), (0, _v1.jsxs)(_v32.Playlist, {
       w: "100%",
       gap: "sm",
       minHeight: "300px",
-      children: [(0, _v1.jsx)(_v54, {
+      children: [(0, _v1.jsx)(_v44, {
         data: _v11?.[_v5 + 1]?.data ?? [],
         rel: "prefetch"
-      }), (0, _v1.jsx)(_v43.PlaylistHeader, {
+      }), (0, _v1.jsx)(_v33.PlaylistHeader, {
         header: {
-          text: (0, _v41.translate)({
+          text: (0, _v31.translate)({
             singular: "Recently added",
             dictionary: {
               es: {
@@ -709,11 +231,11 @@
           to: `${_v0.link}/videos`
         },
         onClick: () => {
-          (0, _v50.trackPlaylistClick)({
+          (0, _v40.trackPlaylistClick)({
             copy: "Recently added",
             source: {
               sourceType: "channel",
-              sourceId: _v49.STAFF_PICKS_CHANNEL_ID
+              sourceId: _v39.STAFF_PICKS_CHANNEL_ID
             },
             element: "button",
             location: "header",
@@ -721,7 +243,7 @@
             widgetName: "Recently added",
             widgetPlacement: 2,
             viewer: _v2,
-            ..._v50.staffPicksBpValues
+            ..._v40.staffPicksBpValues
           });
         },
         pt: 0,
@@ -729,25 +251,25 @@
           justifyContent: "space-between",
           alignItems: "center",
           width: "fit-content",
-          children: !_v7 && (0, _v1.jsx)(_v44.NavigationButtons, {
+          children: !_v7 && (0, _v1.jsx)(_v34.NavigationButtons, {
             disableNextButton: _v16 && _v5 === (_v11?.length ?? 1) - 1,
             disablePrevButton: 0 === _v5,
             onNextClick: () => {
-              (0, _v50.trackPlaylistNavigation)({
+              (0, _v40.trackPlaylistNavigation)({
                 flow: "forward",
                 viewer: _v2,
                 widgetName: "Recently added",
                 widgetPlacement: 2,
-                ..._v50.staffPicksBpValues
+                ..._v40.staffPicksBpValues
               }), _v6(_v5 + 1);
             },
             onPrevClick: () => {
-              (0, _v50.trackPlaylistNavigation)({
+              (0, _v40.trackPlaylistNavigation)({
                 flow: "backward",
                 viewer: _v2,
                 widgetName: "Recently added",
                 widgetPlacement: 2,
-                ..._v50.staffPicksBpValues
+                ..._v40.staffPicksBpValues
               }), _v6(_v5 - 1);
             },
             marginLeft: "auto"
@@ -757,18 +279,18 @@
         dir: "row",
         ref: _v8,
         gap: "sm",
-        children: (0, _v1.jsx)(_v51.ResponsiveWrapper, {
+        children: (0, _v1.jsx)(_v41.ResponsiveWrapper, {
           isLoading: _v14 || _v15 && _v5 > 0,
           numOfRows: _v4,
           numOfColumns: _v3,
           isMobile: _v7,
           children: _v11?.[_v5]?.data?.map(_v0 => {
-            let _v1 = (0, _v41.translate)({
+            let _v1 = (0, _v31.translate)({
                 singular: "{COUNT} view",
                 plural: "{COUNT} views",
                 count: _v0?.stats?.plays ?? 0,
                 replacements: {
-                  COUNT: (0, _v41.humanize)(_v0?.stats?.plays ?? 0)
+                  COUNT: (0, _v31.humanize)(_v0?.stats?.plays ?? 0)
                 },
                 dictionary: {
                   es: {
@@ -803,8 +325,8 @@
               }),
               _v2 = _v0?.stats?.plays ? _v1 : "",
               _v3 = _v0.badge?.type && ["staffpick", "staffpick-premiere", "staffpick-best-of-the-year", "staffpick-best-of-the-month"].includes(_v0.badge.type);
-            return (0, _v1.jsx)(_v34.VideoCard, {
-              hoverActions: (0, _v1.jsx)(_v52.WatchPlaylistHoverActions, {
+            return (0, _v1.jsx)(_v28.VideoCard, {
+              hoverActions: (0, _v1.jsx)(_v42.WatchPlaylistHoverActions, {
                 video: _v0
               }),
               title: _v0.name,
@@ -815,7 +337,7 @@
               avatarName: _v0.user.name,
               hasFollow: !0,
               followSource: "Watch",
-              tagText: (0, _v35.secondsToDisplay)(_v0.duration),
+              tagText: (0, _v29.secondsToDisplay)(_v0.duration),
               tagTextStyles: {
                 opacity: 0,
                 _groupHover: {
@@ -827,31 +349,31 @@
                 transition: "opacity 0.2s ease"
               },
               configUrl: _v0.configUrl ?? "",
-              clipId: (0, _v48.idFromUri)(_v0.uri),
+              clipId: (0, _v38.idFromUri)(_v0.uri),
               creator: {
                 name: _v0.user.name,
                 link: _v0.user.link,
                 user: _v0.user,
                 showCard: _v10,
                 onClick: () => {
-                  (0, _v50.trackCreatorNameClick)({
+                  (0, _v40.trackCreatorNameClick)({
                     target: _v0.user.link,
                     viewer: _v2,
                     widgetName: "Recently added",
                     widgetPlacement: 2,
-                    ..._v50.staffPicksBpValues
+                    ..._v40.staffPicksBpValues
                   });
                 }
               },
               shouldUseNextLink: !1,
               onClick: () => {
-                (0, _v50.trackPlaylistVideoClick)({
+                (0, _v40.trackPlaylistVideoClick)({
                   target: _v0.link,
-                  videoId: (0, _v48.idFromUri)(_v0.uri),
+                  videoId: (0, _v38.idFromUri)(_v0.uri),
                   viewer: _v2,
                   widgetName: "Recently added",
                   widgetPlacement: 2,
-                  ..._v50.staffPicksBpValues
+                  ..._v40.staffPicksBpValues
                 });
               },
               titleStyles: {
@@ -863,7 +385,7 @@
               },
               hasPlayOnHover: _v10,
               ...(_v3 && {
-                topLeftDecoration: (0, _v1.jsx)(_v45.StaffPickBadge, {})
+                topLeftDecoration: (0, _v1.jsx)(_v35.StaffPickBadge, {})
               })
             }, _v0.uri);
           })
@@ -871,7 +393,7 @@
       })]
     });
   };
-  function _v54({
+  function _v44({
     data: _v0,
     rel: _v1
   }) {
@@ -886,7 +408,17 @@
       })
     });
   }
-  var _v55 = _v0.i(0),
+  var _v45 = _v0.i(0),
+    _v46 = _v0.i(0),
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
+    _v52 = _v0.i(0),
+    _v53 = _v0.i(0),
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0),
     _v56 = _v0.i(0),
     _v57 = _v0.i(0),
     _v58 = _v0.i(0),
@@ -894,20 +426,10 @@
     _v60 = _v0.i(0),
     _v61 = _v0.i(0),
     _v62 = _v0.i(0),
-    _v63 = _v0.i(0),
-    _v64 = _v0.i(0),
-    _v65 = _v0.i(0),
-    _v66 = _v0.i(0),
-    _v67 = _v0.i(0),
-    _v68 = _v0.i(0),
-    _v69 = _v0.i(0),
-    _v70 = _v0.i(0),
-    _v71 = _v0.i(0),
-    _v72 = _v0.i(0),
-    _v73 = _v0.i(0);
-  let _v74 = ({
+    _v63 = _v0.i(0);
+  let _v64 = ({
       ..._v0
-    }) => (0, _v1.jsxs)(_v56.bokeh.svg, {
+    }) => (0, _v1.jsxs)(_v46.bokeh.svg, {
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 96 96",
       fill: "none",
@@ -954,21 +476,40 @@
         })]
       })]
     }),
-    _v75 = ({
+    _v65 = ({
       authModalType: _v0,
       channelId: _v1,
       channel: _v2,
       setShowLoginJoinModal: _v3
     }) => {
-      let _v4 = (0, _v47.useViewer)(),
-        _v5 = (0, _v33.useBreakpointValue)({
+      let _v4 = (0, _v37.useViewer)(),
+        _v5 = (0, _v27.useBreakpointValue)({
           base: !0,
           lg: !1
         }),
         {
           data: _v6,
           isLoading: _v7
-        } = _v39({
+        } = function (_v0) {
+          let _v1 = "function" == typeof _v0 ? _v0() : _v0,
+            {
+              baseUrl: _v2,
+              jwt: _v3,
+              xVimeoPage: _v4,
+              locale: _v5
+            } = (0, _v20.useGctlConfig)();
+          return (0, _v18.default)(_v1 ? `/channels/${_v1.where.channelId}/videos${(0, _v14.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v30({
+            ..._v1,
+            headers: {
+              ..._v1.headers,
+              "Content-Type": "application/json",
+              Authorization: _v3 ? `jwt ${_v3}` : "",
+              "Vimeo-Page": `${_v4}`,
+              "Accept-Language": _v5 ?? "en"
+            },
+            baseUrl: _v2
+          }) : null, void 0);
+        }({
           select: ["link", "name", "uri", "user.link", "user.name", "pictures"],
           query: {
             perPage: _v5 ? 1 : 5,
@@ -981,30 +522,68 @@
         }),
         _v8 = (0, _v9.useRouter)(),
         [_v9, _v10] = (0, _v10.useState)(_v2.metadata.interactions?.follow.added),
-        [_v11, _v12] = (0, _v71.usePutMeChannel)(),
-        [_v13, _v14] = (0, _v71.useDeleteMeChannel)(),
-        [_v15, _v16] = _v25(),
+        [_v11, _v12] = (0, _v61.usePutMeChannel)(),
+        [_v13, _v14] = (0, _v61.useDeleteMeChannel)(),
+        [_v15, _v16] = function () {
+          let {
+              mutate: _v0
+            } = (0, _v19.useSWRConfig)(),
+            {
+              baseUrl: _v1,
+              jwt: _v2,
+              xVimeoPage: _v3,
+              locale: _v4
+            } = (0, _v20.useGctlConfig)(),
+            [_v5, _v6] = (0, _v14.useInternalState)();
+          return [(0, _v10.useCallback)(async _v0 => {
+            _v6({
+              type: "REQUEST"
+            });
+            try {
+              let _v0 = await _v0(`/channels/${_v0.where.channelId}${(0, _v14.serializeQuery)(_v0)}`, _v17({
+                ..._v0,
+                baseUrl: _v1,
+                headers: {
+                  ..._v0.headers,
+                  "Content-Type": "application/json",
+                  Authorization: _v2 ? `jwt ${_v2}` : "",
+                  "Vimeo-Page": `${_v3}`,
+                  "Accept-Language": _v4 ?? "en"
+                }
+              }));
+              _v6({
+                type: "SUCCESS",
+                payload: _v0
+              });
+            } catch (_v0) {
+              _v6({
+                type: "FAILURE",
+                payload: _v0
+              });
+            }
+          }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+        }(),
         [_v17, _v18] = (0, _v10.useState)(!1);
       (0, _v10.useEffect)(() => {
         _v16.data?.metadata.interactions?.follow && _v10(_v16.data.metadata.interactions?.follow?.added);
       }, [_v16.data]);
-      let _v19 = (0, _v73.useMarginXValue)({
+      let _v19 = (0, _v63.useMarginXValue)({
           base: "0",
           md: "0",
-          lg: (0, _v62.rem)(32)
+          lg: (0, _v52.rem)(32)
         }),
-        _v20 = (0, _v33.useBreakpointValue)({
-          base: (0, _v62.rem)(16),
-          lg: (0, _v62.rem)(24)
+        _v20 = (0, _v27.useBreakpointValue)({
+          base: (0, _v52.rem)(16),
+          lg: (0, _v52.rem)(24)
         }),
         _v21 = (0, _v10.useRef)(!1),
         _v22 = _v6?.data,
         [_v23, _v24] = (0, _v10.useState)(void 0),
         _v25 = (0, _v10.useCallback)(_v0 => {
-          if (_v22 && _v22[_v0]) return (0, _v48.idFromUri)(_v22[_v0].uri);
+          if (_v22 && _v22[_v0]) return (0, _v38.idFromUri)(_v22[_v0].uri);
         }, [_v22]);
       (0, _v10.useEffect)(() => {
-        _v7 || _v21.current || (_v21.current = !0, _v24(0), (0, _v50.trackWidgetViewEvent)({
+        _v7 || _v21.current || (_v21.current = !0, _v24(0), (0, _v40.trackWidgetViewEvent)({
           feature: "staffpicks",
           pageName: "staffpicks",
           videoId: _v25(0),
@@ -1013,22 +592,22 @@
           widgetPlacement: 1
         }));
       }, [_v25, _v7, _v4]);
-      let _v26 = (0, _v33.useBreakpointValue)({
+      let _v26 = (0, _v27.useBreakpointValue)({
         base: !0,
         md: !1
       });
-      if (_v7) return (0, _v1.jsx)(_v76, {});
+      if (_v7) return (0, _v1.jsx)(_v66, {});
       let _v27 = {
           base: "linear-gradient(0deg, #000 15%, rgba(0, 0, 0, 0.00) 75%)",
           lg: "linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.00) 75%)"
         },
-        _v28 = _v1 === _v49.STAFF_PICKS_CHANNEL_ID,
+        _v28 = _v1 === _v39.STAFF_PICKS_CHANNEL_ID,
         _v29 = _v23 ? _v22?.[_v23] : void 0;
-      return (0, _v1.jsxs)(_v58.Carousel, {
+      return (0, _v1.jsxs)(_v48.Carousel, {
         slideCount: _v22?.length || 0,
         height: {
-          base: (0, _v62.rem)(400),
-          "2xl": (0, _v62.rem)(480)
+          base: (0, _v52.rem)(400),
+          "2xl": (0, _v52.rem)(480)
         },
         padding: _v19,
         spacing: _v20,
@@ -1039,7 +618,7 @@
         },
         flexShrink: "0",
         onPageChange: _v0 => {
-          (0, _v50.trackWidgetViewEvent)({
+          (0, _v40.trackWidgetViewEvent)({
             feature: "staffpicks",
             pageName: "staffpicks",
             videoId: _v25(_v0.page),
@@ -1053,13 +632,13 @@
             delay: 0
           }
         }),
-        children: [!_v5 && (0, _v1.jsxs)(_v58.CarouselControl, {
+        children: [!_v5 && (0, _v1.jsxs)(_v48.CarouselControl, {
           width: "100%",
           display: {
             base: "none",
             md: "flex"
           },
-          children: [(0, _v1.jsx)(_v58.CarouselPrevTrigger, {
+          children: [(0, _v1.jsx)(_v48.CarouselPrevTrigger, {
             height: "100% !important",
             size: "lg",
             bg: "transparent",
@@ -1076,11 +655,11 @@
               }
             },
             width: {
-              base: (0, _v62.rem)(32),
-              xl: (0, _v62.rem)(48)
+              base: (0, _v52.rem)(32),
+              xl: (0, _v52.rem)(48)
             },
             zIndex: "2"
-          }), (0, _v1.jsx)(_v58.CarouselNextTrigger, {
+          }), (0, _v1.jsx)(_v48.CarouselNextTrigger, {
             height: "100% !important",
             size: "lg",
             bg: "transparent",
@@ -1097,13 +676,13 @@
               }
             },
             width: {
-              base: (0, _v62.rem)(32),
-              xl: (0, _v62.rem)(48)
+              base: (0, _v52.rem)(32),
+              xl: (0, _v52.rem)(48)
             },
             zIndex: "2",
             justifyContent: "flex-end"
           })]
-        }), (0, _v1.jsxs)(_v58.CarouselItemGroup, {
+        }), (0, _v1.jsxs)(_v48.CarouselItemGroup, {
           width: "100%",
           marginBottom: {
             base: 0,
@@ -1117,7 +696,7 @@
               transition: "opacity 0.5s ease-in"
             }
           },
-          children: [_v22?.map((_v0, _v1) => (0, _v1.jsx)(_v58.CarouselItem, {
+          children: [_v22?.map((_v0, _v1) => (0, _v1.jsx)(_v48.CarouselItem, {
             index: _v1,
             borderRadius: {
               base: "none",
@@ -1129,15 +708,15 @@
             overflow: "hidden",
             opacity: .25,
             transition: "opacity 0.5s ease-out",
-            children: (0, _v1.jsxs)(_v55.default, {
+            children: (0, _v1.jsxs)(_v45.default, {
               href: _v0.link,
               onClick: () => {
-                (0, _v50.trackCarouselVideoClickEvent)({
+                (0, _v40.trackCarouselVideoClickEvent)({
                   copy: null,
                   feature: "staffpicks",
                   pageName: "staffpicks",
                   target: _v0.link,
-                  videoId: (0, _v48.idFromUri)(_v0.uri),
+                  videoId: (0, _v38.idFromUri)(_v0.uri),
                   viewer: _v4
                 });
               },
@@ -1156,11 +735,11 @@
                 right: "0",
                 height: "100%",
                 background: _v27
-              }), (0, _v1.jsx)(_v63.Show, {
+              }), (0, _v1.jsx)(_v53.Show, {
                 above: "lg",
-                children: _v29 ? (0, _v1.jsx)(_v59.DarkMode, {
-                  children: (0, _v1.jsx)(_v57.Button, {
-                    leftIcon: (0, _v1.jsx)(_v69.PlayFilled, {}),
+                children: _v29 ? (0, _v1.jsx)(_v49.DarkMode, {
+                  children: (0, _v1.jsx)(_v47.Button, {
+                    leftIcon: (0, _v1.jsx)(_v59.PlayFilled, {}),
                     position: "absolute",
                     right: "lg",
                     variant: "blur",
@@ -1168,21 +747,21 @@
                     py: "xs",
                     height: "unset",
                     onClick: () => {
-                      (0, _v50.trackCarouselVideoClickEvent)({
+                      (0, _v40.trackCarouselVideoClickEvent)({
                         copy: `${_v29.name}`,
                         element: "button",
                         feature: "staffpicks",
                         pageName: "staffpicks",
                         target: _v22?.[0]?.link || "",
-                        videoId: (0, _v48.idFromUri)(_v22?.[0]?.uri),
+                        videoId: (0, _v38.idFromUri)(_v22?.[0]?.uri),
                         viewer: _v4
                       });
                     },
-                    children: (0, _v1.jsxs)(_v66.VStack, {
+                    children: (0, _v1.jsxs)(_v56.VStack, {
                       dir: "column",
                       gap: "0",
                       alignItems: "flex-start",
-                      children: [(0, _v1.jsx)(_v65.Text, {
+                      children: [(0, _v1.jsx)(_v55.Text, {
                         variant: {
                           base: "heading-2xs",
                           "3xl": "heading-xs"
@@ -1191,7 +770,7 @@
                         overflow: "hidden",
                         textOverflow: "ellipsis",
                         children: _v29.name
-                      }), (0, _v1.jsx)(_v65.Text, {
+                      }), (0, _v1.jsx)(_v55.Text, {
                         variant: "body-sm",
                         maxWidth: "160px",
                         overflow: "hidden",
@@ -1203,16 +782,16 @@
                 }) : (0, _v1.jsx)(_v1.Fragment, {})
               })]
             })
-          }, _v0.uri)), (0, _v1.jsx)(_v55.default, {
+          }, _v0.uri)), (0, _v1.jsx)(_v45.default, {
             href: _v29 ? _v29.link : "",
             onClick: () => {
-              (0, _v50.trackCarouselVideoClickEvent)({
+              (0, _v40.trackCarouselVideoClickEvent)({
                 copy: null,
                 element: "text",
                 feature: "staffpicks",
                 pageName: "staffpicks",
                 target: _v29?.link || "",
-                videoId: (0, _v48.idFromUri)(_v29?.uri),
+                videoId: (0, _v38.idFromUri)(_v29?.uri),
                 viewer: _v4
               });
             },
@@ -1244,20 +823,20 @@
                 lg: "lg"
               },
               maxW: "45rem",
-              children: [_v28 ? (0, _v1.jsx)(_v74, {
+              children: [_v28 ? (0, _v1.jsx)(_v64, {
                 width: {
-                  base: (0, _v62.rem)(64),
-                  lg: (0, _v62.rem)(96)
+                  base: (0, _v52.rem)(64),
+                  lg: (0, _v52.rem)(96)
                 },
                 height: {
-                  base: (0, _v62.rem)(64),
-                  lg: (0, _v62.rem)(96)
+                  base: (0, _v52.rem)(64),
+                  lg: (0, _v52.rem)(96)
                 }
-              }) : (0, _v1.jsx)(_v56.bokeh.img, {
+              }) : (0, _v1.jsx)(_v46.bokeh.img, {
                 src: _v2.pictures.sizes[0].link,
                 height: {
-                  base: (0, _v62.rem)(64),
-                  lg: (0, _v62.rem)(96)
+                  base: (0, _v52.rem)(64),
+                  lg: (0, _v52.rem)(96)
                 },
                 borderRadius: "round",
                 width: "fit-content",
@@ -1265,7 +844,7 @@
               }), (0, _v1.jsxs)(_v13.Flex, {
                 direction: "column",
                 gap: "sm",
-                children: [(0, _v1.jsx)(_v60.Header, {
+                children: [(0, _v1.jsx)(_v50.Header, {
                   as: "p",
                   size: {
                     base: "md",
@@ -1277,8 +856,8 @@
                   color: "gray.50",
                   noOfLines: 3,
                   children: _v2.name
-                }), (0, _v1.jsx)(_v59.DarkMode, {
-                  children: (0, _v1.jsx)(_v72.VideoAndFollowersCount, {
+                }), (0, _v1.jsx)(_v49.DarkMode, {
+                  children: (0, _v1.jsx)(_v62.VideoAndFollowersCount, {
                     textVariant: {
                       base: "body-sm",
                       md: "body-md"
@@ -1289,7 +868,7 @@
                     videosHref: `${_v2.link}/videos`,
                     followersHref: `${_v2.link}/followers`
                   })
-                }), _v2.description && (0, _v1.jsx)(_v65.Text, {
+                }), _v2.description && (0, _v1.jsx)(_v55.Text, {
                   variant: {
                     base: "body-md",
                     xl: "body-lg"
@@ -1298,11 +877,11 @@
                   noOfLines: 3,
                   children: _v2.description
                 })]
-              }), _v22 ? (0, _v1.jsx)(_v59.DarkMode, {
-                children: (0, _v1.jsxs)(_v61.HStack, {
-                  children: [(0, _v1.jsx)(_v57.Button, {
+              }), _v22 ? (0, _v1.jsx)(_v49.DarkMode, {
+                children: (0, _v1.jsxs)(_v51.HStack, {
+                  children: [(0, _v1.jsx)(_v47.Button, {
                     variant: "primary",
-                    leftIcon: (0, _v1.jsx)(_v69.PlayFilled, {}),
+                    leftIcon: (0, _v1.jsx)(_v59.PlayFilled, {}),
                     width: {
                       base: "unset",
                       md: "fit-content"
@@ -1310,16 +889,16 @@
                     as: "a",
                     href: _v22?.[0]?.link,
                     onClick: _v0 => {
-                      _v0.preventDefault(), _v8.push(_v22?.[0]?.link), (0, _v50.trackCarouselVideoClickEvent)({
+                      _v0.preventDefault(), _v8.push(_v22?.[0]?.link), (0, _v40.trackCarouselVideoClickEvent)({
                         copy: "start watching",
                         feature: "staffpicks",
                         pageName: "staffpicks",
                         target: _v22?.[0]?.link || "",
-                        videoId: (0, _v48.idFromUri)(_v22?.[0]?.uri),
+                        videoId: (0, _v38.idFromUri)(_v22?.[0]?.uri),
                         viewer: _v4
                       });
                     },
-                    children: (0, _v41.translate)({
+                    children: (0, _v31.translate)({
                       singular: "Start watching",
                       dictionary: {
                         es: {
@@ -1345,16 +924,16 @@
                         }
                       }
                     })
-                  }), (0, _v1.jsx)(_v57.Button, {
+                  }), (0, _v1.jsx)(_v47.Button, {
                     variant: "blur",
                     onMouseEnter: () => _v18(!0),
                     onMouseLeave: () => _v18(!1),
                     isLoading: _v12.loading || _v14.loading || _v16.loading,
                     isDisabled: _v12.loading || _v14.loading || _v16.loading,
-                    leftIcon: _v9 ? _v17 ? (0, _v1.jsx)(_v68.CloseXSmall, {}) : (0, _v1.jsx)(_v67.Checkmark, {}) : (0, _v1.jsx)(_v70.Plus, {}),
-                    width: _v9 ? (0, _v62.rem)(125) : "unset",
+                    leftIcon: _v9 ? _v17 ? (0, _v1.jsx)(_v58.CloseXSmall, {}) : (0, _v1.jsx)(_v57.Checkmark, {}) : (0, _v1.jsx)(_v60.Plus, {}),
+                    width: _v9 ? (0, _v52.rem)(125) : "unset",
                     onClick: async _v0 => {
-                      _v0.preventDefault(), (0, _v50.trackFollowClick)({
+                      _v0.preventDefault(), (0, _v40.trackFollowClick)({
                         channelId: _v1,
                         copy: _v9 ? "unfollow" : "follow",
                         entityType: "channel",
@@ -1373,13 +952,13 @@
                           channelId: _v1
                         },
                         select: ["metadata.interactions.follow.added"]
-                      }), _v18(!1)) : ((0, _v50.trackTriggerAuthFlow)({
+                      }), _v18(!1)) : ((0, _v40.trackTriggerAuthFlow)({
                         flow: _v0,
                         feature: "staffpicks",
                         pageName: "staffpicks"
                       }), _v3(!0));
                     },
-                    children: _v9 ? _v17 ? (0, _v41.translate)({
+                    children: _v9 ? _v17 ? (0, _v31.translate)({
                       singular: "Unfollow",
                       dictionary: {
                         es: {
@@ -1404,7 +983,7 @@
                           singular: "取消关注"
                         }
                       }
-                    }) : (0, _v41.translate)({
+                    }) : (0, _v31.translate)({
                       singular: "Following",
                       dictionary: {
                         es: {
@@ -1429,7 +1008,7 @@
                           singular: "关注"
                         }
                       }
-                    }) : (0, _v41.translate)({
+                    }) : (0, _v31.translate)({
                       singular: "Follow",
                       dictionary: {
                         es: {
@@ -1460,13 +1039,13 @@
               }) : (0, _v1.jsx)(_v1.Fragment, {})]
             })
           })]
-        }), !_v5 && (0, _v1.jsx)(_v58.CarouselIndicatorGroup, {
+        }), !_v5 && (0, _v1.jsx)(_v48.CarouselIndicatorGroup, {
           bottom: {
             base: "0",
             lg: "5%"
           },
           height: "30px",
-          children: _v22?.map((_v0, _v1) => (0, _v1.jsx)(_v58.CarouselIndicator, {
+          children: _v22?.map((_v0, _v1) => (0, _v1.jsx)(_v48.CarouselIndicator, {
             bgColor: {
               base: "text-secondary",
               lg: "whiteAlpha.500"
@@ -1495,16 +1074,16 @@
         })]
       }, _v22?.length);
     },
-    _v76 = () => {
-      let _v0 = (0, _v73.useMarginXValue)({
+    _v66 = () => {
+      let _v0 = (0, _v63.useMarginXValue)({
         base: "0",
         md: "0",
-        lg: (0, _v62.rem)(32)
+        lg: (0, _v52.rem)(32)
       });
-      return (0, _v1.jsx)(_v64.Skeleton, {
+      return (0, _v1.jsx)(_v54.Skeleton, {
         height: {
-          base: (0, _v62.rem)(400),
-          "2xl": (0, _v62.rem)(480)
+          base: (0, _v52.rem)(400),
+          "2xl": (0, _v52.rem)(480)
         },
         width: "unset",
         borderRadius: {
@@ -1514,11 +1093,11 @@
         marginX: _v0
       });
     };
-  var _v77 = _v0.i(0),
-    _v78 = _v0.i(0),
-    _v79 = _v0.i(0),
-    _v80 = _v0.i(0);
-  let _v81 = (0, _v7.default)(async () => {
+  var _v67 = _v0.i(0),
+    _v68 = _v0.i(0),
+    _v69 = _v0.i(0),
+    _v70 = _v0.i(0);
+  let _v71 = (0, _v7.default)(async () => {
     let {
       LoginJoinModal: _v0
     } = await _v0.A(0);
@@ -1530,18 +1109,37 @@
       modules: [0]
     }
   });
-  function _v82({
+  function _v72({
     channelId: _v0,
     playerAssetUrls: _v1
   }) {
-    let _v2 = (0, _v32.useOptionalViewer)(),
+    let _v2 = (0, _v26.useOptionalViewer)(),
       [_v3, _v4] = (0, _v10.useState)(!1),
       [_v5, _v6] = (0, _v10.useState)("join"),
       _v7 = (0, _v8.usePathname)(),
       _v8 = (0, _v9.useRouter)(),
       {
         data: _v9
-      } = _v24(() => _v2 ? {
+      } = function (_v0) {
+        let _v1 = "function" == typeof _v0 ? _v0() : _v0,
+          {
+            baseUrl: _v2,
+            jwt: _v3,
+            xVimeoPage: _v4,
+            locale: _v5
+          } = (0, _v20.useGctlConfig)();
+        return (0, _v18.default)(_v1 ? `/channels/${_v1.where.channelId}${(0, _v14.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v17({
+          ..._v1,
+          headers: {
+            ..._v1.headers,
+            "Content-Type": "application/json",
+            Authorization: _v3 ? `jwt ${_v3}` : "",
+            "Vimeo-Page": `${_v4}`,
+            "Accept-Language": _v5 ?? "en"
+          },
+          baseUrl: _v2
+        }) : null, void 0);
+      }(() => _v2 ? {
         where: {
           channelId: _v0
         },
@@ -1550,17 +1148,36 @@
         },
         select: ["name", "description", "metadata.connections.users.total", "metadata.connections.videos.total", "metadata.interactions.follow.added", "pictures", "link"]
       } : null),
-      _v10 = (0, _v73.useMarginXValue)(),
+      _v10 = (0, _v63.useMarginXValue)(),
       {
         data: _v11
-      } = _v28(() => _v0 === _v49.STAFF_PICKS_CHANNEL_ID && _v2 ? {
+      } = function (_v0) {
+        let _v1 = "function" == typeof _v0 ? _v0() : _v0,
+          {
+            baseUrl: _v2,
+            jwt: _v3,
+            xVimeoPage: _v4,
+            locale: _v5
+          } = (0, _v20.useGctlConfig)();
+        return (0, _v18.default)(_v1 ? `/channels/${_v1.where.channelId}/curation_components${(0, _v14.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v21({
+          ..._v1,
+          headers: {
+            ..._v1.headers,
+            "Content-Type": "application/json",
+            Authorization: _v3 ? `jwt ${_v3}` : "",
+            "Vimeo-Page": `${_v4}`,
+            "Accept-Language": _v5 ?? "en"
+          },
+          baseUrl: _v2
+        }) : null, void 0);
+      }(() => _v0 === _v39.STAFF_PICKS_CHANNEL_ID && _v2 ? {
         where: {
           channelId: _v0
         },
         select: ["uri", "title", "flairUrl", "artUrl", "shortTitle", "sourceDescription", "showCard", "link", "metadata.interactions.follow.added", "sourceId", "sourceType", "metadata.connections.videos.total", "metadata.connections.users.total"]
       } : null),
       [_v12, _v13] = (0, _v10.useState)(null),
-      _v14 = (0, _v80.useShowCard)();
+      _v14 = (0, _v70.useShowCard)();
     return (0, _v1.jsxs)(_v12.Box, {
       children: [(0, _v1.jsxs)(_v13.Flex, {
         minHeight: "calc(100vh - 64px)",
@@ -1569,13 +1186,13 @@
           xl: "lg"
         },
         flexDir: "column",
-        children: [_v9 ? (0, _v1.jsx)(_v75, {
+        children: [_v9 ? (0, _v1.jsx)(_v65, {
           authModalType: _v5,
           channelId: _v0,
           channel: _v9,
           setShowLoginJoinModal: _v4
-        }) : (0, _v1.jsx)(_v76, {}), (0, _v1.jsx)(_v83, {
-          type: _v31.PlayerType.BarebonePlayer,
+        }) : (0, _v1.jsx)(_v66, {}), (0, _v1.jsx)(_v73, {
+          type: _v25.PlayerType.BarebonePlayer,
           assetUrls: _v1,
           children: (0, _v1.jsxs)(_v13.Flex, {
             flexDir: "column",
@@ -1586,10 +1203,10 @@
             },
             mx: _v10,
             minHeight: "400px",
-            children: [_v9 ? (0, _v1.jsx)(_v53, {
+            children: [_v9 ? (0, _v1.jsx)(_v43, {
               channel: _v9,
               channelId: _v0
-            }) : (0, _v1.jsx)(_v1.Fragment, {}), _v11?.data.map((_v0, _v1) => (0, _v1.jsx)(_v79.WatchPlaylist, {
+            }) : (0, _v1.jsx)(_v1.Fragment, {}), _v11?.data.map((_v0, _v1) => (0, _v1.jsx)(_v69.WatchPlaylist, {
               curationComponent: _v0,
               setShowLoginJoinModal: _v4,
               authModalType: _v5,
@@ -1597,15 +1214,15 @@
               shouldPreload: _v1 - 1 === _v12,
               onIntersection: () => _v13(_v1),
               hasSingleRow: !_v14 || !_v0.showCard,
-              bpData: _v50.staffPicksBpValues
+              bpData: _v40.staffPicksBpValues
             }, _v0.uri))]
           })
         })]
-      }), null !== _v2 && !_v2?.user && (0, _v1.jsx)(_v78.LoggedOutBanner, {
+      }), null !== _v2 && !_v2?.user && (0, _v1.jsx)(_v68.LoggedOutBanner, {
         page: "staffpicks"
       }), (0, _v1.jsx)(_v11.ThemeProvider, {
-        theme: _v29.themes.light,
-        children: (0, _v1.jsx)(_v81, {
+        theme: _v23.themes.light,
+        children: (0, _v1.jsx)(_v71, {
           isShowing: _v3,
           type: _v5,
           onDismiss: () => _v4(!1),
@@ -1617,22 +1234,22 @@
           },
           bpData: {}
         })
-      }), (0, _v1.jsx)(_v77.FooterContainer, {
+      }), (0, _v1.jsx)(_v67.FooterContainer, {
         viewer: _v2,
         onLoginSuccess: () => _v8.reload()
       })]
     });
   }
-  let _v83 = ({
+  let _v73 = ({
       children: _v0,
       assetUrls: _v1,
       type: _v2
-    }) => _v1 ? (0, _v1.jsx)(_v30.PlayerContextProvider, {
+    }) => _v1 ? (0, _v1.jsx)(_v24.PlayerContextProvider, {
       assetUrls: _v1,
       type: _v2,
       children: _v0
     }) : _v0,
-    _v84 = ({
+    _v74 = ({
       playerAssetUrls: _v0
     }) => (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v2.default, {
@@ -1694,12 +1311,12 @@
           rel: "canonical",
           href: "https://vimeo.com/staffpicks"
         })]
-      }), (0, _v1.jsx)(_v82, {
+      }), (0, _v1.jsx)(_v72, {
         playerAssetUrls: _v0,
         channelId: 927
       })]
     });
-  _v84.getLayout = _v3.getLayout, (0, _v5.withPageSetup)(async _v0 => (await (0, _v4.isFromCopyrightRestrictedRegion)(_v0)) ? {
+  _v74.getLayout = _v3.getLayout, (0, _v5.withPageSetup)(async _v0 => (await (0, _v4.isFromCopyrightRestrictedRegion)(_v0)) ? {
     redirect: {
       destination: "/europeanfilmacademy",
       permanent: !1
@@ -1712,5 +1329,5 @@
   }, {
     inlineViewer: "all",
     inlinePlayerAssets: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v84], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v74], 0);
 }

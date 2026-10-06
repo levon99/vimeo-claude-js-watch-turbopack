@@ -247,9 +247,7 @@
     showYearly: _v2,
     children: _v3
   }) {
-    let {
-        settings: _v4
-      } = (0, _v3.useOrionSettings)(),
+    let _v4 = (0, _v3.useOrionSettingsFields)(["second_free_trial_enabled"]),
       _v5 = {},
       _v6 = _v4.second_free_trial_enabled && !!_v1?.user?.capabilities?.hasSecondFreeTrialEligibility;
     return (_v1?.user?.account === "free" && (_v1?.user?.capabilities?.hasFreeTrialEligibility || _v6) || _v1?.user === null) && _v2 && (_v5 = {

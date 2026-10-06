@@ -1465,9 +1465,7 @@
         isEnabled: _v0
       }) => [_v0]),
       _v9 = (0, _v20.checkModuleIsActive)(_v1?.feature?.module, _v19.EInteractionModule.REACTIONS),
-      {
-        settings: _v10
-      } = (0, _v21.useOrionSettings)(),
+      _v10 = (0, _v21.useOrionSettingsFields)(["enable_live_reactions"]),
       _v11 = !!(_v2?.isCreator && !_v1?.feature?.isManagementDisabled || _v7 && _v2?.capabilities?.canUseQnaModeration),
       _v12 = _v0 === _v19.EInteractionModule.CHAT || _v11 || !!_v3,
       _v13 = _v0 === _v19.EInteractionModule.POLL || _v11 || !!(_v5 && _v4[_v5]),

@@ -71,9 +71,7 @@
     alreadyOnHigherOrEqualPlan: _v4,
     onLeave: _v5
   }) {
-    let {
-        settings: _v6
-      } = (0, _v12.useOrionSettings)(),
+    let _v6 = (0, _v12.useOrionSettingsFields)(["onboarding_paywall_monthly_free_trial"]),
       _v7 = (0, _v3.useMemo)(() => [_v0], [_v0]),
       {
         isReady: _v8,

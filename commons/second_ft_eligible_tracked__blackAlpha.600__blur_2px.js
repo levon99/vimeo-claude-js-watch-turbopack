@@ -993,25 +993,19 @@
     },
     _v30 = "top_navigation_upgrade_button",
     _v31 = () => {
-      let {
-          settings: _v0
-        } = (0, _v6.useOrionSettings)(),
-        _v1 = (_v0.second_free_trial_ui_treatment ?? "modal") === "modal";
+      let _v0 = (0, _v6.useOrionSetting)("second_free_trial_ui_treatment");
       return (() => {
         let _v0,
           _v1,
-          {
-            settings: _v2
-          } = (0, _v6.useOrionSettings)(),
-          _v3 = _v2.second_free_trial_enabled,
+          _v2 = (0, _v6.useOrionSetting)("second_free_trial_enabled"),
           {
             capabilities: {
-              hasSecondFreeTrialEligibility: _v4
+              hasSecondFreeTrialEligibility: _v3
             }
           } = (0, _v3.useCapability)(["hasSecondFreeTrialEligibility"]),
-          _v5 = !!_v4;
+          _v4 = !!_v3;
         return _v0 = (0, _v8.usePico)(), _v1 = (0, _v2.useRef)(!1), (0, _v2.useEffect)(() => {
-          if (_v5 && null !== _v0 && !_v1.current) {
+          if (_v4 && null !== _v0 && !_v1.current) {
             try {
               if ("1" === sessionStorage.getItem(_v9)) {
                 _v1.current = !0;
@@ -1021,20 +1015,17 @@
             } catch {}
             _v1.current = !0, _v0.track("is_second_ft_eligible", {});
           }
-        }, [_v5, _v0]), _v3 && _v5;
-      })() && _v1;
+        }, [_v4, _v0]), _v2 && _v4;
+      })() && (_v0 ?? "modal") === "modal";
     };
   _v0.s(["useIsSecondFreeTrialShown", 0, _v31, "useSecondFreeTrialLauncher", 0, () => {
     let _v0 = _v31(),
+      _v1 = (0, _v6.useOrionSetting)("second_free_trial_plan_tier") ?? "starter",
+      [_v2, _v3] = (0, _v2.useState)(!1),
+      [_v4, _v5] = (0, _v2.useState)(!1),
       {
-        settings: _v1
-      } = (0, _v6.useOrionSettings)(),
-      _v2 = _v1.second_free_trial_plan_tier ?? "starter",
-      [_v3, _v4] = (0, _v2.useState)(!1),
-      [_v5, _v6] = (0, _v2.useState)(!1),
-      {
-        data: _v7,
-        error: _v8
+        data: _v6,
+        error: _v7
       } = (0, _v4.useGetMeVideos)(() => _v0 ? {
         select: ["name", "uri", "pictures.baseLink", "pictures.sizes.link", "pictures.sizes.width"],
         query: {
@@ -1047,73 +1038,73 @@
         revalidateOnReconnect: !1
       });
     (0, _v2.useEffect)(() => {
-      if (!_v3 || void 0 !== _v7 || _v5) return;
-      let _v0 = setTimeout(() => _v6(!0), 0 * !_v8);
+      if (!_v2 || void 0 !== _v6 || _v4) return;
+      let _v0 = setTimeout(() => _v5(!0), 0 * !_v7);
       return () => clearTimeout(_v0);
-    }, [_v3, _v7, _v8, _v5]);
-    let _v9 = (0, _v2.useContext)(_v10.ViewerContext),
+    }, [_v2, _v6, _v7, _v4]);
+    let _v8 = (0, _v2.useContext)(_v10.ViewerContext),
       {
-        data: _v10
-      } = (0, _v5.useGetSubscriptionPlans)(() => _v3 && _v9 ? {
+        data: _v9
+      } = (0, _v5.useGetSubscriptionPlans)(() => _v2 && _v8 ? {
         select: ["tier", "name", "metadata"],
         query: {
-          filter: [_v2],
-          ...(_v9.vuid ? {
-            vuid: _v9.vuid
+          filter: [_v1],
+          ...(_v8.vuid ? {
+            vuid: _v8.vuid
           } : {})
         }
       } : null),
-      _v11 = _v10?.data,
-      _v12 = (0, _v2.useMemo)(() => _v11?.find(_v0 => _v0.tier === _v2) ?? _v11?.[0], [_v11, _v2]),
-      _v13 = _v12?.metadata?.entitlements?.params,
-      _v14 = _v13?.videoStorageQuotaUnit === "video_size" && "string" == typeof _v13?.videoStoragePeriodicQuota ? _v13.videoStoragePeriodicQuota : void 0,
-      _v15 = (0, _v2.useCallback)(() => {
-        _v4(!1), _v6(!1);
+      _v10 = _v9?.data,
+      _v11 = (0, _v2.useMemo)(() => _v10?.find(_v0 => _v0.tier === _v1) ?? _v10?.[0], [_v10, _v1]),
+      _v12 = _v11?.metadata?.entitlements?.params,
+      _v13 = _v12?.videoStorageQuotaUnit === "video_size" && "string" == typeof _v12?.videoStoragePeriodicQuota ? _v12.videoStoragePeriodicQuota : void 0,
+      _v14 = (0, _v2.useCallback)(() => {
+        _v3(!1), _v5(!1);
       }, []),
-      _v16 = (0, _v2.useCallback)(_v0 => !!_v0 && !!(_v0 => {
+      _v15 = (0, _v2.useCallback)(_v0 => !!_v0 && !!(_v0 => {
         try {
           let _v0 = new URL(_v0, window.location.origin);
           return "/upgrade-plan" === _v0.pathname && _v0.searchParams.get("paywall_trigger") === _v30;
         } catch {
           return !1;
         }
-      })(_v0) && (_v6(!1), _v4(!0), !0), [_v0]),
-      _v17 = void 0 !== _v7 && _v7.total > 0 && !_v5,
-      _v18 = _v3 && (void 0 !== _v7 || _v5),
+      })(_v0) && (_v5(!1), _v3(!0), !0), [_v0]),
+      _v16 = void 0 !== _v6 && _v6.total > 0 && !_v4,
+      _v17 = _v2 && (void 0 !== _v6 || _v4),
       {
-        trackPaywallDismissed: _v19,
-        trackPaywallCtaClicked: _v20
+        trackPaywallDismissed: _v18,
+        trackPaywallCtaClicked: _v19
       } = (0, _v7.usePaywallTracking)({
         paywallTrigger: _v30,
         paywallLocation: "top_navigation",
         paywallType: "popup",
         paywallFeature: "general",
-        paywallStyle: _v17 ? "second_free_trial_videos_waiting_modal" : "second_free_trial_welcome_back_modal",
-        paywallPlansDisplayed: _v17 ? [] : [_v2],
+        paywallStyle: _v16 ? "second_free_trial_videos_waiting_modal" : "second_free_trial_welcome_back_modal",
+        paywallPlansDisplayed: _v16 ? [] : [_v1],
         paywallPeriodicitiesDisplayed: ["yearly"],
-        isVisible: _v18
+        isVisible: _v17
       }),
+      _v20 = (0, _v2.useCallback)(() => {
+        _v18(), _v14();
+      }, [_v14, _v18]),
       _v21 = (0, _v2.useCallback)(() => {
-        _v19(), _v15();
-      }, [_v15, _v19]),
-      _v22 = (0, _v2.useCallback)(() => {
-        _v20(), _v15(), window.location.assign(`/checkout/${_v2}/trial`);
-      }, [_v15, _v2, _v20]);
+        _v19(), _v14(), window.location.assign(`/checkout/${_v1}/trial`);
+      }, [_v14, _v1, _v19]);
     return {
-      openFromTopNavUpgradeUrl: _v16,
-      secondFreeTrialModal: _v18 ? _v17 ? (0, _v1.jsx)(_v23, {
+      openFromTopNavUpgradeUrl: _v15,
+      secondFreeTrialModal: _v17 ? _v16 ? (0, _v1.jsx)(_v23, {
         isOpen: !0,
-        onClose: _v21,
-        onCtaClick: _v22,
-        videos: _v7.data ?? [],
-        totalVideos: _v7.total
+        onClose: _v20,
+        onCtaClick: _v21,
+        videos: _v6.data ?? [],
+        totalVideos: _v6.total
       }) : (0, _v1.jsx)(_v29, {
         isOpen: !0,
-        onClose: _v21,
-        onCtaClick: _v22,
-        planTier: _v2,
-        planName: _v12?.name,
-        storageQuota: _v14
+        onClose: _v20,
+        onCtaClick: _v21,
+        planTier: _v1,
+        planName: _v11?.name,
+        storageQuota: _v13
       }) : null
     };
   }], 0);

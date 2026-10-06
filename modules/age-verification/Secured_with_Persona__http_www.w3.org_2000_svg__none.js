@@ -297,156 +297,52 @@
   }
   var _v23 = _v0.i(0),
     _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
-    _v26 = _v0.i(0);
-  async function _v27({
+    _v25 = _v0.i(0);
+  async function _v26({
     baseUrl: _v0,
     select: _v1,
     ..._v2
   }) {
-    return (0, _v25.measureLatency)("getMeAgeVerificationInquiry", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/me/age-verification/inquiry?fields=${_v1.map(_v26.intoSnakeCase).join(",")}`, {
+    return (0, _v24.measureLatency)("getMeAgeVerificationInquiry", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/me/age-verification/inquiry?fields=${_v1.map(_v25.intoSnakeCase).join(",")}`, {
         ..._v2,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v26.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v25.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v26.deepCamelCase)(_v1);
+      return (0, _v25.deepCamelCase)(_v1);
     });
   }
-  var _v28 = _v0.i(0),
-    _v29 = _v0.i(0),
-    _v30 = _v0.i(0),
-    _v31 = _v0.i(0);
-  function _v32() {
-    let {
-        mutate: _v0
-      } = (0, _v29.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v31.useGctlConfig)(),
-      [_v5, _v6] = (0, _v30.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/me/age-verification/inquiry${(0, _v30.serializeQuery)(_v0)}`, _v27({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  async function _v33({
+  _v0.i(0);
+  var _v27 = _v0.i(0),
+    _v28 = _v0.i(0),
+    _v29 = _v0.i(0);
+  async function _v30({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
     ..._v3
   }) {
-    return (0, _v25.measureLatency)("patchMeAgeVerificationStatus", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/me/age-verification/status?fields=${_v1.map(_v26.intoSnakeCase).join(",")}`, {
+    return (0, _v24.measureLatency)("patchMeAgeVerificationStatus", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/me/age-verification/status?fields=${_v1.map(_v25.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "PATCH",
-        body: JSON.stringify((0, _v26.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v25.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v26.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v25.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v26.deepCamelCase)(_v1);
+      return (0, _v25.deepCamelCase)(_v1);
     });
   }
-  function _v34() {
-    let {
-        mutate: _v0
-      } = (0, _v29.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v31.useGctlConfig)(),
-      [_v5, _v6] = (0, _v30.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/me/age-verification/status${(0, _v30.serializeQuery)(_v0)}`, _v33({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v24.default.env.STORYBOOK && (0, _v30.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v31.useGctlConfig)();
-    return (0, _v28.default)(_v2 ? `/me/age-verification/inquiry${(0, _v30.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v27({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/me/age-verification/inquiry",
-    method: "GET"
-  }), "true" === _v24.default.env.STORYBOOK && (0, _v30.assignMswData)(_v32, {
-    endpoint: "/me/age-verification/inquiry",
-    method: "GET"
-  }), "true" === _v24.default.env.STORYBOOK && (0, _v30.assignMswData)(_v34, {
-    endpoint: "/me/age-verification/status",
-    method: "PATCH"
-  });
-  var _v35 = _v0.i(0),
+  var _v31 = _v0.i(0),
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0),
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
@@ -454,15 +350,11 @@
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  let _v48 = () => {
+    _v43 = _v0.i(0);
+  let _v44 = () => {
       let _v0 = (0, _v8.useViewer)(),
         [_v1, _v2] = (0, _v2.useState)(!1),
-        _v3 = (0, _v44.useBreakpointValue)({
+        _v3 = (0, _v40.useBreakpointValue)({
           base: !0,
           sm: !1
         });
@@ -475,7 +367,7 @@
           if (_v0?.length) return _v0.find(_v0 => _v0.width > 42)?.link ?? _v0[0]?.link;
         })(_v4.pictures?.sizes),
         _v7 = _v4.name,
-        _v8 = (0, _v1.jsx)(_v41.Flex, {
+        _v8 = (0, _v1.jsx)(_v37.Flex, {
           direction: "column",
           gap: "sm",
           children: (0, _v1.jsxs)("form", {
@@ -487,14 +379,14 @@
               name: "token",
               value: _v5,
               "data-testid": "logout-token-input"
-            }), (0, _v1.jsxs)(_v43.NestedMenuItem, {
+            }), (0, _v1.jsxs)(_v39.NestedMenuItem, {
               id: "simple-account-menu-log-out",
               as: "button",
               "data-testid": "logout-button",
               type: "submit",
               width: "100%",
               onClick: () => {
-                (0, _v46.trackNavigationActionEvent)({
+                (0, _v42.trackNavigationActionEvent)({
                   element: "dropdown",
                   feature: "general",
                   copy: "logout",
@@ -502,7 +394,7 @@
                   viewer: _v0
                 });
               },
-              children: [(0, _v1.jsx)(_v45.LogOut, {}), (0, _v5.translate)({
+              children: [(0, _v1.jsx)(_v41.LogOut, {}), (0, _v5.translate)({
                 singular: "Log out",
                 dictionary: {
                   es: {
@@ -539,7 +431,7 @@
           borderRadius: "round",
           height: "unset",
           onClick: () => _v2(!0),
-          children: (0, _v1.jsx)(_v36.Avatar, {
+          children: (0, _v1.jsx)(_v32.Avatar, {
             size: "sm",
             alt: "avatar static",
             src: _v6 || "",
@@ -547,22 +439,22 @@
               name: _v7 ?? ""
             }
           })
-        }), (0, _v1.jsx)(_v37.Drawer, {
+        }), (0, _v1.jsx)(_v33.Drawer, {
           placement: "right",
           size: "full",
           isOpen: _v1,
           onClose: () => _v2(!1),
-          children: (0, _v1.jsxs)(_v39.DrawerContent, {
+          children: (0, _v1.jsxs)(_v35.DrawerContent, {
             maxWidth: "unset",
             margin: "unset !important",
             borderRadius: "0",
             bgColor: "fill-blur",
             backdropFilter: "blur(var(--vimeo-blur-md))",
-            children: [(0, _v1.jsxs)(_v40.DrawerHeader, {
+            children: [(0, _v1.jsxs)(_v36.DrawerHeader, {
               borderBottomColor: "stroke",
               borderBottomWidth: "1px",
               paddingBottom: "md",
-              children: [(0, _v1.jsx)(_v42.Header, {
+              children: [(0, _v1.jsx)(_v38.Header, {
                 size: "sm",
                 "data-testid": "account-header",
                 children: (0, _v5.translate)({
@@ -591,34 +483,34 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v39.DrawerCloseButton, {
+              }), (0, _v1.jsx)(_v35.DrawerCloseButton, {
                 position: "unset",
                 "data-testid": "drawer-close-button"
               })]
-            }), (0, _v1.jsx)(_v38.DrawerBody, {
-              children: (0, _v1.jsx)(_v43.NestedMenu, {
+            }), (0, _v1.jsx)(_v34.DrawerBody, {
+              children: (0, _v1.jsx)(_v39.NestedMenu, {
                 children: _v8
               })
             })]
           })
         })]
-      }) : (0, _v1.jsxs)(_v43.NestedMenu, {
+      }) : (0, _v1.jsxs)(_v39.NestedMenu, {
         children: [(0, _v1.jsxs)(_v9.Box, {
-          as: _v43.NestedMenuTrigger,
+          as: _v39.NestedMenuTrigger,
           "data-testid": "user-profile-menu-trigger",
           size: "md",
           variant: "tertiary",
           padding: (0, _v12.rem)(5),
           height: "unset",
           cursor: "pointer",
-          children: [(0, _v1.jsx)(_v36.Avatar, {
+          children: [(0, _v1.jsx)(_v32.Avatar, {
             size: "sm",
             alt: "avatar static",
             src: _v6 || "",
             nameProps: {
               name: _v7 ?? ""
             }
-          }), (0, _v1.jsx)(_v47.OverflowToolTip, {
+          }), (0, _v1.jsx)(_v43.OverflowToolTip, {
             labelToolTip: _v7,
             children: (0, _v1.jsx)(_v4.Text, {
               variant: "body-lg",
@@ -630,8 +522,8 @@
               children: _v7
             })
           })]
-        }), (0, _v1.jsx)(_v43.NestedMenuPositioner, {
-          children: (0, _v1.jsx)(_v43.NestedMenuContent, {
+        }), (0, _v1.jsx)(_v39.NestedMenuPositioner, {
+          children: (0, _v1.jsx)(_v39.NestedMenuContent, {
             padding: "sm",
             width: (0, _v12.rem)(220),
             children: _v8
@@ -639,7 +531,7 @@
         })]
       });
     },
-    _v49 = ({
+    _v45 = ({
       children: _v0,
       centerContent: _v1 = !1
     }) => {
@@ -673,18 +565,18 @@
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          children: [(0, _v1.jsx)(_v35.default, {
+          children: [(0, _v1.jsx)(_v31.default, {
             color: "text-primary",
             width: (0, _v12.rem)(96)
           }), (0, _v1.jsx)(_v9.Box, {
             position: "absolute",
             right: "md",
-            children: (0, _v1.jsx)(_v48, {})
+            children: (0, _v1.jsx)(_v44, {})
           })]
         }), _v0]
       });
     };
-  function _v50({
+  function _v46({
     redirectUrl: _v0
   }) {
     let _v1 = (0, _v8.useViewer)(),
@@ -709,11 +601,87 @@
             data: _v3,
             loading: _v4,
             error: _v5
-          }] = _v32(),
+          }] = function () {
+            let {
+                mutate: _v0
+              } = (0, _v27.useSWRConfig)(),
+              {
+                baseUrl: _v1,
+                jwt: _v2,
+                xVimeoPage: _v3,
+                locale: _v4
+              } = (0, _v29.useGctlConfig)(),
+              [_v5, _v6] = (0, _v28.useInternalState)();
+            return [(0, _v2.useCallback)(async _v0 => {
+              _v6({
+                type: "REQUEST"
+              });
+              try {
+                let _v0 = await _v0(`/me/age-verification/inquiry${(0, _v28.serializeQuery)(_v0)}`, _v26({
+                  ..._v0,
+                  baseUrl: _v1,
+                  headers: {
+                    ..._v0.headers,
+                    "Content-Type": "application/json",
+                    Authorization: _v2 ? `jwt ${_v2}` : "",
+                    "Vimeo-Page": `${_v3}`,
+                    "Accept-Language": _v4 ?? "en"
+                  }
+                }));
+                _v6({
+                  type: "SUCCESS",
+                  payload: _v0
+                });
+              } catch (_v0) {
+                _v6({
+                  type: "FAILURE",
+                  payload: _v0
+                });
+              }
+            }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+          }(),
           [_v6, {
             data: _v7,
             error: _v8
-          }] = _v34();
+          }] = function () {
+            let {
+                mutate: _v0
+              } = (0, _v27.useSWRConfig)(),
+              {
+                baseUrl: _v1,
+                jwt: _v2,
+                xVimeoPage: _v3,
+                locale: _v4
+              } = (0, _v29.useGctlConfig)(),
+              [_v5, _v6] = (0, _v28.useInternalState)();
+            return [(0, _v2.useCallback)(async _v0 => {
+              _v6({
+                type: "REQUEST"
+              });
+              try {
+                let _v0 = await _v0(`/me/age-verification/status${(0, _v28.serializeQuery)(_v0)}`, _v30({
+                  ..._v0,
+                  baseUrl: _v1,
+                  headers: {
+                    ..._v0.headers,
+                    "Content-Type": "application/json",
+                    Authorization: _v2 ? `jwt ${_v2}` : "",
+                    "Vimeo-Page": `${_v3}`,
+                    "Accept-Language": _v4 ?? "en"
+                  }
+                }), !1);
+                _v6({
+                  type: "SUCCESS",
+                  payload: _v0
+                });
+              } catch (_v0) {
+                _v6({
+                  type: "FAILURE",
+                  payload: _v0
+                });
+              }
+            }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+          }();
         (0, _v2.useEffect)(() => {
           _v0 && _v0.requiresAgeVerification && _v0.ageVerificationStatus === _v20 && !_v3 && !_v4 && _v2({
             select: ["inquiryId", "sessionToken"]
@@ -747,14 +715,14 @@
       !_v11.current && _v3() && (_v11.current = !0);
     }, [_v3]), (0, _v2.useEffect)(() => {
       _v4 && !1 === _v4.requiresAgeVerification && !_v2.current && _v10(_v9);
-    }, [_v4, _v10, _v9]), _v6) return (0, _v1.jsx)(_v49, {
+    }, [_v4, _v10, _v9]), _v6) return (0, _v1.jsx)(_v45, {
       centerContent: !0,
       children: (0, _v1.jsx)(_v3.Spinner, {
         size: "lg",
         "data-testid": "loader-circular"
       })
     });
-    if (_v7) return (0, _v1.jsx)(_v49, {
+    if (_v7) return (0, _v1.jsx)(_v45, {
       centerContent: !0,
       children: (0, _v1.jsx)(_v4.Text, {
         variant: "body-xl",
@@ -788,14 +756,14 @@
         })
       })
     });
-    if (_v4 && "failed" === _v4.ageVerificationStatus) return (0, _v1.jsx)(_v49, {
+    if (_v4 && "failed" === _v4.ageVerificationStatus) return (0, _v1.jsx)(_v45, {
       children: (0, _v1.jsx)(_v16, {
         "data-testid": "age-verification-failed"
       })
     });
     if (_v4 && _v4.ageVerificationStatus === _v20 && _v1?.user && _v5) {
       let _v0 = _v1.user.id;
-      return (0, _v1.jsx)(_v49, {
+      return (0, _v1.jsx)(_v45, {
         children: (0, _v1.jsx)(_v22, {
           inquiryId: _v5.inquiryId || "",
           sessionToken: _v5.sessionToken || "",
@@ -808,7 +776,7 @@
         })
       });
     }
-    return (0, _v1.jsx)(_v49, {
+    return (0, _v1.jsx)(_v45, {
       centerContent: !0,
       children: (0, _v1.jsx)(_v3.Spinner, {
         size: "lg",
@@ -832,7 +800,7 @@
     fallback: (0, _v1.jsx)(_v3.Spinner, {
       size: "lg"
     }),
-    children: (0, _v1.jsx)(_v50, {
+    children: (0, _v1.jsx)(_v46, {
       redirectUrl: _v0.redirectUrl
     })
   })], 0);

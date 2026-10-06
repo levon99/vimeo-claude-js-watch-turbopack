@@ -1117,9 +1117,8 @@
   var _v86 = _v0.i(0),
     _v87 = _v0.i(0),
     _v88 = _v0.i(0),
-    _v89 = _v0.i(0),
-    _v90 = _v0.i(0);
-  async function _v91({
+    _v89 = _v0.i(0);
+  async function _v90({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1128,125 +1127,22 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v89.measureLatency)("getUserTeamsSharedMembers", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/teams/shared/members?${(0, _v90.searchQueryString)(_v3)}&fields=${_v1.map(_v90.intoSnakeCase).join(",")}`, {
+    return (0, _v88.measureLatency)("getUserTeamsSharedMembers", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/teams/shared/members?${(0, _v89.searchQueryString)(_v3)}&fields=${_v1.map(_v89.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v90.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v89.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v90.deepCamelCase)(_v1);
+      return (0, _v89.deepCamelCase)(_v1);
     });
   }
-  var _v92 = _v0.i(0),
-    _v93 = _v0.i(0),
-    _v94 = _v0.i(0),
-    _v95 = _v0.i(0),
-    _v96 = _v0.i(0);
-  function _v97(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v96.useGctlConfig)();
-    return (0, _v95.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/users/${_v2.where.userId}/teams/shared/members?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v91({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }
-  "true" === _v88.default.env.STORYBOOK && (0, _v94.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v96.useGctlConfig)();
-    return (0, _v92.default)(_v2 ? `/users/${_v2.where.userId}/teams/shared/members${(0, _v94.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v91({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/teams/shared/members",
-    method: "GET"
-  }), "true" === _v88.default.env.STORYBOOK && (0, _v94.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v93.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v96.useGctlConfig)(),
-      [_v5, _v6] = (0, _v94.useInternalState)();
-    return [(0, _v8.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/teams/shared/members${(0, _v94.serializeQuery)(_v0)}`, _v91({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/users/:userId/teams/shared/members",
-    method: "GET"
-  }), "true" === _v88.default.env.STORYBOOK && (0, _v94.assignMswData)(_v97, {
-    endpoint: "/users/:userId/teams/shared/members",
-    method: "GET"
-  });
-  let _v98 = () => {
+  _v0.i(0), _v0.i(0), _v0.i(0);
+  var _v91 = _v0.i(0),
+    _v92 = _v0.i(0);
+  let _v93 = () => {
     let _v0 = (0, _v32.useViewer)(),
       {
         data: _v1,
@@ -1254,7 +1150,40 @@
         isLoading: _v3,
         setSize: _v4,
         size: _v5
-      } = _v97(() => _v0?.user?.id ? {
+      } = function (_v0) {
+        let _v1 = "function" == typeof _v0 ? _v0() : _v0,
+          {
+            baseUrl: _v2,
+            jwt: _v3,
+            xVimeoPage: _v4,
+            locale: _v5
+          } = (0, _v92.useGctlConfig)();
+        return (0, _v91.default)((_v0, _v1) => {
+          if (null === _v1 || _v1 && !_v1.paging.next) return null;
+          let {
+              perPage: _v2 = 25,
+              page: _v3,
+              ..._v4
+            } = _v1.query ?? {},
+            _v5 = _v1.select.join(","),
+            _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
+          return [`/users/${_v1.where.userId}/teams/shared/members?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
+        }, null !== _v1 ? ([_v0, _v1]) => _v90({
+          ..._v1,
+          baseUrl: _v2,
+          headers: {
+            ..._v1.headers,
+            "Content-Type": "application/json",
+            Authorization: _v3 ? `jwt ${_v3}` : "",
+            "Vimeo-Page": `${_v4}`,
+            "Accept-Language": _v5 ?? "en"
+          },
+          query: {
+            ..._v1.query,
+            page: _v1 + 1
+          }
+        }) : null, void 0);
+      }(() => _v0?.user?.id ? {
         where: {
           userId: _v0.user.id
         },
@@ -1300,13 +1229,13 @@
       size: _v5
     };
   };
-  var _v99 = _v0.i(0);
-  let _v100 = () => {
+  var _v94 = _v0.i(0);
+  let _v95 = () => {
     let _v0 = (0, _v32.useViewer)(),
       {
         data: _v1,
         isLoading: _v2
-      } = (0, _v99.useGetUserWorkspaces)(() => _v0?.user?.id ? {
+      } = (0, _v94.useGetUserWorkspaces)(() => _v0?.user?.id ? {
         where: {
           userId: _v0.user.id
         },
@@ -1322,8 +1251,8 @@
       teamsAndWorkspaces: _v3
     };
   };
-  var _v101 = _v0.i(0);
-  let _v102 = (0, _v7.default)(async () => {
+  var _v96 = _v0.i(0);
+  let _v97 = (0, _v7.default)(async () => {
       let {
         SharedItems: _v0
       } = await _v0.A(0);
@@ -1336,8 +1265,8 @@
       },
       ssr: !1
     }),
-    _v103 = ["video", "folder", "showcase"];
-  function _v104() {
+    _v98 = ["video", "folder", "showcase"];
+  function _v99() {
     let _v0 = (0, _v32.useViewer)(),
       _v1 = _v0?.teamUser,
       _v2 = (0, _v10.useIsMobile)(),
@@ -1352,7 +1281,7 @@
         let {
             isLoading: _v0,
             teamsAndWorkspaces: _v1
-          } = _v100(),
+          } = _v95(),
           _v2 = _v1 ? _v1.map(_v0 => ({
             label: _v0?.displayName ?? "",
             value: _v0?.teamOwnerId.toString() ?? ""
@@ -1371,14 +1300,14 @@
           teamFilterAllOption: _v3
         };
       }(),
-      _v12 = (0, _v25.useContentTypeFilter)([..._v103]),
+      _v12 = (0, _v25.useContentTypeFilter)([..._v98]),
       _v13 = (() => {
         let _v0 = (0, _v87.useFilter)({
             initialValue: new Set()
           }),
           {
             users: _v1
-          } = _v98(),
+          } = _v93(),
           [_v2, _v3] = (0, _v8.useState)(""),
           [_v4, _v5] = (0, _v8.useState)(_v1),
           _v6 = (0, _v86.useDebouncedValue)(_v2, 500);
@@ -1436,17 +1365,17 @@
         teamsAndWorkspaces: _v17,
         isLoading: _v18,
         getTeamOrWorkspaceNameByOwnerUri: _v19
-      } = _v100(),
+      } = _v95(),
       {
         isLoading: _v20,
         setSize: _v21,
         isLoadingInitialData: _v22,
         isLoadingMore: _v23,
         isDone: _v24
-      } = _v98(),
+      } = _v93(),
       _v25 = [..._v13.value].flat(),
       _v26 = _v25.length > 0 ? _v25.map(_v0 => _v0.userId).join(",") : void 0,
-      _v27 = (0, _v31.getContentTypeApiFilterParam)(_v103, _v12.value),
+      _v27 = (0, _v31.getContentTypeApiFilterParam)(_v98, _v12.value),
       {
         data: _v28,
         error: _v29,
@@ -1495,7 +1424,7 @@
       _v39 = (0, _v8.useMemo)(() => {
         if (!_v28) return;
         let _v0 = _v28.flatMap(_v0 => _v0.data);
-        return _v38 ? _v0.filter(_v0 => (0, _v31.passesContentTypeSelection)(_v0, _v103, _v12.value)) : _v0;
+        return _v38 ? _v0.filter(_v0 => (0, _v31.passesContentTypeSelection)(_v0, _v98, _v12.value)) : _v0;
       }, [_v12.value, _v28, _v38]),
       _v40 = !_v33 && (!_v39 || 0 === _v39.length),
       _v41 = "all" !== _v11.value || _v12.isFilterApplied || _v13.isFilterActive;
@@ -1536,7 +1465,7 @@
                     onToggleType: _v0 => {
                       _v12.toggle(_v0);
                     },
-                    options: _v103,
+                    options: _v98,
                     page: "shared-with-me"
                   }), _v13.hasSharedTeamMembers && (0, _v1.jsx)(_v75, {
                     isLoading: _v20,
@@ -1582,10 +1511,10 @@
                     children: [(0, _v1.jsx)(_v20.MobileContentTypeFilter, {
                       filter: _v12.draft,
                       onToggle: _v0 => {
-                        let _v1 = (0, _v31.toggleContentTypeSelection)(_v103, _v12.draft, _v0);
+                        let _v1 = (0, _v31.toggleContentTypeSelection)(_v98, _v12.draft, _v0);
                         _v12.setSelection(_v1, !0);
                       },
-                      options: _v103,
+                      options: _v98,
                       page: "shared-with-me"
                     }), (0, _v1.jsx)(_v65, {
                       filter: [..._v13.draft],
@@ -1630,7 +1559,7 @@
             setSort: _v10,
             sort: _v9
           })]
-        }), !_v40 && (0, _v1.jsx)(_v102, {
+        }), !_v40 && (0, _v1.jsx)(_v97, {
           isLoading: !!_v34,
           items: _v39,
           layout: _v7,
@@ -1717,8 +1646,8 @@
               });
             })({
               layout: "LIST_LAYOUT" === _v7 ? "list" : "grid",
-              showcase_id: (0, _v101.idFromUri)(_v1.uri).toString()
-            }), _v0 && _v14 && _v17) _v14 !== (0, _v101.idFromUri)(_v1.user.uri) && _v17.some(_v0 => _v0.uri === _v1.user.uri) && (_v0.preventDefault(), _v6({
+              showcase_id: (0, _v96.idFromUri)(_v1.uri).toString()
+            }), _v0 && _v14 && _v17) _v14 !== (0, _v96.idFromUri)(_v1.user.uri) && _v17.some(_v0 => _v0.uri === _v1.user.uri) && (_v0.preventDefault(), _v6({
               isOpen: !0,
               teamName: _v19(_v1.user.uri)
             }), fetch("/manage/videos?action=SWITCH_TEAMS", {
@@ -1728,7 +1657,7 @@
                 "X-Requested-With": "XMLHttpRequest"
               },
               body: JSON.stringify({
-                team_owner_id: (0, _v101.idFromUri)(_v1.user.uri),
+                team_owner_id: (0, _v96.idFromUri)(_v1.user.uri),
                 token: _v0.xsrft
               })
             }).finally(() => {
@@ -1755,16 +1684,16 @@
       })
     });
   }
-  var _v105 = _v0.i(0),
-    _v106 = _v0.i(0),
-    _v107 = _v0.i(0);
-  let _v108 = () => {
+  var _v100 = _v0.i(0),
+    _v101 = _v0.i(0),
+    _v102 = _v0.i(0);
+  let _v103 = () => {
     let _v0 = (0, _v32.useViewer)(),
       {
         capabilities: _v1,
         error: _v2
       } = (0, _v3.useCapability)(_v0?.team?.ownerId ? ["hasSharedWithMe"] : [], _v0?.team?.ownerId);
-    return _v0 && void 0 !== _v1.hasSharedWithMe ? _v2 || !1 === _v1.hasSharedWithMe ? (0, _v1.jsx)(_v105.ErrorPage, {
+    return _v0 && void 0 !== _v1.hasSharedWithMe ? _v2 || !1 === _v1.hasSharedWithMe ? (0, _v1.jsx)(_v100.ErrorPage, {
       error: new _v4.ResourceNotFoundError()
     }) : (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
@@ -1796,7 +1725,7 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v104, {})]
+      }), (0, _v1.jsx)(_v99, {})]
     }) : null;
   };
   (0, _v5.withPageSetup)(() => ({
@@ -1807,14 +1736,14 @@
   }), {
     requireLogin: !0,
     inlineViewer: !0
-  }), _v108.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v107.VideoLibraryLayout, {
+  }), _v103.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v102.VideoLibraryLayout, {
     hasSideNav: !0,
-    sideNavContent: (0, _v1.jsx)(_v106.SideNavContent, {
+    sideNavContent: (0, _v1.jsx)(_v101.SideNavContent, {
       surface: "home"
     }),
     sideNavSurface: "home",
     hasUploader: _v1.hasUploader,
     searchContentAlignment: _v26.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v108], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v103], 0);
 }

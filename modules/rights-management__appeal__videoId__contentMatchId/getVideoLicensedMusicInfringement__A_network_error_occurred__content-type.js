@@ -9,9 +9,8 @@
     _v6 = _v0.i(0),
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
-    _v9 = _v0.i(0),
-    _v10 = _v0.i(0);
-  async function _v11({
+    _v9 = _v0.i(0);
+  async function _v10({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -20,98 +19,33 @@
     },
     ..._v4
   }) {
-    return (0, _v9.measureLatency)("getVideoLicensedMusicInfringement", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v2}/licensed_music_infringements/${_v3}?fields=${_v1.map(_v10.intoSnakeCase).join(",")}`, {
+    return (0, _v8.measureLatency)("getVideoLicensedMusicInfringement", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v2}/licensed_music_infringements/${_v3}?fields=${_v1.map(_v9.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v10.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v9.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v10.deepCamelCase)(_v1);
+      return (0, _v9.deepCamelCase)(_v1);
     });
   }
-  var _v12 = _v0.i(0),
+  var _v11 = _v0.i(0),
+    _v12 = _v0.i(0),
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
-    _v15 = _v0.i(0);
-  function _v16(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v15.useGctlConfig)();
-    return (0, _v12.default)(_v2 ? `/videos/${_v2.where.videoId}/licensed_music_infringements/${_v2.where.infringementId}${(0, _v14.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v11({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  "true" === _v8.default.env.STORYBOOK && (0, _v14.assignMswData)(_v16, {
-    endpoint: "/videos/:videoId/licensed_music_infringements/:infringementId",
-    method: "GET"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v14.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v13.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v15.useGctlConfig)(),
-      [_v5, _v6] = (0, _v14.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/licensed_music_infringements/${_v0.where.infringementId}${(0, _v14.serializeQuery)(_v0)}`, _v11({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/videos/:videoId/licensed_music_infringements/:infringementId",
-    method: "GET"
-  });
-  var _v17 = _v0.i(0),
+    _v15 = _v0.i(0),
+    _v16 = _v0.i(0),
+    _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
-    _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
-    _v26 = _v0.i(0);
-  let _v27 = _v20.default.div.withConfig({
+    _v24 = _v0.i(0);
+  let _v25 = _v18.default.div.withConfig({
       displayName: "AppealFeedback__Wrapper",
       componentId: "sc-f69b2524-0"
     })`
@@ -120,16 +54,16 @@
   max-width: 600px;
   margin: auto;
 `,
-    _v28 = _v20.default.div.withConfig({
+    _v26 = _v18.default.div.withConfig({
       displayName: "AppealFeedback__Buttons",
       componentId: "sc-f69b2524-1"
     })`
   display: flex;
-  gap: ${_v23.core.space(200)};
+  gap: ${_v21.core.space(200)};
   margin: auto 0 auto auto;
 `,
-    _v29 = {
-      header: (0, _v21.translate)({
+    _v27 = {
+      header: (0, _v19.translate)({
         singular: "Your appeal has already been submitted",
         dictionary: {
           es: {
@@ -155,7 +89,7 @@
           }
         }
       }),
-      message: (0, _v21.translate)({
+      message: (0, _v19.translate)({
         singular: "Once a decision about your appeal has been made, you’ll get an email from our team notifying you of the outcome.",
         dictionary: {
           es: {
@@ -182,11 +116,11 @@
         }
       })
     },
-    _v30 = {
-      new: _v29,
-      appeal_in_progress: _v29,
+    _v28 = {
+      new: _v27,
+      appeal_in_progress: _v27,
       submitted: {
-        header: (0, _v21.translate)({
+        header: (0, _v19.translate)({
           singular: "Your appeal has been submitted",
           dictionary: {
             es: {
@@ -212,7 +146,7 @@
             }
           }
         }),
-        message: (0, _v21.translate)({
+        message: (0, _v19.translate)({
           singular: "Once a decision about your appeal has been made, you’ll get an email from our team notifying you of the outcome.",
           dictionary: {
             es: {
@@ -240,7 +174,7 @@
         })
       },
       failed_appeal: {
-        header: (0, _v21.translate)({
+        header: (0, _v19.translate)({
           singular: "Your appeal has been denied",
           dictionary: {
             es: {
@@ -266,7 +200,7 @@
             }
           }
         }),
-        message: (0, _v21.translate)({
+        message: (0, _v19.translate)({
           singular: "We’ve reviewed your appeal. Based on your submission, we were unable to verify that you own or are otherwise authorized to use the music used in this video. This video will remain restricted to Private. You can still replace it with a version that doesn’t contain unauthorized music.",
           dictionary: {
             es: {
@@ -293,7 +227,7 @@
           }
         }),
         link: {
-          message: (0, _v21.translate)({
+          message: (0, _v19.translate)({
             singular: "Learn more about copyright detection",
             dictionary: {
               es: {
@@ -323,47 +257,47 @@
         }
       }
     },
-    _v31 = ({
+    _v29 = ({
       videoId: _v0,
       status: _v1
     }) => {
-      let _v2 = _v30[_v1];
-      return (0, _v1.jsxs)(_v27, {
-        children: [(0, _v1.jsx)(_v24.Header, {
+      let _v2 = _v28[_v1];
+      return (0, _v1.jsxs)(_v25, {
+        children: [(0, _v1.jsx)(_v22.Header, {
           size: "3",
           children: _v2.header
-        }), (0, _v1.jsx)(_v19.Spacer, {
+        }), (0, _v1.jsx)(_v17.Spacer, {
           size: 200,
           direction: "vertical"
-        }), (0, _v1.jsx)(_v25.Paragraph, {
+        }), (0, _v1.jsx)(_v23.Paragraph, {
           size: "2",
           children: _v2.message
-        }), (0, _v1.jsx)(_v19.Spacer, {
+        }), (0, _v1.jsx)(_v17.Spacer, {
           size: 500,
           direction: "vertical"
-        }), _v2?.link && (0, _v1.jsx)(_v25.Paragraph, {
+        }), _v2?.link && (0, _v1.jsx)(_v23.Paragraph, {
           size: "2",
-          children: (0, _v1.jsx)(_v26.Link, {
+          children: (0, _v1.jsx)(_v24.Link, {
             format: "basic",
             href: _v2.link.href,
             children: _v2.link.message
           })
-        }), (0, _v1.jsx)(_v19.Spacer, {
+        }), (0, _v1.jsx)(_v17.Spacer, {
           size: 500,
           direction: "vertical"
-        }), (0, _v1.jsx)(_v19.Spacer, {
+        }), (0, _v1.jsx)(_v17.Spacer, {
           size: 500,
           direction: "vertical"
-        }), (0, _v1.jsxs)(_v28, {
-          children: ["failed_appeal" === _v1 && (0, _v1.jsx)(_v22.Button, {
+        }), (0, _v1.jsxs)(_v26, {
+          children: ["failed_appeal" === _v1 && (0, _v1.jsx)(_v20.Button, {
             element: "a",
             format: "secondary",
             href: `/manage/videos/${_v0}/replace`,
-            children: (0, _v21.translate)({
+            children: (0, _v19.translate)({
               singular: "Replace video",
               dictionary: {
                 es: {
-                  singular: "Reemplazar el video"
+                  singular: "Reemplazar video"
                 },
                 "de-DE": {
                   singular: "Video ersetzen"
@@ -372,10 +306,10 @@
                   singular: "Remplacer la vidéo"
                 },
                 "ja-JP": {
-                  singular: "動画を置き換える"
+                  singular: "動画を差し替える"
                 },
                 "ko-KR": {
-                  singular: "동영상 교체"
+                  singular: "비디오 교체"
                 },
                 "pt-BR": {
                   singular: "Substituir vídeo"
@@ -385,10 +319,10 @@
                 }
               }
             })
-          }), "submitted" === _v1 ? (0, _v1.jsx)(_v22.Button, {
+          }), "submitted" === _v1 ? (0, _v1.jsx)(_v20.Button, {
             element: "a",
             href: "/rights-management",
-            children: (0, _v21.translate)({
+            children: (0, _v19.translate)({
               singular: "Back to rights management",
               dictionary: {
                 es: {
@@ -414,10 +348,10 @@
                 }
               }
             })
-          }) : (0, _v1.jsx)(_v22.Button, {
+          }) : (0, _v1.jsx)(_v20.Button, {
             element: "a",
             href: "/manage/videos",
-            children: (0, _v21.translate)({
+            children: (0, _v19.translate)({
               singular: "Back to my videos",
               dictionary: {
                 es: {
@@ -447,11 +381,11 @@
         })]
       });
     };
-  var _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  async function _v36({
+  var _v30 = _v0.i(0),
+    _v31 = _v0.i(0),
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0);
+  async function _v34({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -461,81 +395,20 @@
     },
     ..._v5
   }) {
-    return (0, _v9.measureLatency)("postVideoLicensedMusicInfringementLicensedMusicAppeals", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v3}/licensed_music_infringements/${_v4}/licensed_music_appeals?fields=${_v1.map(_v10.intoSnakeCase).join(",")}`, {
+    return (0, _v8.measureLatency)("postVideoLicensedMusicInfringementLicensedMusicAppeals", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v3}/licensed_music_infringements/${_v4}/licensed_music_appeals?fields=${_v1.map(_v9.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "POST",
-        body: JSON.stringify((0, _v10.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v9.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v10.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v9.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v10.deepCamelCase)(_v1);
+      return (0, _v9.deepCamelCase)(_v1);
     });
   }
-  function _v37() {
-    let {
-        mutate: _v0
-      } = (0, _v13.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v15.useGctlConfig)(),
-      [_v5, _v6] = (0, _v14.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/licensed_music_infringements/${_v0.where.infringementId}/licensed_music_appeals${(0, _v14.serializeQuery)(_v0)}`, _v36({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  async function _v38({
-    baseUrl: _v0,
-    select: _v1,
-    where: {
-      videoId: _v2,
-      infringementId: _v3,
-      appealId: _v4
-    },
-    ..._v5
-  }) {
-    return (0, _v9.measureLatency)("getVideoLicensedMusicInfringementLicensedMusicAppealSupportingDocuments", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v2}/licensed_music_infringements/${_v3}/licensed_music_appeals/${_v4}/supporting_documents?fields=${_v1.map(_v10.intoSnakeCase).join(",")}`, {
-        ..._v5,
-        method: "GET"
-      });
-      if (!_v0.ok) throw new _v10.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v10.deepCamelCase)(_v1);
-    });
-  }
-  async function _v39({
+  async function _v35({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -546,167 +419,58 @@
     },
     ..._v6
   }) {
-    return (0, _v9.measureLatency)("postVideoLicensedMusicInfringementLicensedMusicAppealSupportingDocuments", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v3}/licensed_music_infringements/${_v4}/licensed_music_appeals/${_v5}/supporting_documents?fields=${_v1.map(_v10.intoSnakeCase).join(",")}`, {
+    return (0, _v8.measureLatency)("postVideoLicensedMusicInfringementLicensedMusicAppealSupportingDocuments", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v3}/licensed_music_infringements/${_v4}/licensed_music_appeals/${_v5}/supporting_documents?fields=${_v1.map(_v9.intoSnakeCase).join(",")}`, {
         ..._v6,
         method: "POST",
-        body: JSON.stringify((0, _v10.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v9.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v10.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v9.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v10.deepCamelCase)(_v1);
+      return (0, _v9.deepCamelCase)(_v1);
     });
   }
-  function _v40() {
-    let {
-        mutate: _v0
-      } = (0, _v13.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v15.useGctlConfig)(),
-      [_v5, _v6] = (0, _v14.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/licensed_music_infringements/${_v0.where.infringementId}/licensed_music_appeals/${_v0.where.appealId}/supporting_documents${(0, _v14.serializeQuery)(_v0)}`, _v39({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v8.default.env.STORYBOOK && (0, _v14.assignMswData)(_v37, {
-    endpoint: "/videos/:videoId/licensed_music_infringements/:infringementId/licensed_music_appeals",
-    method: "POST"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v14.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v15.useGctlConfig)();
-    return (0, _v12.default)(_v2 ? `/videos/${_v2.where.videoId}/licensed_music_infringements/${_v2.where.infringementId}/licensed_music_appeals/${_v2.where.appealId}/supporting_documents${(0, _v14.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v38({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/videos/:videoId/licensed_music_infringements/:infringementId/licensed_music_appeals/:appealId/supporting_documents",
-    method: "GET"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v14.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v13.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v15.useGctlConfig)(),
-      [_v5, _v6] = (0, _v14.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/licensed_music_infringements/${_v0.where.infringementId}/licensed_music_appeals/${_v0.where.appealId}/supporting_documents${(0, _v14.serializeQuery)(_v0)}`, _v38({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/videos/:videoId/licensed_music_infringements/:infringementId/licensed_music_appeals/:appealId/supporting_documents",
-    method: "GET"
-  }), "true" === _v8.default.env.STORYBOOK && (0, _v14.assignMswData)(_v40, {
-    endpoint: "/videos/:videoId/licensed_music_infringements/:infringementId/licensed_music_appeals/:appealId/supporting_documents",
-    method: "POST"
-  });
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  let _v48 = _v20.default.div.withConfig({
+  var _v36 = _v0.i(0),
+    _v37 = _v0.i(0),
+    _v38 = _v0.i(0),
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  let _v43 = _v18.default.div.withConfig({
       displayName: "styles__SubmitFormWrapper",
       componentId: "sc-135a2525-0"
     })`
   display: flex;
-  gap: ${_v23.core.space(0)};
+  gap: ${_v21.core.space(0)};
 `,
-    _v49 = _v20.default.div.withConfig({
+    _v44 = _v18.default.div.withConfig({
       displayName: "styles__ButtonContainer",
       componentId: "sc-135a2525-1"
     })`
   justify-content: flex-end;
   display: flex;
-  gap: ${_v23.core.space(200)};
+  gap: ${_v21.core.space(200)};
 `,
-    _v50 = _v20.default.form.withConfig({
+    _v45 = _v18.default.form.withConfig({
       displayName: "styles__StyledForm",
       componentId: "sc-135a2525-2"
     })`
   display: flex;
   flex-direction: column;
-  gap: ${_v23.core.space(200)};
-  max-width: ${(0, _v45.rem)(600)};
+  gap: ${_v21.core.space(200)};
+  max-width: ${(0, _v40.rem)(600)};
 `,
-    _v51 = (0, _v20.default)(_v25.Paragraph).withConfig({
+    _v46 = (0, _v18.default)(_v23.Paragraph).withConfig({
       displayName: "styles__ErrorMessage",
       componentId: "sc-135a2525-3"
     })`
   display: block;
-  color: ${_v23.core.color.status.negative};
+  color: ${_v21.core.color.status.negative};
 `,
-    _v52 = (0, _v20.default)(_v47.Radio).withConfig({
+    _v47 = (0, _v18.default)(_v42.Radio).withConfig({
       displayName: "styles__StyledRadio",
       componentId: "sc-135a2525-4"
     })`
@@ -715,7 +479,7 @@
     display: inline-block;
   }
 `,
-    _v53 = _v20.default.label.withConfig({
+    _v48 = _v18.default.label.withConfig({
       displayName: "styles__FileInputLabel",
       componentId: "sc-135a2525-5"
     })`
@@ -723,11 +487,11 @@
   align-items: center;
   gap: 0.5rem;
   position: relative;
-  border: 1px solid ${(0, _v46.blue)(400)};
+  border: 1px solid ${(0, _v41.blue)(400)};
   max-width: 120px;
   padding: 0.75rem;
   border-radius: 0.5rem;
-  color: ${(0, _v46.blue)(400)};
+  color: ${(0, _v41.blue)(400)};
   font-weight: 600;
   transition:
     all 170ms ease-in-out,
@@ -745,7 +509,7 @@
     border-radius: 0.625rem;
     transition: 150ms ease-in-out;
     transform-origin: center;
-    border: 0.125rem solid ${(0, _v46.blue)(400)};
+    border: 0.125rem solid ${(0, _v41.blue)(400)};
     opacity: 0;
     top: -0.25rem;
     left: -0.25rem;
@@ -765,11 +529,11 @@
     width: 20px;
 
     & path {
-      fill: ${(0, _v46.blue)(400)};
+      fill: ${(0, _v41.blue)(400)};
     }
   }
 `,
-    _v54 = _v20.default.input.withConfig({
+    _v49 = _v18.default.input.withConfig({
       displayName: "styles__FileInput",
       componentId: "sc-135a2525-6"
     })`
@@ -778,27 +542,27 @@
   opacity: 0;
   outline: none;
 
-  &:focus + ${_v53}::before {
+  &:focus + ${_v48}::before {
     opacity: 1;
-    border: 0.125rem solid ${(0, _v46.blue)(400)};
+    border: 0.125rem solid ${(0, _v41.blue)(400)};
   }
 `,
-    _v55 = _v20.default.ul.withConfig({
+    _v50 = _v18.default.ul.withConfig({
       displayName: "styles__Acknowledgements",
       componentId: "sc-135a2525-7"
     })`
   list-style-type: initial;
   padding-inline-start: 24px;
 `,
-    _v56 = _v20.default.li.withConfig({
+    _v51 = _v18.default.li.withConfig({
       displayName: "styles__Acknowledgement",
       componentId: "sc-135a2525-8"
     })``,
-    _v57 = "original_content",
-    _v58 = "explicit_permission",
-    _v59 = "other",
-    _v60 = [{
-      label: (0, _v21.translate)({
+    _v52 = "original_content",
+    _v53 = "explicit_permission",
+    _v54 = "other",
+    _v55 = [{
+      label: (0, _v19.translate)({
         singular: "I own the rights to this music",
         dictionary: {
           es: {
@@ -824,9 +588,9 @@
           }
         }
       }),
-      value: _v57
+      value: _v52
     }, {
-      label: (0, _v21.translate)({
+      label: (0, _v19.translate)({
         singular: "I have permission from the owner of the rights to use this music",
         dictionary: {
           es: {
@@ -852,9 +616,9 @@
           }
         }
       }),
-      value: _v58
+      value: _v53
     }, {
-      label: (0, _v21.translate)({
+      label: (0, _v19.translate)({
         singular: "I’m otherwise allowed to use this music (for example, it’s in the public domain)",
         dictionary: {
           es: {
@@ -880,20 +644,20 @@
           }
         }
       }),
-      value: _v59
+      value: _v54
     }],
-    _v61 = "description",
-    _v62 = "files",
-    _v63 = {
-      [_v57]: [_v62],
-      [_v58]: [_v62],
-      [_v59]: [_v61]
+    _v56 = "description",
+    _v57 = "files",
+    _v58 = {
+      [_v52]: [_v57],
+      [_v53]: [_v57],
+      [_v54]: [_v56]
     },
-    _v64 = {
+    _v59 = {
       description: ""
     },
-    _v65 = _v0 => parseInt(_v0.split("/").pop() ?? "0");
-  function _v66(_v0, _v1) {
+    _v60 = _v0 => parseInt(_v0.split("/").pop() ?? "0");
+  function _v61(_v0, _v1) {
     let {
       type: _v2,
       filename: _v3,
@@ -936,16 +700,16 @@
         throw Error(`Unknown action: ${_v2}`);
     }
   }
-  let _v67 = ({
+  let _v62 = ({
     videoId: _v0,
     infringement: _v1,
     onSubmissionComplete: _v2
   }) => {
-    let _v3 = _v65(_v1?.uri ?? ""),
+    let _v3 = _v60(_v1?.uri ?? ""),
       [_v4, _v5] = (0, _v3.useState)(),
       [_v6, _v7] = (0, _v3.useState)(!1),
       [_v8, _v9] = (0, _v3.useState)(!1),
-      [_v10, _v11] = (0, _v3.useReducer)(_v66, {}),
+      [_v10, _v11] = (0, _v3.useReducer)(_v61, {}),
       _v12 = Object.values(_v10),
       _v13 = _v12.length,
       _v14 = void 0 !== _v12.find(_v0 => _v0.isLarge),
@@ -971,11 +735,87 @@
     let [_v18, {
         data: _v19,
         error: _v20
-      }] = _v37(),
+      }] = function () {
+        let {
+            mutate: _v0
+          } = (0, _v12.useSWRConfig)(),
+          {
+            baseUrl: _v1,
+            jwt: _v2,
+            xVimeoPage: _v3,
+            locale: _v4
+          } = (0, _v14.useGctlConfig)(),
+          [_v5, _v6] = (0, _v13.useInternalState)();
+        return [(0, _v3.useCallback)(async _v0 => {
+          _v6({
+            type: "REQUEST"
+          });
+          try {
+            let _v0 = await _v0(`/videos/${_v0.where.videoId}/licensed_music_infringements/${_v0.where.infringementId}/licensed_music_appeals${(0, _v13.serializeQuery)(_v0)}`, _v34({
+              ..._v0,
+              baseUrl: _v1,
+              headers: {
+                ..._v0.headers,
+                "Content-Type": "application/json",
+                Authorization: _v2 ? `jwt ${_v2}` : "",
+                "Vimeo-Page": `${_v3}`,
+                "Accept-Language": _v4 ?? "en"
+              }
+            }), !1);
+            _v6({
+              type: "SUCCESS",
+              payload: _v0
+            });
+          } catch (_v0) {
+            _v6({
+              type: "FAILURE",
+              payload: _v0
+            });
+          }
+        }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+      }(),
       [_v21, {
         error: _v22,
         data: _v23
-      }] = _v40();
+      }] = function () {
+        let {
+            mutate: _v0
+          } = (0, _v12.useSWRConfig)(),
+          {
+            baseUrl: _v1,
+            jwt: _v2,
+            xVimeoPage: _v3,
+            locale: _v4
+          } = (0, _v14.useGctlConfig)(),
+          [_v5, _v6] = (0, _v13.useInternalState)();
+        return [(0, _v3.useCallback)(async _v0 => {
+          _v6({
+            type: "REQUEST"
+          });
+          try {
+            let _v0 = await _v0(`/videos/${_v0.where.videoId}/licensed_music_infringements/${_v0.where.infringementId}/licensed_music_appeals/${_v0.where.appealId}/supporting_documents${(0, _v13.serializeQuery)(_v0)}`, _v35({
+              ..._v0,
+              baseUrl: _v1,
+              headers: {
+                ..._v0.headers,
+                "Content-Type": "application/json",
+                Authorization: _v2 ? `jwt ${_v2}` : "",
+                "Vimeo-Page": `${_v3}`,
+                "Accept-Language": _v4 ?? "en"
+              }
+            }), !1);
+            _v6({
+              type: "SUCCESS",
+              payload: _v0
+            });
+          } catch (_v0) {
+            _v6({
+              type: "FAILURE",
+              payload: _v0
+            });
+          }
+        }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+      }();
     (0, _v3.useEffect)(() => {
       if (_v23) {
         let {
@@ -1010,7 +850,7 @@
     }, [_v10, _v23, _v22]), (0, _v3.useEffect)(() => {
       if (_v19) {
         _v5(_v19);
-        let _v0 = _v65(_v19.uri);
+        let _v0 = _v60(_v19.uri);
         _v12.filter(({
           status: _v0
         }) => "selected" === _v0).forEach(({
@@ -1047,25 +887,25 @@
         setError: _v29,
         clearErrors: _v30,
         watch: _v31
-      } = (0, _v32.useForm)({
-        defaultValues: _v64
+      } = (0, _v30.useForm)({
+        defaultValues: _v59
       }),
       _v32 = _v31(),
       _v33 = _v32.option,
       _v34 = "other" !== _v33,
       _v35 = "other" === _v33,
-      _v36 = _v63[_v33],
-      _v37 = Array.isArray(_v36) && _v36.every(_v0 => _v0 === _v62 ? _v13 > 0 : !!_v32[_v0]),
+      _v36 = _v58[_v33],
+      _v37 = Array.isArray(_v36) && _v36.every(_v0 => _v0 === _v57 ? _v13 > 0 : !!_v32[_v0]),
       _v38 = 0 === Object.keys(_v27).length,
       _v39 = _v38 && _v28 && _v37;
     return (0, _v3.useEffect)(() => {
-      !_v38 && _v37 && _v6 && _v30(), _v6 && !_v37 && (_v35 && !_v27[_v61] && _v29(_v61, {
+      !_v38 && _v37 && _v6 && _v30(), _v6 && !_v37 && (_v35 && !_v27[_v56] && _v29(_v56, {
         message: "Description required"
-      }), _v34 && !_v27[_v62] && _v29(_v62, {
+      }), _v34 && !_v27[_v57] && _v29(_v57, {
         message: "Supporting document required"
-      }), (!_v35 || _v35 && "" !== _v32[_v61]) && _v27[_v61] && _v30(_v61), (!_v34 || _v34 && _v13 > 0) && _v27[_v62] && _v30(_v62));
-    }, [_v29, _v30, _v38, _v37, _v6, _v35, _v34, _v13, _v32, _v27]), (0, _v1.jsx)(_v48, {
-      children: (0, _v1.jsxs)(_v50, {
+      }), (!_v35 || _v35 && "" !== _v32[_v56]) && _v27[_v56] && _v30(_v56), (!_v34 || _v34 && _v13 > 0) && _v27[_v57] && _v30(_v57));
+    }, [_v29, _v30, _v38, _v37, _v6, _v35, _v34, _v13, _v32, _v27]), (0, _v1.jsx)(_v43, {
+      children: (0, _v1.jsxs)(_v45, {
         onSubmit: _v25(_v0 => {
           _v9(!0);
           let {
@@ -1086,9 +926,9 @@
             }
           });
         }),
-        children: [(0, _v1.jsx)(_v24.Header, {
+        children: [(0, _v1.jsx)(_v22.Header, {
           size: "3",
-          children: (0, _v21.translate)({
+          children: (0, _v19.translate)({
             singular: "Submit a copyright appeal",
             dictionary: {
               es: {
@@ -1114,9 +954,9 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v25.Paragraph, {
+        }), (0, _v1.jsx)(_v23.Paragraph, {
           size: "2",
-          children: (0, _v21.translate)({
+          children: (0, _v19.translate)({
             singular: "This video contains music that may be owned by someone else. Videos containing protected music are restricted to Private if the issue isn’t resolved within 48 hours.",
             dictionary: {
               es: {
@@ -1142,9 +982,9 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v25.Paragraph, {
+        }), (0, _v1.jsx)(_v23.Paragraph, {
           size: "2",
-          children: (0, _v21.translate)({
+          children: (0, _v19.translate)({
             singular: "If you have permission to use the music, use this form to submit an appeal.",
             dictionary: {
               es: {
@@ -1171,9 +1011,9 @@
             }
           })
         }), (0, _v1.jsxs)("section", {
-          children: [(0, _v1.jsx)(_v24.Header, {
+          children: [(0, _v1.jsx)(_v22.Header, {
             size: "4",
-            children: (0, _v21.translate)({
+            children: (0, _v19.translate)({
               singular: "Tell us why you’re submitting an appeal",
               dictionary: {
                 es: {
@@ -1199,21 +1039,21 @@
                 }
               }
             })
-          }), _v60.map(({
+          }), _v55.map(({
             label: _v0,
             value: _v1
-          }, _v2) => (0, _v1.jsx)(_v52, {
+          }, _v2) => (0, _v1.jsx)(_v47, {
             label: _v0,
             value: _v1,
             ..._v24("option", {
               required: "Option required"
             })
-          }, `reason-${_v2}-${_v1}`)), (0, _v1.jsx)(_v19.Spacer, {
+          }, `reason-${_v2}-${_v1}`)), (0, _v1.jsx)(_v17.Spacer, {
             direction: "vertical",
             size: 150
-          }), (0, _v1.jsx)(_v42.TextArea, {
-            ..._v24(_v61),
-            placeholder: (0, _v21.translate)({
+          }), (0, _v1.jsx)(_v37.TextArea, {
+            ..._v24(_v56),
+            placeholder: (0, _v19.translate)({
               singular: "Please provide additional information for your appeal",
               dictionary: {
                 es: {
@@ -1246,9 +1086,9 @@
             }
           })]
         }), (0, _v1.jsxs)("section", {
-          children: [(0, _v1.jsx)(_v24.Header, {
+          children: [(0, _v1.jsx)(_v22.Header, {
             size: "4",
-            children: (0, _v21.translate)({
+            children: (0, _v19.translate)({
               singular: "Upload supporting documents",
               dictionary: {
                 es: {
@@ -1274,9 +1114,9 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v25.Paragraph, {
+          }), (0, _v1.jsx)(_v23.Paragraph, {
             size: "2",
-            children: (0, _v21.translate)({
+            children: (0, _v19.translate)({
               singular: "If you have permission from the owner of the rights to use this music, include a copy of their permission. Upload documents in English only.",
               dictionary: {
                 es: {
@@ -1302,12 +1142,12 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v19.Spacer, {
+          }), (0, _v1.jsx)(_v17.Spacer, {
             direction: "vertical",
             size: 150
-          }), (0, _v1.jsx)(_v54, {
+          }), (0, _v1.jsx)(_v49, {
             id: "file input",
-            ..._v24(_v62, {
+            ..._v24(_v57, {
               validate: _v0 => !_v34 && 0 === _v0.length || _v0.length > 0 || _v13 > 0 && _v13 <= 5
             }),
             type: "file",
@@ -1324,10 +1164,10 @@
                 }
               });
             }
-          }), (0, _v1.jsxs)(_v53, {
+          }), (0, _v1.jsxs)(_v48, {
             htmlFor: "file input",
             disabled: _v16,
-            children: [(0, _v1.jsx)(_v33.Upload, {}), (0, _v21.translate)({
+            children: [(0, _v1.jsx)(_v31.Upload, {}), (0, _v19.translate)({
               singular: "Upload",
               dictionary: {
                 es: {
@@ -1353,13 +1193,13 @@
                 }
               }
             })]
-          }), (0, _v1.jsx)(_v25.Paragraph, {
+          }), (0, _v1.jsx)(_v23.Paragraph, {
             size: "4",
             style: {
               display: "block",
-              margin: `${_v23.core.space(100)} 0`
+              margin: `${_v21.core.space(100)} 0`
             },
-            children: (0, _v21.translate)({
+            children: (0, _v19.translate)({
               singular: "Upload up to {MAX_FILES} files. Supported file types: PDF, DOC, DOCX, JPG, PNG.",
               replacements: {
                 MAX_FILES: 5
@@ -1388,14 +1228,14 @@
                 }
               }
             })
-          }), _v27.files && (0, _v1.jsx)(_v51, {
+          }), _v27.files && (0, _v1.jsx)(_v46, {
             size: "3",
             children: _v27.files.message
           })]
         }), (0, _v1.jsx)("div", {
-          children: 0 !== _v12.length && _v12.map((_v0, _v1) => (0, _v1.jsx)(_v43.Notice, {
+          children: 0 !== _v12.length && _v12.map((_v0, _v1) => (0, _v1.jsx)(_v38.Notice, {
             format: _v15 || _v0.isLarge ? "negative" : "primary",
-            icon: _v0.isLarge ? (0, _v1.jsx)(_v35.CircleExclamation, {}) : (0, _v1.jsx)(_v34.Checkmark, {}),
+            icon: _v0.isLarge ? (0, _v1.jsx)(_v33.CircleExclamation, {}) : (0, _v1.jsx)(_v32.Checkmark, {}),
             onClose: () => {
               _v11({
                 type: "removed",
@@ -1404,9 +1244,9 @@
             },
             children: _v0.filename
           }, _v1))
-        }), _v15 && (0, _v1.jsx)(_v51, {
+        }), _v15 && (0, _v1.jsx)(_v46, {
           size: "3",
-          children: (0, _v21.translate)({
+          children: (0, _v19.translate)({
             singular: "Max files reached.",
             dictionary: {
               es: {
@@ -1432,12 +1272,12 @@
               }
             }
           })
-        }), _v14 && (0, _v1.jsx)(_v51, {
+        }), _v14 && (0, _v1.jsx)(_v46, {
           size: "3",
-          children: (0, _v21.translate)({
+          children: (0, _v19.translate)({
             singular: "File is too large, upload files less than {MAXFILESIZE}. Please delete and try again.",
             replacements: {
-              MAXFILESIZE: (0, _v44.bytesToSize)(10)
+              MAXFILESIZE: (0, _v39.bytesToSize)(10)
             },
             dictionary: {
               es: {
@@ -1464,9 +1304,9 @@
             }
           })
         }), (0, _v1.jsxs)("section", {
-          children: [(0, _v1.jsx)(_v24.Header, {
+          children: [(0, _v1.jsx)(_v22.Header, {
             size: "4",
-            children: (0, _v21.translate)({
+            children: (0, _v19.translate)({
               singular: "Agree and submit",
               dictionary: {
                 es: {
@@ -1492,9 +1332,9 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v25.Paragraph, {
+          }), (0, _v1.jsx)(_v23.Paragraph, {
             size: "3",
-            children: (0, _v21.translate)({
+            children: (0, _v19.translate)({
               singular: "By submitting, you:",
               dictionary: {
                 es: {
@@ -1520,14 +1360,14 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v19.Spacer, {
+          }), (0, _v1.jsx)(_v17.Spacer, {
             direction: "vertical",
             size: 150
-          }), (0, _v1.jsxs)(_v55, {
-            children: [(0, _v1.jsx)(_v56, {
-              children: (0, _v1.jsx)(_v25.Paragraph, {
+          }), (0, _v1.jsxs)(_v50, {
+            children: [(0, _v1.jsx)(_v51, {
+              children: (0, _v1.jsx)(_v23.Paragraph, {
                 size: "3",
-                children: (0, _v21.translate)({
+                children: (0, _v19.translate)({
                   singular: "Acknowledge that you may be liable if you knowingly misrepresent any information",
                   dictionary: {
                     es: {
@@ -1554,10 +1394,10 @@
                   }
                 })
               })
-            }), (0, _v1.jsx)(_v56, {
-              children: (0, _v1.jsx)(_v25.Paragraph, {
+            }), (0, _v1.jsx)(_v51, {
+              children: (0, _v1.jsx)(_v23.Paragraph, {
                 size: "3",
-                children: (0, _v21.translate)({
+                children: (0, _v19.translate)({
                   singular: "Acknowledge that the information you’ve submitted may be shared with third parties",
                   dictionary: {
                     es: {
@@ -1584,10 +1424,10 @@
                   }
                 })
               })
-            }), (0, _v1.jsx)(_v56, {
-              children: (0, _v1.jsx)(_v25.Paragraph, {
+            }), (0, _v1.jsx)(_v51, {
+              children: (0, _v1.jsx)(_v23.Paragraph, {
                 size: "3",
-                children: (0, _v21.translate)({
+                children: (0, _v19.translate)({
                   singular: "Declare your belief that this video was restricted by mistake",
                   dictionary: {
                     es: {
@@ -1614,10 +1454,10 @@
                   }
                 })
               })
-            }), (0, _v1.jsx)(_v56, {
-              children: (0, _v1.jsx)(_v25.Paragraph, {
+            }), (0, _v1.jsx)(_v51, {
+              children: (0, _v1.jsx)(_v23.Paragraph, {
                 size: "3",
-                children: (0, _v21.translate)({
+                children: (0, _v19.translate)({
                   singular: "Affirm that the information you’ve provided is true, correct, and complete",
                   dictionary: {
                     es: {
@@ -1645,12 +1485,12 @@
                 })
               })
             })]
-          }), (0, _v1.jsx)(_v19.Spacer, {
+          }), (0, _v1.jsx)(_v17.Spacer, {
             direction: "vertical",
             size: 150
-          }), (0, _v1.jsx)(_v25.Paragraph, {
+          }), (0, _v1.jsx)(_v23.Paragraph, {
             size: "3",
-            children: (0, _v21.translate)({
+            children: (0, _v19.translate)({
               singular: "Once you submit this appeal, you won’t be able to change or undo it.",
               dictionary: {
                 es: {
@@ -1676,11 +1516,11 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v19.Spacer, {
+          }), (0, _v1.jsx)(_v17.Spacer, {
             direction: "vertical",
             size: 150
-          }), (0, _v1.jsx)(_v41.Checkbox, {
-            label: (0, _v21.translate)({
+          }), (0, _v1.jsx)(_v36.Checkbox, {
+            label: (0, _v19.translate)({
               singular: "I agree",
               dictionary: {
                 es: {
@@ -1710,8 +1550,8 @@
             ..._v24("signature", {
               onChange: _v0 => _v7(_v0.target?.checked)
             })
-          }), (0, _v1.jsxs)(_v49, {
-            children: [(0, _v1.jsx)(_v22.Button, {
+          }), (0, _v1.jsxs)(_v44, {
+            children: [(0, _v1.jsx)(_v20.Button, {
               variant: "outline",
               disabled: _v8,
               onClick: () => {
@@ -1719,7 +1559,7 @@
                   type: "cleared"
                 });
               },
-              children: (0, _v21.translate)({
+              children: (0, _v19.translate)({
                 singular: "Cancel",
                 dictionary: {
                   es: {
@@ -1745,12 +1585,12 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v22.Button, {
+            }), (0, _v1.jsx)(_v20.Button, {
               type: "submit",
               disabled: !(_v6 && _v39),
               children: _v8 ? (0, _v1.jsx)(_v6.Spinner, {
                 size: "sm"
-              }) : (0, _v21.translate)({
+              }) : (0, _v19.translate)({
                 singular: "Submit Appeal",
                 dictionary: {
                   es: {
@@ -1782,57 +1622,57 @@
       })
     });
   };
-  var _v68 = _v0.i(0),
-    _v69 = _v0.i(0);
-  let _v70 = _v20.default.div.withConfig({
+  var _v63 = _v0.i(0),
+    _v64 = _v0.i(0);
+  let _v65 = _v18.default.div.withConfig({
       displayName: "MatchedContentInfo__InfoContainer",
       componentId: "sc-40cb1898-0"
     })`
   display: flex;
 `,
-    _v71 = _v20.default.div.withConfig({
+    _v66 = _v18.default.div.withConfig({
       displayName: "MatchedContentInfo__InfoIconColumn",
       componentId: "sc-40cb1898-1"
     })`
-  padding: 0 ${(0, _v68.rem)(12)} 0 ${(0, _v68.rem)(24)};
+  padding: 0 ${(0, _v63.rem)(12)} 0 ${(0, _v63.rem)(24)};
 `,
-    _v72 = _v20.default.div.withConfig({
+    _v67 = _v18.default.div.withConfig({
       displayName: "MatchedContentInfo__InfoTextColumn",
       componentId: "sc-40cb1898-2"
     })`
-  padding-right: ${(0, _v68.rem)(12)};
+  padding-right: ${(0, _v63.rem)(12)};
 `,
-    _v73 = ({
+    _v68 = ({
       children: _v0
-    }) => (0, _v1.jsx)(_v24.Header, {
+    }) => (0, _v1.jsx)(_v22.Header, {
       size: "4",
       style: {
         marginBottom: 0
       },
       children: _v0
     }),
-    _v74 = ({
+    _v69 = ({
       infringement: _v0
-    }) => (0, _v1.jsxs)(_v70, {
-      children: [(0, _v1.jsx)(_v71, {
-        children: (0, _v1.jsx)(_v69.MusicFilled, {
-          boxSize: (0, _v68.rem)(36),
-          marginTop: (0, _v68.rem)(12)
+    }) => (0, _v1.jsxs)(_v65, {
+      children: [(0, _v1.jsx)(_v66, {
+        children: (0, _v1.jsx)(_v64.MusicFilled, {
+          boxSize: (0, _v63.rem)(36),
+          marginTop: (0, _v63.rem)(12)
         })
-      }), (0, _v1.jsxs)(_v72, {
-        children: [(0, _v1.jsx)(_v73, {
+      }), (0, _v1.jsxs)(_v67, {
+        children: [(0, _v1.jsx)(_v68, {
           children: _v0?.title
-        }), (0, _v1.jsx)(_v73, {
+        }), (0, _v1.jsx)(_v68, {
           children: _v0?.artist
-        }), (0, _v1.jsx)(_v73, {
+        }), (0, _v1.jsx)(_v68, {
           children: _v0?.label
-        }), (0, _v1.jsx)(_v25.Paragraph, {
+        }), (0, _v1.jsx)(_v23.Paragraph, {
           size: "2",
           format: "alternative",
           style: {
             display: "block"
           },
-          children: (0, _v21.translate)({
+          children: (0, _v19.translate)({
             singular: "Music detected",
             dictionary: {
               es: {
@@ -1858,12 +1698,12 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v25.Paragraph, {
+        }), (0, _v1.jsx)(_v23.Paragraph, {
           size: "2",
-          children: (0, _v1.jsx)(_v26.Link, {
+          children: (0, _v1.jsx)(_v24.Link, {
             href: "",
             format: "soft",
-            children: (0, _v21.translate)({
+            children: (0, _v19.translate)({
               singular: "How do I know if I have permission to use this music?",
               dictionary: {
                 es: {
@@ -1890,21 +1730,21 @@
               }
             })
           })
-        }), (0, _v1.jsx)(_v19.Spacer, {
+        }), (0, _v1.jsx)(_v17.Spacer, {
           size: 200,
           direction: "vertical"
         })]
       })]
     });
-  var _v75 = _v0.i(0);
-  let _v76 = ({
+  var _v70 = _v0.i(0);
+  let _v71 = ({
       videoId: _v0,
       configUrl: _v1
     }) => {
       let _v2 = (0, _v3.useRef)(null),
         {
           player: _v3
-        } = (0, _v75.usePlayer)(_v2, _v0, !0, _v1, !1),
+        } = (0, _v70.usePlayer)(_v2, _v0, !0, _v1, !1),
         [_v4, _v5] = (0, _v3.useState)();
       return (0, _v3.useEffect)(() => {
         _v3 && _v3.ready && _v3.ready(() => {
@@ -1919,7 +1759,7 @@
             height: _v3.videoHeight
           });
         });
-      }, [_v3, _v2]), (0, _v1.jsx)(_v77, {
+      }, [_v3, _v2]), (0, _v1.jsx)(_v72, {
         width: _v4?.width || 0,
         height: _v4?.height || 0,
         children: (0, _v1.jsx)("div", {
@@ -1928,7 +1768,7 @@
         })
       });
     },
-    _v77 = _v20.default.div.withConfig({
+    _v72 = _v18.default.div.withConfig({
       displayName: "Player__PlayerContainer",
       componentId: "sc-949758c9-0"
     })`
@@ -1936,34 +1776,34 @@
   width: ${_v0 => _v0.width / 4}px;
   height: ${_v0 => _v0.height / 4}px;
 `;
-  _v20.default.div.withConfig({
+  _v18.default.div.withConfig({
     displayName: "styles__SubmitFormWrapper",
     componentId: "sc-d4664baa-0"
   })`
   display: flex;
-  gap: ${_v23.core.space(0)};
-`, _v20.default.div.withConfig({
+  gap: ${_v21.core.space(0)};
+`, _v18.default.div.withConfig({
     displayName: "styles__ButtonContainer",
     componentId: "sc-d4664baa-1"
   })`
   justify-content: flex-end;
   display: flex;
-  gap: ${_v23.core.space(200)};
-`, _v20.default.form.withConfig({
+  gap: ${_v21.core.space(200)};
+`, _v18.default.form.withConfig({
     displayName: "styles__StyledForm",
     componentId: "sc-d4664baa-2"
   })`
   display: flex;
   flex-direction: column;
-  gap: ${_v23.core.space(200)};
-  max-width: ${(0, _v45.rem)(600)};
-`, (0, _v20.default)(_v25.Paragraph).withConfig({
+  gap: ${_v21.core.space(200)};
+  max-width: ${(0, _v40.rem)(600)};
+`, (0, _v18.default)(_v23.Paragraph).withConfig({
     displayName: "styles__ErrorMessage",
     componentId: "sc-d4664baa-3"
   })`
   display: block;
-  color: ${_v23.core.color.status.negative};
-`, (0, _v20.default)(_v47.Radio).withConfig({
+  color: ${_v21.core.color.status.negative};
+`, (0, _v18.default)(_v42.Radio).withConfig({
     displayName: "styles__StyledRadio",
     componentId: "sc-d4664baa-4"
   })`
@@ -1972,7 +1812,7 @@
     display: inline-block;
   }
 `;
-  let _v78 = _v20.default.label.withConfig({
+  let _v73 = _v18.default.label.withConfig({
     displayName: "styles__FileInputLabel",
     componentId: "sc-d4664baa-5"
   })`
@@ -1980,11 +1820,11 @@
   align-items: center;
   gap: 0.5rem;
   position: relative;
-  border: 1px solid ${(0, _v46.blue)(400)};
+  border: 1px solid ${(0, _v41.blue)(400)};
   max-width: 120px;
   padding: 0.75rem;
   border-radius: 0.5rem;
-  color: ${(0, _v46.blue)(400)};
+  color: ${(0, _v41.blue)(400)};
   font-weight: 600;
   transition:
     all 170ms ease-in-out,
@@ -2002,7 +1842,7 @@
     border-radius: 0.625rem;
     transition: 150ms ease-in-out;
     transform-origin: center;
-    border: 0.125rem solid ${(0, _v46.blue)(400)};
+    border: 0.125rem solid ${(0, _v41.blue)(400)};
     opacity: 0;
     top: -0.25rem;
     left: -0.25rem;
@@ -2022,11 +1862,11 @@
     width: 20px;
 
     & path {
-      fill: ${(0, _v46.blue)(400)};
+      fill: ${(0, _v41.blue)(400)};
     }
   }
 `;
-  _v20.default.input.withConfig({
+  _v18.default.input.withConfig({
     displayName: "styles__FileInput",
     componentId: "sc-d4664baa-6"
   })`
@@ -2035,21 +1875,21 @@
   opacity: 0;
   outline: none;
 
-  &:focus + ${_v78}::before {
+  &:focus + ${_v73}::before {
     opacity: 1;
-    border: 0.125rem solid ${(0, _v46.blue)(400)};
+    border: 0.125rem solid ${(0, _v41.blue)(400)};
   }
-`, _v20.default.ul.withConfig({
+`, _v18.default.ul.withConfig({
     displayName: "styles__Acknowledgements",
     componentId: "sc-d4664baa-7"
   })`
   list-style-type: initial;
   padding-inline-start: 24px;
-`, _v20.default.li.withConfig({
+`, _v18.default.li.withConfig({
     displayName: "styles__Acknowledgement",
     componentId: "sc-d4664baa-8"
   })``;
-  let _v79 = _v20.default.div.withConfig({
+  let _v74 = _v18.default.div.withConfig({
       displayName: "styles__PageLayout",
       componentId: "sc-d4664baa-9"
     })`
@@ -2057,7 +1897,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
 `,
-    _v80 = _v20.default.main.withConfig({
+    _v75 = _v18.default.main.withConfig({
       displayName: "styles__Main",
       componentId: "sc-d4664baa-10"
     })`
@@ -2066,7 +1906,7 @@
   margin: 2rem auto;
   padding: 2rem 4rem;
 `,
-    _v81 = _v20.default.aside.withConfig({
+    _v76 = _v18.default.aside.withConfig({
       displayName: "styles__Aside",
       componentId: "sc-d4664baa-11"
     })`
@@ -2079,26 +1919,26 @@
   width: 45vw;
   min-height: 100vh;
   padding: 2rem 1rem;
-  background: ${(0, _v46.slate)(50)};
+  background: ${(0, _v41.slate)(50)};
 `,
-    _v82 = _v20.default.div.withConfig({
+    _v77 = _v18.default.div.withConfig({
       displayName: "styles__MatchedContentContent",
       componentId: "sc-d4664baa-12"
     })`
-  background: ${_v46.white};
-  padding: ${(0, _v45.rem)(12)};
+  background: ${_v41.white};
+  padding: ${(0, _v40.rem)(12)};
   border-radius: 8px;
 `;
-  _v20.default.div.withConfig({
+  _v18.default.div.withConfig({
     displayName: "styles__Buttons",
     componentId: "sc-d4664baa-13"
   })`
   display: flex;
-  gap: ${_v23.core.space(200)};
+  gap: ${_v21.core.space(200)};
   margin: auto 0 auto auto;
 `;
-  let _v83 = ["uri", "title", "artist", "status", "label", "metadata.connections.appeals"],
-    _v84 = ({
+  let _v78 = ["uri", "title", "artist", "status", "label", "metadata.connections.appeals"],
+    _v79 = ({
       videoId: _v0,
       contentMatchId: _v1,
       assetUrls: _v2
@@ -2108,8 +1948,27 @@
           isValidating: _v5,
           data: _v6,
           error: _v7
-        } = _v16({
-          select: _v83,
+        } = function (_v0) {
+          let _v1 = "function" == typeof _v0 ? _v0() : _v0,
+            {
+              baseUrl: _v2,
+              jwt: _v3,
+              xVimeoPage: _v4,
+              locale: _v5
+            } = (0, _v14.useGctlConfig)();
+          return (0, _v11.default)(_v1 ? `/videos/${_v1.where.videoId}/licensed_music_infringements/${_v1.where.infringementId}${(0, _v13.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v10({
+            ..._v1,
+            headers: {
+              ..._v1.headers,
+              "Content-Type": "application/json",
+              Authorization: _v3 ? `jwt ${_v3}` : "",
+              "Vimeo-Page": `${_v4}`,
+              "Accept-Language": _v5 ?? "en"
+            },
+            baseUrl: _v2
+          }) : null, void 0);
+        }({
+          select: _v78,
           where: {
             videoId: _v0,
             infringementId: _v1
@@ -2126,13 +1985,13 @@
         _v9 = null;
       if (_v5 || !_v7 && _v6 || window.location.replace(`/manage/videos/${_v0}`), _v6) {
         let _v0 = _v3 ? "submitted" : _v6.status;
-        _v9 = null === _v0 ? (0, _v1.jsx)(_v67, {
+        _v9 = null === _v0 ? (0, _v1.jsx)(_v62, {
           videoId: _v0,
           infringement: _v6,
           onSubmissionComplete: _v0 => {
             _v4(_v0);
           }
-        }) : (0, _v1.jsx)(_v31, {
+        }) : (0, _v1.jsx)(_v29, {
           videoId: _v0,
           status: _v0
         });
@@ -2142,25 +2001,25 @@
           paddingTop: "120px"
         }
       });
-      return (0, _v1.jsxs)(_v79, {
-        children: [(0, _v1.jsx)(_v80, {
+      return (0, _v1.jsxs)(_v74, {
+        children: [(0, _v1.jsx)(_v75, {
           children: _v9
-        }), (0, _v1.jsx)(_v81, {
-          children: (0, _v1.jsxs)(_v82, {
+        }), (0, _v1.jsx)(_v76, {
+          children: (0, _v1.jsxs)(_v77, {
             children: [(0, _v1.jsx)("div", {
-              children: _v2 && (0, _v1.jsx)(_v17.PlayerContextProvider, {
-                type: _v18.PlayerType.VimeoPlayer,
+              children: _v2 && (0, _v1.jsx)(_v15.PlayerContextProvider, {
+                type: _v16.PlayerType.VimeoPlayer,
                 assetUrls: _v2,
-                children: _v8?.configUrl ? (0, _v1.jsx)(_v76, {
+                children: _v8?.configUrl ? (0, _v1.jsx)(_v71, {
                   videoId: _v0,
                   configUrl: _v8?.configUrl
                 }) : null
               })
             }), (0, _v1.jsxs)("div", {
-              children: [(0, _v1.jsx)(_v19.Spacer, {
+              children: [(0, _v1.jsx)(_v17.Spacer, {
                 direction: "vertical",
                 size: 300
-              }), _v6 && (0, _v1.jsx)(_v74, {
+              }), _v6 && (0, _v1.jsx)(_v69, {
                 infringement: _v6
               })]
             })]
@@ -2168,8 +2027,8 @@
         })]
       });
     };
-  var _v85 = _v0.i(0),
-    _v86 = _v0.i(0);
+  var _v80 = _v0.i(0),
+    _v81 = _v0.i(0);
   (0, _v4.withPageSetup)(async () => ({
     props: {
       hasThemeSupport: !0
@@ -2179,7 +2038,7 @@
     inlineViewer: !0,
     inlinePlayerAssets: !0
   });
-  let _v87 = ({
+  let _v82 = ({
     playerAssetUrls: _v0
   }) => {
     let {
@@ -2189,18 +2048,18 @@
       _v3 = _v1.contentMatchId,
       _v4 = _v2 && parseInt(Array.isArray(_v2) ? _v2[0] : _v2),
       _v5 = _v3 && parseInt(Array.isArray(_v3) ? _v3[0] : _v3),
-      _v6 = (0, _v3.useContext)(_v86.ViewerContext);
+      _v6 = (0, _v3.useContext)(_v81.ViewerContext);
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v4 && _v5 && (0, _v1.jsx)(_v84, {
+      children: [_v4 && _v5 && (0, _v1.jsx)(_v79, {
         videoId: _v4,
         contentMatchId: _v5,
         assetUrls: _v0
-      }), _v6 && (0, _v1.jsx)(_v85.EssentialFooter, {
+      }), _v6 && (0, _v1.jsx)(_v80.EssentialFooter, {
         ..._v6
       })]
     });
   };
-  _v87.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
+  _v82.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v5.DefaultNavigation, {}), _v0]
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v87], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v82], 0);
 }

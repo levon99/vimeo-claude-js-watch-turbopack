@@ -772,9 +772,7 @@
     workspaceUuid: _v1,
     workspaceInternalId: _v2
   }) => {
-    let {
-      settings: _v3
-    } = (0, _v3.useOrionSettings)();
+    let _v3 = (0, _v3.useOrionSettingsFields)(["enable_workspace_defaults_page"]);
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v53, {
         displayName: _v0,

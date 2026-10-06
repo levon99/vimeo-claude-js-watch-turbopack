@@ -1800,12 +1800,7 @@
         } = (0, _v19.useCapability)(["hasEnterprise"], _v8),
         _v10 = _v9.hasEnterprise,
         _v11 = _v0?.isSimplifiedSite,
-        _v12 = (() => {
-          let {
-            settings: _v0
-          } = (0, _v73.useOrionSettings)();
-          return _v0.in_product_support_panel;
-        })() && !_v11,
+        _v12 = (0, _v73.useOrionSetting)("in_product_support_panel") && !_v11,
         {
           showDot: _v13
         } = _v65(),

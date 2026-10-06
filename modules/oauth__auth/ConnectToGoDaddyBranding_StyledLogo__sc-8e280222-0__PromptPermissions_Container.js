@@ -300,7 +300,7 @@
             };
           if ("string" == typeof _v9 ? _v6.redirect_uri = _v9 : delete _v6.redirect_uri, "0" !== _v12 && (_v10 === _v29.TransferStatus.TRANSFER_NOT_REQUESTED || _v10 === _v29.TransferStatus.TRANSFER_IN_PROGRESS)) return void window.location.replace((0, _v31.transformLink)("upgrade", _v6) + _v4 + _v5);
           if (_v6) return void window.location.replace((0, _v31.transformLink)(_v6, _v6) + _v4 + _v5);
-          if ("string" != typeof _v9) return;
+          if ("string" != typeof _v9) return void window.location.replace("/oauth/error");
           if (_v1) return void window.location.replace(`${_v9}${_v18()}code=${_v1}${_v3}`);
           if (_v2) return void window.location.replace(`${_v9}${_v18()}access_token=${_v2}${_v3}`);
         } catch (_v0) {
@@ -512,7 +512,7 @@
           size: "lg",
           variant: "minimal",
           onClick: () => {
-            "string" == typeof _v9 && window.location.replace(`${_v9}${_v18()}state=${_v7}`);
+            "string" == typeof _v9 ? window.location.replace(`${_v9}${_v18()}state=${_v7}`) : window.location.replace("/oauth/error");
           },
           children: (0, _v10.translate)({
             singular: "Don’t allow",
@@ -774,7 +774,7 @@
             };
           if ("string" == typeof _v18 ? _v8.redirect_uri = _v18 : delete _v8.redirect_uri, _v0.managed_user?.id && (_v0.managed_user?.transfer_status === _v29.TransferStatus.TRANSFER_NOT_REQUESTED || _v0.managed_user?.transfer_status === _v29.TransferStatus.TRANSFER_IN_PROGRESS)) return void window.location.replace((0, _v31.transformLink)("upgrade", _v8) + _v6 + _v7);
           if (_v13) return void window.location.replace((0, _v31.transformLink)(_v13, _v8) + _v6 + _v7);
-          if ("string" != typeof _v18) return;
+          if ("string" != typeof _v18) return void window.location.replace("/oauth/error");
           if (_v2) {
             let _v0 = _v49({
               code: _v2,
@@ -921,7 +921,7 @@
           size: "lg",
           variant: "minimal",
           onClick: () => {
-            _v7.BigPictureClient.sendEvent(new _v7.Event("vimeo_com.account_connection", 3, {
+            (_v7.BigPictureClient.sendEvent(new _v7.Event("vimeo_com.account_connection", 3, {
               component: "authorization",
               type: "decline",
               account_type: null,
@@ -930,7 +930,7 @@
               product: _v25,
               device_id: _v9?.vuid ?? null,
               third_party_integration: _v24
-            })), "string" == typeof _v18 && window.location.replace(`${_v18}${_v31()}state=${_v14}`);
+            })), "string" == typeof _v18) ? window.location.replace(`${_v18}${_v31()}state=${_v14}`) : window.location.replace("/oauth/error");
           },
           children: (0, _v10.translate)({
             singular: "Don’t allow",

@@ -110,9 +110,7 @@
   }) => {
     let [_v21, _v22] = (0, _v3.useState)(!1),
       [_v23, _v24] = (0, _v3.useState)(!1),
-      {
-        settings: _v25
-      } = (0, _v18.useOrionSettings)(),
+      _v25 = (0, _v18.useOrionSettingsFields)(["new_replace_feature"]),
       {
         addNewVersion: _v26,
         storeVersionList: _v27
@@ -356,7 +354,7 @@
         videoId: _v0,
         quota: _v42,
         clipHash: _v1
-      }, `file-upload-${_v38?.[0].name}-new-version`), (0, _v1.jsx)(_v33.ConfirmUploadModal, {
+      }, `file-upload-${_v38?.[0]?.name}-new-version`), (0, _v1.jsx)(_v33.ConfirmUploadModal, {
         onCancel: () => {
           _v40 || _v39(null);
         },
@@ -370,7 +368,7 @@
           analyticsProps: _v5
         }))),
         isOpen: !!_v38 || _v40,
-        fileName: _v38 ? _v38[0].name : "",
+        fileName: _v38?.[0]?.name ?? "",
         isLoading: _v40
       })]
     });

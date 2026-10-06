@@ -90,9 +90,8 @@
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
-    _v20 = _v0.i(0),
-    _v21 = _v0.i(0);
-  async function _v22({
+    _v20 = _v0.i(0);
+  async function _v21({
     baseUrl: _v0,
     where: {
       userId: _v1,
@@ -101,7 +100,7 @@
     },
     ..._v4
   }) {
-    return (0, _v21.measureLatency)("deleteUserLiveEventEmailReminder", "DELETE", async () => {
+    return (0, _v20.measureLatency)("deleteUserLiveEventEmailReminder", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/users/${_v1}/live_events/${_v2}/email_reminders/${_v3}`, {
         ..._v4,
         method: "DELETE"
@@ -113,25 +112,25 @@
       return (0, _v18.deepCamelCase)(_v1);
     });
   }
-  var _v23 = _v0.i(0),
-    _v24 = _v0.i(0);
-  function _v25() {
+  var _v22 = _v0.i(0),
+    _v23 = _v0.i(0);
+  function _v24() {
     let {
         mutate: _v0
-      } = (0, _v23.useSWRConfig)(),
+      } = (0, _v22.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v24.useGctlConfig)(),
-      [_v5, _v6] = (0, _v20.useInternalState)();
+      } = (0, _v23.useGctlConfig)(),
+      [_v5, _v6] = (0, _v19.useInternalState)();
     return [(0, _v1.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/live_events/${_v0.where.liveEventId}/email_reminders/${_v0.where.reminderId}${(0, _v20.serializeQuery)(_v0)}`, _v22({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/live_events/${_v0.where.liveEventId}/email_reminders/${_v0.where.reminderId}${(0, _v19.serializeQuery)(_v0)}`, _v21({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -154,11 +153,9 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v19.default.env.STORYBOOK && (0, _v20.assignMswData)(_v25, {
-    endpoint: "/users/:userId/live_events/:liveEventId/email_reminders/:reminderId",
-    method: "DELETE"
-  }), _v0.s(["useDeleteUserLiveEventEmailReminder", 0, _v25], 0);
-  var _v26 = _v0.i(0),
+  _v0.s(["useDeleteUserLiveEventEmailReminder", 0, _v24], 0);
+  var _v25 = _v0.i(0),
+    _v26 = _v0.i(0),
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
@@ -166,9 +163,8 @@
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  let _v36 = {
+    _v34 = _v0.i(0);
+  let _v35 = {
       SEND_TEST: "send_test",
       UNDO: "undo",
       REDO: "redo",
@@ -180,17 +176,17 @@
       REMOVE_LINK: "remove_link",
       VISIT_LINK: "visit_link"
     },
-    _v37 = {
+    _v36 = {
       CHANGE_REGISTRATION_EMAIL_CONFIG: "vimeo.change_registration_email_config",
       REGISTRATION_EMAIL_PREVIEW: "vimeo.registration_email_preview",
       REGISTRATION_EMAIL_ACTION: "vimeo.registration_email_action",
       REGISTRATION_EMAIL_LAYOUT_CHANGE: "vimeo.registration_email_layout_change",
       TRIGGER_HELP_CENTER: "vimeo.trigger_help_center"
     },
-    _v38 = {
+    _v37 = {
       CLICK: "click"
     },
-    _v39 = {
+    _v38 = {
       ENABLE: "enable",
       PREVIEW_BY_TYPE: "preview_by_type",
       PREVIEW_BY_DEVICE: "preview_by_device",
@@ -219,21 +215,21 @@
       BUTTON_DEFAULT_LINK_CHANGED: "button_default_link_changed",
       BUTTON_CUSTOM_LINK_CHANGED: "button_custom_link_changed"
     },
-    _v40 = {
+    _v39 = {
       CONFIRMATION: "confirmation",
       REMINDER: "reminder",
       FOLLOWUP: "followup"
     },
-    _v41 = {
+    _v40 = {
       EVENT_REGISTRATION_PAGE: "event_registration_page"
     },
-    _v42 = "Preview-and-customize-your-webinars-emails",
-    _v43 = {
+    _v41 = "Preview-and-customize-your-webinars-emails",
+    _v42 = {
       ICON: "icon",
       BUTTON: "button",
       TOGGLE: "toggle"
     };
-  _v0.s(["BP_ACTION_NAMES", 0, _v39, "BP_ACTION_TYPES", 0, _v38, "BP_ACTION_VALUES", 0, {
+  _v0.s(["BP_ACTION_NAMES", 0, _v38, "BP_ACTION_TYPES", 0, _v37, "BP_ACTION_VALUES", 0, {
     ON: "ON",
     OFF: "OFF",
     DESKTOP_VIEW: "desktop_view",
@@ -242,10 +238,10 @@
     CONFIRMATION: "Confirmation email",
     REMINDER: "Reminder email",
     FOLLOWUP: "Follow up email"
-  }, "BP_CTA_TYPE", 0, _v42, "BP_ELEMENT", 0, _v43, "BP_EVENT_NAMES", 0, _v37, "BP_PAGE_NAME", 0, _v41, "BP_TYPE", 0, _v40, "TRIGGER_EMAIL_ACTION", 0, _v36], 0);
-  var _v44 = _v0.i(0);
-  let _v45 = () => {
-    let _v0 = (0, _v44.useConfigStore)(_v0 => _v0.entityId),
+  }, "BP_CTA_TYPE", 0, _v41, "BP_ELEMENT", 0, _v42, "BP_EVENT_NAMES", 0, _v36, "BP_PAGE_NAME", 0, _v40, "BP_TYPE", 0, _v39, "TRIGGER_EMAIL_ACTION", 0, _v35], 0);
+  var _v43 = _v0.i(0);
+  let _v44 = () => {
+    let _v0 = (0, _v43.useConfigStore)(_v0 => _v0.entityId),
       {
         privacy: _v1
       } = (0, _v10.useEntityStore)(),
@@ -253,7 +249,7 @@
       _v3 = _v2?.teamUser,
       {
         data: _v4
-      } = (0, _v26.useGetLeadCaptureResourceIdForm)({
+      } = (0, _v25.useGetLeadCaptureResourceIdForm)({
         select: ["uuid"],
         where: {
           resourceId: _v0,
@@ -261,25 +257,25 @@
         }
       }),
       _v5 = _v4?.uuid,
-      _v6 = _v0 => (0, _v33.buildViewBpContext)({
+      _v6 = _v0 => (0, _v32.buildViewBpContext)({
         view_type: "pageview",
         feature: null,
         ..._v0
       }),
-      _v7 = _v0 => (0, _v28.buildActionBpContext)({
-        action_type: _v38.CLICK,
+      _v7 = _v0 => (0, _v27.buildActionBpContext)({
+        action_type: _v37.CLICK,
         feature: null,
         ..._v0
       }),
-      _v8 = _v0 => (0, _v30.buildProductAnalyticsBpContext)({
+      _v8 = _v0 => (0, _v29.buildProductAnalyticsBpContext)({
         entity_type: "events",
         feature: "registration_email",
         product: "gates",
         location: "body",
-        device_type: (0, _v27.default)(),
+        device_type: (0, _v26.default)(),
         ..._v0
       }),
-      _v9 = _v0 => (0, _v29.buildLiveBpContext)({
+      _v9 = _v0 => (0, _v28.buildLiveBpContext)({
         event_privacy: (() => {
           switch (_v1?.view) {
             case "anybody":
@@ -301,14 +297,14 @@
         live_event_id: _v0,
         ..._v0
       }),
-      _v10 = _v0 => (0, _v34.buildWebBpContext)({
-        page_name: _v41.EVENT_REGISTRATION_PAGE,
+      _v10 = _v0 => (0, _v33.buildWebBpContext)({
+        page_name: _v40.EVENT_REGISTRATION_PAGE,
         referrer: document.referrer || window.location.href,
-        referrer_page_name: _v41.EVENT_REGISTRATION_PAGE,
+        referrer_page_name: _v40.EVENT_REGISTRATION_PAGE,
         path: document.location.pathname,
         ..._v0
       }),
-      _v11 = _v0 => (0, _v32.buildThirdPartyIntegrationBpContext)({
+      _v11 = _v0 => (0, _v31.buildThirdPartyIntegrationBpContext)({
         is_integration: !1,
         integration_id: null,
         integration_name: null,
@@ -330,13 +326,13 @@
       }) => {
         let _v4 = _v12();
         if (!_v4) return;
-        let _v5 = _v37.CHANGE_REGISTRATION_EMAIL_CONFIG;
-        (0, _v35.sendBpEventWithContexts)(_v5, {
+        let _v5 = _v36.CHANGE_REGISTRATION_EMAIL_CONFIG;
+        (0, _v34.sendBpEventWithContexts)(_v5, {
           ..._v7(),
           ..._v10(),
           ..._v8({
             copy: _v3,
-            element: _v43.TOGGLE
+            element: _v42.TOGGLE
           }),
           ..._v9(),
           ..._v6(),
@@ -353,12 +349,12 @@
         actionValue: _v1 = null,
         type: _v2,
         copy: _v3 = null,
-        element: _v4 = _v43.BUTTON
+        element: _v4 = _v42.BUTTON
       }) => {
         let _v5 = _v12();
         if (!_v5) return;
-        let _v6 = _v37.REGISTRATION_EMAIL_PREVIEW;
-        (0, _v35.sendBpEventWithContexts)(_v6, {
+        let _v6 = _v36.REGISTRATION_EMAIL_PREVIEW;
+        (0, _v34.sendBpEventWithContexts)(_v6, {
           ..._v7(),
           ..._v10(),
           ..._v8({
@@ -379,12 +375,12 @@
         actionName: _v0,
         type: _v1,
         copy: _v2 = null,
-        element: _v3 = _v43.BUTTON
+        element: _v3 = _v42.BUTTON
       }) => {
         let _v4 = _v12();
         if (!_v4) return;
-        let _v5 = _v37.REGISTRATION_EMAIL_ACTION;
-        (0, _v35.sendBpEventWithContexts)(_v5, {
+        let _v5 = _v36.REGISTRATION_EMAIL_ACTION;
+        (0, _v34.sendBpEventWithContexts)(_v5, {
           ..._v7(),
           ..._v10(),
           ..._v8({
@@ -406,8 +402,8 @@
       }) => {
         let _v2 = _v12();
         if (!_v2) return;
-        let _v3 = _v37.REGISTRATION_EMAIL_LAYOUT_CHANGE;
-        (0, _v35.sendBpEventWithContexts)(_v3, {
+        let _v3 = _v36.REGISTRATION_EMAIL_LAYOUT_CHANGE;
+        (0, _v34.sendBpEventWithContexts)(_v3, {
           ..._v7(),
           ..._v10(),
           ..._v8(),
@@ -422,41 +418,41 @@
       },
       sentTriggerHelpAction: () => {
         if (!_v12()) return;
-        let _v0 = _v37.TRIGGER_HELP_CENTER;
-        (0, _v35.sendBpEventWithContexts)(_v0, {
+        let _v0 = _v36.TRIGGER_HELP_CENTER;
+        (0, _v34.sendBpEventWithContexts)(_v0, {
           ..._v7(),
           ..._v10(),
           ..._v8(),
           ..._v9(),
           ..._v6(),
           ..._v11(),
-          ...(0, _v31.buildTeamBpContextFromTeamUser)(_v3)
+          ...(0, _v30.buildTeamBpContextFromTeamUser)(_v3)
         }, 2, {
-          cta_type: _v42
+          cta_type: _v41
         });
       }
     };
   };
-  _v0.s(["useAnalytics", 0, _v45], 0);
-  var _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  let _v49 = ["headerTextSize", "headerTextAlign", "headerTextStyle", "headerTextFormat", "headerTextColor", "bodyTextSize", "bodyTextAlign", "bodyTextStyle", "bodyTextFormat", "bodyTextColor"],
+  _v0.s(["useAnalytics", 0, _v44], 0);
+  var _v45 = _v0.i(0),
+    _v46 = _v0.i(0),
+    _v47 = _v0.i(0);
+  let _v48 = ["headerTextSize", "headerTextAlign", "headerTextStyle", "headerTextFormat", "headerTextColor", "bodyTextSize", "bodyTextAlign", "bodyTextStyle", "bodyTextFormat", "bodyTextColor"],
+    _v49 = _v0 => {
+      if (!_v0) return "";
+      let _v1 = _v0;
+      return Object.keys(_v46.DYNAMIC_TAGS_MAP).map(_v0 => {
+        _v1 = _v1?.replaceAll(`{{${_v46.DYNAMIC_TAGS_MAP[_v0].label}}}`, `{{${_v46.DYNAMIC_TAGS_MAP[_v0].value}}}`);
+      }), _v1;
+    },
     _v50 = _v0 => {
       if (!_v0) return "";
       let _v1 = _v0;
-      return Object.keys(_v47.DYNAMIC_TAGS_MAP).map(_v0 => {
-        _v1 = _v1?.replaceAll(`{{${_v47.DYNAMIC_TAGS_MAP[_v0].label}}}`, `{{${_v47.DYNAMIC_TAGS_MAP[_v0].value}}}`);
+      return Object.keys(_v46.DYNAMIC_TAGS_MAP).map(_v0 => {
+        _v1 = _v1?.replaceAll(`{{${_v46.DYNAMIC_TAGS_MAP[_v0].value}}}`, `{{${_v46.DYNAMIC_TAGS_MAP[_v0].label}}}`);
       }), _v1;
     },
     _v51 = _v0 => {
-      if (!_v0) return "";
-      let _v1 = _v0;
-      return Object.keys(_v47.DYNAMIC_TAGS_MAP).map(_v0 => {
-        _v1 = _v1?.replaceAll(`{{${_v47.DYNAMIC_TAGS_MAP[_v0].value}}}`, `{{${_v47.DYNAMIC_TAGS_MAP[_v0].label}}}`);
-      }), _v1;
-    },
-    _v52 = _v0 => {
       let {
           customLogo: _v1,
           accentColor: _v2,
@@ -492,7 +488,7 @@
         {
           CONFIRMATION: _v29,
           FOLLOWUP: _v30
-        } = _v46.EMAIL_TYPES,
+        } = _v45.EMAIL_TYPES,
         _v31 = _v0 => ({
           subject: _v10[_v0],
           showCalender: _v11[_v0],
@@ -533,9 +529,9 @@
         followUpSettings: _v31(_v30)
       };
     },
-    _v53 = ["body", "header", "subject", "buttonInfo", "showCalender"],
-    _v54 = (_v0, _v1) => null == _v0 && null == _v1 || void 0,
-    _v55 = (_v0, _v1, _v2 = !0) => {
+    _v52 = ["body", "header", "subject", "buttonInfo", "showCalender"],
+    _v53 = (_v0, _v1) => null == _v0 && null == _v1 || void 0,
+    _v54 = (_v0, _v1, _v2 = !0) => {
       let _v3 = [],
         _v4 = [];
       if (!_v0 || !_v1) return {
@@ -546,13 +542,13 @@
         _v6 = _v0 => "customLogo" === _v0 && (_v0.customLogo?.response?.uri !== _v1.customLogo?.response?.uri || _v0.customLogo?.active !== _v1.customLogo?.active),
         _v7 = (_v0, _v1) => null == _v0 && null == _v1 || void 0,
         _v8 = _v0 => "object" == typeof _v0[_v0] || void 0 === _v0[_v0];
-      for (let _v0 in _v0) if (_v5(_v0)) continue;else _v6(_v0) ? _v3.push(_v0) : _v8(_v0) ? (0, _v48.default)(_v0[_v0], _v1[_v0], _v7) || (_v49.includes(_v0) ? _v4.push(_v0) : _v3.push(_v0)) : _v0[_v0] !== _v1[_v0] && _v3.push(_v0);
+      for (let _v0 in _v0) if (_v5(_v0)) continue;else _v6(_v0) ? _v3.push(_v0) : _v8(_v0) ? (0, _v47.default)(_v0[_v0], _v1[_v0], _v7) || (_v48.includes(_v0) ? _v4.push(_v0) : _v3.push(_v0)) : _v0[_v0] !== _v1[_v0] && _v3.push(_v0);
       return {
         changedProps: _v3,
         bpChangedProps: [..._v3, ..._v4]
       };
     },
-    _v56 = {
+    _v55 = {
       SET_STATE: "SET_STATE",
       RESET: "RESET",
       SET_COLOR: "SET_COLOR",
@@ -594,165 +590,165 @@
       SET_BODY_TEXT_FORMAT: "SET_BODY_TEXT_FORMAT",
       SET_BODY_TEXT_COLOR: "SET_BODY_TEXT_COLOR"
     },
-    _v57 = {
-      [_v56.SET_COLOR]: "accentColor",
-      [_v56.SET_FROM]: "from",
-      [_v56.SET_EMAIL_TOOL_BAR]: "emailToolbar",
-      [_v56.EMAIL_TEMPLATE_TYPE]: "emailTemplateType",
-      [_v56.SET_PREVIEW]: "previewMode",
-      [_v56.SET_FOOTER_EMAIL]: "replyEmail",
-      [_v56.SET_FOOTER_ADDRESS]: "senderAddress",
-      [_v56.SET_FOOTER_POLICY]: "senderPolicyUrl",
-      [_v56.SET_IS_CONTENT_MODIFIED]: "isContentModified",
-      [_v56.SET_SUBJECT]: "subject",
-      [_v56.SET_HEADER]: "header",
-      [_v56.SET_BODY]: "body",
-      [_v56.SET_HEADER_TEXT_SIZE]: "headerTextSize",
-      [_v56.SET_HEADER_TEXT_STYLE]: "headerTextStyle",
-      [_v56.SET_HEADER_TEXT_ALIGN]: "headerTextAlign",
-      [_v56.SET_HEADER_TEXT_FORMAT]: "headerTextFormat",
-      [_v56.SET_HEADER_TEXT_COLOR]: "headerTextColor",
-      [_v56.SET_BODY_TEXT_SIZE]: "bodyTextSize",
-      [_v56.SET_BODY_TEXT_STYLE]: "bodyTextStyle",
-      [_v56.SET_BODY_TEXT_ALIGN]: "bodyTextAlign",
-      [_v56.SET_BODY_TEXT_FORMAT]: "bodyTextFormat",
-      [_v56.SET_BODY_TEXT_COLOR]: "bodyTextColor"
+    _v56 = {
+      [_v55.SET_COLOR]: "accentColor",
+      [_v55.SET_FROM]: "from",
+      [_v55.SET_EMAIL_TOOL_BAR]: "emailToolbar",
+      [_v55.EMAIL_TEMPLATE_TYPE]: "emailTemplateType",
+      [_v55.SET_PREVIEW]: "previewMode",
+      [_v55.SET_FOOTER_EMAIL]: "replyEmail",
+      [_v55.SET_FOOTER_ADDRESS]: "senderAddress",
+      [_v55.SET_FOOTER_POLICY]: "senderPolicyUrl",
+      [_v55.SET_IS_CONTENT_MODIFIED]: "isContentModified",
+      [_v55.SET_SUBJECT]: "subject",
+      [_v55.SET_HEADER]: "header",
+      [_v55.SET_BODY]: "body",
+      [_v55.SET_HEADER_TEXT_SIZE]: "headerTextSize",
+      [_v55.SET_HEADER_TEXT_STYLE]: "headerTextStyle",
+      [_v55.SET_HEADER_TEXT_ALIGN]: "headerTextAlign",
+      [_v55.SET_HEADER_TEXT_FORMAT]: "headerTextFormat",
+      [_v55.SET_HEADER_TEXT_COLOR]: "headerTextColor",
+      [_v55.SET_BODY_TEXT_SIZE]: "bodyTextSize",
+      [_v55.SET_BODY_TEXT_STYLE]: "bodyTextStyle",
+      [_v55.SET_BODY_TEXT_ALIGN]: "bodyTextAlign",
+      [_v55.SET_BODY_TEXT_FORMAT]: "bodyTextFormat",
+      [_v55.SET_BODY_TEXT_COLOR]: "bodyTextColor"
     };
-  _v0.s(["ACTION_TYPE", 0, _v56, "EMAIL_SETTER_TYPES", 0, _v57], 0);
-  let _v58 = {
+  _v0.s(["ACTION_TYPE", 0, _v55, "EMAIL_SETTER_TYPES", 0, _v56], 0);
+  let _v57 = {
       showCalender: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: !0,
-        [_v46.EMAIL_TYPES.REMINDER]: !0,
-        [_v46.EMAIL_TYPES.FOLLOWUP]: !1
+        [_v45.EMAIL_TYPES.CONFIRMATION]: !0,
+        [_v45.EMAIL_TYPES.REMINDER]: !0,
+        [_v45.EMAIL_TYPES.FOLLOWUP]: !1
       },
       buttonInfo: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: {
-          text: _v47.default.JoinEvent,
+        [_v45.EMAIL_TYPES.CONFIRMATION]: {
+          text: _v46.default.JoinEvent,
           customLink: "",
           isCustomLink: !1
         },
-        [_v46.EMAIL_TYPES.REMINDER]: {
-          text: _v47.default.JoinEvent,
+        [_v45.EMAIL_TYPES.REMINDER]: {
+          text: _v46.default.JoinEvent,
           customLink: "",
           isCustomLink: !1
         },
-        [_v46.EMAIL_TYPES.FOLLOWUP]: {
-          text: _v47.default.WatchNow,
+        [_v45.EMAIL_TYPES.FOLLOWUP]: {
+          text: _v46.default.WatchNow,
           customLink: "",
           isCustomLink: !1
         }
       },
       subject: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       },
       header: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       },
       body: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       },
       isContentModified: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: !1,
-        [_v46.EMAIL_TYPES.FOLLOWUP]: !1,
-        [_v46.EMAIL_TYPES.REMINDER]: !1
+        [_v45.EMAIL_TYPES.CONFIRMATION]: !1,
+        [_v45.EMAIL_TYPES.FOLLOWUP]: !1,
+        [_v45.EMAIL_TYPES.REMINDER]: !1
       },
       headerTextSize: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       },
       headerTextStyle: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       },
       headerTextAlign: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       },
       headerTextFormat: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       },
       headerTextColor: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       },
       bodyTextSize: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       },
       bodyTextStyle: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       },
       bodyTextAlign: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       },
       bodyTextFormat: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       },
       bodyTextColor: {
-        [_v46.EMAIL_TYPES.CONFIRMATION]: "",
-        [_v46.EMAIL_TYPES.FOLLOWUP]: "",
-        [_v46.EMAIL_TYPES.REMINDER]: ""
+        [_v45.EMAIL_TYPES.CONFIRMATION]: "",
+        [_v45.EMAIL_TYPES.FOLLOWUP]: "",
+        [_v45.EMAIL_TYPES.REMINDER]: ""
       }
     },
-    _v59 = {
-      ..._v58,
+    _v58 = {
+      ..._v57,
       reminders: [],
       accentColor: "#00adef",
       from: "",
-      emailToolbar: _v46.EMAIL_TOOLBAR_TYPES.GENERAL,
-      emailTemplateType: _v46.EMAIL_TYPES.CONFIRMATION,
+      emailToolbar: _v45.EMAIL_TOOLBAR_TYPES.GENERAL,
+      emailTemplateType: _v45.EMAIL_TYPES.CONFIRMATION,
       selectedReminderId: "",
-      previewMode: _v46.EMAIL_PREVIEW_MODE.WEB,
+      previewMode: _v45.EMAIL_PREVIEW_MODE.WEB,
       useReplyEmail: !1,
       useSenderAddress: !1,
       useSenderPolicyUrl: !1,
       replyEmail: "",
       senderAddress: "",
       senderPolicyUrl: "",
-      defaultConfig: _v58,
+      defaultConfig: _v57,
       hasApiData: !1,
       isLastActionReset: !1
     },
-    _v60 = [_v46.EMAIL_TYPES.CONFIRMATION, _v46.EMAIL_TYPES.FOLLOWUP],
-    _v61 = _v0 => _v60.includes(_v0) ? _v0 : _v46.EMAIL_TYPES.REMINDER,
-    _v62 = (_v0, _v1) => {
+    _v59 = [_v45.EMAIL_TYPES.CONFIRMATION, _v45.EMAIL_TYPES.FOLLOWUP],
+    _v60 = _v0 => _v59.includes(_v0) ? _v0 : _v45.EMAIL_TYPES.REMINDER,
+    _v61 = (_v0, _v1) => {
       let _v2 = {
         ..._v0
       };
       return delete _v2[_v1], _v2;
     };
-  function _v63(_v0, _v1) {
-    switch (_v1.type !== _v56.SET_IS_CONTENT_MODIFIED && (_v0 = {
+  function _v62(_v0, _v1) {
+    switch (_v1.type !== _v55.SET_IS_CONTENT_MODIFIED && (_v0 = {
       ..._v0,
-      isLastActionReset: _v1.type === _v56.RESET
+      isLastActionReset: _v1.type === _v55.RESET
     }), _v1.type) {
-      case _v56.SET_STATE:
+      case _v55.SET_STATE:
         return {
           ..._v0,
           ..._v1.payload
         };
-      case _v56.RESET:
+      case _v55.RESET:
         let _v0 = _v1.payload,
-          _v1 = _v61(_v0),
+          _v1 = _v60(_v0),
           _v2 = {
             subject: {
               ..._v0.subject,
@@ -775,10 +771,10 @@
               [_v0]: _v0.defaultConfig.body[_v1]
             }
           };
-        return (_v1 === _v46.EMAIL_TYPES.CONFIRMATION || _v1 === _v46.EMAIL_TYPES.REMINDER) && (_v2.showCalender = {
+        return (_v1 === _v45.EMAIL_TYPES.CONFIRMATION || _v1 === _v45.EMAIL_TYPES.REMINDER) && (_v2.showCalender = {
           ..._v0.showCalender,
           [_v0]: _v0.defaultConfig.showCalender[_v1]
-        }), _v49.forEach(_v0 => {
+        }), _v48.forEach(_v0 => {
           _v0[_v0] && (_v2[_v0] = {
             ...(_v0[_v0] || {}),
             [_v0]: ""
@@ -787,7 +783,7 @@
           ..._v0,
           ..._v2
         };
-      case _v56.SET_CALENDER:
+      case _v55.SET_CALENDER:
         return {
           ..._v0,
           showCalender: {
@@ -795,7 +791,7 @@
             [_v1.payload]: !_v0.showCalender[_v1.payload]
           }
         };
-      case _v56.SET_CUSTOM_LOGO_IMAGE:
+      case _v55.SET_CUSTOM_LOGO_IMAGE:
         return {
           ..._v0,
           customLogo: {
@@ -803,12 +799,12 @@
             ..._v1.payload
           }
         };
-      case _v56.TOGGLE_SETTING_EMAIL:
+      case _v55.TOGGLE_SETTING_EMAIL:
         return {
           ..._v0,
           [_v1.payload]: !_v0[_v1.payload]
         };
-      case _v56.TOGGLE_REMINDER:
+      case _v55.TOGGLE_REMINDER:
         return {
           ..._v0,
           reminders: _v0.reminders.map(_v0 => _v0.id === _v1.payload ? {
@@ -816,13 +812,13 @@
             enabled: !_v0.enabled
           } : _v0)
         };
-      case _v56.SELECT_REMINDER:
+      case _v55.SELECT_REMINDER:
         return {
           ..._v0,
-          emailTemplateType: _v46.EMAIL_TYPES.REMINDER,
+          emailTemplateType: _v45.EMAIL_TYPES.REMINDER,
           selectedReminderId: _v1.payload
         };
-      case _v56.ADD_REMINDER:
+      case _v55.ADD_REMINDER:
         return {
           ..._v0,
           reminders: [..._v0.reminders, {
@@ -830,12 +826,12 @@
             offset: _v1.payload.offset,
             enabled: !0
           }],
-          emailTemplateType: _v46.EMAIL_TYPES.REMINDER,
+          emailTemplateType: _v45.EMAIL_TYPES.REMINDER,
           selectedReminderId: _v1.payload.id,
           ...((_v0, _v1) => {
             let {
                 REMINDER: _v2
-              } = _v46.EMAIL_TYPES,
+              } = _v45.EMAIL_TYPES,
               _v3 = _v0.defaultConfig,
               _v4 = {
                 subject: {
@@ -867,7 +863,7 @@
                   [_v1]: !1
                 }
               };
-            return _v49.forEach(_v0 => {
+            return _v48.forEach(_v0 => {
               let _v1 = _v0[_v0];
               _v1 && (_v4[_v0] = {
                 ..._v1,
@@ -876,32 +872,32 @@
             }), _v4;
           })(_v0, _v1.payload.id)
         };
-      case _v56.DELETE_REMINDER:
+      case _v55.DELETE_REMINDER:
         {
           var _v2, _v3;
           let _v0,
             _v1 = _v0.reminders.filter(_v0 => _v0.id !== _v1.payload),
             _v2 = _v0.selectedReminderId === _v1.payload ? _v1[0]?.id ?? "" : _v0.selectedReminderId,
-            _v3 = 0 === _v1.length && _v0.emailTemplateType === _v46.EMAIL_TYPES.REMINDER ? _v46.EMAIL_TYPES.CONFIRMATION : _v0.emailTemplateType;
+            _v3 = 0 === _v1.length && _v0.emailTemplateType === _v45.EMAIL_TYPES.REMINDER ? _v45.EMAIL_TYPES.CONFIRMATION : _v0.emailTemplateType;
           return {
             ..._v0,
             reminders: _v1,
             selectedReminderId: _v2,
             emailTemplateType: _v3,
             ...(_v2 = _v0, _v3 = _v1.payload, _v0 = {
-              subject: _v62(_v2.subject, _v3),
-              header: _v62(_v2.header, _v3),
-              body: _v62(_v2.body, _v3),
-              showCalender: _v62(_v2.showCalender, _v3),
-              buttonInfo: _v62(_v2.buttonInfo, _v3),
-              isContentModified: _v62(_v2.isContentModified || {}, _v3)
-            }, _v49.forEach(_v0 => {
+              subject: _v61(_v2.subject, _v3),
+              header: _v61(_v2.header, _v3),
+              body: _v61(_v2.body, _v3),
+              showCalender: _v61(_v2.showCalender, _v3),
+              buttonInfo: _v61(_v2.buttonInfo, _v3),
+              isContentModified: _v61(_v2.isContentModified || {}, _v3)
+            }, _v48.forEach(_v0 => {
               let _v1 = _v2[_v0];
-              _v1 && (_v0[_v0] = _v62(_v1, _v3));
+              _v1 && (_v0[_v0] = _v61(_v1, _v3));
             }), _v0)
           };
         }
-      case _v56.UPDATE_REMINDER_OFFSET:
+      case _v55.UPDATE_REMINDER_OFFSET:
         return {
           ..._v0,
           reminders: _v0.reminders.map(_v0 => _v0.id === _v1.payload.id ? {
@@ -909,7 +905,7 @@
             offset: _v1.payload.offset
           } : _v0)
         };
-      case _v56.SET_BUTTON_INFO:
+      case _v55.SET_BUTTON_INFO:
         return {
           ..._v0,
           buttonInfo: {
@@ -917,20 +913,20 @@
             [_v1.payload.emailTab]: _v1.payload.info
           }
         };
-      case _v56.SET_SUBJECT:
-      case _v56.SET_HEADER:
-      case _v56.SET_BODY:
-      case _v56.SET_HEADER_TEXT_SIZE:
-      case _v56.SET_HEADER_TEXT_STYLE:
-      case _v56.SET_HEADER_TEXT_ALIGN:
-      case _v56.SET_HEADER_TEXT_FORMAT:
-      case _v56.SET_HEADER_TEXT_COLOR:
-      case _v56.SET_BODY_TEXT_SIZE:
-      case _v56.SET_BODY_TEXT_STYLE:
-      case _v56.SET_BODY_TEXT_ALIGN:
-      case _v56.SET_BODY_TEXT_FORMAT:
-      case _v56.SET_BODY_TEXT_COLOR:
-        let _v3 = _v57[_v1.type];
+      case _v55.SET_SUBJECT:
+      case _v55.SET_HEADER:
+      case _v55.SET_BODY:
+      case _v55.SET_HEADER_TEXT_SIZE:
+      case _v55.SET_HEADER_TEXT_STYLE:
+      case _v55.SET_HEADER_TEXT_ALIGN:
+      case _v55.SET_HEADER_TEXT_FORMAT:
+      case _v55.SET_HEADER_TEXT_COLOR:
+      case _v55.SET_BODY_TEXT_SIZE:
+      case _v55.SET_BODY_TEXT_STYLE:
+      case _v55.SET_BODY_TEXT_ALIGN:
+      case _v55.SET_BODY_TEXT_FORMAT:
+      case _v55.SET_BODY_TEXT_COLOR:
+        let _v3 = _v56[_v1.type];
         return {
           ..._v0,
           [_v3]: {
@@ -938,50 +934,50 @@
             [_v1.payload.emailTab]: _v1.payload.text
           }
         };
-      case _v56.SET_EMAIL_TOOL_BAR:
-      case _v56.EMAIL_TEMPLATE_TYPE:
-      case _v56.SET_PREVIEW:
-      case _v56.SET_COLOR:
-      case _v56.SET_FROM:
-      case _v56.SET_CONFIRMATION_TITLE:
-      case _v56.SET_CONFIRMATION_BODY:
-      case _v56.SET_REMINDER_TITLE:
-      case _v56.SET_REMINDER_BODY:
-      case _v56.SET_FOLLOWUP_TITLE:
-      case _v56.SET_FOLLOWUP_BODY:
-      case _v56.SET_FOOTER_EMAIL:
-      case _v56.SET_FOOTER_ADDRESS:
-      case _v56.SET_FOOTER_POLICY:
-      case _v56.SET_IS_CONTENT_MODIFIED:
+      case _v55.SET_EMAIL_TOOL_BAR:
+      case _v55.EMAIL_TEMPLATE_TYPE:
+      case _v55.SET_PREVIEW:
+      case _v55.SET_COLOR:
+      case _v55.SET_FROM:
+      case _v55.SET_CONFIRMATION_TITLE:
+      case _v55.SET_CONFIRMATION_BODY:
+      case _v55.SET_REMINDER_TITLE:
+      case _v55.SET_REMINDER_BODY:
+      case _v55.SET_FOLLOWUP_TITLE:
+      case _v55.SET_FOLLOWUP_BODY:
+      case _v55.SET_FOOTER_EMAIL:
+      case _v55.SET_FOOTER_ADDRESS:
+      case _v55.SET_FOOTER_POLICY:
+      case _v55.SET_IS_CONTENT_MODIFIED:
         return {
           ..._v0,
-          [_v57[_v1.type]]: _v1.payload
+          [_v56[_v1.type]]: _v1.payload
         };
       default:
         return _v0;
     }
   }
-  var _v64 = _v0.i(0);
-  let _v65 = (0, _v1.createContext)({
-    state: _v59,
+  var _v63 = _v0.i(0);
+  let _v64 = (0, _v1.createContext)({
+    state: _v58,
     dispatch: () => console.error("dispatch not initialized"),
     isReminderSaved: () => !0,
     isManualSaveRequired: !1,
     canUseConfigurableEventReminders: !1
   });
-  _v0.s(["EmailContext", 0, _v65, "default", 0, ({
+  _v0.s(["EmailContext", 0, _v64, "default", 0, ({
     children: _v0,
     onSaveStateChange: _v1
   }) => {
-    let [_v2, _v3] = (0, _v1.useReducer)(_v63, {
-        ..._v59
+    let [_v2, _v3] = (0, _v1.useReducer)(_v62, {
+        ..._v58
       }),
       [_v4, {
         loading: _v5,
         data: _v6
       }] = (0, _v5.useGetUserLiveEventEmailSettingsLazy)(),
-      _v7 = (0, _v44.useConfigStore)(_v0 => _v0.entityType),
-      _v8 = (0, _v44.useConfigStore)(_v0 => _v0.entityId),
+      _v7 = (0, _v43.useConfigStore)(_v0 => _v0.entityType),
+      _v8 = (0, _v43.useConfigStore)(_v0 => _v0.entityId),
       {
         user: _v9
       } = (0, _v10.useEntityStore)(),
@@ -990,9 +986,7 @@
         accentColor: _v11,
         isLoading: _v12
       } = _v15(),
-      {
-        settings: _v13
-      } = (0, _v9.useOrionSettings)(),
+      _v13 = (0, _v9.useOrionSettingsFields)(["enable_configurable_event_reminders", "enable_explicit_registration_save"]),
       {
         capabilities: _v14
       } = (0, _v4.useCapability)(["hasConfigurableEventReminders"], _v9?.uri),
@@ -1037,10 +1031,10 @@
             enabled: _v2
           })),
           _v15 = [{
-            key: _v46.EMAIL_TYPES.CONFIRMATION,
+            key: _v45.EMAIL_TYPES.CONFIRMATION,
             data: _v11
           }, {
-            key: _v46.EMAIL_TYPES.FOLLOWUP,
+            key: _v45.EMAIL_TYPES.FOLLOWUP,
             data: _v12
           }, ..._v13.map(_v0 => ({
             key: _v0.id,
@@ -1058,11 +1052,11 @@
           selectedReminderId: _v13[0]?.id ?? "",
           followUp: _v0.emailPostEventThankYou,
           accentColor: _v1 || _v11 || "#00adef",
-          customLogo: (0, _v64.getCustomLogoImagePayload)(_v2),
-          from: _v3 ?? _v10 ?? _v46.VIMEO,
-          subject: _v16(_v0 => _v51(_v0.subject)),
-          header: _v16(_v0 => _v51(_v0.header)),
-          body: _v16(_v0 => _v51(_v0.body)),
+          customLogo: (0, _v63.getCustomLogoImagePayload)(_v2),
+          from: _v3 ?? _v10 ?? _v45.VIMEO,
+          subject: _v16(_v0 => _v50(_v0.subject)),
+          header: _v16(_v0 => _v50(_v0.header)),
+          body: _v16(_v0 => _v50(_v0.body)),
           showCalender: _v16(_v0 => !!_v0.useCalender),
           buttonInfo: _v16(_v0 => ({
             text: _v0.buttonText,
@@ -1071,41 +1065,41 @@
           })),
           defaultConfig: {
             showCalender: {
-              [_v46.EMAIL_TYPES.CONFIRMATION]: !!_v4.default.useCalender,
-              [_v46.EMAIL_TYPES.REMINDER]: !!_v10.useCalender,
-              [_v46.EMAIL_TYPES.FOLLOWUP]: !!_v5.default.useCalender
+              [_v45.EMAIL_TYPES.CONFIRMATION]: !!_v4.default.useCalender,
+              [_v45.EMAIL_TYPES.REMINDER]: !!_v10.useCalender,
+              [_v45.EMAIL_TYPES.FOLLOWUP]: !!_v5.default.useCalender
             },
             buttonInfo: {
-              [_v46.EMAIL_TYPES.CONFIRMATION]: {
+              [_v45.EMAIL_TYPES.CONFIRMATION]: {
                 text: _v4.default.buttonText,
                 customLink: _v4.default.buttonLink,
                 isCustomLink: !!_v4.default.useCustomLink
               },
-              [_v46.EMAIL_TYPES.REMINDER]: {
+              [_v45.EMAIL_TYPES.REMINDER]: {
                 text: _v10.buttonText,
                 customLink: _v10.buttonLink,
                 isCustomLink: !!_v10.useCustomLink
               },
-              [_v46.EMAIL_TYPES.FOLLOWUP]: {
+              [_v45.EMAIL_TYPES.FOLLOWUP]: {
                 text: _v5.default.buttonText,
                 customLink: _v5.default.buttonLink,
                 isCustomLink: !!_v5.default.useCustomLink
               }
             },
             subject: {
-              [_v46.EMAIL_TYPES.CONFIRMATION]: _v51(_v4.default.subject),
-              [_v46.EMAIL_TYPES.REMINDER]: _v51(_v10.subject),
-              [_v46.EMAIL_TYPES.FOLLOWUP]: _v51(_v5.default.subject)
+              [_v45.EMAIL_TYPES.CONFIRMATION]: _v50(_v4.default.subject),
+              [_v45.EMAIL_TYPES.REMINDER]: _v50(_v10.subject),
+              [_v45.EMAIL_TYPES.FOLLOWUP]: _v50(_v5.default.subject)
             },
             header: {
-              [_v46.EMAIL_TYPES.CONFIRMATION]: _v51(_v4.default.header),
-              [_v46.EMAIL_TYPES.REMINDER]: _v51(_v10.header),
-              [_v46.EMAIL_TYPES.FOLLOWUP]: _v51(_v5.default.header)
+              [_v45.EMAIL_TYPES.CONFIRMATION]: _v50(_v4.default.header),
+              [_v45.EMAIL_TYPES.REMINDER]: _v50(_v10.header),
+              [_v45.EMAIL_TYPES.FOLLOWUP]: _v50(_v5.default.header)
             },
             body: {
-              [_v46.EMAIL_TYPES.CONFIRMATION]: _v51(_v4.default.body),
-              [_v46.EMAIL_TYPES.REMINDER]: _v51(_v10.body),
-              [_v46.EMAIL_TYPES.FOLLOWUP]: _v51(_v5.default.body)
+              [_v45.EMAIL_TYPES.CONFIRMATION]: _v50(_v4.default.body),
+              [_v45.EMAIL_TYPES.REMINDER]: _v50(_v10.body),
+              [_v45.EMAIL_TYPES.FOLLOWUP]: _v50(_v5.default.body)
             }
           }
         };
@@ -1118,7 +1112,7 @@
             userId: _v1,
             liveEventId: parseInt(_v8)
           },
-          select: _v46.EMAIL_CUSTOMIZATION_FIELDS
+          select: _v45.EMAIL_CUSTOMIZATION_FIELDS
         }) : console.error(`Entity type ${_v7} not supported EM1`));
       }, [_v8, _v9?.uri, _v7, _v4]),
       {
@@ -1133,25 +1127,25 @@
             user: _v8,
             privacy: _v9
           } = (0, _v10.useEntityStore)();
-        (0, _v44.useConfigStore)(_v0 => _v0.entityType);
-        let _v10 = (0, _v44.useConfigStore)(_v0 => _v0.entityId),
-          _v11 = (0, _v44.useConfigStore)(_v0 => _v0.onAutoSave),
+        (0, _v43.useConfigStore)(_v0 => _v0.entityType);
+        let _v10 = (0, _v43.useConfigStore)(_v0 => _v0.entityId),
+          _v11 = (0, _v43.useConfigStore)(_v0 => _v0.onAutoSave),
           [_v12, {
             data: _v13,
             loading: _v14,
             error: _v15
           }] = (0, _v5.usePatchUserLiveEventEmailSettings)(),
-          [_v16] = _v25(),
+          [_v16] = _v24(),
           _v17 = (0, _v1.useRef)(null),
           _v18 = (0, _v17.useToast)(),
           {
             sentRegistrationEmailLayoutChangeEvent: _v19
-          } = _v45(),
+          } = _v44(),
           _v20 = async _v0 => {
             let {
                 changedProps: _v1,
                 bpChangedProps: _v2
-              } = _v55(_v4, _v0),
+              } = _v54(_v4, _v0),
               _v3 = !_v4.from || _v0.from || _v1.includes("from") ? _v1 : [..._v1, "from"];
             if (_v3.length > 0 && !_v6 && !_v17.current && _v4.hasApiData && _v8 && _v10 && !1 === _v2) {
               _v7(!0), _v11?.(!0);
@@ -1159,7 +1153,7 @@
                 _v1 = parseInt(_v10 || "0");
               _v17.current = _v0;
               try {
-                await Promise.all(_v4.reminders.filter(_v0 => _v0.id !== _v46.LEGACY_REMINDER_ID && !_v0.reminders.some(_v0 => _v0.id === _v0.id)).map(_v0 => _v0.id).map(_v0 => _v16({
+                await Promise.all(_v4.reminders.filter(_v0 => _v0.id !== _v45.LEGACY_REMINDER_ID && !_v0.reminders.some(_v0 => _v0.id === _v0.id)).map(_v0 => _v0.id).map(_v0 => _v16({
                   where: {
                     userId: _v0,
                     liveEventId: _v1,
@@ -1168,7 +1162,7 @@
                 })));
               } catch {
                 _v17.current = null, _v7(!1), _v11?.(!1), _v18({
-                  title: _v47.default.ChangesCouldNotBeSaved,
+                  title: _v46.default.ChangesCouldNotBeSaved,
                   status: "error",
                   duration: 0
                 });
@@ -1179,8 +1173,8 @@
                     _v3 = new Map(_v0.reminders.map(_v0 => [_v0.id, _v0]));
                   for (let _v0 of _v1.reminders) {
                     let _v0 = _v3.get(_v0.id),
-                      _v1 = void 0 === _v0 || _v0.enabled !== _v0.enabled || !(0, _v48.default)(_v0.offset, _v0.offset, _v54),
-                      _v2 = _v53.some(_v0 => !(0, _v48.default)(_v0[_v0]?.[_v0.id], _v1[_v0]?.[_v0.id], _v54));
+                      _v1 = void 0 === _v0 || _v0.enabled !== _v0.enabled || !(0, _v47.default)(_v0.offset, _v0.offset, _v53),
+                      _v2 = _v52.some(_v0 => !(0, _v47.default)(_v0[_v0]?.[_v0.id], _v1[_v0]?.[_v0.id], _v53));
                     (_v1 || _v2) && _v2.add(_v0.id);
                   }
                   return _v2;
@@ -1216,12 +1210,12 @@
                           direction: _v0.offset.direction
                         },
                         content: {
-                          body: _v50(_v13[_v1 = _v0.id]),
+                          body: _v49(_v13[_v1 = _v0.id]),
                           buttonLink: _v11[_v1].customLink,
                           buttonText: _v11[_v1].text,
                           useCustomLink: _v11[_v1].isCustomLink,
-                          header: _v50(_v12[_v1]),
-                          subject: _v50(_v9[_v1]),
+                          header: _v49(_v12[_v1]),
+                          subject: _v49(_v9[_v1]),
                           useCalender: _v14[_v1]
                         }
                       };
@@ -1232,7 +1226,7 @@
                       emailReminders: _v21
                     } : {}),
                     ...(_v22("from") ? {
-                      from: _v8 || _v1 || _v46.VIMEO
+                      from: _v8 || _v1 || _v45.VIMEO
                     } : {}),
                     ...(_v22("customLogo") ? {
                       pictures: _v10?.response,
@@ -1252,21 +1246,21 @@
                     useSenderAddress: _v16,
                     useSenderPolicyUrl: _v17,
                     emailRegistrationConfirmation: {
-                      body: _v50(_v13.CONFIRMATION),
+                      body: _v49(_v13.CONFIRMATION),
                       buttonLink: _v11.CONFIRMATION.customLink,
                       buttonText: _v11.CONFIRMATION.text,
                       useCustomLink: _v11.CONFIRMATION.isCustomLink,
-                      header: _v50(_v12.CONFIRMATION),
-                      subject: _v50(_v9.CONFIRMATION),
+                      header: _v49(_v12.CONFIRMATION),
+                      subject: _v49(_v9.CONFIRMATION),
                       useCalender: _v14.CONFIRMATION
                     },
                     emailPostEventThankYou: {
-                      body: _v50(_v13.FOLLOWUP),
+                      body: _v49(_v13.FOLLOWUP),
                       buttonLink: _v11.FOLLOWUP.customLink,
                       buttonText: _v11.FOLLOWUP.text,
                       useCustomLink: _v11.FOLLOWUP.isCustomLink,
-                      header: _v50(_v12.FOLLOWUP),
-                      subject: _v50(_v9.FOLLOWUP)
+                      header: _v49(_v12.FOLLOWUP),
+                      subject: _v49(_v9.FOLLOWUP)
                     }
                   };
                 })(_v0, _v1, _v2, _v3);
@@ -1275,7 +1269,7 @@
                   userId: _v0,
                   liveEventId: _v1
                 },
-                select: _v46.EMAIL_CUSTOMIZATION_FIELDS,
+                select: _v45.EMAIL_CUSTOMIZATION_FIELDS,
                 variables: _v3
               }), _v2.length > 0 && ((_v0, _v1) => {
                 if (_v1.isLastActionReset) return;
@@ -1310,26 +1304,26 @@
                         reminderParametersChanged: Object.keys(_v13).filter(_v0 => _v13[_v0] !== _v8[_v0]),
                         followupParametersChanged: Object.keys(_v14).filter(_v0 => _v14[_v0] !== _v9[_v0])
                       };
-                    })(_v0, _v1, _v52),
-                    previewType: _v36[_v1.previewMode]
+                    })(_v0, _v1, _v51),
+                    previewType: _v35[_v1.previewMode]
                   },
                   _v3 = {
-                    subject: _v39.CHANGE_SUBJECT,
-                    headerText: _v39.HEADING_TEXT_CHANGED,
-                    headerTextSize: _v39.HEADING_SIZE_CHANGED,
-                    headerTextColor: _v39.HEADING_COLOR_CHANGED,
-                    headerTextAlign: _v39.HEADING_FORMAT_CHANGED,
-                    bodyText: _v39.BODY_TEXT_CHANGED,
-                    bodyTextSize: _v39.BODY_SIZE_CHANGED,
-                    bodyTextColor: _v39.BODY_COLOR_CHANGED,
-                    bodyTextAlign: _v39.BODY_FORMAT_CHANGED,
-                    buttonText: _v39.BUTTON_TEXT_CHANGED,
-                    buttonLink: _v39.BUTTON_CUSTOM_LINK_CHANGED
+                    subject: _v38.CHANGE_SUBJECT,
+                    headerText: _v38.HEADING_TEXT_CHANGED,
+                    headerTextSize: _v38.HEADING_SIZE_CHANGED,
+                    headerTextColor: _v38.HEADING_COLOR_CHANGED,
+                    headerTextAlign: _v38.HEADING_FORMAT_CHANGED,
+                    bodyText: _v38.BODY_TEXT_CHANGED,
+                    bodyTextSize: _v38.BODY_SIZE_CHANGED,
+                    bodyTextColor: _v38.BODY_COLOR_CHANGED,
+                    bodyTextAlign: _v38.BODY_FORMAT_CHANGED,
+                    buttonText: _v38.BUTTON_TEXT_CHANGED,
+                    buttonLink: _v38.BUTTON_CUSTOM_LINK_CHANGED
                   },
                   _v4 = {
-                    confirmationParametersChanged: _v40.CONFIRMATION,
-                    reminderParametersChanged: _v40.REMINDER,
-                    followupParametersChanged: _v40.FOLLOWUP
+                    confirmationParametersChanged: _v39.CONFIRMATION,
+                    reminderParametersChanged: _v39.REMINDER,
+                    followupParametersChanged: _v39.FOLLOWUP
                   };
                 ["confirmationParametersChanged", "reminderParametersChanged", "followupParametersChanged"].forEach(_v0 => {
                   _v2[_v0].forEach(_v0 => {
@@ -1339,8 +1333,8 @@
                       let _v0,
                         _v1,
                         _v2,
-                        _v3 = _v1 === _v39.HEADING_TEXT_CHANGED || _v1 === _v39.BODY_TEXT_CHANGED,
-                        _v4 = _v3 && (_v0 = _v1 === _v39.HEADING_TEXT_CHANGED ? "header" : "body", _v2 = (_v1 = _v2.toUpperCase()) === _v46.EMAIL_TYPES.REMINDER ? _v1.selectedReminderId : _v1, (0, _v8.htmlToText)(_v0[_v0][_v2]) !== (0, _v8.htmlToText)(_v1[_v0][_v2]));
+                        _v3 = _v1 === _v38.HEADING_TEXT_CHANGED || _v1 === _v38.BODY_TEXT_CHANGED,
+                        _v4 = _v3 && (_v0 = _v1 === _v38.HEADING_TEXT_CHANGED ? "header" : "body", _v2 = (_v1 = _v2.toUpperCase()) === _v45.EMAIL_TYPES.REMINDER ? _v1.selectedReminderId : _v1, (0, _v8.htmlToText)(_v0[_v0][_v2]) !== (0, _v8.htmlToText)(_v1[_v0][_v2]));
                       (!_v3 || _v4) && _v19({
                         actionName: _v1,
                         type: _v2
@@ -1360,7 +1354,7 @@
           }, []),
           _v24 = (0, _v1.useCallback)((0, _v16.default)(_v0 => {
             _v21.current(_v0);
-          }, _v46.EMAIL_AUTO_SAVE_DEBOUNCED_INTERVAL), []);
+          }, _v45.EMAIL_AUTO_SAVE_DEBOUNCED_INTERVAL), []);
         return (0, _v1.useEffect)(() => {
           !_v3 && _v0 && _v24(_v0);
         }, [_v0, _v24, _v3]), (0, _v1.useEffect)(() => {
@@ -1370,23 +1364,23 @@
           if (_v17.current = null, _v7(!1), _v11?.(!1), _v15) return;
           _v5(_v1), _v3 || _v18({
             id: "auto-save-toast",
-            title: _v47.default.ChangesSaved,
+            title: _v46.default.ChangesSaved,
             status: "success",
             duration: 0
           });
           let {
             changedProps: _v2
-          } = _v55(_v1, _v0);
+          } = _v54(_v1, _v0);
           !_v3 && _v2.length > 0 && _v24(_v0);
         }, [_v14, _v13, _v15]), (0, _v1.useEffect)(() => {
           _v15 && !_v14 && _v15?.res?.json().then(_v0 => {
             let _v1 = (0, _v18.deepCamelCase)(_v0);
             if (_v1?.errorCode) {
-              let _v0 = _v47.ERROR_CODE[_v1.errorCode],
+              let _v0 = _v46.ERROR_CODE[_v1.errorCode],
                 _v1 = _v1.invalidParameters?.[0]?.field,
-                _v2 = _v47.ERROR_EMAIL_FIELD_MAPPING[_v1];
+                _v2 = _v46.ERROR_EMAIL_FIELD_MAPPING[_v1];
               _v18({
-                title: _v2 && _v0 ? `${_v47.default.ChangesCouldNotBeSaved} ${_v2} - ${_v0}` : _v47.default.ChangesCouldNotBeSaved,
+                title: _v2 && _v0 ? `${_v46.default.ChangesCouldNotBeSaved} ${_v2} - ${_v0}` : _v46.default.ChangesCouldNotBeSaved,
                 status: "error",
                 duration: 0
               });
@@ -1396,11 +1390,11 @@
           _v4.hasApiData || _v5(_v0);
         }, [_v0, _v4.hasApiData]), {
           isReminderSaved: _v0 => _v4.reminders.some(_v0 => _v0.id === _v0),
-          isDirty: _v55(_v4, _v0).changedProps.length > 0,
+          isDirty: _v54(_v4, _v0).changedProps.length > 0,
           isSaving: _v6,
           save: _v23
         };
-      })(_v2, _v10 || _v46.VIMEO, _v17, _v16);
+      })(_v2, _v10 || _v45.VIMEO, _v17, _v16);
     return ((0, _v1.useEffect)(() => {
       _v1?.({
         isDirty: _v21,
@@ -1411,10 +1405,10 @@
       _v6 || _v19();
     }, [_v19]), (0, _v1.useEffect)(() => {
       _v18 && _v3({
-        type: _v56.SET_STATE,
+        type: _v55.SET_STATE,
         payload: _v18
       });
-    }, [_v18]), !_v6 || (0, _v3.default)(_v6)) ? (0, _v2.jsx)(_v6.FullScreenLoader, {}) : (0, _v2.jsx)(_v65.Provider, {
+    }, [_v18]), !_v6 || (0, _v3.default)(_v6)) ? (0, _v2.jsx)(_v6.FullScreenLoader, {}) : (0, _v2.jsx)(_v64.Provider, {
       value: {
         state: _v2,
         dispatch: _v3,
@@ -1427,20 +1421,20 @@
       children: _v0
     });
   }], 0);
-  let _v66 = {
+  let _v65 = {
       UNDO: "UNDO",
       REDO: "REDO",
       SET: "SET",
       RESET: "RESET"
     },
-    _v67 = {
+    _v66 = {
       past: [],
       present: {},
       future: [],
       canUndo: !1,
       canRedo: !1
     },
-    _v68 = (_v0, _v1) => {
+    _v67 = (_v0, _v1) => {
       let {
         past: _v2,
         present: _v3,
@@ -1449,7 +1443,7 @@
         canRedo: _v6
       } = _v0;
       switch (_v1.type) {
-        case _v66.UNDO:
+        case _v65.UNDO:
           if (_v5) {
             let _v0 = _v2[_v2.length - 1],
               _v1 = _v2.slice(0, _v2.length - 1);
@@ -1463,7 +1457,7 @@
             };
           }
           return _v0;
-        case _v66.REDO:
+        case _v65.REDO:
           if (_v6) {
             let _v0 = _v4[0],
               _v1 = _v4.slice(1);
@@ -1477,13 +1471,13 @@
             };
           }
           return _v0;
-        case _v66.SET:
+        case _v65.SET:
           let {
               payload: _v0
             } = _v1,
             {
               changedProps: _v1
-            } = _v55(_v0, _v3, !1);
+            } = _v54(_v0, _v3, !1);
           if (0 === _v1.length) return _v0;
           return {
             ..._v0,
@@ -1493,16 +1487,16 @@
             canRedo: !1,
             future: []
           };
-        case _v66.RESET:
+        case _v65.RESET:
           return {
-            ..._v67,
+            ..._v66,
             present: _v1.payload
           };
       }
     },
-    _v69 = _v0 => {
-      let [_v1, _v2] = (0, _v1.useReducer)(_v68, {
-        ..._v67,
+    _v68 = _v0 => {
+      let [_v1, _v2] = (0, _v1.useReducer)(_v67, {
+        ..._v66,
         present: _v0
       });
       return [{
@@ -1511,53 +1505,53 @@
         canRedo: _v1.canRedo
       }, _v2];
     };
-  _v0.s(["ACTION_TYPE", 0, _v66, "default", 0, _v69], 0);
-  let _v70 = (0, _v1.createContext)({
+  _v0.s(["ACTION_TYPE", 0, _v65, "default", 0, _v68], 0);
+  let _v69 = (0, _v1.createContext)({
     state: {},
     dispatch: () => console.error("dispatch not initialized"),
     undoRedoDispatch: () => console.error("undo/redo dispatch not initialized")
   });
-  _v0.s(["UndoRedoContext", 0, _v70, "UndoRedoContextProvider", 0, ({
+  _v0.s(["UndoRedoContext", 0, _v69, "UndoRedoContextProvider", 0, ({
     children: _v0
   }) => {
     let {
         state: _v1,
         dispatch: _v2
-      } = (0, _v1.useContext)(_v65),
-      [_v3, _v4] = _v69(_v1),
+      } = (0, _v1.useContext)(_v64),
+      [_v3, _v4] = _v68(_v1),
       [_v5, _v6] = (0, _v1.useState)(!1),
       _v7 = (0, _v1.useCallback)((0, _v16.default)(_v0 => {
         _v4({
-          type: _v66.SET,
+          type: _v65.SET,
           payload: _v0
         });
-      }, _v46.EMAIL_UNDO_REDO_DEBOUNCED_INTERVAL), [_v4]);
+      }, _v45.EMAIL_UNDO_REDO_DEBOUNCED_INTERVAL), [_v4]);
     (0, _v1.useEffect)(() => {
       if (_v5) {
         let {
           changedProps: _v0
-        } = _v55(_v1, _v3, !1);
+        } = _v54(_v1, _v3, !1);
         _v0.length > 0 && _v2({
-          type: _v56.SET_STATE,
+          type: _v55.SET_STATE,
           payload: _v3
         });
       }
     }, [_v3, _v5, _v1, _v2]), (0, _v1.useEffect)(() => {
       _v1.hasApiData && _v4({
-        type: _v66.RESET,
+        type: _v65.RESET,
         payload: _v1
       });
     }, [_v4, _v1.hasApiData]), (0, _v1.useEffect)(() => {
       if (!_v5) {
         let {
           changedProps: _v0
-        } = _v55(_v1, _v3, !1);
+        } = _v54(_v1, _v3, !1);
         _v0.length > 0 && _v7(_v1);
       }
     }, [_v1, _v5, _v7, _v3]), (0, _v1.useEffect)(() => {
       let {
         changedProps: _v0
-      } = _v55(_v1, _v3, !1);
+      } = _v54(_v1, _v3, !1);
       0 === _v0.length && _v6(!1);
     }, [_v1, _v3]);
     let _v8 = (0, _v1.useCallback)((_v0, _v1) => {
@@ -1569,21 +1563,21 @@
           showCalender: _v6,
           defaultConfig: _v7
         } = _v1,
-        _v8 = _v61(_v0);
-      return _v2[_v0] !== _v7.subject[_v8] || _v5[_v0].text !== _v7.buttonInfo[_v8].text || _v5[_v0].isCustomLink || _v3[_v0] !== _v7.header[_v8] || _v4[_v0] !== _v7.body[_v8] || (_v8 === _v46.EMAIL_TYPES.CONFIRMATION || _v8 === _v46.EMAIL_TYPES.REMINDER) && _v6[_v0] !== _v7.showCalender[_v8];
+        _v8 = _v60(_v0);
+      return _v2[_v0] !== _v7.subject[_v8] || _v5[_v0].text !== _v7.buttonInfo[_v8].text || _v5[_v0].isCustomLink || _v3[_v0] !== _v7.header[_v8] || _v4[_v0] !== _v7.body[_v8] || (_v8 === _v45.EMAIL_TYPES.CONFIRMATION || _v8 === _v45.EMAIL_TYPES.REMINDER) && _v6[_v0] !== _v7.showCalender[_v8];
     }, [_v1.buttonInfo, _v1.subject, _v1.header, _v1.body, _v1.showCalender]);
     return (0, _v1.useEffect)(() => {
       let _v0 = Object.keys(_v1.subject).reduce((_v0, _v1) => (_v0[_v1] = _v8(_v1, _v1), _v0), {});
       _v0 !== _v1.isContentModified && _v2({
-        type: _v56.SET_IS_CONTENT_MODIFIED,
+        type: _v55.SET_IS_CONTENT_MODIFIED,
         payload: _v0
       });
-    }, [_v8]), (0, _v2.jsx)(_v70.Provider, {
+    }, [_v8]), (0, _v2.jsx)(_v69.Provider, {
       value: {
         state: _v3,
         dispatch: _v4,
         undoRedoDispatch: _v0 => {
-          (_v0.type === _v66.REDO || _v0.type === _v66.UNDO) && _v1.hasApiData && _v6(!0), _v4(_v0);
+          (_v0.type === _v65.REDO || _v0.type === _v65.UNDO) && _v1.hasApiData && _v6(!0), _v4(_v0);
         }
       },
       children: _v0
@@ -1595,11 +1589,11 @@
         isReminderSaved: _v2,
         isManualSaveRequired: _v3,
         canUseConfigurableEventReminders: _v4
-      } = (0, _v1.useContext)(_v65),
+      } = (0, _v1.useContext)(_v64),
       {
         state: _v5,
         undoRedoDispatch: _v6
-      } = (0, _v1.useContext)(_v70);
+      } = (0, _v1.useContext)(_v69);
     return {
       emailState: {
         ..._v0,
@@ -1608,7 +1602,7 @@
       },
       dispatch: _v1,
       undoRedoDispatch: _v6,
-      activeContentKey: _v0.emailTemplateType === _v46.EMAIL_TYPES.REMINDER ? _v0.selectedReminderId : _v0.emailTemplateType,
+      activeContentKey: _v0.emailTemplateType === _v45.EMAIL_TYPES.REMINDER ? _v0.selectedReminderId : _v0.emailTemplateType,
       isReminderSaved: _v2,
       isManualSaveRequired: _v3,
       canUseConfigurableEventReminders: _v4

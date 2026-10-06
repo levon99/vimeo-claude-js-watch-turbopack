@@ -5519,10 +5519,7 @@
     let _v0 = (0, _v34.useSessionOwnerId)(),
       {
         capabilities: _v1
-      } = (0, _v22.useCapability)(["canEnableLiveReactions"], _v0),
-      {
-        settings: _v2
-      } = (0, _v245.useOrionSettings)();
-    return _v2.enable_live_reactions && !!_v1.canEnableLiveReactions;
+      } = (0, _v22.useCapability)(["canEnableLiveReactions"], _v0);
+    return (0, _v245.useOrionSettingsFields)(["enable_live_reactions"]).enable_live_reactions && !!_v1.canEnableLiveReactions;
   }], 0);
 }

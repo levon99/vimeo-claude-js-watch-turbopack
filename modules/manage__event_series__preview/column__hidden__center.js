@@ -14,22 +14,23 @@
     _v11 = _v0.i(0),
     _v12 = _v0.i(0);
   let _v13 = ({
-    item: _v0
+    item: _v0,
+    defaultExpanded: _v1 = !1
   }) => {
-    let [_v1, _v2] = (0, _v2.useState)(!1),
-      _v3 = (0, _v12.useResponsiveStylingToken)();
+    let [_v2, _v3] = (0, _v2.useState)(_v1),
+      _v4 = (0, _v12.useResponsiveStylingToken)();
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v5.Flex, {
         direction: "column",
         overflow: "hidden",
         children: [(0, _v1.jsxs)(_v5.Flex, {
           align: "center",
-          "aria-expanded": _v1,
+          "aria-expanded": _v2,
           justifyContent: "space-between",
           backgroundColor: "unset",
           as: "button",
           gap: "sm",
-          onClick: () => _v2(_v0 => !_v0),
+          onClick: () => _v3(_v0 => !_v0),
           textAlign: "left",
           alignItems: "flex-start",
           type: "button",
@@ -37,12 +38,12 @@
           p: "0",
           children: [(0, _v1.jsx)(_v6.Text, {
             color: "text-primary",
-            variant: _v3("heading-md", "heading-lg"),
+            variant: _v4("heading-md", "heading-lg"),
             children: _v0.question
           }), (0, _v1.jsx)(_v5.Flex, {
             "aria-hidden": !0,
             role: "button",
-            "aria-label": _v1 ? (0, _v9.translate)({
+            "aria-label": _v2 ? (0, _v9.translate)({
               singular: "Collapse",
               dictionary: {
                 es: {
@@ -95,14 +96,14 @@
             }),
             color: "text-primary",
             flexShrink: 0,
-            transform: _v1 ? "rotate(45deg)" : "none",
+            transform: _v2 ? "rotate(45deg)" : "none",
             transition: "transform 0.2s ease-out",
             children: (0, _v1.jsx)(_v8.Plus, {
               boxSize: _v11.FAQ_STYLES.ICON_SIZE_24
             })
           })]
         }), (0, _v1.jsx)(_v3.Collapse, {
-          in: _v1,
+          in: _v2,
           unmountOnExit: !0,
           children: (0, _v1.jsx)(_v6.Text, {
             color: "text-secondary",
@@ -127,7 +128,6 @@
     children: (0, _v1.jsxs)(_v10.SectionTwoColumnsWrapper, {
       stackedGap: "xl",
       children: [(0, _v1.jsx)(_v10.SectionHeader, {
-        color: "text-tertiary",
         children: (0, _v9.translate)({
           singular: "General Info",
           dictionary: {
@@ -157,6 +157,7 @@
       }), (0, _v1.jsx)(_v10.SectionContent, {
         gap: 0,
         children: _v0.map((_v0, _v1) => (0, _v1.jsx)(_v13, {
+          defaultExpanded: 0 === _v1,
           item: _v0
         }, `${_v0.question}-${_v1}`))
       })]

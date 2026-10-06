@@ -1320,9 +1320,7 @@
       }
     });
   }, "useSharingLink", 0, function () {
-    let {
-        settings: _v0
-      } = (0, _v35.useOrionSettings)(),
+    let _v0 = (0, _v35.useOrionSettingsFields)(["bi_expiring_links_ux_enabled", "bi_expiring_links_default_expiry_days"]),
       _v1 = !!_v0?.bi_expiring_links_ux_enabled,
       _v2 = (0, _v25.useGlobalStore)(({
         clip: _v0

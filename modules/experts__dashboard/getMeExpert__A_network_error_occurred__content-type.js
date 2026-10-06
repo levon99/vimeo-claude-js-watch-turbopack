@@ -16,210 +16,102 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  async function _v18({
+    _v16 = _v0.i(0);
+  async function _v17({
     baseUrl: _v0,
     select: _v1,
     ..._v2
   }) {
-    return (0, _v16.measureLatency)("getMeExpert", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/me/expert?fields=${_v1.map(_v17.intoSnakeCase).join(",")}`, {
+    return (0, _v15.measureLatency)("getMeExpert", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/me/expert?fields=${_v1.map(_v16.intoSnakeCase).join(",")}`, {
         ..._v2,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v16.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v17.deepCamelCase)(_v1);
+      return (0, _v16.deepCamelCase)(_v1);
     });
   }
-  async function _v19({
+  async function _v18({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
     ..._v3
   }) {
-    return (0, _v16.measureLatency)("postMeExpert", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/me/expert?fields=${_v1.map(_v17.intoSnakeCase).join(",")}`, {
+    return (0, _v15.measureLatency)("postMeExpert", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/me/expert?fields=${_v1.map(_v16.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "POST",
-        body: JSON.stringify((0, _v17.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v16.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v16.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v17.deepCamelCase)(_v1);
+      return (0, _v16.deepCamelCase)(_v1);
     });
   }
-  var _v20 = _v0.i(0),
+  _v0.i(0);
+  var _v19 = _v0.i(0),
+    _v20 = _v0.i(0),
     _v21 = _v0.i(0),
-    _v22 = _v0.i(0);
-  function _v23() {
-    let {
-        mutate: _v0
-      } = (0, _v21.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v22.useGctlConfig)(),
-      [_v5, _v6] = (0, _v15.useInternalState)();
-    return [(0, _v8.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/me/expert${(0, _v15.serializeQuery)(_v0)}`, _v18({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  function _v24() {
-    let {
-        mutate: _v0
-      } = (0, _v21.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v22.useGctlConfig)(),
-      [_v5, _v6] = (0, _v15.useInternalState)();
-    return [(0, _v8.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/me/expert${(0, _v15.serializeQuery)(_v0)}`, _v19({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v22.useGctlConfig)();
-    return (0, _v20.default)(_v2 ? `/me/expert${(0, _v15.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v18({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/me/expert",
-    method: "GET"
-  }), "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(_v23, {
-    endpoint: "/me/expert",
-    method: "GET"
-  }), "true" === _v14.default.env.STORYBOOK && (0, _v15.assignMswData)(_v24, {
-    endpoint: "/me/expert",
-    method: "POST"
-  });
-  var _v25 = _v0.i(0),
+    _v22 = _v0.i(0),
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0),
     _v26 = _v0.i(0),
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0),
-    _v36 = _v29.default.div(_v1 || (_v1 = (0, _v31.a)(["\n  display: flex;\n  align-items: center;\n\n  @media screen and (max-width: ", ") {\n    > * {\n      display: none;\n    }\n\n    > :last-child {\n      display: block;\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n\n  @media screen and (max-width: ", ") {\n    > * {\n      display: none;\n    }\n\n    > :last-child {\n      display: block;\n    }\n  }\n"])), (0, _v32.em)(768)),
-    _v37 = (0, _v29.css)(_v2 || (_v2 = (0, _v31.a)(["\n  position: relative;\n  font-size: 0.875rem;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  min-width: 0;\n  line-height: 1.5rem;\n\n  &:last-child {\n    padding-right: 1.334rem;\n  }\n"], ["\n  position: relative;\n  font-size: 0.875rem;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  min-width: 0;\n  line-height: 1.5rem;\n\n  &:last-child {\n    padding-right: 1.334rem;\n  }\n"]))),
-    _v38 = (0, _v29.default)(_v33.Link)(_v37),
-    _v39 = (0, _v29.default)(_v34.Text)(_v37),
-    _v40 = _v29.default.span(_v3 || (_v3 = (0, _v31.a)(["\n  position: absolute;\n  top: 0.125rem;\n  right: 0;\n\n  svg {\n    width: 1rem;\n    height: 1rem;\n  }\n"], ["\n  position: absolute;\n  top: 0.125rem;\n  right: 0;\n\n  svg {\n    width: 1rem;\n    height: 1rem;\n  }\n"]))),
-    _v41 = _v29.default.a(_v4 || (_v4 = (0, _v31.a)(["\n  width: 1.5rem;\n  height: 1.5rem;\n  margin-right: 0.25rem;\n  display: inline-block !important;\n\n  svg {\n    width: 1.5rem;\n    height: 1.5rem;\n\n    * {\n      fill: ", ";\n    }\n  }\n\n  @media screen and (min-width: ", ") {\n    display: none !important;\n  }\n"], ["\n  width: 1.5rem;\n  height: 1.5rem;\n  margin-right: 0.25rem;\n  display: inline-block !important;\n\n  svg {\n    width: 1.5rem;\n    height: 1.5rem;\n\n    * {\n      fill: ", ";\n    }\n  }\n\n  @media screen and (min-width: ", ") {\n    display: none !important;\n  }\n"])), function (_v0) {
+    _v32 = _v25.default.div(_v1 || (_v1 = (0, _v27.a)(["\n  display: flex;\n  align-items: center;\n\n  @media screen and (max-width: ", ") {\n    > * {\n      display: none;\n    }\n\n    > :last-child {\n      display: block;\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n\n  @media screen and (max-width: ", ") {\n    > * {\n      display: none;\n    }\n\n    > :last-child {\n      display: block;\n    }\n  }\n"])), (0, _v28.em)(768)),
+    _v33 = (0, _v25.css)(_v2 || (_v2 = (0, _v27.a)(["\n  position: relative;\n  font-size: 0.875rem;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  min-width: 0;\n  line-height: 1.5rem;\n\n  &:last-child {\n    padding-right: 1.334rem;\n  }\n"], ["\n  position: relative;\n  font-size: 0.875rem;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  min-width: 0;\n  line-height: 1.5rem;\n\n  &:last-child {\n    padding-right: 1.334rem;\n  }\n"]))),
+    _v34 = (0, _v25.default)(_v29.Link)(_v33),
+    _v35 = (0, _v25.default)(_v30.Text)(_v33),
+    _v36 = _v25.default.span(_v3 || (_v3 = (0, _v27.a)(["\n  position: absolute;\n  top: 0.125rem;\n  right: 0;\n\n  svg {\n    width: 1rem;\n    height: 1rem;\n  }\n"], ["\n  position: absolute;\n  top: 0.125rem;\n  right: 0;\n\n  svg {\n    width: 1rem;\n    height: 1rem;\n  }\n"]))),
+    _v37 = _v25.default.a(_v4 || (_v4 = (0, _v27.a)(["\n  width: 1.5rem;\n  height: 1.5rem;\n  margin-right: 0.25rem;\n  display: inline-block !important;\n\n  svg {\n    width: 1.5rem;\n    height: 1.5rem;\n\n    * {\n      fill: ", ";\n    }\n  }\n\n  @media screen and (min-width: ", ") {\n    display: none !important;\n  }\n"], ["\n  width: 1.5rem;\n  height: 1.5rem;\n  margin-right: 0.25rem;\n  display: inline-block !important;\n\n  svg {\n    width: 1.5rem;\n    height: 1.5rem;\n\n    * {\n      fill: ", ";\n    }\n  }\n\n  @media screen and (min-width: ", ") {\n    display: none !important;\n  }\n"])), function (_v0) {
       return _v0.theme.formats.primary;
-    }, (0, _v32.em)(768)),
-    _v42 = (0, _v29.default)(_v35.ChevronRight)(_v5 || (_v5 = (0, _v31.a)(["\n  width: 1.5rem;\n  height: 1.5rem;\n  display: none;\n  right: 0;\n\n  * {\n    fill: ", ";\n  }\n\n  @media screen and (min-width: ", ") {\n    display: inline-block;\n  }\n"], ["\n  width: 1.5rem;\n  height: 1.5rem;\n  display: none;\n  right: 0;\n\n  * {\n    fill: ", ";\n  }\n\n  @media screen and (min-width: ", ") {\n    display: inline-block;\n  }\n"])), function (_v0) {
+    }, (0, _v28.em)(768)),
+    _v38 = (0, _v25.default)(_v31.ChevronRight)(_v5 || (_v5 = (0, _v27.a)(["\n  width: 1.5rem;\n  height: 1.5rem;\n  display: none;\n  right: 0;\n\n  * {\n    fill: ", ";\n  }\n\n  @media screen and (min-width: ", ") {\n    display: inline-block;\n  }\n"], ["\n  width: 1.5rem;\n  height: 1.5rem;\n  display: none;\n  right: 0;\n\n  * {\n    fill: ", ";\n  }\n\n  @media screen and (min-width: ", ") {\n    display: inline-block;\n  }\n"])), function (_v0) {
       return _v0.theme.formats.soft;
-    }, (0, _v32.em)(768)),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = (0, _v43.withIris)(function (_v0) {
+    }, (0, _v28.em)(768)),
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0),
+    _v41 = (0, _v39.withIris)(function (_v0) {
       var _v1 = _v0.children,
         _v2 = _v0.forwardRef,
-        _v3 = (0, _v31.b)(_v0, ["children", "forwardRef"]),
+        _v3 = (0, _v27.b)(_v0, ["children", "forwardRef"]),
         _v4 = _v1[_v1.length - 2].props.href;
-      return _v8.default.createElement(_v36, (0, _v31.c)({
+      return _v8.default.createElement(_v32, (0, _v27.c)({
         ref: _v2
-      }, _v3), _v8.default.createElement(_v41, {
+      }, _v3), _v8.default.createElement(_v37, {
         href: _v4
-      }, _v8.default.createElement(_v44.ArrowLeft, null)), _v1);
+      }, _v8.default.createElement(_v40.ArrowLeft, null)), _v1);
     });
-  _v45.Link = function (_v0) {
+  _v41.Link = function (_v0) {
     var _v1 = _v0.children,
       _v2 = _v0.href,
-      _v3 = (0, _v31.b)(_v0, ["children", "href"]);
-    return _v8.default.createElement(_v8.default.Fragment, null, _v8.default.createElement(_v38, (0, _v31.c)({
+      _v3 = (0, _v27.b)(_v0, ["children", "href"]);
+    return _v8.default.createElement(_v8.default.Fragment, null, _v8.default.createElement(_v34, (0, _v27.c)({
       href: _v2,
       variant: "minimal",
       format: "primary"
-    }, _v3), _v1), _v8.default.createElement(_v42, null));
-  }, _v45.Current = function (_v0) {
+    }, _v3), _v1), _v8.default.createElement(_v38, null));
+  }, _v41.Current = function (_v0) {
     var _v1 = _v0.children,
       _v2 = _v0.icon,
-      _v3 = (0, _v31.b)(_v0, ["children", "icon"]);
-    return _v8.default.createElement(_v39, (0, _v31.c)({}, _v3), _v1, _v8.default.createElement(_v40, null, _v2));
+      _v3 = (0, _v27.b)(_v0, ["children", "icon"]);
+    return _v8.default.createElement(_v35, (0, _v27.c)({}, _v3), _v1, _v8.default.createElement(_v36, null, _v2));
   };
-  var _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
-    _v49 = _v0.i(0),
-    _v50 = _v0.i(0);
-  let _v51 = (0, _v29.default)(_v48.Checkbox).withConfig({
+  var _v42 = _v0.i(0),
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0),
+    _v45 = _v0.i(0),
+    _v46 = _v0.i(0);
+  let _v47 = (0, _v25.default)(_v44.Checkbox).withConfig({
     displayName: "styles__StyledCheckbox",
     componentId: "sc-46600ff3-0"
   })`
@@ -227,12 +119,12 @@
     border: ${_v0 => _v0.isError ? "1px solid red" : "1px solid black"};
   }
 `;
-  _v29.default.div.withConfig({
+  _v25.default.div.withConfig({
     displayName: "styles__PageContentWrapper",
     componentId: "sc-46600ff3-1"
   })`
-  padding: ${(0, _v47.rem)(24)} ${(0, _v47.rem)(40)};
-`, _v29.default.div.withConfig({
+  padding: ${(0, _v43.rem)(24)} ${(0, _v43.rem)(40)};
+`, _v25.default.div.withConfig({
     displayName: "styles__BodyContentWrapper",
     componentId: "sc-46600ff3-2"
   })`
@@ -240,7 +132,7 @@
   justify-content: space-evenly;
   flex-direction: row;
 `;
-  let _v52 = _v29.default.div.withConfig({
+  let _v48 = _v25.default.div.withConfig({
       displayName: "styles__LoaderContainer",
       componentId: "sc-46600ff3-3"
     })`
@@ -250,172 +142,172 @@
   left: 50%;
   transform: translate(-50%, -50%);
 `,
-    _v53 = _v29.default.div.withConfig({
+    _v49 = _v25.default.div.withConfig({
       displayName: "styles__TopImageWrapper",
       componentId: "sc-46600ff3-4"
     })`
   position: relative;
 `,
-    _v54 = _v29.default.div.withConfig({
+    _v50 = _v25.default.div.withConfig({
       displayName: "styles__TopImage",
       componentId: "sc-46600ff3-5"
     })`
   img {
-    border-radius: ${(0, _v47.rem)(8)};
+    border-radius: ${(0, _v43.rem)(8)};
   }
   height: auto;
   width: 35%;
   margin-left: 50%;
-  max-width: ${(0, _v47.rem)(179)};
+  max-width: ${(0, _v43.rem)(179)};
   display: none;
-  @media (min-width: ${_v50.DESKTOP}) {
+  @media (min-width: ${_v46.DESKTOP}) {
     display: block;
   }
 `,
-    _v55 = _v29.default.div.withConfig({
+    _v51 = _v25.default.div.withConfig({
       displayName: "styles__BottomImageLeft",
       componentId: "sc-46600ff3-6"
     })`
   img {
-    border-radius: ${(0, _v47.rem)(8)};
+    border-radius: ${(0, _v43.rem)(8)};
   }
   height: auto;
   width: 40%;
-  margin-top: ${(0, _v47.rem)(32)};
-  border-radius: ${(0, _v47.rem)(8)};
+  margin-top: ${(0, _v43.rem)(32)};
+  border-radius: ${(0, _v43.rem)(8)};
   position: absolute;
   left: 13%;
   bottom: 10%;
   z-index: 1;
-  max-width: ${(0, _v47.rem)(212)};
+  max-width: ${(0, _v43.rem)(212)};
   display: none;
-  @media (min-width: ${_v50.DESKTOP}) {
+  @media (min-width: ${_v46.DESKTOP}) {
     display: inline;
   }
 `,
-    _v56 = _v29.default.div.withConfig({
+    _v52 = _v25.default.div.withConfig({
       displayName: "styles__BottomImageRight",
       componentId: "sc-46600ff3-7"
     })`
   img {
-    border-radius: ${(0, _v47.rem)(8)};
+    border-radius: ${(0, _v43.rem)(8)};
   }
   height: auto;
   width: 50%;
-  margin-top: ${(0, _v47.rem)(48)};
-  border-radius: ${(0, _v47.rem)(8)};
+  margin-top: ${(0, _v43.rem)(48)};
+  border-radius: ${(0, _v43.rem)(8)};
   margin-left: 40%;
-  max-width: ${(0, _v47.rem)(257)};
+  max-width: ${(0, _v43.rem)(257)};
   display: none;
-  @media (min-width: ${_v50.DESKTOP}) {
+  @media (min-width: ${_v46.DESKTOP}) {
     display: block;
   }
 `,
-    _v57 = _v29.default.section.withConfig({
+    _v53 = _v25.default.section.withConfig({
       displayName: "styles__Wrapper",
       componentId: "sc-46600ff3-8"
     })`
   width: 100%;
   padding: 0;
 `,
-    _v58 = _v29.default.div.withConfig({
+    _v54 = _v25.default.div.withConfig({
       displayName: "styles__FormHeading",
       componentId: "sc-46600ff3-9"
     })`
-  font-size: ${(0, _v47.rem)(36)};
+  font-size: ${(0, _v43.rem)(36)};
   font-weight: 700;
   font-style: normal;
   margin: 0 auto;
-  max-width: ${(0, _v47.rem)(520)};
-  @media (min-width: ${_v50.DESKTOP}) {
-    font-size: ${(0, _v47.rem)(47)};
+  max-width: ${(0, _v43.rem)(520)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    font-size: ${(0, _v43.rem)(47)};
     text-align: start;
     margin: 0 0;
-    max-width: ${(0, _v47.rem)(490)};
+    max-width: ${(0, _v43.rem)(490)};
   }
-  @media (min-width: ${_v50.HD}) {
-    max-width: ${(0, _v47.rem)(550)};
+  @media (min-width: ${_v46.HD}) {
+    max-width: ${(0, _v43.rem)(550)};
   }
 `,
-    _v59 = _v29.default.div.withConfig({
+    _v55 = _v25.default.div.withConfig({
       displayName: "styles__FormInputWrapper",
       componentId: "sc-46600ff3-10"
     })`
   align-items: flex-start;
   display: flex;
-  margin-top: ${(0, _v47.rem)(32)};
+  margin-top: ${(0, _v43.rem)(32)};
   justify-content: center;
-  @media (min-width: ${_v50.DESKTOP}) {
+  @media (min-width: ${_v46.DESKTOP}) {
     justify-content: flex-start;
   }
 `,
-    _v60 = _v29.default.p.withConfig({
+    _v56 = _v25.default.p.withConfig({
       displayName: "styles__CheckboxText",
       componentId: "sc-46600ff3-11"
     })`
   cursor: pointer;
-  font-size: ${(0, _v47.rem)(14)};
+  font-size: ${(0, _v43.rem)(14)};
   letter-spacing: 0;
-  line-height: ${(0, _v47.rem)(21.6)};
-  margin-left: ${(0, _v47.rem)(16)};
-  min-height: ${(0, _v47.rem)(87)};
+  line-height: ${(0, _v43.rem)(21.6)};
+  margin-left: ${(0, _v43.rem)(16)};
+  min-height: ${(0, _v43.rem)(87)};
 
-  @media (min-width: ${_v50.DESKTOP}) {
-    max-width: ${(0, _v47.rem)(460)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    max-width: ${(0, _v43.rem)(460)};
   }
-  @media (min-width: ${_v50.HD}) {
-    max-width: ${(0, _v47.rem)(514)};
+  @media (min-width: ${_v46.HD}) {
+    max-width: ${(0, _v43.rem)(514)};
   }
 `,
-    _v61 = _v29.default.div.withConfig({
+    _v57 = _v25.default.div.withConfig({
       displayName: "styles__FormButtonsWrapper",
       componentId: "sc-46600ff3-12"
     })`
-  top: ${(0, _v47.rem)(633)};
-  left: ${(0, _v47.rem)(191)};
-  margin-top: ${(0, _v47.rem)(24)};
+  top: ${(0, _v43.rem)(633)};
+  left: ${(0, _v43.rem)(191)};
+  margin-top: ${(0, _v43.rem)(24)};
   display: flex;
   flex-direction: row;
   justify-content: center;
-  @media (min-width: ${_v50.DESKTOP}) {
+  @media (min-width: ${_v46.DESKTOP}) {
     justify-content: flex-start;
   }
 `,
-    _v62 = (0, _v29.default)(_v25.Button).withConfig({
+    _v58 = (0, _v25.default)(_v21.Button).withConfig({
       displayName: "styles__LearnMoreButton",
       componentId: "sc-46600ff3-13"
     })`
-  margin-left: ${(0, _v47.rem)(24)};
+  margin-left: ${(0, _v43.rem)(24)};
 `,
-    _v63 = _v29.default.div.withConfig({
+    _v59 = _v25.default.div.withConfig({
       displayName: "styles__PathWrapper",
       componentId: "sc-46600ff3-14"
     })`
   z-index: 1;
-  margin-left: ${(0, _v47.rem)(24)};
-  margin-top: ${(0, _v47.rem)(16)};
+  margin-left: ${(0, _v43.rem)(24)};
+  margin-top: ${(0, _v43.rem)(16)};
   position: absolute;
   font-weight: 700;
-  @media (min-width: ${_v50.DESKTOP}) {
-    margin-left: ${(0, _v47.rem)(40)};
-    margin-top: ${(0, _v47.rem)(24)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    margin-left: ${(0, _v43.rem)(40)};
+    margin-top: ${(0, _v43.rem)(24)};
   }
 `,
-    _v64 = _v29.default.a.withConfig({
+    _v60 = _v25.default.a.withConfig({
       displayName: "styles__FeaturePageLink",
       componentId: "sc-46600ff3-15"
     })`
   svg {
     position: relative;
-    top: ${(0, _v47.rem)(2)};
-    margin-left: ${(0, _v47.rem)(6)};
-    width: ${(0, _v47.rem)(14)};
+    top: ${(0, _v43.rem)(2)};
+    margin-left: ${(0, _v43.rem)(6)};
+    width: ${(0, _v43.rem)(14)};
   }
 
   &:hover {
     svg {
       path {
-        fill: ${(0, _v30.blue)(400)};
+        fill: ${(0, _v26.blue)(400)};
       }
     }
     text-decoration: underline;
@@ -424,170 +316,170 @@
   color: #00adef;
   text-decoration: none;
 `;
-  (0, _v29.default)(_v49.Paragraph).attrs({
+  (0, _v25.default)(_v45.Paragraph).attrs({
     size: "2"
   }).withConfig({
     displayName: "styles__StyledParagraph",
     componentId: "sc-46600ff3-16"
   })`
   color: slate(400);
-  top: ${(0, _v47.rem)(-8)};
+  top: ${(0, _v43.rem)(-8)};
   position: relative;
 
   a {
     color: inherit;
   }
 `;
-  let _v65 = _v29.default.div.withConfig({
+  let _v61 = _v25.default.div.withConfig({
       displayName: "styles__FlexContainer",
       componentId: "sc-46600ff3-17"
     })`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: ${(0, _v47.rem)(54)} 0;
-  @media (min-width: ${_v50.DESKTOP}) {
-    margin: ${(0, _v47.rem)(54)} ${(0, _v47.rem)(40)};
+  margin: ${(0, _v43.rem)(54)} 0;
+  @media (min-width: ${_v46.DESKTOP}) {
+    margin: ${(0, _v43.rem)(54)} ${(0, _v43.rem)(40)};
   }
 `,
-    _v66 = _v29.default.div.withConfig({
+    _v62 = _v25.default.div.withConfig({
       displayName: "styles__ErrorMessage",
       componentId: "sc-46600ff3-18"
     })`
-  font-size: ${(0, _v47.rem)(12)};
+  font-size: ${(0, _v43.rem)(12)};
   color: #ff4d4d;
-  margin-top: ${(0, _v47.rem)(16)};
+  margin-top: ${(0, _v43.rem)(16)};
 `,
-    _v67 = _v29.default.div.withConfig({
+    _v63 = _v25.default.div.withConfig({
       displayName: "styles__VisualWrapper",
       componentId: "sc-46600ff3-19"
     })`
   width: 40%;
-  margin: 0 ${(0, _v47.rem)(20)};
-  max-width: ${(0, _v47.rem)(514)};
+  margin: 0 ${(0, _v43.rem)(20)};
+  max-width: ${(0, _v43.rem)(514)};
   position: absolute;
   display: none;
-  @media (min-width: ${_v50.DESKTOP}) {
+  @media (min-width: ${_v46.DESKTOP}) {
     position: relative;
     display: block;
-    padding-top: ${(0, _v47.rem)(100)};
-    margin-left: ${(0, _v47.rem)(30)};
+    padding-top: ${(0, _v43.rem)(100)};
+    margin-left: ${(0, _v43.rem)(30)};
   }
-  @media (min-width: ${_v50.HD}) {
+  @media (min-width: ${_v46.HD}) {
     padding-top: 0;
-    margin-left: ${(0, _v47.rem)(34)};
+    margin-left: ${(0, _v43.rem)(34)};
   }
 `,
-    _v68 = _v29.default.div.withConfig({
+    _v64 = _v25.default.div.withConfig({
       displayName: "styles__EnrollmentWrapper",
       componentId: "sc-46600ff3-20"
     })`
   width: 85%;
   margin: 0 0;
-  padding-top: ${(0, _v47.rem)(25)};
-  max-width: ${(0, _v47.rem)(400)};
-  @media (min-width: ${_v50.DESKTOP}) {
+  padding-top: ${(0, _v43.rem)(25)};
+  max-width: ${(0, _v43.rem)(400)};
+  @media (min-width: ${_v46.DESKTOP}) {
     max-width: none;
-    padding-top: ${(0, _v47.rem)(100)};
-    min-width: ${(0, _v47.rem)(490)};
+    padding-top: ${(0, _v43.rem)(100)};
+    min-width: ${(0, _v43.rem)(490)};
     width: 40%;
-    margin-right: ${(0, _v47.rem)(30)};
+    margin-right: ${(0, _v43.rem)(30)};
   }
-  @media (min-width: ${_v50.HD}) {
-    margin-right: ${(0, _v47.rem)(34)};
+  @media (min-width: ${_v46.HD}) {
+    margin-right: ${(0, _v43.rem)(34)};
   }
 `,
-    _v69 = _v29.default.div.withConfig({
+    _v65 = _v25.default.div.withConfig({
       displayName: "styles__HomePageWrapper",
       componentId: "sc-46600ff3-21"
     })`
   background: white;
   overflow: hidden;
-  top: ${(0, _v47.rem)(40)};
+  top: ${(0, _v43.rem)(40)};
   width: 100%;
   z-index: 12;
 `,
-    _v70 = _v29.default.div.withConfig({
+    _v66 = _v25.default.div.withConfig({
       displayName: "styles__Video",
       componentId: "sc-46600ff3-22"
     })`
   img {
-    border-radius: ${(0, _v47.rem)(8)};
+    border-radius: ${(0, _v43.rem)(8)};
   }
-  width: ${(0, _v47.rem)(327)};
-  min-width: ${(0, _v47.rem)(327)};
+  width: ${(0, _v43.rem)(327)};
+  min-width: ${(0, _v43.rem)(327)};
   position: relative;
-  @media (min-width: ${_v50.DESKTOP}) {
+  @media (min-width: ${_v46.DESKTOP}) {
     width: 100%;
   }
 `,
-    _v71 = _v29.default.div.withConfig({
+    _v67 = _v25.default.div.withConfig({
       displayName: "styles__VideoWrapper",
       componentId: "sc-46600ff3-23"
     })`
   cursor: pointer;
   height: auto;
   margin: auto;
-  margin-top: ${(0, _v47.rem)(32)};
-  border-radius: ${(0, _v47.rem)(8)};
+  margin-top: ${(0, _v43.rem)(32)};
+  border-radius: ${(0, _v43.rem)(8)};
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: fit-content;
-  @media (min-width: ${_v50.DESKTOP}) {
+  @media (min-width: ${_v46.DESKTOP}) {
     display: ${({
       isMobile: _v0
     }) => _v0 ? "none" : "block"};
-    margin-top: ${(0, _v47.rem)(16)};
+    margin-top: ${(0, _v43.rem)(16)};
   }
 `,
-    _v72 = _v29.default.div.withConfig({
+    _v68 = _v25.default.div.withConfig({
       displayName: "styles__BasicUserWarningHeading",
       componentId: "sc-46600ff3-24"
     })`
   color: #313f48;
-  font-size: ${(0, _v47.rem)(16)};
+  font-size: ${(0, _v43.rem)(16)};
   letter-spacing: 0;
-  line-height: ${(0, _v47.rem)(20)};
-  margin: ${(0, _v47.rem)(14)} auto;
-  max-width: ${(0, _v47.rem)(520)};
+  line-height: ${(0, _v43.rem)(20)};
+  margin: ${(0, _v43.rem)(14)} auto;
+  max-width: ${(0, _v43.rem)(520)};
   font-weight: 700;
-  @media (min-width: ${_v50.DESKTOP}) {
-    font-size: ${(0, _v47.rem)(16)};
-    margin: ${(0, _v47.rem)(25)} 0;
+  @media (min-width: ${_v46.DESKTOP}) {
+    font-size: ${(0, _v43.rem)(16)};
+    margin: ${(0, _v43.rem)(25)} 0;
     text-align: start;
   }
 `;
-  function _v73(_v0) {
-    let _v1 = (0, _v8.useMemo)(_v46.getTranslatedStrings, []);
-    return (0, _v6.jsx)(_v63, {
-      children: (0, _v6.jsxs)(_v74, {
+  function _v69(_v0) {
+    let _v1 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+    return (0, _v6.jsx)(_v59, {
+      children: (0, _v6.jsxs)(_v70, {
         color: _v0.pathColor,
-        children: [(0, _v6.jsxs)(_v45.Link, {
+        children: [(0, _v6.jsxs)(_v41.Link, {
           href: "/",
           children: [_v1.Home, "  "]
-        }), (0, _v6.jsxs)(_v75, {
+        }), (0, _v6.jsxs)(_v71, {
           color: _v0.currentPathColor,
           children: ["  ", _v1.Experts]
         })]
       })
     });
   }
-  _v29.default.hr.withConfig({
+  _v25.default.hr.withConfig({
     displayName: "styles__HorizontalRule",
     componentId: "sc-46600ff3-25"
   })`
-  margin: ${(0, _v47.rem)(32)} 0;
-  max-width: ${(0, _v47.rem)(520)};
-  @media (min-width: ${_v50.DESKTOP}) {
-    max-width: ${(0, _v47.rem)(490)};
+  margin: ${(0, _v43.rem)(32)} 0;
+  max-width: ${(0, _v43.rem)(520)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    max-width: ${(0, _v43.rem)(490)};
   }
-  @media (min-width: ${_v50.HD}) {
-    max-width: ${(0, _v47.rem)(550)};
+  @media (min-width: ${_v46.HD}) {
+    max-width: ${(0, _v43.rem)(550)};
   }
 `;
-  let _v74 = (0, _v29.default)(_v45).withConfig({
+  let _v70 = (0, _v25.default)(_v41).withConfig({
       displayName: "Breadcrumbs__StyledPath",
       componentId: "sc-12f3401b-0"
     })`
@@ -598,44 +490,44 @@
     fill: ${_v0 => _v0.color ? _v0.color : "rgba(132, 132, 132, 1)"};
   }
 `,
-    _v75 = (0, _v29.default)(_v45.Current).withConfig({
+    _v71 = (0, _v25.default)(_v41.Current).withConfig({
       displayName: "Breadcrumbs__StyledPathCurrent",
       componentId: "sc-12f3401b-1"
     })`
-  color: ${_v0 => _v0.color ? _v0.color : (0, _v30.slate)(800)};
+  color: ${_v0 => _v0.color ? _v0.color : (0, _v26.slate)(800)};
 `;
-  function _v76() {
-    let _v0 = (0, _v8.useMemo)(_v46.getTranslatedStrings, []);
-    return (0, _v6.jsx)(_v77, {
+  function _v72() {
+    let _v0 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+    return (0, _v6.jsx)(_v73, {
       children: (0, _v6.jsx)("div", {
         children: _v0.NonExpertsSubHeadingText
       })
     });
   }
-  let _v77 = _v29.default.div.withConfig({
+  let _v73 = _v25.default.div.withConfig({
     displayName: "EnrollmentFormText__Container",
     componentId: "sc-a96f0d25-0"
   })`
   color: var(--ebony-clay);
-  font-size: ${(0, _v47.rem)(14)};
+  font-size: ${(0, _v43.rem)(14)};
   letter-spacing: 0;
-  line-height: ${(0, _v47.rem)(26)};
-  margin: ${(0, _v47.rem)(14)} auto;
-  max-width: ${(0, _v47.rem)(520)};
-  @media (min-width: ${_v50.DESKTOP}) {
-    margin: ${(0, _v47.rem)(25)} 0;
+  line-height: ${(0, _v43.rem)(26)};
+  margin: ${(0, _v43.rem)(14)} auto;
+  max-width: ${(0, _v43.rem)(520)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    margin: ${(0, _v43.rem)(25)} 0;
     text-align: start;
-    max-width: ${(0, _v47.rem)(490)};
+    max-width: ${(0, _v43.rem)(490)};
   }
-  @media (min-width: ${_v50.HD}) {
-    max-width: ${(0, _v47.rem)(550)};
+  @media (min-width: ${_v46.HD}) {
+    max-width: ${(0, _v43.rem)(550)};
   }
 `;
-  var _v78 = _v0.i(0),
-    _v79 = _v0.i(0),
-    _v80 = _v0.i(0),
-    _v81 = (0, _v8.forwardRef)(function (_v0, _v1) {
-      return _v8.default.createElement("svg", (0, _v31.c)({
+  var _v74 = _v0.i(0),
+    _v75 = _v0.i(0),
+    _v76 = _v0.i(0),
+    _v77 = (0, _v8.forwardRef)(function (_v0, _v1) {
+      return _v8.default.createElement("svg", (0, _v27.c)({
         viewBox: "0 0 24 24",
         ref: _v1
       }, _v0), _v8.default.createElement("polygon", {
@@ -646,9 +538,9 @@
         strokeWidth: 2
       }));
     }),
-    _v82 = _v0.i(0),
-    _v83 = _v0.i(0);
-  function _v84({
+    _v78 = _v0.i(0),
+    _v79 = _v0.i(0);
+  function _v80({
     isShowing: _v0,
     setIsShowing: _v1,
     assetUrls: _v2
@@ -659,10 +551,10 @@
       _v8 = (0, _v8.useRef)(0),
       _v9 = (0, _v8.useRef)(null),
       _v10 = (0, _v8.useRef)(null),
-      _v11 = `//${_v2.player_url}/video/${_v50.INTRO_CLIP_ID}/config?on_site=1&v=1.0`,
+      _v11 = `//${_v2.player_url}/video/${_v46.INTRO_CLIP_ID}/config?on_site=1&v=1.0`,
       {
         player: _v12
-      } = (0, _v83.usePlayer)(_v10, _v50.INTRO_CLIP_ID, !0, _v11);
+      } = (0, _v79.usePlayer)(_v10, _v46.INTRO_CLIP_ID, !0, _v11);
     (0, _v8.useLayoutEffect)(() => {
       let _v0 = _v0 => {
         let _v1 = _v0.target;
@@ -678,7 +570,7 @@
     }, [_v0, _v12]), (0, _v8.useEffect)(() => {
       _v6(_v0), _v12 && (_v12.muted = !_v0);
     }, [_v0]);
-    let _v13 = (0, _v78.default)(() => {
+    let _v13 = (0, _v74.default)(() => {
         _v4(!0), clearTimeout(_v7.current), _v7.current = window.setTimeout(() => {
           _v4(!1);
         }, 0);
@@ -690,15 +582,15 @@
       };
     return (0, _v8.useEffect)(() => () => {
       _v7 && _v7.current && clearTimeout(_v7.current), _v8 && _v8.current && clearTimeout(_v8.current);
-    }, []), (0, _v6.jsx)(_v85, {
+    }, []), (0, _v6.jsx)(_v81, {
       show: _v0,
-      children: (0, _v6.jsx)(_v86, {
-        children: (0, _v6.jsxs)(_v87, {
+      children: (0, _v6.jsx)(_v82, {
+        children: (0, _v6.jsxs)(_v83, {
           ref: _v9,
-          children: [(0, _v6.jsx)(_v88, {
+          children: [(0, _v6.jsx)(_v84, {
             onClick: () => _v1(!1),
-            children: (0, _v6.jsx)(_v80.DismissX, {})
-          }), (0, _v6.jsxs)(_v90, {
+            children: (0, _v6.jsx)(_v76.DismissX, {})
+          }), (0, _v6.jsxs)(_v86, {
             onMouseMove: _v13,
             onMouseLeave: () => {
               _v8.current = window.setTimeout(() => {
@@ -708,10 +600,10 @@
             children: [(0, _v6.jsx)("div", {
               className: "player",
               ref: _v10
-            }), _v3 ? (0, _v6.jsx)(_v89, {
-              children: _v5 ? (0, _v6.jsx)(_v82.Pause, {
+            }), _v3 ? (0, _v6.jsx)(_v85, {
+              children: _v5 ? (0, _v6.jsx)(_v78.Pause, {
                 onClick: _v14
-              }) : (0, _v6.jsx)(_v81, {
+              }) : (0, _v6.jsx)(_v77, {
                 onClick: _v14
               })
             }) : null]
@@ -720,12 +612,12 @@
       })
     });
   }
-  let _v85 = _v29.default.div.withConfig({
+  let _v81 = _v25.default.div.withConfig({
       displayName: "IntroVideoPlayer__ModalOverlay",
       componentId: "sc-8b1b4def-0"
     })`
   display: none;
-  background: ${(0, _v79.rgba)(_v30.black, .8)};
+  background: ${(0, _v75.rgba)(_v26.black, .8)};
   position: fixed;
   top: 0;
   left: 0;
@@ -734,11 +626,11 @@
   z-index: 1000;
   ${({
       show: _v0
-    }) => _v0 && _v29.css`
+    }) => _v0 && _v25.css`
       display: flex;
     `}
 `,
-    _v86 = _v29.default.div.withConfig({
+    _v82 = _v25.default.div.withConfig({
       displayName: "IntroVideoPlayer__ModalContent",
       componentId: "sc-8b1b4def-1"
     })`
@@ -747,55 +639,55 @@
   height: 100%;
   margin: auto;
 `,
-    _v87 = _v29.default.div.withConfig({
+    _v83 = _v25.default.div.withConfig({
       displayName: "IntroVideoPlayer__ModalInner",
       componentId: "sc-8b1b4def-2"
     })`
   position: relative;
   max-width: 100vw;
   max-height: 100vh;
-  width: ${(0, _v79.rem)(960)};
-  background-color: ${_v30.white};
+  width: ${(0, _v75.rem)(960)};
+  background-color: ${_v26.white};
 `,
-    _v88 = _v29.default.div.withConfig({
+    _v84 = _v25.default.div.withConfig({
       displayName: "IntroVideoPlayer__DismissXWrapper",
       componentId: "sc-8b1b4def-3"
     })`
   position: absolute;
-  top: ${(0, _v79.rem)(16)};
-  right: ${(0, _v79.rem)(16)};
-  width: ${(0, _v79.rem)(40)};
-  height: ${(0, _v79.rem)(40)};
+  top: ${(0, _v75.rem)(16)};
+  right: ${(0, _v75.rem)(16)};
+  width: ${(0, _v75.rem)(40)};
+  height: ${(0, _v75.rem)(40)};
   z-index: 10;
   cursor: pointer;
   background: #0000004d;
-  border-radius: ${(0, _v79.rem)(8)};
+  border-radius: ${(0, _v75.rem)(8)};
   svg {
-    width: ${(0, _v79.rem)(16)};
-    height: ${(0, _v79.rem)(16)};
-    margin: ${(0, _v79.rem)(12)};
+    width: ${(0, _v75.rem)(16)};
+    height: ${(0, _v75.rem)(16)};
+    margin: ${(0, _v75.rem)(12)};
   }
   svg > path {
     fill: white;
-    stroke-width: ${(0, _v79.rem)(2)};
+    stroke-width: ${(0, _v75.rem)(2)};
     stroke: white;
   }
 `,
-    _v89 = _v29.default.div.withConfig({
+    _v85 = _v25.default.div.withConfig({
       displayName: "IntroVideoPlayer__Background",
       componentId: "sc-8b1b4def-4"
     })`
-  width: ${(0, _v79.rem)(65)};
-  height: ${(0, _v79.rem)(40)};
+  width: ${(0, _v75.rem)(65)};
+  height: ${(0, _v75.rem)(40)};
   background: rgba(23, 35, 34, 0.75);
-  border-radius: ${(0, _v79.rem)(5)};
+  border-radius: ${(0, _v75.rem)(5)};
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
 `,
-    _v90 = _v29.default.div.withConfig({
+    _v86 = _v25.default.div.withConfig({
       displayName: "IntroVideoPlayer__Container",
       componentId: "sc-8b1b4def-5"
     })`
@@ -805,8 +697,8 @@
     padding-bottom: 56.25%;
   }
   svg {
-    width: ${(0, _v79.rem)(36)};
-    height: ${(0, _v79.rem)(28)};
+    width: ${(0, _v75.rem)(36)};
+    height: ${(0, _v75.rem)(28)};
     position: absolute;
     top: 50%;
     left: 50%;
@@ -821,25 +713,25 @@
     }
   }
 `,
-    _v91 = ["mobile", "desktop", "hd"],
-    _v92 = {
-      mobile: `${(0, _v79.em)(375)}`,
-      desktop: `${(0, _v79.em)(0)}`,
-      hd: `${(0, _v79.em)(0)}`
+    _v87 = ["mobile", "desktop", "hd"],
+    _v88 = {
+      mobile: `${(0, _v75.em)(375)}`,
+      desktop: `${(0, _v75.em)(0)}`,
+      hd: `${(0, _v75.em)(0)}`
     },
-    _v93 = {
+    _v89 = {
       mobile: "375px",
       desktop: "1024px",
       hd: "1440px"
     },
-    _v94 = _v0 => (0, _v6.jsx)(_v6.Fragment, {
-      children: _v91.slice().reverse().map(_v0 => _v0.breakPoints[_v0] ? (0, _v6.jsx)("source", {
-        srcSet: `${_v0.breakPoints[_v0]} 1x, ${_v95(_v0.breakPoints[_v0])} 2x`,
-        media: `(min-width: ${_v93[_v0]})`,
+    _v90 = _v0 => (0, _v6.jsx)(_v6.Fragment, {
+      children: _v87.slice().reverse().map(_v0 => _v0.breakPoints[_v0] ? (0, _v6.jsx)("source", {
+        srcSet: `${_v0.breakPoints[_v0]} 1x, ${_v91(_v0.breakPoints[_v0])} 2x`,
+        media: `(min-width: ${_v89[_v0]})`,
         type: _v0.type ? `image/${_v0.type}` : void 0
       }, _v0) : null)
     }),
-    _v95 = _v0 => {
+    _v91 = _v0 => {
       if (!_v0) return _v0;
       let _v1 = /w=(\d+)/,
         _v2 = _v0.match(_v1);
@@ -847,7 +739,7 @@
       let _v3 = Number(_v2[1]);
       return _v0.replace(_v1, `w=${2 * _v3}`);
     },
-    _v96 = _v29.default.picture.withConfig({
+    _v92 = _v25.default.picture.withConfig({
       displayName: "Picture__Container",
       componentId: "sc-8f9302fa-0"
     })`
@@ -859,19 +751,19 @@
   ${_v0 => {
       if (!_v0.dimensions) return "";
       let _v1 = _v0.dimensions,
-        _v2 = _v91.find(_v0 => _v1[_v0]);
+        _v2 = _v87.find(_v0 => _v1[_v0]);
       return `${_v2 && `
         height: ${_v1[_v2]?.h} !important;
         ${_v1[_v2]?.w ? `width: ${_v1[_v2]?.w} !important;` : ""}
       `}` + Object.keys(_v1).map(_v0 => _v0 === _v2 ? "" : `
-          @media (min-width: ${_v92[_v0]}) {
+          @media (min-width: ${_v88[_v0]}) {
             height: ${_v1[_v0]?.h} !important;
             ${_v1[_v0]?.w ? `width: ${_v1[_v0]?.w} !important;` : ""}
           }
         `).join("");
     }}
 `,
-    _v97 = _v29.default.img.withConfig({
+    _v93 = _v25.default.img.withConfig({
       displayName: "Picture__StyledImage",
       componentId: "sc-8f9302fa-1"
     })`
@@ -879,7 +771,7 @@
   ${_v0 => _v0.objectPosition && `object-position: ${_v0.objectPosition};`}
   ${_v0 => _v0.borderRadius && `border-radius: ${_v0.borderRadius};`}
   ${_v0 => _v0.alwaysOnTop && "z-index: 2;"}
-  ${_v0 => _v0.isAbsolute ? _v29.css`
+  ${_v0 => _v0.isAbsolute ? _v25.css`
           position: absolute;
           left: 0;
           top: 0;
@@ -888,14 +780,14 @@
   width: 100%;
   height: 100%;
 `,
-    _v98 = (_v0, _v1) => {
+    _v94 = (_v0, _v1) => {
       let _v2 = {};
       return Object.keys(_v1).forEach(_v0 => {
         let _v1;
         _v2[_v0] = (_v1 = _v1[_v0], `https://i.vimeocdn.com/custom_asset/${_v1.imageId || _v0}?w=${_v1.w}${_v1.q ? `&q=${_v1.q}` : ""}${_v1.crop ? "&crop" : ""}`);
       }), _v2;
     },
-    _v99 = ({
+    _v95 = ({
       defaultImageId: _v0,
       thresholds: _v1,
       height: _v2,
@@ -912,19 +804,19 @@
       alwaysOnTop: _v13,
       borderRadius: _v14
     }) => {
-      let _v15 = _v98(_v0, _v1);
-      return (0, _v6.jsxs)(_v96, {
+      let _v15 = _v94(_v0, _v1);
+      return (0, _v6.jsxs)(_v92, {
         height: _v2,
         width: _v3,
         dimensions: _v4,
         margin: _v5,
-        children: [(0, _v6.jsx)(_v94, {
-          breakPoints: _v98(_v0, _v1)
-        }), (0, _v6.jsx)(_v97, {
+        children: [(0, _v6.jsx)(_v90, {
+          breakPoints: _v94(_v0, _v1)
+        }), (0, _v6.jsx)(_v93, {
           isAbsolute: _v6,
           objectFit: _v7,
           objectPosition: _v8,
-          srcSet: _v91.map(_v0 => _v15[_v0] && `${_v15[_v0]} ${parseInt(_v93[_v0])}w`).filter(_v0 => _v0).join(", "),
+          srcSet: _v87.map(_v0 => _v15[_v0] && `${_v15[_v0]} ${parseInt(_v89[_v0])}w`).filter(_v0 => _v0).join(", "),
           src: _v15.hd || _v15.desktop || _v15.mobile,
           alt: _v9,
           title: _v10,
@@ -938,28 +830,28 @@
         })]
       });
     };
-  function _v100({
+  function _v96({
     showText: _v0
   }) {
-    let _v1 = (0, _v8.useMemo)(_v46.getTranslatedStrings, []);
-    return (0, _v6.jsxs)(_v102, {
-      children: [(0, _v6.jsx)(_v103, {
-        children: (0, _v6.jsx)(_v81, {})
-      }), _v0 && (0, _v6.jsx)(_v101, {
+    let _v1 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+    return (0, _v6.jsxs)(_v98, {
+      children: [(0, _v6.jsx)(_v99, {
+        children: (0, _v6.jsx)(_v77, {})
+      }), _v0 && (0, _v6.jsx)(_v97, {
         children: _v1.WatchVideo
       })]
     });
   }
-  let _v101 = _v29.default.div.withConfig({
+  let _v97 = _v25.default.div.withConfig({
       displayName: "PlayIcon__Text",
       componentId: "sc-e2a9a4ef-0"
     })`
   color: #ffffff;
-  margin-top: ${(0, _v47.rem)(10)};
-  font-size: ${(0, _v47.rem)(14)};
+  margin-top: ${(0, _v43.rem)(10)};
+  font-size: ${(0, _v43.rem)(14)};
   cursor: default;
 `,
-    _v102 = _v29.default.div.withConfig({
+    _v98 = _v25.default.div.withConfig({
       displayName: "PlayIcon__Container",
       componentId: "sc-e2a9a4ef-1"
     })`
@@ -968,40 +860,40 @@
   left: 50%;
   transform: translate(-50%, -50%);
 `,
-    _v103 = _v29.default.div.withConfig({
+    _v99 = _v25.default.div.withConfig({
       displayName: "PlayIcon__Background",
       componentId: "sc-e2a9a4ef-2"
     })`
   margin: auto;
-  border-radius: ${(0, _v47.rem)(5)};
+  border-radius: ${(0, _v43.rem)(5)};
   background: rgba(23, 35, 34, 0.75);
-  width: ${(0, _v47.rem)(65)};
-  height: ${(0, _v47.rem)(40)};
+  width: ${(0, _v43.rem)(65)};
+  height: ${(0, _v43.rem)(40)};
   display: flex;
   justify-content: center;
   align-items: center;
   svg {
-    width: ${(0, _v47.rem)(36)};
-    height: ${(0, _v47.rem)(28)};
+    width: ${(0, _v43.rem)(36)};
+    height: ${(0, _v43.rem)(28)};
     polygon {
       fill: white;
       stroke: none;
     }
   }
 `;
-  function _v104(_v0) {
-    return (0, _v6.jsx)(_v60, {
+  function _v100(_v0) {
+    return (0, _v6.jsx)(_v56, {
       onClick: _v0.onClick,
       children: (0, _v11.translate)({
         singular: "I agree to the {TERMS_LINK}Terms and Conditions of the Vimeo Experts{/TERMS_LINK} program and {PRIVACY_LINK}Vimeo Privacy Policy{/PRIVACY_LINK}, including receiving emails from Vimeo Experts about training sessions, program benefits, or tips for getting started.",
         replacements: {
-          TERMS_LINK: _v0 => (0, _v6.jsx)(_v64, {
+          TERMS_LINK: _v0 => (0, _v6.jsx)(_v60, {
             href: "/experts/legal",
             target: "_blank",
             onClick: _v0 => _v0.stopPropagation(),
             children: _v0
           }, "terms"),
-          PRIVACY_LINK: _v0 => (0, _v6.jsx)(_v64, {
+          PRIVACY_LINK: _v0 => (0, _v6.jsx)(_v60, {
             href: "/privacy",
             target: "_blank",
             onClick: _v0 => _v0.stopPropagation(),
@@ -1034,23 +926,61 @@
       })
     });
   }
-  var _v105 = _v0.i(0);
-  function _v106({
+  var _v101 = _v0.i(0);
+  function _v102({
     playerAssetUrls: _v0,
     setExpertData: _v1
   }) {
-    let _v2 = (0, _v8.useMemo)(_v46.getTranslatedStrings, []),
+    let _v2 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []),
       _v3 = (0, _v8.useContext)(_v13.ViewerContext),
       [_v4, _v5] = (0, _v8.useState)(!1),
       [_v6, _v7] = (0, _v8.useState)(!1),
       [_v8, _v9] = (0, _v8.useState)(!1),
       [_v10, _v11] = (0, _v8.useState)(!1),
-      [_v12, _v13] = _v24(),
+      [_v12, _v13] = function () {
+        let {
+            mutate: _v0
+          } = (0, _v19.useSWRConfig)(),
+          {
+            baseUrl: _v1,
+            jwt: _v2,
+            xVimeoPage: _v3,
+            locale: _v4
+          } = (0, _v20.useGctlConfig)(),
+          [_v5, _v6] = (0, _v14.useInternalState)();
+        return [(0, _v8.useCallback)(async _v0 => {
+          _v6({
+            type: "REQUEST"
+          });
+          try {
+            let _v0 = await _v0(`/me/expert${(0, _v14.serializeQuery)(_v0)}`, _v18({
+              ..._v0,
+              baseUrl: _v1,
+              headers: {
+                ..._v0.headers,
+                "Content-Type": "application/json",
+                Authorization: _v2 ? `jwt ${_v2}` : "",
+                "Vimeo-Page": `${_v3}`,
+                "Accept-Language": _v4 ?? "en"
+              }
+            }), !1);
+            _v6({
+              type: "SUCCESS",
+              payload: _v0
+            });
+          } catch (_v0) {
+            _v6({
+              type: "FAILURE",
+              payload: _v0
+            });
+          }
+        }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+      }(),
       [_v14, _v15] = (0, _v8.useState)(!1),
       [_v16, _v17] = (0, _v8.useState)(!1),
       _v18 = (_v0 = !1) => {
-        (_v0 || (0, _v105.trackEvent)({
-          eventKey: _v105.Events.CLICK_ENROLL_BUTTON
+        (_v0 || (0, _v101.trackEvent)({
+          eventKey: _v101.Events.CLICK_ENROLL_BUTTON
         }), _v4) ? (_v8 && _v9(!1), _v7(!0), _v12({
           select: ["status", "website", "company", "courses"],
           variables: {
@@ -1059,33 +989,33 @@
         })) : _v9(!0);
       },
       _v19 = () => {
-        _v4 || (_v9(!1), (0, _v105.trackEvent)({
-          eventKey: _v105.Events.CLICK_TERMS_CHECKBOX
+        _v4 || (_v9(!1), (0, _v101.trackEvent)({
+          eventKey: _v101.Events.CLICK_TERMS_CHECKBOX
         })), _v5(!_v4);
       };
     (0, _v8.useEffect)(() => {
-      _v3 && _v17(_v3?.user?.account === _v28.AccountType.Basic || _v3?.user?.account === _v28.AccountType.Free);
+      _v3 && _v17(_v3?.user?.account === _v24.AccountType.Basic || _v3?.user?.account === _v24.AccountType.Free);
     }, [_v3]), (0, _v8.useEffect)(() => {
-      _v13?.error ? _v7(!1) : _v13?.data && ((0, _v105.trackEvent)({
-        eventKey: _v105.Events.ENROLL_SUCCESS
+      _v13?.error ? _v7(!1) : _v13?.data && ((0, _v101.trackEvent)({
+        eventKey: _v101.Events.ENROLL_SUCCESS
       }), _v1(_v13.data));
     }, [_v13]), (0, _v8.useEffect)(() => {
-      (0, _v105.trackEvent)({
-        eventKey: _v105.Events.ENROLLMENT_PAGE_LOAD
+      (0, _v101.trackEvent)({
+        eventKey: _v101.Events.ENROLLMENT_PAGE_LOAD
       });
     }, []);
     let _v20 = () => {
-        _v11(!0), (0, _v105.trackEvent)({
-          eventKey: _v105.Events.CLICK_VIDEO_PLAYER
+        _v11(!0), (0, _v101.trackEvent)({
+          eventKey: _v101.Events.CLICK_VIDEO_PLAYER
         });
       },
       _v21 = ({
         isMobile: _v0
-      }) => (0, _v6.jsxs)(_v71, {
+      }) => (0, _v6.jsxs)(_v67, {
         isMobile: _v0,
         onClick: _v20,
-        children: [(0, _v6.jsx)(_v70, {
-          children: (0, _v6.jsx)(_v99, {
+        children: [(0, _v6.jsx)(_v66, {
+          children: (0, _v6.jsx)(_v95, {
             defaultImageId: 0,
             thresholds: {
               mobile: {
@@ -1097,74 +1027,74 @@
             },
             defaultType: "png"
           })
-        }), (0, _v6.jsx)(_v100, {
+        }), (0, _v6.jsx)(_v96, {
           showText: !0
         })]
       });
     return (0, _v6.jsxs)(_v6.Fragment, {
-      children: [(0, _v6.jsx)(_v73, {}), (0, _v6.jsxs)(_v26.PlayerContextProvider, {
-        type: _v27.PlayerType.BarebonePlayer,
+      children: [(0, _v6.jsx)(_v69, {}), (0, _v6.jsxs)(_v22.PlayerContextProvider, {
+        type: _v23.PlayerType.BarebonePlayer,
         assetUrls: _v0,
-        children: [(0, _v6.jsx)(_v84, {
+        children: [(0, _v6.jsx)(_v80, {
           assetUrls: _v0,
           isShowing: _v10,
           setIsShowing: _v11
-        }), (0, _v6.jsxs)(_v65, {
-          children: [(0, _v6.jsx)(_v68, {
-            children: (0, _v6.jsxs)(_v57, {
-              children: [(0, _v6.jsx)(_v58, {
+        }), (0, _v6.jsxs)(_v61, {
+          children: [(0, _v6.jsx)(_v64, {
+            children: (0, _v6.jsxs)(_v53, {
+              children: [(0, _v6.jsx)(_v54, {
                 children: _v2.NonExpertsHeading
-              }), (0, _v6.jsx)(_v76, {}), (0, _v6.jsx)(_v21, {
+              }), (0, _v6.jsx)(_v72, {}), (0, _v6.jsx)(_v21, {
                 isMobile: !0
-              }), (0, _v6.jsxs)(_v59, {
-                children: [(0, _v6.jsx)(_v51, {
+              }), (0, _v6.jsxs)(_v55, {
+                children: [(0, _v6.jsx)(_v47, {
                   type: "checkbox",
                   isError: _v8,
                   checked: _v4,
                   onChange: _v19
-                }), (0, _v6.jsx)(_v104, {
+                }), (0, _v6.jsx)(_v100, {
                   onClick: _v19
                 })]
-              }), _v8 && (0, _v6.jsxs)(_v66, {
+              }), _v8 && (0, _v6.jsxs)(_v62, {
                 children: [" ", _v2.ConfirmToContinue]
-              }), (0, _v6.jsxs)(_v61, {
-                children: [(0, _v6.jsx)(_v25.Button, {
+              }), (0, _v6.jsxs)(_v57, {
+                children: [(0, _v6.jsx)(_v21.Button, {
                   format: "primary",
                   onClick: _v16 ? () => {
-                    if ((0, _v105.trackEvent)({
-                      eventKey: _v105.Events.CLICK_UPGRADE_BUTTON
+                    if ((0, _v101.trackEvent)({
+                      eventKey: _v101.Events.CLICK_UPGRADE_BUTTON
                     }), !_v4) return void _v9(!0);
                     _v8 && _v9(!1);
                     let _v0 = null;
                     (_v0 = window.open("/upgrade?ref=vimeo_experts", "_blank", `height=${window.innerHeight},width=${window.innerWidth / 1.5},centerscreen=yes,scrolling=yes,scrollbars=yes,resizable=yes`)) && (_v15(!0), setInterval(() => {
                       _v0 && _v0.closed && (_v0 = null, _v15(!1));
                     }, 0)), window.successfulUpgradeCallback = () => {
-                      _v17(!1), _v15(!1), (0, _v105.trackEvent)({
-                        eventKey: _v105.Events.UPGRADE_SUCCESS
+                      _v17(!1), _v15(!1), (0, _v101.trackEvent)({
+                        eventKey: _v101.Events.UPGRADE_SUCCESS
                       }), _v18(!0);
                     };
                   } : () => _v18(),
                   loading: _v6 || _v14,
                   children: _v16 ? _v2.UpgradeToEnroll : _v2.JoinVimeoExperts
-                }), (0, _v6.jsx)(_v62, {
+                }), (0, _v6.jsx)(_v58, {
                   variant: "minimalTransparent",
                   color: "black",
                   element: "a",
                   href: "/experts",
                   target: "_blank",
-                  onClick: () => (0, _v105.trackEvent)({
-                    eventKey: _v105.Events.CLICK_LEARN_MORE
+                  onClick: () => (0, _v101.trackEvent)({
+                    eventKey: _v101.Events.CLICK_LEARN_MORE
                   }),
                   children: _v2.LearnMore
                 })]
-              }), _v16 && (0, _v6.jsx)(_v72, {
+              }), _v16 && (0, _v6.jsx)(_v68, {
                 children: _v2.BasicUserWarningMessage
               })]
             })
-          }), (0, _v6.jsx)(_v67, {
-            children: (0, _v6.jsxs)(_v53, {
-              children: [(0, _v6.jsx)(_v54, {
-                children: (0, _v6.jsx)(_v99, {
+          }), (0, _v6.jsx)(_v63, {
+            children: (0, _v6.jsxs)(_v49, {
+              children: [(0, _v6.jsx)(_v50, {
+                children: (0, _v6.jsx)(_v95, {
                   defaultImageId: 0,
                   thresholds: {
                     desktop: {
@@ -1173,8 +1103,8 @@
                   },
                   defaultType: "png"
                 })
-              }), (0, _v6.jsx)(_v21, {}), (0, _v6.jsx)(_v55, {
-                children: (0, _v6.jsx)(_v99, {
+              }), (0, _v6.jsx)(_v21, {}), (0, _v6.jsx)(_v51, {
+                children: (0, _v6.jsx)(_v95, {
                   defaultImageId: 0,
                   thresholds: {
                     desktop: {
@@ -1183,8 +1113,8 @@
                   },
                   defaultType: "png"
                 })
-              }), (0, _v6.jsx)(_v56, {
-                children: (0, _v6.jsx)(_v99, {
+              }), (0, _v6.jsx)(_v52, {
+                children: (0, _v6.jsx)(_v95, {
                   defaultImageId: 0,
                   thresholds: {
                     desktop: {
@@ -1200,8 +1130,8 @@
       })]
     });
   }
-  var _v107 = (0, _v8.forwardRef)(function (_v0, _v1) {
-    return _v8.default.createElement("svg", (0, _v31.c)({
+  var _v103 = (0, _v8.forwardRef)(function (_v0, _v1) {
+    return _v8.default.createElement("svg", (0, _v27.c)({
       "data-name": "Layer 1",
       viewBox: "0 0 20 20",
       ref: _v1
@@ -1213,7 +1143,7 @@
       fill: "#1a2e3b"
     }));
   });
-  let _v108 = function ({
+  let _v104 = function ({
       isChecked: _v0
     }) {
       return _v0 ? (0, _v6.jsxs)("svg", {
@@ -1233,41 +1163,41 @@
           d: "M12 20C7.58172 20 4 16.4183 4 12H0C0 18.6274 5.37258 24 12 24V20ZM20 12C20 16.4183 16.4183 20 12 20V24C18.6274 24 24 18.6274 24 12H20ZM12 4C16.4183 4 20 7.58172 20 12H24C24 5.37258 18.6274 0 12 0V4ZM12 0C5.37258 0 0 5.37258 0 12H4C4 7.58172 7.58172 4 12 4V0Z",
           fill: "#F5F5F5"
         })]
-      }) : (0, _v6.jsx)(_v109, {});
+      }) : (0, _v6.jsx)(_v105, {});
     },
-    _v109 = (0, _v29.default)(_v107).withConfig({
+    _v105 = (0, _v25.default)(_v103).withConfig({
       displayName: "CheckMarkIcon__StyledCircleCheck",
       componentId: "sc-312169bb-0"
     })`
-  width: ${(0, _v47.rem)(20)};
-  height: ${(0, _v47.rem)(20)};
+  width: ${(0, _v43.rem)(20)};
+  height: ${(0, _v43.rem)(20)};
   path {
     fill: #848484;
   }
 `,
-    _v110 = function () {
-      let _v0 = (0, _v8.useMemo)(_v46.getTranslatedStrings, []);
-      return (0, _v6.jsxs)(_v117, {
-        children: [(0, _v6.jsxs)(_v116, {
-          children: [(0, _v6.jsx)(_v114, {
+    _v106 = function () {
+      let _v0 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+      return (0, _v6.jsxs)(_v113, {
+        children: [(0, _v6.jsxs)(_v112, {
+          children: [(0, _v6.jsx)(_v110, {
             children: _v0.CompleteYourExpertTraining
-          }), (0, _v6.jsxs)(_v111, {
-            children: [(0, _v6.jsx)(_v115, {
+          }), (0, _v6.jsxs)(_v107, {
+            children: [(0, _v6.jsx)(_v111, {
               children: _v0.CertificationCourses
-            }), _v50.CERTIFICATION_COURSES.map((_v0, _v1) => (0, _v6.jsxs)(_v113, {
-              children: [(0, _v6.jsx)(_v108, {
+            }), _v46.CERTIFICATION_COURSES.map((_v0, _v1) => (0, _v6.jsxs)(_v109, {
+              children: [(0, _v6.jsx)(_v104, {
                 isChecked: !1
-              }), (0, _v6.jsx)(_v118, {
+              }), (0, _v6.jsx)(_v114, {
                 href: _v0.url,
                 format: "soft",
                 variant: "minimal",
-                children: (0, _v6.jsx)(_v112, {
+                children: (0, _v6.jsx)(_v108, {
                   children: _v0.title
                 })
               })]
             }, `course-${_v1}`))]
           })]
-        }), (0, _v6.jsx)(_v99, {
+        }), (0, _v6.jsx)(_v95, {
           defaultImageId: 0,
           thresholds: {
             mobile: {
@@ -1285,91 +1215,91 @@
         })]
       });
     },
-    _v111 = _v29.default.div.withConfig({
+    _v107 = _v25.default.div.withConfig({
       displayName: "CertificationSection__CourseGroupContainer",
       componentId: "sc-7f645c0a-0"
     })`
-  margin-bottom: ${(0, _v47.rem)(40)};
+  margin-bottom: ${(0, _v43.rem)(40)};
 `,
-    _v112 = _v29.default.div.withConfig({
+    _v108 = _v25.default.div.withConfig({
       displayName: "CertificationSection__CourseTitleText",
       componentId: "sc-7f645c0a-1"
     })`
-  margin-left: ${(0, _v47.rem)(8)};
+  margin-left: ${(0, _v43.rem)(8)};
 `,
-    _v113 = _v29.default.div.withConfig({
+    _v109 = _v25.default.div.withConfig({
       displayName: "CertificationSection__CourseContainer",
       componentId: "sc-7f645c0a-2"
     })`
   display: flex;
   align-items: center;
-  margin-bottom: ${(0, _v47.rem)(8)};
+  margin-bottom: ${(0, _v43.rem)(8)};
 `,
-    _v114 = _v29.default.div.withConfig({
+    _v110 = _v25.default.div.withConfig({
       displayName: "CertificationSection__HeaderText",
       componentId: "sc-7f645c0a-3"
     })`
   color: #000000;
   font-weight: normal;
-  font-size: ${(0, _v47.rem)(24)};
-  margin-bottom: ${(0, _v47.rem)(24)};
-  @media (min-width: ${_v50.DESKTOP}) {
-    font-size: ${(0, _v47.rem)(36)};
-    margin-bottom: ${(0, _v47.rem)(40)};
+  font-size: ${(0, _v43.rem)(24)};
+  margin-bottom: ${(0, _v43.rem)(24)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    font-size: ${(0, _v43.rem)(36)};
+    margin-bottom: ${(0, _v43.rem)(40)};
   }
 `,
-    _v115 = _v29.default.div.withConfig({
+    _v111 = _v25.default.div.withConfig({
       displayName: "CertificationSection__StatusHeaderText",
       componentId: "sc-7f645c0a-4"
     })`
   font-weight: bold;
-  font-size: ${(0, _v47.rem)(16)};
-  margin-bottom: ${(0, _v47.rem)(10)};
+  font-size: ${(0, _v43.rem)(16)};
+  margin-bottom: ${(0, _v43.rem)(10)};
 `,
-    _v116 = _v29.default.div.withConfig({
+    _v112 = _v25.default.div.withConfig({
       displayName: "CertificationSection__TrainingContainer",
       componentId: "sc-7f645c0a-5"
     })`
-  margin-top: ${(0, _v47.rem)(32)};
-  @media (min-width: ${_v50.TABLET}) {
+  margin-top: ${(0, _v43.rem)(32)};
+  @media (min-width: ${_v46.TABLET}) {
     max-width: 47%;
-    margin-right: ${(0, _v47.rem)(32)};
+    margin-right: ${(0, _v43.rem)(32)};
     margin-top: 0;
   }
-  @media (min-width: ${_v50.DESKTOP}) {
-    margin-right: ${(0, _v47.rem)(80)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    margin-right: ${(0, _v43.rem)(80)};
   }
 `,
-    _v117 = _v29.default.div.withConfig({
+    _v113 = _v25.default.div.withConfig({
       displayName: "CertificationSection__Container",
       componentId: "sc-7f645c0a-6"
     })`
   background: #f5f5f5;
   display: flex;
   flex-direction: column-reverse;
-  padding: ${(0, _v47.rem)(40)} ${(0, _v47.rem)(15)};
+  padding: ${(0, _v43.rem)(40)} ${(0, _v43.rem)(15)};
   align-items: normal;
-  @media (min-width: ${_v50.TABLET}) {
-    padding: ${(0, _v47.rem)(64)} ${(0, _v47.rem)(32)};
+  @media (min-width: ${_v46.TABLET}) {
+    padding: ${(0, _v43.rem)(64)} ${(0, _v43.rem)(32)};
     flex-direction: row;
     align-items: flex-start;
   }
-  @media (min-width: ${_v50.DESKTOP}) {
-    padding: ${(0, _v47.rem)(64)} ${(0, _v47.rem)(80)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    padding: ${(0, _v43.rem)(64)} ${(0, _v43.rem)(80)};
     flex-direction: row;
     align-items: flex-start;
   }
 `,
-    _v118 = (0, _v29.default)(_v33.Link).withConfig({
+    _v114 = (0, _v25.default)(_v29.Link).withConfig({
       displayName: "CertificationSection__StyledLink",
       componentId: "sc-7f645c0a-7"
     })`
   &:hover {
-    color: ${(0, _v30.blue)(500)};
+    color: ${(0, _v26.blue)(500)};
   }
 `;
-  var _v119 = (0, _v8.forwardRef)(function (_v0, _v1) {
-    return _v8.default.createElement("svg", (0, _v31.c)({
+  var _v115 = (0, _v8.forwardRef)(function (_v0, _v1) {
+    return _v8.default.createElement("svg", (0, _v27.c)({
       viewBox: "0 0 20 20",
       ref: _v1
     }, _v0), _v8.default.createElement("path", {
@@ -1386,7 +1316,7 @@
       fill: "#ecb22e"
     }));
   });
-  let _v120 = function () {
+  let _v116 = function () {
       return (0, _v6.jsx)("svg", {
         width: "24",
         height: "24",
@@ -1401,35 +1331,35 @@
         })
       });
     },
-    _v121 = function () {
-      let _v0 = (0, _v8.useMemo)(_v46.getTranslatedStrings, []);
-      return (0, _v6.jsxs)(_v122, {
-        children: [(0, _v6.jsx)(_v125, {
+    _v117 = function () {
+      let _v0 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+      return (0, _v6.jsxs)(_v118, {
+        children: [(0, _v6.jsx)(_v121, {
           children: _v0.JoinCommunity
-        }), (0, _v6.jsx)(_v126, {
+        }), (0, _v6.jsx)(_v122, {
           children: _v0.JoinSubheader
-        }), (0, _v6.jsx)(_v124, {
+        }), (0, _v6.jsx)(_v120, {
           size: "lg",
-          icon: (0, _v6.jsx)(_v120, {}),
+          icon: (0, _v6.jsx)(_v116, {}),
           element: "a",
           href: "https://www.facebook.com/groups/vimeoexperts",
           onClick: () => {},
           target: "_blank",
           children: _v0.JoinFacebook
-        }), (0, _v6.jsx)(_v123, {
+        }), (0, _v6.jsx)(_v119, {
           size: "lg",
-          icon: (0, _v6.jsx)(_v119, {}),
+          icon: (0, _v6.jsx)(_v115, {}),
           format: "basic",
           element: "a",
           href: "https://join.slack.com/t/vimeo-experts/shared_invite/zt-sdc4xk9s-5JUVNiX1ejIm5ny27zBifg",
           onClick: () => {
-            (0, _v105.trackEvent)({
-              eventKey: _v105.Events.GOTO_COMMUNITY
+            (0, _v101.trackEvent)({
+              eventKey: _v101.Events.GOTO_COMMUNITY
             });
           },
           target: "_blank",
           children: _v0.OpenSlack
-        }), (0, _v6.jsx)(_v99, {
+        }), (0, _v6.jsx)(_v95, {
           defaultImageId: 0,
           thresholds: {
             mobile: {
@@ -1446,78 +1376,78 @@
         })]
       });
     },
-    _v122 = _v29.default.div.withConfig({
+    _v118 = _v25.default.div.withConfig({
       displayName: "CommunitySection__Container",
       componentId: "sc-59d4e367-0"
     })`
-  padding: ${(0, _v47.rem)(48)} ${(0, _v47.rem)(24)};
+  padding: ${(0, _v43.rem)(48)} ${(0, _v43.rem)(24)};
   background: black;
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
 `,
-    _v123 = (0, _v29.default)(_v25.Button).withConfig({
+    _v119 = (0, _v25.default)(_v21.Button).withConfig({
       displayName: "CommunitySection__SlackButton",
       componentId: "sc-59d4e367-1"
     })`
   width: fit-content;
   font-weight: 700;
-  margin-bottom: ${(0, _v47.rem)(32)};
+  margin-bottom: ${(0, _v43.rem)(32)};
 `,
-    _v124 = (0, _v29.default)(_v25.Button).withConfig({
+    _v120 = (0, _v25.default)(_v21.Button).withConfig({
       displayName: "CommunitySection__FacebookButton",
       componentId: "sc-59d4e367-2"
     })`
   width: fit-content;
   font-weight: 700;
-  margin-bottom: ${(0, _v47.rem)(12)};
+  margin-bottom: ${(0, _v43.rem)(12)};
   svg {
-    margin-right: ${(0, _v47.rem)(8)};
-    width: ${(0, _v47.rem)(24)};
+    margin-right: ${(0, _v43.rem)(8)};
+    width: ${(0, _v43.rem)(24)};
   }
 `,
-    _v125 = _v29.default.div.withConfig({
+    _v121 = _v25.default.div.withConfig({
       displayName: "CommunitySection__JoinHeader",
       componentId: "sc-59d4e367-3"
     })`
-  font-size: ${(0, _v47.rem)(40)};
-  line-height: ${(0, _v47.rem)(48)};
+  font-size: ${(0, _v43.rem)(40)};
+  line-height: ${(0, _v43.rem)(48)};
   text-align: center;
-  letter-spacing: ${(0, _v47.rem)(-1)};
-  margin-bottom: ${(0, _v47.rem)(40)};
+  letter-spacing: ${(0, _v43.rem)(-1)};
+  margin-bottom: ${(0, _v43.rem)(40)};
   color: #ffffff;
 `,
-    _v126 = _v29.default.div.withConfig({
+    _v122 = _v25.default.div.withConfig({
       displayName: "CommunitySection__JoinSubheader",
       componentId: "sc-59d4e367-4"
     })`
-  font-size: ${(0, _v47.rem)(16)};
-  line-height: ${(0, _v47.rem)(24)};
+  font-size: ${(0, _v43.rem)(16)};
+  line-height: ${(0, _v43.rem)(24)};
   color: #ffffff;
-  margin-bottom: ${(0, _v47.rem)(40)};
-  max-width: ${(0, _v47.rem)(640)};
+  margin-bottom: ${(0, _v43.rem)(40)};
+  max-width: ${(0, _v43.rem)(640)};
   text-align: center;
 `,
-    _v127 = function () {
-      let _v0 = (0, _v8.useMemo)(_v46.getTranslatedStrings, []);
-      return (0, _v6.jsxs)(_v129, {
-        children: [(0, _v6.jsx)(_v131, {
+    _v123 = function () {
+      let _v0 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+      return (0, _v6.jsxs)(_v125, {
+        children: [(0, _v6.jsx)(_v127, {
           children: _v0.HereToHelp
-        }), (0, _v6.jsx)(_v132, {
+        }), (0, _v6.jsx)(_v128, {
           children: _v0.ContactSubheader
-        }), (0, _v6.jsx)(_v130, {
+        }), (0, _v6.jsx)(_v126, {
           element: "a",
           href: "mailto:experts@vimeo.com",
           onClick: () => {
-            (0, _v105.trackEvent)({
-              eventKey: _v105.Events.CONTACT_PARTNER_SUCCESS
+            (0, _v101.trackEvent)({
+              eventKey: _v101.Events.CONTACT_PARTNER_SUCCESS
             });
           },
           target: "_blank",
           children: _v0.ContactPartner
-        }), (0, _v6.jsx)(_v128, {
-          children: (0, _v6.jsx)(_v99, {
+        }), (0, _v6.jsx)(_v124, {
+          children: (0, _v6.jsx)(_v95, {
             defaultImageId: 0,
             thresholds: {
               mobile: {
@@ -1535,96 +1465,96 @@
         })]
       });
     },
-    _v128 = _v29.default.div.withConfig({
+    _v124 = _v25.default.div.withConfig({
       displayName: "ContactSection__ContactImages",
       componentId: "sc-3e132506-0"
     })`
   position: relative;
   width: 80%;
 `,
-    _v129 = _v29.default.div.withConfig({
+    _v125 = _v25.default.div.withConfig({
       displayName: "ContactSection__Container",
       componentId: "sc-3e132506-1"
     })`
-  padding: ${(0, _v47.rem)(48)} ${(0, _v47.rem)(24)};
+  padding: ${(0, _v43.rem)(48)} ${(0, _v43.rem)(24)};
   background: linear-gradient(107.96deg, #bcd9ff 14.43%, #edd0ff 96.02%);
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
 `,
-    _v130 = (0, _v29.default)(_v25.Button).withConfig({
+    _v126 = (0, _v25.default)(_v21.Button).withConfig({
       displayName: "ContactSection__ContactButton",
       componentId: "sc-3e132506-2"
     })`
-  margin-bottom: ${(0, _v47.rem)(32)};
+  margin-bottom: ${(0, _v43.rem)(32)};
 `,
-    _v131 = _v29.default.div.withConfig({
+    _v127 = _v25.default.div.withConfig({
       displayName: "ContactSection__ContactHeader",
       componentId: "sc-3e132506-3"
     })`
-  font-size: ${(0, _v47.rem)(40)};
-  line-height: ${(0, _v47.rem)(48)};
+  font-size: ${(0, _v43.rem)(40)};
+  line-height: ${(0, _v43.rem)(48)};
   text-align: center;
-  letter-spacing: ${(0, _v47.rem)(-1)};
-  margin-bottom: ${(0, _v47.rem)(40)};
+  letter-spacing: ${(0, _v43.rem)(-1)};
+  margin-bottom: ${(0, _v43.rem)(40)};
   color: black;
 `,
-    _v132 = _v29.default.div.withConfig({
+    _v128 = _v25.default.div.withConfig({
       displayName: "ContactSection__ContactSubHeader",
       componentId: "sc-3e132506-4"
     })`
-  font-size: ${(0, _v47.rem)(16)};
-  line-height: ${(0, _v47.rem)(24)};
+  font-size: ${(0, _v43.rem)(16)};
+  line-height: ${(0, _v43.rem)(24)};
   color: black;
-  margin-bottom: ${(0, _v47.rem)(40)};
-  max-width: ${(0, _v47.rem)(640)};
+  margin-bottom: ${(0, _v43.rem)(40)};
+  max-width: ${(0, _v43.rem)(640)};
   text-align: center;
 `,
-    _v133 = function () {
-      let _v0 = (0, _v8.useMemo)(_v46.getTranslatedStrings, []);
-      return (0, _v6.jsxs)(_v134, {
-        children: [(0, _v6.jsx)(_v135, {
+    _v129 = function () {
+      let _v0 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+      return (0, _v6.jsxs)(_v130, {
+        children: [(0, _v6.jsx)(_v131, {
           children: _v0.Questions
-        }), (0, _v6.jsx)(_v25.Button, {
+        }), (0, _v6.jsx)(_v21.Button, {
           element: "a",
           href: "https://vimeo.com/experts/legal",
           target: "_blank",
           onClick: () => {
-            (0, _v105.trackEvent)({
-              eventKey: _v105.Events.VIMEO_REFERRAL_AGREEMENT
+            (0, _v101.trackEvent)({
+              eventKey: _v101.Events.VIMEO_REFERRAL_AGREEMENT
             });
           },
           children: _v0.ExpertTerms
         }, "privacy")]
       });
     },
-    _v134 = _v29.default.div.withConfig({
+    _v130 = _v25.default.div.withConfig({
       displayName: "QuestionsSection__Container",
       componentId: "sc-1dfd2db-0"
     })`
-  padding: ${(0, _v47.rem)(48)} ${(0, _v47.rem)(24)};
-  @media (min-width: ${_v50.DESKTOP}) {
-    padding: ${(0, _v47.rem)(64)} ${(0, _v47.rem)(80)};
+  padding: ${(0, _v43.rem)(48)} ${(0, _v43.rem)(24)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    padding: ${(0, _v43.rem)(64)} ${(0, _v43.rem)(80)};
   }
   flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
 `,
-    _v135 = _v29.default.div.withConfig({
+    _v131 = _v25.default.div.withConfig({
       displayName: "QuestionsSection__QuestionsTitle",
       componentId: "sc-1dfd2db-1"
     })`
-  font-size: ${(0, _v47.rem)(28)};
-  line-height: ${(0, _v47.rem)(43)};
-  margin-bottom: ${(0, _v47.rem)(32)};
-  @media (min-width: ${_v50.DESKTOP}) {
-    font-size: ${(0, _v47.rem)(36)};
+  font-size: ${(0, _v43.rem)(28)};
+  line-height: ${(0, _v43.rem)(43)};
+  margin-bottom: ${(0, _v43.rem)(32)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    font-size: ${(0, _v43.rem)(36)};
   }
 `;
-  var _v136 = _v0.i(0);
-  let _v137 = function () {
+  var _v132 = _v0.i(0);
+  let _v133 = function () {
       return (0, _v6.jsxs)("svg", {
         width: "64",
         height: "64",
@@ -1682,7 +1612,7 @@
         })]
       });
     },
-    _v138 = function () {
+    _v134 = function () {
       return (0, _v6.jsxs)("svg", {
         width: "64",
         height: "64",
@@ -1714,24 +1644,24 @@
         })]
       });
     },
-    _v139 = function ({
+    _v135 = function ({
       isExpert: _v0
     }) {
-      let _v1 = (0, _v8.useMemo)(_v46.getTranslatedStrings, []),
+      let _v1 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []),
         _v2 = (0, _v8.useContext)(_v13.ViewerContext),
-        _v3 = _v2?.user && _v50.ALLOWED_PLANS_FOR_REWARD_SECTION.includes(_v2.user.account),
+        _v3 = _v2?.user && _v46.ALLOWED_PLANS_FOR_REWARD_SECTION.includes(_v2.user.account),
         [_v4, _v5] = (0, _v8.useState)(!1);
       return (0, _v6.jsxs)(_v6.Fragment, {
-        children: [(0, _v6.jsxs)(_v150, {
-          children: [(0, _v6.jsx)(_v152, {
+        children: [(0, _v6.jsxs)(_v146, {
+          children: [(0, _v6.jsx)(_v148, {
             children: _v1.EarnRewards
-          }), (0, _v6.jsxs)(_v151, {
-            children: [(0, _v6.jsxs)(_v148, {
-              children: [(0, _v6.jsx)(_v137, {}), (0, _v6.jsx)(_v144, {
+          }), (0, _v6.jsxs)(_v147, {
+            children: [(0, _v6.jsxs)(_v144, {
+              children: [(0, _v6.jsx)(_v133, {}), (0, _v6.jsx)(_v140, {
                 children: _v1.ReferClientsHeader
-              }), (0, _v6.jsx)(_v145, {
+              }), (0, _v6.jsx)(_v141, {
                 children: _v1.ReferClientsSubheader
-              }), (0, _v6.jsx)(_v146, {
+              }), (0, _v6.jsx)(_v142, {
                 format: "basic",
                 variant: "outline",
                 size: "lg",
@@ -1740,12 +1670,12 @@
                 target: "_blank",
                 children: _v1.ReferClientsCTA
               })]
-            }), _v3 && (0, _v6.jsxs)(_v149, {
-              children: [(0, _v6.jsx)(_v138, {}), (0, _v6.jsx)(_v144, {
+            }), _v3 && (0, _v6.jsxs)(_v145, {
+              children: [(0, _v6.jsx)(_v134, {}), (0, _v6.jsx)(_v140, {
                 children: _v1.VideoUploadHeader
-              }), (0, _v6.jsx)(_v145, {
+              }), (0, _v6.jsx)(_v141, {
                 children: _v1.VideoUploadSubheader
-              }), (0, _v6.jsx)(_v146, {
+              }), (0, _v6.jsx)(_v142, {
                 size: "lg",
                 format: "basic",
                 variant: "outline",
@@ -1757,175 +1687,175 @@
               })]
             })]
           })]
-        }), (0, _v6.jsx)(_v136.Modal, {
+        }), (0, _v6.jsx)(_v132.Modal, {
           active: _v4,
-          content: (0, _v6.jsxs)(_v143, {
-            children: [(0, _v6.jsx)(_v140, {
+          content: (0, _v6.jsxs)(_v139, {
+            children: [(0, _v6.jsx)(_v136, {
               format: "soft",
               variant: "minimalTransparent",
-              icon: (0, _v6.jsx)(_v80.DismissX, {}),
+              icon: (0, _v6.jsx)(_v76.DismissX, {}),
               size: "sm",
               onClick: () => {
                 _v5(!1);
               }
-            }), (0, _v6.jsx)(_v142, {
+            }), (0, _v6.jsx)(_v138, {
               children: _v1.CompleteTraining
-            }), (0, _v6.jsx)(_v141, {
+            }), (0, _v6.jsx)(_v137, {
               children: _v1.VideoUploadSubheader
             })]
           })
         })]
       });
     },
-    _v140 = (0, _v29.default)(_v25.Button).withConfig({
+    _v136 = (0, _v25.default)(_v21.Button).withConfig({
       displayName: "RewardsSection__DismissButton",
       componentId: "sc-62635d03-0"
     })`
   position: absolute;
-  top: ${(0, _v47.rem)(10)};
-  right: ${(0, _v47.rem)(10)};
+  top: ${(0, _v43.rem)(10)};
+  right: ${(0, _v43.rem)(10)};
 `,
-    _v141 = _v29.default.div.withConfig({
+    _v137 = _v25.default.div.withConfig({
       displayName: "RewardsSection__ModalSubHeader",
       componentId: "sc-62635d03-1"
     })`
   font-weight: normal;
-  font-size: ${(0, _v47.rem)(14)};
-  line-height: ${(0, _v47.rem)(22)};
-  margin-bottom: ${(0, _v47.rem)(24)};
+  font-size: ${(0, _v43.rem)(14)};
+  line-height: ${(0, _v43.rem)(22)};
+  margin-bottom: ${(0, _v43.rem)(24)};
 `,
-    _v142 = _v29.default.div.withConfig({
+    _v138 = _v25.default.div.withConfig({
       displayName: "RewardsSection__ModalHeader",
       componentId: "sc-62635d03-2"
     })`
   font-style: normal;
   font-weight: bold;
-  font-size: ${(0, _v47.rem)(18)};
-  line-height: ${(0, _v47.rem)(22)};
-  margin-bottom: ${(0, _v47.rem)(12)};
+  font-size: ${(0, _v43.rem)(18)};
+  line-height: ${(0, _v43.rem)(22)};
+  margin-bottom: ${(0, _v43.rem)(12)};
   color: #23313b;
 `,
-    _v143 = _v29.default.div.withConfig({
+    _v139 = _v25.default.div.withConfig({
       displayName: "RewardsSection__Content",
       componentId: "sc-62635d03-3"
     })`
-  padding: ${(0, _v47.rem)(16)};
-  background-color: ${_v30.white};
+  padding: ${(0, _v43.rem)(16)};
+  background-color: ${_v26.white};
 
-  border-radius: ${(0, _v47.rem)(8)};
+  border-radius: ${(0, _v43.rem)(8)};
   position: relative;
-  @media (min-width: ${_v50.TABLET}) {
-    min-width: ${(0, _v47.rem)(480)};
+  @media (min-width: ${_v46.TABLET}) {
+    min-width: ${(0, _v43.rem)(480)};
   }
 `,
-    _v144 = _v29.default.div.withConfig({
+    _v140 = _v25.default.div.withConfig({
       displayName: "RewardsSection__CardTitle",
       componentId: "sc-62635d03-4"
     })`
-  margin: ${(0, _v47.rem)(22)} 0 ${(0, _v47.rem)(16)};
+  margin: ${(0, _v43.rem)(22)} 0 ${(0, _v43.rem)(16)};
   font-weight: bold;
-  font-size: ${(0, _v47.rem)(28)};
-  line-height: ${(0, _v47.rem)(33)};
+  font-size: ${(0, _v43.rem)(28)};
+  line-height: ${(0, _v43.rem)(33)};
 `,
-    _v145 = _v29.default.div.withConfig({
+    _v141 = _v25.default.div.withConfig({
       displayName: "RewardsSection__CardSubTitle",
       componentId: "sc-62635d03-5"
     })`
-  margin-bottom: ${(0, _v47.rem)(16)};
+  margin-bottom: ${(0, _v43.rem)(16)};
   font-style: normal;
   font-weight: normal;
-  font-size: ${(0, _v47.rem)(16)};
-  line-height: ${(0, _v47.rem)(24)};
-  @media (min-width: ${_v50.DESKTOP}) {
-    margin-bottom: ${(0, _v47.rem)(24)};
+  font-size: ${(0, _v43.rem)(16)};
+  line-height: ${(0, _v43.rem)(24)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    margin-bottom: ${(0, _v43.rem)(24)};
   }
 `,
-    _v146 = (0, _v29.default)(_v25.Button).withConfig({
+    _v142 = (0, _v25.default)(_v21.Button).withConfig({
       displayName: "RewardsSection__CardButton",
       componentId: "sc-62635d03-6"
     })`
   width: fit-content;
   font-weight: 700;
 `,
-    _v147 = _v29.default.div.withConfig({
+    _v143 = _v25.default.div.withConfig({
       displayName: "RewardsSection__ContentCard",
       componentId: "sc-62635d03-7"
     })`
-  padding: ${(0, _v47.rem)(32)};
-  border: ${(0, _v47.rem)(1)} solid rgba(0, 0, 0, 0.025);
+  padding: ${(0, _v43.rem)(32)};
+  border: ${(0, _v43.rem)(1)} solid rgba(0, 0, 0, 0.025);
   box-shadow:
-    ${(0, _v47.rem)(0)} ${(0, _v47.rem)(10)} ${(0, _v47.rem)(6.8)} ${(0, _v47.rem)(-4.8)} rgba(0, 0, 0, 0.09),
-    ${(0, _v47.rem)(0)} ${(0, _v47.rem)(0)} ${(0, _v47.rem)(10.8)} ${(0, _v47.rem)(.7)} rgba(0, 0, 0, 0.06);
-  border-radius: ${(0, _v47.rem)(16)};
-  margin-bottom: ${(0, _v47.rem)(20)};
-  @media (min-width: ${_v50.TABLET}) {
+    ${(0, _v43.rem)(0)} ${(0, _v43.rem)(10)} ${(0, _v43.rem)(6.8)} ${(0, _v43.rem)(-4.8)} rgba(0, 0, 0, 0.09),
+    ${(0, _v43.rem)(0)} ${(0, _v43.rem)(0)} ${(0, _v43.rem)(10.8)} ${(0, _v43.rem)(.7)} rgba(0, 0, 0, 0.06);
+  border-radius: ${(0, _v43.rem)(16)};
+  margin-bottom: ${(0, _v43.rem)(20)};
+  @media (min-width: ${_v46.TABLET}) {
     max-width: 48%;
     margin: 0;
   }
 `,
-    _v148 = (0, _v29.default)(_v147).withConfig({
+    _v144 = (0, _v25.default)(_v143).withConfig({
       displayName: "RewardsSection__ReferClientsContentCard",
       componentId: "sc-62635d03-8"
     })`
   background-color: #bcd9ff;
 `,
-    _v149 = (0, _v29.default)(_v147).withConfig({
+    _v145 = (0, _v25.default)(_v143).withConfig({
       displayName: "RewardsSection__VideoUploadsContentCard",
       componentId: "sc-62635d03-9"
     })`
   background-color: #edd0ff;
 `,
-    _v150 = _v29.default.div.withConfig({
+    _v146 = _v25.default.div.withConfig({
       displayName: "RewardsSection__Container",
       componentId: "sc-62635d03-10"
     })`
-  padding: ${(0, _v47.rem)(40)} ${(0, _v47.rem)(15)};
-  @media (min-width: ${_v50.TABLET}) {
-    padding: ${(0, _v47.rem)(64)} ${(0, _v47.rem)(32)};
+  padding: ${(0, _v43.rem)(40)} ${(0, _v43.rem)(15)};
+  @media (min-width: ${_v46.TABLET}) {
+    padding: ${(0, _v43.rem)(64)} ${(0, _v43.rem)(32)};
   }
-  @media (min-width: ${_v50.DESKTOP}) {
-    padding: ${(0, _v47.rem)(64)} ${(0, _v47.rem)(80)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    padding: ${(0, _v43.rem)(64)} ${(0, _v43.rem)(80)};
   }
 `,
-    _v151 = _v29.default.div.withConfig({
+    _v147 = _v25.default.div.withConfig({
       displayName: "RewardsSection__ContentWrapper",
       componentId: "sc-62635d03-11"
     })`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  @media (min-width: ${_v50.TABLET}) {
+  @media (min-width: ${_v46.TABLET}) {
     flex-direction: row;
   }
 `,
-    _v152 = _v29.default.div.withConfig({
+    _v148 = _v25.default.div.withConfig({
       displayName: "RewardsSection__HeaderText",
       componentId: "sc-62635d03-12"
     })`
   color: #000000;
   text-align: center;
   font-weight: normal;
-  font-size: ${(0, _v47.rem)(24)};
-  margin-bottom: ${(0, _v47.rem)(24)};
-  @media (min-width: ${_v50.DESKTOP}) {
-    font-size: ${(0, _v47.rem)(40)};
-    margin-bottom: ${(0, _v47.rem)(40)};
+  font-size: ${(0, _v43.rem)(24)};
+  margin-bottom: ${(0, _v43.rem)(24)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    font-size: ${(0, _v43.rem)(40)};
+    margin-bottom: ${(0, _v43.rem)(40)};
   }
 `;
-  var _v153 = _v0.i(0),
-    _v154 = _v0.i(0);
-  let _v155 = _v29.default.div.withConfig({
+  var _v149 = _v0.i(0),
+    _v150 = _v0.i(0);
+  let _v151 = _v25.default.div.withConfig({
       displayName: "VimeoTextLogo__LogoContainer",
       componentId: "sc-55f9cfce-0"
     })`
-  margin-left: ${(0, _v47.rem)(6)};
-  margin-right: ${(0, _v47.rem)(6)};
+  margin-left: ${(0, _v43.rem)(6)};
+  margin-right: ${(0, _v43.rem)(6)};
   display: inline;
   position: relative;
-  top: ${(0, _v47.rem)(2)};
+  top: ${(0, _v43.rem)(2)};
 `,
-    _v156 = function () {
-      return (0, _v6.jsx)(_v155, {
+    _v152 = function () {
+      return (0, _v6.jsx)(_v151, {
         children: (0, _v6.jsx)("svg", {
           width: "109",
           height: "31",
@@ -1941,16 +1871,16 @@
         })
       });
     },
-    _v157 = function ({
+    _v153 = function ({
       isExpert: _v0
     }) {
       let _v1 = (0, _v8.useContext)(_v13.ViewerContext);
-      return (0, _v6.jsx)(_v161, {
-        children: (0, _v6.jsxs)(_v158, {
-          children: [(0, _v6.jsxs)(_v162, {
-            children: ["It’s good to be a", (0, _v6.jsx)(_v156, {}), "expert"]
-          }), (0, _v6.jsxs)(_v160, {
-            children: [(0, _v6.jsx)(_v164, {
+      return (0, _v6.jsx)(_v157, {
+        children: (0, _v6.jsxs)(_v154, {
+          children: [(0, _v6.jsxs)(_v158, {
+            children: ["It’s good to be a", (0, _v6.jsx)(_v152, {}), "expert"]
+          }), (0, _v6.jsxs)(_v156, {
+            children: [(0, _v6.jsx)(_v160, {
               alt: "",
               src: _v1?.user?.pictures?.sizes[0].link || "",
               srcSet: _v1?.user?.pictures?.sizes[1].link,
@@ -1958,44 +1888,44 @@
               nameProps: {
                 name: _v1?.user?.name ?? ""
               }
-            }), (0, _v6.jsx)(_v163, {
+            }), (0, _v6.jsx)(_v159, {
               children: _v1?.user?.name
-            }), _v0 && (0, _v6.jsx)(_v159, {
+            }), _v0 && (0, _v6.jsx)(_v155, {
               children: "EXPERT"
             })]
           })]
         })
       });
     },
-    _v158 = _v29.default.div.withConfig({
+    _v154 = _v25.default.div.withConfig({
       displayName: "WelcomeSection__UserTextContainer",
       componentId: "sc-d3a9542c-0"
     })`
   position: relative;
-  top: ${(0, _v47.rem)(20)};
-  margin-top: ${(0, _v47.rem)(68)};
+  top: ${(0, _v43.rem)(20)};
+  margin-top: ${(0, _v43.rem)(68)};
 `,
-    _v159 = (0, _v29.default)(_v154.Badge).withConfig({
+    _v155 = (0, _v25.default)(_v150.Badge).withConfig({
       displayName: "WelcomeSection__StyledBadge",
       componentId: "sc-d3a9542c-1"
     })`
   color: #ffffff;
   background: rgba(0, 0, 0, 0.2);
 `,
-    _v160 = _v29.default.div.withConfig({
+    _v156 = _v25.default.div.withConfig({
       displayName: "WelcomeSection__UserContainer",
       componentId: "sc-d3a9542c-2"
     })`
   display: flex;
   align-items: center;
-  margin-top: ${(0, _v47.rem)(16)};
-  margin-bottom: ${(0, _v47.rem)(40)};
+  margin-top: ${(0, _v43.rem)(16)};
+  margin-bottom: ${(0, _v43.rem)(40)};
   justify-content: center;
-  @media (min-width: ${_v50.TABLET}) {
+  @media (min-width: ${_v46.TABLET}) {
     justify-content: flex-start;
   }
 `,
-    _v161 = _v29.default.div.withConfig({
+    _v157 = _v25.default.div.withConfig({
       displayName: "WelcomeSection__Container",
       componentId: "sc-d3a9542c-3"
     })`
@@ -2006,107 +1936,145 @@
   background: linear-gradient(107.96deg, #1b4070 14.43%, #2b103c 96.02%);
   flex-direction: column;
   align-items: center;
-  @media (min-width: ${_v50.TABLET}) {
+  @media (min-width: ${_v46.TABLET}) {
     justify-content: space-between;
     flex-direction: row;
   }
 `,
-    _v162 = _v29.default.div.withConfig({
+    _v158 = _v25.default.div.withConfig({
       displayName: "WelcomeSection__WelcomeText",
       componentId: "sc-d3a9542c-4"
     })`
   font-weight: 400;
-  font-size: ${(0, _v47.rem)(36)};
-  line-height: ${(0, _v47.rem)(42)};
-  letter-spacing: -1 ${(0, _v47.rem)(2)};
+  font-size: ${(0, _v43.rem)(36)};
+  line-height: ${(0, _v43.rem)(42)};
+  letter-spacing: -1 ${(0, _v43.rem)(2)};
   color: #ffffff;
-  margin-left: ${(0, _v47.rem)(28)};
-  max-width: ${(0, _v47.rem)(353)};
-  padding-left: ${(0, _v47.rem)(52)};
+  margin-left: ${(0, _v43.rem)(28)};
+  max-width: ${(0, _v43.rem)(353)};
+  padding-left: ${(0, _v43.rem)(52)};
 
-  @media (min-width: ${_v50.TABLET}) {
-    margin-left: ${(0, _v47.rem)(32)};
+  @media (min-width: ${_v46.TABLET}) {
+    margin-left: ${(0, _v43.rem)(32)};
     padding-left: 0;
   }
-  @media (min-width: ${_v50.DESKTOP}) {
-    margin-left: ${(0, _v47.rem)(81)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    margin-left: ${(0, _v43.rem)(81)};
     max-width: none;
   }
 `,
-    _v163 = _v29.default.div.withConfig({
+    _v159 = _v25.default.div.withConfig({
       displayName: "WelcomeSection__UserName",
       componentId: "sc-d3a9542c-5"
     })`
   color: white;
-  margin-left: ${(0, _v47.rem)(16)};
-  margin-right: ${(0, _v47.rem)(10)};
-  font-size: ${(0, _v47.rem)(16)};
+  margin-left: ${(0, _v43.rem)(16)};
+  margin-right: ${(0, _v43.rem)(10)};
+  font-size: ${(0, _v43.rem)(16)};
   text-transform: capitalize;
-  @media (min-width: ${_v50.DESKTOP}) {
-    font-size: ${(0, _v47.rem)(18)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    font-size: ${(0, _v43.rem)(18)};
   }
 `,
-    _v164 = (0, _v29.default)(_v153.Avatar).withConfig({
+    _v160 = (0, _v25.default)(_v149.Avatar).withConfig({
       displayName: "WelcomeSection__UserAvatar",
       componentId: "sc-d3a9542c-6"
     })`
-  width: ${(0, _v47.rem)(48)};
-  height: ${(0, _v47.rem)(48)};
-  margin-left: ${(0, _v47.rem)(28)};
-  @media (min-width: ${_v50.TABLET}) {
-    margin-left: ${(0, _v47.rem)(32)};
+  width: ${(0, _v43.rem)(48)};
+  height: ${(0, _v43.rem)(48)};
+  margin-left: ${(0, _v43.rem)(28)};
+  @media (min-width: ${_v46.TABLET}) {
+    margin-left: ${(0, _v43.rem)(32)};
   }
-  @media (min-width: ${_v50.DESKTOP}) {
-    margin-left: ${(0, _v47.rem)(81)};
+  @media (min-width: ${_v46.DESKTOP}) {
+    margin-left: ${(0, _v43.rem)(81)};
   }
 `;
-  function _v165({
+  function _v161({
     status: _v0
   }) {
     return (0, _v8.useEffect)(() => {
-      (0, _v105.trackEvent)({
-        eventKey: _v105.Events.DASHBOARD_PAGE_LOAD
+      (0, _v101.trackEvent)({
+        eventKey: _v101.Events.DASHBOARD_PAGE_LOAD
       });
     }, []), (0, _v6.jsxs)("div", {
-      children: [(0, _v6.jsx)(_v73, {
+      children: [(0, _v6.jsx)(_v69, {
         pathColor: "rgba(255, 255, 255, 0.8)",
-        currentPathColor: _v30.white
-      }), (0, _v6.jsx)(_v157, {
+        currentPathColor: _v26.white
+      }), (0, _v6.jsx)(_v153, {
         isExpert: "expert" === _v0
-      }), (0, _v6.jsx)(_v110, {}), (0, _v6.jsx)(_v139, {
+      }), (0, _v6.jsx)(_v106, {}), (0, _v6.jsx)(_v135, {
         isExpert: "expert" === _v0
-      }), (0, _v6.jsx)(_v121, {}), (0, _v6.jsx)(_v127, {}), (0, _v6.jsx)(_v133, {})]
+      }), (0, _v6.jsx)(_v117, {}), (0, _v6.jsx)(_v123, {}), (0, _v6.jsx)(_v129, {})]
     });
   }
-  var _v166 = _v0.i(0);
-  function _v167() {
-    return (0, _v6.jsx)(_v52, {
-      children: (0, _v6.jsx)(_v166.Spinner, {})
+  var _v162 = _v0.i(0);
+  function _v163() {
+    return (0, _v6.jsx)(_v48, {
+      children: (0, _v6.jsx)(_v162.Spinner, {})
     });
   }
-  function _v168({
+  function _v164({
     playerAssetUrls: _v0
   }) {
     let [_v1, _v2] = (0, _v8.useState)(),
-      [_v3, _v4] = _v23();
+      [_v3, _v4] = function () {
+        let {
+            mutate: _v0
+          } = (0, _v19.useSWRConfig)(),
+          {
+            baseUrl: _v1,
+            jwt: _v2,
+            xVimeoPage: _v3,
+            locale: _v4
+          } = (0, _v20.useGctlConfig)(),
+          [_v5, _v6] = (0, _v14.useInternalState)();
+        return [(0, _v8.useCallback)(async _v0 => {
+          _v6({
+            type: "REQUEST"
+          });
+          try {
+            let _v0 = await _v0(`/me/expert${(0, _v14.serializeQuery)(_v0)}`, _v17({
+              ..._v0,
+              baseUrl: _v1,
+              headers: {
+                ..._v0.headers,
+                "Content-Type": "application/json",
+                Authorization: _v2 ? `jwt ${_v2}` : "",
+                "Vimeo-Page": `${_v3}`,
+                "Accept-Language": _v4 ?? "en"
+              }
+            }));
+            _v6({
+              type: "SUCCESS",
+              payload: _v0
+            });
+          } catch (_v0) {
+            _v6({
+              type: "FAILURE",
+              payload: _v0
+            });
+          }
+        }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+      }();
     return ((0, _v8.useEffect)(() => {
       _v3({
         select: ["company", "status", "website"]
       });
     }, []), (0, _v8.useEffect)(() => {
       _v4?.data && _v2(_v4.data);
-    }, [_v4]), _v1) ? (0, _v6.jsx)(_v165, {
+    }, [_v4]), _v1) ? (0, _v6.jsx)(_v161, {
       status: _v1.status
-    }) : _v4?.error ? (0, _v6.jsx)(_v106, {
+    }) : _v4?.error ? (0, _v6.jsx)(_v102, {
       playerAssetUrls: _v0,
       setExpertData: _v2
-    }) : (0, _v6.jsx)(_v167, {});
+    }) : (0, _v6.jsx)(_v163, {});
   }
-  function _v169(_v0) {
+  function _v165(_v0) {
     let _v1 = (0, _v8.useContext)(_v13.ViewerContext),
-      _v2 = (0, _v8.useMemo)(() => _v1 ? (0, _v6.jsx)(_v168, {
+      _v2 = (0, _v8.useMemo)(() => _v1 ? (0, _v6.jsx)(_v164, {
         playerAssetUrls: _v0.playerAssetUrls
-      }) : (0, _v6.jsx)(_v167, {}), [_v1, _v0.playerAssetUrls]);
+      }) : (0, _v6.jsx)(_v163, {}), [_v1, _v0.playerAssetUrls]);
     return (0, _v6.jsxs)(_v6.Fragment, {
       children: [(0, _v6.jsx)(_v7.default, {
         children: (0, _v6.jsx)("title", {
@@ -2122,7 +2090,7 @@
             }
           })
         })
-      }), (0, _v6.jsx)(_v69, {
+      }), (0, _v6.jsx)(_v65, {
         children: _v2
       })]
     });
@@ -2131,9 +2099,9 @@
     requireLogin: !0,
     inlineViewer: !0,
     inlinePlayerAssets: !0
-  }), _v169.getLayout = (_v0, _v1) => (0, _v6.jsxs)(_v6.Fragment, {
+  }), _v165.getLayout = (_v0, _v1) => (0, _v6.jsxs)(_v6.Fragment, {
     children: [(0, _v6.jsx)(_v10.DefaultNavigation, {
       hasThemeSupport: !1
     }), _v0, (0, _v6.jsx)(_v12.MinimalFooterLayout, {})]
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v169], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v165], 0);
 }

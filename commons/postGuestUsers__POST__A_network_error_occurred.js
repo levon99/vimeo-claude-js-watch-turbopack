@@ -3,47 +3,46 @@
 
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
-    _v3 = _v0.i(0),
-    _v4 = _v0.i(0);
-  async function _v5({
+    _v3 = _v0.i(0);
+  async function _v4({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
     ..._v3
   }) {
-    return (0, _v3.measureLatency)("postGuestUsers", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/guest_users?fields=${_v1.map(_v4.intoSnakeCase).join(",")}`, {
+    return (0, _v2.measureLatency)("postGuestUsers", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/guest_users?fields=${_v1.map(_v3.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "POST",
-        body: JSON.stringify((0, _v4.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v3.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v4.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v3.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v4.deepCamelCase)(_v1);
+      return (0, _v3.deepCamelCase)(_v1);
     });
   }
-  var _v6 = _v0.i(0),
-    _v7 = _v0.i(0),
-    _v8 = _v0.i(0);
-  function _v9() {
+  var _v5 = _v0.i(0),
+    _v6 = _v0.i(0),
+    _v7 = _v0.i(0);
+  _v0.s(["usePostGuestUsers", 0, function () {
     let {
         mutate: _v0
-      } = (0, _v7.useSWRConfig)(),
+      } = (0, _v6.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v8.useGctlConfig)(),
-      [_v5, _v6] = (0, _v2.useInternalState)();
-    return [(0, _v6.useCallback)(async _v0 => {
+      } = (0, _v7.useGctlConfig)(),
+      [_v5, _v6] = (0, _v1.useInternalState)();
+    return [(0, _v5.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/guest_users${(0, _v2.serializeQuery)(_v0)}`, _v5({
+        let _v0 = await _v0(`/guest_users${(0, _v1.serializeQuery)(_v0)}`, _v4({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -65,12 +64,10 @@
         });
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v1.default.env.STORYBOOK && (0, _v2.assignMswData)(_v9, {
-    endpoint: "/guest_users",
-    method: "POST"
-  }), _v0.s(["usePostGuestUsers", 0, _v9], 0);
-  var _v10 = _v0.i(0),
+  }], 0);
+  var _v8 = _v0.i(0),
+    _v9 = _v0.i(0),
+    _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
@@ -84,14 +81,12 @@
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
-    _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
-    _v26 = _v0.i(0);
-  let _v27 = window.location.pathname.substring(1),
-    _v28 = ({
+    _v24 = _v0.i(0);
+  let _v25 = window.location.pathname.substring(1),
+    _v26 = ({
       text: _v0,
       href: _v1
-    }) => (0, _v10.jsx)(_v14.Link, {
+    }) => (0, _v8.jsx)(_v12.Link, {
       href: _v1,
       target: "_blank",
       rel: "noopener noreferrer",
@@ -100,7 +95,7 @@
       fontSize: "inherit",
       children: _v0
     }, _v1),
-    _v29 = ({
+    _v27 = ({
       xsrft: _v0,
       closeModal: _v1,
       onSuccessfulLogin: _v2,
@@ -115,9 +110,9 @@
       canReactToCollabComments: _v11,
       onLoginModalOpenChange: _v12
     }) => {
-      let [_v13, _v14] = (0, _v6.useState)(""),
-        [_v15, _v16] = (0, _v6.useState)(!0);
-      (0, _v6.useEffect)(() => {
+      let [_v13, _v14] = (0, _v5.useState)(""),
+        [_v15, _v16] = (0, _v5.useState)(!0);
+      (0, _v5.useEffect)(() => {
         _v16(!_v13.trim());
       }, [_v13]);
       let _v17 = () => {
@@ -126,17 +121,17 @@
         _v18 = () => {
           _v13.trim() && (_v6?.(0), _v3(_v13));
         },
-        _v19 = (0, _v6.useCallback)(_v0 => {
+        _v19 = (0, _v5.useCallback)(_v0 => {
           _v2(_v0);
         }, []);
-      return (0, _v10.jsxs)(_v20.Box, {
+      return (0, _v8.jsxs)(_v18.Box, {
         borderRadius: "xl",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         padding: _v10 ? "24px" : "48px",
         position: _v10 ? "relative" : void 0,
-        children: [_v10 ? (0, _v10.jsx)(_v18.CloseButton, {
+        children: [_v10 ? (0, _v8.jsx)(_v16.CloseButton, {
           variant: "tertiary",
           size: "xs",
           position: "absolute",
@@ -144,20 +139,20 @@
           right: "16px",
           "aria-label": "close button",
           onClick: _v1
-        }) : (0, _v10.jsx)(_v22.ModalCloseButton, {
+        }) : (0, _v8.jsx)(_v20.ModalCloseButton, {
           size: "lg",
           "aria-label": "close button",
           onClick: () => {
             _v17(), _v1();
           }
-        }), (0, _v10.jsxs)(_v20.Box, {
+        }), (0, _v8.jsxs)(_v18.Box, {
           width: _v10 ? "100%" : ["310px", "322px"],
-          children: [(0, _v10.jsx)(_v19.Text, {
+          children: [(0, _v8.jsx)(_v17.Text, {
             variant: _v10 ? "heading-sm" : "heading-md",
             sx: {
               mb: _v10 ? "4" : "2"
             },
-            children: _v7 ?? (0, _v25.translate)({
+            children: _v7 ?? (0, _v23.translate)({
               singular: "Let others know who you are",
               dictionary: {
                 es: {
@@ -183,13 +178,13 @@
                 }
               }
             })
-          }), (0, _v10.jsxs)(_v23.FormControl, {
+          }), (0, _v8.jsxs)(_v21.FormControl, {
             mb: "4",
-            children: [(0, _v10.jsx)(_v24.FormLabel, {
+            children: [(0, _v8.jsx)(_v22.FormLabel, {
               mb: "2",
               fontFamily: "heading",
               fontSize: _v10 ? "12px" : "14px",
-              children: (0, _v25.translate)({
+              children: (0, _v23.translate)({
                 singular: "Name",
                 dictionary: {
                   es: {
@@ -212,10 +207,10 @@
                   }
                 }
               })
-            }), (0, _v10.jsx)(_v21.Input, {
+            }), (0, _v8.jsx)(_v19.Input, {
               id: "name",
               size: "md",
-              placeholder: _v9 ?? (0, _v25.translate)({
+              placeholder: _v9 ?? (0, _v23.translate)({
                 singular: "First and last name",
                 dictionary: {
                   es: {
@@ -253,13 +248,13 @@
                 "Enter" === _v0.key && _v18();
               }
             })]
-          }), [0, 0, 0].includes(_v5 ?? 0) && (0, _v10.jsx)(_v15.Alert, {
+          }), [0, 0, 0].includes(_v5 ?? 0) && (0, _v8.jsx)(_v13.Alert, {
             status: "error",
             my: "4",
-            children: (0, _v10.jsx)(_v16.AlertDescription, {
+            children: (0, _v8.jsx)(_v14.AlertDescription, {
               fontSize: "body-sm",
               pt: "1",
-              children: (0, _v25.translate)({
+              children: (0, _v23.translate)({
                 singular: "Unable to process your request. Try again later.",
                 dictionary: {
                   es: {
@@ -286,14 +281,14 @@
                 }
               })
             })
-          }), (0, _v10.jsx)(_v17.Button, {
+          }), (0, _v8.jsx)(_v15.Button, {
             variant: "primary",
             padding: "5px 0px",
             width: "100%",
             onClick: _v18,
             isDisabled: _v15,
             isLoading: _v4,
-            children: _v8 ?? (0, _v25.translate)({
+            children: _v8 ?? (0, _v23.translate)({
               singular: "Post comment",
               dictionary: {
                 es: {
@@ -320,22 +315,22 @@
               }
             })
           })]
-        }), (0, _v10.jsx)(_v26.LoginJoinModal, {
+        }), (0, _v8.jsx)(_v24.LoginJoinModal, {
           type: "login",
           xsrft: _v0,
           onSuccess: _v0 => {
             _v12?.(!1), _v19(_v0);
           },
           onDismiss: () => _v12?.(!1),
-          redirectUrl: _v27,
-          children: _v0 => (0, _v10.jsx)(_v19.Text, {
+          redirectUrl: _v25,
+          children: _v0 => (0, _v8.jsx)(_v17.Text, {
             variant: _v10 ? "body-sm" : "body-lg",
             textAlign: "center",
             mt: 16,
-            children: (0, _v25.translate)({
+            children: (0, _v23.translate)({
               singular: "Have a Vimeo account? {LINK}Log in{/LINK}",
               replacements: {
-                LINK: _v0 => (0, _v10.jsx)(_v14.Link, {
+                LINK: _v0 => (0, _v8.jsx)(_v12.Link, {
                   cursor: "pointer",
                   tabIndex: 0,
                   variant: "inline-primary",
@@ -374,18 +369,18 @@
               }
             })
           })
-        }), (0, _v10.jsx)(_v19.Text, {
+        }), (0, _v8.jsx)(_v17.Text, {
           color: "text-tertiary",
           variant: _v10 ? "body-sm" : "heading-xs",
           mt: "4",
-          children: _v11 ? (0, _v25.translate)({
+          children: _v11 ? (0, _v23.translate)({
             singular: "By posting a comment or reacting to a comment, you agree to our {TERMS_OF_SERVICE} Terms of Service {/TERMS_OF_SERVICE} and acknowledge our {PRIVACY_POLICY} Privacy Policy {/PRIVACY_POLICY}",
             replacements: {
-              TERMS_OF_SERVICE: _v0 => (0, _v10.jsx)(_v28, {
+              TERMS_OF_SERVICE: _v0 => (0, _v8.jsx)(_v26, {
                 text: _v0,
                 href: "/terms"
               }),
-              PRIVACY_POLICY: _v0 => (0, _v10.jsx)(_v28, {
+              PRIVACY_POLICY: _v0 => (0, _v8.jsx)(_v26, {
                 text: _v0,
                 href: "/privacy"
               })
@@ -413,14 +408,14 @@
                 singular: "通过发布评论或对评论作出反应，您同意我们的 {TERMS_OF_SERVICE} 服务条款 {/TERMS_OF_SERVICE}，并已知悉我们的 {PRIVACY_POLICY} 隐私政策 {/PRIVACY_POLICY}"
               }
             }
-          }) : (0, _v25.translate)({
+          }) : (0, _v23.translate)({
             singular: "By posting a comment, you agree to our {TERMS_OF_SERVICE} Terms of Service {/TERMS_OF_SERVICE} and acknowledge our {PRIVACY_POLICY} Privacy Policy {/PRIVACY_POLICY}",
             replacements: {
-              TERMS_OF_SERVICE: _v0 => (0, _v10.jsx)(_v28, {
+              TERMS_OF_SERVICE: _v0 => (0, _v8.jsx)(_v26, {
                 text: _v0,
                 href: "/terms"
               }),
-              PRIVACY_POLICY: _v0 => (0, _v10.jsx)(_v28, {
+              PRIVACY_POLICY: _v0 => (0, _v8.jsx)(_v26, {
                 text: _v0,
                 href: "/privacy"
               })
@@ -464,13 +459,13 @@
     titleText: _v8,
     submitButtonText: _v9,
     canReactToCollabComments: _v10
-  }) => (0, _v10.jsxs)(_v11.Modal, {
+  }) => (0, _v8.jsxs)(_v9.Modal, {
     isOpen: _v4,
     onClose: _v1,
     size: "sm",
-    children: [(0, _v10.jsx)(_v12.ModalOverlay, {}), (0, _v10.jsx)(_v13.ModalContent, {
+    children: [(0, _v8.jsx)(_v10.ModalOverlay, {}), (0, _v8.jsx)(_v11.ModalContent, {
       maxW: "418px",
-      children: (0, _v10.jsx)(_v29, {
+      children: (0, _v8.jsx)(_v27, {
         closeModal: _v1,
         xsrft: _v0,
         onSuccessfulLogin: _v2,
@@ -498,18 +493,18 @@
     isCompact: _v11 = !1,
     canReactToCollabComments: _v12
   }) => {
-    let _v13 = (0, _v6.useRef)(null),
-      _v14 = (0, _v6.useRef)(!1),
-      _v15 = (0, _v6.useCallback)(_v0 => {
+    let _v13 = (0, _v5.useRef)(null),
+      _v14 = (0, _v5.useRef)(!1),
+      _v15 = (0, _v5.useCallback)(_v0 => {
         _v14.current = _v0;
       }, []);
-    return (0, _v6.useEffect)(() => {
+    return (0, _v5.useEffect)(() => {
       if (!_v1) return;
       let _v0 = _v0 => {
         _v14.current || _v13.current?.contains(_v0.target) || _v2();
       };
       return document.addEventListener("pointerdown", _v0, !0), () => document.removeEventListener("pointerdown", _v0, !0);
-    }, [_v1, _v2]), (0, _v10.jsx)(_v20.Box, {
+    }, [_v1, _v2]), (0, _v8.jsx)(_v18.Box, {
       ref: _v13,
       width: "100%",
       display: _v1 ? void 0 : "none",
@@ -517,7 +512,7 @@
       borderRadius: "input-md",
       border: "1px solid",
       borderColor: "input-stroke",
-      children: (0, _v10.jsx)(_v29, {
+      children: (0, _v8.jsx)(_v27, {
         closeModal: _v2,
         xsrft: _v0,
         onSuccessfulLogin: _v3,
@@ -534,28 +529,28 @@
       })
     });
   }], 0);
-  var _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0);
+  var _v28 = _v0.i(0),
+    _v29 = _v0.i(0),
+    _v30 = _v0.i(0),
+    _v31 = _v0.i(0);
   _v0.s(["DismissConfirmationModal", 0, ({
     isOpen: _v0,
     onContinue: _v1,
     onGoBack: _v2,
     canReactToCollabComments: _v3
-  }) => (0, _v10.jsxs)(_v11.Modal, {
+  }) => (0, _v8.jsxs)(_v9.Modal, {
     isOpen: _v0,
     onClose: _v2,
     isCentered: !0,
     size: "sm",
     closeOnOverlayClick: !1,
     closeOnEsc: !1,
-    children: [(0, _v10.jsx)(_v12.ModalOverlay, {}), (0, _v10.jsxs)(_v13.ModalContent, {
+    children: [(0, _v8.jsx)(_v10.ModalOverlay, {}), (0, _v8.jsxs)(_v11.ModalContent, {
       maxW: "368px",
-      children: [(0, _v10.jsx)(_v32.ModalHeader, {
+      children: [(0, _v8.jsx)(_v30.ModalHeader, {
         textAlign: "center",
         pb: "6px",
-        children: (0, _v25.translate)({
+        children: (0, _v23.translate)({
           singular: "Add your name",
           dictionary: {
             es: {
@@ -581,14 +576,14 @@
             }
           }
         })
-      }), (0, _v10.jsx)(_v30.ModalBody, {
+      }), (0, _v8.jsx)(_v28.ModalBody, {
         textAlign: "center",
         fontSize: "14px",
         fontWeight: "normal",
         color: "text-secondary",
         pt: 0,
         pb: "24px",
-        children: _v3 ? (0, _v25.translate)({
+        children: _v3 ? (0, _v23.translate)({
           singular: "Enter your name to comment or react and let others know who you are.",
           dictionary: {
             es: {
@@ -613,7 +608,7 @@
               singular: "输入您的姓名以便评论或回应，让其他人知道您是谁。"
             }
           }
-        }) : (0, _v25.translate)({
+        }) : (0, _v23.translate)({
           singular: "Enter your name to comment and let others know who you are.",
           dictionary: {
             es: {
@@ -639,16 +634,16 @@
             }
           }
         })
-      }), (0, _v10.jsx)(_v31.ModalFooter, {
+      }), (0, _v8.jsx)(_v29.ModalFooter, {
         pt: 0,
-        children: (0, _v10.jsxs)(_v33.Stack, {
+        children: (0, _v8.jsxs)(_v31.Stack, {
           spacing: 2,
           width: "100%",
-          children: [(0, _v10.jsx)(_v17.Button, {
+          children: [(0, _v8.jsx)(_v15.Button, {
             variant: "primary",
             width: "100%",
             onClick: _v1,
-            children: (0, _v25.translate)({
+            children: (0, _v23.translate)({
               singular: "Enter name",
               dictionary: {
                 es: {
@@ -674,11 +669,11 @@
                 }
               }
             })
-          }), (0, _v10.jsx)(_v17.Button, {
+          }), (0, _v8.jsx)(_v15.Button, {
             variant: "tertiary",
             width: "100%",
             onClick: _v2,
-            children: (0, _v25.translate)({
+            children: (0, _v23.translate)({
               singular: "Go back to draft",
               dictionary: {
                 es: {

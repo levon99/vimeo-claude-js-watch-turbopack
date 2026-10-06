@@ -16,7 +16,8 @@
     },
     _v6 = {
       ..._v5,
-      top: (0, _v4.rem)(-8)
+      top: (0, _v4.rem)(-8),
+      transform: "translateY(0)"
     },
     _v7 = {
       color: "var(--vimeo-colors-text-secondary)",
@@ -42,8 +43,10 @@
     "data-testid": _v11,
     children: _v12,
     onFocus: _v13,
-    onKeyDown: _v14,
-    inputRef: _v15
+    onBlur: _v14,
+    onKeyDown: _v15,
+    inputRef: _v16,
+    height: _v17 = (0, _v4.rem)(40)
   }) => (0, _v1.jsxs)(_v2.Box, {
     position: "relative",
     flex: "1",
@@ -82,12 +85,13 @@
       autoComplete: _v8,
       "data-testid": _v11,
       value: _v2,
-      ref: _v15,
+      ref: _v16,
       onFocus: _v13,
-      onKeyDown: _v14,
+      onBlur: _v14,
+      onKeyDown: _v15,
       onChange: _v0 => _v4(_v0.currentTarget.value),
       size: "md",
-      height: (0, _v4.rem)(40),
+      height: _v17,
       width: "100%"
     }), (0, _v1.jsx)(_v2.Box, {
       as: "label",
@@ -95,7 +99,7 @@
       "data-invalid": _v5 ? "true" : void 0,
       "data-floating-label": "true",
       position: "absolute",
-      top: (0, _v4.rem)(10),
+      top: "50%",
       left: (0, _v4.rem)(12),
       paddingX: (0, _v4.rem)(4),
       marginX: (0, _v4.rem)(3),
@@ -104,6 +108,7 @@
       pointerEvents: "none",
       transformOrigin: "left top",
       transition: "0.2s ease all",
+      transform: "translateY(-50%)",
       ..._v7,
       children: _v1
     }), _v12 && (0, _v1.jsx)(_v2.Box, {

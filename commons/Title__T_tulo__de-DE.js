@@ -376,9 +376,7 @@
       {
         reviewId: _v37
       } = (0, _v2.useContext)(_v23.ReviewLinkContext),
-      {
-        review_page_rework: _v38
-      } = (0, _v8.useOrionSettings)().settings,
+      _v38 = (0, _v8.useOrionSetting)("review_page_rework"),
       [_v39] = (0, _v5.useMediaQuery)("(orientation: portrait)"),
       _v40 = !!_v37 && _v38,
       _v41 = _v40 && !_v18 && !!_v7,

@@ -22,8 +22,8 @@
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
-    _v21 = _v21,
     _v22 = _v0.i(0),
+    _v22 = _v22,
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
@@ -36,8 +36,9 @@
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
     _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  let _v36 = ({
+    _v35 = _v0.i(0),
+    _v36 = _v0.i(0);
+  let _v37 = ({
     isOpen: _v0,
     userId: _v1,
     presetId: _v2,
@@ -45,14 +46,14 @@
     onClose: _v4,
     onSuccess: _v5
   }) => {
-    let _v6 = (0, _v35.getTranslations)(),
-      _v7 = (0, _v32.useToast)(),
+    let _v6 = (0, _v36.getTranslations)(),
+      _v7 = (0, _v33.useToast)(),
       {
         baseUrl: _v8,
         jwt: _v9,
         xVimeoPage: _v10
-      } = (0, _v34.useGctlConfig)(),
-      [_v11, _v12] = (0, _v10.useState)(!1),
+      } = (0, _v35.useGctlConfig)(),
+      [_v11, _v12] = (0, _v11.useState)(!1),
       _v13 = "approve" === _v3,
       _v14 = _v13 ? _v6.ApprovePreset : _v6.RemovePresetApproval,
       _v15 = _v13 ? _v6.ApprovePresetDescriptionFirstLine : _v6.RemovePresetApprovalDescriptionFirstLine,
@@ -87,39 +88,39 @@
           }
         }
       };
-    return (0, _v1.jsxs)(_v26.Modal, {
+    return (0, _v1.jsxs)(_v27.Modal, {
       isOpen: _v0,
       size: "lg",
       onClose: _v4,
-      children: [(0, _v1.jsx)(_v31.ModalOverlay, {}), (0, _v1.jsxs)(_v28.ModalContent, {
-        minH: (0, _v15.rem)(264),
-        children: [(0, _v1.jsx)(_v30.ModalHeader, {
-          children: (0, _v1.jsx)(_v13.Header, {
+      children: [(0, _v1.jsx)(_v32.ModalOverlay, {}), (0, _v1.jsxs)(_v29.ModalContent, {
+        minH: (0, _v16.rem)(264),
+        children: [(0, _v1.jsx)(_v31.ModalHeader, {
+          children: (0, _v1.jsx)(_v14.Header, {
             size: "lg",
             children: _v14
           })
-        }), (0, _v1.jsx)(_v27.ModalBody, {
+        }), (0, _v1.jsx)(_v28.ModalBody, {
           paddingBottom: 16,
-          children: (0, _v1.jsxs)(_v33.VStack, {
+          children: (0, _v1.jsxs)(_v34.VStack, {
             align: "stretch",
             spacing: "md",
-            children: [(0, _v1.jsx)(_v17.Text, {
+            children: [(0, _v1.jsx)(_v18.Text, {
               variant: "body-md",
               children: _v15
-            }), (0, _v1.jsx)(_v17.Text, {
+            }), (0, _v1.jsx)(_v18.Text, {
               variant: "body-md",
               children: _v16
             })]
           })
-        }), (0, _v1.jsxs)(_v29.ModalFooter, {
+        }), (0, _v1.jsxs)(_v30.ModalFooter, {
           borderTop: 0,
-          children: [(0, _v1.jsx)(_v25.Button, {
+          children: [(0, _v1.jsx)(_v26.Button, {
             isDisabled: _v11,
             variant: "secondary",
             minW: 100,
             onClick: _v4,
             children: _v6.Cancel
-          }), (0, _v1.jsx)(_v25.Button, {
+          }), (0, _v1.jsx)(_v26.Button, {
             isLoading: _v11,
             isDisabled: _v11,
             variant: _v13 ? "primary" : "destructive",
@@ -131,10 +132,10 @@
       })]
     });
   };
-  var _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0);
-  let _v40 = ({
+  var _v38 = _v0.i(0),
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0);
+  let _v41 = ({
     isOpen: _v0,
     userId: _v1,
     preset: _v2,
@@ -142,18 +143,18 @@
     onClose: _v4,
     onSuccess: _v5
   }) => {
-    let _v6 = (0, _v35.getTranslations)(),
-      _v7 = (0, _v32.useToast)(),
-      [_v8, _v9] = (0, _v10.useState)(""),
-      [_v10, _v11] = (0, _v10.useState)(!1),
-      [_v12, _v13] = (0, _v39.usePutUserLeadCaptureFormReplace)(),
-      [_v14, _v15] = (0, _v38.useDeleteUserLeadCaptureForm)(),
-      _v16 = (0, _v10.useRef)(null),
-      _v17 = (0, _v10.useRef)(0),
-      _v18 = (0, _v10.useRef)(0);
-    (0, _v10.useEffect)(() => {
+    let _v6 = (0, _v36.getTranslations)(),
+      _v7 = (0, _v33.useToast)(),
+      [_v8, _v9] = (0, _v11.useState)(""),
+      [_v10, _v11] = (0, _v11.useState)(!1),
+      [_v12, _v13] = (0, _v40.usePutUserLeadCaptureFormReplace)(),
+      [_v14, _v15] = (0, _v39.useDeleteUserLeadCaptureForm)(),
+      _v16 = (0, _v11.useRef)(null),
+      _v17 = (0, _v11.useRef)(0),
+      _v18 = (0, _v11.useRef)(0);
+    (0, _v11.useEffect)(() => {
       _v0 || (_v9(""), _v11(!1), _v16.current = null);
-    }, [_v0]), (0, _v10.useEffect)(() => {
+    }, [_v0]), (0, _v11.useEffect)(() => {
       _v16.current && _v13.callCount === _v17.current && _v13.called && !_v13.loading && (_v13.error ? (_v11(!1), _v16.current = null, _v7({
         title: _v6.SomethingWentWrong,
         variant: "warning"
@@ -163,7 +164,7 @@
           leadCaptureFormId: _v16.current
         }
       })));
-    }, [_v13.callCount, _v13.called, _v13.loading, _v13.error]), (0, _v10.useEffect)(() => {
+    }, [_v13.callCount, _v13.called, _v13.loading, _v13.error]), (0, _v11.useEffect)(() => {
       _v16.current && _v15.callCount === _v18.current && _v15.called && !_v15.loading && (_v11(!1), _v16.current = null, _v15.error ? _v7({
         title: _v6.SomethingWentWrong,
         variant: "warning"
@@ -179,45 +180,45 @@
         value: _v0.uuid
       })),
       _v25 = _v24.length > 0;
-    return (0, _v1.jsxs)(_v26.Modal, {
+    return (0, _v1.jsxs)(_v27.Modal, {
       isOpen: _v0,
       size: "lg",
       onClose: _v4,
-      children: [(0, _v1.jsx)(_v31.ModalOverlay, {}), (0, _v1.jsxs)(_v28.ModalContent, {
-        minH: (0, _v15.rem)(264),
-        children: [(0, _v1.jsx)(_v30.ModalHeader, {
-          children: (0, _v1.jsx)(_v13.Header, {
+      children: [(0, _v1.jsx)(_v32.ModalOverlay, {}), (0, _v1.jsxs)(_v29.ModalContent, {
+        minH: (0, _v16.rem)(264),
+        children: [(0, _v1.jsx)(_v31.ModalHeader, {
+          children: (0, _v1.jsx)(_v14.Header, {
             size: "lg",
             children: _v6.DeletePreset
           })
-        }), (0, _v1.jsx)(_v27.ModalBody, {
+        }), (0, _v1.jsx)(_v28.ModalBody, {
           paddingTop: "xl",
           paddingBottom: "xl",
-          children: (0, _v1.jsxs)(_v33.VStack, {
+          children: (0, _v1.jsxs)(_v34.VStack, {
             align: "stretch",
             spacing: "md",
-            children: [_v22 > 0 && (0, _v1.jsx)(_v17.Text, {
+            children: [_v22 > 0 && (0, _v1.jsx)(_v18.Text, {
               variant: "body-md",
               children: _v6.DeletePresetUsageDescription(_v19, _v20, _v21)
-            }), _v23 && (0, _v1.jsx)(_v17.Text, {
+            }), _v23 && (0, _v1.jsx)(_v18.Text, {
               variant: "body-md",
               children: _v6.DeletePresetApprovalWarning
-            }), !_v23 && (0, _v1.jsx)(_v17.Text, {
+            }), !_v23 && (0, _v1.jsx)(_v18.Text, {
               variant: "body-md",
               children: _v6.DeletePresetConfirmation
-            }), _v23 && !_v25 && (0, _v1.jsx)(_v17.Text, {
+            }), _v23 && !_v25 && (0, _v1.jsx)(_v18.Text, {
               variant: "body-md",
               children: _v6.DeletePresetNoReplacementAvailable
             }), _v23 && _v25 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v17.Text, {
+              children: [(0, _v1.jsx)(_v18.Text, {
                 variant: "body-md",
                 children: _v6.DeletePresetReplacementHint
               }), (0, _v1.jsxs)(_v2.Box, {
-                children: [(0, _v1.jsx)(_v17.Text, {
+                children: [(0, _v1.jsx)(_v18.Text, {
                   variant: "heading-sm",
                   marginBottom: "50",
                   children: _v6.ReplacePreset
-                }), (0, _v1.jsx)(_v37.Select, {
+                }), (0, _v1.jsx)(_v38.Select, {
                   items: _v24,
                   placeholder: _v6.SelectPreset,
                   value: _v8 ? [_v8] : [],
@@ -227,15 +228,15 @@
               })]
             })]
           })
-        }), (0, _v1.jsxs)(_v29.ModalFooter, {
+        }), (0, _v1.jsxs)(_v30.ModalFooter, {
           borderTop: 0,
-          children: [(0, _v1.jsx)(_v25.Button, {
+          children: [(0, _v1.jsx)(_v26.Button, {
             isDisabled: _v10,
             variant: "secondary",
             minW: 100,
             onClick: _v4,
             children: _v6.Cancel
-          }), (!_v23 || _v25) && (0, _v1.jsx)(_v25.Button, {
+          }), (!_v23 || _v25) && (0, _v1.jsx)(_v26.Button, {
             isLoading: _v10,
             isDisabled: _v10 || _v23 && !_v8,
             variant: "destructive",
@@ -263,12 +264,12 @@
       })]
     });
   };
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
+  var _v42 = _v0.i(0),
     _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
-  let _v45 = ["uuid", "presetName", "formCreatedOn", "isDefault", "isApproved", "metadata.connections.video.total", "metadata.connections.event.total", "metadata.connections.showcase.total"],
-    _v46 = {
+    _v44 = _v0.i(0),
+    _v45 = _v0.i(0);
+  let _v46 = ["uuid", "presetName", "formCreatedOn", "isDefault", "isApproved", "metadata.connections.video.total", "metadata.connections.event.total", "metadata.connections.showcase.total"],
+    _v47 = {
       month: "short",
       day: "2-digit",
       year: "numeric",
@@ -276,31 +277,31 @@
       minute: "numeric",
       hour12: !0
     },
-    _v47 = ({
+    _v48 = ({
       presets: _v0,
       locale: _v1,
       onApprove: _v2,
       onDelete: _v3
     }) => {
-      let _v4 = (0, _v35.getTranslations)(),
-        _v5 = new Intl.DateTimeFormat(_v1 || "en-US", _v46),
+      let _v4 = (0, _v36.getTranslations)(),
+        _v5 = new Intl.DateTimeFormat(_v1 || "en-US", _v47),
         _v6 = _v0.filter(_v0 => _v0.isApproved).length;
       return (0, _v1.jsxs)(_v2.Box, {
         marginTop: "md",
         children: [(0, _v1.jsx)(_v2.Box, {
           paddingY: "100",
           paddingX: "50",
-          children: (0, _v1.jsx)(_v17.Text, {
+          children: (0, _v1.jsx)(_v18.Text, {
             variant: "heading-sm",
             fontWeight: "medium",
             children: _v4.Name
           })
         }), _v0.map(_v0 => {
           let _v1 = _v0.isApproved && 1 === _v6;
-          return (0, _v1.jsxs)(_v10.Fragment, {
-            children: [(0, _v1.jsx)(_v41.Divider, {
+          return (0, _v1.jsxs)(_v11.Fragment, {
+            children: [(0, _v1.jsx)(_v42.Divider, {
               borderColor: "stroke"
-            }), (0, _v1.jsxs)(_v12.Flex, {
+            }), (0, _v1.jsxs)(_v13.Flex, {
               paddingY: "200",
               paddingX: "50",
               alignItems: "center",
@@ -311,22 +312,22 @@
               children: [(0, _v1.jsxs)(_v2.Box, {
                 flex: 1,
                 minWidth: 0,
-                children: [(0, _v1.jsx)(_v17.Text, {
+                children: [(0, _v1.jsx)(_v18.Text, {
                   variant: "body-md",
                   whiteSpace: "nowrap",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   children: _v0.presetName
-                }), (0, _v1.jsx)(_v17.Text, {
+                }), (0, _v1.jsx)(_v18.Text, {
                   variant: "body-sm",
                   color: "text-secondary",
                   children: _v5.format(new Date(_v0.formCreatedOn))
                 })]
-              }), _v0.isApproved && (0, _v1.jsx)(_v42.Tooltip, {
+              }), _v0.isApproved && (0, _v1.jsx)(_v43.Tooltip, {
                 label: _v4.ApprovedPresetTooltip,
                 placement: "top",
                 shouldWrapChildren: !0,
-                children: (0, _v1.jsxs)(_v12.Flex, {
+                children: (0, _v1.jsxs)(_v13.Flex, {
                   alignItems: "center",
                   gap: "50",
                   paddingX: "100",
@@ -334,14 +335,14 @@
                   backgroundColor: "gray.500",
                   color: "white",
                   borderRadius: "md",
-                  children: [(0, _v1.jsx)(_v43.CheckSmall, {
+                  children: [(0, _v1.jsx)(_v44.CheckSmall, {
                     boxSize: "xs"
-                  }), (0, _v1.jsx)(_v17.Text, {
+                  }), (0, _v1.jsx)(_v18.Text, {
                     variant: "body-sm",
                     children: _v4.Approved
                   })]
                 })
-              }), (0, _v1.jsx)(_v44.ThreeDotsButton, {
+              }), (0, _v1.jsx)(_v45.ThreeDotsButton, {
                 "aria-label": "Preset actions",
                 items: [{
                   type: "button",
@@ -368,7 +369,7 @@
         })]
       });
     },
-    _v48 = ({
+    _v49 = ({
       isOpen: _v0,
       userId: _v1,
       preset: _v2,
@@ -376,18 +377,18 @@
       onClose: _v4,
       onSuccess: _v5
     }) => {
-      let _v6 = (0, _v35.getTranslations)(),
-        _v7 = (0, _v32.useToast)(),
-        [_v8, _v9] = (0, _v10.useState)(""),
-        [_v10, _v11] = (0, _v10.useState)(!1),
-        [_v12, _v13] = (0, _v39.usePutUserLeadCaptureFormReplace)(),
-        [_v14, _v15] = (0, _v38.usePatchUserLeadCaptureForm)(),
-        _v16 = (0, _v10.useRef)(null),
-        _v17 = (0, _v10.useRef)(0),
-        _v18 = (0, _v10.useRef)(0);
-      (0, _v10.useEffect)(() => {
+      let _v6 = (0, _v36.getTranslations)(),
+        _v7 = (0, _v33.useToast)(),
+        [_v8, _v9] = (0, _v11.useState)(""),
+        [_v10, _v11] = (0, _v11.useState)(!1),
+        [_v12, _v13] = (0, _v40.usePutUserLeadCaptureFormReplace)(),
+        [_v14, _v15] = (0, _v39.usePatchUserLeadCaptureForm)(),
+        _v16 = (0, _v11.useRef)(null),
+        _v17 = (0, _v11.useRef)(0),
+        _v18 = (0, _v11.useRef)(0);
+      (0, _v11.useEffect)(() => {
         _v0 || (_v9(""), _v11(!1), _v16.current = null);
-      }, [_v0]), (0, _v10.useEffect)(() => {
+      }, [_v0]), (0, _v11.useEffect)(() => {
         _v16.current && _v13.callCount === _v17.current && _v13.called && !_v13.loading && (_v13.error ? (_v11(!1), _v16.current = null, _v7({
           title: _v6.SomethingWentWrong,
           variant: "warning"
@@ -401,7 +402,7 @@
             isApproved: !1
           }
         })));
-      }, [_v13.callCount, _v13.called, _v13.loading, _v13.error]), (0, _v10.useEffect)(() => {
+      }, [_v13.callCount, _v13.called, _v13.loading, _v13.error]), (0, _v11.useEffect)(() => {
         _v16.current && _v15.callCount === _v18.current && _v15.called && !_v15.loading && (_v11(!1), _v16.current = null, _v15.error ? _v7({
           title: _v6.SomethingWentWrong,
           variant: "warning"
@@ -414,38 +415,38 @@
           label: _v0.presetName ?? "-",
           value: _v0.uuid
         }));
-      return (0, _v1.jsxs)(_v26.Modal, {
+      return (0, _v1.jsxs)(_v27.Modal, {
         isOpen: _v0,
         size: "lg",
         onClose: _v4,
-        children: [(0, _v1.jsx)(_v31.ModalOverlay, {}), (0, _v1.jsxs)(_v28.ModalContent, {
-          minH: (0, _v15.rem)(264),
-          children: [(0, _v1.jsx)(_v30.ModalHeader, {
-            children: (0, _v1.jsx)(_v13.Header, {
+        children: [(0, _v1.jsx)(_v32.ModalOverlay, {}), (0, _v1.jsxs)(_v29.ModalContent, {
+          minH: (0, _v16.rem)(264),
+          children: [(0, _v1.jsx)(_v31.ModalHeader, {
+            children: (0, _v1.jsx)(_v14.Header, {
               size: "lg",
               children: _v6.RemoveApproval
             })
-          }), (0, _v1.jsx)(_v27.ModalBody, {
+          }), (0, _v1.jsx)(_v28.ModalBody, {
             paddingTop: "xl",
             paddingBottom: "xl",
-            children: (0, _v1.jsxs)(_v33.VStack, {
+            children: (0, _v1.jsxs)(_v34.VStack, {
               align: "stretch",
               spacing: "md",
-              children: [(0, _v1.jsx)(_v17.Text, {
+              children: [(0, _v1.jsx)(_v18.Text, {
                 variant: "body-md",
                 children: _v6.DeletePresetUsageDescription(_v19, _v20, _v21)
-              }), (0, _v1.jsx)(_v17.Text, {
+              }), (0, _v1.jsx)(_v18.Text, {
                 variant: "body-md",
                 children: _v6.RemoveApprovalWithReplacementWarning
-              }), (0, _v1.jsx)(_v17.Text, {
+              }), (0, _v1.jsx)(_v18.Text, {
                 variant: "body-md",
                 children: _v6.RemoveApprovalReplacementHint
               }), (0, _v1.jsxs)(_v2.Box, {
-                children: [(0, _v1.jsx)(_v17.Text, {
+                children: [(0, _v1.jsx)(_v18.Text, {
                   variant: "heading-sm",
                   marginBottom: "50",
                   children: _v6.ReplacePreset
-                }), (0, _v1.jsx)(_v37.Select, {
+                }), (0, _v1.jsx)(_v38.Select, {
                   items: _v22,
                   placeholder: _v6.SelectPreset,
                   value: _v8 ? [_v8] : [],
@@ -454,15 +455,15 @@
                 })]
               })]
             })
-          }), (0, _v1.jsxs)(_v29.ModalFooter, {
+          }), (0, _v1.jsxs)(_v30.ModalFooter, {
             borderTop: 0,
-            children: [(0, _v1.jsx)(_v25.Button, {
+            children: [(0, _v1.jsx)(_v26.Button, {
               isDisabled: _v10,
               variant: "secondary",
               minW: 100,
               onClick: _v4,
               children: _v6.Cancel
-            }), (0, _v1.jsx)(_v25.Button, {
+            }), (0, _v1.jsx)(_v26.Button, {
               isLoading: _v10,
               isDisabled: _v10 || !_v8,
               variant: "destructive",
@@ -485,24 +486,24 @@
         })]
       });
     };
-  var _v49 = _v0.i(0);
-  let _v50 = ({
+  var _v50 = _v0.i(0);
+  let _v51 = ({
     workspaceInternalId: _v0,
     canManagePresets: _v1
   }) => {
-    let _v2 = (0, _v35.getTranslations)(),
-      _v3 = (0, _v24.useLocale)(),
+    let _v2 = (0, _v36.getTranslations)(),
+      _v3 = (0, _v25.useLocale)(),
       _v4 = _v2.RegistrationPresetsDescription("/library", "/library/events"),
       {
         data: _v5,
         mutate: _v6,
         isLoading: _v7,
         isValidating: _v8
-      } = (0, _v20.useGetUserLeadCaptureForms)(() => _v0 && _v1 ? {
+      } = (0, _v21.useGetUserLeadCaptureForms)(() => _v0 && _v1 ? {
         where: {
           userId: _v0
         },
-        select: _v45,
+        select: _v46,
         query: {
           perPage: 100,
           page: 1,
@@ -512,67 +513,67 @@
       _v9 = (_v5?.data ?? []).filter(_v0 => !_v0.isDefault),
       _v10 = _v9.filter(_v0 => _v0.isApproved),
       _v11 = _v10.length > 0,
-      [_v12, _v13] = (0, _v10.useState)(null),
-      [_v14, _v15] = (0, _v10.useState)(null),
-      [_v16, _v17] = (0, _v10.useState)(null);
+      [_v12, _v13] = (0, _v11.useState)(null),
+      [_v14, _v15] = (0, _v11.useState)(null),
+      [_v16, _v17] = (0, _v11.useState)(null);
     return (0, _v1.jsxs)(_v2.Box, {
-      maxW: _v23.SETTING_PAGES_MAX_WIDTH,
+      maxW: _v24.SETTING_PAGES_MAX_WIDTH,
       width: "100%",
       margin: "0 auto",
-      children: [(0, _v1.jsx)(_v21.Header, {}), (0, _v1.jsx)(_v22.RegistrationInfo, {
-        emailDefaultsHref: _v49.WORKSPACE_SETTINGS_ROUTES.EMAIL_DEFAULTS
+      children: [(0, _v1.jsx)(_v22.Header, {}), (0, _v1.jsx)(_v23.RegistrationInfo, {
+        emailDefaultsHref: _v50.WORKSPACE_SETTINGS_ROUTES.EMAIL_DEFAULTS
       }), _v1 && (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v11.Card, {
+        children: [(0, _v1.jsxs)(_v12.Card, {
           padding: "xl",
           marginBottom: "lg",
-          children: [(0, _v1.jsx)(_v17.Text, {
+          children: [(0, _v1.jsx)(_v18.Text, {
             variant: "heading-md",
-            fontSize: (0, _v15.rem)(20),
+            fontSize: (0, _v16.rem)(20),
             children: _v2.RegistrationPresets
-          }), (0, _v1.jsx)(_v17.Text, {
+          }), (0, _v1.jsx)(_v18.Text, {
             color: "text-secondary",
             variant: "body-md",
             marginTop: "sm",
             children: _v4
-          }), _v7 || _v8 ? (0, _v1.jsx)(_v12.Flex, {
+          }), _v7 || _v8 ? (0, _v1.jsx)(_v13.Flex, {
             alignItems: "center",
             justifyContent: "center",
-            paddingY: (0, _v15.rem)(60),
-            children: (0, _v1.jsx)(_v16.Spinner, {})
-          }) : 0 === _v9.length ? (0, _v1.jsxs)(_v12.Flex, {
+            paddingY: (0, _v16.rem)(60),
+            children: (0, _v1.jsx)(_v17.Spinner, {})
+          }) : 0 === _v9.length ? (0, _v1.jsxs)(_v13.Flex, {
             direction: "column",
             alignItems: "center",
             justifyContent: "center",
-            paddingY: (0, _v15.rem)(60),
-            gap: (0, _v15.rem)(8),
-            children: [(0, _v1.jsx)(_v19.Registration, {
+            paddingY: (0, _v16.rem)(60),
+            gap: (0, _v16.rem)(8),
+            children: [(0, _v1.jsx)(_v20.Registration, {
               boxSize: "48px"
-            }), (0, _v1.jsx)(_v13.Header, {
+            }), (0, _v1.jsx)(_v14.Header, {
               variant: "heading-md",
               size: "xl",
               children: _v2.NoPresetAvailable
-            }), (0, _v1.jsx)(_v14.Paragraph, {
+            }), (0, _v1.jsx)(_v15.Paragraph, {
               variant: "body-md",
               color: "text-secondary",
               textAlign: "center",
               children: _v4
             })]
           }) : (0, _v1.jsxs)(_v1.Fragment, {
-            children: [!_v11 && (0, _v1.jsxs)(_v12.Flex, {
+            children: [!_v11 && (0, _v1.jsxs)(_v13.Flex, {
               alignItems: "flex-start",
               gap: "md",
               padding: "md",
               marginTop: "md",
               borderRadius: "md",
               backgroundColor: "status-caution-secondary",
-              children: [(0, _v1.jsx)(_v18.CircleExclamationFilled, {
+              children: [(0, _v1.jsx)(_v19.CircleExclamationFilled, {
                 color: "status-caution-primary",
                 boxSize: "md"
-              }), (0, _v1.jsx)(_v17.Text, {
+              }), (0, _v1.jsx)(_v18.Text, {
                 variant: "body-md",
                 children: _v2.NoApprovedPresetNotification
               })]
-            }), (0, _v1.jsx)(_v47, {
+            }), (0, _v1.jsx)(_v48, {
               presets: _v9,
               locale: _v3,
               onApprove: _v0 => {
@@ -582,21 +583,21 @@
               onDelete: _v17
             })]
           })]
-        }), (0, _v1.jsx)(_v36, {
+        }), (0, _v1.jsx)(_v37, {
           isOpen: null !== _v12,
           userId: _v0,
           presetId: _v12?.uuid ?? null,
           mode: _v12?.isApproved ? "revoke" : "approve",
           onClose: () => _v13(null),
           onSuccess: () => _v6()
-        }), (0, _v1.jsx)(_v40, {
+        }), (0, _v1.jsx)(_v41, {
           isOpen: null !== _v16,
           userId: _v0,
           preset: _v16,
           approvedPresets: _v10,
           onClose: () => _v17(null),
           onSuccess: () => _v6()
-        }), (0, _v1.jsx)(_v48, {
+        }), (0, _v1.jsx)(_v49, {
           isOpen: null !== _v14,
           userId: _v0,
           preset: _v14,
@@ -607,15 +608,13 @@
       })]
     });
   };
-  var _v51 = _v0.i(0);
-  let _v52 = ({
+  var _v52 = _v0.i(0);
+  let _v53 = ({
     workspaceUuid: _v0,
     workspaceInternalId: _v1
   }) => {
-    let {
-        settings: _v2,
-        isLoadingResponse: _v3
-      } = (0, _v7.useOrionSettings)(),
+    let _v2 = (0, _v8.useOrionSettingsFields)(["enable_email_defaults"]),
+      _v3 = (0, _v7.useOrionLoading)(),
       {
         data: _v4,
         isLoading: _v5
@@ -629,18 +628,18 @@
     let {
       canManagePresets: _v6,
       canViewRegistration: _v7
-    } = (0, _v9.getWorkspaceRegistrationAccess)(_v4?.adminForcedPreset, _v2.enable_email_defaults);
+    } = (0, _v10.getWorkspaceRegistrationAccess)(_v4?.adminForcedPreset, _v2.enable_email_defaults);
     if (!_v7) throw new _v3.UnauthorizedError();
     return (0, _v1.jsx)(_v2.Box, {
       paddingTop: "lg",
-      children: (0, _v1.jsx)(_v50, {
+      children: (0, _v1.jsx)(_v51, {
         workspaceInternalId: _v1,
         workspaceUuid: _v0,
         canManagePresets: _v6
       })
     });
   };
-  (0, _v4.withPageSetup)(_v51.getWspServerSideProps, {
+  (0, _v4.withPageSetup)(_v52.getWspServerSideProps, {
     requireLogin: !0
-  }), _v52.getLayout = (_v0, _v1) => (0, _v8.getLayout)(_v0, _v1, _v8.WORKSPACE_COMPACT_SETTINGS_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v52], 0);
+  }), _v53.getLayout = (_v0, _v1) => (0, _v9.getLayout)(_v0, _v1, _v9.WORKSPACE_COMPACT_SETTINGS_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v53], 0);
 }

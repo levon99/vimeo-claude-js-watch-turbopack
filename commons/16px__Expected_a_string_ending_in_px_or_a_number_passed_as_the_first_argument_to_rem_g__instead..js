@@ -3347,9 +3347,7 @@
     _v236 = _v0.i(0),
     _v237 = _v0.i(0);
   let _v238 = () => {
-      let {
-          settings: _v0
-        } = (0, _v234.useOrionSettings)(),
+      let _v0 = (0, _v234.useOrionSettingsFields)(["editor_ui_reworked"]),
         _v1 = (0, _v7.useContext)(_v235.PartnershipAppContext),
         _v2 = (0, _v170.useAppSelector)(_v178.isInteractiveSelector),
         _v3 = (0, _v170.useAppSelector)(_v237.editedTeamTemplateHashSelector);
@@ -18098,9 +18096,7 @@
           isThirdPartyIntegration: _v1
         }) => {
           let _v2 = (0, _v170.useAppDispatch)(),
-            {
-              settings: _v3
-            } = (0, _v234.useOrionSettings)();
+            _v3 = (0, _v234.useOrionSettingsFields)(["editor_ui_reworked"]);
           (0, _v7.useLayoutEffect)(() => {
             _v0 || _v1 || !_v3.editor_ui_reworked || _v2((0, _v168.closeInspectorAction)());
           }, [_v2, _v0, _v1, _v3.editor_ui_reworked]);
@@ -18399,9 +18395,7 @@
           }, [_v42, _v33, _v13, _v34, _v30, _v26, _v27, _v3, _v28, _v29, _v25, _v12]);
         !function () {
           let _v0 = (0, _v170.useAppSelector)(_v169.sourcesSelector),
-            {
-              settings: _v1
-            } = (0, _v234.useOrionSettings)(),
+            _v1 = (0, _v234.useOrionSettingsFields)(["enable_prewarm_filmstrip_sprite"]),
             [_v2] = (0, _v323.useLazyGetThumbnailsForSourceQuery)(),
             [_v3] = (0, _v323.useLazyGetPrewarmSpriteForClipQuery)(),
             _v4 = (0, _v7.useRef)(new Set()),

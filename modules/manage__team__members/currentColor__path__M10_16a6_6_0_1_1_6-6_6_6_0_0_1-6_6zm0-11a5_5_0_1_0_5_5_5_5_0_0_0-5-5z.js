@@ -381,16 +381,13 @@
         } = (0, _v3.useContext)(_v20.ManageTeamDispatchCtx),
         _v42 = [_v27.TeamRole["Contributor Plus"], _v27.TeamRole.Contributor, _v27.TeamRole.Viewer, _v27.TeamRole.Admin],
         _v43 = (_v34 || _v35) && !_v1 && _v7 && _v42.includes(_v7),
-        {
-          settings: _v44
-        } = (0, _v83.useOrionSettings)(),
-        _v45 = _v44.show_granular_permissions,
-        _v46 = _v34 ? "/enterprise/contact" : _v45 ? `/manage/team/members/${_v29}/access?tab=content` : _v39 ? `/manage/team/members/${_v29}/team-library` : `/manage/team/members/${_v29}/shared-resources`,
-        _v47 = (_v22 = (0, _v84.useTeamManagementActionEvent)(), (0, _v3.useCallback)(() => _v22(_v86), [_v22]));
+        _v44 = (0, _v83.useOrionSetting)("show_granular_permissions"),
+        _v45 = _v34 ? "/enterprise/contact" : _v44 ? `/manage/team/members/${_v29}/access?tab=content` : _v39 ? `/manage/team/members/${_v29}/team-library` : `/manage/team/members/${_v29}/shared-resources`,
+        _v46 = (_v22 = (0, _v84.useTeamManagementActionEvent)(), (0, _v3.useCallback)(() => _v22(_v86), [_v22]));
       (0, _v3.useEffect)(() => {
-        _v24 && _v47();
-      }, [_v24, _v47]);
-      let _v48 = (_v23 = (0, _v84.useTeamManagementActionEvent)(), (0, _v3.useCallback)(({
+        _v24 && _v46();
+      }, [_v24, _v46]);
+      let _v47 = (_v23 = (0, _v84.useTeamManagementActionEvent)(), (0, _v3.useCallback)(({
           copy: _v0,
           flow: _v1,
           feature: _v2
@@ -403,7 +400,7 @@
             flow: _v1
           }
         }), [_v23])),
-        _v49 = (0, _v70.getIdFromLink)(_v37);
+        _v48 = (0, _v70.getIdFromLink)(_v37);
       return (0, _v76.useOutsideClick)({
         ref: _v28,
         handler: () => _v25(!1)
@@ -469,7 +466,7 @@
                 children: _v28.T.ShareFolders
               })]
             })
-          }), _v45 && (0, _v2.jsx)(_v74.MenuItem, {
+          }), _v44 && (0, _v2.jsx)(_v74.MenuItem, {
             as: "a",
             href: `/manage/team/members/${_v29}/access`,
             "data-id": "roleMenuOptionManageFeaturesAccess",
@@ -532,7 +529,7 @@
             })]
           }) : (0, _v2.jsx)(_v74.MenuItem, {
             as: "a",
-            href: _v46,
+            href: _v45,
             "data-id": "roleMenuOptionViewTeamMembersAccess",
             onClick: () => _v13(),
             children: (0, _v2.jsxs)(_v33.HStack, {
@@ -547,7 +544,7 @@
             })
           })), _v6 && (0, _v2.jsx)(_v74.MenuItem, {
             as: "a",
-            href: _v49 && !_v36 ? `/analytics/teams/${_v49}/users/${(0, _v70.getIdFromLink)(_v6)}` : "/enterprise/contact",
+            href: _v48 && !_v36 ? `/analytics/teams/${_v48}/users/${(0, _v70.getIdFromLink)(_v6)}` : "/enterprise/contact",
             "data-id": "roleMenuOptionViewTeamMemberActivity",
             onClick: () => {
               _v36 || _v14();
@@ -578,7 +575,7 @@
             })
           }), _v38 && _v40 && (0, _v2.jsx)(_v74.MenuItem, {
             onClick: () => {
-              _v25(!1), _v48({
+              _v25(!1), _v47({
                 copy: "Show groups",
                 feature: "groups",
                 flow: "open_modal"

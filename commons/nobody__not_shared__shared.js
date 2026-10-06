@@ -2862,9 +2862,7 @@
           reviewId: _v44
         } = (0, _v4.useContext)(_v95.ReviewLinkContext),
         _v45 = !!(_v27 && _v2.metadata.interactions.uploadVideo && !_v44 && !_v1),
-        {
-          settings: _v46
-        } = (0, _v136.useOrionSettings)(),
+        _v46 = (0, _v136.useOrionSettingsFields)(["enable_new_library_drag_and_drop_upload"]),
         _v47 = _v46?.enable_new_library_drag_and_drop_upload ?? !1,
         _v48 = _v45 && !_v47,
         _v49 = (0, _v145.useLiveEventDeleteModal)(),

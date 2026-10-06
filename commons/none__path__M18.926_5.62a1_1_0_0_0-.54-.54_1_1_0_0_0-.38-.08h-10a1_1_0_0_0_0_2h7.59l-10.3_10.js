@@ -322,102 +322,36 @@
     };
   }], 0);
   var _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
-    _v29 = _v0.i(0);
-  async function _v30({
+    _v28 = _v0.i(0);
+  async function _v29({
     baseUrl: _v0,
     select: _v1,
     query: _v2,
     ..._v3
   }) {
-    return (0, _v28.measureLatency)("getReportReasons", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/report/reasons?${(0, _v29.searchQueryString)(_v2)}&fields=${_v1.map(_v29.intoSnakeCase).join(",")}`, {
+    return (0, _v27.measureLatency)("getReportReasons", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/report/reasons?${(0, _v28.searchQueryString)(_v2)}&fields=${_v1.map(_v28.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v29.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v28.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v29.deepCamelCase)(_v1);
+      return (0, _v28.deepCamelCase)(_v1);
     });
   }
+  var _v30 = _v0.i(0);
+  _v0.i(0);
   var _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  function _v35(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v34.useGctlConfig)();
-    return (0, _v31.default)(_v2 ? `/report/reasons${(0, _v33.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v30({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  "true" === _v27.default.env.STORYBOOK && (0, _v33.assignMswData)(_v35, {
-    endpoint: "/report/reasons",
-    method: "GET"
-  }), "true" === _v27.default.env.STORYBOOK && (0, _v33.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v32.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v34.useGctlConfig)(),
-      [_v5, _v6] = (0, _v33.useInternalState)();
-    return [(0, _v24.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/report/reasons${(0, _v33.serializeQuery)(_v0)}`, _v30({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/report/reasons",
-    method: "GET"
-  });
-  let _v36 = {
+    _v32 = _v0.i(0);
+  let _v33 = {
       "incorrect-rating": () => ({
         text: (0, _v8.contentRatingsHelpLabel)(),
         url: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426157083537-About-content-ratings"
       })
     },
-    _v37 = ["reasons.id", "reasons.parentId", "reasons.kind", "reasons.name", "reasons.description", "reasons.externalUrl", "reasons.gendered.name", "reasons.gendered.description", "reasons.gendered.uuid"];
+    _v34 = ["reasons.id", "reasons.parentId", "reasons.kind", "reasons.name", "reasons.description", "reasons.externalUrl", "reasons.gendered.name", "reasons.gendered.description", "reasons.gendered.uuid"];
   _v0.s(["useReportReasonsDiscovery", 0, function ({
     contentType: _v0,
     headerTitle: _v1
@@ -426,8 +360,27 @@
         data: _v2,
         error: _v3,
         isLoading: _v4
-      } = _v35(() => ({
-        select: _v37,
+      } = function (_v0) {
+        let _v1 = "function" == typeof _v0 ? _v0() : _v0,
+          {
+            baseUrl: _v2,
+            jwt: _v3,
+            xVimeoPage: _v4,
+            locale: _v5
+          } = (0, _v32.useGctlConfig)();
+        return (0, _v30.default)(_v1 ? `/report/reasons${(0, _v31.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v29({
+          ..._v1,
+          headers: {
+            ..._v1.headers,
+            "Content-Type": "application/json",
+            Authorization: _v3 ? `jwt ${_v3}` : "",
+            "Vimeo-Page": `${_v4}`,
+            "Accept-Language": _v5 ?? "en"
+          },
+          baseUrl: _v2
+        }) : null, void 0);
+      }(() => ({
+        select: _v34,
         query: {
           contentType: _v0
         }
@@ -446,7 +399,7 @@
             ..._v1,
             kind: "menu",
             question: (0, _v8.subtitleNested)(),
-            help: _v36[_v0.id]?.(),
+            help: _v33[_v0.id]?.(),
             children: []
           } : "external" === _v0.kind ? {
             ..._v1,
@@ -505,11 +458,11 @@
     }
     return "/report-illegal-content" !== _v2.pathname ? _v0 : (_v2.searchParams.set("url", `${_v2.origin}/${_v1}`), _v2.toString());
   }], 0);
-  let _v38 = ["iphone", "android"],
-    _v39 = /\/report\/?$/;
+  let _v35 = ["iphone", "android"],
+    _v36 = /\/report\/?$/;
   _v0.s(["reportSourceHint", 0, function () {
-    if (!_v39.test(window.location.pathname)) return;
+    if (!_v36.test(window.location.pathname)) return;
     let _v0 = new URLSearchParams(window.location.search).get("source");
-    return _v38.find(_v0 => _v0 === _v0);
+    return _v35.find(_v0 => _v0 === _v0);
   }], 0);
 }

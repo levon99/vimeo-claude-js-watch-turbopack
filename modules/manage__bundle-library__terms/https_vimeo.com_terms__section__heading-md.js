@@ -154,9 +154,7 @@
   let _v27 = (0, _v4.rem)(64),
     _v28 = () => {
       let _v0 = (0, _v10.useRouter)(),
-        {
-          isLoadingResponse: _v1
-        } = (0, _v25.useOrionSettings)(),
+        _v1 = (0, _v25.useOrionLoading)(),
         _v2 = (0, _v23.useBundleOffer)(),
         {
           trackBundleLibraryTermsPageDisplayed: _v3,

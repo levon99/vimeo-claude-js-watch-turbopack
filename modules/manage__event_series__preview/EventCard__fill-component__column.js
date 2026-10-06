@@ -84,8 +84,8 @@
           align: "center",
           gap: "sm",
           children: [(0, _v1.jsx)(_v7.Calendar, {
-            boxSize: "2xs",
-            color: "var(--vimeo-colors-text-secondary)"
+            boxSize: (0, _v6.rem)(20),
+            color: "text-secondary"
           }), (0, _v1.jsx)(_v5.Text, {
             color: "text-secondary",
             variant: "body-md",

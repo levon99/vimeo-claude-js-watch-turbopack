@@ -35,16 +35,15 @@
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
     _v34 = _v0.i(0),
-    _v35 = _v0.i(0),
-    _v36 = _v0.i(0);
-  async function _v37({
+    _v35 = _v0.i(0);
+  async function _v36({
     baseUrl: _v0,
     where: {
       userId: _v1
     },
     ..._v2
   }) {
-    return (0, _v36.measureLatency)("postUserArchiveRestoration", "POST", async () => {
+    return (0, _v35.measureLatency)("postUserArchiveRestoration", "POST", async () => {
       let _v0 = await fetch(`${_v0}/users/${_v1}/archive-restoration`, {
         ..._v2,
         method: "POST"
@@ -56,60 +55,17 @@
       return (0, _v23.deepCamelCase)(_v1);
     });
   }
-  var _v38 = _v0.i(0),
+  var _v37 = _v0.i(0),
+    _v38 = _v0.i(0),
     _v39 = _v0.i(0);
-  function _v40() {
-    let {
-        mutate: _v0
-      } = (0, _v38.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v39.useGctlConfig)(),
-      [_v5, _v6] = (0, _v35.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/archive-restoration${(0, _v35.serializeQuery)(_v0)}`, _v37({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v34.default.env.STORYBOOK && (0, _v35.assignMswData)(_v40, {
-    endpoint: "/users/:userId/archive-restoration",
-    method: "POST"
-  });
-  var _v41 = _v0.i(0);
-  let _v42 = ["createdTime", "filesSize", "filesSize.fileSizeType", "filesSize.totalSize", "name", "pictures.defaultPicture", "pictures.sizes", "uri"],
-    _v43 = `${(0, _v18.rem)(150)} 6fr ${(0, _v18.rem)(130)} ${(0, _v18.rem)(105)}`,
-    _v44 = () => (0, _v1.jsx)(_v27.ErrorPage, {
+  let _v40 = ["createdTime", "filesSize", "filesSize.fileSizeType", "filesSize.totalSize", "name", "pictures.defaultPicture", "pictures.sizes", "uri"],
+    _v41 = `${(0, _v18.rem)(150)} 6fr ${(0, _v18.rem)(130)} ${(0, _v18.rem)(105)}`,
+    _v42 = () => (0, _v1.jsx)(_v27.ErrorPage, {
       error: new _v22.ResourceNotFoundError()
     });
-  function _v45() {
+  function _v43() {
     return (0, _v1.jsxs)(_v19.ContentRow, {
-      listGridColumns: _v43,
+      listGridColumns: _v41,
       cursor: "initial",
       disableHover: !0,
       backgroundColor: "fill-component",
@@ -221,7 +177,7 @@
       })]
     });
   }
-  function _v46({
+  function _v44({
     videos: _v0
   }) {
     return (0, _v1.jsx)(_v1.Fragment, {
@@ -282,7 +238,7 @@
             }
           });
         return (0, _v1.jsxs)(_v19.ContentRow, {
-          listGridColumns: _v43,
+          listGridColumns: _v41,
           cursor: "initial",
           disableHover: !0,
           children: [(0, _v1.jsx)(_v19.ContentRow.Column, {
@@ -366,7 +322,7 @@
       })
     });
   }
-  function _v47() {
+  function _v45() {
     let _v0,
       _v1 = (0, _v32.useViewer)(),
       _v2 = _v1?.teamUser?.ownerId ?? _v1?.user?.id,
@@ -389,11 +345,11 @@
             mutate: _v3,
             setSize: _v4,
             size: _v5
-          } = (0, _v41.useGetUserVideosInfinite)(() => void 0 === _v0 ? null : {
+          } = (0, _v39.useGetUserVideosInfinite)(() => void 0 === _v0 ? null : {
             where: {
               userId: _v0
             },
-            select: _v42,
+            select: _v40,
             query: {
               direction: "asc",
               filter: "cold_storage",
@@ -449,7 +405,45 @@
         isSubmitted: _v18,
         requestRestoration: _v19
       } = (_v0 => {
-        let [_v1, _v2] = _v40(),
+        let [_v1, _v2] = function () {
+            let {
+                mutate: _v0
+              } = (0, _v37.useSWRConfig)(),
+              {
+                baseUrl: _v1,
+                jwt: _v2,
+                xVimeoPage: _v3,
+                locale: _v4
+              } = (0, _v38.useGctlConfig)(),
+              [_v5, _v6] = (0, _v34.useInternalState)();
+            return [(0, _v3.useCallback)(async _v0 => {
+              _v6({
+                type: "REQUEST"
+              });
+              try {
+                let _v0 = await _v0(`/users/${_v0.where.userId}/archive-restoration${(0, _v34.serializeQuery)(_v0)}`, _v36({
+                  ..._v0,
+                  baseUrl: _v1,
+                  headers: {
+                    ..._v0.headers,
+                    "Content-Type": "application/json",
+                    Authorization: _v2 ? `jwt ${_v2}` : "",
+                    "Vimeo-Page": `${_v3}`,
+                    "Accept-Language": _v4 ?? "en"
+                  }
+                }), !1);
+                _v6({
+                  type: "SUCCESS",
+                  payload: _v0
+                });
+              } catch (_v0) {
+                _v6({
+                  type: "FAILURE",
+                  payload: _v0
+                });
+              }
+            }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+          }(),
           _v3 = (0, _v3.useCallback)(async () => {
             if (void 0 === _v0) throw Error("Missing archive owner");
             await _v1({
@@ -490,7 +484,7 @@
       minHeight: (0, _v18.rem)(400),
       children: (0, _v1.jsx)(_v16.Spinner, {})
     });
-    if (!_v5 || _v23 || _v8 && 0 === _v13.length) return (0, _v1.jsx)(_v44, {});
+    if (!_v5 || _v23 || _v8 && 0 === _v13.length) return (0, _v1.jsx)(_v42, {});
     if (_v24) return (0, _v1.jsx)(_v6.Flex, {
       alignItems: "center",
       justifyContent: "center",
@@ -853,7 +847,7 @@
                   }
                 })
               })]
-            }), (0, _v1.jsx)(_v45, {}), (0, _v1.jsx)(_v46, {
+            }), (0, _v1.jsx)(_v43, {}), (0, _v1.jsx)(_v44, {
               videos: _v13
             }), !_v8 && !_v10 && (0, _v1.jsx)(_v29.InfiniteScrollTrigger, {
               isLoading: _v10,
@@ -996,13 +990,13 @@
       })
     });
   }
-  var _v48 = _v0.i(0),
-    _v49 = _v0.i(0),
-    _v50 = _v0.i(0);
-  let _v51 = () => (0, _v1.jsxs)(_v1.Fragment, {
+  var _v46 = _v0.i(0),
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0);
+  let _v49 = () => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v2.default, {
       children: (0, _v1.jsx)("title", {
-        children: (0, _v49.translate)({
+        children: (0, _v47.translate)({
           singular: "Restore archived videos",
           dictionary: {
             es: {
@@ -1029,13 +1023,13 @@
           }
         })
       })
-    }), (0, _v1.jsx)(_v47, {})]
+    }), (0, _v1.jsx)(_v45, {})]
   });
-  _v51.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v50.VideoLibraryLayout, {
+  _v49.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v48.VideoLibraryLayout, {
     hasSideNav: !1,
     hasUploader: !1,
     children: _v0
-  }), (0, _v48.withPageSetup)(() => ({
+  }), (0, _v46.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0,
       hasUploader: !1
@@ -1044,5 +1038,5 @@
     requireLogin: !0,
     noIndex: !0,
     inlineViewer: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v51], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v49], 0);
 }

@@ -488,9 +488,8 @@
   _v0.s(["RichTextArea", 0, _v29], 0);
   var _v31 = _v0.i(0),
     _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  async function _v35({
+    _v33 = _v0.i(0);
+  async function _v34({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -500,63 +499,24 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v33.measureLatency)("getAlbumVideoSuggestedUserMentions", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/albums/${_v2}/videos/${_v3}/suggested_user_mentions?${(0, _v34.searchQueryString)(_v4)}&fields=${_v1.map(_v34.intoSnakeCase).join(",")}`, {
+    return (0, _v32.measureLatency)("getAlbumVideoSuggestedUserMentions", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/albums/${_v2}/videos/${_v3}/suggested_user_mentions?${(0, _v33.searchQueryString)(_v4)}&fields=${_v1.map(_v33.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v34.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v33.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v34.deepCamelCase)(_v1);
+      return (0, _v33.deepCamelCase)(_v1);
     });
   }
-  var _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0);
-  function _v41() {
-    let {
-        mutate: _v0
-      } = (0, _v37.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v40.useGctlConfig)(),
-      [_v5, _v6] = (0, _v38.useInternalState)();
-    return [(0, _v10.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/albums/${_v0.where.albumId}/videos/${_v0.where.videoId}/suggested_user_mentions${(0, _v38.serializeQuery)(_v0)}`, _v35({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  async function _v42({
+  _v0.i(0);
+  var _v35 = _v0.i(0),
+    _v36 = _v0.i(0);
+  _v0.i(0);
+  var _v37 = _v0.i(0);
+  async function _v38({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -565,185 +525,99 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v33.measureLatency)("getVideoSuggestedUserMentions", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v2}/suggested_user_mentions?${(0, _v34.searchQueryString)(_v3)}&fields=${_v1.map(_v34.intoSnakeCase).join(",")}`, {
+    return (0, _v32.measureLatency)("getVideoSuggestedUserMentions", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v2}/suggested_user_mentions?${(0, _v33.searchQueryString)(_v3)}&fields=${_v1.map(_v33.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v34.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v33.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v34.deepCamelCase)(_v1);
+      return (0, _v33.deepCamelCase)(_v1);
     });
   }
-  function _v43() {
-    let {
-        mutate: _v0
-      } = (0, _v37.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v40.useGctlConfig)(),
-      [_v5, _v6] = (0, _v38.useInternalState)();
-    return [(0, _v10.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/videos/${_v0.where.videoId}/suggested_user_mentions${(0, _v38.serializeQuery)(_v0)}`, _v42({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v32.default.env.STORYBOOK && (0, _v38.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v40.useGctlConfig)();
-    return (0, _v36.default)(_v2 ? `/albums/${_v2.where.albumId}/videos/${_v2.where.videoId}/suggested_user_mentions${(0, _v38.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v35({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/albums/:albumId/videos/:videoId/suggested_user_mentions",
-    method: "GET"
-  }), "true" === _v32.default.env.STORYBOOK && (0, _v38.assignMswData)(_v41, {
-    endpoint: "/albums/:albumId/videos/:videoId/suggested_user_mentions",
-    method: "GET"
-  }), "true" === _v32.default.env.STORYBOOK && (0, _v38.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v40.useGctlConfig)();
-    return (0, _v39.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/albums/${_v2.where.albumId}/videos/${_v2.where.videoId}/suggested_user_mentions?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v35({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/albums/:albumId/videos/:videoId/suggested_user_mentions",
-    method: "GET"
-  }), "true" === _v32.default.env.STORYBOOK && (0, _v38.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v40.useGctlConfig)();
-    return (0, _v36.default)(_v2 ? `/videos/${_v2.where.videoId}/suggested_user_mentions${(0, _v38.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v42({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/videos/:videoId/suggested_user_mentions",
-    method: "GET"
-  }), "true" === _v32.default.env.STORYBOOK && (0, _v38.assignMswData)(_v43, {
-    endpoint: "/videos/:videoId/suggested_user_mentions",
-    method: "GET"
-  }), "true" === _v32.default.env.STORYBOOK && (0, _v38.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v40.useGctlConfig)();
-    return (0, _v39.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/videos/${_v2.where.videoId}/suggested_user_mentions?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v42({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/videos/:videoId/suggested_user_mentions",
-    method: "GET"
-  });
-  var _v44 = _v0.i(0);
+  var _v39 = _v0.i(0);
   _v0.s(["useUserMentionSuggestions", 0, (_v0, _v1, _v2, _v3, _v4) => {
-    let _v5 = (0, _v44.getReviewPasswordHashFromCookie)(_v4),
-      [_v6, _v7] = _v43(),
-      [_v8, _v9] = _v41(),
+    let _v5 = (0, _v39.getReviewPasswordHashFromCookie)(_v4),
+      [_v6, _v7] = function () {
+        let {
+            mutate: _v0
+          } = (0, _v35.useSWRConfig)(),
+          {
+            baseUrl: _v1,
+            jwt: _v2,
+            xVimeoPage: _v3,
+            locale: _v4
+          } = (0, _v37.useGctlConfig)(),
+          [_v5, _v6] = (0, _v36.useInternalState)();
+        return [(0, _v10.useCallback)(async _v0 => {
+          _v6({
+            type: "REQUEST"
+          });
+          try {
+            let _v0 = await _v0(`/videos/${_v0.where.videoId}/suggested_user_mentions${(0, _v36.serializeQuery)(_v0)}`, _v38({
+              ..._v0,
+              baseUrl: _v1,
+              headers: {
+                ..._v0.headers,
+                "Content-Type": "application/json",
+                Authorization: _v2 ? `jwt ${_v2}` : "",
+                "Vimeo-Page": `${_v3}`,
+                "Accept-Language": _v4 ?? "en"
+              }
+            }));
+            _v6({
+              type: "SUCCESS",
+              payload: _v0
+            });
+          } catch (_v0) {
+            _v6({
+              type: "FAILURE",
+              payload: _v0
+            });
+          }
+        }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+      }(),
+      [_v8, _v9] = function () {
+        let {
+            mutate: _v0
+          } = (0, _v35.useSWRConfig)(),
+          {
+            baseUrl: _v1,
+            jwt: _v2,
+            xVimeoPage: _v3,
+            locale: _v4
+          } = (0, _v37.useGctlConfig)(),
+          [_v5, _v6] = (0, _v36.useInternalState)();
+        return [(0, _v10.useCallback)(async _v0 => {
+          _v6({
+            type: "REQUEST"
+          });
+          try {
+            let _v0 = await _v0(`/albums/${_v0.where.albumId}/videos/${_v0.where.videoId}/suggested_user_mentions${(0, _v36.serializeQuery)(_v0)}`, _v34({
+              ..._v0,
+              baseUrl: _v1,
+              headers: {
+                ..._v0.headers,
+                "Content-Type": "application/json",
+                Authorization: _v2 ? `jwt ${_v2}` : "",
+                "Vimeo-Page": `${_v3}`,
+                "Accept-Language": _v4 ?? "en"
+              }
+            }));
+            _v6({
+              type: "SUCCESS",
+              payload: _v0
+            });
+          } catch (_v0) {
+            _v6({
+              type: "FAILURE",
+              payload: _v0
+            });
+          }
+        }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+      }(),
       {
         loading: _v10,
         data: _v11
@@ -767,7 +641,7 @@
       }, [_v6, _v0, _v1, _v2]),
       _v13 = (0, _v10.useCallback)((_v0, _v1 = "viewer", _v2) => {
         if (_v0 && _v3) {
-          let _v0 = (0, _v44.getShowcasePasswordHashFromCookie)(_v3);
+          let _v0 = (0, _v39.getShowcasePasswordHashFromCookie)(_v3);
           _v8({
             where: {
               albumId: _v3,
@@ -790,15 +664,15 @@
       _v14 = (0, _v10.useMemo)(() => _v3 ? (0, _v31.default)(_v13, 500) : (0, _v31.default)(_v12, 500), [_v13, _v12, _v3]);
     return {
       loadingMentionSuggestion: _v10,
-      mentionSuggestionList: (0, _v10.useMemo)(() => _v11?.data?.filter(_v0 => _v0.uri).map(_v0 => (0, _v44.buildUserMentionSuggestion)(_v0)) || [], [_v11]),
+      mentionSuggestionList: (0, _v10.useMemo)(() => _v11?.data?.filter(_v0 => _v0.uri).map(_v0 => (0, _v39.buildUserMentionSuggestion)(_v0)) || [], [_v11]),
       getMentionSuggestionItemsDebounced: _v14
     };
   }], 0);
-  var _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
+  var _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0);
   _v0.s(["useVideoData", 0, (_v0, _v1, _v2) => {
     var _v3, _v4, _v5;
     let _v6,
@@ -809,14 +683,14 @@
         data: _v10,
         isLoading: _v11,
         ..._v12
-      } = (_v3 = _v0, _v4 = _v1, _v5 = _v2, _v6 = (0, _v48.useViewer)(), _v7 = (0, _v45.useGetVideo)(() => {
+      } = (_v3 = _v0, _v4 = _v1, _v5 = _v2, _v6 = (0, _v43.useViewer)(), _v7 = (0, _v40.useGetVideo)(() => {
         if (!_v6 || !_v3 || !_v5 || _v4) return null;
-        let _v0 = (0, _v44.getReviewPasswordHashFromCookie)(_v5);
+        let _v0 = (0, _v39.getReviewPasswordHashFromCookie)(_v5);
         return {
           where: {
             videoId: _v3
           },
-          select: _v49.VIDEO_DATA_FIELDS,
+          select: _v44.VIDEO_DATA_FIELDS,
           query: {
             reviewId: _v5,
             password: _v0
@@ -824,16 +698,16 @@
         };
       }, {
         revalidateOnFocus: !1
-      }), _v8 = (0, _v46.useGetAlbumVideoData)(_v4 || null, Number((0, _v44.getVideoIdFromClipRequestId)(_v3)), (0, _v44.mapToClipFields)(_v49.VIDEO_DATA_FIELDS), !_v4), _v9 = (0, _v47.useGetUnlockedVideo)(() => !_v6 || _v4 || _v5 ? null : {
+      }), _v8 = (0, _v41.useGetAlbumVideoData)(_v4 || null, Number((0, _v39.getVideoIdFromClipRequestId)(_v3)), (0, _v39.mapToClipFields)(_v44.VIDEO_DATA_FIELDS), !_v4), _v9 = (0, _v42.useGetUnlockedVideo)(() => !_v6 || _v4 || _v5 ? null : {
         where: {
           videoId: _v3
         },
-        select: _v49.VIDEO_DATA_FIELDS
+        select: _v44.VIDEO_DATA_FIELDS
       }, {
         revalidateOnFocus: !1
       }), _v5 ? _v7 : _v4 ? {
         ..._v8,
-        data: (0, _v44.extractClipData)(_v8.data),
+        data: (0, _v39.extractClipData)(_v8.data),
         isLoading: _v8.isLoading
       } : _v9);
     return {

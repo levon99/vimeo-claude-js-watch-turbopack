@@ -3124,21 +3124,20 @@
       })]
     });
   };
-  var _v131 = _v0.i(0),
-    _v132 = _v0.i(0),
-    _v133 = _v0.i(0),
-    _v134 = _v0.i(0),
-    _v135 = _v0.i(0),
-    _v136 = _v0.i(0);
-  function _v137(_v0, _v1) {
+  var _v131 = _v0.i(0);
+  _v0.i(0);
+  var _v132 = _v0.i(0);
+  _v0.i(0);
+  var _v133 = _v0.i(0);
+  function _v134(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v136.useGctlConfig)();
-    return (0, _v7.default)(_v2 ? `/users/${_v2.where.userId}/live_events_occurrences${(0, _v134.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v132.getUserLiveEventsOccurrences)({
+      } = (0, _v133.useGctlConfig)();
+    return (0, _v7.default)(_v2 ? `/users/${_v2.where.userId}/live_events_occurrences${(0, _v132.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v131.getUserLiveEventsOccurrences)({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -3150,92 +3149,14 @@
       baseUrl: _v3
     }) : null, _v1);
   }
-  function _v138(_v0) {
+  function _v135(_v0) {
     return _v0 ? "string" == typeof _v0 ? _v0 : "object" == typeof _v0 && "date" in _v0 ? new Date(_v0.date + " UTC").toISOString() : null : null;
   }
-  "true" === _v131.default.env.STORYBOOK && (0, _v134.assignMswData)(_v137, {
-    endpoint: "/users/:userId/live_events_occurrences",
-    method: "GET"
-  }), "true" === _v131.default.env.STORYBOOK && (0, _v134.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v133.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v136.useGctlConfig)(),
-      [_v5, _v6] = (0, _v134.useInternalState)();
-    return [(0, _v6.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/live_events_occurrences${(0, _v134.serializeQuery)(_v0)}`, (0, _v132.getUserLiveEventsOccurrences)({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/users/:userId/live_events_occurrences",
-    method: "GET"
-  }), "true" === _v131.default.env.STORYBOOK && (0, _v134.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v136.useGctlConfig)();
-    return (0, _v135.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/users/${_v2.where.userId}/live_events_occurrences?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => (0, _v132.getUserLiveEventsOccurrences)({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/live_events_occurrences",
-    method: "GET"
-  });
-  let _v139 = ["event.parentFolder.name", "event.parentFolder.uri", "event.metadata.interactions.delete", "event.metadata.interactions.edit", "event.metadata.connections.liveVideo.status", "event.viewLink", "event.embedLink"];
-  var _v140 = _v0.i(0),
+  let _v136 = ["event.parentFolder.name", "event.parentFolder.uri", "event.metadata.interactions.delete", "event.metadata.interactions.edit", "event.metadata.connections.liveVideo.status", "event.viewLink", "event.embedLink"];
+  var _v137 = _v0.i(0),
+    _v138 = _v0.i(0),
+    _v139 = _v0.i(0),
+    _v140 = _v0.i(0),
     _v141 = _v0.i(0),
     _v142 = _v0.i(0),
     _v143 = _v0.i(0),
@@ -3243,11 +3164,8 @@
     _v145 = _v0.i(0),
     _v146 = _v0.i(0),
     _v147 = _v0.i(0),
-    _v148 = _v0.i(0),
-    _v149 = _v0.i(0),
-    _v150 = _v0.i(0),
-    _v151 = _v0.i(0);
-  let _v152 = ({
+    _v148 = _v0.i(0);
+  let _v149 = ({
       onClick: _v0,
       onDelete: _v1,
       onMove: _v2,
@@ -3259,7 +3177,7 @@
           trackLiveEventsEventMenuOpened: _v6,
           trackLiveEventsEventMenuActionButtonClicked: _v7
         } = (0, _v21.useLiveEventsTracking)(),
-        _v8 = _v5 === _v149.Layout.Grid ? "grid" : "list",
+        _v8 = _v5 === _v146.Layout.Grid ? "grid" : "list",
         _v9 = (0, _v6.useCallback)(_v0 => {
           _v7({
             origin: _v8,
@@ -3270,7 +3188,7 @@
         _v10 = (0, _v25.useNotification)(),
         {
           getEventShareLoopTrackingParams: _v11
-        } = (0, _v151.useShareLoopTrackingParams)(),
+        } = (0, _v148.useShareLoopTrackingParams)(),
         _v12 = (0, _v6.useContext)(_v35.ViewerContext),
         _v13 = _v12?.teamUser?.ownerId || _v12?.user?.id || 0,
         {
@@ -3286,7 +3204,7 @@
         {
           openMoveModal: _v22
         } = (0, _v119.useMoveModal)();
-      return (0, _v1.jsx)(_v150.EventMenu, {
+      return (0, _v1.jsx)(_v147.EventMenu, {
         type: _v4.eventType,
         onClick: () => {
           _v6({
@@ -3346,7 +3264,7 @@
         zIndex: _v29.ACTIONS_MENU_Z_INDEX
       });
     },
-    _v153 = ({
+    _v150 = ({
       liveEvent: _v0,
       onDelete: _v1,
       onChange: _v2,
@@ -3384,20 +3302,18 @@
         } : _v8 ? {
           name: _v8
         } : void 0 : void 0,
-        _v22 = (0, _v147.useLocale)(),
+        _v22 = (0, _v144.useLocale)(),
         _v23 = (0, _v40.useAnalyticsEvent)(),
         _v24 = !!_v0?.pictures?.uri,
         _v25 = !!_v17?.interactions?.edit?.uri,
-        _v26 = (0, _v142.useEventScheduledAt)(_v0, _v22),
-        _v27 = !!_v0.nextOccurrenceTime && (0, _v141.getHasDatePassed)(_v0.nextOccurrenceTime),
-        _v28 = _v143.BPAnalyticsV2.useContentManagamentHoverEvent(),
-        {
-          settings: _v29
-        } = (0, _v19.useOrionSettings)(),
+        _v26 = (0, _v139.useEventScheduledAt)(_v0, _v22),
+        _v27 = !!_v0.nextOccurrenceTime && (0, _v138.getHasDatePassed)(_v0.nextOccurrenceTime),
+        _v28 = _v140.BPAnalyticsV2.useContentManagamentHoverEvent(),
+        _v29 = (0, _v19.useOrionSettingsFields)(["enable_rename_showcase_and_events"]),
         [_v30, _v31] = (0, _v6.useState)(!1),
         [_v32, _v33] = (0, _v6.useState)(_v12),
         _v34 = (0, _v83.getResourceIdFromUri)(_v0.uri);
-      return (0, _v1.jsx)(_v145.ListRow, {
+      return (0, _v1.jsx)(_v142.ListRow, {
         isSelectable: _v4,
         isSelected: _v5,
         onToggleSelected: _v2,
@@ -3407,14 +3323,14 @@
         title: _v32,
         subTitle: _v26,
         isEditingContentTitle: _v30,
-        editableTitle: _v29.enable_rename_showcase_and_events && _v30 ? (0, _v1.jsx)(_v144.EventEditableTitle, {
+        editableTitle: _v29.enable_rename_showcase_and_events && _v30 ? (0, _v1.jsx)(_v141.EventEditableTitle, {
           liveEventId: _v34,
           isEditing: _v30,
           setCurrentTitle: _v33,
           setIsEditingContentTitle: _v31,
           value: _v32
         }) : void 0,
-        thumbnail: (0, _v1.jsx)(_v146.EventThumbnail, {
+        thumbnail: (0, _v1.jsx)(_v143.EventThumbnail, {
           thumbnail: _v24 ? _v13.sizes[3].link : "",
           isLive: _v17?.connections?.liveVideo?.status === "streaming",
           isUpcoming: !!_v11,
@@ -3424,8 +3340,8 @@
         }),
         privacy: _v6 ? _v60[_v18.view] ?? _v18.view : "",
         location: _v21,
-        timestamp: (0, _v148.timestampToListDate)(_v14, _v22),
-        menuButton: (0, _v1.jsx)(_v152, {
+        timestamp: (0, _v145.timestampToListDate)(_v14, _v22),
+        menuButton: (0, _v1.jsx)(_v149, {
           onDelete: _v1,
           onMove: _v3,
           onRename: _v29.enable_rename_showcase_and_events ? () => {
@@ -3444,7 +3360,7 @@
               target_path: null
             }));
           },
-          layout: _v149.Layout.List
+          layout: _v146.Layout.List
         }),
         onMouseEnter: () => {
           _v28({
@@ -3454,7 +3370,7 @@
         }
       }, _v0.uri);
     },
-    _v154 = ({
+    _v151 = ({
       isLoading: _v0,
       liveEvents: _v1,
       onDelete: _v2,
@@ -3465,7 +3381,7 @@
       shouldShowLocation: _v7 = !1,
       rootLocationLabel: _v8
     }) => (0, _v1.jsxs)(_v8.Box, {
-      children: [_v1?.map((_v0, _v1) => (0, _v1.jsx)(_v153, {
+      children: [_v1?.map((_v0, _v1) => (0, _v1.jsx)(_v150, {
         liveEvent: _v0,
         onDelete: _v2,
         onMove: _v3,
@@ -3478,10 +3394,10 @@
         shouldShowLocation: _v7,
         rootLocationLabel: _v8
       }, _v0.uri)), _v0 && (0, _v1.jsx)(_v1.Fragment, {
-        children: (0, _v1.jsx)(_v140.LoadingStateList, {})
+        children: (0, _v1.jsx)(_v137.LoadingStateList, {})
       })]
     }),
-    _v155 = ({
+    _v152 = ({
       isLoading: _v0,
       liveEvents: _v1,
       onDelete: _v2,
@@ -3492,7 +3408,7 @@
       shouldShowLocation: _v7 = !1,
       rootLocationLabel: _v8
     }) => (0, _v1.jsx)(_v8.Box, {
-      children: (0, _v1.jsx)(_v154, {
+      children: (0, _v1.jsx)(_v151, {
         isLoading: _v0,
         liveEvents: _v1,
         onDelete: _v2,
@@ -3504,7 +3420,7 @@
         rootLocationLabel: _v8
       })
     });
-  function _v156(_v0, _v1) {
+  function _v153(_v0, _v1) {
     let _v2 = _v0.split("-"),
       _v3 = new Date(Number(_v2[0]), Number(_v2[1]) - 1, Number(_v2[2]));
     _v3.setDate(_v3.getDate() + _v1);
@@ -3513,12 +3429,12 @@
       _v6 = String(_v3.getDate()).padStart(2, "0");
     return `${_v4}-${_v5}-${_v6}`;
   }
-  function _v157(_v0) {
+  function _v154(_v0) {
     let _v1 = _v0.split("-");
-    return _v156(_v0, -new Date(Number(_v1[0]), Number(_v1[1]) - 1, Number(_v1[2])).getDay());
+    return _v153(_v0, -new Date(Number(_v1[0]), Number(_v1[1]) - 1, Number(_v1[2])).getDay());
   }
-  let _v158 = () => void 0,
-    _v159 = ({
+  let _v155 = () => void 0,
+    _v156 = ({
       ownerId: _v0,
       layout: _v1,
       onSetLayout: _v2,
@@ -3547,13 +3463,13 @@
         _v27 = (0, _v6.useCallback)(_v0 => {
           _v26(_v0), _v11?.(_v0);
         }, [_v11]),
-        _v28 = (0, _v6.useMemo)(() => _v157(_v21), [_v21]),
+        _v28 = (0, _v6.useMemo)(() => _v154(_v21), [_v21]),
         _v29 = "week" === _v23 ? _v28 : _v21,
-        _v30 = (0, _v6.useMemo)(() => _v156(_v29, "week" === _v23 ? 7 : 1), [_v29, _v23]),
+        _v30 = (0, _v6.useMemo)(() => _v153(_v29, "week" === _v23 ? 7 : 1), [_v29, _v23]),
         _v31 = (0, _v6.useMemo)(() => "week" === _v23 ? function (_v0) {
-          let _v1 = _v157(_v0),
+          let _v1 = _v154(_v0),
             _v2 = [];
-          for (let _v0 = 0; _v0 < 7; _v0++) _v2.push(_v156(_v1, _v0));
+          for (let _v0 = 0; _v0 < 7; _v0++) _v2.push(_v153(_v1, _v0));
           return _v2;
         }(_v21) : void 0, [_v21, _v23]),
         {
@@ -3571,8 +3487,8 @@
             isLoading: _v5,
             isValidating: _v6,
             mutate: _v7
-          } = _v137(() => _v0 ? {
-            select: ["eventUri", "eventTitle", "eventType", "startTime", "endTime", "status", "settingsLink", "link", "thumbnail", ..._v139],
+          } = _v134(() => _v0 ? {
+            select: ["eventUri", "eventTitle", "eventType", "startTime", "endTime", "status", "settingsLink", "link", "thumbnail", ..._v136],
             where: {
               userId: _v0
             },
@@ -3590,8 +3506,8 @@
               eventUri: _v0.eventUri ?? _v0.event_uri ?? "",
               eventTitle: _v0.eventTitle ?? _v0.event_title ?? "",
               eventType: _v0.eventType ?? _v0.event_type ?? "",
-              startTime: _v138(_v0.startTime ?? _v0.start_time) ?? "",
-              endTime: _v138(_v0.endTime ?? _v0.end_time),
+              startTime: _v135(_v0.startTime ?? _v0.start_time) ?? "",
+              endTime: _v135(_v0.endTime ?? _v0.end_time),
               status: _v0.status ?? "",
               hasRegistration: _v0.hasRegistration ?? _v0.has_registration ?? !1,
               settingsLink: _v0.settingsLink ?? _v0.settings_link ?? null,
@@ -3617,10 +3533,10 @@
         }), () => _v5(null);
       }, [_v34, _v5]);
       let _v36 = (0, _v6.useCallback)(() => {
-          _v22(_v0 => _v156(_v0, "week" === _v23 ? -7 : -1));
+          _v22(_v0 => _v153(_v0, "week" === _v23 ? -7 : -1));
         }, [_v23]),
         _v37 = (0, _v6.useCallback)(() => {
-          _v22(_v0 => _v156(_v0, "week" === _v23 ? 7 : 1));
+          _v22(_v0 => _v153(_v0, "week" === _v23 ? 7 : 1));
         }, [_v23]),
         _v38 = (0, _v6.useCallback)(() => {
           _v22(_v98());
@@ -3636,14 +3552,14 @@
         children: [(0, _v1.jsx)(_v97, {
           selectedDate: _v21,
           weekStart: _v28,
-          weekEnd: _v156(_v28, 6),
+          weekEnd: _v153(_v28, 6),
           viewMode: _v23,
           layout: _v1 || "CALENDAR_LAYOUT",
           onPrev: _v36,
           onNext: _v37,
           onToday: _v38,
           onSetViewMode: _v24,
-          onSetLayout: _v2 || _v158,
+          onSetLayout: _v2 || _v155,
           onSearchActivate: _v6,
           searchInput: _v7,
           onSearchChange: _v8,
@@ -3660,7 +3576,7 @@
           }), _v40 || 0 !== _v35.length ? (0, _v1.jsx)(_v8.Box, {
             position: "relative",
             top: "-8px",
-            children: (0, _v1.jsx)(_v155, {
+            children: (0, _v1.jsx)(_v152, {
               isLoading: _v40,
               liveEvents: _v35,
               onDelete: _v3,
@@ -3724,11 +3640,11 @@
         })]
       });
     };
-  var _v160 = _v0.i(0),
-    _v161 = _v0.i(0),
-    _v162 = _v0.i(0),
-    _v163 = _v0.i(0);
-  let _v164 = ({
+  var _v157 = _v0.i(0),
+    _v158 = _v0.i(0),
+    _v159 = _v0.i(0),
+    _v160 = _v0.i(0);
+  let _v161 = ({
       liveEvent: _v0,
       onDelete: _v1,
       onMove: _v2,
@@ -3756,8 +3672,8 @@
         _v13 = (0, _v6.useContext)(_v35.ViewerContext),
         {
           getEventShareLoopTrackingParams: _v14
-        } = (0, _v151.useShareLoopTrackingParams)(),
-        _v15 = _v143.BPAnalyticsV2.useContentManagamentHoverEvent(),
+        } = (0, _v148.useShareLoopTrackingParams)(),
+        _v15 = _v140.BPAnalyticsV2.useContentManagamentHoverEvent(),
         {
           embed: _v16,
           link: _v17,
@@ -3772,22 +3688,22 @@
         } = _v0,
         _v26 = _v18?.connections?.liveVideo?.status === "streaming",
         _v27 = !!_v19,
-        _v28 = !!_v19 && (0, _v141.getHasDatePassed)(_v19),
+        _v28 = !!_v19 && (0, _v138.getHasDatePassed)(_v19),
         _v29 = !!_v18?.interactions?.edit?.uri,
         {
           badgeText: _v30
-        } = (0, _v163.getBadgeLabel)({
+        } = (0, _v160.getBadgeLabel)({
           isLive: _v26,
           status: _v21
         }),
         _v31 = _v13?.teamUser?.ownerId || _v13?.user?.id || 0,
         _v32 = _v13 && _v13.vimeoHttpsUrl,
         _v33 = _v13?.locale ?? "default",
-        _v34 = (0, _v142.useEventScheduledAt)(_v0, _v33),
+        _v34 = (0, _v139.useEventScheduledAt)(_v0, _v33),
         _v35 = _v14(_v29.PAGE.EVENTS),
         _v36 = `${_v32 + _v24}${_v35}`,
         _v37 = ["library_events", "grid", _v41.AnalyticsLocations.EVENT_GRID];
-      return (0, _v1.jsx)(_v162.EventCard, {
+      return (0, _v1.jsx)(_v159.EventCard, {
         title: _v22,
         subtitle: _v34,
         thumbnailSrc: _v20?.uri ? _v20.sizes[3].link : "",
@@ -3813,7 +3729,7 @@
         onToggleSelected: () => {
           _v3 ? _v5(_v0.uri) : _v4(_v0.uri);
         },
-        actionsMenu: (0, _v1.jsx)(_v150.EventMenu, {
+        actionsMenu: (0, _v1.jsx)(_v147.EventMenu, {
           type: _v0.eventType,
           onClick: () => {
             _v7({
@@ -3872,26 +3788,26 @@
         uri: _v0.uri
       });
     },
-    _v165 = ({
+    _v162 = ({
       isLoading: _v0,
       liveEvents: _v1,
       onDelete: _v2,
       onMove: _v3,
       deselectItem: _v4,
       selectItem: _v5
-    }) => (0, _v1.jsx)(_v161.ContentGrid, {
-      children: (0, _v1.jsxs)(_v161.ContentGrid.Body, {
-        children: [_v1?.map((_v0, _v1) => (0, _v1.jsx)(_v164, {
+    }) => (0, _v1.jsx)(_v158.ContentGrid, {
+      children: (0, _v1.jsxs)(_v158.ContentGrid.Body, {
+        children: [_v1?.map((_v0, _v1) => (0, _v1.jsx)(_v161, {
           liveEvent: _v0,
           onDelete: _v2,
           onMove: _v3,
           isSelected: _v0.isSelected,
           deselectItem: () => _v4(_v0.uri, _v1, _v1),
           selectItem: () => _v5(_v0.uri, _v1, _v1)
-        }, _v0.uri)), _v0 && (0, _v1.jsx)(_v160.LoadingCardsGrid, {})]
+        }, _v0.uri)), _v0 && (0, _v1.jsx)(_v157.LoadingCardsGrid, {})]
       })
     }),
-    _v166 = ({
+    _v163 = ({
       deselectItem: _v0,
       isLoading: _v1,
       isLoadingLiveEventsInitial: _v2,
@@ -3916,7 +3832,7 @@
     }) => "LIST_LAYOUT" === _v3 ? (0, _v1.jsx)(_v8.Box, {
       position: "relative",
       top: "-8px",
-      children: (0, _v1.jsx)(_v155, {
+      children: (0, _v1.jsx)(_v152, {
         isLoading: _v1,
         liveEvents: _v4,
         onDelete: _v5,
@@ -3927,14 +3843,14 @@
         shouldShowLocation: _v19,
         rootLocationLabel: _v20
       })
-    }) : "GRID_LAYOUT" === _v3 ? (0, _v1.jsx)(_v165, {
+    }) : "GRID_LAYOUT" === _v3 ? (0, _v1.jsx)(_v162, {
       isLoading: _v1,
       liveEvents: _v4,
       onDelete: _v5,
       onMove: _v6,
       deselectItem: _v0,
       selectItem: _v9
-    }) : (0, _v1.jsx)(_v159, {
+    }) : (0, _v1.jsx)(_v156, {
       ownerId: _v7,
       layout: _v3,
       onSetLayout: _v8,
@@ -3957,19 +3873,19 @@
       shouldShowLocation: _v19,
       rootLocationLabel: _v20
     });
-  var _v167 = _v0.i(0),
-    _v168 = _v0.i(0);
-  let _v169 = _v167.default.div.withConfig({
+  var _v164 = _v0.i(0),
+    _v165 = _v0.i(0);
+  let _v166 = _v164.default.div.withConfig({
       displayName: "LoadMoreButton__Wrapper",
       componentId: "sc-86c75073-0"
     })`
   margin: ${(0, _v45.rem)(40)} 0 ${(0, _v45.rem)(48)};
 `,
-    _v170 = ({
+    _v167 = ({
       isLoading: _v0 = !1,
       onClick: _v1
-    }) => (0, _v1.jsx)(_v169, {
-      children: (0, _v1.jsx)(_v168.Button, {
+    }) => (0, _v1.jsx)(_v166, {
+      children: (0, _v1.jsx)(_v165.Button, {
         disabled: _v0,
         fluid: !0,
         format: "secondary",
@@ -4003,8 +3919,8 @@
         })
       })
     });
-  var _v171 = _v0.i(0);
-  let _v172 = ({
+  var _v168 = _v0.i(0);
+  let _v169 = ({
     onClick: _v0
   }) => {
     let _v1 = (0, _v40.useAnalyticsEvent)(),
@@ -4027,7 +3943,7 @@
           base: "inline-flex",
           md: "none"
         },
-        icon: (0, _v1.jsx)(_v171.PlusCircle, {}),
+        icon: (0, _v1.jsx)(_v168.PlusCircle, {}),
         onClick: _v2,
         variant: "primary"
       }), (0, _v1.jsx)(_v37.Button, {
@@ -4041,22 +3957,22 @@
       })]
     });
   };
-  var _v173 = _v0.i(0),
-    _v174 = _v0.i(0),
-    _v175 = _v0.i(0),
-    _v176 = _v0.i(0),
-    _v177 = _v0.i(0);
-  let _v178 = ["eventUri", "eventTitle", "eventType", "startTime", "endTime", "status", "settingsLink", "link", "thumbnail", "event.uri", "event.title", "event.eventType", "event.link", "event.viewLink", "event.settingsLink", "event.embed.html", "event.nextOccurrenceTime", "event.status", "event.streamPrivacy.view", "event.hasRegistration", "event.createdTime", "event.pictures", "event.metadata.connections.liveVideo.status", "event.metadata.interactions.delete", "event.metadata.interactions.edit", "event.parentFolder.name", "event.parentFolder.uri"];
-  function _v179(_v0) {
+  var _v170 = _v0.i(0),
+    _v171 = _v0.i(0),
+    _v172 = _v0.i(0),
+    _v173 = _v0.i(0),
+    _v174 = _v0.i(0);
+  let _v175 = ["eventUri", "eventTitle", "eventType", "startTime", "endTime", "status", "settingsLink", "link", "thumbnail", "event.uri", "event.title", "event.eventType", "event.link", "event.viewLink", "event.settingsLink", "event.embed.html", "event.nextOccurrenceTime", "event.status", "event.streamPrivacy.view", "event.hasRegistration", "event.createdTime", "event.pictures", "event.metadata.connections.liveVideo.status", "event.metadata.interactions.delete", "event.metadata.interactions.edit", "event.parentFolder.name", "event.parentFolder.uri"];
+  function _v176(_v0) {
     return _v0 ? "string" == typeof _v0 ? _v0 : "object" == typeof _v0 && "date" in _v0 ? new Date(_v0.date + " UTC").toISOString() : null : null;
   }
-  function _v180(_v0) {
+  function _v177(_v0) {
     return _v0.event ? {
       ..._v0.event,
       nextOccurrenceTime: _v0.startTime
     } : null;
   }
-  let _v181 = ({
+  let _v178 = ({
     ownerId: _v0,
     onDelete: _v1,
     onMove: _v2
@@ -4095,8 +4011,8 @@
             isLoading: _v6,
             isValidating: _v7,
             mutate: _v8
-          } = _v137(() => _v0 ? {
-            select: _v178,
+          } = _v134(() => _v0 ? {
+            select: _v175,
             where: {
               userId: _v0
             },
@@ -4117,8 +4033,8 @@
                 eventUri: _v0.eventUri ?? _v0.event_uri ?? "",
                 eventTitle: _v0.eventTitle ?? _v0.event_title ?? "",
                 eventType: _v0.eventType ?? _v0.event_type ?? "",
-                startTime: _v179(_v0.startTime ?? _v0.start_time) ?? "",
-                endTime: _v179(_v0.endTime ?? _v0.end_time),
+                startTime: _v176(_v0.startTime ?? _v0.start_time) ?? "",
+                endTime: _v176(_v0.endTime ?? _v0.end_time),
                 status: _v0.status ?? "",
                 hasRegistration: _v0.hasRegistration ?? _v0.has_registration ?? !1,
                 settingsLink: _v0.settingsLink ?? _v0.settings_link ?? null,
@@ -4130,7 +4046,7 @@
               let _v2 = _v0.event?.metadata?.connections?.liveVideo?.status === "streaming",
                 _v3 = _v1.event?.metadata?.connections?.liveVideo?.status === "streaming";
               return _v2 && !_v3 ? -1 : !_v2 && _v3 ? 1 : 0;
-            }), _v2.map(_v180).filter(_v0 => null !== _v0).slice(0, _v1);
+            }), _v2.map(_v177).filter(_v0 => null !== _v0).slice(0, _v1);
           }, [_v4, _v1]),
           isLoading: _v6,
           isValidating: _v7,
@@ -4146,11 +4062,11 @@
       sx: {
         contain: "inline-size"
       },
-      children: (0, _v1.jsxs)(_v175.Playlist, {
+      children: (0, _v1.jsxs)(_v172.Playlist, {
         gap: "sm",
         w: "100%",
         overflow: "hidden",
-        children: [(0, _v1.jsx)(_v177.PlaylistHeader, {
+        children: [(0, _v1.jsx)(_v174.PlaylistHeader, {
           pt: 0,
           header: {
             text: (0, _v17.translate)({
@@ -4180,17 +4096,17 @@
               }
             })
           },
-          children: (0, _v1.jsx)(_v176.PlaylistCarouselNavigation, {
+          children: (0, _v1.jsx)(_v173.PlaylistCarouselNavigation, {
             onPrevClick: _v4,
             onNextClick: _v5
           })
-        }), (0, _v1.jsx)(_v174.Carousel, {
+        }), (0, _v1.jsx)(_v171.Carousel, {
           children: Array.from({
             length: 5
           }).map((_v0, _v1) => (0, _v1.jsx)(_v8.Box, {
             w: (0, _v38.rem)(380),
             flexShrink: 0,
-            children: (0, _v1.jsx)(_v173.LoadingCard, {})
+            children: (0, _v1.jsx)(_v170.LoadingCard, {})
           }, `upcoming-loading-${_v1}`))
         })]
       })
@@ -4199,11 +4115,11 @@
       sx: {
         contain: "inline-size"
       },
-      children: (0, _v1.jsxs)(_v175.Playlist, {
+      children: (0, _v1.jsxs)(_v172.Playlist, {
         gap: "sm",
         w: "100%",
         overflow: "hidden",
-        children: [(0, _v1.jsx)(_v177.PlaylistHeader, {
+        children: [(0, _v1.jsx)(_v174.PlaylistHeader, {
           pt: 0,
           header: {
             text: (0, _v17.translate)({
@@ -4233,11 +4149,11 @@
               }
             })
           },
-          children: (0, _v1.jsx)(_v176.PlaylistCarouselNavigation, {
+          children: (0, _v1.jsx)(_v173.PlaylistCarouselNavigation, {
             onPrevClick: _v4,
             onNextClick: _v5
           })
-        }), (0, _v1.jsx)(_v174.Carousel, {
+        }), (0, _v1.jsx)(_v171.Carousel, {
           children: _v6.map(_v0 => (0, _v1.jsx)(_v8.Box, {
             w: (0, _v38.rem)(380),
             flexShrink: 0,
@@ -4246,7 +4162,7 @@
                 display: "none"
               }
             },
-            children: (0, _v1.jsx)(_v164, {
+            children: (0, _v1.jsx)(_v161, {
               liveEvent: _v0,
               onDelete: _v1,
               onMove: _v2,
@@ -4259,12 +4175,12 @@
       })
     }) : null;
   };
-  var _v182 = _v0.i(0),
-    _v183 = _v0.i(0);
-  let _v184 = ({
+  var _v179 = _v0.i(0),
+    _v180 = _v0.i(0);
+  let _v181 = ({
     isEnterprise: _v0
   }) => {
-    let _v1 = (0, _v183.useUpsellModal)();
+    let _v1 = (0, _v180.useUpsellModal)();
     return (0, _v1.jsx)(_v1.Fragment, {
       children: (0, _v1.jsx)(_v9.Flex, {
         gap: "lg",
@@ -4343,7 +4259,7 @@
                     mkcCode: "ent-upgrade-bottom",
                     headerText: _v54,
                     subHeaderText: _v55,
-                    excludePlans: [_v182.PLANS.STARTER, _v182.PLANS.STANDARD, _v182.PLANS.CREATOR],
+                    excludePlans: [_v179.PLANS.STARTER, _v179.PLANS.STANDARD, _v179.PLANS.CREATOR],
                     planOverrides: {
                       ADVANCE: {
                         subHeading: _v56,
@@ -4374,12 +4290,12 @@
       })
     });
   };
-  function _v185(_v0, _v1) {
+  function _v182(_v0, _v1) {
     return !(_v0.size > _v1.size) && new Set([..._v0, ..._v1]).size === _v1.size;
   }
-  var _v186 = _v0.i(0);
-  let _v187 = ["title", "link", "viewLink", "settingsLink", "embed.html", "eventType", "nextOccurrenceTime", "pictures", "metadata.connections.liveVideo.status", "metadata.interactions.delete", "metadata.interactions.edit", "uri", "createdTime", "streamPrivacy.view", "hasRegistration", "status", "parentFolder.name", "parentFolder.uri"],
-    _v188 = ({
+  var _v183 = _v0.i(0);
+  let _v184 = ["title", "link", "viewLink", "settingsLink", "embed.html", "eventType", "nextOccurrenceTime", "pictures", "metadata.connections.liveVideo.status", "metadata.interactions.delete", "metadata.interactions.edit", "uri", "createdTime", "streamPrivacy.view", "hasRegistration", "status", "parentFolder.name", "parentFolder.uri"],
+    _v185 = ({
       ownerId: _v0,
       sortDirection: _v1,
       sortType: _v2,
@@ -4392,8 +4308,8 @@
           setSize: _v7,
           size: _v8,
           mutate: _v9
-        } = (0, _v186.useGetUserLiveEventsInfinite)(() => _v0 ? {
-          select: _v187,
+        } = (0, _v183.useGetUserLiveEventsInfinite)(() => _v0 ? {
+          select: _v184,
           where: {
             userId: _v0
           },
@@ -4439,11 +4355,11 @@
         }
       };
     };
-  function _v189(_v0) {
+  function _v186(_v0) {
     return void 0 !== _v0;
   }
-  let _v190 = _v0 => _v0.split("_")[0].toLowerCase(),
-    _v191 = (0, _v5.default)(async () => {
+  let _v187 = _v0 => _v0.split("_")[0].toLowerCase(),
+    _v188 = (0, _v5.default)(async () => {
       let {
         EventCreationWizardModal: _v0
       } = await _v0.A(0);
@@ -4456,156 +4372,153 @@
       },
       ssr: !1
     });
-  function _v192() {
-    let {
-        settings: _v0
-      } = (0, _v19.useOrionSettings)(),
-      _v1 = _v0.is_new_live_events_dashboard_enabled,
-      _v2 = (0, _v6.useContext)(_v35.ViewerContext),
-      _v3 = (0, _v25.useNotification)(),
+  function _v189() {
+    let _v0 = (0, _v19.useOrionSettingsFields)(["is_new_live_events_dashboard_enabled"]).is_new_live_events_dashboard_enabled,
+      _v1 = (0, _v6.useContext)(_v35.ViewerContext),
+      _v2 = (0, _v25.useNotification)(),
       {
-        notifyItemMoveSuccess: _v4,
-        notifyItemMoveToWorkspaceSuccess: _v5
+        notifyItemMoveSuccess: _v3,
+        notifyItemMoveToWorkspaceSuccess: _v4
       } = (0, _v25.useNotifications)(),
-      _v6 = (0, _v24.useLiveEventDeleteModal)(),
-      _v7 = _v2?.teamUser?.ownerId || _v2?.user?.id,
-      [_v8, _v9] = (0, _v27.useLayoutPreference)(),
-      [_v10, _v11] = (0, _v15.default)("vl_live_events_calendar_view", !0),
-      [_v12, _v13] = (0, _v6.useState)(_v10),
-      [_v14, _v15] = (0, _v6.useState)("SCHEDULED"),
-      [_v16, _v17] = (0, _v28.useSortPreference)(_v29.DEFAULT_EVENTS_SORT, _v29.VL_EVENTS_SORT_LOCAL_STORAGE_KEY),
-      [_v18] = (0, _v11.useToken)("breakpoints", ["md"]),
-      [_v19] = (0, _v12.useMediaQuery)([`(max-width: ${_v18})`]),
-      _v20 = _v19 ? _v8 : _v1 && _v12 ? "CALENDAR_LAYOUT" : _v8,
+      _v5 = (0, _v24.useLiveEventDeleteModal)(),
+      _v6 = _v1?.teamUser?.ownerId || _v1?.user?.id,
+      [_v7, _v8] = (0, _v27.useLayoutPreference)(),
+      [_v9, _v10] = (0, _v15.default)("vl_live_events_calendar_view", !0),
+      [_v11, _v12] = (0, _v6.useState)(_v9),
+      [_v13, _v14] = (0, _v6.useState)("SCHEDULED"),
+      [_v15, _v16] = (0, _v28.useSortPreference)(_v29.DEFAULT_EVENTS_SORT, _v29.VL_EVENTS_SORT_LOCAL_STORAGE_KEY),
+      [_v17] = (0, _v11.useToken)("breakpoints", ["md"]),
+      [_v18] = (0, _v12.useMediaQuery)([`(max-width: ${_v17})`]),
+      _v19 = _v18 ? _v7 : _v0 && _v11 ? "CALENDAR_LAYOUT" : _v7,
       {
-        trackLiveEventsPageDisplayed: _v21,
-        trackLiveEventsLayoutChanged: _v22,
-        trackLiveEventsCalendarTabSelected: _v23,
-        trackLiveEventsSearchButtonClicked: _v24,
-        trackLiveEventsSearchQueryCommitted: _v25,
-        trackLiveEventsSortChanged: _v26,
-        trackLiveEventsLoadMoreClicked: _v27,
-        trackLiveEventsSelectAllButtonClicked: _v28,
-        trackLiveEventsBulkActionClicked: _v29,
-        trackLiveEventsEventMoved: _v30,
-        trackLiveEventsEventDeleted: _v31,
-        trackLiveEventNewEventButtonClicked: _v32,
-        trackLiveTrialBlocked: _v33
+        trackLiveEventsPageDisplayed: _v20,
+        trackLiveEventsLayoutChanged: _v21,
+        trackLiveEventsCalendarTabSelected: _v22,
+        trackLiveEventsSearchButtonClicked: _v23,
+        trackLiveEventsSearchQueryCommitted: _v24,
+        trackLiveEventsSortChanged: _v25,
+        trackLiveEventsLoadMoreClicked: _v26,
+        trackLiveEventsSelectAllButtonClicked: _v27,
+        trackLiveEventsBulkActionClicked: _v28,
+        trackLiveEventsEventMoved: _v29,
+        trackLiveEventsEventDeleted: _v30,
+        trackLiveEventNewEventButtonClicked: _v31,
+        trackLiveTrialBlocked: _v32
       } = (0, _v21.useLiveEventsTracking)(),
-      _v34 = (0, _v6.useCallback)(_v0 => {
-        _v0.type === _v16.type && _v0.direction === _v16.direction || (_v0.type === _v29.SORT_OPTION.TITLE || _v0.type === _v29.SORT_OPTION.CREATED) && (_v17(_v0), _v26({
-          layout: "GRID_LAYOUT" === _v20 ? "grid" : "list",
+      _v33 = (0, _v6.useCallback)(_v0 => {
+        _v0.type === _v15.type && _v0.direction === _v15.direction || (_v0.type === _v29.SORT_OPTION.TITLE || _v0.type === _v29.SORT_OPTION.CREATED) && (_v16(_v0), _v25({
+          layout: "GRID_LAYOUT" === _v19 ? "grid" : "list",
           sortType: _v0.type === _v29.SORT_OPTION.TITLE ? "title" : "created",
           sortDirection: _v0.direction === _v29.SORT_DIRECTION.ASC ? "up" : "down"
         }));
-      }, [_v20, _v16.direction, _v16.type, _v17, _v26]);
+      }, [_v19, _v15.direction, _v15.type, _v16, _v25]);
     (0, _v22.usePicoEffect)(() => {
-      _v21({
+      _v20({
         referrerPage: (0, _v20.deriveReferrerPage)()
       });
     }, [], {
       once: !0
     }), (0, _v6.useEffect)(() => {
-      _v19 && _v12 && _v13(!1);
-    }, [_v19, _v12]), (0, _v6.useEffect)(() => {
-      "CALENDAR_LAYOUT" !== _v20 && _v15("SCHEDULED");
-    }, [_v20]);
-    let _v35 = (0, _v6.useCallback)(_v0 => {
-        _v22({
-          newLayout: _v190(_v0)
-        }), _v1 && "CALENDAR_LAYOUT" === _v0 ? (_v13(!0), _v11(!0)) : (_v13(!1), _v11(!1), _v9(_v0));
-      }, [_v1, _v9, _v11, _v22]),
+      _v18 && _v11 && _v12(!1);
+    }, [_v18, _v11]), (0, _v6.useEffect)(() => {
+      "CALENDAR_LAYOUT" !== _v19 && _v14("SCHEDULED");
+    }, [_v19]);
+    let _v34 = (0, _v6.useCallback)(_v0 => {
+        _v21({
+          newLayout: _v187(_v0)
+        }), _v0 && "CALENDAR_LAYOUT" === _v0 ? (_v12(!0), _v10(!0)) : (_v12(!1), _v10(!1), _v8(_v0));
+      }, [_v0, _v8, _v10, _v21]),
+      _v35 = (0, _v6.useCallback)(_v0 => {
+        _v21({
+          newLayout: _v187(_v0)
+        }), _v8(_v0);
+      }, [_v8, _v21]),
       _v36 = (0, _v6.useCallback)(_v0 => {
         _v22({
-          newLayout: _v190(_v0)
-        }), _v9(_v0);
-      }, [_v9, _v22]),
-      _v37 = (0, _v6.useCallback)(_v0 => {
-        _v23({
           tab: _v0.toLowerCase()
-        }), _v15(_v0);
-      }, [_v23]),
-      [_v38, _v39] = (0, _v6.useState)(!1),
-      _v40 = (0, _v18.useIsLiveTrialBlocked)(),
-      [_v41, _v42] = (0, _v6.useState)(!1),
-      [_v43, _v44] = (0, _v6.useState)(""),
-      [_v45, _v46] = (0, _v6.useState)(""),
-      [_v47, _v48] = (0, _v6.useState)(!1),
-      _v49 = (0, _v6.useRef)(null),
-      _v50 = (0, _v6.useCallback)(_v0 => {
-        _v44(_v0), _v49.current && clearTimeout(_v49.current), _v49.current = setTimeout(() => {
-          _v46(_v0), _v25({
-            layout: _v190(_v20),
+        }), _v14(_v0);
+      }, [_v22]),
+      [_v37, _v38] = (0, _v6.useState)(!1),
+      _v39 = (0, _v18.useIsLiveTrialBlocked)(),
+      [_v40, _v41] = (0, _v6.useState)(!1),
+      [_v42, _v43] = (0, _v6.useState)(""),
+      [_v44, _v45] = (0, _v6.useState)(""),
+      [_v46, _v47] = (0, _v6.useState)(!1),
+      _v48 = (0, _v6.useRef)(null),
+      _v49 = (0, _v6.useCallback)(_v0 => {
+        _v43(_v0), _v48.current && clearTimeout(_v48.current), _v48.current = setTimeout(() => {
+          _v45(_v0), _v24({
+            layout: _v187(_v19),
             query: _v0
           });
         }, 300);
-      }, [_v20, _v25]);
+      }, [_v19, _v24]);
     (0, _v6.useEffect)(() => () => {
-      _v49.current && clearTimeout(_v49.current);
+      _v48.current && clearTimeout(_v48.current);
     }, []);
-    let _v51 = (0, _v6.useCallback)(() => {
-        _v48(!0), _v24({
-          layout: _v190(_v20)
+    let _v50 = (0, _v6.useCallback)(() => {
+        _v47(!0), _v23({
+          layout: _v187(_v19)
         });
-      }, [_v20, _v24]),
-      _v52 = (0, _v6.useCallback)(() => {
-        _v49.current && (clearTimeout(_v49.current), _v49.current = null), _v48(!1), _v44(""), _v46("");
+      }, [_v19, _v23]),
+      _v51 = (0, _v6.useCallback)(() => {
+        _v48.current && (clearTimeout(_v48.current), _v48.current = null), _v47(!1), _v43(""), _v45("");
       }, []),
-      _v53 = _v47 || _v45.length > 0,
-      _v54 = _v2?.apiUrl,
-      _v55 = _v2?.jwt,
-      _v56 = _v1 && _v7 && _v54 && _v55 ? `https://${_v54}/users/${_v7}?fields=live_quota.streams` : null,
+      _v52 = _v46 || _v44.length > 0,
+      _v53 = _v1?.apiUrl,
+      _v54 = _v1?.jwt,
+      _v55 = _v0 && _v6 && _v53 && _v54 ? `https://${_v53}/users/${_v6}?fields=live_quota.streams` : null,
       {
-        data: _v57
-      } = (0, _v7.default)(_v56, _v0 => fetch(_v0, {
+        data: _v56
+      } = (0, _v7.default)(_v55, _v0 => fetch(_v0, {
         headers: {
-          Authorization: `jwt ${_v55}`,
+          Authorization: `jwt ${_v54}`,
           Accept: "application/vnd.vimeo.*+json;version=3.4.1"
         }
       }).then(_v0 => _v0.json())),
-      _v58 = _v57?.live_quota?.streams?.maximum ?? 0,
+      _v57 = _v56?.live_quota?.streams?.maximum ?? 0,
       {
-        total: _v59,
-        removeFromCacheByUri: _v60,
-        removeFromCacheByUris: _v61
-      } = _v188({
-        ownerId: _v7,
+        total: _v58,
+        removeFromCacheByUri: _v59,
+        removeFromCacheByUris: _v60
+      } = _v185({
+        ownerId: _v6,
         sortDirection: _v29.DEFAULT_EVENTS_SORT.direction,
         sortType: _v29.DEFAULT_EVENTS_SORT.type,
-        includeEventsInFolders: _v1
+        includeEventsInFolders: _v0
       }),
       {
-        isDone: _v62,
-        isLoadingInitial: _v63,
-        isLoadingMore: _v64,
-        loadMore: _v65,
-        liveEvents: _v66,
-        total: _v67,
-        removeFromCacheByUri: _v68,
-        removeFromCacheByUris: _v69
-      } = _v188({
-        ownerId: _v7,
-        sortDirection: _v16.direction,
-        sortType: _v16.type,
-        searchQuery: _v45 || void 0,
-        includeEventsInFolders: _v1
+        isDone: _v61,
+        isLoadingInitial: _v62,
+        isLoadingMore: _v63,
+        loadMore: _v64,
+        liveEvents: _v65,
+        total: _v66,
+        removeFromCacheByUri: _v67,
+        removeFromCacheByUris: _v68
+      } = _v185({
+        ownerId: _v6,
+        sortDirection: _v15.direction,
+        sortType: _v15.type,
+        searchQuery: _v44 || void 0,
+        includeEventsInFolders: _v0
       }),
-      _v70 = (0, _v6.useCallback)(() => {
-        _v27({
-          layout: "GRID_LAYOUT" === _v20 ? "grid" : "list"
-        }), _v65();
-      }, [_v20, _v65, _v27]),
+      _v69 = (0, _v6.useCallback)(() => {
+        _v26({
+          layout: "GRID_LAYOUT" === _v19 ? "grid" : "list"
+        }), _v64();
+      }, [_v19, _v64, _v26]),
       {
         capabilities: {
-          hasVideoLibraryLiveEvents: _v71
+          hasVideoLibraryLiveEvents: _v70
         },
-        loading: _v72,
-        ready: _v73
-      } = (0, _v2.useCapability)(["hasVideoLibraryLiveEvents"], _v7),
+        loading: _v71,
+        ready: _v72
+      } = (0, _v2.useCapability)(["hasVideoLibraryLiveEvents"], _v6),
       {
-        contentSpaceEnabled: _v74
-      } = (0, _v14.useContentSpaceEnabled)(_v7),
-      _v75 = _v74 ? (0, _v17.translate)({
+        contentSpaceEnabled: _v73
+      } = (0, _v14.useContentSpaceEnabled)(_v6),
+      _v74 = _v73 ? (0, _v17.translate)({
         singular: "Team library",
         dictionary: {
           es: {
@@ -4656,18 +4569,18 @@
           }
         }
       }),
-      _v76 = (0, _v6.useRef)(null),
-      _v77 = (0, _v6.useCallback)(_v0 => {
-        _v76.current = _v0;
+      _v75 = (0, _v6.useRef)(null),
+      _v76 = (0, _v6.useCallback)(_v0 => {
+        _v75.current = _v0;
       }, []),
-      _v78 = (0, _v23.useDeleteLiveEvent)({
+      _v77 = (0, _v23.useDeleteLiveEvent)({
         onFailure: () => {
-          _v6.setIsLoading(!1);
+          _v5.setIsLoading(!1);
         },
         onSuccess: ({
           uri: _v0
         }) => {
-          _v68(_v0), _v1 && _v60(_v0), _v76.current?.(), _v3({
+          _v67(_v0), _v0 && _v59(_v0), _v75.current?.(), _v2({
             content: (0, _v17.translate)({
               singular: "This event has been deleted",
               dictionary: {
@@ -4694,81 +4607,81 @@
                 }
               }
             })
-          }), _v6.setIsLoading(!1), _v6.close();
+          }), _v5.setIsLoading(!1), _v5.close();
         }
       }),
-      _v79 = (_v0, _v1, _v2, _v3) => {
-        _v6.open({
+      _v78 = (_v0, _v1, _v2, _v3) => {
+        _v5.open({
           onConfirm: () => {
-            _v31({
+            _v30({
               type: _v3
-            }), _v6.setIsLoading(!0), _v78({
+            }), _v5.setIsLoading(!0), _v77({
               title: _v0,
               uri: _v1,
               ownerId: _v2
             });
           },
           onDismiss: () => {
-            _v6.close();
+            _v5.close();
           },
           name: _v0
         });
       },
-      _v80 = ({
+      _v79 = ({
         folder: _v0,
         liveEvent: _v1,
         destinationWorkspaceId: _v2,
         destinationWorkspaceName: _v3
       }) => {
-        if (_v30({
+        if (_v29({
           type: "venue" === _v1.eventType ? "venue" : "event",
           destination: _v2 && _v3 ? "team_library" : "my_library"
-        }), _v68(_v1.uri), _v1 && _v60(_v1.uri), _v76.current?.(), _v2 && _v3) {
-          let _v0 = "root" === _v0 ? _v75 : _v0.name,
+        }), _v67(_v1.uri), _v0 && _v59(_v1.uri), _v75.current?.(), _v2 && _v3) {
+          let _v0 = "root" === _v0 ? _v74 : _v0.name,
             _v1 = "root" === _v0 ? "/library" : _v109(_v0.uri);
-          _v5(_v1.title, {
+          _v4(_v1.title, {
             label: _v0,
             workspaceName: _v3
           }, () => {
-            _v2 && (0, _v32.switchTeam)(_v2, _v2.xsrft).finally(() => {
+            _v1 && (0, _v32.switchTeam)(_v2, _v1.xsrft).finally(() => {
               window.location.href = _v109(_v1);
             });
           });
-        } else "root" !== _v0 && _v4(_v1.title, {
+        } else "root" !== _v0 && _v3(_v1.title, {
           label: _v0.name,
           link: _v109(_v0.uri)
         });
       },
-      _v81 = (0, _v6.useCallback)(() => {
-        if (_v32(), _v40) {
-          _v33({
+      _v80 = (0, _v6.useCallback)(() => {
+        if (_v31(), _v39) {
+          _v32({
             blockPoint: "create_event"
-          }), _v42(!0);
+          }), _v41(!0);
           return;
         }
-        _v39(!0);
-      }, [_v40, _v32, _v33]),
-      [_v82, {
-        deselectAllItems: _v83,
-        enhancedDeselectItem: _v84,
-        enhancedSelectItem: _v85,
-        selectAllItems: _v86,
-        shiftKeyChange: _v87
+        _v38(!0);
+      }, [_v39, _v31, _v32]),
+      [_v81, {
+        deselectAllItems: _v82,
+        enhancedDeselectItem: _v83,
+        enhancedSelectItem: _v84,
+        selectAllItems: _v85,
+        shiftKeyChange: _v86
       }] = (0, _v36.useSelectedItems)(),
-      _v88 = (0, _v6.useRef)(!1),
-      _v89 = (0, _v6.useCallback)(_v0 => {
-        "Shift" === _v0.key && (_v88.current = !_v88.current, _v87(_v88.current));
-      }, [_v88, _v87]);
-    (0, _v6.useEffect)(() => (window.addEventListener("keydown", _v89), window.addEventListener("keyup", _v89), () => {
-      window.removeEventListener("keydown", _v89), window.removeEventListener("keyup", _v89);
-    }), [_v89]);
+      _v87 = (0, _v6.useRef)(!1),
+      _v88 = (0, _v6.useCallback)(_v0 => {
+        "Shift" === _v0.key && (_v87.current = !_v87.current, _v86(_v87.current));
+      }, [_v87, _v86]);
+    (0, _v6.useEffect)(() => (window.addEventListener("keydown", _v88), window.addEventListener("keyup", _v88), () => {
+      window.removeEventListener("keydown", _v88), window.removeEventListener("keyup", _v88);
+    }), [_v88]);
     let {
-        allItems: _v90,
-        canSelectURIs: _v91,
-        canMoveSelection: _v92,
-        canDeleteSelection: _v93,
-        selectedItems: _v94,
-        hasReachedMaxSelectionForMove: _v95
+        allItems: _v89,
+        canSelectURIs: _v90,
+        canMoveSelection: _v91,
+        canDeleteSelection: _v92,
+        selectedItems: _v93,
+        hasReachedMaxSelectionForMove: _v94
       } = (({
         canDeleteItem: _v0,
         canMoveItem: _v1,
@@ -4822,9 +4735,9 @@
               selectedItems: _v4
             };
           }, [_v0, _v1, _v2, _v3, _v4]),
-          _v11 = _v4.size > 0 && _v185(_v4, _v6),
-          _v12 = _v4.size > 0 && _v185(_v4, _v7),
-          _v13 = _v4.size > 0 && _v185(_v4, _v8),
+          _v11 = _v4.size > 0 && _v182(_v4, _v6),
+          _v12 = _v4.size > 0 && _v182(_v4, _v7),
+          _v13 = _v4.size > 0 && _v182(_v4, _v8),
           _v14 = _v12 && _v4.size > _v29.MAX_SELECTION_FOR_BULK_MOVE,
           _v15 = _v13 && _v4.size > _v29.MAX_SELECTION_FOR_BULK_PRIVACY;
         return {
@@ -4840,39 +4753,39 @@
       })({
         canDeleteItem: _v0 => !!_v0?.metadata?.interactions?.delete,
         canMoveItem: _v0 => !!_v0?.metadata?.interactions?.edit,
-        items: _v66,
-        selectedURIs: _v82.selectedItemURIs
+        items: _v65,
+        selectedURIs: _v81.selectedItemURIs
       }),
-      _v96 = (0, _v6.useCallback)(() => "GRID_LAYOUT" === (_v1 && _v53 && "CALENDAR_LAYOUT" === _v20 ? "LIST_LAYOUT" : _v20) ? "grid" : "list", [_v1, _v53, _v20]),
-      _v97 = (0, _v6.useCallback)(() => {
+      _v95 = (0, _v6.useCallback)(() => "GRID_LAYOUT" === (_v0 && _v52 && "CALENDAR_LAYOUT" === _v19 ? "LIST_LAYOUT" : _v19) ? "grid" : "list", [_v0, _v52, _v19]),
+      _v96 = (0, _v6.useCallback)(() => {
+        _v27({
+          layout: _v95()
+        }), _v85(_v89);
+      }, [_v89, _v95, _v85, _v27]),
+      _v97 = (0, _v6.useCallback)(_v0 => {
         _v28({
-          layout: _v96()
-        }), _v86(_v90);
-      }, [_v90, _v96, _v86, _v28]),
-      _v98 = (0, _v6.useCallback)(_v0 => {
-        _v29({
-          layout: _v96(),
+          layout: _v95(),
           action: _v0.action,
           selectedCount: _v0.selectedCount
         });
-      }, [_v96, _v29]),
-      _v99 = (0, _v6.useCallback)(({
+      }, [_v95, _v28]),
+      _v98 = (0, _v6.useCallback)(({
         destination: _v0,
         types: _v1
       }) => {
-        for (let _v0 of _v1) _v30({
+        for (let _v0 of _v1) _v29({
           type: _v0,
           destination: _v0
         });
-      }, [_v30]),
-      _v100 = (0, _v6.useCallback)(({
+      }, [_v29]),
+      _v99 = (0, _v6.useCallback)(({
         types: _v0
       }) => {
-        for (let _v0 of _v0) _v31({
+        for (let _v0 of _v0) _v30({
           type: _v0
         });
-      }, [_v31]),
-      _v101 = _v94 && _v94.map(_v0 => ({
+      }, [_v30]),
+      _v100 = _v93 && _v93.map(_v0 => ({
         liveEvent: _v0,
         type: "live_event",
         isSelected: _v0.isSelected,
@@ -4880,25 +4793,25 @@
         metadata: {
           connections: {}
         }
-      })).filter(_v189),
-      _v102 = _v66?.length === 0,
-      _v103 = _v2?.teamUser ? "enterprise" === _v2.teamUser.accountType : !!_v2?.user && "enterprise" === _v2.user.account,
-      _v104 = (0, _v1.jsx)(_v34.CheckboxItemCount, {
-        hasCheckbox: !!_v91.size,
-        isChecked: !!_v82.selectedItemURIs.size,
-        isDisabled: !_v91.size,
-        isIndeterminate: !!_v82.selectedItemURIs.size && _v82.selectedItemURIs.size < _v91.size,
-        isLoading: _v63,
+      })).filter(_v186),
+      _v101 = _v65?.length === 0,
+      _v102 = _v1?.teamUser ? "enterprise" === _v1.teamUser.accountType : !!_v1?.user && "enterprise" === _v1.user.account,
+      _v103 = (0, _v1.jsx)(_v34.CheckboxItemCount, {
+        hasCheckbox: !!_v90.size,
+        isChecked: !!_v81.selectedItemURIs.size,
+        isDisabled: !_v90.size,
+        isIndeterminate: !!_v81.selectedItemURIs.size && _v81.selectedItemURIs.size < _v90.size,
+        isLoading: _v62,
         onChange: () => {
-          _v82.selectedItemURIs.size ? _v83() : _v97();
+          _v81.selectedItemURIs.size ? _v82() : _v96();
         },
-        selectedItemCount: _v82.selectedItemURIs.size,
-        subtitle: !!(_v53 ? _v67 : _v59) && (0, _v17.translate)({
-          count: _v53 ? _v67 : _v59,
+        selectedItemCount: _v81.selectedItemURIs.size,
+        subtitle: !!(_v52 ? _v66 : _v58) && (0, _v17.translate)({
+          count: _v52 ? _v66 : _v58,
           singular: "{NUM} event",
           plural: "{NUM} events",
           replacements: {
-            NUM: _v53 ? _v67 : _v59
+            NUM: _v52 ? _v66 : _v58
           },
           dictionary: {
             es: {
@@ -4935,13 +4848,13 @@
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v30.Page, {
         children: (0, _v1.jsxs)(_v30.Page.Main, {
-          children: [!!_v71 && !_v72 && (0, _v1.jsxs)(_v1.Fragment, {
+          children: [!!_v70 && !_v71 && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsxs)(_v30.Page.StickyTop, {
               children: [(0, _v1.jsx)(_v31.PageHeader, {
-                actions: (0, _v1.jsx)(_v172, {
-                  onClick: _v81
+                actions: (0, _v1.jsx)(_v169, {
+                  onClick: _v80
                 }),
-                title: _v1 ? (0, _v17.translate)({
+                title: _v0 ? (0, _v17.translate)({
                   singular: "Live events",
                   dictionary: {
                     es: {
@@ -4989,7 +4902,7 @@
                     }
                   }
                 }),
-                bottomBar: _v1 ? null != _v59 ? (0, _v1.jsxs)(_v9.Flex, {
+                bottomBar: _v0 ? null != _v58 ? (0, _v1.jsxs)(_v9.Flex, {
                   gap: "12px",
                   alignItems: "center",
                   children: [(0, _v1.jsx)(_v10.Text, {
@@ -4997,11 +4910,11 @@
                     variant: "body-sm",
                     color: "text-secondary",
                     children: (0, _v17.translate)({
-                      count: _v59,
+                      count: _v58,
                       singular: "{NUM} event",
                       plural: "{NUM} events",
                       replacements: {
-                        NUM: _v59
+                        NUM: _v58
                       },
                       dictionary: {
                         es: {
@@ -5044,7 +4957,7 @@
                     children: (0, _v17.translate)({
                       singular: "{NUM} simultaneous streams max",
                       replacements: {
-                        NUM: _v58
+                        NUM: _v57
                       },
                       dictionary: {
                         es: {
@@ -5072,38 +4985,38 @@
                     })
                   })]
                 }) : void 0 : (0, _v1.jsx)(_v26.FilterSortBar, {
-                  checkbox: _v104,
-                  layout: _v8,
-                  shouldHideViewControls: _v102,
-                  setLayout: _v36,
-                  sort: _v16,
-                  setSort: _v34,
+                  checkbox: _v103,
+                  layout: _v7,
+                  shouldHideViewControls: _v101,
+                  setLayout: _v35,
+                  sort: _v15,
+                  setSort: _v33,
                   sortOptions: _v29.EVENTS_SORT_OPTIONS
                 })
-              }), !_v1 && !_v102 && "LIST_LAYOUT" === _v20 && (0, _v1.jsx)(_v33.BokehListHeader, {
-                sort: _v16,
-                setSort: _v34,
+              }), !_v0 && !_v101 && "LIST_LAYOUT" === _v19 && (0, _v1.jsx)(_v33.BokehListHeader, {
+                sort: _v15,
+                setSort: _v33,
                 shouldShowPrivacy: !0,
                 shouldShowFileSize: !1
               })]
-            }), _v1 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v181, {
-                ownerId: _v7,
-                onDelete: _v79,
-                onMove: _v80
-              }), ("CALENDAR_LAYOUT" !== _v20 || _v53) && (0, _v1.jsxs)(_v30.Page.StickyTop, {
-                children: [_v19 && _v53 ? (0, _v1.jsx)(_v9.Flex, {
+            }), _v0 && (0, _v1.jsxs)(_v1.Fragment, {
+              children: [(0, _v1.jsx)(_v178, {
+                ownerId: _v6,
+                onDelete: _v78,
+                onMove: _v79
+              }), ("CALENDAR_LAYOUT" !== _v19 || _v52) && (0, _v1.jsxs)(_v30.Page.StickyTop, {
+                children: [_v18 && _v52 ? (0, _v1.jsx)(_v9.Flex, {
                   alignItems: "center",
                   gap: ".5rem",
                   minHeight: "md",
                   zIndex: "12",
                   backgroundColor: "background",
                   children: (0, _v1.jsx)(_v75, {
-                    value: _v43,
-                    onChange: _v50,
+                    value: _v42,
+                    onChange: _v49,
                     initialOpen: !0,
                     fullWidth: !0,
-                    onClose: _v52
+                    onClose: _v51
                   })
                 }) : (0, _v1.jsxs)(_v1.Fragment, {
                   children: [(0, _v1.jsxs)(_v9.Flex, {
@@ -5148,18 +5061,18 @@
                       alignItems: "center",
                       flexShrink: 0,
                       children: [(0, _v1.jsx)(_v75, {
-                        value: _v43,
-                        onChange: _v50,
-                        initialOpen: _v53,
-                        onOpen: _v51,
-                        onClose: _v52
+                        value: _v42,
+                        onChange: _v49,
+                        initialOpen: _v52,
+                        onOpen: _v50,
+                        onClose: _v51
                       }), (0, _v1.jsx)(_v91, {
-                        layout: _v20,
-                        setLayout: _v35,
-                        hideCalendar: _v19
+                        layout: _v19,
+                        setLayout: _v34,
+                        hideCalendar: _v18
                       })]
                     })]
-                  }), !(_v102 && !_v53) && (0, _v1.jsxs)(_v9.Flex, {
+                  }), !(_v101 && !_v52) && (0, _v1.jsxs)(_v9.Flex, {
                     justifyContent: "space-between",
                     gap: ".5rem",
                     minHeight: "md",
@@ -5168,21 +5081,21 @@
                     children: [(0, _v1.jsx)(_v9.Flex, {
                       alignItems: "center",
                       gap: ".5rem",
-                      children: _v104
-                    }), "GRID_LAYOUT" === _v20 && (0, _v1.jsx)(_v9.Flex, {
+                      children: _v103
+                    }), "GRID_LAYOUT" === _v19 && (0, _v1.jsx)(_v9.Flex, {
                       alignItems: "center",
                       justifyContent: "flex-end",
                       gap: ".5rem",
                       children: (0, _v1.jsx)(_v86, {
-                        sort: _v16,
-                        setSort: _v0 => _v34(_v0),
+                        sort: _v15,
+                        setSort: _v0 => _v33(_v0),
                         sortOptions: _v29.EVENTS_SORT_OPTIONS
                       })
                     })]
                   })]
-                }), !_v102 && (_v53 && "CALENDAR_LAYOUT" === _v20 ? "LIST_LAYOUT" : _v8) === "LIST_LAYOUT" && (0, _v1.jsx)(_v33.BokehListHeader, {
-                  sort: _v16,
-                  setSort: _v34,
+                }), !_v101 && (_v52 && "CALENDAR_LAYOUT" === _v19 ? "LIST_LAYOUT" : _v7) === "LIST_LAYOUT" && (0, _v1.jsx)(_v33.BokehListHeader, {
+                  sort: _v15,
+                  setSort: _v33,
                   shouldShowPrivacy: !0,
                   shouldShowFileSize: !1,
                   shouldShowLocation: !0
@@ -5201,9 +5114,9 @@
                   "aria-hidden": !0
                 })]
               })]
-            }), _v102 && !_v53 ? (0, _v1.jsx)(_v68, {
-              onCreateEvent: _v81
-            }) : _v102 && _v53 ? (0, _v1.jsx)(_v9.Flex, {
+            }), _v101 && !_v52 ? (0, _v1.jsx)(_v68, {
+              onCreateEvent: _v80
+            }) : _v101 && _v52 ? (0, _v1.jsx)(_v9.Flex, {
               justifyContent: "center",
               py: "2xl",
               children: (0, _v1.jsx)(_v10.Text, {
@@ -5237,74 +5150,74 @@
                 })
               })
             }) : (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v166, {
-                isLoading: _v64,
-                isLoadingLiveEventsInitial: _v63,
-                liveEvents: _v90,
-                layout: _v1 && _v53 && "CALENDAR_LAYOUT" === _v20 ? "LIST_LAYOUT" : _v20,
-                onDelete: _v79,
-                onMove: _v80,
-                ownerId: _v7,
-                setLayout: _v35,
-                onSearchActivate: _v1 ? _v51 : void 0,
-                searchInput: _v1 ? _v43 : void 0,
-                onSearchChange: _v1 ? _v50 : void 0,
-                onSearchClose: _v1 ? _v52 : void 0,
-                deselectItem: _v84,
-                selectItem: _v85,
-                onCalendarViewSelectedTabChange: _v37,
-                sort: _v16,
-                setSort: _v34,
-                onOccurrencesRevalidateReady: _v77,
-                streamsMaximum: _v1 ? _v58 : void 0,
-                shouldShowLocation: _v1,
-                rootLocationLabel: _v1 ? _v75 : void 0
-              }), (!_v1 || "CALENDAR_LAYOUT" !== _v20 || _v53 || "CALENDAR_LAYOUT" === _v20 && "UNSCHEDULED" === _v14) && (0, _v1.jsx)(() => _v62 || _v64 || _v102 ? null : (0, _v1.jsx)(_v170, {
-                isLoading: !!_v64,
-                onClick: _v70
+              children: [(0, _v1.jsx)(_v163, {
+                isLoading: _v63,
+                isLoadingLiveEventsInitial: _v62,
+                liveEvents: _v89,
+                layout: _v0 && _v52 && "CALENDAR_LAYOUT" === _v19 ? "LIST_LAYOUT" : _v19,
+                onDelete: _v78,
+                onMove: _v79,
+                ownerId: _v6,
+                setLayout: _v34,
+                onSearchActivate: _v0 ? _v50 : void 0,
+                searchInput: _v0 ? _v42 : void 0,
+                onSearchChange: _v0 ? _v49 : void 0,
+                onSearchClose: _v0 ? _v51 : void 0,
+                deselectItem: _v83,
+                selectItem: _v84,
+                onCalendarViewSelectedTabChange: _v36,
+                sort: _v15,
+                setSort: _v33,
+                onOccurrencesRevalidateReady: _v76,
+                streamsMaximum: _v0 ? _v57 : void 0,
+                shouldShowLocation: _v0,
+                rootLocationLabel: _v0 ? _v74 : void 0
+              }), (!_v0 || "CALENDAR_LAYOUT" !== _v19 || _v52 || "CALENDAR_LAYOUT" === _v19 && "UNSCHEDULED" === _v13) && (0, _v1.jsx)(() => _v61 || _v63 || _v101 ? null : (0, _v1.jsx)(_v167, {
+                isLoading: !!_v63,
+                onClick: _v69
               }), {})]
             })]
-          }), !_v71 && _v73 && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v62, {}), (0, _v1.jsx)(_v184, {
-              isEnterprise: _v103
+          }), !_v70 && _v72 && (0, _v1.jsxs)(_v1.Fragment, {
+            children: [(0, _v1.jsx)(_v62, {}), (0, _v1.jsx)(_v181, {
+              isEnterprise: _v102
             })]
           })]
         })
-      }), (0, _v1.jsx)(_v191, {
-        active: _v38,
-        activeSet: _v39
+      }), (0, _v1.jsx)(_v188, {
+        active: _v37,
+        activeSet: _v38
       }), (0, _v1.jsx)(_v16.LiveTrialBlockModal, {
-        isOpen: _v41,
-        onClose: () => _v42(!1)
+        isOpen: _v40,
+        onClose: () => _v41(!1)
       }), (0, _v1.jsx)(_v13.BulkActions, {
-        canMoveSelection: _v92,
-        canDeleteSelection: _v93,
-        deselectAllItems: _v83,
-        hasReachedMaxSelectionForMove: _v95,
-        onBulkBarActionClicked: _v98,
-        onBulkDeleteSuccess: _v100,
-        onBulkMoveSuccess: _v99,
-        removeItems: _v1 ? _v0 => {
-          _v69(_v0), _v61(_v0);
-        } : _v69,
-        selectedItems: _v101,
-        selectedItemURIs: _v82.selectedItemURIs,
-        teamOwnerId: _v7,
+        canMoveSelection: _v91,
+        canDeleteSelection: _v92,
+        deselectAllItems: _v82,
+        hasReachedMaxSelectionForMove: _v94,
+        onBulkBarActionClicked: _v97,
+        onBulkDeleteSuccess: _v99,
+        onBulkMoveSuccess: _v98,
+        removeItems: _v0 ? _v0 => {
+          _v68(_v0), _v60(_v0);
+        } : _v68,
+        selectedItems: _v100,
+        selectedItemURIs: _v81.selectedItemURIs,
+        teamOwnerId: _v6,
         useEventDeleteModal: !0
       })]
     });
   }
-  var _v193 = _v0.i(0),
+  var _v190 = _v0.i(0),
+    _v191 = _v0.i(0),
+    _v192 = _v0.i(0),
+    _v193 = _v0.i(0),
     _v194 = _v0.i(0),
     _v195 = _v0.i(0),
-    _v196 = _v0.i(0),
-    _v197 = _v0.i(0),
-    _v198 = _v0.i(0),
-    _v199 = _v0.i(0);
-  let _v200 = ({
+    _v196 = _v0.i(0);
+  let _v197 = ({
     playerAssetUrls: _v0
   }) => {
-    let _v1 = (0, _v199.useViewer)(),
+    let _v1 = (0, _v196.useViewer)(),
       _v2 = _v1?.user?.id,
       _v3 = _v1?.teamUser?.ownerId,
       {
@@ -5313,7 +5226,7 @@
       } = (0, _v2.useCapability)(["hasVideoManagerLiveEventsMenu"], _v3 || _v2);
     if (!_v5) return null;
     if (_v4?.hasVideoManagerLiveEventsMenu === !1) throw new _v3.ResourceNotFoundError();
-    return (0, _v1.jsx)(_v193.PlayerContextProvider, {
+    return (0, _v1.jsx)(_v190.PlayerContextProvider, {
       assetUrls: _v0 ?? {
         barebone_js: "",
         chromeless_css: "",
@@ -5322,19 +5235,19 @@
         js: "",
         player_url: ""
       },
-      type: _v194.PlayerType.VimeoPlayer,
-      children: (0, _v1.jsx)(_v197.VideoModalContextProvider, {
-        children: (0, _v1.jsx)(_v198.LiveEventDeleteModalProvider, {
-          children: (0, _v1.jsx)(_v192, {})
+      type: _v191.PlayerType.VimeoPlayer,
+      children: (0, _v1.jsx)(_v194.VideoModalContextProvider, {
+        children: (0, _v1.jsx)(_v195.LiveEventDeleteModalProvider, {
+          children: (0, _v1.jsx)(_v189, {})
         })
       })
     });
   };
-  _v200.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v196.VideoLibraryLayout, {
+  _v197.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v193.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
     searchContentAlignment: _v30.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
-    sideNavContent: (0, _v1.jsx)(_v195.SideNavContent, {
+    sideNavContent: (0, _v1.jsx)(_v192.SideNavContent, {
       surface: "home"
     }),
     sideNavSurface: "home",
@@ -5349,5 +5262,5 @@
     noIndex: !0,
     inlineViewer: !0,
     inlinePlayerAssets: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v200], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v197], 0);
 }

@@ -2802,9 +2802,8 @@
     };
   var _v129 = _v0.i(0),
     _v130 = _v0.i(0),
-    _v131 = _v0.i(0),
-    _v132 = _v0.i(0);
-  async function _v133({
+    _v131 = _v0.i(0);
+  async function _v132({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -2813,7 +2812,7 @@
     },
     ..._v4
   }) {
-    return (0, _v132.measureLatency)("getUserTeamGroup", "GET", async () => {
+    return (0, _v131.measureLatency)("getUserTeamGroup", "GET", async () => {
       let _v0 = await fetch(`${_v0}/users/${_v2}/team_groups/${_v3}?fields=${_v1.map(_v111.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
@@ -2825,76 +2824,11 @@
       return (0, _v111.deepCamelCase)(_v1);
     });
   }
-  var _v134 = _v0.i(0),
+  var _v133 = _v0.i(0),
+    _v134 = _v0.i(0),
     _v135 = _v0.i(0),
-    _v136 = _v0.i(0),
-    _v137 = _v0.i(0);
-  function _v138(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v137.useGctlConfig)();
-    return (0, _v134.default)(_v2 ? `/users/${_v2.where.userId}/team_groups/${_v2.where.teamGroupId}${(0, _v136.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v133({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  "true" === _v131.default.env.STORYBOOK && (0, _v136.assignMswData)(_v138, {
-    endpoint: "/users/:userId/team_groups/:teamGroupId",
-    method: "GET"
-  }), "true" === _v131.default.env.STORYBOOK && (0, _v136.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v135.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v137.useGctlConfig)(),
-      [_v5, _v6] = (0, _v136.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/team_groups/${_v0.where.teamGroupId}${(0, _v136.serializeQuery)(_v0)}`, _v133({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/users/:userId/team_groups/:teamGroupId",
-    method: "GET"
-  });
-  let _v139 = ({
+    _v136 = _v0.i(0);
+  let _v137 = ({
       role: _v0
     }) => {
       let _v1 = (0, _v34.getTranslations)(),
@@ -2918,7 +2852,7 @@
         children: _v1.RoleWithName(_v2)
       }) : null;
     },
-    _v140 = ({
+    _v138 = ({
       groupData: _v0,
       closeModal: _v1,
       openBulkModal: _v2,
@@ -2930,7 +2864,26 @@
           data: _v6,
           isLoading: _v7,
           error: _v8
-        } = _v138(() => {
+        } = function (_v0, _v1) {
+          let _v2 = "function" == typeof _v0 ? _v0() : _v0,
+            {
+              baseUrl: _v3,
+              jwt: _v4,
+              xVimeoPage: _v5,
+              locale: _v6
+            } = (0, _v136.useGctlConfig)();
+          return (0, _v133.default)(_v2 ? `/users/${_v2.where.userId}/team_groups/${_v2.where.teamGroupId}${(0, _v135.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v132({
+            ..._v2,
+            headers: {
+              ..._v2.headers,
+              "Content-Type": "application/json",
+              Authorization: _v4 ? `jwt ${_v4}` : "",
+              "Vimeo-Page": `${_v5}`,
+              "Accept-Language": _v6 ?? "en"
+            },
+            baseUrl: _v3
+          }) : null, _v1);
+        }(() => {
           let _v0 = (0, _v31.getIdFromUri)(_v0?.uri || "");
           return _v0 ? {
             where: {
@@ -3114,7 +3067,7 @@
                       children: [(0, _v1.jsx)(_v29.ShrinkableText, {
                         variant: "body-md",
                         children: _v0.displayName
-                      }), (0, _v1.jsx)(_v139, {
+                      }), (0, _v1.jsx)(_v137, {
                         role: _v9.get(_v0.uri)
                       })]
                     })]
@@ -3138,7 +3091,7 @@
         })]
       });
     },
-    _v141 = ({
+    _v139 = ({
       closeModal: _v0,
       groupData: _v1
     }) => {
@@ -3206,7 +3159,7 @@
         })]
       });
     };
-  async function _v142({
+  async function _v140({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -3215,7 +3168,7 @@
     },
     ..._v4
   }) {
-    return (0, _v132.measureLatency)("deleteWorkspaceGroup", "DELETE", async () => {
+    return (0, _v131.measureLatency)("deleteWorkspaceGroup", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/workspaces/${_v2}/groups/${_v3}?fields=${_v1.map(_v111.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "DELETE"
@@ -3227,7 +3180,7 @@
       return (0, _v111.deepCamelCase)(_v1);
     });
   }
-  async function _v143({
+  async function _v141({
     baseUrl: _v0,
     variables: _v1,
     where: {
@@ -3236,7 +3189,7 @@
     },
     ..._v4
   }) {
-    return (0, _v132.measureLatency)("patchWorkspaceGroup", "PATCH", async () => {
+    return (0, _v131.measureLatency)("patchWorkspaceGroup", "PATCH", async () => {
       let _v0 = await fetch(`${_v0}/workspaces/${_v2}/groups/${_v3}`, {
         ..._v4,
         method: "PATCH",
@@ -3249,99 +3202,52 @@
       return (0, _v111.deepCamelCase)(_v1);
     });
   }
-  function _v144() {
-    let {
-        mutate: _v0
-      } = (0, _v135.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v137.useGctlConfig)(),
-      [_v5, _v6] = (0, _v136.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/groups/${_v0.where.teamGroupId}${(0, _v136.serializeQuery)(_v0)}`, _v142({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  function _v145() {
-    let {
-        mutate: _v0
-      } = (0, _v135.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v137.useGctlConfig)(),
-      [_v5, _v6] = (0, _v136.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/groups/${_v0.where.teamGroupId}${(0, _v136.serializeQuery)(_v0)}`, _v143({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v131.default.env.STORYBOOK && (0, _v136.assignMswData)(_v144, {
-    endpoint: "/workspaces/:workspaceUuid/groups/:teamGroupId",
-    method: "DELETE"
-  }), "true" === _v131.default.env.STORYBOOK && (0, _v136.assignMswData)(_v145, {
-    endpoint: "/workspaces/:workspaceUuid/groups/:teamGroupId",
-    method: "PATCH"
-  });
-  let _v146 = ({
+  let _v142 = ({
       handleError: _v0,
       handleSuccess: _v1
     }) => {
       let [_v2, {
           error: _v3,
           loading: _v4
-        }] = _v145(),
+        }] = function () {
+          let {
+              mutate: _v0
+            } = (0, _v134.useSWRConfig)(),
+            {
+              baseUrl: _v1,
+              jwt: _v2,
+              xVimeoPage: _v3,
+              locale: _v4
+            } = (0, _v136.useGctlConfig)(),
+            [_v5, _v6] = (0, _v135.useInternalState)();
+          return [(0, _v3.useCallback)(async _v0 => {
+            _v6({
+              type: "REQUEST"
+            });
+            try {
+              let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/groups/${_v0.where.teamGroupId}${(0, _v135.serializeQuery)(_v0)}`, _v141({
+                ..._v0,
+                baseUrl: _v1,
+                headers: {
+                  ..._v0.headers,
+                  "Content-Type": "application/json",
+                  Authorization: _v2 ? `jwt ${_v2}` : "",
+                  "Vimeo-Page": `${_v3}`,
+                  "Accept-Language": _v4 ?? "en"
+                }
+              }), !1);
+              _v6({
+                type: "SUCCESS",
+                payload: _v0
+              });
+            } catch (_v0) {
+              _v6({
+                type: "FAILURE",
+                payload: _v0
+              });
+            }
+          }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+        }(),
         _v5 = (0, _v3.useRef)(!1),
         _v6 = (0, _v3.useCallback)((_v0, _v1, _v2) => {
           _v2({
@@ -3359,7 +3265,7 @@
         patchWsGroup: _v6
       }), [_v6, _v4]);
     },
-    _v147 = ({
+    _v143 = ({
       closeModal: _v0,
       groupData: _v1
     }) => {
@@ -3395,7 +3301,7 @@
         {
           patchWsGroup: _v11,
           loading: _v12
-        } = _v146({
+        } = _v142({
           handleError: _v6,
           handleSuccess: _v8
         }),
@@ -3428,9 +3334,9 @@
         })]
       });
     };
-  var _v148 = _v0.i(0);
-  let _v149 = ["uri", "user.name", "user.pictures", "user.uri", "email", "role"],
-    _v150 = ({
+  var _v144 = _v0.i(0);
+  let _v145 = ["uri", "user.name", "user.pictures", "user.uri", "email", "role"],
+    _v146 = ({
       groupData: _v0,
       nextRole: _v1
     }) => {
@@ -3453,7 +3359,7 @@
           hasError: _v13,
           lastElementRef: _v14
         } = _v125({
-          select: _v149,
+          select: _v145,
           groupData: _v0,
           query: (0, _v40.useDebouncedValue)(_v9, 500)
         }),
@@ -3533,7 +3439,7 @@
                     label: _v2.MemberHasAHigherRole,
                     shouldWrapChildren: !0,
                     maxW: (0, _v10.rem)(260),
-                    children: (0, _v1.jsx)(_v148.InfoCircle, {
+                    children: (0, _v1.jsx)(_v144.InfoCircle, {
                       width: "2xs",
                       height: "2xs"
                     })
@@ -3549,7 +3455,7 @@
         })]
       });
     },
-    _v151 = ({
+    _v147 = ({
       closeModal: _v0,
       groupData: _v1
     }) => {
@@ -3589,7 +3495,7 @@
         {
           patchWsGroup: _v19,
           loading: _v20
-        } = _v146({
+        } = _v142({
           handleError: _v11,
           handleSuccess: _v16
         }),
@@ -3643,7 +3549,7 @@
         }), (0, _v1.jsx)(_v24.ModalBody, {
           paddingBottom: "200",
           paddingTop: "75",
-          children: _v3 ? (0, _v1.jsx)(_v150, {
+          children: _v3 ? (0, _v1.jsx)(_v146, {
             groupData: _v1,
             nextRole: _v23
           }) : (0, _v1.jsxs)(_v1.Fragment, {
@@ -3695,7 +3601,7 @@
         })]
       });
     },
-    _v152 = ({
+    _v148 = ({
       groupData: _v0,
       closeModal: _v1,
       ws: _v2,
@@ -3716,7 +3622,45 @@
           let [_v2, {
               loading: _v3,
               error: _v4
-            }] = _v144(),
+            }] = function () {
+              let {
+                  mutate: _v0
+                } = (0, _v134.useSWRConfig)(),
+                {
+                  baseUrl: _v1,
+                  jwt: _v2,
+                  xVimeoPage: _v3,
+                  locale: _v4
+                } = (0, _v136.useGctlConfig)(),
+                [_v5, _v6] = (0, _v135.useInternalState)();
+              return [(0, _v3.useCallback)(async _v0 => {
+                _v6({
+                  type: "REQUEST"
+                });
+                try {
+                  let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/groups/${_v0.where.teamGroupId}${(0, _v135.serializeQuery)(_v0)}`, _v140({
+                    ..._v0,
+                    baseUrl: _v1,
+                    headers: {
+                      ..._v0.headers,
+                      "Content-Type": "application/json",
+                      Authorization: _v2 ? `jwt ${_v2}` : "",
+                      "Vimeo-Page": `${_v3}`,
+                      "Accept-Language": _v4 ?? "en"
+                    }
+                  }), !1);
+                  _v6({
+                    type: "SUCCESS",
+                    payload: _v0
+                  });
+                } catch (_v0) {
+                  _v6({
+                    type: "FAILURE",
+                    payload: _v0
+                  });
+                }
+              }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+            }(),
             _v5 = (0, _v3.useRef)(!1),
             _v6 = (0, _v3.useCallback)((_v0, _v1) => {
               _v2({
@@ -3764,7 +3708,7 @@
         })]
       });
     },
-    _v153 = ({
+    _v149 = ({
       closeModal: _v0,
       openBulkModal: _v1,
       updateGroupData: _v2,
@@ -3780,7 +3724,7 @@
           ownerId: _v5
         });
         if (!_v3) return null;
-        if (_v4 === _v20.UNASSIGN_WORKSPACE) return _v6 ? (0, _v1.jsx)(_v152, {
+        if (_v4 === _v20.UNASSIGN_WORKSPACE) return _v6 ? (0, _v1.jsx)(_v148, {
           groupData: _v3,
           closeModal: _v0,
           ws: _v6,
@@ -3793,7 +3737,7 @@
         };
         switch (_v4) {
           case _v20.RENAME:
-            return (0, _v1.jsx)(_v141, {
+            return (0, _v1.jsx)(_v139, {
               ..._v0
             });
           case _v20.COPY:
@@ -3810,15 +3754,15 @@
               updateGroupData: _v2
             });
           case _v20.ROLE_SET:
-            return (0, _v1.jsx)(_v151, {
-              ..._v0
-            });
-          case _v20.ROLE_REMOVE:
             return (0, _v1.jsx)(_v147, {
               ..._v0
             });
+          case _v20.ROLE_REMOVE:
+            return (0, _v1.jsx)(_v143, {
+              ..._v0
+            });
           case _v20.MANAGE_WORKSPACES:
-            return (0, _v1.jsx)(_v140, {
+            return (0, _v1.jsx)(_v138, {
               ..._v0,
               openBulkModal: _v1
             });
@@ -3841,14 +3785,14 @@
         })]
       });
     },
-    _v154 = "bulk-actions-bar",
-    _v155 = {
+    _v150 = "bulk-actions-bar",
+    _v151 = {
       mode: null,
       groupData: null,
       ws: null,
       isManageWssFlow: !1
     },
-    _v156 = () => {
+    _v152 = () => {
       let _v0 = (0, _v34.getTranslations)(),
         {
           analyticsHandlers: {
@@ -3867,7 +3811,7 @@
           ws: _v12
         } = (0, _v3.useContext)(_v47),
         [_v13, _v14] = (0, _v3.useState)(!1),
-        [_v15, _v16] = (0, _v3.useState)(_v155),
+        [_v15, _v16] = (0, _v3.useState)(_v151),
         [_v17, _v18] = (0, _v3.useState)(!1),
         [_v19, _v20] = (0, _v3.useState)([]),
         [_v21, _v22] = (0, _v3.useState)(!1),
@@ -3936,7 +3880,7 @@
           onClose: () => {
             _v18(!1), _v10();
           }
-        }), _v13 && _v15.mode && _v7 && (0, _v1.jsx)(_v153, {
+        }), _v13 && _v15.mode && _v7 && (0, _v1.jsx)(_v149, {
           ..._v15,
           mode: _v15.mode,
           closeModal: (_v0, _v1) => {
@@ -3951,7 +3895,7 @@
               mode: _v20.UNASSIGN_WORKSPACE,
               ws: _v1?.ws || null,
               isManageWssFlow: _v1?.isManageWssFlow ?? !1
-            }) : (_v0 === _v22.RELOAD && _v10(), _v16(_v155), _v14(!1), _v11(""));
+            }) : (_v0 === _v22.RELOAD && _v10(), _v16(_v151), _v14(!1), _v11(""));
           },
           updateGroupData: _v0 => {
             _v16({
@@ -3964,14 +3908,14 @@
           },
           ownerId: _v7
         }), (0, _v1.jsx)(_v8.Flex, {
-          id: _v154,
+          id: _v150,
           justifyContent: "center",
           width: "100%"
         }), (0, _v1.jsx)(_v12.BulkActionsBar, {
           handleDeselectAllItems: () => _v31(!1),
           numItemsSelected: _v19.length,
           selectedItemsText: _v0.XGroupsSelected(_v19.length),
-          targetElementId: _v154,
+          targetElementId: _v150,
           children: (0, _v1.jsx)(_v12.BulkActionsBar.ActionButton, {
             label: _v0.AddToWorkspace,
             icon: (0, _v1.jsx)(_v11.PlusSmall, {}),
@@ -3989,6 +3933,6 @@
     };
   _v0.s(["TeamGroups", 0, _v0 => (0, _v1.jsx)(_v48, {
     ..._v0,
-    children: (0, _v1.jsx)(_v156, {})
+    children: (0, _v1.jsx)(_v152, {})
   })], 0);
 }

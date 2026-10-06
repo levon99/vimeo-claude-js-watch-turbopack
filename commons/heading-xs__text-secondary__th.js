@@ -759,140 +759,10 @@
   }
   var _v43 = _v0.i(0);
   let _v44 = ["data.operationKey", "data.creditsUsed", "data.occurredAt", "data.clipId", "data.targetLang", "data.consumerService", "data.triggeringUserId", "data.workspaceId", "data.objectName", "data.objectUri", "paging.next"];
-  var _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  function _v49(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v43.useGctlConfig)();
-    return (0, _v45.default)(_v2 ? `/organizations/${_v2.where.orgUuid}/enterprise_credits/usage_operations${(0, _v48.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v40({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  function _v50(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v43.useGctlConfig)();
-    return (0, _v45.default)(_v2 ? `/workspaces/${_v2.where.workspaceUuid}/enterprise_credits/usage_operations${(0, _v48.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v42({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  "true" === _v46.default.env.STORYBOOK && (0, _v48.assignMswData)(_v49, {
-    endpoint: "/organizations/:orgUuid/enterprise_credits/usage_operations",
-    method: "GET"
-  }), "true" === _v46.default.env.STORYBOOK && (0, _v48.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v47.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v43.useGctlConfig)(),
-      [_v5, _v6] = (0, _v48.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/organizations/${_v0.where.orgUuid}/enterprise_credits/usage_operations${(0, _v48.serializeQuery)(_v0)}`, _v40({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/organizations/:orgUuid/enterprise_credits/usage_operations",
-    method: "GET"
-  }), "true" === _v46.default.env.STORYBOOK && (0, _v48.assignMswData)(_v50, {
-    endpoint: "/workspaces/:workspaceUuid/enterprise_credits/usage_operations",
-    method: "GET"
-  }), "true" === _v46.default.env.STORYBOOK && (0, _v48.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v47.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v43.useGctlConfig)(),
-      [_v5, _v6] = (0, _v48.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/enterprise_credits/usage_operations${(0, _v48.serializeQuery)(_v0)}`, _v42({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/workspaces/:workspaceUuid/enterprise_credits/usage_operations",
-    method: "GET"
-  });
-  let _v51 = ["data.operationKey", "data.creditsUsed", "data.occurredAt", "data.clipId", "data.targetLang", "data.consumerService", "data.triggeringUserId", "data.workspaceId", "data.objectName", "data.objectUri", "paging.next"];
+  var _v45 = _v0.i(0);
+  _v0.i(0);
+  var _v46 = _v0.i(0);
+  let _v47 = ["data.operationKey", "data.creditsUsed", "data.occurredAt", "data.clipId", "data.targetLang", "data.consumerService", "data.triggeringUserId", "data.workspaceId", "data.objectName", "data.objectUri", "paging.next"];
   _v0.s(["AiCreditsConsumptionList", 0, ({
     organizationUuid: _v0,
     workspaceUuid: _v1,
@@ -920,20 +790,58 @@
             xVimeoPage: _v12,
             locale: _v13
           } = (0, _v43.useGctlConfig)(),
-          _v14 = _v49(() => _v8 && _v0 ? {
+          _v14 = function (_v0) {
+            let _v1 = "function" == typeof _v0 ? _v0() : _v0,
+              {
+                baseUrl: _v2,
+                jwt: _v3,
+                xVimeoPage: _v4,
+                locale: _v5
+              } = (0, _v43.useGctlConfig)();
+            return (0, _v45.default)(_v1 ? `/organizations/${_v1.where.orgUuid}/enterprise_credits/usage_operations${(0, _v46.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v40({
+              ..._v1,
+              headers: {
+                ..._v1.headers,
+                "Content-Type": "application/json",
+                Authorization: _v3 ? `jwt ${_v3}` : "",
+                "Vimeo-Page": `${_v4}`,
+                "Accept-Language": _v5 ?? "en"
+              },
+              baseUrl: _v2
+            }) : null, void 0);
+          }(() => _v8 && _v0 ? {
             where: {
               orgUuid: _v0
             },
-            select: _v51,
+            select: _v47,
             query: _v3 ? {
               cursor: _v3
             } : {}
           } : null),
-          _v15 = _v50(() => _v9 && _v1 ? {
+          _v15 = function (_v0) {
+            let _v1 = "function" == typeof _v0 ? _v0() : _v0,
+              {
+                baseUrl: _v2,
+                jwt: _v3,
+                xVimeoPage: _v4,
+                locale: _v5
+              } = (0, _v43.useGctlConfig)();
+            return (0, _v45.default)(_v1 ? `/workspaces/${_v1.where.workspaceUuid}/enterprise_credits/usage_operations${(0, _v46.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v42({
+              ..._v1,
+              headers: {
+                ..._v1.headers,
+                "Content-Type": "application/json",
+                Authorization: _v3 ? `jwt ${_v3}` : "",
+                "Vimeo-Page": `${_v4}`,
+                "Accept-Language": _v5 ?? "en"
+              },
+              baseUrl: _v2
+            }) : null, void 0);
+          }(() => _v9 && _v1 ? {
             where: {
               workspaceUuid: _v1
             },
-            select: _v51,
+            select: _v47,
             query: _v3 ? {
               cursor: _v3
             } : {}
@@ -1364,9 +1272,9 @@
       })]
     });
   }], 0);
-  var _v52 = _v0.i(0);
-  let _v53 = "gray.300",
-    _v54 = [{
+  var _v48 = _v0.i(0);
+  let _v49 = "gray.300",
+    _v50 = [{
       key: "base",
       color: "vimeoBlue.400",
       label: (0, _v13.translate)({
@@ -1439,12 +1347,12 @@
         }
       })
     }],
-    _v55 = ({
+    _v51 = ({
       totalCount: _v0,
       breakdown: _v1
     }) => {
-      let _v2 = Math.max(_v0 && _v0 > 0 ? _v0 : 0, _v54.reduce((_v0, _v1) => _v0 + Math.max(0, _v1[_v1.key]?.used ?? 0), 0)),
-        _v3 = _v54.map(_v0 => {
+      let _v2 = Math.max(_v0 && _v0 > 0 ? _v0 : 0, _v50.reduce((_v0, _v1) => _v0 + Math.max(0, _v1[_v1.key]?.used ?? 0), 0)),
+        _v3 = _v50.map(_v0 => {
           let _v1 = _v1[_v0.key],
             _v2 = Math.max(0, _v1?.used ?? 0),
             _v3 = Math.max(0, _v1?.granted ?? 0);
@@ -1464,7 +1372,7 @@
           height: (0, _v7.rem)(8),
           width: "100%",
           borderRadius: "999px",
-          backgroundColor: _v53,
+          backgroundColor: _v49,
           overflow: "hidden",
           children: _v3.map(_v0 => _v0.widthPercentage > 0 ? (0, _v1.jsx)(_v3.Box, {
             height: "100%",
@@ -1493,7 +1401,7 @@
             children: [(0, _v1.jsx)(_v3.Box, {
               boxSize: (0, _v7.rem)(12),
               borderRadius: "full",
-              backgroundColor: _v53
+              backgroundColor: _v49
             }), (0, _v1.jsx)(_v11.Text, {
               variant: "body-md",
               color: "text-secondary",
@@ -1528,11 +1436,11 @@
         })]
       });
     };
-  var _v56 = _v0.i(0),
-    _v57 = _v0.i(0),
-    _v58 = _v0.i(0),
-    _v59 = _v0.i(0);
-  let _v60 = ({
+  var _v52 = _v0.i(0),
+    _v53 = _v0.i(0),
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0);
+  let _v56 = ({
     variant: _v0
   }) => {
     let _v1 = "error" === _v0 ? (0, _v13.translate)({
@@ -1586,15 +1494,15 @@
         }
       }
     });
-    return (0, _v1.jsxs)(_v56.Alert, {
+    return (0, _v1.jsxs)(_v52.Alert, {
       status: _v0,
       borderRadius: "0",
       alignItems: "center",
       width: "100%",
       "data-testid": `ai-credits-usage-banner-${_v0}`,
-      children: [(0, _v1.jsx)(_v57.AlertIcon, {}), (0, _v1.jsx)(_v58.AlertTitle, {
+      children: [(0, _v1.jsx)(_v53.AlertIcon, {}), (0, _v1.jsx)(_v54.AlertTitle, {
         children: _v1
-      }), (0, _v1.jsx)(_v59.Spacer, {}), (0, _v1.jsx)(_v4.Button, {
+      }), (0, _v1.jsx)(_v55.Spacer, {}), (0, _v1.jsx)(_v4.Button, {
         variant: "secondary",
         size: "sm",
         onClick: () => window.open("https://vimeo.com/enterprise/contact-us", "_blank"),
@@ -1627,13 +1535,13 @@
       })]
     });
   };
-  var _v61 = _v0.i(0),
-    _v62 = _v0.i(0);
-  let _v63 = (_v0, _v1) => {
+  var _v57 = _v0.i(0),
+    _v58 = _v0.i(0);
+  let _v59 = (_v0, _v1) => {
       let _v2 = "number" == typeof _v0 && "number" == typeof _v1 && _v1 > 0 ? _v0 / _v1 : 0;
       return _v2 >= .9 ? "status-destructive-primary" : _v2 >= .75 ? "status-caution-primary" : "fill-brand";
     },
-    _v64 = ({
+    _v60 = ({
       children: _v0,
       ..._v1
     }) => (0, _v1.jsx)(_v12.VStack, {
@@ -1648,7 +1556,7 @@
       ..._v1,
       children: _v0
     }),
-    _v65 = ({
+    _v61 = ({
       children: _v0,
       title: _v1,
       tooltip: _v2,
@@ -1667,11 +1575,11 @@
           children: [(0, _v1.jsx)(_v11.Text, {
             variant: "heading-xs",
             children: _v1
-          }), _v2 && (0, _v1.jsx)(_v61.Tooltip, {
+          }), _v2 && (0, _v1.jsx)(_v57.Tooltip, {
             placement: "top-start",
             label: _v2,
             shouldWrapChildren: !0,
-            children: (0, _v1.jsx)(_v62.InfoCircle, {
+            children: (0, _v1.jsx)(_v58.InfoCircle, {
               boxSize: "2xs",
               display: "block"
             })
@@ -1714,12 +1622,12 @@
         children: _v0
       })]
     }),
-    _v66 = ({
+    _v62 = ({
       currentCount: _v0,
       totalCount: _v1
     }) => {
       let _v2 = "number" == typeof _v0 && "number" == typeof _v1 && _v1 > 0 ? Math.min(100, Math.max(0, _v0 / _v1 * 100)) : 0,
-        _v3 = _v63(_v0, _v1);
+        _v3 = _v59(_v0, _v1);
       return (0, _v1.jsx)(_v6.Flex, {
         role: "progressbar",
         "aria-valuemin": 0,
@@ -1739,7 +1647,7 @@
         })
       });
     },
-    _v67 = ({
+    _v63 = ({
       currentCount: _v0,
       totalCount: _v1,
       currentCountText: _v2,
@@ -1803,7 +1711,7 @@
         }), _v7 && (0, _v1.jsxs)(_v26.HStack, {
           align: "center",
           gap: "xs",
-          children: [(0, _v1.jsx)(_v62.InfoCircle, {
+          children: [(0, _v1.jsx)(_v58.InfoCircle, {
             boxSize: "2xs",
             color: "red.400"
           }), (0, _v1.jsx)(_v11.Text, {
@@ -1888,7 +1796,7 @@
         gap: "xs",
         children: [(0, _v1.jsx)(_v11.Text, {
           children: _v6
-        }), (0, _v1.jsx)(_v52.Divider, {
+        }), (0, _v1.jsx)(_v48.Divider, {
           borderColor: "stroke",
           width: "100%"
         }), (0, _v1.jsx)(_v11.Text, {
@@ -2044,7 +1952,7 @@
         })]
       }) : _v6,
       _v8 = (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v65, {
+        children: [(0, _v1.jsx)(_v61, {
           title: (0, _v13.translate)({
             singular: "AI credits",
             dictionary: {
@@ -2075,15 +1983,15 @@
           currentCount: _v0,
           totalCount: _v1,
           hideContactButton: !!_v4,
-          children: (0, _v1.jsx)(_v67, {
+          children: (0, _v1.jsx)(_v63, {
             currentCount: _v0,
             totalCount: _v1,
             hideLimitIndicator: !!_v4
           })
-        }), _v3 ? (0, _v1.jsx)(_v55, {
+        }), _v3 ? (0, _v1.jsx)(_v51, {
           totalCount: _v1,
           breakdown: _v3
-        }) : (0, _v1.jsx)(_v66, {
+        }) : (0, _v1.jsx)(_v62, {
           currentCount: _v0,
           totalCount: _v1
         })]
@@ -2098,7 +2006,7 @@
       gap: "0",
       minHeight: (0, _v7.rem)(120),
       ..._v5,
-      children: [(0, _v1.jsx)(_v60, {
+      children: [(0, _v1.jsx)(_v56, {
         variant: _v4
       }), (0, _v1.jsx)(_v12.VStack, {
         padding: "lg",
@@ -2109,24 +2017,24 @@
         flex: "1",
         children: _v8
       })]
-    }) : (0, _v1.jsx)(_v64, {
+    }) : (0, _v1.jsx)(_v60, {
       "data-testid": "ai-credits-total-count",
       ..._v5,
       children: _v8
     });
   }], 0);
-  var _v68 = _v0.i(0);
+  var _v64 = _v0.i(0);
   _v0.s(["StorageTotalCount", 0, ({
     currentCount: _v0,
     totalCount: _v1,
     ..._v2
   }) => {
-    let _v3 = (0, _v68.bytesToSize)(_v0 || 0, 1),
-      _v4 = (0, _v68.bytesToSize)(_v1 || 0, 1);
-    return (0, _v1.jsxs)(_v64, {
+    let _v3 = (0, _v64.bytesToSize)(_v0 || 0, 1),
+      _v4 = (0, _v64.bytesToSize)(_v1 || 0, 1);
+    return (0, _v1.jsxs)(_v60, {
       "data-testid": "storage-total-count",
       ..._v2,
-      children: [(0, _v1.jsx)(_v65, {
+      children: [(0, _v1.jsx)(_v61, {
         title: (0, _v13.translate)({
           singular: "Storage",
           dictionary: {
@@ -2155,7 +2063,7 @@
         }),
         currentCount: _v0,
         totalCount: _v1,
-        children: (0, _v1.jsx)(_v67, {
+        children: (0, _v1.jsx)(_v63, {
           currentCount: _v0,
           totalCount: _v1,
           currentCountText: _v3,
@@ -2165,7 +2073,7 @@
         direction: "column",
         width: "100%",
         gap: "sm",
-        children: [(0, _v1.jsx)(_v66, {
+        children: [(0, _v1.jsx)(_v62, {
           currentCount: _v0,
           totalCount: _v1
         }), (0, _v1.jsxs)(_v6.Flex, {
@@ -2177,7 +2085,7 @@
             children: [(0, _v1.jsx)(_v3.Box, {
               boxSize: (0, _v7.rem)(12),
               borderRadius: "full",
-              backgroundColor: _v63(_v0, _v1)
+              backgroundColor: _v59(_v0, _v1)
             }), (0, _v1.jsx)(_v11.Text, {
               variant: "body-md",
               color: "text-secondary",

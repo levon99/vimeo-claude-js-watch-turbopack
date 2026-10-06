@@ -82,15 +82,14 @@
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
     _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
-    _v29 = _v0.i(0);
-  async function _v30({
+    _v28 = _v0.i(0);
+  async function _v29({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
     ..._v3
   }) {
-    return (0, _v29.measureLatency)("postMeGiftCodeRedeem", "POST", async () => {
+    return (0, _v28.measureLatency)("postMeGiftCodeRedeem", "POST", async () => {
       let _v0 = await fetch(`${_v0}/me/gift-code/redeem?fields=${_v1.map(_v26.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "POST",
@@ -103,52 +102,9 @@
       return (0, _v26.deepCamelCase)(_v1);
     });
   }
-  var _v31 = _v0.i(0),
-    _v32 = _v0.i(0);
-  function _v33() {
-    let {
-        mutate: _v0
-      } = (0, _v31.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v32.useGctlConfig)(),
-      [_v5, _v6] = (0, _v28.useInternalState)();
-    return [(0, _v4.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/me/gift-code/redeem${(0, _v28.serializeQuery)(_v0)}`, _v30({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v27.default.env.STORYBOOK && (0, _v28.assignMswData)(_v33, {
-    endpoint: "/me/gift-code/redeem",
-    method: "POST"
-  });
-  let _v34 = {
+  var _v30 = _v0.i(0),
+    _v31 = _v0.i(0);
+  let _v32 = {
       gift_code_already_redeemed: (0, _v6.translate)({
         singular: "This gift code has already been redeemed, or your account already has an active subscription.",
         dictionary: {
@@ -306,8 +262,8 @@
         }
       })
     },
-    _v35 = ["id", "orderId", "subscriptionId", "status", "billingPlanId", "productName"],
-    _v36 = async _v0 => {
+    _v33 = ["id", "orderId", "subscriptionId", "status", "billingPlanId", "productName"],
+    _v34 = async _v0 => {
       if (!(_v0 instanceof _v26.NetworkError)) return null;
       try {
         let _v0 = await _v0.res.json();
@@ -318,7 +274,7 @@
       } catch {}
       return null;
     };
-  function _v37({
+  function _v35({
     prefilledGiftCode: _v0
   }) {
     let _v1 = (0, _v25.useViewer)(),
@@ -378,11 +334,49 @@
             trackGiftCodeRedeemSucceeded: _v9,
             trackGiftCodeRedeemFailed: _v10
           } = _v21(),
-          [_v11, _v12] = _v33(),
+          [_v11, _v12] = function () {
+            let {
+                mutate: _v0
+              } = (0, _v30.useSWRConfig)(),
+              {
+                baseUrl: _v1,
+                jwt: _v2,
+                xVimeoPage: _v3,
+                locale: _v4
+              } = (0, _v31.useGctlConfig)(),
+              [_v5, _v6] = (0, _v27.useInternalState)();
+            return [(0, _v4.useCallback)(async _v0 => {
+              _v6({
+                type: "REQUEST"
+              });
+              try {
+                let _v0 = await _v0(`/me/gift-code/redeem${(0, _v27.serializeQuery)(_v0)}`, _v29({
+                  ..._v0,
+                  baseUrl: _v1,
+                  headers: {
+                    ..._v0.headers,
+                    "Content-Type": "application/json",
+                    Authorization: _v2 ? `jwt ${_v2}` : "",
+                    "Vimeo-Page": `${_v3}`,
+                    "Accept-Language": _v4 ?? "en"
+                  }
+                }), !1);
+                _v6({
+                  type: "SUCCESS",
+                  payload: _v0
+                });
+              } catch (_v0) {
+                _v6({
+                  type: "FAILURE",
+                  payload: _v0
+                });
+              }
+            }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+          }(),
           _v13 = _v0?.plans?.annual !== void 0 && _v0?.plans?.annual.metadata.status === "available";
         return (0, _v4.useEffect)(() => {
           if (null !== _v5 && !_v12.loading && _v12.called && _v12.callCount !== _v7.current) {
-            if (_v7.current = _v12.callCount, null !== _v12.error) return void _v36(_v12.error).then(_v0 => {
+            if (_v7.current = _v12.callCount, null !== _v12.error) return void _v34(_v12.error).then(_v0 => {
               let _v1 = ("string" == typeof _v0?.developer_message ? _v0.developer_message : "").replace(/\.$/, ""),
                 _v2 = _v0?.error_code === 0 && ("gift_code_already_redeemed" === _v1 || "gift_code_invalid_or_expired" === _v1 || "gift_code_redemption_failed" === _v1 || "gift_code_plan_not_available" === _v1 || "gift_code_redemption_error" === _v1) ? _v1 : "gift_code_redemption_error",
                 _v3 = _v12.error instanceof _v26.NetworkError ? _v12.error.status : null;
@@ -393,7 +387,7 @@
                 requestSent: _v5.requestSent
               }), _v4({
                 kind: "failed",
-                userMessage: _v34[_v2],
+                userMessage: _v32[_v2],
                 failureReason: _v2,
                 httpStatus: _v3
               });
@@ -433,7 +427,7 @@
                 requestSent: !1
               }), _v6(null), _v4({
                 kind: "failed",
-                userMessage: _v34.gift_code_plan_not_available,
+                userMessage: _v32.gift_code_plan_not_available,
                 failureReason: "gift_code_plan_not_available",
                 httpStatus: null
               });
@@ -448,7 +442,7 @@
             }), _v4({
               kind: "submitting"
             }), await _v11({
-              select: _v35,
+              select: _v33,
               variables: {
                 giftCode: _v0,
                 billingPlanId: _v1
@@ -976,7 +970,7 @@
             }
           })
         })]
-      }), (0, _v1.jsx)(_v37, {
+      }), (0, _v1.jsx)(_v35, {
         prefilledGiftCode: "string" == typeof _v2 && "" !== _v2 ? _v2 : void 0
       })]
     });

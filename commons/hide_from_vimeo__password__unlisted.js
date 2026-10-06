@@ -52,37 +52,38 @@
   function _v22() {
     let _v0 = (0, _v12.useViewer)(),
       {
-        settings: _v1
-      } = (0, _v20.useOrionSettings)(),
-      _v2 = _v0?.teamUser?.ownerId,
-      _v3 = _v0?.teamUser?.plainTextPermissionLevel,
-      _v4 = !!_v0?.user?.organizationId,
-      _v5 = !!_v0?.teamUser?.isWorkspace,
-      _v6 = !!_v2 && _v2 !== _v0?.user?.id,
-      _v7 = !_v6 || _v4 && ("Owner" === _v3 || "Admin" === _v3),
-      _v8 = _v6 ? _v18({
+        enable_team_defaults_page: _v1,
+        enable_workspace_defaults_page: _v2
+      } = (0, _v20.useOrionSettingsFields)(["enable_team_defaults_page", "enable_workspace_defaults_page"]),
+      _v3 = _v0?.teamUser?.ownerId,
+      _v4 = _v0?.teamUser?.plainTextPermissionLevel,
+      _v5 = !!_v0?.user?.organizationId,
+      _v6 = !!_v0?.teamUser?.isWorkspace,
+      _v7 = !!_v3 && _v3 !== _v0?.user?.id,
+      _v8 = !_v7 || _v5 && ("Owner" === _v4 || "Admin" === _v4),
+      _v9 = _v7 ? _v18({
         isTeamOwned: !0,
-        isWorkspaceTeam: _v5,
-        enableTeamDefaultsPage: _v1.enable_team_defaults_page,
-        enableWorkspaceDefaultsPage: _v1.enable_workspace_defaults_page
+        isWorkspaceTeam: _v6,
+        enableTeamDefaultsPage: _v1,
+        enableWorkspaceDefaultsPage: _v2
       }) : _v15,
-      _v9 = _v2 ?? _v0?.user?.id,
+      _v10 = _v3 ?? _v0?.user?.id,
       {
-        data: _v10
-      } = (0, _v19.useGetUser)(() => _v7 && _v9 ? {
+        data: _v11
+      } = (0, _v19.useGetUser)(() => _v8 && _v10 ? {
         where: {
-          userId: _v9
+          userId: _v10
         },
         select: _v21,
         headers: {
           Accept: "application/vnd.vimeo.*+json;version=3.4.1"
         }
       } : null),
-      _v11 = _v10?.preferences?.videos?.privacy,
-      _v12 = void 0 !== _v11 && ((_v11.view ?? "anybody") !== "anybody" || (_v11.embed ?? "private") !== "private");
+      _v12 = _v11?.preferences?.videos?.privacy,
+      _v13 = void 0 !== _v12 && ((_v12.view ?? "anybody") !== "anybody" || (_v12.embed ?? "private") !== "private");
     return {
-      hasRestrictiveUploadDefaults: _v7 && _v12,
-      uploadDefaultsUrl: _v8
+      hasRestrictiveUploadDefaults: _v8 && _v13,
+      uploadDefaultsUrl: _v9
     };
   }
   _v0.s(["useUploadDefaultsCta", 0, _v22], 0);

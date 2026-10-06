@@ -51,9 +51,8 @@
   var _v40 = _v0.i(0),
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
-  async function _v45({
+    _v43 = _v0.i(0);
+  async function _v44({
     baseUrl: _v0,
     variables: _v1,
     where: {
@@ -62,38 +61,38 @@
     },
     ..._v4
   }) {
-    return (0, _v43.measureLatency)("postUserLiveEventEmail", "POST", async () => {
+    return (0, _v42.measureLatency)("postUserLiveEventEmail", "POST", async () => {
       let _v0 = await fetch(`${_v0}/users/${_v2}/live_events/${_v3}/email`, {
         ..._v4,
         method: "POST",
-        body: JSON.stringify((0, _v44.deepSnakeCase)(_v1))
+        body: JSON.stringify((0, _v43.deepSnakeCase)(_v1))
       });
-      if (!_v0.ok) throw new _v44.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v43.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v44.deepCamelCase)(_v1);
+      return (0, _v43.deepCamelCase)(_v1);
     });
   }
-  var _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  function _v48() {
+  var _v45 = _v0.i(0),
+    _v46 = _v0.i(0);
+  function _v47() {
     let {
         mutate: _v0
-      } = (0, _v46.useSWRConfig)(),
+      } = (0, _v45.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v47.useGctlConfig)(),
-      [_v5, _v6] = (0, _v42.useInternalState)();
+      } = (0, _v46.useGctlConfig)(),
+      [_v5, _v6] = (0, _v41.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/live_events/${_v0.where.liveEventId}/email${(0, _v42.serializeQuery)(_v0)}`, _v45({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/live_events/${_v0.where.liveEventId}/email${(0, _v41.serializeQuery)(_v0)}`, _v44({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -116,12 +115,8 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v41.default.env.STORYBOOK && (0, _v42.assignMswData)(_v48, {
-    endpoint: "/users/:userId/live_events/:liveEventId/email",
-    method: "POST"
-  });
-  var _v49 = _v0.i(0);
-  let _v50 = ({
+  var _v48 = _v0.i(0);
+  let _v49 = ({
     clearAllTextSelections: _v0
   }) => {
     let _v1 = (0, _v21.useViewer)(),
@@ -141,7 +136,7 @@
         loading: _v12,
         error: _v13,
         data: _v14
-      }] = _v48(),
+      }] = _v47(),
       {
         sentRegistrationEmailActionEvent: _v15,
         sentRegistrationEmailLayoutChangeEvent: _v16
@@ -149,7 +144,7 @@
     (0, _v2.useEffect)(() => {
       _v8({
         where: {
-          userId: (0, _v49.getUserIdFromUri)(_v2?.uri)
+          userId: (0, _v48.getUserIdFromUri)(_v2?.uri)
         },
         select: ["email"]
       });
@@ -229,7 +224,7 @@
             onClick: () => {
               _v10 && (_v0(), _v11({
                 where: {
-                  userId: (0, _v49.getUserIdFromUri)(_v2?.uri),
+                  userId: (0, _v48.getUserIdFromUri)(_v2?.uri),
                   liveEventId: parseInt(_v10)
                 },
                 variables: _v17 ? {
@@ -253,7 +248,8 @@
       })]
     });
   };
-  var _v51 = _v0.i(0),
+  var _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
     _v54 = _v0.i(0),
@@ -276,20 +272,19 @@
     _v71 = _v0.i(0),
     _v72 = _v0.i(0),
     _v73 = _v0.i(0),
-    _v74 = _v0.i(0),
-    _v75 = _v0.i(0);
-  let _v76 = ({
+    _v74 = _v0.i(0);
+  let _v75 = ({
     isOpen: _v0,
     onClose: _v1,
     onConfirm: _v2,
     isLoading: _v3
-  }) => (0, _v1.jsxs)(_v58.Modal, {
+  }) => (0, _v1.jsxs)(_v57.Modal, {
     isOpen: _v0,
     onClose: _v1,
     isCentered: !0,
     size: "md",
-    children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
-      children: [(0, _v1.jsx)(_v75.ModalCloseButton, {}), (0, _v1.jsx)(_v62.ModalHeader, {
+    children: [(0, _v1.jsx)(_v62.ModalOverlay, {}), (0, _v1.jsxs)(_v59.ModalContent, {
+      children: [(0, _v1.jsx)(_v74.ModalCloseButton, {}), (0, _v1.jsx)(_v61.ModalHeader, {
         children: (0, _v15.translate)({
           singular: "Remove reminder email",
           dictionary: {
@@ -316,7 +311,7 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v59.ModalBody, {
+      }), (0, _v1.jsx)(_v58.ModalBody, {
         children: (0, _v1.jsx)(_v11.Paragraph, {
           size: "md",
           children: (0, _v15.translate)({
@@ -346,10 +341,10 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v61.ModalFooter, {
+      }), (0, _v1.jsx)(_v60.ModalFooter, {
         borderTop: "1px solid",
         borderColor: "stroke",
-        children: (0, _v1.jsxs)(_v52.HStack, {
+        children: (0, _v1.jsxs)(_v51.HStack, {
           children: [(0, _v1.jsx)(_v36.Button, {
             variant: "tertiary",
             isLoading: _v3,
@@ -414,7 +409,7 @@
       })]
     })]
   });
-  function _v77({
+  function _v76({
     children: _v0,
     onOpen: _v1,
     ..._v2
@@ -426,7 +421,7 @@
       children: _v0
     });
   }
-  function _v78({
+  function _v77({
     index: _v0,
     children: _v1,
     selected: _v2,
@@ -453,7 +448,7 @@
       children: _v1
     });
   }
-  let _v79 = ({
+  let _v78 = ({
     children: _v0,
     forwardRef: _v1,
     ..._v2
@@ -483,7 +478,7 @@
         onClick: _v0 => {
           _v0.stopPropagation(), _v4(_v1);
         },
-        children: (0, _v1.jsx)(_v78, {
+        children: (0, _v1.jsx)(_v77, {
           onKeyUp: _v5,
           index: _v1,
           selected: _v3 === _v1,
@@ -510,8 +505,8 @@
       })]
     });
   };
-  var _v80 = _v0.i(0);
-  let _v81 = () => {
+  var _v79 = _v0.i(0);
+  let _v80 = () => {
     let {
         emailState: _v0,
         dispatch: _v1,
@@ -527,7 +522,7 @@
       _v8 = (0, _v37.useToast)(),
       [_v9, _v10] = (0, _v2.useState)(!1),
       [_v11, _v12] = (0, _v2.useState)(!1),
-      [_v13, _v14] = _v48(),
+      [_v13, _v14] = _v47(),
       {
         entityId: _v15
       } = (0, _v33.useConfigStore)(_v0 => _v0),
@@ -535,10 +530,10 @@
       {
         trackLiveStreamRegistrationEmailToggled: _v17,
         trackLiveStreamRegistrationReminderConfigured: _v18
-      } = (0, _v72.useLiveStreamBroadcasterTracking)(),
+      } = (0, _v71.useLiveStreamBroadcasterTracking)(),
       {
         getEmailData: _v19
-      } = (0, _v2.useContext)(_v73.EmailContext),
+      } = (0, _v2.useContext)(_v72.EmailContext),
       {
         sentChangeRegistrationEmailConfigEvent: _v20,
         sentRegistrationEmailPreviewEvent: _v21
@@ -546,7 +541,7 @@
       [_v22, _v23] = (0, _v2.useState)(!1),
       [_v24, _v25] = (0, _v2.useState)(null),
       [_v26, _v27] = (0, _v2.useState)(null),
-      [_v28, _v29] = (0, _v70.useDeleteUserLiveEventEmailReminder)(),
+      [_v28, _v29] = (0, _v69.useDeleteUserLiveEventEmailReminder)(),
       _v30 = (0, _v2.useRef)(null),
       _v31 = _v5 === _v27.ENTITY_STATUS.ENDED,
       _v32 = (_v0, _v1) => {
@@ -565,7 +560,7 @@
           payload: _v0
         }), _v25(null), _v1 && _v32("deleted", _v1.offset), !_v3 && _v2(_v0) && (_v30.current = _v0, _v28({
           where: {
-            userId: (0, _v49.getUserIdFromUri)(_v7?.uri),
+            userId: (0, _v48.getUserIdFromUri)(_v7?.uri),
             liveEventId: parseInt(_v15, 10),
             reminderId: _v0
           }
@@ -658,7 +653,7 @@
         children: (0, _v15.translate)({
           singular: "Sent automatically on {DATE}",
           replacements: {
-            DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn || _v6 || void 0, _v35, _v34)
+            DATE: (0, _v70.getIntlDate)(_v0.followUpSendOn || _v6 || void 0, _v35, _v34)
           },
           dictionary: {
             "fr-FR": {
@@ -681,7 +676,7 @@
         children: (0, _v15.translate)({
           singular: "Sent manually on {DATE} by {NAME}",
           replacements: {
-            DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn, _v35, _v34),
+            DATE: (0, _v70.getIntlDate)(_v0.followUpSendOn, _v35, _v34),
             NAME: _v0.followUpSender.name || ""
           },
           dictionary: {
@@ -738,13 +733,13 @@
           });
         },
         extra: _v41
-      }, ...[..._v0.reminders].sort((_v0, _v1) => (0, _v80.offsetToSignedSeconds)(_v0.offset) - (0, _v80.offsetToSignedSeconds)(_v1.offset)).map(_v0 => {
+      }, ...[..._v0.reminders].sort((_v0, _v1) => (0, _v79.offsetToSignedSeconds)(_v0.offset) - (0, _v79.offsetToSignedSeconds)(_v1.offset)).map(_v0 => {
         let _v1 = _v0.id === _v27.LEGACY_REMINDER_ID;
         return {
           key: _v0.id,
           kind: _v27.EMAIL_TYPES.REMINDER,
           label: _v34.default.EmailTabName(_v27.EMAIL_TYPES.REMINDER, 1),
-          sublabel: (0, _v80.getReminderOffsetLabel)(_v0.offset),
+          sublabel: (0, _v79.getReminderOffsetLabel)(_v0.offset),
           enabled: _v0.enabled,
           active: _v0.emailTemplateType === _v27.EMAIL_TYPES.REMINDER && _v0.selectedReminderId === _v0.id,
           pico: "reminder",
@@ -767,7 +762,7 @@
         pb: "sm",
         alignItems: "center",
         justifyContent: "space-between",
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v50.Header, {
           size: "md",
           children: (0, _v15.translate)({
             singular: "Email",
@@ -863,7 +858,7 @@
                 }
               }
             }),
-            children: (0, _v1.jsx)(_v53.IconButton, {
+            children: (0, _v1.jsx)(_v52.IconButton, {
               size: "sm",
               variant: "tertiary",
               "aria-label": (0, _v15.translate)({
@@ -892,7 +887,7 @@
                   }
                 }
               }),
-              icon: (0, _v1.jsx)(_v68.Plus, {}),
+              icon: (0, _v1.jsx)(_v67.Plus, {}),
               isDisabled: _v31 || _v0.reminders.length >= _v27.MAX_REMINDERS,
               onClick: () => _v23(!0)
             })
@@ -929,8 +924,8 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v79, {
-        children: _v42.map(_v0 => (0, _v1.jsx)(_v77, {
+      }), (0, _v1.jsx)(_v78, {
+        children: _v42.map(_v0 => (0, _v1.jsx)(_v76, {
           active: _v0.active,
           onOpen: _v0.onSelect,
           label: (0, _v1.jsxs)(_v5.Box, {
@@ -943,11 +938,11 @@
                 gap: (0, _v13.rem)(8),
                 flex: 1,
                 minWidth: 0,
-                children: [_v0.enabled ? (0, _v1.jsx)(_v64.CircleCheck, {
+                children: [_v0.enabled ? (0, _v1.jsx)(_v63.CircleCheck, {
                   boxSize: (0, _v13.rem)(24),
                   color: "status-positive-primary",
                   flexShrink: 0
-                }) : (0, _v1.jsx)(_v67.MinusCircle, {
+                }) : (0, _v1.jsx)(_v66.MinusCircle, {
                   boxSize: (0, _v13.rem)(24),
                   color: "text-primary",
                   flexShrink: 0
@@ -958,7 +953,7 @@
                     alignItems: "center",
                     gap: (0, _v13.rem)(4),
                     maxWidth: "100%",
-                    children: [(0, _v1.jsx)(_v51.Header, {
+                    children: [(0, _v1.jsx)(_v50.Header, {
                       size: "xs",
                       noOfLines: 1,
                       minWidth: 0,
@@ -987,9 +982,9 @@
                     children: _v0.sublabel
                   })]
                 })]
-              }), (0, _v1.jsxs)(_v54.Menu, {
-                children: [(0, _v1.jsx)(_v55.MenuButton, {
-                  as: _v53.IconButton,
+              }), (0, _v1.jsxs)(_v53.Menu, {
+                children: [(0, _v1.jsx)(_v54.MenuButton, {
+                  as: _v52.IconButton,
                   "aria-label": (0, _v15.translate)({
                     singular: "Email options",
                     dictionary: {
@@ -1016,16 +1011,16 @@
                       }
                     }
                   }),
-                  icon: (0, _v1.jsx)(_v66.EllipsisH, {
+                  icon: (0, _v1.jsx)(_v65.EllipsisH, {
                     w: "xs",
                     fontSize: "text"
                   }),
                   variant: "tertiary",
                   size: "xs",
                   onClick: _v0 => _v0.stopPropagation()
-                }), (0, _v1.jsxs)(_v57.MenuList, {
-                  children: [_v0.onEdit && (0, _v1.jsx)(_v56.MenuItem, {
-                    icon: (0, _v1.jsx)(_v65.EditPencil, {}),
+                }), (0, _v1.jsxs)(_v56.MenuList, {
+                  children: [_v0.onEdit && (0, _v1.jsx)(_v55.MenuItem, {
+                    icon: (0, _v1.jsx)(_v64.EditPencil, {}),
                     onClick: _v0 => {
                       _v0.stopPropagation(), _v0.onEdit?.();
                     },
@@ -1055,8 +1050,8 @@
                         }
                       }
                     })
-                  }), (0, _v1.jsx)(_v56.MenuItem, {
-                    icon: _v0.enabled ? (0, _v1.jsx)(_v67.MinusCircle, {}) : (0, _v1.jsx)(_v64.CircleCheck, {}),
+                  }), (0, _v1.jsx)(_v55.MenuItem, {
+                    icon: _v0.enabled ? (0, _v1.jsx)(_v66.MinusCircle, {}) : (0, _v1.jsx)(_v63.CircleCheck, {}),
                     isDisabled: _v31 && !(_v0.kind === _v27.EMAIL_TYPES.FOLLOWUP && _v40),
                     onClick: _v0 => {
                       _v0.stopPropagation(), _v0.onToggle();
@@ -1112,8 +1107,8 @@
                         }
                       }
                     })
-                  }), _v0.onDelete && (0, _v1.jsx)(_v56.MenuItem, {
-                    icon: (0, _v1.jsx)(_v69.TrashBin, {}),
+                  }), _v0.onDelete && (0, _v1.jsx)(_v55.MenuItem, {
+                    icon: (0, _v1.jsx)(_v68.TrashBin, {}),
                     onClick: _v0 => {
                       _v0.stopPropagation(), _v0.onDelete?.();
                     },
@@ -1149,23 +1144,23 @@
             }), _v0.extra]
           })
         }, _v0.key))
-      }), _v40 && (0, _v1.jsxs)(_v58.Modal, {
+      }), _v40 && (0, _v1.jsxs)(_v57.Modal, {
         isOpen: _v9,
         onClose: () => _v10(!1),
         isCentered: !0,
         size: "md",
-        children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
-          children: [(0, _v1.jsx)(_v62.ModalHeader, {
+        children: [(0, _v1.jsx)(_v62.ModalOverlay, {}), (0, _v1.jsxs)(_v59.ModalContent, {
+          children: [(0, _v1.jsx)(_v61.ModalHeader, {
             children: _v34.default.FollowUpModalHeader
-          }), (0, _v1.jsx)(_v59.ModalBody, {
+          }), (0, _v1.jsx)(_v58.ModalBody, {
             children: (0, _v1.jsx)(_v11.Paragraph, {
               size: "md",
               children: _v34.default.FollowUpModalDescription
             })
-          }), (0, _v1.jsx)(_v61.ModalFooter, {
+          }), (0, _v1.jsx)(_v60.ModalFooter, {
             borderTop: "1px solid",
             borderColor: "stroke",
-            children: (0, _v1.jsxs)(_v52.HStack, {
+            children: (0, _v1.jsxs)(_v51.HStack, {
               children: [(0, _v1.jsx)(_v36.Button, {
                 variant: "tertiary",
                 onClick: () => _v10(!1),
@@ -1175,7 +1170,7 @@
                 onClick: () => {
                   _v15 && _v13({
                     where: {
-                      userId: (0, _v49.getUserIdFromUri)(_v7?.uri),
+                      userId: (0, _v48.getUserIdFromUri)(_v7?.uri),
                       liveEventId: parseInt(_v15, 10)
                     },
                     variables: {
@@ -1190,7 +1185,7 @@
           })]
         })]
       }), _v4 && (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v74.ReminderTimingModal, {
+        children: [(0, _v1.jsx)(_v73.ReminderTimingModal, {
           isOpen: _v22,
           onClose: () => _v23(!1),
           onSave: _v0 => {
@@ -1204,12 +1199,12 @@
             }), _v32("created", _v0);
           },
           usedOffsets: _v0.reminders.map(_v0 => _v0.offset)
-        }, _v22 ? "add-timing-open" : "add-timing-closed"), (0, _v1.jsx)(_v76, {
+        }, _v22 ? "add-timing-open" : "add-timing-closed"), (0, _v1.jsx)(_v75, {
           isOpen: !!_v24,
           onClose: () => _v25(null),
           onConfirm: () => _v33(),
           isLoading: _v29.loading
-        }), (0, _v1.jsx)(_v74.ReminderTimingModal, {
+        }), (0, _v1.jsx)(_v73.ReminderTimingModal, {
           isOpen: !!_v26,
           title: (0, _v15.translate)({
             singular: "Edit timing",
@@ -1253,8 +1248,8 @@
       })]
     });
   };
-  var _v82 = _v0.i(0);
-  let _v83 = () => {
+  var _v81 = _v0.i(0);
+  let _v82 = () => {
     let {
         emailState: _v0
       } = (0, _v23.useEmailCustomization)(),
@@ -1316,13 +1311,13 @@
       })]
     });
   };
-  var _v84 = _v0.i(0),
+  var _v83 = _v0.i(0),
+    _v84 = _v0.i(0),
     _v85 = _v0.i(0),
     _v86 = _v0.i(0),
     _v87 = _v0.i(0),
-    _v88 = _v0.i(0),
-    _v89 = _v0.i(0);
-  let _v90 = () => {
+    _v88 = _v0.i(0);
+  let _v89 = () => {
     let {
         emailState: _v0,
         dispatch: _v1,
@@ -1353,7 +1348,7 @@
         hasMagicLinks: _v18
       } = (0, _v22.useEntityCapability)(),
       _v19 = !(_v27.TRAIL_STATUS === _v12?.membership?.subscription?.trial?.status || _v16 || !_v17),
-      _v20 = (0, _v2.useMemo)(() => !_v8 || (0, _v89.isValidUrl)(_v10 || ""), [_v8, _v10]),
+      _v20 = (0, _v2.useMemo)(() => !_v8 || (0, _v88.isValidUrl)(_v10 || ""), [_v8, _v10]),
       _v21 = _v0 => {
         _v1({
           type: _v32.ACTION_TYPE.SET_BUTTON_INFO,
@@ -1378,11 +1373,11 @@
         customLink: _v10
       });
     }, [_v20, _v10, _v9, _v8, _v5]), (0, _v1.jsxs)(_v5.Box, {
-      children: [(0, _v1.jsx)(_v51.Header, {
+      children: [(0, _v1.jsx)(_v50.Header, {
         size: "md",
         mb: (0, _v13.rem)(30),
         children: _v34.default.Button
-      }), (0, _v1.jsx)(_v51.Header, {
+      }), (0, _v1.jsx)(_v50.Header, {
         size: "xs",
         mb: "sm",
         children: _v34.default.Text
@@ -1408,25 +1403,25 @@
       }), (0, _v1.jsxs)(_v5.Box, {
         pt: (0, _v13.rem)(20),
         pb: "md",
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v50.Header, {
           size: "xs",
           mb: "md",
           children: _v34.default.URL
-        }), (0, _v1.jsxs)(_v87.Stack, {
+        }), (0, _v1.jsxs)(_v86.Stack, {
           spacing: (0, _v13.rem)(16),
-          children: [(0, _v1.jsx)(_v86.Radio, {
+          children: [(0, _v1.jsx)(_v85.Radio, {
             name: "link",
             isChecked: !_v8,
             onChange: _v22,
             children: _v34.default.VimeoLink
-          }), (0, _v1.jsx)(_v86.Radio, {
+          }), (0, _v1.jsx)(_v85.Radio, {
             name: "link",
             isChecked: !!_v8,
             onChange: _v22,
             isDisabled: !_v19,
             children: _v34.default.CustomLink
           })]
-        }), _v4 === _v17.ENTITY_TYPE.EVENT && _v18 && _v8 && (0, _v1.jsx)(_v88.Text, {
+        }), _v4 === _v17.ENTITY_TYPE.EVENT && _v18 && _v8 && (0, _v1.jsx)(_v87.Text, {
           variant: "body-sm",
           mt: "md",
           color: "text-secondary",
@@ -1439,7 +1434,7 @@
           isDisabled: !_v8,
           onChange: _v0 => {
             let _v1 = _v0.target.value;
-            _v11((0, _v89.isValidUrl)((0, _v89.appendProtocol)(_v1)) ? (0, _v89.appendProtocol)(_v1) : _v1);
+            _v11((0, _v88.isValidUrl)((0, _v88.appendProtocol)(_v1)) ? (0, _v88.appendProtocol)(_v1) : _v1);
           },
           maxLength: _v27.EMAIL_MAX_LENGTH.LINK,
           value: _v8 ? _v10 || "" : (() => {
@@ -1455,14 +1450,15 @@
           })(),
           onFocus: () => _v6(!0),
           onBlur: () => _v6(!1)
-        }), !_v20 && (0, _v1.jsx)(_v85.FormErrorMessage, {
+        }), !_v20 && (0, _v1.jsx)(_v84.FormErrorMessage, {
           py: (0, _v13.rem)(12),
           children: _v34.default.InvalidURL
         })]
       })]
     });
   };
-  var _v91 = _v0.i(0),
+  var _v90 = _v0.i(0),
+    _v91 = _v0.i(0),
     _v92 = _v0.i(0),
     _v93 = _v0.i(0),
     _v94 = _v0.i(0),
@@ -1470,10 +1466,9 @@
     _v96 = _v0.i(0),
     _v97 = _v0.i(0),
     _v98 = _v0.i(0),
-    _v99 = _v0.i(0),
-    _v100 = _v0.i(0);
-  let _v101 = _v0 => {
-    let _v1 = (0, _v97.useCache)(),
+    _v99 = _v0.i(0);
+  let _v100 = _v0 => {
+    let _v1 = (0, _v96.useCache)(),
       {
         canAccessCustomLogo: _v2
       } = (0, _v22.useEntityCapability)(),
@@ -1492,15 +1487,15 @@
         data: _v14,
         error: _v15,
         loading: _v16
-      }] = (0, _v99.useGetUserTeamLogosLazy)(),
+      }] = (0, _v98.useGetUserTeamLogosLazy)(),
       [_v17, {
         data: _v18,
         error: _v19,
         loading: _v20
-      }] = (0, _v98.useGetUserCustomlogosLazy)();
+      }] = (0, _v97.useGetUserCustomlogosLazy)();
     return (0, _v2.useEffect)(() => {
       if (!_v5) return;
-      let _v0 = (0, _v49.getUserIdFromUri)(_v4?.uri);
+      let _v0 = (0, _v48.getUserIdFromUri)(_v4?.uri);
       _v13({
         where: {
           userId: _v0
@@ -1532,7 +1527,7 @@
       }
     }, [_v14, _v18, _v1]), (0, _v2.useEffect)(() => {
       if (_v8?.items) if (_v12 && _v12 !== _v27.FALLBACK_PLAYER_CUSTOM_LOGO) {
-        let _v0 = (0, _v100.findLogoIndex)(_v8.items, _v12);
+        let _v0 = (0, _v99.findLogoIndex)(_v8.items, _v12);
         _v7(_v0), _v10 && _v10 < 0 && _v11(_v0);
       } else _v7(0);
     }, [_v12, _v10, _v8]), (0, _v2.useEffect)(() => {
@@ -1543,7 +1538,7 @@
         _v0();
       };
     }, [_v1]), {
-      ownerUserId: (0, _v49.getUserIdFromUri)(_v4?.uri),
+      ownerUserId: (0, _v48.getUserIdFromUri)(_v4?.uri),
       isLoadingLogos: _v16 || _v20,
       originalIndex: _v10,
       setOriginalIndex: _v11,
@@ -1552,15 +1547,15 @@
       customLogoResponse: _v8
     };
   };
-  var _v102 = _v0.i(0),
+  var _v101 = _v0.i(0),
+    _v102 = _v0.i(0),
     _v103 = _v0.i(0),
     _v104 = _v0.i(0),
     _v105 = _v0.i(0),
     _v106 = _v0.i(0),
     _v107 = _v0.i(0),
-    _v108 = _v0.i(0),
-    _v109 = _v0.i(0);
-  function _v110() {
+    _v108 = _v0.i(0);
+  function _v109() {
     let {
       innerWidth: _v0,
       innerHeight: _v1
@@ -1571,11 +1566,11 @@
       isMobileOrTablet: _v0 <= _v27.TABLET_SIZE || document.body.clientWidth <= _v27.TABLET_SIZE
     };
   }
-  function _v111() {
-    let [_v0, _v1] = (0, _v2.useState)(_v110());
+  function _v110() {
+    let [_v0, _v1] = (0, _v2.useState)(_v109());
     return (0, _v2.useEffect)(() => {
       let _v0 = () => {
-        _v1(_v110());
+        _v1(_v109());
       };
       return window.addEventListener("resize", _v0), () => window.removeEventListener("resize", _v0);
     }, []), {
@@ -1583,7 +1578,7 @@
       canShowOverlay: () => !0
     };
   }
-  let _v112 = ({
+  let _v111 = ({
       selectedColor: _v0,
       handleOnChange: _v1,
       title: _v2,
@@ -1592,7 +1587,7 @@
       justifyContent: "space-between",
       alignItems: "center",
       mt: (0, _v13.rem)(25),
-      children: [(0, _v1.jsx)(_v51.Header, {
+      children: [(0, _v1.jsx)(_v50.Header, {
         size: "xs",
         children: _v2
       }), (0, _v1.jsxs)(_v7.Flex, {
@@ -1601,18 +1596,18 @@
           pr: (0, _v13.rem)(10),
           size: "md",
           children: _v0?.toUpperCase()
-        }), (0, _v1.jsx)(_v108.ColorPickerBrandKit, {
+        }), (0, _v1.jsx)(_v107.ColorPickerBrandKit, {
           onChange: _v1,
           color: _v0,
           onClose: () => _v3?.(_v0),
           productName: "registration",
-          children: (0, _v1.jsx)(_v115, {
+          children: (0, _v1.jsx)(_v114, {
             color: _v0
           })
         })]
       })]
     }),
-    _v113 = ({
+    _v112 = ({
       emailTemplate: _v0,
       emailToolBar: _v1,
       handleOnClick: _v2,
@@ -1630,7 +1625,7 @@
           } = (0, _v33.useConfigStore)(_v0 => _v0),
           [_v6, {
             data: _v7
-          }] = (0, _v109.useGetLeadCaptureResourceIdFormLazy)();
+          }] = (0, _v108.useGetLeadCaptureResourceIdFormLazy)();
         return (0, _v2.useEffect)(() => {
           _v4 && _v5 && _v6({
             where: {
@@ -1657,7 +1652,7 @@
       })();
       return (0, _v1.jsxs)(_v5.Box, {
         mt: (0, _v13.rem)(30),
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v50.Header, {
           mb: (0, _v13.rem)(5),
           size: "xs",
           children: _v34.default.PersonalizedTags
@@ -1670,7 +1665,7 @@
           flexWrap: "wrap",
           mt: (0, _v13.rem)(20),
           ref: _v3,
-          children: _v4.map((_v0, _v1) => (0, _v1.jsx)(_v106.Tag, {
+          children: _v4.map((_v0, _v1) => (0, _v1.jsx)(_v105.Tag, {
             size: "md",
             onClick: () => (_v5[_v1], void _v2(_v0)),
             children: (0, _v1.jsx)(_v11.Paragraph, {
@@ -1682,7 +1677,7 @@
         })]
       });
     },
-    _v114 = ({
+    _v113 = ({
       title: _v0,
       values: _v1,
       selectedValue: _v2,
@@ -1693,12 +1688,12 @@
         windowDimensions: {
           width: _v5
         }
-      } = _v111();
+      } = _v110();
       return (0, _v1.jsxs)(_v7.Flex, {
         justifyContent: "space-between",
         alignItems: "center",
         mt: (0, _v13.rem)(25),
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v50.Header, {
           size: "xs",
           minW: (0, _v13.rem)(61),
           children: _v0
@@ -1706,7 +1701,7 @@
           flex: 1,
           children: (0, _v1.jsx)(_v5.Box, {
             width: "100%",
-            children: (0, _v1.jsx)(_v105.Select, {
+            children: (0, _v1.jsx)(_v104.Select, {
               size: "md",
               value: _v2 ? [_v2] : [],
               items: _v1.map(_v0 => ({
@@ -1716,18 +1711,18 @@
               onValueChange: _v0 => _v3(_v0.value[0]),
               children: _v0 => {
                 let _v1;
-                return (0, _v1.jsx)(_v105.SelectItem, {
+                return (0, _v1.jsx)(_v104.SelectItem, {
                   display: "flex",
                   pointerEvents: _v0.value === _v27.EMAIL_TEXT_STYLE.MIXED ? "none" : "all",
                   opacity: _v0.value === _v27.EMAIL_TEXT_STYLE.MIXED ? .5 : 1,
                   children: (0, _v1.jsxs)(_v7.Flex, {
                     alignItems: "center",
-                    children: [(0, _v1.jsx)(_v107.CheckmarkFilled, {
+                    children: [(0, _v1.jsx)(_v106.CheckmarkFilled, {
                       boxSize: (0, _v13.rem)(14),
                       mr: (0, _v13.rem)(10),
                       color: "blue.500",
                       visibility: _v2 === _v0.value ? "visible" : "hidden"
-                    }), (0, _v1.jsx)(_v105.SelectItemText, {
+                    }), (0, _v1.jsx)(_v104.SelectItemText, {
                       children: (_v1 = _v0.label, _v4 ? (0, _v2.createElement)(_v27.EMAIL_TEXT_STYLE_VALUES[_v1], null, _v34.default.EmailTextStyle[_v1]) : _v34.default.EmailTextSize[_v1])
                     })]
                   })
@@ -1738,7 +1733,7 @@
         })]
       });
     },
-    _v115 = ({
+    _v114 = ({
       color: _v0,
       ..._v1
     }) => (0, _v1.jsx)(_v5.Box, {
@@ -1754,9 +1749,9 @@
       ..._v1,
       children: _v1.children
     });
-  var _v116 = _v0.i(0),
-    _v117 = _v0.i(0);
-  let _v118 = ({
+  var _v115 = _v0.i(0),
+    _v116 = _v0.i(0);
+  let _v117 = ({
       inline: _v0 = !1
     } = {}) => {
       let {
@@ -1791,7 +1786,7 @@
           });
         },
         _v24 = (0, _v2.useCallback)(() => {
-          let _v0 = !_v18 || (0, _v49.validateEmail)(_v18);
+          let _v0 = !_v18 || (0, _v48.validateEmail)(_v18);
           _v8(_v0), (_v0 || !_v18) && (_v2({
             type: _v32.ACTION_TYPE.SET_FOOTER_EMAIL,
             payload: _v18 || ""
@@ -1800,9 +1795,9 @@
           }));
         }, [_v2, _v18]),
         _v25 = (0, _v2.useCallback)(() => {
-          let _v0 = !_v16 || (0, _v89.isValidUrl)(_v16);
+          let _v0 = !_v16 || (0, _v88.isValidUrl)(_v16);
           if (_v6(_v0), _v0 || !_v16) {
-            let _v0 = _v16 ? (0, _v89.appendProtocol)(_v16) : "";
+            let _v0 = _v16 ? (0, _v88.appendProtocol)(_v16) : "";
             _v17(_v0), _v2({
               type: _v32.ACTION_TYPE.SET_FOOTER_POLICY,
               payload: _v0
@@ -1824,11 +1819,11 @@
         _v17(_v9), _v19(_v11), _v6(!0), _v8(!0);
       }, [_v15, _v3]);
       let _v27 = () => (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v119, {
-          children: [(0, _v1.jsx)(_v88.Text, {
+        children: [(0, _v1.jsxs)(_v118, {
+          children: [(0, _v1.jsx)(_v87.Text, {
             variant: "body-md",
             children: _v34.default.FooterReplayMail
-          }), (0, _v1.jsx)(_v117.Switch, {
+          }), (0, _v1.jsx)(_v116.Switch, {
             onChange: _v23(_v27.EMAIL_TOGGLE_MAP.FOOTER_REPLY_MAIL),
             size: "sm",
             isChecked: _v10,
@@ -1843,14 +1838,14 @@
             placeholder: "email@address.com",
             maxLength: _v27.EMAIL_MAX_LENGTH.LINK,
             value: _v18 || ""
-          }, "email-field"), (0, _v1.jsx)(_v85.FormErrorMessage, {
+          }, "email-field"), (0, _v1.jsx)(_v84.FormErrorMessage, {
             children: _v34.default.PleaseEnterValidEmail
           })]
-        }), (0, _v1.jsxs)(_v119, {
-          children: [(0, _v1.jsx)(_v88.Text, {
+        }), (0, _v1.jsxs)(_v118, {
+          children: [(0, _v1.jsx)(_v87.Text, {
             variant: "body-md",
             children: _v34.default.FooterCompanyAddress
-          }), (0, _v1.jsx)(_v117.Switch, {
+          }), (0, _v1.jsx)(_v116.Switch, {
             onChange: _v23(_v27.EMAIL_TOGGLE_MAP.FOOTER_COMPANY_ADDRESS),
             size: "sm",
             isChecked: _v12,
@@ -1874,11 +1869,11 @@
               maxCharacters: _v27.EMAIL_MAX_LENGTH.FOOTER_ADDRESS
             })
           })]
-        }), (0, _v1.jsxs)(_v119, {
-          children: [(0, _v1.jsx)(_v88.Text, {
+        }), (0, _v1.jsxs)(_v118, {
+          children: [(0, _v1.jsx)(_v87.Text, {
             variant: "body-md",
             children: _v34.default.FooterPolicyLink
-          }), (0, _v1.jsx)(_v117.Switch, {
+          }), (0, _v1.jsx)(_v116.Switch, {
             onChange: _v23(_v27.EMAIL_TOGGLE_MAP.FOOTER_POLICY_LINK),
             size: "sm",
             isChecked: _v14,
@@ -1893,7 +1888,7 @@
             placeholder: _v34.default.EnterValidURL,
             maxLength: _v27.EMAIL_MAX_LENGTH.LINK,
             value: _v16 || ""
-          }, "link-field"), (0, _v1.jsx)(_v85.FormErrorMessage, {
+          }, "link-field"), (0, _v1.jsx)(_v84.FormErrorMessage, {
             children: _v34.default.InvalidURL
           })]
         })]
@@ -1901,39 +1896,39 @@
       return _v0 ? (0, _v1.jsxs)(_v5.Box, {
         mt: (0, _v13.rem)(25),
         ref: _v20,
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v50.Header, {
           size: "xs",
           mb: (0, _v13.rem)(10),
           children: _v34.default.Footer
         }), _v27()]
-      }) : (0, _v1.jsxs)(_v92.Popover, {
+      }) : (0, _v1.jsxs)(_v91.Popover, {
         isOpen: _v3,
-        children: [(0, _v1.jsx)(_v116.PopoverTrigger, {
+        children: [(0, _v1.jsx)(_v115.PopoverTrigger, {
           children: (0, _v1.jsxs)(_v7.Flex, {
             cursor: "pointer",
             mt: (0, _v13.rem)(25),
             justifyContent: "space-between",
             alignItems: "center",
             onClick: () => _v4(!_v3),
-            children: [(0, _v1.jsx)(_v51.Header, {
+            children: [(0, _v1.jsx)(_v50.Header, {
               size: "xs",
               children: _v34.default.Footer
             }), (0, _v1.jsx)(_v7.Flex, {
               borderRadius: "input-xs",
               p: "xs",
               background: _v3 ? "stroke" : "",
-              children: (0, _v1.jsx)(_v65.EditPencil, {})
+              children: (0, _v1.jsx)(_v64.EditPencil, {})
             })]
           })
-        }), (0, _v1.jsx)(_v94.PopoverContent, {
+        }), (0, _v1.jsx)(_v93.PopoverContent, {
           children: (0, _v1.jsxs)(_v5.Box, {
             width: (0, _v13.rem)(320),
             pt: "px",
             pr: "lg",
             pb: "lg",
             ref: _v20,
-            children: [(0, _v1.jsx)(_v119, {
-              children: (0, _v1.jsx)(_v51.Header, {
+            children: [(0, _v1.jsx)(_v118, {
+              children: (0, _v1.jsx)(_v50.Header, {
                 size: "xs",
                 children: _v34.default.Footer
               })
@@ -1942,7 +1937,7 @@
         })]
       });
     },
-    _v119 = _v0 => (0, _v1.jsx)(_v7.Flex, {
+    _v118 = _v0 => (0, _v1.jsx)(_v7.Flex, {
       justifyContent: "space-between",
       mb: (0, _v13.rem)(10),
       alignItems: "center",
@@ -1950,7 +1945,7 @@
       ..._v0,
       children: _v0.children
     }),
-    _v120 = () => {
+    _v119 = () => {
       let {
           emailState: _v0,
           dispatch: _v1
@@ -1977,11 +1972,11 @@
           selectedLogoIndex: _v16,
           isLoadingLogos: _v17,
           ownerUserId: _v18
-        } = _v101(_v0),
+        } = _v100(_v0),
         _v19 = (0, _v2.useCallback)(_v0 => {
           _v1({
             type: _v32.ACTION_TYPE.SET_CUSTOM_LOGO_IMAGE,
-            payload: (0, _v100.getCustomLogoImagePayload)(_v0)
+            payload: (0, _v99.getCustomLogoImagePayload)(_v0)
           }), _v4({
             actionName: _v31.BP_ACTION_NAMES.LOGO_ADDED
           });
@@ -1989,7 +1984,7 @@
         [_v20, _v21] = (0, _v2.useState)(),
         {
           isUploading: _v22
-        } = (0, _v102.useTeamLogoUpload)(_v20, _v19, _v27.EMAIL_LOGOS_CACHE_KEY, _v18),
+        } = (0, _v101.useTeamLogoUpload)(_v20, _v19, _v27.EMAIL_LOGOS_CACHE_KEY, _v18),
         _v23 = () => _v1({
           type: _v32.ACTION_TYPE.SET_CUSTOM_LOGO_IMAGE,
           payload: {
@@ -2008,7 +2003,7 @@
         _v33 = (0, _v2.useRef)(!1);
       return (0, _v2.useEffect)(() => {
         _v33.current && !_v22 && (_v28(null), _v30(!1)), _v33.current = _v22;
-      }, [_v22]), (0, _v1.jsxs)(_v84.Panel, {
+      }, [_v22]), (0, _v1.jsxs)(_v83.Panel, {
         isVisible: !0,
         background: "fill-surface",
         borderRadius: "md",
@@ -2018,21 +2013,21 @@
         sx: {
           minHeight: "100%"
         },
-        children: [(0, _v1.jsx)(_v84.PanelHeader, {
+        children: [(0, _v1.jsx)(_v83.PanelHeader, {
           px: (0, _v13.rem)(16),
           pt: (0, _v13.rem)(24),
           pb: (0, _v13.rem)(4),
-          children: (0, _v1.jsx)(_v51.Header, {
+          children: (0, _v1.jsx)(_v50.Header, {
             size: "md",
             children: _v34.default.General
           })
-        }), (0, _v1.jsxs)(_v84.PanelBody, {
+        }), (0, _v1.jsxs)(_v83.PanelBody, {
           px: (0, _v13.rem)(16),
           pt: 0,
           pb: (0, _v13.rem)(24),
-          children: [(0, _v1.jsx)(_v112, {
+          children: [(0, _v1.jsx)(_v111, {
             handleOnChange: _v0 => {
-              (0, _v49.isValidHex)(_v0) && _v1({
+              (0, _v48.isValidHex)(_v0) && _v1({
                 type: _v32.ACTION_TYPE.SET_COLOR,
                 payload: _v0
               });
@@ -2044,16 +2039,16 @@
             })
           }), (0, _v1.jsxs)(_v5.Box, {
             mt: (0, _v13.rem)(12),
-            children: [(0, _v1.jsx)(_v51.Header, {
+            children: [(0, _v1.jsx)(_v50.Header, {
               size: "xs",
               mb: (0, _v13.rem)(10),
               children: _v34.default.Logo
-            }), (0, _v1.jsxs)(_v92.Popover, {
+            }), (0, _v1.jsxs)(_v91.Popover, {
               placement: "bottom-start",
               isLazy: !0,
               isOpen: _v8,
               onClose: () => _v9(!1),
-              children: [(0, _v1.jsx)(_v93.PopoverAnchor, {
+              children: [(0, _v1.jsx)(_v92.PopoverAnchor, {
                 children: _v24 ? (0, _v1.jsxs)(_v7.Flex, {
                   align: "center",
                   gap: (0, _v13.rem)(12),
@@ -2068,7 +2063,7 @@
                   backgroundColor: "fill-surface",
                   cursor: _v2 ? "pointer" : "default",
                   onClick: _v25,
-                  children: [(0, _v1.jsx)(_v91.Image, {
+                  children: [(0, _v1.jsx)(_v90.Image, {
                     src: _v0.customLogo?.url ?? void 0,
                     alt: _v34.default.Logo,
                     boxSize: (0, _v13.rem)(48),
@@ -2079,9 +2074,9 @@
                   }), (0, _v1.jsx)(_v5.Box, {
                     flex: "1",
                     minW: 0
-                  }), (0, _v1.jsx)(_v53.IconButton, {
+                  }), (0, _v1.jsx)(_v52.IconButton, {
                     "aria-label": _v34.default.Remove,
-                    icon: (0, _v1.jsx)(_v95.CloseX, {}),
+                    icon: (0, _v1.jsx)(_v94.CloseX, {}),
                     variant: "tertiary",
                     size: "sm",
                     isDisabled: !_v2,
@@ -2116,27 +2111,27 @@
                     borderRadius: (0, _v13.rem)(8),
                     backgroundColor: "fill-component",
                     flexShrink: 0,
-                    children: (0, _v1.jsx)(_v96.Image, {
+                    children: (0, _v1.jsx)(_v95.Image, {
                       color: "text-secondary"
                     })
                   }), (0, _v1.jsxs)(_v7.Flex, {
                     direction: "column",
                     gap: (0, _v13.rem)(2),
-                    children: [(0, _v1.jsx)(_v88.Text, {
+                    children: [(0, _v1.jsx)(_v87.Text, {
                       variant: "body-md",
                       fontFamily: "heading",
                       color: "text-primary",
                       children: _v34.default.SelectLogo
-                    }), (0, _v1.jsx)(_v88.Text, {
+                    }), (0, _v1.jsx)(_v87.Text, {
                       variant: "body-sm",
                       color: "text-secondary",
                       children: _v34.default.LogoFormatHint
                     })]
                   })]
                 })
-              }), (0, _v1.jsx)(_v94.PopoverContent, {
+              }), (0, _v1.jsx)(_v93.PopoverContent, {
                 borderRadius: "sm",
-                children: (0, _v1.jsx)(_v104.LogoPickerContainer, {
+                children: (0, _v1.jsx)(_v103.LogoPickerContainer, {
                   ownerUserId: _v18,
                   uploadVariant: "image-uploader",
                   onUploadClick: _v31,
@@ -2161,7 +2156,7 @@
                 let _v1 = _v0.target.files?.[0];
                 _v0.target.value = "", _v1 && (_v9(!1), _v28(_v1));
               }
-            }), (0, _v1.jsx)(_v103.LogoConfirmModal, {
+            }), (0, _v1.jsx)(_v102.LogoConfirmModal, {
               file: _v27,
               isSaving: _v29,
               onChange: _v31,
@@ -2213,7 +2208,7 @@
               borderTop: `${(0, _v13.rem)(1)} solid`,
               borderColor: "stroke",
               mt: (0, _v13.rem)(24)
-            }), (0, _v1.jsx)(_v118, {
+            }), (0, _v1.jsx)(_v117, {
               inline: !0
             })]
           }), !_v3 && !_v10 && (0, _v1.jsx)(_v3.Alert, {
@@ -2257,8 +2252,8 @@
         })]
       });
     };
-  var _v121 = _v0.i(0);
-  let _v122 = () => {
+  var _v120 = _v0.i(0);
+  let _v121 = () => {
       let {
           emailState: _v0,
           dispatch: _v1
@@ -2289,11 +2284,11 @@
           selectedLogoIndex: _v20,
           isLoadingLogos: _v21,
           ownerUserId: _v22
-        } = _v101(_v0),
+        } = _v100(_v0),
         _v23 = (0, _v2.useCallback)(_v0 => {
           _v1({
             type: _v32.ACTION_TYPE.SET_CUSTOM_LOGO_IMAGE,
-            payload: (0, _v100.getCustomLogoImagePayload)(_v0)
+            payload: (0, _v99.getCustomLogoImagePayload)(_v0)
           }), _v15({
             actionName: _v31.BP_ACTION_NAMES.LOGO_ADDED
           });
@@ -2301,17 +2296,17 @@
         [_v24, _v25] = (0, _v2.useState)(),
         {
           isUploading: _v26
-        } = (0, _v102.useTeamLogoUpload)(_v24, _v23, _v27.EMAIL_LOGOS_CACHE_KEY, _v22);
+        } = (0, _v101.useTeamLogoUpload)(_v24, _v23, _v27.EMAIL_LOGOS_CACHE_KEY, _v22);
       return (0, _v2.useEffect)(() => {
         _v13(!_v11);
       }, [_v11]), (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v50.Header, {
           mb: (0, _v13.rem)(30),
           size: "md",
           children: _v34.default.General
         }), _v11 && (0, _v1.jsxs)(_v5.Box, {
           mb: (0, _v13.rem)(0),
-          children: [(0, _v1.jsx)(_v51.Header, {
+          children: [(0, _v1.jsx)(_v50.Header, {
             mb: "sm",
             size: "xs",
             children: _v34.default.FromGeneral
@@ -2350,9 +2345,9 @@
               })
             })]
           })]
-        }), (0, _v1.jsx)(_v112, {
+        }), (0, _v1.jsx)(_v111, {
           handleOnChange: _v0 => {
-            (0, _v49.isValidHex)(_v0) && _v1 && _v1({
+            (0, _v48.isValidHex)(_v0) && _v1 && _v1({
               type: _v32.ACTION_TYPE.SET_COLOR,
               payload: _v0
             });
@@ -2371,14 +2366,14 @@
           justifyContent: "space-between",
           alignItems: "center",
           mt: (0, _v13.rem)(25),
-          children: [(0, _v1.jsx)(_v51.Header, {
+          children: [(0, _v1.jsx)(_v50.Header, {
             size: "xs",
             children: _v34.default.Logo
-          }), (0, _v1.jsxs)(_v92.Popover, {
+          }), (0, _v1.jsxs)(_v91.Popover, {
             placement: "bottom-start",
             isLazy: !0,
             isOpen: _v7,
-            children: [(0, _v1.jsx)(_v116.PopoverTrigger, {
+            children: [(0, _v1.jsx)(_v115.PopoverTrigger, {
               children: (0, _v1.jsx)("div", {
                 ref: _v9,
                 children: _v0.customLogo?.url ? (0, _v1.jsx)(_v5.Box, {
@@ -2408,16 +2403,16 @@
                     mr: (0, _v13.rem)(10),
                     size: "md",
                     children: _v34.default.Add
-                  }), (0, _v1.jsx)(_v121.PlusCircle, {
+                  }), (0, _v1.jsx)(_v120.PlusCircle, {
                     boxSize: (0, _v13.rem)(28)
                   })]
                 })
               })
-            }), (0, _v1.jsx)(_v94.PopoverContent, {
+            }), (0, _v1.jsx)(_v93.PopoverContent, {
               borderRadius: "sm",
               children: (0, _v1.jsx)("div", {
                 ref: _v10,
-                children: (0, _v1.jsx)(_v104.LogoPickerContainer, {
+                children: (0, _v1.jsx)(_v103.LogoPickerContainer, {
                   ownerUserId: _v22,
                   onUnsetLogo: () => _v1({
                     type: _v32.ACTION_TYPE.SET_CUSTOM_LOGO_IMAGE,
@@ -2438,7 +2433,7 @@
               })
             })]
           })]
-        }), _v11 && (0, _v1.jsx)(_v118, {}), _v12 && (0, _v1.jsx)(_v3.Alert, {
+        }), _v11 && (0, _v1.jsx)(_v117, {}), _v12 && (0, _v1.jsx)(_v3.Alert, {
           mt: (0, _v13.rem)(20),
           onClose: () => _v13(!1),
           children: (0, _v1.jsx)(_v4.AlertDescription, {
@@ -2478,7 +2473,7 @@
         })]
       });
     },
-    _v123 = ({
+    _v122 = ({
       dynamicTagRef: _v0
     }) => {
       let {
@@ -2490,11 +2485,11 @@
           sentRegistrationEmailLayoutChangeEvent: _v4
         } = (0, _v29.useAnalytics)();
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v50.Header, {
           size: "md",
           mb: (0, _v13.rem)(5),
           children: _v34.default.SubjectGeneral
-        }), (0, _v1.jsx)(_v113, {
+        }), (0, _v1.jsx)(_v112, {
           emailTemplate: _v1.emailTemplateType,
           emailToolBar: _v27.EMAIL_TOOLBAR_TYPES.SUBJECT,
           handleOnClick: _v0 => {
@@ -2523,14 +2518,14 @@
         })]
       });
     };
-  var _v124 = _v0.i(0),
+  var _v123 = _v0.i(0),
+    _v124 = _v0.i(0),
     _v125 = _v0.i(0),
     _v126 = _v0.i(0),
     _v127 = _v0.i(0),
     _v128 = _v0.i(0),
-    _v129 = _v0.i(0),
-    _v130 = _v0.i(0);
-  let _v131 = _v0 => {
+    _v129 = _v0.i(0);
+  let _v130 = _v0 => {
       let {
         LEFT: _v1,
         CENTER: _v2,
@@ -2544,7 +2539,7 @@
         textAlign: _v3
       }) ? _v3 : null;
     },
-    _v132 = ({
+    _v131 = ({
       editorStates: _v0
     }) => {
       let {
@@ -2562,7 +2557,7 @@
         } = (0, _v29.useAnalytics)(),
         _v8 = _v4 === _v27.EMAIL_TOOLBAR_TYPES.BODY || _v4 === _v27.EMAIL_TOOLBAR_TYPES.TITLE,
         _v9 = _v8 ? _v0[_v5][_v4] : null,
-        _v10 = _v131(_v9),
+        _v10 = _v130(_v9),
         _v11 = (_v0 => {
           let {
             NUMBERED: _v1,
@@ -2619,14 +2614,14 @@
         windowDimensions: {
           width: _v26
         }
-      } = _v111();
+      } = _v110();
       (0, _v2.useEffect)(() => {
         _v17(!1), _v22(!1);
       }, [_v26]);
       let _v27 = _v0 => () => {
           let _v0 = "",
             _v1 = _v13 ? _v9?.chain().selectAll().focus() : _v9?.chain().focus();
-          _v131(_v9) === _v0 ? _v1?.unsetTextAlign().run() : (_v0 = _v0, _v1?.setTextAlign(_v0).run()), _v2({
+          _v130(_v9) === _v0 ? _v1?.unsetTextAlign().run() : (_v0 = _v0, _v1?.setTextAlign(_v0).run()), _v2({
             type: _v4 === _v27.EMAIL_TOOLBAR_TYPES.TITLE ? _v32.ACTION_TYPE.SET_HEADER_TEXT_ALIGN : _v32.ACTION_TYPE.SET_BODY_TEXT_ALIGN,
             payload: {
               text: _v0,
@@ -2644,7 +2639,7 @@
           }), _v0 === _v27.EMAIL_LIST_FORMAT.NUMBERED ? _v9?.chain().focus().toggleOrderedList().run() : _v9?.chain().focus().toggleBulletList().run();
         };
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v50.Header, {
           size: "md",
           mb: "md",
           children: _v34.default.Text
@@ -2679,7 +2674,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v114, {
+        }), (0, _v1.jsx)(_v113, {
           title: _v34.default.Size,
           isActive: _v21,
           handleDropDownClick: () => _v22(!_v21),
@@ -2698,7 +2693,7 @@
             let _v1 = _v13 ? _v9?.chain().selectAll().focus() : _v9?.chain().focus();
             _v1?.setFontSize(_v27.EMAIL_TEXT_SIZE_VALUES[_v0]).run(), _v22(!1);
           }
-        }), (0, _v1.jsx)(_v114, {
+        }), (0, _v1.jsx)(_v113, {
           title: _v34.default.Style,
           isActive: _v16,
           handleDropDownClick: () => _v17(!_v16),
@@ -2722,7 +2717,7 @@
         }), (0, _v1.jsxs)(_v7.Flex, {
           justifyContent: "space-between",
           mt: (0, _v13.rem)(25),
-          children: [(0, _v1.jsx)(_v51.Header, {
+          children: [(0, _v1.jsx)(_v50.Header, {
             mt: (0, _v13.rem)(10),
             size: "xs",
             children: _v34.default.Format
@@ -2739,22 +2734,22 @@
             },
             children: [(0, _v1.jsxs)(_v7.Flex, {
               gap: (0, _v13.rem)(4),
-              children: [(0, _v1.jsx)(_v53.IconButton, {
+              children: [(0, _v1.jsx)(_v52.IconButton, {
                 "aria-label": "align left",
                 variant: _v10 === _v27.EMAIL_TEXT_FORMAT.LEFT ? "secondary" : "tertiary",
                 onClick: _v27(_v27.EMAIL_TEXT_FORMAT.LEFT),
-                icon: (0, _v1.jsx)(_v126.AlignLeft, {})
-              }), (0, _v1.jsx)(_v53.IconButton, {
+                icon: (0, _v1.jsx)(_v125.AlignLeft, {})
+              }), (0, _v1.jsx)(_v52.IconButton, {
                 "aria-label": "align center",
                 variant: _v10 === _v27.EMAIL_TEXT_FORMAT.CENTER ? "secondary" : "tertiary",
                 onClick: _v27(_v27.EMAIL_TEXT_FORMAT.CENTER),
-                icon: (0, _v1.jsx)(_v125.AlignCenter, {})
-              }), (0, _v1.jsx)(_v53.IconButton, {
+                icon: (0, _v1.jsx)(_v124.AlignCenter, {})
+              }), (0, _v1.jsx)(_v52.IconButton, {
                 "aria-label": "align right",
                 variant: _v10 === _v27.EMAIL_TEXT_FORMAT.RIGHT ? "secondary" : "tertiary",
                 onClick: _v27(_v27.EMAIL_TEXT_FORMAT.RIGHT),
-                icon: (0, _v1.jsx)(_v127.AlignRight, {})
-              }), (0, _v1.jsx)(_v124.Divider, {
+                icon: (0, _v1.jsx)(_v126.AlignRight, {})
+              }), (0, _v1.jsx)(_v123.Divider, {
                 display: {
                   base: "none",
                   "2xl": "block"
@@ -2765,20 +2760,20 @@
               })]
             }), (0, _v1.jsxs)(_v7.Flex, {
               gap: (0, _v13.rem)(4),
-              children: [(0, _v1.jsx)(_v53.IconButton, {
+              children: [(0, _v1.jsx)(_v52.IconButton, {
                 "aria-label": "bullet points",
                 variant: _v11 === _v27.EMAIL_LIST_FORMAT.BULLETED ? "secondary" : "tertiary",
                 onClick: _v28(_v27.EMAIL_LIST_FORMAT.BULLETED),
-                icon: (0, _v1.jsx)(_v128.ListUl, {})
-              }), (0, _v1.jsx)(_v53.IconButton, {
+                icon: (0, _v1.jsx)(_v127.ListUl, {})
+              }), (0, _v1.jsx)(_v52.IconButton, {
                 "aria-label": "number points",
                 variant: _v11 === _v27.EMAIL_LIST_FORMAT.NUMBERED ? "secondary" : "tertiary",
                 onClick: _v28(_v27.EMAIL_LIST_FORMAT.NUMBERED),
-                icon: (0, _v1.jsx)(_v129.NumberedList, {})
+                icon: (0, _v1.jsx)(_v128.NumberedList, {})
               })]
             })]
           })]
-        }), (0, _v1.jsx)(_v112, {
+        }), (0, _v1.jsx)(_v111, {
           handleOnChange: _v0 => {
             let _v1 = _v8 ? _v0[_v5][_v4] : null;
             if (_v1) {
@@ -2786,7 +2781,7 @@
               _v1.state.selection.empty && _v14.from !== _v14.to && _v0.setTextSelection(_v14), _v0.run();
             }
           },
-          selectedColor: (0, _v130.convertColorToHex)(_v12),
+          selectedColor: (0, _v129.convertColorToHex)(_v12),
           title: _v34.default.Color,
           onSubmit: _v0 => {
             _v2({
@@ -2797,9 +2792,9 @@
               }
             });
           }
-        }), (0, _v1.jsx)(_v124.Divider, {
+        }), (0, _v1.jsx)(_v123.Divider, {
           mt: (0, _v13.rem)(30)
-        }), (0, _v1.jsx)(_v113, {
+        }), (0, _v1.jsx)(_v112, {
           emailTemplate: _v5,
           emailToolBar: _v4,
           handleOnClick: _v0 => {
@@ -2811,18 +2806,15 @@
         })]
       });
     },
-    _v133 = ({
+    _v132 = ({
       editorStates: _v0,
       dynamicTagRef: _v1
     }) => {
       let {
           emailState: _v2
         } = (0, _v23.useEmailCustomization)(),
-        {
-          settings: _v3
-        } = (0, _v19.useOrionSettings)(),
-        _v4 = _v3.enable_email_section_redesign,
-        _v5 = _v0 => _v4 ? (0, _v1.jsx)(_v84.Panel, {
+        _v3 = (0, _v19.useOrionSettingsFields)(["enable_email_section_redesign"]).enable_email_section_redesign,
+        _v4 = _v0 => _v3 ? (0, _v1.jsx)(_v83.Panel, {
           isVisible: !0,
           background: "fill-surface",
           borderRadius: "md",
@@ -2832,7 +2824,7 @@
           sx: {
             minHeight: "100%"
           },
-          children: (0, _v1.jsx)(_v84.PanelBody, {
+          children: (0, _v1.jsx)(_v83.PanelBody, {
             px: (0, _v13.rem)(16),
             pt: (0, _v13.rem)(24),
             pb: (0, _v13.rem)(24),
@@ -2840,29 +2832,29 @@
           })
         }) : _v0;
       return (0, _v1.jsx)(_v5.Box, {
-        height: _v4 ? "100%" : void 0,
-        p: _v4 ? `${(0, _v13.rem)(8)} 0` : {
+        height: _v3 ? "100%" : void 0,
+        p: _v3 ? `${(0, _v13.rem)(8)} 0` : {
           base: `${(0, _v13.rem)(26)} ${(0, _v13.rem)(18)}`,
           md: `${(0, _v13.rem)(26)}`
         },
         children: {
-          [_v27.EMAIL_TOOLBAR_TYPES.GENERAL]: _v4 ? (0, _v1.jsx)(_v120, {}) : (0, _v1.jsx)(_v122, {}),
-          [_v27.EMAIL_TOOLBAR_TYPES.BUTTON]: _v5((0, _v1.jsx)(_v90, {})),
-          [_v27.EMAIL_TOOLBAR_TYPES.TITLE]: _v5((0, _v1.jsx)(_v132, {
+          [_v27.EMAIL_TOOLBAR_TYPES.GENERAL]: _v3 ? (0, _v1.jsx)(_v119, {}) : (0, _v1.jsx)(_v121, {}),
+          [_v27.EMAIL_TOOLBAR_TYPES.BUTTON]: _v4((0, _v1.jsx)(_v89, {})),
+          [_v27.EMAIL_TOOLBAR_TYPES.TITLE]: _v4((0, _v1.jsx)(_v131, {
             editorStates: _v0
           })),
-          [_v27.EMAIL_TOOLBAR_TYPES.BODY]: _v5((0, _v1.jsx)(_v132, {
+          [_v27.EMAIL_TOOLBAR_TYPES.BODY]: _v4((0, _v1.jsx)(_v131, {
             editorStates: _v0
           })),
-          [_v27.EMAIL_TOOLBAR_TYPES.SUBJECT]: _v5((0, _v1.jsx)(_v123, {
+          [_v27.EMAIL_TOOLBAR_TYPES.SUBJECT]: _v4((0, _v1.jsx)(_v122, {
             dynamicTagRef: _v1
           }))
         }[_v2.emailToolbar]
       });
     };
-  var _v134 = _v0.i(0),
-    _v135 = _v0.i(0);
-  let _v136 = ({
+  var _v133 = _v0.i(0),
+    _v134 = _v0.i(0);
+  let _v135 = ({
       clearAllTextSelections: _v0
     }) => {
       let {
@@ -2885,8 +2877,8 @@
         };
       return (0, _v1.jsxs)(_v7.Flex, {
         gap: (0, _v13.rem)(4),
-        children: [(0, _v1.jsx)(_v53.IconButton, {
-          icon: (0, _v1.jsx)(_v134.Desktop, {}),
+        children: [(0, _v1.jsx)(_v52.IconButton, {
+          icon: (0, _v1.jsx)(_v133.Desktop, {}),
           "aria-label": (0, _v15.translate)({
             singular: "Desktop preview",
             dictionary: {
@@ -2916,8 +2908,8 @@
           size: "sm",
           variant: _v1.previewMode === _v27.EMAIL_PREVIEW_MODE.WEB ? "secondary" : "tertiary",
           onClick: () => _v4(_v27.EMAIL_PREVIEW_MODE.WEB)
-        }), (0, _v1.jsx)(_v53.IconButton, {
-          icon: (0, _v1.jsx)(_v135.MobilePhone, {}),
+        }), (0, _v1.jsx)(_v52.IconButton, {
+          icon: (0, _v1.jsx)(_v134.MobilePhone, {}),
           "aria-label": (0, _v15.translate)({
             singular: "Mobile preview",
             dictionary: {
@@ -2950,7 +2942,7 @@
         })]
       });
     },
-    _v137 = () => {
+    _v136 = () => {
       let [_v0, _v1] = (0, _v2.useState)(!1),
         {
           emailState: _v2,
@@ -2966,40 +2958,37 @@
         } = (0, _v22.useEntityCapability)(),
         _v11 = (0, _v33.useConfigStore)(_v0 => _v0.isRegistrationOn),
         _v12 = (0, _v33.useConfigStore)(_v0 => _v0.hasUpsell),
+        _v13 = (0, _v19.useOrionSettingsFields)(["enable_email_section_redesign"]).enable_email_section_redesign,
         {
-          settings: _v13
-        } = (0, _v19.useOrionSettings)(),
-        _v14 = _v13.enable_email_section_redesign,
-        {
-          teamName: _v15,
-          isLoading: _v16
+          teamName: _v14,
+          isLoading: _v15
         } = (0, _v28.useTeamStore)(),
         {
-          sentRegistrationEmailLayoutChangeEvent: _v17
+          sentRegistrationEmailLayoutChangeEvent: _v16
         } = (0, _v29.useAnalytics)(),
         {
-          status: _v18,
-          title: _v19,
-          privacy: _v20
+          status: _v17,
+          title: _v18,
+          privacy: _v19
         } = (0, _v25.useEntityStore)(),
         {
-          entityType: _v21,
-          entityId: _v22
+          entityType: _v20,
+          entityId: _v21
         } = (0, _v33.useConfigStore)(_v0 => _v0);
       (0, _v21.useViewer)();
-      let _v23 = (0, _v33.useConfigStore)(_v0 => _v0.setCanRedo),
-        _v24 = (0, _v33.useConfigStore)(_v0 => _v0.setCanUndo),
+      let _v22 = (0, _v33.useConfigStore)(_v0 => _v0.setCanRedo),
+        _v23 = (0, _v33.useConfigStore)(_v0 => _v0.setCanUndo),
         {
-          canUndo: _v25,
-          canRedo: _v26
+          canUndo: _v24,
+          canRedo: _v25
         } = _v2,
         {
-          onClickRegistration: _v27
+          onClickRegistration: _v26
         } = (0, _v16.useCallbackContext)(),
-        _v28 = (0, _v2.useRef)(_v8),
+        _v27 = (0, _v2.useRef)(_v8),
+        _v28 = (0, _v2.useRef)(null),
         _v29 = (0, _v2.useRef)(null),
-        _v30 = (0, _v2.useRef)(null),
-        _v31 = (0, _v2.useRef)(null);
+        _v30 = (0, _v2.useRef)(null);
       (0, _v18.useBroadcastChannel)(_v27.BROADCAST_CHANNEL_NAME, _v0 => {
         _v0?.type === _v27.BROADCAST_ACTIONS.UNDO && _v4({
           type: _v30.ACTION_TYPE.UNDO
@@ -3010,8 +2999,8 @@
           payload: _v2
         });
       });
-      let _v32 = !_v12 && !1 === _v11 && !_v18 && _v21 === _v17.ENTITY_TYPE.EVENT && _v27;
-      (0, _v20.default)([_v30, _v29], () => {
+      let _v31 = !_v12 && !1 === _v11 && !_v17 && _v20 === _v17.ENTITY_TYPE.EVENT && _v26;
+      (0, _v20.default)([_v29, _v28], () => {
         if (_v1(!1), !_v8) {
           let _v0 = _v2.defaultConfig.subject[_v2.emailTemplateType];
           _v9(_v0), _v3({
@@ -3023,13 +3012,13 @@
           });
         }
       }, null, [_v8, _v2]);
-      let _v33 = (0, _v2.useCallback)(() => {
+      let _v32 = (0, _v2.useCallback)(() => {
           _v3({
             type: _v32.ACTION_TYPE.SET_EMAIL_TOOL_BAR,
             payload: _v27.EMAIL_TOOLBAR_TYPES.GENERAL
           });
         }, [_v3]),
-        _v34 = () => {
+        _v33 = () => {
           if (_v2.emailToolbar === _v27.EMAIL_TOOLBAR_TYPES.BODY || _v2.emailToolbar === _v27.EMAIL_TOOLBAR_TYPES.TITLE) {
             let _v0 = _v6[_v2.emailTemplateType][_v2.emailToolbar];
             _v0?.commands.setTextSelection(0);
@@ -3037,15 +3026,15 @@
           window?.getSelection()?.empty(), window?.getSelection()?.removeAllRanges();
         };
       (0, _v2.useEffect)(() => {
-        _v34(), _v3({
+        _v33(), _v3({
           type: _v32.ACTION_TYPE.EMAIL_TEMPLATE_TYPE,
           payload: _v27.EMAIL_TYPES.CONFIRMATION
         });
       }, []), (0, _v2.useEffect)(() => {
-        _v2.canRedo || _v33();
-      }, [_v2.emailTemplateType, _v2.canRedo, _v33]);
-      let _v35 = (0, _v2.useRef)(null),
-        _v36 = (0, _v2.useRef)(null);
+        _v2.canRedo || _v32();
+      }, [_v2.emailTemplateType, _v2.canRedo, _v32]);
+      let _v34 = (0, _v2.useRef)(null),
+        _v35 = (0, _v2.useRef)(null);
       return !function (_v0, _v1, _v2 = _v27.EMAIL_PREVIEW_MODE.WEB, _v3 = !0) {
         let [_v4, _v5] = (0, _v2.useState)({
             width: 0,
@@ -3083,9 +3072,9 @@
             _v1 && _v0.unobserve(_v1);
           };
         }, [_v1, _v7, _v3]);
-      }(_v36, _v35, _v2.previewMode), (0, _v2.useEffect)(() => {
-        _v23?.(_v26), _v24?.(_v25);
-      }, [_v25, _v26]), (0, _v2.useEffect)(() => {
+      }(_v35, _v34, _v2.previewMode), (0, _v2.useEffect)(() => {
+        _v22?.(_v25), _v23?.(_v24);
+      }, [_v24, _v25]), (0, _v2.useEffect)(() => {
         _v9(_v7);
       }, [_v7, _v2.emailToolbar]), (0, _v1.jsx)(_v7.Flex, {
         flexDir: "column",
@@ -3093,7 +3082,7 @@
         width: "100%",
         overflow: "auto",
         background: "background",
-        ref: _v31,
+        ref: _v30,
         children: (0, _v1.jsxs)(_v7.Flex, {
           flexDir: "row",
           alignItems: "flex-start",
@@ -3111,7 +3100,7 @@
             maxWidth: (0, _v13.rem)(400),
             background: "fill-surface",
             borderRadius: "xl",
-            children: (0, _v1.jsx)(_v81, {})
+            children: (0, _v1.jsx)(_v80, {})
           }), (0, _v1.jsx)(_v5.Box, {
             flex: 5,
             minWidth: 0,
@@ -3139,10 +3128,10 @@
                   justifyContent: "space-between",
                   alignItems: "center",
                   mb: "lg",
-                  children: [(0, _v1.jsx)(_v136, {
-                    clearAllTextSelections: _v34
-                  }), (0, _v1.jsx)(_v50, {
-                    clearAllTextSelections: _v34
+                  children: [(0, _v1.jsx)(_v135, {
+                    clearAllTextSelections: _v33
+                  }), (0, _v1.jsx)(_v49, {
+                    clearAllTextSelections: _v33
                   })]
                 }), (0, _v1.jsx)(_v7.Flex, {
                   alignItems: "flex-start",
@@ -3162,7 +3151,7 @@
                       height: (0, _v13.rem)(40),
                       children: (0, _v1.jsxs)(_v8.FormControl, {
                         children: [(0, _v1.jsx)(_v9.Input, {
-                          ref: _v29,
+                          ref: _v28,
                           id: `${_v2.emailTemplateType.toLowerCase()}-email-subject`,
                           maxLength: _v27.EMAIL_MAX_LENGTH.SUBJECT,
                           value: _v8,
@@ -3180,7 +3169,7 @@
                             _v1(!0), _v3({
                               type: _v32.ACTION_TYPE.SET_EMAIL_TOOL_BAR,
                               payload: _v27.EMAIL_TOOLBAR_TYPES.SUBJECT
-                            }), _v28.current = _v8;
+                            }), _v27.current = _v8;
                           }
                         }), (0, _v1.jsx)(_v8.FormHelperText, {
                           mt: (0, _v13.rem)(2),
@@ -3199,7 +3188,7 @@
                       color: "text-secondary",
                       size: "md",
                       children: _v34.default.Subject
-                    }), (0, _v1.jsx)(_v138, {
+                    }), (0, _v1.jsx)(_v137, {
                       isDisabled: !_v10,
                       showHoverState: !!_v10,
                       children: _v8
@@ -3208,7 +3197,7 @@
                 }), (0, _v1.jsx)(_v7.Flex, {
                   pb: "lg",
                   alignItems: "center",
-                  children: _v14 ? (0, _v1.jsxs)(_v7.Flex, {
+                  children: _v13 ? (0, _v1.jsxs)(_v7.Flex, {
                     alignItems: "center",
                     flex: 1,
                     children: [(0, _v1.jsxs)(_v7.Flex, {
@@ -3241,12 +3230,12 @@
                           isDisabled: !_v10,
                           maxLength: _v27.EMAIL_MAX_LENGTH.FROM,
                           value: _v2.from,
-                          placeholder: _v16 ? _v34.default.Loading : "",
+                          placeholder: _v15 ? _v34.default.Loading : "",
                           onBlur: () => {
                             _v2.from || _v3({
                               type: _v32.ACTION_TYPE.SET_FROM,
-                              payload: _v15 || _v27.VIMEO
-                            }), _v17({
+                              payload: _v14 || _v27.VIMEO
+                            }), _v16({
                               actionName: _v31.BP_ACTION_NAMES.FROM_TEXT_CHANGED
                             });
                           },
@@ -3264,7 +3253,7 @@
                       color: "text-secondary",
                       size: "md",
                       children: _v34.default.From
-                    }), (0, _v1.jsx)(_v138, {
+                    }), (0, _v1.jsx)(_v137, {
                       isDisabled: !_v10,
                       showHoverState: !!_v10,
                       onClick: () => {
@@ -3277,7 +3266,7 @@
                     })]
                   })
                 })]
-              }), _v32 && (0, _v1.jsx)(_v3.Alert, {
+              }), _v31 && (0, _v1.jsx)(_v3.Alert, {
                 variant: "info",
                 marginBottom: (0, _v13.rem)(16),
                 children: (0, _v1.jsx)(_v4.AlertDescription, {
@@ -3285,10 +3274,10 @@
                     singular: "To add your custom form and emails to “{TITLE},” {A}turn on registration{/A}.",
                     replacements: {
                       A: _v0 => (0, _v1.jsx)(_v10.Link, {
-                        onClick: _v27,
+                        onClick: _v26,
                         children: _v0
                       }),
-                      TITLE: _v19
+                      TITLE: _v18
                     },
                     dictionary: {
                       es: {
@@ -3320,8 +3309,8 @@
                 width: "100%",
                 overflowX: "hidden",
                 pb: (0, _v13.rem)(26),
-                height: (_v31.current?.clientHeight || 230) + 65 - 230,
-                ref: _v35,
+                height: (_v30.current?.clientHeight || 230) + 65 - 230,
+                ref: _v34,
                 children: (0, _v1.jsxs)(_v5.Box, {
                   width: (0, _v13.rem)(_v27.PREVIEW_WIDTH[_v2.previewMode]),
                   alignItems: "center",
@@ -3336,7 +3325,7 @@
                       display: "none"
                     }
                   },
-                  ref: _v36,
+                  ref: _v35,
                   children: [(0, _v1.jsx)(_v5.Box, {
                     background: _v2.accentColor,
                     height: (0, _v13.rem)(1.5),
@@ -3385,7 +3374,7 @@
                       transition: "0.5s",
                       p: _v2.previewMode === _v27.EMAIL_PREVIEW_MODE.WEB ? `${(0, _v13.rem)(22)} ${(0, _v13.rem)(95)} ${(0, _v13.rem)(45)}` : `${(0, _v13.rem)(22)} ${(0, _v13.rem)(20)} ${(0, _v13.rem)(45)}`,
                       width: _v2.previewMode === _v27.EMAIL_PREVIEW_MODE.WEB ? "90%" : "100%",
-                      children: (0, _v1.jsx)(_v82.EmailTemplate, {
+                      children: (0, _v1.jsx)(_v81.EmailTemplate, {
                         editorStates: _v6,
                         canEdit: _v10
                       })
@@ -3405,7 +3394,7 @@
                         type: _v32.ACTION_TYPE.SET_EMAIL_TOOL_BAR,
                         payload: _v27.EMAIL_TOOLBAR_TYPES.GENERAL
                       }),
-                      children: (0, _v1.jsx)(_v83, {})
+                      children: (0, _v1.jsx)(_v82, {})
                     })]
                   })]
                 })
@@ -3413,21 +3402,21 @@
             })
           }), (0, _v1.jsx)(_v5.Box, {
             flex: 2,
-            minWidth: _v14 ? (0, _v13.rem)(320) : (0, _v13.rem)(200),
+            minWidth: _v13 ? (0, _v13.rem)(320) : (0, _v13.rem)(200),
             overflowY: "auto",
             height: "100%",
             maxWidth: (0, _v13.rem)(400),
             background: "fill-surface",
             borderRadius: "xl",
-            children: (0, _v1.jsx)(_v133, {
+            children: (0, _v1.jsx)(_v132, {
               editorStates: _v6,
-              dynamicTagRef: _v30
+              dynamicTagRef: _v29
             })
           })]
         })
       });
     },
-    _v138 = _v0 => (0, _v1.jsx)(_v5.Box, {
+    _v137 = _v0 => (0, _v1.jsx)(_v5.Box, {
       ml: (0, _v13.rem)(18),
       wordBreak: "break-all",
       fontSize: "body-md",
@@ -3442,7 +3431,7 @@
       ..._v0,
       children: _v0.children
     });
-  var _v139 = _v0.i(0);
+  var _v138 = _v0.i(0);
   _v0.s(["LeadEmail", 0, ({
     entityId: _v0,
     entityType: _v1,
@@ -3478,10 +3467,10 @@
     }, [_v0, _v1, _v5, _v6, _v7, _v11, _v12, _v4, _v8, _v9]), _v0 && _v1) ? (0, _v1.jsx)(_v25.default, {
       children: (0, _v1.jsx)(_v28.default, {
         children: (0, _v1.jsx)(_v22.default, {
-          children: (0, _v1.jsx)(_v73.default, {
+          children: (0, _v1.jsx)(_v72.default, {
             onSaveStateChange: _v10,
-            children: (0, _v1.jsx)(_v139.UndoRedoContextProvider, {
-              children: (0, _v1.jsx)(_v137, {})
+            children: (0, _v1.jsx)(_v138.UndoRedoContextProvider, {
+              children: (0, _v1.jsx)(_v136, {})
             })
           })
         })

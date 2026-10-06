@@ -1981,8 +1981,29 @@
   }
   var _v143 = _v0.i(0),
     _v144 = _v0.i(0),
-    _v145 = _v0.i(0),
-    _v146 = _v0.i(0);
+    _v145 = _v0.i(0);
+  async function _v146({
+    baseUrl: _v0,
+    where: {
+      userId: _v1,
+      albumId: _v2,
+      videoId: _v3
+    },
+    query: _v4,
+    ..._v5
+  }) {
+    return (0, _v144.measureLatency)("putUserAlbumVideoLikes", "PUT", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v1}/albums/${_v2}/videos/${_v3}/likes?${(0, _v145.searchQueryString)(_v4)}`, {
+        ..._v5,
+        method: "PUT"
+      });
+      if (!_v0.ok) throw new _v145.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v145.deepCamelCase)(_v1);
+    });
+  }
   async function _v147({
     baseUrl: _v0,
     where: {
@@ -1993,132 +2014,25 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v145.measureLatency)("putUserAlbumVideoLikes", "PUT", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v1}/albums/${_v2}/videos/${_v3}/likes?${(0, _v146.searchQueryString)(_v4)}`, {
-        ..._v5,
-        method: "PUT"
-      });
-      if (!_v0.ok) throw new _v146.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v146.deepCamelCase)(_v1);
-    });
-  }
-  async function _v148({
-    baseUrl: _v0,
-    where: {
-      userId: _v1,
-      albumId: _v2,
-      videoId: _v3
-    },
-    query: _v4,
-    ..._v5
-  }) {
-    return (0, _v145.measureLatency)("deleteUserAlbumVideoLikes", "DELETE", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v1}/albums/${_v2}/videos/${_v3}/likes?${(0, _v146.searchQueryString)(_v4)}`, {
+    return (0, _v144.measureLatency)("deleteUserAlbumVideoLikes", "DELETE", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v1}/albums/${_v2}/videos/${_v3}/likes?${(0, _v145.searchQueryString)(_v4)}`, {
         ..._v5,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v146.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v145.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v146.deepCamelCase)(_v1);
+      return (0, _v145.deepCamelCase)(_v1);
     });
   }
-  var _v149 = _v0.i(0),
-    _v150 = _v0.i(0);
-  function _v151() {
-    let {
-        mutate: _v0
-      } = (0, _v149.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v150.useGctlConfig)(),
-      [_v5, _v6] = (0, _v144.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/albums/${_v0.where.albumId}/videos/${_v0.where.videoId}/likes${(0, _v144.serializeQuery)(_v0)}`, _v147({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  function _v152() {
-    let {
-        mutate: _v0
-      } = (0, _v149.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v150.useGctlConfig)(),
-      [_v5, _v6] = (0, _v144.useInternalState)();
-    return [(0, _v3.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/albums/${_v0.where.albumId}/videos/${_v0.where.videoId}/likes${(0, _v144.serializeQuery)(_v0)}`, _v148({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v143.default.env.STORYBOOK && (0, _v144.assignMswData)(_v151, {
-    endpoint: "/users/:userId/albums/:albumId/videos/:videoId/likes",
-    method: "PUT"
-  }), "true" === _v143.default.env.STORYBOOK && (0, _v144.assignMswData)(_v152, {
-    endpoint: "/users/:userId/albums/:albumId/videos/:videoId/likes",
-    method: "DELETE"
-  });
-  let _v153 = {
+  var _v148 = _v0.i(0),
+    _v149 = _v0.i(0);
+  let _v150 = {
       forceCollectionUri: !0
     },
-    _v154 = ["metadata.connections.likes.total", "metadata.interactions.like.added", "metadata.interactions.like.uri"],
-    _v155 = (0, _v3.memo)(_v0 => {
+    _v151 = ["metadata.connections.likes.total", "metadata.interactions.like.added", "metadata.interactions.like.uri"],
+    _v152 = (0, _v3.memo)(_v0 => {
       let {
           shareModalActive: _v1,
           setShareModalActive: _v2,
@@ -2260,9 +2174,9 @@
                         albumId: _v1,
                         videoId: Number(_v0)
                       },
-                      select: _v154,
+                      select: _v151,
                       query: {
-                        ..._v153,
+                        ..._v150,
                         ..._v6,
                         ...(_v3 && {
                           password: _v3
@@ -2293,11 +2207,87 @@
                 [_v15, {
                   loading: _v16,
                   error: _v17
-                }] = _v151(),
+                }] = function () {
+                  let {
+                      mutate: _v0
+                    } = (0, _v148.useSWRConfig)(),
+                    {
+                      baseUrl: _v1,
+                      jwt: _v2,
+                      xVimeoPage: _v3,
+                      locale: _v4
+                    } = (0, _v149.useGctlConfig)(),
+                    [_v5, _v6] = (0, _v143.useInternalState)();
+                  return [(0, _v3.useCallback)(async _v0 => {
+                    _v6({
+                      type: "REQUEST"
+                    });
+                    try {
+                      let _v0 = await _v0(`/users/${_v0.where.userId}/albums/${_v0.where.albumId}/videos/${_v0.where.videoId}/likes${(0, _v143.serializeQuery)(_v0)}`, _v146({
+                        ..._v0,
+                        baseUrl: _v1,
+                        headers: {
+                          ..._v0.headers,
+                          "Content-Type": "application/json",
+                          Authorization: _v2 ? `jwt ${_v2}` : "",
+                          "Vimeo-Page": `${_v3}`,
+                          "Accept-Language": _v4 ?? "en"
+                        }
+                      }), !1);
+                      _v6({
+                        type: "SUCCESS",
+                        payload: _v0
+                      });
+                    } catch (_v0) {
+                      _v6({
+                        type: "FAILURE",
+                        payload: _v0
+                      });
+                    }
+                  }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+                }(),
                 [_v18, {
                   loading: _v19,
                   error: _v20
-                }] = _v152(),
+                }] = function () {
+                  let {
+                      mutate: _v0
+                    } = (0, _v148.useSWRConfig)(),
+                    {
+                      baseUrl: _v1,
+                      jwt: _v2,
+                      xVimeoPage: _v3,
+                      locale: _v4
+                    } = (0, _v149.useGctlConfig)(),
+                    [_v5, _v6] = (0, _v143.useInternalState)();
+                  return [(0, _v3.useCallback)(async _v0 => {
+                    _v6({
+                      type: "REQUEST"
+                    });
+                    try {
+                      let _v0 = await _v0(`/users/${_v0.where.userId}/albums/${_v0.where.albumId}/videos/${_v0.where.videoId}/likes${(0, _v143.serializeQuery)(_v0)}`, _v147({
+                        ..._v0,
+                        baseUrl: _v1,
+                        headers: {
+                          ..._v0.headers,
+                          "Content-Type": "application/json",
+                          Authorization: _v2 ? `jwt ${_v2}` : "",
+                          "Vimeo-Page": `${_v3}`,
+                          "Accept-Language": _v4 ?? "en"
+                        }
+                      }), !1);
+                      _v6({
+                        type: "SUCCESS",
+                        payload: _v0
+                      });
+                    } catch (_v0) {
+                      _v6({
+                        type: "FAILURE",
+                        payload: _v0
+                      });
+                    }
+                  }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+                }(),
                 _v21 = _v11 ? _v20 : _v17,
                 _v22 = async () => {
                   let _v0 = !_v5,
@@ -2552,9 +2542,9 @@
         }), (0, _v1.jsx)(_v69, {})]
       }) : null;
     });
-  var _v156 = _v0.i(0),
-    _v157 = _v0.i(0);
-  let _v158 = ({
+  var _v153 = _v0.i(0),
+    _v154 = _v0.i(0);
+  let _v155 = ({
     clipId: _v0,
     clipRequestId: _v1
   }) => {
@@ -2576,12 +2566,12 @@
           _v0.setCurrentTime(_v0), _v0.play();
         }
       }, []);
-    return (0, _v1.jsx)(_v157.Flex, {
+    return (0, _v1.jsx)(_v154.Flex, {
       direction: "column",
       w: "100%",
       h: "100%",
       "data-testid": "ai-module",
-      children: (0, _v1.jsx)(_v156.ViewerAiModule, {
+      children: (0, _v1.jsx)(_v153.ViewerAiModule, {
         pageName: "viewer_home",
         videoId: Number(_v0),
         videoRequestId: _v1,
@@ -2591,8 +2581,8 @@
       })
     });
   };
-  var _v159 = _v0.i(0);
-  let _v160 = ({
+  var _v156 = _v0.i(0);
+  let _v157 = ({
     playerContainerRef: _v0,
     bannerHeight: _v1
   }) => {
@@ -2689,9 +2679,9 @@
         showProfileImage: _v16,
         showProfileName: _v17,
         showVideoTitle: _v18
-      }), _v31 ? (0, _v1.jsx)(_v157.Flex, {
+      }), _v31 ? (0, _v1.jsx)(_v154.Flex, {
         justifyContent: "center",
-        children: (0, _v1.jsx)(_v159.Pagination, {
+        children: (0, _v1.jsx)(_v156.Pagination, {
           count: _v23,
           page: _v29,
           onPageChange: _v0 => _v27(_v0.page),
@@ -2707,11 +2697,11 @@
       }) : null]
     });
   };
-  var _v161 = _v0.i(0),
-    _v162 = _v0.i(0),
-    _v163 = _v0.i(0),
-    _v164 = _v0.i(0);
-  let _v165 = _v0 => {
+  var _v158 = _v0.i(0),
+    _v159 = _v0.i(0),
+    _v160 = _v0.i(0),
+    _v161 = _v0.i(0);
+  let _v162 = _v0 => {
     let {
         isSideModuleOpen: _v1,
         onClose: _v2
@@ -2903,7 +2893,7 @@
         })
       }), _v1 ? null : (0, _v1.jsx)(_v30.Show, {
         above: "md",
-        children: (0, _v1.jsx)(_v164.LayoutToggleIcon, {
+        children: (0, _v1.jsx)(_v161.LayoutToggleIcon, {
           label: _v3,
           onClick: _v5,
           transform: _v4
@@ -2911,10 +2901,10 @@
       })]
     });
   };
-  var _v166 = _v0.i(0),
-    _v167 = _v0.i(0),
-    _v168 = _v0.i(0);
-  let _v169 = {
+  var _v163 = _v0.i(0),
+    _v164 = _v0.i(0),
+    _v165 = _v0.i(0);
+  let _v166 = {
       productContextFields: {
         product: "showcase"
       },
@@ -2922,7 +2912,7 @@
         page_name: "showcase_recipient"
       }
     },
-    _v170 = ({
+    _v167 = ({
       clipOwnerUri: _v0,
       clipRequestId: _v1,
       clipId: _v2,
@@ -2959,23 +2949,23 @@
             _v13 = (0, _v3.useCallback)(_v0 => {
               _v12(_v0.target.value.trim());
             }, [_v12]);
-          (0, _v168.default)([_v10], () => {
+          (0, _v165.default)([_v10], () => {
             _v6 && !_v8 && _v11();
           }, null, [_v8, _v6]);
           let {
             deeplinkNoteId: _v14
-          } = (0, _v167.useGetCommentsDeeplink)(_v0, !0);
+          } = (0, _v164.useGetCommentsDeeplink)(_v0, !0);
           return (0, _v3.useEffect)(() => {
             _v3 && _v14 && _v5("COMMENTS");
           }, [_v5, _v3, _v14]), {
             onCloseSearch: _v11,
             onSearchClick: (0, _v3.useCallback)(() => {
-              (0, _v166.bpStartSearchComment)({
+              (0, _v163.bpStartSearchComment)({
                 isInternal: !1,
                 videoId: parseFloat(_v1),
                 videoPrivacy: _v2,
                 viewer: _v4 ?? void 0,
-                analyticsProps: _v169
+                analyticsProps: _v166
               }), _v7(!0);
             }, [_v1, _v2, _v4]),
             searchCommentQuery: _v8,
@@ -2993,12 +2983,12 @@
           commentsCount: _v12
         } = (0, _v141.useGetCommentsCount)(_v1, !0, void 0, _v5);
       return (0, _v1.jsx)(_v131.ToastProvider, {
-        children: (0, _v1.jsxs)(_v157.Flex, {
+        children: (0, _v1.jsxs)(_v154.Flex, {
           direction: "column",
           w: "100%",
           h: "100%",
           "data-testid": "comments-module",
-          children: [(0, _v1.jsxs)(_v162.ModuleHeader, {
+          children: [(0, _v1.jsxs)(_v159.ModuleHeader, {
             text: (0, _v46.translate)({
               singular: "Comments",
               dictionary: {
@@ -3030,34 +3020,34 @@
             updateCommentSearchQuery: _v11,
             onCloseSearch: _v6,
             searchInputRef: _v9,
-            children: [(0, _v1.jsx)(_v163.SearchIconButton, {
+            children: [(0, _v1.jsx)(_v160.SearchIconButton, {
               onClick: _v7
-            }), (0, _v1.jsx)(_v165, {
+            }), (0, _v1.jsx)(_v162, {
               clipId: _v2,
               clipOwnerUri: _v0,
               privacyView: _v3
             })]
-          }), (0, _v1.jsx)(_v161.CommentsContainer, {
+          }), (0, _v1.jsx)(_v158.CommentsContainer, {
             clipRequestId: _v1,
             clipId: _v2,
             isPublic: !0,
             searchQuery: _v8,
-            analyticsProps: _v169,
+            analyticsProps: _v166,
             onMomentPlay: () => void 0,
             showcaseId: _v5
           })]
         })
       });
     };
-  var _v171 = _v0.i(0),
+  var _v168 = _v0.i(0),
+    _v169 = _v0.i(0),
+    _v170 = _v0.i(0),
+    _v171 = _v0.i(0),
     _v172 = _v0.i(0),
     _v173 = _v0.i(0),
     _v174 = _v0.i(0),
-    _v175 = _v0.i(0),
-    _v176 = _v0.i(0),
-    _v177 = _v0.i(0),
-    _v178 = _v0.i(0);
-  let _v179 = ({
+    _v175 = _v0.i(0);
+  let _v176 = ({
       children: _v0,
       enableLike: _v1,
       showDateAdded: _v2,
@@ -3088,7 +3078,7 @@
             } = _v51(),
             {
               data: _v2
-            } = (0, _v177.useGetVideoCredits)(() => _v0 && _v1 ? {
+            } = (0, _v174.useGetVideoCredits)(() => _v0 && _v1 ? {
               where: {
                 videoId: Number(_v1)
               },
@@ -3102,7 +3092,7 @@
               shouldRetryOnError: !1
             });
           return _v2?.data.map(_v0 => {
-            let [_v1, _v2] = (0, _v178.getAvatarImages)(_v0?.user?.pictures?.sizes);
+            let [_v1, _v2] = (0, _v175.getAvatarImages)(_v0?.user?.pictures?.sizes);
             return {
               name: _v0.name,
               avaSrc: _v1,
@@ -3114,7 +3104,7 @@
           });
         }(),
         _v15 = _v10?.privacy,
-        _v16 = !!_v15?.view && _v175.PrivacyUtility.isPublicFacingPrivacy(_v15?.view),
+        _v16 = !!_v15?.view && _v172.PrivacyUtility.isPublicFacingPrivacy(_v15?.view),
         {
           dateAdded: _v17,
           description: _v18,
@@ -3178,8 +3168,8 @@
             ..._v3
           };
         })(_v8);
-      if (!_v8 || _v11) return (0, _v1.jsx)(_v171.ModuleWrapper, {
-        children: (0, _v1.jsx)(_v173.VideoDetailsSkeleton, {})
+      if (!_v8 || _v11) return (0, _v1.jsx)(_v168.ModuleWrapper, {
+        children: (0, _v1.jsx)(_v170.VideoDetailsSkeleton, {})
       });
       if (!_v10) return null;
       let {
@@ -3199,7 +3189,7 @@
           isAdvert: _v42,
           stats: _v43
         } = _v10,
-        _v44 = _v29 ? (0, _v176.timeBetween)(new Date(_v29), new Date()) : "",
+        _v44 = _v29 ? (0, _v173.timeBetween)(new Date(_v29), new Date()) : "",
         _v45 = (0, _v5.getViewsString)(_v43?.plays),
         _v46 = {
           ..._v33
@@ -3212,11 +3202,11 @@
           publicVideos: _v47
         }
       }), (0, _v1.jsx)(_v1.Fragment, {
-        children: (0, _v1.jsx)(_v171.ModuleWrapper, {
+        children: (0, _v1.jsx)(_v168.ModuleWrapper, {
           sx: {
             color: "dark" === _v13 ? "white" : "black"
           },
-          children: (0, _v1.jsxs)(_v172.VideoDetailsBase, {
+          children: (0, _v1.jsxs)(_v169.VideoDetailsBase, {
             createdTime: _v29,
             language: _v30,
             title: _v31,
@@ -3236,7 +3226,7 @@
             timeSinceCreatedString: _v44,
             viewsString: _v45,
             ..._v23,
-            children: [_v0, (0, _v1.jsx)(_v174.default, {
+            children: [_v0, (0, _v1.jsx)(_v171.default, {
               user: _v46,
               videoId: _v8,
               onProfileMouseOver: () => {
@@ -3248,7 +3238,7 @@
         })
       });
     },
-    _v180 = () => {
+    _v177 = () => {
       var _v0, _v1;
       let _v2,
         _v3,
@@ -3531,7 +3521,7 @@
               })
             })
           }), _v37 ? (0, _v1.jsx)(_v33.ClipLayout.ContentStack, {
-            children: (0, _v1.jsxs)(_v179, {
+            children: (0, _v1.jsxs)(_v176, {
               enableLike: _v22,
               showDateAdded: _v24,
               showDescription: _v25,
@@ -3541,7 +3531,7 @@
               showViews: _v29,
               children: [_v63 ? (0, _v1.jsx)(_v82, {
                 isInteractionToolsEnabled: _v62
-              }) : null, _v18 && (0, _v1.jsx)(_v155, {
+              }) : null, _v18 && (0, _v1.jsx)(_v152, {
                 clipId: _v40,
                 canInteract: _v43,
                 clipRequestId: _v41,
@@ -3559,7 +3549,7 @@
               position: "relative",
               w: _v39.commonWrapperWidth,
               left: _v39.commonWrapperLeft,
-              children: _v37 ? (0, _v1.jsx)(_v160, {
+              children: _v37 ? (0, _v1.jsx)(_v157, {
                 playerContainerRef: _v60,
                 bannerHeight: _v15
               }) : (0, _v1.jsx)(_v107, {
@@ -3571,7 +3561,7 @@
             above: "md",
             children: [_v18 && _v51 ? (0, _v1.jsx)(_v33.ClipLayout.Comments, {
               globalNavigationHidden: _v32,
-              children: (0, _v1.jsx)(_v170, {
+              children: (0, _v1.jsx)(_v167, {
                 clipId: _v40,
                 clipOwnerUri: _v38?.user?.uri,
                 clipRequestId: _v41,
@@ -3594,7 +3584,7 @@
               }) : null, "CHAPTERS" === _v54 ? (0, _v1.jsx)(_v28.Center, {
                 h: "100%",
                 children: "SIDE MODULE"
-              }) : null, "VIMEO_AI" === _v54 && _v50 ? (0, _v1.jsx)(_v158, {
+              }) : null, "VIMEO_AI" === _v54 && _v50 ? (0, _v1.jsx)(_v155, {
                 clipId: _v40,
                 clipRequestId: _v41
               }, _v40) : null]
@@ -3609,10 +3599,10 @@
               }) : null, "CHAPTERS" === _v55 ? (0, _v1.jsx)(_v28.Center, {
                 h: "100%",
                 children: "SIDE MODULE"
-              }) : null, "VIMEO_AI" === _v55 && _v50 ? (0, _v1.jsx)(_v158, {
+              }) : null, "VIMEO_AI" === _v55 && _v50 ? (0, _v1.jsx)(_v155, {
                 clipId: _v40,
                 clipRequestId: _v41
-              }, _v40) : null, "COMMENTS" === _v55 ? (0, _v1.jsx)(_v170, {
+              }, _v40) : null, "COMMENTS" === _v55 ? (0, _v1.jsx)(_v167, {
                 clipId: _v40,
                 clipOwnerUri: _v38?.user?.uri,
                 clipRequestId: _v41,
@@ -3632,7 +3622,7 @@
         })]
       });
     };
-  function _v181() {
+  function _v178() {
     let _v0 = (0, _v16.useAlbumStore)(_v0 => _v0.albumId),
       _v1 = (0, _v16.useAlbumStore)(_v0 => _v0.setBannerHeight),
       _v2 = (0, _v5.getSearchParams)().get("height");
@@ -3658,14 +3648,14 @@
           children: (0, _v1.jsx)(_v9, {
             children: (0, _v1.jsx)(_v20.LayoutProvider, {
               isShowcaseLayout: !0,
-              children: (0, _v1.jsx)(_v180, {})
+              children: (0, _v1.jsx)(_v177, {})
             })
           })
         }), _v5 ? null : (0, _v1.jsx)(_v24.FooterModule, {})]
       })
     });
   }
-  async function _v182(_v0, _v1) {
+  async function _v179(_v0, _v1) {
     try {
       let _v0 = await fetch(`https://${_v0}/_next/showcase_metadata?album_id=${encodeURIComponent(_v1)}`, {
         headers: {
@@ -3755,7 +3745,7 @@
           children: _v5.metadata.name
         })
       }), (0, _v1.jsx)(_v4.UpsellModalProvider, {
-        children: (0, _v1.jsx)(_v181, {})
+        children: (0, _v1.jsx)(_v178, {})
       })]
     });
   }], 0), _v0.s(["ShowcaseHead", 0, function ({
@@ -3893,5 +3883,5 @@
         }
       })]
     });
-  }], 0), _v0.s(["fetchShowcaseMetadata", 0, _v182], 0);
+  }], 0), _v0.s(["fetchShowcaseMetadata", 0, _v179], 0);
 }

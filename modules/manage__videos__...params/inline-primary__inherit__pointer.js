@@ -28,9 +28,7 @@
     isLoading: _v3
   }) => {
     let _v4 = (0, _v15.useViewer)(),
-      {
-        settings: _v5
-      } = (0, _v14.useOrionSettings)(),
+      _v5 = (0, _v14.useOrionSettingsFields)(["enable_team_defaults_page", "enable_workspace_defaults_page"]),
       _v6 = _v4?.teamUser?.ownerId,
       _v7 = void 0 !== _v6 && _v6 !== _v4?.user?.id,
       _v8 = (0, _v12.getVideoDefaultsUrl)({

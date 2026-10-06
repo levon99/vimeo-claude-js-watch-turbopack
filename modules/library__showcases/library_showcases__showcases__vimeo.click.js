@@ -1507,9 +1507,7 @@
         _v15 = (0, _v108.useLocale)(),
         _v16 = (0, _v13.useAnalyticsEvent)(),
         _v17 = "showcase_list",
-        {
-          settings: _v18
-        } = (0, _v9.useOrionSettings)(),
+        _v18 = (0, _v9.useOrionSettingsFields)(["enable_rename_showcase_and_events"]),
         [_v19, _v20] = (0, _v3.useState)(!1),
         [_v21, _v22] = (0, _v3.useState)(_v10),
         _v23 = (0, _v106.getResourceIdFromUri)(_v13),
@@ -1682,31 +1680,28 @@
       _v4 = (0, _v27.useShowcaseDeleteModal)(),
       _v5 = (0, _v18.useUpsellModal)(),
       _v6 = (0, _v19.useVideoModal)(),
+      _v7 = !!(0, _v9.useOrionSettingsFields)(["enable_showcase_search"]).enable_showcase_search,
+      [_v8, _v9] = (0, _v16.useLayoutPreference)(),
+      [_v10, _v11] = (0, _v28.useSortPreference)(_v23.DEFAULT_SHOWCASES_SORT, _v23.VL_SHOWCASES_SORT_LOCAL_STORAGE_KEY),
+      [_v12, _v13] = (0, _v3.useState)(""),
+      _v14 = (0, _v7.useDebouncedValue)(_v12, 400),
+      [_v15, _v16] = (0, _v3.useState)(null),
+      [_v17, _v18] = (0, _v3.useState)(""),
+      [_v19, _v20] = (0, _v3.useState)(void 0),
+      _v21 = (0, _v13.useAnalyticsEvent)(),
       {
-        settings: _v7
-      } = (0, _v9.useOrionSettings)(),
-      _v8 = !!_v7.enable_showcase_search,
-      [_v9, _v10] = (0, _v16.useLayoutPreference)(),
-      [_v11, _v12] = (0, _v28.useSortPreference)(_v23.DEFAULT_SHOWCASES_SORT, _v23.VL_SHOWCASES_SORT_LOCAL_STORAGE_KEY),
-      [_v13, _v14] = (0, _v3.useState)(""),
-      _v15 = (0, _v7.useDebouncedValue)(_v13, 400),
-      [_v16, _v17] = (0, _v3.useState)(null),
-      [_v18, _v19] = (0, _v3.useState)(""),
-      [_v20, _v21] = (0, _v3.useState)(void 0),
-      _v22 = (0, _v13.useAnalyticsEvent)(),
-      {
-        getShowcaseShareLoopTrackingParams: _v23
+        getShowcaseShareLoopTrackingParams: _v22
       } = (0, _v26.useShareLoopTrackingParams)(),
-      _v24 = _v2?.teamUser?.ownerId || _v2?.user?.id,
+      _v23 = _v2?.teamUser?.ownerId || _v2?.user?.id,
       {
-        isDone: _v25,
-        isLoadingInitial: _v26,
-        isLoadingMore: _v27,
-        loadMore: _v28,
-        removeFromCacheByUri: _v29,
-        revalidateShowcases: _v30,
-        showcases: _v31,
-        total: _v32
+        isDone: _v24,
+        isLoadingInitial: _v25,
+        isLoadingMore: _v26,
+        loadMore: _v27,
+        removeFromCacheByUri: _v28,
+        revalidateShowcases: _v29,
+        showcases: _v30,
+        total: _v31
       } = (({
         ownerId: _v0,
         query: _v1,
@@ -1768,13 +1763,13 @@
           total: _v5?.[_v5.length - 1].total
         };
       })({
-        ownerId: _v24,
-        query: _v15 || void 0,
-        sortDirection: _v11.direction,
-        sortType: _v11.type
+        ownerId: _v23,
+        query: _v14 || void 0,
+        sortDirection: _v10.direction,
+        sortType: _v10.type
       });
     (0, _v3.useEffect)(() => {
-      void 0 === _v32 || _v15 || (_v0 => {
+      void 0 === _v31 || _v14 || (_v0 => {
         let {
             teamUser: _v1,
             noOfShowcases: _v2
@@ -1812,52 +1807,52 @@
           eventVersion: 2
         });
       })({
-        noOfShowcases: _v32,
+        noOfShowcases: _v31,
         teamUser: _v2?.teamUser
       });
-    }, [_v32]), (0, _v11.usePicoEffect)(() => {
-      if (void 0 === _v32 || _v15) return !1;
+    }, [_v31]), (0, _v11.usePicoEffect)(() => {
+      if (void 0 === _v31 || _v14) return !1;
       _v0({
-        showcasesListCount: _v32
+        showcasesListCount: _v31
       });
-    }, [_v32, _v15], {
+    }, [_v31, _v14], {
       once: !0
     });
     let {
-        capabilities: _v33
+        capabilities: _v32
       } = (0, _v6.useCapability)(["canCreateAlbums"], _v2?.teamUser?.ownerId ?? _v2?.user?.uri),
       {
-        capabilities: _v34
+        capabilities: _v33
       } = (0, _v6.useCapability)(["canManageTeamCollections"]),
-      _v35 = _v31?.length === 0,
-      _v36 = !!_v15,
-      _v37 = _v33?.canCreateAlbums === !1,
-      _v38 = (0, _v3.useCallback)(({
+      _v34 = _v30?.length === 0,
+      _v35 = !!_v14,
+      _v36 = _v32?.canCreateAlbums === !1,
+      _v37 = (0, _v3.useCallback)(({
         uri: _v0
       }) => {
         _v1({
           showcaseId: _v0.split("/").pop() ?? ""
         }), window.location.href = _v101(_v0, !0);
       }, [_v1]),
-      _v39 = (0, _v3.useCallback)(() => {
+      _v38 = (0, _v3.useCallback)(() => {
         _v3({
           content: _v66,
           status: "error"
         });
       }, [_v3]),
-      _v40 = (0, _v3.useCallback)(() => {
-        _v17(null), _v19(""), _v21(void 0);
+      _v39 = (0, _v3.useCallback)(() => {
+        _v16(null), _v18(""), _v20(void 0);
       }, []),
-      _v41 = (0, _v3.useCallback)(_v0 => {
-        _v19(_v0), _v21(void 0);
+      _v40 = (0, _v3.useCallback)(_v0 => {
+        _v18(_v0), _v20(void 0);
       }, []),
-      _v42 = (0, _v3.useCallback)(({
+      _v41 = (0, _v3.useCallback)(({
         name: _v0,
         uri: _v1
       }) => {
-        let _v2 = _v0 ?? _v18,
+        let _v2 = _v0 ?? _v17,
           _v3 = _v101(_v1, !0);
-        _v40(), _v30(), _v3({
+        _v39(), _v29(), _v3({
           content: (0, _v8.translate)({
             singular: 'Created "{SHOWCASE_NAME}". {LINK}Open page{/LINK}',
             replacements: {
@@ -1893,10 +1888,10 @@
           }),
           status: "success"
         });
-      }, [_v40, _v18, _v3, _v30]),
-      _v43 = (0, _v3.useCallback)(_v0 => {
+      }, [_v39, _v17, _v3, _v29]),
+      _v42 = (0, _v3.useCallback)(_v0 => {
         let _v1;
-        "invalid_name" === _v0 ? _v21((_v1 = _v23.SHOWCASE_TITLE_MAX_LENGTH, (0, _v8.translate)({
+        "invalid_name" === _v0 ? _v20((_v1 = _v23.SHOWCASE_TITLE_MAX_LENGTH, (0, _v8.translate)({
           singular: "Your title is invalid or longer than {LIMIT} characters.",
           replacements: {
             LIMIT: _v1
@@ -1929,26 +1924,26 @@
           status: "error"
         });
       }, [_v3]),
-      [_v44, {
-        loading: _v45
+      [_v43, {
+        loading: _v44
       }] = (0, _v14.useCreateShowcase)({
-        onFailure: _v39,
-        onSuccess: _v38,
-        teamOwnerId: _v24
+        onFailure: _v38,
+        onSuccess: _v37,
+        teamOwnerId: _v23
       }),
-      [_v46, {
-        loading: _v47
+      [_v45, {
+        loading: _v46
       }] = (0, _v15.useCopyShowcase)({
-        onFailure: _v43,
-        onSuccess: _v42
+        onFailure: _v42,
+        onSuccess: _v41
       }),
-      _v48 = (0, _v3.useCallback)(_v0 => {
-        _v17(_v0), _v19((0, _v31.buildCopyPrefilledTitle)(_v0.name, _v23.SHOWCASE_TITLE_MAX_LENGTH)), _v21(void 0);
+      _v47 = (0, _v3.useCallback)(_v0 => {
+        _v16(_v0), _v18((0, _v31.buildCopyPrefilledTitle)(_v0.name, _v23.SHOWCASE_TITLE_MAX_LENGTH)), _v20(void 0);
       }, []),
-      _v49 = (0, _v3.useCallback)(_v0 => {
-        _v16 && _v46(_v16.uri, _v0);
-      }, [_v46, _v16]),
-      _v50 = _v37 ? () => _v5.open({
+      _v48 = (0, _v3.useCallback)(_v0 => {
+        _v15 && _v45(_v15.uri, _v0);
+      }, [_v45, _v15]),
+      _v49 = _v36 ? () => _v5.open({
         tracking: {
           params: {
             feature: "showcase",
@@ -1964,8 +1959,8 @@
           }
         },
         onClose: () => _v5.close()
-      }) : _v44,
-      _v51 = (0, _v25.useDeleteShowcase)({
+      }) : _v43,
+      _v50 = (0, _v25.useDeleteShowcase)({
         onFailure: () => {
           _v4.setIsLoading(!1), _v3({
             content: _v66,
@@ -2007,7 +2002,7 @@
                 }
               }
             }))
-          }), _v29(_v1), _v4.setIsLoading(!1), _v4.close();
+          }), _v28(_v1), _v4.setIsLoading(!1), _v4.close();
         }
       });
     return (0, _v1.jsxs)(_v1.Fragment, {
@@ -2015,24 +2010,24 @@
         children: (0, _v1.jsxs)(_v22.Page.Main, {
           children: [(0, _v1.jsxs)(_v22.Page.StickyTop, {
             children: [(0, _v1.jsx)(_v21.PageHeader, {
-              actions: !!_v34?.canManageTeamCollections && (0, _v1.jsx)(_v88, {
-                isDisabled: _v45,
-                isLoading: _v45,
+              actions: !!_v33?.canManageTeamCollections && (0, _v1.jsx)(_v88, {
+                isDisabled: _v44,
+                isLoading: _v44,
                 onClick: () => {
                   _v52({
                     teamUser: _v2?.teamUser
-                  }), _v50();
+                  }), _v49();
                 }
               }),
               bottomBar: (0, _v1.jsx)(_v20.FilterSortBar, {
                 checkbox: (0, _v1.jsx)(_v24.CheckboxItemCount, {
-                  isLoading: _v26 && !_v13 && !_v36,
-                  subtitle: !!_v32 && (0, _v8.translate)({
-                    count: _v32,
+                  isLoading: _v25 && !_v12 && !_v35,
+                  subtitle: !!_v31 && (0, _v8.translate)({
+                    count: _v31,
                     singular: "{NUM} showcase",
                     plural: "{NUM} showcases",
                     replacements: {
-                      NUM: _v32
+                      NUM: _v31
                     },
                     dictionary: {
                       es: {
@@ -2066,15 +2061,15 @@
                     }
                   })
                 }),
-                shouldHideViewControls: _v35 && !_v36,
-                layout: _v9,
-                setLayout: _v10,
-                sort: _v11,
-                setSort: _v12,
+                shouldHideViewControls: _v34 && !_v35,
+                layout: _v8,
+                setLayout: _v9,
+                sort: _v10,
+                setSort: _v11,
                 sortOptions: _v23.SHOWCASES_SORT_OPTIONS,
-                searchElement: _v8 ? (0, _v1.jsx)(_v118.ShowcaseSearchBar, {
-                  searchQuery: _v13,
-                  onSearchChange: _v14,
+                searchElement: _v7 ? (0, _v1.jsx)(_v118.ShowcaseSearchBar, {
+                  searchQuery: _v12,
+                  onSearchChange: _v13,
                   searchLabel: _v79,
                   clearSearchLabel: _v77
                 }) : void 0
@@ -2105,10 +2100,10 @@
                   }
                 }
               })
-            }), "LIST_LAYOUT" === _v9 && !_v35 && (0, _v1.jsx)(_v93, {
-              sort: _v11
+            }), "LIST_LAYOUT" === _v8 && !_v34 && (0, _v1.jsx)(_v93, {
+              sort: _v10
             })]
-          }), _v35 && _v36 ? (0, _v1.jsx)(_v4.Flex, {
+          }), _v34 && _v35 ? (0, _v1.jsx)(_v4.Flex, {
             alignItems: "center",
             justifyContent: "center",
             paddingY: "3xl",
@@ -2116,9 +2111,9 @@
               color: "text-secondary",
               children: _v78
             })
-          }) : _v35 ? (0, _v1.jsx)(_v80, {
-            isCreatingShowcase: _v45,
-            onCreateShowcase: _v50,
+          }) : _v34 ? (0, _v1.jsx)(_v80, {
+            isCreatingShowcase: _v44,
+            onCreateShowcase: _v49,
             onLearnMore: () => {
               _v6.open({
                 onDismiss: () => {
@@ -2128,9 +2123,9 @@
               });
             }
           }) : (0, _v1.jsx)(_v117, {
-            layout: _v9,
-            setLayout: _v10,
-            isLoading: _v27,
+            layout: _v8,
+            setLayout: _v9,
+            isLoading: _v26,
             onCopyEmbed: _v0 => {
               (0, _v12.default)(_v0) ? _v3({
                 content: _v62
@@ -2140,7 +2135,7 @@
               });
             },
             onCopyLink: _v0 => {
-              let _v1 = _v23(_v23.PAGE.SHOWCASES);
+              let _v1 = _v22(_v23.PAGE.SHOWCASES);
               (0, _v12.default)(`${_v0}${_v1}`) ? _v3({
                 content: _v68
               }) : _v3({
@@ -2148,12 +2143,12 @@
                 status: "error"
               });
             },
-            isMenuDisabled: _v47,
-            onCopyShowcase: _v48,
+            isMenuDisabled: _v46,
+            onCopyShowcase: _v47,
             onDelete: _v0 => {
               _v4.open({
                 onConfirm: () => {
-                  _v4.setIsLoading(!0), _v51(_v0), _v22({
+                  _v4.setIsLoading(!0), _v50(_v0), _v21({
                     eventName: _v43,
                     version: 110,
                     fields: {},
@@ -2180,23 +2175,23 @@
                 name: _v0.name
               });
             },
-            sort: _v11,
-            showcases: _v31
-          }), !_v25 && !_v27 && (0, _v1.jsx)(_v85, {
-            isLoading: !!_v27,
-            onClick: _v28
+            sort: _v10,
+            showcases: _v30
+          }), !_v24 && !_v26 && (0, _v1.jsx)(_v85, {
+            isLoading: !!_v26,
+            onClick: _v27
           })]
         })
       }), (0, _v1.jsx)(_v29.NameInputModal, {
-        isOpen: !!_v16,
-        isLoading: _v47,
+        isOpen: !!_v15,
+        isLoading: _v46,
         title: _v69,
-        name: _v18,
-        error: _v20,
+        name: _v17,
+        error: _v19,
         maxLength: _v23.SHOWCASE_TITLE_MAX_LENGTH,
-        onClose: _v40,
-        onNameChange: _v41,
-        onSubmit: _v49
+        onClose: _v39,
+        onNameChange: _v40,
+        onSubmit: _v48
       })]
     });
   }

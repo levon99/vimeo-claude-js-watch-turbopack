@@ -328,9 +328,8 @@
     _v48 = _v0.i(0),
     _v49 = _v0.i(0),
     _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
-    _v52 = _v0.i(0);
-  async function _v53({
+    _v51 = _v0.i(0);
+  async function _v52({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -339,69 +338,26 @@
     },
     ..._v4
   }) {
-    return (0, _v51.measureLatency)("patchWorkspaceEnterpriseCreditsLimit", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/workspaces/${_v3}/enterprise_credits/limit?fields=${_v1.map(_v52.intoSnakeCase).join(",")}`, {
+    return (0, _v50.measureLatency)("patchWorkspaceEnterpriseCreditsLimit", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/workspaces/${_v3}/enterprise_credits/limit?fields=${_v1.map(_v51.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "PATCH",
-        body: JSON.stringify((0, _v52.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v51.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v52.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v51.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v52.deepCamelCase)(_v1);
+      return (0, _v51.deepCamelCase)(_v1);
     });
   }
-  var _v54 = _v0.i(0),
+  var _v53 = _v0.i(0),
+    _v54 = _v0.i(0),
     _v55 = _v0.i(0);
-  function _v56() {
-    let {
-        mutate: _v0
-      } = (0, _v54.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v55.useGctlConfig)(),
-      [_v5, _v6] = (0, _v50.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/enterprise_credits/limit${(0, _v50.serializeQuery)(_v0)}`, _v53({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v49.default.env.STORYBOOK && (0, _v50.assignMswData)(_v56, {
-    endpoint: "/workspaces/:workspaceUuid/enterprise_credits/limit",
-    method: "PATCH"
-  });
-  var _v57 = _v0.i(0);
-  let _v58 = "rgba(26, 54, 93, 0.12)",
-    _v59 = "#17d5ff",
-    _v60 = "#875be5",
-    _v61 = ({
+  let _v56 = "rgba(26, 54, 93, 0.12)",
+    _v57 = "#17d5ff",
+    _v58 = "#875be5",
+    _v59 = ({
       color: _v0
     }) => (0, _v1.jsx)(_v3.Box, {
       width: "12px",
@@ -410,7 +366,7 @@
       backgroundColor: _v0,
       flex: "none"
     }),
-    _v62 = ({
+    _v60 = ({
       isOpen: _v0,
       onClose: _v1,
       onSaved: _v2,
@@ -424,8 +380,46 @@
       allocatedElsewhere: _v10
     }) => {
       let _v11 = (0, _v48.useToast)(),
-        _v12 = (0, _v57.usePico)(),
-        [_v13, _v14] = _v56(),
+        _v12 = (0, _v55.usePico)(),
+        [_v13, _v14] = function () {
+          let {
+              mutate: _v0
+            } = (0, _v53.useSWRConfig)(),
+            {
+              baseUrl: _v1,
+              jwt: _v2,
+              xVimeoPage: _v3,
+              locale: _v4
+            } = (0, _v54.useGctlConfig)(),
+            [_v5, _v6] = (0, _v49.useInternalState)();
+          return [(0, _v2.useCallback)(async _v0 => {
+            _v6({
+              type: "REQUEST"
+            });
+            try {
+              let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/enterprise_credits/limit${(0, _v49.serializeQuery)(_v0)}`, _v52({
+                ..._v0,
+                baseUrl: _v1,
+                headers: {
+                  ..._v0.headers,
+                  "Content-Type": "application/json",
+                  Authorization: _v2 ? `jwt ${_v2}` : "",
+                  "Vimeo-Page": `${_v3}`,
+                  "Accept-Language": _v4 ?? "en"
+                }
+              }), !1);
+              _v6({
+                type: "SUCCESS",
+                payload: _v0
+              });
+            } catch (_v0) {
+              _v6({
+                type: "FAILURE",
+                payload: _v0
+              });
+            }
+          }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+        }(),
         _v15 = _v14.loading,
         [_v16, _v17] = (0, _v2.useState)(null !== _v8 ? _v8.toLocaleString() : ""),
         _v18 = Math.max(0, _v9 - _v10),
@@ -739,14 +733,14 @@
                     gap: "2px",
                     borderRadius: "999px",
                     overflow: "hidden",
-                    backgroundColor: _v58,
+                    backgroundColor: _v56,
                     children: [_v9 > 0 && _v10 > 0 && (0, _v1.jsx)(_v3.Box, {
                       height: "100%",
-                      backgroundColor: _v59,
+                      backgroundColor: _v57,
                       width: `${Math.min(100, _v10 / _v9 * 100)}%`
                     }), _v9 > 0 && _v18 > 0 && (0, _v1.jsx)(_v3.Box, {
                       height: "100%",
-                      backgroundColor: _v60,
+                      backgroundColor: _v58,
                       width: `${Math.min(100, _v18 / _v9 * 100)}%`
                     })]
                   }), (0, _v1.jsxs)(_v9.VStack, {
@@ -757,8 +751,8 @@
                       alignItems: "center",
                       children: [(0, _v1.jsxs)(_v24.HStack, {
                         gap: "xs",
-                        children: [(0, _v1.jsx)(_v61, {
-                          color: _v58
+                        children: [(0, _v1.jsx)(_v59, {
+                          color: _v56
                         }), (0, _v1.jsx)(_v8.Text, {
                           variant: "body-md",
                           color: "text-secondary",
@@ -798,8 +792,8 @@
                       alignItems: "center",
                       children: [(0, _v1.jsxs)(_v24.HStack, {
                         gap: "xs",
-                        children: [(0, _v1.jsx)(_v61, {
-                          color: _v59
+                        children: [(0, _v1.jsx)(_v59, {
+                          color: _v57
                         }), (0, _v1.jsx)(_v8.Text, {
                           variant: "body-md",
                           color: "text-secondary",
@@ -839,8 +833,8 @@
                       alignItems: "center",
                       children: [(0, _v1.jsxs)(_v24.HStack, {
                         gap: "xs",
-                        children: [(0, _v1.jsx)(_v61, {
-                          color: _v60
+                        children: [(0, _v1.jsx)(_v59, {
+                          color: _v58
                         }), (0, _v1.jsx)(_v8.Text, {
                           variant: "body-md",
                           color: "text-secondary",
@@ -1058,19 +1052,19 @@
         })]
       });
     },
-    _v63 = _v0 => {
+    _v61 = _v0 => {
       if (!_v0) return null;
       let _v1 = _v0.split("/").pop();
       return _v1 && "" !== _v1 ? _v1 : null;
     },
-    _v64 = ({
+    _v62 = ({
       workspacesList: _v0,
       editing: _v1
     }) => {
       let _v2 = _v0.some(_v0 => Number.isFinite(_v0.limit)),
         _v3 = _v0.every(_v0 => !Number.isFinite(_v0.limit)),
         [_v4, _v5] = (0, _v2.useState)(null),
-        _v6 = _v63(_v4?.uri),
+        _v6 = _v61(_v4?.uri),
         _v7 = _v4 && Number.isFinite(_v4.limit) ? _v4.limit ?? 0 : 0;
       return (0, _v1.jsxs)(_v9.VStack, {
         width: "100%",
@@ -1091,10 +1085,10 @@
             children: _v0.map((_v0, _v1) => (0, _v1.jsx)(_v34, {
               workspace: _v0,
               areAllUnallocated: _v3 && !_v1,
-              onEditAllocation: _v1 && _v63(_v0.uri) ? () => _v5(_v0) : void 0
+              onEditAllocation: _v1 && _v61(_v0.uri) ? () => _v5(_v0) : void 0
             }, `${_v0.uri}-${_v1}`))
           })]
-        }), _v1 && _v4 && _v6 && (0, _v1.jsx)(_v62, {
+        }), _v1 && _v4 && _v6 && (0, _v1.jsx)(_v60, {
           isOpen: !0,
           onClose: () => _v5(null),
           onSaved: _v1.onAllocationSaved,
@@ -1109,8 +1103,8 @@
         })]
       });
     };
-  var _v65 = _v0.i(0);
-  let _v66 = () => (0, _v1.jsx)(_v18.Thead, {
+  var _v63 = _v0.i(0);
+  let _v64 = () => (0, _v1.jsx)(_v18.Thead, {
     height: (0, _v6.rem)(48),
     display: "flex",
     children: (0, _v1.jsxs)(_v19.Tr, {
@@ -1177,8 +1171,8 @@
       })]
     })
   });
-  var _v67 = _v0.i(0);
-  let _v68 = ({
+  var _v65 = _v0.i(0);
+  let _v66 = ({
       value: _v0
     }) => void 0 !== _v0 ? (0, _v1.jsx)(_v8.Text, {
       variant: "body-md",
@@ -1188,10 +1182,10 @@
       height: "2rem",
       variant: "text"
     }),
-    _v69 = ({
+    _v67 = ({
       workspace: _v0
     }) => {
-      let _v1 = void 0 !== _v0.used && Number.isFinite(_v0?.used) ? (0, _v67.bytesToSize)(_v0.used, 1) : void 0;
+      let _v1 = void 0 !== _v0.used && Number.isFinite(_v0?.used) ? (0, _v65.bytesToSize)(_v0.used, 1) : void 0;
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v19.Tr, {
           children: (0, _v1.jsx)(_v28.Td, {
@@ -1211,21 +1205,21 @@
                 boxSize: "sm",
                 label: _v0.name || "",
                 logoUrl: _v0.iconUrl
-              }), (0, _v1.jsx)(_v68, {
+              }), (0, _v1.jsx)(_v66, {
                 value: _v0.name
               })]
             })
           }), (0, _v1.jsx)(_v28.Td, {
             textAlign: "end",
             paddingY: "sm",
-            children: (0, _v1.jsx)(_v68, {
+            children: (0, _v1.jsx)(_v66, {
               value: _v1
             })
           })]
         }, _v0.uri)]
       });
     },
-    _v70 = ({
+    _v68 = ({
       workspacesList: _v0
     }) => (0, _v1.jsx)(_v9.VStack, {
       width: "100%",
@@ -1240,22 +1234,22 @@
             fontVariantNumeric: "normal"
           }
         },
-        children: [(0, _v1.jsx)(_v66, {}), (0, _v1.jsx)(_v16.Tbody, {
-          children: _v0.map((_v0, _v1) => (0, _v1.jsx)(_v69, {
+        children: [(0, _v1.jsx)(_v64, {}), (0, _v1.jsx)(_v16.Tbody, {
+          children: _v0.map((_v0, _v1) => (0, _v1.jsx)(_v67, {
             workspace: _v0
           }, `${_v0.uri}-${_v1}`))
         })]
       })
     });
-  var _v71 = _v0.i(0),
+  var _v69 = _v0.i(0),
+    _v70 = _v0.i(0),
+    _v71 = _v0.i(0),
     _v72 = _v0.i(0),
-    _v73 = _v0.i(0),
-    _v74 = _v0.i(0),
-    _v75 = _v0.i(0);
-  let _v76 = ({
+    _v73 = _v0.i(0);
+  let _v74 = ({
     organizationUuid: _v0
   }) => {
-    let [_v1, _v2] = (0, _v2.useState)(_v71.USAGE_PAGES.AI_CREDITS),
+    let [_v1, _v2] = (0, _v2.useState)(_v69.USAGE_PAGES.AI_CREDITS),
       {
         areMoreWorkspaceResultsAvailable: _v3,
         billingStartDate: _v4,
@@ -1268,20 +1262,17 @@
         totalOrganizationUsage: _v11,
         isOrganizationLowOnCredits: _v12,
         isOrganizationAtCreditLimit: _v13
-      } = (0, _v74.useOrganizationUsage)({
+      } = (0, _v72.useOrganizationUsage)({
         organizationUuid: _v0
       }),
-      _v14 = _v1 === _v71.USAGE_PAGES.AI_CREDITS,
-      _v15 = _v1 === _v71.USAGE_PAGES.STORAGE,
+      _v14 = _v1 === _v69.USAGE_PAGES.AI_CREDITS,
+      _v15 = _v1 === _v69.USAGE_PAGES.STORAGE,
       _v16 = _v8 > 0,
-      {
-        settings: _v17
-      } = (0, _v12.useOrionSettings)(),
-      _v18 = _v17.show_ai_credits_revamp,
-      _v19 = _v14 && _v18 && !_v9 && !_v16,
-      _v20 = _v14 && (!_v18 || _v9 || _v16),
-      _v21 = _v18 ? _v11[_v71.USAGE_PAGES.AI_CREDITS]?.breakdown : void 0,
-      _v22 = (0, _v11.translate)({
+      _v17 = (0, _v12.useOrionSettingsFields)(["show_ai_credits_revamp"]).show_ai_credits_revamp,
+      _v18 = _v14 && _v17 && !_v9 && !_v16,
+      _v19 = _v14 && (!_v17 || _v9 || _v16),
+      _v20 = _v17 ? _v11[_v69.USAGE_PAGES.AI_CREDITS]?.breakdown : void 0,
+      _v21 = (0, _v11.translate)({
         singular: "Billing cycle:",
         dictionary: {
           es: {
@@ -1307,14 +1298,14 @@
           }
         }
       }),
-      _v23 = (0, _v11.translate)({
+      _v22 = (0, _v11.translate)({
         singular: "{FROM} - {TO}",
         replacements: {
           FROM: _v4,
           TO: _v5
         }
       }),
-      _v24 = (0, _v11.translate)({
+      _v23 = (0, _v11.translate)({
         singular: "Showing {COUNT} of {TOTAL}",
         replacements: {
           COUNT: _v10[_v1]?.length ?? 0,
@@ -1377,21 +1368,21 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v72.UsageContactUs, {}), (0, _v1.jsxs)(_v5.Flex, {
+      }), (0, _v1.jsx)(_v70.UsageContactUs, {}), (0, _v1.jsxs)(_v5.Flex, {
         alignSelf: "flex-start",
         alignItems: "center",
         gap: "sm",
         marginBottom: "md",
         children: [(0, _v1.jsx)(_v8.Text, {
           variant: "heading-xs",
-          children: _v22
+          children: _v21
         }), (0, _v1.jsx)(_v3.Box, {
           backgroundColor: "vimeoNavy.50",
           borderRadius: "md",
           paddingX: "md",
           children: (0, _v1.jsx)(_v8.Text, {
             variant: "heading-xs",
-            children: _v23
+            children: _v22
           })
         })]
       }), (0, _v1.jsxs)(_v5.Flex, {
@@ -1405,14 +1396,14 @@
         marginBottom: "md",
         alignItems: "stretch",
         children: [(0, _v1.jsx)(_v14.AiCreditsTotalCount, {
-          currentCount: _v11[_v71.USAGE_PAGES.AI_CREDITS]?.currentCount,
-          resetDate: _v11[_v71.USAGE_PAGES.AI_CREDITS]?.resetDate,
-          totalCount: _v11[_v71.USAGE_PAGES.AI_CREDITS]?.totalCount,
-          breakdown: _v21,
-          banner: _v18 ? _v13 ? "error" : _v12 ? "warning" : void 0 : void 0
-        }), (0, _v1.jsx)(_v65.StorageTotalCount, {
-          currentCount: _v11[_v71.USAGE_PAGES.STORAGE]?.currentCount,
-          totalCount: _v11[_v71.USAGE_PAGES.STORAGE]?.totalCount
+          currentCount: _v11[_v69.USAGE_PAGES.AI_CREDITS]?.currentCount,
+          resetDate: _v11[_v69.USAGE_PAGES.AI_CREDITS]?.resetDate,
+          totalCount: _v11[_v69.USAGE_PAGES.AI_CREDITS]?.totalCount,
+          breakdown: _v20,
+          banner: _v17 ? _v13 ? "error" : _v12 ? "warning" : void 0 : void 0
+        }), (0, _v1.jsx)(_v63.StorageTotalCount, {
+          currentCount: _v11[_v69.USAGE_PAGES.STORAGE]?.currentCount,
+          totalCount: _v11[_v69.USAGE_PAGES.STORAGE]?.totalCount
         })]
       }), (0, _v1.jsxs)(_v5.Flex, {
         alignItems: "center",
@@ -1458,7 +1449,7 @@
                     }
                   }
                 }),
-                value: _v71.USAGE_PAGES.AI_CREDITS
+                value: _v69.USAGE_PAGES.AI_CREDITS
               }, {
                 label: (0, _v11.translate)({
                   singular: "Storage",
@@ -1486,7 +1477,7 @@
                     }
                   }
                 }),
-                value: _v71.USAGE_PAGES.STORAGE
+                value: _v69.USAGE_PAGES.STORAGE
               }],
               placeholder: (0, _v11.translate)({
                 singular: "AI credits",
@@ -1514,7 +1505,7 @@
                   }
                 }
               }),
-              defaultValue: [_v71.USAGE_PAGES.AI_CREDITS],
+              defaultValue: [_v69.USAGE_PAGES.AI_CREDITS],
               onValueChange: _v0 => _v2(_v0.value[0]),
               size: "sm",
               withPortal: !0,
@@ -1522,25 +1513,25 @@
             })
           })]
         })]
-      }), _v19 && (0, _v1.jsx)(_v13.AiCreditsConsumptionList, {
+      }), _v18 && (0, _v1.jsx)(_v13.AiCreditsConsumptionList, {
         organizationUuid: _v0
-      }), _v20 && (0, _v1.jsx)(_v64, {
-        workspacesList: _v10[_v71.USAGE_PAGES.AI_CREDITS],
-        editing: _v18 && _v16 ? {
+      }), _v19 && (0, _v1.jsx)(_v62, {
+        workspacesList: _v10[_v69.USAGE_PAGES.AI_CREDITS],
+        editing: _v17 && _v16 ? {
           organizationUuid: _v0,
-          orgAvailableCredits: _v11[_v71.USAGE_PAGES.AI_CREDITS]?.totalCount ?? 0,
-          orgAllocatedCredits: _v11[_v71.USAGE_PAGES.AI_CREDITS]?.allocated ?? 0,
+          orgAvailableCredits: _v11[_v69.USAGE_PAGES.AI_CREDITS]?.totalCount ?? 0,
+          orgAllocatedCredits: _v11[_v69.USAGE_PAGES.AI_CREDITS]?.allocated ?? 0,
           onAllocationSaved: _v7
         } : void 0
-      }), _v15 && (0, _v1.jsx)(_v70, {
-        workspacesList: _v10[_v71.USAGE_PAGES.STORAGE]
-      }), !_v19 && (0, _v1.jsxs)(_v1.Fragment, {
+      }), _v15 && (0, _v1.jsx)(_v68, {
+        workspacesList: _v10[_v69.USAGE_PAGES.STORAGE]
+      }), !_v18 && (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v8.Text, {
           variant: "body-md",
           marginBottom: "md",
           color: "text-tertiary",
           marginTop: "md",
-          children: _v24
+          children: _v23
         }), _v3 && (0, _v1.jsx)(_v4.Button, {
           variant: "tertiary",
           onClick: _v6,
@@ -1574,9 +1565,9 @@
       })]
     });
   };
-  (0, _v10.withPageSetup)(_v75.getOrgUuidServerSideProps, {
+  (0, _v10.withPageSetup)(_v73.getOrgUuidServerSideProps, {
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v76.getLayout = (_v0, _v1) => (0, _v73.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v76], 0);
+  }), _v74.getLayout = (_v0, _v1) => (0, _v71.getLayout)(_v0, _v1), _v0.s(["__N_SSP", 0, !0, "default", 0, _v74], 0);
 }

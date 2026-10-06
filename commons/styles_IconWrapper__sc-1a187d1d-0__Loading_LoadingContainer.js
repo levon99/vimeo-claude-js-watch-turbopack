@@ -241,59 +241,56 @@
     }) => {
       let [_v13, _v14] = (0, _v5.useState)(),
         _v15 = (0, _v12.useDebouncedValue)(_v13, 400),
+        _v16 = (0, _v16.useOrionSettingsFields)(["add_to_folders_modal_select_all_folders"]).add_to_folders_modal_select_all_folders,
         {
-          settings: _v16
-        } = (0, _v16.useOrionSettings)(),
-        _v17 = _v16.add_to_folders_modal_select_all_folders,
-        {
-          listingParams: _v18,
-          loading: _v19
+          listingParams: _v17,
+          loading: _v18
         } = (0, _v11.usePrivateToMeFolderListingParams)(_v1),
-        _v20 = (0, _v5.useRef)(new Set()),
-        _v21 = (0, _v5.useRef)(_v3);
-      _v21.current = _v3;
+        _v19 = (0, _v5.useRef)(new Set()),
+        _v20 = (0, _v5.useRef)(_v3);
+      _v20.current = _v3;
       let {
-          data: _v22,
-          isValidating: _v23,
-          size: _v24,
-          setSize: _v25,
-          error: _v26
-        } = (0, _v14.useGetUserProjectsInfinite)(() => (0, _v24.getUserProjectsInfiniteOptions)(_v1, _v15, _v18, _v19), {
+          data: _v21,
+          isValidating: _v22,
+          size: _v23,
+          setSize: _v24,
+          error: _v25
+        } = (0, _v14.useGetUserProjectsInfinite)(() => (0, _v24.getUserProjectsInfiniteOptions)(_v1, _v15, _v17, _v18), {
           revalidateOnFocus: !1
         }),
         {
-          data: _v27,
-          isValidating: _v28,
-          size: _v29,
-          setSize: _v30,
-          error: _v31
+          data: _v26,
+          isValidating: _v27,
+          size: _v28,
+          setSize: _v29,
+          error: _v30
         } = (0, _v13.useGetUserItemsInfinite)(() => (0, _v24.getUserItemsInfiniteOptions)(_v1, _v15), {
           revalidateOnFocus: !1
         }),
-        _v32 = (0, _v5.useMemo)(() => {
-          let _v0 = _v0 => !(_v18.flattenPrivateToMe && _v0?.isPrivateToUser && !_v0?.metadata?.connections?.ancestorPath?.length);
-          return _v22 ? _v22.flatMap(_v0 => _v0.data).filter(_v0 => null !== _v0).filter(_v0) : _v27 ? _v27.flatMap(_v0 => _v0.data).map(_v0 => _v0.folder).filter(_v0 => _v0 && _v0.metadata?.interactions?.invite).filter(_v0) : [];
-        }, [_v22, _v27, _v18.flattenPrivateToMe]),
-        _v33 = !!_v15;
+        _v31 = (0, _v5.useMemo)(() => {
+          let _v0 = _v0 => !(_v17.flattenPrivateToMe && _v0?.isPrivateToUser && !_v0?.metadata?.connections?.ancestorPath?.length);
+          return _v21 ? _v21.flatMap(_v0 => _v0.data).filter(_v0 => null !== _v0).filter(_v0) : _v26 ? _v26.flatMap(_v0 => _v0.data).map(_v0 => _v0.folder).filter(_v0 => _v0 && _v0.metadata?.interactions?.invite).filter(_v0) : [];
+        }, [_v21, _v26, _v17.flattenPrivateToMe]),
+        _v32 = !!_v15;
       (0, _v5.useEffect)(() => {
-        if (_v6 && _v32.length > 0 && !_v33) {
-          let _v0 = _v32.filter(_v0 => !_v20.current.has(_v0.uri));
+        if (_v6 && _v31.length > 0 && !_v32) {
+          let _v0 = _v31.filter(_v0 => !_v19.current.has(_v0.uri));
           if (_v0.length > 0) {
             let _v0 = _v0.filter(_v0 => !_v10.has(_v0.uri));
-            _v0.length > 0 && _v4((0, _v25.selectAllFolders)(_v21.current, _v0)), _v0.forEach(_v0 => _v20.current.add(_v0.uri));
+            _v0.length > 0 && _v4((0, _v25.selectAllFolders)(_v20.current, _v0)), _v0.forEach(_v0 => _v19.current.add(_v0.uri));
           }
         }
-      }, [_v32, _v6, _v33, _v4, _v10]);
-      let _v34 = _v32.length > 0 && _v32.every(_v0 => _v6 ? (0, _v25.isFolderIncludedInSelectAll)(_v0, _v10, _v11, _v12) : (0, _v25.isFolderSelected)(_v3, _v0)),
-        _v35 = _v22?.[0]?.total || _v32.length,
-        _v36 = (0, _v5.useMemo)(() => {
+      }, [_v31, _v6, _v32, _v4, _v10]);
+      let _v33 = _v31.length > 0 && _v31.every(_v0 => _v6 ? (0, _v25.isFolderIncludedInSelectAll)(_v0, _v10, _v11, _v12) : (0, _v25.isFolderSelected)(_v3, _v0)),
+        _v34 = _v21?.[0]?.total || _v31.length,
+        _v35 = (0, _v5.useMemo)(() => {
           let _v0 = _v0 => _v6 ? (0, _v25.isFolderIncludedInSelectAll)(_v0, _v10, _v11, _v12) || (0, _v25.hasSelectedDescendants)(_v3, _v0) : (0, _v25.isFolderSelected)(_v3, _v0) || (0, _v25.hasSelectedDescendants)(_v3, _v0);
-          return _v6 ? _v35 - _v32.filter(_v0 => !_v0(_v0)).length : _v32.filter(_v0 => _v0(_v0)).length;
-        }, [_v6, _v35, _v32, _v3, _v10, _v11, _v12]);
+          return _v6 ? _v34 - _v31.filter(_v0 => !_v0(_v0)).length : _v31.filter(_v0 => _v0(_v0)).length;
+        }, [_v6, _v34, _v31, _v3, _v10, _v11, _v12]);
       (0, _v5.useEffect)(() => {
-        _v6 && !_v33 && 0 === _v36 && _v32.length > 0 && (_v7?.(!1), _v4((0, _v25.unselectAllFolders)()), _v20.current.clear());
-      }, [_v6, _v33, _v36, _v32.length, _v7, _v4]);
-      let _v37 = _v36 > 0 && !_v34;
+        _v6 && !_v32 && 0 === _v35 && _v31.length > 0 && (_v7?.(!1), _v4((0, _v25.unselectAllFolders)()), _v19.current.clear());
+      }, [_v6, _v32, _v35, _v31.length, _v7, _v4]);
+      let _v36 = _v35 > 0 && !_v33;
       return (0, _v1.jsx)(_v15.Tour, {
         id: "folder-tour",
         steps: 2,
@@ -367,16 +364,16 @@
               px: (0, _v3.rem)(4),
               children: _v5
             })]
-          }), _v17 && !_v33 && _v32.length > 0 && (0, _v1.jsx)(_v2.HStack, {
+          }), _v16 && !_v32 && _v31.length > 0 && (0, _v1.jsx)(_v2.HStack, {
             alignItems: "center",
             height: (0, _v3.rem)(45),
             pb: (0, _v3.rem)(16),
             overflow: "hidden",
             children: (0, _v1.jsx)(_v8.Checkbox, {
-              isChecked: _v6 || _v34,
-              isIndeterminate: _v37,
+              isChecked: _v6 || _v33,
+              isIndeterminate: _v36,
               onChange: () => {
-                _v6 || _v34 || _v37 ? (_v7?.(!1), _v4((0, _v25.unselectAllFolders)()), _v20.current.clear()) : (_v7?.(!0), _v4((0, _v25.selectAllFolders)((0, _v25.unselectAllFolders)(), _v32)), _v20.current.clear(), _v32.forEach(_v0 => _v20.current.add(_v0.uri)));
+                _v6 || _v33 || _v36 ? (_v7?.(!1), _v4((0, _v25.unselectAllFolders)()), _v19.current.clear()) : (_v7?.(!0), _v4((0, _v25.selectAllFolders)((0, _v25.unselectAllFolders)(), _v31)), _v19.current.clear(), _v31.forEach(_v0 => _v19.current.add(_v0.uri)));
               },
               pl: (0, _v3.rem)(8),
               children: (0, _v4.translate)({
@@ -406,7 +403,7 @@
                 }
               })
             })
-          }), _v26 || _v31 ? (0, _v1.jsx)(_v43, {
+          }), _v25 || _v30 ? (0, _v1.jsx)(_v43, {
             children: (0, _v4.translate)({
               singular: "Oops! Something went wrong!",
               dictionary: {
@@ -434,19 +431,19 @@
               }
             })
           }) : (0, _v1.jsx)(_v39, {
-            isLoading: _v23 || _v28 || _v19,
-            folders: _v32,
+            isLoading: _v22 || _v27 || _v18,
+            folders: _v31,
             selectedFoldersTree: _v3,
             setSelectedFoldersTree: _v4,
             handleLoadMore: () => {
               if (_v15) {
-                if (!_v28) {
-                  let _v0 = _v27?.[_v27.length - 1];
-                  _v0?.paging.next && _v30(_v29 + 1);
+                if (!_v27) {
+                  let _v0 = _v26?.[_v26.length - 1];
+                  _v0?.paging.next && _v29(_v28 + 1);
                 }
-              } else if (!_v23) {
-                let _v0 = _v22?.[_v22.length - 1];
-                _v0?.paging.next && _v25(_v24 + 1);
+              } else if (!_v22) {
+                let _v0 = _v21?.[_v21.length - 1];
+                _v0?.paging.next && _v24(_v23 + 1);
               }
             },
             onFolderDeselected: _v8,

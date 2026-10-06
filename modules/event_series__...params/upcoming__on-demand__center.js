@@ -707,9 +707,17 @@
             id: "upcoming-events",
             pb: _v41.EVENTS_SECTION_STYLES.BOTTOM_PADDING_16,
             px: {
-              base: _v41.EVENTS_SECTION_STYLES.MOBILE_UPCOMING_X_PADDING_8,
+              base: _v41.EVENTS_SECTION_STYLES.MOBILE_UPCOMING_X_PADDING_0,
               sm: _v41.EVENTS_SECTION_STYLES.DESKTOP_UPCOMING_X_PADDING_0
             },
+            sx: _v7.length > 0 ? {
+              "& > * > :first-child": {
+                marginLeft: {
+                  base: (0, _v16.rem)(8),
+                  sm: 0
+                }
+              }
+            } : void 0,
             title: (0, _v14.translate)({
               singular: "Upcoming events",
               dictionary: {

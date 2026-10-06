@@ -301,9 +301,7 @@
         versionId: _v47,
         videoId: _v12
       }),
-      {
-        settings: _v49
-      } = (0, _v20.useOrionSettings)(),
+      _v49 = (0, _v20.useOrionSettingsFields)(["new_replace_feature"]),
       {
         baseUrl: _v50,
         jwt: _v51

@@ -84,9 +84,7 @@
     direction: _v0,
     scope: _v1
   }) => {
-    let {
-        settings: _v2
-      } = (0, _v7.useOrionSettings)(),
+    let _v2 = (0, _v7.useOrionSettingsFields)(["enable_team_defaults_page", "enable_team_presets_page", "enable_workspace_defaults_page"]),
       _v3 = (({
         direction: _v0,
         flags: _v1,

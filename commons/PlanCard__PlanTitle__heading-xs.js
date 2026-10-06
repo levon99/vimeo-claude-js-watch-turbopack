@@ -571,20 +571,17 @@
           shouldReorder: _v26,
           isResolving: _v27
         } = (0, _v26.useColdStoragePlanReorder)(),
-        {
-          settings: _v28
-        } = (0, _v11.useOrionSettings)(),
-        _v29 = _v28.enable_low_tier_below_fold,
-        _v30 = _v26 || _v29,
-        _v31 = (0, _v3.useMemo)(() => !_v21 || !_v30 || _v22 || _v5 ? _v21 : (_v0 => {
+        _v28 = (0, _v11.useOrionSettingsFields)(["enable_low_tier_below_fold"]).enable_low_tier_below_fold,
+        _v29 = _v26 || _v28,
+        _v30 = (0, _v3.useMemo)(() => !_v21 || !_v29 || _v22 || _v5 ? _v21 : (_v0 => {
           let _v1 = _v0.findIndex(_v0 => "free" !== _v0.tier);
           if (_v1 < 0 || _v1 === _v0.length - 1) return _v0;
           let _v2 = [..._v0],
             [_v3] = _v2.splice(_v1, 1);
           return _v2.push(_v3), _v2;
-        })(_v21), [_v21, _v30, _v22, _v5]),
-        _v32 = (0, _v3.useMemo)(() => _v31 ? _v17?.plans ? _v31.filter(_v0 => _v17.plans?.includes(_v0.tier)) : _v17?.excludedPlans ? _v31.filter(_v0 => !_v17.excludedPlans?.includes(_v0.tier)) : _v5 ? _v31 : _v31.length > _v21.maxVerticalCards ? _v31.slice(0, -1) : _v31 : [], [_v31, _v17, _v5]),
-        _v33 = (0, _v3.useMemo)(() => {
+        })(_v21), [_v21, _v29, _v22, _v5]),
+        _v31 = (0, _v3.useMemo)(() => _v30 ? _v17?.plans ? _v30.filter(_v0 => _v17.plans?.includes(_v0.tier)) : _v17?.excludedPlans ? _v30.filter(_v0 => !_v17.excludedPlans?.includes(_v0.tier)) : _v5 ? _v30 : _v30.length > _v21.maxVerticalCards ? _v30.slice(0, -1) : _v30 : [], [_v30, _v17, _v5]),
+        _v32 = (0, _v3.useMemo)(() => {
           if (!_v21 || !_v22) return [];
           let _v0 = _v21.some(_v0 => "core" === _v0.tier);
           return _v22.REPACKAGING_INDIVIDUAL_VIEW_TIERS.reduce((_v0, _v1) => {
@@ -593,13 +590,13 @@
             return _v2 && _v0.push(_v2), _v0;
           }, []);
         }, [_v21, _v22, _v23]),
-        _v34 = (0, _v3.useMemo)(() => _v8 ?? ["professional", "studio", "enterprise"], [_v8]),
-        _v35 = (0, _v3.useMemo)(() => _v21 && _v22 ? _v34.reduce((_v0, _v1) => {
+        _v33 = (0, _v3.useMemo)(() => _v8 ?? ["professional", "studio", "enterprise"], [_v8]),
+        _v34 = (0, _v3.useMemo)(() => _v21 && _v22 ? _v33.reduce((_v0, _v1) => {
           let _v2 = _v21.find(_v0 => _v0.tier === _v1);
           return _v2 && _v0.push(_v2), _v0;
-        }, []) : [], [_v21, _v22, _v34]),
-        _v36 = "individual" === _v6 ? _v33 : _v35,
-        _v37 = (0, _v3.useCallback)(() => {
+        }, []) : [], [_v21, _v22, _v33]),
+        _v35 = "individual" === _v6 ? _v32 : _v34,
+        _v36 = (0, _v3.useCallback)(() => {
           let _v0 = _v25.current;
           if (!_v0 || _v5) return;
           let _v1 = Array.from(_v0.querySelectorAll(".plan-pricing-section"));
@@ -624,24 +621,24 @@
           }));
         }, [_v22, _v6, _v5]);
       (0, _v3.useEffect)(() => {
-        let _v0 = (0, _v2.default)(_v37, 300);
+        let _v0 = (0, _v2.default)(_v36, 300);
         return window.addEventListener("resize", _v0), () => {
           window.removeEventListener("resize", _v0);
         };
-      }, [_v22, _v6, _v5, _v37]), (0, _v3.useEffect)(() => {
+      }, [_v22, _v6, _v5, _v36]), (0, _v3.useEffect)(() => {
         if (!_v21 || _v5) return;
-        let _v0 = requestAnimationFrame(_v37);
+        let _v0 = requestAnimationFrame(_v36);
         return () => cancelAnimationFrame(_v0);
-      }, [_v37, _v1, _v5, _v6, _v21, _v13, _v4, _v0]), (0, _v3.useEffect)(() => {
+      }, [_v36, _v1, _v5, _v6, _v21, _v13, _v4, _v0]), (0, _v3.useEffect)(() => {
         if (_v22) {
-          let _v0 = setTimeout(_v37, 450);
+          let _v0 = setTimeout(_v36, 450);
           return () => clearTimeout(_v0);
         }
-      }, [_v6, _v22, _v37]);
-      let _v38 = (0, _v3.useCallback)(_v0 => {
-          _v0 && _v25.current && _v37();
-        }, [_v37]),
-        _v39 = (0, _v3.useCallback)((_v0, _v1) => (_v5 && !_v20.condensed ? [..._v0].reverse() : _v0).map(_v0 => (0, _v1.jsx)(_v41, {
+      }, [_v6, _v22, _v36]);
+      let _v37 = (0, _v3.useCallback)(_v0 => {
+          _v0 && _v25.current && _v36();
+        }, [_v36]),
+        _v38 = (0, _v3.useCallback)((_v0, _v1) => (_v5 && !_v20.condensed ? [..._v0].reverse() : _v0).map(_v0 => (0, _v1.jsx)(_v41, {
           showBadge: _v3 === _v0.tier,
           planData: _v0,
           showYearly: _v0,
@@ -660,7 +657,7 @@
       if (_v22 && _v7) {
         let _v0 = "business" === _v6;
         if (_v24) {
-          let _v0 = _v5 ? 0 : Math.max(0, 3 - _v35.length),
+          let _v0 = _v5 ? 0 : Math.max(0, 3 - _v34.length),
             _v1 = _v0 > 0 && (0, _v1.jsx)(_v4.Box, {
               display: "table-cell",
               width: `${25 * _v0 / 2}%`,
@@ -671,7 +668,7 @@
           return (0, _v1.jsx)(_v4.Box, {
             marginTop: _v5 ? 0 : (0, _v7.rem)(50),
             padding: `0 ${(0, _v7.rem)(2)}`,
-            ref: _v38,
+            ref: _v37,
             children: (0, _v1.jsxs)(_v4.Box, {
               margin: `${(0, _v7.rem)(24)} auto ${(0, _v7.rem)(38)}`,
               display: _v5 ? "block" : "table",
@@ -682,19 +679,19 @@
               },
               ref: _v25,
               "data-panel": "business",
-              children: [_v1, _v39(_v35, "business"), _v1]
+              children: [_v1, _v38(_v34, "business"), _v1]
             })
           });
         }
         return _v5 ? (0, _v1.jsx)(_v4.Box, {
           marginTop: 0,
           padding: `0 ${(0, _v7.rem)(2)}`,
-          ref: _v38,
+          ref: _v37,
           children: (0, _v1.jsxs)(_v4.Box, {
             margin: `${(0, _v7.rem)(24)} auto ${(0, _v7.rem)(38)}`,
             width: "100%",
             ref: _v25,
-            children: [_v39(_v36, _v6), _v9 && (0, _v1.jsx)(_v36, {
+            children: [_v38(_v35, _v6), _v9 && (0, _v1.jsx)(_v36, {
               targetView: _v0 ? "individual" : "business",
               onSwitch: _v7,
               isMobileBreakpoint: _v5
@@ -703,7 +700,7 @@
         }) : (0, _v1.jsx)(_v4.Box, {
           marginTop: (0, _v7.rem)(50),
           padding: `0 ${(0, _v7.rem)(2)}`,
-          ref: _v38,
+          ref: _v37,
           children: (0, _v1.jsx)(_v4.Box, {
             margin: `${(0, _v7.rem)(24)} auto ${(0, _v7.rem)(38)}`,
             overflow: "hidden",
@@ -727,7 +724,7 @@
                     verticalAlign: "top"
                   }
                 },
-                children: [_v39(_v33, "individual"), _v9 && (0, _v1.jsx)(_v36, {
+                children: [_v38(_v32, "individual"), _v9 && (0, _v1.jsx)(_v36, {
                   targetView: "business",
                   onSwitch: _v7,
                   isMobileBreakpoint: _v5
@@ -746,16 +743,16 @@
                   targetView: "individual",
                   onSwitch: _v7,
                   isMobileBreakpoint: _v5
-                }), _v39(_v35, "business")]
+                }), _v38(_v34, "business")]
               })]
             })
           })
         });
       }
-      return _v32.length ? (0, _v1.jsxs)(_v4.Box, {
+      return _v31.length ? (0, _v1.jsxs)(_v4.Box, {
         marginTop: _v5 ? 0 : _v20.condensed ? _v3 ? (0, _v7.rem)(28) : 0 : (0, _v7.rem)(50),
         padding: `0 ${(0, _v7.rem)(2)}`,
-        ref: _v38,
+        ref: _v37,
         children: [(0, _v1.jsx)(_v4.Box, {
           margin: _v20.condensed ? `0 auto ${(0, _v7.rem)(8)}` : `${(0, _v7.rem)(24)} auto ${(0, _v7.rem)(38)}`,
           display: "table",
@@ -765,13 +762,13 @@
             tableLayout: "fixed"
           },
           ref: _v25,
-          children: _v39(_v32)
-        }), _v31 && _v31.length > _v21.maxVerticalCards && !_v17?.plans && !_v17?.excludedPlans?.includes(_v31[_v31.length - 1].tier) && !_v5 && (0, _v1.jsx)(_v4.Box, {
+          children: _v38(_v31)
+        }), _v30 && _v30.length > _v21.maxVerticalCards && !_v17?.plans && !_v17?.excludedPlans?.includes(_v30[_v30.length - 1].tier) && !_v5 && (0, _v1.jsx)(_v4.Box, {
           margin: "0 auto",
           maxWidth: "1440px",
           children: (0, _v1.jsx)(_v18.default, {
-            showBadge: _v3 === _v31[_v31.length - 1]?.tier,
-            planData: _v31[_v31.length - 1],
+            showBadge: _v3 === _v30[_v30.length - 1]?.tier,
+            planData: _v30[_v30.length - 1],
             showYearly: _v0,
             isPageTopToggleVisible: _v2
           })

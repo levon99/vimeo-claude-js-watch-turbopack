@@ -121,9 +121,8 @@
     });
   }
   var _v79 = _v0.i(0),
-    _v80 = _v0.i(0),
-    _v81 = _v0.i(0);
-  async function _v82({
+    _v80 = _v0.i(0);
+  async function _v81({
     baseUrl: _v0,
     where: {
       userId: _v1
@@ -143,79 +142,15 @@
       return (0, _v76.deepCamelCase)(_v1);
     });
   }
+  var _v82 = _v0.i(0);
+  _v0.i(0);
   var _v83 = _v0.i(0),
     _v84 = _v0.i(0),
-    _v85 = _v0.i(0);
-  function _v86(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v79.useGctlConfig)();
-    return (0, _v83.default)(_v2 ? `/teams/${_v2.where.userId}/custom_metadata/incomplete_videos${(0, _v85.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v82({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  "true" === _v81.default.env.STORYBOOK && (0, _v85.assignMswData)(_v86, {
-    endpoint: "/teams/:userId/custom_metadata/incomplete_videos",
-    method: "GET"
-  }), "true" === _v81.default.env.STORYBOOK && (0, _v85.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v84.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v79.useGctlConfig)(),
-      [_v5, _v6] = (0, _v85.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/teams/${_v0.where.userId}/custom_metadata/incomplete_videos${(0, _v85.serializeQuery)(_v0)}`, _v82({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/teams/:userId/custom_metadata/incomplete_videos",
-    method: "GET"
-  });
-  var _v87 = _v0.i(0),
-    _v88 = _v0.i(0);
-  let _v89 = (_v0, _v1) => "multi-select" !== _v1 ? _v0 : JSON.stringify(_v0.split(",").filter(Boolean)),
-    _v90 = {
-      str: (0, _v87.translate)({
+    _v85 = _v0.i(0),
+    _v86 = _v0.i(0);
+  let _v87 = (_v0, _v1) => "multi-select" !== _v1 ? _v0 : JSON.stringify(_v0.split(",").filter(Boolean)),
+    _v88 = {
+      str: (0, _v84.translate)({
         singular: "Text",
         dictionary: {
           es: {
@@ -238,7 +173,7 @@
           }
         }
       }),
-      select: (0, _v87.translate)({
+      select: (0, _v84.translate)({
         singular: "Single select",
         dictionary: {
           es: {
@@ -264,7 +199,7 @@
           }
         }
       }),
-      "multi-select": (0, _v87.translate)({
+      "multi-select": (0, _v84.translate)({
         singular: "Multi select",
         dictionary: {
           es: {
@@ -290,7 +225,7 @@
           }
         }
       }),
-      bool: (0, _v87.translate)({
+      bool: (0, _v84.translate)({
         singular: "Toggle",
         dictionary: {
           es: {
@@ -316,7 +251,7 @@
           }
         }
       }),
-      int: (0, _v87.translate)({
+      int: (0, _v84.translate)({
         singular: "Number",
         dictionary: {
           es: {
@@ -342,7 +277,7 @@
           }
         }
       }),
-      date: (0, _v87.translate)({
+      date: (0, _v84.translate)({
         singular: "Date",
         dictionary: {
           es: {
@@ -369,12 +304,12 @@
         }
       })
     },
-    _v91 = Object.keys(_v90),
-    _v92 = _v91.map(_v0 => ({
-      label: _v90[_v0],
+    _v89 = Object.keys(_v88),
+    _v90 = _v89.map(_v0 => ({
+      label: _v88[_v0],
       value: _v0
     })),
-    _v93 = _v0 => `${_v0.year}-${String(_v0.month).padStart(2, "0")}-${String(_v0.day).padStart(2, "0")}`;
+    _v91 = _v0 => `${_v0.year}-${String(_v0.month).padStart(2, "0")}-${String(_v0.day).padStart(2, "0")}`;
   _v0.s(["CustomMetadataPage", 0, ({
     ownerId: _v0
   }) => {
@@ -388,10 +323,8 @@
         xVimeoPage: _v7,
         locale: _v8
       } = (0, _v79.useGctlConfig)(),
-      {
-        settings: _v9,
-        isLoadingResponse: _v10
-      } = (0, _v88.useOrionSettings)(),
+      _v9 = (0, _v86.useOrionSettingsFields)(["show_custom_metadata"]),
+      _v10 = (0, _v85.useOrionLoading)(),
       [_v11, _v12] = (0, _v2.useState)(""),
       [_v13, _v14] = (0, _v2.useState)([]),
       [_v15, _v16] = (0, _v2.useState)([]),
@@ -481,7 +414,7 @@
       }, [_v52]),
       _v99 = (0, _v2.useCallback)(() => {
         _v49 && _v0 && _v54.trim() && (_v53(), _v23({
-          title: (0, _v87.translate)({
+          title: (0, _v84.translate)({
             singular: "Applying to all videos may take some time.",
             dictionary: {
               es: {
@@ -514,14 +447,14 @@
           },
           variables: {
             fieldId: _v49.id,
-            fieldValue: _v89(_v54, _v49.type),
+            fieldValue: _v87(_v54, _v49.type),
             overrideExisting: _v56
           },
           headers: _v97,
           baseUrl: _v5
         }).catch(() => {
           _v23({
-            title: (0, _v87.translate)({
+            title: (0, _v84.translate)({
               singular: "Failed to apply backfill. Please try again.",
               dictionary: {
                 es: {
@@ -625,7 +558,7 @@
       _v106 = (0, _v2.useMemo)(() => {
         if ("select" === _v28 || "multi-select" === _v28) {
           let _v0 = [..._v36].map(_v0 => _v34[_v0]).filter(Boolean);
-          return _v0.length > 0 ? _v0.join(", ") : (0, _v87.translate)({
+          return _v0.length > 0 ? _v0.join(", ") : (0, _v84.translate)({
             singular: "None",
             dictionary: {
               es: {
@@ -652,7 +585,7 @@
             }
           });
         }
-        return "bool" === _v28 ? "true" === _v30 ? (0, _v87.translate)({
+        return "bool" === _v28 ? "true" === _v30 ? (0, _v84.translate)({
           singular: "True",
           dictionary: {
             es: {
@@ -677,7 +610,7 @@
               singular: "是"
             }
           }
-        }) : "false" === _v30 ? (0, _v87.translate)({
+        }) : "false" === _v30 ? (0, _v84.translate)({
           singular: "False",
           dictionary: {
             es: {
@@ -702,7 +635,7 @@
               singular: "否"
             }
           }
-        }) : (0, _v87.translate)({
+        }) : (0, _v84.translate)({
           singular: "None",
           dictionary: {
             es: {
@@ -727,7 +660,7 @@
               singular: "无"
             }
           }
-        }) : _v30 || (0, _v87.translate)({
+        }) : _v30 || (0, _v84.translate)({
           singular: "None",
           dictionary: {
             es: {
@@ -798,7 +731,7 @@
           _v0.defaultValue = _v2.length > 0 ? _v2.join(",") : null;
         } else _v0.defaultValue = _v78 || null;
         _v69(), _v23({
-          title: (0, _v87.translate)({
+          title: (0, _v84.translate)({
             singular: "Saving changes. This can take a moment for large fields.",
             dictionary: {
               es: {
@@ -849,7 +782,7 @@
               headers: _v97,
               baseUrl: _v5
             }), await _v109(), _v23({
-              title: (0, _v87.translate)({
+              title: (0, _v84.translate)({
                 singular: "Custom metadata field updated.",
                 dictionary: {
                   es: {
@@ -879,7 +812,7 @@
             });
           } catch {
             await _v109(), _v23({
-              title: (0, _v87.translate)({
+              title: (0, _v84.translate)({
                 singular: "Failed to update field. Please try again.",
                 dictionary: {
                   es: {
@@ -930,7 +863,7 @@
               headers: _v97,
               baseUrl: _v5
             }), await _v109(), _v62(), _v23({
-              title: (0, _v87.translate)({
+              title: (0, _v84.translate)({
                 singular: "Custom metadata field deleted.",
                 dictionary: {
                   es: {
@@ -960,7 +893,7 @@
             });
           } catch {
             _v23({
-              title: (0, _v87.translate)({
+              title: (0, _v84.translate)({
                 singular: "Failed to delete field. Please try again.",
                 dictionary: {
                   es: {
@@ -1013,7 +946,26 @@
         data: _v121,
         isLoading: _v122,
         mutate: _v123
-      } = _v86(() => _v0 && _v115 ? {
+      } = function (_v0, _v1) {
+        let _v2 = "function" == typeof _v0 ? _v0() : _v0,
+          {
+            baseUrl: _v3,
+            jwt: _v4,
+            xVimeoPage: _v5,
+            locale: _v6
+          } = (0, _v79.useGctlConfig)();
+        return (0, _v82.default)(_v2 ? `/teams/${_v2.where.userId}/custom_metadata/incomplete_videos${(0, _v83.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v81({
+          ..._v2,
+          headers: {
+            ..._v2.headers,
+            "Content-Type": "application/json",
+            Authorization: _v4 ? `jwt ${_v4}` : "",
+            "Vimeo-Page": `${_v5}`,
+            "Accept-Language": _v6 ?? "en"
+          },
+          baseUrl: _v3
+        }) : null, _v1);
+      }(() => _v0 && _v115 ? {
         where: {
           userId: _v0
         },
@@ -1028,7 +980,7 @@
         revalidateIfStale: !1,
         onError: () => {
           _v23({
-            title: (0, _v87.translate)({
+            title: (0, _v84.translate)({
               singular: "Failed to load incomplete videos.",
               dictionary: {
                 es: {
@@ -1109,7 +1061,7 @@
                 return "custom" === _v40 && _v42 || null;
               })();
             await _v109(), _v96(), _v2?.id && null !== _v3 ? (_v23({
-              title: (0, _v87.translate)({
+              title: (0, _v84.translate)({
                 singular: "Custom metadata added. Applying to all videos may take some time.",
                 dictionary: {
                   es: {
@@ -1142,14 +1094,14 @@
               },
               variables: {
                 fieldId: _v2.id,
-                fieldValue: _v89(_v3, _v28),
+                fieldValue: _v87(_v3, _v28),
                 overrideExisting: !1
               },
               headers: _v97,
               baseUrl: _v5
             }).catch(() => {
               _v23({
-                title: (0, _v87.translate)({
+                title: (0, _v84.translate)({
                   singular: "Failed to apply backfill. Please try again.",
                   dictionary: {
                     es: {
@@ -1179,7 +1131,7 @@
                 status: "error"
               });
             })) : _v23({
-              title: (0, _v87.translate)({
+              title: (0, _v84.translate)({
                 singular: "Custom metadata added.",
                 dictionary: {
                   es: {
@@ -1209,7 +1161,7 @@
             });
           } catch {
             _v23({
-              title: (0, _v87.translate)({
+              title: (0, _v84.translate)({
                 singular: "Failed to create field. Please try again.",
                 dictionary: {
                   es: {
@@ -1266,7 +1218,7 @@
           as: "h1",
           variant: "heading-lg",
           fontWeight: "medium",
-          children: (0, _v87.translate)({
+          children: (0, _v84.translate)({
             singular: "Custom metadata",
             dictionary: {
               es: {
@@ -1308,7 +1260,7 @@
               onClose: () => _v18(!1),
               children: [(0, _v1.jsx)(_v41.PopoverTrigger, {
                 children: (0, _v1.jsx)(_v18.IconButton, {
-                  "aria-label": (0, _v87.translate)({
+                  "aria-label": (0, _v84.translate)({
                     singular: "Filter",
                     dictionary: {
                       es: {
@@ -1347,7 +1299,7 @@
                         variant: "body-sm",
                         fontWeight: "semibold",
                         mb: "sm",
-                        children: (0, _v87.translate)({
+                        children: (0, _v84.translate)({
                           singular: "Type",
                           dictionary: {
                             es: {
@@ -1376,9 +1328,9 @@
                         children: (0, _v1.jsx)(_v58.VStack, {
                           align: "stretch",
                           spacing: "xs",
-                          children: _v91.map(_v0 => (0, _v1.jsx)(_v12.Checkbox, {
+                          children: _v89.map(_v0 => (0, _v1.jsx)(_v12.Checkbox, {
                             value: _v0,
-                            children: _v90[_v0]
+                            children: _v88[_v0]
                           }, _v0))
                         })
                       })]
@@ -1387,7 +1339,7 @@
                         variant: "body-sm",
                         fontWeight: "semibold",
                         mb: "sm",
-                        children: (0, _v87.translate)({
+                        children: (0, _v84.translate)({
                           singular: "Required",
                           dictionary: {
                             es: {
@@ -1421,7 +1373,7 @@
                           spacing: "xs",
                           children: [(0, _v1.jsx)(_v12.Checkbox, {
                             value: "required",
-                            children: (0, _v87.translate)({
+                            children: (0, _v84.translate)({
                               singular: "Required",
                               dictionary: {
                                 es: {
@@ -1449,7 +1401,7 @@
                             })
                           }), (0, _v1.jsx)(_v12.Checkbox, {
                             value: "optional",
-                            children: (0, _v87.translate)({
+                            children: (0, _v84.translate)({
                               singular: "Optional",
                               dictionary: {
                                 es: {
@@ -1520,7 +1472,7 @@
                 h: (0, _v42.rem)(40),
                 bg: "transparent",
                 borderRadius: (0, _v42.rem)(12),
-                placeholder: (0, _v87.translate)({
+                placeholder: (0, _v84.translate)({
                   singular: "Search fields...",
                   dictionary: {
                     es: {
@@ -1553,7 +1505,7 @@
               })]
             })]
           }), (0, _v1.jsx)(_v49.Tooltip, {
-            label: (0, _v87.translate)({
+            label: (0, _v84.translate)({
               singular: "You’ve reached the {LIMIT}-field limit. Delete an existing field to add a new one.",
               replacements: {
                 LIMIT: 20
@@ -1593,7 +1545,7 @@
               children: (0, _v1.jsxs)(_v17.HStack, {
                 spacing: "xs",
                 children: [(0, _v1.jsx)(_v67.PlusSmall, {}), (0, _v1.jsx)("span", {
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "New field",
                     dictionary: {
                       es: {
@@ -1653,7 +1605,7 @@
               children: [(0, _v1.jsx)(_v53.Th, {
                 w: "30%",
                 color: "text-secondary",
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Name",
                   dictionary: {
                     es: {
@@ -1679,7 +1631,7 @@
               }), (0, _v1.jsx)(_v53.Th, {
                 w: "28%",
                 color: "text-secondary",
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Type",
                   dictionary: {
                     es: {
@@ -1705,7 +1657,7 @@
               }), (0, _v1.jsx)(_v53.Th, {
                 w: "30%",
                 color: "text-secondary",
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Required",
                   dictionary: {
                     es: {
@@ -1754,14 +1706,14 @@
                 children: (0, _v1.jsx)(_v52.Text, {
                   variant: "body-md",
                   color: "text-secondary",
-                  children: _v90[_v0.type]
+                  children: _v88[_v0.type]
                 })
               }), (0, _v1.jsx)(_v51.Td, {
                 w: "30%",
                 children: (0, _v1.jsx)(_v6.Badge, {
                   size: "sm",
                   variant: _v0.mandatory ? "staff" : "default",
-                  children: _v0.mandatory ? (0, _v87.translate)({
+                  children: _v0.mandatory ? (0, _v84.translate)({
                     singular: "Required",
                     dictionary: {
                       es: {
@@ -1786,7 +1738,7 @@
                         singular: "必填"
                       }
                     }
-                  }) : (0, _v87.translate)({
+                  }) : (0, _v84.translate)({
                     singular: "Optional",
                     dictionary: {
                       es: {
@@ -1819,7 +1771,7 @@
                   }) => (0, _v1.jsxs)(_v1.Fragment, {
                     children: [(0, _v1.jsx)(_v24.MenuButton, {
                       as: _v18.IconButton,
-                      "aria-label": (0, _v87.translate)({
+                      "aria-label": (0, _v84.translate)({
                         singular: "Actions",
                         dictionary: {
                           es: {
@@ -1858,7 +1810,7 @@
                       children: [(0, _v1.jsx)(_v25.MenuItem, {
                         icon: (0, _v1.jsx)(_v63.RenamePencil, {}),
                         onClick: () => _v101(_v0),
-                        children: (0, _v87.translate)({
+                        children: (0, _v84.translate)({
                           singular: "Edit field",
                           dictionary: {
                             es: {
@@ -1887,7 +1839,7 @@
                       }), (0, _v1.jsx)(_v25.MenuItem, {
                         icon: (0, _v1.jsx)(_v61.CircleCheck, {}),
                         onClick: () => _v98(_v0),
-                        children: (0, _v87.translate)({
+                        children: (0, _v84.translate)({
                           singular: "Set value to all videos",
                           dictionary: {
                             es: {
@@ -1917,7 +1869,7 @@
                         icon: (0, _v1.jsx)(_v71.TrashBin, {}),
                         color: "status-destructive-primary",
                         onClick: () => _v100(_v0),
-                        children: (0, _v87.translate)({
+                        children: (0, _v84.translate)({
                           singular: "Delete field",
                           dictionary: {
                             es: {
@@ -1956,7 +1908,7 @@
           children: (0, _v1.jsx)(_v52.Text, {
             color: "text-secondary",
             variant: "body-md",
-            children: (0, _v87.translate)({
+            children: (0, _v84.translate)({
               singular: "No custom metadata fields found.",
               dictionary: {
                 es: {
@@ -2020,7 +1972,7 @@
                 }
               },
               children: [(0, _v1.jsx)(_v5.AlertTitle, {
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "{COUNT} video has missing mandatory fields.",
                   plural: "{COUNT} videos have missing mandatory fields.",
                   count: _v121.total,
@@ -2059,7 +2011,7 @@
                   }
                 })
               }), (0, _v1.jsx)(_v4.AlertDescription, {
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Videos missing required metadata can’t be shared, but already shared videos remain visible.",
                   dictionary: {
                     es: {
@@ -2099,7 +2051,7 @@
                 size: "md",
                 rightIcon: (0, _v1.jsx)(_v72.SortSmall, {}),
                 children: {
-                  title_asc: (0, _v87.translate)({
+                  title_asc: (0, _v84.translate)({
                     singular: "Title, A-Z",
                     dictionary: {
                       es: {
@@ -2125,7 +2077,7 @@
                       }
                     }
                   }),
-                  title_desc: (0, _v87.translate)({
+                  title_desc: (0, _v84.translate)({
                     singular: "Title, Z-A",
                     dictionary: {
                       es: {
@@ -2151,7 +2103,7 @@
                       }
                     }
                   }),
-                  modified_desc: (0, _v87.translate)({
+                  modified_desc: (0, _v84.translate)({
                     singular: "Modified Date, Newest",
                     dictionary: {
                       es: {
@@ -2177,7 +2129,7 @@
                       }
                     }
                   }),
-                  modified_asc: (0, _v87.translate)({
+                  modified_asc: (0, _v84.translate)({
                     singular: "Modified Date, Oldest",
                     dictionary: {
                       es: {
@@ -2208,7 +2160,7 @@
                 children: (0, _v1.jsx)(_v27.MenuGroup, {
                   as: _v52.Text,
                   variant: "heading-xs",
-                  title: (0, _v87.translate)({
+                  title: (0, _v84.translate)({
                     singular: "Sort",
                     dictionary: {
                       es: {
@@ -2234,7 +2186,7 @@
                       }
                     }
                   }),
-                  children: [["title_asc", (0, _v87.translate)({
+                  children: [["title_asc", (0, _v84.translate)({
                     singular: "Title, A-Z",
                     dictionary: {
                       es: {
@@ -2259,7 +2211,7 @@
                         singular: "标题，A-Z"
                       }
                     }
-                  })], ["title_desc", (0, _v87.translate)({
+                  })], ["title_desc", (0, _v84.translate)({
                     singular: "Title, Z-A",
                     dictionary: {
                       es: {
@@ -2284,7 +2236,7 @@
                         singular: "标题，Z-A"
                       }
                     }
-                  })], ["modified_desc", (0, _v87.translate)({
+                  })], ["modified_desc", (0, _v84.translate)({
                     singular: "Modified Date, Newest",
                     dictionary: {
                       es: {
@@ -2309,7 +2261,7 @@
                         singular: "修改日期，最新"
                       }
                     }
-                  })], ["modified_asc", (0, _v87.translate)({
+                  })], ["modified_asc", (0, _v84.translate)({
                     singular: "Modified Date, Oldest",
                     dictionary: {
                       es: {
@@ -2380,7 +2332,7 @@
                   lineHeight: "1.4",
                   bg: "fill-component",
                   borderLeftRadius: "md",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Name",
                     dictionary: {
                       es: {
@@ -2415,7 +2367,7 @@
                   lineHeight: "1.4",
                   bg: "fill-component",
                   borderRightRadius: "md",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Modified Date",
                     dictionary: {
                       es: {
@@ -2492,7 +2444,7 @@
                         children: (0, _v1.jsx)(_v52.Text, {
                           color: "text-tertiary",
                           fontSize: "xs",
-                          children: (0, _v87.translate)({
+                          children: (0, _v84.translate)({
                             singular: "No thumbnail",
                             dictionary: {
                               es: {
@@ -2565,7 +2517,7 @@
             children: (0, _v1.jsx)(_v52.Text, {
               color: "text-secondary",
               variant: "body-md",
-              children: (0, _v87.translate)({
+              children: (0, _v84.translate)({
                 singular: "All videos have their required metadata filled in.",
                 dictionary: {
                   es: {
@@ -2603,7 +2555,7 @@
             pr: "7",
             pb: "sm",
             children: [2 === _v38 && (0, _v1.jsx)(_v18.IconButton, {
-              "aria-label": (0, _v87.translate)({
+              "aria-label": (0, _v84.translate)({
                 singular: "Back",
                 dictionary: {
                   es: {
@@ -2634,7 +2586,7 @@
               size: "sm",
               onClick: () => _v39(1),
               mr: "sm"
-            }), (0, _v87.translate)({
+            }), (0, _v84.translate)({
               singular: "New field",
               dictionary: {
                 es: {
@@ -2675,7 +2627,7 @@
                 },
                 children: [(0, _v1.jsx)(_v16.FormLabel, {
                   fontWeight: "bold",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Field Name",
                     dictionary: {
                       es: {
@@ -2702,7 +2654,7 @@
                     }
                   })
                 }), (0, _v1.jsx)(_v20.Input, {
-                  placeholder: (0, _v87.translate)({
+                  placeholder: (0, _v84.translate)({
                     singular: "e.g., Campaign ID, Project Code",
                     dictionary: {
                       es: {
@@ -2740,7 +2692,7 @@
                   variant: "body-xs",
                   color: "status-destructive-primary",
                   mt: "xs",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "A field with this name already exists.",
                     dictionary: {
                       es: {
@@ -2770,7 +2722,7 @@
               }), (0, _v1.jsxs)(_v15.FormControl, {
                 children: [(0, _v1.jsx)(_v16.FormLabel, {
                   variant: "heading-xs",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Description",
                     dictionary: {
                       es: {
@@ -2794,7 +2746,7 @@
                     }
                   })
                 }), (0, _v1.jsx)(_v48.Textarea, {
-                  placeholder: (0, _v87.translate)({
+                  placeholder: (0, _v84.translate)({
                     singular: "Add description",
                     dictionary: {
                       es: {
@@ -2833,7 +2785,7 @@
                   variant: "body-sm",
                   color: "text-tertiary",
                   mt: "xs",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Description appears next to the field label on the video page.",
                     dictionary: {
                       es: {
@@ -2869,7 +2821,7 @@
                 },
                 children: [(0, _v1.jsx)(_v16.FormLabel, {
                   fontWeight: "bold",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Field Type",
                     dictionary: {
                       es: {
@@ -2897,8 +2849,8 @@
                   })
                 }), (0, _v1.jsx)(_v43.Select, {
                   variant: "withCheck",
-                  items: _v92,
-                  placeholder: (0, _v87.translate)({
+                  items: _v90,
+                  placeholder: (0, _v84.translate)({
                     singular: "Select a type",
                     dictionary: {
                       es: {
@@ -2938,7 +2890,7 @@
               }), "select" === _v28 || "multi-select" === _v28 ? (0, _v1.jsxs)(_v15.FormControl, {
                 children: [(0, _v1.jsx)(_v16.FormLabel, {
                   fontWeight: "bold",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Options",
                     dictionary: {
                       es: {
@@ -2975,7 +2927,7 @@
                     children: _v34.map((_v0, _v1) => (0, _v1.jsxs)(_v17.HStack, {
                       spacing: "sm",
                       children: [(0, _v1.jsx)(_v49.Tooltip, {
-                        label: _v36.has(_v1) ? (0, _v87.translate)({
+                        label: _v36.has(_v1) ? (0, _v84.translate)({
                           singular: "Remove default",
                           dictionary: {
                             es: {
@@ -3000,7 +2952,7 @@
                               singular: "移除默认设置"
                             }
                           }
-                        }) : (0, _v87.translate)({
+                        }) : (0, _v84.translate)({
                           singular: "Set default",
                           dictionary: {
                             es: {
@@ -3029,7 +2981,7 @@
                         placement: "top",
                         shouldWrapChildren: !0,
                         children: (0, _v1.jsx)(_v18.IconButton, {
-                          "aria-label": _v36.has(_v1) ? (0, _v87.translate)({
+                          "aria-label": _v36.has(_v1) ? (0, _v84.translate)({
                             singular: "Remove default",
                             dictionary: {
                               es: {
@@ -3054,7 +3006,7 @@
                                 singular: "移除默认设置"
                               }
                             }
-                          }) : (0, _v87.translate)({
+                          }) : (0, _v84.translate)({
                             singular: "Set default",
                             dictionary: {
                               es: {
@@ -3094,7 +3046,7 @@
                           }
                         })
                       }), (0, _v1.jsx)(_v20.Input, {
-                        placeholder: (0, _v87.translate)({
+                        placeholder: (0, _v84.translate)({
                           singular: "Option {NUMBER}",
                           replacements: {
                             NUMBER: _v1 + 1
@@ -3139,7 +3091,7 @@
                           bg: "fill-component"
                         }
                       }), (0, _v1.jsx)(_v18.IconButton, {
-                        "aria-label": (0, _v87.translate)({
+                        "aria-label": (0, _v84.translate)({
                           singular: "Delete option",
                           dictionary: {
                             es: {
@@ -3195,7 +3147,7 @@
                     children: (0, _v1.jsxs)(_v17.HStack, {
                       spacing: "xs",
                       children: [(0, _v1.jsx)(_v66.PlusCircle, {}), (0, _v1.jsx)("span", {
-                        children: (0, _v87.translate)({
+                        children: (0, _v84.translate)({
                           singular: "New option",
                           dictionary: {
                             es: {
@@ -3228,7 +3180,7 @@
               }) : "date" === _v28 ? (0, _v1.jsxs)(_v15.FormControl, {
                 children: [(0, _v1.jsx)(_v16.FormLabel, {
                   fontWeight: "bold",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Default Value",
                     dictionary: {
                       es: {
@@ -3259,7 +3211,7 @@
                   value: _v30 && (_v1 = _v30.match(/^(\d{4})-(\d{2})-(\d{2})/)) ? [new _v7.BokehDate.CalendarDate(Number(_v1[1]), Number(_v1[2]), Number(_v1[3]))] : [],
                   onValueChange: _v0 => {
                     let _v1 = _v0.value?.[0];
-                    _v31(_v1 ? _v93(_v1) : "");
+                    _v31(_v1 ? _v91(_v1) : "");
                   },
                   children: [(0, _v1.jsx)(_v9.DatePickerControl, {
                     children: (0, _v1.jsxs)(_v21.InputGroup, {
@@ -3275,7 +3227,7 @@
                         children: (0, _v1.jsx)(_v9.DatePickerTrigger, {
                           asChild: !0,
                           children: (0, _v1.jsx)(_v18.IconButton, {
-                            "aria-label": (0, _v87.translate)({
+                            "aria-label": (0, _v84.translate)({
                               singular: "Pick date",
                               dictionary: {
                                 es: {
@@ -3329,7 +3281,7 @@
               }) : "bool" === _v28 ? (0, _v1.jsxs)(_v15.FormControl, {
                 children: [(0, _v1.jsx)(_v16.FormLabel, {
                   fontWeight: "bold",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Default Value",
                     dictionary: {
                       es: {
@@ -3357,7 +3309,7 @@
                   })
                 }), (0, _v1.jsx)(_v43.Select, {
                   items: [{
-                    label: (0, _v87.translate)({
+                    label: (0, _v84.translate)({
                       singular: "None",
                       dictionary: {
                         es: {
@@ -3385,7 +3337,7 @@
                     }),
                     value: ""
                   }, {
-                    label: (0, _v87.translate)({
+                    label: (0, _v84.translate)({
                       singular: "True",
                       dictionary: {
                         es: {
@@ -3413,7 +3365,7 @@
                     }),
                     value: "true"
                   }, {
-                    label: (0, _v87.translate)({
+                    label: (0, _v84.translate)({
                       singular: "False",
                       dictionary: {
                         es: {
@@ -3441,7 +3393,7 @@
                     }),
                     value: "false"
                   }],
-                  placeholder: (0, _v87.translate)({
+                  placeholder: (0, _v84.translate)({
                     singular: "Select default value",
                     dictionary: {
                       es: {
@@ -3479,7 +3431,7 @@
               }) : "int" === _v28 ? (0, _v1.jsxs)(_v15.FormControl, {
                 children: [(0, _v1.jsx)(_v16.FormLabel, {
                   fontWeight: "bold",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Default Value",
                     dictionary: {
                       es: {
@@ -3509,7 +3461,7 @@
                   value: _v30,
                   onChange: _v0 => _v31(_v0),
                   children: [(0, _v1.jsx)(_v36.NumberInputField, {
-                    placeholder: (0, _v87.translate)({
+                    placeholder: (0, _v84.translate)({
                       singular: "Enter default value",
                       dictionary: {
                         es: {
@@ -3548,7 +3500,7 @@
               }) : (0, _v1.jsxs)(_v15.FormControl, {
                 children: [(0, _v1.jsx)(_v16.FormLabel, {
                   fontWeight: "bold",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Default Value",
                     dictionary: {
                       es: {
@@ -3575,7 +3527,7 @@
                     }
                   })
                 }), (0, _v1.jsx)(_v20.Input, {
-                  placeholder: (0, _v87.translate)({
+                  placeholder: (0, _v84.translate)({
                     singular: "Enter default value",
                     dictionary: {
                       es: {
@@ -3618,7 +3570,7 @@
                   children: [(0, _v1.jsx)(_v52.Text, {
                     variant: "body-sm",
                     color: "text-tertiary",
-                    children: (0, _v87.translate)({
+                    children: (0, _v84.translate)({
                       singular: "50 characters limit.",
                       dictionary: {
                         es: {
@@ -3664,7 +3616,7 @@
                       children: [(0, _v1.jsx)(_v16.FormLabel, {
                         fontWeight: "bold",
                         mb: "0",
-                        children: (0, _v87.translate)({
+                        children: (0, _v84.translate)({
                           singular: "Required",
                           dictionary: {
                             es: {
@@ -3691,7 +3643,7 @@
                           }
                         })
                       }), (0, _v1.jsx)(_v49.Tooltip, {
-                        label: (0, _v87.translate)({
+                        label: (0, _v84.translate)({
                           singular: "Videos missing this metadata can’t be shared, but already shared videos remain visible.",
                           dictionary: {
                             es: {
@@ -3728,7 +3680,7 @@
                     }), (0, _v1.jsx)(_v52.Text, {
                       variant: "body-md",
                       color: "text-secondary",
-                      children: (0, _v87.translate)({
+                      children: (0, _v84.translate)({
                         singular: "This field is mandatory for all videos.",
                         dictionary: {
                           es: {
@@ -3766,7 +3718,7 @@
               align: "stretch",
               children: [(0, _v1.jsx)(_v52.Text, {
                 variant: "body-md",
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Do you want to apply this field to existing videos?",
                   dictionary: {
                     es: {
@@ -3795,7 +3747,7 @@
               }), (0, _v1.jsxs)(_v15.FormControl, {
                 children: [(0, _v1.jsx)(_v16.FormLabel, {
                   variant: "heading-xs",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Backfill Value",
                     dictionary: {
                       es: {
@@ -3823,7 +3775,7 @@
                   })
                 }), (0, _v1.jsx)(_v43.Select, {
                   items: [...(_v107 ? [{
-                    label: (0, _v87.translate)({
+                    label: (0, _v84.translate)({
                       singular: "Default Value",
                       dictionary: {
                         es: {
@@ -3851,7 +3803,7 @@
                     }),
                     value: "default"
                   }] : []), {
-                    label: (0, _v87.translate)({
+                    label: (0, _v84.translate)({
                       singular: "Custom Value",
                       dictionary: {
                         es: {
@@ -3879,7 +3831,7 @@
                     }),
                     value: "custom"
                   }, {
-                    label: (0, _v87.translate)({
+                    label: (0, _v84.translate)({
                       singular: "None",
                       dictionary: {
                         es: {
@@ -3921,7 +3873,7 @@
                   variant: "body-sm",
                   color: "text-tertiary",
                   mt: "xs",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "For required fields, you’ll need to fill them manually if no value is applied.",
                     dictionary: {
                       es: {
@@ -3953,7 +3905,7 @@
                   label: _v0,
                   value: _v0
                 })),
-                placeholder: (0, _v87.translate)({
+                placeholder: (0, _v84.translate)({
                   singular: "Select a value",
                   dictionary: {
                     es: {
@@ -3996,7 +3948,7 @@
                     value: _v0
                   })),
                   value: [],
-                  placeholder: (0, _v87.translate)({
+                  placeholder: (0, _v84.translate)({
                     singular: "Select",
                     dictionary: {
                       es: {
@@ -4049,7 +4001,7 @@
                 })]
               }) : "bool" === _v28 ? (0, _v1.jsx)(_v43.Select, {
                 items: [{
-                  label: (0, _v87.translate)({
+                  label: (0, _v84.translate)({
                     singular: "True",
                     dictionary: {
                       es: {
@@ -4077,7 +4029,7 @@
                   }),
                   value: "true"
                 }, {
-                  label: (0, _v87.translate)({
+                  label: (0, _v84.translate)({
                     singular: "False",
                     dictionary: {
                       es: {
@@ -4105,7 +4057,7 @@
                   }),
                   value: "false"
                 }],
-                placeholder: (0, _v87.translate)({
+                placeholder: (0, _v84.translate)({
                   singular: "Select a value",
                   dictionary: {
                     es: {
@@ -4144,7 +4096,7 @@
                 value: _v42 && (_v2 = _v42.match(/^(\d{4})-(\d{2})-(\d{2})/)) ? [new _v7.BokehDate.CalendarDate(Number(_v2[1]), Number(_v2[2]), Number(_v2[3]))] : [],
                 onValueChange: _v0 => {
                   let _v1 = _v0.value?.[0];
-                  _v43(_v1 ? _v93(_v1) : "");
+                  _v43(_v1 ? _v91(_v1) : "");
                 },
                 children: [(0, _v1.jsx)(_v9.DatePickerControl, {
                   children: (0, _v1.jsxs)(_v21.InputGroup, {
@@ -4160,7 +4112,7 @@
                       children: (0, _v1.jsx)(_v9.DatePickerTrigger, {
                         asChild: !0,
                         children: (0, _v1.jsx)(_v18.IconButton, {
-                          "aria-label": (0, _v87.translate)({
+                          "aria-label": (0, _v84.translate)({
                             singular: "Pick date",
                             dictionary: {
                               es: {
@@ -4214,7 +4166,7 @@
                 value: _v42,
                 onChange: _v0 => _v43(_v0),
                 children: [(0, _v1.jsx)(_v36.NumberInputField, {
-                  placeholder: (0, _v87.translate)({
+                  placeholder: (0, _v84.translate)({
                     singular: "Enter custom value",
                     dictionary: {
                       es: {
@@ -4250,7 +4202,7 @@
                   children: [(0, _v1.jsx)(_v36.NumberIncrementStepper, {}), (0, _v1.jsx)(_v36.NumberDecrementStepper, {})]
                 })]
               }) : (0, _v1.jsx)(_v20.Input, {
-                placeholder: (0, _v87.translate)({
+                placeholder: (0, _v84.translate)({
                   singular: "Enter custom value",
                   dictionary: {
                     es: {
@@ -4289,7 +4241,7 @@
                 }
               }) : "default" === _v40 ? (0, _v1.jsxs)(_v52.Text, {
                 variant: "body-sm",
-                children: [(0, _v87.translate)({
+                children: [(0, _v84.translate)({
                   singular: "Default Value:",
                   dictionary: {
                     es: {
@@ -4326,7 +4278,7 @@
                 variant: "secondary",
                 size: "md",
                 onClick: _v96,
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Cancel",
                   dictionary: {
                     es: {
@@ -4359,7 +4311,7 @@
                   _v44.current || (_v41("none"), _v44.current = !0), _v39(2);
                 },
                 isDisabled: _v129,
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Next",
                   dictionary: {
                     es: {
@@ -4391,7 +4343,7 @@
                 onClick: _v132,
                 isLoading: _v47,
                 isDisabled: "custom" === _v40 && !_v42.trim(),
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Save",
                   dictionary: {
                     es: {
@@ -4427,7 +4379,7 @@
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v32.ModalContent, {
           maxW: (0, _v42.rem)(480),
           children: [(0, _v1.jsx)(_v34.ModalHeader, {
-            children: (0, _v87.translate)({
+            children: (0, _v84.translate)({
               singular: "Set value to all videos",
               dictionary: {
                 es: {
@@ -4460,7 +4412,7 @@
               alignItems: "stretch",
               children: [(0, _v1.jsx)(_v52.Text, {
                 variant: "body-md",
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "What value do you want to apply to all videos?",
                   dictionary: {
                     es: {
@@ -4489,7 +4441,7 @@
               }), (0, _v1.jsxs)(_v15.FormControl, {
                 children: [(0, _v1.jsx)(_v16.FormLabel, {
                   variant: "heading-xs",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Backfill Value",
                     dictionary: {
                       es: {
@@ -4520,7 +4472,7 @@
                     label: _v0,
                     value: _v0
                   })),
-                  placeholder: (0, _v87.translate)({
+                  placeholder: (0, _v84.translate)({
                     singular: "Select a value",
                     dictionary: {
                       es: {
@@ -4563,7 +4515,7 @@
                       value: _v0
                     })),
                     value: [],
-                    placeholder: (0, _v87.translate)({
+                    placeholder: (0, _v84.translate)({
                       singular: "Select",
                       dictionary: {
                         es: {
@@ -4616,7 +4568,7 @@
                   })]
                 }) : _v49?.type === "bool" ? (0, _v1.jsx)(_v43.Select, {
                   items: [{
-                    label: (0, _v87.translate)({
+                    label: (0, _v84.translate)({
                       singular: "True",
                       dictionary: {
                         es: {
@@ -4644,7 +4596,7 @@
                     }),
                     value: "true"
                   }, {
-                    label: (0, _v87.translate)({
+                    label: (0, _v84.translate)({
                       singular: "False",
                       dictionary: {
                         es: {
@@ -4672,7 +4624,7 @@
                     }),
                     value: "false"
                   }],
-                  placeholder: (0, _v87.translate)({
+                  placeholder: (0, _v84.translate)({
                     singular: "Select a value",
                     dictionary: {
                       es: {
@@ -4711,7 +4663,7 @@
                   value: _v54 && (_v3 = _v54.match(/^(\d{4})-(\d{2})-(\d{2})/)) ? [new _v7.BokehDate.CalendarDate(Number(_v3[1]), Number(_v3[2]), Number(_v3[3]))] : [],
                   onValueChange: _v0 => {
                     let _v1 = _v0.value?.[0];
-                    _v55(_v1 ? _v93(_v1) : "");
+                    _v55(_v1 ? _v91(_v1) : "");
                   },
                   children: [(0, _v1.jsx)(_v9.DatePickerControl, {
                     children: (0, _v1.jsxs)(_v21.InputGroup, {
@@ -4727,7 +4679,7 @@
                         children: (0, _v1.jsx)(_v9.DatePickerTrigger, {
                           asChild: !0,
                           children: (0, _v1.jsx)(_v18.IconButton, {
-                            "aria-label": (0, _v87.translate)({
+                            "aria-label": (0, _v84.translate)({
                               singular: "Pick date",
                               dictionary: {
                                 es: {
@@ -4781,7 +4733,7 @@
                   value: _v54,
                   onChange: _v0 => _v55(_v0),
                   children: [(0, _v1.jsx)(_v36.NumberInputField, {
-                    placeholder: (0, _v87.translate)({
+                    placeholder: (0, _v84.translate)({
                       singular: "Enter value",
                       dictionary: {
                         es: {
@@ -4817,7 +4769,7 @@
                     children: [(0, _v1.jsx)(_v36.NumberIncrementStepper, {}), (0, _v1.jsx)(_v36.NumberDecrementStepper, {})]
                   })]
                 }) : (0, _v1.jsx)(_v20.Input, {
-                  placeholder: (0, _v87.translate)({
+                  placeholder: (0, _v84.translate)({
                     singular: "Enter value",
                     dictionary: {
                       es: {
@@ -4860,7 +4812,7 @@
                 onChange: _v0 => _v57(_v0.target.checked),
                 children: (0, _v1.jsx)(_v52.Text, {
                   variant: "body-md",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Override all existing values across all videos",
                     dictionary: {
                       es: {
@@ -4896,7 +4848,7 @@
                 variant: "secondary",
                 size: "md",
                 onClick: _v53,
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Cancel",
                   dictionary: {
                     es: {
@@ -4927,7 +4879,7 @@
                 size: "md",
                 onClick: _v99,
                 isDisabled: !_v54.trim(),
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Apply",
                   dictionary: {
                     es: {
@@ -4963,7 +4915,7 @@
         size: "lg",
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v32.ModalContent, {
           children: [(0, _v1.jsx)(_v34.ModalHeader, {
-            children: (0, _v87.translate)({
+            children: (0, _v84.translate)({
               singular: "Delete Custom Field",
               dictionary: {
                 es: {
@@ -4996,7 +4948,7 @@
               alignItems: "stretch",
               children: [(0, _v1.jsx)(_v52.Text, {
                 variant: "body-md",
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "This action will permanently remove this field and all associated data from every video in your workspace. Contributors will no longer be able to see or edit this information.",
                   dictionary: {
                     es: {
@@ -5024,7 +4976,7 @@
                 })
               }), (0, _v1.jsx)(_v52.Text, {
                 variant: "body-md",
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "This action cannot be undone.",
                   dictionary: {
                     es: {
@@ -5059,7 +5011,7 @@
                 variant: "secondary",
                 size: "md",
                 onClick: _v62,
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Cancel",
                   dictionary: {
                     es: {
@@ -5090,7 +5042,7 @@
                 size: "md",
                 onClick: _v111,
                 isLoading: _v63,
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Delete",
                   dictionary: {
                     es: {
@@ -5128,7 +5080,7 @@
           children: [(0, _v1.jsx)(_v34.ModalHeader, {
             pr: "7",
             pb: "sm",
-            children: (0, _v87.translate)({
+            children: (0, _v84.translate)({
               singular: "Edit field",
               dictionary: {
                 es: {
@@ -5182,7 +5134,7 @@
                 children: (0, _v1.jsx)(_v52.Text, {
                   variant: "body-md",
                   fontWeight: "general" === _v70 ? "bold" : "normal",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "General",
                     dictionary: {
                       "de-DE": {
@@ -5221,7 +5173,7 @@
                 children: (0, _v1.jsx)(_v52.Text, {
                   variant: "body-md",
                   fontWeight: "values" === _v70 ? "bold" : "normal",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Values",
                     dictionary: {
                       es: {
@@ -5269,7 +5221,7 @@
                   },
                   children: [(0, _v1.jsx)(_v16.FormLabel, {
                     variant: "heading-xs",
-                    children: (0, _v87.translate)({
+                    children: (0, _v84.translate)({
                       singular: "Field name",
                       dictionary: {
                         es: {
@@ -5308,7 +5260,7 @@
                     variant: "body-xs",
                     color: "status-destructive-primary",
                     mt: "xs",
-                    children: (0, _v87.translate)({
+                    children: (0, _v84.translate)({
                       singular: "A field with this name already exists.",
                       dictionary: {
                         es: {
@@ -5338,7 +5290,7 @@
                     variant: "body-xs",
                     color: "status-destructive-primary",
                     mt: "xs",
-                    children: (0, _v87.translate)({
+                    children: (0, _v84.translate)({
                       singular: "Field name is required.",
                       dictionary: {
                         es: {
@@ -5368,7 +5320,7 @@
                 }), (0, _v1.jsxs)(_v15.FormControl, {
                   children: [(0, _v1.jsx)(_v16.FormLabel, {
                     variant: "heading-xs",
-                    children: (0, _v87.translate)({
+                    children: (0, _v84.translate)({
                       singular: "Description",
                       dictionary: {
                         es: {
@@ -5392,7 +5344,7 @@
                       }
                     })
                   }), (0, _v1.jsx)(_v48.Textarea, {
-                    placeholder: (0, _v87.translate)({
+                    placeholder: (0, _v84.translate)({
                       singular: "Add description",
                       dictionary: {
                         es: {
@@ -5431,7 +5383,7 @@
                     variant: "body-sm",
                     color: "text-tertiary",
                     mt: "xs",
-                    children: (0, _v87.translate)({
+                    children: (0, _v84.translate)({
                       singular: "Description appears next to the field label on the video page.",
                       dictionary: {
                         es: {
@@ -5467,7 +5419,7 @@
                   },
                   children: [(0, _v1.jsx)(_v16.FormLabel, {
                     variant: "heading-xs",
-                    children: (0, _v87.translate)({
+                    children: (0, _v84.translate)({
                       singular: "Field Type",
                       dictionary: {
                         es: {
@@ -5495,7 +5447,7 @@
                     })
                   }), (0, _v1.jsx)(_v43.Select, {
                     variant: "withCheck",
-                    items: _v92,
+                    items: _v90,
                     value: _v65?.type ? [_v65.type] : [],
                     disabled: !0
                   })]
@@ -5511,7 +5463,7 @@
                       children: [(0, _v1.jsx)(_v16.FormLabel, {
                         variant: "heading-xs",
                         mb: "0",
-                        children: (0, _v87.translate)({
+                        children: (0, _v84.translate)({
                           singular: "Required",
                           dictionary: {
                             es: {
@@ -5540,7 +5492,7 @@
                       }), (0, _v1.jsx)(_v52.Text, {
                         variant: "body-md",
                         color: "text-secondary",
-                        children: (0, _v87.translate)({
+                        children: (0, _v84.translate)({
                           singular: "This field is required for all videos.",
                           dictionary: {
                             es: {
@@ -5579,7 +5531,7 @@
                 children: _v65?.type === "select" || _v65?.type === "multi-select" ? (0, _v1.jsxs)(_v15.FormControl, {
                   children: [(0, _v1.jsx)(_v16.FormLabel, {
                     variant: "heading-xs",
-                    children: (0, _v87.translate)({
+                    children: (0, _v84.translate)({
                       singular: "Options",
                       dictionary: {
                         es: {
@@ -5606,7 +5558,7 @@
                     status: "warning",
                     mb: "md",
                     children: (0, _v1.jsx)(_v4.AlertDescription, {
-                      children: (0, _v87.translate)({
+                      children: (0, _v84.translate)({
                         singular: "Renaming an option will change the value across all videos.",
                         dictionary: {
                           es: {
@@ -5647,7 +5599,7 @@
                       children: _v80.map((_v0, _v1) => (0, _v1.jsxs)(_v17.HStack, {
                         spacing: "sm",
                         children: [(0, _v1.jsx)(_v49.Tooltip, {
-                          label: _v82.has(_v1) ? (0, _v87.translate)({
+                          label: _v82.has(_v1) ? (0, _v84.translate)({
                             singular: "Remove default",
                             dictionary: {
                               es: {
@@ -5672,7 +5624,7 @@
                                 singular: "移除默认设置"
                               }
                             }
-                          }) : (0, _v87.translate)({
+                          }) : (0, _v84.translate)({
                             singular: "Set default",
                             dictionary: {
                               es: {
@@ -5701,7 +5653,7 @@
                           placement: "top",
                           shouldWrapChildren: !0,
                           children: (0, _v1.jsx)(_v18.IconButton, {
-                            "aria-label": _v82.has(_v1) ? (0, _v87.translate)({
+                            "aria-label": _v82.has(_v1) ? (0, _v84.translate)({
                               singular: "Remove default",
                               dictionary: {
                                 es: {
@@ -5726,7 +5678,7 @@
                                   singular: "移除默认设置"
                                 }
                               }
-                            }) : (0, _v87.translate)({
+                            }) : (0, _v84.translate)({
                               singular: "Set default",
                               dictionary: {
                                 es: {
@@ -5769,7 +5721,7 @@
                           isInvalid: !_v0.value.trim(),
                           flex: 1,
                           children: (0, _v1.jsx)(_v20.Input, {
-                            placeholder: (0, _v87.translate)({
+                            placeholder: (0, _v84.translate)({
                               singular: "Option {NUMBER}",
                               replacements: {
                                 NUMBER: _v1 + 1
@@ -5821,7 +5773,7 @@
                             }
                           })
                         }), (0, _v1.jsx)(_v18.IconButton, {
-                          "aria-label": (0, _v87.translate)({
+                          "aria-label": (0, _v84.translate)({
                             singular: "Delete option",
                             dictionary: {
                               es: {
@@ -5870,7 +5822,7 @@
                           _v0?.[_v0.length - 1]?.focus();
                         });
                       },
-                      children: (0, _v87.translate)({
+                      children: (0, _v84.translate)({
                         singular: "New option",
                         dictionary: {
                           es: {
@@ -5902,7 +5854,7 @@
                   children: [(0, _v1.jsx)(_v16.FormLabel, {
                     fontWeight: "bold",
                     fontSize: "sm",
-                    children: (0, _v87.translate)({
+                    children: (0, _v84.translate)({
                       singular: "Default Value",
                       dictionary: {
                         es: {
@@ -5933,7 +5885,7 @@
                     value: _v78 && (_v4 = _v78.match(/^(\d{4})-(\d{2})-(\d{2})/)) ? [new _v7.BokehDate.CalendarDate(Number(_v4[1]), Number(_v4[2]), Number(_v4[3]))] : [],
                     onValueChange: _v0 => {
                       let _v1 = _v0.value?.[0];
-                      _v79(_v1 ? _v93(_v1) : "");
+                      _v79(_v1 ? _v91(_v1) : "");
                     },
                     children: [(0, _v1.jsx)(_v9.DatePickerControl, {
                       children: (0, _v1.jsxs)(_v21.InputGroup, {
@@ -5949,7 +5901,7 @@
                           children: (0, _v1.jsx)(_v9.DatePickerTrigger, {
                             asChild: !0,
                             children: (0, _v1.jsx)(_v18.IconButton, {
-                              "aria-label": (0, _v87.translate)({
+                              "aria-label": (0, _v84.translate)({
                                 singular: "Pick date",
                                 dictionary: {
                                   es: {
@@ -6004,7 +5956,7 @@
                   children: [(0, _v1.jsx)(_v16.FormLabel, {
                     fontWeight: "bold",
                     fontSize: "sm",
-                    children: (0, _v87.translate)({
+                    children: (0, _v84.translate)({
                       singular: "Default Value",
                       dictionary: {
                         es: {
@@ -6032,7 +5984,7 @@
                     })
                   }), (0, _v1.jsx)(_v43.Select, {
                     items: [{
-                      label: (0, _v87.translate)({
+                      label: (0, _v84.translate)({
                         singular: "None",
                         dictionary: {
                           es: {
@@ -6060,7 +6012,7 @@
                       }),
                       value: ""
                     }, {
-                      label: (0, _v87.translate)({
+                      label: (0, _v84.translate)({
                         singular: "True",
                         dictionary: {
                           es: {
@@ -6088,7 +6040,7 @@
                       }),
                       value: "true"
                     }, {
-                      label: (0, _v87.translate)({
+                      label: (0, _v84.translate)({
                         singular: "False",
                         dictionary: {
                           es: {
@@ -6116,7 +6068,7 @@
                       }),
                       value: "false"
                     }],
-                    placeholder: (0, _v87.translate)({
+                    placeholder: (0, _v84.translate)({
                       singular: "Select default value",
                       dictionary: {
                         es: {
@@ -6155,7 +6107,7 @@
                   children: [(0, _v1.jsx)(_v16.FormLabel, {
                     fontWeight: "bold",
                     fontSize: "sm",
-                    children: (0, _v87.translate)({
+                    children: (0, _v84.translate)({
                       singular: "Default Value",
                       dictionary: {
                         es: {
@@ -6185,7 +6137,7 @@
                     value: _v78,
                     onChange: _v0 => _v79(_v0),
                     children: [(0, _v1.jsx)(_v36.NumberInputField, {
-                      placeholder: (0, _v87.translate)({
+                      placeholder: (0, _v84.translate)({
                         singular: "Enter default value",
                         dictionary: {
                           es: {
@@ -6225,7 +6177,7 @@
                   children: [(0, _v1.jsx)(_v16.FormLabel, {
                     fontWeight: "bold",
                     fontSize: "sm",
-                    children: (0, _v87.translate)({
+                    children: (0, _v84.translate)({
                       singular: "Default Value",
                       dictionary: {
                         es: {
@@ -6252,7 +6204,7 @@
                       }
                     })
                   }), (0, _v1.jsx)(_v20.Input, {
-                    placeholder: (0, _v87.translate)({
+                    placeholder: (0, _v84.translate)({
                       singular: "Enter default value",
                       dictionary: {
                         es: {
@@ -6295,7 +6247,7 @@
                     children: [(0, _v1.jsx)(_v52.Text, {
                       variant: "body-sm",
                       color: "text-tertiary",
-                      children: (0, _v87.translate)({
+                      children: (0, _v84.translate)({
                         singular: "50 characters limit.",
                         dictionary: {
                           es: {
@@ -6340,7 +6292,7 @@
                 variant: "secondary",
                 size: "md",
                 onClick: _v105,
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Cancel",
                   dictionary: {
                     es: {
@@ -6371,7 +6323,7 @@
                 size: "md",
                 onClick: _v104 ? _v93 : _v110,
                 isDisabled: !_v72.trim() || _v128 || (_v65?.type === "select" || _v65?.type === "multi-select") && _v80.some(_v0 => !_v0.value.trim()),
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Save",
                   dictionary: {
                     es: {
@@ -6407,7 +6359,7 @@
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v32.ModalContent, {
           maxW: (0, _v42.rem)(480),
           children: [(0, _v1.jsx)(_v34.ModalHeader, {
-            children: (0, _v87.translate)({
+            children: (0, _v84.translate)({
               singular: "Delete Option",
               dictionary: {
                 es: {
@@ -6437,7 +6389,7 @@
             p: "7",
             children: (0, _v1.jsx)(_v52.Text, {
               variant: "body-md",
-              children: (0, _v87.translate)({
+              children: (0, _v84.translate)({
                 singular: "Deleting this option will remove it from all videos. Videos that used it will no longer have a value assigned.",
                 dictionary: {
                   es: {
@@ -6471,7 +6423,7 @@
                 variant: "secondary",
                 size: "md",
                 onClick: _v88,
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Cancel",
                   dictionary: {
                     es: {
@@ -6507,7 +6459,7 @@
                   for (let _v0 of _v82) _v0 < _v84 ? _v0.add(_v0) : _v0 > _v84 && _v0.add(_v0 - 1);
                   _v83(_v0), _v85(null), _v88();
                 },
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Delete",
                   dictionary: {
                     es: {
@@ -6544,7 +6496,7 @@
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v32.ModalContent, {
           children: [(0, _v1.jsx)(_v34.ModalHeader, {
             fontWeight: "bold",
-            children: (0, _v87.translate)({
+            children: (0, _v84.translate)({
               singular: "Discard changes?",
               dictionary: {
                 es: {
@@ -6576,7 +6528,7 @@
               align: "stretch",
               children: [(0, _v1.jsx)(_v52.Text, {
                 variant: "body-md",
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Are you sure you want to discard your changes?",
                   dictionary: {
                     es: {
@@ -6604,7 +6556,7 @@
                 })
               }), (0, _v1.jsx)(_v52.Text, {
                 variant: "body-md",
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "All unsaved edits will be lost.",
                   dictionary: {
                     es: {
@@ -6641,7 +6593,7 @@
                 onClick: () => {
                   _v91(), _v69();
                 },
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Discard",
                   dictionary: {
                     es: {
@@ -6671,7 +6623,7 @@
                 variant: "primary",
                 size: "sm",
                 onClick: _v91,
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Keep Editing",
                   dictionary: {
                     es: {
@@ -6708,7 +6660,7 @@
         children: [(0, _v1.jsx)(_v35.ModalOverlay, {}), (0, _v1.jsxs)(_v32.ModalContent, {
           children: [(0, _v1.jsx)(_v34.ModalHeader, {
             fontWeight: "bold",
-            children: (0, _v87.translate)({
+            children: (0, _v84.translate)({
               singular: "Confirm option changes",
               dictionary: {
                 es: {
@@ -6740,7 +6692,7 @@
               align: "stretch",
               children: [(0, _v1.jsx)(_v52.Text, {
                 variant: "body-md",
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "The following changes will be applied to all videos using this field:",
                   dictionary: {
                     es: {
@@ -6771,7 +6723,7 @@
                   fontWeight: "bold",
                   variant: "heading-sm",
                   mb: "xs",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Renamed",
                     dictionary: {
                       es: {
@@ -6826,7 +6778,7 @@
                   fontWeight: "bold",
                   variant: "heading-sm",
                   mb: "xs",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Added",
                     dictionary: {
                       es: {
@@ -6868,7 +6820,7 @@
                   fontWeight: "bold",
                   variant: "heading-sm",
                   mb: "xs",
-                  children: (0, _v87.translate)({
+                  children: (0, _v84.translate)({
                     singular: "Deleted",
                     dictionary: {
                       es: {
@@ -6914,7 +6866,7 @@
                 variant: "tertiary",
                 size: "sm",
                 onClick: _v94,
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Cancel",
                   dictionary: {
                     es: {
@@ -6946,7 +6898,7 @@
                 onClick: () => {
                   _v94(), _v110();
                 },
-                children: (0, _v87.translate)({
+                children: (0, _v84.translate)({
                   singular: "Confirm",
                   dictionary: {
                     es: {

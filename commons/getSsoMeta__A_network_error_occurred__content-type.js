@@ -16,99 +16,33 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  async function _v18({
+    _v16 = _v0.i(0);
+  async function _v17({
     baseUrl: _v0,
     where: {
       resourceType: _v1
     },
     ..._v2
   }) {
-    return (0, _v16.measureLatency)("getSsoMeta", "GET", async () => {
+    return (0, _v15.measureLatency)("getSsoMeta", "GET", async () => {
       let _v0 = await fetch(`${_v0}/sso/${_v1}/meta`, {
         ..._v2,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v16.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v17.deepCamelCase)(_v1);
+      return (0, _v16.deepCamelCase)(_v1);
     });
   }
+  var _v18 = _v0.i(0);
+  _v0.i(0);
   var _v19 = _v0.i(0),
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0);
-  function _v23(_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v22.useGctlConfig)();
-    return (0, _v19.default)(_v2 ? `/sso/${_v2.where.resourceType}/meta${(0, _v21.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v18({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }
-  "true" === _v15.default.env.STORYBOOK && (0, _v21.assignMswData)(_v23, {
-    endpoint: "/sso/:resourceType/meta",
-    method: "GET"
-  }), "true" === _v15.default.env.STORYBOOK && (0, _v21.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v20.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v22.useGctlConfig)(),
-      [_v5, _v6] = (0, _v21.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/sso/${_v0.where.resourceType}/meta${(0, _v21.serializeQuery)(_v0)}`, _v18({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/sso/:resourceType/meta",
-    method: "GET"
-  });
-  var _v24 = _v0.i(0),
-    _v25 = _v0.i(0);
-  let _v26 = ({
+  let _v23 = ({
       text: _v0,
       href: _v1,
       ..._v2
@@ -121,7 +55,7 @@
       ..._v2,
       children: _v0
     }, _v1?.replace("/", "_")),
-    _v27 = (0, _v24.translate)({
+    _v24 = (0, _v21.translate)({
       singular: "Something went wrong. Please try again.",
       dictionary: {
         es: {
@@ -147,29 +81,29 @@
         }
       }
     }),
-    _v28 = _v0 => ({
-      terms: _v0 => (0, _v1.jsx)(_v26, {
+    _v25 = _v0 => ({
+      terms: _v0 => (0, _v1.jsx)(_v23, {
         href: "/terms",
         onClick: () => {},
         text: _v0
       }),
-      privacy: _v0 => (0, _v1.jsx)(_v26, {
+      privacy: _v0 => (0, _v1.jsx)(_v23, {
         href: "/privacy",
         onClick: () => {},
         text: _v0
       }),
-      cookies: _v0 => (0, _v1.jsx)(_v26, {
+      cookies: _v0 => (0, _v1.jsx)(_v23, {
         href: "/cookie_policy",
         onClick: () => {},
         text: _v0
       }),
-      copyright: _v0 => (0, _v1.jsx)(_v26, {
+      copyright: _v0 => (0, _v1.jsx)(_v23, {
         href: "/dmca",
         onClick: () => {},
         text: _v0
       }),
       privacyChoices: _v0 => (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v26, {
+        children: [(0, _v1.jsx)(_v23, {
           href: "/",
           onClick: _v0 => {
             _v0.preventDefault();
@@ -183,7 +117,7 @@
           children: " | "
         })]
       }),
-      USStatePrivacy: _v0 => (0, _v1.jsx)(_v26, {
+      USStatePrivacy: _v0 => (0, _v1.jsx)(_v23, {
         href: "/privacy/us-state-privacy",
         onClick: () => {},
         text: _v0
@@ -191,15 +125,15 @@
       impressum: _v0 => (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v1.Fragment, {
           children: " | "
-        }), (0, _v1.jsx)(_v26, {
+        }), (0, _v1.jsx)(_v23, {
           href: "/leo/guidelines/impressum",
           onClick: () => {},
           text: _v0
         })]
       })
     });
-  var _v29 = _v0.i(0);
-  let _v30 = ({
+  var _v26 = _v0.i(0);
+  let _v27 = ({
       isChina: _v0,
       showPrivacyChoices: _v1,
       showImpressum: _v2,
@@ -213,9 +147,9 @@
         copyright: _v8,
         cookies: _v9,
         impressum: _v10
-      } = _v28(_v3);
+      } = _v25(_v3);
       if (_v0) {
-        let _v0 = (0, _v24.translate)({
+        let _v0 = (0, _v21.translate)({
             singular: "© {YEAR} VideoJi, Inc. All rights reserved. {TERMS}Terms{/TERMS} | {PRIVACY}Privacy{/PRIVACY}",
             replacements: {
               YEAR: new Date().getFullYear().toString(),
@@ -248,7 +182,7 @@
               }
             }
           }),
-          _v1 = (0, _v1.jsx)(_v26, {
+          _v1 = (0, _v1.jsx)(_v23, {
             href: "https://beian.miit.gov.cn/",
             rel: "noreferrer",
             target: "_blank",
@@ -256,13 +190,13 @@
           }),
           _v2 = (0, _v1.jsxs)(_v5.Flex, {
             alignItems: "center",
-            children: [(0, _v1.jsx)(_v29.Box, {
+            children: [(0, _v1.jsx)(_v26.Box, {
               as: "img",
               height: (0, _v7.rem)(16),
               width: "auto",
               marginRight: "50",
               src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAoCAYAAACWwljjAAAFQklEQVRYw+3Wa1BUdRjH8SOpMeg4WhZGpDIxiaaTeUFgWrxE4AVRQJGlRRAVIV1JkbgMgQLi5AVBQSVLSp0xlEAUKBEEFZCrCstll8UV2AV2YbmoGCrYv31+R95UL5pmmtamZ+bz6rz5nvOc/5zDcX9jGLs/iTxuyvIlWYkRFeTHA2HVRFtzfhthTG5KuH96/vUgNlC4mMgyw1NJit/aAXLKazYje9xtIMZ/OZz50gW+9hcNkvoLEemEPbnrSP47QYwxQ5Ifv54RqzcXwFFvSyjaOhfavN8F7Y5ZcC/HH9JOB4LNa9Zw5YA76OZV8vIGMdZtSp7cDrtOnOavYiQhTAiPwi1AMtIQaqyngsxpBtw2GAGDKfaQmpUAa6xc4Vfp4UtEdzAMycsT9JQ1Tyctl/2eEkuTlYysF/rCUNxMqDEzgTqzSXBnpgnIHCzgjvEEuD52DLBr3rA1MAaWmNtB582wdtIljZ9G9D+IPU6aTxIPBjHCcXvg3CEh9K2fDLWvjIH6D6fwTIyheuwEqLUyhzLOALq8pkN+bgRw3HY4FBsMzxojZxP9DequLjAlQwVrbpIjhyIY4UYGQ/buhdBqPxlk3Gion2IMDQIz3kJe/ZS34I7uHkmD7VSQVgYDNyIAwsNCgfXGXoOBPjP9DKrOCAogA2etGTmTHAMcFwFZye7wS5QlVHGjoEw4A2qPCUBZ6AzNcQ5Q/YYRdO+YB1U3dsDwypLio4FJ3ECryIzWz6Cm3NgTRHN8HiPF6eHAGSbAdh8feFZkB7krzaHE9h2o85sDsiAbkIsXQMN+e2CtGyF0kzdwXCgU5++D/ouLQFV4OEU/g2Q/iNuIPNaKkQflAWBqexxGjhLDVUcL6IwSQN3SGVChe6FJg9dckCx6D1QBliDZLIAxo7eA8eyv4KE0BJqTrHkZvnL9DJKn+Twmt0NsGGHZy2Dn3kQYfsQ53Hh4/r4RNGz8AIpdzKEuaAF0RC2E57MmQgE3ATjuM/CPiANW7AqSfQJQ5vk362eQKmd3JrmXsoSRocpNIMnbB9zbceDIWUPmuHFQNMkISqa9DpUvNK6YDpW2s8DfwBK48WFQnhMCgzUBoLy0BrRVe5P0NWjPLdKUsJiR1tR1wGp8IeZwMgx/SrgRvjxuAziNcwLvyathLOcJHLflhRDYGRYFrNET2rJ5yvPLoas0tOj/oL8UpC4JHyTSU+6MNCS4gvKoAB5WiKG+MAQSg0WwLXQ/ZJ3xhao0FxB5hYCbUwAEfhEF3Td8QP2dAOQnPwFlxgrolUVq9TPoaX+ZB2nLc2Gk6awj1MU78HZZwJMid2Byb550JQwVO0NfxlJgdz14vWKeRAiK6DlQF28PLZdcoLNcBIO92bb6GTQ8Q/13RURT6tlH2gvXMlITLYD6uI+gp2ozdF0VQXumM6ivCqGvahM8kPiDItkeGo8tB025GFQ3xFrSr06zI3/4yde7oN7m0sWk5eKWDqK5JWJQvAHac9ygq3Adr9gTNNc3QG85rzPfHe5/7wDtPwuhp/Zz6CjyhaZzwi6ivfetHdH/oP77+3PJQOsuRnqkQdCa4wWqyx6gyecpL64GTaEX7ycXUJz4GJp1B4O0X/Hg0Xp1tFV+8Ei1k6c5coHofxBrrzQinbKYo0SVJ+wn6iurGHlY5gY911aDJnMFaHXXiDp9GQyvtKfUA9QFTtBZ7gPdit0tpFd9OpwwFmlA9D/o9yNLDpxIKmI8PMnNSNtviCLVpYTITzrXEGWaq4qos0WgOPdpCenIF+eRrurjB4k0PXopYZG6gMg/D/gNBUxhAbSAmKMAAAAASUVORK5CYII="
-            }), (0, _v1.jsx)(_v26, {
+            }), (0, _v1.jsx)(_v23, {
               href: "https://beian.mps.gov.cn/#/query/webSearch?code=11010502055965",
               rel: "noreferrer",
               target: "_blank",
@@ -273,7 +207,7 @@
           children: [_v0, " | ", _v1, " | ", _v2]
         });
       }
-      return (0, _v24.translate)({
+      return (0, _v21.translate)({
         singular: "© {YEAR} Vimeo.com, Inc. All rights reserved. {TERMS}Terms{/TERMS} | {PRIVACY}Privacy{/PRIVACY} | {PRIVACY_CHOICES}Your Privacy Choices{/PRIVACY_CHOICES}{US_STATE_PRIVACY}U.S. State Privacy{/US_STATE_PRIVACY} | {COPYRIGHT}Copyright{/COPYRIGHT} | {COOKIES}Cookies{/COOKIES}{IMPRESSUM}Impressum{/IMPRESSUM}",
         replacements: {
           YEAR: new Date().getFullYear().toString(),
@@ -310,7 +244,7 @@
         }
       });
     },
-    _v31 = ({
+    _v28 = ({
       isChina: _v0,
       showPrivacyChoices: _v1,
       showImpressum: _v2,
@@ -320,7 +254,26 @@
           data: _v4,
           isLoading: _v5,
           error: _v6
-        } = _v23(() => _v3 ? null : {
+        } = function (_v0) {
+          let _v1 = "function" == typeof _v0 ? _v0() : _v0,
+            {
+              baseUrl: _v2,
+              jwt: _v3,
+              xVimeoPage: _v4,
+              locale: _v5
+            } = (0, _v20.useGctlConfig)();
+          return (0, _v18.default)(_v1 ? `/sso/${_v1.where.resourceType}/meta${(0, _v19.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v17({
+            ..._v1,
+            headers: {
+              ..._v1.headers,
+              "Content-Type": "application/json",
+              Authorization: _v3 ? `jwt ${_v3}` : "",
+              "Vimeo-Page": `${_v4}`,
+              "Accept-Language": _v5 ?? "en"
+            },
+            baseUrl: _v2
+          }) : null, void 0);
+        }(() => _v3 ? null : {
           where: {
             resourceType: "owner"
           }
@@ -329,7 +282,7 @@
       (0, _v2.useEffect)(() => {
         _v6 && !_v3 && _v7({
           duration: 0,
-          title: _v27
+          title: _v24
         });
       }, [_v6, _v7, _v3]);
       let [_v8, _v9] = (0, _v2.useState)(null);
@@ -361,8 +314,8 @@
           let {
             terms: _v2,
             privacy: _v3
-          } = _v28();
-          return _v1 ? (0, _v24.translate)({
+          } = _v25();
+          return _v1 ? (0, _v21.translate)({
             singular: "Contact your organization's admin for help",
             dictionary: {
               es: {
@@ -387,7 +340,7 @@
                 singular: "联系贵组织的管理员寻求帮助"
               }
             }
-          }) : _v0 ? (0, _v24.translate)({
+          }) : _v0 ? (0, _v21.translate)({
             singular: "By logging in to VideoJi, you agree to our {TERMS}Terms of Service{/TERMS} and acknowledge our {PRIVACY}Privacy Policy{/PRIVACY}.",
             replacements: {
               TERMS: _v2,
@@ -416,7 +369,7 @@
                 singular: "登录 VideoJi 即表示您同意我们的{TERMS}服务条款{/TERMS}并认可我们的{PRIVACY}隐私政策{/PRIVACY}。"
               }
             }
-          }) : (0, _v24.translate)({
+          }) : (0, _v21.translate)({
             singular: "By logging in to Vimeo, you agree to our {TERMS}Terms of Service{/TERMS} and acknowledge our {PRIVACY}Privacy Policy{/PRIVACY}.",
             replacements: {
               TERMS: _v2,
@@ -447,7 +400,7 @@
             }
           });
         })(_v0, _v3),
-        _v15 = (0, _v24.translate)({
+        _v15 = (0, _v21.translate)({
           singular: "Log in to {TITLE}",
           replacements: {
             TITLE: _v10
@@ -476,7 +429,7 @@
             }
           }
         }),
-        _v16 = (0, _v24.translate)({
+        _v16 = (0, _v21.translate)({
           singular: "You can't access this account from your current IP address.",
           dictionary: {
             es: {
@@ -519,7 +472,7 @@
             borderRadius: (0, _v7.rem)(8),
             backgroundColor: "fill-brand",
             href: "/",
-            children: (0, _v1.jsx)(_v25.VimeoLogo, {
+            children: (0, _v1.jsx)(_v22.VimeoLogo, {
               width: (0, _v7.rem)(60),
               height: (0, _v7.rem)(17),
               style: {
@@ -569,7 +522,7 @@
                 isDisabled: !_v4?.signInUrl,
                 onClick: _v12,
                 marginBottom: "4",
-                children: (0, _v24.translate)({
+                children: (0, _v21.translate)({
                   singular: "Log in with SSO",
                   dictionary: {
                     es: {
@@ -599,7 +552,7 @@
                 variant: "primary",
                 size: "lg",
                 onClick: _v12,
-                children: (0, _v24.translate)({
+                children: (0, _v21.translate)({
                   singular: "Log in",
                   dictionary: {
                     es: {
@@ -628,7 +581,7 @@
               }), !_v3 && _v13 && (0, _v1.jsx)(_v11.Text, {
                 variant: "body-md",
                 textAlign: "center",
-                children: (0, _v24.translate)({
+                children: (0, _v21.translate)({
                   singular: "{SIGN_IN_LINK}Log in{/SIGN_IN_LINK} with email and password",
                   replacements: {
                     SIGN_IN_LINK: _v0 => (0, _v1.jsx)(_v12.Link, {
@@ -672,7 +625,7 @@
               margin: (0, _v7.rem)(20),
               flexWrap: "wrap",
               gap: "50",
-              children: (0, _v1.jsx)(_v30, {
+              children: (0, _v1.jsx)(_v27, {
                 isChina: _v0,
                 showPrivacyChoices: _v1,
                 showImpressum: _v2,
@@ -690,7 +643,7 @@
       _v2 = _v1?.isSimplifiedSite || !1,
       _v3 = _v1?.termsShowPrivacyChoices || !1,
       _v4 = _v1?.impressumQualifies || !1;
-    return _v1 ? (0, _v1.jsx)(_v31, {
+    return _v1 ? (0, _v1.jsx)(_v28, {
       isChina: _v2,
       showPrivacyChoices: _v3,
       showImpressum: _v4,

@@ -35,18 +35,19 @@
       variant: _v0,
       title: _v1,
       description: _v2,
-      onContactSalesClick: _v3
+      buttonLabel: _v3,
+      onButtonClick: _v4
     }) => {
-      let _v4 = (0, _v16.useColorModeValue)("upsell-secondary", "purple.800"),
-        _v5 = _v19[_v0];
+      let _v5 = (0, _v16.useColorModeValue)("upsell-secondary", "purple.800"),
+        _v6 = _v19[_v0];
       return (0, _v1.jsxs)(_v10.Flex, {
         width: "100%",
         alignItems: "center",
         gap: "4",
         p: "3",
         borderRadius: "lg",
-        backgroundColor: _v4,
-        children: [(0, _v1.jsx)(_v5, {
+        backgroundColor: _v5,
+        children: [(0, _v1.jsx)(_v6, {
           boxSize: "sm",
           color: "text-primary",
           flexShrink: 0,
@@ -65,36 +66,11 @@
             children: _v2
           })]
         }), (0, _v1.jsx)(_v9.Button, {
-          onClick: _v3,
+          onClick: _v4,
           variant: "upsell",
           size: "sm",
           flexShrink: 0,
-          children: (0, _v15.translate)({
-            singular: "Contact sales",
-            dictionary: {
-              es: {
-                singular: "Comunicarse con Ventas"
-              },
-              "de-DE": {
-                singular: "Sales-Team kontaktieren"
-              },
-              "fr-FR": {
-                singular: "Service commercial"
-              },
-              "ja-JP": {
-                singular: "営業チームへ問い合わせる"
-              },
-              "ko-KR": {
-                singular: "영업팀에 문의"
-              },
-              "pt-BR": {
-                singular: "Falar com vendas"
-              },
-              "zh-CN": {
-                singular: "联系销售"
-              }
-            }
-          })
+          children: _v3
         })]
       });
     };
@@ -1570,20 +1546,21 @@
           isTrialExpired: _v30,
           isTrialing: _v31,
           canCreateNewEventSeries: _v32,
-          revalidateEventSeriesProbe: _v33
+          revalidateEventSeriesProbe: _v33,
+          isAccountManager: _v34
         } = (0, _v29.useAccessEventSeriesEditor)(),
-        _v34 = _v31 && _v29 ? new Intl.DateTimeFormat((0, _v15.getCurrentLocale)(), {
+        _v35 = _v31 && _v29 ? new Intl.DateTimeFormat((0, _v15.getCurrentLocale)(), {
           day: "numeric",
           month: "long",
           timeZone: "UTC",
           year: "numeric"
         }).format(new Date(`${_v29}T00:00:00Z`)) : null,
-        _v35 = _v22 ?? 0,
-        _v36 = _v13 || _v11.length > 0,
-        _v37 = !!_v21 && _v21.length > 0,
-        _v38 = !!_v26 && !_v37,
-        _v39 = !_v23 && !_v38 && !_v37,
-        _v40 = (0, _v6.useCallback)(_v0 => {
+        _v36 = _v22 ?? 0,
+        _v37 = _v13 || _v11.length > 0,
+        _v38 = !!_v21 && _v21.length > 0,
+        _v39 = !!_v26 && !_v38,
+        _v40 = !_v23 && !_v39 && !_v38,
+        _v41 = (0, _v6.useCallback)(_v0 => {
           _v10(_v0), _v15.current && clearTimeout(_v15.current), _v15.current = setTimeout(() => {
             _v12(_v0);
           }, 300);
@@ -1591,35 +1568,165 @@
       (0, _v6.useEffect)(() => () => {
         _v15.current && clearTimeout(_v15.current);
       }, []);
-      let _v41 = (0, _v6.useCallback)(() => {
+      let _v42 = (0, _v6.useCallback)(() => {
           _v14(!0);
         }, []),
-        _v42 = (0, _v6.useCallback)(() => {
+        _v43 = (0, _v6.useCallback)(() => {
           _v15.current && (clearTimeout(_v15.current), _v15.current = null), _v14(!1), _v10(""), _v12("");
         }, []),
-        _v43 = (0, _v6.useCallback)(_v0 => {
+        _v44 = (0, _v6.useCallback)(_v0 => {
           _v17({
             source: _v0
           }), _v6(!0);
         }, [_v17, _v6]),
-        _v44 = (0, _v6.useCallback)(() => {
+        _v45 = (0, _v6.useCallback)(() => {
           _v8(!0);
         }, []),
-        _v45 = (0, _v6.useCallback)(() => {
+        _v46 = (0, _v6.useCallback)(() => {
+          let _v0 = (0, _v15.translate)({
+              singular: "Extend Event Series for our account",
+              dictionary: {
+                es: {
+                  singular: "Extender Event Series para nuestra cuenta"
+                },
+                "de-DE": {
+                  singular: "Event Series für unser Konto verlängern"
+                },
+                "fr-FR": {
+                  singular: "Prolonger l’accès à Event Series pour notre compte"
+                },
+                "ja-JP": {
+                  singular: "当アカウントの Event Series を延長する"
+                },
+                "ko-KR": {
+                  singular: "우리 계정의 이벤트 시리즈 연장"
+                },
+                "pt-BR": {
+                  singular: "Estender o Event Series para nossa conta"
+                },
+                "zh-CN": {
+                  singular: "为我们的账户延长活动系列"
+                }
+              }
+            }),
+            _v1 = [(0, _v15.translate)({
+              singular: "Good morning,",
+              dictionary: {
+                es: {
+                  singular: "Buenos días,"
+                },
+                "de-DE": {
+                  singular: "Guten Morgen,"
+                },
+                "fr-FR": {
+                  singular: "Bonjour,"
+                },
+                "ja-JP": {
+                  singular: "おはようございます、"
+                },
+                "ko-KR": {
+                  singular: "좋은 아침,"
+                },
+                "pt-BR": {
+                  singular: "Bom dia,"
+                },
+                "zh-CN": {
+                  singular: "早上好,"
+                }
+              }
+            }), (0, _v15.translate)({
+              singular: "Our complimentary access of Event Series for Vimeo has come to an end, and I’d love to keep using it if possible.",
+              dictionary: {
+                es: {
+                  singular: "Nuestro acceso gratuito a Event Series para Vimeo ha llegado a su fin, y me encantaría seguir usándolo si es posible."
+                },
+                "de-DE": {
+                  singular: "Unser kostenloser Zugang zu Event Series für Vimeo ist ausgelaufen, und ich würde ihn, falls möglich, gerne weiterhin nutzen."
+                },
+                "fr-FR": {
+                  singular: "Notre accès gratuit à Event Series pour Vimeo est arrivé à expiration, et j’aimerais pouvoir continuer à l’utiliser si possible."
+                },
+                "ja-JP": {
+                  singular: "Vimeo の Event Series の無料アクセスは終了しました。可能であれば引き続き利用したいと考えています。"
+                },
+                "ko-KR": {
+                  singular: "Vimeo용 Event Series에 대한 무료 이용이 종료되었으며, 가능하다면 계속 사용하고 싶습니다."
+                },
+                "pt-BR": {
+                  singular: "Nosso acesso gratuito ao Event Series for Vimeo chegou ao fim, e eu adoraria continuar usando-o, se possível."
+                },
+                "zh-CN": {
+                  singular: "我们对 Vimeo 的活动系列的免费访问已结束，如果可能的话，我很想继续使用它。"
+                }
+              }
+            }), (0, _v15.translate)({
+              singular: "Would we be able to get full access for the account?",
+              dictionary: {
+                es: {
+                  singular: "¿Podríamos obtener acceso completo para la cuenta?"
+                },
+                "de-DE": {
+                  singular: "Könnten wir vollen Zugriff für das Konto erhalten?"
+                },
+                "fr-FR": {
+                  singular: "Pourrions-nous obtenir un accès complet pour le compte ?"
+                },
+                "ja-JP": {
+                  singular: "当アカウントにフルアクセスを付与していただけますでしょうか？"
+                },
+                "ko-KR": {
+                  singular: "해당 계정에 대해 전체 액세스를 받을 수 있을까요?"
+                },
+                "pt-BR": {
+                  singular: "Seria possível obter acesso completo à conta?"
+                },
+                "zh-CN": {
+                  singular: "我们能否为该账户获得完整访问权限?"
+                }
+              }
+            }), (0, _v15.translate)({
+              singular: "Thank you so much",
+              dictionary: {
+                es: {
+                  singular: "Muchas gracias"
+                },
+                "de-DE": {
+                  singular: "Vielen Dank"
+                },
+                "fr-FR": {
+                  singular: "Merci beaucoup"
+                },
+                "ja-JP": {
+                  singular: "どうもありがとうございます"
+                },
+                "ko-KR": {
+                  singular: "정말 감사합니다"
+                },
+                "pt-BR": {
+                  singular: "Muito obrigado"
+                },
+                "zh-CN": {
+                  singular: "非常感谢"
+                }
+              }
+            })].join("\n\n");
+          window.location.href = `mailto:?subject=${encodeURIComponent(_v0)}&body=${encodeURIComponent(_v1)}`;
+        }, []),
+        _v47 = (0, _v6.useCallback)(() => {
           _v8(!1);
         }, []),
-        _v46 = (0, _v6.useCallback)(() => {
+        _v48 = (0, _v6.useCallback)(() => {
           _v28(), _v33();
         }, [_v28, _v33]);
       return (0, _v1.jsxs)(_v28.Page, {
         children: [(0, _v1.jsxs)(_v28.Page.Main, {
           children: [(0, _v1.jsxs)(_v28.Page.StickyTop, {
-            children: [null !== _v34 && (0, _v1.jsx)(_v20, {
+            children: [null !== _v35 && (0, _v1.jsx)(_v20, {
               variant: "trial",
               title: (0, _v15.translate)({
                 singular: "Complimentary access until {DATE}",
                 replacements: {
-                  DATE: _v34
+                  DATE: _v35
                 },
                 dictionary: {
                   es: {
@@ -1648,7 +1755,7 @@
               description: (0, _v15.translate)({
                 singular: "Enjoy “event series” at no additional cost until {DATE}. After that, contact Sales to add it to your plan.",
                 replacements: {
-                  DATE: _v34
+                  DATE: _v35
                 },
                 dictionary: {
                   es: {
@@ -1674,8 +1781,34 @@
                   }
                 }
               }),
-              onContactSalesClick: _v44
-            }), null === _v34 && _v30 && (0, _v1.jsx)(_v20, {
+              buttonLabel: (0, _v15.translate)({
+                singular: "Contact sales",
+                dictionary: {
+                  es: {
+                    singular: "Comunicarse con Ventas"
+                  },
+                  "de-DE": {
+                    singular: "Sales-Team kontaktieren"
+                  },
+                  "fr-FR": {
+                    singular: "Service commercial"
+                  },
+                  "ja-JP": {
+                    singular: "営業チームへ問い合わせる"
+                  },
+                  "ko-KR": {
+                    singular: "영업팀에 문의"
+                  },
+                  "pt-BR": {
+                    singular: "Falar com vendas"
+                  },
+                  "zh-CN": {
+                    singular: "联系销售"
+                  }
+                }
+              }),
+              onButtonClick: _v45
+            }), null === _v35 && _v30 && _v34 && (0, _v1.jsx)(_v20, {
               variant: "expired",
               title: (0, _v15.translate)({
                 singular: "You no longer have free access to event series",
@@ -1729,7 +1862,114 @@
                   }
                 }
               }),
-              onContactSalesClick: _v44
+              buttonLabel: (0, _v15.translate)({
+                singular: "Contact sales",
+                dictionary: {
+                  es: {
+                    singular: "Comunicarse con Ventas"
+                  },
+                  "de-DE": {
+                    singular: "Sales-Team kontaktieren"
+                  },
+                  "fr-FR": {
+                    singular: "Service commercial"
+                  },
+                  "ja-JP": {
+                    singular: "営業チームへ問い合わせる"
+                  },
+                  "ko-KR": {
+                    singular: "영업팀에 문의"
+                  },
+                  "pt-BR": {
+                    singular: "Falar com vendas"
+                  },
+                  "zh-CN": {
+                    singular: "联系销售"
+                  }
+                }
+              }),
+              onButtonClick: _v45
+            }), null === _v35 && _v30 && !_v34 && (0, _v1.jsx)(_v20, {
+              variant: "expired",
+              title: (0, _v15.translate)({
+                singular: "You no longer have free access to event series",
+                dictionary: {
+                  es: {
+                    singular: "Ya no tienes acceso gratuito a las series de eventos"
+                  },
+                  "de-DE": {
+                    singular: "Sie haben keinen kostenlosen Zugriff mehr auf Event-Serien"
+                  },
+                  "fr-FR": {
+                    singular: "Vous n'avez plus d'accès gratuit aux séries d'événements"
+                  },
+                  "ja-JP": {
+                    singular: "イベントシリーズへの無料アクセスはもう利用できません"
+                  },
+                  "ko-KR": {
+                    singular: "이제 이벤트 시리즈에 무료로 액세스할 수 없습니다."
+                  },
+                  "pt-BR": {
+                    singular: "Você não tem mais acesso gratuito às séries de eventos"
+                  },
+                  "zh-CN": {
+                    singular: "您已不再享有对系列活动的免费访问权限"
+                  }
+                }
+              }),
+              description: (0, _v15.translate)({
+                singular: "You can still access your existing event series, but you can no longer create new ones. Notify your admin to keep creating.",
+                dictionary: {
+                  es: {
+                    singular: "Aún puede acceder a sus Event Series existentes, pero ya no puede crear nuevas. Notifique a su administrador para que pueda seguir creando."
+                  },
+                  "de-DE": {
+                    singular: "Sie können weiterhin auf Ihre bestehenden Event Series zugreifen, können jedoch keine neuen mehr erstellen. Benachrichtigen Sie Ihren Administrator, damit dieser weiterhin neue erstellen kann."
+                  },
+                  "fr-FR": {
+                    singular: "Vous pouvez toujours accéder à vos Event Series existantes, mais vous ne pouvez plus en créer de nouvelles. Informez votre administrateur afin qu’il puisse continuer à en créer."
+                  },
+                  "ja-JP": {
+                    singular: "既存の Event Series には引き続きアクセスできますが、新規作成はできなくなります。作成を続けたい場合は管理者に通知してください。"
+                  },
+                  "ko-KR": {
+                    singular: "기존 이벤트 시리즈에는 계속 액세스할 수 있지만, 새 이벤트 시리즈는 더 이상 생성할 수 없습니다. 계속 생성하려면 관리자에게 알리세요."
+                  },
+                  "pt-BR": {
+                    singular: "Você ainda pode acessar seus Event Series existentes, mas não pode mais criar novos. Notifique o administrador para continuar criando."
+                  },
+                  "zh-CN": {
+                    singular: "您仍然可以访问现有的活动系列，但无法再创建新的。请通知您的管理员以继续创建。"
+                  }
+                }
+              }),
+              buttonLabel: (0, _v15.translate)({
+                singular: "Notify admin",
+                dictionary: {
+                  es: {
+                    singular: "Notificar al administrador"
+                  },
+                  "de-DE": {
+                    singular: "Administrator benachrichtigen"
+                  },
+                  "fr-FR": {
+                    singular: "Notifier l’administrateur"
+                  },
+                  "ja-JP": {
+                    singular: "管理者に通知"
+                  },
+                  "ko-KR": {
+                    singular: "관리자에게 알리기"
+                  },
+                  "pt-BR": {
+                    singular: "Notificar o administrador"
+                  },
+                  "zh-CN": {
+                    singular: "通知管理员"
+                  }
+                }
+              }),
+              onButtonClick: _v46
             }), (0, _v1.jsxs)(_v33.PageHeader.Wrapper, {
               children: [(0, _v1.jsxs)(_v33.PageHeader.LeftContent, {
                 children: [(0, _v1.jsx)(_v11.Header, {
@@ -1805,7 +2045,7 @@
               }), (0, _v1.jsx)(_v33.PageHeader.Actions, {
                 children: (0, _v1.jsx)(_v9.Button, {
                   isDisabled: !_v32,
-                  onClick: () => _v43("header"),
+                  onClick: () => _v44("header"),
                   variant: "primary",
                   children: (0, _v15.translate)({
                     singular: "New event series",
@@ -1839,11 +2079,11 @@
               checkbox: (0, _v1.jsx)(_v24.CheckboxItemCount, {
                 isLoading: _v23,
                 subtitle: (0, _v15.translate)({
-                  count: _v35,
+                  count: _v36,
                   singular: "{NUM} event series",
                   plural: "{NUM} event series",
                   replacements: {
-                    NUM: _v35
+                    NUM: _v36
                   },
                   dictionary: {
                     es: {
@@ -1880,10 +2120,10 @@
               layout: _v1,
               searchElement: (0, _v1.jsx)(_v40, {
                 value: _v9,
-                onChange: _v40,
-                initialOpen: _v36,
-                onOpen: _v41,
-                onClose: _v42
+                onChange: _v41,
+                initialOpen: _v37,
+                onOpen: _v42,
+                onClose: _v43
               }),
               setLayout: _v2,
               shouldHideViewControls: !1,
@@ -1892,7 +2132,7 @@
               sortOptions: _v25.EVENT_SERIES_SORT_OPTIONS,
               sortTriggerDataId: "event_series_sort_trigger"
             })]
-          }), _v38 ? (0, _v1.jsxs)(_v10.Flex, {
+          }), _v39 ? (0, _v1.jsxs)(_v10.Flex, {
             flex: "1",
             direction: "column",
             align: "center",
@@ -1957,7 +2197,7 @@
                 }
               })
             })]
-          }) : _v39 && _v36 ? (0, _v1.jsx)(_v10.Flex, {
+          }) : _v40 && _v37 ? (0, _v1.jsx)(_v10.Flex, {
             flex: "1",
             justify: "center",
             py: "2xl",
@@ -1991,33 +2231,33 @@
                 }
               })
             })
-          }) : _v39 ? (0, _v1.jsx)(_v10.Flex, {
+          }) : _v40 ? (0, _v1.jsx)(_v10.Flex, {
             flex: "1",
             justify: "center",
             children: (0, _v1.jsx)(_v60, {
               isCreateDisabled: !_v32,
-              onCreate: () => _v43("empty_state")
+              onCreate: () => _v44("empty_state")
             })
           }) : "LIST_LAYOUT" === _v1 ? (0, _v1.jsx)(_v87, {
             isLoading: _v23 || _v24,
-            onSeriesDeleted: _v46,
+            onSeriesDeleted: _v48,
             series: _v21 ?? []
           }) : (0, _v1.jsx)(_v81, {
             isLoading: _v23 || _v24,
-            onSeriesDeleted: _v46,
+            onSeriesDeleted: _v48,
             series: _v21 ?? []
-          }), _v37 && !_v25 && (0, _v1.jsx)(_v90, {
+          }), _v38 && !_v25 && (0, _v1.jsx)(_v90, {
             isLoading: _v24,
             onLoadMore: _v27
           })]
         }), _v5 && (0, _v1.jsx)(_v57, {
           onClose: () => _v6(!1),
           onCreated: () => {
-            _v46(), _v6(!1);
+            _v48(), _v6(!1);
           },
           ownerId: _v20
         }), _v7 && (0, _v1.jsx)(_v26.EventSeriesContactSalesModal, {
-          onClose: _v45,
+          onClose: _v47,
           source: "trial_banner"
         })]
       });

@@ -1,7 +1,7 @@
 {
   "use strict";
 
-  _v0.s(["KeywordContext", () => _v74, "TranscriptionKeywordsApp", () => _v76], 0);
+  _v0.s(["KeywordContext", () => _v71, "TranscriptionKeywordsApp", () => _v73], 0);
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
@@ -70,9 +70,8 @@
   }
   _v0.s(["getUserTranscriptPhrases", 0, _v25, "postUserTranscriptPhrases", 0, _v26], 0);
   var _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
-    _v29 = _v0.i(0);
-  async function _v30({
+    _v28 = _v0.i(0);
+  async function _v29({
     baseUrl: _v0,
     variables: _v1,
     where: {
@@ -93,7 +92,7 @@
       return (0, _v23.deepCamelCase)(_v1);
     });
   }
-  async function _v31({
+  async function _v30({
     baseUrl: _v0,
     variables: _v1,
     where: {
@@ -114,103 +113,18 @@
       return (0, _v23.deepCamelCase)(_v1);
     });
   }
-  var _v32 = _v0.i(0);
-  function _v33() {
-    let {
-        mutate: _v0
-      } = (0, _v32.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v27.useGctlConfig)(),
-      [_v5, _v6] = (0, _v29.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/transcript_phrases/batch${(0, _v29.serializeQuery)(_v0)}`, _v30({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  function _v34() {
-    let {
-        mutate: _v0
-      } = (0, _v32.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v27.useGctlConfig)(),
-      [_v5, _v6] = (0, _v29.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/transcript_phrases/batch${(0, _v29.serializeQuery)(_v0)}`, _v31({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v28.default.env.STORYBOOK && (0, _v29.assignMswData)(_v33, {
-    endpoint: "/users/:userId/transcript_phrases/batch",
-    method: "POST"
-  }), "true" === _v28.default.env.STORYBOOK && (0, _v29.assignMswData)(_v34, {
-    endpoint: "/users/:userId/transcript_phrases/batch",
-    method: "DELETE"
-  });
-  var _v35 = _v0.i(0),
+  var _v31 = _v0.i(0),
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0),
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
     _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
-  let _v44 = (0, _v39.createNullObject)(["add_on_feature", "add_on_value", "currency", "discount_offer", "duration", "interface_type", "is_discount", "is_dismissible", "price", "promo_code_id", "purchase_type", "selected_plan", "usd_price"]),
-    _v45 = () => {
+    _v40 = _v0.i(0);
+  let _v41 = (0, _v36.createNullObject)(["add_on_feature", "add_on_value", "currency", "discount_offer", "duration", "interface_type", "is_discount", "is_dismissible", "price", "promo_code_id", "purchase_type", "selected_plan", "usd_price"]),
+    _v42 = () => {
       let _v0,
         _v1,
         _v2,
@@ -221,19 +135,19 @@
           buildContexts: _v6,
           buildViewContext: _v7,
           buildActionContext: _v8
-        } = (_v0 = (0, _v8.useViewer)(), _v1 = _v0?.teamUser, _v2 = (0, _v2.useCallback)(() => (0, _v40.buildTeamBpContextFromTeamUser)(_v1), [_v1]), _v3 = (0, _v2.useCallback)(_v0 => {
+        } = (_v0 = (0, _v8.useViewer)(), _v1 = _v0?.teamUser, _v2 = (0, _v2.useCallback)(() => (0, _v37.buildTeamBpContextFromTeamUser)(_v1), [_v1]), _v3 = (0, _v2.useCallback)(_v0 => {
           let _v1;
           return _v1 = {
             view_type: "impression",
             feature: null,
             is_empty_state: _v0
           }, {
-            view_context: new _v36.EventContext("view_context", 7, _v1)
+            view_context: new _v33.EventContext("view_context", 7, _v1)
           };
-        }, []), _v4 = (0, _v2.useCallback)(() => (0, _v43.buildActionBpContext)({
+        }, []), _v4 = (0, _v2.useCallback)(() => (0, _v40.buildActionBpContext)({
           action_type: "click",
           feature: null
-        }), []), _v5 = (0, _v2.useCallback)(_v0 => (0, _v41.buildWebBpContext)({
+        }), []), _v5 = (0, _v2.useCallback)(_v0 => (0, _v38.buildWebBpContext)({
           path: window.location.pathname,
           page_name: _v0,
           location: null,
@@ -243,11 +157,11 @@
             copy: _v0,
             page: _v1
           }) => ({
-            ...(0, _v38.buildProductAnalyticsBpContext)({
+            ...(0, _v35.buildProductAnalyticsBpContext)({
               product: "ai",
               feature: "language",
               copy: _v0,
-              device_type: (0, _v37.default)(),
+              device_type: (0, _v34.default)(),
               location: "modal",
               modal_name: "ai_translations_vocabulary",
               element: null,
@@ -255,7 +169,7 @@
             }),
             ..._v5(_v1),
             ..._v2(),
-            ...(0, _v42.buildThirdPartyIntegrationBpContext)({
+            ...(0, _v39.buildThirdPartyIntegrationBpContext)({
               integration_id: null,
               integration_name: null,
               is_partner: null
@@ -266,33 +180,33 @@
         }),
         {
           page: _v9
-        } = (0, _v2.useContext)(_v74),
+        } = (0, _v2.useContext)(_v71),
         _v10 = (0, _v2.useCallback)(_v0 => {
-          (0, _v39.sendBpEventWithContexts)("vimeo.upsell_trigger_impression", {
+          (0, _v36.sendBpEventWithContexts)("vimeo.upsell_trigger_impression", {
             ..._v6({
               copy: "upgrade for more",
               page: _v9
             }),
             ..._v7(0 === _v0)
           }, 31, {
-            ..._v44,
+            ..._v41,
             upsell_name: "custom_vocabulary"
           });
         }, [_v6, _v7, _v9]),
         _v11 = (0, _v2.useCallback)(() => {
-          (0, _v39.sendBpEventWithContexts)("vimeo.trigger_upsell", {
+          (0, _v36.sendBpEventWithContexts)("vimeo.trigger_upsell", {
             ..._v6({
               copy: "upgrade for more",
               page: _v9
             }),
             ..._v8()
           }, 31, {
-            ..._v44,
+            ..._v41,
             upsell_name: "custom_vocabulary"
           });
         }, [_v6, _v9, _v8]),
         _v12 = (0, _v2.useCallback)(_v0 => {
-          (0, _v39.sendBpEventWithContexts)("vimeo.view_ai_vocabulary", {
+          (0, _v36.sendBpEventWithContexts)("vimeo.view_ai_vocabulary", {
             ..._v6({
               copy: "add_to_custom_vocabulary",
               page: _v9
@@ -305,7 +219,7 @@
       return {
         trackViewModal: _v12,
         trackViewModalSaveCancel: (0, _v2.useCallback)((_v0, _v1) => {
-          (0, _v39.sendBpEventWithContexts)("vimeo.select_ai_vocabulary_action", {
+          (0, _v36.sendBpEventWithContexts)("vimeo.select_ai_vocabulary_action", {
             ..._v6({
               copy: _v0,
               page: _v9
@@ -316,7 +230,7 @@
           });
         }, [_v8, _v6, _v9]),
         trackViewModalUploadCsv: (0, _v2.useCallback)(() => {
-          (0, _v39.sendBpEventWithContexts)("vimeo.select_ai_vocabulary_action", {
+          (0, _v36.sendBpEventWithContexts)("vimeo.select_ai_vocabulary_action", {
             ..._v6({
               copy: "upload_a_csv",
               page: _v9
@@ -328,9 +242,9 @@
         trackClickUpgradeBadge: _v11
       };
     };
-  var _v46 = _v0.i(0);
-  let _v47 = {
-    addCustomVocabulary: (0, _v46.translate)({
+  var _v43 = _v0.i(0);
+  let _v44 = {
+    addCustomVocabulary: (0, _v43.translate)({
       singular: "Add to custom vocabulary",
       dictionary: {
         es: {
@@ -356,7 +270,7 @@
         }
       }
     }),
-    addUniqueWordsOrPhrasesToHelpVimeoAI: (0, _v46.translate)({
+    addUniqueWordsOrPhrasesToHelpVimeoAI: (0, _v43.translate)({
       singular: "Add unique words or phrases to help Vimeo AI transcribe videos",
       dictionary: {
         es: {
@@ -382,7 +296,7 @@
         }
       }
     }),
-    cancel: (0, _v46.translate)({
+    cancel: (0, _v43.translate)({
       singular: "Cancel",
       dictionary: {
         es: {
@@ -408,7 +322,7 @@
         }
       }
     }),
-    changesCouldNotBeSaved: (0, _v46.translate)({
+    changesCouldNotBeSaved: (0, _v43.translate)({
       singular: "Changes could not be saved",
       dictionary: {
         es: {
@@ -434,7 +348,7 @@
         }
       }
     }),
-    changesSaved: (0, _v46.translate)({
+    changesSaved: (0, _v43.translate)({
       singular: "Changes saved",
       dictionary: {
         es: {
@@ -460,7 +374,7 @@
         }
       }
     }),
-    countOfCount: (_v0, _v1) => (0, _v46.translate)({
+    countOfCount: (_v0, _v1) => (0, _v43.translate)({
       singular: "{COUNT_1} of {COUNT_2}",
       replacements: {
         COUNT_1: _v0,
@@ -490,7 +404,7 @@
         }
       }
     }),
-    save: (0, _v46.translate)({
+    save: (0, _v43.translate)({
       singular: "Save",
       dictionary: {
         es: {
@@ -516,7 +430,7 @@
         }
       }
     }),
-    deleteAll: (0, _v46.translate)({
+    deleteAll: (0, _v43.translate)({
       singular: "Delete all",
       dictionary: {
         es: {
@@ -542,7 +456,7 @@
         }
       }
     }),
-    import: (0, _v46.translate)({
+    import: (0, _v43.translate)({
       singular: "Import",
       dictionary: {
         es: {
@@ -568,7 +482,7 @@
         }
       }
     }),
-    importCSV: (0, _v46.translate)({
+    importCSV: (0, _v43.translate)({
       singular: "Import CSV",
       dictionary: {
         es: {
@@ -594,7 +508,7 @@
         }
       }
     }),
-    download: (0, _v46.translate)({
+    download: (0, _v43.translate)({
       singular: "Download",
       dictionary: {
         es: {
@@ -620,7 +534,7 @@
         }
       }
     }),
-    upgradeForMore: (0, _v46.translate)({
+    upgradeForMore: (0, _v43.translate)({
       singular: "Upgrade for more",
       dictionary: {
         es: {
@@ -647,9 +561,9 @@
       }
     })
   };
-  var _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
-  let _v50 = (0, _v46.translate)({
+  var _v45 = _v0.i(0),
+    _v46 = _v0.i(0);
+  let _v47 = (0, _v43.translate)({
     singular: "Unsupported file type. Upload a CSV or add words manually.",
     dictionary: {
       es: {
@@ -675,19 +589,19 @@
       }
     }
   });
-  function _v51({
+  function _v48({
     onUpload: _v0,
     onError: _v1
   }) {
     let {
         trackViewModalUploadCsv: _v2
-      } = _v45(),
+      } = _v42(),
       _v3 = (0, _v2.useRef)(null),
       [_v4, _v5] = (0, _v2.useState)(!1);
     return (0, _v1.jsx)(_v15.Tooltip, {
       isDisabled: _v4,
       placement: "top",
-      label: (0, _v46.translate)({
+      label: (0, _v43.translate)({
         singular: "Import CSV",
         dictionary: {
           es: {
@@ -714,20 +628,20 @@
         }
       }),
       children: (0, _v1.jsx)("div", {
-        children: (0, _v1.jsx)(_v48.FileInput, {
+        children: (0, _v1.jsx)(_v45.FileInput, {
           ref: _v3,
           sx: {
             padding: `0 ${(0, _v6.rem)(6)}`
           },
           isLoading: _v4,
-          "aria-label": _v47.import,
+          "aria-label": _v44.import,
           size: "sm",
           variant: "tertiary",
-          label: (0, _v1.jsx)(_v49.FileUpload, {}),
+          label: (0, _v1.jsx)(_v46.FileUpload, {}),
           onClick: _v2,
           onChange: _v0 => {
             _v0.target.files?.[0] && (_v0 => {
-              if (_v5(!0), _v0.size > 0) _v1((0, _v46.translate)({
+              if (_v5(!0), _v0.size > 0) _v1((0, _v43.translate)({
                 singular: "{FILE_NAME} is too big. Please upload a file under 5MB.",
                 replacements: {
                   FILE_NAME: () => (0, _v1.jsx)("strong", {
@@ -763,12 +677,12 @@
                 _v0.onload = function (_v0) {
                   let _v1 = _v0?.target?.result;
                   if ("string" != typeof _v1 || _v1.length <= 1) {
-                    _v1(_v50), _v5(!1), _v3.current && (_v3.current.value = "");
+                    _v1(_v47), _v5(!1), _v3.current && (_v3.current.value = "");
                     return;
                   }
                   _v0(_v1.split(/\r\n|\n/)), _v5(!1);
                 }, _v0.onerror = function () {
-                  _v1(_v50), _v5(!1);
+                  _v1(_v47), _v5(!1);
                 }, _v0.readAsText(_v0);
               }
               _v3.current && (_v3.current.value = "");
@@ -779,20 +693,20 @@
       })
     });
   }
-  var _v52 = _v0.i(0),
+  var _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
+    _v52 = _v0.i(0),
     _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
-    _v56 = _v0.i(0),
-    _v57 = _v0.i(0),
-    _v58 = _v0.i(0),
-    _v59 = _v0.i(0);
-  let _v60 = new RegExp(/[^\p{L}\p{M} .,!?'":;_()-]/u),
-    _v61 = "maxCharactersLengthError",
-    _v62 = "maxWordLengthError",
-    _v63 = "forbiddenSymbolsError",
-    _v64 = {
-      CHARACTERS_LIMIT_EXCEEDED: (0, _v46.translate)({
+    _v56 = _v0.i(0);
+  let _v57 = new RegExp(/[^\p{L}\p{M} .,!?'":;_()-]/u),
+    _v58 = "maxCharactersLengthError",
+    _v59 = "maxWordLengthError",
+    _v60 = "forbiddenSymbolsError",
+    _v61 = {
+      CHARACTERS_LIMIT_EXCEEDED: (0, _v43.translate)({
         singular: "Words must be {MAX_CHARACTERS} characters or less",
         replacements: {
           MAX_CHARACTERS: 50
@@ -821,7 +735,7 @@
           }
         }
       }),
-      SOME_ITEMS_ARE_TOO_LONG: (0, _v46.translate)({
+      SOME_ITEMS_ARE_TOO_LONG: (0, _v43.translate)({
         singular: "Some items are too long and weren’t added. Words must be {MAX_CHARACTERS} characters or less, and phrases must be {MAX_WORDS} words or less.",
         replacements: {
           MAX_CHARACTERS: 50,
@@ -851,7 +765,7 @@
           }
         }
       }),
-      WORDS_LIMIT_EXCEEDED: (0, _v46.translate)({
+      WORDS_LIMIT_EXCEEDED: (0, _v43.translate)({
         singular: "Phrases must be {MAX_WORDS} words or less",
         replacements: {
           MAX_WORDS: 5
@@ -880,7 +794,7 @@
           }
         }
       }),
-      PHRASES_LIMIT_REACHED: (_v0, _v1) => (0, _v46.translate)({
+      PHRASES_LIMIT_REACHED: (_v0, _v1) => (0, _v43.translate)({
         singular: "You can add up to {MAX_PHRASES} words and phrases. Remove {EXTRA_PHRASES} to add.",
         replacements: {
           MAX_PHRASES: _v0,
@@ -910,7 +824,7 @@
           }
         }
       }),
-      PHRASE_ALREADY_ADDED: (0, _v46.translate)({
+      PHRASE_ALREADY_ADDED: (0, _v43.translate)({
         singular: "This word or phrase has already been added",
         dictionary: {
           es: {
@@ -936,7 +850,7 @@
           }
         }
       }),
-      FORBIDDEN_CHARACTERS: (0, _v46.translate)({
+      FORBIDDEN_CHARACTERS: (0, _v43.translate)({
         singular: "Remove any numerals, dashes, or special characters",
         dictionary: {
           es: {
@@ -962,7 +876,7 @@
           }
         }
       }),
-      SOME_WERE_NOT_ADDED: (0, _v46.translate)({
+      SOME_WERE_NOT_ADDED: (0, _v43.translate)({
         singular: "Some items weren’t added. Remove any numerals, dashes, or non-standard characters and try again.",
         dictionary: {
           es: {
@@ -989,19 +903,19 @@
         }
       })
     };
-  function _v65(_v0) {
+  function _v62(_v0) {
     return _v0.length > 50 ? {
-      message: _v64.CHARACTERS_LIMIT_EXCEEDED,
-      error: _v61
-    } : _v0.match(_v60) ? {
-      message: _v64.FORBIDDEN_CHARACTERS,
-      error: _v63
+      message: _v61.CHARACTERS_LIMIT_EXCEEDED,
+      error: _v58
+    } : _v0.match(_v57) ? {
+      message: _v61.FORBIDDEN_CHARACTERS,
+      error: _v60
     } : _v0.trim().split(/\s+/).length > 5 ? {
-      message: _v64.WORDS_LIMIT_EXCEEDED,
-      error: _v62
+      message: _v61.WORDS_LIMIT_EXCEEDED,
+      error: _v59
     } : null;
   }
-  function _v66(_v0, _v1 = [], _v2 = 0) {
+  function _v63(_v0, _v1 = [], _v2 = 0) {
     let _v3 = _v0.split(",").reduce((_v0, _v1) => {
       let _v2 = _v1.trim();
       return _v2 && _v0.push(_v2), _v0;
@@ -1009,14 +923,14 @@
     if (_v1.length) {
       let _v0 = _v2 - _v1.length - _v3.length;
       if (_v0 < 0) return {
-        error: _v64.PHRASES_LIMIT_REACHED(_v2, Math.abs(_v0))
+        error: _v61.PHRASES_LIMIT_REACHED(_v2, Math.abs(_v0))
       };
       if (_v1.filter(_v0 => _v3.includes(_v0.phrase)).length) return {
-        error: _v64.PHRASE_ALREADY_ADDED
+        error: _v61.PHRASE_ALREADY_ADDED
       };
     }
     for (let _v0 = 0; _v0 < _v3.length; _v0++) {
-      let _v0 = _v65(_v3[_v0]);
+      let _v0 = _v62(_v3[_v0]);
       if (_v0) return {
         error: _v0.message
       };
@@ -1025,7 +939,7 @@
       phrases: _v3
     };
   }
-  function _v67(_v0, _v1, _v2) {
+  function _v64(_v0, _v1, _v2) {
     let _v3 = [],
       _v4 = "";
     _v0.forEach(_v0 => {
@@ -1035,8 +949,8 @@
         }, []),
         _v2 = _v1.map(_v0 => _v0.phrase);
       _v1.forEach(_v0 => {
-        let _v1 = _v65(_v0);
-        _v4 || _v1?.error !== _v61 && _v1?.error !== _v62 && _v1?.error !== _v63 || (_v4 = _v1.error), _v1 || _v2.includes(_v0) || _v3.push(_v0);
+        let _v1 = _v62(_v0);
+        _v4 || _v1?.error !== _v58 && _v1?.error !== _v59 && _v1?.error !== _v60 || (_v4 = _v1.error), _v1 || _v2.includes(_v0) || _v3.push(_v0);
       });
     });
     let _v5 = _v3.filter(function (_v0, _v1, _v2) {
@@ -1044,18 +958,18 @@
       }),
       _v6 = _v2 - _v1.length - _v5.length;
     return _v6 < 0 ? {
-      error: _v64.PHRASES_LIMIT_REACHED(_v2, Math.abs(_v6))
-    } : _v4 === _v63 ? {
+      error: _v61.PHRASES_LIMIT_REACHED(_v2, Math.abs(_v6))
+    } : _v4 === _v60 ? {
       phrases: _v5,
-      error: _v64.SOME_WERE_NOT_ADDED
-    } : _v4 === _v62 || _v4 === _v61 ? {
+      error: _v61.SOME_WERE_NOT_ADDED
+    } : _v4 === _v59 || _v4 === _v58 ? {
       phrases: _v5,
-      error: _v64.SOME_ITEMS_ARE_TOO_LONG
+      error: _v61.SOME_ITEMS_ARE_TOO_LONG
     } : {
       phrases: _v5
     };
   }
-  function _v68({
+  function _v65({
     isLoading: _v0,
     phrases: _v1,
     phrasesLimit: _v2,
@@ -1065,7 +979,7 @@
     let [_v5, _v6] = (0, _v2.useState)(""),
       [_v7, _v8] = (0, _v2.useState)(""),
       _v9 = (0, _v2.useCallback)(() => {
-        let _v0 = _v66(_v7, _v1, _v2);
+        let _v0 = _v63(_v7, _v1, _v2);
         _v0?.error ? _v6(_v0.error) : _v0?.phrases && (_v8(""), _v3(_v0.phrases));
       }, [_v7, _v3, _v1, _v2]),
       _v10 = (0, _v2.useCallback)(_v0 => {
@@ -1074,25 +988,25 @@
       _v11 = (0, _v2.useCallback)(_v0 => {
         _v6(""), _v8(_v0.target.value);
       }, []);
-    return (0, _v1.jsxs)(_v52.VStack, {
+    return (0, _v1.jsxs)(_v49.VStack, {
       gap: (0, _v6.rem)(12),
-      children: [(0, _v1.jsxs)(_v57.FormControl, {
+      children: [(0, _v1.jsxs)(_v54.FormControl, {
         w: "100%",
-        children: [(0, _v1.jsx)(_v58.Flex, {
+        children: [(0, _v1.jsx)(_v55.Flex, {
           gap: "10",
-          children: (0, _v1.jsxs)(_v55.InputGroup, {
-            children: [(0, _v1.jsx)(_v54.Input, {
+          children: (0, _v1.jsxs)(_v52.InputGroup, {
+            children: [(0, _v1.jsx)(_v51.Input, {
               isInvalid: !!_v5,
               onKeyDown: _v10,
               onChange: _v11,
               isDisabled: _v0,
               value: _v7
-            }), (0, _v1.jsx)(_v56.InputRightElement, {})]
+            }), (0, _v1.jsx)(_v53.InputRightElement, {})]
           })
-        }), (0, _v1.jsx)(_v57.FormHelperText, {
+        }), (0, _v1.jsx)(_v54.FormHelperText, {
           mt: (0, _v6.rem)(8),
           color: _v5 ? "status-destructive-primary" : void 0,
-          children: _v5 || (0, _v46.translate)({
+          children: _v5 || (0, _v43.translate)({
             singular: "Press enter to add a word, phrase, or list separated by commas",
             dictionary: {
               es: {
@@ -1125,16 +1039,16 @@
         flexWrap: "wrap",
         justifyContent: "flex-start",
         overflow: "auto",
-        children: _v1.map(_v0 => (0, _v1.jsxs)(_v53.Tag, {
+        children: _v1.map(_v0 => (0, _v1.jsxs)(_v50.Tag, {
           size: "md",
-          children: [(0, _v1.jsx)(_v53.TagLabel, {
+          children: [(0, _v1.jsx)(_v50.TagLabel, {
             children: _v0.phrase
-          }), (0, _v1.jsx)(_v53.TagCloseButton, {
+          }), (0, _v1.jsx)(_v50.TagCloseButton, {
             onClick: () => _v4(_v0),
             children: (0, _v1.jsx)(_v16.IconButton, {
               isDisabled: _v0,
               marginLeft: "8px",
-              "aria-label": (0, _v46.translate)({
+              "aria-label": (0, _v43.translate)({
                 singular: "Delete phrase",
                 dictionary: {
                   es: {
@@ -1161,7 +1075,7 @@
                 }
               }),
               variant: "tertiary",
-              icon: (0, _v1.jsx)(_v59.CloseX, {}),
+              icon: (0, _v1.jsx)(_v56.CloseX, {}),
               size: "xs"
             })
           })]
@@ -1169,19 +1083,19 @@
       })]
     });
   }
-  _v0.s(["getValidatedPhrases", 0, _v66, "getValidatedPhrasesCsv", 0, _v67], 0);
-  var _v69 = _v0.i(0);
-  let _v70 = ({
+  _v0.s(["getValidatedPhrases", 0, _v63, "getValidatedPhrasesCsv", 0, _v64], 0);
+  var _v66 = _v0.i(0);
+  let _v67 = ({
       onClick: _v0
-    }) => (0, _v1.jsx)(_v69.Badge, {
+    }) => (0, _v1.jsx)(_v66.Badge, {
       onClick: _v0,
       marginLeft: "8px",
       variant: "upgrade",
       cursor: "pointer",
       size: "sm",
-      children: _v47.upgradeForMore
+      children: _v44.upgradeForMore
     }),
-    _v71 = ({
+    _v68 = ({
       onCancel: _v0,
       userId: _v1,
       onOpenEnterpriseModal: _v2,
@@ -1201,15 +1115,91 @@
           trackViewModalSaveCancel: _v12,
           trackViewUpgradeBadge: _v13,
           trackClickUpgradeBadge: _v14
-        } = _v45(),
+        } = _v42(),
         [_v15, _v16] = (0, _v2.useState)(!1),
         [_v17, _v18] = (0, _v2.useState)([]),
         [_v19, _v20] = (0, _v2.useState)([]),
         [_v21, _v22] = (0, _v2.useState)([]),
         [_v23, _v24] = (0, _v2.useState)(""),
         _v25 = (0, _v2.useMemo)(() => _v3 && _v3 < 0, [_v3]),
-        [_v26, _v27] = _v33(),
-        [_v28, _v29] = _v34(),
+        [_v26, _v27] = function () {
+          let {
+              mutate: _v0
+            } = (0, _v31.useSWRConfig)(),
+            {
+              baseUrl: _v1,
+              jwt: _v2,
+              xVimeoPage: _v3,
+              locale: _v4
+            } = (0, _v27.useGctlConfig)(),
+            [_v5, _v6] = (0, _v28.useInternalState)();
+          return [(0, _v2.useCallback)(async _v0 => {
+            _v6({
+              type: "REQUEST"
+            });
+            try {
+              let _v0 = await _v0(`/users/${_v0.where.userId}/transcript_phrases/batch${(0, _v28.serializeQuery)(_v0)}`, _v29({
+                ..._v0,
+                baseUrl: _v1,
+                headers: {
+                  ..._v0.headers,
+                  "Content-Type": "application/json",
+                  Authorization: _v2 ? `jwt ${_v2}` : "",
+                  "Vimeo-Page": `${_v3}`,
+                  "Accept-Language": _v4 ?? "en"
+                }
+              }), !1);
+              _v6({
+                type: "SUCCESS",
+                payload: _v0
+              });
+            } catch (_v0) {
+              _v6({
+                type: "FAILURE",
+                payload: _v0
+              });
+            }
+          }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+        }(),
+        [_v28, _v29] = function () {
+          let {
+              mutate: _v0
+            } = (0, _v31.useSWRConfig)(),
+            {
+              baseUrl: _v1,
+              jwt: _v2,
+              xVimeoPage: _v3,
+              locale: _v4
+            } = (0, _v27.useGctlConfig)(),
+            [_v5, _v6] = (0, _v28.useInternalState)();
+          return [(0, _v2.useCallback)(async _v0 => {
+            _v6({
+              type: "REQUEST"
+            });
+            try {
+              let _v0 = await _v0(`/users/${_v0.where.userId}/transcript_phrases/batch${(0, _v28.serializeQuery)(_v0)}`, _v30({
+                ..._v0,
+                baseUrl: _v1,
+                headers: {
+                  ..._v0.headers,
+                  "Content-Type": "application/json",
+                  Authorization: _v2 ? `jwt ${_v2}` : "",
+                  "Vimeo-Page": `${_v3}`,
+                  "Accept-Language": _v4 ?? "en"
+                }
+              }), !1);
+              _v6({
+                type: "SUCCESS",
+                payload: _v0
+              });
+            } catch (_v0) {
+              _v6({
+                type: "FAILURE",
+                payload: _v0
+              });
+            }
+          }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+        }(),
         _v30 = (0, _v2.useRef)(_v4);
       (0, _v2.useEffect)(() => {
         _v30.current = _v4;
@@ -1218,12 +1208,12 @@
       }, [_v29.error, _v27.error]);
       let _v31 = (0, _v2.useCallback)((_v0, _v1) => -1 !== _v0.findIndex(_v0 => _v0.uri === _v1.uri), []),
         _v32 = (0, _v13.useToast)({
-          title: _v47.changesSaved,
+          title: _v44.changesSaved,
           duration: 0,
           icon: (0, _v1.jsx)(_v19.InfoCircle, {})
         }),
         _v33 = (0, _v13.useToast)({
-          title: _v47.changesCouldNotBeSaved,
+          title: _v44.changesCouldNotBeSaved,
           duration: 0,
           icon: (0, _v1.jsx)(_v20.CircleExclamation, {})
         }),
@@ -1287,10 +1277,10 @@
               type: "text/csv;charset=utf-8;"
             }),
             _v1 = URL.createObjectURL(_v0);
-          (0, _v35.downloadFile)(_v1);
+          (0, _v32.downloadFile)(_v1);
         }, [_v17]),
         _v42 = (0, _v2.useCallback)(_v0 => {
-          let _v1 = _v67(_v0, [..._v17, ..._v19], _v3);
+          let _v1 = _v64(_v0, [..._v17, ..._v19], _v3);
           (!_v1?.error || (_v24(_v1.error), _v1.phrases)) && _v1?.phrases && _v36(_v1?.phrases);
         }, [_v17, _v19, _v3, _v36]),
         _v43 = (0, _v2.useCallback)(() => {
@@ -1311,12 +1301,12 @@
         children: [(0, _v1.jsx)(_v10.Text, {
           variant: "heading-md",
           mb: (0, _v6.rem)(12),
-          children: _v47.addCustomVocabulary
+          children: _v44.addCustomVocabulary
         }), (0, _v1.jsx)(_v10.Text, {
           variant: "body-md",
           color: "text-secondary",
           mb: (0, _v6.rem)(16),
-          children: _v47.addUniqueWordsOrPhrasesToHelpVimeoAI
+          children: _v44.addUniqueWordsOrPhrasesToHelpVimeoAI
         }), _v23 && (0, _v1.jsx)(_v17.Alert, {
           status: "error",
           mb: (0, _v6.rem)(12),
@@ -1324,7 +1314,7 @@
           children: (0, _v1.jsx)(_v18.AlertDescription, {
             children: _v23
           })
-        }), (0, _v1.jsx)(_v68, {
+        }), (0, _v1.jsx)(_v65, {
           setIsLoading: _v16,
           isLoading: _v15,
           phrases: _v38,
@@ -1337,7 +1327,7 @@
           ml: (0, _v6.rem)(4),
           mt: (0, _v6.rem)(16),
           color: "text-secondary",
-          children: [_v47.countOfCount(_v45, _v3), _v25 && (0, _v1.jsx)(_v70, {
+          children: [_v44.countOfCount(_v45, _v3), _v25 && (0, _v1.jsx)(_v67, {
             onClick: _v43
           })]
         }), (0, _v1.jsxs)(_v12.HStack, {
@@ -1345,32 +1335,32 @@
           children: [(0, _v1.jsxs)(_v12.HStack, {
             justifyContent: "start",
             children: [(0, _v1.jsx)(_v15.Tooltip, {
-              label: _v47.importCSV,
+              label: _v44.importCSV,
               isDisabled: _v15,
               placement: "top",
-              children: (0, _v1.jsx)(_v51, {
+              children: (0, _v1.jsx)(_v48, {
                 onUpload: _v42,
                 onError: _v24
               })
             }), (0, _v1.jsx)(_v15.Tooltip, {
-              label: _v47.download,
+              label: _v44.download,
               isDisabled: !_v17.length,
               placement: "top",
               children: (0, _v1.jsx)(_v16.IconButton, {
                 isDisabled: !_v17.length,
-                "aria-label": _v47.download,
+                "aria-label": _v44.download,
                 variant: "tertiary",
                 icon: (0, _v1.jsx)(_v22.DownloadImport, {}),
                 size: "sm",
                 onClick: _v41
               })
             }), (0, _v1.jsx)(_v15.Tooltip, {
-              label: _v47.deleteAll,
+              label: _v44.deleteAll,
               isDisabled: !_v38.length,
               placement: "top",
               children: (0, _v1.jsx)(_v16.IconButton, {
                 isDisabled: !_v38.length,
-                "aria-label": _v47.deleteAll,
+                "aria-label": _v44.deleteAll,
                 variant: "tertiary",
                 icon: (0, _v1.jsx)(_v21.TrashBin, {}),
                 size: "sm",
@@ -1383,28 +1373,28 @@
               size: "md",
               variant: "tertiary",
               onClick: _v34,
-              children: _v47.cancel
+              children: _v44.cancel
             }), (0, _v1.jsx)(_v11.Button, {
               isDisabled: !_v44,
               size: "md",
               variant: "primary",
               onClick: _v39,
-              children: _v47.save
+              children: _v44.save
             })]
           })]
         })]
       });
     },
-    _v72 = (0, _v0.i(0).default)(() => _v0.A(0), {
+    _v69 = (0, _v0.i(0).default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v73 = ({
+    _v70 = ({
       onClose: _v0
     }) => {
       let _v1 = (0, _v8.useViewer)();
-      return (0, _v1.jsx)(_v72, {
+      return (0, _v1.jsx)(_v69, {
         apiUrl: _v1?.apiUrl,
         userConfig: {
           jwt: _v1?.jwt,
@@ -1431,10 +1421,10 @@
         }
       });
     },
-    _v74 = (0, _v2.createContext)({
+    _v71 = (0, _v2.createContext)({
       page: "single_video_view_manage"
     }),
-    _v75 = (0, _v2.forwardRef)(({
+    _v72 = (0, _v2.forwardRef)(({
       onMigrationConflict: _v0
     }, _v1) => {
       let _v2 = (0, _v8.useViewer)(),
@@ -1461,7 +1451,7 @@
         _v11 = (0, _v2.useCallback)(() => {
           _v4(!1), _v6(!1);
         }, []);
-      return _v5 ? (0, _v1.jsx)(_v73, {
+      return _v5 ? (0, _v1.jsx)(_v70, {
         onClose: _v11
       }) : (0, _v1.jsxs)(_v3.Modal, {
         isOpen: _v3,
@@ -1471,7 +1461,7 @@
           p: `${(0, _v6.rem)(16)} ${(0, _v6.rem)(24)}`,
           maxWidth: (0, _v6.rem)(480),
           maxHeight: (0, _v6.rem)(660),
-          children: _v7 && _v9 && (0, _v1.jsx)(_v71, {
+          children: _v7 && _v9 && (0, _v1.jsx)(_v68, {
             onCancel: _v10,
             userId: _v7,
             onOpenEnterpriseModal: () => _v6(!0),
@@ -1481,15 +1471,15 @@
         })]
       });
     }),
-    _v76 = ({
+    _v73 = ({
       forwardRef: _v0,
       location: _v1,
       onMigrationConflict: _v2
-    }) => (0, _v1.jsx)(_v74.Provider, {
+    }) => (0, _v1.jsx)(_v71.Provider, {
       value: {
         page: _v1
       },
-      children: (0, _v1.jsx)(_v75, {
+      children: (0, _v1.jsx)(_v72, {
         ref: _v0,
         onMigrationConflict: _v2
       })

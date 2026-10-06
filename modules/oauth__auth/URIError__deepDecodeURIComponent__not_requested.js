@@ -84,7 +84,17 @@
       loading: _v11
     };
   }], 0), _v0.s(["getSingleRedirectUri", 0, function (_v0) {
-    return "string" != typeof _v0 ? null : _v1(_v0);
+    if ("string" != typeof _v0) return null;
+    let _v1 = _v1(_v0);
+    try {
+      let {
+        protocol: _v0
+      } = new URL(_v1, "https://vimeo.com");
+      if ("http:" !== _v0 && "https:" !== _v0) return null;
+    } catch {
+      return null;
+    }
+    return _v1;
   }], 0);
   let _v7 = ["http:", "https:"],
     _v8 = /^[a-z][a-z0-9+\-.]*:/i;

@@ -2745,9 +2745,8 @@
     };
   var _v29 = _v0.i(0),
     _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
-    _v32 = _v0.i(0);
-  async function _v33({
+    _v31 = _v0.i(0);
+  async function _v32({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -2757,19 +2756,19 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v31.measureLatency)("getSsoConnectionDomains", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/sso/${_v2}/connection/${_v3}/domains?${(0, _v32.searchQueryString)(_v4)}&fields=${_v1.map(_v32.intoSnakeCase).join(",")}`, {
+    return (0, _v30.measureLatency)("getSsoConnectionDomains", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/sso/${_v2}/connection/${_v3}/domains?${(0, _v31.searchQueryString)(_v4)}&fields=${_v1.map(_v31.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v32.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v31.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v32.deepCamelCase)(_v1);
+      return (0, _v31.deepCamelCase)(_v1);
     });
   }
-  async function _v34({
+  async function _v33({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -2779,99 +2778,24 @@
     },
     ..._v5
   }) {
-    return (0, _v31.measureLatency)("postSsoConnectionDomains", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/sso/${_v3}/connection/${_v4}/domains?fields=${_v1.map(_v32.intoSnakeCase).join(",")}`, {
+    return (0, _v30.measureLatency)("postSsoConnectionDomains", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/sso/${_v3}/connection/${_v4}/domains?fields=${_v1.map(_v31.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "POST",
-        body: JSON.stringify((0, _v32.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v31.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v32.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v31.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v32.deepCamelCase)(_v1);
+      return (0, _v31.deepCamelCase)(_v1);
     });
   }
-  var _v35 = _v0.i(0),
-    _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0);
-  function _v39() {
-    let {
-        mutate: _v0
-      } = (0, _v36.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v38.useGctlConfig)(),
-      [_v5, _v6] = (0, _v30.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/sso/${_v0.where.userId}/connection/${_v0.where.connectionUuid}/domains${(0, _v30.serializeQuery)(_v0)}`, _v33({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  function _v40() {
-    let {
-        baseUrl: _v0,
-        jwt: _v1,
-        xVimeoPage: _v2,
-        locale: _v3
-      } = (0, _v38.useGctlConfig)(),
-      [_v4, _v5] = (0, _v30.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v5({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v34({
-          ..._v0,
-          baseUrl: _v0,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v1 ? `jwt ${_v1}` : "",
-            "Vimeo-Page": `${_v2}`,
-            "Accept-Language": _v3 ?? "en"
-          }
-        });
-        _v5({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v5({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v0, _v2, _v1, _v3, _v5]), _v4];
-  }
-  async function _v41({
+  _v0.i(0);
+  var _v34 = _v0.i(0);
+  _v0.i(0);
+  var _v35 = _v0.i(0);
+  async function _v36({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -2879,19 +2803,19 @@
     },
     ..._v3
   }) {
-    return (0, _v31.measureLatency)("getSsoSettings", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/sso/${_v2}/settings?fields=${_v1.map(_v32.intoSnakeCase).join(",")}`, {
+    return (0, _v30.measureLatency)("getSsoSettings", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/sso/${_v2}/settings?fields=${_v1.map(_v31.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v32.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v31.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v32.deepCamelCase)(_v1);
+      return (0, _v31.deepCamelCase)(_v1);
     });
   }
-  async function _v42({
+  async function _v37({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -2900,289 +2824,32 @@
     },
     ..._v4
   }) {
-    return (0, _v31.measureLatency)("putSsoSettings", "PUT", async () => {
-      let _v0 = await fetch(`${_v0}/sso/${_v3}/settings?fields=${_v1.map(_v32.intoSnakeCase).join(",")}`, {
-        ..._v4,
-        method: "PUT",
-        body: JSON.stringify((0, _v32.deepSnakeCase)(_v2))
-      });
-      if (!_v0.ok) throw new _v32.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v32.deepCamelCase)(_v1);
-    });
-  }
-  async function _v43({
-    baseUrl: _v0,
-    select: _v1,
-    variables: _v2,
-    where: {
-      userId: _v3
-    },
-    ..._v4
-  }) {
-    return (0, _v31.measureLatency)("patchSsoSettings", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/sso/${_v3}/settings?fields=${_v1.map(_v32.intoSnakeCase).join(",")}`, {
+    return (0, _v30.measureLatency)("patchSsoSettings", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/sso/${_v3}/settings?fields=${_v1.map(_v31.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "PATCH",
-        body: JSON.stringify((0, _v32.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v31.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v32.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v31.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v32.deepCamelCase)(_v1);
+      return (0, _v31.deepCamelCase)(_v1);
     });
   }
-  function _v44() {
-    let {
-        mutate: _v0
-      } = (0, _v36.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v38.useGctlConfig)(),
-      [_v5, _v6] = (0, _v30.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/sso/${_v0.where.userId}/settings${(0, _v30.serializeQuery)(_v0)}`, _v41({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  function _v45() {
-    let {
-        mutate: _v0
-      } = (0, _v36.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v38.useGctlConfig)(),
-      [_v5, _v6] = (0, _v30.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/sso/${_v0.where.userId}/settings${(0, _v30.serializeQuery)(_v0)}`, _v43({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v29.default.env.STORYBOOK && (0, _v30.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v38.useGctlConfig)();
-    return (0, _v35.default)(_v2 ? `/sso/${_v2.where.userId}/connection/${_v2.where.connectionUuid}/domains${(0, _v30.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v33({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/sso/:userId/connection/:connectionUuid/domains",
-    method: "GET"
-  }), "true" === _v29.default.env.STORYBOOK && (0, _v30.assignMswData)(_v39, {
-    endpoint: "/sso/:userId/connection/:connectionUuid/domains",
-    method: "GET"
-  }), "true" === _v29.default.env.STORYBOOK && (0, _v30.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v38.useGctlConfig)();
-    return (0, _v37.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/sso/${_v2.where.userId}/connection/${_v2.where.connectionUuid}/domains?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v33({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/sso/:userId/connection/:connectionUuid/domains",
-    method: "GET"
-  }), "true" === _v29.default.env.STORYBOOK && (0, _v30.assignMswData)(_v40, {
-    endpoint: "/sso/:userId/connection/:connectionUuid/domains",
-    method: "POST"
-  }), "true" === _v29.default.env.STORYBOOK && (0, _v30.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v38.useGctlConfig)();
-    return (0, _v35.default)(_v2 ? `/sso/${_v2.where.userId}/settings${(0, _v30.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v41({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/sso/:userId/settings",
-    method: "GET"
-  }), "true" === _v29.default.env.STORYBOOK && (0, _v30.assignMswData)(_v44, {
-    endpoint: "/sso/:userId/settings",
-    method: "GET"
-  }), "true" === _v29.default.env.STORYBOOK && (0, _v30.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v36.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v38.useGctlConfig)(),
-      [_v5, _v6] = (0, _v30.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/sso/${_v0.where.userId}/settings${(0, _v30.serializeQuery)(_v0)}`, _v42({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/sso/:userId/settings",
-    method: "PUT"
-  }), "true" === _v29.default.env.STORYBOOK && (0, _v30.assignMswData)(_v45, {
-    endpoint: "/sso/:userId/settings",
-    method: "PATCH"
-  });
-  var _v46 = _v0.i(0),
+  var _v38 = _v0.i(0),
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0),
+    _v45 = _v0.i(0),
+    _v46 = _v0.i(0),
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
-    _v49 = _v0.i(0),
-    _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
-    _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
-    _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  async function _v58({
-    baseUrl: _v0,
-    select: _v1,
-    variables: _v2,
-    where: {
-      userId: _v3,
-      connectionUuid: _v4
-    },
-    ..._v5
-  }) {
-    return (0, _v31.measureLatency)("putSsoConnection", "PUT", async () => {
-      let _v0 = await fetch(`${_v0}/sso/${_v3}/connections/${_v4}?fields=${_v1.map(_v32.intoSnakeCase).join(",")}`, {
-        ..._v5,
-        method: "PUT",
-        body: JSON.stringify((0, _v32.deepSnakeCase)(_v2))
-      });
-      if (!_v0.ok) throw new _v32.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v32.deepCamelCase)(_v1);
-    });
-  }
-  async function _v59({
+    _v49 = _v0.i(0);
+  async function _v50({
     baseUrl: _v0,
     where: {
       userId: _v1,
@@ -3190,19 +2857,19 @@
     },
     ..._v3
   }) {
-    return (0, _v31.measureLatency)("deleteSsoConnection", "DELETE", async () => {
+    return (0, _v30.measureLatency)("deleteSsoConnection", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/sso/${_v1}/connections/${_v2}`, {
         ..._v3,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v32.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v31.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v32.deepCamelCase)(_v1);
+      return (0, _v31.deepCamelCase)(_v1);
     });
   }
-  async function _v60({
+  async function _v51({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -3212,146 +2879,20 @@
     },
     ..._v5
   }) {
-    return (0, _v31.measureLatency)("patchSsoConnection", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/sso/${_v3}/connections/${_v4}?fields=${_v1.map(_v32.intoSnakeCase).join(",")}`, {
+    return (0, _v30.measureLatency)("patchSsoConnection", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/sso/${_v3}/connections/${_v4}?fields=${_v1.map(_v31.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PATCH",
-        body: JSON.stringify((0, _v32.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v31.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v32.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v31.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v32.deepCamelCase)(_v1);
+      return (0, _v31.deepCamelCase)(_v1);
     });
   }
-  function _v61() {
-    let {
-        mutate: _v0
-      } = (0, _v36.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v38.useGctlConfig)(),
-      [_v5, _v6] = (0, _v30.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/sso/${_v0.where.userId}/connections/${_v0.where.connectionUuid}${(0, _v30.serializeQuery)(_v0)}`, _v59({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  function _v62() {
-    let {
-        mutate: _v0
-      } = (0, _v36.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v38.useGctlConfig)(),
-      [_v5, _v6] = (0, _v30.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/sso/${_v0.where.userId}/connections/${_v0.where.connectionUuid}${(0, _v30.serializeQuery)(_v0)}`, _v60({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v29.default.env.STORYBOOK && (0, _v30.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v36.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v38.useGctlConfig)(),
-      [_v5, _v6] = (0, _v30.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/sso/${_v0.where.userId}/connections/${_v0.where.connectionUuid}${(0, _v30.serializeQuery)(_v0)}`, _v58({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/sso/:userId/connections/:connectionUuid",
-    method: "PUT"
-  }), "true" === _v29.default.env.STORYBOOK && (0, _v30.assignMswData)(_v61, {
-    endpoint: "/sso/:userId/connections/:connectionUuid",
-    method: "DELETE"
-  }), "true" === _v29.default.env.STORYBOOK && (0, _v30.assignMswData)(_v62, {
-    endpoint: "/sso/:userId/connections/:connectionUuid",
-    method: "PATCH"
-  });
-  let _v63 = ({
+  let _v52 = ({
     userId: _v0,
     onConnectionUpdateSuccess: _v1,
     onError: _v2,
@@ -3365,7 +2906,45 @@
         loading: _v9,
         error: _v10,
         callCount: _v11
-      }] = _v62();
+      }] = function () {
+        let {
+            mutate: _v0
+          } = (0, _v34.useSWRConfig)(),
+          {
+            baseUrl: _v1,
+            jwt: _v2,
+            xVimeoPage: _v3,
+            locale: _v4
+          } = (0, _v35.useGctlConfig)(),
+          [_v5, _v6] = (0, _v29.useInternalState)();
+        return [(0, _v2.useCallback)(async _v0 => {
+          _v6({
+            type: "REQUEST"
+          });
+          try {
+            let _v0 = await _v0(`/sso/${_v0.where.userId}/connections/${_v0.where.connectionUuid}${(0, _v29.serializeQuery)(_v0)}`, _v51({
+              ..._v0,
+              baseUrl: _v1,
+              headers: {
+                ..._v0.headers,
+                "Content-Type": "application/json",
+                Authorization: _v2 ? `jwt ${_v2}` : "",
+                "Vimeo-Page": `${_v3}`,
+                "Accept-Language": _v4 ?? "en"
+              }
+            }), !1);
+            _v6({
+              type: "SUCCESS",
+              payload: _v0
+            });
+          } catch (_v0) {
+            _v6({
+              type: "FAILURE",
+              payload: _v0
+            });
+          }
+        }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+      }();
     return (0, _v2.useEffect)(() => {
       _v10 && _v6.current < _v11 && (_v28(_v10, _v2), _v6.current = _v11);
     }, [_v10, _v2, _v11]), (0, _v2.useEffect)(() => {
@@ -3382,12 +2961,12 @@
       updateLoading: _v9
     };
   };
-  var _v64 = _v0.i(0),
-    _v65 = _v0.i(0),
-    _v66 = _v0.i(0),
-    _v67 = _v0.i(0),
-    _v68 = _v0.i(0);
-  let _v69 = ({
+  var _v53 = _v0.i(0),
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0),
+    _v56 = _v0.i(0),
+    _v57 = _v0.i(0);
+  let _v58 = ({
       children: _v0,
       title: _v1,
       description: _v2,
@@ -3399,16 +2978,16 @@
       padding: "300",
       marginBottom: "200",
       borderRadius: "button",
-      children: [(0, _v1.jsxs)(_v64.Flex, {
+      children: [(0, _v1.jsxs)(_v53.Flex, {
         justifyContent: "space-between",
         alignItems: "center",
         children: [(0, _v1.jsxs)(_v5.Box, {
-          children: [(0, _v1.jsx)(_v65.Header, {
+          children: [(0, _v1.jsx)(_v54.Header, {
             size: "xs",
             as: "h6",
             marginBottom: "50",
             children: _v1
-          }), (0, _v1.jsx)(_v56.Paragraph, {
+          }), (0, _v1.jsx)(_v48.Paragraph, {
             size: "md",
             color: "text-secondary",
             children: _v2
@@ -3421,7 +3000,7 @@
         children: _v0
       })]
     }),
-    _v70 = ({
+    _v59 = ({
       attributesMap: _v0,
       onFieldChange: _v1
     }) => {
@@ -3430,10 +3009,10 @@
         _v6 = (0, _v2.useRef)(null);
       return (0, _v2.useEffect)(() => {
         _v6.current && _v5(_v6.current.scrollHeight);
-      }, [_v6.current?.scrollHeight]), (0, _v1.jsxs)(_v69, {
+      }, [_v6.current?.scrollHeight]), (0, _v1.jsxs)(_v58, {
         title: _v12.Attributes,
         description: _v12.AttributesDescription(),
-        children: [(0, _v1.jsxs)(_v64.Flex, {
+        children: [(0, _v1.jsxs)(_v53.Flex, {
           justifyContent: "space-between",
           alignItems: "flex-start",
           borderTopWidth: "1px",
@@ -3441,24 +3020,24 @@
           borderStyle: "solid",
           paddingTop: "200",
           children: [(0, _v1.jsxs)(_v5.Box, {
-            children: [(0, _v1.jsx)(_v65.Header, {
+            children: [(0, _v1.jsx)(_v54.Header, {
               size: "xs",
               as: "h6",
               marginBottom: "50",
               children: _v12.Mappings
-            }), (0, _v1.jsx)(_v56.Paragraph, {
+            }), (0, _v1.jsx)(_v48.Paragraph, {
               size: "md",
               color: "text-secondary",
               children: _v12.MappingsDescription
             })]
           }), (0, _v1.jsx)(_v5.Box, {
-            children: (0, _v1.jsx)(_v66.IconButton, {
+            children: (0, _v1.jsx)(_v55.IconButton, {
               size: "md",
               variant: "tertiary",
               onClick: () => {
                 _v3(!_v2);
               },
-              icon: (0, _v1.jsx)(_v68.ChevronDownSmall, {
+              icon: (0, _v1.jsx)(_v57.ChevronDownSmall, {
                 transform: _v2 ? "rotate(180deg)" : void 0
               }),
               id: "toggleMappingsBtn",
@@ -3470,15 +3049,15 @@
           transition: "max-height 0.5s ease-in-out",
           overflow: "hidden",
           ref: _v6,
-          children: [(0, _v1.jsxs)(_v64.Flex, {
+          children: [(0, _v1.jsxs)(_v53.Flex, {
             alignItems: "center",
             marginTop: "200",
-            children: [(0, _v1.jsx)(_v65.Header, {
+            children: [(0, _v1.jsx)(_v54.Header, {
               size: "2xs",
               as: "h6",
               flex: "1",
               children: "email"
-            }), (0, _v1.jsx)(_v67.Input, {
+            }), (0, _v1.jsx)(_v56.Input, {
               flex: "5",
               height: "md",
               placeholder: _v12.EnterEmail,
@@ -3486,15 +3065,15 @@
               onChange: _v0 => _v1("email", _v0.target.value),
               id: "attrEmailInput"
             })]
-          }), (0, _v1.jsxs)(_v64.Flex, {
+          }), (0, _v1.jsxs)(_v53.Flex, {
             alignItems: "center",
             marginTop: "200",
-            children: [(0, _v1.jsx)(_v65.Header, {
+            children: [(0, _v1.jsx)(_v54.Header, {
               size: "2xs",
               as: "h6",
               flex: "1",
               children: "firstName"
-            }), (0, _v1.jsx)(_v67.Input, {
+            }), (0, _v1.jsx)(_v56.Input, {
               flex: "5",
               height: "md",
               placeholder: _v12.EnterFirstName,
@@ -3502,15 +3081,15 @@
               onChange: _v0 => _v1("firstName", _v0.target.value),
               id: "attrFirstNameInput"
             })]
-          }), (0, _v1.jsxs)(_v64.Flex, {
+          }), (0, _v1.jsxs)(_v53.Flex, {
             alignItems: "center",
             marginTop: "200",
-            children: [(0, _v1.jsx)(_v65.Header, {
+            children: [(0, _v1.jsx)(_v54.Header, {
               size: "2xs",
               as: "h6",
               flex: "1",
               children: "lastName"
-            }), (0, _v1.jsx)(_v67.Input, {
+            }), (0, _v1.jsx)(_v56.Input, {
               flex: "5",
               height: "md",
               placeholder: _v12.EnterLastName,
@@ -3518,15 +3097,15 @@
               onChange: _v0 => _v1("lastName", _v0.target.value),
               id: "attrLastNameInput"
             })]
-          }), (0, _v1.jsxs)(_v64.Flex, {
+          }), (0, _v1.jsxs)(_v53.Flex, {
             alignItems: "center",
             marginTop: "200",
-            children: [(0, _v1.jsx)(_v65.Header, {
+            children: [(0, _v1.jsx)(_v54.Header, {
               size: "2xs",
               as: "h6",
               flex: "1",
               children: "groups"
-            }), (0, _v1.jsx)(_v67.Input, {
+            }), (0, _v1.jsx)(_v56.Input, {
               flex: "5",
               height: "md",
               placeholder: _v12.EnterGroups,
@@ -3538,13 +3117,13 @@
         })]
       });
     };
-  var _v71 = _v0.i(0),
-    _v72 = _v0.i(0),
-    _v73 = _v0.i(0),
-    _v74 = _v0.i(0),
-    _v75 = _v0.i(0),
-    _v76 = _v0.i(0);
-  async function _v77({
+  var _v60 = _v0.i(0),
+    _v61 = _v0.i(0),
+    _v62 = _v0.i(0),
+    _v63 = _v0.i(0),
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
+  async function _v66({
     baseUrl: _v0,
     where: {
       userId: _v1,
@@ -3552,62 +3131,19 @@
     },
     ..._v3
   }) {
-    return (0, _v31.measureLatency)("deleteSsoDomain", "DELETE", async () => {
+    return (0, _v30.measureLatency)("deleteSsoDomain", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/sso/${_v1}/domains/${_v2}`, {
         ..._v3,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v32.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v31.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v32.deepCamelCase)(_v1);
+      return (0, _v31.deepCamelCase)(_v1);
     });
   }
-  function _v78() {
-    let {
-        mutate: _v0
-      } = (0, _v36.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v38.useGctlConfig)(),
-      [_v5, _v6] = (0, _v30.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/sso/${_v0.where.userId}/domains/${_v0.where.domainId}${(0, _v30.serializeQuery)(_v0)}`, _v77({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v29.default.env.STORYBOOK && (0, _v30.assignMswData)(_v78, {
-    endpoint: "/sso/:userId/domains/:domainId",
-    method: "DELETE"
-  });
-  let _v79 = ({
+  let _v67 = ({
     userId: _v0,
     connection: _v1,
     ssoDomains: _v2,
@@ -3652,7 +3188,42 @@
             error: _v7,
             callCount: _v8,
             data: _v9
-          }] = _v40();
+          }] = function () {
+            let {
+                baseUrl: _v0,
+                jwt: _v1,
+                xVimeoPage: _v2,
+                locale: _v3
+              } = (0, _v35.useGctlConfig)(),
+              [_v4, _v5] = (0, _v29.useInternalState)();
+            return [(0, _v2.useCallback)(async _v0 => {
+              _v5({
+                type: "REQUEST"
+              });
+              try {
+                let _v0 = await _v33({
+                  ..._v0,
+                  baseUrl: _v0,
+                  headers: {
+                    ..._v0.headers,
+                    "Content-Type": "application/json",
+                    Authorization: _v1 ? `jwt ${_v1}` : "",
+                    "Vimeo-Page": `${_v2}`,
+                    "Accept-Language": _v3 ?? "en"
+                  }
+                });
+                _v5({
+                  type: "SUCCESS",
+                  payload: _v0
+                });
+              } catch (_v0) {
+                _v5({
+                  type: "FAILURE",
+                  payload: _v0
+                });
+              }
+            }, [_v0, _v2, _v1, _v3, _v5]), _v4];
+          }();
         return (0, _v2.useEffect)(() => {
           if (_v7) {
             let _v0;
@@ -3693,7 +3264,45 @@
             loading: _v6,
             error: _v7,
             callCount: _v8
-          }] = _v78(),
+          }] = function () {
+            let {
+                mutate: _v0
+              } = (0, _v34.useSWRConfig)(),
+              {
+                baseUrl: _v1,
+                jwt: _v2,
+                xVimeoPage: _v3,
+                locale: _v4
+              } = (0, _v35.useGctlConfig)(),
+              [_v5, _v6] = (0, _v29.useInternalState)();
+            return [(0, _v2.useCallback)(async _v0 => {
+              _v6({
+                type: "REQUEST"
+              });
+              try {
+                let _v0 = await _v0(`/sso/${_v0.where.userId}/domains/${_v0.where.domainId}${(0, _v29.serializeQuery)(_v0)}`, _v66({
+                  ..._v0,
+                  baseUrl: _v1,
+                  headers: {
+                    ..._v0.headers,
+                    "Content-Type": "application/json",
+                    Authorization: _v2 ? `jwt ${_v2}` : "",
+                    "Vimeo-Page": `${_v3}`,
+                    "Accept-Language": _v4 ?? "en"
+                  }
+                }), !1);
+                _v6({
+                  type: "SUCCESS",
+                  payload: _v0
+                });
+              } catch (_v0) {
+                _v6({
+                  type: "FAILURE",
+                  payload: _v0
+                });
+              }
+            }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+          }(),
           [_v9, _v10] = (0, _v2.useState)(null);
         return (0, _v2.useEffect)(() => {
           _v7 && _v2();
@@ -3717,14 +3326,14 @@
         onError: _v6,
         connection: _v1
       });
-    return _v3 ? (0, _v1.jsx)(_v76.LoadSpinner, {
+    return _v3 ? (0, _v1.jsx)(_v65.LoadSpinner, {
       heightPX: 100
-    }) : (0, _v1.jsxs)(_v69, {
+    }) : (0, _v1.jsxs)(_v58, {
       title: _v12.ClaimDomain,
       description: _v12.ClaimDomainDescription,
-      children: [(0, _v1.jsxs)(_v73.FormControl, {
+      children: [(0, _v1.jsxs)(_v62.FormControl, {
         isInvalid: !!(_v7 && _v9 && !_v10),
-        children: [(0, _v1.jsx)(_v67.Input, {
+        children: [(0, _v1.jsx)(_v56.Input, {
           height: "md",
           placeholder: _v12.EnterDomainName,
           value: _v7,
@@ -3732,10 +3341,10 @@
             _v8(_v0.target.value);
           },
           id: "claimDomainInput"
-        }), (0, _v1.jsx)(_v74.FormErrorMessage, {
+        }), (0, _v1.jsx)(_v63.FormErrorMessage, {
           children: _v12.ShouldBeValidDomainName
         })]
-      }), (0, _v1.jsx)(_v72.Button, {
+      }), (0, _v1.jsx)(_v61.Button, {
         isDisabled: !_v10 || _v14,
         isLoading: _v12,
         size: "sm",
@@ -3746,7 +3355,7 @@
         marginTop: "200",
         children: _v12.RequestVerification
       }), _v2 && _v2.length ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v65.Header, {
+        children: [(0, _v1.jsx)(_v54.Header, {
           size: "xs",
           as: "h6",
           marginTop: "200",
@@ -3754,7 +3363,7 @@
         }), (0, _v1.jsx)(_v5.Box, {
           as: "li",
           listStyleType: "none",
-          children: _v2.map((_v0, _v1) => (0, _v1.jsxs)(_v64.Flex, {
+          children: _v2.map((_v0, _v1) => (0, _v1.jsxs)(_v53.Flex, {
             as: "li",
             justifyContent: "space-between",
             alignItems: "center",
@@ -3765,24 +3374,24 @@
             paddingLeft: "100",
             paddingRight: "75",
             paddingY: "75",
-            children: [(0, _v1.jsx)(_v71.Text, {
+            children: [(0, _v1.jsx)(_v60.Text, {
               variant: "heading-xs",
               children: _v0.domainName
-            }), (0, _v1.jsx)(_v71.Text, {
+            }), (0, _v1.jsx)(_v60.Text, {
               as: "i",
               color: _v0.verified ? "status-positive-primary" : "text-secondary",
               variant: "body-md",
               marginRight: "75",
               marginLeft: "auto",
               children: _v0.verified ? _v12.Claimed : _v12.Pending
-            }), (0, _v1.jsx)(_v66.IconButton, {
+            }), (0, _v1.jsx)(_v55.IconButton, {
               isLoading: _v14,
               onClick: () => {
                 confirm(_v12.DomainDeleteConfirm) && _v15(_v0);
               },
               size: "xs",
               variant: "secondary",
-              icon: (0, _v1.jsx)(_v75.TrashBin, {}),
+              icon: (0, _v1.jsx)(_v64.TrashBin, {}),
               "aria-label": ""
             })]
           }, _v1))
@@ -3790,8 +3399,8 @@
       }) : null]
     });
   };
-  var _v80 = _v0.i(0);
-  let _v81 = ({
+  var _v68 = _v0.i(0);
+  let _v69 = ({
     value: _v0,
     onFieldChange: _v1,
     error: _v2,
@@ -3807,12 +3416,12 @@
       },
       _v10 = !!(_v3 && _v4?.length),
       _v11 = !!(_v5 && _v7?.length);
-    return (0, _v1.jsxs)(_v69, {
+    return (0, _v1.jsxs)(_v58, {
       title: _v12.SAMLConnectionName,
       description: _v12.SAMLConnectionNameDescription,
-      children: [(0, _v1.jsxs)(_v73.FormControl, {
+      children: [(0, _v1.jsxs)(_v62.FormControl, {
         isInvalid: !!_v2,
-        children: [(0, _v1.jsx)(_v67.Input, {
+        children: [(0, _v1.jsx)(_v56.Input, {
           height: "md",
           placeholder: _v12.EnterName,
           variant: "default",
@@ -3821,18 +3430,18 @@
             _v1("title", _v0.target.value);
           },
           id: "connectionNameInput"
-        }), (0, _v1.jsx)(_v74.FormErrorMessage, {
+        }), (0, _v1.jsx)(_v63.FormErrorMessage, {
           children: _v2
         })]
-      }), _v10 && (0, _v1.jsxs)(_v64.Flex, {
+      }), _v10 && (0, _v1.jsxs)(_v53.Flex, {
         alignItems: "center",
         marginTop: "200",
-        children: [(0, _v1.jsx)(_v80.Tooltip, {
+        children: [(0, _v1.jsx)(_v68.Tooltip, {
           label: _v12.ToDisableSsoInChina,
           isDisabled: !_v8,
-          children: (0, _v1.jsx)(_v64.Flex, {
+          children: (0, _v1.jsx)(_v53.Flex, {
             alignItems: "center",
-            children: (0, _v1.jsx)(_v57.Switch, {
+            children: (0, _v1.jsx)(_v49.Switch, {
               size: "sm",
               value: _v23,
               onChange: _v9,
@@ -3840,24 +3449,24 @@
               isDisabled: _v8
             })
           })
-        }), (0, _v1.jsx)(_v56.Paragraph, {
+        }), (0, _v1.jsx)(_v48.Paragraph, {
           marginLeft: "75",
           size: "md",
           children: _v12.EnableForUsersInChina
         })]
-      }), _v11 && (0, _v1.jsxs)(_v64.Flex, {
+      }), _v11 && (0, _v1.jsxs)(_v53.Flex, {
         alignItems: "center",
         marginTop: "200",
-        children: [(0, _v1.jsx)(_v64.Flex, {
+        children: [(0, _v1.jsx)(_v53.Flex, {
           alignItems: "center",
-          children: (0, _v1.jsx)(_v57.Switch, {
+          children: (0, _v1.jsx)(_v49.Switch, {
             size: "sm",
             value: _v22,
             onChange: _v9,
             isChecked: _v6 === _v22,
             isDisabled: _v8
           })
-        }), (0, _v1.jsx)(_v56.Paragraph, {
+        }), (0, _v1.jsx)(_v48.Paragraph, {
           marginLeft: "75",
           size: "md",
           children: _v12.EnableForUsersToCustomDomain
@@ -3865,12 +3474,12 @@
       })]
     });
   };
-  var _v82 = _v0.i(0);
-  let _v83 = ({
+  var _v70 = _v0.i(0);
+  let _v71 = ({
       onFieldChange: _v0,
       onError: _v1
-    }) => (0, _v1.jsx)(_v64.Flex, {
-      children: (0, _v1.jsx)(_v82.FileInput, {
+    }) => (0, _v1.jsx)(_v53.Flex, {
+      children: (0, _v1.jsx)(_v70.FileInput, {
         display: "flex",
         accept: ".xml",
         onChange: _v0 => {
@@ -3900,26 +3509,26 @@
         label: _v12.UploadFile
       })
     }),
-    _v84 = ({
+    _v72 = ({
       value: _v0,
       onFieldChange: _v1,
       error: _v2
-    }) => (0, _v1.jsxs)(_v64.Flex, {
+    }) => (0, _v1.jsxs)(_v53.Flex, {
       marginTop: "200",
       alignItems: "center",
       gap: "75",
       children: [(0, _v1.jsx)(_v5.Box, {
         flex: "1",
-        children: (0, _v1.jsx)(_v65.Header, {
+        children: (0, _v1.jsx)(_v54.Header, {
           as: "h6",
           variant: "heading-2xs",
           size: "xl",
           children: _v12.SignInUrl
         })
-      }), (0, _v1.jsxs)(_v73.FormControl, {
+      }), (0, _v1.jsxs)(_v62.FormControl, {
         flex: "5",
         isInvalid: !!_v2,
-        children: [(0, _v1.jsx)(_v67.Input, {
+        children: [(0, _v1.jsx)(_v56.Input, {
           height: "md",
           placeholder: _v12.EnterUrl,
           value: _v0 ?? "",
@@ -3927,31 +3536,31 @@
             _v1("ssoUrl", _v0.target.value);
           },
           id: "signInUrlInput"
-        }), (0, _v1.jsx)(_v74.FormErrorMessage, {
+        }), (0, _v1.jsx)(_v63.FormErrorMessage, {
           children: _v2
         })]
       })]
     }),
-    _v85 = ({
+    _v73 = ({
       value: _v0,
       onFieldChange: _v1,
       error: _v2
-    }) => (0, _v1.jsxs)(_v64.Flex, {
+    }) => (0, _v1.jsxs)(_v53.Flex, {
       marginTop: "200",
       alignItems: "center",
       gap: "75",
       children: [(0, _v1.jsx)(_v5.Box, {
         flex: "1",
-        children: (0, _v1.jsx)(_v65.Header, {
+        children: (0, _v1.jsx)(_v54.Header, {
           as: "h6",
           variant: "heading-2xs",
           size: "xl",
           children: _v12.SingleLogoutUrl
         })
-      }), (0, _v1.jsxs)(_v73.FormControl, {
+      }), (0, _v1.jsxs)(_v62.FormControl, {
         flex: "5",
         isInvalid: !!_v2,
-        children: [(0, _v1.jsx)(_v67.Input, {
+        children: [(0, _v1.jsx)(_v56.Input, {
           height: "md",
           placeholder: _v12.EnterUrl,
           value: _v0 ?? "",
@@ -3959,13 +3568,13 @@
             _v1("singleLogoutUrl", _v0.target.value);
           },
           id: "SingleLogoutUrlInput"
-        }), (0, _v1.jsx)(_v74.FormErrorMessage, {
+        }), (0, _v1.jsx)(_v63.FormErrorMessage, {
           children: _v2
         })]
       })]
     });
-  var _v86 = _v0.i(0);
-  let _v87 = _v0 => (0, _v1.jsx)(_v86.Icon, {
+  var _v74 = _v0.i(0);
+  let _v75 = _v0 => (0, _v1.jsx)(_v74.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -3976,7 +3585,7 @@
         fill: "currentColor"
       })
     }),
-    _v88 = ({
+    _v76 = ({
       uuid: _v0,
       onCopy: _v1,
       connectionType: _v2,
@@ -3988,17 +3597,17 @@
         CONNECTION_TYPE_ENTERPRISE_SITE: _v3,
         CONNECTION_TYPE_CHINA_SITE: _v4
       }[_v2] || _v20) + "/sso/connect?connection=" + _v0;
-      return (0, _v1.jsx)(_v69, {
+      return (0, _v1.jsx)(_v58, {
         title: _v12.TestUrl,
         description: _v12.TestUrlDescription,
         children: (0, _v1.jsxs)(_v5.Box, {
           position: "relative",
-          children: [(0, _v1.jsx)(_v67.Input, {
+          children: [(0, _v1.jsx)(_v56.Input, {
             readOnly: !0,
             value: _v5,
             paddingLeft: "400",
             size: "sm"
-          }), (0, _v1.jsx)(_v66.IconButton, {
+          }), (0, _v1.jsx)(_v55.IconButton, {
             size: "xs",
             "aria-label": "",
             id: "copyBtnTestUrl",
@@ -4006,7 +3615,7 @@
               navigator.clipboard.writeText(_v5), _v1();
             },
             variant: "secondary",
-            icon: (0, _v1.jsx)(_v87, {}),
+            icon: (0, _v1.jsx)(_v75, {}),
             position: "absolute",
             left: "50",
             top: "50"
@@ -4014,8 +3623,8 @@
         })
       });
     };
-  var _v89 = _v0.i(0);
-  let _v90 = ({
+  var _v77 = _v0.i(0);
+  let _v78 = ({
     uuid: _v0,
     onCopy: _v1,
     connectionType: _v2,
@@ -4040,10 +3649,10 @@
         name: _v12.SingleLogoutUrl,
         url: _v8
       }];
-    return (0, _v1.jsx)(_v69, {
+    return (0, _v1.jsx)(_v58, {
       title: _v12.VimeoMetadata,
       description: _v12.VimeoMetadataDescription,
-      children: _v9.map((_v0, _v1) => (0, _v1.jsxs)(_v64.Flex, {
+      children: _v9.map((_v0, _v1) => (0, _v1.jsxs)(_v53.Flex, {
         alignItems: "center",
         marginBottom: "75",
         gap: "75",
@@ -4052,7 +3661,7 @@
             marginBottom: 0
           }
         },
-        children: [(0, _v1.jsx)(_v65.Header, {
+        children: [(0, _v1.jsx)(_v54.Header, {
           as: "h6",
           variant: "heading-2xs",
           flex: "1",
@@ -4061,21 +3670,21 @@
         }), (0, _v1.jsxs)(_v5.Box, {
           position: "relative",
           flex: "5",
-          children: [(0, _v1.jsx)(_v67.Input, {
+          children: [(0, _v1.jsx)(_v56.Input, {
             readOnly: !0,
             value: _v0.url,
             paddingLeft: "400",
             size: "sm"
-          }), (0, _v1.jsx)(_v66.IconButton, {
+          }), (0, _v1.jsx)(_v55.IconButton, {
             size: "xs",
             "aria-label": "",
-            id: "copyBtn" + (0, _v89.default)(_v0.name),
+            id: "copyBtn" + (0, _v77.default)(_v0.name),
             onClick: () => {
               var _v0;
               return _v0 = _v0.url, void (navigator.clipboard.writeText(_v0), _v1());
             },
             variant: "secondary",
-            icon: (0, _v1.jsx)(_v87, {}),
+            icon: (0, _v1.jsx)(_v75, {}),
             position: "absolute",
             left: "50",
             top: "50"
@@ -4084,32 +3693,32 @@
       }, _v1))
     });
   };
-  var _v91 = _v0.i(0),
-    _v92 = _v0.i(0),
-    _v93 = _v0.i(0);
-  let _v94 = ({
+  var _v79 = _v0.i(0),
+    _v80 = _v0.i(0),
+    _v81 = _v0.i(0);
+  let _v82 = ({
       value: _v0,
       onFieldChange: _v1,
       error: _v2
-    }) => (0, _v1.jsxs)(_v64.Flex, {
+    }) => (0, _v1.jsxs)(_v53.Flex, {
       marginTop: "200",
       gap: "75",
       children: [(0, _v1.jsx)(_v5.Box, {
         flex: "1",
-        children: (0, _v1.jsx)(_v65.Header, {
+        children: (0, _v1.jsx)(_v54.Header, {
           as: "h6",
           variant: "heading-2xs",
           marginTop: "100",
           size: "xl",
           children: _v12.IDPCertificate
         })
-      }), (0, _v1.jsxs)(_v73.FormControl, {
+      }), (0, _v1.jsxs)(_v62.FormControl, {
         isInvalid: !!_v2,
         flex: "5",
-        children: [(0, _v1.jsx)(_v91.Textarea, {
+        children: [(0, _v1.jsx)(_v79.Textarea, {
           display: "block",
           width: "100%",
-          height: (0, _v92.rem)(150),
+          height: (0, _v80.rem)(150),
           resize: "none",
           placeholder: _v12.EnterCertificate,
           value: _v0 ?? "",
@@ -4144,7 +3753,7 @@
             bottom: "75",
             height: "md",
             width: "md"
-          }), (0, _v1.jsx)(_v66.IconButton, {
+          }), (0, _v1.jsx)(_v55.IconButton, {
             position: "absolute",
             right: "75",
             bottom: "75",
@@ -4155,14 +3764,14 @@
               let _v0 = document.getElementById("x509CertFileUpload");
               _v0 && _v0.click();
             },
-            icon: (0, _v1.jsx)(_v93.Upload, {})
+            icon: (0, _v1.jsx)(_v81.Upload, {})
           })]
-        }), (0, _v1.jsx)(_v74.FormErrorMessage, {
+        }), (0, _v1.jsx)(_v63.FormErrorMessage, {
           children: _v2
         })]
       })]
     }),
-    _v95 = ({
+    _v83 = ({
       userId: _v0,
       modalView: _v1,
       connection: _v2,
@@ -4187,7 +3796,7 @@
       let {
           updateLoading: _v20,
           onUpdateSsoConnection: _v21
-        } = _v63({
+        } = _v52({
           userId: _v0,
           onConnectionUpdateSuccess: _v11,
           onError: _v14,
@@ -4210,7 +3819,7 @@
         },
         _v25 = "info" === _v1 && _v3 ? _v24(_v3.uri) : _v2.uri ? _v24(_v2.uri) : _v15,
         _v26 = () => (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v81, {
+          children: [(0, _v1.jsx)(_v69, {
             value: _v2.title,
             onFieldChange: _v16,
             error: _v18.title && _v17.title,
@@ -4220,35 +3829,35 @@
             enterpriseSiteDomain: _v9,
             connectionType: _v2.connectionType,
             lockEnterpriseSiteSwitch: _v10
-          }), (0, _v1.jsx)(_v90, {
+          }), (0, _v1.jsx)(_v78, {
             onCopy: _v19,
             enterpriseSiteDomain: _v9,
             chinaSiteDomain: _v7,
             connectionType: _v2.connectionType,
             uuid: _v25
-          }), (0, _v1.jsx)(_v70, {
+          }), (0, _v1.jsx)(_v59, {
             attributesMap: _v2.attributesMap,
             onFieldChange: _v16
-          }), (0, _v1.jsxs)(_v69, {
+          }), (0, _v1.jsxs)(_v58, {
             title: _v12.IdentityProviderMetadata,
             description: _v12.UploadYouIDPMetadataFile,
-            children: [(0, _v1.jsx)(_v83, {
+            children: [(0, _v1.jsx)(_v71, {
               onFieldChange: _v16,
               onError: _v14
-            }), (0, _v1.jsx)(_v56.Paragraph, {
+            }), (0, _v1.jsx)(_v48.Paragraph, {
               color: "text-secondary",
               size: "md",
               marginTop: "200",
               children: _v12.AlternativelyAddEachOneManually
-            }), (0, _v1.jsx)(_v84, {
+            }), (0, _v1.jsx)(_v72, {
               value: _v2.ssoUrl,
               onFieldChange: _v16,
               error: _v18.ssoUrl && _v17.ssoUrl
-            }), (0, _v1.jsx)(_v94, {
+            }), (0, _v1.jsx)(_v82, {
               value: _v2.x509Certificate,
               onFieldChange: _v16,
               error: _v18.x509Certificate && _v17.x509Certificate
-            }), (0, _v1.jsx)(_v85, {
+            }), (0, _v1.jsx)(_v73, {
               value: _v2.singleLogoutUrl,
               onFieldChange: _v16,
               error: _v18.singleLogoutUrl && _v17.singleLogoutUrl
@@ -4256,22 +3865,22 @@
           })]
         }),
         _v27 = () => (0, _v1.jsxs)(_v1.Fragment, {
-          children: ["info" === _v1 && (0, _v1.jsx)(_v69, {
+          children: ["info" === _v1 && (0, _v1.jsx)(_v58, {
             title: _v12.EnableConnection,
             description: _v12.EnableConnectionDescription,
-            headerControl: (0, _v1.jsx)(_v57.Switch, {
+            headerControl: (0, _v1.jsx)(_v49.Switch, {
               size: "md",
               isDisabled: _v20,
               isChecked: _v22,
               onChange: _v24,
               id: "connectionToggle" + _v2.uri
             })
-          }), (0, _v1.jsx)(_v88, {
+          }), (0, _v1.jsx)(_v76, {
             onCopy: _v19,
             uuid: _v25,
             enterpriseSiteDomain: _v9,
             connectionType: _v2.connectionType
-          }), (0, _v1.jsx)(_v79, {
+          }), (0, _v1.jsx)(_v67, {
             userId: _v0,
             connection: _v3 ?? _v2,
             ssoDomains: _v4,
@@ -4294,24 +3903,24 @@
           return (0, _v1.jsx)(_v1.Fragment, {});
       }
     };
-  var _v96 = _v0.i(0);
-  let _v97 = ({
+  var _v84 = _v0.i(0);
+  let _v85 = ({
       stepNr: _v0
     }) => (0, _v1.jsxs)(_v5.Box, {
       children: [[1, 2].map(_v0 => (0, _v1.jsx)(_v5.Box, {
         backgroundColor: _v0 >= _v0 ? "text-secondary" : "stroke",
         width: "md",
-        height: (0, _v92.rem)(4),
+        height: (0, _v80.rem)(4),
         display: "inline-block",
-        borderRadius: (0, _v92.rem)(2),
+        borderRadius: (0, _v80.rem)(2),
         marginRight: "50"
-      }, _v0)), (0, _v1.jsx)(_v71.Text, {
+      }, _v0)), (0, _v1.jsx)(_v60.Text, {
         color: "text-secondary",
         variant: "body-md",
         children: _v12.Step(_v0)
       })]
     }),
-    _v98 = ({
+    _v86 = ({
       modalView: _v0,
       onModalClose: _v1,
       onEditSave: _v2,
@@ -4322,23 +3931,23 @@
       deleteLoading: _v7
     }) => {
       let _v8 = _v1;
-      return "edit" === _v0 ? _v8 = _v2 : "create" === _v0 && (_v8 = _v4), (0, _v1.jsx)(_v96.ModalFooter, {
-        children: (0, _v1.jsxs)(_v64.Flex, {
+      return "edit" === _v0 ? _v8 = _v2 : "create" === _v0 && (_v8 = _v4), (0, _v1.jsx)(_v84.ModalFooter, {
+        children: (0, _v1.jsxs)(_v53.Flex, {
           justifyContent: "space-between",
           alignItems: "center",
           width: "100%",
-          children: ["edit" === _v0 && (0, _v1.jsx)(_v72.Button, {
+          children: ["edit" === _v0 && (0, _v1.jsx)(_v61.Button, {
             isLoading: _v7,
             variant: "secondary",
             onClick: () => {
               confirm(_v12.ConfirmDeleteConnection) && _v3();
             },
             children: _v12.Delete
-          }), "edit" !== _v0 && (0, _v1.jsx)(_v97, {
+          }), "edit" !== _v0 && (0, _v1.jsx)(_v85, {
             stepNr: "create" === _v0 ? 1 : 2
-          }), (0, _v1.jsxs)(_v64.Flex, {
+          }), (0, _v1.jsxs)(_v53.Flex, {
             gap: "75",
-            children: ["info" === _v0 && (0, _v1.jsx)(_v72.Button, {
+            children: ["info" === _v0 && (0, _v1.jsx)(_v61.Button, {
               isLoading: _v6,
               isDisabled: _v5,
               variant: "primary",
@@ -4346,12 +3955,12 @@
               id: "finishBtn",
               children: _v12.Finish
             }), "info" !== _v0 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v72.Button, {
+              children: [(0, _v1.jsx)(_v61.Button, {
                 id: "cancelBtn",
                 variant: "tertiary",
                 onClick: _v1,
                 children: _v12.Cancel
-              }), (0, _v1.jsx)(_v72.Button, {
+              }), (0, _v1.jsx)(_v61.Button, {
                 isLoading: _v6,
                 isDisabled: _v5,
                 variant: "primary",
@@ -4364,16 +3973,16 @@
         })
       });
     };
-  var _v99 = _v0.i(0);
-  let _v100 = ({
+  var _v87 = _v0.i(0);
+  let _v88 = ({
     modalView: _v0
-  }) => (0, _v1.jsxs)(_v99.ModalHeader, {
+  }) => (0, _v1.jsxs)(_v87.ModalHeader, {
     paddingBottom: "50",
-    children: [(0, _v1.jsx)(_v65.Header, {
+    children: [(0, _v1.jsx)(_v54.Header, {
       size: "lg",
       as: "h3",
       children: _v17[_v0].header
-    }), (0, _v1.jsxs)(_v56.Paragraph, {
+    }), (0, _v1.jsxs)(_v48.Paragraph, {
       size: "md",
       children: [_v17[_v0].description, " ", (0, _v1.jsx)(_v4.Link, {
         href: _v13,
@@ -4384,8 +3993,8 @@
       })]
     })]
   });
-  var _v101 = _v0.i(0);
-  let _v102 = ({
+  var _v89 = _v0.i(0);
+  let _v90 = ({
     userId: _v0,
     connection: _v1,
     createdConnection: _v2,
@@ -4416,7 +4025,7 @@
         let [_v1, _v2] = (0, _v2.useState)(_v0),
           [_v3, _v4] = (0, _v2.useState)({});
         return (0, _v2.useEffect)(() => {
-          (0, _v101.default)(_v0, _v1) && _v4({});
+          (0, _v89.default)(_v0, _v1) && _v4({});
         }, [_v0, _v1]), (0, _v2.useEffect)(() => {
           _v2(_v0), _v4({});
         }, [_v0]), {
@@ -4460,7 +4069,7 @@
       {
         updateLoading: _v25,
         onUpdateSsoConnection: _v26
-      } = _v63({
+      } = _v52({
         userId: _v0,
         onConnectionUpdateSuccess: _v14,
         onError: _v19,
@@ -4479,7 +4088,45 @@
             loading: _v5,
             error: _v6,
             callCount: _v7
-          }] = _v61(),
+          }] = function () {
+            let {
+                mutate: _v0
+              } = (0, _v34.useSWRConfig)(),
+              {
+                baseUrl: _v1,
+                jwt: _v2,
+                xVimeoPage: _v3,
+                locale: _v4
+              } = (0, _v35.useGctlConfig)(),
+              [_v5, _v6] = (0, _v29.useInternalState)();
+            return [(0, _v2.useCallback)(async _v0 => {
+              _v6({
+                type: "REQUEST"
+              });
+              try {
+                let _v0 = await _v0(`/sso/${_v0.where.userId}/connections/${_v0.where.connectionUuid}${(0, _v29.serializeQuery)(_v0)}`, _v50({
+                  ..._v0,
+                  baseUrl: _v1,
+                  headers: {
+                    ..._v0.headers,
+                    "Content-Type": "application/json",
+                    Authorization: _v2 ? `jwt ${_v2}` : "",
+                    "Vimeo-Page": `${_v3}`,
+                    "Accept-Language": _v4 ?? "en"
+                  }
+                }), !1);
+                _v6({
+                  type: "SUCCESS",
+                  payload: _v0
+                });
+              } catch (_v0) {
+                _v6({
+                  type: "FAILURE",
+                  payload: _v0
+                });
+              }
+            }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+          }(),
           [_v8, _v9] = (0, _v2.useState)(null);
         return (0, _v2.useEffect)(() => {
           _v6 && _v2();
@@ -4537,21 +4184,21 @@
         onError: _v19
       }),
       _v31 = _v25 || _v27 || Object.keys(_v24).length > 0 || 0 === Object.keys(_v23).length;
-    return (0, _v1.jsxs)(_v52.Modal, {
+    return (0, _v1.jsxs)(_v44.Modal, {
       size: "xl",
       isOpen: _v6,
       onClose: _v7,
-      children: [(0, _v1.jsx)(_v55.ModalOverlay, {}), (0, _v1.jsxs)(_v54.ModalContent, {
+      children: [(0, _v1.jsx)(_v47.ModalOverlay, {}), (0, _v1.jsxs)(_v46.ModalContent, {
         display: "flex",
         "flex-direction": "column",
         height: "calc(100% - 7.5rem)",
         width: "784px",
-        children: [(0, _v1.jsx)(_v100, {
+        children: [(0, _v1.jsx)(_v88, {
           modalView: _v8
-        }), (0, _v1.jsx)(_v53.ModalBody, {
+        }), (0, _v1.jsx)(_v45.ModalBody, {
           flex: "1",
           overflowY: "auto",
-          children: (0, _v1.jsx)(_v95, {
+          children: (0, _v1.jsx)(_v83, {
             userId: _v0,
             modalView: _v8,
             connection: _v21,
@@ -4573,7 +4220,7 @@
             touchedFields: _v23,
             onCopy: _v20
           })
-        }), (0, _v1.jsx)(_v98, {
+        }), (0, _v1.jsx)(_v86, {
           modalView: _v8,
           onModalClose: _v7,
           onEditSave: () => {
@@ -4592,46 +4239,46 @@
       })]
     });
   };
-  var _v103 = _v0.i(0),
-    _v104 = _v0.i(0),
-    _v105 = _v0.i(0),
-    _v106 = _v0.i(0),
-    _v107 = _v0.i(0);
-  let _v108 = ({
+  var _v91 = _v0.i(0),
+    _v92 = _v0.i(0),
+    _v93 = _v0.i(0),
+    _v94 = _v0.i(0),
+    _v95 = _v0.i(0);
+  let _v96 = ({
       name: _v0,
       description: _v1
     }) => (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v65.Header, {
+      children: [(0, _v1.jsx)(_v54.Header, {
         variant: "heading-xs",
         as: "h6",
         size: "xl",
         children: _v0
-      }), _v1 && (0, _v1.jsx)(_v56.Paragraph, {
+      }), _v1 && (0, _v1.jsx)(_v48.Paragraph, {
         variant: "body-md",
         color: "text-secondary",
         marginTop: "50",
         children: _v1
       })]
     }),
-    _v109 = ({
+    _v97 = ({
       children: _v0,
       name: _v1,
       description: _v2,
       key: _v3
     }) => (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v107.Divider, {
+      children: [(0, _v1.jsx)(_v95.Divider, {
         borderColor: "stroke",
         marginY: "200"
-      }), (0, _v1.jsxs)(_v64.Flex, {
+      }), (0, _v1.jsxs)(_v53.Flex, {
         alignItems: "center",
         justifyContent: "space-between",
         children: [(0, _v1.jsx)(_v5.Box, {
           flex: "3",
-          children: (0, _v1.jsx)(_v108, {
+          children: (0, _v1.jsx)(_v96, {
             name: _v1,
             description: _v2
           })
-        }), (0, _v1.jsx)(_v64.Flex, {
+        }), (0, _v1.jsx)(_v53.Flex, {
           flex: "1",
           justifyContent: "flex-end",
           alignItems: "center",
@@ -4639,7 +4286,7 @@
         })]
       }, _v3)]
     }),
-    _v110 = ({
+    _v98 = ({
       header: _v0,
       description: _v1,
       isDisabled: _v2,
@@ -4652,10 +4299,10 @@
         value: _v0.role?.toLowerCase(),
         label: _v0.displayName || ""
       }));
-      return (0, _v1.jsx)(_v109, {
+      return (0, _v1.jsx)(_v97, {
         name: _v0,
         description: _v1,
-        children: (0, _v1.jsx)(_v106.Select, {
+        children: (0, _v1.jsx)(_v94.Select, {
           style: {
             width: "100%"
           },
@@ -4669,7 +4316,7 @@
         })
       });
     },
-    _v111 = ({
+    _v99 = ({
       header: _v0,
       description: _v1,
       isChecked: _v2,
@@ -4679,14 +4326,14 @@
       hidden: _v6,
       id: _v7,
       tooltip: _v8
-    }) => (0, _v1.jsxs)(_v109, {
+    }) => (0, _v1.jsxs)(_v97, {
       name: _v0,
       description: _v1,
-      children: [_v5, !_v6 && (0, _v1.jsx)(_v80.Tooltip, {
+      children: [_v5, !_v6 && (0, _v1.jsx)(_v68.Tooltip, {
         label: _v8,
         isDisabled: !_v8,
         shouldWrapChildren: !0,
-        children: (0, _v1.jsx)(_v57.Switch, {
+        children: (0, _v1.jsx)(_v49.Switch, {
           isDisabled: _v3,
           isChecked: _v2,
           onChange: () => _v4(!_v2),
@@ -4694,7 +4341,7 @@
         })
       })]
     }),
-    _v112 = ({
+    _v100 = ({
       header: _v0,
       description: _v1,
       value: _v2,
@@ -4711,10 +4358,10 @@
           let _v0 = setTimeout(() => _v3(String(_v6)), 500);
           return () => clearTimeout(_v0);
         }
-      }, [_v8, _v3, _v6, _v2]), (0, _v1.jsx)(_v109, {
+      }, [_v8, _v3, _v6, _v2]), (0, _v1.jsx)(_v97, {
         name: _v0,
         description: _v1,
-        children: (0, _v1.jsx)(_v67.Input, {
+        children: (0, _v1.jsx)(_v56.Input, {
           disabled: _v4,
           value: _v6,
           isInvalid: !_v8,
@@ -4729,7 +4376,7 @@
         })
       });
     },
-    _v113 = ({
+    _v101 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v5.Box, {
       borderRadius: "md",
@@ -4738,23 +4385,23 @@
       backgroundColor: "fill-surface",
       children: _v0
     }),
-    _v114 = ({
+    _v102 = ({
       name: _v0,
       description: _v1,
       dataId: _v2,
       controlElement: _v3 = null
-    }) => (0, _v1.jsxs)(_v64.Flex, {
+    }) => (0, _v1.jsxs)(_v53.Flex, {
       justifyContent: "space-between",
       alignItems: "center",
       children: [(0, _v1.jsxs)(_v5.Box, {
-        children: [(0, _v1.jsx)(_v65.Header, {
+        children: [(0, _v1.jsx)(_v54.Header, {
           variant: "heading-md",
           as: "h4",
           marginBottom: "50",
           "data-id": _v2,
           size: "xl",
           children: _v0
-        }), (0, _v1.jsx)(_v56.Paragraph, {
+        }), (0, _v1.jsx)(_v48.Paragraph, {
           variant: "body-md",
           color: "text-secondary",
           children: _v1
@@ -4763,7 +4410,7 @@
         children: _v3
       })]
     }),
-    _v115 = ({
+    _v103 = ({
       ssoSettings: _v0,
       ssoLoading: _v1,
       userId: _v2,
@@ -4782,7 +4429,45 @@
         onSettingUpdateSuccess: _v1
       }) => {
         let _v2 = (0, _v2.useRef)(0),
-          [_v3, _v4] = _v45(),
+          [_v3, _v4] = function () {
+            let {
+                mutate: _v0
+              } = (0, _v34.useSWRConfig)(),
+              {
+                baseUrl: _v1,
+                jwt: _v2,
+                xVimeoPage: _v3,
+                locale: _v4
+              } = (0, _v35.useGctlConfig)(),
+              [_v5, _v6] = (0, _v29.useInternalState)();
+            return [(0, _v2.useCallback)(async _v0 => {
+              _v6({
+                type: "REQUEST"
+              });
+              try {
+                let _v0 = await _v0(`/sso/${_v0.where.userId}/settings${(0, _v29.serializeQuery)(_v0)}`, _v37({
+                  ..._v0,
+                  baseUrl: _v1,
+                  headers: {
+                    ..._v0.headers,
+                    "Content-Type": "application/json",
+                    Authorization: _v2 ? `jwt ${_v2}` : "",
+                    "Vimeo-Page": `${_v3}`,
+                    "Accept-Language": _v4 ?? "en"
+                  }
+                }), !1);
+                _v6({
+                  type: "SUCCESS",
+                  payload: _v0
+                });
+              } catch (_v0) {
+                _v6({
+                  type: "FAILURE",
+                  payload: _v0
+                });
+              }
+            }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+          }(),
           {
             loading: _v5,
             error: _v6,
@@ -4810,13 +4495,13 @@
       });
       return ((0, _v2.useEffect)(() => {
         _v8 && _v3();
-      }, [_v3, _v8]), _v1 || !_v0) ? (0, _v1.jsx)(_v76.LoadSpinner, {}) : (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v113, {
-          children: [(0, _v1.jsx)(_v114, {
+      }, [_v3, _v8]), _v1 || !_v0) ? (0, _v1.jsx)(_v65.LoadSpinner, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsxs)(_v101, {
+          children: [(0, _v1.jsx)(_v102, {
             dataId: "provisioning-options-section",
             name: _v12.ProvisioningOptions,
             description: _v12.ProvisioningOptionsDescription
-          }), "jitProvisioning" in _v0 && (0, _v1.jsx)(_v111, {
+          }), "jitProvisioning" in _v0 && (0, _v1.jsx)(_v99, {
             header: _v12.JITProvisioning,
             description: _v12.JITProvisioningDescription,
             isChecked: _v0.jitProvisioning,
@@ -4830,7 +4515,7 @@
               });
             },
             id: "jitProvisioning"
-          }), "jitReprovisioning" in _v0 && (0, _v1.jsx)(_v111, {
+          }), "jitReprovisioning" in _v0 && (0, _v1.jsx)(_v99, {
             header: _v12.JITReprovisioning,
             description: _v12.JITReprovisioningDescription,
             isChecked: _v0.jitReprovisioning,
@@ -4840,7 +4525,7 @@
             }),
             id: "jitReprovisioning",
             tooltip: _v0.jitProvisioning ? null : _v12.JITReprovisioningTooltip
-          }), "teamBasedSso" in _v0 && (0, _v1.jsx)(_v111, {
+          }), "teamBasedSso" in _v0 && (0, _v1.jsx)(_v99, {
             header: _v12.TeamOnlySso,
             description: _v12.TeamOnlySsoDescription,
             isChecked: _v0.teamBasedSso,
@@ -4850,7 +4535,7 @@
             }),
             id: "teamBasedSso"
           }), "scimBasedSso" in _v0 && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v111, {
+            children: [(0, _v1.jsx)(_v99, {
               header: _v12.SCIM,
               description: _v12.SCIMDescription,
               isChecked: _v0.scimBasedSso,
@@ -4860,32 +4545,32 @@
               }),
               hidden: !0,
               id: "scimBasedSso",
-              linkButton: (0, _v1.jsx)(_v72.Button, {
+              linkButton: (0, _v1.jsx)(_v61.Button, {
                 onClick: () => {
                   _v4 && window.open("https://developer.vimeo.com/apps", "_blank");
                 },
                 isDisabled: !_v4,
                 variant: "secondary",
                 size: "sm",
-                leftIcon: (0, _v1.jsx)(_v105.PopOut, {}),
+                leftIcon: (0, _v1.jsx)(_v93.PopOut, {}),
                 id: "manageScimBtn",
                 children: _v12.Manage
               })
-            }), !_v4 && (0, _v1.jsx)(_v103.Alert, {
+            }), !_v4 && (0, _v1.jsx)(_v91.Alert, {
               size: "sm",
               marginTop: "200",
-              children: (0, _v1.jsx)(_v104.AlertDescription, {
+              children: (0, _v1.jsx)(_v92.AlertDescription, {
                 marginTop: "50",
                 children: _v7
               })
             })]
           })]
-        }), (0, _v1.jsxs)(_v113, {
-          children: [(0, _v1.jsx)(_v114, {
+        }), (0, _v1.jsxs)(_v101, {
+          children: [(0, _v1.jsx)(_v102, {
             dataId: "sso-configuration-section",
             name: _v12.SSOConfiguration,
             description: _v12.SSOConfigurationDescription
-          }), "forceSso" in _v0 && (0, _v1.jsx)(_v111, {
+          }), "forceSso" in _v0 && (0, _v1.jsx)(_v99, {
             header: _v12.ForceSSO,
             description: _v12.ForceSSODescription,
             isChecked: _v0.forceSso,
@@ -4894,7 +4579,7 @@
               forceSso: _v0
             }),
             id: "forceSso"
-          }), "defaultTeamRole" in _v0 && (0, _v1.jsx)(_v110, {
+          }), "defaultTeamRole" in _v0 && (0, _v1.jsx)(_v98, {
             header: _v12.DefaultRole,
             description: _v12.DefaultRoleDescription,
             isDisabled: _v9,
@@ -4904,7 +4589,7 @@
               defaultTeamRole: _v0
             }),
             id: "defaultTeamRole"
-          }), "logoutUrl" in _v0 && (0, _v1.jsx)(_v112, {
+          }), "logoutUrl" in _v0 && (0, _v1.jsx)(_v100, {
             isDisabled: _v9,
             header: _v12.LogoutURL,
             description: _v12.LogoutURLDescription,
@@ -4917,7 +4602,7 @@
         })]
       });
     },
-    _v116 = ({
+    _v104 = ({
       ownerId: _v0,
       connections: _v1,
       loading: _v2,
@@ -4929,13 +4614,13 @@
       let {
           updateLoading: _v7,
           onUpdateSsoConnection: _v8
-        } = _v63({
+        } = _v52({
           userId: _v0,
           onConnectionUpdateSuccess: _v5,
           onError: _v6,
           toggleUpdate: !0
         }),
-        _v9 = (0, _v1.jsx)(_v72.Button, {
+        _v9 = (0, _v1.jsx)(_v61.Button, {
           id: "createConnectionBtn",
           variant: "primary",
           onClick: _v4,
@@ -4943,19 +4628,19 @@
           "data-id": "create-connection-button",
           children: _v12.CreateConnection
         });
-      return (0, _v1.jsxs)(_v113, {
-        children: [(0, _v1.jsx)(_v114, {
+      return (0, _v1.jsxs)(_v101, {
+        children: [(0, _v1.jsx)(_v102, {
           name: _v12.SAMLConnections,
           description: _v12.SAMLConnectionsDescription,
           controlElement: _v9
         }), _v2 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v107.Divider, {
+          children: [(0, _v1.jsx)(_v95.Divider, {
             borderColor: "stroke",
             marginY: "200"
-          }), (0, _v1.jsx)(_v76.LoadSpinner, {
+          }), (0, _v1.jsx)(_v65.LoadSpinner, {
             heightPX: 100
           })]
-        }), !_v2 && _v1 && _v1.map(_v0 => (0, _v1.jsxs)(_v109, {
+        }), !_v2 && _v1 && _v1.map(_v0 => (0, _v1.jsxs)(_v97, {
           name: _v0.title,
           description: (_v0 => {
             let _v1 = _v0.metadata.interactions.connect.domains;
@@ -4969,14 +4654,14 @@
               children: [_v12.ClaimedDomains, ": ", _v2]
             });
           })(_v0),
-          children: [(0, _v1.jsx)(_v72.Button, {
+          children: [(0, _v1.jsx)(_v61.Button, {
             marginRight: "200",
             id: "connectionEdit" + _v0.uri,
             variant: "secondary",
             size: "sm",
             onClick: () => _v3(_v0),
             children: _v12.Edit
-          }), (0, _v1.jsx)(_v57.Switch, {
+          }), (0, _v1.jsx)(_v49.Switch, {
             isDisabled: _v7,
             isChecked: _v0.isActive,
             onChange: () => {
@@ -5061,7 +4746,45 @@
         userId: _v0,
         connectionUri: _v1
       }) => {
-        let [_v2, _v3] = _v39(),
+        let [_v2, _v3] = function () {
+            let {
+                mutate: _v0
+              } = (0, _v34.useSWRConfig)(),
+              {
+                baseUrl: _v1,
+                jwt: _v2,
+                xVimeoPage: _v3,
+                locale: _v4
+              } = (0, _v35.useGctlConfig)(),
+              [_v5, _v6] = (0, _v29.useInternalState)();
+            return [(0, _v2.useCallback)(async _v0 => {
+              _v6({
+                type: "REQUEST"
+              });
+              try {
+                let _v0 = await _v0(`/sso/${_v0.where.userId}/connection/${_v0.where.connectionUuid}/domains${(0, _v29.serializeQuery)(_v0)}`, _v32({
+                  ..._v0,
+                  baseUrl: _v1,
+                  headers: {
+                    ..._v0.headers,
+                    "Content-Type": "application/json",
+                    Authorization: _v2 ? `jwt ${_v2}` : "",
+                    "Vimeo-Page": `${_v3}`,
+                    "Accept-Language": _v4 ?? "en"
+                  }
+                }));
+                _v6({
+                  type: "SUCCESS",
+                  payload: _v0
+                });
+              } catch (_v0) {
+                _v6({
+                  type: "FAILURE",
+                  payload: _v0
+                });
+              }
+            }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+          }(),
           _v4 = (0, _v2.useCallback)(() => {
             _v0 && _v1 && _v2 && _v2({
               select: _v16,
@@ -5087,7 +4810,45 @@
       } = (({
         userId: _v0
       }) => {
-        let [_v1, _v2] = _v44(),
+        let [_v1, _v2] = function () {
+            let {
+                mutate: _v0
+              } = (0, _v34.useSWRConfig)(),
+              {
+                baseUrl: _v1,
+                jwt: _v2,
+                xVimeoPage: _v3,
+                locale: _v4
+              } = (0, _v35.useGctlConfig)(),
+              [_v5, _v6] = (0, _v29.useInternalState)();
+            return [(0, _v2.useCallback)(async _v0 => {
+              _v6({
+                type: "REQUEST"
+              });
+              try {
+                let _v0 = await _v0(`/sso/${_v0.where.userId}/settings${(0, _v29.serializeQuery)(_v0)}`, _v36({
+                  ..._v0,
+                  baseUrl: _v1,
+                  headers: {
+                    ..._v0.headers,
+                    "Content-Type": "application/json",
+                    Authorization: _v2 ? `jwt ${_v2}` : "",
+                    "Vimeo-Page": `${_v3}`,
+                    "Accept-Language": _v4 ?? "en"
+                  }
+                }));
+                _v6({
+                  type: "SUCCESS",
+                  payload: _v0
+                });
+              } catch (_v0) {
+                _v6({
+                  type: "FAILURE",
+                  payload: _v0
+                });
+              }
+            }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+          }(),
           _v3 = (0, _v2.useCallback)(() => {
             _v0 && _v1 && _v1({
               select: _v14,
@@ -5203,22 +4964,22 @@
             sendSSOConnectionCreateAttempt: _v21,
             sendSSOConnectionSaved: _v22,
             sendSSOConnectionEnabled: _v23
-          } = (_v16 = (0, _v51.useViewer)(), _v17 = (0, _v2.useMemo)(() => (0, _v46.buildActionBpContext)({
+          } = (_v16 = (0, _v43.useViewer)(), _v17 = (0, _v2.useMemo)(() => (0, _v38.buildActionBpContext)({
             action_type: "click",
             feature: null
-          }), []), _v18 = (0, _v2.useCallback)((_v0, _v1) => (0, _v47.buildProductAnalyticsBpContext)({
+          }), []), _v18 = (0, _v2.useCallback)((_v0, _v1) => (0, _v39.buildProductAnalyticsBpContext)({
             product: "collaboration",
             feature: "settings",
             location: "workspace",
             copy: _v1,
             element: _v0
-          }), []), _v19 = (0, _v2.useMemo)(() => (0, _v48.buildTeamBpContextFromTeamUser)(_v16?.teamUser), [_v16?.teamUser]), _v20 = (0, _v2.useMemo)(() => (0, _v49.buildThirdPartyIntegrationBpContext)({
+          }), []), _v19 = (0, _v2.useMemo)(() => (0, _v40.buildTeamBpContextFromTeamUser)(_v16?.teamUser), [_v16?.teamUser]), _v20 = (0, _v2.useMemo)(() => (0, _v41.buildThirdPartyIntegrationBpContext)({
             integration_id: null,
             integration_name: null,
             is_partner: null
           }), []), {
             sendSSOConnectionCreateAttempt: () => {
-              (0, _v50.sendBpEventWithContexts)("vimeo.sso_connection_create_attempt", {
+              (0, _v42.sendBpEventWithContexts)("vimeo.sso_connection_create_attempt", {
                 ..._v17,
                 ..._v18("button", "Create connection"),
                 ..._v19,
@@ -5226,7 +4987,7 @@
               }, -1);
             },
             sendSSOConnectionSaved: (_v0, _v1) => {
-              (0, _v50.sendBpEventWithContexts)("vimeo.sso_connection_saved", {
+              (0, _v42.sendBpEventWithContexts)("vimeo.sso_connection_saved", {
                 ..._v17,
                 ..._v18("button", "Save"),
                 ..._v19,
@@ -5237,7 +4998,7 @@
               });
             },
             sendSSOConnectionEnabled: _v0 => {
-              (0, _v50.sendBpEventWithContexts)("vimeo.sso_connection_enabled", {
+              (0, _v42.sendBpEventWithContexts)("vimeo.sso_connection_enabled", {
                 ..._v17,
                 ..._v18("toggle", "Enable connection " + _v0),
                 ..._v19,
@@ -5319,7 +5080,7 @@
             children: _v12.FollowGuide
           })]
         })
-      }), (0, _v1.jsx)(_v116, {
+      }), (0, _v1.jsx)(_v104, {
         ownerId: _v0,
         connections: _v35,
         loading: _v24,
@@ -5327,7 +5088,7 @@
         onEdit: _v0 => _v42(_v0),
         onConnectionUpdateSuccess: _v44,
         onError: _v50
-      }), (0, _v1.jsx)(_v115, {
+      }), (0, _v1.jsx)(_v103, {
         ssoSettings: _v41,
         ssoLoading: _v30,
         userId: _v0,
@@ -5336,7 +5097,7 @@
         onSettingUpdateSuccess: _v49,
         rolesInfo: _v1,
         scimAppWarning: _v2
-      }), (0, _v1.jsx)(_v102, {
+      }), (0, _v1.jsx)(_v90, {
         userId: _v0,
         connection: _v14,
         createdConnection: _v12,

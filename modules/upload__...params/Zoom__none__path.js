@@ -34,9 +34,8 @@
     })]
   })], 0);
   var _v3 = _v0.i(0),
-    _v4 = _v0.i(0),
-    _v5 = _v0.i(0);
-  async function _v6({
+    _v4 = _v0.i(0);
+  async function _v5({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -44,32 +43,32 @@
     },
     ..._v3
   }) {
-    return (0, _v4.measureLatency)("getMeImportApp", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/me/import_apps/${_v2}?fields=${_v1.map(_v5.intoSnakeCase).join(",")}`, {
+    return (0, _v3.measureLatency)("getMeImportApp", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/me/import_apps/${_v2}?fields=${_v1.map(_v4.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v5.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v4.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v5.deepCamelCase)(_v1);
+      return (0, _v4.deepCamelCase)(_v1);
     });
   }
-  var _v7 = _v0.i(0),
-    _v8 = _v0.i(0),
-    _v9 = _v0.i(0),
-    _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
-  function _v12(_v0, _v1) {
+  var _v6 = _v0.i(0);
+  _v0.i(0);
+  var _v7 = _v0.i(0);
+  _v0.i(0);
+  var _v8 = _v0.i(0);
+  _v0.s(["useGetMeImportApp", 0, function (_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
         baseUrl: _v3,
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v11.useGctlConfig)();
-    return (0, _v7.default)(_v2 ? `/me/import_apps/${_v2.where.appType}${(0, _v9.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v6({
+      } = (0, _v8.useGctlConfig)();
+    return (0, _v6.default)(_v2 ? `/me/import_apps/${_v2.where.appType}${(0, _v7.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v5({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -80,50 +79,5 @@
       },
       baseUrl: _v3
     }) : null, _v1);
-  }
-  "true" === _v3.default.env.STORYBOOK && (0, _v9.assignMswData)(_v12, {
-    endpoint: "/me/import_apps/:appType",
-    method: "GET"
-  }), "true" === _v3.default.env.STORYBOOK && (0, _v9.assignMswData)(function () {
-    let {
-        mutate: _v0
-      } = (0, _v8.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v11.useGctlConfig)(),
-      [_v5, _v6] = (0, _v9.useInternalState)();
-    return [(0, _v10.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/me/import_apps/${_v0.where.appType}${(0, _v9.serializeQuery)(_v0)}`, _v6({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, {
-    endpoint: "/me/import_apps/:appType",
-    method: "GET"
-  }), _v0.s(["useGetMeImportApp", 0, _v12], 0);
+  }], 0);
 }

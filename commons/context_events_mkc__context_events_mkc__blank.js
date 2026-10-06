@@ -1390,9 +1390,8 @@
     _v99 = _v0.i(0),
     _v100 = _v0.i(0),
     _v101 = _v0.i(0),
-    _v102 = _v0.i(0),
-    _v103 = _v0.i(0);
-  async function _v104({
+    _v102 = _v0.i(0);
+  async function _v103({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1401,250 +1400,31 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v102.measureLatency)("getLiveEventVideos", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v2}/videos?${(0, _v103.searchQueryString)(_v3)}&fields=${_v1.map(_v103.intoSnakeCase).join(",")}`, {
+    return (0, _v101.measureLatency)("getLiveEventVideos", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v2}/videos?${(0, _v102.searchQueryString)(_v3)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
+      return (0, _v102.deepCamelCase)(_v1);
     });
   }
-  async function _v105({
-    baseUrl: _v0,
-    variables: _v1,
-    where: {
-      liveEventId: _v2
-    },
-    ..._v3
-  }) {
-    return (0, _v102.measureLatency)("postLiveEventVideos", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v2}/videos`, {
-        ..._v3,
-        method: "POST",
-        body: JSON.stringify((0, _v103.deepSnakeCase)(_v1))
-      });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
-    });
-  }
-  async function _v106({
-    baseUrl: _v0,
-    variables: _v1,
-    where: {
-      liveEventId: _v2
-    },
-    ..._v3
-  }) {
-    return (0, _v102.measureLatency)("deleteLiveEventVideos", "DELETE", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v2}/videos`, {
-        ..._v3,
-        method: "DELETE",
-        body: JSON.stringify((0, _v103.deepSnakeCase)(_v1))
-      });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
-    });
-  }
-  var _v107 = _v0.i(0),
-    _v108 = _v0.i(0),
-    _v109 = _v0.i(0),
-    _v110 = _v0.i(0);
-  function _v111() {
-    let {
-        mutate: _v0
-      } = (0, _v108.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v110.useGctlConfig)(),
-      [_v5, _v6] = (0, _v101.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/live_events/${_v0.where.liveEventId}/videos${(0, _v101.serializeQuery)(_v0)}`, _v104({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v107.default)(_v2 ? `/live_events/${_v2.where.liveEventId}/videos${(0, _v101.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v104({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/live_events/:liveEventId/videos",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(_v111, {
-    endpoint: "/live_events/:liveEventId/videos",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v109.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/live_events/${_v2.where.liveEventId}/videos?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v104({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/live_events/:liveEventId/videos",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function () {
-    let {
-        baseUrl: _v0,
-        jwt: _v1,
-        xVimeoPage: _v2,
-        locale: _v3
-      } = (0, _v110.useGctlConfig)(),
-      [_v4, _v5] = (0, _v101.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v5({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v105({
-          ..._v0,
-          baseUrl: _v0,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v1 ? `jwt ${_v1}` : "",
-            "Vimeo-Page": `${_v2}`,
-            "Accept-Language": _v3 ?? "en"
-          }
-        });
-        _v5({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v5({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v0, _v2, _v1, _v3, _v5]), _v4];
-  }, {
-    endpoint: "/live_events/:liveEventId/videos",
-    method: "POST"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function () {
-    let {
-        baseUrl: _v0,
-        jwt: _v1,
-        xVimeoPage: _v2,
-        locale: _v3
-      } = (0, _v110.useGctlConfig)(),
-      [_v4, _v5] = (0, _v101.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v5({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v106({
-          ..._v0,
-          baseUrl: _v0,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v1 ? `jwt ${_v1}` : "",
-            "Vimeo-Page": `${_v2}`,
-            "Accept-Language": _v3 ?? "en"
-          }
-        });
-        _v5({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v5({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v0, _v2, _v1, _v3, _v5]), _v4];
-  }, {
-    endpoint: "/live_events/:liveEventId/videos",
-    method: "DELETE"
-  });
-  let _v112 = ["analytics", "analytics.viewPercentage", "createdOn", "data", "email", "firstName", "hasAttended", "isBlocked", "lastName", "referrer", "sourceDetails", "sourceType", "uri", "views"],
-    _v113 = ["uri", "duration", "live.status", "created_time"],
-    _v114 = ["service_id", "service_type", "name", "icon", "user_id", "dark_icon", "connected", "lists.id", "lists.name", "lists.count", "lists.has_more", "can_import_from_crm"];
-  _v0.s(["ATTENDEES_API_FIELDS", 0, ["uri", "analytics.view_percentage", "created_on", "data", "email", "first_name", "is_blocked", "last_name", "has_attended", "views", "source_type", "source_details"], "CLIP_COLLECTION_FIELDS", 0, _v113, "CRM_IMPORT_FIELDS", 0, ["uri", "status", "type", "errorDetails", "pendingUserAction", "createdOn", "emailProviderList.isActive", "emailProviderList.lastImportTime", "emailProviderList.provider", "emailProviderList.list", "emailProviderList.connectionOwnerId"], "ESP_API_FIELDS", 0, _v114, "EVENT_API_FIELDS_FOR_ATTENDEE_PAGE", 0, ["uri", "title", "user", "schedule", "metadata", "link", "status", "streamPrivacy"], "FORM_FIELDS_FOR_ATTENDEE_PAGE", 0, ["hasLeadsFromLegacyForm", "createdOn", "registrationData.isUnlimited", "registrationData.capping", "registrationData.downloadCsvAsynchronously", "registrationData.lowerLimit", "registrationData.total", "registrationData.upperLimit"], "LeadResponseFields", 0, _v112, "SHOWCASE_API_FIELDS", 0, ["uri", "user.uri", "name", "privacy", "metadata.interactions.edit", "pictures", "link", "metadata.connections.videos.total", "seoAllowIndexed"], "VIDEO_API_FIELDS", 0, ["uri", "duration", "user.uri", "privacy", "metadata.interactions.edit", "name", "pictures", "link", "isPlayable"]], 0);
-  let _v115 = (0, _v2.createContext)({
+  _v0.i(0);
+  var _v104 = _v0.i(0);
+  _v0.i(0);
+  var _v105 = _v0.i(0);
+  let _v106 = ["analytics", "analytics.viewPercentage", "createdOn", "data", "email", "firstName", "hasAttended", "isBlocked", "lastName", "referrer", "sourceDetails", "sourceType", "uri", "views"],
+    _v107 = ["uri", "duration", "live.status", "created_time"],
+    _v108 = ["service_id", "service_type", "name", "icon", "user_id", "dark_icon", "connected", "lists.id", "lists.name", "lists.count", "lists.has_more", "can_import_from_crm"];
+  _v0.s(["ATTENDEES_API_FIELDS", 0, ["uri", "analytics.view_percentage", "created_on", "data", "email", "first_name", "is_blocked", "last_name", "has_attended", "views", "source_type", "source_details"], "CLIP_COLLECTION_FIELDS", 0, _v107, "CRM_IMPORT_FIELDS", 0, ["uri", "status", "type", "errorDetails", "pendingUserAction", "createdOn", "emailProviderList.isActive", "emailProviderList.lastImportTime", "emailProviderList.provider", "emailProviderList.list", "emailProviderList.connectionOwnerId"], "ESP_API_FIELDS", 0, _v108, "EVENT_API_FIELDS_FOR_ATTENDEE_PAGE", 0, ["uri", "title", "user", "schedule", "metadata", "link", "status", "streamPrivacy"], "FORM_FIELDS_FOR_ATTENDEE_PAGE", 0, ["hasLeadsFromLegacyForm", "createdOn", "registrationData.isUnlimited", "registrationData.capping", "registrationData.downloadCsvAsynchronously", "registrationData.lowerLimit", "registrationData.total", "registrationData.upperLimit"], "LeadResponseFields", 0, _v106, "SHOWCASE_API_FIELDS", 0, ["uri", "user.uri", "name", "privacy", "metadata.interactions.edit", "pictures", "link", "metadata.connections.videos.total", "seoAllowIndexed"], "VIDEO_API_FIELDS", 0, ["uri", "duration", "user.uri", "privacy", "metadata.interactions.edit", "name", "pictures", "link", "isPlayable"]], 0);
+  let _v109 = (0, _v2.createContext)({
       videos: [],
       fetchVideos: () => null
     }),
-    _v116 = () => (0, _v2.useContext)(_v115);
+    _v110 = () => (0, _v2.useContext)(_v109);
   _v0.s(["default", 0, function ({
     children: _v0,
     entityLink: _v1
@@ -1653,7 +1433,45 @@
       [_v3, {
         loading: _v4,
         data: _v5
-      }] = _v111(),
+      }] = function () {
+        let {
+            mutate: _v0
+          } = (0, _v104.useSWRConfig)(),
+          {
+            baseUrl: _v1,
+            jwt: _v2,
+            xVimeoPage: _v3,
+            locale: _v4
+          } = (0, _v105.useGctlConfig)(),
+          [_v5, _v6] = (0, _v100.useInternalState)();
+        return [(0, _v2.useCallback)(async _v0 => {
+          _v6({
+            type: "REQUEST"
+          });
+          try {
+            let _v0 = await _v0(`/live_events/${_v0.where.liveEventId}/videos${(0, _v100.serializeQuery)(_v0)}`, _v103({
+              ..._v0,
+              baseUrl: _v1,
+              headers: {
+                ..._v0.headers,
+                "Content-Type": "application/json",
+                Authorization: _v2 ? `jwt ${_v2}` : "",
+                "Vimeo-Page": `${_v3}`,
+                "Accept-Language": _v4 ?? "en"
+              }
+            }));
+            _v6({
+              type: "SUCCESS",
+              payload: _v0
+            });
+          } catch (_v0) {
+            _v6({
+              type: "FAILURE",
+              payload: _v0
+            });
+          }
+        }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+      }(),
       _v6 = (0, _v32.useConfigStore)(_v0 => _v0.entityType),
       [_v7, _v8] = (0, _v2.useState)([]),
       _v9 = (0, _v2.useCallback)(() => {
@@ -1664,29 +1482,29 @@
           headers: {
             Accept: "application/vnd.vimeo.*;version=3.4.1"
           },
-          select: _v113
+          select: _v107
         });
       }, [_v6, _v2, _v3]);
     return (0, _v2.useEffect)(() => {
       _v9();
     }, [_v9]), (0, _v2.useEffect)(() => {
       !_v4 && _v5?.data && _v8(_v5.data);
-    }, [_v5, _v4]), (0, _v1.jsx)(_v115.Provider, {
+    }, [_v5, _v4]), (0, _v1.jsx)(_v109.Provider, {
       value: {
         videos: _v7,
         fetchVideos: _v9
       },
       children: _v0
     });
-  }, "useVideos", 0, _v116], 0);
-  let _v117 = ({
+  }, "useVideos", 0, _v110], 0);
+  let _v111 = ({
     selectedClip: _v0,
     setSelectedClip: _v1,
     loading: _v2
   }) => {
     let {
         videos: _v3
-      } = _v116(),
+      } = _v110(),
       {
         status: _v4
       } = (0, _v25.useEntityStore)(),
@@ -1748,8 +1566,8 @@
       })
     });
   };
-  var _v118 = _v0.i(0);
-  let _v119 = ({
+  var _v112 = _v0.i(0);
+  let _v113 = ({
     isChosen: _v0,
     value: _v1,
     title: _v2
@@ -1770,7 +1588,7 @@
             color: _v0 ? "blue.500" : "text-secondary",
             fontSize: "header-xs",
             children: [_v2, " answer"]
-          }), _v0 ? (0, _v1.jsx)(_v118.Checkmark, {
+          }), _v0 ? (0, _v1.jsx)(_v112.Checkmark, {
             boxSize: (0, _v9.rem)(22),
             color: "blue.500"
           }) : null]
@@ -1794,7 +1612,7 @@
       })]
     });
   };
-  async function _v120({
+  async function _v114({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1804,35 +1622,35 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v102.measureLatency)("getUserLiveEventPolls", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/live_events/${_v3}/polls?${(0, _v103.searchQueryString)(_v4)}&fields=${_v1.map(_v103.intoSnakeCase).join(",")}`, {
+    return (0, _v101.measureLatency)("getUserLiveEventPolls", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/live_events/${_v3}/polls?${(0, _v102.searchQueryString)(_v4)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
+      return (0, _v102.deepCamelCase)(_v1);
     });
   }
-  function _v121() {
+  function _v115() {
     let {
         mutate: _v0
-      } = (0, _v108.useSWRConfig)(),
+      } = (0, _v104.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v110.useGctlConfig)(),
-      [_v5, _v6] = (0, _v101.useInternalState)();
+      } = (0, _v105.useGctlConfig)(),
+      [_v5, _v6] = (0, _v100.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/live_events/${_v0.where.liveEventId}/polls${(0, _v101.serializeQuery)(_v0)}`, _v120({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/live_events/${_v0.where.liveEventId}/polls${(0, _v100.serializeQuery)(_v0)}`, _v114({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -1855,71 +1673,9 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v107.default)(_v2 ? `/users/${_v2.where.userId}/live_events/${_v2.where.liveEventId}/polls${(0, _v101.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v120({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/live_events/:liveEventId/polls",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(_v121, {
-    endpoint: "/users/:userId/live_events/:liveEventId/polls",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v109.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/users/${_v2.where.userId}/live_events/${_v2.where.liveEventId}/polls?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v120({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/live_events/:liveEventId/polls",
-    method: "GET"
-  });
-  var _v122 = _v0.i(0);
-  function _v123() {
-    let _v0 = (0, _v122.useCache)(),
+  var _v116 = _v0.i(0);
+  function _v117() {
+    let _v0 = (0, _v116.useCache)(),
       _v1 = (0, _v2.useCallback)(() => _v0.get(_v31.ATTENDEE_URL_CACHE_KEY) || [], [_v0]),
       _v2 = (0, _v2.useCallback)(_v0 => _v0.get(_v0), [_v0]),
       _v3 = (0, _v2.useCallback)(_v0 => {
@@ -1957,8 +1713,8 @@
       }, [_v0, _v1])
     };
   }
-  _v0.s(["useAttendeeCache", 0, _v123], 0);
-  let _v124 = ({
+  _v0.s(["useAttendeeCache", 0, _v117], 0);
+  let _v118 = ({
     record: _v0,
     videoUrl: _v1,
     isActive: _v2 = !1
@@ -1978,11 +1734,11 @@
           loading: _v4,
           error: _v5,
           data: _v6
-        }] = _v121(),
+        }] = _v115(),
         {
           getFromCache: _v7,
           addToCache: _v8
-        } = _v123(),
+        } = _v117(),
         [_v9, _v10] = (0, _v2.useState)(),
         {
           hasPolls: _v11,
@@ -1991,7 +1747,7 @@
         } = (_v0 => {
           let _v1 = (0, _v32.useConfigStore)(_v0 => _v0.entityType),
             _v2 = (0, _v32.useConfigStore)(_v0 => _v0.entityId),
-            _v3 = (0, _v122.useCache)(),
+            _v3 = (0, _v116.useCache)(),
             {
               user: _v4
             } = (0, _v25.useEntityStore)(),
@@ -2001,7 +1757,7 @@
               loading: _v9,
               error: _v10,
               data: _v11
-            }] = _v121();
+            }] = _v115();
           return (0, _v2.useEffect)(() => {
             if (_v1 !== _v18.ENTITY_TYPE.EVENT || !_v0) return;
             let _v0 = _v3.get(_v7);
@@ -2100,7 +1856,7 @@
             text: _v0,
             votesPercentage: _v1,
             voted: _v2
-          }, _v3) => (0, _v1.jsx)(_v119, {
+          }, _v3) => (0, _v1.jsx)(_v113, {
             title: _v0,
             value: _v1,
             isChosen: _v2 || !1
@@ -2130,7 +1886,7 @@
       })
     });
   };
-  async function _v125({
+  async function _v119({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -2140,121 +1896,20 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v102.measureLatency)("getUserLiveEventQna", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/live_events/${_v3}/qna?${(0, _v103.searchQueryString)(_v4)}&fields=${_v1.map(_v103.intoSnakeCase).join(",")}`, {
+    return (0, _v101.measureLatency)("getUserLiveEventQna", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/live_events/${_v3}/qna?${(0, _v102.searchQueryString)(_v4)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
+      return (0, _v102.deepCamelCase)(_v1);
     });
   }
-  function _v126() {
-    let {
-        mutate: _v0
-      } = (0, _v108.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v110.useGctlConfig)(),
-      [_v5, _v6] = (0, _v101.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/live_events/${_v0.where.liveEventId}/qna${(0, _v101.serializeQuery)(_v0)}`, _v125({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v107.default)(_v2 ? `/users/${_v2.where.userId}/live_events/${_v2.where.liveEventId}/qna${(0, _v101.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v125({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/live_events/:liveEventId/qna",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(_v126, {
-    endpoint: "/users/:userId/live_events/:liveEventId/qna",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v109.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/users/${_v2.where.userId}/live_events/${_v2.where.liveEventId}/qna?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v125({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/live_events/:liveEventId/qna",
-    method: "GET"
-  });
-  var _v127 = _v0.i(0);
-  let _v128 = ({
+  var _v120 = _v0.i(0);
+  let _v121 = ({
       hasMargin: _v0,
       time: _v1,
       text: _v2,
@@ -2293,13 +1948,13 @@
           color: "text-secondary",
           mr: "sm",
           children: _v3
-        }), (0, _v1.jsx)(_v127.ThumbUp, {
+        }), (0, _v1.jsx)(_v120.ThumbUp, {
           boxSize: (0, _v9.rem)(22),
           color: "text-secondary"
         })]
       }) : null]
     }),
-    _v129 = ({
+    _v122 = ({
       time: _v0,
       text: _v1
     }) => (0, _v1.jsxs)(_v6.Flex, {
@@ -2318,7 +1973,7 @@
         children: _v1
       })]
     }),
-    _v130 = ({
+    _v123 = ({
       record: _v0,
       videoUrl: _v1,
       isActive: _v2 = !1
@@ -2338,12 +1993,50 @@
             {
               getFromCache: _v6,
               addToCache: _v7
-            } = _v123(),
+            } = _v117(),
             [_v8, {
               loading: _v9,
               error: _v10,
               data: _v11
-            }] = _v126(),
+            }] = function () {
+              let {
+                  mutate: _v0
+                } = (0, _v104.useSWRConfig)(),
+                {
+                  baseUrl: _v1,
+                  jwt: _v2,
+                  xVimeoPage: _v3,
+                  locale: _v4
+                } = (0, _v105.useGctlConfig)(),
+                [_v5, _v6] = (0, _v100.useInternalState)();
+              return [(0, _v2.useCallback)(async _v0 => {
+                _v6({
+                  type: "REQUEST"
+                });
+                try {
+                  let _v0 = await _v0(`/users/${_v0.where.userId}/live_events/${_v0.where.liveEventId}/qna${(0, _v100.serializeQuery)(_v0)}`, _v119({
+                    ..._v0,
+                    baseUrl: _v1,
+                    headers: {
+                      ..._v0.headers,
+                      "Content-Type": "application/json",
+                      Authorization: _v2 ? `jwt ${_v2}` : "",
+                      "Vimeo-Page": `${_v3}`,
+                      "Accept-Language": _v4 ?? "en"
+                    }
+                  }));
+                  _v6({
+                    type: "SUCCESS",
+                    payload: _v0
+                  });
+                } catch (_v0) {
+                  _v6({
+                    type: "FAILURE",
+                    payload: _v0
+                  });
+                }
+              }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+            }(),
             {
               status: _v12,
               user: _v13
@@ -2426,7 +2119,7 @@
             text: _v0,
             askedOn: _v1,
             upvotes: _v2
-          }, _v3) => (0, _v1.jsx)(_v128, {
+          }, _v3) => (0, _v1.jsx)(_v121, {
             hasMargin: !0,
             time: (0, _v49.secondsToTime)(_v1),
             text: _v0,
@@ -2448,10 +2141,10 @@
             askedOn: _v2,
             upvotes: _v3
           }, _v4) => (0, _v1.jsxs)("div", {
-            children: [(0, _v1.jsx)(_v129, {
+            children: [(0, _v1.jsx)(_v122, {
               text: _v1,
               time: (0, _v49.secondsToTime)(_v2)
-            }), (0, _v1.jsx)(_v128, {
+            }), (0, _v1.jsx)(_v121, {
               text: _v0,
               likes: _v3
             })]
@@ -2464,8 +2157,8 @@
         })]
       });
     };
-  var _v131 = _v0.i(0);
-  let _v132 = _v0 => (0, _v1.jsx)(_v131.Icon, {
+  var _v124 = _v0.i(0);
+  let _v125 = _v0 => (0, _v1.jsx)(_v124.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -2478,8 +2171,8 @@
       })]
     })
   });
-  var _v133 = _v0.i(0);
-  let _v134 = ({
+  var _v126 = _v0.i(0);
+  let _v127 = ({
     attendee: _v0,
     formSource: _v1
   }) => {
@@ -2495,7 +2188,7 @@
         alignItems: "center",
         children: [(0, _v1.jsx)(_v3.Box, {
           mr: "sm",
-          children: (0, _v1.jsx)(_v132, {
+          children: (0, _v1.jsx)(_v125, {
             height: 24,
             width: 24
           })
@@ -2523,7 +2216,7 @@
             h: (0, _v9.rem)(24),
             w: (0, _v9.rem)(24),
             mr: (0, _v9.rem)(6),
-            children: (0, _v1.jsx)(_v133.VimeoV, {
+            children: (0, _v1.jsx)(_v126.VimeoV, {
               color: "blue.500"
             })
           }), (0, _v1.jsx)(_v7.Header, {
@@ -2543,7 +2236,7 @@
       }) : (0, _v1.jsx)(_v1.Fragment, {})]
     }) : (0, _v1.jsx)(_v1.Fragment, {});
   };
-  async function _v135({
+  async function _v128({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -2553,84 +2246,19 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v102.measureLatency)("getLeadCaptureResourceIdEngagement", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/lead_capture/${_v2}/${_v3}/engagement?${(0, _v103.searchQueryString)(_v4)}&fields=${_v1.map(_v103.intoSnakeCase).join(",")}`, {
+    return (0, _v101.measureLatency)("getLeadCaptureResourceIdEngagement", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/lead_capture/${_v2}/${_v3}/engagement?${(0, _v102.searchQueryString)(_v4)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
+      return (0, _v102.deepCamelCase)(_v1);
     });
   }
-  function _v136() {
-    let {
-        mutate: _v0
-      } = (0, _v108.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v110.useGctlConfig)(),
-      [_v5, _v6] = (0, _v101.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/lead_capture/${_v0.where.resourceType}/${_v0.where.resourceId}/engagement${(0, _v101.serializeQuery)(_v0)}`, _v135({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v107.default)(_v2 ? `/lead_capture/${_v2.where.resourceType}/${_v2.where.resourceId}/engagement${(0, _v101.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v135({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/lead_capture/:resourceType/:resourceId/engagement",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(_v136, {
-    endpoint: "/lead_capture/:resourceType/:resourceId/engagement",
-    method: "GET"
-  });
-  let _v137 = ({
+  let _v129 = ({
     hasUpsell: _v0,
     title: _v1,
     children: _v2,
@@ -2674,7 +2302,7 @@
       })
     })
   });
-  async function _v138({
+  async function _v130({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -2683,35 +2311,35 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v102.measureLatency)("getUserEmailServiceProviders", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/email_service_providers?${(0, _v103.searchQueryString)(_v3)}&fields=${_v1.map(_v103.intoSnakeCase).join(",")}`, {
+    return (0, _v101.measureLatency)("getUserEmailServiceProviders", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/email_service_providers?${(0, _v102.searchQueryString)(_v3)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
+      return (0, _v102.deepCamelCase)(_v1);
     });
   }
-  function _v139() {
+  function _v131() {
     let {
         mutate: _v0
-      } = (0, _v108.useSWRConfig)(),
+      } = (0, _v104.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v110.useGctlConfig)(),
-      [_v5, _v6] = (0, _v101.useInternalState)();
+      } = (0, _v105.useGctlConfig)(),
+      [_v5, _v6] = (0, _v100.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/email_service_providers${(0, _v101.serializeQuery)(_v0)}`, _v138({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/email_service_providers${(0, _v100.serializeQuery)(_v0)}`, _v130({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -2748,7 +2376,7 @@
       } = (0, _v25.useEntityStore)(),
       {
         updateCache: _v8
-      } = _v123(),
+      } = _v117(),
       [_v9, _v10] = (0, _v2.useState)(_v0?.isBlocked),
       {
         colorMode: _v11
@@ -2782,7 +2410,45 @@
             loading: _v4,
             error: _v5,
             data: _v6
-          }] = _v136(),
+          }] = function () {
+            let {
+                mutate: _v0
+              } = (0, _v104.useSWRConfig)(),
+              {
+                baseUrl: _v1,
+                jwt: _v2,
+                xVimeoPage: _v3,
+                locale: _v4
+              } = (0, _v105.useGctlConfig)(),
+              [_v5, _v6] = (0, _v100.useInternalState)();
+            return [(0, _v2.useCallback)(async _v0 => {
+              _v6({
+                type: "REQUEST"
+              });
+              try {
+                let _v0 = await _v0(`/lead_capture/${_v0.where.resourceType}/${_v0.where.resourceId}/engagement${(0, _v100.serializeQuery)(_v0)}`, _v128({
+                  ..._v0,
+                  baseUrl: _v1,
+                  headers: {
+                    ..._v0.headers,
+                    "Content-Type": "application/json",
+                    Authorization: _v2 ? `jwt ${_v2}` : "",
+                    "Vimeo-Page": `${_v3}`,
+                    "Accept-Language": _v4 ?? "en"
+                  }
+                }));
+                _v6({
+                  type: "SUCCESS",
+                  payload: _v0
+                });
+              } catch (_v0) {
+                _v6({
+                  type: "FAILURE",
+                  payload: _v0
+                });
+              }
+            }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+          }(),
           [_v7, _v8] = (0, _v2.useState)([]),
           [_v9, _v10] = (0, _v2.useState)(0),
           _v11 = (0, _v2.useRef)(void 0),
@@ -2795,7 +2461,7 @@
           {
             getFromCache: _v16,
             addToCache: _v17
-          } = _v123(),
+          } = _v117(),
           _v18 = (0, _v32.useConfigStore)(_v0 => _v0.entityType),
           _v19 = (0, _v32.useConfigStore)(_v0 => _v0.entityId),
           _v20 = (0, _v2.useCallback)(() => {
@@ -2827,7 +2493,7 @@
         }, [_v1, _v2, _v14, _v15, _v18]), (0, _v2.useEffect)(() => {
           if (_v6) {
             if (_v11.current !== _v1?.uri || _v12.current !== _v2) return;
-            let _v0 = (0, _v103.deepCamelCase)(_v6.data);
+            let _v0 = (0, _v102.deepCamelCase)(_v6.data);
             _v17(_v14, _v0), _v8(_v0);
             let _v1 = _v6.filteredTotal;
             _v17(_v15, _v1), _v10(_v1);
@@ -2860,7 +2526,7 @@
           variables: {
             isBlocked: !_v9
           },
-          select: _v112
+          select: _v106
         });
       },
       _v34 = _v0 => {
@@ -3004,7 +2670,7 @@
                   }
                 })
               })
-            }), (0, _v1.jsx)(_v137, {
+            }), (0, _v1.jsx)(_v129, {
               title: _v33.default.RegistrationDetails,
               defaultIndex: [0],
               allowToggle: !0,
@@ -3026,7 +2692,7 @@
                     minute: "2-digit",
                     hour12: !0
                   }).format(new Date(_v0.createdOn))
-                }), _v0 && (0, _v1.jsx)(_v134, {
+                }), _v0 && (0, _v1.jsx)(_v127, {
                   attendee: _v0,
                   formSource: _v6
                 }), _v0.data && Object.entries(_v0.data).map(([_v0, _v1]) => (0, _v1.jsxs)(_v3.Box, {
@@ -3042,7 +2708,7 @@
                 }, _v0))]
               })
             }), _v31 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v117, {
+              children: [(0, _v1.jsx)(_v111, {
                 selectedClip: _v16,
                 setSelectedClip: _v17,
                 loading: _v22
@@ -3053,7 +2719,7 @@
                 dropInOut: _v24,
                 totalDuration: _v25
               }), _v3 !== _v18.ENTITY_TYPE.VIDEO && (0, _v1.jsxs)(_v1.Fragment, {
-                children: [(0, _v1.jsx)(_v137, {
+                children: [(0, _v1.jsx)(_v129, {
                   hasUpsell: _v32,
                   title: _v33.default.Polls,
                   allowToggle: !0,
@@ -3065,11 +2731,11 @@
                       alt: "upsell-poll",
                       src: _v34("polls")
                     })
-                  }) : (0, _v1.jsx)(_v124, {
+                  }) : (0, _v1.jsx)(_v118, {
                     record: _v0,
                     videoUrl: _v16?.uri
                   })
-                }), (0, _v1.jsx)(_v137, {
+                }), (0, _v1.jsx)(_v129, {
                   hasUpsell: _v32,
                   title: _v33.default.QA,
                   allowToggle: !0,
@@ -3082,7 +2748,7 @@
                       alt: "upsell-qna",
                       src: _v34("qa")
                     })
-                  }) : (0, _v1.jsx)(_v130, {
+                  }) : (0, _v1.jsx)(_v123, {
                     record: _v0,
                     videoUrl: _v16?.uri
                   })
@@ -3093,80 +2759,19 @@
         })
       })]
     });
-  }], 0), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v107.default)(_v2 ? `/users/${_v2.where.userId}/email_service_providers${(0, _v101.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v138({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/email_service_providers",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(_v139, {
-    endpoint: "/users/:userId/email_service_providers",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v109.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/users/${_v2.where.userId}/email_service_providers?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v138({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/email_service_providers",
-    method: "GET"
-  }), _v0.s(["useGetUserEmailServiceProvidersLazy", 0, _v139], 0);
-  var _v140 = _v0.i(0),
+  }], 0), _v0.s(["useGetUserEmailServiceProvidersLazy", 0, _v131], 0);
+  var _v132 = _v0.i(0),
+    _v133 = _v0.i(0),
+    _v134 = _v0.i(0),
+    _v135 = _v0.i(0),
+    _v136 = _v0.i(0),
+    _v137 = _v0.i(0),
+    _v138 = _v0.i(0),
+    _v139 = _v0.i(0),
+    _v140 = _v0.i(0),
     _v141 = _v0.i(0),
-    _v142 = _v0.i(0),
-    _v143 = _v0.i(0),
-    _v144 = _v0.i(0),
-    _v145 = _v0.i(0),
-    _v146 = _v0.i(0),
-    _v147 = _v0.i(0),
-    _v148 = _v0.i(0),
-    _v149 = _v0.i(0),
-    _v150 = _v0.i(0);
-  let _v151 = ({
+    _v142 = _v0.i(0);
+  let _v143 = ({
       type: _v0
     }) => (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v7.Header, {
@@ -3177,31 +2782,31 @@
         children: [(0, _v1.jsxs)(_v6.Flex, {
           flexDir: "column",
           mb: "md",
-          children: [(0, _v1.jsx)(_v153, {
+          children: [(0, _v1.jsx)(_v145, {
             children: _v33.default.ImportFAQ[_v0].Para1Header
-          }), (0, _v1.jsx)(_v152, {
+          }), (0, _v1.jsx)(_v144, {
             children: _v33.default.ImportFAQ[_v0].Para1Description
           })]
         }), (0, _v1.jsxs)(_v6.Flex, {
           flexDir: "column",
           mb: "md",
-          children: [(0, _v1.jsx)(_v153, {
+          children: [(0, _v1.jsx)(_v145, {
             children: _v33.default.ImportFAQ[_v0].Para2Header
-          }), (0, _v1.jsx)(_v152, {
+          }), (0, _v1.jsx)(_v144, {
             children: _v33.default.ImportFAQ[_v0].Para2Description
           })]
         }), _v0 === _v31.IMPORT_TYPE.CRM && (0, _v1.jsxs)(_v6.Flex, {
           flexDir: "column",
           mb: "md",
-          children: [(0, _v1.jsx)(_v153, {
+          children: [(0, _v1.jsx)(_v145, {
             children: _v33.default.ImportFAQ[_v0].Para3Header
-          }), (0, _v1.jsx)(_v152, {
+          }), (0, _v1.jsx)(_v144, {
             children: _v33.default.ImportFAQ[_v0].Para3Description
           })]
         }), (0, _v1.jsx)(_v6.Flex, {
           flexDir: "column",
           mb: "md",
-          children: (0, _v1.jsx)(_v152, {
+          children: (0, _v1.jsx)(_v144, {
             children: (0, _v1.jsx)(_v80.Link, {
               target: "_blank",
               href: _v31.IMPORT_TYPE.CRM ? _v31.UPLOAD_CRM_HELP_ARTICLE : _v31.UPLOAD_CSV_HELP_ARTICLE,
@@ -3236,7 +2841,7 @@
         })]
       })]
     }),
-    _v152 = ({
+    _v144 = ({
       children: _v0,
       ..._v1
     }) => (0, _v1.jsx)(_v36.Paragraph, {
@@ -3246,7 +2851,7 @@
       ..._v1,
       children: _v0
     }),
-    _v153 = ({
+    _v145 = ({
       children: _v0,
       ..._v1
     }) => (0, _v1.jsx)(_v7.Header, {
@@ -3255,14 +2860,14 @@
       ..._v1,
       children: _v0
     });
-  var _v154 = _v0.i(0),
-    _v155 = _v0.i(0),
-    _v156 = _v0.i(0),
-    _v157 = _v0.i(0),
-    _v158 = _v0.i(0);
-  let _v159 = _v0 => _v0 ? _v0.length > _v31.MAX_CSV_FILE_NAME_CHAR ? `${_v0.substring(0, _v31.MAX_CSV_FILE_NAME_CHAR)}...` : _v0 : "",
-    _v160 = /^((?!chrome|android).)*safari/i.test(navigator.userAgent),
-    _v161 = _v0 => {
+  var _v146 = _v0.i(0),
+    _v147 = _v0.i(0),
+    _v148 = _v0.i(0),
+    _v149 = _v0.i(0),
+    _v150 = _v0.i(0);
+  let _v151 = _v0 => _v0 ? _v0.length > _v31.MAX_CSV_FILE_NAME_CHAR ? `${_v0.substring(0, _v31.MAX_CSV_FILE_NAME_CHAR)}...` : _v0 : "",
+    _v152 = /^((?!chrome|android).)*safari/i.test(navigator.userAgent),
+    _v153 = _v0 => {
       let _v1 = _v0.target;
       return 10 > Math.abs(_v1.scrollHeight - _v1.scrollTop - _v1.clientHeight);
     };
@@ -3271,23 +2876,23 @@
       _v3 = _v2(_v0),
       _v4 = _v2(_v1);
     return _v3 !== _v4 ? _v3 - _v4 : new Date(_v0.createdOn).getTime() - new Date(_v1.createdOn).getTime();
-  }), "getFileName", 0, _v159, "isSafari", 0, _v160, "isScrollBottom", 0, _v161], 0);
-  let _v162 = [[195, 23], [150, 30], [180, 43], [190, 20], [185, 25], [192, 43], [140, 23], [170, 33]],
-    _v163 = () => (0, _v1.jsx)(_v1.Fragment, {
-      children: _v162.map(_v0 => (0, _v1.jsxs)(_v6.Flex, {
+  }), "getFileName", 0, _v151, "isSafari", 0, _v152, "isScrollBottom", 0, _v153], 0);
+  let _v154 = [[195, 23], [150, 30], [180, 43], [190, 20], [185, 25], [192, 43], [140, 23], [170, 33]],
+    _v155 = () => (0, _v1.jsx)(_v1.Fragment, {
+      children: _v154.map(_v0 => (0, _v1.jsxs)(_v6.Flex, {
         justifyContent: "space-between",
         mt: (0, _v9.rem)(15),
         mb: (0, _v9.rem)(10),
-        children: [(0, _v1.jsx)(_v158.BokehSkeleton, {
+        children: [(0, _v1.jsx)(_v150.BokehSkeleton, {
           width: _v0[0],
           height: (0, _v9.rem)(24)
-        }), (0, _v1.jsx)(_v158.BokehSkeleton, {
+        }), (0, _v1.jsx)(_v150.BokehSkeleton, {
           width: _v0[1],
           height: (0, _v9.rem)(24)
         })]
       }, _v0[0]))
     }),
-    _v164 = ({
+    _v156 = ({
       lists: _v0,
       selectedLists: _v1,
       onSelect: _v2,
@@ -3321,12 +2926,12 @@
         overflowY: "auto",
         ref: _v10,
         px: "md",
-        children: (0, _v1.jsx)(_v163, {})
+        children: (0, _v1.jsx)(_v155, {})
       }) : (0, _v1.jsxs)(_v3.Box, {
         maxH: "22vh",
         overflowY: "auto",
         onScroll: _v0 => {
-          _v10.current && (_v161(_v0) ? (!_v4 || _v3 || _v11.current || _v5(), _v11.current = !0) : _v11.current = !1);
+          _v10.current && (_v153(_v0) ? (!_v4 || _v3 || _v11.current || _v5(), _v11.current = !0) : _v11.current = !1);
         },
         ref: _v10,
         children: [_v13()?.length > 0 && _v13()?.map(_v0 => (0, _v1.jsxs)(_v6.Flex, {
@@ -3346,7 +2951,7 @@
             alignItems: "center",
             flexGrow: 1,
             maxW: (0, _v9.rem)(240),
-            children: [_v8 && (0, _v1.jsx)(_v144.Checkbox, {
+            children: [_v8 && (0, _v1.jsx)(_v136.Checkbox, {
               mr: (0, _v9.rem)(12),
               isChecked: _v9(_v0.listId),
               pointerEvents: "none"
@@ -3361,7 +2966,7 @@
               children: [(0, _v1.jsx)(_v36.Paragraph, {
                 size: "md",
                 children: (0, _v15.humanize)(_v0.numberOfRegistrants)
-              }), (0, _v1.jsx)(_v157.PersonUserFilled, {
+              }), (0, _v1.jsx)(_v149.PersonUserFilled, {
                 boxSize: (0, _v9.rem)(16),
                 ml: "xs"
               })]
@@ -3373,8 +2978,8 @@
         }) : null]
       });
     };
-  var _v165 = _v0.i(0);
-  async function _v166({
+  var _v157 = _v0.i(0);
+  async function _v158({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -3384,122 +2989,21 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v102.measureLatency)("getUserEmailServiceProviderLists", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/email_service_providers/${_v3}/lists?${(0, _v103.searchQueryString)(_v4)}&fields=${_v1.map(_v103.intoSnakeCase).join(",")}`, {
+    return (0, _v101.measureLatency)("getUserEmailServiceProviderLists", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/email_service_providers/${_v3}/lists?${(0, _v102.searchQueryString)(_v4)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
+      return (0, _v102.deepCamelCase)(_v1);
     });
   }
-  function _v167() {
-    let {
-        mutate: _v0
-      } = (0, _v108.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v110.useGctlConfig)(),
-      [_v5, _v6] = (0, _v101.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/email_service_providers/${_v0.where.emailServiceProviderName}/lists${(0, _v101.serializeQuery)(_v0)}`, _v166({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v107.default)(_v2 ? `/users/${_v2.where.userId}/email_service_providers/${_v2.where.emailServiceProviderName}/lists${(0, _v101.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v166({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/email_service_providers/:emailServiceProviderName/lists",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(_v167, {
-    endpoint: "/users/:userId/email_service_providers/:emailServiceProviderName/lists",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v109.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/users/${_v2.where.userId}/email_service_providers/${_v2.where.emailServiceProviderName}/lists?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v166({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
-      }
-    }) : null, _v1);
-  }, {
-    endpoint: "/users/:userId/email_service_providers/:emailServiceProviderName/lists",
-    method: "GET"
-  });
-  let _v168 = ["id", "name"],
-    _v169 = [..._v168, "numberOfRegistrants"],
-    _v170 = ({
+  let _v159 = ["id", "name"],
+    _v160 = [..._v159, "numberOfRegistrants"],
+    _v161 = ({
       provider: _v0,
       onSubmit: _v1,
       onCancel: _v2,
@@ -3523,7 +3027,45 @@
               callCount: _v4,
               loading: _v5,
               error: _v6
-            }] = _v167(),
+            }] = function () {
+              let {
+                  mutate: _v0
+                } = (0, _v104.useSWRConfig)(),
+                {
+                  baseUrl: _v1,
+                  jwt: _v2,
+                  xVimeoPage: _v3,
+                  locale: _v4
+                } = (0, _v105.useGctlConfig)(),
+                [_v5, _v6] = (0, _v100.useInternalState)();
+              return [(0, _v2.useCallback)(async _v0 => {
+                _v6({
+                  type: "REQUEST"
+                });
+                try {
+                  let _v0 = await _v0(`/users/${_v0.where.userId}/email_service_providers/${_v0.where.emailServiceProviderName}/lists${(0, _v100.serializeQuery)(_v0)}`, _v158({
+                    ..._v0,
+                    baseUrl: _v1,
+                    headers: {
+                      ..._v0.headers,
+                      "Content-Type": "application/json",
+                      Authorization: _v2 ? `jwt ${_v2}` : "",
+                      "Vimeo-Page": `${_v3}`,
+                      "Accept-Language": _v4 ?? "en"
+                    }
+                  }));
+                  _v6({
+                    type: "SUCCESS",
+                    payload: _v0
+                  });
+                } catch (_v0) {
+                  _v6({
+                    type: "FAILURE",
+                    payload: _v0
+                  });
+                }
+              }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+            }(),
             [_v7, _v8] = (0, _v2.useState)(!1),
             [_v9, _v10] = (0, _v2.useState)([]),
             {
@@ -3559,10 +3101,10 @@
                   filterType: _v1,
                   entityType: _v3
                 },
-                select: _v0 === _v31.ProvidersServiceId.Marketo ? _v168 : _v169
+                select: _v0 === _v31.ProvidersServiceId.Marketo ? _v159 : _v160
               });
             }, [_v12, _v0, _v2]),
-            _v19 = (0, _v2.useCallback)((0, _v165.default)(_v18, 500), []);
+            _v19 = (0, _v2.useCallback)((0, _v157.default)(_v18, 500), []);
           return (0, _v2.useEffect)(() => {
             if (!_v5) {
               if (_v6) {
@@ -3623,8 +3165,8 @@
         children: [(0, _v1.jsx)(_v6.Flex, {
           mb: (0, _v9.rem)(6),
           px: "md",
-          children: (0, _v1.jsxs)(_v154.InputGroup, {
-            children: [_v19 && (0, _v1.jsx)(_v155.InputLeftElement, {
+          children: (0, _v1.jsxs)(_v146.InputGroup, {
+            children: [_v19 && (0, _v1.jsx)(_v147.InputLeftElement, {
               ref: _v25,
               width: "fit-content",
               children: (0, _v1.jsx)(_v4.Button, {
@@ -3633,7 +3175,7 @@
                 variant: "secondary",
                 children: _v19
               })
-            }), (0, _v1.jsx)(_v156.Search, {
+            }), (0, _v1.jsx)(_v148.Search, {
               placeholder: _v0.serviceId === _v31.ProvidersServiceId.SalesCloud ? _v33.default.SearchCampaign : _v33.default.SearchList,
               ref: _v24,
               onChange: _v0 => {
@@ -3666,7 +3208,7 @@
           }), (0, _v1.jsx)(_v5.Divider, {
             my: (0, _v9.rem)(12)
           })]
-        }), (0, _v1.jsx)(_v164, {
+        }), (0, _v1.jsx)(_v156, {
           lists: _v30,
           onSelect: _v0 => {
             if (_v4) {
@@ -3698,8 +3240,8 @@
         })]
       });
     };
-  _v0.s(["SearchBox", 0, _v170], 0);
-  let _v171 = (0, _v2.forwardRef)(({
+  _v0.s(["SearchBox", 0, _v161], 0);
+  let _v162 = (0, _v2.forwardRef)(({
       dispatch: _v0,
       importRegistrantState: _v1,
       refreshProvider: _v2,
@@ -3726,7 +3268,7 @@
           onOpen: _v18,
           onClose: _v19
         } = (0, _v41.useDisclosure)(),
-        _v20 = (0, _v141.useHistory)(),
+        _v20 = (0, _v133.useHistory)(),
         _v21 = _v20?.location?.pathname,
         _v22 = (0, _v42.useToast)(),
         {
@@ -3746,7 +3288,7 @@
         } = (0, _v24.useAnalytics)(),
         {
           capabilities: _v33
-        } = (0, _v150.useCapability)(["hasIntegrationCenter"]),
+        } = (0, _v142.useCapability)(["hasIntegrationCenter"]),
         _v34 = (0, _v2.useMemo)(() => _v31 === _v18.ENTITY_TYPE.EVENT && !_v23?.startTime, [_v23, _v31]),
         _v35 = (0, _v2.useMemo)(() => _v31 === _v18.ENTITY_TYPE.EVENT && !_v23?.startTime, [_v23, _v31]),
         _v36 = () => {
@@ -3853,7 +3395,7 @@
                   onOpen: _v15,
                   onClose: _v16,
                   children: [(0, _v1.jsx)(_v95.MenuButton, {
-                    ..._v172,
+                    ..._v163,
                     onClick: _v16,
                     sx: {
                       ..._v63(_v34)
@@ -3875,10 +3417,10 @@
                         size: "md",
                         color: "text-secondary",
                         children: _v33.default.ChooseProvider
-                      }), (0, _v1.jsx)(_v148.ChevronDownSmall, {})]
+                      }), (0, _v1.jsx)(_v140.ChevronDownSmall, {})]
                     })
                   }), (0, _v1.jsxs)(_v97.MenuList, {
-                    children: [_v24.map(_v0 => (0, _v1.jsxs)(_v146.MenuItem, {
+                    children: [_v24.map(_v0 => (0, _v1.jsxs)(_v138.MenuItem, {
                       minWidth: (0, _v9.rem)(_v25.current?.offsetWidth || 200),
                       isDisabled: !_v0.canImportFromCrm,
                       onClick: () => {
@@ -3901,7 +3443,7 @@
                         pl: "sm",
                         children: _v33.default.ComingSoon
                       })]
-                    }, _v0.serviceId)), (0, _v1.jsx)(_v145.MenuDivider, {}), (0, _v1.jsx)(_v146.MenuItem, {
+                    }, _v0.serviceId)), (0, _v1.jsx)(_v137.MenuDivider, {}), (0, _v1.jsx)(_v138.MenuItem, {
                       minWidth: (0, _v9.rem)(_v25.current?.offsetWidth || 200),
                       onClick: () => {
                         _v0({
@@ -3913,7 +3455,7 @@
                         size: "md",
                         display: "flex",
                         as: "span",
-                        children: [(0, _v1.jsx)(_v149.PopOut, {}), (0, _v1.jsx)(_v3.Box, {
+                        children: [(0, _v1.jsx)(_v141.PopOut, {}), (0, _v1.jsx)(_v3.Box, {
                           pl: "sm",
                           children: _v33.default.ManageProviders
                         })]
@@ -3922,7 +3464,7 @@
                   })]
                 }) : (0, _v1.jsx)(_v1.Fragment, {
                   children: (0, _v1.jsx)(_v4.Button, {
-                    rightIcon: (0, _v1.jsx)(_v149.PopOut, {}),
+                    rightIcon: (0, _v1.jsx)(_v141.PopOut, {}),
                     onClick: () => {
                       _v0({
                         type: _v29.ACTION_TYPE.CONNECT_CLICK,
@@ -3941,9 +3483,9 @@
                     mb: "sm",
                     children: _v33.default.ConnectProviders
                   })
-                }), _v35 && (0, _v1.jsx)(_v142.Alert, {
+                }), _v35 && (0, _v1.jsx)(_v134.Alert, {
                   status: "info",
-                  children: (0, _v1.jsx)(_v143.AlertDescription, {
+                  children: (0, _v1.jsx)(_v135.AlertDescription, {
                     children: (0, _v15.translate)({
                       singular: "Add a start time to import from CRM or MAP {A}Open schedule.{/A}",
                       replacements: {
@@ -3977,9 +3519,9 @@
                       }
                     })
                   })
-                }), _v13 && (0, _v1.jsx)(_v142.Alert, {
+                }), _v13 && (0, _v1.jsx)(_v134.Alert, {
                   status: "info",
-                  children: (0, _v1.jsx)(_v143.AlertDescription, {
+                  children: (0, _v1.jsx)(_v135.AlertDescription, {
                     children: (0, _v15.translate)({
                       singular: "{LINK}Refresh{/LINK} to see recently connected providers.",
                       replacements: {
@@ -4025,7 +3567,7 @@
                 isLazy: !0,
                 children: [(0, _v1.jsx)(_v39.PopoverTrigger, {
                   children: (0, _v1.jsxs)(_v6.Flex, {
-                    ..._v172,
+                    ..._v163,
                     as: "button",
                     onClick: _v18,
                     justifyContent: "space-between",
@@ -4046,14 +3588,14 @@
                       size: "md",
                       color: "text-secondary",
                       children: _v10 ? _v10.serviceId === _v31.ProvidersServiceId.SalesCloud ? _v10?.lists.length ? _v33.default.SearchCampaign : _v33.default.NoCampaignsYet : _v10?.lists.length ? _v33.default.SearchList : _v33.default.NoListsYet : _v33.default.NoListsYet
-                    }), (0, _v1.jsx)(_v148.ChevronDownSmall, {})]
+                    }), (0, _v1.jsx)(_v140.ChevronDownSmall, {})]
                   })
-                }), (0, _v1.jsx)(_v147.Portal, {
+                }), (0, _v1.jsx)(_v139.Portal, {
                   containerRef: _v5,
                   children: (0, _v1.jsx)(_v38.PopoverContent, {
                     overflowX: "hidden",
                     onKeyDown: _v38,
-                    children: _v10 && (0, _v1.jsx)(_v170, {
+                    children: _v10 && (0, _v1.jsx)(_v161, {
                       preSelectedLists: [],
                       provider: _v10,
                       width: _v25.current?.offsetWidth || 200,
@@ -4074,7 +3616,7 @@
             }), (0, _v1.jsx)(_v3.Box, {
               maxWidth: "97%",
               pt: (0, _v9.rem)(10),
-              children: (0, _v1.jsx)(_v144.Checkbox, {
+              children: (0, _v1.jsx)(_v136.Checkbox, {
                 isRequired: !0,
                 color: "text-tertiary",
                 mt: (0, _v9.rem)(3),
@@ -4100,13 +3642,13 @@
           px: "2xl",
           py: "3xl",
           backgroundColor: (0, _v62.useColorModeValue)("gray.50", "gray.900"),
-          children: (0, _v1.jsx)(_v151, {
+          children: (0, _v1.jsx)(_v143, {
             type: _v31.IMPORT_TYPE.CRM
           })
         })]
       });
     }),
-    _v172 = {
+    _v163 = {
       width: "100%",
       height: (0, _v9.rem)(48),
       border: "2px solid",
@@ -4122,9 +3664,9 @@
       borderColor: "input-stroke",
       background: "input-fill"
     };
-  var _v173 = _v0.i(0),
-    _v174 = _v0.i(0);
-  let _v175 = _v0 => (0, _v1.jsx)(_v131.Icon, {
+  var _v164 = _v0.i(0),
+    _v165 = _v0.i(0);
+  let _v166 = _v0 => (0, _v1.jsx)(_v124.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -4133,7 +3675,7 @@
         fill: "currentColor"
       })
     }),
-    _v176 = ({
+    _v167 = ({
       stepCount: _v0,
       uploadedCsv: _v1,
       checkBoxSelected: _v2,
@@ -4229,7 +3771,7 @@
               })
             }), _v1 ? (0, _v1.jsx)(_v3.Box, {
               onMouseEnter: () => {
-                _v1?.name && !_v160 && clearInterval(_v6);
+                _v1?.name && !_v152 && clearInterval(_v6);
               },
               children: (0, _v1.jsx)(_v10.Tooltip, {
                 fontSize: "body-md",
@@ -4237,8 +3779,8 @@
                 children: (0, _v1.jsx)(_v4.Button, {
                   maxW: (0, _v9.rem)(350),
                   variant: "secondary",
-                  leftIcon: (0, _v1.jsx)(_v175, {}),
-                  rightIcon: (0, _v1.jsx)(_v174.CloseXSmall, {
+                  leftIcon: (0, _v1.jsx)(_v166, {}),
+                  rightIcon: (0, _v1.jsx)(_v165.CloseXSmall, {
                     onClick: () => {
                       _v4({
                         type: _v29.ACTION_TYPE.SET_UPLOADED_CSV,
@@ -4258,7 +3800,7 @@
               })
             }) : (0, _v1.jsx)(_v3.Box, {
               width: "fit-content",
-              children: (0, _v1.jsx)(_v173.FileInput, {
+              children: (0, _v1.jsx)(_v164.FileInput, {
                 variant: "primary",
                 multiple: !1,
                 accept: ".csv",
@@ -4269,7 +3811,7 @@
                       singular: "{FILE_NAME} name is longer than 240 characters. Please re-upload with shorter name.",
                       replacements: {
                         FILE_NAME: () => (0, _v1.jsx)("strong", {
-                          children: _v159(_v1.name)
+                          children: _v151(_v1.name)
                         })
                       },
                       dictionary: {
@@ -4290,7 +3832,7 @@
                       singular: "{FILE_NAME} is too big. Please upload a file under 10MB.",
                       replacements: {
                         FILE_NAME: () => (0, _v1.jsx)("strong", {
-                          children: _v159(_v1.name)
+                          children: _v151(_v1.name)
                         })
                       },
                       dictionary: {
@@ -4322,17 +3864,17 @@
                 },
                 label: _v33.default.UploadCSV
               })
-            }), _v3 && (0, _v1.jsx)(_v142.Alert, {
+            }), _v3 && (0, _v1.jsx)(_v134.Alert, {
               status: "error",
               mt: "sm",
-              children: (0, _v1.jsx)(_v143.AlertDescription, {
+              children: (0, _v1.jsx)(_v135.AlertDescription, {
                 children: (0, _v1.jsx)(_v36.Paragraph, {
                   size: "md",
                   children: _v3
                 })
               })
             })]
-          }), (0, _v1.jsx)(_v144.Checkbox, {
+          }), (0, _v1.jsx)(_v136.Checkbox, {
             isRequired: !0,
             color: "text-tertiary",
             isChecked: _v2,
@@ -4357,19 +3899,19 @@
           py: "3xl",
           px: "2xl",
           backgroundColor: (0, _v62.useColorModeValue)("gray.50", "gray.900"),
-          children: (0, _v1.jsx)(_v151, {
+          children: (0, _v1.jsx)(_v143, {
             type: _v31.IMPORT_TYPE.CSV
           })
         })]
       });
     };
-  var _v177 = _v0.i(0);
-  let _v178 = {
+  var _v168 = _v0.i(0);
+  let _v169 = {
       firstName: _v33.default.FirstName,
       lastName: _v33.default.LastName,
       emailAddress: _v33.default.EmailAddress
     },
-    _v179 = ({
+    _v170 = ({
       stepCount: _v0,
       columnsMap: _v1,
       columnHeaders: _v2,
@@ -4456,11 +3998,11 @@
               children: [(0, _v1.jsxs)(_v7.Header, {
                 display: "flex",
                 size: "xs",
-                children: [_v178[_v0], 2 === _v1 && (0, _v1.jsx)(_v36.Paragraph, {
+                children: [_v169[_v0], 2 === _v1 && (0, _v1.jsx)(_v36.Paragraph, {
                   color: "red.500",
                   children: "*"
                 })]
-              }), (0, _v1.jsx)(_v177.ArrowRight, {
+              }), (0, _v1.jsx)(_v168.ArrowRight, {
                 color: "text-secondary"
               })]
             }), (0, _v1.jsx)(_v3.Box, {
@@ -4494,7 +4036,7 @@
                       children: _v33.default.ChooseProperty
                     }), (0, _v1.jsx)(_v99.ChevronDown, {})]
                   })
-                }), (0, _v1.jsx)(_v147.Portal, {
+                }), (0, _v1.jsx)(_v139.Portal, {
                   containerRef: _v5,
                   children: (0, _v1.jsx)(_v97.MenuList, {
                     maxH: "30vh",
@@ -4505,7 +4047,7 @@
                         _v3 = _v0 === _v33.default.ChooseProperty,
                         _v4 = `${_v1}-${_v1}-${_v0}`,
                         _v5 = _v2 && _v1[_v0] !== _v0;
-                      return (0, _v1.jsxs)(_v146.MenuItem, {
+                      return (0, _v1.jsxs)(_v138.MenuItem, {
                         onClick: () => {
                           if (_v3 && _v1[_v0]) {
                             _v3({
@@ -4531,7 +4073,7 @@
                         children: [(0, _v1.jsx)(_v3.Box, {
                           minW: (0, _v9.rem)(24),
                           mr: (0, _v9.rem)(5),
-                          children: _v1[_v0] === _v0 && !_v3 && (0, _v1.jsx)(_v118.Checkmark, {
+                          children: _v1[_v0] === _v0 && !_v3 && (0, _v1.jsx)(_v112.Checkmark, {
                             color: "blue.500",
                             w: (0, _v9.rem)(24)
                           })
@@ -4546,11 +4088,11 @@
               })
             })]
           }, _v0))]
-        })), _v4?.length ? (0, _v1.jsx)(_v142.Alert, {
+        })), _v4?.length ? (0, _v1.jsx)(_v134.Alert, {
           status: "error",
           mt: (0, _v9.rem)(10),
           mb: 0,
-          children: (0, _v1.jsx)(_v143.AlertDescription, {
+          children: (0, _v1.jsx)(_v135.AlertDescription, {
             children: (0, _v1.jsx)(_v36.Paragraph, {
               size: "md",
               children: _v4
@@ -4559,65 +4101,26 @@
         }) : null]
       });
     };
-  async function _v180({
+  async function _v171({
     baseUrl: _v0,
     where: {
       uploadId: _v1
     },
     ..._v2
   }) {
-    return (0, _v102.measureLatency)("postLeadCaptureRegistrantsUploadActivate", "POST", async () => {
+    return (0, _v101.measureLatency)("postLeadCaptureRegistrantsUploadActivate", "POST", async () => {
       let _v0 = await fetch(`${_v0}/lead_capture/registrants/uploads/${_v1}/activate`, {
         ..._v2,
         method: "POST"
       });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
+      return (0, _v102.deepCamelCase)(_v1);
     });
   }
-  function _v181() {
-    let {
-        mutate: _v0
-      } = (0, _v108.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v110.useGctlConfig)(),
-      [_v5, _v6] = (0, _v101.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/lead_capture/registrants/uploads/${_v0.where.uploadId}/activate${(0, _v101.serializeQuery)(_v0)}`, _v180({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  async function _v182({
+  async function _v172({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -4627,19 +4130,19 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v102.measureLatency)("getLeadCaptureResourceIdRegistrantsUploads", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/lead_capture/${_v2}/${_v3}/registrants/uploads?${(0, _v103.searchQueryString)(_v4)}&fields=${_v1.map(_v103.intoSnakeCase).join(",")}`, {
+    return (0, _v101.measureLatency)("getLeadCaptureResourceIdRegistrantsUploads", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/lead_capture/${_v2}/${_v3}/registrants/uploads?${(0, _v102.searchQueryString)(_v4)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
+      return (0, _v102.deepCamelCase)(_v1);
     });
   }
-  async function _v183({
+  async function _v173({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -4649,72 +4152,33 @@
     },
     ..._v5
   }) {
-    return (0, _v102.measureLatency)("postLeadCaptureResourceIdRegistrantsUploads", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/lead_capture/${_v3}/${_v4}/registrants/uploads?fields=${_v1.map(_v103.intoSnakeCase).join(",")}`, {
+    return (0, _v101.measureLatency)("postLeadCaptureResourceIdRegistrantsUploads", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/lead_capture/${_v3}/${_v4}/registrants/uploads?fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "POST",
-        body: JSON.stringify((0, _v103.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v102.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
+      return (0, _v102.deepCamelCase)(_v1);
     });
   }
-  function _v184() {
-    let {
-        mutate: _v0
-      } = (0, _v108.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v110.useGctlConfig)(),
-      [_v5, _v6] = (0, _v101.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/lead_capture/${_v0.where.resourceType}/${_v0.where.resourceId}/registrants/uploads${(0, _v101.serializeQuery)(_v0)}`, _v182({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  function _v185() {
+  function _v174() {
     let {
         baseUrl: _v0,
         jwt: _v1,
         xVimeoPage: _v2,
         locale: _v3
-      } = (0, _v110.useGctlConfig)(),
-      [_v4, _v5] = (0, _v101.useInternalState)();
+      } = (0, _v105.useGctlConfig)(),
+      [_v4, _v5] = (0, _v100.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v5({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v183({
+        let _v0 = await _v173({
           ..._v0,
           baseUrl: _v0,
           headers: {
@@ -4737,75 +4201,46 @@
       }
     }, [_v0, _v2, _v1, _v3, _v5]), _v4];
   }
-  "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(_v181, {
-    endpoint: "/lead_capture/registrants/uploads/:uploadId/activate",
-    method: "POST"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
+  _v0.s(["useGetLeadCaptureResourceIdRegistrantsUploadsLazy", 0, function () {
+    let {
+        mutate: _v0
+      } = (0, _v104.useSWRConfig)(),
       {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v107.default)(_v2 ? `/lead_capture/${_v2.where.resourceType}/${_v2.where.resourceId}/registrants/uploads${(0, _v101.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v182({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/lead_capture/:resourceType/:resourceId/registrants/uploads",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(_v184, {
-    endpoint: "/lead_capture/:resourceType/:resourceId/registrants/uploads",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-      {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v109.default)((_v0, _v1) => {
-      if (null === _v2 || _v1 && !_v1.paging.next) return null;
-      let {
-          perPage: _v2 = 25,
-          page: _v3,
-          ..._v4
-        } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/lead_capture/${_v2.where.resourceType}/${_v2.where.resourceId}/registrants/uploads?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
-    }, null !== _v2 ? ([_v0, _v1]) => _v182({
-      ..._v2,
-      baseUrl: _v3,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      query: {
-        ..._v2.query,
-        page: _v1 + 1
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v105.useGctlConfig)(),
+      [_v5, _v6] = (0, _v100.useInternalState)();
+    return [(0, _v2.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/lead_capture/${_v0.where.resourceType}/${_v0.where.resourceId}/registrants/uploads${(0, _v100.serializeQuery)(_v0)}`, _v172({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
+          }
+        }));
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
       }
-    }) : null, _v1);
-  }, {
-    endpoint: "/lead_capture/:resourceType/:resourceId/registrants/uploads",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(_v185, {
-    endpoint: "/lead_capture/:resourceType/:resourceId/registrants/uploads",
-    method: "POST"
-  }), _v0.s(["useGetLeadCaptureResourceIdRegistrantsUploadsLazy", 0, _v184, "usePostLeadCaptureResourceIdRegistrantsUploads", 0, _v185], 0);
-  let _v186 = _v0 => {
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+  }, "usePostLeadCaptureResourceIdRegistrantsUploads", 0, _v174], 0);
+  let _v175 = _v0 => {
     let {
         entityType: _v1,
         entityId: _v2
@@ -4814,12 +4249,50 @@
         error: _v4,
         data: _v5,
         loading: _v6
-      }] = _v185(),
+      }] = _v174(),
       [_v7, {
         error: _v8,
         data: _v9,
         loading: _v10
-      }] = _v181(),
+      }] = function () {
+        let {
+            mutate: _v0
+          } = (0, _v104.useSWRConfig)(),
+          {
+            baseUrl: _v1,
+            jwt: _v2,
+            xVimeoPage: _v3,
+            locale: _v4
+          } = (0, _v105.useGctlConfig)(),
+          [_v5, _v6] = (0, _v100.useInternalState)();
+        return [(0, _v2.useCallback)(async _v0 => {
+          _v6({
+            type: "REQUEST"
+          });
+          try {
+            let _v0 = await _v0(`/lead_capture/registrants/uploads/${_v0.where.uploadId}/activate${(0, _v100.serializeQuery)(_v0)}`, _v171({
+              ..._v0,
+              baseUrl: _v1,
+              headers: {
+                ..._v0.headers,
+                "Content-Type": "application/json",
+                Authorization: _v2 ? `jwt ${_v2}` : "",
+                "Vimeo-Page": `${_v3}`,
+                "Accept-Language": _v4 ?? "en"
+              }
+            }), !1);
+            _v6({
+              type: "SUCCESS",
+              payload: _v0
+            });
+          } catch (_v0) {
+            _v6({
+              type: "FAILURE",
+              payload: _v0
+            });
+          }
+        }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+      }(),
       _v11 = (0, _v2.useRef)(void 0),
       _v12 = _v11.current,
       {
@@ -4904,7 +4377,7 @@
       }
     };
   };
-  _v0.s(["useCSV", 0, _v186, "useCSVUploadError", 0, _v0 => {
+  _v0.s(["useCSV", 0, _v175, "useCSVUploadError", 0, _v0 => {
     let _v1 = (0, _v22.useViewer)(),
       _v2 = _v1?.jwt,
       _v3 = _v1?.locale,
@@ -4913,10 +4386,10 @@
       downloadUri: _v4 && _v2 && _v3 ? `//${_v4}/lead_capture/registrants/uploads/${_v0}/errors/export?jwt_token=${_v2}&format=csv&locale=${_v3}` : ""
     };
   }], 0);
-  let _v187 = ["email", "e-mail", "mail"],
-    _v188 = ["first name", "firstname", "first", "name", "fname"],
-    _v189 = ["last name", "lastname", "last", "surname", "lname"],
-    _v190 = (0, _v2.forwardRef)(({
+  let _v176 = ["email", "e-mail", "mail"],
+    _v177 = ["first name", "firstname", "first", "name", "fname"],
+    _v178 = ["last name", "lastname", "last", "surname", "lname"],
+    _v179 = (0, _v2.forwardRef)(({
       totalAttendees: _v0,
       dispatch: _v1,
       importRegistrantState: _v2,
@@ -4936,7 +4409,7 @@
         } = (0, _v25.useEntityStore)(),
         {
           uploadCSV: _v13
-        } = _v186(_v1),
+        } = _v175(_v1),
         {
           sendRegistrationActionBP: _v14
         } = (0, _v24.useAnalytics)(),
@@ -4974,7 +4447,7 @@
                   singular: "{FILE_NAME} is empty. Please try again.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
-                      children: _v159(_v6?.name)
+                      children: _v151(_v6?.name)
                     })
                   },
                   dictionary: {
@@ -5004,19 +4477,19 @@
                 }, _v3.forEach(_v0 => {
                   let _v1 = _v0.toLowerCase();
                   if (!_v1.emailAddress) {
-                    for (let _v0 of _v187) if (_v1.includes(_v0)) {
+                    for (let _v0 of _v176) if (_v1.includes(_v0)) {
                       _v1.emailAddress = _v0;
                       break;
                     }
                   }
                   if (!_v1.firstName) {
-                    for (let _v0 of _v188) if (_v1.includes(_v0) && !_v1.includes("last")) {
+                    for (let _v0 of _v177) if (_v1.includes(_v0) && !_v1.includes("last")) {
                       _v1.firstName = _v0;
                       break;
                     }
                   }
                   if (!_v1.lastName && _v1.firstName !== _v0) {
-                    for (let _v0 of _v189) if (_v1.includes(_v0)) {
+                    for (let _v0 of _v178) if (_v1.includes(_v0)) {
                       _v1.lastName = _v0;
                       break;
                     }
@@ -5039,7 +4512,7 @@
                   singular: "{FILE_NAME} exceeds the max number of attendees.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
-                      children: _v159(_v6?.name)
+                      children: _v151(_v6?.name)
                     })
                   },
                   dictionary: {
@@ -5060,7 +4533,7 @@
                   singular: "{FILE_NAME} exceeds the max allowed number of rows. Please upload a file under {MAX_REGISTRANTS} rows.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
-                      children: _v159(_v6?.name)
+                      children: _v151(_v6?.name)
                     }),
                     MAX_REGISTRANTS: _v31.MAX_REGISTRANTS_ALLOWED.toLocaleString()
                   },
@@ -5091,7 +4564,7 @@
                 singular: "{FILE_NAME} is corrupted. Please try again.",
                 replacements: {
                   FILE_NAME: () => (0, _v1.jsx)("strong", {
-                    children: _v159(_v6?.name)
+                    children: _v151(_v6?.name)
                   })
                 },
                 dictionary: {
@@ -5130,7 +4603,7 @@
       })), (0, _v1.jsx)(_v1.Fragment, {
         children: _v5 === _v31.UPLOAD_CSV_MODAL_STEPS[0] ? (0, _v1.jsx)(_v6.Flex, {
           flex: "1",
-          children: (0, _v1.jsx)(_v176, {
+          children: (0, _v1.jsx)(_v167, {
             stepCount: _v5,
             uploadedCsv: _v6,
             checkBoxSelected: _v7,
@@ -5140,7 +4613,7 @@
           })
         }) : _v5 === _v31.UPLOAD_CSV_MODAL_STEPS[1] ? (0, _v1.jsx)(_v6.Flex, {
           flex: "1",
-          children: (0, _v1.jsx)(_v179, {
+          children: (0, _v1.jsx)(_v170, {
             stepCount: _v5,
             columnsMap: _v9,
             columnHeaders: _v8,
@@ -5151,7 +4624,7 @@
         }) : null
       });
     }),
-    _v191 = ({
+    _v180 = ({
       onClose: _v0,
       totalAttendees: _v1,
       importRegistrantState: _v2,
@@ -5298,8 +4771,8 @@
         }) : null
       });
     };
-  var _v192 = _v0.i(0);
-  let _v193 = _v0 => (0, _v1.jsx)(_v131.Icon, {
+  var _v181 = _v0.i(0);
+  let _v182 = _v0 => (0, _v1.jsx)(_v124.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -5308,9 +4781,9 @@
       fill: "currentColor"
     })
   });
-  var _v194 = _v0.i(0),
-    _v195 = _v0.i(0);
-  let _v196 = ({
+  var _v183 = _v0.i(0),
+    _v184 = _v0.i(0);
+  let _v185 = ({
       handleModalClose: _v0
     }) => {
       let {
@@ -5336,7 +4809,7 @@
           children: (0, _v1.jsxs)(_v6.Flex, {
             align: "center",
             flexDirection: "column",
-            children: [(0, _v1.jsx)(_v193, {
+            children: [(0, _v1.jsx)(_v182, {
               boxSize: (0, _v9.rem)(60),
               mt: (0, _v9.rem)(20)
             }), (0, _v1.jsx)(_v7.Header, {
@@ -5362,8 +4835,8 @@
             children: _v33.default.DataImportDesc2
           }), (0, _v1.jsxs)(_v6.Flex, {
             pt: "sm",
-            children: [(0, _v1.jsx)(_v197, {
-              icon: (0, _v1.jsx)(_v195.Registration, {
+            children: [(0, _v1.jsx)(_v186, {
+              icon: (0, _v1.jsx)(_v184.Registration, {
                 boxSize: (0, _v9.rem)(20)
               }),
               header: _v33.default.InviteSpeakers,
@@ -5371,9 +4844,9 @@
               onClick: () => {
                 _v3?.(_v31.SECTION_TYPES.FORM), _v0();
               }
-            }), (0, _v1.jsx)(_v197, {
+            }), (0, _v1.jsx)(_v186, {
               ml: "sm",
-              icon: (0, _v1.jsx)(_v194.EditPencil, {
+              icon: (0, _v1.jsx)(_v183.EditPencil, {
                 boxSize: (0, _v9.rem)(20)
               }),
               header: _v33.default.CreateVideo[_v2] || "",
@@ -5386,13 +4859,13 @@
         })]
       });
     },
-    _v197 = ({
+    _v186 = ({
       icon: _v0,
       header: _v1,
       description: _v2,
       onClick: _v3,
       ml: _v4
-    }) => (0, _v1.jsx)(_v192.Card, {
+    }) => (0, _v1.jsx)(_v181.Card, {
       onClick: _v3,
       ml: _v4,
       p: "md",
@@ -5423,7 +4896,7 @@
         })]
       })
     }),
-    _v198 = ({
+    _v187 = ({
       dispatch: _v0,
       onClose: _v1,
       ..._v2
@@ -5444,7 +4917,7 @@
         _v13 = (0, _v19.getLastIdFromUri)(_v8?.uri),
         [_v14, {
           data: _v15
-        }] = _v139(),
+        }] = _v131(),
         {
           sendUpsellEvent: _v16
         } = (0, _v17.useUpsellAnalytics)(),
@@ -5453,7 +4926,7 @@
             where: {
               userId: _v13
             },
-            select: _v114
+            select: _v108
           });
         },
         {
@@ -5470,7 +4943,7 @@
           payload: !1
         }), _v15 && _v0({
           type: _v29.ACTION_TYPE.SET_PROVIDERS,
-          payload: (0, _v103.deepCamelCase)(_v15.data)
+          payload: (0, _v102.deepCamelCase)(_v15.data)
         });
       }, [_v15, _v0]), (0, _v2.useEffect)(() => {
         _v3 === _v31.IMPORT_TYPE.CRM && 0 === _v4.length && (_v0({
@@ -5485,20 +4958,20 @@
           clipPath: "inset(0 round 16px)",
           children: [(0, _v1.jsx)(_v81.ModalCloseButton, {
             isDisabled: _v20
-          }), _v5 ? (0, _v1.jsx)(_v196, {
+          }), _v5 ? (0, _v1.jsx)(_v185, {
             type: _v3,
             handleModalClose: _v1
           }) : (0, _v1.jsxs)(_v1.Fragment, {
-            children: [_v3 === _v31.IMPORT_TYPE.CRM && (0, _v1.jsx)(_v171, {
+            children: [_v3 === _v31.IMPORT_TYPE.CRM && (0, _v1.jsx)(_v162, {
               ..._v2,
               dispatch: _v0,
               refreshProvider: _v17,
               ref: _v12
-            }), _v3 === _v31.IMPORT_TYPE.CSV && (0, _v1.jsx)(_v190, {
+            }), _v3 === _v31.IMPORT_TYPE.CSV && (0, _v1.jsx)(_v179, {
               ..._v2,
               dispatch: _v0,
               ref: _v11
-            }), _v5 ? null : (0, _v1.jsx)(_v191, {
+            }), _v5 ? null : (0, _v1.jsx)(_v180, {
               ..._v2,
               onClose: _v1,
               onUpsellClick: () => {
@@ -5521,14 +4994,14 @@
               contentRef: _v3 === _v31.IMPORT_TYPE.CSV ? _v11 : _v12
             })]
           })]
-        }), _v9 && (0, _v1.jsx)(_v140.UpsellModal, {
+        }), _v9 && (0, _v1.jsx)(_v132.UpsellModal, {
           hasLiveSubscription: _v18,
           hideModal: () => _v10(!1),
           entityType: _v19
         })]
       });
     };
-  async function _v199({
+  async function _v188({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -5536,19 +5009,19 @@
     },
     ..._v3
   }) {
-    return (0, _v102.measureLatency)("getLeadCaptureRegistrantsUpload", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/lead_capture/registrants/uploads/${_v2}?fields=${_v1.map(_v103.intoSnakeCase).join(",")}`, {
+    return (0, _v101.measureLatency)("getLeadCaptureRegistrantsUpload", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/lead_capture/registrants/uploads/${_v2}?fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
+      return (0, _v102.deepCamelCase)(_v1);
     });
   }
-  async function _v200({
+  async function _v189({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -5557,96 +5030,18 @@
     },
     ..._v4
   }) {
-    return (0, _v102.measureLatency)("patchLeadCaptureRegistrantsUpload", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/lead_capture/registrants/uploads/${_v3}?fields=${_v1.map(_v103.intoSnakeCase).join(",")}`, {
+    return (0, _v101.measureLatency)("patchLeadCaptureRegistrantsUpload", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/lead_capture/registrants/uploads/${_v3}?fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "PATCH",
-        body: JSON.stringify((0, _v103.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v102.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v103.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v103.deepCamelCase)(_v1);
+      return (0, _v102.deepCamelCase)(_v1);
     });
-  }
-  function _v201() {
-    let {
-        mutate: _v0
-      } = (0, _v108.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v110.useGctlConfig)(),
-      [_v5, _v6] = (0, _v101.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/lead_capture/registrants/uploads/${_v0.where.uploadId}${(0, _v101.serializeQuery)(_v0)}`, _v199({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }));
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }
-  function _v202() {
-    let {
-        mutate: _v0
-      } = (0, _v108.useSWRConfig)(),
-      {
-        baseUrl: _v1,
-        jwt: _v2,
-        xVimeoPage: _v3,
-        locale: _v4
-      } = (0, _v110.useGctlConfig)(),
-      [_v5, _v6] = (0, _v101.useInternalState)();
-    return [(0, _v2.useCallback)(async _v0 => {
-      _v6({
-        type: "REQUEST"
-      });
-      try {
-        let _v0 = await _v0(`/lead_capture/registrants/uploads/${_v0.where.uploadId}${(0, _v101.serializeQuery)(_v0)}`, _v200({
-          ..._v0,
-          baseUrl: _v1,
-          headers: {
-            ..._v0.headers,
-            "Content-Type": "application/json",
-            Authorization: _v2 ? `jwt ${_v2}` : "",
-            "Vimeo-Page": `${_v3}`,
-            "Accept-Language": _v4 ?? "en"
-          }
-        }), !1);
-        _v6({
-          type: "SUCCESS",
-          payload: _v0
-        });
-      } catch (_v0) {
-        _v6({
-          type: "FAILURE",
-          payload: _v0
-        });
-      }
-    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
   _v0.s(["ImportRegistrant", 0, ({
     dispatch: _v0,
@@ -5692,7 +5087,7 @@
         color: "text-primary",
         children: [(0, _v1.jsx)(_v3.Box, {
           ref: _v6
-        }), (0, _v1.jsx)(_v198, {
+        }), (0, _v1.jsx)(_v187, {
           ..._v2,
           importRegistrantState: _v1,
           dispatch: _v0,
@@ -5701,33 +5096,81 @@
         })]
       })]
     });
-  }], 0), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(function (_v0, _v1) {
-    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
+  }], 0), _v0.s(["useGetLeadCaptureRegistrantsUploadLazy", 0, function () {
+    let {
+        mutate: _v0
+      } = (0, _v104.useSWRConfig)(),
       {
-        baseUrl: _v3,
-        jwt: _v4,
-        xVimeoPage: _v5,
-        locale: _v6
-      } = (0, _v110.useGctlConfig)();
-    return (0, _v107.default)(_v2 ? `/lead_capture/registrants/uploads/${_v2.where.uploadId}${(0, _v101.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v199({
-      ..._v2,
-      headers: {
-        ..._v2.headers,
-        "Content-Type": "application/json",
-        Authorization: _v4 ? `jwt ${_v4}` : "",
-        "Vimeo-Page": `${_v5}`,
-        "Accept-Language": _v6 ?? "en"
-      },
-      baseUrl: _v3
-    }) : null, _v1);
-  }, {
-    endpoint: "/lead_capture/registrants/uploads/:uploadId",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(_v201, {
-    endpoint: "/lead_capture/registrants/uploads/:uploadId",
-    method: "GET"
-  }), "true" === _v100.default.env.STORYBOOK && (0, _v101.assignMswData)(_v202, {
-    endpoint: "/lead_capture/registrants/uploads/:uploadId",
-    method: "PATCH"
-  }), _v0.s(["useGetLeadCaptureRegistrantsUploadLazy", 0, _v201, "usePatchLeadCaptureRegistrantsUpload", 0, _v202], 0);
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v105.useGctlConfig)(),
+      [_v5, _v6] = (0, _v100.useInternalState)();
+    return [(0, _v2.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/lead_capture/registrants/uploads/${_v0.where.uploadId}${(0, _v100.serializeQuery)(_v0)}`, _v188({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
+          }
+        }));
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+  }, "usePatchLeadCaptureRegistrantsUpload", 0, function () {
+    let {
+        mutate: _v0
+      } = (0, _v104.useSWRConfig)(),
+      {
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v105.useGctlConfig)(),
+      [_v5, _v6] = (0, _v100.useInternalState)();
+    return [(0, _v2.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/lead_capture/registrants/uploads/${_v0.where.uploadId}${(0, _v100.serializeQuery)(_v0)}`, _v189({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
+          }
+        }), !1);
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+  }], 0);
 }

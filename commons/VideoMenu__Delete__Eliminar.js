@@ -141,9 +141,7 @@
   }) => {
     let _v62 = (0, _v20.useIsMobile)(),
       _v63 = (0, _v28.useIsV2)(),
-      {
-        settings: _v64
-      } = (0, _v23.useOrionSettings)(),
+      _v64 = (0, _v23.useOrionSettingsFields)(["enable_copy_button_video", "enable_review_link_submenu"]),
       [_v65, _v66] = (0, _v2.useState)(!1),
       _v67 = _v60 && !_v62,
       _v68 = {

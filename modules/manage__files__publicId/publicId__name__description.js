@@ -2051,9 +2051,7 @@
       publicId: _v0
     }) => {
       let _v1 = (0, _v10.useViewer)(),
-        {
-          isLoadingResponse: _v2
-        } = (0, _v8.useOrionSettings)(),
+        _v2 = (0, _v8.useOrionLoading)(),
         _v3 = (0, _v9.useUniversalHostingEnabled)(),
         _v4 = (_v0 => {
           let _v1 = (0, _v10.useViewer)(),

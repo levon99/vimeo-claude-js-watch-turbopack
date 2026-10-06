@@ -96,13 +96,14 @@
     _v93 = _v0.i(0),
     _v94 = _v0.i(0),
     _v95 = _v0.i(0),
-    _v96 = _v0.i(0);
-  function _v97(_v0, _v1) {
+    _v96 = _v0.i(0),
+    _v97 = _v0.i(0);
+  function _v98(_v0, _v1) {
     return new Intl.NumberFormat(_v1, {
       maximumFractionDigits: 2
     }).format(_v0);
   }
-  function _v98({
+  function _v99({
     isOpen: _v0,
     onClose: _v1,
     translationLanguageCount: _v2,
@@ -111,11 +112,11 @@
     unitAmount: _v5,
     currency: _v6
   }) {
-    let _v7 = (0, _v96.useLocale)(),
+    let _v7 = (0, _v97.useLocale)(),
       _v8 = _v2 > 0,
       _v9 = _v3 + _v4,
-      _v10 = _v97(_v3, _v7),
-      _v11 = _v97(_v4, _v7),
+      _v10 = _v98(_v3, _v7),
+      _v11 = _v98(_v4, _v7),
       _v12 = null !== _v5 && null !== _v6 ? function (_v0, _v1, _v2) {
         try {
           return new Intl.NumberFormat(_v2, {
@@ -168,12 +169,12 @@
           }
         }
       });
-    return (0, _v39.jsxs)(_v90.Modal, {
+    return (0, _v39.jsxs)(_v91.Modal, {
       isOpen: _v0,
       onClose: _v1,
-      children: [(0, _v39.jsx)(_v95.ModalOverlay, {}), (0, _v39.jsxs)(_v93.ModalContent, {
+      children: [(0, _v39.jsx)(_v96.ModalOverlay, {}), (0, _v39.jsxs)(_v94.ModalContent, {
         maxWidth: (0, _v56.rem)(480),
-        children: [(0, _v39.jsx)(_v94.ModalHeader, {
+        children: [(0, _v39.jsx)(_v95.ModalHeader, {
           children: (0, _v63.translate)({
             singular: "Credits cost",
             dictionary: {
@@ -200,7 +201,7 @@
               }
             }
           })
-        }), (0, _v39.jsx)(_v92.ModalCloseButton, {}), (0, _v39.jsxs)(_v91.ModalBody, {
+        }), (0, _v39.jsx)(_v93.ModalCloseButton, {}), (0, _v39.jsxs)(_v92.ModalBody, {
           paddingX: (0, _v56.rem)(24),
           paddingY: (0, _v56.rem)(20),
           children: [(0, _v39.jsx)(_v50.Paragraph, {
@@ -536,7 +537,7 @@
       })]
     });
   }
-  function _v99(_v0) {
+  function _v100(_v0) {
     return _v0.toLocaleString(void 0, {
       maximumFractionDigits: 2
     });
@@ -559,22 +560,20 @@
   }) {
     let {
         trackLiveStreamClosedCaptionsToggled: _v6
-      } = (0, _v88.useLiveStreamBroadcasterTracking)(),
+      } = (0, _v89.useLiveStreamBroadcasterTracking)(),
       {
         trackDictionaryUseCustomDictionaryToggled: _v7
-      } = (0, _v87.useDictionaryTracking)(),
+      } = (0, _v88.useDictionaryTracking)(),
       {
         open: _v8,
         upgradeModal: _v9
       } = (0, _v66.useAutoCCUpgradeModal)(),
       _v10 = (0, _v73.useIsLiveDemoSubscription)(),
       _v11 = _v5.isSessionRequested || _v5.isSessionInitializing,
-      _v12 = (0, _v89.useIsVpaas)(),
+      _v12 = (0, _v90.useIsVpaas)(),
       _v13 = (0, _v76.useSessionOwnerId)(),
-      {
-        settings: _v14,
-        isLoadingResponse: _v15
-      } = (0, _v86.useOrionSettings)(),
+      _v14 = (0, _v87.useOrionSettingsFields)(["enable_account_wide_dictionary_management"]),
+      _v15 = (0, _v86.useOrionLoading)(),
       _v16 = !_v15 && _v14.enable_account_wide_dictionary_management,
       _v17 = (0, _v42.useAccountDictionaryHasEntries)(_v16 ? _v13 : null),
       _v18 = _v16 && void 0 === _v17,
@@ -630,7 +629,7 @@
           _v7 = (0, _v41.useCallback)(() => _v6(!0), []),
           _v8 = (0, _v41.useCallback)(() => _v6(!1), []);
         return {
-          modal: (0, _v39.jsx)(_v98, {
+          modal: (0, _v39.jsx)(_v99, {
             isOpen: _v5,
             onClose: _v8,
             translationLanguageCount: _v0,
@@ -1345,7 +1344,7 @@
                   children: (0, _v63.translate)({
                     singular: "{RATE}/min",
                     replacements: {
-                      RATE: _v99(_v54)
+                      RATE: _v100(_v54)
                     },
                     dictionary: {
                       "ja-JP": {
@@ -1417,7 +1416,7 @@
                   children: (0, _v63.translate)({
                     singular: "{RATE}/min",
                     replacements: {
-                      RATE: _v99(_v55)
+                      RATE: _v100(_v55)
                     },
                     dictionary: {
                       "ja-JP": {
@@ -1723,7 +1722,7 @@
                 children: (0, _v63.translate)({
                   singular: "{RATE}/min",
                   replacements: {
-                    RATE: _v99(_v55)
+                    RATE: _v100(_v55)
                   },
                   dictionary: {
                     "ja-JP": {
@@ -1797,57 +1796,57 @@
       }) : null, _v34, _v9]
     });
   }], 0);
-  var _v100 = _v0.i(0),
-    _v101 = _v0.i(0),
-    _v102 = _v0.i(0);
+  var _v101 = _v0.i(0),
+    _v102 = _v0.i(0),
+    _v103 = _v0.i(0);
   _v0.s(["trackAddEventDescription", 0, function () {
-    (0, _v102.createBPv2EventFactory)("vimeo.add_event_description", 2, () => ({
-      ...(0, _v101.newTeamCtx)(),
-      ...(0, _v101.newWebCtx)(),
-      ...(0, _v101.newActionCtx)("type"),
-      ...(0, _v101.newLiveCtx)({
+    (0, _v103.createBPv2EventFactory)("vimeo.add_event_description", 2, () => ({
+      ...(0, _v102.newTeamCtx)(),
+      ...(0, _v102.newWebCtx)(),
+      ...(0, _v102.newActionCtx)("type"),
+      ...(0, _v102.newLiveCtx)({
         live_feature: "basic_settings"
       }),
-      ...(0, _v101.newProductAnalyticsCtx)({
+      ...(0, _v102.newProductAnalyticsCtx)({
         product: "events",
         feature: "settings",
         location: "drawer",
         element: "text"
       })
     }), () => ({
-      device_type: _v100.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web"
+      device_type: _v101.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web"
     }))({
       value: null
     });
   }, "trackAddEventTitle", 0, function () {
-    (0, _v102.createBPv2EventFactory)("vimeo.add_event_title", 2, () => ({
-      ...(0, _v101.newTeamCtx)(),
-      ...(0, _v101.newWebCtx)(),
-      ...(0, _v101.newActionCtx)("type"),
-      ...(0, _v101.newLiveCtx)({
+    (0, _v103.createBPv2EventFactory)("vimeo.add_event_title", 2, () => ({
+      ...(0, _v102.newTeamCtx)(),
+      ...(0, _v102.newWebCtx)(),
+      ...(0, _v102.newActionCtx)("type"),
+      ...(0, _v102.newLiveCtx)({
         live_feature: "basic_settings"
       }),
-      ...(0, _v101.newProductAnalyticsCtx)({
+      ...(0, _v102.newProductAnalyticsCtx)({
         product: "events",
         feature: "settings",
         location: "drawer",
         element: "text"
       })
     }), () => ({
-      device_type: _v100.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web"
+      device_type: _v101.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web"
     }))({
       value: null
     });
   }], 0);
-  var _v103 = _v0.i(0);
-  function _v104() {
-    return (_v104 = Object.assign.bind()).apply(null, arguments);
-  }
+  var _v104 = _v0.i(0);
   function _v105() {
     return (_v105 = Object.assign.bind()).apply(null, arguments);
   }
   function _v106() {
     return (_v106 = Object.assign.bind()).apply(null, arguments);
+  }
+  function _v107() {
+    return (_v107 = Object.assign.bind()).apply(null, arguments);
   }
   _v0.s(["BasicSettingsControls", 0, function ({
     position: _v0,
@@ -1881,11 +1880,11 @@
         isDisabled: _v8,
         variant: "primary",
         onClick: _v6,
-        children: _v103.rtmpTranslations.save
+        children: _v104.rtmpTranslations.save
       })]
     });
   }], 0), _v0.s(["default", 0, function (_v0) {
-    return _v41.createElement("svg", _v104({
+    return _v41.createElement("svg", _v105({
       viewBox: "6 6 20 20",
       fill: "none",
       xmlns: "http://www.w3.org/2000/svg"
@@ -1894,7 +1893,7 @@
       fill: "currentColor"
     })));
   }], 0), _v0.s(["default", 0, function (_v0) {
-    return _v41.createElement("svg", _v105({
+    return _v41.createElement("svg", _v106({
       viewBox: "6 6 20 20",
       fill: "none",
       xmlns: "http://www.w3.org/2000/svg"
@@ -1903,7 +1902,7 @@
       fill: "currentColor"
     })));
   }], 0), _v0.s(["default", 0, function (_v0) {
-    return _v41.createElement("svg", _v106({
+    return _v41.createElement("svg", _v107({
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 410 406"
     }, _v0), _v3 || (_v3 = _v41.createElement("path", {

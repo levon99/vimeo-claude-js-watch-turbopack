@@ -3595,9 +3595,7 @@
         {
           data: _v15
         } = (0, _v15.useQuery)(`/users/${_v9.id}/team`, _v16.logoFetchOptions),
-        {
-          settings: _v16
-        } = (0, _v22.useOrionSettings)(),
+        _v16 = (0, _v22.useOrionSettingsFields)(["email_verification_gate"]),
         {
           capabilities: _v17,
           loading: _v18
