@@ -184,9 +184,8 @@
       }, []),
       _v16 = (0, _v2.useCallback)(() => {
         _v3(null), _v5(null);
-      }, []);
-    return (0, _v1.jsxs)(_v23.Provider, {
-      value: {
+      }, []),
+      _v17 = (0, _v2.useMemo)(() => ({
         allowManage: _v1,
         isProcessing: _v6,
         setIsProcessing: _v7,
@@ -199,7 +198,9 @@
         topic: _v12,
         error: _v10,
         setError: _v11
-      },
+      }), [_v1, _v6, _v7, _v8, _v9, _v14, _v15, _v16, _v13, _v12, _v10, _v11]);
+    return (0, _v1.jsxs)(_v23.Provider, {
+      value: _v17,
       children: [_v0, _v2 && (0, _v1.jsx)(_v22, {
         name: _v2.name,
         backgroundImage: _v2.backgroundImage || "",

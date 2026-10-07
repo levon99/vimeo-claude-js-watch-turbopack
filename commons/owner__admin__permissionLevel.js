@@ -36,12 +36,12 @@
       _v8 = _v4 === _v17.TEAM_PERMISSION.ADMIN,
       _v9 = _v4 === _v17.TEAM_PERMISSION.OWNER,
       _v10 = _v9 ? "owner" : "admin",
-      _v11 = {
+      _v11 = (0, _v2.useMemo)(() => ({
         apiUrl: _v2?.apiUrl || "",
         jwt: _v2?.jwt || "",
         ownerUri: _v3 ? `/users/${_v3}` : "",
         ownerId: _v3 || 0
-      },
+      }), [_v2, _v3]),
       {
         updateSelectedTeamMembers: _v12
       } = (0, _v2.useContext)(_v15.ManageTeamDispatchCtx),

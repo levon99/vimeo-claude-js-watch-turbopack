@@ -21,7 +21,7 @@
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0);
-  let _v21 = ["publicId", "uri", "name", "description", "contentType", "thumbnail.url", "fileSize", "privacy", "allowDownloads", "downloadUrl", "createdTime", "modifiedTime", "metadata.connections.ancestorPath.name", "metadata.connections.ancestorPath.link", "parentFolder.name", "parentFolder.uri", "uploader.name", "canUserEdit", "canUserDelete"],
+  let _v21 = ["publicId", "uri", "name", "description", "contentType", "thumbnail.url", "fileSize", "privacy", "password", "allowDownloads", "downloadUrl", "createdTime", "modifiedTime", "metadata.connections.ancestorPath.name", "metadata.connections.ancestorPath.link", "parentFolder.name", "parentFolder.uri", "parentFolder.isPrivateToUser", "uploadState", "uploader.name", "canUserEdit", "canUserDelete"],
     _v22 = {
       video: (0, _v17.translate)({
         singular: "Video",
@@ -545,8 +545,10 @@
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
     _v44 = _v0.i(0),
-    _v45 = _v0.i(0);
-  let _v46 = ({
+    _v45 = _v0.i(0),
+    _v46 = _v0.i(0),
+    _v47 = _v0.i(0);
+  let _v48 = ({
     publicId: _v0,
     ownerId: _v1,
     file: _v2
@@ -559,15 +561,20 @@
         xVimeoPage: _v7,
         locale: _v8
       } = (0, _v16.useGctlConfig)(),
-      [_v9, _v10] = (0, _v3.useState)(!1),
+      {
+        openCopyFileModal: _v9,
+        copyModal: _v10
+      } = (0, _v47.useCopyFileFlow)(),
       [_v11, _v12] = (0, _v3.useState)(!1),
       [_v13, _v14] = (0, _v3.useState)(!1),
-      _v15 = _v2.canUserEdit,
-      _v16 = _v2.canUserDelete,
-      _v17 = _v2.downloadUrl,
-      _v18 = null != _v17,
-      _v19 = async () => {
-        _v10(!0);
+      [_v15, _v16] = (0, _v3.useState)(!1),
+      _v17 = _v2.canUserEdit,
+      _v18 = _v2.canUserDelete,
+      _v19 = _v17 && "complete" === _v2.uploadState,
+      _v20 = _v2.downloadUrl,
+      _v21 = null != _v20,
+      _v22 = async () => {
+        _v12(!0);
         try {
           await (0, _v15.deleteUserFile)({
             where: {
@@ -611,7 +618,7 @@
                 }
               }
             })
-          }), _v14(!1), _v3.push("/library");
+          }), _v16(!1), _v3.push("/library");
         } catch {
           _v4({
             title: (0, _v17.translate)({
@@ -643,10 +650,10 @@
             variant: "warning"
           });
         } finally {
-          _v10(!1);
+          _v12(!1);
         }
       };
-    return _v18 || _v15 || _v16 ? (0, _v1.jsxs)(_v1.Fragment, {
+    return _v21 || _v17 || _v18 ? (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v35.Menu, {
         children: [(0, _v1.jsx)(_v36.MenuButton, {
           "aria-label": (0, _v17.translate)({
@@ -676,14 +683,14 @@
             }
           }),
           as: _v34.IconButton,
-          icon: (0, _v1.jsx)(_v41.EllipsisV, {}),
+          icon: (0, _v1.jsx)(_v42.EllipsisV, {}),
           size: "md",
           variant: "tertiary"
         }), (0, _v1.jsxs)(_v39.MenuList, {
-          children: [_v18 && (0, _v1.jsxs)(_v38.MenuItem, {
+          children: [_v21 && (0, _v1.jsxs)(_v38.MenuItem, {
             as: "a",
-            href: _v17,
-            icon: (0, _v1.jsx)(_v40.DownloadImport, {}),
+            href: _v20,
+            icon: (0, _v1.jsx)(_v41.DownloadImport, {}),
             children: [(0, _v17.translate)({
               singular: "Download",
               dictionary: {
@@ -710,9 +717,9 @@
                 }
               }
             }), "…"]
-          }), _v15 && (0, _v1.jsx)(_v38.MenuItem, {
-            icon: (0, _v1.jsx)(_v42.FolderOpen, {}),
-            onClick: () => _v12(!0),
+          }), _v17 && (0, _v1.jsx)(_v38.MenuItem, {
+            icon: (0, _v1.jsx)(_v43.FolderOpen, {}),
+            onClick: () => _v14(!0),
             children: (0, _v17.translate)({
               singular: "Move…",
               dictionary: {
@@ -739,9 +746,38 @@
                 }
               }
             })
-          }), (_v18 || _v15) && _v16 && (0, _v1.jsx)(_v37.MenuDivider, {}), _v16 && (0, _v1.jsx)(_v38.MenuItem, {
-            icon: (0, _v1.jsx)(_v43.TrashBin, {}),
-            onClick: () => _v14(!0),
+          }), _v19 && (0, _v1.jsx)(_v38.MenuItem, {
+            icon: (0, _v1.jsx)(_v40.CopyPortrait, {}),
+            onClick: () => _v9(_v2),
+            children: (0, _v17.translate)({
+              singular: "Create a copy",
+              dictionary: {
+                es: {
+                  singular: "Crear una copia"
+                },
+                "de-DE": {
+                  singular: "Kopie erstellen"
+                },
+                "fr-FR": {
+                  singular: "Créer une copie"
+                },
+                "ja-JP": {
+                  singular: "コピーを作成"
+                },
+                "ko-KR": {
+                  singular: "사본 만들기"
+                },
+                "pt-BR": {
+                  singular: "Criar uma cópia"
+                },
+                "zh-CN": {
+                  singular: "创建副本"
+                }
+              }
+            })
+          }), (_v21 || _v17) && _v18 && (0, _v1.jsx)(_v37.MenuDivider, {}), _v18 && (0, _v1.jsx)(_v38.MenuItem, {
+            icon: (0, _v1.jsx)(_v44.TrashBin, {}),
+            onClick: () => _v16(!0),
             children: (0, _v17.translate)({
               singular: "Delete",
               dictionary: {
@@ -770,17 +806,18 @@
             })
           })]
         })]
-      }), (0, _v1.jsx)(_v45.MoveModal, {
+      }), (0, _v1.jsx)(_v46.MoveModal, {
         feature: "file_manage",
         location: "file_manage",
-        isActive: _v11,
-        setIsActive: _v12,
+        isActive: _v13,
+        setIsActive: _v14,
         items: [{
           name: _v2.name,
           uri: _v2.uri,
           type: "file",
           parentFolder: null != _v2.parentFolder ? {
-            uri: _v2.parentFolder.uri
+            uri: _v2.parentFolder.uri,
+            isPrivateToUser: _v2.parentFolder.isPrivateToUser
           } : void 0
         }],
         teamOwnerId: _v1,
@@ -845,7 +882,7 @@
             variant: "warning"
           });
         }
-      }), (0, _v1.jsx)(_v44.DeleteModal, {
+      }), (0, _v1.jsx)(_v45.DeleteModal, {
         headerContent: (0, _v17.translate)({
           singular: "Move to Recently deleted?",
           dictionary: {
@@ -908,24 +945,24 @@
             }
           }
         }),
-        isLoading: _v9,
-        isOpen: _v13,
-        onClose: () => _v14(!1),
-        onConfirm: () => void _v19()
-      })]
+        isLoading: _v11,
+        isOpen: _v15,
+        onClose: () => _v16(!1),
+        onConfirm: () => void _v22()
+      }), _v10]
     }) : (0, _v1.jsx)(_v1.Fragment, {});
   };
-  var _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
-  let _v50 = () => {
-      let _v0 = (0, _v47.useColorModeValue)("slate.800", "white");
-      return (0, _v1.jsx)(_v49.VimeoV, {
-        height: (0, _v48.rem)(26.7),
+  var _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0);
+  let _v52 = () => {
+      let _v0 = (0, _v49.useColorModeValue)("slate.800", "white");
+      return (0, _v1.jsx)(_v51.VimeoV, {
+        height: (0, _v50.rem)(26.7),
         color: _v0
       });
     },
-    _v51 = ({
+    _v53 = ({
       publicId: _v0,
       ownerId: _v1,
       file: _v2,
@@ -940,7 +977,7 @@
             children: (0, _v1.jsxs)(_v5.Flex, {
               alignItems: "center",
               children: [(0, _v1.jsx)(_v31.default, {
-                vimeoLogo: (0, _v1.jsx)(_v50, {})
+                vimeoLogo: (0, _v1.jsx)(_v52, {})
               }), (0, _v1.jsx)(_v4.Box, {
                 pl: "md",
                 children: (0, _v1.jsx)(_v28.ContentBreadcrumbs, {
@@ -986,7 +1023,7 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v46, {
+            }), (0, _v1.jsx)(_v48, {
               file: _v2,
               ownerId: _v1,
               publicId: _v0
@@ -999,8 +1036,8 @@
         })]
       });
     };
-  var _v52 = _v0.i(0);
-  let _v53 = {
+  var _v54 = _v0.i(0);
+  let _v55 = {
     src: _v0.i(0).default,
     width: 661,
     height: 731,
@@ -1008,19 +1045,19 @@
     blurHeight: 8,
     blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAYAAAA1BOUGAAAAgElEQVR42j3OvwpBYRjA4a/O6AaURf6UQZJFySCSwUAWJpPJgsFgM7kOmyuQ67G4Ds/X+c5565l+b71vCPlkzDhyY0cltVBlT50uB8Yx9JhwYUmLPtsYz7z48eZEm02Ma558U7zSYV7EOx8eLKgxLJ5psKKZbg7SQjnx0ymjJPsDleoQYNcZdD4AAAAASUVORK5CYII="
   };
-  var _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
-    _v56 = _v0.i(0),
+  var _v56 = _v0.i(0),
     _v57 = _v0.i(0),
     _v58 = _v0.i(0),
-    _v59 = _v0.i(0);
-  let _v60 = _v0 => {
+    _v59 = _v0.i(0),
+    _v60 = _v0.i(0),
+    _v61 = _v0.i(0);
+  let _v62 = _v0 => {
       if (!Number.isFinite(_v0) || _v0 < 0) return "0:00";
       let _v1 = Math.floor(_v0),
         _v2 = Math.floor(_v1 / 60);
       return `${_v2}:${String(_v1 % 60).padStart(2, "0")}`;
     },
-    _v61 = ({
+    _v63 = ({
       src: _v0,
       name: _v1
     }) => {
@@ -1030,11 +1067,12 @@
         [_v6, _v7] = (0, _v3.useState)(!1),
         [_v8, _v9] = (0, _v3.useState)(0),
         [_v10, _v11] = (0, _v3.useState)(0),
-        _v12 = (0, _v3.useCallback)(() => {
+        [_v12] = (0, _v3.useState)(_v0),
+        _v13 = (0, _v3.useCallback)(() => {
           let _v0 = _v2.current;
           null !== _v0 && (_v0.paused ? _v0.play().catch(() => void 0) : _v0.pause());
         }, []),
-        _v13 = (0, _v3.useCallback)(() => {
+        _v14 = (0, _v3.useCallback)(() => {
           let _v0 = _v2.current;
           null !== _v0 && (_v0.muted = !_v0.muted, _v7(_v0.muted));
         }, []);
@@ -1050,7 +1088,9 @@
         width: "100%",
         children: [(0, _v1.jsx)("audio", {
           "aria-hidden": "true",
+          onEmptied: () => _v5(!1),
           onEnded: () => _v5(!1),
+          onError: () => _v5(!1),
           onLoadedMetadata: _v0 => _v11(_v0.currentTarget.duration),
           onPause: () => _v5(!1),
           onPlay: () => _v5(!0),
@@ -1059,7 +1099,7 @@
           },
           preload: "metadata",
           ref: _v2,
-          src: _v0,
+          src: _v12,
           tabIndex: -1
         }), (0, _v1.jsx)(_v34.IconButton, {
           "aria-label": _v4 ? (0, _v17.translate)({
@@ -1105,8 +1145,8 @@
             }
           }),
           borderRadius: "full",
-          icon: _v4 ? (0, _v1.jsx)(_v56.PauseFilled, {}) : (0, _v1.jsx)(_v57.PlayFilled, {}),
-          onClick: _v12,
+          icon: _v4 ? (0, _v1.jsx)(_v58.PauseFilled, {}) : (0, _v1.jsx)(_v59.PlayFilled, {}),
+          onClick: _v13,
           size: "sm",
           variant: "primary"
         }), (0, _v1.jsxs)(_v5.Flex, {
@@ -1120,11 +1160,11 @@
             children: (0, _v17.translate)({
               singular: "{current} / {total}",
               replacements: {
-                current: _v60(_v8),
-                total: _v60(_v10)
+                current: _v62(_v8),
+                total: _v62(_v10)
               }
             })
-          }), (0, _v1.jsx)(_v54.Slider, {
+          }), (0, _v1.jsx)(_v56.Slider, {
             "aria-label": (0, _v17.translate)({
               singular: "Seek in {name}",
               replacements: {
@@ -1167,10 +1207,10 @@
             },
             step: 1,
             value: _v8,
-            children: (0, _v1.jsxs)(_v55.SliderTrack, {
-              children: [(0, _v1.jsx)(_v55.SliderFilledTrack, {
+            children: (0, _v1.jsxs)(_v57.SliderTrack, {
+              children: [(0, _v1.jsx)(_v57.SliderFilledTrack, {
                 bg: "gray.800"
-              }), (0, _v1.jsx)(_v55.SliderThumb, {
+              }), (0, _v1.jsx)(_v57.SliderThumb, {
                 boxSize: "4"
               })]
             })
@@ -1228,14 +1268,14 @@
             }
           }),
           flexShrink: 0,
-          icon: _v6 ? (0, _v1.jsx)(_v58.VolumeOff, {}) : (0, _v1.jsx)(_v59.VolumeOn, {}),
-          onClick: _v13,
+          icon: _v6 ? (0, _v1.jsx)(_v60.VolumeOff, {}) : (0, _v1.jsx)(_v61.VolumeOn, {}),
+          onClick: _v14,
           size: "sm",
           variant: "tertiary"
         })]
       });
     },
-    _v62 = {
+    _v64 = {
       video: (0, _v17.translate)({
         singular: "Video",
         dictionary: {
@@ -1320,7 +1360,7 @@
         }
       })
     },
-    _v63 = ({
+    _v65 = ({
       file: _v0
     }) => {
       let _v1,
@@ -1358,7 +1398,7 @@
             }), (0, _v1.jsx)(_v12.Text, {
               variant: "body-sm",
               color: "text-secondary",
-              children: (_v1 = [_v62[(0, _v14.getContentTypeCategory)(_v0.contentType)]], "" !== (_v2 = (0, _v14.getFileExtension)(_v0.name)) && _v1.push(_v2), null != _v0.fileSize && _v0.fileSize > 0 && _v1.push(String((0, _v18.bytesToSize)(_v0.fileSize, 1))), _v1.join(" · "))
+              children: (_v1 = [_v64[(0, _v14.getContentTypeCategory)(_v0.contentType)]], "" !== (_v2 = (0, _v14.getFileExtension)(_v0.name)) && _v1.push(_v2), null != _v0.fileSize && _v0.fileSize > 0 && _v1.push(String((0, _v18.bytesToSize)(_v0.fileSize, 1))), _v1.join(" · "))
             })]
           })]
         }), (0, _v1.jsx)(_v5.Flex, {
@@ -1366,10 +1406,10 @@
           flexGrow: 1,
           justifyContent: "center",
           p: "lg",
-          children: _v6 ? (0, _v1.jsx)(_v61, {
+          children: _v6 ? (0, _v1.jsx)(_v63, {
             name: _v0.name,
             src: _v5
-          }) : null != _v3 && "" !== _v3 ? (0, _v1.jsx)(_v52.Image, {
+          }) : null != _v3 && "" !== _v3 ? (0, _v1.jsx)(_v54.Image, {
             alt: "",
             maxHeight: "100%",
             maxWidth: "100%",
@@ -1380,11 +1420,11 @@
             flexDirection: "column",
             gap: "lg",
             maxWidth: "334px",
-            children: [(0, _v1.jsx)(_v52.Image, {
+            children: [(0, _v1.jsx)(_v54.Image, {
               "aria-hidden": "true",
               alt: "",
               height: "90px",
-              src: _v53.src,
+              src: _v55.src,
               width: "81px"
             }), (0, _v1.jsxs)(_v5.Flex, {
               alignItems: "center",
@@ -1572,16 +1612,18 @@
         })]
       });
     };
-  var _v64 = _v0.i(0),
-    _v65 = _v0.i(0),
-    _v66 = _v0.i(0),
+  var _v66 = _v0.i(0),
     _v67 = _v0.i(0),
     _v68 = _v0.i(0),
     _v69 = _v0.i(0),
     _v70 = _v0.i(0),
-    _v71 = _v0.i(0);
-  let _v72 = ["nobody", "team", "unlisted"],
-    _v73 = ({
+    _v71 = _v0.i(0),
+    _v72 = _v0.i(0),
+    _v73 = _v0.i(0),
+    _v74 = _v0.i(0),
+    _v75 = _v0.i(0);
+  let _v76 = ["nobody", "team", "unlisted", "password"],
+    _v77 = ({
       publicId: _v0,
       ownerId: _v1,
       file: _v2,
@@ -1598,21 +1640,19 @@
         } = (0, _v16.useGctlConfig)(),
         {
           capabilities: _v11
-        } = (0, _v67.useCapability)(["canAllowDownloads"], `/users/${_v1}`),
-        _v12 = (0, _v3.useMemo)(() => _v72.map(_v0 => {
-          let _v1 = _v69.DEFAULT_PRIVACY_OPTIONS.find(_v0 => _v0.privacy === _v0);
-          return {
-            privacy: _v0,
-            title: (0, _v71.getPrivacyLabel)(_v0, _v5?.teamUser),
-            description: _v1?.description,
-            icon: (0, _v69.videoPrivacyIcons)("xs")[_v0]?.icon
-          };
-        }), [_v5?.teamUser]),
-        _v13 = `https://vimeo.com/files/${_v2.publicId}`,
-        _v14 = _v11.canAllowDownloads,
-        _v15 = async _v0 => {
+        } = (0, _v70.useCapability)(["canAllowDownloads"], `/users/${_v1}`),
+        _v12 = (0, _v3.useMemo)(() => _v76.map(_v0 => ({
+          privacy: _v0,
+          title: (0, _v75.getPrivacyLabel)(_v0, _v5?.teamUser),
+          description: (0, _v72.getFilePrivacyDescription)(_v0),
+          icon: (0, _v72.videoPrivacyIcons)("xs")[_v0]?.icon
+        })), [_v5?.teamUser]),
+        [_v13, _v14] = (0, _v3.useState)("password" === _v2.privacy),
+        _v15 = (0, _v74.getFileLink)(_v2.publicId),
+        _v16 = _v11.canAllowDownloads,
+        _v17 = async _v0 => {
           try {
-            await (0, _v15.patchUserFile)({
+            return await (0, _v15.patchUserFile)({
               where: {
                 userId: _v1,
                 fileId: _v0
@@ -1653,9 +1693,9 @@
                   }
                 }
               })
-            }), _v4();
+            }), _v4(), !0;
           } catch {
-            _v6({
+            return _v6({
               title: (0, _v17.translate)({
                 singular: "Something went wrong",
                 dictionary: {
@@ -1683,8 +1723,14 @@
                 }
               }),
               variant: "warning"
-            });
+            }), !1;
           }
+        },
+        _v18 = async _v0 => {
+          await _v17({
+            privacy: "password",
+            password: _v0
+          });
         };
       return (0, _v1.jsxs)(_v5.Flex, {
         background: "surface",
@@ -1752,7 +1798,7 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v65.CloseX, {}),
+            icon: (0, _v1.jsx)(_v67.CloseX, {}),
             onClick: _v3,
             size: "xs",
             variant: "tertiary"
@@ -1796,15 +1842,22 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v66.PrivacyDropdown, {
+              }), (0, _v1.jsx)(_v69.PrivacyDropdown, {
                 activePrivacy: _v2.privacy,
-                onSelect: _v0 => void _v15({
-                  privacy: _v0
-                }),
+                onSelect: _v0 => {
+                  "password" === _v0 ? _v14(!0) : (_v14(!1), _v17({
+                    privacy: _v0
+                  }).then(_v0 => {
+                    _v0 || "password" !== _v2.privacy || _v14(!0);
+                  }));
+                },
                 privacyOptions: _v12,
                 isVideoPrivacy: !0,
                 variant: "outlined"
               })]
+            }), _v13 && (0, _v1.jsx)(_v68.PasswordInput, {
+              initialValue: "password" === _v2.privacy ? _v2.password ?? "" : "",
+              onSave: _v18
             }), (0, _v1.jsxs)(_v5.Flex, {
               flexDirection: "column",
               gap: "sm",
@@ -1864,7 +1917,7 @@
                       }
                     }
                   })
-                }), !0 !== _v14 && (0, _v1.jsx)(_v68.UpgradeBadge, {
+                }), !0 !== _v16 && (0, _v1.jsx)(_v71.UpgradeBadge, {
                   modalConfig: {
                     headerText: (0, _v17.translate)({
                       singular: "Upgrade to allow downloads",
@@ -1942,11 +1995,11 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v64.Switch, {
+                }), (0, _v1.jsx)(_v66.Switch, {
                   isChecked: _v2.allowDownloads,
-                  isDisabled: !0 !== _v14,
+                  isDisabled: !0 !== _v16,
                   onChange: _v0 => {
-                    _v15({
+                    _v17({
                       allowDownloads: _v0.target.checked
                     });
                   },
@@ -1982,12 +2035,12 @@
             }), (0, _v1.jsx)(_v11.Input, {
               id: "file-share-link",
               isReadOnly: !0,
-              value: _v13,
+              value: _v15,
               variant: "outlined"
             }), (0, _v1.jsx)(_v26.Button, {
               variant: "primary",
               onClick: () => {
-                (0, _v70.default)(_v13) && _v6({
+                (0, _v73.default)(_v15) && _v6({
                   title: (0, _v17.translate)({
                     singular: "Copied!",
                     dictionary: {
@@ -2047,7 +2100,7 @@
         })]
       });
     },
-    _v74 = ({
+    _v78 = ({
       publicId: _v0
     }) => {
       let _v1 = (0, _v10.useViewer)(),
@@ -2094,7 +2147,7 @@
       return (0, _v1.jsxs)(_v5.Flex, {
         direction: "column",
         minHeight: "100vh",
-        children: [(0, _v1.jsx)(_v51, {
+        children: [(0, _v1.jsx)(_v53, {
           file: _v4.file,
           onShareClick: () => _v6(_v0 => !_v0),
           ownerId: _v7,
@@ -2116,7 +2169,7 @@
             marginX: "auto",
             maxWidth: "56rem",
             minWidth: 0,
-            children: [(0, _v1.jsx)(_v63, {
+            children: [(0, _v1.jsx)(_v65, {
               file: _v4.file
             }), (0, _v1.jsx)(_v25, {
               file: _v4.file,
@@ -2124,7 +2177,7 @@
               ownerId: _v7,
               publicId: _v0
             })]
-          }), _v5 && (0, _v1.jsx)(_v73, {
+          }), _v5 && (0, _v1.jsx)(_v77, {
             file: _v4.file,
             onChanged: _v4.refresh,
             onClose: () => _v6(!1),
@@ -2147,7 +2200,7 @@
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, ({
     publicId: _v0
-  }) => (0, _v1.jsx)(_v74, {
+  }) => (0, _v1.jsx)(_v78, {
     publicId: _v0
   }, _v0)], 0);
 }

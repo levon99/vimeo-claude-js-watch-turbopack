@@ -819,38 +819,45 @@
       [_v37, _v38] = (0, _v5.useState)(),
       _v39 = (0, _v83.formatVersionNumber)(_v7 || _v59.DEFAULT_VERSION_NUMBER),
       [_v40, _v41] = (0, _v5.useState)(!1),
-      _v42 = (0, _v28.useOrionSettingsFields)(["replace_in_review", "new_replace_feature"]),
-      _v43 = (0, _v16.useToast)(),
+      [_v42, _v43] = (0, _v5.useState)(!0),
+      _v44 = (0, _v28.useOrionSettingsFields)(["replace_in_review", "new_replace_feature"]),
+      _v45 = (0, _v16.useToast)(),
       {
-        setVersions: _v44
+        setVersions: _v46,
+        versionList: _v47
       } = (0, _v39.useVersionsStore)(_v0 => ({
-        setVersions: _v0.setVersions
+        setVersions: _v0.setVersions,
+        versionList: _v0.versionList
       })),
       {
-        restoreVersion: _v45,
-        isRestoreInProgress: _v46
+        restoreVersion: _v48,
+        isRestoreInProgress: _v49
       } = (0, _v80.useRestoreVersion)(),
       {
-        restore: _v47,
-        isRestoreInProgress: _v48
+        restore: _v50,
+        isRestoreInProgress: _v51
       } = (0, _v38.useRestoreVersionWorkflow)(),
-      _v49 = _v42.replace_in_review && _v12 && _v32 && _v31,
-      _v50 = _v42.new_replace_feature ? _v48 : _v46,
-      _v51 = (0, _v5.useCallback)(() => (0, _v36.refreshVersions)(_v1, {
+      _v52 = _v44.replace_in_review && _v12 && _v32 && _v31,
+      _v53 = _v44.new_replace_feature ? _v51 : _v49,
+      _v54 = (0, _v5.useCallback)(() => (0, _v36.refreshVersions)(_v1, {
         baseUrl: _v33,
         jwt: _v34,
         reviewId: _v12,
         password: (0, _v60.getReviewPasswordHashFromCookie)(_v12)
-      }, _v44), [_v33, _v34, _v12, _v44, _v1]),
+      }, _v46), [_v33, _v34, _v12, _v46, _v1]),
       {
-        trackRestoreVersion: _v52
+        trackRestoreVersion: _v55
       } = (0, _v29.useVideoManageTracking)(),
       {
-        allowStatusChange: _v53,
-        isDark: _v54,
-        showMyLogo: _v55,
-        logoUrl: _v56
-      } = (0, _v5.useContext)(_v81.ReviewLinkContext);
+        allowStatusChange: _v56,
+        isDark: _v57,
+        showMyLogo: _v58,
+        logoUrl: _v59
+      } = (0, _v5.useContext)(_v81.ReviewLinkContext),
+      _v60 = (0, _v5.useMemo)(() => ({
+        modal: _v37,
+        setModal: _v38
+      }), [_v37, _v38]);
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v3.default, {
         children: (0, _v1.jsx)("title", {
@@ -865,7 +872,7 @@
         children: [(0, _v1.jsxs)(_v25.Navigation.LeftContent, {
           "data-id": "review-header-left",
           gap: "md",
-          children: [_v55 && _v56 ? (0, _v1.jsx)(_v14.Link, {
+          children: [_v58 && _v59 ? (0, _v1.jsx)(_v14.Link, {
             href: "/",
             ...(!_v28?.user && {
               pointerEvents: "none"
@@ -876,7 +883,7 @@
                 md: (0, _v7.rem)(400)
               },
               height: (0, _v7.rem)(40),
-              src: _v56,
+              src: _v59,
               alt: "Team Logo"
             })
           }) : (0, _v1.jsx)(_v33.default, {}), !_v26 && (0, _v1.jsx)(_v8.Breadcrumb, {
@@ -903,7 +910,7 @@
                 children: _v0
               })
             })
-          }), !(_v49 && "complete" === _v19) && (0, _v1.jsx)(_v84.VersionListPicker, {
+          }), !(_v52 && "complete" === _v19) && (0, _v1.jsx)(_v84.VersionListPicker, {
             videoId: _v1,
             clipHash: _v2,
             allowReplace: _v35,
@@ -921,7 +928,7 @@
             showDeleteVersion: _v24,
             showNewVersion: _v25,
             isVideoProcessing: _v18
-          }), _v49 && "in_progress" === _v19 && (0, _v1.jsxs)(_v10.Flex, {
+          }), _v52 && "in_progress" === _v19 && (0, _v1.jsxs)(_v10.Flex, {
             alignItems: "center",
             gap: 3,
             whiteSpace: "nowrap",
@@ -988,7 +995,7 @@
                 }
               })
             })]
-          }), _v49 && "complete" === _v19 && (0, _v1.jsxs)(_v10.Flex, {
+          }), _v52 && "complete" === _v19 && (0, _v1.jsxs)(_v10.Flex, {
             alignItems: "center",
             gap: 3,
             whiteSpace: "nowrap",
@@ -1067,14 +1074,11 @@
           justifyContent: "flex-end",
           gap: "sm",
           children: (0, _v1.jsxs)(_v27.LoginJoinModalContext.Provider, {
-            value: {
-              modal: _v37,
-              setModal: _v38
-            },
+            value: _v60,
             children: [!_v27 && _v11 && (0, _v1.jsx)(_v74.ReviewStatusMenu, {
               clipId: _v1,
               defaultStatus: _v10 ?? null,
-              isReadOnly: !_v53,
+              isReadOnly: !_v56,
               analyticsProps: _v5,
               reviewId: _v12
             }), _v20 && (0, _v1.jsx)(_v6.IconButton, {
@@ -1094,7 +1098,7 @@
               isDisabled: _v4
             }), _v23 && _v15 && !_v16 && (0, _v1.jsx)(_v12.Button, {
               variant: "primary",
-              onClick: () => void (_v41(!0), _v5 && (0, _v82.bpStartRestoreVersion)({
+              onClick: () => void (_v43(!0), _v41(!0), _v5 && (0, _v82.bpStartRestoreVersion)({
                 videoId: _v1,
                 viewer: _v28,
                 currentVersion: _v39,
@@ -1130,7 +1134,7 @@
                 surface: "video_review_page",
                 clipId: String(_v1)
               })
-            }), _v49 && (0, _v1.jsxs)(_v35.default, {
+            }), _v52 && (0, _v1.jsxs)(_v35.default, {
               children: [(0, _v1.jsx)(_v68, {
                 videoId: _v1,
                 reviewId: _v12,
@@ -1141,7 +1145,7 @@
                 isCommentsPanelOpen: _v13
               })]
             }), (0, _v1.jsx)(_v26.AccountMenu, {
-              hasThemeSupport: !_v54
+              hasThemeSupport: !_v57
             }), _v28 && !_v29 && (0, _v1.jsx)(_v85, {})]
           })
         })]
@@ -1156,8 +1160,8 @@
               currentVersion: _v39,
               chosenVersion: _v39,
               analyticsProps: _v5
-            }), _v42.new_replace_feature) return void _v47(_v1, _v15).then(async _v0 => {
-              await _v51().catch(() => (0, _v37.handleVersionRefreshError)(_v43)), _v41(!1), _v52({
+            }), _v44.new_replace_feature) return void _v50(_v1, _v15, _v42).then(async _v0 => {
+              _v41(!1), await _v54().catch(() => (0, _v37.handleVersionRefreshError)(_v45)), _v55({
                 clipId: String(_v1),
                 versionNumber: _v7,
                 versionId: String(_v15),
@@ -1166,8 +1170,9 @@
                 uploadStatus: _v0.upload?.status ?? null,
                 versionTranscodeStatus: _v0.versionTranscodeStatus ?? null,
                 status: "succeeded",
-                error: null
-              }), _v43({
+                error: null,
+                newVersionNumber: _v42
+              }), _v45({
                 title: (0, _v24.translate)({
                   singular: "Version restored",
                   dictionary: {
@@ -1198,7 +1203,7 @@
                 isClosable: !1
               });
             }).catch(_v0 => {
-              _v43({
+              _v45({
                 title: (0, _v24.translate)({
                   singular: "Unable to restore",
                   dictionary: {
@@ -1228,7 +1233,7 @@
                 duration: _v60.TOAST_DURATION,
                 isClosable: !1,
                 variant: "warning"
-              }), _v52({
+              }), _v55({
                 clipId: String(_v1),
                 versionNumber: _v7,
                 versionId: String(_v15),
@@ -1237,15 +1242,20 @@
                 uploadStatus: null,
                 versionTranscodeStatus: null,
                 status: "failed",
-                error: _v0 instanceof Error ? _v0.message : String(_v0)
+                error: _v0 instanceof Error ? _v0.message : String(_v0),
+                newVersionNumber: _v42
               });
             });
-            _v45(_v1, _v15).then(() => {
+            _v48(_v1, _v15).then(() => {
               _v41(!1);
             });
           }
         },
-        isRestoreApiInProgress: _v50
+        isRestoreApiInProgress: _v53,
+        showCreateNewVersionOption: _v44.new_replace_feature,
+        createNewVersion: _v42,
+        onCreateNewVersionChange: _v43,
+        nextVersionNumber: (0, _v83.getNextVersionSequenceNumber)(_v47)
       })]
     });
   }], 0);

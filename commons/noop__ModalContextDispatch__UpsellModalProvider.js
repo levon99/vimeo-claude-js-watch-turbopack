@@ -24,11 +24,12 @@
       {
         isActive: _v4,
         state: _v5
-      } = _v2;
-    return (0, _v1.jsxs)(_v6.Provider, {
-      value: {
+      } = _v2,
+      _v6 = (0, _v3.useMemo)(() => ({
         setModalContextState: _v3
-      },
+      }), []);
+    return (0, _v1.jsxs)(_v6.Provider, {
+      value: _v6,
       children: [_v0, _v4 && (0, _v1.jsx)(_v5, {
         apiUrl: _v1?.apiUrl,
         userConfig: {

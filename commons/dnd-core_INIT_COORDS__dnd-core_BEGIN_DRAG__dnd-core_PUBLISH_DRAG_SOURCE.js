@@ -2244,11 +2244,12 @@
       {
         isOpen: _v3,
         state: _v4
-      } = _v1;
-    return (0, _v4.jsxs)(_v114.Provider, {
-      value: {
+      } = _v1,
+      _v5 = (0, _v5.useMemo)(() => ({
         setModalContextState: _v2
-      },
+      }), []);
+    return (0, _v4.jsxs)(_v114.Provider, {
+      value: _v5,
       children: [_v0, _v3 && (0, _v4.jsx)(_v113, {
         ..._v4,
         isOpen: !0,

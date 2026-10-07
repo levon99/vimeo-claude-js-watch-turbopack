@@ -70,6 +70,10 @@
       "& input": {
         backgroundColor: "var(--vimeo-colors-surface)"
       },
+      '& input[aria-invalid="true"]': {
+        outlineWidth: "2px",
+        outlineOffset: "-2px"
+      },
       zIndex: 1
     },
     children: [(0, _v1.jsx)(_v3.Input, {

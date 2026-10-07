@@ -771,13 +771,14 @@
           duration: _v1.duration ?? 0,
           onCloseComplete: _v1.onComplete
         });
-      }, [_v1]);
+      }, [_v1]),
+      _v3 = (0, _v16.useMemo)(() => ({
+        showing: !1
+      }), []);
     return (0, _v6.jsx)(_v101.Provider, {
       value: _v2,
       children: (0, _v6.jsx)(_v100.Provider, {
-        value: {
-          showing: !1
-        },
+        value: _v3,
         children: _v0
       })
     });

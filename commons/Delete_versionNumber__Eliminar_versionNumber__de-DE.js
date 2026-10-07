@@ -641,18 +641,19 @@
         });
       },
       [_v83, _v84] = (0, _v2.useState)(!1),
+      [_v85, _v86] = (0, _v2.useState)(!0),
       {
-        restoreVersion: _v85,
-        isRestoreInProgress: _v86,
-        isRestoreCalled: _v87,
-        restoredVersion: _v88
+        restoreVersion: _v87,
+        isRestoreInProgress: _v88,
+        isRestoreCalled: _v89,
+        restoredVersion: _v90
       } = (0, _v31.useRestoreVersion)(),
       {
-        restore: _v89,
-        isRestoreInProgress: _v90
+        restore: _v91,
+        isRestoreInProgress: _v92
       } = (0, _v26.useRestoreVersionWorkflow)(),
-      _v91 = _v52 ? _v90 : _v86,
-      _v92 = async () => {
+      _v93 = _v52 ? _v92 : _v88,
+      _v94 = async () => {
         if (_v23 && (0, _v32.bpRestoreVersion)({
           videoId: _v12,
           viewer: _v34,
@@ -660,7 +661,7 @@
           chosenVersion: _v69,
           analyticsProps: _v23
         }), _v52) {
-          let _v0 = await _v89(_v12, _v47, {
+          let _v0 = await _v91(_v12, _v47, _v85, {
             headers: {
               Accept: _v33.API_ACCEPT_HEADER
             }
@@ -680,7 +681,8 @@
             uploadStatus: _v17 ?? null,
             versionTranscodeStatus: _v16 ?? null,
             status: _v0.ok ? "succeeded" : "failed",
-            error: _v0.ok ? null : _v0.error instanceof Error ? _v0.error.message : String(_v0.error)
+            error: _v0.ok ? null : _v0.error instanceof Error ? _v0.error.message : String(_v0.error),
+            newVersionNumber: _v85
           }), !_v0.ok) return void _v33({
             title: (0, _v19.translate)({
               singular: "Unable to restore",
@@ -713,7 +715,7 @@
             variant: "warning"
           });
           let _v1 = _v0.version;
-          return await _v63().catch(() => (0, _v24.handleVersionRefreshError)(_v33)), _v84(!1), _v26?.(!1, _v1.configUrl), _v25?.(), void _v33({
+          return _v84(!1), await _v63().catch(() => (0, _v24.handleVersionRefreshError)(_v33)), _v26?.(!1, _v1.configUrl), _v25?.(), void _v33({
             title: (0, _v19.translate)({
               singular: "Version restored",
               dictionary: {
@@ -744,13 +746,13 @@
             isClosable: !1
           });
         }
-        _v85(_v12, _v47).then(() => {
+        _v87(_v12, _v47).then(() => {
           _v84(!1), _v25?.();
         });
       };
     return (0, _v2.useEffect)(() => {
-      _v87 && !_v91 && _v88 && _v26?.(!1, _v88.configUrl);
-    }, [_v87, _v91, _v88, _v26]), (0, _v1.jsxs)(_v1.Fragment, {
+      _v89 && !_v93 && _v90 && _v26?.(!1, _v90.configUrl);
+    }, [_v89, _v93, _v90, _v26]), (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v4.Box, {
         display: "flex",
         flexDirection: "row",
@@ -1005,7 +1007,7 @@
                   }
                 })
               }), _v29 && !_v65 && (0, _v1.jsx)(_v10.MenuItem, {
-                onClick: () => void (_v84(!0), _v23 && (0, _v32.bpStartRestoreVersion)({
+                onClick: () => void (_v86(!0), _v84(!0), _v23 && (0, _v32.bpStartRestoreVersion)({
                   videoId: _v12,
                   viewer: _v34,
                   currentVersion: _v22,
@@ -1121,8 +1123,12 @@
       }), (0, _v1.jsx)(_v36.RestoreConfirmationModal, {
         isOpen: _v83,
         onClose: () => _v84(!1),
-        onRestoreVersion: _v92,
-        isRestoreApiInProgress: _v91
+        onRestoreVersion: _v94,
+        isRestoreApiInProgress: _v93,
+        showCreateNewVersionOption: _v52,
+        createNewVersion: _v85,
+        onCreateNewVersionChange: _v86,
+        nextVersionNumber: _v31
       })]
     });
   });

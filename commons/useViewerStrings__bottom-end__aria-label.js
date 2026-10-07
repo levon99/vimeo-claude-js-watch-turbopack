@@ -384,12 +384,13 @@
   _v0.s(["RichTextContextProvider", 0, ({
     children: _v0
   }) => {
-    let [_v1, _v2] = (0, _v2.useState)(null);
-    return (0, _v1.jsx)(_v32.Provider, {
-      value: {
+    let [_v1, _v2] = (0, _v2.useState)(null),
+      _v3 = (0, _v2.useMemo)(() => ({
         editor: _v1,
         setEditor: _v2
-      },
+      }), [_v1, _v2]);
+    return (0, _v1.jsx)(_v32.Provider, {
+      value: _v3,
       children: _v0
     });
   }, "useRichTextContext", 0, () => (0, _v2.useContext)(_v32)], 0);

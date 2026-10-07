@@ -73,12 +73,13 @@
       }), _v7(null);
     }, [_v14, _v12, _v3, _v10, _v8]);
     let _v16 = (0, _v2.useCallback)(_v0 => {
-      _v9(_v0), _v5(!0);
-    }, []);
-    return (0, _v1.jsxs)(_v9.Provider, {
-      value: {
+        _v9(_v0), _v5(!0);
+      }, []),
+      _v17 = (0, _v2.useMemo)(() => ({
         openTransferFileModal: _v16
-      },
+      }), [_v16]);
+    return (0, _v1.jsxs)(_v9.Provider, {
+      value: _v17,
       children: [_v0, _v4 && (0, _v1.jsx)(_v7.VideoListModal, {
         closeVideoModal: () => {
           _v8 && _v11({

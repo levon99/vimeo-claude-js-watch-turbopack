@@ -344,7 +344,18 @@
       _v68 = (0, _v4.useMemo)(() => ({
         active: !_v19,
         anchor: "library" !== _v4 || _v33 ? "active" : "first"
-      }), [_v19, _v4, _v33]);
+      }), [_v19, _v4, _v33]),
+      _v69 = (0, _v4.useMemo)(() => ({
+        isSideNavOpen: !!_v31,
+        setIsSideNavOpen: _v32,
+        isPersonalTeamFolderAdminView: _v44,
+        setIsPersonalTeamFolderAdminView: _v45,
+        loadingSideNavFolderURIs: _v46,
+        setLoadingSideNavFolderURIs: _v47,
+        shouldShowSideNav: _v42,
+        isScrolling: _v52,
+        teamOwnerId: _v64
+      }), [_v31, _v32, _v44, _v45, _v46, _v47, _v42, _v52, _v64]);
     return (0, _v1.jsxs)(_v5.DndProvider, {
       backend: _v6.HTML5Backend,
       context: _v63,
@@ -359,17 +370,7 @@
               children: [(0, _v1.jsx)(_v56.StarredItemsProvider, {
                 children: (0, _v1.jsx)(_v54.TransferFileModalProvider, {
                   children: (0, _v1.jsx)(_v57.VideoLibraryLayoutContext.Provider, {
-                    value: {
-                      isSideNavOpen: !!_v31,
-                      setIsSideNavOpen: _v32,
-                      isPersonalTeamFolderAdminView: _v44,
-                      setIsPersonalTeamFolderAdminView: _v45,
-                      loadingSideNavFolderURIs: _v46,
-                      setLoadingSideNavFolderURIs: _v47,
-                      shouldShowSideNav: _v42,
-                      isScrolling: _v52,
-                      teamOwnerId: _v64
-                    },
+                    value: _v69,
                     children: (0, _v1.jsxs)(_v10.Flex, {
                       overflow: "hidden",
                       height: "100vh",

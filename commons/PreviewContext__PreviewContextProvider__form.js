@@ -45,20 +45,22 @@
           });
         }
       }, [_v4, _v12, _v2]);
-    return (0, _v2.useEffect)(() => {
+    (0, _v2.useEffect)(() => {
       _v11 && _v4(_v11);
-    }, [_v11, _v4]), (0, _v1.jsx)(_v7.Provider, {
-      value: {
-        previewType: _v3,
-        previewMode: _v5,
-        previewDetails: _v7,
-        isMiniaturePreview: _v9,
-        autoFocusField: _v13,
-        setPreviewMode: _v6,
-        setPreviewType: _v14,
-        setPreviewDetails: _v8,
-        setIsMiniaturePreview: _v10
-      },
+    }, [_v11, _v4]);
+    let _v15 = (0, _v2.useMemo)(() => ({
+      previewType: _v3,
+      previewMode: _v5,
+      previewDetails: _v7,
+      isMiniaturePreview: _v9,
+      autoFocusField: _v13,
+      setPreviewMode: _v6,
+      setPreviewType: _v14,
+      setPreviewDetails: _v8,
+      setIsMiniaturePreview: _v10
+    }), [_v3, _v5, _v7, _v9, _v13, _v6, _v14, _v8, _v10]);
+    return (0, _v1.jsx)(_v7.Provider, {
+      value: _v15,
       children: _v0
     });
   }, "usePreviewContext", 0, () => (0, _v2.useContext)(_v7)], 0);

@@ -315,6 +315,7 @@
         _v59("move"), _v16({
           activeFolderURI: _v39,
           feature: _v7.feature,
+          initialDestination: _v69 || _v41 ? void 0 : "root",
           location: _v7.location,
           items: [{
             name: _v40,

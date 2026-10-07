@@ -796,10 +796,10 @@
       accountSetting: "enableAiAnalyticsDashboard",
       orionFlag: "enable_ai_analytics_dashboard"
     }],
-    _v50 = (_v0, _v1) => !!_v0?.some(_v0 => _v0.name === _v1),
-    _v51 = (_v0, _v1) => !!_v0?.includes(_v1);
-  var _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
+    _v50 = _v49.flatMap(_v0 => "orionFlag" in _v0 && null !== _v0.orionFlag ? [_v0.orionFlag] : []),
+    _v51 = (_v0, _v1) => !!_v0?.some(_v0 => _v0.name === _v1),
+    _v52 = (_v0, _v1) => !!_v0?.includes(_v1);
+  var _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
@@ -812,13 +812,14 @@
     _v63 = _v0.i(0),
     _v64 = _v0.i(0),
     _v65 = _v0.i(0),
-    _v66 = _v0.i(0);
-  let _v67 = _v0 => (0, _v1.jsx)(_v22.Text, {
+    _v66 = _v0.i(0),
+    _v67 = _v0.i(0);
+  let _v68 = _v0 => (0, _v1.jsx)(_v22.Text, {
       as: "span",
       fontFamily: "heading",
       children: _v0
     }),
-    _v68 = ({
+    _v69 = ({
       isOpen: _v0,
       memberName: _v1,
       currentLimit: _v2,
@@ -839,14 +840,14 @@
           month: "short",
           year: "numeric"
         }) : null;
-      return (0, _v1.jsxs)(_v59.Modal, {
+      return (0, _v1.jsxs)(_v60.Modal, {
         isOpen: _v0,
         onClose: _v6,
         size: "md",
         isCentered: !0,
-        children: [(0, _v1.jsx)(_v65.ModalOverlay, {}), (0, _v1.jsxs)(_v62.ModalContent, {
+        children: [(0, _v1.jsx)(_v66.ModalOverlay, {}), (0, _v1.jsxs)(_v63.ModalContent, {
           maxW: (0, _v9.rem)(480),
-          children: [(0, _v1.jsxs)(_v64.ModalHeader, {
+          children: [(0, _v1.jsxs)(_v65.ModalHeader, {
             pr: "7",
             pb: "sm",
             children: [(0, _v1.jsx)(_v22.Text, {
@@ -884,7 +885,7 @@
               children: (0, _v12.translate)({
                 singular: "Set the maximum number of AI credits {bold}{name}{/bold} can use during the current period. Credits aren't reserved or allocated to them.",
                 replacements: {
-                  bold: _v67,
+                  bold: _v68,
                   name: _v1
                 },
                 dictionary: {
@@ -912,11 +913,11 @@
                 }
               })
             })]
-          }), (0, _v1.jsx)(_v61.ModalCloseButton, {}), (0, _v1.jsx)(_v60.ModalBody, {
+          }), (0, _v1.jsx)(_v62.ModalCloseButton, {}), (0, _v1.jsx)(_v61.ModalBody, {
             children: (0, _v1.jsxs)(_v36.Stack, {
               spacing: (0, _v9.rem)(16),
-              children: [(0, _v1.jsxs)(_v54.FormControl, {
-                children: [(0, _v1.jsx)(_v55.FormLabel, {
+              children: [(0, _v1.jsxs)(_v55.FormControl, {
+                children: [(0, _v1.jsx)(_v56.FormLabel, {
                   fontFamily: "heading",
                   children: (0, _v12.translate)({
                     singular: "Credits limits",
@@ -944,7 +945,7 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v58.Select, {
+                }), (0, _v1.jsx)(_v59.Select, {
                   size: "md",
                   items: [{
                     label: (0, _v12.translate)({
@@ -1003,22 +1004,22 @@
                     }),
                     value: "custom"
                   }],
-                  leftIcon: "none" === _v8 ? (0, _v1.jsx)(_v66.PersonUser, {}) : (0, _v1.jsx)(_v10.FiltersLevers, {}),
+                  leftIcon: "none" === _v8 ? (0, _v1.jsx)(_v67.PersonUser, {}) : (0, _v1.jsx)(_v10.FiltersLevers, {}),
                   onValueChange: _v0 => _v9(_v0.value[0] ?? "none"),
                   value: [_v8],
-                  children: _v0 => (0, _v1.jsx)(_v58.SelectItem, {
+                  children: _v0 => (0, _v1.jsx)(_v59.SelectItem, {
                     label: _v0.label,
                     children: (0, _v1.jsxs)(_v21.HStack, {
                       spacing: (0, _v9.rem)(8),
-                      children: ["none" === _v0.value ? (0, _v1.jsx)(_v66.PersonUser, {}) : (0, _v1.jsx)(_v10.FiltersLevers, {}), (0, _v1.jsx)(_v58.SelectItemText, {
+                      children: ["none" === _v0.value ? (0, _v1.jsx)(_v67.PersonUser, {}) : (0, _v1.jsx)(_v10.FiltersLevers, {}), (0, _v1.jsx)(_v59.SelectItemText, {
                         children: _v0.label
                       })]
                     })
                   })
                 })]
-              }), "custom" === _v8 && (0, _v1.jsx)(_v54.FormControl, {
-                children: (0, _v1.jsx)(_v57.InputGroup, {
-                  children: (0, _v1.jsx)(_v56.Input, {
+              }), "custom" === _v8 && (0, _v1.jsx)(_v55.FormControl, {
+                children: (0, _v1.jsx)(_v58.InputGroup, {
+                  children: (0, _v1.jsx)(_v57.Input, {
                     inputMode: "numeric",
                     placeholder: "2,500",
                     value: _v10,
@@ -1058,7 +1059,7 @@
                     }
                   }
                 })
-              }), _v14 && (0, _v1.jsx)(_v52.Alert, {
+              }), _v14 && (0, _v1.jsx)(_v53.Alert, {
                 status: "info",
                 children: (0, _v1.jsx)(_v22.Text, {
                   variant: "body-md",
@@ -1092,7 +1093,7 @@
                     }
                   })
                 })
-              }), _v13 && (0, _v1.jsx)(_v52.Alert, {
+              }), _v13 && (0, _v1.jsx)(_v53.Alert, {
                 status: "info",
                 children: (0, _v1.jsx)(_v22.Text, {
                   variant: "body-md",
@@ -1125,7 +1126,7 @@
                 })
               })]
             })
-          }), (0, _v1.jsxs)(_v63.ModalFooter, {
+          }), (0, _v1.jsxs)(_v64.ModalFooter, {
             display: "block",
             children: [(0, _v1.jsx)(_v19.Divider, {
               borderColor: "stroke",
@@ -1134,7 +1135,7 @@
             }), (0, _v1.jsxs)(_v21.HStack, {
               justifyContent: "flex-end",
               gap: (0, _v9.rem)(8),
-              children: [(0, _v1.jsx)(_v53.Button, {
+              children: [(0, _v1.jsx)(_v54.Button, {
                 variant: "secondary",
                 onClick: _v6,
                 children: (0, _v12.translate)({
@@ -1163,7 +1164,7 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v53.Button, {
+              }), (0, _v1.jsx)(_v54.Button, {
                 variant: "primary",
                 isDisabled: !_v15,
                 onClick: () => {
@@ -1201,19 +1202,19 @@
         })]
       });
     };
-  var _v69 = _v0.i(0);
-  let _v70 = "account_disabled_ai_features,ai_credit_limit,user.name,permission_level,current_team_permission_policies,applicable_permission_policies.ai.name",
-    _v71 = (_v0, _v1) => `/users/${_v0}/team_users/${_v1}`,
-    _v72 = (_v0, _v1, _v2) => (0, _v69.makeApiCall)(`${_v71(_v1, _v2)}?fields=${encodeURIComponent(_v70)}`, _v0),
-    _v73 = async (_v0, _v1, _v2) => {
+  var _v70 = _v0.i(0);
+  let _v71 = "account_disabled_ai_features,ai_credit_limit,user.name,permission_level,current_team_permission_policies,applicable_permission_policies.ai.name",
+    _v72 = (_v0, _v1) => `/users/${_v0}/team_users/${_v1}`,
+    _v73 = (_v0, _v1, _v2) => (0, _v70.makeApiCall)(`${_v72(_v1, _v2)}?fields=${encodeURIComponent(_v71)}`, _v0),
+    _v74 = async (_v0, _v1, _v2) => {
       try {
-        return await (0, _v69.makeApiCall)(`/users/${_v1}/ai_credits/usage?spender_user_id=${_v2}`, _v0);
+        return await (0, _v70.makeApiCall)(`/users/${_v1}/ai_credits/usage?spender_user_id=${_v2}`, _v0);
       } catch {
         return null;
       }
     },
-    _v74 = ["userRolePermissionTranscriptionKeywords", "userRolePermissionAiTranslate", "enableParentPermissionAiTranslate", "userRolePermissionAiRegistrationFormTranslations", "enableRegistrationFormAiUserTranslation", "userRolePermissionAiEventSeriesTranslations", "enableEventSeriesAiUserTranslation", "userRolePermissionAiVideoDetails", "enableParentPermissionAiVideoDetails", "userRolePermissionAiScriptGeneration", "userRolePermissionAiHighlights", "enableParentPermissionAiHighlights", "userRolePermissionAiLiveCaptions", "enableParentPermissionAiLiveCaptions", "userRolePermissionAiAnalytics", "enableAiAnalyticsDashboard"],
-    _v75 = ({
+    _v75 = ["userRolePermissionTranscriptionKeywords", "userRolePermissionAiTranslate", "enableParentPermissionAiTranslate", "userRolePermissionAiRegistrationFormTranslations", "enableRegistrationFormAiUserTranslation", "userRolePermissionAiEventSeriesTranslations", "enableEventSeriesAiUserTranslation", "userRolePermissionAiVideoDetails", "enableParentPermissionAiVideoDetails", "userRolePermissionAiScriptGeneration", "userRolePermissionAiHighlights", "enableParentPermissionAiHighlights", "userRolePermissionAiLiveCaptions", "enableParentPermissionAiLiveCaptions", "userRolePermissionAiAnalytics", "enableAiAnalyticsDashboard"],
+    _v76 = ({
       teamUserId: _v0
     }) => {
       let _v1 = (0, _v40.useToast)(),
@@ -1232,16 +1233,14 @@
           trackAiCreditLimitModalOpened: _v9,
           trackAiCreditLimitSaved: _v10
         } = (0, _v13.useWorkspaceMemberTracking)(),
-        {
-          settings: _v11
-        } = (0, _v47.useOrionSettings)(),
+        _v11 = (0, _v47.useOrionSettingsFields)(_v50),
         {
           data: _v12
         } = (0, _v46.useGetWorkspaceSettings)(() => _v5 ? {
           where: {
             workspaceUuid: _v5
           },
-          select: _v74
+          select: _v75
         } : null),
         {
           data: _v13
@@ -1249,7 +1248,7 @@
           where: {
             userId: _v4
           },
-          select: _v74
+          select: _v75
         }),
         _v14 = _v5 ? _v12 : _v6 ? void 0 : _v13,
         [_v15, _v16] = (0, _v3.useState)(null),
@@ -1261,7 +1260,7 @@
         let _v0 = !1;
         return (async () => {
           if (_v2) try {
-            let _v0 = await _v72(_v2, _v4, _v0);
+            let _v0 = await _v73(_v2, _v4, _v0);
             _v0 || _v16(_v0);
           } catch {
             _v0 || _v1({
@@ -1305,20 +1304,20 @@
         let _v0 = !1;
         return (async () => {
           if (!_v2 || !_v3 || !_v4) return;
-          let _v0 = await _v73(_v2, _v4, _v3);
+          let _v0 = await _v74(_v2, _v4, _v3);
           _v0 || _v20(_v0);
         })(), () => {
           _v0 = !0;
         };
       }, [_v2, _v3, _v4]);
       let _v25 = async () => {
-          _v2 && (_v16(await _v72(_v2, _v4, _v0)), _v3 && _v4 && _v20(await _v73(_v2, _v4, _v3)));
+          _v2 && (_v16(await _v73(_v2, _v4, _v0)), _v3 && _v4 && _v20(await _v74(_v2, _v4, _v3)));
         },
         _v26 = async (_v0, _v1) => {
           if (_v2) {
             _v24(_v0);
             try {
-              await (0, _v69.makeApiCall)(`${_v71(_v4, _v0)}?fields=${encodeURIComponent(_v70)}`, _v2, "PATCH", _v1), await _v25();
+              await (0, _v70.makeApiCall)(`${_v72(_v4, _v0)}?fields=${encodeURIComponent(_v71)}`, _v2, "PATCH", _v1), await _v25();
             } catch {
               _v1({
                 title: (0, _v12.translate)({
@@ -1356,7 +1355,7 @@
             }
           }
         },
-        _v27 = _v50(_v15?.currentTeamPermissionPolicies, "AI Permissions Override"),
+        _v27 = _v51(_v15?.currentTeamPermissionPolicies, "AI Permissions Override"),
         _v28 = _v15?.applicablePermissionPolicies?.ai,
         _v29 = !!_v28?.length,
         _v30 = _v49.filter(_v0 => {
@@ -1847,8 +1846,8 @@
                               });
                               let _v1 = {};
                               _v30.forEach(_v0 => {
-                                let _v1 = _v50(_v28, _v0.policyName),
-                                  _v2 = _v51(_v15?.accountDisabledAiFeatures, _v0.policyName);
+                                let _v1 = _v51(_v28, _v0.policyName),
+                                  _v2 = _v52(_v15?.accountDisabledAiFeatures, _v0.policyName);
                                 _v1 && !_v2 && (_v1[_v0.key] = _v34(_v0));
                               }), _v26("master", {
                                 ai_permissions_override: !0,
@@ -1886,9 +1885,9 @@
                           spacing: (0, _v9.rem)(16),
                           opacity: _v27 ? 1 : .5,
                           children: _v30.map(_v0 => {
-                            let _v1 = _v50(_v15?.currentTeamPermissionPolicies, _v0.policyName),
-                              _v2 = _v50(_v28, _v0.policyName),
-                              _v3 = _v51(_v15?.accountDisabledAiFeatures, _v0.policyName),
+                            let _v1 = _v51(_v15?.currentTeamPermissionPolicies, _v0.policyName),
+                              _v2 = _v51(_v28, _v0.policyName),
+                              _v3 = _v52(_v15?.accountDisabledAiFeatures, _v0.policyName),
                               _v4 = _v27 ? _v1 : _v34(_v0);
                             return (0, _v1.jsxs)(_v21.HStack, {
                               justifyContent: "space-between",
@@ -1991,7 +1990,7 @@
                 })]
               });
             }
-          }), (0, _v1.jsx)(_v68, {
+          }), (0, _v1.jsx)(_v69, {
             isOpen: _v21,
             memberName: _v15?.user?.name ?? "",
             currentLimit: _v15?.aiCreditLimit ?? null,
@@ -2145,7 +2144,7 @@
         })]
       }), (0, _v1.jsxs)(_v8.TabPanels, {
         children: [(0, _v1.jsx)(_v7.TabPanel, {
-          children: (0, _v1.jsx)(_v75, {
+          children: (0, _v1.jsx)(_v76, {
             teamUserId: _v0
           })
         }), (0, _v1.jsx)(_v7.TabPanel, {

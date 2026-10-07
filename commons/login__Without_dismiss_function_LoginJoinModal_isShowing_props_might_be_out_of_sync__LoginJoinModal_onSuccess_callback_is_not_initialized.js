@@ -59,13 +59,14 @@
             isShowing: _v0,
             type: _v1 || "login"
           });
-        }, [_v3]);
-      return (0, _v11.jsx)(_v24.Provider, {
-        value: {
+        }, [_v3]),
+        _v5 = (0, _v1.useMemo)(() => ({
           modalState: _v1,
           setModalState: _v3,
           toggleLoginModal: _v4
-        },
+        }), [_v1, _v3, _v4]);
+      return (0, _v11.jsx)(_v24.Provider, {
+        value: _v5,
         children: _v0
       });
     },

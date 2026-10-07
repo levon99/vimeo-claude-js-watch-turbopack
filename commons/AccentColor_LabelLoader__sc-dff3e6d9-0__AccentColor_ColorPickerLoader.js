@@ -204,27 +204,12 @@
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
-  let _v50 = _v0 => (0, _v1.jsx)(_v49.Icon, {
-    viewBox: "0 0 24 24",
-    ..._v0,
-    fill: "none",
-    children: (0, _v1.jsxs)("g", {
-      fill: "currentColor",
-      children: [(0, _v1.jsx)("path", {
-        d: "M7 9a2 2 0 1 1 4 0 2 2 0 0 1-4 0Z"
-      }), (0, _v1.jsx)("path", {
-        fillRule: "evenodd",
-        clipRule: "evenodd",
-        d: "M7 3a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4H7ZM5 7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5.12l-.978-.783a3 3 0 0 0-3.995.222l-2.425 2.424a1 1 0 0 1-1.357.052l-.793-.679a3 3 0 0 0-3.904 0l-.548.47V7Zm0 9.46V17a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2.32l-2.227-1.78a1 1 0 0 0-1.332.073l-2.424 2.425a3 3 0 0 1-4.074.156l-.792-.68a1 1 0 0 0-1.302 0L5 16.46Z"
-      })]
-    })
-  });
-  var _v51 = _v0.i(0),
+    _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
     _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0);
-  let _v55 = ({
+    _v53 = _v0.i(0);
+  let _v54 = ({
       children: _v0,
       ..._v1
     }) => (0, _v1.jsx)(_v14.Flex, {
@@ -241,7 +226,7 @@
       ..._v1,
       children: _v0
     }),
-    _v56 = _v5.default.div.withConfig({
+    _v55 = _v5.default.div.withConfig({
       displayName: "styles__LogoPlaceholder",
       componentId: "sc-3e4e2cb3-0"
     })`
@@ -267,7 +252,7 @@
   display: flex;
   justify-content: center;
 `,
-    _v57 = _v5.default.div.withConfig({
+    _v56 = _v5.default.div.withConfig({
       displayName: "styles__Carousel",
       componentId: "sc-3e4e2cb3-1"
     })`
@@ -277,7 +262,7 @@
     height: ${(0, _v3.rem)(153)};
   }
 `,
-    _v58 = (0, _v5.default)("div").withConfig({
+    _v57 = (0, _v5.default)("div").withConfig({
       displayName: "styles__LogosCarousalRow",
       componentId: "sc-3e4e2cb3-2"
     })`
@@ -291,26 +276,26 @@
     left: ${_v0 => (0, _v3.rem)(56 - (_v0.shouldShift ? _v0.currentLogoIndex : 0) * 298)};
   }
 `,
-    _v59 = `0 0 ${(0, _v3.rem)(1)} 0 rgba(0, 0, 0, 0.15), 0 ${(0, _v3.rem)(4)} ${(0, _v3.rem)(4)} 0 rgba(0, 0, 0, 0.04)`,
-    _v60 = `0 0 ${(0, _v3.rem)(1)} 0 rgba(0, 0, 0, 0.15), 0 ${(0, _v3.rem)(4)} ${(0, _v3.rem)(8)} 0 rgba(0, 0, 0, 0.2)`,
-    _v61 = ({
+    _v58 = `0 0 ${(0, _v3.rem)(1)} 0 rgba(0, 0, 0, 0.15), 0 ${(0, _v3.rem)(4)} ${(0, _v3.rem)(4)} 0 rgba(0, 0, 0, 0.04)`,
+    _v59 = `0 0 ${(0, _v3.rem)(1)} 0 rgba(0, 0, 0, 0.15), 0 ${(0, _v3.rem)(4)} ${(0, _v3.rem)(8)} 0 rgba(0, 0, 0, 0.2)`,
+    _v60 = ({
       isCurrent: _v0,
       isRemovable: _v1,
       onDelete: _v2,
       src: _v3
-    }) => (0, _v1.jsx)(_v55, {
+    }) => (0, _v1.jsx)(_v54, {
       display: "inline-block",
       border: _v0 ? `${(0, _v30.rem)(1)} solid` : "none",
       borderColor: _v0 ? "focus" : "unset",
       background: `url(${_v3}) center/contain no-repeat content-box`,
       mr: (0, _v30.rem)(10),
-      boxShadow: _v0 ? _v60 : _v59,
+      boxShadow: _v0 ? _v59 : _v58,
       _hover: {
         button: {
           visibility: "visible"
         }
       },
-      children: _v0 && _v1 && (0, _v1.jsx)(_v54.Tooltip, {
+      children: _v0 && _v1 && (0, _v1.jsx)(_v53.Tooltip, {
         label: _v21.T.Remove,
         children: (0, _v1.jsx)(_v17.IconButton, {
           variant: "secondary",
@@ -326,20 +311,20 @@
         })
       })
     }),
-    _v62 = () => (0, _v1.jsx)(_v55, {
+    _v61 = () => (0, _v1.jsx)(_v54, {
       borderColor: "focus",
-      boxShadow: _v59,
+      boxShadow: _v58,
       children: (0, _v1.jsx)(_v32.Spinner, {
         size: "sm"
       })
     }),
-    _v63 = ({
+    _v62 = ({
       errorMessage: _v0
-    }) => (0, _v1.jsxs)(_v55, {
+    }) => (0, _v1.jsxs)(_v54, {
       borderColor: "status-destructive-primary",
       flexDirection: "column",
-      boxShadow: _v59,
-      children: [(0, _v1.jsx)(_v53.CircleExclamation, {
+      boxShadow: _v58,
+      children: [(0, _v1.jsx)(_v52.CircleExclamation, {
         color: "status-destructive-primary",
         boxSize: "xs"
       }), (0, _v1.jsx)(_v31.Paragraph, {
@@ -347,7 +332,7 @@
         children: _v0
       })]
     }),
-    _v64 = ({
+    _v63 = ({
       direction: _v0,
       setCurrentLogoIndex: _v1
     }) => (0, _v1.jsx)(_v11.Box, {
@@ -370,12 +355,12 @@
       },
       children: (0, _v1.jsx)(_v17.IconButton, {
         "aria-label": _v0,
-        icon: "left" === _v0 ? (0, _v1.jsx)(_v52.ChevronLeft, {}) : (0, _v1.jsx)(_v51.ChevronRight, {}),
+        icon: "left" === _v0 ? (0, _v1.jsx)(_v51.ChevronLeft, {}) : (0, _v1.jsx)(_v50.ChevronRight, {}),
         variant: "tertiary",
         onClick: _v1
       })
     }),
-    _v65 = ({
+    _v64 = ({
       availableLogos: _v0,
       currentLogoIndex: _v1,
       deleteLogo: _v2,
@@ -386,32 +371,32 @@
       let _v6 = _v0.map((_v0, _v1) => {
         let _v2 = _v0.uri.split("/"),
           _v3 = "team_logos" === _v2[3] || "customlogos" === _v2[3];
-        return (0, _v1.jsx)(_v61, {
+        return (0, _v1.jsx)(_v60, {
           src: _v0.sizes[0].link,
           isRemovable: _v3,
           isCurrent: _v1 === _v1,
           onDelete: _v2
         }, _v0.uri);
       });
-      _v4 && (_v6 = [(0, _v1.jsx)(_v62, {}, "loading-state")]), _v3 && (_v6 = [(0, _v1.jsx)(_v63, {
+      _v4 && (_v6 = [(0, _v1.jsx)(_v61, {}, "loading-state")]), _v3 && (_v6 = [(0, _v1.jsx)(_v62, {
         errorMessage: _v3
       }, "error-state")]);
       let _v7 = !_v4 && !_v3;
-      return (0, _v1.jsxs)(_v57, {
-        children: [(0, _v1.jsx)(_v58, {
+      return (0, _v1.jsxs)(_v56, {
+        children: [(0, _v1.jsx)(_v57, {
           currentLogoIndex: _v1,
           shouldShift: _v7,
           children: _v6
-        }), _v7 && _v1 > 0 && (0, _v1.jsx)(_v64, {
+        }), _v7 && _v1 > 0 && (0, _v1.jsx)(_v63, {
           direction: "left",
           setCurrentLogoIndex: () => _v5(_v1 - 1)
-        }), _v7 && _v1 < _v0.length - 1 && (0, _v1.jsx)(_v64, {
+        }), _v7 && _v1 < _v0.length - 1 && (0, _v1.jsx)(_v63, {
           direction: "right",
           setCurrentLogoIndex: () => _v5(_v1 + 1)
         })]
       });
     },
-    _v66 = ({
+    _v65 = ({
       availableLogos: _v0,
       currentLogoIndex: _v1,
       deleteLogo: _v2,
@@ -456,7 +441,7 @@
         }), (0, _v1.jsxs)(_v14.Flex, {
           flexDirection: "column",
           position: "relative",
-          children: [_v0.length || _v3 ? (0, _v1.jsx)(_v65, {
+          children: [_v0.length || _v3 ? (0, _v1.jsx)(_v64, {
             availableLogos: _v0,
             currentLogoIndex: _v1,
             deleteLogo: () => {
@@ -467,7 +452,7 @@
             setCurrentLogoIndex: _v0 => {
               _v6(_v0), _v9();
             }
-          }) : (0, _v1.jsx)(_v56, {}), (0, _v1.jsx)(_v14.Flex, {
+          }) : (0, _v1.jsx)(_v55, {}), (0, _v1.jsx)(_v14.Flex, {
             justifyContent: "center",
             sx: {
               label: {
@@ -482,7 +467,7 @@
               onClick: () => _v10(),
               onChange: _v0 => _v4(_v0.target?.files),
               label: (0, _v1.jsxs)(_v1.Fragment, {
-                children: [(0, _v1.jsx)(_v50, {}), _v21.T.Upload]
+                children: [(0, _v1.jsx)(_v49.Image, {}), _v21.T.Upload]
               })
             })
           })]
@@ -506,7 +491,7 @@
         })]
       });
     },
-    _v67 = () => (0, _v1.jsxs)(_v11.Box, {
+    _v66 = () => (0, _v1.jsxs)(_v11.Box, {
       pt: (0, _v30.rem)(20),
       mb: (0, _v30.rem)(20),
       children: [(0, _v1.jsx)(_v33.Skeleton, {
@@ -519,7 +504,7 @@
         mb: (0, _v30.rem)(8)
       })]
     }),
-    _v68 = ({
+    _v67 = ({
       apiConfig: _v0,
       setTeamLogoUrl: _v1,
       teamLogoUri: _v2,
@@ -765,7 +750,7 @@
           isOpen: _v12,
           onClose: _v27,
           children: [(0, _v1.jsx)(_v28.ModalOverlay, {}), (0, _v1.jsx)(_v27.ModalContent, {
-            children: (0, _v1.jsx)(_v66, {
+            children: (0, _v1.jsx)(_v65, {
               availableLogos: _v4,
               currentLogoIndex: _v6,
               deleteLogo: _v26,
@@ -784,7 +769,7 @@
         })]
       });
     },
-    _v69 = _v5.css`
+    _v68 = _v5.css`
   input {
     padding: 0;
     height: ${(0, _v3.rem)(40)};
@@ -792,7 +777,7 @@
     font-weight: bold;
   }
 `,
-    _v70 = _v5.default.div.withConfig({
+    _v69 = _v5.default.div.withConfig({
       displayName: "TeamNameInput__Wrapper",
       componentId: "sc-b92263e9-0"
     })`
@@ -817,9 +802,9 @@
     margin-bottom: ${(0, _v3.rem)(16)};
   }
 
-  ${_v69}
+  ${_v68}
 `,
-    _v71 = (0, _v5.default)(_v19.LoadingBlock).withConfig({
+    _v70 = (0, _v5.default)(_v19.LoadingBlock).withConfig({
       displayName: "TeamNameInput__TeamNameLoader",
       componentId: "sc-b92263e9-1"
     })`
@@ -827,7 +812,7 @@
   height: ${(0, _v3.rem)(32)};
   margin-bottom: ${(0, _v3.rem)(8)};
 `,
-    _v72 = (0, _v5.default)(_v19.LoadingBlock).withConfig({
+    _v71 = (0, _v5.default)(_v19.LoadingBlock).withConfig({
       displayName: "TeamNameInput__LineLoader",
       componentId: "sc-b92263e9-2"
     })`
@@ -835,13 +820,13 @@
   height: ${(0, _v3.rem)(8)};
   margin-bottom: ${(0, _v3.rem)(28)};
 `,
-    _v73 = () => (0, _v1.jsxs)(_v70, {
-      children: [(0, _v1.jsx)(_v71, {}), (0, _v1.jsx)(_v72, {})]
+    _v72 = () => (0, _v1.jsxs)(_v69, {
+      children: [(0, _v1.jsx)(_v70, {}), (0, _v1.jsx)(_v71, {})]
     });
-  var _v74 = _v0.i(0);
-  let _v75 = ["i", "I", "b", "B", "y", " "];
-  var _v76 = _v0.i(0);
-  let _v77 = _v5.default.div.withConfig({
+  var _v73 = _v0.i(0);
+  let _v74 = ["i", "I", "b", "B", "y", " "];
+  var _v75 = _v0.i(0);
+  let _v76 = _v5.default.div.withConfig({
       displayName: "styles__ErrorContainer",
       componentId: "sc-4d30c0b7-0"
     })`
@@ -854,7 +839,7 @@
   bottom: ${(0, _v3.rem)(-22)};
   margin-top: ${(0, _v3.rem)(12)};
 `,
-    _v78 = _v5.default.div.withConfig({
+    _v77 = _v5.default.div.withConfig({
       displayName: "styles__Editor",
       componentId: "sc-4d30c0b7-1"
     })`
@@ -895,7 +880,7 @@
     pointer-events: none;
   }
 `,
-    _v79 = _v5.keyframes`
+    _v78 = _v5.keyframes`
   from {
     opacity: 0;
   }
@@ -903,7 +888,7 @@
     opacity: 1;
   }
 `,
-    _v80 = _v5.default.div.withConfig({
+    _v79 = _v5.default.div.withConfig({
       displayName: "styles__InputButtonsContainer",
       componentId: "sc-4d30c0b7-2"
     })`
@@ -913,15 +898,15 @@
   width: ${(0, _v3.rem)(80)};
   padding-right: ${(0, _v3.rem)(12)};
   padding-top: ${(0, _v3.rem)(2)};
-  animation: ${_v79} 0.6s ease;
+  animation: ${_v78} 0.6s ease;
 `,
-    _v81 = ({
+    _v80 = ({
       disabled: _v0,
       hasError: _v1,
       onCancel: _v2,
       onSubmit: _v3,
       setIsHoveringButton: _v4
-    }) => (0, _v1.jsxs)(_v80, {
+    }) => (0, _v1.jsxs)(_v79, {
       id: "team-buttons",
       children: [(0, _v1.jsx)(_v17.IconButton, {
         "aria-label": "cancel-name",
@@ -938,7 +923,7 @@
         mr: (0, _v30.rem)(10)
       }), (0, _v1.jsx)(_v17.IconButton, {
         "aria-label": "save-name",
-        icon: (0, _v1.jsx)(_v76.Checkmark, {}),
+        icon: (0, _v1.jsx)(_v75.Checkmark, {}),
         variant: "secondary",
         size: "sm",
         id: "team=name-save-button",
@@ -950,8 +935,8 @@
         onMouseLeave: () => _v4(!1)
       })]
     }),
-    _v82 = ["input-buttons-cancel", "input-buttons-save"],
-    _v83 = ({
+    _v81 = ["input-buttons-cancel", "input-buttons-save"],
+    _v82 = ({
       allowNewLines: _v0 = !1,
       className: _v1 = "",
       content: _v2 = "",
@@ -999,7 +984,7 @@
         height: (0, _v30.rem)(40),
         borderColor: _v24.length > 0 ? "status-destructive-primary" : _v14 ? "focus" : "none",
         onBlur: _v0 => {
-          _v0?.relatedTarget?.id && _v82.includes(_v0.relatedTarget.id) || _v29 ? _v30(!1) : (_v28(), _v7?.(!1));
+          _v0?.relatedTarget?.id && _v81.includes(_v0.relatedTarget.id) || _v29 ? _v30(!1) : (_v28(), _v7?.(!1));
         },
         onFocus: () => {
           _v22 || (_v15(!0), _v7?.(!0));
@@ -1013,7 +998,7 @@
             }
           }
         },
-        children: [(0, _v1.jsx)(_v78, {
+        children: [(0, _v1.jsx)(_v77, {
           ref: _v13,
           "aria-readonly": "false",
           role: "textbox",
@@ -1021,7 +1006,7 @@
             _v5?.(_v0?.currentTarget?.innerText || ""), _v19(_v0?.currentTarget?.innerText || "");
           },
           onKeyDown: _v0 => {
-            "Enter" === _v0.key && _v0.preventDefault(), (_v0.ctrlKey || _v0.metaKey) && _v75.includes(_v0.key) && _v0.preventDefault();
+            "Enter" === _v0.key && _v0.preventDefault(), (_v0.ctrlKey || _v0.metaKey) && _v74.includes(_v0.key) && _v0.preventDefault();
           },
           onKeyPress: _v0 => {
             _v18?.length > 32 && _v0.preventDefault();
@@ -1038,14 +1023,14 @@
           contentEditable: !0,
           suppressContentEditableWarning: !0,
           ..._v12,
-          children: _v14 ? _v20 : _v10 ? (0, _v1.jsx)(_v74.default, {
+          children: _v14 ? _v20 : _v10 ? (0, _v1.jsx)(_v73.default, {
             text: _v18,
             linkWordBreakStyle: "normal",
             onClick: _v0 => _v0.stopPropagation(),
             onMouseEnter: () => _v23(!0),
             onMouseLeave: () => _v23(!1)
           }) : _v18
-        }, `${_v1}-${_v16}`), _v14 && (0, _v1.jsx)(_v81, {
+        }, `${_v1}-${_v16}`), _v14 && (0, _v1.jsx)(_v80, {
           onCancel: () => {
             _v4?.(), _v27();
           },
@@ -1053,7 +1038,7 @@
           setIsHoveringButton: _v30,
           hasError: _v24.length > 0,
           disabled: _v18 === _v20
-        }), (0, _v1.jsx)(_v77, {
+        }), (0, _v1.jsx)(_v76, {
           children: _v24.length > 0 && _v24.map((_v0, _v1) => (0, _v1.jsx)(_v31.Paragraph, {
             size: "md",
             color: "status-destructive-primary",
@@ -1062,7 +1047,7 @@
         })]
       });
     },
-    _v84 = ({
+    _v83 = ({
       className: _v0,
       content: _v1 = "",
       shouldDisplayLinks: _v2 = !0,
@@ -1071,28 +1056,28 @@
       children: (0, _v1.jsx)(_v15.Header, {
         className: _v0,
         size: "lg",
-        children: _v2 ? (0, _v1.jsx)(_v74.default, {
+        children: _v2 ? (0, _v1.jsx)(_v73.default, {
           text: _v1
         }) : _v1
       })
     });
-  var _v85 = _v0.i(0),
-    _v86 = _v0.i(0);
-  let _v87 = _v5.default.div.withConfig({
+  var _v84 = _v0.i(0),
+    _v85 = _v0.i(0);
+  let _v86 = _v5.default.div.withConfig({
       displayName: "TeamShowcase__ShowcasesWrapper",
       componentId: "sc-39981b12-0"
     })`
   margin-top: ${(0, _v3.rem)(52)};
   max-width: ${(0, _v3.rem)(302)};
 `,
-    _v88 = (0, _v5.default)(_v19.LoadingBlock).withConfig({
+    _v87 = (0, _v5.default)(_v19.LoadingBlock).withConfig({
       displayName: "TeamShowcase__LabelLoader",
       componentId: "sc-39981b12-1"
     })`
   height: ${(0, _v3.rem)(20)};
   width: 80%;
 `,
-    _v89 = _v5.default.div.withConfig({
+    _v88 = _v5.default.div.withConfig({
       displayName: "TeamShowcase__LabelWrapper",
       componentId: "sc-39981b12-2"
     })`
@@ -1102,7 +1087,7 @@
     margin-bottom: ${(0, _v3.rem)(10)};
   }
 `,
-    _v90 = (0, _v5.default)(_v19.LoadingBlock).withConfig({
+    _v89 = (0, _v5.default)(_v19.LoadingBlock).withConfig({
       displayName: "TeamShowcase__SelectLoader",
       componentId: "sc-39981b12-3"
     })`
@@ -1110,12 +1095,12 @@
   height: ${(0, _v3.rem)(40)};
   margin-bottom: ${(0, _v3.rem)(8)};
 `,
-    _v91 = () => (0, _v1.jsxs)(_v87, {
-      children: [(0, _v1.jsx)(_v89, {
-        children: (0, _v1.jsx)(_v88, {})
-      }), (0, _v1.jsx)(_v90, {})]
+    _v90 = () => (0, _v1.jsxs)(_v86, {
+      children: [(0, _v1.jsx)(_v88, {
+        children: (0, _v1.jsx)(_v87, {})
+      }), (0, _v1.jsx)(_v89, {})]
     }),
-    _v92 = ({
+    _v91 = ({
       teamShowcaseId: _v0,
       albums: _v1,
       fetchMoreAblums: _v2,
@@ -1139,7 +1124,7 @@
         value: "0",
         disabled: !1
       }].concat(_v1.items.map(_v0 => {
-        let _v1 = (0, _v86.getIdFromLink)(_v0.link),
+        let _v1 = (0, _v85.getIdFromLink)(_v0.link),
           _v2 = "embed_only" === _v0.privacy.view;
         return {
           label: _v2 ? _v0.name + " (embed only)" : _v0.name,
@@ -1147,9 +1132,9 @@
           disabled: _v2
         };
       }));
-      return (0, _v1.jsxs)(_v87, {
+      return (0, _v1.jsxs)(_v86, {
         "data-id": "teamShowcaseSelect",
-        children: [(0, _v1.jsx)(_v89, {
+        children: [(0, _v1.jsx)(_v88, {
           children: (0, _v1.jsx)(_v15.Header, {
             as: "h6",
             size: "xs",
@@ -1157,7 +1142,7 @@
             color: "text-primary",
             children: _v21.T.TeamShowcase
           })
-        }), (0, _v1.jsx)(_v85.Select, {
+        }), (0, _v1.jsx)(_v84.Select, {
           items: _v7,
           disabled: !_v1.items.length,
           value: [_v0 ? String(_v0) : "0"],
@@ -1173,9 +1158,9 @@
         }, "team_showcase_select")]
       });
     },
-    _v93 = "updateField",
-    _v94 = "bulkUpdateField",
-    _v95 = _v5.default.div.withConfig({
+    _v92 = "updateField",
+    _v93 = "bulkUpdateField",
+    _v94 = _v5.default.div.withConfig({
       displayName: "TeamBrandingPage__Wrapper",
       componentId: "sc-ec3d795b-0"
     })`
@@ -1190,16 +1175,16 @@
     font-size: ${(0, _v3.rem)(18)};
   }
 `,
-    _v96 = [_v0 => _v0.length > 32 ? `${_v0.length}/32` : null],
-    _v97 = (_v0, _v1) => {
+    _v95 = [_v0 => _v0.length > 32 ? `${_v0.length}/32` : null],
+    _v96 = (_v0, _v1) => {
       switch (_v1.type) {
-        case _v93:
+        case _v92:
           return {
             ..._v0,
             isInitialLoad: !1,
             [_v1.payload.fieldName]: _v1.payload.fieldValue
           };
-        case _v94:
+        case _v93:
           return {
             ..._v0,
             ..._v1.payload
@@ -1208,12 +1193,12 @@
           return _v0;
       }
     },
-    _v98 = (0, _v5.default)(({
+    _v97 = (0, _v5.default)(({
       contentEditable: _v0 = !0,
       ..._v1
-    }) => _v0 ? (0, _v1.jsx)(_v83, {
+    }) => _v0 ? (0, _v1.jsx)(_v82, {
       ..._v1
-    }) : (0, _v1.jsx)(_v84, {
+    }) : (0, _v1.jsx)(_v83, {
       ..._v1
     })).attrs({
       variant: "paragraph"
@@ -1252,7 +1237,7 @@
           isInitialLoad: !0
         }
       },
-      [_v9, _v10] = (0, _v4.useReducer)(_v97, _v8),
+      [_v9, _v10] = (0, _v4.useReducer)(_v96, _v8),
       {
         teamName: _v11,
         teamShowcaseId: _v12,
@@ -1272,7 +1257,7 @@
       _v4 && _v18(0);
     }, [_v4]);
     let _v20 = (_v0, _v1) => _v10({
-      type: _v93,
+      type: _v92,
       payload: {
         fieldName: _v0,
         fieldValue: _v1
@@ -1300,7 +1285,7 @@
         return _v1 && _v2 && _v2.sizes && _v2.sizes.length > 0 ? _v2.sizes[_v2.sizes.length - 1]?.link : "";
       })(_v2), _v0.teamName ?? "", _v0.accentColor && "" !== _v0.accentColor ? _v0.accentColor : _v6, _v0.teamShowcaseId ?? null];
       _v10({
-        type: _v94,
+        type: _v93,
         payload: {
           logoUrl: _v1,
           teamName: _v2,
@@ -1329,10 +1314,10 @@
           team_showcase_changed: _v2.teamData.teamShowcaseId !== _v12
         });
       }, 0), [_v2, _v11, _v14, _v13, _v12]);
-    return (0, _v1.jsxs)(_v95, {
+    return (0, _v1.jsxs)(_v94, {
       children: [(0, _v1.jsx)(_v10.SettingsPageContentHeader, {
         title: _v21.T.Basics
-      }), (0, _v1.jsx)(_v98, {
+      }), (0, _v1.jsx)(_v97, {
         "data-id": "teamTitle",
         content: _v11,
         placeholder: _v21.T.EnterTeamName,
@@ -1340,10 +1325,10 @@
         onSave: _v0 => {
           _v20("teamName", _v0);
         },
-        validate: _v96
+        validate: _v95
       }), (0, _v1.jsx)(_v6.Divider, {
         mt: (0, _v3.rem)(2)
-      }), (0, _v1.jsx)(_v68, {
+      }), (0, _v1.jsx)(_v67, {
         apiConfig: _v0,
         teamLogoUri: _v14,
         setTeamLogoUrl: _v0 => _v20("logoUrl", _v0),
@@ -1354,14 +1339,14 @@
         setAccentColor: _v0 => _v20("accentColor", _v0),
         sourceImageUrl: _v14,
         disabled: !1
-      }), _v3 && (0, _v1.jsx)(_v92, {
+      }), _v3 && (0, _v1.jsx)(_v91, {
         albums: _v1,
         teamShowcaseId: _v12,
         setTeamShowcaseId: _v0 => _v20("teamShowcaseId", _v0),
         fetchMoreAblums: _v17
       })]
     });
-  }, "TeamBrandingPageLoader", 0, () => (0, _v1.jsxs)(_v95, {
-    children: [(0, _v1.jsx)(_v73, {}), (0, _v1.jsx)(_v67, {}), (0, _v1.jsx)(_v24, {}), (0, _v1.jsx)(_v91, {})]
+  }, "TeamBrandingPageLoader", 0, () => (0, _v1.jsxs)(_v94, {
+    children: [(0, _v1.jsx)(_v72, {}), (0, _v1.jsx)(_v66, {}), (0, _v1.jsx)(_v24, {}), (0, _v1.jsx)(_v90, {})]
   })], 0);
 }

@@ -4721,7 +4721,7 @@ ${_v2}`;
               sourceLanguage: _v1,
               targetLanguageCount: _v19.length,
               updatedCount: _v43.updated.length
-            }), await _v6().catch(() => void 0), _v38(), _v5();
+            }), await _v6(_v1).catch(() => void 0), _v38(), _v5();
           } catch (_v0) {
             var _v0;
             let _v1 = _v0 instanceof _v202 ? _v0.snapshot : void 0;
@@ -5586,7 +5586,7 @@ ${_v2}`;
             baseUrl: _v3
           }) : null, _v1);
         }(() => ({
-          select: ["data.mappings.replacementText", "data.mappings.targetLanguage", "data.sourceLanguage", "data.sourceText", "page", "perPage", "sourceLanguages", "sourceTotal", "targetLanguages", "total"],
+          select: ["data.mappings.replacementText", "data.mappings.targetLanguage", "data.sourceLanguage", "data.sourceText", "page", "perPage", "sourceLanguages", "targetLanguages", "total"],
           where: {
             userId: _v0
           },
@@ -5601,11 +5601,11 @@ ${_v2}`;
         }), {
           keepPreviousData: !0
         }), _v4 = (0, _v32.useGetUser)(() => ({
-          select: ["accountDictionaryQuota.languageReplacementTerms.limit"],
+          select: ["accountDictionaryQuota.languageReplacementTerms.limit", "accountDictionaryQuota.languageReplacementTerms.used"],
           where: {
             userId: _v0
           }
-        })), _v5 = _v4.data?.accountDictionaryQuota?.languageReplacementTerms?.limit, _v6 = (0, _v3.useCallback)(async () => {
+        })), _v5 = _v4.data?.accountDictionaryQuota?.languageReplacementTerms, _v6 = (0, _v3.useCallback)(async () => {
           await _v3.mutate(), await _v4.mutate().catch(() => void 0);
         }, [_v3, _v4]), {
           rows: _v3.data?.data ?? [],
@@ -5614,9 +5614,9 @@ ${_v2}`;
           total: _v3.data?.total ?? 0,
           page: _v3.data?.page ?? _v8,
           perPage: _v3.data?.perPage ?? 10,
-          quota: void 0 === _v5 ? void 0 : {
-            used: _v3.data?.sourceTotal ?? 0,
-            limit: _v5
+          quota: _v5?.limit === void 0 ? void 0 : {
+            used: _v5.used ?? 0,
+            limit: _v5.limit
           },
           isLoading: _v3.isLoading,
           isInitialLoading: _v3.isLoading && void 0 === _v3.data,
@@ -6015,8 +6015,8 @@ ${_v2}`;
           supportedLanguages: _v22,
           translations: _v1,
           onClose: () => _v20(void 0),
-          onSaved: async () => {
-            _v9(1), await _v37();
+          onSaved: async _v0 => {
+            _v11(_v0), _v9(1), await _v37();
           }
         }), _v25 && (0, _v1.jsx)(_v195, {
           ownerUserId: _v0,

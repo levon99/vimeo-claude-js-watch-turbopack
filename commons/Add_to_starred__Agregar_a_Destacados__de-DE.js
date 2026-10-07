@@ -317,7 +317,7 @@
                       target_path: _v2 ?? null
                     }
                   });
-                } else "video" === _v0 ? _v13() : "file" === _v0 && ((0, _v10.default)((0, _v26.getFileManageLink)(_v1.publicId)) ? _v18({
+                } else "video" === _v0 ? _v13() : "file" === _v0 && ((0, _v10.default)((0, _v26.getFileLink)(_v1.publicId)) ? _v18({
                   content: _v25.linkCopySuccess
                 }) : _v18({
                   content: _v25.linkCopyFailed,

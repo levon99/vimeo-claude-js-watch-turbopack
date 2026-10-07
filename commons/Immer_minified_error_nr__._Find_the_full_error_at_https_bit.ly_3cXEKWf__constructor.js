@@ -39,7 +39,7 @@
   }
   function _v8(_v0, _v1, _v2) {
     var _v3 = _v5(_v0);
-    2 === _v3 ? _v0.set(_v1, _v2) : 3 === _v3 ? (_v0.delete(_v1), _v0.add(_v2)) : _v0[_v1] = _v2;
+    2 === _v3 ? _v0.set(_v1, _v2) : 3 === _v3 ? _v0.add(_v2) : _v0[_v1] = _v2;
   }
   function _v9(_v0, _v1) {
     return _v0 === _v1 ? 0 !== _v0 || 1 / _v0 == 1 / _v1 : _v0 != _v0 && _v1 != _v1;
@@ -104,13 +104,13 @@
   }
   function _v22(_v0) {
     var _v1 = _v0[_v42];
-    0 === _v1.i || 1 === _v1.i ? _v1.j() : _v1.O = !0;
+    0 === _v1.i || 1 === _v1.i ? _v1.j() : _v1.g = !0;
   }
   function _v23(_v0, _v1) {
     _v1._ = _v1.p.length;
     var _v2 = _v1.p[0],
       _v3 = void 0 !== _v0 && _v0 !== _v2;
-    return _v1.h.g || _v17("ES5").S(_v1, _v0, _v3), _v3 ? (_v2[_v42].P && (_v19(_v1), _v1(4)), _v3(_v0) && (_v0 = _v24(_v1, _v0), _v1.l || _v26(_v1, _v0)), _v1.u && _v17("Patches").M(_v2[_v42].t, _v0, _v1.u, _v1.s)) : _v0 = _v24(_v1, _v2, []), _v19(_v1), _v1.u && _v1.v(_v1.u, _v1.s), _v0 !== _v40 ? _v0 : void 0;
+    return _v1.h.O || _v17("ES5").S(_v1, _v0, _v3), _v3 ? (_v2[_v42].P && (_v19(_v1), _v1(4)), _v3(_v0) && (_v0 = _v24(_v1, _v0), _v1.l || _v26(_v1, _v0)), _v1.u && _v17("Patches").M(_v2[_v42].t, _v0, _v1.u, _v1.s)) : _v0 = _v24(_v1, _v2, []), _v19(_v1), _v1.u && _v1.v(_v1.u, _v1.s), _v0 !== _v40 ? _v0 : void 0;
   }
   function _v24(_v0, _v1, _v2) {
     if (_v16(_v1)) return _v1;
@@ -122,26 +122,28 @@
     if (!_v3.P) return _v26(_v0, _v3.t, !0), _v3.t;
     if (!_v3.I) {
       _v3.I = !0, _v3.A._--;
-      var _v4 = 4 === _v3.i || 5 === _v3.i ? _v3.o = _v13(_v3.k) : _v3.o;
-      _v4(3 === _v3.i ? new Set(_v4) : _v4, function (_v0, _v1) {
-        return _v25(_v0, _v3, _v4, _v0, _v1, _v2);
+      var _v4 = 4 === _v3.i || 5 === _v3.i ? _v3.o = _v13(_v3.k) : _v3.o,
+        _v5 = _v4,
+        _v6 = !1;
+      3 === _v3.i && (_v5 = new Set(_v4), _v4.clear(), _v6 = !0), _v4(_v5, function (_v0, _v1) {
+        return _v25(_v0, _v3, _v4, _v0, _v1, _v2, _v6);
       }), _v26(_v0, _v4, !1), _v2 && _v0.u && _v17("Patches").N(_v3, _v2, _v0.u, _v0.s);
     }
     return _v3.o;
   }
-  function _v25(_v0, _v1, _v2, _v3, _v4, _v5) {
+  function _v25(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
     if (_v2(_v4)) {
-      var _v6 = _v24(_v0, _v4, _v5 && _v1 && 3 !== _v1.i && !_v6(_v1.R, _v3) ? _v5.concat(_v3) : void 0);
-      if (_v8(_v2, _v3, _v6), !_v2(_v6)) return;
+      var _v7 = _v24(_v0, _v4, _v5 && _v1 && 3 !== _v1.i && !_v6(_v1.R, _v3) ? _v5.concat(_v3) : void 0);
+      if (_v8(_v2, _v3, _v7), !_v2(_v7)) return;
       _v0.m = !1;
-    }
+    } else _v6 && _v2.add(_v4);
     if (_v3(_v4) && !_v16(_v4)) {
       if (!_v0.h.D && _v0._ < 1) return;
       _v24(_v0, _v4), _v1 && _v1.A.l || _v26(_v0, _v4);
     }
   }
   function _v26(_v0, _v1, _v2) {
-    void 0 === _v2 && (_v2 = !1), _v0.h.D && _v0.m && _v14(_v1, _v2);
+    void 0 === _v2 && (_v2 = !1), !_v0.l && _v0.h.D && _v0.m && _v14(_v1, _v2);
   }
   function _v27(_v0, _v1) {
     var _v2 = _v0[_v42];
@@ -168,7 +170,7 @@
       _v7,
       _v8,
       _v9,
-      _v10 = _v10(_v1) ? _v17("MapSet").F(_v1, _v2) : _v11(_v1) ? _v17("MapSet").T(_v1, _v2) : _v0.g ? (_v5 = _v4 = {
+      _v10 = _v10(_v1) ? _v17("MapSet").F(_v1, _v2) : _v11(_v1) ? _v17("MapSet").T(_v1, _v2) : _v0.O ? (_v5 = _v4 = {
         i: +!!(_v3 = Array.isArray(_v1)),
         A: _v2 ? _v2.A : _v35,
         P: !1,
@@ -291,7 +293,7 @@
   var _v49 = new (function () {
       function _v0(_v0) {
         var _v1 = this;
-        this.g = _v39, this.D = !0, this.produce = function (_v0, _v1, _v2) {
+        this.O = _v39, this.D = !0, this.produce = function (_v0, _v1, _v2) {
           if ("function" == typeof _v0 && "function" != typeof _v1) {
             var _v3,
               _v4 = _v1;
@@ -358,7 +360,7 @@
       }, _v1.setAutoFreeze = function (_v0) {
         this.D = _v0;
       }, _v1.setUseProxies = function (_v0) {
-        _v0 && !_v39 && _v1(20), this.g = _v0;
+        _v0 && !_v39 && _v1(20), this.O = _v0;
       }, _v1.applyPatches = function (_v0, _v1) {
         for (_v2 = _v1.length - 1; _v2 >= 0; _v2--) {
           var _v2,
@@ -455,7 +457,7 @@
             t: _v0,
             k: _v3,
             o: null,
-            O: !1,
+            g: !1,
             C: !1
           };
         return Object.defineProperty(_v3, _v42, {
@@ -508,8 +510,8 @@
         return _v1.forEach(function (_v0) {
           for (var _v1 = _v0.path, _v2 = _v0.op, _v3 = _v0, _v4 = 0; _v4 < _v1.length - 1; _v4++) {
             var _v5 = _v5(_v3),
-              _v6 = "" + _v1[_v4];
-            0 !== _v5 && 1 !== _v5 || "__proto__" !== _v6 && "constructor" !== _v6 || _v1(24), "function" == typeof _v3 && "prototype" === _v6 && _v1(24), "object" != typeof (_v3 = _v7(_v3, _v6)) && _v1(15, _v1.join("/"));
+              _v6 = _v1[_v4];
+            "string" != typeof _v6 && "number" != typeof _v6 && (_v6 = "" + _v6), 0 !== _v5 && 1 !== _v5 || "__proto__" !== _v6 && "constructor" !== _v6 || _v1(24), "function" == typeof _v3 && "prototype" === _v6 && _v1(24), "object" != typeof (_v3 = _v7(_v3, _v6)) && _v1(15, _v1.join("/"));
           }
           var _v7 = _v5(_v3),
             _v8 = _v0(_v0.value),

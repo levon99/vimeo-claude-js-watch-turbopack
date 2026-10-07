@@ -209,9 +209,8 @@
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
     _v49 = _v0.i(0),
-    _v50 = _v0.i(0),
-    _v51 = _v0.i(0);
-  let _v52 = ({
+    _v50 = _v0.i(0);
+  let _v51 = ({
     mode: _v0,
     onModeChange: _v1,
     draft: _v2,
@@ -254,7 +253,7 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v50.Select, {
+      }), (0, _v1.jsx)(_v49.Select, {
         size: "md",
         items: [{
           label: (0, _v35.translate)({
@@ -313,19 +312,19 @@
           }),
           value: "custom"
         }],
-        leftIcon: "none" === _v0 ? (0, _v1.jsx)(_v51.PersonUser, {}) : (0, _v1.jsx)(_v41.FiltersLevers, {}),
+        leftIcon: "none" === _v0 ? (0, _v1.jsx)(_v50.PersonUser, {}) : (0, _v1.jsx)(_v41.FiltersLevers, {}),
         onValueChange: _v0 => _v1(_v0.value[0] ?? "none"),
         value: [_v0],
-        children: _v0 => (0, _v1.jsx)(_v50.SelectItem, {
+        children: _v0 => (0, _v1.jsx)(_v49.SelectItem, {
           label: _v0.label,
           children: (0, _v1.jsxs)(_v12.HStack, {
             spacing: (0, _v13.rem)(8),
-            children: ["none" === _v0.value ? (0, _v1.jsx)(_v51.PersonUser, {}) : (0, _v1.jsx)(_v41.FiltersLevers, {}), (0, _v1.jsx)(_v50.SelectItemText, {
+            children: ["none" === _v0.value ? (0, _v1.jsx)(_v50.PersonUser, {}) : (0, _v1.jsx)(_v41.FiltersLevers, {}), (0, _v1.jsx)(_v49.SelectItemText, {
               children: _v0.label
             })]
           })
         })
-      }), "custom" === _v0 && (0, _v1.jsx)(_v49.Input, {
+      }), "custom" === _v0 && (0, _v1.jsx)(_v48.Input, {
         inputMode: "numeric",
         placeholder: "2,500",
         value: _v2,
@@ -366,13 +365,13 @@
       })]
     });
   };
-  var _v53 = _v0.i(0),
+  var _v52 = _v0.i(0),
+    _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
-    _v57 = _v0.i(0),
-    _v58 = _v0.i(0);
-  let _v59 = ({
+    _v57 = _v0.i(0);
+  let _v58 = ({
       isOpen: _v0,
       title: _v1,
       sections: _v2,
@@ -388,20 +387,20 @@
       let [_v11, _v12] = (0, _v10.useState)(_v2[0]?.key ?? ""),
         _v13 = _v3 ?? _v11,
         _v14 = _v2.find(_v0 => _v0.key === _v13) ?? _v2[0];
-      return (0, _v1.jsxs)(_v53.Modal, {
+      return (0, _v1.jsxs)(_v52.Modal, {
         isOpen: _v0,
         onClose: _v5,
         size: "lg",
-        children: [(0, _v1.jsx)(_v58.ModalOverlay, {}), (0, _v1.jsxs)(_v55.ModalContent, {
+        children: [(0, _v1.jsx)(_v57.ModalOverlay, {}), (0, _v1.jsxs)(_v54.ModalContent, {
           maxW: (0, _v13.rem)(960),
           maxH: "85vh",
           display: "flex",
           flexDirection: "column",
-          children: [(0, _v1.jsx)(_v57.ModalHeader, {
+          children: [(0, _v1.jsx)(_v56.ModalHeader, {
             pr: "7",
             pb: "sm",
             children: _v1
-          }), (0, _v1.jsx)(_v54.ModalCloseButton, {}), (0, _v1.jsx)(_v11.Box, {
+          }), (0, _v1.jsx)(_v53.ModalCloseButton, {}), (0, _v1.jsx)(_v11.Box, {
             h: "1px",
             bg: "stroke"
           }), (0, _v1.jsxs)(_v12.HStack, {
@@ -449,7 +448,7 @@
                 children: _v14?.content
               })
             })]
-          }), (0, _v1.jsxs)(_v56.ModalFooter, {
+          }), (0, _v1.jsxs)(_v55.ModalFooter, {
             display: "block",
             px: 0,
             pt: 0,
@@ -530,7 +529,7 @@
         })]
       });
     },
-    _v60 = [{
+    _v59 = [{
       key: "vocabulary",
       label: (0, _v35.translate)({
         singular: "Custom dictionary",
@@ -1018,6 +1017,7 @@
       }),
       orionFlag: "enable_ai_analytics_dashboard"
     }],
+    _v60 = _v59.flatMap(_v0 => "orionFlag" in _v0 ? [_v0.orionFlag] : []),
     _v61 = async (_v0, _v1, _v2, _v3) => {
       if (_v0 && !(await fetch(`//${_v0.apiUrl}/users/${_v1}/team_users/${_v2}`, {
         method: "PATCH",
@@ -1037,12 +1037,10 @@
       selectedMemberIds: _v4
     }) => {
       let _v5 = (0, _v30.useViewer)(),
-        {
-          settings: _v6
-        } = (0, _v48.useOrionSettings)(),
-        _v7 = _v60.filter(_v0 => !("orionFlag" in _v0) || _v6[_v0.orionFlag]),
+        _v6 = (0, _v28.useOrionSettingsFields)(_v60),
+        _v7 = _v59.filter(_v0 => !("orionFlag" in _v0) || _v6[_v0.orionFlag]),
         [_v8, _v9] = (0, _v10.useState)(!1),
-        [_v10, _v11] = (0, _v10.useState)(_v60.map(_v0 => _v0.key)),
+        [_v10, _v11] = (0, _v10.useState)(_v59.map(_v0 => _v0.key)),
         [_v12, _v13] = (0, _v10.useState)("none"),
         [_v14, _v15] = (0, _v10.useState)(""),
         [_v16, _v17] = (0, _v10.useState)(!1),
@@ -1213,7 +1211,7 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v52, {
+              }), (0, _v1.jsx)(_v51, {
                 mode: _v12,
                 onModeChange: _v13,
                 draft: _v14,
@@ -1377,7 +1375,7 @@
             })]
           })
         }];
-      return (0, _v1.jsx)(_v59, {
+      return (0, _v1.jsx)(_v58, {
         isOpen: _v1,
         title: (0, _v1.jsx)(_v3.Text, {
           variant: "heading-md",
@@ -1595,11 +1593,11 @@
         _v22 = 0 === Object.keys(_v6.children).length || !_v21;
       return (0, _v10.useEffect)(() => {
         !_v11 && (_v12 || _v13) && (_v13 ? _v0(_v5.FoldersShared) : _v0(_v5.UnableToShareFolders, "warning"), _v2());
-      }, [_v0, _v2, _v5, _v13, _v12, _v11]), (0, _v1.jsxs)(_v53.Modal, {
+      }, [_v0, _v2, _v5, _v13, _v12, _v11]), (0, _v1.jsxs)(_v52.Modal, {
         isOpen: _v1,
         onClose: _v11 ? _v67.default : _v2,
-        children: [(0, _v1.jsx)(_v58.ModalOverlay, {}), (0, _v1.jsxs)(_v55.ModalContent, {
-          children: [(0, _v1.jsxs)(_v57.ModalHeader, {
+        children: [(0, _v1.jsx)(_v57.ModalOverlay, {}), (0, _v1.jsxs)(_v54.ModalContent, {
+          children: [(0, _v1.jsxs)(_v56.ModalHeader, {
             pb: "0",
             children: [(0, _v1.jsx)(_v3.Text, {
               variant: "heading-md",
@@ -1608,7 +1606,7 @@
               variant: "body-md",
               children: _v5.ShareFoldersDescription
             })]
-          }), (0, _v1.jsx)(_v54.ModalCloseButton, {
+          }), (0, _v1.jsx)(_v53.ModalCloseButton, {
             isDisabled: _v11
           }), (0, _v1.jsx)(_v72.ModalBody, {
             pt: "0",
@@ -1624,7 +1622,7 @@
               setSelectedPermissionPolicy: _v9,
               teamUsers: _v15
             })
-          }), (0, _v1.jsxs)(_v56.ModalFooter, {
+          }), (0, _v1.jsxs)(_v55.ModalFooter, {
             children: [(0, _v1.jsx)(_v38.Button, {
               isDisabled: _v11,
               onClick: _v2,
@@ -2448,7 +2446,7 @@
                   boxSize: "20px",
                   color: "text-secondary"
                 })
-              }), (0, _v1.jsx)(_v49.Input, {
+              }), (0, _v1.jsx)(_v48.Input, {
                 value: _v6,
                 onChange: _v0 => _v7(_v0.target.value),
                 placeholder: _v1.SearchGroups,
@@ -3604,7 +3602,7 @@
       loading: _v6
     }) => {
       let _v7 = (0, _v6.getTranslations)();
-      return (0, _v1.jsxs)(_v56.ModalFooter, {
+      return (0, _v1.jsxs)(_v55.ModalFooter, {
         p: "sm",
         children: [(0, _v1.jsx)(_v38.Button, {
           size: "md",
@@ -3629,7 +3627,7 @@
       hasErrors: _v3
     }) => {
       let _v4 = (0, _v6.getTranslations)();
-      return (0, _v1.jsxs)(_v56.ModalFooter, {
+      return (0, _v1.jsxs)(_v55.ModalFooter, {
         children: [(0, _v1.jsx)(_v38.Button, {
           isDisabled: _v1,
           onClick: _v0,
@@ -3660,7 +3658,7 @@
     },
     _v163 = () => {
       let _v0 = (0, _v6.getTranslations)();
-      return (0, _v1.jsx)(_v57.ModalHeader, {
+      return (0, _v1.jsx)(_v56.ModalHeader, {
         fontSize: "heading-md",
         p: 0,
         children: _v0.InviteMember
@@ -3668,7 +3666,7 @@
     },
     _v164 = () => {
       let _v0 = (0, _v6.getTranslations)();
-      return (0, _v1.jsxs)(_v57.ModalHeader, {
+      return (0, _v1.jsxs)(_v56.ModalHeader, {
         pb: "xs",
         px: "sm",
         children: [(0, _v1.jsx)(_v3.Text, {
@@ -3850,10 +3848,10 @@
         !_v24.current || !_v40 && (_v41 || _v42) && (_v42 ? _v38(_v5.FoldersShared, "folders-shared") : _v38(_v5.UnableToShareFolders, "folder-share-failed", "warning"), _v24.current = !1, _v0());
       }, [_v0, _v38, _v5, _v42, _v41, _v40]), (0, _v10.useEffect)(() => {
         _v23.current && _v33 && !_v36 && (_v35 ? (_v38(_v5.ErrorSendingInvites, "error", "warning"), _v0()) : _v34 && (_v38(_v43(), "success"), _v4(), _v31(), _v30 && !_v22 ? (_v7(_v34.data), _v17()) : _v0()), _v23.current = !1);
-      }, [_v33, _v34, _v35, _v7, _v22, _v36, _v5, _v43, _v38, _v30]), (0, _v1.jsxs)(_v53.Modal, {
+      }, [_v33, _v34, _v35, _v7, _v22, _v36, _v5, _v43, _v38, _v30]), (0, _v1.jsxs)(_v52.Modal, {
         isOpen: _v1,
         onClose: _v0,
-        children: [(0, _v1.jsx)(_v58.ModalOverlay, {}), (0, _v1.jsxs)(_v55.ModalContent, {
+        children: [(0, _v1.jsx)(_v57.ModalOverlay, {}), (0, _v1.jsxs)(_v54.ModalContent, {
           minH: (0, _v13.rem)(264),
           maxW: (0, _v13.rem)(500),
           padding: "md",

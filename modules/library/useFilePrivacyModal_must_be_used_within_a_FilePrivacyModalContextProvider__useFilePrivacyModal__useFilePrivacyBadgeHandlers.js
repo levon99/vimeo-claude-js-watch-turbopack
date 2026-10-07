@@ -39,6 +39,7 @@
           fileId: _v0.publicId,
           fileName: _v0.name,
           currentPrivacy: _v0.privacy,
+          currentPassword: _v0.password ?? "",
           onSuccess: () => _v2()
         }) : void 0;
       return {

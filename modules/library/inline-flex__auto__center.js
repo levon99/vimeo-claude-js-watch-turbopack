@@ -124,16 +124,21 @@
       {
         canEdit: _v8,
         canDelete: _v9,
-        copyLink: _v10,
-        onCopyLink: _v11,
-        downloadHref: _v12,
-        onDelete: _v13,
-        deleteModal: _v14
+        canMove: _v10,
+        canCopy: _v11,
+        copyLink: _v12,
+        onCopyLink: _v13,
+        downloadHref: _v14,
+        onMove: _v15,
+        onCopy: _v16,
+        onDelete: _v17,
+        deleteModal: _v18,
+        copyModal: _v19
       } = (0, _v12.useFileActions)({
         file: _v0,
         onDeleted: _v1
       }),
-      _v15 = _v4 ? (0, _v1.jsx)(_v14.FileEditableTitle, {
+      _v20 = _v4 ? (0, _v1.jsx)(_v14.FileEditableTitle, {
         ownerId: Number(_v0.uri.split("/")[2]),
         publicId: _v0.publicId,
         fileUri: _v0.uri,
@@ -147,21 +152,23 @@
         ..._v3,
         title: _v6,
         isEditingContentTitle: _v4,
-        editableTitle: _v15,
+        editableTitle: _v20,
         actionsMenu: (0, _v1.jsx)(_v11.FileMenu, {
-          copyLink: _v10,
-          onCopyLink: _v11,
+          copyLink: _v12,
+          onCopyLink: _v13,
           canEdit: _v8,
           onRename: () => {
             _v5(!0);
           },
-          downloadHref: _v12,
+          onCopy: _v11 ? _v16 : void 0,
+          onMove: _v10 ? _v15 : void 0,
+          downloadHref: _v14,
           canDelete: _v9,
-          onDelete: _v13,
+          onDelete: _v17,
           title: _v0.name,
           zIndex: _v13.ACTIONS_MENU_Z_INDEX
         })
-      }), _v14]
+      }), _v18, _v19]
     });
   }], 0);
 }

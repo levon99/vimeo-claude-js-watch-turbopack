@@ -969,13 +969,14 @@
       _v4 = _v3?.teamUser,
       _v5 = _v4?.plainTextPermissionLevel === "Admin",
       _v6 = !!_v4 && _v4.hasLivePermissionGrant,
-      _v7 = _v1 || _v5 || _v6;
-    return (0, _v5.jsx)(_v68.Provider, {
-      value: {
+      _v7 = _v1 || _v5 || _v6,
+      _v8 = (0, _v6.useMemo)(() => ({
         isOwner: _v1,
         canGoLive: _v7,
         canEdit: _v7 || _v2
-      },
+      }), [_v1, _v7, _v2]);
+    return (0, _v5.jsx)(_v68.Provider, {
+      value: _v8,
       children: _v0
     });
   }], 0), _v0.s(["useTeamStore", 0, () => (0, _v6.useContext)(_v68)], 0);

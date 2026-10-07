@@ -1690,17 +1690,19 @@
         _v29 = (0, _v2.useCallback)(_v0 => {
           (!(_v0?.target instanceof HTMLElement) || !_v0.target.closest || _v0.target.closest(`[data-testid="${_v58.testIds.inspector.panel}"]`)) && (window.getSelection()?.removeAllRanges(), _v18.current = !0, document.addEventListener("selectionchange", _v27), document.addEventListener("mouseup", _v28));
         }, [_v28, _v27]);
-      return (0, _v2.useEffect)(() => (document.addEventListener("selectstart", _v29), () => {
+      (0, _v2.useEffect)(() => (document.addEventListener("selectstart", _v29), () => {
         document.removeEventListener("selectstart", _v29);
-      }), [_v28, _v29, _v27]), (0, _v1.jsx)(_v124.Provider, {
-        value: {
-          textSelection: _v10,
-          isSelectingText: _v12,
-          selectionFocusRect: _v14,
-          resetTextSelection: _v24,
-          restoreTextSelection: _v26,
-          deleteTextSelection: _v25
-        },
+      }), [_v28, _v29, _v27]);
+      let _v30 = (0, _v2.useMemo)(() => ({
+        textSelection: _v10,
+        isSelectingText: _v12,
+        selectionFocusRect: _v14,
+        resetTextSelection: _v24,
+        restoreTextSelection: _v26,
+        deleteTextSelection: _v25
+      }), [_v10, _v12, _v14, _v24, _v26, _v25]);
+      return (0, _v1.jsx)(_v124.Provider, {
+        value: _v30,
         children: _v0
       });
     },

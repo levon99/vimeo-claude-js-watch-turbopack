@@ -22,11 +22,12 @@
       {
         isActive: _v3,
         state: _v4
-      } = _v1;
-    return (0, _v1.jsxs)(_v5.Provider, {
-      value: {
+      } = _v1,
+      _v5 = (0, _v3.useMemo)(() => ({
         setModalContextState: _v2
-      },
+      }), []);
+    return (0, _v1.jsxs)(_v5.Provider, {
+      value: _v5,
       children: [_v0, _v3 && (0, _v1.jsx)(_v4, {
         ..._v4,
         isActive: !0,

@@ -26,7 +26,7 @@
     colorMode: _v1,
     bokehStorageKey: _v2 = _v10
   }) => {
-    let _v3 = (0, _v7.createLocalStorageManager)(_v2);
+    let _v3 = (0, _v3.useMemo)(() => (0, _v7.createLocalStorageManager)(_v2), [_v2]);
     return _v12(() => {
       _v3.set(_v1);
     }, [_v1, _v3]), (0, _v1.jsxs)(_v1.Fragment, {

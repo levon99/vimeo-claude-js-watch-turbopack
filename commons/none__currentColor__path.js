@@ -9,29 +9,30 @@
     _v6 = _v0.i(0),
     _v7 = _v0.i(0);
   let _v8 = _v0 => (0, _v1.jsx)(_v7.Icon, {
-      viewBox: "0 0 24 24",
-      ..._v0,
-      fill: "none",
-      children: (0, _v1.jsxs)("g", {
-        fill: "currentColor",
-        children: [(0, _v1.jsx)("path", {
-          d: "M13.005 13a1 1 0 1 0-2 0v.768l-.665-.384a1 1 0 1 0-1 1.732l.665.384-.665.384a1 1 0 0 0 1 1.732l.665-.384V18a1 1 0 1 0 2 0v-.768l.665.384a1 1 0 1 0 1-1.732l-.665-.384.665-.384a1 1 0 0 0-1-1.732l-.665.384V13Z"
-        }), (0, _v1.jsx)("path", {
-          fillRule: "evenodd",
-          clipRule: "evenodd",
-          d: "M17 7v2a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3V7a5 5 0 1 1 10 0ZM9.879 4.879A3 3 0 0 0 9 7v2h6V7a3 3 0 0 0-5.121-2.121Zm7.828 14.828A1 1 0 0 0 18 19v-7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h10a1 1 0 0 0 .707-.293Z"
-        })]
-      })
-    }),
-    _v9 = _v0 => (0, _v1.jsx)(_v7.Icon, {
-      viewBox: "0 0 24 24",
-      ..._v0,
-      fill: "none",
-      children: (0, _v1.jsx)("path", {
-        d: "M21 2h-6a1 1 0 1 0 0 2h5v5a1 1 0 0 0 2 0V3a1 1 0 0 0-1-1Zm0 12a1 1 0 0 0-1 1v5h-5a1 1 0 0 0 0 2h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1Zm-9-8a3 3 0 0 0-3 3v1a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2V9a3 3 0 0 0-3-3Zm-1 3a1 1 0 0 1 2 0v1h-2V9Zm4 7H9v-4h6v4ZM3 10a1 1 0 0 0 1-1V4h5a1 1 0 0 0 0-2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1Zm6 10H4v-5a1 1 0 1 0-2 0v6a1 1 0 0 0 1 1h6a1 1 0 0 0 0-2Z",
-        fill: "currentColor"
-      })
-    });
+    viewBox: "0 0 24 24",
+    ..._v0,
+    fill: "none",
+    children: (0, _v1.jsxs)("g", {
+      fill: "currentColor",
+      children: [(0, _v1.jsx)("path", {
+        d: "M13.005 13a1 1 0 1 0-2 0v.768l-.665-.384a1 1 0 1 0-1 1.732l.665.384-.665.384a1 1 0 0 0 1 1.732l.665-.384V18a1 1 0 1 0 2 0v-.768l.665.384a1 1 0 1 0 1-1.732l-.665-.384.665-.384a1 1 0 0 0-1-1.732l-.665.384V13Z"
+      }), (0, _v1.jsx)("path", {
+        fillRule: "evenodd",
+        clipRule: "evenodd",
+        d: "M17 7v2a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3V7a5 5 0 1 1 10 0ZM9.879 4.879A3 3 0 0 0 9 7v2h6V7a3 3 0 0 0-5.121-2.121Zm7.828 14.828A1 1 0 0 0 18 19v-7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h10a1 1 0 0 0 .707-.293Z"
+      })]
+    })
+  });
+  _v0.s(["LockPassword", 0, _v8], 0);
+  let _v9 = _v0 => (0, _v1.jsx)(_v7.Icon, {
+    viewBox: "0 0 24 24",
+    ..._v0,
+    fill: "none",
+    children: (0, _v1.jsx)("path", {
+      d: "M21 2h-6a1 1 0 1 0 0 2h5v5a1 1 0 0 0 2 0V3a1 1 0 0 0-1-1Zm0 12a1 1 0 0 0-1 1v5h-5a1 1 0 0 0 0 2h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1Zm-9-8a3 3 0 0 0-3 3v1a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2V9a3 3 0 0 0-3-3Zm-1 3a1 1 0 0 1 2 0v1h-2V9Zm4 7H9v-4h6v4ZM3 10a1 1 0 0 0 1-1V4h5a1 1 0 0 0 0-2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1Zm6 10H4v-5a1 1 0 1 0-2 0v6a1 1 0 0 0 1 1h6a1 1 0 0 0 0-2Z",
+      fill: "currentColor"
+    })
+  });
   var _v10 = _v0.i(0);
   let _v11 = _v0 => ({
       password: {
@@ -400,10 +401,39 @@
     _v13 = _v11("xs"),
     _v14 = new Set(["password", "unlisted", "disable"]),
     _v15 = new Set(["nobody", "team", "unlisted"]),
-    _v16 = _v12.filter(_v0 => _v15.has(_v0.privacy)).map(_v0 => ({
+    _v16 = {
+      team: (0, _v10.translate)({
+        singular: "All team members can view",
+        dictionary: {
+          es: {
+            singular: "Todos los miembros del equipo pueden ver"
+          },
+          "de-DE": {
+            singular: "Alle Teammitglieder können es ansehen"
+          },
+          "fr-FR": {
+            singular: "Tous les membres de l'équipe peuvent visionner"
+          },
+          "ja-JP": {
+            singular: "チームの全メンバーが閲覧できます"
+          },
+          "ko-KR": {
+            singular: "모든 팀 구성원이 볼 수 있습니다"
+          },
+          "pt-BR": {
+            singular: "Todos os membros da equipe podem visualizar"
+          },
+          "zh-CN": {
+            singular: "所有团队成员均可查看"
+          }
+        }
+      })
+    },
+    _v17 = _v0 => _v16[_v0] ?? _v12.find(_v0 => _v0.privacy === _v0)?.description,
+    _v18 = _v12.filter(_v0 => _v15.has(_v0.privacy)).map(_v0 => ({
       privacy: _v0.privacy,
       title: _v0.title,
-      description: _v0.description,
+      description: _v17(_v0.privacy),
       icon: _v13[_v0.privacy]?.icon
     }));
   _v0.s(["DEFAULT_PRIVACY_OPTIONS", 0, _v12, "DEFAULT_PRIVACY_VALUES", 0, {
@@ -424,7 +454,7 @@
     TEAM: "team",
     PRIVATE: "nobody",
     PUBLIC: "anybody"
-  }, "FILE_PRIVACY_OPTIONS", 0, _v16, "PAID_PRIVACY_UPSELL_MODAL_VALUES", 0, _v14, "PRIVACY_VALUE_TO_UPSELL", 0, {
+  }, "FILE_PRIVACY_OPTIONS", 0, _v18, "PAID_PRIVACY_UPSELL_MODAL_VALUES", 0, _v14, "PRIVACY_VALUE_TO_UPSELL", 0, {
     password: "password privacy",
     unlisted: "unlisted privacy",
     disable: "disable privacy"
@@ -432,5 +462,5 @@
     "password privacy": "privacy_settings_password",
     "unlisted privacy": "privacy_settings_unlisted",
     "disable privacy": "privacy_settings_hide_from_vimeo"
-  }, "VIDEO_API_VERSION", 0, "3.4.15", "VIDEO_PRIVACY_ICON_MAP", 0, _v13, "videoPrivacyIcons", 0, _v11], 0);
+  }, "VIDEO_API_VERSION", 0, "3.4.15", "VIDEO_PRIVACY_ICON_MAP", 0, _v13, "getFilePrivacyDescription", 0, _v17, "videoPrivacyIcons", 0, _v11], 0);
 }

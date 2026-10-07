@@ -11,6 +11,7 @@
     SELECT_PAYMENT_METHOD: "select_payment_method",
     SET_BILLING_ADDRESS: "set_billing_address",
     SET_POSTAL_CODE_MISSING: "set_postal_code_missing",
+    SET_COUNTRY_MISSING: "set_country_missing",
     SET_BILLING_PLAN: "set_billing_plan",
     SET_CHECKOUT_TYPE: "set_checkout_type",
     TOOGLE_AUTORENEWAL_OPT_IN: "toggle_autorenewal_opt_in",

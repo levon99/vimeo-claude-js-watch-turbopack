@@ -1475,13 +1475,16 @@
       forwardRef: _v0,
       location: _v1,
       onMigrationConflict: _v2
-    }) => (0, _v1.jsx)(_v71.Provider, {
-      value: {
+    }) => {
+      let _v3 = (0, _v2.useMemo)(() => ({
         page: _v1
-      },
-      children: (0, _v1.jsx)(_v72, {
-        ref: _v0,
-        onMigrationConflict: _v2
-      })
-    });
+      }), [_v1]);
+      return (0, _v1.jsx)(_v71.Provider, {
+        value: _v3,
+        children: (0, _v1.jsx)(_v72, {
+          ref: _v0,
+          onMigrationConflict: _v2
+        })
+      });
+    };
 }

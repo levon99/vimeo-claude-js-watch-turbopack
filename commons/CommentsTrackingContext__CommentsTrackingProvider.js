@@ -36,16 +36,17 @@
       }, []),
       _v12 = (0, _v2.useCallback)(() => {
         _v5([]), _v7([]), _v9(0);
-      }, []);
-    return (0, _v1.jsx)(_v3.Provider, {
-      value: {
+      }, []),
+      _v13 = (0, _v2.useMemo)(() => ({
         collaboratorUnreadCommentsIds: _v4,
         viewerUnreadCommentsIds: _v6,
         unreadCommentsCount: _v8,
         setUnreadCommentsData: _v10,
         markCommentsAsRead: _v11,
         markAllCommentsAsRead: _v12
-      },
+      }), [_v4, _v6, _v8, _v10, _v11, _v12]);
+    return (0, _v1.jsx)(_v3.Provider, {
+      value: _v13,
       children: _v0
     });
   }]);

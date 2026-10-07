@@ -152,7 +152,8 @@
           ...(void 0 !== _v0.status && {
             status: _v0.status
           }),
-          error: _v0.error
+          error: _v0.error,
+          new_version_number: _v0.newVersionNumber
         });
       }, [_v0]),
       _v7 = (0, _v1.useCallback)(_v0 => {

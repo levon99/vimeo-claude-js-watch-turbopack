@@ -10,20 +10,26 @@
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
-    _v10 = _v0.i(0);
+    _v10 = _v0.i(0),
+    _v11 = _v0.i(0),
+    _v12 = _v0.i(0);
   _v0.s(["RestoreConfirmationModal", 0, ({
     isOpen: _v0,
     onClose: _v1,
     isRestoreApiInProgress: _v2,
-    onRestoreVersion: _v3
-  }) => (0, _v1.jsxs)(_v3.Modal, {
+    onRestoreVersion: _v3,
+    showCreateNewVersionOption: _v4 = !1,
+    createNewVersion: _v5 = !0,
+    onCreateNewVersionChange: _v6,
+    nextVersionNumber: _v7
+  }) => (0, _v1.jsxs)(_v5.Modal, {
     isOpen: _v0,
     onClose: _v1,
     size: "md",
-    children: [(0, _v1.jsx)(_v8.ModalOverlay, {}), (0, _v1.jsxs)(_v5.ModalContent, {
-      children: [(0, _v1.jsx)(_v7.ModalHeader, {
+    children: [(0, _v1.jsx)(_v10.ModalOverlay, {}), (0, _v1.jsxs)(_v7.ModalContent, {
+      children: [(0, _v1.jsx)(_v9.ModalHeader, {
         pb: "0px",
-        children: (0, _v10.translate)({
+        children: (0, _v12.translate)({
           singular: "Restore version",
           dictionary: {
             es: {
@@ -49,11 +55,11 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v4.ModalBody, {
+      }), (0, _v1.jsxs)(_v6.ModalBody, {
         paddingBottom: "md",
-        children: (0, _v1.jsx)(_v9.Text, {
+        children: [(0, _v1.jsx)(_v11.Text, {
           variant: "body-md",
-          children: (0, _v10.translate)({
+          children: (0, _v12.translate)({
             singular: "The restored video file will replace the current version of this video on vimeo.com and anywhere the video is embedded. Analytics, public comments, and likes will not be affected.",
             dictionary: {
               es: {
@@ -79,13 +85,52 @@
               }
             }
           })
-        })
-      }), (0, _v1.jsxs)(_v6.ModalFooter, {
-        children: [(0, _v1.jsx)(_v2.Button, {
+        }), _v4 && (0, _v1.jsx)(_v2.Box, {
+          mt: "md",
+          children: (0, _v1.jsx)(_v4.Checkbox, {
+            isChecked: _v5,
+            onChange: _v0 => _v6?.(_v0.currentTarget.checked),
+            alignItems: "flex-start",
+            children: (0, _v1.jsx)(_v11.Text, {
+              variant: "body-md",
+              children: (0, _v12.translate)({
+                singular: "Restore with new version number (V{versionNumber})",
+                replacements: {
+                  versionNumber: _v7
+                },
+                dictionary: {
+                  es: {
+                    singular: "Restaurar con nuevo número de versión (V{versionNumber})"
+                  },
+                  "de-DE": {
+                    singular: "Wiederherstellen mit neuer Versionsnummer (V{versionNumber})"
+                  },
+                  "fr-FR": {
+                    singular: "Restaurer avec un nouveau numéro de version (V{versionNumber})"
+                  },
+                  "ja-JP": {
+                    singular: "新しいバージョン番号で復元 (V{versionNumber})"
+                  },
+                  "ko-KR": {
+                    singular: "새 버전 번호로 복원 (V{versionNumber})"
+                  },
+                  "pt-BR": {
+                    singular: "Restaurar com novo número de versão (V{versionNumber})"
+                  },
+                  "zh-CN": {
+                    singular: "恢复为新版本号 (V{versionNumber})"
+                  }
+                }
+              })
+            })
+          })
+        })]
+      }), (0, _v1.jsxs)(_v8.ModalFooter, {
+        children: [(0, _v1.jsx)(_v3.Button, {
           variant: "tertiary",
           onClick: () => _v1(),
           disabled: _v2,
-          children: (0, _v10.translate)({
+          children: (0, _v12.translate)({
             singular: "Cancel",
             dictionary: {
               es: {
@@ -111,11 +156,11 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v2.Button, {
+        }), (0, _v1.jsx)(_v3.Button, {
           variant: "primary",
           onClick: _v3,
           isLoading: _v2,
-          children: (0, _v10.translate)({
+          children: (0, _v12.translate)({
             singular: "Restore",
             dictionary: {
               es: {

@@ -150,7 +150,7 @@
     enable_low_tier_below_fold: !1,
     new_replace_feature: !1,
     enable_video_customization_v2: !1,
-    enable_whats_new_page: !1,
+    enable_whats_new_page: !0,
     enable_browser_studio_camera_position_presets: !1,
     enable_video_customization_v2_new_badge: !1,
     enable_email_defaults: !1,

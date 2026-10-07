@@ -30,12 +30,15 @@
   }
   _v0.s(["postVideoVersionRestore", 0, _v5], 0);
   let _v6 = ["active", "configUrl", "createdTime", "filename", "upload.status", "uri", "user.name", "versionTranscodeStatus"];
-  async function _v7(_v0, _v1, _v2) {
+  async function _v7(_v0, _v1, _v2, _v3) {
     return _v5({
-      ..._v2,
+      ..._v3,
       where: {
         videoId: _v0,
         versionId: _v1
+      },
+      variables: {
+        createNewVersion: _v2
       },
       select: _v6
     });
@@ -47,23 +50,24 @@
         jwt: _v3
       } = (0, _v2.useGctlConfig)();
     return {
-      restore: async (_v0, _v1, _v2) => {
+      restore: async (_v0, _v1, _v2, _v3) => {
         _v1(!0);
         let {
-            headers: _v3,
-            ..._v4
-          } = _v2 ?? {},
-          _v5 = _v3 ? {
+            headers: _v4,
+            ..._v5
+          } = _v3 ?? {},
+          _v6 = _v3 ? {
             Authorization: `jwt ${_v3}`
           } : {};
         try {
-          return await _v7(_v0, _v1, {
+          return await _v7(_v0, _v1, _v2, {
             baseUrl: _v2,
             headers: {
-              ..._v5,
-              ..._v3
+              "Content-Type": "application/json",
+              ..._v6,
+              ..._v4
             },
-            ..._v4
+            ..._v5
           });
         } finally {
           _v1(!1);

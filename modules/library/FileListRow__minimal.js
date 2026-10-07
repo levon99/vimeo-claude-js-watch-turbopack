@@ -21,20 +21,25 @@
       {
         canEdit: _v8,
         canDelete: _v9,
-        copyLink: _v10,
-        onCopyLink: _v11,
-        copyLinkOnClick: _v12,
-        downloadHref: _v13,
-        onDelete: _v14,
-        deleteModal: _v15
+        canMove: _v10,
+        canCopy: _v11,
+        copyLink: _v12,
+        onCopyLink: _v13,
+        copyLinkOnClick: _v14,
+        downloadHref: _v15,
+        onMove: _v16,
+        onCopy: _v17,
+        onDelete: _v18,
+        deleteModal: _v19,
+        copyModal: _v20
       } = (0, _v5.useFileActions)({
         file: _v0,
         onDeleted: _v1
       }),
-      _v16 = () => {
+      _v21 = () => {
         _v5(!0);
       },
-      _v17 = _v4 ? (0, _v1.jsx)(_v7.FileEditableTitle, {
+      _v22 = _v4 ? (0, _v1.jsx)(_v7.FileEditableTitle, {
         ownerId: Number(_v0.uri.split("/")[2]),
         publicId: _v0.publicId,
         fileUri: _v0.uri,
@@ -48,29 +53,31 @@
         ..._v3,
         title: _v6,
         isEditingContentTitle: _v4,
-        editableTitle: _v17,
+        editableTitle: _v22,
         menuButton: (0, _v1.jsx)(_v3.FileMenu, {
-          copyLink: _v10,
-          onCopyLink: _v11,
+          copyLink: _v12,
+          onCopyLink: _v13,
           canEdit: _v8,
-          onRename: _v16,
-          downloadHref: _v13,
+          onRename: _v21,
+          onCopy: _v11 ? _v17 : void 0,
+          onMove: _v10 ? _v16 : void 0,
+          downloadHref: _v15,
           canDelete: _v9,
-          onDelete: _v14,
+          onDelete: _v18,
           title: _v0.name,
           zIndex: _v6.ACTIONS_MENU_Z_INDEX
         }),
         hoverActions: (0, _v1.jsx)(_v9.ListViewHoverActionsContainer, {
           children: (0, _v1.jsx)(_v8.FileTopRightDecoration, {
-            onCopyLink: _v12,
-            onRename: _v8 ? _v16 : void 0,
-            downloadHref: _v13,
-            onDelete: _v9 ? _v14 : void 0,
+            onCopyLink: _v14,
+            onRename: _v8 ? _v21 : void 0,
+            downloadHref: _v15,
+            onDelete: _v9 ? _v18 : void 0,
             buttonVariant: "minimal",
             flexDirection: "row"
           })
         })
-      }), _v15]
+      }), _v19, _v20]
     });
   }]);
 }

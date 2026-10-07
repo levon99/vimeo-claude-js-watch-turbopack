@@ -4544,13 +4544,14 @@
         _v3 = (0, _v21.useCallback)((_v0, _v1) => (_v1.current[_v0] || (_v1.current[_v0] = []), _v1.current[_v0].push(_v1), () => _v2(_v0, _v1)), [_v2]),
         _v4 = (0, _v21.useCallback)((_v0, _v1) => {
           _v1.current[_v0] && _v1.current[_v0].forEach(_v0 => _v0(_v1));
-        }, []);
-      return (0, _v17.jsx)(_v354.Provider, {
-        value: {
+        }, []),
+        _v5 = (0, _v21.useMemo)(() => ({
           unsubscribe: _v2,
           subscribe: _v3,
           emit: _v4
-        },
+        }), [_v2, _v3, _v4]);
+      return (0, _v17.jsx)(_v354.Provider, {
+        value: _v5,
         children: _v0
       });
     },
@@ -7773,16 +7774,14 @@
   function _v468({
     children: _v0
   }) {
-    let {
-        settings: _v1
-      } = (0, _v467.useOrionSettings)(),
+    let _v1 = (0, _v467.useOrionSetting)("enable_live_engagement_announcement"),
       {
         acknowledge: _v2,
         isActive: _v3,
         isLoaded: _v4
       } = (0, _v464.useAnnouncement)({
         id: "engagement_section",
-        isEligible: _v1.enable_live_engagement_announcement
+        isEligible: _v1
       });
     return _v4 && _v3 ? (0, _v17.jsx)(_v465.AnnouncementPopover, {
       isOpen: !0,
