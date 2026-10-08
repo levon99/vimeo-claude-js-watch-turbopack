@@ -155,75 +155,10 @@
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
-    _v33 = _v0.i(0);
-  let _v34 = ({
-    trackName: _v0,
-    trackId: _v1
-  }) => {
-    _v33.default.send({
-      eventName: "vimeo.music_track_selection",
-      version: 1,
-      contexts: {
-        ..._v33.default.buildActionContext("click"),
-        ..._v33.default.buildEditorContext({
-          via: null,
-          editorFeature: "music"
-        }),
-        ..._v33.default.buildProductAnalyticsContext({
-          feature: "music",
-          location: "drawer"
-        }),
-        ..._v33.default.buildWebContext(),
-        ..._v33.default.buildTeamContext()
-      },
-      additionalFields: {
-        action_state: null,
-        selection_format: null,
-        selection_id: _v1,
-        selection_name: _v0,
-        action_cta: null,
-        number_of_elements: 1,
-        third_party_integration: _v33.default.getThirdPartyIntegration()
-      }
-    });
-  };
-  _v0.s(["sendTrackSelectMusicTab", 0, ({
-    musicTab: _v0,
-    prevMusicTab: _v1
-  }) => {
-    _v33.default.send({
-      eventName: "vimeo.music_tab_selection",
-      version: 1,
-      contexts: {
-        ..._v33.default.buildActionContext("click"),
-        ..._v33.default.buildEditorContext({
-          via: null,
-          editorFeature: "media"
-        }),
-        ..._v33.default.buildProductAnalyticsContext({
-          feature: "media",
-          location: "drawer",
-          copy: _v0
-        }),
-        ..._v33.default.buildWebContext(),
-        ..._v33.default.buildTeamContext()
-      },
-      additionalFields: {
-        action_cta: null,
-        action_state: _v1 ?? null,
-        selection_id: null,
-        selection_name: null,
-        selection_format: null,
-        number_of_elements: 3,
-        third_party_integration: _v33.default.getThirdPartyIntegration()
-      }
-    });
-  }, "sendTrackSelectMusicTrackElement", 0, _v34], 0);
-  var _v35 = _v0.i(0),
-    _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0);
-  async function _v39(_v0, _v1) {
+    _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0);
+  async function _v36(_v0, _v1) {
     let _v2 = {
         isCodecSupported: !0,
         isResolutionSupported: !0,
@@ -249,7 +184,7 @@
     }
     throw Error(_v9.MP4_SOURCE_TRACK_MISSING_OR_INVALID_TRACK_TYPE);
   }
-  async function _v40(_v0, _v1) {
+  async function _v37(_v0, _v1) {
     let {
         isFragmented: _v2
       } = _v0,
@@ -285,20 +220,11 @@
       isKeyframeIntervalSupported: !0
     };
   }
-  async function _v41(_v0, _v1) {
-    let _v2 = performance.now();
-    (0, _v37.sendTrackLocalFilesAnalysis)({
-      stepName: "start",
-      canRenderLocally: !0
-    });
+  async function _v38(_v0, _v1) {
     try {
-      let _v0 = (0, _v38.getExtension)(_v0.name)?.toLowerCase();
-      if ("mp4" !== _v0) return (0, _v37.sendTrackLocalFilesAnalysis)({
-        stepName: "finish",
-        canRenderLocally: !1,
-        duration: 0
-      }), !1;
-      let _v1 = new _v36.MP4Source(_v0),
+      let _v0 = (0, _v35.getExtension)(_v0.name)?.toLowerCase();
+      if ("mp4" !== _v0) return !1;
+      let _v1 = new _v34.MP4Source(_v0),
         _v2 = await _v1.getInfo(),
         {
           isFragmented: _v3,
@@ -306,25 +232,14 @@
           timescale: _v5,
           duration: _v6
         } = _v2,
-        _v7 = await _v39(_v2, _v3 && _v4 ? _v4 / _v5 : _v6 / _v5),
+        _v7 = await _v36(_v2, _v3 && _v4 ? _v4 / _v5 : _v6 / _v5),
         _v8 = Object.values(_v7).includes(!1);
-      !_v8 && _v1 && (_v7.isKeyframeIntervalSupported = (await _v40(_v2, _v1)).isKeyframeIntervalSupported);
-      let _v9 = performance.now();
-      return _v8 = Object.values(_v7).includes(!1), (0, _v37.sendTrackLocalFilesAnalysis)({
-        stepName: "finish",
-        canRenderLocally: !_v8,
-        duration: _v9 - _v2
-      }), !_v8;
+      return !_v8 && _v1 && (_v7.isKeyframeIntervalSupported = (await _v37(_v2, _v1)).isKeyframeIntervalSupported), !(_v8 = Object.values(_v7).includes(!1));
     } catch (_v0) {
-      let _v1 = performance.now();
-      return (0, _v37.sendTrackLocalFilesAnalysis)({
-        stepName: "finish",
-        canRenderLocally: !1,
-        duration: _v1 - _v2
-      }), !1;
+      return !1;
     }
   }
-  async function _v42(_v0) {
+  async function _v39(_v0) {
     return new File([await _v0.arrayBuffer()], _v0.name);
   }
   _v0.s(["useLocalFile", 0, () => {
@@ -451,7 +366,7 @@
           sourceHash: _v1,
           time: _v2
         });
-        _v3 && (0, _v35.isImageElement)(_v4) && (_v4 = _v11({
+        _v3 && (0, _v33.isImageElement)(_v4) && (_v4 = _v11({
           imageElement: _v4
         }));
         let _v5 = await _v12(_v0, _v1);
@@ -504,10 +419,7 @@
             time: _v2
           }),
           _v4 = _v13(_v0, _v1);
-        _v1 && _v2[_v1] || _v0((0, _v29.addSourceAction)(_v4)), _v5(_v3), _v34({
-          trackName: _v3.name,
-          trackId: _v3.id
-        });
+        _v1 && _v2[_v1] || _v0((0, _v29.addSourceAction)(_v4)), _v5(_v3);
       }, [_v10, _v13, _v2, _v5, _v0]),
       _v21 = (0, _v1.useCallback)(_v0 => {
         let {
@@ -586,7 +498,7 @@
       }) => {
         let _v5 = _v0.name.toLowerCase().endsWith(".gif"),
           _v6 = _v0.name.endsWith(".svg"),
-          _v7 = _v5 || _v6 ? await _v42(_v0) : _v0;
+          _v7 = _v5 || _v6 ? await _v39(_v0) : _v0;
         try {
           let _v0 = _v3 === _v11.UploadQueueFileType.VIDEO || _v5 || _v6,
             _v1 = await _v16(_v7, _v0 ? _v3.UPLOAD_TYPE_NAME.CREATE_VIDEO_ASSET : _v3.UPLOAD_TYPE_NAME.CREATE_IMAGE_ASSET, _v1),
@@ -694,7 +606,7 @@
           item: _v5,
           canBeUseLocally: !1
         }));
-        let _v6 = _v3 !== _v11.UploadQueueFileType.IMAGE && (await _v41(_v0, !0));
+        let _v6 = _v3 !== _v11.UploadQueueFileType.IMAGE && (await _v38(_v0, !0));
         _v6 && _v0((0, _v28.updateLoadingItemAction)({
           id: _v4,
           item: {

@@ -232,68 +232,9 @@
       })
     })]
   });
-  var _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0);
-  let _v46 = "onboarding_survey",
-    _v47 = _v0 => (0, _v40.buildProductAnalyticsBpContext)({
-      product: "web_onboarding",
-      feature: "onboarding_survey",
-      location: "page_area",
-      modal_name: null,
-      flow: null,
-      element: null,
-      copy: _v0,
-      device_type: (0, _v38.default)(),
-      is_user_facing_data: null,
-      entity_type: null
-    }),
-    _v48 = (0, _v44.buildWebBpContext)({
-      page_name: "registration_survey",
-      path: "/survey/web_reg_2024"
-    }),
-    _v49 = _v0 => (0, _v41.buildTeamBpContext)({
-      is_team_member: _v0
-    }),
-    _v50 = (0, _v42.buildThirdPartyIntegrationBpContext)({
-      integration_id: null,
-      integration_name: null,
-      is_partner: null
-    }),
-    _v51 = (_v0, _v1, _v2) => {
-      (0, _v45.sendBpEventWithContexts)("vimeo.survey_select_option", {
-        ..._v47(_v1.labelUntranslated),
-        ..._v48,
-        ..._v49(_v2),
-        ..._v50,
-        ...(0, _v39.buildActionBpContext)({
-          action_type: "click",
-          feature: null
-        })
-      }, 2, {
-        survey_name: _v46,
-        test_id: 0,
-        version_name: _v33,
-        question_group: _v0.id,
-        question_name: _v0.questionUntranslated,
-        question_description: _v0.descriptionUntranslated,
-        question_id: "1",
-        button_type: "answer",
-        answer_group: _v1.id,
-        answer_name: _v1.labelUntranslated,
-        answer_description: _v1.descriptionUntranslated,
-        answer_id: _v1.bpAnswerId,
-        answer_position: _v1.bpAnswerPosition
-      });
-    };
-  var _v52 = _v0.i(0);
-  let _v53 = !1,
-    _v54 = () => {
+  var _v38 = _v0.i(0);
+  let _v39 = !1,
+    _v40 = () => {
       let _v0 = (0, _v6.useRouter)(),
         [_v1, _v2] = (0, _v2.useState)(null),
         [_v3, _v4] = _v2.default.useState([]),
@@ -331,44 +272,22 @@
         } : null),
         _v10 = _v8?.questions[0]?.answers[_v8?.questions[0]?.answers.length - 1];
       (0, _v2.useEffect)(() => {
-        if (_v8?.questions[0]?.answers && !_v53) {
-          var _v0, _v1;
-          let _v0,
-            _v1 = (_v0 => {
-              for (let _v0 = _v0.length - 1; _v0 > 0; _v0--) {
-                let _v0 = Math.floor(Math.random() * (_v0 + 1));
-                [_v0[_v0], _v0[_v0]] = [_v0[_v0], _v0[_v0]];
-              }
-              return _v0;
-            })((_v8?.questions[0]?.answers.slice(0, -1)).map((_v0, _v1) => ({
-              ..._v0,
-              bpAnswerId: _v1 + 1
-            }))).map((_v0, _v1) => ({
-              ..._v0,
-              bpAnswerPosition: _v1 + 1
-            }));
-          _v4(_v1), _v53 = !0;
-          let _v2 = _v1.find(_v0 => _v0.isSelected);
-          _v2 && _v2(_v2), _v0 = _v8.questions[0], _v1 = _v5?.user?.isTeamUser ?? !1, _v0 = {
-            survey_name: _v46,
-            test_id: 0,
-            version_name: _v33,
-            question_group: _v0.id,
-            question_name: _v0.questionUntranslated,
-            question_description: _v0.descriptionUntranslated,
-            question_id: "1"
-          }, (0, _v45.sendBpEventWithContexts)("vimeo.user_survey_impression", {
-            ..._v47(_v0.questionUntranslated),
-            ..._v48,
-            ...(0, _v43.buildViewBpContext)({
-              view_type: "pageview",
-              feature: null
-            }),
-            ..._v49(_v1),
-            ..._v50
-          }, 1, _v0);
+        if (_v8?.questions[0]?.answers && !_v39) {
+          let _v0 = (_v0 => {
+            for (let _v0 = _v0.length - 1; _v0 > 0; _v0--) {
+              let _v0 = Math.floor(Math.random() * (_v0 + 1));
+              [_v0[_v0], _v0[_v0]] = [_v0[_v0], _v0[_v0]];
+            }
+            return _v0;
+          })([..._v8?.questions[0]?.answers.slice(0, -1)]).map((_v0, _v1) => ({
+            ..._v0,
+            bpAnswerPosition: _v1 + 1
+          }));
+          _v4(_v0), _v39 = !0;
+          let _v1 = _v0.find(_v0 => _v0.isSelected);
+          _v1 && _v2(_v1);
         }
-      }, [_v8, _v5?.user?.isTeamUser]);
+      }, [_v8]);
       let [_v11, {
           loading: _v12
         }] = function () {
@@ -411,49 +330,20 @@
           }, [_v1, _v3, _v2, _v4, _v6]), _v5];
         }(),
         _v13 = async _v0 => {
-          if (_v6 && _v0 && _v8?.questions[0]) {
-            if (_v0.id === _v10?.id) _v51(_v8.questions[0], _v0, _v5?.user?.isTeamUser ?? !1);else {
-              var _v1, _v2;
-              _v1 = _v8.questions[0], _v2 = _v5?.user?.isTeamUser ?? !1, (0, _v45.sendBpEventWithContexts)("vimeo.survey_navigation_option", {
-                ..._v47("Continue"),
-                ..._v48,
-                ..._v49(_v2),
-                ..._v50,
-                ...(0, _v39.buildActionBpContext)({
-                  action_type: "click",
-                  feature: null
-                })
-              }, 2, {
-                survey_name: _v46,
-                test_id: 0,
-                version_name: _v33,
-                question_group: _v1.id,
-                question_name: _v1.questionUntranslated,
-                question_description: _v1.descriptionUntranslated,
-                question_id: "1",
-                button_type: "submit",
-                answer_group: _v0.id,
-                answer_name: _v0.labelUntranslated,
-                answer_description: _v0.descriptionUntranslated,
-                answer_id: _v0.bpAnswerId,
-                answer_position: _v0.bpAnswerPosition
-              });
-            }
-            await _v11({
-              where: {
-                userId: _v6.toString(),
-                surveyType: _v33
-              },
-              select: ["questions"],
-              variables: [{
-                id: _v8.questions[0].id,
-                answers: [{
-                  id: _v0.id,
-                  position: _v0.bpAnswerPosition
-                }]
+          _v6 && _v0 && _v8?.questions[0] && (await _v11({
+            where: {
+              userId: _v6.toString(),
+              surveyType: _v33
+            },
+            select: ["questions"],
+            variables: [{
+              id: _v8.questions[0].id,
+              answers: [{
+                id: _v0.id,
+                position: _v0.bpAnswerPosition
               }]
-            }), _v0.push((0, _v52.getRedirectUrl)());
-          }
+            }]
+          }), _v0.push((0, _v38.getRedirectUrl)()));
         };
       if (_v9 || !_v8?.questions[0]) return (0, _v1.jsx)(_v37, {});
       let _v14 = _v7.width < 769,
@@ -496,7 +386,7 @@
                 answers: _v3,
                 selectedAnswer: _v1,
                 onSelectAnswer: _v0 => {
-                  _v2(_v0 => _v0?.id === _v0.id ? null : _v0), _v0 && _v8?.questions[0] && _v51(_v8.questions[0], _v0, _v5?.user?.isTeamUser ?? !1);
+                  _v2(_v0 => _v0?.id === _v0.id ? null : _v0);
                 },
                 shouldShowIcon: !_v15,
                 alignment: _v15 ? "left" : "center"
@@ -510,7 +400,6 @@
                 onClick: () => {
                   _v10 && _v13({
                     ..._v10,
-                    bpAnswerId: _v8?.questions[0]?.answers.length,
                     bpAnswerPosition: _v8?.questions[0]?.answers.length
                   });
                 },
@@ -562,7 +451,7 @@
     return (0, _v1.jsx)(_v4.ThemeProvider, {
       theme: _v5.bokehTheme,
       colorModeManager: _v0,
-      children: (0, _v1.jsx)(_v54, {})
+      children: (0, _v1.jsx)(_v40, {})
     });
   }], 0);
 }

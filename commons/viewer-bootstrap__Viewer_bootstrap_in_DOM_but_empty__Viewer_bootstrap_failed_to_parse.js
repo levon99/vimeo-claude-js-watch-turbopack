@@ -27,7 +27,7 @@
       _v3 = (0, _v1.camelizeDeep)(_v2);
     return _v1 && (_v3.playerAssetUrls = _v1), _v3;
   }
-  _v0.s(["getViewerBootstrap", 0, _v4, "getViewerPromise", 0, () => new Promise(_v0 => {
+  _v0.s(["camelizeViewer", 0, _v5, "getViewerBootstrap", 0, _v4, "getViewerPromise", 0, () => new Promise(_v0 => {
     let _v1 = _v4();
     if (_v1) _v0(_v1);else {
       let _v0 = () => fetch("/_next/viewer").then(_v0 => {

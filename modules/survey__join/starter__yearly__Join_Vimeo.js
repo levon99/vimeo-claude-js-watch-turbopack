@@ -3299,7 +3299,32 @@
     if (null === _v3 || void 0 === _v5 || void 0 === _v12) return null;
     let _v18 = _v12.metadata.entitlements?.params,
       _v19 = _v18?.teamSeats ?? 1,
-      _v20 = _v18?.videoStoragePeriodicQuota ?? 0,
+      _v20 = _v18?.videoStoragePeriodicQuota === null ? (0, _v96.translate)({
+        singular: "Unlimited",
+        dictionary: {
+          es: {
+            singular: "Ilimitado"
+          },
+          "de-DE": {
+            singular: "Unbegrenzt"
+          },
+          "fr-FR": {
+            singular: "Illimité"
+          },
+          "ja-JP": {
+            singular: "無制限"
+          },
+          "ko-KR": {
+            singular: "무제한"
+          },
+          "pt-BR": {
+            singular: "Ilimitado"
+          },
+          "zh-CN": {
+            singular: "无限"
+          }
+        }
+      }) : _v18?.videoStoragePeriodicQuota ?? 0,
       _v21 = _v18?.bandwidth?.periodicQuota ?? 0,
       _v22 = _v18?.bandwidth?.quotaPeriod,
       _v23 = (0, _v114.getFeatureListByTier)(_v2) ?? [],

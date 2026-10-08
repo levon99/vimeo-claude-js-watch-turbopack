@@ -214,7 +214,8 @@
     enable_dictionary_intro_live_events_announcement: !1,
     enable_dictionary_intro_svv_announcement: !1,
     enable_dictionary_settings_intro_announcement: !1,
-    enable_dictionary_announcements: !1
+    enable_dictionary_announcements: !1,
+    enable_speaker_qna_replies: !1
   };
   function _v5(_v0) {
     return {

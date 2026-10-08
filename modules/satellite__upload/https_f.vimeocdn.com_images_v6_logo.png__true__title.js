@@ -2775,8 +2775,8 @@
                 _v3 = _v2 ? _v0.length : _v0.reduce((_v0, {
                   file: _v1
                 }) => _v0 + Math.max("number" != typeof _v1.size || Number.isNaN(_v1.size) ? 0 : _v1.size, 0), 0),
-                _v4 = _v3 <= Math.max(_v1.free, 0),
-                _v5 = _v1.used + _v3 <= _v1.max;
+                _v4 = null === _v1.free || _v3 <= Math.max(_v1.free, 0),
+                _v5 = null === _v1.max || _v1.used + _v3 <= _v1.max;
               return _v4 && _v5 ? {
                 ok: !0
               } : {

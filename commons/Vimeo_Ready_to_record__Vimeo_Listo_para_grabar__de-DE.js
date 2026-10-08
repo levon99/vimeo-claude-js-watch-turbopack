@@ -13,11 +13,10 @@
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
-    _v13 = _v0.i(0),
-    _v14 = _v0.i(0);
-  let _v15 = {
+    _v13 = _v0.i(0);
+  let _v14 = {
       pageTitle: {
-        preRecording: (0, _v14.translate)({
+        preRecording: (0, _v13.translate)({
           singular: "Vimeo | Ready to record",
           dictionary: {
             es: {
@@ -43,7 +42,7 @@
             }
           }
         }),
-        recording: (0, _v14.translate)({
+        recording: (0, _v13.translate)({
           singular: "Vimeo | Recording...",
           dictionary: {
             es: {
@@ -69,7 +68,7 @@
             }
           }
         }),
-        paused: (0, _v14.translate)({
+        paused: (0, _v13.translate)({
           singular: "Vimeo | Paused",
           dictionary: {
             es: {
@@ -95,7 +94,7 @@
             }
           }
         }),
-        uploading: (0, _v14.translate)({
+        uploading: (0, _v13.translate)({
           singular: "Vimeo | Uploading",
           dictionary: {
             es: {
@@ -123,35 +122,28 @@
         })
       }
     },
-    _v16 = "record_session_id",
-    _v17 = () => {
+    _v15 = "record_session_id",
+    _v16 = () => {
       let [_v0, _v1] = (0, _v4.useState)(null),
         [_v2, _v3] = (0, _v4.useState)(null),
         _v4 = (0, _v3.useRouter)(),
-        _v5 = (0, _v4.useContext)(_v13.ViewerContext),
+        _v5 = (0, _v4.useContext)(_v12.ViewerContext),
         {
           trackRecordingPageDisplayed: _v6
-        } = (0, _v10.useRecordingTracking)(),
+        } = (0, _v9.useRecordingTracking)(),
         _v7 = window.location.pathname;
       return (0, _v4.useEffect)(() => {
-        if (_v4.isReady) if ("string" == typeof _v4.query[_v16]) _v1(_v4.query[_v16]);else {
+        if (_v4.isReady) if ("string" == typeof _v4.query[_v15]) _v1(_v4.query[_v15]);else {
           let _v0 = (0, _v6.v4)();
           _v4.replace({
             pathname: _v4.route,
             query: {
               ..._v4.query,
-              [_v16]: _v0
+              [_v15]: _v0
             }
           });
         }
-      }, [_v4]), (0, _v4.useEffect)(() => {
-        _v7.BigPictureClient.sendEvent(new _v7.Event("vimeo.record_pageview", 1, {
-          name: '"Record Studio" page was shown',
-          path: window.location.origin + window.location.pathname,
-          entry_page: document.referrer || null,
-          clip_id: null
-        }));
-      }, []), (0, _v9.usePicoEffect)(() => {
+      }, [_v4]), (0, _v8.usePicoEffect)(() => {
         _v6();
       }, [], {
         once: !0
@@ -162,23 +154,23 @@
               switch (_v0) {
                 case "pre-recording":
                 default:
-                  return _v15.pageTitle.preRecording;
+                  return _v14.pageTitle.preRecording;
                 case "recording":
-                  return _v15.pageTitle.recording;
+                  return _v14.pageTitle.recording;
                 case "paused":
-                  return _v15.pageTitle.paused;
+                  return _v14.pageTitle.paused;
                 case "uploading":
-                  return _v15.pageTitle.uploading;
+                  return _v14.pageTitle.uploading;
               }
             })(_v2)
           })
-        }), _v5 && _v5.user && _v0 && (0, _v1.jsx)(_v11.RecordStudio, {
+        }), _v5 && _v5.user && _v0 && (0, _v1.jsx)(_v10.RecordStudio, {
           mode: "standalone",
           sessionId: _v0,
           onStateChange: _v3
         }), _v5 && !_v5.user && (0, _v1.jsx)(_v5.ThemeProvider, {
-          theme: _v8.themes.light,
-          children: (0, _v1.jsx)(_v12.LoginJoinModal, {
+          theme: _v7.themes.light,
+          children: (0, _v1.jsx)(_v11.LoginJoinModal, {
             type: "join",
             xsrft: _v5.xsrft,
             redirectUrl: _v7,
@@ -192,5 +184,5 @@
         })]
       });
     };
-  _v17.getLayout = _v0 => _v0, _v0.s(["RecordStudioPage", 0, _v17, "SESSION_ID", 0, _v16], 0);
+  _v16.getLayout = _v0 => _v0, _v0.s(["RecordStudioPage", 0, _v16, "SESSION_ID", 0, _v15], 0);
 }

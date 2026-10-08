@@ -28,19 +28,17 @@
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
-    _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
-    _v29 = _v0.i(0);
-  let _v30 = () => {
-      let _v0 = (0, _v16.useRef)(null);
-      return (0, _v16.useEffect)(() => {
-        _v0 && _v28.default.loadAnimation({
+    _v27 = _v0.i(0);
+  let _v28 = () => {
+      let _v0 = (0, _v19.useRef)(null);
+      return (0, _v19.useEffect)(() => {
+        _v0 && _v26.default.loadAnimation({
           container: _v0?.current,
           loop: !1,
           autoplay: !0,
           path: "https://f.vimeocdn.com/_misc/lottie_confetti_animation.json"
         });
-      }, [_v0]), (0, _v1.jsx)(_v29.Box, {
+      }, [_v0]), (0, _v1.jsx)(_v27.Box, {
         ref: _v0,
         position: "fixed",
         top: 0,
@@ -51,7 +49,7 @@
         pointerEvents: "none"
       });
     },
-    _v31 = ({
+    _v29 = ({
       folderId: _v0,
       config: _v1,
       appId: _v2,
@@ -72,7 +70,7 @@
               xVimeoPage: _v4,
               locale: _v5
             } = (0, _v21.useGctlConfig)();
-          return (0, _v20.default)(_v1 ? `/teams/${_v1.where.userId}/auto_archive${(0, _v18.serializeQuery)(_v1)}` : () => null, _v1 ? () => (0, _v19.getTeamAutoArchive)({
+          return (0, _v20.default)(_v1 ? `/teams/${_v1.where.userId}/auto_archive${(0, _v17.serializeQuery)(_v1)}` : () => null, _v1 ? () => (0, _v18.getTeamAutoArchive)({
             ..._v1,
             headers: {
               ..._v1.headers,
@@ -90,8 +88,8 @@
           }
         } : null);
       return !_v6 || _v9 ? (0, _v1.jsx)(_v15.LoadingPage, {}) : !_v3 || _v8 ? (0, _v1.jsx)(_v25.ErrorPage, {
-        error: new _v17.ResourceNotFoundError()
-      }) : _v0 ? (0, _v1.jsx)(_v33, {
+        error: new _v16.ResourceNotFoundError()
+      }) : _v0 ? (0, _v1.jsx)(_v31, {
         userId: _v6,
         ownerId: _v3,
         folderId: _v0,
@@ -99,7 +97,7 @@
         appId: _v2,
         config: _v1,
         hasIntegrationCenter: _v5
-      }) : (0, _v1.jsx)(_v32, {
+      }) : (0, _v1.jsx)(_v30, {
         ownerId: _v3,
         total: _v7?.total ?? 0,
         appId: _v2,
@@ -107,29 +105,25 @@
         hasIntegrationCenter: _v5
       });
     },
-    _v32 = ({
+    _v30 = ({
       ownerId: _v0,
-      appId: _v1,
-      total: _v2,
-      config: _v3,
-      hasIntegrationCenter: _v4
+      config: _v1,
+      hasIntegrationCenter: _v2
     }) => {
       let {
-        data: _v5,
-        error: _v6,
-        isValidating: _v7
+        data: _v3,
+        error: _v4,
+        isValidating: _v5
       } = (0, _v22.useGetUserAutoArchiveMsTeams)(() => _v0 ? {
         select: ["userInviteUrl"],
         where: {
           userId: _v0
         }
       } : null);
-      return ((0, _v16.useEffect)(() => {
-        _v7 || _v6 || _v27.default.chooseTeamForRecordingSuccessEvent(_v0, "admin_onboarding_for_team", _v1, `${_v2}`);
-      }, [_v7, _v6, _v0, _v1, _v2]), _v7) ? (0, _v1.jsx)(_v15.LoadingPage, {}) : _v6 ? (0, _v1.jsx)(_v25.ErrorPage, {
-        error: new _v17.ResourceNotFoundError()
-      }) : (0, _v1.jsx)(_v34, {
-        config: _v3,
+      return _v5 ? (0, _v1.jsx)(_v15.LoadingPage, {}) : _v4 ? (0, _v1.jsx)(_v25.ErrorPage, {
+        error: new _v16.ResourceNotFoundError()
+      }) : (0, _v1.jsx)(_v32, {
+        config: _v1,
         adminOnboarding: !0,
         buttons: [{
           label: (0, _v24.translate)({
@@ -158,7 +152,7 @@
               }
             }
           }),
-          href: _v5?.userInviteUrl ?? "",
+          href: _v3?.userInviteUrl ?? "",
           variant: "primary"
         }, {
           label: (0, _v24.translate)({
@@ -187,39 +181,27 @@
               }
             }
           }),
-          href: _v4 && _v3 ? `/integrations-center/${_v3.appUUID}/details/manage` : "/settings/apps",
+          href: _v2 && _v1 ? `/integrations-center/${_v1.appUUID}/details/manage` : "/settings/apps",
           variant: "tertiary"
         }]
       });
     },
-    _v33 = ({
+    _v31 = ({
       userId: _v0,
-      ownerId: _v1,
-      appId: _v2,
-      total: _v3,
-      folderId: _v4,
-      config: _v5,
-      hasIntegrationCenter: _v6
+      folderId: _v1,
+      config: _v2,
+      hasIntegrationCenter: _v3
     }) => {
       let {
-        data: _v7,
-        error: _v8,
-        isValidating: _v9
+        isValidating: _v4
       } = (0, _v23.useGetUserTeams)(() => _v0 ? {
         select: ["teamData.ownerId", "teamMembership.role"],
         where: {
           userId: _v0
         }
       } : null);
-      return ((0, _v16.useEffect)(() => {
-        if (!_v9 && !_v8 && _v7?.data) {
-          let _v0 = _v7.data.find(_v0 => Number(_v0.teamData.ownerId) === _v1),
-            _v1 = _v0 === _v1 ? _v26.TeamRole.Owner : _v0?.teamMembership?.role,
-            _v2 = _v1 === _v26.TeamRole.Admin || _v1 === _v26.TeamRole.Owner ? "admin_onboarding" : "user_onboarding";
-          _v1 && _v27.default.chooseTeamForRecordingSuccessEvent(_v1, _v2, _v2, `${_v3}`);
-        }
-      }, [_v9, _v8, _v7?.data, _v1, _v2, _v3, _v0]), _v9) ? (0, _v1.jsx)(_v15.LoadingPage, {}) : (0, _v1.jsx)(_v34, {
-        config: _v5,
+      return _v4 ? (0, _v1.jsx)(_v15.LoadingPage, {}) : (0, _v1.jsx)(_v32, {
+        config: _v2,
         adminOnboarding: !1,
         buttons: [{
           label: (0, _v24.translate)({
@@ -248,7 +230,7 @@
               }
             }
           }),
-          href: _v6 && _v5 ? `/integrations-center/${_v5.appUUID}/details/manage` : "/settings/apps",
+          href: _v3 && _v2 ? `/integrations-center/${_v2.appUUID}/details/manage` : "/settings/apps",
           variant: "primary"
         }, {
           label: (0, _v24.translate)({
@@ -277,12 +259,12 @@
               }
             }
           }),
-          href: `/manage/folders/${_v4}`,
+          href: `/manage/folders/${_v1}`,
           variant: "tertiary"
         }]
       });
     },
-    _v34 = ({
+    _v32 = ({
       adminOnboarding: _v0,
       buttons: _v1,
       config: _v2
@@ -291,7 +273,7 @@
       justifyContent: "center",
       height: "90vh",
       backgroundColor: "backgroundSubtle",
-      children: [(0, _v1.jsx)(_v30, {}), (0, _v1.jsxs)(_v7.Card, {
+      children: [(0, _v1.jsx)(_v28, {}), (0, _v1.jsxs)(_v7.Card, {
         padding: "lg",
         width: (0, _v10.rem)(420),
         boxShadow: "lg",
@@ -335,20 +317,20 @@
         })]
       })]
     });
-  var _v35 = _v0.i(0);
-  let _v36 = [_v5.PARTNER_APP_ID.MSTeamProduction, _v5.PARTNER_APP_ID.MSTeamDevelopment],
-    _v37 = ({
+  var _v33 = _v0.i(0);
+  let _v34 = [_v5.PARTNER_APP_ID.MSTeamProduction, _v5.PARTNER_APP_ID.MSTeamDevelopment],
+    _v35 = ({
       folderId: _v0,
       appId: _v1,
       teamOwnerId: _v2
     }) => {
-      let _v3 = (0, _v35.useViewer)(),
+      let _v3 = (0, _v33.useViewer)(),
         {
           capabilities: _v4
         } = (0, _v13.useCapability)(["hasIntegrationCenter"]),
         _v5 = _v5.PARTNER_CONFIG[_v1],
-        _v6 = _v36.includes(_v1);
-      return _v3 ? _v6 ? (0, _v1.jsx)(_v31, {
+        _v6 = _v34.includes(_v1);
+      return _v3 ? _v6 ? (0, _v1.jsx)(_v29, {
         folderId: _v0,
         config: _v5,
         appId: _v1,
@@ -360,7 +342,7 @@
         justifyContent: "center",
         height: "90vh",
         backgroundColor: "backgroundSubtle",
-        children: [(0, _v1.jsx)(_v30, {}), (0, _v1.jsxs)(_v7.Card, {
+        children: [(0, _v1.jsx)(_v28, {}), (0, _v1.jsxs)(_v7.Card, {
           padding: "xl",
           width: (0, _v10.rem)(420),
           boxShadow: "lg",
@@ -457,11 +439,11 @@
         })]
       }) : (0, _v1.jsx)(_v15.LoadingPage, {});
     },
-    _v38 = ({
+    _v36 = ({
       folderId: _v0,
       appId: _v1,
       teamOwnerId: _v2
-    }) => (0, _v1.jsx)(_v37, {
+    }) => (0, _v1.jsx)(_v35, {
       appId: _v1,
       folderId: _v0,
       teamOwnerId: _v2
@@ -486,10 +468,10 @@
   }, {
     requireLogin: !0,
     inlineViewer: !0
-  }), _v38.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
+  }), _v36.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v3.DefaultNavigation, {
       hasSearch: !1,
       isSideNavActive: !1
     }), _v0, (0, _v1.jsx)(_v4.MinimalFooterLayout, {})]
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v38], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v36], 0);
 }

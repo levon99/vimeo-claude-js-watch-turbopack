@@ -60,11 +60,14 @@
         }) : 0, [_v3, _v0, _v6?.uploadQuota?.space?.unit]),
         _v9 = (0, _v2.useCallback)((_v0, _v1) => {
           if ("number" == typeof _v0 && _v1.targetUserId !== _v0) return !0;
-          if (!_v6 || !_v6.uploadQuota?.space || !_v6.uploadQuota.space.unit || "number" != typeof _v6.uploadQuota.space.free || "function" != typeof _v1) return console.error("Missing quota prerequisites"), !1;
-          let _v2 = Array.isArray(_v0) ? _v0 : Array.from(_v0),
-            _v3 = _v10(_v2, _v6.uploadQuota.space.unit),
-            _v4 = _v3 <= Math.max(_v6.uploadQuota.space.free - _v8, 0);
-          return _v4 || ((({
+          if (!_v6 || !_v6.uploadQuota?.space || !_v6.uploadQuota.space.unit || "function" != typeof _v1) return console.error("Missing quota prerequisites"), !1;
+          let _v2 = _v6.uploadQuota.space.free;
+          if (null === _v2) return !0;
+          if ("number" != typeof _v2) return !1;
+          let _v3 = Array.isArray(_v0) ? _v0 : Array.from(_v0),
+            _v4 = _v10(_v3, _v6.uploadQuota.space.unit),
+            _v5 = _v4 <= Math.max(_v2 - _v8, 0);
+          return _v5 || ((({
             file: _v0,
             uploadAmount: _v1,
             fileCount: _v2,
@@ -90,13 +93,13 @@
               console.error("Failed to send quota email ", _v0);
             });
           })({
-            file: _v2[0],
-            uploadAmount: _v3,
-            fileCount: _v2.length,
+            file: _v3[0],
+            uploadAmount: _v4,
+            fileCount: _v3.length,
             userId: _v0,
             jwt: _v4?.jwt,
             token: _v4?.xsrft
-          }), _v1(_v6.uploadQuota.space.unit, _v6.uploadQuota.space.showing)), _v4;
+          }), _v1(_v6.uploadQuota.space.unit, _v6.uploadQuota.space.showing)), _v5;
         }, [_v6, _v1, _v8, _v0, _v4?.jwt, _v4?.xsrft]);
       (0, _v2.useEffect)(() => {
         if ("function" == typeof _v1) return _v2(_v9);

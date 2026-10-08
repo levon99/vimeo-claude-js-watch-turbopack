@@ -60,14 +60,13 @@
       isLoading: _v3,
       canSave: _v4,
       onSubmit: _v5,
-      onCancel: _v6,
-      hideCancel: _v7
+      hideCancel: _v6
     } = _v0;
     return (0, _v3.jsxs)(_v5.Flex, {
       align: "center",
       justify: {
         base: "center",
-        md: _v7 ? "center" : "space-between"
+        md: _v6 ? "center" : "space-between"
       },
       direction: {
         base: "column-reverse",
@@ -78,7 +77,7 @@
         md: "0"
       },
       width: "100%",
-      children: [!_v7 && (0, _v3.jsx)(_v4.Button, {
+      children: [!_v6 && (0, _v3.jsx)(_v4.Button, {
         variant: "secondary",
         as: "a",
         href: "/settings/billing",
@@ -86,7 +85,6 @@
           base: "100%",
           md: "auto"
         },
-        onClick: _v6,
         children: (0, _v6.translate)({
           singular: "Cancel",
           dictionary: {
@@ -114,7 +112,7 @@
           }
         })
       }), (0, _v3.jsx)(_v4.Button, {
-        width: _v7 ? "100%" : {
+        width: _v6 ? "100%" : {
           base: "100%",
           md: "auto"
         },

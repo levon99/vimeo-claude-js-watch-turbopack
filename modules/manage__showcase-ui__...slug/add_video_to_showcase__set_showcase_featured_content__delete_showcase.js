@@ -699,10 +699,6 @@
     LAYOUT_NAVIGATION: "navigation",
     LAYOUT_FEATURED: "featured",
     LAYOUT_VIDEO_GRID: "video-grid"
-  }, "SideDrawerHeaderNestedKeyPathnameEnum", 0, {
-    LAYOUT_NAVIGATION: "/navigation",
-    LAYOUT_FEATURED: "/featured",
-    LAYOUT_VIDEO_GRID: "/video-grid"
   }, "TVAppsProviderNameEnum", 0, {
     ROKU: "Roku",
     AMAZON: "Amazon"

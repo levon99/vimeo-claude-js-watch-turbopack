@@ -2663,68 +2663,14 @@
     });
   };
   _v0.s(["SideNavToggle", 0, _v107], 0);
-  let _v108 = _v0 => (0, _v1.jsx)(_v58.Icon, {
-      viewBox: "0 0 24 24",
-      ..._v0,
-      fill: "none",
-      children: (0, _v1.jsx)("path", {
-        d: "M8.5 19a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM19 16H7a1 1 0 0 1 0-2h8.491a3.014 3.014 0 0 0 2.885-2.176l1.585-5.55A1 1 0 0 0 19 5H6.74A3.007 3.007 0 0 0 3.92 3H3a1 1 0 0 0 0 2h.921a1.005 1.005 0 0 1 .962.725l.155.545v.005l1.641 5.742A3 3 0 0 0 7 18h12a1 1 0 0 0 0-2Zm-1.326-9-1.22 4.274a1.004 1.004 0 0 1-.963.726H8.754l-.255-.892L7.326 7h10.348ZM16.5 19a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z",
-        fill: "currentColor"
-      })
-    }),
-    _v109 = ({
-      itemsCount: _v0
-    }) => {
-      let _v1 = (0, _v12.useTrackNavigationEvent)();
-      return _v0 && 0 !== _v0 ? (0, _v1.jsx)(_v16.Tooltip, {
-        label: (0, _v20.translate)({
-          singular: "Cart",
-          dictionary: {
-            es: {
-              singular: "Carrito"
-            },
-            "de-DE": {
-              singular: "Warenkorb"
-            },
-            "fr-FR": {
-              singular: "Panier"
-            },
-            "ja-JP": {
-              singular: "カート"
-            },
-            "ko-KR": {
-              singular: "장바구니"
-            },
-            "pt-BR": {
-              singular: "Carrinho"
-            },
-            "zh-CN": {
-              singular: "购物车"
-            }
-          }
-        }),
-        children: (0, _v1.jsx)(_v15.IconButton, {
-          "aria-label": "cart_link",
-          icon: (0, _v1.jsx)(_v108, {}),
-          as: "a",
-          href: "/store/stock",
-          variant: "tertiary",
-          onClick: () => _v1({
-            copy: "cart",
-            element: "button",
-            feature: "cart"
-          })
-        })
-      }) : (0, _v1.jsx)(_v1.Fragment, {});
-    },
-    _v110 = (0, _v2.default)(async () => ({
+  let _v108 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).LoginJoinModal
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v111 = (0, _v5.rem)(24);
+    _v109 = (0, _v5.rem)(24);
   _v0.s(["DefaultNavigation", 0, ({
     fixed: _v0 = !0,
     hasSearch: _v1 = !0,
@@ -2759,7 +2705,7 @@
       _v21 = _v9?.isSimplifiedSite,
       _v22 = _v9?.isEnterpriseSite,
       _v23 = _v7 && !_v3,
-      _v24 = _v7 && _v8 ? `calc(max(0px, calc((100cqw - var(--search-content-max-width)) / 2)) + var(--search-content-inline-start) - ${_v111})` : _v23 ? (0, _v5.rem)(24) : void 0,
+      _v24 = _v7 && _v8 ? `calc(max(0px, calc((100cqw - var(--search-content-max-width)) / 2)) + var(--search-content-inline-start) - ${_v109})` : _v23 ? (0, _v5.rem)(24) : void 0,
       _v25 = (0, _v3.useMemo)(() => ({
         modal: _v19,
         setModal: _v20
@@ -2824,16 +2770,14 @@
               withToggle: !0,
               updateGlobalNavSearchState: _v12
             }), !_v16 && !_v21 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v76, {}), (0, _v1.jsx)(_v13, {}), (0, _v1.jsx)(_v109, {
-                itemsCount: _v9?.cart?.itemsCount
-              })]
+              children: [(0, _v1.jsx)(_v76, {}), (0, _v1.jsx)(_v13, {})]
             }), _v9 && !_v10 && (0, _v1.jsxs)(_v1.Fragment, {
               children: [!_v18 && !_v22 && (0, _v1.jsx)(_v104, {}), !(_v15 && _v11) && (0, _v1.jsx)(_v77.Login, {})]
             }), !_v16 && (_v10 ? (0, _v1.jsx)(_v101, {
               hasUploader: _v5
             }) : _v9 && !_v22 && (0, _v1.jsx)(_v77.Join, {})), !(_v15 && _v11) && (0, _v1.jsx)(_v8.AccountMenu, {
               hasThemeSupport: _v2
-            }), _v9 && !_v10 && _v19 && (0, _v1.jsx)(_v110, {})]
+            }), _v9 && !_v10 && _v19 && (0, _v1.jsx)(_v108, {})]
           })
         })
       })]

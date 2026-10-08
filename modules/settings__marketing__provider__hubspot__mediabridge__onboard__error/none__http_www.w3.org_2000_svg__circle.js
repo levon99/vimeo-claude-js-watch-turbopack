@@ -9,9 +9,8 @@
     _v6 = _v0.i(0),
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
-    _v9 = _v0.i(0),
-    _v10 = _v0.i(0);
-  let _v11 = () => (0, _v1.jsxs)("svg", {
+    _v9 = _v0.i(0);
+  let _v10 = () => (0, _v1.jsxs)("svg", {
     width: "128",
     height: "128",
     viewBox: "0 0 128 128",
@@ -34,14 +33,11 @@
       strokeWidth: "3"
     })]
   });
-  function _v12() {
-    let _v0 = (0, _v3.useRouter)(),
-      {
-        sendActionEvent: _v1
-      } = (0, _v10.useBpEvents)("integration_onboard_fail", "vimeo.view_upload_failure_screen");
+  function _v11() {
+    let _v0 = (0, _v3.useRouter)();
     return (0, _v1.jsx)(_v7.Container, {
       children: (0, _v1.jsxs)(_v7.Wrapper, {
-        children: [(0, _v1.jsx)(_v8.ConnectingToVimeo, {}), (0, _v1.jsx)(_v11, {}), (0, _v1.jsx)(_v5.Header, {
+        children: [(0, _v1.jsx)(_v8.ConnectingToVimeo, {}), (0, _v1.jsx)(_v10, {}), (0, _v1.jsx)(_v5.Header, {
           size: "xl",
           marginBottom: "24",
           children: (0, _v6.translate)({
@@ -102,7 +98,7 @@
         }), (0, _v1.jsxs)(_v7.ButtonWrapper, {
           children: [(0, _v1.jsx)(_v4.Button, {
             onClick: () => {
-              _v1("vimeo.close_page", "close", "close", 2), window.close();
+              window.close();
             },
             variant: "secondary",
             children: (0, _v6.translate)({
@@ -133,7 +129,7 @@
             })
           }), (0, _v1.jsx)(_v4.Button, {
             onClick: () => {
-              _v1("vimeo.select_retry_onboarding", "retry", "retry", 2), _v0.push({
+              _v0.push({
                 pathname: _v9.ONBOARD_URL,
                 query: {
                   flow: "retry_connecting"
@@ -171,11 +167,11 @@
       })
     });
   }
-  var _v13 = _v0.i(0);
-  let _v14 = () => (0, _v1.jsx)(_v12, {});
-  _v14.getLayout = _v13.getLayout, (0, _v2.withPageSetup)({
+  var _v12 = _v0.i(0);
+  let _v13 = () => (0, _v1.jsx)(_v11, {});
+  _v13.getLayout = _v12.getLayout, (0, _v2.withPageSetup)({
     requireLogin: !0,
     capability: "canConnectToHubspotMediaBridge",
     inlineViewer: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v14], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v13], 0);
 }

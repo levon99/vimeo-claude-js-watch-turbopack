@@ -1272,73 +1272,35 @@
   };
   var _v59 = _v0.i(0),
     _v60 = _v0.i(0),
-    _v61 = _v0.i(0),
-    _v62 = _v0.i(0),
-    _v63 = _v0.i(0),
-    _v64 = _v0.i(0),
-    _v65 = _v0.i(0),
-    _v66 = _v0.i(0),
-    _v67 = _v0.i(0),
-    _v68 = _v0.i(0);
-  let _v69 = ({
+    _v61 = _v0.i(0);
+  let _v62 = ({
       isOwner: _v0
-    }) => {
-      let _v1,
-        _v2,
-        {
-          sendOpenFederatedSearchManageEvent: _v3
-        } = (_v1 = (0, _v68.useViewer)(), _v2 = (0, _v3.useMemo)(() => (0, _v65.buildTeamBpContextFromTeamUser)(_v1?.teamUser), [_v1?.teamUser]), {
-          sendOpenFederatedSearchManageEvent: () => {
-            let _v0 = (0, _v62.default)();
-            (0, _v67.sendBpEventWithContexts)("vimeo.open_federated_search_manage", {
-              ...(0, _v63.buildActionBpContext)({
-                action_type: "click",
-                feature: null
-              }),
-              ...(0, _v64.buildProductAnalyticsBpContext)({
-                entity_type: null,
-                element: "button",
-                location: "workspace",
-                feature: "settings",
-                product: "collaboration",
-                copy: "manage",
-                device_type: _v0
-              }),
-              ...(0, _v66.buildWebBpContext)({
-                page_name: "team_management_page",
-                path: window.location.pathname
-              }),
-              ..._v2
-            }, 2);
-          }
-        });
-      return (0, _v1.jsx)(_v7.TeamSettingsPageCategory, {
-        title: _v36.T.API,
-        children: (0, _v1.jsx)(_v26.TeamSettingsPageOptionCustom, {
-          title: _v36.T.FederatedSearch,
-          description: _v36.T.MakeContentOnThisAccountSearchable,
-          footer: _v0 ? null : (0, _v1.jsx)(_v59.Alert, {
-            size: "sm",
-            marginTop: "200",
-            children: (0, _v1.jsx)(_v60.AlertDescription, {
-              marginTop: "50",
-              children: _v36.T.OnlyTheAccountOwnerCanSetUpFederatedSearch
-            })
-          }),
-          children: (0, _v1.jsx)(_v15.Button, {
-            variant: "secondary",
-            size: "sm",
-            leftIcon: (0, _v1.jsx)(_v61.PopOut, {}),
-            isDisabled: !_v0,
-            onClick: () => {
-              _v0 && (_v3(), window.open("https://developer.vimeo.com/apps", "_blank"));
-            },
-            children: _v36.T.ManageFederatedSearchLabel
+    }) => (0, _v1.jsx)(_v7.TeamSettingsPageCategory, {
+      title: _v36.T.API,
+      children: (0, _v1.jsx)(_v26.TeamSettingsPageOptionCustom, {
+        title: _v36.T.FederatedSearch,
+        description: _v36.T.MakeContentOnThisAccountSearchable,
+        footer: _v0 ? null : (0, _v1.jsx)(_v59.Alert, {
+          size: "sm",
+          marginTop: "200",
+          children: (0, _v1.jsx)(_v60.AlertDescription, {
+            marginTop: "50",
+            children: _v36.T.OnlyTheAccountOwnerCanSetUpFederatedSearch
           })
+        }),
+        children: (0, _v1.jsx)(_v15.Button, {
+          variant: "secondary",
+          size: "sm",
+          leftIcon: (0, _v1.jsx)(_v61.PopOut, {}),
+          isDisabled: !_v0,
+          onClick: () => {
+            _v0 && window.open("https://developer.vimeo.com/apps", "_blank");
+          },
+          children: _v36.T.ManageFederatedSearchLabel
         })
-      });
-    },
-    _v70 = ({
+      })
+    }),
+    _v63 = ({
       userId: _v0,
       hasEnterprise: _v1,
       isOwner: _v2,
@@ -1408,14 +1370,14 @@
           shouldScrollIntoView: "privacy-settings" === _v12,
           itemsWithContainerDataId: _v8,
           hasEnterpriseCustomDomainEnabled: _v9
-        }), _v1 && (0, _v1.jsx)(_v69, {
+        }), _v1 && (0, _v1.jsx)(_v62, {
           isOwner: _v2
         })]
       });
     },
-    _v71 = ["prohibitMultipleReviewLinks", "reviewPagePreferences", "disablePublicSearch", "disableAccountEditing", "enableDrm", "teamActivityAnalytics"],
-    _v72 = ["applyDrpExtensionAfterMigration"],
-    _v73 = () => {
+    _v64 = ["prohibitMultipleReviewLinks", "reviewPagePreferences", "disablePublicSearch", "disableAccountEditing", "enableDrm", "teamActivityAnalytics"],
+    _v65 = ["applyDrpExtensionAfterMigration"],
+    _v66 = () => {
       let {
           teamCapabilities: {
             hasLegalHoldsActive: _v0,
@@ -1447,7 +1409,7 @@
           teamSettingsError: _v20
         } = (0, _v33.useGetTeamSettings)({
           userId: _v12,
-          settings: [..._v71, ..._v72]
+          settings: [..._v64, ..._v65]
         }),
         {
           privacySettings: _v21,
@@ -1455,10 +1417,10 @@
           privacyItemsWithContainerDataId: _v23
         } = (0, _v3.useMemo)(() => {
           let _v0 = [],
-            _v1 = (0, _v2.default)(_v16 ?? {}, _v71);
+            _v1 = (0, _v2.default)(_v16 ?? {}, _v64);
           return _v1[_v21] = !0, _v1[_v22] = !0, _v4 && _v0.push(_v21), _v7 || delete _v1.enableDrm, {
             privacySettings: _v1,
-            drpSettings: (0, _v2.default)(_v16 ?? {}, _v72),
+            drpSettings: (0, _v2.default)(_v16 ?? {}, _v65),
             privacyItemsWithContainerDataId: _v0
           };
         }, [_v16, _v7, _v4]),
@@ -1562,7 +1524,7 @@
             dataId: _v0.title ? `teamSettingsPageOption${_v0.title.replace(/\s/g, "")}` : void 0,
             betaBadge: _v0.betaBadge
           }, _v0.title))
-        }), (0, _v1.jsx)(_v70, {
+        }), (0, _v1.jsx)(_v63, {
           userId: _v12,
           hasEnterprise: !!_v4,
           isOwner: _v12 === _v15?.user?.id,
@@ -1590,7 +1552,7 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v73.getLayout = _v0 => (0, _v34.getLayout)(_v0, {
+  }), _v66.getLayout = _v0 => (0, _v34.getLayout)(_v0, {
     contentColumn: "compactSettings"
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v73], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v66], 0);
 }

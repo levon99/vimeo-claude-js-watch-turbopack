@@ -442,9 +442,8 @@
         }
       }, [_v0, _v1, _v2, _v3]), _v4];
     };
-  var _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  let _v48 = _v0 => {
+  var _v46 = _v0.i(0);
+  let _v47 = _v0 => {
       if (!_v0) return null;
       try {
         let {
@@ -455,7 +454,7 @@
         return null;
       }
     },
-    _v49 = (_v0, _v1) => {
+    _v48 = (_v0, _v1) => {
       switch (_v0) {
         case "InvalidFileType":
         case "FileSizeExceeded":
@@ -467,7 +466,7 @@
           return `Default${(0, _v42.titleCase)(_v1)}UploadError`;
       }
     },
-    _v50 = ({
+    _v49 = ({
       workspaceUuid: _v0
     }) => {
       let _v1,
@@ -478,12 +477,9 @@
           mutate: _v5
         } = (0, _v34.useGetAllWorkspacesForUser)(),
         {
-          sendChangeInAccountSettingsEvent: _v6
-        } = (0, _v46.useTrackEvents)(),
-        {
-          data: _v7,
-          isValidating: _v8,
-          mutate: _v9
+          data: _v6,
+          isValidating: _v7,
+          mutate: _v8
         } = (({
           workspaceUuid: _v0
         }) => (0, _v35.useGetWorkspace)(() => _v0 ? {
@@ -497,11 +493,11 @@
         }))({
           workspaceUuid: _v0
         }),
-        [_v10, _v11] = _v44({
+        [_v9, _v10] = _v44({
           assetType: "logo",
           workspaceUuid: _v0,
           onSuccess: _v0 => {
-            _v9(void 0, {
+            _v8(void 0, {
               populateCache: (_v0, _v1) => ({
                 ..._v1,
                 logo: _v0.logo
@@ -509,25 +505,18 @@
               revalidate: !1
             }), _v4({
               title: _v3.LogoUploadSuccess
-            }), _v6({
-              location: "card",
-              buttonText: null,
-              entityType: "workspace",
-              tabName: "basics",
-              actionName: "workspace logo",
-              actionValue: [_v0.logo.resourceKey]
             });
           },
           onError: _v0 => _v4({
-            title: _v3[_v49(_v0.message, "logo")],
+            title: _v3[_v48(_v0.message, "logo")],
             variant: "warning"
           })
         }),
-        [_v12, _v13] = _v44({
+        [_v11, _v12] = _v44({
           assetType: "icon",
           workspaceUuid: _v0,
           onSuccess: _v0 => {
-            _v9(void 0, {
+            _v8(void 0, {
               populateCache: (_v0, _v1) => ({
                 ..._v1,
                 icon: _v0.icon
@@ -535,28 +524,21 @@
               revalidate: !1
             }), _v5(), _v4({
               title: _v3.IconUploadSuccess
-            }), _v6({
-              location: "card",
-              buttonText: null,
-              entityType: "workspace",
-              tabName: "basics",
-              actionName: "workspace logo",
-              actionValue: [_v0.icon.resourceKey]
             });
           },
           onError: _v0 => _v4({
-            title: _v3[_v49(_v0.message, "icon")],
+            title: _v3[_v48(_v0.message, "icon")],
             variant: "warning"
           })
         }),
-        _v14 = !!(_v7?.logo && !_v8),
-        _v15 = !!(_v7?.icon && !_v8),
-        _v16 = (0, _v43.addQueryParam)((_v1 = _v7?.logo, _v1?.sizes?.at(-1)?.link)),
-        _v17 = (0, _v43.addQueryParam)((_v2 = _v7?.icon, _v2?.sizes?.find(_v0 => 152 === _v0.width)?.link ?? _v2?.sizes?.at(-1)?.link)),
-        [_v18, _v19] = _v45({
+        _v13 = !!(_v6?.logo && !_v7),
+        _v14 = !!(_v6?.icon && !_v7),
+        _v15 = (0, _v43.addQueryParam)((_v1 = _v6?.logo, _v1?.sizes?.at(-1)?.link)),
+        _v16 = (0, _v43.addQueryParam)((_v2 = _v6?.icon, _v2?.sizes?.find(_v0 => 152 === _v0.width)?.link ?? _v2?.sizes?.at(-1)?.link)),
+        [_v17, _v18] = _v45({
           workspaceUuid: _v0,
           onSuccess: () => {
-            _v9(void 0, {
+            _v8(void 0, {
               populateCache: (_v0, _v1) => ({
                 ..._v1,
                 logo: null
@@ -568,10 +550,10 @@
           },
           onError: _v0 => console.error("Failed to delete workspace logo:", _v0)
         }),
-        [_v20, _v21] = _v45({
+        [_v19, _v20] = _v45({
           workspaceUuid: _v0,
           onSuccess: () => {
-            _v9(void 0, {
+            _v8(void 0, {
               populateCache: (_v0, _v1) => ({
                 ..._v1,
                 icon: null
@@ -583,14 +565,14 @@
           },
           onError: _v0 => console.error("Failed to delete workspace icon:", _v0)
         }),
+        _v21 = (0, _v4.useCallback)(() => {
+          let _v0 = _v47(_v6?.logo?.uri);
+          _v0 && _v17(_v0);
+        }, [_v6?.logo?.uri, _v17]),
         _v22 = (0, _v4.useCallback)(() => {
-          let _v0 = _v48(_v7?.logo?.uri);
-          _v0 && _v18(_v0);
-        }, [_v7?.logo?.uri, _v18]),
-        _v23 = (0, _v4.useCallback)(() => {
-          let _v0 = _v48(_v7?.icon?.uri);
-          _v0 && _v20(_v0);
-        }, [_v7?.icon?.uri, _v20]);
+          let _v0 = _v47(_v6?.icon?.uri);
+          _v0 && _v19(_v0);
+        }, [_v6?.icon?.uri, _v19]);
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v5.Text, {
           variant: "heading-xs",
@@ -599,16 +581,16 @@
         }), (0, _v1.jsxs)(_v6.HStack, {
           gap: "md",
           mt: "md",
-          children: [(0, _v1.jsx)(_v47.UploadableImage, {
+          children: [(0, _v1.jsx)(_v46.UploadableImage, {
             header: _v3.FullLogo,
             tooltip: _v3.FullLogoUploadTooltip,
             tooltipProps: {
               maxWidth: (0, _v11.rem)(252)
             },
-            isLoading: _v8 || _v11 || _v19,
-            isImageUploaded: _v14,
+            isLoading: _v7 || _v10 || _v18,
+            isImageUploaded: _v13,
             alt: "logo",
-            src: _v16,
+            src: _v15,
             px: "lg",
             background: "fill-component",
             objectFit: "contain",
@@ -617,28 +599,28 @@
             borderRadius: "md",
             onChange: _v0 => {
               let _v1 = _v0.target.files?.[0];
-              _v1 && _v10(_v1);
+              _v1 && _v9(_v1);
             },
-            onDelete: _v22
-          }), (0, _v1.jsx)(_v47.UploadableImage, {
+            onDelete: _v21
+          }), (0, _v1.jsx)(_v46.UploadableImage, {
             header: _v3.Icon,
             tooltip: _v3.IconUploadTooltip,
             tooltipProps: {
               maxWidth: (0, _v11.rem)(252)
             },
-            isLoading: _v8 || _v13 || _v21,
-            isImageUploaded: _v15,
+            isLoading: _v7 || _v12 || _v20,
+            isImageUploaded: _v14,
             alt: "icon",
-            src: _v17,
+            src: _v16,
             background: "fill-component",
             width: (0, _v11.rem)(78),
             height: (0, _v11.rem)(78),
             borderRadius: "md",
             onChange: _v0 => {
               let _v1 = _v0.target.files?.[0];
-              _v1 && _v12(_v1);
+              _v1 && _v11(_v1);
             },
-            onDelete: _v23
+            onDelete: _v22
           })]
         }), (0, _v1.jsx)(_v5.Text, {
           variant: "body-sm",
@@ -648,8 +630,8 @@
         })]
       });
     };
-  var _v51 = _v0.i(0);
-  let _v52 = ({
+  var _v50 = _v0.i(0);
+  let _v51 = ({
       displayName: _v0,
       onSuccessfulUpdate: _v1,
       onUpdateFailed: _v2,
@@ -701,7 +683,7 @@
             size: "md",
             value: _v5,
             width: (0, _v11.rem)(305)
-          }), _v12 && (0, _v1.jsx)(_v51.Spinner, {
+          }), _v12 && (0, _v1.jsx)(_v50.Spinner, {
             size: "sm"
           })]
         }), _v14 && (0, _v1.jsx)(_v5.Text, {
@@ -712,7 +694,7 @@
         })]
       });
     },
-    _v53 = ({
+    _v52 = ({
       displayName: _v0,
       workspaceUuid: _v1,
       workspaceInternalId: _v2
@@ -720,25 +702,14 @@
       let [_v3, _v4] = (0, _v4.useState)(_v0),
         _v5 = (0, _v24.useToast)(),
         _v6 = (0, _v17.getTranslations)(),
-        {
-          sendChangeInAccountSettingsEvent: _v7
-        } = (0, _v46.useTrackEvents)(),
-        _v8 = (0, _v4.useRef)(_v7),
-        _v9 = (0, _v4.useCallback)(_v0 => {
+        _v7 = (0, _v4.useCallback)(_v0 => {
           _v5.isActive("wsp-name-update-success") || _v5({
             title: _v6.WorkspaceNameUpdateSuccessful,
             variant: "neutral",
             id: "wsp-name-update-success"
-          }), _v4(_v0), _v8.current?.({
-            location: "card",
-            buttonText: null,
-            entityType: "workspace",
-            tabName: "basics",
-            actionName: "workspace name",
-            actionValue: [_v0]
-          });
+          }), _v4(_v0);
         }, [_v6, _v5]),
-        _v10 = (0, _v4.useCallback)(() => {
+        _v8 = (0, _v4.useCallback)(() => {
           _v5.isActive("wsp-name-update-failed") || _v5({
             title: _v6.WorkspaceNameUpdateFailed,
             variant: "warning",
@@ -752,12 +723,12 @@
           children: [(0, _v1.jsx)(_v18.SettingSectionHeader, {
             children: _v6.WorkspaceDetails
           }), (0, _v1.jsxs)(_v18.SettingsSubSection, {
-            children: [(0, _v1.jsx)(_v52, {
+            children: [(0, _v1.jsx)(_v51, {
               displayName: _v3 ?? "",
-              onSuccessfulUpdate: _v9,
-              onUpdateFailed: _v10,
+              onSuccessfulUpdate: _v7,
+              onUpdateFailed: _v8,
               workspaceUuid: _v1
-            }), (0, _v1.jsx)(_v50, {
+            }), (0, _v1.jsx)(_v49, {
               workspaceUuid: _v1
             }), (0, _v1.jsx)(_v33, {
               workspaceInternalId: _v2
@@ -766,24 +737,24 @@
         })
       });
     };
-  var _v54 = _v0.i(0);
-  let _v55 = ({
+  var _v53 = _v0.i(0);
+  let _v54 = ({
     displayName: _v0,
     workspaceUuid: _v1,
     workspaceInternalId: _v2
   }) => {
     let _v3 = (0, _v3.useOrionSettingsFields)(["enable_workspace_defaults_page"]);
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v53, {
+      children: [(0, _v1.jsx)(_v52, {
         displayName: _v0,
         workspaceUuid: _v1,
         workspaceInternalId: _v2
       }), !_v3.enable_workspace_defaults_page && (0, _v1.jsx)(_v29, {}), (0, _v1.jsx)(_v19, {})]
     });
   };
-  (0, _v2.withPageSetup)(_v54.getWspServerSideProps, {
+  (0, _v2.withPageSetup)(_v53.getWspServerSideProps, {
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v55.getLayout = (_v0, _v1) => (0, _v20.getLayout)(_v0, _v1, _v20.WORKSPACE_STANDARD_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v55], 0);
+  }), _v54.getLayout = (_v0, _v1) => (0, _v20.getLayout)(_v0, _v1, _v20.WORKSPACE_STANDARD_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v54], 0);
 }

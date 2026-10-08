@@ -1545,22 +1545,23 @@
           expiresOn: _v29,
           isTrialExpired: _v30,
           isTrialing: _v31,
-          canCreateNewEventSeries: _v32,
-          revalidateEventSeriesProbe: _v33,
-          isAccountManager: _v34
+          isForcedUpsell: _v32,
+          canCreateNewEventSeries: _v33,
+          revalidateEventSeriesProbe: _v34,
+          isAccountManager: _v35
         } = (0, _v29.useAccessEventSeriesEditor)(),
-        _v35 = _v31 && _v29 ? new Intl.DateTimeFormat((0, _v15.getCurrentLocale)(), {
+        _v36 = _v31 && _v29 ? new Intl.DateTimeFormat((0, _v15.getCurrentLocale)(), {
           day: "numeric",
           month: "long",
           timeZone: "UTC",
           year: "numeric"
         }).format(new Date(`${_v29}T00:00:00Z`)) : null,
-        _v36 = _v22 ?? 0,
-        _v37 = _v13 || _v11.length > 0,
-        _v38 = !!_v21 && _v21.length > 0,
-        _v39 = !!_v26 && !_v38,
-        _v40 = !_v23 && !_v39 && !_v38,
-        _v41 = (0, _v6.useCallback)(_v0 => {
+        _v37 = _v22 ?? 0,
+        _v38 = _v13 || _v11.length > 0,
+        _v39 = !!_v21 && _v21.length > 0,
+        _v40 = !!_v26 && !_v39,
+        _v41 = !_v23 && !_v40 && !_v39,
+        _v42 = (0, _v6.useCallback)(_v0 => {
           _v10(_v0), _v15.current && clearTimeout(_v15.current), _v15.current = setTimeout(() => {
             _v12(_v0);
           }, 300);
@@ -1568,21 +1569,21 @@
       (0, _v6.useEffect)(() => () => {
         _v15.current && clearTimeout(_v15.current);
       }, []);
-      let _v42 = (0, _v6.useCallback)(() => {
+      let _v43 = (0, _v6.useCallback)(() => {
           _v14(!0);
         }, []),
-        _v43 = (0, _v6.useCallback)(() => {
+        _v44 = (0, _v6.useCallback)(() => {
           _v15.current && (clearTimeout(_v15.current), _v15.current = null), _v14(!1), _v10(""), _v12("");
         }, []),
-        _v44 = (0, _v6.useCallback)(_v0 => {
+        _v45 = (0, _v6.useCallback)(_v0 => {
           _v17({
             source: _v0
           }), _v6(!0);
         }, [_v17, _v6]),
-        _v45 = (0, _v6.useCallback)(() => {
+        _v46 = (0, _v6.useCallback)(() => {
           _v8(!0);
         }, []),
-        _v46 = (0, _v6.useCallback)(() => {
+        _v47 = (0, _v6.useCallback)(() => {
           let _v0 = (0, _v15.translate)({
               singular: "Extend Event Series for our account",
               dictionary: {
@@ -1712,21 +1713,21 @@
             })].join("\n\n");
           window.location.href = `mailto:?subject=${encodeURIComponent(_v0)}&body=${encodeURIComponent(_v1)}`;
         }, []),
-        _v47 = (0, _v6.useCallback)(() => {
+        _v48 = (0, _v6.useCallback)(() => {
           _v8(!1);
         }, []),
-        _v48 = (0, _v6.useCallback)(() => {
-          _v28(), _v33();
-        }, [_v28, _v33]);
+        _v49 = (0, _v6.useCallback)(() => {
+          _v28(), _v34();
+        }, [_v28, _v34]);
       return (0, _v1.jsxs)(_v28.Page, {
         children: [(0, _v1.jsxs)(_v28.Page.Main, {
           children: [(0, _v1.jsxs)(_v28.Page.StickyTop, {
-            children: [null !== _v35 && (0, _v1.jsx)(_v20, {
+            children: [!_v32 && null !== _v36 && (0, _v1.jsx)(_v20, {
               variant: "trial",
               title: (0, _v15.translate)({
                 singular: "Complimentary access until {DATE}",
                 replacements: {
-                  DATE: _v35
+                  DATE: _v36
                 },
                 dictionary: {
                   es: {
@@ -1755,7 +1756,7 @@
               description: (0, _v15.translate)({
                 singular: "Enjoy “event series” at no additional cost until {DATE}. After that, contact Sales to add it to your plan.",
                 replacements: {
-                  DATE: _v35
+                  DATE: _v36
                 },
                 dictionary: {
                   es: {
@@ -1807,8 +1808,8 @@
                   }
                 }
               }),
-              onButtonClick: _v45
-            }), null === _v35 && _v30 && _v34 && (0, _v1.jsx)(_v20, {
+              onButtonClick: _v46
+            }), !_v32 && null === _v36 && _v30 && _v35 && (0, _v1.jsx)(_v20, {
               variant: "expired",
               title: (0, _v15.translate)({
                 singular: "You no longer have free access to event series",
@@ -1888,8 +1889,8 @@
                   }
                 }
               }),
-              onButtonClick: _v45
-            }), null === _v35 && _v30 && !_v34 && (0, _v1.jsx)(_v20, {
+              onButtonClick: _v46
+            }), !_v32 && null === _v36 && _v30 && !_v35 && (0, _v1.jsx)(_v20, {
               variant: "expired",
               title: (0, _v15.translate)({
                 singular: "You no longer have free access to event series",
@@ -1969,7 +1970,7 @@
                   }
                 }
               }),
-              onButtonClick: _v46
+              onButtonClick: _v47
             }), (0, _v1.jsxs)(_v33.PageHeader.Wrapper, {
               children: [(0, _v1.jsxs)(_v33.PageHeader.LeftContent, {
                 children: [(0, _v1.jsx)(_v11.Header, {
@@ -2044,8 +2045,8 @@
                 })]
               }), (0, _v1.jsx)(_v33.PageHeader.Actions, {
                 children: (0, _v1.jsx)(_v9.Button, {
-                  isDisabled: !_v32,
-                  onClick: () => _v44("header"),
+                  isDisabled: !_v33,
+                  onClick: () => _v45("header"),
                   variant: "primary",
                   children: (0, _v15.translate)({
                     singular: "New event series",
@@ -2079,11 +2080,11 @@
               checkbox: (0, _v1.jsx)(_v24.CheckboxItemCount, {
                 isLoading: _v23,
                 subtitle: (0, _v15.translate)({
-                  count: _v36,
+                  count: _v37,
                   singular: "{NUM} event series",
                   plural: "{NUM} event series",
                   replacements: {
-                    NUM: _v36
+                    NUM: _v37
                   },
                   dictionary: {
                     es: {
@@ -2120,10 +2121,10 @@
               layout: _v1,
               searchElement: (0, _v1.jsx)(_v40, {
                 value: _v9,
-                onChange: _v41,
-                initialOpen: _v37,
-                onOpen: _v42,
-                onClose: _v43
+                onChange: _v42,
+                initialOpen: _v38,
+                onOpen: _v43,
+                onClose: _v44
               }),
               setLayout: _v2,
               shouldHideViewControls: !1,
@@ -2132,7 +2133,7 @@
               sortOptions: _v25.EVENT_SERIES_SORT_OPTIONS,
               sortTriggerDataId: "event_series_sort_trigger"
             })]
-          }), _v39 ? (0, _v1.jsxs)(_v10.Flex, {
+          }), _v40 ? (0, _v1.jsxs)(_v10.Flex, {
             flex: "1",
             direction: "column",
             align: "center",
@@ -2197,7 +2198,7 @@
                 }
               })
             })]
-          }) : _v40 && _v37 ? (0, _v1.jsx)(_v10.Flex, {
+          }) : _v41 && _v38 ? (0, _v1.jsx)(_v10.Flex, {
             flex: "1",
             justify: "center",
             py: "2xl",
@@ -2231,33 +2232,33 @@
                 }
               })
             })
-          }) : _v40 ? (0, _v1.jsx)(_v10.Flex, {
+          }) : _v41 ? (0, _v1.jsx)(_v10.Flex, {
             flex: "1",
             justify: "center",
             children: (0, _v1.jsx)(_v60, {
-              isCreateDisabled: !_v32,
-              onCreate: () => _v44("empty_state")
+              isCreateDisabled: !_v33,
+              onCreate: () => _v45("empty_state")
             })
           }) : "LIST_LAYOUT" === _v1 ? (0, _v1.jsx)(_v87, {
             isLoading: _v23 || _v24,
-            onSeriesDeleted: _v48,
+            onSeriesDeleted: _v49,
             series: _v21 ?? []
           }) : (0, _v1.jsx)(_v81, {
             isLoading: _v23 || _v24,
-            onSeriesDeleted: _v48,
+            onSeriesDeleted: _v49,
             series: _v21 ?? []
-          }), _v38 && !_v25 && (0, _v1.jsx)(_v90, {
+          }), _v39 && !_v25 && (0, _v1.jsx)(_v90, {
             isLoading: _v24,
             onLoadMore: _v27
           })]
         }), _v5 && (0, _v1.jsx)(_v57, {
           onClose: () => _v6(!1),
           onCreated: () => {
-            _v48(), _v6(!1);
+            _v49(), _v6(!1);
           },
           ownerId: _v20
         }), _v7 && (0, _v1.jsx)(_v26.EventSeriesContactSalesModal, {
-          onClose: _v47,
+          onClose: _v48,
           source: "trial_banner"
         })]
       });

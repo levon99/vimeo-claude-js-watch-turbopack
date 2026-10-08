@@ -7,9 +7,8 @@
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
     _v6 = _v0.i(0),
-    _v7 = _v0.i(0),
-    _v8 = _v0.i(0);
-  let _v9 = _v4.default.div.withConfig({
+    _v7 = _v0.i(0);
+  let _v8 = _v4.default.div.withConfig({
       displayName: "FormSubmission__SubHeader",
       componentId: "sc-ab7dfc6b-0"
     })`
@@ -19,7 +18,7 @@
   text-align: center;
   max-width: ${(0, _v5.rem)(640)};
 `,
-    _v10 = _v4.default.div.withConfig({
+    _v9 = _v4.default.div.withConfig({
       displayName: "FormSubmission__Header",
       componentId: "sc-ab7dfc6b-1"
     })`
@@ -36,7 +35,7 @@
   })`
   font-size: ${(0, _v5.rem)(64)};
 `;
-  let _v11 = _v4.default.div.withConfig({
+  let _v10 = _v4.default.div.withConfig({
     displayName: "FormSubmission__Container",
     componentId: "sc-ab7dfc6b-3"
   })`
@@ -50,25 +49,19 @@
 `;
   _v0.s(["default", 0, function ({
     header: _v0,
-    subheader: _v1,
-    eventKey: _v2
+    subheader: _v1
   }) {
-    let _v3 = (0, _v3.useMemo)(_v7.getTranslatedStrings, []);
-    return (0, _v1.jsxs)(_v11, {
-      children: [(0, _v1.jsx)(_v10, {
+    let _v2 = (0, _v3.useMemo)(_v7.getTranslatedStrings, []);
+    return (0, _v1.jsxs)(_v10, {
+      children: [(0, _v1.jsx)(_v9, {
         children: _v0
-      }), (0, _v1.jsx)(_v9, {
+      }), (0, _v1.jsx)(_v8, {
         children: _v1
       }), (0, _v1.jsx)(_v2.default, {
         href: "/experts/dashboard",
         children: (0, _v1.jsx)(_v6.Button, {
           size: "lg",
-          onClick: () => {
-            _v2 && (0, _v8.trackEvent)({
-              eventKey: _v2
-            });
-          },
-          children: _v3.TrialSuccessButton
+          children: _v2.TrialSuccessButton
         })
       })]
     });

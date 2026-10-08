@@ -11,16 +11,12 @@
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
-    _v11 = _v0.i(0),
-    _v12 = _v0.i(0);
+    _v11 = _v0.i(0);
   _v0.s(["ShowcaseBreadcrumbs", 0, () => {
     let {
         name: _v0
-      } = (0, _v9.useSavedName)(),
-      _v1 = (0, _v10.useStore)(_v0 => _v0.commonStore.isSearchOpen),
-      {
-        sendShowcaseLibraryOpenEvent: _v2
-      } = (0, _v8.useBpEventService)();
+      } = (0, _v8.useSavedName)(),
+      _v1 = (0, _v9.useStore)(_v0 => _v0.commonStore.isSearchOpen);
     return (0, _v1.jsxs)(_v2.Breadcrumb, {
       spacing: "0.125rem",
       hideBelow: _v1 ? "xl" : "md",
@@ -37,7 +33,6 @@
         },
         children: (0, _v1.jsx)(_v3.BreadcrumbLink, {
           href: "/library/showcases",
-          onClick: _v2,
           children: (0, _v7.translate)({
             singular: "Showcases",
             dictionary: {
@@ -70,12 +65,12 @@
         overflow: "hidden",
         whiteSpace: "nowrap",
         mt: (0, _v6.rem)(1),
-        children: (0, _v12.isEmpty)(_v0) ? (0, _v1.jsx)(_v4.Skeleton, {
+        children: (0, _v11.isEmpty)(_v0) ? (0, _v1.jsx)(_v4.Skeleton, {
           variant: "text",
           h: "xs",
           w: "10rem",
           borderRadius: "sm",
-          ..._v11.loaderAriaProperties
+          ..._v10.loaderAriaProperties
         }) : (0, _v1.jsx)(_v5.Text, {
           variant: "body-md",
           color: "text-primary",

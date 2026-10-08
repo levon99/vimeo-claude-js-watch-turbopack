@@ -10,10 +10,8 @@
     _v6 = _v0.i(0),
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
-    _v9 = _v0.i(0),
-    _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
-  let _v12 = {
+    _v9 = _v0.i(0);
+  let _v10 = {
     [_v8.InspectorType.MEDIA]: "media",
     [_v8.InspectorType.TEMPLATES]: "templates",
     [_v8.InspectorType.TEXT_ADD]: "text",
@@ -35,21 +33,11 @@
         trackEditorPanelOpened: _v3
       } = (0, _v3.useEditorTracking)(),
       _v4 = (0, _v1.useCallback)((_v0, _v1 = {}) => {
-        let {
-            shouldSendSidebarBiEvent: _v2 = !1
-          } = _v1,
-          _v3 = _v0 !== _v0,
-          _v4 = (0, _v11.lowerCaseUnderscore)(_v0);
-        if (_v2 && (0, _v10.sendTrackSidebarAction)({
-          via: "side_bar",
-          element: _v4,
-          feature: _v10.inspectorTypeToFeature[_v0],
-          editorFeature: `${_v3 ? "open" : "close"}_${_v4}_inspector`
-        }), _v3) {
+        if (_v0 !== _v0) {
           _v2((0, _v4.openInspectorAction)({
             inspectorType: _v0
           }));
-          let _v0 = _v12[_v0];
+          let _v0 = _v10[_v0];
           _v0 && _v3({
             editorSessionId: _v1,
             editorPanelType: _v0

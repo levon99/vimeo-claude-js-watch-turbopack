@@ -7,8 +7,7 @@
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
     _v6 = _v0.i(0),
-    _v7 = _v0.i(0),
-    _v8 = _v0.i(0);
+    _v7 = _v0.i(0);
   _v0.s(["Connect", 0, function ({
     partnerIntegrationId: _v0,
     method: _v1 = "GET",
@@ -44,15 +43,14 @@
     }),
     isDisabled: _v7 = !1,
     isReconnect: _v8 = !1,
-    width: _v9,
-    appName: _v10
+    width: _v9
   }) {
-    let _v11 = (0, _v2.useRouter)(),
+    let _v10 = (0, _v2.useRouter)(),
       {
-        isEnterpriseSite: _v12,
-        xsrft: _v13
+        isEnterpriseSite: _v11,
+        xsrft: _v12
       } = (0, _v3.useContext)(_v6.ViewerContext) || {},
-      _v14 = _v8 ? (0, _v5.translate)({
+      _v13 = _v8 ? (0, _v5.translate)({
         singular: "Reconnect",
         dictionary: {
           es: {
@@ -78,15 +76,7 @@
           }
         }
       }) : _v6,
-      {
-        sendConnectionEvent: _v15
-      } = (0, _v7.useTracking)(),
-      _v16 = () => _v15({
-        isConnect: !0,
-        buttonText: _v14,
-        integrationName: _v10
-      }),
-      _v17 = (0, _v3.useMemo)(() => _v5 ? `/integrations-center/${_v0}/terms` : _v4 && ((0, _v8.isCIEnv)() || (0, _v8.isLocalDevEnv)()) ? _v4 : _v3 && _v12 ? _v3 : _v2, [_v4, _v3, _v12, _v0, _v5, _v2]);
+      _v14 = (0, _v3.useMemo)(() => _v5 ? `/integrations-center/${_v0}/terms` : _v4 && ((0, _v7.isCIEnv)() || (0, _v7.isLocalDevEnv)()) ? _v4 : _v3 && _v11 ? _v3 : _v2, [_v4, _v3, _v11, _v0, _v5, _v2]);
     return "POST" === _v1.toUpperCase() ? (0, _v1.jsxs)("form", {
       method: _v1,
       action: _v2,
@@ -96,22 +86,21 @@
         size: "md",
         isDisabled: _v7,
         width: _v9,
-        onClick: _v16,
-        children: _v14
+        children: _v13
       }), (0, _v1.jsx)("input", {
         name: "token",
-        value: _v13,
+        value: _v12,
         hidden: !0
       })]
     }) : (0, _v1.jsx)(_v4.Button, {
       variant: "primary",
       size: "md",
       onClick: () => {
-        _v16(), _v11.push(_v17);
+        _v10.push(_v14);
       },
       isDisabled: _v7,
       width: _v9,
-      children: _v14
+      children: _v13
     });
   }]);
 }

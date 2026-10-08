@@ -27,10 +27,10 @@
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
-    _v27 = _v0.i(0),
-    _v28 = _v0.i(0);
-  let _v29 = ["membership.subscription.trial.isReverseFreeTrial"];
-  var _v30 = _v0.i(0),
+    _v27 = _v0.i(0);
+  let _v28 = ["membership.subscription.trial.isReverseFreeTrial"];
+  var _v29 = _v0.i(0),
+    _v30 = _v0.i(0),
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
@@ -52,27 +52,23 @@
     _v49 = _v0.i(0),
     _v50 = _v0.i(0),
     _v51 = _v0.i(0),
-    _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
-    _v56 = _v0.i(0);
-  let _v57 = () => (0, _v1.jsx)(_v13.Box, {
+    _v52 = _v0.i(0);
+  let _v53 = () => (0, _v1.jsx)(_v12.Box, {
       backgroundColor: "var(--vimeo-colors-status-positive-primary)",
-      borderRadius: (0, _v16.rem)(6),
-      width: (0, _v16.rem)(64),
-      height: (0, _v16.rem)(20),
+      borderRadius: (0, _v15.rem)(6),
+      width: (0, _v15.rem)(64),
+      height: (0, _v15.rem)(20),
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      children: (0, _v1.jsx)(_v15.Text, {
+      children: (0, _v1.jsx)(_v14.Text, {
         variant: "body-xs",
         fontWeight: 500,
         whiteSpace: "nowrap",
         style: {
           color: "var(--vimeo-colors-text-button-inverted)"
         },
-        children: (0, _v21.translate)({
+        children: (0, _v20.translate)({
           singular: "Save {PERCENT}%",
           replacements: {
             PERCENT: 40
@@ -103,17 +99,17 @@
         })
       })
     }),
-    _v58 = ({
+    _v54 = ({
       children: _v0,
       isSelected: _v1
-    }) => (0, _v1.jsxs)(_v13.Box, {
+    }) => (0, _v1.jsxs)(_v12.Box, {
       position: "relative",
-      children: [(0, _v1.jsx)(_v15.Text, {
+      children: [(0, _v1.jsx)(_v14.Text, {
         variant: "heading-sm",
         visibility: "hidden",
         "aria-hidden": !0,
         children: _v0
-      }), (0, _v1.jsx)(_v15.Text, {
+      }), (0, _v1.jsx)(_v14.Text, {
         variant: _v1 ? "heading-sm" : "body-lg",
         color: "text.primary",
         position: "absolute",
@@ -122,17 +118,17 @@
         children: _v0
       })]
     }),
-    _v59 = ({
+    _v55 = ({
       onClick: _v0,
       checked: _v1,
       isMobile: _v2
-    }) => (0, _v1.jsxs)(_v55.Flex, {
+    }) => (0, _v1.jsxs)(_v51.Flex, {
       alignItems: _v2 ? "flex-end" : "center",
-      gap: (0, _v16.rem)(16),
+      gap: (0, _v15.rem)(16),
       justifyContent: "center",
-      children: [(0, _v1.jsx)(_v58, {
+      children: [(0, _v1.jsx)(_v54, {
         isSelected: !_v1,
-        children: (0, _v21.translate)({
+        children: (0, _v20.translate)({
           singular: "Billed monthly",
           dictionary: {
             es: {
@@ -158,18 +154,18 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v56.Switch, {
+      }), (0, _v1.jsx)(_v52.Switch, {
         size: "lg",
         isChecked: _v1,
         onChange: _v0,
         "aria-label": "Toggle billing frequency"
-      }), (0, _v1.jsxs)(_v55.Flex, {
+      }), (0, _v1.jsxs)(_v51.Flex, {
         direction: _v2 ? "column-reverse" : "row",
         alignItems: _v2 ? "flex-start" : "center",
-        gap: (0, _v16.rem)(4),
-        children: [(0, _v1.jsx)(_v58, {
+        gap: (0, _v15.rem)(4),
+        children: [(0, _v1.jsx)(_v54, {
           isSelected: _v1,
-          children: (0, _v21.translate)({
+          children: (0, _v20.translate)({
             singular: "Billed yearly",
             dictionary: {
               es: {
@@ -195,12 +191,12 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v57, {})]
+        }), (0, _v1.jsx)(_v53, {})]
       })]
     });
-  var _v60 = _v0.i(0),
-    _v61 = _v0.i(0);
-  let _v62 = _v61.default.div.withConfig({
+  var _v56 = _v0.i(0),
+    _v57 = _v0.i(0);
+  let _v58 = _v57.default.div.withConfig({
       displayName: "styles__StyledToggle",
       componentId: "sc-c583c415-0"
     })`
@@ -208,19 +204,19 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  border-width: ${(0, _v60.rem)(2)};
+  border-width: ${(0, _v56.rem)(2)};
   border-color: var(--vimeo-colors-text-primary);
-  padding: ${(0, _v60.rem)(8)} 0;
+  padding: ${(0, _v56.rem)(8)} 0;
   transition: all 250ms ease-in-out 0s;
   position: relative;
   border-radius: 3rem;
-  margin: 0 ${(0, _v60.rem)(8)} 0 ${(0, _v60.rem)(8)};
+  margin: 0 ${(0, _v56.rem)(8)} 0 ${(0, _v56.rem)(8)};
   background: ${({
       theme: _v0
     }) => "dark" === _v0.name ? "#181E24" : "none"};
   &::after {
     position: absolute;
-    left: ${(0, _v60.rem)(4)};
+    left: ${(0, _v56.rem)(4)};
     right: auto;
     content: '';
     display: block;
@@ -228,20 +224,20 @@
     opacity: 1;
     transition: all 250ms ease-in-out 0s;
     width: 50%;
-    height: ${(0, _v60.rem)(30)};
-    border-radius: ${(0, _v60.rem)(20)};
+    height: ${(0, _v56.rem)(30)};
+    border-radius: ${(0, _v56.rem)(20)};
   }
 `,
-    _v63 = _v61.default.div.withConfig({
+    _v59 = _v57.default.div.withConfig({
       displayName: "styles__ToggleContainer",
       componentId: "sc-c583c415-1"
     })`
   display: inline-block;
-  &:active > ${_v62} {
+  &:active > ${_v58} {
     background-color: rgba(20, 26, 32, 0.3);
   }
 `,
-    _v64 = _v61.default.input.withConfig({
+    _v60 = _v57.default.input.withConfig({
       displayName: "styles__HiddenCheckbox",
       componentId: "sc-c583c415-2"
     })`
@@ -253,32 +249,32 @@
   outline: 0;
   opacity: 0;
   appearance: none;
-  &:checked ~ ${_v62} {
+  &:checked ~ ${_v58} {
     &::after {
       transform: translateX(calc(100% - 7px));
     }
   }
 `,
-    _v65 = _v61.default.p.withConfig({
+    _v61 = _v57.default.p.withConfig({
       displayName: "styles__ToggleLabel",
       componentId: "sc-c583c415-3"
     })`
   z-index: 1;
-  font-size: ${(0, _v60.rem)(16)};
-  letter-spacing: ${(0, _v60.rem)(-.48)};
+  font-size: ${(0, _v56.rem)(16)};
+  letter-spacing: ${(0, _v56.rem)(-.48)};
   white-space: nowrap;
   text-align: center;
-  padding: 0 ${(0, _v60.rem)(20)};
+  padding: 0 ${(0, _v56.rem)(20)};
   width: ${({
       width: _v0
-    }) => _v0 && (0, _v60.rem)(_v0)};
+    }) => _v0 && (0, _v56.rem)(_v0)};
   ${({
       checked: _v0
-    }) => _v0 && _v61.css`
+    }) => _v0 && _v57.css`
       color: var(--vimeo-colors-text-button-inverted);
     `};
 `,
-    _v66 = ({
+    _v62 = ({
       onClick: _v0,
       checked: _v1
     }) => {
@@ -297,17 +293,17 @@
       return (0, _v4.useEffect)(() => {
         _v5();
       }, [_v5]), (0, _v1.jsx)(_v1.Fragment, {
-        children: (0, _v1.jsxs)(_v63, {
+        children: (0, _v1.jsxs)(_v59, {
           onClick: _v0,
-          children: [(0, _v1.jsx)(_v64, {
+          children: [(0, _v1.jsx)(_v60, {
             checked: _v1,
             type: "checkbox"
-          }), (0, _v1.jsxs)(_v62, {
+          }), (0, _v1.jsxs)(_v58, {
             ref: _v4,
-            children: [(0, _v1.jsx)(_v65, {
+            children: [(0, _v1.jsx)(_v61, {
               checked: !_v1,
               width: _v2,
-              children: (0, _v21.translate)({
+              children: (0, _v20.translate)({
                 singular: "Monthly",
                 dictionary: {
                   es: {
@@ -333,10 +329,10 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v65, {
+            }), (0, _v1.jsx)(_v61, {
               checked: _v1,
               width: _v2,
-              children: (0, _v21.translate)({
+              children: (0, _v20.translate)({
                 singular: "Annually",
                 dictionary: {
                   es: {
@@ -367,44 +363,44 @@
         })
       });
     };
-  var _v67 = _v0.i(0),
-    _v68 = _v0.i(0);
-  let _v69 = _v61.default.div.withConfig({
+  var _v63 = _v0.i(0),
+    _v64 = _v0.i(0);
+  let _v65 = _v57.default.div.withConfig({
       displayName: "styles__TagContainer",
       componentId: "sc-2420be19-0"
     })`
-  background: ${_v0 => (0, _v68.getTagBackgroundColor)(_v0.showYearly, _v0.theme.name)};
-  padding: ${(0, _v60.rem)(4)} ${(0, _v60.rem)(6)} ${(0, _v60.rem)(4)} ${(0, _v60.rem)(8)};
-  border-radius: ${(0, _v60.rem)(12)};
-  color: ${_v0 => (0, _v68.getTagColor)(_v0.showYearly, _v0.theme.name)};
-  font-size: ${(0, _v60.rem)(16)};
+  background: ${_v0 => (0, _v64.getTagBackgroundColor)(_v0.showYearly, _v0.theme.name)};
+  padding: ${(0, _v56.rem)(4)} ${(0, _v56.rem)(6)} ${(0, _v56.rem)(4)} ${(0, _v56.rem)(8)};
+  border-radius: ${(0, _v56.rem)(12)};
+  color: ${_v0 => (0, _v64.getTagColor)(_v0.showYearly, _v0.theme.name)};
+  font-size: ${(0, _v56.rem)(16)};
   font-weight: 400;
   line-height: 130%;
-  letter-spacing: ${(0, _v60.rem)(-.32)};
+  letter-spacing: ${(0, _v56.rem)(-.32)};
   position: relative;
-  margin-left: ${(0, _v60.rem)(9)};
+  margin-left: ${(0, _v56.rem)(9)};
   margin-bottom: 0px;
   &:before {
     content: '';
     position: absolute;
     width: 0;
     height: 0;
-    border-right: ${(0, _v60.rem)(6)} solid
-      ${_v0 => (0, _v68.getTagBackgroundColor)(_v0.showYearly, _v0.theme.name)};
-    border-top: ${(0, _v60.rem)(4)} solid transparent;
-    border-bottom: ${(0, _v60.rem)(4)} solid transparent;
+    border-right: ${(0, _v56.rem)(6)} solid
+      ${_v0 => (0, _v64.getTagBackgroundColor)(_v0.showYearly, _v0.theme.name)};
+    border-top: ${(0, _v56.rem)(4)} solid transparent;
+    border-bottom: ${(0, _v56.rem)(4)} solid transparent;
     border-left: 0px;
-    top: ${(0, _v60.rem)(10)};
-    left: ${(0, _v60.rem)(-6)};
+    top: ${(0, _v56.rem)(10)};
+    left: ${(0, _v56.rem)(-6)};
   }
 `,
-    _v70 = ({
+    _v66 = ({
       showYearly: _v0
-    }) => ((0, _v67.useIsBokeh)(), (0, _v1.jsx)(_v1.Fragment, {
-      children: (0, _v1.jsx)(_v69, {
+    }) => ((0, _v63.useIsBokeh)(), (0, _v1.jsx)(_v1.Fragment, {
+      children: (0, _v1.jsx)(_v65, {
         showYearly: _v0,
         children: (0, _v1.jsx)("p", {
-          children: (0, _v21.translate)({
+          children: (0, _v20.translate)({
             singular: "Save {PERCENT}%",
             replacements: {
               PERCENT: 40
@@ -436,15 +432,15 @@
         })
       })
     })),
-    _v71 = _v0 => {
+    _v67 = _v0 => {
       let _v1,
         _v2,
         _v3,
         {
           trackPricingPageSeeBusinessTiersClicked: _v4,
           trackPricingPageSeeIndividualTiersClicked: _v5
-        } = (0, _v33.usePricingTracking)();
-      if (_v0.onRequestEligibility) _v1 = (0, _v21.translate)({
+        } = (0, _v32.usePricingTracking)();
+      if (_v0.onRequestEligibility) _v1 = (0, _v20.translate)({
         singular: "Not a business or Non Profit?",
         dictionary: {
           es: {
@@ -469,7 +465,7 @@
             singular: "不是企业或非营利组织？"
           }
         }
-      }), _v2 = (0, _v21.translate)({
+      }), _v2 = (0, _v20.translate)({
         singular: "Request eligibility for dedicated plans",
         dictionary: {
           es: {
@@ -496,7 +492,7 @@
         }
       }), _v3 = _v0.onRequestEligibility;else {
         let _v0 = "individual" === _v0.planView;
-        _v1 = _v0 ? (0, _v21.translate)({
+        _v1 = _v0 ? (0, _v20.translate)({
           singular: "Do you need a plan for your company or organization?",
           dictionary: {
             es: {
@@ -521,7 +517,7 @@
               singular: "您的公司或组织需要套餐吗？"
             }
           }
-        }) : (0, _v21.translate)({
+        }) : (0, _v20.translate)({
           singular: "You are not a company?",
           dictionary: {
             es: {
@@ -546,7 +542,7 @@
               singular: "您不是公司吗？"
             }
           }
-        }), _v2 = _v0 ? (0, _v21.translate)({
+        }), _v2 = _v0 ? (0, _v20.translate)({
           singular: "Explore our plans for Business",
           dictionary: {
             es: {
@@ -571,7 +567,7 @@
               singular: "了解我们的企业套餐"
             }
           }
-        }) : (0, _v21.translate)({
+        }) : (0, _v20.translate)({
           singular: "Explore our plans for Individuals",
           dictionary: {
             es: {
@@ -604,16 +600,16 @@
           }), _v0.onSwitchView();
         };
       }
-      return (0, _v1.jsx)(_v13.Box, {
-        maxWidth: (0, _v16.rem)(0),
+      return (0, _v1.jsx)(_v12.Box, {
+        maxWidth: (0, _v15.rem)(0),
         margin: "0 auto",
-        padding: `${(0, _v16.rem)(24)} ${(0, _v16.rem)(28)}`,
+        padding: `${(0, _v15.rem)(24)} ${(0, _v15.rem)(28)}`,
         textAlign: "center",
         background: "var(--vimeo-colors-fill-surface)",
         borderRadius: "1.5rem",
-        children: (0, _v1.jsxs)(_v15.Text, {
+        children: (0, _v1.jsxs)(_v14.Text, {
           variant: "body-xl",
-          children: [_v1, " ", (0, _v1.jsx)(_v15.Text, {
+          children: [_v1, " ", (0, _v1.jsx)(_v14.Text, {
             as: "span",
             variant: "body-xl",
             color: "var(--vimeo-colors-vimeoBlue-500)",
@@ -626,7 +622,11 @@
         })
       });
     };
-  var _v72 = _v0.i(0),
+  var _v68 = _v0.i(0),
+    _v69 = _v0.i(0),
+    _v70 = _v0.i(0),
+    _v71 = _v0.i(0),
+    _v72 = _v0.i(0),
     _v73 = _v0.i(0),
     _v74 = _v0.i(0),
     _v75 = _v0.i(0),
@@ -634,16 +634,12 @@
     _v77 = _v0.i(0),
     _v78 = _v0.i(0),
     _v79 = _v0.i(0),
-    _v80 = _v0.i(0),
-    _v81 = _v0.i(0),
-    _v82 = _v0.i(0),
-    _v83 = _v0.i(0),
-    _v84 = _v0.i(0);
-  let _v85 = {
+    _v80 = _v0.i(0);
+  let _v81 = {
       amount: 0,
       currency: "USD"
     },
-    _v86 = ({
+    _v82 = ({
       isOpen: _v0,
       onClose: _v1,
       onAddBundle: _v2,
@@ -653,19 +649,19 @@
       fullPrice: _v6,
       bundlePrice: _v7
     }) => {
-      let _v8 = (0, _v83.getBundleMemberCount)(),
+      let _v8 = (0, _v79.getBundleMemberCount)(),
         {
           trackBundleOfferCtaClick: _v9
-        } = (0, _v81.useBundleTracking)();
-      return (0, _v1.jsxs)(_v74.Modal, {
+        } = (0, _v77.useBundleTracking)();
+      return (0, _v1.jsxs)(_v70.Modal, {
         isOpen: _v0,
         onClose: _v1,
         isCentered: !0,
         size: "lg",
-        children: [(0, _v1.jsx)(_v79.ModalOverlay, {}), (0, _v1.jsxs)(_v77.ModalContent, {
-          padding: (0, _v16.rem)(24),
-          children: [(0, _v1.jsx)(_v76.ModalCloseButton, {
-            "aria-label": String((0, _v80.translate)({
+        children: [(0, _v1.jsx)(_v75.ModalOverlay, {}), (0, _v1.jsxs)(_v73.ModalContent, {
+          padding: (0, _v15.rem)(24),
+          children: [(0, _v1.jsx)(_v72.ModalCloseButton, {
+            "aria-label": String((0, _v76.translate)({
               singular: "Close",
               dictionary: {
                 es: {
@@ -691,36 +687,36 @@
                 }
               }
             }))
-          }), (0, _v1.jsx)(_v78.ModalHeader, {
-            padding: (0, _v16.rem)(0),
-            paddingRight: (0, _v16.rem)(40),
-            children: (0, _v1.jsx)(_v15.Text, {
+          }), (0, _v1.jsx)(_v74.ModalHeader, {
+            padding: (0, _v15.rem)(0),
+            paddingRight: (0, _v15.rem)(40),
+            children: (0, _v1.jsx)(_v14.Text, {
               as: "h2",
               variant: "heading-lg",
-              fontSize: (0, _v16.rem)(30),
+              fontSize: (0, _v15.rem)(30),
               lineHeight: 1.2,
-              letterSpacing: (0, _v16.rem)(-1.2),
+              letterSpacing: (0, _v15.rem)(-1.2),
               color: "text-primary",
-              children: (0, _v82.getBundleOfferModalTitle)(_v5, _v8)
+              children: (0, _v78.getBundleOfferModalTitle)(_v5, _v8)
             })
-          }), (0, _v1.jsx)(_v75.ModalBody, {
-            padding: (0, _v16.rem)(0),
-            marginTop: (0, _v16.rem)(24),
-            children: (0, _v1.jsxs)(_v55.Flex, {
+          }), (0, _v1.jsx)(_v71.ModalBody, {
+            padding: (0, _v15.rem)(0),
+            marginTop: (0, _v15.rem)(24),
+            children: (0, _v1.jsxs)(_v51.Flex, {
               direction: "column",
-              gap: (0, _v16.rem)(8),
-              children: [_v0 && (0, _v1.jsx)(_v84.BundlePaywallBanner, {
+              gap: (0, _v15.rem)(8),
+              children: [_v0 && (0, _v1.jsx)(_v80.BundlePaywallBanner, {
                 bundleType: _v4,
                 surface: "offer",
-                price: _v5 ?? _v85,
+                price: _v5 ?? _v81,
                 fullPrice: _v6,
                 showLink: !0,
                 trackingSurface: "bundle_offer_modal",
                 bundlePrice: _v7 ?? null,
                 onSeeAllClick: () => {
-                  _v1(), window.location.assign(_v73.BUNDLE_LIBRARY_PATH);
+                  _v1(), window.location.assign(_v69.BUNDLE_LIBRARY_PATH);
                 }
-              }), (0, _v1.jsx)(_v14.Button, {
+              }), (0, _v1.jsx)(_v13.Button, {
                 variant: "brand",
                 size: "lg",
                 width: "100%",
@@ -731,8 +727,8 @@
                     bundleIncluded: !0
                   }), _v2();
                 },
-                children: (0, _v82.getBundleOfferAddCtaLabel)(_v5)
-              }), (0, _v1.jsx)(_v14.Button, {
+                children: (0, _v78.getBundleOfferAddCtaLabel)(_v5)
+              }), (0, _v1.jsx)(_v13.Button, {
                 variant: "tertiary",
                 size: "lg",
                 width: "100%",
@@ -743,56 +739,56 @@
                     bundleIncluded: !1
                   }), _v3();
                 },
-                children: (0, _v82.getBundleOfferDismissCtaLabel)()
+                children: (0, _v78.getBundleOfferDismissCtaLabel)()
               })]
             })
           })]
         })]
       });
     };
-  var _v87 = _v0.i(0),
-    _v88 = _v0.i(0);
-  let _v89 = () => {
-      window.location.assign(_v73.BUNDLE_LIBRARY_PATH);
+  var _v83 = _v0.i(0),
+    _v84 = _v0.i(0);
+  let _v85 = () => {
+      window.location.assign(_v69.BUNDLE_LIBRARY_PATH);
     },
-    _v90 = () => {
-      let _v0 = (0, _v72.useBundleOfferSelector)(_v0 => _v0.isEnabled),
-        _v1 = (0, _v72.useBundleOfferSelector)(_v0 => _v0.bundleType),
-        _v2 = (0, _v72.useBundleOfferSelector)(_v0 => _v0.price),
-        _v3 = (0, _v72.useBundleOfferSelector)(_v0 => _v0.priceTier),
-        _v4 = (0, _v72.useBundleOfferSelector)(_v0 => _v0.isBundleActive),
-        _v5 = (0, _v72.useBundleOfferSelector)(_v0 => _v0.toggleBundle),
-        _v6 = (0, _v72.useBundleOfferSelector)(_v0 => _v0.isOfferModalOpen),
-        _v7 = (0, _v72.useBundleOfferSelector)(_v0 => _v0.closeOfferModal),
-        _v8 = (0, _v72.useBundleOfferSelector)(_v0 => _v0.addBundleAndContinue),
-        _v9 = (0, _v72.useBundleOfferSelector)(_v0 => _v0.continueWithoutBundle),
+    _v86 = () => {
+      let _v0 = (0, _v68.useBundleOfferSelector)(_v0 => _v0.isEnabled),
+        _v1 = (0, _v68.useBundleOfferSelector)(_v0 => _v0.bundleType),
+        _v2 = (0, _v68.useBundleOfferSelector)(_v0 => _v0.price),
+        _v3 = (0, _v68.useBundleOfferSelector)(_v0 => _v0.priceTier),
+        _v4 = (0, _v68.useBundleOfferSelector)(_v0 => _v0.isBundleActive),
+        _v5 = (0, _v68.useBundleOfferSelector)(_v0 => _v0.toggleBundle),
+        _v6 = (0, _v68.useBundleOfferSelector)(_v0 => _v0.isOfferModalOpen),
+        _v7 = (0, _v68.useBundleOfferSelector)(_v0 => _v0.closeOfferModal),
+        _v8 = (0, _v68.useBundleOfferSelector)(_v0 => _v0.addBundleAndContinue),
+        _v9 = (0, _v68.useBundleOfferSelector)(_v0 => _v0.continueWithoutBundle),
         {
           width: _v10
-        } = (0, _v41.useWindowSize)();
+        } = (0, _v39.useWindowSize)();
       if (!_v0 || !_v1) return null;
-      let _v11 = null !== _v2 ? (0, _v88.resolveBundleIdealAmount)({
+      let _v11 = null !== _v2 ? (0, _v84.resolveBundleIdealAmount)({
           periodicity: "annual",
           currency: _v2.currency
         }) : null,
         _v12 = null !== _v2 && null !== _v11 && _v11.currency === _v2.currency ? _v11 : void 0,
-        _v13 = _v10 <= 768 ? "100%" : `min(100%, ${(0, _v16.rem)(586)})`;
+        _v13 = _v10 <= 768 ? "100%" : `min(100%, ${(0, _v15.rem)(586)})`;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v13.Box, {
+        children: [(0, _v1.jsx)(_v12.Box, {
           width: "100%",
           maxWidth: _v10 > 0 ? "1440px" : _v13,
-          margin: `${(0, _v16.rem)(24)} auto 0`,
-          padding: `0 ${(0, _v16.rem)(2)}`,
-          children: (0, _v1.jsx)(_v87.BundleToggleBanner, {
+          margin: `${(0, _v15.rem)(24)} auto 0`,
+          padding: `0 ${(0, _v15.rem)(2)}`,
+          children: (0, _v1.jsx)(_v83.BundleToggleBanner, {
             bundleType: _v1,
             isBundleActive: _v4,
             onToggleBundle: _v5,
             price: _v2,
             fullPrice: _v12,
-            onLearnMoreClick: _v89,
+            onLearnMoreClick: _v85,
             surface: "pricing_page",
             bundlePrice: _v3
           })
-        }), (0, _v1.jsx)(_v86, {
+        }), (0, _v1.jsx)(_v82, {
           isOpen: _v6,
           onClose: _v7,
           onAddBundle: _v8,
@@ -804,67 +800,67 @@
         })]
       });
     };
-  var _v91 = _v0.i(0),
-    _v92 = _v0.i(0),
-    _v93 = _v0.i(0);
-  let _v94 = _v0 => {
-    let _v1 = (0, _v4.useContext)(_v42.ViewerContext),
-      _v2 = (0, _v4.useContext)(_v46.OverridesContext),
+  var _v87 = _v0.i(0),
+    _v88 = _v0.i(0),
+    _v89 = _v0.i(0);
+  let _v90 = _v0 => {
+    let _v1 = (0, _v4.useContext)(_v40.ViewerContext),
+      _v2 = (0, _v4.useContext)(_v44.OverridesContext),
       _v3 = _v2.description || !_v1?.user,
       {
         isMobileBreakpoint: _v4,
         redirectUrl: _v5
       } = _v0;
-    return (0, _v1.jsxs)(_v13.Box, {
-      padding: `0 ${(0, _v92.space)(600)}`,
-      children: [(0, _v1.jsx)(_v13.Box, {
+    return (0, _v1.jsxs)(_v12.Box, {
+      padding: `0 ${(0, _v88.space)(600)}`,
+      children: [(0, _v1.jsx)(_v12.Box, {
         textAlign: "center",
-        children: (0, _v1.jsx)(_v91.Header, {
+        children: (0, _v1.jsx)(_v87.Header, {
           size: "xl",
-          fontSize: _v4 ? (0, _v16.rem)(30) : _v2?.titleSize ?? (0, _v16.rem)(92),
-          lineHeight: _v4 ? (0, _v16.rem)(36) : (0, _v16.rem)(92),
+          fontSize: _v4 ? (0, _v15.rem)(30) : _v2?.titleSize ?? (0, _v15.rem)(92),
+          lineHeight: _v4 ? (0, _v15.rem)(36) : (0, _v15.rem)(92),
           fontWeight: 500,
-          children: _v2?.title ? _v2.title : _v93.PRIMARY_HEADERS.theUltimateAdFreePlayer
+          children: _v2?.title ? _v2.title : _v89.PRIMARY_HEADERS.theUltimateAdFreePlayer
         })
-      }), _v2?.displayRedirect && _v5 && (0, _v1.jsx)(_v13.Box, {
+      }), _v2?.displayRedirect && _v5 && (0, _v1.jsx)(_v12.Box, {
         textAlign: "center",
-        margin: `${(0, _v16.rem)(10)} 0 ${(0, _v16.rem)(15)}`,
-        children: (0, _v1.jsx)(_v91.Header, {
+        margin: `${(0, _v15.rem)(10)} 0 ${(0, _v15.rem)(15)}`,
+        children: (0, _v1.jsx)(_v87.Header, {
           size: "sm",
           fontWeight: 400,
-          children: _v93.SECONDARY_HEADERS.getStartedWithFreeConcise(_v5)
+          children: _v89.SECONDARY_HEADERS.getStartedWithFreeConcise(_v5)
         })
-      }), _v3 && (0, _v1.jsx)(_v13.Box, {
+      }), _v3 && (0, _v1.jsx)(_v12.Box, {
         textAlign: "center",
-        margin: `${(0, _v16.rem)(10)} 0 ${(0, _v16.rem)(15)}`,
-        children: (0, _v1.jsx)(_v91.Header, {
+        margin: `${(0, _v15.rem)(10)} 0 ${(0, _v15.rem)(15)}`,
+        children: (0, _v1.jsx)(_v87.Header, {
           size: _v4 ? "sm" : "md",
           fontFamily: "body",
-          children: _v2?.description !== void 0 && _v2?.description !== null ? _v2.description : _v93.SECONDARY_HEADERS.getStartedWithBasic
+          children: _v2?.description !== void 0 && _v2?.description !== null ? _v2.description : _v89.SECONDARY_HEADERS.getStartedWithBasic
         })
       })]
     });
   };
-  var _v95 = _v0.i(0),
-    _v96 = _v0.i(0),
-    _v97 = _v0.i(0);
-  let _v98 = ({
+  var _v91 = _v0.i(0),
+    _v92 = _v0.i(0),
+    _v93 = _v0.i(0);
+  let _v94 = ({
       onRequestEligibility: _v0
-    }) => (0, _v1.jsxs)(_v97.AlertRoot, {
+    }) => (0, _v1.jsxs)(_v93.AlertRoot, {
       variant: "info",
       size: "md",
       borderRadius: "1.25rem",
       padding: 4,
       gap: 4,
       alignItems: "center",
-      children: [(0, _v1.jsxs)(_v55.Flex, {
+      children: [(0, _v1.jsxs)(_v51.Flex, {
         direction: "column",
         gap: 1,
-        children: [(0, _v1.jsx)(_v15.Text, {
+        children: [(0, _v1.jsx)(_v14.Text, {
           variant: "body-xl",
           color: "text-primary",
           fontFamily: "heading",
-          children: (0, _v21.translate)({
+          children: (0, _v20.translate)({
             singular: "Not a business?",
             dictionary: {
               es: {
@@ -890,10 +886,10 @@
               }
             }
           })
-        }), (0, _v1.jsxs)(_v15.Text, {
+        }), (0, _v1.jsxs)(_v14.Text, {
           variant: "body-lg",
           color: "text-secondary",
-          children: [(0, _v21.translate)({
+          children: [(0, _v20.translate)({
             singular: "Business accounts are not eligible for individual plans.",
             dictionary: {
               es: {
@@ -918,7 +914,7 @@
                 singular: "企业账户不符合个人计划资格。"
               }
             }
-          }), (0, _v1.jsx)("br", {}), (0, _v21.translate)({
+          }), (0, _v1.jsx)("br", {}), (0, _v20.translate)({
             singular: "If you believe you have been misclassified, you can request eligibility for individual plans",
             dictionary: {
               es: {
@@ -945,7 +941,7 @@
             }
           })]
         })]
-      }), (0, _v1.jsx)(_v14.Button, {
+      }), (0, _v1.jsx)(_v13.Button, {
         size: "lg",
         flexShrink: 0,
         bgColor: "blue.500",
@@ -958,7 +954,7 @@
           color: "white"
         },
         onClick: _v0,
-        children: (0, _v21.translate)({
+        children: (0, _v20.translate)({
           singular: "Request eligibility for individual plans",
           dictionary: {
             es: {
@@ -986,27 +982,27 @@
         })
       })]
     }),
-    _v99 = (0, _v2.default)(async () => _v0.A(0), {
+    _v95 = (0, _v2.default)(async () => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v100 = (0, _v2.default)(async () => _v0.A(0), {
+    _v96 = (0, _v2.default)(async () => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v101 = (0, _v2.default)(async () => _v0.A(0), {
+    _v97 = (0, _v2.default)(async () => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v102 = (0, _v2.default)(() => _v0.A(0), {
+    _v98 = (0, _v2.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v103 = ["ES", "FR", "BR", "NL", "NO", "FI", "MX", "SE", "DK", "BE"];
+    _v99 = ["ES", "FR", "BR", "NL", "NO", "FI", "MX", "SE", "DK", "BE"];
   _v0.s(["default", 0, _v0 => {
     let {
         context: _v1,
@@ -1015,18 +1011,18 @@
         onContinueWithFreePlan: _v4,
         paywallTracking: _v5
       } = _v0,
-      _v6 = (0, _v24.useOrionSettingsFields)(["pricing_page_default_periodicity", "allow_downgrade_from_pricing_page", "core_tier_enabled", "flat_tiers_monthly_enabled", "b2b_offer_permanent_discount_when_arr_off_upgrade_plan", "onboarding_paywall_pricing_page_show_back_link"]),
-      _v7 = (0, _v23.useOrionLoading)(),
+      _v6 = (0, _v23.useOrionSettingsFields)(["pricing_page_default_periodicity", "allow_downgrade_from_pricing_page", "core_tier_enabled", "flat_tiers_monthly_enabled", "b2b_offer_permanent_discount_when_arr_off_upgrade_plan", "onboarding_paywall_pricing_page_show_back_link"]),
+      _v7 = (0, _v22.useOrionLoading)(),
       [_v8, _v9] = (0, _v4.useState)(!1),
       [_v10, _v11] = (0, _v4.useState)(!1),
       [_v12, _v13] = (0, _v4.useState)(void 0),
       [_v14, _v15] = (0, _v4.useState)(Date.now()),
-      _v16 = (0, _v4.useContext)(_v42.ViewerContext),
+      _v16 = (0, _v4.useContext)(_v40.ViewerContext),
       {
         locale: _v17
-      } = (0, _v20.useGctlConfig)(),
+      } = (0, _v19.useGctlConfig)(),
       [_v18, _v19] = (0, _v4.useState)("monthly" !== _v6.pricing_page_default_periodicity),
-      _v20 = (0, _v18.useToast)(),
+      _v20 = (0, _v17.useToast)(),
       _v21 = (0, _v4.useRef)(!1),
       _v22 = (0, _v4.useRef)(!1);
     (0, _v4.useEffect)(() => {
@@ -1046,50 +1042,49 @@
         initialStep: _v26 && !_v24 ? "not_qualified" : void 0
       }),
       _v30 = (0, _v3.useSearchParams)(),
-      _v31 = _v30 ? _v30.get("upsell") : null,
-      _v32 = _v30 ? _v30.get("extole_coupon") : null,
-      _v33 = _v30 ? _v30.get("promo_code_id") : null,
-      _v34 = (0, _v72.resolveInitialBundleToggle)(_v30),
-      _v35 = !!_v16?.user,
-      _v36 = _v5?.paywallTrigger ?? _v30?.get("paywall_trigger") ?? "unknown",
-      _v37 = _v5?.paywallLocation ?? _v30?.get("paywall_location") ?? "unknown",
-      _v38 = _v5?.paywallFeature ?? _v30?.get("paywall_feature") ?? "unknown",
-      _v39 = (0, _v22.useCampaignIdOverride)() ?? _v2,
+      _v31 = _v30 ? _v30.get("extole_coupon") : null,
+      _v32 = _v30 ? _v30.get("promo_code_id") : null,
+      _v33 = (0, _v68.resolveInitialBundleToggle)(_v30),
+      _v34 = !!_v16?.user,
+      _v35 = _v5?.paywallTrigger ?? _v30?.get("paywall_trigger") ?? "unknown",
+      _v36 = _v5?.paywallLocation ?? _v30?.get("paywall_location") ?? "unknown",
+      _v37 = _v5?.paywallFeature ?? _v30?.get("paywall_feature") ?? "unknown",
+      _v38 = (0, _v21.useCampaignIdOverride)() ?? _v2,
       {
-        campaignId: _v40,
-        isLoading: _v41
-      } = (0, _v51.useRepackagingCampaign)(_v39),
+        campaignId: _v39,
+        isLoading: _v40
+      } = (0, _v48.useRepackagingCampaign)(_v38),
       {
-        tier: _v42,
-        hasAutorenew: _v43,
-        renewalDate: _v44
+        tier: _v41,
+        hasAutorenew: _v42,
+        renewalDate: _v43
       } = (0, _v11.useUpcomingTier)(),
-      _v45 = _v16?.teamUser?.accountType?.toString() ?? _v16?.user?.account?.toString() ?? "",
-      _v46 = _v39.RepackagedTiers.includes(_v45) ? _v45 : void 0,
-      _v47 = null != _v42 && _v39.RepackagedTiers.includes(_v42) || _v39.RepackagedTiers.includes(_v45),
-      _v48 = _v7 || _v39 || !_v47 ? null : _v22.RP_2026_LOW_CAMPAIGN_ID,
-      _v49 = _v39 ?? _v48 ?? _v40,
-      _v50 = null != _v49 && _v22.REPACKAGING_CAMPAIGN_IDS.includes(_v49),
-      _v51 = _v50 || _v6.allow_downgrade_from_pricing_page,
+      _v44 = _v16?.teamUser?.accountType?.toString() ?? _v16?.user?.account?.toString() ?? "",
+      _v45 = _v38.RepackagedTiers.includes(_v44) ? _v44 : void 0,
+      _v46 = null != _v41 && _v38.RepackagedTiers.includes(_v41) || _v38.RepackagedTiers.includes(_v44),
+      _v47 = _v7 || _v38 || !_v46 ? null : _v21.RP_2026_LOW_CAMPAIGN_ID,
+      _v48 = _v38 ?? _v47 ?? _v39,
+      _v49 = null != _v48 && _v21.REPACKAGING_CAMPAIGN_IDS.includes(_v48),
+      _v50 = _v49 || _v6.allow_downgrade_from_pricing_page,
       {
         capabilities: {
-          hasMonthlyBilling: _v52,
-          hasPaid: _v53,
-          inAppSubscription: _v54
+          hasMonthlyBilling: _v51,
+          hasPaid: _v52,
+          inAppSubscription: _v53
         },
-        ready: _v55
-      } = (0, _v19.useCapability)(["hasMonthlyBilling", "hasPaid", "inAppSubscription"]),
-      _v56 = _v55 && _v52,
+        ready: _v54
+      } = (0, _v18.useCapability)(["hasMonthlyBilling", "hasPaid", "inAppSubscription"]),
+      _v55 = _v54 && _v51,
       {
-        isReverseFreeTrial: _v57
+        isReverseFreeTrial: _v56
       } = function () {
-        let _v0 = (0, _v28.useViewer)(),
+        let _v0 = (0, _v27.useViewer)(),
           _v1 = _v0?.user?.id,
           {
             data: _v2,
             isLoading: _v3
-          } = (0, _v27.useGetUser)(() => null == _v1 ? null : {
-            select: _v29,
+          } = (0, _v26.useGetUser)(() => null == _v1 ? null : {
+            select: _v28,
             where: {
               userId: _v1
             },
@@ -1103,154 +1098,101 @@
         };
       }(),
       {
-        width: _v58
-      } = (0, _v41.useWindowSize)(),
-      _v59 = _v58 <= 0,
-      [_v60, _v61] = (0, _v4.useState)(""),
-      _v62 = (0, _v17.useColorMode)(),
+        width: _v57
+      } = (0, _v39.useWindowSize)(),
+      _v58 = _v57 <= 0,
+      [_v59, _v60] = (0, _v4.useState)(""),
+      _v61 = (0, _v16.useColorMode)(),
       {
-        trackPricingPagePeriodicityToggled: _v63
-      } = (0, _v33.usePricingTracking)(),
+        trackPricingPagePeriodicityToggled: _v62
+      } = (0, _v32.usePricingTracking)(),
       {
-        trackIndividualEligibilityCtaClicked: _v64
-      } = (0, _v31.useIndividualEligibilityTracking)(),
-      _v65 = () => {
-        _v21.current = !0, _v12.BigPictureClient.sendEvent(new _v12.Event("vimeo.upgrade_action", 41, {
-          copy: _v18 ? "monthly" : "annually",
-          action_type: "toggle",
-          location: "period_toggle",
-          page: "upgrade-plan",
-          target: null,
-          plan_selected: null,
-          purchase_type: null,
-          duration: "monthly/annually",
-          price: null,
-          currency: null,
-          is_discount: null,
-          discount_offer: null,
-          path: window.location.pathname,
-          target_path: null,
-          device_type: (0, _v40.default)(),
-          upsell_name: null,
-          feature: null,
-          is_new_pricing: null,
-          upgrade_flags: null,
-          loading_time: null,
-          promo_code_id: _v33,
-          third_party_integration: null
-        })), _v63({
+        trackIndividualEligibilityCtaClicked: _v63
+      } = (0, _v30.useIndividualEligibilityTracking)(),
+      _v64 = () => {
+        _v21.current = !0, _v62({
           selectedPeriodicity: _v18 ? "monthly" : "yearly"
-        });
-        let _v0 = ["advanced", "business", "enterprise", "live_business", "live_premium", "live_pro", "plus", "pro", "pro_custom", "pro_unlimited", "producer", "standard", "starter"].includes(_v92) ? _v92 : null,
-          _v1 = ["advanced", "plus", "pro", "standard", "starter", "ondemand", "stock", "live", "seat_subscription"].includes(_v92) ? _v92 : "seat_subscription";
-        _v12.BigPictureClient.sendEvent(new _v12.Event("vimeo.checkout_form_action", 17, {
-          action_type: "select",
-          bot_score: 0,
-          checkout_product_ids: [],
-          checkout_subscription_type: _v0,
-          consumer_renewal_prohibited: !1,
-          currency: "",
-          device_type: null,
-          is_signup_checkout: !1,
-          error_copy: null,
-          error_id: null,
-          is_trial_purchase: !1,
-          location: _v18 ? "billing_period_monthly" : "billing_period_annual",
-          mobile_app_user_id: null,
-          path: window?.location?.href ?? null,
-          referrer_path: document?.referrer ?? null,
-          promo_code: null,
-          seat_total: null,
-          store: _v1,
-          subtotal: "",
-          target_path: null,
-          tax: "",
-          user_account_type_at_checkout: _v16?.user?.account || "",
-          user_seat_count_at_checkout: 0,
-          user_selection: null,
-          upsell_name: _v30?.get("upsell"),
-          feature: _v30?.get("feature")
-        })), _v19(!_v18);
+        }), _v19(!_v18);
       };
     (0, _v4.useEffect)(() => {
       let _v0 = sessionStorage.getItem("redirectUrl");
-      _v0 && ("/welcome" !== _v0 ? _v61(_v0) : _v61("/"));
+      _v0 && ("/welcome" !== _v0 ? _v60(_v0) : _v60("/"));
     }, []);
-    let _v66 = {
+    let _v65 = {
       bypassTierHierarchy: !0
     };
-    _v32 && (_v66.promos = JSON.stringify({
-      extole: _v32
-    })), _v49 && (_v66.campaignId = _v49, _v66.usePaymentsService = !0), _v33 && (_v66.promoCodeId = _v33);
-    let _v67 = (0, _v35.useGetSubscriptionPlansData)(_v12?.customSelfServeComapreTable ? _v12?.plans : void 0, void 0, void 0, _v66),
-      _v68 = (0, _v4.useMemo)(() => (0, _v36.applyPlanAvailabilityPolicy)(_v67, {
+    _v31 && (_v65.promos = JSON.stringify({
+      extole: _v31
+    })), _v48 && (_v65.campaignId = _v48, _v65.usePaymentsService = !0), _v32 && (_v65.promoCodeId = _v32);
+    let _v66 = (0, _v34.useGetSubscriptionPlansData)(_v12?.customSelfServeComapreTable ? _v12?.plans : void 0, void 0, void 0, _v65),
+      _v67 = (0, _v4.useMemo)(() => (0, _v35.applyPlanAvailabilityPolicy)(_v66, {
         coreTierEnabled: _v6.core_tier_enabled,
         flatTierMonthlyEnabled: _v6.flat_tiers_monthly_enabled
-      }), [_v67, _v6.core_tier_enabled, _v6.flat_tiers_monthly_enabled]),
+      }), [_v66, _v6.core_tier_enabled, _v6.flat_tiers_monthly_enabled]),
       {
-        data: _v69
-      } = (0, _v52.useSubscriptionPlansUsageCheck)(_v50 ? _v44.REPACKAGING_COMPARISON_TIERS.filter(_v0 => "free" !== _v0) : []),
+        data: _v68
+      } = (0, _v49.useSubscriptionPlansUsageCheck)(_v49 ? _v42.REPACKAGING_COMPARISON_TIERS.filter(_v0 => "free" !== _v0) : []),
       {
-        shouldReorder: _v70
-      } = (0, _v48.useColdStoragePlanReorder)(),
-      _v71 = _v70 && !_v50 && !_v59 && void 0 !== _v68,
+        shouldReorder: _v69
+      } = (0, _v46.useColdStoragePlanReorder)(),
+      _v70 = _v69 && !_v49 && !_v58 && void 0 !== _v67,
       {
-        trackColdStoragePlanReorderDisplayed: _v72
-      } = (0, _v30.useColdStorageReorderTracking)(),
-      _v73 = (0, _v4.useRef)(!1);
+        trackColdStoragePlanReorderDisplayed: _v71
+      } = (0, _v29.useColdStorageReorderTracking)(),
+      _v72 = (0, _v4.useRef)(!1);
     (0, _v4.useEffect)(() => {
-      _v71 && !_v73.current && (_v73.current = !0, _v72({
+      _v70 && !_v72.current && (_v72.current = !0, _v71({
         surface: "upgrade_page"
       }));
-    }, [_v71, _v72]);
-    let _v74 = _v68?.find(_v0 => _v0.metadata?.interactions?.purchase?.status === "purchased")?.tier,
-      _v75 = _v51 && _v43 ? _v42 : void 0,
-      _v76 = _v51 ? _v42 ?? _v74 ?? _v46 : void 0,
-      _v77 = !_v25,
-      _v78 = (0, _v5.isPermanentDiscountOfferEligible)({
+    }, [_v70, _v71]);
+    let _v73 = _v67?.find(_v0 => _v0.metadata?.interactions?.purchase?.status === "purchased")?.tier,
+      _v74 = _v50 && _v42 ? _v41 : void 0,
+      _v75 = _v50 ? _v41 ?? _v73 ?? _v45 : void 0,
+      _v76 = !_v25,
+      _v77 = (0, _v5.isPermanentDiscountOfferEligible)({
         isSettingEnabled: _v6.b2b_offer_permanent_discount_when_arr_off_upgrade_plan,
-        hasAutorenew: _v43,
-        scheduledTier: _v42,
+        hasAutorenew: _v42,
+        scheduledTier: _v41,
         areBusinessPlansEnforced: _v23,
         isWhitelistedForIndPlans: _v24
       }),
-      _v79 = (0, _v4.useMemo)(() => _v68?.find(_v0 => "studio" === _v0.tier) ?? null, [_v68]),
-      _v80 = (0, _v4.useMemo)(() => _v68?.find(_v0 => "professional" === _v0.tier) ?? null, [_v68]),
-      _v81 = (0, _v4.useMemo)(() => _v78 && _v79 ? (0, _v6.resolveStudioRenewalDiscount)({
-        studioPlan: _v79,
-        professionalPlan: _v80,
+      _v78 = (0, _v4.useMemo)(() => _v67?.find(_v0 => "studio" === _v0.tier) ?? null, [_v67]),
+      _v79 = (0, _v4.useMemo)(() => _v67?.find(_v0 => "professional" === _v0.tier) ?? null, [_v67]),
+      _v80 = (0, _v4.useMemo)(() => _v77 && _v78 ? (0, _v6.resolveStudioRenewalDiscount)({
+        studioPlan: _v78,
+        professionalPlan: _v79,
         isAnnual: _v18
-      }) : null, [_v78, _v79, _v80, _v18]),
-      [_v82, _v83] = (0, _v4.useState)(!1),
-      _v84 = (0, _v4.useRef)(!1),
+      }) : null, [_v77, _v78, _v79, _v18]),
+      [_v81, _v82] = (0, _v4.useState)(!1),
+      _v83 = (0, _v4.useRef)(!1),
       {
-        acceptRenewalOffer: _v85,
-        isAccepting: _v86
+        acceptRenewalOffer: _v84,
+        isAccepting: _v85
       } = (0, _v8.useAcceptStudioRenewalOffer)(),
       {
-        trackStudioRenewalOfferCtaClicked: _v87,
-        trackStudioRenewalOfferAccepted: _v88,
-        trackStudioRenewalOfferFailed: _v89
-      } = (0, _v34.useStudioRenewalOfferTracking)();
-    (0, _v34.useStudioRenewalOfferDisplayed)({
-      isOpen: _v82,
-      savingsPercent: _v81?.savingsPercent ?? 0,
+        trackStudioRenewalOfferCtaClicked: _v86,
+        trackStudioRenewalOfferAccepted: _v87,
+        trackStudioRenewalOfferFailed: _v88
+      } = (0, _v33.useStudioRenewalOfferTracking)();
+    (0, _v33.useStudioRenewalOfferDisplayed)({
+      isOpen: _v81,
+      savingsPercent: _v80?.savingsPercent ?? 0,
       location: "upgrade_plan"
-    }), (0, _v34.useStudioRenewalOfferDismissed)({
-      isOpen: _v82,
-      savingsPercent: _v81?.savingsPercent ?? 0,
-      wasAcceptedRef: _v84,
+    }), (0, _v33.useStudioRenewalOfferDismissed)({
+      isOpen: _v81,
+      savingsPercent: _v80?.savingsPercent ?? 0,
+      wasAcceptedRef: _v83,
       location: "upgrade_plan"
     });
-    let _v90 = (0, _v4.useCallback)(() => {
-        _v83(!1), window.location.reload();
-      }, [_v83]),
-      _v91 = (0, _v4.useCallback)(async () => {
-        let _v0 = _v18 ? _v79?.id?.annual ?? "" : _v79?.id?.monthly ?? "",
-          _v1 = _v81?.savingsPercent;
+    let _v89 = (0, _v4.useCallback)(() => {
+        _v82(!1), window.location.reload();
+      }, [_v82]),
+      _v90 = (0, _v4.useCallback)(async () => {
+        let _v0 = _v18 ? _v78?.id?.annual ?? "" : _v78?.id?.monthly ?? "",
+          _v1 = _v80?.savingsPercent;
         if ("" !== _v0 && null != _v1 && !(_v1 <= 0)) {
-          _v87({
-            copy: (0, _v21.translate)({
+          _v86({
+            copy: (0, _v20.translate)({
               singular: "Renew at {PERCENT}% discount",
               replacements: {
                 PERCENT: _v1
@@ -1283,17 +1225,17 @@
             location: "upgrade_plan"
           });
           try {
-            await _v85({
+            await _v84({
               billingPlanId: _v0,
               discountPercent: _v1
-            }), _v84.current = !0;
+            }), _v83.current = !0;
           } catch (_v0) {
-            _v89({
+            _v88({
               errorMessage: _v0 instanceof Error ? _v0.message : String(_v0),
               location: "upgrade_plan"
             }), _v20({
               variant: "warning",
-              title: (0, _v21.translate)({
+              title: (0, _v20.translate)({
                 singular: "Something went wrong. Please try again.",
                 dictionary: {
                   es: {
@@ -1323,24 +1265,24 @@
             return;
           }
           try {
-            await _v88({
-              savingsPercent: _v81?.savingsPercent ?? null,
+            await _v87({
+              savingsPercent: _v80?.savingsPercent ?? null,
               periodicity: _v18 ? "annual" : "monthly",
               location: "upgrade_plan"
             });
           } catch (_v0) {
             console.warn("Failed to track studio_renewal_offer_accepted", _v0);
           }
-          _v90();
+          _v89();
         }
-      }, [_v85, _v90, _v18, _v79, _v81, _v20, _v87, _v89]),
-      _v92 = (_v0 => {
+      }, [_v84, _v89, _v18, _v78, _v80, _v20, _v86, _v88]),
+      _v91 = (_v0 => {
         if (!_v0) return;
-        let _v1 = _v12?.plans ? [..._v0] : _v68 ? [..._v68] : [],
-          _v2 = _v76 ? (0, _v38.getTierComparisonRank)(_v76) ?? 0 : -1,
+        let _v1 = _v12?.plans ? [..._v0] : _v67 ? [..._v67] : [],
+          _v2 = _v75 ? (0, _v37.getTierComparisonRank)(_v75) ?? 0 : -1,
           _v3 = ["free", "starter", "basic", "plus", "customSelfServe", "proSolution", "production"];
-        _v50 && _v3.push("creator");
-        let _v4 = _v50 ? (0, _v54.getFeatureFloorRank)(_v38) : void 0,
+        _v49 && _v3.push("creator");
+        let _v4 = _v49 ? (0, _v50.getFeatureFloorRank)(_v37) : void 0,
           _v5 = _v0 => {
             for (let _v0 of _v1) {
               let {
@@ -1349,71 +1291,61 @@
                 } = _v0,
                 _v2 = _v0?.interactions?.purchase?.status,
                 _v3 = _v0?.purchasedProduct?.isMonthly;
-              if ("available" === (0, _v37.getEffectivePurchaseStatus)({
+              if ("available" === (0, _v36.getEffectivePurchaseStatus)({
                 purchaseStatus: _v2,
                 tier: _v1,
                 isViewingAnnual: _v18,
                 isPurchasedMonthly: _v3
-              }) && !_v3.includes(_v1) && (!_v50 || ((0, _v38.getTierComparisonRank)(_v1) ?? 0) > _v2) && (void 0 === _v0 || ((0, _v38.getTierComparisonRank)(_v1) ?? 0) >= _v0)) return _v1;
+              }) && !_v3.includes(_v1) && (!_v49 || ((0, _v37.getTierComparisonRank)(_v1) ?? 0) > _v2) && (void 0 === _v0 || ((0, _v37.getTierComparisonRank)(_v1) ?? 0) >= _v0)) return _v1;
             }
           };
         return _v5(_v4) ?? _v5(void 0);
-      })(_v68),
-      _v93 = (0, _v4.useMemo)(() => "studio" === _v42 ? "business" : _v24 ? "individual" : "studio" === _v76 || "production" === _v76 ? "business" : "individual", [_v76, _v24, _v42]),
-      [_v94, _v95] = (0, _v4.useState)(null),
-      _v96 = _v77 ? "business" : _v94 ?? _v93,
-      _v97 = () => {
-        _v95("individual" === _v96 ? "business" : "individual");
+      })(_v67),
+      _v92 = (0, _v4.useMemo)(() => "studio" === _v41 ? "business" : _v24 ? "individual" : "studio" === _v75 || "production" === _v75 ? "business" : "individual", [_v75, _v24, _v41]),
+      [_v93, _v94] = (0, _v4.useState)(null),
+      _v95 = _v76 ? "business" : _v93 ?? _v92,
+      _v96 = () => {
+        _v94("individual" === _v95 ? "business" : "individual");
       },
-      _v98 = (0, _v4.useMemo)(() => "production" === _v76 ? ["studio", "production", "enterprise"] : _v77 ? ["studio", "enterprise"] : ["professional", "studio", "enterprise"], [_v76, _v77]),
-      _v99 = !_v77 && (_v59 || _v23 || "studio" !== _v76 && "production" !== _v76 || "individual" === _v96),
-      _v100 = void 0 !== _v76 && _v44.REPACKAGING_PAID_PLANS.includes(_v76);
+      _v97 = (0, _v4.useMemo)(() => "production" === _v75 ? ["studio", "production", "enterprise"] : _v76 ? ["studio", "enterprise"] : ["professional", "studio", "enterprise"], [_v75, _v76]),
+      _v98 = !_v76 && (_v58 || _v23 || "studio" !== _v75 && "production" !== _v75 || "individual" === _v95),
+      _v99 = void 0 !== _v75 && _v42.REPACKAGING_PAID_PLANS.includes(_v75);
     (0, _v4.useEffect)(() => {
-      if (_v75 && _v55) {
-        _v22.current = !0, _v19(!_v56);
+      if (_v74 && _v54) {
+        _v22.current = !0, _v19(!_v55);
         return;
       }
-      _v68?.some(_v0 => "free" !== _v0.tier && _v0.metadata?.purchasedProduct !== void 0 && !_v0.metadata.purchasedProduct.isMonthly) ? (_v22.current = !0, _v19(!0)) : _v55 && _v53 && _v56 && (_v22.current = !0, _v19(!1));
-    }, [_v68, _v75, _v55, _v56, _v53]), (0, _v4.useEffect)(() => {
-      _v31 && ["review", "copy_review_link"].includes(_v31) && _v16 && _v68 && (0, _v53.logViewUpsell)(_v31, _v16);
-    }, [_v31, _v68, _v16]), (0, _v4.useEffect)(() => {
-      !_v35 && _v12?.redirectLoggedOut && (window.location.href = "/log_in"), void 0 !== _v68 && (_v9((_v0 => {
+      _v67?.some(_v0 => "free" !== _v0.tier && _v0.metadata?.purchasedProduct !== void 0 && !_v0.metadata.purchasedProduct.isMonthly) ? (_v22.current = !0, _v19(!0)) : _v54 && _v52 && _v55 && (_v22.current = !0, _v19(!1));
+    }, [_v67, _v74, _v54, _v55, _v52]), (0, _v4.useEffect)(() => {
+      !_v34 && _v12?.redirectLoggedOut && (window.location.href = "/log_in"), void 0 !== _v67 && (_v9((_v0 => {
         let _v1 = !1;
         for (let _v0 of _v0) if ("plus" !== _v0.tier) if (_v0.price.monthly) {
           _v1 = !0;
           break;
         } else _v1 = !1;
         return _v1;
-      })(_v68)), _v11(!0), null != _v14 && ((0, _v53.emitBPEvent)({
-        action_type: "pageview",
-        is_new_pricing: !0,
-        upgrade_flags: window.location.search,
-        loading_time: (Date.now() - _v14) / 0,
-        path: window.location.href
-      }), _v15(null))), _v12 && void 0 !== _v12.showMonthlyToggle && (_v9(_v12.showMonthlyToggle), _v11(!0));
-    }, [_v68, _v14, _v12, _v35]), (0, _v4.useEffect)(() => {
-      !_v35 && _v16?.location && _v103.includes(_v16.location.toUpperCase()) && (window.location.href = "/log_in");
-    }, [_v35, _v16?.location]), (0, _v4.useEffect)(() => {
+      })(_v67)), _v11(!0), null != _v14 && _v15(null)), _v12 && void 0 !== _v12.showMonthlyToggle && (_v9(_v12.showMonthlyToggle), _v11(!0));
+    }, [_v67, _v14, _v12, _v34]), (0, _v4.useEffect)(() => {
+      !_v34 && _v16?.location && _v99.includes(_v16.location.toUpperCase()) && (window.location.href = "/log_in");
+    }, [_v34, _v16?.location]), (0, _v4.useEffect)(() => {
       void 0 === _v12 && (async _v0 => {
         _v13((0, (await _v0.A(0)).default)(_v0));
       })(_v1);
     }, [_v1, _v12]);
-    let _v101 = !!(_v68 && _v68.some(_v0 => void 0 !== _v0.promotion) && _v18 && _v8 && !_v59),
-      _v102 = _v10 && _v8 && !(_v53 && !_v56 && !_v57) && !_v75 && (_v50 || !_v59),
-      _v103 = (0, _v4.useMemo)(() => {
-        if (!_v68) return;
-        if (!_v50) return (_v12?.plans ? _v68.filter(_v0 => _v12.plans?.includes(_v0.tier)) : _v12?.excludedPlans ? _v68.filter(_v0 => !_v12.excludedPlans?.includes(_v0.tier)) : _v68).map(_v0 => _v0.tier);
-        let _v0 = new Set(_v68.map(_v0 => _v0.tier)),
+    let _v100 = !!(_v67 && _v67.some(_v0 => void 0 !== _v0.promotion) && _v18 && _v8 && !_v58),
+      _v101 = _v10 && _v8 && !(_v52 && !_v55 && !_v56) && !_v74 && (_v49 || !_v58),
+      _v102 = (0, _v4.useMemo)(() => {
+        if (!_v67) return;
+        if (!_v49) return (_v12?.plans ? _v67.filter(_v0 => _v12.plans?.includes(_v0.tier)) : _v12?.excludedPlans ? _v67.filter(_v0 => !_v12.excludedPlans?.includes(_v0.tier)) : _v67).map(_v0 => _v0.tier);
+        let _v0 = new Set(_v67.map(_v0 => _v0.tier)),
           _v1 = _v0.has("core");
-        return ("individual" === _v96 ? _v44.REPACKAGING_INDIVIDUAL_VIEW_TIERS : _v98).filter(_v0 => ("free" !== _v0 || !_v100 && !_v1) && _v0.has(_v0));
-      }, [_v68, _v50, _v96, _v100, _v98, _v12]),
-      _v104 = (0, _v4.useMemo)(() => _v8 ? ["monthly", "yearly"] : ["yearly"], [_v8]),
-      _v105 = function (_v0) {
-        let _v1 = (0, _v28.useViewer)(),
-          {
-            isRepackagedFree: _v2
-          } = (0, _v49.useIsRepackagedFree)(),
-          _v3 = (0, _v24.useOrionSettingsFields)(["pricing_page_dismiss_offer_triggers", "pricing_page_dismiss_offer_max_displays", "dismiss_offer_paywall_variant"]),
+        return ("individual" === _v95 ? _v42.REPACKAGING_INDIVIDUAL_VIEW_TIERS : _v97).filter(_v0 => ("free" !== _v0 || !_v99 && !_v1) && _v0.has(_v0));
+      }, [_v67, _v49, _v95, _v99, _v97, _v12]),
+      _v103 = (0, _v4.useMemo)(() => _v8 ? ["monthly", "yearly"] : ["yearly"], [_v8]),
+      _v104 = function (_v0) {
+        let _v1 = (0, _v27.useViewer)(),
+          _v2 = (0, _v21.useIsRepackFreeWithRepackagingCampaign)(),
+          _v3 = (0, _v23.useOrionSettingsFields)(["pricing_page_dismiss_offer_triggers", "pricing_page_dismiss_offer_max_displays", "dismiss_offer_paywall_variant"]),
           [_v4, _v5] = (0, _v4.useState)(!1),
           [_v6, _v7] = (0, _v4.useState)("pricing_logo_click"),
           _v8 = _v1?.user?.id,
@@ -1422,7 +1354,7 @@
           _v11 = null != _v8 && !_v1?.user?.capabilities?.hasPaid && ("free" === _v10 || "basic" === _v10),
           _v12 = (0, _v4.useCallback)(_v0 => {
             let _v1 = _v3.pricing_page_dismiss_offer_triggers;
-            return !(!_v0 || !_v11 || _v2 || "off" === _v1 || "pricing_logo_click" === _v0 && "logo_click" !== _v1 && "both" !== _v1 || null == _v8 || _v9.current || (0, _v50.hasDismissOfferBeenDisplayed)(_v8, "pricing_page", _v3.pricing_page_dismiss_offer_max_displays)) && (_v9.current = !0, (0, _v50.markDismissOfferDisplayed)(_v8, "pricing_page"), _v7(_v0), _v5(!0), !0);
+            return !(!_v0 || !_v11 || _v2 || "off" === _v1 || "pricing_logo_click" === _v0 && "logo_click" !== _v1 && "both" !== _v1 || null == _v8 || _v9.current || (0, _v47.hasDismissOfferBeenDisplayed)(_v8, "pricing_page", _v3.pricing_page_dismiss_offer_max_displays)) && (_v9.current = !0, (0, _v47.markDismissOfferDisplayed)(_v8, "pricing_page"), _v7(_v0), _v5(!0), !0);
           }, [_v0, _v11, _v2, _v3.pricing_page_dismiss_offer_triggers, _v3.pricing_page_dismiss_offer_max_displays, _v8]),
           _v13 = (0, _v4.useCallback)(() => _v5(!1), []),
           _v14 = (0, _v4.useEffectEvent)(_v0 => {
@@ -1447,31 +1379,31 @@
           open: _v12,
           close: _v13
         };
-      }(null !== _v16 && void 0 !== _v68 && void 0 !== _v12 && !_v41 && !(!_v35 && _v12?.redirectLoggedOut)),
+      }(null !== _v16 && void 0 !== _v67 && void 0 !== _v12 && !_v40 && !(!_v34 && _v12?.redirectLoggedOut)),
       {
-        trackPaywallCtaClicked: _v106,
-        trackPaywallDismissed: _v107
-      } = (0, _v32.usePaywallTracking)({
-        paywallTrigger: _v36,
-        paywallLocation: _v37,
+        trackPaywallCtaClicked: _v105,
+        trackPaywallDismissed: _v106
+      } = (0, _v31.usePaywallTracking)({
+        paywallTrigger: _v35,
+        paywallLocation: _v36,
         paywallType: "page",
-        paywallFeature: _v38,
+        paywallFeature: _v37,
         paywallStyle: "upgrade_plan",
-        paywallPlansDisplayed: _v103 ?? [],
-        paywallPeriodicitiesDisplayed: _v104,
-        isVisible: null !== _v16 && void 0 !== _v68 && void 0 !== _v12 && _v10 && !_v41 && !(!_v35 && _v12?.redirectLoggedOut),
-        displayKey: _v50 ? _v96 : void 0
+        paywallPlansDisplayed: _v102 ?? [],
+        paywallPeriodicitiesDisplayed: _v103,
+        isVisible: null !== _v16 && void 0 !== _v67 && void 0 !== _v12 && _v10 && !_v40 && !(!_v34 && _v12?.redirectLoggedOut),
+        displayKey: _v49 ? _v95 : void 0
       }),
-      _v108 = (0, _v4.useCallback)(() => _v4 ? (0, _v1.jsx)(_v14.Button, {
+      _v107 = (0, _v4.useCallback)(() => _v4 ? (0, _v1.jsx)(_v13.Button, {
         size: "lg",
         width: "100%",
         bgColor: "text-primary",
         variant: "primary",
         color: "surface",
         onClick: () => {
-          _v106("primary"), _v107(), _v4();
+          _v105("primary"), _v106(), _v4();
         },
-        children: (0, _v21.translate)({
+        children: (0, _v20.translate)({
           singular: "Continue with free plan",
           dictionary: {
             es: {
@@ -1497,11 +1429,11 @@
             }
           }
         })
-      }) : null, [_v4, _v106, _v107]),
-      _v109 = (0, _v4.useMemo)(() => _v4 ? {
+      }) : null, [_v4, _v105, _v106]),
+      _v108 = (0, _v4.useMemo)(() => _v4 ? {
         ...(_v12 ?? {}),
         ctaTreatment: "free_trial_primary",
-        paidPlanCtaLabel: (0, _v21.translate)({
+        paidPlanCtaLabel: (0, _v20.translate)({
           singular: "Start 7 days free trial",
           dictionary: {
             es: {
@@ -1528,22 +1460,22 @@
           }
         }),
         hidePaidPlanSecondaryLinks: !0,
-        description: _v45.PLAN_HEADER_DESCRIPTION.getStartedWithFreePlan
+        description: _v43.PLAN_HEADER_DESCRIPTION.getStartedWithFreePlan
       } : _v12, [_v4, _v12]);
-    return null === _v16 || void 0 === _v68 || _v41 || !_v35 && _v12?.redirectLoggedOut ? (0, _v1.jsx)(_v95.default, {}) : (0, _v1.jsxs)(_v43.default, {
-      isMobileBreakpoint: _v59,
-      onLogoClick: () => _v105.open("pricing_logo_click"),
+    return null === _v16 || void 0 === _v67 || _v40 || !_v34 && _v12?.redirectLoggedOut ? (0, _v1.jsx)(_v91.default, {}) : (0, _v1.jsxs)(_v41.default, {
+      isMobileBreakpoint: _v58,
+      onLogoClick: () => _v104.open("pricing_logo_click"),
       disableLogoLink: !!_v3,
-      topRightAction: _v3 && _v6.onboarding_paywall_pricing_page_show_back_link ? (0, _v1.jsx)(_v14.Button, {
+      topRightAction: _v3 && _v6.onboarding_paywall_pricing_page_show_back_link ? (0, _v1.jsx)(_v13.Button, {
         size: "sm",
         p: "1.25rem",
         borderRadius: "md",
         variant: "tertiary",
         padding: "md",
         onClick: () => {
-          _v107(), _v3();
+          _v106(), _v3();
         },
-        children: (0, _v21.translate)({
+        children: (0, _v20.translate)({
           singular: "Back to intro offer",
           dictionary: {
             es: {
@@ -1570,98 +1502,98 @@
           }
         })
       }) : void 0,
-      children: [void 0 !== _v109 && _v68 && (0, _v1.jsx)(_v46.OverridesContextProvider, {
+      children: [void 0 !== _v108 && _v67 && (0, _v1.jsx)(_v44.OverridesContextProvider, {
         showYearly: _v18,
         viewer: _v16,
-        overrides: _v109,
-        children: (0, _v1.jsx)(_v47.PlansDataProvider, {
-          overrides: _v109,
-          plansData: _v68,
-          isLoggedIn: _v35,
-          capabilitiesReady: _v55,
-          isPricingRedesign: _v50,
-          downgradeEnabled: _v51,
-          effectiveTier: _v76,
-          upcomingTier: _v75,
-          usageCheckData: _v69,
-          hideIndividualPlans: _v77,
+        overrides: _v108,
+        children: (0, _v1.jsx)(_v45.PlansDataProvider, {
+          overrides: _v108,
+          plansData: _v67,
+          isLoggedIn: _v34,
+          capabilitiesReady: _v54,
+          isPricingRedesign: _v49,
+          downgradeEnabled: _v50,
+          effectiveTier: _v75,
+          upcomingTier: _v74,
+          usageCheckData: _v68,
+          hideIndividualPlans: _v76,
           children: (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v13.Box, {
-              children: (0, _v1.jsx)(_v94, {
-                isMobileBreakpoint: _v59,
-                redirectUrl: _v60
+            children: [(0, _v1.jsx)(_v12.Box, {
+              children: (0, _v1.jsx)(_v90, {
+                isMobileBreakpoint: _v58,
+                redirectUrl: _v59
               })
-            }), _v78 && (0, _v1.jsx)(_v13.Box, {
+            }), _v77 && (0, _v1.jsx)(_v12.Box, {
               width: "100%",
-              maxWidth: (0, _v16.rem)(0),
+              maxWidth: (0, _v15.rem)(0),
               margin: "0 auto",
-              padding: `0 ${(0, _v16.rem)(16)}`,
-              children: (0, _v1.jsx)(_v98, {
+              padding: `0 ${(0, _v15.rem)(16)}`,
+              children: (0, _v1.jsx)(_v94, {
                 onRequestEligibility: () => {
-                  _v64({
+                  _v63({
                     location: "upgrade_plan_banner"
                   }), _v28("upgrade_plan_banner");
                 }
               })
-            }), (0, _v1.jsxs)(_v72.BundleOfferProvider, {
-              periodicity: _v59 && !_v75 || _v18 ? "annual" : "monthly",
-              initialIsBundleActive: _v34,
-              children: [(0, _v1.jsx)(_v90, {}), _v102 && (0, _v1.jsx)(_v13.Box, {
+            }), (0, _v1.jsxs)(_v68.BundleOfferProvider, {
+              periodicity: _v58 && !_v74 || _v18 ? "annual" : "monthly",
+              initialIsBundleActive: _v33,
+              children: [(0, _v1.jsx)(_v86, {}), _v101 && (0, _v1.jsx)(_v12.Box, {
                 width: "100%",
                 display: "inline-flex",
                 justifyContent: "center",
-                marginTop: (0, _v16.rem)(40),
+                marginTop: (0, _v15.rem)(40),
                 alignItems: "center",
-                children: _v50 ? (0, _v1.jsx)(_v59, {
+                children: _v49 ? (0, _v1.jsx)(_v55, {
                   checked: _v18,
-                  onClick: _v65,
-                  isMobile: _v59
+                  onClick: _v64,
+                  isMobile: _v58
                 }) : (0, _v1.jsxs)(_v1.Fragment, {
-                  children: [(0, _v1.jsx)(_v66, {
+                  children: [(0, _v1.jsx)(_v62, {
                     checked: _v18,
-                    onClick: _v65
-                  }), (0, _v1.jsx)(_v70, {
+                    onClick: _v64
+                  }), (0, _v1.jsx)(_v66, {
                     showYearly: _v18
                   })]
                 })
-              }), (0, _v1.jsx)(_v96.default, {
-                showYearly: !!_v59 && !_v75 || _v18,
-                isBillingFreqToggleAvailable: _v8 && !_v59,
-                isPageTopToggleVisible: _v102,
-                badgePlan: _v92,
-                showStrikePrice: _v101,
-                isMobileBreakpoint: _v59,
-                planView: _v96,
-                onSwitchView: _v97,
-                businessTiers: _v98,
-                showCrossSellCard: _v99,
-                studioRenewalTier: _v78 ? _v42 : void 0,
-                studioRenewalDiscount: _v81,
-                onStudioRenewal: () => _v83(!0),
-                renderFreePlanCta: _v4 ? _v108 : void 0,
+              }), (0, _v1.jsx)(_v92.default, {
+                showYearly: !!_v58 && !_v74 || _v18,
+                isBillingFreqToggleAvailable: _v8 && !_v58,
+                isPageTopToggleVisible: _v101,
+                badgePlan: _v91,
+                showStrikePrice: _v100,
+                isMobileBreakpoint: _v58,
+                planView: _v95,
+                onSwitchView: _v96,
+                businessTiers: _v97,
+                showCrossSellCard: _v98,
+                studioRenewalTier: _v77 ? _v41 : void 0,
+                studioRenewalDiscount: _v80,
+                onStudioRenewal: () => _v82(!0),
+                renderFreePlanCta: _v4 ? _v107 : void 0,
                 ignoreCurrentPlanState: !!_v4
               })]
-            }), _v50 && !_v59 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [_v77 && _v27 && (0, _v1.jsx)(_v71, {
+            }), _v49 && !_v58 && (0, _v1.jsxs)(_v1.Fragment, {
+              children: [_v76 && _v27 && (0, _v1.jsx)(_v67, {
                 onRequestEligibility: () => {
-                  _v64({
+                  _v63({
                     location: "upgrade_plan_banner"
                   }), _v28("upgrade_plan_banner");
                 }
-              }), !_v77 && (0, _v1.jsx)(_v71, {
-                planView: _v96,
-                onSwitchView: _v97
+              }), !_v76 && (0, _v1.jsx)(_v67, {
+                planView: _v95,
+                onSwitchView: _v96
               })]
-            }), (0, _v1.jsxs)(_v13.Box, {
-              maxWidth: (0, _v16.rem)(0),
-              margin: `${(0, _v16.rem)(4)} auto`,
-              padding: _v59 ? `${(0, _v16.rem)(0)} ${(0, _v16.rem)(24)}` : `${(0, _v16.rem)(75)} ${(0, _v16.rem)(28)}`,
-              minHeight: _v59 ? "" : (0, _v16.rem)(240),
-              children: [_v59 && (0, _v1.jsx)(_v15.Text, {
+            }), (0, _v1.jsxs)(_v12.Box, {
+              maxWidth: (0, _v15.rem)(0),
+              margin: `${(0, _v15.rem)(4)} auto`,
+              padding: _v58 ? `${(0, _v15.rem)(0)} ${(0, _v15.rem)(24)}` : `${(0, _v15.rem)(75)} ${(0, _v15.rem)(28)}`,
+              minHeight: _v58 ? "" : (0, _v15.rem)(240),
+              children: [_v58 && (0, _v1.jsx)(_v14.Text, {
                 textAlign: "center",
-                marginBottom: (0, _v16.rem)(24),
+                marginBottom: (0, _v15.rem)(24),
                 variant: "heading-lg",
-                children: (0, _v21.translate)({
+                children: (0, _v20.translate)({
                   singular: "The best brands in the world trust Vimeo",
                   dictionary: {
                     es: {
@@ -1687,53 +1619,53 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v101, {})]
-            }), !_v59 && (0, _v1.jsx)(_v99, {
+              }), (0, _v1.jsx)(_v97, {})]
+            }), !_v58 && (0, _v1.jsx)(_v95, {
               showYearly: _v18,
-              badgePlan: _v92,
-              theme: _v62.colorMode,
-              filteredTiers: _v50 ? [...("individual" !== _v96 || _v77 ? _v98 : _v44.REPACKAGING_INDIVIDUAL_VIEW_TIERS.filter(_v0 => "free" !== _v0 || !_v100))] : void 0
-            }), _v109.terms && (0, _v1.jsx)(_v13.Box, {
-              maxWidth: (0, _v16.rem)(0),
-              margin: `${(0, _v16.rem)(4)} auto`,
-              padding: _v59 ? `${(0, _v16.rem)(0)} ${(0, _v16.rem)(24)}` : `${(0, _v16.rem)(75)} ${(0, _v16.rem)(28)}`,
-              children: (0, _v1.jsx)(_v15.Text, {
+              badgePlan: _v91,
+              theme: _v61.colorMode,
+              filteredTiers: _v49 ? [...("individual" !== _v95 || _v76 ? _v97 : _v42.REPACKAGING_INDIVIDUAL_VIEW_TIERS.filter(_v0 => "free" !== _v0 || !_v99))] : void 0
+            }), _v108.terms && (0, _v1.jsx)(_v12.Box, {
+              maxWidth: (0, _v15.rem)(0),
+              margin: `${(0, _v15.rem)(4)} auto`,
+              padding: _v58 ? `${(0, _v15.rem)(0)} ${(0, _v15.rem)(24)}` : `${(0, _v15.rem)(75)} ${(0, _v15.rem)(28)}`,
+              children: (0, _v1.jsx)(_v14.Text, {
                 variant: "body-xl",
-                children: _v109.terms
+                children: _v108.terms
               })
-            }), !_v109.hideFaq && (0, _v1.jsx)(_v100, {
-              isMobileBreakpoint: _v59
+            }), !_v108.hideFaq && (0, _v1.jsx)(_v96, {
+              isMobileBreakpoint: _v58
             })]
           })
         })
-      }), _v54 && (0, _v1.jsx)(_v102, {}), _v105.isOpen && "wt_offer" === _v105.variant && (0, _v1.jsx)(_v25.PricingDismissOfferPaywall, {
+      }), _v53 && (0, _v1.jsx)(_v98, {}), _v104.isOpen && "wt_offer" === _v104.variant && (0, _v1.jsx)(_v24.PricingDismissOfferPaywall, {
         isOpen: !0,
         onClose: () => {
-          _v105.close(), "pricing_logo_click" === _v105.tracking.paywallTrigger && window.location.assign("/");
+          _v104.close(), "pricing_logo_click" === _v104.tracking.paywallTrigger && window.location.assign("/");
         },
-        paywallTracking: _v105.tracking
-      }), _v105.isOpen && "ev_offer" === _v105.variant && (0, _v1.jsx)(_v26.WelcomeOfferModalPaywall, {
+        paywallTracking: _v104.tracking
+      }), _v104.isOpen && "ev_offer" === _v104.variant && (0, _v1.jsx)(_v25.WelcomeOfferModalPaywall, {
         isOpen: !0,
         onClose: () => {
-          _v105.close(), "pricing_logo_click" === _v105.tracking.paywallTrigger && window.location.assign("/");
+          _v104.close(), "pricing_logo_click" === _v104.tracking.paywallTrigger && window.location.assign("/");
         },
-        onDismiss: _v105.close,
-        paywallTracking: _v105.tracking
-      }), _v29, _v81 && (0, _v1.jsx)(_v7.StudioRenewalOfferModal, {
-        isOpen: _v82,
-        onClose: () => _v83(!1),
-        savingsPercent: _v81.savingsPercent,
-        discountedMonthlyPrice: _v81.discountedMonthlyPrice,
-        fullMonthlyPrice: _v81.fullMonthlyPrice,
-        currencyCode: _v79?.currency?.currencyCode,
+        onDismiss: _v104.close,
+        paywallTracking: _v104.tracking
+      }), _v29, _v80 && (0, _v1.jsx)(_v7.StudioRenewalOfferModal, {
+        isOpen: _v81,
+        onClose: () => _v82(!1),
+        savingsPercent: _v80.savingsPercent,
+        discountedMonthlyPrice: _v80.discountedMonthlyPrice,
+        fullMonthlyPrice: _v80.fullMonthlyPrice,
+        currencyCode: _v78?.currency?.currencyCode,
         locale: _v17,
-        studioPlan: _v79,
-        renewalDate: _v44,
+        studioPlan: _v78,
+        renewalDate: _v43,
         isAnnual: _v18,
         onRenew: () => {
-          _v91();
+          _v90();
         },
-        isRenewing: _v86
+        isRenewing: _v85
       })]
     });
   }], 0);

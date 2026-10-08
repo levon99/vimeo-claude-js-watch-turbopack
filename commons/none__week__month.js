@@ -7102,7 +7102,7 @@
   }, "getGroupByTimeLiteral", 0, (_v0, _v1) => {
     let _v2 = _v1.diff(_v0, "days");
     return _v2.days < 50 ? "day" : _v2.days > 720 ? "year" : _v2.days > 180 ? "month" : "week";
-  }, "getMemberDetailReportUrlPath", 0, _v0 => `${_v0?.uri?.slice(1, _v0?.uri?.length)}`, "getSortValueForApi", 0, (_v0, _v1) => _v155.flatMap(_v0 => _v0.filter(_v0 => "name" === _v0.name).map(_v0 => _v0.apiName)).includes(_v0) ? _v156(_v1) : _v156(_v0), "getTeamsFiltersObject", 0, (_v0, _v1) => _v0.reduce((_v0, _v1) => _v1[_v1] && _v1[_v1].length > 0 ? {
+  }, "getMemberDetailReportUrlPath", 0, _v0 => `${_v0?.uri?.slice(1, _v0?.uri?.length)}`, "getReportPageNameFromUrl", 0, _v0 => RegExp("^/{0,1}analytics/video/{0,1}$").test(_v0) ? "video" : RegExp("^/{0,1}analytics/region/{0,1}$").test(_v0) ? "region" : RegExp("^/{0,1}analytics/source/{0,1}$").test(_v0) ? "source_url" : RegExp("^/{0,1}analytics/device/{0,1}$").test(_v0) ? "device" : RegExp("^/{0,1}analytics/date/{0,1}$").test(_v0) ? "date" : RegExp("^/{0,1}analytics/bandwidth/{0,1}$").test(_v0) ? "bandwidth" : RegExp("/analytics/teams/[0-9]+/[users | videos]").test(_v0) ? "team" : RegExp("/analytics/teams/[0-9]+/users/[0-9]+").test(_v0) ? "team_member" : RegExp("/analytics/teams/[0-9]+/videos/[0-9]+").test(_v0) ? "team_video" : "dashboard", "getSortValueForApi", 0, (_v0, _v1) => _v155.flatMap(_v0 => _v0.filter(_v0 => "name" === _v0.name).map(_v0 => _v0.apiName)).includes(_v0) ? _v156(_v1) : _v156(_v0), "getTeamsFiltersObject", 0, (_v0, _v1) => _v0.reduce((_v0, _v1) => _v1[_v1] && _v1[_v1].length > 0 ? {
     ..._v0,
     ["filter_" + _v158(_v1)]: _v157(_v1, _v1)
   } : _v0, {}), "getTotalRowColor", 0, () => "var(--vimeo-colors-text-primary)", "getValueToDisplay", 0, (_v0, _v1 = "") => {

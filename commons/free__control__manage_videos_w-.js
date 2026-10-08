@@ -237,18 +237,19 @@
       _v16 = _v12 ? _v5.restricted.unit ?? "video_size" : _v11?.unit ?? "video_size",
       _v17 = _v14 ? (_v13 ?? 0) / _v14 : 0,
       _v18 = Math.round(100 * _v17),
-      _v19 = "variant" === (_v0 ? _v8(_v0, _v13 ?? 0) : null) || _v17 > 2 / 3,
-      _v20 = "video_size" === _v16 && _v18 >= 95 ? "storage_limit" : "quota",
-      _v21 = "video_count" === _v16,
-      _v22 = (0, _v4.useMemo)(() => ({
+      _v19 = !_v12 && null == _v14 && null != _v13,
+      _v20 = "variant" === (_v0 ? _v8(_v0, _v13 ?? 0) : null) || _v17 > 2 / 3,
+      _v21 = "video_size" === _v16 && _v18 >= 95 ? "storage_limit" : "quota",
+      _v22 = "video_count" === _v16,
+      _v23 = (0, _v4.useMemo)(() => ({
         product: "Upload",
-        location: _v17 >= 1 ? "at_limit_quota_widget" : _v19 ? "approaching_limit_quota_widget" : "quota_widget",
+        location: _v17 >= 1 ? "at_limit_quota_widget" : _v20 ? "approaching_limit_quota_widget" : "quota_widget",
         upsell: _v12 || _v11?.showing === "lifetime" ? "total_quota" : "weekly_quota",
         weekly_quota_percent_used: _v12 ? null : _v26(_v10?.used) && _v26(_v10?.max) ? _v25(_v10.used, _v10.max) : null,
         total_quota_percent_used: _v12 ? _v26(_v13) && _v26(_v14) ? _v25(_v13, _v14) : null : _v26(_v9?.used) && _v26(_v9?.max) ? _v25(_v9.used, _v9.max) : null
-      }), [_v14, _v13, _v9, _v10, _v17, _v19, _v11, _v12]),
-      _v23 = (0, _v4.useMemo)(() => ({
-        text: _v19 ? (0, _v9.translate)({
+      }), [_v14, _v13, _v9, _v10, _v17, _v20, _v11, _v12]),
+      _v24 = (0, _v4.useMemo)(() => ({
+        text: _v20 ? (0, _v9.translate)({
           singular: "Upgrade",
           dictionary: {
             es: {
@@ -270,7 +271,7 @@
               singular: "升级"
             }
           }
-        }) : _v21 ? (0, _v9.translate)({
+        }) : _v22 ? (0, _v9.translate)({
           singular: "Upgrade for more videos",
           dictionary: {
             es: {
@@ -324,11 +325,11 @@
         href: (0, _v21.buildUpgradePlanUrl)({
           paywallTrigger: "quota_menu_upgrade_button",
           paywallLocation: "quota_menu",
-          paywallFeature: _v20
+          paywallFeature: _v21
         }, {
           paywall: "1"
         })
-      }), [_v21, _v20, _v19]);
+      }), [_v22, _v21, _v20]);
     (0, _v4.useEffect)(() => {
       if (_v7) {
         let _v0 = {
@@ -336,28 +337,28 @@
             user_initiated: _v6,
             path: window.location.pathname,
             page: _v24(window.location.pathname),
-            ..._v22
+            ..._v23
           },
           _v1 = new _v6.Event("vimeo.view_quota_upsell", 2, _v0);
         _v6.BigPictureClient.sendEvent(_v1);
       }
-    }, [_v22, _v7, _v6]);
-    let _v24 = (0, _v4.useCallback)(() => {
+    }, [_v23, _v7, _v6]);
+    let _v25 = (0, _v4.useCallback)(() => {
         let _v0 = {
-            copy: _v23.text,
-            target: _v23.href,
+            copy: _v24.text,
+            target: _v24.href,
             path: window.location.pathname,
             page: _v24(window.location.pathname) ?? "",
-            ..._v22
+            ..._v23
           },
           _v1 = new _v6.Event("vimeo.click_quota_upsell", 1, _v0);
         _v6.BigPictureClient.sendEvent(_v1);
-      }, [_v22, _v23]),
-      _v25 = (0, _v4.useCallback)(() => {
+      }, [_v23, _v24]),
+      _v26 = (0, _v4.useCallback)(() => {
         var _v0;
         let _v1 = new _v6.Event("vimeo.upgrade_action", 30, {
           action_type: "click",
-          copy: _v23.text,
+          copy: _v24.text,
           currency: null,
           discount_offer: null,
           is_discount: null,
@@ -369,8 +370,8 @@
           plan_selected: null,
           price: null,
           purchase_type: null,
-          target: _v23.href,
-          target_path: _v23.href,
+          target: _v24.href,
+          target_path: _v24.href,
           upsell_name: "quota_meter",
           duration: null,
           feature: "quota",
@@ -379,20 +380,20 @@
           device_type: null
         });
         _v6.BigPictureClient.sendEvent(_v1);
-      }, [_v23]);
+      }, [_v24]);
     return (0, _v1.jsxs)(_v30, {
-      children: [_v19 && (0, _v1.jsx)(_v27, {
+      children: [_v20 && (0, _v1.jsx)(_v27, {
         percentUsed: _v18,
-        linkText: _v23.text,
-        upgradeHref: _v23.href,
-        onUpgradeClick: _v24,
+        linkText: _v24.text,
+        upgradeHref: _v24.href,
+        onUpgradeClick: _v25,
         quotaUnit: _v16
       }), (0, _v1.jsxs)(_v32, {
         children: [(0, _v1.jsx)(_v18.Text, {
           style: {
             fontSize: `${(0, _v3.rem)(20)}`
           },
-          children: _v21 ? (0, _v9.translate)({
+          children: _v22 ? (0, _v9.translate)({
             singular: "Video usage",
             dictionary: {
               es: {
@@ -447,7 +448,32 @@
           style: {
             fontSize: `${(0, _v3.rem)(20)}`
           },
-          children: `${_v18}%`
+          children: _v19 ? (0, _v9.translate)({
+            singular: "Unlimited",
+            dictionary: {
+              es: {
+                singular: "Ilimitado"
+              },
+              "de-DE": {
+                singular: "Unbegrenzt"
+              },
+              "fr-FR": {
+                singular: "Illimité"
+              },
+              "ja-JP": {
+                singular: "無制限"
+              },
+              "ko-KR": {
+                singular: "무제한"
+              },
+              "pt-BR": {
+                singular: "Ilimitado"
+              },
+              "zh-CN": {
+                singular: "无限"
+              }
+            }
+          }) : `${_v18}%`
         })]
       }), (0, _v1.jsx)(_v31, {
         children: (0, _v1.jsx)(_v14.Progress, {
@@ -480,7 +506,7 @@
             })
           })]
         }) : (0, _v1.jsxs)(_v1.Fragment, {
-          children: [!!_v10?.max && (0, _v1.jsxs)(_v31, {
+          children: [null != _v10 && (null != _v10.max || null != _v10.used) && (0, _v1.jsxs)(_v31, {
             children: [((_v0, _v1, _v2) => {
               switch (_v0) {
                 case "lifetime":
@@ -617,10 +643,35 @@
               }
             })(_v15, _v3, _v4), (0, _v1.jsx)(_v36, {
               children: (0, _v1.jsx)("span", {
-                children: `${_v28(_v10.used, _v16)} of ${_v28(_v10.max, _v16)}`
+                children: `${_v28(_v10.used, _v16)} of ${null == _v10.max ? (0, _v9.translate)({
+                  singular: "Unlimited",
+                  dictionary: {
+                    es: {
+                      singular: "Ilimitado"
+                    },
+                    "de-DE": {
+                      singular: "Unbegrenzt"
+                    },
+                    "fr-FR": {
+                      singular: "Illimité"
+                    },
+                    "ja-JP": {
+                      singular: "無制限"
+                    },
+                    "ko-KR": {
+                      singular: "무제한"
+                    },
+                    "pt-BR": {
+                      singular: "Ilimitado"
+                    },
+                    "zh-CN": {
+                      singular: "无限"
+                    }
+                  }
+                }) : _v28(_v10.max, _v16)}`
               })
             })]
-          }), !!_v9?.max && (0, _v1.jsxs)(_v31, {
+          }), null != _v9 && (null != _v9.max || null != _v9.used) && (0, _v1.jsxs)(_v31, {
             hasTotalStorageCap: _v4,
             children: [(0, _v9.translate)({
               singular: "Total",
@@ -640,12 +691,37 @@
               }
             }), (0, _v1.jsx)(_v36, {
               children: (0, _v1.jsx)("span", {
-                children: `${_v28(_v9.used, _v16)} of ${_v28(_v9.max, _v16)}`
+                children: `${_v28(_v9.used, _v16)} of ${null == _v9.max ? (0, _v9.translate)({
+                  singular: "Unlimited",
+                  dictionary: {
+                    es: {
+                      singular: "Ilimitado"
+                    },
+                    "de-DE": {
+                      singular: "Unbegrenzt"
+                    },
+                    "fr-FR": {
+                      singular: "Illimité"
+                    },
+                    "ja-JP": {
+                      singular: "無制限"
+                    },
+                    "ko-KR": {
+                      singular: "무제한"
+                    },
+                    "pt-BR": {
+                      singular: "Ilimitado"
+                    },
+                    "zh-CN": {
+                      singular: "无限"
+                    }
+                  }
+                }) : _v28(_v9.max, _v16)}`
               })
             })]
           })]
         })
-      }), !(_v2 || _v1) && !_v19 && (0, _v1.jsxs)(_v1.Fragment, {
+      }), !(_v2 || _v1) && !_v20 && (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v34, {}), (0, _v1.jsx)(_v33, {
           children: (0, _v1.jsx)(_v20.UpgradeBadge, {
             style: {
@@ -658,9 +734,9 @@
               lineHeight: (0, _v3.rem)(23)
             },
             noMargin: !0,
-            onClick: _v25,
-            href: _v23.href,
-            children: _v23.text
+            onClick: _v26,
+            href: _v24.href,
+            children: _v24.text
           })
         })]
       })]
@@ -826,64 +902,90 @@
     onClick: _v6,
     className: _v7
   }) {
-    let _v8 = _v0 / _v1,
+    let _v8 = null !== _v1 && _v1 > 0 && Number.isFinite(_v1) ? _v0 / _v1 : 0,
       _v9 = Math.round(100 * _v8),
-      _v10 = (0, _v4.useContext)(_v5.ThemeContext),
-      _v11 = {
+      _v10 = null === _v1 || !Number.isFinite(_v1),
+      _v11 = (0, _v4.useContext)(_v5.ThemeContext),
+      _v12 = {
         StoragePill: {
-          bg: _v10?.elements?.bg1,
-          fg: _v10?.elements?.color4,
-          border: _v10?.elements?.color4,
-          hoverBg: _v10?.elements?.bg1,
-          hoverBorder: _v10?.elements?.color4,
-          numberFg: _v10?.formats?.primary
+          bg: _v11?.elements?.bg1,
+          fg: _v11?.elements?.color4,
+          border: _v11?.elements?.color4,
+          hoverBg: _v11?.elements?.bg1,
+          hoverBorder: _v11?.elements?.color4,
+          numberFg: _v11?.formats?.primary
         }
       };
     switch (_v4) {
       case "safe":
-        _v11 = {
+        _v12 = {
           StoragePill: {
-            bg: _v10?.elements?.bg1,
-            fg: _v10?.elements?.color4,
-            border: _v10?.elements?.color4,
-            hoverBg: _v10?.elements?.bg1,
-            hoverBorder: _v10?.elements?.color4,
-            numberFg: _v10?.formats?.primary
+            bg: _v11?.elements?.bg1,
+            fg: _v11?.elements?.color4,
+            border: _v11?.elements?.color4,
+            hoverBg: _v11?.elements?.bg1,
+            hoverBorder: _v11?.elements?.color4,
+            numberFg: _v11?.formats?.primary
           }
         };
         break;
       case "warn":
-        _v11 = {
+        _v12 = {
           StoragePill: {
-            bg: _v10?.name === "dark" ? "rgba(55, 37, 0, 1)" : "rgba(255, 247, 232, 1)",
-            fg: _v10?.elements?.color4,
+            bg: _v11?.name === "dark" ? "rgba(55, 37, 0, 1)" : "rgba(255, 247, 232, 1)",
+            fg: _v11?.elements?.color4,
             border: "rgba(255, 178, 30, 1)",
-            hoverBg: _v10?.name === "dark" ? "rgba(55, 37, 0, 1)" : "rgba(255, 247, 232, 1)",
+            hoverBg: _v11?.name === "dark" ? "rgba(55, 37, 0, 1)" : "rgba(255, 247, 232, 1)",
             hoverBorder: "rgba(255, 178, 30, 1)",
             numberFg: "rgba(255, 178, 30, 1)"
           }
         };
         break;
       case "limit":
-        _v11 = {
+        _v12 = {
           StoragePill: {
-            bg: _v10?.name === "dark" ? "rgba(56, 9, 9, 1)" : "rgba(255, 237, 237, 1)",
-            fg: _v10?.elements?.color4,
+            bg: _v11?.name === "dark" ? "rgba(56, 9, 9, 1)" : "rgba(255, 237, 237, 1)",
+            fg: _v11?.elements?.color4,
             border: "rgba(226, 43, 18, 1)",
-            hoverBg: _v10?.name === "dark" ? "rgba(56, 9, 9, 1)" : "rgba(255, 237, 237, 1)",
+            hoverBg: _v11?.name === "dark" ? "rgba(56, 9, 9, 1)" : "rgba(255, 237, 237, 1)",
             hoverBorder: "rgba(226, 43, 18, 1)",
             numberFg: "rgba(226, 43, 18, 1)"
           }
         };
     }
     return (0, _v1.jsx)(_v5.ThemeProvider, {
-      theme: _v11,
+      theme: _v12,
       children: (0, _v1.jsx)(_v48, {
         size: "sm",
         bounce: "warn" === _v4 || "limit" === _v4 || "safe" === _v4 && _v8 > 2 / 3 && _v8 < 3 / 4,
         format: "secondary",
         variant: "outline",
-        "aria-label": (({
+        "aria-label": _v10 ? (0, _v9.translate)({
+          singular: "Storage",
+          dictionary: {
+            es: {
+              singular: "Almacenamiento:"
+            },
+            "de-DE": {
+              singular: "Speicherplatz"
+            },
+            "fr-FR": {
+              singular: "Stockage"
+            },
+            "ja-JP": {
+              singular: "ストレージ"
+            },
+            "ko-KR": {
+              singular: "저장 공간"
+            },
+            "pt-BR": {
+              singular: "Armazenamento"
+            },
+            "zh-CN": {
+              singular: "存储"
+            }
+          }
+        }) : (({
           period: _v0,
           percentUsed: _v1
         }) => {
@@ -1022,20 +1124,99 @@
             fontWeight: 500
           },
           children: ((_v0, _v1, _v2, _v3, _v4) => {
-            let _v5 = Math.round(_v3 / _v4 * 100),
-              _v6 = {
+            let _v5 = null === _v4 || !Number.isFinite(_v4),
+              _v6 = null !== _v4 && _v4 > 0 ? Math.round(_v3 / _v4 * 100) : 0,
+              _v7 = {
                 percentUsed: (0, _v1.jsxs)(_v49, {
-                  children: [_v5, "%"]
+                  children: [_v6, "%"]
                 }, "used-text")
-              };
+              },
+              _v8 = _v5 ? (0, _v9.translate)({
+                singular: "Unlimited",
+                dictionary: {
+                  es: {
+                    singular: "Ilimitado"
+                  },
+                  "de-DE": {
+                    singular: "Unbegrenzt"
+                  },
+                  "fr-FR": {
+                    singular: "Illimité"
+                  },
+                  "ja-JP": {
+                    singular: "無制限"
+                  },
+                  "ko-KR": {
+                    singular: "무제한"
+                  },
+                  "pt-BR": {
+                    singular: "Ilimitado"
+                  },
+                  "zh-CN": {
+                    singular: "无限"
+                  }
+                }
+              }) : (0, _v22.bytesToSize)(_v4),
+              _v9 = _v5 ? (0, _v9.translate)({
+                singular: "Unlimited",
+                dictionary: {
+                  es: {
+                    singular: "Ilimitado"
+                  },
+                  "de-DE": {
+                    singular: "Unbegrenzt"
+                  },
+                  "fr-FR": {
+                    singular: "Illimité"
+                  },
+                  "ja-JP": {
+                    singular: "無制限"
+                  },
+                  "ko-KR": {
+                    singular: "무제한"
+                  },
+                  "pt-BR": {
+                    singular: "Ilimitado"
+                  },
+                  "zh-CN": {
+                    singular: "无限"
+                  }
+                }
+              }) : _v4 ?? 0;
             if ("video_count" === _v1) {
+              if (_v5 && "ratio" !== _v0) return (0, _v9.translate)({
+                singular: "Video usage",
+                dictionary: {
+                  es: {
+                    singular: "Uso de videos"
+                  },
+                  "de-DE": {
+                    singular: "Videonutzung"
+                  },
+                  "fr-FR": {
+                    singular: "Utilisation des vidéos"
+                  },
+                  "ja-JP": {
+                    singular: "動画使用量"
+                  },
+                  "ko-KR": {
+                    singular: "동영상 사용량"
+                  },
+                  "pt-BR": {
+                    singular: "Uso de vídeo"
+                  },
+                  "zh-CN": {
+                    singular: "视频使用"
+                  }
+                }
+              });
               if ("ratio" === _v0) switch (_v2) {
                 case "week":
                   return (0, _v9.translate)({
                     singular: "Weekly videos {STYLE}{used}/{max}{/STYLE}",
                     replacements: {
                       used: _v3,
-                      max: _v4,
+                      max: _v9,
                       STYLE: _v0 => (0, _v1.jsx)(_v49, {
                         children: _v0
                       }, "used-text")
@@ -1069,7 +1250,7 @@
                     singular: "Monthly videos {STYLE}{used}/{max}{/STYLE}",
                     replacements: {
                       used: _v3,
-                      max: _v4,
+                      max: _v9,
                       STYLE: _v0 => (0, _v1.jsx)(_v49, {
                         children: _v0
                       }, "used-text")
@@ -1103,7 +1284,7 @@
                     singular: "Yearly videos {STYLE}{used}/{max}{/STYLE}",
                     replacements: {
                       used: _v3,
-                      max: _v4,
+                      max: _v9,
                       STYLE: _v0 => (0, _v1.jsx)(_v49, {
                         children: _v0
                       }, "used-text")
@@ -1137,7 +1318,7 @@
                     singular: "Total videos {STYLE}{used}/{max}{/STYLE}",
                     replacements: {
                       used: _v3,
-                      max: _v4,
+                      max: _v9,
                       STYLE: _v0 => (0, _v1.jsx)(_v49, {
                         children: _v0
                       }, "used-text")
@@ -1169,7 +1350,7 @@
               }
               return (0, _v9.translate)({
                 singular: "Video usage {percentUsed}",
-                replacements: _v6,
+                replacements: _v7,
                 dictionary: {
                   es: {
                     singular: "Uso de videos {percentUsed}"
@@ -1195,11 +1376,36 @@
                 }
               });
             }
-            return "ratio" === _v0 ? (0, _v9.translate)({
+            return _v5 && "ratio" !== _v0 ? (0, _v9.translate)({
+              singular: "Storage",
+              dictionary: {
+                es: {
+                  singular: "Almacenamiento:"
+                },
+                "de-DE": {
+                  singular: "Speicherplatz"
+                },
+                "fr-FR": {
+                  singular: "Stockage"
+                },
+                "ja-JP": {
+                  singular: "ストレージ"
+                },
+                "ko-KR": {
+                  singular: "저장 공간"
+                },
+                "pt-BR": {
+                  singular: "Armazenamento"
+                },
+                "zh-CN": {
+                  singular: "存储"
+                }
+              }
+            }) : "ratio" === _v0 ? (0, _v9.translate)({
               singular: "Storage {STYLE}{used}/{max}{/STYLE}",
               replacements: {
                 used: (0, _v22.bytesToSize)(_v3),
-                max: (0, _v22.bytesToSize)(_v4),
+                max: _v8,
                 STYLE: _v0 => (0, _v1.jsx)(_v49, {
                   children: _v0
                 }, "used-text")
@@ -1229,7 +1435,7 @@
               }
             }) : (0, _v9.translate)({
               singular: "Storage {percentUsed}",
-              replacements: _v6,
+              replacements: _v7,
               dictionary: {
                 es: {
                   singular: "Almacenamiento {percentUsed}"
@@ -1558,7 +1764,7 @@
           children: (0, _v1.jsx)("div", {
             children: (0, _v1.jsx)(_v45, {
               used: _v23,
-              max: _v24 ?? 1 / 0,
+              max: _v24 ?? null,
               period: _v22 ? "lifetime" : _v20.space?.showing === "periodic" ? _v20.periodic?.period ?? "week" : "lifetime",
               unit: _v25 ?? "video_size",
               mood: _v27,

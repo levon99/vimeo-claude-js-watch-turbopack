@@ -47,13 +47,11 @@
     _v43 = _v0.i(0),
     _v44 = _v0.i(0),
     _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  let _v49 = async _v0 => {
+    _v46 = _v0.i(0);
+  let _v47 = async _v0 => {
       await Promise.all(_v0.map(async _v0 => {
         try {
-          await (0, _v43.fetchMediaMetadata)({
+          await (0, _v41.fetchMediaMetadata)({
             url: _v0.previewUrl,
             type: _v0.type === _v23.SourceType.CLIP ? "video" : "image",
             eventName: "loadeddata",
@@ -64,7 +62,7 @@
         }
       }));
     },
-    _v50 = _v0 => {
+    _v48 = _v0 => {
       let _v1 = (0, _v22.useDispatch)(),
         _v2 = (0, _v12.useAppSelector)(_v10.storyboardSelector),
         _v3 = (0, _v12.useAppSelector)(_v10.durationSelector),
@@ -94,8 +92,8 @@
         _v15 = (0, _v2.useCallback)((_v0, _v1) => {
           let _v2 = _v1 ? _v6 : _v5;
           if (_v2 && _v2 !== _v4) {
-            let _v0 = (0, _v42.isMediaElement)(_v0) && !(0, _v42.isLogo)(_v0);
-            (0, _v42.isSolidElement)(_v0) || (_v0.rect = (0, _v44.changeRectByOrientation)(_v0.rect, _v2, _v4, !!_v0)), (0, _v42.isTextElement)(_v0) && (_v0.fontSize = (0, _v44.changeTextFontSizeByOrientation)(_v0.fontSize, _v2, _v4));
+            let _v0 = (0, _v40.isMediaElement)(_v0) && !(0, _v40.isLogo)(_v0);
+            (0, _v40.isSolidElement)(_v0) || (_v0.rect = (0, _v42.changeRectByOrientation)(_v0.rect, _v2, _v4, !!_v0)), (0, _v40.isTextElement)(_v0) && (_v0.fontSize = (0, _v42.changeTextFontSizeByOrientation)(_v0.fontSize, _v2, _v4));
           }
         }, [_v4, _v6, _v5]),
         _v16 = (0, _v2.useCallback)(async ({
@@ -107,7 +105,7 @@
               time: _v3
             } = _v1 || {},
             _v4 = structuredClone(_v0);
-          if (_v4.id = (0, _v46.randomString)(5), (0, _v42.isSoundElement)(_v4)) {
+          if (_v4.id = (0, _v44.randomString)(5), (0, _v40.isSoundElement)(_v4)) {
             let _v0 = _v2.sources.find(_v0 => _v0.hash.toString() === _v0.id || _v0.hash.toString() === _v4.sourceHash);
             if (!_v0) return void _v33.default.sendAction(_v30.TemplateMissingSource, {
               templateId: _v2.id,
@@ -115,16 +113,16 @@
             });
             _v1((0, _v10.addSourceAction)(_v0));
           }
-          if ((0, _v42.isVideoElement)(_v4) && (_v4.timing = (0, _v45.getElementTimingObject)(_v4.timing)), (0, _v42.isUploadedGraphicElement)(_v4)) return;
+          if ((0, _v40.isVideoElement)(_v4) && (_v4.timing = (0, _v43.getElementTimingObject)(_v4.timing)), (0, _v40.isUploadedGraphicElement)(_v4)) return;
           let _v5 = _v3 ?? _v3 ?? 0,
             _v6 = {
               ..._v4,
               zindex: void 0,
               compositionTiming: {
-                start: (0, _v48.toNearestFrame)(_v4.compositionTiming.start + _v5),
-                end: (0, _v48.toNearestFrame)(_v4.compositionTiming.end + _v5)
+                start: (0, _v46.toNearestFrame)(_v4.compositionTiming.start + _v5),
+                end: (0, _v46.toNearestFrame)(_v4.compositionTiming.end + _v5)
               },
-              ...((0, _v42.isImageElement)(_v4) && {
+              ...((0, _v40.isImageElement)(_v4) && {
                 layers: [{
                   type: _v38.ImageLayerTypeName.FULL_SOURCE,
                   effects: [{
@@ -133,7 +131,7 @@
                       transformsFromFootageRect: [{
                         timing: {
                           startTime: 0,
-                          endTime: (0, _v48.toNearestFrame)(_v0.compositionTiming.end + _v5 - _v0.compositionTiming.start + _v5)
+                          endTime: (0, _v46.toNearestFrame)(_v0.compositionTiming.end + _v5 - _v0.compositionTiming.start + _v5)
                         },
                         transform: {
                           type: _v38.TransitionTimingFunctionName.LINEAR,
@@ -147,7 +145,7 @@
                 }]
               })
             };
-          (0, _v42.isMediaElement)(_v6) && (0, _v43.normalizeMediaRect)(_v6, _v4), _v15(_v6, !1), _v1?.layerId && _v1?.layerOffset !== void 0 ? _v7.current.unshift({
+          (0, _v40.isMediaElement)(_v6) && (0, _v41.normalizeMediaRect)(_v6, _v4), _v15(_v6, !1), _v1?.layerId && _v1?.layerOffset !== void 0 ? _v7.current.unshift({
             anchorOffset: _v7.current.length,
             elements: [_v6]
           }) : _v11(_v6, {
@@ -160,7 +158,7 @@
           if (!_v4) return;
           let _v5 = _v9();
           try {
-            let _v0 = (0, _v45.getVisualSourceHashesFromScenes)([_v4]),
+            let _v0 = (0, _v43.getVisualSourceHashesFromScenes)([_v4]),
               _v1 = {},
               _v2 = [];
             if (_v0.length > 0) {
@@ -175,11 +173,11 @@
             await (0, _v21.batch)(async () => {
               _v2.forEach(_v0 => {
                 _v1((0, _v10.addSourceAction)(_v0));
-              }), await _v49(_v2);
+              }), await _v47(_v2);
               let _v0 = _v4.bgColor || `#${_v3.branding.colors.primary}`,
                 _v1 = {
                   start: 0,
-                  end: (0, _v48.toNearestFrame)(_v4.sceneDuration.endTime - _v4.sceneDuration.startTime)
+                  end: (0, _v46.toNearestFrame)(_v4.sceneDuration.endTime - _v4.sceneDuration.startTime)
                 };
               _v16({
                 ce: _v12(_v0, _v1),
@@ -190,13 +188,13 @@
               }), _v4.composition.slice().sort((_v0, _v1) => (_v0.zindex || 0) - (_v1.zindex || 0)).forEach(_v0 => {
                 let _v1 = {
                   ..._v0,
-                  ...((0, _v42.isElementWithTiming)(_v0) && {
+                  ...((0, _v40.isElementWithTiming)(_v0) && {
                     compositionTiming: {
                       start: _v0.compositionTiming.start,
                       end: _v4.sceneDuration.endTime - _v4.sceneDuration.startTime
                     }
                   }),
-                  ...(((0, _v42.isMediaElement)(_v0) || (0, _v42.isGraphicElement)(_v0)) && _v0.sourceHash && {
+                  ...(((0, _v40.isMediaElement)(_v0) || (0, _v40.isGraphicElement)(_v0)) && _v0.sourceHash && {
                     sourceHash: _v1[_v0.sourceHash] || _v0.sourceHash
                   })
                 };
@@ -207,11 +205,6 @@
                   },
                   template: _v3
                 });
-              }), _v0 === _v39.TemplatesContext.TEMPLATES && (0, _v40.sendTrackSelectTemplateScene)({
-                format: _v4,
-                selectionName: _v3.title,
-                selectionId: _v3.id,
-                numberOfElements: _v3.items.length
               }), _v1((0, _v10.addElementsToLayersWithOffsetMapAction)({
                 elementsData: _v7.current,
                 direction: _v2?.layerOffset || 0,
@@ -221,10 +214,10 @@
           } catch (_v0) {
             throw console.error("Error adding scene:", _v0), _v0;
           }
-        }, [_v16, _v0, _v12, _v9, _v1, _v4, _v8, _v2.id]),
+        }, [_v16, _v12, _v9, _v1, _v8, _v2.id]),
         _v18 = (0, _v2.useCallback)(async _v0 => {
           _v1((0, _v10.deleteAllElementsAction)());
-          let _v1 = (0, _v45.getVisualSourceHashesFromScenes)(_v0.items),
+          let _v1 = (0, _v43.getVisualSourceHashesFromScenes)(_v0.items),
             _v2 = {},
             _v3 = [];
           if (_v1.length > 0) {
@@ -255,7 +248,7 @@
             }
           }, !0), _v1((0, _v36.setLastSelectedFont)(_v5));
           let _v7 = 0,
-            _v8 = (0, _v41.validateHexColorPalette)(_v4);
+            _v8 = (0, _v39.validateHexColorPalette)(_v4);
           if (_v1((0, _v10.setBrandingColorsAction)({
             colorPalette: _v8,
             isIgnoreUndo: !0
@@ -265,15 +258,15 @@
           })), _v0.items.forEach(_v0 => {
             if (_v0.bgColor && _v0.bgColor !== `#${_v4.primary}`) {
               let _v0 = {
-                start: (0, _v48.toNearestFrame)(_v0.sceneDuration.startTime - _v3),
-                end: (0, _v48.toNearestFrame)(_v0.sceneDuration.endTime - _v3)
+                start: (0, _v46.toNearestFrame)(_v0.sceneDuration.startTime - _v3),
+                end: (0, _v46.toNearestFrame)(_v0.sceneDuration.endTime - _v3)
               };
               _v16({
                 ce: _v12(_v0.bgColor, _v0),
                 template: _v0
               });
             }
-            let _v1 = (0, _v48.toNearestFrame)(_v0.sceneDuration.endTime);
+            let _v1 = (0, _v46.toNearestFrame)(_v0.sceneDuration.endTime);
             _v0.composition.slice().sort((_v0, _v1) => (_v0.zindex || 0) - (_v1.zindex || 0)).forEach(_v0 => {
               let _v1 = void 0 === _v0.compositionTiming.start ? _v0.compositionTiming.startTime : _v0.compositionTiming.start,
                 _v2 = void 0 === _v0.compositionTiming.end ? _v0.compositionTiming.endTime : _v0.compositionTiming.end;
@@ -281,10 +274,10 @@
                 ce: {
                   ...JSON.parse(JSON.stringify(_v0)),
                   compositionTiming: {
-                    start: (0, _v48.toNearestFrame)(_v1 + _v7 - _v3),
-                    end: (0, _v48.toNearestFrame)(((0, _v42.isMediaElement)(_v0) ? _v1 : Math.min(_v2 + _v7, _v1)) - _v3)
+                    start: (0, _v46.toNearestFrame)(_v1 + _v7 - _v3),
+                    end: (0, _v46.toNearestFrame)(((0, _v40.isMediaElement)(_v0) ? _v1 : Math.min(_v2 + _v7, _v1)) - _v3)
                   },
-                  ...((0, _v42.isMediaElement)(_v0) && {
+                  ...((0, _v40.isMediaElement)(_v0) && {
                     sourceHash: _v2[_v0.sourceHash] || _v0.sourceHash
                   })
                 },
@@ -322,7 +315,7 @@
               template: _v0
             });
           }
-          await _v49(_v3), _v10(0);
+          await _v47(_v3), _v10(0);
         }, [_v1, _v2, _v14, _v10, _v8, _v3, _v16, _v12, _v13]),
         _v19 = (0, _v2.useCallback)(async (_v0, _v1, _v2 = !1) => {
           try {
@@ -336,7 +329,7 @@
             _v1 || _v3.forEach(_v0 => {
               _v0.composition.forEach(_v0 => _v15(_v0, !0));
             });
-            let _v4 = (0, _v45.getVisualSourceHashesFromLayers)(_v0.layers),
+            let _v4 = (0, _v43.getVisualSourceHashesFromLayers)(_v0.layers),
               _v5 = new Map(),
               _v6 = [];
             if (_v4.length > 0 && !_v2) {
@@ -351,7 +344,7 @@
               _v5 = new Map(Object.entries(_v1)), _v3 = _v3.map(_v0 => ({
                 ..._v0,
                 composition: _v0.composition.map(_v0 => {
-                  if ((0, _v42.isMediaElement)(_v0) || (0, _v42.isGraphicElement)(_v0)) {
+                  if ((0, _v40.isMediaElement)(_v0) || (0, _v40.isGraphicElement)(_v0)) {
                     let _v0 = _v5.get(_v0.sourceHash);
                     return _v0 ? {
                       ..._v0,
@@ -362,7 +355,7 @@
                 })
               }));
             }
-            await _v49(_v6);
+            await _v47(_v6);
             let _v7 = {
               ..._v2,
               layers: _v3,
@@ -388,13 +381,15 @@
       return {
         addScene: _v17,
         addTemplate: (0, _v2.useCallback)(async (_v0, _v1, _v2 = !1) => {
-          (0, _v47.isLayersTemplate)(_v0) ? await _v19(_v0, _v1, _v2) : await _v18(_v0);
+          (0, _v45.isLayersTemplate)(_v0) ? await _v19(_v0, _v1, _v2) : await _v18(_v0);
         }, [_v19, _v18]),
         addTemplateElement: _v16
       };
     };
-  _v0.s(["useTemplates", 0, _v50], 0);
-  var _v51 = _v0.i(0),
+  _v0.s(["useTemplates", 0, _v48], 0);
+  var _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
     _v54 = _v0.i(0),
@@ -405,71 +400,67 @@
     _v59 = _v0.i(0),
     _v60 = _v0.i(0),
     _v61 = _v0.i(0),
-    _v62 = _v0.i(0),
-    _v63 = _v0.i(0),
-    _v64 = _v0.i(0),
-    _v65 = _v0.i(0);
-  let _v66 = ({
+    _v62 = _v0.i(0);
+  let _v63 = ({
       hash: _v0,
       templateName: _v1,
       templateVideoUrl: _v2,
-      templateId: _v3,
-      orientation: _v4,
-      onBack: _v5
+      orientation: _v3,
+      onBack: _v4
     }) => {
-      let _v6 = (0, _v12.useAppDispatch)(),
-        _v7 = (0, _v12.useAppSelector)(_v10.durationSelector),
-        _v8 = (0, _v12.useAppSelector)(_v10.orientationSelector),
-        _v9 = (0, _v12.useAppSelector)(_v11.templatesOrientationSelector) || _v8,
+      let _v5 = (0, _v12.useAppDispatch)(),
+        _v6 = (0, _v12.useAppSelector)(_v10.durationSelector),
+        _v7 = (0, _v12.useAppSelector)(_v10.orientationSelector),
+        _v8 = (0, _v12.useAppSelector)(_v11.templatesOrientationSelector) || _v7,
         {
-          data: _v10,
-          isLoading: _v11
+          data: _v9,
+          isLoading: _v10
         } = (0, _v9.useFetchTemplateQuery)({
           hash: _v0
         }),
         {
-          addScene: _v12,
-          addTemplate: _v13
-        } = _v50(_v39.TemplatesContext.TEMPLATES),
+          addScene: _v11,
+          addTemplate: _v12
+        } = _v48("templates"),
         {
-          alertUseAllScenes: _v14
+          alertUseAllScenes: _v13
         } = (0, _v17.useAlerts)(),
         {
-          changeInvalidFonts: _v15
+          changeInvalidFonts: _v14
         } = (0, _v19.useFontDeprecation)(),
-        _v16 = (0, _v2.useMemo)(() => _v10 && (0, _v47.isScenesTemplate)(_v10) ? _v10.items : [], [_v10]),
-        _v17 = (0, _v2.useMemo)(() => _v10 && (0, _v47.isScenesTemplate)(_v10) ? _v10.title : void 0, [_v10]),
-        _v18 = (0, _v2.useCallback)(async () => {
-          if (!_v10) throw Error(_v65.NO_TEMPLATE_AVAILABLE);
-          let _v0 = _v15(_v10);
-          _v7 > 0 ? _v14(async () => {
-            _v6((0, _v11.setIsTemplateBeingAddedAction)(!0)), await _v13(_v0), _v6((0, _v11.setIsTemplateBeingAddedAction)(!1));
-          }) : (_v6((0, _v11.setIsTemplateBeingAddedAction)(!0)), await _v13(_v0), _v6((0, _v11.setIsTemplateBeingAddedAction)(!1)));
-        }, [_v13, _v14, _v15, _v10, _v6, _v7]),
-        _v19 = (0, _v2.useCallback)(async (_v0, _v1) => {
-          if (!_v10) throw Error(_v65.NO_TEMPLATE_AVAILABLE);
-          if (!(0, _v47.isScenesTemplate)(_v10)) throw Error(_v65.WRONG_TEMPLATE_TYPE);
-          let _v2 = _v15(_v10);
-          _v6((0, _v11.setIsTemplateBeingAddedAction)(!0)), await _v12(_v2, _v0, _v1), _v6((0, _v11.setIsTemplateBeingAddedAction)(!1));
-        }, [_v12, _v15, _v10, _v6]),
-        _v20 = (0, _v2.useCallback)((_v0, _v1, _v2) => {
-          let _v3 = _v16[_v0];
-          return _v3 ? (0, _v1.jsx)(_v57.default, {
+        _v15 = (0, _v2.useMemo)(() => _v9 && (0, _v45.isScenesTemplate)(_v9) ? _v9.items : [], [_v9]),
+        _v16 = (0, _v2.useMemo)(() => _v9 && (0, _v45.isScenesTemplate)(_v9) ? _v9.title : void 0, [_v9]),
+        _v17 = (0, _v2.useCallback)(async () => {
+          if (!_v9) throw Error(_v62.NO_TEMPLATE_AVAILABLE);
+          let _v0 = _v14(_v9);
+          _v6 > 0 ? _v13(async () => {
+            _v5((0, _v11.setIsTemplateBeingAddedAction)(!0)), await _v12(_v0), _v5((0, _v11.setIsTemplateBeingAddedAction)(!1));
+          }) : (_v5((0, _v11.setIsTemplateBeingAddedAction)(!0)), await _v12(_v0), _v5((0, _v11.setIsTemplateBeingAddedAction)(!1)));
+        }, [_v12, _v13, _v14, _v9, _v5, _v6]),
+        _v18 = (0, _v2.useCallback)(async (_v0, _v1) => {
+          if (!_v9) throw Error(_v62.NO_TEMPLATE_AVAILABLE);
+          if (!(0, _v45.isScenesTemplate)(_v9)) throw Error(_v62.WRONG_TEMPLATE_TYPE);
+          let _v2 = _v14(_v9);
+          _v5((0, _v11.setIsTemplateBeingAddedAction)(!0)), await _v11(_v2, _v0, _v1), _v5((0, _v11.setIsTemplateBeingAddedAction)(!1));
+        }, [_v11, _v14, _v9, _v5]),
+        _v19 = (0, _v2.useCallback)((_v0, _v1, _v2) => {
+          let _v3 = _v15[_v0];
+          return _v3 ? (0, _v1.jsx)(_v54.default, {
             id: _v3.id,
-            gridStyleType: _v4,
+            gridStyleType: _v3,
             videoUrl: _v2,
             imageUrl: _v3.thumbnail,
             videoStartTime: _v3.sceneDuration.startTime,
             videoEndTime: _v3.sceneDuration.endTime,
             width: _v1,
             isActive: !1,
-            onClick: _v19,
+            onClick: _v18,
             draggableData: {
               id: _v3.id,
               data: _v3,
-              type: _v52.DnDItemType.GRID_ELEMENT_TEMPLATE,
+              type: _v50.DnDItemType.GRID_ELEMENT_TEMPLATE,
               onElementDropped: _v0 => {
-                _v19(_v3.id, _v0);
+                _v18(_v3.id, _v0);
               }
             },
             isShowPlusButton: !0,
@@ -478,7 +469,7 @@
               id: _v3.id,
               title: "",
               date: "",
-              type: _v51.ExpandType.MEDIA,
+              type: _v49.ExpandType.MEDIA,
               videoUrl: _v2 ?? "",
               ...(_v3.thumbnail && {
                 imageUrl: _v3.thumbnail
@@ -486,27 +477,27 @@
               startTime: _v3.sceneDuration.startTime,
               endTime: _v3.sceneDuration.endTime,
               width: _v1,
-              orientation: _v4
+              orientation: _v3
             },
             testid: "template-scene"
           }, _v3.id) : (0, _v1.jsx)(_v1.Fragment, {});
-        }, [_v16, _v4, _v2, _v19]);
+        }, [_v15, _v3, _v2, _v18]);
       return (0, _v1.jsxs)(_v14.SingleTemplateInspectorContainer, {
-        children: [!_v11 && (0, _v1.jsxs)(_v14.TopBarContainer, {
+        children: [!_v10 && (0, _v1.jsxs)(_v14.TopBarContainer, {
           children: [(0, _v1.jsxs)(_v14.TopBarNavigation, {
-            children: [(0, _v1.jsx)(_v63.IconButton, {
+            children: [(0, _v1.jsx)(_v60.IconButton, {
               variant: "tertiary",
-              icon: (0, _v1.jsx)(_v64.ChevronLeftSmall, {}),
-              onClick: _v5,
+              icon: (0, _v1.jsx)(_v61.ChevronLeftSmall, {}),
+              onClick: _v4,
               "data-testid": "template-back-button",
               "aria-label": "template-back-button",
               size: "sm"
-            }), (0, _v1.jsx)(_v62.Header, {
+            }), (0, _v1.jsx)(_v59.Header, {
               size: "xs",
               "data-testid": "template-title",
-              children: _v1 || _v17
+              children: _v1 || _v16
             })]
-          }), _v8 !== _v9 && (0, _v1.jsx)(_v14.AlertContainer, {
+          }), _v7 !== _v8 && (0, _v1.jsx)(_v14.AlertContainer, {
             paddingRight: "0",
             paddingLeft: "0",
             paddingTop: "0",
@@ -522,7 +513,7 @@
                   children: (0, _v6.translate)({
                     singular: "These templates have a {RATIO} ratio.\n",
                     replacements: {
-                      RATIO: _v13.OrientationRatioString[_v9]
+                      RATIO: _v13.OrientationRatioString[_v8]
                     },
                     dictionary: {
                       es: {
@@ -552,7 +543,7 @@
                   variant: "minimal",
                   cursor: "pointer",
                   onClick: () => {
-                    _v6((0, _v11.setTemplatesOrientationAction)(_v8)), _v5();
+                    _v5((0, _v11.setTemplatesOrientationAction)(_v7)), _v4();
                   },
                   children: (0, _v6.translate)({
                     singular: "View templates that fit this video's ratio",
@@ -583,14 +574,9 @@
                 })]
               })
             })
-          }), (0, _v1.jsx)(_v61.Button, {
+          }), (0, _v1.jsx)(_v58.Button, {
             onClick: () => {
-              (0, _v40.sendTrackAddAllTemplatesScenes)({
-                format: _v4,
-                selectionName: _v1,
-                selectionId: String(_v3),
-                numberOfElements: _v16.length
-              }), _v18();
+              _v17();
             },
             width: "100%",
             "data-testid": "template-use-all-scenes-button",
@@ -599,7 +585,7 @@
             children: (0, _v6.translate)({
               singular: "Use all {NUMBER_OF_SCENES} scenes",
               replacements: {
-                NUMBER_OF_SCENES: _v16.length
+                NUMBER_OF_SCENES: _v15.length
               },
               dictionary: {
                 es: {
@@ -628,12 +614,12 @@
           })]
         }), (0, _v1.jsx)(_v14.ItemsContainer, {
           padRight: !1,
-          children: (0, _v1.jsx)(_v58.default, {
-            itemRenderer: _v20,
-            styleType: _v55.GridStyleType.LANDSCAPE,
-            items: _v16,
-            isLoading: _v11,
-            onCTA: _v19,
+          children: (0, _v1.jsx)(_v55.default, {
+            itemRenderer: _v19,
+            styleType: _v52.GridStyleType.LANDSCAPE,
+            items: _v15,
+            isLoading: _v10,
+            onCTA: _v18,
             CTAText: (0, _v6.translate)({
               singular: "Add to timeline",
               dictionary: {
@@ -664,7 +650,7 @@
         })]
       });
     },
-    _v67 = ({
+    _v64 = ({
       orientation: _v0,
       freeText: _v1,
       category: _v2,
@@ -680,7 +666,7 @@
         [_v9] = (0, _v9.useLazyFetchTemplateQuery)(),
         {
           addTemplate: _v10
-        } = _v50(),
+        } = _v48(),
         {
           alertUseAllScenes: _v11
         } = (0, _v17.useAlerts)(),
@@ -702,12 +688,7 @@
         _v28 = (0, _v2.useMemo)(() => _v15 && !_v24 ? _v15?.data.filter(_v0 => _v13.OrientationMap[_v0.ornt] === _v0) : [], [_v15, _v24, _v0]),
         _v29 = !_v16 && !_v17 && _v15 && (!_v15.data || 0 === _v28.length),
         _v30 = (0, _v2.useCallback)(_v0 => {
-          _v19(_v0.resultUrl || _v0.videoUrl || _v0.vimeoVideoUrl), _v4(_v0.hash), _v21(_v0.templateName), _v23(_v0.vitid), (0, _v40.sendTrackSelectTemplate)({
-            format: _v13.OrientationMap[_v0.ornt],
-            selectionName: _v0.templateName,
-            selectionId: String(_v0.vitid),
-            feature: _v54.FEATURE.TEMPLATES
-          }), _v8({
+          _v19(_v0.resultUrl || _v0.videoUrl || _v0.vimeoVideoUrl), _v4(_v0.hash), _v21(_v0.templateName), _v23(_v0.vitid), _v8({
             editorSessionId: _v7,
             editorTemplateCategory: _v2,
             templateOrientation: _v0.ornt
@@ -745,14 +726,7 @@
             hash: _v0
           }, !0).unwrap();
           await _v10(_v12(_v1)), _v5((0, _v11.setIsTemplateBeingAddedAction)(!1));
-          let [_v2] = _v28.filter(_v0 => _v0.hash === _v1.hash);
-          (0, _v47.isScenesTemplate)(_v1) && _v2 && (0, _v40.sendTrackAddAllTemplatesScenes)({
-            format: _v13.OrientationMap[_v2.ornt],
-            selectionName: _v2.templateName,
-            selectionId: String(_v2.vitid),
-            numberOfElements: _v1.items.length
-          });
-        }, [_v10, _v12, _v5, _v9, _v28]),
+        }, [_v10, _v12, _v5, _v9]),
         _v34 = (0, _v2.useCallback)(async ({
           hash: _v0
         }) => {
@@ -768,28 +742,28 @@
         }, [_v6, _v33, _v5, _v9, _v10, _v12, _v11]),
         _v35 = (0, _v2.useCallback)((_v0, _v1, _v2) => {
           let _v3 = _v28[_v0];
-          return _v3 ? (0, _v1.jsx)(_v57.default, {
+          return _v3 ? (0, _v1.jsx)(_v54.default, {
             id: _v3.hash,
             gridStyleType: function (_v0) {
               switch (_v0) {
-                case _v56.Orientation.LANDSCAPE:
-                  return _v55.GridStyleType.LANDSCAPE;
-                case _v56.Orientation.PORTRAIT:
-                  return _v55.GridStyleType.PORTRAIT;
-                case _v56.Orientation.SQUARE:
-                  return _v55.GridStyleType.SQUARE;
-                case _v56.Orientation.OR_4_5:
-                  return _v55.GridStyleType.OR_4_5;
-                case _v56.Orientation.OR_16_10:
-                  return _v55.GridStyleType.OR_16_10;
-                case _v56.Orientation.OR_3_4:
-                  return _v55.GridStyleType.OR_3_4;
-                case _v56.Orientation.OR_2_3:
-                  return _v55.GridStyleType.OR_2_3;
-                case _v56.Orientation.OR_4_3:
-                  return _v55.GridStyleType.OR_4_3;
+                case _v53.Orientation.LANDSCAPE:
+                  return _v52.GridStyleType.LANDSCAPE;
+                case _v53.Orientation.PORTRAIT:
+                  return _v52.GridStyleType.PORTRAIT;
+                case _v53.Orientation.SQUARE:
+                  return _v52.GridStyleType.SQUARE;
+                case _v53.Orientation.OR_4_5:
+                  return _v52.GridStyleType.OR_4_5;
+                case _v53.Orientation.OR_16_10:
+                  return _v52.GridStyleType.OR_16_10;
+                case _v53.Orientation.OR_3_4:
+                  return _v52.GridStyleType.OR_3_4;
+                case _v53.Orientation.OR_2_3:
+                  return _v52.GridStyleType.OR_2_3;
+                case _v53.Orientation.OR_4_3:
+                  return _v52.GridStyleType.OR_4_3;
                 default:
-                  return _v55.GridStyleType.SQUARE;
+                  return _v52.GridStyleType.SQUARE;
               }
             }(_v0),
             videoUrl: _v3.resultUrl,
@@ -803,7 +777,7 @@
             draggableData: {
               id: _v3.hash,
               data: _v3,
-              type: _v52.DnDItemType.GRID_ELEMENT_TEMPLATE,
+              type: _v50.DnDItemType.GRID_ELEMENT_TEMPLATE,
               onElementDropped: () => {
                 _v34({
                   hash: _v3.hash
@@ -812,17 +786,12 @@
             },
             testid: "templates-category",
             onExpand: _v0 => {
-              _v2 && (_v32(_v3.hash), _v2(_v0), (0, _v40.sendTrackExpandTemplate)({
-                format: _v0,
-                selectionName: _v3.templateName,
-                selectionId: String(_v3.vitid),
-                feature: _v54.FEATURE.TEMPLATES
-              }));
+              _v2 && (_v32(_v3.hash), _v2(_v0));
             },
             expandedItemData: {
               id: _v3.hash,
               title: _v3.templateName,
-              type: _v51.ExpandType.MEDIA,
+              type: _v49.ExpandType.MEDIA,
               videoUrl: _v3.resultUrl || _v3.videoUrl || _v3.vimeoVideoUrl,
               imageUrl: _v3.thumbnail,
               width: _v1,
@@ -830,11 +799,11 @@
             }
           }, _v3.hash) : (0, _v1.jsx)(_v1.Fragment, {});
         }, [_v34, _v30, _v28, _v0, _v32]);
-      return _v29 ? (0, _v1.jsx)(_v59.InspectorPaddedRow, {
+      return _v29 ? (0, _v1.jsx)(_v56.InspectorPaddedRow, {
         padLeft: !1,
         padRight: !1,
-        children: (0, _v1.jsx)(_v60.default, {
-          type: _v53.EmptyInspectorView.SEARCH,
+        children: (0, _v1.jsx)(_v57.default, {
+          type: _v51.EmptyInspectorView.SEARCH,
           title: (0, _v6.translate)({
             singular: "No results",
             dictionary: {
@@ -888,7 +857,7 @@
             }
           })
         })
-      }) : _v3 ? (0, _v1.jsx)(_v66, {
+      }) : _v3 ? (0, _v1.jsx)(_v63, {
         hash: _v3,
         templateName: _v20,
         templateId: _v22,
@@ -899,7 +868,7 @@
         padRight: !1,
         marginTop: !0,
         paddingTop: 16,
-        children: (0, _v1.jsx)(_v58.default, {
+        children: (0, _v1.jsx)(_v55.default, {
           ref: _v26,
           itemRenderer: _v35,
           styleType: _v0,
@@ -1083,7 +1052,7 @@
             })
           })
         })]
-      }), (0, _v1.jsx)(_v67, {
+      }), (0, _v1.jsx)(_v64, {
         orientation: _v7.orientation,
         category: _v7.category,
         freeText: _v7.keywords,

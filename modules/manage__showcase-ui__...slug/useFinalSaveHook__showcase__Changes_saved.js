@@ -13,15 +13,14 @@
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
-    _v13 = _v0.i(0),
-    _v14 = _v0.i(0);
+    _v13 = _v0.i(0);
   _v0.s(["useFinalSaveHook", 0, () => {
     let _v0 = (0, _v7.useViewer)(),
-      _v1 = (0, _v9.useStore)(_v0 => _v0.commonStore.capabilities),
-      _v2 = (0, _v9.useStore)(_v0 => _v0.commonStore.actions.setCapabilities),
-      _v3 = (0, _v9.useStore)(_v0 => _v0.commonStore.showcaseOwnerId),
-      _v4 = (0, _v9.useStore)(_v0 => _v0.commonStore.mutateShowcaseData),
-      _v5 = (0, _v9.useStore)(_v0 => _v0.appearanceStore.albumConfig),
+      _v1 = (0, _v8.useStore)(_v0 => _v0.commonStore.capabilities),
+      _v2 = (0, _v8.useStore)(_v0 => _v0.commonStore.actions.setCapabilities),
+      _v3 = (0, _v8.useStore)(_v0 => _v0.commonStore.showcaseOwnerId),
+      _v4 = (0, _v8.useStore)(_v0 => _v0.commonStore.mutateShowcaseData),
+      _v5 = (0, _v8.useStore)(_v0 => _v0.appearanceStore.albumConfig),
       [_v6, {
         data: _v7,
         loading: _v8,
@@ -34,78 +33,73 @@
         resetStoreValues: _v13,
         getDeltaKeyValuePairs: _v14,
         getDeltaKeys: _v15
-      } = (0, _v11.useForm)(),
+      } = (0, _v10.useForm)(),
       {
         setCommonData: _v16,
         setOpenModal: _v17,
         setCloseModal: _v18
-      } = (0, _v9.useStore)(_v0 => _v0.commonStore.actions),
-      _v19 = (0, _v9.useStore)(_v0 => _v0.commonStore.isSaveLoading),
-      _v20 = (0, _v9.useStore)(_v0 => _v0.commonStore.actions.setIsSaveLoading),
+      } = (0, _v8.useStore)(_v0 => _v0.commonStore.actions),
+      _v19 = (0, _v8.useStore)(_v0 => _v0.commonStore.isSaveLoading),
+      _v20 = (0, _v8.useStore)(_v0 => _v0.commonStore.actions.setIsSaveLoading),
       {
         setInfoData: _v21
-      } = (0, _v9.useStore)(_v0 => _v0.infoStore.actions),
+      } = (0, _v8.useStore)(_v0 => _v0.infoStore.actions),
       {
         setSeoData: _v22
-      } = (0, _v9.useStore)(_v0 => _v0.seoStore.actions),
+      } = (0, _v8.useStore)(_v0 => _v0.seoStore.actions),
       {
         setTvAppsData: _v23
-      } = (0, _v9.useStore)(_v0 => _v0.tvAppsStore.actions),
-      _v24 = (0, _v9.useStore)(_v0 => _v0.appearanceStore.actions.setAppearanceData),
+      } = (0, _v8.useStore)(_v0 => _v0.tvAppsStore.actions),
+      _v24 = (0, _v8.useStore)(_v0 => _v0.appearanceStore.actions.setAppearanceData),
       {
         showcaseId: _v25
-      } = (0, _v9.useStore)(_v0 => _v0.commonStore.showcaseConfig),
-      _v26 = (0, _v9.useStore)(_v0 => _v0.commonStore.deltaValues?.privacy),
-      _v27 = (0, _v9.useStore)(_v0 => _v0.timelineStore.actions.timelineReset),
+      } = (0, _v8.useStore)(_v0 => _v0.commonStore.showcaseConfig),
+      _v26 = (0, _v8.useStore)(_v0 => _v0.commonStore.deltaValues?.privacy),
+      _v27 = (0, _v8.useStore)(_v0 => _v0.timelineStore.actions.timelineReset),
       {
         getUpgradeControlsEnabled: _v28
-      } = (0, _v10.useAppearance)(),
+      } = (0, _v9.useAppearance)(),
       {
-        sendShowcaseSaveEvent: _v29
-      } = (0, _v8.useBpEventService)(),
-      {
-        trackPrivacyChanged: _v30
+        trackPrivacyChanged: _v29
       } = (0, _v6.useViewPrivacyChangeTracking)(),
       {
-        ResetConfigStoreFields: _v31
-      } = (0, _v13.generateConfigPremiumFields)(_v5),
-      _v32 = (0, _v1.useRef)(null),
-      _v33 = () => {
+        ResetConfigStoreFields: _v30
+      } = (0, _v12.generateConfigPremiumFields)(_v5),
+      _v31 = (0, _v1.useRef)(null),
+      _v32 = () => {
         let _v0 = _v14();
-        if ((0, _v13.isEmpty)(_v0)) {
-          _v32.current = null, _v12(_v14.ResetTypeEnum.SAVED);
+        if ((0, _v12.isEmpty)(_v0)) {
+          _v31.current = null, _v12(_v13.ResetTypeEnum.SAVED);
           return;
         }
         if (Array.isArray(_v26) && _v26.length > 1) {
           let _v0 = _v26[0]?.view ?? null,
             _v1 = _v26[1]?.view ?? null;
-          _v32.current = _v1 && _v0 !== _v1 ? {
+          _v31.current = _v1 && _v0 !== _v1 ? {
             previousPrivacy: _v0,
             newPrivacy: _v1
           } : null;
-        } else _v32.current = null;
+        } else _v31.current = null;
         _v6({
           where: {
             albumId: _v25
           },
           select: _v15(),
           variables: _v0
-        }), _v20(!0), _v29({
-          isUserFree: _v28()
-        });
+        }), _v20(!0);
       };
     return (0, _v1.useEffect)(() => {
       if (!_v8 && !_v9 && _v7) {
-        if (_v32.current) {
+        if (_v31.current) {
           let {
             previousPrivacy: _v0,
             newPrivacy: _v1
-          } = _v32.current;
-          _v30({
+          } = _v31.current;
+          _v29({
             entityType: "showcase",
             previousPrivacy: _v0,
             newPrivacy: _v1
-          }), _v32.current = null;
+          }), _v31.current = null;
         }
         _v10({
           title: (0, _v5.translate)({
@@ -135,7 +129,7 @@
             }
           }),
           isClosable: !1
-        }), _v20(!1), _v27(), _v12(_v14.ResetTypeEnum.SAVED), _v21(_v7), _v22(_v7), _v23(_v7), _v16(_v7), _v24(_v7), _v4?.(), _v1?.canCustomizeAlbums || (0, _v3.getUserCapabilities)({
+        }), _v20(!1), _v27(), _v12(_v13.ResetTypeEnum.SAVED), _v21(_v7), _v22(_v7), _v23(_v7), _v16(_v7), _v24(_v7), _v4?.(), _v1?.canCustomizeAlbums || (0, _v3.getUserCapabilities)({
           capabilities: ["hasShowcasePasswordPrivacyUpsell"],
           userId: _v3,
           jwt: _v0?.jwt,
@@ -147,7 +141,7 @@
           });
         });
       }
-      !_v8 && _v9 && (_v32.current = null, _v20(!1), _v10({
+      !_v8 && _v9 && (_v31.current = null, _v20(!1), _v10({
         title: (0, _v5.translate)({
           singular: "Couldn’t save changes. Check your connection and try again.",
           dictionary: {
@@ -180,15 +174,13 @@
       loading: _v19,
       isDeltaEmpty: _v11,
       handleCancel: () => {
-        _v27(), _v12(_v14.ResetTypeEnum.CANCELLED);
+        _v27(), _v12(_v13.ResetTypeEnum.CANCELLED);
       },
       handleSave: () => {
-        _v28() ? (_v29({
-          isUserNotAllowedToSave: !0
-        }), _v17(_v14.ModalType.SAVE_WITHOUT_PREMIUM)) : _v33();
+        _v28() ? _v17(_v13.ModalType.SAVE_WITHOUT_PREMIUM) : _v32();
       },
       handleSaveWithoutPremium: () => {
-        _v28() && (_v18(), _v13([..._v12.ResetStoreFields, ..._v31]), _v33());
+        _v28() && (_v18(), _v13([..._v11.ResetStoreFields, ..._v30]), _v32());
       },
       handleCancelWithoutPremium: () => {
         _v18();

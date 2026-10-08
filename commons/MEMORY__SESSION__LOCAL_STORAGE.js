@@ -34,6 +34,7 @@
           ACTIVE_ID: _v0 => `/chats/${_v0}/meta/activeQnASessionId`,
           MODERATION: _v0 => `/settings/${_v0}/isQnaModerated`,
           ANONYMOUS_QUESTIONS: _v0 => `/settings/${_v0}/isAnonymousQuestionsDisabled`,
+          SPEAKER_QNA_REPLY: _v0 => `/settings/${_v0}/isSpeakerQnaReplyAllowed`,
           REPLIES_SESSIONS: _v0 => `/qna_replies/${_v0}/sessions`
         },
         AUDIENCE_SPEAKERS: {

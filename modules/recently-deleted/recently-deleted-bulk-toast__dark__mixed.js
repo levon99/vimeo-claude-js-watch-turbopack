@@ -3370,16 +3370,17 @@
         }
         return _v0 + (_v1.file.fileSize ?? 0);
       }, 0) : _v12?.uploadQuota?.recentlyDeletedDiskSpace ?? 0,
-      _v74 = (_v12?.uploadQuota?.space?.free ?? 0) <= 0,
-      _v75 = (0, _v26.isPerSeatSelfServeTier)(_v8?.user?.account),
-      _v76 = _v69.reduce((_v0, _v1) => {
+      _v74 = _v12?.uploadQuota?.space?.free,
+      _v75 = null != _v74 && _v74 <= 0,
+      _v76 = (0, _v26.isPerSeatSelfServeTier)(_v8?.user?.account),
+      _v77 = _v69.reduce((_v0, _v1) => {
         let _v2 = _v29.find(_v0 => _v0.uri === _v1);
         return _v2 ? "video" === _v2.kind ? _v0 + (_v2.video.filesSize?.totalSize ?? 0) : _v0 + (_v2.file.fileSize ?? 0) : _v0;
       }, 0),
-      _v77 = _v103(_v47, _v69),
-      _v78 = 1 === _v69.length ? _v29.find(_v0 => _v0.uri === _v69[0]) : void 0,
-      _v79 = _v78 ? "video" === _v78.kind ? _v78.video.name : _v78.file.name : void 0,
-      _v80 = (0, _v1.jsxs)(_v23.FilterSortBar, {
+      _v78 = _v103(_v47, _v69),
+      _v79 = 1 === _v69.length ? _v29.find(_v0 => _v0.uri === _v69[0]) : void 0,
+      _v80 = _v79 ? "video" === _v79.kind ? _v79.video.name : _v79.file.name : void 0,
+      _v81 = (0, _v1.jsxs)(_v23.FilterSortBar, {
         checkbox: (0, _v1.jsx)(_v78, {
           total: _v30,
           isTotalCapped: _v36,
@@ -3414,7 +3415,7 @@
           onLoadMore: () => _v41(_v42 + 1)
         })]
       }),
-      _v81 = _v71 ? {
+      _v82 = _v71 ? {
         isOpen: !0,
         onClose: () => {
           _v51("cancel", "empty_trash", _v30), _v72(!1);
@@ -3542,15 +3543,15 @@
         },
         onConfirm: () => (_v51("confirm", _v15, _v69.length), _v64()),
         numItemsToDelete: _v69.length,
-        selectedItemType: _v77,
-        title: _v79,
-        storageSize: (0, _v17.bytesToSize)(_v76, 1)
+        selectedItemType: _v78,
+        title: _v80,
+        storageSize: (0, _v17.bytesToSize)(_v77, 1)
       };
     return (0, _v1.jsx)(_v20.Page, {
       children: (0, _v1.jsxs)(_v20.Page.Main, {
         children: [(0, _v1.jsxs)(_v20.Page.StickyTop, {
           children: [(0, _v1.jsx)(_v21.PageHeader, {
-            bottomBar: _v80,
+            bottomBar: _v81,
             title: (0, _v13.translate)({
               singular: "Recently deleted",
               dictionary: {
@@ -3592,9 +3593,9 @@
           items: _v29,
           selectedUris: _v43,
           onToggleSelected: _v62,
-          isRestoreDisabled: _v74 && !_v75,
+          isRestoreDisabled: _v75 && !_v76,
           onRestoreItem: _v0 => {
-            if (_v74 && _v75) {
+            if (_v75 && _v76) {
               _v20("row_hover"), _v18(!0);
               return;
             }
@@ -3697,16 +3698,16 @@
           isNewUser: null != _v11 && new Date(_v11) > new Date("2026-07-13T00:00:00Z"),
           onDismiss: _v61
         }), (0, _v1.jsx)(_v66, {
-          ..._v81
+          ..._v82
         }), (0, _v1.jsx)(_v38, {
           numSelected: _v43.size,
           selectedItemType: _v48,
-          isRestoreDisabled: _v74 && !_v75,
+          isRestoreDisabled: _v75 && !_v76,
           onDelete: () => {
             _v51("ask", "bulk_toast", _v43.size, Array.from(_v43).filter(_v0 => "video" === _v47.get(_v0)).map(_v28.idFromUri)), _v16("bulk_toast"), _v70(Array.from(_v43));
           },
           onRestore: () => {
-            if (_v74 && _v75) {
+            if (_v75 && _v76) {
               _v20("bulk_toast"), _v18(!0);
               return;
             }

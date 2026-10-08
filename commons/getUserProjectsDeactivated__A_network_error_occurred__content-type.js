@@ -48,16 +48,8 @@
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
-    _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
-    _v29 = _v0.i(0),
-    _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  let _v36 = _v19.default.div.withConfig({
+    _v27 = _v0.i(0);
+  let _v28 = _v19.default.div.withConfig({
       displayName: "DeleteFolderModal__ModalContent",
       componentId: "sc-8050be53-0"
     })`
@@ -74,7 +66,7 @@
   width: ${(0, _v18.rem)(440)};
   max-width: calc(100vw - ${(0, _v18.rem)(20)});
 `,
-    _v37 = (0, _v19.default)(_v24.Modal.Header).withConfig({
+    _v29 = (0, _v19.default)(_v24.Modal.Header).withConfig({
       displayName: "DeleteFolderModal__ModalHeaderContent",
       componentId: "sc-8050be53-1"
     })`
@@ -84,7 +76,7 @@
   font-size: ${(0, _v18.rem)(18)};
   margin-bottom: ${(0, _v18.rem)(24)};
 `,
-    _v38 = (0, _v19.default)(_v22.Button).withConfig({
+    _v30 = (0, _v19.default)(_v22.Button).withConfig({
       displayName: "DeleteFolderModal__DismissButton",
       componentId: "sc-8050be53-2"
     })`
@@ -92,7 +84,7 @@
   right: ${(0, _v18.rem)(16)};
   position: absolute;
 `,
-    _v39 = _v19.default.div.withConfig({
+    _v31 = _v19.default.div.withConfig({
       displayName: "DeleteFolderModal__FooterActions",
       componentId: "sc-8050be53-3"
     })`
@@ -101,66 +93,35 @@
   justify-content: flex-end;
   gap: ${(0, _v18.rem)(10)};
 `,
-    _v40 = ({
+    _v32 = ({
       folderId: _v0,
       isOpen: _v1,
       ownerId: _v2,
       closeModal: _v3,
       updateList: _v4
     }) => {
-      let _v5 = (0, _v35.useViewer)(),
-        [_v6, {
-          error: _v7,
-          loading: _v8
+      let [_v5, {
+          error: _v6,
+          loading: _v7
         }] = (0, _v20.useDeleteUserProject)(),
-        _v9 = (0, _v3.useRef)(null);
-      (0, _v28.default)([_v9], () => {
+        _v8 = (0, _v3.useRef)(null);
+      (0, _v27.default)([_v8], () => {
         _v1 && _v3();
       }, null, [_v1]);
-      let _v10 = async () => {
-        if (await _v6({
+      let _v9 = async () => {
+        await _v5({
           where: {
             projectId: _v0,
             userId: _v2
           }
-        }), !_v7) {
-          let _v0 = (0, _v30.buildActionBpContext)({
-              action_type: "click",
-              feature: null
-            }),
-            _v1 = (0, _v31.buildProductAnalyticsBpContext)({
-              entity_type: "folder",
-              element: "button",
-              location: "one_click_bar",
-              feature: "folders",
-              product: "accounts",
-              copy: "delete",
-              device_type: (0, _v27.default)()
-            }),
-            _v2 = (0, _v32.buildWebBpContext)({
-              page_name: "team_management_page",
-              path: window.location.pathname
-            }),
-            _v3 = _v5?.teamUser ? (0, _v34.buildTeamBpContextFromTeamUser)(_v5?.teamUser) : (0, _v34.buildTeamBpContextFromTeam)(_v5?.team),
-            _v4 = (0, _v33.buildFolderBpContext)({
-              folder_id: _v0
-            }),
-            _v5 = {
-              ..._v0,
-              ..._v1,
-              ..._v2,
-              ..._v3,
-              ..._v4
-            };
-          (0, _v29.sendBpEventWithContexts)("vimeo.delete_content", _v5, -1), _v4(), _v3();
-        }
+        }), _v6 || (_v4(), _v3());
       };
       return (0, _v1.jsx)(_v24.Modal, {
         active: _v1,
         size: "md",
-        content: (0, _v1.jsxs)(_v36, {
-          ref: _v9,
-          children: [(0, _v1.jsxs)(_v37, {
+        content: (0, _v1.jsxs)(_v28, {
+          ref: _v8,
+          children: [(0, _v1.jsxs)(_v29, {
             children: [(0, _v16.translate)({
               singular: "Delete folder",
               dictionary: {
@@ -186,7 +147,7 @@
                   singular: "删除文件夹"
                 }
               }
-            }), (0, _v1.jsx)(_v38, {
+            }), (0, _v1.jsx)(_v30, {
               id: "delete-folder-modal-dismiss-button",
               icon: (0, _v1.jsx)(_v23.DismissX, {}),
               size: "md",
@@ -248,7 +209,7 @@
                 }
               }
             })
-          }), (0, _v1.jsxs)(_v39, {
+          }), (0, _v1.jsxs)(_v31, {
             children: [(0, _v1.jsx)(_v22.Button, {
               onClick: () => {
                 _v3();
@@ -281,9 +242,9 @@
                 }
               })
             }), (0, _v1.jsx)(_v22.Button, {
-              onClick: _v10,
+              onClick: _v9,
               status: "negative",
-              loading: _v8,
+              loading: _v7,
               children: (0, _v16.translate)({
                 singular: "Delete",
                 dictionary: {
@@ -315,21 +276,21 @@
         })
       });
     },
-    _v41 = () => Promise.reject(Error("not implemented yet")),
-    _v42 = {
+    _v33 = () => Promise.reject(Error("not implemented yet")),
+    _v34 = {
       folderId: -1,
       isOpen: !1,
       ownerId: -1,
-      updateList: _v41
+      updateList: _v33
     },
-    _v43 = _v3.default.createContext({
-      state: _v42,
-      openDeleteFolderModal: _v41
+    _v35 = _v3.default.createContext({
+      state: _v34,
+      openDeleteFolderModal: _v33
     });
-  function _v44({
+  function _v36({
     children: _v0
   }) {
-    let [_v1, _v2] = (0, _v3.useState)(_v42),
+    let [_v1, _v2] = (0, _v3.useState)(_v34),
       _v3 = (_v0, _v1, _v2) => {
         _v2({
           folderId: _v0,
@@ -342,29 +303,29 @@
         state: _v1,
         openDeleteFolderModal: _v3
       }), [_v1]);
-    return (0, _v1.jsxs)(_v43.Provider, {
+    return (0, _v1.jsxs)(_v35.Provider, {
       value: _v4,
-      children: [_v0, (0, _v1.jsx)(_v40, {
+      children: [_v0, (0, _v1.jsx)(_v32, {
         folderId: _v1.folderId,
         isOpen: _v1.isOpen,
         ownerId: _v1.ownerId,
         updateList: _v1.updateList,
         closeModal: () => {
-          _v2(_v42);
+          _v2(_v34);
         }
       })]
     });
   }
-  let _v45 = ({
+  let _v37 = ({
       children: _v0
-    }) => (0, _v1.jsx)(_v44, {
+    }) => (0, _v1.jsx)(_v36, {
       children: _v0
     }),
-    _v46 = "desc",
-    _v47 = "alphabetical",
-    _v48 = "last_user_action_event_date";
-  var _v49 = _v0.i(0);
-  let _v50 = () => (0, _v1.jsxs)("svg", {
+    _v38 = "desc",
+    _v39 = "alphabetical",
+    _v40 = "last_user_action_event_date";
+  var _v41 = _v0.i(0);
+  let _v42 = () => (0, _v1.jsxs)("svg", {
     width: "128",
     height: "128",
     viewBox: "0 0 128 128",
@@ -405,13 +366,13 @@
       fill: "#496073"
     })]
   });
-  function _v51() {
+  function _v43() {
     return (0, _v1.jsx)(_v7.HStack, {
       py: (0, _v9.rem)(200),
       justifyContent: "center",
-      children: (0, _v1.jsxs)(_v49.VStack, {
+      children: (0, _v1.jsxs)(_v41.VStack, {
         rowGap: "lg",
-        children: [(0, _v1.jsx)(_v50, {}), (0, _v1.jsx)(_v8.Header, {
+        children: [(0, _v1.jsx)(_v42, {}), (0, _v1.jsx)(_v8.Header, {
           size: "xl",
           fontSize: (0, _v9.rem)(36),
           fontWeight: "bold",
@@ -445,7 +406,15 @@
       })
     });
   }
-  var _v52 = _v0.i(0),
+  var _v44 = _v0.i(0),
+    _v45 = _v0.i(0),
+    _v46 = _v0.i(0),
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
+    _v52 = _v0.i(0),
     _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
@@ -457,22 +426,14 @@
     _v61 = _v0.i(0),
     _v62 = _v0.i(0),
     _v63 = _v0.i(0),
-    _v64 = _v0.i(0),
-    _v65 = _v0.i(0),
-    _v66 = _v0.i(0),
-    _v67 = _v0.i(0),
-    _v68 = _v0.i(0),
-    _v69 = _v0.i(0),
-    _v70 = _v0.i(0),
-    _v71 = _v0.i(0),
-    _v72 = _v0.i(0);
-  function _v73({
+    _v64 = _v0.i(0);
+  function _v65({
     uri: _v0
   }) {
     let {
       data: _v1,
       isValidating: _v2
-    } = (0, _v72.useGetUser)(() => _v0 ? {
+    } = (0, _v64.useGetUser)(() => _v0 ? {
       where: {
         userId: _v0 ? parseInt(_v0.split("/")[2], 10) : 0
       },
@@ -481,15 +442,15 @@
       revalidateOnFocus: !1,
       revalidateOnReconnect: !1
     });
-    return _v2 ? (0, _v1.jsx)(_v71.Spinner, {}) : (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v70.Avatar, {
+    return _v2 ? (0, _v1.jsx)(_v63.Spinner, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsx)(_v62.Avatar, {
         size: "md",
         src: _v1?.pictures?.sizes[1].link,
         alt: _v1?.name ?? "",
         nameProps: {
           name: _v1?.name ?? ""
         }
-      }), (0, _v1.jsx)(_v58.Paragraph, {
+      }), (0, _v1.jsx)(_v50.Paragraph, {
         size: "md",
         fontWeight: "normal",
         color: "text-secondary",
@@ -497,18 +458,18 @@
       })]
     });
   }
-  function _v74({
+  function _v66({
     folder: _v0,
     updateList: _v1
   }) {
-    let _v2 = (0, _v3.useContext)(_v69.ViewerContext),
-      _v3 = (0, _v61.useRouter)(),
+    let _v2 = (0, _v3.useContext)(_v61.ViewerContext),
+      _v3 = (0, _v53.useRouter)(),
       {
         openDeleteFolderModal: _v4
-      } = (0, _v3.useContext)(_v43),
+      } = (0, _v3.useContext)(_v35),
       _v5 = parseInt(_v0.uri.split("/").pop() ?? ""),
       _v6 = _v2?.teamUser?.ownerId || _v2?.user?.id || -1;
-    return (0, _v1.jsxs)(_v57.Tr, {
+    return (0, _v1.jsxs)(_v49.Tr, {
       onClick: () => {
         var _v0, _v1, _v2;
         let _v3, _v4, _v5, _v6;
@@ -519,7 +480,7 @@
       },
       borderRadius: "sm",
       cursor: "pointer",
-      children: [(0, _v1.jsx)(_v55.Td, {
+      children: [(0, _v1.jsx)(_v47.Td, {
         colSpan: 4,
         px: 0,
         pl: (0, _v9.rem)(16),
@@ -531,11 +492,11 @@
             py: (0, _v9.rem)(15),
             bgColor: "fill-component",
             borderRadius: "sm",
-            children: (0, _v1.jsx)(_v68.FolderFilled, {
+            children: (0, _v1.jsx)(_v60.FolderFilled, {
               boxSize: (0, _v9.rem)(60),
               color: "slate.400"
             })
-          }), (0, _v1.jsxs)(_v49.VStack, {
+          }), (0, _v1.jsxs)(_v41.VStack, {
             minW: (0, _v9.rem)(50),
             maxW: (0, _v9.rem)(250),
             alignItems: "flex-start",
@@ -545,28 +506,28 @@
               noOfLines: 1,
               fontWeight: 500,
               children: _v0.name
-            }), (0, _v1.jsxs)(_v58.Paragraph, {
+            }), (0, _v1.jsxs)(_v50.Paragraph, {
               size: "md",
               color: "text-secondary",
               children: [_v0.metadata?.connections?.items?.total, " items"]
             })]
           })]
         })
-      }), (0, _v1.jsx)(_v55.Td, {
+      }), (0, _v1.jsx)(_v47.Td, {
         colSpan: 2,
         px: 0,
         children: (0, _v1.jsx)(_v7.HStack, {
-          children: (0, _v1.jsx)(_v73, {
+          children: (0, _v1.jsx)(_v65, {
             uri: _v0.metadata?.connections?.personalTeamFolderOwner?.uri || ""
           })
         })
-      }), (0, _v1.jsx)(_v55.Td, {
+      }), (0, _v1.jsx)(_v47.Td, {
         colSpan: 2,
         px: 0,
         pr: (0, _v9.rem)(16),
         children: (0, _v1.jsxs)(_v7.HStack, {
           justifyContent: "flex-end",
-          children: [(0, _v1.jsx)(_v58.Paragraph, {
+          children: [(0, _v1.jsx)(_v50.Paragraph, {
             size: "md",
             color: "text-secondary",
             children: new Intl.DateTimeFormat("en-US", {
@@ -577,17 +538,17 @@
               minute: "2-digit",
               hour12: !0
             }).format(new Date(_v0.modifiedTime))
-          }), (0, _v1.jsxs)(_v62.Menu, {
-            children: [(0, _v1.jsx)(_v63.MenuButton, {
-              as: _v64.IconButton,
-              icon: (0, _v1.jsx)(_v67.EllipsisH, {}),
+          }), (0, _v1.jsxs)(_v54.Menu, {
+            children: [(0, _v1.jsx)(_v55.MenuButton, {
+              as: _v56.IconButton,
+              icon: (0, _v1.jsx)(_v59.EllipsisH, {}),
               variant: "tertiary",
               size: "sm",
               onClick: _v0 => {
                 _v0.stopPropagation();
               }
-            }), (0, _v1.jsx)(_v65.MenuList, {
-              children: (0, _v1.jsx)(_v66.MenuItem, {
+            }), (0, _v1.jsx)(_v57.MenuList, {
+              children: (0, _v1.jsx)(_v58.MenuItem, {
                 onClick: _v0 => {
                   _v0.preventDefault(), _v0.stopPropagation(), _v4?.(_v5, _v6, _v1);
                 },
@@ -624,17 +585,17 @@
       })]
     });
   }
-  var _v75 = _v0.i(0),
-    _v76 = _v0.i(0);
-  let _v77 = _v0 => {
+  var _v67 = _v0.i(0),
+    _v68 = _v0.i(0);
+  let _v69 = _v0 => {
       let {
         onClick: _v1,
         sortDirection: _v2 = "asc"
       } = _v0;
-      return (0, _v1.jsx)(_v64.IconButton, {
+      return (0, _v1.jsx)(_v56.IconButton, {
         id: "sorting-arrow-button",
         variant: "tertiary",
-        icon: "asc" === _v2 ? (0, _v1.jsx)(_v76.ArrowUp, {}) : (0, _v1.jsx)(_v75.ArrowDown, {}),
+        icon: "asc" === _v2 ? (0, _v1.jsx)(_v68.ArrowUp, {}) : (0, _v1.jsx)(_v67.ArrowDown, {}),
         isRound: !0,
         onClick: _v1,
         size: "sm",
@@ -647,16 +608,16 @@
         "aria-label": "sorting-arrow-button"
       });
     },
-    _v78 = ({
+    _v70 = ({
       children: _v0,
       ..._v1
-    }) => (0, _v1.jsx)(_v58.Paragraph, {
+    }) => (0, _v1.jsx)(_v50.Paragraph, {
       size: "md",
       fontWeight: "bold",
       ..._v1,
       children: _v0
     });
-  function _v79({
+  function _v71({
     sortDirection: _v0,
     sortValue: _v1,
     setSortDirection: _v2,
@@ -666,22 +627,22 @@
     isValidating: _v6
   }) {
     let _v7 = () => {
-      _v2("asc" === _v0 ? _v46 : "asc");
+      _v2("asc" === _v0 ? _v38 : "asc");
     };
-    return (0, _v1.jsx)(_v53.TableContainer, {
+    return (0, _v1.jsx)(_v45.TableContainer, {
       px: 0,
-      children: (0, _v1.jsxs)(_v52.Table, {
+      children: (0, _v1.jsxs)(_v44.Table, {
         variant: "unstyled",
-        children: [(0, _v1.jsx)(_v56.Thead, {
-          children: (0, _v1.jsxs)(_v57.Tr, {
-            children: [(0, _v1.jsx)(_v60.Th, {
+        children: [(0, _v1.jsx)(_v48.Thead, {
+          children: (0, _v1.jsxs)(_v49.Tr, {
+            children: [(0, _v1.jsx)(_v52.Th, {
               colSpan: 4,
               p: 0,
               pl: (0, _v9.rem)(16),
               children: (0, _v1.jsxs)(_v7.HStack, {
-                children: [(0, _v1.jsx)(_v78, {
+                children: [(0, _v1.jsx)(_v70, {
                   onClick: () => {
-                    _v1 !== _v47 && _v3(_v47);
+                    _v1 !== _v39 && _v3(_v39);
                   },
                   children: (0, _v16.translate)({
                     singular: "Name",
@@ -706,15 +667,15 @@
                       }
                     }
                   })
-                }), _v1 === _v47 && (0, _v1.jsx)(_v77, {
+                }), _v1 === _v39 && (0, _v1.jsx)(_v69, {
                   sortDirection: _v0,
                   onClick: () => _v7()
                 })]
               })
-            }), (0, _v1.jsx)(_v60.Th, {
+            }), (0, _v1.jsx)(_v52.Th, {
               colSpan: 2,
               p: 0,
-              children: (0, _v1.jsx)(_v78, {
+              children: (0, _v1.jsx)(_v70, {
                 children: (0, _v16.translate)({
                   singular: "Owner",
                   dictionary: {
@@ -742,14 +703,14 @@
                   }
                 })
               })
-            }), (0, _v1.jsx)(_v60.Th, {
+            }), (0, _v1.jsx)(_v52.Th, {
               colSpan: 2,
               p: 0,
               children: (0, _v1.jsxs)(_v7.HStack, {
                 justifyContent: "center",
-                children: [(0, _v1.jsx)(_v78, {
+                children: [(0, _v1.jsx)(_v70, {
                   onClick: () => {
-                    _v1 !== _v48 && _v3(_v48);
+                    _v1 !== _v40 && _v3(_v40);
                   },
                   children: (0, _v16.translate)({
                     singular: "Modified",
@@ -777,22 +738,22 @@
                       }
                     }
                   })
-                }), _v1 === _v48 && (0, _v1.jsx)(_v77, {
+                }), _v1 === _v40 && (0, _v1.jsx)(_v69, {
                   sortDirection: _v0,
                   onClick: () => _v7()
                 })]
               })
             })]
           })
-        }), (0, _v1.jsx)(_v54.Tbody, {
-          children: !_v6 && _v4 ? _v4.map(_v0 => (0, _v1.jsx)(_v74, {
+        }), (0, _v1.jsx)(_v46.Tbody, {
+          children: !_v6 && _v4 ? _v4.map(_v0 => (0, _v1.jsx)(_v66, {
             folder: _v0,
             updateList: _v5
-          }, _v0.uri)) : (0, _v1.jsx)(_v57.Tr, {
-            children: (0, _v1.jsx)(_v55.Td, {
+          }, _v0.uri)) : (0, _v1.jsx)(_v49.Tr, {
+            children: (0, _v1.jsx)(_v47.Td, {
               colSpan: 8,
               px: 0,
-              children: (0, _v1.jsx)(_v59.Skeleton, {
+              children: (0, _v1.jsx)(_v51.Skeleton, {
                 h: 130
               })
             })
@@ -801,20 +762,20 @@
       })
     });
   }
-  var _v80 = _v0.i(0);
-  let _v81 = _v19.default.div.withConfig({
+  var _v72 = _v0.i(0);
+  let _v73 = _v19.default.div.withConfig({
       displayName: "LoadMore__LoadMoreWrapper",
       componentId: "sc-b062ef88-0"
     })`
   margin: ${(0, _v18.rem)(40)} 0 ${(0, _v18.rem)(48)};
 `,
-    _v82 = _v0 => {
+    _v74 = _v0 => {
       let {
         isLoadingMore: _v1,
         onClick: _v2
       } = _v0;
-      return (0, _v1.jsx)(_v81, {
-        children: (0, _v1.jsx)(_v80.Button, {
+      return (0, _v1.jsx)(_v73, {
+        children: (0, _v1.jsx)(_v72.Button, {
           variant: "outline",
           colorScheme: "gray",
           width: "full",
@@ -849,16 +810,16 @@
         })
       });
     };
-  var _v83 = _v0.i(0),
-    _v84 = _v0.i(0),
-    _v85 = _v0.i(0);
-  function _v86({
+  var _v75 = _v0.i(0),
+    _v76 = _v0.i(0),
+    _v77 = _v0.i(0);
+  function _v78({
     onChange: _v0,
     searchValue: _v1
   }) {
     let [_v2, _v3] = (0, _v3.useState)(!1),
       _v4 = (0, _v3.useRef)(null);
-    (0, _v84.useOutsideClick)({
+    (0, _v76.useOutsideClick)({
       ref: _v4,
       handler: () => {
         _v2 && !_v1 && _v3(!1);
@@ -871,7 +832,7 @@
       ref: _v4,
       position: "relative",
       justifyContent: "flex-end",
-      children: [(0, _v1.jsx)(_v64.IconButton, {
+      children: [(0, _v1.jsx)(_v56.IconButton, {
         "aria-label": (0, _v16.translate)({
           singular: "Search",
           dictionary: {
@@ -899,18 +860,18 @@
           }
         }),
         id: "ptfSearchToggle",
-        icon: (0, _v1.jsx)(_v85.SearchMagnifier, {}),
+        icon: (0, _v1.jsx)(_v77.SearchMagnifier, {}),
         variant: "tertiary",
         onClick: () => _v3(!0)
-      }), _v2 && (0, _v1.jsx)(_v88, {
-        children: (0, _v1.jsx)(_v83.Search, {
+      }), _v2 && (0, _v1.jsx)(_v80, {
+        children: (0, _v1.jsx)(_v75.Search, {
           autoFocus: !0,
           onChange: _v5
         })
       })]
     });
   }
-  let _v87 = _v19.keyframes`
+  let _v79 = _v19.keyframes`
   from {
     width: ${(0, _v9.rem)(35)};
     opacity: 0
@@ -921,7 +882,7 @@
     opacity: 1
   }
 `,
-    _v88 = _v19.default.div.withConfig({
+    _v80 = _v19.default.div.withConfig({
       displayName: "SearchField__InputWrapper",
       componentId: "sc-92f9ae7d-0"
     })`
@@ -929,13 +890,13 @@
   top: 50%;
   transform: translateY(-50%);
   max-width: ${(0, _v9.rem)(500)};
-  animation: ${_v87} 250ms ease forwards;
+  animation: ${_v79} 250ms ease forwards;
 
   input {
     height: ${(0, _v9.rem)(40)};
   }
 `,
-    _v89 = ["uri", "name", "creatorUri", "modifiedTime", "metadata.connections.items", "metadata.connections.personalTeamFolderOwner", "metadata.interactions"];
+    _v81 = ["uri", "name", "creatorUri", "modifiedTime", "metadata.connections.items", "metadata.connections.personalTeamFolderOwner", "metadata.interactions"];
   _v0.s(["DeactivatedPtf", 0, function ({
     ownerUserId: _v0
   }) {
@@ -943,8 +904,8 @@
         isTeamManagementVisible: _v1,
         loading: _v2
       } = (0, _v10.useTeamManagementVisible)(),
-      [_v3, _v4] = (0, _v3.useState)(_v46),
-      [_v5, _v6] = (0, _v3.useState)(_v48),
+      [_v3, _v4] = (0, _v3.useState)(_v38),
+      [_v5, _v6] = (0, _v3.useState)(_v40),
       [_v7, _v8] = (0, _v3.useState)(""),
       {
         data: _v9,
@@ -990,7 +951,7 @@
         where: {
           userId: _v0
         },
-        select: _v89,
+        select: _v81,
         query: {
           query: _v7 ?? null,
           sort: _v5,
@@ -1011,7 +972,7 @@
       _v19 = (0, _v3.useCallback)(_v0 => {
         _v18(_v0);
       }, [_v18]);
-    return (0, _v1.jsx)(_v45, {
+    return (0, _v1.jsx)(_v37, {
       children: (0, _v1.jsxs)(_v4.Box, {
         w: "80%",
         maxW: (0, _v9.rem)(0),
@@ -1130,11 +1091,11 @@
                 })
               })
             })]
-          }), (0, _v1.jsx)(_v86, {
+          }), (0, _v1.jsx)(_v78, {
             searchValue: _v7,
             onChange: _v19
           })]
-        }), _v14 || _v17 && _v17.length > 0 ? (0, _v1.jsx)(_v79, {
+        }), _v14 || _v17 && _v17.length > 0 ? (0, _v1.jsx)(_v71, {
           isValidating: _v14,
           folders: _v17,
           updateList: () => {
@@ -1144,7 +1105,7 @@
           setSortDirection: _v0 => _v4(_v0),
           sortValue: _v5,
           setSortValue: _v6
-        }) : (0, _v1.jsx)(_v51, {}), !_v14 && _v16 && (0, _v1.jsx)(_v82, {
+        }) : (0, _v1.jsx)(_v43, {}), !_v14 && _v16 && (0, _v1.jsx)(_v74, {
           isLoadingMore: !!_v15,
           onClick: () => {
             _v11(_v10 + 1);

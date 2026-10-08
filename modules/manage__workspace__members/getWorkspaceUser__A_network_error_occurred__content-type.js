@@ -2237,9 +2237,8 @@
         handleFiltersChange: _v18
       };
     };
-  var _v114 = _v0.i(0),
-    _v115 = _v0.i(0);
-  let _v116 = () => {
+  var _v114 = _v0.i(0);
+  let _v115 = () => {
     let {
         workspaceUuid: _v0
       } = (0, _v109.useCurrentWorkspaceDetails)(),
@@ -2358,13 +2357,10 @@
         roles: _v4 ?? [],
         groups: _v5 ?? []
       }),
-      {
-        sendFilterTeamMembersListEvent: _v19
-      } = (0, _v114.useTrackEvents)(),
-      _v20 = (0, _v10.useMemo)(() => !_v17.status && !_v3 || [..._v17.status].sort().toString() === [...(_v3 ?? [])].sort().toString(), [_v17.status, _v3]),
-      _v21 = (0, _v10.useMemo)(() => _v17.groups.length === (_v5?.length ?? 0) && [..._v17.groups].sort().toString() === [...(_v5 ?? [])].sort().toString(), [_v17.groups, _v5]),
-      _v22 = (_v4?.length ?? 0) > 0 || (_v3?.length ?? 0) > 0 || (_v5?.length ?? 0) > 0,
-      _v23 = (0, _v10.useMemo)(() => {
+      _v19 = (0, _v10.useMemo)(() => !_v17.status && !_v3 || [..._v17.status].sort().toString() === [...(_v3 ?? [])].sort().toString(), [_v17.status, _v3]),
+      _v20 = (0, _v10.useMemo)(() => _v17.groups.length === (_v5?.length ?? 0) && [..._v17.groups].sort().toString() === [...(_v5 ?? [])].sort().toString(), [_v17.groups, _v5]),
+      _v21 = (_v4?.length ?? 0) > 0 || (_v3?.length ?? 0) > 0 || (_v5?.length ?? 0) > 0,
+      _v22 = (0, _v10.useMemo)(() => {
         if (_v4 && 0 !== _v4.length) {
           if (1 === _v4.length) switch (_v4[0]) {
             case "admin":
@@ -2381,17 +2377,17 @@
           return _v1.RoleFilterWithCount(_v4.length);
         }
       }, [_v1, _v4]),
-      _v24 = (0, _v10.useMemo)(() => {
+      _v23 = (0, _v10.useMemo)(() => {
         if (_v3 && 0 !== _v3.length) {
           if (_v3.length > 1) return _v1.StatusFilterWithCount(_v3.length);
           if ("pending" === _v3[0]) return _v1.Pending;
           if ("accepted" === _v3[0]) return _v1.Accepted;
         }
       }, [_v1, _v3]),
-      _v25 = (0, _v10.useMemo)(() => {
+      _v24 = (0, _v10.useMemo)(() => {
         if (_v5 && 0 !== _v5.length) return _v5.length > 1 ? _v1.GroupsFilterWithCount(_v5.length) : _v15.find(_v0 => _v0.id === _v5[0])?.name;
       }, [_v1, _v5, _v15]),
-      _v26 = (0, _v10.useCallback)(_v0 => {
+      _v25 = (0, _v10.useCallback)(_v0 => {
         switch (_v0.filterKey) {
           case "roles":
             return _v17.roles.length;
@@ -2403,29 +2399,20 @@
             return 0;
         }
       }, [_v17]),
-      _v27 = (0, _v10.useMemo)(() => _v17.roles.length === (_v4?.length ?? 0) && [..._v17.roles].sort().toString() === [...(_v4 ?? [])].sort().toString(), [_v17.roles, _v4]),
+      _v26 = (0, _v10.useMemo)(() => _v17.roles.length === (_v4?.length ?? 0) && [..._v17.roles].sort().toString() === [...(_v4 ?? [])].sort().toString(), [_v17.roles, _v4]),
+      _v27 = (0, _v10.useCallback)((_v0 = []) => {
+        _v2(_v0, _v17);
+      }, [_v17, _v2]),
       _v28 = (0, _v10.useCallback)((_v0 = []) => {
-        _v2(_v0, _v17), _v0.includes("roles") && _v17.roles.length > 0 && _v19({
-          filter: "role",
-          filterValues: _v17.roles
-        }), _v0.includes("status") && _v17.status.length > 0 && _v19({
-          filter: "status",
-          filterValues: _v17.status
-        }), _v0.includes("groups") && _v17.groups.length > 0 && _v19({
-          filter: "group",
-          filterValues: _v17.groups
-        });
-      }, [_v17, _v2, _v19]),
-      _v29 = (0, _v10.useCallback)((_v0 = []) => {
         let _v1 = {
           ..._v17
         };
         _v0.includes("roles") && (_v1.roles = []), _v0.includes("status") && (_v1.status = []), _v0.includes("groups") && (_v1.groups = []), _v2(_v0, _v1);
       }, [_v17, _v2]),
-      _v30 = [...(_v14 || (_v5?.length ?? 0) > 0 ? [{
+      _v29 = [...(_v14 || (_v5?.length ?? 0) > 0 ? [{
         filterKey: "groups",
         filterName: _v1.GroupFilter,
-        filterDisplayName: _v25,
+        filterDisplayName: _v24,
         popoverContent: (0, _v1.jsx)(_v102.CheckboxGroup, {
           value: _v17.groups,
           onChange: _v0 => _v18(_v0 => ({
@@ -2487,17 +2474,14 @@
           onClickApply: () => {
             _v2(["groups"], {
               groups: _v17.groups
-            }), _v17.groups.length > 0 && _v19({
-              filter: "group",
-              filterValues: _v17.groups
             });
           },
-          disableApply: _v21
+          disableApply: _v20
         }
       }] : []), {
         filterKey: "roles",
         filterName: _v1.RoleFilter,
-        filterDisplayName: _v23,
+        filterDisplayName: _v22,
         popoverContent: (0, _v1.jsx)(_v102.CheckboxGroup, {
           value: _v17.roles,
           onChange: _v0 => _v18(_v0 => ({
@@ -2555,17 +2539,14 @@
           onClickApply: () => {
             _v2(["roles"], {
               roles: _v17.roles
-            }), _v17.roles.length > 0 && _v19({
-              filter: "role",
-              filterValues: _v17.roles
             });
           },
-          disableApply: _v27
+          disableApply: _v26
         }
       }, {
         filterKey: "status",
         filterName: _v1.StatusFilter,
-        filterDisplayName: _v24,
+        filterDisplayName: _v23,
         popoverContent: (0, _v1.jsx)(_v102.CheckboxGroup, {
           value: _v17.status,
           onChange: _v0 => _v18(_v0 => ({
@@ -2605,16 +2586,13 @@
           onClickApply: () => {
             _v2(["status"], {
               status: _v17.status
-            }), _v17.status.length > 0 && _v19({
-              filter: "status",
-              filterValues: _v17.status
             });
           },
-          disableApply: _v20
+          disableApply: _v19
         }
       }];
     return (0, _v1.jsxs)(_v12.HStack, {
-      children: [_v22 && (0, _v1.jsx)(_v38.Button, {
+      children: [_v21 && (0, _v1.jsx)(_v38.Button, {
         variant: "tertiary",
         size: "sm",
         color: "text-secondary",
@@ -2625,24 +2603,24 @@
           groups: []
         }),
         children: _v1.ClearFilters
-      }), (0, _v1.jsx)(_v115.ResponsivePopoverFilters, {
-        filters: _v30,
-        getFilterCount: _v26,
+      }), (0, _v1.jsx)(_v114.ResponsivePopoverFilters, {
+        filters: _v29,
+        getFilterCount: _v25,
         filterFooterProps: {
-          onClickApply: _v28,
-          onClickClearAll: _v29
+          onClickApply: _v27,
+          onClickClearAll: _v28
         },
         breakpointConfig: _v91.WORKSPACE_FILTER_BREAKPOINTS
       })]
     });
   };
-  var _v117 = _v0.i(0),
-    _v118 = _v0.i(0),
-    _v119 = _v0.i(0);
-  let _v120 = ({
+  var _v116 = _v0.i(0),
+    _v117 = _v0.i(0),
+    _v118 = _v0.i(0);
+  let _v119 = ({
       direction: _v0
-    }) => "desc" === _v0 ? (0, _v1.jsx)(_v118.ArrowDown, {}) : (0, _v1.jsx)(_v119.ArrowUp, {}),
-    _v121 = () => {
+    }) => "desc" === _v0 ? (0, _v1.jsx)(_v117.ArrowDown, {}) : (0, _v1.jsx)(_v118.ArrowUp, {}),
+    _v120 = () => {
       let {
           workspaceUuid: _v0,
           isLoading: _v1
@@ -2659,53 +2637,44 @@
           workspaceUuid: _v0
         }),
         _v7 = _v1 || _v6,
-        {
-          sendSortTeamMembersListEvent: _v8
-        } = (0, _v114.useTrackEvents)(),
+        _v8 = (0, _v10.useCallback)(() => {
+          _v5("name");
+        }, [_v5]),
         _v9 = (0, _v10.useCallback)(() => {
-          _v5("name"), _v8({
-            field: "name",
-            direction: "asc" === _v4 ? "desc" : "asc"
-          });
-        }, [_v5, _v8, _v4]),
-        _v10 = (0, _v10.useCallback)(() => {
-          _v5("role"), _v8({
-            field: "role",
-            direction: "asc" === _v4 ? "desc" : "asc"
-          });
-        }, [_v5, _v8, _v4]);
+          _v5("role");
+        }, [_v5]);
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v117.Th, {
+        children: [(0, _v1.jsx)(_v116.Th, {
           children: (0, _v1.jsx)(_v38.Button, {
             variant: "tertiary",
             size: "sm",
-            rightIcon: "role" !== _v3 ? (0, _v1.jsx)(_v120, {
+            rightIcon: "role" !== _v3 ? (0, _v1.jsx)(_v119, {
               direction: "name" === _v3 ? _v4 : "asc"
             }) : void 0,
             color: "text-secondary",
-            onClick: _v9,
+            onClick: _v8,
             isDisabled: _v7,
             children: _v2.Name
           })
-        }), (0, _v1.jsx)(_v117.Th, {
+        }), (0, _v1.jsx)(_v116.Th, {
           children: (0, _v1.jsx)(_v38.Button, {
             variant: "tertiary",
             size: "sm",
             ...("role" === _v3 ? {
-              rightIcon: (0, _v1.jsx)(_v120, {
+              rightIcon: (0, _v1.jsx)(_v119, {
                 direction: _v4
               })
             } : {}),
             color: "text-secondary",
-            onClick: _v10,
+            onClick: _v9,
             isDisabled: _v7,
             children: _v2.RoleFilter
           })
-        }), (0, _v1.jsx)(_v117.Th, {})]
+        }), (0, _v1.jsx)(_v116.Th, {})]
       });
     };
-  var _v122 = _v0.i(0);
-  let _v123 = () => {
+  var _v121 = _v0.i(0);
+  let _v122 = () => {
     let {
         workspaceUuid: _v0,
         isLoading: _v1
@@ -2725,22 +2694,22 @@
       _v8 = (0, _v10.useCallback)(_v0 => {
         _v4 !== _v0.page && _v5(_v0.page);
       }, [_v5, _v4]);
-    return _v7 ? _v6 ? (0, _v1.jsx)(_v122.PaginationRoot, {
-      children: (0, _v1.jsx)(_v122.PaginationItem, {
+    return _v7 ? _v6 ? (0, _v1.jsx)(_v121.PaginationRoot, {
+      children: (0, _v1.jsx)(_v121.PaginationItem, {
         type: "page",
         value: 1,
         onClick: () => _v5(1)
       })
-    }) : (0, _v1.jsx)(_v122.Pagination, {
+    }) : (0, _v1.jsx)(_v121.Pagination, {
       count: _v7,
       pageSize: _v91.WORKSPACE_MEMBERS_PER_PAGE_ITEM_COUNT,
       onPageChange: _v8,
       page: _v4
     }) : null;
   };
-  var _v124 = _v0.i(0),
-    _v125 = _v0.i(0);
-  let _v126 = () => {
+  var _v123 = _v0.i(0),
+    _v124 = _v0.i(0);
+  let _v125 = () => {
     let {
         workspaceUuid: _v0,
         isLoading: _v1
@@ -2758,10 +2727,10 @@
       {
         debouncedCallback: _v7,
         cancel: _v8
-      } = (0, _v124.useDebouncedCallback)(_v0 => _v4(_v0), 400);
+      } = (0, _v123.useDebouncedCallback)(_v0 => _v4(_v0), 400);
     return (0, _v10.useEffect)(() => {
       _v3 || _v6("");
-    }, [_v3]), (0, _v1.jsx)(_v125.SearchWithLeftIcon, {
+    }, [_v3]), (0, _v1.jsx)(_v124.SearchWithLeftIcon, {
       variant: "minimal",
       size: "sm",
       placeholder: _v2.SearchMembers,
@@ -2772,16 +2741,16 @@
       isDisabled: _v1
     });
   };
-  var _v127 = _v0.i(0),
-    _v128 = _v0.i(0),
-    _v129 = _v0.i(0);
-  let _v130 = (0, _v7.default)(() => _v0.A(0).then(_v0 => _v0.WorkspaceMemberShareFolderModal), {
+  var _v126 = _v0.i(0),
+    _v127 = _v0.i(0),
+    _v128 = _v0.i(0);
+  let _v129 = (0, _v7.default)(() => _v0.A(0).then(_v0 => _v0.WorkspaceMemberShareFolderModal), {
       loadableGenerated: {
         modules: [0]
       },
       ssr: !1
     }),
-    _v131 = () => {
+    _v130 = () => {
       let _v0 = (0, _v30.useViewer)(),
         _v1 = _v0?.user,
         _v2 = _v0?.teamUser,
@@ -3061,10 +3030,10 @@
               p: "md",
               children: [(0, _v1.jsx)(_v11.Box, {
                 maxWidth: (0, _v13.rem)(350),
-                children: (0, _v1.jsx)(_v126, {})
+                children: (0, _v1.jsx)(_v125, {})
               }), (0, _v1.jsx)(_v12.HStack, {
                 gap: "md",
-                children: (0, _v1.jsx)(_v116, {}, _v7.toString())
+                children: (0, _v1.jsx)(_v115, {}, _v7.toString())
               })]
             })
           }), (0, _v1.jsxs)(_v77.SelectionProvider, {
@@ -3074,7 +3043,7 @@
               borderBottomLeftRadius: "lg",
               borderBottomRightRadius: "lg",
               width: "100%",
-              children: (0, _v1.jsx)(_v129.NoResults, {
+              children: (0, _v1.jsx)(_v128.NoResults, {
                 query: _v25
               })
             }) : (0, _v1.jsx)(_v11.Box, {
@@ -3084,7 +3053,7 @@
               backgroundColor: "surface",
               borderBottomLeftRadius: "lg",
               borderBottomRightRadius: "lg",
-              children: (0, _v1.jsx)(_v127.MembersList, {
+              children: (0, _v1.jsx)(_v126.MembersList, {
                 showCheckboxes: !0,
                 shouldBeSelectable: _v52,
                 members: _v22?.data ?? [],
@@ -3092,7 +3061,7 @@
                 getMemberAdditionalActions: _v56,
                 getMenuContent: _v51,
                 renderMenu: _v54,
-                headerSlot: (0, _v1.jsx)(_v121, {}),
+                headerSlot: (0, _v1.jsx)(_v120, {}),
                 isLoading: _v20 || _v23,
                 loadingMemberSkeletonCount: _v91.WORKSPACE_MEMBERS_PER_PAGE_ITEM_COUNT,
                 isHeaderSticky: !0,
@@ -3108,7 +3077,7 @@
               revalidateWorkspaceMemberCount: _v33
             })]
           })]
-        }), (0, _v1.jsx)(_v123, {}), _v11 && _v5 && (0, _v1.jsx)(_v92, {
+        }), (0, _v1.jsx)(_v122, {}), _v11 && _v5 && (0, _v1.jsx)(_v92, {
           isOpen: _v11,
           isLoading: _v34,
           selectedMember: _v5,
@@ -3116,7 +3085,7 @@
           onClose: _v13,
           revalidateWorkspaceMembers: _v24,
           revalidateWorkspaceMemberCount: _v33
-        }), _v14 && (0, _v1.jsx)(_v128.ConfirmationModal, {
+        }), _v14 && (0, _v1.jsx)(_v127.ConfirmationModal, {
           isOpen: _v14,
           modalHeaderContent: (0, _v1.jsx)(_v3.Text, {
             variant: "body-xl",
@@ -3132,7 +3101,7 @@
             variant: "body-md",
             children: _v8.MakeWorkspaceAdminDescription(_v5?.user?.name ?? _v5?.email, _v32?.displayName ?? "")
           })
-        }), _v17 && _v5 && (0, _v1.jsx)(_v130, {
+        }), _v17 && _v5 && (0, _v1.jsx)(_v129, {
           displayToast: _v10,
           isOpen: _v17,
           onClose: _v19,
@@ -3141,8 +3110,8 @@
         })]
       });
     };
-  var _v132 = _v0.i(0);
-  async function _v133({
+  var _v131 = _v0.i(0);
+  async function _v132({
     baseUrl: _v0,
     where: {
       workspaceUuid: _v1
@@ -3162,29 +3131,23 @@
       return (0, _v23.deepCamelCase)(_v1);
     });
   }
-  var _v134 = _v0.i(0);
-  let _v135 = (0, _v7.default)(() => _v0.A(0).then(_v0 => _v0.ExportCSVModal), {
+  var _v133 = _v0.i(0);
+  let _v134 = (0, _v7.default)(() => _v0.A(0).then(_v0 => _v0.ExportCSVModal), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v136 = () => {
-      let {
-          pathname: _v0
-        } = (0, _v9.useRouter)(),
-        _v1 = (0, _v30.useViewer)(),
-        _v2 = _v1?.user?.email ?? "",
-        _v3 = (0, _v6.getTranslations)(),
+    _v135 = () => {
+      let _v0 = (0, _v30.useViewer)(),
+        _v1 = _v0?.user?.email ?? "",
+        _v2 = (0, _v6.getTranslations)(),
         {
-          sendWorkspaceMemberExportEvent: _v4
-        } = (0, _v114.useTrackEvents)(),
-        {
-          workspaceUuid: _v5
+          workspaceUuid: _v3
         } = (0, _v109.useCurrentWorkspaceDetails)(),
-        [_v6, {
-          data: _v7,
-          loading: _v8,
-          error: _v9
+        [_v4, {
+          data: _v5,
+          loading: _v6,
+          error: _v7
         }] = function () {
           let {
               mutate: _v0
@@ -3201,7 +3164,7 @@
               type: "REQUEST"
             });
             try {
-              let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/members/export${(0, _v21.serializeQuery)(_v0)}`, _v133({
+              let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/members/export${(0, _v21.serializeQuery)(_v0)}`, _v132({
                 ..._v0,
                 baseUrl: _v1,
                 headers: {
@@ -3226,63 +3189,61 @@
         }(),
         {
           parsedFilters: {
-            query: _v10,
-            sort: _v11,
-            direction: _v12,
-            roles: _v13,
-            inviteStatuses: _v14
+            query: _v8,
+            sort: _v9,
+            direction: _v10,
+            roles: _v11,
+            inviteStatuses: _v12
           }
         } = _v113({
-          workspaceUuid: _v5
+          workspaceUuid: _v3
         }),
         {
-          isOpen: _v15,
-          onOpen: _v16,
-          onClose: _v17
+          isOpen: _v13,
+          onOpen: _v14,
+          onClose: _v15
         } = (0, _v14.useDisclosure)(),
-        _v18 = (0, _v15.useToast)();
+        _v16 = (0, _v15.useToast)();
       return (0, _v10.useEffect)(() => {
-        if (!_v9) return;
-        let _v0 = _v18({
+        if (!_v7) return;
+        let _v0 = _v16({
           variant: "warning",
-          title: _v3.ErrorExportingCSV,
+          title: _v2.ErrorExportingCSV,
           duration: 0
         });
-        return () => _v18.close(_v0);
-      }, [_v9, _v18, _v3.ErrorExportingCSV]), (0, _v10.useEffect)(() => {
-        _v7 && _v16();
-      }, [_v7, _v16]), (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v134.ExportCSVButton, {
+        return () => _v16.close(_v0);
+      }, [_v7, _v16, _v2.ErrorExportingCSV]), (0, _v10.useEffect)(() => {
+        _v5 && _v14();
+      }, [_v5, _v14]), (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsx)(_v133.ExportCSVButton, {
           onClick: () => {
-            _v2 && _v5 && (_v6({
+            _v1 && _v3 && _v4({
               where: {
-                workspaceUuid: _v5
+                workspaceUuid: _v3
               },
               query: {
-                query: _v10,
-                sort: _v11,
-                ...(_v11 ? {
-                  direction: _v12
+                query: _v8,
+                sort: _v9,
+                ...(_v9 ? {
+                  direction: _v10
                 } : {}),
-                roles: _v13,
-                inviteStatuses: _v14.length > 0 ? _v14 : void 0
+                roles: _v11,
+                inviteStatuses: _v12.length > 0 ? _v12 : void 0
               }
-            }), _v4({
-              path: _v0
-            }));
+            });
           },
-          isLoading: _v8,
-          disabled: !_v2
-        }), !!_v2 && (0, _v1.jsx)(_v135, {
-          email: _v2,
-          isOpen: _v15,
-          onClose: _v17
+          isLoading: _v6,
+          disabled: !_v1
+        }), !!_v1 && (0, _v1.jsx)(_v134, {
+          email: _v1,
+          isOpen: _v13,
+          onClose: _v15
         })]
       });
     };
-  var _v137 = _v0.i(0),
-    _v138 = _v0.i(0);
-  let _v139 = ({
+  var _v136 = _v0.i(0),
+    _v137 = _v0.i(0);
+  let _v138 = ({
       emails: _v0,
       handleAddErrorToEmail: _v1,
       handleChangeIsRequestInProgress: _v2,
@@ -3304,7 +3265,7 @@
           if (!_v0) return;
           let _v1 = [],
             _v2 = _v14.IsNotAValidEmailAddress(_v0);
-          _v137.EMAIL_REGEX.test(_v0) || _v1.push(_v2), _v0.some(_v0 => _v0.value === _v0) && _v1.push(_v14.HasBeenEnteredMultipleTimes(_v0)), _v3({
+          _v136.EMAIL_REGEX.test(_v0) || _v1.push(_v2), _v0.some(_v0 => _v0.value === _v0) && _v1.push(_v14.HasBeenEnteredMultipleTimes(_v0)), _v3({
             errorMessages: _v1,
             id: Date.now(),
             value: _v0
@@ -3327,7 +3288,7 @@
           let _v2 = _v14.IsAlreadyAMember(_v1);
           _v1(_v1, _v2);
         }), _v2(!1));
-      }, [_v11, _v12, _v1, _v2, _v13, _v14]), (0, _v1.jsx)(_v138.EmailAddressInput, {
+      }, [_v11, _v12, _v1, _v2, _v13, _v14]), (0, _v1.jsx)(_v137.EmailAddressInput, {
         currentEmail: _v8,
         emails: _v0,
         handleOnBlur: _v15,
@@ -3340,11 +3301,11 @@
         onEmailAddressHeightChange: _v7
       });
     },
-    _v140 = "inviteToWorkspace",
-    _v141 = "shareFolders",
-    _v142 = {
+    _v139 = "inviteToWorkspace",
+    _v140 = "shareFolders",
+    _v141 = {
       applicableFolderPolicies: [],
-      currentStep: _v140,
+      currentStep: _v139,
       emails: [],
       hasErrors: !0,
       invitationNote: "",
@@ -3357,25 +3318,25 @@
       selectedPermissionPolicy: null,
       selectedRole: _v91.ALLOWED_ROLES_FOR_INVITE.VIEWER
     },
-    _v143 = "ADD_EMAIL",
-    _v144 = "ADD_ERROR_TO_EMAIL",
-    _v145 = "ADD_INVITED_WORKSPACE_MEMBERS",
-    _v146 = "CHANGE_SELECTED_FOLDERS_TREE",
-    _v147 = "CHANGE_SELECTED_PERMISSION_POLICY",
-    _v148 = "REMOVE_EMAIL",
-    _v149 = "SET_HAS_ERRORS",
-    _v150 = "SET_INVITATION_NOTE",
-    _v151 = "SET_IS_REQ_IN_PROGRESS",
-    _v152 = "SET_SELECTED_ROLE",
-    _v153 = "UPDATE_CURRENT_STEP_TO_NEXT";
-  function _v154(_v0, _v1) {
+    _v142 = "ADD_EMAIL",
+    _v143 = "ADD_ERROR_TO_EMAIL",
+    _v144 = "ADD_INVITED_WORKSPACE_MEMBERS",
+    _v145 = "CHANGE_SELECTED_FOLDERS_TREE",
+    _v146 = "CHANGE_SELECTED_PERMISSION_POLICY",
+    _v147 = "REMOVE_EMAIL",
+    _v148 = "SET_HAS_ERRORS",
+    _v149 = "SET_INVITATION_NOTE",
+    _v150 = "SET_IS_REQ_IN_PROGRESS",
+    _v151 = "SET_SELECTED_ROLE",
+    _v152 = "UPDATE_CURRENT_STEP_TO_NEXT";
+  function _v153(_v0, _v1) {
     switch (_v1.type) {
-      case _v143:
+      case _v142:
         return {
           ..._v0,
           emails: [..._v0.emails, _v1.payload]
         };
-      case _v144:
+      case _v143:
         return {
           ..._v0,
           emails: _v0.emails.map(_v0 => _v0.value !== _v1.payload.email || _v0.errorMessages.includes(_v1.payload.errorMessage) ? _v0 : {
@@ -3383,7 +3344,7 @@
             errorMessages: [..._v0.errorMessages, _v1.payload.errorMessage]
           })
         };
-      case _v145:
+      case _v144:
         let _v0 = [..._v0.invitedWorkspaceMembers, ..._v1.payload],
           _v1 = (0, _v69.getApplicableFolderPolicies)(_v0),
           _v2 = _v1.length ? _v1[0] : null;
@@ -3393,48 +3354,48 @@
           invitedWorkspaceMembers: _v0,
           selectedPermissionPolicy: _v2
         };
-      case _v146:
+      case _v145:
         let _v3 = Object.keys(_v1.payload.children).length > 0;
         return {
           ..._v0,
           selectedFoldersTree: _v1.payload,
           hasErrors: !_v3
         };
-      case _v147:
+      case _v146:
         return {
           ..._v0,
           selectedPermissionPolicy: _v1.payload
         };
-      case _v148:
+      case _v147:
         return {
           ..._v0,
           emails: _v0.emails.filter(_v0 => _v0.id !== _v1.payload)
         };
-      case _v149:
+      case _v148:
         return {
           ..._v0,
           hasErrors: _v1.payload
         };
-      case _v150:
+      case _v149:
         return {
           ..._v0,
           invitationNote: _v1.payload
         };
-      case _v151:
+      case _v150:
         return {
           ..._v0,
           isReqInProgress: _v1.payload
         };
-      case _v152:
+      case _v151:
         return {
           ..._v0,
           selectedRole: _v1.payload
         };
-      case _v153:
+      case _v152:
         return {
           ..._v0,
           currentStep: (_v0 => {
-            if (_v0 === _v140) return _v141;
+            if (_v0 === _v139) return _v140;
             throw Error(`Unknown step: ${_v0}`);
           })(_v0.currentStep),
           hasErrors: !0
@@ -3443,8 +3404,8 @@
         return _v0;
     }
   }
-  var _v155 = _v0.i(0);
-  let _v156 = ({
+  var _v154 = _v0.i(0);
+  let _v155 = ({
       handleAddErrorToEmail: _v0,
       handleChangeIsRequestInProgress: _v1,
       handleChangeSelectedFoldersTree: _v2,
@@ -3459,8 +3420,8 @@
       workspaceUuid: _v11
     }) => {
       switch (_v8.currentStep) {
-        case _v140:
-          return (0, _v1.jsx)(_v157, {
+        case _v139:
+          return (0, _v1.jsx)(_v156, {
             handleAddErrorToEmail: _v0,
             handleChangeIsRequestInProgress: _v1,
             handleEmailAddition: _v4,
@@ -3471,8 +3432,8 @@
             onRoleChange: _v9,
             workspaceUuid: _v11
           });
-        case _v141:
-          return (0, _v1.jsx)(_v158, {
+        case _v140:
+          return (0, _v1.jsx)(_v157, {
             handleChangeSelectedFoldersTree: _v2,
             handleChangeSelectedPermissionPolicy: _v3,
             inviteData: _v8,
@@ -3482,7 +3443,7 @@
           throw Error(`Unknown modal step: ${_v8.currentStep}`);
       }
     },
-    _v157 = ({
+    _v156 = ({
       handleAddErrorToEmail: _v0,
       handleChangeIsRequestInProgress: _v1,
       handleEmailAddition: _v2,
@@ -3507,7 +3468,7 @@
           width: "100%",
           gap: "sm",
           alignItems: "flex-start",
-          children: [(0, _v1.jsx)(_v139, {
+          children: [(0, _v1.jsx)(_v138, {
             emails: _v6.emails,
             handleAddErrorToEmail: _v0,
             handleChangeIsRequestInProgress: _v1,
@@ -3528,13 +3489,13 @@
               selectedRole: _v6.selectedRole
             })
           })]
-        }), (0, _v1.jsx)(_v155.AddInvitationNote, {
+        }), (0, _v1.jsx)(_v154.AddInvitationNote, {
           handleInvitationNoteChange: _v5,
           invitationNote: _v6.invitationNote
         })]
       });
     },
-    _v158 = ({
+    _v157 = ({
       handleChangeSelectedFoldersTree: _v0,
       handleChangeSelectedPermissionPolicy: _v1,
       inviteData: _v2,
@@ -3563,7 +3524,7 @@
         })
       });
     },
-    _v159 = ({
+    _v158 = ({
       called: _v0,
       closeModal: _v1,
       handlePrimaryButtonClick: _v2,
@@ -3571,8 +3532,8 @@
       loading: _v4
     }) => {
       switch (_v3.currentStep) {
-        case _v140:
-          return (0, _v1.jsx)(_v160, {
+        case _v139:
+          return (0, _v1.jsx)(_v159, {
             called: _v0,
             closeModal: _v1,
             handlePrimaryButtonClick: _v2,
@@ -3581,8 +3542,8 @@
             isReqInProgress: _v3.isReqInProgress,
             loading: _v4
           });
-        case _v141:
-          return (0, _v1.jsx)(_v161, {
+        case _v140:
+          return (0, _v1.jsx)(_v160, {
             closeModal: _v1,
             loading: _v4,
             handlePrimaryButtonClick: _v2,
@@ -3592,7 +3553,7 @@
           throw Error(`Unknown modal step: ${_v3.currentStep}`);
       }
     },
-    _v160 = ({
+    _v159 = ({
       called: _v0,
       closeModal: _v1,
       handlePrimaryButtonClick: _v2,
@@ -3620,7 +3581,7 @@
         })]
       });
     },
-    _v161 = ({
+    _v160 = ({
       closeModal: _v0,
       loading: _v1,
       handlePrimaryButtonClick: _v2,
@@ -3644,19 +3605,19 @@
         })]
       });
     },
-    _v162 = ({
+    _v161 = ({
       currentModalStep: _v0
     }) => {
       switch (_v0) {
+        case _v139:
+          return (0, _v1.jsx)(_v162, {});
         case _v140:
           return (0, _v1.jsx)(_v163, {});
-        case _v141:
-          return (0, _v1.jsx)(_v164, {});
         default:
           throw Error(`Unknown modal step: ${_v0}`);
       }
     },
-    _v163 = () => {
+    _v162 = () => {
       let _v0 = (0, _v6.getTranslations)();
       return (0, _v1.jsx)(_v56.ModalHeader, {
         fontSize: "heading-md",
@@ -3664,7 +3625,7 @@
         children: _v0.InviteMember
       });
     },
-    _v164 = () => {
+    _v163 = () => {
       let _v0 = (0, _v6.getTranslations)();
       return (0, _v1.jsxs)(_v56.ModalHeader, {
         pb: "xs",
@@ -3677,10 +3638,9 @@
           children: _v0.ShareFoldersDescription
         })]
       });
-    };
-  var _v165 = _v0.i(0);
-  let _v166 = ["applicablePermissionPolicies.folder.createdOn", "applicablePermissionPolicies.folder.displayDescription", "applicablePermissionPolicies.folder.displayName", "applicablePermissionPolicies.folder.modifiedOn", "applicablePermissionPolicies.folder.name", "applicablePermissionPolicies.folder.permissionActions", "applicablePermissionPolicies.folder.uri", "email", "permissionLevel", "role", "uri"],
-    _v167 = ({
+    },
+    _v164 = ["applicablePermissionPolicies.folder.createdOn", "applicablePermissionPolicies.folder.displayDescription", "applicablePermissionPolicies.folder.displayName", "applicablePermissionPolicies.folder.modifiedOn", "applicablePermissionPolicies.folder.name", "applicablePermissionPolicies.folder.permissionActions", "applicablePermissionPolicies.folder.uri", "email", "permissionLevel", "role", "uri"],
+    _v165 = ({
       closeModal: _v0,
       isOpen: _v1,
       workspaceUuid: _v2,
@@ -3702,10 +3662,10 @@
           setSelectedRole: _v16,
           updateCurrentStepToNext: _v17
         } = (() => {
-          let [_v0, _v1] = (0, _v10.useReducer)(_v154, _v142),
+          let [_v0, _v1] = (0, _v10.useReducer)(_v153, _v141),
             _v2 = (0, _v10.useCallback)((_v0, _v1) => {
               _v1({
-                type: _v144,
+                type: _v143,
                 payload: {
                   email: _v0,
                   errorMessage: _v1
@@ -3714,49 +3674,49 @@
             }, []),
             _v3 = (0, _v10.useCallback)(_v0 => {
               _v1({
-                type: _v145,
+                type: _v144,
                 payload: _v0
               });
             }, []),
             _v4 = (0, _v10.useCallback)(_v0 => {
               _v1({
-                type: _v146,
+                type: _v145,
                 payload: _v0
               });
             }, []),
             _v5 = (0, _v10.useCallback)(_v0 => {
               _v1({
-                type: _v147,
+                type: _v146,
                 payload: _v0
               });
             }, []),
             _v6 = (0, _v10.useCallback)(_v0 => {
               _v1({
-                type: _v143,
+                type: _v142,
                 payload: _v0
               });
             }, []),
             _v7 = (0, _v10.useCallback)(_v0 => {
               _v1({
-                type: _v148,
+                type: _v147,
                 payload: _v0
               });
             }, []),
             _v8 = (0, _v10.useCallback)(_v0 => {
               _v1({
-                type: _v149,
+                type: _v148,
                 payload: _v0
               });
             }, []),
             _v9 = (0, _v10.useCallback)(_v0 => {
               _v1({
-                type: _v150,
+                type: _v149,
                 payload: _v0
               });
             }, []),
             _v10 = (0, _v10.useCallback)(_v0 => {
               _v1({
-                type: _v151,
+                type: _v150,
                 payload: _v0
               });
             }, []);
@@ -3773,13 +3733,13 @@
             setIsReqInProgress: _v10,
             setSelectedRole: (0, _v10.useCallback)(_v0 => {
               _v1({
-                type: _v152,
+                type: _v151,
                 payload: _v0
               });
             }, []),
             updateCurrentStepToNext: (0, _v10.useCallback)(() => {
               _v1({
-                type: _v153
+                type: _v152
               });
             }, [])
           };
@@ -3793,17 +3753,14 @@
         _v22 = _v21 === _v91.ALLOWED_ROLES_FOR_INVITE.ADMIN,
         _v23 = (0, _v10.useRef)(!1),
         _v24 = (0, _v10.useRef)(!1),
-        {
-          sendInviteMembersToTeamEvent: _v25
-        } = (0, _v114.useTrackEvents)(),
-        _v26 = (0, _v18.useGetMePreferences)({
+        _v25 = (0, _v18.useGetMePreferences)({
           select: ["toid"]
         }),
-        _v27 = _v26.data?.toid ?? 0,
+        _v26 = _v25.data?.toid ?? 0,
         {
-          isLoading: _v28,
-          data: _v29
-        } = (0, _v19.useGetUserProjects)(() => _v27 ? {
+          isLoading: _v27,
+          data: _v28
+        } = (0, _v19.useGetUserProjects)(() => _v26 ? {
           query: {
             excludePrivateToMeFolder: !0,
             perPage: 1,
@@ -3812,52 +3769,52 @@
           },
           select: ["isPrivateToUser", "name", "privacy", "uri"],
           where: {
-            userId: _v27
+            userId: _v26
           }
         } : null),
-        _v30 = !_v28 && (_v29?.total ?? 0) > 0,
+        _v29 = !_v27 && (_v28?.total ?? 0) > 0,
         {
-          mutate: _v31
+          mutate: _v30
         } = _v113({
           workspaceUuid: _v2
         }),
-        [_v32, {
-          called: _v33,
-          data: _v34,
-          error: _v35,
-          loading: _v36
+        [_v31, {
+          called: _v32,
+          data: _v33,
+          error: _v34,
+          loading: _v35
         }] = (0, _v110.usePostWorkspaceMembers)(),
-        _v37 = (0, _v15.useToast)(),
-        _v38 = (0, _v10.useCallback)((_v0, _v1, _v2 = "neutral") => {
+        _v36 = (0, _v15.useToast)(),
+        _v37 = (0, _v10.useCallback)((_v0, _v1, _v2 = "neutral") => {
           let _v3 = `invite-workspace-${_v1}`;
-          _v37.isActive(_v3) || _v37({
+          _v36.isActive(_v3) || _v36({
             duration: 0,
             id: _v3,
             isClosable: !0,
             title: _v0,
             variant: _v2
           });
-        }, [_v37]),
-        [_v39, {
-          loading: _v40,
-          error: _v41,
-          complete: _v42
+        }, [_v36]),
+        [_v38, {
+          loading: _v39,
+          error: _v40,
+          complete: _v41
         }] = (0, _v71.usePutBatchFolderTeamPermissions)(),
-        _v43 = (0, _v10.useCallback)(() => _v22 ? _v5.InviteSent : _v5.MembersInvitedToWorkspace(_v19.length, _v3), [_v19.length, _v22, _v5, _v3]);
+        _v42 = (0, _v10.useCallback)(() => _v22 ? _v5.InviteSent : _v5.MembersInvitedToWorkspace(_v19.length, _v3), [_v19.length, _v22, _v5, _v3]);
       return (0, _v10.useEffect)(() => {
-        !_v24.current || !_v40 && (_v41 || _v42) && (_v42 ? _v38(_v5.FoldersShared, "folders-shared") : _v38(_v5.UnableToShareFolders, "folder-share-failed", "warning"), _v24.current = !1, _v0());
-      }, [_v0, _v38, _v5, _v42, _v41, _v40]), (0, _v10.useEffect)(() => {
-        _v23.current && _v33 && !_v36 && (_v35 ? (_v38(_v5.ErrorSendingInvites, "error", "warning"), _v0()) : _v34 && (_v38(_v43(), "success"), _v4(), _v31(), _v30 && !_v22 ? (_v7(_v34.data), _v17()) : _v0()), _v23.current = !1);
-      }, [_v33, _v34, _v35, _v7, _v22, _v36, _v5, _v43, _v38, _v30]), (0, _v1.jsxs)(_v52.Modal, {
+        !_v24.current || !_v39 && (_v40 || _v41) && (_v41 ? _v37(_v5.FoldersShared, "folders-shared") : _v37(_v5.UnableToShareFolders, "folder-share-failed", "warning"), _v24.current = !1, _v0());
+      }, [_v0, _v37, _v5, _v41, _v40, _v39]), (0, _v10.useEffect)(() => {
+        _v23.current && _v32 && !_v35 && (_v34 ? (_v37(_v5.ErrorSendingInvites, "error", "warning"), _v0()) : _v33 && (_v37(_v42(), "success"), _v4(), _v30(), _v29 && !_v22 ? (_v7(_v33.data), _v17()) : _v0()), _v23.current = !1);
+      }, [_v32, _v33, _v34, _v7, _v22, _v35, _v5, _v42, _v37, _v29]), (0, _v1.jsxs)(_v52.Modal, {
         isOpen: _v1,
         onClose: _v0,
         children: [(0, _v1.jsx)(_v57.ModalOverlay, {}), (0, _v1.jsxs)(_v54.ModalContent, {
           minH: (0, _v13.rem)(264),
           maxW: (0, _v13.rem)(500),
           padding: "md",
-          children: [(0, _v1.jsx)(_v162, {
+          children: [(0, _v1.jsx)(_v161, {
             currentModalStep: _v18
-          }), (0, _v1.jsx)(_v156, {
+          }), (0, _v1.jsx)(_v155, {
             handleAddErrorToEmail: _v6,
             handleChangeIsRequestInProgress: _v15,
             handleChangeSelectedFoldersTree: _v8,
@@ -3868,14 +3825,14 @@
             handleInvitationNoteChange: _v14,
             inviteData: _v12,
             onRoleChange: _v16,
-            ownerId: _v27,
+            ownerId: _v26,
             workspaceUuid: _v2
-          }), (0, _v1.jsx)(_v159, {
-            called: _v18 === _v140 && _v33,
+          }), (0, _v1.jsx)(_v158, {
+            called: _v18 === _v139 && _v32,
             closeModal: _v0,
             handlePrimaryButtonClick: () => {
-              if (_v18 === _v140) 0 !== _v19.length && (_v32({
-                select: _v166,
+              if (_v18 === _v139) 0 !== _v19.length && (_v31({
+                select: _v164,
                 variables: {
                   customMessage: _v20,
                   newInviteeEmails: _v19.map(_v0 => _v0.value),
@@ -3884,28 +3841,21 @@
                 where: {
                   workspaceUuid: _v2
                 }
-              }), _v25({
-                entityId: _v2,
-                entityName: _v3,
-                entityType: _v165.ENTITY_TYPE.WORKSPACE,
-                includesMessage: !!_v20,
-                inviteRole: _v21,
-                numberOfInvitedMembers: _v19.length
               }), _v23.current = !0);else {
                 let _v0, _v1;
-                _v18 === _v141 && (_v0 = (0, _v70.getSelectedFolderUrisFromTree)(_v12.selectedFoldersTree), _v1 = _v12.selectedPermissionPolicy, _v27 && _v0.length && _v1?.uri && (_v39(_v12.invitedWorkspaceMembers, _v0, _v27, _v1.uri), _v24.current = !0));
+                _v18 === _v140 && (_v0 = (0, _v70.getSelectedFolderUrisFromTree)(_v12.selectedFoldersTree), _v1 = _v12.selectedPermissionPolicy, _v26 && _v0.length && _v1?.uri && (_v38(_v12.invitedWorkspaceMembers, _v0, _v26, _v1.uri), _v24.current = !0));
               }
             },
             inviteData: _v12,
-            loading: _v36 || _v40
+            loading: _v35 || _v39
           })]
         })]
       });
     };
-  var _v168 = _v0.i(0);
-  let _v169 = [40, 105, 65, 50, 40],
-    _v170 = () => (0, _v1.jsx)(_v168.SeatCount.Group, {
-      children: _v169.map((_v0, _v1) => (0, _v1.jsxs)(_v2.VStack, {
+  var _v166 = _v0.i(0);
+  let _v167 = [40, 105, 65, 50, 40],
+    _v168 = () => (0, _v1.jsx)(_v166.SeatCount.Group, {
+      children: _v167.map((_v0, _v1) => (0, _v1.jsxs)(_v2.VStack, {
         children: [(0, _v1.jsx)(_v94.Skeleton, {
           minW: (0, _v13.rem)(_v0),
           maxH: (0, _v13.rem)(26)
@@ -3915,7 +3865,7 @@
         })]
       }, _v1))
     }),
-    _v171 = () => {
+    _v169 = () => {
       let [_v0, _v1] = (0, _v10.useState)(!1),
         {
           workspaceUuid: _v2
@@ -3949,33 +3899,33 @@
         justify: "space-between",
         borderRadius: "md",
         padding: "md",
-        children: [_v2 && _v0 && !_v6 && (0, _v1.jsx)(_v167, {
+        children: [_v2 && _v0 && !_v6 && (0, _v1.jsx)(_v165, {
           workspaceUuid: _v2,
           workspaceName: _v4?.displayName ?? "",
           closeModal: () => _v1(!1),
           isOpen: _v0,
           onInviteSuccess: _v5
-        }), (0, _v1.jsx)(_v168.SeatCount.Container, {
-          children: _v6 || !_v4 ? (0, _v1.jsx)(_v170, {}) : (0, _v1.jsxs)(_v168.SeatCount.Group, {
-            children: [(0, _v1.jsx)(_v168.SeatCount.Tile, {
+        }), (0, _v1.jsx)(_v166.SeatCount.Container, {
+          children: _v6 || !_v4 ? (0, _v1.jsx)(_v168, {}) : (0, _v1.jsxs)(_v166.SeatCount.Group, {
+            children: [(0, _v1.jsx)(_v166.SeatCount.Tile, {
               label: _v3.AdminRole,
               value: _v7 + _v11
-            }), (0, _v1.jsx)(_v168.SeatCount.Tile, {
+            }), (0, _v1.jsx)(_v166.SeatCount.Tile, {
               label: _v3.ContributorPlusRole,
               value: _v8
-            }), (0, _v1.jsx)(_v168.SeatCount.Tile, {
+            }), (0, _v1.jsx)(_v166.SeatCount.Tile, {
               label: _v3.ContributorRole,
               value: _v9
-            }), (0, _v1.jsx)(_v168.SeatCount.Tile, {
+            }), (0, _v1.jsx)(_v166.SeatCount.Tile, {
               label: _v3.ViewerRole,
               value: _v10
             })]
           })
         }), (0, _v1.jsxs)(_v12.HStack, {
           spacing: 4,
-          children: [(0, _v1.jsx)(_v136, {}), (0, _v1.jsx)(_v38.Button, {
+          children: [(0, _v1.jsx)(_v135, {}), (0, _v1.jsx)(_v38.Button, {
             fontWeight: "500",
-            leftIcon: (0, _v1.jsx)(_v132.PersonUserAdd, {}),
+            leftIcon: (0, _v1.jsx)(_v131.PersonUserAdd, {}),
             variant: "primary",
             onClick: () => _v1(!0),
             children: _v3.Invite
@@ -3983,8 +3933,8 @@
         })]
       });
     };
-  var _v172 = _v0.i(0);
-  let _v173 = () => {
+  var _v170 = _v0.i(0);
+  let _v171 = () => {
     let _v0 = (0, _v6.getTranslations)();
     return (0, _v1.jsxs)(_v2.VStack, {
       spacing: "lg",
@@ -3995,12 +3945,12 @@
         fontWeight: "medium",
         alignSelf: "flex-start",
         children: _v0.Members
-      }), (0, _v1.jsx)(_v171, {}), (0, _v1.jsx)(_v131, {})]
+      }), (0, _v1.jsx)(_v169, {}), (0, _v1.jsx)(_v130, {})]
     });
   };
-  (0, _v4.withPageSetup)(_v172.getWspServerSideProps, {
+  (0, _v4.withPageSetup)(_v170.getWspServerSideProps, {
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v173.getLayout = (_v0, _v1) => (0, _v5.getLayout)(_v0, _v1, _v5.WORKSPACE_ROOT_LIST_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v173], 0);
+  }), _v171.getLayout = (_v0, _v1) => (0, _v5.getLayout)(_v0, _v1, _v5.WORKSPACE_ROOT_LIST_LAYOUT), _v0.s(["__N_SSP", 0, !0, "default", 0, _v171], 0);
 }

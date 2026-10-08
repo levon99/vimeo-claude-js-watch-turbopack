@@ -273,10 +273,9 @@
   border-radius: ${(0, _v11.rem)(16)};
   width: ${(0, _v11.rem)(375)};
 `;
-  var _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  let _v42 = (0, _v10.createTypedForm)(),
-    _v43 = function () {
+  var _v40 = _v0.i(0);
+  let _v41 = (0, _v10.createTypedForm)(),
+    _v42 = function () {
       let _v0 = (0, _v8.useMemo)(_v28.getTranslatedStrings, []);
       (0, _v8.useContext)(_v27.ViewerContext);
       let [_v1, _v2] = (0, _v8.useState)(!1),
@@ -327,9 +326,7 @@
       (0, _v8.useEffect)(() => {
         _v10?.error ? (_v10.error.res.json().then(_v0 => {
           _v0 = (0, _v12.deepCamelCase)(_v0), _v0?.invalidParameters && _v14(_v0.invalidParameters.map(_v0 => _v0.field));
-        }), _v4(!1)) : _v10?.data && (_v2(!0), _v4(!1), (0, _v41.trackEvent)({
-          eventKey: _v41.Events.TRIAL_REQUEST_SUCCESS
-        }));
+        }), _v4(!1)) : _v10?.data && (_v2(!0), _v4(!1));
       }, [_v10]);
       let _v15 = (0, _v8.useMemo)(() => ({
         forClient: "true",
@@ -340,18 +337,13 @@
         name: "",
         email: ""
       }), [_v7]);
-      return (0, _v8.useCallback)((_v0, _v1, _v2, _v3) => {
-        _v0 !== _v1 && (0, _v41.trackEvent)({
-          eventKey: _v2,
-          copy: _v3.find(_v0 => _v0.value === _v1)?.untranslatedLabel
-        });
-      }, []), _v1 ? (0, _v1.jsxs)("div", {
+      return _v1 ? (0, _v1.jsxs)("div", {
         children: [(0, _v1.jsx)(_v7.default, {
           href: "/experts/dashboard",
-          children: (0, _v1.jsxs)(_v44, {
-            children: [(0, _v1.jsx)(_v55, {
+          children: (0, _v1.jsxs)(_v43, {
+            children: [(0, _v1.jsx)(_v54, {
               width: "20"
-            }), (0, _v1.jsx)(_v46, {
+            }), (0, _v1.jsx)(_v45, {
               children: _v0.BackToVimeoExperts
             })]
           })
@@ -367,27 +359,26 @@
               }
             }
           }),
-          subheader: "",
-          eventKey: _v41.Events.CLICK_BACK_DASHBOARD
+          subheader: ""
         })]
-      }) : (0, _v1.jsxs)(_v59, {
+      }) : (0, _v1.jsxs)(_v58, {
         children: [(0, _v1.jsx)(_v7.default, {
           href: "/experts/dashboard",
-          children: (0, _v1.jsxs)(_v44, {
-            children: [(0, _v1.jsx)(_v55, {
+          children: (0, _v1.jsxs)(_v43, {
+            children: [(0, _v1.jsx)(_v54, {
               width: "20"
-            }), (0, _v1.jsx)(_v46, {
+            }), (0, _v1.jsx)(_v45, {
               children: _v0.BackText
             })]
           })
-        }), (0, _v1.jsxs)(_v56, {
-          children: [(0, _v1.jsx)(_v53, {
+        }), (0, _v1.jsxs)(_v55, {
+          children: [(0, _v1.jsx)(_v52, {
             children: _v0.CreateTrialHeader
-          }), (0, _v1.jsx)(_v54, {
+          }), (0, _v1.jsx)(_v53, {
             children: _v0.CreateTrialSubheader
-          }), (0, _v1.jsx)(_v61, {
+          }), (0, _v1.jsx)(_v60, {
             children: _v0.TrialFormHeading
-          }), (0, _v1.jsx)(_v42, {
+          }), (0, _v1.jsx)(_v41, {
             initialValues: _v15,
             onSubmit: _v0 => {
               let {
@@ -421,18 +412,18 @@
               fields: _v3
             }) => (0, _v1.jsxs)("form", {
               onSubmit: _v1,
-              children: [(0, _v1.jsx)(_v50, {
+              children: [(0, _v1.jsx)(_v49, {
                 children: _v0.TrialClientNameLabel
-              }), (0, _v1.jsx)(_v51, {
+              }), (0, _v1.jsx)(_v50, {
                 placeholder: _v0.TrialClientNamePlaceHolder,
                 onChange: _v0 => {
                   _v0.name.setValue(_v0.currentTarget.value);
                 }
-              }), (0, _v1.jsx)(_v50, {
+              }), (0, _v1.jsx)(_v49, {
                 children: _v0.TrialClientEmailLabel
-              }), (0, _v1.jsx)(_v60, {
+              }), (0, _v1.jsx)(_v59, {
                 children: _v0.TrialClientEmailHelpText
-              }), (0, _v1.jsx)(_v51, {
+              }), (0, _v1.jsx)(_v50, {
                 placeholder: _v0.TrialClientEmailPlaceHolder,
                 type: "email",
                 onChange: _v0 => {
@@ -442,9 +433,9 @@
                 messages: {
                   error: _v0.InvalidEmail
                 }
-              }), (0, _v1.jsx)(_v50, {
+              }), (0, _v1.jsx)(_v49, {
                 children: _v0.TrialMessageLabel
-              }), (0, _v1.jsx)(_v58, {
+              }), (0, _v1.jsx)(_v57, {
                 placeholder: _v0.TrialMessagePlaceholder,
                 onChange: _v0 => {
                   _v0.message.setValue(_v0.currentTarget.value);
@@ -453,39 +444,37 @@
                 messages: {
                   error: _v0.InvalidMessage
                 }
-              }), (0, _v1.jsx)(_v49, {
+              }), (0, _v1.jsx)(_v48, {
                 size: "lg",
                 onClick: () => {
-                  _v4(!0), (0, _v41.trackEvent)({
-                    eventKey: _v41.Events.CLICK_SUBMIT_TRIAL_REQUEST
-                  });
+                  _v4(!0);
                 },
                 disabled: !_v2,
                 loading: _v3,
                 children: _v0.Submit
               })]
             })
-          }), (0, _v1.jsx)(_v52, {
+          }), (0, _v1.jsx)(_v51, {
             children: _v0.TrialFooterNotice
           })]
         }), (0, _v1.jsx)(_v30, {
           isExpanded: _v5
-        }), (0, _v1.jsxs)(_v47, {
+        }), (0, _v1.jsxs)(_v46, {
           isExpanded: _v5,
           onClick: () => {
             _v6(!_v5);
           },
-          children: [(0, _v1.jsx)(_v48, {
+          children: [(0, _v1.jsx)(_v47, {
             children: _v5 ? _v0.TrialHideBenefits : _v0.TrialShowBenefits
           }), _v5 ? (0, _v1.jsx)(_v24.ChevronDown, {
             width: "24"
-          }) : (0, _v1.jsx)(_v57, {
+          }) : (0, _v1.jsx)(_v56, {
             width: "24"
           })]
         })]
       });
     },
-    _v44 = _v9.default.div.withConfig({
+    _v43 = _v9.default.div.withConfig({
       displayName: "TrialPage__BackContainer",
       componentId: "sc-ff3316d6-0"
     })`
@@ -497,7 +486,7 @@
   margin-left: ${(0, _v11.rem)(16)};
   cursor: pointer;
 `,
-    _v45 = _v9.default.div.withConfig({
+    _v44 = _v9.default.div.withConfig({
       displayName: "TrialPage__BackText",
       componentId: "sc-ff3316d6-1"
     })`
@@ -505,13 +494,13 @@
   line-height: ${(0, _v11.rem)(32)};
   margin-left: ${(0, _v11.rem)(4)};
 `,
-    _v46 = (0, _v9.default)(_v45).withConfig({
+    _v45 = (0, _v9.default)(_v44).withConfig({
       displayName: "TrialPage__BoldBackText",
       componentId: "sc-ff3316d6-2"
     })`
   font-weight: 700;
 `,
-    _v47 = _v9.default.div.withConfig({
+    _v46 = _v9.default.div.withConfig({
       displayName: "TrialPage__BenefitsFooter",
       componentId: "sc-ff3316d6-3"
     })`
@@ -540,13 +529,13 @@
     display: none;
   }
 `,
-    _v48 = _v9.default.div.withConfig({
+    _v47 = _v9.default.div.withConfig({
       displayName: "TrialPage__BenefitsText",
       componentId: "sc-ff3316d6-4"
     })`
   margin-right: ${(0, _v11.rem)(10)};
 `,
-    _v49 = (0, _v9.default)(_v19.Button).withConfig({
+    _v48 = (0, _v9.default)(_v19.Button).withConfig({
       displayName: "TrialPage__StyledButton",
       componentId: "sc-ff3316d6-5"
     })`
@@ -569,7 +558,7 @@
   margin-top: ${(0, _v11.rem)(2)};
   margin-bottom: ${(0, _v11.rem)(32)};
 `;
-  let _v50 = _v9.default.div.withConfig({
+  let _v49 = _v9.default.div.withConfig({
     displayName: "TrialPage__MessageLabel",
     componentId: "sc-ff3316d6-7"
   })`
@@ -595,7 +584,7 @@
   color: #657987;
   margin-bottom: ${(0, _v11.rem)(32)};
 `;
-  let _v51 = (0, _v9.default)(_v21.Input).withConfig({
+  let _v50 = (0, _v9.default)(_v21.Input).withConfig({
       displayName: "TrialPage__StyledInput",
       componentId: "sc-ff3316d6-10"
     })`
@@ -604,7 +593,7 @@
   }
   margin-bottom: ${(0, _v11.rem)(24)};
 `,
-    _v52 = _v9.default.div.withConfig({
+    _v51 = _v9.default.div.withConfig({
       displayName: "TrialPage__Notice",
       componentId: "sc-ff3316d6-11"
     })`
@@ -614,7 +603,7 @@
   color: #657987;
   margin-top: ${(0, _v11.rem)(40)};
 `,
-    _v53 = _v9.default.div.withConfig({
+    _v52 = _v9.default.div.withConfig({
       displayName: "TrialPage__Header",
       componentId: "sc-ff3316d6-12"
     })`
@@ -624,7 +613,7 @@
   margin-bottom: ${(0, _v11.rem)(40)};
   text-align: center;
 `,
-    _v54 = _v9.default.div.withConfig({
+    _v53 = _v9.default.div.withConfig({
       displayName: "TrialPage__Subheader",
       componentId: "sc-ff3316d6-13"
     })`
@@ -634,13 +623,13 @@
   text-align: justify;
   text-justify: inter-word;
 `,
-    _v55 = (0, _v9.default)(_v25.ChevronRight).withConfig({
+    _v54 = (0, _v9.default)(_v25.ChevronRight).withConfig({
       displayName: "TrialPage__ChevronLeft",
       componentId: "sc-ff3316d6-14"
     })`
   transform: rotate(180deg);
 `,
-    _v56 = _v9.default.div.withConfig({
+    _v55 = _v9.default.div.withConfig({
       displayName: "TrialPage__CreateTrialSection",
       componentId: "sc-ff3316d6-15"
     })`
@@ -652,13 +641,13 @@
   display: flex;
   flex-direction: column;
 `,
-    _v57 = (0, _v9.default)(_v24.ChevronDown).withConfig({
+    _v56 = (0, _v9.default)(_v24.ChevronDown).withConfig({
       displayName: "TrialPage__ChevronUp",
       componentId: "sc-ff3316d6-16"
     })`
   transform: rotate(180deg);
 `,
-    _v58 = (0, _v9.default)(_v23.TextArea).withConfig({
+    _v57 = (0, _v9.default)(_v23.TextArea).withConfig({
       displayName: "TrialPage__CustomTextArea",
       componentId: "sc-ff3316d6-17"
     })`
@@ -666,7 +655,7 @@
     color: #11191d;
   }
 `,
-    _v59 = _v9.default.div.withConfig({
+    _v58 = _v9.default.div.withConfig({
       displayName: "TrialPage__Container",
       componentId: "sc-ff3316d6-18"
     })`
@@ -675,7 +664,7 @@
     flex-direction: row;
   }
 `,
-    _v60 = (0, _v9.default)(_v26.Paragraph).withConfig({
+    _v59 = (0, _v9.default)(_v26.Paragraph).withConfig({
       displayName: "TrialPage__StyledParagraph",
       componentId: "sc-ff3316d6-19"
     })`
@@ -685,7 +674,7 @@
   margin-bottom: ${(0, _v11.rem)(4)};
   margin-top: ${(0, _v11.rem)(4)};
 `,
-    _v61 = _v9.default.div.withConfig({
+    _v60 = _v9.default.div.withConfig({
       displayName: "TrialPage__TrialFormHeading",
       componentId: "sc-ff3316d6-20"
     })`
@@ -695,7 +684,7 @@
   line-height: ${(0, _v11.rem)(33.04)};
   margin-bottom: ${(0, _v11.rem)(24)};
 `;
-  function _v62() {
+  function _v61() {
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
@@ -711,15 +700,15 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v43, {})]
+      }), (0, _v1.jsx)(_v42, {})]
     });
   }
-  _v62.getLayout = (_v0, _v1) => (0, _v1.jsxs)(_v1.Fragment, {
+  _v61.getLayout = (_v0, _v1) => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v4.DefaultNavigation, {
       hasThemeSupport: !1
     }), _v0, (0, _v1.jsx)(_v6.MinimalFooterLayout, {})]
   }), (0, _v3.withPageSetup)({
     requireLogin: !0,
     inlineViewer: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v62], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v61], 0);
 }

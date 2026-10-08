@@ -1,7 +1,7 @@
 {
   "use strict";
 
-  _v0.s(["MENU_WIDTH", () => _v59, "default", () => _v61], 0);
+  _v0.s(["MENU_WIDTH", () => _v56, "default", () => _v58], 0);
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
@@ -169,12 +169,9 @@
     _v49 = _v0.i(0),
     _v50 = _v0.i(0),
     _v51 = _v0.i(0),
-    _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0),
-    _v55 = _v0.i(0);
-  let _v56 = "u" > typeof navigator && -1 != navigator.userAgent.toLowerCase().indexOf("mac"),
-    _v57 = (0, _v2.forwardRef)(({
+    _v52 = _v0.i(0);
+  let _v53 = "u" > typeof navigator && -1 != navigator.userAgent.toLowerCase().indexOf("mac"),
+    _v54 = (0, _v2.forwardRef)(({
       type: _v0,
       onMenuItemClick: _v1,
       position: _v2,
@@ -374,14 +371,14 @@
                 _v3 = (0, _v28.useAppSelector)(_v16.videoSessionIdSelector),
                 _v4 = _v1[0],
                 _v5 = (0, _v18.isVideoElement)(_v4) ? _v4.sourceHash : "",
-                _v6 = (0, _v28.useAppSelector)(_v0 => (0, _v46.elementStatusSelector)(_v0, _v5)),
+                _v6 = (0, _v28.useAppSelector)(_v0 => (0, _v45.elementStatusSelector)(_v0, _v5)),
                 {
                   hasTveSupported: _v7
                 } = (0, _v2.useContext)(_v43.PermissionsContext),
                 _v8 = (0, _v2.useContext)(_v42.FlowHooksContext),
                 {
                   removeSourceFromIgnore: _v9
-                } = (0, _v53.useTranscriptIgnoreSources)(),
+                } = (0, _v50.useTranscriptIgnoreSources)(),
                 {
                   seek: _v10
                 } = (0, _v41.useDragonfly)(),
@@ -406,15 +403,12 @@
                       }));
                     }
                   };
-                }, [_v0, _v4]);
-              (0, _v44.useEffectOnce)(() => {
-                (0, _v51.sendTrackTVEImpression)(!1);
-              });
-              let _v17 = (0, _v2.useMemo)(() => {
+                }, [_v0, _v4]),
+                _v17 = (0, _v2.useMemo)(() => {
                   if (_v4 && (0, _v18.isVideoElement)(_v4)) {
                     let _v0 = _v2[_v4.sourceHash],
-                      _v1 = _v6 === _v49.STATUS.PROGRESS;
-                    if (_v0 && (0, _v52.isSourceValidForTranscript)(_v0)) return {
+                      _v1 = _v6 === _v48.STATUS.PROGRESS;
+                    if (_v0 && (0, _v49.isSourceValidForTranscript)(_v0)) return {
                       icon: (0, _v1.jsx)(_v39.TranscriptOn, {
                         boxSize: "20px"
                       }),
@@ -445,20 +439,16 @@
                         }
                       }),
                       onClick: () => {
-                        if (!_v7) {
-                          (0, _v51.sendTrackTVETrigger)(!1), _v8?.onSelectTve?.({
-                            vsid: _v3,
-                            tier: _v40.TVE
-                          });
-                          return;
-                        }
-                        _v0((0, _v45.openInspectorAction)({
-                          inspectorType: _v48.InspectorType.TRANSCRIPT
-                        })), _v9(_v4.sourceHash), _v0((0, _v47.setShouldFetchTranscriptForSource)({
+                        _v7 ? (_v0((0, _v44.openInspectorAction)({
+                          inspectorType: _v47.InspectorType.TRANSCRIPT
+                        })), _v9(_v4.sourceHash), _v0((0, _v46.setShouldFetchTranscriptForSource)({
                           sourceHash: _v4.sourceHash,
                           shouldFetchTranscript: !0,
                           force: !1
-                        })), _v10(_v4.compositionTiming.start), (0, _v50.sendTrackTranscriptTranscribe)("timeline", "transcribe", 1, _v4.sourceHash);
+                        })), _v10(_v4.compositionTiming.start)) : _v8?.onSelectTve?.({
+                          vsid: _v3,
+                          tier: _v40.TVE
+                        });
                       },
                       disabled: _v1
                     };
@@ -477,7 +467,7 @@
                 } = _v30(),
                 {
                   selectTransitions: _v3
-                } = (0, _v54.default)(),
+                } = (0, _v51.default)(),
                 _v4 = (0, _v2.useMemo)(() => ({
                   content: (0, _v37.translate)({
                     singular: "Edit",
@@ -506,8 +496,8 @@
                     }
                   }),
                   onClick: () => {
-                    _v3([_v0?.elementId]), _v1((0, _v45.openInspectorAction)({
-                      inspectorType: _v48.InspectorType.MEDIA_TRANSITIONS
+                    _v3([_v0?.elementId]), _v1((0, _v44.openInspectorAction)({
+                      inspectorType: _v47.InspectorType.MEDIA_TRANSITIONS
                     }));
                   }
                 }), [_v0?.elementId, _v1, _v3]);
@@ -560,12 +550,12 @@
         _v10 = (0, _v2.useCallback)((_v0, _v1) => {
           _v0.stopPropagation(), _v1(), _v1();
         }, [_v1]);
-      return (0, _v55.useOnClickOutside)(_v7, _v4), (0, _v1.jsx)(_v11, {
+      return (0, _v52.useOnClickOutside)(_v7, _v4), (0, _v1.jsx)(_v11, {
         onContextMenu: _v9,
         x: _v2.x,
         y: _v2.y,
         ref: _v7,
-        width: _v59,
+        width: _v56,
         "data-testid": _v12.testIds.rightClickMenu,
         "data-type": _v0,
         children: (0, _v1.jsx)(_v4.Menu, {
@@ -575,7 +565,7 @@
             ref: _v6,
             children: _v8?.map((_v0, _v1) => (0, _v1.jsxs)(_v6.MenuGroup, {
               children: [_v0.map(_v0 => (0, _v1.jsxs)(_v7.MenuItem, {
-                command: _v56 ? _v0.macShortcut : _v0.winShortcut,
+                command: _v53 ? _v0.macShortcut : _v0.winShortcut,
                 onClick: _v0 => _v10(_v0, _v0.onClick),
                 isDisabled: _v0.disabled,
                 "data-testid": "right-click-menu-button-" + _v0.content.toLowerCase().replaceAll(" ", "-"),
@@ -586,10 +576,10 @@
         })
       });
     }),
-    _v58 = (0, _v2.memo)(_v57),
-    _v59 = 180,
-    _v60 = [_v12.testIds.toolbar, _v12.testIds.timelineEmptyState],
-    _v61 = (0, _v2.memo)(({
+    _v55 = (0, _v2.memo)(_v54),
+    _v56 = 180,
+    _v57 = [_v12.testIds.toolbar, _v12.testIds.timelineEmptyState],
+    _v58 = (0, _v2.memo)(({
       children: _v0,
       style: _v1,
       onContextMenu: _v2,
@@ -608,7 +598,7 @@
         _v14 = (0, _v2.useRef)(0),
         _v15 = (0, _v2.useCallback)(_v0 => {
           let _v1;
-          if (_v2 && _v2(_v0), _v0.target instanceof Element && (_v1 = _v0.target, _v60.some(_v0 => _v1.closest((0, _v12.getTestIdSelector)(_v0))) || !_v0.target.closest((0, _v12.getTestIdSelector)(_v12.testIds.rightClickMenuWrapper)))) return;
+          if (_v2 && _v2(_v0), _v0.target instanceof Element && (_v1 = _v0.target, _v57.some(_v0 => _v1.closest((0, _v12.getTestIdSelector)(_v0))) || !_v0.target.closest((0, _v12.getTestIdSelector)(_v12.testIds.rightClickMenuWrapper)))) return;
           _v0.preventDefault(), _v0.stopPropagation();
           let {
             clientX: _v2,
@@ -616,7 +606,7 @@
           } = _v0;
           _v14.current = _v3;
           let _v4 = window.innerWidth,
-            _v5 = _v2 + _v59,
+            _v5 = _v2 + _v56,
             {
               x: _v6,
               y: _v7
@@ -628,7 +618,7 @@
             x: _v6,
             y: _v7
           }) : _v9({
-            x: _v6 - _v59,
+            x: _v6 - _v56,
             y: _v7
           }), _v11(!0), _v13(!1);
         }, [_v2]),
@@ -643,12 +633,12 @@
       let _v17 = () => {
         _v11(!1);
       };
-      return (0, _v55.useOnClickOutside)(_v7, _v17), (0, _v1.jsxs)(_v10, {
+      return (0, _v52.useOnClickOutside)(_v7, _v17), (0, _v1.jsxs)(_v10, {
         ref: _v5,
         onContextMenu: _v15,
         "data-testid": _v12.testIds.rightClickMenuWrapper,
         style: _v1,
-        children: [_v0, _v10 && (0, _v3.createPortal)((0, _v1.jsx)(_v58, {
+        children: [_v0, _v10 && (0, _v3.createPortal)((0, _v1.jsx)(_v55, {
           ref: _v6,
           handleClickOutside: _v17,
           contextData: _v4,

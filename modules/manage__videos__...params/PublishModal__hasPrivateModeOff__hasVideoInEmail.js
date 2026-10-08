@@ -205,5 +205,43 @@
         onWatermarkRemoveSuccess: _v23
       })]
     });
-  }]);
+  }], 0);
+  var _v24 = _v0.i(0);
+  let _v25 = ["disabledProperties", "download.height", "download.link", "download.publicName", "download.quality", "download.sizeShort", "download.type", "download.width", "download.videoFileId", "download.size", "editSession.vsid", "editSession.isEditedByTve", "editSession.isMaxResolution", "editSession.status", "editSession.resultVideoHash", "metadata.interactions.hasRestrictedPrivacyOptions.uri", "name", "parentProject.uri", "parentProject.isPrivateToUser", "privacy.view", "privacy.embed", "contentRating", "duration", "status", "user.uri", "vod.id", "link", "usesDrm"],
+    _v26 = _v0 => (0, _v24.useGetVideo)(() => _v0 ? {
+      where: {
+        videoId: _v0
+      },
+      select: _v25,
+      headers: {
+        Accept: "application/vnd.vimeo.*+json;version=3.4.1"
+      }
+    } : null);
+  _v0.s(["useGetShareMenuVideoData", 0, _v26], 0);
+  var _v27 = _v0.i(0);
+  _v0.s(["useOpenAddToShowcaseModal", 0, function (_v0) {
+    let _v1 = (0, _v3.useRouter)(),
+      {
+        data: _v2
+      } = _v26(_v0),
+      {
+        openAddToShowcaseModal: _v3,
+        closeAddToShowcaseModal: _v4
+      } = (0, _v27.useAddToShowcaseModal)();
+    return {
+      onOpenAddToShowcaseModal: (0, _v4.useCallback)(() => {
+        _v3({
+          onClose: _v4,
+          showcaseItems: [{
+            id: _v0,
+            name: _v2?.name ?? "",
+            type: "video"
+          }],
+          ownerId: (0, _v11.idFromUri)(_v2?.user?.uri),
+          pageName: "svv",
+          pageUrl: _v1.pathname
+        });
+      }, [_v0, _v2, _v1, _v3, _v4])
+    };
+  }], 0);
 }

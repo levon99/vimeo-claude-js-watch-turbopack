@@ -3062,39 +3062,7 @@
     _v52 = new Set([_v15.VideoGridEnum.GRID_SIZE_SMALL, _v15.VideoGridEnum.GRID_SIZE_MEDIUM, _v15.VideoGridEnum.GRID_SIZE_LARGE, _v15.VideoGridEnum.GRID_SIZE_EXTRA_LARGE]),
     _v53 = new Set([_v15.TextCtaAlginmentEnum.CENTER, _v15.TextCtaAlginmentEnum.LEFT, _v15.TextCtaAlginmentEnum.RIGHT]),
     _v54 = [_v13.PLANS.BASIC, _v13.PLANS.PLUS, _v13.PLANS.PRO, _v13.PLANS.BUSINESS, _v13.PLANS.PREMIUM, _v13.PLANS.ENTERPRISE],
-    _v55 = {
-      [_v15.ShowcaseRouteMap.INFO]: [{
-        featureName: "settings",
-        listOfUpsell: ["seo_showcases", "tv_apps_showcases", "color_showcases", "custom_logo_showcases", "vimeo_logo_showcases", "premium_features_showcases"]
-      }],
-      [_v15.ShowcaseRouteMap.SEO]: [{
-        featureName: "settings",
-        listOfUpsell: ["seo_showcases"]
-      }],
-      [_v15.ShowcaseRouteMap.PLAYBACK]: [{
-        featureName: "playback_engagement",
-        listOfUpsell: ["premium_features_showcases"]
-      }, {
-        featureName: "playback",
-        listOfUpsell: ["premium_features_showcases", "continuous_play_showcases", "loop_playlist_showcases", "premium_features_showcases"]
-      }, {
-        featureName: "playback_grid",
-        listOfUpsell: ["premium_features_showcases", "premium_features_showcases", "premium_features_showcases"]
-      }],
-      [_v15.ShowcaseRouteMap.LAYOUT_NAVIGATION]: [{
-        featureName: "layout",
-        listOfUpsell: ["vimeo_navigation_showcases", "vimeo_navigation_showcases"]
-      }],
-      [_v15.ShowcaseRouteMap.LAYOUT_FEATURED]: [{
-        featureName: "layout",
-        listOfUpsell: ["premium_features_showcases", "premium_features_showcases"]
-      }],
-      [_v15.ShowcaseRouteMap.LAYOUT_VIDEO_GRID]: [{
-        featureName: "layout_grid",
-        listOfUpsell: ["premium_features_showcases", "premium_features_showcases", "premium_features_showcases"]
-      }]
-    },
-    _v56 = new Set(["settings_more_customisations", "settings_color", "settings_custom_logo", "settings_registration", "settings_seo", "settings_tv_apps", "layout_navigation", "layout_navigation_search", "layout_featured_content_details", "layout_featured_content_alignment", "layout_video_grid_size", "layout_video_count", "layout_video_details", "playback_more_customisations", "playback_loop_playlist", "playback_engagement", "playback_now_playing", "playback_video_grid_size", "playback_video_count", "playback_video_details", "playback_continuous_play"]);
+    _v55 = new Set(["settings_more_customisations", "settings_color", "settings_custom_logo", "settings_registration", "settings_seo", "settings_tv_apps", "layout_navigation", "layout_navigation_search", "layout_featured_content_details", "layout_featured_content_alignment", "layout_video_grid_size", "layout_video_count", "layout_video_details", "playback_more_customisations", "playback_loop_playlist", "playback_engagement", "playback_now_playing", "playback_video_grid_size", "playback_video_count", "playback_video_details", "playback_continuous_play"]);
   _v0.s(["ALBUM_CONFIG_DEFAULTS", 0, {
     showVideoDetails: {
       value: !0,
@@ -3278,7 +3246,7 @@
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest"
     }
-  }, "FILE_UPLOAD_ACCEPT_IMAGE_TYPE", 0, "image/png, image/jpeg", "FloatingUpgradeBannerTextDesktop", 0, _v33, "FloatingUpgradeBannerTextMobile", 0, _v34, "FormMandatoryFieldsErrorMsg", 0, _v43, "GRID_SIZES", 0, _v51, "HEX_6DIGIT_REGEX", 0, /^#?[0-9A-Fa-f]{6}$/, "IMPRESSION_UPSELL", 0, _v55, "ITEMS_PER_PAGE_APPEARANCE", 0, 24, "ITEMS_PER_PAGE_DESKTOP", 0, 25, "ITEMS_PER_PAGE_MOBILE", 0, 8, "KNOWN_PLAYER_ORIGINS", 0, ["vimeo.dev", "ci.vimeows.com", "vimeo.com"], "LEGACY_PLANS", 0, _v54, "LIST_OF_DELTA_FIELDS_FOR_UPSERT", 0, ["appearanceStore.hasFeaturedContent", "appearanceStore.thumbnailType"], "LIST_OF_PLAYBACK_UPGRADE_FIELDS", 0, ["isPlaybackEnableLikePremiumFeature", "isPlaybackEnableSharePremiumFeature", "isPlaybackEnableCommentsPremiumFeature", "isPlaybackEnableDownloadPremiumFeature", "isPlaybackShowPlaybackProfileImagePremiumFeature", "isPlaybackShowPlaybackProfileNamePremiumFeature", "isPlaybackShowPlaybackVideoDescriptionPremiumFeature", "isPlaybackShowPlaybackVideoTitlePremiumFeature", "isPlaybackShowPlaybackViewsPremiumFeature", "isPlaybackShowPlaybackAddedDatePremiumFeature", "isPlaybackShowPlaybackUploadedDatePremiumFeature", "isPlaybackShowPlaybackGridVideoTitlePremiumFeature", "isPlaybackShowPlaybackGridProfileImagePremiumFeature", "isPlaybackShowPlaybackGridProfileNamePremiumFeature", "isPlaybackShowPlaybackGridVideoCardPremiumFeature", "isPlaybackPlaybackGridSizePremiumFeature"], "LOGO_EMPTY_BACKGROUND", 0, "https://i.vimeocdn.com/custom_asset/29817f2ec7f8981e67252ccfb87a3f7d", "LayoutMenuItem", 0, _v46, "MENU_LIST_PATH", 0, {
+  }, "FILE_UPLOAD_ACCEPT_IMAGE_TYPE", 0, "image/png, image/jpeg", "FloatingUpgradeBannerTextDesktop", 0, _v33, "FloatingUpgradeBannerTextMobile", 0, _v34, "FormMandatoryFieldsErrorMsg", 0, _v43, "GRID_SIZES", 0, _v51, "HEX_6DIGIT_REGEX", 0, /^#?[0-9A-Fa-f]{6}$/, "ITEMS_PER_PAGE_APPEARANCE", 0, 24, "ITEMS_PER_PAGE_DESKTOP", 0, 25, "ITEMS_PER_PAGE_MOBILE", 0, 8, "KNOWN_PLAYER_ORIGINS", 0, ["vimeo.dev", "ci.vimeows.com", "vimeo.com"], "LEGACY_PLANS", 0, _v54, "LIST_OF_DELTA_FIELDS_FOR_UPSERT", 0, ["appearanceStore.hasFeaturedContent", "appearanceStore.thumbnailType"], "LIST_OF_PLAYBACK_UPGRADE_FIELDS", 0, ["isPlaybackEnableLikePremiumFeature", "isPlaybackEnableSharePremiumFeature", "isPlaybackEnableCommentsPremiumFeature", "isPlaybackEnableDownloadPremiumFeature", "isPlaybackShowPlaybackProfileImagePremiumFeature", "isPlaybackShowPlaybackProfileNamePremiumFeature", "isPlaybackShowPlaybackVideoDescriptionPremiumFeature", "isPlaybackShowPlaybackVideoTitlePremiumFeature", "isPlaybackShowPlaybackViewsPremiumFeature", "isPlaybackShowPlaybackAddedDatePremiumFeature", "isPlaybackShowPlaybackUploadedDatePremiumFeature", "isPlaybackShowPlaybackGridVideoTitlePremiumFeature", "isPlaybackShowPlaybackGridProfileImagePremiumFeature", "isPlaybackShowPlaybackGridProfileNamePremiumFeature", "isPlaybackShowPlaybackGridVideoCardPremiumFeature", "isPlaybackPlaybackGridSizePremiumFeature"], "LOGO_EMPTY_BACKGROUND", 0, "https://i.vimeocdn.com/custom_asset/29817f2ec7f8981e67252ccfb87a3f7d", "LayoutMenuItem", 0, _v46, "MENU_LIST_PATH", 0, {
     VIDEO_GRID_PATH: "/video-grid",
     FEATURED_CONTENT_PATH: "/featured",
     NAVIGATION_PATH: "/navigation"
@@ -3308,7 +3276,7 @@
   }, {
     label: "Português",
     value: "pt-BR"
-  }], "UPGRADE_PLAN_BUTTON_TEXT", 0, _v32, "UPSELL_MODAL_ENTERPRISE", 0, _v44, "UPSELL_MODAL_FEATURE_NAMES", 0, _v56, "VIDEOS_API_VERSION", 0, "3.4.12", "ViewerClipsAllowedPicturesSizes", 0, [640, 295], "albumCustomFields", 0, ["password"], "albumFields", 0, ["layout", "description", "name", "privacy", "rokuGenres", "rokuLanguage", "rokuProviderName", "seoAllowIndexed", "seoDescription", "seoKeywords", "seoTitle", "layout", "theme", "hideNav", "hideVimeoLogo", "hasFeaturedContent", "customLogo", "brandColor", "embedCustomLogo", "webCustomLogo", "embedBrandColor", "webBrandColor", "allowDownloads", "loop", "allowShare", "pictures", "hasChosenThumbnail", "user.uri", "metadata.interactions.delete", "useCustomDomain", "link", "url", "metadata.interactions.addVideos", "metadata.interactions.addLiveEvents", "metadata.interactions.editLiveEvents", "metadata.interactions.canUpdatePrivacyToPublic", "embed", "metadata.connections.videos.total", "sort", "allowedPrivacies", "allowContinuousPlay", "autoplay", "hideUpcoming", "config", "thumbnailType", "customThumbnail"], "allowedDesktopRoutes", 0, _v18, "allowedMobileRoutes", 0, _v23, "defaultShowcaseConfig", 0, {
+  }], "UPGRADE_PLAN_BUTTON_TEXT", 0, _v32, "UPSELL_MODAL_ENTERPRISE", 0, _v44, "UPSELL_MODAL_FEATURE_NAMES", 0, _v55, "VIDEOS_API_VERSION", 0, "3.4.12", "ViewerClipsAllowedPicturesSizes", 0, [640, 295], "albumCustomFields", 0, ["password"], "albumFields", 0, ["layout", "description", "name", "privacy", "rokuGenres", "rokuLanguage", "rokuProviderName", "seoAllowIndexed", "seoDescription", "seoKeywords", "seoTitle", "layout", "theme", "hideNav", "hideVimeoLogo", "hasFeaturedContent", "customLogo", "brandColor", "embedCustomLogo", "webCustomLogo", "embedBrandColor", "webBrandColor", "allowDownloads", "loop", "allowShare", "pictures", "hasChosenThumbnail", "user.uri", "metadata.interactions.delete", "useCustomDomain", "link", "url", "metadata.interactions.addVideos", "metadata.interactions.addLiveEvents", "metadata.interactions.editLiveEvents", "metadata.interactions.canUpdatePrivacyToPublic", "embed", "metadata.connections.videos.total", "sort", "allowedPrivacies", "allowContinuousPlay", "autoplay", "hideUpcoming", "config", "thumbnailType", "customThumbnail"], "allowedDesktopRoutes", 0, _v18, "allowedMobileRoutes", 0, _v23, "defaultShowcaseConfig", 0, {
     apiUrl: "",
     isEnterpriseSite: void 0,
     jwt: "",

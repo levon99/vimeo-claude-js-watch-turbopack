@@ -14,165 +14,152 @@
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
-    _v14 = _v0.i(0),
-    _v15 = _v0.i(0);
-  let _v16 = ({
+    _v14 = _v0.i(0);
+  let _v15 = ({
     to: _v0,
     text: _v1
-  }) => {
-    let {
-      sendDrawerOpenCloseEvent: _v2
-    } = (0, _v14.useBpEventService)();
-    return (0, _v1.jsxs)(_v4.Flex, {
+  }) => (0, _v1.jsxs)(_v4.Flex, {
+    align: "center",
+    gap: "sm",
+    children: [(0, _v1.jsx)(_v4.Flex, {
       align: "center",
-      gap: "sm",
-      children: [(0, _v1.jsx)(_v4.Flex, {
-        align: "center",
-        children: (0, _v1.jsx)(_v15.CustomNavLink, {
-          to: _v0,
-          style: {
-            width: "xs",
-            height: "xs",
-            display: "flex",
-            alignItems: "center"
-          },
-          children: (0, _v1.jsx)(_v13.ArrowLeft, {
-            boxSize: "xs",
-            onClick: () => _v2(!1, _v1.toLowerCase())
-          })
+      children: (0, _v1.jsx)(_v14.CustomNavLink, {
+        to: _v0,
+        style: {
+          width: "xs",
+          height: "xs",
+          display: "flex",
+          alignItems: "center"
+        },
+        children: (0, _v1.jsx)(_v13.ArrowLeft, {
+          boxSize: "xs"
         })
-      }), (0, _v1.jsx)(_v4.Flex, {
-        align: "center",
-        children: (0, _v1.jsx)(_v12.Text, {
-          variant: "heading-sm",
-          color: "text-primary",
-          children: _v1
-        })
-      })]
-    });
-  };
-  var _v17 = _v0.i(0),
-    _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  let _v20 = ({
+      })
+    }), (0, _v1.jsx)(_v4.Flex, {
+      align: "center",
+      children: (0, _v1.jsx)(_v12.Text, {
+        variant: "heading-sm",
+        color: "text-primary",
+        children: _v1
+      })
+    })]
+  });
+  var _v16 = _v0.i(0),
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0);
+  let _v19 = ({
       to: _v0,
       text: _v1
-    }) => {
-      let {
-        sendSidebarDrawerOpenCloseEvent: _v2
-      } = (0, _v14.useBpEventService)();
-      return (0, _v1.jsxs)(_v4.Flex, {
-        align: "center",
-        justify: "space-between",
-        children: [(0, _v1.jsx)(_v12.Text, {
-          variant: "heading-sm",
-          color: "text-primary",
-          children: _v1
-        }), (0, _v1.jsx)(_v15.CustomNavLink, {
-          to: _v0,
-          children: (0, _v1.jsx)(_v17.IconButton, {
-            "aria-label": (0, _v19.translate)({
-              singular: "side drawer close",
-              dictionary: {
-                es: {
-                  singular: "cierre del recuadro lateral"
-                },
-                "de-DE": {
-                  singular: "Seitenleiste schließen"
-                },
-                "fr-FR": {
-                  singular: "fermer le tiroir latéral"
-                },
-                "ja-JP": {
-                  singular: "サイドドロワーを閉じる"
-                },
-                "ko-KR": {
-                  singular: "사이드바 닫기"
-                },
-                "pt-BR": {
-                  singular: "fechar a barra lateral"
-                },
-                "zh-CN": {
-                  singular: "关闭侧滑菜单"
-                }
+    }) => (0, _v1.jsxs)(_v4.Flex, {
+      align: "center",
+      justify: "space-between",
+      children: [(0, _v1.jsx)(_v12.Text, {
+        variant: "heading-sm",
+        color: "text-primary",
+        children: _v1
+      }), (0, _v1.jsx)(_v14.CustomNavLink, {
+        to: _v0,
+        children: (0, _v1.jsx)(_v16.IconButton, {
+          "aria-label": (0, _v18.translate)({
+            singular: "side drawer close",
+            dictionary: {
+              es: {
+                singular: "cierre del recuadro lateral"
+              },
+              "de-DE": {
+                singular: "Seitenleiste schließen"
+              },
+              "fr-FR": {
+                singular: "fermer le tiroir latéral"
+              },
+              "ja-JP": {
+                singular: "サイドドロワーを閉じる"
+              },
+              "ko-KR": {
+                singular: "사이드바 닫기"
+              },
+              "pt-BR": {
+                singular: "fechar a barra lateral"
+              },
+              "zh-CN": {
+                singular: "关闭侧滑菜单"
               }
-            }),
-            variant: "tertiary",
-            size: "sm",
-            icon: (0, _v1.jsx)(_v18.CloseX, {}),
-            onClick: () => _v2(_v0, "x"),
-            tabIndex: -1
-          })
-        })]
-      });
-    },
-    _v21 = {
-      [_v11.SideDrawerHeaderKeyEnum.INFO]: (0, _v1.jsx)(_v20, {
+            }
+          }),
+          variant: "tertiary",
+          size: "sm",
+          icon: (0, _v1.jsx)(_v17.CloseX, {}),
+          tabIndex: -1
+        })
+      })]
+    }),
+    _v20 = {
+      [_v11.SideDrawerHeaderKeyEnum.INFO]: (0, _v1.jsx)(_v19, {
         to: _v11.ShowcaseRouteMap.WEB_LAYOUT,
         text: _v10.SideDrawerHeaderEnum.SETTINGS
       }),
-      [_v11.SideDrawerHeaderKeyEnum.SEO]: (0, _v1.jsx)(_v16, {
+      [_v11.SideDrawerHeaderKeyEnum.SEO]: (0, _v1.jsx)(_v15, {
         to: _v11.ShowcaseRouteMap.INFO,
         text: _v10.SideDrawerHeaderEnum.SEO
       }),
-      [_v11.SideDrawerHeaderKeyEnum.TV_APPS]: (0, _v1.jsx)(_v16, {
+      [_v11.SideDrawerHeaderKeyEnum.TV_APPS]: (0, _v1.jsx)(_v15, {
         to: _v11.ShowcaseRouteMap.INFO,
         text: _v10.SideDrawerHeaderEnum.TV_APPS
       }),
-      [_v11.SideDrawerHeaderKeyEnum.REGISTRATION]: (0, _v1.jsx)(_v16, {
+      [_v11.SideDrawerHeaderKeyEnum.REGISTRATION]: (0, _v1.jsx)(_v15, {
         to: _v11.ShowcaseRouteMap.INFO,
         text: _v10.SideDrawerHeaderEnum.REGISTRATION
       }),
-      [_v11.SideDrawerHeaderKeyEnum.CUSTOMIZATION]: (0, _v1.jsx)(_v20, {
+      [_v11.SideDrawerHeaderKeyEnum.CUSTOMIZATION]: (0, _v1.jsx)(_v19, {
         to: _v11.ShowcaseRouteMap.WEB_LAYOUT,
         text: _v10.SideDrawerHeaderEnum.APPEARANCE
       }),
-      [_v11.SideDrawerHeaderKeyEnum.ANALYTICS]: (0, _v1.jsx)(_v20, {
+      [_v11.SideDrawerHeaderKeyEnum.ANALYTICS]: (0, _v1.jsx)(_v19, {
         to: _v11.ShowcaseRouteMap.INFO,
         text: _v10.SideDrawerHeaderEnum.ANALYTICS
       }),
-      [_v11.SideDrawerHeaderKeyEnum.LAYOUT]: (0, _v1.jsx)(_v20, {
+      [_v11.SideDrawerHeaderKeyEnum.LAYOUT]: (0, _v1.jsx)(_v19, {
         to: _v11.ShowcaseRouteMap.WEB_LAYOUT,
         text: _v10.SideDrawerHeaderEnum.LAYOUT
       }),
-      [_v11.SideDrawerHeaderKeyEnum.PLAYBACK]: (0, _v1.jsx)(_v20, {
+      [_v11.SideDrawerHeaderKeyEnum.PLAYBACK]: (0, _v1.jsx)(_v19, {
         to: _v11.ShowcaseRouteMap.WEB_LAYOUT,
         text: _v10.SideDrawerHeaderEnum.PLAYBACK
       }),
-      [_v11.SideDrawerHeaderNestedKeyEnum.LAYOUT_NAVIGATION]: (0, _v1.jsx)(_v16, {
+      [_v11.SideDrawerHeaderNestedKeyEnum.LAYOUT_NAVIGATION]: (0, _v1.jsx)(_v15, {
         to: _v11.ShowcaseRouteMap.LAYOUT,
         text: _v10.SideDrawerHeaderEnum.NAVIGATION
       }),
-      [_v11.SideDrawerHeaderNestedKeyEnum.LAYOUT_FEATURED]: (0, _v1.jsx)(_v16, {
+      [_v11.SideDrawerHeaderNestedKeyEnum.LAYOUT_FEATURED]: (0, _v1.jsx)(_v15, {
         to: _v11.ShowcaseRouteMap.LAYOUT,
         text: _v10.SideDrawerHeaderEnum.FEATURED
       }),
-      [_v11.SideDrawerHeaderNestedKeyEnum.LAYOUT_VIDEO_GRID]: (0, _v1.jsx)(_v16, {
+      [_v11.SideDrawerHeaderNestedKeyEnum.LAYOUT_VIDEO_GRID]: (0, _v1.jsx)(_v15, {
         to: _v11.ShowcaseRouteMap.LAYOUT,
         text: _v10.SideDrawerHeaderEnum.VIDEO_GRID
       })
     },
-    _v22 = ({
+    _v21 = ({
       headerText: _v0
-    }) => _v21[_v0 ?? ""] || (0, _v1.jsx)(_v1.Fragment, {});
-  var _v23 = _v0.i(0),
-    _v24 = _v0.i(0),
-    _v25 = _v10,
-    _v26 = _v0.i(0),
-    _v27 = _v0.i(0);
-  let _v28 = {
+    }) => _v20[_v0 ?? ""] || (0, _v1.jsx)(_v1.Fragment, {});
+  var _v22 = _v0.i(0),
+    _v23 = _v0.i(0),
+    _v24 = _v10,
+    _v25 = _v0.i(0),
+    _v26 = _v0.i(0);
+  let _v27 = {
       left: "calc(100% - 4px)",
       width: "10px",
       height: "100%"
     },
-    _v29 = {
+    _v28 = {
       position: "relative",
       height: "48px",
       width: "4px",
       left: "6px",
       cursor: "ew-resize"
     },
-    _v30 = ({
+    _v29 = ({
       isDragging: _v0,
       isVisible: _v1,
       onPointerDown: _v2,
@@ -182,13 +169,13 @@
       ariaValueNow: _v6,
       ariaValueMin: _v7,
       ariaValueMax: _v8
-    }) => (0, _v1.jsx)(_v27.Center, {
+    }) => (0, _v1.jsx)(_v26.Center, {
       position: "absolute",
       display: _v1 ? "flex" : "none",
       zIndex: 10,
-      sx: _v28,
-      children: (0, _v1.jsx)(_v26.Box, {
-        sx: _v29,
+      sx: _v27,
+      children: (0, _v1.jsx)(_v25.Box, {
+        sx: _v28,
         background: _v0 ? "input-stroke-hover" : "stroke",
         borderRadius: "sm",
         onPointerDown: _v2,
@@ -212,17 +199,17 @@
         "aria-orientation": "horizontal"
       })
     }),
-    _v31 = ({
+    _v30 = ({
       sidebarLeft: _v0,
       onWidthChange: _v1,
-      initialWidth: _v2 = _v25.SIDEBAR_CONSTRAINTS.DEFAULT_WIDTH,
-      minWidth: _v3 = _v25.SIDEBAR_CONSTRAINTS.MIN_WIDTH,
-      maxWidth: _v4 = _v25.SIDEBAR_CONSTRAINTS.MAX_WIDTH
+      initialWidth: _v2 = _v24.SIDEBAR_CONSTRAINTS.DEFAULT_WIDTH,
+      minWidth: _v3 = _v24.SIDEBAR_CONSTRAINTS.MIN_WIDTH,
+      maxWidth: _v4 = _v24.SIDEBAR_CONSTRAINTS.MAX_WIDTH
     }) => {
       let [_v5, _v6] = (0, _v3.useState)(!1),
         [_v7, _v8] = (0, _v3.useState)(_v2),
         _v9 = (0, _v3.useRef)(null),
-        _v10 = (0, _v24.useBreakpointValue)({
+        _v10 = (0, _v23.useBreakpointValue)({
           base: !1,
           lg: !0
         }),
@@ -258,7 +245,7 @@
           _v0.preventDefault(), null === _v0() || (_v0.currentTarget.setPointerCapture(_v0.pointerId), _v9.current = _v0.pointerId, _v6(!0));
         }, [_v0]);
       return (0, _v3.useEffect)(() => {
-        let _v0 = (0, _v23.default)(_v0 => {
+        let _v0 = (0, _v22.default)(_v0 => {
             _v5 && _v9.current === _v0.pointerId && _v12(_v0.clientX);
           }, 16),
           _v1 = () => {
@@ -267,13 +254,13 @@
         return _v5 && (document.addEventListener("pointermove", _v0), document.addEventListener("pointerup", _v1), document.addEventListener("pointercancel", _v1)), () => {
           document.removeEventListener("pointermove", _v0), document.removeEventListener("pointerup", _v1), document.removeEventListener("pointercancel", _v1);
         };
-      }, [_v5, _v12]), (0, _v1.jsx)(_v30, {
+      }, [_v5, _v12]), (0, _v1.jsx)(_v29, {
         isVisible: !!_v10,
         isDragging: _v5,
         onPointerDown: _v14,
         onKeyDown: _v13,
         dataTestId: "sidebar-resize-handle",
-        ariaLabel: (0, _v19.translate)({
+        ariaLabel: (0, _v18.translate)({
           singular: "Resize sidebar width",
           dictionary: {
             es: {
@@ -350,7 +337,7 @@
           w: _v3 || _v14,
           children: _v1 ? _v0 : (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v5.PanelHeader, {
-              children: (0, _v1.jsx)(_v22, {
+              children: (0, _v1.jsx)(_v21, {
                 headerText: _v11()
               })
             }), (0, _v1.jsx)(_v5.PanelBody, {
@@ -371,7 +358,7 @@
       ref: _v6,
       position: "relative",
       height: "100%",
-      children: [_v20, (0, _v1.jsx)(_v31, {
+      children: [_v20, (0, _v1.jsx)(_v30, {
         sidebarLeft: _v18,
         onWidthChange: _v19,
         initialWidth: _v14,

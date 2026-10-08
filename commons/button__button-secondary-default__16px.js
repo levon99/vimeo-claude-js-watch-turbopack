@@ -19,8 +19,9 @@
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  let _v20 = ({
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
+  let _v21 = ({
       title: _v0,
       timecode: _v1,
       thumbnailUrl: _v2,
@@ -64,11 +65,11 @@
           width: "100%",
           height: "100%",
           objectFit: "cover"
-        }) : (0, _v1.jsx)(_v18.Video, {
+        }) : (0, _v1.jsx)(_v19.Video, {
           boxSize: "16px",
           color: "text-primary"
         })
-      }), (0, _v1.jsx)(_v16.Text, {
+      }), (0, _v1.jsx)(_v17.Text, {
         color: "text-primary",
         fontFamily: "heading",
         fontSize: "heading-xs",
@@ -83,21 +84,21 @@
         borderRadius: "8px",
         padding: "4px 8px",
         flexShrink: 0,
-        children: (0, _v1.jsx)(_v16.Text, {
+        children: (0, _v1.jsx)(_v17.Text, {
           color: "text-secondary",
           fontFamily: "heading",
           fontSize: "body-sm",
           lineHeight: 1.2,
           whiteSpace: "nowrap",
-          children: (0, _v19.secondsToTimecode)(_v1)
+          children: (0, _v20.secondsToTimecode)(_v1)
         })
-      }), (0, _v1.jsx)(_v17.ArrowRightSmall, {
+      }), (0, _v1.jsx)(_v18.ArrowRightSmall, {
         boxSize: "20px",
         color: "text-primary",
         flexShrink: 0
       })]
     }),
-    _v21 = ({
+    _v22 = ({
       children: _v0,
       onClick: _v1
     }) => (0, _v1.jsxs)(_v3.Box, {
@@ -122,7 +123,7 @@
         outlineColor: "stroke"
       },
       "data-testid": "question-row",
-      children: [(0, _v1.jsx)(_v16.Text, {
+      children: [(0, _v1.jsx)(_v17.Text, {
         color: "text-primary",
         fontSize: "body-md",
         lineHeight: 1.4,
@@ -132,13 +133,13 @@
         whiteSpace: "normal",
         textAlign: "left",
         children: _v0
-      }), (0, _v1.jsx)(_v17.ArrowRightSmall, {
+      }), (0, _v1.jsx)(_v18.ArrowRightSmall, {
         boxSize: "20px",
         color: "text-primary",
         flexShrink: 0
       })]
     });
-  _v0.s(["QuestionRow", 0, _v21], 0), _v0.s(["QuestionDisplay", 0, ({
+  _v0.s(["QuestionRow", 0, _v22], 0), _v0.s(["QuestionDisplay", 0, ({
     onMomentSelect: _v0,
     onAskQuestion: _v1,
     showPrompt: _v2 = !0,
@@ -155,22 +156,23 @@
         relatedQuestions: _v13
       } = (0, _v8.useQuestionContext)(),
       _v14 = (0, _v10.useAiGenerationStore)(_v0 => _v0.getGenerationId),
-      [_v15] = (0, _v2.useState)(() => _v14("ask_ai")),
+      _v15 = (0, _v11.useContainerDataStore)(_v0 => _v0.pageName),
+      [_v16] = (0, _v2.useState)(() => _v14("ask_ai")),
       {
-        sendViewSuggestedAIAnswerEvent: _v16,
-        sendAskAiAnswerShownEvent: _v17,
-        sendSelectSuggestedAIQuestionEvent: _v18,
-        sendPlayMomentClickEvent: _v19,
-        sendAskAQuestionEvent: _v20
+        sendViewSuggestedAIAnswerEvent: _v17,
+        sendAskAiAnswerShownEvent: _v18,
+        sendSelectSuggestedAIQuestionEvent: _v19,
+        sendPlayMomentClickEvent: _v20,
+        sendAskAQuestionEvent: _v21
       } = (0, _v7.useGetSvvManageBpEvents)(),
-      _v21 = _v0 => {
-        _v20(_v0), _v1(_v0, "typed");
+      _v22 = _v0 => {
+        _v21(_v0), _v1(_v0, "typed");
       };
     return (0, _v2.useEffect)(function () {
-      _v16(_v8, _v9), null !== _v10 && null !== _v11 && _v17(_v8, _v9, _v10, _v11);
+      _v17(_v8, _v9), null !== _v10 && null !== _v11 && _v18(_v8, _v9, _v10, _v11);
     }, []), (0, _v2.useEffect)(function () {
       _v7(!0);
-    }, [_v8]), (0, _v1.jsxs)(_v15.ResponsiveBox, {
+    }, [_v8]), (0, _v1.jsxs)(_v16.ResponsiveBox, {
       height: "100%",
       alignItems: "flex-start",
       alignSelf: "stretch",
@@ -236,12 +238,12 @@
             gap: "12px",
             children: _v12.map(_v0 => {
               let _v1 = _v0.quoteTitle ?? _v9.playMoment;
-              return (0, _v1.jsx)(_v20, {
+              return (0, _v1.jsx)(_v21, {
                 title: _v1,
                 timecode: _v0.timecode,
                 thumbnailUrl: _v0.thumbnailUrl,
                 onClick: () => {
-                  _v19(_v0.timecode, _v1), _v0?.(_v0.timecode);
+                  _v20(_v0.timecode, _v1), _v0?.(_v0.timecode);
                 }
               }, _v0.timecode);
             })
@@ -249,36 +251,36 @@
             pt: "20px",
             pl: "16px",
             pb: "12px",
-            children: (0, _v1.jsx)(_v14.QuickActions, {
+            children: (0, _v1.jsx)(_v15.QuickActions, {
               showThumbs: !0,
               ratedFeature: "ask_ai",
-              generationId: _v15,
+              generationId: _v16,
               align: "start"
             })
           })]
         })
-      }) : (0, _v1.jsxs)(_v12.Section, {
-        children: [(0, _v1.jsxs)(_v12.SectionTitle, {
-          children: [(0, _v1.jsx)(_v12.SectionLabel, {
+      }) : (0, _v1.jsxs)(_v13.Section, {
+        children: [(0, _v1.jsxs)(_v13.SectionTitle, {
+          children: [(0, _v1.jsx)(_v13.SectionLabel, {
             children: _v8
-          }), (0, _v1.jsx)(_v14.QuickActions, {
+          }), (0, _v1.jsx)(_v15.QuickActions, {
             showThumbs: _v4,
             ratedFeature: "ask_ai",
-            generationId: _v15
+            generationId: _v16
           })]
         }), (0, _v1.jsx)(_v6.Description, {
           role: "alert",
           "aria-live": "polite",
           children: _v9
         })]
-      }), !_v3 && _v12.length > 0 ? (0, _v1.jsx)(_v12.Section, {
+      }), !_v3 && _v12.length > 0 ? (0, _v1.jsx)(_v13.Section, {
         pt: 0,
         children: _v12.map(_v0 => {
           let _v1 = _v0.quoteTitle ?? _v9.playMoment;
-          return (0, _v1.jsx)(_v11.Choice.PlayMoment, {
+          return (0, _v1.jsx)(_v12.Choice.PlayMoment, {
             isPrimary: !0,
             onClick: () => {
-              _v19(_v0.timecode, _v1), _v0?.(_v0.timecode);
+              _v20(_v0.timecode, _v1), _v0?.(_v0.timecode);
             },
             children: (0, _v1.jsx)(_v6.TruncateTextWrapper, {
               children: _v1
@@ -298,7 +300,7 @@
           left: "0",
           right: "0",
           height: "48px",
-          background: "linear-gradient(to top, var(--vimeo-colors-fill-surface), transparent)",
+          background: "player" === _v15 ? "linear-gradient(to top, var(--vimeo-colors-fill-page-overlay), transparent)" : "linear-gradient(to top, var(--vimeo-colors-fill-surface), transparent)",
           pointerEvents: "none",
           "aria-hidden": "true"
         }), (0, _v1.jsxs)(_v3.Box, {
@@ -344,9 +346,9 @@
             alignSelf: "stretch",
             children: _v13.map((_v0, _v1) => {
               let _v2 = `${_v0}-${_v1}`;
-              return (0, _v1.jsx)(_v21, {
+              return (0, _v1.jsx)(_v22, {
                 onClick: () => {
-                  _v1(_v0, "related_question"), _v18({
+                  _v1(_v0, "related_question"), _v19({
                     copy: _v0,
                     isRelated: !0
                   });
@@ -354,8 +356,8 @@
                 children: _v0
               }, _v2);
             })
-          }), _v2 && (0, _v1.jsx)(_v13.PromptInput, {
-            onSubmit: _v21,
+          }), _v2 && (0, _v1.jsx)(_v14.PromptInput, {
+            onSubmit: _v22,
             isUiRefresh: !0
           })]
         }), (0, _v1.jsx)(_v3.Box, {
@@ -370,24 +372,24 @@
       }) : null : _v13.length > 0 ? (0, _v1.jsx)(_v3.Box, {
         mt: "auto",
         width: "100%",
-        children: (0, _v1.jsxs)(_v12.Section, {
-          children: [(0, _v1.jsx)(_v12.SectionLabel, {
+        children: (0, _v1.jsxs)(_v13.Section, {
+          children: [(0, _v1.jsx)(_v13.SectionLabel, {
             children: _v9.related
           }), (0, _v1.jsxs)(_v4.Flex, {
             flexDirection: "column",
             gap: "8px",
             alignSelf: "stretch",
-            children: [_v13.map(_v0 => (0, _v1.jsx)(_v11.Choice, {
+            children: [_v13.map(_v0 => (0, _v1.jsx)(_v12.Choice, {
               shouldWrap: !0,
               onClick: () => {
-                _v1(_v0, "related_question"), _v18({
+                _v1(_v0, "related_question"), _v19({
                   copy: _v0,
                   isRelated: !0
                 });
               },
               children: _v0
-            }, _v0)), _v2 && (0, _v1.jsx)(_v13.PromptInput, {
-              onSubmit: _v21
+            }, _v0)), _v2 && (0, _v1.jsx)(_v14.PromptInput, {
+              onSubmit: _v22
             })]
           })]
         })

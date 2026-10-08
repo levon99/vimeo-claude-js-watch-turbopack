@@ -31,8 +31,6 @@
       "@vimeo/use-tracking": "catalog:",
       "@vimeo/video-library": "catalog:",
       "@vimeo/viewer": "catalog:",
-      "@vpr/tracking": "catalog:",
-      "html-react-parser": "catalog:",
       "lottie-web": "catalog:",
       polished: "catalog:polished-3-6-5",
       "react-resizable": "catalog:",

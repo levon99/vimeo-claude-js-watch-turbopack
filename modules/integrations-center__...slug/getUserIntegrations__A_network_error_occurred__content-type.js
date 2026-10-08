@@ -196,9 +196,8 @@
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
     _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0);
-  function _v47({
+    _v45 = _v0.i(0);
+  function _v46({
     apps: _v0
   }) {
     let {
@@ -214,7 +213,7 @@
           lg: `repeat(auto-fit, minmax(${_v3}, ${_v0.length < 3 ? "0.3fr" : "0.5fr"}))`
         },
         gap: "lg",
-        children: _v0.map((_v0, _v1) => (0, _v1.jsx)(_v48, {
+        children: _v0.map((_v0, _v1) => (0, _v1.jsx)(_v47, {
           app: _v0,
           canConnect: _v1,
           hasPermissionToUpsell: _v2
@@ -222,36 +221,19 @@
       })
     });
   }
-  let _v48 = ({
+  let _v47 = ({
     app: _v0,
     canConnect: _v1,
     hasPermissionToUpsell: _v2
   }) => {
     let _v3 = (0, _v2.useRouter)(),
-      {
-        sendAppClickEvent: _v4
-      } = (0, _v45.useTracking)(),
-      _v5 = _v0.uri.split("/").pop(),
-      _v6 = _v5 ? _v43.APP_CONFIG[_v5]?.upsell : null,
-      _v7 = _v0.connectionStatus === _v3.CONNECTION_STATUS.CONNECTED,
-      _v8 = !_v7 && !!_v6 && !_v1(_v6),
-      {
-        sendUpsellEvent: _v9
-      } = (0, _v45.useTracking)();
-    (0, _v5.useEffect)(() => {
-      _v8 && _v9({
-        eventName: "vimeo.upsell_trigger_impression",
-        integrationName: _v0.displayName,
-        copy: "Upgrade",
-        isAction: !1
-      });
-    }, [_v0.displayName, _v9, _v8]);
-    let _v10 = _v7 ? `/integrations-center/${_v5}/details/manage` : `/integrations-center/${_v5}/details`;
+      _v4 = _v0.uri.split("/").pop(),
+      _v5 = _v4 ? _v43.APP_CONFIG[_v4]?.upsell : null,
+      _v6 = _v0.connectionStatus === _v3.CONNECTION_STATUS.CONNECTED,
+      _v7 = !_v6 && !!_v5 && !_v1(_v5),
+      _v8 = _v6 ? `/integrations-center/${_v4}/details/manage` : `/integrations-center/${_v4}/details`;
     return (0, _v1.jsxs)(_v29.Card, {
-      onClick: () => void (_v4({
-        appName: _v0.displayName,
-        isConnected: _v7
-      }), window.location.href = _v10),
+      onClick: () => void (window.location.href = _v8),
       padding: "lg",
       cursor: "pointer",
       minW: "auto",
@@ -272,12 +254,12 @@
           variant: "heading-sm",
           flexGrow: 1,
           children: (0, _v1.jsx)(_v36.Link, {
-            href: _v10,
+            href: _v8,
             variant: "primary",
             color: "text-primary !important",
             children: _v0.displayName
           })
-        }), _v7 && (0, _v1.jsx)(_v39.Tooltip, {
+        }), _v6 && (0, _v1.jsx)(_v39.Tooltip, {
           label: (0, _v25.translate)({
             singular: "Connected",
             dictionary: {
@@ -351,7 +333,7 @@
             color: "surface",
             gap: "lg"
           })
-        }), _v8 && (0, _v1.jsx)(_v39.Tooltip, {
+        }), _v7 && (0, _v1.jsx)(_v39.Tooltip, {
           label: (0, _v25.translate)({
             singular: "Only owners can upgrade to connect",
             dictionary: {
@@ -384,16 +366,11 @@
             size: "sm",
             width: "auto",
             onClick: _v0 => {
-              _v0.stopPropagation(), _v2 && (_v9({
-                eventName: "vimeo.trigger_upsell",
-                integrationName: _v0.displayName,
-                copy: "Upgrade",
-                isAction: !0
-              }), _v3.push((0, _v42.buildUpgradePlanUrl)({
+              _v0.stopPropagation(), _v2 && _v3.push((0, _v42.buildUpgradePlanUrl)({
                 paywallTrigger: "apps_card_upgrade_button",
                 paywallLocation: "integrations_center",
                 paywallFeature: "app_integration"
-              })));
+              }));
             },
             children: "Upgrade"
           })
@@ -402,17 +379,17 @@
         variant: "body-md",
         color: "text-secondary",
         marginTop: 3,
-        children: (0, _v46.parseHTMLEntities)(_v0.description || "")
+        children: (0, _v45.parseHTMLEntities)(_v0.description || "")
       })]
     });
   };
-  var _v49 = _v0.i(0),
+  var _v48 = _v0.i(0),
+    _v49 = _v0.i(0),
     _v50 = _v0.i(0),
     _v51 = _v0.i(0),
     _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0);
-  let _v55 = [{
+    _v53 = _v0.i(0);
+  let _v54 = [{
       value: "All",
       text: (0, _v25.translate)({
         singular: "All",
@@ -638,6 +615,35 @@
         }
       })
     }],
+    _v55 = {
+      value: "All",
+      text: (0, _v25.translate)({
+        singular: "All",
+        dictionary: {
+          es: {
+            singular: "Todos"
+          },
+          "de-DE": {
+            singular: "Alle"
+          },
+          "fr-FR": {
+            singular: "Tout"
+          },
+          "ja-JP": {
+            singular: "すべて"
+          },
+          "ko-KR": {
+            singular: "모두"
+          },
+          "pt-BR": {
+            singular: "Tudo"
+          },
+          "zh-CN": {
+            singular: "全部"
+          }
+        }
+      })
+    },
     _v56 = {
       value: "All",
       text: (0, _v25.translate)({
@@ -667,36 +673,7 @@
         }
       })
     },
-    _v57 = {
-      value: "All",
-      text: (0, _v25.translate)({
-        singular: "All",
-        dictionary: {
-          es: {
-            singular: "Todos"
-          },
-          "de-DE": {
-            singular: "Alle"
-          },
-          "fr-FR": {
-            singular: "Tout"
-          },
-          "ja-JP": {
-            singular: "すべて"
-          },
-          "ko-KR": {
-            singular: "모두"
-          },
-          "pt-BR": {
-            singular: "Tudo"
-          },
-          "zh-CN": {
-            singular: "全部"
-          }
-        }
-      })
-    },
-    _v58 = ({
+    _v57 = ({
       currentValue: _v0,
       setCurrentValue: _v1,
       categoryCount: _v2,
@@ -704,14 +681,14 @@
     }) => {
       let [_v4, _v5] = (0, _v5.useState)("none"),
         _v6 = (0, _v5.useRef)(null),
-        _v7 = (0, _v51.useBreakpointValue)({
+        _v7 = (0, _v50.useBreakpointValue)({
           base: !0,
           sm: !1
         }),
-        [_v8, _v9] = (0, _v54.useIsVisible)({
+        [_v8, _v9] = (0, _v53.useIsVisible)({
           threshold: 1
         }),
-        [_v10, _v11] = (0, _v54.useIsVisible)({
+        [_v10, _v11] = (0, _v53.useIsVisible)({
           threshold: .8
         }),
         _v12 = _v0 => {
@@ -733,18 +710,18 @@
           sx: {
             scrollbarWidth: "none"
           },
-          children: [!_v9 && !_v7 && (0, _v1.jsx)(_v59, {
+          children: [!_v9 && !_v7 && (0, _v1.jsx)(_v58, {
             onClick: () => _v12(-150),
-            icon: (0, _v1.jsx)(_v53.ChevronLeftSmall, {}),
+            icon: (0, _v1.jsx)(_v52.ChevronLeftSmall, {}),
             display: _v4,
             "aria-label": "left-scroll-button"
-          }), (0, _v1.jsx)(_v60, {
-            background: _v61.leftLight,
+          }), (0, _v1.jsx)(_v59, {
+            background: _v60.leftLight,
             _dark: {
-              background: _v61.leftDark
+              background: _v60.leftDark
             },
             display: _v9 ? "none" : "block"
-          }), _v55.map((_v0, _v1) => {
+          }), _v54.map((_v0, _v1) => {
             let _v2 = _v2?.[_v0.value] || 0,
               _v3 = _v0.value === _v0;
             return (0, _v1.jsx)(_v39.Tooltip, {
@@ -801,8 +778,8 @@
               }),
               placement: "top",
               isDisabled: 0 !== _v2,
-              children: (0, _v1.jsxs)(_v49.Button, {
-                ref: 0 === _v1 ? _v8 : _v1 === _v55.length - 1 ? _v10 : void 0,
+              children: (0, _v1.jsxs)(_v48.Button, {
+                ref: 0 === _v1 ? _v8 : _v1 === _v54.length - 1 ? _v10 : void 0,
                 onClick: () => _v1(_v0.value),
                 size: "sm",
                 variant: "secondary",
@@ -815,29 +792,29 @@
                 })]
               })
             }, _v1);
-          }), (0, _v1.jsx)(_v60, {
-            background: _v61.rightLight,
+          }), (0, _v1.jsx)(_v59, {
+            background: _v60.rightLight,
             right: "0",
             _dark: {
-              background: _v61.rightDark
+              background: _v60.rightDark
             },
             display: _v11 ? "none" : "block"
-          }), !_v11 && !_v7 && (0, _v1.jsx)(_v59, {
+          }), !_v11 && !_v7 && (0, _v1.jsx)(_v58, {
             right: "0",
             onClick: () => _v12(150),
-            icon: (0, _v1.jsx)(_v52.ChevronRightSmall, {}),
+            icon: (0, _v1.jsx)(_v51.ChevronRightSmall, {}),
             display: _v4,
             "aria-label": "right-scroll-button"
           })]
         })
       });
     },
-    _v59 = _v0 => {
+    _v58 = _v0 => {
       let {
         onClick: _v1,
         ..._v2
       } = _v0;
-      return (0, _v1.jsx)(_v50.IconButton, {
+      return (0, _v1.jsx)(_v49.IconButton, {
         position: "absolute",
         zIndex: "2",
         size: "sm",
@@ -846,7 +823,7 @@
         ..._v2
       });
     },
-    _v60 = _v0 => {
+    _v59 = _v0 => {
       let {
         display: _v1,
         ..._v2
@@ -861,17 +838,17 @@
         ..._v2
       });
     },
-    _v61 = {
+    _v60 = {
       leftLight: "linear-gradient(90deg, #F4F6F8 0%, rgba(244, 246, 248, 0) 100%)",
       leftDark: "linear-gradient(90deg, #0E1216 0%, rgba(14, 18, 22, 0) 100%)",
       rightLight: "linear-gradient(90deg, rgba(244, 246, 248, 0) 0%, #F4F6F8 100%)",
       rightDark: "linear-gradient(90deg, rgba(14, 18, 22, 0) 0%, #0E1216 100%)"
     };
-  var _v62 = _v0.i(0);
-  let _v63 = () => (0, _v1.jsxs)(_v8.Flex, {
+  var _v61 = _v0.i(0);
+  let _v62 = () => (0, _v1.jsxs)(_v8.Flex, {
     direction: "column",
     alignItems: "center",
-    children: [(0, _v1.jsx)(_v62.SearchMagnifier, {
+    children: [(0, _v1.jsx)(_v61.SearchMagnifier, {
       boxSize: "2xl"
     }), (0, _v1.jsx)(_v10.Text, {
       as: "h1",
@@ -934,9 +911,9 @@
       })
     })]
   });
-  var _v64 = _v0.i(0);
-  let _v65 = ["uri", "uuid", "displayName", "thumbnailUrl", "categories", "description", "connectionStatus"];
-  function _v66({
+  var _v63 = _v0.i(0);
+  let _v64 = ["uri", "uuid", "displayName", "thumbnailUrl", "categories", "description", "connectionStatus"];
+  function _v65({
     filterConnectedApp: _v0
   }) {
     let _v1 = (0, _v2.useRouter)(),
@@ -948,23 +925,20 @@
         isOwner: _v6,
         isContributor: _v7,
         isContributorPlus: _v8
-      } = (0, _v64.useGetRoleInAnyTeam)(),
-      {
-        sendFilterEvent: _v9
-      } = (0, _v45.useTracking)(),
-      _v10 = (0, _v4.useSearchParams)(),
-      [_v11, _v12] = (0, _v5.useState)(() => {
-        let _v0 = _v10.get("category");
+      } = (0, _v63.useGetRoleInAnyTeam)(),
+      _v9 = (0, _v4.useSearchParams)(),
+      [_v10, _v11] = (0, _v5.useState)(() => {
+        let _v0 = _v9.get("category");
         if (_v0) {
-          let _v0 = _v55.find(_v0 => _v0.value.toLowerCase() === _v0.toLowerCase());
+          let _v0 = _v54.find(_v0 => _v0.value.toLowerCase() === _v0.toLowerCase());
           if (_v0) return _v0.value;
         }
-        return _v56.value;
+        return _v55.value;
       }),
-      [_v13, _v14] = (0, _v5.useState)(""),
+      [_v12, _v13] = (0, _v5.useState)(""),
       {
-        data: _v15,
-        isLoading: _v16
+        data: _v14,
+        isLoading: _v15
       } = function (_v0) {
         let _v1 = "function" == typeof _v0 ? _v0() : _v0,
           {
@@ -991,16 +965,10 @@
         query: {
           filter: _v0 ? "my_connections" : "integrations"
         },
-        select: _v65
+        select: _v64
       } : null),
-      _v17 = _v0 => {
-        _v0 ? _v9({
-          eventName: "vimeo.click_connected_integrations",
-          copy: "Connected"
-        }) : _v9({
-          eventName: "vimeo.click_discover_integrations",
-          copy: "Discover"
-        }), _v1.push({
+      _v16 = _v0 => {
+        _v1.push({
           query: {
             ..._v1.query,
             slug: _v0 ? _v3.APP_CENTER_LISTING_SLUG[0] : ""
@@ -1009,37 +977,37 @@
           shallow: !0
         });
       },
-      _v18 = (0, _v5.useMemo)(() => _v15?.data ? [..._v15.data].sort((_v0, _v1) => {
+      _v17 = (0, _v5.useMemo)(() => _v14?.data ? [..._v14.data].sort((_v0, _v1) => {
         let _v2 = _v0.displayName.toUpperCase(),
           _v3 = _v1.displayName.toUpperCase();
         return _v2 < _v3 ? -1 : +(_v2 > _v3);
-      }) : [], [_v15?.data]),
-      _v19 = (0, _v5.useMemo)(() => {
+      }) : [], [_v14?.data]),
+      _v18 = (0, _v5.useMemo)(() => {
         if (_v0) return [];
         let _v0 = {};
-        return _v18.forEach(_v0 => {
+        return _v17.forEach(_v0 => {
           _v0.uuid && (_v0[_v0.uuid] = _v0);
         }), _v43.FEATURED_APPS_UUID.map(_v0 => _v0[_v0]).filter(_v0 => !!_v0);
-      }, [_v18, _v0]),
-      _v20 = _v13.toUpperCase();
-    _v18 = _v18.filter(_v0 => {
+      }, [_v17, _v0]),
+      _v19 = _v12.toUpperCase();
+    _v17 = _v17.filter(_v0 => {
       let _v1 = _v0.displayName,
         _v2 = _v0.description || "";
-      return _v1.toUpperCase().indexOf(_v20) > -1 || _v2.toUpperCase().indexOf(_v20) > -1;
+      return _v1.toUpperCase().indexOf(_v19) > -1 || _v2.toUpperCase().indexOf(_v19) > -1;
     });
-    let _v21 = (0, _v5.useMemo)(() => {
+    let _v20 = (0, _v5.useMemo)(() => {
       let _v0 = {
-        [_v57.value]: _v18.length
+        [_v56.value]: _v17.length
       };
-      return _v18.forEach(_v0 => {
+      return _v17.forEach(_v0 => {
         _v0.categories?.forEach(_v0 => _v0[_v0] = (_v0[_v0] || 0) + 1);
       }), _v0;
-    }, [_v18]);
-    if (_v16 || !_v3) return (0, _v1.jsx)(_v34, {});
-    if (!_v15?.data) return (0, _v1.jsx)(_v26.ErrorPage, {
+    }, [_v17]);
+    if (_v15 || !_v3) return (0, _v1.jsx)(_v34, {});
+    if (!_v14?.data) return (0, _v1.jsx)(_v26.ErrorPage, {
       error: new _v18.ResourceNotFoundError()
     });
-    let _v22 = _v11 === _v57.value ? _v18 : _v18.filter(_v0 => _v0.categories?.includes(_v11));
+    let _v21 = _v10 === _v56.value ? _v17 : _v17.filter(_v0 => _v0.categories?.includes(_v10));
     return (0, _v1.jsxs)(_v7.Box, {
       m: {
         base: 3,
@@ -1086,8 +1054,8 @@
           },
           children: (0, _v1.jsx)(_v9.Search, {
             variant: "minimal",
-            value: _v13,
-            onChange: _v0 => _v14(_v0.target.value),
+            value: _v12,
+            onChange: _v0 => _v13(_v0.target.value),
             placeholder: (0, _v25.translate)({
               singular: "Search integrations",
               dictionary: {
@@ -1150,7 +1118,7 @@
           children: (0, _v1.jsxs)(_v13.TabList, {
             width: "auto",
             children: [(0, _v1.jsxs)(_v12.Tab, {
-              onClick: () => _v17(0),
+              onClick: () => _v16(0),
               children: [(0, _v1.jsx)(_v16.AddBlocks, {
                 mr: "sm"
               }), (0, _v25.translate)({
@@ -1180,7 +1148,7 @@
                 }
               })]
             }), (0, _v1.jsxs)(_v12.Tab, {
-              onClick: () => _v17(1),
+              onClick: () => _v16(1),
               children: [(0, _v1.jsx)(_v17.CircleCheck, {
                 mr: "sm"
               }), (0, _v25.translate)({
@@ -1217,17 +1185,13 @@
             md: "2/1",
             lg: "1/2"
           },
-          children: (0, _v1.jsx)(_v58, {
-            currentValue: _v11,
+          children: (0, _v1.jsx)(_v57, {
+            currentValue: _v10,
             setCurrentValue: _v0 => {
-              _v9({
-                eventName: "vimeo.filter_integrations_options",
-                copy: _v0
-              });
-              let _v1 = new URLSearchParams(_v10);
-              _v1.set("category", _v0), _v1.replace(`${_v2}?${_v1.toString()}`), _v12(_v0);
+              let _v1 = new URLSearchParams(_v9);
+              _v1.set("category", _v0), _v1.replace(`${_v2}?${_v1.toString()}`), _v11(_v0);
             },
-            categoryCount: _v21,
+            categoryCount: _v20,
             filterConnectedApp: _v0
           })
         })]
@@ -1265,47 +1229,47 @@
             }
           })
         })
-      }), _v11 === _v57.value && !_v0 && !_v13 && (0, _v1.jsxs)(_v1.Fragment, {
+      }), _v10 === _v56.value && !_v0 && !_v12 && (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v10.Text, {
           variant: "heading-md",
           mb: "lg",
           children: "Featured apps"
-        }), (0, _v1.jsx)(_v47, {
-          apps: _v19
+        }), (0, _v1.jsx)(_v46, {
+          apps: _v18
         }), (0, _v1.jsx)(_v10.Text, {
           variant: "heading-md",
           my: "lg",
           children: "Explore apps"
         })]
-      }), _v22.length > 0 && (0, _v1.jsx)(_v47, {
-        apps: _v22
-      }), 0 === _v22.length && (0, _v1.jsx)(_v7.Box, {
+      }), _v21.length > 0 && (0, _v1.jsx)(_v46, {
+        apps: _v21
+      }), 0 === _v21.length && (0, _v1.jsx)(_v7.Box, {
         mt: "20vh",
-        children: _v13 ? (0, _v1.jsx)(_v63, {}) : _v0 && (0, _v1.jsx)(_v35, {})
+        children: _v12 ? (0, _v1.jsx)(_v62, {}) : _v0 && (0, _v1.jsx)(_v35, {})
       })]
     });
   }
-  var _v67 = _v0.i(0),
-    _v68 = _v0.i(0),
-    _v69 = _v0.i(0);
-  let _v70 = () => {
+  var _v66 = _v0.i(0),
+    _v67 = _v0.i(0),
+    _v68 = _v0.i(0);
+  let _v69 = () => {
     let _v0 = (0, _v2.useRouter)(),
       _v1 = _v0?.query?.slug;
-    return !_v1 || Array.isArray(_v1) && 1 === _v1.length && _v3.APP_CENTER_LISTING_SLUG.includes(_v1[0]) ? (0, _v1.jsx)(_v66, {
+    return !_v1 || Array.isArray(_v1) && 1 === _v1.length && _v3.APP_CENTER_LISTING_SLUG.includes(_v1[0]) ? (0, _v1.jsx)(_v65, {
       filterConnectedApp: Array.isArray(_v1) && _v3.APP_CENTER_LISTING_SLUG[0] === _v1[0]
     }) : (0, _v1.jsx)(_v26.ErrorPage, {
       error: new _v18.ResourceNotFoundError()
     });
   };
-  _v70.getLayout = _v0 => (0, _v1.jsx)(_v69.VideoLibraryLayout, {
+  _v69.getLayout = _v0 => (0, _v1.jsx)(_v68.VideoLibraryLayout, {
     hasSideNav: !0,
-    sideNavContent: (0, _v1.jsx)(_v68.SideNavContent, {
+    sideNavContent: (0, _v1.jsx)(_v67.SideNavContent, {
       surface: "home"
     }),
     sideNavSurface: "home",
     alwaysMinimiseSearch: !0,
     children: _v0
-  }), (0, _v67.withPageSetup)(() => ({
+  }), (0, _v66.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0,
       hasUploader: !0
@@ -1315,5 +1279,5 @@
     redirect: "/settings/apps",
     inlineViewer: !0,
     noIndex: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v70], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v69], 0);
 }

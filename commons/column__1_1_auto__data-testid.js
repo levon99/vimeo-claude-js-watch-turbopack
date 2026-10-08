@@ -92,7 +92,7 @@
         children: [(0, _v1.jsxs)(_v16.Flex, {
           ref: _v14,
           flexDirection: "column",
-          gap: "8px",
+          gap: "4px",
           px: "12px",
           mb: "24px",
           width: "100%",
@@ -102,12 +102,12 @@
           }), (0, _v1.jsx)(_v12.Box, {
             color: "text-primary",
             fontFamily: "heading",
-            fontSize: "heading-md",
+            fontSize: "heading-sm",
             lineHeight: 1.4,
             children: _v21.askVimeoAi
           }), (0, _v1.jsx)(_v12.Box, {
             color: "text-secondary",
-            fontSize: "body-lg",
+            fontSize: "body-md",
             lineHeight: 1.4,
             children: _v21.askVimeoAiSubtitle
           })]
@@ -132,6 +132,7 @@
             })
           }), (0, _v1.jsxs)(_v13.InputGroup, {
             children: [(0, _v1.jsx)(_v34.Input, {
+              autoFocus: !0,
               "data-testid": "custom-question-input",
               maxLength: 500,
               value: _v7,

@@ -106,5 +106,30 @@
       default:
         return _v3;
     }
-  }]);
+  }], 0);
+  var _v7 = _v0.i(0);
+  let _v8 = "vimeo:postCheckoutUrl";
+  function _v9(_v0) {
+    return _v0 && (0, _v7.isVimeoRedirectableUrl)(_v0) ? _v0 : null;
+  }
+  _v0.s(["postCheckoutUrl", 0, {
+    sync(_v0) {
+      let _v1 = _v9("string" == typeof _v0 ? _v0 : Array.isArray(_v0) && "string" == typeof _v0[0] ? _v0[0] : null);
+      _v1 ? window.sessionStorage.setItem(_v8, _v1) : window.sessionStorage.removeItem(_v8);
+    },
+    read() {
+      let _v0 = _v9(window.sessionStorage.getItem(_v8));
+      return _v0 ? function (_v0) {
+        if (!/^https?:\/\//i.test(_v0)) return _v0;
+        try {
+          let _v0 = new URL(_v0);
+          if (_v0.host === window.location.host) return _v0.pathname + _v0.search + _v0.hash;
+        } catch {}
+        return _v0;
+      }(_v0) : null;
+    },
+    clear() {
+      window.sessionStorage.removeItem(_v8);
+    }
+  }], 0);
 }

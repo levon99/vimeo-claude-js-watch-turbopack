@@ -131,17 +131,16 @@
     visibility: visible;
   }
 `;
-  var _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  let _v35 = _v0 => {
+  var _v33 = _v0.i(0);
+  let _v34 = _v0 => {
       let {
         owner: _v1,
         teamData: _v2
       } = _v0;
       return _v2 && _v2.teamName ? _v2.teamName : _v1.name;
     },
-    _v36 = (0, _v10.createTypedForm)(),
-    _v37 = function () {
+    _v35 = (0, _v10.createTypedForm)(),
+    _v36 = function () {
       let _v0 = (0, _v8.useMemo)(_v25.getTranslatedStrings, []),
         _v1 = (0, _v8.useContext)(_v24.ViewerContext),
         [_v2, _v3] = (0, _v8.useState)(!1),
@@ -201,9 +200,7 @@
       }, [_v1]), (0, _v8.useEffect)(() => {
         _v13?.data && _v9(_v13.data.data.filter(_v0 => "Admin" === _v0.untranslatedUserRole || "Owner" === _v0.untranslatedUserRole));
       }, [_v13]), (0, _v8.useEffect)(() => {
-        _v11?.error ? _v5(!1) : _v11?.data && (_v3(!0), _v5(!1), (0, _v34.trackEvent)({
-          eventKey: _v34.Events.VIDEO_TRANSFER_REQUEST_SUCCESS
-        }));
+        _v11?.error ? _v5(!1) : _v11?.data && (_v3(!0), _v5(!1));
       }, [_v11]);
       let _v14 = (0, _v8.useMemo)(() => ({
         sourceUserId: "",
@@ -214,32 +211,27 @@
           header: _v0.TransferSuccessHeader,
           subheader: _v0.TransferSuccessSubheader
         })
-      }) : (0, _v1.jsxs)(_v50, {
+      }) : (0, _v1.jsxs)(_v49, {
         children: [(0, _v1.jsx)(_v7.default, {
           href: "/experts/dashboard",
-          children: (0, _v1.jsxs)(_v38, {
-            children: [(0, _v1.jsx)(_v47, {
+          children: (0, _v1.jsxs)(_v37, {
+            children: [(0, _v1.jsx)(_v46, {
               width: "20"
-            }), (0, _v1.jsx)(_v39, {
+            }), (0, _v1.jsx)(_v38, {
               children: _v0.BackText
             })]
           })
-        }), (0, _v1.jsxs)(_v48, {
-          children: [(0, _v1.jsx)(_v45, {
+        }), (0, _v1.jsxs)(_v47, {
+          children: [(0, _v1.jsx)(_v44, {
             children: _v0.TranferRequestHeader
-          }), (0, _v1.jsxs)(_v46, {
+          }), (0, _v1.jsxs)(_v45, {
             children: [_v0.TransferRequestSubheaderText, " ", (0, _v1.jsx)(_v23.Link, {
               variant: "minimal",
               href: "https://vimeo.zendesk.com/hc/en-us/articles/224818687-Add-and-remove-team-members-on-your-account",
               target: "_blank",
-              onClick: () => {
-                (0, _v34.trackEvent)({
-                  eventKey: _v34.Events.CLICK_HOWTO_ROLE_UPGRADE_LINK
-                });
-              },
               children: _v0.TransferRequestSubheaderLinkText
             })]
-          }), (0, _v1.jsx)(_v36, {
+          }), (0, _v1.jsx)(_v35, {
             initialValues: _v14,
             onSubmit: _v0 => {
               let _v1 = Number(_v0.sourceUserId);
@@ -261,7 +253,7 @@
               isValid: _v2
             }) => (0, _v1.jsxs)("form", {
               onSubmit: _v1,
-              children: [(0, _v1.jsx)(_v43, {
+              children: [(0, _v1.jsx)(_v42, {
                 label: !1,
                 id: "transferSource",
                 onChange: _v0 => {
@@ -269,11 +261,11 @@
                 },
                 placeholder: _v0.TransferSourceAccountPlaceholder,
                 faux: !0,
-                children: _v8.map((_v0, _v1) => (0, _v1.jsx)(_v44, {
+                children: _v8.map((_v0, _v1) => (0, _v1.jsx)(_v43, {
                   value: _v0?.teamData?.ownerId,
-                  children: _v35(_v0)
+                  children: _v34(_v0)
                 }, `transfer-source-${_v1}`))
-              }), (0, _v1.jsx)(_v43, {
+              }), (0, _v1.jsx)(_v42, {
                 label: !1,
                 id: "transferDestination",
                 onChange: _v0 => {
@@ -281,16 +273,14 @@
                 },
                 placeholder: _v0.TransferDestinationAccountPlaceholder,
                 faux: !0,
-                children: _v8.map((_v0, _v1) => (0, _v1.jsx)(_v44, {
+                children: _v8.map((_v0, _v1) => (0, _v1.jsx)(_v43, {
                   value: _v0?.teamData?.ownerId,
-                  children: _v35(_v0)
+                  children: _v34(_v0)
                 }, `transfer-destination-${_v1}`))
-              }), (0, _v1.jsx)(_v42, {
+              }), (0, _v1.jsx)(_v41, {
                 size: "lg",
                 onClick: () => {
-                  _v5(!0), (0, _v34.trackEvent)({
-                    eventKey: _v34.Events.CLICK_SUBMIT_VIDEO_TRANSFER_REQUEST
-                  });
+                  _v5(!0);
                 },
                 disabled: !_v2,
                 loading: _v4,
@@ -300,22 +290,22 @@
           })]
         }), (0, _v1.jsx)(_v27, {
           isExpanded: _v6
-        }), (0, _v1.jsxs)(_v40, {
+        }), (0, _v1.jsxs)(_v39, {
           isExpanded: _v6,
           onClick: () => {
             _v7(!_v6);
           },
-          children: [(0, _v1.jsx)(_v41, {
+          children: [(0, _v1.jsx)(_v40, {
             children: _v6 ? _v0.TransferHideDetails : _v0.TransferShowDetails
           }), _v6 ? (0, _v1.jsx)(_v21.ChevronDown, {
             width: "24"
-          }) : (0, _v1.jsx)(_v49, {
+          }) : (0, _v1.jsx)(_v48, {
             width: "24"
           })]
         })]
       });
     },
-    _v38 = _v9.default.div.withConfig({
+    _v37 = _v9.default.div.withConfig({
       displayName: "TransferPage__BackContainer",
       componentId: "sc-740870f4-0"
     })`
@@ -327,7 +317,7 @@
   margin-left: ${(0, _v11.rem)(16)};
   cursor: pointer;
 `,
-    _v39 = _v9.default.div.withConfig({
+    _v38 = _v9.default.div.withConfig({
       displayName: "TransferPage__BackText",
       componentId: "sc-740870f4-1"
     })`
@@ -335,7 +325,7 @@
   line-height: ${(0, _v11.rem)(32)};
   margin-left: ${(0, _v11.rem)(4)};
 `,
-    _v40 = _v9.default.div.withConfig({
+    _v39 = _v9.default.div.withConfig({
       displayName: "TransferPage__BenefitsFooter",
       componentId: "sc-740870f4-2"
     })`
@@ -364,32 +354,32 @@
     display: none;
   }
 `,
-    _v41 = _v9.default.div.withConfig({
+    _v40 = _v9.default.div.withConfig({
       displayName: "TransferPage__BenefitsText",
       componentId: "sc-740870f4-3"
     })`
   margin-right: ${(0, _v11.rem)(10)};
 `,
-    _v42 = (0, _v9.default)(_v19.Button).withConfig({
+    _v41 = (0, _v9.default)(_v19.Button).withConfig({
       displayName: "TransferPage__StyledButton",
       componentId: "sc-740870f4-4"
     })`
   margin: auto;
 `,
-    _v43 = (0, _v9.default)(_v20.Select).withConfig({
+    _v42 = (0, _v9.default)(_v20.Select).withConfig({
       displayName: "TransferPage__StyledSelect",
       componentId: "sc-740870f4-5"
     })`
   margin-bottom: ${(0, _v11.rem)(32)};
   min-width: 400px;
 `,
-    _v44 = (0, _v9.default)(_v20.Select.Option).withConfig({
+    _v43 = (0, _v9.default)(_v20.Select.Option).withConfig({
       displayName: "TransferPage__StyledOption",
       componentId: "sc-740870f4-6"
     })`
   min-height: 50px;
 `,
-    _v45 = _v9.default.div.withConfig({
+    _v44 = _v9.default.div.withConfig({
       displayName: "TransferPage__Header",
       componentId: "sc-740870f4-7"
     })`
@@ -399,7 +389,7 @@
   margin-bottom: ${(0, _v11.rem)(40)};
   text-align: center;
 `,
-    _v46 = _v9.default.div.withConfig({
+    _v45 = _v9.default.div.withConfig({
       displayName: "TransferPage__Subheader",
       componentId: "sc-740870f4-8"
     })`
@@ -408,13 +398,13 @@
   margin-bottom: ${(0, _v11.rem)(40)};
   text-align: center;
 `,
-    _v47 = (0, _v9.default)(_v22.ChevronRight).withConfig({
+    _v46 = (0, _v9.default)(_v22.ChevronRight).withConfig({
       displayName: "TransferPage__ChevronLeft",
       componentId: "sc-740870f4-9"
     })`
   transform: rotate(180deg);
 `,
-    _v48 = _v9.default.div.withConfig({
+    _v47 = _v9.default.div.withConfig({
       displayName: "TransferPage__CreateTrialSection",
       componentId: "sc-740870f4-10"
     })`
@@ -427,13 +417,13 @@
   flex-direction: column;
   align-items: center;
 `,
-    _v49 = (0, _v9.default)(_v21.ChevronDown).withConfig({
+    _v48 = (0, _v9.default)(_v21.ChevronDown).withConfig({
       displayName: "TransferPage__ChevronUp",
       componentId: "sc-740870f4-11"
     })`
   transform: rotate(180deg);
 `,
-    _v50 = _v9.default.div.withConfig({
+    _v49 = _v9.default.div.withConfig({
       displayName: "TransferPage__Container",
       componentId: "sc-740870f4-12"
     })`
@@ -442,7 +432,7 @@
     flex-direction: row;
   }
 `;
-  function _v51() {
+  function _v50() {
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
         children: (0, _v1.jsx)("title", {
@@ -458,13 +448,13 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v37, {})]
+      }), (0, _v1.jsx)(_v36, {})]
     });
   }
   (0, _v3.withPageSetup)({
     requireLogin: !0,
     inlineViewer: !0
-  }), _v51.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
+  }), _v50.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v4.DefaultNavigation, {}), _v0, (0, _v1.jsx)(_v6.MinimalFooterLayout, {})]
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v51], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v50], 0);
 }

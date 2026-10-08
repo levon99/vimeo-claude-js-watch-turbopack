@@ -278,9 +278,8 @@
       });
     };
   var _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  let _v35 = _v3.default.div.withConfig({
+    _v33 = _v0.i(0);
+  let _v34 = _v3.default.div.withConfig({
       displayName: "EventsProfile__SurveyViewWrapper",
       componentId: "sc-6051572-0"
     })`
@@ -295,7 +294,7 @@
   flex-direction: column;
   position: relative;
 `,
-    _v36 = (0, _v3.default)(_v8.Header).withConfig({
+    _v35 = (0, _v3.default)(_v8.Header).withConfig({
       displayName: "EventsProfile__HeaderWrapper",
       componentId: "sc-6051572-1"
     })`
@@ -303,7 +302,7 @@
   margin-top: ${(0, _v6.rem)(86)};
   margin-bottom: 0;
 `,
-    _v37 = (0, _v3.default)(_v10.Paragraph).withConfig({
+    _v36 = (0, _v3.default)(_v10.Paragraph).withConfig({
       displayName: "EventsProfile__DescriptionWrapper",
       componentId: "sc-6051572-2"
     })`
@@ -311,7 +310,7 @@
   margin-top: ${(0, _v6.rem)(4)};
   margin-bottom: ${(0, _v6.rem)(24)};
 `,
-    _v38 = _v3.default.div.withConfig({
+    _v37 = _v3.default.div.withConfig({
       displayName: "EventsProfile__QuestionsWrapper",
       componentId: "sc-6051572-3"
     })`
@@ -325,7 +324,7 @@
   overflow-y: auto;
   flex-direction: column;
 `,
-    _v39 = _v3.default.div.withConfig({
+    _v38 = _v3.default.div.withConfig({
       displayName: "EventsProfile__QuestionWrapper",
       componentId: "sc-6051572-4"
     })`
@@ -334,14 +333,14 @@
   flex-direction: column;
   position: relative;
 `,
-    _v40 = (0, _v3.default)(_v10.Paragraph).withConfig({
+    _v39 = (0, _v3.default)(_v10.Paragraph).withConfig({
       displayName: "EventsProfile__QuestionTitle",
       componentId: "sc-6051572-5"
     })`
   color: var(--vimeo-colors-gray-700);
   margin-bottom: 0;
 `,
-    _v41 = (0, _v3.default)(_v9.Input).withConfig({
+    _v40 = (0, _v3.default)(_v9.Input).withConfig({
       displayName: "EventsProfile__OtherInputWrapper",
       componentId: "sc-6051572-6"
     })`
@@ -356,7 +355,7 @@
     color: var(--vimeo-colors-gray-300);
   }
 `,
-    _v42 = () => {
+    _v41 = () => {
       let _v0 = (0, _v2.useRouter)(),
         {
           userId: _v1,
@@ -369,19 +368,15 @@
           otherInputsData: []
         }),
         [_v8, _v9] = (0, _v7.useState)(""),
-        [_v10, _v11] = (0, _v7.useState)(!1),
         {
-          data: _v12,
-          loading: _v13,
-          error: _v14
-        } = (0, _v11.useQuery)(`/users/${_v1}/surveys/${_v2}`);
-      (0, _v7.useEffect)(() => {
-        !_v10 && !_v14 && !_v13 && _v12?.shouldShow && (_v32.BigPictureClient.sendEvent(new _v32.Event("vimeo.show_live_user_profiling_survey", 1, {})), _v11(!0));
-      }, [_v10, _v14, _v13, _v12]);
-      let _v15 = (0, _v7.useCallback)(() => {
+          data: _v10,
+          loading: _v11,
+          error: _v12
+        } = (0, _v11.useQuery)(`/users/${_v1}/surveys/${_v2}`),
+        _v13 = (0, _v7.useCallback)(() => {
           _v8 && _v9("");
         }, [_v8]),
-        _v16 = (0, _v7.useCallback)((_v0, _v1) => {
+        _v14 = (0, _v7.useCallback)((_v0, _v1) => {
           if (_v6.otherInputsData.some(_v0 => _v0.question === _v1)) {
             let _v0 = _v6.otherInputsData.find(_v0 => _v0.question === _v1);
             _v0 && (_v0.value = _v0.target.value);
@@ -394,8 +389,8 @@
             otherInputsData: [..._v6.otherInputsData]
           });
         }, [_v6]),
-        _v17 = (0, _v7.useCallback)(() => {
-          _v5(!0), _v32.BigPictureClient.sendEvent(new _v32.Event("vimeo.skip_live_user_profiling_survey", 1, {})), _v3 && fetch(`https://${_v3.apiUrl}/users/${_v1}/surveys/${_v2}/skip`, {
+        _v15 = (0, _v7.useCallback)(() => {
+          _v5(!0), _v3 && fetch(`https://${_v3.apiUrl}/users/${_v1}/surveys/${_v2}/skip`, {
             method: "POST",
             headers: {
               Authorization: `jwt ${_v3.jwt}`,
@@ -405,14 +400,13 @@
               survey_type: _v2
             })
           }).then(() => {
-            _v0.push((0, _v34.getRedirectUrl)());
+            _v0.push((0, _v33.getRedirectUrl)());
           }).catch(() => {
-            _v0.push((0, _v34.getRedirectUrl)());
+            _v0.push((0, _v33.getRedirectUrl)());
           });
         }, [_v0, _v2, _v1, _v3]),
-        _v18 = (0, _v7.useCallback)(() => {
-          var _v0;
-          _v5(!0), _v12 && (_v0 = (0, _v34.prepareDataForSubmitBP)(_v12.questions, _v6), _v32.BigPictureClient.sendEvent(new _v32.Event("vimeo.submit_live_user_profiling_survey_response", 2, _v0))), _v3 && fetch(`https://${_v3.apiUrl}/users/${_v1}/surveys/${_v2}`, {
+        _v16 = (0, _v7.useCallback)(() => {
+          _v5(!0), _v3 && fetch(`https://${_v3.apiUrl}/users/${_v1}/surveys/${_v2}`, {
             method: "PUT",
             headers: {
               Authorization: `jwt ${_v3.jwt}`,
@@ -420,16 +414,16 @@
             },
             body: JSON.stringify(_v6.answersData)
           }).then(() => {
-            _v0.push((0, _v34.getRedirectUrl)());
+            _v0.push((0, _v33.getRedirectUrl)());
           }).catch(() => {
-            _v0.push((0, _v34.getRedirectUrl)());
+            _v0.push((0, _v33.getRedirectUrl)());
           });
-        }, [_v6, _v0, _v2, _v12, _v1, _v3]);
+        }, [_v6, _v0, _v2, _v1, _v3]);
       return _v3 && !_v3.user ? (0, _v1.jsx)(_v14.ErrorPage, {
         error: new _v12.UnauthorizedError("Event Profiling survey Access")
-      }) : ((_v14 || !_v13 && _v12 && !_v12.shouldShow) && _v0.push("/"), _v13) ? (0, _v1.jsx)(_v33.default, {}) : _v12?.shouldShow ? (0, _v1.jsxs)(_v35, {
-        onClick: _v15,
-        children: [(0, _v1.jsx)(_v24, {}), (0, _v1.jsx)(_v36, {
+      }) : ((_v12 || !_v11 && _v10 && !_v10.shouldShow) && _v0.push("/"), _v11) ? (0, _v1.jsx)(_v32.default, {}) : _v10?.shouldShow ? (0, _v1.jsxs)(_v34, {
+        onClick: _v13,
+        children: [(0, _v1.jsx)(_v24, {}), (0, _v1.jsx)(_v35, {
           size: "lg",
           children: (0, _v13.translate)({
             singular: "Before getting started, tell us about yourself",
@@ -457,7 +451,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v37, {
+        }), (0, _v1.jsx)(_v36, {
           size: "md",
           children: (0, _v13.translate)({
             singular: "Your answers will help us improve your experience",
@@ -485,20 +479,20 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v38, {
-          children: _v12.questions.map((_v0, _v1) => {
+        }), (0, _v1.jsx)(_v37, {
+          children: _v10.questions.map((_v0, _v1) => {
             let _v2 = _v6.answersData.some(_v0 => _v0.id === _v0.id),
               _v3 = _v6.answersData.some(_v0 => _v0.id === _v0.id && _v0.answers.some(_v0 => "other" === _v0.id)),
               _v4 = _v6.answersData.find(_v0 => _v0.id === _v0.id),
               _v5 = _v0.answers.find(_v0 => _v0.placeholder)?.placeholder;
-            return (0, _v1.jsxs)(_v39, {
+            return (0, _v1.jsxs)(_v38, {
               children: [(0, _v1.jsx)(_v27, {
                 index: _v1,
                 question: _v0,
                 formData: _v6,
                 answersListOpenId: _v8,
                 setFormData: _v7
-              }), (0, _v1.jsx)(_v40, {
+              }), (0, _v1.jsx)(_v39, {
                 size: "md",
                 children: _v0.question
               }), (0, _v1.jsx)(_v31, {
@@ -507,25 +501,25 @@
                 answersListOpenId: _v8,
                 setAnswersListOpenId: _v9,
                 selectedAnswer: _v4 ?? null
-              }), _v3 && _v5 && (0, _v1.jsx)(_v41, {
+              }), _v3 && _v5 && (0, _v1.jsx)(_v40, {
                 placeholder: _v5,
                 variant: "flushed",
                 maxLength: 140,
                 onChange: _v0 => {
-                  _v16(_v0, _v0.id);
+                  _v14(_v0, _v0.id);
                 }
               })]
             }, _v0.id);
           })
         }), (0, _v1.jsx)(_v18, {
-          onSkipClick: _v17,
-          onSubmitClick: _v18,
+          onSkipClick: _v15,
+          onSubmitClick: _v16,
           isLoading: _v4,
           formData: _v6
         })]
       }) : null;
     };
-  var _v43 = _v0.i(0);
+  var _v42 = _v0.i(0);
   (0, _v4.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0
@@ -533,14 +527,14 @@
   }), {
     inlineViewer: "all"
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => {
-    let _v0 = (0, _v43.useViewer)(),
+    let _v0 = (0, _v42.useViewer)(),
       {
         surveyType: _v1,
         userId: _v2
       } = (0, _v2.useRouter)().query;
     return _v2 && _v1 && _v0 && "events_prof" === _v1 ? (0, _v1.jsx)(_v3.ThemeProvider, {
       theme: _v5.themes.light,
-      children: (0, _v1.jsx)(_v42, {})
+      children: (0, _v1.jsx)(_v41, {})
     }) : null;
   }], 0);
 }

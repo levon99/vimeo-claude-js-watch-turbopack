@@ -35,18 +35,5 @@
       }
       return "/";
     })(_v0 = (_v0 = decodeURIComponent(_v0)).trim().replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;").replace(/[\u0000-\u001F\u007F-\u009F\u2000-\u200D\uFEFF]/gim, "").replace(/&(newline|tab);/gi, "")) : "/";
-  }, "prepareDataForSubmitBP", 0, (_v0, _v1) => {
-    let _v2 = {};
-    return _v0.map(_v0 => {
-      let _v1 = [];
-      if (_v1.answersData.some(_v0 => _v0.id === _v0.id)) {
-        let _v0 = _v1.answersData.find(_v0 => _v0.id === _v0.id);
-        if (_v0 && (_v1 = [_v0.answers[0].id], _v0?.answers[0].id === "other")) {
-          let _v0 = _v1.otherInputsData.find(_v0 => _v0.question === _v0.id);
-          _v1.push(_v0 ? _v0.value : "");
-        }
-      }
-      _v2[_v0.id] = _v1;
-    }), _v2;
   }]);
 }

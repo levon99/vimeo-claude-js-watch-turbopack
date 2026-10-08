@@ -221,6 +221,7 @@
       expiresOn: _v12,
       isTrialing: _v14,
       isTrialExpired: _v15,
+      isForcedUpsell: _v13,
       isAccountManager: _v19
     };
   }], 0);

@@ -3,32 +3,32 @@
 
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
-    _v3 = _v0.i(0),
-    _v4 = _v0.i(0);
-  let _v5 = "https://recordwidget.vimeocdn.com/recordwidget/assets/record-studio/",
-    _v6 = _v5 + "record-studio-use-case-desktop.mp4",
-    _v7 = _v5 + "record-studio-use-case-desktop-thumbnail.png",
-    _v8 = () => (0, _v1.jsx)(_v3.Flex, {
+    _v3 = _v0.i(0);
+  let _v4 = "https://recordwidget.vimeocdn.com/recordwidget/assets/record-studio/",
+    _v5 = _v4 + "record-studio-use-case-desktop.mp4",
+    _v6 = _v4 + "record-studio-use-case-desktop-thumbnail.png",
+    _v7 = () => (0, _v1.jsx)(_v2.Flex, {
       hideBelow: "lg",
       position: "absolute",
       flexDirection: "row-reverse",
       right: 0,
       top: 0,
       bottom: 0,
-      children: (0, _v1.jsx)(_v4.Box, {
+      children: (0, _v1.jsx)(_v3.Box, {
         as: "video",
         width: "auto",
         height: "100%",
         objectFit: "cover",
-        src: _v6,
-        poster: _v7,
+        src: _v5,
+        poster: _v6,
         muted: !0,
         autoPlay: !0,
         loop: !0,
         playsInline: !0
       })
     });
-  var _v9 = _v0.i(0),
+  var _v8 = _v0.i(0),
+    _v9 = _v0.i(0),
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
@@ -273,7 +273,7 @@
     thirdPartySoftwareNotice: (0, _v21.translate)({
       singular: "{SOFTWARE_REPORT_LINK}Third-party software report{/SOFTWARE_REPORT_LINK}",
       replacements: {
-        SOFTWARE_REPORT_LINK: _v0 => (0, _v1.jsx)(_v4.Box, {
+        SOFTWARE_REPORT_LINK: _v0 => (0, _v1.jsx)(_v3.Box, {
           as: "a",
           href: "https://recordwidget.vimeocdn.com/recordwidget/desktop/assets/desktop-report.html",
           target: "_blank",
@@ -321,23 +321,23 @@
   let _v24 = () => {
     var _v0;
     let _v1,
-      _v2 = (0, _v2.useContext)(_v18.ViewerContext),
-      _v3 = (_v0 = (0, _v9.useRouter)().query, _v1 = new URLSearchParams(), _v19(_v0.utm_campaign) && _v1.set("utm_campaign", _v0.utm_campaign), _v19(_v0.utm_content) && _v1.set("utm_content", _v0.utm_content), _v19(_v0.utm_source) && _v1.set("utm_source", _v0.utm_source), _v19(_v0.vcid) && _v1.set("vcid", _v0.vcid), "?" + _v1.toString()),
-      [_v4, _v5] = (0, _v2.useState)(!1),
-      [_v6, _v7] = (0, _v2.useState)(!0),
-      [_v8, _v9] = (0, _v2.useState)(void 0),
+      _v2 = (0, _v9.useContext)(_v18.ViewerContext),
+      _v3 = (_v0 = (0, _v8.useRouter)().query, _v1 = new URLSearchParams(), _v19(_v0.utm_campaign) && _v1.set("utm_campaign", _v0.utm_campaign), _v19(_v0.utm_content) && _v1.set("utm_content", _v0.utm_content), _v19(_v0.utm_source) && _v1.set("utm_source", _v0.utm_source), _v19(_v0.vcid) && _v1.set("vcid", _v0.vcid), "?" + _v1.toString()),
+      [_v4, _v5] = (0, _v9.useState)(!1),
+      [_v6, _v7] = (0, _v9.useState)(!0),
+      [_v8, _v9] = (0, _v9.useState)(void 0),
       [_v10, _v11] = (0, _v17.useToken)("breakpoints", ["lg", "xl"]),
       [_v12, _v13] = (0, _v16.useMediaQuery)([`(min-width: ${_v10})`, `(max-width: ${_v11})`]),
       _v14 = _v12 && _v13 ? "md" : "lg";
-    (0, _v2.useEffect)(() => {
+    (0, _v9.useEffect)(() => {
       _v5(!0);
-    }, [_v5]), (0, _v2.useEffect)(() => {
+    }, [_v5]), (0, _v9.useEffect)(() => {
       _v23().then(_v0 => {
         _v9(_v0);
       });
     }, []);
-    let _v15 = (0, _v9.useRouter)();
-    return ((0, _v2.useEffect)(() => {
+    let _v15 = (0, _v8.useRouter)();
+    return ((0, _v9.useEffect)(() => {
       _v15.isReady && "start_recording" === _v15.query.referrer && _v7(!1);
     }, [_v15]), _v4) ? (0, _v1.jsxs)(_v15.VStack, {
       alignItems: "flex-start",
@@ -419,12 +419,12 @@
     _v27 = _v0.i(0),
     _v28 = _v0.i(0);
   let _v29 = () => {
-    let [_v0, _v1] = (0, _v2.useState)(!1),
-      _v2 = (0, _v2.useRef)(null),
-      _v3 = (0, _v2.useCallback)(() => {
+    let [_v0, _v1] = (0, _v9.useState)(!1),
+      _v2 = (0, _v9.useRef)(null),
+      _v3 = (0, _v9.useCallback)(() => {
         _v0 || _v1(!0), _v2.current && clearTimeout(_v2.current);
       }, [_v0, _v1]),
-      _v4 = (0, _v2.useCallback)(() => {
+      _v4 = (0, _v9.useCallback)(() => {
         _v2.current = setTimeout(() => {
           _v1(!1), _v2.current = null;
         }, 500);
@@ -432,7 +432,7 @@
     return (0, _v1.jsxs)(_v25.Popover, {
       isOpen: _v0,
       children: [(0, _v1.jsx)(_v27.PopoverTrigger, {
-        children: (0, _v1.jsx)(_v4.Box, {
+        children: (0, _v1.jsx)(_v3.Box, {
           position: "fixed",
           bottom: (0, _v10.rem)(22),
           right: (0, _v10.rem)(32),
@@ -453,22 +453,14 @@
     });
   };
   var _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
-    _v32 = _v0.i(0);
-  let _v33 = () => ((0, _v2.useEffect)(() => {
-    _v30.BigPictureClient.sendEvent(new _v30.Event("vimeo.record_pageview", 1, {
-      name: '"Download. Get started with Record" page was shown',
-      path: window.location.origin + window.location.pathname,
-      entry_page: document.referrer || null,
-      clip_id: null
-    }));
-  }, []), (0, _v1.jsxs)(_v1.Fragment, {
-    children: [(0, _v1.jsxs)(_v3.Flex, {
+    _v31 = _v0.i(0);
+  let _v32 = () => (0, _v1.jsxs)(_v1.Fragment, {
+    children: [(0, _v1.jsxs)(_v2.Flex, {
       position: "relative",
       width: "100%",
       height: "100%",
       flexGrow: "1",
-      children: [(0, _v1.jsx)(_v8, {}), (0, _v1.jsxs)(_v3.Flex, {
+      children: [(0, _v1.jsx)(_v7, {}), (0, _v1.jsxs)(_v2.Flex, {
         flexDirection: "column",
         background: "background",
         width: {
@@ -483,11 +475,11 @@
         top: 0,
         bottom: 0,
         zIndex: 1,
-        children: [(0, _v1.jsx)(_v32.RecordNavBar, {}), (0, _v1.jsx)(_v24, {})]
+        children: [(0, _v1.jsx)(_v31.RecordNavBar, {}), (0, _v1.jsx)(_v24, {})]
       }), (0, _v1.jsx)(_v29, {})]
-    }), (0, _v1.jsx)(_v31.RecordFooter, {})]
-  }));
-  _v33.getLayout = _v0 => (0, _v1.jsx)(_v1.Fragment, {
+    }), (0, _v1.jsx)(_v30.RecordFooter, {})]
+  });
+  _v32.getLayout = _v0 => (0, _v1.jsx)(_v1.Fragment, {
     children: _v0
-  }), _v0.s(["__N_SSG", 0, !0, "default", 0, _v33], 0);
+  }), _v0.s(["__N_SSG", 0, !0, "default", 0, _v32], 0);
 }

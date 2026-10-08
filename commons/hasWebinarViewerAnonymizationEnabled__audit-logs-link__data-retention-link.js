@@ -103,49 +103,13 @@
   var _v19 = _v0.i(0),
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
-    _v23 = _v0.i(0),
-    _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
-    _v26 = _v0.i(0),
-    _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
-    _v29 = _v0.i(0);
-  let _v30 = ({
+    _v22 = _v0.i(0);
+  let _v23 = ({
     isOwner: _v0
   }) => {
-    let _v1,
-      _v2,
-      {
-        sendOpenFederatedSearchManageEvent: _v3
-      } = (_v1 = (0, _v29.useViewer)(), _v2 = (0, _v2.useMemo)(() => (0, _v26.buildTeamBpContextFromTeamUser)(_v1?.teamUser), [_v1?.teamUser]), {
-        sendOpenFederatedSearchManageEvent: () => {
-          let _v0 = (0, _v23.default)();
-          (0, _v28.sendBpEventWithContexts)("vimeo.open_federated_search_manage", {
-            ...(0, _v24.buildActionBpContext)({
-              action_type: "click",
-              feature: null
-            }),
-            ...(0, _v25.buildProductAnalyticsBpContext)({
-              entity_type: null,
-              element: "button",
-              location: "workspace",
-              feature: "settings",
-              product: "collaboration",
-              copy: "manage",
-              device_type: _v0
-            }),
-            ...(0, _v27.buildWebBpContext)({
-              page_name: "team_management_page",
-              path: window.location.pathname
-            }),
-            ..._v2
-          }, 2);
-        }
-      }),
-      _v4 = (0, _v17.getTranslations)();
+    let _v1 = (0, _v17.getTranslations)();
     return (0, _v1.jsx)(_v14.TeamSettingsPageCategory, {
-      title: _v4.API,
+      title: _v1.API,
       children: (0, _v1.jsxs)(_v15.TeamSettingsPageOptionContainer, {
         children: [(0, _v1.jsxs)(_v8.Flex, {
           justifyContent: "space-between",
@@ -157,11 +121,11 @@
               size: "xl",
               as: "h6",
               marginBottom: "50",
-              children: _v4.FederatedSearch
+              children: _v1.FederatedSearch
             }), (0, _v1.jsx)(_v11.Paragraph, {
               color: "text-secondary",
               variant: "body-md",
-              children: _v4.MakeContentOnThisAccountSearchable
+              children: _v1.MakeContentOnThisAccountSearchable
             })]
           }), (0, _v1.jsx)(_v21.Button, {
             variant: "secondary",
@@ -169,35 +133,35 @@
             leftIcon: (0, _v1.jsx)(_v22.PopOut, {}),
             isDisabled: !_v0,
             onClick: () => {
-              _v0 && (_v3(), window.open("https://developer.vimeo.com/apps", "_blank"));
+              _v0 && window.open("https://developer.vimeo.com/apps", "_blank");
             },
-            children: _v4.ManageFederatedSearchLabel
+            children: _v1.ManageFederatedSearchLabel
           })]
         }), !_v0 && (0, _v1.jsx)(_v19.Alert, {
           size: "sm",
           marginTop: "200",
           children: (0, _v1.jsx)(_v20.AlertDescription, {
             marginTop: "50",
-            children: _v4.OnlyTheOrganizationOwnerCanSetUpFederatedSearch
+            children: _v1.OnlyTheOrganizationOwnerCanSetUpFederatedSearch
           })
         })]
       })
     });
   };
-  var _v31 = _v0.i(0),
-    _v32 = _v0.i(0);
-  let _v33 = ({
+  var _v24 = _v0.i(0),
+    _v25 = _v0.i(0);
+  let _v26 = ({
       organizationUuid: _v0,
       organizationInternalId: _v1,
       isWorkspaceSettingsPage: _v2,
       currentUserId: _v3
-    }) => !_v2 && _v1 ? (0, _v1.jsx)(_v35, {
+    }) => !_v2 && _v1 ? (0, _v1.jsx)(_v28, {
       organizationUuid: _v0,
       organizationInternalId: _v1
-    }) : (0, _v1.jsx)(_v34, {
+    }) : (0, _v1.jsx)(_v27, {
       currentUserId: _v3
     }),
-    _v34 = ({
+    _v27 = ({
       currentUserId: _v0
     }) => {
       let _v1 = (0, _v17.getTranslations)(),
@@ -215,7 +179,7 @@
         })
       }) : null;
     },
-    _v35 = ({
+    _v28 = ({
       organizationUuid: _v0,
       organizationInternalId: _v1
     }) => {
@@ -265,24 +229,24 @@
               })
             })]
           })
-        }, _v0.title)), (0, _v1.jsx)(_v31.TeamSettingsSessionDuration, {
+        }, _v0.title)), (0, _v1.jsx)(_v24.TeamSettingsSessionDuration, {
           orgUuid: _v0,
           type: "org"
-        }), (0, _v1.jsx)(_v32.TeamSettingsForceLogout, {
+        }), (0, _v1.jsx)(_v25.TeamSettingsForceLogout, {
           orgUuid: _v0,
           type: "org"
         })]
       });
     };
-  var _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
-  let _v44 = ({
+  var _v29 = _v0.i(0),
+    _v30 = _v0.i(0),
+    _v31 = _v0.i(0),
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0),
+    _v36 = _v0.i(0);
+  let _v37 = ({
     workspaceUuid: _v0
   }) => {
     let [_v1, _v2] = (0, _v2.useState)(!1),
@@ -293,7 +257,7 @@
         isLoading: _v8,
         deletePreset: _v9,
         refreshPresets: _v10
-      } = (0, _v43.useWatermarkingPresets)({
+      } = (0, _v36.useWatermarkingPresets)({
         ownerId: _v0,
         isModalOpen: _v1,
         sortBy: _v3,
@@ -310,7 +274,7 @@
             size: "xl",
             as: "h6",
             marginBottom: "50",
-            children: (0, _v41.translate)({
+            children: (0, _v34.translate)({
               singular: "Manage presets",
               dictionary: {
                 es: {
@@ -339,7 +303,7 @@
           }), (0, _v1.jsx)(_v11.Paragraph, {
             color: "text-secondary",
             variant: "body-md",
-            children: (0, _v41.translate)({
+            children: (0, _v34.translate)({
               singular: "Create and manage watermark presets for your videos",
               dictionary: {
                 es: {
@@ -370,7 +334,7 @@
           variant: "secondary",
           size: "sm",
           onClick: () => _v2(!0),
-          children: (0, _v41.translate)({
+          children: (0, _v34.translate)({
             singular: "Manage Watermark Presets",
             dictionary: {
               es: {
@@ -397,7 +361,7 @@
             }
           })
         })]
-      }), (0, _v1.jsx)(_v42.PresetListModal, {
+      }), (0, _v1.jsx)(_v35.PresetListModal, {
         isOpen: _v1,
         onClose: () => _v2(!1),
         presets: _v7,
@@ -413,18 +377,19 @@
       })]
     });
   };
-  var _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  let _v49 = ({
+  var _v38 = _v0.i(0),
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  let _v43 = ({
     isWorkspaceSettingsPage: _v0,
     organizationUuid: _v1,
     organizationInternalId: _v2,
     workspaceUuid: _v3
   }) => {
     let _v4 = (0, _v17.getTranslations)(),
-      _v5 = (0, _v29.useViewer)(),
+      _v5 = (0, _v38.useViewer)(),
       _v6 = _v5?.teamUser,
       _v7 = _v6?.ownerId ?? _v5?.user?.id ?? null,
       {
@@ -441,13 +406,13 @@
         workspaceUuid: _v1,
         organizationUuid: _v2
       }) => {
-        let _v3 = (0, _v45.useGetOrganizationSettings)(() => !_v2 || _v0 ? null : {
+        let _v3 = (0, _v39.useGetOrganizationSettings)(() => !_v2 || _v0 ? null : {
             where: {
               orgUuid: _v2
             },
             select: ["prohibitMultipleReviewLinks", "orgProhibitMultipleReviewLinks"]
           }),
-          _v4 = (0, _v46.useGetWorkspaceSettings)(() => _v1 ? {
+          _v4 = (0, _v40.useGetWorkspaceSettings)(() => _v1 ? {
             where: {
               workspaceUuid: _v1
             },
@@ -466,9 +431,9 @@
         isWorkspacePage: _v0,
         workspaceUuid: _v1,
         organizationUuid: _v2
-      }) => (_v0 ? _v0 => (0, _v48.useUpdateWsSettings)({
+      }) => (_v0 ? _v0 => (0, _v42.useUpdateWsSettings)({
         wsUuid: _v0
-      }) : _v0 => (0, _v47.useUpdateOrgSettings)({
+      }) : _v0 => (0, _v41.useUpdateOrgSettings)({
         orgUuid: _v0
       }))((_v0 ? _v1 : _v2) ?? ""))({
         isWorkspacePage: _v0 ?? !0,
@@ -501,25 +466,25 @@
             display: "flex",
             alignItems: "center",
             gap: "sm",
-            children: [_v0 && _v11?.orgProhibitMultipleReviewLinks && (0, _v1.jsx)(_v38.Tooltip, {
+            children: [_v0 && _v11?.orgProhibitMultipleReviewLinks && (0, _v1.jsx)(_v31.Tooltip, {
               placement: "top",
               label: _v4.ManagedByOrganization,
               children: (0, _v1.jsx)(_v10.IconButton, {
                 "aria-label": _v4.ManagedByOrganization,
                 size: "md",
                 variant: "tertiary",
-                icon: (0, _v1.jsx)(_v39.InfoCircle, {}),
+                icon: (0, _v1.jsx)(_v32.InfoCircle, {}),
                 _hover: {
                   backgroundColor: "transparent !important"
                 },
                 sx: {
                   svg: {
-                    width: (0, _v36.rem)(18),
-                    height: (0, _v36.rem)(18)
+                    width: (0, _v29.rem)(18),
+                    height: (0, _v29.rem)(18)
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v37.Switch, {
+            }), (0, _v1.jsx)(_v30.Switch, {
               isChecked: _v16,
               onChange: () => {
                 _v16 ? (_v17(!1), _v13({
@@ -585,10 +550,10 @@
           })]
         })
       }), _v3 && _v10 && (0, _v1.jsx)(_v15.TeamSettingsPageOptionContainer, {
-        children: (0, _v1.jsx)(_v44, {
+        children: (0, _v1.jsx)(_v37, {
           workspaceUuid: _v3
         })
-      }), (0, _v1.jsx)(_v40.ReviewLinkConfirmationModal, {
+      }), (0, _v1.jsx)(_v33.ReviewLinkConfirmationModal, {
         isOpen: _v14,
         close: () => {
           _v15(!1), _v17(!1);
@@ -604,15 +569,15 @@
       })]
     });
   };
-  var _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
-    _v52 = _v0.i(0);
-  let _v53 = () => {
+  var _v44 = _v0.i(0),
+    _v45 = _v0.i(0),
+    _v46 = _v0.i(0);
+  let _v47 = () => {
     let {
         isOpen: _v0,
         onOpen: _v1,
         onClose: _v2
-      } = (0, _v50.useDisclosure)(),
+      } = (0, _v44.useDisclosure)(),
       _v3 = (0, _v17.getTranslations)();
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v14.TeamSettingsPageCategory, {
@@ -636,13 +601,13 @@
             }), (0, _v1.jsx)(_v21.Button, {
               size: "sm",
               variant: "secondary",
-              leftIcon: (0, _v1.jsx)(_v51.FileExport, {}),
+              leftIcon: (0, _v1.jsx)(_v45.FileExport, {}),
               onClick: _v1,
               children: _v3.ExportData
             })]
           })
         })
-      }), (0, _v1.jsx)(_v52.DownloadRegistrantModal, {
+      }), (0, _v1.jsx)(_v46.DownloadRegistrantModal, {
         isOpen: _v0,
         onClose: _v2
       })]
@@ -664,7 +629,7 @@
       margin: "0 auto",
       children: [(0, _v1.jsx)(_v4.SettingsPageContentHeader, {
         title: _v5.SecurityAndData
-      }), (0, _v1.jsx)(_v33, {
+      }), (0, _v1.jsx)(_v26, {
         organizationUuid: _v1,
         organizationInternalId: _v2,
         isWorkspaceSettingsPage: _v0,
@@ -672,14 +637,14 @@
       }), (0, _v1.jsx)(_v18, {
         isWorkspaceSettingsPage: _v0,
         workspaceInternalId: _v4
-      }), (0, _v1.jsx)(_v49, {
+      }), (0, _v1.jsx)(_v43, {
         isWorkspaceSettingsPage: _v0,
         organizationUuid: _v1,
         organizationInternalId: _v2,
         workspaceUuid: _v3
-      }), _v0 && (0, _v1.jsx)(_v30, {
+      }), _v0 && (0, _v1.jsx)(_v23, {
         isOwner: _v7
-      }), _v0 && (0, _v1.jsx)(_v53, {})]
+      }), _v0 && (0, _v1.jsx)(_v47, {})]
     });
   }], 0);
 }

@@ -132,6 +132,13 @@
       label: _v4,
       placement: "top",
       shouldWrapChildren: !0,
+      offset: [0, 8],
+      bg: "gray.600",
+      color: "gray.50",
+      _dark: {
+        bg: "gray.600",
+        color: "gray.50"
+      },
       children: _v5
     }) : _v5;
   }, _v17.ActionBar = _v16, _v0.s(["BulkActionsBar", 0, _v17], 0);

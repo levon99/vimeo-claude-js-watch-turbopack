@@ -213,22 +213,15 @@
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0),
-    _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0);
-  let _v41 = {
+    _v33 = _v0.i(0);
+  let _v34 = {
       base: (0, _v26.rem)(640),
       xl: (0, _v26.rem)(720),
       "2xl": (0, _v26.rem)(960)
     },
-    _v42 = "roleaao",
-    _v43 = {
-      [_v42]: {
+    _v35 = "roleaao",
+    _v36 = {
+      [_v35]: {
         title: "Admins and Owners only",
         description: "Limit this feature to Admins and Owners"
       },
@@ -237,13 +230,13 @@
         description: "Allow Admins, Owners, and Contributors to use this feature"
       }
     },
-    _v44 = {
+    _v37 = {
       prefEnableAskAiAnalytics: "eaaa"
     },
-    _v45 = {
+    _v38 = {
       prefEnableAskAiAnalytics: "prefEnableAskAiAnalytics"
     },
-    _v46 = {
+    _v39 = {
       manageTranscriptionKeywords: "manageTranscriptionKeywords",
       enableParentPermissionAiTranslate: "enableParentPermissionAiTranslate",
       enableTranslationsProfanityFilter: "enableTranslationsProfanityFilter",
@@ -268,25 +261,25 @@
       enableTranscriptionGeneration: "enableTranscriptionGeneration",
       enableAiAnalyticsDashboard: "enableAiAnalyticsDashboard",
       userRolePermissionAiAnalytics: "userRolePermissionAiAnalytics",
-      ..._v45
+      ..._v38
     },
-    _v47 = [_v46.enableParentPermissionAiTranslate, _v46.enableParentPermissionAiVideoDetails, _v46.enableParentPermissionAiHighlights, _v46.enableParentPermissionAiLiveCaptions, _v46.enableAiAnalyticsDashboard],
-    _v48 = "ai_translate",
-    _v49 = "video_details",
-    _v50 = "highlights",
-    _v51 = "script",
-    _v52 = "ask_ai",
-    _v53 = "transcript",
-    _v54 = {
+    _v40 = [_v39.enableParentPermissionAiTranslate, _v39.enableParentPermissionAiVideoDetails, _v39.enableParentPermissionAiHighlights, _v39.enableParentPermissionAiLiveCaptions, _v39.enableAiAnalyticsDashboard],
+    _v41 = "ai_translate",
+    _v42 = "video_details",
+    _v43 = "highlights",
+    _v44 = "script",
+    _v45 = "ask_ai",
+    _v46 = "transcript",
+    _v47 = {
       name: {
-        enableAiScriptGeneration: _v46.enableAiScriptGeneration,
-        enableVideoViewerAiUi: _v46.enableVideoViewerAiUi,
-        enableParentPermissionAiTranslate: _v46.enableParentPermissionAiTranslate,
-        enableTranslationsProfanityFilter: _v46.enableTranslationsProfanityFilter,
-        enableTranslationsVoiceCloning: _v46.enableTranslationsVoiceCloning,
-        manageTranscriptionKeywords: _v46.manageTranscriptionKeywords,
-        manageAiAutomationGenerateTranslations: _v46.manageAiAutomationGenerateTranslations,
-        prefEnableAskAiAnalytics: _v46.prefEnableAskAiAnalytics
+        enableAiScriptGeneration: _v39.enableAiScriptGeneration,
+        enableVideoViewerAiUi: _v39.enableVideoViewerAiUi,
+        enableParentPermissionAiTranslate: _v39.enableParentPermissionAiTranslate,
+        enableTranslationsProfanityFilter: _v39.enableTranslationsProfanityFilter,
+        enableTranslationsVoiceCloning: _v39.enableTranslationsVoiceCloning,
+        manageTranscriptionKeywords: _v39.manageTranscriptionKeywords,
+        manageAiAutomationGenerateTranslations: _v39.manageAiAutomationGenerateTranslations,
+        prefEnableAskAiAnalytics: _v39.prefEnableAskAiAnalytics
       },
       event: {
         enableAiScriptGeneration: "vimeo.ai_script_generation_toggle_switch",
@@ -309,108 +302,31 @@
         userRolePermissionTranscriptionKeywords: "vimeo.ai_team_members_generate_role_definitions"
       },
       eventFeature: {
-        [_v46.manageTranscriptionKeywords]: _v53,
-        [_v46.enableParentPermissionAiTranslate]: _v48,
-        [_v46.userRolePermissionAiTranslate]: _v48,
-        [_v46.enableTranslationsProfanityFilter]: _v48,
-        [_v46.enableTranslationsVoiceCloning]: _v48,
-        [_v46.enableTranslationsFailureEmail]: _v48,
-        [_v46.enableParentPermissionAiVideoDetails]: _v49,
-        [_v46.userRolePermissionAiVideoDetails]: _v49,
-        [_v46.enableVideoViewerAiUi]: _v52,
-        [_v46.enableLibrarySmartSearch]: "search",
-        [_v46.enableParentPermissionAiHighlights]: _v50,
-        [_v46.userRolePermissionAiHighlights]: _v50,
-        [_v46.enableAiScriptGeneration]: _v51,
-        [_v46.userRolePermissionAiScriptGeneration]: _v51,
-        [_v46.enableParentPermissionAiLiveCaptions]: _v53,
-        [_v46.enableRegistrationFormAiUserTranslation]: _v48,
-        [_v46.enableEventSeriesAiUserTranslation]: _v48,
-        [_v46.userRolePermissionAiLiveCaptions]: _v53,
-        [_v46.prefEnableAskAiAnalytics]: _v52,
-        [_v46.userRolePermissionTranscriptionKeywords]: _v53,
-        [_v46.enableTranscriptionGeneration]: _v53,
-        [_v46.userRolePermissionAiAnalytics]: "analytics_widget"
+        [_v39.manageTranscriptionKeywords]: _v46,
+        [_v39.enableParentPermissionAiTranslate]: _v41,
+        [_v39.userRolePermissionAiTranslate]: _v41,
+        [_v39.enableTranslationsProfanityFilter]: _v41,
+        [_v39.enableTranslationsVoiceCloning]: _v41,
+        [_v39.enableTranslationsFailureEmail]: _v41,
+        [_v39.enableParentPermissionAiVideoDetails]: _v42,
+        [_v39.userRolePermissionAiVideoDetails]: _v42,
+        [_v39.enableVideoViewerAiUi]: _v45,
+        [_v39.enableLibrarySmartSearch]: "search",
+        [_v39.enableParentPermissionAiHighlights]: _v43,
+        [_v39.userRolePermissionAiHighlights]: _v43,
+        [_v39.enableAiScriptGeneration]: _v44,
+        [_v39.userRolePermissionAiScriptGeneration]: _v44,
+        [_v39.enableParentPermissionAiLiveCaptions]: _v46,
+        [_v39.enableRegistrationFormAiUserTranslation]: _v41,
+        [_v39.enableEventSeriesAiUserTranslation]: _v41,
+        [_v39.userRolePermissionAiLiveCaptions]: _v46,
+        [_v39.prefEnableAskAiAnalytics]: _v45,
+        [_v39.userRolePermissionTranscriptionKeywords]: _v46,
+        [_v39.enableTranscriptionGeneration]: _v46,
+        [_v39.userRolePermissionAiAnalytics]: "analytics_widget"
       }
     },
-    _v55 = _v0 => _v54.eventFeature[_v0],
-    _v56 = () => {
-      let _v0 = (0, _v40.useViewer)(),
-        _v1 = (0, _v7.useCallback)(_v0 => (0, _v34.buildActionBpContext)({
-          action_type: _v0,
-          feature: null
-        }), []),
-        _v2 = (0, _v7.useCallback)(({
-          copy: _v0,
-          element: _v1,
-          feature: _v2
-        }) => {
-          let _v3 = "object" == typeof _v0 && null !== _v0 ? _v0.title : _v0;
-          return (0, _v35.buildProductAnalyticsBpContext)({
-            product: "collaboration",
-            feature: _v2,
-            location: "workspace",
-            copy: _v3,
-            element: _v1
-          });
-        }, []),
-        _v3 = (0, _v7.useCallback)(() => (0, _v37.buildWebBpContext)({
-          page_name: "ai_accounts_settings",
-          location: null,
-          referrer_page_name: null
-        }), []),
-        _v4 = (0, _v7.useMemo)(() => (0, _v36.buildTeamBpContextFromTeamUser)(_v0?.teamUser), [_v0?.teamUser]);
-      return {
-        toggleEvent: (_v0, _v1) => {
-          let _v2 = _v54.event[_v0],
-            _v3 = _v55(_v0);
-          (0, _v38.sendBpEventWithContexts)(_v2, {
-            ..._v1("toggle"),
-            ..._v2({
-              copy: _v1 ? "enable" : "disable",
-              element: "toggle",
-              feature: _v3
-            }),
-            ..._v3(),
-            ..._v4
-          }, -1);
-        },
-        buttonEvent: _v0 => {
-          let _v1 = _v54.event[_v0],
-            _v2 = _v55(_v0);
-          (0, _v38.sendBpEventWithContexts)(_v1, {
-            ..._v1("click"),
-            ..._v2({
-              copy: "manage",
-              element: "button",
-              feature: _v2
-            }),
-            ..._v3(),
-            ..._v4,
-            ...(0, _v39.buildThirdPartyIntegrationBpContext)({
-              integration_id: null,
-              integration_name: null,
-              is_partner: null
-            })
-          }, 1);
-        },
-        dropdownEvent: (_v0, _v1) => {
-          let _v2 = _v54.event[_v0],
-            _v3 = _v55(_v0);
-          (0, _v38.sendBpEventWithContexts)(_v2, {
-            ..._v1("click"),
-            ..._v2({
-              copy: _v43[_v1],
-              element: "dropdown",
-              feature: _v3
-            }),
-            ..._v3(),
-            ..._v4
-          }, -1);
-        }
-      };
-    },
-    _v57 = () => ({
+    _v48 = () => ({
       aiSettings: (0, _v22.translate)({
         singular: "Vimeo AI",
         dictionary: {
@@ -2158,10 +2074,10 @@
         }
       })
     });
-  var _v58 = _v0.i(0),
-    _v59 = _v0.i(0),
-    _v60 = _v0.i(0);
-  let _v61 = [{
+  var _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0);
+  let _v52 = [{
     value: "ar",
     label: "Arabic"
   }, {
@@ -2252,19 +2168,19 @@
     value: "no",
     label: "Norwegian"
   }];
-  var _v62 = _v0.i(0),
-    _v63 = _v0.i(0),
-    _v64 = _v0.i(0),
-    _v65 = _v0.i(0),
-    _v66 = _v0.i(0);
-  let _v67 = ({
+  var _v53 = _v0.i(0),
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0),
+    _v56 = _v0.i(0),
+    _v57 = _v0.i(0);
+  let _v58 = ({
       selectedLanguages: _v0,
       onLanguageChange: _v1,
       isDropdownActive: _v2,
       setIsDropdownActive: _v3,
       isFetchingUserLanguages: _v4
     }) => {
-      let _v5 = (0, _v7.useMemo)(() => _v57(), []);
+      let _v5 = (0, _v7.useMemo)(() => _v48(), []);
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v8.Box, {
           display: "flex",
@@ -2285,7 +2201,7 @@
           placeholder: _v5.TranslationInputPlaceHolder,
           variant: "withCheck",
           value: _v0.map(_v0 => _v0.value),
-          items: _v61,
+          items: _v52,
           onValueChange: _v0 => _v1(_v0.items)
         }), (0, _v1.jsx)(_v8.Box, {
           margin: "18px 0",
@@ -2302,22 +2218,22 @@
               minHeight: "28px",
               flexWrap: "wrap",
               children: _v4 ? (0, _v1.jsxs)(_v1.Fragment, {
-                children: [(0, _v1.jsx)(_v65.Skeleton, {
+                children: [(0, _v1.jsx)(_v56.Skeleton, {
                   height: 28
-                }), (0, _v1.jsx)(_v65.Skeleton, {
+                }), (0, _v1.jsx)(_v56.Skeleton, {
                   height: 28
                 })]
-              }) : _v0.map(_v0 => (0, _v1.jsxs)(_v64.Tag, {
+              }) : _v0.map(_v0 => (0, _v1.jsxs)(_v55.Tag, {
                 marginRight: "4px",
                 marginTop: "4px",
                 size: "md",
-                children: [(0, _v1.jsx)(_v64.TagLabel, {
+                children: [(0, _v1.jsx)(_v55.TagLabel, {
                   children: _v0.label
-                }), (0, _v1.jsx)(_v64.TagCloseButton, {
+                }), (0, _v1.jsx)(_v55.TagCloseButton, {
                   onClick: () => {
                     _v1(_v0.filter(_v0 => _v0.value !== _v0.value));
                   },
-                  children: (0, _v1.jsx)(_v66.CloseXSmall, {})
+                  children: (0, _v1.jsx)(_v57.CloseXSmall, {})
                 })]
               }, _v0.value))
             })]
@@ -2325,31 +2241,31 @@
         })]
       });
     },
-    _v68 = ({
+    _v59 = ({
       onClose: _v0,
       userId: _v1
     }) => {
-      let _v2 = (0, _v59.useToast)(),
-        _v3 = (0, _v7.useMemo)(() => _v57(), []),
+      let _v2 = (0, _v50.useToast)(),
+        _v3 = (0, _v7.useMemo)(() => _v48(), []),
         [_v4, _v5] = (0, _v7.useState)([]),
         [_v6, _v7] = (0, _v7.useState)(!0),
         {
           teamSettingsUpdateError: _v8,
           teamSettingsUpdateLoading: _v9,
           onUpdateSetting: _v10
-        } = (0, _v62.useUpdateTeamSettings)({
+        } = (0, _v53.useUpdateTeamSettings)({
           userId: _v1
         }),
         {
           teamSettingsResult: _v11,
           teamSettingsLoading: _v12,
           teamSettingsError: _v13
-        } = (0, _v63.useGetTeamSettings)({
+        } = (0, _v54.useGetTeamSettings)({
           userId: _v1
         }),
         _v14 = (0, _v7.useCallback)(() => {
           _v2({
-            duration: _v60.NOTIFICATION_DURATION,
+            duration: _v51.NOTIFICATION_DURATION,
             title: _v3.SomethingWentWrong
           });
         }, [_v2]);
@@ -2362,9 +2278,9 @@
         }), _v0();
       };
       return (0, _v7.useEffect)(function () {
-        if (_v11 && _v11?.manageAiAutomationGenerateTranslations && _v61) {
+        if (_v11 && _v11?.manageAiAutomationGenerateTranslations && _v52) {
           let _v0 = Array.from(_v11?.manageAiAutomationGenerateTranslations.split(","));
-          _v5(_v61.filter(_v0 => _v0.includes(_v0.value)));
+          _v5(_v52.filter(_v0 => _v0.includes(_v0.value)));
         }
       }, [_v11]), (0, _v1.jsxs)(_v16.Modal, {
         isOpen: !0,
@@ -2373,7 +2289,7 @@
           children: [(0, _v1.jsx)(_v20.ModalHeader, {
             children: _v3.AiTranslationHeader
           }), (0, _v1.jsx)(_v17.ModalBody, {
-            children: (0, _v1.jsx)(_v67, {
+            children: (0, _v1.jsx)(_v58, {
               selectedLanguages: _v6 ? _v4 : [],
               onLanguageChange: _v0 => {
                 _v5(_v0);
@@ -2398,14 +2314,14 @@
         })]
       });
     },
-    _v69 = ({
+    _v60 = ({
       teamSetting: _v0,
       userId: _v1
     }) => {
       let [_v2, _v3] = (0, _v7.useState)(!1),
-        _v4 = (0, _v7.useMemo)(() => _v57(), []);
+        _v4 = (0, _v7.useMemo)(() => _v48(), []);
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v58.TeamSettingsPageOptionContainer, {
+        children: [(0, _v1.jsx)(_v49.TeamSettingsPageOptionContainer, {
           children: (0, _v1.jsx)(_v8.Box, {
             "data-id": _v0,
             position: "absolute",
@@ -2420,17 +2336,17 @@
               children: _v4.controls.manage
             })
           })
-        }, _v0), _v2 && (0, _v1.jsx)(_v68, {
+        }, _v0), _v2 && (0, _v1.jsx)(_v59, {
           userId: _v1,
           onClose: () => _v3(!1)
         })]
       });
     };
-  var _v70 = _v0.i(0),
-    _v71 = _v0.i(0),
-    _v72 = _v0.i(0),
-    _v73 = _v0.i(0);
-  async function _v74({
+  var _v61 = _v0.i(0),
+    _v62 = _v0.i(0),
+    _v63 = _v0.i(0),
+    _v64 = _v0.i(0);
+  async function _v65({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -2438,51 +2354,50 @@
     },
     ..._v3
   }) {
-    return (0, _v73.measureLatency)("getUserAiAskAiAnalytics", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/ai/ask_ai_analytics?fields=${_v1.map(_v72.intoSnakeCase).join(",")}`, {
+    return (0, _v64.measureLatency)("getUserAiAskAiAnalytics", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/ai/ask_ai_analytics?fields=${_v1.map(_v63.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v72.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v63.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v72.deepCamelCase)(_v1);
+      return (0, _v63.deepCamelCase)(_v1);
     });
   }
   _v0.i(0);
-  var _v75 = _v0.i(0),
-    _v76 = _v0.i(0),
-    _v77 = _v0.i(0),
-    _v78 = _v0.i(0);
-  let _v79 = ({
+  var _v66 = _v0.i(0),
+    _v67 = _v0.i(0),
+    _v68 = _v0.i(0),
+    _v69 = _v0.i(0);
+  let _v70 = ({
       userId: _v0,
-      isDisabled: _v1,
-      sendAskAiAnalyticsBpEvent: _v2
+      isDisabled: _v1
     }) => {
-      let _v3 = (0, _v7.useMemo)(() => _v57(), []),
-        _v4 = (0, _v59.useToast)(),
-        [_v5, {
-          loading: _v6,
-          data: _v7,
-          error: _v8
+      let _v2 = (0, _v7.useMemo)(() => _v48(), []),
+        _v3 = (0, _v50.useToast)(),
+        [_v4, {
+          loading: _v5,
+          data: _v6,
+          error: _v7
         }] = function () {
           let {
               mutate: _v0
-            } = (0, _v75.useSWRConfig)(),
+            } = (0, _v66.useSWRConfig)(),
             {
               baseUrl: _v1,
               jwt: _v2,
               xVimeoPage: _v3,
               locale: _v4
-            } = (0, _v77.useGctlConfig)(),
-            [_v5, _v6] = (0, _v76.useInternalState)();
+            } = (0, _v68.useGctlConfig)(),
+            [_v5, _v6] = (0, _v67.useInternalState)();
           return [(0, _v7.useCallback)(async _v0 => {
             _v6({
               type: "REQUEST"
             });
             try {
-              let _v0 = await _v0(`/users/${_v0.where.userId}/ai/ask_ai_analytics${(0, _v76.serializeQuery)(_v0)}`, _v74({
+              let _v0 = await _v0(`/users/${_v0.where.userId}/ai/ask_ai_analytics${(0, _v67.serializeQuery)(_v0)}`, _v65({
                 ..._v0,
                 baseUrl: _v1,
                 headers: {
@@ -2505,102 +2420,97 @@
             }
           }, [_v1, _v3, _v2, _v4, _v6]), _v5];
         }(),
-        _v9 = (0, _v7.useRef)(null);
+        _v8 = (0, _v7.useRef)(null);
       (0, _v7.useEffect)(() => {
-        if (_v7) {
-          if (!_v7.csvUrl) return void _v4({
+        if (_v6) {
+          if (!_v6.csvUrl) return void _v3({
             duration: 0,
-            title: _v3.notifications.askAiAnalyticsDataNotFound
+            title: _v2.notifications.askAiAnalyticsDataNotFound
           });
-          _v7.csvUrl !== _v9.current && (_v9.current = _v7.csvUrl, (0, _v78.downloadFile)(_v7.csvUrl));
+          _v6.csvUrl !== _v8.current && (_v8.current = _v6.csvUrl, (0, _v69.downloadFile)(_v6.csvUrl));
         }
-      }, [_v7, _v4, _v3]), (0, _v7.useEffect)(() => {
-        _v8 && (_v8 instanceof _v72.NetworkError && 404 === _v8.status ? _v4({
+      }, [_v6, _v3, _v2]), (0, _v7.useEffect)(() => {
+        _v7 && (_v7 instanceof _v63.NetworkError && 404 === _v7.status ? _v3({
           duration: 0,
-          title: _v3.notifications.askAiAnalyticsDataNotFound
-        }) : _v4({
+          title: _v2.notifications.askAiAnalyticsDataNotFound
+        }) : _v3({
           duration: 0,
-          title: _v3.notifications.error
+          title: _v2.notifications.error
         }));
-      }, [_v8, _v4, _v3]);
-      let _v10 = async () => {
-        await _v5({
+      }, [_v7, _v3, _v2]);
+      let _v9 = async () => {
+        await _v4({
           where: {
             userId: String(_v0)
           },
           select: ["csvUrl"]
-        }), _v2();
+        });
       };
       return (0, _v1.jsx)(_v15.Button, {
         size: "sm",
         variant: "secondary",
-        leftIcon: _v6 ? (0, _v1.jsx)(_v70.Spinner, {
+        leftIcon: _v5 ? (0, _v1.jsx)(_v61.Spinner, {
           size: "xs"
-        }) : (0, _v1.jsx)(_v71.DownloadImport, {}),
-        onClick: _v10,
-        isDisabled: _v1 || _v6,
-        children: _v3.controls.downloadCsv
+        }) : (0, _v1.jsx)(_v62.DownloadImport, {}),
+        onClick: _v9,
+        isDisabled: _v1 || _v5,
+        children: _v2.controls.downloadCsv
       });
     },
-    _v80 = _v54.name.manageTranscriptionKeywords,
-    _v81 = _v54.name.manageAiAutomationGenerateTranslations,
-    _v82 = _v54.name.prefEnableAskAiAnalytics,
-    _v83 = ({
+    _v71 = _v47.name.manageTranscriptionKeywords,
+    _v72 = _v47.name.manageAiAutomationGenerateTranslations,
+    _v73 = _v47.name.prefEnableAskAiAnalytics,
+    _v74 = ({
       userId: _v0,
       teamSetting: _v1,
       isDisabled: _v2,
       isWorkspace: _v3
     }) => {
-      let _v4 = (0, _v7.useMemo)(() => _v57(), []),
+      let _v4 = (0, _v7.useMemo)(() => _v48(), []),
         _v5 = (0, _v7.useRef)(null),
         [_v6, _v7] = (0, _v7.useState)(!1),
         _v8 = (0, _v28.useRouter)(),
         _v9 = (0, _v32.useOrionSettingsFields)(["enable_account_wide_dictionary_management"]),
-        _v10 = (0, _v31.useOrionLoading)(),
-        _v11 = _v56(),
-        _v12 = !_v10 && _v9.enable_account_wide_dictionary_management,
-        _v13 = _v3 ? "/manage/workspace/manage-ai/custom-dictionary" : "/manage/team/manage-ai/custom-dictionary",
-        _v14 = () => {
-          _v8.push(_v13);
+        _v10 = !(0, _v31.useOrionLoading)() && _v9.enable_account_wide_dictionary_management,
+        _v11 = _v3 ? "/manage/workspace/manage-ai/custom-dictionary" : "/manage/team/manage-ai/custom-dictionary",
+        _v12 = () => {
+          _v8.push(_v11);
         },
-        _v15 = () => {
-          _v12 ? _v14() : (_v7(!0), _v5.current?.openModal(), _v11.buttonEvent(_v80));
+        _v13 = () => {
+          _v10 ? _v12() : (_v7(!0), _v5.current?.openModal());
         };
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v1 === _v80 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [_v12 ? (0, _v1.jsx)(_v29.IconButton, {
+        children: [_v1 === _v71 && (0, _v1.jsxs)(_v1.Fragment, {
+          children: [_v10 ? (0, _v1.jsx)(_v29.IconButton, {
             "aria-label": _v4.settingControls.manageTranscriptionKeywords.description,
             size: "sm",
             variant: "secondary",
             icon: (0, _v1.jsx)(_v30.ChevronRightSmall, {}),
-            onClick: _v15,
+            onClick: _v13,
             isDisabled: _v2
           }) : (0, _v1.jsx)(_v15.Button, {
             size: "sm",
             variant: "secondary",
-            onClick: _v15,
+            onClick: _v13,
             isDisabled: _v2,
             children: _v4.controls.manage
-          }), (!_v12 || _v6) && (0, _v1.jsx)(_v33.TranscriptionKeywordsApp, {
+          }), (!_v10 || _v6) && (0, _v1.jsx)(_v33.TranscriptionKeywordsApp, {
             forwardRef: _v5,
             location: "team_manager",
-            onMigrationConflict: _v14
+            onMigrationConflict: _v12
           })]
-        }), _v1 === _v81 && (0, _v1.jsx)(_v69, {
+        }), _v1 === _v72 && (0, _v1.jsx)(_v60, {
           userId: _v0,
           teamSetting: _v1
-        }), _v1 === _v82 && (0, _v1.jsx)(_v79, {
+        }), _v1 === _v73 && (0, _v1.jsx)(_v70, {
           userId: _v0,
-          isDisabled: _v2,
-          sendAskAiAnalyticsBpEvent: () => {
-            _v11.buttonEvent(_v82);
-          }
+          isDisabled: _v2
         })]
       });
     };
-  var _v84 = _v0.i(0),
-    _v85 = _v0.i(0);
-  function _v86(_v0, _v1) {
+  var _v75 = _v0.i(0),
+    _v76 = _v0.i(0);
+  function _v77(_v0, _v1) {
     if (!_v0 || !_v1) return;
     let _v2 = _v1.split("."),
       _v3 = _v0;
@@ -2610,210 +2520,210 @@
     }
     return _v3;
   }
-  let _v87 = "toggle",
-    _v88 = "title",
-    _v89 = "button",
-    _v90 = "role",
-    _v91 = {
+  let _v78 = "toggle",
+    _v79 = "title",
+    _v80 = "button",
+    _v81 = "role",
+    _v82 = {
       aiTitleGeneral: "aiTitleGeneral",
       aiTitleSearchAndAskAi: "aiTitleSearchAndAskAi",
       aiTitleLocalisation: "aiTitleLocalisation",
       aiTitleCustomAnalytics: "aiTitleCustomAnalytics"
     },
-    _v92 = ["enable_registration_form_localization", "enable_ai_analytics_dashboard", "enable_account_wide_dictionary_management", "release_event_series_v1"],
-    _v93 = {
+    _v83 = ["enable_registration_form_localization", "enable_ai_analytics_dashboard", "enable_account_wide_dictionary_management", "release_event_series_v1"],
+    _v84 = {
       transcript: [{
-        key: _v46.enableTranscriptionGeneration,
+        key: _v39.enableTranscriptionGeneration,
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v87,
+        type: _v78,
         sectionVisibility: {
           capabilitiesToCheck: ["hasAiTeamSettings"]
         }
       }, {
-        key: _v46.manageTranscriptionKeywords,
+        key: _v39.manageTranscriptionKeywords,
         value: !1,
-        type: _v89
+        type: _v80
       }, {
-        key: _v46.userRolePermissionTranscriptionKeywords,
-        value: _v42,
-        type: _v90
+        key: _v39.userRolePermissionTranscriptionKeywords,
+        value: _v35,
+        type: _v81
       }],
       general: [{
-        key: _v91.aiTitleGeneral,
+        key: _v82.aiTitleGeneral,
         value: !1,
         isSectionTitle: !0,
-        type: _v88,
+        type: _v79,
         sectionVisibility: {
-          preferencesToCheck: [_v46.manageTranscriptionKeywords],
+          preferencesToCheck: [_v39.manageTranscriptionKeywords],
           capabilitiesToHide: ["hasAiTeamSettings"]
         }
       }, {
-        key: _v46.manageTranscriptionKeywords,
+        key: _v39.manageTranscriptionKeywords,
         value: !1,
-        type: _v89
+        type: _v80
       }, {
-        key: _v46.userRolePermissionTranscriptionKeywords,
-        value: _v42,
-        type: _v90
+        key: _v39.userRolePermissionTranscriptionKeywords,
+        value: _v35,
+        type: _v81
       }],
       translations: [{
-        key: _v46.enableParentPermissionAiTranslate,
+        key: _v39.enableParentPermissionAiTranslate,
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v87,
+        type: _v78,
         sectionVisibility: {
           capabilitiesToCheck: ["canGenerateClipTranslation", "canGenerateClipTextTranslation"]
         }
       }, {
-        key: _v46.enableTranslationsProfanityFilter,
+        key: _v39.enableTranslationsProfanityFilter,
         value: !1,
-        type: _v87
+        type: _v78
       }, {
-        key: _v46.enableTranslationsVoiceCloning,
+        key: _v39.enableTranslationsVoiceCloning,
         value: !1,
-        type: _v87
+        type: _v78
       }, {
-        key: _v46.enableTranslationsFailureEmail,
+        key: _v39.enableTranslationsFailureEmail,
         value: !1,
-        type: _v87
+        type: _v78
       }, {
-        key: _v46.manageAiAutomationGenerateTranslations,
+        key: _v39.manageAiAutomationGenerateTranslations,
         value: !1,
-        type: _v89
+        type: _v80
       }, {
-        key: _v46.userRolePermissionAiTranslate,
-        value: _v42,
-        type: _v90
+        key: _v39.userRolePermissionAiTranslate,
+        value: _v35,
+        type: _v81
       }],
       localisations: [{
-        key: _v91.aiTitleLocalisation,
+        key: _v82.aiTitleLocalisation,
         value: !1,
         isSectionTitle: !0,
-        type: _v88,
+        type: _v79,
         sectionVisibility: {
           orionFlagsToCheck: ["enable_registration_form_localization", "release_event_series_v1"]
         }
       }, {
-        key: _v46.enableRegistrationFormAiUserTranslation,
+        key: _v39.enableRegistrationFormAiUserTranslation,
         value: !1,
-        type: _v87,
+        type: _v78,
         sectionVisibility: {
           orionFlagsToCheck: ["enable_registration_form_localization"]
         }
       }, {
-        key: _v46.enableEventSeriesAiUserTranslation,
+        key: _v39.enableEventSeriesAiUserTranslation,
         value: !1,
-        type: _v87,
+        type: _v78,
         sectionVisibility: {
           orionFlagsToCheck: ["release_event_series_v1"]
         }
       }],
       videoDetails: [{
-        key: _v46.enableParentPermissionAiVideoDetails,
+        key: _v39.enableParentPermissionAiVideoDetails,
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v87,
+        type: _v78,
         sectionVisibility: {
           capabilitiesToCheck: ["canGenerateClipSummary"]
         }
       }, {
-        key: _v46.enableAutoGenerateAiMetadata,
+        key: _v39.enableAutoGenerateAiMetadata,
         value: !1,
-        type: _v87
+        type: _v78
       }, {
-        key: _v46.userRolePermissionAiVideoDetails,
-        value: _v42,
-        type: _v90
+        key: _v39.userRolePermissionAiVideoDetails,
+        value: _v35,
+        type: _v81
       }],
       askAi: [{
-        key: _v46.enableVideoViewerAiUi,
+        key: _v39.enableVideoViewerAiUi,
         value: !1,
         isSectionTitle: !0,
-        type: _v87,
+        type: _v78,
         sectionVisibility: {
           capabilitiesToCheck: ["canAskAiViewer"],
           capabilitiesToHide: ["hasAgenticSearchTeamSetting"]
         }
       }, {
-        key: _v46.prefEnableAskAiAnalytics,
+        key: _v39.prefEnableAskAiAnalytics,
         value: !1,
-        type: _v89
+        type: _v80
       }],
       searchAndAskAi: [{
-        key: _v91.aiTitleSearchAndAskAi,
+        key: _v82.aiTitleSearchAndAskAi,
         value: !1,
         isSectionTitle: !0,
-        type: _v88,
+        type: _v79,
         sectionVisibility: {
           capabilitiesToCheck: ["hasAgenticSearchTeamSetting"]
         }
       }, {
-        key: _v46.enableVideoViewerAiUi,
+        key: _v39.enableVideoViewerAiUi,
         value: !1,
-        type: _v87,
+        type: _v78,
         translationKey: "videoAskAi"
       }, {
-        key: _v46.prefEnableAskAiAnalytics,
+        key: _v39.prefEnableAskAiAnalytics,
         value: !1,
-        type: _v89,
+        type: _v80,
         translationKey: "videoAskAiAnalytics",
         hideDivider: !0
       }, {
-        key: _v46.enableLibrarySmartSearch,
+        key: _v39.enableLibrarySmartSearch,
         value: !1,
-        type: _v87
+        type: _v78
       }],
       highlights: [{
-        key: _v46.enableParentPermissionAiHighlights,
+        key: _v39.enableParentPermissionAiHighlights,
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v87,
+        type: _v78,
         sectionVisibility: {
           capabilitiesToCheck: ["hasClipHighlights"]
         }
       }, {
-        key: _v46.userRolePermissionAiHighlights,
-        value: _v42,
-        type: _v90
+        key: _v39.userRolePermissionAiHighlights,
+        value: _v35,
+        type: _v81
       }],
       scripts: [{
-        key: _v46.enableAiScriptGeneration,
+        key: _v39.enableAiScriptGeneration,
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v87,
+        type: _v78,
         sectionVisibility: {
           alwaysShow: !0
         }
       }, {
-        key: _v46.userRolePermissionAiScriptGeneration,
-        value: _v42,
-        type: _v90
+        key: _v39.userRolePermissionAiScriptGeneration,
+        value: _v35,
+        type: _v81
       }],
       liveCaptions: [{
-        key: _v46.enableParentPermissionAiLiveCaptions,
+        key: _v39.enableParentPermissionAiLiveCaptions,
         value: !1,
         isSectionTitle: !0,
         isParentPreference: !0,
-        type: _v87,
+        type: _v78,
         sectionVisibility: {
           alwaysShow: !0
         }
       }, {
-        key: _v46.userRolePermissionAiLiveCaptions,
-        value: _v42,
-        type: _v90
+        key: _v39.userRolePermissionAiLiveCaptions,
+        value: _v35,
+        type: _v81
       }],
       customAnalytics: [{
-        key: _v91.aiTitleCustomAnalytics,
+        key: _v82.aiTitleCustomAnalytics,
         value: !1,
         isSectionTitle: !0,
-        type: _v88,
+        type: _v79,
         sectionVisibility: {
           orionFlagsToCheck: ["enable_ai_analytics_dashboard"],
           userPropertyToCheck: {
@@ -2822,10 +2732,10 @@
           }
         }
       }, {
-        key: _v46.enableAiAnalyticsDashboard,
+        key: _v39.enableAiAnalyticsDashboard,
         value: !0,
         isParentPreference: !0,
-        type: _v87,
+        type: _v78,
         sectionVisibility: {
           orionFlagsToCheck: ["enable_ai_analytics_dashboard"],
           userPropertyToCheck: {
@@ -2834,9 +2744,9 @@
           }
         }
       }, {
-        key: _v46.userRolePermissionAiAnalytics,
-        value: _v42,
-        type: _v90,
+        key: _v39.userRolePermissionAiAnalytics,
+        value: _v35,
+        type: _v81,
         sectionVisibility: {
           orionFlagsToCheck: ["enable_ai_analytics_dashboard"],
           userPropertyToCheck: {
@@ -2846,16 +2756,16 @@
         }
       }]
     },
-    _v94 = [];
-  for (let _v0 in _v93) _v94 = [..._v94, ..._v93[_v0].map(_v0 => _v0.key)];
-  let _v95 = new Set(Object.values(_v91)),
-    _v96 = new Set(Object.keys(_v45)),
-    _v97 = _v94.filter(_v0 => !_v95.has(_v0) && !_v96.has(_v0));
-  function _v98(_v0, _v1) {
+    _v85 = [];
+  for (let _v0 in _v84) _v85 = [..._v85, ..._v84[_v0].map(_v0 => _v0.key)];
+  let _v86 = new Set(Object.values(_v82)),
+    _v87 = new Set(Object.keys(_v38)),
+    _v88 = _v85.filter(_v0 => !_v86.has(_v0) && !_v87.has(_v0));
+  function _v89(_v0, _v1) {
     let _v2 = _v1[_v0.key];
     return "string" == typeof _v2 && _v0.values.includes(_v2);
   }
-  let _v99 = function ({
+  let _v90 = function ({
       mergedSettingsPrefs: _v0,
       isSelfServe: _v1 = !1,
       ownerId: _v2
@@ -2863,7 +2773,7 @@
       let _v3,
         {
           capabilities: _v4
-        } = (0, _v84.useCapability)((_v3 = [], Object.values(_v93).forEach(_v0 => {
+        } = (0, _v75.useCapability)((_v3 = [], Object.values(_v84).forEach(_v0 => {
           _v0.forEach(_v0 => {
             _v0.sectionVisibility?.capabilitiesToCheck?.forEach(_v0 => {
               _v3.includes(_v0) || _v3.push(_v0);
@@ -2872,12 +2782,12 @@
             });
           });
         }), _v3), _v2),
-        _v5 = (0, _v32.useOrionSettingsFields)(_v92),
+        _v5 = (0, _v32.useOrionSettingsFields)(_v83),
         _v6 = (0, _v31.useOrionLoading)(),
         {
           data: _v7,
           mutate: _v8
-        } = (0, _v85.useGetUser)(() => _v2 ? {
+        } = (0, _v76.useGetUser)(() => _v2 ? {
           where: {
             userId: _v2
           },
@@ -2891,8 +2801,8 @@
         SETTINGS: (0, _v7.useMemo)(() => function (_v0, _v1, _v2, _v3, _v4, _v5) {
           if (!_v0) return null;
           let _v6 = {};
-          for (let _v0 in _v93) {
-            let _v0 = _v93[_v0];
+          for (let _v0 in _v84) {
+            let _v0 = _v84[_v0];
             _v0.some(_v0 => function (_v0, _v1, _v2, _v3, _v4) {
               if (!_v0.sectionVisibility) return !1;
               let {
@@ -2904,29 +2814,29 @@
                   alwaysShow: _v10
                 } = _v0.sectionVisibility,
                 _v11 = (_v8?.length ?? 0) > 0;
-              if (_v10) return _v0.key in _v91 || _v0.key in _v2;
-              if (!((_v5?.length ?? 0) > 0 || (_v7?.length ?? 0) > 0 || _v11 || void 0 !== _v9) || _v9 && !_v98(_v9, _v4)) return !1;
+              if (_v10) return _v0.key in _v82 || _v0.key in _v2;
+              if (!((_v5?.length ?? 0) > 0 || (_v7?.length ?? 0) > 0 || _v11 || void 0 !== _v9) || _v9 && !_v89(_v9, _v4)) return !1;
               if (_v6?.length) {
                 if (_v6.some(_v0 => _v1[_v0])) return !1;
                 if (!_v5?.length && !_v11) return !0;
               }
               return _v5?.length || _v11 ? !!_v5?.some(_v0 => _v1[_v0]) || !!_v8?.some(_v0 => _v3[_v0]) : !!_v7?.length && _v7.some(_v0 => _v0 in _v2);
             }(_v0, _v2, _v0, _v3, _v4)) && (_v6[_v0] = _v0.reduce((_v0, _v1) => {
-              let _v2 = _v1.key === _v46.manageTranscriptionKeywords,
-                _v3 = _v1.key in _v91 || _v1.key in _v0 || _v2 && _v5,
-                _v4 = _v1.key in _v45,
-                _v5 = _v4 ? _v86(_v0, _v1.key) : void 0,
+              let _v2 = _v1.key === _v39.manageTranscriptionKeywords,
+                _v3 = _v1.key in _v82 || _v1.key in _v0 || _v2 && _v5,
+                _v4 = _v1.key in _v38,
+                _v5 = _v4 ? _v77(_v0, _v1.key) : void 0,
                 _v6 = _v4 && !0 === _v5,
                 _v7 = !_v4 || _v6,
                 _v8 = _v1.sectionVisibility?.capabilitiesToCheck,
                 _v9 = _v1.sectionVisibility?.orionFlagsToCheck,
                 _v10 = _v1.sectionVisibility?.userPropertyToCheck,
                 _v11 = void 0 === _v8 && void 0 === _v9 || !!_v8?.some(_v0 => _v2[_v0]) || !!_v9?.some(_v0 => _v3[_v0]),
-                _v12 = void 0 === _v10 || _v98(_v10, _v4);
-              return _v3 && _v7 && _v11 && _v12 && (!_v1 || _v1.key !== _v46.userRolePermissionAiTranslate) && _v0.push(function (_v0) {
+                _v12 = void 0 === _v10 || _v89(_v10, _v4);
+              return _v3 && _v7 && _v11 && _v12 && (!_v1 || _v1.key !== _v39.userRolePermissionAiTranslate) && _v0.push(function (_v0) {
                 return _v0 => {
                   let _v1 = _v0.value;
-                  return _v0.key in _v91 || (_v1 = _v0 ? _v86(_v0, _v0.key) : _v0.value), {
+                  return _v0.key in _v82 || (_v1 = _v0 ? _v77(_v0, _v0.key) : _v0.value), {
                     key: _v0.key,
                     value: _v1,
                     type: _v0.type,
@@ -2953,14 +2863,14 @@
         aiAnalyticsAccess: _v7?.aiAnalyticsAccess
       };
     },
-    _v100 = ({
+    _v91 = ({
       groupItems: _v0,
       isDisabled: _v1,
       isWorkspace: _v2,
       updateTeamSettings: _v3,
       userId: _v4
     }) => {
-      let _v5 = (0, _v7.useMemo)(() => _v57(), []),
+      let _v5 = (0, _v7.useMemo)(() => _v48(), []),
         [_v6, _v7] = (0, _v7.useState)(null),
         _v8 = (0, _v7.useMemo)(() => _v0.reduce((_v0, _v1) => {
           let {
@@ -2995,7 +2905,7 @@
             _v8 = _v5.settingControls[_v7]?.title,
             _v9 = _v5.settingControls[_v7]?.description,
             _v10 = _v5.settingTooltips[_v7],
-            _v11 = _v4 === _v90;
+            _v11 = _v4 === _v81;
           return (0, _v1.jsxs)(_v8.Box, {
             position: "relative",
             marginTop: _v6 ? "20" : void 0,
@@ -3038,16 +2948,16 @@
                   color: _v3 ? "text-primary" : "text-secondary",
                   children: _v9
                 })]
-              }), _v4 !== _v88 && (0, _v1.jsxs)(_v8.Box, {
+              }), _v4 !== _v79 && (0, _v1.jsxs)(_v8.Box, {
                 "data-id": _v1,
                 marginLeft: _v11 ? {
                   base: "0",
                   sm: "md"
                 } : "md",
-                children: [_v4 === _v87 && (0, _v1.jsx)(_v12.Switch, {
+                children: [_v4 === _v78 && (0, _v1.jsx)(_v12.Switch, {
                   onChange: () => {
                     var _v0;
-                    return _v0 = _v8 ?? _v1, void (!0 === _v2 && _v47.includes(_v1) ? _v7({
+                    return _v0 = _v8 ?? _v1, void (!0 === _v2 && _v40.includes(_v1) ? _v7({
                       key: _v1,
                       label: _v0,
                       type: _v4
@@ -3055,14 +2965,14 @@
                   },
                   isChecked: "boolean" == typeof _v2 && _v2,
                   isDisabled: _v1
-                }), _v4 === _v89 && (0, _v1.jsx)(_v83, {
+                }), _v4 === _v80 && (0, _v1.jsx)(_v74, {
                   userId: _v4,
                   teamSetting: _v1,
                   isDisabled: _v1,
                   isWorkspace: _v2
-                }), _v4 === _v90 && (0, _v1.jsx)(_v27, {
+                }), _v4 === _v81 && (0, _v1.jsx)(_v27, {
                   value: _v2,
-                  options: _v43,
+                  options: _v36,
                   onChange: _v0 => _v3(_v1, _v0, _v4),
                   isDisabled: _v1
                 })]
@@ -3078,8 +2988,9 @@
         })]
       });
     };
-  var _v101 = _v0.i(0),
-    _v102 = _v0.i(0);
+  var _v92 = _v0.i(0),
+    _v93 = _v0.i(0),
+    _v94 = _v0.i(0);
   _v0.s(["default", 0, ({
     ownerId: _v0,
     workspaceInternalId: _v1,
@@ -3097,85 +3008,84 @@
         workspaceInternalId: _v1,
         workspaceUuid: _v2
       }) {
-        let _v3 = (0, _v7.useMemo)(() => _v57(), []),
-          _v4 = (0, _v59.useToast)(),
-          _v5 = _v56(),
+        let _v3 = (0, _v7.useMemo)(() => _v48(), []),
+          _v4 = (0, _v50.useToast)(),
           {
-            trackAnalyticsAiSettingsToggled: _v6
-          } = (0, _v102.useAnalyticsTracking)(),
-          _v7 = (0, _v7.useRef)(0),
+            trackAnalyticsAiSettingsToggled: _v5
+          } = (0, _v93.useAnalyticsTracking)(),
+          _v6 = (0, _v7.useRef)(0),
           {
-            teamSettingsUpdateError: _v8,
-            teamSettingsUpdateLoading: _v9,
-            onUpdateSetting: _v10
-          } = (0, _v62.useUpdateTeamSettings)({
+            teamSettingsUpdateError: _v7,
+            teamSettingsUpdateLoading: _v8,
+            onUpdateSetting: _v9
+          } = (0, _v53.useUpdateTeamSettings)({
             userId: _v0,
             workspaceUuid: _v2
           }),
           {
-            data: _v11,
-            error: _v12,
-            isLoading: _v13,
-            isValidating: _v14,
-            mutate: _v15
-          } = (0, _v63.useGetTeamSettingsWithMutate)({
-            settings: _v97,
+            data: _v10,
+            error: _v11,
+            isLoading: _v12,
+            isValidating: _v13,
+            mutate: _v14
+          } = (0, _v54.useGetTeamSettingsWithMutate)({
+            settings: _v88,
             userId: _v0,
             workspaceUuid: _v2
           }),
-          _v16 = (0, _v40.useViewer)(),
-          _v17 = _v16?.teamUser ? "enterprise" === _v16.teamUser.accountType : !!_v16?.user && "enterprise" === _v16.user.account,
+          _v15 = (0, _v94.useViewer)(),
+          _v16 = _v15?.teamUser ? "enterprise" === _v15.teamUser.accountType : !!_v15?.user && "enterprise" === _v15.user.account,
           {
-            data: _v18
-          } = (0, _v101.useGetMePreferences)({
-            select: Object.values(_v44)
+            data: _v17
+          } = (0, _v92.useGetMePreferences)({
+            select: Object.values(_v37)
           }),
-          _v19 = (0, _v7.useMemo)(() => {
-            if (!_v11) return null;
+          _v18 = (0, _v7.useMemo)(() => {
+            if (!_v10) return null;
             let _v0 = {};
-            return _v18 && (_v0 = Object.entries(_v44).reduce((_v0, _v1) => {
+            return _v17 && (_v0 = Object.entries(_v37).reduce((_v0, _v1) => {
               let [_v2, _v3] = _v1;
-              return _v3 in _v18 && (_v0[_v2] = _v18[_v3]), _v0;
+              return _v3 in _v17 && (_v0[_v2] = _v17[_v3]), _v0;
             }, {})), {
-              ..._v11,
+              ..._v10,
               ..._v0
             };
-          }, [_v11, _v18]),
+          }, [_v10, _v17]),
           {
-            SETTINGS: _v20,
-            mutateOwner: _v21,
-            aiAnalyticsAccess: _v22
-          } = _v99({
-            mergedSettingsPrefs: _v19,
-            isSelfServe: !_v17,
+            SETTINGS: _v19,
+            mutateOwner: _v20,
+            aiAnalyticsAccess: _v21
+          } = _v90({
+            mergedSettingsPrefs: _v18,
+            isSelfServe: !_v16,
             ownerId: _v0 || _v1
           }),
-          _v23 = (0, _v7.useMemo)(() => ({
-            access: _v22
-          }), [_v22]),
-          _v24 = (0, _v7.useCallback)(async (_v0, _v1, _v2) => {
-            await _v10({
+          _v22 = (0, _v7.useMemo)(() => ({
+            access: _v21
+          }), [_v21]),
+          _v23 = (0, _v7.useCallback)(async (_v0, _v1, _v2) => {
+            await _v9({
               [_v0]: _v1
-            }), _v15(), _v0 === _v46.enableAiAnalyticsDashboard ? _v6({
+            }), _v14(), _v0 === _v39.enableAiAnalyticsDashboard && _v5({
               enabled: !!_v1,
               scope: _v2 ? "workspace" : "team",
-              context: _v23
-            }) : _v2 === _v87 ? _v5.toggleEvent(_v0, _v1) : _v2 === _v90 && _v5.dropdownEvent(_v0, _v1), (_v0 === _v46.enableAiAnalyticsDashboard || _v0 === _v46.userRolePermissionAiAnalytics) && _v21();
-          }, [_v23, _v10, _v15, _v5, _v6, _v2, _v21]);
+              context: _v22
+            }), (_v0 === _v39.enableAiAnalyticsDashboard || _v0 === _v39.userRolePermissionAiAnalytics) && _v20();
+          }, [_v22, _v9, _v14, _v5, _v2, _v20]);
         (0, _v7.useEffect)(function () {
           let _v0 = Date.now();
-          (_v12 || _v8) && _v0 - _v7.current > 0 && (_v4({
+          (_v11 || _v7) && _v0 - _v6.current > 0 && (_v4({
             duration: 0,
             title: _v3.notifications.error
-          }), _v7.current = _v0);
-        }, [_v12, _v8, _v4, _v3]);
-        let _v25 = !_v19 && (_v13 || _v14);
+          }), _v6.current = _v0);
+        }, [_v11, _v7, _v4, _v3]);
+        let _v24 = !_v18 && (_v12 || _v13);
         return {
-          settingsCofig: _v20,
-          updateTeamSettings: _v24,
-          isDisabled: _v9 || _v14 || _v13,
-          isFirstLoad: _v25,
-          isSettingsResults: !!_v19,
+          settingsCofig: _v19,
+          updateTeamSettings: _v23,
+          isDisabled: _v8 || _v13 || _v12,
+          isFirstLoad: _v24,
+          isSettingsResults: !!_v18,
           userId: _v0 || _v1
         };
       }({
@@ -3187,7 +3097,7 @@
       _v10 = Object.entries(_v3 || {}).length;
     return (0, _v1.jsxs)(_v2.Flex, {
       width: "100%",
-      maxWidth: _v41,
+      maxWidth: _v34,
       margin: "0 auto",
       flexDirection: "column",
       marginBottom: "800",
@@ -3200,7 +3110,7 @@
         borderRadius: "md",
         backgroundColor: "fill-surface",
         zIndex: _v10 - _v2,
-        children: (0, _v1.jsx)(_v100, {
+        children: (0, _v1.jsx)(_v91, {
           groupItems: _v1,
           isDisabled: _v5,
           isWorkspace: _v9,

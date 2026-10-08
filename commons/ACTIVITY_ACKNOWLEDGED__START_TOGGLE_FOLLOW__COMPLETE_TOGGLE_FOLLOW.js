@@ -101,9 +101,8 @@
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
-    _v21 = _v0.i(0),
-    _v22 = _v0.i(0);
-  let _v23 = ({
+    _v21 = _v0.i(0);
+  let _v22 = ({
       disabled: _v0,
       isFollowing: _v1,
       onClick: _v2
@@ -112,7 +111,7 @@
         [_v5, _v6] = (0, _v5.useState)("blue.500");
       return (0, _v5.useEffect)(() => {
         _v1 && _v3 ? _v6("status-destructive-primary") : _v1 ? _v6("status-positive-primary") : _v6("blue.500");
-      }, [_v1, _v3]), (0, _v1.jsx)(_v19.Button, {
+      }, [_v1, _v3]), (0, _v1.jsx)(_v18.Button, {
         isDisabled: _v0,
         size: "sm",
         onClick: _v2,
@@ -125,8 +124,8 @@
         onFocus: () => _v4(!0),
         onMouseLeave: () => _v4(!1),
         onBlur: () => _v4(!1),
-        leftIcon: _v1 && _v3 ? (0, _v1.jsx)(_v21.CloseXSmall, {}) : _v1 ? (0, _v1.jsx)(_v20.CheckSmall, {}) : (0, _v1.jsx)(_v22.PlusSmall, {}),
-        children: _v1 && _v3 ? (0, _v18.translate)({
+        leftIcon: _v1 && _v3 ? (0, _v1.jsx)(_v20.CloseXSmall, {}) : _v1 ? (0, _v1.jsx)(_v19.CheckSmall, {}) : (0, _v1.jsx)(_v21.PlusSmall, {}),
+        children: _v1 && _v3 ? (0, _v17.translate)({
           singular: "Unfollow",
           dictionary: {
             es: {
@@ -151,7 +150,7 @@
               singular: "取消关注"
             }
           }
-        }) : _v1 ? (0, _v18.translate)({
+        }) : _v1 ? (0, _v17.translate)({
           singular: "Following",
           dictionary: {
             es: {
@@ -176,7 +175,7 @@
               singular: "关注"
             }
           }
-        }) : (0, _v18.translate)({
+        }) : (0, _v17.translate)({
           singular: "Follow",
           dictionary: {
             es: {
@@ -204,7 +203,7 @@
         })
       });
     },
-    _v24 = _v0 => {
+    _v23 = _v0 => {
       let {
         href: _v1,
         onClick: _v2,
@@ -213,7 +212,7 @@
       return (0, _v1.jsx)("a", {
         href: _v1,
         onClick: _v2,
-        children: (0, _v1.jsx)(_v19.Button, {
+        children: (0, _v1.jsx)(_v18.Button, {
           size: "sm",
           variant: "tertiary",
           color: "blue.500",
@@ -222,8 +221,8 @@
         })
       });
     };
-  var _v25 = _v0.i(0);
-  let _v26 = _v25.default.span.withConfig({
+  var _v24 = _v0.i(0);
+  let _v25 = _v24.default.span.withConfig({
       displayName: "Reaction__StyledReactionWithCode",
       componentId: "sc-5190ae7f-0"
     })`
@@ -234,43 +233,43 @@
       containerHeight: _v0
     }) => _v0 && _v0 > 80 ? "3rem" : "2rem"};
 `,
-    _v27 = ({
+    _v26 = ({
       reactionCode: _v0,
       containerHeight: _v1
     }) => {
       switch (_v0) {
         case "heart":
-          return (0, _v1.jsx)(_v26, {
+          return (0, _v1.jsx)(_v25, {
             containerHeight: _v1,
             role: "button",
             children: "❤️"
           });
         case "face_with_open_mouth":
-          return (0, _v1.jsx)(_v26, {
+          return (0, _v1.jsx)(_v25, {
             containerHeight: _v1,
             role: "button",
             children: "😮"
           });
         case "fire":
-          return (0, _v1.jsx)(_v26, {
+          return (0, _v1.jsx)(_v25, {
             containerHeight: _v1,
             role: "button",
             children: "🔥"
           });
         case "heart_eyes":
-          return (0, _v1.jsx)(_v26, {
+          return (0, _v1.jsx)(_v25, {
             containerHeight: _v1,
             role: "button",
             children: "😍"
           });
         case "thinking_face":
-          return (0, _v1.jsx)(_v26, {
+          return (0, _v1.jsx)(_v25, {
             containerHeight: _v1,
             role: "button",
             children: "🤔"
           });
         case "thumbs_up":
-          return (0, _v1.jsx)(_v26, {
+          return (0, _v1.jsx)(_v25, {
             containerHeight: _v1,
             role: "button",
             children: "👍"
@@ -279,10 +278,10 @@
           return null;
       }
     },
-    _v28 = _v0 => {
+    _v27 = _v0 => {
       window && window.__fa && window.__fa.push(["trackEvent", _v0]);
     },
-    _v29 = (0, _v6.connect)(_v0 => ({
+    _v28 = (0, _v6.connect)(_v0 => ({
       pendingFollows: _v0.pendingFollows
     }), _v0 => ({
       markActivityAcknowledged: _v0 => _v0(_v9(_v0)),
@@ -304,32 +303,21 @@
         }),
         _v8 = (0, _v5.useRef)(null),
         _v9 = () => {
-          _v14.BigPictureClient.sendEvent(new _v14.Event("click_activity_bell_item", 2, {
-            product: "Workflow",
-            path: window.location.pathname,
-            location: "activity bell",
-            activity_type: _v0.activity.type,
-            body: _v0.activity.text,
-            destination: _v0.activity.url,
-            first_click: !_v0.activity.displayed
-          }));
-        },
-        _v10 = () => {
           let {
             id: _v0,
             cta_follower_id: _v1,
             cta_is_following: _v2
           } = _v0.activity;
-          _v28(_v7(_v2 ? "UNFOLLOW" : "FOLLOW")), _v9(), _v0.toggleFollow(_v1), _v0.markActivityAcknowledged(_v0);
+          _v27(_v7(_v2 ? "UNFOLLOW" : "FOLLOW")), _v0.toggleFollow(_v1), _v0.markActivityAcknowledged(_v0);
         },
-        _v11 = new Date(Math.floor(1e-6 * _v3)),
-        _v12 = _v0.activity?.metadata?.reaction_code,
-        _v13 = _v8.current?.getBoundingClientRect()?.height;
-      return (0, _v1.jsx)(_v16.Box, {
+        _v10 = new Date(Math.floor(1e-6 * _v3)),
+        _v11 = _v0.activity?.metadata?.reaction_code,
+        _v12 = _v8.current?.getBoundingClientRect()?.height;
+      return (0, _v1.jsx)(_v15.Box, {
         id: "NotificationWrapper",
         ref: _v8,
         position: "relative",
-        children: (0, _v1.jsxs)(_v16.Box, {
+        children: (0, _v1.jsxs)(_v15.Box, {
           margin: "8px",
           borderRadius: "md",
           background: _v1 ? "transparent" : "fill-component",
@@ -339,11 +327,11 @@
               background: "fill-component-hover-dark"
             }
           },
-          children: [(0, _v1.jsx)(_v16.Box, {
+          children: [(0, _v1.jsx)(_v15.Box, {
             as: "a",
             href: _v6 || _v4,
             onClick: () => {
-              _v28(_v7("AVATAR")), _v9();
+              _v27(_v7("AVATAR"));
             },
             position: "absolute",
             left: (0, _v3.rem)(16),
@@ -364,25 +352,25 @@
                 width: "100%"
               }
             },
-            children: (0, _v1.jsx)(_v15.Avatar, {
+            children: (0, _v1.jsx)(_v14.Avatar, {
               src: _v5?.src_4x || "https://i.vimeocdn.com/portrait/defaults-blue_64x64",
               alt: "user avatar image",
               size: "md"
             })
-          }), _v12 && (0, _v1.jsx)(_v27, {
-            containerHeight: _v13,
-            reactionCode: _v12
-          }), (0, _v1.jsxs)(_v16.Box, {
+          }), _v11 && (0, _v1.jsx)(_v26, {
+            containerHeight: _v12,
+            reactionCode: _v11
+          }), (0, _v1.jsxs)(_v15.Box, {
             as: "a",
             href: _v4,
             onClick: _v0 => {
-              _v28(_v0.fatalAttraction), _v9(), _v0.markActivityAcknowledged(_v0.activity.id), _v0.currentTarget.href = _v4.includes("?") ? `${_v4}&activityReferer=1` : `${_v4}?activityReferer=1`;
+              _v27(_v0.fatalAttraction), _v0.markActivityAcknowledged(_v0.activity.id), _v0.currentTarget.href = _v4.includes("?") ? `${_v4}&activityReferer=1` : `${_v4}?activityReferer=1`;
             },
             display: "block",
             width: "100%",
             padding: `${(0, _v3.rem)(16)} ${!_v0.showCta ? (0, _v3.rem)(24) : (0, _v3.rem)(145)}`,
             paddingLeft: (0, _v3.rem)(68),
-            children: [(0, _v1.jsx)(_v16.Box, {
+            children: [(0, _v1.jsx)(_v15.Box, {
               id: "NotificationMessage",
               color: "text-primary",
               fontSize: (0, _v3.rem)(14),
@@ -390,14 +378,14 @@
                 wordWrap: "break-word"
               },
               children: _v2
-            }), (0, _v1.jsx)(_v16.Box, {
+            }), (0, _v1.jsx)(_v15.Box, {
               id: "NotificationTime",
               as: "time",
               color: "text-secondary",
               cursor: "pointer",
               fontSize: (0, _v3.rem)(12),
               lineHeight: (0, _v3.rem)(18),
-              children: (0, _v17.fromNow)(_v11)
+              children: (0, _v16.fromNow)(_v10)
             })]
           }), (() => {
             let _v0, _v1, _v2;
@@ -436,7 +424,7 @@
                   return (0, _v1.jsx)("a", {
                     href: _v0 || void 0,
                     onClick: () => {
-                      _v28(_v7("CTA_THUMBNAIL")), _v9();
+                      _v27(_v7("CTA_THUMBNAIL"));
                     },
                     children: (0, _v1.jsx)("img", {
                       src: _v1 ? _v1.src_4x : void 0
@@ -451,15 +439,15 @@
                     cta_is_following: _v0,
                     cta_follower_id: _v1
                   } = _v0.activity;
-                  return null === _v0 ? null : (0, _v1.jsx)(_v23, {
+                  return null === _v0 ? null : (0, _v1.jsx)(_v22, {
                     disabled: !!_v0.pendingFollows[_v1],
                     isFollowing: _v0,
-                    onClick: _v10
+                    onClick: _v9
                   });
                 })();
                 break;
               case "userMessage":
-                _v1 = (0, _v18.translate)({
+                _v1 = (0, _v17.translate)({
                   singular: "View message",
                   dictionary: {
                     es: {
@@ -484,15 +472,15 @@
                       singular: "查看消息"
                     }
                   }
-                }), _v2 = _v0.activity.url, _v0 = (0, _v1.jsx)(_v24, {
+                }), _v2 = _v0.activity.url, _v0 = (0, _v1.jsx)(_v23, {
                   href: _v2,
                   text: _v1,
                   onClick: () => {
-                    _v28(_v7("CTA_VIEW")), _v9();
+                    _v27(_v7("CTA_VIEW"));
                   }
                 });
             }
-            return _v0 ? (0, _v1.jsx)(_v16.Box, {
+            return _v0 ? (0, _v1.jsx)(_v15.Box, {
               maxWidth: (0, _v3.rem)(107),
               position: "absolute",
               top: "50%",
@@ -510,10 +498,10 @@
         })
       });
     });
-  _v0.s(["Container", 0, _v29], 0);
-  var _v30 = _v0.i(0),
-    _v31 = _v0.i(0);
-  let _v32 = _v25.default.div.withConfig({
+  _v0.s(["Container", 0, _v28], 0);
+  var _v29 = _v0.i(0),
+    _v30 = _v0.i(0);
+  let _v31 = _v24.default.div.withConfig({
       displayName: "ActivityEmptyState__Wrapper",
       componentId: "sc-958b37ef-0"
     })`
@@ -521,15 +509,15 @@
   line-height: ${(0, _v3.rem)(20)};
   text-align: center;
 `,
-    _v33 = () => (0, _v1.jsxs)(_v32, {
-      children: [(0, _v1.jsx)(_v31.Bell, {
+    _v32 = () => (0, _v1.jsxs)(_v31, {
+      children: [(0, _v1.jsx)(_v30.Bell, {
         boxSize: "3.75rem",
         mb: (0, _v3.rem)(12),
         color: "slate.200"
-      }), (0, _v1.jsx)(_v30.Text, {
+      }), (0, _v1.jsx)(_v29.Text, {
         variant: "heading-xs",
         mb: (0, _v3.rem)(7),
-        children: (0, _v18.translate)({
+        children: (0, _v17.translate)({
           singular: "No activity in the past 30 days",
           dictionary: {
             es: {
@@ -555,13 +543,13 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v30.Text, {
+      }), (0, _v1.jsx)(_v29.Text, {
         variant: "body-md",
         color: "text-secondary",
         _dark: {
           color: "text-secondary"
         },
-        children: (0, _v18.translate)({
+        children: (0, _v17.translate)({
           singular: "We'll alert you once something cool happens.",
           dictionary: {
             es: {
@@ -589,10 +577,10 @@
         })
       })]
     });
-  _v0.s(["ActivityEmptyState", 0, _v33], 0);
-  var _v34 = _v0.i(0);
-  let _v35 = _v0 => {
-    let _v1 = (0, _v34.default)(_v0 => {
+  _v0.s(["ActivityEmptyState", 0, _v32], 0);
+  var _v33 = _v0.i(0);
+  let _v34 = _v0 => {
+    let _v1 = (0, _v33.default)(_v0 => {
       _v0.scrollTop + _v0.offsetHeight < _v0.scrollHeight || _v0.onScrolledToBottom();
     }, 300);
     return (0, _v1.jsx)(_v1.Fragment, {
@@ -603,11 +591,11 @@
       })
     });
   };
-  var _v36 = _v0.i(0),
+  var _v35 = _v0.i(0),
+    _v36 = _v0.i(0),
     _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0);
-  let _v40 = _v25.default.div.withConfig({
+    _v38 = _v0.i(0);
+  let _v39 = _v24.default.div.withConfig({
       displayName: "style__Content",
       componentId: "sc-e8f7d4f1-0"
     })`
@@ -626,7 +614,7 @@
     height: calc(100% - ${(0, _v3.rem)(78)}); // 78px is the height of the header and footer combined
   }
 `,
-    _v41 = _v25.default.div.withConfig({
+    _v40 = _v24.default.div.withConfig({
       displayName: "style__Wrapper",
       componentId: "sc-e8f7d4f1-1"
     })`
@@ -643,25 +631,25 @@
       }
     `}
 `,
-    _v42 = () => (0, _v1.jsx)(_v16.Box, {
+    _v41 = () => (0, _v1.jsx)(_v15.Box, {
       display: "flex",
       justifyContent: "center",
       margin: "10px auto",
-      children: (0, _v1.jsx)(_v39.Spinner, {})
+      children: (0, _v1.jsx)(_v38.Spinner, {})
     }),
     {
-      fetchOlderActivities: _v43,
-      markAllActivitiesDisplayed: _v44,
-      showAllActivitiesDisplayed: _v45
+      fetchOlderActivities: _v42,
+      markAllActivitiesDisplayed: _v43,
+      showAllActivitiesDisplayed: _v44
     } = _v11,
     {
-      ACTIVITYPAGE_PAGE_SIZE: _v46,
-      TOPNAV_PAGE_SIZE: _v47,
-      FA_COMPONENTS: _v48,
-      FA_CONTAINERS: _v49,
-      FA_KEYWORDS: _v50
+      ACTIVITYPAGE_PAGE_SIZE: _v45,
+      TOPNAV_PAGE_SIZE: _v46,
+      FA_COMPONENTS: _v47,
+      FA_CONTAINERS: _v48,
+      FA_KEYWORDS: _v49
     } = _v13,
-    _v51 = (0, _v2.default)(async () => {
+    _v50 = (0, _v2.default)(async () => {
       let {
         Tooltip: _v0
       } = await _v0.A(0);
@@ -673,38 +661,37 @@
         modules: [0]
       }
     }),
-    _v52 = (0, _v6.connect)(_v0 => ({
+    _v51 = (0, _v6.connect)(_v0 => ({
       activities: _v0.activities,
       shouldIndicateUndisplayedActivities: _v0.shouldIndicateUndisplayedActivities,
       isRequestingOlderActivities: _v0.isRequestingOlderActivities,
       noOlderActivitiesExist: _v0.noOlderActivitiesExist
     }), _v0 => ({
-      fetchOlderActivities: _v0 => _v0(_v43(_v0)),
-      markAllActivitiesDisplayed: () => _v0(_v44()),
-      showAllActivitiesDisplayed: () => _v0(_v45())
+      fetchOlderActivities: _v0 => _v0(_v42(_v0)),
+      markAllActivitiesDisplayed: () => _v0(_v43()),
+      showAllActivitiesDisplayed: () => _v0(_v44())
     }))(_v0 => {
       let {
           activities: _v1,
           isRequestingOlderActivities: _v2,
           noOlderActivitiesExist: _v3,
           fetchOlderActivities: _v4,
-          user: _v5,
-          onClick: _v6
+          onClick: _v5
         } = _v0,
-        [_v7, _v8] = (0, _v5.useState)(!1),
-        [_v9, _v10] = (0, _v5.useState)(!0),
+        [_v6, _v7] = (0, _v5.useState)(!1),
+        [_v8, _v9] = (0, _v5.useState)(!0),
+        _v10 = (0, _v5.useRef)(null),
         _v11 = (0, _v5.useRef)(null),
-        _v12 = (0, _v5.useRef)(null),
+        _v12 = _v0 => {
+          _v0.target && !_v10?.current?.contains(_v0.target) && _v14();
+        },
         _v13 = _v0 => {
-          _v0.target && !_v11?.current?.contains(_v0.target) && _v15();
+          27 === _v0.keyCode && _v14();
         },
-        _v14 = _v0 => {
-          27 === _v0.keyCode && _v15();
+        _v14 = () => {
+          window.innerWidth <= 489 && "hidden" !== document.documentElement.style.overflow && (document.documentElement.style.overflowY = ""), _v7(!1);
         },
-        _v15 = () => {
-          window.innerWidth <= 489 && "hidden" !== document.documentElement.style.overflow && (document.documentElement.style.overflowY = ""), _v8(!1);
-        },
-        _v16 = () => _v0.shouldIndicateUndisplayedActivities && "/activity" !== location.pathname && !(() => {
+        _v15 = () => _v0.shouldIndicateUndisplayedActivities && "/activity" !== location.pathname && !(() => {
           try {
             return 1 === _v4.default.parse(location.search).activityReferer;
           } catch {
@@ -712,17 +699,17 @@
           }
         })();
       return (0, _v5.useEffect)(() => {
-        _v0.fetchOlderActivities(window.innerWidth <= 489 ? _v46 : _v47).then(() => {
-          _v10(!1);
+        _v0.fetchOlderActivities(window.innerWidth <= 489 ? _v45 : _v46).then(() => {
+          _v9(!1);
         }).catch(() => {
-          _v10(!0);
+          _v9(!0);
         });
       }, []), (0, _v5.useEffect)(() => {
-        _v7 ? (document.addEventListener("click", _v13), document.addEventListener("keyup", _v14), _v0.markAllActivitiesDisplayed()) : (document.removeEventListener("click", _v13), document.removeEventListener("keyup", _v14), _v0.showAllActivitiesDisplayed()), _v11.current?.addEventListener("selectstart", () => !1);
-      }, [_v7]), (0, _v1.jsxs)(_v41, {
-        ref: _v11,
-        children: [(0, _v1.jsx)(_v51, {
-          label: (0, _v18.translate)({
+        _v6 ? (document.addEventListener("click", _v12), document.addEventListener("keyup", _v13), _v0.markAllActivitiesDisplayed()) : (document.removeEventListener("click", _v12), document.removeEventListener("keyup", _v13), _v0.showAllActivitiesDisplayed()), _v10.current?.addEventListener("selectstart", () => !1);
+      }, [_v6]), (0, _v1.jsxs)(_v40, {
+        ref: _v10,
+        children: [(0, _v1.jsx)(_v50, {
+          label: (0, _v17.translate)({
             singular: "Activity",
             dictionary: {
               es: {
@@ -750,29 +737,24 @@
           }),
           placement: "bottom",
           isDisabled: window.innerWidth <= 489,
-          children: (0, _v1.jsx)(_v36.IconButton, {
+          children: (0, _v1.jsx)(_v35.IconButton, {
             "aria-label": "Bell Notification",
             variant: "tertiary",
-            icon: (0, _v1.jsx)(_v31.Bell, {}),
+            icon: (0, _v1.jsx)(_v30.Bell, {}),
             onClick: _v0 => {
-              _v9 || _v12?.current?.contains(_v0.target) || (() => {
-                if (_v7) _v15();else {
-                  _v8(!_v7), window.innerWidth <= 489 && "hidden" !== document.documentElement.style.overflow && (document.documentElement.style.overflowY = "hidden");
-                  let _v0 = _v16();
+              _v8 || _v11?.current?.contains(_v0.target) || (() => {
+                if (_v6) _v14();else {
+                  _v7(!_v6), window.innerWidth <= 489 && "hidden" !== document.documentElement.style.overflow && (document.documentElement.style.overflowY = "hidden");
+                  let _v0 = _v15();
                   _v7.FatalAttraction.trackClick({
-                    container: _v49.TOPNAV,
-                    component: _v48.TOPNAV,
-                    keyword: _v50[_v0 ? "newNotifications" : "noNotifications"]
-                  }), _v14.BigPictureClient.sendEvent(new _v14.Event("open_activity_bell", 1, {
-                    product: "Workflow",
-                    path: window.location.pathname,
-                    location: "activity bell",
-                    user_id: _v5.id
-                  }));
+                    container: _v48.TOPNAV,
+                    component: _v47.TOPNAV,
+                    keyword: _v49[_v0 ? "newNotifications" : "noNotifications"]
+                  });
                 }
-              })(), _v6?.();
+              })(), _v5?.();
             },
-            isActive: (0, _v38.useIsBokeh)() && _v7,
+            isActive: (0, _v37.useIsBokeh)() && _v6,
             size: {
               base: "sm",
               sm: "md"
@@ -786,12 +768,12 @@
               position: "absolute",
               top: (0, _v3.rem)(8),
               right: (0, _v3.rem)(8),
-              display: _v16() ? "block" : "none"
+              display: _v15() ? "block" : "none"
             }
           })
-        }), (0, _v1.jsxs)(_v16.Box, {
+        }), (0, _v1.jsxs)(_v15.Box, {
           id: "DropdownMenu",
-          ref: _v12,
+          ref: _v11,
           width: (0, _v3.rem)(360),
           background: "fill-blur",
           backdropFilter: "blur(var(--vimeo-blur-lg))",
@@ -800,7 +782,7 @@
           position: "absolute",
           top: (0, _v3.rem)(47),
           right: 0,
-          display: _v7 ? "block" : "none",
+          display: _v6 ? "block" : "none",
           zIndex: 1,
           sx: {
             "@media screen and (max-width: 489px)": {
@@ -811,7 +793,7 @@
               zIndex: 2
             }
           },
-          children: [(0, _v1.jsxs)(_v16.Box, {
+          children: [(0, _v1.jsxs)(_v15.Box, {
             id: "Header",
             fontSize: (0, _v3.rem)(16),
             lineHeight: (0, _v3.rem)(20),
@@ -824,14 +806,14 @@
                 height: (0, _v3.rem)(41)
               }
             },
-            children: [(0, _v1.jsx)(_v36.IconButton, {
+            children: [(0, _v1.jsx)(_v35.IconButton, {
               "aria-label": "Dismiss Activity",
               variant: "tertiary",
-              icon: (0, _v1.jsx)(_v37.CloseXFilled, {
+              icon: (0, _v1.jsx)(_v36.CloseXFilled, {
                 boxSize: "sm"
               }),
               size: "sm",
-              onClick: _v15,
+              onClick: _v14,
               display: "none",
               sx: {
                 "@media (max-width: 489px)": {
@@ -840,7 +822,7 @@
                   marginRight: (0, _v3.rem)(10)
                 }
               }
-            }), (0, _v18.translate)({
+            }), (0, _v17.translate)({
               singular: "Activity",
               dictionary: {
                 es: {
@@ -866,46 +848,46 @@
                 }
               }
             })]
-          }), (0, _v1.jsx)(_v35, {
+          }), (0, _v1.jsx)(_v34, {
             onScrolledToBottom: () => {
-              _v2 || _v3 || _v4(_v47);
+              _v2 || _v3 || _v4(_v46);
             },
             children: ({
               onScroll: _v0
-            }) => (0, _v1.jsxs)(_v40, {
+            }) => (0, _v1.jsxs)(_v39, {
               onScroll: _v0,
               centered: !_v1.length && (_v2 || _v3),
               children: [_v1.length ? (0, _v1.jsx)("div", {
-                children: _v1.map(_v0 => (0, _v1.jsx)(_v29, {
+                children: _v1.map(_v0 => (0, _v1.jsx)(_v28, {
                   showCta: !1,
                   activity: _v0,
                   fatalAttraction: {
-                    container: _v49.DROPDOWN,
-                    component: _v48.DROPDOWN,
-                    keyword: _v50[_v0.type]
+                    container: _v48.DROPDOWN,
+                    component: _v47.DROPDOWN,
+                    keyword: _v49[_v0.type]
                   }
                 }, _v0.id))
-              }) : _v2 ? null : (0, _v1.jsx)(_v33, {}), _v2 ? (0, _v1.jsx)(_v42, {}) : null]
+              }) : _v2 ? null : (0, _v1.jsx)(_v32, {}), _v2 ? (0, _v1.jsx)(_v41, {}) : null]
             })
-          }), _v1?.length > 0 ? (0, _v1.jsx)(_v16.Box, {
+          }), _v1?.length > 0 ? (0, _v1.jsx)(_v15.Box, {
             id: "Footer",
-            children: (0, _v1.jsx)(_v16.Box, {
+            children: (0, _v1.jsx)(_v15.Box, {
               display: "flex",
               justifyContent: "center",
               padding: "sm",
-              children: (0, _v1.jsx)(_v19.Button, {
+              children: (0, _v1.jsx)(_v18.Button, {
                 as: "a",
                 href: "/activity",
                 onClick: () => {
                   _v7.FatalAttraction.trackClick({
-                    container: _v49.DROPDOWN,
-                    component: _v48.DROPDOWN,
-                    keyword: _v50.seeAll
+                    container: _v48.DROPDOWN,
+                    component: _v47.DROPDOWN,
+                    keyword: _v49.seeAll
                   });
                 },
                 size: "sm",
                 variant: "tertiary",
-                children: (0, _v18.translate)({
+                children: (0, _v17.translate)({
                   singular: "See all",
                   dictionary: {
                     es: {
@@ -937,5 +919,5 @@
         })]
       });
     });
-  _v0.s(["ActivityDropdown", 0, _v52], 0);
+  _v0.s(["ActivityDropdown", 0, _v51], 0);
 }

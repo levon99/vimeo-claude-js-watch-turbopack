@@ -10,12 +10,10 @@
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
-    _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
-  let _v12 = "SR_UNF";
-  var _v13 = _v0.i(0),
-    _v14 = _v0.i(0);
-  let _v15 = {
+    _v10 = _v0.i(0);
+  let _v11 = "SR_UNF";
+  var _v12 = _v0.i(0);
+  let _v13 = {
     thereIsAMaximum: (0, _v7.translate)({
       singular: "There is a maximum of 1000 characters.",
       dictionary: {
@@ -69,38 +67,28 @@
       }
     })
   };
-  function _v16() {
+  function _v14() {
     let {
         isSubmitted: _v0,
         onSubmit: _v1
       } = function () {
         let _v0 = (0, _v10.useHasMounted)(),
           [_v1, _v2] = (0, _v2.useState)(null),
-          _v3 = (0, _v2.useContext)(_v11.ViewerContext),
-          [_v4, _v5] = (0, _v2.useState)(!1),
-          [_v6, _v7] = (0, _v2.useState)(!1);
+          [_v3, _v4] = (0, _v2.useState)(!1),
+          [_v5, _v6] = (0, _v2.useState)(!1);
         return (0, _v2.useEffect)(() => {
-          _v0 && !_v1?.source && _v7((0, _v9.loadCookie)(_v12) || !1);
+          _v0 && !_v1?.source && _v6((0, _v9.loadCookie)(_v11) || !1);
         }, [_v0, _v1]), (0, _v2.useEffect)(() => {
           _v2(_v8.default.parse(window.location.search));
         }, []), (0, _v2.useEffect)(() => {
-          _v1?.source && ((0, _v9.clearCookie)(_v12), window.history.replaceState(null, window.document.title, window.location.pathname));
-        }, [_v1]), (0, _v2.useEffect)(() => {
-          _v1?.source && _v3 && setTimeout(() => {
-            let _v0;
-            return _v0 = _v1?.duplicate === "true", _v13.BigPictureClient.sendEvent(new _v13.Event("record.extension_uninstalled", 2, {
-              is_duplicated_install: _v0
-            }));
-          }, 0);
-        }, [_v3, _v1]), {
-          isSubmitted: _v4 || !!_v6,
+          _v1?.source && ((0, _v9.clearCookie)(_v11), window.history.replaceState(null, window.document.title, window.location.pathname));
+        }, [_v1]), {
+          isSubmitted: _v3 || !!_v5,
           onSubmit: (0, _v2.useCallback)(_v0 => {
-            _v5(!0), (0, _v9.saveCookie)({
-              name: _v12,
+            _v4(!0), (0, _v9.saveCookie)({
+              name: _v11,
               value: Date.now().toString()
-            }), _v13.BigPictureClient.sendEvent(new _v13.Event("record.uninstall_feedback_submitted", 1, {
-              feedback_text: _v0
-            }));
+            });
           }, []),
           hasMounted: _v0
         };
@@ -136,7 +124,7 @@
       _v10 = (0, _v2.useCallback)(() => {
         _v0 ? (window.location.replace("/"), _v3(!0)) : _v9();
       }, [_v9, _v0]);
-    return (0, _v1.jsx)(_v14.RecordPageBase, {
+    return (0, _v1.jsx)(_v12.RecordPageBase, {
       pageType: "postUninstall",
       handleButtonClick: _v10,
       isButtonDisabled: _v2,
@@ -147,7 +135,7 @@
         maxWidth: (0, _v3.rem)(600),
         children: [(0, _v1.jsx)(_v4.Textarea, {
           id: "record-feedback-form",
-          placeholder: _v15.addYourThoughts,
+          placeholder: _v13.addYourThoughts,
           value: _v6,
           isInvalid: !_v5 && _v8,
           width: "100%",
@@ -156,12 +144,12 @@
           onChange: _v7
         }), !_v4 && (0, _v1.jsx)(_v6.FormErrorMessage, {
           justifyContent: "center",
-          children: _v15.thereIsAMaximum
+          children: _v13.thereIsAMaximum
         })]
       })
     });
   }
-  _v16.getLayout = _v0 => (0, _v1.jsx)(_v1.Fragment, {
+  _v14.getLayout = _v0 => (0, _v1.jsx)(_v1.Fragment, {
     children: _v0
-  }), _v0.s(["__N_SSG", 0, !0, "default", 0, _v16], 0);
+  }), _v0.s(["__N_SSG", 0, !0, "default", 0, _v14], 0);
 }
