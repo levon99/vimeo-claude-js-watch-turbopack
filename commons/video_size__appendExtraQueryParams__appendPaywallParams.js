@@ -78,10 +78,7 @@
   }) : null, "getDeviceType", 0, () => {
     let _v0 = navigator.userAgent;
     return /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i.test(_v0) ? "tablet" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(_v0) ? "mobile" : "desktop";
-  }, "getEnterpriseFooterLinkText", 0, _v0 => void 0 === _v0 ? _v6.default.morePlanDetails : _v0, "getEnterpriseModalTitle", 0, _v0 => _v0 || _v6.default.doMoreWithEnterprise, "getEnterpriseSubtitle", 0, _v0 => void 0 === _v0 ? _v6.default.productBenefits : _v0, "getLanguage", 0, () => {
-    let _v0 = document.cookie.match(/language=(\w+);?/);
-    return _v0 && _v0.length >= 2 ? _v0[1] : null;
-  }, "getModalHeader", 0, _v0 => _v0 || _v6.default.defaultHeader, "getModalSubheader", 0, _v0 => void 0 === _v0 ? _v6.default.defaultSubHeader : _v0, "getPlanBillingFrequencyCopy", 0, (_v0, _v1, _v2, _v3 = !1) => !_v1 || _v2 ? _v0 ? _v6.default.billedMonthly : _v6.default.billedAnnually : _v0 ? _v3 ? _v6.default.orPriceBilledAnnually(_v1) : _v6.default.billedMonthly : _v6.default.billedAnnually, "getPlanCTALink", 0, (_v0, _v1, _v2) => {
+  }, "getEnterpriseFooterLinkText", 0, _v0 => void 0 === _v0 ? _v6.default.morePlanDetails : _v0, "getEnterpriseModalTitle", 0, _v0 => _v0 || _v6.default.doMoreWithEnterprise, "getEnterpriseSubtitle", 0, _v0 => void 0 === _v0 ? _v6.default.productBenefits : _v0, "getModalHeader", 0, _v0 => _v0 || _v6.default.defaultHeader, "getModalSubheader", 0, _v0 => void 0 === _v0 ? _v6.default.defaultSubHeader : _v0, "getPlanBillingFrequencyCopy", 0, (_v0, _v1, _v2, _v3 = !1) => !_v1 || _v2 ? _v0 ? _v6.default.billedMonthly : _v6.default.billedAnnually : _v0 ? _v3 ? _v6.default.orPriceBilledAnnually(_v1) : _v6.default.billedMonthly : _v6.default.billedAnnually, "getPlanCTALink", 0, (_v0, _v1, _v2) => {
     let {
         annual: _v3,
         monthly: _v4

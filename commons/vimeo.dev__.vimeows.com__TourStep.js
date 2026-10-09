@@ -482,19 +482,19 @@
                     singular: "Reemplazo de vídeo iniciado"
                   },
                   "de-DE": {
-                    singular: "Ersetzen des Videos gestartet"
+                    singular: "Austausch des Videos gestartet"
                   },
                   "fr-FR": {
-                    singular: "Remplacement de la vidéo démarré"
+                    singular: "Le remplacement de la vidéo a commencé"
                   },
                   "ja-JP": {
                     singular: "動画の差し替えが開始されました"
                   },
                   "ko-KR": {
-                    singular: "비디오 교체가 시작되었습니다"
+                    singular: "동영상 교체가 시작되었습니다"
                   },
                   "pt-BR": {
-                    singular: "Substituição do vídeo iniciada"
+                    singular: "Substituição de vídeo iniciada"
                   },
                   "zh-CN": {
                     singular: "视频替换已开始"

@@ -190,17 +190,11 @@
           }
         }),
         onColorClick: _v0 => {
-          _v0 !== _v0 && (_v2(_v0), (0, _v15.trackTeamSettingsModal)(_v15.TeamEvents.SetTeamAccentColor, {
-            color: _v0,
-            method: _v15.ColorChangeMethods.Preset
-          }));
+          _v0 !== _v0 && _v2(_v0);
         }
       }),
       onChange: _v0 => {
-        _v0.match(/^#(?:[0-9a-fA-F]{3}){1,2}$/) && _v0 !== _v0 && (_v2(_v0), (0, _v15.trackTeamSettingsModal)(_v15.TeamEvents.SetTeamAccentColor, {
-          color: _v0,
-          method: _v15.ColorChangeMethods.Picker
-        }));
+        _v0.match(/^#(?:[0-9a-fA-F]{3}){1,2}$/) && _v0 !== _v0 && _v2(_v0);
       },
       initialColor: (0, _v18.blue)(500),
       resetLabel: (0, _v42.translate)({
@@ -1043,9 +1037,6 @@
                     },
                     disabled: _v6,
                     children: (0, _v4.jsx)(_v102, {
-                      onClick: () => {
-                        (0, _v15.trackTeamSettingsModal)(_v15.TeamEvents.ClickUploadButton);
-                      },
                       variant: "hyperminimal",
                       children: _v0
                     })
@@ -1118,9 +1109,6 @@
               },
               disabled: _v6,
               children: (0, _v4.jsx)(_v102, {
-                onClick: () => {
-                  (0, _v15.trackTeamSettingsModal)(_v15.TeamEvents.ClickUploadButton);
-                },
                 format: "alternative",
                 variant: "hyperminimal",
                 children: (0, _v42.translate)({
@@ -1248,12 +1236,11 @@
         isDisabled: !1,
         isSubmitting: _v9,
         onClick: () => {
-          let _v0 = {
+          Object.values({
             logo_changed: _v7 !== _v1.logoUrl,
             name_changed: _v8.trim() !== _v1.teamName,
             accent_color_changed: _v5 !== _v1.accentColor
-          };
-          Object.values(_v0).some(_v0 => _v0) ? (_v11(), (0, _v15.trackTeamSettingsModal)(_v15.TeamEvents.TeamSettingsUpdated, _v0)) : _v2({
+          }).some(_v0 => _v0) ? _v11() : _v2({
             type: _v24.STEP_FORWARD
           });
         }

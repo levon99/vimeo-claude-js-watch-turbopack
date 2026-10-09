@@ -308,47 +308,85 @@
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
     _v39 = _v0.i(0),
-    _v40 = _v0.i(0);
-  let _v41 = () => (0, _v1.jsx)(_v40.AlertRoot, {
-    status: "info",
-    variant: "info",
-    size: "sm",
-    mx: "md",
-    width: "auto",
-    children: (0, _v1.jsx)(_v39.AlertDescription, {
-      children: (0, _v1.jsx)(_v22.Text, {
-        variant: "body-sm",
-        children: (0, _v12.translate)({
-          singular: "Public videos with embedding off are now excluded from storage count.",
-          dictionary: {
-            es: {
-              singular: "Los vídeos públicos con la incrustación desactivada ahora están excluidos del recuento de almacenamiento."
-            },
-            "de-DE": {
-              singular: "Öffentliche Videos mit deaktivierter Einbettung werden nun nicht mehr in der Speicherberechnung berücksichtigt."
-            },
-            "fr-FR": {
-              singular: "Les vidéos publiques dont l'intégration est désactivée sont désormais exclues du quota de stockage."
-            },
-            "ja-JP": {
-              singular: "埋め込みをオフにした公開動画は、現在ストレージ使用量の集計から除外されています。"
-            },
-            "ko-KR": {
-              singular: "임베딩이 꺼진 공개 동영상은 이제 저장 용량 계산에서 제외됩니다."
-            },
-            "pt-BR": {
-              singular: "Vídeos públicos com a incorporação desativada agora são excluídos da contagem de armazenamento."
-            },
-            "zh-CN": {
-              singular: "嵌入已关闭的公开视频现在不再计入存储统计。"
+    _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  let _v43 = () => {
+      window.dispatchEvent(new Event(_v42.MANAGED_STORAGE_INTRO_MODAL_FORCE_OPEN_EVENT));
+    },
+    _v44 = () => (0, _v1.jsx)(_v40.AlertRoot, {
+      status: "info",
+      variant: "info",
+      size: "sm",
+      mx: "md",
+      width: "auto",
+      children: (0, _v1.jsx)(_v39.AlertDescription, {
+        children: (0, _v1.jsxs)(_v22.Text, {
+          variant: "body-sm",
+          children: [(0, _v12.translate)({
+            singular: "Public videos with embedding off are now excluded from storage count.",
+            dictionary: {
+              es: {
+                singular: "Los vídeos públicos con la incrustación desactivada ahora están excluidos del recuento de almacenamiento."
+              },
+              "de-DE": {
+                singular: "Öffentliche Videos mit deaktivierter Einbettung werden nun nicht mehr in der Speicherberechnung berücksichtigt."
+              },
+              "fr-FR": {
+                singular: "Les vidéos publiques dont l'intégration est désactivée sont désormais exclues du quota de stockage."
+              },
+              "ja-JP": {
+                singular: "埋め込みをオフにした公開動画は、現在ストレージ使用量の集計から除外されています。"
+              },
+              "ko-KR": {
+                singular: "임베딩이 꺼진 공개 동영상은 이제 저장 용량 계산에서 제외됩니다."
+              },
+              "pt-BR": {
+                singular: "Vídeos públicos com a incorporação desativada agora são excluídos da contagem de armazenamento."
+              },
+              "zh-CN": {
+                singular: "嵌入已关闭的公开视频现在不再计入存储统计。"
+              }
             }
-          }
+          }), (0, _v1.jsx)("br", {}), (0, _v1.jsx)(_v41.Link, {
+            as: "button",
+            bg: "none",
+            p: "0",
+            variant: "inline-primary",
+            textUnderlineOffset: "2px",
+            onClick: _v43,
+            children: (0, _v12.translate)({
+              singular: "Learn more",
+              dictionary: {
+                es: {
+                  singular: "Ver más"
+                },
+                "de-DE": {
+                  singular: "Mehr dazu"
+                },
+                "fr-FR": {
+                  singular: "En savoir plus "
+                },
+                "ja-JP": {
+                  singular: "詳細を見る"
+                },
+                "ko-KR": {
+                  singular: "자세히 보기"
+                },
+                "pt-BR": {
+                  singular: "Saiba mais"
+                },
+                "zh-CN": {
+                  singular: "了解更多"
+                }
+              }
+            })
+          })]
         })
       })
-    })
-  });
-  var _v42 = _v0.i(0);
-  let _v43 = ({
+    });
+  var _v45 = _v0.i(0);
+  let _v46 = ({
     isMobile: _v0,
     onUpgradeClick: _v1,
     uploadQuota: _v2,
@@ -412,12 +450,14 @@
         revalidateOnFocus: !1
       }),
       _v21 = _v19 && (_v20?.total ?? 0) > 0,
-      _v22 = null != _v2.restricted;
+      _v22 = null != _v2.restricted,
+      _v23 = _v22 && null == _v3 && !(_v12 && null != _v4);
     return (0, _v1.jsxs)(_v16.Box, {
       background: "surface",
       borderRadius: "lg",
-      paddingY: "sm",
-      children: [(0, _v1.jsx)(_v42.UploadQuotaMeter, {
+      paddingTop: "sm",
+      paddingBottom: _v23 ? "md" : "sm",
+      children: [(0, _v1.jsx)(_v45.UploadQuotaMeter, {
         isMobile: _v0,
         onUpgradeClick: _v1,
         quota: _v2,
@@ -428,7 +468,7 @@
         showAutoRenewBadge: _v7,
         sidebarStorageVariant: _v14,
         planName: _v16
-      }), _v22 && (0, _v1.jsx)(_v41, {}), _v3 ? _v9 || _v13 ? (0, _v1.jsx)(_v21.AiCreditsQuotaMeter, {
+      }), _v22 && (0, _v1.jsx)(_v44, {}), _v3 ? _v9 || _v13 ? (0, _v1.jsx)(_v21.AiCreditsQuotaMeter, {
         isMobile: _v0,
         onUpgradeClick: _v1,
         quota: _v3,
@@ -451,10 +491,10 @@
       }) : null]
     });
   };
-  var _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0);
-  let _v47 = _v0 => (0, _v1.jsx)(_v46.Icon, {
+  var _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0);
+  let _v50 = _v0 => (0, _v1.jsx)(_v49.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -463,9 +503,9 @@
       fill: "currentColor"
     })
   });
-  var _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
-  let _v50 = {
+  var _v51 = _v0.i(0),
+    _v52 = _v0.i(0);
+  let _v53 = {
       fontSize: (0, _v6.rem)(24),
       sx: {
         "> svg": {
@@ -474,7 +514,7 @@
         }
       }
     },
-    _v51 = ({
+    _v54 = ({
       isMobile: _v0,
       uploadQuota: _v1,
       aiCreditsQuota: _v2,
@@ -573,7 +613,7 @@
         _v12 = _v2?.remaining ?? null,
         _v13 = _v0 ? "top" : "right",
         _v14 = _v10 >= 100,
-        _v15 = (0, _v49.buildUpgradePlanUrl)({
+        _v15 = (0, _v52.buildUpgradePlanUrl)({
           paywallTrigger: "quota_meter_upgrade_button",
           paywallLocation: "quota_meter",
           paywallFeature: "quota"
@@ -585,7 +625,7 @@
           upsellFeatureCategory: "Storage",
           upsellSpecificFeature: _v14 ? "Storage_at_limit" : "Storage_general"
         }),
-        _v16 = (0, _v45.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300");
+        _v16 = (0, _v48.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300");
       return (0, _v1.jsxs)(_v3.Flex, {
         flexDirection: "column",
         alignItems: "center",
@@ -641,14 +681,14 @@
                     }
                   }
                 }),
-                icon: (0, _v1.jsx)(_v47, {}),
+                icon: (0, _v1.jsx)(_v50, {}),
                 variant: "tertiary",
                 size: "md",
                 color: "text-primary",
                 pointerEvents: "none",
                 tabIndex: -1,
-                ..._v50
-              }), (0, _v1.jsx)(_v44.Progress, {
+                ..._v53
+              }), (0, _v1.jsx)(_v47.Progress, {
                 value: _v10,
                 size: "xs",
                 width: (0, _v6.rem)(30),
@@ -750,7 +790,7 @@
                 color: "text-secondary",
                 pointerEvents: "none",
                 tabIndex: -1,
-                ..._v50
+                ..._v53
               }), (0, _v1.jsx)(_v22.Text, {
                 variant: "body-xs",
                 color: "text-secondary",
@@ -808,7 +848,7 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v48.Diamond, {}),
+            icon: (0, _v1.jsx)(_v51.Diamond, {}),
             variant: "upsell",
             size: "md",
             ...(_v4 ? {
@@ -817,17 +857,17 @@
               as: "a",
               href: _v15
             }),
-            ..._v50
+            ..._v53
           })
         }) : null]
       });
     };
-  var _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
-    _v56 = _v0.i(0);
-  let _v57 = _v0 => (0, _v1.jsx)(_v46.Icon, {
+  var _v55 = _v0.i(0),
+    _v56 = _v0.i(0),
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0);
+  let _v60 = _v0 => (0, _v1.jsx)(_v49.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -838,7 +878,7 @@
         fill: "currentColor"
       })
     }),
-    _v58 = _v0 => (0, _v1.jsx)(_v46.Icon, {
+    _v61 = _v0 => (0, _v1.jsx)(_v49.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -849,19 +889,19 @@
         fill: "currentColor"
       })
     });
-  var _v59 = _v0.i(0),
-    _v60 = _v0.i(0),
-    _v61 = _v0.i(0),
-    _v62 = _v0.i(0),
+  var _v62 = _v0.i(0),
     _v63 = _v0.i(0),
     _v64 = _v0.i(0),
     _v65 = _v0.i(0),
     _v66 = _v0.i(0),
     _v67 = _v0.i(0),
     _v68 = _v0.i(0),
-    _v69 = _v0.i(0);
-  let _v70 = () => {
-    let _v0 = (0, _v69.usePico)(),
+    _v69 = _v0.i(0),
+    _v70 = _v0.i(0),
+    _v71 = _v0.i(0),
+    _v72 = _v0.i(0);
+  let _v73 = () => {
+    let _v0 = (0, _v72.usePico)(),
       _v1 = (0, _v2.useCallback)(_v0 => null !== _v0 && (_v0.track("whats_new_modal_opened", {
         whats_new_modal_opened_manually: _v0.whatsNewModalOpenedManually
       }), !0), [_v0]),
@@ -889,13 +929,13 @@
       }), !0), [_v0])
     };
   };
-  var _v71 = _v0.i(0),
-    _v72 = _v0.i(0),
-    _v73 = _v0.i(0),
-    _v74 = _v0.i(0),
+  var _v74 = _v0.i(0),
     _v75 = _v0.i(0),
-    _v76 = _v0.i(0);
-  let _v77 = ({
+    _v76 = _v0.i(0),
+    _v77 = _v0.i(0),
+    _v78 = _v0.i(0),
+    _v79 = _v0.i(0);
+  let _v80 = ({
     announcement: _v0,
     onPrimaryCtaClick: _v1,
     onSecondaryCtaClick: _v2,
@@ -908,7 +948,7 @@
     paddingTop: "6",
     paddingBottom: "6",
     borderBottom: "1px solid var(--vimeo-colors-stroke)",
-    children: [(0, _v1.jsx)(_v78, {
+    children: [(0, _v1.jsx)(_v81, {
       announcement: _v0
     }), (0, _v1.jsx)(_v22.Text, {
       marginTop: "1",
@@ -927,14 +967,14 @@
           return _v0;
         }
       })(_v0.releaseDate, _v3)
-    }), (0, _v1.jsx)(_v75.Header, {
+    }), (0, _v1.jsx)(_v78.Header, {
       as: "h3",
       size: "md",
       fontWeight: "semibold",
       children: _v0.title
     }), (0, _v1.jsx)("div", {
       ref: _v4,
-      children: (0, _v1.jsx)(_v73.Paragraph, {
+      children: (0, _v1.jsx)(_v76.Paragraph, {
         variant: "body-sm",
         children: _v0.description
       })
@@ -942,7 +982,7 @@
       display: "flex",
       justifyContent: "flex-end",
       gap: "8px",
-      children: [_v0.blogPostUrl && (0, _v1.jsx)(_v72.Button, {
+      children: [_v0.blogPostUrl && (0, _v1.jsx)(_v75.Button, {
         as: "a",
         href: _v0.blogPostUrl,
         target: "_blank",
@@ -975,7 +1015,7 @@
             }
           }
         })
-      }), _v0.ctaUrl && (0, _v1.jsx)(_v72.Button, {
+      }), _v0.ctaUrl && (0, _v1.jsx)(_v75.Button, {
         as: "a",
         href: _v0.ctaUrl,
         target: "_blank",
@@ -986,22 +1026,22 @@
       })]
     })]
   });
-  function _v78({
+  function _v81({
     announcement: _v0
   }) {
     let _v1 = _v0.imageUrl,
       _v2 = _v0.clipId && _v0.clipEmbedUrl;
     return (0, _v1.jsx)(_v1.Fragment, {
-      children: _v1 ? (0, _v1.jsx)(_v79, {
+      children: _v1 ? (0, _v1.jsx)(_v82, {
         title: _v0.title,
         imageUrl: _v0.imageUrl
-      }) : _v2 ? (0, _v1.jsx)(_v80, {
+      }) : _v2 ? (0, _v1.jsx)(_v83, {
         title: _v0.title,
         clipEmbedUrl: _v0.clipEmbedUrl
       }) : null
     });
   }
-  function _v79({
+  function _v82({
     title: _v0,
     imageUrl: _v1
   }) {
@@ -1009,7 +1049,7 @@
       position: "relative",
       width: "100%",
       paddingBottom: "56.25%",
-      children: (0, _v1.jsx)(_v74.Image, {
+      children: (0, _v1.jsx)(_v77.Image, {
         src: _v1,
         alt: _v0,
         borderRadius: "lg",
@@ -1022,7 +1062,7 @@
       })
     });
   }
-  function _v80({
+  function _v83({
     title: _v0,
     clipEmbedUrl: _v1
   }) {
@@ -1030,7 +1070,7 @@
       aspectRatio: 16 / 9,
       borderRadius: (0, _v6.rem)(12),
       overflow: "hidden",
-      children: (0, _v1.jsx)(_v76.EmbedPlayer, {
+      children: (0, _v1.jsx)(_v79.EmbedPlayer, {
         title: _v0,
         src: _v1,
         style: {
@@ -1047,7 +1087,7 @@
       })
     });
   }
-  function _v81({
+  function _v84({
     announcement: _v0,
     viewer: _v1,
     scrollRoot: _v2,
@@ -1061,10 +1101,10 @@
         trackWhatsNewModalSecondaryCtaClicked: _v8,
         trackWhatsNewModalAnnouncementScrolledTo: _v9,
         trackWhatsNewModalAnnouncementRead: _v10
-      } = _v70(),
+      } = _v73(),
       _v11 = (0, _v2.useRef)(!1),
       _v12 = (0, _v2.useRef)(!1),
-      _v13 = (0, _v71.useOnScreen)(_v6, {
+      _v13 = (0, _v74.useOnScreen)(_v6, {
         root: _v2.current,
         threshold: 0
       });
@@ -1084,11 +1124,11 @@
         }) && (_v12.current = !0);
       }, 0);
       return () => clearTimeout(_v0);
-    }, [_v13, _v3, _v0, _v10]), (0, _v1.jsx)(_v68.Card, {
+    }, [_v13, _v3, _v0, _v10]), (0, _v1.jsx)(_v71.Card, {
       borderRadius: "none",
       boxShadow: "none",
       ref: _v5,
-      children: (0, _v1.jsx)(_v77, {
+      children: (0, _v1.jsx)(_v80, {
         announcement: _v0,
         onPrimaryCtaClick: () => {
           _v7({
@@ -1109,30 +1149,30 @@
       })
     });
   }
-  let _v82 = ({
+  let _v85 = ({
     isLoadingMore: _v0,
     onLoadMore: _v1,
     rootRef: _v2
   }) => {
     let _v3 = (0, _v2.useRef)(null),
-      _v4 = (0, _v71.useOnScreen)(_v3, {
+      _v4 = (0, _v74.useOnScreen)(_v3, {
         root: _v2?.current,
         threshold: .1
       });
     return (0, _v2.useEffect)(() => {
       _v4 && !_v0 && _v1();
-    }, [_v0, _v4, _v1]), (0, _v1.jsx)(_v68.Card, {
+    }, [_v0, _v4, _v1]), (0, _v1.jsx)(_v71.Card, {
       padding: "6",
       borderRadius: "none",
       boxShadow: "none",
       ref: _v3,
-      children: (0, _v1.jsx)(_v67.Skeleton, {
+      children: (0, _v1.jsx)(_v70.Skeleton, {
         width: "100%",
         aspectRatio: "16/9"
       })
     }, "skeleton");
   };
-  function _v83({
+  function _v86({
     isOpen: _v0,
     onClose: _v1
   }) {
@@ -1166,16 +1206,16 @@
         let _v0 = `${_v0.pathname}?${_v1.toString()}`;
         window.history.replaceState(null, "", _v0);
       }
-    }, [_v0]), (0, _v1.jsxs)(_v59.Modal, {
+    }, [_v0]), (0, _v1.jsxs)(_v62.Modal, {
       isOpen: _v0,
       onClose: () => {
         _v1();
       },
       scrollBehavior: "inside",
-      children: [(0, _v1.jsx)(_v60.ModalOverlay, {}), (0, _v1.jsxs)(_v61.ModalContent, {
+      children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v64.ModalContent, {
         maxWidth: (0, _v6.rem)(660),
         maxHeight: (0, _v6.rem)(560),
-        children: [(0, _v1.jsx)(_v62.ModalHeader, {
+        children: [(0, _v1.jsx)(_v65.ModalHeader, {
           children: (0, _v12.translate)({
             singular: "What's new",
             dictionary: {
@@ -1202,30 +1242,30 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v65.ModalCloseButton, {}), (0, _v1.jsx)(_v63.ModalBody, {
+        }), (0, _v1.jsx)(_v68.ModalCloseButton, {}), (0, _v1.jsx)(_v66.ModalBody, {
           ref: _v9,
-          children: (0, _v1.jsxs)(_v66.Stack, {
+          children: (0, _v1.jsxs)(_v69.Stack, {
             gap: "0",
-            children: [0 === _v8.length && (0, _v1.jsx)(_v67.Skeleton, {
+            children: [0 === _v8.length && (0, _v1.jsx)(_v70.Skeleton, {
               width: (0, _v6.rem)(660),
               aspectRatio: "16/9"
-            }), _v8.map((_v0, _v1) => (0, _v1.jsx)(_v81, {
+            }), _v8.map((_v0, _v1) => (0, _v1.jsx)(_v84, {
               announcement: _v0,
               viewer: _v2 ?? void 0,
               scrollRoot: _v9,
               isModalOpen: _v0,
               isFirst: 0 === _v1
-            }, _v1)), !_v4 && _v8.length > 0 && (0, _v1.jsx)(_v82, {
+            }, _v1)), !_v4 && _v8.length > 0 && (0, _v1.jsx)(_v85, {
               isLoadingMore: _v3,
               onLoadMore: () => _v6(_v5 + 1),
               rootRef: _v9
             })]
           })
-        }), (0, _v1.jsx)(_v64.ModalFooter, {})]
+        }), (0, _v1.jsx)(_v67.ModalFooter, {})]
       })]
     });
   }
-  let _v84 = ({
+  let _v87 = ({
     count: _v0,
     showPlus: _v1
   }) => (0, _v1.jsxs)(_v16.Box, {
@@ -1240,24 +1280,24 @@
       children: "+"
     })]
   });
-  var _v85 = _v0.i(0),
-    _v86 = _v0.i(0);
-  let _v87 = (0, _v2.createContext)(!1);
-  var _v88 = _v0.i(0);
-  function _v89({
+  var _v88 = _v0.i(0),
+    _v89 = _v0.i(0);
+  let _v90 = (0, _v2.createContext)(!1);
+  var _v91 = _v0.i(0);
+  function _v92({
     isOpen: _v0,
     onAcknowledge: _v1,
     children: _v2
   }) {
-    return _v0 ? (0, _v1.jsx)(_v87.Provider, {
+    return _v0 ? (0, _v1.jsx)(_v90.Provider, {
       value: !0,
-      children: (0, _v1.jsx)(_v88.AnnouncementPopover, {
+      children: (0, _v1.jsx)(_v91.AnnouncementPopover, {
         isOpen: _v0,
         anchorWithinChildren: !0,
         onAcknowledge: _v1,
         placement: "top-start",
         offset: [0, 8],
-        badge: (0, _v1.jsx)(_v56.Badge, {
+        badge: (0, _v1.jsx)(_v59.Badge, {
           variant: "new",
           size: "sm",
           children: (0, _v1.jsx)(_v22.Text, {
@@ -1349,23 +1389,22 @@
       children: _v2
     });
   }
-  let _v90 = () => () => void 0,
-    _v91 = () => new URLSearchParams(window.location.search).get("changelog"),
-    _v92 = ({
+  let _v93 = () => () => void 0,
+    _v94 = () => new URLSearchParams(window.location.search).get("changelog"),
+    _v95 = ({
       children: _v0
-    }) => (0, _v2.useContext)(_v87) ? (0, _v1.jsx)(_v55.PopoverAnchor, {
+    }) => (0, _v2.useContext)(_v90) ? (0, _v1.jsx)(_v58.PopoverAnchor, {
       children: _v0
     }) : (0, _v1.jsx)(_v1.Fragment, {
       children: _v0
     }),
-    _v93 = ({
+    _v96 = ({
       variant: _v0 = "full",
       hideAnnouncementCount: _v1 = !1,
       isMobile: _v2 = !1,
       hideIntroPopover: _v3 = !1
     }) => {
-      (0, _v20.useViewer)();
-      let _v4 = (0, _v54.useRouter)(),
+      let _v4 = (0, _v57.useRouter)(),
         {
           acknowledge: _v5,
           showIntro: _v6
@@ -1373,15 +1412,15 @@
           isMobile: _v0 = !1,
           hideIntroPopover: _v1 = !1
         } = {}) {
-          let _v2 = (0, _v54.useRouter)(),
+          let _v2 = (0, _v57.useRouter)(),
             _v3 = (0, _v13.useOrionSetting)("enable_whats_new_page"),
             _v4 = "/whats-new" === _v2.pathname,
-            _v5 = (0, _v86.useIsAnnouncementAcknowledged)("whats_new_intro"),
+            _v5 = (0, _v89.useIsAnnouncementAcknowledged)("whats_new_intro"),
             {
               acknowledge: _v6,
               isActive: _v7,
               isLoaded: _v8
-            } = (0, _v86.useAnnouncement)({
+            } = (0, _v89.useAnnouncement)({
               id: "whats_new_intro",
               isEligible: _v3 && !_v4 && !_v0 && !_v1
             }),
@@ -1400,21 +1439,21 @@
         _v8 = (0, _v13.useOrionSetting)("enable_whats_new_page"),
         {
           trackWhatsNewModalOpened: _v9
-        } = _v70(),
+        } = _v73(),
         [_v10, _v11] = (0, _v2.useState)(!1),
-        _v12 = (0, _v2.useSyncExternalStore)(_v90, _v91, () => null),
+        _v12 = (0, _v2.useSyncExternalStore)(_v93, _v94, () => null),
         {
           newAnnouncementsCount: _v13,
           isLoading: _v14
         } = (0, _v8.useChangelog)(),
         _v15 = _v10 || "true" === _v12,
         _v16 = _v8 && "/whats-new" === _v4.pathname;
-      (0, _v85.usePicoEffect)(() => "true" === _v12 && (_v9({
+      (0, _v88.usePicoEffect)(() => "true" === _v12 && (_v9({
         whatsNewModalOpenedManually: !1
       }), !0), [_v12], {
         once: !0
       });
-      let _v17 = (0, _v45.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
+      let _v17 = (0, _v48.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
         _v18 = !_v1 && !!_v13 && parseInt(_v13.count) > 0,
         _v19 = () => {
           _v11(!0), _v9({
@@ -1436,7 +1475,7 @@
             whatsNewModalOpenedManually: !0
           });
         },
-        _v23 = _v0 => _v7 ? (0, _v1.jsx)(_v89, {
+        _v23 = _v0 => _v7 ? (0, _v1.jsx)(_v92, {
           isOpen: !0,
           onAcknowledge: _v5,
           children: _v0
@@ -1481,7 +1520,7 @@
           children: (0, _v1.jsxs)(_v16.Box, {
             position: "relative",
             width: "max-content",
-            children: [(0, _v1.jsx)(_v92, {
+            children: [(0, _v1.jsx)(_v95, {
               children: (0, _v1.jsx)(_v4.IconButton, {
                 "aria-label": (0, _v12.translate)({
                   singular: "What's new",
@@ -1509,7 +1548,7 @@
                     }
                   }
                 }),
-                icon: _v16 ? (0, _v1.jsx)(_v58, {}) : (0, _v1.jsx)(_v57, {}),
+                icon: _v16 ? (0, _v1.jsx)(_v61, {}) : (0, _v1.jsx)(_v60, {}),
                 variant: "tertiary",
                 size: "md",
                 fontSize: (0, _v6.rem)(24),
@@ -1536,7 +1575,7 @@
                   "aria-expanded": _v15
                 })
               })
-            }), _v18 && (0, _v1.jsx)(_v56.Badge, {
+            }), _v18 && (0, _v1.jsx)(_v59.Badge, {
               variant: "new",
               size: "sm",
               borderRadius: "full",
@@ -1547,7 +1586,7 @@
               height: (0, _v6.rem)(16),
               textAlign: "center",
               pointerEvents: "none",
-              children: (0, _v1.jsx)(_v84, {
+              children: (0, _v1.jsx)(_v87, {
                 count: _v13.count,
                 showPlus: _v13.showPlus
               })
@@ -1555,23 +1594,23 @@
           })
         });
         return (0, _v1.jsxs)(_v1.Fragment, {
-          children: [_v23(_v0), !_v8 && (0, _v1.jsx)(_v83, {
+          children: [_v23(_v0), !_v8 && (0, _v1.jsx)(_v86, {
             isOpen: _v15,
             onClose: _v21
           })]
         });
       }
-      let _v24 = _v16 ? (0, _v1.jsx)(_v58, {
+      let _v24 = _v16 ? (0, _v1.jsx)(_v61, {
         boxSize: "lg"
-      }) : (0, _v1.jsx)(_v57, {
+      }) : (0, _v1.jsx)(_v60, {
         boxSize: "lg"
       });
       return (0, _v1.jsxs)(_v3.Flex, {
         flexDirection: "column",
         gap: 10,
         marginTop: -10,
-        children: [_v8 ? _v23((0, _v1.jsx)(_v53.MenuItem, {
-          icon: (0, _v1.jsx)(_v92, {
+        children: [_v8 ? _v23((0, _v1.jsx)(_v56.MenuItem, {
+          icon: (0, _v1.jsx)(_v95, {
             children: _v24
           }),
           iconSize: "1.5rem",
@@ -1606,14 +1645,14 @@
           dataId: "side_nav_whats_new_menu_item",
           active: _v16,
           borderRadius: (0, _v6.rem)(12),
-          action: _v18 ? (0, _v1.jsx)(_v56.Badge, {
+          action: _v18 ? (0, _v1.jsx)(_v59.Badge, {
             variant: "new",
             size: "sm",
             borderRadius: "full",
             minWidth: (0, _v6.rem)(20),
             height: (0, _v6.rem)(20),
             textAlign: "center",
-            children: (0, _v1.jsx)(_v84, {
+            children: (0, _v1.jsx)(_v87, {
               count: _v13.count,
               showPlus: _v13.showPlus
             })
@@ -1632,8 +1671,8 @@
           onKeyDown: _v20,
           "aria-haspopup": "dialog",
           "aria-expanded": _v15,
-          children: [(0, _v1.jsx)(_v53.MenuItem, {
-            icon: (0, _v1.jsx)(_v57, {
+          children: [(0, _v1.jsx)(_v56.MenuItem, {
+            icon: (0, _v1.jsx)(_v60, {
               boxSize: "lg"
             }),
             iconSize: "1.5rem",
@@ -1665,19 +1704,19 @@
             }),
             dataId: "side_nav_whats_new_menu_item",
             hoverBackgroundColor: "none"
-          }), _v18 && (0, _v1.jsx)(_v56.Badge, {
+          }), _v18 && (0, _v1.jsx)(_v59.Badge, {
             variant: "new",
             size: "sm",
             borderRadius: "full",
             minWidth: (0, _v6.rem)(20),
             height: (0, _v6.rem)(20),
             textAlign: "center",
-            children: (0, _v1.jsx)(_v84, {
+            children: (0, _v1.jsx)(_v87, {
               count: _v13.count,
               showPlus: _v13.showPlus
             })
           })]
-        }), !_v8 && (0, _v1.jsx)(_v83, {
+        }), !_v8 && (0, _v1.jsx)(_v86, {
           isOpen: _v15,
           onClose: _v21
         })]
@@ -1696,7 +1735,7 @@
     hideWhatsNewIntroPopover: _v9 = !1,
     bundlePromo: _v10
   }) => {
-    let _v11 = (0, _v2.useContext)(_v52.ViewerContext),
+    let _v11 = (0, _v2.useContext)(_v55.ViewerContext),
       _v12 = (0, _v13.useOrionSetting)("enable_whats_new_page"),
       {
         trackSidebarNavClicked: _v13
@@ -1801,7 +1840,7 @@
         children: _v10
       }, "bundle-promo"), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
         lastSeenSource: _v19,
-        children: (0, _v1.jsx)(_v93, {
+        children: (0, _v1.jsx)(_v96, {
           variant: "icons",
           hideAnnouncementCount: _v8,
           isMobile: _v1,
@@ -1813,7 +1852,7 @@
           height: (0, _v6.rem)(40),
           width: (0, _v6.rem)(40)
         }
-      }) : _v4 && _v6.uploadQuota ? (0, _v1.jsx)(_v51, {
+      }) : _v4 && _v6.uploadQuota ? (0, _v1.jsx)(_v54, {
         isMobile: _v1,
         uploadQuota: _v6.uploadQuota,
         aiCreditsQuota: _v6.aiCreditsQuota,
@@ -1835,7 +1874,7 @@
       }) : (0, _v1.jsxs)(_v3.Flex, {
         flexDirection: "column",
         gap: 10,
-        children: [(0, _v1.jsx)(_v53.MenuItem, {
+        children: [(0, _v1.jsx)(_v56.MenuItem, {
           icon: (0, _v1.jsx)(_v7.WatchPlay, {}),
           iconSize: (0, _v6.rem)(24),
           label: (0, _v12.translate)({
@@ -1872,7 +1911,7 @@
         children: _v10
       }, "bundle-promo"), _v3 && (0, _v1.jsx)(_v8.ChangelogProvider, {
         lastSeenSource: _v19,
-        children: (0, _v1.jsx)(_v93, {
+        children: (0, _v1.jsx)(_v96, {
           hideAnnouncementCount: _v8,
           isMobile: _v1,
           hideIntroPopover: _v9
@@ -1882,7 +1921,7 @@
           borderRadius: (0, _v6.rem)(10),
           height: (0, _v6.rem)(60)
         }
-      }) : _v4 && _v6.uploadQuota && (0, _v1.jsx)(_v43, {
+      }) : _v4 && _v6.uploadQuota && (0, _v1.jsx)(_v46, {
         isMobile: _v1,
         onUpgradeClick: _v7,
         ..._v6,
@@ -1890,7 +1929,7 @@
         showAutoRenewBadge: !0
       })]
     });
-  }], 0), _v0.s(["CollapseDrawer", 0, _v0 => (0, _v1.jsx)(_v46.Icon, {
+  }], 0), _v0.s(["CollapseDrawer", 0, _v0 => (0, _v1.jsx)(_v49.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -1904,7 +1943,7 @@
         d: "M7 3a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4H7Zm10 2h-7v14h7a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2ZM7 5h1v14H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
       })]
     })
-  })], 0), _v0.s(["ExpandDrawer", 0, _v0 => (0, _v1.jsx)(_v46.Icon, {
+  })], 0), _v0.s(["ExpandDrawer", 0, _v0 => (0, _v1.jsx)(_v49.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",

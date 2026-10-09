@@ -23,9 +23,8 @@
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
-    _v23 = _v0.i(0),
-    _v24 = _v0.i(0);
-  let _v25 = ({
+    _v23 = _v0.i(0);
+  let _v24 = ({
       searchString: _v0,
       onSearchChange: _v1,
       onSearchClear: _v2,
@@ -37,21 +36,21 @@
       _v7 !== _v0 && (_v8(_v0), _v6(_v0));
       let _v9 = (0, _v3.useRef)(null),
         _v10 = 0;
-      return _v5 && (_v10 += 32), (0, _v1.jsx)(_v5.Flex, {
+      return _v5 && (_v10 += 32), (0, _v1.jsx)(_v4.Flex, {
         justify: "right",
         align: "center",
         gap: 10,
-        children: (0, _v1.jsxs)(_v21.InputGroup, {
+        children: (0, _v1.jsxs)(_v20.InputGroup, {
           size: "md",
-          children: [(0, _v1.jsx)(_v22.InputLeftElement, {
-            children: (0, _v1.jsx)(_v24.SearchMagnifier, {
+          children: [(0, _v1.jsx)(_v21.InputLeftElement, {
+            children: (0, _v1.jsx)(_v23.SearchMagnifier, {
               boxSize: "20px",
               color: "text-secondary"
             })
-          }), (0, _v1.jsx)(_v20.Input, {
+          }), (0, _v1.jsx)(_v19.Input, {
             isDisabled: _v4,
             id: "search",
-            w: (0, _v15.rem)(300),
+            w: (0, _v14.rem)(300),
             pr: _v10,
             role: "search",
             autoComplete: "false",
@@ -70,11 +69,11 @@
             onChange: _v0 => {
               _v6(_v0.currentTarget.value), _v1(_v0.currentTarget.value);
             }
-          }), (0, _v1.jsx)(_v22.InputRightElement, {
+          }), (0, _v1.jsx)(_v21.InputRightElement, {
             w: _v10,
             mr: "xs",
             justifyContent: "space-between",
-            children: _v5 && (0, _v1.jsx)(_v23.CloseXCircleFilled, {
+            children: _v5 && (0, _v1.jsx)(_v22.CloseXCircleFilled, {
               onClick: () => {
                 _v6(""), _v2();
               },
@@ -86,7 +85,7 @@
         })
       });
     },
-    _v26 = ({
+    _v25 = ({
       appliedFilters: _v0,
       onFiltersApplied: _v1,
       onClearFilters: _v2,
@@ -100,7 +99,7 @@
         [_v12, _v13] = (0, _v3.useState)("");
       _v10 !== _v0 && (_v11(_v0), _v9(_v0));
       let _v14 = _v12.length > 0 ? _v8.filter(_v0 => _v0.label.toLowerCase().includes(_v12.toLowerCase())) : _v8;
-      (0, _v16.useOutsideClick)({
+      (0, _v15.useOutsideClick)({
         enabled: _v6,
         ref: _v4,
         handler: _v0 => {
@@ -108,45 +107,45 @@
         }
       });
       let _v15 = () => !_v8.some(_v0 => _v0.applied);
-      return (0, _v1.jsxs)(_v12.Popover, {
+      return (0, _v1.jsxs)(_v11.Popover, {
         isOpen: _v6,
         placement: "bottom-start",
-        children: [(0, _v1.jsx)(_v14.PopoverTrigger, {
-          children: (0, _v1.jsx)(_v11.IconButton, {
+        children: [(0, _v1.jsx)(_v13.PopoverTrigger, {
+          children: (0, _v1.jsx)(_v10.IconButton, {
             isDisabled: _v3,
             onClick: () => _v7(!_v6),
             ref: _v5,
             "aria-label": "open-modifiers",
             isActive: _v6,
             size: "md",
-            icon: _v15() ? (0, _v1.jsx)(_v17.FiltersLevers, {}) : (0, _v1.jsx)(_v18.FiltersLeversFilled, {}),
+            icon: _v15() ? (0, _v1.jsx)(_v16.FiltersLevers, {}) : (0, _v1.jsx)(_v17.FiltersLeversFilled, {}),
             variant: "secondary",
             sx: {
               svg: {
-                width: (0, _v15.rem)(25),
-                height: (0, _v15.rem)(21)
+                width: (0, _v14.rem)(25),
+                height: (0, _v14.rem)(21)
               }
             }
           })
-        }), (0, _v1.jsx)(_v13.PopoverContent, {
+        }), (0, _v1.jsx)(_v12.PopoverContent, {
           padding: "75",
           borderRadius: "md",
-          maxWidth: (0, _v15.rem)(318),
-          children: (0, _v1.jsxs)(_v5.Flex, {
+          maxWidth: (0, _v14.rem)(318),
+          children: (0, _v1.jsxs)(_v4.Flex, {
             ref: _v4,
             flexDirection: "column",
-            children: [(0, _v1.jsx)(_v25, {
+            children: [(0, _v1.jsx)(_v24, {
               searchString: _v12,
               onSearchChange: _v0 => _v13(_v0),
               onSearchClear: () => _v13(""),
-              placeholder: _v19.T.Search
-            }), (0, _v1.jsx)(_v5.Flex, {
+              placeholder: _v18.T.Search
+            }), (0, _v1.jsx)(_v4.Flex, {
               flexDirection: "column",
               alignItems: "start",
               width: "100%",
-              maxHeight: (0, _v15.rem)(400),
+              maxHeight: (0, _v14.rem)(400),
               overflowY: "auto",
-              children: _v14.map(_v0 => (0, _v1.jsx)(_v10.Checkbox, {
+              children: _v14.map(_v0 => (0, _v1.jsx)(_v9.Checkbox, {
                 alignSelf: "flex-start",
                 padding: "75",
                 id: "filter-" + _v0.label + "-" + _v0.value,
@@ -159,38 +158,38 @@
                 isChecked: _v0.applied,
                 children: _v0.label
               }, _v0.value))
-            }, 1), (0, _v1.jsxs)(_v5.Flex, {
+            }, 1), (0, _v1.jsxs)(_v4.Flex, {
               gap: "75",
               paddingTop: "75",
               width: "100%",
               justifyContent: "flex-end",
-              children: [(0, _v1.jsx)(_v9.Button, {
+              children: [(0, _v1.jsx)(_v8.Button, {
                 size: "sm",
                 isDisabled: _v15(),
                 variant: "tertiary",
                 onClick: () => {
                   _v2(), _v9(_v8.map(_v0 => (_v0.applied = !1, _v0))), _v7(!1);
                 },
-                children: _v19.T.ClearAll
-              }), (0, _v1.jsx)(_v9.Button, {
+                children: _v18.T.ClearAll
+              }), (0, _v1.jsx)(_v8.Button, {
                 size: "sm",
                 variant: "primary",
                 onClick: () => {
                   _v7(!1), _v1(_v8);
                 },
-                children: _v15() ? _v19.T.Apply : _v19.T.AppliedEvents(_v8.filter(_v0 => _v0.applied).length)
+                children: _v15() ? _v18.T.Apply : _v18.T.AppliedEvents(_v8.filter(_v0 => _v0.applied).length)
               })]
             })]
           })
         })]
       });
     };
-  var _v27 = _v0.i(0),
+  var _v26 = _v0.i(0),
+    _v27 = _v0.i(0),
     _v28 = _v0.i(0),
-    _v29 = _v0.i(0),
-    _v30 = _v0.i(0);
-  let _v31 = {
-      Apply: (0, _v30.translate)({
+    _v29 = _v0.i(0);
+  let _v30 = {
+      Apply: (0, _v29.translate)({
         singular: "Apply",
         dictionary: {
           es: {
@@ -216,7 +215,7 @@
           }
         }
       }),
-      AreYouSure: (0, _v30.translate)({
+      AreYouSure: (0, _v29.translate)({
         singular: "Are you sure?",
         dictionary: {
           es: {
@@ -242,7 +241,7 @@
           }
         }
       }),
-      AuditLogs: (0, _v30.translate)({
+      AuditLogs: (0, _v29.translate)({
         singular: "Audit logs",
         dictionary: {
           es: {
@@ -268,7 +267,7 @@
           }
         }
       }),
-      AuditLogsEnable: (0, _v30.translate)({
+      AuditLogsEnable: (0, _v29.translate)({
         singular: "Enable audit logs",
         dictionary: {
           es: {
@@ -294,7 +293,7 @@
           }
         }
       }),
-      AuditLogsDisableWarning: [(0, _v30.translate)({
+      AuditLogsDisableWarning: [(0, _v29.translate)({
         singular: "When you disable audit logs, you will no longer be able to view existing logs in your account and Vimeo will no longer log your users' activity.",
         dictionary: {
           es: {
@@ -319,7 +318,7 @@
             singular: "当您禁用审计日志时，您将无法查看帐户中现有的日志，Vimeo 也将不再记录您用户的活动。"
           }
         }
-      }), (0, _v30.translate)({
+      }), (0, _v29.translate)({
         singular: "You will not be able to retroactively view any activity from the period when audit logs has been turned off.",
         dictionary: {
           es: {
@@ -345,7 +344,7 @@
           }
         }
       })],
-      AuditLogsPageDescription: (0, _v30.translate)({
+      AuditLogsPageDescription: (0, _v29.translate)({
         singular: "Audit logs create a historical and sequential record of your users' activity in your Vimeo account. They contain a record of the events that occurred, the time they occurred, the responsible users or services, and the impacted entities.",
         dictionary: {
           es: {
@@ -371,7 +370,7 @@
           }
         }
       }),
-      User: (0, _v30.translate)({
+      User: (0, _v29.translate)({
         singular: "User",
         dictionary: {
           es: {
@@ -397,7 +396,7 @@
           }
         }
       }),
-      ClearAll: (0, _v30.translate)({
+      ClearAll: (0, _v29.translate)({
         singular: "Clear all",
         dictionary: {
           es: {
@@ -423,7 +422,7 @@
           }
         }
       }),
-      EventName: (0, _v30.translate)({
+      EventName: (0, _v29.translate)({
         singular: "Event name",
         dictionary: {
           es: {
@@ -449,7 +448,7 @@
           }
         }
       }),
-      Privacy: (0, _v30.translate)({
+      Privacy: (0, _v29.translate)({
         singular: "Privacy",
         dictionary: {
           es: {
@@ -475,7 +474,7 @@
           }
         }
       }),
-      AffectedObjects: (0, _v30.translate)({
+      AffectedObjects: (0, _v29.translate)({
         singular: "Affected objects",
         dictionary: {
           es: {
@@ -501,7 +500,7 @@
           }
         }
       }),
-      Date: (0, _v30.translate)({
+      Date: (0, _v29.translate)({
         singular: "Date",
         dictionary: {
           es: {
@@ -527,7 +526,7 @@
           }
         }
       }),
-      ExportToCsv: (0, _v30.translate)({
+      ExportToCsv: (0, _v29.translate)({
         singular: "Export to CSV",
         dictionary: {
           es: {
@@ -553,7 +552,7 @@
           }
         }
       }),
-      FilterBy: (0, _v30.translate)({
+      FilterBy: (0, _v29.translate)({
         singular: "Filter by",
         dictionary: {
           es: {
@@ -579,7 +578,7 @@
           }
         }
       }),
-      Location: (0, _v30.translate)({
+      Location: (0, _v29.translate)({
         singular: "Location",
         dictionary: {
           es: {
@@ -605,7 +604,7 @@
           }
         }
       }),
-      NoEntries: (0, _v30.translate)({
+      NoEntries: (0, _v29.translate)({
         singular: "No entries found",
         dictionary: {
           es: {
@@ -631,7 +630,7 @@
           }
         }
       }),
-      NotLogging: (0, _v30.translate)({
+      NotLogging: (0, _v29.translate)({
         singular: "Vimeo is not currently logging your account activity.",
         dictionary: {
           es: {
@@ -657,7 +656,7 @@
           }
         }
       }),
-      SelectDate: (0, _v30.translate)({
+      SelectDate: (0, _v29.translate)({
         singular: "Select Date",
         dictionary: {
           es: {
@@ -683,7 +682,7 @@
           }
         }
       }),
-      TrySearchDifferent: (0, _v30.translate)({
+      TrySearchDifferent: (0, _v29.translate)({
         singular: "Try searching something different or change the date range.",
         dictionary: {
           es: {
@@ -709,7 +708,7 @@
           }
         }
       }),
-      ResetView: (0, _v30.translate)({
+      ResetView: (0, _v29.translate)({
         singular: "Reset view",
         dictionary: {
           es: {
@@ -735,7 +734,7 @@
           }
         }
       }),
-      ToEnableAuditLogs: (0, _v30.translate)({
+      ToEnableAuditLogs: (0, _v29.translate)({
         singular: "To enable audit logs, toggle the switch above.",
         dictionary: {
           es: {
@@ -761,7 +760,7 @@
           }
         }
       }),
-      Workspaces: (0, _v30.translate)({
+      Workspaces: (0, _v29.translate)({
         singular: "Workspaces",
         dictionary: {
           es: {
@@ -784,7 +783,7 @@
           }
         }
       }),
-      Today: (0, _v30.translate)({
+      Today: (0, _v29.translate)({
         singular: "Today",
         dictionary: {
           es: {
@@ -810,7 +809,7 @@
           }
         }
       }),
-      Yesterday: (0, _v30.translate)({
+      Yesterday: (0, _v29.translate)({
         singular: "Yesterday",
         dictionary: {
           es: {
@@ -836,7 +835,7 @@
           }
         }
       }),
-      lastXDays: _v0 => (0, _v30.translate)({
+      lastXDays: _v0 => (0, _v29.translate)({
         singular: "Last {COUNT} days",
         replacements: {
           COUNT: _v0
@@ -865,7 +864,7 @@
           }
         }
       }),
-      CurrentMonth: (0, _v30.translate)({
+      CurrentMonth: (0, _v29.translate)({
         singular: "Current month",
         dictionary: {
           es: {
@@ -891,7 +890,7 @@
           }
         }
       }),
-      LastMonth: (0, _v30.translate)({
+      LastMonth: (0, _v29.translate)({
         singular: "Last month",
         dictionary: {
           es: {
@@ -917,7 +916,7 @@
           }
         }
       }),
-      ChangesSaved: (0, _v30.translate)({
+      ChangesSaved: (0, _v29.translate)({
         singular: "Changes saved",
         dictionary: {
           es: {
@@ -943,7 +942,7 @@
           }
         }
       }),
-      AuditLogMadeByStaff: (0, _v30.translate)({
+      AuditLogMadeByStaff: (0, _v29.translate)({
         singular: "This event was done by a Vimeo agent on your behalf.",
         dictionary: {
           es: {
@@ -969,7 +968,7 @@
           }
         }
       }),
-      SearchByUser: (0, _v30.translate)({
+      SearchByUser: (0, _v29.translate)({
         singular: "Search by user",
         dictionary: {
           es: {
@@ -997,9 +996,9 @@
       })
     },
     {
-      startOfMonth: _v32
-    } = _v28.BokehDate,
-    _v33 = ({
+      startOfMonth: _v31
+    } = _v27.BokehDate,
+    _v32 = ({
       disabled: _v0,
       handleViewEventsClick: _v1,
       dateRange: _v2
@@ -1015,49 +1014,49 @@
         }, [_v1]),
         _v4 = (0, _v3.useMemo)(() => {
           let _v0, _v1, _v2, _v3, _v4;
-          return _v0 = new Date(), _v3 = (_v2 = _v32(_v1 = (0, _v8.jsDateToCalendarDate)(_v0))).subtract({
+          return _v0 = new Date(), _v3 = (_v2 = _v31(_v1 = (0, _v7.jsDateToCalendarDate)(_v0))).subtract({
             days: 1
-          }), _v4 = _v32(_v3), [{
-            label: _v31.Today,
+          }), _v4 = _v31(_v3), [{
+            label: _v30.Today,
             value: "today"
           }, {
-            label: _v31.Yesterday,
+            label: _v30.Yesterday,
             value: "yesterday"
           }, {
-            label: _v31.lastXDays(7),
+            label: _v30.lastXDays(7),
             value: {
               division: "past",
               group: "days",
               count: 6
             }
           }, {
-            label: _v31.lastXDays(30),
+            label: _v30.lastXDays(30),
             value: {
               division: "past",
               group: "days",
               count: 30
             }
           }, {
-            label: _v31.lastXDays(365),
+            label: _v30.lastXDays(365),
             value: {
               division: "past",
               group: "days",
               count: 364
             }
           }, {
-            label: _v31.CurrentMonth,
+            label: _v30.CurrentMonth,
             range: [_v2, _v1]
           }, {
-            label: _v31.LastMonth,
+            label: _v30.LastMonth,
             range: [_v4, _v3]
           }];
         }, []),
         _v5 = new Date(),
         _v6 = new Date();
-      return _v6.setFullYear(_v5.getFullYear() - 1), (0, _v1.jsx)(_v5.Flex, {
+      return _v6.setFullYear(_v5.getFullYear() - 1), (0, _v1.jsx)(_v4.Flex, {
         gap: "100",
         justifyContent: "flex-end",
-        children: (0, _v1.jsx)(_v29.RangePicker, {
+        children: (0, _v1.jsx)(_v28.RangePicker, {
           disabled: _v0,
           presets: _v4,
           placement: "bottom-start",
@@ -1065,20 +1064,20 @@
           maxDate: _v5,
           minDate: _v6,
           value: _v2,
-          defaultButtonText: _v31.SelectDate
+          defaultButtonText: _v30.SelectDate
         })
       });
     };
-  var _v34 = _v0.i(0),
+  var _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
     _v35 = _v0.i(0),
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
     _v39 = _v0.i(0),
     _v40 = _v0.i(0),
-    _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  let _v43 = ({
+    _v41 = _v0.i(0);
+  let _v42 = ({
     ownerId: _v0,
     orgUuid: _v1,
     workspaceUuid: _v2,
@@ -1087,12 +1086,12 @@
   }) => {
     let [_v5, _v6] = (0, _v3.useState)(!1),
       [_v7, _v8] = (0, _v3.useState)(!1),
-      _v9 = (0, _v35.useToast)(),
+      _v9 = (0, _v34.useToast)(),
       {
         teamSettingsResult: _v10,
         teamSettingsLoading: _v11,
         teamSettingsError: _v12
-      } = (0, _v42.useGetTeamSettings)({
+      } = (0, _v41.useGetTeamSettings)({
         userId: _v0,
         orgUuid: _v1,
         workspaceUuid: _v2,
@@ -1102,7 +1101,7 @@
         teamSettingsUpdateError: _v13,
         teamSettingsUpdateLoading: _v14,
         onUpdateSetting: _v15
-      } = (0, _v40.useUpdateTeamSettings)({
+      } = (0, _v39.useUpdateTeamSettings)({
         userId: _v0,
         orgUuid: _v1,
         workspaceUuid: _v2
@@ -1111,8 +1110,8 @@
       _v10 && (_v6(_v10.auditLogs), _v3(_v10.auditLogs));
     }, [_v3, _v10]), (0, _v3.useEffect)(() => {
       (_v12 || _v13) && _v9({
-        duration: _v27.NOTIFICATION_DURATION,
-        title: (0, _v30.translate)({
+        duration: _v26.NOTIFICATION_DURATION,
+        title: (0, _v29.translate)({
           singular: "Something went wrong. Please try again.",
           dictionary: {
             es: {
@@ -1151,32 +1150,32 @@
           }), _v6(_v0), _v3(_v0);
         }
       }, [_v5, _v3, _v15, _v13, _v14]);
-    return (0, _v1.jsxs)(_v5.Flex, {
+    return (0, _v1.jsxs)(_v4.Flex, {
       alignItems: "center",
       paddingLeft: "75",
       overflow: "hidden",
-      children: [(0, _v1.jsx)(_v34.Switch, {
+      children: [(0, _v1.jsx)(_v33.Switch, {
         isDisabled: _v11 || _v14,
         onChange: _v5 ? () => _v8(!0) : _v17,
         isChecked: _v5,
         size: "md"
-      }), (0, _v1.jsx)(_v39.Box, {
+      }), (0, _v1.jsx)(_v38.Box, {
         paddingY: "50",
-        children: (0, _v1.jsxs)(_v36.Modal, {
+        children: (0, _v1.jsxs)(_v35.Modal, {
           size: "md",
           isOpen: _v7,
           onClose: () => void 0,
-          children: [(0, _v1.jsx)(_v37.ModalOverlay, {}), (0, _v1.jsx)(_v38.ModalContent, {
-            children: (0, _v1.jsx)(_v41.ConfirmModalContent, {
+          children: [(0, _v1.jsx)(_v36.ModalOverlay, {}), (0, _v1.jsx)(_v37.ModalContent, {
+            children: (0, _v1.jsx)(_v40.ConfirmModalContent, {
               closeModal: _v16,
               onConfirmed: () => {
                 _v16(), _v17(), _v9({
-                  duration: _v27.NOTIFICATION_DURATION,
-                  title: _v31.ChangesSaved
+                  duration: _v26.NOTIFICATION_DURATION,
+                  title: _v30.ChangesSaved
                 });
               },
-              headerText: _v31.AreYouSure,
-              contentText: _v31.AuditLogsDisableWarning.map((_v0, _v1) => (0, _v1.jsxs)("span", {
+              headerText: _v30.AreYouSure,
+              contentText: _v30.AuditLogsDisableWarning.map((_v0, _v1) => (0, _v1.jsxs)("span", {
                 children: [(0, _v1.jsx)("br", {}), _v0, (0, _v1.jsx)("br", {})]
               }, _v1)),
               confirmButtonVariant: "destructive"
@@ -1186,7 +1185,8 @@
       })]
     });
   };
-  var _v44 = _v0.i(0),
+  var _v43 = _v0.i(0),
+    _v44 = _v0.i(0),
     _v45 = _v0.i(0),
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
@@ -1194,9 +1194,8 @@
     _v49 = _v0.i(0),
     _v50 = _v0.i(0),
     _v51 = _v0.i(0),
-    _v52 = _v0.i(0),
-    _v53 = _v0.i(0);
-  let _v54 = ({
+    _v52 = _v0.i(0);
+  let _v53 = ({
     orgUuid: _v0,
     disabled: _v1,
     workspacesUrisInitState: _v2,
@@ -1205,7 +1204,7 @@
     let {
         data: _v4,
         isLoading: _v5
-      } = (0, _v51.useGetOrganizationWorkspacesInfinite)(() => _v0 ? {
+      } = (0, _v50.useGetOrganizationWorkspacesInfinite)(() => _v0 ? {
         select: ["uri", "displayName", "icon"],
         where: {
           orgUuid: _v0
@@ -1220,50 +1219,50 @@
         isOpen: _v13,
         onClose: _v14,
         onToggle: _v15
-      } = (0, _v53.usePopoverOutsideClick)(),
+      } = (0, _v52.usePopoverOutsideClick)(),
       _v16 = (0, _v3.useMemo)(() => _v4?.flatMap(_v0 => _v0.data) ?? [], [_v4]);
-    return (0, _v1.jsx)(_v39.Box, {
+    return (0, _v1.jsx)(_v38.Box, {
       ref: _v12,
       as: "div",
-      children: (0, _v1.jsxs)(_v12.Popover, {
+      children: (0, _v1.jsxs)(_v11.Popover, {
         isOpen: _v13,
         onClose: _v14,
         placement: "bottom-start",
         isLazy: !0,
-        children: [(0, _v1.jsx)(_v14.PopoverTrigger, {
-          children: (0, _v1.jsxs)(_v9.Button, {
+        children: [(0, _v1.jsx)(_v13.PopoverTrigger, {
+          children: (0, _v1.jsxs)(_v8.Button, {
             isDisabled: _v1 || _v5,
             isLoading: _v5,
             onClick: _v15,
             variant: "secondary",
-            rightIcon: (0, _v1.jsx)(_v50.ChevronDownSmall, {}),
+            rightIcon: (0, _v1.jsx)(_v49.ChevronDownSmall, {}),
             fontWeight: "500",
-            children: [_v31.Workspaces, " ", _v8 ? "(" + _v8 + ")" : ""]
+            children: [_v30.Workspaces, " ", _v8 ? "(" + _v8 + ")" : ""]
           })
-        }), (0, _v1.jsxs)(_v13.PopoverContent, {
-          children: [(0, _v1.jsx)(_v48.PopoverBody, {
-            children: (0, _v1.jsx)(_v44.CheckboxGroup, {
+        }), (0, _v1.jsxs)(_v12.PopoverContent, {
+          children: [(0, _v1.jsx)(_v47.PopoverBody, {
+            children: (0, _v1.jsx)(_v43.CheckboxGroup, {
               value: _v6,
               onChange: _v0 => {
                 _v7([..._v0]);
               },
-              children: (0, _v1.jsx)(_v47.VStack, {
+              children: (0, _v1.jsx)(_v46.VStack, {
                 align: "start",
-                minW: (0, _v15.rem)(200),
+                minW: (0, _v14.rem)(200),
                 gap: "md",
                 m: "sm",
-                children: _v16.map(_v0 => (0, _v1.jsx)(_v10.Checkbox, {
+                children: _v16.map(_v0 => (0, _v1.jsx)(_v9.Checkbox, {
                   size: "md",
                   id: _v0.uri,
                   value: _v0.uri,
-                  children: (0, _v1.jsxs)(_v45.HStack, {
-                    children: [(0, _v1.jsx)(_v52.WorkspaceLogo, {
+                  children: (0, _v1.jsxs)(_v44.HStack, {
+                    children: [(0, _v1.jsx)(_v51.WorkspaceLogo, {
                       borderRadius: "input-xs",
                       boxSize: "xs",
                       fallbackAvatarSize: "xs",
                       label: _v0.displayName,
                       logoUrl: _v0.icon?.sizes[0]?.link
-                    }), (0, _v1.jsx)(_v46.Text, {
+                    }), (0, _v1.jsx)(_v45.Text, {
                       variant: "body-md",
                       children: _v0.displayName
                     })]
@@ -1271,27 +1270,27 @@
                 }, _v0.uri))
               })
             })
-          }), (0, _v1.jsx)(_v49.PopoverFooter, {
-            children: (0, _v1.jsxs)(_v39.Box, {
+          }), (0, _v1.jsx)(_v48.PopoverFooter, {
+            children: (0, _v1.jsxs)(_v38.Box, {
               display: "flex",
               justifyContent: "end",
               width: "100%",
               gap: "sm",
-              children: [(0, _v1.jsx)(_v9.Button, {
+              children: [(0, _v1.jsx)(_v8.Button, {
                 isDisabled: 0 === _v6.length,
                 variant: "secondary",
                 size: "sm",
                 onClick: () => {
                   _v6.length && (_v7([]), _v9(0), _v3([])), _v14();
                 },
-                children: _v31.ClearAll
-              }), (0, _v1.jsx)(_v9.Button, {
+                children: _v30.ClearAll
+              }), (0, _v1.jsx)(_v8.Button, {
                 variant: "primary",
                 size: "sm",
                 onClick: () => {
                   _v9(_v6.length), _v3(_v6), _v14();
                 },
-                children: _v31.Apply
+                children: _v30.Apply
               })]
             })
           })]
@@ -1299,15 +1298,15 @@
       })
     });
   };
-  var _v55 = _v0.i(0),
+  var _v54 = _v0.i(0),
+    _v55 = _v0.i(0),
     _v56 = _v0.i(0),
     _v57 = _v0.i(0),
     _v58 = _v0.i(0),
     _v59 = _v0.i(0),
     _v60 = _v0.i(0),
-    _v61 = _v0.i(0),
-    _v62 = _v0.i(0);
-  async function _v63({
+    _v61 = _v0.i(0);
+  async function _v62({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1316,24 +1315,24 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v61.measureLatency)("getOrganizationAuditLogs", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/organizations/${_v2}/audit_logs?${(0, _v62.searchQueryString)(_v3)}&fields=${_v1.map(_v62.intoSnakeCase).join(",")}`, {
+    return (0, _v60.measureLatency)("getOrganizationAuditLogs", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/organizations/${_v2}/audit_logs?${(0, _v61.searchQueryString)(_v3)}&fields=${_v1.map(_v61.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v62.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v61.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v62.deepCamelCase)(_v1);
+      return (0, _v61.deepCamelCase)(_v1);
     });
   }
   _v0.i(0);
-  var _v64 = _v0.i(0),
-    _v65 = _v0.i(0);
+  var _v63 = _v0.i(0),
+    _v64 = _v0.i(0);
   _v0.i(0);
-  var _v66 = _v0.i(0);
-  async function _v67({
+  var _v65 = _v0.i(0);
+  async function _v66({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1342,19 +1341,19 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v61.measureLatency)("getTeamAuditLogs", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/teams/${_v2}/audit_logs?${(0, _v62.searchQueryString)(_v3)}&fields=${_v1.map(_v62.intoSnakeCase).join(",")}`, {
+    return (0, _v60.measureLatency)("getTeamAuditLogs", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/teams/${_v2}/audit_logs?${(0, _v61.searchQueryString)(_v3)}&fields=${_v1.map(_v61.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v62.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v61.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v62.deepCamelCase)(_v1);
+      return (0, _v61.deepCamelCase)(_v1);
     });
   }
-  async function _v68({
+  async function _v67({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1363,23 +1362,23 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v61.measureLatency)("getWorkspaceAuditLogs", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/workspaces/${_v2}/audit_logs?${(0, _v62.searchQueryString)(_v3)}&fields=${_v1.map(_v62.intoSnakeCase).join(",")}`, {
+    return (0, _v60.measureLatency)("getWorkspaceAuditLogs", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/workspaces/${_v2}/audit_logs?${(0, _v61.searchQueryString)(_v3)}&fields=${_v1.map(_v61.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v62.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v61.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v62.deepCamelCase)(_v1);
+      return (0, _v61.deepCamelCase)(_v1);
     });
   }
-  var _v69 = _v0.i(0),
+  var _v68 = _v0.i(0),
+    _v69 = _v0.i(0),
     _v70 = _v0.i(0),
-    _v71 = _v0.i(0),
-    _v72 = _v0.i(0);
-  let _v73 = _v0 => (0, _v1.jsx)(_v72.Icon, {
+    _v71 = _v0.i(0);
+  let _v72 = _v0 => (0, _v1.jsx)(_v71.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -1402,40 +1401,40 @@
       })]
     })
   });
-  var _v74 = _v0.i(0),
-    _v75 = _v0.i(0);
-  let _v76 = ({
+  var _v73 = _v0.i(0),
+    _v74 = _v0.i(0);
+  let _v75 = ({
       children: _v0
-    }) => (0, _v1.jsx)(_v74.TeamSettingsTableCell, {
+    }) => (0, _v1.jsx)(_v73.TeamSettingsTableCell, {
       overflow: "hidden",
-      children: (0, _v1.jsx)(_v75.ShrinkableText, {
+      children: (0, _v1.jsx)(_v74.ShrinkableText, {
         variant: "body-md",
         children: _v0
       })
     }),
-    _v77 = {
+    _v76 = {
       "&:empty:before": {
         content: '"\\200b"'
       }
     },
-    _v78 = ({
+    _v77 = ({
       title: _v0,
       subtitle: _v1,
       byStaff: _v2,
       avaSrc: _v3,
       avaSrcSet: _v4
-    }) => (0, _v1.jsx)(_v74.TeamSettingsTableCell, {
+    }) => (0, _v1.jsx)(_v73.TeamSettingsTableCell, {
       overflow: "hidden",
-      children: (0, _v1.jsxs)(_v5.Flex, {
+      children: (0, _v1.jsxs)(_v4.Flex, {
         flexDirection: "row",
         overflow: "hidden",
-        gap: (0, _v15.rem)(12),
+        gap: (0, _v14.rem)(12),
         alignItems: "center",
-        children: [(0, _v1.jsx)(_v5.Flex, {
+        children: [(0, _v1.jsx)(_v4.Flex, {
           flexDirection: "column",
           overflow: "hidden",
-          minWidth: (0, _v15.rem)(32),
-          children: (0, _v1.jsx)(_v70.Avatar, {
+          minWidth: (0, _v14.rem)(32),
+          children: (0, _v1.jsx)(_v69.Avatar, {
             size: "sm",
             alt: _v0 || "-",
             src: _v3,
@@ -1444,39 +1443,39 @@
               name: _v0 || "-"
             }
           })
-        }), (0, _v1.jsxs)(_v5.Flex, {
+        }), (0, _v1.jsxs)(_v4.Flex, {
           flexDirection: "column",
           overflow: "hidden",
-          children: [(0, _v1.jsxs)(_v39.Box, {
+          children: [(0, _v1.jsxs)(_v38.Box, {
             display: "flex",
             alignItems: "center",
-            children: [(0, _v1.jsx)(_v75.ShrinkableText, {
+            children: [(0, _v1.jsx)(_v74.ShrinkableText, {
               variant: "heading-xs",
-              sx: _v77,
+              sx: _v76,
               children: _v0
-            }), _v2 && (0, _v1.jsx)(_v71.Tooltip, {
+            }), _v2 && (0, _v1.jsx)(_v70.Tooltip, {
               closeOnScroll: !0,
               placement: "top",
-              label: _v31.AuditLogMadeByStaff,
-              children: (0, _v1.jsx)(_v73, {
-                marginLeft: (0, _v15.rem)(6),
-                width: (0, _v15.rem)(18),
+              label: _v30.AuditLogMadeByStaff,
+              children: (0, _v1.jsx)(_v72, {
+                marginLeft: (0, _v14.rem)(6),
+                width: (0, _v14.rem)(18),
                 color: "black",
-                height: (0, _v15.rem)(18),
+                height: (0, _v14.rem)(18),
                 bgColor: "fill-brand",
                 rounded: 7
               })
             })]
-          }), (0, _v1.jsx)(_v75.ShrinkableText, {
+          }), (0, _v1.jsx)(_v74.ShrinkableText, {
             variant: "body-md",
             color: "text-secondary",
-            sx: _v77,
+            sx: _v76,
             children: _v1
           })]
         })]
       })
     }),
-    _v79 = ({
+    _v78 = ({
       auditLog: _v0
     }) => {
       var _v1;
@@ -1489,49 +1488,49 @@
         [_v8, _v9] = (_v1 = _v0?.actorUserPictures?.sizes, _v2 = _v1?.find(_v0 => 72 === _v0.width)?.link || _v1?.[1]?.link || "https://i.vimeocdn.com/portrait/default-blue_40x40", _v3 = _v1?.find(_v0 => 144 === _v0.width)?.link || _v1?.[2]?.link || "https://i.vimeocdn.com/portrait/default-blue_80x80", [_v2, `${_v3} 2x`]),
         _v10 = _v0?.objectLink;
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v78, {
+        children: [(0, _v1.jsx)(_v77, {
           title: _v6,
           subtitle: _v5,
           byStaff: _v7,
           avaSrc: _v8,
           avaSrcSet: _v9
-        }), (0, _v1.jsx)(_v76, {
+        }), (0, _v1.jsx)(_v75, {
           children: _v0.eventNameTranslated
-        }), (0, _v1.jsx)(_v76, {
+        }), (0, _v1.jsx)(_v75, {
           children: _v0?.privacyView || "-"
-        }), (0, _v1.jsx)(_v76, {
-          children: _v10 ? (0, _v1.jsx)(_v69.Link, {
+        }), (0, _v1.jsx)(_v75, {
+          children: _v10 ? (0, _v1.jsx)(_v68.Link, {
             href: _v10,
             target: "_blank",
             children: _v0.title
           }) : _v0.title || "-"
-        }), (0, _v1.jsx)(_v76, {
+        }), (0, _v1.jsx)(_v75, {
           children: _v4
-        }), (0, _v1.jsx)(_v76, {
+        }), (0, _v1.jsx)(_v75, {
           children: _v0.actorLocation || "-"
         })]
       });
     },
-    _v80 = [{
-      title: _v31.User,
+    _v79 = [{
+      title: _v30.User,
       width: "28%"
     }, {
-      title: _v31.EventName,
+      title: _v30.EventName,
       width: "18%"
     }, {
-      title: _v31.Privacy,
+      title: _v30.Privacy,
       width: "10%"
     }, {
-      title: _v31.AffectedObjects,
+      title: _v30.AffectedObjects,
       width: "18%"
     }, {
-      title: _v31.Date,
+      title: _v30.Date,
       width: "13%"
     }, {
-      title: _v31.Location,
+      title: _v30.Location,
       width: "13%"
     }],
-    _v81 = ({
+    _v80 = ({
       userId: _v0,
       orgUuid: _v1,
       workspaceUuid: _v2,
@@ -1564,20 +1563,20 @@
           let [_v9, _v10] = function () {
               let {
                   mutate: _v0
-                } = (0, _v64.useSWRConfig)(),
+                } = (0, _v63.useSWRConfig)(),
                 {
                   baseUrl: _v1,
                   jwt: _v2,
                   xVimeoPage: _v3,
                   locale: _v4
-                } = (0, _v66.useGctlConfig)(),
-                [_v5, _v6] = (0, _v65.useInternalState)();
+                } = (0, _v65.useGctlConfig)(),
+                [_v5, _v6] = (0, _v64.useInternalState)();
               return [(0, _v3.useCallback)(async _v0 => {
                 _v6({
                   type: "REQUEST"
                 });
                 try {
-                  let _v0 = await _v0(`/teams/${_v0.where.userId}/audit_logs${(0, _v65.serializeQuery)(_v0)}`, _v67({
+                  let _v0 = await _v0(`/teams/${_v0.where.userId}/audit_logs${(0, _v64.serializeQuery)(_v0)}`, _v66({
                     ..._v0,
                     baseUrl: _v1,
                     headers: {
@@ -1603,20 +1602,20 @@
             [_v11, _v12] = function () {
               let {
                   mutate: _v0
-                } = (0, _v64.useSWRConfig)(),
+                } = (0, _v63.useSWRConfig)(),
                 {
                   baseUrl: _v1,
                   jwt: _v2,
                   xVimeoPage: _v3,
                   locale: _v4
-                } = (0, _v66.useGctlConfig)(),
-                [_v5, _v6] = (0, _v65.useInternalState)();
+                } = (0, _v65.useGctlConfig)(),
+                [_v5, _v6] = (0, _v64.useInternalState)();
               return [(0, _v3.useCallback)(async _v0 => {
                 _v6({
                   type: "REQUEST"
                 });
                 try {
-                  let _v0 = await _v0(`/organizations/${_v0.where.orgUuid}/audit_logs${(0, _v65.serializeQuery)(_v0)}`, _v63({
+                  let _v0 = await _v0(`/organizations/${_v0.where.orgUuid}/audit_logs${(0, _v64.serializeQuery)(_v0)}`, _v62({
                     ..._v0,
                     baseUrl: _v1,
                     headers: {
@@ -1642,20 +1641,20 @@
             [_v13, _v14] = function () {
               let {
                   mutate: _v0
-                } = (0, _v64.useSWRConfig)(),
+                } = (0, _v63.useSWRConfig)(),
                 {
                   baseUrl: _v1,
                   jwt: _v2,
                   xVimeoPage: _v3,
                   locale: _v4
-                } = (0, _v66.useGctlConfig)(),
-                [_v5, _v6] = (0, _v65.useInternalState)();
+                } = (0, _v65.useGctlConfig)(),
+                [_v5, _v6] = (0, _v64.useInternalState)();
               return [(0, _v3.useCallback)(async _v0 => {
                 _v6({
                   type: "REQUEST"
                 });
                 try {
-                  let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/audit_logs${(0, _v65.serializeQuery)(_v0)}`, _v68({
+                  let _v0 = await _v0(`/workspaces/${_v0.where.workspaceUuid}/audit_logs${(0, _v64.serializeQuery)(_v0)}`, _v67({
                     ..._v0,
                     baseUrl: _v1,
                     headers: {
@@ -1752,53 +1751,53 @@
           eventNameFilters: _v8,
           searchString: _v9
         }),
-        _v16 = _v4 ? _v13 ? (0, _v1.jsxs)(_v5.Flex, {
+        _v16 = _v4 ? _v13 ? (0, _v1.jsxs)(_v4.Flex, {
           flexDirection: "column",
           alignItems: "center",
-          width: (0, _v15.rem)(300),
+          width: (0, _v14.rem)(300),
           justifyContent: "center",
-          children: [(0, _v1.jsx)(_v58.FileSearchAlt, {
-            height: (0, _v15.rem)(60),
-            width: (0, _v15.rem)(60),
-            marginBottom: (0, _v15.rem)(10)
-          }), (0, _v1.jsx)(_v56.Header, {
+          children: [(0, _v1.jsx)(_v57.FileSearchAlt, {
+            height: (0, _v14.rem)(60),
+            width: (0, _v14.rem)(60),
+            marginBottom: (0, _v14.rem)(10)
+          }), (0, _v1.jsx)(_v55.Header, {
             justifyContent: "center",
             size: "lg",
-            marginBottom: (0, _v15.rem)(10),
-            children: _v31.NoEntries
-          }), (0, _v1.jsx)(_v57.Paragraph, {
-            marginBottom: (0, _v15.rem)(20),
+            marginBottom: (0, _v14.rem)(10),
+            children: _v30.NoEntries
+          }), (0, _v1.jsx)(_v56.Paragraph, {
+            marginBottom: (0, _v14.rem)(20),
             align: "center",
-            children: _v31.TrySearchDifferent
-          }), _v10 && (0, _v1.jsx)(_v9.Button, {
+            children: _v30.TrySearchDifferent
+          }), _v10 && (0, _v1.jsx)(_v8.Button, {
             onClick: () => _v10(),
-            children: _v31.ResetView
+            children: _v30.ResetView
           })]
-        }) : null : (0, _v1.jsxs)(_v5.Flex, {
+        }) : null : (0, _v1.jsxs)(_v4.Flex, {
           flexDirection: "column",
           alignItems: "center",
-          children: [(0, _v1.jsx)(_v56.Header, {
+          children: [(0, _v1.jsx)(_v55.Header, {
             size: "lg",
-            children: _v31.NotLogging
-          }), (0, _v1.jsx)(_v57.Paragraph, {
-            children: _v31.ToEnableAuditLogs
+            children: _v30.NotLogging
+          }), (0, _v1.jsx)(_v56.Paragraph, {
+            children: _v30.ToEnableAuditLogs
           })]
         });
-      return (0, _v1.jsx)(_v39.Box, {
+      return (0, _v1.jsx)(_v38.Box, {
         marginBottom: "500",
-        children: (0, _v1.jsx)(_v59.TeamSettingsTable, {
-          columns: _v80,
+        children: (0, _v1.jsx)(_v58.TeamSettingsTable, {
+          columns: _v79,
           ...(_v14 ? {
             pagination: _v15
           } : {}),
           rows: _v12,
           renderRow: ({
             row: _v0
-          }) => (0, _v1.jsx)(_v79, {
+          }) => (0, _v1.jsx)(_v78, {
             auditLog: _v0
           }, _v0.uri),
           toolBar: _v3,
-          placeholder: _v11 ? (0, _v1.jsx)(_v60.LoadSpinner, {}) : _v16,
+          placeholder: _v11 ? (0, _v1.jsx)(_v59.LoadSpinner, {}) : _v16,
           tableStyle: {
             "& tr td": {
               borderBottom: "none"
@@ -1808,16 +1807,16 @@
               backgroundColor: "fill-blur"
             },
             "& tr th:first-child": {
-              borderRadius: `${(0, _v15.rem)(12)} 0 0 ${(0, _v15.rem)(12)}`
+              borderRadius: `${(0, _v14.rem)(12)} 0 0 ${(0, _v14.rem)(12)}`
             },
             "& tr th:last-child": {
-              borderRadius: `0 ${(0, _v15.rem)(12)} ${(0, _v15.rem)(12)} 0`
+              borderRadius: `0 ${(0, _v14.rem)(12)} ${(0, _v14.rem)(12)} 0`
             }
           }
         })
       });
     },
-    _v82 = (0, _v2.default)((_v0, _v1) => _v1(_v0), 0);
+    _v81 = (0, _v2.default)((_v0, _v1) => _v1(_v0), 0);
   _v0.s(["default", 0, ({
     ownerId: _v0,
     orgUuid: _v1,
@@ -1827,11 +1826,11 @@
     let [_v3, _v4] = (0, _v3.useState)(!0),
       [_v5, _v6] = (0, _v3.useState)(!0),
       [_v7, _v8] = (0, _v3.useState)({
-        startDate: (0, _v8.getDateMinusCurrent)(30),
+        startDate: (0, _v7.getDateMinusCurrent)(30),
         endDate: new Date()
       }),
       [_v9, _v10] = (0, _v3.useState)([]),
-      [_v11, _v12] = (0, _v3.useState)(_v27.EVENT_NAMES_FILTER_LIST.sort((_v0, _v1) => _v0.label.localeCompare(_v1.label))),
+      [_v11, _v12] = (0, _v3.useState)(_v26.EVENT_NAMES_FILTER_LIST.sort((_v0, _v1) => _v0.label.localeCompare(_v1.label))),
       [_v13, _v14] = (0, _v3.useState)(""),
       _v15 = !_v5 || _v3,
       _v16 = (0, _v3.useCallback)(_v0 => {
@@ -1842,10 +1841,10 @@
       }, []),
       _v18 = (0, _v3.useMemo)(() => _v11.filter(_v0 => _v0.applied), [_v11]),
       _v19 = (0, _v3.useMemo)(() => _v18.map(_v0 => _v0.value), [_v18]),
-      _v20 = (0, _v8.formatDateForAuditLogExport)(_v7.startDate),
-      _v21 = (0, _v8.formatDateForAuditLogExport)(_v7.endDate),
+      _v20 = (0, _v7.formatDateForAuditLogExport)(_v7.startDate),
+      _v21 = (0, _v7.formatDateForAuditLogExport)(_v7.endDate),
       _v22 = ((_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7) => {
-        let _v8 = (0, _v55.useViewer)(),
+        let _v8 = (0, _v54.useViewer)(),
           _v9 = _v8?.apiUrl,
           _v10 = _v8?.jwt,
           _v11 = encodeURIComponent(_v7 ?? "");
@@ -1858,16 +1857,16 @@
         throw Error("Cannot determine export URL.");
       })(_v20, _v21, _v9, _v0, _v1, _v2, _v19, _v13),
       _v23 = () => {
-        _v12(_v27.EVENT_NAMES_FILTER_LIST);
+        _v12(_v26.EVENT_NAMES_FILTER_LIST);
       };
     return (0, _v3.useEffect)(() => {
-      _v82.cancel(), _v82(_v13, _v14);
+      _v81.cancel(), _v81(_v13, _v14);
     }, [_v13]), (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v7.SettingsPageContentHeader, {
-        title: (0, _v1.jsxs)(_v5.Flex, {
+      children: [(0, _v1.jsx)(_v6.SettingsPageContentHeader, {
+        title: (0, _v1.jsxs)(_v4.Flex, {
           justify: "space-between",
           align: "center",
-          children: [_v31.AuditLogs, (0, _v1.jsx)(_v43, {
+          children: [_v30.AuditLogs, (0, _v1.jsx)(_v42, {
             onAuditLogsSettingLoaded: _v16,
             onTeamSettingLoading: _v17,
             ownerId: _v0,
@@ -1875,61 +1874,45 @@
             workspaceUuid: _v2
           })]
         }),
-        description: _v31.AuditLogsPageDescription
-      }), (0, _v1.jsx)(_v81, {
-        toolBar: (0, _v1.jsxs)(_v5.Flex, {
+        description: _v30.AuditLogsPageDescription
+      }), (0, _v1.jsx)(_v80, {
+        toolBar: (0, _v1.jsxs)(_v4.Flex, {
           justify: "space-between",
           align: "center",
-          children: [(0, _v1.jsxs)(_v5.Flex, {
+          children: [(0, _v1.jsxs)(_v4.Flex, {
             justify: "right",
             align: "center",
             gap: 10,
-            children: [(0, _v1.jsx)(_v26, {
+            children: [(0, _v1.jsx)(_v25, {
               disabled: _v15,
               appliedFilters: _v11,
               onFiltersApplied: _v0 => {
                 _v11.some((_v0, _v1) => _v0.applied !== _v0[_v1].applied) && _v12(_v0);
               },
               onClearFilters: _v23
-            }), _v1 && (0, _v1.jsx)(_v54, {
+            }), _v1 && (0, _v1.jsx)(_v53, {
               orgUuid: _v1,
               disabled: _v15,
               workspacesUrisInitState: _v9,
               onWorkspaceFilterChange: _v0 => _v10(_v0)
-            }), (0, _v1.jsx)(_v33, {
+            }), (0, _v1.jsx)(_v32, {
               handleViewEventsClick: _v8,
               disabled: _v15,
               dateRange: _v7
             })]
-          }), (0, _v1.jsxs)(_v5.Flex, {
+          }), (0, _v1.jsxs)(_v4.Flex, {
             justify: "left",
             align: "center",
             gap: 10,
-            children: [(0, _v1.jsx)(_v25, {
+            children: [(0, _v1.jsx)(_v24, {
               disabled: _v15,
               searchString: _v13,
-              onSearchChange: _v0 => _v82(_v0, _v14),
+              onSearchChange: _v0 => _v81(_v0, _v14),
               onSearchClear: () => {
-                _v82.cancel(), _v14("");
+                _v81.cancel(), _v14("");
               },
-              placeholder: _v31.SearchByUser
-            }), (0, _v1.jsx)(_v6.ExportCsvButton, {
-              onClick: () => {
-                _v4.BigPictureClient.sendEvent(new _v4.Event("vimeo.click", 107, {
-                  copy: _v31.ExportToCsv,
-                  feature: "export_csv",
-                  location: "audit_logs",
-                  name: "audit_logs_export_csv_click",
-                  page: "audit_logs_export",
-                  target: null,
-                  target_path: _v22,
-                  path: window.location.pathname,
-                  type: "general",
-                  click_type: null,
-                  device_type: null,
-                  third_party_integration: null
-                }));
-              },
+              placeholder: _v30.SearchByUser
+            }), (0, _v1.jsx)(_v5.ExportCsvButton, {
               disabled: _v15 || !_v22,
               uri: _v15 ? "javascript:void(0);" : _v22,
               variant: "primary"
@@ -1947,7 +1930,7 @@
         searchString: _v13,
         resetView: () => {
           _v23(), _v14(""), _v10([]), _v8({
-            startDate: (0, _v8.getDateMinusCurrent)(30),
+            startDate: (0, _v7.getDateMinusCurrent)(30),
             endDate: new Date()
           });
         }

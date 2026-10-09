@@ -1,7 +1,7 @@
 {
   "use strict";
 
-  var _v1,
+  var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
     _v4 = _v0.i(0),
@@ -15,93 +15,90 @@
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
-    _v15 = _v0.i(0),
-    _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  let _v18 = _v5.default.div.withConfig({
+    _v15 = _v0.i(0);
+  let _v16 = _v4.default.div.withConfig({
       displayName: "ErrorPage__Container",
       componentId: "sc-eff8b2dc-0"
     })`
-  margin-top: ${(0, _v3.rem)(40)};
+  margin-top: ${(0, _v2.rem)(40)};
   text-align: center;
 `,
-    _v19 = (0, _v5.default)(_v11.Header).attrs({
+    _v17 = (0, _v4.default)(_v10.Header).attrs({
       size: "1"
     }).withConfig({
       displayName: "ErrorPage__Title",
       componentId: "sc-eff8b2dc-1"
     })`
   margin-top: 0;
-  margin-bottom: ${(0, _v3.rem)(10)};
+  margin-bottom: ${(0, _v2.rem)(10)};
 `,
-    _v20 = _v5.default.div.withConfig({
+    _v18 = _v4.default.div.withConfig({
       displayName: "ErrorPage__Content",
       componentId: "sc-eff8b2dc-2"
     })`
   margin: 0 auto;
-  max-width: ${(0, _v3.rem)(660)};
-  padding: 0 ${(0, _v3.rem)(15)} ${(0, _v3.rem)(10)};
+  max-width: ${(0, _v2.rem)(660)};
+  padding: 0 ${(0, _v2.rem)(15)} ${(0, _v2.rem)(10)};
 `,
-    _v21 = (0, _v5.default)(_v12.Paragraph).attrs({
+    _v19 = (0, _v4.default)(_v11.Paragraph).attrs({
       size: "1"
     }).withConfig({
       displayName: "ErrorPage__Message",
       componentId: "sc-eff8b2dc-3"
     })`
-  margin-bottom: ${(0, _v3.rem)(30)};
+  margin-bottom: ${(0, _v2.rem)(30)};
   display: block;
 `,
-    _v22 = ({
+    _v20 = ({
       title: _v0,
       message: _v1,
       shouldShowSearch: _v2 = !0,
       shouldTrack: _v3,
       afterMessage: _v4
-    }) => ((0, _v4.useEffect)(() => {
+    }) => ((0, _v3.useEffect)(() => {
       _v3 && console.error(`[Vimeo Error Page] ${_v0}: ${_v1}`);
-    }, [_v0, _v1, _v3]), (0, _v2.jsxs)(_v18, {
+    }, [_v0, _v1, _v3]), (0, _v1.jsxs)(_v16, {
       id: _v3 ? "vimeo-error-page-view" : void 0,
-      children: [(0, _v2.jsx)(_v19, {
+      children: [(0, _v1.jsx)(_v17, {
         children: _v0
-      }), (0, _v2.jsxs)(_v20, {
-        children: [(0, _v2.jsx)(_v21, {
+      }), (0, _v1.jsxs)(_v18, {
+        children: [(0, _v1.jsx)(_v19, {
           children: _v1
-        }), _v4, _v2 && (0, _v2.jsx)(_v17.SearchField, {
+        }), _v4, _v2 && (0, _v1.jsx)(_v15.SearchField, {
           id: "error-page-search"
         })]
       })]
     })),
-    _v23 = ({
+    _v21 = ({
       title: _v0,
       message: _v1,
       shouldShowSearch: _v2 = !0,
       shouldTrack: _v3,
       afterMessage: _v4
-    }) => ((0, _v4.useEffect)(() => {
+    }) => ((0, _v3.useEffect)(() => {
       _v3 && console.error(`[Vimeo Error Page] ${_v0}: ${_v1}`);
-    }, [_v0, _v1, _v3]), (0, _v2.jsxs)(_v6.Box, {
+    }, [_v0, _v1, _v3]), (0, _v1.jsxs)(_v5.Box, {
       id: _v3 ? "vimeo-error-page-view" : void 0,
       textAlign: "center",
       marginTop: "500",
-      children: [(0, _v2.jsx)(_v7.Header, {
+      children: [(0, _v1.jsx)(_v6.Header, {
         variant: "heading-xl",
         as: "h1",
         marginBottom: "100",
         children: _v0
-      }), (0, _v2.jsxs)(_v6.Box, {
+      }), (0, _v1.jsxs)(_v5.Box, {
         margin: "0 auto",
-        maxWidth: (0, _v3.rem)(660),
+        maxWidth: (0, _v2.rem)(660),
         paddingX: "200",
         paddingBottom: "100",
-        children: [(0, _v2.jsx)(_v8.Paragraph, {
+        children: [(0, _v1.jsx)(_v7.Paragraph, {
           marginBottom: "400",
           children: _v1
-        }), _v4, _v2 && (0, _v2.jsx)(_v17.SearchField, {
+        }), _v4, _v2 && (0, _v1.jsx)(_v15.SearchField, {
           id: "error-page-search"
         })]
       })]
     }));
-  var _v24 = ((_v1 = _v24 || {}).VISIT_ERROR_PAGE = "vimeo_com.visit_error_page", _v1);
   _v0.s(["ErrorPage", 0, function (_v0) {
     let {
         error: _v1,
@@ -109,61 +106,34 @@
         shouldTrack: _v3 = !0,
         useBokeh: _v4 = !1
       } = _v0,
-      _v5 = (0, _v15.useAnalyticsEvent)(),
       {
-        trackErrorPageDisplayed: _v6
-      } = (0, _v13.useErrorPageTracking)(),
-      _v7 = (0, _v4.useRef)(!1),
-      _v8 = _v4 ? _v23 : _v22;
-    (0, _v4.useEffect)(() => {
-      _v3 && !_v7.current && (_v5({
-        eventName: "vimeo_com.visit_error_page",
-        version: 1,
-        fields: {
-          error_type: (_v0 => {
-            switch (_v0) {
-              case _v9.RateLimitError:
-                return "Rate Limit Error";
-              case _v9.ResourceNotFoundError:
-                return "Resource Not Found Error";
-              case _v9.ForbiddenError:
-                return "Forbidden Error";
-              case _v9.UnauthorizedError:
-                return "Unauthorized Error";
-              case _v9.NotAvailableError:
-                return "Not Available Error";
-            }
-            return "Technical Difficulties";
-          })(_v1.constructor),
-          error_message: _v1.message || null,
-          url: window.location.href
-        }
-      }), _v7.current = !0);
-    }, [_v3]);
-    let _v9 = _v1 instanceof _v9.RateLimitError ? {
-      errorType: "rate_limit",
-      errorPageErrorCode: 429
-    } : _v1 instanceof _v9.ResourceNotFoundError ? {
-      errorType: "resource_not_found",
-      errorPageErrorCode: 404
-    } : _v1 instanceof _v9.ForbiddenError ? {
-      errorType: "forbidden",
-      errorPageErrorCode: 403
-    } : _v1 instanceof _v9.UnauthorizedError ? {
-      errorType: "unauthorized",
-      errorPageErrorCode: 401
-    } : _v1 instanceof _v9.NotAvailableError ? {
-      errorType: "not_available",
-      errorPageErrorCode: 451
-    } : {
-      errorType: "technical_difficulties",
-      errorPageErrorCode: null
-    };
-    switch ((0, _v14.usePicoEffect)(() => {
+        trackErrorPageDisplayed: _v5
+      } = (0, _v12.useErrorPageTracking)(),
+      _v6 = _v4 ? _v21 : _v20,
+      _v7 = _v1 instanceof _v8.RateLimitError ? {
+        errorType: "rate_limit",
+        errorPageErrorCode: 429
+      } : _v1 instanceof _v8.ResourceNotFoundError ? {
+        errorType: "resource_not_found",
+        errorPageErrorCode: 404
+      } : _v1 instanceof _v8.ForbiddenError ? {
+        errorType: "forbidden",
+        errorPageErrorCode: 403
+      } : _v1 instanceof _v8.UnauthorizedError ? {
+        errorType: "unauthorized",
+        errorPageErrorCode: 401
+      } : _v1 instanceof _v8.NotAvailableError ? {
+        errorType: "not_available",
+        errorPageErrorCode: 451
+      } : {
+        errorType: "technical_difficulties",
+        errorPageErrorCode: null
+      };
+    switch ((0, _v13.usePicoEffect)(() => {
       if (!_v3) return !1;
-      _v6({
+      _v5({
         errorPageType: "vimeo_next",
-        ..._v9
+        ..._v7
       });
     }, [_v3], {
       once: !0
@@ -173,8 +143,8 @@
           window.DD_RUM.addError(_v1, {
             component: "TechnicalDifficulties"
           });
-        }), (0, _v2.jsx)(_v8, {
-          title: (0, _v10.translate)({
+        }), (0, _v1.jsx)(_v6, {
+          title: (0, _v9.translate)({
             singular: "Technical Difficulties",
             dictionary: {
               es: {
@@ -200,7 +170,7 @@
               }
             }
           }),
-          message: (0, _v10.translate)({
+          message: (0, _v9.translate)({
             singular: "Whoops! We are having some technical difficulties, please try again in a minute.",
             dictionary: {
               es: {
@@ -229,9 +199,9 @@
           shouldShowSearch: _v2,
           shouldTrack: _v3
         });
-      case _v9.RateLimitError:
-        return (0, _v2.jsx)(_v8, {
-          title: (0, _v10.translate)({
+      case _v8.RateLimitError:
+        return (0, _v1.jsx)(_v6, {
+          title: (0, _v9.translate)({
             singular: "Whoa there!",
             dictionary: {
               es: {
@@ -257,7 +227,7 @@
               }
             }
           }),
-          message: (0, _v10.translate)({
+          message: (0, _v9.translate)({
             singular: "Sorry, you have made too many requests in a short period of time. Please wait a few minutes and try again.",
             dictionary: {
               es: {
@@ -286,9 +256,9 @@
           shouldShowSearch: _v2,
           shouldTrack: _v3
         });
-      case _v9.ResourceNotFoundError:
-        return (0, _v2.jsx)(_v8, {
-          title: (0, _v10.translate)({
+      case _v8.ResourceNotFoundError:
+        return (0, _v1.jsx)(_v6, {
+          title: (0, _v9.translate)({
             singular: "Sorry, we couldn’t find that page",
             dictionary: {
               es: {
@@ -314,7 +284,7 @@
               }
             }
           }),
-          message: (0, _v10.translate)({
+          message: (0, _v9.translate)({
             singular: "Make sure you’ve typed the URL correctly, or try searching Vimeo.",
             dictionary: {
               es: {
@@ -342,15 +312,15 @@
           }),
           shouldShowSearch: _v2,
           shouldTrack: _v3,
-          afterMessage: (0, _v2.jsx)(_v16.PageNotFoundHelpButton, {
+          afterMessage: (0, _v1.jsx)(_v14.PageNotFoundHelpButton, {
             errorPageType: "vimeo_next",
             shouldTrack: _v3,
-            ..._v9
+            ..._v7
           })
         });
-      case _v9.ForbiddenError:
-        return (0, _v2.jsx)(_v8, {
-          title: (0, _v10.translate)({
+      case _v8.ForbiddenError:
+        return (0, _v1.jsx)(_v6, {
+          title: (0, _v9.translate)({
             singular: "Permission Denied",
             dictionary: {
               es: {
@@ -376,7 +346,7 @@
               }
             }
           }),
-          message: (0, _v10.translate)({
+          message: (0, _v9.translate)({
             singular: "Sorry but you do not have the proper permission to access this area of Vimeo.",
             dictionary: {
               es: {
@@ -405,9 +375,9 @@
           shouldShowSearch: _v2,
           shouldTrack: _v3
         });
-      case _v9.UnauthorizedError:
-        return (0, _v2.jsx)(_v8, {
-          title: (0, _v10.translate)({
+      case _v8.UnauthorizedError:
+        return (0, _v1.jsx)(_v6, {
+          title: (0, _v9.translate)({
             singular: "Unauthorized",
             dictionary: {
               es: {
@@ -433,7 +403,7 @@
               }
             }
           }),
-          message: (0, _v10.translate)({
+          message: (0, _v9.translate)({
             singular: "You are unauthorized for this action.",
             dictionary: {
               es: {
@@ -462,9 +432,9 @@
           shouldShowSearch: _v2,
           shouldTrack: _v3
         });
-      case _v9.NotAvailableError:
-        return (0, _v2.jsx)(_v8, {
-          title: (0, _v10.translate)({
+      case _v8.NotAvailableError:
+        return (0, _v1.jsx)(_v6, {
+          title: (0, _v9.translate)({
             singular: "This page isn’t available in your region",
             dictionary: {
               es: {

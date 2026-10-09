@@ -28,10 +28,8 @@
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
     _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
-    _v29 = _v0.i(0),
-    _v30 = _v0.i(0);
-  let _v31 = ({
+    _v28 = _v0.i(0);
+  let _v29 = ({
       isActive: _v0,
       data: _v1,
       onDismiss: _v2,
@@ -42,29 +40,26 @@
           loading: _v6,
           called: _v7,
           error: _v8
-        }] = (0, _v29.useDeleteUserLeadCaptureForm)(),
-        {
-          sendBpEvent: _v9
-        } = (0, _v17.useAnalytics)();
+        }] = (0, _v27.useDeleteUserLeadCaptureForm)();
       return (0, _v4.useEffect)(() => {
         _v7 && (_v8 || (_v3(), _v2()));
       }, [_v7, _v8]), (0, _v1.jsx)(_v4.Suspense, {
         fallback: null,
-        children: (0, _v1.jsxs)(_v23.Modal, {
+        children: (0, _v1.jsxs)(_v21.Modal, {
           isOpen: _v0,
           size: "lg",
           onClose: _v2,
-          children: [(0, _v1.jsx)(_v28.ModalOverlay, {}), (0, _v1.jsxs)(_v25.ModalContent, {
-            children: [(0, _v1.jsx)(_v27.ModalHeader, {
-              children: (0, _v1.jsx)(_v22.Header, {
+          children: [(0, _v1.jsx)(_v26.ModalOverlay, {}), (0, _v1.jsxs)(_v23.ModalContent, {
+            children: [(0, _v1.jsx)(_v25.ModalHeader, {
+              children: (0, _v1.jsx)(_v20.Header, {
                 size: "lg",
-                children: _v20.default.DeletePreset
+                children: _v18.default.DeletePreset
               })
-            }), (0, _v1.jsx)(_v24.ModalBody, {
+            }), (0, _v1.jsx)(_v22.ModalBody, {
               paddingBottom: 16,
               children: (0, _v1.jsx)(_v9.Text, {
                 variant: "body-xl",
-                children: (0, _v30.translate)({
+                children: (0, _v28.translate)({
                   singular: "{PRESET_NAME} will be deleted and removed from your list of presets. Any videos using this preset will no longer be linked, but will keep the settings from the preset.",
                   replacements: {
                     PRESET_NAME: (0, _v1.jsx)(_v9.Text, {
@@ -99,43 +94,36 @@
                   }
                 })
               })
-            }), (0, _v1.jsxs)(_v26.ModalFooter, {
+            }), (0, _v1.jsxs)(_v24.ModalFooter, {
               borderTop: 0,
-              children: [(0, _v1.jsx)(_v21.Button, {
+              children: [(0, _v1.jsx)(_v19.Button, {
                 isDisabled: _v6,
                 variant: "secondary",
                 minW: 100,
                 onClick: _v2,
-                children: _v20.default.Cancel
-              }), (0, _v1.jsx)(_v21.Button, {
+                children: _v18.default.Cancel
+              }), (0, _v1.jsx)(_v19.Button, {
                 isLoading: _v6,
                 isDisabled: _v6,
                 variant: "destructive",
                 minW: 100,
                 onClick: () => {
                   let _v0 = _v4?.teamUser?.ownerId ?? _v4?.user?.id;
-                  _v9({
-                    eventName: _v18.BP_EVENT_NAMES.UPDATE_PRESET,
-                    element: _v18.ELEMENT.BUTTON,
-                    location: _v18.LOCATION.NOTIFICATION,
-                    copy: _v18.COPY.DELETE,
-                    pageName: _v18.PAGE_NAMES.REGISTRATION_MANAGER,
-                    formId: _v1?.uuid
-                  }), _v1?.uuid && _v0 && _v5({
+                  _v1?.uuid && _v0 && _v5({
                     where: {
                       userId: _v0,
                       leadCaptureFormId: _v1?.uuid || ""
                     }
                   });
                 },
-                children: _v20.default.Delete
+                children: _v18.default.Delete
               })]
             })]
           })]
         })
       });
     },
-    _v32 = ({
+    _v30 = ({
       text: _v0,
       textFontSize: _v1
     }) => {
@@ -163,7 +151,7 @@
         })
       });
     },
-    _v33 = () => {
+    _v31 = () => {
       let _v0 = (0, _v16.useViewer)(),
         _v1 = _v0?.user,
         _v2 = _v0?.teamUser,
@@ -176,11 +164,8 @@
         [_v10, _v11] = (0, _v4.useState)(null),
         _v12 = (0, _v13.useIsBokeh)(),
         {
-          sendBpEvent: _v13
-        } = (0, _v17.useAnalytics)(),
-        {
-          data: _v14,
-          isLoading: _v15
+          data: _v13,
+          isLoading: _v14
         } = (0, _v14.useGetUser)(() => {
           let _v0 = _v2?.ownerId;
           return _v0 ? {
@@ -190,7 +175,7 @@
             }
           } : null;
         }),
-        _v16 = {
+        _v15 = {
           month: "short",
           day: "2-digit",
           year: "numeric",
@@ -199,29 +184,21 @@
           hour12: !0
         };
       return ((0, _v4.useEffect)(() => {
-        let _v0 = _v14?.metadata?.connections?.leadCaptureForm?.options?.length ? _v2?.ownerId ?? _v1?.id : _v1?.id;
-        _v15 || _v8({
+        let _v0 = _v13?.metadata?.connections?.leadCaptureForm?.options?.length ? _v2?.ownerId ?? _v1?.id : _v1?.id;
+        _v14 || _v8({
           where: {
             userId: _v0
           },
           select: ["presetName", "formCreatedOn", "uuid", "isDefault"],
           query: {
-            perPage: _v19.PRESET_RESULT_PER_PAGE,
+            perPage: _v17.PRESET_RESULT_PER_PAGE,
             page: 1,
             filter: "preset"
           }
         });
-      }, [_v8, _v2?.ownerId, _v1?.id, _v14, _v15]), (0, _v4.useEffect)(() => {
+      }, [_v8, _v2?.ownerId, _v1?.id, _v13, _v14]), (0, _v4.useEffect)(() => {
         _v9?.data && _v11(_v9.data.filter(_v0 => !_v0.isDefault));
-      }, [_v9?.data]), (0, _v4.useEffect)(() => {
-        _v13({
-          eventName: _v18.BP_EVENT_NAMES.PRESET_MANAGEMENT_PAGEVIEW,
-          copy: null,
-          pageName: _v18.PAGE_NAMES.USER_SETTINGS,
-          location: _v18.LOCATION.PAGE_AREA,
-          element: null
-        });
-      }, []), null === _v10 || _v10 && _v10?.length === 0) ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+      }, [_v9?.data]), null === _v10 || _v10 && _v10?.length === 0) ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v5.Card, {
           padding: "lg",
           children: [(0, _v1.jsxs)(_v3.Box, {
@@ -232,12 +209,12 @@
               children: [(0, _v1.jsx)(_v9.Text, {
                 variant: "heading-md",
                 fontSize: (0, _v11.rem)(20),
-                children: _v20.default.FormPresets
+                children: _v18.default.FormPresets
               }), (0, _v1.jsx)(_v9.Text, {
                 color: "text-secondary",
                 variant: "body-md",
                 marginTop: "sm",
-                children: _v20.default.DeletePresetNotneeded
+                children: _v18.default.DeletePresetNotneeded
               })]
             }), (0, _v1.jsxs)(_v6.Grid, {
               templateColumns: "repeat(9, 1fr)",
@@ -248,14 +225,14 @@
                 children: (0, _v1.jsx)(_v9.Text, {
                   variant: "heading-sm",
                   fontWeight: "medium",
-                  children: _v20.default.Name
+                  children: _v18.default.Name
                 })
               }), (0, _v1.jsx)(_v7.GridItem, {
                 colSpan: 3,
                 children: (0, _v1.jsx)(_v9.Text, {
                   variant: "heading-sm",
                   fontWeight: "medium",
-                  children: _v20.default.DateCreated
+                  children: _v18.default.DateCreated
                 })
               })]
             })]
@@ -266,7 +243,7 @@
             },
             children: _v10?.map(_v0 => {
               let _v1 = new Date(_v0.formCreatedOn),
-                _v2 = new Intl.DateTimeFormat(_v3 || "en-US", _v16).format(_v1);
+                _v2 = new Intl.DateTimeFormat(_v3 || "en-US", _v15).format(_v1);
               return (0, _v1.jsxs)(_v6.Grid, {
                 sx: {
                   height: 56,
@@ -279,7 +256,7 @@
                   colSpan: 6,
                   alignItems: "center",
                   paddingRight: "3xl",
-                  children: (0, _v1.jsx)(_v32, {
+                  children: (0, _v1.jsx)(_v30, {
                     textFontSize: 16,
                     text: _v0.presetName || ""
                   })
@@ -294,7 +271,7 @@
                   colSpan: 1,
                   margin: "auto",
                   children: (0, _v1.jsx)(_v10.Tooltip, {
-                    label: _v20.default.DeleteFormPreset,
+                    label: _v18.default.DeleteFormPreset,
                     placement: "bottom",
                     fontSize: 14,
                     children: (0, _v1.jsx)(_v8.IconButton, {
@@ -314,7 +291,7 @@
               }, _v0.formCreatedOn);
             })
           })]
-        }), _v6 && (0, _v1.jsx)(_v31, {
+        }), _v6 && (0, _v1.jsx)(_v29, {
           isActive: _v4,
           data: _v6,
           onDelete: () => {
@@ -326,32 +303,32 @@
         })]
       });
     };
-  var _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  let _v36 = (0, _v4.createContext)({
+  var _v32 = _v0.i(0),
+    _v33 = _v0.i(0);
+  let _v34 = (0, _v4.createContext)({
       features: {},
       setFeatures: () => void 0
     }),
-    _v37 = ({
+    _v35 = ({
       children: _v0
     }) => {
       let [_v1] = (0, _v4.useState)();
-      return (0, _v1.jsx)(_v36.Provider, {
+      return (0, _v1.jsx)(_v34.Provider, {
         value: {
           features: _v1
         },
         children: _v0
       });
     },
-    _v38 = () => (0, _v1.jsx)(_v37, {
+    _v36 = () => (0, _v1.jsx)(_v35, {
       children: (0, _v1.jsxs)(_v3.Box, {
-        children: [(0, _v1.jsx)(_v34.Header, {}), (0, _v1.jsx)(_v35.RegistrationInfo, {
-          emailDefaultsHref: _v19.EMAIL_DEFAULTS_URL
-        }), (0, _v1.jsx)(_v33, {})]
+        children: [(0, _v1.jsx)(_v32.Header, {}), (0, _v1.jsx)(_v33.RegistrationInfo, {
+          emailDefaultsHref: _v17.EMAIL_DEFAULTS_URL
+        }), (0, _v1.jsx)(_v31, {})]
       })
     });
-  var _v39 = _v0.i(0);
-  let _v40 = () => (0, _v1.jsx)(_v38, {});
+  var _v37 = _v0.i(0);
+  let _v38 = () => (0, _v1.jsx)(_v36, {});
   (0, _v2.withPageSetup)(() => ({
     props: {
       hasThemeSupport: !0
@@ -360,5 +337,5 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v40.getLayout = _v39.getSharedContentLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v40], 0);
+  }), _v38.getLayout = _v37.getSharedContentLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v38], 0);
 }

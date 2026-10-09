@@ -63,6 +63,28 @@
           canceled_count: _v0.canceledCount,
           total_duration_ms: _v0.totalDurationMs
         });
+      }, [_v0]),
+      _v7 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("video_upload_session_abandoned", {
+          session_id: _v0.sessionId,
+          file_count: _v0.fileCount,
+          completed_count: _v0.completedCount,
+          in_progress_count: _v0.inProgressCount
+        });
+      }, [_v0]),
+      _v8 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("video_upload_metadata_edited_during_upload", {
+          session_id: _v0.sessionId,
+          video_id: _v0.videoId,
+          pending_uploads: _v0.pendingUploads,
+          field_name: _v0.fieldName
+        });
+      }, [_v0]),
+      _v9 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("upload_title_match_check", {
+          filename: _v0.filename,
+          match_count: _v0.matchCount
+        });
       }, [_v0]);
     return {
       trackVideoUploadStarted: _v1,
@@ -71,20 +93,23 @@
       trackVideoUploadCancelled: _v4,
       trackVideoUploadSessionStarted: _v5,
       trackVideoUploadSessionCompleted: _v6,
-      trackVideoUploadSessionAbandoned: (0, _v1.useCallback)(_v0 => {
-        null !== _v0 && _v0.track("video_upload_session_abandoned", {
-          session_id: _v0.sessionId,
-          file_count: _v0.fileCount,
-          completed_count: _v0.completedCount,
-          in_progress_count: _v0.inProgressCount
+      trackVideoUploadSessionAbandoned: _v7,
+      trackVideoUploadMetadataEditedDuringUpload: _v8,
+      trackUploadTitleMatchCheck: _v9,
+      trackUploadReplaceOfferDisplayed: (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("upload_replace_offer_displayed", {
+          filename: _v0.filename,
+          match_count: _v0.matchCount
         });
       }, [_v0]),
-      trackVideoUploadMetadataEditedDuringUpload: (0, _v1.useCallback)(_v0 => {
-        null !== _v0 && _v0.track("video_upload_metadata_edited_during_upload", {
-          session_id: _v0.sessionId,
-          video_id: _v0.videoId,
-          pending_uploads: _v0.pendingUploads,
-          field_name: _v0.fieldName
+      trackUploadReplaceOfferAction: (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("upload_replace_offer_action", {
+          action: _v0.action,
+          filename: _v0.filename,
+          match_count: _v0.matchCount,
+          replace_clip_id: _v0.replaceClipId,
+          replace_clip_title: _v0.replaceClipTitle,
+          started: _v0.started
         });
       }, [_v0])
     };

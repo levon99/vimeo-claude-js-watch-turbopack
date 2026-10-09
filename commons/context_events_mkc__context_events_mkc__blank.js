@@ -50,33 +50,29 @@
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
     _v49 = _v0.i(0),
-    _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
-    _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0);
-  let _v55 = {
-      header: _v33.default.UpgradeForAttendees,
-      description: _v33.default.UpgradeForAttendeesDesc,
+    _v50 = _v0.i(0);
+  let _v51 = {
+      header: _v29.default.UpgradeForAttendees,
+      description: _v29.default.UpgradeForAttendeesDesc,
       info: [{
-        icon: (0, _v1.jsx)(_v53.Stats, {
+        icon: (0, _v1.jsx)(_v49.Stats, {
           boxSize: (0, _v9.rem)(20)
         }),
-        text: _v33.default.AdvancedUserAnalytics
+        text: _v29.default.AdvancedUserAnalytics
       }, {
-        icon: (0, _v1.jsx)(_v54.VideosStack, {
+        icon: (0, _v1.jsx)(_v50.VideosStack, {
           boxSize: (0, _v9.rem)(20)
         }),
-        text: _v33.default.BackUpStreams
+        text: _v29.default.BackUpStreams
       }, {
-        icon: (0, _v1.jsx)(_v51.PersonUser, {
+        icon: (0, _v1.jsx)(_v47.PersonUser, {
           boxSize: (0, _v9.rem)(20)
         }),
-        text: _v33.default.CRMIntegrations
+        text: _v29.default.CRMIntegrations
       }],
-      buttonText: _v33.default.Contactus
+      buttonText: _v29.default.Contactus
     },
-    _v56 = ({
+    _v52 = ({
       popOverContentRef: _v0,
       isUpsell: _v1,
       type: _v2
@@ -87,26 +83,26 @@
           info: _v5,
           buttonText: _v6
         } = _v1 ? {
-          header: _v33.default.UpgradeToUpload[_v2],
-          description: _v33.default.UpgradeToUploadDesc[_v2],
+          header: _v29.default.UpgradeToUpload[_v2],
+          description: _v29.default.UpgradeToUploadDesc[_v2],
           info: [{
-            icon: (0, _v1.jsx)(_v50.CameraOn, {
+            icon: (0, _v1.jsx)(_v46.CameraOn, {
               boxSize: (0, _v9.rem)(20)
             }),
-            text: _v33.default.AccessVirtualEvents
+            text: _v29.default.AccessVirtualEvents
           }, {
-            icon: (0, _v1.jsx)(_v53.Stats, {
+            icon: (0, _v1.jsx)(_v49.Stats, {
               boxSize: (0, _v9.rem)(20)
             }),
-            text: _v33.default.AdvancedUserAnalytics
+            text: _v29.default.AdvancedUserAnalytics
           }, {
-            icon: (0, _v1.jsx)(_v52.SettingsGear, {
+            icon: (0, _v1.jsx)(_v48.SettingsGear, {
               boxSize: (0, _v9.rem)(20)
             }),
-            text: _v33.default.PostEventEngagement
+            text: _v29.default.PostEventEngagement
           }],
-          buttonText: _v33.default.SeePlans
-        } : _v55,
+          buttonText: _v29.default.SeePlans
+        } : _v51,
         {
           openPricingPage: _v7,
           openUpsellEmail: _v8
@@ -115,36 +111,36 @@
             registrantCapLowerWatermark: _v0,
             hasEnterprise: _v1,
             hasAttendeeUpsell: _v2
-          } = (0, _v23.useEventCapability)();
+          } = (0, _v21.useEventCapability)();
           return {
             openPricingPage: () => {
-              let _v0 = _v31.UPSELL_LINK.includes("?") ? "&context=events&mkc=" : "?context=events&mkc=";
-              window.open(_v31.UPSELL_LINK + _v0 + (_v2 ? _v31.MKC_CODES.PREMIUM_ATTENDEE_UPSELL_BADGE : _v31.MKC_CODES.UPSELL_BANNER), "_blank");
+              let _v0 = _v27.UPSELL_LINK.includes("?") ? "&context=events&mkc=" : "?context=events&mkc=";
+              window.open(_v27.UPSELL_LINK + _v0 + (_v2 ? _v27.MKC_CODES.PREMIUM_ATTENDEE_UPSELL_BADGE : _v27.MKC_CODES.UPSELL_BANNER), "_blank");
             },
             openContactUsPage: () => {
-              let _v0 = _v31.ENTERPRISE_CONTACT_US_LINK.includes("?") ? "&mkc=" : "?mkc=";
-              window.open(_v31.ENTERPRISE_CONTACT_US_LINK + _v0 + _v31.MKC_CODES.ENTERPRISE_DEMO, "_blank");
+              let _v0 = _v27.ENTERPRISE_CONTACT_US_LINK.includes("?") ? "&mkc=" : "?mkc=";
+              window.open(_v27.ENTERPRISE_CONTACT_US_LINK + _v0 + _v27.MKC_CODES.ENTERPRISE_DEMO, "_blank");
             },
             openUpsellEmail: () => {
               let _v0 = _v0 && _v1,
-                _v1 = _v0 ? _v31.REGISTRANT_UPSELL_EMAIL_BODY : _v31.UPSELL_EMAIL_BODY,
-                _v2 = _v0 ? _v31.REGISTRANT_UPSELL_EMAIL_SUBJECT : _v31.UPSELL_EMAIL_SUBJECT,
+                _v1 = _v0 ? _v27.REGISTRANT_UPSELL_EMAIL_BODY : _v27.UPSELL_EMAIL_BODY,
+                _v2 = _v0 ? _v27.REGISTRANT_UPSELL_EMAIL_SUBJECT : _v27.UPSELL_EMAIL_SUBJECT,
                 _v3 = encodeURIComponent(_v1);
-              window.location.href = `mailto:${_v31.UPSELL_EMAIL_ID}?subject=${_v2}&body=${_v3}`;
+              window.location.href = `mailto:${_v27.UPSELL_EMAIL_ID}?subject=${_v2}&body=${_v3}`;
             }
           };
         })(),
         {
           hasAttendeeUpsell: _v9,
           enterpriseHasUpsell: _v10
-        } = (0, _v23.useEventCapability)(),
+        } = (0, _v21.useEventCapability)(),
         _v11 = ({
           icon: _v0,
           text: _v1
         }) => (0, _v1.jsxs)(_v6.Flex, {
           alignItems: "center",
           my: (0, _v9.rem)(15),
-          children: [_v0, (0, _v1.jsx)(_v36.Paragraph, {
+          children: [_v0, (0, _v1.jsx)(_v32.Paragraph, {
             ml: (0, _v9.rem)(10),
             size: "md",
             children: _v1
@@ -159,7 +155,7 @@
           pb: "sm",
           size: "lg",
           children: _v3
-        }), (0, _v1.jsx)(_v36.Paragraph, {
+        }), (0, _v1.jsx)(_v32.Paragraph, {
           size: "md",
           children: _v4
         }), _v5.map(({
@@ -174,14 +170,14 @@
           onClick: () => {
             _v1 && !_v10 || _v9 ? _v7() : _v8();
           },
-          children: _v9 ? _v33.default.Upgrade : _v10 ? _v33.default.Contactus : _v6
+          children: _v9 ? _v29.default.Upgrade : _v10 ? _v29.default.Contactus : _v6
         })]
       });
     };
-  var _v57 = _v0.i(0),
-    _v58 = _v0.i(0),
-    _v59 = _v0.i(0);
-  let _v60 = ({
+  var _v53 = _v0.i(0),
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0);
+  let _v56 = ({
     showCRMDisconnectModal: _v0,
     setShowDisconnectModal: _v1,
     dispatch: _v2,
@@ -194,16 +190,16 @@
         error: _v8,
         called: _v9,
         data: _v10
-      }] = (0, _v47.usePutLeadCaptureResourceIdRegistrantsImport)(),
-      _v11 = (0, _v42.useToast)(),
+      }] = (0, _v43.usePutLeadCaptureResourceIdRegistrantsImport)(),
+      _v11 = (0, _v38.useToast)(),
       {
         entityId: _v12,
         entityType: _v13
-      } = (0, _v32.useConfigStore)(),
-      _v14 = (0, _v46.useIsBokeh)();
+      } = (0, _v28.useConfigStore)(),
+      _v14 = (0, _v42.useIsBokeh)();
     return (0, _v2.useEffect)(() => {
       !_v7 && _v9 && (_v10 && (_v1(!1), _v2({
-        type: _v29.ACTION_TYPE.SET_CRM_CONNECTION,
+        type: _v26.ACTION_TYPE.SET_CRM_CONNECTION,
         payload: []
       }), _v11({
         title: (0, _v15.translate)({
@@ -237,19 +233,19 @@
         }),
         status: "info"
       })), _v8 && _v11({
-        title: _v33.default.SomethingWentWrong,
+        title: _v29.default.SomethingWentWrong,
         status: "error"
       }), _v2({
-        type: _v29.ACTION_TYPE.LOADING_CRM,
+        type: _v26.ACTION_TYPE.LOADING_CRM,
         payload: !1
       }));
-    }, [_v8, _v7, _v9, _v10]), (0, _v1.jsxs)(_v57.Modal, {
+    }, [_v8, _v7, _v9, _v10]), (0, _v1.jsxs)(_v53.Modal, {
       isOpen: _v0,
       onClose: () => _v1(!1),
       size: "lg",
-      children: [(0, _v1.jsx)(_v59.ModalOverlay, {
+      children: [(0, _v1.jsx)(_v55.ModalOverlay, {
         zIndex: "modal"
-      }), (0, _v1.jsx)(_v58.ModalContent, {
+      }), (0, _v1.jsx)(_v54.ModalContent, {
         color: "text-primary",
         width: (0, _v9.rem)(480),
         children: (0, _v1.jsxs)(_v3.Box, {
@@ -260,11 +256,11 @@
           children: [(0, _v1.jsx)(_v7.Header, {
             variant: "heading-md",
             size: "xl",
-            children: _v33.default.DisconnectModalHeader
-          }), (0, _v1.jsx)(_v36.Paragraph, {
+            children: _v29.default.DisconnectModalHeader
+          }), (0, _v1.jsx)(_v32.Paragraph, {
             py: "sm",
             variant: "body-md",
-            children: _v33.default.DisconnectModalDesc
+            children: _v29.default.DisconnectModalDesc
           }), (0, _v1.jsxs)(_v6.Flex, {
             pt: "md",
             justifyContent: "right",
@@ -276,20 +272,20 @@
               _first: {
                 mr: (0, _v9.rem)(10)
               },
-              children: _v33.default.Cancel
+              children: _v29.default.Cancel
             }), (0, _v1.jsx)(_v4.Button, {
               variant: _v14 ? "destructive" : "negative",
               onClick: () => {
                 _v12 && _v13 && (_v2({
-                  type: _v29.ACTION_TYPE.LOADING_CRM,
+                  type: _v26.ACTION_TYPE.LOADING_CRM,
                   payload: !0
                 }), _v6({
                   where: {
-                    resourceType: _v18.ENTITY_TO_PATH_MAP[_v13],
+                    resourceType: _v17.ENTITY_TO_PATH_MAP[_v13],
                     resourceId: _v12
                   },
                   variables: {
-                    registrantSource: _v31.CRM_REGISTRANT_SOURCE,
+                    registrantSource: _v27.CRM_REGISTRANT_SOURCE,
                     emailProviderList: [{
                       listId: `${_v4.id}`,
                       providerId: _v3,
@@ -300,20 +296,20 @@
                 }));
               },
               isLoading: _v7,
-              children: _v33.default.Disconnect
+              children: _v29.default.Disconnect
             })]
           })]
         })
       })]
     });
   };
-  var _v61 = _v0.i(0),
-    _v62 = _v0.i(0);
-  let _v63 = _v0 => _v0 ? {
+  var _v57 = _v0.i(0),
+    _v58 = _v0.i(0);
+  let _v59 = _v0 => _v0 ? {
       opacity: .5,
       pointerEvents: "none"
     } : {},
-    _v64 = _v61.keyframes`
+    _v60 = _v57.keyframes`
   from {
     background-position: 100% 0;
   }
@@ -321,16 +317,16 @@
     background-position: -100% 0;
   }
 `,
-    _v65 = (_v0 = "80px") => ({
+    _v61 = (_v0 = "80px") => ({
       background: "slate.100",
       width: _v0,
       height: (0, _v9.rem)(8),
       margin: `${(0, _v9.rem)(16)} 0`,
       bgGradient: "linear(to-r, text-secondary, stroke)",
       bgSize: "200%",
-      animation: `${_v64} 1s ease-out infinite`
+      animation: `${_v60} 1s ease-out infinite`
     }),
-    _v66 = ({
+    _v62 = ({
       src: _v0,
       darkSrc: _v1,
       key: _v2,
@@ -338,7 +334,7 @@
     }) => {
       let {
         colorMode: _v4
-      } = (0, _v62.useColorMode)();
+      } = (0, _v58.useColorMode)();
       return (0, _v2.createElement)(_v3.Box, {
         ..._v3,
         key: _v2,
@@ -348,11 +344,11 @@
         background: `url(${"dark" === _v4 ? _v1 : _v0}) center/cover no-repeat`
       });
     };
-  _v0.s(["ItemImage", 0, _v66, "PlaceholderStyles", 0, _v65, "isDisabled", 0, _v63], 0);
-  var _v67 = _v0.i(0),
-    _v68 = _v0.i(0),
-    _v69 = _v0.i(0);
-  let _v70 = ({
+  _v0.s(["ItemImage", 0, _v62, "PlaceholderStyles", 0, _v61, "isDisabled", 0, _v59], 0);
+  var _v63 = _v0.i(0),
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
+  let _v66 = ({
     status: _v0,
     title: _v1,
     isClosable: _v2,
@@ -369,11 +365,11 @@
     gap: "sm",
     mb: "md",
     children: [(0, _v1.jsxs)(_v1.Fragment, {
-      children: ["success" === _v0 ? (0, _v1.jsx)(_v67.CircleCheckFilled, {
+      children: ["success" === _v0 ? (0, _v1.jsx)(_v63.CircleCheckFilled, {
         color: "green.400"
-      }) : (0, _v1.jsx)(_v69.InfoCircleFilled, {
+      }) : (0, _v1.jsx)(_v65.InfoCircleFilled, {
         color: "blue.400"
-      }), (0, _v1.jsx)(_v36.Paragraph, {
+      }), (0, _v1.jsx)(_v32.Paragraph, {
         size: "md",
         overflow: "hidden",
         whiteSpace: "nowrap",
@@ -381,7 +377,7 @@
         children: _v1
       })]
     }), _v2 && (0, _v1.jsx)(_v8.IconButton, {
-      icon: (0, _v1.jsx)(_v68.CloseX, {
+      icon: (0, _v1.jsx)(_v64.CloseX, {
         color: "gray.900"
       }),
       "aria-label": "Close",
@@ -391,80 +387,79 @@
       size: "xs"
     })]
   });
-  _v0.s(["ToastMessage", 0, _v70], 0);
-  let _v71 = ({
+  _v0.s(["ToastMessage", 0, _v66], 0);
+  let _v67 = ({
       disabled: _v0,
-      location: _v1,
-      dispatch: _v2,
-      importRegistrantState: _v3,
-      handleOnClick: _v4,
-      loading: _v5,
-      fetchStatus: _v6
+      dispatch: _v1,
+      importRegistrantState: _v2,
+      handleOnClick: _v3,
+      loading: _v4,
+      fetchStatus: _v5
     }) => {
-      let _v7 = (0, _v22.useViewer)(),
+      let _v6 = (0, _v20.useViewer)(),
         {
-          isOpen: _v8,
-          onOpen: _v9,
-          onClose: _v10
-        } = (0, _v41.useDisclosure)(),
+          isOpen: _v7,
+          onOpen: _v8,
+          onClose: _v9
+        } = (0, _v37.useDisclosure)(),
         {
-          hasUpsell: _v11,
-          registrantCapUpperWatermark: _v12
-        } = (0, _v23.useEventCapability)(),
+          hasUpsell: _v10,
+          registrantCapUpperWatermark: _v11
+        } = (0, _v21.useEventCapability)(),
         {
-          processingCRM: _v13,
-          importCRMConnection: _v14,
-          showUpgradeType: _v15,
-          showCRMDisconnectModal: _v16,
-          importCRMStatus: _v17
-        } = _v3,
-        _v18 = (0, _v46.useIsBokeh)(),
-        [_v19, {
-          data: _v20,
-          loading: _v21,
-          error: _v22
-        }] = (0, _v47.usePutLeadCaptureResourceIdRegistrantsImport)(),
+          processingCRM: _v12,
+          importCRMConnection: _v13,
+          showUpgradeType: _v14,
+          showCRMDisconnectModal: _v15,
+          importCRMStatus: _v16
+        } = _v2,
+        _v17 = (0, _v42.useIsBokeh)(),
+        [_v18, {
+          data: _v19,
+          loading: _v20,
+          error: _v21
+        }] = (0, _v43.usePutLeadCaptureResourceIdRegistrantsImport)(),
         {
-          entityId: _v23,
-          entityType: _v24
-        } = (0, _v32.useConfigStore)(),
-        _v25 = (0, _v42.useToast)(),
-        _v26 = (0, _v2.useMemo)(() => {
+          entityId: _v22,
+          entityType: _v23
+        } = (0, _v28.useConfigStore)(),
+        _v24 = (0, _v38.useToast)(),
+        _v25 = (0, _v2.useMemo)(() => {
           let {
             PROCESSING: _v0,
             PENDING: _v1
-          } = _v31.CRM_CSV_STATUS;
-          if (!_v13) return null;
-          let _v2 = _v17?.filter(({
+          } = _v27.CRM_CSV_STATUS;
+          if (!_v12) return null;
+          let _v2 = _v16?.filter(({
             status: _v0,
             type: _v1
-          }) => _v1 === _v31.SYNC_TYPE.IMPORT && [_v1, _v0].includes(_v0));
+          }) => _v1 === _v27.SYNC_TYPE.IMPORT && [_v1, _v0].includes(_v0));
           return _v2?.[0]?.emailProviderList;
-        }, [_v17, _v13]),
+        }, [_v16, _v12]),
         {
-          provider: _v27,
-          list: _v28,
-          lastImportTime: _v29,
-          connectionOwnerId: _v30
-        } = _v14?.filter(_v0 => _v0.isActive)[0] || _v26 || {
+          provider: _v26,
+          list: _v27,
+          lastImportTime: _v28,
+          connectionOwnerId: _v29
+        } = _v13?.filter(_v0 => _v0.isActive)[0] || _v25 || {
           provider: null,
           list: null,
           lastImportTime: "",
           connectionOwnerId: null
         };
       (0, _v2.useEffect)(() => {
-        !_v21 && (_v22 && (_v25({
-          title: _v33.default.SomethingWentWrong,
+        !_v20 && (_v21 && (_v24({
+          title: _v29.default.SomethingWentWrong,
           status: "error"
-        }), _v2({
-          type: _v29.ACTION_TYPE.LOADING_CRM,
+        }), _v1({
+          type: _v26.ACTION_TYPE.LOADING_CRM,
           payload: !1
-        })), _v20 && _v6());
-      }, [_v22, _v21, _v20, _v2]);
-      let _v31 = (0, _v48.useEscapeKey)(_v8, _v10),
-        _v32 = (0, _v48.useEscapeKey)(_v15 === _v31.IMPORT_TYPE.CRM, _v4),
-        _v33 = _v30 && _v30 === _v7?.user?.id;
-      return _v28 && _v27 ? (0, _v1.jsxs)(_v1.Fragment, {
+        })), _v19 && _v5());
+      }, [_v21, _v20, _v19, _v1]);
+      let _v30 = (0, _v44.useEscapeKey)(_v7, _v9),
+        _v31 = (0, _v44.useEscapeKey)(_v14 === _v27.IMPORT_TYPE.CRM, _v3),
+        _v32 = _v29 && _v29 === _v6?.user?.id;
+      return _v27 && _v26 ? (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v6.Flex, {
           pr: "xs",
           pl: (0, _v9.rem)(10),
@@ -478,85 +473,85 @@
           minW: (0, _v9.rem)(150),
           justifyContent: "space-between",
           children: [(0, _v1.jsx)(_v10.Tooltip, {
-            label: _v28.name,
+            label: _v27.name,
             fontSize: "header-xs",
             minWidth: (0, _v9.rem)(250),
             children: (0, _v1.jsxs)(_v6.Flex, {
               align: "center",
-              children: [(0, _v1.jsx)(_v66, {
-                src: _v27?.icon,
-                darkSrc: _v27.darkIcon
-              }, _v27.id), (0, _v1.jsx)(_v7.Header, {
+              children: [(0, _v1.jsx)(_v62, {
+                src: _v26?.icon,
+                darkSrc: _v26.darkIcon
+              }, _v26.id), (0, _v1.jsx)(_v7.Header, {
                 size: "xs",
                 isTruncated: !0,
                 maxWidth: (0, _v9.rem)(140),
-                children: _v28.name
+                children: _v27.name
               })]
             })
           }), (0, _v1.jsx)(_v6.Flex, {
             ml: (0, _v9.rem)(10),
             p: (0, _v9.rem)(6),
-            children: _v13 || _v21 ? (0, _v1.jsx)(_v40.Spinner, {
-              size: _v18 ? "sm" : "md"
+            children: _v12 || _v20 ? (0, _v1.jsx)(_v36.Spinner, {
+              size: _v17 ? "sm" : "md"
             }) : (0, _v1.jsxs)(_v1.Fragment, {
-              children: [_v12 && (0, _v1.jsx)(_v10.Tooltip, {
-                label: _v33.default.ImportStopped,
+              children: [_v11 && (0, _v1.jsx)(_v10.Tooltip, {
+                label: _v29.default.ImportStopped,
                 fontSize: "header-xs",
                 children: (0, _v1.jsx)("span", {
                   onClick: _v0 => _v0.preventDefault(),
-                  children: (0, _v1.jsx)(_v43.CircleExclamation, {
+                  children: (0, _v1.jsx)(_v39.CircleExclamation, {
                     color: "red.500",
                     mr: "xs",
                     boxSize: (0, _v9.rem)(20)
                   })
                 })
-              }), (0, _v1.jsxs)(_v37.Popover, {
-                isOpen: _v8 && !_v0 && !_v13,
-                onOpen: _v9,
-                onClose: _v10,
-                children: [(0, _v1.jsx)(_v39.PopoverTrigger, {
+              }), (0, _v1.jsxs)(_v33.Popover, {
+                isOpen: _v7 && !_v0 && !_v12,
+                onOpen: _v8,
+                onClose: _v9,
+                children: [(0, _v1.jsx)(_v35.PopoverTrigger, {
                   children: (0, _v1.jsx)(_v3.Box, {
-                    onMouseEnter: _v9,
-                    onMouseLeave: _v10,
-                    children: (0, _v1.jsx)(_v44.EllipsisH, {
+                    onMouseEnter: _v8,
+                    onMouseLeave: _v9,
+                    children: (0, _v1.jsx)(_v40.EllipsisH, {
                       boxSize: (0, _v9.rem)(20),
-                      onClick: _v9,
-                      color: _v0 || _v13 ? "text-secondary" : "text-primary",
-                      cursor: _v0 || _v13 ? "not-allowed" : "pointer"
+                      onClick: _v8,
+                      color: _v0 || _v12 ? "text-secondary" : "text-primary",
+                      cursor: _v0 || _v12 ? "not-allowed" : "pointer"
                     })
                   })
-                }), (0, _v1.jsx)(_v38.PopoverContent, {
-                  onMouseEnter: _v9,
-                  onMouseLeave: _v10,
-                  onKeyDown: _v31,
+                }), (0, _v1.jsx)(_v34.PopoverContent, {
+                  onMouseEnter: _v8,
+                  onMouseLeave: _v9,
+                  onKeyDown: _v30,
                   children: (0, _v1.jsxs)("div", {
                     children: [(0, _v1.jsx)(_v3.Box, {
-                      sx: _v72(_v12),
+                      sx: _v68(_v11),
                       onClick: () => {
-                        _v33 && _v23 && _v24 && (_v2({
-                          type: _v29.ACTION_TYPE.LOADING_CRM,
+                        _v32 && _v22 && _v23 && (_v1({
+                          type: _v26.ACTION_TYPE.LOADING_CRM,
                           payload: !0
-                        }), _v27 && _v28 && _v19({
+                        }), _v26 && _v27 && _v18({
                           where: {
-                            resourceType: _v18.ENTITY_TO_PATH_MAP[_v24],
-                            resourceId: _v23
+                            resourceType: _v17.ENTITY_TO_PATH_MAP[_v23],
+                            resourceId: _v22
                           },
                           variables: {
-                            registrantSource: _v31.CRM_REGISTRANT_SOURCE,
+                            registrantSource: _v27.CRM_REGISTRANT_SOURCE,
                             emailProviderList: [{
-                              listId: `${_v28.id}`,
-                              providerId: _v27.id,
+                              listId: `${_v27.id}`,
+                              providerId: _v26.id,
                               isActive: !0,
-                              userId: _v30 || _v7?.user?.id
+                              userId: _v29 || _v6?.user?.id
                             }]
                           }
-                        }), _v10(), _v25({
-                          render: () => (0, _v1.jsx)(_v70, {
+                        }), _v9(), _v24({
+                          render: () => (0, _v1.jsx)(_v66, {
                             status: "info",
                             title: (0, _v15.translate)({
                               singular: 'Syncing registrants from "{NAME}"...',
                               replacements: {
-                                NAME: _v28?.name
+                                NAME: _v27?.name
                               },
                               dictionary: {
                                 es: {
@@ -583,41 +578,41 @@
                               }
                             })
                           }),
-                          id: `processing_${_v31.IMPORT}_${_v28?.name}`,
+                          id: `processing_${_v27.IMPORT}_${_v27?.name}`,
                           duration: null
                         }));
                       },
-                      children: (0, _v1.jsx)(_v36.Paragraph, {
+                      children: (0, _v1.jsx)(_v32.Paragraph, {
                         size: "md",
-                        color: _v33 ? "text-primary" : "text-secondary",
+                        color: _v32 ? "text-primary" : "text-secondary",
                         children: (0, _v1.jsx)(_v10.Tooltip, {
-                          label: _v33.default.TooltipImportText,
+                          label: _v29.default.TooltipImportText,
                           fontSize: "header-xs",
-                          isDisabled: !!_v33,
-                          children: _v33.default.ImportNow
+                          isDisabled: !!_v32,
+                          children: _v29.default.ImportNow
                         })
                       })
-                    }), _v29 && (0, _v1.jsx)(_v3.Box, {
-                      sx: _v72(_v12),
+                    }), _v28 && (0, _v1.jsx)(_v3.Box, {
+                      sx: _v68(_v11),
                       pointerEvents: "none",
-                      children: (0, _v1.jsx)(_v36.Paragraph, {
+                      children: (0, _v1.jsx)(_v32.Paragraph, {
                         size: "md",
                         pl: "xs",
                         color: "slate.400",
-                        children: (0, _v49.getSyncTime)(_v29)
+                        children: (0, _v45.getSyncTime)(_v28)
                       })
                     }), (0, _v1.jsx)(_v3.Box, {
-                      sx: _v72(),
+                      sx: _v68(),
                       onClick: () => {
-                        _v2({
-                          type: _v29.ACTION_TYPE.SHOW_DISCONNECT_MODAL,
+                        _v1({
+                          type: _v26.ACTION_TYPE.SHOW_DISCONNECT_MODAL,
                           payload: !0
-                        }), _v10();
+                        }), _v9();
                       },
-                      children: (0, _v1.jsx)(_v36.Paragraph, {
+                      children: (0, _v1.jsx)(_v32.Paragraph, {
                         size: "md",
                         color: "red.500",
-                        children: _v33.default.DisconnectList
+                        children: _v29.default.DisconnectList
                       })
                     })]
                   })
@@ -625,47 +620,46 @@
               })]
             })
           })]
-        }), (0, _v1.jsx)(_v60, {
-          showCRMDisconnectModal: _v16,
+        }), (0, _v1.jsx)(_v56, {
+          showCRMDisconnectModal: _v15,
           setShowDisconnectModal: _v0 => {
-            _v2({
-              type: _v29.ACTION_TYPE.SHOW_DISCONNECT_MODAL,
+            _v1({
+              type: _v26.ACTION_TYPE.SHOW_DISCONNECT_MODAL,
               payload: _v0
             });
           },
-          dispatch: _v2,
-          providerID: _v27.id,
-          list: _v28,
-          userId: _v30 || _v7?.user?.id
+          dispatch: _v1,
+          providerID: _v26.id,
+          list: _v27,
+          userId: _v29 || _v6?.user?.id
         })]
-      }) : (0, _v1.jsxs)(_v37.Popover, {
-        isOpen: _v15 === _v31.IMPORT_TYPE.CRM,
-        onClose: _v4,
-        children: [(0, _v1.jsx)(_v39.PopoverTrigger, {
+      }) : (0, _v1.jsxs)(_v33.Popover, {
+        isOpen: _v14 === _v27.IMPORT_TYPE.CRM,
+        onClose: _v3,
+        children: [(0, _v1.jsx)(_v35.PopoverTrigger, {
           children: (0, _v1.jsx)(_v3.Box, {
             children: (0, _v1.jsx)(_v4.Button, {
-              leftIcon: (0, _v1.jsx)(_v45.PopIn, {
+              leftIcon: (0, _v1.jsx)(_v41.PopIn, {
                 boxSize: (0, _v9.rem)(20)
               }),
               mx: (0, _v9.rem)(10),
               my: (0, _v9.rem)(7),
               variant: "secondary",
-              onClick: () => _v4(_v31.IMPORT_TYPE.CRM),
-              isDisabled: _v0 || _v5 || _v13,
-              children: _v33.default.ImportFromList
+              onClick: () => _v3(_v27.IMPORT_TYPE.CRM),
+              isDisabled: _v0 || _v4 || _v12,
+              children: _v29.default.ImportFromList
             })
           })
-        }), (0, _v1.jsx)(_v38.PopoverContent, {
-          onKeyDown: _v32,
-          children: (0, _v1.jsx)(_v56, {
-            isUpsell: _v11,
-            location: _v1,
-            type: _v31.IMPORT_TYPE.CRM
+        }), (0, _v1.jsx)(_v34.PopoverContent, {
+          onKeyDown: _v31,
+          children: (0, _v1.jsx)(_v52, {
+            isUpsell: _v10,
+            type: _v27.IMPORT_TYPE.CRM
           })
         })]
       });
     },
-    _v72 = _v0 => ({
+    _v68 = _v0 => ({
       py: (0, _v9.rem)(8),
       px: (0, _v9.rem)(12),
       cursor: "pointer",
@@ -673,43 +667,41 @@
         borderTop: `${(0, _v9.rem)(1)} solid`,
         borderColor: "stroke"
       },
-      ..._v63(_v0),
+      ..._v59(_v0),
       _hover: {
         backgroundColor: "background-blur"
       }
     });
-  var _v73 = _v0.i(0);
-  let _v74 = ({
+  var _v69 = _v0.i(0);
+  let _v70 = ({
     disabled: _v0,
     handleOnClick: _v1,
-    location: _v2,
-    importRegistrantState: _v3
+    importRegistrantState: _v2
   }) => {
     let {
-        hasUpsell: _v4
-      } = (0, _v23.useEventCapability)(),
+        hasUpsell: _v3
+      } = (0, _v21.useEventCapability)(),
       {
-        showUpgradeType: _v5
-      } = _v3,
-      _v6 = (0, _v48.useEscapeKey)(_v5 === _v31.IMPORT_TYPE.CSV, _v1);
-    return (0, _v1.jsxs)(_v37.Popover, {
-      isOpen: _v5 === _v31.IMPORT_TYPE.CSV,
+        showUpgradeType: _v4
+      } = _v2,
+      _v5 = (0, _v44.useEscapeKey)(_v4 === _v27.IMPORT_TYPE.CSV, _v1);
+    return (0, _v1.jsxs)(_v33.Popover, {
+      isOpen: _v4 === _v27.IMPORT_TYPE.CSV,
       onClose: _v1,
-      children: [(0, _v1.jsx)(_v39.PopoverTrigger, {
+      children: [(0, _v1.jsx)(_v35.PopoverTrigger, {
         children: (0, _v1.jsx)(_v4.Button, {
-          leftIcon: (0, _v1.jsx)(_v73.FileUpload, {}),
+          leftIcon: (0, _v1.jsx)(_v69.FileUpload, {}),
           variant: "secondary",
-          onClick: () => _v1(_v31.IMPORT_TYPE.CSV),
+          onClick: () => _v1(_v27.IMPORT_TYPE.CSV),
           isDisabled: _v0,
           my: (0, _v9.rem)(7),
-          children: _v33.default.UploadCSV
+          children: _v29.default.UploadCSV
         })
-      }), (0, _v1.jsx)(_v38.PopoverContent, {
-        onKeyDown: _v6,
-        children: (0, _v1.jsx)(_v56, {
-          isUpsell: _v4,
-          location: _v2,
-          type: _v31.IMPORT_TYPE.CSV
+      }), (0, _v1.jsx)(_v34.PopoverContent, {
+        onKeyDown: _v5,
+        children: (0, _v1.jsx)(_v52, {
+          isUpsell: _v3,
+          type: _v27.IMPORT_TYPE.CSV
         })
       })]
     });
@@ -723,110 +715,99 @@
     crmInfo: _v5,
     isCsvProcessing: _v6
   }) => {
-    let _v7 = (0, _v32.useConfigStore)(_v0 => _v0.entityType),
-      _v8 = (0, _v32.useConfigStore)(_v0 => _v0.isRegistrationOn),
-      _v9 = _v7 === _v18.ENTITY_TYPE.VIDEO,
+    let _v7 = (0, _v28.useConfigStore)(_v0 => _v0.entityType),
+      _v8 = (0, _v28.useConfigStore)(_v0 => _v0.isRegistrationOn),
+      _v9 = _v7 === _v17.ENTITY_TYPE.VIDEO,
       {
-        sendRegistrationActionBP: _v10
-      } = (0, _v24.useAnalytics)(),
-      {
-        sendUpsellEvent: _v11
-      } = (0, _v17.useUpsellAnalytics)(),
-      {
-        onRegistrantsActionClicked: _v12
+        onRegistrantsActionClicked: _v10
       } = (0, _v16.useCallbackContext)(),
       {
-        trackLiveStreamRegistrantsActionClicked: _v13
-      } = (0, _v20.useLiveStreamBroadcasterTracking)(),
+        trackLiveStreamRegistrantsActionClicked: _v11
+      } = (0, _v19.useLiveStreamBroadcasterTracking)(),
       {
-        processingCRM: _v14
+        processingCRM: _v12
       } = _v3,
-      [_v15, _v16] = (0, _v2.useState)(!1),
+      [_v13, _v14] = (0, _v2.useState)(!1),
       {
-        shareEntity: _v17,
-        canShare: _v18
-      } = (0, _v27.useShareEntity)(),
-      _v19 = _v33.default.ShareEntity[_v7] ?? "",
-      [_v20, {
-        data: _v21,
-        loading: _v22,
-        called: _v23
+        shareEntity: _v15,
+        canShare: _v16
+      } = (0, _v24.useShareEntity)(),
+      _v17 = _v29.default.ShareEntity[_v7] ?? "",
+      [_v18, {
+        data: _v19,
+        loading: _v20,
+        called: _v21
       }] = (0, _v13.useGetLeadCaptureResourceIdFormLazy)(),
-      _v24 = (0, _v22.useViewer)(),
-      _v25 = _v24?.user,
-      [_v26, _v27] = (0, _v2.useState)(!1),
-      [_v28, {
-        data: _v29,
-        loading: _v30,
-        called: _v31
+      _v22 = (0, _v20.useViewer)(),
+      _v23 = _v22?.user,
+      [_v24, _v25] = (0, _v2.useState)(!1),
+      [_v26, {
+        data: _v27,
+        loading: _v28,
+        called: _v29
       }] = (0, _v14.useGetLeadCaptureResourceIdRegistrantsExportLazy)(),
       {
-        download: _v32
-      } = (0, _v26.useRegistrantDownload)(),
+        download: _v30
+      } = (0, _v23.useRegistrantDownload)(),
       {
-        CRMCalled: _v33,
-        importCRMData: _v34,
-        isCRMLoading: _v35,
-        isCRMStatusLoading: _v36,
-        fetchCRMStatus: _v37
+        CRMCalled: _v31,
+        importCRMData: _v32,
+        isCRMLoading: _v33,
+        isCRMStatusLoading: _v34,
+        fetchCRMStatus: _v35
       } = _v5,
       {
-        canGoLive: _v38
-      } = (0, _v28.useTeamStore)(),
+        canGoLive: _v36
+      } = (0, _v25.useTeamStore)(),
       {
-        hasAttendeeUpsell: _v39,
-        hasUpsell: _v40,
-        loading: _v41
-      } = (0, _v23.useEventCapability)(),
+        hasAttendeeUpsell: _v37,
+        hasUpsell: _v38,
+        loading: _v39
+      } = (0, _v21.useEventCapability)(),
       {
-        uri: _v42,
-        status: _v43
-      } = (0, _v25.useEntityStore)(),
-      _v44 = _v25?.email,
-      _v45 = !_v38 || _v43 === _v31.EVENT_STATUS.ENDED || _v41 || _v6 || !_v8,
-      _v46 = _v0 => {
-        _v12?.(_v0 === _v31.IMPORT_TYPE.CSV ? "upload_csv" : "sync_from_email_list"), _v40 || _v2 && !_v2.isUnlimited && _v2.capping === _v0.total ? _v4({
-          type: _v29.ACTION_TYPE.SHOW_UPGRADE_POPOVER,
+        uri: _v40,
+        status: _v41
+      } = (0, _v22.useEntityStore)(),
+      _v42 = _v23?.email,
+      _v43 = !_v36 || _v41 === _v27.EVENT_STATUS.ENDED || _v39 || _v6 || !_v8,
+      _v44 = _v0 => {
+        _v10?.(_v0 === _v27.IMPORT_TYPE.CSV ? "upload_csv" : "sync_from_email_list"), _v38 || _v2 && !_v2.isUnlimited && _v2.capping === _v0.total ? _v4({
+          type: _v26.ACTION_TYPE.SHOW_UPGRADE_POPOVER,
           payload: _v0 || null
         }) : (_v4({
-          type: _v29.ACTION_TYPE.SET_SHOW_MODAL,
+          type: _v26.ACTION_TYPE.SET_SHOW_MODAL,
           payload: _v0 || null
         }), _v4({
-          type: _v29.ACTION_TYPE.SHOW_UPGRADE_POPOVER,
+          type: _v26.ACTION_TYPE.SHOW_UPGRADE_POPOVER,
           payload: null
-        })), _v10({
-          eventName: _v0 === _v31.IMPORT_TYPE.CSV ? _v30.BP_EVENT_NAME.REGISTRANTS_UPLOAD_CSV_MODAL : _v30.BP_EVENT_NAME.REGISTRANTS_SYNC_EMAIL_PROVIDER,
-          location: _v30.BP_LOCATION.TOP_ACTION_BAR,
-          copy: _v0 === _v31.IMPORT_TYPE.CSV ? _v30.BP_COPY.UPLOAD_CSV : _v30.BP_COPY.SYNC_FROM_EMAIL_LIST,
-          actionName: _v0 === _v31.IMPORT_TYPE.CSV ? _v30.BP_VALUES.OPEN_UPLOAD_CSV_MODAL : _v30.BP_VALUES.OPEN_EMAIL_PROVIDER_MODAL
-        }), _v7 === _v18.ENTITY_TYPE.EVENT && (_v0 === _v31.IMPORT_TYPE.CSV ? _v13({
+        })), _v7 === _v17.ENTITY_TYPE.EVENT && (_v0 === _v27.IMPORT_TYPE.CSV ? _v11({
           liveStreamRegistrantsAction: "upload_csv"
-        }) : _v13({
+        }) : _v11({
           liveStreamRegistrantsAction: "sync_from_email_list"
         }));
       },
-      _v47 = (0, _v2.useCallback)(() => {
-        _v7 && _v28({
+      _v45 = (0, _v2.useCallback)(() => {
+        _v7 && _v26({
           where: {
-            resourceType: _v18.ENTITY_TO_PATH_MAP[_v7],
-            resourceId: String((0, _v19.getLastIdFromUri)(_v42))
+            resourceType: _v17.ENTITY_TO_PATH_MAP[_v7],
+            resourceId: String((0, _v18.getLastIdFromUri)(_v40))
           },
           query: {
             downloadAsyncSupported: !0
           }
         });
-      }, [_v7, _v42, _v28]);
+      }, [_v7, _v40, _v26]);
     return (0, _v2.useEffect)(() => {
-      let _v0 = !_v22 && _v23;
-      _v15 && _v0 && null !== _v21 && (_v21?.registrationData?.downloadCsvAsynchronously ? _v47() : _v32(), _v16(!1));
-    }, [_v23, _v21, _v22, _v32, _v15, _v47]), (0, _v2.useEffect)(() => {
-      !_v30 && _v31 && null !== _v29 && _v27(!0);
-    }, [_v31, _v29, _v30]), (0, _v2.useEffect)(() => {
-      _v33 && !_v35 && _v34?.emailProviderList && _v4({
-        type: _v29.ACTION_TYPE.SET_CRM_CONNECTION,
-        payload: _v34?.emailProviderList
+      let _v0 = !_v20 && _v21;
+      _v13 && _v0 && null !== _v19 && (_v19?.registrationData?.downloadCsvAsynchronously ? _v45() : _v30(), _v14(!1));
+    }, [_v21, _v19, _v20, _v30, _v13, _v45]), (0, _v2.useEffect)(() => {
+      !_v28 && _v29 && null !== _v27 && _v25(!0);
+    }, [_v29, _v27, _v28]), (0, _v2.useEffect)(() => {
+      _v31 && !_v33 && _v32?.emailProviderList && _v4({
+        type: _v26.ACTION_TYPE.SET_CRM_CONNECTION,
+        payload: _v32?.emailProviderList
       });
-    }, [_v34, _v35, _v33, _v4]), (0, _v1.jsx)(_v3.Box, {
+    }, [_v32, _v33, _v31, _v4]), (0, _v1.jsx)(_v3.Box, {
       mb: "md",
       children: (0, _v1.jsxs)(_v6.Flex, {
         justifyContent: "space-between",
@@ -892,77 +873,52 @@
                   singular: "注册人，{COUNT}/{MAX}"
                 }
               }
-            }) : _v33.default.Registrants
-          }), _v39 && (0, _v1.jsx)(_v3.Box, {
+            }) : _v29.default.Registrants
+          }), _v37 && (0, _v1.jsx)(_v3.Box, {
             pl: "sm",
-            children: !_v9 && (0, _v1.jsx)(_v34.UpsellBadge, {
-              onClick: () => {
-                _v11({
-                  pageName: _v30.BP_PAGE.EVENT_REGISTRATION_PAGE,
-                  target: _v30.BP_TARGET.UPGRADE_PAGE,
-                  targetPath: window.location.pathname,
-                  upsellName: "add_registrants",
-                  interfaceType: "page",
-                  product: "events",
-                  feature: "registration",
-                  location: _v30.BP_LOCATION.HEADER,
-                  entityType: _v7,
-                  copy: _v30.BP_COPY.UPGRADE,
-                  flow: _v30.BP_FLOW.REGISTRANTS_TAB
-                });
-              }
-            })
+            children: !_v9 && (0, _v1.jsx)(_v30.UpsellBadge, {})
           })]
         }), (0, _v1.jsxs)(_v6.Flex, {
-          children: [_v18 && (0, _v1.jsx)(_v10.Tooltip, {
-            label: _v19,
+          children: [_v16 && (0, _v1.jsx)(_v10.Tooltip, {
+            label: _v17,
             children: (0, _v1.jsx)(_v8.IconButton, {
-              "aria-label": _v19,
+              "aria-label": _v17,
               icon: (0, _v1.jsx)(_v12.Link, {}),
-              onClick: () => _v17({
-                location: _v30.BP_LOCATION.TOP_ACTION_BAR
-              }),
+              onClick: () => _v15(),
               size: "md",
               variant: "secondary",
               ml: (0, _v9.rem)(10),
               my: (0, _v9.rem)(7)
             })
-          }), (0, _v1.jsx)(_v71, {
-            disabled: _v45,
-            handleOnClick: _v46,
-            location: _v21.BP_CLICK_EVENT_FIELDS.LOCATION.ATTENDEES_IMPORT_CRM_POPOVER,
-            loading: _v36,
+          }), (0, _v1.jsx)(_v67, {
+            disabled: _v43,
+            handleOnClick: _v44,
+            loading: _v34,
             importRegistrantState: _v3,
             dispatch: _v4,
-            fetchStatus: _v37
+            fetchStatus: _v35
           }), (0, _v1.jsx)(_v5.Divider, {
             orientation: "vertical",
             borderColor: "stroke",
             height: "1rem",
             alignSelf: "center",
             mr: (0, _v9.rem)(10)
-          }), (0, _v1.jsx)(_v74, {
-            disabled: _v45 || _v14,
-            handleOnClick: _v46,
-            importRegistrantState: _v3,
-            location: _v21.BP_CLICK_EVENT_FIELDS.LOCATION.ATTENDEES_UPLOAD_CSV_POPOVER
+          }), (0, _v1.jsx)(_v70, {
+            disabled: _v43 || _v12,
+            handleOnClick: _v44,
+            importRegistrantState: _v3
           }), (0, _v1.jsx)(_v4.Button, {
             leftIcon: (0, _v1.jsx)(_v11.DownloadImport, {}),
-            isDisabled: !_v38 || _v1 || 0 === _v0.total || _v15,
-            isLoading: _v15,
+            isDisabled: !_v36 || _v1 || 0 === _v0.total || _v13,
+            isLoading: _v13,
             onClick: () => {
-              _v16(!0), _v7 && (_v12?.("export_csv"), _v20({
+              _v14(!0), _v7 && (_v10?.("export_csv"), _v18({
                 where: {
-                  resourceType: _v18.ENTITY_TO_PATH_MAP[_v7],
-                  resourceId: `${(0, _v19.getLastIdFromUri)(_v42)}`
+                  resourceType: _v17.ENTITY_TO_PATH_MAP[_v7],
+                  resourceId: `${(0, _v18.getLastIdFromUri)(_v40)}`
                 },
                 select: ["registrationData.downloadCsvAsynchronously"]
-              }), _v10({
-                eventName: _v30.BP_EVENT_NAME.REGISTRANTS_EXPORT_CSV,
-                location: _v30.BP_LOCATION.TOP_ACTION_BAR,
-                copy: _v30.BP_COPY.EXPORT_CSV,
-                actionName: _v30.BP_VALUES.EXPORT_REGISTRANTS_CSV
-              }), _v7 === _v18.ENTITY_TYPE.EVENT && _v13({
+              }), _v7 === _v17.ENTITY_TYPE.EVENT && _v11({
                 liveStreamRegistrantsAction: "export_csv"
               }));
             },
@@ -970,32 +926,32 @@
             variant: "primary",
             mx: (0, _v9.rem)(10),
             my: (0, _v9.rem)(7),
-            children: _v33.default.ExportCSV
+            children: _v29.default.ExportCSV
           })]
-        }), (0, _v1.jsx)(_v35.DownloadRequestedInfoModal, {
-          email: _v44,
+        }), (0, _v1.jsx)(_v31.DownloadRequestedInfoModal, {
+          email: _v42,
           onClose: () => {
-            _v27(!1);
+            _v25(!1);
           },
-          open: _v26
+          open: _v24
         })]
       })
     });
   }], 0);
-  var _v75 = _v0.i(0),
+  var _v71 = _v0.i(0),
+    _v72 = _v0.i(0),
+    _v73 = _v0.i(0),
+    _v74 = _v0.i(0),
+    _v75 = _v0.i(0),
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
     _v78 = _v0.i(0),
     _v79 = _v0.i(0),
     _v80 = _v0.i(0),
     _v81 = _v0.i(0),
-    _v82 = _v0.i(0),
-    _v83 = _v0.i(0),
-    _v84 = _v0.i(0),
-    _v85 = _v0.i(0),
-    _v86 = _v0.i(0);
-  let _v87 = " ... ",
-    _v88 = ({
+    _v82 = _v0.i(0);
+  let _v83 = " ... ",
+    _v84 = ({
       text: _v0 = "",
       endChars: _v1 = 5,
       ..._v2
@@ -1013,9 +969,9 @@
             _v4 = 0;
           for (; _v2 <= _v3;) {
             let _v0 = Math.floor((_v2 + _v3) / 2);
-            _v0(`${_v0.slice(0, _v0)}${_v87}${_v1}`) <= _v3 ? (_v4 = _v0, _v2 = _v0 + 1) : _v3 = _v0 - 1;
+            _v0(`${_v0.slice(0, _v0)}${_v83}${_v1}`) <= _v3 ? (_v4 = _v0, _v2 = _v0 + 1) : _v3 = _v0 - 1;
           }
-          return `${_v0.slice(0, _v4)}${_v87}${_v1}`;
+          return `${_v0.slice(0, _v4)}${_v83}${_v1}`;
         }, [_v0, _v3, _v1]);
       return (0, _v2.useEffect)(() => {
         if (!_v5.current) return;
@@ -1038,14 +994,14 @@
           placement: "top",
           closeOnScroll: !0,
           fontSize: "body-md",
-          isDisabled: !_v7?.includes(_v87),
-          children: (0, _v1.jsx)(_v86.Text, {
+          isDisabled: !_v7?.includes(_v83),
+          children: (0, _v1.jsx)(_v82.Text, {
             as: "span",
             variant: "body-xl",
             ..._v2,
             children: _v7
           })
-        }), (0, _v1.jsx)(_v86.Text, {
+        }), (0, _v1.jsx)(_v82.Text, {
           as: "span",
           variant: "body-xl",
           ref: _v6,
@@ -1059,24 +1015,20 @@
         })]
       });
     };
-  _v0.s(["MiddleEllipsis", 0, _v88], 0);
-  let _v89 = ({
+  _v0.s(["MiddleEllipsis", 0, _v84], 0);
+  let _v85 = ({
       dropInOut: _v0,
       totalDuration: _v1,
       hasAttendeeUpsell: _v2
     }) => {
-      let _v3 = (0, _v62.useColorModeValue)("green.100", "green.700"),
+      let _v3 = (0, _v58.useColorModeValue)("green.100", "green.700"),
         _v4 = {
           sec: 0,
           min: 0,
           percentage: 0
         },
         [_v5, _v6] = (0, _v2.useState)([]),
-        [_v7, _v8] = (0, _v2.useState)(_v4),
-        {
-          sendUpsellEvent: _v9
-        } = (0, _v17.useUpsellAnalytics)(),
-        _v10 = (0, _v32.useConfigStore)(_v0 => _v0.entityType);
+        [_v7, _v8] = (0, _v2.useState)(_v4);
       return (0, _v2.useEffect)(() => {
         if (_v1 > 0 && _v0.length > 0) {
           let _v0, _v1;
@@ -1084,7 +1036,7 @@
             _v0 += _v0.endTime - _v0.startTime;
             let _v1 = _v0.startTime / _v1 * 100,
               _v2 = _v0.endTime / _v1 * 100,
-              _v3 = `${(0, _v49.getDurationString)(_v0.startTime)} — ${(0, _v49.getDurationString)(_v0.endTime)}`;
+              _v3 = `${(0, _v45.getDurationString)(_v0.startTime)} — ${(0, _v45.getDurationString)(_v0.endTime)}`;
             return {
               ..._v0,
               width: _v2 - _v1,
@@ -1103,27 +1055,10 @@
           pb: "sm",
           children: [(0, _v1.jsx)(_v7.Header, {
             size: "xs",
-            children: _v33.default.WatchTime
+            children: _v29.default.WatchTime
           }), (0, _v1.jsx)(_v3.Box, {
             ml: (0, _v9.rem)(5),
-            children: (0, _v1.jsx)(_v34.UpsellBadge, {
-              onClick: () => {
-                _v9({
-                  pageName: _v10 === _v18.ENTITY_TYPE.EVENT ? _v30.BP_PAGE_NAME.EVENT_REGISTRATION_PAGE : _v30.BP_PAGE_NAME.VIDEO_REGISTRATION_PAGE,
-                  target: _v30.BP_TARGET.UPGRADE_PAGE,
-                  targetPath: window.location.pathname,
-                  upsellName: "watch_time_analytics",
-                  interfaceType: "page",
-                  product: _v10 === _v18.ENTITY_TYPE.EVENT ? "events" : "gates",
-                  feature: "watch_time_analytics",
-                  modalName: _v30.BP_MODAL.ATTENDEES_MODAL,
-                  location: _v30.BP_LOCATION.MODAL,
-                  entityType: _v10,
-                  copy: _v30.BP_COPY.WATCH_TIME,
-                  flow: null
-                });
-              }
-            })
+            children: (0, _v1.jsx)(_v30.UpsellBadge, {})
           })]
         }) : (0, _v1.jsxs)(_v6.Flex, {
           justifyContent: "space-between",
@@ -1159,11 +1094,11 @@
                 }
               })
             }), (0, _v1.jsx)(_v10.Tooltip, {
-              label: _v33.default.LatencyWatch,
+              label: _v29.default.LatencyWatch,
               fontSize: "body-md",
               children: (0, _v1.jsx)(_v6.Flex, {
                 pl: "sm",
-                children: (0, _v1.jsx)(_v43.CircleExclamation, {
+                children: (0, _v1.jsx)(_v39.CircleExclamation, {
                   boxSize: (0, _v9.rem)(16)
                 })
               })
@@ -1269,7 +1204,7 @@
                   sx: {
                     perspective: "1000px",
                     backfaceVisibility: "hidden",
-                    animation: `${_v90} ${.03 * _v0.width}s ease-in-out`,
+                    animation: `${_v86} ${.03 * _v0.width}s ease-in-out`,
                     animationFillMode: "both"
                   }
                 })
@@ -1278,32 +1213,32 @@
           })
         }), _v2 ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsxs)(_v6.Flex, {
           justifyContent: "space-between",
-          children: [(0, _v1.jsx)(_v36.Paragraph, {
+          children: [(0, _v1.jsx)(_v32.Paragraph, {
             color: "text-primary",
             size: "sm",
-            children: (0, _v49.getDurationString)(0)
-          }), (0, _v1.jsx)(_v36.Paragraph, {
+            children: (0, _v45.getDurationString)(0)
+          }), (0, _v1.jsx)(_v32.Paragraph, {
             color: "text-primary",
             size: "sm",
-            children: (0, _v49.getDurationString)(_v1)
+            children: (0, _v45.getDurationString)(_v1)
           })]
         })]
       });
     },
-    _v90 = _v61.keyframes`
+    _v86 = _v57.keyframes`
     0% { width: 0; }
     100% { width: 100%; }
 `;
-  var _v91 = _v0.i(0);
-  let _v92 = ({
+  var _v87 = _v0.i(0);
+  let _v88 = ({
       isActive: _v0,
       handleRetry: _v1
-    }) => (0, _v1.jsxs)(_v91.Center, {
+    }) => (0, _v1.jsxs)(_v87.Center, {
       flexDirection: "column",
       mb: (0, _v9.rem)(15),
-      children: [(0, _v1.jsx)(_v43.CircleExclamation, {
+      children: [(0, _v1.jsx)(_v39.CircleExclamation, {
         boxSize: (0, _v9.rem)(24)
-      }), (0, _v1.jsx)(_v86.Text, {
+      }), (0, _v1.jsx)(_v82.Text, {
         variant: "body-xl",
         mt: "sm",
         color: "text-secondary",
@@ -1315,7 +1250,7 @@
               as: "a",
               onClick: _v1,
               onKeyDown: _v0 => {
-                _v0.key === _v31.KEY_CODES.ENTER && _v1();
+                _v0.key === _v27.KEY_CODES.ENTER && _v1();
               },
               tabIndex: _v0 ? 0 : -1,
               color: "blue.500",
@@ -1350,7 +1285,7 @@
         })
       })]
     }),
-    _v93 = ({
+    _v89 = ({
       refreshEngagementData: _v0,
       error: _v1,
       loading: _v2,
@@ -1359,7 +1294,7 @@
     }) => {
       let {
         hasAttendeeUpsell: _v5
-      } = (0, _v23.useEventCapability)();
+      } = (0, _v21.useEventCapability)();
       return (0, _v1.jsx)(_v3.Box, {
         borderRadius: "sm",
         mb: "sm",
@@ -1369,29 +1304,29 @@
         children: _v2 ? (0, _v1.jsx)(_v6.Flex, {
           flexDirection: "column",
           children: (0, _v1.jsx)(_v3.Box, {
-            sx: _v65("100%")
+            sx: _v61("100%")
           })
-        }) : _v1 ? (0, _v1.jsx)(_v92, {
+        }) : _v1 ? (0, _v1.jsx)(_v88, {
           handleRetry: () => {
             _v0();
           }
-        }) : (0, _v1.jsx)(_v89, {
+        }) : (0, _v1.jsx)(_v85, {
           dropInOut: _v3,
           totalDuration: _v4,
           hasAttendeeUpsell: _v5
         })
       });
     };
-  var _v94 = _v0.i(0),
+  var _v90 = _v0.i(0),
+    _v91 = _v0.i(0),
+    _v92 = _v0.i(0),
+    _v93 = _v0.i(0),
+    _v94 = _v0.i(0),
     _v95 = _v0.i(0),
     _v96 = _v0.i(0),
     _v97 = _v0.i(0),
-    _v98 = _v0.i(0),
-    _v99 = _v0.i(0),
-    _v100 = _v0.i(0),
-    _v101 = _v0.i(0),
-    _v102 = _v0.i(0);
-  async function _v103({
+    _v98 = _v0.i(0);
+  async function _v99({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1400,56 +1335,56 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v101.measureLatency)("getLiveEventVideos", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v2}/videos?${(0, _v102.searchQueryString)(_v3)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
+    return (0, _v97.measureLatency)("getLiveEventVideos", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v2}/videos?${(0, _v98.searchQueryString)(_v3)}&fields=${_v1.map(_v98.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v98.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v102.deepCamelCase)(_v1);
+      return (0, _v98.deepCamelCase)(_v1);
     });
   }
   _v0.i(0);
-  var _v104 = _v0.i(0);
+  var _v100 = _v0.i(0);
   _v0.i(0);
-  var _v105 = _v0.i(0);
-  let _v106 = ["analytics", "analytics.viewPercentage", "createdOn", "data", "email", "firstName", "hasAttended", "isBlocked", "lastName", "referrer", "sourceDetails", "sourceType", "uri", "views"],
-    _v107 = ["uri", "duration", "live.status", "created_time"],
-    _v108 = ["service_id", "service_type", "name", "icon", "user_id", "dark_icon", "connected", "lists.id", "lists.name", "lists.count", "lists.has_more", "can_import_from_crm"];
-  _v0.s(["ATTENDEES_API_FIELDS", 0, ["uri", "analytics.view_percentage", "created_on", "data", "email", "first_name", "is_blocked", "last_name", "has_attended", "views", "source_type", "source_details"], "CLIP_COLLECTION_FIELDS", 0, _v107, "CRM_IMPORT_FIELDS", 0, ["uri", "status", "type", "errorDetails", "pendingUserAction", "createdOn", "emailProviderList.isActive", "emailProviderList.lastImportTime", "emailProviderList.provider", "emailProviderList.list", "emailProviderList.connectionOwnerId"], "ESP_API_FIELDS", 0, _v108, "EVENT_API_FIELDS_FOR_ATTENDEE_PAGE", 0, ["uri", "title", "user", "schedule", "metadata", "link", "status", "streamPrivacy"], "FORM_FIELDS_FOR_ATTENDEE_PAGE", 0, ["hasLeadsFromLegacyForm", "createdOn", "registrationData.isUnlimited", "registrationData.capping", "registrationData.downloadCsvAsynchronously", "registrationData.lowerLimit", "registrationData.total", "registrationData.upperLimit"], "LeadResponseFields", 0, _v106, "SHOWCASE_API_FIELDS", 0, ["uri", "user.uri", "name", "privacy", "metadata.interactions.edit", "pictures", "link", "metadata.connections.videos.total", "seoAllowIndexed"], "VIDEO_API_FIELDS", 0, ["uri", "duration", "user.uri", "privacy", "metadata.interactions.edit", "name", "pictures", "link", "isPlayable"]], 0);
-  let _v109 = (0, _v2.createContext)({
+  var _v101 = _v0.i(0);
+  let _v102 = ["analytics", "analytics.viewPercentage", "createdOn", "data", "email", "firstName", "hasAttended", "isBlocked", "lastName", "referrer", "sourceDetails", "sourceType", "uri", "views"],
+    _v103 = ["uri", "duration", "live.status", "created_time"],
+    _v104 = ["service_id", "service_type", "name", "icon", "user_id", "dark_icon", "connected", "lists.id", "lists.name", "lists.count", "lists.has_more", "can_import_from_crm"];
+  _v0.s(["ATTENDEES_API_FIELDS", 0, ["uri", "analytics.view_percentage", "created_on", "data", "email", "first_name", "is_blocked", "last_name", "has_attended", "views", "source_type", "source_details"], "CLIP_COLLECTION_FIELDS", 0, _v103, "CRM_IMPORT_FIELDS", 0, ["uri", "status", "type", "errorDetails", "pendingUserAction", "createdOn", "emailProviderList.isActive", "emailProviderList.lastImportTime", "emailProviderList.provider", "emailProviderList.list", "emailProviderList.connectionOwnerId"], "ESP_API_FIELDS", 0, _v104, "EVENT_API_FIELDS_FOR_ATTENDEE_PAGE", 0, ["uri", "title", "user", "schedule", "metadata", "link", "status", "streamPrivacy"], "FORM_FIELDS_FOR_ATTENDEE_PAGE", 0, ["hasLeadsFromLegacyForm", "createdOn", "registrationData.isUnlimited", "registrationData.capping", "registrationData.downloadCsvAsynchronously", "registrationData.lowerLimit", "registrationData.total", "registrationData.upperLimit"], "LeadResponseFields", 0, _v102, "SHOWCASE_API_FIELDS", 0, ["uri", "user.uri", "name", "privacy", "metadata.interactions.edit", "pictures", "link", "metadata.connections.videos.total", "seoAllowIndexed"], "VIDEO_API_FIELDS", 0, ["uri", "duration", "user.uri", "privacy", "metadata.interactions.edit", "name", "pictures", "link", "isPlayable"]], 0);
+  let _v105 = (0, _v2.createContext)({
       videos: [],
       fetchVideos: () => null
     }),
-    _v110 = () => (0, _v2.useContext)(_v109);
+    _v106 = () => (0, _v2.useContext)(_v105);
   _v0.s(["default", 0, function ({
     children: _v0,
     entityLink: _v1
   }) {
-    let _v2 = (0, _v19.getLastIdFromUri)(_v1),
+    let _v2 = (0, _v18.getLastIdFromUri)(_v1),
       [_v3, {
         loading: _v4,
         data: _v5
       }] = function () {
         let {
             mutate: _v0
-          } = (0, _v104.useSWRConfig)(),
+          } = (0, _v100.useSWRConfig)(),
           {
             baseUrl: _v1,
             jwt: _v2,
             xVimeoPage: _v3,
             locale: _v4
-          } = (0, _v105.useGctlConfig)(),
-          [_v5, _v6] = (0, _v100.useInternalState)();
+          } = (0, _v101.useGctlConfig)(),
+          [_v5, _v6] = (0, _v96.useInternalState)();
         return [(0, _v2.useCallback)(async _v0 => {
           _v6({
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v0(`/live_events/${_v0.where.liveEventId}/videos${(0, _v100.serializeQuery)(_v0)}`, _v103({
+            let _v0 = await _v0(`/live_events/${_v0.where.liveEventId}/videos${(0, _v96.serializeQuery)(_v0)}`, _v99({
               ..._v0,
               baseUrl: _v1,
               headers: {
@@ -1472,42 +1407,42 @@
           }
         }, [_v1, _v3, _v2, _v4, _v6]), _v5];
       }(),
-      _v6 = (0, _v32.useConfigStore)(_v0 => _v0.entityType),
+      _v6 = (0, _v28.useConfigStore)(_v0 => _v0.entityType),
       [_v7, _v8] = (0, _v2.useState)([]),
       _v9 = (0, _v2.useCallback)(() => {
-        _v6 === _v18.ENTITY_TYPE.EVENT && _v2 && _v3({
+        _v6 === _v17.ENTITY_TYPE.EVENT && _v2 && _v3({
           where: {
             liveEventId: _v2
           },
           headers: {
             Accept: "application/vnd.vimeo.*;version=3.4.1"
           },
-          select: _v107
+          select: _v103
         });
       }, [_v6, _v2, _v3]);
     return (0, _v2.useEffect)(() => {
       _v9();
     }, [_v9]), (0, _v2.useEffect)(() => {
       !_v4 && _v5?.data && _v8(_v5.data);
-    }, [_v5, _v4]), (0, _v1.jsx)(_v109.Provider, {
+    }, [_v5, _v4]), (0, _v1.jsx)(_v105.Provider, {
       value: {
         videos: _v7,
         fetchVideos: _v9
       },
       children: _v0
     });
-  }, "useVideos", 0, _v110], 0);
-  let _v111 = ({
+  }, "useVideos", 0, _v106], 0);
+  let _v107 = ({
     selectedClip: _v0,
     setSelectedClip: _v1,
     loading: _v2
   }) => {
     let {
         videos: _v3
-      } = _v110(),
+      } = _v106(),
       {
         status: _v4
-      } = (0, _v25.useEntityStore)(),
+      } = (0, _v22.useEntityStore)(),
       _v5 = navigator.language || "en-US",
       _v6 = {
         year: "numeric",
@@ -1518,10 +1453,10 @@
         second: "numeric",
         hour12: !1
       },
-      _v7 = (0, _v49.getIntlDate)(_v0?.createdTime, _v6, _v5),
+      _v7 = (0, _v45.getIntlDate)(_v0?.createdTime, _v6, _v5),
       _v8 = _v3.filter(_v0 => {
         let _v1;
-        return _v1 = _v0.duration, _v0?.live?.status === _v31.EVENT_CLIP_STATUS.DONE && _v1 > 0 && _v4 === _v31.EVENT_STATUS.ENDED;
+        return _v1 = _v0.duration, _v0?.live?.status === _v27.EVENT_CLIP_STATUS.DONE && _v1 > 0 && _v4 === _v27.EVENT_STATUS.ENDED;
       });
     return (0, _v2.useEffect)(() => {
       _v1(_v8[0]);
@@ -1533,24 +1468,24 @@
         children: [(0, _v1.jsx)(_v7.Header, {
           variant: "heading-md",
           size: "xl",
-          children: _v33.default.ClipEngagement
-        }), (0, _v1.jsxs)(_v94.Menu, {
+          children: _v29.default.ClipEngagement
+        }), (0, _v1.jsxs)(_v90.Menu, {
           isLazy: !0,
-          children: [(0, _v1.jsx)(_v95.MenuButton, {
+          children: [(0, _v1.jsx)(_v91.MenuButton, {
             children: (0, _v1.jsxs)(_v6.Flex, {
-              children: [_v7, " ", (0, _v1.jsx)(_v99.ChevronDown, {})]
+              children: [_v7, " ", (0, _v1.jsx)(_v95.ChevronDown, {})]
             })
-          }), (0, _v1.jsx)(_v97.MenuList, {
-            children: (0, _v1.jsx)(_v98.MenuOptionGroup, {
+          }), (0, _v1.jsx)(_v93.MenuList, {
+            children: (0, _v1.jsx)(_v94.MenuOptionGroup, {
               defaultValue: _v7,
               type: "radio",
               children: _v8.map(_v0 => {
-                let _v1 = (0, _v49.getIntlDate)(_v0.createdTime, _v6, _v5);
-                return (0, _v1.jsx)(_v96.MenuItemOption, {
+                let _v1 = (0, _v45.getIntlDate)(_v0.createdTime, _v6, _v5);
+                return (0, _v1.jsx)(_v92.MenuItemOption, {
                   isDisabled: _v2,
                   value: _v1,
                   onClick: () => _v1(_v0),
-                  icon: (0, _v1.jsx)(_v82.CheckSmall, {
+                  icon: (0, _v1.jsx)(_v78.CheckSmall, {
                     color: "blue.500"
                   }),
                   children: _v1
@@ -1562,19 +1497,19 @@
       }) : (0, _v1.jsx)(_v7.Header, {
         variant: "heading-md",
         size: "xl",
-        children: _v33.default.Engagement
+        children: _v29.default.Engagement
       })
     });
   };
-  var _v112 = _v0.i(0);
-  let _v113 = ({
+  var _v108 = _v0.i(0);
+  let _v109 = ({
     isChosen: _v0,
     value: _v1,
     title: _v2
   }) => {
-    let _v3 = (0, _v62.useColorModeValue)("blue.100", "blue.700"),
-      _v4 = (0, _v62.useColorModeValue)("grayscale.100", "grayscale.600"),
-      _v5 = (0, _v62.useColorModeValue)("grayscale.300", "grayscale.200");
+    let _v3 = (0, _v58.useColorModeValue)("blue.100", "blue.700"),
+      _v4 = (0, _v58.useColorModeValue)("grayscale.100", "grayscale.600"),
+      _v5 = (0, _v58.useColorModeValue)("grayscale.300", "grayscale.200");
     return (0, _v1.jsxs)(_v3.Box, {
       mt: (0, _v9.rem)(15),
       children: [(0, _v1.jsxs)(_v6.Flex, {
@@ -1582,17 +1517,17 @@
         pb: "xs",
         children: [(0, _v1.jsxs)(_v6.Flex, {
           alignItems: "center",
-          children: [(0, _v1.jsxs)(_v86.Text, {
+          children: [(0, _v1.jsxs)(_v82.Text, {
             variant: "body-xl",
             mr: "sm",
             color: _v0 ? "blue.500" : "text-secondary",
             fontSize: "header-xs",
             children: [_v2, " answer"]
-          }), _v0 ? (0, _v1.jsx)(_v112.Checkmark, {
+          }), _v0 ? (0, _v1.jsx)(_v108.Checkmark, {
             boxSize: (0, _v9.rem)(22),
             color: "blue.500"
           }) : null]
-        }), (0, _v1.jsxs)(_v86.Text, {
+        }), (0, _v1.jsxs)(_v82.Text, {
           variant: "body-xl",
           mr: "sm",
           color: "text-secondary",
@@ -1612,7 +1547,7 @@
       })]
     });
   };
-  async function _v114({
+  async function _v110({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1622,35 +1557,35 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v101.measureLatency)("getUserLiveEventPolls", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/live_events/${_v3}/polls?${(0, _v102.searchQueryString)(_v4)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
+    return (0, _v97.measureLatency)("getUserLiveEventPolls", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/live_events/${_v3}/polls?${(0, _v98.searchQueryString)(_v4)}&fields=${_v1.map(_v98.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v98.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v102.deepCamelCase)(_v1);
+      return (0, _v98.deepCamelCase)(_v1);
     });
   }
-  function _v115() {
+  function _v111() {
     let {
         mutate: _v0
-      } = (0, _v104.useSWRConfig)(),
+      } = (0, _v100.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v105.useGctlConfig)(),
-      [_v5, _v6] = (0, _v100.useInternalState)();
+      } = (0, _v101.useGctlConfig)(),
+      [_v5, _v6] = (0, _v96.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/live_events/${_v0.where.liveEventId}/polls${(0, _v100.serializeQuery)(_v0)}`, _v114({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/live_events/${_v0.where.liveEventId}/polls${(0, _v96.serializeQuery)(_v0)}`, _v110({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -1673,10 +1608,10 @@
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }
-  var _v116 = _v0.i(0);
-  function _v117() {
-    let _v0 = (0, _v116.useCache)(),
-      _v1 = (0, _v2.useCallback)(() => _v0.get(_v31.ATTENDEE_URL_CACHE_KEY) || [], [_v0]),
+  var _v112 = _v0.i(0);
+  function _v113() {
+    let _v0 = (0, _v112.useCache)(),
+      _v1 = (0, _v2.useCallback)(() => _v0.get(_v27.ATTENDEE_URL_CACHE_KEY) || [], [_v0]),
       _v2 = (0, _v2.useCallback)(_v0 => _v0.get(_v0), [_v0]),
       _v3 = (0, _v2.useCallback)(_v0 => {
         _v1().forEach(_v0 => {
@@ -1689,10 +1624,10 @@
         });
       }, [_v0, _v1]),
       _v4 = (0, _v2.useCallback)(_v0 => {
-        _v0.delete(_v0), _v0.set(_v31.ATTENDEE_URL_CACHE_KEY, _v1().filter(_v0 => _v0 !== _v0));
+        _v0.delete(_v0), _v0.set(_v27.ATTENDEE_URL_CACHE_KEY, _v1().filter(_v0 => _v0 !== _v0));
       }, [_v0, _v1]),
       _v5 = (0, _v2.useCallback)((_v0, _v1, _v2) => {
-        _v2 && _v4(_v0), _v0.set(_v0, _v1), _v0.set(_v31.ATTENDEE_URL_CACHE_KEY, [..._v1(), _v0]);
+        _v2 && _v4(_v0), _v0.set(_v0, _v1), _v0.set(_v27.ATTENDEE_URL_CACHE_KEY, [..._v1(), _v0]);
       }, [_v0, _v4, _v1]),
       _v6 = (0, _v2.useCallback)(_v0 => {
         _v1().forEach(_v0 => {
@@ -1709,12 +1644,12 @@
       deleteAllCache: (0, _v2.useCallback)(() => {
         _v1().forEach(_v0 => {
           _v0.delete(_v0);
-        }), _v0.set(_v31.ATTENDEE_URL_CACHE_KEY, []);
+        }), _v0.set(_v27.ATTENDEE_URL_CACHE_KEY, []);
       }, [_v0, _v1])
     };
   }
-  _v0.s(["useAttendeeCache", 0, _v117], 0);
-  let _v118 = ({
+  _v0.s(["useAttendeeCache", 0, _v113], 0);
+  let _v114 = ({
     record: _v0,
     videoUrl: _v1,
     isActive: _v2 = !1
@@ -1734,41 +1669,41 @@
           loading: _v4,
           error: _v5,
           data: _v6
-        }] = _v115(),
+        }] = _v111(),
         {
           getFromCache: _v7,
           addToCache: _v8
-        } = _v117(),
+        } = _v113(),
         [_v9, _v10] = (0, _v2.useState)(),
         {
           hasPolls: _v11,
           loading: _v12,
           error: _v13
         } = (_v0 => {
-          let _v1 = (0, _v32.useConfigStore)(_v0 => _v0.entityType),
-            _v2 = (0, _v32.useConfigStore)(_v0 => _v0.entityId),
-            _v3 = (0, _v116.useCache)(),
+          let _v1 = (0, _v28.useConfigStore)(_v0 => _v0.entityType),
+            _v2 = (0, _v28.useConfigStore)(_v0 => _v0.entityId),
+            _v3 = (0, _v112.useCache)(),
             {
               user: _v4
-            } = (0, _v25.useEntityStore)(),
+            } = (0, _v22.useEntityStore)(),
             [_v5, _v6] = (0, _v2.useState)(!1),
             _v7 = `hasPolls_${_v0}`,
             [_v8, {
               loading: _v9,
               error: _v10,
               data: _v11
-            }] = _v115();
+            }] = _v111();
           return (0, _v2.useEffect)(() => {
-            if (_v1 !== _v18.ENTITY_TYPE.EVENT || !_v0) return;
+            if (_v1 !== _v17.ENTITY_TYPE.EVENT || !_v0) return;
             let _v0 = _v3.get(_v7);
             void 0 === _v0 && _v2 ? _v8({
               where: {
-                userId: (0, _v19.getLastIdFromUri)(_v4?.uri),
+                userId: (0, _v18.getLastIdFromUri)(_v4?.uri),
                 liveEventId: parseInt(_v2)
               },
               select: [],
               query: {
-                filterClip: (0, _v19.getLastIdFromUri)(_v0)
+                filterClip: (0, _v18.getLastIdFromUri)(_v0)
               }
             }) : _v6(_v0);
           }, [_v1, _v2, _v7, _v4, _v0, _v3, _v8]), (0, _v2.useEffect)(() => {
@@ -1783,20 +1718,20 @@
           }), [_v5, _v9, _v10]);
         })(_v1),
         _v14 = `${_v0?.uri}${_v1}/polls`,
-        _v15 = (0, _v32.useConfigStore)(_v0 => _v0.entityId),
+        _v15 = (0, _v28.useConfigStore)(_v0 => _v0.entityId),
         {
           user: _v16
-        } = (0, _v25.useEntityStore)(),
+        } = (0, _v22.useEntityStore)(),
         _v17 = (0, _v2.useCallback)(() => {
           _v15 && _v1 && _v3({
             where: {
-              userId: (0, _v19.getLastIdFromUri)(_v16?.uri),
+              userId: (0, _v18.getLastIdFromUri)(_v16?.uri),
               liveEventId: parseInt(_v15)
             },
             select: [],
             query: {
-              filterClip: (0, _v19.getLastIdFromUri)(_v1),
-              filterRegistrant: `${(0, _v19.getLastUuidFromUri)(_v0?.uri)}`
+              filterClip: (0, _v18.getLastIdFromUri)(_v1),
+              filterRegistrant: `${(0, _v18.getLastUuidFromUri)(_v0?.uri)}`
             }
           });
         }, [_v15, _v3, _v0, _v1, _v16]),
@@ -1829,14 +1764,14 @@
       children: (0, _v1.jsxs)(_v6.Flex, {
         flexDirection: "column",
         children: [(0, _v1.jsx)(_v3.Box, {
-          sx: _v65()
+          sx: _v61()
         }), (0, _v1.jsx)(_v3.Box, {
-          sx: _v65("100%")
+          sx: _v61("100%")
         }), (0, _v1.jsx)(_v3.Box, {
-          sx: _v65("100%")
+          sx: _v61("100%")
         })]
       })
-    }) : _v4 && !_v5 ? (0, _v1.jsx)(_v92, {
+    }) : _v4 && !_v5 ? (0, _v1.jsx)(_v88, {
       handleRetry: () => {
         _v7();
       },
@@ -1856,37 +1791,37 @@
             text: _v0,
             votesPercentage: _v1,
             voted: _v2
-          }, _v3) => (0, _v1.jsx)(_v113, {
+          }, _v3) => (0, _v1.jsx)(_v109, {
             title: _v0,
             value: _v1,
             isChosen: _v2 || !1
           }, _v3))]
         }, _v2))
       }) : (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v86.Text, {
+        children: [(0, _v1.jsx)(_v82.Text, {
           variant: "body-xl",
           fontSize: "header-xs",
           color: "text-secondary",
-          children: _v33.default.NoUserPolls
-        }), (0, _v1.jsx)(_v80.Link, {
+          children: _v29.default.NoUserPolls
+        }), (0, _v1.jsx)(_v76.Link, {
           tabIndex: _v2 ? 0 : -1,
           target: "_blank",
-          href: _v31.LEARN_MORE_ABOUT_POLLS,
-          children: _v33.default.PollsLearnMore
+          href: _v27.LEARN_MORE_ABOUT_POLLS,
+          children: _v29.default.PollsLearnMore
         })]
       }) : (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v86.Text, {
+        children: [(0, _v1.jsx)(_v82.Text, {
           variant: "heading-xs",
-          children: _v33.default.NoEventPolls
-        }), (0, _v1.jsx)(_v86.Text, {
+          children: _v29.default.NoEventPolls
+        }), (0, _v1.jsx)(_v82.Text, {
           variant: "body-sm",
           color: "text-secondary",
-          children: _v33.default.PollsLearnMore
+          children: _v29.default.PollsLearnMore
         })]
       })
     });
   };
-  async function _v119({
+  async function _v115({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -1896,20 +1831,20 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v101.measureLatency)("getUserLiveEventQna", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/live_events/${_v3}/qna?${(0, _v102.searchQueryString)(_v4)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
+    return (0, _v97.measureLatency)("getUserLiveEventQna", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/live_events/${_v3}/qna?${(0, _v98.searchQueryString)(_v4)}&fields=${_v1.map(_v98.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v98.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v102.deepCamelCase)(_v1);
+      return (0, _v98.deepCamelCase)(_v1);
     });
   }
-  var _v120 = _v0.i(0);
-  let _v121 = ({
+  var _v116 = _v0.i(0);
+  let _v117 = ({
       hasMargin: _v0,
       time: _v1,
       text: _v2,
@@ -1921,13 +1856,13 @@
         alignItems: "flex-start",
         mr: (0, _v9.rem)(5),
         pt: (0, _v9.rem)(5),
-        children: [(0, _v1.jsx)(_v86.Text, {
+        children: [(0, _v1.jsx)(_v82.Text, {
           variant: "body-xl",
           fontSize: "header-xs",
           color: "text-secondary",
           minWidth: (0, _v9.rem)(75),
           children: _v1 || null
-        }), (0, _v1.jsx)(_v86.Text, {
+        }), (0, _v1.jsx)(_v82.Text, {
           variant: "body-xl",
           fontSize: "header-xs",
           color: "text-primary",
@@ -1942,38 +1877,38 @@
         h: (0, _v9.rem)(30),
         px: (0, _v9.rem)(10),
         borderRadius: "xs",
-        children: [(0, _v1.jsx)(_v86.Text, {
+        children: [(0, _v1.jsx)(_v82.Text, {
           variant: "body-xl",
           fontSize: "header-xs",
           color: "text-secondary",
           mr: "sm",
           children: _v3
-        }), (0, _v1.jsx)(_v120.ThumbUp, {
+        }), (0, _v1.jsx)(_v116.ThumbUp, {
           boxSize: (0, _v9.rem)(22),
           color: "text-secondary"
         })]
       }) : null]
     }),
-    _v122 = ({
+    _v118 = ({
       time: _v0,
       text: _v1
     }) => (0, _v1.jsxs)(_v6.Flex, {
       alignItems: "center",
       mt: (0, _v9.rem)(15),
-      children: [(0, _v1.jsx)(_v86.Text, {
+      children: [(0, _v1.jsx)(_v82.Text, {
         variant: "body-xl",
         fontSize: "header-xs",
         color: "text-secondary",
         minWidth: (0, _v9.rem)(75),
         children: _v0
-      }), (0, _v1.jsx)(_v86.Text, {
+      }), (0, _v1.jsx)(_v82.Text, {
         variant: "body-xl",
         fontSize: "header-xs",
         color: "text-secondary",
         children: _v1
       })]
     }),
-    _v123 = ({
+    _v119 = ({
       record: _v0,
       videoUrl: _v1,
       isActive: _v2 = !1
@@ -1993,7 +1928,7 @@
             {
               getFromCache: _v6,
               addToCache: _v7
-            } = _v117(),
+            } = _v113(),
             [_v8, {
               loading: _v9,
               error: _v10,
@@ -2001,20 +1936,20 @@
             }] = function () {
               let {
                   mutate: _v0
-                } = (0, _v104.useSWRConfig)(),
+                } = (0, _v100.useSWRConfig)(),
                 {
                   baseUrl: _v1,
                   jwt: _v2,
                   xVimeoPage: _v3,
                   locale: _v4
-                } = (0, _v105.useGctlConfig)(),
-                [_v5, _v6] = (0, _v100.useInternalState)();
+                } = (0, _v101.useGctlConfig)(),
+                [_v5, _v6] = (0, _v96.useInternalState)();
               return [(0, _v2.useCallback)(async _v0 => {
                 _v6({
                   type: "REQUEST"
                 });
                 try {
-                  let _v0 = await _v0(`/users/${_v0.where.userId}/live_events/${_v0.where.liveEventId}/qna${(0, _v100.serializeQuery)(_v0)}`, _v119({
+                  let _v0 = await _v0(`/users/${_v0.where.userId}/live_events/${_v0.where.liveEventId}/qna${(0, _v96.serializeQuery)(_v0)}`, _v115({
                     ..._v0,
                     baseUrl: _v1,
                     headers: {
@@ -2040,18 +1975,18 @@
             {
               status: _v12,
               user: _v13
-            } = (0, _v25.useEntityStore)(),
-            _v14 = (0, _v32.useConfigStore)(_v0 => _v0.entityId),
+            } = (0, _v22.useEntityStore)(),
+            _v14 = (0, _v28.useConfigStore)(_v0 => _v0.entityId),
             _v15 = () => {
               _v14 && _v8({
                 where: {
                   liveEventId: parseInt(_v14),
-                  userId: (0, _v19.getLastIdFromUri)(_v13?.uri)
+                  userId: (0, _v18.getLastIdFromUri)(_v13?.uri)
                 },
                 select: [],
                 query: {
-                  filterClip: (0, _v19.getLastIdFromUri)(_v1),
-                  filterRegistrant: `${(0, _v19.getLastUuidFromUri)(_v0?.uri)}`
+                  filterClip: (0, _v18.getLastIdFromUri)(_v1),
+                  filterRegistrant: `${(0, _v18.getLastUuidFromUri)(_v0?.uri)}`
                 }
               });
             },
@@ -2060,7 +1995,7 @@
               error: _v10
             }), [_v9, _v10]);
           return (0, _v2.useEffect)(() => {
-            if (_v2 && _v0?.uri && _v12 === _v31.EVENT_STATUS.ENDED) {
+            if (_v2 && _v0?.uri && _v12 === _v27.EVENT_STATUS.ENDED) {
               let _v0 = _v6(_v5);
               if (_v0) return void _v4(_v0);
               _v15();
@@ -2080,7 +2015,7 @@
         }),
         {
           status: _v7
-        } = (0, _v25.useEntityStore)(),
+        } = (0, _v22.useEntityStore)(),
         _v8 = (0, _v2.useMemo)(() => _v3?.filter(_v0 => _v0.asked) || [], [_v3]),
         _v9 = (0, _v2.useMemo)(() => _v3?.filter(_v0 => _v0.voted) || [], [_v3]);
       return _v4 ? (0, _v1.jsx)(_v6.Flex, {
@@ -2090,20 +2025,20 @@
           children: [(0, _v1.jsxs)(_v3.Box, {
             pb: (0, _v9.rem)(15),
             children: [(0, _v1.jsx)(_v3.Box, {
-              sx: _v65()
+              sx: _v61()
             }), (0, _v1.jsx)(_v3.Box, {
-              sx: _v65("100%")
+              sx: _v61("100%")
             })]
           }), (0, _v1.jsxs)(_v3.Box, {
             pb: (0, _v9.rem)(15),
             children: [(0, _v1.jsx)(_v3.Box, {
-              sx: _v65()
+              sx: _v61()
             }), (0, _v1.jsx)(_v3.Box, {
-              sx: _v65("100%")
+              sx: _v61("100%")
             })]
           })]
         })
-      }) : _v5 && !_v3 ? (0, _v1.jsx)(_v92, {
+      }) : _v5 && !_v3 ? (0, _v1.jsx)(_v88, {
         handleRetry: () => {
           _v6();
         },
@@ -2114,51 +2049,51 @@
           pb: (0, _v9.rem)(15),
           children: [(0, _v1.jsx)(_v7.Header, {
             size: "xs",
-            children: `${_v0?.firstName} ${_v33.default.Asked}`
-          }), _v7 === _v31.EVENT_STATUS.ENDED && _v8?.length ? _v8.map(({
+            children: `${_v0?.firstName} ${_v29.default.Asked}`
+          }), _v7 === _v27.EVENT_STATUS.ENDED && _v8?.length ? _v8.map(({
             text: _v0,
             askedOn: _v1,
             upvotes: _v2
-          }, _v3) => (0, _v1.jsx)(_v121, {
+          }, _v3) => (0, _v1.jsx)(_v117, {
             hasMargin: !0,
-            time: (0, _v49.secondsToTime)(_v1),
+            time: (0, _v45.secondsToTime)(_v1),
             text: _v0,
             likes: _v2
-          }, _v3)) : (0, _v1.jsx)(_v86.Text, {
+          }, _v3)) : (0, _v1.jsx)(_v82.Text, {
             variant: "body-xl",
             fontSize: "header-xs",
             color: "text-secondary",
-            children: _v33.default.NoQuestionsAsked
+            children: _v29.default.NoQuestionsAsked
           })]
         }), (0, _v1.jsxs)(_v3.Box, {
           pb: (0, _v9.rem)(15),
           children: [(0, _v1.jsx)(_v7.Header, {
             size: "xs",
-            children: `${_v0?.firstName} ${_v33.default.Liked}`
-          }), _v7 === _v31.EVENT_STATUS.ENDED && _v9?.length ? _v9.map(({
+            children: `${_v0?.firstName} ${_v29.default.Liked}`
+          }), _v7 === _v27.EVENT_STATUS.ENDED && _v9?.length ? _v9.map(({
             text: _v0,
             askedBy: _v1,
             askedOn: _v2,
             upvotes: _v3
           }, _v4) => (0, _v1.jsxs)("div", {
-            children: [(0, _v1.jsx)(_v122, {
+            children: [(0, _v1.jsx)(_v118, {
               text: _v1,
-              time: (0, _v49.secondsToTime)(_v2)
-            }), (0, _v1.jsx)(_v121, {
+              time: (0, _v45.secondsToTime)(_v2)
+            }), (0, _v1.jsx)(_v117, {
               text: _v0,
               likes: _v3
             })]
-          }, _v4)) : (0, _v1.jsx)(_v86.Text, {
+          }, _v4)) : (0, _v1.jsx)(_v82.Text, {
             variant: "body-xl",
             fontSize: "header-xs",
             color: "text-secondary",
-            children: _v33.default.NoQuestionsAsked
+            children: _v29.default.NoQuestionsAsked
           })]
         })]
       });
     };
-  var _v124 = _v0.i(0);
-  let _v125 = _v0 => (0, _v1.jsx)(_v124.Icon, {
+  var _v120 = _v0.i(0);
+  let _v121 = _v0 => (0, _v1.jsx)(_v120.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -2171,24 +2106,24 @@
       })]
     })
   });
-  var _v126 = _v0.i(0);
-  let _v127 = ({
+  var _v122 = _v0.i(0);
+  let _v123 = ({
     attendee: _v0,
     formSource: _v1
   }) => {
     let _v2 = _v0.sourceDetails,
       _v3 = _v0.sourceType;
-    return _v2 || _v3 === _v31.ATTENDEE_SOURCE_TYPE.FORM ? (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v36.Paragraph, {
+    return _v2 || _v3 === _v27.ATTENDEE_SOURCE_TYPE.FORM ? (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsx)(_v32.Paragraph, {
         variant: "body-sm",
         color: "text-secondary",
         mt: "sm",
-        children: _v33.default.Source
-      }), _v3 === _v31.ATTENDEE_SOURCE_TYPE.CSV ? (0, _v1.jsxs)(_v6.Flex, {
+        children: _v29.default.Source
+      }), _v3 === _v27.ATTENDEE_SOURCE_TYPE.CSV ? (0, _v1.jsxs)(_v6.Flex, {
         alignItems: "center",
         children: [(0, _v1.jsx)(_v3.Box, {
           mr: "sm",
-          children: (0, _v1.jsx)(_v125, {
+          children: (0, _v1.jsx)(_v121, {
             height: 24,
             width: 24
           })
@@ -2196,19 +2131,19 @@
           size: "xs",
           children: _v2.filename
         })]
-      }) : _v3 === _v31.ATTENDEE_SOURCE_TYPE.API ? (0, _v1.jsx)(_v7.Header, {
+      }) : _v3 === _v27.ATTENDEE_SOURCE_TYPE.API ? (0, _v1.jsx)(_v7.Header, {
         size: "xs",
         children: _v2.appName ? _v3 + " - " + _v2.appName : _v3
-      }) : _v3 === _v31.ATTENDEE_SOURCE_TYPE.CRM ? (0, _v1.jsxs)(_v6.Flex, {
+      }) : _v3 === _v27.ATTENDEE_SOURCE_TYPE.CRM ? (0, _v1.jsxs)(_v6.Flex, {
         alignItems: "center",
-        children: [(0, _v1.jsx)(_v66, {
+        children: [(0, _v1.jsx)(_v62, {
           src: _v2.provider?.icon || "",
           darkSrc: _v2.provider?.darkIcon
         }, _v2.provider?.id), (0, _v1.jsx)(_v7.Header, {
           size: "xs",
           children: _v2.listName
         })]
-      }) : _v3 === _v31.ATTENDEE_SOURCE_TYPE.FORM ? (0, _v1.jsxs)(_v3.Box, {
+      }) : _v3 === _v27.ATTENDEE_SOURCE_TYPE.FORM ? (0, _v1.jsxs)(_v3.Box, {
         children: [(0, _v1.jsxs)(_v6.Flex, {
           pb: "8",
           alignItems: "center",
@@ -2216,7 +2151,7 @@
             h: (0, _v9.rem)(24),
             w: (0, _v9.rem)(24),
             mr: (0, _v9.rem)(6),
-            children: (0, _v1.jsx)(_v126.VimeoV, {
+            children: (0, _v1.jsx)(_v122.VimeoV, {
               color: "blue.500"
             })
           }), (0, _v1.jsx)(_v7.Header, {
@@ -2236,7 +2171,7 @@
       }) : (0, _v1.jsx)(_v1.Fragment, {})]
     }) : (0, _v1.jsx)(_v1.Fragment, {});
   };
-  async function _v128({
+  async function _v124({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -2246,31 +2181,31 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v101.measureLatency)("getLeadCaptureResourceIdEngagement", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/lead_capture/${_v2}/${_v3}/engagement?${(0, _v102.searchQueryString)(_v4)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
+    return (0, _v97.measureLatency)("getLeadCaptureResourceIdEngagement", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/lead_capture/${_v2}/${_v3}/engagement?${(0, _v98.searchQueryString)(_v4)}&fields=${_v1.map(_v98.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v98.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v102.deepCamelCase)(_v1);
+      return (0, _v98.deepCamelCase)(_v1);
     });
   }
-  let _v129 = ({
+  let _v125 = ({
     hasUpsell: _v0,
     title: _v1,
     children: _v2,
     ..._v3
-  }) => (0, _v1.jsx)(_v75.Accordion, {
+  }) => (0, _v1.jsx)(_v71.Accordion, {
     ..._v3,
-    children: (0, _v1.jsx)(_v77.AccordionItem, {
+    children: (0, _v1.jsx)(_v73.AccordionItem, {
       borderRadius: "sm",
       children: ({
         isExpanded: _v0
       }) => (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v76.AccordionButton, {
+        children: [(0, _v1.jsxs)(_v72.AccordionButton, {
           background: "fill-component",
           p: "lg",
           borderRadius: "sm",
@@ -2281,17 +2216,17 @@
               variant: "heading-md",
               size: "xl",
               children: _v1
-            }), _v0 && (0, _v1.jsx)(_v34.UpsellBadge, {})]
+            }), _v0 && (0, _v1.jsx)(_v30.UpsellBadge, {})]
           }), (0, _v1.jsx)(_v3.Box, {
             transition: "transform 0.3s",
             transform: `rotate(${_v0 ? "0deg" : "-90deg"})`,
-            children: _v0 ? (0, _v1.jsx)(_v83.Minus, {
+            children: _v0 ? (0, _v1.jsx)(_v79.Minus, {
               boxSize: (0, _v9.rem)(24)
-            }) : (0, _v1.jsx)(_v84.Plus, {
+            }) : (0, _v1.jsx)(_v80.Plus, {
               boxSize: (0, _v9.rem)(24)
             })
           })]
-        }), (0, _v1.jsx)(_v78.AccordionPanel, {
+        }), (0, _v1.jsx)(_v74.AccordionPanel, {
           background: "fill-component",
           p: "lg",
           pt: 0,
@@ -2302,7 +2237,7 @@
       })
     })
   });
-  async function _v130({
+  async function _v126({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -2311,35 +2246,35 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v101.measureLatency)("getUserEmailServiceProviders", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/email_service_providers?${(0, _v102.searchQueryString)(_v3)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
+    return (0, _v97.measureLatency)("getUserEmailServiceProviders", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/email_service_providers?${(0, _v98.searchQueryString)(_v3)}&fields=${_v1.map(_v98.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v98.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v102.deepCamelCase)(_v1);
+      return (0, _v98.deepCamelCase)(_v1);
     });
   }
-  function _v131() {
+  function _v127() {
     let {
         mutate: _v0
-      } = (0, _v104.useSWRConfig)(),
+      } = (0, _v100.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v105.useGctlConfig)(),
-      [_v5, _v6] = (0, _v100.useInternalState)();
+      } = (0, _v101.useGctlConfig)(),
+      [_v5, _v6] = (0, _v96.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/email_service_providers${(0, _v100.serializeQuery)(_v0)}`, _v130({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/email_service_providers${(0, _v96.serializeQuery)(_v0)}`, _v126({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -2367,26 +2302,26 @@
     onClose: _v1,
     updateData: _v2
   }) => {
-    let _v3 = (0, _v32.useConfigStore)(_v0 => _v0.entityType),
-      _v4 = _v3 === _v18.ENTITY_TYPE.EVENT,
+    let _v3 = (0, _v28.useConfigStore)(_v0 => _v0.entityType),
+      _v4 = _v3 === _v17.ENTITY_TYPE.EVENT,
       {
         status: _v5,
         title: _v6,
         user: _v7
-      } = (0, _v25.useEntityStore)(),
+      } = (0, _v22.useEntityStore)(),
       {
         updateCache: _v8
-      } = _v117(),
+      } = _v113(),
       [_v9, _v10] = (0, _v2.useState)(_v0?.isBlocked),
       {
         colorMode: _v11
-      } = (0, _v62.useColorMode)(),
-      _v12 = (0, _v42.useToast)(),
-      _v13 = (0, _v22.useViewer)(),
+      } = (0, _v58.useColorMode)(),
+      _v12 = (0, _v38.useToast)(),
+      _v13 = (0, _v20.useViewer)(),
       _v14 = _v13?.viewmasterCdnUrl,
       {
         canEdit: _v15
-      } = (0, _v28.useTeamStore)(),
+      } = (0, _v25.useTeamStore)(),
       [_v16, _v17] = (0, _v2.useState)(),
       _v18 = navigator.language || "en-US",
       _v19 = `${_v0?.firstName || ""} ${_v0?.lastName || ""}`,
@@ -2413,20 +2348,20 @@
           }] = function () {
             let {
                 mutate: _v0
-              } = (0, _v104.useSWRConfig)(),
+              } = (0, _v100.useSWRConfig)(),
               {
                 baseUrl: _v1,
                 jwt: _v2,
                 xVimeoPage: _v3,
                 locale: _v4
-              } = (0, _v105.useGctlConfig)(),
-              [_v5, _v6] = (0, _v100.useInternalState)();
+              } = (0, _v101.useGctlConfig)(),
+              [_v5, _v6] = (0, _v96.useInternalState)();
             return [(0, _v2.useCallback)(async _v0 => {
               _v6({
                 type: "REQUEST"
               });
               try {
-                let _v0 = await _v0(`/lead_capture/${_v0.where.resourceType}/${_v0.where.resourceId}/engagement${(0, _v100.serializeQuery)(_v0)}`, _v128({
+                let _v0 = await _v0(`/lead_capture/${_v0.where.resourceType}/${_v0.where.resourceId}/engagement${(0, _v96.serializeQuery)(_v0)}`, _v124({
                   ..._v0,
                   baseUrl: _v1,
                   headers: {
@@ -2455,24 +2390,24 @@
           _v12 = (0, _v2.useRef)(""),
           {
             hasAttendeeUpsell: _v13
-          } = (0, _v23.useEventCapability)(),
+          } = (0, _v21.useEventCapability)(),
           _v14 = `${_v1?.uri}${_v2}/engagement`,
           _v15 = `${_v2}?duration`,
           {
             getFromCache: _v16,
             addToCache: _v17
-          } = _v117(),
-          _v18 = (0, _v32.useConfigStore)(_v0 => _v0.entityType),
-          _v19 = (0, _v32.useConfigStore)(_v0 => _v0.entityId),
+          } = _v113(),
+          _v18 = (0, _v28.useConfigStore)(_v0 => _v0.entityType),
+          _v19 = (0, _v28.useConfigStore)(_v0 => _v0.entityId),
           _v20 = (0, _v2.useCallback)(() => {
-            !(!_v2 && [_v18.ENTITY_TYPE.EVENT].includes(_v18) || !_v1?.uri || _v13 || !_v19) && _v18 && (_v11.current = _v1?.uri, _v12.current = _v2, _v3({
+            !(!_v2 && [_v17.ENTITY_TYPE.EVENT].includes(_v18) || !_v1?.uri || _v13 || !_v19) && _v18 && (_v11.current = _v1?.uri, _v12.current = _v2, _v3({
               where: {
                 resourceId: _v19,
-                resourceType: _v18.ENTITY_TO_PATH_MAP[_v18]
+                resourceType: _v17.ENTITY_TO_PATH_MAP[_v18]
               },
               query: {
-                filterRegistrant: (0, _v19.getLastUuidFromUri)(_v1?.uri),
-                filterClip: (0, _v19.getLastIdFromUri)(_v2)
+                filterRegistrant: (0, _v18.getLastUuidFromUri)(_v1?.uri),
+                filterClip: (0, _v18.getLastIdFromUri)(_v2)
               },
               select: []
             }));
@@ -2485,7 +2420,7 @@
           _v8([]), _v10(0);
           let _v0 = _v16(_v14),
             _v1 = _v16(_v15);
-          if (_v0 && (_v1 || _v18 !== _v18.ENTITY_TYPE.EVENT)) {
+          if (_v0 && (_v1 || _v18 !== _v17.ENTITY_TYPE.EVENT)) {
             _v8(_v0), _v10(_v1 || 0);
             return;
           }
@@ -2493,7 +2428,7 @@
         }, [_v1, _v2, _v14, _v15, _v18]), (0, _v2.useEffect)(() => {
           if (_v6) {
             if (_v11.current !== _v1?.uri || _v12.current !== _v2) return;
-            let _v0 = (0, _v102.deepCamelCase)(_v6.data);
+            let _v0 = (0, _v98.deepCamelCase)(_v6.data);
             _v17(_v14, _v0), _v8(_v0);
             let _v1 = _v6.filteredTotal;
             _v17(_v15, _v1), _v10(_v1);
@@ -2513,45 +2448,45 @@
         data: _v28,
         error: _v29,
         loading: _v30
-      }] = (0, _v85.usePatchLeadCaptureRegistrant)(),
-      _v31 = _v31.ENTITIES_WITH_ENGAGEMENT_SEGMENT.includes(_v3),
+      }] = (0, _v81.usePatchLeadCaptureRegistrant)(),
+      _v31 = _v27.ENTITIES_WITH_ENGAGEMENT_SEGMENT.includes(_v3),
       {
         hasAttendeeUpsell: _v32
-      } = (0, _v23.useEventCapability)(),
+      } = (0, _v21.useEventCapability)(),
       _v33 = () => {
         _v0?.uri && _v7?.uri && _v26({
           where: {
-            registrantId: (0, _v19.getLastUuidFromUri)(_v0?.uri) || ""
+            registrantId: (0, _v18.getLastUuidFromUri)(_v0?.uri) || ""
           },
           variables: {
             isBlocked: !_v9
           },
-          select: _v106
+          select: _v102
         });
       },
       _v34 = _v0 => {
         let _v1;
-        return _v1 = "dark" === _v11 ? "polls" === _v0 ? _v31.IMAGES_ID.POLLS_DARK : "qa" === _v0 ? _v31.IMAGES_ID.QA_DARK : _v31.IMAGES_ID.AMOUNT_WATCHED_DARK : "polls" === _v0 ? _v31.IMAGES_ID.POLLS_LIGHT : "qa" === _v0 ? _v31.IMAGES_ID.QA_LIGHT : _v31.IMAGES_ID.AMOUNT_WATCHED_LIGHT, `${!_v14 || _v14.includes("devi") ? _v31.MASTER_CDN_URL : _v14}/custom_asset/${_v1}`;
+        return _v1 = "dark" === _v11 ? "polls" === _v0 ? _v27.IMAGES_ID.POLLS_DARK : "qa" === _v0 ? _v27.IMAGES_ID.QA_DARK : _v27.IMAGES_ID.AMOUNT_WATCHED_DARK : "polls" === _v0 ? _v27.IMAGES_ID.POLLS_LIGHT : "qa" === _v0 ? _v27.IMAGES_ID.QA_LIGHT : _v27.IMAGES_ID.AMOUNT_WATCHED_LIGHT, `${!_v14 || _v14.includes("devi") ? _v27.MASTER_CDN_URL : _v14}/custom_asset/${_v1}`;
       };
     return (0, _v2.useEffect)(() => {
       if (_v27 && !_v30) {
         if (_v29) return void _v12({
-          title: _v33.default.ChangesCouldNotBeSaved,
+          title: _v29.default.ChangesCouldNotBeSaved,
           status: "error"
         });
         _v28 && (_v8(_v28), _v2(), _v10(_v28.isBlocked), _v12({
-          title: _v28.isBlocked ? _v33.default.AttendeeBlocked : _v33.default.AttendeeUnblocked,
+          title: _v28.isBlocked ? _v29.default.AttendeeBlocked : _v29.default.AttendeeUnblocked,
           status: "info"
         }));
       }
     }, [_v28, _v29, _v30, _v27]), (0, _v2.useEffect)(() => {
       _v10(_v0?.isBlocked);
-    }, [_v0?.isBlocked]), (0, _v1.jsxs)(_v57.Modal, {
+    }, [_v0?.isBlocked]), (0, _v1.jsxs)(_v53.Modal, {
       isOpen: !!_v0,
       onClose: _v1,
-      children: [(0, _v1.jsx)(_v59.ModalOverlay, {
+      children: [(0, _v1.jsx)(_v55.ModalOverlay, {
         zIndex: "modal"
-      }), (0, _v1.jsx)(_v58.ModalContent, {
+      }), (0, _v1.jsx)(_v54.ModalContent, {
         width: "90vw",
         maxW: (0, _v9.rem)(660),
         maxH: (0, _v9.rem)(750),
@@ -2560,34 +2495,34 @@
         overflow: "auto",
         children: (0, _v1.jsxs)(_v3.Box, {
           p: "2xl",
-          children: [(0, _v1.jsx)(_v81.ModalCloseButton, {}), _v0 && (0, _v1.jsxs)(_v1.Fragment, {
+          children: [(0, _v1.jsx)(_v77.ModalCloseButton, {}), _v0 && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsxs)(_v6.Flex, {
               pb: "sm",
               width: "fit-content",
               placeItems: "center",
               maxW: "100%",
-              children: [(0, _v1.jsx)(_v88, {
+              children: [(0, _v1.jsx)(_v84, {
                 text: _v19,
                 variant: "heading-lg",
                 marginRight: "sm"
-              }), _v9 && (0, _v1.jsx)(_v79.Badge, {
+              }), _v9 && (0, _v1.jsx)(_v75.Badge, {
                 variant: "live",
                 size: "sm",
-                children: _v33.default.BLOCKED
+                children: _v29.default.BLOCKED
               })]
             }), (0, _v1.jsxs)(_v6.Flex, {
               pb: (0, _v9.rem)(32),
               alignItems: "center",
               children: [(0, _v1.jsx)(_v6.Flex, {
                 maxW: "60%",
-                as: _v80.Link,
+                as: _v76.Link,
                 href: `mailto:${_v0.email}`,
                 pr: (0, _v9.rem)(6),
                 textUnderlineOffset: (0, _v9.rem)(1),
                 color: "blue.500",
                 variant: "inline-primary",
                 fontSize: (0, _v9.rem)(14),
-                children: (0, _v1.jsx)(_v88, {
+                children: (0, _v1.jsx)(_v84, {
                   text: _v0?.email,
                   endChars: (() => {
                     if (!_v0?.email) return;
@@ -2601,12 +2536,12 @@
                   h: (0, _v9.rem)(14),
                   borderColor: "text-secondary",
                   alignSelf: "center"
-                }), (0, _v1.jsx)(_v36.Paragraph, {
+                }), (0, _v1.jsx)(_v32.Paragraph, {
                   tabIndex: 0,
                   px: (0, _v9.rem)(6),
                   pt: (0, _v9.rem)(3),
                   onKeyDown: _v0 => {
-                    _v0.key === _v31.KEY_CODES.ENTER && _v33();
+                    _v0.key === _v27.KEY_CODES.ENTER && _v33();
                   },
                   textDecoration: "underline",
                   size: "md",
@@ -2617,21 +2552,21 @@
                   },
                   onClick: _v33,
                   sx: {
-                    ..._v63(_v5 === _v31.EVENT_STATUS.ENDED || !_v15 || _v30)
+                    ..._v59(_v5 === _v27.EVENT_STATUS.ENDED || !_v15 || _v30)
                   },
-                  children: _v9 ? _v33.default.UnblockAttendee : _v33.default.BlockAttendee
+                  children: _v9 ? _v29.default.UnblockAttendee : _v29.default.BlockAttendee
                 }), (0, _v1.jsx)(_v10.Tooltip, {
-                  label: _v9 ? _v33.default.UnblockMsg : _v33.default.BlockMsg,
+                  label: _v9 ? _v29.default.UnblockMsg : _v29.default.BlockMsg,
                   fontSize: "body-md",
                   maxW: (0, _v9.rem)(350),
                   placement: "top",
                   children: (0, _v1.jsx)(_v3.Box, {
-                    children: (0, _v1.jsx)(_v43.CircleExclamation, {
+                    children: (0, _v1.jsx)(_v39.CircleExclamation, {
                       boxSize: (0, _v9.rem)(16)
                     })
                   })
                 })]
-              }), _v30 && (0, _v1.jsx)(_v40.Spinner, {
+              }), _v30 && (0, _v1.jsx)(_v36.Spinner, {
                 size: "sm",
                 ml: (0, _v9.rem)(4)
               })]
@@ -2670,17 +2605,17 @@
                   }
                 })
               })
-            }), (0, _v1.jsx)(_v129, {
-              title: _v33.default.RegistrationDetails,
+            }), (0, _v1.jsx)(_v125, {
+              title: _v29.default.RegistrationDetails,
               defaultIndex: [0],
               allowToggle: !0,
               children: (0, _v1.jsxs)(_v6.Flex, {
                 flexDirection: "column",
-                children: [(0, _v1.jsx)(_v36.Paragraph, {
+                children: [(0, _v1.jsx)(_v32.Paragraph, {
                   size: "sm",
                   color: "text-secondary",
                   mb: "xs",
-                  children: _v33.default.RegistrationDate
+                  children: _v29.default.RegistrationDate
                 }), (0, _v1.jsx)(_v7.Header, {
                   variant: "heading-sm",
                   size: "xl",
@@ -2692,36 +2627,36 @@
                     minute: "2-digit",
                     hour12: !0
                   }).format(new Date(_v0.createdOn))
-                }), _v0 && (0, _v1.jsx)(_v127, {
+                }), _v0 && (0, _v1.jsx)(_v123, {
                   attendee: _v0,
                   formSource: _v6
                 }), _v0.data && Object.entries(_v0.data).map(([_v0, _v1]) => (0, _v1.jsxs)(_v3.Box, {
-                  children: [(0, _v1.jsx)(_v36.Paragraph, {
+                  children: [(0, _v1.jsx)(_v32.Paragraph, {
                     size: "md",
                     children: _v0
                   }), (0, _v1.jsxs)(_v7.Header, {
                     size: "xs",
-                    children: [String(_v1).replace("true", "True").replace("false", "False"), !0 === _v1 && (0, _v1.jsx)(_v82.CheckSmall, {
+                    children: [String(_v1).replace("true", "True").replace("false", "False"), !0 === _v1 && (0, _v1.jsx)(_v78.CheckSmall, {
                       marginLeft: (0, _v9.rem)(4)
                     })]
                   })]
                 }, _v0))]
               })
             }), _v31 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v111, {
+              children: [(0, _v1.jsx)(_v107, {
                 selectedClip: _v16,
                 setSelectedClip: _v17,
                 loading: _v22
-              }), (0, _v1.jsx)(_v93, {
+              }), (0, _v1.jsx)(_v89, {
                 refreshEngagementData: _v21,
                 error: _v23,
                 loading: _v22,
                 dropInOut: _v24,
                 totalDuration: _v25
-              }), _v3 !== _v18.ENTITY_TYPE.VIDEO && (0, _v1.jsxs)(_v1.Fragment, {
-                children: [(0, _v1.jsx)(_v129, {
+              }), _v3 !== _v17.ENTITY_TYPE.VIDEO && (0, _v1.jsxs)(_v1.Fragment, {
+                children: [(0, _v1.jsx)(_v125, {
                   hasUpsell: _v32,
-                  title: _v33.default.Polls,
+                  title: _v29.default.Polls,
                   allowToggle: !0,
                   children: _v32 ? (0, _v1.jsx)(_v6.Flex, {
                     flexDirection: "column",
@@ -2731,13 +2666,13 @@
                       alt: "upsell-poll",
                       src: _v34("polls")
                     })
-                  }) : (0, _v1.jsx)(_v118, {
+                  }) : (0, _v1.jsx)(_v114, {
                     record: _v0,
                     videoUrl: _v16?.uri
                   })
-                }), (0, _v1.jsx)(_v129, {
+                }), (0, _v1.jsx)(_v125, {
                   hasUpsell: _v32,
-                  title: _v33.default.QA,
+                  title: _v29.default.QA,
                   allowToggle: !0,
                   mt: "sm",
                   children: _v32 ? (0, _v1.jsx)(_v6.Flex, {
@@ -2748,7 +2683,7 @@
                       alt: "upsell-qna",
                       src: _v34("qa")
                     })
-                  }) : (0, _v1.jsx)(_v123, {
+                  }) : (0, _v1.jsx)(_v119, {
                     record: _v0,
                     videoUrl: _v16?.uri
                   })
@@ -2759,57 +2694,57 @@
         })
       })]
     });
-  }], 0), _v0.s(["useGetUserEmailServiceProvidersLazy", 0, _v131], 0);
-  var _v132 = _v0.i(0),
+  }], 0), _v0.s(["useGetUserEmailServiceProvidersLazy", 0, _v127], 0);
+  var _v128 = _v0.i(0),
+    _v129 = _v0.i(0),
+    _v130 = _v0.i(0),
+    _v131 = _v0.i(0),
+    _v132 = _v0.i(0),
     _v133 = _v0.i(0),
     _v134 = _v0.i(0),
     _v135 = _v0.i(0),
     _v136 = _v0.i(0),
     _v137 = _v0.i(0),
-    _v138 = _v0.i(0),
-    _v139 = _v0.i(0),
-    _v140 = _v0.i(0),
-    _v141 = _v0.i(0),
-    _v142 = _v0.i(0);
-  let _v143 = ({
+    _v138 = _v0.i(0);
+  let _v139 = ({
       type: _v0
     }) => (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v7.Header, {
         size: "sm",
-        children: _v33.default.ImportFAQ[_v0].Header
+        children: _v29.default.ImportFAQ[_v0].Header
       }), (0, _v1.jsxs)(_v3.Box, {
         mt: (0, _v9.rem)(20),
         children: [(0, _v1.jsxs)(_v6.Flex, {
           flexDir: "column",
           mb: "md",
-          children: [(0, _v1.jsx)(_v145, {
-            children: _v33.default.ImportFAQ[_v0].Para1Header
-          }), (0, _v1.jsx)(_v144, {
-            children: _v33.default.ImportFAQ[_v0].Para1Description
+          children: [(0, _v1.jsx)(_v141, {
+            children: _v29.default.ImportFAQ[_v0].Para1Header
+          }), (0, _v1.jsx)(_v140, {
+            children: _v29.default.ImportFAQ[_v0].Para1Description
           })]
         }), (0, _v1.jsxs)(_v6.Flex, {
           flexDir: "column",
           mb: "md",
-          children: [(0, _v1.jsx)(_v145, {
-            children: _v33.default.ImportFAQ[_v0].Para2Header
-          }), (0, _v1.jsx)(_v144, {
-            children: _v33.default.ImportFAQ[_v0].Para2Description
+          children: [(0, _v1.jsx)(_v141, {
+            children: _v29.default.ImportFAQ[_v0].Para2Header
+          }), (0, _v1.jsx)(_v140, {
+            children: _v29.default.ImportFAQ[_v0].Para2Description
           })]
-        }), _v0 === _v31.IMPORT_TYPE.CRM && (0, _v1.jsxs)(_v6.Flex, {
+        }), _v0 === _v27.IMPORT_TYPE.CRM && (0, _v1.jsxs)(_v6.Flex, {
           flexDir: "column",
           mb: "md",
-          children: [(0, _v1.jsx)(_v145, {
-            children: _v33.default.ImportFAQ[_v0].Para3Header
-          }), (0, _v1.jsx)(_v144, {
-            children: _v33.default.ImportFAQ[_v0].Para3Description
+          children: [(0, _v1.jsx)(_v141, {
+            children: _v29.default.ImportFAQ[_v0].Para3Header
+          }), (0, _v1.jsx)(_v140, {
+            children: _v29.default.ImportFAQ[_v0].Para3Description
           })]
         }), (0, _v1.jsx)(_v6.Flex, {
           flexDir: "column",
           mb: "md",
-          children: (0, _v1.jsx)(_v144, {
-            children: (0, _v1.jsx)(_v80.Link, {
+          children: (0, _v1.jsx)(_v140, {
+            children: (0, _v1.jsx)(_v76.Link, {
               target: "_blank",
-              href: _v31.IMPORT_TYPE.CRM ? _v31.UPLOAD_CRM_HELP_ARTICLE : _v31.UPLOAD_CSV_HELP_ARTICLE,
+              href: _v27.IMPORT_TYPE.CRM ? _v27.UPLOAD_CRM_HELP_ARTICLE : _v27.UPLOAD_CSV_HELP_ARTICLE,
               children: (0, _v15.translate)({
                 singular: "Learn more about marketing integrations",
                 dictionary: {
@@ -2841,17 +2776,17 @@
         })]
       })]
     }),
-    _v144 = ({
+    _v140 = ({
       children: _v0,
       ..._v1
-    }) => (0, _v1.jsx)(_v36.Paragraph, {
+    }) => (0, _v1.jsx)(_v32.Paragraph, {
       size: "md",
       mb: (0, _v9.rem)(3),
       color: "text-secondary",
       ..._v1,
       children: _v0
     }),
-    _v145 = ({
+    _v141 = ({
       children: _v0,
       ..._v1
     }) => (0, _v1.jsx)(_v7.Header, {
@@ -2860,39 +2795,39 @@
       ..._v1,
       children: _v0
     });
-  var _v146 = _v0.i(0),
-    _v147 = _v0.i(0),
-    _v148 = _v0.i(0),
-    _v149 = _v0.i(0),
-    _v150 = _v0.i(0);
-  let _v151 = _v0 => _v0 ? _v0.length > _v31.MAX_CSV_FILE_NAME_CHAR ? `${_v0.substring(0, _v31.MAX_CSV_FILE_NAME_CHAR)}...` : _v0 : "",
-    _v152 = /^((?!chrome|android).)*safari/i.test(navigator.userAgent),
-    _v153 = _v0 => {
+  var _v142 = _v0.i(0),
+    _v143 = _v0.i(0),
+    _v144 = _v0.i(0),
+    _v145 = _v0.i(0),
+    _v146 = _v0.i(0);
+  let _v147 = _v0 => _v0 ? _v0.length > _v27.MAX_CSV_FILE_NAME_CHAR ? `${_v0.substring(0, _v27.MAX_CSV_FILE_NAME_CHAR)}...` : _v0 : "",
+    _v148 = /^((?!chrome|android).)*safari/i.test(navigator.userAgent),
+    _v149 = _v0 => {
       let _v1 = _v0.target;
       return 10 > Math.abs(_v1.scrollHeight - _v1.scrollTop - _v1.clientHeight);
     };
-  _v0.s(["customCrmSyncSort", 0, _v0 => _v0.filter(_v0 => _v31.ProvidersWithCRMExport.includes(_v0.emailProviderList.provider.id) || _v0.type === _v31.SYNC_TYPE.IMPORT).sort((_v0, _v1) => {
-    let _v2 = _v0 => _v0.errorDetails?.category === _v31.ERROR_CATEGORY.AUTHENTICATION ? 0 : _v0.type === _v31.IMPORT ? 1 : _v0.type === _v31.EXPORT ? 2 : 3,
+  _v0.s(["customCrmSyncSort", 0, _v0 => _v0.filter(_v0 => _v27.ProvidersWithCRMExport.includes(_v0.emailProviderList.provider.id) || _v0.type === _v27.SYNC_TYPE.IMPORT).sort((_v0, _v1) => {
+    let _v2 = _v0 => _v0.errorDetails?.category === _v27.ERROR_CATEGORY.AUTHENTICATION ? 0 : _v0.type === _v27.IMPORT ? 1 : _v0.type === _v27.EXPORT ? 2 : 3,
       _v3 = _v2(_v0),
       _v4 = _v2(_v1);
     return _v3 !== _v4 ? _v3 - _v4 : new Date(_v0.createdOn).getTime() - new Date(_v1.createdOn).getTime();
-  }), "getFileName", 0, _v151, "isSafari", 0, _v152, "isScrollBottom", 0, _v153], 0);
-  let _v154 = [[195, 23], [150, 30], [180, 43], [190, 20], [185, 25], [192, 43], [140, 23], [170, 33]],
-    _v155 = () => (0, _v1.jsx)(_v1.Fragment, {
-      children: _v154.map(_v0 => (0, _v1.jsxs)(_v6.Flex, {
+  }), "getFileName", 0, _v147, "isSafari", 0, _v148, "isScrollBottom", 0, _v149], 0);
+  let _v150 = [[195, 23], [150, 30], [180, 43], [190, 20], [185, 25], [192, 43], [140, 23], [170, 33]],
+    _v151 = () => (0, _v1.jsx)(_v1.Fragment, {
+      children: _v150.map(_v0 => (0, _v1.jsxs)(_v6.Flex, {
         justifyContent: "space-between",
         mt: (0, _v9.rem)(15),
         mb: (0, _v9.rem)(10),
-        children: [(0, _v1.jsx)(_v150.BokehSkeleton, {
+        children: [(0, _v1.jsx)(_v146.BokehSkeleton, {
           width: _v0[0],
           height: (0, _v9.rem)(24)
-        }), (0, _v1.jsx)(_v150.BokehSkeleton, {
+        }), (0, _v1.jsx)(_v146.BokehSkeleton, {
           width: _v0[1],
           height: (0, _v9.rem)(24)
         })]
       }, _v0[0]))
     }),
-    _v156 = ({
+    _v152 = ({
       lists: _v0,
       selectedLists: _v1,
       onSelect: _v2,
@@ -2907,31 +2842,31 @@
         _v10 = (0, _v2.useRef)(null),
         _v11 = (0, _v2.useRef)(!1),
         _v12 = _v0 => {
-          _v0.key === _v31.KEY_CODES.ENTER && _v0.target?.click();
+          _v0.key === _v27.KEY_CODES.ENTER && _v0.target?.click();
         },
         _v13 = () => _v0 ? [..._v0].sort((_v0, _v1) => {
           let _v2 = _v9(_v0.listId),
             _v3 = _v9(_v1.listId);
           return _v2 && !_v3 ? -1 : !_v2 && _v3 ? 1 : 0;
         }) : [];
-      return _v7 ? (0, _v1.jsx)(_v91.Center, {
+      return _v7 ? (0, _v1.jsx)(_v87.Center, {
         mt: (0, _v9.rem)(25),
         mb: (0, _v9.rem)(15),
-        children: (0, _v1.jsx)(_v36.Paragraph, {
+        children: (0, _v1.jsx)(_v32.Paragraph, {
           size: "md",
-          children: _v33.default.NoResults
+          children: _v29.default.NoResults
         })
       }) : _v3 && !_v6 ? (0, _v1.jsx)(_v3.Box, {
         maxH: "22vh",
         overflowY: "auto",
         ref: _v10,
         px: "md",
-        children: (0, _v1.jsx)(_v155, {})
+        children: (0, _v1.jsx)(_v151, {})
       }) : (0, _v1.jsxs)(_v3.Box, {
         maxH: "22vh",
         overflowY: "auto",
         onScroll: _v0 => {
-          _v10.current && (_v153(_v0) ? (!_v4 || _v3 || _v11.current || _v5(), _v11.current = !0) : _v11.current = !1);
+          _v10.current && (_v149(_v0) ? (!_v4 || _v3 || _v11.current || _v5(), _v11.current = !0) : _v11.current = !1);
         },
         ref: _v10,
         children: [_v13()?.length > 0 && _v13()?.map(_v0 => (0, _v1.jsxs)(_v6.Flex, {
@@ -2951,11 +2886,11 @@
             alignItems: "center",
             flexGrow: 1,
             maxW: (0, _v9.rem)(240),
-            children: [_v8 && (0, _v1.jsx)(_v136.Checkbox, {
+            children: [_v8 && (0, _v1.jsx)(_v132.Checkbox, {
               mr: (0, _v9.rem)(12),
               isChecked: _v9(_v0.listId),
               pointerEvents: "none"
-            }), (0, _v1.jsx)(_v88, {
+            }), (0, _v1.jsx)(_v84, {
               text: _v0?.name,
               variant: "body-md"
             })]
@@ -2963,10 +2898,10 @@
             alignItems: "center",
             flexShrink: 0,
             children: _v0?.numberOfRegistrants !== void 0 && _v0?.numberOfRegistrants !== null && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v36.Paragraph, {
+              children: [(0, _v1.jsx)(_v32.Paragraph, {
                 size: "md",
                 children: (0, _v15.humanize)(_v0.numberOfRegistrants)
-              }), (0, _v1.jsx)(_v149.PersonUserFilled, {
+              }), (0, _v1.jsx)(_v145.PersonUserFilled, {
                 boxSize: (0, _v9.rem)(16),
                 ml: "xs"
               })]
@@ -2974,12 +2909,12 @@
           })]
         }, _v0.id)), _v6 ? (0, _v1.jsx)(_v6.Flex, {
           justifyContent: "center",
-          children: (0, _v1.jsx)(_v40.Spinner, {})
+          children: (0, _v1.jsx)(_v36.Spinner, {})
         }) : null]
       });
     };
-  var _v157 = _v0.i(0);
-  async function _v158({
+  var _v153 = _v0.i(0);
+  async function _v154({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -2989,21 +2924,21 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v101.measureLatency)("getUserEmailServiceProviderLists", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/email_service_providers/${_v3}/lists?${(0, _v102.searchQueryString)(_v4)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
+    return (0, _v97.measureLatency)("getUserEmailServiceProviderLists", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/email_service_providers/${_v3}/lists?${(0, _v98.searchQueryString)(_v4)}&fields=${_v1.map(_v98.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v98.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v102.deepCamelCase)(_v1);
+      return (0, _v98.deepCamelCase)(_v1);
     });
   }
-  let _v159 = ["id", "name"],
-    _v160 = [..._v159, "numberOfRegistrants"],
-    _v161 = ({
+  let _v155 = ["id", "name"],
+    _v156 = [..._v155, "numberOfRegistrants"],
+    _v157 = ({
       provider: _v0,
       onSubmit: _v1,
       onCancel: _v2,
@@ -3030,20 +2965,20 @@
             }] = function () {
               let {
                   mutate: _v0
-                } = (0, _v104.useSWRConfig)(),
+                } = (0, _v100.useSWRConfig)(),
                 {
                   baseUrl: _v1,
                   jwt: _v2,
                   xVimeoPage: _v3,
                   locale: _v4
-                } = (0, _v105.useGctlConfig)(),
-                [_v5, _v6] = (0, _v100.useInternalState)();
+                } = (0, _v101.useGctlConfig)(),
+                [_v5, _v6] = (0, _v96.useInternalState)();
               return [(0, _v2.useCallback)(async _v0 => {
                 _v6({
                   type: "REQUEST"
                 });
                 try {
-                  let _v0 = await _v0(`/users/${_v0.where.userId}/email_service_providers/${_v0.where.emailServiceProviderName}/lists${(0, _v100.serializeQuery)(_v0)}`, _v158({
+                  let _v0 = await _v0(`/users/${_v0.where.userId}/email_service_providers/${_v0.where.emailServiceProviderName}/lists${(0, _v96.serializeQuery)(_v0)}`, _v154({
                     ..._v0,
                     baseUrl: _v1,
                     headers: {
@@ -3070,8 +3005,8 @@
             [_v9, _v10] = (0, _v2.useState)([]),
             {
               user: _v11
-            } = (0, _v25.useEntityStore)(),
-            _v12 = _v1 ?? (0, _v19.getLastIdFromUri)(_v11?.uri),
+            } = (0, _v22.useEntityStore)(),
+            _v12 = _v1 ?? (0, _v18.getLastIdFromUri)(_v11?.uri),
             _v13 = (0, _v2.useRef)(!1),
             _v14 = (0, _v2.useRef)(1),
             _v15 = (0, _v2.useRef)(void 0),
@@ -3085,7 +3020,7 @@
             }, [_v9]),
             _v18 = (0, _v2.useCallback)((_v0, _v1, _v2) => {
               if (_v16.current = _v0 || "", _v15.current = _v1, _v2 && (_v10([]), _v14.current = 1), !_v12 || _v0 && _v0.length > 0 && _v0.length < 3) return;
-              let _v3 = _v32.useConfigStore.getState().entityType;
+              let _v3 = _v28.useConfigStore.getState().entityType;
               _v2({
                 where: {
                   userId: _v12,
@@ -3101,10 +3036,10 @@
                   filterType: _v1,
                   entityType: _v3
                 },
-                select: _v0 === _v31.ProvidersServiceId.Marketo ? _v159 : _v160
+                select: _v0 === _v27.ProvidersServiceId.Marketo ? _v155 : _v156
               });
             }, [_v12, _v0, _v2]),
-            _v19 = (0, _v2.useCallback)((0, _v157.default)(_v18, 500), []);
+            _v19 = (0, _v2.useCallback)((0, _v153.default)(_v18, 500), []);
           return (0, _v2.useEffect)(() => {
             if (!_v5) {
               if (_v6) {
@@ -3129,11 +3064,11 @@
         [_v17, _v18] = (0, _v2.useState)(""),
         [_v19, _v20] = (0, _v2.useState)(""),
         [_v21, _v22] = (0, _v2.useState)(_v3),
-        _v23 = [_v31.HUBSPOT_LIST_NAMES.DYNAMIC_LIST, _v31.HUBSPOT_LIST_NAMES.STATIC_LIST],
+        _v23 = [_v27.HUBSPOT_LIST_NAMES.DYNAMIC_LIST, _v27.HUBSPOT_LIST_NAMES.STATIC_LIST],
         _v24 = (0, _v2.useCallback)(_v0 => _v0?.focus(), []),
         _v25 = (0, _v2.useRef)(null),
         _v26 = _v0 => {
-          _v20(_v0 || ""), _v9(_v17.trim(), _v0 ? _v31.HUBSPOT_LIST_NAME_TYPE_MAPPING[_v0] : void 0, !0);
+          _v20(_v0 || ""), _v9(_v17.trim(), _v0 ? _v27.HUBSPOT_LIST_NAME_TYPE_MAPPING[_v0] : void 0, !0);
         };
       (0, _v2.useEffect)(() => {
         _v9();
@@ -3165,8 +3100,8 @@
         children: [(0, _v1.jsx)(_v6.Flex, {
           mb: (0, _v9.rem)(6),
           px: "md",
-          children: (0, _v1.jsxs)(_v146.InputGroup, {
-            children: [_v19 && (0, _v1.jsx)(_v147.InputLeftElement, {
+          children: (0, _v1.jsxs)(_v142.InputGroup, {
+            children: [_v19 && (0, _v1.jsx)(_v143.InputLeftElement, {
               ref: _v25,
               width: "fit-content",
               children: (0, _v1.jsx)(_v4.Button, {
@@ -3175,27 +3110,27 @@
                 variant: "secondary",
                 children: _v19
               })
-            }), (0, _v1.jsx)(_v148.Search, {
-              placeholder: _v0.serviceId === _v31.ProvidersServiceId.SalesCloud ? _v33.default.SearchCampaign : _v33.default.SearchList,
+            }), (0, _v1.jsx)(_v144.Search, {
+              placeholder: _v0.serviceId === _v27.ProvidersServiceId.SalesCloud ? _v29.default.SearchCampaign : _v29.default.SearchList,
               ref: _v24,
               onChange: _v0 => {
                 let _v1 = _v0.currentTarget.value;
-                _v18(_v1), _v8(_v1.trim(), _v31.HUBSPOT_LIST_NAME_TYPE_MAPPING[_v19], !0);
+                _v18(_v1), _v8(_v1.trim(), _v27.HUBSPOT_LIST_NAME_TYPE_MAPPING[_v19], !0);
               },
               onKeyDown: _v0 => {
-                _v0.key === _v31.KEY_CODES.BACKSPACE && 0 === _v17.length && _v26();
+                _v0.key === _v27.KEY_CODES.BACKSPACE && 0 === _v17.length && _v26();
               },
               variant: "minimal",
               pl: (0, _v9.rem)((_v25.current ? _v25.current.offsetWidth : 0) + 10)
             })]
           })
         }), !_v19 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [_v0.serviceId === _v31.ProvidersServiceId.HubSpot && !_v11 && (0, _v1.jsxs)(_v3.Box, {
+          children: [_v0.serviceId === _v27.ProvidersServiceId.HubSpot && !_v11 && (0, _v1.jsxs)(_v3.Box, {
             px: "md",
             children: [(0, _v1.jsx)(_v7.Header, {
               size: "2xs",
               my: (0, _v9.rem)(10),
-              children: _v33.default.SearchFor
+              children: _v29.default.SearchFor
             }), (0, _v1.jsx)(_v6.Flex, {
               gap: (0, _v9.rem)(6),
               children: _v23.map(_v0 => (0, _v1.jsx)(_v4.Button, {
@@ -3208,7 +3143,7 @@
           }), (0, _v1.jsx)(_v5.Divider, {
             my: (0, _v9.rem)(12)
           })]
-        }), (0, _v1.jsx)(_v156, {
+        }), (0, _v1.jsx)(_v152, {
           lists: _v30,
           onSelect: _v0 => {
             if (_v4) {
@@ -3223,25 +3158,25 @@
           isLoadingMore: _v14,
           multiSelect: _v4,
           noData: _v27
-        }), (_v28 || _v29) && !_v27 && !_v11 && _v1 && (0, _v1.jsxs)(_v91.Center, {
+        }), (_v28 || _v29) && !_v27 && !_v11 && _v1 && (0, _v1.jsxs)(_v87.Center, {
           gap: "sm",
           mt: "sm",
           children: [(0, _v1.jsx)(_v4.Button, {
             minW: (0, _v9.rem)(120),
             variant: "secondary",
             onClick: _v2,
-            children: _v33.default.Cancel
+            children: _v29.default.Cancel
           }), (0, _v1.jsx)(_v4.Button, {
             minW: (0, _v9.rem)(120),
             onClick: () => _v1(_v21),
             variant: "primary",
-            children: _v33.default.Save
+            children: _v29.default.Save
           })]
         })]
       });
     };
-  _v0.s(["SearchBox", 0, _v161], 0);
-  let _v162 = (0, _v2.forwardRef)(({
+  _v0.s(["SearchBox", 0, _v157], 0);
+  let _v158 = (0, _v2.forwardRef)(({
       dispatch: _v0,
       importRegistrantState: _v1,
       refreshProvider: _v2,
@@ -3249,7 +3184,7 @@
       fetchCRMStatus: _v4,
       portalRef: _v5
     }, _v6) => {
-      let _v7 = (0, _v22.useViewer)(),
+      let _v7 = (0, _v20.useViewer)(),
         {
           providers: _v8,
           selectedList: _v9,
@@ -3262,46 +3197,43 @@
           isOpen: _v14,
           onOpen: _v15,
           onClose: _v16
-        } = (0, _v41.useDisclosure)(),
+        } = (0, _v37.useDisclosure)(),
         {
           isOpen: _v17,
           onOpen: _v18,
           onClose: _v19
-        } = (0, _v41.useDisclosure)(),
-        _v20 = (0, _v133.useHistory)(),
+        } = (0, _v37.useDisclosure)(),
+        _v20 = (0, _v129.useHistory)(),
         _v21 = _v20?.location?.pathname,
-        _v22 = (0, _v42.useToast)(),
+        _v22 = (0, _v38.useToast)(),
         {
           schedule: _v23
-        } = (0, _v25.useEntityStore)(),
+        } = (0, _v22.useEntityStore)(),
         _v24 = _v8.filter(_v0 => _v0.connected),
         _v25 = (0, _v2.useRef)(null),
         [_v26, {
           loading: _v27,
           data: _v28,
           error: _v29
-        }] = (0, _v47.usePutLeadCaptureResourceIdRegistrantsImport)(),
-        _v30 = (0, _v32.useConfigStore)(_v0 => _v0.entityId),
-        _v31 = (0, _v32.useConfigStore)(_v0 => _v0.entityType),
+        }] = (0, _v43.usePutLeadCaptureResourceIdRegistrantsImport)(),
+        _v30 = (0, _v28.useConfigStore)(_v0 => _v0.entityId),
+        _v31 = (0, _v28.useConfigStore)(_v0 => _v0.entityType),
         {
-          sendRegistrationActionBP: _v32
-        } = (0, _v24.useAnalytics)(),
-        {
-          capabilities: _v33
-        } = (0, _v142.useCapability)(["hasIntegrationCenter"]),
-        _v34 = (0, _v2.useMemo)(() => _v31 === _v18.ENTITY_TYPE.EVENT && !_v23?.startTime, [_v23, _v31]),
-        _v35 = (0, _v2.useMemo)(() => _v31 === _v18.ENTITY_TYPE.EVENT && !_v23?.startTime, [_v23, _v31]),
-        _v36 = () => {
+          capabilities: _v32
+        } = (0, _v138.useCapability)(["hasIntegrationCenter"]),
+        _v33 = (0, _v2.useMemo)(() => _v31 === _v17.ENTITY_TYPE.EVENT && !_v23?.startTime, [_v23, _v31]),
+        _v34 = (0, _v2.useMemo)(() => _v31 === _v17.ENTITY_TYPE.EVENT && !_v23?.startTime, [_v23, _v31]),
+        _v35 = () => {
           _v30 && _v31 && (_v0({
-            type: _v29.ACTION_TYPE.LOADING_CRM,
+            type: _v26.ACTION_TYPE.LOADING_CRM,
             payload: !0
           }), _v26({
             where: {
-              resourceType: _v18.ENTITY_TO_PATH_MAP[_v31],
+              resourceType: _v17.ENTITY_TO_PATH_MAP[_v31],
               resourceId: _v30
             },
             variables: {
-              registrantSource: _v31.CRM_REGISTRANT_SOURCE,
+              registrantSource: _v27.CRM_REGISTRANT_SOURCE,
               emailProviderList: [{
                 listId: `${_v9?.id}`,
                 providerId: _v10?.serviceId,
@@ -3309,25 +3241,11 @@
                 userId: _v10?.userId || _v7?.user?.id
               }]
             }
-          }), _v32({
-            eventName: _v30.BP_EVENT_NAME.REGISTRANTS_SYNC_EMAIL_PROVIDER,
-            location: _v30.BP_LOCATION.MODAL,
-            modalName: _v30.BP_MODAL.REGISTRANT_EMAIL_PROVIDER_MODAL,
-            copy: _v30.BP_COPY.SYNC,
-            actionName: _v30.BP_VALUES.REGISTRANT_SYNC_EMAIL_PROVIDER,
-            providerName: _v10?.name,
-            providerListId: [_v9?.id],
-            isIntegration: !0,
-            integrationId: _v10?.serviceType,
-            integrationName: _v10?.name,
-            integrationType: _v30.BP_INTEGRATION_TYPE.CORE_CONNECT,
-            partnerBucket: _v30.BP_PARTNET_BUCKET.MARKETING,
-            isPartner: !0
           }));
         },
-        _v37 = () => {
+        _v36 = () => {
           _v0({
-            type: _v29.ACTION_TYPE.SET_SHOW_MODAL,
+            type: _v26.ACTION_TYPE.SET_SHOW_MODAL,
             payload: null
           }), setTimeout(() => {
             (() => {
@@ -3338,20 +3256,20 @@
           }, 200);
         };
       (0, _v2.useImperativeHandle)(_v6, () => ({
-        handleCRMSubmit: _v36
+        handleCRMSubmit: _v35
       })), (0, _v2.useEffect)(() => {
         !_v27 && (_v0({
-          type: _v29.ACTION_TYPE.LOADING_CRM,
+          type: _v26.ACTION_TYPE.LOADING_CRM,
           payload: !1
         }), _v29 && _v22({
-          title: _v33.default.SomethingWentWrong,
+          title: _v29.default.SomethingWentWrong,
           status: "error"
         }), _v28 && (_v0({
-          type: _v29.ACTION_TYPE.SHOW_SUCCESS,
+          type: _v26.ACTION_TYPE.SHOW_SUCCESS,
           payload: !0
         }), _v3(), _v4()));
       }, [_v29, _v27, _v28]);
-      let _v38 = (0, _v48.useEscapeKey)(_v17, _v19);
+      let _v37 = (0, _v44.useEscapeKey)(_v17, _v19);
       return (0, _v1.jsxs)(_v6.Flex, {
         flex: 1,
         children: [(0, _v1.jsx)(_v3.Box, {
@@ -3365,13 +3283,13 @@
             children: [(0, _v1.jsx)(_v7.Header, {
               size: "xl",
               mb: "sm",
-              children: _v33.default.CRMModalHeader
-            }), (0, _v1.jsx)(_v36.Paragraph, {
+              children: _v29.default.CRMModalHeader
+            }), (0, _v1.jsx)(_v32.Paragraph, {
               mb: "5",
               color: "text-secondary",
               size: "md",
-              children: _v33.default.CRMModalDescription[_v31]
-            }), _v11 ? (0, _v1.jsx)(_v40.Spinner, {
+              children: _v29.default.CRMModalDescription[_v31]
+            }), _v11 ? (0, _v1.jsx)(_v36.Spinner, {
               size: "md",
               h: (0, _v9.rem)(150),
               width: "100%"
@@ -3381,24 +3299,24 @@
                 pb: _v24.length > 0 ? "xs" : (0, _v9.rem)(12),
                 children: [(0, _v1.jsx)(_v7.Header, {
                   size: "xs",
-                  children: _v33.default.EmailProvider
+                  children: _v29.default.EmailProvider
                 }), 0 === _v24.length && (0, _v1.jsx)(_v6.Flex, {
-                  children: _v8.map(_v0 => (0, _v1.jsx)(_v66, {
+                  children: _v8.map(_v0 => (0, _v1.jsx)(_v62, {
                     src: _v0?.icon,
                     darkSrc: _v0.darkIcon
                   }, _v0.serviceId))
                 })]
               }), (0, _v1.jsxs)(_v3.Box, {
                 mb: "lg",
-                children: [_v24.length > 0 ? (0, _v1.jsxs)(_v94.Menu, {
+                children: [_v24.length > 0 ? (0, _v1.jsxs)(_v90.Menu, {
                   isOpen: _v14,
                   onOpen: _v15,
                   onClose: _v16,
-                  children: [(0, _v1.jsx)(_v95.MenuButton, {
-                    ..._v163,
+                  children: [(0, _v1.jsx)(_v91.MenuButton, {
+                    ..._v159,
                     onClick: _v16,
                     sx: {
-                      ..._v63(_v34)
+                      ..._v59(_v33)
                     },
                     children: (0, _v1.jsxs)(_v6.Flex, {
                       justifyContent: "space-between",
@@ -3406,91 +3324,84 @@
                       children: [_v10 ? (0, _v1.jsxs)(_v6.Flex, {
                         justifyContent: "space-between",
                         alignItems: "center",
-                        children: [(0, _v1.jsx)(_v66, {
+                        children: [(0, _v1.jsx)(_v62, {
                           src: _v10.icon,
                           darkSrc: _v10.darkIcon
                         }, _v10.serviceId), (0, _v1.jsx)(_v7.Header, {
                           size: "xs",
                           children: _v10.name
                         })]
-                      }) : (0, _v1.jsx)(_v36.Paragraph, {
+                      }) : (0, _v1.jsx)(_v32.Paragraph, {
                         size: "md",
                         color: "text-secondary",
-                        children: _v33.default.ChooseProvider
-                      }), (0, _v1.jsx)(_v140.ChevronDownSmall, {})]
+                        children: _v29.default.ChooseProvider
+                      }), (0, _v1.jsx)(_v136.ChevronDownSmall, {})]
                     })
-                  }), (0, _v1.jsxs)(_v97.MenuList, {
-                    children: [_v24.map(_v0 => (0, _v1.jsxs)(_v138.MenuItem, {
+                  }), (0, _v1.jsxs)(_v93.MenuList, {
+                    children: [_v24.map(_v0 => (0, _v1.jsxs)(_v134.MenuItem, {
                       minWidth: (0, _v9.rem)(_v25.current?.offsetWidth || 200),
                       isDisabled: !_v0.canImportFromCrm,
                       onClick: () => {
                         _v0({
-                          type: _v29.ACTION_TYPE.SET_PROVIDER,
+                          type: _v26.ACTION_TYPE.SET_PROVIDER,
                           payload: _v0
                         }), _v16();
                       },
                       children: [(0, _v1.jsxs)(_v6.Flex, {
-                        children: [(0, _v1.jsx)(_v66, {
+                        children: [(0, _v1.jsx)(_v62, {
                           src: _v0.icon,
                           darkSrc: _v0.darkIcon
-                        }, _v0.serviceId), (0, _v1.jsxs)(_v36.Paragraph, {
+                        }, _v0.serviceId), (0, _v1.jsxs)(_v32.Paragraph, {
                           size: "md",
                           children: [_v0.name, " "]
                         })]
-                      }), !_v0.canImportFromCrm && (0, _v1.jsx)(_v36.Paragraph, {
+                      }), !_v0.canImportFromCrm && (0, _v1.jsx)(_v32.Paragraph, {
                         size: "md",
                         color: "text-secondary",
                         pl: "sm",
-                        children: _v33.default.ComingSoon
+                        children: _v29.default.ComingSoon
                       })]
-                    }, _v0.serviceId)), (0, _v1.jsx)(_v137.MenuDivider, {}), (0, _v1.jsx)(_v138.MenuItem, {
+                    }, _v0.serviceId)), (0, _v1.jsx)(_v133.MenuDivider, {}), (0, _v1.jsx)(_v134.MenuItem, {
                       minWidth: (0, _v9.rem)(_v25.current?.offsetWidth || 200),
                       onClick: () => {
                         _v0({
-                          type: _v29.ACTION_TYPE.CONNECT_CLICK,
+                          type: _v26.ACTION_TYPE.CONNECT_CLICK,
                           payload: !0
-                        }), window.open(_v33?.hasIntegrationCenter ? _v31.INTEGRATIONS_CENTER_MARKETING : _v31.MARKETING_PAGE, "_BLANK"), _v16();
+                        }), window.open(_v32?.hasIntegrationCenter ? _v27.INTEGRATIONS_CENTER_MARKETING : _v27.MARKETING_PAGE, "_BLANK"), _v16();
                       },
-                      children: (0, _v1.jsxs)(_v36.Paragraph, {
+                      children: (0, _v1.jsxs)(_v32.Paragraph, {
                         size: "md",
                         display: "flex",
                         as: "span",
-                        children: [(0, _v1.jsx)(_v141.PopOut, {}), (0, _v1.jsx)(_v3.Box, {
+                        children: [(0, _v1.jsx)(_v137.PopOut, {}), (0, _v1.jsx)(_v3.Box, {
                           pl: "sm",
-                          children: _v33.default.ManageProviders
+                          children: _v29.default.ManageProviders
                         })]
                       })
                     })]
                   })]
                 }) : (0, _v1.jsx)(_v1.Fragment, {
                   children: (0, _v1.jsx)(_v4.Button, {
-                    rightIcon: (0, _v1.jsx)(_v141.PopOut, {}),
+                    rightIcon: (0, _v1.jsx)(_v137.PopOut, {}),
                     onClick: () => {
                       _v0({
-                        type: _v29.ACTION_TYPE.CONNECT_CLICK,
+                        type: _v26.ACTION_TYPE.CONNECT_CLICK,
                         payload: !0
-                      }), window.open(_v33?.hasIntegrationCenter ? _v31.INTEGRATIONS_CENTER_MARKETING : _v31.MARKETING_PAGE, "_BLANK"), _v32({
-                        eventName: _v30.BP_EVENT_NAME.CONNECT_EMAIL_PROVIDERS,
-                        actionName: _v30.BP_VALUES.CONNECT_EMAIL_PROVIDERS,
-                        copy: _v30.BP_COPY.CONNECT_PROVIDERS,
-                        target: _v30.BP_TARGET.USER_SETTINGS,
-                        flow: _v30.BP_FLOW.REGISTRANTS_TAB,
-                        referrerPage: _v31 === _v18.ENTITY_TYPE.VIDEO ? _v30.BP_REFERRER_PAGE_NAME.SVVM : null
-                      }), _v19();
+                      }), window.open(_v32?.hasIntegrationCenter ? _v27.INTEGRATIONS_CENTER_MARKETING : _v27.MARKETING_PAGE, "_BLANK"), _v19();
                     },
                     width: "100%",
                     variant: "primary",
                     mb: "sm",
-                    children: _v33.default.ConnectProviders
+                    children: _v29.default.ConnectProviders
                   })
-                }), _v35 && (0, _v1.jsx)(_v134.Alert, {
+                }), _v34 && (0, _v1.jsx)(_v130.Alert, {
                   status: "info",
-                  children: (0, _v1.jsx)(_v135.AlertDescription, {
+                  children: (0, _v1.jsx)(_v131.AlertDescription, {
                     children: (0, _v15.translate)({
                       singular: "Add a start time to import from CRM or MAP {A}Open schedule.{/A}",
                       replacements: {
-                        A: _v0 => (0, _v1.jsx)(_v80.Link, {
-                          onClick: _v37,
+                        A: _v0 => (0, _v1.jsx)(_v76.Link, {
+                          onClick: _v36,
                           children: _v0
                         })
                       },
@@ -3519,13 +3430,13 @@
                       }
                     })
                   })
-                }), _v13 && (0, _v1.jsx)(_v134.Alert, {
+                }), _v13 && (0, _v1.jsx)(_v130.Alert, {
                   status: "info",
-                  children: (0, _v1.jsx)(_v135.AlertDescription, {
+                  children: (0, _v1.jsx)(_v131.AlertDescription, {
                     children: (0, _v15.translate)({
                       singular: "{LINK}Refresh{/LINK} to see recently connected providers.",
                       replacements: {
-                        LINK: _v0 => (0, _v1.jsx)(_v80.Link, {
+                        LINK: _v0 => (0, _v1.jsx)(_v76.Link, {
                           onClick: _v2,
                           children: _v0
                         })
@@ -3559,24 +3470,24 @@
               }), (0, _v1.jsx)(_v7.Header, {
                 size: "xs",
                 mb: "xs",
-                children: _v33.default.List
-              }), (0, _v1.jsxs)(_v37.Popover, {
+                children: _v29.default.List
+              }), (0, _v1.jsxs)(_v33.Popover, {
                 isOpen: _v17,
                 onOpen: _v18,
                 onClose: _v19,
                 isLazy: !0,
-                children: [(0, _v1.jsx)(_v39.PopoverTrigger, {
+                children: [(0, _v1.jsx)(_v35.PopoverTrigger, {
                   children: (0, _v1.jsxs)(_v6.Flex, {
-                    ..._v163,
+                    ..._v159,
                     as: "button",
                     onClick: _v18,
                     justifyContent: "space-between",
                     sx: {
-                      ..._v63(!_v10?.lists.length || _v34)
+                      ..._v59(!_v10?.lists.length || _v33)
                     },
                     children: [_v9 ? (0, _v1.jsx)(_v6.Flex, {
                       justifyContent: "space-between",
-                      children: (0, _v1.jsx)(_v36.Paragraph, {
+                      children: (0, _v1.jsx)(_v32.Paragraph, {
                         size: "md",
                         whiteSpace: "nowrap",
                         overflow: "hidden",
@@ -3584,24 +3495,24 @@
                         maxW: (0, _v9.rem)(380),
                         children: _v9.name
                       })
-                    }) : (0, _v1.jsx)(_v36.Paragraph, {
+                    }) : (0, _v1.jsx)(_v32.Paragraph, {
                       size: "md",
                       color: "text-secondary",
-                      children: _v10 ? _v10.serviceId === _v31.ProvidersServiceId.SalesCloud ? _v10?.lists.length ? _v33.default.SearchCampaign : _v33.default.NoCampaignsYet : _v10?.lists.length ? _v33.default.SearchList : _v33.default.NoListsYet : _v33.default.NoListsYet
-                    }), (0, _v1.jsx)(_v140.ChevronDownSmall, {})]
+                      children: _v10 ? _v10.serviceId === _v27.ProvidersServiceId.SalesCloud ? _v10?.lists.length ? _v29.default.SearchCampaign : _v29.default.NoCampaignsYet : _v10?.lists.length ? _v29.default.SearchList : _v29.default.NoListsYet : _v29.default.NoListsYet
+                    }), (0, _v1.jsx)(_v136.ChevronDownSmall, {})]
                   })
-                }), (0, _v1.jsx)(_v139.Portal, {
+                }), (0, _v1.jsx)(_v135.Portal, {
                   containerRef: _v5,
-                  children: (0, _v1.jsx)(_v38.PopoverContent, {
+                  children: (0, _v1.jsx)(_v34.PopoverContent, {
                     overflowX: "hidden",
-                    onKeyDown: _v38,
-                    children: _v10 && (0, _v1.jsx)(_v161, {
+                    onKeyDown: _v37,
+                    children: _v10 && (0, _v1.jsx)(_v157, {
                       preSelectedLists: [],
                       provider: _v10,
                       width: _v25.current?.offsetWidth || 200,
                       onSelect: _v0 => {
                         _v0({
-                          type: _v29.ACTION_TYPE.SET_LIST,
+                          type: _v26.ACTION_TYPE.SET_LIST,
                           payload: {
                             ..._v0,
                             id: _v0.listId || "",
@@ -3616,19 +3527,19 @@
             }), (0, _v1.jsx)(_v3.Box, {
               maxWidth: "97%",
               pt: (0, _v9.rem)(10),
-              children: (0, _v1.jsx)(_v136.Checkbox, {
+              children: (0, _v1.jsx)(_v132.Checkbox, {
                 isRequired: !0,
                 color: "text-tertiary",
                 mt: (0, _v9.rem)(3),
                 alignItems: "flex-start",
                 onChange: () => _v0({
-                  type: _v29.ACTION_TYPE.SET_CHECKBOX_SELECTED,
+                  type: _v26.ACTION_TYPE.SET_CHECKBOX_SELECTED,
                   payload: !_v12
                 }),
-                children: (0, _v1.jsxs)(_v36.Paragraph, {
+                children: (0, _v1.jsxs)(_v32.Paragraph, {
                   size: "md",
                   as: "span",
-                  children: [_v33.default.CSV_CRM_TC[_v31], (0, _v1.jsx)(_v3.Box, {
+                  children: [_v29.default.CSV_CRM_TC[_v31], (0, _v1.jsx)(_v3.Box, {
                     as: "span",
                     color: "red.600",
                     children: "*"
@@ -3641,14 +3552,14 @@
           flex: "0.4",
           px: "2xl",
           py: "3xl",
-          backgroundColor: (0, _v62.useColorModeValue)("gray.50", "gray.900"),
-          children: (0, _v1.jsx)(_v143, {
-            type: _v31.IMPORT_TYPE.CRM
+          backgroundColor: (0, _v58.useColorModeValue)("gray.50", "gray.900"),
+          children: (0, _v1.jsx)(_v139, {
+            type: _v27.IMPORT_TYPE.CRM
           })
         })]
       });
     }),
-    _v163 = {
+    _v159 = {
       width: "100%",
       height: (0, _v9.rem)(48),
       border: "2px solid",
@@ -3664,9 +3575,9 @@
       borderColor: "input-stroke",
       background: "input-fill"
     };
-  var _v164 = _v0.i(0),
-    _v165 = _v0.i(0);
-  let _v166 = _v0 => (0, _v1.jsx)(_v124.Icon, {
+  var _v160 = _v0.i(0),
+    _v161 = _v0.i(0);
+  let _v162 = _v0 => (0, _v1.jsx)(_v120.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -3675,7 +3586,7 @@
         fill: "currentColor"
       })
     }),
-    _v167 = ({
+    _v163 = ({
       stepCount: _v0,
       uploadedCsv: _v1,
       checkBoxSelected: _v2,
@@ -3684,10 +3595,7 @@
       showCsvError: _v5
     }) => {
       let _v6,
-        {
-          sendRegistrationActionBP: _v7
-        } = (0, _v24.useAnalytics)(),
-        _v8 = (0, _v32.useConfigStore)(_v0 => _v0.entityType);
+        _v7 = (0, _v28.useConfigStore)(_v0 => _v0.entityType);
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v6.Flex, {
           flex: "0.6",
@@ -3695,13 +3603,13 @@
           flexDir: "column",
           justifyContent: "space-between",
           children: [(0, _v1.jsxs)("div", {
-            children: [(0, _v1.jsx)(_v36.Paragraph, {
+            children: [(0, _v1.jsx)(_v32.Paragraph, {
               size: "md",
               children: (0, _v15.translate)({
                 singular: "Step {STEP} of {STEPS}",
                 replacements: {
                   STEP: _v0,
-                  STEPS: _v31.UPLOAD_CSV_MODAL_STEPS[1]
+                  STEPS: _v27.UPLOAD_CSV_MODAL_STEPS[1]
                 },
                 dictionary: {
                   es: {
@@ -3730,11 +3638,11 @@
             }), (0, _v1.jsx)(_v7.Header, {
               size: "xl",
               my: (0, _v9.rem)(10),
-              children: _v33.default.AddRegistrants
+              children: _v29.default.AddRegistrants
             }), (0, _v1.jsx)(_v3.Box, {
               maxW: "95%",
               mb: "5",
-              children: (0, _v1.jsx)(_v36.Paragraph, {
+              children: (0, _v1.jsx)(_v32.Paragraph, {
                 size: "md",
                 children: (0, _v15.translate)({
                   singular: "Format your CSV with the following columns to match the Registrants table in Vimeo:{br}• First name{br}\n• Last name{br}\n• Email address",
@@ -3771,7 +3679,7 @@
               })
             }), _v1 ? (0, _v1.jsx)(_v3.Box, {
               onMouseEnter: () => {
-                _v1?.name && !_v152 && clearInterval(_v6);
+                _v1?.name && !_v148 && clearInterval(_v6);
               },
               children: (0, _v1.jsx)(_v10.Tooltip, {
                 fontSize: "body-md",
@@ -3779,11 +3687,11 @@
                 children: (0, _v1.jsx)(_v4.Button, {
                   maxW: (0, _v9.rem)(350),
                   variant: "secondary",
-                  leftIcon: (0, _v1.jsx)(_v166, {}),
-                  rightIcon: (0, _v1.jsx)(_v165.CloseXSmall, {
+                  leftIcon: (0, _v1.jsx)(_v162, {}),
+                  rightIcon: (0, _v1.jsx)(_v161.CloseXSmall, {
                     onClick: () => {
                       _v4({
-                        type: _v29.ACTION_TYPE.SET_UPLOADED_CSV,
+                        type: _v26.ACTION_TYPE.SET_UPLOADED_CSV,
                         payload: null
                       }), _v5(null);
                     }
@@ -3800,94 +3708,85 @@
               })
             }) : (0, _v1.jsx)(_v3.Box, {
               width: "fit-content",
-              children: (0, _v1.jsx)(_v164.FileInput, {
+              children: (0, _v1.jsx)(_v160.FileInput, {
                 variant: "primary",
                 multiple: !1,
                 accept: ".csv",
                 onChange: _v0 => {
-                  if (_v0.target.files && _v0.target.files[0]) {
-                    var _v1;
-                    (_v1 = _v0.target.files[0]).name.length > _v31.MAX_CSV_FILE_NAME_ALLOWED ? _v5((0, _v15.translate)({
-                      singular: "{FILE_NAME} name is longer than 240 characters. Please re-upload with shorter name.",
-                      replacements: {
-                        FILE_NAME: () => (0, _v1.jsx)("strong", {
-                          children: _v151(_v1.name)
-                        })
+                  var _v1;
+                  _v0.target.files && _v0.target.files[0] && ((_v1 = _v0.target.files[0]).name.length > _v27.MAX_CSV_FILE_NAME_ALLOWED ? _v5((0, _v15.translate)({
+                    singular: "{FILE_NAME} name is longer than 240 characters. Please re-upload with shorter name.",
+                    replacements: {
+                      FILE_NAME: () => (0, _v1.jsx)("strong", {
+                        children: _v147(_v1.name)
+                      })
+                    },
+                    dictionary: {
+                      "fr-FR": {
+                        singular: "Le nom du fichier {FILE_NAME} est supérieur à 240 caractères. Veuillez le réimporter avec un nom plus court."
                       },
-                      dictionary: {
-                        "fr-FR": {
-                          singular: "Le nom du fichier {FILE_NAME} est supérieur à 240 caractères. Veuillez le réimporter avec un nom plus court."
-                        },
-                        "ja-JP": {
-                          singular: "{FILE_NAME}の名前が240文字を超えています。名前を短くして再度アップロードしてください。"
-                        },
-                        "ko-KR": {
-                          singular: "{FILE_NAME} 파일 이름이 240자를 초과합니다. 짧은 이름으로 다시 업로드해주세요."
-                        },
-                        "zh-CN": {
-                          singular: "{FILE_NAME} 名称超过 240 个字符。请使用较短的名称重新上传。"
-                        }
-                      }
-                    })) : _v1.size > _v31.MAX_CSV_UPLOAD_SIZE ? _v5((0, _v15.translate)({
-                      singular: "{FILE_NAME} is too big. Please upload a file under 10MB.",
-                      replacements: {
-                        FILE_NAME: () => (0, _v1.jsx)("strong", {
-                          children: _v151(_v1.name)
-                        })
+                      "ja-JP": {
+                        singular: "{FILE_NAME}の名前が240文字を超えています。名前を短くして再度アップロードしてください。"
                       },
-                      dictionary: {
-                        "fr-FR": {
-                          singular: "Le fichier {FILE_NAME} est trop volumineux. Veuillez importer un fichier de moins de 10 Mo."
-                        },
-                        "ja-JP": {
-                          singular: "{FILE_NAME} は大きすぎます。10MB以下のファイルをアップロードしてください。"
-                        },
-                        "ko-KR": {
-                          singular: "{FILE_NAME} 파일이 너무 큽니다. 10MB 미만의 파일을 업로드하세요."
-                        },
-                        "zh-CN": {
-                          singular: "{FILE_NAME} 太大了。请上传不超过 10MB 的文件。"
-                        }
+                      "ko-KR": {
+                        singular: "{FILE_NAME} 파일 이름이 240자를 초과합니다. 짧은 이름으로 다시 업로드해주세요."
+                      },
+                      "zh-CN": {
+                        singular: "{FILE_NAME} 名称超过 240 个字符。请使用较短的名称重新上传。"
                       }
-                    })) : (_v5(null), _v4({
-                      type: _v29.ACTION_TYPE.SET_UPLOADED_CSV,
-                      payload: _v1
-                    })), _v7({
-                      eventName: _v30.BP_EVENT_NAME.REGISTRANTS_UPLOAD_CSV_MODAL,
-                      location: _v30.BP_LOCATION.MODAL,
-                      modalName: _v30.BP_MODAL.REGISTRANT_UPLOAD_CSV_MODAL,
-                      flow: _v30.BP_FLOW.ADD_ATTENDEES,
-                      copy: _v30.BP_COPY.UPLOAD_CSV,
-                      actionName: _v30.BP_VALUES.UPLOAD_ATTENDEE_CSV_FILE
-                    });
-                  }
+                    }
+                  })) : _v1.size > _v27.MAX_CSV_UPLOAD_SIZE ? _v5((0, _v15.translate)({
+                    singular: "{FILE_NAME} is too big. Please upload a file under 10MB.",
+                    replacements: {
+                      FILE_NAME: () => (0, _v1.jsx)("strong", {
+                        children: _v147(_v1.name)
+                      })
+                    },
+                    dictionary: {
+                      "fr-FR": {
+                        singular: "Le fichier {FILE_NAME} est trop volumineux. Veuillez importer un fichier de moins de 10 Mo."
+                      },
+                      "ja-JP": {
+                        singular: "{FILE_NAME} は大きすぎます。10MB以下のファイルをアップロードしてください。"
+                      },
+                      "ko-KR": {
+                        singular: "{FILE_NAME} 파일이 너무 큽니다. 10MB 미만의 파일을 업로드하세요."
+                      },
+                      "zh-CN": {
+                        singular: "{FILE_NAME} 太大了。请上传不超过 10MB 的文件。"
+                      }
+                    }
+                  })) : (_v5(null), _v4({
+                    type: _v26.ACTION_TYPE.SET_UPLOADED_CSV,
+                    payload: _v1
+                  })));
                 },
-                label: _v33.default.UploadCSV
+                label: _v29.default.UploadCSV
               })
-            }), _v3 && (0, _v1.jsx)(_v134.Alert, {
+            }), _v3 && (0, _v1.jsx)(_v130.Alert, {
               status: "error",
               mt: "sm",
-              children: (0, _v1.jsx)(_v135.AlertDescription, {
-                children: (0, _v1.jsx)(_v36.Paragraph, {
+              children: (0, _v1.jsx)(_v131.AlertDescription, {
+                children: (0, _v1.jsx)(_v32.Paragraph, {
                   size: "md",
                   children: _v3
                 })
               })
             })]
-          }), (0, _v1.jsx)(_v136.Checkbox, {
+          }), (0, _v1.jsx)(_v132.Checkbox, {
             isRequired: !0,
             color: "text-tertiary",
             isChecked: _v2,
             mt: (0, _v9.rem)(3),
             alignItems: "flex-start",
             onChange: () => _v4({
-              type: _v29.ACTION_TYPE.SET_CHECKBOX_SELECTED,
+              type: _v26.ACTION_TYPE.SET_CHECKBOX_SELECTED,
               payload: !_v2
             }),
-            children: (0, _v1.jsxs)(_v36.Paragraph, {
+            children: (0, _v1.jsxs)(_v32.Paragraph, {
               size: "md",
               as: "span",
-              children: [_v33.default.CSV_CRM_TC[_v8], (0, _v1.jsx)(_v3.Box, {
+              children: [_v29.default.CSV_CRM_TC[_v7], (0, _v1.jsx)(_v3.Box, {
                 as: "span",
                 color: "red.600",
                 children: "*"
@@ -3898,20 +3797,20 @@
           flex: "0.4",
           py: "3xl",
           px: "2xl",
-          backgroundColor: (0, _v62.useColorModeValue)("gray.50", "gray.900"),
-          children: (0, _v1.jsx)(_v143, {
-            type: _v31.IMPORT_TYPE.CSV
+          backgroundColor: (0, _v58.useColorModeValue)("gray.50", "gray.900"),
+          children: (0, _v1.jsx)(_v139, {
+            type: _v27.IMPORT_TYPE.CSV
           })
         })]
       });
     };
-  var _v168 = _v0.i(0);
-  let _v169 = {
-      firstName: _v33.default.FirstName,
-      lastName: _v33.default.LastName,
-      emailAddress: _v33.default.EmailAddress
+  var _v164 = _v0.i(0);
+  let _v165 = {
+      firstName: _v29.default.FirstName,
+      lastName: _v29.default.LastName,
+      emailAddress: _v29.default.EmailAddress
     },
-    _v170 = ({
+    _v166 = ({
       stepCount: _v0,
       columnsMap: _v1,
       columnHeaders: _v2,
@@ -3921,19 +3820,19 @@
     }) => {
       let _v6,
         [_v7, _v8] = (0, _v2.useState)(-1),
-        _v9 = (0, _v32.useConfigStore)(_v0 => _v0.entityType);
+        _v9 = (0, _v28.useConfigStore)(_v0 => _v0.entityType);
       return (0, _v1.jsxs)(_v3.Box, {
         w: "100%",
         px: "2xl",
         pt: "3xl",
         pb: (0, _v9.rem)(10),
-        children: [(0, _v1.jsx)(_v36.Paragraph, {
+        children: [(0, _v1.jsx)(_v32.Paragraph, {
           size: "md",
           children: (0, _v15.translate)({
             singular: "Step {STEP} of {STEPS}",
             replacements: {
               STEP: _v0,
-              STEPS: _v31.UPLOAD_CSV_MODAL_STEPS[1]
+              STEPS: _v27.UPLOAD_CSV_MODAL_STEPS[1]
             },
             dictionary: {
               es: {
@@ -3962,12 +3861,12 @@
         }), (0, _v1.jsx)(_v7.Header, {
           size: "xl",
           my: (0, _v9.rem)(10),
-          children: _v33.default.MapAttendees[_v9]
-        }), (0, _v1.jsx)(_v36.Paragraph, {
+          children: _v29.default.MapAttendees[_v9]
+        }), (0, _v1.jsx)(_v32.Paragraph, {
           size: "md",
           maxW: "60%",
           pb: "5",
-          children: _v33.default.MapAttendeesDesc[_v9]
+          children: _v29.default.MapAttendeesDesc[_v9]
         }), (_v6 = Object.keys(_v1), (0, _v1.jsxs)(_v1.Fragment, {
           children: [(0, _v1.jsxs)(_v6.Flex, {
             pt: (0, _v9.rem)(25),
@@ -3979,12 +3878,12 @@
               children: (0, _v1.jsx)(_v7.Header, {
                 size: "xs",
                 mb: "sm",
-                children: _v33.default.VimeoAttendeeTableColumns[_v9]
+                children: _v29.default.VimeoAttendeeTableColumns[_v9]
               })
             }), (0, _v1.jsx)(_v7.Header, {
               size: "xs",
               flex: "0.4",
-              children: _v33.default.CSVColumnHeader
+              children: _v29.default.CSVColumnHeader
             })]
           }), _v6.map((_v0, _v1) => (0, _v1.jsxs)(_v6.Flex, {
             alignItems: "center",
@@ -3998,21 +3897,21 @@
               children: [(0, _v1.jsxs)(_v7.Header, {
                 display: "flex",
                 size: "xs",
-                children: [_v169[_v0], 2 === _v1 && (0, _v1.jsx)(_v36.Paragraph, {
+                children: [_v165[_v0], 2 === _v1 && (0, _v1.jsx)(_v32.Paragraph, {
                   color: "red.500",
                   children: "*"
                 })]
-              }), (0, _v1.jsx)(_v168.ArrowRight, {
+              }), (0, _v1.jsx)(_v164.ArrowRight, {
                 color: "text-secondary"
               })]
             }), (0, _v1.jsx)(_v3.Box, {
               flex: "0.4",
-              children: (0, _v1.jsxs)(_v94.Menu, {
+              children: (0, _v1.jsxs)(_v90.Menu, {
                 isOpen: _v7 === _v1,
                 onOpen: () => _v8(_v1),
                 onClose: () => _v8(-1),
                 placement: "bottom-end",
-                children: [(0, _v1.jsx)(_v95.MenuButton, {
+                children: [(0, _v1.jsx)(_v91.MenuButton, {
                   onClick: () => _v8(_v1),
                   border: "2px solid",
                   transition: "120ms ease-in-out",
@@ -4027,31 +3926,31 @@
                   },
                   children: (0, _v1.jsxs)(_v6.Flex, {
                     justifyContent: "space-between",
-                    children: [_v1[_v0] ? (0, _v1.jsx)(_v36.Paragraph, {
+                    children: [_v1[_v0] ? (0, _v1.jsx)(_v32.Paragraph, {
                       size: "md",
                       children: _v1[_v0]
-                    }) : (0, _v1.jsx)(_v36.Paragraph, {
+                    }) : (0, _v1.jsx)(_v32.Paragraph, {
                       color: "text-secondary",
                       size: "md",
-                      children: _v33.default.ChooseProperty
-                    }), (0, _v1.jsx)(_v99.ChevronDown, {})]
+                      children: _v29.default.ChooseProperty
+                    }), (0, _v1.jsx)(_v95.ChevronDown, {})]
                   })
-                }), (0, _v1.jsx)(_v139.Portal, {
+                }), (0, _v1.jsx)(_v135.Portal, {
                   containerRef: _v5,
-                  children: (0, _v1.jsx)(_v97.MenuList, {
+                  children: (0, _v1.jsx)(_v93.MenuList, {
                     maxH: "30vh",
                     w: "315px",
                     overflow: "scroll",
                     children: _v2.map((_v0, _v1) => {
-                      let _v2 = _v6.some(_v0 => _v1[_v0] === _v0) || _v0 === _v33.default.ChooseProperty && !_v1[_v0],
-                        _v3 = _v0 === _v33.default.ChooseProperty,
+                      let _v2 = _v6.some(_v0 => _v1[_v0] === _v0) || _v0 === _v29.default.ChooseProperty && !_v1[_v0],
+                        _v3 = _v0 === _v29.default.ChooseProperty,
                         _v4 = `${_v1}-${_v1}-${_v0}`,
                         _v5 = _v2 && _v1[_v0] !== _v0;
-                      return (0, _v1.jsxs)(_v138.MenuItem, {
+                      return (0, _v1.jsxs)(_v134.MenuItem, {
                         onClick: () => {
                           if (_v3 && _v1[_v0]) {
                             _v3({
-                              type: _v29.ACTION_TYPE.SET_COLUMNS_MAP,
+                              type: _v26.ACTION_TYPE.SET_COLUMNS_MAP,
                               payload: {
                                 ..._v1,
                                 [_v0]: null
@@ -4060,7 +3959,7 @@
                             return;
                           }
                           _v2 || (_v3({
-                            type: _v29.ACTION_TYPE.SET_COLUMNS_MAP,
+                            type: _v26.ACTION_TYPE.SET_COLUMNS_MAP,
                             payload: {
                               ..._v1,
                               [_v0]: _v0
@@ -4073,11 +3972,11 @@
                         children: [(0, _v1.jsx)(_v3.Box, {
                           minW: (0, _v9.rem)(24),
                           mr: (0, _v9.rem)(5),
-                          children: _v1[_v0] === _v0 && !_v3 && (0, _v1.jsx)(_v112.Checkmark, {
+                          children: _v1[_v0] === _v0 && !_v3 && (0, _v1.jsx)(_v108.Checkmark, {
                             color: "blue.500",
                             w: (0, _v9.rem)(24)
                           })
-                        }), (0, _v1.jsx)(_v36.Paragraph, {
+                        }), (0, _v1.jsx)(_v32.Paragraph, {
                           size: "md",
                           children: _v0
                         })]
@@ -4088,12 +3987,12 @@
               })
             })]
           }, _v0))]
-        })), _v4?.length ? (0, _v1.jsx)(_v134.Alert, {
+        })), _v4?.length ? (0, _v1.jsx)(_v130.Alert, {
           status: "error",
           mt: (0, _v9.rem)(10),
           mb: 0,
-          children: (0, _v1.jsx)(_v135.AlertDescription, {
-            children: (0, _v1.jsx)(_v36.Paragraph, {
+          children: (0, _v1.jsx)(_v131.AlertDescription, {
+            children: (0, _v1.jsx)(_v32.Paragraph, {
               size: "md",
               children: _v4
             })
@@ -4101,26 +4000,26 @@
         }) : null]
       });
     };
-  async function _v171({
+  async function _v167({
     baseUrl: _v0,
     where: {
       uploadId: _v1
     },
     ..._v2
   }) {
-    return (0, _v101.measureLatency)("postLeadCaptureRegistrantsUploadActivate", "POST", async () => {
+    return (0, _v97.measureLatency)("postLeadCaptureRegistrantsUploadActivate", "POST", async () => {
       let _v0 = await fetch(`${_v0}/lead_capture/registrants/uploads/${_v1}/activate`, {
         ..._v2,
         method: "POST"
       });
-      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v98.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v102.deepCamelCase)(_v1);
+      return (0, _v98.deepCamelCase)(_v1);
     });
   }
-  async function _v172({
+  async function _v168({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -4130,19 +4029,19 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v101.measureLatency)("getLeadCaptureResourceIdRegistrantsUploads", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/lead_capture/${_v2}/${_v3}/registrants/uploads?${(0, _v102.searchQueryString)(_v4)}&fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
+    return (0, _v97.measureLatency)("getLeadCaptureResourceIdRegistrantsUploads", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/lead_capture/${_v2}/${_v3}/registrants/uploads?${(0, _v98.searchQueryString)(_v4)}&fields=${_v1.map(_v98.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v98.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v102.deepCamelCase)(_v1);
+      return (0, _v98.deepCamelCase)(_v1);
     });
   }
-  async function _v173({
+  async function _v169({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -4152,33 +4051,33 @@
     },
     ..._v5
   }) {
-    return (0, _v101.measureLatency)("postLeadCaptureResourceIdRegistrantsUploads", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/lead_capture/${_v3}/${_v4}/registrants/uploads?fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
+    return (0, _v97.measureLatency)("postLeadCaptureResourceIdRegistrantsUploads", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/lead_capture/${_v3}/${_v4}/registrants/uploads?fields=${_v1.map(_v98.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "POST",
-        body: JSON.stringify((0, _v102.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v98.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v98.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v102.deepCamelCase)(_v1);
+      return (0, _v98.deepCamelCase)(_v1);
     });
   }
-  function _v174() {
+  function _v170() {
     let {
         baseUrl: _v0,
         jwt: _v1,
         xVimeoPage: _v2,
         locale: _v3
-      } = (0, _v105.useGctlConfig)(),
-      [_v4, _v5] = (0, _v100.useInternalState)();
+      } = (0, _v101.useGctlConfig)(),
+      [_v4, _v5] = (0, _v96.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v5({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v173({
+        let _v0 = await _v169({
           ..._v0,
           baseUrl: _v0,
           headers: {
@@ -4204,20 +4103,20 @@
   _v0.s(["useGetLeadCaptureResourceIdRegistrantsUploadsLazy", 0, function () {
     let {
         mutate: _v0
-      } = (0, _v104.useSWRConfig)(),
+      } = (0, _v100.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v105.useGctlConfig)(),
-      [_v5, _v6] = (0, _v100.useInternalState)();
+      } = (0, _v101.useGctlConfig)(),
+      [_v5, _v6] = (0, _v96.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/lead_capture/${_v0.where.resourceType}/${_v0.where.resourceId}/registrants/uploads${(0, _v100.serializeQuery)(_v0)}`, _v172({
+        let _v0 = await _v0(`/lead_capture/${_v0.where.resourceType}/${_v0.where.resourceId}/registrants/uploads${(0, _v96.serializeQuery)(_v0)}`, _v168({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -4239,17 +4138,17 @@
         });
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-  }, "usePostLeadCaptureResourceIdRegistrantsUploads", 0, _v174], 0);
-  let _v175 = _v0 => {
+  }, "usePostLeadCaptureResourceIdRegistrantsUploads", 0, _v170], 0);
+  let _v171 = _v0 => {
     let {
         entityType: _v1,
         entityId: _v2
-      } = (0, _v32.useConfigStore)(),
+      } = (0, _v28.useConfigStore)(),
       [_v3, {
         error: _v4,
         data: _v5,
         loading: _v6
-      }] = _v174(),
+      }] = _v170(),
       [_v7, {
         error: _v8,
         data: _v9,
@@ -4257,20 +4156,20 @@
       }] = function () {
         let {
             mutate: _v0
-          } = (0, _v104.useSWRConfig)(),
+          } = (0, _v100.useSWRConfig)(),
           {
             baseUrl: _v1,
             jwt: _v2,
             xVimeoPage: _v3,
             locale: _v4
-          } = (0, _v105.useGctlConfig)(),
-          [_v5, _v6] = (0, _v100.useInternalState)();
+          } = (0, _v101.useGctlConfig)(),
+          [_v5, _v6] = (0, _v96.useInternalState)();
         return [(0, _v2.useCallback)(async _v0 => {
           _v6({
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v0(`/lead_capture/registrants/uploads/${_v0.where.uploadId}/activate${(0, _v100.serializeQuery)(_v0)}`, _v171({
+            let _v0 = await _v0(`/lead_capture/registrants/uploads/${_v0.where.uploadId}/activate${(0, _v96.serializeQuery)(_v0)}`, _v167({
               ..._v0,
               baseUrl: _v1,
               headers: {
@@ -4315,8 +4214,8 @@
       }), [_v8, _v9, _v10]);
     return (0, _v2.useEffect)(() => {
       if (!_v15) if (_v13) _v0({
-        type: _v29.ACTION_TYPE.SET_API_ERROR,
-        payload: _v33.default.CSVUploadFailed
+        type: _v26.ACTION_TYPE.SET_API_ERROR,
+        payload: _v29.default.CSVUploadFailed
       });else {
         var _v0;
         let _v0;
@@ -4327,32 +4226,32 @@
         }).then(_v0 => {
           if (200 === _v0.status) _v7({
             where: {
-              uploadId: `${(0, _v19.getLastUuidFromUri)(_v14?.uri)}`
+              uploadId: `${(0, _v18.getLastUuidFromUri)(_v14?.uri)}`
             }
           });else throw Error(_v0.statusText);
         }).catch(_v0 => {
           _v0({
-            type: _v29.ACTION_TYPE.SET_API_ERROR,
-            payload: _v33.default.CSVUploadFailed
+            type: _v26.ACTION_TYPE.SET_API_ERROR,
+            payload: _v29.default.CSVUploadFailed
           });
         }));
       }
     }, [_v14, _v13, _v15]), (0, _v2.useEffect)(() => {
       if (!_v18) {
         if (_v16) _v0({
-          type: _v29.ACTION_TYPE.SET_API_ERROR,
-          payload: _v33.default.CSVUploadFailed
+          type: _v26.ACTION_TYPE.SET_API_ERROR,
+          payload: _v29.default.CSVUploadFailed
         });else if (_v17) {
           _v0({
-            type: _v29.ACTION_TYPE.SET_API_SUCCESS
+            type: _v26.ACTION_TYPE.SET_API_SUCCESS
           });
           let _v0 = {
-            status: _v31.CRM_CSV_STATUS.UPLOADED,
+            status: _v27.CRM_CSV_STATUS.UPLOADED,
             fileName: `${_v12?.name}`,
             uri: `${_v14?.uri}`
           };
           _v0({
-            type: _v29.ACTION_TYPE.NEW_UPLOAD,
+            type: _v26.ACTION_TYPE.NEW_UPLOAD,
             payload: _v0
           });
         }
@@ -4361,7 +4260,7 @@
       uploadCSV: (_v0, _v1) => {
         _v11.current = _v0, _v2 && _v1 && _v3({
           where: {
-            resourceType: _v18.ENTITY_TO_PATH_MAP[_v1],
+            resourceType: _v17.ENTITY_TO_PATH_MAP[_v1],
             resourceId: _v2
           },
           select: ["signedUrl", "uri"],
@@ -4377,8 +4276,8 @@
       }
     };
   };
-  _v0.s(["useCSV", 0, _v175, "useCSVUploadError", 0, _v0 => {
-    let _v1 = (0, _v22.useViewer)(),
+  _v0.s(["useCSV", 0, _v171, "useCSVUploadError", 0, _v0 => {
+    let _v1 = (0, _v20.useViewer)(),
       _v2 = _v1?.jwt,
       _v3 = _v1?.locale,
       _v4 = _v1?.apiUrl;
@@ -4386,10 +4285,10 @@
       downloadUri: _v4 && _v2 && _v3 ? `//${_v4}/lead_capture/registrants/uploads/${_v0}/errors/export?jwt_token=${_v2}&format=csv&locale=${_v3}` : ""
     };
   }], 0);
-  let _v176 = ["email", "e-mail", "mail"],
-    _v177 = ["first name", "firstname", "first", "name", "fname"],
-    _v178 = ["last name", "lastname", "last", "surname", "lname"],
-    _v179 = (0, _v2.forwardRef)(({
+  let _v172 = ["email", "e-mail", "mail"],
+    _v173 = ["first name", "firstname", "first", "name", "fname"],
+    _v174 = ["last name", "lastname", "last", "surname", "lname"],
+    _v175 = (0, _v2.forwardRef)(({
       totalAttendees: _v0,
       dispatch: _v1,
       importRegistrantState: _v2,
@@ -4406,36 +4305,26 @@
         } = _v2,
         {
           registrationData: _v12
-        } = (0, _v25.useEntityStore)(),
+        } = (0, _v22.useEntityStore)(),
         {
           uploadCSV: _v13
-        } = _v175(_v1),
-        {
-          sendRegistrationActionBP: _v14
-        } = (0, _v24.useAnalytics)(),
-        _v15 = _v0 => {
+        } = _v171(_v1),
+        _v14 = _v0 => {
           _v1({
-            type: _v29.ACTION_TYPE.SET_CSV_ERROR,
+            type: _v26.ACTION_TYPE.SET_CSV_ERROR,
             payload: _v0
           });
         },
-        _v16 = _v0 => {
+        _v15 = _v0 => {
           _v1({
-            type: _v29.ACTION_TYPE.SET_API_PENDING,
+            type: _v26.ACTION_TYPE.SET_API_PENDING,
             payload: !0
-          }), _v13(_v6, _v0), _v14({
-            eventName: _v30.BP_EVENT_NAME.REGISTRANTS_UPLOAD_CSV_MODAL,
-            location: _v30.BP_LOCATION.MODAL,
-            modalName: _v30.BP_MODAL.REGISTRANT_UPLOAD_CSV_MODAL,
-            flow: _v30.BP_FLOW.MAP_ATTENDEES,
-            copy: _v30.BP_COPY.SUBMIT,
-            actionName: _v30.BP_VALUES.FINISH_UPLOAD_CSV_MODAL
-          });
+          }), _v13(_v6, _v0);
         };
       return (0, _v2.useImperativeHandle)(_v4, () => ({
         handleNext: () => {
           if (_v1({
-            type: _v29.ACTION_TYPE.SET_PROCESSING_CSV,
+            type: _v26.ACTION_TYPE.SET_PROCESSING_CSV,
             payload: !0
           }), _v6) {
             let _v0 = new FileReader();
@@ -4443,11 +4332,11 @@
               (_v0 => {
                 let _v1,
                   _v2 = _v0.split(/\r\n|\n/);
-                if (_v2.length <= 1) return _v15((0, _v15.translate)({
+                if (_v2.length <= 1) return _v14((0, _v15.translate)({
                   singular: "{FILE_NAME} is empty. Please try again.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
-                      children: _v151(_v6?.name)
+                      children: _v147(_v6?.name)
                     })
                   },
                   dictionary: {
@@ -4467,8 +4356,8 @@
                 }));
                 let _v3 = _v2[0].replaceAll('"', "").split(",").filter(_v0 => _v0.trim().length > 0);
                 _v1({
-                  type: _v29.ACTION_TYPE.SET_COLUMN_HEADERS,
-                  payload: [_v33.default.ChooseProperty, ..._v3]
+                  type: _v26.ACTION_TYPE.SET_COLUMN_HEADERS,
+                  payload: [_v29.default.ChooseProperty, ..._v3]
                 });
                 let _v4 = (_v1 = {
                   firstName: null,
@@ -4477,26 +4366,26 @@
                 }, _v3.forEach(_v0 => {
                   let _v1 = _v0.toLowerCase();
                   if (!_v1.emailAddress) {
-                    for (let _v0 of _v176) if (_v1.includes(_v0)) {
+                    for (let _v0 of _v172) if (_v1.includes(_v0)) {
                       _v1.emailAddress = _v0;
                       break;
                     }
                   }
                   if (!_v1.firstName) {
-                    for (let _v0 of _v177) if (_v1.includes(_v0) && !_v1.includes("last")) {
+                    for (let _v0 of _v173) if (_v1.includes(_v0) && !_v1.includes("last")) {
                       _v1.firstName = _v0;
                       break;
                     }
                   }
                   if (!_v1.lastName && _v1.firstName !== _v0) {
-                    for (let _v0 of _v178) if (_v1.includes(_v0)) {
+                    for (let _v0 of _v174) if (_v1.includes(_v0)) {
                       _v1.lastName = _v0;
                       break;
                     }
                   }
                 }), _v1);
                 _v1({
-                  type: _v29.ACTION_TYPE.SET_COLUMNS_MAP,
+                  type: _v26.ACTION_TYPE.SET_COLUMNS_MAP,
                   payload: {
                     ..._v4
                   }
@@ -4508,11 +4397,11 @@
                   for (let _v0 = 0; _v0 < _v0.length; _v0++) _v1 += _v0[_v0].length;
                   _v1 < 10 && _v5--;
                 }
-                _v12 && !_v12.isUnlimited && _v5 > _v12.capping - _v0 ? _v15((0, _v15.translate)({
+                _v12 && !_v12.isUnlimited && _v5 > _v12.capping - _v0 ? _v14((0, _v15.translate)({
                   singular: "{FILE_NAME} exceeds the max number of attendees.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
-                      children: _v151(_v6?.name)
+                      children: _v147(_v6?.name)
                     })
                   },
                   dictionary: {
@@ -4529,13 +4418,13 @@
                       singular: "{FILE_NAME} 超过了最大出席者人数。"
                     }
                   }
-                })) : _v5 > _v31.MAX_REGISTRANTS_ALLOWED ? _v15((0, _v15.translate)({
+                })) : _v5 > _v27.MAX_REGISTRANTS_ALLOWED ? _v14((0, _v15.translate)({
                   singular: "{FILE_NAME} exceeds the max allowed number of rows. Please upload a file under {MAX_REGISTRANTS} rows.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
-                      children: _v151(_v6?.name)
+                      children: _v147(_v6?.name)
                     }),
-                    MAX_REGISTRANTS: _v31.MAX_REGISTRANTS_ALLOWED.toLocaleString()
+                    MAX_REGISTRANTS: _v27.MAX_REGISTRANTS_ALLOWED.toLocaleString()
                   },
                   dictionary: {
                     "fr-FR": {
@@ -4552,19 +4441,19 @@
                     }
                   }
                 })) : _v1({
-                  type: _v29.ACTION_TYPE.SET_PROCESSING_CSV_SUCCESS,
+                  type: _v26.ACTION_TYPE.SET_PROCESSING_CSV_SUCCESS,
                   payload: {
                     csvEntries: _v5,
-                    stepCount: _v31.UPLOAD_CSV_MODAL_STEPS[1]
+                    stepCount: _v27.UPLOAD_CSV_MODAL_STEPS[1]
                   }
                 });
               })(_v0?.target?.result);
             }, _v0.onerror = function () {
-              _v15((0, _v15.translate)({
+              _v14((0, _v15.translate)({
                 singular: "{FILE_NAME} is corrupted. Please try again.",
                 replacements: {
                   FILE_NAME: () => (0, _v1.jsx)("strong", {
-                    children: _v151(_v6?.name)
+                    children: _v147(_v6?.name)
                   })
                 },
                 dictionary: {
@@ -4584,36 +4473,28 @@
               }));
             }, _v0.readAsText(_v6);
           }
-          _v14({
-            eventName: _v30.BP_EVENT_NAME.REGISTRANTS_UPLOAD_CSV_MODAL,
-            location: _v30.BP_LOCATION.MODAL,
-            modalName: _v30.BP_MODAL.REGISTRANT_UPLOAD_CSV_MODAL,
-            flow: _v30.BP_FLOW.ADD_ATTENDEES,
-            copy: _v30.BP_COPY.NEXT,
-            actionName: _v30.BP_VALUES.UPLOAD_CSV_MODAL_NEXT
-          });
         },
-        handleCSVSubmit: _v16,
+        handleCSVSubmit: _v15,
         handlePrevious: () => {
           _v1({
-            type: _v29.ACTION_TYPE.SET_STEP_COUNT,
-            payload: _v31.UPLOAD_CSV_MODAL_STEPS[0]
+            type: _v26.ACTION_TYPE.SET_STEP_COUNT,
+            payload: _v27.UPLOAD_CSV_MODAL_STEPS[0]
           });
         }
       })), (0, _v1.jsx)(_v1.Fragment, {
-        children: _v5 === _v31.UPLOAD_CSV_MODAL_STEPS[0] ? (0, _v1.jsx)(_v6.Flex, {
+        children: _v5 === _v27.UPLOAD_CSV_MODAL_STEPS[0] ? (0, _v1.jsx)(_v6.Flex, {
           flex: "1",
-          children: (0, _v1.jsx)(_v167, {
+          children: (0, _v1.jsx)(_v163, {
             stepCount: _v5,
             uploadedCsv: _v6,
             checkBoxSelected: _v7,
             csvError: _v10,
             dispatch: _v1,
-            showCsvError: _v15
+            showCsvError: _v14
           })
-        }) : _v5 === _v31.UPLOAD_CSV_MODAL_STEPS[1] ? (0, _v1.jsx)(_v6.Flex, {
+        }) : _v5 === _v27.UPLOAD_CSV_MODAL_STEPS[1] ? (0, _v1.jsx)(_v6.Flex, {
           flex: "1",
-          children: (0, _v1.jsx)(_v170, {
+          children: (0, _v1.jsx)(_v166, {
             stepCount: _v5,
             columnsMap: _v9,
             columnHeaders: _v8,
@@ -4624,7 +4505,7 @@
         }) : null
       });
     }),
-    _v180 = ({
+    _v176 = ({
       onClose: _v0,
       totalAttendees: _v1,
       importRegistrantState: _v2,
@@ -4634,62 +4515,43 @@
       let {
           hasUpsell: _v5,
           hasAttendeeUpsell: _v6
-        } = (0, _v23.useEventCapability)(),
+        } = (0, _v21.useEventCapability)(),
         {
           registrationData: _v7
-        } = (0, _v25.useEntityStore)(),
+        } = (0, _v22.useEntityStore)(),
+        _v8 = (0, _v28.useConfigStore)(_v0 => _v0.entityType),
         {
-          sendUpsellEvent: _v8
-        } = (0, _v17.useUpsellAnalytics)(),
-        _v9 = (0, _v32.useConfigStore)(_v0 => _v0.entityType),
-        {
-          selectedProvider: _v10,
-          uploadedCsv: _v11,
-          selectedList: _v12,
-          checkBoxSelected: _v13,
-          processingCsv: _v14,
-          csvError: _v15,
-          stepCount: _v16,
-          apiPending: _v17,
-          columnsMap: _v18,
-          apiError: _v19,
-          showModalType: _v20,
-          showSuccessScreen: _v21,
-          loadingCRM: _v22
+          selectedProvider: _v9,
+          uploadedCsv: _v10,
+          selectedList: _v11,
+          checkBoxSelected: _v12,
+          processingCsv: _v13,
+          csvError: _v14,
+          stepCount: _v15,
+          apiPending: _v16,
+          columnsMap: _v17,
+          apiError: _v18,
+          showModalType: _v19,
+          showSuccessScreen: _v20,
+          loadingCRM: _v21
         } = _v2,
-        _v23 = _v7 && !_v7.isUnlimited,
-        _v24 = _v9 === _v18.ENTITY_TYPE.VIDEO,
-        _v25 = !_v21 && _v16 === _v31.UPLOAD_CSV_MODAL_STEPS[0] && (_v5 || _v23);
-      return (0, _v2.useEffect)(() => {
-        _v23 && _v16 === _v31.UPLOAD_CSV_MODAL_STEPS[0] && !_v21 && _v8({
-          eventName: _v30.BP_EVENT_NAME.UPSELL_TRIGGER_IMPRESSION,
-          pageName: _v30.BP_PAGE_NAME.EVENT_REGISTRATION_PAGE,
-          target: null,
-          targetPath: null,
-          upsellName: "add_registrants",
-          interfaceType: "page",
-          product: "events",
-          feature: "registration",
-          location: _v30.BP_LOCATION.MODAL_BOTTOM_BANNER,
-          entityType: _v9,
-          copy: _v30.BP_COPY.UPGRADE,
-          modalName: _v20 === _v31.IMPORT_TYPE.CSV ? _v30.BP_MODAL.REGISTRANT_UPLOAD_CSV_MODAL : _v30.BP_MODAL.REGISTRANT_EMAIL_PROVIDER_MODAL,
-          flow: _v20 === _v31.IMPORT_TYPE.CSV ? _v30.BP_FLOW.UPLOAD_CSV : _v30.BP_FLOW.SYNC_FROM_EMAIL
-        });
-      }, []), (0, _v1.jsx)(_v6.Flex, {
+        _v22 = _v7 && !_v7.isUnlimited,
+        _v23 = _v8 === _v17.ENTITY_TYPE.VIDEO,
+        _v24 = !_v20 && _v15 === _v27.UPLOAD_CSV_MODAL_STEPS[0] && (_v5 || _v22);
+      return (0, _v1.jsx)(_v6.Flex, {
         align: "stretch",
         p: (0, _v9.rem)(12),
         borderTop: "1px solid",
         borderColor: "stroke",
         height: (0, _v9.rem)(80),
         alignItems: "center",
-        justifyContent: _v25 ? "space-between" : "flex-end",
-        children: _v16 === _v31.UPLOAD_CSV_MODAL_STEPS[0] ? (0, _v1.jsxs)(_v1.Fragment, {
+        justifyContent: _v24 ? "space-between" : "flex-end",
+        children: _v15 === _v27.UPLOAD_CSV_MODAL_STEPS[0] ? (0, _v1.jsxs)(_v1.Fragment, {
           children: [(0, _v1.jsx)(_v3.Box, {
             pl: (0, _v9.rem)(26),
-            children: _v23 ? (0, _v1.jsxs)(_v6.Flex, {
+            children: _v22 ? (0, _v1.jsxs)(_v6.Flex, {
               alignItems: "center",
-              children: [(0, _v1.jsx)(_v36.Paragraph, {
+              children: [(0, _v1.jsx)(_v32.Paragraph, {
                 fontWeight: "medium",
                 size: "md",
                 children: (0, _v15.translate)({
@@ -4717,62 +4579,64 @@
                 mx: (0, _v9.rem)(10),
                 size: "xs",
                 onClick: _v4,
-                children: _v6 ? _v33.default.Upgrade : _v33.default.Contactus
+                children: _v6 ? _v29.default.Upgrade : _v29.default.Contactus
               })]
             }) : null
           }), (0, _v1.jsxs)(_v6.Flex, {
             children: [(0, _v1.jsx)(_v4.Button, {
               minW: (0, _v9.rem)(120),
               variant: "secondary",
-              isDisabled: _v22,
+              isDisabled: _v21,
               onClick: () => _v0(),
               _first: {
                 mr: (0, _v9.rem)(10)
               },
-              children: _v33.default.Cancel
-            }), _v20 === _v31.IMPORT_TYPE.CSV && (0, _v1.jsx)(_v4.Button, {
+              children: _v29.default.Cancel
+            }), _v19 === _v27.IMPORT_TYPE.CSV && (0, _v1.jsx)(_v4.Button, {
               minW: (0, _v9.rem)(120),
               variant: "primary",
-              isLoading: _v14,
-              isDisabled: !_v11 || !_v13 || !!_v15 && _v15.length > 0,
+              isLoading: _v13,
+              isDisabled: !_v10 || !_v12 || !!_v14 && _v14.length > 0,
               onClick: () => {
                 _v3.current?.handleNext();
               },
-              children: _v33.default.Next
-            }), _v20 === _v31.IMPORT_TYPE.CRM && (0, _v1.jsx)(_v4.Button, {
+              children: _v29.default.Next
+            }), _v19 === _v27.IMPORT_TYPE.CRM && (0, _v1.jsx)(_v4.Button, {
               minW: (0, _v9.rem)(120),
               variant: "primary",
-              isLoading: _v22,
-              isDisabled: !(_v13 && _v10 && _v12),
+              isLoading: _v21,
+              isDisabled: !(_v12 && _v9 && _v11),
               onClick: () => {
                 _v3.current?.handleCRMSubmit();
               },
-              children: _v24 ? _v33.default.Sync : _v33.default.Next
+              children: _v23 ? _v29.default.Sync : _v29.default.Next
             })]
           })]
-        }) : _v16 === _v31.UPLOAD_CSV_MODAL_STEPS[1] ? (0, _v1.jsxs)(_v1.Fragment, {
+        }) : _v15 === _v27.UPLOAD_CSV_MODAL_STEPS[1] ? (0, _v1.jsxs)(_v1.Fragment, {
           children: [(0, _v1.jsx)(_v4.Button, {
             minW: (0, _v9.rem)(120),
             variant: "secondary",
-            isDisabled: _v17,
-            onClick: _v3.current?.handlePrevious,
+            isDisabled: _v16,
+            onClick: () => {
+              _v3.current?.handlePrevious();
+            },
             _first: {
               mr: (0, _v9.rem)(10)
             },
-            children: _v33.default.Back
+            children: _v29.default.Back
           }), (0, _v1.jsx)(_v4.Button, {
             minW: (0, _v9.rem)(120),
             variant: "primary",
-            isDisabled: !_v18.emailAddress,
-            isLoading: _v17,
-            onClick: () => _v3.current?.handleCSVSubmit(_v18),
-            children: _v19?.length ? _v33.default.Retry : _v33.default.Submit
+            isDisabled: !_v17.emailAddress,
+            isLoading: _v16,
+            onClick: () => _v3.current?.handleCSVSubmit(_v17),
+            children: _v18?.length ? _v29.default.Retry : _v29.default.Submit
           })]
         }) : null
       });
     };
-  var _v181 = _v0.i(0);
-  let _v182 = _v0 => (0, _v1.jsx)(_v124.Icon, {
+  var _v177 = _v0.i(0);
+  let _v178 = _v0 => (0, _v1.jsx)(_v120.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -4781,23 +4645,23 @@
       fill: "currentColor"
     })
   });
-  var _v183 = _v0.i(0),
-    _v184 = _v0.i(0);
-  let _v185 = ({
+  var _v179 = _v0.i(0),
+    _v180 = _v0.i(0);
+  let _v181 = ({
       handleModalClose: _v0
     }) => {
       let {
           eventsUri: _v1
-        } = (0, _v25.useEntityStore)(),
-        _v2 = (0, _v32.useConfigStore)(_v0 => _v0.entityType),
-        _v3 = (0, _v32.useConfigStore)(_v0 => _v0.setSelectedSection),
+        } = (0, _v22.useEntityStore)(),
+        _v2 = (0, _v28.useConfigStore)(_v0 => _v0.entityType),
+        _v3 = (0, _v28.useConfigStore)(_v0 => _v0.setSelectedSection),
         {
           onClose: _v4
         } = (0, _v16.useCallbackContext)();
       return (0, _v2.useMemo)(() => {
-        if (_v2 === _v18.ENTITY_TYPE.EVENT) {
-          let _v0 = (0, _v19.getLastUuidFromUri)(_v1);
-          return `${_v31.EVENT_REGISTRATION_URL}/${_v0}/form`;
+        if (_v2 === _v17.ENTITY_TYPE.EVENT) {
+          let _v0 = (0, _v18.getLastUuidFromUri)(_v1);
+          return `${_v27.EVENT_REGISTRATION_URL}/${_v0}/form`;
         }
       }, [_v1, _v2]), (0, _v1.jsxs)(_v6.Flex, {
         flexDirection: "column",
@@ -4809,63 +4673,63 @@
           children: (0, _v1.jsxs)(_v6.Flex, {
             align: "center",
             flexDirection: "column",
-            children: [(0, _v1.jsx)(_v182, {
+            children: [(0, _v1.jsx)(_v178, {
               boxSize: (0, _v9.rem)(60),
               mt: (0, _v9.rem)(20)
             }), (0, _v1.jsx)(_v7.Header, {
               size: "2xl",
               mb: "lg",
-              children: _v33.default.DataImport[_v2]
-            }), (0, _v1.jsx)(_v36.Paragraph, {
+              children: _v29.default.DataImport[_v2]
+            }), (0, _v1.jsx)(_v32.Paragraph, {
               size: "md",
               mb: "md",
-              children: _v33.default.DataImportDesc[_v2]
+              children: _v29.default.DataImportDesc[_v2]
             })]
           })
         }), (0, _v1.jsxs)(_v3.Box, {
           flex: "auto",
           textAlign: "center",
-          backgroundColor: (0, _v62.useColorModeValue)("gray.50", "gray.900"),
+          backgroundColor: (0, _v58.useColorModeValue)("gray.50", "gray.900"),
           px: (0, _v9.rem)(115),
           pt: "2xl",
           pb: (0, _v9.rem)(60),
           children: [(0, _v1.jsx)(_v7.Header, {
             size: "xs",
             mb: "sm",
-            children: _v33.default.DataImportDesc2
+            children: _v29.default.DataImportDesc2
           }), (0, _v1.jsxs)(_v6.Flex, {
             pt: "sm",
-            children: [(0, _v1.jsx)(_v186, {
-              icon: (0, _v1.jsx)(_v184.Registration, {
+            children: [(0, _v1.jsx)(_v182, {
+              icon: (0, _v1.jsx)(_v180.Registration, {
                 boxSize: (0, _v9.rem)(20)
               }),
-              header: _v33.default.InviteSpeakers,
-              description: _v33.default.InviteSpeakerDesc,
+              header: _v29.default.InviteSpeakers,
+              description: _v29.default.InviteSpeakerDesc,
               onClick: () => {
-                _v3?.(_v31.SECTION_TYPES.FORM), _v0();
+                _v3?.(_v27.SECTION_TYPES.FORM), _v0();
               }
-            }), (0, _v1.jsx)(_v186, {
+            }), (0, _v1.jsx)(_v182, {
               ml: "sm",
-              icon: (0, _v1.jsx)(_v183.EditPencil, {
+              icon: (0, _v1.jsx)(_v179.EditPencil, {
                 boxSize: (0, _v9.rem)(20)
               }),
-              header: _v33.default.CreateVideo[_v2] || "",
-              description: _v33.default.CreateVideoDesc[_v2] || "",
+              header: _v29.default.CreateVideo[_v2] || "",
+              description: _v29.default.CreateVideoDesc[_v2] || "",
               onClick: () => {
-                _v2 === _v18.ENTITY_TYPE.EVENT ? window.open(_v31.CREATE_VIDEO, "_BLANK") : (_v0(), _v4?.());
+                _v2 === _v17.ENTITY_TYPE.EVENT ? window.open(_v27.CREATE_VIDEO, "_BLANK") : (_v0(), _v4?.());
               }
             })]
           })]
         })]
       });
     },
-    _v186 = ({
+    _v182 = ({
       icon: _v0,
       header: _v1,
       description: _v2,
       onClick: _v3,
       ml: _v4
-    }) => (0, _v1.jsx)(_v181.Card, {
+    }) => (0, _v1.jsx)(_v177.Card, {
       onClick: _v3,
       ml: _v4,
       p: "md",
@@ -4887,7 +4751,7 @@
             size: "xs",
             mb: "sm",
             children: _v1
-          }), (0, _v1.jsx)(_v36.Paragraph, {
+          }), (0, _v1.jsx)(_v32.Paragraph, {
             size: "md",
             mb: "sm",
             color: "text-secondary",
@@ -4896,7 +4760,7 @@
         })]
       })
     }),
-    _v187 = ({
+    _v183 = ({
       dispatch: _v0,
       onClose: _v1,
       ..._v2
@@ -4910,98 +4774,82 @@
         } = _v2.importRegistrantState,
         {
           user: _v8
-        } = (0, _v25.useEntityStore)(),
+        } = (0, _v22.useEntityStore)(),
         [_v9, _v10] = (0, _v2.useState)(!1),
         _v11 = (0, _v2.useRef)(null),
         _v12 = (0, _v2.useRef)(null),
-        _v13 = (0, _v19.getLastIdFromUri)(_v8?.uri),
+        _v13 = (0, _v18.getLastIdFromUri)(_v8?.uri),
         [_v14, {
           data: _v15
-        }] = _v131(),
-        {
-          sendUpsellEvent: _v16
-        } = (0, _v17.useUpsellAnalytics)(),
-        _v17 = async () => {
+        }] = _v127(),
+        _v16 = async () => {
           await _v14({
             where: {
               userId: _v13
             },
-            select: _v108
+            select: _v104
           });
         },
         {
-          hasLiveSubscription: _v18
-        } = (0, _v23.useEventCapability)(),
-        _v19 = (0, _v32.useConfigStore)(_v0 => _v0.entityType),
-        _v20 = _v3 === _v31.IMPORT_TYPE.CSV && _v6 == _v31.UPLOAD_CSV_MODAL_STEPS[1] && _v7;
+          hasLiveSubscription: _v17
+        } = (0, _v21.useEventCapability)(),
+        _v18 = (0, _v28.useConfigStore)(_v0 => _v0.entityType),
+        _v19 = _v3 === _v27.IMPORT_TYPE.CSV && _v6 == _v27.UPLOAD_CSV_MODAL_STEPS[1] && _v7;
       return (0, _v2.useEffect)(() => {
         _v0({
-          type: _v29.ACTION_TYPE.SET_LOADING_PROVIDER,
+          type: _v26.ACTION_TYPE.SET_LOADING_PROVIDER,
           payload: !1
         }), _v0({
-          type: _v29.ACTION_TYPE.CONNECT_CLICK,
+          type: _v26.ACTION_TYPE.CONNECT_CLICK,
           payload: !1
         }), _v15 && _v0({
-          type: _v29.ACTION_TYPE.SET_PROVIDERS,
-          payload: (0, _v102.deepCamelCase)(_v15.data)
+          type: _v26.ACTION_TYPE.SET_PROVIDERS,
+          payload: (0, _v98.deepCamelCase)(_v15.data)
         });
       }, [_v15, _v0]), (0, _v2.useEffect)(() => {
-        _v3 === _v31.IMPORT_TYPE.CRM && 0 === _v4.length && (_v0({
-          type: _v29.ACTION_TYPE.SET_LOADING_PROVIDER,
+        _v3 === _v27.IMPORT_TYPE.CRM && 0 === _v4.length && (_v0({
+          type: _v26.ACTION_TYPE.SET_LOADING_PROVIDER,
           payload: !0
-        }), _v17());
+        }), _v16());
       }, [_v14, _v13, _v4, _v3]), (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v6.Flex, {
           flexDirection: "column",
           minH: (0, _v9.rem)(570),
           borderRadius: "xs",
           clipPath: "inset(0 round 16px)",
-          children: [(0, _v1.jsx)(_v81.ModalCloseButton, {
-            isDisabled: _v20
-          }), _v5 ? (0, _v1.jsx)(_v185, {
+          children: [(0, _v1.jsx)(_v77.ModalCloseButton, {
+            isDisabled: _v19
+          }), _v5 ? (0, _v1.jsx)(_v181, {
             type: _v3,
             handleModalClose: _v1
           }) : (0, _v1.jsxs)(_v1.Fragment, {
-            children: [_v3 === _v31.IMPORT_TYPE.CRM && (0, _v1.jsx)(_v162, {
+            children: [_v3 === _v27.IMPORT_TYPE.CRM && (0, _v1.jsx)(_v158, {
               ..._v2,
               dispatch: _v0,
-              refreshProvider: _v17,
+              refreshProvider: _v16,
               ref: _v12
-            }), _v3 === _v31.IMPORT_TYPE.CSV && (0, _v1.jsx)(_v179, {
+            }), _v3 === _v27.IMPORT_TYPE.CSV && (0, _v1.jsx)(_v175, {
               ..._v2,
               dispatch: _v0,
               ref: _v11
-            }), _v5 ? null : (0, _v1.jsx)(_v180, {
+            }), _v5 ? null : (0, _v1.jsx)(_v176, {
               ..._v2,
               onClose: _v1,
               onUpsellClick: () => {
-                _v10(!0), _v16({
-                  pageName: _v30.BP_PAGE_NAME.EVENT_REGISTRATION_PAGE,
-                  target: _v30.BP_TARGET.UPGRADE_PAGE,
-                  targetPath: window.location.pathname,
-                  upsellName: "add_registrants",
-                  interfaceType: "page",
-                  product: "events",
-                  feature: "registration",
-                  location: _v30.BP_LOCATION.MODAL_BOTTOM_BANNER,
-                  entityType: "events",
-                  copy: _v30.BP_COPY.UPGRADE,
-                  modalName: _v3 === _v31.IMPORT_TYPE.CSV ? _v30.BP_MODAL.REGISTRANT_UPLOAD_CSV_MODAL : _v30.BP_MODAL.REGISTRANT_EMAIL_PROVIDER_MODAL,
-                  flow: _v3 === _v31.IMPORT_TYPE.CSV ? _v30.BP_FLOW.UPLOAD_CSV : _v30.BP_FLOW.SYNC_FROM_EMAIL
-                });
+                _v10(!0);
               },
               dispatch: _v0,
-              contentRef: _v3 === _v31.IMPORT_TYPE.CSV ? _v11 : _v12
+              contentRef: _v3 === _v27.IMPORT_TYPE.CSV ? _v11 : _v12
             })]
           })]
-        }), _v9 && (0, _v1.jsx)(_v132.UpsellModal, {
-          hasLiveSubscription: _v18,
+        }), _v9 && (0, _v1.jsx)(_v128.UpsellModal, {
+          hasLiveSubscription: _v17,
           hideModal: () => _v10(!1),
-          entityType: _v19
+          entityType: _v18
         })]
       });
     };
-  async function _v188({
+  async function _v184({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -5009,19 +4857,19 @@
     },
     ..._v3
   }) {
-    return (0, _v101.measureLatency)("getLeadCaptureRegistrantsUpload", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/lead_capture/registrants/uploads/${_v2}?fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
+    return (0, _v97.measureLatency)("getLeadCaptureRegistrantsUpload", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/lead_capture/registrants/uploads/${_v2}?fields=${_v1.map(_v98.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v98.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v102.deepCamelCase)(_v1);
+      return (0, _v98.deepCamelCase)(_v1);
     });
   }
-  async function _v189({
+  async function _v185({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -5030,17 +4878,17 @@
     },
     ..._v4
   }) {
-    return (0, _v101.measureLatency)("patchLeadCaptureRegistrantsUpload", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/lead_capture/registrants/uploads/${_v3}?fields=${_v1.map(_v102.intoSnakeCase).join(",")}`, {
+    return (0, _v97.measureLatency)("patchLeadCaptureRegistrantsUpload", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/lead_capture/registrants/uploads/${_v3}?fields=${_v1.map(_v98.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "PATCH",
-        body: JSON.stringify((0, _v102.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v98.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v102.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v98.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v102.deepCamelCase)(_v1);
+      return (0, _v98.deepCamelCase)(_v1);
     });
   }
   _v0.s(["ImportRegistrant", 0, ({
@@ -5058,36 +4906,36 @@
         if (_v3) {
           if (_v4) {
             let _v0 = [..._v4];
-            _v4.length === _v31.MAX_IMPORT_STATUS_BANNERS && _v0.pop(), _v0({
-              type: _v29.ACTION_TYPE.SET_CSV_BANNERS,
+            _v4.length === _v27.MAX_IMPORT_STATUS_BANNERS && _v0.pop(), _v0({
+              type: _v26.ACTION_TYPE.SET_CSV_BANNERS,
               payload: [_v3, ..._v0]
             });
           } else _v0({
-            type: _v29.ACTION_TYPE.SET_CSV_BANNERS,
+            type: _v26.ACTION_TYPE.SET_CSV_BANNERS,
             payload: [_v3]
           });
           _v0({
-            type: _v29.ACTION_TYPE.NEW_UPLOAD,
+            type: _v26.ACTION_TYPE.NEW_UPLOAD,
             payload: null
           });
         }
         _v0({
-          type: _v29.ACTION_TYPE.CLOSE_MODAL
+          type: _v26.ACTION_TYPE.CLOSE_MODAL
         });
       };
-    return (0, _v1.jsxs)(_v57.Modal, {
+    return (0, _v1.jsxs)(_v53.Modal, {
       isOpen: !!_v5,
       onClose: _v7,
-      children: [(0, _v1.jsx)(_v59.ModalOverlay, {
+      children: [(0, _v1.jsx)(_v55.ModalOverlay, {
         zIndex: "modal"
-      }), (0, _v1.jsxs)(_v58.ModalContent, {
+      }), (0, _v1.jsxs)(_v54.ModalContent, {
         width: "90vw",
         maxWidth: (0, _v9.rem)(898),
         maxHeight: "80vh",
         color: "text-primary",
         children: [(0, _v1.jsx)(_v3.Box, {
           ref: _v6
-        }), (0, _v1.jsx)(_v187, {
+        }), (0, _v1.jsx)(_v183, {
           ..._v2,
           importRegistrantState: _v1,
           dispatch: _v0,
@@ -5099,20 +4947,20 @@
   }], 0), _v0.s(["useGetLeadCaptureRegistrantsUploadLazy", 0, function () {
     let {
         mutate: _v0
-      } = (0, _v104.useSWRConfig)(),
+      } = (0, _v100.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v105.useGctlConfig)(),
-      [_v5, _v6] = (0, _v100.useInternalState)();
+      } = (0, _v101.useGctlConfig)(),
+      [_v5, _v6] = (0, _v96.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/lead_capture/registrants/uploads/${_v0.where.uploadId}${(0, _v100.serializeQuery)(_v0)}`, _v188({
+        let _v0 = await _v0(`/lead_capture/registrants/uploads/${_v0.where.uploadId}${(0, _v96.serializeQuery)(_v0)}`, _v184({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -5137,20 +4985,20 @@
   }, "usePatchLeadCaptureRegistrantsUpload", 0, function () {
     let {
         mutate: _v0
-      } = (0, _v104.useSWRConfig)(),
+      } = (0, _v100.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v105.useGctlConfig)(),
-      [_v5, _v6] = (0, _v100.useInternalState)();
+      } = (0, _v101.useGctlConfig)(),
+      [_v5, _v6] = (0, _v96.useInternalState)();
     return [(0, _v2.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/lead_capture/registrants/uploads/${_v0.where.uploadId}${(0, _v100.serializeQuery)(_v0)}`, _v189({
+        let _v0 = await _v0(`/lead_capture/registrants/uploads/${_v0.where.uploadId}${(0, _v96.serializeQuery)(_v0)}`, _v185({
           ..._v0,
           baseUrl: _v1,
           headers: {

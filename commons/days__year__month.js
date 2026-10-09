@@ -6,16 +6,16 @@
     _v3 = _v0.i(0),
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
-    _v6 = _v0.i(0),
-    _v7 = _v0.i(0);
+    _v6 = _v0.i(0);
   _v0.i(0);
-  var _v8 = _v0.i(0),
-    _v9 = _v0.i(0);
-  let _v10 = (_v0, _v1) => {
+  var _v7 = _v0.i(0),
+    _v8 = _v0.i(0);
+  let _v9 = (_v0, _v1) => {
     let _v2 = _v1.diff(_v0, "days");
     return _v2.days < 50 ? "day" : _v2.days > 720 ? "year" : _v2.days > 180 ? "month" : "week";
   };
-  _v0.s(["getGroupByTimeLiteral", 0, _v10], 0);
+  _v0.s(["getGroupByTimeLiteral", 0, _v9], 0);
+  var _v10 = _v0.i(0);
   let _v11 = (0, _v2.default)(async () => {
       let {
         AreaGraph: _v0
@@ -84,16 +84,16 @@
       }, [_v7]),
       _v11 = (0, _v3.useCallback)(() => {
         let _v0 = Math.ceil((Date.now() - _v6) / 0);
-        (0, _v7.sendOverviewGraphHoverEvent)(_v8, _v0);
+        (0, _v10.sendOverviewGraphHoverEvent)(_v8, _v0);
       }, [_v8, _v6]),
       _v12 = (0, _v3.useMemo)(() => {
         let _v0, _v1, _v2, _v3, _v4, _v5, _v6;
-        return _v0 = _v10(_v4, _v5), _v1 = _v0 ? [..._v0] : [], _v2 = _v4.startOf(_v0), _v3 = _v5.endOf(_v0), _v4 = _v1.some(_v0 => _v8.DateTime.fromISO(_v0?.startDate).setZone("utc").toISODate() === _v2.toISODate()), _v5 = _v1.some(_v0 => _v8.DateTime.fromISO(_v0.endDate).setZone("utc").toISODate() === _v3.toISODate()), _v4 || _v1?.unshift({
-          ..._v9.ZERO_FILL_ANALYTICS_ITEM,
+        return _v0 = _v9(_v4, _v5), _v1 = _v0 ? [..._v0] : [], _v2 = _v4.startOf(_v0), _v3 = _v5.endOf(_v0), _v4 = _v1.some(_v0 => _v7.DateTime.fromISO(_v0?.startDate).setZone("utc").toISODate() === _v2.toISODate()), _v5 = _v1.some(_v0 => _v7.DateTime.fromISO(_v0.endDate).setZone("utc").toISODate() === _v3.toISODate()), _v4 || _v1?.unshift({
+          ..._v8.ZERO_FILL_ANALYTICS_ITEM,
           startDate: _v4.setZone("utc").toISO(),
           endDate: _v4.endOf(_v0).toISO()
         }), _v5 || _v2.toISODate() === _v3.toISODate() || _v1?.push({
-          ..._v9.ZERO_FILL_ANALYTICS_ITEM,
+          ..._v8.ZERO_FILL_ANALYTICS_ITEM,
           startDate: _v3.startOf(_v0).toISO(),
           endDate: _v5.toISO()
         }), _v6 = [], _v1?.forEach((_v0, _v1) => {
@@ -102,9 +102,9 @@
             _v6,
             _v7 = _v1?.[_v1 - 1]?.endDate,
             _v8 = _v0?.startDate,
-            _v9 = _v7 && _v8 ? (_v2 = _v8.DateTime.fromISO(_v7, {
+            _v9 = _v7 && _v8 ? (_v2 = _v7.DateTime.fromISO(_v7, {
               zone: "utc"
-            }), _v3 = _v8.DateTime.fromISO(_v8, {
+            }), _v3 = _v7.DateTime.fromISO(_v8, {
               zone: "utc"
             }), _v4 = _v0, _v5 = _v2.plus({
               [_v4]: 1
@@ -114,7 +114,7 @@
               [_v4]: _v1
             }))) : [],
             _v10 = _v9.length ? _v9.map(_v0 => ({
-              ..._v9.ZERO_FILL_ANALYTICS_ITEM,
+              ..._v8.ZERO_FILL_ANALYTICS_ITEM,
               startDate: _v0.toISO(),
               endDate: _v0.endOf(_v0).toISO()
             })) : [];

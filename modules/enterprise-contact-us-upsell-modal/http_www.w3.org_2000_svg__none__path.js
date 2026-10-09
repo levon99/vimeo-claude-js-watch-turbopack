@@ -11,9 +11,8 @@
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
-    _v11 = _v0.i(0),
-    _v12 = _v0.i(0);
-  function _v13() {
+    _v11 = _v0.i(0);
+  function _v12() {
     return (0, _v1.jsx)("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       width: "52",
@@ -26,171 +25,144 @@
       })
     });
   }
-  var _v14 = _v0.i(0),
-    _v15 = _v0.i(0);
-  let _v16 = {
-      action_type: "",
-      currency: null,
-      device_type: null,
-      discount_offer: null,
-      duration: null,
-      is_discount: null,
-      is_new_pricing: null,
-      loading_time: null,
-      path: null,
-      plan_selected: null,
-      price: null,
-      promo_code_id: null,
-      purchase_type: null,
-      target_path: null,
-      upgrade_flags: null,
-      upsell_name: null
-    },
-    _v17 = () => {
-      let _v0 = (0, _v2.useRouter)(),
-        _v1 = _v0?.query?.tracking_param,
-        {
-          colorMode: _v2
-        } = (0, _v7.useColorMode)(),
-        _v3 = (0, _v8.useTheme)(),
-        _v4 = _v1 ? JSON.parse(decodeURIComponent(_v1)) : {},
-        _v5 = (0, _v5.useContext)(_v12.ViewerContext),
-        [_v6, _v7] = (0, _v5.useState)(!1);
-      return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v14.GlobalStyles, {}), (0, _v1.jsxs)(_v14.StyledContainer, {
-          themeMode: _v2,
-          children: [!_v6 && _v5 && (0, _v1.jsxs)(_v14.MarketoFormContainer, {
-            children: [(0, _v1.jsx)(_v14.StyledFormHeader, {
-              themeMode: _v2,
-              element: "h3",
-              size: "3",
-              children: (0, _v9.translate)({
-                singular: "Connect with our team",
-                dictionary: {
-                  es: {
-                    singular: "Ponte en contacto con nuestro equipo"
-                  },
-                  "de-DE": {
-                    singular: "Tritt mit unserem Team in Kontakt"
-                  },
-                  "fr-FR": {
-                    singular: "Échangez avec notre équipe"
-                  },
-                  "ja-JP": {
-                    singular: "Vimeoのチームとつながる"
-                  },
-                  "ko-KR": {
-                    singular: "Vimeo 팀에 문의하세요."
-                  },
-                  "pt-BR": {
-                    singular: "Fale com nossa equipe"
-                  },
-                  "zh-CN": {
-                    singular: "与我们的团队联系"
-                  }
+  var _v13 = _v0.i(0),
+    _v14 = _v0.i(0);
+  let _v15 = () => {
+    let _v0 = (0, _v2.useRouter)(),
+      _v1 = _v0?.query?.tracking_param,
+      {
+        colorMode: _v2
+      } = (0, _v6.useColorMode)(),
+      _v3 = (0, _v7.useTheme)(),
+      _v4 = _v1 ? JSON.parse(decodeURIComponent(_v1)) : {},
+      _v5 = (0, _v5.useContext)(_v11.ViewerContext),
+      [_v6, _v7] = (0, _v5.useState)(!1);
+    return (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsx)(_v13.GlobalStyles, {}), (0, _v1.jsxs)(_v13.StyledContainer, {
+        themeMode: _v2,
+        children: [!_v6 && _v5 && (0, _v1.jsxs)(_v13.MarketoFormContainer, {
+          children: [(0, _v1.jsx)(_v13.StyledFormHeader, {
+            themeMode: _v2,
+            element: "h3",
+            size: "3",
+            children: (0, _v8.translate)({
+              singular: "Connect with our team",
+              dictionary: {
+                es: {
+                  singular: "Ponte en contacto con nuestro equipo"
+                },
+                "de-DE": {
+                  singular: "Tritt mit unserem Team in Kontakt"
+                },
+                "fr-FR": {
+                  singular: "Échangez avec notre équipe"
+                },
+                "ja-JP": {
+                  singular: "Vimeoのチームとつながる"
+                },
+                "ko-KR": {
+                  singular: "Vimeo 팀에 문의하세요."
+                },
+                "pt-BR": {
+                  singular: "Fale com nossa equipe"
+                },
+                "zh-CN": {
+                  singular: "与我们的团队联系"
                 }
-              })
-            }), (0, _v1.jsx)(_v11.default, {
-              theme: {
-                ...((_v0, _v1) => {
-                  let {
-                      semanticTokens: {
-                        colors: _v2
-                      }
-                    } = _v1,
-                    _v3 = {
-                      checkboxListpaddingRight: (0, _v4.rem)(0),
-                      checkboxInputMarginTop: (0, _v4.rem)(0),
-                      checkboxLabelLineHeight: (0, _v4.rem)(21.56),
-                      checkboxLabelWidth: "100%",
-                      checkboxLabelFontWeight: "400",
-                      formColBottomSpacing: (0, _v4.rem)(0),
-                      inputFieldPlaceHolderPaddingX: (0, _v4.rem)(14),
-                      inputFieldSpacingY: (0, _v4.rem)(6),
-                      checkboxListSpacingTop: (0, _v4.rem)(14),
-                      checkboxLabelFontSize: (0, _v4.rem)(14),
-                      inputFieldPlaceHolderFontSize: (0, _v4.rem)(16),
-                      submitButtonFontWeight: "700",
-                      submitButtonFontSize: (0, _v4.rem)(14),
-                      submitButtonMaxHeight: (0, _v4.rem)(40),
-                      submitButtonTextColor: "var(--vimeo-colors-white)",
-                      inputPlaceholderColor: "var(--vimeo-colors-text-secondary)",
-                      inputBoxBorderColor: "var(--vimeo-colors-input-stroke)",
-                      inputPlaceholderBackgroundColor: "var(--vimeo-colors-input-fill)",
-                      formDropDownTextColor: "var(--vimeo-colors-text-secondary)"
-                    },
-                    _v4 = {
-                      inputTextColor: _v2["text-primary"].default,
-                      placeholder: _v2["text-tertiary"].default
-                    },
-                    _v5 = {
-                      inputTextColor: _v2["text-primary"]._dark,
-                      placeholder: _v2.grayscale["400"]
-                    };
-                  return {
-                    ..._v3,
-                    ...("light" === _v0 ? _v4 : _v5)
+              }
+            })
+          }), (0, _v1.jsx)(_v10.default, {
+            theme: {
+              ...((_v0, _v1) => {
+                let {
+                    semanticTokens: {
+                      colors: _v2
+                    }
+                  } = _v1,
+                  _v3 = {
+                    checkboxListpaddingRight: (0, _v4.rem)(0),
+                    checkboxInputMarginTop: (0, _v4.rem)(0),
+                    checkboxLabelLineHeight: (0, _v4.rem)(21.56),
+                    checkboxLabelWidth: "100%",
+                    checkboxLabelFontWeight: "400",
+                    formColBottomSpacing: (0, _v4.rem)(0),
+                    inputFieldPlaceHolderPaddingX: (0, _v4.rem)(14),
+                    inputFieldSpacingY: (0, _v4.rem)(6),
+                    checkboxListSpacingTop: (0, _v4.rem)(14),
+                    checkboxLabelFontSize: (0, _v4.rem)(14),
+                    inputFieldPlaceHolderFontSize: (0, _v4.rem)(16),
+                    submitButtonFontWeight: "700",
+                    submitButtonFontSize: (0, _v4.rem)(14),
+                    submitButtonMaxHeight: (0, _v4.rem)(40),
+                    submitButtonTextColor: "var(--vimeo-colors-white)",
+                    inputPlaceholderColor: "var(--vimeo-colors-text-secondary)",
+                    inputBoxBorderColor: "var(--vimeo-colors-input-stroke)",
+                    inputPlaceholderBackgroundColor: "var(--vimeo-colors-input-fill)",
+                    formDropDownTextColor: "var(--vimeo-colors-text-secondary)"
+                  },
+                  _v4 = {
+                    inputTextColor: _v2["text-primary"].default,
+                    placeholder: _v2["text-tertiary"].default
+                  },
+                  _v5 = {
+                    inputTextColor: _v2["text-primary"]._dark,
+                    placeholder: _v2.grayscale["400"]
                   };
-                })(_v2, _v3)
-              },
-              checkboxLabelColor: "var(--vimeo-colors-text-primary)",
-              buttonBorderRadius: (0, _v4.rem)(8),
-              formMaxWidth: (0, _v4.rem)(504),
-              submitButtonColor: "var(--vimeo-colors-upsell-primary)",
-              submitButtonHoverColor: "dark" === _v2 ? "#fcfafa" : "#444F58",
-              formPadding: (0, _v4.rem)(0),
-              submitButtonType: "full-width",
-              onSuccess: () => {
-                _v6.BigPictureClient.sendEvent(new _v6.Event("vimeo.upgrade_action", 15, {
-                  ..._v16,
-                  ..._v4,
-                  copy: "Contact our Team",
-                  feature: "upgrade_cta",
-                  location: "upsell_modal",
-                  page: window.parent.location.pathname,
-                  target: window.parent.location.pathname,
-                  path: window.parent.location.href
-                })), _v7(!0);
-              },
-              formIds: {
-                en: 0,
-                es: 0,
-                "de-DE": 0,
-                "fr-FR": 0,
-                "ja-JP": 0,
-                "ko-KR": 0,
-                "pt-BR": 0
-              },
-              locale: _v5.locale || "en",
-              name: _v5.user?.name,
-              userId: _v5.user?.id,
-              country: _v5.location,
-              tenantRouter: "in_product_enterprise_router",
-              webformId: "logged_in_modal_premium",
-              showForm: !!_v5
-            })]
-          }), _v6 && (0, _v1.jsx)(_v15.default, {
-            icon: (0, _v1.jsx)(_v13, {}),
-            iconTopSpacing: (0, _v4.rem)(40),
-            topSpacing: (0, _v4.rem)(0),
-            buttonTopSpacing: (0, _v4.rem)(24),
-            buttonColor: "dark" === _v2 ? (0, _v10.slate)(900) : _v10.white,
-            buttonBgColor: "dark" === _v2 ? _v10.white : (0, _v10.slate)(900),
-            bottomBorderRadius: (0, _v4.rem)(10),
-            eventName: "vimeo.upgrade_action",
-            sendPostMessage: !0,
-            thankYouTextFontWeight: "700",
-            thankYouTextColor: "dark" === _v2 ? _v10.white : (0, _v10.slate)(900),
-            friendlyTextColor: "dark" === _v2 ? (0, _v10.grayscale)(240) : (0, _v10.slate)(540),
-            friendlyTextFontWeight: "400",
-            textContainerMaxWidth: (0, _v4.rem)(456),
-            buttonFontSize: (0, _v4.rem)(14),
-            decodedTrackingParameters: _v4,
-            eventVersion: 15
+                return {
+                  ..._v3,
+                  ...("light" === _v0 ? _v4 : _v5)
+                };
+              })(_v2, _v3)
+            },
+            checkboxLabelColor: "var(--vimeo-colors-text-primary)",
+            buttonBorderRadius: (0, _v4.rem)(8),
+            formMaxWidth: (0, _v4.rem)(504),
+            submitButtonColor: "var(--vimeo-colors-upsell-primary)",
+            submitButtonHoverColor: "dark" === _v2 ? "#fcfafa" : "#444F58",
+            formPadding: (0, _v4.rem)(0),
+            submitButtonType: "full-width",
+            onSuccess: () => {
+              _v7(!0);
+            },
+            formIds: {
+              en: 0,
+              es: 0,
+              "de-DE": 0,
+              "fr-FR": 0,
+              "ja-JP": 0,
+              "ko-KR": 0,
+              "pt-BR": 0
+            },
+            locale: _v5.locale || "en",
+            name: _v5.user?.name,
+            userId: _v5.user?.id,
+            country: _v5.location,
+            tenantRouter: "in_product_enterprise_router",
+            webformId: "logged_in_modal_premium",
+            showForm: !!_v5
           })]
+        }), _v6 && (0, _v1.jsx)(_v14.default, {
+          icon: (0, _v1.jsx)(_v12, {}),
+          iconTopSpacing: (0, _v4.rem)(40),
+          topSpacing: (0, _v4.rem)(0),
+          buttonTopSpacing: (0, _v4.rem)(24),
+          buttonColor: "dark" === _v2 ? (0, _v9.slate)(900) : _v9.white,
+          buttonBgColor: "dark" === _v2 ? _v9.white : (0, _v9.slate)(900),
+          bottomBorderRadius: (0, _v4.rem)(10),
+          eventName: "vimeo.upgrade_action",
+          sendPostMessage: !0,
+          thankYouTextFontWeight: "700",
+          thankYouTextColor: "dark" === _v2 ? _v9.white : (0, _v9.slate)(900),
+          friendlyTextColor: "dark" === _v2 ? (0, _v9.grayscale)(240) : (0, _v9.slate)(540),
+          friendlyTextFontWeight: "400",
+          textContainerMaxWidth: (0, _v4.rem)(456),
+          buttonFontSize: (0, _v4.rem)(14),
+          decodedTrackingParameters: _v4,
+          eventVersion: 15
         })]
-      });
-    };
+      })]
+    });
+  };
   (0, _v3.withPageSetup)(() => ({
     props: {
       isIframe: !0,
@@ -204,6 +176,6 @@
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => {
     let _v0 = (0, _v2.useRouter)();
-    return _v0?.query?.modal ? (0, _v1.jsx)(_v17, {}) : null;
+    return _v0?.query?.modal ? (0, _v1.jsx)(_v15, {}) : null;
   }], 0);
 }

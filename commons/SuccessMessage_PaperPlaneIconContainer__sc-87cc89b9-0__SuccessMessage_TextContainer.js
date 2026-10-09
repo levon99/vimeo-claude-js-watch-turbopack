@@ -10,14 +10,13 @@
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
-    _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
-  let _v12 = _v3.default.div.withConfig({
+    _v10 = _v0.i(0);
+  let _v11 = _v3.default.div.withConfig({
       displayName: "SuccessMessage__PaperPlaneIconContainer",
       componentId: "sc-87cc89b9-0"
     })`
   align-items: center;
-  background-color: ${(0, _v6.green)(50)};
+  background-color: ${(0, _v5.green)(50)};
   border-radius: 100%;
   display: flex;
   height: ${(0, _v2.rem)(82)};
@@ -34,17 +33,17 @@
   }
 
   path {
-    fill: ${(0, _v6.green)(350)};
+    fill: ${(0, _v5.green)(350)};
   }
 }`,
-    _v13 = _v3.default.div.withConfig({
+    _v12 = _v3.default.div.withConfig({
       displayName: "SuccessMessage__TextContainer",
       componentId: "sc-87cc89b9-1"
     })`
   max-width: ${_v0 => _v0?.textContainerMaxWidth || (0, _v2.rem)(376)};
   margin: auto;
 `,
-    _v14 = (0, _v3.default)(_v10.Text).withConfig({
+    _v13 = (0, _v3.default)(_v9.Text).withConfig({
       displayName: "SuccessMessage__ThankYouText",
       componentId: "sc-87cc89b9-2"
     })`
@@ -57,13 +56,13 @@
       color: ${_v0};
     `}
 `,
-    _v15 = (0, _v3.default)(_v7.Button).withConfig({
+    _v14 = (0, _v3.default)(_v6.Button).withConfig({
       displayName: "SuccessMessage__StyledButton",
       componentId: "sc-87cc89b9-3"
     })`
   font-size: ${({
       $buttonFontSize: _v0
-    }) => _v0 || (0, _v2.rem)(_v9.core.typography.size(300))};
+    }) => _v0 || (0, _v2.rem)(_v8.core.typography.size(300))};
   margin: ${({
       $buttonTopSpacing: _v0
     }) => _v0 || (0, _v2.rem)(52)} auto;
@@ -77,11 +76,11 @@
       $buttonColor: _v0
     }) => _v0 && `color: ${_v0} !important;`}
 `,
-    _v16 = (0, _v3.default)(_v10.Text).withConfig({
+    _v15 = (0, _v3.default)(_v9.Text).withConfig({
       displayName: "SuccessMessage__FriendlyText",
       componentId: "sc-87cc89b9-4"
     })`
-  color: ${_v0 => _v0?.friendlyTextColor || _v9.core.color.text(700)};
+  color: ${_v0 => _v0?.friendlyTextColor || _v8.core.color.text(700)};
   display: block;
   line-height: ${(0, _v2.rem)(24)};
   ${({
@@ -90,7 +89,7 @@
       font-weight: ${_v0};
     `}
 `,
-    _v17 = _v3.default.div.withConfig({
+    _v16 = _v3.default.div.withConfig({
       displayName: "SuccessMessage__IconWrapper",
       componentId: "sc-87cc89b9-5"
     })`
@@ -102,7 +101,7 @@
     height: auto;
   }
 `;
-  var _v18 = (0, _v3.default)("div").withConfig({
+  var _v17 = (0, _v3.default)("div").withConfig({
     displayName: "SuccessMessage___StyledDiv",
     componentId: "sc-87cc89b9-6"
   })`
@@ -117,34 +116,31 @@
     buttonBgColor: _v4,
     buttonColor: _v5,
     bottomBorderRadius: _v6,
-    eventName: _v7,
-    sendPostMessage: _v8,
-    thankYouTextFontWeight: _v9,
-    thankYouTextColor: _v10,
-    friendlyTextFontWeight: _v11,
-    friendlyTextColor: _v12,
-    textContainerMaxWidth: _v13,
-    buttonFontSize: _v14,
-    decodedTrackingParameters: _v15,
-    eventVersion: _v16
+    sendPostMessage: _v7,
+    thankYouTextFontWeight: _v8,
+    thankYouTextColor: _v9,
+    friendlyTextFontWeight: _v10,
+    friendlyTextColor: _v11,
+    textContainerMaxWidth: _v12,
+    buttonFontSize: _v13
   }) => {
-    let _v17 = (0, _v11.default)();
-    return (0, _v1.jsxs)(_v18, {
+    let _v14 = (0, _v10.default)();
+    return (0, _v1.jsxs)(_v17, {
       $_css: _v1 || (0, _v2.rem)(53),
-      children: [_v0 ? (0, _v1.jsx)(_v17, {
+      children: [_v0 ? (0, _v1.jsx)(_v16, {
         children: _v0
-      }) : (0, _v1.jsx)(_v12, {
-        children: (0, _v1.jsx)(_v8.PaperPlane, {})
-      }), (0, _v1.jsxs)(_v13, {
-        textContainerMaxWidth: _v13,
-        children: [(0, _v1.jsx)(_v14, {
+      }) : (0, _v1.jsx)(_v11, {
+        children: (0, _v1.jsx)(_v7.PaperPlane, {})
+      }), (0, _v1.jsxs)(_v12, {
+        textContainerMaxWidth: _v12,
+        children: [(0, _v1.jsx)(_v13, {
           element: "span",
           size: 500,
           format: "soft",
           topSpacing: _v2,
-          thankYouTextFontWeight: _v9,
-          thankYouTextColor: _v10,
-          children: (0, _v5.translate)({
+          thankYouTextFontWeight: _v8,
+          thankYouTextColor: _v9,
+          children: (0, _v4.translate)({
             singular: "Thank you for your request!",
             dictionary: {
               es: {
@@ -170,13 +166,13 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v16, {
+        }), (0, _v1.jsx)(_v15, {
           element: "span",
           size: 300,
           format: "soft",
-          friendlyTextFontWeight: _v11,
-          friendlyTextColor: _v12,
-          children: (0, _v5.translate)({
+          friendlyTextFontWeight: _v10,
+          friendlyTextColor: _v11,
+          children: (0, _v4.translate)({
             singular: "A friendly member of our team will reach out to you shortly to learn more about your video needs.",
             dictionary: {
               es: {
@@ -202,8 +198,8 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v15, {
-          $buttonFontSize: _v14,
+        }), (0, _v1.jsx)(_v14, {
+          $buttonFontSize: _v13,
           $buttonTopSpacing: _v3,
           $bottomBorderRadius: _v6,
           $buttonBgColor: _v4,
@@ -212,22 +208,9 @@
           size: "md",
           variant: "solid",
           onClick: () => {
-            if (_v17.current) {
-              let _v0 = {
-                ..._v15,
-                page: window.parent.location.pathname,
-                location: "lihp",
-                feature: "upgrade_cta"
-              };
-              "vimeo.upgrade_action" !== _v7 && Object.assign(_v0, {
-                target: null,
-                name: "close_enterprise_upgrade_form_modal_after_submit",
-                copy: null,
-                type: "upsell"
-              }), _v4.BigPictureClient.sendEvent(new _v4.Event(_v7 || "vimeo.click", _v16 || 32, _v0)), _v8 ? window.parent.postMessage("triggerCloseButtonClick", "*") : _v17.current.click();
-            }
+            _v14.current && (_v7 ? window.parent.postMessage("triggerCloseButtonClick", "*") : _v14.current.click());
           },
-          children: (0, _v5.translate)({
+          children: (0, _v4.translate)({
             singular: "Got it",
             dictionary: {
               es: {

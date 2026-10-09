@@ -1416,20 +1416,7 @@
         }
       })
     };
-  _v0.s(["ACTIONS_MENU_Z_INDEX", 0, 0, "BP_EVENT_COPY", 0, {
-    alphabetical_asc: "title, a to z",
-    alphabetical_desc: "title, z to a",
-    last_user_action_event_date_desc: "last modified",
-    last_user_action_event_date_asc: "first modified",
-    date_desc: "last added",
-    date_asc: "first added",
-    duration_desc: "longest",
-    duration_asc: "shortest",
-    shared_date_desc: "last shared",
-    shared_date_asc: "first shared",
-    shared_user_name_asc: "shared by, a to z",
-    shared_user_name_desc: "shared by, z to a"
-  }, "CONTENT_CARD_TITLE_MAX_WIDTH", 0, _v37, "CONTENT_TYPE", 0, {
+  _v0.s(["ACTIONS_MENU_Z_INDEX", 0, 0, "CONTENT_CARD_TITLE_MAX_WIDTH", 0, _v37, "CONTENT_TYPE", 0, {
     FOLDER: "folder",
     VIDEO: "video",
     LIVE_EVENT: "live_event",

@@ -697,20 +697,18 @@
   }
   var _v79 = _v0.i(0),
     _v80 = _v0.i(0),
-    _v81 = _v0.i(0),
-    _v82 = _v0.i(0),
-    _v83 = _v0.i(0);
-  function _v84(_v0) {
+    _v81 = _v0.i(0);
+  function _v82(_v0) {
     return _v0.split("/").filter(Boolean).pop() ?? "";
   }
-  var _v85 = _v20;
-  let _v86 = (0, _v24.rem)(64),
-    _v87 = (0, _v24.rem)(320),
-    _v88 = (0, _v24.rem)(960),
-    _v89 = `min(${(0, _v24.rem)(420)}, calc(100dvh - ${(0, _v24.rem)(280)}))`,
-    _v90 = (0, _v24.rem)(12),
-    _v91 = (0, _v24.rem)(24);
-  function _v92({
+  var _v83 = _v20;
+  let _v84 = (0, _v24.rem)(64),
+    _v85 = (0, _v24.rem)(320),
+    _v86 = (0, _v24.rem)(960),
+    _v87 = `min(${(0, _v24.rem)(420)}, calc(100dvh - ${(0, _v24.rem)(280)}))`,
+    _v88 = (0, _v24.rem)(12),
+    _v89 = (0, _v24.rem)(24);
+  function _v90({
     label: _v0,
     icon: _v1,
     isSelected: _v2,
@@ -733,18 +731,18 @@
       onClick: _v2 ? void 0 : _v4
     });
   }
-  function _v93({
+  function _v91({
     title: _v0,
     emptyLabel: _v1,
     isResponsive: _v2 = !1,
     children: _v3
   }) {
-    let _v4 = _v2 ? `repeat(auto-fill, minmax(${_v86}, 1fr))` : "repeat(4, minmax(0, 1fr))";
+    let _v4 = _v2 ? `repeat(auto-fill, minmax(${_v84}, 1fr))` : "repeat(4, minmax(0, 1fr))";
     return (0, _v1.jsxs)(_v39.Flex, {
       background: "fill-component",
       borderRadius: (0, _v24.rem)(16),
       direction: "column",
-      gap: _v90,
+      gap: _v88,
       padding: (0, _v24.rem)(8),
       children: [(0, _v1.jsx)(_v48.Header, {
         paddingX: (0, _v24.rem)(8),
@@ -762,7 +760,7 @@
       })]
     });
   }
-  function _v94(_v0) {
+  function _v92(_v0) {
     return (0, _v1.jsx)(_v25.Box, {
       position: "absolute",
       top: 0,
@@ -776,13 +774,13 @@
       backgroundRepeat: "no-repeat"
     });
   }
-  function _v95({
+  function _v93({
     selectedId: _v0,
     isDisabled: _v1,
     isResponsive: _v2,
     onSelect: _v3
   }) {
-    let _v4 = (0, _v82.useViewer)(),
+    let _v4 = (0, _v80.useViewer)(),
       _v5 = _v4?.teamUser?.ownerId ?? _v4?.user?.id,
       {
         data: _v6
@@ -800,28 +798,28 @@
           url: _v1
         }] : [];
       })), [_v6]);
-    return _v5 ? 0 === _v7.length ? (0, _v1.jsx)(_v93, {
+    return _v5 ? 0 === _v7.length ? (0, _v1.jsx)(_v91, {
       title: _v21.translations.brand,
       emptyLabel: _v21.translations.brandKitEmptyHint,
       isResponsive: _v2
-    }) : (0, _v1.jsx)(_v93, {
+    }) : (0, _v1.jsx)(_v91, {
       title: _v21.translations.brand,
       isResponsive: _v2,
       children: _v7.map(_v0 => (0, _v1.jsx)(_v25.Box, {
         aspectRatio: "1 / 1",
         minWidth: 0,
         width: "100%",
-        children: (0, _v1.jsx)(_v92, {
+        children: (0, _v1.jsx)(_v90, {
           label: _v0.name,
           isDisabled: _v1,
           isSelected: _v0 === _v0.url,
           onClick: () => _v3(_v0.url),
-          icon: _v94(_v0.url)
+          icon: _v92(_v0.url)
         })
       }, _v0.uri))
     }) : null;
   }
-  function _v96({
+  function _v94({
     selectedId: _v0,
     isDisabled: _v1,
     isResponsive: _v2,
@@ -838,8 +836,8 @@
         let {
             baseUrl: _v0,
             jwt: _v1
-          } = (0, _v83.useGctlConfig)(),
-          _v2 = (0, _v82.useViewer)(),
+          } = (0, _v81.useGctlConfig)(),
+          _v2 = (0, _v80.useViewer)(),
           _v3 = _v2?.user?.id,
           [_v4, _v5] = (0, _v3.useState)([]),
           _v6 = (0, _v3.useMemo)(() => ({
@@ -855,7 +853,7 @@
             if (!_v0.ok) return console.error(`Failed to load camera backgrounds: ${_v0.status} ${_v0.statusText} (${_v7})`), [];
             let _v1 = await _v0.json();
             return (Array.isArray(_v1?.data) ? _v1.data : []).map(_v0 => ({
-              uid: _v84(_v0.uri),
+              uid: _v82(_v0.uri),
               name: _v0.name,
               link: _v0.base_link
             }));
@@ -1008,7 +1006,7 @@
             }
             let _v4 = await _v3.json(),
               _v5 = {
-                uid: _v84(_v4.uri),
+                uid: _v82(_v4.uri),
                 name: _v4.name,
                 link: _v4.base_link
               };
@@ -1129,7 +1127,7 @@
           });
         }
       }, [_v9, _v0, _v4, _v10]);
-    return _v6 ? (0, _v1.jsxs)(_v93, {
+    return _v6 ? (0, _v1.jsxs)(_v91, {
       title: _v21.translations.uploadedImages,
       isResponsive: _v2,
       children: [!_v7 && (0, _v1.jsx)(_v25.Box, {
@@ -1169,12 +1167,12 @@
         aspectRatio: "1 / 1",
         minWidth: 0,
         width: "100%",
-        children: [(0, _v1.jsx)(_v92, {
+        children: [(0, _v1.jsx)(_v90, {
           label: _v0.name ?? _v21.translations.uploadedImages,
           isDisabled: _v1,
           isSelected: _v0 === _v0.link,
           onClick: () => _v3(_v0.link),
-          icon: _v94(_v0.link)
+          icon: _v92(_v0.link)
         }), (0, _v1.jsx)(_v27.IconButton, {
           "aria-label": _v21.translations.delete,
           icon: (0, _v1.jsx)(_v60.CloseXSmall, {}),
@@ -1195,9 +1193,9 @@
       }, _v0.uid))]
     }) : null;
   }
-  let _v97 = (0, _v3.forwardRef)(({
-    id: _v0 = (0, _v85.createLiveDomName)("media-devices-settings"),
-    className: _v1 = (0, _v85.createLiveDomName)("media-devices-settings"),
+  let _v95 = (0, _v3.forwardRef)(({
+    id: _v0 = (0, _v83.createLiveDomName)("media-devices-settings"),
+    className: _v1 = (0, _v83.createLiveDomName)("media-devices-settings"),
     video: _v2,
     isMirrored: _v3,
     onVideoMirroringChanged: _v4,
@@ -1215,48 +1213,10 @@
       _v12 = (0, _v3.useCallback)(() => {
         if (!_v4) return;
         let _v0 = !_v3;
-        _v4(_v0), _v0 && function (_v0 = !1) {
-          (0, _v81.createBPv2EventFactory)("vimeo.select_mirror_my_video", -1, () => ({
-            ...(0, _v80.newTeamCtx)(),
-            ...(0, _v80.newWebCtx)(),
-            ...(0, _v80.newActionCtx)("click"),
-            ...(0, _v80.newLiveCtx)({
-              live_feature: "cam_and_audio_settings",
-              is_guest_speaker: _v0
-            }),
-            ...(0, _v80.newProductAnalyticsCtx)({
-              product: "events",
-              feature: "settings",
-              location: "modal",
-              copy: "select_mirror_my_video",
-              modal_name: "cam_and_audio_settings_modal",
-              element: "check_box",
-              device_type: _v44.browserConfig.BROWSER?.isMobile ? "mobile" : "desktop"
-            })
-          }), () => void 0)();
-        }(_v11);
+        _v4(_v0), _v0 && function (_v0 = !1) {}(_v11);
       }, [_v4, _v3, _v11]),
       _v13 = (0, _v3.useCallback)(() => {
-        _v2.isBlurred || function (_v0 = !1) {
-          (0, _v81.createBPv2EventFactory)("vimeo.select_blur_background", -1, () => ({
-            ...(0, _v80.newTeamCtx)(),
-            ...(0, _v80.newWebCtx)(),
-            ...(0, _v80.newActionCtx)("click"),
-            ...(0, _v80.newLiveCtx)({
-              live_feature: "cam_and_audio_settings",
-              is_guest_speaker: _v0
-            }),
-            ...(0, _v80.newProductAnalyticsCtx)({
-              product: "events",
-              feature: "settings",
-              location: "modal",
-              modal_name: "cam_and_audio_settings_modal",
-              element: "check_box",
-              copy: "select_blur_background",
-              device_type: _v44.browserConfig.BROWSER?.isMobile ? "mobile" : "desktop"
-            })
-          }), () => void 0)();
-        }(_v11), _v5();
+        _v2.isBlurred || function (_v0 = !1) {}(_v11), _v5();
       }, [_v5, _v2.isBlurred, _v11]),
       _v14 = !_v2.isBlurred && !_v2.backgroundImageId,
       _v15 = (0, _v1.jsx)(_v78, {
@@ -1285,7 +1245,7 @@
       className: _v1,
       ref: _v9,
       userSelect: "none",
-      width: _v88,
+      width: _v86,
       maxWidth: "100%",
       gap: (0, _v24.rem)(20),
       direction: {
@@ -1315,17 +1275,17 @@
         direction: "column",
         flex: {
           base: "0 1 auto",
-          md: `0 0 ${_v87}`
+          md: `0 0 ${_v85}`
         },
         width: {
           base: "100%",
-          md: _v87
+          md: _v85
         },
         minWidth: 0,
         gap: (0, _v24.rem)(20),
-        maxHeight: _v89,
+        maxHeight: _v87,
         overflowY: "auto",
-        paddingBottom: _v91,
+        paddingBottom: _v89,
         sx: {
           scrollbarColor: "transparent transparent",
           scrollbarGutter: "auto",
@@ -1349,14 +1309,14 @@
             backgroundColor: "darkBlueAlpha.200"
           }
         },
-        children: [(0, _v1.jsxs)(_v93, {
+        children: [(0, _v1.jsxs)(_v91, {
           title: _v21.translations.effects,
           isResponsive: _v16,
           children: [(0, _v1.jsx)(_v25.Box, {
             aspectRatio: "1 / 1",
             minWidth: 0,
             width: "100%",
-            children: (0, _v1.jsx)(_v92, {
+            children: (0, _v1.jsx)(_v90, {
               label: _v21.translations.noEffects,
               icon: (0, _v1.jsx)(_v57.StopBanLeft, {}),
               isSelected: _v14,
@@ -1366,7 +1326,7 @@
             aspectRatio: "1 / 1",
             minWidth: 0,
             width: "100%",
-            children: (0, _v1.jsx)(_v92, {
+            children: (0, _v1.jsx)(_v90, {
               label: _v21.translations.blur,
               icon: (0, _v1.jsx)(_v58.Blur, {}),
               isDisabled: !_v8,
@@ -1374,28 +1334,28 @@
               onClick: _v13
             })
           })]
-        }), (0, _v1.jsx)(_v96, {
+        }), (0, _v1.jsx)(_v94, {
           selectedId: _v2.backgroundImageId,
           isDisabled: !_v8,
           isResponsive: _v16,
           onSelect: _v6,
           onClearBackground: _v7
-        }), (0, _v1.jsx)(_v93, {
+        }), (0, _v1.jsx)(_v91, {
           title: _v21.translations.vimeoBackgrounds,
           isResponsive: _v16,
           children: _v72.LIVE_BACKGROUND_PRESETS.map(_v0 => (0, _v1.jsx)(_v25.Box, {
             aspectRatio: "1 / 1",
             minWidth: 0,
             width: "100%",
-            children: (0, _v1.jsx)(_v92, {
+            children: (0, _v1.jsx)(_v90, {
               label: _v0.label,
               isDisabled: !_v8,
               isSelected: _v2.backgroundImageId === _v0.id,
               onClick: () => _v6(_v0.id),
-              icon: _v94(_v0.previewUrl)
+              icon: _v92(_v0.previewUrl)
             })
           }, _v0.id))
-        }), (0, _v1.jsx)(_v95, {
+        }), (0, _v1.jsx)(_v93, {
           selectedId: _v2.backgroundImageId,
           isDisabled: !_v8,
           isResponsive: _v16,
@@ -1404,11 +1364,11 @@
       })]
     });
   });
-  _v0.s(["MediaDevicesSettingsModalContent", 0, _v97], 0);
-  var _v98 = _v0.i(0),
-    _v99 = _v0.i(0),
-    _v100 = _v0.i(0);
-  function _v101({
+  _v0.s(["MediaDevicesSettingsModalContent", 0, _v95], 0);
+  var _v96 = _v0.i(0),
+    _v97 = _v0.i(0),
+    _v98 = _v0.i(0);
+  function _v99({
     id: _v0 = (0, _v20.createLiveDomName)("video-control-button-menu"),
     className: _v1 = (0, _v20.createLiveDomName)("video-control-button-menu"),
     isLoading: _v2,
@@ -1479,7 +1439,7 @@
             background: "fill-component-hover"
           },
           onClick: _v17,
-          children: [(0, _v1.jsx)(_v100.MagicWand, {}), (0, _v1.jsx)(_v41.Paragraph, {
+          children: [(0, _v1.jsx)(_v98.MagicWand, {}), (0, _v1.jsx)(_v41.Paragraph, {
             size: "md",
             children: _v21.translations.effects
           })]
@@ -1566,31 +1526,14 @@
         hasDeviceBlockedError: _v14
       }),
       _v18 = (0, _v3.useMemo)(() => _v2 ? void 0 : _v5.isMuted || _v5.error ? "status-destructive-primary" : "text-button-inverted", [_v2, _v5.isMuted, _v5.error]),
-      _v19 = (0, _v3.useMemo)(() => _v2 || _v5.isMuted || _v5.error ? (0, _v1.jsx)(_v98.CameraOff, {
+      _v19 = (0, _v3.useMemo)(() => _v2 || _v5.isMuted || _v5.error ? (0, _v1.jsx)(_v96.CameraOff, {
         color: _v18
-      }) : (0, _v1.jsx)(_v99.CameraOn, {
+      }) : (0, _v1.jsx)(_v97.CameraOn, {
         color: _v18
       }), [_v2, _v5.isMuted, _v5.error, _v18]),
       _v20 = _v21.translations.mediaCameraSettings,
       _v21 = (0, _v3.useCallback)(() => {
-        _v4(), function (_v0 = !1) {
-          (0, _v81.createBPv2EventFactory)("vimeo.open_cam_and_audio_settings", -1, () => ({
-            ...(0, _v80.newTeamCtx)(),
-            ...(0, _v80.newWebCtx)(),
-            ...(0, _v80.newActionCtx)("click"),
-            ...(0, _v80.newLiveCtx)({
-              live_feature: "cam_and_audio_settings",
-              is_guest_speaker: _v0
-            }),
-            ...(0, _v80.newProductAnalyticsCtx)({
-              product: "events",
-              feature: "settings",
-              location: "content_area",
-              element: "icon",
-              device_type: _v44.browserConfig.BROWSER?.isMobile ? "mobile" : "desktop"
-            })
-          }), () => void 0)();
-        }(_v10);
+        _v4(), function (_v0 = !1) {}(_v10);
       }, [_v4, _v10]);
     return (0, _v1.jsx)(_v38, {
       id: _v0,
@@ -1604,7 +1547,7 @@
       errorTitle: _v17.title,
       errorDescription: _v17.text,
       onClick: _v9 ? _v16 : void 0,
-      buttonMenu: (0, _v1.jsx)(_v101, {
+      buttonMenu: (0, _v1.jsx)(_v99, {
         id: (0, _v20.createLiveDomName)(_v0, "control-menu"),
         className: (0, _v20.createLiveDomName)(_v1, "control-menu"),
         isLoading: _v11,
@@ -1619,9 +1562,13 @@
       })
     });
   }], 0);
+  var _v100 = _v0.i(0);
+  function _v101(_v0) {
+    return {};
+  }
+  _v0.s(["newLiveCtx", 0, _v101], 0);
   var _v102 = _v0.i(0),
-    _v103 = _v0.i(0),
-    _v104 = _v0.i(0);
+    _v103 = _v0.i(0);
   _v0.s(["TeleprompterButton", 0, function ({
     id: _v0 = (0, _v20.createLiveDomName)("teleprompter-button"),
     isDisabled: _v1,
@@ -1634,14 +1581,14 @@
       {
         isTeleprompterShown: _v5,
         toggleTeleprompter: _v6
-      } = (0, _v103.useTeleprompter)(_v2),
+      } = (0, _v102.useTeleprompter)(_v2),
       {
         sendToggleTeleprompterBpEvent: _v7
-      } = (0, _v104.useTeleprompterAnalytics)({
+      } = (0, _v103.useTeleprompterAnalytics)({
         element: "icon",
         feature: "teleprompter",
         location: "bottom_panel"
-      }, "live", () => (0, _v80.newLiveCtx)({
+      }, "live", () => _v101({
         live_feature: "teleprompter",
         is_guest_speaker: _v2
       })),
@@ -1658,7 +1605,7 @@
           "aria-label": _v8,
           variant: _v5 ? "primary" : "secondary",
           alignSelf: "center",
-          icon: (0, _v1.jsx)(_v102.Script, {}),
+          icon: (0, _v1.jsx)(_v100.Script, {}),
           isDisabled: _v1 || _v3,
           onClick: () => {
             let _v0 = !_v5;

@@ -1619,8 +1619,7 @@
               selectedFoldersTree: _v6,
               selectedPermissionPolicy: _v21,
               setSelectedFoldersTree: _v7,
-              setSelectedPermissionPolicy: _v9,
-              teamUsers: _v15
+              setSelectedPermissionPolicy: _v9
             })
           }), (0, _v1.jsxs)(_v55.ModalFooter, {
             children: [(0, _v1.jsx)(_v38.Button, {
@@ -3519,8 +3518,7 @@
           selectedFoldersTree: _v2.selectedFoldersTree,
           selectedPermissionPolicy: _v2.selectedPermissionPolicy,
           setSelectedFoldersTree: _v0,
-          setSelectedPermissionPolicy: _v1,
-          teamUsers: _v2.invitedWorkspaceMembers
+          setSelectedPermissionPolicy: _v1
         })
       });
     },

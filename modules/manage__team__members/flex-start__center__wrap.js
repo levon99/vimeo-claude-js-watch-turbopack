@@ -161,12 +161,11 @@
   });
   var _v45 = _v0.i(0),
     _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  let _v49 = ({
+    _v47 = _v0.i(0);
+  let _v48 = ({
     children: _v0,
     href: _v1
-  }) => (0, _v2.jsx)(_v48.Badge, {
+  }) => (0, _v2.jsx)(_v47.Badge, {
     as: "a",
     "data-upsell-badge": !0,
     variant: "upgrade",
@@ -183,7 +182,8 @@
     verticalAlign: "middle",
     children: _v0
   });
-  var _v50 = _v0.i(0),
+  var _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
     _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
@@ -213,236 +213,226 @@
     _v77 = _v0.i(0),
     _v78 = _v0.i(0),
     _v79 = _v0.i(0),
-    _v80 = _v0.i(0),
-    _v81 = _v0.i(0),
-    _v82 = _v0.i(0),
-    _v83 = _v0.i(0);
-  let _v84 = {
-      name: "vimeo.click_in_team_member_menu",
-      version: 1,
-      actionContext: {
-        action_type: "click"
+    _v80 = _v0.i(0);
+  let _v81 = ({
+    deleteButtonText: _v0,
+    isPending: _v1,
+    onDelete: _v2,
+    personalTeamFolder: _v3,
+    selectedUserName: _v4,
+    teamMemberUri: _v5,
+    teamMemberUserUri: _v6,
+    teamMemberPermissionLevel: _v7,
+    resendInvite: _v8,
+    copyInviteLink: _v9,
+    recentlyReminded: _v10,
+    hasShareFolders: _v11 = !1,
+    onShareFolders: _v12,
+    onViewTeamMembersAccess: _v13,
+    onViewTeamMembersActivity: _v14,
+    triggerDataId: _v15,
+    onViewGroupsForMember: _v16,
+    isSSOEnabled: _v17,
+    onToggleSSO: _v18,
+    isSSOAvailable: _v19,
+    hasLmsUser: _v20,
+    onLmsUserManage: _v21
+  }) => {
+    let [_v22, _v23] = (0, _v3.useState)(!1),
+      [_v24, _v25] = (0, _v3.useState)(!1),
+      _v26 = (0, _v3.useRef)(null),
+      _v27 = (0, _v67.getIdFromLink)(_v5),
+      _v28 = () => {
+        _v23(!1);
       },
-      productAnalyticsContext: {
-        element: "button",
-        entity_type: "user",
-        location: "menu",
-        feature: void 0
-      },
-      additionalFields: {
-        search_query: null,
-        search_result_qty: null
-      }
-    },
-    _v85 = {
-      name: "vimeo.open_team_member_menu",
-      version: 1,
-      actionContext: {
-        action_type: "click"
-      },
-      productAnalyticsContext: {
-        element: "ellipses",
-        entity_type: "user",
-        location: "page_area"
-      },
-      additionalFields: {
-        search_query: null,
-        search_result_qty: null
-      }
-    },
-    _v86 = ({
-      deleteButtonText: _v0,
-      isPending: _v1,
-      onDelete: _v2,
-      personalTeamFolder: _v3,
-      selectedUserName: _v4,
-      teamMemberUri: _v5,
-      teamMemberUserUri: _v6,
-      teamMemberPermissionLevel: _v7,
-      resendInvite: _v8,
-      copyInviteLink: _v9,
-      recentlyReminded: _v10,
-      hasShareFolders: _v11 = !1,
-      onShareFolders: _v12,
-      onViewTeamMembersAccess: _v13,
-      onViewTeamMembersActivity: _v14,
-      triggerDataId: _v15,
-      onViewGroupsForMember: _v16,
-      isSSOEnabled: _v17,
-      onToggleSSO: _v18,
-      isSSOAvailable: _v19,
-      hasLmsUser: _v20,
-      onLmsUserManage: _v21
-    }) => {
-      let _v22,
-        _v23,
-        [_v24, _v25] = (0, _v3.useState)(!1),
-        [_v26, _v27] = (0, _v3.useState)(!1),
-        _v28 = (0, _v3.useRef)(null),
-        _v29 = (0, _v69.getIdFromLink)(_v5),
-        _v30 = () => {
-          _v25(!1);
+      {
+        teamCapabilities: {
+          canLmsExport: _v29,
+          hasPerSeatPricingModelTeamMember: _v30,
+          hasPersonalTeamFolderAdminAccess: _v31,
+          canViewTeamMemberTopLevelPermissionsUpsell: _v32,
+          canViewTeamMemberTopLevelPermissions: _v33,
+          hasViewTeamMemberActivityUpsell: _v34
         },
-        {
-          teamCapabilities: {
-            canLmsExport: _v31,
-            hasPerSeatPricingModelTeamMember: _v32,
-            hasPersonalTeamFolderAdminAccess: _v33,
-            canViewTeamMemberTopLevelPermissionsUpsell: _v34,
-            canViewTeamMemberTopLevelPermissions: _v35,
-            hasViewTeamMemberActivityUpsell: _v36
-          },
-          teamInfo: {
-            owner: {
-              uri: _v37
-            }
+        teamInfo: {
+          owner: {
+            uri: _v35
           }
-        } = (0, _v3.useContext)(_v20.ManageTeamStateCtx),
-        {
-          capabilities: {
-            hasTeamGroups: _v38,
-            hasContentSpaceEnabled: _v39
-          },
-          ready: _v40
-        } = (0, _v81.useCapability)(["hasContentSpaceEnabled", "hasTeamGroups"], _v37),
-        {
-          updateModalToDisplay: _v41
-        } = (0, _v3.useContext)(_v20.ManageTeamDispatchCtx),
-        _v42 = [_v26.TeamRole["Contributor Plus"], _v26.TeamRole.Contributor, _v26.TeamRole.Viewer, _v26.TeamRole.Admin],
-        _v43 = (_v34 || _v35) && !_v1 && _v7 && _v42.includes(_v7),
-        _v44 = (0, _v82.useOrionSetting)("show_granular_permissions"),
-        _v45 = _v34 ? "/enterprise/contact" : _v44 ? `/manage/team/members/${_v29}/access?tab=content` : _v39 ? `/manage/team/members/${_v29}/team-library` : `/manage/team/members/${_v29}/shared-resources`,
-        _v46 = (_v22 = (0, _v83.useTeamManagementActionEvent)(), (0, _v3.useCallback)(() => _v22(_v85), [_v22]));
-      (0, _v3.useEffect)(() => {
-        _v24 && _v46();
-      }, [_v24, _v46]);
-      let _v47 = (_v23 = (0, _v83.useTeamManagementActionEvent)(), (0, _v3.useCallback)(({
-          copy: _v0,
-          flow: _v1,
-          feature: _v2
-        }) => _v23({
-          ..._v84,
-          productAnalyticsContext: {
-            ..._v84.productAnalyticsContext,
-            copy: _v0,
-            feature: _v2,
-            flow: _v1
-          }
-        }), [_v23])),
-        _v48 = (0, _v69.getIdFromLink)(_v37);
-      return (0, _v75.useOutsideClick)({
-        ref: _v28,
-        handler: () => _v25(!1)
-      }), (0, _v2.jsxs)(_v70.Menu, {
-        isOpen: _v24,
-        children: [(0, _v2.jsx)(_v71.MenuButton, {
-          as: _v39.IconButton,
-          "aria-label": "overflow-menu-dots",
-          marginLeft: (0, _v8.rem)(8),
-          "data-id": _v15,
-          icon: (0, _v2.jsx)(_v43.EllipsisV, {
-            boxSize: "2xs"
-          }),
-          variant: "tertiary",
-          borderRadius: "md",
-          size: "md",
-          onClick: () => _v25(!_v24)
-        }), (0, _v2.jsxs)(_v72.MenuList, {
-          borderRadius: "md",
-          py: (0, _v8.rem)(8),
-          backgroundColor: "surface",
-          ref: _v28,
-          children: [_v1 && (0, _v2.jsxs)(_v2.Fragment, {
-            children: [(0, _v2.jsx)(_v73.MenuItem, {
-              "data-id": "roleMenuOptionResendInvite",
-              isDisabled: _v10,
-              as: "span",
-              onClick: _v8,
-              children: (0, _v2.jsx)(_v22.Text, {
-                variant: "header-xs",
-                children: _v10 ? _v27.T.ReminderSent : _v27.T.ResendInvite
-              })
-            }), (0, _v2.jsx)(_v73.MenuItem, {
-              "data-id": "roleMenuOptionCopyInvite",
-              as: "span",
-              onClick: _v9,
-              children: (0, _v2.jsx)(_v22.Text, {
-                variant: "header-xs",
-                children: _v27.T.CopyLink
-              })
-            })]
-          }), !_v39 && !_v1 && _v33 && _v3 && (0, _v2.jsx)(_v73.MenuItem, {
+        }
+      } = (0, _v3.useContext)(_v20.ManageTeamStateCtx),
+      {
+        capabilities: {
+          hasTeamGroups: _v36,
+          hasContentSpaceEnabled: _v37
+        },
+        ready: _v38
+      } = (0, _v79.useCapability)(["hasContentSpaceEnabled", "hasTeamGroups"], _v35),
+      {
+        updateModalToDisplay: _v39
+      } = (0, _v3.useContext)(_v20.ManageTeamDispatchCtx),
+      _v40 = [_v26.TeamRole["Contributor Plus"], _v26.TeamRole.Contributor, _v26.TeamRole.Viewer, _v26.TeamRole.Admin],
+      _v41 = (_v32 || _v33) && !_v1 && _v7 && _v40.includes(_v7),
+      _v42 = (0, _v80.useOrionSetting)("show_granular_permissions"),
+      _v43 = _v32 ? "/enterprise/contact" : _v42 ? `/manage/team/members/${_v27}/access?tab=content` : _v37 ? `/manage/team/members/${_v27}/team-library` : `/manage/team/members/${_v27}/shared-resources`,
+      _v44 = (0, _v67.getIdFromLink)(_v35);
+    return (0, _v73.useOutsideClick)({
+      ref: _v26,
+      handler: () => _v23(!1)
+    }), (0, _v2.jsxs)(_v68.Menu, {
+      isOpen: _v22,
+      children: [(0, _v2.jsx)(_v69.MenuButton, {
+        as: _v39.IconButton,
+        "aria-label": "overflow-menu-dots",
+        marginLeft: (0, _v8.rem)(8),
+        "data-id": _v15,
+        icon: (0, _v2.jsx)(_v43.EllipsisV, {
+          boxSize: "2xs"
+        }),
+        variant: "tertiary",
+        borderRadius: "md",
+        size: "md",
+        onClick: () => _v23(!_v22)
+      }), (0, _v2.jsxs)(_v70.MenuList, {
+        borderRadius: "md",
+        py: (0, _v8.rem)(8),
+        backgroundColor: "surface",
+        ref: _v26,
+        children: [_v1 && (0, _v2.jsxs)(_v2.Fragment, {
+          children: [(0, _v2.jsx)(_v71.MenuItem, {
+            "data-id": "roleMenuOptionResendInvite",
+            isDisabled: _v10,
             as: "span",
-            "data-id": "roleMenuOptionViewMyVideos",
-            onClick: () => window.open("/user/" + _v3?.split("/")[2] + "/folder/" + _v3?.split("/")[4], "_self"),
+            onClick: _v8,
             children: (0, _v2.jsx)(_v22.Text, {
               variant: "header-xs",
-              children: _v27.T.ViewMyVideos
+              children: _v10 ? _v27.T.ReminderSent : _v27.T.ResendInvite
             })
-          }), _v11 && (0, _v2.jsx)(_v73.MenuItem, {
-            as: "a",
-            onClick: () => {
-              _v25(!1), _v12();
-            },
-            "data-id": "roleMenuOptionShareFolders",
-            children: (0, _v2.jsxs)(_v32.HStack, {
-              alignItems: "center",
-              gap: (0, _v8.rem)(8),
-              children: [(0, _v2.jsx)(_v79.FolderPlus, {
-                boxSize: "xs"
-              }), (0, _v2.jsx)(_v22.Text, {
-                variant: "header-xs",
-                children: _v27.T.ShareFolders
-              })]
-            })
-          }), _v44 && (0, _v2.jsx)(_v73.MenuItem, {
-            as: "a",
-            href: `/manage/team/members/${_v29}/access`,
-            "data-id": "roleMenuOptionManageFeaturesAccess",
-            onClick: () => _v25(!1),
-            children: (0, _v2.jsxs)(_v32.HStack, {
-              alignItems: "center",
-              gap: (0, _v8.rem)(8),
-              children: [(0, _v2.jsx)(_v77.FiltersLevers, {
-                boxSize: "xs"
-              }), (0, _v2.jsx)(_v22.Text, {
-                variant: "header-xs",
-                children: (0, _v35.translate)({
-                  singular: "Manage features access",
-                  dictionary: {
-                    es: {
-                      singular: "Administrar el acceso a funciones"
-                    },
-                    "de-DE": {
-                      singular: "Zugriff auf Funktionen verwalten"
-                    },
-                    "fr-FR": {
-                      singular: "Gérer l'accès aux fonctionnalités"
-                    },
-                    "ja-JP": {
-                      singular: "機能へのアクセスを管理"
-                    },
-                    "ko-KR": {
-                      singular: "기능 접근 권한 관리"
-                    },
-                    "pt-BR": {
-                      singular: "Gerenciar acesso às funcionalidades"
-                    },
-                    "zh-CN": {
-                      singular: "管理功能访问权限"
-                    }
-                  }
-                })
-              })]
-            })
-          }), _v43 && (_v34 ? (0, _v2.jsxs)(_v32.HStack, {
-            "data-id": "roleMenuOptionViewTeamMembersAccess",
-            p: (0, _v8.rem)(8),
-            children: [(0, _v2.jsx)(_v22.Text, {
+          }), (0, _v2.jsx)(_v71.MenuItem, {
+            "data-id": "roleMenuOptionCopyInvite",
+            as: "span",
+            onClick: _v9,
+            children: (0, _v2.jsx)(_v22.Text, {
               variant: "header-xs",
-              color: "text-secondary",
+              children: _v27.T.CopyLink
+            })
+          })]
+        }), !_v37 && !_v1 && _v31 && _v3 && (0, _v2.jsx)(_v71.MenuItem, {
+          as: "span",
+          "data-id": "roleMenuOptionViewMyVideos",
+          onClick: () => window.open("/user/" + _v3?.split("/")[2] + "/folder/" + _v3?.split("/")[4], "_self"),
+          children: (0, _v2.jsx)(_v22.Text, {
+            variant: "header-xs",
+            children: _v27.T.ViewMyVideos
+          })
+        }), _v11 && (0, _v2.jsx)(_v71.MenuItem, {
+          as: "a",
+          onClick: () => {
+            _v23(!1), _v12();
+          },
+          "data-id": "roleMenuOptionShareFolders",
+          children: (0, _v2.jsxs)(_v32.HStack, {
+            alignItems: "center",
+            gap: (0, _v8.rem)(8),
+            children: [(0, _v2.jsx)(_v77.FolderPlus, {
+              boxSize: "xs"
+            }), (0, _v2.jsx)(_v22.Text, {
+              variant: "header-xs",
+              children: _v27.T.ShareFolders
+            })]
+          })
+        }), _v42 && (0, _v2.jsx)(_v71.MenuItem, {
+          as: "a",
+          href: `/manage/team/members/${_v27}/access`,
+          "data-id": "roleMenuOptionManageFeaturesAccess",
+          onClick: () => _v23(!1),
+          children: (0, _v2.jsxs)(_v32.HStack, {
+            alignItems: "center",
+            gap: (0, _v8.rem)(8),
+            children: [(0, _v2.jsx)(_v75.FiltersLevers, {
+              boxSize: "xs"
+            }), (0, _v2.jsx)(_v22.Text, {
+              variant: "header-xs",
+              children: (0, _v35.translate)({
+                singular: "Manage features access",
+                dictionary: {
+                  es: {
+                    singular: "Administrar el acceso a funciones"
+                  },
+                  "de-DE": {
+                    singular: "Zugriff auf Funktionen verwalten"
+                  },
+                  "fr-FR": {
+                    singular: "Gérer l'accès aux fonctionnalités"
+                  },
+                  "ja-JP": {
+                    singular: "機能へのアクセスを管理"
+                  },
+                  "ko-KR": {
+                    singular: "기능 접근 권한 관리"
+                  },
+                  "pt-BR": {
+                    singular: "Gerenciar acesso às funcionalidades"
+                  },
+                  "zh-CN": {
+                    singular: "管理功能访问权限"
+                  }
+                }
+              })
+            })]
+          })
+        }), _v41 && (_v32 ? (0, _v2.jsxs)(_v32.HStack, {
+          "data-id": "roleMenuOptionViewTeamMembersAccess",
+          p: (0, _v8.rem)(8),
+          children: [(0, _v2.jsx)(_v22.Text, {
+            variant: "header-xs",
+            color: "text-secondary",
+            children: _v27.T.ViewAccess
+          }), (0, _v2.jsx)(_v48, {
+            href: "/enterprise/contact",
+            children: (0, _v35.translate)({
+              singular: "Enterprise",
+              dictionary: {
+                "fr-FR": {
+                  singular: "Entreprise"
+                },
+                "zh-CN": {
+                  singular: "企业"
+                }
+              }
+            })
+          })]
+        }) : (0, _v2.jsx)(_v71.MenuItem, {
+          as: "a",
+          href: _v43,
+          "data-id": "roleMenuOptionViewTeamMembersAccess",
+          onClick: () => _v13?.(),
+          children: (0, _v2.jsxs)(_v32.HStack, {
+            alignItems: "center",
+            gap: (0, _v8.rem)(8),
+            children: [(0, _v2.jsx)(_v76.FolderLock, {
+              boxSize: "xs"
+            }), (0, _v2.jsx)(_v22.Text, {
+              variant: "header-xs",
               children: _v27.T.ViewAccess
-            }), (0, _v2.jsx)(_v49, {
+            })]
+          })
+        })), _v6 && (0, _v2.jsx)(_v71.MenuItem, {
+          as: "a",
+          href: _v44 && !_v34 ? `/analytics/teams/${_v44}/users/${(0, _v67.getIdFromLink)(_v6)}` : "/enterprise/contact",
+          "data-id": "roleMenuOptionViewTeamMemberActivity",
+          onClick: () => {
+            _v34 || _v14?.();
+          },
+          children: (0, _v2.jsxs)(_v32.HStack, {
+            alignItems: "center",
+            gap: (0, _v8.rem)(8),
+            children: [(0, _v2.jsx)(_v74.Analytics, {
+              boxSize: "xs"
+            }), (0, _v2.jsx)(_v22.Text, {
+              variant: "header-xs",
+              color: _v34 ? "text-secondary" : "text-primary",
+              children: _v27.T.ViewActivity
+            }), _v34 && (0, _v2.jsx)(_v48, {
               href: "/enterprise/contact",
               children: (0, _v35.translate)({
                 singular: "Enterprise",
@@ -456,116 +446,67 @@
                 }
               })
             })]
-          }) : (0, _v2.jsx)(_v73.MenuItem, {
-            as: "a",
-            href: _v45,
-            "data-id": "roleMenuOptionViewTeamMembersAccess",
-            onClick: () => _v13(),
-            children: (0, _v2.jsxs)(_v32.HStack, {
+          })
+        }), _v36 && _v38 && (0, _v2.jsx)(_v71.MenuItem, {
+          onClick: () => {
+            _v23(!1), _v16(_v5);
+          },
+          "data-id": "roleMenuOptionShowGroups",
+          children: (0, _v2.jsx)(_v22.Text, {
+            variant: "body-xl",
+            fontSize: "header-xs",
+            children: _v27.T.ManageGroups
+          })
+        }), _v29 && _v20 && (0, _v2.jsx)(_v71.MenuItem, {
+          onClick: () => {
+            _v25(!0), _v21();
+          },
+          children: (0, _v2.jsx)(_v22.Text, {
+            variant: "header-xs",
+            children: _v27.T.ManageLearnerIds
+          })
+        }), _v19 && (0, _v2.jsx)(_v71.MenuItem, {
+          onClick: () => {
+            _v23(!1), _v18();
+          },
+          children: (0, _v2.jsx)(_v22.Text, {
+            variant: "header-xs",
+            children: _v17 ? _v27.T.TurnOffSSO : _v27.T.TurnOnSSO
+          })
+        }), _v2 && (0, _v2.jsxs)(_v2.Fragment, {
+          children: [(0, _v2.jsx)(_v72.MenuDivider, {
+            my: (0, _v8.rem)(4)
+          }), (0, _v2.jsxs)(_v71.MenuItem, {
+            isDisabled: _v24,
+            onClick: () => {
+              _v25(!0), (0, _v67.handleRemoveMember)(_v28, _v30, _v2, _v39, _v7, _v4, () => {
+                _v25(!1);
+              });
+            },
+            children: [(0, _v2.jsxs)(_v32.HStack, {
               alignItems: "center",
               gap: (0, _v8.rem)(8),
-              children: [(0, _v2.jsx)(_v78.FolderLock, {
-                boxSize: "xs"
+              children: [(0, _v2.jsx)(_v78.TrashBin, {
+                boxSize: "xs",
+                color: "status-destructive-primary"
               }), (0, _v2.jsx)(_v22.Text, {
                 variant: "header-xs",
-                children: _v27.T.ViewAccess
+                color: "status-destructive-primary",
+                children: _v0
               })]
-            })
-          })), _v6 && (0, _v2.jsx)(_v73.MenuItem, {
-            as: "a",
-            href: _v48 && !_v36 ? `/analytics/teams/${_v48}/users/${(0, _v69.getIdFromLink)(_v6)}` : "/enterprise/contact",
-            "data-id": "roleMenuOptionViewTeamMemberActivity",
-            onClick: () => {
-              _v36 || _v14();
-            },
-            children: (0, _v2.jsxs)(_v32.HStack, {
-              alignItems: "center",
-              gap: (0, _v8.rem)(8),
-              children: [(0, _v2.jsx)(_v76.Analytics, {
-                boxSize: "xs"
-              }), (0, _v2.jsx)(_v22.Text, {
-                variant: "header-xs",
-                color: _v36 ? "text-secondary" : "text-primary",
-                children: _v27.T.ViewActivity
-              }), _v36 && (0, _v2.jsx)(_v49, {
-                href: "/enterprise/contact",
-                children: (0, _v35.translate)({
-                  singular: "Enterprise",
-                  dictionary: {
-                    "fr-FR": {
-                      singular: "Entreprise"
-                    },
-                    "zh-CN": {
-                      singular: "企业"
-                    }
-                  }
-                })
-              })]
-            })
-          }), _v38 && _v40 && (0, _v2.jsx)(_v73.MenuItem, {
-            onClick: () => {
-              _v25(!1), _v47({
-                copy: "Show groups",
-                feature: "groups",
-                flow: "open_modal"
-              }), _v16(_v5);
-            },
-            "data-id": "roleMenuOptionShowGroups",
-            children: (0, _v2.jsx)(_v22.Text, {
-              variant: "body-xl",
-              fontSize: "header-xs",
-              children: _v27.T.ManageGroups
-            })
-          }), _v31 && _v20 && (0, _v2.jsx)(_v73.MenuItem, {
-            onClick: () => {
-              _v27(!0), _v21();
-            },
-            children: (0, _v2.jsx)(_v22.Text, {
-              variant: "header-xs",
-              children: _v27.T.ManageLearnerIds
-            })
-          }), _v19 && (0, _v2.jsx)(_v73.MenuItem, {
-            onClick: () => {
-              _v25(!1), _v18();
-            },
-            children: (0, _v2.jsx)(_v22.Text, {
-              variant: "header-xs",
-              children: _v17 ? _v27.T.TurnOffSSO : _v27.T.TurnOnSSO
-            })
-          }), _v2 && (0, _v2.jsxs)(_v2.Fragment, {
-            children: [(0, _v2.jsx)(_v74.MenuDivider, {
-              my: (0, _v8.rem)(4)
-            }), (0, _v2.jsxs)(_v73.MenuItem, {
-              isDisabled: _v26,
-              onClick: () => {
-                _v27(!0), (0, _v69.handleRemoveMember)(_v30, _v32, _v2, _v41, _v7, _v4, () => {
-                  _v27(!1);
-                });
-              },
-              children: [(0, _v2.jsxs)(_v32.HStack, {
-                alignItems: "center",
-                gap: (0, _v8.rem)(8),
-                children: [(0, _v2.jsx)(_v80.TrashBin, {
-                  boxSize: "xs",
-                  color: "status-destructive-primary"
-                }), (0, _v2.jsx)(_v22.Text, {
-                  variant: "header-xs",
-                  color: "status-destructive-primary",
-                  children: _v0
-                })]
-              }), _v26 && (0, _v2.jsx)(_v60.Spinner, {
-                size: "xs",
-                float: "right",
-                ml: (0, _v8.rem)(8)
-              })]
+            }), _v24 && (0, _v2.jsx)(_v58.Spinner, {
+              size: "xs",
+              float: "right",
+              ml: (0, _v8.rem)(8)
             })]
           })]
         })]
-      });
-    };
-  var _v87 = _v0.i(0),
-    _v88 = _v0.i(0);
-  let _v89 = () => {
+      })]
+    });
+  };
+  var _v82 = _v0.i(0),
+    _v83 = _v0.i(0);
+  let _v84 = () => {
     let _v0 = (0, _v10.useToast)(),
       {
         teamInfo: _v1,
@@ -574,7 +515,7 @@
       [_v3, _v4] = (0, _v3.useState)(!1),
       [_v5, _v6] = (0, _v3.useState)(void 0),
       _v7 = (0, _v3.useRef)(null);
-    (0, _v75.useOutsideClick)({
+    (0, _v73.useOutsideClick)({
       ref: _v7,
       handler: () => _v4(!1)
     });
@@ -582,11 +523,11 @@
       _v9 = Number(_v8.uri.split("/users/").pop()),
       [_v10, {
         data: _v11
-      }] = (0, _v88.usePatchUserTeamUser)(),
+      }] = (0, _v83.usePatchUserTeamUser)(),
       {
         data: _v12,
         isLoading: _v13
-      } = (0, _v87.useGetUserTeammembers)(() => _v9 ? {
+      } = (0, _v82.useGetUserTeammembers)(() => _v9 ? {
         where: {
           userId: _v9
         },
@@ -618,9 +559,9 @@
         excludeSso: !_v5
       }
     });
-    return _v2 ? (0, _v2.jsxs)(_v70.Menu, {
+    return _v2 ? (0, _v2.jsxs)(_v68.Menu, {
       isOpen: _v3,
-      children: [(0, _v2.jsx)(_v71.MenuButton, {
+      children: [(0, _v2.jsx)(_v69.MenuButton, {
         as: _v39.IconButton,
         "aria-label": "owner-overflow-menu-dots",
         marginLeft: (0, _v8.rem)(8),
@@ -631,7 +572,7 @@
         borderRadius: "md",
         size: "md",
         onClick: () => _v4(!_v3)
-      }), (0, _v2.jsx)(_v72.MenuList, {
+      }), (0, _v2.jsx)(_v70.MenuList, {
         borderRadius: "md",
         py: (0, _v8.rem)(8),
         backgroundColor: "surface",
@@ -639,7 +580,7 @@
         children: _v13 ? (0, _v2.jsx)(_v9.Skeleton, {
           height: (0, _v8.rem)(36),
           width: (0, _v8.rem)(131)
-        }) : (0, _v2.jsx)(_v73.MenuItem, {
+        }) : (0, _v2.jsx)(_v71.MenuItem, {
           onClick: () => {
             _v4(!1), _v16();
           },
@@ -653,9 +594,9 @@
       })]
     }) : null;
   };
-  var _v90 = _v0.i(0),
-    _v91 = _v0.i(0);
-  let _v92 = (0, _v3.forwardRef)(({
+  var _v85 = _v0.i(0),
+    _v86 = _v0.i(0);
+  let _v87 = (0, _v3.forwardRef)(({
       item: _v0,
       children: _v1
     }, _v2) => (0, _v2.jsxs)(_v2.Fragment, {
@@ -682,7 +623,7 @@
           alignItems: "center",
           pl: (0, _v8.rem)(5),
           opacity: _v0.isPending ? "0.5" : "",
-          children: [(0, _v2.jsx)(_v91.Avatar, {
+          children: [(0, _v2.jsx)(_v86.Avatar, {
             size: "sm",
             src: _v0.avatarLink,
             alt: _v0.avatarLink,
@@ -717,7 +658,7 @@
         }), _v1]
       })]
     })),
-    _v93 = _v0 => (0, _v2.jsxs)(_v7.Flex, {
+    _v88 = _v0 => (0, _v2.jsxs)(_v7.Flex, {
       padding: `${(0, _v8.rem)(15)} ${(0, _v8.rem)(20)}`,
       justifyContent: "space-between",
       children: [(0, _v2.jsxs)(_v7.Flex, {
@@ -743,28 +684,27 @@
         })]
       }), _v0.children]
     });
-  var _v94 = _v0.i(0),
-    _v95 = _v0.i(0),
-    _v96 = _v0.i(0),
-    _v97 = _v0.i(0),
-    _v98 = _v0.i(0),
-    _v99 = _v0.i(0);
-  let _v100 = {
+  var _v89 = _v0.i(0),
+    _v90 = _v0.i(0),
+    _v91 = _v0.i(0),
+    _v92 = _v0.i(0),
+    _v93 = _v0.i(0);
+  let _v94 = {
       members: _v27.T.SearchMembers,
       groups: _v27.T.SearchGroups,
       groupMembers: _v27.T.SearchGroupMembers
     },
-    _v101 = {
+    _v95 = {
       members: _v27.T.SearchMembers,
       settings: _v27.T.SearchMembers,
       groups: ""
     },
-    _v102 = _v0 => _v0.substring(_v0.lastIndexOf("/") + 1);
-  var _v103 = _v0.i(0);
-  let _v104 = (0, _v95.default)((_v0, _v1, _v2) => {
+    _v96 = _v0 => _v0.substring(_v0.lastIndexOf("/") + 1);
+  var _v97 = _v0.i(0);
+  let _v98 = (0, _v89.default)((_v0, _v1, _v2) => {
       !(_v0.length < 1) && (_v1(), _v2 && _v2());
     }, 500),
-    _v105 = ({
+    _v99 = ({
       afterSearch: _v0,
       entityToSearch: _v1,
       ..._v2
@@ -786,19 +726,19 @@
         } = ((_v0, _v1) => {
           let {
               pathname: _v2
-            } = (0, _v99.useRouter)(),
+            } = (0, _v93.useRouter)(),
             [_v3, _v4] = (0, _v3.useState)(""),
             [_v5, _v6] = (0, _v3.useState)(!0),
-            _v7 = _v1 === _v47.GROUP_MEMBERS ? _v1 : _v102(_v2),
+            _v7 = _v1 === _v46.GROUP_MEMBERS ? _v1 : _v96(_v2),
             {
               fetchTeamGroupsAction: _v8,
               fetchTeamMembers: _v9,
               updateGroupMembersSearchQuery: _v10,
               updateSearchQuery: _v11
             } = (0, _v3.useContext)(_v20.ManageTeamDispatchCtx),
-            _v12 = _v1 === _v47.GROUP_MEMBERS ? _v10 : _v11;
+            _v12 = _v1 === _v46.GROUP_MEMBERS ? _v10 : _v11;
           return (0, _v3.useEffect)(() => {
-            _v4((_v0 ? _v100 : _v101)[_v1 ?? _v102(_v2)] || ""), _v12("");
+            _v4((_v0 ? _v94 : _v95)[_v1 ?? _v96(_v2)] || ""), _v12("");
           }, [_v2, _v0, _v1]), (0, _v3.useEffect)(() => {
             _v3 ? _v6(!1) : _v6(!0);
           }, [_v3]), {
@@ -806,14 +746,14 @@
             searchAction: {
               members: _v9,
               groups: _v8
-            }[_v7] || _v98.default,
+            }[_v7] || _v92.default,
             disabled: _v5
           };
         })(_v6.canShowSsoGroups, _v1),
-        _v12 = _v1 === _v47.GROUP_MEMBERS ? _v8 : _v7,
-        _v13 = _v1 === _v47.GROUP_MEMBERS ? _v5 : _v4;
+        _v12 = _v1 === _v46.GROUP_MEMBERS ? _v8 : _v7,
+        _v13 = _v1 === _v46.GROUP_MEMBERS ? _v5 : _v4;
       return (0, _v3.useEffect)(() => {
-        1 !== _v13.length && (_v104.cancel(), _v104(_v13, _v10, _v0));
+        1 !== _v13.length && (_v98.cancel(), _v98(_v13, _v10, _v0));
       }, [_v13, _v3]), (0, _v2.jsx)(_v6.Box, {
         maxWidth: (0, _v8.rem)(350),
         flex: "1",
@@ -823,7 +763,7 @@
           }
         },
         ..._v2,
-        children: (0, _v2.jsx)(_v97.Search, {
+        children: (0, _v2.jsx)(_v91.Search, {
           variant: "minimal",
           p: (0, _v8.rem)(15),
           borderRadius: "md",
@@ -833,7 +773,7 @@
           value: _v13,
           placeholder: _v9,
           onChange: _v0 => {
-            _v12(_v0.currentTarget.value), _v96.GoogleTagManager.trackEvent(_v103.GTMEvent.SEARCH);
+            _v12(_v0.currentTarget.value), _v90.GoogleTagManager.trackEvent(_v97.GTMEvent.SEARCH);
           },
           disabled: _v11,
           _placeholder: {
@@ -844,10 +784,10 @@
         })
       });
     };
-  var _v106 = _v0.i(0),
-    _v107 = _v0.i(0),
-    _v108 = _v0.i(0);
-  let _v109 = ({
+  var _v100 = _v0.i(0),
+    _v101 = _v0.i(0),
+    _v102 = _v0.i(0);
+  let _v103 = ({
     appliedFilters: _v0,
     label: _v1,
     filterType: _v2,
@@ -859,7 +799,7 @@
       [_v8, _v9] = (0, _v3.useState)(_v0);
     return (0, _v3.useEffect)(() => {
       _v9(_v0);
-    }, [_v0]), (0, _v75.useOutsideClick)({
+    }, [_v0]), (0, _v73.useOutsideClick)({
       ref: _v5,
       handler: () => {
         _v6 && _v7(!1);
@@ -871,7 +811,7 @@
         children: (0, _v2.jsx)(_v31.Button, {
           "data-id": `team-members-${_v2}-filter`,
           variant: "secondary",
-          rightIcon: _v6 ? (0, _v2.jsx)(_v108.ChevronUpSmall, {}) : (0, _v2.jsx)(_v107.ChevronDownSmall, {}),
+          rightIcon: _v6 ? (0, _v2.jsx)(_v102.ChevronUpSmall, {}) : (0, _v2.jsx)(_v101.ChevronDownSmall, {}),
           borderRadius: "md",
           onClick: () => _v7(!_v6),
           fontWeight: "medium",
@@ -886,7 +826,7 @@
           flexDirection: "column",
           alignItems: "start",
           width: "100%",
-          children: [_v8.map(_v0 => (0, _v2.jsx)(_v106.Checkbox, {
+          children: [_v8.map(_v0 => (0, _v2.jsx)(_v100.Checkbox, {
             alignSelf: "flex-start",
             padding: "75",
             id: "filter-" + _v1 + "-" + _v0.value,
@@ -974,72 +914,63 @@
       })]
     });
   };
-  var _v110 = _v0.i(0);
-  let _v111 = () => {
-    let _v0 = (0, _v3.useContext)(_v38.ViewerContext),
-      _v1 = _v0?.user?.id,
-      {
-        rolesFilter: _v2,
-        statusesFilter: _v3,
-        accessFilter: _v4,
-        teamInfo: _v5,
-        isSSOAvailable: _v6,
+  var _v104 = _v0.i(0);
+  let _v105 = () => {
+    let {
+        rolesFilter: _v0,
+        statusesFilter: _v1,
+        accessFilter: _v2,
+        teamInfo: _v3,
+        isSSOAvailable: _v4,
         teamCapabilities: {
-          hasTeamMembersFilter: _v7,
-          canLmsExport: _v8
+          hasTeamMembersFilter: _v5,
+          canLmsExport: _v6
         }
       } = (0, _v3.useContext)(_v20.ManageTeamStateCtx),
       {
-        updateRolesFilter: _v9,
-        updateStatusesFilter: _v10,
-        updateAccessFilter: _v11
+        updateRolesFilter: _v7,
+        updateStatusesFilter: _v8,
+        updateAccessFilter: _v9
       } = (0, _v3.useContext)(_v20.ManageTeamDispatchCtx),
       {
         capabilities: {
-          hasEnableChinaDelivery: _v12
+          hasEnableChinaDelivery: _v10
         }
-      } = (0, _v81.useCapability)(["hasEnableChinaDelivery"], _v5.owner.uri),
-      _v13 = _v5.owner.metadata?.connections?.teamMembers?.roles ?? [];
+      } = (0, _v79.useCapability)(["hasEnableChinaDelivery"], _v3.owner.uri),
+      _v11 = _v3.owner.metadata?.connections?.teamMembers?.roles ?? [];
     (0, _v3.useEffect)(() => {
-      _v16();
+      _v14();
     }, []);
-    let _v14 = (_v0, _v1) => _v0.some((_v0, _v1) => _v0.applied !== _v1[_v1].applied),
-      _v15 = (_v0, _v1) => {
-        _v94.BigPictureClient.sendEvent(new _v94.Event("vimeo.filter_team_members_list", 4, {
-          product: "Collaboration",
-          user_id: _v1 ? String(_v1) : null,
-          filter: _v0,
-          filter_values: _v1.filter(_v0 => _v0.applied).map(_v0 => _v0.value)
+    let _v12 = (_v0, _v1) => _v0.some((_v0, _v1) => _v0.applied !== _v1[_v1].applied),
+      _v13 = (_v0, _v1) => {},
+      _v14 = () => {
+        _v7((0, _v104.getDefaultApplicableRoleFilters)(_v11));
+      },
+      _v15 = () => {
+        _v8(_v20.STATUSES_FILTER_DEFAULT);
+      },
+      _v16 = (0, _v3.useCallback)(() => {
+        _v9((0, _v104.getDefaultApplicableAccessFilters)({
+          hasEnableChinaDelivery: _v10 ?? !1,
+          isSSOAvailable: _v4,
+          canLmsExport: _v6 ?? !1
         }));
-      },
-      _v16 = () => {
-        _v9((0, _v110.getDefaultApplicableRoleFilters)(_v13));
-      },
-      _v17 = () => {
-        _v10(_v20.STATUSES_FILTER_DEFAULT);
-      },
-      _v18 = (0, _v3.useCallback)(() => {
-        _v11((0, _v110.getDefaultApplicableAccessFilters)({
-          hasEnableChinaDelivery: _v12 ?? !1,
-          isSSOAvailable: _v6,
-          canLmsExport: _v8 ?? !1
-        }));
-      }, [_v8, _v12, _v6]);
+      }, [_v6, _v10, _v4]);
     return (0, _v3.useEffect)(() => {
-      _v18();
-    }, [_v18]), (0, _v2.jsxs)(_v32.HStack, {
+      _v16();
+    }, [_v16]), (0, _v2.jsxs)(_v32.HStack, {
       justifyContent: "space-between",
       alignItems: "center",
       borderColor: "surface",
-      children: [(0, _v2.jsx)(_v105, {
+      children: [(0, _v2.jsx)(_v99, {
         padding: (0, _v8.rem)(0)
-      }), _v7 && (0, _v2.jsxs)(_v32.HStack, {
+      }), _v5 && (0, _v2.jsxs)(_v32.HStack, {
         gap: (0, _v8.rem)(16),
-        children: [[..._v2, ..._v3, ..._v4].some(_v0 => _v0.applied) && (0, _v2.jsx)(_v31.Button, {
+        children: [[..._v0, ..._v1, ..._v2].some(_v0 => _v0.applied) && (0, _v2.jsx)(_v31.Button, {
           variant: "secondary",
           borderRadius: "md",
           onClick: () => {
-            _v16(), _v17(), _v18();
+            _v14(), _v15(), _v16();
           },
           fontWeight: "medium",
           children: (0, _v35.translate)({
@@ -1071,8 +1002,8 @@
         }), (0, _v2.jsx)(_v22.Text, {
           variant: "body-md",
           children: _v27.T.FilterBy
-        }), (0, _v2.jsx)(_v109, {
-          appliedFilters: _v2,
+        }), (0, _v2.jsx)(_v103, {
+          appliedFilters: _v0,
           filterType: "role",
           label: (0, _v35.translate)({
             singular: "Role",
@@ -1101,11 +1032,11 @@
             }
           }),
           onFiltersApplied: _v0 => {
-            _v14(_v2, _v0) && _v9(_v0), _v15("role", _v0);
+            _v12(_v0, _v0) && _v7(_v0), _v13("role", _v0);
           },
-          onClearFilters: _v16
-        }), (0, _v2.jsx)(_v109, {
-          appliedFilters: _v3,
+          onClearFilters: _v14
+        }), (0, _v2.jsx)(_v103, {
+          appliedFilters: _v1,
           filterType: "status",
           label: (0, _v35.translate)({
             singular: "Status",
@@ -1128,54 +1059,47 @@
             }
           }),
           onFiltersApplied: _v0 => {
-            _v14(_v3, _v0) && _v10(_v0), _v15("status", _v0);
+            _v12(_v1, _v0) && _v8(_v0), _v13("status", _v0);
           },
-          onClearFilters: _v17
-        }), !!_v4.length && (0, _v2.jsx)(_v109, {
-          appliedFilters: _v4,
+          onClearFilters: _v15
+        }), !!_v2.length && (0, _v2.jsx)(_v103, {
+          appliedFilters: _v2,
           filterType: "access",
           label: _v27.T.Access,
           onFiltersApplied: _v0 => {
-            _v14(_v4, _v0) && _v11(_v0), _v15("access", _v0);
+            _v12(_v2, _v0) && _v9(_v0), _v13("access", _v0);
           },
-          onClearFilters: _v18
+          onClearFilters: _v16
         })]
       })]
     });
   };
-  var _v112 = _v0.i(0);
-  let _v113 = ({
+  var _v106 = _v0.i(0);
+  let _v107 = ({
       label: _v0,
       sortField: _v1
     }) => {
-      let _v2 = (0, _v3.useContext)(_v38.ViewerContext),
-        _v3 = _v2?.user?.id,
-        {
-          sort: _v4
+      let {
+          sort: _v2
         } = (0, _v3.useContext)(_v20.ManageTeamStateCtx),
         {
-          updateSort: _v5,
-          updateDirection: _v6
+          updateSort: _v3,
+          updateDirection: _v4
         } = (0, _v3.useContext)(_v20.ManageTeamDispatchCtx);
       return (0, _v2.jsx)(_v31.Button, {
         "data-testid": "media-library-direction-filter-button",
         variant: "tertiary",
         onClick: () => {
-          let _v0 = "asc" === _v4.direction ? "desc" : "asc";
-          _v5(_v1), _v6(_v0), _v94.BigPictureClient.sendEvent(new _v94.Event("vimeo.sort_team_members_list", 1, {
-            product: "Collaboration",
-            user_id: _v3 ? String(_v3) : null,
-            field: _v1,
-            direction: _v0
-          }));
+          let _v0 = "asc" === _v2.direction ? "desc" : "asc";
+          _v3(_v1), _v4(_v0);
         },
-        rightIcon: _v4.type !== _v1 ? (0, _v2.jsx)(_v112.DoubleChevronDownSmall, {}) : "asc" === _v4.direction ? (0, _v2.jsx)(_v108.ChevronUpSmall, {}) : (0, _v2.jsx)(_v107.ChevronDownSmall, {}),
+        rightIcon: _v2.type !== _v1 ? (0, _v2.jsx)(_v106.DoubleChevronDownSmall, {}) : "asc" === _v2.direction ? (0, _v2.jsx)(_v102.ChevronUpSmall, {}) : (0, _v2.jsx)(_v101.ChevronDownSmall, {}),
         fontWeight: "medium",
         color: "text-secondary",
         children: _v0
       });
     },
-    _v114 = _v50.default.div.withConfig({
+    _v108 = _v49.default.div.withConfig({
       displayName: "TeamMembersListHeading__ListHeaderContainer",
       componentId: "sc-1b55840f-0"
     })`
@@ -1190,7 +1114,7 @@
     flex: 0 0;
   }
 `,
-    _v115 = ({
+    _v109 = ({
       children: _v0
     }) => (0, _v2.jsx)(_v22.Text, {
       p: `${(0, _v8.rem)(10)} ${(0, _v8.rem)(16)}`,
@@ -1198,37 +1122,37 @@
       fontWeight: "medium",
       children: _v0
     }),
-    _v116 = () => {
+    _v110 = () => {
       let {
         teamCapabilities: {
           hasTeamMembersFilter: _v0
         }
       } = (0, _v3.useContext)(_v20.ManageTeamStateCtx);
-      return (0, _v2.jsx)(_v114, {
+      return (0, _v2.jsx)(_v108, {
         "data-id": "teamListHeader",
         children: _v0 ? (0, _v2.jsxs)(_v2.Fragment, {
-          children: [(0, _v2.jsx)(_v113, {
+          children: [(0, _v2.jsx)(_v107, {
             label: _v27.T.Name,
             sortField: "name"
-          }), (0, _v2.jsx)(_v113, {
+          }), (0, _v2.jsx)(_v107, {
             label: _v27.T.Role,
             sortField: "role"
           })]
         }) : (0, _v2.jsxs)(_v2.Fragment, {
-          children: [(0, _v2.jsx)(_v115, {
+          children: [(0, _v2.jsx)(_v109, {
             children: _v27.T.Name
-          }), (0, _v2.jsx)(_v115, {
+          }), (0, _v2.jsx)(_v109, {
             children: _v27.T.Role
           })]
         })
       });
     },
-    _v117 = () => (0, _v2.jsx)("div", {
-      children: [...Array(8)].map((_v0, _v1) => (0, _v2.jsx)(_v93, {
-        children: (0, _v2.jsx)(_v120, {})
+    _v111 = () => (0, _v2.jsx)("div", {
+      children: [...Array(8)].map((_v0, _v1) => (0, _v2.jsx)(_v88, {
+        children: (0, _v2.jsx)(_v114, {})
       }, _v1))
     }),
-    _v118 = () => {
+    _v112 = () => {
       let _v0 = (0, _v3.useContext)(_v38.ViewerContext),
         {
           teamInfo: _v1,
@@ -1272,30 +1196,27 @@
           trackTeamMemberChangeRole: _v33
         } = (0, _v3.useContext)(_v20.ManageTeamAnalytics),
         [_v34, _v35] = (0, _v3.useState)(!0),
-        [_v36, _v37] = (0, _v63.useInfiniteScroll)(_v34),
+        [_v36, _v37] = (0, _v61.useInfiniteScroll)(_v34),
         _v38 = _v1.owner,
         _v39 = 0 === _v9.length && (!_v10 || 1 === _v4),
-        _v40 = (0, _v66.useWindowSize)(),
+        _v40 = (0, _v64.useWindowSize)(),
         [_v41, _v42] = (0, _v3.useState)(!1),
-        {
-          sendDistributionAnalyticsEvent: _v43
-        } = (0, _v57.useDistributionAnalyticsEvent)(),
-        _v44 = (0, _v10.useToast)();
+        _v43 = (0, _v10.useToast)();
       (0, _v3.useEffect)(() => {
-        _v11.content && !_v44.isActive(_v11.content) && _v44({
+        _v11.content && !_v43.isActive(_v11.content) && _v43({
           id: _v11.content,
           title: _v11.content,
           variant: _v11.status || "neutral"
         });
-      }, [_v11, _v44]), (0, _v3.useEffect)(() => {
+      }, [_v11, _v43]), (0, _v3.useEffect)(() => {
         _v2.length < _v3 && _v17(_v4 + 1);
       }, [_v36]), (0, _v3.useEffect)(() => {
         _v5 ? _v35(!1) : _v35(_v2.length < _v3);
       }, [_v2.length, _v3, _v5]), (0, _v3.useEffect)(() => {
         _v42(_v40.width <= 680);
       }, [_v40.width]);
-      let [_v45, _v46] = (0, _v3.useState)(null),
-        _v47 = async (_v0, _v1, _v2) => {
+      let [_v44, _v45] = (0, _v3.useState)(null),
+        _v46 = async (_v0, _v1, _v2) => {
           let _v3 = function (_v0, _v1, _v2) {
             if (_v0.permissionLevel !== _v1) return !0;
             if (!_v2) return !1;
@@ -1337,8 +1258,8 @@
             return;
           }
           if (_v4 !== _v0) {
-            let _v0 = (0, _v64.camelizeString)(_v4.toLowerCase()),
-              _v1 = (0, _v64.camelizeString)(_v0.toLowerCase());
+            let _v0 = (0, _v62.camelizeString)(_v4.toLowerCase()),
+              _v1 = (0, _v62.camelizeString)(_v0.toLowerCase());
             _v26({
               ..._v1.teamMembersCount,
               [_v0]: _v1.teamMembersCount[_v0] - 1,
@@ -1366,11 +1287,11 @@
             old_role: _v4.toLowerCase(),
             team_member_id: _v7,
             is_live_permission_granted: !1,
-            old_global_capability: (0, _v68.getOldGlobalCapability)(_v1),
-            new_global_capability: (0, _v68.getNewGlobalCapability)(_v2)
+            old_global_capability: (0, _v66.getOldGlobalCapability)(_v1),
+            new_global_capability: (0, _v66.getNewGlobalCapability)(_v2)
           });
         },
-        _v48 = _v0 => {
+        _v47 = _v0 => {
           (async () => {
             await _v20(_v0.uri);
           })().then(() => {
@@ -1385,14 +1306,14 @@
               ..._v12,
               currentUnassignedSeatCount: _v12.currentUnassignedSeatCount + 1
             }));
-            let _v1 = (0, _v64.camelizeString)(_v0.toLowerCase());
+            let _v1 = (0, _v62.camelizeString)(_v0.toLowerCase());
             _v26({
               ..._v1.teamMembersCount,
               [_v1]: _v1.teamMembersCount[_v1] - 1,
               unassigned: _v1.teamMembersCount.unassigned + 1
             });
           });
-          let _v1 = (0, _v69.getIdFromLink)(_v0.uri);
+          let _v1 = (0, _v67.getIdFromLink)(_v0.uri);
           _v30({
             role: _v0.role.toLowerCase(),
             team_member_id: _v1
@@ -1405,26 +1326,26 @@
       }, [_v0?.user, _v6, _v7, _v4, _v14]), (0, _v3.useEffect)(() => {
         !_v0 || _v8 || _v6 || _v29();
       }, [_v8, _v6, _v0?.user]);
-      let _v49 = Number(_v0?.user?.id) === (0, _v69.getIdFromLink)(_v38?.uri || "");
+      let _v48 = Number(_v0?.user?.id) === (0, _v67.getIdFromLink)(_v38?.uri || "");
       return (0, _v2.jsxs)(_v7.Flex, {
         mt: (0, _v8.rem)(20),
         p: (0, _v8.rem)(16),
         gap: (0, _v8.rem)(16),
         direction: "column",
-        children: [(0, _v2.jsx)(_v111, {}), (0, _v2.jsxs)(_v6.Box, {
-          children: [(0, _v2.jsx)(_v116, {}), _v39 && !_v5 && (0, _v2.jsx)(_v92, {
+        children: [(0, _v2.jsx)(_v105, {}), (0, _v2.jsxs)(_v6.Box, {
+          children: [(0, _v2.jsx)(_v110, {}), _v39 && !_v5 && (0, _v2.jsx)(_v87, {
             item: {
               avatarLink: _v38.pictures.sizes[1].link || "https://i.vimeocdn.com/portrait/defaults-blue_72x72.png",
-              primaryDisplay: `${_v38.name}${_v49 ? " (" + _v27.T.You + ")" : ""}`,
+              primaryDisplay: `${_v38.name}${_v48 ? " (" + _v27.T.You + ")" : ""}`,
               secondaryDisplay: _v38.email
             },
             children: (0, _v2.jsxs)(_v32.HStack, {
-              children: [(0, _v2.jsx)(_v119, {
+              children: [(0, _v2.jsx)(_v113, {
                 text: _v27.T.Owner
-              }), (0, _v2.jsx)(_v89, {})]
+              }), (0, _v2.jsx)(_v84, {})]
             })
-          }), _v9.length > 0 && !_v3 && !_v5 && (0, _v2.jsx)(_v122, {
-            children: (0, _v2.jsx)(_v123, {
+          }), _v9.length > 0 && !_v3 && !_v5 && (0, _v2.jsx)(_v116, {
+            children: (0, _v2.jsx)(_v117, {
               children: _v27.T.NoResults(_v9)
             })
           }), !_v5 && !_v1.currentTeamSize && _v1.maxTeamSize > 0 && !_v9.length && !_v15 && _v12.tier !== _v26.Tier.Free && (0, _v2.jsxs)(_v7.Flex, {
@@ -1436,7 +1357,7 @@
             height: {
               lg: (0, _v8.rem)(60)
             },
-            children: [(0, _v2.jsx)(_v61.PersonUserAdd, {
+            children: [(0, _v2.jsx)(_v59.PersonUserAdd, {
               display: "flex",
               height: (0, _v8.rem)(38),
               marginTop: (0, _v8.rem)(7),
@@ -1445,7 +1366,7 @@
               minWidth: {
                 sm: (0, _v8.rem)(50)
               }
-            }), (0, _v2.jsx)(_v58.Header, {
+            }), (0, _v2.jsx)(_v56.Header, {
               size: "sm",
               display: "flex",
               marginTop: (0, _v8.rem)(18),
@@ -1476,7 +1397,7 @@
                 };
               }) : [],
               _v4 = _v3.find(_v0 => _v0.value === _v0.permissionLevel) || {
-                label: (0, _v62.getTeamRoleLabel)(_v0.permissionLevel),
+                label: (0, _v60.getTeamRoleLabel)(_v0.permissionLevel),
                 value: _v0.permissionLevel,
                 toggles: []
               },
@@ -1484,7 +1405,7 @@
                 let {
                     user: _v2
                   } = _v0,
-                  _v3 = Number(_v1?.user?.id) === (0, _v69.getIdFromLink)(_v2?.uri || "");
+                  _v3 = Number(_v1?.user?.id) === (0, _v67.getIdFromLink)(_v2?.uri || "");
                 return {
                   avatarLink: _v2 ? _v2.pictures.sizes[1].link : "https://i.vimeocdn.com/portrait/defaults-blue_72x72.png",
                   primaryDisplay: `${_v2 ? _v2.name : _v0.email}${_v3 ? " (" + _v27.T.You + ")" : ""}`,
@@ -1493,13 +1414,13 @@
                 };
               })(_v0, _v0),
               _v6 = _v1 > _v2.length - 4;
-            return (0, _v2.jsx)(_v92, {
+            return (0, _v2.jsx)(_v87, {
               ref: _v2,
               item: _v5,
-              children: (0, _v2.jsx)(_v121, {
+              children: (0, _v2.jsx)(_v115, {
                 "data-id": "rolesMenuButton",
-                children: _v0.isLoading ? (0, _v2.jsx)(_v120, {}) : _v0.status === _v26.MemberStatus.Pending || !_v0.user || _v0 && _v0.user && _v0?.user.uri != _v0.user.uri ? (0, _v2.jsxs)(_v2.Fragment, {
-                  children: [(0, _v2.jsx)(_v90.default, {
+                children: _v0.isLoading ? (0, _v2.jsx)(_v114, {}) : _v0.status === _v26.MemberStatus.Pending || !_v0.user || _v0 && _v0.user && _v0?.user.uri != _v0.user.uri ? (0, _v2.jsxs)(_v2.Fragment, {
+                  children: [(0, _v2.jsx)(_v85.default, {
                     selectedRole: _v4,
                     permissionLevels: _v3,
                     permissionLevelDescriptions: _v0.applicableRoles ? _v0.applicableRoles.map(_v0 => ({
@@ -1508,10 +1429,10 @@
                     })) : [],
                     personalTeamFolder: _v0.metadata?.connections?.personalTeamFolder?.uri,
                     onClosed: _v0 => {
-                      _v47(_v0.value || _v0.permissionLevel, _v0, _v0.toggles);
+                      _v46(_v0.value || _v0.permissionLevel, _v0, _v0.toggles);
                     },
                     onDelete: () => {
-                      _v48(_v0);
+                      _v47(_v0);
                     },
                     isMobile: _v41,
                     deleteButtonText: _v27.T.RemoveFromTeam,
@@ -1519,7 +1440,7 @@
                     positionAbove: _v6,
                     oldRole: _v0.permissionLevel,
                     selectedUserName: _v5.primaryDisplay
-                  }), (0, _v2.jsx)(_v86, {
+                  }), (0, _v2.jsx)(_v81, {
                     triggerDataId: `team-member-${_v1 + 1}-overflow`,
                     teamMemberUri: _v0.uri,
                     teamMemberUserUri: _v0.user?.uri,
@@ -1527,14 +1448,14 @@
                     isPending: _v0.status === _v26.MemberStatus.Pending,
                     teamMemberPermissionLevel: _v0.permissionLevel,
                     onDelete: () => {
-                      _v48(_v0);
+                      _v47(_v0);
                     },
                     personalTeamFolder: _v0.metadata?.connections?.personalTeamFolder?.uri,
                     selectedUserName: _v5.primaryDisplay,
                     resendInvite: () => (_v0 => {
                       if (_v0.status === _v26.MemberStatus.Pending && _v0.inviteUrl) try {
                         _v22(_v0.uri);
-                        let _v0 = (0, _v69.getIdFromLink)(_v0.uri);
+                        let _v0 = (0, _v67.getIdFromLink)(_v0.uri);
                         _v32({
                           role: _v0.permissionLevel.toLowerCase(),
                           team_member_id: _v0
@@ -1545,8 +1466,8 @@
                     })(_v0),
                     copyInviteLink: () => (_v0 => {
                       if (_v0.status === _v26.MemberStatus.Pending && _v0.inviteUrl) try {
-                        (0, _v67.default)(_v0.inviteUrl), _v23(_v27.T.Copied);
-                        let _v0 = (0, _v69.getIdFromLink)(_v0.uri);
+                        (0, _v65.default)(_v0.inviteUrl), _v23(_v27.T.Copied);
+                        let _v0 = (0, _v67.getIdFromLink)(_v0.uri);
                         _v31({
                           role: _v0.role.toLowerCase(),
                           team_member_id: _v0
@@ -1558,34 +1479,14 @@
                     recentlyReminded: _v0.recentlyReminded,
                     hasShareFolders: _v0.applicablePermissionPolicies.folder.length > 0,
                     onShareFolders: () => {
-                      _v43({
-                        eventName: "vimeo.open_distribution_options",
-                        contextOverrides: {
-                          product: {
-                            location: "body",
-                            element: "ellipses",
-                            copy: "Share folders"
-                          },
-                          web: {
-                            path: window.location.pathname,
-                            target: "bulk_share_folder_modal",
-                            page_name: "team_management_page"
-                          }
-                        }
-                      }) || (0, _v46.sendOverflowClickShareFolderEvent)(_v0?.teamUser, _v0), _v27({
+                      _v27({
                         currentModalInDisplay: _v26.TeamManagementModals.ADD_TO_FOLDERS_MODAL,
                         data: {
                           teamMembersToShareFolders: [_v0]
                         }
                       });
                     },
-                    onViewTeamMembersAccess: () => {
-                      (0, _v46.sendOverflowClickViewTeamMembersAccessEvent)(_v0?.teamUser, _v0, _v38);
-                    },
-                    onViewTeamMembersActivity: () => {
-                      (0, _v46.sendViewTeamMembersActivityEvent)(_v0);
-                    },
-                    onViewGroupsForMember: _v0 => _v46({
+                    onViewGroupsForMember: _v0 => _v45({
                       ..._v5,
                       uri: _v0
                     }),
@@ -1604,17 +1505,17 @@
                     }
                   })]
                 }) : (0, _v2.jsx)("div", {
-                  children: (0, _v2.jsx)(_v119, {
+                  children: (0, _v2.jsx)(_v113, {
                     text: _v27.T.PermissionLevels.Admin
                   })
                 })
               })
             }, _v0.uri.substring(_v0.uri.lastIndexOf("/") + 1));
           })]
-        }), (_v5 || !_v10 && _v34) && (0, _v2.jsx)(_v117, {}), _v10 && _v3 > 25 && (0, _v2.jsx)(_v6.Box, {
+        }), (_v5 || !_v10 && _v34) && (0, _v2.jsx)(_v111, {}), _v10 && _v3 > 25 && (0, _v2.jsx)(_v6.Box, {
           margin: `${(0, _v8.rem)(20)} 0`,
           float: "right",
-          children: (0, _v2.jsx)(_v59.Pagination, {
+          children: (0, _v2.jsx)(_v57.Pagination, {
             page: _v4,
             pageSize: 25,
             count: _v3,
@@ -1624,16 +1525,16 @@
               _v0 <= 0 || _v3 <= (_v0 - 1) * 25 || _v17(_v0);
             }
           })
-        }), _v0?.user?.id && _v45 ? (0, _v2.jsx)(_v65.UserGroupsModal, {
-          teamMemberUri: _v45.uri,
-          ownerId: (0, _v69.getIdFromLink)(_v38.uri),
-          onClose: () => _v46(null),
-          userAvatar: _v45.avatarLink,
-          userTitle: _v45.primaryDisplay || _v45.secondaryDisplay
+        }), _v0?.user?.id && _v44 ? (0, _v2.jsx)(_v63.UserGroupsModal, {
+          teamMemberUri: _v44.uri,
+          ownerId: (0, _v67.getIdFromLink)(_v38.uri),
+          onClose: () => _v45(null),
+          userAvatar: _v44.avatarLink,
+          userTitle: _v44.primaryDisplay || _v44.secondaryDisplay
         }) : null]
       });
     },
-    _v119 = ({
+    _v113 = ({
       text: _v0
     }) => (0, _v2.jsx)(_v22.Text, {
       variant: "body-xl",
@@ -1646,19 +1547,19 @@
       color: "text-primary",
       children: _v0
     }),
-    _v120 = () => (0, _v2.jsx)(_v9.Skeleton, {
+    _v114 = () => (0, _v2.jsx)(_v9.Skeleton, {
       display: "flex",
       width: (0, _v8.rem)(150),
       height: (0, _v8.rem)(40)
     }),
-    _v121 = _v50.default.div.withConfig({
+    _v115 = _v49.default.div.withConfig({
       displayName: "TeamMembersList__RoleContainer",
       componentId: "sc-9b0cebe9-0"
     })`
   display: flex;
   align-items: center;
 `,
-    _v122 = _v50.default.div.withConfig({
+    _v116 = _v49.default.div.withConfig({
       displayName: "TeamMembersList__NoResultsWrapper",
       componentId: "sc-9b0cebe9-1"
     })`
@@ -1668,7 +1569,7 @@
   justify-content: center;
   align-items: center;
 `,
-    _v123 = ({
+    _v117 = ({
       children: _v0,
       dataId: _v1
     }) => (0, _v2.jsx)(_v22.Text, {
@@ -1682,64 +1583,64 @@
       "data-id": _v1,
       children: _v0
     }),
-    _v124 = () => (0, _v2.jsx)(_v60.Spinner, {
+    _v118 = () => (0, _v2.jsx)(_v58.Spinner, {
       display: "flex",
       justifyContent: "center"
     });
-  var _v125 = _v0.i(0),
-    _v126 = _v0.i(0),
-    _v127 = _v0.i(0);
-  let _v128 = _v50.default.div.withConfig({
+  var _v119 = _v0.i(0),
+    _v120 = _v0.i(0),
+    _v121 = _v0.i(0);
+  let _v122 = _v49.default.div.withConfig({
       displayName: "styles__UpgradeRequestListItem",
       componentId: "sc-7a84386f-0"
     })`
-  @media (min-width: ${_v126.TABLET}) {
-    min-width: ${(0, _v125.rem)(600)};
+  @media (min-width: ${_v120.TABLET}) {
+    min-width: ${(0, _v119.rem)(600)};
   }
 
   display: flex;
-  padding: ${(0, _v125.rem)(20)};
-  border: ${(0, _v125.rem)(1)} solid var(--vimeo-colors-stroke);
-  border-radius: ${(0, _v125.rem)(5)};
+  padding: ${(0, _v119.rem)(20)};
+  border: ${(0, _v119.rem)(1)} solid var(--vimeo-colors-stroke);
+  border-radius: ${(0, _v119.rem)(5)};
   justify-content: space-between;
-  gap: ${(0, _v125.rem)(10)} ${(0, _v125.rem)(100)};
+  gap: ${(0, _v119.rem)(10)} ${(0, _v119.rem)(100)};
   flex-wrap: wrap;
 
   font-family: Arial, system-ui, sans-serif;
   font-style: normal;
   font-weight: normal;
   color: var(--vimeo-colors-text-secondary);
-  font-size: ${(0, _v125.rem)(14)};
-  line-height: ${(0, _v125.rem)(20)};
+  font-size: ${(0, _v119.rem)(14)};
+  line-height: ${(0, _v119.rem)(20)};
 `,
-    _v129 = _v50.default.div.withConfig({
+    _v123 = _v49.default.div.withConfig({
       displayName: "styles__ButtonContainer",
       componentId: "sc-7a84386f-1"
     })`
-  min-width: ${(0, _v125.rem)(160)};
-  margin-top: ${(0, _v125.rem)(18)};
+  min-width: ${(0, _v119.rem)(160)};
+  margin-top: ${(0, _v119.rem)(18)};
   display: flex;
 `,
-    _v130 = (0, _v50.default)(_v31.Button).withConfig({
+    _v124 = (0, _v49.default)(_v31.Button).withConfig({
       displayName: "styles__ButtonStyled",
       componentId: "sc-7a84386f-2"
     })`
   width: 100%;
 `,
-    _v131 = (0, _v50.default)(_v130).withConfig({
+    _v125 = (0, _v49.default)(_v124).withConfig({
       displayName: "styles__ButtonReject",
       componentId: "sc-7a84386f-3"
     })`
-  margin-right: ${(0, _v125.rem)(8)};
+  margin-right: ${(0, _v119.rem)(8)};
 `,
-    _v132 = _v50.default.div.withConfig({
+    _v126 = _v49.default.div.withConfig({
       displayName: "styles__TeamUserInfo",
       componentId: "sc-7a84386f-4"
     })`
   display: flex;
   flex-direction: column;
 `,
-    _v133 = _v50.default.div.withConfig({
+    _v127 = _v49.default.div.withConfig({
       displayName: "styles__ActionButtonsStyled",
       componentId: "sc-7a84386f-5"
     })`
@@ -1747,21 +1648,21 @@
   justify-content: flex-end;
   flex: 1;
 `,
-    _v134 = _v50.default.div.withConfig({
+    _v128 = _v49.default.div.withConfig({
       displayName: "styles__LoaderWrapper",
       componentId: "sc-7a84386f-6"
     })`
   margin: auto;
-  margin-bottom: ${(0, _v125.rem)(24)};
+  margin-bottom: ${(0, _v119.rem)(24)};
 `;
-  _v50.default.div.withConfig({
+  _v49.default.div.withConfig({
     displayName: "styles__StatusTextWrapper",
     componentId: "sc-7a84386f-7"
   })`
   margin: auto;
   font-style: italic;
 `;
-  let _v135 = _v50.default.div.withConfig({
+  let _v129 = _v49.default.div.withConfig({
       displayName: "styles__ModalContentWrapper",
       componentId: "sc-7a84386f-8"
     })`
@@ -1769,28 +1670,28 @@
       theme: _v0
     }) => _v0.shadows[200]}
   position: relative;
-  padding: ${(0, _v125.rem)(27)} ${(0, _v125.rem)(21)} ${(0, _v125.rem)(16)} ${(0, _v125.rem)(21)};
-  border-radius: ${(0, _v125.rem)(8)};
+  padding: ${(0, _v119.rem)(27)} ${(0, _v119.rem)(21)} ${(0, _v119.rem)(16)} ${(0, _v119.rem)(21)};
+  border-radius: ${(0, _v119.rem)(8)};
   background: var(--vimeo-colors-surface);
 
   h6 {
     color: var(--vimeo-colors-text-primary);
     font-weight: 700;
-    font-size: ${(0, _v125.rem)(18)};
+    font-size: ${(0, _v119.rem)(18)};
   }
 `,
-    _v136 = _v50.default.div.withConfig({
+    _v130 = _v49.default.div.withConfig({
       displayName: "styles__StyledButtonContainer",
       componentId: "sc-7a84386f-9"
     })`
   margin-left: auto;
   margin-right: 0;
   display: flex;
-  ${_v0 => _v0.fullWidth ? _v50.css`
+  ${_v0 => _v0.fullWidth ? _v49.css`
           width: 100%;
         ` : ""}
 `,
-    _v137 = _v50.default.div.withConfig({
+    _v131 = _v49.default.div.withConfig({
       displayName: "styles__ModalHeaderContainer",
       componentId: "sc-7a84386f-10"
     })`
@@ -1800,39 +1701,39 @@
   margin-bottom: 20px;
   color: var(--vimeo-colors-text-primary);
 `,
-    _v138 = _v50.default.div.withConfig({
+    _v132 = _v49.default.div.withConfig({
       displayName: "styles__StyledModalFooter",
       componentId: "sc-7a84386f-11"
     })`
-  margin-top: ${(0, _v125.rem)(10)};
+  margin-top: ${(0, _v119.rem)(10)};
   & .invite-modal-footer {
     border-top: 0;
-    ${_v127.media.sm`
-      padding-top: ${(0, _v125.rem)(10)};
-      margin-top: ${(0, _v125.rem)(33)};
+    ${_v121.media.sm`
+      padding-top: ${(0, _v119.rem)(10)};
+      margin-top: ${(0, _v119.rem)(33)};
     `}
   }
 `;
-  var _v139 = _v0.i(0),
-    _v140 = _v0.i(0);
-  let _v141 = async (_v0, _v1, _v2, _v3, _v4 = null) => {
+  var _v133 = _v0.i(0),
+    _v134 = _v0.i(0);
+  let _v135 = async (_v0, _v1, _v2, _v3, _v4 = null) => {
       if (!_v3) throw Error("no viewer");
       let _v5 = _v2 ?? _v3.user?.id,
-        _v6 = encodeURIComponent(_v139.RoleUpgradeField.join(",")),
+        _v6 = encodeURIComponent(_v133.RoleUpgradeField.join(",")),
         _v7 = `/teams/${_v5}/role_upgrade/${_v0.id}?fields=${_v6}`;
-      return (0, _v140.makeApiCall)(_v7, _v3, "POST", {
+      return (0, _v134.makeApiCall)(_v7, _v3, "POST", {
         action: _v1,
         reject_reason: _v4
       });
     },
-    _v142 = async (_v0, _v1, _v2, _v3) => {
+    _v136 = async (_v0, _v1, _v2, _v3) => {
       let _v4, _v5;
       if (!_v1) throw Error("no viewer");
-      return (0, _v140.makeApiCall)((_v4 = _v2 ?? _v1.user?.id, _v5 = encodeURIComponent(_v139.RoleUpgradeField.join(",")), `/teams/${_v4}/role_upgrades?fields=${_v5}`), _v1).then(_v0 => {
+      return (0, _v134.makeApiCall)((_v4 = _v2 ?? _v1.user?.id, _v5 = encodeURIComponent(_v133.RoleUpgradeField.join(",")), `/teams/${_v4}/role_upgrades?fields=${_v5}`), _v1).then(_v0 => {
         _v0(_v0.data.filter(_v0 => _v0.user && _v0.teamUser)), _v3();
       });
     },
-    _v143 = (0, _v50.withTheme)(_v3.default.memo(({
+    _v137 = (0, _v49.withTheme)(_v3.default.memo(({
       theme: _v0,
       isOpen: _v1,
       onRejectReasonModalClosed: _v2,
@@ -1850,8 +1751,8 @@
           }
         } = (0, _v3.useContext)(_v20.ManageTeamStateCtx),
         _v12 = (0, _v3.useContext)(_v38.ViewerContext),
-        _v13 = (0, _v2.jsxs)(_v135, {
-          children: [(0, _v2.jsx)(_v137, {
+        _v13 = (0, _v2.jsxs)(_v129, {
+          children: [(0, _v2.jsx)(_v131, {
             children: _v3 && (0, _v2.jsx)("div", {
               children: (0, _v35.translate)({
                 singular: "Reject {USER_NAME} ({EMAIL}) from becoming {NEW_ROLE}",
@@ -1887,9 +1788,9 @@
                 }
               })
             })
-          }), (0, _v2.jsx)(_v56.CloseButton, {
+          }), (0, _v2.jsx)(_v55.CloseButton, {
             onClick: () => _v2()
-          }), _v7 && (0, _v2.jsx)(_v55.Notice, {
+          }), _v7 && (0, _v2.jsx)(_v54.Notice, {
             format: "negative",
             children: (0, _v35.translate)({
               singular: "Something went wrong. Please try again.",
@@ -1917,9 +1818,9 @@
                 }
               }
             })
-          }), (0, _v2.jsxs)(_v51.FormControl, {
+          }), (0, _v2.jsxs)(_v50.FormControl, {
             isDisabled: _v9,
-            children: [(0, _v2.jsx)(_v52.FormLabel, {
+            children: [(0, _v2.jsx)(_v51.FormLabel, {
               htmlFor: "reject-reason-text",
               children: (0, _v35.translate)({
                 singular: "Reject reason",
@@ -1947,19 +1848,19 @@
                   }
                 }
               })
-            }), (0, _v2.jsx)(_v53.Textarea, {
+            }), (0, _v2.jsx)(_v52.Textarea, {
               id: "reject-reason-text",
               placeholder: "Type a message (optional)",
               defaultValue: _v5 || "",
               onChange: _v0 => _v6(_v0.target.value)
             })]
-          }), (0, _v2.jsx)(_v138, {
-            children: (0, _v2.jsx)(_v54.Modal.Footer, {
+          }), (0, _v2.jsx)(_v132, {
+            children: (0, _v2.jsx)(_v53.Modal.Footer, {
               className: "invite-modal-footer",
-              children: (0, _v2.jsx)(_v136, {
-                children: _v9 ? (0, _v2.jsx)(_v124, {}) : (0, _v2.jsx)(_v31.Button, {
+              children: (0, _v2.jsx)(_v130, {
+                children: _v9 ? (0, _v2.jsx)(_v118, {}) : (0, _v2.jsx)(_v31.Button, {
                   onClick: () => {
-                    _v3 && (_v10(!0), _v141(_v3, "reject", _v11, _v12, _v5).then(() => {
+                    _v3 && (_v10(!0), _v135(_v3, "reject", _v11, _v12, _v5).then(() => {
                       _v6(""), _v4(_v3), _v2();
                     }).catch(() => {
                       _v8(!0);
@@ -1999,9 +1900,9 @@
             })
           })]
         });
-      return (0, _v2.jsx)(_v50.ThemeProvider, {
+      return (0, _v2.jsx)(_v49.ThemeProvider, {
         theme: _v0,
-        children: (0, _v2.jsx)(_v54.Modal, {
+        children: (0, _v2.jsx)(_v53.Modal, {
           size: "lg",
           theme: _v0,
           active: _v1,
@@ -2009,9 +1910,9 @@
         })
       });
     }));
-  var _v144 = _v0.i(0),
-    _v145 = _v0.i(0);
-  let _v146 = () => {
+  var _v138 = _v0.i(0),
+    _v139 = _v0.i(0);
+  let _v140 = () => {
     let {
         membership: {
           currentUnassignedSeatCount: _v0,
@@ -2032,7 +1933,7 @@
       _v9 = _v5 === _v26.Tier.Creator,
       {
         isBlocked: _v10
-      } = (0, _v145.useIsSeatChangeBlocked)({
+      } = (0, _v139.useIsSeatChangeBlocked)({
         tier: _v5
       }),
       _v11 = _v3 || _v7?.basePlanCount || 0,
@@ -2050,10 +1951,10 @@
       showContactOwnerBanner: _v14
     };
   };
-  var _v147 = _v0.i(0),
-    _v148 = _v0.i(0);
-  let _v149 = "accept",
-    _v150 = ({
+  var _v141 = _v0.i(0),
+    _v142 = _v0.i(0);
+  let _v143 = "accept",
+    _v144 = ({
       upgradeRequest: _v0,
       onUpgradeRequestRemoved: _v1,
       onError: _v2
@@ -2077,23 +1978,23 @@
         _v10 = (0, _v3.useContext)(_v38.ViewerContext),
         {
           approveDisabled: _v11
-        } = _v146(),
+        } = _v140(),
         _v12 = (_v0, _v1) => {
-          _v4(!0), _v7(!0), _v141(_v0, _v1, _v5, _v10).then(_v0 => {
+          _v4(!0), _v7(!0), _v135(_v0, _v1, _v5, _v10).then(_v0 => {
             _v1({
               ..._v0,
               status: _v0.status
-            }), _v1 === _v149 ? (_v8({
+            }), _v1 === _v143 ? (_v8({
               ..._v6,
               currentUnassignedSeatCount: _v6.currentUnassignedSeatCount - 1
             }), _v9({
               actor_team_role: _v0.teamUser.role.toLowerCase(),
-              name: _v47.RoleUpgradeEvents.APPROVE_REQUEST,
+              name: _v46.RoleUpgradeEvents.APPROVE_REQUEST,
               approve_count: 1,
               requested_team_role: _v0.roleName.toLowerCase()
             })) : _v9({
               actor_team_role: _v0.teamUser.role.toLowerCase(),
-              name: _v47.RoleUpgradeEvents.DENY_REQUEST,
+              name: _v46.RoleUpgradeEvents.DENY_REQUEST,
               approve_count: 0,
               requested_team_role: _v0.roleName.toLowerCase()
             });
@@ -2103,20 +2004,20 @@
             _v4(!1), _v7(!1);
           });
         };
-      return (0, _v2.jsx)(_v133, {
-        children: (0, _v2.jsx)(_v129, {
-          children: _v3 ? (0, _v2.jsx)(_v134, {
-            children: (0, _v2.jsx)(_v60.Spinner, {
+      return (0, _v2.jsx)(_v127, {
+        children: (0, _v2.jsx)(_v123, {
+          children: _v3 ? (0, _v2.jsx)(_v128, {
+            children: (0, _v2.jsx)(_v58.Spinner, {
               size: "md"
             })
           }) : _v3 || 0 !== _v0.status ? (0, _v2.jsx)(_v2.Fragment, {}) : (0, _v2.jsxs)(_v2.Fragment, {
-            children: [(0, _v2.jsx)(_v131, {
+            children: [(0, _v2.jsx)(_v125, {
               onClick: () => _v12(_v0, "reject"),
               variant: "tertiary",
               size: "sm",
               children: _v27.T.Deny
-            }), (0, _v2.jsx)(_v130, {
-              onClick: () => _v12(_v0, _v149),
+            }), (0, _v2.jsx)(_v124, {
+              onClick: () => _v12(_v0, _v143),
               size: "sm",
               variant: "positive",
               isDisabled: _v11(),
@@ -2126,12 +2027,12 @@
         })
       });
     },
-    _v151 = _v50.default.div.withConfig({
+    _v145 = _v49.default.div.withConfig({
       displayName: "UpgradeRequest__UpgradeRequestAnimated",
       componentId: "sc-d29bfdd3-0"
     })`
-  margin-bottom: ${(0, _v125.rem)(20)};
-  max-height: ${(0, _v125.rem)(100)};
+  margin-bottom: ${(0, _v119.rem)(20)};
+  max-height: ${(0, _v119.rem)(100)};
   opacity: 1;
   &.upgrade-request-animated {
     transition:
@@ -2144,7 +2045,7 @@
     overflow: hidden;
   }
 `,
-    _v152 = (0, _v50.default)(_v58.Header).withConfig({
+    _v146 = (0, _v49.default)(_v56.Header).withConfig({
       displayName: "UpgradeRequest__Title",
       componentId: "sc-d29bfdd3-1"
     })`
@@ -2152,22 +2053,22 @@
   font-weight: 700;
   color: var(--vimeo-colors-text-primary);
 `,
-    _v153 = (0, _v50.default)(_v21.Paragraph).withConfig({
+    _v147 = (0, _v49.default)(_v21.Paragraph).withConfig({
       displayName: "UpgradeRequest__Email",
       componentId: "sc-d29bfdd3-2"
     })`
   margin: 0;
   color: var(--vimeo-colors-text-secondary);
 `,
-    _v154 = (0, _v50.default)(_v152).withConfig({
+    _v148 = (0, _v49.default)(_v146).withConfig({
       displayName: "UpgradeRequest__RoleAccess",
       componentId: "sc-d29bfdd3-3"
     })`
-  margin-top: ${(0, _v125.rem)(8)};
+  margin-top: ${(0, _v119.rem)(8)};
   font-weight: 400;
   color: var(--vimeo-colors-text-primary);
 `,
-    _v155 = ({
+    _v149 = ({
       upgradeRequest: _v0,
       onError: _v1,
       onUpgradeRequestRemoved: _v2,
@@ -2181,23 +2082,23 @@
         };
       return (0, _v3.useEffect)(() => {
         _v3 && _v6(_v3);
-      }, [_v3]), (0, _v2.jsx)(_v151, {
+      }, [_v3]), (0, _v2.jsx)(_v145, {
         className: _v4,
-        children: (0, _v2.jsxs)(_v128, {
-          children: [(0, _v2.jsxs)(_v132, {
-            children: [(0, _v2.jsx)(_v152, {
+        children: (0, _v2.jsxs)(_v122, {
+          children: [(0, _v2.jsxs)(_v126, {
+            children: [(0, _v2.jsx)(_v146, {
               as: "h5",
               size: "sm",
               children: _v0.user.name
-            }), (0, _v2.jsx)(_v153, {
+            }), (0, _v2.jsx)(_v147, {
               size: "md",
               children: _v0.teamUser.email
-            }), (0, _v2.jsx)(_v154, {
+            }), (0, _v2.jsx)(_v148, {
               as: "h5",
               size: "sm",
               children: _v27.T.RoleUpgradeRequest(_v0.roleName)
             })]
-          }), (0, _v2.jsx)(_v150, {
+          }), (0, _v2.jsx)(_v144, {
             upgradeRequest: _v0,
             onError: _v1,
             onUpgradeRequestRemoved: _v6
@@ -2205,12 +2106,12 @@
         })
       });
     };
-  var _v156 = ((_v1 = _v156 || {})[_v1.PERMISSION_OWNER = 1] = "PERMISSION_OWNER", _v1[_v1.PERMISSION_ADMIN = 2] = "PERMISSION_ADMIN", _v1[_v1.PERMISSION_UPLOADER = 3] = "PERMISSION_UPLOADER", _v1[_v1.PERMISSION_CONTRIBUTOR = 4] = "PERMISSION_CONTRIBUTOR", _v1[_v1.PERMISSION_VIEWER = 5] = "PERMISSION_VIEWER", _v1);
-  let _v157 = (0, _v50.default)(_v31.Button).withConfig({
+  var _v150 = ((_v1 = _v150 || {})[_v1.PERMISSION_OWNER = 1] = "PERMISSION_OWNER", _v1[_v1.PERMISSION_ADMIN = 2] = "PERMISSION_ADMIN", _v1[_v1.PERMISSION_UPLOADER = 3] = "PERMISSION_UPLOADER", _v1[_v1.PERMISSION_CONTRIBUTOR = 4] = "PERMISSION_CONTRIBUTOR", _v1[_v1.PERMISSION_VIEWER = 5] = "PERMISSION_VIEWER", _v1);
+  let _v151 = (0, _v49.default)(_v31.Button).withConfig({
       displayName: "UpgradeRequestsModal__StyledTeamRequestsButton",
       componentId: "sc-3a03c8fa-0"
     })`
-  min-width: ${(0, _v125.rem)(108)};
+  min-width: ${(0, _v119.rem)(108)};
   margin-right: 0;
   background-color: transparent;
   color: var(--vimeo-colors-text-primary);
@@ -2220,27 +2121,27 @@
     color: var(--vimeo-colors-text-primary);
   }
 `,
-    _v158 = (0, _v50.default)(_v58.Header).withConfig({
+    _v152 = (0, _v49.default)(_v56.Header).withConfig({
       displayName: "UpgradeRequestsModal__Count",
       componentId: "sc-3a03c8fa-1"
     })`
   border-radius: 50%;
-  width: ${(0, _v125.rem)(24)};
-  height: ${(0, _v125.rem)(24)};
+  width: ${(0, _v119.rem)(24)};
+  height: ${(0, _v119.rem)(24)};
   background: var(--vimeo-colors-red-600);
   color: var(--vimeo-colors-white);
   text-align: center;
   display: inline-block;
-  margin-left: ${(0, _v125.rem)(10)};
-  line-height: ${(0, _v125.rem)(24)};
+  margin-left: ${(0, _v119.rem)(10)};
+  line-height: ${(0, _v119.rem)(24)};
 `,
-    _v159 = (0, _v50.default)(_v31.Button).withConfig({
+    _v153 = (0, _v49.default)(_v31.Button).withConfig({
       displayName: "UpgradeRequestsModal__ApproveAllButton",
       componentId: "sc-3a03c8fa-2"
     })`
-  margin-bottom: ${(0, _v125.rem)(20)};
+  margin-bottom: ${(0, _v119.rem)(20)};
 `,
-    _v160 = (0, _v50.default)(_v55.Notice).attrs({
+    _v154 = (0, _v49.default)(_v54.Notice).attrs({
       format: "primary"
     }).withConfig({
       displayName: "UpgradeRequestsModal__ContactNotice",
@@ -2254,10 +2155,10 @@
     fill: var(--vimeo-colors-vimeoBlue-500);
   }
   & svg {
-    margin-top: ${_v0 => _v0.marginTop ? (0, _v125.rem)(_v0.marginTop) : 0};
+    margin-top: ${_v0 => _v0.marginTop ? (0, _v119.rem)(_v0.marginTop) : 0};
   }
 `,
-    _v161 = (0, _v50.withTheme)(_v3.default.memo(({
+    _v155 = (0, _v49.withTheme)(_v3.default.memo(({
       theme: _v0,
       isOpen: _v1,
       upgradeRequests: _v2,
@@ -2290,13 +2191,13 @@
           showAddSeatsBanner: _v19,
           showContactOwnerBanner: _v20,
           approveAllDisabled: _v21
-        } = _v146(),
+        } = _v140(),
         _v22 = () => {
-          _v11(!0), Promise.all(_v2.map(_v0 => _v141(_v0, "accept", _v14, _v12))).then(_v0 => {
+          _v11(!0), Promise.all(_v2.map(_v0 => _v135(_v0, "accept", _v14, _v12))).then(_v0 => {
             for (let _v0 of _v0) 1 === _v0.status && _v23(_v0);
             _v3(_v0.filter(_v0 => 0 === _v0.status)), _v17({
               actor_team_role: _v2[0].teamUser.role.toLowerCase(),
-              name: _v47.RoleUpgradeEvents.APPROVE_ALL,
+              name: _v46.RoleUpgradeEvents.APPROVE_ALL,
               approve_count: _v0.length,
               requested_team_role: _v0[0].roleName.toLowerCase()
             });
@@ -2311,34 +2212,34 @@
             let _v0 = {
               ..._v0,
               role: _v0.roleName,
-              permissionLevel: _v156[_v0.roleName]
+              permissionLevel: _v150[_v0.roleName]
             };
-            _v15(_v156[_v0.roleName], _v0);
+            _v15(_v150[_v0.roleName], _v0);
           }
         },
         _v24 = () => {
           _v4(), _v16({
             currentModalInDisplay: _v26.TeamManagementModals.PURCHASE_SEATS_MODAL,
             data: {
-              purchaseSeatModalLocation: _v144.PURCHASE_TRIGGERED_FROM.ROLE_CHANGE_MENU,
+              purchaseSeatModalLocation: _v138.PURCHASE_TRIGGERED_FROM.ROLE_CHANGE_MENU,
               seatsCount: _v2.length
             }
           });
         },
-        _v25 = (0, _v2.jsxs)(_v135, {
-          children: [(0, _v2.jsx)(_v147.ModalHeader, {
+        _v25 = (0, _v2.jsxs)(_v129, {
+          children: [(0, _v2.jsx)(_v141.ModalHeader, {
             theme: _v0,
             style: {
-              fontSize: (0, _v125.rem)(18),
-              marginBottom: (0, _v125.rem)(28)
+              fontSize: (0, _v119.rem)(18),
+              marginBottom: (0, _v119.rem)(28)
             },
             children: _v27.T.Requests(_v2.length)
-          }), (0, _v2.jsx)(_v56.CloseButton, {
+          }), (0, _v2.jsx)(_v55.CloseButton, {
             onClick: () => _v4()
-          }), _v8 && (0, _v2.jsx)(_v55.Notice, {
+          }), _v8 && (0, _v2.jsx)(_v54.Notice, {
             format: "negative",
             children: _v27.T.SomethingWentWrong
-          }), _v2.map((_v0, _v1) => (0, _v2.jsx)(_v155, {
+          }), _v2.map((_v0, _v1) => (0, _v2.jsx)(_v149, {
             upgradeRequest: _v0,
             onError: () => _v9(!0),
             onUpgradeRequestRemoved: _v0 => {
@@ -2346,12 +2247,12 @@
             },
             onRejectReasonModalOpen: _v6,
             rejectedUpgradeRequest: _v7
-          }, _v1)), (0, _v2.jsx)(_v138, {
-            children: (0, _v2.jsx)(_v54.Modal.Footer, {
+          }, _v1)), (0, _v2.jsx)(_v132, {
+            children: (0, _v2.jsx)(_v53.Modal.Footer, {
               className: "invite-modal-footer",
-              children: (0, _v2.jsx)(_v136, {
+              children: (0, _v2.jsx)(_v130, {
                 fullWidth: _v18() || _v19() || _v20(),
-                children: (0, _v2.jsx)(() => _v18() ? (0, _v2.jsx)(_v148.ContactUsBanner, {
+                children: (0, _v2.jsx)(() => _v18() ? (0, _v2.jsx)(_v142.ContactUsBanner, {
                   message: _v27.T.RoleUpgradePurchaseSeats,
                   buttonMessage: _v27.T.PurchaseSeats,
                   isDismissable: !1,
@@ -2360,9 +2261,9 @@
                   buttonLink: "/manage/team/members",
                   style: {
                     width: "100%",
-                    borderRadius: (0, _v125.rem)(3)
+                    borderRadius: (0, _v119.rem)(3)
                   }
-                }) : _v19() ? (0, _v2.jsx)(_v148.ContactUsBanner, {
+                }) : _v19() ? (0, _v2.jsx)(_v142.ContactUsBanner, {
                   message: _v27.T.UpgradeRoleAddSeatsToTrial,
                   buttonMessage: _v27.T.AddSeats,
                   isDismissable: !1,
@@ -2371,23 +2272,23 @@
                   buttonLink: "/manage/team/members",
                   style: {
                     width: "100%",
-                    borderRadius: (0, _v125.rem)(3)
+                    borderRadius: (0, _v119.rem)(3)
                   }
-                }) : _v20() ? (0, _v2.jsx)(_v160, {
+                }) : _v20() ? (0, _v2.jsx)(_v154, {
                   format: "primary",
                   children: _v27.T.UpgradeRoleContactOwnerInTrial
-                }) : _v10 ? (0, _v2.jsx)(_v124, {}) : _v21(_v2) ? (0, _v2.jsx)(_v23.Tooltip, {
+                }) : _v10 ? (0, _v2.jsx)(_v118, {}) : _v21(_v2) ? (0, _v2.jsx)(_v23.Tooltip, {
                   label: _v27.T.ApproveAllDisabledTooltip,
                   placement: "top",
                   hasArrow: !0,
-                  children: (0, _v2.jsx)(_v159, {
+                  children: (0, _v2.jsx)(_v153, {
                     style: {
                       opacity: "0.5"
                     },
                     size: "sm",
                     children: _v27.T.ApproveAll
                   })
-                }) : (0, _v2.jsx)(_v159, {
+                }) : (0, _v2.jsx)(_v153, {
                   onClick: _v22,
                   size: "sm",
                   children: _v27.T.ApproveAll
@@ -2397,19 +2298,19 @@
           })]
         });
       return (0, _v2.jsx)(_v2.Fragment, {
-        children: _v2.length > 0 && (0, _v2.jsx)(_v50.ThemeProvider, {
+        children: _v2.length > 0 && (0, _v2.jsx)(_v49.ThemeProvider, {
           theme: _v0,
-          children: (0, _v2.jsx)(_v54.Modal, {
+          children: (0, _v2.jsx)(_v53.Modal, {
             size: "lg",
             theme: _v0,
             active: _v1,
             content: _v25,
             onOpen: () => _v4(),
-            children: (0, _v2.jsxs)(_v157, {
+            children: (0, _v2.jsxs)(_v151, {
               theme: _v0,
               variant: "ghost",
               onClick: () => _v5(),
-              children: [_v27.T.TeamRequests, (0, _v2.jsx)(_v158, {
+              children: [_v27.T.TeamRequests, (0, _v2.jsx)(_v152, {
                 size: "xs",
                 children: _v2.length
               })]
@@ -2418,7 +2319,7 @@
         })
       });
     })),
-    _v162 = ({
+    _v156 = ({
       upgradeRequests: _v0,
       onUpgradeRequestsUpdate: _v1
     }) => {
@@ -2427,7 +2328,7 @@
         [_v6, _v7] = (0, _v3.useState)(null),
         [_v8, _v9] = (0, _v3.useState)(null);
       return (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsx)(_v161, {
+        children: [(0, _v2.jsx)(_v155, {
           upgradeRequests: _v0,
           isOpen: _v4,
           onUpgradeRequestsUpdate: _v1,
@@ -2437,7 +2338,7 @@
           onUpgradeRequestsModalClosed: () => _v5(!1),
           onUpgradeRequestsModalOpen: () => _v5(!0),
           rejectedUpgradeRequest: _v8
-        }), (0, _v2.jsx)(_v143, {
+        }), (0, _v2.jsx)(_v137, {
           isOpen: _v2,
           onRejectReasonModalClosed: () => {
             _v3(!1), _v5(!0);
@@ -2447,15 +2348,15 @@
         })]
       });
     };
-  var _v163 = _v0.i(0);
-  let _v164 = ({
+  var _v157 = _v0.i(0);
+  let _v158 = ({
       children: _v0,
       dataId: _v1,
       href: _v2,
       rightIcon: _v3,
       onClick: _v4
     }) => (0, _v2.jsx)(_v31.Button, {
-      as: _v163.default,
+      as: _v157.default,
       href: _v2,
       variant: "tertiary",
       justifyContent: "space-between",
@@ -2464,7 +2365,7 @@
       onClick: _v4,
       children: _v0
     }),
-    _v165 = ({
+    _v159 = ({
       upgradeRequests: _v0,
       setUpgradeRequests: _v1
     }) => {
@@ -2509,14 +2410,14 @@
       return (0, _v2.jsxs)(_v32.HStack, {
         alignContent: "center",
         children: [(0, _v2.jsxs)(_v44, {
-          children: [(0, _v2.jsx)(_v164, {
+          children: [(0, _v2.jsx)(_v158, {
             variant: "secondary",
             rightIcon: _v6 ? (0, _v2.jsx)(_v33.DownloadArrow, {
               style: {
                 minWidth: (0, _v8.rem)(13),
                 width: (0, _v8.rem)(13)
               }
-            }) : (0, _v2.jsx)(_v49, {
+            }) : (0, _v2.jsx)(_v48, {
               href: _v26,
               children: (0, _v35.translate)({
                 singular: "Enterprise",
@@ -2534,8 +2435,8 @@
             href: _v6 ? _v27 : _v26,
             onClick: _v22,
             children: _v27.T.DownloadUsers
-          }), (0, _v2.jsx)(_v164, {
-            rightIcon: _v8 ? (0, _v2.jsx)(_v49, {
+          }), (0, _v2.jsx)(_v158, {
+            rightIcon: _v8 ? (0, _v2.jsx)(_v48, {
               href: _v26,
               children: (0, _v35.translate)({
                 singular: "Enterprise",
@@ -2550,10 +2451,9 @@
               })
             }) : void 0,
             href: _v9 ? _v28 : _v26,
-            onClick: _v46.sendTeamManagementViewActivityEvent,
             children: _v27.T.ViewTeamActivity
           })]
-        }), _v0.length > 0 && (0, _v2.jsx)(_v162, {
+        }), _v0.length > 0 && (0, _v2.jsx)(_v156, {
           upgradeRequests: _v0,
           onUpgradeRequestsUpdate: _v0 => _v1(_v0)
         }), !_v3 && (0, _v2.jsx)(_v45.TeamApiConfigCtx.Provider, {
@@ -2568,7 +2468,7 @@
                 onClick: () => _v21({
                   sub_feature: "invite"
                 }),
-                disabled: _v4.tier === _v26.Tier.Free || _v4.tier === _v26.Tier.Creator && !1 === _v5 || _v4.tier === _v26.Tier.CustomSelfServe && _v10?.seatDetails?.currentUnassignedCount === 0 || (_v12?.user?.account === _v37.AccountType.Basic || _v12?.user?.account === _v37.AccountType.Plus) && _v10.untranslatedUserRole != _v26.TeamRole.Admin || _v7 && _v4.isFreeTrial && !_v4.currentUnassignedSeatCount && _v4.seatCount >= _v47.MAX_SEATS_ALLOWED_FOR_FREE_TRIALERS && _v10.currentTeamSize >= _v10.teamMembersCount.admin + _v10.teamMembersCount.contributor + _v4.currentUnassignedSeatCount + _v47.MAX_VIEWERS_ALLOWED_FOR_FREE_TRIALERS
+                disabled: _v4.tier === _v26.Tier.Free || _v4.tier === _v26.Tier.Creator && !1 === _v5 || _v4.tier === _v26.Tier.CustomSelfServe && _v10?.seatDetails?.currentUnassignedCount === 0 || (_v12?.user?.account === _v37.AccountType.Basic || _v12?.user?.account === _v37.AccountType.Plus) && _v10.untranslatedUserRole != _v26.TeamRole.Admin || _v7 && _v4.isFreeTrial && !_v4.currentUnassignedSeatCount && _v4.seatCount >= _v46.MAX_SEATS_ALLOWED_FOR_FREE_TRIALERS && _v10.currentTeamSize >= _v10.teamMembersCount.admin + _v10.teamMembersCount.contributor + _v4.currentUnassignedSeatCount + _v46.MAX_VIEWERS_ALLOWED_FOR_FREE_TRIALERS
               })
             }), (0, _v2.jsx)(_v30.AddToFoldersModal, {
               teamOwnerId: _v25,
@@ -2595,8 +2495,8 @@
         })]
       });
     };
-  var _v166 = _v0.i(0);
-  function _v167() {
+  var _v160 = _v0.i(0);
+  function _v161() {
     let [_v0, _v1] = (0, _v3.useState)(!1),
       [_v2, _v3] = (0, _v3.useState)({
         format: "primary",
@@ -2653,7 +2553,7 @@
       let _v0 = new URLSearchParams(window.location.search).get("approve-upgrade-request");
       if (_v0) {
         if (!_v4) throw Error("No viewer");
-        (0, _v140.makeApiCall)(`/teams/${_v4.user?.id}/role_upgrade/${_v0}?fields=user.name`, _v4, "POST", {
+        (0, _v134.makeApiCall)(`/teams/${_v4.user?.id}/role_upgrade/${_v0}?fields=user.name`, _v4, "POST", {
           action: "accept"
         }).then(_v0 => {
           _v3({
@@ -2666,9 +2566,9 @@
             message: _v27.T.SomethingWentWrong
           });
         }).finally(() => {
-          _v1(!0), !_v5 && _v8.teamData.ownerId && _v142(_v27, _v4, null, () => _v24(!0));
+          _v1(!0), !_v5 && _v8.teamData.ownerId && _v136(_v27, _v4, null, () => _v24(!0));
         });
-      } else !_v5 && _v8.teamData.ownerId && _v142(_v27, _v4, _v8.teamData.ownerId, () => _v24(!0));
+      } else !_v5 && _v8.teamData.ownerId && _v136(_v27, _v4, _v8.teamData.ownerId, () => _v24(!0));
     }, [_v8.untranslatedUserRole, _v4, _v8.teamData.ownerId, _v5]), (0, _v3.useEffect)(() => {
       _v17 || _v25(_v26);
     }, [_v26]), (0, _v17.useOttRedirect)({
@@ -2757,7 +2657,7 @@
             mt: (0, _v8.rem)(16),
             height: (0, _v8.rem)(90),
             children: (0, _v2.jsx)(_v9.Skeleton, {})
-          }), (0, _v2.jsx)(_v117, {})]
+          }), (0, _v2.jsx)(_v111, {})]
         }) : (0, _v2.jsxs)(_v6.Box, {
           pb: (0, _v8.rem)(128),
           pt: (0, _v8.rem)(26),
@@ -2778,14 +2678,14 @@
               base: "column",
               sm: "row"
             },
-            children: [(0, _v2.jsx)(_v28, {}), (0, _v2.jsx)(_v165, {
+            children: [(0, _v2.jsx)(_v28, {}), (0, _v2.jsx)(_v159, {
               upgradeRequests: _v26,
               setUpgradeRequests: _v27
             })]
           }), (0, _v2.jsx)(_v6.Box, {
             backgroundColor: "surface",
             borderRadius: "lg",
-            children: (0, _v2.jsx)(_v118, {})
+            children: (0, _v2.jsx)(_v112, {})
           }), _v30 && _v32 && _v8.untranslatedUserRole === _v26.TeamRole.Owner && (0, _v2.jsx)(_v6.Box, {
             mt: (0, _v8.rem)(24),
             children: (0, _v2.jsx)(_v11.MergeLibrariesBanner, {
@@ -2806,5 +2706,5 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v167.getLayout = _v166.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v167], 0);
+  }), _v161.getLayout = _v160.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v161], 0);
 }

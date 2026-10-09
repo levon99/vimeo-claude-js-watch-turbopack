@@ -256,7 +256,7 @@
         },
         disabled: _v1,
         onClick: _v3,
-        onMouseEnter: () => (0, _v21.sendOverviewNumbersHoverEvent)(_v9, _v15.translations[_v6]),
+        onMouseEnter: () => (0, _v22.sendOverviewNumbersHoverEvent)(_v9, _v15.translations[_v6]),
         "aria-label": _v15.translations[_v6],
         children: [(0, _v1.jsxs)(_v3.Box, {
           display: "flex",
@@ -335,7 +335,7 @@
   }) => {
     let _v8 = (0, _v2.useContext)(_v9.ViewerContext),
       _v9 = (0, _v8.useWindowSize)(),
-      _v10 = _v2 ? _v2 <= _v22.BREAKPOINTS[620] : _v9.width <= _v22.BREAKPOINTS[907],
+      _v10 = _v2 ? _v2 <= _v21.BREAKPOINTS[620] : _v9.width <= _v21.BREAKPOINTS[907],
       [_v11, _v12] = (0, _v2.useState)("views"),
       [_v13, _v14] = (0, _v2.useState)(!1),
       _v15 = (0, _v6.useColorModeValue)("slate.50", "grayscale.800"),
@@ -346,7 +346,7 @@
     (0, _v2.useEffect)(() => {
       _v10 && !_v11 && _v12("views");
     }, [_v10, _v11]), (0, _v2.useEffect)(() => {
-      _v13 || ((0, _v21.sendWidgetImpressionEvent)(_v17, _v21.WidgetName.ANALYTICS_OVERVIEW), _v14(!0));
+      _v13 || ((0, _v22.sendWidgetImpressionEvent)(_v17, _v22.WidgetName.ANALYTICS_OVERVIEW), _v14(!0));
     }, [_v13, _v17]);
     let {
         data: _v18,
@@ -467,7 +467,7 @@
           }
         };
       })(_v1, _v0),
-      _v24 = _v0 => (_v6?.(_v0), (0, _v21.sendOverviewNumbersClickEvent)(_v17, _v15.translations[_v0]), _v11 === _v0) ? _v12(void 0) : _v12(_v0),
+      _v24 = _v0 => (_v6?.(_v0), (0, _v22.sendOverviewNumbersClickEvent)(_v17, _v15.translations[_v0]), _v11 === _v0) ? _v12(void 0) : _v12(_v0),
       _v25 = _v11 && _v18?.numbersData?.[_v11];
     return _v8?.teamUser || _v8?.user && _v8?.user?.metadata?.connections?.videos?.total > 0 ? (0, _v1.jsxs)(_v39.Widget, {
       header: {
@@ -479,7 +479,7 @@
       isMobile: _v10,
       errorMessage: _v23,
       maxHeight: "21.875rem",
-      name: _v21.WidgetName.ANALYTICS_OVERVIEW,
+      name: _v22.WidgetName.ANALYTICS_OVERVIEW,
       maxWidth: _v5,
       onHeaderClick: _v7,
       children: [_v10 && _v11 && (0, _v1.jsxs)(_v3.Box, {

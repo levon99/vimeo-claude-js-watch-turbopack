@@ -12,12 +12,11 @@
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
-    _v12 = _v0.i(0),
-    _v13 = _v0.i(0);
-  let _v14 = "default",
-    _v15 = {
-      [_v14]: {
-        header: (0, _v7.translate)({
+    _v12 = _v0.i(0);
+  let _v13 = "default",
+    _v14 = {
+      [_v13]: {
+        header: (0, _v6.translate)({
           singular: "Ready to do more with Vimeo?",
           dictionary: {
             es: {
@@ -43,7 +42,7 @@
             }
           }
         }),
-        additionalHeader: (0, _v7.translate)({
+        additionalHeader: (0, _v6.translate)({
           singular: "Next step: Enterprise.",
           dictionary: {
             es: {
@@ -69,7 +68,7 @@
             }
           }
         }),
-        paragraphText: (0, _v7.translate)({
+        paragraphText: (0, _v6.translate)({
           singular: "Get to know the next tier in our lineup of Vimeo offerings.",
           dictionary: {
             es: {
@@ -95,7 +94,7 @@
             }
           }
         }),
-        items: [(0, _v7.translate)({
+        items: [(0, _v6.translate)({
           singular: "Unlimited concurrent streaming",
           dictionary: {
             es: {
@@ -120,7 +119,7 @@
               singular: "无限个并发视频流"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Advanced analytics and reporting",
           dictionary: {
             es: {
@@ -145,7 +144,7 @@
               singular: "高级分析和报告"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Enterprise-grade support and training",
           dictionary: {
             es: {
@@ -170,7 +169,7 @@
               singular: "企业级支持和培训"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Supreme security with backup streams and SSO",
           dictionary: {
             es: {
@@ -198,7 +197,7 @@
         })]
       },
       fail_safe_streaming: {
-        header: (0, _v7.translate)({
+        header: (0, _v6.translate)({
           singular: "Fail-safe streaming",
           dictionary: {
             es: {
@@ -224,7 +223,7 @@
             }
           }
         }),
-        additionalHeader: (0, _v7.translate)({
+        additionalHeader: (0, _v6.translate)({
           singular: "Unstable internet connection?",
           dictionary: {
             es: {
@@ -250,7 +249,7 @@
             }
           }
         }),
-        paragraphText: (0, _v7.translate)({
+        paragraphText: (0, _v6.translate)({
           singular: "Add a layer of protection to avoid a choppy viewing experience",
           dictionary: {
             es: {
@@ -276,7 +275,7 @@
             }
           }
         }),
-        items: [(0, _v7.translate)({
+        items: [(0, _v6.translate)({
           singular: "Add-on to your existing package",
           dictionary: {
             es: {
@@ -301,7 +300,7 @@
               singular: "添加到您现有的套餐中"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "60-75 second delay between broadcaster and viewer to offset any downtime",
           dictionary: {
             es: {
@@ -326,7 +325,7 @@
               singular: "主播和观众之间有 60-75 秒的延迟，用以抵消停机的影响"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Best for mission-critical events that don’t require high audience interactivity",
           dictionary: {
             es: {
@@ -354,7 +353,7 @@
         })]
       },
       vimeo_events: {
-        header: (0, _v7.translate)({
+        header: (0, _v6.translate)({
           singular: "Vimeo Events",
           dictionary: {
             "fr-FR": {
@@ -362,7 +361,7 @@
             }
           }
         }),
-        additionalHeader: (0, _v7.translate)({
+        additionalHeader: (0, _v6.translate)({
           singular: "Host virtual events and webinars to increase engagement and generate leads",
           dictionary: {
             es: {
@@ -388,7 +387,7 @@
             }
           }
         }),
-        items: [(0, _v7.translate)({
+        items: [(0, _v6.translate)({
           singular: "(Pre)Produce a high-quality event directly from your browser or using RTMP",
           dictionary: {
             es: {
@@ -413,7 +412,7 @@
               singular: "直接从浏览器或使用 RTMP（预先）制作高质量的活动"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Promote your event with interactive video templates",
           dictionary: {
             es: {
@@ -438,7 +437,7 @@
               singular: "使用互动视频模板宣传您的活动"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Repurpose your recording into various pieces of content",
           dictionary: {
             es: {
@@ -463,7 +462,7 @@
               singular: "将您的录像重新制作成各种内容"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Capture leads through customizable registration forms and emails",
           dictionary: {
             es: {
@@ -488,7 +487,7 @@
               singular: "通过可定制的注册表和电子邮件捕获潜在客户"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Leverage viewer engagement data within your marketing platform to drive high-quality leads",
           dictionary: {
             es: {
@@ -516,7 +515,7 @@
         })]
       },
       venues: {
-        header: (0, _v7.translate)({
+        header: (0, _v6.translate)({
           singular: "Venues",
           dictionary: {
             "fr-FR": {
@@ -530,7 +529,7 @@
             }
           }
         }),
-        additionalHeader: (0, _v7.translate)({
+        additionalHeader: (0, _v6.translate)({
           singular: "Create richly interactive, multi-space & multi-day events that delight viewers",
           dictionary: {
             es: {
@@ -556,7 +555,7 @@
             }
           }
         }),
-        items: [(0, _v7.translate)({
+        items: [(0, _v6.translate)({
           singular: "Drive engagement with emojis, reactions, chat, polls, q&a, hand raises, & personalized GIFs",
           dictionary: {
             es: {
@@ -581,7 +580,7 @@
               singular: "利用表情符号、反应、聊天、投票、问答、举手和个性化 GIF 等工具提高参与度"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Embed external widgets to fuel participation",
           dictionary: {
             es: {
@@ -606,7 +605,7 @@
               singular: "嵌入外部小工具，促进参与"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Create multiple spaces for breakout rooms, 1:1 private chats, networking groups, and more",
           dictionary: {
             es: {
@@ -631,7 +630,7 @@
               singular: "创建小组讨论室、一对一私人聊天、网络群组等多个空间"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Add customization through cover pages, branding, and agendas",
           dictionary: {
             es: {
@@ -656,7 +655,7 @@
               singular: "通过封面、品牌和议程添加定制项"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Stream a high-production event with RTMP or browser-based production tool",
           dictionary: {
             es: {
@@ -684,7 +683,7 @@
         })]
       },
       advanced_enterprise_upsell: {
-        header: (0, _v7.translate)({
+        header: (0, _v6.translate)({
           singular: "Do more with Enterprise",
           dictionary: {
             es: {
@@ -710,7 +709,7 @@
             }
           }
         }),
-        additionalHeader: (0, _v7.translate)({
+        additionalHeader: (0, _v6.translate)({
           singular: "Dedicated support, custom permissions, increased security, and a whole lot more.",
           dictionary: {
             es: {
@@ -736,7 +735,7 @@
             }
           }
         }),
-        items: [(0, _v7.translate)({
+        items: [(0, _v6.translate)({
           singular: "Unlimited videos",
           dictionary: {
             es: {
@@ -761,7 +760,7 @@
               singular: "无限数量的视频"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "More team members",
           dictionary: {
             es: {
@@ -786,7 +785,7 @@
               singular: "更多团队成员"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "SSO (SAML) and SCIM (OKTA, AZURE)",
           dictionary: {
             es: {
@@ -811,7 +810,7 @@
               singular: "SSO (SAML) 和 SCIM（OKTA、AZURE）"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Advanced marketing integrations",
           dictionary: {
             es: {
@@ -836,7 +835,7 @@
               singular: "Advanced 营销集成"
             }
           }
-        }), (0, _v7.translate)({
+        }), (0, _v6.translate)({
           singular: "Backup streams",
           dictionary: {
             es: {
@@ -864,43 +863,33 @@
         })]
       }
     },
-    _v16 = "show";
-  var _v17 = _v0.i(0),
-    _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  let _v20 = ({
+    _v15 = "show";
+  var _v16 = _v0.i(0),
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0);
+  let _v19 = ({
       children: _v0
     }) => (0, _v1.jsxs)("li", {
-      children: [(0, _v1.jsx)(_v18.Checkmark, {}), (0, _v1.jsx)(_v18.CheckmarkListText, {
+      children: [(0, _v1.jsx)(_v17.Checkmark, {}), (0, _v1.jsx)(_v17.CheckmarkListText, {
         element: "span",
         children: _v0
       })]
     }),
-    _v21 = ({
+    _v20 = ({
       children: _v0
-    }) => (0, _v1.jsxs)(_v18.StyledLink, {
+    }) => (0, _v1.jsxs)(_v17.StyledLink, {
       variant: "minimal",
       href: "/enterprise",
       target: "_blank",
-      onClick: () => {
-        _v6.BigPictureClient.sendEvent(new _v6.Event("vimeo.click", 32, {
-          page: window.parent.location.pathname,
-          location: "upsell_modal",
-          target: "/enterprise",
-          name: "enterprise_upgrade_form_modal_secondary_cta",
-          copy: "More Plan Details",
-          feature: "upgrade_cta",
-          type: "upsell"
-        }));
-      },
+      onClick: () => {},
       children: [(0, _v1.jsx)("span", {
         children: _v0
-      }), (0, _v1.jsx)(_v8.ArrowRight, {})]
+      }), (0, _v1.jsx)(_v7.ArrowRight, {})]
     }),
-    _v22 = () => {
-      let _v0 = (0, _v17.default)();
-      return _v0 && _v0.current ? (0, _v1.jsx)(_v18.Dismiss, {
-        icon: (0, _v1.jsx)(_v9.DismissX, {}),
+    _v21 = () => {
+      let _v0 = (0, _v16.default)();
+      return _v0 && _v0.current ? (0, _v1.jsx)(_v17.Dismiss, {
+        icon: (0, _v1.jsx)(_v8.DismissX, {}),
         size: "sm",
         variant: "minimalTransparent",
         format: "basic",
@@ -910,35 +899,35 @@
         }
       }) : null;
     },
-    _v23 = () => {
-      let _v0 = (0, _v5.useContext)(_v13.ViewerContext),
+    _v22 = () => {
+      let _v0 = (0, _v5.useContext)(_v12.ViewerContext),
         [_v1, _v2] = (0, _v5.useState)(!1),
-        _v3 = _v15[_v14],
-        _v4 = _v16;
+        _v3 = _v14[_v13],
+        _v4 = _v15;
       {
         let _v0 = new URLSearchParams(window.location.search),
           _v1 = _v0.get("left_side_content_type");
-        _v4 = _v0.get("more_plan_details") ?? _v16, _v1 && (_v3 = _v15[_v1]);
+        _v4 = _v0.get("more_plan_details") ?? _v15, _v1 && (_v3 = _v14[_v1]);
       }
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v18.GlobalStyles, {}), (0, _v1.jsxs)(_v18.Container, {
-          children: [(0, _v1.jsxs)(_v18.CopyContainer, {
-            children: [(0, _v1.jsx)(_v10.Header, {
+        children: [(0, _v1.jsx)(_v17.GlobalStyles, {}), (0, _v1.jsxs)(_v17.Container, {
+          children: [(0, _v1.jsxs)(_v17.CopyContainer, {
+            children: [(0, _v1.jsx)(_v9.Header, {
               element: "h1",
               children: _v3.header
-            }), (0, _v1.jsx)(_v10.Header, {
+            }), (0, _v1.jsx)(_v9.Header, {
               element: "h2",
               children: _v3.additionalHeader
-            }), _v3.paragraphText ? (0, _v1.jsx)(_v11.Paragraph, {
+            }), _v3.paragraphText ? (0, _v1.jsx)(_v10.Paragraph, {
               size: 1,
               children: _v3.paragraphText
-            }) : null, (0, _v1.jsx)(_v18.CheckmarkListContainer, {
-              children: _v3.items.map((_v0, _v1) => (0, _v1.jsx)(_v20, {
+            }) : null, (0, _v1.jsx)(_v17.CheckmarkListContainer, {
+              children: _v3.items.map((_v0, _v1) => (0, _v1.jsx)(_v19, {
                 children: _v0
               }, String(_v1)))
-            }), "hide" === _v4 ? null : (0, _v1.jsx)(_v18.LinkContainer, {
-              children: (0, _v1.jsx)(_v21, {
-                children: (0, _v7.translate)({
+            }), "hide" === _v4 ? null : (0, _v1.jsx)(_v17.LinkContainer, {
+              children: (0, _v1.jsx)(_v20, {
+                children: (0, _v6.translate)({
                   singular: "More plan details",
                   dictionary: {
                     es: {
@@ -966,9 +955,9 @@
                 })
               })
             })]
-          }), !_v1 && (0, _v1.jsxs)(_v24, {
+          }), !_v1 && (0, _v1.jsxs)(_v23, {
             children: [(0, _v1.jsx)("h2", {
-              children: (0, _v7.translate)({
+              children: (0, _v6.translate)({
                 singular: "Connect with our team",
                 dictionary: {
                   es: {
@@ -994,19 +983,11 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v12.default, {
+            }), (0, _v1.jsx)(_v11.default, {
               formPadding: (0, _v4.rem)(0),
               submitButtonType: "full-width",
               onSuccess: () => {
-                _v6.BigPictureClient.sendEvent(new _v6.Event("vimeo.click", 32, {
-                  copy: "Contact our Team",
-                  feature: "upgrade_cta",
-                  location: "upsell_modal",
-                  name: "enterprise_upgrade_form_modal_submit",
-                  page: window.parent.location.pathname,
-                  target: window.parent.location.pathname,
-                  type: "upsell"
-                })), _v2(!0);
+                _v2(!0);
               },
               formIds: {
                 en: 0
@@ -1019,11 +1000,11 @@
               webformId: "logged_in_modal_premium",
               showForm: !!_v0
             })]
-          }), _v1 && (0, _v1.jsx)(_v19.default, {})]
-        }), (0, _v1.jsx)(_v22, {})]
+          }), _v1 && (0, _v1.jsx)(_v18.default, {})]
+        }), (0, _v1.jsx)(_v21, {})]
       });
     };
-  var _v24 = (0, _v3.default)("div").withConfig({
+  var _v23 = (0, _v3.default)("div").withConfig({
     displayName: "EnterpriseContactUsModal___StyledDiv",
     componentId: "sc-372f0008-0"
   })`
@@ -1043,5 +1024,5 @@
   }), {
     requireLogin: !0,
     inlineViewer: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => (0, _v1.jsx)(_v23, {})], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => (0, _v1.jsx)(_v22, {})], 0);
 }

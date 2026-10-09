@@ -87,10 +87,7 @@
       for (let _v0 in _v2) if (new RegExp(_v0).test(_v0)) return _v2[_v0];
       return "other";
     };
-  function _v5() {
-    return window.self === window.top ? window.document.location.pathname : document.referrer.replace(/^[^:]+:\/\/[^/]+/, "").replace(/#.*/, "");
-  }
-  _v0.s(["getPageNameFromPath", 0, _v4, "getPathName", 0, _v5, "getRedirectAndTypeFromQueryParams", 0, function (_v0) {
+  _v0.s(["getPageNameFromPath", 0, _v4, "getRedirectAndTypeFromQueryParams", 0, function (_v0) {
     let _v1 = _v0?.get("redirect"),
       _v2 = _v0?.get("redirect_url_after_social_login"),
       _v3 = _v0?.get("join_redirect");
@@ -128,7 +125,7 @@
   }, "handleSSOLogin", 0, (_v0, _v1, _v2) => {
     let _v3 = new URLSearchParams(window?.parent?.location?.search),
       _v4 = _v3?.get("redirect") || "",
-      _v5 = _v5(),
+      _v5 = window.self === window.top ? window.document.location.pathname : document.referrer.replace(/^[^:]+:\/\/[^/]+/, "").replace(/#.*/, ""),
       _v6 = "&prev_page=" + (_v2 && (0, _v2.isVimeoRedirectableUrl)(_v2) ? _v2 : (0, _v2.isVimeoRedirectableUrl)(_v4) && "/log_in" === _v5 ? _v4 : encodeURIComponent(_v5));
     window.parent.location.href = (_v1 || "") + "/auth0/connect?connection=" + _v0 + _v6;
   }, "useIsModalInIframe", 0, function () {

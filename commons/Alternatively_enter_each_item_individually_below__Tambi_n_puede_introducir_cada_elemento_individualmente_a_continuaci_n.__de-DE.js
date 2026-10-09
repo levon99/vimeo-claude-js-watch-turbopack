@@ -2842,14 +2842,8 @@
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
-  async function _v50({
+    _v43 = _v0.i(0);
+  async function _v44({
     baseUrl: _v0,
     where: {
       userId: _v1,
@@ -2869,7 +2863,7 @@
       return (0, _v31.deepCamelCase)(_v1);
     });
   }
-  async function _v51({
+  async function _v45({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -2892,7 +2886,7 @@
       return (0, _v31.deepCamelCase)(_v1);
     });
   }
-  let _v52 = ({
+  let _v46 = ({
     userId: _v0,
     onConnectionUpdateSuccess: _v1,
     onError: _v2,
@@ -2922,7 +2916,7 @@
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v0(`/sso/${_v0.where.userId}/connections/${_v0.where.connectionUuid}${(0, _v29.serializeQuery)(_v0)}`, _v51({
+            let _v0 = await _v0(`/sso/${_v0.where.userId}/connections/${_v0.where.connectionUuid}${(0, _v29.serializeQuery)(_v0)}`, _v45({
               ..._v0,
               baseUrl: _v1,
               headers: {
@@ -2961,12 +2955,12 @@
       updateLoading: _v9
     };
   };
-  var _v53 = _v0.i(0),
-    _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
-    _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  let _v58 = ({
+  var _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0);
+  let _v52 = ({
       children: _v0,
       title: _v1,
       description: _v2,
@@ -2978,16 +2972,16 @@
       padding: "300",
       marginBottom: "200",
       borderRadius: "button",
-      children: [(0, _v1.jsxs)(_v53.Flex, {
+      children: [(0, _v1.jsxs)(_v47.Flex, {
         justifyContent: "space-between",
         alignItems: "center",
         children: [(0, _v1.jsxs)(_v5.Box, {
-          children: [(0, _v1.jsx)(_v54.Header, {
+          children: [(0, _v1.jsx)(_v48.Header, {
             size: "xs",
             as: "h6",
             marginBottom: "50",
             children: _v1
-          }), (0, _v1.jsx)(_v48.Paragraph, {
+          }), (0, _v1.jsx)(_v42.Paragraph, {
             size: "md",
             color: "text-secondary",
             children: _v2
@@ -3000,7 +2994,7 @@
         children: _v0
       })]
     }),
-    _v59 = ({
+    _v53 = ({
       attributesMap: _v0,
       onFieldChange: _v1
     }) => {
@@ -3009,10 +3003,10 @@
         _v6 = (0, _v2.useRef)(null);
       return (0, _v2.useEffect)(() => {
         _v6.current && _v5(_v6.current.scrollHeight);
-      }, [_v6.current?.scrollHeight]), (0, _v1.jsxs)(_v58, {
+      }, [_v6.current?.scrollHeight]), (0, _v1.jsxs)(_v52, {
         title: _v12.Attributes,
         description: _v12.AttributesDescription(),
-        children: [(0, _v1.jsxs)(_v53.Flex, {
+        children: [(0, _v1.jsxs)(_v47.Flex, {
           justifyContent: "space-between",
           alignItems: "flex-start",
           borderTopWidth: "1px",
@@ -3020,24 +3014,24 @@
           borderStyle: "solid",
           paddingTop: "200",
           children: [(0, _v1.jsxs)(_v5.Box, {
-            children: [(0, _v1.jsx)(_v54.Header, {
+            children: [(0, _v1.jsx)(_v48.Header, {
               size: "xs",
               as: "h6",
               marginBottom: "50",
               children: _v12.Mappings
-            }), (0, _v1.jsx)(_v48.Paragraph, {
+            }), (0, _v1.jsx)(_v42.Paragraph, {
               size: "md",
               color: "text-secondary",
               children: _v12.MappingsDescription
             })]
           }), (0, _v1.jsx)(_v5.Box, {
-            children: (0, _v1.jsx)(_v55.IconButton, {
+            children: (0, _v1.jsx)(_v49.IconButton, {
               size: "md",
               variant: "tertiary",
               onClick: () => {
                 _v3(!_v2);
               },
-              icon: (0, _v1.jsx)(_v57.ChevronDownSmall, {
+              icon: (0, _v1.jsx)(_v51.ChevronDownSmall, {
                 transform: _v2 ? "rotate(180deg)" : void 0
               }),
               id: "toggleMappingsBtn",
@@ -3049,15 +3043,15 @@
           transition: "max-height 0.5s ease-in-out",
           overflow: "hidden",
           ref: _v6,
-          children: [(0, _v1.jsxs)(_v53.Flex, {
+          children: [(0, _v1.jsxs)(_v47.Flex, {
             alignItems: "center",
             marginTop: "200",
-            children: [(0, _v1.jsx)(_v54.Header, {
+            children: [(0, _v1.jsx)(_v48.Header, {
               size: "2xs",
               as: "h6",
               flex: "1",
               children: "email"
-            }), (0, _v1.jsx)(_v56.Input, {
+            }), (0, _v1.jsx)(_v50.Input, {
               flex: "5",
               height: "md",
               placeholder: _v12.EnterEmail,
@@ -3065,15 +3059,15 @@
               onChange: _v0 => _v1("email", _v0.target.value),
               id: "attrEmailInput"
             })]
-          }), (0, _v1.jsxs)(_v53.Flex, {
+          }), (0, _v1.jsxs)(_v47.Flex, {
             alignItems: "center",
             marginTop: "200",
-            children: [(0, _v1.jsx)(_v54.Header, {
+            children: [(0, _v1.jsx)(_v48.Header, {
               size: "2xs",
               as: "h6",
               flex: "1",
               children: "firstName"
-            }), (0, _v1.jsx)(_v56.Input, {
+            }), (0, _v1.jsx)(_v50.Input, {
               flex: "5",
               height: "md",
               placeholder: _v12.EnterFirstName,
@@ -3081,15 +3075,15 @@
               onChange: _v0 => _v1("firstName", _v0.target.value),
               id: "attrFirstNameInput"
             })]
-          }), (0, _v1.jsxs)(_v53.Flex, {
+          }), (0, _v1.jsxs)(_v47.Flex, {
             alignItems: "center",
             marginTop: "200",
-            children: [(0, _v1.jsx)(_v54.Header, {
+            children: [(0, _v1.jsx)(_v48.Header, {
               size: "2xs",
               as: "h6",
               flex: "1",
               children: "lastName"
-            }), (0, _v1.jsx)(_v56.Input, {
+            }), (0, _v1.jsx)(_v50.Input, {
               flex: "5",
               height: "md",
               placeholder: _v12.EnterLastName,
@@ -3097,15 +3091,15 @@
               onChange: _v0 => _v1("lastName", _v0.target.value),
               id: "attrLastNameInput"
             })]
-          }), (0, _v1.jsxs)(_v53.Flex, {
+          }), (0, _v1.jsxs)(_v47.Flex, {
             alignItems: "center",
             marginTop: "200",
-            children: [(0, _v1.jsx)(_v54.Header, {
+            children: [(0, _v1.jsx)(_v48.Header, {
               size: "2xs",
               as: "h6",
               flex: "1",
               children: "groups"
-            }), (0, _v1.jsx)(_v56.Input, {
+            }), (0, _v1.jsx)(_v50.Input, {
               flex: "5",
               height: "md",
               placeholder: _v12.EnterGroups,
@@ -3117,13 +3111,13 @@
         })]
       });
     };
-  var _v60 = _v0.i(0),
-    _v61 = _v0.i(0),
-    _v62 = _v0.i(0),
-    _v63 = _v0.i(0),
-    _v64 = _v0.i(0),
-    _v65 = _v0.i(0);
-  async function _v66({
+  var _v54 = _v0.i(0),
+    _v55 = _v0.i(0),
+    _v56 = _v0.i(0),
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0);
+  async function _v60({
     baseUrl: _v0,
     where: {
       userId: _v1,
@@ -3143,7 +3137,7 @@
       return (0, _v31.deepCamelCase)(_v1);
     });
   }
-  let _v67 = ({
+  let _v61 = ({
     userId: _v0,
     connection: _v1,
     ssoDomains: _v2,
@@ -3280,7 +3274,7 @@
                 type: "REQUEST"
               });
               try {
-                let _v0 = await _v0(`/sso/${_v0.where.userId}/domains/${_v0.where.domainId}${(0, _v29.serializeQuery)(_v0)}`, _v66({
+                let _v0 = await _v0(`/sso/${_v0.where.userId}/domains/${_v0.where.domainId}${(0, _v29.serializeQuery)(_v0)}`, _v60({
                   ..._v0,
                   baseUrl: _v1,
                   headers: {
@@ -3326,14 +3320,14 @@
         onError: _v6,
         connection: _v1
       });
-    return _v3 ? (0, _v1.jsx)(_v65.LoadSpinner, {
+    return _v3 ? (0, _v1.jsx)(_v59.LoadSpinner, {
       heightPX: 100
-    }) : (0, _v1.jsxs)(_v58, {
+    }) : (0, _v1.jsxs)(_v52, {
       title: _v12.ClaimDomain,
       description: _v12.ClaimDomainDescription,
-      children: [(0, _v1.jsxs)(_v62.FormControl, {
+      children: [(0, _v1.jsxs)(_v56.FormControl, {
         isInvalid: !!(_v7 && _v9 && !_v10),
-        children: [(0, _v1.jsx)(_v56.Input, {
+        children: [(0, _v1.jsx)(_v50.Input, {
           height: "md",
           placeholder: _v12.EnterDomainName,
           value: _v7,
@@ -3341,10 +3335,10 @@
             _v8(_v0.target.value);
           },
           id: "claimDomainInput"
-        }), (0, _v1.jsx)(_v63.FormErrorMessage, {
+        }), (0, _v1.jsx)(_v57.FormErrorMessage, {
           children: _v12.ShouldBeValidDomainName
         })]
-      }), (0, _v1.jsx)(_v61.Button, {
+      }), (0, _v1.jsx)(_v55.Button, {
         isDisabled: !_v10 || _v14,
         isLoading: _v12,
         size: "sm",
@@ -3355,7 +3349,7 @@
         marginTop: "200",
         children: _v12.RequestVerification
       }), _v2 && _v2.length ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v54.Header, {
+        children: [(0, _v1.jsx)(_v48.Header, {
           size: "xs",
           as: "h6",
           marginTop: "200",
@@ -3363,7 +3357,7 @@
         }), (0, _v1.jsx)(_v5.Box, {
           as: "li",
           listStyleType: "none",
-          children: _v2.map((_v0, _v1) => (0, _v1.jsxs)(_v53.Flex, {
+          children: _v2.map((_v0, _v1) => (0, _v1.jsxs)(_v47.Flex, {
             as: "li",
             justifyContent: "space-between",
             alignItems: "center",
@@ -3374,24 +3368,24 @@
             paddingLeft: "100",
             paddingRight: "75",
             paddingY: "75",
-            children: [(0, _v1.jsx)(_v60.Text, {
+            children: [(0, _v1.jsx)(_v54.Text, {
               variant: "heading-xs",
               children: _v0.domainName
-            }), (0, _v1.jsx)(_v60.Text, {
+            }), (0, _v1.jsx)(_v54.Text, {
               as: "i",
               color: _v0.verified ? "status-positive-primary" : "text-secondary",
               variant: "body-md",
               marginRight: "75",
               marginLeft: "auto",
               children: _v0.verified ? _v12.Claimed : _v12.Pending
-            }), (0, _v1.jsx)(_v55.IconButton, {
+            }), (0, _v1.jsx)(_v49.IconButton, {
               isLoading: _v14,
               onClick: () => {
                 confirm(_v12.DomainDeleteConfirm) && _v15(_v0);
               },
               size: "xs",
               variant: "secondary",
-              icon: (0, _v1.jsx)(_v64.TrashBin, {}),
+              icon: (0, _v1.jsx)(_v58.TrashBin, {}),
               "aria-label": ""
             })]
           }, _v1))
@@ -3399,8 +3393,8 @@
       }) : null]
     });
   };
-  var _v68 = _v0.i(0);
-  let _v69 = ({
+  var _v62 = _v0.i(0);
+  let _v63 = ({
     value: _v0,
     onFieldChange: _v1,
     error: _v2,
@@ -3416,12 +3410,12 @@
       },
       _v10 = !!(_v3 && _v4?.length),
       _v11 = !!(_v5 && _v7?.length);
-    return (0, _v1.jsxs)(_v58, {
+    return (0, _v1.jsxs)(_v52, {
       title: _v12.SAMLConnectionName,
       description: _v12.SAMLConnectionNameDescription,
-      children: [(0, _v1.jsxs)(_v62.FormControl, {
+      children: [(0, _v1.jsxs)(_v56.FormControl, {
         isInvalid: !!_v2,
-        children: [(0, _v1.jsx)(_v56.Input, {
+        children: [(0, _v1.jsx)(_v50.Input, {
           height: "md",
           placeholder: _v12.EnterName,
           variant: "default",
@@ -3430,18 +3424,18 @@
             _v1("title", _v0.target.value);
           },
           id: "connectionNameInput"
-        }), (0, _v1.jsx)(_v63.FormErrorMessage, {
+        }), (0, _v1.jsx)(_v57.FormErrorMessage, {
           children: _v2
         })]
-      }), _v10 && (0, _v1.jsxs)(_v53.Flex, {
+      }), _v10 && (0, _v1.jsxs)(_v47.Flex, {
         alignItems: "center",
         marginTop: "200",
-        children: [(0, _v1.jsx)(_v68.Tooltip, {
+        children: [(0, _v1.jsx)(_v62.Tooltip, {
           label: _v12.ToDisableSsoInChina,
           isDisabled: !_v8,
-          children: (0, _v1.jsx)(_v53.Flex, {
+          children: (0, _v1.jsx)(_v47.Flex, {
             alignItems: "center",
-            children: (0, _v1.jsx)(_v49.Switch, {
+            children: (0, _v1.jsx)(_v43.Switch, {
               size: "sm",
               value: _v23,
               onChange: _v9,
@@ -3449,24 +3443,24 @@
               isDisabled: _v8
             })
           })
-        }), (0, _v1.jsx)(_v48.Paragraph, {
+        }), (0, _v1.jsx)(_v42.Paragraph, {
           marginLeft: "75",
           size: "md",
           children: _v12.EnableForUsersInChina
         })]
-      }), _v11 && (0, _v1.jsxs)(_v53.Flex, {
+      }), _v11 && (0, _v1.jsxs)(_v47.Flex, {
         alignItems: "center",
         marginTop: "200",
-        children: [(0, _v1.jsx)(_v53.Flex, {
+        children: [(0, _v1.jsx)(_v47.Flex, {
           alignItems: "center",
-          children: (0, _v1.jsx)(_v49.Switch, {
+          children: (0, _v1.jsx)(_v43.Switch, {
             size: "sm",
             value: _v22,
             onChange: _v9,
             isChecked: _v6 === _v22,
             isDisabled: _v8
           })
-        }), (0, _v1.jsx)(_v48.Paragraph, {
+        }), (0, _v1.jsx)(_v42.Paragraph, {
           marginLeft: "75",
           size: "md",
           children: _v12.EnableForUsersToCustomDomain
@@ -3474,12 +3468,12 @@
       })]
     });
   };
-  var _v70 = _v0.i(0);
-  let _v71 = ({
+  var _v64 = _v0.i(0);
+  let _v65 = ({
       onFieldChange: _v0,
       onError: _v1
-    }) => (0, _v1.jsx)(_v53.Flex, {
-      children: (0, _v1.jsx)(_v70.FileInput, {
+    }) => (0, _v1.jsx)(_v47.Flex, {
+      children: (0, _v1.jsx)(_v64.FileInput, {
         display: "flex",
         accept: ".xml",
         onChange: _v0 => {
@@ -3509,26 +3503,26 @@
         label: _v12.UploadFile
       })
     }),
-    _v72 = ({
+    _v66 = ({
       value: _v0,
       onFieldChange: _v1,
       error: _v2
-    }) => (0, _v1.jsxs)(_v53.Flex, {
+    }) => (0, _v1.jsxs)(_v47.Flex, {
       marginTop: "200",
       alignItems: "center",
       gap: "75",
       children: [(0, _v1.jsx)(_v5.Box, {
         flex: "1",
-        children: (0, _v1.jsx)(_v54.Header, {
+        children: (0, _v1.jsx)(_v48.Header, {
           as: "h6",
           variant: "heading-2xs",
           size: "xl",
           children: _v12.SignInUrl
         })
-      }), (0, _v1.jsxs)(_v62.FormControl, {
+      }), (0, _v1.jsxs)(_v56.FormControl, {
         flex: "5",
         isInvalid: !!_v2,
-        children: [(0, _v1.jsx)(_v56.Input, {
+        children: [(0, _v1.jsx)(_v50.Input, {
           height: "md",
           placeholder: _v12.EnterUrl,
           value: _v0 ?? "",
@@ -3536,31 +3530,31 @@
             _v1("ssoUrl", _v0.target.value);
           },
           id: "signInUrlInput"
-        }), (0, _v1.jsx)(_v63.FormErrorMessage, {
+        }), (0, _v1.jsx)(_v57.FormErrorMessage, {
           children: _v2
         })]
       })]
     }),
-    _v73 = ({
+    _v67 = ({
       value: _v0,
       onFieldChange: _v1,
       error: _v2
-    }) => (0, _v1.jsxs)(_v53.Flex, {
+    }) => (0, _v1.jsxs)(_v47.Flex, {
       marginTop: "200",
       alignItems: "center",
       gap: "75",
       children: [(0, _v1.jsx)(_v5.Box, {
         flex: "1",
-        children: (0, _v1.jsx)(_v54.Header, {
+        children: (0, _v1.jsx)(_v48.Header, {
           as: "h6",
           variant: "heading-2xs",
           size: "xl",
           children: _v12.SingleLogoutUrl
         })
-      }), (0, _v1.jsxs)(_v62.FormControl, {
+      }), (0, _v1.jsxs)(_v56.FormControl, {
         flex: "5",
         isInvalid: !!_v2,
-        children: [(0, _v1.jsx)(_v56.Input, {
+        children: [(0, _v1.jsx)(_v50.Input, {
           height: "md",
           placeholder: _v12.EnterUrl,
           value: _v0 ?? "",
@@ -3568,13 +3562,13 @@
             _v1("singleLogoutUrl", _v0.target.value);
           },
           id: "SingleLogoutUrlInput"
-        }), (0, _v1.jsx)(_v63.FormErrorMessage, {
+        }), (0, _v1.jsx)(_v57.FormErrorMessage, {
           children: _v2
         })]
       })]
     });
-  var _v74 = _v0.i(0);
-  let _v75 = _v0 => (0, _v1.jsx)(_v74.Icon, {
+  var _v68 = _v0.i(0);
+  let _v69 = _v0 => (0, _v1.jsx)(_v68.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -3585,7 +3579,7 @@
         fill: "currentColor"
       })
     }),
-    _v76 = ({
+    _v70 = ({
       uuid: _v0,
       onCopy: _v1,
       connectionType: _v2,
@@ -3597,17 +3591,17 @@
         CONNECTION_TYPE_ENTERPRISE_SITE: _v3,
         CONNECTION_TYPE_CHINA_SITE: _v4
       }[_v2] || _v20) + "/sso/connect?connection=" + _v0;
-      return (0, _v1.jsx)(_v58, {
+      return (0, _v1.jsx)(_v52, {
         title: _v12.TestUrl,
         description: _v12.TestUrlDescription,
         children: (0, _v1.jsxs)(_v5.Box, {
           position: "relative",
-          children: [(0, _v1.jsx)(_v56.Input, {
+          children: [(0, _v1.jsx)(_v50.Input, {
             readOnly: !0,
             value: _v5,
             paddingLeft: "400",
             size: "sm"
-          }), (0, _v1.jsx)(_v55.IconButton, {
+          }), (0, _v1.jsx)(_v49.IconButton, {
             size: "xs",
             "aria-label": "",
             id: "copyBtnTestUrl",
@@ -3615,7 +3609,7 @@
               navigator.clipboard.writeText(_v5), _v1();
             },
             variant: "secondary",
-            icon: (0, _v1.jsx)(_v75, {}),
+            icon: (0, _v1.jsx)(_v69, {}),
             position: "absolute",
             left: "50",
             top: "50"
@@ -3623,8 +3617,8 @@
         })
       });
     };
-  var _v77 = _v0.i(0);
-  let _v78 = ({
+  var _v71 = _v0.i(0);
+  let _v72 = ({
     uuid: _v0,
     onCopy: _v1,
     connectionType: _v2,
@@ -3649,10 +3643,10 @@
         name: _v12.SingleLogoutUrl,
         url: _v8
       }];
-    return (0, _v1.jsx)(_v58, {
+    return (0, _v1.jsx)(_v52, {
       title: _v12.VimeoMetadata,
       description: _v12.VimeoMetadataDescription,
-      children: _v9.map((_v0, _v1) => (0, _v1.jsxs)(_v53.Flex, {
+      children: _v9.map((_v0, _v1) => (0, _v1.jsxs)(_v47.Flex, {
         alignItems: "center",
         marginBottom: "75",
         gap: "75",
@@ -3661,7 +3655,7 @@
             marginBottom: 0
           }
         },
-        children: [(0, _v1.jsx)(_v54.Header, {
+        children: [(0, _v1.jsx)(_v48.Header, {
           as: "h6",
           variant: "heading-2xs",
           flex: "1",
@@ -3670,21 +3664,21 @@
         }), (0, _v1.jsxs)(_v5.Box, {
           position: "relative",
           flex: "5",
-          children: [(0, _v1.jsx)(_v56.Input, {
+          children: [(0, _v1.jsx)(_v50.Input, {
             readOnly: !0,
             value: _v0.url,
             paddingLeft: "400",
             size: "sm"
-          }), (0, _v1.jsx)(_v55.IconButton, {
+          }), (0, _v1.jsx)(_v49.IconButton, {
             size: "xs",
             "aria-label": "",
-            id: "copyBtn" + (0, _v77.default)(_v0.name),
+            id: "copyBtn" + (0, _v71.default)(_v0.name),
             onClick: () => {
               var _v0;
               return _v0 = _v0.url, void (navigator.clipboard.writeText(_v0), _v1());
             },
             variant: "secondary",
-            icon: (0, _v1.jsx)(_v75, {}),
+            icon: (0, _v1.jsx)(_v69, {}),
             position: "absolute",
             left: "50",
             top: "50"
@@ -3693,32 +3687,32 @@
       }, _v1))
     });
   };
-  var _v79 = _v0.i(0),
-    _v80 = _v0.i(0),
-    _v81 = _v0.i(0);
-  let _v82 = ({
+  var _v73 = _v0.i(0),
+    _v74 = _v0.i(0),
+    _v75 = _v0.i(0);
+  let _v76 = ({
       value: _v0,
       onFieldChange: _v1,
       error: _v2
-    }) => (0, _v1.jsxs)(_v53.Flex, {
+    }) => (0, _v1.jsxs)(_v47.Flex, {
       marginTop: "200",
       gap: "75",
       children: [(0, _v1.jsx)(_v5.Box, {
         flex: "1",
-        children: (0, _v1.jsx)(_v54.Header, {
+        children: (0, _v1.jsx)(_v48.Header, {
           as: "h6",
           variant: "heading-2xs",
           marginTop: "100",
           size: "xl",
           children: _v12.IDPCertificate
         })
-      }), (0, _v1.jsxs)(_v62.FormControl, {
+      }), (0, _v1.jsxs)(_v56.FormControl, {
         isInvalid: !!_v2,
         flex: "5",
-        children: [(0, _v1.jsx)(_v79.Textarea, {
+        children: [(0, _v1.jsx)(_v73.Textarea, {
           display: "block",
           width: "100%",
-          height: (0, _v80.rem)(150),
+          height: (0, _v74.rem)(150),
           resize: "none",
           placeholder: _v12.EnterCertificate,
           value: _v0 ?? "",
@@ -3753,7 +3747,7 @@
             bottom: "75",
             height: "md",
             width: "md"
-          }), (0, _v1.jsx)(_v55.IconButton, {
+          }), (0, _v1.jsx)(_v49.IconButton, {
             position: "absolute",
             right: "75",
             bottom: "75",
@@ -3764,14 +3758,14 @@
               let _v0 = document.getElementById("x509CertFileUpload");
               _v0 && _v0.click();
             },
-            icon: (0, _v1.jsx)(_v81.Upload, {})
+            icon: (0, _v1.jsx)(_v75.Upload, {})
           })]
-        }), (0, _v1.jsx)(_v63.FormErrorMessage, {
+        }), (0, _v1.jsx)(_v57.FormErrorMessage, {
           children: _v2
         })]
       })]
     }),
-    _v83 = ({
+    _v77 = ({
       userId: _v0,
       modalView: _v1,
       connection: _v2,
@@ -3796,7 +3790,7 @@
       let {
           updateLoading: _v20,
           onUpdateSsoConnection: _v21
-        } = _v52({
+        } = _v46({
           userId: _v0,
           onConnectionUpdateSuccess: _v11,
           onError: _v14,
@@ -3819,7 +3813,7 @@
         },
         _v25 = "info" === _v1 && _v3 ? _v24(_v3.uri) : _v2.uri ? _v24(_v2.uri) : _v15,
         _v26 = () => (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v69, {
+          children: [(0, _v1.jsx)(_v63, {
             value: _v2.title,
             onFieldChange: _v16,
             error: _v18.title && _v17.title,
@@ -3829,35 +3823,35 @@
             enterpriseSiteDomain: _v9,
             connectionType: _v2.connectionType,
             lockEnterpriseSiteSwitch: _v10
-          }), (0, _v1.jsx)(_v78, {
+          }), (0, _v1.jsx)(_v72, {
             onCopy: _v19,
             enterpriseSiteDomain: _v9,
             chinaSiteDomain: _v7,
             connectionType: _v2.connectionType,
             uuid: _v25
-          }), (0, _v1.jsx)(_v59, {
+          }), (0, _v1.jsx)(_v53, {
             attributesMap: _v2.attributesMap,
             onFieldChange: _v16
-          }), (0, _v1.jsxs)(_v58, {
+          }), (0, _v1.jsxs)(_v52, {
             title: _v12.IdentityProviderMetadata,
             description: _v12.UploadYouIDPMetadataFile,
-            children: [(0, _v1.jsx)(_v71, {
+            children: [(0, _v1.jsx)(_v65, {
               onFieldChange: _v16,
               onError: _v14
-            }), (0, _v1.jsx)(_v48.Paragraph, {
+            }), (0, _v1.jsx)(_v42.Paragraph, {
               color: "text-secondary",
               size: "md",
               marginTop: "200",
               children: _v12.AlternativelyAddEachOneManually
-            }), (0, _v1.jsx)(_v72, {
+            }), (0, _v1.jsx)(_v66, {
               value: _v2.ssoUrl,
               onFieldChange: _v16,
               error: _v18.ssoUrl && _v17.ssoUrl
-            }), (0, _v1.jsx)(_v82, {
+            }), (0, _v1.jsx)(_v76, {
               value: _v2.x509Certificate,
               onFieldChange: _v16,
               error: _v18.x509Certificate && _v17.x509Certificate
-            }), (0, _v1.jsx)(_v73, {
+            }), (0, _v1.jsx)(_v67, {
               value: _v2.singleLogoutUrl,
               onFieldChange: _v16,
               error: _v18.singleLogoutUrl && _v17.singleLogoutUrl
@@ -3865,22 +3859,22 @@
           })]
         }),
         _v27 = () => (0, _v1.jsxs)(_v1.Fragment, {
-          children: ["info" === _v1 && (0, _v1.jsx)(_v58, {
+          children: ["info" === _v1 && (0, _v1.jsx)(_v52, {
             title: _v12.EnableConnection,
             description: _v12.EnableConnectionDescription,
-            headerControl: (0, _v1.jsx)(_v49.Switch, {
+            headerControl: (0, _v1.jsx)(_v43.Switch, {
               size: "md",
               isDisabled: _v20,
               isChecked: _v22,
               onChange: _v24,
               id: "connectionToggle" + _v2.uri
             })
-          }), (0, _v1.jsx)(_v76, {
+          }), (0, _v1.jsx)(_v70, {
             onCopy: _v19,
             uuid: _v25,
             enterpriseSiteDomain: _v9,
             connectionType: _v2.connectionType
-          }), (0, _v1.jsx)(_v67, {
+          }), (0, _v1.jsx)(_v61, {
             userId: _v0,
             connection: _v3 ?? _v2,
             ssoDomains: _v4,
@@ -3903,24 +3897,24 @@
           return (0, _v1.jsx)(_v1.Fragment, {});
       }
     };
-  var _v84 = _v0.i(0);
-  let _v85 = ({
+  var _v78 = _v0.i(0);
+  let _v79 = ({
       stepNr: _v0
     }) => (0, _v1.jsxs)(_v5.Box, {
       children: [[1, 2].map(_v0 => (0, _v1.jsx)(_v5.Box, {
         backgroundColor: _v0 >= _v0 ? "text-secondary" : "stroke",
         width: "md",
-        height: (0, _v80.rem)(4),
+        height: (0, _v74.rem)(4),
         display: "inline-block",
-        borderRadius: (0, _v80.rem)(2),
+        borderRadius: (0, _v74.rem)(2),
         marginRight: "50"
-      }, _v0)), (0, _v1.jsx)(_v60.Text, {
+      }, _v0)), (0, _v1.jsx)(_v54.Text, {
         color: "text-secondary",
         variant: "body-md",
         children: _v12.Step(_v0)
       })]
     }),
-    _v86 = ({
+    _v80 = ({
       modalView: _v0,
       onModalClose: _v1,
       onEditSave: _v2,
@@ -3931,23 +3925,23 @@
       deleteLoading: _v7
     }) => {
       let _v8 = _v1;
-      return "edit" === _v0 ? _v8 = _v2 : "create" === _v0 && (_v8 = _v4), (0, _v1.jsx)(_v84.ModalFooter, {
-        children: (0, _v1.jsxs)(_v53.Flex, {
+      return "edit" === _v0 ? _v8 = _v2 : "create" === _v0 && (_v8 = _v4), (0, _v1.jsx)(_v78.ModalFooter, {
+        children: (0, _v1.jsxs)(_v47.Flex, {
           justifyContent: "space-between",
           alignItems: "center",
           width: "100%",
-          children: ["edit" === _v0 && (0, _v1.jsx)(_v61.Button, {
+          children: ["edit" === _v0 && (0, _v1.jsx)(_v55.Button, {
             isLoading: _v7,
             variant: "secondary",
             onClick: () => {
               confirm(_v12.ConfirmDeleteConnection) && _v3();
             },
             children: _v12.Delete
-          }), "edit" !== _v0 && (0, _v1.jsx)(_v85, {
+          }), "edit" !== _v0 && (0, _v1.jsx)(_v79, {
             stepNr: "create" === _v0 ? 1 : 2
-          }), (0, _v1.jsxs)(_v53.Flex, {
+          }), (0, _v1.jsxs)(_v47.Flex, {
             gap: "75",
-            children: ["info" === _v0 && (0, _v1.jsx)(_v61.Button, {
+            children: ["info" === _v0 && (0, _v1.jsx)(_v55.Button, {
               isLoading: _v6,
               isDisabled: _v5,
               variant: "primary",
@@ -3955,12 +3949,12 @@
               id: "finishBtn",
               children: _v12.Finish
             }), "info" !== _v0 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v61.Button, {
+              children: [(0, _v1.jsx)(_v55.Button, {
                 id: "cancelBtn",
                 variant: "tertiary",
                 onClick: _v1,
                 children: _v12.Cancel
-              }), (0, _v1.jsx)(_v61.Button, {
+              }), (0, _v1.jsx)(_v55.Button, {
                 isLoading: _v6,
                 isDisabled: _v5,
                 variant: "primary",
@@ -3973,16 +3967,16 @@
         })
       });
     };
-  var _v87 = _v0.i(0);
-  let _v88 = ({
+  var _v81 = _v0.i(0);
+  let _v82 = ({
     modalView: _v0
-  }) => (0, _v1.jsxs)(_v87.ModalHeader, {
+  }) => (0, _v1.jsxs)(_v81.ModalHeader, {
     paddingBottom: "50",
-    children: [(0, _v1.jsx)(_v54.Header, {
+    children: [(0, _v1.jsx)(_v48.Header, {
       size: "lg",
       as: "h3",
       children: _v17[_v0].header
-    }), (0, _v1.jsxs)(_v48.Paragraph, {
+    }), (0, _v1.jsxs)(_v42.Paragraph, {
       size: "md",
       children: [_v17[_v0].description, " ", (0, _v1.jsx)(_v4.Link, {
         href: _v13,
@@ -3993,8 +3987,8 @@
       })]
     })]
   });
-  var _v89 = _v0.i(0);
-  let _v90 = ({
+  var _v83 = _v0.i(0);
+  let _v84 = ({
     userId: _v0,
     connection: _v1,
     createdConnection: _v2,
@@ -4025,7 +4019,7 @@
         let [_v1, _v2] = (0, _v2.useState)(_v0),
           [_v3, _v4] = (0, _v2.useState)({});
         return (0, _v2.useEffect)(() => {
-          (0, _v89.default)(_v0, _v1) && _v4({});
+          (0, _v83.default)(_v0, _v1) && _v4({});
         }, [_v0, _v1]), (0, _v2.useEffect)(() => {
           _v2(_v0), _v4({});
         }, [_v0]), {
@@ -4069,7 +4063,7 @@
       {
         updateLoading: _v25,
         onUpdateSsoConnection: _v26
-      } = _v52({
+      } = _v46({
         userId: _v0,
         onConnectionUpdateSuccess: _v14,
         onError: _v19,
@@ -4104,7 +4098,7 @@
                 type: "REQUEST"
               });
               try {
-                let _v0 = await _v0(`/sso/${_v0.where.userId}/connections/${_v0.where.connectionUuid}${(0, _v29.serializeQuery)(_v0)}`, _v50({
+                let _v0 = await _v0(`/sso/${_v0.where.userId}/connections/${_v0.where.connectionUuid}${(0, _v29.serializeQuery)(_v0)}`, _v44({
                   ..._v0,
                   baseUrl: _v1,
                   headers: {
@@ -4184,21 +4178,21 @@
         onError: _v19
       }),
       _v31 = _v25 || _v27 || Object.keys(_v24).length > 0 || 0 === Object.keys(_v23).length;
-    return (0, _v1.jsxs)(_v44.Modal, {
+    return (0, _v1.jsxs)(_v38.Modal, {
       size: "xl",
       isOpen: _v6,
       onClose: _v7,
-      children: [(0, _v1.jsx)(_v47.ModalOverlay, {}), (0, _v1.jsxs)(_v46.ModalContent, {
+      children: [(0, _v1.jsx)(_v41.ModalOverlay, {}), (0, _v1.jsxs)(_v40.ModalContent, {
         display: "flex",
         "flex-direction": "column",
         height: "calc(100% - 7.5rem)",
         width: "784px",
-        children: [(0, _v1.jsx)(_v88, {
+        children: [(0, _v1.jsx)(_v82, {
           modalView: _v8
-        }), (0, _v1.jsx)(_v45.ModalBody, {
+        }), (0, _v1.jsx)(_v39.ModalBody, {
           flex: "1",
           overflowY: "auto",
-          children: (0, _v1.jsx)(_v83, {
+          children: (0, _v1.jsx)(_v77, {
             userId: _v0,
             modalView: _v8,
             connection: _v21,
@@ -4220,7 +4214,7 @@
             touchedFields: _v23,
             onCopy: _v20
           })
-        }), (0, _v1.jsx)(_v86, {
+        }), (0, _v1.jsx)(_v80, {
           modalView: _v8,
           onModalClose: _v7,
           onEditSave: () => {
@@ -4239,46 +4233,46 @@
       })]
     });
   };
-  var _v91 = _v0.i(0),
-    _v92 = _v0.i(0),
-    _v93 = _v0.i(0),
-    _v94 = _v0.i(0),
-    _v95 = _v0.i(0);
-  let _v96 = ({
+  var _v85 = _v0.i(0),
+    _v86 = _v0.i(0),
+    _v87 = _v0.i(0),
+    _v88 = _v0.i(0),
+    _v89 = _v0.i(0);
+  let _v90 = ({
       name: _v0,
       description: _v1
     }) => (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v54.Header, {
+      children: [(0, _v1.jsx)(_v48.Header, {
         variant: "heading-xs",
         as: "h6",
         size: "xl",
         children: _v0
-      }), _v1 && (0, _v1.jsx)(_v48.Paragraph, {
+      }), _v1 && (0, _v1.jsx)(_v42.Paragraph, {
         variant: "body-md",
         color: "text-secondary",
         marginTop: "50",
         children: _v1
       })]
     }),
-    _v97 = ({
+    _v91 = ({
       children: _v0,
       name: _v1,
       description: _v2,
       key: _v3
     }) => (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v95.Divider, {
+      children: [(0, _v1.jsx)(_v89.Divider, {
         borderColor: "stroke",
         marginY: "200"
-      }), (0, _v1.jsxs)(_v53.Flex, {
+      }), (0, _v1.jsxs)(_v47.Flex, {
         alignItems: "center",
         justifyContent: "space-between",
         children: [(0, _v1.jsx)(_v5.Box, {
           flex: "3",
-          children: (0, _v1.jsx)(_v96, {
+          children: (0, _v1.jsx)(_v90, {
             name: _v1,
             description: _v2
           })
-        }), (0, _v1.jsx)(_v53.Flex, {
+        }), (0, _v1.jsx)(_v47.Flex, {
           flex: "1",
           justifyContent: "flex-end",
           alignItems: "center",
@@ -4286,7 +4280,7 @@
         })]
       }, _v3)]
     }),
-    _v98 = ({
+    _v92 = ({
       header: _v0,
       description: _v1,
       isDisabled: _v2,
@@ -4299,10 +4293,10 @@
         value: _v0.role?.toLowerCase(),
         label: _v0.displayName || ""
       }));
-      return (0, _v1.jsx)(_v97, {
+      return (0, _v1.jsx)(_v91, {
         name: _v0,
         description: _v1,
-        children: (0, _v1.jsx)(_v94.Select, {
+        children: (0, _v1.jsx)(_v88.Select, {
           style: {
             width: "100%"
           },
@@ -4316,7 +4310,7 @@
         })
       });
     },
-    _v99 = ({
+    _v93 = ({
       header: _v0,
       description: _v1,
       isChecked: _v2,
@@ -4326,14 +4320,14 @@
       hidden: _v6,
       id: _v7,
       tooltip: _v8
-    }) => (0, _v1.jsxs)(_v97, {
+    }) => (0, _v1.jsxs)(_v91, {
       name: _v0,
       description: _v1,
-      children: [_v5, !_v6 && (0, _v1.jsx)(_v68.Tooltip, {
+      children: [_v5, !_v6 && (0, _v1.jsx)(_v62.Tooltip, {
         label: _v8,
         isDisabled: !_v8,
         shouldWrapChildren: !0,
-        children: (0, _v1.jsx)(_v49.Switch, {
+        children: (0, _v1.jsx)(_v43.Switch, {
           isDisabled: _v3,
           isChecked: _v2,
           onChange: () => _v4(!_v2),
@@ -4341,7 +4335,7 @@
         })
       })]
     }),
-    _v100 = ({
+    _v94 = ({
       header: _v0,
       description: _v1,
       value: _v2,
@@ -4358,10 +4352,10 @@
           let _v0 = setTimeout(() => _v3(String(_v6)), 500);
           return () => clearTimeout(_v0);
         }
-      }, [_v8, _v3, _v6, _v2]), (0, _v1.jsx)(_v97, {
+      }, [_v8, _v3, _v6, _v2]), (0, _v1.jsx)(_v91, {
         name: _v0,
         description: _v1,
-        children: (0, _v1.jsx)(_v56.Input, {
+        children: (0, _v1.jsx)(_v50.Input, {
           disabled: _v4,
           value: _v6,
           isInvalid: !_v8,
@@ -4376,7 +4370,7 @@
         })
       });
     },
-    _v101 = ({
+    _v95 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v5.Box, {
       borderRadius: "md",
@@ -4385,23 +4379,23 @@
       backgroundColor: "fill-surface",
       children: _v0
     }),
-    _v102 = ({
+    _v96 = ({
       name: _v0,
       description: _v1,
       dataId: _v2,
       controlElement: _v3 = null
-    }) => (0, _v1.jsxs)(_v53.Flex, {
+    }) => (0, _v1.jsxs)(_v47.Flex, {
       justifyContent: "space-between",
       alignItems: "center",
       children: [(0, _v1.jsxs)(_v5.Box, {
-        children: [(0, _v1.jsx)(_v54.Header, {
+        children: [(0, _v1.jsx)(_v48.Header, {
           variant: "heading-md",
           as: "h4",
           marginBottom: "50",
           "data-id": _v2,
           size: "xl",
           children: _v0
-        }), (0, _v1.jsx)(_v48.Paragraph, {
+        }), (0, _v1.jsx)(_v42.Paragraph, {
           variant: "body-md",
           color: "text-secondary",
           children: _v1
@@ -4410,7 +4404,7 @@
         children: _v3
       })]
     }),
-    _v103 = ({
+    _v97 = ({
       ssoSettings: _v0,
       ssoLoading: _v1,
       userId: _v2,
@@ -4495,13 +4489,13 @@
       });
       return ((0, _v2.useEffect)(() => {
         _v8 && _v3();
-      }, [_v3, _v8]), _v1 || !_v0) ? (0, _v1.jsx)(_v65.LoadSpinner, {}) : (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v101, {
-          children: [(0, _v1.jsx)(_v102, {
+      }, [_v3, _v8]), _v1 || !_v0) ? (0, _v1.jsx)(_v59.LoadSpinner, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsxs)(_v95, {
+          children: [(0, _v1.jsx)(_v96, {
             dataId: "provisioning-options-section",
             name: _v12.ProvisioningOptions,
             description: _v12.ProvisioningOptionsDescription
-          }), "jitProvisioning" in _v0 && (0, _v1.jsx)(_v99, {
+          }), "jitProvisioning" in _v0 && (0, _v1.jsx)(_v93, {
             header: _v12.JITProvisioning,
             description: _v12.JITProvisioningDescription,
             isChecked: _v0.jitProvisioning,
@@ -4515,7 +4509,7 @@
               });
             },
             id: "jitProvisioning"
-          }), "jitReprovisioning" in _v0 && (0, _v1.jsx)(_v99, {
+          }), "jitReprovisioning" in _v0 && (0, _v1.jsx)(_v93, {
             header: _v12.JITReprovisioning,
             description: _v12.JITReprovisioningDescription,
             isChecked: _v0.jitReprovisioning,
@@ -4525,7 +4519,7 @@
             }),
             id: "jitReprovisioning",
             tooltip: _v0.jitProvisioning ? null : _v12.JITReprovisioningTooltip
-          }), "teamBasedSso" in _v0 && (0, _v1.jsx)(_v99, {
+          }), "teamBasedSso" in _v0 && (0, _v1.jsx)(_v93, {
             header: _v12.TeamOnlySso,
             description: _v12.TeamOnlySsoDescription,
             isChecked: _v0.teamBasedSso,
@@ -4535,7 +4529,7 @@
             }),
             id: "teamBasedSso"
           }), "scimBasedSso" in _v0 && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v99, {
+            children: [(0, _v1.jsx)(_v93, {
               header: _v12.SCIM,
               description: _v12.SCIMDescription,
               isChecked: _v0.scimBasedSso,
@@ -4545,32 +4539,32 @@
               }),
               hidden: !0,
               id: "scimBasedSso",
-              linkButton: (0, _v1.jsx)(_v61.Button, {
+              linkButton: (0, _v1.jsx)(_v55.Button, {
                 onClick: () => {
                   _v4 && window.open("https://developer.vimeo.com/apps", "_blank");
                 },
                 isDisabled: !_v4,
                 variant: "secondary",
                 size: "sm",
-                leftIcon: (0, _v1.jsx)(_v93.PopOut, {}),
+                leftIcon: (0, _v1.jsx)(_v87.PopOut, {}),
                 id: "manageScimBtn",
                 children: _v12.Manage
               })
-            }), !_v4 && (0, _v1.jsx)(_v91.Alert, {
+            }), !_v4 && (0, _v1.jsx)(_v85.Alert, {
               size: "sm",
               marginTop: "200",
-              children: (0, _v1.jsx)(_v92.AlertDescription, {
+              children: (0, _v1.jsx)(_v86.AlertDescription, {
                 marginTop: "50",
                 children: _v7
               })
             })]
           })]
-        }), (0, _v1.jsxs)(_v101, {
-          children: [(0, _v1.jsx)(_v102, {
+        }), (0, _v1.jsxs)(_v95, {
+          children: [(0, _v1.jsx)(_v96, {
             dataId: "sso-configuration-section",
             name: _v12.SSOConfiguration,
             description: _v12.SSOConfigurationDescription
-          }), "forceSso" in _v0 && (0, _v1.jsx)(_v99, {
+          }), "forceSso" in _v0 && (0, _v1.jsx)(_v93, {
             header: _v12.ForceSSO,
             description: _v12.ForceSSODescription,
             isChecked: _v0.forceSso,
@@ -4579,7 +4573,7 @@
               forceSso: _v0
             }),
             id: "forceSso"
-          }), "defaultTeamRole" in _v0 && (0, _v1.jsx)(_v98, {
+          }), "defaultTeamRole" in _v0 && (0, _v1.jsx)(_v92, {
             header: _v12.DefaultRole,
             description: _v12.DefaultRoleDescription,
             isDisabled: _v9,
@@ -4589,7 +4583,7 @@
               defaultTeamRole: _v0
             }),
             id: "defaultTeamRole"
-          }), "logoutUrl" in _v0 && (0, _v1.jsx)(_v100, {
+          }), "logoutUrl" in _v0 && (0, _v1.jsx)(_v94, {
             isDisabled: _v9,
             header: _v12.LogoutURL,
             description: _v12.LogoutURLDescription,
@@ -4602,7 +4596,7 @@
         })]
       });
     },
-    _v104 = ({
+    _v98 = ({
       ownerId: _v0,
       connections: _v1,
       loading: _v2,
@@ -4614,13 +4608,13 @@
       let {
           updateLoading: _v7,
           onUpdateSsoConnection: _v8
-        } = _v52({
+        } = _v46({
           userId: _v0,
           onConnectionUpdateSuccess: _v5,
           onError: _v6,
           toggleUpdate: !0
         }),
-        _v9 = (0, _v1.jsx)(_v61.Button, {
+        _v9 = (0, _v1.jsx)(_v55.Button, {
           id: "createConnectionBtn",
           variant: "primary",
           onClick: _v4,
@@ -4628,19 +4622,19 @@
           "data-id": "create-connection-button",
           children: _v12.CreateConnection
         });
-      return (0, _v1.jsxs)(_v101, {
-        children: [(0, _v1.jsx)(_v102, {
+      return (0, _v1.jsxs)(_v95, {
+        children: [(0, _v1.jsx)(_v96, {
           name: _v12.SAMLConnections,
           description: _v12.SAMLConnectionsDescription,
           controlElement: _v9
         }), _v2 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v95.Divider, {
+          children: [(0, _v1.jsx)(_v89.Divider, {
             borderColor: "stroke",
             marginY: "200"
-          }), (0, _v1.jsx)(_v65.LoadSpinner, {
+          }), (0, _v1.jsx)(_v59.LoadSpinner, {
             heightPX: 100
           })]
-        }), !_v2 && _v1 && _v1.map(_v0 => (0, _v1.jsxs)(_v97, {
+        }), !_v2 && _v1 && _v1.map(_v0 => (0, _v1.jsxs)(_v91, {
           name: _v0.title,
           description: (_v0 => {
             let _v1 = _v0.metadata.interactions.connect.domains;
@@ -4654,14 +4648,14 @@
               children: [_v12.ClaimedDomains, ": ", _v2]
             });
           })(_v0),
-          children: [(0, _v1.jsx)(_v61.Button, {
+          children: [(0, _v1.jsx)(_v55.Button, {
             marginRight: "200",
             id: "connectionEdit" + _v0.uri,
             variant: "secondary",
             size: "sm",
             onClick: () => _v3(_v0),
             children: _v12.Edit
-          }), (0, _v1.jsx)(_v49.Switch, {
+          }), (0, _v1.jsx)(_v43.Switch, {
             isDisabled: _v7,
             isChecked: _v0.isActive,
             onChange: () => {
@@ -4955,72 +4949,30 @@
         closeModal: _v14,
         setModalViewState: _v15
       }) => {
-        let _v16,
-          _v17,
-          _v18,
-          _v19,
-          _v20,
-          {
-            sendSSOConnectionCreateAttempt: _v21,
-            sendSSOConnectionSaved: _v22,
-            sendSSOConnectionEnabled: _v23
-          } = (_v16 = (0, _v43.useViewer)(), _v17 = (0, _v2.useMemo)(() => (0, _v38.buildActionBpContext)({
-            action_type: "click",
-            feature: null
-          }), []), _v18 = (0, _v2.useCallback)((_v0, _v1) => (0, _v39.buildProductAnalyticsBpContext)({
-            product: "collaboration",
-            feature: "settings",
-            location: "workspace",
-            copy: _v1,
-            element: _v0
-          }), []), _v19 = (0, _v2.useMemo)(() => (0, _v40.buildTeamBpContextFromTeamUser)(_v16?.teamUser), [_v16?.teamUser]), _v20 = (0, _v2.useMemo)(() => (0, _v41.buildThirdPartyIntegrationBpContext)({
-            integration_id: null,
-            integration_name: null,
-            is_partner: null
-          }), []), {
-            sendSSOConnectionCreateAttempt: () => {
-              (0, _v42.sendBpEventWithContexts)("vimeo.sso_connection_create_attempt", {
-                ..._v17,
-                ..._v18("button", "Create connection"),
-                ..._v19,
-                ..._v20
-              }, -1);
-            },
-            sendSSOConnectionSaved: (_v0, _v1) => {
-              (0, _v42.sendBpEventWithContexts)("vimeo.sso_connection_saved", {
-                ..._v17,
-                ..._v18("button", "Save"),
-                ..._v19,
-                ..._v20
-              }, 2, {
-                single_logout_url: _v0,
-                sso_uuid: _v1
-              });
-            },
-            sendSSOConnectionEnabled: _v0 => {
-              (0, _v42.sendBpEventWithContexts)("vimeo.sso_connection_enabled", {
-                ..._v17,
-                ..._v18("toggle", "Enable connection " + _v0),
-                ..._v19,
-                ..._v20
-              }, -1);
-            }
-          });
+        let {
+          sendSSOConnectionCreateAttempt: _v16,
+          sendSSOConnectionSaved: _v17,
+          sendSSOConnectionEnabled: _v18
+        } = {
+          sendSSOConnectionCreateAttempt: () => {},
+          sendSSOConnectionSaved: (_v0, _v1) => {},
+          sendSSOConnectionEnabled: _v0 => {}
+        };
         return {
           onEditConnection: _v0 => {
             _v15("edit"), _v2(_v0), _v13();
           },
           onCreateConnection: () => {
-            _v15("create"), _v2(_v0), _v9(), _v13(), _v21();
+            _v15("create"), _v2(_v0), _v9(), _v13(), _v16();
           },
           onConnectionUpdateSuccess: (_v0, _v1, _v2 = !0, _v3 = !1) => {
-            _v4(_v12.ConnectionUpdated), _v5(_v0), _v2 && _v14(), _v3 && _v0.isActive && _v23(_v0.title), _v1 && _v0.singleLogoutUrl != _v1.singleLogoutUrl && _v22(_v0.singleLogoutUrl, _v24(_v0.uri));
+            _v4(_v12.ConnectionUpdated), _v5(_v0), _v2 && _v14(), _v3 && _v0.isActive && _v18(_v0.title), _v1 && _v0.singleLogoutUrl != _v1.singleLogoutUrl && _v17(_v0.singleLogoutUrl, _v24(_v0.uri));
           },
           onConnectionDeleteSuccess: _v0 => {
             _v4(_v12.ConnectionDeleted), _v14(), _v6(_v0);
           },
           onConnectionCreateSuccess: _v0 => {
-            _v4(_v12.ConnectionCreated), _v7(_v0), _v15("info"), _v1(_v25()), _v3(_v0), _v12(crypto.randomUUID()), _v22(_v0.singleLogoutUrl, _v24(_v0.uri));
+            _v4(_v12.ConnectionCreated), _v7(_v0), _v15("info"), _v1(_v25()), _v3(_v0), _v12(crypto.randomUUID()), _v17(_v0.singleLogoutUrl, _v24(_v0.uri));
           },
           onDomainCreateSuccess: _v0 => {
             _v4(_v12.DomainRequestCreated), _v8(_v0);
@@ -5080,7 +5032,7 @@
             children: _v12.FollowGuide
           })]
         })
-      }), (0, _v1.jsx)(_v104, {
+      }), (0, _v1.jsx)(_v98, {
         ownerId: _v0,
         connections: _v35,
         loading: _v24,
@@ -5088,7 +5040,7 @@
         onEdit: _v0 => _v42(_v0),
         onConnectionUpdateSuccess: _v44,
         onError: _v50
-      }), (0, _v1.jsx)(_v103, {
+      }), (0, _v1.jsx)(_v97, {
         ssoSettings: _v41,
         ssoLoading: _v30,
         userId: _v0,
@@ -5097,7 +5049,7 @@
         onSettingUpdateSuccess: _v49,
         rolesInfo: _v1,
         scimAppWarning: _v2
-      }), (0, _v1.jsx)(_v90, {
+      }), (0, _v1.jsx)(_v84, {
         userId: _v0,
         connection: _v14,
         createdConnection: _v12,

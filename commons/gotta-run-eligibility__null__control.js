@@ -91,35 +91,22 @@
     };
   _v0.s(["useGottaRunModalTracking", 0, _v11], 0);
   var _v12 = _v0.i(0),
-    _v13 = _v0.i(0),
-    _v14 = _v0.i(0);
-  let _v15 = ["/video/[clipId]", "/video/[clipId]/[clipHash]", "/share/[token]"];
+    _v13 = _v0.i(0);
+  let _v14 = ["/video/[clipId]", "/video/[clipId]/[clipHash]", "/share/[token]"];
   _v0.s(["Join", 0, () => {
-    let _v0 = (0, _v14.useTrackNavigationEvent)(),
-      _v1 = (0, _v2.useRouter)(),
+    let _v0 = (0, _v2.useRouter)(),
       {
-        trackAuthInitiated: _v2
+        trackAuthInitiated: _v1
       } = _v11();
     return (0, _v1.jsx)(_v3.Button, {
       variant: "primary",
       onClick: () => {
         let _v0 = _v6();
-        null !== _v0 && _v2({
+        null !== _v0 && _v1({
           eligibility: _v0,
           source: "top_nav_join",
           intent: "join"
-        }), _v0({
-          feature: "join",
-          element: "button",
-          copy: "Join",
-          additionalFields: {
-            interface_type: "page",
-            auth_type: "join"
-          },
-          product: "onboarding",
-          eventName: "vimeo.trigger_auth_flow",
-          version: 2
-        }), _v15.includes(_v1.pathname) ? (0, _v12.stashPostSurveyRedirect)() : (0, _v12.clearPostSurveyRedirect)(), _v1.push("/join");
+        }), _v14.includes(_v0.pathname) ? (0, _v12.stashPostSurveyRedirect)() : (0, _v12.clearPostSurveyRedirect)(), _v0.push("/join");
       },
       size: {
         base: "sm",
@@ -156,30 +143,18 @@
     let {
         setModal: _v0
       } = (0, _v13.useLoginJoinModalContext)(),
-      _v1 = (0, _v14.useTrackNavigationEvent)(),
       {
-        trackAuthInitiated: _v2
+        trackAuthInitiated: _v1
       } = _v11();
     return (0, _v1.jsx)(_v3.Button, {
       variant: "secondary",
       onClick: () => {
         let _v0 = _v6();
-        null !== _v0 && _v2({
+        null !== _v0 && _v1({
           eligibility: _v0,
           source: "top_nav_login",
           intent: "login"
-        }), _v0?.("login"), _v1({
-          feature: "login",
-          element: "button",
-          copy: "login",
-          additionalFields: {
-            interface_type: "page",
-            auth_type: "login"
-          },
-          product: "onboarding",
-          eventName: "vimeo.trigger_auth_flow",
-          version: 2
-        });
+        }), _v0?.("login");
       },
       size: {
         base: "sm",

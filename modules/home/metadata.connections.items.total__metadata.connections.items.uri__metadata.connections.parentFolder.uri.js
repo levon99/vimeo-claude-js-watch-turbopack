@@ -37,241 +37,207 @@
     _v34 = _v0.i(0),
     _v35 = _v0.i(0),
     _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0);
-  let _v39 = (0, _v38.slate)(390),
-    _v40 = (0, _v38.grayscale)(800),
-    _v41 = ["metadata.connections.items.total", "metadata.connections.items.uri", "metadata.connections.parentFolder.uri", "metadata.interactions.edit.uri", "metadata.interactions.editSettings.uri", "metadata.interactions.invite.uri", "metadata.interactions.delete.uri", "name", "uri", "privacy.view", "isPinned", "isPrivateToUser", "pinnedOn", "settings"];
-  var _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0);
-  let _v47 = function ({
+    _v37 = _v0.i(0);
+  let _v38 = (0, _v37.slate)(390),
+    _v39 = (0, _v37.grayscale)(800),
+    _v40 = ["metadata.connections.items.total", "metadata.connections.items.uri", "metadata.connections.parentFolder.uri", "metadata.interactions.edit.uri", "metadata.interactions.editSettings.uri", "metadata.interactions.invite.uri", "metadata.interactions.delete.uri", "name", "uri", "privacy.view", "isPinned", "isPrivateToUser", "pinnedOn", "settings"];
+  var _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0);
+  let _v44 = function ({
     userId: _v0,
     closeModal: _v1,
-    parentFolderUri: _v2,
-    currentFolderUri: _v3,
-    onSettingsChange: _v4,
-    location: _v5,
-    isEditingFolder: _v6,
-    isEditingFromFolderHeader: _v7 = !1,
-    initialColor: _v8
+    currentFolderUri: _v2,
+    onSettingsChange: _v3,
+    isEditingFolder: _v4,
+    isEditingFromFolderHeader: _v5 = !1,
+    initialColor: _v6
   }) {
-    let [_v9, {
-        called: _v10,
-        data: _v11,
-        error: _v12,
-        loading: _v13
+    let [_v7, {
+        called: _v8,
+        data: _v9,
+        error: _v10,
+        loading: _v11
       }] = (0, _v34.usePostUserProjects)(),
       {
-        capabilities: _v14
+        capabilities: _v12
       } = (0, _v30.useCapability)(["hasContentSpaceEnabled", "hasFolderSettings"], _v0),
-      [_v15, {
-        called: _v16,
-        data: _v17,
-        error: _v18,
-        loading: _v19
+      [_v13, {
+        called: _v14,
+        data: _v15,
+        error: _v16,
+        loading: _v17
       }] = (0, _v33.usePatchUserProject)(),
-      _v20 = _v3 ? _v3.split("/").pop() : "",
-      _v21 = _v20 ? parseInt(_v20) : 0,
+      _v18 = _v2 ? _v2.split("/").pop() : "",
+      _v19 = _v18 ? parseInt(_v18) : 0,
       {
-        data: _v22,
-        mutate: _v23
-      } = (0, _v33.useGetUserProject)(() => _v0 && _v3 && _v6 ? {
+        data: _v20,
+        mutate: _v21
+      } = (0, _v33.useGetUserProject)(() => _v0 && _v2 && _v4 ? {
         where: {
           userId: _v0,
-          projectId: _v21
+          projectId: _v19
         },
-        select: _v41
+        select: _v40
       } : null),
-      _v24 = (0, _v10.useRef)(null),
-      _v25 = (0, _v31.useMatchMutate)(),
-      _v26 = (0, _v37.useAnalyticsEvent)(),
-      _v27 = (0, _v9.useRouter)(),
-      _v28 = (0, _v10.useContext)(_v11.ThemeContext),
-      _v29 = (0, _v35.useWindowSize)(),
-      _v30 = _v29.height <= _v36.BreakPoints.sm,
-      _v31 = _v29.width <= _v36.BreakPoints.sm,
-      _v32 = _v22?.settings?.color,
-      _v33 = _v28?.name === "dark" ? _v40 : _v39,
-      _v34 = _v22 && _v32 ? _v32 : _v8 || _v33,
-      _v35 = _v22 && _v22?.name ? _v22?.name : "",
-      [_v36, _v37] = (0, _v10.useState)(""),
-      [_v38, _v39] = (0, _v10.useState)(!1),
-      _v40 = (0, _v43.useNotification)(),
-      _v41 = (0, _v44.usePageName)(),
-      _v42 = () => {
-        _v25(_v3 && !_v7 ? `.*${_v3}/items.*filter=folder.*` : `.*/users/${_v0}/projects.*`), _v48();
+      _v22 = (0, _v10.useRef)(null),
+      _v23 = (0, _v31.useMatchMutate)(),
+      _v24 = (0, _v9.useRouter)(),
+      _v25 = (0, _v10.useContext)(_v11.ThemeContext),
+      _v26 = (0, _v35.useWindowSize)(),
+      _v27 = _v26.height <= _v36.BreakPoints.sm,
+      _v28 = _v26.width <= _v36.BreakPoints.sm,
+      _v29 = _v20?.settings?.color,
+      _v30 = _v25?.name === "dark" ? _v39 : _v38,
+      _v31 = _v20 && _v29 ? _v29 : _v6 || _v30,
+      _v32 = _v20 && _v20?.name ? _v20?.name : "",
+      [_v33, _v34] = (0, _v10.useState)(""),
+      [_v35, _v36] = (0, _v10.useState)(!1),
+      _v37 = (0, _v41.useNotification)(),
+      _v38 = () => {
+        _v23(_v2 && !_v5 ? `.*${_v2}/items.*filter=folder.*` : `.*/users/${_v0}/projects.*`), _v44();
       },
-      _v43 = (0, _v32.useForm)({
+      _v39 = (0, _v32.useForm)({
         initialValues: {
-          folder_name: _v22 ? _v22?.name : "",
-          folder_color: _v22 ? _v22?.settings?.color : ""
+          folder_name: _v20 ? _v20?.name : "",
+          folder_color: _v20 ? _v20?.settings?.color : ""
         },
         onSubmit: async ({
           folder_name: _v0,
           folder_color: _v1
         }) => {
-          if (_v6 && _v3) {
+          if (_v4 && _v2) {
             var _v2, _v3;
             let _v0,
-              _v1 = _v45.meta.dirty ? _v1 : _v34;
-            if (!_v44.meta.dirty && !_v45.meta.dirty) return void _v48();
-            (_v1 === _v39 || _v1 === _v40) && (_v1 = ""), _v44.meta.dirty || (_v0 = _v35);
+              _v1 = _v41.meta.dirty ? _v1 : _v31;
+            if (!_v40.meta.dirty && !_v41.meta.dirty) return void _v44();
+            (_v1 === _v38 || _v1 === _v39) && (_v1 = ""), _v40.meta.dirty || (_v0 = _v32);
             let _v2 = {
               name: _v0,
               color: _v1
             };
-            await _v15({
+            await _v13({
               where: {
                 userId: _v0,
-                projectId: _v21
+                projectId: _v19
               },
               select: ["name", "uri", "settings"],
               variables: _v2
             }).finally(() => {
-              _v46.gtm.trackFolderChangeSettings();
-            }), _v23({
+              _v43.gtm.trackFolderChangeSettings();
+            }), _v21({
               variables: {
                 name: _v2 = _v0,
                 color: _v3 = _v1
               },
               where: {
-                userId: parseInt((_v0 = _v22.uri.split("/"))[2]),
+                userId: parseInt((_v0 = _v20.uri.split("/"))[2]),
                 projectId: parseInt(_v0[4])
               },
-              select: _v41
-            }), _v4?.({
+              select: _v40
+            }), _v3?.({
               name: _v2,
               settings: {
                 color: _v3
               },
-              uri: _v22.uri,
-              parentFolder: _v22.metadata.connections.parentFolder
+              uri: _v20.uri,
+              parentFolder: _v20.metadata.connections.parentFolder
             });
-          } else await _v9({
+          } else await _v7({
             where: {
               userId: _v0
             },
             select: ["name", "uri", "settings"],
             variables: {
               name: _v0,
-              parentFolderUri: _v3 ?? void 0,
-              color: _v14.hasFolderSettings ? _v1 : void 0
+              parentFolderUri: _v2 ?? void 0,
+              color: _v12.hasFolderSettings ? _v1 : void 0
             }
           });
         }
       }),
-      _v44 = (0, _v32.useField)(_v43, "folder_name"),
-      _v45 = (0, _v32.useField)(_v43, "folder_color"),
-      _v46 = _v44.input.value?.length || _v35.length || 0;
+      _v40 = (0, _v32.useField)(_v39, "folder_name"),
+      _v41 = (0, _v32.useField)(_v39, "folder_color"),
+      _v42 = _v40.input.value?.length || _v32.length || 0;
     (0, _v10.useEffect)(() => {
-      if (_v10 && !_v12 && !_v13 && _v11) {
-        _v42(), _v40({
-          content: (0, _v6.translate)({
-            singular: "Folder ‘{FOLDER}’ has been created.",
-            replacements: {
-              FOLDER: _v11.name
+      _v8 && !_v10 && !_v11 && _v9 ? (_v38(), _v37({
+        content: (0, _v6.translate)({
+          singular: "Folder ‘{FOLDER}’ has been created.",
+          replacements: {
+            FOLDER: _v9.name
+          },
+          dictionary: {
+            es: {
+              singular: 'Se ha creado la carpeta "{FOLDER}".'
             },
-            dictionary: {
-              es: {
-                singular: 'Se ha creado la carpeta "{FOLDER}".'
-              },
-              "de-DE": {
-                singular: "Der Ordner „{FOLDER}“ wurde erstellt."
-              },
-              "fr-FR": {
-                singular: "Le dossier « {FOLDER} » a été créé."
-              },
-              "ja-JP": {
-                singular: "フォルダー「{FOLDER}」が作成されました。"
-              },
-              "ko-KR": {
-                singular: "'{FOLDER}' 폴더가 생성되었습니다."
-              },
-              "pt-BR": {
-                singular: "A pasta '{FOLDER}' foi criada."
-              },
-              "zh-CN": {
-                singular: "文件夹“{FOLDER}”已创建。"
-              }
-            }
-          })
-        });
-        let _v0 = _v11?.settings?.color,
-          _v1 = [_v42.AnalyticsFolderSettingsCustomizations.name];
-        _v0 && _v1.push(_v42.AnalyticsFolderSettingsCustomizations.color), _v26((0, _v42.createFolderViaFolderSettings)({
-          location: _v5,
-          folder_id: parseInt(_v11.uri.split("/").pop()),
-          folder_name: _v11?.name,
-          is_subfolder: !!_v3,
-          feature: "video_library",
-          settings_changed: _v1,
-          is_my_videos: (_v11.isPrivateToUser && !!_v14.hasContentSpaceEnabled) ?? null
-        })), _v27.push((0, _v45.getFolderPageUriFromApiUri)(_v11.uri));
-      } else if (_v16 && !_v18 && !_v19 && _v17) {
-        _v42(), _v40({
-          content: (0, _v6.translate)({
-            singular: "Updated folder {FOLDER_NAME}",
-            replacements: {
-              FOLDER_NAME: _v17.name
+            "de-DE": {
+              singular: "Der Ordner „{FOLDER}“ wurde erstellt."
             },
-            dictionary: {
-              es: {
-                singular: "Carpeta {FOLDER_NAME} actualizada"
-              },
-              "de-DE": {
-                singular: "{FOLDER_NAME} wurde aktualisiert"
-              },
-              "fr-FR": {
-                singular: "Dossier {FOLDER_NAME} mis à jour"
-              },
-              "ja-JP": {
-                singular: "更新されたフォルダー {FOLDER_NAME}"
-              },
-              "ko-KR": {
-                singular: "업데이트된 폴더 {FOLDER_NAME}"
-              },
-              "pt-BR": {
-                singular: "Pasta atualizada {FOLDER_NAME}"
-              },
-              "zh-CN": {
-                singular: "已更新文件夹 {FOLDER_NAME}"
-              }
+            "fr-FR": {
+              singular: "Le dossier « {FOLDER} » a été créé."
+            },
+            "ja-JP": {
+              singular: "フォルダー「{FOLDER}」が作成されました。"
+            },
+            "ko-KR": {
+              singular: "'{FOLDER}' 폴더가 생성되었습니다."
+            },
+            "pt-BR": {
+              singular: "A pasta '{FOLDER}' foi criada."
+            },
+            "zh-CN": {
+              singular: "文件夹“{FOLDER}”已创建。"
             }
-          })
-        });
-        let _v0 = _v35 !== _v17?.name,
-          _v1 = _v34 !== _v17?.settings?.color,
-          _v2 = [];
-        _v0 && _v2.push(_v42.AnalyticsFolderSettingsCustomizations.name), _v1 && _v2.push(_v42.AnalyticsFolderSettingsCustomizations.color), _v26((0, _v42.updateFolderSettings)({
-          product: _v42.AnalyticsProducts.WORKFLOW,
-          location: _v5,
-          folder_id: parseInt(_v17.uri.split("/").pop()),
-          is_subfolder: !!_v2,
-          feature: "vls" === _v41 ? "search" : "video_library",
-          settings_changed: _v2,
-          is_my_videos: !!_v22?.isPrivateToUser && !!_v14.hasContentSpaceEnabled
-        }));
-      }
-    }, [_v10, _v12, _v13, _v11, _v16, _v18, _v19, _v17]);
-    let _v47 = (0, _v10.useCallback)(() => {
-        _v44.handlers.setValue(""), _v24 && _v24.current && (_v24.current.value = "");
-      }, [_v44, _v24]),
-      _v48 = (0, _v10.useCallback)(() => {
-        _v1(), _v47();
-      }, [_v1, _v47]),
-      [_v49, _v50] = (0, _v10.useState)(_v35);
+          }
+        })
+      }), _v24.push((0, _v42.getFolderPageUriFromApiUri)(_v9.uri))) : _v14 && !_v16 && !_v17 && _v15 && (_v38(), _v37({
+        content: (0, _v6.translate)({
+          singular: "Updated folder {FOLDER_NAME}",
+          replacements: {
+            FOLDER_NAME: _v15.name
+          },
+          dictionary: {
+            es: {
+              singular: "Carpeta {FOLDER_NAME} actualizada"
+            },
+            "de-DE": {
+              singular: "{FOLDER_NAME} wurde aktualisiert"
+            },
+            "fr-FR": {
+              singular: "Dossier {FOLDER_NAME} mis à jour"
+            },
+            "ja-JP": {
+              singular: "更新されたフォルダー {FOLDER_NAME}"
+            },
+            "ko-KR": {
+              singular: "업데이트된 폴더 {FOLDER_NAME}"
+            },
+            "pt-BR": {
+              singular: "Pasta atualizada {FOLDER_NAME}"
+            },
+            "zh-CN": {
+              singular: "已更新文件夹 {FOLDER_NAME}"
+            }
+          }
+        })
+      }));
+    }, [_v8, _v10, _v11, _v9, _v14, _v16, _v17, _v15]);
+    let _v43 = (0, _v10.useCallback)(() => {
+        _v40.handlers.setValue(""), _v22 && _v22.current && (_v22.current.value = "");
+      }, [_v40, _v22]),
+      _v44 = (0, _v10.useCallback)(() => {
+        _v1(), _v43();
+      }, [_v1, _v43]),
+      [_v45, _v46] = (0, _v10.useState)(_v32);
     (0, _v10.useEffect)(() => {
-      _v44.input.value !== _v35 && ("" === _v44.input.value || void 0 === _v44.input.value) ? _v50(_v35) : _v50(_v44.input.value);
-    }, [_v35, _v49, _v44.input.value]);
-    let _v51 = _v36 || _v34,
-      _v52 = (0, _v10.useCallback)(_v0 => {
+      _v40.input.value !== _v32 && ("" === _v40.input.value || void 0 === _v40.input.value) ? _v46(_v32) : _v46(_v40.input.value);
+    }, [_v32, _v45, _v40.input.value]);
+    let _v47 = _v33 || _v31,
+      _v48 = (0, _v10.useCallback)(_v0 => {
         var _v1;
         let _v2 = "RGB" === ((_v1 = _v0.valueAsString).startsWith("#") ? "HEX" : _v1.startsWith("rgb") ? "RGB" : _v1.startsWith("hsl") ? "HSL" : void 0) ? (0, _v26.toHex)(_v0.valueAsString) : _v0.valueAsString;
-        _v37(_v2), _v45.handlers.setValue(_v2);
-      }, [_v45.handlers]);
+        _v34(_v2), _v41.handlers.setValue(_v2);
+      }, [_v41.handlers]);
     return (0, _v1.jsxs)(_v23.ModalBody, {
       py: "sm",
       px: "lg",
@@ -283,33 +249,33 @@
           position: "relative",
           width: "100%",
           children: (0, _v1.jsx)(_v29.FolderCardThumbnail, {
-            backgroundColor: _v51
+            backgroundColor: _v47
           })
-        }), _v14.hasFolderSettings && (0, _v1.jsxs)(_v14.ColorPickerRoot, {
-          defaultValue: (0, _v27.parseColor)(_v51),
-          onValueChange: _v52,
+        }), _v12.hasFolderSettings && (0, _v1.jsxs)(_v14.ColorPickerRoot, {
+          defaultValue: (0, _v27.parseColor)(_v47),
+          onValueChange: _v48,
           positioning: {
-            placement: _v30 && !_v31 ? "left" : "bottom"
+            placement: _v27 && !_v28 ? "left" : "bottom"
           },
-          open: _v38,
-          onInteractOutside: () => _v39(!_v38),
+          open: _v35,
+          onInteractOutside: () => _v36(!_v35),
           children: [(0, _v1.jsx)(_v12.Box, {
             width: "100%",
             paddingTop: "sm",
             children: (0, _v1.jsx)(_v15.ColorPickerControl, {
               children: (0, _v1.jsx)(_v14.ColorPickerTrigger, {
-                onClick: () => _v39(!_v38),
+                onClick: () => _v36(!_v35),
                 children: (0, _v1.jsxs)(_v21.InputGroup, {
                   children: [(0, _v1.jsx)(_v22.InputLeftElement, {
                     children: (0, _v1.jsx)(_v12.Box, {
                       borderRadius: "pill",
                       w: "xs",
                       h: "xs",
-                      bgColor: _v51
+                      bgColor: _v47
                     })
                   }), (0, _v1.jsx)(_v20.Input, {
-                    defaultValue: _v51,
-                    value: _v51,
+                    defaultValue: _v47,
+                    value: _v47,
                     cursor: "pointer",
                     readOnly: !0
                   }), (0, _v1.jsx)(_v22.InputRightElement, {
@@ -347,7 +313,7 @@
                         size: "sm",
                         variant: "tertiary",
                         onClick: () => {
-                          _v37(_v34), _v45.handlers.setValue(_v34);
+                          _v34(_v31), _v41.handlers.setValue(_v31);
                         }
                       })
                     })
@@ -403,12 +369,12 @@
               }
             })
           }), (0, _v1.jsx)(_v20.Input, {
-            defaultValue: _v35,
+            defaultValue: _v32,
             name: "folder_name",
             maxLength: 32,
-            onChange: _v44.iris.onChange,
-            onBlur: _v44.iris.onBlur,
-            onFocus: _v44.iris.onFocus,
+            onChange: _v40.iris.onChange,
+            onBlur: _v40.iris.onBlur,
+            onFocus: _v40.iris.onFocus,
             placeholder: (0, _v6.translate)({
               singular: "Folder name",
               dictionary: {
@@ -435,18 +401,18 @@
                 }
               }
             }),
-            ref: _v24,
+            ref: _v22,
             autoFocus: !0
-          }, _v35), (0, _v1.jsx)(_v17.FormHelperText, {
-            color: _v44.input.value?.length >= 27 ? "status-caution-primary" : "text-tertiary",
-            fontWeight: _v44.input.value?.length >= 27 ? "bold" : "normal",
+          }, _v32), (0, _v1.jsx)(_v17.FormHelperText, {
+            color: _v40.input.value?.length >= 27 ? "status-caution-primary" : "text-tertiary",
+            fontWeight: _v40.input.value?.length >= 27 ? "bold" : "normal",
             display: "flex",
             justifyContent: "flex-end",
             paddingTop: "xs",
             children: (0, _v6.translate)({
               singular: "{COUNT}/32 characters",
               replacements: {
-                COUNT: _v46
+                COUNT: _v42
               },
               dictionary: {
                 es: {
@@ -481,7 +447,7 @@
         px: "0",
         children: [(0, _v1.jsx)(_v13.Button, {
           onClick: _v0 => {
-            _v48(), _v0.stopPropagation();
+            _v44(), _v0.stopPropagation();
           },
           variant: "tertiary",
           "aria-label": (0, _v6.translate)({
@@ -537,11 +503,11 @@
             }
           })
         }), (0, _v1.jsx)(_v13.Button, {
-          isDisabled: _v44.input.value?.length > 32 || "" === _v35 && void 0 === _v44.meta.dirty || _v44.input.value?.length === 0 && void 0 !== _v44.meta.dirty,
+          isDisabled: _v40.input.value?.length > 32 || "" === _v32 && void 0 === _v40.meta.dirty || _v40.input.value?.length === 0 && void 0 !== _v40.meta.dirty,
           onClick: _v0 => {
-            _v43.handleSubmit(_v0);
+            _v39.handleSubmit(_v0);
           },
-          isLoading: _v13 || _v19,
+          isLoading: _v11 || _v17,
           "aria-label": (0, _v6.translate)({
             singular: "Confirm",
             dictionary: {
@@ -707,7 +673,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v47, {
+          }), (0, _v1.jsx)(_v44, {
             userId: _v1,
             isOpen: _v0,
             closeModal: _v2,

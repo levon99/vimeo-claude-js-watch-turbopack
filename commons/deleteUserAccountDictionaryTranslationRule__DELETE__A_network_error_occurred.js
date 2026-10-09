@@ -7933,11 +7933,8 @@ ${_v2}`;
               "de-DE": {
                 singular: "{LANGUAGE} (Original)"
               },
-              "fr-FR": {
-                singular: "{LANGUAGE} (originale)"
-              },
               "ja-JP": {
-                singular: "{LANGUAGE} (原文)"
+                singular: "{LANGUAGE}（原文）"
               },
               "ko-KR": {
                 singular: "{LANGUAGE} (원본)"

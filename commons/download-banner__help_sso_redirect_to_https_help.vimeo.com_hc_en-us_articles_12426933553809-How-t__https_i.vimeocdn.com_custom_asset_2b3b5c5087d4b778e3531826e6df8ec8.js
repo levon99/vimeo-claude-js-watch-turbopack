@@ -162,39 +162,20 @@
     _v71 = _v0.i(0),
     _v72 = _v0.i(0),
     _v73 = _v0.i(0),
-    _v74 = _v0.i(0),
-    _v75 = _v0.i(0),
-    _v76 = _v0.i(0);
-  function _v77({
+    _v74 = _v0.i(0);
+  function _v75({
     id: _v0 = (0, _v50.createDomName)("download-banner"),
     className: _v1 = (0, _v50.createDomName)("download-banner"),
     latency: _v2
   }) {
     let _v3 = (0, _v5.useRef)(null),
-      _v4 = _v2 === _v75.ELatency.FAIL_SAFE ? {
+      _v4 = _v2 === _v73.ELatency.FAIL_SAFE ? {
         title: _v58.translations.liveStreamWithConfidence,
         description: _v58.translations.inOrderToAccessFailSafeStreaming("/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426933553809-How-to-stream-to-your-event-with-Fail-Safe-Streaming"),
         image: "https://i.vimeocdn.com/custom_asset/2b3b5c5087d4b778e3531826e6df8ec8",
         cta: _v58.translations.download,
         onClick: () => {
-          (0, _v74.createBPv2EventFactory)("vimeo.download_fail_safe_encoder", 2, () => ({
-            ...(0, _v73.newTeamCtx)(),
-            ...(0, _v73.newWebCtx)(),
-            ...(0, _v73.newActionCtx)("click"),
-            ...(0, _v73.newLiveCtx)({
-              live_feature: "fail_safe_stream"
-            }),
-            ...(0, _v73.newProductAnalyticsCtx)({
-              product: "events",
-              feature: "stream",
-              location: "drawer",
-              element: "button"
-            })
-          }), () => ({
-            device_type: _v16.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web"
-          }))({
-            value: null
-          }), (0, _v76.downloadFileByPlatform)("https://f.vimeocdn.com/transmitter/mac/TransmitterService.pkg", "https://f.vimeocdn.com/transmitter/win/TransmitterService.exe");
+          (0, _v74.downloadFileByPlatform)("https://f.vimeocdn.com/transmitter/mac/TransmitterService.pkg", "https://f.vimeocdn.com/transmitter/win/TransmitterService.exe");
         }
       } : null;
     if (!_v4) return null;
@@ -277,11 +258,11 @@
       })]
     });
   }
-  var _v78 = _v0.i(0),
-    _v79 = _v0.i(0),
-    _v80 = _v0.i(0),
-    _v81 = _v0.i(0);
-  let _v82 = (0, _v5.forwardRef)(function ({
+  var _v76 = _v0.i(0),
+    _v77 = _v0.i(0),
+    _v78 = _v0.i(0),
+    _v79 = _v0.i(0);
+  let _v80 = (0, _v5.forwardRef)(function ({
     id: _v0,
     muted: _v1,
     stream: _v2,
@@ -303,7 +284,7 @@
         left: 0,
         top: 0
       }), []);
-    return (0, _v81.useVideoSourceSync)(_v9, _v2), (0, _v1.jsxs)(_v80.Box, {
+    return (0, _v79.useVideoSourceSync)(_v9, _v2), (0, _v1.jsxs)(_v78.Box, {
       id: _v0,
       className: _v6,
       ref: _v8,
@@ -324,7 +305,9 @@
       })]
     });
   });
-  var _v83 = _v0.i(0),
+  var _v81 = _v0.i(0),
+    _v82 = _v0.i(0),
+    _v83 = _v0.i(0),
     _v84 = _v0.i(0),
     _v85 = _v0.i(0),
     _v86 = _v0.i(0),
@@ -332,21 +315,19 @@
     _v88 = _v0.i(0),
     _v89 = _v0.i(0),
     _v90 = _v0.i(0),
-    _v91 = _v0.i(0),
-    _v92 = _v0.i(0),
-    _v93 = _v0.i(0);
-  function _v94() {
+    _v91 = _v0.i(0);
+  function _v92() {
     let {
         eventLanguages: {
           value: _v0
         },
         audioTracksActions: _v1
-      } = (0, _v12.useManager)(_v91.EventAudioTracksManager),
+      } = (0, _v12.useManager)(_v89.EventAudioTracksManager),
       {
         stats: _v2
-      } = (0, _v12.useManager)(_v93.StreamHealthManager),
+      } = (0, _v12.useManager)(_v91.StreamHealthManager),
       _v3 = (0, _v5.useCallback)((_v0, _v1) => ({
-        isConnected: _v0 === _v92.EConnectionState.CONNECTED,
+        isConnected: _v0 === _v90.EConnectionState.CONNECTED,
         code: _v1,
         label: _v1.getLanguageLabelByCode(_v1)
       }), [_v1]),
@@ -365,15 +346,15 @@
       secondaryLanguagesInfo: _v7
     };
   }
-  var _v95 = _v0.i(0),
-    _v96 = _v0.i(0);
-  let _v97 = (0, _v5.forwardRef)(function ({
+  var _v93 = _v0.i(0),
+    _v94 = _v0.i(0);
+  let _v95 = (0, _v5.forwardRef)(function ({
     id: _v0,
     className: _v1,
     activeLanguageLabel: _v2,
     ..._v3
   }, _v4) {
-    return (0, _v1.jsx)(_v79.BokehTooltip, {
+    return (0, _v1.jsx)(_v77.BokehTooltip, {
       label: "Select Language",
       placement: "top",
       children: (0, _v1.jsx)(_v70.Button, {
@@ -383,7 +364,7 @@
         variant: "tertiary",
         size: "md",
         textColor: "white",
-        leftIcon: (0, _v1.jsx)(_v96.Translate, {
+        leftIcon: (0, _v1.jsx)(_v94.Translate, {
           boxSize: (0, _v44.rem)(24)
         }),
         ..._v3,
@@ -391,9 +372,9 @@
       })
     });
   });
-  var _v98 = _v0.i(0),
-    _v99 = _v0.i(0);
-  function _v100({
+  var _v96 = _v0.i(0),
+    _v97 = _v0.i(0);
+  function _v98({
     title: _v0,
     isConnected: _v1,
     isDisabled: _v2 = !1,
@@ -401,36 +382,36 @@
     isPrimary: _v4,
     onClick: _v5
   }) {
-    let _v6 = (0, _v5.useMemo)(() => (0, _v1.jsxs)(_v98.MenuItem, {
+    let _v6 = (0, _v5.useMemo)(() => (0, _v1.jsxs)(_v96.MenuItem, {
       fontSize: (0, _v44.rem)(16),
       px: (0, _v44.rem)(16),
       py: (0, _v44.rem)(12),
       iconSpacing: (0, _v44.rem)(8),
       isDisabled: _v2,
-      icon: (0, _v1.jsx)(_v99.Checkmark, {
+      icon: (0, _v1.jsx)(_v97.Checkmark, {
         boxSize: (0, _v44.rem)(24),
         visibility: _v3 ? "visible" : "hidden"
       }),
       onClick: _v5,
       children: [_v0, _v4 ? " [Primary]" : ""]
     }), [_v2, _v3, _v4, _v5, _v0]);
-    return _v1 ? _v6 : (0, _v1.jsx)(_v80.Box, {
+    return _v1 ? _v6 : (0, _v1.jsx)(_v78.Box, {
       width: "100%",
       sx: {
         span: {
           width: "100%"
         }
       },
-      children: (0, _v1.jsx)(_v79.BokehTooltip, {
+      children: (0, _v1.jsx)(_v77.BokehTooltip, {
         label: "Not connected",
         placement: "top",
         children: _v6
       })
     });
   }
-  var _v101 = _v0.i(0),
-    _v102 = _v0.i(0);
-  let _v103 = _v0 => (0, _v1.jsx)(_v102.Icon, {
+  var _v99 = _v0.i(0),
+    _v100 = _v0.i(0);
+  let _v101 = _v0 => (0, _v1.jsx)(_v100.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -441,33 +422,33 @@
       fill: "currentColor"
     })
   });
-  var _v104 = _v0.i(0);
-  function _v105({
+  var _v102 = _v0.i(0);
+  function _v103({
     id: _v0,
     className: _v1,
     isPreviewMuted: _v2,
     onTogglePreviewMute: _v3
   }) {
-    return (0, _v1.jsx)(_v79.BokehTooltip, {
+    return (0, _v1.jsx)(_v77.BokehTooltip, {
       label: _v2 ? "Unmute preview" : "Mute preview",
       placement: "top",
-      children: (0, _v1.jsx)(_v101.IconButton, {
+      children: (0, _v1.jsx)(_v99.IconButton, {
         id: _v0,
         className: _v1,
         "aria-label": _v2 ? "Unmute preview" : "Mute preview",
         variant: "tertiary",
         size: "md",
         textColor: "white",
-        icon: _v2 ? (0, _v1.jsx)(_v103, {
+        icon: _v2 ? (0, _v1.jsx)(_v101, {
           boxSize: (0, _v44.rem)(24)
-        }) : (0, _v1.jsx)(_v104.VolumeOn, {
+        }) : (0, _v1.jsx)(_v102.VolumeOn, {
           boxSize: (0, _v44.rem)(24)
         }),
         onClick: _v3
       })
     });
   }
-  let _v106 = _v0 => (0, _v1.jsx)(_v102.Icon, {
+  let _v104 = _v0 => (0, _v1.jsx)(_v100.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -478,7 +459,7 @@
         })
       })
     }),
-    _v107 = _v0 => (0, _v1.jsx)(_v102.Icon, {
+    _v105 = _v0 => (0, _v1.jsx)(_v100.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -491,7 +472,7 @@
         })]
       })
     });
-  function _v108({
+  function _v106({
     id: _v0,
     className: _v1,
     togglePreviewMute: _v2,
@@ -516,14 +497,14 @@
         backgroundColor: "rgba(60, 60, 60, 0.3)"
       },
       onClick: _v2,
-      children: _v3 ? (0, _v1.jsx)(_v106, {
+      children: _v3 ? (0, _v1.jsx)(_v104, {
         color: "white"
-      }) : (0, _v1.jsx)(_v107, {
+      }) : (0, _v1.jsx)(_v105, {
         color: "white"
       })
     });
   }
-  function _v109({
+  function _v107({
     id: _v0 = (0, _v50.createDomName)("rtmp-preview-audio-settings"),
     className: _v1 = (0, _v50.createDomName)("rtmp-preview-audio-settings"),
     studioContext: {
@@ -536,7 +517,7 @@
         primaryLanguage: _v5,
         secondaryLanguages: _v6,
         languagesInfo: _v7
-      } = _v94(),
+      } = _v92(),
       _v8 = _v6.length > 0,
       _v9 = _v3 || _v5,
       _v10 = (0, _v5.useMemo)(() => _v7.find(_v0 => _v0.code === _v9)?.label, [_v7, _v9]),
@@ -553,23 +534,23 @@
       borderRadius: "md",
       backgroundColor: "blackAlpha.700",
       backdropFilter: `blur(${(0, _v44.rem)(40)})`,
-      children: [_v8 ? (0, _v1.jsxs)(_v85.Menu, {
+      children: [_v8 ? (0, _v1.jsxs)(_v83.Menu, {
         offset: [40, 4],
         placement: "top-end",
-        children: [(0, _v1.jsx)(_v86.MenuButton, {
-          as: _v97,
+        children: [(0, _v1.jsx)(_v84.MenuButton, {
+          as: _v95,
           activeLanguageLabel: _v10
-        }), (0, _v1.jsx)(_v90.Portal, {
-          children: (0, _v1.jsx)(_v88.MenuList, {
+        }), (0, _v1.jsx)(_v88.Portal, {
+          children: (0, _v1.jsx)(_v86.MenuList, {
             minWidth: (0, _v44.rem)(280),
             padding: 0,
-            children: (0, _v1.jsxs)(_v87.MenuGroup, {
-              title: _v95.T_AUDIO,
+            children: (0, _v1.jsxs)(_v85.MenuGroup, {
+              title: _v93.T_AUDIO,
               fontSize: (0, _v44.rem)(16),
               textAlign: "center",
-              children: [(0, _v1.jsx)(_v89.Divider, {
+              children: [(0, _v1.jsx)(_v87.Divider, {
                 borderColor: "whiteAlpha.200"
-              }), _v7.map(_v0 => (0, _v1.jsx)(_v100, {
+              }), _v7.map(_v0 => (0, _v1.jsx)(_v98, {
                 title: _v0.label,
                 isConnected: _v0.code === _v5 || _v0.isConnected,
                 isSelected: _v0.code === _v9,
@@ -579,24 +560,24 @@
             })
           })
         })]
-      }) : null, (0, _v1.jsx)(_v105, {
+      }) : null, (0, _v1.jsx)(_v103, {
         id: (0, _v50.createDomName)(_v0, "mute-button"),
         className: (0, _v50.createDomName)(_v1, "mute-button"),
         isPreviewMuted: _v2,
         onTogglePreviewMute: _v11
       })]
-    }) : (0, _v1.jsx)(_v108, {
+    }) : (0, _v1.jsx)(_v106, {
       id: (0, _v50.createDomName)(_v0, "mute-button"),
       className: (0, _v50.createDomName)(_v1, "mute-button"),
       isPreviewMuted: _v2,
       togglePreviewMute: _v11
     });
   }
-  function _v110({
+  function _v108({
     ingestStatus: _v0,
     isStudioPreview: _v1
   }) {
-    let _v2 = (0, _v5.useMemo)(() => _v0 === _v27.EIngestStatus.PROVISION_READY || _v0 === _v27.EIngestStatus.PROVISION_REQUESTED ? _v1 ? _v58.translations.streamPreview : _v95.T_INCOMING : "", [_v1, _v0]),
+    let _v2 = (0, _v5.useMemo)(() => _v0 === _v27.EIngestStatus.PROVISION_READY || _v0 === _v27.EIngestStatus.PROVISION_REQUESTED ? _v1 ? _v58.translations.streamPreview : _v93.T_INCOMING : "", [_v1, _v0]),
       _v3 = (0, _v5.useMemo)(() => {
         switch (_v0) {
           case _v27.EIngestStatus.STREAMING:
@@ -625,28 +606,14 @@
       children: _v2
     });
   }
-  var _v111 = _v0.i(0);
-  function _v112({
+  var _v109 = _v0.i(0);
+  function _v110({
     ingestStatus: _v0,
     rtmpPreview: _v1,
     isSessionExpired: _v2
   }) {
-    let _v3 = (0, _v5.useMemo)(() => _v2 ? ((0, _v74.createBPv2EventFactory)("vimeo.view_inactivity_preview_message", 1, () => ({
-      ...(0, _v73.newTeamCtx)(),
-      ...(0, _v73.newWebCtx)(),
-      ...(0, _v73.newViewCtx)("impression"),
-      ...(0, _v73.newLiveCtx)({
-        live_feature: null
-      }),
-      ...(0, _v73.newProductAnalyticsCtx)({
-        product: "events",
-        feature: "live_event",
-        location: "modal"
-      })
-    }), () => ({
-      device_type: _v16.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web"
-    }))(), _v58.translations.streamPreviewEndedDueInactivity) : _v1 ? _v58.translations.connectEncoderToBeginPreview : _v58.translations.goLiveFromYourEncoderToStartEvent, [_v1, _v2]);
-    return _v0 === _v27.EIngestStatus.PROVISION_READY || _v0 === _v27.EIngestStatus.STREAMING || _v0 === _v27.EIngestStatus.PROVISION_REQUESTED ? (0, _v1.jsx)(_v111.Spinner, {}) : (0, _v1.jsx)(_v69.Paragraph, {
+    let _v3 = (0, _v5.useMemo)(() => _v2 ? _v58.translations.streamPreviewEndedDueInactivity : _v1 ? _v58.translations.connectEncoderToBeginPreview : _v58.translations.goLiveFromYourEncoderToStartEvent, [_v1, _v2]);
+    return _v0 === _v27.EIngestStatus.PROVISION_READY || _v0 === _v27.EIngestStatus.STREAMING || _v0 === _v27.EIngestStatus.PROVISION_REQUESTED ? (0, _v1.jsx)(_v109.Spinner, {}) : (0, _v1.jsx)(_v69.Paragraph, {
       size: "md",
       margin: 0,
       fontWeight: "bold",
@@ -656,18 +623,18 @@
       children: _v3
     });
   }
-  var _v113 = _v0.i(0),
-    _v114 = _v0.i(0),
-    _v115 = _v0.i(0),
-    _v116 = _v0.i(0);
-  function _v117({
+  var _v111 = _v0.i(0),
+    _v112 = _v0.i(0),
+    _v113 = _v0.i(0),
+    _v114 = _v0.i(0);
+  function _v115({
     id: _v0 = (0, _v50.createDomName)("stream-view-state"),
     className: _v1 = (0, _v50.createDomName)("stream-view-state"),
     startedAt: _v2,
     endedAt: _v3,
     stats: _v4
   }) {
-    let _v5 = (0, _v116.useDurationTimer)({
+    let _v5 = (0, _v114.useDurationTimer)({
         startedAt: Number(_v2),
         endedAt: Number(_v3),
         isRecordMode: !1
@@ -675,7 +642,7 @@
       _v6 = function () {
         let {
             stats: _v0
-          } = (0, _v12.useManager)(_v93.StreamHealthManager),
+          } = (0, _v12.useManager)(_v91.StreamHealthManager),
           {
             sessionInfo: _v1
           } = (0, _v12.useManager)(_v36.ComposerSessionManager),
@@ -709,21 +676,21 @@
         sx: {
           "font-variant-numeric": "tabular-nums slashed-zero"
         },
-        children: [(0, _v1.jsx)(_v114.CircleShapeFilled, {
+        children: [(0, _v1.jsx)(_v112.CircleShapeFilled, {
           color: "white",
           width: (0, _v44.rem)(8),
           height: (0, _v44.rem)(8)
         }), _v5]
-      }), (0, _v1.jsx)(_v115.PreviewWatchersCount, {
+      }), (0, _v1.jsx)(_v113.PreviewWatchersCount, {
         id: (0, _v50.createDomName)(_v0, "viewers-count"),
         className: (0, _v50.createDomName)(_v1, "viewers-count"),
         stats: _v4
-      }), _v6 ? (0, _v1.jsx)(_v113.Badge, {
+      }), _v6 ? (0, _v1.jsx)(_v111.Badge, {
         children: "4K"
       }) : null]
     });
   }
-  function _v118({
+  function _v116({
     id: _v0 = (0, _v50.createDomName)("rtmp-preview-scene"),
     className: _v1 = (0, _v50.createDomName)("rtmp-preview-scene"),
     studioContext: {
@@ -754,7 +721,7 @@
       stats: {
         value: _v9
       }
-    } = (0, _v12.useManager)(_v83.ComposerSessionStatsManager)
+    } = (0, _v12.useManager)(_v81.ComposerSessionStatsManager)
   }) {
     return (0, _v1.jsxs)(_v43.Flex, {
       id: _v0,
@@ -764,32 +731,32 @@
       width: "100%",
       minWidth: (0, _v44.rem)(_v60.graphicsConfig.RTMP_PREVIEW.MIN_WIDTH),
       maxWidth: (0, _v44.rem)(_v60.graphicsConfig.RTMP_PREVIEW.MAX_WIDTH),
-      onContextMenu: _v84.StopPropagation,
+      onContextMenu: _v82.StopPropagation,
       children: [(0, _v1.jsx)(_v43.Flex, {
         overflow: "hidden",
         width: "100%",
         height: "100%",
         border: "1px solid",
         borderColor: "stroke",
-        children: (0, _v1.jsxs)(_v82, {
+        children: (0, _v1.jsxs)(_v80, {
           id: (0, _v50.createDomName)("rtmp-preview-scene", "canvas"),
           stream: _v2,
           muted: _v3,
           background: _v67.BOKEH_PREVIEW_CANVAS_BACKGROUND,
           overflow: "hidden",
           sx: _v68.STRICT_16BY9_BOX_STYLE,
-          children: [_v5 === _v27.EIngestStatus.STREAMING ? (0, _v1.jsx)(_v117, {
+          children: [_v5 === _v27.EIngestStatus.STREAMING ? (0, _v1.jsx)(_v115, {
             startedAt: _v6,
             endedAt: _v7,
             stats: _v9
-          }) : (0, _v1.jsx)(_v110, {
+          }) : (0, _v1.jsx)(_v108, {
             ingestStatus: _v5,
             isStudioPreview: !!_v2
-          }), _v2 ? null : (0, _v1.jsx)(_v112, {
+          }), _v2 ? null : (0, _v1.jsx)(_v110, {
             ingestStatus: _v5,
             rtmpPreview: _v4?.rtmpPreview,
             isSessionExpired: _v8.isSessionExpired
-          }), _v2 ? (0, _v1.jsx)(_v109, {}) : null]
+          }), _v2 ? (0, _v1.jsx)(_v107, {}) : null]
         })
       }), _v2 ? (0, _v1.jsxs)(_v43.Flex, {
         id: (0, _v50.createDomName)(_v0, "low-res-notice"),
@@ -802,10 +769,10 @@
           margin: 0,
           color: "text-secondary",
           children: _v58.translations.lowResView
-        }), (0, _v1.jsx)(_v79.BokehTooltip, {
+        }), (0, _v1.jsx)(_v77.BokehTooltip, {
           label: _v58.translations.toSaveBandwidth,
           placement: "bottom",
-          children: (0, _v1.jsx)(_v78.InfoCircle, {
+          children: (0, _v1.jsx)(_v76.InfoCircle, {
             position: "relative",
             color: "text-secondary",
             width: (0, _v44.rem)(16),
@@ -815,8 +782,8 @@
       }) : null]
     });
   }
-  function _v119(_v0) {
-    return (0, _v1.jsx)(_v102.Icon, {
+  function _v117(_v0) {
+    return (0, _v1.jsx)(_v100.Icon, {
       viewBox: "0 0 52 52",
       fill: "none",
       ..._v0,
@@ -829,7 +796,7 @@
       })
     });
   }
-  function _v120({
+  function _v118({
     id: _v0 = (0, _v50.createDomName)("rtmp-preview-scene-layout"),
     className: _v1 = (0, _v50.createDomName)("rtmp-preview-scene-layout"),
     studioContext: {
@@ -903,7 +870,7 @@
               padding: (0, _v44.rem)(8),
               maxWidth: (0, _v44.rem)(570),
               textAlign: "center",
-              children: [_v7 ? (0, _v1.jsx)(_v119, {
+              children: [_v7 ? (0, _v1.jsx)(_v117, {
                 boxSize: "lg"
               }) : (0, _v1.jsx)(_v57.LinkBroken, {
                 boxSize: "lg"
@@ -921,7 +888,7 @@
               })]
             })
           })
-        }), _v8 && !_v7 ? (0, _v1.jsx)(_v77, {
+        }), _v8 && !_v7 ? (0, _v1.jsx)(_v75, {
           id: (0, _v50.createDomName)(_v0, "preview-banner"),
           className: (0, _v50.createDomName)(_v1, "preview-banner"),
           latency: _v4?.latency
@@ -954,10 +921,10 @@
           })
         })
       }) : (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v118, {
+        children: [(0, _v1.jsx)(_v116, {
           id: (0, _v50.createDomName)(_v0, "preview-scene"),
           className: (0, _v50.createDomName)(_v1, "preview-scene")
-        }), _v8 ? (0, _v1.jsx)(_v77, {
+        }), _v8 ? (0, _v1.jsx)(_v75, {
           id: (0, _v50.createDomName)(_v0, "preview-banner"),
           className: (0, _v50.createDomName)(_v1, "preview-banner"),
           latency: _v4?.latency
@@ -990,7 +957,9 @@
       })]
     });
   }
-  var _v121 = _v0.i(0),
+  var _v119 = _v0.i(0),
+    _v120 = _v0.i(0),
+    _v121 = _v0.i(0),
     _v122 = _v0.i(0),
     _v123 = _v0.i(0),
     _v124 = _v0.i(0),
@@ -1007,38 +976,38 @@
     _v135 = _v0.i(0),
     _v136 = _v0.i(0),
     _v137 = _v0.i(0),
-    _v138 = _v0.i(0),
-    _v139 = _v0.i(0),
-    _v140 = _v0.i(0);
-  function _v141({
+    _v138 = _v0.i(0);
+  function _v139({
     id: _v0 = (0, _v50.createDomName)("landing-page-tab"),
     className: _v1 = (0, _v50.createDomName)("landing-page-tab")
   }) {
-    let _v2 = (0, _v140.useScrollbarStyles)();
-    return (0, _v1.jsxs)(_v80.Box, {
+    let _v2 = (0, _v138.useScrollbarStyles)();
+    return (0, _v1.jsxs)(_v78.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v139.createTabWrapperStyle)(),
-      children: [(0, _v1.jsx)(_v138.LeftPanelHeader, {
+      sx: (0, _v137.createTabWrapperStyle)(),
+      children: [(0, _v1.jsx)(_v136.LeftPanelHeader, {
         label: _v58.translations.eventLandingPage,
-        controls: (0, _v1.jsx)(_v137.LeftPanelDismiss, {})
-      }), (0, _v1.jsx)(_v136.LeftPanelContent, {
-        children: (0, _v1.jsx)(_v80.Box, {
+        controls: (0, _v1.jsx)(_v135.LeftPanelDismiss, {})
+      }), (0, _v1.jsx)(_v134.LeftPanelContent, {
+        children: (0, _v1.jsx)(_v78.Box, {
           id: (0, _v50.createDomName)(_v0, "scroll"),
           className: (0, _v50.createDomName)(_v1, "scroll"),
           width: "100%",
           sx: {
-            ...(0, _v139.createTabListScrollStyle)({
+            ...(0, _v137.createTabListScrollStyle)({
               position: "inherit"
             }),
             ..._v2
           },
-          children: (0, _v1.jsx)(_v135.LandingPageSettings, {})
+          children: (0, _v1.jsx)(_v133.LandingPageSettings, {})
         })
       })]
     });
   }
-  var _v142 = _v0.i(0),
+  var _v140 = _v0.i(0),
+    _v141 = _v0.i(0),
+    _v142 = _v0.i(0),
     _v143 = _v0.i(0),
     _v144 = _v0.i(0),
     _v145 = _v0.i(0),
@@ -1056,11 +1025,9 @@
     _v157 = _v0.i(0),
     _v158 = _v0.i(0),
     _v159 = _v0.i(0),
-    _v160 = _v0.i(0),
-    _v161 = _v0.i(0),
-    _v162 = _v0.i(0);
-  let _v163 = (0, _v0.i(0).createDefaultPollInteractionObject)();
-  function _v164({
+    _v160 = _v0.i(0);
+  let _v161 = (0, _v0.i(0).createDefaultPollInteractionObject)();
+  function _v162({
     id: _v0 = (0, _v50.createDomName)("poll-tab"),
     className: _v1 = (0, _v50.createDomName)("poll-tab"),
     pollContext: {
@@ -1074,7 +1041,7 @@
         deletePoll: _v8,
         setActivePoll: _v9
       }
-    } = (0, _v12.useManager)(_v160.PollManager),
+    } = (0, _v12.useManager)(_v158.PollManager),
     composerSessionContext: {
       sessionType: _v10
     } = (0, _v12.useManager)(_v36.ComposerSessionManager, ({
@@ -1085,29 +1052,29 @@
       [_v13, _v14] = (0, _v5.useState)(null),
       {
         setIsHeaderEnabled: _v15
-      } = (0, _v159.useResponsiveSidebarContext)(),
+      } = (0, _v157.useResponsiveSidebarContext)(),
       _v16 = (0, _v5.useMemo)(() => Object.values(_v3), [_v3]),
       _v17 = (0, _v22.useIsVpaas)(),
       _v18 = (0, _v5.useCallback)(() => {
-        _v12(!0), _v15(!1), (0, _v161.trackClickAddPoll)();
+        _v12(!0), _v15(!1), (0, _v159.trackClickAddPoll)();
       }, [_v15]),
       {
         panels: _v19,
         activePolls: _v20,
         activePanelId: _v21,
         setActivePanelId: _v22
-      } = (0, _v154.usePollPanels)(_v3),
+      } = (0, _v152.usePollPanels)(_v3),
       _v23 = (0, _v5.useCallback)(_v0 => {
-        _v0.state = _v162.EPollState.CLOSED, _v7(_v0.id, _v0);
+        _v0.state = _v160.EPollState.CLOSED, _v7(_v0.id, _v0);
       }, [_v7]),
       _v24 = (0, _v5.useCallback)(_v0 => {
-        _v0.state = _v162.EPollState.ARCHIVED, _v7(_v0.id, _v0);
+        _v0.state = _v160.EPollState.ARCHIVED, _v7(_v0.id, _v0);
       }, [_v7]),
       _v25 = (0, _v5.useCallback)(_v0 => {
         let _v1 = _v5 ? _v3[_v5] : null;
         _v1 && _v24(_v1), _v7(_v0.id, {
           ..._v0,
-          state: _v162.EPollState.OPENED
+          state: _v160.EPollState.OPENED
         }), _v9(_v0.id);
       }, [_v5, _v3, _v7, _v9, _v24]),
       _v26 = (0, _v5.useCallback)(_v0 => {
@@ -1116,8 +1083,8 @@
       _v27 = (0, _v5.useCallback)(_v0 => {
         _v8(_v0);
       }, [_v8]),
-      _v28 = _v16.some(_v0 => _v0.state === _v162.EPollState.OPENED),
-      _v29 = _v16.some(_v0 => _v0.state === _v162.EPollState.CLOSED),
+      _v28 = _v16.some(_v0 => _v0.state === _v160.EPollState.OPENED),
+      _v29 = _v16.some(_v0 => _v0.state === _v160.EPollState.CLOSED),
       _v30 = !_v28,
       _v31 = _v10 === _v20.EComposerSessionType.VENUE,
       _v32 = !_v17 && !_v31,
@@ -1130,100 +1097,100 @@
       }, [_v15]),
       _v36 = (0, _v5.useCallback)(_v0 => (_v15(!0), _v14(null), _v7(_v0.id, _v0)), [_v15, _v7]);
     (0, _v5.useEffect)(() => {
-      (0, _v161.trackViewPoll)();
+      (0, _v159.trackViewPoll)();
     }, []);
-    let _v37 = (0, _v140.useScrollbarStyles)();
-    return _v11 ? (0, _v1.jsx)(_v80.Box, {
+    let _v37 = (0, _v138.useScrollbarStyles)();
+    return _v11 ? (0, _v1.jsx)(_v78.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v139.createTabWrapperStyle)(),
-      children: (0, _v1.jsx)(_v136.LeftPanelContent, {
+      sx: (0, _v137.createTabWrapperStyle)(),
+      children: (0, _v1.jsx)(_v134.LeftPanelContent, {
         withTopPadding: !0,
-        children: (0, _v1.jsx)(_v152.PollForm, {
-          poll: _v163,
+        children: (0, _v1.jsx)(_v150.PollForm, {
+          poll: _v161,
           onClose: _v33,
           onSubmit: _v34
         })
       })
-    }) : _v13 ? (_v15(!1), (0, _v1.jsx)(_v80.Box, {
+    }) : _v13 ? (_v15(!1), (0, _v1.jsx)(_v78.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v139.createTabWrapperStyle)(),
-      children: (0, _v1.jsx)(_v136.LeftPanelContent, {
+      sx: (0, _v137.createTabWrapperStyle)(),
+      children: (0, _v1.jsx)(_v134.LeftPanelContent, {
         withTopPadding: !0,
-        children: (0, _v1.jsx)(_v152.PollForm, {
+        children: (0, _v1.jsx)(_v150.PollForm, {
           poll: _v13,
           onClose: _v35,
           onSubmit: _v36
         })
       })
-    })) : _v2 ? _v16.length ? (0, _v1.jsxs)(_v80.Box, {
+    })) : _v2 ? _v16.length ? (0, _v1.jsxs)(_v78.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v139.createTabWrapperStyle)(),
-      children: [(0, _v1.jsx)(_v138.LeftPanelHeader, {
-        label: _v95.T_POLLS,
+      sx: (0, _v137.createTabWrapperStyle)(),
+      children: [(0, _v1.jsx)(_v136.LeftPanelHeader, {
+        label: _v93.T_POLLS,
         controls: (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v151.TooltipIconButton, {
+          children: [(0, _v1.jsx)(_v149.TooltipIconButton, {
             id: (0, _v50.createDomName)(_v0, "add-button"),
             className: (0, _v50.createDomName)(_v1, "add-button"),
             "aria-label": _v58.translations.addPoll,
-            icon: (0, _v1.jsx)(_v149.Plus, {}),
+            icon: (0, _v1.jsx)(_v147.Plus, {}),
             size: "sm",
             variant: "tertiary",
             placement: "bottom",
             label: _v58.translations.addPoll,
             onClick: _v18
-          }), (0, _v1.jsx)(_v156.PollSettingsButton, {
+          }), (0, _v1.jsx)(_v154.PollSettingsButton, {
             id: (0, _v50.createDomName)(_v0, "settings-button"),
             className: (0, _v50.createDomName)(_v1, "settings-button"),
             withInteractionSubmenu: _v32,
-            buttonIcon: (0, _v1.jsx)(_v148.EllipsisV, {})
-          }), (0, _v1.jsx)(_v137.LeftPanelDismiss, {
+            buttonIcon: (0, _v1.jsx)(_v146.EllipsisV, {})
+          }), (0, _v1.jsx)(_v135.LeftPanelDismiss, {
             id: (0, _v50.createDomName)(_v0, "dismiss-button"),
             className: (0, _v50.createDomName)(_v1, "dismiss-button")
           })]
         })
-      }), (0, _v1.jsxs)(_v136.LeftPanelContent, {
-        children: [(0, _v1.jsxs)(_v142.Tabs, {
+      }), (0, _v1.jsxs)(_v134.LeftPanelContent, {
+        children: [(0, _v1.jsxs)(_v140.Tabs, {
           size: "sm",
-          sx: _v139.TABS_STYLES,
+          sx: _v137.TABS_STYLES,
           onChange: _v22,
-          children: [(0, _v1.jsxs)(_v143.TabList, {
+          children: [(0, _v1.jsxs)(_v141.TabList, {
             children: [_v19.map(({
               id: _v0,
               label: _v1
-            }) => (0, _v1.jsx)(_v144.Tab, {
+            }) => (0, _v1.jsx)(_v142.Tab, {
               className: (0, _v50.createDomName)(_v0, _v0, "tab"),
               children: _v1
-            }, _v0)), (0, _v1.jsx)(_v142.TabIndicator, {})]
-          }), (0, _v1.jsx)(_v145.TabPanels, {
-            sx: _v139.TAB_PANELS_STYLES,
+            }, _v0)), (0, _v1.jsx)(_v140.TabIndicator, {})]
+          }), (0, _v1.jsx)(_v143.TabPanels, {
+            sx: _v137.TAB_PANELS_STYLES,
             children: _v19.map(({
               id: _v0,
               polls: _v1
-            }) => (0, _v1.jsx)(_v146.TabPanel, {
+            }) => (0, _v1.jsx)(_v144.TabPanel, {
               className: (0, _v50.createDomName)(_v0, _v0, "tab-panel"),
               maxWidth: "100%",
               maxHeight: "100%",
               overflowY: "visible",
-              sx: _v139.TAB_PANEL_STYLES,
-              children: (0, _v1.jsx)(_v80.Box, {
+              sx: _v137.TAB_PANEL_STYLES,
+              children: (0, _v1.jsx)(_v78.Box, {
                 id: (0, _v50.createDomName)(_v0, _v0, "scroll"),
                 sx: {
-                  ...(0, _v139.createTabListScrollStyle)(),
+                  ...(0, _v137.createTabListScrollStyle)(),
                   ..._v37
                 },
-                children: (0, _v1.jsx)(_v80.Box, {
+                children: (0, _v1.jsx)(_v78.Box, {
                   id: (0, _v50.createDomName)(_v0, _v0, "column"),
-                  sx: (0, _v139.createTabListColumnStyle)(!0),
-                  children: 0 === _v1.length ? (0, _v1.jsx)(_v155.PollEmptyState, {
+                  sx: (0, _v137.createTabListColumnStyle)(!0),
+                  children: 0 === _v1.length ? (0, _v1.jsx)(_v153.PollEmptyState, {
                     id: (0, _v50.createDomName)(_v0, _v0, "empty-placeholder"),
                     className: (0, _v50.createDomName)(_v0, _v0, "empty-placeholder"),
                     width: "100%",
                     height: "100%",
                     padding: `0 ${(0, _v44.rem)(24)} 0 0`,
-                    buttonLabel: _v95.T_CREATE_POLL,
+                    buttonLabel: _v93.T_CREATE_POLL,
                     description: 0 === _v0 ? _v58.translations.createPollToInteractWithAudience : _v58.translations.noPollsArchived,
                     control: 0 === _v0,
                     history: 0 === _v0 ? _v4 : null,
@@ -1231,9 +1198,9 @@
                   }) : _v1.map(_v0 => {
                     var _v1;
                     let _v2, _v3;
-                    return (0, _v1.jsx)(_v80.Box, {
-                      sx: _v139.TAB_LIST_COLUMN_FULL_ITEM_STYLE,
-                      children: (0, _v1.jsx)(_v153.PollItem, {
+                    return (0, _v1.jsx)(_v78.Box, {
+                      sx: _v137.TAB_LIST_COLUMN_FULL_ITEM_STYLE,
+                      children: (0, _v1.jsx)(_v151.PollItem, {
                         poll: _v0,
                         isAnyPollPublished: _v29,
                         canOpenPoll: _v30,
@@ -1246,20 +1213,20 @@
                         menuActions: (_v1 = {
                           onPollEdit: _v26,
                           onPollDelete: _v27
-                        }, _v2 = _v0.state === _v162.EPollState.DRAFT, _v3 = [], _v2 && _v3.push({
+                        }, _v2 = _v0.state === _v160.EPollState.DRAFT, _v3 = [], _v2 && _v3.push({
                           key: "edit",
                           label: _v58.translations.edit,
                           onClick: () => {
-                            _v1.onPollEdit(_v0), (0, _v161.trackClickEditPoll)();
+                            _v1.onPollEdit(_v0), (0, _v159.trackClickEditPoll)();
                           },
-                          icon: (0, _v1.jsx)(_v147.EditPencil, {})
+                          icon: (0, _v1.jsx)(_v145.EditPencil, {})
                         }, {
                           key: "delete",
                           label: _v58.translations.removeFromEvent,
                           onClick: () => {
-                            _v1.onPollDelete(_v0.id), (0, _v161.trackRemovePollFromEvent)();
+                            _v1.onPollDelete(_v0.id), (0, _v159.trackRemovePollFromEvent)();
                           },
-                          icon: (0, _v1.jsx)(_v150.TrashBin, {})
+                          icon: (0, _v1.jsx)(_v148.TrashBin, {})
                         }), _v3)
                       })
                     }, _v0.id);
@@ -1268,61 +1235,63 @@
               })
             }, _v0))
           }, _v21)]
-        }), (0, _v1.jsx)(_v80.Box, {
+        }), (0, _v1.jsx)(_v78.Box, {
           position: "relative",
-          children: (0, _v1.jsx)(_v158.HorizontalScrollShadow, {
+          children: (0, _v1.jsx)(_v156.HorizontalScrollShadow, {
             color: "surface"
           })
         })]
       })]
     }) : (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v138.LeftPanelHeader, {
-        label: _v95.T_POLLS,
+      children: [(0, _v1.jsx)(_v136.LeftPanelHeader, {
+        label: _v93.T_POLLS,
         controls: (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v151.TooltipIconButton, {
+          children: [(0, _v1.jsx)(_v149.TooltipIconButton, {
             id: (0, _v50.createDomName)(_v0, "add-button"),
             className: (0, _v50.createDomName)(_v1, "add-button"),
             "aria-label": _v58.translations.addPoll,
-            icon: (0, _v1.jsx)(_v149.Plus, {}),
+            icon: (0, _v1.jsx)(_v147.Plus, {}),
             size: "sm",
             variant: "tertiary",
             placement: "bottom",
             label: _v58.translations.addPoll,
             onClick: _v18
-          }), (0, _v1.jsx)(_v156.PollSettingsButton, {
+          }), (0, _v1.jsx)(_v154.PollSettingsButton, {
             id: (0, _v50.createDomName)(_v0, "settings-button"),
             className: (0, _v50.createDomName)(_v1, "settings-button"),
             withInteractionSubmenu: _v32,
-            buttonIcon: (0, _v1.jsx)(_v148.EllipsisV, {})
-          }), (0, _v1.jsx)(_v137.LeftPanelDismiss, {
+            buttonIcon: (0, _v1.jsx)(_v146.EllipsisV, {})
+          }), (0, _v1.jsx)(_v135.LeftPanelDismiss, {
             id: (0, _v50.createDomName)(_v0, "dismiss-button"),
             className: (0, _v50.createDomName)(_v1, "dismiss-button")
           })]
         })
-      }), (0, _v1.jsx)(_v136.LeftPanelContent, {
-        children: (0, _v1.jsx)(_v155.PollEmptyState, {
+      }), (0, _v1.jsx)(_v134.LeftPanelContent, {
+        children: (0, _v1.jsx)(_v153.PollEmptyState, {
           id: _v0,
           className: _v1,
-          buttonLabel: _v95.T_CREATE_POLL,
+          buttonLabel: _v93.T_CREATE_POLL,
           description: _v58.translations.createPollToInteractWithAudience,
           history: _v4,
-          sx: (0, _v139.createTabWrapperStyle)(),
+          sx: (0, _v137.createTabWrapperStyle)(),
           onCreateClick: _v18
         })
       })]
-    }) : (0, _v1.jsx)(_v80.Box, {
+    }) : (0, _v1.jsx)(_v78.Box, {
       id: _v0,
       className: _v1,
       position: "relative",
-      sx: (0, _v139.createTabWrapperStyle)(),
-      children: (0, _v1.jsx)(_v157.BlockingLoadingWrapper, {
+      sx: (0, _v137.createTabWrapperStyle)(),
+      children: (0, _v1.jsx)(_v155.BlockingLoadingWrapper, {
         id: (0, _v50.createDomName)(_v0, "loader"),
         opacity: .25,
         withAnimation: !0
       })
     });
   }
-  var _v165 = _v0.i(0),
+  var _v163 = _v0.i(0),
+    _v164 = _v0.i(0),
+    _v165 = _v0.i(0),
     _v166 = _v0.i(0),
     _v167 = _v0.i(0),
     _v168 = _v0.i(0),
@@ -1338,10 +1307,8 @@
     _v178 = _v0.i(0),
     _v179 = _v0.i(0),
     _v180 = _v0.i(0),
-    _v181 = _v0.i(0),
-    _v182 = _v0.i(0),
-    _v183 = _v0.i(0);
-  function _v184({
+    _v181 = _v0.i(0);
+  function _v182({
     id: _v0 = (0, _v50.createDomName)("qna-tab"),
     className: _v1 = (0, _v50.createDomName)("qna-tab"),
     qnaContext: {
@@ -1361,7 +1328,7 @@
         unPinQuestion: _v12,
         deleteQuestionReply: _v13
       }
-    } = (0, _v12.useManager)(_v179.QnAManager),
+    } = (0, _v12.useManager)(_v177.QnAManager),
     composerSessionContext: {
       sessionType: _v14
     } = (0, _v12.useManager)(_v36.ComposerSessionManager, ({
@@ -1374,101 +1341,101 @@
         selectedQuestionState: _v17,
         onSelectedQuestion: _v18,
         onDeselectQuestion: _v19
-      } = (0, _v181.useQnaResponding)(),
+      } = (0, _v179.useQnaResponding)(),
       {
         panels: _v20,
         currentQuestions: _v21,
         activePanelId: _v22,
         setActivePanelId: _v23
-      } = (0, _v175.useQnaPanels)(),
+      } = (0, _v173.useQnaPanels)(),
       {
         getIdByIndex: _v24,
         getIndexById: _v25
-      } = (0, _v177.useTabsMapping)(_v20),
-      _v26 = (0, _v178.useSimpleNotification)(),
+      } = (0, _v175.useTabsMapping)(_v20),
+      _v26 = (0, _v176.useSimpleNotification)(),
       _v27 = (0, _v22.useIsVpaas)(),
-      _v28 = null !== _v15 && (0, _v180.canReplyQuestion)(_v21.find(_v0 => _v0.id === _v15)) && !(0, _v180.hasQuestionReplies)(_v15 ? _v7?.[_v15] : void 0),
+      _v28 = null !== _v15 && (0, _v178.canReplyQuestion)(_v21.find(_v0 => _v0.id === _v15)) && !(0, _v178.hasQuestionReplies)(_v15 ? _v7?.[_v15] : void 0),
       _v29 = _v14 === _v20.EComposerSessionType.VENUE,
       _v30 = !_v27 && !_v29;
     (0, _v5.useEffect)(() => {
-      (0, _v182.trackViewQna)();
+      (0, _v180.trackViewQna)();
     }, []);
     let _v31 = (0, _v5.useCallback)(_v0 => {
-        _v8(_v0.id), (0, _v182.trackApproveModeratedQuestion)(), _v26({
-          message: _v95.T_QUESTION_APPROVED
+        _v8(_v0.id), (0, _v180.trackApproveModeratedQuestion)(), _v26({
+          message: _v93.T_QUESTION_APPROVED
         });
       }, [_v8, _v26]),
       _v32 = (0, _v5.useCallback)(_v0 => {
-        _v9(_v0.id, !!_v0.approved), (0, _v182.trackArchiveQuestion)(_v4), _v26({
-          message: _v95.T_QUESTION_ARCHIVED
+        _v9(_v0.id, !!_v0.approved), (0, _v180.trackArchiveQuestion)(_v4), _v26({
+          message: _v93.T_QUESTION_ARCHIVED
         });
       }, [_v9, _v4, _v26]),
       _v33 = (0, _v5.useCallback)(_v0 => {
-        _v10(_v0.id, !!_v0.approved), (0, _v182.trackUnarchiveQuestion)(_v4), _v26({
-          message: _v95.T_QUESTION_UNARCHIVED
+        _v10(_v0.id, !!_v0.approved), (0, _v180.trackUnarchiveQuestion)(_v4), _v26({
+          message: _v93.T_QUESTION_UNARCHIVED
         });
       }, [_v4, _v26, _v10]),
       _v34 = (0, _v5.useCallback)(_v0 => {
-        _v11(_v0), (0, _v182.trackPinQuestion)(), _v26({
-          message: _v95.T_QUESTION_PINNED
+        _v11(_v0), (0, _v180.trackPinQuestion)(), _v26({
+          message: _v93.T_QUESTION_PINNED
         });
       }, [_v26, _v11]),
       _v35 = (0, _v5.useCallback)(_v0 => {
-        _v12(_v0), (0, _v182.trackUnpinQuestion)(), _v26({
-          message: _v95.T_QUESTION_UNPINNED
+        _v12(_v0), (0, _v180.trackUnpinQuestion)(), _v26({
+          message: _v93.T_QUESTION_UNPINNED
         });
       }, [_v26, _v12]),
       _v36 = (0, _v5.useCallback)((_v0, _v1) => {
         _v13(_v0, _v1), _v26({
-          message: _v95.T_QUESTION_REPLY_DELETED
+          message: _v93.T_QUESTION_REPLY_DELETED
         });
       }, [_v26, _v13]),
       _v37 = (0, _v5.useCallback)(_v0 => {
-        _v23(_v24(_v0)), _v19(), (0, _v182.trackSwitchActiveTab)();
+        _v23(_v24(_v0)), _v19(), (0, _v180.trackSwitchActiveTab)();
       }, [_v24, _v19, _v23]);
-    return _v5 ? _v2 ? (0, _v1.jsxs)(_v80.Box, {
+    return _v5 ? _v2 ? (0, _v1.jsxs)(_v78.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v139.createTabWrapperStyle)(),
-      children: [(0, _v1.jsx)(_v138.LeftPanelHeader, {
-        label: _v95.T_QNA,
+      sx: (0, _v137.createTabWrapperStyle)(),
+      children: [(0, _v1.jsx)(_v136.LeftPanelHeader, {
+        label: _v93.T_QNA,
         controls: (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v169.QnaOptionsMenu, {
+          children: [(0, _v1.jsx)(_v167.QnaOptionsMenu, {
             id: (0, _v50.createDomName)(_v0, "options-button"),
             className: (0, _v50.createDomName)(_v1, "options-button")
-          }), (0, _v1.jsx)(_v170.QnaSettingsButton, {
+          }), (0, _v1.jsx)(_v168.QnaSettingsButton, {
             id: (0, _v50.createDomName)(_v0, "settings-button"),
             className: (0, _v50.createDomName)(_v1, "settings-button"),
             withInteractionSubmenu: _v30,
-            buttonIcon: (0, _v1.jsx)(_v148.EllipsisV, {})
-          }), (0, _v1.jsx)(_v137.LeftPanelDismiss, {
+            buttonIcon: (0, _v1.jsx)(_v146.EllipsisV, {})
+          }), (0, _v1.jsx)(_v135.LeftPanelDismiss, {
             id: (0, _v50.createDomName)(_v0, "dismiss-button"),
             className: (0, _v50.createDomName)(_v1, "dismiss-button")
           })]
         })
-      }), (0, _v1.jsxs)(_v136.LeftPanelContent, {
-        children: [(0, _v1.jsxs)(_v142.Tabs, {
+      }), (0, _v1.jsxs)(_v134.LeftPanelContent, {
+        children: [(0, _v1.jsxs)(_v140.Tabs, {
           size: "sm",
           index: _v25(_v22),
-          sx: _v139.TABS_STYLES,
+          sx: _v137.TABS_STYLES,
           onChange: _v37,
-          children: [(0, _v1.jsxs)(_v143.TabList, {
+          children: [(0, _v1.jsxs)(_v141.TabList, {
             children: [_v20.map(({
               id: _v0,
               label: _v1
-            }) => (0, _v1.jsx)(_v144.Tab, {
+            }) => (0, _v1.jsx)(_v142.Tab, {
               className: (0, _v50.createDomName)(_v0, _v0, "tab"),
               children: _v1
-            }, _v0)), (0, _v1.jsx)(_v142.TabIndicator, {})]
-          }), (0, _v1.jsx)(_v145.TabPanels, {
-            sx: _v139.TAB_PANELS_STYLES,
+            }, _v0)), (0, _v1.jsx)(_v140.TabIndicator, {})]
+          }), (0, _v1.jsx)(_v143.TabPanels, {
+            sx: _v137.TAB_PANELS_STYLES,
             children: _v20.map(({
               id: _v0,
               questions: _v1
-            }) => (0, _v1.jsx)(_v146.TabPanel, {
+            }) => (0, _v1.jsx)(_v144.TabPanel, {
               className: (0, _v50.createDomName)(_v0, _v0, "tab-panel"),
-              sx: _v139.TAB_PANEL_STYLES,
-              children: (0, _v1.jsx)(_v172.QuestionsList, {
+              sx: _v137.TAB_PANEL_STYLES,
+              children: (0, _v1.jsx)(_v170.QuestionsList, {
                 id: (0, _v50.createDomName)(_v0, _v0, "questions-list"),
                 tabId: _v0,
                 selectedQuestionElement: _v16,
@@ -1478,9 +1445,9 @@
                 scrollBackground: "surface",
                 itemRenderer: _v0 => {
                   let _v1 = _v15 === _v0.id ? _v67.FOCUSED_STATE_COLOR : "transparent";
-                  return (0, _v1.jsxs)(_v80.Box, {
-                    sx: _v139.TAB_LIST_COLUMN_FULL_ITEM_STYLE,
-                    children: [(0, _v1.jsx)(_v171.NewQuestionManageItem, {
+                  return (0, _v1.jsxs)(_v78.Box, {
+                    sx: _v137.TAB_LIST_COLUMN_FULL_ITEM_STYLE,
+                    children: [(0, _v1.jsx)(_v169.NewQuestionManageItem, {
                       question: _v0,
                       isActive: _v0.id === _v15,
                       isPinned: _v0.id === _v3,
@@ -1493,7 +1460,7 @@
                       onQuestionPin: _v34,
                       onQuestionUnPin: _v35,
                       onDeleteQuestionReply: _v36
-                    }), (0, _v1.jsx)(_v166.SceneItemOverlay, {
+                    }), (0, _v1.jsx)(_v164.SceneItemOverlay, {
                       size: "sm",
                       width: 2,
                       borderRadius: 8,
@@ -1502,74 +1469,74 @@
                     })]
                   }, _v0.id);
                 },
-                placeholder: (0, _v1.jsx)(_v176.EmptyStatePlaceholder, {
+                placeholder: (0, _v1.jsx)(_v174.EmptyStatePlaceholder, {
                   id: (0, _v50.createDomName)(_v0, _v0, "empty-placeholder"),
                   className: (0, _v50.createDomName)(_v0, _v0, "empty-placeholder"),
                   isWithPadding: !0,
-                  icon: (0, _v1.jsx)(_v165.ReviewQuestion, {
+                  icon: (0, _v1.jsx)(_v163.ReviewQuestion, {
                     boxSize: "lg"
                   }),
-                  description: _v0 === _v162.EQnaTab.PENDING ? _v95.T_NO_QUESTIONS_PENDING : _v95.T_NO_QUESTIONS_YET,
+                  description: _v0 === _v160.EQnaTab.PENDING ? _v93.T_NO_QUESTIONS_PENDING : _v93.T_NO_QUESTIONS_YET,
                   control: null
                 })
               })
             }, _v0))
           }, _v22)]
-        }), (0, _v1.jsxs)(_v80.Box, {
+        }), (0, _v1.jsxs)(_v78.Box, {
           position: "relative",
           width: "100%",
-          onMouseDown: _v183.stopEventPropagation,
-          onTouchStart: _v183.stopEventPropagation,
-          children: [(0, _v1.jsx)(_v158.HorizontalScrollShadow, {
+          onMouseDown: _v181.stopEventPropagation,
+          onTouchStart: _v181.stopEventPropagation,
+          children: [(0, _v1.jsx)(_v156.HorizontalScrollShadow, {
             color: "surface"
-          }), _v28 ? (0, _v1.jsx)(_v168.QnaReplyForm, {
+          }), _v28 ? (0, _v1.jsx)(_v166.QnaReplyForm, {
             id: (0, _v50.createDomName)(_v0, "reply-form"),
             selectedQuestionId: _v15,
-            isApproveNeeded: _v17 === _v162.EQuestionState.PENDING,
+            isApproveNeeded: _v17 === _v160.EQuestionState.PENDING,
             onDismiss: _v19
-          }) : (0, _v1.jsx)(_v173.SessionControlButton, {
+          }) : (0, _v1.jsx)(_v171.SessionControlButton, {
             id: (0, _v50.createDomName)(_v0, "session-control-button")
           })]
         })]
       })]
-    }) : (0, _v1.jsxs)(_v80.Box, {
+    }) : (0, _v1.jsxs)(_v78.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v139.createTabWrapperStyle)(),
-      children: [(0, _v1.jsx)(_v138.LeftPanelHeader, {
-        label: _v95.T_QNA,
+      sx: (0, _v137.createTabWrapperStyle)(),
+      children: [(0, _v1.jsx)(_v136.LeftPanelHeader, {
+        label: _v93.T_QNA,
         controls: (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v170.QnaSettingsButton, {
+          children: [(0, _v1.jsx)(_v168.QnaSettingsButton, {
             id: (0, _v50.createDomName)(_v0, "settings-button"),
             className: (0, _v50.createDomName)(_v1, "settings-button"),
             withInteractionSubmenu: _v30,
-            buttonIcon: (0, _v1.jsx)(_v148.EllipsisV, {})
-          }), (0, _v1.jsx)(_v137.LeftPanelDismiss, {
+            buttonIcon: (0, _v1.jsx)(_v146.EllipsisV, {})
+          }), (0, _v1.jsx)(_v135.LeftPanelDismiss, {
             id: (0, _v50.createDomName)(_v0, "dismiss-button"),
             className: (0, _v50.createDomName)(_v1, "dismiss-button")
           })]
         })
-      }), (0, _v1.jsxs)(_v136.LeftPanelContent, {
-        children: [(0, _v1.jsx)(_v174.SessionInactive, {}), _v27 ? null : (0, _v1.jsx)(_v167.QnAUpsell, {
+      }), (0, _v1.jsxs)(_v134.LeftPanelContent, {
+        children: [(0, _v1.jsx)(_v172.SessionInactive, {}), _v27 ? null : (0, _v1.jsx)(_v165.QnAUpsell, {
           canUseQnaModeration: _v6
         })]
       })]
-    }) : (0, _v1.jsx)(_v80.Box, {
+    }) : (0, _v1.jsx)(_v78.Box, {
       id: _v0,
       className: _v1,
       position: "relative",
-      sx: (0, _v139.createTabWrapperStyle)(),
-      children: (0, _v1.jsx)(_v157.BlockingLoadingWrapper, {
+      sx: (0, _v137.createTabWrapperStyle)(),
+      children: (0, _v1.jsx)(_v155.BlockingLoadingWrapper, {
         id: (0, _v50.createDomName)(_v0, "loader"),
         opacity: .1,
         withAnimation: !0
       })
     });
   }
-  let _v185 = (0, _v5.lazy)(() => _v0.A(0).then(_v0 => ({
+  let _v183 = (0, _v5.lazy)(() => _v0.A(0).then(_v0 => ({
     default: _v0.RtmpDebugTab
   })));
-  function _v186({
+  function _v184({
     id: _v0 = (0, _v50.createDomName)("rtmp-panel-left"),
     className: _v1 = (0, _v50.createDomName)("rtmp-panel-left"),
     composerSessionStatusContext: {
@@ -1579,110 +1546,110 @@
     }) => [_v0]),
     panelsContext: {
       leftPanel: _v3
-    } = (0, _v12.useManager)(_v132.PanelsManager)
+    } = (0, _v12.useManager)(_v130.PanelsManager)
   }) {
     let {
         permissions: _v4
       } = (0, _v12.useManager)(_v36.ComposerSessionManager),
       _v5 = (0, _v22.useIsVpaas)(),
-      _v6 = (0, _v131.useCanSeeDebugTools)(),
+      _v6 = (0, _v129.useCanSeeDebugTools)(),
       _v7 = !_v5,
-      _v8 = (0, _v133.useOrionSettingsFields)(["release_single_event_customization"]),
-      _v9 = (0, _v130.useLiveReactionsAvailable)(),
+      _v8 = (0, _v131.useOrionSettingsFields)(["release_single_event_customization"]),
+      _v9 = (0, _v128.useLiveReactionsAvailable)(),
       {
         trackLiveStreamSidebarPanelClicked: _v10
-      } = (0, _v134.useLiveStreamBroadcasterTracking)(),
+      } = (0, _v132.useLiveStreamBroadcasterTracking)(),
       _v11 = (0, _v5.useCallback)(_v0 => {
-        _v0 === _v128.ELeftPanelId.LANDING_PAGE && _v10({
+        _v0 === _v126.ELeftPanelId.LANDING_PAGE && _v10({
           liveStreamPanel: "landing_page"
         });
       }, [_v10]),
       _v12 = (0, _v5.useMemo)(() => {
         let _v0 = [{
-          id: _v128.ELeftPanelId.QNA,
-          icon: (0, _v1.jsx)(_v127.PanelQnaIcon, {
-            isActive: _v3 === _v128.ELeftPanelId.QNA,
+          id: _v126.ELeftPanelId.QNA,
+          icon: (0, _v1.jsx)(_v125.PanelQnaIcon, {
+            isActive: _v3 === _v126.ELeftPanelId.QNA,
             isManagementAccessed: !0
           }),
-          header: _v95.T_QNA,
-          content: _v184,
-          hash: _v128.ELeftPanelHash.QNA
+          header: _v93.T_QNA,
+          content: _v182,
+          hash: _v126.ELeftPanelHash.QNA
         }, {
-          id: _v128.ELeftPanelId.POLLS,
-          icon: (0, _v1.jsx)(_v126.PanelPollIcon, {
-            isActive: _v3 === _v128.ELeftPanelId.POLLS
+          id: _v126.ELeftPanelId.POLLS,
+          icon: (0, _v1.jsx)(_v124.PanelPollIcon, {
+            isActive: _v3 === _v126.ELeftPanelId.POLLS
           }),
-          header: _v95.T_POLLS,
-          content: _v164,
-          hash: _v128.ELeftPanelHash.POLLS
+          header: _v93.T_POLLS,
+          content: _v162,
+          hash: _v126.ELeftPanelHash.POLLS
         }];
         return _v9 && _v0.push({
-          id: _v128.ELeftPanelId.REACTIONS,
-          icon: (0, _v1.jsx)(_v123.Smile, {}),
+          id: _v126.ELeftPanelId.REACTIONS,
+          icon: (0, _v1.jsx)(_v121.Smile, {}),
           header: _v58.translations.reactions,
-          content: _v125.ReactionsTab,
-          hash: _v128.ELeftPanelHash.REACTIONS,
+          content: _v123.ReactionsTab,
+          hash: _v126.ELeftPanelHash.REACTIONS,
           contentHeight: "fit"
         }), !_v5 && _v4.hasLandingPageCustomizations && _v8.release_single_event_customization && _v0.push({
-          id: _v128.ELeftPanelId.LANDING_PAGE,
-          icon: (0, _v1.jsx)(_v122.BrowserWindow, {}),
+          id: _v126.ELeftPanelId.LANDING_PAGE,
+          icon: (0, _v1.jsx)(_v120.BrowserWindow, {}),
           header: _v58.translations.landingPage,
-          content: _v141,
+          content: _v139,
           isNew: !0,
-          hash: _v128.ELeftPanelHash.LANDING_PAGE
+          hash: _v126.ELeftPanelHash.LANDING_PAGE
         }), _v6 && _v0.push({
-          id: _v128.ELeftPanelId.DEBUG,
-          icon: (0, _v1.jsx)(_v121.Processor, {}),
+          id: _v126.ELeftPanelId.DEBUG,
+          icon: (0, _v1.jsx)(_v119.Processor, {}),
           header: _v58.translations.debug,
-          hash: _v128.ELeftPanelHash.DEBUG,
+          hash: _v126.ELeftPanelHash.DEBUG,
           content: () => (0, _v1.jsx)(_v5.Suspense, {
             fallback: null,
-            children: (0, _v1.jsx)(_v185, {})
+            children: (0, _v1.jsx)(_v183, {})
           })
         }), _v0;
       }, [_v6, _v3, _v5, _v9, _v8.release_single_event_customization, _v4.hasLandingPageCustomizations]);
-    return (0, _v1.jsx)(_v129.LeftPanel, {
+    return (0, _v1.jsx)(_v127.LeftPanel, {
       id: _v0,
       className: _v1,
       isLoading: !_v2,
       defaultValue: null,
       items: _v12,
-      footer: _v7 ? (0, _v1.jsx)(_v124.FooterHelpMenu, {}) : null,
+      footer: _v7 ? (0, _v1.jsx)(_v122.FooterHelpMenu, {}) : null,
       onUserActivateLeftPanel: _v11
     });
   }
-  var _v187 = _v0.i(0),
-    _v188 = _v0.i(0),
-    _v189 = _v0.i(0),
-    _v190 = _v0.i(0);
-  function _v191({
+  var _v185 = _v0.i(0),
+    _v186 = _v0.i(0),
+    _v187 = _v0.i(0),
+    _v188 = _v0.i(0);
+  function _v189({
     id: _v0 = (0, _v50.createDomName)("right-panel-back-button"),
     className: _v1 = (0, _v50.createDomName)("right-panel-back-button"),
     onClick: _v2
   }) {
-    return (0, _v1.jsx)(_v101.IconButton, {
+    return (0, _v1.jsx)(_v99.IconButton, {
       id: (0, _v50.createDomName)(_v0, "back"),
       className: (0, _v50.createDomName)(_v1, "back"),
       "aria-label": "back",
       variant: "tertiary",
-      icon: (0, _v1.jsx)(_v190.ChevronLeft, {}),
+      icon: (0, _v1.jsx)(_v188.ChevronLeft, {}),
       size: "sm",
       onClick: _v2
     });
   }
-  var _v192 = _v0.i(0),
+  var _v190 = _v0.i(0),
+    _v191 = _v0.i(0),
+    _v192 = _v0.i(0),
     _v193 = _v0.i(0),
     _v194 = _v0.i(0),
     _v195 = _v0.i(0),
-    _v196 = _v0.i(0),
-    _v197 = _v0.i(0),
-    _v198 = _v0.i(0);
-  function _v199({
+    _v196 = _v0.i(0);
+  function _v197({
     id: _v0 = (0, _v50.createDomName)("audio-tracks-tab"),
     className: _v1 = (0, _v50.createDomName)("audio-tracks-tab"),
     panelsContext: {
       panelActions: _v2
-    } = (0, _v12.useManager)(_v132.PanelsManager),
+    } = (0, _v12.useManager)(_v130.PanelsManager),
     composerSessionStatusContext: {
       liveComposerStatuses: _v3
     } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager),
@@ -1697,7 +1664,7 @@
       }
     } = (0, _v12.useManager)(_v63.EventSettingsManager)
   }) {
-    let _v6 = (0, _v140.useScrollbarStyles)({
+    let _v6 = (0, _v138.useScrollbarStyles)({
         width: (0, _v44.rem)(0),
         scrollbarColor: "transparent"
       }),
@@ -1705,35 +1672,35 @@
         isOpen: _v7,
         onOpen: _v8,
         onClose: _v9
-      } = (0, _v189.useDisclosure)(),
+      } = (0, _v187.useDisclosure)(),
       {
         primaryLanguageInfo: _v10,
         secondaryLanguagesInfo: _v11
-      } = _v94(),
+      } = _v92(),
       _v12 = _v3.isSessionLive,
       {
         selectedMode: _v13
-      } = (0, _v196.useEncoderTabState)(),
+      } = (0, _v194.useEncoderTabState)(),
       _v14 = _v5?.streamKey ?? "",
-      _v15 = (0, _v65.inline)(() => _v13 === _v197.EEncoderMode.RTMPS ? _v5?.rtmpsLink ?? "" : _v13 === _v197.EEncoderMode.RTMP ? _v5?.rtmpLink ?? "" : ""),
+      _v15 = (0, _v65.inline)(() => _v13 === _v195.EEncoderMode.RTMPS ? _v5?.rtmpsLink ?? "" : _v13 === _v195.EEncoderMode.RTMP ? _v5?.rtmpLink ?? "" : ""),
       _v16 = (0, _v5.useCallback)(() => {
         _v2.setRightPanel(_v39.ERightPanelId.EVENT_SETTINGS);
       }, [_v2]);
-    return _v10 ? (0, _v1.jsxs)(_v80.Box, {
+    return _v10 ? (0, _v1.jsxs)(_v78.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v139.createTabWrapperStyle)({
+      sx: (0, _v137.createTabWrapperStyle)({
         withScroll: !0
       }),
-      children: [(0, _v1.jsx)(_v194.RightPanelHeader, {
+      children: [(0, _v1.jsx)(_v192.RightPanelHeader, {
         id: (0, _v50.createDomName)(_v0, "header"),
         className: (0, _v50.createDomName)(_v1, "header"),
-        label: _v95.T_LANGUAGE_STREAMS,
-        leftControls: (0, _v1.jsx)(_v191, {
+        label: _v93.T_LANGUAGE_STREAMS,
+        leftControls: (0, _v1.jsx)(_v189, {
           onClick: _v16
         }),
-        rightControls: (0, _v1.jsx)(_v193.RightPanelDismiss, {})
-      }), (0, _v1.jsxs)(_v192.RightPanelContent, {
+        rightControls: (0, _v1.jsx)(_v191.RightPanelDismiss, {})
+      }), (0, _v1.jsxs)(_v190.RightPanelContent, {
         id: (0, _v50.createDomName)(_v0, "content"),
         className: (0, _v50.createDomName)(_v1, "content"),
         children: [(0, _v1.jsxs)(_v43.Flex, {
@@ -1746,16 +1713,16 @@
           sx: _v6,
           children: [(0, _v1.jsx)(_v69.Paragraph, {
             size: "md",
-            children: _v95.T_SHARE_STREAM_CREDENTIALS
+            children: _v93.T_SHARE_STREAM_CREDENTIALS
           }), (0, _v1.jsxs)(_v43.Flex, {
             direction: "column",
             gap: (0, _v44.rem)(16),
             children: [(0, _v1.jsxs)(_v43.Flex, {
               alignItems: "center",
               gap: (0, _v44.rem)(8),
-              children: [(0, _v1.jsx)(_v79.BokehTooltip, {
-                label: _v10.isConnected ? _v95.T_CONNECTED : _v95.T_NO_SIGNAL,
-                children: (0, _v1.jsx)(_v80.Box, {
+              children: [(0, _v1.jsx)(_v77.BokehTooltip, {
+                label: _v10.isConnected ? _v93.T_CONNECTED : _v93.T_NO_SIGNAL,
+                children: (0, _v1.jsx)(_v78.Box, {
                   width: (0, _v44.rem)(10),
                   height: (0, _v44.rem)(10),
                   background: _v10.isConnected ? "status-positive-primary" : "gray.500",
@@ -1766,11 +1733,11 @@
                 variant: "heading-sm",
                 children: [_v10.label, " (", _v58.translations.primary, ")"]
               })]
-            }), (0, _v1.jsx)(_v195.StreamConnectionInfo, {
+            }), (0, _v1.jsx)(_v193.StreamConnectionInfo, {
               id: (0, _v50.createDomName)(_v0, "primary"),
               className: (0, _v50.createDomName)(_v1, "primary"),
               url: _v15,
-              copiedUrlMessage: (0, _v95.T_COPIED_URL)(_v13),
+              copiedUrlMessage: (0, _v93.T_COPIED_URL)(_v13),
               streamKey: _v14,
               keyLabel: _v58.translations.key,
               canUseBackupStream: _v4,
@@ -1782,9 +1749,9 @@
             children: [(0, _v1.jsxs)(_v43.Flex, {
               alignItems: "center",
               gap: (0, _v44.rem)(8),
-              children: [(0, _v1.jsx)(_v79.BokehTooltip, {
-                label: _v0.isConnected ? _v95.T_CONNECTED : _v95.T_NO_SIGNAL,
-                children: (0, _v1.jsx)(_v80.Box, {
+              children: [(0, _v1.jsx)(_v77.BokehTooltip, {
+                label: _v0.isConnected ? _v93.T_CONNECTED : _v93.T_NO_SIGNAL,
+                children: (0, _v1.jsx)(_v78.Box, {
                   width: (0, _v44.rem)(10),
                   height: (0, _v44.rem)(10),
                   background: _v0.isConnected ? "status-positive-primary" : "gray.500",
@@ -1795,19 +1762,19 @@
                 variant: "heading-sm",
                 children: _v0.label
               })]
-            }), (0, _v1.jsx)(_v195.StreamConnectionInfo, {
+            }), (0, _v1.jsx)(_v193.StreamConnectionInfo, {
               id: (0, _v50.createDomName)(_v0, "secondary", _v0.code),
               className: (0, _v50.createDomName)(_v1, "secondary"),
               streamKey: `${_v14}_${_v0.code}`,
               keyLabel: _v58.translations.key,
               canUseBackupStream: _v4,
-              copiedStreamKeyMessage: (0, _v95.T_COPIED_STREAM_LANGUAGE_KEY)(_v0.label),
-              copiedBackupStreamKeyMessage: _v4 ? (0, _v95.T_COPIED_BACKUP_STREAM_LANGUAGE_KEY)(_v0.label) : null,
+              copiedStreamKeyMessage: (0, _v93.T_COPIED_STREAM_LANGUAGE_KEY)(_v0.label),
+              copiedBackupStreamKeyMessage: _v4 ? (0, _v93.T_COPIED_BACKUP_STREAM_LANGUAGE_KEY)(_v0.label) : null,
               keyBackup: `${_v14}_${_v0.code}_backup`
             })]
           }, _v0.code)) : null]
-        }), (0, _v1.jsx)(_v79.BokehTooltip, {
-          label: _v12 ? _v95.T_U_CANT_ADD_REMOVE_DURING_BROADCAST : "",
+        }), (0, _v1.jsx)(_v77.BokehTooltip, {
+          label: _v12 ? _v93.T_U_CANT_ADD_REMOVE_DURING_BROADCAST : "",
           children: (0, _v1.jsx)(_v70.Button, {
             width: "100%",
             marginTop: (0, _v44.rem)(16),
@@ -1815,25 +1782,25 @@
             variant: "secondary",
             isDisabled: _v12,
             onClick: _v8,
-            children: _v95.T_MANAGE_LANGUAGE_STREAMS
+            children: _v93.T_MANAGE_LANGUAGE_STREAMS
           })
-        }), _v7 ? (0, _v1.jsx)(_v198.TracksManagementModal, {
+        }), _v7 ? (0, _v1.jsx)(_v196.TracksManagementModal, {
           onClose: _v9
         }) : null]
       })]
     }) : null;
   }
-  var _v200 = _v0.i(0),
+  var _v198 = _v0.i(0),
+    _v199 = _v0.i(0),
+    _v200 = _v0.i(0),
     _v201 = _v0.i(0),
     _v202 = _v0.i(0),
     _v203 = _v0.i(0),
     _v204 = _v0.i(0),
     _v205 = _v0.i(0),
     _v206 = _v0.i(0),
-    _v207 = _v0.i(0),
-    _v208 = _v0.i(0),
-    _v209 = _v0.i(0);
-  function _v210({
+    _v207 = _v0.i(0);
+  function _v208({
     id: _v0 = (0, _v50.createDomName)("tabbed-chat"),
     className: _v1 = (0, _v50.createDomName)("tabbed-chat"),
     chatContext: {
@@ -1842,25 +1809,25 @@
       chatActions: {
         enableChat: _v4
       }
-    } = (0, _v12.useManager)(_v208.ChatManager),
+    } = (0, _v12.useManager)(_v206.ChatManager),
     firebaseContext: {
       interactionCredentials: _v5,
       connectionStatuses: {
         isInteractionConnected: _v6
       }
-    } = (0, _v12.useManager)(_v207.RtmpFirebaseManager)
+    } = (0, _v12.useManager)(_v205.RtmpFirebaseManager)
   }) {
     let _v7 = (0, _v22.useIsVpaas)(),
       {
         initialState: {
           sessionType: _v8
         }
-      } = (0, _v206.useLiveGlobals)(),
+      } = (0, _v204.useLiveGlobals)(),
       _v9 = _v5?.user?.id,
       _v10 = !_v2 || !_v9,
       _v11 = _v8 === _v20.EComposerSessionType.VENUE,
       _v12 = (0, _v5.useCallback)(() => {
-        _v4(), (0, _v209.trackEnableAudienceChat)();
+        _v4(), (0, _v207.trackEnableAudienceChat)();
       }, [_v4]);
     return _v10 ? (0, _v1.jsxs)(_v43.Flex, {
       id: _v0,
@@ -1868,10 +1835,10 @@
       overflow: "hidden",
       grow: 1,
       width: "100%",
-      children: [(0, _v1.jsx)(_v194.RightPanelHeader, {
-        label: _v95.T_CHAT,
-        rightControls: (0, _v1.jsx)(_v193.RightPanelDismiss, {})
-      }), (0, _v1.jsx)(_v204.ChatPreloader, {
+      children: [(0, _v1.jsx)(_v192.RightPanelHeader, {
+        label: _v93.T_CHAT,
+        rightControls: (0, _v1.jsx)(_v191.RightPanelDismiss, {})
+      }), (0, _v1.jsx)(_v202.ChatPreloader, {
         id: (0, _v50.createDomName)(_v0, "preloader")
       })]
     }) : (0, _v1.jsxs)(_v43.Flex, {
@@ -1880,20 +1847,20 @@
       overflow: "hidden",
       grow: 1,
       width: "100%",
-      children: [(0, _v1.jsx)(_v194.RightPanelHeader, {
-        label: _v95.T_CHAT,
+      children: [(0, _v1.jsx)(_v192.RightPanelHeader, {
+        label: _v93.T_CHAT,
         rightControls: (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v205.ChatSettingsButton, {
+          children: [(0, _v1.jsx)(_v203.ChatSettingsButton, {
             id: (0, _v50.createDomName)(_v0, "settings-button"),
             className: (0, _v50.createDomName)(_v1, "settings-button"),
             withInteractionSubmenu: !_v7 && !_v11,
-            buttonIcon: (0, _v1.jsx)(_v148.EllipsisV, {})
-          }), (0, _v1.jsx)(_v193.RightPanelDismiss, {
+            buttonIcon: (0, _v1.jsx)(_v146.EllipsisV, {})
+          }), (0, _v1.jsx)(_v191.RightPanelDismiss, {
             id: (0, _v50.createDomName)(_v0, "dismiss-button"),
             className: (0, _v50.createDomName)(_v1, "dismiss-button")
           })]
         })
-      }), (0, _v1.jsx)(_v192.RightPanelContent, {
+      }), (0, _v1.jsx)(_v190.RightPanelContent, {
         children: (0, _v1.jsx)(_v43.Flex, {
           id: (0, _v50.createDomName)(_v0, "content"),
           direction: "column",
@@ -1902,17 +1869,17 @@
           grow: 1,
           overflow: "hidden",
           children: _v3 ? (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v202.ChatHistory, {
-              chatType: _v162.EChatType.PUBLIC,
+            children: [(0, _v1.jsx)(_v200.ChatHistory, {
+              chatType: _v160.EChatType.PUBLIC,
               currentUserId: _v9,
               scrollBackground: "surface"
-            }), (0, _v1.jsx)(_v203.ChatInput, {
-              chatType: _v162.EChatType.PUBLIC,
+            }), (0, _v1.jsx)(_v201.ChatInput, {
+              chatType: _v160.EChatType.PUBLIC,
               isDisabled: !_v6
             })]
-          }) : (0, _v1.jsx)(_v176.EmptyStatePlaceholder, {
+          }) : (0, _v1.jsx)(_v174.EmptyStatePlaceholder, {
             id: (0, _v50.createDomName)(_v0, "placeholder"),
-            icon: (0, _v1.jsx)(_v201.Chats, {
+            icon: (0, _v1.jsx)(_v199.Chats, {
               boxSize: "lg"
             }),
             buttonLabel: _v58.translations.turnOn,
@@ -1923,9 +1890,9 @@
       })]
     });
   }
-  var _v211 = _v0.i(0),
-    _v212 = _v0.i(0);
-  let _v213 = (0, _v5.memo)(({
+  var _v209 = _v0.i(0),
+    _v210 = _v0.i(0);
+  let _v211 = (0, _v5.memo)(({
       id: _v0,
       className: _v1,
       status: _v2,
@@ -1933,8 +1900,8 @@
     }) => {
       let _v4 = (0, _v65.inline)(() => {
           switch (_v2) {
-            case _v92.EBackupStreamStatus.STREAMING:
-            case _v92.EBackupStreamStatus.CONNECTED:
+            case _v90.EBackupStreamStatus.STREAMING:
+            case _v90.EBackupStreamStatus.CONNECTED:
               return "status-positive-primary";
             default:
               return;
@@ -1942,26 +1909,26 @@
         }),
         _v5 = (0, _v65.inline)(() => {
           switch (_v2) {
-            case _v92.EBackupStreamStatus.CONNECTED:
-              return _v212.rtmpTranslations.connected;
-            case _v92.EBackupStreamStatus.STREAMING:
-              return _v212.rtmpTranslations.streaming;
-            case _v92.EBackupStreamStatus.NOT_AVAILABLE:
-              return _v212.rtmpTranslations.notAvailable;
-            case _v92.EBackupStreamStatus.NOT_CONNECTED:
-              return _v212.rtmpTranslations.notConnected;
+            case _v90.EBackupStreamStatus.CONNECTED:
+              return _v210.rtmpTranslations.connected;
+            case _v90.EBackupStreamStatus.STREAMING:
+              return _v210.rtmpTranslations.streaming;
+            case _v90.EBackupStreamStatus.NOT_AVAILABLE:
+              return _v210.rtmpTranslations.notAvailable;
+            case _v90.EBackupStreamStatus.NOT_CONNECTED:
+              return _v210.rtmpTranslations.notConnected;
           }
         }),
         _v6 = (0, _v65.inline)(() => {
           switch (_v2) {
-            case _v92.EBackupStreamStatus.CONNECTED:
-              return _v212.rtmpTranslations.backupStreamConnected;
-            case _v92.EBackupStreamStatus.STREAMING:
-              return _v212.rtmpTranslations.backupStreamStreaming;
-            case _v92.EBackupStreamStatus.NOT_AVAILABLE:
-              return _v212.rtmpTranslations.backupStreamIsUnavailable;
-            case _v92.EBackupStreamStatus.NOT_CONNECTED:
-              return _v212.rtmpTranslations.connectSecondaryStream;
+            case _v90.EBackupStreamStatus.CONNECTED:
+              return _v210.rtmpTranslations.backupStreamConnected;
+            case _v90.EBackupStreamStatus.STREAMING:
+              return _v210.rtmpTranslations.backupStreamStreaming;
+            case _v90.EBackupStreamStatus.NOT_AVAILABLE:
+              return _v210.rtmpTranslations.backupStreamIsUnavailable;
+            case _v90.EBackupStreamStatus.NOT_CONNECTED:
+              return _v210.rtmpTranslations.connectSecondaryStream;
           }
         });
       return (0, _v1.jsxs)(_v43.Flex, {
@@ -1976,8 +1943,8 @@
           children: [(0, _v1.jsx)(_v52.Header, {
             size: "xs",
             margin: 0,
-            children: _v212.rtmpTranslations.backUpStreamStatus
-          }), (0, _v1.jsx)(_v113.Badge, {
+            children: _v210.rtmpTranslations.backUpStreamStatus
+          }), (0, _v1.jsx)(_v111.Badge, {
             size: _v3 ? "xs" : "sm",
             backgroundColor: _v4,
             textColor: "white",
@@ -1993,13 +1960,13 @@
         })]
       });
     }),
-    _v214 = (0, _v5.memo)(({
+    _v212 = (0, _v5.memo)(({
       id: _v0,
       className: _v1,
       stats: _v2
     }) => {
-      let _v3 = !!(_v2.status === _v92.EConnectionState.CONNECTED && !_v2.backup),
-        _v4 = !!(_v2.status === _v92.EConnectionState.CONNECTED && _v2.backup),
+      let _v3 = !!(_v2.status === _v90.EConnectionState.CONNECTED && !_v2.backup),
+        _v4 = !!(_v2.status === _v90.EConnectionState.CONNECTED && _v2.backup),
         _v5 = _v0 => _v0 ? "status-positive-primary" : "gray.500";
       return (0, _v1.jsxs)(_v43.Flex, {
         id: _v0,
@@ -2020,7 +1987,7 @@
             color: "text-secondary",
             margin: 0,
             children: _v58.translations.currentStatus
-          }), (0, _v1.jsx)(_v113.Badge, {
+          }), (0, _v1.jsx)(_v111.Badge, {
             size: "xs",
             backgroundColor: _v5(_v3),
             textColor: "white",
@@ -2037,7 +2004,7 @@
             color: "text-secondary",
             margin: 0,
             children: _v58.translations.backUpStreamStatus
-          }), (0, _v1.jsx)(_v113.Badge, {
+          }), (0, _v1.jsx)(_v111.Badge, {
             size: "xs",
             backgroundColor: _v5(_v4),
             textColor: "white",
@@ -2048,9 +2015,9 @@
         })]
       });
     });
-  var _v215 = _v0.i(0),
-    _v216 = _v0.i(0);
-  function _v217(_v0) {
+  var _v213 = _v0.i(0),
+    _v214 = _v0.i(0);
+  function _v215(_v0) {
     return _v0.payload ? (0, _v1.jsxs)(_v43.Flex, {
       background: "background",
       border: "1px solid",
@@ -2069,7 +2036,7 @@
         alignItems: "center",
         padding: `${(0, _v44.rem)(4)} 0`,
         gap: (0, _v44.rem)(12),
-        children: [(0, _v1.jsx)(_v114.CircleShapeFilled, {
+        children: [(0, _v1.jsx)(_v112.CircleShapeFilled, {
           width: (0, _v44.rem)(8),
           height: (0, _v44.rem)(8),
           color: _v0.color
@@ -2089,7 +2056,7 @@
       }, `row-${_v1}`))]
     }) : null;
   }
-  function _v218({
+  function _v216({
     payload: _v0
   }) {
     return _v0 ? (0, _v1.jsx)(_v43.Flex, {
@@ -2101,31 +2068,31 @@
         fontWeight: "bold",
         color: "text-primary",
         gap: (0, _v44.rem)(4),
-        children: [_v0.color ? (0, _v1.jsx)(_v114.CircleShapeFilled, {
+        children: [_v0.color ? (0, _v1.jsx)(_v112.CircleShapeFilled, {
           width: (0, _v44.rem)(8),
           height: (0, _v44.rem)(8),
           color: _v0.color
-        }) : null, "fps" === _v0.value ? `${_v212.rtmpTranslations.frameRate} (fps)` : _v212.rtmpTranslations.bitrate]
+        }) : null, "fps" === _v0.value ? `${_v210.rtmpTranslations.frameRate} (fps)` : _v210.rtmpTranslations.bitrate]
       }, _v1))
     }) : null;
   }
-  var _v219 = _v0.i(0);
-  function _v220(_v0, _v1 = "", _v2) {
+  var _v217 = _v0.i(0);
+  function _v218(_v0, _v1 = "", _v2) {
     let _v3 = parseInt(_v0);
-    return _v0 === _v211.STREAM_HEALTH_NA || isNaN(_v3) ? _v211.STREAM_HEALTH_NA : _v2 && _v3 > 0 ? `${(_v3 / 0).toLocaleString(void 0, {
+    return _v0 === _v209.STREAM_HEALTH_NA || isNaN(_v3) ? _v209.STREAM_HEALTH_NA : _v2 && _v3 > 0 ? `${(_v3 / 0).toLocaleString(void 0, {
       maximumFractionDigits: 3
     })} ${_v2}` : `${parseFloat(_v0).toLocaleString(void 0, {
       maximumFractionDigits: 3
     })} ${_v1}`;
   }
-  function _v221({
+  function _v219({
     ticks: _v0
   }) {
     let {
         ReCharts: _v1,
         loadError: _v2
-      } = (0, _v216.useReCharts)(),
-      _v3 = (0, _v215.useColorModeValue)("#000000", "#ffffff"),
+      } = (0, _v214.useReCharts)(),
+      _v3 = (0, _v213.useColorModeValue)("#000000", "#ffffff"),
       _v4 = _v0 && _v0.length - 2;
     return _v2 || !_v1 ? null : (0, _v1.jsxs)(_v43.Flex, {
       width: "100%",
@@ -2136,7 +2103,7 @@
         size: "sm",
         color: "text-primary",
         marginBottom: (0, _v44.rem)(12),
-        children: _v212.rtmpTranslations.streamMetrics
+        children: _v210.rtmpTranslations.streamMetrics
       }), (0, _v1.jsx)(_v1.ResponsiveContainer, {
         width: "100%",
         height: "100%",
@@ -2163,10 +2130,10 @@
             interval: _v4,
             tickFormatter: _v0 => {
               let _v1, _v2, _v3;
-              return _v2 = !!(_v1 = (0, _v219.default)(_v0)) && _v1.timestamp === _v0, _v3 = new Date(_v0), `${_v3.toLocaleTimeString("en", {
+              return _v2 = !!(_v1 = (0, _v217.default)(_v0)) && _v1.timestamp === _v0, _v3 = new Date(_v0), `${_v3.toLocaleTimeString("en", {
                 hour: "numeric",
                 minute: "numeric"
-              })} ${_v2 ? `(${_v212.rtmpTranslations.now})` : ""}`;
+              })} ${_v2 ? `(${_v210.rtmpTranslations.now})` : ""}`;
             },
             dx: -28,
             textAnchor: "middle"
@@ -2187,7 +2154,7 @@
             stroke: _v3,
             width: 30 * !!_v0.length
           }), 0 === _v0.length ? null : (0, _v1.jsx)(_v1.Tooltip, {
-            content: _v217,
+            content: _v215,
             wrapperStyle: {
               top: -100,
               bottom: 300
@@ -2195,7 +2162,7 @@
           }), (0, _v1.jsx)(_v1.Legend, {
             height: 50,
             verticalAlign: "top",
-            content: _v218
+            content: _v216
           }), (0, _v1.jsx)(_v1.Line, {
             activeDot: !0,
             dot: !1,
@@ -2219,7 +2186,7 @@
       })]
     });
   }
-  function _v222({
+  function _v220({
     label: _v0,
     displayValue: _v1
   }) {
@@ -2238,7 +2205,7 @@
       })]
     });
   }
-  function _v223({
+  function _v221({
     sessionId: _v0,
     stats: {
       currentBitrate: _v1,
@@ -2262,23 +2229,23 @@
         direction: "column",
         width: "100%",
         gap: (0, _v44.rem)(8),
-        children: [(0, _v1.jsx)(_v222, {
+        children: [(0, _v1.jsx)(_v220, {
           label: _v58.translations.bitrate,
-          displayValue: _v220(String(_v1), "Kbps", "Mbps")
-        }), (0, _v1.jsx)(_v222, {
+          displayValue: _v218(String(_v1), "Kbps", "Mbps")
+        }), (0, _v1.jsx)(_v220, {
           label: _v58.translations.averageBitrate,
-          displayValue: _v220(String(_v2), "Kbps", "Mbps")
-        }), (0, _v1.jsx)(_v222, {
+          displayValue: _v218(String(_v2), "Kbps", "Mbps")
+        }), (0, _v1.jsx)(_v220, {
           label: _v58.translations.frameRate,
-          displayValue: _v220(String(_v3), "fps")
-        }), (0, _v1.jsx)(_v222, {
+          displayValue: _v218(String(_v3), "fps")
+        }), (0, _v1.jsx)(_v220, {
           label: _v58.translations.averageFrameRate,
-          displayValue: _v220(String(_v4), "fps")
-        }), (0, _v1.jsx)(_v222, {
+          displayValue: _v218(String(_v4), "fps")
+        }), (0, _v1.jsx)(_v220, {
           label: _v58.translations.videoResolution,
           displayValue: _v5
         })]
-      }), (0, _v1.jsx)(_v89.Divider, {
+      }), (0, _v1.jsx)(_v87.Divider, {
         margin: `${(0, _v44.rem)(24)} 0`,
         borderColor: "stroke"
       }), (0, _v1.jsx)(_v43.Flex, {
@@ -2290,21 +2257,21 @@
           width: "100%",
           gap: (0, _v44.rem)(8),
           visibility: _v10 ? "visible" : "hidden",
-          children: [(0, _v1.jsx)(_v222, {
+          children: [(0, _v1.jsx)(_v220, {
             label: _v58.translations.audioCodec,
             displayValue: String(_v8)
-          }), (0, _v1.jsx)(_v222, {
+          }), (0, _v1.jsx)(_v220, {
             label: _v58.translations.videoCodec,
             displayValue: String(_v9)
-          }), (0, _v1.jsx)(_v222, {
+          }), (0, _v1.jsx)(_v220, {
             label: _v58.translations.avcProfile,
-            displayValue: _v220(String(_v7))
-          }), (0, _v1.jsx)(_v222, {
+            displayValue: _v218(String(_v7))
+          }), (0, _v1.jsx)(_v220, {
             label: _v58.translations.avcLevel,
-            displayValue: _v220(String(_v6))
-          }), (0, _v1.jsx)(_v222, {
+            displayValue: _v218(String(_v6))
+          }), (0, _v1.jsx)(_v220, {
             label: _v58.translations.sessionId,
-            displayValue: _v0 || _v211.STREAM_HEALTH_NA
+            displayValue: _v0 || _v209.STREAM_HEALTH_NA
           })]
         })
       }), (0, _v1.jsx)(_v53.Text, {
@@ -2318,7 +2285,7 @@
       })]
     });
   }
-  let _v224 = (0, _v5.memo)(({
+  let _v222 = (0, _v5.memo)(({
     id: _v0,
     className: _v1,
     status: _v2,
@@ -2326,10 +2293,10 @@
   }) => {
     let _v4 = (0, _v65.inline)(() => {
         switch (_v2) {
-          case _v92.EStreamStatus.GOOD:
-          case _v92.EStreamStatus.READY:
+          case _v90.EStreamStatus.GOOD:
+          case _v90.EStreamStatus.READY:
             return "status-positive-primary";
-          case _v92.EStreamStatus.UNSTABLE:
+          case _v90.EStreamStatus.UNSTABLE:
             return "status-caution-primary";
           default:
             return;
@@ -2337,26 +2304,26 @@
       }),
       _v5 = (0, _v65.inline)(() => {
         switch (_v2) {
-          case _v92.EStreamStatus.GOOD:
-            return _v212.rtmpTranslations.good;
-          case _v92.EStreamStatus.READY:
-            return _v212.rtmpTranslations.ready;
-          case _v92.EStreamStatus.UNSTABLE:
-            return _v212.rtmpTranslations.unstable;
+          case _v90.EStreamStatus.GOOD:
+            return _v210.rtmpTranslations.good;
+          case _v90.EStreamStatus.READY:
+            return _v210.rtmpTranslations.ready;
+          case _v90.EStreamStatus.UNSTABLE:
+            return _v210.rtmpTranslations.unstable;
           default:
-            return _v212.rtmpTranslations.unknown;
+            return _v210.rtmpTranslations.unknown;
         }
       }),
       _v6 = (0, _v65.inline)(() => {
         switch (_v2) {
-          case _v92.EStreamStatus.GOOD:
-            return _v212.rtmpTranslations.youHaveStableStream;
-          case _v92.EStreamStatus.READY:
-            return _v212.rtmpTranslations.yourConnectionReadyForStreaming;
-          case _v92.EStreamStatus.UNSTABLE:
-            return _v212.rtmpTranslations.viewersMayExperienceBufferingProblems;
+          case _v90.EStreamStatus.GOOD:
+            return _v210.rtmpTranslations.youHaveStableStream;
+          case _v90.EStreamStatus.READY:
+            return _v210.rtmpTranslations.yourConnectionReadyForStreaming;
+          case _v90.EStreamStatus.UNSTABLE:
+            return _v210.rtmpTranslations.viewersMayExperienceBufferingProblems;
           default:
-            return _v212.rtmpTranslations.streamHealthUnavailable;
+            return _v210.rtmpTranslations.streamHealthUnavailable;
         }
       });
     return (0, _v1.jsxs)(_v43.Flex, {
@@ -2371,8 +2338,8 @@
         children: [(0, _v1.jsx)(_v52.Header, {
           size: "xs",
           margin: 0,
-          children: _v212.rtmpTranslations.currentStatus
-        }), (0, _v1.jsx)(_v113.Badge, {
+          children: _v210.rtmpTranslations.currentStatus
+        }), (0, _v1.jsx)(_v111.Badge, {
           size: _v3 ? "xs" : "sm",
           backgroundColor: _v4,
           textColor: "white",
@@ -2388,11 +2355,11 @@
       })]
     });
   });
-  function _v225({
+  function _v223({
     streamHealthContext: {
       stats: _v0,
       ticks: _v1
-    } = (0, _v12.useManager)(_v93.StreamHealthManager),
+    } = (0, _v12.useManager)(_v91.StreamHealthManager),
     sessionStatusContext: {
       cloudSessionId: _v2
     } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager),
@@ -2401,7 +2368,7 @@
         value: _v3
       },
       audioTracksActions: _v4
-    } = (0, _v12.useManager)(_v91.EventAudioTracksManager),
+    } = (0, _v12.useManager)(_v89.EventAudioTracksManager),
     composerSessionContext: {
       permissions: {
         hasAudioTracksManagement: _v5
@@ -2409,7 +2376,7 @@
     } = (0, _v12.useManager)(_v36.ComposerSessionManager)
   }) {
     let _v6 = (0, _v5.useMemo)(() => _v3 && 0 !== _v3.secondary.length ? _v3.secondary.map(_v0 => ({
-      ...(_v0.altEncoders.find(_v0 => _v0.language === _v0) ?? _v211.ENCODER_STATS_STATE_NA),
+      ...(_v0.altEncoders.find(_v0 => _v0.language === _v0) ?? _v209.ENCODER_STATS_STATE_NA),
       language: _v0,
       languageLabel: _v4.getLanguageLabelByCode(_v0)
     })) : [], [_v3, _v4, _v0.altEncoders]);
@@ -2417,54 +2384,54 @@
       width: "100%",
       direction: "column",
       gap: (0, _v44.rem)(24),
-      children: [(0, _v1.jsx)(_v224, {
+      children: [(0, _v1.jsx)(_v222, {
         status: _v0.streamStatus,
         hasAudioTracksManagement: _v5
-      }), (0, _v1.jsx)(_v89.Divider, {
+      }), (0, _v1.jsx)(_v87.Divider, {
         borderColor: "stroke"
-      }), (0, _v1.jsx)(_v213, {
+      }), (0, _v1.jsx)(_v211, {
         status: _v0.backupStreamStatus,
         hasAudioTracksManagement: _v5
-      }), (0, _v1.jsx)(_v89.Divider, {
+      }), (0, _v1.jsx)(_v87.Divider, {
         borderColor: "stroke"
       }), _v5 && _v6.length ? (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v52.Header, {
           size: "sm",
           margin: 0,
           children: _v58.translations.languageStreams
-        }), _v6.map(_v0 => (0, _v1.jsx)(_v214, {
+        }), _v6.map(_v0 => (0, _v1.jsx)(_v212, {
           stats: _v0,
           isPrimary: _v0.language === _v3?.primary
-        }, _v0.language)), (0, _v1.jsx)(_v89.Divider, {
+        }, _v0.language)), (0, _v1.jsx)(_v87.Divider, {
           borderColor: "stroke"
         })]
-      }) : null, (0, _v1.jsx)(_v221, {
+      }) : null, (0, _v1.jsx)(_v219, {
         ticks: _v1
-      }), (0, _v1.jsx)(_v89.Divider, {
+      }), (0, _v1.jsx)(_v87.Divider, {
         borderColor: "stroke"
-      }), (0, _v1.jsx)(_v223, {
+      }), (0, _v1.jsx)(_v221, {
         stats: _v0,
         sessionId: _v2
       })]
     });
   }
-  function _v226({
+  function _v224({
     id: _v0 = (0, _v50.createDomName)("stream-health-tab"),
     className: _v1 = (0, _v50.createDomName)("stream-health-tab")
   }) {
-    let _v2 = (0, _v140.useScrollbarStyles)();
-    return (0, _v1.jsxs)(_v80.Box, {
+    let _v2 = (0, _v138.useScrollbarStyles)();
+    return (0, _v1.jsxs)(_v78.Box, {
       id: _v0,
       className: _v1,
-      sx: (0, _v139.createTabWrapperStyle)({
+      sx: (0, _v137.createTabWrapperStyle)({
         withScroll: !0
       }),
-      children: [(0, _v1.jsx)(_v194.RightPanelHeader, {
+      children: [(0, _v1.jsx)(_v192.RightPanelHeader, {
         id: (0, _v50.createDomName)(_v0, "header"),
         className: (0, _v50.createDomName)(_v1, "header"),
         label: _v58.translations.streamHealth,
-        rightControls: (0, _v1.jsx)(_v193.RightPanelDismiss, {})
-      }), (0, _v1.jsx)(_v192.RightPanelContent, {
+        rightControls: (0, _v1.jsx)(_v191.RightPanelDismiss, {})
+      }), (0, _v1.jsx)(_v190.RightPanelContent, {
         id: (0, _v50.createDomName)(_v0, "content"),
         className: (0, _v50.createDomName)(_v1, "content"),
         children: (0, _v1.jsx)(_v43.Flex, {
@@ -2472,12 +2439,12 @@
           marginRight: (0, _v44.rem)(-16),
           overflowY: "scroll",
           sx: _v2,
-          children: (0, _v1.jsx)(_v225, {})
+          children: (0, _v1.jsx)(_v223, {})
         })
       })]
     });
   }
-  function _v227({
+  function _v225({
     id: _v0 = (0, _v50.createDomName)("rtmp-panel-right"),
     className: _v1 = (0, _v50.createDomName)("rtmp-panel-right"),
     composerSessionStatusContext: {
@@ -2488,33 +2455,33 @@
   }) {
     let _v3 = (0, _v5.useMemo)(() => [{
       id: _v39.ERightPanelId.EVENT_SETTINGS,
-      content: _v188.EventSettingsTab,
+      content: _v186.EventSettingsTab,
       isVisible: !0
     }, {
       id: _v39.ERightPanelId.ANALYTICS,
-      content: _v187.AnalyticsTab,
+      content: _v185.AnalyticsTab,
       isVisible: !0
     }, {
       id: _v39.ERightPanelId.STREAM_HEALTH,
-      content: _v226,
+      content: _v224,
       isVisible: !0
     }, {
       id: _v39.ERightPanelId.CHAT,
-      content: _v210,
+      content: _v208,
       isVisible: !0
     }, {
       id: _v39.ERightPanelId.AUDIO_TRACKS,
-      content: _v199,
+      content: _v197,
       isVisible: !0
     }], []);
-    return (0, _v1.jsx)(_v200.RightPanel, {
+    return (0, _v1.jsx)(_v198.RightPanel, {
       id: _v0,
       className: _v1,
       items: _v3,
       isLoading: !_v2
     });
   }
-  function _v228() {
+  function _v226() {
     let _v0 = (0, _v49.useIsLiveDemoSubscription)();
     return (0, _v1.jsxs)(_v43.Flex, {
       id: (0, _v50.createDomName)("page"),
@@ -2534,7 +2501,7 @@
         basis: 0,
         grow: 1,
         overflow: "hidden",
-        children: [(0, _v1.jsx)(_v186, {
+        children: [(0, _v1.jsx)(_v184, {
           id: (0, _v50.createDomName)("left-panel")
         }), (0, _v1.jsxs)(_v43.Flex, {
           id: (0, _v50.createDomName)("workspace"),
@@ -2544,47 +2511,47 @@
           grow: 1,
           children: [(0, _v1.jsx)(_v2.LiveErrorBoundary, {
             component: "RtmpPreviewSceneLayout",
-            children: (0, _v1.jsx)(_v120, {
+            children: (0, _v1.jsx)(_v118, {
               id: (0, _v50.createDomName)("preview-layout")
             })
           }), (0, _v1.jsx)(_v48.LiveComposerFooter, {
             id: (0, _v50.createDomName)("footer")
           })]
-        }), (0, _v1.jsx)(_v227, {
+        }), (0, _v1.jsx)(_v225, {
           id: (0, _v50.createDomName)("right-panel")
         })]
       }), (0, _v1.jsx)(_v51.ReactionOverlay, {})]
     });
   }
-  var _v229 = _v0.i(0),
+  var _v227 = _v0.i(0),
+    _v228 = _v0.i(0),
+    _v229 = _v0.i(0),
     _v230 = _v0.i(0),
     _v231 = _v0.i(0),
     _v232 = _v0.i(0),
     _v233 = _v0.i(0),
     _v234 = _v0.i(0),
     _v235 = _v0.i(0),
-    _v236 = _v0.i(0),
-    _v237 = _v0.i(0),
-    _v238 = _v0.i(0);
-  let _v239 = [_v230.DebugControlManager, _v208.ChatManager, _v36.ComposerSessionManager, _v83.ComposerSessionStatsManager, _v25.ComposerSessionStatusManager, _v232.DestinationsManager, _v233.DragDropManager, _v91.EventAudioTracksManager, _v63.EventSettingsManager, _v231.ModuleManager, _v235.NotificationManager, _v236.PageEventsManager, _v132.PanelsManager, _v160.PollManager, _v179.QnAManager, _v234.ReactionManager, _v207.RtmpFirebaseManager, _v93.StreamHealthManager, _v64.StudioManager, _v237.TrackingManager, _v26.UserPreferencesManager],
-    _v240 = (0, _v12.createProvider)(_v239, {
+    _v236 = _v0.i(0);
+  let _v237 = [_v228.DebugControlManager, _v206.ChatManager, _v36.ComposerSessionManager, _v81.ComposerSessionStatsManager, _v25.ComposerSessionStatusManager, _v230.DestinationsManager, _v231.DragDropManager, _v89.EventAudioTracksManager, _v63.EventSettingsManager, _v229.ModuleManager, _v233.NotificationManager, _v234.PageEventsManager, _v130.PanelsManager, _v158.PollManager, _v177.QnAManager, _v232.ReactionManager, _v205.RtmpFirebaseManager, _v91.StreamHealthManager, _v64.StudioManager, _v235.TrackingManager, _v26.UserPreferencesManager],
+    _v238 = (0, _v12.createProvider)(_v237, {
       isCombined: _v17.liveApplicationConfig.USE_COMBINED_PROVIDERS
     });
-  function _v241({
+  function _v239({
     initialState: _v0,
     pageProps: _v1,
     children: _v2
   }) {
-    return (0, _v238.useScopeViewerProvision)(), (0, _v229.useScopeGctlProvision)(), (0, _v1.jsx)(_v206.LiveGlobalsProvider, {
+    return (0, _v236.useScopeViewerProvision)(), (0, _v227.useScopeGctlProvision)(), (0, _v1.jsx)(_v204.LiveGlobalsProvider, {
       initialState: _v0,
       pageProps: _v1,
-      children: (0, _v1.jsx)(_v240, {
+      children: (0, _v1.jsx)(_v238, {
         initialState: _v0,
         children: _v2
       })
     });
   }
-  function _v242(_v0) {
+  function _v240(_v0) {
     let _v1 = (0, _v21.useViewer)(),
       _v2 = (0, _v18.useInitialRenderTime)(),
       _v3 = (0, _v22.useIsVpaas)(),
@@ -2624,10 +2591,10 @@
     }), !_v16.browserConfig.BROWSER?.isMobile || _v17.liveApplicationConfig.FEATURE.USE_MOBILE_ACCESS) ? (0, _v1.jsx)(_v12.ScopeProvider, {
       children: (0, _v1.jsx)(_v15.ScopeErrorBoundary, {
         fallback: _v11,
-        children: (0, _v1.jsxs)(_v241, {
+        children: (0, _v1.jsxs)(_v239, {
           pageProps: _v0,
           initialState: _v4,
-          children: [(0, _v1.jsx)(_v228, {}), (0, _v1.jsx)(_v42, {})]
+          children: [(0, _v1.jsx)(_v226, {}), (0, _v1.jsx)(_v42, {})]
         })
       })
     }) : _v16.browserConfig.BROWSER?.isMobile ? (0, _v1.jsx)(_v14.MobileUnsupportedModal, {}) : (0, _v1.jsx)(_v13.BrowserUnsupportedModal, {});
@@ -2641,7 +2608,7 @@
     return _v1 ? (0, _v1.jsx)(_v2.LiveErrorBoundary, {
       component: "LiveRtmpRoot",
       componentHandler: _v11,
-      children: (0, _v1.jsx)(_v242, {
+      children: (0, _v1.jsx)(_v240, {
         ..._v0,
         sessionType: _v3,
         sessionId: _v2

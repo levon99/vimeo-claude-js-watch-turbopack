@@ -1795,58 +1795,16 @@
         })]
       }) : null, _v34, _v9]
     });
-  }], 0);
-  var _v101 = _v0.i(0),
-    _v102 = _v0.i(0),
-    _v103 = _v0.i(0);
-  _v0.s(["trackAddEventDescription", 0, function () {
-    (0, _v103.createBPv2EventFactory)("vimeo.add_event_description", 2, () => ({
-      ...(0, _v102.newTeamCtx)(),
-      ...(0, _v102.newWebCtx)(),
-      ...(0, _v102.newActionCtx)("type"),
-      ...(0, _v102.newLiveCtx)({
-        live_feature: "basic_settings"
-      }),
-      ...(0, _v102.newProductAnalyticsCtx)({
-        product: "events",
-        feature: "settings",
-        location: "drawer",
-        element: "text"
-      })
-    }), () => ({
-      device_type: _v101.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web"
-    }))({
-      value: null
-    });
-  }, "trackAddEventTitle", 0, function () {
-    (0, _v103.createBPv2EventFactory)("vimeo.add_event_title", 2, () => ({
-      ...(0, _v102.newTeamCtx)(),
-      ...(0, _v102.newWebCtx)(),
-      ...(0, _v102.newActionCtx)("type"),
-      ...(0, _v102.newLiveCtx)({
-        live_feature: "basic_settings"
-      }),
-      ...(0, _v102.newProductAnalyticsCtx)({
-        product: "events",
-        feature: "settings",
-        location: "drawer",
-        element: "text"
-      })
-    }), () => ({
-      device_type: _v101.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web"
-    }))({
-      value: null
-    });
-  }], 0);
-  var _v104 = _v0.i(0);
-  function _v105() {
-    return (_v105 = Object.assign.bind()).apply(null, arguments);
+  }], 0), _v0.s(["trackAddEventDescription", 0, function () {}, "trackAddEventTitle", 0, function () {}], 0);
+  var _v101 = _v0.i(0);
+  function _v102() {
+    return (_v102 = Object.assign.bind()).apply(null, arguments);
   }
-  function _v106() {
-    return (_v106 = Object.assign.bind()).apply(null, arguments);
+  function _v103() {
+    return (_v103 = Object.assign.bind()).apply(null, arguments);
   }
-  function _v107() {
-    return (_v107 = Object.assign.bind()).apply(null, arguments);
+  function _v104() {
+    return (_v104 = Object.assign.bind()).apply(null, arguments);
   }
   _v0.s(["BasicSettingsControls", 0, function ({
     position: _v0,
@@ -1880,11 +1838,11 @@
         isDisabled: _v8,
         variant: "primary",
         onClick: _v6,
-        children: _v104.rtmpTranslations.save
+        children: _v101.rtmpTranslations.save
       })]
     });
   }], 0), _v0.s(["default", 0, function (_v0) {
-    return _v41.createElement("svg", _v105({
+    return _v41.createElement("svg", _v102({
       viewBox: "6 6 20 20",
       fill: "none",
       xmlns: "http://www.w3.org/2000/svg"
@@ -1893,7 +1851,7 @@
       fill: "currentColor"
     })));
   }], 0), _v0.s(["default", 0, function (_v0) {
-    return _v41.createElement("svg", _v106({
+    return _v41.createElement("svg", _v103({
       viewBox: "6 6 20 20",
       fill: "none",
       xmlns: "http://www.w3.org/2000/svg"
@@ -1902,7 +1860,7 @@
       fill: "currentColor"
     })));
   }], 0), _v0.s(["default", 0, function (_v0) {
-    return _v41.createElement("svg", _v107({
+    return _v41.createElement("svg", _v104({
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 410 406"
     }, _v0), _v3 || (_v3 = _v41.createElement("path", {

@@ -47,19 +47,6 @@
   }, "ModalSubState", 0, {
     Default: "VIMEO_LINK",
     CustomDomain: "CUSTOM_DOMAIN"
-  }, "PERMISSION_ACTION_TO_DISPLAY_NAME", 0, {
-    folderEdit: "Can edit",
-    folderComment: "Can comment",
-    folderView: "Can view",
-    folderAdmin: "Can manage",
-    clipEdit: "Can edit",
-    clipView: "Can view",
-    clipAdmin: "Can manage",
-    albumEdit: "Can edit",
-    albumView: "Can view",
-    albumAdmin: "Can manage",
-    albumCreator: "Can manage",
-    clipCommenter: "Can comment"
   }, "PERMISSION_HEIRARCHY", 0, [["Clip Viewer", "Folder Viewer", "Album Viewer"], ["Clip Commenter", "Folder Commenter"], ["Clip Editor", "Folder Editor", "Album Editor"], ["Clip Admin", "Folder Admin", "Album Admin", "Album Creator"]], "PERMISSION_POLICY_GROUPS", 0, {
     VIEW: ["Folder Viewer", "Clip Viewer", "Album Viewer"],
     COMMENT: ["Folder Commenter", "Clip Commenter"],
@@ -104,14 +91,7 @@
     "Album Creator": "Can manage",
     "Clip Commenter": "Can comment",
     "Folder Commenter": "Can comment"
-  }, "PRIVACY_OPTIONS", 0, _v17, "PageMap", 0, {
-    home: "single_video_view",
-    showcase_cms: "showcase_cms",
-    "Viewer Home": "viewer_home",
-    library: "video_library",
-    my_feed: "my_feed",
-    watch: "watch"
-  }, "PermissionActions", () => _v12, "PermissionLevel", () => _v10, "ResourcePrivacy", () => _v11, "ResourceType", 0, {
+  }, "PRIVACY_OPTIONS", 0, _v17, "PermissionActions", () => _v12, "PermissionLevel", () => _v10, "ResourcePrivacy", () => _v11, "ResourceType", 0, {
     Video: "video",
     Folder: "folder",
     Uninitialized: "uninitialized",

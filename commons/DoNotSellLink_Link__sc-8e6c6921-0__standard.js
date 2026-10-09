@@ -1,7 +1,7 @@
 {
   "use strict";
 
-  _v0.s(["default", () => _v13]);
+  _v0.s(["default", () => _v12]);
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
@@ -11,15 +11,14 @@
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
-    _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
-  let _v12 = _v3.default.a.withConfig({
+    _v10 = _v0.i(0);
+  let _v11 = _v3.default.a.withConfig({
       displayName: "DoNotSellLink__Link",
       componentId: "sc-8e6c6921-0"
     })`
   cursor: pointer;
 `,
-    _v13 = ({
+    _v12 = ({
       footerType: _v0 = "standard",
       isDoNotSellReady: _v1
     }) => {
@@ -31,15 +30,7 @@
             target: "transcend_dialogue_box",
             keyword: "do_not_sell_my_personal_information",
             container: "footer"
-          }), _v5.BigPictureClient.sendEvent(new _v5.Event("vimeo.click", 75, {
-            page: "footer",
-            location: "footer",
-            target: "transcend_dialogue_box",
-            name: "do_not_sell",
-            copy: "do_not_sell_my_personal_information",
-            feature: "do_not_sell",
-            type: "general"
-          })), _v2.current?.transcend.showConsentManager({
+          }), _v2.current?.transcend.showConsentManager({
             viewState: "DoNotSellExplainer"
           });
         },
@@ -59,15 +50,15 @@
       return (0, _v2.useEffect)(() => {
         _v1 && _v6();
       }, [_v1, _v6]), _v3 ? (0, _v1.jsxs)(_v1.Fragment, {
-        children: ["standard" === _v0 && " | ", (0, _v1.jsxs)(_v12, {
+        children: ["standard" === _v0 && " | ", (0, _v1.jsxs)(_v11, {
           onClick: () => _v5(),
           onKeyPress: _v0 => {
             "Enter" === _v0.key && _v5();
           },
           tabIndex: 0,
-          children: ["standard" === _v0 && (0, _v1.jsx)(_v9.InlineLink, {
+          children: ["standard" === _v0 && (0, _v1.jsx)(_v8.InlineLink, {
             as: "span",
-            children: (0, _v6.translate)({
+            children: (0, _v5.translate)({
               singular: "Do Not Sell My Personal Information",
               dictionary: {
                 es: {
@@ -93,9 +84,9 @@
                 }
               }
             })
-          }), "standardMobile" === _v0 && (0, _v1.jsx)(_v10.Link, {
+          }), "standardMobile" === _v0 && (0, _v1.jsx)(_v9.Link, {
             as: "span",
-            title: (0, _v6.translate)({
+            title: (0, _v5.translate)({
               singular: "Do Not Sell My Personal Information",
               dictionary: {
                 es: {
@@ -121,7 +112,7 @@
                 }
               }
             }),
-            children: (0, _v6.translate)({
+            children: (0, _v5.translate)({
               singular: "Do Not Sell My Personal Information",
               dictionary: {
                 es: {
@@ -147,9 +138,9 @@
                 }
               }
             })
-          }), "essential" === _v0 && (0, _v1.jsx)(_v7.Pop.Item, {
-            children: (0, _v1.jsx)(_v8.Text, {
-              children: (0, _v6.translate)({
+          }), "essential" === _v0 && (0, _v1.jsx)(_v6.Pop.Item, {
+            children: (0, _v1.jsx)(_v7.Text, {
+              children: (0, _v5.translate)({
                 singular: "Do Not Sell My Personal Information",
                 dictionary: {
                   es: {
@@ -176,8 +167,8 @@
                 }
               })
             })
-          }), "minimal" === _v0 && (0, _v1.jsx)(_v11.PopItem, {
-            title: (0, _v6.translate)({
+          }), "minimal" === _v0 && (0, _v1.jsx)(_v10.PopItem, {
+            title: (0, _v5.translate)({
               singular: "Do Not Sell My Personal Information",
               dictionary: {
                 es: {
@@ -203,7 +194,7 @@
                 }
               }
             }),
-            children: (0, _v6.translate)({
+            children: (0, _v5.translate)({
               singular: "Do Not Sell My Personal Information",
               dictionary: {
                 es: {
@@ -229,9 +220,9 @@
                 }
               }
             })
-          }), "minimalMobile" === _v0 && (0, _v1.jsx)(_v10.Link, {
+          }), "minimalMobile" === _v0 && (0, _v1.jsx)(_v9.Link, {
             as: "span",
-            title: (0, _v6.translate)({
+            title: (0, _v5.translate)({
               singular: "Do Not Sell My Personal Information",
               dictionary: {
                 es: {
@@ -257,7 +248,7 @@
                 }
               }
             }),
-            children: (0, _v6.translate)({
+            children: (0, _v5.translate)({
               singular: "Do Not Sell My Personal Information",
               dictionary: {
                 es: {

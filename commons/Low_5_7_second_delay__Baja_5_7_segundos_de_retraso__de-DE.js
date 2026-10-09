@@ -184,60 +184,9 @@
       })
     },
     _v21 = [_v18, _v19, _v20];
-  var _v22 = _v0.i(0),
-    _v23 = _v0.i(0),
-    _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
-    _v26 = _v0.i(0),
-    _v27 = _v0.i(0);
-  let _v28 = (0, _v0.i(0).buildProductAnalyticsBpContext)({
-      feature: "fail_safe_stream",
-      location: "modal",
-      product: "events",
-      copy: "enterprise",
-      modal_name: "event_creation_wizard_modal"
-    }),
-    _v29 = (0, _v26.buildThirdPartyIntegrationBpContext)({
-      is_partner: !1,
-      integration_name: null,
-      integration_id: null
-    }),
-    _v30 = (0, _v24.buildViewBpContext)({
-      feature: null,
-      view_type: "impression"
-    }),
-    _v31 = (0, _v25.buildActionBpContext)({
-      feature: null,
-      action_type: "click"
-    }),
-    _v32 = (0, _v23.createNullObject)(["add_on_feature", "currency", "duration", "usd_price", "is_discount", "selected_plan", "purchase_type", "discount_offer", "promo_code_id", "is_dismissible", "interface_type"]),
-    _v33 = _v0 => {
-      let _v1 = {
-        ..._v28,
-        ...(0, _v27.buildWebBpContext)({
-          page_name: "event_library",
-          location: null,
-          path: window.location.pathname,
-          target: "contact_us",
-          copy: "enterprise"
-        }),
-        ..._v29
-      };
-      "impression" === _v0 ? (0, _v23.sendBpEventWithContexts)("vimeo.upsell_trigger_impression", {
-        ..._v30,
-        ..._v1
-      }, 10, {
-        ..._v32,
-        upsell_name: "fail_safe_stream"
-      }) : (0, _v23.sendBpEventWithContexts)("vimeo.trigger_upsell", {
-        ..._v31,
-        ..._v1
-      }, 12, {
-        ..._v32,
-        upsell_name: "fail_safe_stream"
-      });
-    };
-  function _v34({
+  var _v22 = _v0.i(0);
+  let _v23 = _v0 => {};
+  function _v24({
     capabilities: _v0,
     onFailSafeUpsell: _v1
   }) {
@@ -245,10 +194,10 @@
       _v3 = _v0?.liveSubscription || _v0?.hasLiveSubscription,
       _v4 = _v0?.hasEnterprise || _v0?.enterprise,
       _v5 = (0, _v7.useCallback)(() => {
-        _v4 || (_v33("click"), _v1 ? _v1() : (window?.top ?? window.self).open("https://vimeo.com/enterprise/contact-us?mkc=368ip-fs-mp", "_blank"));
+        _v4 || (_v23("click"), _v1 ? _v1() : (window?.top ?? window.self).open("https://vimeo.com/enterprise/contact-us?mkc=368ip-fs-mp", "_blank"));
       }, [_v4, _v1]);
     return (0, _v7.useEffect)(() => {
-      _v4 || _v33("impression");
+      _v4 || _v23("impression");
     }, [_v4]), _v2 || _v4 ? null : (0, _v1.jsx)(_v22.Badge, {
       size: "sm",
       variant: "upgrade",
@@ -289,7 +238,7 @@
       })
     });
   }
-  function _v35({
+  function _v25({
     isDisabled: _v0,
     streamingMethod: _v1,
     capabilities: _v2
@@ -390,7 +339,7 @@
       }
     }), [_v4, _v3, _v0, _v5, _v1]);
   }
-  function _v36({
+  function _v26({
     isDisabled: _v0,
     isMutationAllowed: _v1,
     latency: _v2,
@@ -402,7 +351,7 @@
     let _v7 = (0, _v13.useColorModeValue)("slate.50", "grayscale.800"),
       _v8 = (0, _v7.useRef)(null),
       _v9 = (0, _v7.useRef)(null),
-      _v10 = _v35({
+      _v10 = _v25({
         isDisabled: _v0,
         capabilities: _v4,
         streamingMethod: _v3
@@ -506,7 +455,7 @@
                       color: "text-secondary",
                       children: _v0.description
                     })]
-                  }), _v0.value === _v16.EEventLatency.FailSafe ? (0, _v1.jsx)(_v34, {
+                  }), _v0.value === _v16.EEventLatency.FailSafe ? (0, _v1.jsx)(_v24, {
                     capabilities: _v4,
                     onFailSafeUpsell: _v6
                   }) : null, _v1 ? (0, _v1.jsx)(_v14.CheckmarkFilled, {
@@ -521,7 +470,7 @@
       })]
     });
   }
-  function _v37({
+  function _v27({
     isDisabled: _v0,
     isMutationAllowed: _v1,
     latency: _v2,
@@ -530,7 +479,7 @@
     onLatencyChange: _v5,
     onFailSafeUpsell: _v6
   }) {
-    let _v7 = _v35({
+    let _v7 = _v25({
       isDisabled: _v0,
       capabilities: _v4,
       streamingMethod: _v3
@@ -579,7 +528,7 @@
                 letterSpacing: (0, _v4.rem)(-.24),
                 children: _v0.description
               })]
-            }), _v0.value === _v16.EEventLatency.FailSafe ? (0, _v1.jsx)(_v34, {
+            }), _v0.value === _v16.EEventLatency.FailSafe ? (0, _v1.jsx)(_v24, {
               capabilities: _v4,
               onFailSafeUpsell: _v6
             }) : null]
@@ -682,9 +631,9 @@
             color: "text-tertiary"
           })
         })]
-      }), "dropdown" === _v6 && (0, _v1.jsx)(_v36, {
+      }), "dropdown" === _v6 && (0, _v1.jsx)(_v26, {
         ..._v11
-      }, "latency-dropdown"), "radio" === _v6 && (0, _v1.jsx)(_v37, {
+      }, "latency-dropdown"), "radio" === _v6 && (0, _v1.jsx)(_v27, {
         ..._v11
       }, "latency-radio")]
     });

@@ -135,15 +135,8 @@
       return (0, _v17.deepCamelCase)(_v1);
     });
   }
-  var _v19 = _v0.i(0),
-    _v20 = _v0.i(0),
-    _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
-    _v23 = _v0.i(0),
-    _v24 = _v0.i(0),
-    _v25 = _v0.i(0),
-    _v26 = _v0.i(0);
-  let _v27 = async (_v0, _v1) => {
+  var _v19 = _v0.i(0);
+  let _v20 = async (_v0, _v1) => {
     let _v2 = _v0.split("/").slice(-1)[0];
     return fetch("/settings?action=remind_team_member", {
       method: "POST",
@@ -152,64 +145,14 @@
         "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
         "X-Requested-With": "XMLHttpRequest"
       },
-      body: (0, _v26.serialize)({
+      body: (0, _v19.serialize)({
         team_member_id: _v2,
         token: _v1
       })
     });
   };
   _v0.s(["useManageTeamActions", 0, (_v0, _v1, _v2) => {
-    let _v3,
-      _v4 = (_v3 = (0, _v25.useViewer)(), (0, _v2.useCallback)(({
-        targetUserId: _v0,
-        targetUserName: _v1,
-        targetUserRole: _v2,
-        excludeSso: _v3
-      }) => {
-        let _v4 = (0, _v19.buildActionBpContext)({
-            action_type: "click",
-            feature: null
-          }),
-          _v5 = (0, _v20.buildProductAnalyticsBpContext)({
-            flow: "admin_settings",
-            modal_name: null,
-            entity_type: "setting",
-            element: "ellipses",
-            location: "page_area",
-            feature: "teams",
-            product: "collaboration",
-            copy: _v3 ? "turn_off_sso" : "turn_on_sso",
-            device_type: "desktop"
-          }),
-          _v6 = (0, _v22.buildWebBpContext)({
-            page_name: "team_management_page",
-            path: window.location.pathname
-          }),
-          _v7 = (0, _v21.buildTeamBpContextFromTeamUser)(_v3?.teamUser),
-          _v8 = (0, _v23.buildTargetTeamBpContext)({
-            is_team_member: !0,
-            team_owner_id: _v3?.teamUser?.ownerId || null,
-            team_subscription_type: _v3?.teamUser?.accountType || null,
-            team_role: _v2?.toLowerCase(),
-            team_id: _v3?.teamUser?.teamId || null,
-            team_size: _v3?.teamUser?.currentTeamSize || null,
-            resource_permission_level: null,
-            joined_team_at: null
-          });
-        (0, _v24.sendBpEventWithContexts)("vimeo.sso_enablement", {
-          ..._v4,
-          ..._v5,
-          ..._v6,
-          ..._v7,
-          ..._v8
-        }, 2, {
-          action_name: "edit_sso_enablement",
-          action_value: !_v3,
-          search_query: _v1,
-          search_result_qty: _v0
-        });
-      }, [_v3])),
-      _v5 = async (_v0 = !0) => {
+    let _v3 = async (_v0 = !0) => {
         if (!_v2) throw Error("no viewer");
         _v1({
           type: _v10.ManageTeamActionTypes.FetchTeamInfoInit,
@@ -217,25 +160,25 @@
             shouldShowLoading: _v0
           }
         });
-        let _v1 = await (0, _v26.requestTeamsInfo)(_v2);
+        let _v1 = await (0, _v19.requestTeamsInfo)(_v2);
         _v1({
           type: _v10.ManageTeamActionTypes.FetchTeamInfoComplete,
           payload: {
             viewer: _v2,
             teamsInfo: _v1
           }
-        }), _v25();
+        }), _v23();
       },
-      _v6 = (0, _v2.useRef)(new AbortController()),
-      _v7 = async _v0 => {
+      _v4 = (0, _v2.useRef)(new AbortController()),
+      _v5 = async _v0 => {
         if (!_v2) throw Error("no viewer");
         if (_v0.isTeamInfoLoading) return;
         if (!_v0.teamInfo.isSufficientRole) throw Error("Not sufficient permissions");
         _v1({
           type: _v10.ManageTeamActionTypes.FetchTeamMembersInit,
           payload: !0
-        }), _v6.current.abort(), _v6.current = new AbortController();
-        let _v1 = await (0, _v26.requestTeamMembers)(_v0 || _v2, _v0.teamInfo.owner.uri, _v0.currentPage, _v0.searchQuery, _v0.sort.type, _v0.sort.direction, _v0.rolesFilter, _v0.statusesFilter, _v0.accessFilter, _v6.current.signal);
+        }), _v4.current.abort(), _v4.current = new AbortController();
+        let _v1 = await (0, _v19.requestTeamMembers)(_v0 || _v2, _v0.teamInfo.owner.uri, _v0.currentPage, _v0.searchQuery, _v0.sort.type, _v0.sort.direction, _v0.rolesFilter, _v0.statusesFilter, _v0.accessFilter, _v4.current.signal);
         _v1({
           type: _v10.ManageTeamActionTypes.FetchTeamMembersComplete,
           payload: {
@@ -243,7 +186,7 @@
           }
         });
       },
-      _v8 = async _v0 => {
+      _v6 = async _v0 => {
         if (_v1({
           type: _v10.ManageTeamActionTypes.FetchTeamMemberInit,
           payload: {
@@ -251,13 +194,13 @@
           }
         }), !_v2) throw Error("no viewer");
         try {
-          (await _v27(_v0, _v2?.xsrft)).ok ? _v9(_v11.T.ReminderSent) : _v9(_v11.T.PleaseTryAgain);
+          (await _v20(_v0, _v2?.xsrft)).ok ? _v7(_v11.T.ReminderSent) : _v7(_v11.T.PleaseTryAgain);
         } catch (_v0) {
-          _v18(!0);
+          _v16(!0);
         }
-        await _v10(_v0);
+        await _v8(_v0);
       },
-      _v9 = (0, _v2.useCallback)((_v0, _v1) => {
+      _v7 = (0, _v2.useCallback)((_v0, _v1) => {
         _v1({
           type: _v10.ManageTeamActionTypes.NotificationForOwnerAdmin,
           payload: {
@@ -272,9 +215,9 @@
           }
         }), 0);
       }, [_v1]),
-      _v10 = async _v0 => {
+      _v8 = async _v0 => {
         if (!_v2) throw Error("no viewer");
-        let _v1 = await (0, _v26.requestTeamMember)(_v2, _v0);
+        let _v1 = await (0, _v19.requestTeamMember)(_v2, _v0);
         _v1({
           type: _v10.ManageTeamActionTypes.FetchTeamMemberComplete,
           payload: {
@@ -282,7 +225,7 @@
           }
         });
       },
-      _v11 = (0, _v2.useCallback)(_v0 => {
+      _v9 = (0, _v2.useCallback)(_v0 => {
         _v1({
           type: _v10.ManageTeamActionTypes.UpdateSeatCount,
           payload: {
@@ -290,7 +233,7 @@
           }
         });
       }, [_v1]),
-      _v12 = async _v0 => {
+      _v10 = async _v0 => {
         let _v1 = JSON.stringify(_v0),
           _v2 = {
             apiUrl: _v2?.apiUrl || "",
@@ -305,7 +248,7 @@
           }
         });
       },
-      _v13 = (0, _v2.useCallback)(async (_v0, _v1) => {
+      _v11 = (0, _v2.useCallback)(async (_v0, _v1) => {
         if (_v2) {
           _v1({
             type: _v10.ManageTeamActionTypes.UpdateTeamMemberInit,
@@ -314,7 +257,7 @@
             }
           });
           try {
-            let _v0 = await (0, _v26.requestUpdateTeamMember)({
+            let _v0 = await (0, _v19.requestUpdateTeamMember)({
               viewer: _v2,
               teamMemberUri: _v0.uri,
               excludeSso: _v1
@@ -325,12 +268,7 @@
                 updatedMember: _v0 || _v0,
                 viewer: _v2
               }
-            }), _v4({
-              targetUserId: _v0.user.id,
-              targetUserName: _v0.user.name,
-              targetUserRole: _v0.role || null,
-              excludeSso: _v1
-            }), _v9(_v11.T.SSOUpdatedMessage(_v0.user.name, _v1), "success"), _v0.accessFilter.find(_v0 => _v0.applied && [_v10.MemberAccess.LogsInWithSso, _v10.MemberAccess.LogsInWithEmailAndPassword].includes(_v0.value)) && _v1({
+            }), _v7(_v11.T.SSOUpdatedMessage(_v0.user.name, _v1), "success"), _v0.accessFilter.find(_v0 => _v0.applied && [_v10.MemberAccess.LogsInWithSso, _v10.MemberAccess.LogsInWithEmailAndPassword].includes(_v0.value)) && _v1({
               type: _v10.ManageTeamActionTypes.FetchTeamMembersInit,
               payload: !0
             });
@@ -343,8 +281,8 @@
             }), console.error("unable to update team member sso status");
           }
         }
-      }, [_v1, _v0.accessFilter, _v9, _v2, _v4]),
-      _v14 = (0, _v2.useCallback)(async (_v0, _v1, _v2, _v3) => {
+      }, [_v1, _v0.accessFilter, _v7, _v2]),
+      _v12 = (0, _v2.useCallback)(async (_v0, _v1, _v2, _v3) => {
         if (_v2) {
           _v1({
             type: _v10.ManageTeamActionTypes.UpdateTeamMemberInit,
@@ -353,7 +291,7 @@
             }
           });
           try {
-            let _v0 = await (0, _v26.requestUpdateTeamMember)({
+            let _v0 = await (0, _v19.requestUpdateTeamMember)({
               viewer: _v2,
               teamMemberUri: _v1.uri,
               newRole: _v0,
@@ -380,7 +318,7 @@
           }
         }
       }, [_v1, _v0.accessFilter, _v2]),
-      _v15 = (0, _v2.useCallback)(async _v0 => {
+      _v13 = (0, _v2.useCallback)(async _v0 => {
         let _v1 = _v0.teamMembers.find(_v0 => _v0.uri === _v0);
         if (_v2 && _v2.user && _v1 && _v1.permissionLevel !== _v10.TeamRole.Owner && (_v1.status !== _v10.MemberStatus.Accepted || !_v1.user || _v1.user.uri !== _v2.user.uri)) {
           _v1({
@@ -388,13 +326,13 @@
             payload: !0
           });
           try {
-            await (0, _v26.requestDeleteTeamMember)(_v2, _v0), _v9(_v11.T.Done), _v1({
+            await (0, _v19.requestDeleteTeamMember)(_v2, _v0), _v7(_v11.T.Done), _v1({
               type: _v10.ManageTeamActionTypes.DeleteTeamMemberComplete,
               payload: {
                 teamMemberUri: _v0
               }
             });
-            let _v0 = await (0, _v26.requestTeamMembers)(_v2, _v0.teamInfo.owner.uri, _v0.currentPage, _v0.searchQuery, _v0.sort.type, _v0.sort.direction);
+            let _v0 = await (0, _v19.requestTeamMembers)(_v2, _v0.teamInfo.owner.uri, _v0.currentPage, _v0.searchQuery, _v0.sort.type, _v0.sort.direction);
             _v1({
               type: _v10.ManageTeamActionTypes.FetchTeamMembersComplete,
               payload: {
@@ -407,11 +345,11 @@
               payload: {
                 teamMemberUri: _v0
               }
-            }), _v18(!0), console.error("unable to delete team member");
+            }), _v16(!0), console.error("unable to delete team member");
           }
         }
       }, [_v2, _v0.teamMembers]),
-      _v16 = async () => {
+      _v14 = async () => {
         if (!_v2) throw Error("no viewer");
         if (_v0.isTeamInfoLoading) return;
         let {
@@ -422,7 +360,7 @@
           }
         } = _v0;
         try {
-          let _v0 = (await (0, _v26.requestSSOConnections)(_v2, _v0)).data.some(_v0 => _v0.isActive);
+          let _v0 = (await (0, _v19.requestSSOConnections)(_v2, _v0)).data.some(_v0 => _v0.isActive);
           _v1({
             type: _v10.ManageTeamActionTypes.UpdateIsSSOAvailable,
             payload: {
@@ -433,11 +371,11 @@
           console.error("unable to check SSO availability");
         }
       },
-      _v17 = async () => {
+      _v15 = async () => {
         if (!_v2) throw Error("no viewer");
         if (_v0.isTeamInfoLoading) return;
         let _v0 = _v0.albums.currentPage + 1,
-          _v1 = await (0, _v26.requestAlbums)(_v2, _v0.teamInfo.owner.uri, _v0);
+          _v1 = await (0, _v19.requestAlbums)(_v2, _v0.teamInfo.owner.uri, _v0);
         _v1({
           type: _v10.ManageTeamActionTypes.FetchTeamShowcaseComplete,
           payload: {
@@ -446,7 +384,7 @@
           }
         });
       },
-      _v18 = _v0 => {
+      _v16 = _v0 => {
         _v1({
           type: _v10.ManageTeamActionTypes.UpdateHasError,
           payload: {
@@ -454,7 +392,7 @@
           }
         });
       },
-      _v19 = async _v0 => {
+      _v17 = async _v0 => {
         if (_v2) try {
           let {
             teamInfo: {
@@ -487,7 +425,7 @@
               isSearching: !!_v2.length
             }
           });
-          let _v6 = await (0, _v26.fetchTeamGroups)(_v2, _v0, _v5);
+          let _v6 = await (0, _v19.fetchTeamGroups)(_v2, _v0, _v5);
           _v1({
             type: _v10.ManageTeamActionTypes.FetchTeamGroupsComplete,
             payload: {
@@ -507,12 +445,12 @@
               isLoading: !1,
               isSearching: !1
             }
-          }), _v18(!1);
+          }), _v16(!1);
         } catch (_v0) {
-          _v18(!0);
+          _v16(!0);
         }
       },
-      _v20 = async () => {
+      _v18 = async () => {
         if (!_v2) return;
         let {
           teamInfo: {
@@ -522,7 +460,7 @@
           }
         } = _v0;
         if (0 === _v0) return;
-        let _v1 = await (0, _v26.requestMembershipInfo)(_v2, _v0);
+        let _v1 = await (0, _v19.requestMembershipInfo)(_v2, _v0);
         _v1({
           type: _v10.ManageTeamActionTypes.FetchMembershipInfo,
           payload: {
@@ -530,7 +468,7 @@
           }
         });
       },
-      _v21 = async () => {
+      _v19 = async () => {
         if (!_v2) return;
         let {
           teamInfo: {
@@ -540,7 +478,7 @@
           }
         } = _v0;
         if (0 === _v0) return;
-        let _v1 = await (0, _v26.requestPaymentMethods)(_v2, _v0);
+        let _v1 = await (0, _v19.requestPaymentMethods)(_v2, _v0);
         _v1({
           type: _v10.ManageTeamActionTypes.FetchPaymentMethods,
           payload: {
@@ -548,7 +486,7 @@
           }
         });
       },
-      _v22 = async (_v0, _v1 = !0) => {
+      _v20 = async (_v0, _v1 = !0) => {
         if (!_v2) return;
         let {
           teamCapabilities: {
@@ -576,25 +514,25 @@
             variables: {
               isDefault: !0
             }
-          }) : await (0, _v26.updatePaymentMethodRequest)(_v2, _v0), _v1({
+          }) : await (0, _v19.updatePaymentMethodRequest)(_v2, _v0), _v1({
             type: _v10.ManageTeamActionTypes.UpdatePaymentMethod,
             payload: {
               id: parseInt(_v0)
             }
-          }), _v1 && _v23({
+          }), _v1 && _v21({
             canShow: !0,
             type: "positive",
             text: _v11.T.PaymentMethodUpdated
           });
         } catch (_v0) {
-          if (_v1 && _v23({
+          if (_v1 && _v21({
             canShow: !0,
             type: "negative",
             text: _v11.T.PaymentMethodNotUpdated
           }), !_v1) throw _v0;
         }
       },
-      _v23 = _v0 => {
+      _v21 = _v0 => {
         _v1({
           type: _v10.ManageTeamActionTypes.ShowNotice,
           payload: {
@@ -602,7 +540,7 @@
           }
         });
       },
-      _v24 = (0, _v2.useCallback)(_v0 => {
+      _v22 = (0, _v2.useCallback)(_v0 => {
         _v1({
           type: _v10.ManageTeamActionTypes.ShowBillingPageLinkoutNotice,
           payload: {
@@ -610,7 +548,7 @@
           }
         });
       }, [_v1]),
-      _v25 = _v0 => {
+      _v23 = _v0 => {
         _v1({
           type: _v10.ManageTeamActionTypes.UpdateInvitesRemaining,
           payload: _v0 ? {
@@ -619,8 +557,8 @@
         });
       };
     return {
-      fetchMembershipInfo: _v20,
-      fetchPaymentMethods: _v21,
+      fetchMembershipInfo: _v18,
+      fetchPaymentMethods: _v19,
       updatePaymentMethods: _v0 => {
         _v1({
           type: _v10.ManageTeamActionTypes.UpdatePaymentMethods,
@@ -629,13 +567,13 @@
           }
         });
       },
-      updatePaymentMethod: _v22,
-      showNotice: _v23,
-      showBillingPageLinkoutNotice: _v24,
-      fetchTeamInfo: _v5,
-      fetchTeamMembers: _v7,
-      fetchTeamMember: _v10,
-      updateTeamBrandings: _v12,
+      updatePaymentMethod: _v20,
+      showNotice: _v21,
+      showBillingPageLinkoutNotice: _v22,
+      fetchTeamInfo: _v3,
+      fetchTeamMembers: _v5,
+      fetchTeamMember: _v8,
+      updateTeamBrandings: _v10,
       updateSearchQuery: _v0 => {
         _v1({
           type: _v10.ManageTeamActionTypes.UpdateSearchQuery,
@@ -700,7 +638,7 @@
           }
         });
       },
-      updateTeamMemberPermission: _v14,
+      updateTeamMemberPermission: _v12,
       updateTeamMemberRoleState: (_v0, _v1) => {
         _v1({
           type: _v10.ManageTeamActionTypes.UpdateTeamMemberComplete,
@@ -710,8 +648,8 @@
           }
         });
       },
-      deleteTeamMember: _v15,
-      setHasError: _v18,
+      deleteTeamMember: _v13,
+      setHasError: _v16,
       setHasMembershipInfoLoadFailed: _v0 => {
         _v1({
           type: _v10.ManageTeamActionTypes.UpdateHasMembershipInfoLoadFailed,
@@ -728,10 +666,10 @@
           }
         });
       },
-      remindTeamMemberAboutInvite: _v8,
-      showToastMessage: _v9,
-      fetchTeamShowcase: _v17,
-      fetchTeamGroupsAction: _v19,
+      remindTeamMemberAboutInvite: _v6,
+      showToastMessage: _v7,
+      fetchTeamShowcase: _v15,
+      fetchTeamGroupsAction: _v17,
       updateTeamCapabilities: _v0 => {
         _v1({
           type: _v10.ManageTeamActionTypes.UpdateTeamCapabilities,
@@ -834,14 +772,14 @@
           payload: _v0
         });
       },
-      updateSeatCount: _v11,
+      updateSeatCount: _v9,
       removeUnassignedSeats: _v0 => {
         _v1({
           type: _v10.ManageTeamActionTypes.RemoveUnassignedSeats,
           payload: {
             seatCount: _v0
           }
-        }), _v11(0);
+        }), _v9(0);
       },
       updateTeamsPageNotice: _v0 => {
         _v1({
@@ -923,7 +861,7 @@
           }
         });
       },
-      updateInvitesRemaining: _v25,
+      updateInvitesRemaining: _v23,
       updateCancelConfirmationInfo: _v0 => {
         _v1({
           type: _v10.ManageTeamActionTypes.UpdateCancelConfirmationInfo,
@@ -932,8 +870,8 @@
           }
         });
       },
-      toggleTeamMemberSSO: _v13,
-      fetchSSOAvailability: _v16
+      toggleTeamMemberSSO: _v11,
+      fetchSSOAvailability: _v14
     };
   }], 0);
 }

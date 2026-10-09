@@ -11,8 +11,7 @@
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
-    _v11 = _v0.i(0),
-    _v12 = _v0.i(0);
+    _v11 = _v0.i(0);
   _v0.s(["useUploadFileList", 0, ({
     onUploadFailure: _v0,
     targetUserId: _v1,
@@ -22,14 +21,14 @@
     let {
         upload: _v4,
         uploads: _v5
-      } = (0, _v7.useUploader)(),
+      } = (0, _v6.useUploader)(),
       {
         open: _v6,
         close: _v7
-      } = (0, _v12.useUpsellModal)(),
-      _v8 = (0, _v11.useUpsellAnalyticsPage)(),
+      } = (0, _v11.useUpsellModal)(),
+      _v8 = (0, _v10.useUpsellAnalyticsPage)(),
       _v9 = (0, _v1.useRouter)(),
-      _v10 = (0, _v4.useIsMobile)(),
+      _v10 = (0, _v3.useIsMobile)(),
       _v11 = (0, _v2.useRef)(new Set()),
       {
         paywallTrigger: _v12,
@@ -41,7 +40,7 @@
       _v17 = (0, _v2.useCallback)((_v0, _v1) => {
         let _v2 = "quota" === _v15 && "video_size" === _v0 && "lifetime" === _v1 ? "storage_limit" : _v15;
         if (_v10) {
-          let _v0 = (0, _v6.buildUpgradePlanUrl)({
+          let _v0 = (0, _v5.buildUpgradePlanUrl)({
             paywallTrigger: _v12,
             paywallLocation: _v13,
             paywallFeature: _v2
@@ -52,7 +51,7 @@
             paywall: "1",
             upsell: "error_view"
           });
-          (0, _v10.launchLateStagePaywallFromUpgradePlanUrl)(_v0) || _v9.push(_v0);
+          (0, _v9.launchLateStagePaywallFromUpgradePlanUrl)(_v0) || _v9.push(_v0);
         } else _v6({
           tracking: {
             params: {
@@ -69,7 +68,7 @@
             }
           },
           modalConfig: {
-            headerText: (0, _v5.translate)({
+            headerText: (0, _v4.translate)({
               singular: "You've reached your storage limit",
               dictionary: {
                 es: {
@@ -92,7 +91,7 @@
                 }
               }
             }),
-            subHeaderText: (0, _v5.translate)({
+            subHeaderText: (0, _v4.translate)({
               singular: "To get more storage, upgrade your account",
               dictionary: {
                 es: {
@@ -124,7 +123,7 @@
       }, [_v7, _v10, _v6, _v9, _v8, _v12, _v13, _v14, _v15]),
       {
         isLoading: _v18
-      } = (0, _v8.useQuotaCheck)({
+      } = (0, _v7.useQuotaCheck)({
         targetUserId: _v16 ? _v1 : void 0,
         onQuotaReached: _v16 ? _v17 : void 0
       });
@@ -135,12 +134,10 @@
       _v11.current.forEach(_v0 => {
         _v0.has(_v0) || _v11.current.delete(_v0);
       }), _v5.filter(_v0 => {
-        let _v1 = _v0.state === _v9.STATES.FAILED && !_v11.current.has(_v0.id);
+        let _v1 = _v0.state === _v8.STATES.FAILED && !_v11.current.has(_v0.id);
         return _v1 && _v11.current.add(_v0.id), _v1;
       }).forEach(_v0 => {
-        _v0?.(_v0.error), _v3.BigPictureClient.sendEvent(new _v3.Event("vimeo.embeddable_uploader_error", 1, {
-          error_copy: _v0.error
-        }));
+        _v0?.(_v0.error);
       });
     }, [_v5, _v0]), {
       uploadFiles: (0, _v2.useCallback)(_v0 => {

@@ -706,9 +706,8 @@
     return !!_v34.CSS_UNIT.exec(_v0);
   }
   var _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0);
-  let _v39 = (0, _v37.translate)({
+    _v37 = _v0.i(0);
+  let _v38 = (0, _v36.translate)({
       singular: "Please try again.",
       dictionary: {
         es: {
@@ -734,7 +733,7 @@
         }
       }
     }),
-    _v40 = (_v0, _v1) => {
+    _v39 = (_v0, _v1) => {
       let {
           r: _v2,
           g: _v3,
@@ -749,12 +748,12 @@
         _v9 = _v8 / 2;
       return (2 + _v9 / 256) * _v8 ** 2 + 4 * (_v3 - _v6) ** 2 + (2 + (255 - _v9) / 256) * (_v4 - _v7) ** 2 < 0;
     },
-    _v41 = {
+    _v40 = {
       variables: {
         sizes: "700"
       }
     },
-    _v42 = async (_v0, _v1) => {
+    _v41 = async (_v0, _v1) => {
       let _v2 = {
         method: "GET",
         headers: {
@@ -763,7 +762,7 @@
         }
       };
       try {
-        let [_v0, _v1] = await Promise.all([fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/team_logos?sizes=${_v41.variables.sizes}`, _v2), _v1 ? fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/customlogos?sizes=${_v41.variables.sizes}`, _v2) : Promise.resolve({
+        let [_v0, _v1] = await Promise.all([fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/team_logos?sizes=${_v40.variables.sizes}`, _v2), _v1 ? fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/customlogos?sizes=${_v40.variables.sizes}`, _v2) : Promise.resolve({
           ok: !0,
           json: () => ({
             data: []
@@ -779,7 +778,7 @@
         throw _v0;
       }
     },
-    _v43 = async _v0 => {
+    _v42 = async _v0 => {
       let _v1 = {
         method: "GET",
         headers: {
@@ -788,7 +787,7 @@
         }
       };
       try {
-        let _v0 = await fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/customlogos?sizes=${_v41.variables.sizes}`, _v1);
+        let _v0 = await fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/customlogos?sizes=${_v40.variables.sizes}`, _v1);
         if (_v0.ok) {
           let _v0 = await _v0.json(),
             _v1 = _v0.data.length;
@@ -799,7 +798,7 @@
         throw _v0;
       }
     },
-    _v44 = async (_v0, _v1) => {
+    _v43 = async (_v0, _v1) => {
       try {
         let _v0 = await fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/team_logos`, {
           method: "POST",
@@ -817,7 +816,7 @@
               "Content-Type": _v1.type
             }
           });
-          let _v1 = await fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/team_logos?sizes=${_v41.variables.sizes}`, {
+          let _v1 = await fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/team_logos?sizes=${_v40.variables.sizes}`, {
             method: "GET",
             headers: {
               Authorization: `jwt ${_v0.jwt}`,
@@ -832,9 +831,9 @@
         throw _v0;
       }
     },
-    _v45 = async _v0 => {
+    _v44 = async _v0 => {
       try {
-        let _v0 = await fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/team?sizes=${_v41.variables.sizes}`, {
+        let _v0 = await fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/team?sizes=${_v40.variables.sizes}`, {
           method: "GET",
           headers: {
             Authorization: `jwt ${_v0.jwt}`,
@@ -843,14 +842,14 @@
         });
         if (_v0.ok) {
           let _v0 = await _v0.json();
-          return await (0, _v38.camelize)(_v0);
+          return await (0, _v37.camelize)(_v0);
         }
         throw Error("error fetching team info");
       } catch (_v0) {
         throw _v0;
       }
     },
-    _v46 = async (_v0, _v1) => {
+    _v45 = async (_v0, _v1) => {
       try {
         return (await fetch(`//${_v0.apiUrl}${_v1}`, {
           method: "DELETE",
@@ -863,7 +862,7 @@
         throw _v0;
       }
     },
-    _v47 = async (_v0, _v1) => {
+    _v46 = async (_v0, _v1) => {
       let _v2 = await fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/team`, {
           method: "PATCH",
           headers: {
@@ -874,10 +873,10 @@
           body: _v1
         }),
         _v3 = await _v2.json();
-      if (_v2.ok) return (0, _v38.camelize)(_v3);
+      if (_v2.ok) return (0, _v37.camelize)(_v3);
       throw Error("error updating team info");
     },
-    _v48 = async (_v0, _v1) => {
+    _v47 = async (_v0, _v1) => {
       let _v2 = await fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/team`, {
           method: "POST",
           headers: {
@@ -888,19 +887,19 @@
           body: _v1
         }),
         _v3 = await _v2.json();
-      if (_v2.ok) return (0, _v38.camelize)(_v3);
-      if (0 === _v3.error_code) return await _v47(_v0, _v1);
+      if (_v2.ok) return (0, _v37.camelize)(_v3);
+      if (0 === _v3.error_code) return _v46(_v0, _v1);
       throw Error("error updating team info");
     },
-    _v49 = async (_v0, _v1, _v2) => {
+    _v48 = async (_v0, _v1, _v2) => {
       try {
-        if (_v1) return await _v47(_v0, _v2);
-        return await _v48(_v0, _v2);
+        if (_v1) return await _v46(_v0, _v2);
+        return await _v47(_v0, _v2);
       } catch (_v0) {
         throw _v0;
       }
     },
-    _v50 = async _v0 => {
+    _v49 = async _v0 => {
       if (!(await fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/team`, {
         method: "DELETE",
         headers: {
@@ -909,15 +908,8 @@
         }
       })).ok) throw Error("error dropping team");
     };
-  var _v51 = ((_v5 = {}).Picker = "picker", _v5.Preset = "preset", _v5);
-  _v0.s(["ColorChangeMethods", () => _v51, "TeamEvents", 0, {
-    ClickCancelButton: "click_cancel_button",
-    ClickUploadButton: "click_upload_button",
-    RemoveTeamLogo: "remove_team_logo",
-    ScrollTeamLogo: "scroll_team_logo",
-    SetTeamAccentColor: "set_team_accent_color",
-    TeamSettingsUpdated: "team_settings_updated"
-  }, "defaultError", 0, _v39, "dropTeam", 0, _v50, "extractColors", 0, _v0 => {
+  var _v50 = ((_v5 = {}).Picker = "picker", _v5.Preset = "preset", _v5);
+  _v0.s(["ColorChangeMethods", () => _v50, "defaultError", 0, _v38, "dropTeam", 0, _v49, "extractColors", 0, _v0 => {
     let _v1 = document.createElement("canvas");
     _v1.height = _v0.height, _v1.width = _v0.width;
     let _v2 = _v1.getContext("2d");
@@ -932,7 +924,7 @@
         _v2 = _v3[4 * _v0 + 1],
         _v3 = _v3[4 * _v0 + 2],
         _v4 = _v3[4 * _v0 + 3] / 255;
-      if (_v4 > 0 && !_v40({
+      if (_v4 > 0 && !_v39({
         r: _v1,
         g: _v2,
         b: _v3
@@ -954,29 +946,18 @@
       _v7 = [_v6[0]];
     for (let _v0 = 1; _v0 < Math.min(_v6.length, 10); _v0++) {
       let _v0 = !1;
-      for (let _v0 = 0; _v0 < _v7.length; _v0++) if (_v40(_v8(_v6[_v0]).toRgb(), _v8(_v7[_v0]).toRgb())) {
+      for (let _v0 = 0; _v0 < _v7.length; _v0++) if (_v39(_v8(_v6[_v0]).toRgb(), _v8(_v7[_v0]).toRgb())) {
         _v0 = !0;
         break;
       }
       if (_v0 || _v7.push(_v6[_v0]), 6 === _v7.length) break;
     }
     return _v7;
-  }, "fetchDeleteLogo", 0, _v46, "fetchLogos", 0, _v42, "fetchPlayerLogoUrl", 0, _v43, "fetchTeamInfo", 0, _v45, "isTeamInfo", 0, _v0 => !!_v0 && Object.prototype.hasOwnProperty.call(_v0, "teamName"), "logoFetchOptions", 0, _v41, "logoUploadLimit", 0, 0, "teamLogoUrlToUri", 0, _v0 => {
+  }, "fetchDeleteLogo", 0, _v45, "fetchLogos", 0, _v41, "fetchPlayerLogoUrl", 0, _v42, "fetchTeamInfo", 0, _v44, "isTeamInfo", 0, _v0 => !!_v0 && Object.prototype.hasOwnProperty.call(_v0, "teamName"), "logoFetchOptions", 0, _v40, "logoUploadLimit", 0, 0, "teamLogoUrlToUri", 0, _v0 => {
     if (!_v0) return "";
     let _v1 = _v0.split("/"),
       _v2 = _v1[_v1.length - 2],
       _v3 = _v1[_v1.length - 1].split("_")[0].split(".")[0];
     return `/${_v2}/${_v3}`;
-  }, "trackTeamSettingsModal", 0, (_v0, _v1 = {}) => {
-    try {
-      _v36.BigPictureClient.sendEvent(new _v36.Event(_v0, 1, {
-        product: "Workflow",
-        path: window.parent.location.pathname,
-        location: "/onboarding" === window.location.pathname || "/onboarding" === window.parent.location.pathname ? "Onboarding" : "Team Settings Modal",
-        ..._v1
-      }));
-    } catch (_v0) {
-      console.error(_v0);
-    }
-  }, "updateTeamInfo", 0, _v49, "uploadLogo", 0, _v44], 0);
+  }, "updateTeamInfo", 0, _v48, "uploadLogo", 0, _v43], 0);
 }

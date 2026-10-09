@@ -32,29 +32,8 @@
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  let _v36 = ({
-      partialErrorCount: _v0,
-      status: _v1,
-      type: _v2,
-      fileName: _v3
-    }) => {
-      if (_v1 === _v30.CRM_CSV_STATUS.PARTIAL_ERROR) return `${_v0?.error} row out of ${_v0?.total} from "{FILE_NAME}" failed to upload. Download errors.`;
-      switch (_v2) {
-        case _v30.UPLOAD_CSV_ERRORS.EXCEEDS_MAX_ALLOWED_REGISTRANTS:
-          return `${_v3} exceeds the max allowed number of rows. Please upload a file under ${_v30.MAX_REGISTRANTS_ALLOWED.toLocaleString()} rows.`;
-        case _v30.UPLOAD_CSV_ERRORS.TOO_MANY_REGISTRANTS:
-          return `${(0, _v31.getFileName)(_v3)} exceeds the max number of attendees.`;
-        case _v30.UPLOAD_CSV_ERRORS.EVENT_COMPLETED:
-          return `Upload of ${(0, _v31.getFileName)(_v3)} was interrupted by event completion.`;
-        default:
-          return `Something went wrong with ${(0, _v31.getFileName)(_v3)}. Please try again.`;
-      }
-    },
-    _v37 = ({
+    _v32 = _v0.i(0);
+  let _v33 = ({
       status: _v0,
       partialErrorCount: _v1,
       uploadId: _v2,
@@ -65,73 +44,27 @@
       let {
           PARTIAL_ERROR: _v6,
           ERROR: _v7
-        } = _v30.CRM_CSV_STATUS,
+        } = _v27.CRM_CSV_STATUS,
         {
           downloadUri: _v8
-        } = (0, _v35.useCSVUploadError)(_v2),
-        {
-          sendAlertBpEvent: _v9
-        } = (0, _v27.useAnalytics)();
-      (0, _v2.useEffect)(() => {
-        _v9({
-          eventName: _v29.BP_EVENT_NAME.NOTIFICATION_VIEW,
-          integrationName: null,
-          notificationCopy: _v36({
-            partialErrorCount: _v1,
-            status: _v0,
-            type: _v4,
-            fileName: _v3
-          }),
-          errorName: _v30.IMPORT_TYPE.CSV.toLowerCase(),
-          notificationName: _v29.BP_NOTIFICATION_NAME.CSV_REGISTRANTS_ERROR_IMPORT,
-          element: null
-        });
-      }, []);
-      let _v10 = () => {
-        _v9({
-          eventName: _v29.BP_EVENT_NAME.NOTIFICATION_ACTION,
-          copy: _v29.BP_COPY.X,
-          element: _v29.BP_ELEMENT.BUTTON,
-          integrationName: null,
-          notificationCopy: _v36({
-            partialErrorCount: _v1,
-            status: _v0,
-            type: _v4,
-            fileName: _v3
-          }),
-          notificationName: _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_ERROR_IMPORT
-        }), _v5?.(_v2 || "");
-      };
+        } = (0, _v32.useCSVUploadError)(_v2),
+        _v9 = () => {
+          _v5?.(_v2 || "");
+        };
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v0 === _v6 && (0, _v1.jsx)(_v34.ErrorAlertBanner, {
-          message: (0, _v25.translate)({
+        children: [_v0 === _v6 && (0, _v1.jsx)(_v31.ErrorAlertBanner, {
+          message: (0, _v24.translate)({
             singular: '{FAILED} row out of {TOTAL} from "{FILE_NAME}" failed to upload. {LINK}Download errors.{/LINK}',
             plural: '{FAILED} rows out of {TOTAL} from "{FILE_NAME}" failed to upload. {LINK}Download errors.{/LINK}',
             replacements: {
               FAILED: _v1?.error,
               TOTAL: _v1?.total,
-              FILE_NAME: (0, _v31.getFileName)(_v3),
-              LINK: _v0 => (0, _v1.jsx)(_v33.Link, {
+              FILE_NAME: (0, _v28.getFileName)(_v3),
+              LINK: _v0 => (0, _v1.jsx)(_v30.Link, {
                 href: _v8,
                 download: `${_v3}`,
                 variant: "inline-primary",
                 fontSize: "body-md",
-                onClick: () => {
-                  _v9({
-                    eventName: _v29.BP_EVENT_NAME.NOTIFICATION_ACTION,
-                    copy: _v29.BP_COPY.DOWNLOAD_ERRORS,
-                    element: _v29.BP_ELEMENT.BUTTON,
-                    integrationName: null,
-                    notificationCopy: _v36({
-                      partialErrorCount: _v1,
-                      status: _v0,
-                      type: _v4,
-                      fileName: _v3
-                    }),
-                    errorName: "csv",
-                    notificationName: _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_ERROR_IMPORT
-                  });
-                },
                 children: _v0
               })
             },
@@ -167,18 +100,18 @@
               }
             }
           }),
-          onClose: _v10
-        }), _v0 === _v7 && (0, _v1.jsx)(_v34.ErrorAlertBanner, {
+          onClose: _v9
+        }), _v0 === _v7 && (0, _v1.jsx)(_v31.ErrorAlertBanner, {
           message: ((_v0, _v1) => {
             switch (_v1) {
-              case _v30.UPLOAD_CSV_ERRORS.EXCEEDS_MAX_ALLOWED_REGISTRANTS:
-                return (0, _v25.translate)({
+              case _v27.UPLOAD_CSV_ERRORS.EXCEEDS_MAX_ALLOWED_REGISTRANTS:
+                return (0, _v24.translate)({
                   singular: "{FILE_NAME} exceeds the max allowed number of rows. Please upload a file under {MAX_REGISTRANTS} rows.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
-                      children: (0, _v31.getFileName)(_v0)
+                      children: (0, _v28.getFileName)(_v0)
                     }),
-                    MAX_REGISTRANTS: _v30.MAX_REGISTRANTS_ALLOWED.toLocaleString()
+                    MAX_REGISTRANTS: _v27.MAX_REGISTRANTS_ALLOWED.toLocaleString()
                   },
                   dictionary: {
                     "fr-FR": {
@@ -195,12 +128,12 @@
                     }
                   }
                 });
-              case _v30.UPLOAD_CSV_ERRORS.TOO_MANY_REGISTRANTS:
-                return (0, _v25.translate)({
+              case _v27.UPLOAD_CSV_ERRORS.TOO_MANY_REGISTRANTS:
+                return (0, _v24.translate)({
                   singular: "{FILE_NAME} exceeds the max number of attendees.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
-                      children: (0, _v31.getFileName)(_v0)
+                      children: (0, _v28.getFileName)(_v0)
                     })
                   },
                   dictionary: {
@@ -218,12 +151,12 @@
                     }
                   }
                 });
-              case _v30.UPLOAD_CSV_ERRORS.EVENT_COMPLETED:
-                return (0, _v25.translate)({
+              case _v27.UPLOAD_CSV_ERRORS.EVENT_COMPLETED:
+                return (0, _v24.translate)({
                   singular: "Upload of {FILE_NAME} was interrupted by event completion.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
-                      children: (0, _v31.getFileName)(_v0)
+                      children: (0, _v28.getFileName)(_v0)
                     })
                   },
                   dictionary: {
@@ -242,11 +175,11 @@
                   }
                 });
               default:
-                return (0, _v25.translate)({
+                return (0, _v24.translate)({
                   singular: "Something went wrong with {FILE_NAME}. Please try again.",
                   replacements: {
                     FILE_NAME: () => (0, _v1.jsx)("strong", {
-                      children: (0, _v31.getFileName)(_v0)
+                      children: (0, _v28.getFileName)(_v0)
                     })
                   },
                   dictionary: {
@@ -266,11 +199,11 @@
                 });
             }
           })(_v3, _v4),
-          onClose: _v10
+          onClose: _v9
         })]
       });
     },
-    _v38 = ({
+    _v34 = ({
       importRegistrantState: _v0,
       dispatch: _v1,
       fetchAttendeeData: _v2
@@ -278,93 +211,84 @@
       let _v3 = (0, _v4.useViewer)(),
         _v4 = _v3?.jwt,
         {
-          CSV: _v5
-        } = _v30.IMPORT_TYPE,
+          PROCESSING: _v5,
+          UPLOADED: _v6,
+          PENDING: _v7,
+          SUCCESS: _v8,
+          PARTIAL_ERROR: _v9,
+          ERROR: _v10
+        } = _v27.CRM_CSV_STATUS,
         {
-          IMPORT: _v6
-        } = _v30.SYNC_TYPE,
-        {
-          PROCESSING: _v7,
-          UPLOADED: _v8,
-          PENDING: _v9,
-          SUCCESS: _v10,
-          PARTIAL_ERROR: _v11,
-          ERROR: _v12
-        } = _v30.CRM_CSV_STATUS,
-        {
-          uploadCSVBanners: _v13
+          uploadCSVBanners: _v11
         } = _v0,
-        _v14 = (0, _v2.useRef)(void 0),
-        _v15 = (0, _v2.useRef)(_v13),
-        _v16 = (0, _v10.useToast)(),
-        {
-          sendAlertBpEvent: _v17
-        } = (0, _v27.useAnalytics)(),
-        [_v18, _v19] = (0, _v22.useIsVisible)({
+        _v12 = (0, _v2.useRef)(void 0),
+        _v13 = (0, _v2.useRef)(_v11),
+        _v14 = (0, _v10.useToast)(),
+        [_v15, _v16] = (0, _v21.useIsVisible)({
           threshold: 1
         }),
-        [_v20, {
-          data: _v21,
-          loading: _v22,
-          error: _v23
-        }] = (0, _v24.useGetLeadCaptureResourceIdRegistrantsUploadsLazy)(),
-        [_v24, {
-          data: _v25,
-          loading: _v26,
-          error: _v27
-        }] = (0, _v23.useGetLeadCaptureRegistrantsUploadLazy)(),
-        [_v28, {
-          data: _v29,
-          loading: _v30,
-          error: _v31
-        }] = (0, _v23.usePatchLeadCaptureRegistrantsUpload)(),
-        _v32 = () => {
-          clearInterval(_v14.current);
+        [_v17, {
+          data: _v18,
+          loading: _v19,
+          error: _v20
+        }] = (0, _v23.useGetLeadCaptureResourceIdRegistrantsUploadsLazy)(),
+        [_v21, {
+          data: _v22,
+          loading: _v23,
+          error: _v24
+        }] = (0, _v22.useGetLeadCaptureRegistrantsUploadLazy)(),
+        [_v25, {
+          data: _v26,
+          loading: _v27,
+          error: _v28
+        }] = (0, _v22.usePatchLeadCaptureRegistrantsUpload)(),
+        _v29 = () => {
+          clearInterval(_v12.current);
         },
         {
-          entityId: _v33,
-          entityType: _v34
-        } = (0, _v15.useConfigStore)();
+          entityId: _v30,
+          entityType: _v31
+        } = (0, _v14.useConfigStore)();
       (0, _v2.useEffect)(() => {
-        if (_v13) {
-          _v32();
-          let _v0 = _v13.findIndex(_v0 => _v0.status === _v30.CRM_CSV_STATUS.PROCESSING || _v0.status === _v30.CRM_CSV_STATUS.UPLOADED);
-          -1 !== _v0 && (_v14.current = setInterval(() => {
-            _v24({
+        if (_v11) {
+          _v29();
+          let _v0 = _v11.findIndex(_v0 => _v0.status === _v27.CRM_CSV_STATUS.PROCESSING || _v0.status === _v27.CRM_CSV_STATUS.UPLOADED);
+          -1 !== _v0 && (_v12.current = setInterval(() => {
+            _v21({
               where: {
-                uploadId: (0, _v26.getLastUuidFromUri)(_v13[_v0].uri)
+                uploadId: (0, _v25.getLastUuidFromUri)(_v11[_v0].uri)
               },
               select: ["status", "fileName", "uri", "partialErrorCount", "errorCode"]
             });
-          }, _v30.UPLOAD_CSV_STATUS_INTERVAL));
+          }, _v27.UPLOAD_CSV_STATUS_INTERVAL));
         }
-      }, [_v13, _v4]), (0, _v2.useEffect)(() => {
-        !_v22 && !_v23 && _v21?.data && _v1({
-          type: _v28.ACTION_TYPE.SET_CSV_BANNERS,
-          payload: _v21.data
+      }, [_v11, _v4]), (0, _v2.useEffect)(() => {
+        !_v19 && !_v20 && _v18?.data && _v1({
+          type: _v26.ACTION_TYPE.SET_CSV_BANNERS,
+          payload: _v18.data
         });
-      }, [_v21, _v22, _v23]), (0, _v2.useEffect)(() => {
-        if (!_v26) {
-          if (_v27) _v32();else if (_v25 && (_v25.status === _v10 || _v25.status === _v12 || _v25.status === _v11)) {
-            if (_v32(), _v13) {
-              let _v0 = _v13.findIndex(_v0 => _v0.uri === _v25.uri),
-                _v1 = [..._v13];
-              _v1[_v0].status = _v25.status, _v1[_v0].partialErrorCount = _v25.partialErrorCount, _v1[_v0].errorCode = _v25.errorCode, _v1({
-                type: _v28.ACTION_TYPE.SET_CSV_BANNERS,
+      }, [_v18, _v19, _v20]), (0, _v2.useEffect)(() => {
+        if (!_v23) {
+          if (_v24) _v29();else if (_v22 && (_v22.status === _v8 || _v22.status === _v10 || _v22.status === _v9)) {
+            if (_v29(), _v11) {
+              let _v0 = _v11.findIndex(_v0 => _v0.uri === _v22.uri),
+                _v1 = [..._v11];
+              _v1[_v0].status = _v22.status, _v1[_v0].partialErrorCount = _v22.partialErrorCount, _v1[_v0].errorCode = _v22.errorCode, _v1({
+                type: _v26.ACTION_TYPE.SET_CSV_BANNERS,
                 payload: _v1
               });
             }
-            (_v25.status === _v10 || _v25.status === _v11) && setTimeout(() => {
+            (_v22.status === _v8 || _v22.status === _v9) && setTimeout(() => {
               _v2(1, !0, !0, !0);
             }, 0);
           }
         }
-      }, [_v25, _v26, _v27]);
-      let _v35 = (_v0, _v1) => {
-        _v33 && _v34 && _v20({
+      }, [_v22, _v23, _v24]);
+      let _v32 = (_v0, _v1) => {
+        _v30 && _v31 && _v17({
           where: {
-            resourceId: _v33,
-            resourceType: _v14.ENTITY_TO_PATH_MAP[_v34]
+            resourceId: _v30,
+            resourceType: _v13.ENTITY_TO_PATH_MAP[_v31]
           },
           select: ["status", "fileName", "uri", "partialErrorCount", "errorCode"],
           query: {
@@ -375,16 +299,16 @@
         });
       };
       (0, _v2.useEffect)(() => {
-        _v13 || _v35(_v30.MAX_IMPORT_STATUS_BANNERS, 1);
-      }, [_v13]);
-      let _v36 = _v0 => {
-        if (!_v33) return;
-        _v15.current = _v13;
-        let _v1 = _v13?.filter(_v0 => _v0 !== (0, _v26.getLastUuidFromUri)(_v0.uri)) || [];
+        _v11 || _v32(_v27.MAX_IMPORT_STATUS_BANNERS, 1);
+      }, [_v11]);
+      let _v33 = _v0 => {
+        if (!_v30) return;
+        _v13.current = _v11;
+        let _v1 = _v11?.filter(_v0 => _v0 !== (0, _v25.getLastUuidFromUri)(_v0.uri)) || [];
         _v1({
-          type: _v28.ACTION_TYPE.SET_CSV_BANNERS,
+          type: _v26.ACTION_TYPE.SET_CSV_BANNERS,
           payload: [..._v1]
-        }), _v28({
+        }), _v25({
           where: {
             uploadId: _v0
           },
@@ -395,45 +319,34 @@
         });
       };
       (0, _v2.useEffect)(() => {
-        !_v30 && (_v31 ? (_v16({
-          title: _v16.default.ChangesCouldNotBeSaved,
+        !_v27 && (_v28 ? (_v14({
+          title: _v15.default.ChangesCouldNotBeSaved,
           status: "error"
         }), _v1({
-          type: _v28.ACTION_TYPE.SET_CSV_BANNERS,
-          payload: _v15.current
-        })) : _v29 && (_v16({
-          title: _v16.default.ChangesSaved,
+          type: _v26.ACTION_TYPE.SET_CSV_BANNERS,
+          payload: _v13.current
+        })) : _v26 && (_v14({
+          title: _v15.default.ChangesSaved,
           status: "success"
-        }), _v35(_v30.MAX_IMPORT_STATUS_BANNERS, 1)));
-      }, [_v30, _v31, _v29]);
-      let _v37 = (_v0, _v1, _v2 = !0) => {
-        _v2 && _v17({
-          eventName: _v29.BP_EVENT_NAME.NOTIFICATION_ACTION,
-          copy: _v29.BP_COPY.X,
-          element: _v29.BP_ELEMENT.BUTTON,
-          notificationName: _v29.BP_NOTIFICATION_NAME.CSV_REGISTRANTS_SUCCESS,
-          notificationCopy: (0, _v29.buildNotificationCopy)(_v5, _v6, _v10, _v1)
-        }), _v16.isActive(_v1) && (_v16.close(_v1), _v36((0, _v26.getLastUuidFromUri)(_v0)));
+        }), _v32(_v27.MAX_IMPORT_STATUS_BANNERS, 1)));
+      }, [_v27, _v28, _v26]);
+      let _v34 = (_v0, _v1) => {
+        _v14.isActive(_v1) && (_v14.close(_v1), _v33((0, _v25.getLastUuidFromUri)(_v0)));
       };
       return (0, _v2.useEffect)(() => {
-        _v19 && _v13?.forEach(({
+        _v16 && _v11?.forEach(({
           status: _v0,
           fileName: _v1,
           uri: _v2,
           pendingUserAction: _v3
         }) => {
-          _v0 && [_v9, _v7, _v8].includes(_v0) && !_v16.isActive(_v1) ? (_v17({
-            eventName: _v29.BP_EVENT_NAME.NOTIFICATION_VIEW,
-            notificationName: _v29.BP_NOTIFICATION_NAME.CSV_REGISTRANTS_PROGRESS,
-            notificationCopy: (0, _v29.buildNotificationCopy)(_v5, _v6, _v0, _v1),
-            element: null
-          }), _v16({
-            render: () => (0, _v1.jsx)(_v32.ToastMessage, {
+          _v0 && [_v7, _v5, _v6].includes(_v0) && !_v14.isActive(_v1) ? _v14({
+            render: () => (0, _v1.jsx)(_v29.ToastMessage, {
               status: "info",
-              title: (0, _v25.translate)({
+              title: (0, _v24.translate)({
                 singular: 'Importing registrants from "{NAME}"...',
                 replacements: {
-                  NAME: (0, _v31.getFileName)(_v1)
+                  NAME: (0, _v28.getFileName)(_v1)
                 },
                 dictionary: {
                   es: {
@@ -462,20 +375,15 @@
             }),
             id: _v1,
             duration: null
-          })) : [_v10, _v11].includes(_v0 || "") && (_v0 !== _v10 || _v16.isActive(`csvSuccess${_v2}`) || _v3 || (_v17({
-            eventName: _v29.BP_EVENT_NAME.NOTIFICATION_VIEW,
-            notificationName: _v29.BP_NOTIFICATION_NAME.CSV_REGISTRANTS_SUCCESS,
-            notificationCopy: (0, _v29.buildNotificationCopy)(_v5, _v6, _v0, _v1),
-            element: null
-          }), setTimeout(() => {
-            _v37(_v2, `csvSuccess${_v2}`, !1);
-          }, 0), _v16({
-            render: () => (0, _v1.jsx)(_v32.ToastMessage, {
+          }) : [_v8, _v9].includes(_v0 || "") && (_v0 !== _v8 || _v14.isActive(`csvSuccess${_v2}`) || _v3 || (setTimeout(() => {
+            _v34(_v2, `csvSuccess${_v2}`);
+          }, 0), _v14({
+            render: () => (0, _v1.jsx)(_v29.ToastMessage, {
               status: "success",
-              title: (0, _v25.translate)({
+              title: (0, _v24.translate)({
                 singular: 'Registrants imported from "{NAME}"',
                 replacements: {
-                  NAME: (0, _v31.getFileName)(_v1)
+                  NAME: (0, _v28.getFileName)(_v1)
                 },
                 dictionary: {
                   es: {
@@ -501,22 +409,22 @@
                   }
                 }
               }),
-              onCloseComplete: () => _v37(_v2, `csvSuccess${_v2}`),
+              onCloseComplete: () => _v34(_v2, `csvSuccess${_v2}`),
               isClosable: !0
             }),
             id: `csvSuccess${_v2}`,
             duration: null
-          })), _v16.close(_v1));
+          })), _v14.close(_v1));
         });
-      }, [_v13, _v19]), (0, _v2.useEffect)(() => {
+      }, [_v11, _v16]), (0, _v2.useEffect)(() => {
         let _v0 = _v0.uploadedCsv?.name || "";
-        _v0.apiPending && _v0.showModalType === _v30.IMPORT_TYPE.CSV && !_v16.isActive(_v0) && _v16({
-          render: () => (0, _v1.jsx)(_v32.ToastMessage, {
+        _v0.apiPending && _v0.showModalType === _v27.IMPORT_TYPE.CSV && !_v14.isActive(_v0) && _v14({
+          render: () => (0, _v1.jsx)(_v29.ToastMessage, {
             status: "info",
-            title: (0, _v25.translate)({
+            title: (0, _v24.translate)({
               singular: 'Importing registrants from "{NAME}"...',
               replacements: {
-                NAME: (0, _v31.getFileName)(_v0)
+                NAME: (0, _v28.getFileName)(_v0)
               },
               dictionary: {
                 es: {
@@ -545,40 +453,38 @@
           }),
           id: _v0,
           duration: null
-        }), _v0.apiError && _v16.close(_v0.uploadedCsv?.name || "");
+        }), _v0.apiError && _v14.close(_v0.uploadedCsv?.name || "");
       }, [_v0]), (0, _v1.jsx)(_v5.Box, {
-        ref: _v18,
-        children: _v13?.map(({
+        ref: _v15,
+        children: _v11?.map(({
           status: _v0,
           fileName: _v1,
           uri: _v2,
           partialErrorCount: _v3,
           errorCode: _v4
-        }) => _v0 && [_v11, _v12].includes(_v0) ? (0, _v1.jsx)(_v37, {
+        }) => _v0 && [_v9, _v10].includes(_v0) ? (0, _v1.jsx)(_v33, {
           status: _v0,
           fileName: _v1,
           partialErrorCount: _v3,
           errorCode: _v4 ?? void 0,
-          uploadId: (0, _v26.getLastUuidFromUri)(_v2),
-          handleRemove: _v36
+          uploadId: (0, _v25.getLastUuidFromUri)(_v2),
+          handleRemove: _v33
         }, _v2) : null)
       });
     };
-  var _v39 = _v0.i(0),
+  var _v35 = _v0.i(0),
+    _v36 = _v0.i(0),
+    _v37 = _v0.i(0),
+    _v38 = _v0.i(0),
+    _v39 = _v0.i(0),
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
+    _v42 = _v27,
     _v43 = _v0.i(0),
     _v44 = _v0.i(0),
     _v45 = _v0.i(0),
-    _v46 = _v30,
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0),
-    _v49 = _v0.i(0),
-    _v50 = _v30;
-  let _v51 = (_v0, _v1, _v2, _v3 = _v50.IMPORT) => _v0 === _v50.ERROR_CATEGORY.AUTHENTICATION ? `Unable to connect to ${_v1}.` : _v3 === _v50.IMPORT ? `Unable to import data from "${_v2}". Download errors for details and try again when errors are fixed.` : `Unable to export data to "${_v2}". Download errors for details and try again when errors are fixed.`,
-    _v52 = "settings",
-    _v53 = ({
+    _v46 = _v27;
+  let _v47 = ({
       uri: _v0,
       category: _v1,
       listName: _v2,
@@ -597,7 +503,7 @@
         _v14,
         _v15,
         _v16,
-        [_v17] = (0, _v48.usePutLeadCaptureResourceIdRegistrantsImport)(),
+        [_v17] = (0, _v44.usePutLeadCaptureResourceIdRegistrantsImport)(),
         {
           exportRegistrants: _v18
         } = (() => {
@@ -605,10 +511,10 @@
               error: _v1,
               data: _v2,
               loading: _v3
-            }] = (0, _v49.usePostLeadCaptureResourceIdRegistrantsExport)(),
-            _v4 = (0, _v15.useConfigStore)(_v0 => _v0.entityType),
-            _v5 = (0, _v15.useConfigStore)(_v0 => _v0.entityId);
-          _v14.ENTITY_TO_PATH_MAP;
+            }] = (0, _v45.usePostLeadCaptureResourceIdRegistrantsExport)(),
+            _v4 = (0, _v14.useConfigStore)(_v0 => _v0.entityType),
+            _v5 = (0, _v14.useConfigStore)(_v0 => _v0.entityId);
+          _v13.ENTITY_TO_PATH_MAP;
           let {
             error: _v6,
             data: _v7,
@@ -623,7 +529,7 @@
               _v5 && _v0({
                 where: {
                   resourceId: _v5,
-                  resourceType: _v14.ENTITY_TO_PATH_MAP[_v4]
+                  resourceType: _v13.ENTITY_TO_PATH_MAP[_v4]
                 },
                 variables: {
                   emailProviderList: [{
@@ -641,42 +547,20 @@
         {
           entityId: _v19,
           entityType: _v20
-        } = (0, _v15.useConfigStore)(),
+        } = (0, _v14.useConfigStore)(),
         {
-          sendAlertBpEvent: _v21
-        } = (0, _v27.useAnalytics)(),
-        {
-          downloadUri: _v22
+          downloadUri: _v21
         } = (_v12 = _v5 ?? "", _v13 = (0, _v4.useViewer)(), _v14 = _v13?.jwt, _v15 = _v13?.locale, {
-          downloadUri: (_v16 = _v13?.apiUrl) && _v14 && _v15 ? `//${_v16}/lead_capture/registrants/${_v4 === _v30.IMPORT ? "imports" : "exports"}/${_v12}/errors/export?jwt_token=${_v14}&format=csv&locale=${_v15}` : ""
-        });
-      (0, _v2.useEffect)(() => {
-        _v21({
-          eventName: _v29.BP_EVENT_NAME.NOTIFICATION_VIEW,
-          integrationName: _v3,
-          notificationCopy: _v51(_v1, _v3, (0, _v31.getFileName)(_v2), _v4),
-          errorName: _v1,
-          notificationName: _v4 === _v50.IMPORT ? _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_ERROR_IMPORT : _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_ERROR_EXPORT,
-          element: null
-        });
-      }, []);
-      let _v23 = (_v0, _v1) => {
-        _v21({
-          eventName: _v29.BP_EVENT_NAME.NOTIFICATION_ACTION,
-          copy: _v1 === _v52 ? _v29.BP_COPY.MANAGE_INTEGRATIONS : _v29.BP_COPY.GET_TIPS,
-          element: _v29.BP_ELEMENT.BUTTON,
-          integrationName: _v3,
-          notificationCopy: _v51(_v1, _v3, (0, _v31.getFileName)(_v2), _v4),
-          errorName: _v1,
-          notificationName: _v4 === _v50.IMPORT ? _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_ERROR_IMPORT : _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_ERROR_EXPORT,
-          targetPath: _v0
-        }), window.open(_v0, "_blank");
-      };
-      return _v8 === _v50.EVENT_STATUS.ENDED && _v4 === _v50.IMPORT ? (0, _v1.jsx)(_v34.ErrorAlertBanner, {
-        message: (0, _v25.translate)({
+          downloadUri: (_v16 = _v13?.apiUrl) && _v14 && _v15 ? `//${_v16}/lead_capture/registrants/${_v4 === _v27.IMPORT ? "imports" : "exports"}/${_v12}/errors/export?jwt_token=${_v14}&format=csv&locale=${_v15}` : ""
+        }),
+        _v22 = _v0 => {
+          window.open(_v0, "_blank");
+        };
+      return _v8 === _v46.EVENT_STATUS.ENDED && _v4 === _v46.IMPORT ? (0, _v1.jsx)(_v31.ErrorAlertBanner, {
+        message: (0, _v24.translate)({
           singular: 'Import of "{FILE_NAME}" was interrupted by event completion',
           replacements: {
-            FILE_NAME: (0, _v31.getFileName)(_v2)
+            FILE_NAME: (0, _v28.getFileName)(_v2)
           },
           dictionary: {
             es: {
@@ -703,18 +587,10 @@
           }
         }),
         onClose: () => {
-          _v21({
-            eventName: _v29.BP_EVENT_NAME.NOTIFICATION_ACTION,
-            copy: _v29.BP_COPY.X,
-            element: _v29.BP_ELEMENT.BUTTON,
-            integrationName: _v3,
-            notificationCopy: _v51(_v1, _v3, (0, _v31.getFileName)(_v2), _v4),
-            errorName: _v1,
-            notificationName: _v4 === _v50.IMPORT ? _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_ERROR_IMPORT : _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_ERROR_EXPORT
-          }), _v10?.(_v0, _v4);
+          _v10?.(_v0, _v4);
         }
-      }) : (0, _v1.jsx)(_v34.ErrorAlertBanner, {
-        message: ((_v0, _v1, _v2, _v3 = _v50.IMPORT, _v4, _v5) => _v0 === _v50.ERROR_CATEGORY.AUTHENTICATION ? (0, _v25.translate)({
+      }) : (0, _v1.jsx)(_v31.ErrorAlertBanner, {
+        message: ((_v0, _v1, _v2, _v3 = _v46.IMPORT, _v4) => _v0 === _v46.ERROR_CATEGORY.AUTHENTICATION ? (0, _v24.translate)({
           singular: "Unable to connect to {PROVIDER_NAME}.",
           replacements: {
             PROVIDER_NAME: _v1
@@ -742,16 +618,15 @@
               singular: "无法连接到 {PROVIDER_NAME}。"
             }
           }
-        }) : _v3 === _v50.IMPORT ? (0, _v25.translate)({
+        }) : _v3 === _v46.IMPORT ? (0, _v24.translate)({
           singular: 'Unable to import data from "{LIST_NAME}".{LINK}Download errors{/LINK} for details and try again when errors are fixed.',
           replacements: {
             LIST_NAME: _v2,
-            LINK: _v0 => (0, _v1.jsx)(_v33.Link, {
+            LINK: _v0 => (0, _v1.jsx)(_v30.Link, {
               href: _v4,
               download: `${_v2}`,
               fontSize: "body-md",
               variant: "inline-primary",
-              onClick: _v5,
               children: _v0
             })
           },
@@ -778,11 +653,11 @@
               singular: "无法从“{LIST_NAME}”导入数据。{LINK}下载错误{/LINK}以了解详情，并在错误修复后重试。"
             }
           }
-        }) : (0, _v25.translate)({
+        }) : (0, _v24.translate)({
           singular: 'Unable to export data to "{LIST_NAME}". {LINK}Download errors{/LINK} for details and try again when errors are fixed.',
           replacements: {
             LIST_NAME: _v2,
-            LINK: _v0 => (0, _v1.jsx)(_v33.Link, {
+            LINK: _v0 => (0, _v1.jsx)(_v30.Link, {
               href: _v4,
               download: `${_v2}`,
               variant: "inline-primary",
@@ -813,37 +688,19 @@
               singular: "无法将数据导出到“{LIST_NAME}”。{LINK}下载错误{/LINK}以了解详情，并在错误修复后重试。"
             }
           }
-        }))(_v1, _v3, (0, _v31.getFileName)(_v2), _v4, _v22, () => {
-          _v21({
-            eventName: _v29.BP_EVENT_NAME.NOTIFICATION_ACTION,
-            copy: _v29.BP_COPY.DOWNLOAD_ERRORS,
-            element: _v29.BP_ELEMENT.BUTTON,
-            integrationName: _v3,
-            notificationCopy: _v51(_v1, _v3, (0, _v31.getFileName)(_v2), _v4),
-            errorName: _v1,
-            notificationName: _v4 === _v50.IMPORT ? _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_ERROR_IMPORT : _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_ERROR_EXPORT
-          });
-        }),
-        buttonText: _v1 === _v50.ERROR_CATEGORY.AUTHENTICATION ? _v16.default.ManageIntegrations : _v16.default.TryAgain,
-        secondaryMsg: _v16.default.GetTroubleshootingTips,
-        secondaryMsgClick: () => _v23(_v14.GET_TROUBLESHOOTING_TIPS, "troubleshoot"),
-        buttonIcon: _v1 === _v50.ERROR_CATEGORY.AUTHENTICATION ? (0, _v1.jsx)(_v47.PopOut, {}) : void 0,
-        onButtonClick: _v1 === _v50.ERROR_CATEGORY.AUTHENTICATION ? () => _v23(_v50.MARKETING_PAGE_INTEGRATION, _v52) : () => {
-          _v21({
-            eventName: _v29.BP_EVENT_NAME.NOTIFICATION_ACTION,
-            copy: _v29.BP_COPY.TRY_AGAIN,
-            element: _v29.BP_ELEMENT.BUTTON,
-            integrationName: _v3,
-            notificationCopy: _v51(_v1, _v3, (0, _v31.getFileName)(_v2), _v4),
-            errorName: _v1,
-            notificationName: _v4 === _v50.IMPORT ? _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_ERROR_IMPORT : _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_ERROR_EXPORT
-          }), _v4 === _v50.IMPORT ? _v6 && _v9 && _v19 && _v17({
+        }))(_v1, _v3, (0, _v28.getFileName)(_v2), _v4, _v21),
+        buttonText: _v1 === _v46.ERROR_CATEGORY.AUTHENTICATION ? _v15.default.ManageIntegrations : _v15.default.TryAgain,
+        secondaryMsg: _v15.default.GetTroubleshootingTips,
+        secondaryMsgClick: () => _v22(_v13.GET_TROUBLESHOOTING_TIPS),
+        buttonIcon: _v1 === _v46.ERROR_CATEGORY.AUTHENTICATION ? (0, _v1.jsx)(_v43.PopOut, {}) : void 0,
+        onButtonClick: _v1 === _v46.ERROR_CATEGORY.AUTHENTICATION ? () => _v22(_v46.MARKETING_PAGE_INTEGRATION) : () => {
+          _v4 === _v46.IMPORT ? _v6 && _v9 && _v19 && _v17({
             where: {
-              resourceType: _v14.ENTITY_TO_PATH_MAP[_v20],
+              resourceType: _v13.ENTITY_TO_PATH_MAP[_v20],
               resourceId: _v19
             },
             variables: {
-              registrantSource: _v50.CRM_REGISTRANT_SOURCE,
+              registrantSource: _v46.CRM_REGISTRANT_SOURCE,
               emailProviderList: [{
                 listId: _v9,
                 providerId: _v6,
@@ -854,7 +711,7 @@
         }
       });
     },
-    _v54 = ({
+    _v48 = ({
       importRegistrantState: _v0,
       dispatch: _v1,
       fetchAttendeeData: _v2,
@@ -867,86 +724,80 @@
           PARTIAL_ERROR: _v7,
           ERROR: _v8,
           PENDING: _v9
-        } = _v46.CRM_CSV_STATUS,
+        } = _v42.CRM_CSV_STATUS,
+        _v10 = (0, _v10.useToast)(),
         {
-          CRM: _v10
-        } = _v46.IMPORT_TYPE,
-        _v11 = (0, _v10.useToast)(),
-        {
-          importCRMStatus: _v12,
-          processingCRM: _v13,
-          loadingCRM: _v14
+          importCRMStatus: _v11,
+          processingCRM: _v12,
+          loadingCRM: _v13
         } = _v0,
-        [_v15, _v16] = (0, _v2.useState)(!1),
-        [_v17, _v18] = (0, _v2.useState)(!1),
-        _v19 = (0, _v2.useRef)(_v12),
+        [_v14, _v15] = (0, _v2.useState)(!1),
+        [_v16, _v17] = (0, _v2.useState)(!1),
+        _v18 = (0, _v2.useRef)(_v11),
         {
-          schedule: _v20,
-          status: _v21
-        } = (0, _v43.useEntityStore)(),
+          schedule: _v19,
+          status: _v20
+        } = (0, _v39.useEntityStore)(),
         {
-          entityId: _v22,
-          entityType: _v23
-        } = (0, _v15.useConfigStore)(),
-        [_v24, {
-          loading: _v25,
-          data: _v26,
-          error: _v27
-        }] = (0, _v41.usePatchLeadCaptureResourceIdRegistrantStatuses)(),
-        [_v28, _v29] = (0, _v22.useIsVisible)({
+          entityId: _v21,
+          entityType: _v22
+        } = (0, _v14.useConfigStore)(),
+        [_v23, {
+          loading: _v24,
+          data: _v25,
+          error: _v26
+        }] = (0, _v37.usePatchLeadCaptureResourceIdRegistrantStatuses)(),
+        [_v27, _v28] = (0, _v21.useIsVisible)({
           threshold: 1
         }),
-        {
-          sendAlertBpEvent: _v30
-        } = (0, _v27.useAnalytics)(),
-        _v31 = (_v0, _v1 = _v46.SYNC_TYPE.IMPORT) => {
-          _v19.current = _v12;
-          let _v2 = _v12?.filter(_v0 => _v0.uri !== _v0) || [];
+        _v29 = (_v0, _v1 = _v42.SYNC_TYPE.IMPORT) => {
+          _v18.current = _v11;
+          let _v2 = _v11?.filter(_v0 => _v0.uri !== _v0) || [];
           _v1({
-            type: _v28.ACTION_TYPE.SET_CRM_STATUS,
+            type: _v26.ACTION_TYPE.SET_CRM_STATUS,
             payload: _v2
-          }), _v22 && _v23 && _v24({
+          }), _v21 && _v22 && _v23({
             where: {
-              resourceType: _v14.ENTITY_TO_PATH_MAP[_v23],
-              resourceId: _v22
+              resourceType: _v13.ENTITY_TO_PATH_MAP[_v22],
+              resourceId: _v21
             },
-            select: _v42.CRM_IMPORT_FIELDS,
+            select: _v38.CRM_IMPORT_FIELDS,
             variables: {
               registrantsStatus: [{
-                uuid: (0, _v26.getLastUuidFromUri)(_v0),
+                uuid: (0, _v25.getLastUuidFromUri)(_v0),
                 type: _v1
               }]
             }
           });
         },
-        _v32 = _v0 => {
-          let _v1 = _v12?.filter(_v0 => _v0.uri !== _v0) || [];
+        _v30 = _v0 => {
+          let _v1 = _v11?.filter(_v0 => _v0.uri !== _v0) || [];
           _v1({
-            type: _v28.ACTION_TYPE.SET_CRM_STATUS,
+            type: _v26.ACTION_TYPE.SET_CRM_STATUS,
             payload: _v1
           });
         };
-      (0, _v45.usePoll)(_v3, _v15 && _v29, {
+      (0, _v41.usePoll)(_v3, _v14 && _v28, {
         interval: 0
-      }), (0, _v45.usePoll)(_v3, _v17 && _v29, {
+      }), (0, _v41.usePoll)(_v3, _v16 && _v28, {
         interval: 0
-      }), (0, _v45.usePoll)(_v3, _v29, {
+      }), (0, _v41.usePoll)(_v3, _v28, {
         interval: 0
       }), (0, _v2.useEffect)(() => {
-        if (_v20?.startTime) {
-          let _v0 = new Date(_v20?.startTime).getTime() - new Date().getTime();
-          0 > Math.abs(_v0) ? _v18(!0) : _v0 > 0 ? (_v18(!1), setTimeout(() => _v18(!0), _v0 - 0)) : _v18(!1), -_v0 > 0 || setTimeout(() => _v18(!1), _v0 + 0);
+        if (_v19?.startTime) {
+          let _v0 = new Date(_v19?.startTime).getTime() - new Date().getTime();
+          0 > Math.abs(_v0) ? _v17(!0) : _v0 > 0 ? (_v17(!1), setTimeout(() => _v17(!0), _v0 - 0)) : _v17(!1), -_v0 > 0 || setTimeout(() => _v17(!1), _v0 + 0);
         }
-      }, [_v20?.startTime]), (0, _v2.useEffect)(() => {
-        !_v25 && (_v27 && !(0, _v44.default)(_v19.current, _v12) ? (_v11({
-          title: _v16.default.ChangesCouldNotBeSaved,
+      }, [_v19?.startTime]), (0, _v2.useEffect)(() => {
+        !_v24 && (_v26 && !(0, _v40.default)(_v18.current, _v11) ? (_v10({
+          title: _v15.default.ChangesCouldNotBeSaved,
           status: "error"
         }), _v1({
-          type: _v28.ACTION_TYPE.SET_CRM_STATUS,
-          payload: _v19.current
-        })) : _v26 && (_v19.current = _v12));
-      }, [_v25, _v27, _v26, _v1, _v12]), (0, _v2.useEffect)(() => {
-        let _v0 = _v12.filter(_v0 => _v0.type === _v46.IMPORT);
+          type: _v26.ACTION_TYPE.SET_CRM_STATUS,
+          payload: _v18.current
+        })) : _v25 && (_v18.current = _v11));
+      }, [_v24, _v26, _v25, _v1, _v11]), (0, _v2.useEffect)(() => {
+        let _v0 = _v11.filter(_v0 => _v0.type === _v42.IMPORT);
         if (_v0.length > 0) {
           let _v0 = !1;
           for (let _v0 of _v0) {
@@ -957,45 +808,36 @@
               _v0 = !0;
               break;
             }
-            _v0 === _v8 && (_v0 = !1), (_v0 === _v6 || _v0 === _v7) && _v13 && !_v14 && (setTimeout(() => {
+            _v0 === _v8 && (_v0 = !1), (_v0 === _v6 || _v0 === _v7) && _v12 && !_v13 && (setTimeout(() => {
               _v2(1, !0, !0, !0);
             }, 0), _v4(), _v0 = !1);
           }
-          _v16(_v0), _v1({
-            type: _v28.ACTION_TYPE.PROCESSING_CRM_DATA,
-            payload: _v14 ? _v13 : _v0
+          _v15(_v0), _v1({
+            type: _v26.ACTION_TYPE.PROCESSING_CRM_DATA,
+            payload: _v13 ? _v12 : _v0
           });
         }
-      }, [_v12, _v1, _v14]);
-      let _v33 = (_v0, _v1, _v2, _v3, _v4, _v5, _v6 = !0) => {
-        _v6 && _v30({
-          eventName: _v29.BP_EVENT_NAME.NOTIFICATION_ACTION,
-          copy: _v29.BP_COPY.X,
-          element: _v29.BP_ELEMENT.BUTTON,
-          targetPath: _v0,
-          integrationName: _v4,
-          notificationName: _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_SUCCESS,
-          notificationCopy: _v5
-        }), _v11.isActive(_v1) && (_v31(_v0, _v2), _v11.close(_v1));
+      }, [_v11, _v1, _v13]);
+      let _v31 = (_v0, _v1, _v2) => {
+        _v10.isActive(_v1) && (_v29(_v0, _v2), _v10.close(_v1));
       };
       return (0, _v2.useEffect)(() => {
-        _v29 && _v12?.filter(_v0 => _v46.ProvidersWithCRMExport.includes(_v0.emailProviderList.provider.id) || _v0.type === _v46.SYNC_TYPE.IMPORT).forEach(({
+        _v28 && _v11?.filter(_v0 => _v42.ProvidersWithCRMExport.includes(_v0.emailProviderList.provider.id) || _v0.type === _v42.SYNC_TYPE.IMPORT).forEach(({
           status: _v0,
           emailProviderList: _v1,
           uri: _v2,
           pendingUserAction: _v3,
           type: _v4
         }) => {
-          let _v5 = _v1.list?.name,
-            _v6 = _v1.provider.name;
+          let _v5 = _v1.list?.name;
           if (_v3 && _v0 && _v5?.length) {
             let _v0;
-            _v0 = `processing_${_v4}_${_v5}`, [_v7, _v8, _v6].includes(_v0) && _v11.isActive(_v0) && _v11.close(_v0), ((_v0, _v1, _v2, _v3, _v4) => {
-              let _v5 = `success_${_v1}_${_v2}`,
-                _v6 = `processing_${_v1}_${_v2}`;
-              if (_v0 !== _v6 || _v11.isActive(_v5)) {
+            _v0 = `processing_${_v4}_${_v5}`, [_v7, _v8, _v6].includes(_v0) && _v10.isActive(_v0) && _v10.close(_v0), ((_v0, _v1, _v2, _v3) => {
+              let _v4 = `success_${_v1}_${_v2}`,
+                _v5 = `processing_${_v1}_${_v2}`;
+              if (_v0 !== _v6 || _v10.isActive(_v4)) {
                 let _v0;
-                [_v9, _v5].includes(_v0) && !_v11.isActive(_v6) && (_v0 = _v1 === _v46.SYNC_TYPE.EXPORT ? (0, _v25.translate)({
+                [_v9, _v5].includes(_v0) && !_v10.isActive(_v5) && (_v0 = _v1 === _v42.SYNC_TYPE.EXPORT ? (0, _v24.translate)({
                   singular: 'Exporting registrants to "{NAME}"...',
                   replacements: {
                     NAME: _v2
@@ -1023,7 +865,7 @@
                       singular: "正在将注册者导出到 “{NAME}”..."
                     }
                   }
-                }) : (0, _v25.translate)({
+                }) : (0, _v24.translate)({
                   singular: 'Syncing registrants from "{NAME}"...',
                   replacements: {
                     NAME: _v2
@@ -1051,25 +893,19 @@
                       singular: "正在同步“{NAME}”中的注册者..."
                     }
                   }
-                }), _v30({
-                  eventName: _v29.BP_EVENT_NAME.NOTIFICATION_VIEW,
-                  element: null,
-                  integrationName: _v4,
-                  notificationName: _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_PROGRESS,
-                  notificationCopy: (0, _v29.buildNotificationCopy)(_v10, _v1, _v5, _v2)
-                }), _v11({
-                  render: () => (0, _v1.jsx)(_v32.ToastMessage, {
+                }), _v10({
+                  render: () => (0, _v1.jsx)(_v29.ToastMessage, {
                     status: "info",
                     title: _v0
                   }),
-                  id: _v6,
+                  id: _v5,
                   duration: null
                 }));
               } else {
                 let _v0;
                 setTimeout(() => {
-                  _v11.isActive(_v5) && _v33(_v3, _v5, _v1, _v2, _v4, (0, _v29.buildNotificationCopy)(_v10, _v1, _v6, _v2), !1);
-                }, 0), _v0 = _v1 === _v46.SYNC_TYPE.EXPORT ? (0, _v25.translate)({
+                  _v10.isActive(_v4) && _v31(_v3, _v4, _v1);
+                }, 0), _v0 = _v1 === _v42.SYNC_TYPE.EXPORT ? (0, _v24.translate)({
                   singular: 'Registrants exported to "{NAME}"',
                   replacements: {
                     NAME: _v2
@@ -1097,7 +933,7 @@
                       singular: "已导出注册者至“{NAME}”"
                     }
                   }
-                }) : (0, _v25.translate)({
+                }) : (0, _v24.translate)({
                   singular: 'Registrants synced from "{NAME}"',
                   replacements: {
                     NAME: _v2
@@ -1125,58 +961,52 @@
                       singular: "已同步“{NAME}”中的注册者..."
                     }
                   }
-                }), _v30({
-                  eventName: _v29.BP_EVENT_NAME.NOTIFICATION_VIEW,
-                  integrationName: _v4,
-                  notificationName: _v29.BP_NOTIFICATION_NAME.CRM_REGISTRANTS_SUCCESS,
-                  element: null,
-                  notificationCopy: (0, _v29.buildNotificationCopy)(_v10, _v1, _v6, _v2)
-                }), _v11({
-                  render: () => (0, _v1.jsx)(_v32.ToastMessage, {
+                }), _v10({
+                  render: () => (0, _v1.jsx)(_v29.ToastMessage, {
                     status: "success",
                     title: _v0,
-                    onCloseComplete: () => _v33(_v3, _v5, _v1, _v2, _v4, `Registrants ${_v1 === _v46.SYNC_TYPE.EXPORT ? "exported" : "synced"} to "${_v2}"`),
+                    onCloseComplete: () => _v31(_v3, _v4, _v1),
                     isClosable: !0
                   }),
-                  id: _v5,
+                  id: _v4,
                   duration: null
                 });
               }
-            })(_v0, _v4, _v5, _v2, _v6);
+            })(_v0, _v4, _v5, _v2);
           }
         });
-      }, [_v12, _v29]), (0, _v1.jsx)(_v5.Box, {
-        ref: _v28,
-        children: (0, _v31.customCrmSyncSort)(_v12).map(({
+      }, [_v11, _v28]), (0, _v1.jsx)(_v5.Box, {
+        ref: _v27,
+        children: (0, _v28.customCrmSyncSort)(_v11).map(({
           emailProviderList: _v0,
           type: _v1,
           uri: _v2,
           pendingUserAction: _v3,
           status: _v4,
           errorDetails: _v5
-        }) => _v3 && [_v7, _v8].includes(_v4 || "") && (_v5?.category === _v46.ERROR_CATEGORY.AUTHENTICATION || !!_v0?.list?.name) && (0, _v1.jsx)(_v53, {
+        }) => _v3 && [_v7, _v8].includes(_v4 || "") && (_v5?.category === _v42.ERROR_CATEGORY.AUTHENTICATION || !!_v0?.list?.name) && (0, _v1.jsx)(_v47, {
           uri: _v2,
           category: _v5?.category,
-          syncId: (0, _v26.getLastUuidFromUri)(_v2),
+          syncId: (0, _v25.getLastUuidFromUri)(_v2),
           type: _v1,
           listName: _v0?.list?.name,
           providerName: _v0?.provider.name,
-          handleHide: _v32,
+          handleHide: _v30,
           providerId: _v0?.provider.id,
           fetchCRMStatus: _v3,
-          eventStatus: _v23 === _v14.ENTITY_TYPE.EVENT && _v21 ? _v21 : void 0,
-          handleRemove: _v31,
+          eventStatus: _v22 === _v13.ENTITY_TYPE.EVENT && _v20 ? _v20 : void 0,
+          handleRemove: _v29,
           listId: _v0?.list?.id
         }, _v2))
       });
     };
-  var _v55 = _v0.i(0),
-    _v56 = _v0.i(0),
-    _v57 = _v0.i(0),
-    _v58 = _v0.i(0),
-    _v59 = _v0.i(0);
-  let _v60 = (_v0, _v1, _v2) => `//${_v1}/lead_capture${_v0}/registrants?sort=registration_date&direction=asc&page=${_v2}&per_page=${_v30.ATTENDEES_PAGE_SIZE}&fields=${_v42.ATTENDEES_API_FIELDS.join(",")}`,
-    _v61 = async (_v0, _v1, _v2, _v3, _v4, _v5) => {
+  var _v49 = _v0.i(0),
+    _v50 = _v0.i(0),
+    _v51 = _v0.i(0),
+    _v52 = _v0.i(0),
+    _v53 = _v0.i(0);
+  let _v54 = (_v0, _v1, _v2) => `//${_v1}/lead_capture${_v0}/registrants?sort=registration_date&direction=asc&page=${_v2}&per_page=${_v27.ATTENDEES_PAGE_SIZE}&fields=${_v38.ATTENDEES_API_FIELDS.join(",")}`,
+    _v55 = async (_v0, _v1, _v2, _v3, _v4, _v5) => {
       let _v6 = _v3(_v2),
         _v7 = _v6 && _v6.total > 0;
       if (!_v5 && _v7) return Promise.resolve(_v6);
@@ -1192,14 +1022,14 @@
           }
         });
         return _v0.ok ? _v0.json().then(_v0 => {
-          let _v1 = (0, _v59.deepCamelCase)(_v0);
+          let _v1 = (0, _v53.deepCamelCase)(_v0);
           return _v0?.data?.length && _v0.data.forEach((_v0, _v1) => {
             _v0?.data && _v1?.data[_v1] && (_v1.data[_v1].data = _v0.data);
           }), _v4(_v2, _v1), _v1;
         }) : Promise.reject(_v0);
       }
     },
-    _v62 = (_v0, _v1) => _v1?.isBlocked ? (0, _v1.jsx)(_v5.Box, {
+    _v56 = (_v0, _v1) => _v1?.isBlocked ? (0, _v1.jsx)(_v5.Box, {
       as: "span",
       color: "red.600",
       textDecorationLine: "line-through",
@@ -1207,13 +1037,13 @@
     }) : (0, _v1.jsx)(_v1.Fragment, {
       children: _v0
     }),
-    _v63 = {
+    _v57 = {
       fontSize: (0, _v9.rem)(16),
       fontWeight: 500,
       lineHeight: (0, _v9.rem)(20),
       letterSpacing: 0
     },
-    _v64 = [{
+    _v58 = [{
       name: "id",
       apiName: "id",
       isVisible: !1
@@ -1222,15 +1052,15 @@
       apiName: "firstName",
       isVisible: !0,
       minWidth: "10rem",
-      style: _v63,
-      displayFunc: _v62
+      style: _v57,
+      displayFunc: _v56
     }, {
       name: "lastName",
       apiName: "lastName",
       isVisible: !0,
       minWidth: "10rem",
-      style: _v63,
-      displayFunc: _v62
+      style: _v57,
+      displayFunc: _v56
     }, {
       name: "email",
       apiName: "email",
@@ -1259,31 +1089,31 @@
       apiName: "hasAttended",
       isVisible: !0,
       minWidth: "7rem",
-      align: _v30.ALIGN.CENTER,
-      displayFunc: _v0 => _v30.ATTENDEES_TYPES.B === _v0 ? (0, _v1.jsx)(_v55.Tooltip, {
-        label: _v16.default.Blocked,
+      align: _v27.ALIGN.CENTER,
+      displayFunc: _v0 => _v27.ATTENDEES_TYPES.B === _v0 ? (0, _v1.jsx)(_v49.Tooltip, {
+        label: _v15.default.Blocked,
         placement: "left",
         fontSize: 14,
         children: (0, _v1.jsx)("div", {
-          children: (0, _v1.jsx)(_v58.MinusCircle, {
+          children: (0, _v1.jsx)(_v52.MinusCircle, {
             color: "red.500"
           })
         })
-      }) : _v30.ATTENDEES_TYPES.Y === _v0 ? (0, _v1.jsx)(_v55.Tooltip, {
-        label: _v16.default.Attended,
+      }) : _v27.ATTENDEES_TYPES.Y === _v0 ? (0, _v1.jsx)(_v49.Tooltip, {
+        label: _v15.default.Attended,
         placement: "left",
         fontSize: 14,
         children: (0, _v1.jsx)("div", {
-          children: (0, _v1.jsx)(_v56.CircleCheck, {
+          children: (0, _v1.jsx)(_v50.CircleCheck, {
             color: "blue.400"
           })
         })
-      }) : (0, _v1.jsx)(_v55.Tooltip, {
-        label: _v16.default.DidNotAttend,
+      }) : (0, _v1.jsx)(_v49.Tooltip, {
+        label: _v15.default.DidNotAttend,
         placement: "left",
         fontSize: 14,
         children: (0, _v1.jsx)("div", {
-          children: (0, _v1.jsx)(_v57.CloseXCircle, {
+          children: (0, _v1.jsx)(_v51.CloseXCircle, {
             color: "text-secondary"
           })
         })
@@ -1293,7 +1123,7 @@
       apiName: "views",
       isVisible: !0,
       minWidth: "7rem",
-      align: _v30.ALIGN.CENTER,
+      align: _v27.ALIGN.CENTER,
       displayFunc: _v0 => (0, _v1.jsxs)(_v1.Fragment, {
         children: [" ", _v0, " "]
       })
@@ -1302,7 +1132,7 @@
       apiName: "analytics.viewPercentage",
       isVisible: !0,
       minWidth: "10rem",
-      align: _v30.ALIGN.CENTER,
+      align: _v27.ALIGN.CENTER,
       displayFunc: _v0 => (0, _v1.jsxs)(_v1.Fragment, {
         children: [" ", null !== _v0 ? `${_v0}%` : "—", " "]
       })
@@ -1311,49 +1141,49 @@
       apiName: "menu",
       isVisible: !0,
       minWidth: "5rem",
-      align: _v30.ALIGN.CENTER
+      align: _v27.ALIGN.CENTER
     }];
-  var _v65 = _v0.i(0),
-    _v66 = _v0.i(0);
-  let _v67 = ({
+  var _v59 = _v0.i(0),
+    _v60 = _v0.i(0);
+  let _v61 = ({
     isCsvProcessing: _v0,
     payloadUri: _v1,
     setDeleteRecordUri: _v2
   }) => {
     let {
         status: _v3
-      } = (0, _v43.useEntityStore)(),
+      } = (0, _v39.useEntityStore)(),
       {
         canGoLive: _v4
-      } = (0, _v66.useTeamStore)(),
-      _v5 = !_v4 || _v0 || _v3 === _v30.EVENT_STATUS.STARTED || _v3 === _v30.EVENT_STATUS.ENDED;
-    return (0, _v1.jsx)(_v55.Tooltip, {
-      label: _v16.default.RemoveRegistrant,
-      children: (0, _v1.jsx)(_v65.IconButton, {
-        "aria-label": _v16.default.RemoveRegistrant,
+      } = (0, _v60.useTeamStore)(),
+      _v5 = !_v4 || _v0 || _v3 === _v27.EVENT_STATUS.STARTED || _v3 === _v27.EVENT_STATUS.ENDED;
+    return (0, _v1.jsx)(_v49.Tooltip, {
+      label: _v15.default.RemoveRegistrant,
+      children: (0, _v1.jsx)(_v59.IconButton, {
+        "aria-label": _v15.default.RemoveRegistrant,
         variant: "tertiary",
-        icon: (0, _v1.jsx)(_v58.MinusCircle, {}),
+        icon: (0, _v1.jsx)(_v52.MinusCircle, {}),
         isDisabled: _v5,
         onClick: () => !_v5 && _v2(_v1)
       })
     });
   };
-  var _v68 = _v0.i(0),
-    _v69 = _v0.i(0),
-    _v70 = _v0.i(0),
-    _v71 = _v0.i(0),
-    _v72 = _v0.i(0),
-    _v73 = _v0.i(0),
-    _v74 = _v0.i(0),
-    _v75 = _v0.i(0);
-  let _v76 = (0, _v74.bokeh)(_v5.Box, {
+  var _v62 = _v0.i(0),
+    _v63 = _v0.i(0),
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0),
+    _v66 = _v0.i(0),
+    _v67 = _v0.i(0),
+    _v68 = _v0.i(0),
+    _v69 = _v0.i(0);
+  let _v70 = (0, _v68.bokeh)(_v5.Box, {
       baseStyle: {
         width: "100%",
         overflowY: "scroll",
         flex: 1
       }
     }),
-    _v77 = (0, _v74.bokeh)(_v5.Box, {
+    _v71 = (0, _v68.bokeh)(_v5.Box, {
       baseStyle: {
         borderSpacing: 0,
         tableLayout: "fixed",
@@ -1370,13 +1200,13 @@
         }
       }
     }),
-    _v78 = (0, _v74.bokeh)(_v5.Box, {
+    _v72 = (0, _v68.bokeh)(_v5.Box, {
       baseStyle: {
         cursor: "pointer",
         height: (0, _v9.rem)(60)
       }
     }),
-    _v79 = (0, _v74.bokeh)(_v5.Box, {
+    _v73 = (0, _v68.bokeh)(_v5.Box, {
       baseStyle: {
         "&:first-child": {
           position: "sticky",
@@ -1388,14 +1218,14 @@
         }
       }
     }),
-    _v80 = (0, _v74.bokeh)(_v75.Text, {
+    _v74 = (0, _v68.bokeh)(_v69.Text, {
       baseStyle: {
         textOverflow: "ellipsis",
         whiteSpace: "nowrap",
         overflow: "hidden"
       }
     }),
-    _v81 = (0, _v74.bokeh)(_v5.Box, {
+    _v75 = (0, _v68.bokeh)(_v5.Box, {
       baseStyle: {
         zIndex: 2,
         position: "sticky",
@@ -1413,70 +1243,50 @@
         }
       }
     });
-  var _v82 = _v0.i(0),
-    _v83 = _v0.i(0);
-  let _v84 = {
+  var _v76 = _v0.i(0),
+    _v77 = _v0.i(0);
+  let _v78 = {
       mkcCode: "ent-upgrade-webinar-advanced-analytics"
     },
-    _v85 = ({
+    _v79 = ({
       fields: _v0
     }) => {
       let {
           status: _v1
-        } = (0, _v43.useEntityStore)(),
-        _v2 = (0, _v15.useConfigStore)(_v0 => _v0.entityType),
-        _v3 = _v2 === _v14.ENTITY_TYPE.VIDEO,
+        } = (0, _v39.useEntityStore)(),
+        _v2 = (0, _v14.useConfigStore)(_v0 => _v0.entityType),
+        _v3 = _v2 === _v13.ENTITY_TYPE.VIDEO,
         {
           hasEnterprise: _v4
-        } = (0, _v39.useEventCapability)(),
-        {
-          sendUpsellEvent: _v5
-        } = (0, _v12.useUpsellAnalytics)(),
-        _v6 = (0, _v11.useIsBokeh)(),
-        _v7 = () => {
-          _v5({
-            pageName: _v2 === _v14.ENTITY_TYPE.EVENT ? _v29.BP_PAGE_NAME.EVENT_REGISTRATION_PAGE : _v29.BP_PAGE_NAME.VIDEO_REGISTRATION_PAGE,
-            target: _v29.BP_TARGET.UPGRADE_PAGE,
-            targetPath: window.location.pathname,
-            upsellName: "watch_time_analytics",
-            interfaceType: "page",
-            product: _v2 === _v14.ENTITY_TYPE.EVENT ? "events" : "gates",
-            feature: "watch_time_analytics",
-            location: _v29.BP_LOCATION.TOP_ACTION_BAR,
-            entityType: _v2,
-            copy: _v29.BP_COPY.WATCH_TIME,
-            flow: null,
-            element: "icon"
-          });
-        };
+        } = (0, _v35.useEventCapability)(),
+        _v5 = (0, _v11.useIsBokeh)();
       return (0, _v1.jsx)("thead", {
         children: (0, _v1.jsx)("tr", {
-          children: _v0.filter(_v0 => !!_v0.isVisible && !_v30.HIDDEN_COLUMNS_FOR_ENTITY[_v2].includes(_v0.name)).map((_v0, _v1) => {
+          children: _v0.filter(_v0 => !!_v0.isVisible && !_v27.HIDDEN_COLUMNS_FOR_ENTITY[_v2].includes(_v0.name)).map((_v0, _v1) => {
             let _v2 = _v0.align;
-            return "viewPercentage" === _v0.name && _v1 !== _v30.EVENT_STATUS.ENDED && (_v2 = _v30.ALIGN.CENTER), (0, _v1.jsx)(_v81, {
-              borderStyle: _v6 ? "none" : "solid",
+            return "viewPercentage" === _v0.name && _v1 !== _v27.EVENT_STATUS.ENDED && (_v2 = _v27.ALIGN.CENTER), (0, _v1.jsx)(_v75, {
+              borderStyle: _v5 ? "none" : "solid",
               as: "th",
               width: _v0.minWidth || (0, _v9.rem)(36),
               children: (0, _v1.jsxs)(_v7.Flex, {
-                justifyContent: _v2 || _v30.ALIGN.LEFT,
+                justifyContent: _v2 || _v27.ALIGN.LEFT,
                 alignItems: "center",
-                children: [(0, _v1.jsx)(_v75.Text, {
+                children: [(0, _v1.jsx)(_v69.Text, {
                   variant: "body-md",
-                  children: _v16.DISPLAY_MAP[_v0.name] ?? _v0.name
-                }), _v3 && _v0.name === _v30.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && (0, _v1.jsx)(_v55.Tooltip, {
+                  children: _v15.DISPLAY_MAP[_v0.name] ?? _v0.name
+                }), _v3 && _v0.name === _v27.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && (0, _v1.jsx)(_v49.Tooltip, {
                   maxWidth: (0, _v9.rem)(280),
-                  label: _v16.default.VideoWatchTime,
+                  label: _v15.default.VideoWatchTime,
                   children: (0, _v1.jsx)(_v5.Box, {
-                    children: (0, _v1.jsx)(_v82.InfoCircle, {
+                    children: (0, _v1.jsx)(_v76.InfoCircle, {
                       ml: "x"
                     })
                   })
-                }), !_v4 && _v0.name === _v30.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && (0, _v1.jsx)(_v5.Box, {
+                }), !_v4 && _v0.name === _v27.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && (0, _v1.jsx)(_v5.Box, {
                   pl: (0, _v9.rem)(8),
-                  children: (0, _v1.jsx)(_v83.UpsellBadge, {
-                    enterpriseFeatureOverride: _v2 === _v14.ENTITY_TYPE.EVENT ? _v16.default.AdvancedWebinarAnalytics : void 0,
-                    modalConfig: _v2 === _v14.ENTITY_TYPE.EVENT ? _v84 : void 0,
-                    onClick: _v7
+                  children: (0, _v1.jsx)(_v77.UpsellBadge, {
+                    enterpriseFeatureOverride: _v2 === _v13.ENTITY_TYPE.EVENT ? _v15.default.AdvancedWebinarAnalytics : void 0,
+                    modalConfig: _v2 === _v13.ENTITY_TYPE.EVENT ? _v78 : void 0
                   })
                 })]
               })
@@ -1485,9 +1295,9 @@
         })
       });
     };
-  var _v86 = _v0.i(0),
-    _v87 = _v0.i(0);
-  let _v88 = ({
+  var _v80 = _v0.i(0),
+    _v81 = _v0.i(0);
+  let _v82 = ({
       isLoading: _v0,
       noData: _v1
     }) => {
@@ -1497,57 +1307,34 @@
         {
           hasUpsell: _v6,
           hasEnterprise: _v7
-        } = (0, _v39.useEventCapability)(),
+        } = (0, _v35.useEventCapability)(),
+        _v8 = (0, _v14.useConfigStore)(_v0 => _v0.entityType),
         {
-          sendUpsellEvent: _v8
-        } = (0, _v12.useUpsellAnalytics)(),
-        [_v9, _v10] = (0, _v22.useIsVisible)({
-          threshold: 1
-        }),
-        _v11 = (0, _v15.useConfigStore)(_v0 => _v0.entityType),
-        _v12 = _v11 === _v14.ENTITY_TYPE.VIDEO,
+          isOwner: _v9
+        } = (0, _v60.useTeamStore)(),
         {
-          isOwner: _v13
-        } = (0, _v66.useTeamStore)(),
-        {
-          shareEntity: _v14,
-          canShare: _v15
-        } = (0, _v86.useShareEntity)();
-      return (0, _v73.default)([_v4, _v5], () => {
+          shareEntity: _v10,
+          canShare: _v11
+        } = (0, _v80.useShareEntity)();
+      return (0, _v67.default)([_v4, _v5], () => {
         _v2 && _v3(!1);
-      }, null, [_v2]), (0, _v2.useEffect)(() => {
-        _v6 && [_v14.ENTITY_TYPE.VIDEO, _v14.ENTITY_TYPE.SHOWCASE].includes(_v11) && _v10 && _v8({
-          eventName: _v29.BP_EVENT_NAME.UPSELL_TRIGGER_IMPRESSION,
-          pageName: _v12 ? _v29.BP_PAGE_NAME.SINGLE_VIDEO_VIEW_MANAGE : _v29.BP_PAGE_NAME.SHOWCASE_MANAGER,
-          target: null,
-          targetPath: null,
-          upsellName: _v12 ? _v29.UPSELL_NAME.ADD_VIDEO_REG_CAPABILITY : _v29.UPSELL_NAME.ADD_SHOWCASE_REG_CAPABILITY,
-          interfaceType: "page",
-          product: "gates",
-          feature: "registration",
-          location: _v29.BP_LOCATION.CONTENT_AREA,
-          entityType: _v11,
-          copy: _v29.BP_COPY.UPGRADE,
-          flow: _v29.BP_FLOW.REGISTRANTS_TAB,
-          element: "button"
-        });
-      }, [_v10]), (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v77, {
+      }, null, [_v2]), (0, _v1.jsxs)(_v1.Fragment, {
+        children: [(0, _v1.jsxs)(_v71, {
           as: "table",
-          children: [(0, _v1.jsx)(_v85, {
-            fields: _v64
+          children: [(0, _v1.jsx)(_v79, {
+            fields: _v58
           }), _v0 && (0, _v1.jsx)(_v5.Box, {
             as: "tbody",
             overflowY: "scroll",
-            children: Array.from(Array(_v30.ATTENDEES_PAGE_SIZE)).map((_v0, _v1) => (0, _v1.jsx)(_v78, {
+            children: Array.from(Array(_v27.ATTENDEES_PAGE_SIZE)).map((_v0, _v1) => (0, _v1.jsx)(_v72, {
               as: "tr",
-              children: _v64.filter(_v0 => _v0.isVisible).map((_v0, _v1) => _v30.HIDDEN_COLUMNS_FOR_ENTITY[_v11].includes(_v0.name) ? null : (0, _v1.jsx)(_v79, {
+              children: _v58.filter(_v0 => _v0.isVisible).map((_v0, _v1) => _v27.HIDDEN_COLUMNS_FOR_ENTITY[_v8].includes(_v0.name) ? null : (0, _v1.jsx)(_v73, {
                 as: "td",
                 w: _v0.minWidth,
                 children: (0, _v1.jsx)(_v7.Flex, {
                   justifyContent: _v0.align,
                   children: (0, _v1.jsx)(_v5.Box, {
-                    sx: (0, _v87.PlaceholderStyles)()
+                    sx: (0, _v81.PlaceholderStyles)()
                   })
                 })
               }, _v1))
@@ -1563,56 +1350,39 @@
             flex: 1,
             children: _v6 ? (0, _v1.jsx)(_v7.Flex, {
               flexDir: "column",
-              ref: _v9,
               alignItems: "center",
               w: (0, _v9.rem)(350),
-              children: (0, _v1.jsx)(_v72.Upsell, {
+              children: (0, _v1.jsx)(_v66.Upsell, {
                 hasEnterprise: _v7 ?? !1,
-                isEntityOwner: _v13,
+                isEntityOwner: _v9,
                 showExploreButton: !1,
-                entityType: _v11,
-                onUpsellClick: () => {
-                  _v8({
-                    pageName: _v12 ? _v29.BP_PAGE_NAME.SINGLE_VIDEO_VIEW_MANAGE : _v29.BP_PAGE_NAME.SHOWCASE_MANAGER,
-                    target: _v29.BP_TARGET.UPGRADE_PAGE,
-                    targetPath: window.location.pathname,
-                    upsellName: _v12 ? _v29.UPSELL_NAME.ADD_VIDEO_REG_CAPABILITY : _v29.UPSELL_NAME.ADD_SHOWCASE_REG_CAPABILITY,
-                    interfaceType: "page",
-                    product: "gates",
-                    feature: "registration",
-                    location: _v29.BP_LOCATION.CONTENT_AREA,
-                    entityType: _v11,
-                    copy: _v29.BP_COPY.UPGRADE,
-                    flow: _v29.BP_FLOW.REGISTRANTS_TAB,
-                    element: "button"
-                  });
-                }
+                entityType: _v8
               })
             }) : (0, _v1.jsxs)(_v7.Flex, {
               flexDir: "column",
               alignItems: "center",
-              children: [(0, _v1.jsx)(_v71.Registration, {
+              children: [(0, _v1.jsx)(_v65.Registration, {
                 boxSize: (0, _v9.rem)(54),
                 mb: 3
-              }), (0, _v1.jsx)(_v69.Paragraph, {
+              }), (0, _v1.jsx)(_v63.Paragraph, {
                 size: "md",
                 textAlign: "center",
                 w: (0, _v9.rem)(280),
                 color: "text-secondary",
-                children: _v16.default.TableEmptyState[_v11]
-              }), _v15 && (0, _v1.jsx)(_v68.Button, {
+                children: _v15.default.TableEmptyState[_v8]
+              }), _v11 && (0, _v1.jsx)(_v62.Button, {
                 mt: (0, _v9.rem)(12),
                 variant: "primary",
-                leftIcon: (0, _v1.jsx)(_v70.Link, {}),
-                onClick: () => _v14(),
-                children: _v16.default.ShareEntity[_v11]
+                leftIcon: (0, _v1.jsx)(_v64.Link, {}),
+                onClick: () => _v10(),
+                children: _v15.default.ShareEntity[_v8]
               })]
             })
           })
         })]
       });
     },
-    _v89 = ({
+    _v83 = ({
       fields: _v0,
       payload: _v1,
       onRowClick: _v2,
@@ -1622,10 +1392,10 @@
     }) => {
       let {
           status: _v6
-        } = (0, _v43.useEntityStore)(),
+        } = (0, _v39.useEntityStore)(),
         _v7 = _v0.filter(_v0 => _v0.isVisible),
         _v8 = (0, _v2.useRef)(null),
-        _v9 = (0, _v15.useConfigStore)(_v0 => _v0.entityType),
+        _v9 = (0, _v14.useConfigStore)(_v0 => _v0.entityType),
         _v10 = (0, _v2.useRef)(null),
         _v11 = (0, _v4.useViewer)();
       return ((0, _v2.useEffect)(() => {
@@ -1633,39 +1403,39 @@
           top: 0,
           behavior: "smooth"
         });
-      }, [_v3]), !_v1.length || _v3) ? (0, _v1.jsx)(_v76, {
-        children: (0, _v1.jsx)(_v88, {
+      }, [_v3]), !_v1.length || _v3) ? (0, _v1.jsx)(_v70, {
+        children: (0, _v1.jsx)(_v82, {
           isLoading: _v3,
           noData: !0
         })
-      }) : (0, _v1.jsx)(_v76, {
+      }) : (0, _v1.jsx)(_v70, {
         ref: _v10,
-        children: (0, _v1.jsxs)(_v77, {
+        children: (0, _v1.jsxs)(_v71, {
           as: "table",
-          children: [(0, _v1.jsx)(_v85, {
+          children: [(0, _v1.jsx)(_v79, {
             fields: _v0
           }), (0, _v1.jsx)(_v5.Box, {
             overflowY: "scroll",
             ref: _v8,
             as: "tbody",
-            children: _v1.filter(_v0 => !!_v0.uri).map(_v0 => (0, _v1.jsx)(_v78, {
+            children: _v1.filter(_v0 => !!_v0.uri).map(_v0 => (0, _v1.jsx)(_v72, {
               tabIndex: 0,
               as: "tr",
               onKeyDown: _v0 => {
-                _v0.key === _v30.KEY_CODES.ENTER && _v2(_v0);
+                _v0.key === _v27.KEY_CODES.ENTER && _v2(_v0);
               },
               role: "group",
-              children: _v7.filter(_v0 => !!_v0.isVisible && !_v30.HIDDEN_COLUMNS_FOR_ENTITY[_v9].includes(_v0.name)).map(_v0 => {
+              children: _v7.filter(_v0 => !!_v0.isVisible && !_v27.HIDDEN_COLUMNS_FOR_ENTITY[_v9].includes(_v0.name)).map(_v0 => {
                 var _v1;
                 let _v2 = (Array.isArray(_v1 = _v0.apiName) ? _v1 : _v1.split(".").filter(_v0 => _v0)).flatMap(_v0 => "string" == typeof _v0 ? _v0.split(".") : _v0).reduce((_v0, _v1) => _v0 && _v0[_v1], _v0) ?? "-",
                   _v3 = "-" === _v2 ? "-" : _v0.displayFunc?.(_v2, _v0, _v11 ?? void 0) || _v2,
                   _v4 = _v0.align;
-                return _v0.name === _v30.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && _v6 !== _v30.EVENT_STATUS.ENDED && (_v4 = _v30.ALIGN.CENTER), (0, _v1.jsx)(_v79, {
+                return _v0.name === _v27.ATTENDEE_TABLE_FIELDS.VIEW_PERCENTAGE && _v6 !== _v27.EVENT_STATUS.ENDED && (_v4 = _v27.ALIGN.CENTER), (0, _v1.jsx)(_v73, {
                   as: "td",
                   w: _v0.minWidth || (0, _v9.rem)(36),
                   style: _v0.style,
                   onClick: () => {
-                    _v0.name !== _v30.ATTENDEE_TABLE_FIELDS.MENU && _v2(_v0);
+                    _v0.name !== _v27.ATTENDEE_TABLE_FIELDS.MENU && _v2(_v0);
                   },
                   _first: {
                     borderLeftRadius: (0, _v9.rem)(8)
@@ -1677,19 +1447,19 @@
                     bgColor: "fill-component-hover"
                   },
                   children: (0, _v1.jsx)(_v7.Flex, {
-                    justifyContent: _v4 || _v30.ALIGN.LEFT,
-                    children: _v0.name === _v30.ATTENDEE_TABLE_FIELDS.MENU ? (0, _v1.jsx)(_v5.Box, {
+                    justifyContent: _v4 || _v27.ALIGN.LEFT,
+                    children: _v0.name === _v27.ATTENDEE_TABLE_FIELDS.MENU ? (0, _v1.jsx)(_v5.Box, {
                       visibility: "hidden",
                       _groupHover: {
                         visibility: "visible"
                       },
-                      children: (0, _v1.jsx)(_v67, {
+                      children: (0, _v1.jsx)(_v61, {
                         isCsvProcessing: _v4,
                         payloadUri: _v0.uri,
                         setDeleteRecordUri: _v5
                       }, _v0.uri)
-                    }) : (0, _v1.jsx)(_v80, {
-                      variant: [_v30.ATTENDEE_TABLE_FIELDS.FIRST_NAME, _v30.ATTENDEE_TABLE_FIELDS.LAST_NAME].includes(_v0.name) ? "heading-sm" : "body-md",
+                    }) : (0, _v1.jsx)(_v74, {
+                      variant: [_v27.ATTENDEE_TABLE_FIELDS.FIRST_NAME, _v27.ATTENDEE_TABLE_FIELDS.LAST_NAME].includes(_v0.name) ? "heading-sm" : "body-md",
                       children: _v3
                     })
                   })
@@ -1700,11 +1470,11 @@
         })
       });
     },
-    _v90 = {
+    _v84 = {
       data: [],
       total: 0,
       page: 1,
-      perPage: _v30.ATTENDEES_PAGE_SIZE,
+      perPage: _v27.ATTENDEES_PAGE_SIZE,
       paging: {
         next: null,
         previous: null,
@@ -1712,105 +1482,102 @@
         last: null
       }
     },
-    _v91 = () => {
+    _v85 = () => {
       let {
           PROCESSING: _v0,
           PENDING: _v1
-        } = _v30.CRM_CSV_STATUS,
-        _v2 = (0, _v15.useConfigStore)(_v0 => _v0.entityType),
+        } = _v27.CRM_CSV_STATUS,
+        _v2 = (0, _v14.useConfigStore)(_v0 => _v0.entityType),
         _v3 = (0, _v10.useToast)(),
         {
-          sendUpsellEvent: _v4
-        } = (0, _v12.useUpsellAnalytics)(),
+          getFromCache: _v4,
+          addToCache: _v5,
+          deletePagesFromCache: _v6,
+          deleteFromCache: _v7,
+          deleteAllCache: _v8
+        } = (0, _v36.useAttendeeCache)(),
+        _v9 = (0, _v4.useViewer)(),
+        _v10 = _v9?.jwt,
+        _v11 = _v9?.locale,
+        _v12 = _v9?.apiUrl,
         {
-          getFromCache: _v5,
-          addToCache: _v6,
-          deletePagesFromCache: _v7,
-          deleteFromCache: _v8,
-          deleteAllCache: _v9
-        } = (0, _v40.useAttendeeCache)(),
-        _v10 = (0, _v4.useViewer)(),
-        _v11 = _v10?.jwt,
-        _v12 = _v10?.locale,
-        _v13 = _v10?.apiUrl,
+          uri: _v13,
+          user: _v14,
+          emailQuota: _v15,
+          registrationData: _v16
+        } = (0, _v39.useEntityStore)(),
+        _v17 = (0, _v11.useIsBokeh)(),
         {
-          uri: _v14,
-          user: _v15,
-          emailQuota: _v16,
-          registrationData: _v17
-        } = (0, _v43.useEntityStore)(),
-        _v18 = (0, _v11.useIsBokeh)(),
+          setMessage: _v18
+        } = (0, _v12.useUpsellContext)(),
+        [_v19, _v20] = (0, _v2.useState)(_v84),
+        [_v21, _v22] = (0, _v2.useState)(!1),
+        [_v23, _v24] = (0, _v2.useState)(1),
+        [_v25, _v26] = (0, _v2.useState)(null),
+        [_v27, _v28] = (0, _v2.useState)(Math.ceil(_v19.total / _v27.ATTENDEES_PAGE_SIZE)),
         {
-          setMessage: _v19
-        } = (0, _v13.useUpsellContext)(),
-        [_v20, _v21] = (0, _v2.useState)(_v90),
-        [_v22, _v23] = (0, _v2.useState)(!1),
-        [_v24, _v25] = (0, _v2.useState)(1),
-        [_v26, _v27] = (0, _v2.useState)(null),
-        [_v28, _v29] = (0, _v2.useState)(Math.ceil(_v20.total / _v30.ATTENDEES_PAGE_SIZE)),
+          hasAttendeeUpsell: _v29,
+          hasUpsell: _v30,
+          loading: _v31,
+          registrantCapLowerWatermark: _v32,
+          hasEmailQuotaUsed: _v33,
+          hasLiveSubscription: _v34
+        } = (0, _v35.useEventCapability)(),
+        [_v35, _v36] = (0, _v26.useImportRegistrantReducer)(),
         {
-          hasAttendeeUpsell: _v30,
-          hasUpsell: _v31,
-          loading: _v32,
-          registrantCapLowerWatermark: _v33,
-          hasEmailQuotaUsed: _v34,
-          hasLiveSubscription: _v35
-        } = (0, _v39.useEventCapability)(),
-        [_v36, _v37] = (0, _v28.useImportRegistrantReducer)(),
-        {
-          processingCRM: _v38,
-          uploadCSVBanners: _v39,
-          importCRMStatus: _v40
-        } = _v36,
-        _v41 = _v33 && _v30,
-        _v42 = _v33 && _v35,
-        _v43 = (0, _v2.useMemo)(() => {
-          if (_v2 === _v14.ENTITY_TYPE.EVENT) {
-            if (_v34) return _v16.default.EmailQuotaUpsell(_v16?.capping);else if (_v41) return _v16.default.PremiumRegistrantUpsell(_v17?.capping);else if (_v42) return _v16.default.EnterpriseRegistrantUpsell(_v17?.capping);
+          processingCRM: _v37,
+          uploadCSVBanners: _v38,
+          importCRMStatus: _v39
+        } = _v35,
+        _v40 = _v32 && _v29,
+        _v41 = _v32 && _v34,
+        _v42 = (0, _v2.useMemo)(() => {
+          if (_v2 === _v13.ENTITY_TYPE.EVENT) {
+            if (_v33) return _v15.default.EmailQuotaUpsell(_v15?.capping);else if (_v40) return _v15.default.PremiumRegistrantUpsell(_v16?.capping);else if (_v41) return _v15.default.EnterpriseRegistrantUpsell(_v16?.capping);
           }
-        }, [_v16?.capping, _v42, _v34, _v41, _v17?.capping, _v2]);
+        }, [_v15?.capping, _v41, _v33, _v40, _v16?.capping, _v2]);
       (0, _v2.useEffect)(() => {
-        _v19(_v43);
-      }, [_v19, _v43]);
-      let [_v44, _v45] = (0, _v2.useState)(!0),
-        [_v46, _v47] = (0, _v2.useState)(null),
+        _v18(_v42);
+      }, [_v18, _v42]);
+      let [_v43, _v44] = (0, _v2.useState)(!0),
+        [_v45, _v46] = (0, _v2.useState)(null),
         {
-          fetchCRMInfo: _v48,
-          fetchCRMStatus: _v49,
-          importCRMData: _v50,
-          CRMCalled: _v51,
-          isCRMLoading: _v52,
-          CRMStatusCalled: _v53,
-          CRMStatusData: _v54,
-          isCRMStatusLoading: _v55
+          fetchCRMInfo: _v47,
+          fetchCRMStatus: _v48,
+          importCRMData: _v49,
+          CRMCalled: _v50,
+          isCRMLoading: _v51,
+          CRMStatusCalled: _v52,
+          CRMStatusData: _v53,
+          isCRMStatusLoading: _v54
         } = (() => {
           let [_v0, {
               loading: _v1,
               data: _v2,
               called: _v3
-            }] = (0, _v41.useGetLeadCaptureResourceIdRegistrantStatusesLazy)(),
+            }] = (0, _v37.useGetLeadCaptureResourceIdRegistrantStatusesLazy)(),
             [_v4, {
               loading: _v5,
               data: _v6,
               called: _v7
-            }] = (0, _v41.useGetLeadCaptureResourceIdRegistrantStatusesLazy)(),
+            }] = (0, _v37.useGetLeadCaptureResourceIdRegistrantStatusesLazy)(),
             {
               entityType: _v8,
               entityId: _v9
-            } = (0, _v15.useConfigStore)(),
+            } = (0, _v14.useConfigStore)(),
             _v10 = (0, _v2.useCallback)(() => !!_v9 && !!_v8 && (_v4({
               where: {
-                resourceType: _v14.ENTITY_TO_PATH_MAP[_v8],
+                resourceType: _v13.ENTITY_TO_PATH_MAP[_v8],
                 resourceId: _v9
               },
-              select: _v42.CRM_IMPORT_FIELDS
+              select: _v38.CRM_IMPORT_FIELDS
             }), !0), [_v9, _v4, _v8]),
             _v11 = (0, _v2.useCallback)(() => (_v9 && _v8 && _v0({
               where: {
-                resourceType: _v14.ENTITY_TO_PATH_MAP[_v8],
+                resourceType: _v13.ENTITY_TO_PATH_MAP[_v8],
                 resourceId: _v9
               },
-              select: _v42.CRM_IMPORT_FIELDS
+              select: _v38.CRM_IMPORT_FIELDS
             }), !0), [_v9, _v0, _v8]),
             _v12 = (0, _v2.useMemo)(() => ({
               isCRMStatusLoading: _v5,
@@ -1821,7 +1588,7 @@
             fetchCRMInfo: _v11,
             fetchCRMStatus: _v10,
             ...(0, _v2.useMemo)(() => {
-              let _v0 = _v2?.data?.find(_v0 => _v0.type === _v30.IMPORT)?.emailProviderList;
+              let _v0 = _v2?.data?.find(_v0 => _v0.type === _v27.IMPORT)?.emailProviderList;
               return {
                 isCRMLoading: _v1,
                 importCRMData: {
@@ -1833,66 +1600,51 @@
             ..._v12
           };
         })(),
-        _v56 = (0, _v2.useCallback)(() => {
-          _v49() && _v37({
-            type: _v28.ACTION_TYPE.PROCESSING_CRM_DATA,
+        _v55 = (0, _v2.useCallback)(() => {
+          _v48() && _v36({
+            type: _v26.ACTION_TYPE.PROCESSING_CRM_DATA,
             payload: !0
           });
-        }, [_v49, _v37]);
+        }, [_v48, _v36]);
       (0, _v2.useEffect)(() => {
-        _v14 && _v15?.uri && (_v40.length || _v51 || _v48(), _v53 || _v56());
-      }, [_v14, _v15?.uri, _v51, _v53, _v40.length, _v48, _v56]);
-      let _v57 = (0, _v2.useCallback)(() => {
-        _v27(null), _v23(!1);
+        _v13 && _v14?.uri && (_v39.length || _v50 || _v47(), _v52 || _v55());
+      }, [_v13, _v14?.uri, _v50, _v52, _v39.length, _v47, _v55]);
+      let _v56 = (0, _v2.useCallback)(() => {
+        _v26(null), _v22(!1);
       }, []);
       (0, _v2.useEffect)(() => {
-        _v29(Math.ceil(_v20.total / _v30.ATTENDEES_PAGE_SIZE)), _v25(_v20.page ?? 1);
-      }, [_v20.total, _v20.page]), (0, _v2.useEffect)(() => {
-        _v39 && _v45(_v39.some(_v0 => _v0.status === _v30.CRM_CSV_STATUS.PROCESSING || _v0.status === _v30.CRM_CSV_STATUS.UPLOADED) || !1);
-      }, [_v39]), (0, _v2.useEffect)(() => {
-        !_v32 && _v31 && _v45(!1);
-      }, [_v32, _v31]);
-      let _v58 = (0, _v2.useCallback)((_v0 = _v24, _v1 = !0, _v2 = !1, _v3 = !1) => {
-        _v3 && _v9(), !_v31 && _v13 && _v11 && _v12 && (_v23(_v1), _v61(_v11, _v12, _v60(_v14, _v13, _v0), _v5, _v6, _v2).then(_v0 => {
-          _v21(_v0), _v23(!1);
+        _v28(Math.ceil(_v19.total / _v27.ATTENDEES_PAGE_SIZE)), _v24(_v19.page ?? 1);
+      }, [_v19.total, _v19.page]), (0, _v2.useEffect)(() => {
+        _v38 && _v44(_v38.some(_v0 => _v0.status === _v27.CRM_CSV_STATUS.PROCESSING || _v0.status === _v27.CRM_CSV_STATUS.UPLOADED) || !1);
+      }, [_v38]), (0, _v2.useEffect)(() => {
+        !_v31 && _v30 && _v44(!1);
+      }, [_v31, _v30]);
+      let _v57 = (0, _v2.useCallback)((_v0 = _v23, _v1 = !0, _v2 = !1, _v3 = !1) => {
+        _v3 && _v8(), !_v30 && _v12 && _v10 && _v11 && (_v22(_v1), _v55(_v10, _v11, _v54(_v13, _v12, _v0), _v4, _v5, _v2).then(_v0 => {
+          _v20(_v0), _v22(!1);
         }).catch(_v0 => {
-          _v57(), _v23(!1), _v3({
-            title: _v16.default.SomethingWentWrong,
+          _v56(), _v22(!1), _v3({
+            title: _v15.default.SomethingWentWrong,
             status: "error"
           });
         }));
-      }, [_v2, _v24, _v31, _v9, _v14, _v15?.uri, _v13, _v11, _v12, _v5, _v6, _v57]);
+      }, [_v2, _v23, _v30, _v8, _v13, _v14?.uri, _v12, _v10, _v11, _v4, _v5, _v56]);
       return (0, _v2.useEffect)(() => {
-        if (_v53 && !_v55 && _v54) {
-          let _v0 = _v54.data || [];
-          !_v0.some(_v0 => [_v1, _v0].includes(_v0.status || "") && _v0.type === _v30.IMPORT) && _v38 && (_v58(_v24, !0, !0), _v48(), _v37({
-            type: _v28.ACTION_TYPE.PROCESSING_CRM_DATA,
+        if (_v52 && !_v54 && _v53) {
+          let _v0 = _v53.data || [];
+          !_v0.some(_v0 => [_v1, _v0].includes(_v0.status || "") && _v0.type === _v27.IMPORT) && _v37 && (_v57(_v23, !0, !0), _v47(), _v36({
+            type: _v26.ACTION_TYPE.PROCESSING_CRM_DATA,
             payload: !1
-          })), _v37({
-            type: _v28.ACTION_TYPE.SET_CRM_STATUS,
+          })), _v36({
+            type: _v26.ACTION_TYPE.SET_CRM_STATUS,
             payload: _v0
           });
         }
-      }, [_v54, _v55, _v53, _v37]), (0, _v2.useEffect)(_v58, [_v58]), (0, _v2.useEffect)(() => {
-        _v27(null);
+      }, [_v53, _v54, _v52, _v36]), (0, _v2.useEffect)(_v57, [_v57]), (0, _v2.useEffect)(() => {
+        _v26(null);
       }, []), (0, _v2.useEffect)(() => {
-        _v47(null);
-      }, [_v22]), (0, _v2.useEffect)(() => {
-        _v30 && _v2 === _v14.ENTITY_TYPE.EVENT && _v4({
-          eventName: _v29.BP_EVENT_NAME.UPSELL_TRIGGER_IMPRESSION,
-          pageName: _v29.BP_PAGE.EVENT_REGISTRATION_PAGE,
-          target: null,
-          targetPath: null,
-          upsellName: "add_registrants",
-          interfaceType: "page",
-          product: "events",
-          feature: "registration",
-          location: _v29.BP_LOCATION.HEADER,
-          entityType: _v2,
-          copy: _v29.BP_COPY.UPGRADE,
-          flow: _v29.BP_FLOW.REGISTRANTS_TAB
-        });
-      }, []), (0, _v1.jsxs)(_v5.Box, {
+        _v46(null);
+      }, [_v21]), (0, _v1.jsxs)(_v5.Box, {
         w: "100%",
         h: "100%",
         overflow: "auto",
@@ -1904,42 +1656,42 @@
           visibility: "visible",
           opacity: 1,
           flexDir: "column",
-          children: [(0, _v1.jsx)(_v17.GeneralAlerts, {}), !_v31 && !_v32 && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v54, {
-              importRegistrantState: _v36,
-              dispatch: _v37,
-              fetchAttendeeData: _v58,
-              fetchCRMStatus: _v56,
-              fetchCRMInfo: _v48
-            }), (0, _v1.jsx)(_v38, {
-              importRegistrantState: _v36,
-              dispatch: _v37,
-              fetchAttendeeData: _v58
+          children: [(0, _v1.jsx)(_v16.GeneralAlerts, {}), !_v30 && !_v31 && (0, _v1.jsxs)(_v1.Fragment, {
+            children: [(0, _v1.jsx)(_v48, {
+              importRegistrantState: _v35,
+              dispatch: _v36,
+              fetchAttendeeData: _v57,
+              fetchCRMStatus: _v55,
+              fetchCRMInfo: _v47
+            }), (0, _v1.jsx)(_v34, {
+              importRegistrantState: _v35,
+              dispatch: _v36,
+              fetchAttendeeData: _v57
             })]
-          }), (0, _v1.jsx)(_v19.AttendeeHeader, {
-            response: _v20,
-            isLoading: _v22,
-            registrationData: _v17,
-            importRegistrantState: _v36,
-            dispatch: _v37,
-            isCsvProcessing: _v44,
+          }), (0, _v1.jsx)(_v18.AttendeeHeader, {
+            response: _v19,
+            isLoading: _v21,
+            registrationData: _v16,
+            importRegistrantState: _v35,
+            dispatch: _v36,
+            isCsvProcessing: _v43,
             crmInfo: {
-              fetchCRMStatus: _v56,
-              CRMCalled: _v51,
-              importCRMData: _v50,
-              isCRMLoading: _v52,
-              isCRMStatusLoading: _v55
+              fetchCRMStatus: _v55,
+              CRMCalled: _v50,
+              importCRMData: _v49,
+              isCRMLoading: _v51,
+              isCRMStatusLoading: _v54
             }
-          }), (0, _v1.jsx)(_v89, {
-            fields: _v64,
-            payload: _v20 ? _v20.data : [],
-            onRowClick: _v27,
-            isLoading: _v22,
-            isCsvProcessing: _v44,
-            setDeleteRecordUri: _v47
-          }), _v20.total > 0 && _v28 > 0 && (0, _v1.jsx)(_v7.Flex, {
+          }), (0, _v1.jsx)(_v83, {
+            fields: _v58,
+            payload: _v19 ? _v19.data : [],
+            onRowClick: _v26,
+            isLoading: _v21,
+            isCsvProcessing: _v43,
+            setDeleteRecordUri: _v46
+          }), _v19.total > 0 && _v27 > 0 && (0, _v1.jsx)(_v7.Flex, {
             justifyContent: "space-between",
-            borderStyle: _v18 ? "none" : "solid",
+            borderStyle: _v17 ? "none" : "solid",
             alignItems: "center",
             borderTopWidth: (0, _v9.rem)(1),
             borderColor: "stroke",
@@ -1947,52 +1699,52 @@
               boxSize: "100%",
               p: (0, _v9.rem)(20),
               children: (0, _v1.jsx)(_v8.Pagination, {
-                count: _v20.total,
-                pageSize: _v30.ATTENDEES_PAGE_SIZE,
-                page: _v24,
+                count: _v19.total,
+                pageSize: _v27.ATTENDEES_PAGE_SIZE,
+                page: _v23,
                 onPageChange: ({
                   page: _v0
-                }) => _v25(_v0)
+                }) => _v24(_v0)
               })
             })
-          }), (0, _v1.jsx)(_v20.AttendeesInfoModal, {
-            record: _v26,
+          }), (0, _v1.jsx)(_v19.AttendeesInfoModal, {
+            record: _v25,
             onClose: () => {
-              _v27(null);
+              _v26(null);
             },
-            updateData: () => _v58(_v24, !1, !1)
-          }), (0, _v1.jsx)(_v21.ImportRegistrant, {
-            importRegistrantState: _v36,
-            dispatch: _v37,
-            totalAttendees: _v20.total,
-            fetchCRMInfo: _v48,
-            fetchCRMStatus: _v56
+            updateData: () => _v57(_v23, !1, !1)
+          }), (0, _v1.jsx)(_v20.ImportRegistrant, {
+            importRegistrantState: _v35,
+            dispatch: _v36,
+            totalAttendees: _v19.total,
+            fetchCRMInfo: _v47,
+            fetchCRMStatus: _v55
           })]
-        }), (0, _v1.jsx)(_v18.AttendeeConfirmationModal, {
-          deleteRecordUri: _v46,
+        }), (0, _v1.jsx)(_v17.AttendeeConfirmationModal, {
+          deleteRecordUri: _v45,
           cancelDeleteAttendee: () => {
-            _v47(null);
+            _v46(null);
           },
           onDeleteSuccessCallback: () => {
-            let _v0 = Object.assign({}, _v20);
-            if (_v0.data = _v20.data.filter(_v0 => _v0.uri !== _v46), _v0.total = _v0.total - 1, _v21(_v0), _v47(null), _v3({
-              title: _v16.default.SuccessfullyDeleted,
+            let _v0 = Object.assign({}, _v19);
+            if (_v0.data = _v19.data.filter(_v0 => _v0.uri !== _v45), _v0.total = _v0.total - 1, _v20(_v0), _v46(null), _v3({
+              title: _v15.default.SuccessfullyDeleted,
               status: "success"
-            }), _v7(_v24), _v24 !== _v28) _v58(_v24, !1, !0);else if (_v13) {
-              let _v0 = _v60(_v14, _v13, _v24);
-              0 === _v0.data.length && 1 !== _v24 ? (_v25(_v24 - 1), _v8(_v0)) : _v6(_v0, _v0, !0);
+            }), _v6(_v23), _v23 !== _v27) _v57(_v23, !1, !0);else if (_v12) {
+              let _v0 = _v54(_v13, _v12, _v23);
+              0 === _v0.data.length && 1 !== _v23 ? (_v24(_v23 - 1), _v7(_v0)) : _v5(_v0, _v0, !0);
             }
           }
         })]
       });
     };
-  var _v92 = _v0.i(0),
-    _v93 = _v0.i(0),
-    _v94 = _v0.i(0),
-    _v95 = _v0.i(0),
-    _v96 = _v0.i(0),
-    _v97 = _v0.i(0),
-    _v98 = _v0.i(0);
+  var _v86 = _v0.i(0),
+    _v87 = _v0.i(0),
+    _v88 = _v0.i(0),
+    _v89 = _v0.i(0),
+    _v90 = _v0.i(0),
+    _v91 = _v0.i(0),
+    _v92 = _v0.i(0);
   _v0.s(["LeadCaptureDashboard", 0, ({
     entityId: _v0,
     entityOwnerId: _v1,
@@ -2010,58 +1762,58 @@
         let [_v3, {
             loading: _v4,
             data: _v5
-          }] = (0, _v97.useGetUserLiveEventLazy)(),
+          }] = (0, _v91.useGetUserLiveEventLazy)(),
           [_v6, {
             loading: _v7,
             data: _v8
-          }] = (0, _v98.useGetVideoLazy)(),
+          }] = (0, _v92.useGetVideoLazy)(),
           [_v9, {
             data: _v10,
             loading: _v11
-          }] = (0, _v95.useGetAlbumLazy)(),
+          }] = (0, _v89.useGetAlbumLazy)(),
           [_v12, {
             data: _v13
-          }] = (0, _v96.useGetLeadCaptureResourceIdFormLazy)(),
+          }] = (0, _v90.useGetLeadCaptureResourceIdFormLazy)(),
           _v14 = (0, _v2.useCallback)(() => {
             if (_v0 && _v1) {
               switch (_v1) {
-                case _v14.ENTITY_TYPE.EVENT:
+                case _v13.ENTITY_TYPE.EVENT:
                   _v3({
                     where: {
                       liveEventId: Number(_v0),
                       userId: _v2 || 0
                     },
-                    select: _v42.EVENT_API_FIELDS_FOR_ATTENDEE_PAGE
+                    select: _v38.EVENT_API_FIELDS_FOR_ATTENDEE_PAGE
                   });
                   break;
-                case _v14.ENTITY_TYPE.VIDEO:
+                case _v13.ENTITY_TYPE.VIDEO:
                   _v6({
                     where: {
                       videoId: Number(_v0)
                     },
-                    select: _v42.VIDEO_API_FIELDS
+                    select: _v38.VIDEO_API_FIELDS
                   });
                   break;
-                case _v14.ENTITY_TYPE.SHOWCASE:
+                case _v13.ENTITY_TYPE.SHOWCASE:
                   _v9({
                     where: {
                       albumId: _v0
                     },
-                    select: _v42.SHOWCASE_API_FIELDS
+                    select: _v38.SHOWCASE_API_FIELDS
                   });
               }
               _v12({
                 where: {
-                  resourceType: _v14.ENTITY_TO_PATH_MAP[_v1],
+                  resourceType: _v13.ENTITY_TO_PATH_MAP[_v1],
                   resourceId: _v0
                 },
-                select: _v42.FORM_FIELDS_FOR_ATTENDEE_PAGE
+                select: _v38.FORM_FIELDS_FOR_ATTENDEE_PAGE
               });
             }
           }, [_v1, _v2, _v0, _v12, _v3, _v6, _v9]);
         return (0, _v2.useEffect)(_v14, [_v14]), (0, _v2.useMemo)(() => {
           switch (_v1) {
-            case _v14.ENTITY_TYPE.EVENT:
+            case _v13.ENTITY_TYPE.EVENT:
               if (!_v5) break;
               let _v0 = "",
                 _v1 = _v5.streamPrivacy.unlistedHash;
@@ -2080,7 +1832,7 @@
                 entityLink: `${_v5.link}${_v0}`,
                 isLoading: _v4
               };
-            case _v14.ENTITY_TYPE.VIDEO:
+            case _v13.ENTITY_TYPE.VIDEO:
               if (!_v8) break;
               return {
                 entityData: {
@@ -2105,7 +1857,7 @@
                 entityLink: _v8.link,
                 isLoading: _v7
               };
-            case _v14.ENTITY_TYPE.SHOWCASE:
+            case _v13.ENTITY_TYPE.SHOWCASE:
               if (!_v10) break;
               let _v2 = _v10.uri.split("/");
               return {
@@ -2137,24 +1889,24 @@
       _v10 = (0, _v2.useMemo)(() => _v8 && _v9 ? {
         ..._v8,
         entityLink: _v9
-      } : _v92.defaultValue, [_v8, _v9]);
+      } : _v86.defaultValue, [_v8, _v9]);
     return ((0, _v2.useEffect)(() => {
-      _v15.useConfigStore.setState({
+      _v14.useConfigStore.setState({
         entityType: _v2,
         entityId: _v0,
         isRegistrationOn: _v3,
         canCompleteEvent: _v4,
         setSelectedSection: _v5
       });
-    }, [_v4, _v0, _v2, _v8?.uri, _v3, _v5]), _v8) ? (0, _v1.jsx)(_v92.default, {
+    }, [_v4, _v0, _v2, _v8?.uri, _v3, _v5]), _v8) ? (0, _v1.jsx)(_v86.default, {
       initialValue: _v10,
-      children: (0, _v1.jsx)(_v39.default, {
-        children: (0, _v1.jsx)(_v93.default, {
+      children: (0, _v1.jsx)(_v35.default, {
+        children: (0, _v1.jsx)(_v87.default, {
           isOwner: _v8?.user?.uri === _v7?.uri,
           canEdit: !!_v8?.metadata?.interactions.edit?.uri,
-          children: (0, _v1.jsx)(_v94.default, {
+          children: (0, _v1.jsx)(_v88.default, {
             entityLink: _v8?.uri,
-            children: (0, _v1.jsx)(_v91, {})
+            children: (0, _v1.jsx)(_v85, {})
           })
         })
       })

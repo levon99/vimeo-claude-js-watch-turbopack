@@ -487,9 +487,8 @@
     };
   _v0.s(["RichTextArea", 0, _v29], 0);
   var _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0);
-  async function _v34({
+    _v32 = _v0.i(0);
+  async function _v33({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -499,24 +498,24 @@
     query: _v4,
     ..._v5
   }) {
-    return (0, _v32.measureLatency)("getAlbumVideoSuggestedUserMentions", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/albums/${_v2}/videos/${_v3}/suggested_user_mentions?${(0, _v33.searchQueryString)(_v4)}&fields=${_v1.map(_v33.intoSnakeCase).join(",")}`, {
+    return (0, _v31.measureLatency)("getAlbumVideoSuggestedUserMentions", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/albums/${_v2}/videos/${_v3}/suggested_user_mentions?${(0, _v32.searchQueryString)(_v4)}&fields=${_v1.map(_v32.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v33.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v32.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v33.deepCamelCase)(_v1);
+      return (0, _v32.deepCamelCase)(_v1);
     });
   }
   _v0.i(0);
-  var _v35 = _v0.i(0),
-    _v36 = _v0.i(0);
+  var _v34 = _v0.i(0),
+    _v35 = _v0.i(0);
   _v0.i(0);
-  var _v37 = _v0.i(0);
-  async function _v38({
+  var _v36 = _v0.i(0);
+  async function _v37({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -525,195 +524,93 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v32.measureLatency)("getVideoSuggestedUserMentions", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/videos/${_v2}/suggested_user_mentions?${(0, _v33.searchQueryString)(_v3)}&fields=${_v1.map(_v33.intoSnakeCase).join(",")}`, {
+    return (0, _v31.measureLatency)("getVideoSuggestedUserMentions", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/videos/${_v2}/suggested_user_mentions?${(0, _v32.searchQueryString)(_v3)}&fields=${_v1.map(_v32.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v33.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v32.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v33.deepCamelCase)(_v1);
+      return (0, _v32.deepCamelCase)(_v1);
     });
   }
-  var _v39 = _v0.i(0);
-  _v0.s(["useUserMentionSuggestions", 0, (_v0, _v1, _v2, _v3, _v4) => {
-    let _v5 = (0, _v39.getReviewPasswordHashFromCookie)(_v4),
-      [_v6, _v7] = function () {
-        let {
-            mutate: _v0
-          } = (0, _v35.useSWRConfig)(),
-          {
-            baseUrl: _v1,
-            jwt: _v2,
-            xVimeoPage: _v3,
-            locale: _v4
-          } = (0, _v37.useGctlConfig)(),
-          [_v5, _v6] = (0, _v36.useInternalState)();
-        return [(0, _v10.useCallback)(async _v0 => {
-          _v6({
-            type: "REQUEST"
-          });
-          try {
-            let _v0 = await _v0(`/videos/${_v0.where.videoId}/suggested_user_mentions${(0, _v36.serializeQuery)(_v0)}`, _v38({
-              ..._v0,
-              baseUrl: _v1,
-              headers: {
-                ..._v0.headers,
-                "Content-Type": "application/json",
-                Authorization: _v2 ? `jwt ${_v2}` : "",
-                "Vimeo-Page": `${_v3}`,
-                "Accept-Language": _v4 ?? "en"
-              }
-            }));
-            _v6({
-              type: "SUCCESS",
-              payload: _v0
-            });
-          } catch (_v0) {
-            _v6({
-              type: "FAILURE",
-              payload: _v0
-            });
-          }
-        }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-      }(),
-      [_v8, _v9] = function () {
-        let {
-            mutate: _v0
-          } = (0, _v35.useSWRConfig)(),
-          {
-            baseUrl: _v1,
-            jwt: _v2,
-            xVimeoPage: _v3,
-            locale: _v4
-          } = (0, _v37.useGctlConfig)(),
-          [_v5, _v6] = (0, _v36.useInternalState)();
-        return [(0, _v10.useCallback)(async _v0 => {
-          _v6({
-            type: "REQUEST"
-          });
-          try {
-            let _v0 = await _v0(`/albums/${_v0.where.albumId}/videos/${_v0.where.videoId}/suggested_user_mentions${(0, _v36.serializeQuery)(_v0)}`, _v34({
-              ..._v0,
-              baseUrl: _v1,
-              headers: {
-                ..._v0.headers,
-                "Content-Type": "application/json",
-                Authorization: _v2 ? `jwt ${_v2}` : "",
-                "Vimeo-Page": `${_v3}`,
-                "Accept-Language": _v4 ?? "en"
-              }
-            }));
-            _v6({
-              type: "SUCCESS",
-              payload: _v0
-            });
-          } catch (_v0) {
-            _v6({
-              type: "FAILURE",
-              payload: _v0
-            });
-          }
-        }, [_v1, _v3, _v2, _v4, _v6]), _v5];
-      }(),
+  _v0.s(["useGetAlbumVideoSuggestedUserMentionsLazy", 0, function () {
+    let {
+        mutate: _v0
+      } = (0, _v34.useSWRConfig)(),
       {
-        loading: _v10,
-        data: _v11
-      } = _v3 ? _v9 : _v7,
-      _v12 = (0, _v10.useCallback)((_v0, _v1 = "viewer", _v2) => {
-        _v0 && _v6({
-          where: {
-            videoId: _v0
-          },
-          query: {
-            query: _v0,
-            page: _v2,
-            perPage: _v1,
-            filter: _v1,
-            teamOwnerId: _v2,
-            reviewId: _v4,
-            password: _v5
-          },
-          select: []
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v36.useGctlConfig)(),
+      [_v5, _v6] = (0, _v35.useInternalState)();
+    return [(0, _v10.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/albums/${_v0.where.albumId}/videos/${_v0.where.videoId}/suggested_user_mentions${(0, _v35.serializeQuery)(_v0)}`, _v33({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
+          }
+        }));
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
         });
-      }, [_v6, _v0, _v1, _v2]),
-      _v13 = (0, _v10.useCallback)((_v0, _v1 = "viewer", _v2) => {
-        if (_v0 && _v3) {
-          let _v0 = (0, _v39.getShowcasePasswordHashFromCookie)(_v3);
-          _v8({
-            where: {
-              albumId: _v3,
-              videoId: _v0
-            },
-            query: {
-              query: _v0,
-              page: _v2,
-              perPage: _v1,
-              filter: _v1,
-              teamOwnerId: _v2,
-              ...(_v0 ? {
-                password: _v0
-              } : {})
-            },
-            select: []
-          });
-        }
-      }, [_v0, _v3, _v8, _v2, _v1]),
-      _v14 = (0, _v10.useMemo)(() => _v3 ? (0, _v31.default)(_v13, 500) : (0, _v31.default)(_v12, 500), [_v13, _v12, _v3]);
-    return {
-      loadingMentionSuggestion: _v10,
-      mentionSuggestionList: (0, _v10.useMemo)(() => _v11?.data?.filter(_v0 => _v0.uri).map(_v0 => (0, _v39.buildUserMentionSuggestion)(_v0)) || [], [_v11]),
-      getMentionSuggestionItemsDebounced: _v14
-    };
-  }], 0);
-  var _v40 = _v0.i(0),
-    _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
-  _v0.s(["useVideoData", 0, (_v0, _v1, _v2) => {
-    var _v3, _v4, _v5;
-    let _v6,
-      _v7,
-      _v8,
-      _v9,
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+  }], 0), _v0.s(["useGetVideoSuggestedUserMentionsLazy", 0, function () {
+    let {
+        mutate: _v0
+      } = (0, _v34.useSWRConfig)(),
       {
-        data: _v10,
-        isLoading: _v11,
-        ..._v12
-      } = (_v3 = _v0, _v4 = _v1, _v5 = _v2, _v6 = (0, _v43.useViewer)(), _v7 = (0, _v40.useGetVideo)(() => {
-        if (!_v6 || !_v3 || !_v5 || _v4) return null;
-        let _v0 = (0, _v39.getReviewPasswordHashFromCookie)(_v5);
-        return {
-          where: {
-            videoId: _v3
-          },
-          select: _v44.VIDEO_DATA_FIELDS,
-          query: {
-            reviewId: _v5,
-            password: _v0
+        baseUrl: _v1,
+        jwt: _v2,
+        xVimeoPage: _v3,
+        locale: _v4
+      } = (0, _v36.useGctlConfig)(),
+      [_v5, _v6] = (0, _v35.useInternalState)();
+    return [(0, _v10.useCallback)(async _v0 => {
+      _v6({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await _v0(`/videos/${_v0.where.videoId}/suggested_user_mentions${(0, _v35.serializeQuery)(_v0)}`, _v37({
+          ..._v0,
+          baseUrl: _v1,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v2 ? `jwt ${_v2}` : "",
+            "Vimeo-Page": `${_v3}`,
+            "Accept-Language": _v4 ?? "en"
           }
-        };
-      }, {
-        revalidateOnFocus: !1
-      }), _v8 = (0, _v41.useGetAlbumVideoData)(_v4 || null, Number((0, _v39.getVideoIdFromClipRequestId)(_v3)), (0, _v39.mapToClipFields)(_v44.VIDEO_DATA_FIELDS), !_v4), _v9 = (0, _v42.useGetUnlockedVideo)(() => !_v6 || _v4 || _v5 ? null : {
-        where: {
-          videoId: _v3
-        },
-        select: _v44.VIDEO_DATA_FIELDS
-      }, {
-        revalidateOnFocus: !1
-      }), _v5 ? _v7 : _v4 ? {
-        ..._v8,
-        data: (0, _v39.extractClipData)(_v8.data),
-        isLoading: _v8.isLoading
-      } : _v9);
-    return {
-      videoData: _v10,
-      videoDataLoading: _v11 || !_v10,
-      ..._v12
-    };
+        }));
+        _v6({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v6({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v1, _v3, _v2, _v4, _v6]), _v5];
   }], 0);
 }

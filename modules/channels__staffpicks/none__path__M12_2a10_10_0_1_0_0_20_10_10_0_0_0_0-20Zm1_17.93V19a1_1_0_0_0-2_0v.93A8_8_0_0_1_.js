@@ -82,74 +82,16 @@
     _v33 = _v0.i(0),
     _v34 = _v0.i(0),
     _v35 = _v0.i(0),
-    _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
-  let _v44 = ({
-      target: _v0,
-      targetPath: _v1,
-      copy: _v2
-    }, _v3) => {
-      let _v4 = window.location.pathname,
-        _v5 = null;
-      switch (_v4) {
-        case "/my-feed":
-          _v5 = "my_feed";
-          break;
-        case "/watch":
-          _v5 = "watch";
-      }
-      let _v6 = {
-        ...(0, _v38.buildActionBpContext)({
-          action_type: "click",
-          feature: null
-        }),
-        ...(0, _v41.buildWebBpContext)({
-          page_name: _v5 ?? "other",
-          referrer_page_name: null,
-          referrer: document.referrer,
-          path: window.location.pathname,
-          target: _v0,
-          target_path: _v1
-        }),
-        ...(0, _v39.buildProductAnalyticsBpContext)({
-          flow: null,
-          modal_name: null,
-          entity_type: null,
-          element: "button",
-          location: "side_nav",
-          feature: _v5 ?? "test",
-          product: "community",
-          copy: _v2,
-          device_type: (0, _v37.default)()
-        }),
-        ...(0, _v40.buildTeamBpContextFromTeamUser)(_v3),
-        ...(0, _v43.buildThirdPartyIntegrationBpContext)({
-          is_integration: !1,
-          integration_id: null,
-          integration_name: null,
-          managed_user_id: null,
-          app_id: null,
-          integration_type: null,
-          partner_bucket: null,
-          is_partner: null
-        })
-      };
-      (0, _v42.sendBpEventWithContexts)("vimeo.content_navigation", _v6);
-    },
-    _v45 = {
+    _v36 = _v0.i(0);
+  let _v37 = (_v0, _v1) => {},
+    _v38 = {
       iconSize: (0, _v17.rem)(24),
       iconMarginRight: (0, _v17.rem)(12),
       borderRadius: (0, _v17.rem)(12),
       paddingX: (0, _v17.rem)(8),
       paddingLeft: (0, _v17.rem)(6)
     },
-    _v46 = ({
+    _v39 = ({
       icon: _v0,
       label: _v1,
       link: _v2,
@@ -162,7 +104,7 @@
         } = (0, _v35.useWatchTracking)(),
         _v7 = _v2.slice(1) + "_link",
         _v8 = _v0 => {
-          _v0?.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer"), document.getElementsByClassName(_v7)[0].blur(), _v44({
+          _v0?.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer"), document.getElementsByClassName(_v7)[0].blur(), _v37({
             target: _v3,
             targetPath: _v2,
             copy: _v3.split("_").join(" ")
@@ -179,7 +121,7 @@
           "Enter" === _v0.key && _v8(_v0);
         },
         children: (0, _v1.jsx)(_v36.MenuItem, {
-          ..._v45,
+          ..._v38,
           className: _v7,
           icon: _v0,
           label: _v1,
@@ -193,7 +135,7 @@
         })
       });
     },
-    _v47 = ({
+    _v40 = ({
       userId: _v0,
       navContext: _v1
     }) => {
@@ -322,13 +264,13 @@
               as: "li",
               listStyleType: "none",
               children: (0, _v1.jsx)(_v36.MenuItem, {
-                ..._v45,
+                ..._v38,
                 icon: _v0.active ? _v0.iconActive : _v0.icon,
                 label: _v0.label,
                 active: _v0.active,
                 href: _v0.href,
                 onClick: () => {
-                  _v44({
+                  _v37({
                     target: _v0.target,
                     targetPath: _v0.targetPath,
                     copy: _v0.copy
@@ -439,7 +381,7 @@
                 label: _v1,
                 link: _v2,
                 target: _v3
-              }) => (0, _v1.jsx)(_v46, {
+              }) => (0, _v1.jsx)(_v39, {
                 icon: _v0,
                 label: _v1,
                 link: _v2,
@@ -563,7 +505,7 @@
               label: _v1,
               link: _v2,
               target: _v3
-            }) => (0, _v1.jsx)(_v46, {
+            }) => (0, _v1.jsx)(_v39, {
               icon: _v0,
               label: _v1,
               link: _v2,
@@ -574,9 +516,9 @@
         })
       });
     },
-    _v48 = (0, _v2.createContext)(256);
-  _v0.s(["SideNavWidthContext", 0, _v48], 0);
-  let _v49 = ({
+    _v41 = (0, _v2.createContext)(256);
+  _v0.s(["SideNavWidthContext", 0, _v41], 0);
+  let _v42 = ({
     children: _v0
   }) => {
     let _v1 = (0, _v12.useViewer)(),
@@ -613,7 +555,7 @@
               onClose: _v5,
               isMobile: _v3,
               hideWhatsNew: !0,
-              children: (0, _v1.jsx)(_v47, {
+              children: (0, _v1.jsx)(_v40, {
                 userId: _v1?.user?.id,
                 navContext: "watchpage"
               })
@@ -631,7 +573,7 @@
           } : void 0,
           isSideNavActive: _v4,
           hasSideNavLayout: !_v3
-        }), (0, _v1.jsx)(_v48.Provider, {
+        }), (0, _v1.jsx)(_v41.Provider, {
           value: _v10,
           children: _v0
         }), _v3 && _v4 && (0, _v1.jsx)(_v3.Box, {
@@ -651,7 +593,7 @@
       })]
     });
   };
-  _v0.s(["getLayout", 0, _v0 => (0, _v1.jsx)(_v49, {
+  _v0.s(["getLayout", 0, _v0 => (0, _v1.jsx)(_v42, {
     children: _v0
   })], 0);
 }

@@ -268,7 +268,6 @@
             applicableFolderPolicies: _v0.applicableFolderPolicies,
             handleChangeSelectedFoldersTree: _v2,
             handleChangeSelectedPermissionPolicy: _v3,
-            invitedWorkspaceMembers: _v0.invitedWorkspaceMembers,
             selectedFoldersTree: _v0.selectedFoldersTree,
             selectedPermissionPolicy: _v0.selectedPermissionPolicy,
             selectedWorkspace: _v9
@@ -357,25 +356,23 @@
       applicableFolderPolicies: _v0,
       handleChangeSelectedFoldersTree: _v1,
       handleChangeSelectedPermissionPolicy: _v2,
-      invitedWorkspaceMembers: _v3,
-      selectedFoldersTree: _v4,
-      selectedPermissionPolicy: _v5,
-      selectedWorkspace: _v6
+      selectedFoldersTree: _v3,
+      selectedPermissionPolicy: _v4,
+      selectedWorkspace: _v5
     }) => {
-      let _v7 = (0, _v8.getTranslations)();
+      let _v6 = (0, _v8.getTranslations)();
       return (0, _v1.jsx)(_v55.ModalBody, {
         pt: 0,
         children: (0, _v1.jsx)(_v53.AddToFoldersModalBodyContent, {
           applicableFolderPolicies: _v0,
           error: null,
           header: (0, _v1.jsx)(_v72.AddToFolderModalBodyHeader, {}),
-          ownerId: _v6?.internalId,
-          searchPlaceHolderText: _v7.Search,
-          selectedFoldersTree: _v4,
-          selectedPermissionPolicy: _v5,
+          ownerId: _v5?.internalId,
+          searchPlaceHolderText: _v6.Search,
+          selectedFoldersTree: _v3,
+          selectedPermissionPolicy: _v4,
           setSelectedFoldersTree: _v1,
-          setSelectedPermissionPolicy: _v2,
-          teamUsers: _v3
+          setSelectedPermissionPolicy: _v2
         })
       });
     };

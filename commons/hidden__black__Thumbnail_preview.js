@@ -2623,48 +2623,10 @@
   var _v103 = _v0.i(0),
     _v104 = _v0.i(0),
     _v105 = _v0.i(0),
-    _v106 = _v0.i(0);
-  let _v107 = "safe",
-    _v108 = "advertisement";
-  function _v109(_v0) {
-    return {
-      ...(0, _v105.newTeamCtx)(),
-      ...(0, _v105.newWebCtx)(),
-      ...(0, _v105.newThirdPartyIntegrationCtx)(),
-      ...(0, _v105.newActionCtx)("click"),
-      ...(0, _v105.newLiveCtx)({
-        live_feature: "content_rating"
-      }),
-      ...(0, _v105.newProductAnalyticsCtx)({
-        product: "events",
-        feature: "privacy",
-        location: "drawer",
-        element: _v0
-      })
-    };
-  }
-  function _v110() {
-    return {
-      ...(0, _v105.newTeamCtx)(),
-      ...(0, _v105.newWebCtx)(),
-      ...(0, _v105.newThirdPartyIntegrationCtx)(),
-      ...(0, _v105.newActionCtx)("click"),
-      ...(0, _v105.newLiveCtx)({
-        live_feature: "event_privacy"
-      }),
-      ...(0, _v105.newProductAnalyticsCtx)({
-        product: "events",
-        feature: "privacy",
-        location: "drawer",
-        element: "dropdown"
-      })
-    };
-  }
-  var _v111 = _v0.i(0),
-    _v112 = _v0.i(0),
-    _v113 = _v0.i(0),
-    _v114 = _v0.i(0);
-  function _v115({
+    _v106 = _v0.i(0),
+    _v107 = _v0.i(0),
+    _v108 = _v0.i(0);
+  function _v109({
     privacy: _v0,
     allowedPrivacies: _v1,
     password: _v2,
@@ -2684,22 +2646,22 @@
     return (0, _v3.jsxs)(_v7.Flex, {
       direction: "column",
       gap: (0, _v6.rem)(8),
-      children: [(0, _v3.jsx)(_v114.EventPrivacy, {
+      children: [(0, _v3.jsx)(_v108.EventPrivacy, {
         selectedPrivacy: _v6,
         allowedPrivacies: _v1,
         isDisabled: _v4,
         disabledTip: _v3,
         onPrivacySelect: _v10
-      }, `view-${_v6}`), _v6 === _v80.EStreamPrivacy.PASSWORD && (0, _v3.jsx)(_v113.EventPassword, {
+      }, `view-${_v6}`), _v6 === _v80.EStreamPrivacy.PASSWORD && (0, _v3.jsx)(_v107.EventPassword, {
         isDisabled: _v4,
         onChange: _v11,
         password: _v8
       }, `pass-${_v2}`)]
     });
   }
-  var _v116 = _v0.i(0),
-    _v117 = _v0.i(0);
-  let _v118 = ["link", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "streamPrivacy.unlistedHash"];
+  var _v110 = _v0.i(0),
+    _v111 = _v0.i(0);
+  let _v112 = ["link", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "streamPrivacy.unlistedHash"];
   _v0.s(["PrivacySettings", 0, function ({
     id: _v0 = (0, _v60.createLiveDomName)("privacy-settings"),
     eventSettingsContext: {
@@ -2720,7 +2682,7 @@
       _v11 = (0, _v104.useIsLiveDemoSubscription)(),
       {
         trackPrivacyChanged: _v12
-      } = (0, _v111.useViewPrivacyChangeTracking)(),
+      } = (0, _v105.useViewPrivacyChangeTracking)(),
       {
         trackLiveStreamPrivacyChanged: _v13
       } = (0, _v14.useLiveStreamBroadcasterTracking)(),
@@ -2729,90 +2691,37 @@
       _v16 = !_v14 && !_v6.find(_v0 => _v0 === _v7),
       _v17 = (0, _v5.useMemo)(() => _v2.value || [], [_v2.value]),
       _v18 = (0, _v5.useCallback)((_v0, _v1) => {
-        if ((_v7 !== _v0 || _v9 !== _v1) && (_v0 !== _v80.EStreamPrivacy.PASSWORD || _v1.length)) {
-          var _v2;
-          _v3({
-            streamPrivacy: {
-              view: _v0
-            },
-            streamPassword: _v0 === _v80.EStreamPrivacy.PASSWORD ? _v1 : void 0
-          }, _v118).then(() => {
-            _v7 !== _v0 && (_v12({
-              entityType: "live_event",
-              previousPrivacy: _v7 ?? null,
-              newPrivacy: _v0
-            }), _v13({
-              liveStreamPrivacyType: "link_privacy",
-              liveStreamPrivacyValue: String(_v0)
-            }));
-          }), _v2 = _v0 === _v80.EStreamPrivacy.PASSWORD, (0, _v106.createBPv2EventFactory)("vimeo.change_link_privacy", 5, () => ({
-            ..._v110()
-          }), () => ({
-            device_type: _v73.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web",
-            privacy_field_name: "old_video_privacy",
-            privacy_field_value: _v0,
-            is_video_password_protected: _v2,
-            is_preset_applied: null
-          }))({
-            value: null
-          });
-        }
+        (_v7 !== _v0 || _v9 !== _v1) && (_v0 !== _v80.EStreamPrivacy.PASSWORD || _v1.length) && (_v3({
+          streamPrivacy: {
+            view: _v0
+          },
+          streamPassword: _v0 === _v80.EStreamPrivacy.PASSWORD ? _v1 : void 0
+        }, _v112).then(() => {
+          _v7 !== _v0 && (_v12({
+            entityType: "live_event",
+            previousPrivacy: _v7 ?? null,
+            newPrivacy: _v0
+          }), _v13({
+            liveStreamPrivacyType: "link_privacy",
+            liveStreamPrivacyValue: String(_v0)
+          }));
+        }), _v80.EStreamPrivacy.PASSWORD);
       }, [_v3, _v7, _v9, _v12, _v13]),
       _v19 = (0, _v5.useCallback)((_v0, _v1) => {
-        if (_v8 !== _v0) {
-          var _v2;
-          _v3({
-            streamPrivacy: {
-              embed: _v0
-            }
-          }, _v118), _v2 = _v7 === _v80.EStreamPrivacy.PASSWORD, (0, _v106.createBPv2EventFactory)("vimeo.change_embed_privacy", 5, () => ({
-            ..._v110()
-          }), () => ({
-            device_type: _v73.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web",
-            privacy_field_name: "old_embed_privacy",
-            privacy_field_value: _v0,
-            is_video_password_protected: _v2,
-            is_preset_applied: null
-          }))({
-            value: null
-          }), _v13({
-            liveStreamPrivacyType: "embed_privacy",
-            liveStreamPrivacyValue: String(_v0)
-          });
-        }
+        _v8 !== _v0 && (_v3({
+          streamPrivacy: {
+            embed: _v0
+          }
+        }, _v112), _v80.EStreamPrivacy.PASSWORD, _v13({
+          liveStreamPrivacyType: "embed_privacy",
+          liveStreamPrivacyValue: String(_v0)
+        }));
         _v1 !== _v17 && _v4(_v1);
       }, [_v8, _v17, _v3, _v4, _v7, _v13]),
       _v20 = (0, _v5.useCallback)(_v0 => {
         _v3({
           contentRating: _v0
-        }), function (_v0, _v1, _v2 = !1) {
-          let _v3 = !!_v0?.includes(_v107),
-            _v4 = !!_v1?.includes(_v107);
-          _v3 !== _v4 && (0, _v106.createBPv2EventFactory)("vimeo.change_content_rating", 5, () => ({
-            ..._v109("dropdown")
-          }), () => ({
-            device_type: _v73.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web",
-            privacy_field_name: "rating",
-            privacy_field_value: _v4 ? "safe" : "mature",
-            is_video_password_protected: _v2,
-            is_preset_applied: null
-          }))({
-            value: null
-          });
-          let _v5 = !!_v0?.includes(_v108),
-            _v6 = !!_v1?.includes(_v108);
-          _v5 !== _v6 && (0, _v106.createBPv2EventFactory)("vimeo.change_content_notice", 5, () => ({
-            ..._v109("check_box")
-          }), () => ({
-            device_type: _v73.browserConfig.BROWSER?.isMobile ? "mobile_web" : "web",
-            privacy_field_name: "contains_ad",
-            privacy_field_value: String(_v6),
-            is_video_password_protected: _v2,
-            is_preset_applied: null
-          }))({
-            value: null
-          });
-        }(_v10, _v0, _v7 === _v80.EStreamPrivacy.PASSWORD), _v13({
+        }), function (_v0 = !1) {}(_v7 === _v80.EStreamPrivacy.PASSWORD), _v13({
           liveStreamPrivacyType: "content_rating",
           liveStreamPrivacyValue: JSON.stringify(_v0)
         });
@@ -2820,7 +2729,7 @@
       {
         tooltip: _v21,
         isDisabled: _v22
-      } = (0, _v112.useGetEditEmbedPrivacyDisabled)();
+      } = (0, _v106.useGetEditEmbedPrivacyDisabled)();
     return (0, _v3.jsxs)(_v7.Flex, {
       id: _v0,
       direction: "column",
@@ -2829,24 +2738,24 @@
       children: [_v14 && _v15 ? (0, _v3.jsx)(_v86.Alert, {
         children: (0, _v3.jsxs)(_v87.AlertDescription, {
           margin: 0,
-          children: [_v117.sharedTranslations.showcasePrivacyNotice, " ", (0, _v3.jsx)(_v22.Text, {
+          children: [_v111.sharedTranslations.showcasePrivacyNotice, " ", (0, _v3.jsx)(_v22.Text, {
             href: _v103.vimeoConfig.PATH.SHOWCASE_MANAGE_URL(_v15),
             target: "_blank",
             variant: "body-md",
             color: "blue.500",
             textDecoration: "underline",
             as: "a",
-            children: _v117.sharedTranslations.manageShowcase
+            children: _v111.sharedTranslations.manageShowcase
           })]
         })
       }) : null, _v16 ? (0, _v3.jsx)(_v86.Alert, {
         children: (0, _v3.jsx)(_v87.AlertDescription, {
           margin: 0,
-          children: _v117.sharedTranslations.eventPrivacyFrozen
+          children: _v111.sharedTranslations.eventPrivacyFrozen
         })
-      }) : null, _v7 && _v6 ? (0, _v3.jsx)(_v115, {
+      }) : null, _v7 && _v6 ? (0, _v3.jsx)(_v109, {
         isDisabled: _v11 || _v14,
-        disabledTip: _v11 ? _v116.rtmpTranslations.viewPrivacyDemoDisabledTip : void 0,
+        disabledTip: _v11 ? _v110.rtmpTranslations.viewPrivacyDemoDisabledTip : void 0,
         privacy: _v7,
         allowedPrivacies: _v6,
         password: _v9,
@@ -2862,7 +2771,7 @@
         }), _v8 ? (0, _v3.jsx)(_v102, {
           isDisabled: _v11 || _v14 || _v22,
           isSelectDisabled: _v22,
-          disabledTip: _v11 ? _v116.rtmpTranslations.embedPrivacyDemoDisabledTip : _v22 ? _v21 : void 0,
+          disabledTip: _v11 ? _v110.rtmpTranslations.embedPrivacyDemoDisabledTip : _v22 ? _v21 : void 0,
           embedPrivacy: _v8,
           domains: _v17,
           showNotice: _v7 === _v80.EStreamPrivacy.NOBODY,
@@ -2884,13 +2793,13 @@
       })]
     });
   }], 0);
-  var _v119 = _v0.i(0),
-    _v120 = _v0.i(0),
-    _v121 = _v0.i(0);
+  var _v113 = _v0.i(0),
+    _v114 = _v0.i(0),
+    _v115 = _v0.i(0);
   _v0.s(["useFailsafeUpgradeModal", 0, function ({
     canOpen: _v0 = !0
   } = {}) {
-    return (0, _v121.useUpgradeModal)({
+    return (0, _v115.useUpgradeModal)({
       canOpen: _v0,
       tracking: {
         params: {
@@ -2910,17 +2819,17 @@
       templateType: "enterprise",
       modalConfig: {
         mkcCode: "109813",
-        enterpriseTitle: _v119.T_GO_LIVE_WITH_PEACE_OF_MIND,
-        enterpriseSubtitle: _v119.T_ADD_FAIL_SAFE_STREAMING,
-        customFeaturesList: (0, _v3.jsx)(_v120.UpsellFeaturesList, {
-          featuresList: _v119.T_FAIL_SAFE_STREAMING_FEATURES
+        enterpriseTitle: _v113.T_GO_LIVE_WITH_PEACE_OF_MIND,
+        enterpriseSubtitle: _v113.T_ADD_FAIL_SAFE_STREAMING,
+        customFeaturesList: (0, _v3.jsx)(_v114.UpsellFeaturesList, {
+          featuresList: _v113.T_FAIL_SAFE_STREAMING_FEATURES
         })
       }
     });
   }], 0), _v0.s(["useUnlimitedStreamUpgradeModal", 0, function ({
     canOpen: _v0 = !0
   } = {}) {
-    return (0, _v121.useUpgradeModal)({
+    return (0, _v115.useUpgradeModal)({
       canOpen: _v0,
       tracking: {
         params: {
@@ -2940,16 +2849,16 @@
       templateType: "enterprise",
       modalConfig: {
         mkcCode: "109754",
-        enterpriseTitle: _v119.T_STREAM_WITHOUT_INTERRUPTIONS,
-        enterpriseSubtitle: _v119.T_CREATE_CONTINUOUS_STREAM,
-        customFeaturesList: (0, _v3.jsx)(_v120.UpsellFeaturesList, {
-          featuresList: _v119.T_UNLIMITED_DURATION_FEATURES
+        enterpriseTitle: _v113.T_STREAM_WITHOUT_INTERRUPTIONS,
+        enterpriseSubtitle: _v113.T_CREATE_CONTINUOUS_STREAM,
+        customFeaturesList: (0, _v3.jsx)(_v114.UpsellFeaturesList, {
+          featuresList: _v113.T_UNLIMITED_DURATION_FEATURES
         })
       }
     });
   }], 0);
-  var _v122 = _v0.i(0),
-    _v123 = _v0.i(0);
+  var _v116 = _v0.i(0),
+    _v117 = _v0.i(0);
   _v0.s(["useTimeBasedDismissableNotification", 0, function ({
     storedKey: _v0,
     cooldownMs: _v1 = 0,
@@ -2957,12 +2866,12 @@
   }) {
     let [_v3, _v4] = (0, _v5.useState)(() => {
       if (_v2) return !1;
-      let _v0 = (0, _v122.getFromLocalStorage)(_v0),
+      let _v0 = (0, _v116.getFromLocalStorage)(_v0),
         _v1 = _v0 ? Number(_v0) : null;
-      return !_v1 || _v1 < (0, _v123.getAbsoluteNow)() - _v1;
+      return !_v1 || _v1 < (0, _v117.getAbsoluteNow)() - _v1;
     });
     return [_v3, (0, _v5.useCallback)(() => {
-      (0, _v122.setLocalStorageItem)(_v0, (0, _v123.getAbsoluteNow)()), _v4(!1);
+      (0, _v116.setLocalStorageItem)(_v0, (0, _v117.getAbsoluteNow)()), _v4(!1);
     }, [_v0])];
   }], 0);
 }

@@ -1,0 +1,744 @@
+{
+  "use strict";
+
+  var _v1,
+    _v2 = _v0.i(0),
+    _v3 = _v0.i(0),
+    _v4 = _v0.i(0),
+    _v5 = _v0.i(0),
+    _v6 = _v0.i(0);
+  function _v7(_v0, _v1, _v2) {}
+  function _v8(_v0, _v1, _v2, _v3) {}
+  function _v9(_v0, _v1, _v2, _v3) {}
+  function _v10(_v0, _v1, _v2, _v3) {}
+  _v0.s(["trackVenuesAddPollVote", 0, function (_v0, _v1, _v2) {}, "trackVenuesAddQaQuestion", 0, _v7, "trackVenuesAddQaQuestionReaction", 0, _v8, "trackVenuesAddQaReply", 0, _v10, "trackVenuesRemoveQaQuestionReaction", 0, _v9, "trackVenuesViewPoll", 0, function (_v0) {}, "trackVenuesViewQa", 0, function (_v0) {}], 0);
+  var _v11 = _v0.i(0),
+    _v12 = _v0.i(0),
+    _v13 = _v0.i(0),
+    _v14 = _v0.i(0),
+    _v15 = _v0.i(0);
+  let _v16 = new _v4.Logger("🗝EM", _v15.liveApplicationConfig.TRACKING.IS_EMBED_MESSAGING_LOG_ENABLED);
+  function _v17(_v0, _v1, _v2 = !0) {
+    if (_v14.environmentConfig.IS_IFRAME && window.parent) try {
+      let _v0 = window.document.referrer,
+        _v1 = "*";
+      if (!0 === _v2) {
+        let _v0 = _v14.environmentConfig.IFRAME_ALLOWED_ORIGINS.find(_v0 => _v0.startsWith(_v0));
+        if (!_v0) return _v16.info("Skip posting message, origin is not allowed:", _v0), !1;
+        _v1 = _v0;
+      } else "string" == typeof _v2 && (_v1 = _v2);
+      return _v16.info("Posting iframe page message:", _v0, _v1, _v1), window.parent.postMessage({
+        type: _v0,
+        data: _v1
+      }, _v1), !0;
+    } catch (_v0) {
+      _v16.error("Failed to post iframe message:", _v0);
+    } else _v16.info("Skip iframe post page message:", _v0, _v1, _v2);
+    return !1;
+  }
+  _v0.s(["postPageMessage", 0, _v17], 0);
+  var _v18 = ((_v1 = {}).ACTIVE_POLL_CHANGED = "ACTIVE_POLL_CHANGED", _v1.POLL_OPTION_VOTED = "POLL_OPTION_VOTED", _v1.ACTIVE_QNA_CHANGED = "ACTIVE_QNA_CHANGED", _v1.QUESTION_SUBMIT = "QUESTION_SUBMIT", _v1);
+  _v0.s(["EInteractionEmbedSignal", () => _v18], 0);
+  var _v19 = _v0.i(0),
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0),
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0);
+  async function _v25(_v0, _v1) {
+    _v0.log.info("Creating qna session:", _v1), _v0.assertIsInitialized();
+    let _v2 = await (0, _v20.pushRefValue)(_v0.firebase, _v0.qnaSessionsRef),
+      _v3 = _v2.key,
+      _v4 = (0, _v21.createQuestionSessionRecordInteractionObject)({
+        id: _v3,
+        isQnaModerated: _v1
+      });
+    return await (0, _v20.setRefValue)(_v0.firebase, _v2, {
+      ..._v4,
+      createdAt: _v0.firebase.database.serverTimestamp()
+    }), _v3;
+  }
+  async function _v26(_v0, _v1) {
+    _v0.log.info("Toggling moderation state:", _v1), _v0.assertIsInitialized(), await (0, _v20.setRefValue)(_v0.firebase, _v0.qnaModerationStatusRef, _v1);
+  }
+  async function _v27(_v0, _v1) {
+    _v0.log.info("Toggling anonymous questions state:", _v1), _v0.assertIsInitialized(), await (0, _v20.setRefValue)(_v0.firebase, _v0.qnaAnonymousQuestionsStatusRef, _v1);
+  }
+  async function _v28(_v0, _v1) {
+    _v0.log.info("Toggling speaker QNA reply state:", _v1), _v0.assertIsInitialized(), _v0.setContext({
+      isSpeakerQnaReplyAllowed: _v1
+    });
+    try {
+      await (0, _v20.setRefValue)(_v0.firebase, _v0.qnaSpeakerReplyStatusRef, _v1);
+    } catch (_v0) {
+      throw _v0.setContext({
+        isSpeakerQnaReplyAllowed: !_v1
+      }), _v0;
+    }
+  }
+  async function _v29(_v0, _v1) {
+    _v0.log.info("Open qna session:", _v1), _v0.assertIsInitialized();
+    let _v2 = (0, _v20.getRefChild)(_v0.firebase, _v0.qnaSessionsRef, _v1),
+      _v3 = await (0, _v20.getRefValue)(_v0.firebase, _v2);
+    if (_v3) await (0, _v20.batchedDatabaseUpdate)(_v0.firebase, _v0.rootRef, [[_v0.qnaActiveSessionMetaRef, _v1], [(0, _v20.getRefChild)(_v0.firebase, _v2, "startedAt"), _v0.firebase.database.serverTimestamp()]]);else throw new _v19.LiveError("Tried to open session that does not exist.", {
+      code: _v12.ELiveErrorCode.INVALID_PARAMETERS,
+      data: {
+        session: _v3,
+        sessionId: _v1
+      }
+    });
+  }
+  async function _v30(_v0) {
+    _v0.log.info("Closing current qna session"), _v0.assertIsInitialized();
+    let {
+      config: _v1
+    } = _v0.context;
+    _v0.emitSignal({
+      type: _v24.ELiveGraphicsSignal.QNA_QUESTION_DESELECTED
+    }), _v0?.qnaRepliesBuffer?.resetValue(), _v1.canUseQnaModeration ? await (0, _v20.batchedDatabaseUpdate)(_v0.firebase, _v0.rootRef, [[_v0.qnaModerationStatusRef, !1], [_v0.qnaActiveSessionMetaRef, null]]) : await (0, _v20.removeRefValue)(_v0.firebase, _v0.qnaActiveSessionMetaRef);
+  }
+  async function _v31(_v0, _v1) {
+    _v0.log.info("Approving question:", _v1), _v0.assertIsInitialized(), _v0.assertActiveSessionExists();
+    let _v2 = (0, _v20.getRefChild)(_v0.firebase, _v0.qnaActiveSessionRef, `pendingQuestions/${_v1}`),
+      _v3 = (0, _v20.getRefChild)(_v0.firebase, _v0.qnaActiveSessionRef, `questions/${_v1}`),
+      _v4 = await (0, _v20.getRefValue)(_v0.firebase, _v2);
+    _v4.state = _v13.EQuestionState.ASKED, await (0, _v20.batchedDatabaseUpdate)(_v0.firebase, _v0.rootRef, [[_v2, null], [_v3, _v4]]);
+  }
+  async function _v32(_v0, _v1, _v2) {
+    _v0.log.info("Archiving question:", _v1, _v2), _v0.assertActiveSessionExists();
+    let {
+      activeSessionQuestions: _v3,
+      activeSessionPendingQuestions: _v4,
+      activeSessionPinnedQuestionId: _v5
+    } = _v0.context;
+    _v0.assertQuestionExists(_v1, _v2 ? _v3 : _v4).state === _v13.EQuestionState.ANSWERING && _v0.emitSignal({
+      type: _v24.ELiveGraphicsSignal.QNA_QUESTION_DESELECTED
+    }), _v1 === _v5 && (await _v41(_v0, _v1)), await (0, _v20.updateRefValue)(_v0.firebase, (0, _v20.getRefChild)(_v0.firebase, _v0.qnaActiveSessionRef, `${_v2 ? "questions" : "pendingQuestions"}/${_v1}`), {
+      state: _v13.EQuestionState.ARCHIVED,
+      archivedAt: _v0.firebase.database.serverTimestamp()
+    });
+  }
+  async function _v33(_v0, _v1, _v2) {
+    if (_v0.log.info("Un-archiving question:", _v1, _v2), _v0.assertActiveSessionExists(), !_v2) return _v0.approveQuestion(_v1);
+    await (0, _v20.updateRefValue)(_v0.firebase, (0, _v20.getRefChild)(_v0.firebase, _v0.qnaActiveSessionRef, `questions/${_v1}`), {
+      state: _v13.EQuestionState.ASKED,
+      archivedAt: null
+    });
+  }
+  async function _v34(_v0, _v1) {
+    _v0.log.info("Deactivating question:", _v1), _v0.assertActiveSessionExists(), _v0.emitSignal({
+      type: _v24.ELiveGraphicsSignal.QNA_QUESTION_DESELECTED
+    }), await (0, _v20.updateRefValue)(_v0.firebase, (0, _v20.getRefChild)(_v0.firebase, _v0.qnaActiveSessionRef, `questions/${_v1}`), {
+      state: _v13.EQuestionState.ASKED
+    });
+  }
+  async function _v35(_v0, _v1) {
+    _v0.log.info("Answering question:", _v1), _v0.assertIsInitialized(), _v0.assertActiveSessionExists();
+    let _v2 = _v0.assertQuestionExists(_v1),
+      {
+        activeSessionQuestions: _v3
+      } = _v0.context,
+      _v4 = Object.entries(_v3).filter(([, _v0]) => _v0.state === _v13.EQuestionState.ANSWERING).map(([_v0]) => [(0, _v20.getRefChild)(_v0.firebase, _v0.qnaActiveSessionRef, `questions/${_v0}/state`), _v13.EQuestionState.ASKED]);
+    _v4.push([(0, _v20.getRefChild)(_v0.firebase, _v0.qnaActiveSessionRef, `questions/${_v1}/state`), _v13.EQuestionState.ANSWERING], [(0, _v20.getRefChild)(_v0.firebase, _v0.qnaActiveSessionRef, `questions/${_v1}/answered`), !0]), _v0.emitSignal({
+      type: _v24.ELiveGraphicsSignal.QNA_QUESTION_SELECTED,
+      data: _v2
+    }), await (0, _v20.batchedDatabaseUpdate)(_v0.firebase, _v0.rootRef, _v4);
+  }
+  async function _v36(_v0, _v1, _v2) {
+    _v0.assertIsInitialized(), _v0.assertActiveSessionExists();
+    let {
+      data: _v3
+    } = _v0.queryDataSync({
+      type: _v23.ELiveInteractionQuery.LIVE_INTERACTION_USER
+    });
+    if (!_v3) throw new _v19.LiveError("User should be authorized to submit questions.", {
+      code: _v12.ELiveErrorCode.UNAUTHORIZED
+    });
+    let {
+        isEventModerated: _v4,
+        activeSessionId: _v5
+      } = _v0.context,
+      _v6 = _v6.vimeoConfig.USER.DEFAULT_LOGO_URL(75);
+    _v0.log.info("Submitting question:", _v5, _v4);
+    let _v7 = await (0, _v20.pushRefValue)(_v0.firebase, (0, _v20.getRefChild)(_v0.firebase, _v0.qnaActiveSessionRef, _v4 ? "pendingQuestions" : "questions"), {}),
+      _v8 = _v2 ? null : (0, _v21.createQuestionAuthorInteractionObject)({
+        id: _v3.id,
+        displayName: _v3.displayName,
+        avatarUrl: _v2 ? _v6 : _v3.avatarUrl ?? _v6
+      }),
+      _v9 = (0, _v21.createQuestionInteractionObject)({
+        anonymous: _v2,
+        id: _v7.key,
+        state: _v4 ? _v13.EQuestionState.PENDING : _v13.EQuestionState.ASKED,
+        text: _v1,
+        user: _v8
+      });
+    await (0, _v20.setRefValue)(_v0.firebase, _v7, {
+      ..._v9,
+      createdAt: _v0.firebase.database.serverTimestamp()
+    }), _v0.composerSessionType === _v11.EComposerSessionType.VENUE && _v7(_v5, _v7.key, _v2), _v17(_v18.QUESTION_SUBMIT, (0, _v5.default)(_v9), !0);
+  }
+  async function _v37(_v0, _v1) {
+    _v0.assertIsInitialized(), _v0.assertActiveSessionExists();
+    let _v2 = (0, _v22.queryInteractionUserSync)(_v0),
+      _v3 = String(_v2?.id);
+    if (!_v3) throw new _v19.LiveError("User should be authorized to vote questions.", {
+      code: _v12.ELiveErrorCode.UNAUTHORIZED
+    });
+    let {
+        activeSessionQuestions: _v4,
+        activeSessionId: _v5
+      } = _v0.context,
+      _v6 = !!Object.values(_v4).find(_v0 => _v0.id === _v1)?.isVotedByMe,
+      _v7 = !!Object.values(_v4).find(_v0 => _v0.id === _v1)?.anonymous,
+      _v8 = (0, _v20.getRefChild)(_v0.firebase, _v0.qnaActiveSessionRef, `questions/${_v1}/votes/${_v3}`);
+    _v6 ? (_v0.log.info("Removing vote from question:", _v1), await (0, _v20.removeRefValue)(_v0.firebase, _v8), _v0.composerSessionType === _v11.EComposerSessionType.VENUE && _v9(String(_v5), _v1, _v7, "upvote")) : (_v0.log.info("Voting for question:", _v1), await (0, _v20.pushRefValue)(_v0.firebase, _v8, {
+      userId: _v3
+    }), _v0.composerSessionType === _v11.EComposerSessionType.VENUE && _v8(String(_v5), _v1, _v7, "upvote"));
+  }
+  async function _v38(_v0, _v1, _v2) {
+    _v0.log.info("Replying question:", _v1), _v0.assertIsInitialized(), _v0.assertActiveSessionExists();
+    let {
+      data: _v3
+    } = _v0.queryDataSync({
+      type: _v23.ELiveInteractionQuery.LIVE_INTERACTION_USER
+    });
+    if (!_v3) throw new _v19.LiveError("User should be authorized to reply questions.", {
+      code: _v12.ELiveErrorCode.UNAUTHORIZED
+    });
+    let {
+      activeSessionQuestions: _v4,
+      activeSessionId: _v5,
+      isSpeakerQnaReplyAllowed: _v6
+    } = _v0.context;
+    if (!(_v3.isCreator || _v3.capabilities?.canUseQnaModeration || _v3.capabilities?.canReplyQna === !0 && !0 === _v6)) throw new _v19.LiveError("User should be creator, moderator, or authorized speaker to reply questions.", {
+      code: _v12.ELiveErrorCode.OPERATION_RESTRICTED
+    });
+    let _v7 = !!Object.values(_v4).find(_v0 => _v0.id === _v1)?.anonymous;
+    _v0.log.info("Submitting reply for question:", _v1, _v5);
+    let _v8 = await (0, _v20.pushRefValue)(_v0.firebase, (0, _v20.getRefChild)(_v0.firebase, _v0.qnaRepliesSessionsRef, `${_v5}/${_v1}`), {}),
+      _v9 = (0, _v21.createQuestionReplyInteractionObject)({
+        questionId: _v1,
+        text: _v2,
+        user: (0, _v21.createQuestionAuthorInteractionObject)({
+          id: _v3.id,
+          displayName: _v3.displayName,
+          avatarUrl: _v3.avatarUrl ?? _v6.vimeoConfig.USER.DEFAULT_LOGO_URL(75)
+        })
+      });
+    await (0, _v20.setRefValue)(_v0.firebase, _v8, {
+      ..._v9,
+      createdAt: _v0.firebase.database.serverTimestamp()
+    }), _v0.composerSessionType === _v11.EComposerSessionType.VENUE && _v10(String(_v5), _v1, _v7, _v8.key);
+  }
+  async function _v39(_v0, _v1, _v2) {
+    if (_v0.log.info("Deleting question reply:", _v2), !_v2 || !_v1) throw new _v19.LiveError("No question id or reply id supplied for removal.", {
+      code: _v12.ELiveErrorCode.INVALID_PARAMETERS
+    });
+    _v0.assertIsInitialized(), _v0.assertActiveSessionExists(), _v0.assertQuestionExists(_v1);
+    let {
+      data: _v3
+    } = _v0.queryDataSync({
+      type: _v23.ELiveInteractionQuery.LIVE_INTERACTION_USER
+    });
+    if (!_v3) throw new _v19.LiveError("User should be authorized to delete questions replies.", {
+      code: _v12.ELiveErrorCode.UNAUTHORIZED
+    });
+    let {
+        activeSessionId: _v4,
+        isSpeakerQnaReplyAllowed: _v5,
+        qnaReplies: _v6
+      } = _v0.context,
+      _v7 = _v6[_v1]?.[_v2] ?? null,
+      _v8 = _v7?.user?.id !== void 0 && _v7?.user?.id === _v3.id;
+    if (!(_v3.isCreator || _v3.capabilities?.canUseQnaModeration || _v3.capabilities?.canReplyQna === !0 && !0 === _v5 && _v8)) throw new _v19.LiveError("User is not authorized to delete this question reply.", {
+      code: _v12.ELiveErrorCode.OPERATION_RESTRICTED
+    });
+    await (0, _v20.removeRefValue)(_v0.firebase, (0, _v20.getRefChild)(_v0.firebase, _v0.qnaRepliesSessionsRef, `${_v4}/${_v1}/${_v2}`));
+  }
+  async function _v40(_v0, _v1) {
+    _v0.log.info("Pinning question:", _v1), _v0.assertIsInitialized(), _v0.assertActiveSessionExists();
+    let {
+        activeSessionQuestions: _v2,
+        activeSessionPinnedQuestionId: _v3
+      } = _v0.context,
+      _v4 = _v0.assertQuestionExists(_v1, _v2);
+    _v4.state === _v13.EQuestionState.PENDING || _v4.state === _v13.EQuestionState.ARCHIVED ? _v0.log.warn(`Can not pin ${_v4.state} question.`) : _v1 === _v3 ? _v0.log.warn("Question is already pinned") : await (0, _v20.setRefValue)(_v0.firebase, (0, _v20.getRefChild)(_v0.firebase, _v0.qnaActiveSessionRef, "pinnedQuestionId"), _v1);
+  }
+  async function _v41(_v0, _v1) {
+    _v0.log.info("Unpinning question:", _v1), _v0.assertIsInitialized(), _v0.assertActiveSessionExists();
+    let {
+        activeSessionQuestions: _v2,
+        activeSessionPinnedQuestionId: _v3
+      } = _v0.context,
+      _v4 = _v0.assertQuestionExists(_v1, _v2);
+    _v4.state === _v13.EQuestionState.PENDING || _v4.state === _v13.EQuestionState.ARCHIVED ? _v0.log.warn(`Can not unpin ${_v4.state} question.`) : _v1 !== _v3 ? _v0.log.warn("Question is not pinned") : await (0, _v20.removeRefValue)(_v0.firebase, (0, _v20.getRefChild)(_v0.firebase, _v0.qnaActiveSessionRef, "pinnedQuestionId"));
+  }
+  function _v42(_v0) {
+    _v0.log.info("Disposing manager"), _v0.disposeSubscribers(), _v0.qnaSessionsRef = null, _v0.qnaModerationStatusRef = null, _v0.qnaAnonymousQuestionsStatusRef = null, _v0.qnaSpeakerReplyStatusRef = null, _v0.qnaActiveSessionRef = null, _v0.qnaActiveSessionMetaRef = null, _v0.qnaRepliesSessionsRef = null, _v0.rootRef = null, _v0.qnaRepliesBuffer = null, _v0.setContext({
+      config: {
+        canUseQnaModeration: null,
+        canViewQnaModeration: null,
+        canReplyQna: null
+      },
+      qnaSessionsHistory: [],
+      activeSessionId: null,
+      activeSession: null,
+      activeSessionQuestions: {},
+      activeSessionPendingQuestions: {},
+      isEventModerated: null,
+      isAnonymousQuestionsDisabled: null,
+      isSpeakerQnaReplyAllowed: null,
+      qnaReplies: {}
+    });
+  }
+  function _v43(_v0) {
+    _v0.qnaActiveSessionRef && (_v0.log.info("Unsubscribing from qna session:", _v0.qnaActiveSessionRef.toString()), _v0.qnaActiveSessionRef = null, _v0.activeSessionUnSubscribers.forEach(_v0 => _v0()), _v0.activeSessionUnSubscribers.splice(0), _v0.setContext({
+      activeSessionId: null,
+      activeSession: null,
+      activeSessionQuestions: {},
+      activeSessionPendingQuestions: {}
+    }));
+  }
+  var _v44 = _v0.i(0),
+    _v45 = _v0.i(0),
+    _v46 = _v0.i(0),
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0);
+  async function _v49(_v0, _v1) {
+    _v0.log.info("Hydrating QNA moderation:", _v1.toString());
+    try {
+      let _v0 = !!(await (0, _v20.getRefValue)(_v0.firebase, _v1));
+      _v0.log.info("Hydrated moderation state:", _v0), _v0.setContext({
+        isEventModerated: _v0
+      });
+    } catch (_v0) {
+      (0, _v47.trackLiveError)(_v0, {
+        method: "hydrateModerationState",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          moderationRef: _v1.toString()
+        }
+      });
+    }
+  }
+  async function _v50(_v0, _v1) {
+    _v0.log.info("Hydrating QNA anonymous question state:", _v1.toString());
+    try {
+      let _v0 = !!(await (0, _v20.getRefValue)(_v0.firebase, _v1));
+      _v0.log.info("Hydrated anonymous question state:", _v0), _v0.setContext({
+        isAnonymousQuestionsDisabled: _v0
+      });
+    } catch (_v0) {
+      (0, _v47.trackLiveError)(_v0, {
+        method: "hydrateAnonymousQuestionsState",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          anonymousQuestionsRef: _v1.toString()
+        }
+      });
+    }
+  }
+  async function _v51(_v0, _v1) {
+    _v0.log.info("Hydrating QNA speaker reply state:", _v1.toString());
+    try {
+      let _v0 = !!(await (0, _v20.getRefValue)(_v0.firebase, _v1));
+      _v0.log.info("Hydrated speaker QNA reply state:", _v0), _v0.setContext({
+        isSpeakerQnaReplyAllowed: _v0
+      });
+    } catch (_v0) {
+      (0, _v47.trackLiveError)(_v0, {
+        method: "hydrateSpeakerQnaReplyState",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          speakerQnaReplyRef: _v1.toString()
+        }
+      });
+    }
+  }
+  async function _v52(_v0, _v1, _v2) {
+    _v0.log.info("Hydrating active QNA session:", _v2.toString());
+    try {
+      let _v0 = await (0, _v20.getRefValue)(_v0.firebase, _v2);
+      if (_v0) {
+        let _v0 = (0, _v20.getRefChild)(_v0.firebase, _v1, String(_v0)),
+          _v1 = (0, _v20.getRefChild)(_v0.firebase, _v0.qnaRepliesSessionsRef, String(_v0)),
+          _v2 = await _v53(_v0, _v0);
+        if (_v2) {
+          let _v0 = (0, _v22.queryInteractionUserSync)(_v0),
+            [_v1, _v2, _v3, _v4] = (0, _v45.transformQnASession)(_v2.id, _v2, String(_v0?.id));
+          _v0.log.info("Hydrated active QNA session:", _v1, _v0.toString()), _v0.setContext({
+            activeSessionId: _v0,
+            activeSession: _v1,
+            activeSessionQuestions: _v2,
+            activeSessionPendingQuestions: _v3,
+            activeSessionPinnedQuestionId: _v4
+          });
+        } else _v0.log.info("Hydrated active QNA id:", _v0, _v2.toString()), _v0.setContext({
+          activeSessionId: _v0
+        });
+        _v54(_v0, _v0, _v1);
+      }
+    } catch (_v0) {
+      (0, _v47.trackLiveError)(_v0, {
+        method: "hydrateActiveSession",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          activeSessionIdRef: _v2.toString()
+        }
+      });
+    }
+  }
+  async function _v53(_v0, _v1) {
+    let _v2 = await (0, _v20.getRefValue)(_v0.firebase, _v1);
+    return _v2 && (0, _v47.checkErrorsAndTrack)({
+      possibleErrors: (0, _v44.collectQuestionSessionInteractionErrors)(_v2),
+      data: _v2,
+      methodName: "onActiveSessionValue"
+    }) ? _v2 : null;
+  }
+  function _v54(_v0, _v1, _v2) {
+    let _v3 = _v0 => {
+        let _v1 = _v0.val();
+        if (_v1 && (0, _v47.checkErrorsAndTrack)({
+          possibleErrors: (0, _v44.collectQuestionSessionInteractionErrors)(_v1),
+          data: _v1,
+          methodName: "onActiveSessionValue"
+        })) {
+          let _v0 = (0, _v22.queryInteractionUserSync)(_v0),
+            [_v1, _v2, _v3, _v4] = (0, _v45.transformQnASession)(_v0.key, _v1, String(_v0?.id));
+          _v0.setContext({
+            activeSession: _v1,
+            activeSessionQuestions: _v2,
+            activeSessionPendingQuestions: _v3,
+            activeSessionPinnedQuestionId: _v4
+          });
+        } else _v0.setContext({
+          activeSession: null,
+          activeSessionQuestions: {},
+          activeSessionPendingQuestions: {},
+          activeSessionPinnedQuestionId: null
+        }), _v0.qnaRepliesBuffer && _v0.qnaRepliesBuffer.resetValue();
+      },
+      _v4 = _v0 => {
+        _v0.qnaRepliesBuffer ? _v0.qnaRepliesBuffer.updateValue({
+          [_v0.key]: (0, _v45.transformBulkedQuestionReplies)(_v0.val())
+        }) : _v0.log.warn("Question appeared without initialized buffer");
+      },
+      _v5 = _v0 => {
+        _v0.qnaRepliesBuffer ? _v0.qnaRepliesBuffer.updateValue({
+          [_v0.key]: (0, _v45.transformBulkedQuestionReplies)(_v0.val())
+        }) : _v0.log.warn("Question changed without initialized buffer");
+      },
+      _v6 = _v0 => {
+        _v0.qnaRepliesBuffer ? _v0.qnaRepliesBuffer.setValue((0, _v46.omit)(_v0.qnaRepliesBuffer.getValue(), _v0.key)) : _v0.log.warn("Question changed without initialized buffer");
+      };
+    _v0.log.info("Subscribing to active qna session:", _v1.toString()), _v0.qnaActiveSessionRef = _v1, (0, _v20.onRefEvent)(_v0.firebase, _v1, "value", _v3, "active-session-value"), (0, _v20.onRefEvent)(_v0.firebase, _v2, "child_added", _v4, "active-session-reply-added"), (0, _v20.onRefEvent)(_v0.firebase, _v2, "child_removed", _v6, "active-session-reply-removed"), (0, _v20.onRefEvent)(_v0.firebase, _v2, "child_changed", _v5, "active-session-reply-changed"), _v0.activeSessionUnSubscribers.push(() => {
+      (0, _v20.offRefEvent)(_v0.firebase, _v1, "value", _v3), (0, _v20.offRefEvent)(_v0.firebase, _v2, "child_added", _v4), (0, _v20.offRefEvent)(_v0.firebase, _v2, "child_removed", _v6), (0, _v20.offRefEvent)(_v0.firebase, _v2, "child_changed", _v5);
+    });
+  }
+  var _v55 = _v0.i(0),
+    _v56 = _v0.i(0),
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0),
+    _v60 = _v0.i(0);
+  class _v61 extends _v60.UnsubscribingContextManager {
+    static createBufferConfig(_v0, _v1) {
+      return {
+        name: _v1,
+        initialValue: {},
+        throttleDelay: _v56.interactionToolsConfig.QNA.QNA_REPLIES_UPDATE_THROTTLE,
+        onUpdate: _v0 => {
+          _v0.setContext({
+            qnaReplies: _v0
+          });
+        }
+      };
+    }
+    context = {
+      qnaActions: (0, _v3.createActions)({
+        createQnASession: _v0 => this.createQnASession(_v0),
+        openQnASession: _v0 => this.openQnASession(_v0),
+        closeQnASession: () => this.closeQnASession(),
+        toggleModerationState: _v0 => this.toggleModerationState(_v0),
+        toggleAnonymousQuestionsState: _v0 => this.toggleAnonymousQuestionsState(_v0),
+        toggleSpeakerQnaReplyState: _v0 => this.toggleSpeakerQnaReplyState(_v0),
+        approveQuestion: _v0 => this.approveQuestion(_v0),
+        archiveQuestion: (_v0, _v1) => this.archiveQuestion(_v0, _v1),
+        unArchiveQuestion: (_v0, _v1) => this.unArchiveQuestion(_v0, _v1),
+        deactivateQuestion: _v0 => this.deactivateQuestion(_v0),
+        answerQuestion: _v0 => this.answerQuestion(_v0),
+        submitQuestion: (_v0, _v1) => this.submitQuestion(_v0, _v1),
+        voteQuestion: _v0 => this.voteQuestion(_v0),
+        submitQuestionReply: (_v0, _v1) => this.submitQuestionReply(_v0, _v1),
+        deleteQuestionReply: (_v0, _v1) => this.deleteQuestionReply(_v0, _v1),
+        pinQuestion: _v0 => this.pinQuestion(_v0),
+        unPinQuestion: _v0 => this.unPinQuestion(_v0)
+      }),
+      config: {
+        canUseQnaModeration: null,
+        canViewQnaModeration: null,
+        canReplyQna: null
+      },
+      isHydrated: !1,
+      hydratedAt: null,
+      isEventModerated: null,
+      isAnonymousQuestionsDisabled: null,
+      isSpeakerQnaReplyAllowed: null,
+      qnaSessionsHistory: [],
+      activeSessionId: null,
+      activeSession: null,
+      activeSessionQuestions: {},
+      activeSessionPendingQuestions: {},
+      activeSessionPinnedQuestionId: null,
+      qnaReplies: {}
+    };
+    log = new _v4.Logger("🌮QNA");
+    isModuleActive = !1;
+    composerSessionType;
+    firebase;
+    qnaSessionsRef = null;
+    qnaModerationStatusRef = null;
+    qnaAnonymousQuestionsStatusRef = null;
+    qnaSpeakerReplyStatusRef = null;
+    qnaActiveSessionRef = null;
+    qnaActiveSessionMetaRef = null;
+    qnaRepliesSessionsRef = null;
+    rootRef = null;
+    activeSessionUnSubscribers = [];
+    qnaRepliesBuffer = null;
+    constructor(_v0) {
+      super(), this.isModuleActive = (0, _v58.checkModuleIsActive)(_v0?.interaction?.feature?.module, _v13.EInteractionModule.QNA), this.composerSessionType = _v0?.sessionType;
+    }
+    onProvisionEnded() {
+      return _v42(this);
+    }
+    disposeSubscribers(_v0) {
+      super.disposeSubscribers(_v0), _v0 || _v43(this);
+    }
+    async createQnASession(_v0) {
+      return (0, _v47.withLiveErrorTracking)(() => _v25(this, _v0), {
+        method: "createQnASession",
+        category: _v48.ELiveErrorCategory.INTERACTION
+      });
+    }
+    async toggleModerationState(_v0) {
+      return (0, _v47.withLiveErrorTracking)(() => _v26(this, _v0), {
+        method: "toggleModerationState",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          isQnAModerated: _v0,
+          qnaModerationStatusRef: this.qnaModerationStatusRef?.toString()
+        }
+      });
+    }
+    async toggleAnonymousQuestionsState(_v0) {
+      return (0, _v47.withLiveErrorTracking)(() => _v27(this, _v0), {
+        method: "toggleAnonymousQuestionsState",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          isAnonymousQuestionsDisabled: _v0,
+          qnaAnonymousQuestionsStatusRef: this.qnaAnonymousQuestionsStatusRef?.toString()
+        }
+      });
+    }
+    async toggleSpeakerQnaReplyState(_v0) {
+      return (0, _v47.withLiveErrorTracking)(() => _v28(this, _v0), {
+        method: "toggleSpeakerQnaReplyState",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          isSpeakerQnaReplyAllowed: _v0,
+          qnaSpeakerReplyStatusRef: this.qnaSpeakerReplyStatusRef?.toString()
+        }
+      });
+    }
+    async openQnASession(_v0) {
+      return (0, _v47.withLiveErrorTracking)(() => _v29(this, _v0), {
+        method: "openQnASession",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          sessionId: _v0,
+          qnaSessionsRef: this.qnaSessionsRef?.toString()
+        }
+      });
+    }
+    async closeQnASession() {
+      return (0, _v47.withLiveErrorTracking)(() => _v30(this), {
+        method: "closeQnASession",
+        category: _v48.ELiveErrorCategory.INTERACTION
+      });
+    }
+    async approveQuestion(_v0) {
+      return (0, _v47.withLiveErrorTracking)(() => _v31(this, _v0), {
+        method: "approveQuestion",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          questionId: _v0,
+          qnaActiveSessionRef: this.qnaActiveSessionRef?.toString()
+        }
+      });
+    }
+    async archiveQuestion(_v0, _v1) {
+      return (0, _v47.withLiveErrorTracking)(() => _v32(this, _v0, _v1), {
+        method: "approveQuestion",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          questionId: _v0,
+          isApproved: _v1,
+          qnaActiveSessionRef: this.qnaActiveSessionRef?.toString()
+        }
+      });
+    }
+    async unArchiveQuestion(_v0, _v1) {
+      return (0, _v47.withLiveErrorTracking)(() => _v33(this, _v0, _v1), {
+        method: "unArchiveQuestion",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          questionId: _v0,
+          isApproved: _v1,
+          qnaActiveSessionRef: this.qnaActiveSessionRef?.toString()
+        }
+      });
+    }
+    async deactivateQuestion(_v0) {
+      return (0, _v47.withLiveErrorTracking)(() => _v34(this, _v0), {
+        method: "deactivateQuestion",
+        category: _v48.ELiveErrorCategory.INTERACTION
+      });
+    }
+    async answerQuestion(_v0) {
+      return (0, _v47.withLiveErrorTracking)(() => _v35(this, _v0), {
+        method: "answerQuestion",
+        category: _v48.ELiveErrorCategory.INTERACTION
+      });
+    }
+    async submitQuestion(_v0, _v1 = !1) {
+      return (0, _v47.withLiveErrorTracking)(() => _v36(this, _v0, _v1), {
+        method: "submitQuestion",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          question: _v0,
+          isAnonymous: _v1,
+          qnaActiveSessionRef: this.qnaActiveSessionRef?.toString()
+        }
+      });
+    }
+    async voteQuestion(_v0) {
+      return (0, _v47.withLiveErrorTracking)(() => _v37(this, _v0), {
+        method: "voteQuestion",
+        category: _v48.ELiveErrorCategory.INTERACTION
+      });
+    }
+    async submitQuestionReply(_v0, _v1) {
+      return (0, _v47.withLiveErrorTracking)(() => _v38(this, _v0, _v1), {
+        method: "submitQuestionReply",
+        category: _v48.ELiveErrorCategory.INTERACTION
+      });
+    }
+    async deleteQuestionReply(_v0, _v1) {
+      return (0, _v47.withLiveErrorTracking)(() => _v39(this, _v0, _v1), {
+        method: "deleteQuestionReply",
+        category: _v48.ELiveErrorCategory.INTERACTION
+      });
+    }
+    async pinQuestion(_v0) {
+      return (0, _v47.withLiveErrorTracking)(() => _v40(this, _v0), {
+        method: "pinQuestion",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          questionId: _v0,
+          qnaActiveSessionRef: this.qnaActiveSessionRef?.toString()
+        }
+      });
+    }
+    async unPinQuestion(_v0) {
+      return (0, _v47.withLiveErrorTracking)(() => _v41(this, _v0), {
+        method: "unPinQuestion",
+        category: _v48.ELiveErrorCategory.INTERACTION,
+        data: {
+          questionId: _v0,
+          qnaActiveSessionRef: this.qnaActiveSessionRef?.toString()
+        }
+      });
+    }
+    assertQuestionExists(_v0, _v1 = this.context.activeSessionQuestions) {
+      let _v2 = _v1[_v0];
+      if (!_v2) throw new _v19.LiveError("Cannot modify question that does not exist.");
+      return _v2;
+    }
+    assertIsInitialized() {
+      if (!this.qnaSessionsRef || !this.qnaActiveSessionMetaRef || !this.qnaModerationStatusRef || !this.qnaAnonymousQuestionsStatusRef || !this.qnaSpeakerReplyStatusRef) throw new _v19.LiveError("QnA manager is not initialized.", {
+        code: _v12.ELiveErrorCode.INITIALIZATION
+      });
+    }
+    assertActiveSessionExists() {
+      if (!this.qnaActiveSessionRef) throw new _v19.LiveError("QnA session is not initialized.", {
+        code: _v12.ELiveErrorCode.INITIALIZATION
+      });
+    }
+    async onChatApplicationReady({
+      data: {
+        firebase: _v0,
+        app: _v1,
+        roomId: _v2,
+        user: _v3,
+        roomHash: _v4,
+        metadata: _v5
+      }
+    }) {
+      if (this.firebase = _v0, this.isModuleActive) {
+        var _v6, _v7, _v8, _v9, _v10, _v11, _v12, _v13, _v14;
+        let _v0, _v1, _v2, _v3;
+        this.log.info("🚀Initializing qna connection:", _v2, _v4, _v3), (0, _v47.trackLiveAction)("fb_init_qna_manager"), this.qnaRepliesBuffer = new _v59.InMemoryBuffer(_v61.createBufferConfig(this, "qnaRepliesBuffer"));
+        let _v4 = (0, _v20.getRealtimeDatabase)(_v0, _v1);
+        this.rootRef = (0, _v20.getDatabaseRootRef)(_v0, _v4), this.qnaSessionsRef = (0, _v20.getDatabaseRef)(_v0, _v4, _v55.firebaseConfig.REFS.INTERACTION.QNA.SESSIONS(_v2)), this.qnaActiveSessionMetaRef = (0, _v20.getDatabaseRef)(_v0, _v4, _v55.firebaseConfig.REFS.INTERACTION.QNA.ACTIVE_ID(_v2)), this.qnaModerationStatusRef = (0, _v20.getDatabaseRef)(_v0, _v4, _v55.firebaseConfig.REFS.INTERACTION.QNA.MODERATION(_v4)), this.qnaAnonymousQuestionsStatusRef = (0, _v20.getDatabaseRef)(_v0, _v4, _v55.firebaseConfig.REFS.INTERACTION.QNA.ANONYMOUS_QUESTIONS(_v4)), this.qnaSpeakerReplyStatusRef = (0, _v20.getDatabaseRef)(_v0, _v4, _v55.firebaseConfig.REFS.INTERACTION.QNA.SPEAKER_QNA_REPLY(_v4)), this.qnaRepliesSessionsRef = (0, _v20.getDatabaseRef)(_v0, _v4, _v55.firebaseConfig.REFS.INTERACTION.QNA.REPLIES_SESSIONS(_v2)), await Promise.all([_v52(this, this.qnaSessionsRef, this.qnaActiveSessionMetaRef), _v49(this, this.qnaModerationStatusRef), _v50(this, this.qnaAnonymousQuestionsStatusRef), _v51(this, this.qnaSpeakerReplyStatusRef)]).finally(() => {
+          this.log.info("Hydration finished"), this.setContext({
+            isHydrated: !0,
+            hydratedAt: (0, _v57.getAbsoluteNow)(),
+            qnaSessionsHistory: _v5?.connections?.questionsHistory || [],
+            config: {
+              canUseQnaModeration: _v3?.capabilities?.canUseQnaModeration,
+              canViewQnaModeration: !0,
+              canReplyQna: _v3?.capabilities?.canReplyQna ?? null
+            }
+          });
+        }), this.addUnSubscribers([(_v6 = this, _v7 = this.qnaSessionsRef, _v8 = this.qnaActiveSessionMetaRef, _v0 = _v0 => {
+          let _v1 = _v0.val(),
+            _v2 = _v6.context.activeSessionId;
+          _v2 !== _v1 && (_v6.log.info("QnA active session changed:", _v2, "->", _v1), _v2 && _v43(_v6), _v1 && (_v6.setContext({
+            activeSessionId: _v1
+          }), _v54(_v6, (0, _v20.getRefChild)(_v6.firebase, _v7, String(_v1)), (0, _v20.getRefChild)(_v6.firebase, _v6.qnaRepliesSessionsRef, String(_v1)))));
+        }, (0, _v20.onRefEvent)(_v6.firebase, _v8, "value", _v0, "active-session-id"), () => (0, _v20.offRefEvent)(_v6.firebase, _v8, "value", _v0)), (_v9 = this, _v10 = this.qnaModerationStatusRef, _v1 = _v0 => {
+          let _v1 = !!_v0.val(),
+            {
+              isEventModerated: _v2
+            } = _v9.context;
+          _v1 !== _v2 && (_v9.log.info("QnA moderation state changed:", _v9.context.isEventModerated, "->", _v1), _v9.setContext({
+            isEventModerated: _v1
+          }));
+        }, (0, _v20.onRefEvent)(_v9.firebase, _v10, "value", _v1, "moderation-state"), () => (0, _v20.offRefEvent)(_v9.firebase, _v10, "value", _v1)), (_v11 = this, _v12 = this.qnaAnonymousQuestionsStatusRef, _v2 = _v0 => {
+          let _v1 = !!_v0.val(),
+            {
+              isAnonymousQuestionsDisabled: _v2
+            } = _v11.context;
+          _v1 !== _v2 && (_v11.log.info("QnA anonymous question state changed:", _v11.context.isAnonymousQuestionsDisabled, "->", _v1), _v11.setContext({
+            isAnonymousQuestionsDisabled: _v1
+          }));
+        }, (0, _v20.onRefEvent)(_v11.firebase, _v12, "value", _v2, "anonymous-question-state"), () => (0, _v20.offRefEvent)(_v11.firebase, _v12, "value", _v2)), (_v13 = this, _v14 = this.qnaSpeakerReplyStatusRef, _v3 = _v0 => {
+          let _v1 = !!_v0.val(),
+            {
+              isSpeakerQnaReplyAllowed: _v2
+            } = _v13.context;
+          _v1 !== _v2 && (_v13.log.info("QnA speaker reply state changed:", _v13.context.isSpeakerQnaReplyAllowed, "->", _v1), _v13.setContext({
+            isSpeakerQnaReplyAllowed: _v1
+          }));
+        }, (0, _v20.onRefEvent)(_v13.firebase, _v14, "value", _v3, "speaker-qna-reply-state"), () => (0, _v20.offRefEvent)(_v13.firebase, _v14, "value", _v3))]);
+      } else this.log.info("🚀Skipping qna connection");
+    }
+    onInteractionSessionLogout() {
+      return _v42(this);
+    }
+  }
+  (0, _v2._)([(0, _v3.OnSignal)(_v24.ELiveRealtimeSignal.FIREBASE_INTERACTION_APP_READY)], _v61.prototype, "onChatApplicationReady", null), (0, _v2._)([(0, _v3.OnSignal)(_v24.ELiveSignal.INTERACTION_SESSION_LOGOUT)], _v61.prototype, "onInteractionSessionLogout", null), _v0.s(["QnAManager", 0, _v61], 0);
+}

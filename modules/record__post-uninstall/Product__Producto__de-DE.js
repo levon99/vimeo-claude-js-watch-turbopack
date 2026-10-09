@@ -1217,29 +1217,28 @@
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
-    _v32 = _v0.i(0);
-  let _v33 = ({
+    _v31 = _v0.i(0);
+  let _v32 = ({
     blockList: _v0
-  }) => (0, _v1.jsx)(_v27.Accordion, {
+  }) => (0, _v1.jsx)(_v26.Accordion, {
     allowMultiple: !0,
     w: "100%",
-    children: Object.keys(_v16).map(_v0 => (0, _v1.jsx)(_v29.AccordionItem, {
+    children: Object.keys(_v16).map(_v0 => (0, _v1.jsx)(_v28.AccordionItem, {
       children: ({
         isExpanded: _v0
       }) => (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v28.AccordionButton, {
+        children: [(0, _v1.jsxs)(_v27.AccordionButton, {
           p: "200",
-          children: [(0, _v1.jsx)(_v26.Text, {
+          children: [(0, _v1.jsx)(_v25.Text, {
             as: "span",
             variant: "heading-md",
             children: _v0
-          }), _v0 ? (0, _v1.jsx)(_v31.Minus, {
+          }), _v0 ? (0, _v1.jsx)(_v30.Minus, {
             boxSize: "xs"
-          }) : (0, _v1.jsx)(_v32.Plus, {
+          }) : (0, _v1.jsx)(_v31.Plus, {
             boxSize: "xs"
           })]
-        }), (0, _v1.jsx)(_v30.AccordionPanel, {
+        }), (0, _v1.jsx)(_v29.AccordionPanel, {
           pt: "0",
           children: (0, _v1.jsx)(_v3.VStack, {
             align: "stretch",
@@ -1254,10 +1253,10 @@
       })
     }, _v0))
   });
-  var _v34 = _v0.i(0),
-    _v35 = _v0.i(0),
-    _v36 = _v0.i(0);
-  let _v37 = ({
+  var _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0);
+  let _v36 = ({
       onSignUpCtaClick: _v0,
       ..._v1
     }) => (0, _v1.jsxs)(_v3.VStack, {
@@ -1265,7 +1264,7 @@
       align: "flex-start",
       spacing: 200,
       ..._v1,
-      children: [(0, _v1.jsx)(_v26.Text, {
+      children: [(0, _v1.jsx)(_v25.Text, {
         variant: "heading-xl",
         children: (0, _v9.translate)({
           singular: "Get started for free",
@@ -1295,7 +1294,7 @@
         align: "flex-start",
         spacing: 75,
         children: [(0, _v1.jsx)(_v18, {
-          href: (0, _v36.buildUpgradePlanUrl)({
+          href: (0, _v35.buildUpgradePlanUrl)({
             paywallTrigger: "footer_sign_up_widget_pricing_link",
             paywallLocation: "footer",
             paywallFeature: "general"
@@ -1383,9 +1382,9 @@
             }
           })
         })]
-      }), (0, _v1.jsx)(_v34.Button, {
+      }), (0, _v1.jsx)(_v33.Button, {
         size: "lg",
-        rightIcon: (0, _v1.jsx)(_v35.ArrowRight, {}),
+        rightIcon: (0, _v1.jsx)(_v34.ArrowRight, {}),
         onClick: _v0,
         children: (0, _v9.translate)({
           singular: "Join",
@@ -1415,12 +1414,12 @@
         })
       })]
     }),
-    _v38 = _v0 => (0, _v1.jsxs)(_v3.VStack, {
+    _v37 = _v0 => (0, _v1.jsxs)(_v3.VStack, {
       display: "inline-flex",
       align: "flex-start",
       spacing: 200,
       ..._v0,
-      children: [(0, _v1.jsx)(_v26.Text, {
+      children: [(0, _v1.jsx)(_v25.Text, {
         variant: "heading-md",
         children: (0, _v9.translate)({
           singular: "24/7 customer support",
@@ -1448,7 +1447,7 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v26.Text, {
+      }), (0, _v1.jsx)(_v25.Text, {
         variant: "body-lg",
         children: (0, _v9.translate)({
           singular: "Our customer support team is available to help 24/7. Enterprise members also receive dedicated account managers and a guaranteed uptime SLA.",
@@ -1476,10 +1475,10 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v34.Button, {
+      }), (0, _v1.jsx)(_v33.Button, {
         variant: "secondary",
         size: "lg",
-        rightIcon: (0, _v1.jsx)(_v35.ArrowRight, {}),
+        rightIcon: (0, _v1.jsx)(_v34.ArrowRight, {}),
         children: (0, _v9.translate)({
           singular: "Contact support",
           dictionary: {
@@ -1508,7 +1507,7 @@
         })
       })]
     }),
-    _v39 = _v0 => (0, _v1.jsx)(_v5.Center, {
+    _v38 = _v0 => (0, _v1.jsx)(_v5.Center, {
       w: "100%",
       backgroundColor: "fill-surface",
       p: {
@@ -1534,7 +1533,7 @@
         ..._v0
       })
     });
-  _v39.Widgets = ({
+  _v38.Widgets = ({
     onSignUpCtaClick: _v0
   }) => (0, _v1.jsxs)(_v2.Grid, {
     gridTemplateColumns: {
@@ -1545,24 +1544,24 @@
       base: "500",
       md: "0"
     },
-    children: [(0, _v1.jsx)(_v37, {
+    children: [(0, _v1.jsx)(_v36, {
       onSignUpCtaClick: _v0,
       gridColumn: {
         base: "",
         md: "1 / span 2"
       }
-    }), (0, _v1.jsx)(_v38, {
+    }), (0, _v1.jsx)(_v37, {
       gridColumn: {
         base: "",
         md: "5 / span 2"
       }
     })]
-  }), _v39.Links = ({
+  }), _v38.Links = ({
     blockList: _v0
   }) => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v6.Show, {
       below: "md",
-      children: (0, _v1.jsx)(_v33, {
+      children: (0, _v1.jsx)(_v32, {
         blockList: _v0
       })
     }), (0, _v1.jsx)(_v6.Show, {
@@ -1571,7 +1570,7 @@
         blockList: _v0
       })
     })]
-  }), _v39.Legal = ({
+  }), _v38.Legal = ({
     impressumQualifies: _v0,
     terminateContractQualifies: _v1,
     previewMode: _v2 = !1
@@ -1588,7 +1587,7 @@
       };
     });
     let _v4 = "javascript:void(0)",
-      _v5 = [(0, _v1.jsx)(_v26.Text, {
+      _v5 = [(0, _v1.jsx)(_v25.Text, {
         color: "text-secondary",
         variant: "body-lg",
         children: (0, _v9.translate)({
@@ -1631,15 +1630,7 @@
       }, _v15.PRIVACY.text), !_v0 && _v3 ? (0, _v1.jsx)(_v18, {
         color: "text-secondary",
         onClick: _v2 ? void 0 : () => {
-          _v22.BigPictureClient.sendEvent(new _v22.Event("vimeo.click", 75, {
-            page: "footer",
-            location: "footer",
-            target: "transcend_dialogue_box",
-            name: "do_not_sell",
-            copy: "do_not_sell_my_personal_information",
-            feature: "do_not_sell",
-            type: "general"
-          })), window.transcend?.showConsentManager({
+          window.transcend?.showConsentManager({
             viewState: "DoNotSellExplainer"
           });
         },
@@ -1692,11 +1683,11 @@
         children: _v15.TERMINATE.text
       }) : null],
       _v6 = _v21.default.Children.toArray(_v5).filter(Boolean);
-    return (0, _v1.jsx)(_v23.Flex, {
+    return (0, _v1.jsx)(_v22.Flex, {
       justify: "flex-end",
       w: "100%",
-      children: (0, _v1.jsx)(_v24.HStack, {
-        divider: (0, _v1.jsx)(_v25.Box, {
+      children: (0, _v1.jsx)(_v23.HStack, {
+        divider: (0, _v1.jsx)(_v24.Box, {
           borderColor: "text-secondary",
           w: (0, _v4.rem)(5),
           h: (0, _v4.rem)(14)
@@ -1705,5 +1696,5 @@
         children: _v6
       })
     });
-  }, _v0.s(["Footer", 0, _v39], 0);
+  }, _v0.s(["Footer", 0, _v38], 0);
 }

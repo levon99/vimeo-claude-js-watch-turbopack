@@ -18,24 +18,21 @@
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
-    _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
+    _v18 = _v0.i(0);
   _v0.s(["ClipPrivacyTypeFilter", 0, ({
     filter: _v0,
     options: _v1,
     isDisabled: _v2 = !1,
-    page: _v3 = "",
-    setFilter: _v4
+    setFilter: _v3
   }) => {
-    let _v5,
-      _v6 = (0, _v17.useViewer)(),
-      _v7 = _v6?.teamUser,
-      _v8 = (0, _v16.useDefaultPrivacyOptions)(_v6),
-      _v9 = Object.fromEntries(Object.entries(_v15.DEFAULT_PRIVACY_VALUES).map(([_v0, _v1]) => [_v1, _v0.toLowerCase()])),
-      _v10 = {
-        ...(0, _v18.getPrivacyTypeFilterOptionsByValue)(_v6?.teamUser?.teamName, _v6?.teamUser?.isWorkspace),
-        ..._v8.reduce((_v0, _v1) => {
-          let _v2 = _v9[_v1.privacy] ?? _v1.privacy;
+    let _v4,
+      _v5 = (0, _v17.useViewer)(),
+      _v6 = (0, _v16.useDefaultPrivacyOptions)(_v5),
+      _v7 = Object.fromEntries(Object.entries(_v15.DEFAULT_PRIVACY_VALUES).map(([_v0, _v1]) => [_v1, _v0.toLowerCase()])),
+      _v8 = {
+        ...(0, _v18.getPrivacyTypeFilterOptionsByValue)(_v5?.teamUser?.teamName, _v5?.teamUser?.isWorkspace),
+        ..._v6.reduce((_v0, _v1) => {
+          let _v2 = _v7[_v1.privacy] ?? _v1.privacy;
           return _v0[_v2] = {
             label: _v1.title,
             value: _v2,
@@ -43,12 +40,12 @@
           }, _v0;
         }, {})
       },
-      _v11 = 0 === _v0.length,
-      _v12 = _v0.length > 1,
-      _v13 = _v1.map(_v0 => ({
-        label: _v10[_v0].label,
-        value: _v10[_v0].value,
-        icon: _v10[_v0].icon
+      _v9 = 0 === _v0.length,
+      _v10 = _v0.length > 1,
+      _v11 = _v1.map(_v0 => ({
+        label: _v8[_v0].label,
+        value: _v8[_v0].value,
+        icon: _v8[_v0].icon
       })).map(_v0 => (0, _v1.jsx)(_v11.Box, {
         _hover: {
           backgroundColor: "fill-component-hover",
@@ -61,7 +58,7 @@
           width: "100%",
           size: "md",
           onChange: () => {
-            _v4(_v0.value), _v19.FilterBPEvents.sendApplyFilterEvent("clip_privacy", _v3, _v7, "desktop");
+            _v3(_v0.value);
           },
           isChecked: _v0.includes(_v0.value),
           children: (0, _v1.jsxs)(_v9.HStack, {
@@ -79,9 +76,6 @@
     return (0, _v1.jsxs)(_v3.Menu, {
       isLazy: !0,
       placement: "bottom-end",
-      onOpen: () => {
-        _v19.FilterBPEvents.sendOpenFilterEvent("clip_privacy", _v3, _v7, "desktop");
-      },
       children: [(0, _v1.jsx)(_v12.Tooltip, {
         label: (0, _v14.translate)({
           singular: "Doesn't apply to folders",
@@ -117,7 +111,7 @@
           isDisabled: _v2,
           rightIcon: (0, _v1.jsx)(_v13.ChevronDownSmall, {}),
           "data-id": "clip-privacy-filter",
-          children: (_v5 = (0, _v14.translate)({
+          children: (_v4 = (0, _v14.translate)({
             singular: "Privacy",
             dictionary: {
               es: {
@@ -142,7 +136,7 @@
                 singular: "隐私"
               }
             }
-          }), _v12 ? _v5 + (" (" + _v0.length) + ")" : _v11 ? _v5 : _v10[_v0[0]].label)
+          }), _v10 ? _v4 + (" (" + _v0.length) + ")" : _v9 ? _v4 : _v8[_v0[0]].label)
         })
       }), (0, _v1.jsx)(_v5.MenuList, {
         minWidth: (0, _v8.rem)(268),
@@ -150,42 +144,39 @@
         overflowY: "auto",
         "data-testid": "clip-privacy-filter-menu",
         children: (0, _v1.jsx)(_v11.Box, {
-          children: _v13
+          children: _v11
         })
       })]
     });
   }], 0);
-  var _v20 = _v0.i(0),
+  var _v19 = _v0.i(0),
+    _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
-    _v24 = _v0.i(0),
-    _v25 = _v0.i(0);
+    _v24 = _v0.i(0);
   _v0.s(["CreatedByFilter", 0, ({
     filter: _v0,
     options: _v1,
     isDisabled: _v2 = !1,
-    page: _v3 = "",
-    setFilter: _v4,
-    searchQuery: _v5 = "",
-    setSearchQuery: _v6,
-    isLoadingMore: _v7 = !1,
-    isLoadingInitialData: _v8 = !1,
-    onLoadMore: _v9,
-    isDone: _v10 = !1
+    setFilter: _v3,
+    searchQuery: _v4 = "",
+    setSearchQuery: _v5,
+    isLoadingMore: _v6 = !1,
+    isLoadingInitialData: _v7 = !1,
+    onLoadMore: _v8,
+    isDone: _v9 = !1
   }) => {
-    let _v11,
-      _v12 = (0, _v17.useViewer)(),
-      _v13 = _v12?.teamUser,
-      _v14 = 0 === _v0.length,
-      _v15 = _v0.length > 1,
-      _v16 = _v1.map(_v0 => ({
+    let _v10,
+      _v11 = 0 === _v0.length,
+      _v12 = _v0.length > 1,
+      _v13 = _v1.map(_v0 => ({
         name: _v0.name,
         userId: _v0.userId,
         avatarLink: _v0.avatarLink
       })),
-      _v17 = 0 === _v16.length && "" !== _v5,
-      _v18 = _v16.map(_v0 => (0, _v1.jsx)(_v11.Box, {
+      _v14 = 0 === _v13.length && "" !== _v4,
+      _v15 = _v13.map(_v0 => (0, _v1.jsx)(_v11.Box, {
         "data-testid": `created-by-filter-${_v0.userId}`,
         padding: "sm",
         alignContent: "center",
@@ -199,7 +190,7 @@
           size: "md",
           isChecked: _v0.some(_v0 => _v0.userId === _v0.userId),
           onChange: () => {
-            _v0.some(_v0 => _v0.userId === _v0.userId) ? _v4(_v0?.filter(_v0 => _v0.userId !== _v0.userId)) : _v4([..._v0, _v0]), _v19.FilterBPEvents.sendApplyFilterEvent("clip_created_by", _v3, _v13, "desktop");
+            _v0.some(_v0 => _v0.userId === _v0.userId) ? _v3(_v0?.filter(_v0 => _v0.userId !== _v0.userId)) : _v3([..._v0, _v0]);
           },
           children: (0, _v1.jsxs)(_v9.HStack, {
             spacing: "sm",
@@ -207,7 +198,7 @@
             overflow: "ellipsis",
             whiteSpace: "nowrap",
             children: [(0, _v1.jsx)(_v11.Box, {
-              children: (0, _v1.jsx)(_v21.Avatar, {
+              children: (0, _v1.jsx)(_v20.Avatar, {
                 size: "sm",
                 alt: (0, _v14.translate)({
                   singular: "Display picture",
@@ -251,9 +242,6 @@
     return (0, _v1.jsxs)(_v3.Menu, {
       isLazy: !0,
       placement: "bottom-end",
-      onOpen: () => {
-        _v19.FilterBPEvents.sendOpenFilterEvent("clip_created_by", _v3, _v13, "desktop");
-      },
       children: [(0, _v1.jsx)(_v12.Tooltip, {
         label: (0, _v14.translate)({
           singular: "Doesn't apply to folders",
@@ -288,12 +276,12 @@
           variant: "tertiary",
           paddingX: (0, _v8.rem)(18),
           isDisabled: _v2,
-          rightIcon: (0, _v1.jsx)(_v24.ChevronDown, {
+          rightIcon: (0, _v1.jsx)(_v23.ChevronDown, {
             paddingLeft: (0, _v8.rem)(6),
             boxSize: "2xs"
           }),
           "data-id": "created-by-filter",
-          children: (_v11 = (0, _v14.translate)({
+          children: (_v10 = (0, _v14.translate)({
             singular: "Created by",
             dictionary: {
               es: {
@@ -318,7 +306,7 @@
                 singular: "创建者"
               }
             }
-          }), _v15 ? _v11 + (" (" + _v0.length) + ")" : _v14 ? _v11 : _v0[0].name)
+          }), _v12 ? _v10 + (" (" + _v0.length) + ")" : _v11 ? _v10 : _v0[0].name)
         })
       }), (0, _v1.jsxs)(_v5.MenuList, {
         width: (0, _v8.rem)(276),
@@ -327,9 +315,9 @@
         paddingBottom: "0",
         children: [(0, _v1.jsx)(_v11.Box, {
           paddingBottom: "sm",
-          children: (0, _v1.jsx)(_v25.FilterSearch, {
-            searchTerm: _v5,
-            setSearchTerm: _v6,
+          children: (0, _v1.jsx)(_v24.FilterSearch, {
+            searchTerm: _v4,
+            setSearchTerm: _v5,
             placeholderText: (0, _v14.translate)({
               singular: "Search people",
               dictionary: {
@@ -357,11 +345,11 @@
               }
             })
           })
-        }), _v8 ? (0, _v1.jsx)(_v20.Flex, {
+        }), _v7 ? (0, _v1.jsx)(_v19.Flex, {
           justifyContent: "center",
           alignItems: "center",
           margin: "sm",
-          children: (0, _v1.jsx)(_v22.Spinner, {
+          children: (0, _v1.jsx)(_v21.Spinner, {
             size: "sm"
           })
         }) : (0, _v1.jsxs)(_v11.Box, {
@@ -370,17 +358,17 @@
           paddingBottom: "sm",
           overflow: "hidden",
           overflowY: "auto",
-          children: [_v18, (0, _v1.jsxs)(_v20.Flex, {
+          children: [_v15, (0, _v1.jsxs)(_v19.Flex, {
             alignItems: "center",
             justifyContent: "center",
             marginBottom: "sm",
-            children: [!_v10 && !_v7 && !_v17 && (0, _v1.jsx)(_v6.Button, {
+            children: [!_v9 && !_v6 && !_v14 && (0, _v1.jsx)(_v6.Button, {
               variant: "tertiary",
               rightIcon: (0, _v1.jsx)(_v13.ChevronDownSmall, {}),
               onClick: () => {
-                _v7 || _v10 || !_v9 || _v9();
+                _v6 || _v9 || !_v8 || _v8();
               },
-              isLoading: _v7,
+              isLoading: _v6,
               children: (0, _v14.translate)({
                 singular: "Load more",
                 dictionary: {
@@ -407,20 +395,20 @@
                   }
                 }
               })
-            }), _v7 && (0, _v1.jsx)(_v20.Flex, {
+            }), _v6 && (0, _v1.jsx)(_v19.Flex, {
               justifyContent: "center",
               alignItems: "center",
-              children: (0, _v1.jsx)(_v22.Spinner, {
+              children: (0, _v1.jsx)(_v21.Spinner, {
                 size: "sm",
                 margin: (0, _v8.rem)(8)
               })
             })]
-          }), _v17 && !_v7 && (0, _v1.jsx)(_v20.Flex, {
+          }), _v14 && !_v6 && (0, _v1.jsx)(_v19.Flex, {
             height: (0, _v8.rem)(140),
             textAlign: "center",
             alignItems: "center",
             justifyContent: "center",
-            children: (0, _v1.jsxs)(_v23.Stack, {
+            children: (0, _v1.jsxs)(_v22.Stack, {
               spacing: 8,
               children: [(0, _v1.jsx)(_v7.Text, {
                 variant: "heading-sm",

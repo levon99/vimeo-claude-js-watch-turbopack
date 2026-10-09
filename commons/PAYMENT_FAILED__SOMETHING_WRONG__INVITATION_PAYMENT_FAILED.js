@@ -16,13 +16,7 @@
     5: "team_management_role_change_menu",
     7: "team_management_upsell_banner",
     8: "onboarding"
-  }, "EVENT_NAMES", 0, {
-    PURCHASE_TEAM_SEATS: "vimeo.purchase_team_seats",
-    CONFIRM_TEAM_SEAT_PURCHASE: "vimeo.confirm_team_seat_purchase",
-    PURCHASE_TEAM_SEATS_FAILED: "vimeo.purchase_team_seats_failed",
-    CHANGE_NUMBER_OF_SEATS: "vimeo.change_number_of_seats",
-    ZUORA_ORDER_COMPLETED: "vimeo.zuora_order_completed"
-  }, "EVENT_PRODUCT", 0, "Collaboration", "NOTICE_TYPES", () => _v4, "PURCHASE_FAILURE_REASON", 0, {
+  }, "NOTICE_TYPES", () => _v4, "PURCHASE_FAILURE_REASON", 0, {
     UNSUPPORTED_PAYPAL_PAYMENT: "unsupported_paypal_payment",
     UNKNOWN: "unknown"
   }, "PURCHASE_TRIGGERED_FROM", () => _v5, "tiers", 0, {

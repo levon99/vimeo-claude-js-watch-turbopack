@@ -349,9 +349,8 @@
     _v39 = _v0.i(0),
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
-  let _v44 = () => {
+    _v42 = _v0.i(0);
+  let _v43 = () => {
       let _v0 = (0, _v8.useViewer)(),
         [_v1, _v2] = (0, _v2.useState)(!1),
         _v3 = (0, _v40.useBreakpointValue)({
@@ -385,15 +384,7 @@
               "data-testid": "logout-button",
               type: "submit",
               width: "100%",
-              onClick: () => {
-                (0, _v42.trackNavigationActionEvent)({
-                  element: "dropdown",
-                  feature: "general",
-                  copy: "logout",
-                  eventName: "vimeo.trigger_logout",
-                  viewer: _v0
-                });
-              },
+              onClick: () => {},
               children: [(0, _v1.jsx)(_v41.LogOut, {}), (0, _v5.translate)({
                 singular: "Log out",
                 dictionary: {
@@ -510,7 +501,7 @@
             nameProps: {
               name: _v7 ?? ""
             }
-          }), (0, _v1.jsx)(_v43.OverflowToolTip, {
+          }), (0, _v1.jsx)(_v42.OverflowToolTip, {
             labelToolTip: _v7,
             children: (0, _v1.jsx)(_v4.Text, {
               variant: "body-lg",
@@ -531,7 +522,7 @@
         })]
       });
     },
-    _v45 = ({
+    _v44 = ({
       children: _v0,
       centerContent: _v1 = !1
     }) => {
@@ -571,12 +562,12 @@
           }), (0, _v1.jsx)(_v9.Box, {
             position: "absolute",
             right: "md",
-            children: (0, _v1.jsx)(_v44, {})
+            children: (0, _v1.jsx)(_v43, {})
           })]
         }), _v0]
       });
     };
-  function _v46({
+  function _v45({
     redirectUrl: _v0
   }) {
     let _v1 = (0, _v8.useViewer)(),
@@ -715,14 +706,14 @@
       !_v11.current && _v3() && (_v11.current = !0);
     }, [_v3]), (0, _v2.useEffect)(() => {
       _v4 && !1 === _v4.requiresAgeVerification && !_v2.current && _v10(_v9);
-    }, [_v4, _v10, _v9]), _v6) return (0, _v1.jsx)(_v45, {
+    }, [_v4, _v10, _v9]), _v6) return (0, _v1.jsx)(_v44, {
       centerContent: !0,
       children: (0, _v1.jsx)(_v3.Spinner, {
         size: "lg",
         "data-testid": "loader-circular"
       })
     });
-    if (_v7) return (0, _v1.jsx)(_v45, {
+    if (_v7) return (0, _v1.jsx)(_v44, {
       centerContent: !0,
       children: (0, _v1.jsx)(_v4.Text, {
         variant: "body-xl",
@@ -756,14 +747,14 @@
         })
       })
     });
-    if (_v4 && "failed" === _v4.ageVerificationStatus) return (0, _v1.jsx)(_v45, {
+    if (_v4 && "failed" === _v4.ageVerificationStatus) return (0, _v1.jsx)(_v44, {
       children: (0, _v1.jsx)(_v16, {
         "data-testid": "age-verification-failed"
       })
     });
     if (_v4 && _v4.ageVerificationStatus === _v20 && _v1?.user && _v5) {
       let _v0 = _v1.user.id;
-      return (0, _v1.jsx)(_v45, {
+      return (0, _v1.jsx)(_v44, {
         children: (0, _v1.jsx)(_v22, {
           inquiryId: _v5.inquiryId || "",
           sessionToken: _v5.sessionToken || "",
@@ -776,7 +767,7 @@
         })
       });
     }
-    return (0, _v1.jsx)(_v45, {
+    return (0, _v1.jsx)(_v44, {
       centerContent: !0,
       children: (0, _v1.jsx)(_v3.Spinner, {
         size: "lg",
@@ -800,7 +791,7 @@
     fallback: (0, _v1.jsx)(_v3.Spinner, {
       size: "lg"
     }),
-    children: (0, _v1.jsx)(_v46, {
+    children: (0, _v1.jsx)(_v45, {
       redirectUrl: _v0.redirectUrl
     })
   })], 0);

@@ -6506,19 +6506,19 @@
                   singular: "Änderungen verwerfen?"
                 },
                 "fr-FR": {
-                  singular: "Annuler les modifications ?"
+                  singular: "Abandonner les modifications ? "
                 },
                 "ja-JP": {
                   singular: "変更を破棄しますか？"
                 },
                 "ko-KR": {
-                  singular: "변경 사항을 버리시겠습니까?"
+                  singular: "변경 사항을 폐기하시겠습니까?"
                 },
                 "pt-BR": {
                   singular: "Descartar alterações?"
                 },
                 "zh-CN": {
-                  singular: "放弃更改？"
+                  singular: "要放弃更改吗？"
                 }
               }
             })

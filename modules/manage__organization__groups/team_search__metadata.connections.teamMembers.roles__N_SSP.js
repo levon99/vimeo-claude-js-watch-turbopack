@@ -38,14 +38,7 @@
         _v4 = (0, _v4.useMemo)(() => ({
           analyticsHandlers: {
             trackTeamGroupsRowClick: _v13,
-            trackGroupOpenBP2Event: _v13,
-            trackGroupMemberSearchEvent: _v13,
-            trackGroupSearchEvent: _v13,
-            trackSearch: _v14,
-            trackSortEvent: _v13,
-            sendGroupCreationEvent: _v13,
-            sendGroupDeleteEvent: _v13,
-            sendGroupUpdateEvent: _v13
+            trackSearch: _v14
           },
           ownerId: _v0,
           rolesInfo: _v2?.metadata?.connections?.teamMembers?.roles ?? [],
