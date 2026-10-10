@@ -5030,11 +5030,13 @@
     padding-bottom: 0;
   }
 
-  /* The base CSS positions the .js-player absolutely inside Inner to fill the
+  /* The base CSS positions .js-player absolutely inside Inner to fill the
    * 16:9 aspect-ratio box. With Inner's padding-bottom reset to 0 in
    * fullscreen, the absolute child has no box to fill and renders as 0x0.
-   * Switch to relative positioning so the player flows with the layout. */
-  ${_v198}:fullscreen ${_v211} > div {
+   * Switch to relative positioning so the player flows with the layout. Scoped
+   * to .js-player because the reaction overlay is also portaled into Inner and
+   * must keep its absolute positioning to stay over the video. */
+  ${_v198}:fullscreen ${_v211} > .js-player {
     position: relative;
     width: 100%;
     height: 100%;

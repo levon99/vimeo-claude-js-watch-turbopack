@@ -9273,34 +9273,35 @@
         } = (0, _v3.useContext)(_v50),
         _v4 = _v266(),
         _v5 = (0, _v265.useOrion)().identity.settings.enable_fuzzy_public_search,
+        _v6 = _v1?.user?.preferences?.enablePublicSmartSearch ? 12 : 24,
         {
-          query: _v6,
-          page: _v7,
-          uploaded: _v8,
-          type: _v9,
-          live: _v10,
-          hdr: _v11,
-          vimeo360: _v12,
-          price: _v13,
-          license: _v14,
-          resolution: _v15,
-          duration: _v16,
-          collection: _v17,
-          category: _v18,
-          follow: _v19,
-          updated: _v20,
-          sort: _v21
+          query: _v7,
+          page: _v8,
+          uploaded: _v9,
+          type: _v10,
+          live: _v11,
+          hdr: _v12,
+          vimeo360: _v13,
+          price: _v14,
+          license: _v15,
+          resolution: _v16,
+          duration: _v17,
+          collection: _v18,
+          category: _v19,
+          follow: _v20,
+          updated: _v21,
+          sort: _v22
         } = _v257(),
-        _v22 = _v1?.user?.id,
-        _v23 = _v2 === _v142,
+        _v23 = _v1?.user?.id,
+        _v24 = _v2 === _v142,
         {
-          data: _v24,
-          isLoading: _v25,
-          mutate: _v26,
-          error: _v27
+          data: _v25,
+          isLoading: _v26,
+          mutate: _v27,
+          error: _v28
         } = _v264(() => {
-          if (!_v0.isReady || !_v1?.apiUrl || !_v23 || _v3 || _v4) return null;
-          let [_v0, _v1] = _v129(_v21);
+          if (!_v0.isReady || !_v1?.apiUrl || !_v24 || _v3 || _v4) return null;
+          let [_v0, _v1] = _v129(_v22);
           return {
             select: (_v0 => {
               switch (_v0) {
@@ -9315,32 +9316,32 @@
                 default:
                   return _v38;
               }
-            })(_v9),
+            })(_v10),
             headers: {
               Accept: "application/vnd.vimeo.*+json;version=3.3"
             },
             query: {
-              filterType: _v9 ? _v77.options[_v9].value : _v77.options.clip.value,
-              query: _v6,
-              page: _v7,
-              perPage: 24,
-              filterUploaded: _v8 && _v75.options[_v8].value,
-              filterLive: _v10 && _v78.options[_v10].value,
-              filterHdr: _v11 && _v79.options[_v11].value,
-              filterVimeo_360: _v12 && _v80.options[_v12].value,
-              filterPrice: _v13 && _v81.options[_v13].value,
-              filterLicense: _v14 && _v82.options[_v14].value,
-              filterResolution: _v15 && _v83.options[_v15].value,
-              filterStaffpicked: _v17 && !0,
-              filterDuration: _v16 && _v84.options[_v16].value,
-              filterCategory: _v18,
-              filterFollows: _v19 && _v22,
-              filterLastUpdated: _v20 && _v76.options[_v20].value,
-              sizes: _v9 === _v77.options.ondemand.value ? ["296x744"] : void 0,
+              filterType: _v10 ? _v77.options[_v10].value : _v77.options.clip.value,
+              query: _v7,
+              page: _v8,
+              perPage: _v6,
+              filterUploaded: _v9 && _v75.options[_v9].value,
+              filterLive: _v11 && _v78.options[_v11].value,
+              filterHdr: _v12 && _v79.options[_v12].value,
+              filterVimeo_360: _v13 && _v80.options[_v13].value,
+              filterPrice: _v14 && _v81.options[_v14].value,
+              filterLicense: _v15 && _v82.options[_v15].value,
+              filterResolution: _v16 && _v83.options[_v16].value,
+              filterStaffpicked: _v18 && !0,
+              filterDuration: _v17 && _v84.options[_v17].value,
+              filterCategory: _v19,
+              filterFollows: _v20 && _v23,
+              filterLastUpdated: _v21 && _v76.options[_v21].value,
+              sizes: _v10 === _v77.options.ondemand.value ? ["296x744"] : void 0,
               sort: _v0,
               direction: _v1,
               facets: "type",
-              fetchUserProfile: _v9 === _v77.options.people.value ? "1" : void 0,
+              fetchUserProfile: _v10 === _v77.options.people.value ? "1" : void 0,
               precision: 0,
               fuzzy: _v5
             }
@@ -9353,10 +9354,11 @@
           keepPreviousData: !0
         });
       return {
-        data: _v24,
-        isLoading: _v25,
-        mutate: _v26,
-        error: _v27,
+        data: _v25,
+        isLoading: _v26,
+        mutate: _v27,
+        error: _v28,
+        perPage: _v6,
         publicResultCount: (_v0 => {
           if (!(_v0 instanceof Array)) return;
           let _v1 = {};
@@ -9365,7 +9367,7 @@
             total: _v1
           } of _v0) _v0 && (_v1[_v0] = _v1);
           return _v1;
-        })(_v24?.facets?.type?.options)
+        })(_v25?.facets?.type?.options)
       };
     };
   var _v268 = _v0.i(0);
@@ -14378,10 +14380,11 @@
         {
           isLoading: _v7,
           data: _v8,
-          error: _v9
+          error: _v9,
+          perPage: _v10
         } = _v267(),
-        _v10 = (0, _v3.useRef)(_v2),
-        _v11 = (() => {
+        _v11 = (0, _v3.useRef)(_v2),
+        _v12 = (() => {
           let {
               type: _v0 = _v77.options.clip.value
             } = _v257(),
@@ -14394,24 +14397,24 @@
           }), [_v1]);
         })(),
         {
-          sendHoverEvent: _v12,
-          sendClickEvent: _v13,
-          sendSearchResultsPage: _v14
+          sendHoverEvent: _v13,
+          sendClickEvent: _v14,
+          sendSearchResultsPage: _v15
         } = _v270(),
         {
-          toggleSearchType: _v15
+          toggleSearchType: _v16
         } = (0, _v3.useContext)(_v144),
-        _v16 = _v8?.parameters?.filters?.type?.values[0] || _v77.options.clip.value,
-        _v17 = _v434[_v16],
-        _v18 = _v16 === _v77.options.people.value;
+        _v17 = _v8?.parameters?.filters?.type?.values[0] || _v77.options.clip.value,
+        _v18 = _v434[_v17],
+        _v19 = _v17 === _v77.options.people.value;
       return ((0, _v3.useEffect)(() => {
         let _v0 = _v0 => {
           let _v1 = _v0.detail;
-          _v1.searchType === _v27 ? _v15(_v0) : _v5("q", _v1.query);
+          _v1.searchType === _v27 ? _v16(_v0) : _v5("q", _v1.query);
         };
         return document.addEventListener("omnisearchQueryChange", _v0), () => document.removeEventListener("omnisearchQueryChange", _v0);
       }, [_v4]), (0, _v3.useEffect)(() => {
-        _v8?.data && (_v10.current === _v2 ? _v14() : _v10.current = _v2);
+        _v8?.data && (_v11.current === _v2 ? _v15() : _v11.current = _v2);
       }, [_v8]), _v9) ? (0, _v1.jsx)(_v328, {}) : !_v8 || _v7 || _v8.data && _v8.data?.length !== 0 ? (0, _v1.jsxs)(_v8.Flex, {
         justifyContent: "space-between",
         overflowY: "auto",
@@ -14428,31 +14431,31 @@
           scrollbarColor: `${_v24} transparent`
         },
         children: [(0, _v1.jsx)(_v250.Grid, {
-          templateColumns: _v11,
+          templateColumns: _v12,
           gap: "sm",
           marginBottom: {
             base: void 0,
-            lg: _v18 ? (0, _v9.rem)(112) : void 0
+            lg: _v19 ? (0, _v9.rem)(112) : void 0
           },
           position: "relative",
           children: _v7 || !_v8 ? (0, _v1.jsx)(_v416, {}) : (0, _v1.jsx)(_v1.Fragment, {
-            children: _v8?.data?.map((_v0, _v1) => (0, _v1.jsx)(_v17, {
-              item: _v0[_v16],
-              type: _v16,
+            children: _v8?.data?.map((_v0, _v1) => (0, _v1.jsx)(_v18, {
+              item: _v0[_v17],
+              type: _v17,
               position: _v1,
               onClick: () => {
-                _v13({
-                  entityType: _v114[_v16],
+                _v14({
+                  entityType: _v114[_v17],
                   position: _v1,
-                  uri: _v0[_v16].uri
+                  uri: _v0[_v17].uri
                 });
               },
               onMouseEnter: () => {
                 _v1.current = setTimeout(() => {
-                  _v12({
-                    entityType: _v114[_v16],
+                  _v13({
+                    entityType: _v114[_v17],
                     position: _v1,
-                    uri: _v0[_v16].uri
+                    uri: _v0[_v17].uri
                   });
                 }, 500);
               },
@@ -14463,7 +14466,7 @@
           scrollContainer: _v0.current,
           updatePage: _v6,
           page: _v3,
-          pageSize: 24,
+          pageSize: _v10,
           data: _v8
         })]
       }) : (0, _v1.jsx)(_v404, {});

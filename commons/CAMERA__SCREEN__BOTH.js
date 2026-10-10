@@ -926,7 +926,10 @@
     isSyncingInfoLogs;
     isSyncingUrgentLogs;
     urgentSyncIntervalId;
+    infoSyncIntervalId;
     unsubscribeUIStore;
+    flushPendingLogs;
+    flushOnHidden;
     get isReadyToSync() {
       return _v77 && this.config.isAppReady();
     }
@@ -934,21 +937,25 @@
       return this.isReadyToSync && this.isCloudLoggingStarted;
     }
     constructor(_v0, _v1) {
-      this.dbStorage = _v0, this.config = _v1, this.isCloudLoggingStarted = !1, this.isSyncingInfoLogs = !1, this.isSyncingUrgentLogs = !1;
+      this.dbStorage = _v0, this.config = _v1, this.isCloudLoggingStarted = !1, this.isSyncingInfoLogs = !1, this.isSyncingUrgentLogs = !1, this.flushPendingLogs = () => {
+        this.syncUrgentLogs(), this.syncInfoLogs();
+      }, this.flushOnHidden = () => {
+        "hidden" === document.visibilityState && this.flushPendingLogs();
+      };
     }
     async init() {
       if (void 0 !== this.dbStorage.synchronizedUrgentLogKey) this.syncUrgentLogs();else {
         let _v0 = await this.dbStorage.getLastKey();
         await this.dbStorage.setSyncedKey("lastSyncedUrgentLog", _v0);
       }
-      this.urgentSyncIntervalId = setInterval(() => this.syncUrgentLogs(), 0), this.unsubscribeUIStore = _v86.useUIStore.subscribe(({
+      this.urgentSyncIntervalId = setInterval(() => this.syncUrgentLogs(), 0), document.addEventListener("visibilitychange", this.flushOnHidden), window.addEventListener("pagehide", this.flushPendingLogs), this.unsubscribeUIStore = _v86.useUIStore.subscribe(({
         logger: _v0
       }) => _v0.isCloudLoggingEnabled, async _v0 => {
         _v0 && (await this.start());
       }), _v86.useUIStore.getState().logger.isCloudLoggingEnabled && (await this.start());
     }
     destroy() {
-      void 0 !== this.urgentSyncIntervalId && (clearInterval(this.urgentSyncIntervalId), this.urgentSyncIntervalId = void 0), this.unsubscribeUIStore?.(), this.unsubscribeUIStore = void 0;
+      void 0 !== this.urgentSyncIntervalId && (clearInterval(this.urgentSyncIntervalId), this.urgentSyncIntervalId = void 0), void 0 !== this.infoSyncIntervalId && (clearInterval(this.infoSyncIntervalId), this.infoSyncIntervalId = void 0), document.removeEventListener("visibilitychange", this.flushOnHidden), window.removeEventListener("pagehide", this.flushPendingLogs), this.unsubscribeUIStore?.(), this.unsubscribeUIStore = void 0;
     }
     async start() {
       if (!this.isCloudLoggingStarted) {
@@ -958,7 +965,9 @@
         }
         this.dbStorage.subscribe({
           threshold: 30
-        }, () => this.syncInfoLogs());
+        }, () => this.syncInfoLogs()), this.infoSyncIntervalId = setInterval(() => {
+          this.syncInfoLogs();
+        }, 0);
       }
     }
     async syncInfoLogs() {
@@ -1097,7 +1106,7 @@
     IS_LIVE_UPLOAD_ENABLED: !1,
     UPLOAD_EXPERIMENT_ARM: null
   };
-  var _v120 = ((_v632 = {}).UNEXPECTED = "UNEXPECTED", _v632.ANALYTIC = "ANALYTIC", _v632.NETWORK = "NETWORK", _v632.UPLOADING = "UPLOADING", _v632.CHUNK_CONVERTER = "CHUNK_CONVERTER", _v632.THUMBNAIL = "THUMBNAIL", _v632.RECORDER = "RECORDER", _v632.PERMISSIONS = "PERMISSIONS", _v632.API_PERMISSIONS = "API_PERMISSIONS", _v632.DEVICE = "DEVICE", _v632.SCREEN = "SCREEN", _v632.SCRIPT_GENERATOR = "SCRIPT_GENERATOR", _v632.ROLE_UPGRADE = "ROLE_UPGRADE", _v632.CANVAS_CAPTURE = "CANVAS_CAPTURE", _v632.EDITOR_INTEGRATION = "EDITOR_INTEGRATION", _v632);
+  var _v120 = ((_v637 = {}).UNEXPECTED = "UNEXPECTED", _v637.ANALYTIC = "ANALYTIC", _v637.NETWORK = "NETWORK", _v637.UPLOADING = "UPLOADING", _v637.CHUNK_CONVERTER = "CHUNK_CONVERTER", _v637.THUMBNAIL = "THUMBNAIL", _v637.RECORDER = "RECORDER", _v637.PERMISSIONS = "PERMISSIONS", _v637.API_PERMISSIONS = "API_PERMISSIONS", _v637.DEVICE = "DEVICE", _v637.SCREEN = "SCREEN", _v637.SCRIPT_GENERATOR = "SCRIPT_GENERATOR", _v637.ROLE_UPGRADE = "ROLE_UPGRADE", _v637.CANVAS_CAPTURE = "CANVAS_CAPTURE", _v637.EDITOR_INTEGRATION = "EDITOR_INTEGRATION", _v637);
   function _v121() {
     return {
       ..._v122(),
@@ -5644,7 +5653,7 @@
           select: ["uri", "metadata.interactions.activateSession"],
           variables: {
             contentType: "recording",
-            contentId: String(_v280(_v1))
+            contentId: String(_v281(_v1))
           }
         }, {
           timeout: 0
@@ -5761,8 +5770,9 @@
         throw _v0;
       }
       return _v1;
-    };
-  class _v279 extends _v256 {
+    },
+    _v279 = (_v0, _v1) => "live" === _v0 ? "live_renditions" : void 0 === _v1 ? "unknown" : "complete" === _v1 ? "renditions" : "playable_source";
+  class _v280 extends _v256 {
     options;
     log;
     session;
@@ -5841,7 +5851,7 @@
             }
           }, 0), this.log.debug("Live session invalidated successfully");
         } catch (_v0) {
-          this.log.error(_v283(_v0, "Live session invalidation failed"), {
+          this.log.error(_v284(_v0, "Live session invalidation failed"), {
             category: _v120.NETWORK,
             method: "invalidateLiveSession",
             component: "Uploader"
@@ -5859,7 +5869,7 @@
         originVariableFrameResolution: _v0.isResolutionChanged
       };
       this.eofReceived = _v1, "tus_stream" === this.uploadApproach && this.session && this.patchEofVideoData(this.session, _v1).catch(_v0 => {
-        _v282(_v0) && this.cancelAbortController.signal.aborted || this.log.warn("Early video data PATCH failed", {
+        _v283(_v0) && this.cancelAbortController.signal.aborted || this.log.warn("Early video data PATCH failed", {
           error: _v0
         });
       }), await this.upload();
@@ -5890,7 +5900,7 @@
         ("transcoding" === _v0.status || "available" === _v0.status) && _v0.isPlayable && this.checkIsPlayableInterval && this.callbacks.onPlayable && (clearInterval(this.checkIsPlayableInterval), this.log.info("Video became playable", {
           videoId: _v0,
           transcodeStatus: _v0.transcode?.status,
-          playbackMode: _v0.transcode?.status === "complete" ? "renditions" : "playable_source"
+          playbackMode: _v279(this.uploadApproach ?? null, _v0.transcode?.status)
         }), this.callbacks.onPlayable({
           id: _v0,
           link: _v1,
@@ -5901,7 +5911,7 @@
           thumbnailLink: _v0.pictures.baseLink
         }));
       } catch (_v0) {
-        this.log.error(_v283(_v0, "Video playable status check failed"), {
+        this.log.error(_v284(_v0, "Video playable status check failed"), {
           category: _v120.NETWORK,
           method: "checkIsVideoPlayable",
           component: "Uploader"
@@ -5937,7 +5947,7 @@
                 }
               }
             }),
-            _v1 = _v280(_v0.uri);
+            _v1 = _v281(_v0.uri);
           if (!_v1) throw new _v89("Cannot get video ID from URI");
           if (this.currentVideoId = _v1, "live" !== this.uploadApproach) return {
             video: _v0,
@@ -6007,7 +6017,7 @@
           }), this.patchVideo(this.session.videoId, {
             name: this.options.recordingTitle
           }).catch(_v0 => {
-            this.log.error(_v283(_v0, "Video title update failed"), {
+            this.log.error(_v284(_v0, "Video title update failed"), {
               category: _v120.NETWORK,
               method: "createVideo",
               component: "Uploader"
@@ -6029,7 +6039,7 @@
           }
           this.handleErrors(_v0) ? this.log.warn("Video create - handled error", {
             error: _v0
-          }) : this.log.error(_v283(_v0, "Video creation failed"), {
+          }) : this.log.error(_v284(_v0, "Video creation failed"), {
             category: _v120.UPLOADING,
             method: "createVideo",
             component: "Uploader"
@@ -6066,7 +6076,7 @@
           } : {})
         });
       } catch (_v0) {
-        this.log.error(_v283(_v0, "Video deletion failed"), {
+        this.log.error(_v284(_v0, "Video deletion failed"), {
           category: _v120.NETWORK,
           method: "deleteVideo",
           component: "Uploader"
@@ -6175,7 +6185,7 @@
         }
         this.eofReceived && (await this.finalizeVideo(_v0, this.eofReceived));
       } catch (_v0) {
-        if (this.cancelAbortController.signal.aborted && _v282(_v0)) return;
+        if (this.cancelAbortController.signal.aborted && _v283(_v0)) return;
         if (_v1 > 0 && (this.recordPatchFailure(_v1), "tus_stream" === this.uploadApproach && (_v0.requestUploadOffset = !0)), this.retry = () => {
           this.log.debug("Retrying chunk upload", {
             reason: _v0.message,
@@ -6186,7 +6196,7 @@
         });else {
           let _v0 = this.pendingChunks[0],
             _v1 = _v0.uploadStartTime ? Math.round(performance.now() - _v0.uploadStartTime) / 0 : null;
-          this.log.error(_v283(_v0, "Chunk upload failed"), {
+          this.log.error(_v284(_v0, "Chunk upload failed"), {
             category: _v120.UPLOADING,
             method: "upload",
             component: "Uploader",
@@ -6209,7 +6219,7 @@
       return this.usesCancelSignal ? [this.cancelAbortController.signal] : [];
     }
     isTimeout(_v0) {
-      return _v281(_v0) && ("TimeoutError" === _v0.name || !this.cancelAbortController.signal.aborted);
+      return _v282(_v0) && ("TimeoutError" === _v0.name || !this.cancelAbortController.signal.aborted);
     }
     fitHeadChunkToPatchLimit(_v0) {
       let _v1,
@@ -6262,7 +6272,7 @@
         timeout: 0,
         extraSignals: this.tusStreamCancelSignals()
       })).catch(_v0 => {
-        throw this.videoDataPatch?.promise === _v2 && (this.videoDataPatch = void 0), _v281(_v0) ? _v0 : _v283(_v0, "Upload finalize API failed", !1);
+        throw this.videoDataPatch?.promise === _v2 && (this.videoDataPatch = void 0), _v282(_v0) ? _v0 : _v284(_v0, "Upload finalize API failed", !1);
       });
       return this.videoDataPatch = {
         eofVideoData: _v1,
@@ -6275,7 +6285,7 @@
       try {
         await this.patchVideo(_v0.videoId, _v1);
       } catch (_v0) {
-        throw _v283(_v0, "Upload finalize API failed", !1);
+        throw _v284(_v0, "Upload finalize API failed", !1);
       }
       _v2.uploadDeferLength ? await this.declareUploadLength(_v0) : this.handleUploadFinalized(_v0);
     }
@@ -6340,7 +6350,7 @@
           }
         }), this.pendingThumbnail = void 0;
       } catch (_v0) {
-        this.log.error(_v283(_v0, "Thumbnail upload failed"), {
+        this.log.error(_v284(_v0, "Thumbnail upload failed"), {
           category: _v120.THUMBNAIL,
           method: "uploadThumbnail",
           component: "Uploader"
@@ -6377,7 +6387,7 @@
           this.callbacks.onFailed("ServerError", _v0, _v1);
         }
       } else if ("tus_stream" === this.uploadApproach && this.session && this.isTimeout(_v0)) this.callbacks.onFailed("ServerError", _v0, _v1);else {
-        if (_v0 instanceof _v89 || _v0 instanceof RangeError || _v281(_v0)) return this.callbacks.onFailed("FatalError", _v0, _v1), !1;
+        if (_v0 instanceof _v89 || _v0 instanceof RangeError || _v282(_v0)) return this.callbacks.onFailed("FatalError", _v0, _v1), !1;
         if (_v0 instanceof _v90) return this.callbacks.onFailed("FatalLiveError", _v0, _v1), !1;
         if (_v0 instanceof SyntaxError) return this.callbacks.onFailed("FirewallError", _v0, _v1), !1;
         _v0 instanceof TypeError && this.callbacks.onFailed("NoInternetError", _v0, _v1);
@@ -6414,18 +6424,18 @@
       }), new _v87.NetworkError("Upload status get failed", _v1.status, _v1);
     }
   }
-  function _v280(_v0) {
+  function _v281(_v0) {
     let _v1 = _v0 ? _v0.match(/videos\/(\d+)/) : null;
     return _v1 && _v1.length > 1 ? parseInt(_v1[1]) : null;
   }
-  function _v281(_v0) {
+  function _v282(_v0) {
     return "object" == typeof _v0 && null !== _v0 && "name" in _v0 && ["AbortError", "TimeoutError"].includes(_v0.name);
   }
-  function _v282(_v0) {
-    return _v281(_v0) && "AbortError" === _v0.name;
+  function _v283(_v0) {
+    return _v282(_v0) && "AbortError" === _v0.name;
   }
-  function _v283(_v0, _v1, _v2 = !0) {
-    if (_v281(_v0)) {
+  function _v284(_v0, _v1, _v2 = !0) {
+    if (_v282(_v0)) {
       let _v0 = Error(`${_v1} failed due to a request timeout; cause: ${_v0.message}.`);
       return _v0.stack = _v0.stack, _v0;
     }
@@ -6438,17 +6448,17 @@
     }
     return Error("string" == typeof _v0 ? _v0 : _v1);
   }
-  function _v284(_v0, _v1, _v2) {
+  function _v285(_v0, _v1, _v2) {
     let _v3 = _v0.flush();
     _v3.length > 0 && _v1.addChunks(_v3), _v124("record_studio_stream_index_result", {
       result: _v0.didFallBack ? "fallback" : "injected",
       firstFragmentHasEmptyTrack: _v0.firstFragmentHasEmptyTrack
     }), _v0.didFallBack && _v2.warn("sidx injection fell back to passthrough for tus_stream upload");
   }
-  var _v285 = _v0.i(0),
-    _v286 = _v0.i(0),
-    _v287 = _v0.i(0);
-  let _v288 = _v0 => {
+  var _v286 = _v0.i(0),
+    _v287 = _v0.i(0),
+    _v288 = _v0.i(0);
+  let _v289 = _v0 => {
     let {
         lastShownAs: _v1,
         scrollModeForInput: _v2,
@@ -6458,10 +6468,10 @@
           autoScrollSpeed: _v5,
           contentSource: _v6
         }
-      } = _v287.useTeleprompterStore.getState(),
+      } = _v288.useTeleprompterStore.getState(),
       {
         mode: _v7
-      } = (0, _v286.getResultingScrollMode)({
+      } = (0, _v287.getResultingScrollMode)({
         autoEvaluatedForCurrentInput: _v2,
         userDesiredAndPersistent: _v4
       }),
@@ -6475,8 +6485,8 @@
             return null;
         }
       })(),
-      _v9 = (0, _v285.getTone)(_v3.tone),
-      _v10 = (0, _v285.getDuration)(_v3.duration);
+      _v9 = (0, _v286.getTone)(_v3.tone),
+      _v10 = (0, _v286.getDuration)(_v3.duration);
     return {
       state: _v8,
       length: _v0?.length,
@@ -6486,15 +6496,15 @@
       source: _v6
     };
   };
-  var _v289 = _v0.i(0);
-  let _v290 = ["recording", "uploading", "paused"],
-    _v291 = {
+  var _v290 = _v0.i(0);
+  let _v291 = ["recording", "uploading", "paused"],
+    _v292 = {
       "4K": 0,
       "2K": 0,
       "1080p": 0,
       "720p": 0
     },
-    _v292 = () => {
+    _v293 = () => {
       let _v0 = (0, _v26.useContext)(_v36.ViewerContext),
         _v1 = _v0?.teamUser?.ownerId || _v0?.user?.id,
         {
@@ -6505,7 +6515,7 @@
         } = (0, _v183.useCapability)(["hasPaid"], _v1);
       return _v3 && !_v2 ? 0 : 0;
     },
-    _v293 = () => 0 === _v292() ? (0, _v205.translate)({
+    _v294 = () => 0 === _v293() ? (0, _v205.translate)({
       singular: "two hours",
       dictionary: {
         es: {
@@ -6556,7 +6566,7 @@
         }
       }
     });
-  class _v294 {
+  class _v295 {
     autorun;
     queue;
     running;
@@ -6589,7 +6599,7 @@
       return this.queue.length;
     }
   }
-  class _v295 {
+  class _v296 {
     log;
     state;
     resolutionCantBeDeterminedReported;
@@ -6649,11 +6659,11 @@
       };
     }
   }
-  class _v296 extends _v256 {
+  class _v297 extends _v256 {
     recordingDurationLimit;
     static VIDEO_KEY_FRAME_INTERVAL_DURATION = 0;
-    static TIMESLICE = _v144.isSafari ? _v296.VIDEO_KEY_FRAME_INTERVAL_DURATION : 0;
-    static CHUNK_STALL_TIMEOUT = 2 * _v296.TIMESLICE + 0;
+    static TIMESLICE = _v144.isSafari ? _v297.VIDEO_KEY_FRAME_INTERVAL_DURATION : 0;
+    static CHUNK_STALL_TIMEOUT = 2 * _v297.TIMESLICE + 0;
     log;
     mediaRecorder;
     videoResolutionMonitor;
@@ -6681,14 +6691,14 @@
       }, this.durations = {
         total: 0,
         pause: 0
-      }, this.durationLimitReached = !1, this.videoResolutionMonitor = new _v295(_v3, () => {
+      }, this.durationLimitReached = !1, this.videoResolutionMonitor = new _v296(_v3, () => {
         this.callbacks.onResolutionChanged();
       });
       const _v7 = new MediaStream([..._v3.getVideoTracks(), ..._v4.getAudioTracks()]),
-        _v8 = _v291[_v5 ?? "720p"];
+        _v8 = _v292[_v5 ?? "720p"];
       this.mediaRecorder = new MediaRecorder(_v7, {
         mimeType: _v6,
-        videoKeyFrameIntervalDuration: _v296.VIDEO_KEY_FRAME_INTERVAL_DURATION,
+        videoKeyFrameIntervalDuration: _v297.VIDEO_KEY_FRAME_INTERVAL_DURATION,
         videoBitsPerSecond: _v8
       }), this.log.info("set video bitrate", {
         resolution: _v5,
@@ -6753,7 +6763,7 @@
       });
     }
     start() {
-      return this.awaitMediaRecorderEvent("start", () => this.mediaRecorder.start(_v296.TIMESLICE));
+      return this.awaitMediaRecorderEvent("start", () => this.mediaRecorder.start(_v297.TIMESLICE));
     }
     pause() {
       return this.awaitMediaRecorderEvent("pause", () => this.mediaRecorder.pause());
@@ -6818,7 +6828,7 @@
         });
         return;
       }
-      this.chunksReceived += 1, this.lastChunkAt = performance.now(), this.stallReported && (this.log.info("Recording chunk flow recovered after a stall"), this.stallReported = !1), "recording" === this.mediaRecorder.state && this.armChunkWatchdog(), this.timestamps.started || (this.timestamps.started = _v1 - _v296.TIMESLICE), this.updatePauseDuration(_v1), this.durations.total = _v1 - this.timestamps.started, this.recordedBytes += _v0.size, this.videoResolutionMonitor.update(), this.callbacks.onDataAvailable(_v0);
+      this.chunksReceived += 1, this.lastChunkAt = performance.now(), this.stallReported && (this.log.info("Recording chunk flow recovered after a stall"), this.stallReported = !1), "recording" === this.mediaRecorder.state && this.armChunkWatchdog(), this.timestamps.started || (this.timestamps.started = _v1 - _v297.TIMESLICE), this.updatePauseDuration(_v1), this.durations.total = _v1 - this.timestamps.started, this.recordedBytes += _v0.size, this.videoResolutionMonitor.update(), this.callbacks.onDataAvailable(_v0);
     }
     getChunkDiagnostics() {
       return {
@@ -6843,7 +6853,7 @@
         this.stallReported = !0;
         let _v0 = this.getChunkDiagnostics();
         this.log.warn("No recording chunk received within expected window", _v0), this.callbacks.onChunkStall(_v0);
-      }, _v296.CHUNK_STALL_TIMEOUT);
+      }, _v297.CHUNK_STALL_TIMEOUT);
     }
     clearChunkWatchdog() {
       this.chunkWatchdogTimer && (clearTimeout(this.chunkWatchdogTimer), this.chunkWatchdogTimer = void 0);
@@ -6869,13 +6879,14 @@
       this.recordingDurationLimitTimer && (clearTimeout(this.recordingDurationLimitTimer), this.recordingDurationLimitTimer = void 0);
     }
   }
-  let _v297 = (0, _v68.createStore)(_v0 => ({
+  let _v298 = (0, _v68.createStore)(_v0 => ({
       recordedClipId: null,
       uploadMethodType: null,
       recordingStoppedTime: null,
       recordingUploadedTime: null,
       recordingDuration: null,
       videoBecomesPlayableTime: null,
+      transcodeStatusAtEndScreen: void 0,
       setUploadMethodType: _v0 => {
         _v0(_v0 => {
           _v0.uploadMethodType = _v0;
@@ -6898,7 +6909,7 @@
       },
       reset: () => {
         _v0(_v0 => {
-          _v0.recordedClipId = null, _v0.uploadMethodType = null, _v0.recordingStoppedTime = null, _v0.recordingUploadedTime = null, _v0.recordingDuration = null, _v0.videoBecomesPlayableTime = null;
+          _v0.recordedClipId = null, _v0.uploadMethodType = null, _v0.recordingStoppedTime = null, _v0.recordingUploadedTime = null, _v0.recordingDuration = null, _v0.videoBecomesPlayableTime = null, _v0.transcodeStatusAtEndScreen = void 0;
         });
       },
       setRecordingDuration: _v0 => {
@@ -6906,13 +6917,13 @@
           _v0.recordingDuration = _v0;
         });
       },
-      setVideoBecomesPlayableTime: _v0 => {
+      setVideoBecomesPlayableTime: (_v0, _v1) => {
         _v0(_v0 => {
-          _v0.videoBecomesPlayableTime = _v0;
+          _v0.videoBecomesPlayableTime = _v0, _v0.transcodeStatusAtEndScreen = _v1;
         });
       }
     })),
-    _v298 = () => {
+    _v299 = () => {
       let {
           shown: _v0,
           ignored: _v1
@@ -6945,10 +6956,10 @@
         }, [_v2])
       };
     },
-    _v299 = "MICROPHONE_MUTED",
-    _v300 = "FPS_PERFORMANCE",
-    _v301 = "ULTRA_QUALITY_DEVICE_WARNING",
-    _v302 = () => {
+    _v300 = "MICROPHONE_MUTED",
+    _v301 = "FPS_PERFORMANCE",
+    _v302 = "ULTRA_QUALITY_DEVICE_WARNING",
+    _v303 = () => {
       let _v0 = (0, _v86.useUIStore)(_v0 => _v0.common.state),
         _v1 = _v84(_v0 => _v0.capture.isAudioMuted),
         _v2 = (() => {
@@ -6994,7 +7005,7 @@
                   trackRecordingStarted: _v14,
                   trackRecordingCompleted: _v15
                 } = (0, _v46.useRecordingTracking)();
-              return (0, _v289.useLastVersion)(_v0 => {
+              return (0, _v290.useLastVersion)(_v0 => {
                 switch (_v0.type) {
                   case "upload":
                     _v177({
@@ -7007,7 +7018,7 @@
                       uploadingDuration: _v0.uploadingDuration,
                       uploadMethod: _v0.uploadMethod,
                       originVariableFrameResolution: _v0.originVariableFrameResolution,
-                      script: _v288(_v6),
+                      script: _v289(_v6),
                       averageFrameTime: _v86.useUIStore.getState().common.averageFrameTime,
                       cameraEffect: _v12,
                       canvasRatio: _v8,
@@ -7026,7 +7037,7 @@
                       name: "recordingStarted",
                       isMicOn: !_v0.isMuted,
                       captureMode: _v4,
-                      script: _v288(_v6),
+                      script: _v289(_v6),
                       ..._v5
                     }), _v14({
                       recordingHasCamera: !_v1.isMuted,
@@ -7045,7 +7056,7 @@
                       clipURL: _v0.videoLink,
                       duration: _v0.duration,
                       recordingFileSizeMb: _v0.recordedBytes / 0 / 0,
-                      script: _v288(_v6),
+                      script: _v289(_v6),
                       ..._v5
                     });
                     break;
@@ -7073,7 +7084,7 @@
                 _v2,
                 _v3 = (0, _v86.useUIStore)(_v0 => _v0.common.state),
                 _v4 = (0, _v86.useUIStore)(_v0 => _v0.common.isBackModalShown),
-                _v5 = _v290.includes(_v3) && !_v4,
+                _v5 = _v291.includes(_v3) && !_v4,
                 {
                   subscribe: _v6,
                   unsubscribe: _v7
@@ -7117,7 +7128,7 @@
               setRecordingUploadedTime: _v24,
               resetPostRecordingState: _v25,
               setRecordingDuration: _v26
-            } = _v297((0, _v27.useShallow)(_v0 => ({
+            } = _v298((0, _v27.useShallow)(_v0 => ({
               setUploadMethodType: _v0.setUploadMethodType,
               setRecordedClipId: _v0.setRecordedClipId,
               setRecordingStoppedTime: _v0.setRecordingStoppedTime,
@@ -7171,8 +7182,8 @@
               mode: _v37
             } = _v255(),
             _v38 = (0, _v26.useRef)(void 0),
-            _v39 = (0, _v26.useRef)(new _v294()),
-            _v40 = _v292(),
+            _v39 = (0, _v26.useRef)(new _v295()),
+            _v40 = _v293(),
             {
               resetRecording: _v41,
               setRecordingInfo: _v42,
@@ -7558,7 +7569,7 @@
                         _v126.useMemoryDataStorage.getState().setInfo({
                           uri: _v0
                         }), _v31();
-                        let _v1 = _v280(_v0);
+                        let _v1 = _v281(_v0);
                         _v15 === _v253 && _v1 && _v16(_v1);
                       }
                     }), [_v29, _v31, _v18, _v22, _v30, _v19, _v14, _v23, _v0, _v17, _v24, _v15, _v16, _v2]);
@@ -7580,7 +7591,7 @@
                         _v3 = _v0.selected;
                       return "password" !== _v3.value || _v3.password || _v20(_v3 = {
                         value: "nobody"
-                      }), new _v279(_v32, {
+                      }), new _v280(_v32, {
                         recordingTitle: _v126.useMemoryDataStorage.getState().info.title,
                         uploadFolderUri: _v1 ?? void 0,
                         uploadAccountId: _v2,
@@ -7610,7 +7621,7 @@
                       if (_v4.current?.cancelAndUnsubscribe(), _v4.current = _v33(), _v4 && _v4.current.addThumbnail(_v4), "tus" !== _v8.current) {
                         if (_v4.current.start(_v8.current), "tus_stream" === _v8.current) {
                           let _v0 = new _v262();
-                          _v5.current = _v0, _v4.current.addChunks(_v2.flatMap(_v0 => _v0.push(_v0))), "stopped" === _v0 && _v284(_v0, _v4.current, _v2);
+                          _v5.current = _v0, _v4.current.addChunks(_v2.flatMap(_v0 => _v0.push(_v0))), "stopped" === _v0 && _v285(_v0, _v4.current, _v2);
                         } else _v4.current.addChunks("live" === _v8.current ? _v2 : _v3);
                         "stopped" === _v0 && _v4.current.eof({
                           duration: _v5,
@@ -7700,7 +7711,7 @@
                           duration: _v0,
                           isResolutionChanged: _v1
                         } = _v126.useMemoryDataStorage.getState().info;
-                        "tus_stream" === _v8.current && null !== _v5.current && _v284(_v5.current, _v4.current, _v2), await _v4.current.eof({
+                        "tus_stream" === _v8.current && null !== _v5.current && _v285(_v5.current, _v4.current, _v2), await _v4.current.eof({
                           duration: _v0,
                           isResolutionChanged: _v1
                         });
@@ -7790,7 +7801,7 @@
                   uploadingDuration: _v3,
                   originVariableFrameResolution: _v7
                 });
-                let _v8 = _v297.getState().recordingStoppedTime;
+                let _v8 = _v298.getState().recordingStoppedTime;
                 _v124("record_studio_record_uploaded", {
                   duration: _v6,
                   uploadMethod: _v2,
@@ -7892,7 +7903,7 @@
                   size: _v0
                 }), 0 === _v0) {
                   let _v0 = {
-                    videoId: _v280(_v50.current()) ?? null,
+                    videoId: _v281(_v50.current()) ?? null,
                     duration: _v1,
                     durationLimitReached: _v2,
                     recorderError: _v3?.message ?? null,
@@ -7956,7 +7967,7 @@
               let _v2 = {
                 appState: _v1,
                 persisted: _v0.persisted,
-                videoId: _v280(_v50.current()) ?? null,
+                videoId: _v281(_v50.current()) ?? null,
                 ..._v38.current?.getChunkDiagnostics()
               };
               _v13.warn("Page unloaded during recording", _v2), _v124("record_studio_unload_during_recording", _v2);
@@ -7990,7 +8001,7 @@
               _v3 = _v82.getState().size;
             _v38.current?.dispose(), _v39.current.clear(), _v15("idle"), _v41(), _v25(), _v20(!1), _v42({
               title: `${_v206.defaultRecordingTitle} - ${new Date().toLocaleString()}`
-            }), _v38.current = new _v296(_v51, _v40, _v1, _v0, _v2, _v3, _v49.getRecorderMimeType()), _v38.current.start().then(() => {
+            }), _v38.current = new _v297(_v51, _v40, _v1, _v0, _v2, _v3, _v49.getRecorderMimeType()), _v38.current.start().then(() => {
               _v49.start();
             }, _v0 => {
               _v13.error(_v0, {
@@ -8046,9 +8057,9 @@
       let _v5 = _v179(_v0 => _v0.permissions.audio),
         {
           setNotice: _v6
-        } = _v298();
+        } = _v299();
       (0, _v26.useEffect)(() => {
-        _v6(_v299, !!("denied" !== _v5 && _v1));
+        _v6(_v300, !!("denied" !== _v5 && _v1));
       }, [_v1, _v6, _v5]);
       let _v7 = _v147.includes(_v0);
       return (0, _v25.jsx)(_v28.Flex, {
@@ -8066,15 +8077,15 @@
         })
       });
     };
-  var _v303 = _v0.i(0),
-    _v304 = _v0.i(0),
+  var _v304 = _v0.i(0),
     _v305 = _v0.i(0),
     _v306 = _v0.i(0),
     _v307 = _v0.i(0),
     _v308 = _v0.i(0),
     _v309 = _v0.i(0),
-    _v310 = _v0.i(0);
-  let _v311 = _v0 => {
+    _v310 = _v0.i(0),
+    _v311 = _v0.i(0);
+  let _v312 = _v0 => {
       let {
           header: _v1,
           text: _v2,
@@ -8085,24 +8096,24 @@
           disabled: _v7
         } = _v0,
         _v8 = _v0["data-testid"];
-      return (0, _v25.jsxs)(_v304.Modal, {
+      return (0, _v25.jsxs)(_v305.Modal, {
         isOpen: !0,
         onClose: _v5 ?? (() => void 0),
-        children: [(0, _v25.jsx)(_v310.ModalOverlay, {}), (0, _v25.jsxs)(_v307.ModalContent, {
+        children: [(0, _v25.jsx)(_v311.ModalOverlay, {}), (0, _v25.jsxs)(_v308.ModalContent, {
           "data-testid": _v8,
-          children: [_v5 && (0, _v25.jsx)(_v306.ModalCloseButton, {
+          children: [_v5 && (0, _v25.jsx)(_v307.ModalCloseButton, {
             onClick: _v5
-          }), (0, _v25.jsx)(_v309.ModalHeader, {
-            children: (0, _v25.jsx)(_v303.Header, {
+          }), (0, _v25.jsx)(_v310.ModalHeader, {
+            children: (0, _v25.jsx)(_v304.Header, {
               size: "md",
               children: _v1
             })
-          }), (0, _v25.jsx)(_v305.ModalBody, {
+          }), (0, _v25.jsx)(_v306.ModalBody, {
             children: (0, _v25.jsx)(_v220.Paragraph, {
               size: "md",
               children: _v2
             })
-          }), (0, _v25.jsxs)(_v308.ModalFooter, {
+          }), (0, _v25.jsxs)(_v309.ModalFooter, {
             children: [_v4 && (0, _v25.jsx)(_v204.Button, {
               variant: "secondary",
               onClick: _v4,
@@ -8117,18 +8128,18 @@
         })]
       });
     },
-    _v312 = ({
+    _v313 = ({
       errorMessage: _v0,
       onClose: _v1
-    }) => _v0 ? (0, _v25.jsx)(_v311, {
+    }) => _v0 ? (0, _v25.jsx)(_v312, {
       header: _v0?.title ?? "",
       text: _v0?.text,
       onClose: _v1,
       onConfirm: _v1
     }) : null;
-  var _v313 = _v0.i(0),
-    _v314 = _v0.i(0);
-  let _v315 = {
+  var _v314 = _v0.i(0),
+    _v315 = _v0.i(0);
+  let _v316 = {
     uploadErrorModal: {
       startRecovery: (0, _v205.translate)({
         singular: "Start recovery",
@@ -8797,7 +8808,7 @@
             LINE_BREAK: () => (0, _v25.jsxs)(_v26.Fragment, {
               children: [(0, _v25.jsx)("br", {}), (0, _v25.jsx)("br", {})]
             }, "line-break"),
-            LINK: _v0 => (0, _v25.jsx)(_v314.Link, {
+            LINK: _v0 => (0, _v25.jsx)(_v315.Link, {
               fontSize: "inherit",
               variant: "brand",
               target: "_blank",
@@ -9078,18 +9089,18 @@
       }
     }
   };
-  var _v316 = _v0.i(0),
-    _v317 = _v0.i(0),
+  var _v317 = _v0.i(0),
     _v318 = _v0.i(0),
-    _v319 = _v0.i(0);
-  let _v320 = ({
+    _v319 = _v0.i(0),
+    _v320 = _v0.i(0);
+  let _v321 = ({
       embedUrl: _v0,
       onConfirmed: _v1,
       onUnservable: _v2,
       timeoutMs: _v3
     }) => {
       let [_v4, _v5] = (0, _v26.useState)(() => window.Vimeo?.Player != null),
-        _v6 = (0, _v318.getPlayerAssetUrls)()?.player_api_js ?? null;
+        _v6 = (0, _v319.getPlayerAssetUrls)()?.player_api_js ?? null;
       (0, _v26.useEffect)(() => {
         let _v0 = setTimeout(_v2, _v3);
         return () => clearTimeout(_v0);
@@ -9104,18 +9115,18 @@
         overflow: "hidden",
         opacity: 0,
         "aria-hidden": !0,
-        children: [null !== _v6 && (0, _v25.jsx)(_v317.default, {
+        children: [null !== _v6 && (0, _v25.jsx)(_v318.default, {
           src: _v6,
           onLoad: _v7,
           onReady: _v7
-        }), _v4 && null !== _v0 && (0, _v25.jsx)(_v319.EmbedPlayer, {
+        }), _v4 && null !== _v0 && (0, _v25.jsx)(_v320.EmbedPlayer, {
           src: _v0,
           onPlayerAPIReady: _v1
         })]
       });
     },
-    _v321 = "record-studio-post-recording-retake-modal-confirm-button",
-    _v322 = {
+    _v322 = "record-studio-post-recording-retake-modal-confirm-button",
+    _v323 = {
       like: 0,
       watch_later: 0,
       share: 0,
@@ -9138,9 +9149,9 @@
       force_embed: 1,
       colors: "000000,00ADEF,FFFFFF,000000"
     },
-    _v323 = ["isPlayable", "status", "embedPlayerConfigUrl", "playerEmbedUrl", "allowedPrivacies", "name", "duration", "link", "manageLink", "password", "privacy.embed", "privacy.view", "spatial", "metadata.interactions.canUpdatePrivacyToPublic", "metadata.interactions.edit", "user.uri"];
-  var _v324 = _v0.i(0);
-  let _v325 = ({
+    _v324 = ["isPlayable", "status", "transcode.status", "embedPlayerConfigUrl", "playerEmbedUrl", "allowedPrivacies", "name", "duration", "link", "manageLink", "password", "privacy.embed", "privacy.view", "spatial", "metadata.interactions.canUpdatePrivacyToPublic", "metadata.interactions.edit", "user.uri"];
+  var _v325 = _v0.i(0);
+  let _v326 = ({
       clipId: _v0,
       fields: _v1,
       query: _v2,
@@ -9151,11 +9162,11 @@
         error: _v5,
         isValidating: _v6,
         mutate: _v7
-      } = (0, _v324.useGetVideo)(() => _v0 ? {
+      } = (0, _v325.useGetVideo)(() => _v0 ? {
         where: {
           videoId: _v0
         },
-        select: _v1 ?? _v323,
+        select: _v1 ?? _v324,
         query: _v2
       } : null, {
         revalidateOnFocus: !1,
@@ -9169,13 +9180,13 @@
         refetch: (0, _v26.useCallback)(() => _v7(), [_v7])
       };
     },
-    _v326 = {
+    _v327 = {
       video: null,
       isVideoLoading: !1,
       isCopyLinkBlocked: !0,
       refetchClipInfo: () => Promise.resolve(void 0)
     },
-    _v327 = (_v0, _v1) => {
+    _v328 = (_v0, _v1) => {
       switch (_v1.type) {
         case "setVideo":
           return {
@@ -9193,7 +9204,7 @@
           };
         case "clearState":
           return {
-            ..._v326,
+            ..._v327,
             refetchClipInfo: _v0.refetchClipInfo
           };
         case "setVideoLoading":
@@ -9215,9 +9226,9 @@
           return _v0;
       }
     },
-    _v328 = (0, _v26.createContext)(_v326),
-    _v329 = (0, _v26.createContext)(() => null),
-    _v330 = ({
+    _v329 = (0, _v26.createContext)(_v327),
+    _v330 = (0, _v26.createContext)(() => null),
+    _v331 = ({
       children: _v0
     }) => {
       let _v1,
@@ -9234,14 +9245,14 @@
           setAppState: _v0.common.setState,
           setError: _v0.common.setError
         }))),
-        _v9 = _v333(),
-        _v10 = _v297(_v0 => _v0.setVideoBecomesPlayableTime),
-        _v11 = _v297(_v0 => _v0.uploadMethodType),
+        _v9 = _v334(),
+        _v10 = _v298(_v0 => _v0.setVideoBecomesPlayableTime),
+        _v11 = _v298(_v0 => _v0.uploadMethodType),
         {
           state: _v12,
           dispatch: _v13
         } = (() => {
-          let [_v0, _v1] = (0, _v26.useReducer)(_v327, _v326);
+          let [_v0, _v1] = (0, _v26.useReducer)(_v328, _v327);
           return {
             state: _v0,
             dispatch: _v1
@@ -9252,32 +9263,20 @@
           clipError: _v15,
           isLoading: _v16,
           refetch: _v17
-        } = _v325({
-          query: _v322,
+        } = _v326({
+          query: _v323,
           preventFetchOnMount: !0,
           clipId: _v9
         }),
         _v18 = (0, _v26.useCallback)(() => {
-          _v17(), _v10(Date.now()), _v4.info("[end-screen] clip is playable, refetched clip info & measured time-to-playable."), (async () => {
-            if (null !== _v9) try {
-              let _v0 = await _v101.fetchWithRecordJWT(_v264.getVideo, {
-                where: {
-                  videoId: _v9
-                },
-                select: ["status", "transcode.status"]
-              });
-              _v4.info("[end-screen] playback mode at playable", {
-                status: _v0?.status,
-                transcodeStatus: _v0?.transcode?.status,
-                playbackMode: _v0?.transcode?.status === "complete" ? "renditions" : "playable_source"
-              });
-            } catch (_v0) {
-              _v4.warn("[end-screen] playback-mode probe failed", {
-                error: _v0
-              });
-            }
-          })(), _v7("endScreenShown"), _v4.info('[end-screen] clip is playable and loaded, changed app state to "endScreenShown".'), _v5(!1);
-        }, [_v9, _v4, _v17, _v7, _v10, _v5]),
+          _v17();
+          let _v0 = _v14?.transcode?.status;
+          _v10(Date.now(), _v0), _v4.info("[end-screen] clip is playable, refetched clip info & measured time-to-playable."), _v4.info("[end-screen] playback mode at playable", {
+            status: _v14?.status,
+            transcodeStatus: _v0,
+            playbackMode: _v279(_v11, _v0)
+          }), _v7("endScreenShown"), _v4.info('[end-screen] clip is playable and loaded, changed app state to "endScreenShown".'), _v5(!1);
+        }, [_v14?.status, _v14?.transcode?.status, _v11, _v4, _v17, _v7, _v10, _v5]),
         [_v19, _v20] = (0, _v26.useState)(!1),
         [_v21, _v22] = (0, _v26.useState)(0),
         _v23 = (0, _v26.useRef)(!1);
@@ -9364,11 +9363,11 @@
         })) : _v4.warn("[end-screen] error fetching clip info:", {
           clipError: _v15
         }) : _v8(_v0 => _v0?.errorKey === _v169.UNAUTHORIZED_ERROR ? void 0 : _v0);
-      }, [_v15, _v4, _v8]), (0, _v25.jsx)(_v328.Provider, {
+      }, [_v15, _v4, _v8]), (0, _v25.jsx)(_v329.Provider, {
         value: _v12,
-        children: (0, _v25.jsxs)(_v329.Provider, {
+        children: (0, _v25.jsxs)(_v330.Provider, {
           value: _v13,
-          children: [_v29 && (0, _v25.jsx)(_v320, {
+          children: [_v29 && (0, _v25.jsx)(_v321, {
             embedUrl: _v28,
             onConfirmed: _v25,
             onUnservable: _v26,
@@ -9377,12 +9376,12 @@
         })
       });
     },
-    _v331 = () => (0, _v26.useContext)(_v328),
-    _v332 = () => (0, _v26.useContext)(_v329);
-  function _v333() {
-    return _v297(_v0 => _v0.recordedClipId);
+    _v332 = () => (0, _v26.useContext)(_v329),
+    _v333 = () => (0, _v26.useContext)(_v330);
+  function _v334() {
+    return _v298(_v0 => _v0.recordedClipId);
   }
-  let _v334 = ({
+  let _v335 = ({
     errorKey: _v0,
     errorSource: _v1,
     onClose: _v2
@@ -9390,10 +9389,10 @@
     let _v3 = _v137("UploaderError"),
       {
         refetchClipInfo: _v4
-      } = _v331(),
+      } = _v332(),
       {
         downloadRecording: _v5
-      } = (0, _v316.useRecordDownloader)(),
+      } = (0, _v317.useRecordDownloader)(),
       {
         trackNotificationView: _v6,
         trackNotificationAction: _v7
@@ -9416,7 +9415,7 @@
         setRecoveryStep: _v0.setRecoveryStep,
         setError: _v0.setError
       }))),
-      _v14 = (0, _v26.useMemo)(() => _v315.errors[_v335(_v0, _v9)], [_v0, _v9]),
+      _v14 = (0, _v26.useMemo)(() => _v316.errors[_v336(_v0, _v9)], [_v0, _v9]),
       [_v15, _v16] = (0, _v26.useState)(!1),
       _v17 = (0, _v26.useRef)(!1);
     (0, _v26.useEffect)(() => {
@@ -9425,7 +9424,7 @@
         feature: "record",
         location: "content_area"
       } : void 0;
-      _v6(_v336(_v0, _v9), _v0), _v335(_v0, _v9) === _v169.UPLOADING_RETRY_ERROR && _v124("record_studio_download_modal_shown", {
+      _v6(_v337(_v0, _v9), _v0), _v336(_v0, _v9) === _v169.UPLOADING_RETRY_ERROR && _v124("record_studio_download_modal_shown", {
         error_key: _v0,
         recoveryStep: _v9
       }), _v3.error(Error("Uploading went wrong"), {
@@ -9458,23 +9457,23 @@
         })), _v3.info("download local recording");
       }, [_v5, _v0, _v3, _v9]),
       _v21 = (0, _v26.useMemo)(() => {
-        switch (_v335(_v0, _v9)) {
+        switch (_v336(_v0, _v9)) {
           case _v169.UPLOADING_RETRY_ERROR:
             return [(0, _v25.jsx)(_v204.Button, {
               variant: "secondary",
               as: "a",
               href: "/",
               onClick: () => {
-                _v7(_v336(_v0, _v9), "Back to Home");
+                _v7(_v337(_v0, _v9), "Back to Home");
               },
-              children: _v315.uploadErrorModal.backToHome
+              children: _v316.uploadErrorModal.backToHome
             }, "home"), (0, _v25.jsx)(_v204.Button, {
               variant: "primary",
-              leftIcon: (0, _v25.jsx)(_v313.DownloadImport, {}),
+              leftIcon: (0, _v25.jsx)(_v314.DownloadImport, {}),
               onClick: () => {
-                _v20(), _v7(_v336(_v0, _v9), "Download");
+                _v20(), _v7(_v337(_v0, _v9), "Download");
               },
-              children: _v315.uploadErrorModal.download
+              children: _v316.uploadErrorModal.download
             }, "download")];
           case _v169.UPLOADING_ERROR:
             return [(0, _v25.jsx)(_v204.Button, {
@@ -9483,15 +9482,15 @@
                 _v12("download"), _v13({
                   type: "blocker-error",
                   errorKey: _v169.UPLOADING_RETRY_ERROR
-                }), _v7(_v336(_v0, _v9), "Start recovery");
+                }), _v7(_v337(_v0, _v9), "Start recovery");
               },
-              children: _v315.uploadErrorModal.startRecovery
+              children: _v316.uploadErrorModal.startRecovery
             }, "recovery"), (0, _v25.jsx)(_v204.Button, {
               variant: "primary",
               onClick: () => {
-                _v18(), _v7(_v336(_v0, _v9), "Retry");
+                _v18(), _v7(_v337(_v0, _v9), "Retry");
               },
-              children: _v315.uploadErrorModal.retry
+              children: _v316.uploadErrorModal.retry
             }, "retry")];
           case _v169.UNAUTHORIZED_ERROR:
             return [(0, _v25.jsx)(_v204.Button, {
@@ -9501,33 +9500,33 @@
               target: "_blank",
               isLoading: _v15,
               onClick: () => {
-                _v16(!0), _v7(_v336(_v0, _v9), "Log in");
+                _v16(!0), _v7(_v337(_v0, _v9), "Log in");
               },
-              children: _v315.uploadErrorModal.logIn
+              children: _v316.uploadErrorModal.logIn
             }, "login")];
           case _v169.FIREWALL_ERROR:
             return [(0, _v25.jsx)(_v204.Button, {
               variant: "tertiary",
               onClick: () => {
-                history.back(), _v7(_v336(_v0, _v9), "Go back", {
+                history.back(), _v7(_v337(_v0, _v9), "Go back", {
                   product: "record",
                   feature: "record",
                   location: "content_area"
                 });
               },
-              children: _v315.uploadErrorModal.goBack
+              children: _v316.uploadErrorModal.goBack
             }, "back"), (0, _v25.jsx)(_v204.Button, {
               variant: "primary",
               onClick: () => {
-                location.reload(), _v7(_v336(_v0, _v9), "Reload page");
+                location.reload(), _v7(_v337(_v0, _v9), "Reload page");
               },
-              children: _v315.uploadErrorModal.reloadPage
+              children: _v316.uploadErrorModal.reloadPage
             }, "reload")];
           default:
             return [];
         }
       }, [_v20, _v0, _v15, _v9, _v18, _v13, _v12, _v7]);
-    return (0, _v25.jsx)(_v311, {
+    return (0, _v25.jsx)(_v312, {
       header: _v14?.title ?? "",
       text: _v14?.text,
       buttons: _v21,
@@ -9535,11 +9534,11 @@
       onClose: _v8 ? _v19 : void 0
     });
   };
-  function _v335(_v0, _v1) {
+  function _v336(_v0, _v1) {
     return _v0 === _v169.INTERNET_CONNECTION ? "download" === _v1 ? _v169.UPLOADING_RETRY_ERROR : _v169.UPLOADING_ERROR : _v0;
   }
-  function _v336(_v0, _v1) {
-    switch (_v335(_v0, _v1)) {
+  function _v337(_v0, _v1) {
+    switch (_v336(_v0, _v1)) {
       case _v169.UPLOADING_ERROR:
         return {
           notification_name: "Unable to save recording",
@@ -9572,44 +9571,44 @@
         };
     }
   }
-  let _v337 = () => {
+  let _v338 = () => {
     let _v0 = (0, _v86.useUIStore)(_v0 => _v0.common.error),
       _v1 = (0, _v86.useUIStore)(_v0 => _v0.common.setError);
     return {
       onErrorClose: (0, _v26.useCallback)(() => {
         _v1(void 0);
       }, [_v1]),
-      errorMessage: (0, _v26.useMemo)(() => _v0.errorKey ? _v315.errors[_v0.errorKey] : void 0, [_v0.errorKey]),
+      errorMessage: (0, _v26.useMemo)(() => _v0.errorKey ? _v316.errors[_v0.errorKey] : void 0, [_v0.errorKey]),
       error: _v0
     };
   };
-  var _v338 = _v0.i(0),
-    _v339 = _v0.i(0),
-    _v340 = _v0.i(0);
-  let _v341 = ({
+  var _v339 = _v0.i(0),
+    _v340 = _v0.i(0),
+    _v341 = _v0.i(0);
+  let _v342 = ({
       message: _v0,
       onClose: _v1,
       status: _v2,
       title: _v3
-    }) => (0, _v25.jsxs)(_v338.Alert, {
+    }) => (0, _v25.jsxs)(_v339.Alert, {
       status: _v2,
       onClose: _v1,
       minWidth: (0, _v30.rem)(200),
       marginBottom: "200",
-      children: [(0, _v25.jsx)(_v340.AlertTitle, {
+      children: [(0, _v25.jsx)(_v341.AlertTitle, {
         fontSize: "heading-xs",
         children: _v3
-      }), (0, _v25.jsx)(_v339.AlertDescription, {
+      }), (0, _v25.jsx)(_v340.AlertDescription, {
         fontSize: "body-sm",
         children: _v0
       })]
     }),
-    _v342 = () => {
+    _v343 = () => {
       let {
         error: _v0,
         errorMessage: _v1,
         onErrorClose: _v2
-      } = _v337();
+      } = _v338();
       if (!_v1 || !_v0.errorKey || "full-screen-error" === _v0.type) return null;
       if ("blocker-error" === _v0.type) switch (_v0.errorKey) {
         case _v169.FIREWALL_ERROR:
@@ -9617,32 +9616,32 @@
         case _v169.UNAUTHORIZED_ERROR:
         case _v169.UPLOADING_ERROR:
         case _v169.UPLOADING_RETRY_ERROR:
-          return (0, _v25.jsx)(_v334, {
+          return (0, _v25.jsx)(_v335, {
             errorKey: _v0.errorKey,
             errorSource: _v0.source,
             onClose: _v2
           });
         default:
-          return (0, _v25.jsx)(_v312, {
+          return (0, _v25.jsx)(_v313, {
             errorMessage: _v1,
             onClose: _v2
           });
       }
-      return (0, _v25.jsx)(_v341, {
+      return (0, _v25.jsx)(_v342, {
         message: _v1.text,
         status: "error",
         onClose: _v2
       });
     };
-  var _v343 = _v0.i(0);
-  let _v344 = ({
+  var _v344 = _v0.i(0);
+  let _v345 = ({
     children: _v0
   }) => {
     let {
         error: _v1,
         errorMessage: _v2,
         onErrorClose: _v3
-      } = _v337(),
+      } = _v338(),
       _v4 = (0, _v26.useMemo)(() => _v1.errorKey === _v170.UNAUTHORIZED ? [{
         actionType: "redirect",
         onClick: _v3,
@@ -9655,7 +9654,7 @@
       children: (0, _v25.jsxs)(_v29.VStack, {
         gap: "300",
         maxW: "30%",
-        children: [_v2?.title && (0, _v25.jsx)(_v303.Header, {
+        children: [_v2?.title && (0, _v25.jsx)(_v304.Header, {
           align: "center",
           size: "2xl",
           children: _v2.title
@@ -9663,7 +9662,7 @@
           size: "md",
           align: "center",
           children: _v2.text
-        }), (0, _v25.jsx)(_v343.HStack, {
+        }), (0, _v25.jsx)(_v344.HStack, {
           gap: "100",
           children: _v4.map(({
             onClick: _v0,
@@ -9674,19 +9673,19 @@
             ..._v2,
             onClick: _v0,
             key: _v1
-          }, _v315.fullScreenError.buttons[_v1]))
+          }, _v316.fullScreenError.buttons[_v1]))
         })]
       })
     }) : (0, _v25.jsx)(_v25.Fragment, {
       children: _v0
     });
   };
-  var _v345 = _v0.i(0),
-    _v346 = _v0.i(0),
+  var _v346 = _v0.i(0),
     _v347 = _v0.i(0),
     _v348 = _v0.i(0),
-    _v349 = _v0.i(0);
-  let _v350 = {
+    _v349 = _v0.i(0),
+    _v350 = _v0.i(0);
+  let _v351 = {
       back: (0, _v205.translate)({
         singular: "Back",
         dictionary: {
@@ -10405,7 +10404,7 @@
         })
       }
     },
-    _v351 = ({
+    _v352 = ({
       active: _v0,
       leaveRecord: _v1,
       saveAndLeave: _v2,
@@ -10413,42 +10412,42 @@
       children: _v4,
       loadingButton: _v5
     }) => (0, _v25.jsxs)(_v25.Fragment, {
-      children: [(0, _v25.jsxs)(_v304.Modal, {
+      children: [(0, _v25.jsxs)(_v305.Modal, {
         isOpen: _v0,
         onClose: _v3,
-        children: [(0, _v25.jsx)(_v310.ModalOverlay, {}), (0, _v25.jsxs)(_v307.ModalContent, {
-          children: [(0, _v25.jsx)(_v309.ModalHeader, {
-            children: (0, _v25.jsx)(_v303.Header, {
+        children: [(0, _v25.jsx)(_v311.ModalOverlay, {}), (0, _v25.jsxs)(_v308.ModalContent, {
+          children: [(0, _v25.jsx)(_v310.ModalHeader, {
+            children: (0, _v25.jsx)(_v304.Header, {
               variant: "heading-md",
               size: "xl",
-              children: _v350.backConfirmModal.title
+              children: _v351.backConfirmModal.title
             })
-          }), (0, _v25.jsx)(_v306.ModalCloseButton, {
+          }), (0, _v25.jsx)(_v307.ModalCloseButton, {
             isDisabled: !!_v5
-          }), (0, _v25.jsx)(_v305.ModalBody, {
+          }), (0, _v25.jsx)(_v306.ModalBody, {
             children: (0, _v25.jsx)(_v220.Paragraph, {
               variant: "body-md",
-              children: _v350.backConfirmModal.content
+              children: _v351.backConfirmModal.content
             })
-          }), (0, _v25.jsxs)(_v308.ModalFooter, {
+          }), (0, _v25.jsxs)(_v309.ModalFooter, {
             children: [(0, _v25.jsx)(_v204.Button, {
               isLoading: "leave" === _v5,
               isDisabled: !!_v5,
               onClick: _v1,
               variant: "secondary",
-              children: _v350.backConfirmModal.leaveRecord
+              children: _v351.backConfirmModal.leaveRecord
             }), (0, _v25.jsx)(_v204.Button, {
               isLoading: "save" === _v5,
               isDisabled: !!_v5,
               variant: "primary",
               onClick: _v2,
-              children: _v350.backConfirmModal.saveRecordingAndLeave
+              children: _v351.backConfirmModal.saveRecordingAndLeave
             })]
           })]
         })]
       }), _v4]
     }),
-    _v352 = ({
+    _v353 = ({
       isDisabled: _v0,
       variant: _v1 = "primary",
       testId: _v2
@@ -10462,19 +10461,19 @@
         },
         isDisabled: _v0,
         isLoading: _v3,
-        children: _v350.noPersonalAccountAlert.goHome
+        children: _v351.noPersonalAccountAlert.goHome
       });
     },
-    _v353 = () => (0, _v25.jsx)(_v311, {
+    _v354 = () => (0, _v25.jsx)(_v312, {
       "data-testid": _v195,
       onConfirm: () => void 0,
-      header: _v350.noPersonalAccountAlert.title,
-      text: _v350.noPersonalAccountAlert.text,
-      buttons: [(0, _v25.jsx)(_v352, {
+      header: _v351.noPersonalAccountAlert.title,
+      text: _v351.noPersonalAccountAlert.text,
+      buttons: [(0, _v25.jsx)(_v353, {
         testId: _v196
       }, "go-home")]
     });
-  async function _v354(_v0, _v1) {
+  async function _v355(_v0, _v1) {
     try {
       _v86.useUIStore.getState().common.setIsTeamSwitching(!0);
       let _v0 = await fetch("/manage/videos?action=SWITCH_TEAMS", {
@@ -10495,11 +10494,11 @@
       _v86.useUIStore.getState().common.setIsTeamSwitching(!1);
     }
   }
-  async function _v355(_v0, _v1) {
-    let _v2 = await _v354(_v0, _v1);
+  async function _v356(_v0, _v1) {
+    let _v2 = await _v355(_v0, _v1);
     return _v2 && window.location.reload(), _v2;
   }
-  let _v356 = ({
+  let _v357 = ({
       children: _v0,
       testId: _v1,
       variant: _v2 = "primary"
@@ -10511,35 +10510,35 @@
         "data-testid": _v1,
         variant: _v2,
         onClick: () => {
-          _v355(_v5, _v4.xsrft);
+          _v356(_v5, _v4.xsrft);
         },
         isLoading: _v3,
         children: _v0
       }) : null;
     },
-    _v357 = () => {
+    _v358 = () => {
       let _v0 = (0, _v86.useUIStore)(_v0 => _v0.common.isTeamSwitching);
-      return (0, _v25.jsx)(_v311, {
+      return (0, _v25.jsx)(_v312, {
         "data-testid": _v192,
         onConfirm: () => void 0,
-        header: _v350.switchTeamsAlert.title,
-        text: _v350.switchTeamsAlert.text,
-        buttons: [(0, _v25.jsx)(_v352, {
+        header: _v351.switchTeamsAlert.title,
+        text: _v351.switchTeamsAlert.text,
+        buttons: [(0, _v25.jsx)(_v353, {
           isDisabled: _v0,
           variant: "tertiary",
           testId: _v194
-        }, "goHome"), (0, _v25.jsx)(_v356, {
+        }, "goHome"), (0, _v25.jsx)(_v357, {
           testId: _v193,
-          children: _v350.switchTeamsAlert.switchTeams
+          children: _v351.switchTeamsAlert.switchTeams
         }, "switch-teams")]
       });
     };
-  var _v358 = _v0.i(0);
-  let _v359 = "NOT_AVAILABLE",
-    _v360 = "CAN_BE_REQUESTED",
-    _v361 = "IS_AWAITED",
-    _v362 = "IN_PROGRESS",
-    _v363 = ({
+  var _v359 = _v0.i(0);
+  let _v360 = "NOT_AVAILABLE",
+    _v361 = "CAN_BE_REQUESTED",
+    _v362 = "IS_AWAITED",
+    _v363 = "IN_PROGRESS",
+    _v364 = ({
       viewer: _v0,
       canSwitchTeams: _v1
     }) => {
@@ -10548,18 +10547,18 @@
         makeRoleUpgradeRequest: _v3
       } = (_v0 => {
         let _v1 = _v137("useRoleUpgrade"),
-          [_v2, _v3] = (0, _v26.useState)(_v359),
+          [_v2, _v3] = (0, _v26.useState)(_v360),
           {
             data: _v4,
             error: _v5
-          } = (0, _v358.useGetTeamRoleUpgrades)(() => _v0 && 5 === _v0.permissionLevel ? {
+          } = (0, _v359.useGetTeamRoleUpgrades)(() => _v0 && 5 === _v0.permissionLevel ? {
             where: {
               userId: _v0.ownerId
             },
             select: ["uri"]
           } : null);
         (0, _v26.useEffect)(() => {
-          _v4 && _v2 === _v359 ? _v3(_v4.total > 0 ? _v361 : _v360) : _v5 && _v1.error(Error("Couldn't retrieve data regarding existing role upgrade requests"), {
+          _v4 && _v2 === _v360 ? _v3(_v4.total > 0 ? _v362 : _v361) : _v5 && _v1.error(Error("Couldn't retrieve data regarding existing role upgrade requests"), {
             category: _v120.ROLE_UPGRADE,
             method: "useEffect",
             component: "useRoleUpgrade",
@@ -10570,9 +10569,9 @@
             }
           });
         }, [_v1, _v2, _v4, _v5]);
-        let [_v6, _v7] = (0, _v358.usePostTeamRoleUpgrades)();
+        let [_v6, _v7] = (0, _v359.usePostTeamRoleUpgrades)();
         (0, _v26.useEffect)(() => {
-          (_v7.error || _v7.data) && _v2 === _v362 && (_v7.data ? _v3(_v361) : _v3(_v360), _v7.error && _v1.error(Error("Couldn't post role upgrade requests"), {
+          (_v7.error || _v7.data) && _v2 === _v363 && (_v7.data ? _v3(_v362) : _v3(_v361), _v7.error && _v1.error(Error("Couldn't post role upgrade requests"), {
             category: _v120.ROLE_UPGRADE,
             method: "useEffect",
             component: "useRoleUpgrade",
@@ -10583,7 +10582,7 @@
           }));
         }, [_v1, _v7, _v2]);
         let _v8 = (0, _v26.useCallback)(() => {
-          _v0 && _v2 === _v360 && (_v3(_v362), _v6({
+          _v0 && _v2 === _v361 && (_v3(_v363), _v6({
             where: {
               userId: _v0.ownerId
             },
@@ -10598,32 +10597,32 @@
           makeRoleUpgradeRequest: _v8
         };
       })(_v0?.teamUser);
-      if ([_v361, _v360, _v362].includes(_v2)) {
+      if ([_v362, _v361, _v363].includes(_v2)) {
         if (!_v0?.user) return null;
-        let _v0 = [_v1 ? (0, _v25.jsx)(_v356, {
+        let _v0 = [_v1 ? (0, _v25.jsx)(_v357, {
           testId: _v189,
           variant: "secondary",
-          children: _v350.requestRoleUpgrade.switchAccounts
-        }, "switch-account") : (0, _v25.jsx)(_v352, {
+          children: _v351.requestRoleUpgrade.switchAccounts
+        }, "switch-account") : (0, _v25.jsx)(_v353, {
           testId: _v191,
           variant: "secondary"
         }, "go-home")];
-        return (_v2 === _v360 || _v2 === _v362) && _v0.push((0, _v25.jsx)(_v204.Button, {
+        return (_v2 === _v361 || _v2 === _v363) && _v0.push((0, _v25.jsx)(_v204.Button, {
           "data-testid": _v190,
-          isLoading: _v2 === _v362,
+          isLoading: _v2 === _v363,
           onClick: _v3,
-          children: _v350.requestRoleUpgrade.requestAccess
-        }, "request-access")), (0, _v25.jsx)(_v311, {
+          children: _v351.requestRoleUpgrade.requestAccess
+        }, "request-access")), (0, _v25.jsx)(_v312, {
           "data-testid": _v188,
           onConfirm: () => void 0,
-          header: _v2 === _v361 ? _v350.requestRoleUpgrade.waiting.title : _v350.requestRoleUpgrade.ready.title,
-          text: _v2 === _v361 ? _v350.requestRoleUpgrade.waiting.text : _v350.requestRoleUpgrade.ready.text,
+          header: _v2 === _v362 ? _v351.requestRoleUpgrade.waiting.title : _v351.requestRoleUpgrade.ready.title,
+          text: _v2 === _v362 ? _v351.requestRoleUpgrade.waiting.text : _v351.requestRoleUpgrade.ready.text,
           buttons: _v0
         });
       }
       return null;
     },
-    _v364 = ({
+    _v365 = ({
       viewer: _v0,
       teams: _v1 = []
     }) => {
@@ -10637,20 +10636,20 @@
         _v5 = _v0?.teamUser?.ownerId,
         _v6 = !!_v1.find(_v0 => _v0.id !== _v5 && "Viewer" !== _v0.role),
         _v7 = _v0?.teamUser?.permissionLevel === 5;
-      return _v0?.teamUser && _v7 && _v4 ? _v2 ? (0, _v25.jsx)(_v363, {
+      return _v0?.teamUser && _v7 && _v4 ? _v2 ? (0, _v25.jsx)(_v364, {
         viewer: _v0,
         canSwitchTeams: _v3 && _v6
-      }) : !1 !== _v3 && _v6 ? (0, _v25.jsx)(_v357, {}) : (0, _v25.jsx)(_v353, {}) : null;
+      }) : !1 !== _v3 && _v6 ? (0, _v25.jsx)(_v358, {}) : (0, _v25.jsx)(_v354, {}) : null;
     };
-  var _v365 = _v0.i(0),
-    _v366 = _v0.i(0),
+  var _v366 = _v0.i(0),
     _v367 = _v0.i(0),
-    _v368 = _v0.i(0);
-  function _v369(_v0) {
+    _v368 = _v0.i(0),
+    _v369 = _v0.i(0);
+  function _v370(_v0) {
     let _v1 = _v0.uri.match(/.*\/([0-9]+)$/);
     return _v1 && _v1.length > 1 ? parseInt(_v1[1], 10) : null;
   }
-  function _v370(_v0) {
+  function _v371(_v0) {
     return {
       isPrivateToUser: _v0.isPrivateToUser,
       name: _v0.name,
@@ -10658,8 +10657,8 @@
       viewPrivacy: _v0.privacy.view
     };
   }
-  let _v371 = ["isPrivateToUser", "name", "privacy.view", "uri"],
-    _v372 = {
+  let _v372 = ["isPrivateToUser", "name", "privacy.view", "uri"],
+    _v373 = {
       folderSelect: {
         teamLibrary: (0, _v205.translate)({
           singular: "Team library",
@@ -10715,20 +10714,20 @@
         })
       }
     },
-    _v373 = () => {
+    _v374 = () => {
       let _v0 = (0, _v47.useViewer)(),
         _v1 = _v0?.teamUser?.ownerId ?? _v0?.user?.id,
         _v2 = (0, _v86.useUIStore)(_v0 => _v0.common.selectedFolder),
-        _v3 = _v2?.uri ? _v369(_v2) : null,
+        _v3 = _v2?.uri ? _v370(_v2) : null,
         {
           contentSpaceEnabled: _v4,
           notTeamGatedContentSpaceEnabled: _v5,
           loading: _v6
-        } = (0, _v367.useContentSpaceEnabled)(_v1),
+        } = (0, _v368.useContentSpaceEnabled)(_v1),
         {
           data: _v7,
           isLoading: _v8
-        } = (0, _v368.useGetUserProject)(() => _v3 && _v1 ? {
+        } = (0, _v369.useGetUserProject)(() => _v3 && _v1 ? {
           where: {
             userId: _v1,
             projectId: _v3
@@ -10737,45 +10736,45 @@
         } : null, {
           revalidateOnFocus: !1
         }),
-        _v9 = _v6 ? void 0 : _v4 ? _v372.folderSelect.teamLibrary : _v372.folderSelect.library,
+        _v9 = _v6 ? void 0 : _v4 ? _v373.folderSelect.teamLibrary : _v373.folderSelect.library,
         _v10 = !!_v7?.isPrivateToUser && !_v6 && _v5 && !_v4;
       return {
         isLoading: _v8 || _v6,
-        name: _v10 ? _v372.folderSelect.library : _v7?.name ?? _v9,
+        name: _v10 ? _v373.folderSelect.library : _v7?.name ?? _v9,
         manageLink: _v10 ? "/library" : _v7?.manageLink,
         isTeamLibrary: _v4
       };
     },
-    _v374 = () => {
+    _v375 = () => {
       let {
         name: _v0,
         manageLink: _v1,
         isLoading: _v2
-      } = _v373();
+      } = _v374();
       return !_v0 || _v2 ? (0, _v25.jsx)(_v209.Skeleton, {
         width: "16rem",
         height: "xs"
-      }) : (0, _v25.jsxs)(_v365.Breadcrumb, {
-        children: [(0, _v25.jsx)(_v365.BreadcrumbItem, {
+      }) : (0, _v25.jsxs)(_v366.Breadcrumb, {
+        children: [(0, _v25.jsx)(_v366.BreadcrumbItem, {
           maxW: "9rem",
-          children: (0, _v25.jsx)(_v366.BreadcrumbLink, {
+          children: (0, _v25.jsx)(_v367.BreadcrumbLink, {
             "data-testid": "record-studio-folder-link",
             href: _v1 ?? "/library",
             children: _v0
           })
-        }), (0, _v25.jsx)(_v365.BreadcrumbItem, {
-          children: (0, _v25.jsx)(_v366.BreadcrumbLink, {
+        }), (0, _v25.jsx)(_v366.BreadcrumbItem, {
+          children: (0, _v25.jsx)(_v367.BreadcrumbLink, {
             color: "text-primary",
-            children: _v350.folderSelect.recordingTitle
+            children: _v351.folderSelect.recordingTitle
           })
         })]
       });
     };
-  var _v375 = _v0.i(0),
-    _v376 = _v0.i(0),
+  var _v376 = _v0.i(0),
     _v377 = _v0.i(0),
-    _v378 = _v0.i(0);
-  let _v379 = ({
+    _v378 = _v0.i(0),
+    _v379 = _v0.i(0);
+  let _v380 = ({
     selectedFolder: _v0,
     selectUploadToFolder: _v1,
     userId: _v2,
@@ -10786,14 +10785,14 @@
       {
         openMoveModal: _v6,
         closeMoveModal: _v7
-      } = (0, _v378.useMoveModal)(),
+      } = (0, _v379.useMoveModal)(),
       {
         trackRecordingSaveToFolderClicked: _v8
       } = (0, _v46.useRecordingTracking)();
     return _v3 ? (0, _v25.jsx)(_v209.Skeleton, {
       height: "md"
     }) : (0, _v25.jsx)(_v213.MenuItem, {
-      icon: (0, _v25.jsx)(_v377.FolderOpen, {}),
+      icon: (0, _v25.jsx)(_v378.FolderOpen, {}),
       "data-testid": "record-studio-folder-select-button",
       isDisabled: _v3 || _v4,
       onClick: () => {
@@ -10815,13 +10814,13 @@
             } : void 0,
             type: "video",
             uri: "",
-            name: _v350.folderSelect.recordingTitle
+            name: _v351.folderSelect.recordingTitle
           }],
           teamOwnerId: _v2,
           onMoveSuccess: ({
             selectedDestination: _v0
           }) => {
-            _v0("root" !== _v0 ? _v370(_v0) : null);
+            _v0("root" !== _v0 ? _v371(_v0) : null);
           },
           onMoveFailure: ({
             selectedDestination: _v0
@@ -10838,41 +10837,41 @@
           location: "folder_modal"
         }), _v8();
       },
-      children: _v350.moreActionsMenu.saveToFolder
+      children: _v351.moreActionsMenu.saveToFolder
     });
   };
-  var _v380 = _v0.i(0),
-    _v381 = _v0.i(0);
-  function _v382(_v0, _v1, _v2 = !1, _v3 = [], _v4) {
+  var _v381 = _v0.i(0),
+    _v382 = _v0.i(0);
+  function _v383(_v0, _v1, _v2 = !1, _v3 = [], _v4) {
     var _v5, _v6, _v7;
     let _v8 = _v1 && _v0 && !_v2,
       {
         data: _v9,
         error: _v10
-      } = (0, _v368.useGetUserProject)(() => _v8 ? {
+      } = (0, _v369.useGetUserProject)(() => _v8 ? {
         where: {
           userId: _v0,
           projectId: _v1
         },
-        select: _v371.concat(["metadata.interactions.uploadVideo", "user.uri"]).concat(_v3)
+        select: _v372.concat(["metadata.interactions.uploadVideo", "user.uri"]).concat(_v3)
       } : null, {
         revalidateOnFocus: !1
       }),
       _v11 = !!(_v8 && !_v9 && !_v10),
       _v12 = _v9 && _v0 && !_v10 ? (_v5 = _v9, (!!_v5.metadata.interactions.uploadVideo?.uri || _v5.metadata.interactions.uploadVideo?.options?.includes("POST")) && (_v6 = _v9, _v7 = _v0, _v6.user?.uri === `/users/${_v7}`) && (!_v4 || _v4(_v9))) : void 0;
     return {
-      folder: _v9 && _v12 ? _v370(_v9) : null,
+      folder: _v9 && _v12 ? _v371(_v9) : null,
       isLoading: _v11,
       error: _v10,
       isValid: _v12
     };
   }
-  let _v383 = "recordStudioUploadToFolder";
-  function _v384(_v0, _v1) {
-    let _v2 = JSON.parse(localStorage.getItem(_v383) || "{}");
-    _v2[_v0] = _v1, localStorage.setItem(_v383, JSON.stringify(_v2));
+  let _v384 = "recordStudioUploadToFolder";
+  function _v385(_v0, _v1) {
+    let _v2 = JSON.parse(localStorage.getItem(_v384) || "{}");
+    _v2[_v0] = _v1, localStorage.setItem(_v384, JSON.stringify(_v2));
   }
-  let _v385 = ({
+  let _v386 = ({
       userId: _v0,
       isDisabled: _v1,
       isLoading: _v2,
@@ -10912,7 +10911,7 @@
               let {
                 preferredFolder: _v1
               } = _v246("preferredFolder", !1);
-              return _v382(_v0, Number(_v1) > 0 ? Number(_v1) : null);
+              return _v383(_v0, Number(_v1) > 0 ? Number(_v1) : null);
             })(_v3),
             _v14 = !!_v12 || _v13,
             {
@@ -10920,19 +10919,19 @@
               isLoading: _v16
             } = (_v2 = (0, _v26.useMemo)(() => {
               let _v0 = function (_v0) {
-                if ((0, _v347.isSSR)()) return null;
+                if ((0, _v348.isSSR)()) return null;
                 try {
-                  let _v0 = localStorage.getItem(_v383);
+                  let _v0 = localStorage.getItem(_v384);
                   if (!_v0) return null;
                   return JSON.parse(_v0)[_v0] || null;
                 } catch {
-                  return localStorage.removeItem(_v383), null;
+                  return localStorage.removeItem(_v384), null;
                 }
               }(_v3);
-              return _v0 ? _v369({
+              return _v0 ? _v370({
                 uri: _v0
               }) : null;
-            }, [_v3]), _v382(_v3, _v2, void 0)),
+            }, [_v3]), _v383(_v3, _v2, void 0)),
             _v17 = !!_v15 || _v16,
             {
               folder: _v18,
@@ -10943,28 +10942,28 @@
                 {
                   data: _v4,
                   error: _v5
-                } = (0, _v380.useGetUserFoldersDefault)(() => _v2 && !_v3 ? {
+                } = (0, _v381.useGetUserFoldersDefault)(() => _v2 && !_v3 ? {
                   where: {
                     userId: _v0.ownerId
                   },
-                  select: _v371
+                  select: _v372
                 } : null, {
                   revalidateOnFocus: !1
                 }),
                 {
                   data: _v6,
                   error: _v7
-                } = (0, _v381.useGetUserFoldersPrivateToMe)(() => _v2 && _v3 ? {
+                } = (0, _v382.useGetUserFoldersPrivateToMe)(() => _v2 && _v3 ? {
                   where: {
                     ownerId: _v0.ownerId
                   },
-                  select: _v371
+                  select: _v372
                 } : null, {
                   revalidateOnFocus: !1
                 });
               return {
                 isLoading: _v2 && !_v4 && !_v5 && !_v7 && !_v6,
-                folder: _v4 ? _v370(_v4) : _v6 ? _v370(_v6) : null
+                folder: _v4 ? _v371(_v4) : _v6 ? _v371(_v6) : null
               };
             })(_v1 ?? null, _v14 || _v17),
             _v20 = _v18?.uri ?? null,
@@ -10979,10 +10978,10 @@
             let _v0 = _v86.useUIStore.getState().common.selectedFolder;
             (_v24 || _v11) && void 0 === _v0 ? _v10(_v24) : (_v12 || _v11) && _v0?.uri !== _v12?.uri && _v10(_v12);
           }, [_v12, _v24, _v10, _v11]), (0, _v26.useEffect)(() => {
-            _v19 || _v16 || _v13 || !_v4 || (0, _v347.isSSR)() || (_v11 ? (_v9(null), _v6.debug("Selected root team library folder.")) : _v22 ? (_v9(_v22), _v6.debug("Selected query param passed upload folder.")) : _v21 ? (_v9(_v21), _v6.debug("Selected locally stored upload folder.")) : (_v9(_v20), _v6.debug("Selected default upload folder."), _v384(_v3, _v20)), _v5(!1));
+            _v19 || _v16 || _v13 || !_v4 || (0, _v348.isSSR)() || (_v11 ? (_v9(null), _v6.debug("Selected root team library folder.")) : _v22 ? (_v9(_v22), _v6.debug("Selected query param passed upload folder.")) : _v21 ? (_v9(_v21), _v6.debug("Selected locally stored upload folder.")) : (_v9(_v20), _v6.debug("Selected default upload folder."), _v385(_v3, _v20)), _v5(!1));
           }, [_v3, _v20, _v19, _v16, _v21, _v4, _v9, _v6, _v22, _v13, _v11]), {
             updateUploadToFolderUri: (0, _v26.useCallback)(_v0 => {
-              !_v4 && (_v0 ? (_v9(_v0), _v12 || _v384(_v3, _v0)) : (_v9(_v20), _v384(_v3, _v20)));
+              !_v4 && (_v0 ? (_v9(_v0), _v12 || _v385(_v3, _v0)) : (_v9(_v20), _v385(_v3, _v20)));
             }, [_v4, _v12, _v9, _v20, _v3]),
             isInitializing: _v4,
             uploadAccountId: _v23,
@@ -11001,7 +11000,7 @@
           location: "folder_modal"
         });
       }, [_v4]);
-      return (0, _v25.jsx)(_v379, {
+      return (0, _v25.jsx)(_v380, {
         userId: _v8,
         isDisabled: _v1,
         isLoading: _v2 ?? _v6,
@@ -11009,7 +11008,7 @@
         selectUploadToFolder: _v9
       });
     },
-    _v386 = ({
+    _v387 = ({
       isDisabled: _v0
     }) => {
       let _v1 = (0, _v47.useViewer)(),
@@ -11023,19 +11022,19 @@
       return (0, _v25.jsxs)(_v212.Menu, {
         placement: "bottom-end",
         children: [(0, _v25.jsx)(_v210.Tooltip, {
-          label: _v0 ? void 0 : _v350.moreActionsMenu.tooltip,
+          label: _v0 ? void 0 : _v351.moreActionsMenu.tooltip,
           children: (0, _v25.jsx)(_v215.MenuButton, {
             as: _v216.IconButton,
             isDisabled: _v0,
             "data-testid": "record-studio-header-more-actions-button",
             "aria-label": "toggle-record-more-menu",
             variant: "tertiary",
-            icon: (0, _v25.jsx)(_v376.EllipsisV, {})
+            icon: (0, _v25.jsx)(_v377.EllipsisV, {})
           })
-        }), (0, _v25.jsx)(_v375.Portal, {
+        }), (0, _v25.jsx)(_v376.Portal, {
           children: (0, _v25.jsx)(_v214.MenuList, {
             "data-testid": "record-studio-header-more-actions-menu",
-            children: _v1?.user && (0, _v25.jsx)(_v385, {
+            children: _v1?.user && (0, _v25.jsx)(_v386, {
               isDisabled: "pre-recording" !== _v2 || _v3,
               userId: _v1.user.id,
               teamUser: _v1.teamUser
@@ -11044,24 +11043,24 @@
         })]
       });
     },
-    _v387 = "Please ignore this error.";
-  function _v388(_v0) {
-    _v0.reason === _v387 && _v0.preventDefault();
+    _v388 = "Please ignore this error.";
+  function _v389(_v0) {
+    _v0.reason === _v388 && _v0.preventDefault();
   }
-  var _v389 = _v0.i(0);
-  let _v390 = ["owner.name", "teamData.ownerId", "teamData.teamName", "teamMembership.permissionLevel", "userRole"];
-  var _v391 = _v0.i(0);
-  let _v392 = (0, _v26.createContext)({
+  var _v390 = _v0.i(0);
+  let _v391 = ["owner.name", "teamData.ownerId", "teamData.teamName", "teamMembership.permissionLevel", "userRole"];
+  var _v392 = _v0.i(0);
+  let _v393 = (0, _v26.createContext)({
       isUpsellShown: !1,
       showUpsell: () => void 0,
       hideUpsell: () => void 0
     }),
-    _v393 = (0, _v391.default)(() => _v0.A(0), {
+    _v394 = (0, _v392.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v394 = ({
+    _v395 = ({
       children: _v0
     }) => {
       let [_v1, _v2] = (0, _v26.useState)(!1),
@@ -11141,9 +11140,9 @@
           }
         }),
         _v15 = "reached" === _v4 ? "109952" : "reaching" === _v4 ? "109951" : void 0;
-      return (0, _v25.jsxs)(_v392.Provider, {
+      return (0, _v25.jsxs)(_v393.Provider, {
         value: _v13,
-        children: [_v1 && (0, _v25.jsx)(_v393, {
+        children: [_v1 && (0, _v25.jsx)(_v394, {
           apiUrl: _v5?.apiUrl,
           userConfig: {
             jwt: _v5?.jwt,
@@ -11209,7 +11208,7 @@
         }), _v0]
       });
     },
-    _v395 = {
+    _v396 = {
       recordingAvailable: (0, _v205.translate)({
         singular: "Record",
         dictionary: {
@@ -11292,13 +11291,13 @@
         }
       })
     },
-    _v396 = () => {
+    _v397 = () => {
       let _v0 = (0, _v26.useRef)(!1),
         _v1 = _v184(),
         {
           showUpsell: _v2,
           isUpsellShown: _v3
-        } = (0, _v26.useContext)(_v392),
+        } = (0, _v26.useContext)(_v393),
         {
           trackTriggerPricingModalImpression: _v4
         } = _v231(),
@@ -11316,20 +11315,20 @@
             case "reaching":
             case "available":
               return {
-                title: _v395.recordingAvailable,
+                title: _v396.recordingAvailable,
                 isDisabled: !_v6
               };
             case "reached":
               return {
-                title: _v395.upgradeToRecord,
+                title: _v396.upgradeToRecord,
                 isDisabled: _v3,
-                tooltipText: _v395.uploadQuotaReached,
+                tooltipText: _v396.uploadQuotaReached,
                 variant: "upsell",
                 testId: _v38.TEST_IDS.UPGRADE_TO_START_RECORDING_BUTTON
               };
             default:
               return {
-                title: _v395.recordingAvailable,
+                title: _v396.recordingAvailable,
                 isLoading: !0,
                 isDisabled: !1
               };
@@ -11357,14 +11356,14 @@
         })
       });
     };
-  var _v397 = _v0.i(0);
-  function _v398(_v0) {
+  var _v398 = _v0.i(0);
+  function _v399(_v0) {
     let _v1 = Math.floor(_v0 / 0),
       _v2 = Math.floor(_v0 % 0 / 60),
       _v3 = Math.round(_v0 % 60);
     return [_v1, _v2 > 9 ? _v2 : "0" + _v2, _v3 > 9 ? _v3 : "0" + _v3].filter(Boolean).join(":");
   }
-  let _v399 = () => {
+  let _v400 = () => {
     let _v0 = (0, _v86.useUIStore)(_v0 => _v0.controls.setControlsAction),
       _v1 = (0, _v86.useUIStore)(_v0 => !!_v0.controls.confirmDialogState),
       _v2 = (0, _v86.useUIStore)(_v0 => _v0.common.recordingStartedAt);
@@ -11401,26 +11400,26 @@
         minWidth: 104,
         "data-testid": _v38.TEST_IDS.STOP_RECORDING_BUTTON,
         isDisabled: _v1,
-        leftIcon: (0, _v25.jsx)(_v397.StopFilled, {}),
+        leftIcon: (0, _v25.jsx)(_v398.StopFilled, {}),
         onClick: () => _v0("stop", "header"),
-        children: _v2 ? (0, _v25.jsx)(_v400, {}) : ""
+        children: _v2 ? (0, _v25.jsx)(_v401, {}) : ""
       })
     });
   };
-  function _v400() {
+  function _v401() {
     let _v0 = (0, _v86.useUIStore)(_v0 => _v0.common.recordingDuration),
-      _v1 = _v292();
+      _v1 = _v293();
     return (0, _v25.jsx)("div", {
       "data-testid": _v38.TEST_IDS.RECORDING_DURATION,
-      children: _v398(0 === _v1 ? _v0 : _v1 / 0 - _v0)
+      children: _v399(0 === _v1 ? _v0 : _v1 / 0 - _v0)
     });
   }
-  var _v401 = _v0.i(0),
-    _v402 = _v0.i(0),
+  var _v402 = _v0.i(0),
     _v403 = _v0.i(0),
     _v404 = _v0.i(0),
-    _v405 = _v0.i(0);
-  let _v406 = ({
+    _v405 = _v0.i(0),
+    _v406 = _v0.i(0);
+  let _v407 = ({
       isPaused: _v0
     }) => _v0 ? (0, _v25.jsx)(_v29.VStack, {
       "data-testid": _v38.TEST_IDS.PAUSE_NOTIFICATION,
@@ -11435,13 +11434,13 @@
       borderRadius: "pill",
       transform: "translate(-50%, -50%)",
       background: "blackAlpha.700",
-      children: (0, _v25.jsx)(_v405.PauseFilled, {
+      children: (0, _v25.jsx)(_v406.PauseFilled, {
         w: "50%",
         h: "50%",
         color: "white"
       })
     }) : null,
-    _v407 = _v0 => {
+    _v408 = _v0 => {
       let {
           title: _v1,
           subtitle: _v2,
@@ -11472,7 +11471,7 @@
           boxShadow: "shadow-md",
           direction: "column",
           gap: "sm",
-          children: [(0, _v25.jsx)(_v303.Header, {
+          children: [(0, _v25.jsx)(_v304.Header, {
             size: "md",
             children: _v1
           }), _v2 && (0, _v25.jsx)(_v220.Paragraph, {
@@ -11480,7 +11479,7 @@
             color: "text-primary",
             textAlign: "start",
             children: _v2
-          }), (0, _v25.jsx)(_v343.HStack, {
+          }), (0, _v25.jsx)(_v344.HStack, {
             justify: "flex-end",
             pt: "md",
             gap: "md",
@@ -11489,7 +11488,7 @@
         })
       });
     },
-    _v408 = ({
+    _v409 = ({
       recorder: _v0
     }) => {
       let {
@@ -11582,13 +11581,13 @@
       }, [_v10, _v16, _v8, _v9, _v13, _v11, _v15, _v17, _v14, _v2]);
       let _v18 = !!_v4;
       return (0, _v25.jsxs)(_v25.Fragment, {
-        children: [(0, _v25.jsx)(_v406, {
+        children: [(0, _v25.jsx)(_v407, {
           isPaused: "paused" === _v6
         }), (0, _v25.jsxs)(_v202.ControlsContainer, {
           isCompact: !0,
           children: [(0, _v25.jsx)(_v224.CompactLabelledButton, {
             "data-testid": _v38.TEST_IDS.DELETE_BUTTON,
-            icon: (0, _v25.jsx)(_v404.TrashBin, {
+            icon: (0, _v25.jsx)(_v405.TrashBin, {
               boxSize: "xs"
             }),
             tipContent: _v206.delete,
@@ -11596,7 +11595,7 @@
             isDisabled: _v18
           }), (0, _v25.jsx)(_v224.CompactLabelledButton, {
             "data-testid": _v38.TEST_IDS.RESTART_BUTTON,
-            icon: (0, _v25.jsx)(_v403.Reset, {
+            icon: (0, _v25.jsx)(_v404.Reset, {
               boxSize: "xs"
             }),
             tipContent: _v206.restart,
@@ -11604,7 +11603,7 @@
             isDisabled: _v18
           }), "recording" === _v6 ? (0, _v25.jsx)(_v224.CompactLabelledButton, {
             "data-testid": _v38.TEST_IDS.PAUSE_RESUME_BUTTON,
-            icon: (0, _v25.jsx)(_v401.Pause, {
+            icon: (0, _v25.jsx)(_v402.Pause, {
               boxSize: "xs"
             }),
             tipContent: _v206.pause,
@@ -11612,13 +11611,13 @@
             isDisabled: _v18
           }) : (0, _v25.jsx)(_v224.CompactLabelledButton, {
             "data-testid": _v38.TEST_IDS.PAUSE_RESUME_BUTTON,
-            icon: (0, _v25.jsx)(_v402.Play, {
+            icon: (0, _v25.jsx)(_v403.Play, {
               boxSize: "xs"
             }),
             tipContent: _v206.resume,
             onClick: _v9,
             isDisabled: _v18
-          }), "requestRestart" === _v4 && (0, _v25.jsx)(_v407, {
+          }), "requestRestart" === _v4 && (0, _v25.jsx)(_v408, {
             "data-testid": _v38.TEST_IDS.RESTART_MODAL,
             title: _v206.restartDialog.title,
             subtitle: _v206.restartDialog.info,
@@ -11637,7 +11636,7 @@
                 children: _v206.restartDialog.confirm
               })]
             })
-          }), "requestDelete" === _v4 && (0, _v25.jsx)(_v407, {
+          }), "requestDelete" === _v4 && (0, _v25.jsx)(_v408, {
             "data-testid": _v38.TEST_IDS.DELETE_MODAL,
             title: _v206.cancelDialog.title,
             footer: (0, _v25.jsxs)(_v25.Fragment, {
@@ -11659,17 +11658,17 @@
         })]
       });
     },
-    _v409 = () => {
+    _v410 = () => {
       let _v0 = (0, _v86.useUIStore)(_v0 => _v0.common.state),
         _v1 = (0, _v86.useUIStore)(_v0 => _v0.recorder),
         _v2 = _v147.includes(_v0);
-      return !_v1 || _v2 ? null : "pre-recording" === _v0 ? (0, _v25.jsx)(_v396, {}) : (0, _v25.jsxs)(_v25.Fragment, {
-        children: [(0, _v25.jsx)(_v408, {
+      return !_v1 || _v2 ? null : "pre-recording" === _v0 ? (0, _v25.jsx)(_v397, {}) : (0, _v25.jsxs)(_v25.Fragment, {
+        children: [(0, _v25.jsx)(_v409, {
           recorder: _v1
-        }), (0, _v25.jsx)(_v399, {})]
+        }), (0, _v25.jsx)(_v400, {})]
       });
     },
-    _v410 = {
+    _v411 = {
       openPanel: (0, _v205.translate)({
         singular: "Upload debug",
         dictionary: {
@@ -11954,9 +11953,9 @@
         }
       })
     },
-    _v411 = ["live", "ipb", "tus", "tus_stream"],
-    _v412 = (_v0, _v1) => null === _v0 || null === _v1 || _v1 < _v0 ? "—" : `${Math.round((_v1 - _v0) / 0)}s`,
-    _v413 = ({
+    _v412 = ["live", "ipb", "tus", "tus_stream"],
+    _v413 = (_v0, _v1) => null === _v0 || null === _v1 || _v1 < _v0 ? "—" : `${Math.round((_v1 - _v0) / 0)}s`,
+    _v414 = ({
       label: _v0,
       value: _v1
     }) => (0, _v25.jsxs)(_v28.Flex, {
@@ -11976,7 +11975,7 @@
         children: _v1
       })]
     }),
-    _v414 = ({
+    _v415 = ({
       isOpen: _v0,
       onClose: _v1
     }) => {
@@ -12022,7 +12021,7 @@
           recordingStoppedTime: _v19,
           recordingUploadedTime: _v20,
           videoBecomesPlayableTime: _v21
-        } = _v297((0, _v27.useShallow)(_v0 => ({
+        } = _v298((0, _v27.useShallow)(_v0 => ({
           recordedClipId: _v0.recordedClipId,
           recordingStoppedTime: _v0.recordingStoppedTime,
           recordingUploadedTime: _v0.recordingUploadedTime,
@@ -12094,32 +12093,32 @@
           _v4 = (_v22 ?? String(Date.now())).replace(/[^a-zA-Z0-9_-]/g, "");
         _v114(_v3, `record-upload-debug-${_v4}`);
       }, [_v4, _v12, _v7, _v9, _v10, _v11, _v22, _v14, _v18, _v17, _v13, _v19, _v20, _v21, _v15, _v16]);
-      return _v0 && _v3 ? (0, _v25.jsxs)(_v304.Modal, {
+      return _v0 && _v3 ? (0, _v25.jsxs)(_v305.Modal, {
         isOpen: !0,
         onClose: _v1,
         size: "lg",
         scrollBehavior: "inside",
-        children: [(0, _v25.jsx)(_v310.ModalOverlay, {}), (0, _v25.jsxs)(_v307.ModalContent, {
-          children: [(0, _v25.jsx)(_v306.ModalCloseButton, {
+        children: [(0, _v25.jsx)(_v311.ModalOverlay, {}), (0, _v25.jsxs)(_v308.ModalContent, {
+          children: [(0, _v25.jsx)(_v307.ModalCloseButton, {
             onClick: _v1
-          }), (0, _v25.jsx)(_v309.ModalHeader, {
-            children: (0, _v25.jsx)(_v303.Header, {
+          }), (0, _v25.jsx)(_v310.ModalHeader, {
+            children: (0, _v25.jsx)(_v304.Header, {
               size: "md",
-              children: _v410.title
+              children: _v411.title
             })
-          }), (0, _v25.jsx)(_v305.ModalBody, {
+          }), (0, _v25.jsx)(_v306.ModalBody, {
             children: (0, _v25.jsxs)(_v29.VStack, {
               alignItems: "stretch",
               gap: "4",
               children: [(0, _v25.jsxs)(_v29.VStack, {
                 alignItems: "stretch",
                 gap: "2",
-                children: [(0, _v25.jsx)(_v303.Header, {
+                children: [(0, _v25.jsx)(_v304.Header, {
                   size: "xs",
-                  children: _v410.approachTitle
+                  children: _v411.approachTitle
                 }), (0, _v25.jsxs)(_v28.Flex, {
                   gap: "2",
-                  children: [_v411.map(_v0 => (0, _v25.jsx)(_v204.Button, {
+                  children: [_v412.map(_v0 => (0, _v25.jsx)(_v204.Button, {
                     size: "sm",
                     variant: _v7 === _v0 ? "primary" : "secondary",
                     onClick: () => _v8(_v0),
@@ -12128,59 +12127,59 @@
                     size: "sm",
                     variant: null === _v7 ? "primary" : "secondary",
                     onClick: () => _v8(null),
-                    children: _v410.followDefault
+                    children: _v411.followDefault
                   })]
                 }), (0, _v25.jsx)(_v220.Paragraph, {
                   size: "sm",
                   color: "text-secondary",
-                  children: _v410.approachHint
+                  children: _v411.approachHint
                 })]
               }), (0, _v25.jsxs)(_v29.VStack, {
                 alignItems: "stretch",
                 gap: "1",
-                children: [(0, _v25.jsx)(_v303.Header, {
+                children: [(0, _v25.jsx)(_v304.Header, {
                   size: "xs",
-                  children: _v410.stateTitle
-                }), (0, _v25.jsx)(_v413, {
+                  children: _v411.stateTitle
+                }), (0, _v25.jsx)(_v414, {
                   label: "effective approach",
                   value: _v12 ?? "—"
-                }), (0, _v25.jsx)(_v413, {
+                }), (0, _v25.jsx)(_v414, {
                   label: "app / recording / uploading",
                   value: `${_v9} / ${_v10} / ${_v11}`
-                }), (0, _v25.jsx)(_v413, {
+                }), (0, _v25.jsx)(_v414, {
                   label: "session id",
                   value: _v22 ?? "—"
-                }), (0, _v25.jsx)(_v413, {
+                }), (0, _v25.jsx)(_v414, {
                   label: "user id",
                   value: null === _v14 ? "—" : String(_v14)
-                }), (0, _v25.jsx)(_v413, {
+                }), (0, _v25.jsx)(_v414, {
                   label: "clip",
                   value: _v17.uri ?? (null === _v18 ? "—" : String(_v18))
-                }), (0, _v25.jsx)(_v413, {
+                }), (0, _v25.jsx)(_v414, {
                   label: "chunks (original / converted)",
                   value: `${_v15} / ${_v16}`
-                }), (0, _v25.jsx)(_v413, {
+                }), (0, _v25.jsx)(_v414, {
                   label: "recorded size",
                   value: 0 === (_v2 = _v17.size) ? "0" : `${(_v2 / 0).toFixed(1)} MB`
-                }), (0, _v25.jsx)(_v413, {
+                }), (0, _v25.jsx)(_v414, {
                   label: "online",
                   value: String(navigator.onLine)
                 })]
               }), (0, _v25.jsxs)(_v29.VStack, {
                 alignItems: "stretch",
                 gap: "1",
-                children: [(0, _v25.jsx)(_v303.Header, {
+                children: [(0, _v25.jsx)(_v304.Header, {
                   size: "xs",
-                  children: _v410.timingsTitle
-                }), (0, _v25.jsx)(_v413, {
+                  children: _v411.timingsTitle
+                }), (0, _v25.jsx)(_v414, {
                   label: "recording duration",
                   value: _v17.duration > 0 ? `${Math.round(_v17.duration)}s` : "—"
-                }), (0, _v25.jsx)(_v413, {
+                }), (0, _v25.jsx)(_v414, {
                   label: "stop → uploaded",
-                  value: _v412(_v19, _v20)
-                }), (0, _v25.jsx)(_v413, {
+                  value: _v413(_v19, _v20)
+                }), (0, _v25.jsx)(_v414, {
                   label: "stop → playable",
-                  value: _v412(_v19, _v21)
+                  value: _v413(_v19, _v21)
                 })]
               }), (0, _v25.jsxs)(_v29.VStack, {
                 alignItems: "stretch",
@@ -12188,17 +12187,17 @@
                 children: [(0, _v25.jsxs)(_v28.Flex, {
                   justifyContent: "space-between",
                   alignItems: "center",
-                  children: [(0, _v25.jsx)(_v303.Header, {
+                  children: [(0, _v25.jsx)(_v304.Header, {
                     size: "xs",
-                    children: _v410.logsTitle
+                    children: _v411.logsTitle
                   }), (0, _v25.jsx)(_v204.Button, {
                     size: "sm",
                     variant: "secondary",
                     onClick: _v23,
-                    children: _v410.refresh
+                    children: _v411.refresh
                   })]
                 }), _v5 && (0, _v25.jsxs)(_v25.Fragment, {
-                  children: [(0, _v25.jsx)(_v413, {
+                  children: [(0, _v25.jsx)(_v414, {
                     label: "debug / info / warn / error",
                     value: `${_v5.counts.debug} / ${_v5.counts.info} / ${_v5.counts.warn} / ${_v5.counts.error}`
                   }), (0, _v25.jsx)(_v29.VStack, {
@@ -12216,20 +12215,20 @@
                 })]
               })]
             })
-          }), (0, _v25.jsxs)(_v308.ModalFooter, {
+          }), (0, _v25.jsxs)(_v309.ModalFooter, {
             children: [(0, _v25.jsx)(_v204.Button, {
               variant: "secondary",
               onClick: _v1,
-              children: _v410.close
+              children: _v411.close
             }), (0, _v25.jsx)(_v204.Button, {
               onClick: () => void _v24(),
-              children: _v410.exportReport
+              children: _v411.exportReport
             })]
           })]
         })]
       }) : null;
     },
-    _v415 = () => {
+    _v416 = () => {
       let _v0 = _v137("Header"),
         _v1 = (0, _v26.useContext)(_v36.ViewerContext),
         {
@@ -12259,7 +12258,7 @@
           let _v1 = _v137("useBackModalActions"),
             _v2 = (0, _v242.useRouter)(),
             [_v3, _v4] = (0, _v26.useState)(),
-            [_v5] = (0, _v324.useDeleteVideo)(),
+            [_v5] = (0, _v325.useDeleteVideo)(),
             {
               state: _v6,
               recorder: _v7,
@@ -12304,7 +12303,7 @@
             }, [_v13, _v5, _v1]),
             _v15 = "pre-recording" !== _v6 && _v7 && "idle" === _v8,
             _v16 = (0, _v26.useCallback)(() => {
-              let _v0 = _v280(_v126.useMemoryDataStorage.getState().info.uri);
+              let _v0 = _v281(_v126.useMemoryDataStorage.getState().info.uri);
               _v4("leave"), _v15 ? (_v11(!0), _v7.cancel().then(() => _v1.debug("Recorder was cancelled.")).catch(_v0 => _v1.error(_v0, {
                 category: _v120.RECORDER,
                 method: "confirmLeave",
@@ -12318,7 +12317,7 @@
                 component: "useBackModalActions"
               }))) : "uploading" === _v6 ? _v11(!0) : _v13();
             }, [_v15, _v13, _v1, _v7, _v11, _v6]),
-            _v18 = _v290.includes(_v6);
+            _v18 = _v291.includes(_v6);
           return {
             showBackModal: _v10,
             confirmCancelAndBack: _v16,
@@ -12340,7 +12339,7 @@
             _v6 = (0, _v26.useCallback)(() => {
               throw _v2.events.emit("routeChangeError", "", "", {
                 shallow: !1
-              }), _v387;
+              }), _v388;
             }, [_v2]);
           return (0, _v26.useEffect)(() => {
             let _v0 = !1,
@@ -12353,12 +12352,12 @@
                   _v5.current = void 0, _v3.debug("[executed] commitNavigation"), _v0 = !0, _v2.push(_v1);
                 }, _v3.debug("[assigned] commitNavigation ref"), _v1(), _v6()));
               };
-            return _v2.events.on("routeChangeStart", _v2), window.addEventListener("unhandledrejection", _v388), () => {
-              _v2.events.off("routeChangeStart", _v2), window.removeEventListener("unhandledrejection", _v388);
+            return _v2.events.on("routeChangeStart", _v2), window.addEventListener("unhandledrejection", _v389), () => {
+              _v2.events.off("routeChangeStart", _v2), window.removeEventListener("unhandledrejection", _v389);
             };
           }, [_v4, _v6, _v3, _v1, _v2, _v2.basePath, _v2.events, _v0]), _v5;
         }({
-          shouldStopNavigation: _v290.includes(_v2) && !_v6,
+          shouldStopNavigation: _v291.includes(_v2) && !_v6,
           onNavigateStopped: _v7
         })),
         {
@@ -12378,11 +12377,11 @@
             _v1 = _v0?.user?.id,
             {
               data: _v2
-            } = (0, _v389.useGetUserTeams)(() => _v1 ? {
+            } = (0, _v390.useGetUserTeams)(() => _v1 ? {
               where: {
                 userId: _v1
               },
-              select: _v390
+              select: _v391
             } : null, {
               revalidateOnFocus: !1,
               revalidateOnReconnect: !1
@@ -12401,66 +12400,66 @@
             })) : [], [_v3])
           };
         })();
-      return (0, _v347.isSSR)() ? null : (0, _v25.jsxs)(_v348.Navigation, {
+      return (0, _v348.isSSR)() ? null : (0, _v25.jsxs)(_v349.Navigation, {
         zIndex: "2",
-        children: [(0, _v25.jsx)(_v364, {
+        children: [(0, _v25.jsx)(_v365, {
           viewer: _v1,
           teams: _v20
-        }), (0, _v25.jsxs)(_v348.Navigation.LeftContent, {
+        }), (0, _v25.jsxs)(_v349.Navigation.LeftContent, {
           gap: "3",
           children: [(0, _v25.jsx)(_v216.IconButton, {
-            icon: (0, _v25.jsx)(_v346.VimeoV, {}),
+            icon: (0, _v25.jsx)(_v347.VimeoV, {}),
             "aria-label": "logo",
             variant: "secondary",
             as: "a",
             href: "/"
-          }), (0, _v25.jsx)(_v351, {
+          }), (0, _v25.jsx)(_v352, {
             active: _v12,
             onCancel: _v11,
             leaveRecord: _v9,
             saveAndLeave: _v8,
             loadingButton: _v13,
             children: (0, _v25.jsx)(_v210.Tooltip, {
-              label: _v350.back,
+              label: _v351.back,
               children: (0, _v25.jsx)(_v216.IconButton, {
-                icon: (0, _v25.jsx)(_v345.ArrowLeft, {}),
+                icon: (0, _v25.jsx)(_v346.ArrowLeft, {}),
                 "aria-label": "back",
                 variant: "secondary",
                 onClick: _v10
               })
             })
-          }), _v1?.user && (0, _v25.jsx)(_v374, {})]
-        }), (0, _v25.jsxs)(_v348.Navigation.RightContent, {
+          }), _v1?.user && (0, _v25.jsx)(_v375, {})]
+        }), (0, _v25.jsxs)(_v349.Navigation.RightContent, {
           children: [_v19 && (0, _v25.jsx)(_v25.Fragment, {
             children: _v14 && (0, _v25.jsx)(_v204.Button, {
               variant: "secondary",
               hideBelow: "lg",
               onClick: () => _v0.download(),
-              children: _v350.downloadLogs
+              children: _v351.downloadLogs
             })
           }), _v18 && _v15 && (0, _v25.jsxs)(_v25.Fragment, {
             children: [(0, _v25.jsx)(_v204.Button, {
               variant: "secondary",
               hideBelow: "lg",
               onClick: () => _v17(!0),
-              children: _v350.uploadDebug
-            }), (0, _v25.jsx)(_v414, {
+              children: _v351.uploadDebug
+            }), (0, _v25.jsx)(_v415, {
               isOpen: _v16,
               onClose: () => _v17(!1)
             })]
           }), _v18 && (0, _v25.jsxs)(_v25.Fragment, {
-            children: [(0, _v25.jsx)(_v409, {}), (0, _v25.jsx)(_v386, {
+            children: [(0, _v25.jsx)(_v410, {}), (0, _v25.jsx)(_v387, {
               isDisabled: !_v19
             })]
-          }), _v1?.user && (0, _v25.jsx)(_v349.AccountMenu, {
+          }), _v1?.user && (0, _v25.jsx)(_v350.AccountMenu, {
             onConfirmTeamSwitch: () => "pre-recording" === _v2 && !_v3 && (_v4(!0), !0)
           })]
         })]
       });
     },
-    _v416 = {
+    _v417 = {
       notices: {
-        [_v299]: {
+        [_v300]: {
           title: "",
           message: (0, _v205.translate)({
             singular: "Unmute the microphone to record your voice",
@@ -12489,7 +12488,7 @@
             }
           })
         },
-        [_v300]: {
+        [_v301]: {
           title: "",
           message: (0, _v205.translate)({
             singular: "Disable background blur to improve video quality",
@@ -12518,7 +12517,7 @@
             }
           })
         },
-        [_v301]: {
+        [_v302]: {
           title: (0, _v205.translate)({
             singular: "Your camera doesn’t support 4K",
             dictionary: {
@@ -12574,39 +12573,39 @@
         }
       }
     },
-    _v417 = ({
+    _v418 = ({
       visibleNotices: _v0
     }) => {
       let {
           ignore: _v1
-        } = _v298(),
+        } = _v299(),
         _v2 = _v0[0];
       return (0, _v25.jsx)(_v25.Fragment, {
-        children: (0, _v25.jsx)(_v341, {
-          title: _v416.notices[_v2].title,
-          message: _v416.notices[_v2].message,
+        children: (0, _v25.jsx)(_v342, {
+          title: _v417.notices[_v2].title,
+          message: _v417.notices[_v2].message,
           status: "info",
           onClose: () => _v1(_v2)
         }, _v2)
       });
     },
-    _v418 = {
-      [_v299]: 0,
-      [_v301]: 1,
-      [_v300]: 2
+    _v419 = {
+      [_v300]: 0,
+      [_v302]: 1,
+      [_v301]: 2
     };
-  function _v419(_v0 = () => !0) {
+  function _v420(_v0 = () => !0) {
     let {
       shown: _v1,
       ignored: _v2
-    } = _v298();
+    } = _v299();
     return (0, _v26.useMemo)(() => {
       let _v0 = Object.keys(_v1).filter(_v0 => !_v2.includes(_v0) && _v0(_v0)),
-        _v1 = _v0.sort((_v0, _v1) => _v418[_v0] < _v418[_v1] ? -1 : +(_v418[_v0] > _v418[_v1]));
+        _v1 = _v0.sort((_v0, _v1) => _v419[_v0] < _v419[_v1] ? -1 : +(_v419[_v0] > _v419[_v1]));
       return _v0.length > 0 ? _v1 : null;
     }, [_v1, _v2, _v0]);
   }
-  let _v420 = {
+  let _v421 = {
       back: (0, _v205.translate)({
         singular: "Back",
         dictionary: {
@@ -12712,7 +12711,7 @@
         }
       })
     },
-    _v421 = () => {
+    _v422 = () => {
       let {
           onBackClick: _v0,
           videoId: _v1
@@ -12722,7 +12721,7 @@
         _v5 = (0, _v86.useUIStore)(_v0 => _v0.controls.setControlsAction),
         [_v6, {
           loading: _v7
-        }] = (0, _v324.useDeleteVideo)(),
+        }] = (0, _v325.useDeleteVideo)(),
         _v8 = async () => {
           "paused" === _v4 && (_v3(!1), _v5("delete"), _v0()), "uploading" === _v4 && _v1 && (await _v6({
             where: {
@@ -12733,22 +12732,22 @@
             }
           }), _v3(!1), _v0());
         };
-      return (0, _v25.jsxs)(_v348.Navigation, {
-        children: [(0, _v25.jsxs)(_v348.Navigation.LeftContent, {
+      return (0, _v25.jsxs)(_v349.Navigation, {
+        children: [(0, _v25.jsxs)(_v349.Navigation.LeftContent, {
           position: "relative",
           children: [(0, _v25.jsx)(_v210.Tooltip, {
-            label: _v420.back,
+            label: _v421.back,
             children: (0, _v25.jsx)(_v216.IconButton, {
-              icon: (0, _v25.jsx)(_v345.ArrowLeft, {}),
-              "aria-label": _v420.back,
+              icon: (0, _v25.jsx)(_v346.ArrowLeft, {}),
+              "aria-label": _v421.back,
               variant: "secondary",
               isDisabled: !_v1 && "uploading" === _v4 || _v2,
               onClick: () => {
                 "recording" === _v4 ? (_v5("pause"), _v3(!0)) : "paused" === _v4 ? _v3(!0) : "pre-recording" === _v4 ? _v0() : "uploading" === _v4 && _v1 && _v3(!0);
               }
             })
-          }), _v2 && (0, _v25.jsx)(_v407, {
-            title: _v420.question,
+          }), _v2 && (0, _v25.jsx)(_v408, {
+            title: _v421.question,
             align: "left",
             footer: (0, _v25.jsxs)(_v25.Fragment, {
               children: [(0, _v25.jsx)(_v204.Button, {
@@ -12758,32 +12757,32 @@
                 onClick: () => {
                   _v5("resume"), _v3(!1);
                 },
-                children: _v420.reject
+                children: _v421.reject
               }), (0, _v25.jsx)(_v204.Button, {
                 size: "sm",
                 variant: "destructive",
                 isLoading: _v7,
                 onClick: _v8,
-                children: _v420.confirm
+                children: _v421.confirm
               })]
             })
           })]
-        }), (0, _v25.jsx)(_v348.Navigation.RightContent, {
-          children: (0, _v25.jsx)(_v409, {})
+        }), (0, _v25.jsx)(_v349.Navigation.RightContent, {
+          children: (0, _v25.jsx)(_v410, {})
         })]
       });
     },
-    _v422 = () => {
+    _v423 = () => {
       let _v0,
         _v1,
         [_v2, _v3] = (0, _v26.useState)(!0),
         _v4 = (0, _v86.useUIStore)(_v0 => _v0.common.recordingDuration),
-        _v5 = _v292(),
-        _v6 = _v293(),
+        _v5 = _v293(),
+        _v6 = _v294(),
         _v7 = _v5 / 0 - _v4;
       if (!_v2 || _v7 > 600) return null;
-      let _v8 = _v398(_v7);
-      return (0, _v25.jsx)(_v341, {
+      let _v8 = _v399(_v7);
+      return (0, _v25.jsx)(_v342, {
         message: (_v0 = _v6, _v1 = _v8, (0, _v205.translate)({
           singular: "Recordings have a limit of {limit}. You have {left} left.",
           replacements: {
@@ -12818,7 +12817,7 @@
         onClose: () => _v3(!1)
       });
     };
-  function _v423() {
+  function _v424() {
     let {
       permissions: _v0,
       error: _v1
@@ -12831,8 +12830,8 @@
     })));
     return _v168(_v0.audio, _v0.video, _v1.audio, _v1.video);
   }
-  var _v424 = _v0.i(0);
-  function _v425() {
+  var _v425 = _v0.i(0);
+  function _v426() {
     let _v0 = (0, _v26.useContext)(_v201),
       {
         isPiPSupported: _v1,
@@ -12883,7 +12882,7 @@
       }
     };
   }
-  let _v426 = _v0 => {
+  let _v427 = _v0 => {
       let {
         currentSessionId: _v1,
         setCurrentSessionId: _v2,
@@ -12907,7 +12906,7 @@
         updateCurrentSessionData: _v3
       };
     },
-    _v427 = {
+    _v428 = {
       title: (0, _v205.translate)({
         singular: "Share recording",
         dictionary: {
@@ -13689,7 +13688,7 @@
         }
       })
     },
-    _v428 = {
+    _v429 = {
       starter: {
         featuresList: [(0, _v205.translate)({
           singular: "Password privacy & unlisted links",
@@ -14154,32 +14153,32 @@
       }
     };
   _v0.i(0);
-  var _v429 = _v0.i(0);
-  let _v430 = "ZKgCIr2Z4kWll1Dg4jXEI53JBnU";
-  var _v431 = _v0.i(0);
-  let _v432 = () => Math.round(_v292() / 0) === Math.round(_v297(_v0 => _v0.recordingDuration) || -1);
-  var _v433 = _v0.i(0),
-    _v434 = _v0.i(0),
+  var _v430 = _v0.i(0);
+  let _v431 = "ZKgCIr2Z4kWll1Dg4jXEI53JBnU";
+  var _v432 = _v0.i(0);
+  let _v433 = () => Math.round(_v293() / 0) === Math.round(_v298(_v0 => _v0.recordingDuration) || -1);
+  var _v434 = _v0.i(0),
     _v435 = _v0.i(0),
     _v436 = _v0.i(0),
-    _v437 = _v0.i(0);
-  let _v438 = ["privacy", "password"],
-    _v439 = (0, _v391.default)(() => _v0.A(0), {
+    _v437 = _v0.i(0),
+    _v438 = _v0.i(0);
+  let _v439 = ["privacy", "password"],
+    _v440 = (0, _v392.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v440 = () => {
+    _v441 = () => {
       let _v0 = _v137("PostRecordingClipPrivacy"),
         {
           video: _v1,
           isVideoLoading: _v2,
           refetchClipInfo: _v3
-        } = _v331(),
+        } = _v332(),
         _v4 = _v1?.metadata?.interactions?.edit,
         _v5 = _v1?.privacy?.view,
         _v6 = "cold_storage" === _v5 ? void 0 : _v5,
-        _v7 = _v333(),
+        _v7 = _v334(),
         [_v8, _v9] = (0, _v26.useState)(!1),
         [_v10, _v11] = (0, _v26.useState)(_v6),
         [_v12, _v13] = (0, _v26.useState)(!1),
@@ -14190,7 +14189,7 @@
           trackRecordingSharePrivacyChanged: _v15
         } = (0, _v46.useRecordingTracking)(),
         _v16 = (0, _v47.useViewer)(),
-        _v17 = _v332(),
+        _v17 = _v333(),
         {
           patchVideoPrivacy: _v18,
           data: _v19,
@@ -14203,16 +14202,16 @@
               loading: _v2,
               error: _v3,
               called: _v4
-            }] = (0, _v324.usePatchVideo)(),
+            }] = (0, _v325.usePatchVideo)(),
             _v5 = (0, _v26.useRef)(null),
-            _v6 = _v333();
+            _v6 = _v334();
           return {
             patchVideoPrivacy: async (_v0, _v1) => {
               if (!_v6) return Promise.resolve();
               _v5.current && _v5.current.abort(), _v5.current = new AbortController();
               let _v2 = _v5.current.signal;
               await _v0({
-                select: _v438,
+                select: _v439,
                 variables: {
                   privacy: {
                     view: _v0
@@ -14234,8 +14233,8 @@
         {
           privacyOptions: _v23,
           isLoading: _v24
-        } = (0, _v436.useClipPrivacyOptions)(_v7 ?? void 0, !1),
-        _v25 = (0, _v431.useToast)(),
+        } = (0, _v437.useClipPrivacyOptions)(_v7 ?? void 0, !1),
+        _v25 = (0, _v432.useToast)(),
         _v26 = (0, _v26.useCallback)(async (_v0, _v1) => {
           _v7 && (_v17({
             type: "setCopyLinkBlocked",
@@ -14257,7 +14256,7 @@
           }
         }, [_v10, _v17, _v26]),
         _v28 = (0, _v26.useCallback)(_v0 => {
-          let _v1 = _v437.UPSELL_TYPE_TO_UPSALE_NAME[_v0];
+          let _v1 = _v438.UPSELL_TYPE_TO_UPSALE_NAME[_v0];
           _v0.info("showing upsell modal for privacy option", {
             upsellName: _v1
           }), _v9(!0);
@@ -14278,7 +14277,7 @@
             clipId: _v7,
             privacy: _v19.privacy.view
           }), _v3()), _v25({
-            title: _v0 ? _v427.videoMetadataError : _v427.videoMetadataChanged,
+            title: _v0 ? _v428.videoMetadataError : _v428.videoMetadataChanged,
             variant: _v0 ? "warning" : "info"
           }), _v13(!1);
         }
@@ -14288,12 +14287,12 @@
       if (!_v4) {
         if (!_v6) return null;
         let _v0 = _v23.find(_v0 => _v6 === _v0.privacy);
-        return _v0 ? (0, _v25.jsx)(_v435.SelectedPrivacyOption, {
+        return _v0 ? (0, _v25.jsx)(_v436.SelectedPrivacyOption, {
           option: _v0,
           showChevron: !1
         }) : null;
       }
-      return (0, _v25.jsxs)(_v424.Stack, {
+      return (0, _v25.jsxs)(_v425.Stack, {
         gap: "1rem",
         children: [(0, _v25.jsx)(_v208.Box, {
           borderRadius: "input-md",
@@ -14312,7 +14311,7 @@
               backgroundColor: "input-fill"
             }
           },
-          children: (0, _v25.jsx)(_v434.PrivacyDropdown, {
+          children: (0, _v25.jsx)(_v435.PrivacyDropdown, {
             isVideoPrivacy: !0,
             isRedirectUpsell: !1,
             activePrivacy: _v10,
@@ -14320,11 +14319,11 @@
             onSelect: _v27,
             onUpsellClick: _v28
           })
-        }), _v10 === _v437.DEFAULT_PRIVACY_VALUES.PASSWORD && (0, _v25.jsx)(_v433.PasswordInput, {
+        }), _v10 === _v438.DEFAULT_PRIVACY_VALUES.PASSWORD && (0, _v25.jsx)(_v434.PasswordInput, {
           initialValue: _v1?.password,
           isLoading: _v20 || _v2,
           onSave: _v29
-        }), _v8 && (0, _v25.jsx)(_v439, {
+        }), _v8 && (0, _v25.jsx)(_v440, {
           apiUrl: _v16?.apiUrl,
           userConfig: {
             jwt: _v16?.jwt,
@@ -14337,7 +14336,7 @@
             hasFreeFeaturedBanner: !0,
             headerText: "",
             subHeaderText: "",
-            planOverrides: _v428
+            planOverrides: _v429
           },
           tracking: {
             params: {
@@ -14353,8 +14352,8 @@
         })]
       });
     };
-  var _v441 = _v0.i(0);
-  let _v442 = async _v0 => {
+  var _v442 = _v0.i(0);
+  let _v443 = async _v0 => {
       if (!navigator.clipboard) return !1;
       try {
         return await navigator.clipboard.writeText(_v0), !0;
@@ -14362,13 +14361,13 @@
         return !1;
       }
     },
-    _v443 = () => {
-      let _v0 = (0, _v431.useToast)(),
+    _v444 = () => {
+      let _v0 = (0, _v432.useToast)(),
         {
           video: _v1,
           isVideoLoading: _v2,
           isCopyLinkBlocked: _v3
-        } = _v331(),
+        } = _v332(),
         {
           trackDistributeContentClick: _v4
         } = _v231(),
@@ -14378,10 +14377,10 @@
         _v6 = (0, _v26.useCallback)(async () => {
           _v1?.link && (_v4(), _v5({
             recordingShareAction: "copy_link"
-          }), (await _v442(_v1.link)) ? _v0({
-            title: _v427.copyLinkSuccessMessage
+          }), (await _v443(_v1.link)) ? _v0({
+            title: _v428.copyLinkSuccessMessage
           }) : _v0({
-            title: _v427.copyLinkErrorMessage
+            title: _v428.copyLinkErrorMessage
           }));
         }, [_v1?.link, _v4, _v5]);
       return _v2 || !_v1?.link ? (0, _v25.jsx)(_v209.Skeleton, {
@@ -14394,10 +14393,10 @@
         onClick: _v6,
         isDisabled: _v2 || _v3,
         "data-testid": "record-studio-post-recording-copy-link-button",
-        children: [(0, _v25.jsx)(_v441.Link, {}), _v427.copyLinkAction]
+        children: [(0, _v25.jsx)(_v442.Link, {}), _v428.copyLinkAction]
       });
     },
-    _v444 = ({
+    _v445 = ({
       onClick: _v0,
       disabled: _v1,
       title: _v2,
@@ -14435,11 +14434,11 @@
         children: _v6
       }) : _v6;
     },
-    _v445 = () => {
+    _v446 = () => {
       let _v0,
         {
           video: _v1
-        } = _v331(),
+        } = _v332(),
         {
           trackRecordingShareActionClicked: _v2
         } = (0, _v46.useRecordingTracking)(),
@@ -14448,10 +14447,10 @@
         } = _v231(),
         {
           currentSessionId: _v4
-        } = _v426(),
+        } = _v427(),
         _v5 = _v137("PostRecording"),
-        _v6 = _v292(),
-        _v7 = _v432(),
+        _v6 = _v293(),
+        _v7 = _v433(),
         {
           redirectToSVV: _v8
         } = (_v0 = (0, _v242.useRouter)(), {
@@ -14470,9 +14469,9 @@
             await _v0.push(_v9);
           }, [_v0])
         }),
-        _v9 = _v297(_v0 => _v0.reset),
+        _v9 = _v298(_v0 => _v0.reset),
         _v10 = (0, _v86.useUIStore)(_v0 => _v0.common.setState),
-        _v11 = _v333(),
+        _v11 = _v334(),
         _v12 = (0, _v26.useCallback)(async () => {
           if (_v11 && _v3(_v11), _v2({
             recordingShareAction: "manage"
@@ -14496,20 +14495,26 @@
             });
           }
         }, [_v5, _v11, _v1?.manageLink, _v3, _v8, _v7, _v6, _v4, _v9, _v10, _v2]);
-      return _v1?.manageLink ? (0, _v25.jsx)(_v444, {
+      return _v1?.manageLink ? (0, _v25.jsx)(_v445, {
         icon: (0, _v25.jsx)(_v236.SettingsGear, {}),
-        title: _v427.manageAction,
+        title: _v428.manageAction,
         onClick: _v12,
         "data-testid": "record-studio-post-recording-video-manage-button"
       }) : null;
     };
-  var _v446 = _v0.i(0),
-    _v447 = _v0.i(0);
-  let _v448 = {
-    started: "record_studio_preview_playback_started",
-    failed: "record_studio_preview_playback_failed"
-  };
-  async function _v449(_v0) {
+  var _v447 = _v0.i(0),
+    _v448 = _v0.i(0);
+  let _v449 = {
+      started: "record_studio_preview_playback_started",
+      failed: "record_studio_preview_playback_failed",
+      recovered: "record_studio_preview_playback_recovered"
+    },
+    _v450 = {
+      currentTime: void 0,
+      bufferedSeconds: void 0,
+      duration: void 0
+    };
+  async function _v451(_v0, _v1) {
     try {
       let _v0 = await _v101.fetchWithRecordJWT(_v264.getVideo, {
         where: {
@@ -14517,68 +14522,147 @@
         },
         select: ["transcode.status"]
       });
-      return _v0?.transcode?.status === "complete" ? "renditions" : "playable_source";
+      return _v279(_v1, _v0?.transcode?.status);
     } catch {
       return "unknown";
     }
   }
-  function _v450(_v0, _v1, _v2, _v3 = {}) {
-    let _v4 = `${_v2}:${_v1}`;
-    _v0.current.has(_v4) || (_v0.current.add(_v4), _v449(_v2).then(_v0 => {
-      _v124(_v448[_v1], {
+  function _v452(_v0, _v1) {
+    if ("object" != typeof _v0 || null === _v0) return;
+    let _v2 = Reflect.get(_v0, _v1);
+    return "string" == typeof _v2 ? _v2 : void 0;
+  }
+  function _v453(_v0, _v1) {
+    return {
+      msSinceIframeLoad: null === _v0.iframeLoadedAt ? void 0 : Math.round(_v1 - _v0.iframeLoadedAt),
+      msSincePlayRequest: null === _v0.playRequestedAt ? void 0 : Math.round(_v1 - _v0.playRequestedAt)
+    };
+  }
+  async function _v454(_v0) {
+    return null === _v0 ? _v450 : Promise.race([Promise.all([_v0.getCurrentTime(), _v0.getBuffered(), _v0.getDuration()]).then(([_v0, _v1, _v2]) => ({
+      currentTime: _v0,
+      bufferedSeconds: _v1.reduce((_v0, _v1) => _v0 + _v1.end - _v1.start, 0),
+      duration: _v2
+    })), new Promise(_v0 => {
+      setTimeout(() => _v0(_v450), 0);
+    })]).catch(() => _v450);
+  }
+  function _v455(_v0, _v1, _v2, _v3, _v4 = {}) {
+    let _v5 = `${_v2}:${_v1}`;
+    _v0.current.has(_v5) || (_v0.current.add(_v5), _v451(_v2, _v3).then(_v0 => {
+      _v124(_v449[_v1], {
         clipId: _v2,
         playbackMode: _v0,
-        ..._v3
+        ..._v4
       });
     }));
   }
-  let _v451 = () => {
+  let _v456 = () => {
       let _v0 = _v137("PostRecordingPreview"),
         {
           video: _v1
-        } = _v331(),
+        } = _v332(),
         {
           trackPostRecordingPreviewClick: _v2
         } = _v231(),
         [_v3, _v4] = (0, _v26.useState)(!1),
-        _v5 = (0, _v318.getPlayerAssetUrls)()?.player_api_js ?? null,
-        [_v6] = (0, _v447.useMediaQuery)(`(min-height: ${(0, _v30.rem)(580)})`),
-        _v7 = _v333(),
-        _v8 = (0, _v26.useRef)(new Set());
+        _v5 = (0, _v319.getPlayerAssetUrls)()?.player_api_js ?? null,
+        [_v6] = (0, _v448.useMediaQuery)(`(min-height: ${(0, _v30.rem)(580)})`),
+        _v7 = _v334(),
+        _v8 = _v298(_v0 => _v0.uploadMethodType),
+        _v9 = (0, _v26.useRef)(new Set()),
+        _v10 = (0, _v26.useRef)({
+          playerAPI: null,
+          iframeLoadedAt: null,
+          playRequestedAt: null,
+          pendingFailure: null
+        });
       (0, _v26.useEffect)(() => {
         _v0.debug(`[end-screen] sdkScriptUrl is:[ ${_v5}]`);
       }, [_v0, _v5]), (0, _v26.useEffect)(() => {
         _v0.debug(`[end-screen] EmbedPlayer.URL is: [${_v1?.playerEmbedUrl}]`);
       }, [_v0, _v1?.playerEmbedUrl]);
-      let _v9 = (0, _v26.useCallback)(() => {
-          _v0.debug("[end-screen] EmbedPlayer.onPreviewPlayHandler"), _v7 && _v2(_v7);
-        }, [_v7, _v2, _v0]),
-        _v10 = (0, _v26.useCallback)(() => {
-          null !== _v7 && _v450(_v8, "started", _v7);
-        }, [_v7]),
-        _v11 = (0, _v26.useCallback)(_v0 => {
-          let _v1 = "object" != typeof _v0 || null === _v0 ? {
-            errorName: "unknown",
-            errorMessage: "unknown"
-          } : {
-            errorName: "name" in _v0 && "string" == typeof _v0.name ? _v0.name : "unknown",
-            errorMessage: "message" in _v0 && "string" == typeof _v0.message ? _v0.message : "unknown"
-          };
-          _v0.warn("[end-screen] EmbedPlayer error.", _v1), null !== _v7 && _v450(_v8, "failed", _v7, _v1);
-        }, [_v7, _v0]),
+      let _v11 = (0, _v26.useCallback)(() => {
+          _v10.current.iframeLoadedAt = performance.now();
+        }, []),
         _v12 = (0, _v26.useCallback)(_v0 => {
+          _v10.current.playerAPI = _v0;
+        }, []),
+        _v13 = (0, _v26.useCallback)(_v0 => {
+          let _v1 = _v10.current,
+            _v2 = _v1.pendingFailure;
+          if (null === _v2 || (clearTimeout(_v2.timeoutId), _v1.pendingFailure = null, null === _v7)) return;
+          let _v3 = {
+            ..._v2.errorDetails,
+            ..._v2.timing,
+            errorCount: _v2.errorCount
+          };
+          _v454(_v1.playerAPI).then(_v0 => {
+            "timeout" === _v0 && (_v0.bufferedSeconds ?? 0) > 0 ? _v455(_v9, "recovered", _v7, _v8, {
+              ..._v3,
+              ..._v0
+            }) : _v455(_v9, "failed", _v7, _v8, {
+              ..._v3,
+              ..._v0,
+              recoveryCheck: _v0,
+              recoveryWindowMs: 0
+            });
+          });
+        }, [_v7, _v8]),
+        _v14 = (0, _v26.useCallback)(() => {
+          let _v0 = _v10.current,
+            _v1 = _v0.pendingFailure;
+          null !== _v1 && (clearTimeout(_v1.timeoutId), _v0.pendingFailure = null, null !== _v7 && _v455(_v9, "recovered", _v7, _v8, {
+            ..._v1.errorDetails,
+            ..._v1.timing,
+            errorCount: _v1.errorCount,
+            msToRecover: Math.round(performance.now() - _v1.erroredAt)
+          }));
+        }, [_v7, _v8]);
+      (0, _v26.useEffect)(() => () => _v13("unmounted"), [_v13]);
+      let _v15 = (0, _v26.useCallback)(() => {
+          _v0.debug("[end-screen] EmbedPlayer.onPreviewPlayHandler"), _v10.current.playRequestedAt ??= performance.now(), _v7 && _v2(_v7);
+        }, [_v7, _v2, _v0]),
+        _v16 = (0, _v26.useCallback)(() => {
+          _v14(), null !== _v7 && _v455(_v9, "started", _v7, _v8, _v453(_v10.current, performance.now()));
+        }, [_v7, _v14, _v8]),
+        _v17 = (0, _v26.useCallback)(_v0 => {
+          let _v1 = _v10.current,
+            _v2 = {
+              errorName: _v452(_v0, "name") ?? "unknown",
+              errorMessage: _v452(_v0, "message") ?? "unknown",
+              errorMethod: _v452(_v0, "method")
+            },
+            _v3 = performance.now(),
+            _v4 = _v453(_v1, _v3);
+          if (_v0.warn("[end-screen] EmbedPlayer error.", {
+            ..._v2,
+            ..._v4
+          }), null !== _v1.pendingFailure) {
+            _v1.pendingFailure.errorCount += 1;
+            return;
+          }
+          _v1.pendingFailure = {
+            errorDetails: _v2,
+            timing: _v4,
+            erroredAt: _v3,
+            errorCount: 1,
+            timeoutId: setTimeout(() => _v13("timeout"), 0)
+          };
+        }, [_v0, _v13]),
+        _v18 = (0, _v26.useCallback)(_v0 => {
           _v0.debug(`[end-screen] Player script [${_v0}].`, {
             playerIsSet: !!window?.Vimeo?.Player
           }), window?.Vimeo?.Player && _v4(!0);
         }, [_v0]),
-        _v13 = (0, _v26.useCallback)(_v0 => {
+        _v19 = (0, _v26.useCallback)(_v0 => {
           _v0.warn("[end-screen] Player script error.", {
             error: _v0,
             sdkScriptUrl: _v5
           });
         }, [_v0, _v5]),
-        _v14 = (0, _v26.useCallback)(() => _v12("load"), [_v12]),
-        _v15 = (0, _v26.useCallback)(() => _v12("ready"), [_v12]);
+        _v20 = (0, _v26.useCallback)(() => _v18("load"), [_v18]),
+        _v21 = (0, _v26.useCallback)(() => _v18("ready"), [_v18]);
       return (0, _v25.jsxs)(_v28.Flex, {
         width: "100%",
         justifyContent: "center",
@@ -14596,31 +14680,36 @@
         borderRadius: "md",
         backgroundColor: "background",
         "data-testid": "record-studio-post-recording-preview-video",
-        children: [_v5 && (0, _v25.jsx)(_v317.default, {
+        children: [_v5 && (0, _v25.jsx)(_v318.default, {
           src: _v5,
-          onLoad: _v14,
-          onReady: _v15,
-          onError: _v13
-        }), _v1?.playerEmbedUrl && _v3 ? (0, _v25.jsx)(_v319.EmbedPlayer, {
-          onPlay: _v9,
-          onPlaying: _v10,
-          onError: _v11,
+          onLoad: _v20,
+          onReady: _v21,
+          onError: _v19
+        }), _v1?.playerEmbedUrl && _v3 ? (0, _v25.jsx)(_v320.EmbedPlayer, {
+          onIframeLoad: _v11,
+          onPlayerAPIReady: _v12,
+          onPlay: _v15,
+          onPlaying: _v16,
+          onDurationchange: _v14,
+          onProgress: _v14,
+          onBufferend: _v14,
+          onError: _v17,
           src: _v1?.playerEmbedUrl
-        }) : (0, _v25.jsx)(_v446.Center, {
+        }) : (0, _v25.jsx)(_v447.Center, {
           children: (0, _v25.jsx)(_v219.Spinner, {
             size: "lg"
           })
         })]
       });
     },
-    _v452 = `${_v427.retakeConfirmationTitle}
+    _v457 = `${_v428.retakeConfirmationTitle}
 
-  ${_v427.retakeConfirmationText}
+  ${_v428.retakeConfirmationText}
 
   ${_v206.infoDialog.cancel}
 
-  ${_v427.retakeConfirmationConfirmAction}`,
-    _v453 = ({
+  ${_v428.retakeConfirmationConfirmAction}`,
+    _v458 = ({
       isOpen: _v0,
       onClose: _v1,
       onConfirm: _v2,
@@ -14629,30 +14718,30 @@
       let {
           trackRetakeVideoNotificationImpression: _v4
         } = _v231(),
-        _v5 = _v333();
+        _v5 = _v334();
       return ((0, _v26.useEffect)(() => {
-        _v5 && _v0 && _v4(_v5, _v452);
-      }, [_v4, _v5, _v0]), _v0) ? (0, _v25.jsx)(_v311, {
+        _v5 && _v0 && _v4(_v5, _v457);
+      }, [_v4, _v5, _v0]), _v0) ? (0, _v25.jsx)(_v312, {
         "data-testid": "record-studio-post-recording-retake-modal",
-        header: _v427.retakeConfirmationTitle,
-        text: _v427.retakeConfirmationText,
+        header: _v428.retakeConfirmationTitle,
+        text: _v428.retakeConfirmationText,
         onCancel: _v1,
         onClose: _v1,
         disabled: _v3,
         buttons: [(0, _v25.jsx)(_v204.Button, {
-          "data-testid": _v321,
+          "data-testid": _v322,
           onClick: _v2,
           isDisabled: _v3,
           variant: "destructive",
-          children: _v427.retakeConfirmationConfirmAction
-        }, _v321)]
+          children: _v428.retakeConfirmationConfirmAction
+        }, _v322)]
       }) : null;
     },
-    _v454 = ({
+    _v459 = ({
       onConfirm: _v0
     }) => {
       let _v1 = _v137("PostRecordingRetakeActionButton"),
-        _v2 = _v333(),
+        _v2 = _v334(),
         {
           trackRecordingShareActionClicked: _v3
         } = (0, _v46.useRecordingTracking)(),
@@ -14660,7 +14749,7 @@
         [_v6, {
           loading: _v7,
           called: _v8
-        }] = (0, _v324.useDeleteVideo)(),
+        }] = (0, _v325.useDeleteVideo)(),
         {
           trackRetakeVideoNotificationConfirmation: _v9,
           trackRetakeRecordingClick: _v10
@@ -14673,7 +14762,7 @@
         _v12 = (0, _v26.useCallback)(() => {
           _v1.info("retake action confirmed, delete the video clip", {
             clipId: _v2
-          }), _v2 && (_v9(_v2, _v452), _v6({
+          }), _v2 && (_v9(_v2, _v457), _v6({
             where: {
               videoId: _v2
             },
@@ -14687,12 +14776,12 @@
           clipId: _v2
         }), _v5(!1), _v0());
       }, [_v8, _v7, _v0, _v1, _v2]), (0, _v25.jsxs)(_v25.Fragment, {
-        children: [(0, _v25.jsx)(_v444, {
-          icon: (0, _v25.jsx)(_v403.Reset, {}),
-          title: _v427.retakeAction,
+        children: [(0, _v25.jsx)(_v445, {
+          icon: (0, _v25.jsx)(_v404.Reset, {}),
+          title: _v428.retakeAction,
           onClick: _v11,
           "data-testid": "record-studio-post-recording-video-retake-button"
-        }), (0, _v25.jsx)(_v453, {
+        }), (0, _v25.jsx)(_v458, {
           disabled: _v7 || _v8,
           isOpen: _v4,
           onClose: () => _v5(!1),
@@ -14700,17 +14789,17 @@
         })]
       });
     };
-  var _v455 = _v0.i(0),
-    _v456 = _v0.i(0),
-    _v457 = _v0.i(0);
-  function _v458(_v0, _v1) {
+  var _v460 = _v0.i(0),
+    _v461 = _v0.i(0),
+    _v462 = _v0.i(0);
+  function _v463(_v0, _v1) {
     let _v2 = _v0.length > 0 ? _v0.substring(_v0.lastIndexOf("/") + 1) : "-1";
     return _v1 ? _v2 : parseInt(_v2, 10);
   }
-  let _v459 = () => {
+  let _v464 = () => {
     let {
         video: _v0
-      } = _v331(),
+      } = _v332(),
       {
         onEdit: _v1,
         isLoading: _v2,
@@ -14720,7 +14809,7 @@
             clipInfo: _v1,
             isLoading: _v2,
             refetch: _v3
-          } = _v325({
+          } = _v326({
             clipId: _v0,
             fields: ["editSession", "isPlayable", "metadata.editSessionVsid", "metadata.interactions.createEditor", "metadata.connections.versions.latestIncompleteVersion"]
           }),
@@ -14743,14 +14832,14 @@
               data: _v16 = null
             } = {},
             error: _v17
-          } = (0, _v456.useGetVideoVersions)(() => !_v0 || _v6 ? null : {
+          } = (0, _v461.useGetVideoVersions)(() => !_v0 || _v6 ? null : {
             where: {
               videoId: _v0
             },
             select: ["active", "createStoryboardId"]
           }),
-          _v18 = _v7?.uploadAttemptIdVersionUri ? _v458(_v7?.uploadAttemptIdVersionUri, !0) : "",
-          _v19 = _v7?.versionUri ? _v458(_v7?.versionUri) : "",
+          _v18 = _v7?.uploadAttemptIdVersionUri ? _v463(_v7?.uploadAttemptIdVersionUri, !0) : "",
+          _v19 = _v7?.versionUri ? _v463(_v7?.versionUri) : "",
           _v20 = !_v7 || void 0 === _v7.status || "done" === _v7.status,
           _v21 = !_v8?.connections?.versions?.latestIncompleteVersion,
           _v22 = void 0 === _v13 && !_v16 && !_v17,
@@ -14761,23 +14850,23 @@
             let _v1 = _v14 ? `/create/edit?hash=${_v14}&version_id=${_v19}&vid=${_v0}&upload_attempt_id=${_v18}${_v0 ? "&transcript=true" : ""}` : `/create/edit?vid=${_v0}${_v0 ? "&transcript=true" : ""}`;
             _v0 && _v4(_v0), _v15.push(_v1);
           }, [_v14, _v19, _v0, _v18, _v15, _v4]);
-        return (0, _v457.usePoll)(_v3, !_v23, {
+        return (0, _v462.usePoll)(_v3, !_v23, {
           interval: 0
         }), (0, _v26.useMemo)(() => ({
           canEdit: _v24,
           isLoading: _v22,
           onEdit: _v25
         }), [_v24, _v22, _v25]);
-      })(_v333()),
+      })(_v334()),
       {
         trackRecordingShareActionClicked: _v4
       } = (0, _v46.useRecordingTracking)(),
       _v5 = !!_v0?.spatial?.stereoFormat,
       _v6 = _v5 || !_v3,
-      _v7 = (0, _v26.useMemo)(() => _v2 || _v3 ? null : _v5 ? _v427.trimActionTooltip360 : _v3 ? null : _v427.trimActionTooltipTrimmed, [_v3, _v5, _v2, !1]);
-    return _v0 ? (0, _v25.jsx)(_v444, {
-      icon: (0, _v25.jsx)(_v455.ScissorsEditTrim, {}),
-      title: _v427.trimAction,
+      _v7 = (0, _v26.useMemo)(() => _v2 || _v3 ? null : _v5 ? _v428.trimActionTooltip360 : _v3 ? null : _v428.trimActionTooltipTrimmed, [_v3, _v5, _v2, !1]);
+    return _v0 ? (0, _v25.jsx)(_v445, {
+      icon: (0, _v25.jsx)(_v460.ScissorsEditTrim, {}),
+      title: _v428.trimAction,
       onClick: () => {
         _v4({
           recordingShareAction: "trim"
@@ -14788,20 +14877,20 @@
       "data-testid": "record-studio-post-recording-video-trim-button"
     }) : null;
   };
-  var _v460 = _v0.i(0);
-  let _v461 = () => {
+  var _v465 = _v0.i(0);
+  let _v466 = () => {
       let [_v0, _v1] = (0, _v26.useState)(!1),
         {
           video: _v2,
           isVideoLoading: _v3
-        } = _v331(),
-        _v4 = _v332(),
+        } = _v332(),
+        _v4 = _v333(),
         _v5 = _v137("PostRecordingVideoTitle"),
-        _v6 = _v333(),
+        _v6 = _v334(),
         {
           trackChangeVideoTitleClick: _v7
         } = _v231(),
-        _v8 = (0, _v431.useToast)(),
+        _v8 = (0, _v432.useToast)(),
         {
           patchVideoTitle: _v9,
           loading: _v10,
@@ -14813,9 +14902,9 @@
               loading: _v2,
               error: _v3,
               called: _v4
-            }] = (0, _v324.usePatchVideo)(),
+            }] = (0, _v325.usePatchVideo)(),
             _v5 = (0, _v26.useRef)(null),
-            _v6 = _v333();
+            _v6 = _v334();
           return {
             patchVideoTitle: async _v0 => {
               if (!_v6 || !_v0 || !_v0.length) return Promise.resolve();
@@ -14871,7 +14960,7 @@
           }), _v5.info("video title updated successfully", {
             clipId: _v6
           })), _v8({
-            title: _v0 ? _v427.videoMetadataError : _v427.videoMetadataChanged,
+            title: _v0 ? _v428.videoMetadataError : _v428.videoMetadataChanged,
             variant: _v0 ? "warning" : "info"
           }), _v1(!1);
         }
@@ -14883,9 +14972,9 @@
         _v23 = 0 === _v15.length || _v15.length > 128;
       return _v3 || !_v14 ? (0, _v25.jsx)(_v209.Skeleton, {
         height: (0, _v30.rem)(40)
-      }) : (0, _v25.jsxs)(_v424.Stack, {
+      }) : (0, _v25.jsxs)(_v425.Stack, {
         alignItems: "end",
-        children: [(0, _v25.jsx)(_v460.Input, {
+        children: [(0, _v25.jsx)(_v465.Input, {
           value: _v15,
           onChange: _v20,
           onFocus: _v22,
@@ -14894,7 +14983,7 @@
           borderColor: "input-stroke",
           isDisabled: !_v13,
           "data-testid": "record-studio-post-recording-video-title"
-        }), (0, _v25.jsx)(_v424.Stack, {
+        }), (0, _v25.jsx)(_v425.Stack, {
           height: (0, _v30.rem)(16),
           children: (_v17 || _v23) && (0, _v25.jsx)(_v203.Text, {
             variant: "body-sm",
@@ -14904,34 +14993,34 @@
         })]
       });
     },
-    _v462 = [_v51, _v50],
-    _v463 = () => {
+    _v467 = [_v51, _v50],
+    _v468 = () => {
       let _v0 = _v137("PostRecordingRoot"),
-        _v1 = _v332(),
+        _v1 = _v333(),
         {
           trackClosePostRecordingModalClick: _v2,
           trackPostRecordingModalImpression: _v3
         } = _v231(),
         {
           activateScreen: _v4
-        } = _v425();
+        } = _v426();
       (() => {
-        let _v0 = _v293(),
-          _v1 = _v432(),
+        let _v0 = _v294(),
+          _v1 = _v433(),
           {
             video: _v2
-          } = _v331(),
+          } = _v332(),
           _v3 = (0, _v26.useRef)(null),
-          _v4 = (0, _v431.useToast)();
+          _v4 = (0, _v432.useToast)();
         (0, _v26.useEffect)(() => {
           _v1 && _v2?.isPlayable && (_v3.current && _v4.close(_v3.current), _v3.current = _v4({
-            title: _v427.recordingDurationLimitReached(_v0),
+            title: _v428.recordingDurationLimitReached(_v0),
             variant: "info",
             duration: null
           }));
         }, [_v1, _v0, _v2?.isPlayable]);
       })();
-      let _v5 = _v333(),
+      let _v5 = _v334(),
         {
           setAppState: _v6,
           setControlsAction: _v7,
@@ -14951,12 +15040,12 @@
             postRecordingCsatLastSeen: _v0.csat.postRecordingLastSeen
           }))),
           _v4 = (0, _v26.useCallback)(() => {
-            _v0 && _v3 >= 3 && _v429.PendoClient.showGuideById(_v430);
+            _v0 && _v3 >= 3 && _v430.PendoClient.showGuideById(_v431);
           }, [_v0, _v3]);
         (0, _v26.useEffect)(() => {
-          _v429.PendoClient.addHandler({
+          _v430.PendoClient.addHandler({
             onGuideDisplayed: _v0 => {
-              _v0?.guideId === _v430 && _v1("csat", {
+              _v0?.guideId === _v431 && _v1("csat", {
                 postRecordingLastSeen: Date.now()
               });
             }
@@ -14971,22 +15060,24 @@
           videoBecomesPlayableTime: _v11,
           recordingStoppedTime: _v12,
           recordingDuration: _v13,
-          uploadMethodType: _v14
-        } = _v297((0, _v27.useShallow)(_v0 => ({
+          uploadMethodType: _v14,
+          transcodeStatusAtEndScreen: _v15
+        } = _v298((0, _v27.useShallow)(_v0 => ({
           resetPostRecordingState: _v0.reset,
           recordingUploadedTime: _v0.recordingUploadedTime,
           recordingStoppedTime: _v0.recordingStoppedTime,
           videoBecomesPlayableTime: _v0.videoBecomesPlayableTime,
           recordingDuration: _v0.recordingDuration,
-          uploadMethodType: _v0.uploadMethodType
+          uploadMethodType: _v0.uploadMethodType,
+          transcodeStatusAtEndScreen: _v0.transcodeStatusAtEndScreen
         }))),
         {
           currentSessionData: {
-            lastLayoutTypeUsed: _v15
+            lastLayoutTypeUsed: _v16
           }
-        } = _v426(),
-        _v16 = _v175(_v0 => _v0.displayMedia),
-        _v17 = (0, _v26.useCallback)(() => {
+        } = _v427(),
+        _v17 = _v175(_v0 => _v0.displayMedia),
+        _v18 = (0, _v26.useCallback)(() => {
           _v5 && _v2(_v5), _v1({
             type: "clearState"
           }), _v6("pre-recording"), _v9(), _v0.info("closing post recording modal and resetting state to pre-recording");
@@ -15005,67 +15096,71 @@
             processingDurationUploadFinished: _v0,
             processingDurationRecordingStopped: _v1
           };
-          _v124("record_studio_recording_became_playable", _v0), _v177({
+          _v124("record_studio_recording_became_playable", {
+            ..._v0,
+            transcodeStatus: _v15,
+            playbackMode: _v279(_v14, _v15)
+          }), _v177({
             name: "recordingBecamePlayable",
             ..._v0
           });
         }
-      }, [_v8, _v5, _v0, _v3, _v10, _v11, _v12, _v13, _v14]);
-      let _v18 = (0, _v26.useCallback)(async () => {
-        (_v17(), !_v462.includes(_v15) || _v16 || (await _v4()) || _v15 !== _v50) ? _v7("record", "other") : _v0.debug('user decided not to re-share screen after "retake" action, there\'s nothing to record');
-      }, [_v17, _v15, _v16, _v7, _v4, _v0]);
-      return "endScreenShown" !== _v8 ? null : (0, _v25.jsxs)(_v304.Modal, {
+      }, [_v8, _v5, _v0, _v3, _v10, _v11, _v12, _v13, _v14, _v15]);
+      let _v19 = (0, _v26.useCallback)(async () => {
+        (_v18(), !_v467.includes(_v16) || _v17 || (await _v4()) || _v16 !== _v50) ? _v7("record", "other") : _v0.debug('user decided not to re-share screen after "retake" action, there\'s nothing to record');
+      }, [_v18, _v16, _v17, _v7, _v4, _v0]);
+      return "endScreenShown" !== _v8 ? null : (0, _v25.jsxs)(_v305.Modal, {
         isOpen: !0,
         closeOnOverlayClick: !1,
         closeOnEsc: !1,
-        onClose: _v17,
+        onClose: _v18,
         size: "100%",
-        children: [(0, _v25.jsx)(_v310.ModalOverlay, {}), (0, _v25.jsxs)(_v307.ModalContent, {
+        children: [(0, _v25.jsx)(_v311.ModalOverlay, {}), (0, _v25.jsxs)(_v308.ModalContent, {
           "data-testid": "record-studio-post-recording-modal",
           width: (0, _v30.rem)(480),
           maxHeight: "100vh",
           display: "flex",
           flexDirection: "column",
-          children: [(0, _v25.jsx)(_v309.ModalHeader, {
+          children: [(0, _v25.jsx)(_v310.ModalHeader, {
             children: (0, _v25.jsx)(_v203.Text, {
               variant: "heading-md",
-              children: _v427.title
+              children: _v428.title
             })
-          }), (0, _v25.jsx)(_v306.ModalCloseButton, {
+          }), (0, _v25.jsx)(_v307.ModalCloseButton, {
             "data-testid": "record-studio-post-recording-modal-close-button"
-          }), (0, _v25.jsx)(_v305.ModalBody, {
+          }), (0, _v25.jsx)(_v306.ModalBody, {
             flex: 1,
             minHeight: 0,
             overflow: "auto",
-            children: (0, _v25.jsx)(_v451, {})
-          }), (0, _v25.jsx)(_v308.ModalFooter, {
+            children: (0, _v25.jsx)(_v456, {})
+          }), (0, _v25.jsx)(_v309.ModalFooter, {
             pt: "sm",
             pb: "lg",
-            children: (0, _v25.jsxs)(_v424.Stack, {
+            children: (0, _v25.jsxs)(_v425.Stack, {
               alignItems: "start",
               width: "100%",
               gap: "0",
-              children: [(0, _v25.jsxs)(_v424.Stack, {
+              children: [(0, _v25.jsxs)(_v425.Stack, {
                 width: "100%",
                 gap: "0",
-                children: [(0, _v25.jsxs)(_v424.Stack, {
+                children: [(0, _v25.jsxs)(_v425.Stack, {
                   children: [(0, _v25.jsx)(_v203.Text, {
                     variant: "heading-xs",
-                    children: _v427.videoTitleLabel
-                  }), (0, _v25.jsx)(_v461, {})]
-                }), (0, _v25.jsxs)(_v424.Stack, {
+                    children: _v428.videoTitleLabel
+                  }), (0, _v25.jsx)(_v466, {})]
+                }), (0, _v25.jsxs)(_v425.Stack, {
                   children: [(0, _v25.jsx)(_v203.Text, {
                     variant: "heading-xs",
-                    children: _v427.privacyLabel
-                  }), (0, _v25.jsx)(_v440, {})]
+                    children: _v428.privacyLabel
+                  }), (0, _v25.jsx)(_v441, {})]
                 })]
-              }), (0, _v25.jsx)(_v443, {}), (0, _v25.jsxs)(_v343.HStack, {
+              }), (0, _v25.jsx)(_v444, {}), (0, _v25.jsxs)(_v344.HStack, {
                 justifyContent: "center",
                 width: "100%",
                 mt: "lg",
                 gap: "2xl",
-                children: [(0, _v25.jsx)(_v445, {}), (0, _v25.jsx)(_v459, {}), (0, _v25.jsx)(_v454, {
-                  onConfirm: _v18
+                children: [(0, _v25.jsx)(_v446, {}), (0, _v25.jsx)(_v464, {}), (0, _v25.jsx)(_v459, {
+                  onConfirm: _v19
                 })]
               })]
             })
@@ -15073,14 +15168,14 @@
         })]
       });
     },
-    _v464 = ({
+    _v469 = ({
       children: _v0
-    }) => (0, _v25.jsxs)(_v330, {
-      children: [_v0, (0, _v25.jsx)(_v463, {})]
+    }) => (0, _v25.jsxs)(_v331, {
+      children: [_v0, (0, _v25.jsx)(_v468, {})]
     });
-  var _v465 = _v0.i(0),
-    _v466 = _v0.i(0);
-  let _v467 = ({
+  var _v470 = _v0.i(0),
+    _v471 = _v0.i(0);
+  let _v472 = ({
       items: _v0,
       position: _v1,
       onUnfocus: _v2,
@@ -15088,7 +15183,7 @@
       testId: _v4
     }) => {
       let _v5 = (0, _v26.useRef)(null);
-      return (0, _v466.default)(_v5, _v2), (0, _v25.jsx)(_v28.Flex, {
+      return (0, _v471.default)(_v5, _v2), (0, _v25.jsx)(_v28.Flex, {
         position: "fixed",
         zIndex: "100",
         left: _v1.x,
@@ -15109,7 +15204,7 @@
         })
       });
     },
-    _v468 = (0, _v26.memo)(({
+    _v473 = (0, _v26.memo)(({
       children: _v0,
       items: _v1,
       testId: _v2
@@ -15133,7 +15228,7 @@
         height: "100%",
         userSelect: "none",
         onContextMenu: _v8,
-        children: [_v0, _v7 && (0, _v465.createPortal)((0, _v25.jsx)(_v467, {
+        children: [_v0, _v7 && (0, _v470.createPortal)((0, _v25.jsx)(_v472, {
           testId: _v2,
           width: 180,
           onUnfocus: _v9,
@@ -15142,7 +15237,7 @@
         }), document.body)]
       });
     }),
-    _v469 = () => {
+    _v474 = () => {
       let [_v0, _v1] = (0, _v26.useState)(0),
         [_v2, _v3] = (0, _v26.useState)(0),
         [_v4, _v5] = (0, _v26.useState)(null),
@@ -15164,9 +15259,9 @@
         };
       }, [_v4]), [_v0, _v2, _v6];
     },
-    _v470 = (_v0, _v1, _v2 = 0, _v3 = 0) => {
+    _v475 = (_v0, _v1, _v2 = 0, _v3 = 0) => {
       let [_v4, _v5] = (0, _v26.useState)("height"),
-        [_v6, _v7, _v8] = _v469();
+        [_v6, _v7, _v8] = _v474();
       return (0, _v26.useEffect)(() => {
         _v5(((_v0, _v1) => {
           if (!_v0.width || !_v0.height) return "height";
@@ -15184,7 +15279,7 @@
         setContainerRef: _v8
       };
     },
-    _v471 = ({
+    _v476 = ({
       children: _v0
     }) => _v179(_v0 => !_v0.permissions.audio && !_v0.permissions.video) ? (0, _v25.jsx)(_v209.Skeleton, {
       "data-testid": "record-studio-preview-spinner",
@@ -15193,10 +15288,10 @@
     }) : (0, _v25.jsx)(_v25.Fragment, {
       children: _v0
     });
-  var _v472 = _v0.i(0),
-    _v473 = _v0.i(0),
-    _v474 = _v0.i(0);
-  let _v475 = {
+  var _v477 = _v0.i(0),
+    _v478 = _v0.i(0),
+    _v479 = _v0.i(0);
+  let _v480 = {
       [_v53]: {
         text: (0, _v205.translate)({
           singular: "Landscape",
@@ -15226,7 +15321,7 @@
         }),
         ratio: "16:9",
         ratioValue: 16 / 9,
-        icon: (0, _v25.jsx)(_v472.FormatLandscape, {
+        icon: (0, _v25.jsx)(_v477.FormatLandscape, {
           boxSize: "xs"
         })
       },
@@ -15259,7 +15354,7 @@
         }),
         ratio: "1:1",
         ratioValue: 1,
-        icon: (0, _v25.jsx)(_v474.FormatSquare, {
+        icon: (0, _v25.jsx)(_v479.FormatSquare, {
           boxSize: "xs"
         })
       },
@@ -15289,13 +15384,13 @@
         }),
         ratio: "9:16",
         ratioValue: 9 / 16,
-        icon: (0, _v25.jsx)(_v473.FormatPortrait, {
+        icon: (0, _v25.jsx)(_v478.FormatPortrait, {
           boxSize: "xs"
         })
       }
     },
-    _v476 = Object.entries(_v475),
-    _v477 = (0, _v26.forwardRef)(({
+    _v481 = Object.entries(_v480),
+    _v482 = (0, _v26.forwardRef)(({
       isDisabled: _v0,
       isActive: _v1,
       leftIcon: _v2,
@@ -15321,21 +15416,21 @@
       sx: _v7,
       children: _v4
     })),
-    _v478 = (0, _v26.forwardRef)((_v0, _v1) => {
+    _v483 = (0, _v26.forwardRef)((_v0, _v1) => {
       let _v2 = _v82(_v0 => _v0.aspectRatio);
-      return (0, _v25.jsx)(_v477, {
-        dataTestId: _v545.ASPECT_RATIO_BUTTON,
+      return (0, _v25.jsx)(_v482, {
+        dataTestId: _v550.ASPECT_RATIO_BUTTON,
         sx: {
           minWidth: (0, _v30.rem)(70)
         },
         ref: _v1,
-        leftIcon: _v475[_v2].icon,
-        text: _v475[_v2].ratio,
+        leftIcon: _v480[_v2].icon,
+        text: _v480[_v2].ratio,
         ..._v0
       });
     });
-  var _v479 = _v0.i(0);
-  function _v480({
+  var _v484 = _v0.i(0);
+  function _v485({
     onClick: _v0,
     icon: _v1,
     title: _v2,
@@ -15348,19 +15443,19 @@
       padding: "sm",
       gap: "lg",
       onClick: _v0,
-      children: [(0, _v25.jsxs)(_v343.HStack, {
+      children: [(0, _v25.jsxs)(_v344.HStack, {
         children: [_v1, (0, _v25.jsx)(_v220.Paragraph, {
           size: "md",
           children: _v2
         })]
-      }), _v3 ? (0, _v25.jsx)(_v479.CheckSmall, {
+      }), _v3 ? (0, _v25.jsx)(_v484.CheckSmall, {
         boxSize: "xs"
       }) : (0, _v25.jsx)(_v208.Box, {
         boxSize: "xs"
       })]
     });
   }
-  let _v481 = {
+  let _v486 = {
     aspectRatio: {
       header: (0, _v205.translate)({
         singular: "Ratio",
@@ -15986,9 +16081,9 @@
       })
     }
   };
-  var _v482 = _v0.i(0),
-    _v483 = _v0.i(0);
-  let _v484 = ({
+  var _v487 = _v0.i(0),
+    _v488 = _v0.i(0);
+  let _v489 = ({
       children: _v0,
       onChangeColor: _v1,
       selectedColor: _v2,
@@ -16022,7 +16117,7 @@
         }
         _v1(_v3);
       }, [_v1]);
-      return (0, _v25.jsx)(_v483.ColorPickerBrandKit, {
+      return (0, _v25.jsx)(_v488.ColorPickerBrandKit, {
         testId: _v3,
         color: "customColor" === _v2.type ? _v2.hex : void 0,
         onChangeColorWithType: _v4,
@@ -16033,7 +16128,7 @@
         children: _v0
       });
     },
-    _v485 = (0, _v26.forwardRef)(({
+    _v490 = (0, _v26.forwardRef)(({
       isDisabled: _v0,
       isActive: _v1,
       icon: _v2,
@@ -16064,7 +16159,7 @@
         children: _v10
       }) : _v10;
     }),
-    _v486 = (0, _v26.forwardRef)(({
+    _v491 = (0, _v26.forwardRef)(({
       isDisabled: _v0,
       isActive: _v1,
       onClick: _v2
@@ -16083,28 +16178,28 @@
             location: "top_toolbar"
           });
         }, [_v5]);
-      return (0, _v25.jsx)(_v484, {
+      return (0, _v25.jsx)(_v489, {
         onChangeColor: _v6,
         selectedColor: _v4,
-        testId: _v545.BACKDROP_CONTENT,
-        children: (0, _v25.jsx)(_v485, {
-          dataTestId: _v545.BACKDROP_BUTTON,
+        testId: _v550.BACKDROP_CONTENT,
+        children: (0, _v25.jsx)(_v490, {
+          dataTestId: _v550.BACKDROP_BUTTON,
           ref: _v3,
           name: "bucket",
-          tooltip: _v481.backdrop.tooltip,
-          icon: (0, _v25.jsx)(_v482.FillPaintBucket, {
-            boxSize: _v546
+          tooltip: _v486.backdrop.tooltip,
+          icon: (0, _v25.jsx)(_v487.FillPaintBucket, {
+            boxSize: _v551
           }),
           isDisabled: _v0,
           isActive: _v1
         })
       });
     });
-  var _v487 = _v0.i(0),
-    _v488 = _v0.i(0),
-    _v489 = _v0.i(0),
-    _v490 = _v0.i(0);
-  let _v491 = ({
+  var _v492 = _v0.i(0),
+    _v493 = _v0.i(0),
+    _v494 = _v0.i(0),
+    _v495 = _v0.i(0);
+  let _v496 = ({
       background: _v0,
       tooltip: _v1,
       ..._v2
@@ -16135,7 +16230,7 @@
         ..._v2
       })
     }),
-    _v492 = ({
+    _v497 = ({
       type: _v0,
       color: {
         color: _v1,
@@ -16144,7 +16239,7 @@
       index: _v3,
       selected: _v4,
       onSelect: _v5
-    }) => (0, _v25.jsx)(_v491, {
+    }) => (0, _v25.jsx)(_v496, {
       "aria-label": `${_v0}-${_v3}`,
       background: _v1,
       tooltip: _v2,
@@ -16154,13 +16249,13 @@
         index: _v3
       })
     }),
-    _v493 = ({
+    _v498 = ({
       hex: _v0,
       name: _v1,
       selected: _v2,
       onSelect: _v3,
       ..._v4
-    }) => (0, _v25.jsx)(_v491, {
+    }) => (0, _v25.jsx)(_v496, {
       background: _v0,
       tooltip: _v1,
       isActive: "customColor" === _v2.type && _v2.hex.toLowerCase() === _v0.toLowerCase(),
@@ -16170,27 +16265,27 @@
       }),
       ..._v4
     });
-  var _v494 = _v0.i(0);
-  let _v495 = ({
+  var _v499 = _v0.i(0);
+  let _v500 = ({
       colors: _v0,
       type: _v1,
       ..._v2
-    }) => (0, _v25.jsx)(_v494.SimpleGrid, {
+    }) => (0, _v25.jsx)(_v499.SimpleGrid, {
       columns: 5,
       spacing: "100",
-      children: _v0.map((_v0, _v1) => "customColor" === _v1 ? (0, _v25.jsx)(_v493, {
+      children: _v0.map((_v0, _v1) => "customColor" === _v1 ? (0, _v25.jsx)(_v498, {
         "aria-label": `${_v1}-${_v1}`,
         hex: _v0.color,
         name: _v0.name,
         ..._v2
-      }, _v1) : (0, _v25.jsx)(_v492, {
+      }, _v1) : (0, _v25.jsx)(_v497, {
         type: _v1,
         color: _v0,
         index: _v1,
         ..._v2
       }, _v1))
     }),
-    _v496 = [{
+    _v501 = [{
       color: "#0E1216",
       name: (0, _v205.translate)({
         singular: "Black",
@@ -16465,7 +16560,7 @@
         }
       })
     }],
-    _v497 = [{
+    _v502 = [{
       color: ["#181E24", "#3D4751"],
       name: (0, _v205.translate)({
         singular: "Midnight black",
@@ -16746,14 +16841,14 @@
         }
       })
     }],
-    _v498 = _v497.map(({
+    _v503 = _v502.map(({
       color: [_v0, _v1],
       name: _v2
     }) => ({
       color: `linear-gradient(to left bottom, ${_v0} 0%, ${_v1} 100%)`,
       name: _v2
     })),
-    _v499 = (0, _v205.translate)({
+    _v504 = (0, _v205.translate)({
       singular: "Custom",
       dictionary: {
         es: {
@@ -16779,7 +16874,7 @@
         }
       }
     }),
-    _v500 = ({
+    _v505 = ({
       testId: _v0,
       selected: _v1,
       onSelect: _v2
@@ -16792,11 +16887,11 @@
         children: [(0, _v25.jsxs)(_v29.VStack, {
           gap: "75",
           align: "flex-start",
-          children: [(0, _v25.jsx)(_v303.Header, {
+          children: [(0, _v25.jsx)(_v304.Header, {
             size: "xs",
-            children: _v481.backdrop.solid
-          }), (0, _v25.jsx)(_v495, {
-            colors: _v496,
+            children: _v486.backdrop.solid
+          }), (0, _v25.jsx)(_v500, {
+            colors: _v501,
             type: "color",
             selected: _v1,
             onSelect: _v2
@@ -16804,19 +16899,19 @@
         }), (0, _v25.jsxs)(_v29.VStack, {
           gap: "75",
           align: "flex-start",
-          children: [(0, _v25.jsx)(_v303.Header, {
+          children: [(0, _v25.jsx)(_v304.Header, {
             size: "xs",
-            children: _v481.backdrop.gradient
-          }), (0, _v25.jsx)(_v495, {
-            colors: _v498,
+            children: _v486.backdrop.gradient
+          }), (0, _v25.jsx)(_v500, {
+            colors: _v503,
             type: "gradient",
             selected: _v1,
             onSelect: _v2
           })]
-        }), (0, _v25.jsx)(_v489.Divider, {
+        }), (0, _v25.jsx)(_v494.Divider, {
           borderColor: "stroke"
-        }), (0, _v25.jsxs)(_v487.ColorPickerRoot, {
-          defaultValue: (0, _v490.parseColor)(_v3),
+        }), (0, _v25.jsxs)(_v492.ColorPickerRoot, {
+          defaultValue: (0, _v495.parseColor)(_v3),
           onValueChange: ({
             value: _v0
           }) => {
@@ -16826,36 +16921,36 @@
               hex: _v1
             });
           },
-          children: [(0, _v25.jsx)(_v488.ColorPickerControl, {
-            children: (0, _v25.jsx)(_v487.ColorPickerTrigger, {
-              children: (0, _v25.jsxs)(_v343.HStack, {
+          children: [(0, _v25.jsx)(_v493.ColorPickerControl, {
+            children: (0, _v25.jsx)(_v492.ColorPickerTrigger, {
+              children: (0, _v25.jsxs)(_v344.HStack, {
                 gap: "100",
-                children: [(0, _v25.jsx)(_v493, {
+                children: [(0, _v25.jsx)(_v498, {
                   "aria-label": "color-picker",
                   hex: _v3,
-                  name: _v499,
+                  name: _v504,
                   selected: _v1,
                   onSelect: _v2
-                }), (0, _v25.jsx)(_v487.ColorPickerChannelInput, {
+                }), (0, _v25.jsx)(_v492.ColorPickerChannelInput, {
                   channel: "hex",
                   width: "164px"
                 })]
               })
             })
-          }), (0, _v25.jsx)(_v375.Portal, {
-            children: (0, _v25.jsx)(_v487.ColorPickerPositioner, {
-              children: (0, _v25.jsxs)(_v487.ColorPickerContent, {
-                children: [(0, _v25.jsx)(_v487.ColorPickerArea, {}), (0, _v25.jsxs)(_v28.Flex, {
+          }), (0, _v25.jsx)(_v376.Portal, {
+            children: (0, _v25.jsx)(_v492.ColorPickerPositioner, {
+              children: (0, _v25.jsxs)(_v492.ColorPickerContent, {
+                children: [(0, _v25.jsx)(_v492.ColorPickerArea, {}), (0, _v25.jsxs)(_v28.Flex, {
                   gap: "sm",
                   align: "center",
-                  children: [(0, _v25.jsxs)(_v487.ColorPickerChannelSlider, {
+                  children: [(0, _v25.jsxs)(_v492.ColorPickerChannelSlider, {
                     channel: "hue",
-                    children: [(0, _v25.jsx)(_v487.ColorPickerChannelSliderTrack, {}), (0, _v25.jsx)(_v487.ColorPickerChannelSliderThumb, {})]
-                  }), (0, _v25.jsx)(_v487.ColorPickerEyeDropperTrigger, {
+                    children: [(0, _v25.jsx)(_v492.ColorPickerChannelSliderTrack, {}), (0, _v25.jsx)(_v492.ColorPickerChannelSliderThumb, {})]
+                  }), (0, _v25.jsx)(_v492.ColorPickerEyeDropperTrigger, {
                     size: "sm",
                     variant: "secondary"
                   })]
-                }), (0, _v25.jsx)(_v487.ColorPickerChannelInput, {
+                }), (0, _v25.jsx)(_v492.ColorPickerChannelInput, {
                   channel: "hex"
                 })]
               })
@@ -16864,8 +16959,8 @@
         })]
       });
     };
-  var _v501 = _v0.i(0);
-  let _v502 = _v0 => (0, _v25.jsx)(_v233.Icon, {
+  var _v506 = _v0.i(0);
+  let _v507 = _v0 => (0, _v25.jsx)(_v233.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -16876,25 +16971,25 @@
         fill: "currentColor"
       })
     }),
-    _v503 = (0, _v26.forwardRef)((_v0, _v1) => (0, _v25.jsx)(_v485, {
+    _v508 = (0, _v26.forwardRef)((_v0, _v1) => (0, _v25.jsx)(_v490, {
       ref: _v1,
       name: "crop",
-      tooltip: _v481.crop.tooltip,
-      icon: (0, _v25.jsx)(_v502, {
-        boxSize: _v546
+      tooltip: _v486.crop.tooltip,
+      icon: (0, _v25.jsx)(_v507, {
+        boxSize: _v551
       }),
       ..._v0
     })),
-    _v504 = {
+    _v509 = {
       kind: "crop",
-      getButton: _v0 => _v0.isActive ? (0, _v25.jsx)(_v477, {
+      getButton: _v0 => _v0.isActive ? (0, _v25.jsx)(_v482, {
         ..._v0,
         isActive: _v0.isOpen,
-        rightIcon: (0, _v25.jsx)(_v501.ChevronDown, {
+        rightIcon: (0, _v25.jsx)(_v506.ChevronDown, {
           boxSize: "2xs"
         }),
-        text: _v481.crop.header
-      }) : (0, _v25.jsx)(_v503, {
+        text: _v486.crop.header
+      }) : (0, _v25.jsx)(_v508, {
         ..._v0
       }),
       contentPadding: 0,
@@ -16914,17 +17009,17 @@
           align: "flex-start",
           padding: "sm",
           gap: "0",
-          children: [(0, _v25.jsx)(_v303.Header, {
+          children: [(0, _v25.jsx)(_v304.Header, {
             size: "xs",
             margin: "sm",
-            children: _v481.crop.header
-          }), _v476.map(([_v0, {
+            children: _v486.crop.header
+          }), _v481.map(([_v0, {
             ratio: _v1,
             icon: _v2,
             ratioValue: _v3
           }]) => {
             var _v4, _v5;
-            return (0, _v25.jsx)(_v480, {
+            return (0, _v25.jsx)(_v485, {
               onClick: () => _v0(_v1),
               title: _v1,
               icon: _v2,
@@ -16937,28 +17032,28 @@
       requiresConfirmation: !0,
       separateTriggers: !0
     },
-    _v505 = (0, _v26.forwardRef)((_v0, _v1) => (0, _v25.jsx)(_v477, {
+    _v510 = (0, _v26.forwardRef)((_v0, _v1) => (0, _v25.jsx)(_v482, {
       ref: _v1,
-      text: _v481.effects.button,
+      text: _v486.effects.button,
       leftIcon: (0, _v25.jsx)(_v44.MagicWand, {
-        boxSize: _v546
+        boxSize: _v551
       }),
       ..._v0
     }));
-  var _v506 = _v0.i(0);
-  let _v507 = (0, _v26.forwardRef)((_v0, _v1) => (0, _v25.jsx)(_v477, {
-    dataTestId: _v545.LAYOUT_BUTTON,
+  var _v511 = _v0.i(0);
+  let _v512 = (0, _v26.forwardRef)((_v0, _v1) => (0, _v25.jsx)(_v482, {
+    dataTestId: _v550.LAYOUT_BUTTON,
     ref: _v1,
-    leftIcon: (0, _v25.jsx)(_v506._3GridLeftLayout, {
-      boxSize: _v546
+    leftIcon: (0, _v25.jsx)(_v511._3GridLeftLayout, {
+      boxSize: _v551
     }),
-    text: _v481.layout.button,
+    text: _v486.layout.button,
     ..._v0
   }));
-  var _v508 = _v0.i(0),
-    _v509 = _v0.i(0);
-  let _v510 = (_v0, _v1) => "bottom" === _v0 ? "left" === _v1 ? "bl" : "br" : "left" === _v1 ? "tl" : "tr",
-    _v511 = {
+  var _v513 = _v0.i(0),
+    _v514 = _v0.i(0);
+  let _v515 = (_v0, _v1) => "bottom" === _v0 ? "left" === _v1 ? "bl" : "br" : "left" === _v1 ? "tl" : "tr",
+    _v516 = {
       [_v53]: {
         width: (0, _v30.rem)(140),
         height: (0, _v30.rem)(80)
@@ -16972,19 +17067,19 @@
         height: (0, _v30.rem)(140)
       }
     },
-    _v512 = ({
+    _v517 = ({
       isDisabled: _v0,
       onClick: _v1,
       selected: _v2,
       children: _v3
     }) => {
-      let _v4 = _v511[_v82(_v0 => _v0.aspectRatio)],
+      let _v4 = _v516[_v82(_v0 => _v0.aspectRatio)],
         _v5 = _v0 => ({
           outline: "2px solid",
           outlineOffset: "2px",
           outlineColor: _v0 ? "focus-alt" : "stroke"
         });
-      return (0, _v25.jsx)(_v446.Center, {
+      return (0, _v25.jsx)(_v447.Center, {
         position: "relative",
         overflow: "clip",
         cursor: "pointer",
@@ -17010,14 +17105,14 @@
         children: _v3
       });
     },
-    _v513 = ({
+    _v518 = ({
       isDisabled: _v0,
       onClick: _v1,
       selected: _v2,
       layout: _v3
     }) => {
       let _v4;
-      return (0, _v25.jsx)(_v512, {
+      return (0, _v25.jsx)(_v517, {
         isDisabled: _v0,
         selected: _v2,
         onClick: _v1,
@@ -17087,14 +17182,14 @@
                       height: "32",
                       rx: "6"
                     })
-                  }), (0, _v25.jsx)(_v517, {
+                  }), (0, _v25.jsx)(_v522, {
                     fill: "black",
                     x: "7",
                     y: "7",
                     width: "18",
                     height: "18"
                   })]
-                }), "tl" !== _v3.corner && (0, _v25.jsx)(_v516, {
+                }), "tl" !== _v3.corner && (0, _v25.jsx)(_v521, {
                   ...(_v3.hasFrame ? {
                     fill: "black",
                     x: "12",
@@ -17149,7 +17244,7 @@
                     width: "100%",
                     height: "100%",
                     rx: "6"
-                  }), (0, _v25.jsx)(_v516, {
+                  }), (0, _v25.jsx)(_v521, {
                     fill: "black"
                   })]
                 })
@@ -17158,12 +17253,12 @@
                 height: "100%",
                 mask: `url(#${_v3.key}-dots)`
               })]
-            }) : (0, _v25.jsx)(_v516, {})
-          }), (0, _v25.jsx)(_v489.Divider, {
+            }) : (0, _v25.jsx)(_v521, {})
+          }), (0, _v25.jsx)(_v494.Divider, {
             orientation: "left" === _v3.side || "right" === _v3.side ? "vertical" : "horizontal",
             borderColor: _v3.hasFrame ? "transparent" : "stroke",
             borderWidth: "1px"
-          }), (0, _v25.jsx)(_v446.Center, {
+          }), (0, _v25.jsx)(_v447.Center, {
             ...("left" === _v3.side || "right" === _v3.side ? {
               width: "30%"
             } : {
@@ -17185,7 +17280,7 @@
                     width: "100%",
                     height: "100%",
                     rx: "6"
-                  }), (0, _v25.jsx)(_v517, {
+                  }), (0, _v25.jsx)(_v522, {
                     fill: "black",
                     x: "10%",
                     y: "10%",
@@ -17198,7 +17293,7 @@
                 height: "100%",
                 mask: `url(#${_v3.key}-person)`
               })]
-            }) : (0, _v25.jsx)(_v517, {
+            }) : (0, _v25.jsx)(_v522, {
               x: "10%",
               y: "10%",
               width: "80%",
@@ -17208,12 +17303,12 @@
         })
       });
     },
-    _v514 = ({
+    _v519 = ({
       isDisabled: _v0,
       onClick: _v1,
       selected: _v2,
       layout: _v3
-    }) => (0, _v25.jsx)(_v512, {
+    }) => (0, _v25.jsx)(_v517, {
       isDisabled: _v0,
       selected: _v2,
       onClick: _v1,
@@ -17237,7 +17332,7 @@
                 width: "100%",
                 height: "100%",
                 rx: "6"
-              }), (0, _v25.jsx)(_v516, {
+              }), (0, _v25.jsx)(_v521, {
                 fill: "black"
               })]
             })
@@ -17247,14 +17342,14 @@
             mask: `url(#${_v3.key})`
           })]
         })
-      }) : (0, _v25.jsx)(_v516, {})
+      }) : (0, _v25.jsx)(_v521, {})
     }),
-    _v515 = ({
+    _v520 = ({
       isDisabled: _v0,
       onClick: _v1,
       selected: _v2,
       layout: _v3
-    }) => (0, _v25.jsx)(_v512, {
+    }) => (0, _v25.jsx)(_v517, {
       isDisabled: _v0,
       selected: _v2,
       onClick: _v1,
@@ -17278,7 +17373,7 @@
                 width: "100%",
                 height: "100%",
                 rx: "6"
-              }), (0, _v25.jsx)(_v517, {
+              }), (0, _v25.jsx)(_v522, {
                 fill: "black",
                 x: "10%",
                 y: "10%",
@@ -17292,14 +17387,14 @@
             mask: `url(#${_v3.key})`
           })]
         })
-      }) : (0, _v25.jsx)(_v517, {
+      }) : (0, _v25.jsx)(_v522, {
         x: "10%",
         y: "10%",
         width: "80%",
         height: "80%"
       })
     }),
-    _v516 = _v0 => (0, _v25.jsxs)("svg", {
+    _v521 = _v0 => (0, _v25.jsxs)("svg", {
       fill: "currentColor",
       width: "100%",
       height: "100%",
@@ -17318,7 +17413,7 @@
         r: "2"
       })]
     }),
-    _v517 = _v0 => (0, _v25.jsxs)("svg", {
+    _v522 = _v0 => (0, _v25.jsxs)("svg", {
       fill: "currentColor",
       viewBox: "0 0 56 56",
       ..._v0,
@@ -17328,7 +17423,7 @@
         d: "M0.159624 51.5033C-0.60722 53.8232 1.50512 56 4.01161 56H52.1099C54.6164 56 56.5593 53.8232 55.7925 51.5033C52.0541 40.1934 41.0517 32 28.0608 32C15.0698 32 3.89805 40.1934 0.159624 51.5033Z"
       })]
     }),
-    _v518 = _v0 => (0, _v25.jsx)(_v233.Icon, {
+    _v523 = _v0 => (0, _v25.jsx)(_v233.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -17339,8 +17434,8 @@
         fill: "currentColor"
       })
     });
-  var _v519 = _v0.i(0);
-  let _v520 = _v0 => (0, _v25.jsx)(_v233.Icon, {
+  var _v524 = _v0.i(0);
+  let _v525 = _v0 => (0, _v25.jsx)(_v233.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -17351,7 +17446,7 @@
         fill: "currentColor"
       })
     }),
-    _v521 = _v0 => (0, _v25.jsx)(_v233.Icon, {
+    _v526 = _v0 => (0, _v25.jsx)(_v233.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -17362,7 +17457,7 @@
         fill: "currentColor"
       })
     }),
-    _v522 = ({
+    _v527 = ({
       name: _v0,
       icon: _v1,
       tooltip: _v2,
@@ -17387,7 +17482,7 @@
         } : void 0
       })
     }),
-    _v523 = () => {
+    _v528 = () => {
       let {
           trackRecordingLayoutFlipped: _v0
         } = (0, _v46.useRecordingTracking)(),
@@ -17398,11 +17493,11 @@
           currentFlip: _v0.layoutFlip,
           setLayoutFlip: _v0.setLayoutFlip
         }))),
-        _v3 = "left" === _v1.horizontal ? _v520 : _v519.FlipLeft,
-        _v4 = "bottom" === _v1.vertical ? _v521 : _v518;
-      return (0, _v25.jsxs)(_v343.HStack, {
+        _v3 = "left" === _v1.horizontal ? _v525 : _v524.FlipLeft,
+        _v4 = "bottom" === _v1.vertical ? _v526 : _v523;
+      return (0, _v25.jsxs)(_v344.HStack, {
         gap: "75",
-        children: [(0, _v25.jsx)(_v522, {
+        children: [(0, _v25.jsx)(_v527, {
           onClick: () => {
             _v2({
               horizontal: "right" === _v1.horizontal ? "left" : "right",
@@ -17415,13 +17510,13 @@
               recordingFlipDirection: "horizontal"
             });
           },
-          tooltip: _v481.flip.horizontallyTooltip,
+          tooltip: _v486.flip.horizontallyTooltip,
           isActive: !1,
           name: "horizontal",
           icon: (0, _v25.jsx)(_v3, {
-            boxSize: _v546
+            boxSize: _v551
           })
-        }), (0, _v25.jsx)(_v522, {
+        }), (0, _v25.jsx)(_v527, {
           onClick: () => {
             let _v0 = "top" === _v1.vertical ? "bottom" : "top";
             _v2({
@@ -17435,16 +17530,16 @@
               recordingFlipDirection: "vertical"
             });
           },
-          tooltip: _v481.flip.verticallyTooltip,
+          tooltip: _v486.flip.verticallyTooltip,
           isActive: !1,
           name: "vertical",
           icon: (0, _v25.jsx)(_v4, {
-            boxSize: _v546
+            boxSize: _v551
           })
         })]
       });
     },
-    _v524 = {
+    _v529 = {
       "&::-webkit-scrollbar": {
         width: "14px"
       },
@@ -17453,16 +17548,16 @@
         border: "solid 4px transparent"
       },
       "&::-webkit-scrollbar-thumb": {
-        boxShadow: `inset 0 0 14px 14px ${(0, _v509.grayscale)(200)}`,
+        boxShadow: `inset 0 0 14px 14px ${(0, _v514.grayscale)(200)}`,
         border: "solid 4px transparent",
         borderRadius: "14px"
       }
     };
-  var _v525 = (0, _v508.default)(_v28.Flex).withConfig({
+  var _v530 = (0, _v513.default)(_v28.Flex).withConfig({
     displayName: "LayoutContent___StyledFlex",
     componentId: "sc-937e9984-0"
-  })`${_v524}`;
-  let _v526 = _v0 => (0, _v25.jsx)(_v233.Icon, {
+  })`${_v529}`;
+  let _v531 = _v0 => (0, _v25.jsx)(_v233.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -17477,17 +17572,17 @@
         })]
       })
     }),
-    _v527 = (0, _v26.forwardRef)((_v0, _v1) => (0, _v25.jsx)(_v485, {
+    _v532 = (0, _v26.forwardRef)((_v0, _v1) => (0, _v25.jsx)(_v490, {
       name: "shape",
       ref: _v1,
-      tooltip: _v481.shape.tooltip,
-      icon: (0, _v25.jsx)(_v526, {
-        boxSize: _v546
+      tooltip: _v486.shape.tooltip,
+      icon: (0, _v25.jsx)(_v531, {
+        boxSize: _v551
       }),
       ..._v0
     }));
-  var _v528 = _v0.i(0);
-  let _v529 = (0, _v26.forwardRef)(({
+  var _v533 = _v0.i(0);
+  let _v534 = (0, _v26.forwardRef)(({
     isDisabled: _v0,
     isActive: _v1,
     onClick: _v2
@@ -17506,66 +17601,66 @@
           location: "top_toolbar"
         });
       }, [_v5]);
-    return (0, _v25.jsx)(_v484, {
+    return (0, _v25.jsx)(_v489, {
       onChangeColor: _v6,
       selectedColor: _v4,
-      children: (0, _v25.jsx)(_v485, {
-        dataTestId: _v545.SOUNDWAVE_COLOR_BUTTON,
+      children: (0, _v25.jsx)(_v490, {
+        dataTestId: _v550.SOUNDWAVE_COLOR_BUTTON,
         ref: _v3,
         name: "soundwaveColor",
-        tooltip: _v481.soundwave.tooltips.color,
-        icon: (0, _v25.jsx)(_v482.FillPaintBucket, {
-          boxSize: _v546
+        tooltip: _v486.soundwave.tooltips.color,
+        icon: (0, _v25.jsx)(_v487.FillPaintBucket, {
+          boxSize: _v551
         }),
         isDisabled: _v0,
         isActive: _v1
       })
     });
   });
-  var _v530 = _v0.i(0);
-  let _v531 = (0, _v26.forwardRef)(({
+  var _v535 = _v0.i(0);
+  let _v536 = (0, _v26.forwardRef)(({
     isDisabled: _v0,
     isActive: _v1,
     onClick: _v2
-  }, _v3) => (0, _v25.jsx)(_v485, {
-    dataTestId: _v545.SOUNDWAVE_LINES_BUTTON,
+  }, _v3) => (0, _v25.jsx)(_v490, {
+    dataTestId: _v550.SOUNDWAVE_LINES_BUTTON,
     ref: _v3,
     name: "soundwaveColor",
-    tooltip: _v481.soundwave.tooltips.lines,
-    icon: (0, _v25.jsx)(_v530.LineShape, {
-      boxSize: _v546
+    tooltip: _v486.soundwave.tooltips.lines,
+    icon: (0, _v25.jsx)(_v535.LineShape, {
+      boxSize: _v551
     }),
     isDisabled: _v0,
     isActive: _v1,
     onClick: _v2
   }));
-  var _v532 = _v0.i(0),
-    _v533 = _v0.i(0),
-    _v534 = _v0.i(0);
-  let _v535 = _v0 => !isNaN(_v0) && _v0 > 0;
-  var _v536 = _v0.i(0);
-  let _v537 = (0, _v26.forwardRef)(({
+  var _v537 = _v0.i(0),
+    _v538 = _v0.i(0),
+    _v539 = _v0.i(0);
+  let _v540 = _v0 => !isNaN(_v0) && _v0 > 0;
+  var _v541 = _v0.i(0);
+  let _v542 = (0, _v26.forwardRef)(({
     isDisabled: _v0,
     isActive: _v1,
     onClick: _v2
-  }, _v3) => (0, _v25.jsx)(_v485, {
-    dataTestId: _v545.SOUNDWAVE_SHADOW_BUTTON,
+  }, _v3) => (0, _v25.jsx)(_v490, {
+    dataTestId: _v550.SOUNDWAVE_SHADOW_BUTTON,
     ref: _v3,
     name: "soundwaveShadow",
-    tooltip: _v481.soundwave.tooltips.shadow,
-    icon: (0, _v25.jsx)(_v536.DropShadowDefault, {
-      boxSize: _v546
+    tooltip: _v486.soundwave.tooltips.shadow,
+    icon: (0, _v25.jsx)(_v541.DropShadowDefault, {
+      boxSize: _v551
     }),
     isDisabled: _v0,
     isActive: _v1,
     onClick: _v2
   }));
-  var _v538 = _v0.i(0),
-    _v539 = _v0.i(0),
-    _v540 = _v0.i(0);
-  let _v541 = [{
+  var _v543 = _v0.i(0),
+    _v544 = _v0.i(0),
+    _v545 = _v0.i(0);
+  let _v546 = [{
       kind: "backdrop",
-      getButton: _v0 => (0, _v25.jsx)(_v486, {
+      getButton: _v0 => (0, _v25.jsx)(_v491, {
         ..._v0
       }),
       content: () => {
@@ -17583,8 +17678,8 @@
               location: "top_toolbar"
             });
           }, [_v1]);
-        return (0, _v25.jsx)(_v500, {
-          testId: _v545.BACKDROP_CONTENT,
+        return (0, _v25.jsx)(_v505, {
+          testId: _v550.BACKDROP_CONTENT,
           selected: _v0,
           onSelect: _v2
         });
@@ -17594,7 +17689,7 @@
       separateTriggers: !1
     }, {
       kind: "aspectRatio",
-      getButton: _v0 => (0, _v25.jsx)(_v478, {
+      getButton: _v0 => (0, _v25.jsx)(_v483, {
         ..._v0
       }),
       content: () => {
@@ -17622,19 +17717,19 @@
             });
           }, [_v3, _v2, _v1, _v0]);
         return (0, _v25.jsxs)(_v29.VStack, {
-          "data-testid": _v545.ASPECT_RATIO_CONTENT,
+          "data-testid": _v550.ASPECT_RATIO_CONTENT,
           align: "flex-start",
           padding: "sm",
           gap: "0",
-          children: [(0, _v25.jsx)(_v303.Header, {
+          children: [(0, _v25.jsx)(_v304.Header, {
             size: "xs",
             margin: "sm",
-            children: _v481.aspectRatio.header
-          }), _v476.map(([_v0, {
+            children: _v486.aspectRatio.header
+          }), _v481.map(([_v0, {
             text: _v1,
             ratio: _v2,
             icon: _v3
-          }]) => (0, _v25.jsx)(_v480, {
+          }]) => (0, _v25.jsx)(_v485, {
             onClick: () => _v4(_v0),
             title: `${_v1} (${_v2})`,
             isSelected: _v0 === _v2,
@@ -17648,7 +17743,7 @@
       separateTriggers: !1
     }, {
       kind: "layout",
-      getButton: _v0 => (0, _v25.jsx)(_v507, {
+      getButton: _v0 => (0, _v25.jsx)(_v512, {
         ..._v0
       }),
       content: ({
@@ -17674,14 +17769,14 @@
             setCurrentLayoutKey: _v0.setCurrentLayoutKey,
             selectLayout: _v0.selectLayout
           }))),
-          _v9 = _v510(_v3.vertical, _v3.horizontal),
+          _v9 = _v515(_v3.vertical, _v3.horizontal),
           _v10 = _v137("Layout"),
           _v11 = _v175(_v0 => !!_v0.displayMedia),
           {
             activateScreen: _v12,
             activateCamera: _v13,
             activateBoth: _v14
-          } = _v425(),
+          } = _v426(),
           _v15 = _v0 => {
             _v7(_v0.key), _v8(_v2, _v0.type, _v0), _v48({
               name: "select_canvas_layout",
@@ -17703,20 +17798,20 @@
             _v10.debug("selected both layout", _v0), (await _v14()) && (_v15(_v0), _v11 || _v0?.());
           };
         return (0, _v25.jsxs)(_v28.Flex, {
-          "data-testid": _v545.LAYOUT_CONTENT,
+          "data-testid": _v550.LAYOUT_CONTENT,
           direction: "column",
           py: "200",
           gap: "200",
           overflow: "hidden",
           height: "100%",
-          children: [(0, _v25.jsxs)(_v343.HStack, {
+          children: [(0, _v25.jsxs)(_v344.HStack, {
             justify: "space-between",
             px: "200",
-            children: [(0, _v25.jsx)(_v303.Header, {
+            children: [(0, _v25.jsx)(_v304.Header, {
               size: "xs",
-              children: _v481.layout.header
-            }), (0, _v25.jsx)(_v523, {})]
-          }), (0, _v25.jsx)(_v525, {
+              children: _v486.layout.header
+            }), (0, _v25.jsx)(_v528, {})]
+          }), (0, _v25.jsx)(_v530, {
             direction: "column",
             overflowY: "auto",
             pb: "50",
@@ -17728,11 +17823,11 @@
                 children: [(0, _v25.jsx)(_v203.Text, {
                   mb: "100",
                   variant: "heading-2xs",
-                  children: _v481.layout.camera
-                }), (0, _v25.jsx)(_v494.SimpleGrid, {
+                  children: _v486.layout.camera
+                }), (0, _v25.jsx)(_v499.SimpleGrid, {
                   columns: 2,
                   gap: "100",
-                  children: _v65[_v2].map(_v0 => (0, _v25.jsx)(_v515, {
+                  children: _v65[_v2].map(_v0 => (0, _v25.jsx)(_v520, {
                     selected: _v0.key === _v5,
                     onClick: () => _v17(_v0),
                     layout: _v0
@@ -17742,11 +17837,11 @@
                 children: [(0, _v25.jsx)(_v203.Text, {
                   mb: "100",
                   variant: "heading-2xs",
-                  children: _v481.layout.screen
-                }), (0, _v25.jsx)(_v494.SimpleGrid, {
+                  children: _v486.layout.screen
+                }), (0, _v25.jsx)(_v499.SimpleGrid, {
                   columns: 2,
                   gap: "100",
-                  children: _v66[_v2].map(_v0 => (0, _v25.jsx)(_v514, {
+                  children: _v66[_v2].map(_v0 => (0, _v25.jsx)(_v519, {
                     selected: _v0.key === _v5,
                     onClick: () => _v16(_v0),
                     layout: _v0
@@ -17756,21 +17851,21 @@
                 children: [(0, _v25.jsx)(_v203.Text, {
                   mb: "100",
                   variant: "heading-2xs",
-                  children: _v481.layout.both
-                }), (0, _v25.jsx)(_v494.SimpleGrid, {
+                  children: _v486.layout.both
+                }), (0, _v25.jsx)(_v499.SimpleGrid, {
                   columns: 2,
                   gap: "100",
                   children: _v64[_v2].map(_v0 => {
                     let _v1 = {
                       ..._v0
                     };
-                    return "side" === _v0.cameraPosition ? _v1.side = "left" === _v0.side || "right" === _v0.side ? _v3.horizontal : _v3.vertical : _v1.corner = _v9, (0, _v25.jsx)(_v513, {
+                    return "side" === _v0.cameraPosition ? _v1.side = "left" === _v0.side || "right" === _v0.side ? _v3.horizontal : _v3.vertical : _v1.corner = _v9, (0, _v25.jsx)(_v518, {
                       selected: _v0.key === _v5 && (() => {
                         let _v0 = _v4[_v2][_v51];
                         switch (_v0.cameraPosition) {
                           case "corner":
                             {
-                              let _v0 = _v510(_v6.vertical, _v6.horizontal);
+                              let _v0 = _v515(_v6.vertical, _v6.horizontal);
                               return _v0.corner === _v0;
                             }
                           case "side":
@@ -17794,23 +17889,23 @@
       requiresConfirmation: !1,
       separateTriggers: !1
     }],
-    _v542 = [{
+    _v547 = [{
       kind: "effects",
-      getButton: _v0 => (0, _v25.jsx)(_v505, {
+      getButton: _v0 => (0, _v25.jsx)(_v510, {
         ..._v0
       }),
       content: () => null,
       variant: "effectsButton",
       requiresConfirmation: !1
-    }, _v504, {
+    }, _v509, {
       kind: "shape",
-      getButton: _v0 => _v0.isActive ? (0, _v25.jsx)(_v477, {
+      getButton: _v0 => _v0.isActive ? (0, _v25.jsx)(_v482, {
         ..._v0,
-        rightIcon: (0, _v25.jsx)(_v501.ChevronDown, {
+        rightIcon: (0, _v25.jsx)(_v506.ChevronDown, {
           boxSize: "2xs"
         }),
-        text: _v481.shape.header
-      }) : (0, _v25.jsx)(_v527, {
+        text: _v486.shape.header
+      }) : (0, _v25.jsx)(_v532, {
         ..._v0
       }),
       content: () => {
@@ -17836,48 +17931,48 @@
             }), _v4(_v1, _v1), _v2(null);
           };
         return (0, _v25.jsxs)(_v208.Box, {
-          children: [(0, _v25.jsx)(_v303.Header, {
+          children: [(0, _v25.jsx)(_v304.Header, {
             size: "xs",
             mb: "75",
-            children: _v481.shape.header
+            children: _v486.shape.header
           }), (0, _v25.jsxs)(_v208.Box, {
             gap: "75",
             display: "flex",
             justifyContent: "space-between",
-            children: [(0, _v25.jsx)(_v522, {
+            children: [(0, _v25.jsx)(_v527, {
               onClick: _v5,
               isActive: "circle" === _v3,
-              tooltip: _v481.shape.circleTooltip,
+              tooltip: _v486.shape.circleTooltip,
               name: "circle",
-              icon: (0, _v25.jsx)(_v528.CircleShape, {
-                boxSize: _v546
+              icon: (0, _v25.jsx)(_v533.CircleShape, {
+                boxSize: _v551
               }),
               highlightBorders: !0
-            }), (0, _v25.jsx)(_v522, {
+            }), (0, _v25.jsx)(_v527, {
               onClick: _v5,
               isActive: "square" === _v3,
               tooltip: "1:1",
               name: "square",
-              icon: (0, _v25.jsx)(_v474.FormatSquare, {
-                boxSize: _v546
+              icon: (0, _v25.jsx)(_v479.FormatSquare, {
+                boxSize: _v551
               }),
               highlightBorders: !0
-            }), (0, _v25.jsx)(_v522, {
+            }), (0, _v25.jsx)(_v527, {
               onClick: _v5,
               isActive: "rectangle" === _v3,
               tooltip: "16:9",
               name: "rectangle",
-              icon: (0, _v25.jsx)(_v472.FormatLandscape, {
-                boxSize: _v546
+              icon: (0, _v25.jsx)(_v477.FormatLandscape, {
+                boxSize: _v551
               }),
               highlightBorders: !0
-            }), (0, _v25.jsx)(_v522, {
+            }), (0, _v25.jsx)(_v527, {
               onClick: _v5,
               isActive: "verticalRectangle" === _v3,
               tooltip: "9:16",
               name: "verticalRectangle",
-              icon: (0, _v25.jsx)(_v473.FormatPortrait, {
-                boxSize: _v546
+              icon: (0, _v25.jsx)(_v478.FormatPortrait, {
+                boxSize: _v551
               }),
               highlightBorders: !0
             })]
@@ -17888,10 +17983,10 @@
       requiresConfirmation: !0,
       separateTriggers: !1
     }],
-    _v543 = [_v504],
-    _v544 = [{
+    _v548 = [_v509],
+    _v549 = [{
       kind: "soundwaveColor",
-      getButton: _v0 => (0, _v25.jsx)(_v529, {
+      getButton: _v0 => (0, _v25.jsx)(_v534, {
         ..._v0
       }),
       content: () => {
@@ -17909,8 +18004,8 @@
               location: "top_toolbar"
             });
           }, [_v1]);
-        return (0, _v25.jsx)(_v500, {
-          testId: _v545.SOUNDWAVE_COLOR_CONTENT,
+        return (0, _v25.jsx)(_v505, {
+          testId: _v550.SOUNDWAVE_COLOR_CONTENT,
           selected: _v0,
           onSelect: _v2
         });
@@ -17920,7 +18015,7 @@
       separateTriggers: !1
     }, {
       kind: "soundwaveShadow",
-      getButton: _v0 => (0, _v25.jsx)(_v537, {
+      getButton: _v0 => (0, _v25.jsx)(_v542, {
         ..._v0
       }),
       content: () => {
@@ -17942,10 +18037,10 @@
           width: 200,
           alignItems: "flex-start",
           direction: "column",
-          children: [(0, _v25.jsx)(_v303.Header, {
+          children: [(0, _v25.jsx)(_v304.Header, {
             mb: (0, _v30.rem)(12),
             size: "xs",
-            children: _v481.soundwave.shadowTitle
+            children: _v486.soundwave.shadowTitle
           }), (0, _v25.jsxs)(_v28.Flex, {
             justifyContent: "space-between",
             width: "100%",
@@ -17957,7 +18052,7 @@
               borderStyle: "solid",
               variant: "tertiary",
               "aria-label": "no-shadow",
-              icon: (0, _v25.jsx)(_v540.StopBanRight, {})
+              icon: (0, _v25.jsx)(_v545.StopBanRight, {})
             }), (0, _v25.jsx)(_v216.IconButton, {
               isActive: "light" === _v0,
               onClick: () => _v2("light"),
@@ -17966,7 +18061,7 @@
               borderStyle: "solid",
               variant: "tertiary",
               "aria-label": "light-shadow",
-              icon: (0, _v25.jsx)(_v538.DropShadowSoft, {})
+              icon: (0, _v25.jsx)(_v543.DropShadowSoft, {})
             }), (0, _v25.jsx)(_v216.IconButton, {
               isActive: "medium" === _v0,
               onClick: () => _v2("medium"),
@@ -17975,7 +18070,7 @@
               borderStyle: "solid",
               variant: "tertiary",
               "aria-label": "medium-shadow",
-              icon: (0, _v25.jsx)(_v536.DropShadowDefault, {})
+              icon: (0, _v25.jsx)(_v541.DropShadowDefault, {})
             }), (0, _v25.jsx)(_v216.IconButton, {
               isActive: "strong" === _v0,
               onClick: () => _v2("strong"),
@@ -17985,7 +18080,7 @@
               borderStyle: "solid",
               variant: "tertiary",
               "aria-label": "strong-shadow",
-              icon: (0, _v25.jsx)(_v539.DropShadowStrong, {})
+              icon: (0, _v25.jsx)(_v544.DropShadowStrong, {})
             })]
           })]
         });
@@ -17995,7 +18090,7 @@
       separateTriggers: !1
     }, {
       kind: "soundwaveLines",
-      getButton: _v0 => (0, _v25.jsx)(_v531, {
+      getButton: _v0 => (0, _v25.jsx)(_v536, {
         ..._v0
       }),
       content: () => {
@@ -18025,39 +18120,39 @@
             });
           }, [_v3]),
           _v6 = (0, _v26.useMemo)(() => [{
-            title: _v481.soundwave.weightTitle,
+            title: _v486.soundwave.weightTitle,
             value: _v0,
             defaultValue: _v0,
             onChangeSlider: _v4,
             input: {
-              onChange: (_v0, _v1) => _v4(Math.min(_v535(_v1) ? _v1 : 1, 100)),
+              onChange: (_v0, _v1) => _v4(Math.min(_v540(_v1) ? _v1 : 1, 100)),
               min: 1,
               max: 100
             }
           }, {
-            title: _v481.soundwave.countTitle,
+            title: _v486.soundwave.countTitle,
             value: _v2,
             defaultValue: _v2,
             onChangeSlider: _v5,
             input: {
-              onChange: (_v0, _v1) => _v5(Math.min(_v535(_v1) ? _v1 : 3, 128)),
+              onChange: (_v0, _v1) => _v5(Math.min(_v540(_v1) ? _v1 : 3, 128)),
               min: 3,
               max: 128
             }
           }], [_v0, _v2, _v5, _v4]);
-        return (0, _v25.jsx)(_v424.Stack, {
+        return (0, _v25.jsx)(_v425.Stack, {
           gap: 400,
           children: _v6.map(_v0 => (0, _v25.jsxs)(_v28.Flex, {
             width: 200,
             alignItems: "flex-start",
             direction: "column",
-            children: [(0, _v25.jsx)(_v303.Header, {
+            children: [(0, _v25.jsx)(_v304.Header, {
               mb: (0, _v30.rem)(12),
               size: "xs",
               children: _v0.title
             }), (0, _v25.jsxs)(_v28.Flex, {
               width: "100%",
-              children: [(0, _v25.jsxs)(_v533.Slider, {
+              children: [(0, _v25.jsxs)(_v538.Slider, {
                 focusThumbOnChange: !1,
                 onChange: _v0.onChangeSlider,
                 mr: (0, _v30.rem)(16),
@@ -18065,16 +18160,16 @@
                 defaultValue: _v0.defaultValue,
                 min: _v0.input.min,
                 max: _v0.input.max,
-                children: [(0, _v25.jsx)(_v534.SliderTrack, {
-                  children: (0, _v25.jsx)(_v534.SliderFilledTrack, {})
-                }), (0, _v25.jsx)(_v534.SliderThumb, {})]
-              }), (0, _v25.jsx)(_v532.NumberInput, {
+                children: [(0, _v25.jsx)(_v539.SliderTrack, {
+                  children: (0, _v25.jsx)(_v539.SliderFilledTrack, {})
+                }), (0, _v25.jsx)(_v539.SliderThumb, {})]
+              }), (0, _v25.jsx)(_v537.NumberInput, {
                 onChange: _v0.input.onChange,
                 size: "xs",
                 value: _v0.value,
                 min: _v0.input.min,
                 max: _v0.input.max,
-                children: (0, _v25.jsx)(_v532.NumberInputField, {
+                children: (0, _v25.jsx)(_v537.NumberInputField, {
                   width: 45,
                   padding: 0,
                   textAlign: "center"
@@ -18088,7 +18183,7 @@
       requiresConfirmation: !1,
       separateTriggers: !1
     }],
-    _v545 = {
+    _v550 = {
       ASPECT_RATIO_BUTTON: "record-studio-toolbar-aspect-ratio-button",
       ASPECT_RATIO_CONTENT: "record-studio-toolbar-aspect-ratio-content",
       LAYOUT_BUTTON: "record-studio-toolbar-layout-button",
@@ -18101,9 +18196,9 @@
       SOUNDWAVE_SHADOW_BUTTON: "record-studio-toolbar-soundwave-shadow-button",
       TOOLBAR: "record-studio-cc-toolbar"
     },
-    _v546 = `${(0, _v30.rem)(20)} !important`;
-  var _v547 = _v0.i(0);
-  let _v548 = ({
+    _v551 = `${(0, _v30.rem)(20)} !important`;
+  var _v552 = _v0.i(0);
+  let _v553 = ({
     getButton: _v0,
     content: _v1,
     hidden: _v2,
@@ -18115,7 +18210,7 @@
       isOpen: _v6,
       onOpen: _v7,
       onClose: _v8
-    } = (0, _v547.useDisclosure)({
+    } = (0, _v552.useDisclosure)({
       onOpen: _v3,
       onClose: _v4
     });
@@ -18123,21 +18218,21 @@
       children: [_v0({
         onClick: _v7,
         isDisabled: _v5
-      }), (0, _v25.jsxs)(_v304.Modal, {
+      }), (0, _v25.jsxs)(_v305.Modal, {
         isOpen: _v6,
         onClose: _v8,
-        children: [(0, _v25.jsx)(_v310.ModalOverlay, {}), (0, _v25.jsx)(_v307.ModalContent, {
+        children: [(0, _v25.jsx)(_v311.ModalOverlay, {}), (0, _v25.jsx)(_v308.ModalContent, {
           children: (0, _v25.jsx)(_v1, {})
         })]
       })]
     });
   };
-  var _v549 = _v0.i(0),
-    _v550 = _v0.i(0),
-    _v551 = _v0.i(0),
-    _v552 = _v0.i(0),
-    _v553 = _v0.i(0);
-  let _v554 = ({
+  var _v554 = _v0.i(0),
+    _v555 = _v0.i(0),
+    _v556 = _v0.i(0),
+    _v557 = _v0.i(0),
+    _v558 = _v0.i(0);
+  let _v559 = ({
       kind: _v0,
       getButton: _v1,
       content: _v2,
@@ -18158,9 +18253,9 @@
           onOpen: _v15,
           onClose: _v16,
           onToggle: _v17
-        } = (0, _v547.useDisclosure)(),
+        } = (0, _v552.useDisclosure)(),
         _v18 = _v7 && (_v3 || _v14);
-      (0, _v552.useOutsideClick)({
+      (0, _v557.useOutsideClick)({
         ref: _v13,
         enabled: _v14,
         handler: () => {
@@ -18174,10 +18269,10 @@
         _v18 && _v19();
       }, [_v18, _v19]), _v12 = (0, _v26.useCallback)(_v0 => {
         "Enter" === _v0.key && _v11();
-      }, [_v11]), (0, _v26.useEffect)(() => (document.addEventListener("keydown", _v12), () => document.removeEventListener("keydown", _v12)), [_v12]), _v6) ? null : (0, _v25.jsxs)(_v549.Popover, {
+      }, [_v11]), (0, _v26.useEffect)(() => (document.addEventListener("keydown", _v12), () => document.removeEventListener("keydown", _v12)), [_v12]), _v6) ? null : (0, _v25.jsxs)(_v554.Popover, {
         isOpen: _v14,
         placement: "bottom",
-        children: [_v8 && (_v3 ? (0, _v25.jsx)(_v551.PopoverTrigger, {
+        children: [_v8 && (_v3 ? (0, _v25.jsx)(_v556.PopoverTrigger, {
           children: _v1({
             onClick: _v17,
             isActive: _v3,
@@ -18188,7 +18283,7 @@
           onClick: _v4,
           isActive: _v3,
           isDisabled: _v9
-        })), !_v8 && (0, _v25.jsx)(_v551.PopoverTrigger, {
+        })), !_v8 && (0, _v25.jsx)(_v556.PopoverTrigger, {
           children: _v1({
             onClick: () => {
               _v14 ? _v19() : (_v15(), _v4());
@@ -18203,15 +18298,15 @@
             bgColor: "stroke"
           }), (0, _v25.jsx)(_v216.IconButton, {
             "aria-label": "check icon button",
-            icon: (0, _v25.jsx)(_v553.CheckSmallFilled, {
-              boxSize: _v546
+            icon: (0, _v25.jsx)(_v558.CheckSmallFilled, {
+              boxSize: _v551
             }),
             size: "sm",
             variant: "primary",
             onClick: _v19
           })]
-        }), (0, _v25.jsx)(_v375.Portal, {
-          children: (0, _v25.jsx)(_v550.PopoverContent, {
+        }), (0, _v25.jsx)(_v376.Portal, {
+          children: (0, _v25.jsx)(_v555.PopoverContent, {
             minW: "sm",
             maxH: "50vh",
             overflowY: "auto",
@@ -18224,8 +18319,8 @@
         })]
       }, _v0);
     },
-    _v555 = ["crop", "shape"],
-    _v556 = ({
+    _v560 = ["crop", "shape"],
+    _v561 = ({
       items: _v0,
       isDisabled: _v1
     }) => {
@@ -18239,7 +18334,7 @@
         _v4 = _v84(_v0 => _v0.update);
       return (0, _v25.jsx)(_v25.Fragment, {
         children: _v0.map((_v0, _v1) => {
-          if ("separator" === _v0) return (0, _v25.jsx)(_v489.Divider, {
+          if ("separator" === _v0) return (0, _v25.jsx)(_v494.Divider, {
             borderColor: "stroke",
             orientation: "vertical",
             height: "xs"
@@ -18252,10 +18347,10 @@
               requiresConfirmation: _v6,
               contentPadding: _v7
             } = _v0,
-            _v8 = _v3 !== _v4 && _v555.includes(_v3);
+            _v8 = _v3 !== _v4 && _v560.includes(_v3);
           switch (_v5) {
             case "popover":
-              return (0, _v25.jsx)(_v554, {
+              return (0, _v25.jsx)(_v559, {
                 isActive: _v3 === _v4,
                 hidden: _v8,
                 kind: _v4,
@@ -18280,7 +18375,7 @@
                 })
               }, _v4);
             case "modal":
-              return (0, _v25.jsx)(_v548, {
+              return (0, _v25.jsx)(_v553, {
                 hidden: _v8,
                 getButton: _v2,
                 content: _v3,
@@ -18292,7 +18387,7 @@
         })
       });
     },
-    _v557 = ({
+    _v562 = ({
       isDisabled: _v0
     }) => {
       let _v1 = (0, _v86.useUIStore)(_v0 => _v0.common.state),
@@ -18313,13 +18408,13 @@
         _v4 = (0, _v26.useMemo)(() => {
           switch (_v3) {
             case "userMedia":
-              return _v542;
+              return _v547;
             case "displayMedia":
-              return _v543;
+              return _v548;
             case "soundwave":
-              return _v544;
+              return _v549;
             default:
-              return _v541.filter(_v0 => "separator" === _v0 || "aspectRatio" !== _v0.kind || "pre-recording" === _v1);
+              return _v546.filter(_v0 => "separator" === _v0 || "aspectRatio" !== _v0.kind || "pre-recording" === _v1);
           }
         }, [_v3, _v1]);
       return (0, _v25.jsx)(_v28.Flex, {
@@ -18333,16 +18428,16 @@
           alignItems: "center",
           zIndex: "2",
           "data-toolbarpopover": !0,
-          "data-testid": _v545.TOOLBAR,
-          children: (0, _v25.jsx)(_v556, {
+          "data-testid": _v550.TOOLBAR,
+          children: (0, _v25.jsx)(_v561, {
             items: _v4,
             isDisabled: _v2
           })
         })
       });
     };
-  var _v558 = _v0.i(0);
-  let _v559 = {
+  var _v563 = _v0.i(0);
+  let _v564 = {
     askForDeviceAccess: {
       title: (0, _v205.translate)({
         singular: "Give Vimeo permission to record",
@@ -18565,30 +18660,30 @@
       }
     })
   };
-  function _v560() {
+  function _v565() {
     return (0, _v25.jsxs)(_v29.VStack, {
       gap: "75",
-      children: [(0, _v25.jsx)(_v558.Plus, {
+      children: [(0, _v25.jsx)(_v563.Plus, {
         mb: "100"
       }), (0, _v25.jsx)(_v203.Text, {
         maxWidth: "17rem",
         variant: "body-md",
         fontWeight: "medium",
         "data-testid": "record-studio-ready-to-record-description",
-        children: _v559.shareCameraScreenOrMic
+        children: _v564.shareCameraScreenOrMic
       })]
     });
   }
-  function _v561({
+  function _v566({
     context: _v0
   }) {
     return (0, _v25.jsxs)(_v29.VStack, {
       gap: "100",
       color: _v0.color,
       maxWidth: "33rem",
-      children: [_v0.icon ?? (0, _v25.jsx)(_v558.Plus, {
+      children: [_v0.icon ?? (0, _v25.jsx)(_v563.Plus, {
         mb: "100"
-      }), (0, _v25.jsx)(_v303.Header, {
+      }), (0, _v25.jsx)(_v304.Header, {
         size: "md",
         "data-testid": "record-studio-unable-to-record-title",
         children: _v0.title
@@ -18602,27 +18697,27 @@
       }), _v0.cta ?? null, _v0.button ?? null, _v0.buttonSecondary ?? null]
     });
   }
-  var _v562 = _v0.i(0);
-  function _v563(_v0) {
-    let _v1 = _v423(),
+  var _v567 = _v0.i(0);
+  function _v568(_v0) {
+    let _v1 = _v424(),
       _v2 = _v143();
     return _v1 === _v171.CAMERA_AND_MIC_PERMISSION_DENIED_ERROR ? {
-      title: _v559.askForDeviceAccess.title,
-      description: _v559.askForDeviceAccess.description
+      title: _v564.askForDeviceAccess.title,
+      description: _v564.askForDeviceAccess.description
     } : _v2 ? {
       color: "text-secondary",
-      icon: (0, _v25.jsx)(_v562.InfoCircle, {
+      icon: (0, _v25.jsx)(_v567.InfoCircle, {
         boxSize: (0, _v30.rem)(48)
       }),
-      title: _v559.harmfulExtensionNotice.title,
-      description: _v559.harmfulExtensionNotice.description,
+      title: _v564.harmfulExtensionNotice.title,
+      description: _v564.harmfulExtensionNotice.description,
       cta: (0, _v25.jsx)(_v203.Text, {
         variant: "body-md",
         as: "a",
         "data-testid": "record-studio-unable-to-record-cta",
         href: "https://support.google.com/chrome_webstore/answer/2664769?hl=en&ref_topic=6238977&sjid=6919732578223661564-EU#:~:text=On%20your%20computer,on%20or%20off.",
         textDecoration: "underline",
-        children: _v559.harmfulExtensionNotice.cta
+        children: _v564.harmfulExtensionNotice.cta
       }),
       button: (0, _v25.jsx)(_v204.Button, {
         mt: _v0 ? "xl" : void 0,
@@ -18630,7 +18725,7 @@
         variant: "primary",
         size: _v0 ? "md" : "sm",
         onClick: () => window.location.reload(),
-        children: _v559.harmfulExtensionNotice.buttonText
+        children: _v564.harmfulExtensionNotice.buttonText
       }),
       buttonSecondary: _v0 ? (0, _v25.jsx)(_v204.Button, {
         width: _v0 ? "100%" : void 0,
@@ -18638,27 +18733,27 @@
         size: "md",
         as: "a",
         href: "/",
-        children: _v559.harmfulExtensionNotice.secondaryButtonText
+        children: _v564.harmfulExtensionNotice.secondaryButtonText
       }) : null
     } : null;
   }
-  let _v564 = () => {
+  let _v569 = () => {
     let _v0 = _v143(),
-      _v1 = _v563(!0);
-    return _v1 ? (0, _v25.jsxs)(_v304.Modal, {
+      _v1 = _v568(!0);
+    return _v1 ? (0, _v25.jsxs)(_v305.Modal, {
       isOpen: _v0,
       onClose: () => void 0,
-      children: [(0, _v25.jsx)(_v310.ModalOverlay, {}), (0, _v25.jsxs)(_v307.ModalContent, {
+      children: [(0, _v25.jsx)(_v311.ModalOverlay, {}), (0, _v25.jsxs)(_v308.ModalContent, {
         minWidth: (0, _v30.rem)(480),
-        children: [(0, _v25.jsx)(_v309.ModalHeader, {}), (0, _v25.jsx)(_v305.ModalBody, {
-          children: (0, _v25.jsx)(_v561, {
+        children: [(0, _v25.jsx)(_v310.ModalHeader, {}), (0, _v25.jsx)(_v306.ModalBody, {
+          children: (0, _v25.jsx)(_v566, {
             context: _v1
           })
-        }), (0, _v25.jsx)(_v308.ModalFooter, {})]
+        }), (0, _v25.jsx)(_v309.ModalFooter, {})]
       })]
     }) : null;
   };
-  function _v565({
+  function _v570({
     children: _v0
   }) {
     return (0, _v25.jsx)(_v29.VStack, {
@@ -18676,8 +18771,8 @@
       children: _v0
     });
   }
-  var _v566 = _v0.i(0);
-  function _v567() {
+  var _v571 = _v0.i(0);
+  function _v572() {
     let _v0 = (0, _v126.useMemoryDataStorage)(_v0 => _v0.recordingThumbnail),
       [_v1, _v2] = (0, _v26.useState)(null);
     return (0, _v26.useEffect)(() => {
@@ -18690,7 +18785,7 @@
       _v2(null);
     }, [_v0]), _v1;
   }
-  let _v568 = {
+  let _v573 = {
       showPreviewPip: (0, _v205.translate)({
         singular: "Pop out preview",
         dictionary: {
@@ -18851,12 +18946,12 @@
         }
       })
     },
-    _v569 = _v566.bokehTheme.colors.blackAlpha[700],
-    _v570 = () => {
-      let _v0 = _v567(),
+    _v574 = _v571.bokehTheme.colors.blackAlpha[700],
+    _v575 = () => {
+      let _v0 = _v572(),
         {
           name: _v1
-        } = _v373();
+        } = _v374();
       return (0, _v25.jsxs)(_v29.VStack, {
         "data-testid": "record-studio-uploading",
         width: "100%",
@@ -18868,21 +18963,21 @@
         borderRadius: "inherit",
         textAlign: "center",
         flexFlow: "column",
-        background: _v0 ? `linear-gradient(to right, ${_v569}, ${_v569}), center / cover url(${_v0})` : _v569,
+        background: _v0 ? `linear-gradient(to right, ${_v574}, ${_v574}), center / cover url(${_v0})` : _v574,
         children: [(0, _v25.jsx)(_v219.Spinner, {
           color: "white",
           size: "md"
-        }), (0, _v25.jsx)(_v303.Header, {
+        }), (0, _v25.jsx)(_v304.Header, {
           size: "sm",
           color: "white",
           mt: "sm",
-          children: _v568.savingToLibrary(_v1 ?? _v568.defaultLibraryName)
+          children: _v573.savingToLibrary(_v1 ?? _v573.defaultLibraryName)
         })]
       });
     };
-  var _v571 = _v0.i(0);
-  let _v572 = .25,
-    _v573 = (_v0, _v1, _v2) => {
+  var _v576 = _v0.i(0);
+  let _v577 = .25,
+    _v578 = (_v0, _v1, _v2) => {
       if (_v2.crop) {
         let {
             crop: _v0,
@@ -18899,7 +18994,7 @@
             }
             return "circle" === _v1.type ? _v1.width / 2 : Math.max(_v0.width, _v0.height) / 0 * 6 / _v2;
           })(_v0, _v0, _v1),
-          _v3 = new _v571.Rect({
+          _v3 = new _v576.Rect({
             width: _v0.width,
             height: _v0.height,
             rx: _v2,
@@ -18916,7 +19011,7 @@
         });
       }
     };
-  class _v574 {
+  class _v579 {
     canvasNode;
     fabricInstance;
     canvasSize;
@@ -18928,7 +19023,7 @@
         userMedia: null,
         displayMedia: null,
         soundwave: null
-      }, this.log = _v136.createForCategory("FabricSceneManager"), this.fabricInstance = new _v571.Canvas(this.canvasNode, {
+      }, this.log = _v136.createForCategory("FabricSceneManager"), this.fabricInstance = new _v576.Canvas(this.canvasNode, {
         selection: !1,
         preserveObjectStacking: !0,
         backgroundColor: "#000000",
@@ -18944,7 +19039,7 @@
       this.fullSizedItemOverlay && this.hideFullSizedItem(this.fullSizedItemOverlay.variant);
       let _v2 = this.renderedFabricNodes[_v0];
       if (!_v2) return;
-      let _v3 = new _v571.FabricImage(_v1.src, _v2),
+      let _v3 = new _v576.FabricImage(_v1.src, _v2),
         _v4 = _v2.flipX ? _v1.width - _v3.cropX - _v3.width : _v3.cropX;
       _v3.set({
         width: _v1.width,
@@ -18966,8 +19061,8 @@
     }
     setBackdrop(_v0) {
       if (this.fabricInstance) if ("gradient" === _v0.type) {
-        let _v0 = _v497[_v0.index].color,
-          _v1 = new _v571.Gradient({
+        let _v0 = _v502[_v0.index].color,
+          _v1 = new _v576.Gradient({
             type: "linear",
             coords: {
               x1: this.fabricInstance.width,
@@ -18984,7 +19079,7 @@
             }]
           });
         this.fabricInstance.set("backgroundColor", _v1);
-      } else this.fabricInstance.set("backgroundColor", "customColor" === _v0.type ? _v0.hex : _v496[_v0.index].color);
+      } else this.fabricInstance.set("backgroundColor", "customColor" === _v0.type ? _v0.hex : _v501[_v0.index].color);
     }
     setObjectCrop(_v0, _v1) {
       let _v2 = this.renderedFabricNodes[_v0];
@@ -18992,7 +19087,7 @@
         category: _v120.CANVAS_CAPTURE,
         component: "FabricSceneManager",
         method: "setObjectCrop"
-      }), _v2 && this.fabricInstance && _v573(this.fabricInstance, _v2, _v1);
+      }), _v2 && this.fabricInstance && _v578(this.fabricInstance, _v2, _v1);
     }
     detachNode(_v0) {
       let _v1 = this.renderedFabricNodes[_v0];
@@ -19016,7 +19111,7 @@
         let _v0 = _v7.x,
           _v1 = _v7.y;
         _v7.cropOffset && (_v0 += _v7.width * _v7.scale * _v7.cropOffset.x, _v1 += _v7.height * _v7.scale * _v7.cropOffset.y);
-        let _v2 = new _v571.FabricImage(_v7.src, {
+        let _v2 = new _v576.FabricImage(_v7.src, {
           top: _v1,
           left: _v0,
           width: _v7.width,
@@ -19043,7 +19138,7 @@
           mr: !1,
           mt: !1,
           mtr: !1
-        }), _v7.crop && _v573(_v4, _v2, _v7), _v5.add(_v2), this.renderedFabricNodes[_v0] = _v2;
+        }), _v7.crop && _v578(_v4, _v2, _v7), _v5.add(_v2), this.renderedFabricNodes[_v0] = _v2;
       } else "update" === _v1 && _v6 && _v7 ? this.applyAssetChanges(_v0, _v6, _v7, _v4, _v2) : "remove" === _v1 && (this.detachNode(_v0), this.renderedFabricNodes[_v0] = null);
     }
     finalizeLayout() {
@@ -19084,16 +19179,16 @@
           cropY: 0,
           ...(_v4 ? {} : _v8)
         };
-      _v5.set(_v9), _v5.cornerStyle = "circle", _v2.crop && _v573(_v3, _v5, _v2), _v4 && _v5.animate(_v8, {
+      _v5.set(_v9), _v5.cornerStyle = "circle", _v2.crop && _v578(_v3, _v5, _v2), _v4 && _v5.animate(_v8, {
         duration: 300,
-        easing: _v571.util.ease.easeInOutSine
+        easing: _v576.util.ease.easeInOutSine
       }), _v5.getElement() !== _v2.src && _v5.setElement(_v2.src), Object.assign(_v1, _v2);
     }
     dispose() {
       this.fabricInstance?.dispose(), this.fabricInstance = null, this.renderedFabricNodes.displayMedia = null, this.renderedFabricNodes.userMedia = null, this.renderedFabricNodes.soundwave = null;
     }
   }
-  let _v575 = (_v0, _v1, _v2) => {
+  let _v580 = (_v0, _v1, _v2) => {
       let {
           margin: _v3,
           fit: _v4 = "contain"
@@ -19118,7 +19213,7 @@
       }
       return _v9;
     },
-    _v576 = (_v0, _v1, _v2, _v3 = 0, _v4 = 0) => {
+    _v581 = (_v0, _v1, _v2, _v3 = 0, _v4 = 0) => {
       let _v5 = _v1.width * _v2,
         _v6 = _v1.height * _v2;
       return {
@@ -19126,8 +19221,8 @@
         y: Math.floor((_v0.height - _v6) / 2 + _v4)
       };
     },
-    _v577 = (_v0, _v1 = !0) => Math.max(_v0.width, _v0.height) / 0 * (_v1 ? 32 : 18),
-    _v578 = _v0 => _v0 instanceof HTMLCanvasElement ? {
+    _v582 = (_v0, _v1 = !0) => Math.max(_v0.width, _v0.height) / 0 * (_v1 ? 32 : 18),
+    _v583 = _v0 => _v0 instanceof HTMLCanvasElement ? {
       height: _v0.height,
       width: _v0.width
     } : _v0 instanceof HTMLImageElement ? {
@@ -19137,30 +19232,30 @@
       height: _v0.videoHeight,
       width: _v0.videoWidth
     },
-    _v579 = ({
+    _v584 = ({
       width: _v0,
       height: _v1
     }, _v2) => ({
       height: _v1 * _v2,
       width: _v0 * _v2
     }),
-    _v580 = (_v0, _v1, _v2 = !1) => ({
+    _v585 = (_v0, _v1, _v2 = !1) => ({
       square: _v1 || _v2 ? "squareRounded" : "square",
       rectangle: _v1 || _v2 ? "rectangleRounded" : "rectangle",
       circle: "circle",
       verticalRectangle: _v1 || _v2 ? "portraitizedRounded" : "portraitized",
       source: _v1 ? "onlyCorners" : null
     })[_v0],
-    _v581 = (_v0, _v1, _v2) => {
+    _v586 = (_v0, _v1, _v2) => {
       let _v3 = _v0.assetsShape[_v2],
         _v4 = _v1[_v2] ?? _v3;
       if (_v4) {
         let _v0 = "userMedia" === _v2 && _v0.type === _v51 && "corner" === _v0.cameraPosition;
-        return _v580(_v4, _v0.hasFrame, _v0);
+        return _v585(_v4, _v0.hasFrame, _v0);
       }
       return null;
     },
-    _v582 = (_v0, _v1) => {
+    _v587 = (_v0, _v1) => {
       switch (_v1) {
         case "squareRounded":
         case "square":
@@ -19188,25 +19283,25 @@
           return _v0;
       }
     },
-    _v583 = (_v0, _v1, _v2) => _v0 ? {
+    _v588 = (_v0, _v1, _v2) => _v0 ? {
       type: _v0,
       ..._v1,
       x: (_v2.width - _v1.width) / 2,
       y: (_v2.height - _v1.height) / 2
     } : null,
-    _v584 = (_v0, _v1, _v2, _v3, _v4, _v5 = 0, _v6 = 0) => {
-      let _v7 = _v575(_v0, _v2, {
-          margin: _v4.hasFrame ? _v577(_v0) : 0,
+    _v589 = (_v0, _v1, _v2, _v3, _v4, _v5 = 0, _v6 = 0) => {
+      let _v7 = _v580(_v0, _v2, {
+          margin: _v4.hasFrame ? _v582(_v0) : 0,
           fit: _v4.fit
         }),
-        _v8 = _v583(_v3, _v2, _v1),
-        _v9 = _v576(_v0, _v2, _v7, _v5, _v6);
+        _v8 = _v588(_v3, _v2, _v1),
+        _v9 = _v581(_v0, _v2, _v7, _v5, _v6);
       return _v8 && (_v9.x -= _v8.x * _v7, _v9.y -= _v8.y * _v7), {
         scale: _v7,
         ..._v9,
         ..._v1,
         crop: _v8,
-        cropOffset: _v8 ? _v588({
+        cropOffset: _v8 ? _v593({
           x: _v8.x,
           y: _v8.y
         }, {
@@ -19215,15 +19310,15 @@
         }) : null
       };
     },
-    _v585 = (_v0, _v1, _v2, _v3, _v4, _v5 = "contain", _v6 = 0, _v7 = 1) => {
-      let _v8 = _v575({
+    _v590 = (_v0, _v1, _v2, _v3, _v4, _v5 = "contain", _v6 = 0, _v7 = 1) => {
+      let _v8 = _v580({
           width: _v0.width * _v7,
           height: _v0.height * _v7
         }, _v2, {
           margin: _v6,
           fit: _v5
         }),
-        _v9 = _v583(_v4, _v2, _v1),
+        _v9 = _v588(_v4, _v2, _v1),
         _v10 = ((_v0, _v1, _v2, _v3, _v4) => {
           let _v5 = _v1.width * _v2,
             _v6 = _v1.height * _v2;
@@ -19255,7 +19350,7 @@
         ..._v10,
         ..._v1,
         crop: _v9,
-        cropOffset: _v9 ? _v588({
+        cropOffset: _v9 ? _v593({
           x: _v9.x,
           y: _v9.y
         }, {
@@ -19264,7 +19359,7 @@
         }) : null
       };
     },
-    _v586 = _v0 => {
+    _v591 = _v0 => {
       let {
           position: _v1,
           size: _v2
@@ -19279,7 +19374,7 @@
         ..._v3
       };
     },
-    _v587 = (_v0, _v1) => {
+    _v592 = (_v0, _v1) => {
       let _v2 = {
           ..._v0
         },
@@ -19288,8 +19383,8 @@
           height: _v2.height
         };
       if (_v1) {
-        let _v0 = _v582(_v3, _v1),
-          _v1 = _v583(_v1, _v0, _v3);
+        let _v0 = _v587(_v3, _v1),
+          _v1 = _v588(_v1, _v0, _v3);
         _v2.cropOffset = _v1 ? {
           x: _v1.x / _v3.width,
           y: _v1.y / _v3.height
@@ -19297,11 +19392,11 @@
       } else _v2.crop && (_v2.cropOffset = null, _v2.crop = null);
       return _v2;
     },
-    _v588 = (_v0, _v1) => ({
+    _v593 = (_v0, _v1) => ({
       x: _v0.x / _v1.width,
       y: _v0.y / _v1.height
     }),
-    _v589 = [{
+    _v594 = [{
       start: 1,
       end: 8,
       fft: 0
@@ -19326,10 +19421,10 @@
       end: 500,
       fft: 0
     }],
-    _v590 = function (_v0, _v1, _v2, _v3, _v4, _v5) {
+    _v595 = function (_v0, _v1, _v2, _v3, _v4, _v5) {
       _v3 < 2 * _v5 && (_v5 = Math.max(_v3 / 2, 0)), _v4 < 2 * _v5 && (_v5 = Math.max(_v4 / 2, 0)), _v0.moveTo(_v1 + _v5, _v2), _v0.arcTo(_v1 + _v3, _v2, _v1 + _v3, _v2 + _v4, _v5), _v0.arcTo(_v1 + _v3, _v2 + _v4, _v1, _v2 + _v4, _v5), _v0.arcTo(_v1, _v2 + _v4, _v1, _v2, _v5), _v0.arcTo(_v1, _v2, _v1 + _v3, _v2, _v5);
     };
-  class _v591 {
+  class _v596 {
     waveStrength = 60;
     wavesUpSpeed = 55;
     wavesDownSpeed = 57;
@@ -19376,7 +19471,7 @@
         if (this.updateWavesFillColor(_v0), this.wavesCount !== _v3) {
           let _v0 = 0 !== this.wavesCount;
           this.wavesCount = _v3, _v0 && this.applyDefaultWavesPlaceholders(), this.soundAnalyser.setFftSize((_v0 => {
-            let _v1 = _v589.find(({
+            let _v1 = _v594.find(({
               start: _v0,
               end: _v1
             }) => _v0 >= _v0 && _v0 <= _v1);
@@ -19401,7 +19496,7 @@
         let {
           height: _v1
         } = _v0;
-        _v590(_v0, _v2, this.height / 2 - _v1 / 2, this.barWidth, _v1, this.barWidth), _v2 += this.barWidth + _v1;
+        _v595(_v0, _v2, this.height / 2 - _v1 / 2, this.barWidth, _v1, this.barWidth), _v2 += this.barWidth + _v1;
       }), _v0.fill(), _v0.closePath(), _v0.restore();
     }
     get barWidth() {
@@ -19435,13 +19530,13 @@
     updateWavesFillColor(_v0) {
       switch (this.fillColorDirty = !0, _v0.type) {
         case "color":
-          this.waveBarFillColor = _v496[_v0.index].color;
+          this.waveBarFillColor = _v501[_v0.index].color;
           break;
         case "customColor":
           this.waveBarFillColor = _v0.hex;
           break;
         case "gradient":
-          this.waveBarFillColor = _v497[_v0.index].color;
+          this.waveBarFillColor = _v502[_v0.index].color;
       }
     }
     changeSize(_v0) {
@@ -19519,8 +19614,8 @@
       return this.canvas ? Math.max((this.width - _v0 * this.wavesCount) / (this.wavesCount + 1), 0) : (this.log.info("Canvas element was not provided"), 0);
     }
   }
-  let _v592 = (_v0, _v1, _v2) => Math.min(Math.max(_v0, _v1), _v2);
-  class _v593 {
+  let _v597 = (_v0, _v1, _v2) => Math.min(Math.max(_v0, _v1), _v2);
+  class _v598 {
     canvasNode;
     onAssetInteracted;
     audioStream;
@@ -19540,7 +19635,7 @@
         userMedia: null,
         displayMedia: null,
         soundwave: null
-      }, this.layout = null, this.log = _v136.createForCategory("CanvasSceneManager"), this.renderTickFn = null, this.userMediaRenderFn = null, this.onAssetsUpdatedFn = null, this.assetShapeConfig = {}, this.assetVariants = ["displayMedia", "userMedia", "soundwave"], this.sceneManagerRenderer = new _v574(this.canvasNode);
+      }, this.layout = null, this.log = _v136.createForCategory("CanvasSceneManager"), this.renderTickFn = null, this.userMediaRenderFn = null, this.onAssetsUpdatedFn = null, this.assetShapeConfig = {}, this.assetVariants = ["displayMedia", "userMedia", "soundwave"], this.sceneManagerRenderer = new _v579(this.canvasNode);
     }
     dispose() {
       this.sceneManagerRenderer.dispose(), this.soundWaveRenderer?.dispose(), this.onAssetsUpdatedFn = null, this.renderTickFn = null, this.userMediaRenderFn = null;
@@ -19582,7 +19677,7 @@
         let {
           position: _v0
         } = _v3.crop;
-        _v0 && (_v4.cropOffset = _v588({
+        _v0 && (_v4.cropOffset = _v593({
           x: _v0.x,
           y: _v0.y
         }, {
@@ -19596,7 +19691,7 @@
       let _v6 = !1,
         _v7 = !1,
         _v8 = !0;
-      _v2 && _v3 && _v3?.id !== this.audioStream?.id ? (this.soundWaveRenderer || (this.soundWaveRenderer = new _v591()), this.audioStream = _v3, this.soundWaveRenderer.setAudioStream(_v3), _v7 = !0) : _v3 && _v2 || !this.soundWaveRenderer || (this.soundWaveRenderer.dispose(), this.audioStream = void 0, this.soundWaveRenderer = null), this.canvasSize && this.canvasSize.width === _v5.width && this.canvasSize.height === _v5.height || (this.canvasSize?.sizePreset !== _v5.sizePreset && (_v8 = !1), this.canvasSize = _v5, this.sceneManagerRenderer.setSize(_v5), _v6 = !0), this.layout !== _v4 && (this.layout = _v4, _v6 = !0);
+      _v2 && _v3 && _v3?.id !== this.audioStream?.id ? (this.soundWaveRenderer || (this.soundWaveRenderer = new _v596()), this.audioStream = _v3, this.soundWaveRenderer.setAudioStream(_v3), _v7 = !0) : _v3 && _v2 || !this.soundWaveRenderer || (this.soundWaveRenderer.dispose(), this.audioStream = void 0, this.soundWaveRenderer = null), this.canvasSize && this.canvasSize.width === _v5.width && this.canvasSize.height === _v5.height || (this.canvasSize?.sizePreset !== _v5.sizePreset && (_v8 = !1), this.canvasSize = _v5, this.sceneManagerRenderer.setSize(_v5), _v6 = !0), this.layout !== _v4 && (this.layout = _v4, _v6 = !0);
       let {
         userMedia: _v9,
         displayMedia: _v10,
@@ -19606,7 +19701,7 @@
         let {
           width: _v0,
           height: _v1
-        } = _v578(_v0);
+        } = _v583(_v0);
         (_v9.src !== _v0 || _v9.width !== _v0 || _v9.height !== _v1) && (_v6 = !0);
       }
       (_v6 || _v7) && this.reLayout(_v0, _v1, _v2, _v6, _v8);
@@ -19624,7 +19719,7 @@
             userMedia: null,
             displayMedia: null,
             soundwave: _v2 ? {
-              ..._v586(_v4),
+              ..._v591(_v4),
               src: _v2,
               scale: 1,
               type: "soundwave",
@@ -19646,21 +19741,21 @@
               screen: _v10,
               camera: _v11
             } = function (_v0, _v1, _v2) {
-              let _v3 = _v2 ? _v578(_v2) : {
+              let _v3 = _v2 ? _v583(_v2) : {
                   width: 0,
                   height: 0
                 },
-                _v4 = _v1 ? _v578(_v1) : {
+                _v4 = _v1 ? _v583(_v1) : {
                   width: 0,
                   height: 0
                 },
                 {
                   assetsShapeOverride: _v5
                 } = _v82.getState(),
-                _v6 = _v581(_v0, _v5, "displayMedia"),
-                _v7 = _v581(_v0, _v5, "userMedia"),
-                _v8 = _v7 ? _v582(_v3, _v7) : _v3,
-                _v9 = _v6 ? _v582(_v4, _v6) : _v4,
+                _v6 = _v586(_v0, _v5, "displayMedia"),
+                _v7 = _v586(_v0, _v5, "userMedia"),
+                _v8 = _v7 ? _v587(_v3, _v7) : _v3,
+                _v9 = _v6 ? _v587(_v4, _v6) : _v4,
                 _v10 = Math.max(_v8.height, _v9.height),
                 _v11 = Math.max(_v8.width, _v9.width);
               return {
@@ -19694,26 +19789,26 @@
                 return _v5[_v1] = {
                   src: _v0,
                   type: _v1,
-                  ..._v584(_v4, _v2 ? _v11.sourceSize : _v10.sourceSize, _v2 ? _v11.size : _v10.size, _v2 ? _v12 : _v13, _v3)
+                  ..._v589(_v4, _v2 ? _v11.sourceSize : _v10.sourceSize, _v2 ? _v11.size : _v10.size, _v2 ? _v12 : _v13, _v3)
                 }, _v5;
               }
             case "BOTH":
               if ("corner" === _v3.cameraPosition) _v5.displayMedia = {
                 src: _v1,
                 type: "displayMedia",
-                ..._v584(_v4, _v10.sourceSize, _v10.size, _v13, _v3)
+                ..._v589(_v4, _v10.sourceSize, _v10.size, _v13, _v3)
               }, _v5.userMedia = {
                 src: _v0,
                 type: "userMedia",
-                ...((_v0, _v1, _v2, _v3, _v4, _v5 = _v577(_v0) / 2, _v6 = _v572) => {
-                  let _v7 = _v575({
+                ...((_v0, _v1, _v2, _v3, _v4, _v5 = _v582(_v0) / 2, _v6 = _v577) => {
+                  let _v7 = _v580({
                       width: _v0.width * _v6,
                       height: _v0.height * _v6
                     }, _v2, {
                       margin: _v5,
                       fit: "contain"
                     }),
-                    _v8 = _v583(_v4, _v2, _v1),
+                    _v8 = _v588(_v4, _v2, _v1),
                     _v9 = ((_v0, _v1, _v2, _v3, _v4) => {
                       let _v5 = _v1.width * _v2,
                         _v6 = _v1.height * _v2;
@@ -19745,7 +19840,7 @@
                     ..._v9,
                     ..._v1,
                     crop: _v8,
-                    cropOffset: _v8 ? _v588({
+                    cropOffset: _v8 ? _v593({
                       x: _v8.x,
                       y: _v8.y
                     }, {
@@ -19756,30 +19851,30 @@
                 })(_v4, _v11.sourceSize, _v11.size, _v3.corner, _v12, ...("transparent" === _v3.cameraEffect ? [0, .5] : []))
               };else if (_v3.hasFrame) {
                 let [_v0, _v1] = "left" === _v3.side || "right" === _v3.side ? ["height", "width"] : ["width", "height"],
-                  _v2 = _v577(_v4, !1),
-                  _v3 = _v578(_v1),
-                  _v4 = _v578(_v0),
-                  _v5 = _v12 ? _v582(_v4, _v12) : _v4,
-                  _v6 = _v13 ? _v582(_v3, _v13) : _v3,
-                  _v7 = _v6[_v0] > _v4[_v0] ? _v4[_v0] - 2 * _v577(_v4) : _v6[_v0],
+                  _v2 = _v582(_v4, !1),
+                  _v3 = _v583(_v1),
+                  _v4 = _v583(_v0),
+                  _v5 = _v12 ? _v587(_v4, _v12) : _v4,
+                  _v6 = _v13 ? _v587(_v3, _v13) : _v3,
+                  _v7 = _v6[_v0] > _v4[_v0] ? _v4[_v0] - 2 * _v582(_v4) : _v6[_v0],
                   _v8 = _v7 / _v6[_v0],
                   _v9 = _v7 / _v5[_v0],
-                  _v10 = _v579(_v6, _v8),
-                  _v11 = _v579(_v5, _v9),
+                  _v10 = _v584(_v6, _v8),
+                  _v11 = _v584(_v5, _v9),
                   _v12 = {
                     [_v0]: _v7,
                     [_v1]: _v10[_v1] + _v11[_v1] + _v2
                   },
-                  _v13 = _v575(_v4, _v12, {
-                    margin: _v577(_v4)
+                  _v13 = _v580(_v4, _v12, {
+                    margin: _v582(_v4)
                   }),
                   {
                     x: _v14,
                     y: _v15
-                  } = _v576(_v4, _v12, _v13),
+                  } = _v581(_v4, _v12, _v13),
                   _v16 = _v0 => _v12[_v1] * _v13 - _v0[_v1] * _v13,
-                  _v17 = _v583(_v13, _v6, _v3),
-                  _v18 = _v17 ? _v588({
+                  _v17 = _v588(_v13, _v6, _v3),
+                  _v18 = _v17 ? _v593({
                     x: _v17.x,
                     y: _v17.y
                   }, {
@@ -19799,8 +19894,8 @@
                   x: _v20,
                   y: _v21
                 };
-                let _v22 = _v583(_v12, _v5, _v4),
-                  _v23 = _v22 ? _v588({
+                let _v22 = _v588(_v12, _v5, _v4),
+                  _v23 = _v22 ? _v593({
                     x: _v22.x,
                     y: _v22.y
                   }, {
@@ -19823,7 +19918,7 @@
               } else _v5.displayMedia = {
                 src: _v1,
                 type: "displayMedia",
-                ..._v585(_v4, _v10.sourceSize, _v10.size, (_v0 => {
+                ..._v590(_v4, _v10.sourceSize, _v10.size, (_v0 => {
                   switch (_v0) {
                     case "bottom":
                       return "top";
@@ -19838,7 +19933,7 @@
               }, _v5.userMedia = {
                 src: _v0,
                 type: "userMedia",
-                ..._v585(_v4, _v11.sourceSize, _v11.size, _v3.side, _v12)
+                ..._v590(_v4, _v11.sourceSize, _v11.size, _v3.side, _v12)
               };
               return _v5;
             default:
@@ -19881,9 +19976,9 @@
         let _v0 = this.assetShapeConfig[_v0];
         if (!_v1 || !_v0) continue;
         let _v1 = "userMedia" === _v0 && this.layout.type === _v51 && "corner" === this.layout.cameraPosition,
-          _v2 = _v580(_v0, this.layout.hasFrame, _v1);
+          _v2 = _v585(_v0, this.layout.hasFrame, _v1);
         if (_v1.crop?.type !== _v2) {
-          let _v0 = _v587(_v1, _v2);
+          let _v0 = _v592(_v1, _v2);
           this.sceneManagerRenderer.applyAssetChanges(_v0, _v1, _v0, this.canvasSize, !1);
         }
         _v1.push(_v0);
@@ -19907,7 +20002,7 @@
         } = _v187.getState(),
         _v4 = _v1.width * _v1.scale,
         _v5 = _v1.height * _v1.scale;
-      _v3(_v592(_v4 / this.canvasSize.width, 0, 1), _v592(_v5 / this.canvasSize.height, 0, 1)), _v2(_v592((_v1.x + _v4 / 2) / this.canvasSize.width, 0, 1), _v592((_v1.y + _v5 / 2) / this.canvasSize.height, 0, 1)), this.updateSoundWaveAsset();
+      _v3(_v597(_v4 / this.canvasSize.width, 0, 1), _v597(_v5 / this.canvasSize.height, 0, 1)), _v2(_v597((_v1.x + _v4 / 2) / this.canvasSize.width, 0, 1), _v597((_v1.y + _v5 / 2) / this.canvasSize.height, 0, 1)), this.updateSoundWaveAsset();
     }
     handleDragStop(_v0) {
       if (_v82.getState().setCurrentLayoutKey(null), this.onAssetInteracted(_v0, "drag"), "soundwave" !== _v0) return;
@@ -19916,13 +20011,13 @@
       let {
         setPosition: _v2
       } = _v187.getState();
-      _v2(_v592((_v1.x + _v1.width / 2) / this.canvasSize.width, 0, 1), _v592((_v1.y + _v1.height / 2) / this.canvasSize.height, 0, 1)), this.updateSoundWaveAsset();
+      _v2(_v597((_v1.x + _v1.width / 2) / this.canvasSize.width, 0, 1), _v597((_v1.y + _v1.height / 2) / this.canvasSize.height, 0, 1)), this.updateSoundWaveAsset();
     }
     updateSoundWaveAsset() {
       if (!this.renderedAssets.soundwave || !this.canvasSize) return;
       let _v0 = {
         ...this.renderedAssets.soundwave,
-        ..._v586(this.canvasSize),
+        ..._v591(this.canvasSize),
         scale: 1
       };
       this.sceneManagerRenderer.applyAssetChanges("soundwave", this.renderedAssets.soundwave, _v0, this.canvasSize, !1), this.soundWaveRenderer?.changeSize({
@@ -19998,11 +20093,11 @@
       return _v1;
     }
   }
-  var _v594 = _v0.i(0);
-  let _v595 = ({
+  var _v599 = _v0.i(0);
+  let _v600 = ({
     preset: _v0
   }) => {
-    let _v1 = (0, _v594.useColorModeValue)("rgba(255, 255, 255, 0.3)", "rgba(61, 71, 81, 0.64)");
+    let _v1 = (0, _v599.useColorModeValue)("rgba(255, 255, 255, 0.3)", "rgba(61, 71, 81, 0.64)");
     return (0, _v25.jsx)(_v208.Box, {
       borderRadius: "xs",
       top: "0",
@@ -20024,11 +20119,11 @@
       })
     });
   };
-  var _v596 = _v0.i(0),
-    _v597 = _v0.i(0);
-  let _v598 = ["displayMedia", "userMedia", "soundwave"];
-  var _v599 = _v0.i(0);
-  let _v600 = (0, _v26.forwardRef)((_v0, _v1) => {
+  var _v601 = _v0.i(0),
+    _v602 = _v0.i(0);
+  let _v603 = ["displayMedia", "userMedia", "soundwave"];
+  var _v604 = _v0.i(0);
+  let _v605 = (0, _v26.forwardRef)((_v0, _v1) => {
     let {
         handleAxis: _v2,
         size: _v3,
@@ -20170,7 +20265,7 @@
         _v0.preventDefault(), _v0.stopPropagation(), _v5.onTouchEnd?.(_v0);
       },
       zIndex: 10,
-      children: "select" === _v4 ? (0, _v25.jsx)(_v599.CircleShapeFilled, {
+      children: "select" === _v4 ? (0, _v25.jsx)(_v604.CircleShapeFilled, {
         width: _v3,
         height: _v3,
         color: "fill-brand",
@@ -20190,9 +20285,9 @@
       }) : (0, _v25.jsx)(_v25.Fragment, {})
     });
   });
-  var _v601 = _v0.i(0);
-  let _v602 = _v0 => `translate3d(${_v0.x}px, ${_v0.y}px, 0)`,
-    _v603 = (_v0, _v1, _v2) => {
+  var _v606 = _v0.i(0);
+  let _v607 = _v0 => `translate3d(${_v0.x}px, ${_v0.y}px, 0)`,
+    _v608 = (_v0, _v1, _v2) => {
       let _v3 = {
           x: 0,
           y: 0
@@ -20211,13 +20306,13 @@
       }
       return _v3;
     },
-    _v604 = (_v0, _v1) => _v0.x >= _v1.left && _v0.x <= _v1.right && _v0.y >= _v1.top && _v0.y <= _v1.bottom,
-    _v605 = {
+    _v609 = (_v0, _v1) => _v0.x >= _v1.left && _v0.x <= _v1.right && _v0.y >= _v1.top && _v0.y <= _v1.bottom,
+    _v610 = {
       userMedia: .1,
       displayMedia: .2,
       soundwave: .2
     };
-  class _v606 {
+  class _v611 {
     log = _v136.createForCategory("DnDBoxChangesController");
     id;
     state;
@@ -20309,7 +20404,7 @@
             x: _v0.width / _v0.width,
             y: _v0.height / _v0.height
           },
-          _v8 = _v605[this.id];
+          _v8 = _v610[this.id];
         if (!(_v7.x <= _v8 && _v4 < _v2 || _v7.y <= _v8 && _v5 > _v3)) {
           if (_v1.cropTransform) {
             _v4 = _v0.width / _v1.cropTransform.scaleX / _v1.size.width, _v5 = _v0.height / _v1.cropTransform.scaleY / _v1.size.height;
@@ -20345,7 +20440,7 @@
                 _v6.x -= _v2.x, _v6.y -= _v2.y;
             }
           } else {
-            let _v0 = _v603(_v1.size, _v1, {
+            let _v0 = _v608(_v1.size, _v1, {
               scaleX: _v1.transform.scaleX - _v4,
               scaleY: _v1.transform.scaleY - _v5
             });
@@ -20375,7 +20470,7 @@
         if (_v0.width / _v3 <= .1 || _v0.height / _v4 <= .1) return;
         let _v5 = this.getUIRepresentedBoxScale(),
           _v6 = this.getOutputBoxPosition(),
-          _v7 = _v603(_v0.size, _v1, {
+          _v7 = _v608(_v0.size, _v1, {
             scaleX: _v5.scaleX - _v1,
             scaleY: _v5.scaleY - _v2
           }),
@@ -20576,12 +20671,12 @@
           ..._v2,
           ..._v5,
           position: _v4,
-          css: _v602(_v4)
+          css: _v607(_v4)
         },
         originalTansform: {
           ..._v1.transform,
           position: _v3,
-          css: _v602(_v3)
+          css: _v607(_v3)
         }
       };
     }
@@ -20637,7 +20732,7 @@
       this.onChangeHandler && this.onChangeHandler(_v0, this.state);
     }
   }
-  class _v607 extends EventTarget {
+  class _v612 extends EventTarget {
     id;
     static EventName = "onChange";
     lastPayload;
@@ -20672,23 +20767,23 @@
           crop: _v0.detail.crop
         });
       };
-      return this.addEventListener(_v607.EventName, _v1), this.lastPayload && this.dispatchChanges({
+      return this.addEventListener(_v612.EventName, _v1), this.lastPayload && this.dispatchChanges({
         ...this.lastPayload,
         action: this.lastActionType
       }), () => {
-        this.removeEventListener(_v607.EventName, _v1), this.lastPayload = void 0, this.lastActionType = "modify";
+        this.removeEventListener(_v612.EventName, _v1), this.lastPayload = void 0, this.lastActionType = "modify";
       };
     }
     processEventQueue() {
       this.isProcessingQueue || 0 === this.eventQueue.length || (this.isProcessingQueue = !0, queueMicrotask(() => {
         let _v0 = this.eventQueue.shift();
-        _v0 && (this.dispatchEvent(new CustomEvent(_v607.EventName, {
+        _v0 && (this.dispatchEvent(new CustomEvent(_v612.EventName, {
           detail: _v0
         })), this.isProcessingQueue = !1, this.processEventQueue());
       }));
     }
   }
-  let _v608 = (_v0, _v1) => {
+  let _v613 = (_v0, _v1) => {
       switch (_v1.type) {
         case "set":
           {
@@ -20703,7 +20798,7 @@
               _v4 = _v0.elements[_v0],
               _v5 = {
                 box: _v2,
-                subject: _v4 ? _v4.subject : new _v607(_v0),
+                subject: _v4 ? _v4.subject : new _v612(_v0),
                 selectionType: "none",
                 isDirty: !1
               };
@@ -20837,7 +20932,7 @@
           return _v0;
       }
     },
-    _v609 = (0, _v26.createContext)({
+    _v614 = (0, _v26.createContext)({
       draggableElementsKeys: [],
       draggableElements: null,
       selectedElement: null,
@@ -20864,8 +20959,8 @@
       setHightlitedElements: () => void 0,
       getClipToElementRect: () => null
     }),
-    _v610 = () => (0, _v26.useContext)(_v609),
-    _v611 = ({
+    _v615 = () => (0, _v26.useContext)(_v614),
+    _v616 = ({
       children: _v0
     }) => {
       var _v1;
@@ -20890,7 +20985,7 @@
             waitingElementsToRead: _v18
           }
         } = (() => {
-          let [_v0, _v1] = (0, _v26.useReducer)(_v608, {
+          let [_v0, _v1] = (0, _v26.useReducer)(_v613, {
             elements: {},
             selectedElement: null,
             indexes: {},
@@ -20903,8 +20998,8 @@
             dispatchDndBoxAction: _v1
           };
         })(),
-        _v19 = (0, _v596.useSensor)(_v596.MouseSensor),
-        _v20 = (0, _v596.useSensors)(_v19),
+        _v19 = (0, _v601.useSensor)(_v601.MouseSensor),
+        _v20 = (0, _v601.useSensors)(_v19),
         {
           setSelectedAsset: _v21,
           setActiveTool: _v22
@@ -21064,21 +21159,21 @@
         setHightlitedElements: _v34,
         getClipToElementRect: _v35
       }), [_v32, _v6, _v8, _v10, _v15, _v17, _v14, _v13, _v18, _v33, _v27, _v28, _v24, _v25, _v26, _v23, _v29, _v7, _v30, _v31, _v34, _v35]);
-      return (0, _v25.jsx)(_v596.DndContext, {
+      return (0, _v25.jsx)(_v601.DndContext, {
         sensors: _v20,
-        children: (0, _v25.jsx)(_v609.Provider, {
+        children: (0, _v25.jsx)(_v614.Provider, {
           value: _v36,
           children: _v0
         })
       });
     },
-    _v612 = () => {
+    _v617 = () => {
       let {
           draggableElements: _v0,
           scaleFactor: _v1,
           getClipToElementRect: _v2,
           selectedElement: _v3
-        } = _v610(),
+        } = _v615(),
         _v4 = (0, _v26.useCallback)(_v0 => {
           if (!_v0) return null;
           let _v1 = {};
@@ -21124,11 +21219,11 @@
             };
           if (_v3 && "crop" === _v3.type) {
             let _v0 = _v5[_v3.id];
-            return _v0 && _v604(_v3, _v0) ? _v3.id : null;
+            return _v0 && _v609(_v3, _v0) ? _v3.id : null;
           }
           for (let _v0 = 0; _v0 < _v2.length; _v0++) {
             let _v0 = _v2[_v0];
-            if (_v604(_v3, _v5[_v0])) return _v0;
+            if (_v609(_v3, _v5[_v0])) return _v0;
           }
           return null;
         }, [_v5, _v2, _v3]);
@@ -21138,15 +21233,15 @@
         getElementKeyByPoint: _v6
       };
     },
-    _v613 = "vertical",
-    _v614 = "horizontal",
-    _v615 = (_v0, _v1, _v2 = !0) => {
+    _v618 = "vertical",
+    _v619 = "horizontal",
+    _v620 = (_v0, _v1, _v2 = !0) => {
       let _v3 = {
           ceId: _v1,
           id: `guideline-vertical-middle_${_v1}`,
           top: 0,
           left: _v0.xMiddle,
-          type: _v613,
+          type: _v618,
           isEdge: !1,
           isMiddle: !0
         },
@@ -21155,7 +21250,7 @@
           id: `guideline-horizontal-middle_${_v1}`,
           top: _v0.yMiddle,
           left: 0,
-          type: _v614,
+          type: _v619,
           isEdge: !1,
           isMiddle: !0
         },
@@ -21164,7 +21259,7 @@
           id: `guideline-top_${_v1}`,
           top: _v0.top,
           left: 0,
-          type: _v614,
+          type: _v619,
           isEdge: !0,
           isMiddle: !1
         }, {
@@ -21172,7 +21267,7 @@
           id: `guideline-bottom_${_v1}`,
           top: _v0.bottom,
           left: 0,
-          type: _v614,
+          type: _v619,
           isEdge: !0,
           isMiddle: !1
         }, {
@@ -21180,7 +21275,7 @@
           id: `guideline-left_${_v1}`,
           top: 0,
           left: _v0.left,
-          type: _v613,
+          type: _v618,
           isEdge: !0,
           isMiddle: !1
         }, {
@@ -21188,26 +21283,26 @@
           id: `guideline-right_${_v1}`,
           top: 0,
           left: _v0.right,
-          type: _v613,
+          type: _v618,
           isEdge: !0,
           isMiddle: !1
         }];
       return _v2 && (_v5 = [..._v5, _v3, _v4]), _v5;
     },
-    _v616 = () => {
+    _v621 = () => {
       let {
           clipBoxSize: _v0,
           scaleFactor: _v1
-        } = _v610(),
+        } = _v615(),
         {
           getElementsBounds: _v2
-        } = _v612(),
+        } = _v617(),
         _v3 = (0, _v26.useMemo)(() => {
           if (!_v0) return [];
           let _v0 = _v0.width === _v0.height,
             _v1 = _v0 ? .0925 * _v0.height : .111 * _v0.height,
             _v2 = _v0 ? .0825 * _v0.width : .0625 * _v0.width;
-          return _v615({
+          return _v620({
             top: _v1,
             left: _v2,
             bottom: _v0.height - _v1,
@@ -21216,7 +21311,7 @@
             yMiddle: _v0.height / 2
           }, "guideline-scene-inner");
         }, [_v0]),
-        _v4 = (0, _v26.useMemo)(() => _v0 ? _v615({
+        _v4 = (0, _v26.useMemo)(() => _v0 ? _v620({
           top: 0,
           left: 0,
           bottom: _v0.height - 1,
@@ -21234,7 +21329,7 @@
           if (!_v0) return [];
           let _v1 = [];
           return Object.entries(_v0).forEach(([_v0, _v1]) => {
-            let _v2 = _v615(_v1, _v0);
+            let _v2 = _v620(_v1, _v0);
             _v1.push(..._v2);
           }), _v1;
         }, [_v2]),
@@ -21266,7 +21361,7 @@
               isMiddle: _v2,
               type: _v3
             } = _v0;
-            _v2 && _v3 === _v613 ? 8 > Math.abs(_v0.left - (_v6.left + _v6.width / 2)) && (_v6.left = _v0.left - _v6.width / 2, _v3.push(_v0), _v2.includes(_v0.ceId) && _v4.push(_v0.ceId)) : _v2 && _v3 === _v614 ? 8 > Math.abs(_v0.top - (_v6.top + _v6.height / 2)) && (_v6.top = _v0.top - _v6.height / 2, _v3.push(_v0), _v2.includes(_v0.ceId) && _v4.push(_v0.ceId)) : _v1 && _v3 === _v613 ? (8 > Math.abs(_v0.left - _v6.left) && (_v6.left = _v0.left, _v3.push(_v0), _v2.includes(_v0.ceId) && _v4.push(_v0.ceId)), 8 > Math.abs(_v0.left - _v6.right) && (_v6.left = _v0.left - _v6.width + 1, _v3.push(_v0), _v2.includes(_v0.ceId) && _v4.push(_v0.ceId))) : _v1 && _v3 === _v614 && (8 > Math.abs(_v0.top - _v6.top) && (_v6.top = _v0.top, _v3.push(_v0), _v2.includes(_v0.ceId) && _v4.push(_v0.ceId)), 8 > Math.abs(_v0.top - _v6.bottom) && (_v6.top = _v0.top - _v6.height + 1, _v3.push(_v0), _v2.includes(_v0.ceId) && _v4.push(_v0.ceId)));
+            _v2 && _v3 === _v618 ? 8 > Math.abs(_v0.left - (_v6.left + _v6.width / 2)) && (_v6.left = _v0.left - _v6.width / 2, _v3.push(_v0), _v2.includes(_v0.ceId) && _v4.push(_v0.ceId)) : _v2 && _v3 === _v619 ? 8 > Math.abs(_v0.top - (_v6.top + _v6.height / 2)) && (_v6.top = _v0.top - _v6.height / 2, _v3.push(_v0), _v2.includes(_v0.ceId) && _v4.push(_v0.ceId)) : _v1 && _v3 === _v618 ? (8 > Math.abs(_v0.left - _v6.left) && (_v6.left = _v0.left, _v3.push(_v0), _v2.includes(_v0.ceId) && _v4.push(_v0.ceId)), 8 > Math.abs(_v0.left - _v6.right) && (_v6.left = _v0.left - _v6.width + 1, _v3.push(_v0), _v2.includes(_v0.ceId) && _v4.push(_v0.ceId))) : _v1 && _v3 === _v619 && (8 > Math.abs(_v0.top - _v6.top) && (_v6.top = _v0.top, _v3.push(_v0), _v2.includes(_v0.ceId) && _v4.push(_v0.ceId)), 8 > Math.abs(_v0.top - _v6.bottom) && (_v6.top = _v0.top - _v6.height + 1, _v3.push(_v0), _v2.includes(_v0.ceId) && _v4.push(_v0.ceId)));
           }), {
             snappingRect: {
               ..._v0,
@@ -21283,7 +21378,7 @@
         getSnappingGuidesRect: _v6
       };
     },
-    _v617 = ({
+    _v622 = ({
       id: _v0,
       isHovered: _v1
     }) => {
@@ -21291,7 +21386,7 @@
           setNodeRef: _v2,
           attributes: _v3,
           listeners: _v4
-        } = (0, _v596.useDraggable)({
+        } = (0, _v601.useDraggable)({
           id: _v0
         }),
         {
@@ -21325,10 +21420,10 @@
               isUIVisible: _v22,
               scaleFactor: _v23,
               highlightedElements: _v24
-            } = _v610(),
+            } = _v615(),
             {
               getSnappingGuidesRect: _v25
-            } = _v616(),
+            } = _v621(),
             {
               forcedCropRatio: _v26,
               snapToGuides: _v27
@@ -21348,7 +21443,7 @@
               let _v0 = _v13.current.getCroppedAssetConfig();
               _v82.getState().setCroppedAssetConfig(_v0, _v0 ?? null);
             }, [_v0]);
-          (0, _v596.useDndMonitor)({
+          (0, _v601.useDndMonitor)({
             onDragMove: _v0 => {
               if (_v0.active.id !== _v0 || !_v9) return;
               let _v1 = _v7 || _v9;
@@ -21370,7 +21465,7 @@
                     })
                   },
                   ceId: _v0,
-                  availableGuidingElements: _v598
+                  availableGuidingElements: _v603
                 });
                 _v19(_v2), _v18(_v0), _v13.current.changePosition(_v13.current.convertCroppedPositionToFullBox({
                   x: _v1.x * _v23,
@@ -21394,7 +21489,7 @@
             _v13.current && _v4(_v13.current.getUIRepresentedBoxChanges(_v23));
           }, [_v23]);
           (0, _v26.useEffect)(() => {
-            _v13.current = new _v606(_v0), _v6(!0);
+            _v13.current = new _v611(_v0), _v6(!0);
           }, [_v6, _v0]), (0, _v26.useEffect)(() => {
             _v13.current?.onChange((_v0, _v1) => {
               _v1.initialized && (_v33(), _v13.current && _v11?.dispatchChanges({
@@ -21412,7 +21507,7 @@
             _v35 = (0, _v26.useCallback)(_v0 => {
               "crop" === _v0 && _v28 || _v16(_v0, _v0);
             }, [_v16, _v0, _v28]),
-            _v36 = (0, _v601.useThrottledCallback)((_v0, {
+            _v36 = (0, _v606.useThrottledCallback)((_v0, {
               size: {
                 width: _v1,
                 height: _v2
@@ -21513,13 +21608,13 @@
   `;
       })(_v6.size, _v6.originalTansform, _v6.transform);
       return (0, _v25.jsxs)(_v25.Fragment, {
-        children: [(0, _v25.jsx)(_v597.Resizable, {
+        children: [(0, _v25.jsx)(_v602.Resizable, {
           lockAspectRatio: !0,
           width: _v6.size.width * _v6.transform.scaleX,
           height: _v6.size.height * _v6.transform.scaleY,
           onResize: _v7,
           onResizeStop: _v8,
-          handle: (0, _v25.jsx)(_v600, {
+          handle: (0, _v25.jsx)(_v605, {
             type: _v5,
             size: 8
           }),
@@ -21579,7 +21674,7 @@
         })]
       });
     },
-    _v618 = ({
+    _v623 = ({
       type: _v0,
       top: _v1,
       left: _v2,
@@ -21592,14 +21687,14 @@
       pointerEvents: "none",
       backgroundColor: "transparent",
       sx: {
-        ...(_v0 === _v613 ? {
+        ...(_v0 === _v618 ? {
           top: 0,
           bottom: 0,
           left: `${_v2 - 5}px`,
           width: "1px",
           borderRight: "5px solid transparent",
           borderLeft: "5px solid transparent"
-        } : _v0 === _v614 ? {
+        } : _v0 === _v619 ? {
           top: `${_v1 - 5}px`,
           left: 0,
           right: 0,
@@ -21614,13 +21709,13 @@
         height: "100%"
       })
     }),
-    _v619 = () => {
+    _v624 = () => {
       let {
           activeGuides: _v0
-        } = _v610(),
+        } = _v615(),
         {
           stageInnerGuides: _v1
-        } = _v616(),
+        } = _v621(),
         _v2 = _v82(({
           showGuides: _v0
         }) => _v0);
@@ -21630,12 +21725,12 @@
         overflow: "hidden",
         pointerEvents: "none",
         position: "relative",
-        children: [_v1.length > 0 && _v2 && _v1.map(_v0 => !_v0.isMiddle && (0, _v25.jsx)(_v618, {
+        children: [_v1.length > 0 && _v2 && _v1.map(_v0 => !_v0.isMiddle && (0, _v25.jsx)(_v623, {
           left: _v0.left,
           top: _v0.top,
           type: _v0.type,
           testId: _v0.id
-        }, _v0.id)), _v0 && _v0.map(_v0 => (0, _v25.jsx)(_v618, {
+        }, _v0.id)), _v0 && _v0.map(_v0 => (0, _v25.jsx)(_v623, {
           testId: _v0.id,
           left: _v0.left,
           top: _v0.top,
@@ -21643,20 +21738,20 @@
         }, _v0.id))]
       });
     };
-  var _v620 = _v0.i(0);
-  let _v621 = () => {
+  var _v625 = _v0.i(0);
+  let _v626 = () => {
       let {
           draggableElementsKeys: _v0
-        } = _v610(),
+        } = _v615(),
         {
           hoveredElementId: _v1
         } = (() => {
           let {
               getElementKeyByPoint: _v0
-            } = _v612(),
+            } = _v617(),
             [_v1, _v2] = (0, _v26.useState)(null);
           return (0, _v26.useEffect)(() => {
-            let _v0 = (0, _v620.default)(_v0 => {
+            let _v0 = (0, _v625.default)(_v0 => {
               _v2(_v0({
                 x: _v0.clientX,
                 y: _v0.clientY
@@ -21677,35 +21772,35 @@
         height: "100%",
         pointerEvents: "none",
         zIndex: "1",
-        children: [_v0.map(_v0 => (0, _v25.jsx)(_v617, {
+        children: [_v0.map(_v0 => (0, _v25.jsx)(_v622, {
           id: _v0,
           isHovered: !!_v1 && _v0 === _v1
-        }, _v0)), (0, _v25.jsx)(_v619, {})]
+        }, _v0)), (0, _v25.jsx)(_v624, {})]
       });
     },
-    _v622 = "camera-background",
-    _v623 = (_v633 = "images", _v23 = null, _v24 = async () => (null === _v23 && (_v23 = await _v132("record-studio-images", 1, (_v0, _v1) => {
-      _v1.oldVersion < 1 && _v0.result.createObjectStore(_v633);
+    _v627 = "camera-background",
+    _v628 = (_v638 = "images", _v23 = null, _v24 = async () => (null === _v23 && (_v23 = await _v132("record-studio-images", 1, (_v0, _v1) => {
+      _v1.oldVersion < 1 && _v0.result.createObjectStore(_v638);
     })), _v23), {
       set: async (_v0, _v1) => {
         try {
           let _v0 = await _v24();
-          _v0 && (await _v133(_v0, _v633, "readwrite", async _v0 => {
-            await _v128(_v0.objectStore(_v633), _v1, _v0);
+          _v0 && (await _v133(_v0, _v638, "readwrite", async _v0 => {
+            await _v128(_v0.objectStore(_v638), _v1, _v0);
           }));
         } catch {}
       },
       get: async _v0 => {
         try {
           let _v0 = await _v24();
-          if (_v0) return await _v133(_v0, _v633, "readonly", _v0 => _v127(_v0.objectStore(_v633), _v0));
+          if (_v0) return await _v133(_v0, _v638, "readonly", _v0 => _v127(_v0.objectStore(_v638), _v0));
           return;
         } catch {
           return;
         }
       }
     }),
-    _v624 = (0, _v68.createStore)((_v0, _v1) => ({
+    _v629 = (0, _v68.createStore)((_v0, _v1) => ({
       cameraBackground: null,
       cameraBackgroundUrl: null,
       getCameraBackground: async () => {
@@ -21713,7 +21808,7 @@
           cameraBackground: _v1().cameraBackground,
           cameraBackgroundUrl: _v1().cameraBackgroundUrl
         };
-        let _v0 = await _v623.get(_v622);
+        let _v0 = await _v628.get(_v627);
         if (_v0 && _v0 instanceof File) {
           let _v0 = await createImageBitmap(_v0),
             _v1 = URL.createObjectURL(_v0);
@@ -21728,7 +21823,7 @@
       },
       setCameraBackground: async _v0 => {
         try {
-          await _v623.set(_v622, _v0);
+          await _v628.set(_v627, _v0);
           let _v0 = await createImageBitmap(_v0),
             _v1 = URL.createObjectURL(_v0);
           _v0(_v0 => {
@@ -21745,10 +21840,10 @@
         };
       }
     }));
-  var _v625 = "u" > typeof self ? self : {};
-  function _v626(_v0, _v1) {
+  var _v630 = "u" > typeof self ? self : {};
+  function _v631(_v0, _v1) {
     e: {
-      for (var _v2 = ["CLOSURE_FLAGS"], _v3 = _v625, _v4 = 0; _v4 < _v2.length; _v4++) if (null == (_v3 = _v3[_v2[_v4]])) {
+      for (var _v2 = ["CLOSURE_FLAGS"], _v3 = _v630, _v4 = 0; _v4 < _v2.length; _v4++) if (null == (_v3 = _v3[_v2[_v4]])) {
         _v2 = null;
         break e;
       }
@@ -21756,16 +21851,16 @@
     }
     return null != (_v0 = _v2 && _v2[_v0]) ? _v0 : _v1;
   }
-  function _v627() {
+  function _v632() {
     throw Error("Invalid UTF8");
   }
-  function _v628(_v0, _v1) {
+  function _v633(_v0, _v1) {
     return _v1 = String.fromCharCode.apply(null, _v1), null == _v0 ? _v1 : _v0 + _v1;
   }
-  let _v629 = "u" > typeof TextDecoder,
-    _v630 = "u" > typeof TextEncoder;
-  function _v631(_v0) {
-    if (_v630) _v0 = (_v3 ||= new TextEncoder()).encode(_v0);else {
+  let _v634 = "u" > typeof TextDecoder,
+    _v635 = "u" > typeof TextEncoder;
+  function _v636(_v0) {
+    if (_v635) _v0 = (_v3 ||= new TextEncoder()).encode(_v0);else {
       let _v0 = 0,
         _v1 = new Uint8Array(3 * _v0.length);
       for (let _v0 = 0; _v0 < _v0.length; _v0++) {
@@ -21792,53 +21887,53 @@
     }
     return _v0;
   }
-  var _v632,
-    _v633,
-    _v634,
-    _v635 = _v626(0, !1),
-    _v636 = _v626(0, _v626(1, !0));
-  let _v637 = _v625.navigator;
-  function _v638(_v0) {
-    return !!_v635 && !!_v634 && _v634.brands.some(({
+  var _v637,
+    _v638,
+    _v639,
+    _v640 = _v631(0, !1),
+    _v641 = _v631(0, _v631(1, !0));
+  let _v642 = _v630.navigator;
+  function _v643(_v0) {
+    return !!_v640 && !!_v639 && _v639.brands.some(({
       brand: _v0
     }) => _v0 && -1 != _v0.indexOf(_v0));
   }
-  function _v639(_v0) {
+  function _v644(_v0) {
     var _v1;
-    return (_v1 = _v625.navigator) && (_v1 = _v1.userAgent) || (_v1 = ""), -1 != _v1.indexOf(_v0);
+    return (_v1 = _v630.navigator) && (_v1 = _v1.userAgent) || (_v1 = ""), -1 != _v1.indexOf(_v0);
   }
-  function _v640() {
-    return !!_v635 && !!_v634 && _v634.brands.length > 0;
+  function _v645() {
+    return !!_v640 && !!_v639 && _v639.brands.length > 0;
   }
-  function _v641() {
-    return _v640() ? _v638("Chromium") : (_v639("Chrome") || _v639("CriOS")) && !(!_v640() && _v639("Edge")) || _v639("Silk");
-  }
-  function _v642(_v0) {
-    return _v642[" "](_v0), _v0;
-  }
-  _v634 = _v637 && _v637.userAgentData || null, _v642[" "] = function () {};
-  var _v643 = !_v640() && (_v639("Trident") || _v639("MSIE"));
-  _v639("Android") && _v641(), _v641(), _v639("Safari") && (_v641() || !_v640() && _v639("Coast") || !_v640() && _v639("Opera") || !_v640() && _v639("Edge") || (_v640() ? _v638("Microsoft Edge") : _v639("Edg/")) || _v640() && _v638("Opera"));
-  var _v644 = {},
-    _v645 = null;
   function _v646() {
-    if (!_v645) {
-      _v645 = {};
+    return _v645() ? _v643("Chromium") : (_v644("Chrome") || _v644("CriOS")) && !(!_v645() && _v644("Edge")) || _v644("Silk");
+  }
+  function _v647(_v0) {
+    return _v647[" "](_v0), _v0;
+  }
+  _v639 = _v642 && _v642.userAgentData || null, _v647[" "] = function () {};
+  var _v648 = !_v645() && (_v644("Trident") || _v644("MSIE"));
+  _v644("Android") && _v646(), _v646(), _v644("Safari") && (_v646() || !_v645() && _v644("Coast") || !_v645() && _v644("Opera") || !_v645() && _v644("Edge") || (_v645() ? _v643("Microsoft Edge") : _v644("Edg/")) || _v645() && _v643("Opera"));
+  var _v649 = {},
+    _v650 = null;
+  function _v651() {
+    if (!_v650) {
+      _v650 = {};
       for (var _v0 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split(""), _v1 = ["+/=", "+/", "-_=", "-_.", "-_"], _v2 = 0; _v2 < 5; _v2++) {
         var _v3 = _v0.concat(_v1[_v2].split(""));
-        _v644[_v2] = _v3;
+        _v649[_v2] = _v3;
         for (var _v4 = 0; _v4 < _v3.length; _v4++) {
           var _v5 = _v3[_v4];
-          void 0 === _v645[_v5] && (_v645[_v5] = _v4);
+          void 0 === _v650[_v5] && (_v650[_v5] = _v4);
         }
       }
     }
   }
-  var _v647 = "u" > typeof Uint8Array,
-    _v648 = !_v643 && "function" == typeof btoa;
-  function _v649(_v0) {
-    if (!_v648) {
-      void 0 === _v1 && (_v1 = 0), _v646(), _v1 = _v644[_v1];
+  var _v652 = "u" > typeof Uint8Array,
+    _v653 = !_v648 && "function" == typeof btoa;
+  function _v654(_v0) {
+    if (!_v653) {
+      void 0 === _v1 && (_v1 = 0), _v651(), _v1 = _v649[_v1];
       var _v1,
         _v2 = Array(Math.floor(_v0.length / 3)),
         _v3 = _v1[64] || "";
@@ -21862,29 +21957,29 @@
     for (_v1 = "", _v2 = 0, _v3 = _v0.length - 0; _v2 < _v3;) _v1 += String.fromCharCode.apply(null, _v0.subarray(_v2, _v2 += 0));
     return btoa(_v1 += String.fromCharCode.apply(null, _v2 ? _v0.subarray(_v2) : _v0));
   }
-  let _v650 = /[-_.]/g,
-    _v651 = {
+  let _v655 = /[-_.]/g,
+    _v656 = {
       "-": "+",
       _: "/",
       ".": "="
     };
-  function _v652(_v0) {
-    return _v651[_v0] || "";
+  function _v657(_v0) {
+    return _v656[_v0] || "";
   }
-  function _v653(_v0) {
-    if (!_v648) {
+  function _v658(_v0) {
+    if (!_v653) {
       var _v1, _v2, _v3, _v4, _v5;
       return (_v3 = 3 * (_v2 = (_v1 = _v0).length) / 4) % 3 ? _v3 = Math.floor(_v3) : -1 != "=.".indexOf(_v1[_v2 - 1]) && (_v3 = -1 != "=.".indexOf(_v1[_v2 - 2]) ? _v3 - 2 : _v3 - 1), _v4 = new Uint8Array(_v3), _v5 = 0, function (_v0, _v1) {
         function _v2(_v0) {
           for (; _v3 < _v0.length;) {
             var _v1 = _v0.charAt(_v3++),
-              _v2 = _v645[_v1];
+              _v2 = _v650[_v1];
             if (null != _v2) return _v2;
             if (!/^[\s\xa0]*$/.test(_v1)) throw Error("Unknown base64 encoding at char: " + _v1);
           }
           return _v0;
         }
-        _v646();
+        _v651();
         for (var _v3 = 0;;) {
           var _v4 = _v2(-1),
             _v5 = _v2(0),
@@ -21897,63 +21992,63 @@
         _v4[_v5++] = _v0;
       }), _v5 !== _v3 ? _v4.subarray(0, _v5) : _v4;
     }
-    _v650.test(_v0) && (_v0 = _v0.replace(_v650, _v652));
+    _v655.test(_v0) && (_v0 = _v0.replace(_v655, _v657));
     let _v6 = new Uint8Array((_v0 = atob(_v0)).length);
     for (let _v0 = 0; _v0 < _v0.length; _v0++) _v6[_v0] = _v0.charCodeAt(_v0);
     return _v6;
   }
-  function _v654(_v0) {
-    return _v647 && null != _v0 && _v0 instanceof Uint8Array;
+  function _v659(_v0) {
+    return _v652 && null != _v0 && _v0 instanceof Uint8Array;
   }
-  var _v655 = {};
-  function _v656(_v0) {
-    if (_v0 !== _v655) throw Error("illegal external caller");
+  var _v660 = {};
+  function _v661(_v0) {
+    if (_v0 !== _v660) throw Error("illegal external caller");
   }
-  function _v657() {
-    return _v4 ||= new _v659(null, _v655);
+  function _v662() {
+    return _v4 ||= new _v664(null, _v660);
   }
-  function _v658(_v0) {
-    _v656(_v655);
+  function _v663(_v0) {
+    _v661(_v660);
     var _v1 = _v0.g;
-    return null == (_v1 = null == _v1 || _v654(_v1) ? _v1 : "string" == typeof _v1 ? _v653(_v1) : null) ? _v1 : _v0.g = _v1;
+    return null == (_v1 = null == _v1 || _v659(_v1) ? _v1 : "string" == typeof _v1 ? _v658(_v1) : null) ? _v1 : _v0.g = _v1;
   }
-  var _v659 = class {
+  var _v664 = class {
     constructor(_v0, _v1) {
-      if (_v656(_v1), this.g = _v0, null != _v0 && 0 === _v0.length) throw Error("ByteString should be constructed with non-empty values");
+      if (_v661(_v1), this.g = _v0, null != _v0 && 0 === _v0.length) throw Error("ByteString should be constructed with non-empty values");
     }
     h() {
-      return new Uint8Array(_v658(this) || 0);
+      return new Uint8Array(_v663(this) || 0);
     }
   };
-  function _v660(_v0, _v1) {
+  function _v665(_v0, _v1) {
     _v0.__closure__error__context__984382 || (_v0.__closure__error__context__984382 = {}), _v0.__closure__error__context__984382.severity = _v1;
   }
-  function _v661() {
+  function _v666() {
     let _v0 = Error();
-    _v660(_v0, "incident"), _v625.setTimeout(() => {
+    _v665(_v0, "incident"), _v630.setTimeout(() => {
       throw _v0;
     }, 0);
   }
-  function _v662(_v0) {
-    return _v660(_v0 = Error(_v0), "warning"), _v0;
+  function _v667(_v0) {
+    return _v665(_v0 = Error(_v0), "warning"), _v0;
   }
-  function _v663() {
+  function _v668() {
     return "function" == typeof BigInt;
   }
-  function _v664(_v0) {
+  function _v669(_v0) {
     return Array.prototype.slice.call(_v0);
   }
-  var _v665 = "function" == typeof Symbol && "symbol" == typeof Symbol();
-  function _v666(_v0) {
+  var _v670 = "function" == typeof Symbol && "symbol" == typeof Symbol();
+  function _v671(_v0) {
     return "function" == typeof Symbol && "symbol" == typeof Symbol() ? Symbol() : _v0;
   }
-  var _v667 = _v666(),
-    _v668 = _v666("0di"),
-    _v669 = _v666("2ex"),
-    _v670 = _v666("1oa"),
-    _v671 = _v666("0dg"),
-    _v672 = _v665 ? (_v0, _v1) => {
-      _v0[_v667] |= _v1;
+  var _v672 = _v671(),
+    _v673 = _v671("0di"),
+    _v674 = _v671("2ex"),
+    _v675 = _v671("1oa"),
+    _v676 = _v671("0dg"),
+    _v677 = _v670 ? (_v0, _v1) => {
+      _v0[_v672] |= _v1;
     } : (_v0, _v1) => {
       void 0 !== _v0.G ? _v0.G |= _v1 : Object.defineProperties(_v0, {
         G: {
@@ -21964,15 +22059,15 @@
         }
       });
     },
-    _v673 = _v665 ? (_v0, _v1) => {
-      _v0[_v667] &= ~_v1;
+    _v678 = _v670 ? (_v0, _v1) => {
+      _v0[_v672] &= ~_v1;
     } : (_v0, _v1) => {
       void 0 !== _v0.G && (_v0.G &= ~_v1);
     },
-    _v674 = _v665 ? _v0 => 0 | _v0[_v667] : _v0 => 0 | _v0.G,
-    _v675 = _v665 ? _v0 => _v0[_v667] : _v0 => _v0.G,
-    _v676 = _v665 ? (_v0, _v1) => {
-      _v0[_v667] = _v1;
+    _v679 = _v670 ? _v0 => 0 | _v0[_v672] : _v0 => 0 | _v0.G,
+    _v680 = _v670 ? _v0 => _v0[_v672] : _v0 => _v0.G,
+    _v681 = _v670 ? (_v0, _v1) => {
+      _v0[_v672] = _v1;
     } : (_v0, _v1) => {
       void 0 !== _v0.G ? _v0.G = _v1 : Object.defineProperties(_v0, {
         G: {
@@ -21983,42 +22078,42 @@
         }
       });
     };
-  function _v677(_v0) {
-    return _v672(_v0, 34), _v0;
+  function _v682(_v0) {
+    return _v677(_v0, 34), _v0;
   }
-  function _v678(_v0, _v1) {
-    _v676(_v1, 0 & _v0);
+  function _v683(_v0, _v1) {
+    _v681(_v1, 0 & _v0);
   }
-  function _v679(_v0, _v1) {
-    _v676(_v1, 0 & (34 | _v0));
+  function _v684(_v0, _v1) {
+    _v681(_v1, 0 & (34 | _v0));
   }
-  var _v680,
-    _v681 = {},
-    _v682 = {};
-  function _v683(_v0) {
-    return !(!_v0 || "object" != typeof _v0 || _v0.Ja !== _v682);
+  var _v685,
+    _v686 = {},
+    _v687 = {};
+  function _v688(_v0) {
+    return !(!_v0 || "object" != typeof _v0 || _v0.Ja !== _v687);
   }
-  function _v684(_v0) {
+  function _v689(_v0) {
     return null !== _v0 && "object" == typeof _v0 && !Array.isArray(_v0) && _v0.constructor === Object;
   }
-  function _v685(_v0, _v1, _v2) {
+  function _v690(_v0, _v1, _v2) {
     if (null != _v0) {
-      if ("string" == typeof _v0) _v0 = _v0 ? new _v659(_v0, _v655) : _v657();else if (_v0.constructor !== _v659) if (_v654(_v0)) _v0 = _v0.length ? new _v659(_v2 ? _v0 : new Uint8Array(_v0), _v655) : _v657();else {
+      if ("string" == typeof _v0) _v0 = _v0 ? new _v664(_v0, _v660) : _v662();else if (_v0.constructor !== _v664) if (_v659(_v0)) _v0 = _v0.length ? new _v664(_v2 ? _v0 : new Uint8Array(_v0), _v660) : _v662();else {
         if (!_v1) throw Error();
         _v0 = void 0;
       }
     }
     return _v0;
   }
-  function _v686(_v0) {
-    return !(!Array.isArray(_v0) || _v0.length) && !!(1 & _v674(_v0));
+  function _v691(_v0) {
+    return !(!Array.isArray(_v0) || _v0.length) && !!(1 & _v679(_v0));
   }
-  let _v687 = [];
-  function _v688(_v0) {
+  let _v692 = [];
+  function _v693(_v0) {
     if (2 & _v0) throw Error();
   }
-  _v676(_v687, 55), _v680 = Object.freeze(_v687);
-  class _v689 {
+  _v681(_v692, 55), _v685 = Object.freeze(_v692);
+  class _v694 {
     constructor(_v0, _v1, _v2) {
       this.l = 0, this.g = _v0, this.h = _v1, this.m = _v2;
     }
@@ -22036,28 +22131,28 @@
       };
     }
     [Symbol.iterator]() {
-      return new _v689(this.g, this.h, this.m);
+      return new _v694(this.g, this.h, this.m);
     }
   }
-  function _v690(_v0, _v1) {
-    (_v1 = _v6 ? _v1[_v6] : void 0) && (_v0[_v6] = _v664(_v1));
+  function _v695(_v0, _v1) {
+    (_v1 = _v6 ? _v1[_v6] : void 0) && (_v0[_v6] = _v669(_v1));
   }
-  var _v691 = Object.freeze({}),
-    _v692 = Object.freeze({}),
-    _v693 = Object.freeze({});
-  function _v694(_v0) {
+  var _v696 = Object.freeze({}),
+    _v697 = Object.freeze({}),
+    _v698 = Object.freeze({});
+  function _v699(_v0) {
     return _v0.Qa = !0, _v0;
   }
-  var _v695 = _v694(_v0 => "number" == typeof _v0),
-    _v696 = _v694(_v0 => "string" == typeof _v0),
-    _v697 = _v694(_v0 => "boolean" == typeof _v0),
-    _v698 = "function" == typeof _v625.BigInt && "bigint" == typeof _v625.BigInt(0),
-    _v699 = _v694(_v0 => _v698 ? _v0 >= _v701 && _v0 <= _v703 : "-" === _v0[0] ? _v704(_v0, _v700) : _v704(_v0, _v702));
-  let _v700 = Number.MIN_SAFE_INTEGER.toString(),
-    _v701 = _v698 ? BigInt(Number.MIN_SAFE_INTEGER) : void 0,
-    _v702 = Number.MAX_SAFE_INTEGER.toString(),
-    _v703 = _v698 ? BigInt(Number.MAX_SAFE_INTEGER) : void 0;
-  function _v704(_v0, _v1) {
+  var _v700 = _v699(_v0 => "number" == typeof _v0),
+    _v701 = _v699(_v0 => "string" == typeof _v0),
+    _v702 = _v699(_v0 => "boolean" == typeof _v0),
+    _v703 = "function" == typeof _v630.BigInt && "bigint" == typeof _v630.BigInt(0),
+    _v704 = _v699(_v0 => _v703 ? _v0 >= _v706 && _v0 <= _v708 : "-" === _v0[0] ? _v709(_v0, _v705) : _v709(_v0, _v707));
+  let _v705 = Number.MIN_SAFE_INTEGER.toString(),
+    _v706 = _v703 ? BigInt(Number.MIN_SAFE_INTEGER) : void 0,
+    _v707 = Number.MAX_SAFE_INTEGER.toString(),
+    _v708 = _v703 ? BigInt(Number.MAX_SAFE_INTEGER) : void 0;
+  function _v709(_v0, _v1) {
     if (_v0.length > _v1.length) return !1;
     if (_v0.length < _v1.length || _v0 === _v1) return !0;
     for (let _v0 = 0; _v0 < _v0.length; _v0++) {
@@ -22067,65 +22162,65 @@
       if (_v0 < _v1) return !0;
     }
   }
-  let _v705 = "function" == typeof Uint8Array.prototype.slice,
-    _v706,
-    _v707 = 0,
-    _v708 = 0;
-  function _v709(_v0) {
+  let _v710 = "function" == typeof Uint8Array.prototype.slice,
+    _v711,
+    _v712 = 0,
+    _v713 = 0;
+  function _v714(_v0) {
     let _v1 = _v0 >>> 0;
-    _v707 = _v1, _v708 = (_v0 - _v1) / 0 >>> 0;
-  }
-  function _v710(_v0) {
-    if (_v0 < 0) {
-      _v709(-_v0);
-      let [_v0, _v1] = _v717(_v707, _v708);
-      _v707 = _v0 >>> 0, _v708 = _v1 >>> 0;
-    } else _v709(_v0);
-  }
-  function _v711(_v0) {
-    let _v1 = _v706 ||= new DataView(new ArrayBuffer(8));
-    _v1.setFloat32(0, +_v0, !0), _v708 = 0, _v707 = _v1.getUint32(0, !0);
-  }
-  function _v712(_v0, _v1) {
-    return 0 * _v1 + (_v0 >>> 0);
-  }
-  function _v713(_v0, _v1) {
-    let _v2 = 0 & _v1;
-    return _v2 && (_v1 = ~_v1 >>> 0, 0 == (_v0 = 1 + ~_v0 >>> 0) && (_v1 = _v1 + 1 >>> 0)), _v0 = _v712(_v0, _v1), _v2 ? -_v0 : _v0;
-  }
-  function _v714(_v0, _v1) {
-    if (_v0 >>>= 0, (_v1 >>>= 0) <= 0) var _v2 = "" + (0 * _v1 + _v0);else _v663() ? _v2 = "" + (BigInt(_v1) << BigInt(32) | BigInt(_v0)) : (_v0 = (0 & _v0) + 0 * (_v2 = 0 & (_v0 >>> 24 | _v1 << 8)) + 0 * (_v1 = _v1 >> 16 & 0), _v2 += 0 * _v1, _v1 *= 2, _v0 >= 0 && (_v2 += _v0 / 0 >>> 0, _v0 %= 0), _v2 >= 0 && (_v1 += _v2 / 0 >>> 0, _v2 %= 0), _v2 = _v1 + _v715(_v2) + _v715(_v0));
-    return _v2;
+    _v712 = _v1, _v713 = (_v0 - _v1) / 0 >>> 0;
   }
   function _v715(_v0) {
-    return _v0 = String(_v0), "0000000".slice(_v0.length) + _v0;
+    if (_v0 < 0) {
+      _v714(-_v0);
+      let [_v0, _v1] = _v722(_v712, _v713);
+      _v712 = _v0 >>> 0, _v713 = _v1 >>> 0;
+    } else _v714(_v0);
   }
   function _v716(_v0) {
-    if (_v0.length < 16) _v710(Number(_v0));else if (_v663()) _v707 = Number((_v0 = BigInt(_v0)) & BigInt(0)) >>> 0, _v708 = Number(_v0 >> BigInt(32) & BigInt(0));else {
+    let _v1 = _v711 ||= new DataView(new ArrayBuffer(8));
+    _v1.setFloat32(0, +_v0, !0), _v713 = 0, _v712 = _v1.getUint32(0, !0);
+  }
+  function _v717(_v0, _v1) {
+    return 0 * _v1 + (_v0 >>> 0);
+  }
+  function _v718(_v0, _v1) {
+    let _v2 = 0 & _v1;
+    return _v2 && (_v1 = ~_v1 >>> 0, 0 == (_v0 = 1 + ~_v0 >>> 0) && (_v1 = _v1 + 1 >>> 0)), _v0 = _v717(_v0, _v1), _v2 ? -_v0 : _v0;
+  }
+  function _v719(_v0, _v1) {
+    if (_v0 >>>= 0, (_v1 >>>= 0) <= 0) var _v2 = "" + (0 * _v1 + _v0);else _v668() ? _v2 = "" + (BigInt(_v1) << BigInt(32) | BigInt(_v0)) : (_v0 = (0 & _v0) + 0 * (_v2 = 0 & (_v0 >>> 24 | _v1 << 8)) + 0 * (_v1 = _v1 >> 16 & 0), _v2 += 0 * _v1, _v1 *= 2, _v0 >= 0 && (_v2 += _v0 / 0 >>> 0, _v0 %= 0), _v2 >= 0 && (_v1 += _v2 / 0 >>> 0, _v2 %= 0), _v2 = _v1 + _v720(_v2) + _v720(_v0));
+    return _v2;
+  }
+  function _v720(_v0) {
+    return _v0 = String(_v0), "0000000".slice(_v0.length) + _v0;
+  }
+  function _v721(_v0) {
+    if (_v0.length < 16) _v715(Number(_v0));else if (_v668()) _v712 = Number((_v0 = BigInt(_v0)) & BigInt(0)) >>> 0, _v713 = Number(_v0 >> BigInt(32) & BigInt(0));else {
       let _v0 = +("-" === _v0[0]);
-      _v708 = _v707 = 0;
+      _v713 = _v712 = 0;
       let _v1 = _v0.length;
       for (let _v0 = _v0, _v1 = (_v1 - _v0) % 6 + _v0; _v1 <= _v1; _v0 = _v1, _v1 += 6) {
         let _v0 = Number(_v0.slice(_v0, _v1));
-        _v708 *= 0, (_v707 = 0 * _v707 + _v0) >= 0 && (_v708 += Math.trunc(_v707 / 0), _v708 >>>= 0, _v707 >>>= 0);
+        _v713 *= 0, (_v712 = 0 * _v712 + _v0) >= 0 && (_v713 += Math.trunc(_v712 / 0), _v713 >>>= 0, _v712 >>>= 0);
       }
       if (_v0) {
-        let [_v0, _v1] = _v717(_v707, _v708);
-        _v707 = _v0, _v708 = _v1;
+        let [_v0, _v1] = _v722(_v712, _v713);
+        _v712 = _v0, _v713 = _v1;
       }
     }
   }
-  function _v717(_v0, _v1) {
+  function _v722(_v0, _v1) {
     return _v1 = ~_v1, _v0 ? _v0 = 1 + ~_v0 : _v1 += 1, [_v0, _v1];
   }
-  function _v718(_v0) {
+  function _v723(_v0) {
     return null == _v0 || "number" == typeof _v0 ? _v0 : "NaN" === _v0 || "Infinity" === _v0 || "-Infinity" === _v0 ? Number(_v0) : void 0;
   }
-  function _v719(_v0) {
+  function _v724(_v0) {
     return null == _v0 || "boolean" == typeof _v0 ? _v0 : "number" == typeof _v0 ? !!_v0 : void 0;
   }
-  let _v720 = /^-?([1-9][0-9]*|0)(\.[0-9]+)?$/;
-  function _v721(_v0) {
+  let _v725 = /^-?([1-9][0-9]*|0)(\.[0-9]+)?$/;
+  function _v726(_v0) {
     let _v1 = typeof _v0;
     switch (_v1) {
       case "bigint":
@@ -22133,9 +22228,9 @@
       case "number":
         return Number.isFinite(_v0);
     }
-    return "string" === _v1 && _v720.test(_v0);
+    return "string" === _v1 && _v725.test(_v0);
   }
-  function _v722(_v0) {
+  function _v727(_v0) {
     if (null == _v0) return _v0;
     if ("string" == typeof _v0) {
       if (!_v0) return;
@@ -22143,7 +22238,7 @@
     }
     return "number" == typeof _v0 && Number.isFinite(_v0) ? 0 | _v0 : void 0;
   }
-  function _v723(_v0) {
+  function _v728(_v0) {
     if (null == _v0) return _v0;
     if ("string" == typeof _v0) {
       if (!_v0) return;
@@ -22151,65 +22246,65 @@
     }
     return "number" == typeof _v0 && Number.isFinite(_v0) ? _v0 >>> 0 : void 0;
   }
-  function _v724(_v0) {
+  function _v729(_v0) {
     return "-" !== _v0[0] && (_v0.length < 20 || 20 === _v0.length && 0 > Number(_v0.substring(0, 6)));
   }
-  function _v725(_v0) {
-    return Number.isSafeInteger(_v0 = Math.trunc(_v0)) || (_v710(_v0), _v0 = _v713(_v707, _v708)), _v0;
+  function _v730(_v0) {
+    return Number.isSafeInteger(_v0 = Math.trunc(_v0)) || (_v715(_v0), _v0 = _v718(_v712, _v713)), _v0;
   }
-  function _v726(_v0) {
+  function _v731(_v0) {
     var _v1 = Math.trunc(Number(_v0));
     if (Number.isSafeInteger(_v1)) return String(_v1);
-    if (-1 !== (_v1 = _v0.indexOf(".")) && (_v0 = _v0.substring(0, _v1)), !("-" === _v0[0] ? _v0.length < 20 || 20 === _v0.length && Number(_v0.substring(0, 7)) > 0 : _v0.length < 19 || 19 === _v0.length && 0 > Number(_v0.substring(0, 6)))) if (_v716(_v0), _v0 = _v707, 0 & (_v1 = _v708)) {
-      if (_v663()) _v0 = "" + (BigInt(0 | _v1) << BigInt(32) | BigInt(_v0 >>> 0));else {
-        let [_v0, _v1] = _v717(_v0, _v1);
-        _v0 = "-" + _v714(_v0, _v1);
+    if (-1 !== (_v1 = _v0.indexOf(".")) && (_v0 = _v0.substring(0, _v1)), !("-" === _v0[0] ? _v0.length < 20 || 20 === _v0.length && Number(_v0.substring(0, 7)) > 0 : _v0.length < 19 || 19 === _v0.length && 0 > Number(_v0.substring(0, 6)))) if (_v721(_v0), _v0 = _v712, 0 & (_v1 = _v713)) {
+      if (_v668()) _v0 = "" + (BigInt(0 | _v1) << BigInt(32) | BigInt(_v0 >>> 0));else {
+        let [_v0, _v1] = _v722(_v0, _v1);
+        _v0 = "-" + _v719(_v0, _v1);
       }
-    } else _v0 = _v714(_v0, _v1);
+    } else _v0 = _v719(_v0, _v1);
     return _v0;
   }
-  function _v727(_v0) {
-    return null == _v0 ? _v0 : "bigint" == typeof _v0 ? _v0 = _v699(_v0) || _v699(_v0 = BigInt.asIntN(64, _v0)) ? Number(_v0) : String(_v0) : _v721(_v0) ? "number" == typeof _v0 ? _v725(_v0) : _v726(_v0) : void 0;
+  function _v732(_v0) {
+    return null == _v0 ? _v0 : "bigint" == typeof _v0 ? _v0 = _v704(_v0) || _v704(_v0 = BigInt.asIntN(64, _v0)) ? Number(_v0) : String(_v0) : _v726(_v0) ? "number" == typeof _v0 ? _v730(_v0) : _v731(_v0) : void 0;
   }
-  function _v728(_v0) {
+  function _v733(_v0) {
     if ("string" != typeof _v0) throw Error();
     return _v0;
   }
-  function _v729(_v0) {
+  function _v734(_v0) {
     if (null != _v0 && "string" != typeof _v0) throw Error();
     return _v0;
   }
-  function _v730(_v0) {
+  function _v735(_v0) {
     return null == _v0 || "string" == typeof _v0 ? _v0 : void 0;
   }
-  function _v731(_v0, _v1, _v2, _v3) {
-    if (null != _v0 && "object" == typeof _v0 && _v0.X === _v681) return _v0;
-    if (!Array.isArray(_v0)) return _v2 ? 2 & _v3 ? (_v0 = _v1[_v668]) ? _v1 = _v0 : (_v677((_v0 = new _v1()).u), _v1 = _v1[_v668] = _v0) : _v1 = new _v1() : _v1 = void 0, _v1;
-    let _v4 = _v2 = _v674(_v0);
-    return 0 === _v4 && (_v4 |= 32 & _v3), (_v4 |= 2 & _v3) !== _v2 && _v676(_v0, _v4), new _v1(_v0);
+  function _v736(_v0, _v1, _v2, _v3) {
+    if (null != _v0 && "object" == typeof _v0 && _v0.X === _v686) return _v0;
+    if (!Array.isArray(_v0)) return _v2 ? 2 & _v3 ? (_v0 = _v1[_v673]) ? _v1 = _v0 : (_v682((_v0 = new _v1()).u), _v1 = _v1[_v673] = _v0) : _v1 = new _v1() : _v1 = void 0, _v1;
+    let _v4 = _v2 = _v679(_v0);
+    return 0 === _v4 && (_v4 |= 32 & _v3), (_v4 |= 2 & _v3) !== _v2 && _v681(_v0, _v4), new _v1(_v0);
   }
-  function _v732(_v0, _v1, _v2) {
+  function _v737(_v0, _v1, _v2) {
     if (_v1) e: {
-      if (!_v721(_v1 = _v0)) throw _v662("int64");
+      if (!_v726(_v1 = _v0)) throw _v667("int64");
       switch (typeof _v1) {
         case "string":
-          _v1 = _v726(_v1);
+          _v1 = _v731(_v1);
           break e;
         case "bigint":
-          if (_v696(_v0 = _v1 = BigInt.asIntN(64, _v1))) {
+          if (_v701(_v0 = _v1 = BigInt.asIntN(64, _v1))) {
             if (!/^\s*(?:-?[1-9]\d*|0)?\s*$/.test(_v0)) throw Error(String(_v0));
-          } else if (_v695(_v0) && !Number.isSafeInteger(_v0)) throw Error(String(_v0));
-          _v1 = _v698 ? BigInt(_v1) : _v697(_v1) ? _v1 ? "1" : "0" : _v696(_v1) ? _v1.trim() || "0" : String(_v1);
+          } else if (_v700(_v0) && !Number.isSafeInteger(_v0)) throw Error(String(_v0));
+          _v1 = _v703 ? BigInt(_v1) : _v702(_v1) ? _v1 ? "1" : "0" : _v701(_v1) ? _v1.trim() || "0" : String(_v1);
           break e;
         default:
-          _v1 = _v725(_v1);
+          _v1 = _v730(_v1);
       }
-    } else _v1 = _v727(_v0);
+    } else _v1 = _v732(_v0);
     return "string" == typeof (_v2 = null == (_v0 = _v1) ? _v2 ? 0 : void 0 : _v0) && Number.isSafeInteger(_v1 = +_v2) ? _v1 : _v2;
   }
-  function _v733(_v0) {
+  function _v738(_v0) {
     var _v1;
-    if (void 0 === _v9 && (_v9 = "function" == typeof Proxy ? _v735(Proxy) : null), !_v9 || !_v734()) return _v0;
+    if (void 0 === _v9 && (_v9 = "function" == typeof Proxy ? _v740(Proxy) : null), !_v9 || !_v739()) return _v0;
     let _v2 = _v7?.get(_v0);
     return _v2 || (Math.random() > .01 ? _v0 : (function (_v0) {
       if (void 0 === _v11) {
@@ -22218,21 +22313,21 @@
       }
       _v11 && "function" == typeof Symbol && Symbol.isConcatSpreadable && (_v0[Symbol.isConcatSpreadable] = !0);
     }(_v0), _v2 = new _v9(_v0, {
-      set: (_v0, _v1, _v2) => (_v661(), _v0[_v1] = _v2, !0)
+      set: (_v0, _v1, _v2) => (_v666(), _v0[_v1] = _v2, !0)
     }), _v1 = _v2, (_v7 ||= new _v10()).set(_v0, _v1), (_v8 ||= new _v10()).set(_v1, _v0), _v2));
   }
-  function _v734() {
-    return void 0 === _v10 && (_v10 = "function" == typeof WeakMap ? _v735(WeakMap) : null), _v10;
+  function _v739() {
+    return void 0 === _v10 && (_v10 = "function" == typeof WeakMap ? _v740(WeakMap) : null), _v10;
   }
-  function _v735(_v0) {
+  function _v740(_v0) {
     try {
       return -1 !== _v0.toString().indexOf("[native code]") ? _v0 : null;
     } catch {
       return null;
     }
   }
-  function _v736(_v0, _v1, _v2) {
-    if (_v734()) {
+  function _v741(_v0, _v1, _v2) {
+    if (_v739()) {
       if (_v12?.get(_v1)?.get(_v0)) {
         if (_v2) return;
       } else if (Math.random() > .01) return;
@@ -22247,14 +22342,14 @@
         }
         _v2[_v5] = _v0[_v5];
       }
-      _v738(_v0, _v2) ? ((_v4 = (_v3 = _v12 ||= new _v10()).get(_v1)) || (_v4 = new _v10(), _v3.set(_v1, _v4)), _v4.set(_v0, _v2)) : (_v661(), _v740(_v0, _v1));
+      _v743(_v0, _v2) ? ((_v4 = (_v3 = _v12 ||= new _v10()).get(_v1)) || (_v4 = new _v10(), _v3.set(_v1, _v4)), _v4.set(_v0, _v2)) : (_v666(), _v745(_v0, _v1));
     }
   }
-  function _v737(_v0, _v1) {
+  function _v742(_v0, _v1) {
     let _v2 = _v12?.get(_v1)?.get(_v0);
-    _v2 && !_v738(_v0, _v2) && (_v661(), _v740(_v0, _v1));
+    _v2 && !_v743(_v0, _v2) && (_v666(), _v745(_v0, _v1));
   }
-  function _v738(_v0, _v1) {
+  function _v743(_v0, _v1) {
     if (_v0.length !== _v1.length) return !1;
     for (let _v0 in _v1) {
       var _v2,
@@ -22263,37 +22358,37 @@
     }
     return !0;
   }
-  function _v739(_v0) {
+  function _v744(_v0) {
     if (_v0 && _v12?.has(_v0)) {
       var _v1 = _v0.u;
       if (_v1) for (let _v0 = 0; _v0 < _v1.length; _v0++) {
         let _v0 = _v1[_v0];
-        if (_v0 === _v1.length - 1 && _v684(_v0)) for (let _v0 in _v0) {
+        if (_v0 === _v1.length - 1 && _v689(_v0)) for (let _v0 in _v0) {
           let _v0 = _v0[_v0];
-          Array.isArray(_v0) && _v737(_v0, _v0);
-        } else Array.isArray(_v0) && _v737(_v0, _v0);
+          Array.isArray(_v0) && _v742(_v0, _v0);
+        } else Array.isArray(_v0) && _v742(_v0, _v0);
       }
     }
   }
-  function _v740(_v0, _v1) {
+  function _v745(_v0, _v1) {
     _v12?.get(_v1)?.delete(_v0);
   }
-  function _v741(_v0, _v1, _v2) {
-    return _v0 = _v742(_v0, _v1[0], _v1[1], _v2 ? 1 : 2), _v1 !== _v14 && _v2 && _v672(_v0, 0), _v0;
+  function _v746(_v0, _v1, _v2) {
+    return _v0 = _v747(_v0, _v1[0], _v1[1], _v2 ? 1 : 2), _v1 !== _v14 && _v2 && _v677(_v0, 0), _v0;
   }
-  function _v742(_v0, _v1, _v2, _v3) {
+  function _v747(_v0, _v1, _v2, _v3) {
     if (_v3 = _v3 ?? 0, null == _v0 && (_v0 = _v13), _v13 = void 0, null == _v0) {
       var _v4 = 96;
       _v2 ? (_v0 = [_v2], _v4 |= 512) : _v0 = [], _v1 && (_v4 = 0 & _v4 | (0 & _v1) << 15);
     } else {
       if (!Array.isArray(_v0)) throw Error("narr");
-      if (0 & (_v4 = _v674(_v0))) throw Error("farr");
+      if (0 & (_v4 = _v679(_v0))) throw Error("farr");
       if (64 & _v4) return _v0;
       if (1 === _v3 || 2 === _v3 || (_v4 |= 64), _v2 && (_v4 |= 512, _v2 !== _v0[0])) throw Error("mid");
       e: {
         if (_v3 = (_v2 = _v0).length) {
           let _v0 = _v3 - 1;
-          if (_v684(_v2[_v0])) {
+          if (_v689(_v2[_v0])) {
             if ((_v1 = _v0 - (!!(512 & (_v4 |= 256)) - 1)) >= 0) throw Error("pvtlmt");
             _v4 = 0 & _v4 | (0 & _v1) << 15;
             break e;
@@ -22305,12 +22400,12 @@
         }
       }
     }
-    return _v676(_v0, _v4), _v0;
+    return _v681(_v0, _v4), _v0;
   }
-  let _v743 = {},
-    _v744 = function () {
+  let _v748 = {},
+    _v749 = function () {
       try {
-        return _v642(new class extends Map {
+        return _v647(new class extends Map {
           constructor() {
             super();
           }
@@ -22319,7 +22414,7 @@
         return !0;
       }
     }();
-  class _v745 {
+  class _v750 {
     constructor() {
       this.g = new Map();
     }
@@ -22354,29 +22449,29 @@
       return this.entries();
     }
   }
-  let _v746 = _v744 ? (Object.setPrototypeOf(_v745.prototype, Map.prototype), Object.defineProperties(_v745.prototype, {
+  let _v751 = _v749 ? (Object.setPrototypeOf(_v750.prototype, Map.prototype), Object.defineProperties(_v750.prototype, {
     size: {
       value: 0,
       configurable: !0,
       enumerable: !0,
       writable: !0
     }
-  }), _v745) : class extends Map {
+  }), _v750) : class extends Map {
     constructor() {
       super();
     }
   };
-  function _v747(_v0) {
+  function _v752(_v0) {
     return _v0;
   }
-  function _v748(_v0) {
+  function _v753(_v0) {
     if (2 & _v0.M) throw Error("Cannot mutate an immutable Map");
   }
-  var _v749 = class extends _v746 {
-    constructor(_v0, _v1, _v2 = _v747, _v3 = _v747) {
+  var _v754 = class extends _v751 {
+    constructor(_v0, _v1, _v2 = _v752, _v3 = _v752) {
       super();
-      let _v4 = _v674(_v0);
-      _v676(_v0, _v4 |= 64), this.M = _v4, this.T = _v1, this.S = _v2, this.Z = this.T ? _v750 : _v3;
+      let _v4 = _v679(_v0);
+      _v681(_v0, _v4 |= 64), this.M = _v4, this.T = _v1, this.S = _v2, this.Z = this.T ? _v755 : _v3;
       for (let _v0 = 0; _v0 < _v0.length; _v0++) {
         const _v0 = _v0[_v0],
           _v1 = _v2(_v0[0], !1, !0);
@@ -22384,29 +22479,29 @@
         _v1 ? void 0 === _v2 && (_v2 = null) : _v2 = _v3(_v0[1], !1, !0, void 0, void 0, _v4), super.set(_v1, _v2);
       }
     }
-    pa(_v0 = _v751) {
+    pa(_v0 = _v756) {
       if (0 !== this.size) return this.Y(_v0);
     }
-    Y(_v0 = _v751) {
+    Y(_v0 = _v756) {
       let _v1 = [],
         _v2 = super.entries();
       for (var _v3; !(_v3 = _v2.next()).done;) (_v3 = _v3.value)[0] = _v0(_v3[0]), _v3[1] = _v0(_v3[1]), _v1.push(_v3);
       return _v1;
     }
     clear() {
-      _v748(this), super.clear();
+      _v753(this), super.clear();
     }
     delete(_v0) {
-      return _v748(this), super.delete(this.S(_v0, !0, !1));
+      return _v753(this), super.delete(this.S(_v0, !0, !1));
     }
     entries() {
-      return new _v689(this.oa(), _v752, this);
+      return new _v694(this.oa(), _v757, this);
     }
     keys() {
       return this.Ia();
     }
     values() {
-      return new _v689(this.oa(), _v749.prototype.get, this);
+      return new _v694(this.oa(), _v754.prototype.get, this);
     }
     forEach(_v0, _v1) {
       super.forEach((_v0, _v1) => {
@@ -22414,7 +22509,7 @@
       });
     }
     set(_v0, _v1) {
-      return _v748(this), null == (_v0 = this.S(_v0, !0, !1)) ? this : null == _v1 ? (super.delete(_v0), this) : super.set(_v0, this.Z(_v1, !0, !0, this.T, !1, this.M));
+      return _v753(this), null == (_v0 = this.S(_v0, !0, !1)) ? this : null == _v1 ? (super.delete(_v0), this) : super.set(_v0, this.Z(_v1, !0, !0, this.T, !1, this.M));
     }
     Oa(_v0) {
       let _v1 = this.S(_v0[0], !1, !0);
@@ -22441,115 +22536,115 @@
       return this.entries();
     }
   };
-  function _v750(_v0, _v1, _v2, _v3, _v4, _v5) {
-    return _v0 = _v731(_v0, _v3, _v2, _v5), _v4 && (_v0 = _v760(_v0)), _v0;
+  function _v755(_v0, _v1, _v2, _v3, _v4, _v5) {
+    return _v0 = _v736(_v0, _v3, _v2, _v5), _v4 && (_v0 = _v765(_v0)), _v0;
   }
-  function _v751(_v0) {
+  function _v756(_v0) {
     return _v0;
   }
-  function _v752(_v0) {
+  function _v757(_v0) {
     return [_v0, this.get(_v0)];
   }
-  function _v753() {
-    return _v16 ||= new _v749(_v677([]), void 0, void 0, void 0, _v743);
+  function _v758() {
+    return _v16 ||= new _v754(_v682([]), void 0, void 0, void 0, _v748);
   }
-  function _v754(_v0, _v1, _v2, _v3, _v4) {
+  function _v759(_v0, _v1, _v2, _v3, _v4) {
     if (null != _v0) {
-      if (Array.isArray(_v0)) _v0 = _v686(_v0) ? void 0 : _v4 && 2 & _v674(_v0) ? _v0 : _v755(_v0, _v1, _v2, void 0 !== _v3, _v4);else if (_v684(_v0)) {
+      if (Array.isArray(_v0)) _v0 = _v691(_v0) ? void 0 : _v4 && 2 & _v679(_v0) ? _v0 : _v760(_v0, _v1, _v2, void 0 !== _v3, _v4);else if (_v689(_v0)) {
         let _v0 = {};
-        for (let _v0 in _v0) _v0[_v0] = _v754(_v0[_v0], _v1, _v2, _v3, _v4);
+        for (let _v0 in _v0) _v0[_v0] = _v759(_v0[_v0], _v1, _v2, _v3, _v4);
         _v0 = _v0;
       } else _v0 = _v1(_v0, _v3);
       return _v0;
     }
   }
-  function _v755(_v0, _v1, _v2, _v3, _v4) {
-    let _v5 = _v3 || _v2 ? _v674(_v0) : 0;
+  function _v760(_v0, _v1, _v2, _v3, _v4) {
+    let _v5 = _v3 || _v2 ? _v679(_v0) : 0;
     _v3 = _v3 ? !!(32 & _v5) : void 0;
-    let _v6 = _v664(_v0);
-    for (let _v0 = 0; _v0 < _v6.length; _v0++) _v6[_v0] = _v754(_v6[_v0], _v1, _v2, _v3, _v4);
-    return _v2 && (_v690(_v6, _v0), _v2(_v5, _v6)), _v6;
+    let _v6 = _v669(_v0);
+    for (let _v0 = 0; _v0 < _v6.length; _v0++) _v6[_v0] = _v759(_v6[_v0], _v1, _v2, _v3, _v4);
+    return _v2 && (_v695(_v6, _v0), _v2(_v5, _v6)), _v6;
   }
-  function _v756(_v0) {
-    return _v754(_v0, _v757, void 0, void 0, !1);
+  function _v761(_v0) {
+    return _v759(_v0, _v762, void 0, void 0, !1);
   }
-  function _v757(_v0) {
-    return _v0.X === _v681 ? _v0.toJSON() : _v0 instanceof _v749 ? _v0.pa(_v756) : function (_v0) {
+  function _v762(_v0) {
+    return _v0.X === _v686 ? _v0.toJSON() : _v0 instanceof _v754 ? _v0.pa(_v761) : function (_v0) {
       switch (typeof _v0) {
         case "number":
           return isFinite(_v0) ? _v0 : String(_v0);
         case "bigint":
-          return _v699(_v0) ? Number(_v0) : String(_v0);
+          return _v704(_v0) ? Number(_v0) : String(_v0);
         case "boolean":
           return +!!_v0;
         case "object":
           if (_v0) if (Array.isArray(_v0)) {
-            if (_v686(_v0)) return;
+            if (_v691(_v0)) return;
           } else {
-            if (_v654(_v0)) return _v649(_v0);
-            if (_v0 instanceof _v659) {
+            if (_v659(_v0)) return _v654(_v0);
+            if (_v0 instanceof _v664) {
               let _v0 = _v0.g;
-              return null == _v0 ? "" : "string" == typeof _v0 ? _v0 : _v0.g = _v649(_v0);
+              return null == _v0 ? "" : "string" == typeof _v0 ? _v0 : _v0.g = _v654(_v0);
             }
-            if (_v0 instanceof _v749) return _v0.pa();
+            if (_v0 instanceof _v754) return _v0.pa();
           }
       }
       return _v0;
     }(_v0);
   }
-  function _v758(_v0, _v1, _v2, _v3) {
-    return _v739(_v0), _v0 = _v0.constructor, _v13 = _v1 = _v759(_v1, _v2, _v3), _v1 = new _v0(_v1), _v13 = void 0, _v1;
+  function _v763(_v0, _v1, _v2, _v3) {
+    return _v744(_v0), _v0 = _v0.constructor, _v13 = _v1 = _v764(_v1, _v2, _v3), _v1 = new _v0(_v1), _v13 = void 0, _v1;
   }
-  function _v759(_v0, _v1, _v2) {
-    let _v3 = _v2 || 2 & _v1 ? _v679 : _v678,
+  function _v764(_v0, _v1, _v2) {
+    let _v3 = _v2 || 2 & _v1 ? _v684 : _v683,
       _v4 = !!(32 & _v1);
-    return _v672(_v0 = function (_v0, _v1, _v2) {
-      let _v3 = _v664(_v0);
+    return _v677(_v0 = function (_v0, _v1, _v2) {
+      let _v3 = _v669(_v0);
       var _v4 = _v3.length;
       let _v5 = 256 & _v1 ? _v3[_v4 - 1] : void 0;
       for (_v4 += _v5 ? -1 : 0, _v1 = 512 & _v1 ? 1 : 0; _v1 < _v4; _v1++) _v3[_v1] = _v2(_v3[_v1]);
       if (_v5) for (let _v0 in _v1 = _v3[_v1] = {}, _v5) _v1[_v0] = _v2(_v5[_v0]);
-      return _v690(_v3, _v0), _v3;
-    }(_v0, _v1, _v0 => function _v0(_v1, _v2, _v3 = _v679) {
+      return _v695(_v3, _v0), _v3;
+    }(_v0, _v1, _v0 => function _v0(_v1, _v2, _v3 = _v684) {
       if (null != _v1) {
-        if (_v647 && _v1 instanceof Uint8Array) return _v2 ? _v1 : new Uint8Array(_v1);
+        if (_v652 && _v1 instanceof Uint8Array) return _v2 ? _v1 : new Uint8Array(_v1);
         if (Array.isArray(_v1)) {
-          var _v4 = _v674(_v1);
-          return 2 & _v4 ? _v1 : (_v2 &&= 0 === _v4 || !!(32 & _v4) && !(64 & _v4 || !(16 & _v4))) ? (_v676(_v1, 0 & (34 | _v4)), _v1) : _v755(_v1, _v0, 4 & _v4 ? _v679 : _v3, !0, !0);
+          var _v4 = _v679(_v1);
+          return 2 & _v4 ? _v1 : (_v2 &&= 0 === _v4 || !!(32 & _v4) && !(64 & _v4 || !(16 & _v4))) ? (_v681(_v1, 0 & (34 | _v4)), _v1) : _v760(_v1, _v0, 4 & _v4 ? _v684 : _v3, !0, !0);
         }
-        return _v1.X === _v681 ? _v1 = 2 & (_v4 = _v675(_v3 = _v1.u)) ? _v1 : _v758(_v1, _v3, _v4, !0) : _v1 instanceof _v749 && !(2 & _v1.M) && (_v1 = new _v749(_v3 = _v677(_v1.Y(_v0)), _v1.T, _v1.S, _v1.Z)), _v1;
+        return _v1.X === _v686 ? _v1 = 2 & (_v4 = _v680(_v3 = _v1.u)) ? _v1 : _v763(_v1, _v3, _v4, !0) : _v1 instanceof _v754 && !(2 & _v1.M) && (_v1 = new _v754(_v3 = _v682(_v1.Y(_v0)), _v1.T, _v1.S, _v1.Z)), _v1;
       }
     }(_v0, _v4, _v3)), 32 | 2 * !!_v2), _v0;
   }
-  function _v760(_v0) {
+  function _v765(_v0) {
     let _v1 = _v0.u,
-      _v2 = _v675(_v1);
-    return 2 & _v2 ? _v758(_v0, _v1, _v2, !1) : _v0;
+      _v2 = _v680(_v1);
+    return 2 & _v2 ? _v763(_v0, _v1, _v2, !1) : _v0;
   }
-  function _v761(_v0, _v1, _v2, _v3) {
-    return !(4 & _v1) || null != _v2 && (!_v3 && 0 === _v2 && (0 & _v1 || 0 & _v1) && (_v0.constructor[_v671] = 1 + (0 | _v0.constructor[_v671])) < 5 && _v661(), 0 !== _v2 && !(_v2 & _v1));
+  function _v766(_v0, _v1, _v2, _v3) {
+    return !(4 & _v1) || null != _v2 && (!_v3 && 0 === _v2 && (0 & _v1 || 0 & _v1) && (_v0.constructor[_v676] = 1 + (0 | _v0.constructor[_v676])) < 5 && _v666(), 0 !== _v2 && !(_v2 & _v1));
   }
-  function _v762(_v0, _v1) {
-    return _v764(_v0 = _v0.u, _v675(_v0), _v1);
+  function _v767(_v0, _v1) {
+    return _v769(_v0 = _v0.u, _v680(_v0), _v1);
   }
-  function _v763(_v0, _v1, _v2, _v3) {
+  function _v768(_v0, _v1, _v2, _v3) {
     if (!((_v1 = _v3 + (!!(512 & _v1) - 1)) < 0 || _v1 >= _v0.length || _v1 >= _v2)) return _v0[_v1];
   }
-  function _v764(_v0, _v1, _v2, _v3) {
+  function _v769(_v0, _v1, _v2, _v3) {
     if (-1 === _v2) return null;
     let _v4 = _v1 >> 15 & 0 || 0;
     if (!(_v2 >= _v4)) {
       var _v5 = _v0.length;
-      return _v3 && 256 & _v1 && null != (_v3 = _v0[_v5 - 1][_v2]) ? (_v763(_v0, _v1, _v4, _v2) && null != _v669 && ((_v1 = (_v0 = _v5 ??= {})[_v669] || 0) >= 4 || (_v0[_v669] = _v1 + 1, _v661())), _v3) : _v763(_v0, _v1, _v4, _v2);
+      return _v3 && 256 & _v1 && null != (_v3 = _v0[_v5 - 1][_v2]) ? (_v768(_v0, _v1, _v4, _v2) && null != _v674 && ((_v1 = (_v0 = _v5 ??= {})[_v674] || 0) >= 4 || (_v0[_v674] = _v1 + 1, _v666())), _v3) : _v768(_v0, _v1, _v4, _v2);
     }
     return 256 & _v1 ? _v0[_v0.length - 1][_v2] : void 0;
   }
-  function _v765(_v0, _v1, _v2) {
+  function _v770(_v0, _v1, _v2) {
     let _v3 = _v0.u,
-      _v4 = _v675(_v3);
-    return _v688(_v4), _v766(_v3, _v4, _v1, _v2), _v0;
+      _v4 = _v680(_v3);
+    return _v693(_v4), _v771(_v3, _v4, _v1, _v2), _v0;
   }
-  function _v766(_v0, _v1, _v2, _v3) {
+  function _v771(_v0, _v1, _v2, _v3) {
     let _v4 = _v1 >> 15 & 0 || 0;
     if (_v2 >= _v4) {
       let _v0,
@@ -22558,240 +22653,240 @@
         if (null == _v3) return _v1;
         _v0 = _v0[_v4 + (!!(512 & _v1) - 1)] = {}, _v1 |= 256;
       }
-      return _v0[_v2] = _v3, _v2 < _v4 && (_v0[_v2 + (!!(512 & _v1) - 1)] = void 0), _v1 !== _v1 && _v676(_v0, _v1), _v1;
+      return _v0[_v2] = _v3, _v2 < _v4 && (_v0[_v2 + (!!(512 & _v1) - 1)] = void 0), _v1 !== _v1 && _v681(_v0, _v1), _v1;
     }
     return _v0[_v2 + (!!(512 & _v1) - 1)] = _v3, 256 & _v1 && _v2 in (_v0 = _v0[_v0.length - 1]) && delete _v0[_v2], _v1;
   }
-  function _v767(_v0, _v1, _v2, _v3, _v4) {
+  function _v772(_v0, _v1, _v2, _v3, _v4) {
     var _v5 = 2 & _v1;
-    Array.isArray(_v4 = _v764(_v0, _v1, _v2, _v4)) || (_v4 = _v680);
+    Array.isArray(_v4 = _v769(_v0, _v1, _v2, _v4)) || (_v4 = _v685);
     let _v6 = !(2 & _v3);
     _v3 = !(1 & _v3);
     let _v7 = !!(32 & _v1),
-      _v8 = _v674(_v4);
-    return 0 !== _v8 || !_v7 || _v5 || _v6 ? 1 & _v8 || _v676(_v4, _v8 |= 1) : _v676(_v4, _v8 |= 33), _v5 ? (_v0 = !1, 2 & _v8 || (_v677(_v4), _v0 = !!(4 & _v8)), (_v3 || _v0) && Object.freeze(_v4)) : (_v5 = !!(2 & _v8) || !!(0 & _v8), _v3 && _v5 ? (_v4 = _v664(_v4), _v5 = 1, _v7 && !_v6 && (_v5 |= 32), _v676(_v4, _v5), _v766(_v0, _v1, _v2, _v4)) : _v6 && 32 & _v8 && !_v5 && _v673(_v4, 32)), _v4;
+      _v8 = _v679(_v4);
+    return 0 !== _v8 || !_v7 || _v5 || _v6 ? 1 & _v8 || _v681(_v4, _v8 |= 1) : _v681(_v4, _v8 |= 33), _v5 ? (_v0 = !1, 2 & _v8 || (_v682(_v4), _v0 = !!(4 & _v8)), (_v3 || _v0) && Object.freeze(_v4)) : (_v5 = !!(2 & _v8) || !!(0 & _v8), _v3 && _v5 ? (_v4 = _v669(_v4), _v5 = 1, _v7 && !_v6 && (_v5 |= 32), _v681(_v4, _v5), _v771(_v0, _v1, _v2, _v4)) : _v6 && 32 & _v8 && !_v5 && _v678(_v4, 32)), _v4;
   }
-  function _v768(_v0, _v1) {
-    let _v2 = _v675(_v0 = _v0.u),
-      _v3 = _v764(_v0, _v2, _v1),
-      _v4 = _v718(_v3);
-    return null != _v4 && _v4 !== _v3 && _v766(_v0, _v2, _v1, _v4), _v4;
+  function _v773(_v0, _v1) {
+    let _v2 = _v680(_v0 = _v0.u),
+      _v3 = _v769(_v0, _v2, _v1),
+      _v4 = _v723(_v3);
+    return null != _v4 && _v4 !== _v3 && _v771(_v0, _v2, _v1, _v4), _v4;
   }
-  function _v769(_v0) {
-    let _v1 = _v675(_v0 = _v0.u),
-      _v2 = _v764(_v0, _v1, 1),
-      _v3 = _v685(_v2, !0, !!(34 & _v1));
-    return null != _v3 && _v3 !== _v2 && _v766(_v0, _v1, 1, _v3), _v3;
+  function _v774(_v0) {
+    let _v1 = _v680(_v0 = _v0.u),
+      _v2 = _v769(_v0, _v1, 1),
+      _v3 = _v690(_v2, !0, !!(34 & _v1));
+    return null != _v3 && _v3 !== _v2 && _v771(_v0, _v1, 1, _v3), _v3;
   }
-  function _v770() {
-    return void 0 === _v691 ? 2 : 5;
+  function _v775() {
+    return void 0 === _v696 ? 2 : 5;
   }
-  function _v771(_v0, _v1, _v2, _v3, _v4, _v5) {
+  function _v776(_v0, _v1, _v2, _v3, _v4, _v5) {
     let _v6,
       _v7 = _v0.u,
-      _v8 = _v675(_v7);
+      _v8 = _v680(_v7);
     _v3 = 2 & _v8 ? 1 : _v3, _v5 = !!_v5;
-    var _v9 = _v674(_v4 = _v772(_v7, _v8, _v1, _v4)),
+    var _v9 = _v679(_v4 = _v777(_v7, _v8, _v1, _v4)),
       _v10 = _v4;
-    if (_v737(_v10, _v0), 2 !== _v3 && 1 !== _v3 || _v740(_v10, _v0), _v761(_v0, _v9, void 0, _v5)) {
-      4 & _v9 && (_v4 = _v664(_v4), _v9 = _v788(_v9, _v8), _v8 = _v766(_v7, _v8, _v1, _v4));
+    if (_v742(_v10, _v0), 2 !== _v3 && 1 !== _v3 || _v745(_v10, _v0), _v766(_v0, _v9, void 0, _v5)) {
+      4 & _v9 && (_v4 = _v669(_v4), _v9 = _v793(_v9, _v8), _v8 = _v771(_v7, _v8, _v1, _v4));
       let _v0 = _v10 = 0;
       for (; _v10 < _v4.length; _v10++) {
         let _v0 = _v2(_v4[_v10]);
         null != _v0 && (_v4[_v0++] = _v0);
       }
-      _v0 < _v10 && (_v4.length = _v0), _v676(_v4, _v9 = 0 & (20 | (_v9 = _v773(_v9, _v8))) & 0), 2 & _v9 && Object.freeze(_v4);
+      _v0 < _v10 && (_v4.length = _v0), _v681(_v4, _v9 = 0 & (20 | (_v9 = _v778(_v9, _v8))) & 0), 2 & _v9 && Object.freeze(_v4);
     }
-    return 1 === _v3 || 4 === _v3 && 32 & _v9 ? _v774(_v9) || (_v0 = _v9, (_v9 |= 2) !== _v0 && _v676(_v4, _v9), Object.freeze(_v4)) : (_v2 = 5 === _v3 && (!!(32 & _v9) || _v774(_v9) || !!_v7?.get(_v4)), (2 === _v3 || _v2) && _v774(_v9) && (_v676(_v4 = _v664(_v4), _v9 = _v789(_v9 = _v788(_v9, _v8), _v8, _v5)), _v8 = _v766(_v7, _v8, _v1, _v4)), _v774(_v9) || (_v1 = _v9, (_v9 = _v789(_v9, _v8, _v5)) !== _v1 && _v676(_v4, _v9)), _v2 ? (_v6 = _v733(_v4), _v736(_v4, _v0, !0)) : 2 !== _v3 || _v5 || _v7?.delete(_v4)), _v6 || _v4;
+    return 1 === _v3 || 4 === _v3 && 32 & _v9 ? _v779(_v9) || (_v0 = _v9, (_v9 |= 2) !== _v0 && _v681(_v4, _v9), Object.freeze(_v4)) : (_v2 = 5 === _v3 && (!!(32 & _v9) || _v779(_v9) || !!_v7?.get(_v4)), (2 === _v3 || _v2) && _v779(_v9) && (_v681(_v4 = _v669(_v4), _v9 = _v794(_v9 = _v793(_v9, _v8), _v8, _v5)), _v8 = _v771(_v7, _v8, _v1, _v4)), _v779(_v9) || (_v1 = _v9, (_v9 = _v794(_v9, _v8, _v5)) !== _v1 && _v681(_v4, _v9)), _v2 ? (_v6 = _v738(_v4), _v741(_v4, _v0, !0)) : 2 !== _v3 || _v5 || _v7?.delete(_v4)), _v6 || _v4;
   }
-  function _v772(_v0, _v1, _v2, _v3) {
-    return Array.isArray(_v0 = _v764(_v0, _v1, _v2, _v3)) ? _v0 : _v680;
+  function _v777(_v0, _v1, _v2, _v3) {
+    return Array.isArray(_v0 = _v769(_v0, _v1, _v2, _v3)) ? _v0 : _v685;
   }
-  function _v773(_v0, _v1) {
-    return 0 === _v0 && (_v0 = _v788(_v0, _v1)), 1 | _v0;
+  function _v778(_v0, _v1) {
+    return 0 === _v0 && (_v0 = _v793(_v0, _v1)), 1 | _v0;
   }
-  function _v774(_v0) {
+  function _v779(_v0) {
     return !!(2 & _v0) && !!(4 & _v0) || !!(0 & _v0);
   }
-  function _v775(_v0) {
-    _v0 = _v664(_v0);
+  function _v780(_v0) {
+    _v0 = _v669(_v0);
     for (let _v0 = 0; _v0 < _v0.length; _v0++) {
-      let _v0 = _v0[_v0] = _v664(_v0[_v0]);
-      Array.isArray(_v0[1]) && (_v0[1] = _v677(_v0[1]));
+      let _v0 = _v0[_v0] = _v669(_v0[_v0]);
+      Array.isArray(_v0[1]) && (_v0[1] = _v682(_v0[1]));
     }
     return _v0;
   }
-  function _v776(_v0, _v1, _v2, _v3) {
-    let _v4 = _v675(_v0 = _v0.u);
-    _v688(_v4), _v766(_v0, _v4, _v1, ("0" === _v3 ? 0 === Number(_v2) : _v2 === _v3) ? void 0 : _v2);
+  function _v781(_v0, _v1, _v2, _v3) {
+    let _v4 = _v680(_v0 = _v0.u);
+    _v693(_v4), _v771(_v0, _v4, _v1, ("0" === _v3 ? 0 === Number(_v2) : _v2 === _v3) ? void 0 : _v2);
   }
-  function _v777(_v0, _v1) {
-    return _v780(_v778(_v0 = _v0.u), _v0, _v675(_v0), _v952) === _v1 ? _v1 : -1;
+  function _v782(_v0, _v1) {
+    return _v785(_v783(_v0 = _v0.u), _v0, _v680(_v0), _v957) === _v1 ? _v1 : -1;
   }
-  function _v778(_v0) {
-    if (_v665) return _v0[_v670] ?? (_v0[_v670] = new Map());
-    if (_v670 in _v0) return _v0[_v670];
+  function _v783(_v0) {
+    if (_v670) return _v0[_v675] ?? (_v0[_v675] = new Map());
+    if (_v675 in _v0) return _v0[_v675];
     let _v1 = new Map();
-    return Object.defineProperty(_v0, _v670, {
+    return Object.defineProperty(_v0, _v675, {
       value: _v1
     }), _v1;
   }
-  function _v779(_v0, _v1, _v2, _v3) {
-    let _v4 = _v778(_v0),
-      _v5 = _v780(_v4, _v0, _v1, _v2);
-    return _v5 !== _v3 && (_v5 && (_v1 = _v766(_v0, _v1, _v5)), _v4.set(_v2, _v3)), _v1;
+  function _v784(_v0, _v1, _v2, _v3) {
+    let _v4 = _v783(_v0),
+      _v5 = _v785(_v4, _v0, _v1, _v2);
+    return _v5 !== _v3 && (_v5 && (_v1 = _v771(_v0, _v1, _v5)), _v4.set(_v2, _v3)), _v1;
   }
-  function _v780(_v0, _v1, _v2, _v3) {
+  function _v785(_v0, _v1, _v2, _v3) {
     let _v4 = _v0.get(_v3);
     if (null != _v4) return _v4;
     _v4 = 0;
     for (let _v0 = 0; _v0 < _v3.length; _v0++) {
       let _v0 = _v3[_v0];
-      null != _v764(_v1, _v2, _v0) && (0 !== _v4 && (_v2 = _v766(_v1, _v2, _v4)), _v4 = _v0);
+      null != _v769(_v1, _v2, _v0) && (0 !== _v4 && (_v2 = _v771(_v1, _v2, _v4)), _v4 = _v0);
     }
     return _v0.set(_v3, _v4), _v4;
   }
-  function _v781(_v0, _v1, _v2, _v3) {
+  function _v786(_v0, _v1, _v2, _v3) {
     let _v4,
-      _v5 = _v675(_v0);
-    if (null != (_v3 = _v764(_v0, _v5, _v2, _v3)) && _v3.X === _v681) return (_v1 = _v760(_v3)) !== _v3 && _v766(_v0, _v5, _v2, _v1), _v1.u;
+      _v5 = _v680(_v0);
+    if (null != (_v3 = _v769(_v0, _v5, _v2, _v3)) && _v3.X === _v686) return (_v1 = _v765(_v3)) !== _v3 && _v771(_v0, _v5, _v2, _v1), _v1.u;
     if (Array.isArray(_v3)) {
-      let _v0 = _v674(_v3);
-      _v4 = 2 & _v0 ? _v741(_v759(_v3, _v0, !1), _v1, !0) : 64 & _v0 ? _v3 : _v741(_v4, _v1, !0);
-    } else _v4 = _v741(void 0, _v1, !0);
-    return _v4 !== _v3 && _v766(_v0, _v5, _v2, _v4), _v4;
+      let _v0 = _v679(_v3);
+      _v4 = 2 & _v0 ? _v746(_v764(_v3, _v0, !1), _v1, !0) : 64 & _v0 ? _v3 : _v746(_v4, _v1, !0);
+    } else _v4 = _v746(void 0, _v1, !0);
+    return _v4 !== _v3 && _v771(_v0, _v5, _v2, _v4), _v4;
   }
-  function _v782(_v0, _v1, _v2, _v3) {
-    let _v4 = _v675(_v0 = _v0.u);
-    return (_v1 = _v731(_v3 = _v764(_v0, _v4, _v2, _v3), _v1, !1, _v4)) !== _v3 && null != _v1 && _v766(_v0, _v4, _v2, _v1), _v1;
+  function _v787(_v0, _v1, _v2, _v3) {
+    let _v4 = _v680(_v0 = _v0.u);
+    return (_v1 = _v736(_v3 = _v769(_v0, _v4, _v2, _v3), _v1, !1, _v4)) !== _v3 && null != _v1 && _v771(_v0, _v4, _v2, _v1), _v1;
   }
-  function _v783(_v0, _v1, _v2, _v3 = !1) {
-    if (null == (_v1 = _v782(_v0, _v1, _v2, _v3))) return _v1;
-    if (!(2 & (_v3 = _v675(_v0 = _v0.u)))) {
-      let _v0 = _v760(_v1);
-      _v0 !== _v1 && _v766(_v0, _v3, _v2, _v1 = _v0);
+  function _v788(_v0, _v1, _v2, _v3 = !1) {
+    if (null == (_v1 = _v787(_v0, _v1, _v2, _v3))) return _v1;
+    if (!(2 & (_v3 = _v680(_v0 = _v0.u)))) {
+      let _v0 = _v765(_v1);
+      _v0 !== _v1 && _v771(_v0, _v3, _v2, _v1 = _v0);
     }
     return _v1;
   }
-  function _v784(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
+  function _v789(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
     let _v7,
       _v8 = _v0.u;
     var _v9 = !!(2 & _v1);
     _v4 = _v9 ? 1 : _v4, _v5 = !!_v5, _v6 &&= !_v9;
-    var _v10 = _v674(_v9 = _v772(_v8, _v1, _v3)),
+    var _v10 = _v679(_v9 = _v777(_v8, _v1, _v3)),
       _v11 = _v9;
-    if (_v737(_v11, _v0), 2 !== _v4 && 1 !== _v4 || _v740(_v11, _v0), !(_v11 = !!(4 & _v10))) {
+    if (_v742(_v11, _v0), 2 !== _v4 && 1 !== _v4 || _v745(_v11, _v0), !(_v11 = !!(4 & _v10))) {
       var _v12 = _v9,
         _v13 = _v1;
-      let _v0 = !!(2 & (_v10 = _v773(_v10, _v1)));
+      let _v0 = !!(2 & (_v10 = _v778(_v10, _v1)));
       _v0 && (_v13 |= 2);
       let _v1 = !_v0,
         _v2 = !0,
         _v3 = 0,
         _v4 = 0;
       for (; _v3 < _v12.length; _v3++) {
-        let _v0 = _v731(_v12[_v3], _v2, !1, _v13);
+        let _v0 = _v736(_v12[_v3], _v2, !1, _v13);
         if (_v0 instanceof _v2) {
           if (!_v0) {
-            let _v0 = !!(2 & _v674(_v0.u));
+            let _v0 = !!(2 & _v679(_v0.u));
             _v1 &&= !_v0, _v2 &&= _v0;
           }
           _v12[_v4++] = _v0;
         }
       }
-      _v4 < _v3 && (_v12.length = _v4), _v10 |= 4, _v10 = _v2 ? 16 | _v10 : -17 & _v10, _v676(_v12, _v10 = _v1 ? 8 | _v10 : -9 & _v10), _v0 && Object.freeze(_v12);
+      _v4 < _v3 && (_v12.length = _v4), _v10 |= 4, _v10 = _v2 ? 16 | _v10 : -17 & _v10, _v681(_v12, _v10 = _v1 ? 8 | _v10 : -9 & _v10), _v0 && Object.freeze(_v12);
     }
     if (_v6 && !(8 & _v10 || !_v9.length && (1 === _v4 || 4 === _v4 && 32 & _v10))) {
-      for (_v774(_v10) ? (_v9 = _v664(_v9), _v10 = _v788(_v10, _v1), _v1 = _v766(_v8, _v1, _v3, _v9)) : _v740(_v9, _v0), _v2 = _v9, _v6 = _v10, _v12 = 0; _v12 < _v2.length; _v12++) (_v10 = _v2[_v12]) !== (_v13 = _v760(_v10)) && (_v2[_v12] = _v13);
-      _v6 |= 8, _v6 = _v2.length ? -17 & _v6 : 16 | _v6, _v676(_v2, _v6), _v10 = _v6;
+      for (_v779(_v10) ? (_v9 = _v669(_v9), _v10 = _v793(_v10, _v1), _v1 = _v771(_v8, _v1, _v3, _v9)) : _v745(_v9, _v0), _v2 = _v9, _v6 = _v10, _v12 = 0; _v12 < _v2.length; _v12++) (_v10 = _v2[_v12]) !== (_v13 = _v765(_v10)) && (_v2[_v12] = _v13);
+      _v6 |= 8, _v6 = _v2.length ? -17 & _v6 : 16 | _v6, _v681(_v2, _v6), _v10 = _v6;
     }
-    return 1 === _v4 || 4 === _v4 && 32 & _v10 ? _v774(_v10) || (_v0 = _v10, (_v10 |= !_v9.length || 16 & _v10 && (!_v11 || 32 & _v10) ? 2 : 0) !== _v0 && _v676(_v9, _v10), Object.freeze(_v9)) : (_v11 = 5 === _v4 && (!!(32 & _v10) || _v774(_v10) || !!_v7?.get(_v9)), (2 === _v4 || _v11) && _v774(_v10) && (_v676(_v9 = _v664(_v9), _v10 = _v789(_v10 = _v788(_v10, _v1), _v1, _v5)), _v1 = _v766(_v8, _v1, _v3, _v9)), _v774(_v10) || (_v3 = _v10, (_v10 = _v789(_v10, _v1, _v5)) !== _v3 && _v676(_v9, _v10)), _v11 ? (_v7 = _v733(_v9), _v736(_v9, _v0, !0)) : 2 !== _v4 || _v5 || _v7?.delete(_v9)), _v7 || _v9;
+    return 1 === _v4 || 4 === _v4 && 32 & _v10 ? _v779(_v10) || (_v0 = _v10, (_v10 |= !_v9.length || 16 & _v10 && (!_v11 || 32 & _v10) ? 2 : 0) !== _v0 && _v681(_v9, _v10), Object.freeze(_v9)) : (_v11 = 5 === _v4 && (!!(32 & _v10) || _v779(_v10) || !!_v7?.get(_v9)), (2 === _v4 || _v11) && _v779(_v10) && (_v681(_v9 = _v669(_v9), _v10 = _v794(_v10 = _v793(_v10, _v1), _v1, _v5)), _v1 = _v771(_v8, _v1, _v3, _v9)), _v779(_v10) || (_v3 = _v10, (_v10 = _v794(_v10, _v1, _v5)) !== _v3 && _v681(_v9, _v10)), _v11 ? (_v7 = _v738(_v9), _v741(_v9, _v0, !0)) : 2 !== _v4 || _v5 || _v7?.delete(_v9)), _v7 || _v9;
   }
-  function _v785(_v0, _v1, _v2) {
-    let _v3 = _v675(_v0.u);
-    return _v784(_v0, _v3, _v1, _v2, _v770(), !1, !(2 & _v3));
+  function _v790(_v0, _v1, _v2) {
+    let _v3 = _v680(_v0.u);
+    return _v789(_v0, _v3, _v1, _v2, _v775(), !1, !(2 & _v3));
   }
-  function _v786(_v0, _v1, _v2, _v3) {
-    return null == _v3 && (_v3 = void 0), _v765(_v0, _v2, _v3);
+  function _v791(_v0, _v1, _v2, _v3) {
+    return null == _v3 && (_v3 = void 0), _v770(_v0, _v2, _v3);
   }
-  function _v787(_v0, _v1, _v2, _v3) {
+  function _v792(_v0, _v1, _v2, _v3) {
     null == _v3 && (_v3 = void 0);
     e: {
-      let _v0 = _v675(_v0 = _v0.u);
-      if (_v688(_v0), null == _v3) {
-        let _v0 = _v778(_v0);
-        if (_v780(_v0, _v0, _v0, _v2) !== _v1) break e;
+      let _v0 = _v680(_v0 = _v0.u);
+      if (_v693(_v0), null == _v3) {
+        let _v0 = _v783(_v0);
+        if (_v785(_v0, _v0, _v0, _v2) !== _v1) break e;
         _v0.set(_v2, 0);
-      } else _v0 = _v779(_v0, _v0, _v2, _v1);
-      _v766(_v0, _v0, _v1, _v3);
+      } else _v0 = _v784(_v0, _v0, _v2, _v1);
+      _v771(_v0, _v0, _v1, _v3);
     }
-  }
-  function _v788(_v0, _v1) {
-    return 0 & (_v0 = 32 | (2 & _v1 ? 2 | _v0 : -3 & _v0));
-  }
-  function _v789(_v0, _v1, _v2) {
-    return 32 & _v1 && _v2 || (_v0 &= -33), _v0;
-  }
-  function _v790(_v0, _v1, _v2, _v3) {
-    let _v4 = _v675(_v0.u);
-    _v688(_v4), _v0 = _v784(_v0, _v4, _v2, _v1, 2, !0), _v3 = null != _v3 ? _v3 : new _v2(), _v0.push(_v3), 2 & _v674(_v3.u) ? _v673(_v0, 8) : _v673(_v0, 16);
-  }
-  function _v791(_v0, _v1) {
-    return _v722(_v762(_v0, _v1));
-  }
-  function _v792(_v0, _v1) {
-    return _v768(_v0, _v1) ?? 0;
   }
   function _v793(_v0, _v1) {
-    return _v730(_v762(_v0, _v1)) ?? "";
+    return 0 & (_v0 = 32 | (2 & _v1 ? 2 | _v0 : -3 & _v0));
   }
   function _v794(_v0, _v1, _v2) {
-    if (null != _v2 && "boolean" != typeof _v2) throw _v0 = typeof _v2, Error(`Expected boolean but got ${"object" != _v0 ? _v0 : _v2 ? Array.isArray(_v2) ? "array" : _v0 : "null"}: ${_v2}`);
-    _v765(_v0, _v1, _v2);
+    return 32 & _v1 && _v2 || (_v0 &= -33), _v0;
   }
-  function _v795(_v0, _v1, _v2) {
+  function _v795(_v0, _v1, _v2, _v3) {
+    let _v4 = _v680(_v0.u);
+    _v693(_v4), _v0 = _v789(_v0, _v4, _v2, _v1, 2, !0), _v3 = null != _v3 ? _v3 : new _v2(), _v0.push(_v3), 2 & _v679(_v3.u) ? _v678(_v0, 8) : _v678(_v0, 16);
+  }
+  function _v796(_v0, _v1) {
+    return _v727(_v767(_v0, _v1));
+  }
+  function _v797(_v0, _v1) {
+    return _v773(_v0, _v1) ?? 0;
+  }
+  function _v798(_v0, _v1) {
+    return _v735(_v767(_v0, _v1)) ?? "";
+  }
+  function _v799(_v0, _v1, _v2) {
+    if (null != _v2 && "boolean" != typeof _v2) throw _v0 = typeof _v2, Error(`Expected boolean but got ${"object" != _v0 ? _v0 : _v2 ? Array.isArray(_v2) ? "array" : _v0 : "null"}: ${_v2}`);
+    _v770(_v0, _v1, _v2);
+  }
+  function _v800(_v0, _v1, _v2) {
     if (null != _v2) {
-      if ("number" != typeof _v2 || !Number.isFinite(_v2)) throw _v662("int32");
+      if ("number" != typeof _v2 || !Number.isFinite(_v2)) throw _v667("int32");
       _v2 |= 0;
     }
-    _v765(_v0, _v1, _v2);
+    _v770(_v0, _v1, _v2);
   }
-  function _v796(_v0, _v1, _v2) {
+  function _v801(_v0, _v1, _v2) {
     if (null != _v2 && "number" != typeof _v2) throw Error(`Value of float/double field must be a number, found ${typeof _v2}: ${_v2}`);
-    _v765(_v0, _v1, _v2);
+    _v770(_v0, _v1, _v2);
   }
-  function _v797(_v0, _v1, _v2) {
+  function _v802(_v0, _v1, _v2) {
     {
       let _v0 = _v0.u,
-        _v1 = _v675(_v0);
-      if (_v688(_v1), null == _v2) _v766(_v0, _v1, _v1);else {
+        _v1 = _v680(_v0);
+      if (_v693(_v1), null == _v2) _v771(_v0, _v1, _v1);else {
         var _v3,
-          _v4 = _v674(_v2 = _v8?.get(_v2) || _v2),
+          _v4 = _v679(_v2 = _v8?.get(_v2) || _v2),
           _v5 = _v4,
           _v6 = !!(2 & _v4) || Object.isFrozen(_v2);
-        if ((_v3 = !_v6) && ((_v3 = void 0 === _v693) || (_v3 = !!_v636 && void 0 !== _v692)), _v761(_v0, _v4)) {
-          _v4 = 21, _v6 && (_v2 = _v664(_v2), _v5 = 0, _v4 = _v789(_v4 = _v788(_v4, _v1), _v1, !0));
-          for (let _v0 = 0; _v0 < _v2.length; _v0++) _v2[_v0] = _v728(_v2[_v0]);
+        if ((_v3 = !_v6) && ((_v3 = void 0 === _v698) || (_v3 = !!_v641 && void 0 !== _v697)), _v766(_v0, _v4)) {
+          _v4 = 21, _v6 && (_v2 = _v669(_v2), _v5 = 0, _v4 = _v794(_v4 = _v793(_v4, _v1), _v1, !0));
+          for (let _v0 = 0; _v0 < _v2.length; _v0++) _v2[_v0] = _v733(_v2[_v0]);
         }
-        _v3 ? (_v2 = _v664(_v2), _v5 = 0, _v4 = _v789(_v4 = _v788(_v4, _v1), _v1, !0)) : _v6 || _v736(_v2, _v0), _v4 !== _v5 && _v676(_v2, _v4), _v766(_v0, _v1, _v1, _v2);
+        _v3 ? (_v2 = _v669(_v2), _v5 = 0, _v4 = _v794(_v4 = _v793(_v4, _v1), _v1, !0)) : _v6 || _v741(_v2, _v0), _v4 !== _v5 && _v681(_v2, _v4), _v771(_v0, _v1, _v1, _v2);
       }
     }
   }
-  function _v798(_v0, _v1, _v2) {
-    _v688(_v675(_v0.u)), _v771(_v0, _v1, _v730, 2, void 0, !0).push(_v728(_v2));
+  function _v803(_v0, _v1, _v2) {
+    _v693(_v680(_v0.u)), _v776(_v0, _v1, _v735, 2, void 0, !0).push(_v733(_v2));
   }
-  function _v799(_v0, _v1) {
+  function _v804(_v0, _v1) {
     return Error(`Invalid wire type: ${_v0} (at position ${_v1})`);
   }
-  function _v800() {
+  function _v805() {
     return Error("Failed to read varint, encoding is invalid.");
   }
-  function _v801(_v0, _v1) {
+  function _v806(_v0, _v1) {
     return Error(`Tried to read past the end of the data ${_v1} > ${_v0}`);
   }
-  function _v802(_v0) {
+  function _v807(_v0) {
     if ("string" == typeof _v0) return {
-      buffer: _v653(_v0),
+      buffer: _v658(_v0),
       O: !1
     };
     if (Array.isArray(_v0)) return {
@@ -22806,8 +22901,8 @@
       buffer: new Uint8Array(_v0),
       O: !1
     };
-    if (_v0.constructor === _v659) return {
-      buffer: _v658(_v0) || new Uint8Array(0),
+    if (_v0.constructor === _v664) return {
+      buffer: _v663(_v0) || new Uint8Array(0),
       O: !0
     };
     if (_v0 instanceof Uint8Array) return {
@@ -22816,7 +22911,7 @@
     };
     throw Error("Type not convertible to a Uint8Array, expected a Uint8Array, an ArrayBuffer, a base64 encoded string, a ByteString or an Array of numbers");
   }
-  function _v803(_v0, _v1) {
+  function _v808(_v0, _v1) {
     let _v2,
       _v3 = 0,
       _v4 = 0,
@@ -22825,91 +22920,91 @@
       _v7 = _v0.g;
     do _v3 |= (127 & (_v2 = _v6[_v7++])) << _v5, _v5 += 7; while (_v5 < 32 && 128 & _v2);
     for (_v5 > 32 && (_v4 |= (127 & _v2) >> 4), _v5 = 3; _v5 < 32 && 128 & _v2; _v5 += 7) _v4 |= (127 & (_v2 = _v6[_v7++])) << _v5;
-    if (_v811(_v0, _v7), _v2 < 128) return _v1(_v3 >>> 0, _v4 >>> 0);
-    throw _v800();
+    if (_v816(_v0, _v7), _v2 < 128) return _v1(_v3 >>> 0, _v4 >>> 0);
+    throw _v805();
   }
-  function _v804(_v0) {
+  function _v809(_v0) {
     let _v1 = 0,
       _v2 = _v0.g,
       _v3 = _v2 + 10,
       _v4 = _v0.h;
     for (; _v2 < _v3;) {
       let _v0 = _v4[_v2++];
-      if (_v1 |= _v0, 0 == (128 & _v0)) return _v811(_v0, _v2), !!(127 & _v1);
+      if (_v1 |= _v0, 0 == (128 & _v0)) return _v816(_v0, _v2), !!(127 & _v1);
     }
-    throw _v800();
+    throw _v805();
   }
-  function _v805(_v0) {
+  function _v810(_v0) {
     let _v1 = _v0.h,
       _v2 = _v0.g,
       _v3 = _v1[_v2++],
       _v4 = 127 & _v3;
-    if (128 & _v3 && (_v4 |= (127 & (_v3 = _v1[_v2++])) << 7, 128 & _v3 && (_v4 |= (127 & (_v3 = _v1[_v2++])) << 14, 128 & _v3 && (_v4 |= (127 & (_v3 = _v1[_v2++])) << 21, 128 & _v3 && (_v4 |= (_v3 = _v1[_v2++]) << 28, 128 & _v3 && 128 & _v1[_v2++] && 128 & _v1[_v2++] && 128 & _v1[_v2++] && 128 & _v1[_v2++] && 128 & _v1[_v2++]))))) throw _v800();
-    return _v811(_v0, _v2), _v4;
+    if (128 & _v3 && (_v4 |= (127 & (_v3 = _v1[_v2++])) << 7, 128 & _v3 && (_v4 |= (127 & (_v3 = _v1[_v2++])) << 14, 128 & _v3 && (_v4 |= (127 & (_v3 = _v1[_v2++])) << 21, 128 & _v3 && (_v4 |= (_v3 = _v1[_v2++]) << 28, 128 & _v3 && 128 & _v1[_v2++] && 128 & _v1[_v2++] && 128 & _v1[_v2++] && 128 & _v1[_v2++] && 128 & _v1[_v2++]))))) throw _v805();
+    return _v816(_v0, _v2), _v4;
   }
-  function _v806(_v0) {
-    return _v805(_v0) >>> 0;
+  function _v811(_v0) {
+    return _v810(_v0) >>> 0;
   }
-  function _v807(_v0) {
+  function _v812(_v0) {
     var _v1 = _v0.h;
     let _v2 = _v0.g,
       _v3 = _v1[_v2],
       _v4 = _v1[_v2 + 1],
       _v5 = _v1[_v2 + 2];
-    return _v1 = _v1[_v2 + 3], _v811(_v0, _v0.g + 4), (_v3 | _v4 << 8 | _v5 << 16 | _v1 << 24) >>> 0;
+    return _v1 = _v1[_v2 + 3], _v816(_v0, _v0.g + 4), (_v3 | _v4 << 8 | _v5 << 16 | _v1 << 24) >>> 0;
   }
-  function _v808(_v0) {
-    var _v1 = _v807(_v0);
+  function _v813(_v0) {
+    var _v1 = _v812(_v0);
     _v0 = 2 * (_v1 >> 31) + 1;
     let _v2 = _v1 >>> 23 & 255;
     return _v1 &= 0, 255 == _v2 ? _v1 ? NaN : 1 / 0 * _v0 : 0 == _v2 ? 1401298464324817e-60 * _v0 * _v1 : _v0 * Math.pow(2, _v2 - 150) * (_v1 + 0);
   }
-  function _v809(_v0) {
-    return _v805(_v0);
+  function _v814(_v0) {
+    return _v810(_v0);
   }
-  function _v810(_v0, _v1, {
+  function _v815(_v0, _v1, {
     ca: _v2 = !1
   } = {}) {
-    _v0.ca = _v2, _v1 && (_v0.h = (_v1 = _v802(_v1)).buffer, _v0.m = _v1.O, _v0.j = 0, _v0.l = _v0.h.length, _v0.g = _v0.j);
+    _v0.ca = _v2, _v1 && (_v0.h = (_v1 = _v807(_v1)).buffer, _v0.m = _v1.O, _v0.j = 0, _v0.l = _v0.h.length, _v0.g = _v0.j);
   }
-  function _v811(_v0, _v1) {
-    if (_v0.g = _v1, _v1 > _v0.l) throw _v801(_v0.l, _v1);
+  function _v816(_v0, _v1) {
+    if (_v0.g = _v1, _v1 > _v0.l) throw _v806(_v0.l, _v1);
   }
-  function _v812(_v0, _v1) {
+  function _v817(_v0, _v1) {
     if (_v1 < 0) throw Error(`Tried to read a negative byte length: ${_v1}`);
     let _v2 = _v0.g,
       _v3 = _v2 + _v1;
-    if (_v3 > _v0.l) throw _v801(_v1, _v0.l - _v2);
+    if (_v3 > _v0.l) throw _v806(_v1, _v0.l - _v2);
     return _v0.g = _v3, _v2;
   }
-  function _v813(_v0, _v1) {
-    if (0 == _v1) return _v657();
-    var _v2 = _v812(_v0, _v1);
-    return _v0.ca && _v0.m ? _v2 = _v0.h.subarray(_v2, _v2 + _v1) : (_v0 = _v0.h, _v2 = _v2 === (_v1 = _v2 + _v1) ? new Uint8Array(0) : _v705 ? _v0.slice(_v2, _v1) : new Uint8Array(_v0.subarray(_v2, _v1))), 0 == _v2.length ? _v657() : new _v659(_v2, _v655);
+  function _v818(_v0, _v1) {
+    if (0 == _v1) return _v662();
+    var _v2 = _v817(_v0, _v1);
+    return _v0.ca && _v0.m ? _v2 = _v0.h.subarray(_v2, _v2 + _v1) : (_v0 = _v0.h, _v2 = _v2 === (_v1 = _v2 + _v1) ? new Uint8Array(0) : _v710 ? _v0.slice(_v2, _v1) : new Uint8Array(_v0.subarray(_v2, _v1))), 0 == _v2.length ? _v662() : new _v664(_v2, _v660);
   }
-  _v749.prototype.toJSON = void 0, _v749.prototype.Ja = _v682;
-  var _v814 = [];
-  function _v815(_v0) {
+  _v754.prototype.toJSON = void 0, _v754.prototype.Ja = _v687;
+  var _v819 = [];
+  function _v820(_v0) {
     var _v1 = _v0.g;
     if (_v1.g == _v1.l) return !1;
     _v0.l = _v0.g.g;
-    var _v2 = _v806(_v0.g);
-    if (_v1 = _v2 >>> 3, !((_v2 &= 7) >= 0 && _v2 <= 5)) throw _v799(_v2, _v0.l);
+    var _v2 = _v811(_v0.g);
+    if (_v1 = _v2 >>> 3, !((_v2 &= 7) >= 0 && _v2 <= 5)) throw _v804(_v2, _v0.l);
     if (_v1 < 1) throw Error(`Invalid field number: ${_v1} (at position ${_v0.l})`);
     return _v0.m = _v1, _v0.h = _v2, !0;
   }
-  function _v816(_v0, _v1, _v2) {
+  function _v821(_v0, _v1, _v2) {
     let _v3 = _v0.g.l,
-      _v4 = _v806(_v0.g),
+      _v4 = _v811(_v0.g),
       _v5 = _v0.g.g + _v4,
       _v6 = _v5 - _v3;
     if (_v6 <= 0 && (_v0.g.l = _v5, _v2(_v1, _v0, void 0, void 0, void 0), _v6 = _v5 - _v0.g.g), _v6) throw Error(`Message parsing ended unexpectedly. Expected to read ${_v4} bytes, instead read ${_v4 - _v6} bytes, either the data ended unexpectedly or the message misreported its own length`);
     return _v0.g.g = _v5, _v0.g.l = _v3, _v1;
   }
-  function _v817(_v0) {
-    var _v1 = _v806(_v0.g),
-      _v2 = _v812(_v0 = _v0.g, _v1);
-    if (_v0 = _v0.h, _v629) {
+  function _v822(_v0) {
+    var _v1 = _v811(_v0.g),
+      _v2 = _v817(_v0 = _v0.g, _v1);
+    if (_v0 = _v0.h, _v634) {
       var _v3,
         _v4 = _v0;
       (_v3 = _v2) || (_v3 = _v2 = new TextDecoder("utf-8", {
@@ -22936,50 +23031,50 @@
         _v1 = null;
       for (; _v5 < _v1;) {
         var _v6 = _v0[_v5++];
-        _v6 < 128 ? _v2.push(_v6) : _v6 < 224 ? _v5 >= _v1 ? _v627() : (_v0 = _v0[_v5++], _v6 < 194 || 128 != (192 & _v0) ? (_v5--, _v627()) : _v2.push((31 & _v6) << 6 | 63 & _v0)) : _v6 < 240 ? _v5 >= _v1 - 1 ? _v627() : 128 != (192 & (_v0 = _v0[_v5++])) || 224 === _v6 && _v0 < 160 || 237 === _v6 && _v0 >= 160 || 128 != (192 & (_v3 = _v0[_v5++])) ? (_v5--, _v627()) : _v2.push((15 & _v6) << 12 | (63 & _v0) << 6 | 63 & _v3) : _v6 <= 244 ? _v5 >= _v1 - 2 ? _v627() : 128 != (192 & (_v0 = _v0[_v5++])) || _v0 - 144 + (_v6 << 28) >> 30 != 0 || 128 != (192 & (_v3 = _v0[_v5++])) || 128 != (192 & (_v4 = _v0[_v5++])) ? (_v5--, _v627()) : (_v6 = ((7 & _v6) << 18 | (63 & _v0) << 12 | (63 & _v3) << 6 | 63 & _v4) - 0, _v2.push(0 + (_v6 >> 10 & 0), 0 + (0 & _v6))) : _v627(), _v2.length >= 0 && (_v1 = _v628(_v1, _v2), _v2.length = 0);
+        _v6 < 128 ? _v2.push(_v6) : _v6 < 224 ? _v5 >= _v1 ? _v632() : (_v0 = _v0[_v5++], _v6 < 194 || 128 != (192 & _v0) ? (_v5--, _v632()) : _v2.push((31 & _v6) << 6 | 63 & _v0)) : _v6 < 240 ? _v5 >= _v1 - 1 ? _v632() : 128 != (192 & (_v0 = _v0[_v5++])) || 224 === _v6 && _v0 < 160 || 237 === _v6 && _v0 >= 160 || 128 != (192 & (_v3 = _v0[_v5++])) ? (_v5--, _v632()) : _v2.push((15 & _v6) << 12 | (63 & _v0) << 6 | 63 & _v3) : _v6 <= 244 ? _v5 >= _v1 - 2 ? _v632() : 128 != (192 & (_v0 = _v0[_v5++])) || _v0 - 144 + (_v6 << 28) >> 30 != 0 || 128 != (192 & (_v3 = _v0[_v5++])) || 128 != (192 & (_v4 = _v0[_v5++])) ? (_v5--, _v632()) : (_v6 = ((7 & _v6) << 18 | (63 & _v0) << 12 | (63 & _v3) << 6 | 63 & _v4) - 0, _v2.push(0 + (_v6 >> 10 & 0), 0 + (0 & _v6))) : _v632(), _v2.length >= 0 && (_v1 = _v633(_v1, _v2), _v2.length = 0);
       }
-      _v5 = _v628(_v1, _v2);
+      _v5 = _v633(_v1, _v2);
     }
     return _v5;
   }
-  function _v818(_v0) {
-    let _v1 = _v806(_v0.g);
-    return _v813(_v0.g, _v1);
+  function _v823(_v0) {
+    let _v1 = _v811(_v0.g);
+    return _v818(_v0.g, _v1);
   }
-  function _v819(_v0, _v1, _v2) {
-    var _v3 = _v806(_v0.g);
+  function _v824(_v0, _v1, _v2) {
+    var _v3 = _v811(_v0.g);
     for (_v3 = _v0.g.g + _v3; _v0.g.g < _v3;) _v2.push(_v1(_v0.g));
   }
-  var _v820 = [];
-  function _v821(_v0, _v1, _v2) {
+  var _v825 = [];
+  function _v826(_v0, _v1, _v2) {
     _v1.g ? _v1.m(_v0, _v1.g, _v1.h, _v2, !0) : _v1.m(_v0, _v1.h, _v2, !0);
   }
-  var _v822 = class {
+  var _v827 = class {
     constructor(_v0, _v1) {
-      this.u = _v742(_v0, _v1);
+      this.u = _v747(_v0, _v1);
     }
     toJSON() {
-      return _v823(this);
+      return _v828(this);
     }
     l() {
-      return _v1001.g ? _v1001.l(this, _v1001.g, _v1001.h, !0) : _v1001.l(this, _v1001.h, _v1001.defaultValue, !0);
+      return _v1006.g ? _v1006.l(this, _v1006.g, _v1006.h, !0) : _v1006.l(this, _v1006.h, _v1006.defaultValue, !0);
     }
     clone() {
       let _v0 = this.u;
-      return _v758(this, _v0, _v675(_v0), !1);
+      return _v763(this, _v0, _v680(_v0), !1);
     }
     O() {
-      return !!(2 & _v674(this.u));
+      return !!(2 & _v679(this.u));
     }
   };
-  function _v823(_v0) {
-    _v739(_v0), _v0 = _v17 ? _v0.u : _v755(_v0.u, _v757, void 0, void 0, !1);
+  function _v828(_v0) {
+    _v744(_v0), _v0 = _v17 ? _v0.u : _v760(_v0.u, _v762, void 0, void 0, !1);
     {
       var _v1 = !_v17;
       let _v0 = _v0.length;
       if (_v0) {
         var _v2 = _v0[_v0 - 1],
-          _v3 = _v684(_v2);
+          _v3 = _v689(_v2);
         _v3 ? _v0-- : _v2 = void 0;
         var _v4 = _v0;
         if (_v3) {
@@ -22987,7 +23082,7 @@
             var _v5,
               _v6 = _v2,
               _v7 = !1;
-            if (_v6) for (let _v0 in _v6) isNaN(+_v0) ? (_v5 ??= {})[_v0] = _v6[_v0] : (Array.isArray(_v3 = _v6[_v0]) && (_v686(_v3) || _v683(_v3) && 0 === _v3.size) && (_v3 = null), null == _v3 && (_v7 = !0), null != _v3 && ((_v5 ??= {})[_v0] = _v3));
+            if (_v6) for (let _v0 in _v6) isNaN(+_v0) ? (_v5 ??= {})[_v0] = _v6[_v0] : (Array.isArray(_v3 = _v6[_v0]) && (_v691(_v3) || _v688(_v3) && 0 === _v3.size) && (_v3 = null), null == _v3 && (_v7 = !0), null != _v3 && ((_v5 ??= {})[_v0] = _v3));
             if (_v7 || (_v5 = _v6), _v5) for (let _v0 in _v5) {
               _v7 = _v5;
               break e;
@@ -22996,73 +23091,73 @@
           }
           _v6 = null == _v7 ? null != _v2 : _v7 !== _v2;
         }
-        for (; _v0 > 0 && (null == (_v5 = _v4[_v0 - 1]) || _v686(_v5) || _v683(_v5) && 0 === _v5.size); _v0--) var _v8 = !0;
+        for (; _v0 > 0 && (null == (_v5 = _v4[_v0 - 1]) || _v691(_v5) || _v688(_v5) && 0 === _v5.size); _v0--) var _v8 = !0;
         (_v4 !== _v0 || _v6 || _v8) && (_v1 ? (_v8 || _v6 || _v7) && (_v4.length = _v0) : _v4 = Array.prototype.slice.call(_v4, 0, _v0), _v7 && _v4.push(_v7)), _v8 = _v4;
       } else _v8 = _v0;
     }
     return _v8;
   }
-  function _v824(_v0) {
-    return _v0 ? /^\d+$/.test(_v0) ? (_v716(_v0), new _v825(_v707, _v708)) : null : _v18 ||= new _v825(0, 0);
+  function _v829(_v0) {
+    return _v0 ? /^\d+$/.test(_v0) ? (_v721(_v0), new _v830(_v712, _v713)) : null : _v18 ||= new _v830(0, 0);
   }
-  _v822.prototype.X = _v681, _v822.prototype.toString = function () {
+  _v827.prototype.X = _v686, _v827.prototype.toString = function () {
     try {
-      return _v17 = !0, _v823(this).toString();
+      return _v17 = !0, _v828(this).toString();
     } finally {
       _v17 = !1;
     }
   };
-  var _v825 = class {
+  var _v830 = class {
     constructor(_v0, _v1) {
       this.h = _v0 >>> 0, this.g = _v1 >>> 0;
     }
   };
-  function _v826(_v0) {
-    return _v0 ? /^-?\d+$/.test(_v0) ? (_v716(_v0), new _v827(_v707, _v708)) : null : _v19 ||= new _v827(0, 0);
+  function _v831(_v0) {
+    return _v0 ? /^-?\d+$/.test(_v0) ? (_v721(_v0), new _v832(_v712, _v713)) : null : _v19 ||= new _v832(0, 0);
   }
-  var _v827 = class {
+  var _v832 = class {
     constructor(_v0, _v1) {
       this.h = _v0 >>> 0, this.g = _v1 >>> 0;
     }
   };
-  function _v828(_v0, _v1, _v2) {
+  function _v833(_v0, _v1, _v2) {
     for (; _v2 > 0 || _v1 > 127;) _v0.g.push(127 & _v1 | 128), _v1 = (_v1 >>> 7 | _v2 << 25) >>> 0, _v2 >>>= 7;
     _v0.g.push(_v1);
   }
-  function _v829(_v0, _v1) {
+  function _v834(_v0, _v1) {
     for (; _v1 > 127;) _v0.g.push(127 & _v1 | 128), _v1 >>>= 7;
     _v0.g.push(_v1);
   }
-  function _v830(_v0, _v1) {
-    if (_v1 >= 0) _v829(_v0, _v1);else {
+  function _v835(_v0, _v1) {
+    if (_v1 >= 0) _v834(_v0, _v1);else {
       for (let _v0 = 0; _v0 < 9; _v0++) _v0.g.push(127 & _v1 | 128), _v1 >>= 7;
       _v0.g.push(1);
     }
   }
-  function _v831(_v0, _v1) {
+  function _v836(_v0, _v1) {
     _v0.g.push(_v1 >>> 0 & 255), _v0.g.push(_v1 >>> 8 & 255), _v0.g.push(_v1 >>> 16 & 255), _v0.g.push(_v1 >>> 24 & 255);
   }
-  function _v832(_v0, _v1) {
+  function _v837(_v0, _v1) {
     0 !== _v1.length && (_v0.l.push(_v1), _v0.h += _v1.length);
   }
-  function _v833(_v0, _v1, _v2) {
-    _v829(_v0.g, 8 * _v1 + _v2);
+  function _v838(_v0, _v1, _v2) {
+    _v834(_v0.g, 8 * _v1 + _v2);
   }
-  function _v834(_v0, _v1) {
-    return _v833(_v0, _v1, 2), _v1 = _v0.g.end(), _v832(_v0, _v1), _v1.push(_v0.h), _v1;
+  function _v839(_v0, _v1) {
+    return _v838(_v0, _v1, 2), _v1 = _v0.g.end(), _v837(_v0, _v1), _v1.push(_v0.h), _v1;
   }
-  function _v835(_v0, _v1) {
+  function _v840(_v0, _v1) {
     var _v2 = _v1.pop();
     for (_v2 = _v0.h + _v0.g.length() - _v2; _v2 > 127;) _v1.push(127 & _v2 | 128), _v2 >>>= 7, _v0.h++;
     _v1.push(_v2), _v0.h++;
   }
-  function _v836(_v0, _v1, _v2) {
-    _v833(_v0, _v1, 2), _v829(_v0.g, _v2.length), _v832(_v0, _v0.g.end()), _v832(_v0, _v2);
+  function _v841(_v0, _v1, _v2) {
+    _v838(_v0, _v1, 2), _v834(_v0.g, _v2.length), _v837(_v0, _v0.g.end()), _v837(_v0, _v2);
   }
-  function _v837(_v0, _v1, _v2, _v3) {
-    null != _v2 && (_v1 = _v834(_v0, _v1), _v3(_v2, _v0), _v835(_v0, _v1));
+  function _v842(_v0, _v1, _v2, _v3) {
+    null != _v2 && (_v1 = _v839(_v0, _v1), _v3(_v2, _v0), _v840(_v0, _v1));
   }
-  function _v838() {
+  function _v843() {
     let _v0 = class {
       constructor() {
         throw Error();
@@ -23070,36 +23165,36 @@
     };
     return Object.setPrototypeOf(_v0, _v0.prototype), _v0;
   }
-  var _v839 = _v838(),
-    _v840 = _v838(),
-    _v841 = _v838(),
-    _v842 = _v838(),
-    _v843 = _v838(),
-    _v844 = _v838(),
-    _v845 = _v838(),
-    _v846 = _v838(),
-    _v847 = class {
+  var _v844 = _v843(),
+    _v845 = _v843(),
+    _v846 = _v843(),
+    _v847 = _v843(),
+    _v848 = _v843(),
+    _v849 = _v843(),
+    _v850 = _v843(),
+    _v851 = _v843(),
+    _v852 = class {
       constructor(_v0, _v1, _v2) {
-        this.g = _v0, this.h = _v1, _v0 = _v839, this.l = !!_v0 && _v2 === _v0;
+        this.g = _v0, this.h = _v1, _v0 = _v844, this.l = !!_v0 && _v2 === _v0;
       }
     };
-  function _v848(_v0, _v1) {
-    return new _v847(_v0, _v1, _v839);
+  function _v853(_v0, _v1) {
+    return new _v852(_v0, _v1, _v844);
   }
-  function _v849(_v0, _v1, _v2, _v3, _v4) {
-    _v837(_v0, _v2, _v858(_v1, _v3), _v4);
+  function _v854(_v0, _v1, _v2, _v3, _v4) {
+    _v842(_v0, _v2, _v863(_v1, _v3), _v4);
   }
-  let _v850 = _v848(function (_v0, _v1, _v2, _v3, _v4) {
-      return 2 === _v0.h && (_v816(_v0, _v781(_v1, _v3, _v2), _v4), !0);
-    }, _v849),
-    _v851 = _v848(function (_v0, _v1, _v2, _v3, _v4) {
-      return 2 === _v0.h && (_v816(_v0, _v781(_v1, _v3, _v2, !0), _v4), !0);
-    }, _v849);
-  var _v852 = Symbol(),
-    _v853 = Symbol(),
-    _v854 = Symbol(),
-    _v855 = Symbol();
-  function _v856(_v0, _v1, _v2, _v3) {
+  let _v855 = _v853(function (_v0, _v1, _v2, _v3, _v4) {
+      return 2 === _v0.h && (_v821(_v0, _v786(_v1, _v3, _v2), _v4), !0);
+    }, _v854),
+    _v856 = _v853(function (_v0, _v1, _v2, _v3, _v4) {
+      return 2 === _v0.h && (_v821(_v0, _v786(_v1, _v3, _v2, !0), _v4), !0);
+    }, _v854);
+  var _v857 = Symbol(),
+    _v858 = Symbol(),
+    _v859 = Symbol(),
+    _v860 = Symbol();
+  function _v861(_v0, _v1, _v2, _v3) {
     var _v4 = _v3[_v0];
     if (_v4) return _v4;
     (_v4 = {}).W = function (_v0) {
@@ -23126,7 +23221,7 @@
       let _v0;
       "number" == typeof _v5 && (_v8 += _v5, _v5 = _v3[++_v6]);
       var _v9 = void 0;
-      if (_v5 instanceof _v847 ? _v0 = _v5 : (_v0 = _v850, _v6--), _v0?.l) {
+      if (_v5 instanceof _v852 ? _v0 = _v5 : (_v0 = _v855, _v6--), _v0?.l) {
         _v5 = _v3[++_v6], _v9 = _v3;
         var _v10 = _v6;
         "function" == typeof _v5 && (_v5 = _v5(), _v9[_v10] = _v5), _v9 = _v5;
@@ -23138,38 +23233,38 @@
     }
     return _v3[_v0] = _v4;
   }
-  function _v857(_v0) {
-    return Array.isArray(_v0) ? _v0[0] instanceof _v847 ? _v0 : [_v851, _v0] : [_v0, void 0];
+  function _v862(_v0) {
+    return Array.isArray(_v0) ? _v0[0] instanceof _v852 ? _v0 : [_v856, _v0] : [_v0, void 0];
   }
-  function _v858(_v0, _v1) {
-    return _v0 instanceof _v822 ? (_v739(_v0), _v0.u) : Array.isArray(_v0) ? _v741(_v0, _v1, !1) : void 0;
+  function _v863(_v0, _v1) {
+    return _v0 instanceof _v827 ? (_v744(_v0), _v0.u) : Array.isArray(_v0) ? _v746(_v0, _v1, !1) : void 0;
   }
-  function _v859(_v0, _v1, _v2, _v3) {
+  function _v864(_v0, _v1, _v2, _v3) {
     let _v4 = _v2.g;
     _v0[_v1] = _v3 ? (_v0, _v1, _v2) => _v4(_v0, _v1, _v2, _v3) : _v4;
   }
-  function _v860(_v0, _v1, _v2, _v3, _v4) {
+  function _v865(_v0, _v1, _v2, _v3, _v4) {
     let _v5,
       _v6,
       _v7 = _v2.g;
-    _v0[_v1] = (_v0, _v1, _v2) => _v7(_v0, _v1, _v2, _v6 ||= _v856(_v853, _v859, _v860, _v3).W, _v5 ||= _v861(_v3), _v4);
+    _v0[_v1] = (_v0, _v1, _v2) => _v7(_v0, _v1, _v2, _v6 ||= _v861(_v858, _v864, _v865, _v3).W, _v5 ||= _v866(_v3), _v4);
   }
-  function _v861(_v0) {
-    let _v1 = _v0[_v854];
+  function _v866(_v0) {
+    let _v1 = _v0[_v859];
     if (null != _v1) return _v1;
-    let _v2 = _v856(_v853, _v859, _v860, _v0);
+    let _v2 = _v861(_v858, _v864, _v865, _v0);
     return _v1 = _v2.na ? (_v0, _v1) => _v20(_v0, _v1, _v2) : (_v0, _v1) => {
-      let _v2 = _v675(_v0);
-      for (; _v815(_v1) && 4 != _v1.h;) {
+      let _v2 = _v680(_v0);
+      for (; _v820(_v1) && 4 != _v1.h;) {
         var _v3 = _v1.m,
           _v4 = _v2[_v3];
         if (null == _v4) {
           var _v5 = _v2.ia;
           _v5 && (_v5 = _v5[_v3]) && null != (_v5 = function (_v0) {
-            let _v1 = (_v0 = _v857(_v0))[0].g;
+            let _v1 = (_v0 = _v862(_v0))[0].g;
             if (_v0 = _v0[1]) {
-              let _v0 = _v861(_v0),
-                _v1 = _v856(_v853, _v859, _v860, _v0).W;
+              let _v0 = _v866(_v0),
+                _v1 = _v861(_v858, _v864, _v865, _v0).W;
               return (_v0, _v1, _v2) => _v1(_v0, _v1, _v2, _v1, _v0);
             }
             return _v1;
@@ -23178,23 +23273,23 @@
         null != _v4 && _v4(_v1, _v0, _v3) || (_v3 = (_v4 = _v1).l, function _v0(_v1) {
           switch (_v1.h) {
             case 0:
-              0 != _v1.h ? _v0(_v1) : _v804(_v1.g);
+              0 != _v1.h ? _v0(_v1) : _v809(_v1.g);
               break;
             case 1:
-              _v811(_v1 = _v1.g, _v1.g + 8);
+              _v816(_v1 = _v1.g, _v1.g + 8);
               break;
             case 2:
               if (2 != _v1.h) _v0(_v1);else {
-                var _v2 = _v806(_v1.g);
-                _v811(_v1 = _v1.g, _v1.g + _v2);
+                var _v2 = _v811(_v1.g);
+                _v816(_v1 = _v1.g, _v1.g + _v2);
               }
               break;
             case 5:
-              _v811(_v1 = _v1.g, _v1.g + 4);
+              _v816(_v1 = _v1.g, _v1.g + 4);
               break;
             case 3:
               for (_v2 = _v1.m;;) {
-                if (!_v815(_v1)) throw Error("Unmatched start-group tag: stream EOF");
+                if (!_v820(_v1)) throw Error("Unmatched start-group tag: stream EOF");
                 if (4 == _v1.h) {
                   if (_v1.m != _v2) throw Error("Unmatched end-group tag");
                   break;
@@ -23203,276 +23298,276 @@
               }
               break;
             default:
-              throw _v799(_v1.h, _v1.l);
+              throw _v804(_v1.h, _v1.l);
           }
-        }(_v4), _v4.ha ? _v4 = void 0 : (_v5 = _v4.g.g - _v3, _v4.g.g = _v3, _v4 = _v813(_v4.g, _v5)), _v3 = _v0, _v4 && (_v6 ||= Symbol(), (_v5 = _v3[_v6]) ? _v5.push(_v4) : _v3[_v6] = [_v4]));
+        }(_v4), _v4.ha ? _v4 = void 0 : (_v5 = _v4.g.g - _v3, _v4.g.g = _v3, _v4 = _v818(_v4.g, _v5)), _v3 = _v0, _v4 && (_v6 ||= Symbol(), (_v5 = _v3[_v6]) ? _v5.push(_v4) : _v3[_v6] = [_v4]));
       }
-      return 0 & _v2 && _v677(_v0), !0;
-    }, _v0[_v854] = _v1;
+      return 0 & _v2 && _v682(_v0), !0;
+    }, _v0[_v859] = _v1;
   }
-  function _v862(_v0, _v1, _v2) {
+  function _v867(_v0, _v1, _v2) {
     _v0[_v1] = _v2.h;
   }
-  function _v863(_v0, _v1, _v2, _v3) {
+  function _v868(_v0, _v1, _v2, _v3) {
     let _v4,
       _v5,
       _v6 = _v2.h;
-    _v0[_v1] = (_v0, _v1, _v2) => _v6(_v0, _v1, _v2, _v5 ||= _v856(_v852, _v862, _v863, _v3).W, _v4 ||= _v864(_v3));
+    _v0[_v1] = (_v0, _v1, _v2) => _v6(_v0, _v1, _v2, _v5 ||= _v861(_v857, _v867, _v868, _v3).W, _v4 ||= _v869(_v3));
   }
-  function _v864(_v0) {
-    let _v1 = _v0[_v855];
+  function _v869(_v0) {
+    let _v1 = _v0[_v860];
     if (!_v1) {
-      let _v0 = _v856(_v852, _v862, _v863, _v0);
-      _v1 = (_v0, _v1) => _v865(_v0, _v1, _v0), _v0[_v855] = _v1;
+      let _v0 = _v861(_v857, _v867, _v868, _v0);
+      _v1 = (_v0, _v1) => _v870(_v0, _v1, _v0), _v0[_v860] = _v1;
     }
     return _v1;
   }
-  function _v865(_v0, _v1, _v2) {
-    for (var _v3 = _v674(_v0), _v4 = !!(512 & _v3) - 1, _v5 = _v0.length, _v6 = 512 & _v3 ? 1 : 0, _v7 = _v5 + (256 & _v3 ? -1 : 0); _v6 < _v7; _v6++) {
+  function _v870(_v0, _v1, _v2) {
+    for (var _v3 = _v679(_v0), _v4 = !!(512 & _v3) - 1, _v5 = _v0.length, _v6 = 512 & _v3 ? 1 : 0, _v7 = _v5 + (256 & _v3 ? -1 : 0); _v6 < _v7; _v6++) {
       let _v0 = _v0[_v6];
       if (null == _v0) continue;
       let _v1 = _v6 - _v4,
-        _v2 = _v866(_v2, _v1);
+        _v2 = _v871(_v2, _v1);
       _v2 && _v2(_v1, _v0, _v1);
     }
-    if (256 & _v3) for (let _v0 in _v3 = _v0[_v5 - 1]) Number.isNaN(_v4 = +_v0) || null != (_v5 = _v3[_v4]) && (_v7 = _v866(_v2, _v4)) && _v7(_v1, _v5, _v4);
-    if (_v0 = _v6 ? _v0[_v6] : void 0) for (_v832(_v1, _v1.g.end()), _v2 = 0; _v2 < _v0.length; _v2++) _v832(_v1, _v658(_v0[_v2]) || new Uint8Array(0));
+    if (256 & _v3) for (let _v0 in _v3 = _v0[_v5 - 1]) Number.isNaN(_v4 = +_v0) || null != (_v5 = _v3[_v4]) && (_v7 = _v871(_v2, _v4)) && _v7(_v1, _v5, _v4);
+    if (_v0 = _v6 ? _v0[_v6] : void 0) for (_v837(_v1, _v1.g.end()), _v2 = 0; _v2 < _v0.length; _v2++) _v837(_v1, _v663(_v0[_v2]) || new Uint8Array(0));
   }
-  function _v866(_v0, _v1) {
+  function _v871(_v0, _v1) {
     var _v2 = _v0[_v1];
     if (_v2) return _v2;
     if ((_v2 = _v0.ia) && (_v2 = _v2[_v1])) {
-      var _v3 = (_v2 = _v857(_v2))[0].h;
+      var _v3 = (_v2 = _v862(_v2))[0].h;
       if (_v2 = _v2[1]) {
-        let _v0 = _v864(_v2),
-          _v1 = _v856(_v852, _v862, _v863, _v2).W;
+        let _v0 = _v869(_v2),
+          _v1 = _v861(_v857, _v867, _v868, _v2).W;
         _v2 = _v0.na ? _v21(_v1, _v0) : (_v0, _v1, _v2) => _v3(_v0, _v1, _v2, _v1, _v0);
       } else _v2 = _v3;
       return _v0[_v1] = _v2;
     }
   }
-  function _v867(_v0, _v1) {
+  function _v872(_v0, _v1) {
     if (Array.isArray(_v1)) {
-      var _v2 = _v674(_v1);
+      var _v2 = _v679(_v1);
       if (4 & _v2) return _v1;
       for (var _v3 = 0, _v4 = 0; _v3 < _v1.length; _v3++) {
         let _v0 = _v0(_v1[_v3]);
         null != _v0 && (_v1[_v4++] = _v0);
       }
-      return _v4 < _v3 && (_v1.length = _v4), _v676(_v1, 0 & (5 | _v2)), 2 & _v2 && Object.freeze(_v1), _v1;
+      return _v4 < _v3 && (_v1.length = _v4), _v681(_v1, 0 & (5 | _v2)), 2 & _v2 && Object.freeze(_v1), _v1;
     }
   }
-  function _v868(_v0, _v1, _v2) {
-    return new _v847(_v0, _v1, _v2);
+  function _v873(_v0, _v1, _v2) {
+    return new _v852(_v0, _v1, _v2);
   }
-  function _v869(_v0, _v1, _v2) {
-    return new _v847(_v0, _v1, _v2);
+  function _v874(_v0, _v1, _v2) {
+    return new _v852(_v0, _v1, _v2);
   }
-  function _v870(_v0, _v1, _v2) {
-    _v766(_v0, _v675(_v0), _v1, _v2);
+  function _v875(_v0, _v1, _v2) {
+    _v771(_v0, _v680(_v0), _v1, _v2);
   }
-  var _v871 = _v848(function (_v0, _v1, _v2, _v3, _v4) {
-    return 2 === _v0.h && (_v0 = _v816(_v0, _v741([void 0, void 0], _v3, !0), _v4), _v688(_v3 = _v675(_v1)), (_v4 = _v764(_v1, _v3, _v2)) instanceof _v749 ? 0 != (2 & _v4.M) ? ((_v4 = _v4.Y()).push(_v0), _v766(_v1, _v3, _v2, _v4)) : _v4.Oa(_v0) : Array.isArray(_v4) ? (2 & _v674(_v4) && _v766(_v1, _v3, _v2, _v4 = _v775(_v4)), _v4.push(_v0)) : _v766(_v1, _v3, _v2, [_v0]), !0);
+  var _v876 = _v853(function (_v0, _v1, _v2, _v3, _v4) {
+    return 2 === _v0.h && (_v0 = _v821(_v0, _v746([void 0, void 0], _v3, !0), _v4), _v693(_v3 = _v680(_v1)), (_v4 = _v769(_v1, _v3, _v2)) instanceof _v754 ? 0 != (2 & _v4.M) ? ((_v4 = _v4.Y()).push(_v0), _v771(_v1, _v3, _v2, _v4)) : _v4.Oa(_v0) : Array.isArray(_v4) ? (2 & _v679(_v4) && _v771(_v1, _v3, _v2, _v4 = _v780(_v4)), _v4.push(_v0)) : _v771(_v1, _v3, _v2, [_v0]), !0);
   }, function (_v0, _v1, _v2, _v3, _v4) {
-    if (_v1 instanceof _v749) _v1.forEach((_v0, _v1) => {
-      _v837(_v0, _v2, _v741([_v1, _v0], _v3, !1), _v4);
+    if (_v1 instanceof _v754) _v1.forEach((_v0, _v1) => {
+      _v842(_v0, _v2, _v746([_v1, _v0], _v3, !1), _v4);
     });else if (Array.isArray(_v1)) for (let _v0 = 0; _v0 < _v1.length; _v0++) {
       let _v0 = _v1[_v0];
-      Array.isArray(_v0) && _v837(_v0, _v2, _v741(_v0, _v3, !1), _v4);
+      Array.isArray(_v0) && _v842(_v0, _v2, _v746(_v0, _v3, !1), _v4);
     }
   });
-  function _v872(_v0, _v1, _v2) {
+  function _v877(_v0, _v1, _v2) {
     if (null != (_v1 = function (_v0) {
       if (null == _v0) return _v0;
       let _v1 = typeof _v0;
       if ("bigint" === _v1) return String(BigInt.asIntN(64, _v0));
-      if (_v721(_v0)) {
-        if ("string" === _v1) return _v726(_v0);
-        if ("number" === _v1) return _v725(_v0);
+      if (_v726(_v0)) {
+        if ("string" === _v1) return _v731(_v0);
+        if ("number" === _v1) return _v730(_v0);
       }
-    }(_v1)) && ("string" == typeof _v1 && _v826(_v1), null != _v1)) switch (_v833(_v0, _v2, 0), typeof _v1) {
+    }(_v1)) && ("string" == typeof _v1 && _v831(_v1), null != _v1)) switch (_v838(_v0, _v2, 0), typeof _v1) {
       case "number":
-        _v0 = _v0.g, _v710(_v1), _v828(_v0, _v707, _v708);
+        _v0 = _v0.g, _v715(_v1), _v833(_v0, _v712, _v713);
         break;
       case "bigint":
-        _v2 = new _v827(Number((_v2 = BigInt.asUintN(64, _v1)) & BigInt(0)), Number(_v2 >> BigInt(32))), _v828(_v0.g, _v2.h, _v2.g);
+        _v2 = new _v832(Number((_v2 = BigInt.asUintN(64, _v1)) & BigInt(0)), Number(_v2 >> BigInt(32))), _v833(_v0.g, _v2.h, _v2.g);
         break;
       default:
-        _v2 = _v826(_v1), _v828(_v0.g, _v2.h, _v2.g);
+        _v2 = _v831(_v1), _v833(_v0.g, _v2.h, _v2.g);
     }
   }
-  function _v873(_v0, _v1, _v2) {
-    null != (_v1 = _v722(_v1)) && null != _v1 && (_v833(_v0, _v2, 0), _v830(_v0.g, _v1));
-  }
-  function _v874(_v0, _v1, _v2) {
-    null != (_v1 = _v719(_v1)) && (_v833(_v0, _v2, 0), _v0.g.g.push(+!!_v1));
-  }
-  function _v875(_v0, _v1, _v2) {
-    null != (_v1 = _v730(_v1)) && _v836(_v0, _v2, _v631(_v1));
-  }
-  function _v876(_v0, _v1, _v2, _v3, _v4) {
-    _v837(_v0, _v2, _v858(_v1, _v3), _v4);
-  }
-  function _v877(_v0, _v1, _v2) {
-    null != (_v1 = null == _v1 || "string" == typeof _v1 || _v654(_v1) || _v1 instanceof _v659 ? _v1 : void 0) && _v836(_v0, _v2, _v802(_v1).buffer);
-  }
   function _v878(_v0, _v1, _v2) {
-    return (5 === _v0.h || 2 === _v0.h) && (_v1 = _v767(_v1, _v675(_v1), _v2, 2, !1), 2 == _v0.h ? _v819(_v0, _v808, _v1) : _v1.push(_v808(_v0.g)), !0);
+    null != (_v1 = _v727(_v1)) && null != _v1 && (_v838(_v0, _v2, 0), _v835(_v0.g, _v1));
   }
-  var _v879 = _v868(function (_v0, _v1, _v2) {
+  function _v879(_v0, _v1, _v2) {
+    null != (_v1 = _v724(_v1)) && (_v838(_v0, _v2, 0), _v0.g.g.push(+!!_v1));
+  }
+  function _v880(_v0, _v1, _v2) {
+    null != (_v1 = _v735(_v1)) && _v841(_v0, _v2, _v636(_v1));
+  }
+  function _v881(_v0, _v1, _v2, _v3, _v4) {
+    _v842(_v0, _v2, _v863(_v1, _v3), _v4);
+  }
+  function _v882(_v0, _v1, _v2) {
+    null != (_v1 = null == _v1 || "string" == typeof _v1 || _v659(_v1) || _v1 instanceof _v664 ? _v1 : void 0) && _v841(_v0, _v2, _v807(_v1).buffer);
+  }
+  function _v883(_v0, _v1, _v2) {
+    return (5 === _v0.h || 2 === _v0.h) && (_v1 = _v772(_v1, _v680(_v1), _v2, 2, !1), 2 == _v0.h ? _v824(_v0, _v813, _v1) : _v1.push(_v813(_v0.g)), !0);
+  }
+  var _v884 = _v873(function (_v0, _v1, _v2) {
       if (1 !== _v0.h) return !1;
       var _v3 = _v0.g;
-      _v0 = _v807(_v3);
-      let _v4 = _v807(_v3);
+      _v0 = _v812(_v3);
+      let _v4 = _v812(_v3);
       _v3 = 2 * (_v4 >> 31) + 1;
       let _v5 = _v4 >>> 20 & 0;
-      return _v0 = 0 * (0 & _v4) + _v0, _v870(_v1, _v2, 0 == _v5 ? _v0 ? NaN : 1 / 0 * _v3 : 0 == _v5 ? 5e-324 * _v3 * _v0 : _v3 * Math.pow(2, _v5 - 0) * (_v0 + 0)), !0;
+      return _v0 = 0 * (0 & _v4) + _v0, _v875(_v1, _v2, 0 == _v5 ? _v0 ? NaN : 1 / 0 * _v3 : 0 == _v5 ? 5e-324 * _v3 * _v0 : _v3 * Math.pow(2, _v5 - 0) * (_v0 + 0)), !0;
     }, function (_v0, _v1, _v2) {
-      null != (_v1 = _v718(_v1)) && (_v833(_v0, _v2, 1), _v0 = _v0.g, (_v2 = _v706 ||= new DataView(new ArrayBuffer(8))).setFloat64(0, +_v1, !0), _v707 = _v2.getUint32(0, !0), _v708 = _v2.getUint32(4, !0), _v831(_v0, _v707), _v831(_v0, _v708));
-    }, _v838()),
-    _v880 = _v868(function (_v0, _v1, _v2) {
-      return 5 === _v0.h && (_v870(_v1, _v2, _v808(_v0.g)), !0);
+      null != (_v1 = _v723(_v1)) && (_v838(_v0, _v2, 1), _v0 = _v0.g, (_v2 = _v711 ||= new DataView(new ArrayBuffer(8))).setFloat64(0, +_v1, !0), _v712 = _v2.getUint32(0, !0), _v713 = _v2.getUint32(4, !0), _v836(_v0, _v712), _v836(_v0, _v713));
+    }, _v843()),
+    _v885 = _v873(function (_v0, _v1, _v2) {
+      return 5 === _v0.h && (_v875(_v1, _v2, _v813(_v0.g)), !0);
     }, function (_v0, _v1, _v2) {
-      null != (_v1 = _v718(_v1)) && (_v833(_v0, _v2, 5), _v0 = _v0.g, _v711(_v1), _v831(_v0, _v707));
-    }, _v844),
-    _v881 = _v869(_v878, function (_v0, _v1, _v2) {
-      if (null != (_v1 = _v867(_v718, _v1))) for (let _v0 = 0; _v0 < _v1.length; _v0++) {
+      null != (_v1 = _v723(_v1)) && (_v838(_v0, _v2, 5), _v0 = _v0.g, _v716(_v1), _v836(_v0, _v712));
+    }, _v849),
+    _v886 = _v874(_v883, function (_v0, _v1, _v2) {
+      if (null != (_v1 = _v872(_v723, _v1))) for (let _v0 = 0; _v0 < _v1.length; _v0++) {
         var _v3 = _v0,
           _v4 = _v1[_v0];
-        null != _v4 && (_v833(_v3, _v2, 5), _v3 = _v3.g, _v711(_v4), _v831(_v3, _v707));
+        null != _v4 && (_v838(_v3, _v2, 5), _v3 = _v3.g, _v716(_v4), _v836(_v3, _v712));
       }
-    }, _v844),
-    _v882 = _v869(_v878, function (_v0, _v1, _v2) {
-      if (null != (_v1 = _v867(_v718, _v1)) && _v1.length) {
-        _v833(_v0, _v2, 2), _v829(_v0.g, 4 * _v1.length);
-        for (let _v0 = 0; _v0 < _v1.length; _v0++) _v2 = _v0.g, _v711(_v1[_v0]), _v831(_v2, _v707);
+    }, _v849),
+    _v887 = _v874(_v883, function (_v0, _v1, _v2) {
+      if (null != (_v1 = _v872(_v723, _v1)) && _v1.length) {
+        _v838(_v0, _v2, 2), _v834(_v0.g, 4 * _v1.length);
+        for (let _v0 = 0; _v0 < _v1.length; _v0++) _v2 = _v0.g, _v716(_v1[_v0]), _v836(_v2, _v712);
       }
-    }, _v844),
-    _v883 = _v868(function (_v0, _v1, _v2) {
-      return 0 === _v0.h && (_v870(_v1, _v2, _v803(_v0.g, _v713)), !0);
-    }, _v872, _v843),
-    _v884 = _v868(function (_v0, _v1, _v2) {
-      return 0 === _v0.h && (_v870(_v1, _v2, 0 === (_v0 = _v803(_v0.g, _v713)) ? void 0 : _v0), !0);
-    }, _v872, _v843),
-    _v885 = _v868(function (_v0, _v1, _v2) {
-      return 0 === _v0.h && (_v870(_v1, _v2, _v803(_v0.g, _v712)), !0);
+    }, _v849),
+    _v888 = _v873(function (_v0, _v1, _v2) {
+      return 0 === _v0.h && (_v875(_v1, _v2, _v808(_v0.g, _v718)), !0);
+    }, _v877, _v848),
+    _v889 = _v873(function (_v0, _v1, _v2) {
+      return 0 === _v0.h && (_v875(_v1, _v2, 0 === (_v0 = _v808(_v0.g, _v718)) ? void 0 : _v0), !0);
+    }, _v877, _v848),
+    _v890 = _v873(function (_v0, _v1, _v2) {
+      return 0 === _v0.h && (_v875(_v1, _v2, _v808(_v0.g, _v717)), !0);
     }, function (_v0, _v1, _v2) {
       if (null != (_v1 = function (_v0) {
         if (null == _v0) return _v0;
         var _v1 = typeof _v0;
         if ("bigint" === _v1) return String(BigInt.asUintN(64, _v0));
-        if (_v721(_v0)) {
-          if ("string" === _v1) return Number.isSafeInteger(_v1 = Math.trunc(Number(_v0))) && _v1 >= 0 ? _v0 = String(_v1) : (-1 !== (_v1 = _v0.indexOf(".")) && (_v0 = _v0.substring(0, _v1)), _v724(_v0) || (_v716(_v0), _v0 = _v714(_v707, _v708))), _v0;
+        if (_v726(_v0)) {
+          if ("string" === _v1) return Number.isSafeInteger(_v1 = Math.trunc(Number(_v0))) && _v1 >= 0 ? _v0 = String(_v1) : (-1 !== (_v1 = _v0.indexOf(".")) && (_v0 = _v0.substring(0, _v1)), _v729(_v0) || (_v721(_v0), _v0 = _v719(_v712, _v713))), _v0;
           if ("number" === _v1) return (_v0 = Math.trunc(_v0)) >= 0 && Number.isSafeInteger(_v0) ? _v0 : function (_v0) {
             if (_v0 < 0) {
-              _v710(_v0);
-              let _v0 = _v714(_v707, _v708);
+              _v715(_v0);
+              let _v0 = _v719(_v712, _v713);
               return Number.isSafeInteger(_v0 = Number(_v0)) ? _v0 : _v0;
             }
-            return _v724(String(_v0)) ? _v0 : (_v710(_v0), _v712(_v707, _v708));
+            return _v729(String(_v0)) ? _v0 : (_v715(_v0), _v717(_v712, _v713));
           }(_v0);
         }
-      }(_v1)) && ("string" == typeof _v1 && _v824(_v1), null != _v1)) switch (_v833(_v0, _v2, 0), typeof _v1) {
+      }(_v1)) && ("string" == typeof _v1 && _v829(_v1), null != _v1)) switch (_v838(_v0, _v2, 0), typeof _v1) {
         case "number":
-          _v0 = _v0.g, _v710(_v1), _v828(_v0, _v707, _v708);
+          _v0 = _v0.g, _v715(_v1), _v833(_v0, _v712, _v713);
           break;
         case "bigint":
-          _v2 = new _v825(Number((_v2 = BigInt.asUintN(64, _v1)) & BigInt(0)), Number(_v2 >> BigInt(32))), _v828(_v0.g, _v2.h, _v2.g);
+          _v2 = new _v830(Number((_v2 = BigInt.asUintN(64, _v1)) & BigInt(0)), Number(_v2 >> BigInt(32))), _v833(_v0.g, _v2.h, _v2.g);
           break;
         default:
-          _v2 = _v824(_v1), _v828(_v0.g, _v2.h, _v2.g);
+          _v2 = _v829(_v1), _v833(_v0.g, _v2.h, _v2.g);
       }
-    }, _v838()),
-    _v886 = _v868(function (_v0, _v1, _v2) {
-      return 0 === _v0.h && (_v870(_v1, _v2, _v805(_v0.g)), !0);
-    }, _v873, _v842),
-    _v887 = _v869(function (_v0, _v1, _v2) {
-      return (0 === _v0.h || 2 === _v0.h) && (_v1 = _v767(_v1, _v675(_v1), _v2, 2, !1), 2 == _v0.h ? _v819(_v0, _v805, _v1) : _v1.push(_v805(_v0.g)), !0);
+    }, _v843()),
+    _v891 = _v873(function (_v0, _v1, _v2) {
+      return 0 === _v0.h && (_v875(_v1, _v2, _v810(_v0.g)), !0);
+    }, _v878, _v847),
+    _v892 = _v874(function (_v0, _v1, _v2) {
+      return (0 === _v0.h || 2 === _v0.h) && (_v1 = _v772(_v1, _v680(_v1), _v2, 2, !1), 2 == _v0.h ? _v824(_v0, _v810, _v1) : _v1.push(_v810(_v0.g)), !0);
     }, function (_v0, _v1, _v2) {
-      if (null != (_v1 = _v867(_v722, _v1)) && _v1.length) {
-        _v2 = _v834(_v0, _v2);
-        for (let _v0 = 0; _v0 < _v1.length; _v0++) _v830(_v0.g, _v1[_v0]);
-        _v835(_v0, _v2);
+      if (null != (_v1 = _v872(_v727, _v1)) && _v1.length) {
+        _v2 = _v839(_v0, _v2);
+        for (let _v0 = 0; _v0 < _v1.length; _v0++) _v835(_v0.g, _v1[_v0]);
+        _v840(_v0, _v2);
       }
-    }, _v842),
-    _v888 = _v868(function (_v0, _v1, _v2) {
-      return 0 === _v0.h && (_v870(_v1, _v2, 0 === (_v0 = _v805(_v0.g)) ? void 0 : _v0), !0);
-    }, _v873, _v842),
-    _v889 = _v868(function (_v0, _v1, _v2) {
-      return 0 === _v0.h && (_v870(_v1, _v2, _v804(_v0.g)), !0);
-    }, _v874, _v840),
-    _v890 = _v868(function (_v0, _v1, _v2) {
-      return 0 === _v0.h && (_v870(_v1, _v2, !1 === (_v0 = _v804(_v0.g)) ? void 0 : _v0), !0);
-    }, _v874, _v840),
-    _v891 = _v869(function (_v0, _v1, _v2) {
+    }, _v847),
+    _v893 = _v873(function (_v0, _v1, _v2) {
+      return 0 === _v0.h && (_v875(_v1, _v2, 0 === (_v0 = _v810(_v0.g)) ? void 0 : _v0), !0);
+    }, _v878, _v847),
+    _v894 = _v873(function (_v0, _v1, _v2) {
+      return 0 === _v0.h && (_v875(_v1, _v2, _v809(_v0.g)), !0);
+    }, _v879, _v845),
+    _v895 = _v873(function (_v0, _v1, _v2) {
+      return 0 === _v0.h && (_v875(_v1, _v2, !1 === (_v0 = _v809(_v0.g)) ? void 0 : _v0), !0);
+    }, _v879, _v845),
+    _v896 = _v874(function (_v0, _v1, _v2) {
       if (2 !== _v0.h) return !1;
-      _v0 = _v817(_v0);
-      let _v3 = _v675(_v1);
-      return _v688(_v3), _v767(_v1, _v3, _v2, 2).push(_v0), !0;
+      _v0 = _v822(_v0);
+      let _v3 = _v680(_v1);
+      return _v693(_v3), _v772(_v1, _v3, _v2, 2).push(_v0), !0;
     }, function (_v0, _v1, _v2) {
-      if (null != (_v1 = _v867(_v730, _v1))) for (let _v0 = 0; _v0 < _v1.length; _v0++) {
+      if (null != (_v1 = _v872(_v735, _v1))) for (let _v0 = 0; _v0 < _v1.length; _v0++) {
         var _v3 = _v1[_v0];
-        null != _v3 && _v836(_v0, _v2, _v631(_v3));
+        null != _v3 && _v841(_v0, _v2, _v636(_v3));
       }
-    }, _v841),
-    _v892 = _v868(function (_v0, _v1, _v2) {
-      return 2 === _v0.h && (_v870(_v1, _v2, "" === (_v0 = _v817(_v0)) ? void 0 : _v0), !0);
-    }, _v875, _v841),
-    _v893 = _v868(function (_v0, _v1, _v2) {
-      return 2 === _v0.h && (_v870(_v1, _v2, _v817(_v0)), !0);
-    }, _v875, _v841),
-    _v894 = function (_v0, _v1, _v2 = _v839) {
-      return new _v847(_v0, _v1, _v2);
+    }, _v846),
+    _v897 = _v873(function (_v0, _v1, _v2) {
+      return 2 === _v0.h && (_v875(_v1, _v2, "" === (_v0 = _v822(_v0)) ? void 0 : _v0), !0);
+    }, _v880, _v846),
+    _v898 = _v873(function (_v0, _v1, _v2) {
+      return 2 === _v0.h && (_v875(_v1, _v2, _v822(_v0)), !0);
+    }, _v880, _v846),
+    _v899 = function (_v0, _v1, _v2 = _v844) {
+      return new _v852(_v0, _v1, _v2);
     }(function (_v0, _v1, _v2, _v3, _v4) {
       if (2 !== _v0.h) return !1;
-      _v3 = _v741(void 0, _v3, !0);
-      let _v5 = _v675(_v1);
-      _v688(_v5);
-      let _v6 = _v767(_v1, _v5, _v2, 3);
-      return _v5 = _v675(_v1), 4 & _v674(_v6) && (_v676(_v6 = _v664(_v6), 0 & (1 | _v674(_v6))), _v766(_v1, _v5, _v2, _v6)), _v6.push(_v3), _v816(_v0, _v3, _v4), !0;
+      _v3 = _v746(void 0, _v3, !0);
+      let _v5 = _v680(_v1);
+      _v693(_v5);
+      let _v6 = _v772(_v1, _v5, _v2, 3);
+      return _v5 = _v680(_v1), 4 & _v679(_v6) && (_v681(_v6 = _v669(_v6), 0 & (1 | _v679(_v6))), _v771(_v1, _v5, _v2, _v6)), _v6.push(_v3), _v821(_v0, _v3, _v4), !0;
     }, function (_v0, _v1, _v2, _v3, _v4) {
-      if (Array.isArray(_v1)) for (let _v0 = 0; _v0 < _v1.length; _v0++) _v876(_v0, _v1[_v0], _v2, _v3, _v4);
+      if (Array.isArray(_v1)) for (let _v0 = 0; _v0 < _v1.length; _v0++) _v881(_v0, _v1[_v0], _v2, _v3, _v4);
     }),
-    _v895 = _v848(function (_v0, _v1, _v2, _v3, _v4, _v5) {
-      return 2 === _v0.h && (_v779(_v1, _v674(_v1), _v5, _v2), _v816(_v0, _v1 = _v781(_v1, _v3, _v2), _v4), !0);
-    }, _v876),
-    _v896 = _v868(function (_v0, _v1, _v2) {
-      return 2 === _v0.h && (_v870(_v1, _v2, _v818(_v0)), !0);
-    }, _v877, _v845),
-    _v897 = _v869(function (_v0, _v1, _v2) {
-      return (0 === _v0.h || 2 === _v0.h) && (_v1 = _v767(_v1, _v675(_v1), _v2, 2, !1), 2 == _v0.h ? _v819(_v0, _v806, _v1) : _v1.push(_v806(_v0.g)), !0);
+    _v900 = _v853(function (_v0, _v1, _v2, _v3, _v4, _v5) {
+      return 2 === _v0.h && (_v784(_v1, _v679(_v1), _v5, _v2), _v821(_v0, _v1 = _v786(_v1, _v3, _v2), _v4), !0);
+    }, _v881),
+    _v901 = _v873(function (_v0, _v1, _v2) {
+      return 2 === _v0.h && (_v875(_v1, _v2, _v823(_v0)), !0);
+    }, _v882, _v850),
+    _v902 = _v874(function (_v0, _v1, _v2) {
+      return (0 === _v0.h || 2 === _v0.h) && (_v1 = _v772(_v1, _v680(_v1), _v2, 2, !1), 2 == _v0.h ? _v824(_v0, _v811, _v1) : _v1.push(_v811(_v0.g)), !0);
     }, function (_v0, _v1, _v2) {
-      if (null != (_v1 = _v867(_v723, _v1))) for (let _v0 = 0; _v0 < _v1.length; _v0++) {
+      if (null != (_v1 = _v872(_v728, _v1))) for (let _v0 = 0; _v0 < _v1.length; _v0++) {
         var _v3 = _v1[_v0];
-        null != _v3 && (_v833(_v0, _v2, 0), _v829(_v0.g, _v3));
+        null != _v3 && (_v838(_v0, _v2, 0), _v834(_v0.g, _v3));
       }
-    }, _v838()),
-    _v898 = _v868(function (_v0, _v1, _v2) {
-      return 0 === _v0.h && (_v870(_v1, _v2, _v805(_v0.g)), !0);
+    }, _v843()),
+    _v903 = _v873(function (_v0, _v1, _v2) {
+      return 0 === _v0.h && (_v875(_v1, _v2, _v810(_v0.g)), !0);
     }, function (_v0, _v1, _v2) {
-      null != (_v1 = _v722(_v1)) && (_v1 = parseInt(_v1, 10), _v833(_v0, _v2, 0), _v830(_v0.g, _v1));
-    }, _v846);
-  class _v899 {
+      null != (_v1 = _v727(_v1)) && (_v1 = parseInt(_v1, 10), _v838(_v0, _v2, 0), _v835(_v0.g, _v1));
+    }, _v851);
+  class _v904 {
     constructor(_v0, _v1) {
-      this.h = _v0, this.g = _v1, this.l = _v783, this.m = _v786, this.defaultValue = void 0;
+      this.h = _v0, this.g = _v1, this.l = _v788, this.m = _v791, this.defaultValue = void 0;
     }
   }
-  function _v900(_v0, _v1) {
-    return new _v899(_v0, _v1);
+  function _v905(_v0, _v1) {
+    return new _v904(_v0, _v1);
   }
-  function _v901(_v0, _v1) {
+  function _v906(_v0, _v1) {
     return (_v0, _v1) => {
-      if (_v820.length) {
-        let _v0 = _v820.pop();
-        _v0.o(_v1), _v810(_v0.g, _v0, _v1), _v0 = _v0;
+      if (_v825.length) {
+        let _v0 = _v825.pop();
+        _v0.o(_v1), _v815(_v0.g, _v0, _v1), _v0 = _v0;
       } else _v0 = new class {
         constructor(_v0, _v1) {
-          if (_v814.length) {
-            const _v0 = _v814.pop();
-            _v810(_v0, _v0, _v1), _v0 = _v0;
+          if (_v819.length) {
+            const _v0 = _v819.pop();
+            _v815(_v0, _v0, _v1), _v0 = _v0;
           } else _v0 = new class {
             constructor(_v0, _v1) {
-              this.h = null, this.m = !1, this.g = this.l = this.j = 0, _v810(this, _v0, _v1);
+              this.h = null, this.m = !1, this.g = this.l = this.j = 0, _v815(this, _v0, _v1);
             }
             clear() {
               this.h = null, this.m = !1, this.g = this.l = this.j = 0, this.ca = !1;
@@ -23489,17 +23584,17 @@
       try {
         let _v0 = new _v0(),
           _v1 = _v0.u;
-        _v861(_v1)(_v1, _v0);
+        _v866(_v1)(_v1, _v0);
         var _v2 = _v0;
       } finally {
-        _v0.g.clear(), _v0.m = -1, _v0.h = -1, _v820.length < 100 && _v820.push(_v0);
+        _v0.g.clear(), _v0.m = -1, _v0.h = -1, _v825.length < 100 && _v825.push(_v0);
       }
       return _v2;
     };
   }
-  function _v902(_v0) {
+  function _v907(_v0) {
     return function () {
-      _v739(this);
+      _v744(this);
       let _v0 = new class {
         constructor() {
           this.l = [], this.h = 0, this.g = new class {
@@ -23516,7 +23611,7 @@
           }();
         }
       }();
-      _v865(this.u, _v0, _v856(_v852, _v862, _v863, _v0)), _v832(_v0, _v0.g.end());
+      _v870(this.u, _v0, _v861(_v857, _v867, _v868, _v0)), _v837(_v0, _v0.g.end());
       let _v1 = new Uint8Array(_v0.h),
         _v2 = _v0.l,
         _v3 = _v2.length,
@@ -23528,32 +23623,32 @@
       return _v0.l = [_v1], _v1;
     };
   }
-  var _v903 = class extends _v822 {
+  var _v908 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v904 = [0, _v892, _v868(function (_v0, _v1, _v2) {
-      return 2 === _v0.h && (_v870(_v1, _v2, (_v0 = _v818(_v0)) === _v657() ? void 0 : _v0), !0);
+    _v909 = [0, _v897, _v873(function (_v0, _v1, _v2) {
+      return 2 === _v0.h && (_v875(_v1, _v2, (_v0 = _v823(_v0)) === _v662() ? void 0 : _v0), !0);
     }, function (_v0, _v1, _v2) {
       if (null != _v1) {
-        if (_v1 instanceof _v822) {
+        if (_v1 instanceof _v827) {
           let _v0 = _v1.Ra;
-          return void (_v0 && null != (_v1 = _v0(_v1)) && _v836(_v0, _v2, _v802(_v1).buffer));
+          return void (_v0 && null != (_v1 = _v0(_v1)) && _v841(_v0, _v2, _v807(_v1).buffer));
         }
         if (Array.isArray(_v1)) return;
       }
-      _v877(_v0, _v1, _v2);
-    }, _v845)];
-  let _v905,
-    _v906 = globalThis.trustedTypes;
-  function _v907(_v0) {
-    void 0 === _v905 && (_v905 = function () {
+      _v882(_v0, _v1, _v2);
+    }, _v850)];
+  let _v910,
+    _v911 = globalThis.trustedTypes;
+  function _v912(_v0) {
+    void 0 === _v910 && (_v910 = function () {
       let _v0 = null;
-      if (!_v906) return _v0;
+      if (!_v911) return _v0;
       try {
         let _v0 = _v0 => _v0;
-        _v0 = _v906.createPolicy("goog#html", {
+        _v0 = _v911.createPolicy("goog#html", {
           createHTML: _v0,
           createScript: _v0,
           createScriptURL: _v0
@@ -23561,7 +23656,7 @@
       } catch (_v0) {}
       return _v0;
     }());
-    var _v1 = _v905;
+    var _v1 = _v910;
     return new class {
       constructor(_v0) {
         this.g = _v0;
@@ -23571,426 +23666,426 @@
       }
     }(_v1 ? _v1.createScriptURL(_v0) : _v0);
   }
-  function _v908(_v0, ..._v1) {
-    if (0 === _v1.length) return _v907(_v0[0]);
+  function _v913(_v0, ..._v1) {
+    if (0 === _v1.length) return _v912(_v0[0]);
     let _v2 = _v0[0];
     for (let _v0 = 0; _v0 < _v1.length; _v0++) _v2 += encodeURIComponent(_v1[_v0]) + _v0[_v0 + 1];
-    return _v907(_v2);
+    return _v912(_v2);
   }
-  var _v909 = [0, _v886, _v898, _v889, -1, _v887, _v898, -1],
-    _v910 = class extends _v822 {
+  var _v914 = [0, _v891, _v903, _v894, -1, _v892, _v903, -1],
+    _v915 = class extends _v827 {
       constructor() {
         super();
       }
     },
-    _v911 = [0, _v889, _v893, _v889, _v898, -1, _v869(function (_v0, _v1, _v2) {
-      return (0 === _v0.h || 2 === _v0.h) && (_v1 = _v767(_v1, _v675(_v1), _v2, 2, !1), 2 == _v0.h ? _v819(_v0, _v809, _v1) : _v1.push(_v805(_v0.g)), !0);
+    _v916 = [0, _v894, _v898, _v894, _v903, -1, _v874(function (_v0, _v1, _v2) {
+      return (0 === _v0.h || 2 === _v0.h) && (_v1 = _v772(_v1, _v680(_v1), _v2, 2, !1), 2 == _v0.h ? _v824(_v0, _v814, _v1) : _v1.push(_v810(_v0.g)), !0);
     }, function (_v0, _v1, _v2) {
-      if (null != (_v1 = _v867(_v722, _v1)) && _v1.length) {
-        _v2 = _v834(_v0, _v2);
-        for (let _v0 = 0; _v0 < _v1.length; _v0++) _v830(_v0.g, _v1[_v0]);
-        _v835(_v0, _v2);
+      if (null != (_v1 = _v872(_v727, _v1)) && _v1.length) {
+        _v2 = _v839(_v0, _v2);
+        for (let _v0 = 0; _v0 < _v1.length; _v0++) _v835(_v0.g, _v1[_v0]);
+        _v840(_v0, _v2);
       }
-    }, _v846), _v893, -1, [0, _v889, -1], _v898, _v889, -1],
-    _v912 = [0, _v893, -2],
-    _v913 = class extends _v822 {
+    }, _v851), _v898, -1, [0, _v894, -1], _v903, _v894, -1],
+    _v917 = [0, _v898, -2],
+    _v918 = class extends _v827 {
       constructor() {
         super();
       }
     },
-    _v914 = [0],
-    _v915 = [0, _v886, _v889, 1, _v889, -3],
-    _v916 = class extends _v822 {
+    _v919 = [0],
+    _v920 = [0, _v891, _v894, 1, _v894, -3],
+    _v921 = class extends _v827 {
       constructor(_v0) {
         super(_v0, 2);
       }
     },
-    _v917 = {};
-  _v917[0] = [0, _v893, _v889, -1, _v886, [0, [1, 2, 3, 4, 5, 6, 7], _v895, _v914, _v895, _v911, _v895, _v912, _v895, _v915, _v895, _v909, _v895, [0, _v893, -2], _v895, [0, _v893, _v898]], [0, _v893], _v889, [0, [1, 3], [2, 4], _v895, [0, _v887], -1, _v895, [0, _v891], -1, _v894, [0, _v893, -1]], _v893];
-  var _v918 = [0, _v884, -1, _v890, -3, _v884, _v887, _v892, _v888, _v884, -1, _v890, _v888, _v890, -2, _v892];
-  function _v919(_v0, _v1) {
-    _v776(_v0, 2, _v729(_v1), "");
+    _v922 = {};
+  _v922[0] = [0, _v898, _v894, -1, _v891, [0, [1, 2, 3, 4, 5, 6, 7], _v900, _v919, _v900, _v916, _v900, _v917, _v900, _v920, _v900, _v914, _v900, [0, _v898, -2], _v900, [0, _v898, _v903]], [0, _v898], _v894, [0, [1, 3], [2, 4], _v900, [0, _v892], -1, _v900, [0, _v896], -1, _v899, [0, _v898, -1]], _v898];
+  var _v923 = [0, _v889, -1, _v895, -3, _v889, _v892, _v897, _v893, _v889, -1, _v895, _v893, _v895, -2, _v897];
+  function _v924(_v0, _v1) {
+    _v781(_v0, 2, _v734(_v1), "");
   }
-  function _v920(_v0, _v1) {
-    _v798(_v0, 3, _v1);
+  function _v925(_v0, _v1) {
+    _v803(_v0, 3, _v1);
   }
-  function _v921(_v0, _v1) {
-    _v798(_v0, 4, _v1);
-  }
-  var _v922 = class extends _v822 {
-      constructor(_v0) {
-        super(_v0, 500);
-      }
-      o(_v0) {
-        return _v786(this, 0, 7, _v0);
-      }
-    },
-    _v923 = [-1, {}],
-    _v924 = [0, _v893, 1, _v923],
-    _v925 = [0, _v893, _v891, _v923];
   function _v926(_v0, _v1) {
-    _v790(_v0, 1, _v922, _v1);
+    _v803(_v0, 4, _v1);
   }
-  function _v927(_v0, _v1) {
-    _v798(_v0, 10, _v1);
-  }
-  function _v928(_v0, _v1) {
-    _v798(_v0, 15, _v1);
-  }
-  var _v929 = class extends _v822 {
+  var _v927 = class extends _v827 {
       constructor(_v0) {
         super(_v0, 500);
       }
       o(_v0) {
-        return _v786(this, 0, 0, _v0);
+        return _v791(this, 0, 7, _v0);
       }
     },
-    _v930 = [-500, _v894, [-500, _v892, -1, _v891, -3, [-2, _v917, _v889], _v894, _v904, _v888, -1, _v924, _v925, _v894, [0, _v892, _v890], _v892, _v918, _v888, _v891, 987, _v891], 4, _v894, [-500, _v893, -1, [-1, {}], 998, _v893], _v894, [-500, _v893, _v891, -1, [-2, {}, _v889], 997, _v891, -1], _v888, _v894, [-500, _v893, _v891, _v923, 998, _v891], _v891, _v888, _v924, _v925, _v894, [0, _v892, -1, _v923], _v891, -2, _v918, _v892, -1, _v890, 979, _v923, _v894, _v904];
-  _v929.prototype.g = _v902(_v930);
-  var _v931 = _v901(_v929, _v930),
-    _v932 = class extends _v822 {
+    _v928 = [-1, {}],
+    _v929 = [0, _v898, 1, _v928],
+    _v930 = [0, _v898, _v896, _v928];
+  function _v931(_v0, _v1) {
+    _v795(_v0, 1, _v927, _v1);
+  }
+  function _v932(_v0, _v1) {
+    _v803(_v0, 10, _v1);
+  }
+  function _v933(_v0, _v1) {
+    _v803(_v0, 15, _v1);
+  }
+  var _v934 = class extends _v827 {
+      constructor(_v0) {
+        super(_v0, 500);
+      }
+      o(_v0) {
+        return _v791(this, 0, 0, _v0);
+      }
+    },
+    _v935 = [-500, _v899, [-500, _v897, -1, _v896, -3, [-2, _v922, _v894], _v899, _v909, _v893, -1, _v929, _v930, _v899, [0, _v897, _v895], _v897, _v923, _v893, _v896, 987, _v896], 4, _v899, [-500, _v898, -1, [-1, {}], 998, _v898], _v899, [-500, _v898, _v896, -1, [-2, {}, _v894], 997, _v896, -1], _v893, _v899, [-500, _v898, _v896, _v928, 998, _v896], _v896, _v893, _v929, _v930, _v899, [0, _v897, -1, _v928], _v896, -2, _v923, _v897, -1, _v895, 979, _v928, _v899, _v909];
+  _v934.prototype.g = _v907(_v935);
+  var _v936 = _v906(_v934, _v935),
+    _v937 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v933 = class extends _v822 {
+    _v938 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
       g() {
-        return _v785(this, _v932, 1);
+        return _v790(this, _v937, 1);
       }
     },
-    _v934 = [0, _v894, [0, _v886, _v880, _v893, -1]],
-    _v935 = _v901(_v933, _v934),
-    _v936 = class extends _v822 {
+    _v939 = [0, _v899, [0, _v891, _v885, _v898, -1]],
+    _v940 = _v906(_v938, _v939),
+    _v941 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v937 = class extends _v822 {
+    _v942 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v938 = class extends _v822 {
+    _v943 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
       h() {
-        return _v783(this, _v936, 2);
+        return _v788(this, _v941, 2);
       }
       g() {
-        return _v785(this, _v937, 5);
+        return _v790(this, _v942, 5);
       }
     },
-    _v939 = _v901(class extends _v822 {
+    _v944 = _v906(class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
-    }, [0, _v891, _v887, _v882, [0, _v898, [0, _v886, -3], [0, _v880, -3], [0, _v886, -1, [0, _v894, [0, _v886, -2]]], _v894, [0, _v880, -1, _v893, _v880]], _v893, -1, _v883, _v894, [0, _v886, _v880], _v891, _v883]),
-    _v940 = class extends _v822 {
-      constructor(_v0) {
-        super(_v0);
-      }
-    },
-    _v941 = _v901(class extends _v822 {
-      constructor(_v0) {
-        super(_v0);
-      }
-    }, [0, _v894, [0, _v880, -4]]),
-    _v942 = class extends _v822 {
+    }, [0, _v896, _v892, _v887, [0, _v903, [0, _v891, -3], [0, _v885, -3], [0, _v891, -1, [0, _v899, [0, _v891, -2]]], _v899, [0, _v885, -1, _v898, _v885]], _v898, -1, _v888, _v899, [0, _v891, _v885], _v896, _v888]),
+    _v945 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v943 = _v901(class extends _v822 {
+    _v946 = _v906(class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
-    }, [0, _v894, [0, _v880, -4]]),
-    _v944 = class extends _v822 {
+    }, [0, _v899, [0, _v885, -4]]),
+    _v947 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v945 = [0, _v886, -1, _v882, _v898],
-    _v946 = class extends _v822 {
+    _v948 = _v906(class extends _v827 {
+      constructor(_v0) {
+        super(_v0);
+      }
+    }, [0, _v899, [0, _v885, -4]]),
+    _v949 = class extends _v827 {
+      constructor(_v0) {
+        super(_v0);
+      }
+    },
+    _v950 = [0, _v891, -1, _v887, _v903],
+    _v951 = class extends _v827 {
       constructor() {
         super();
       }
     };
-  _v946.prototype.g = _v902([0, _v880, -4, _v883]);
-  var _v947 = class extends _v822 {
+  _v951.prototype.g = _v907([0, _v885, -4, _v888]);
+  var _v952 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v948 = _v901(class extends _v822 {
+    _v953 = _v906(class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
-    }, [0, _v894, [0, 1, _v886, _v893, _v934], _v883]),
-    _v949 = class extends _v822 {
+    }, [0, _v899, [0, 1, _v891, _v898, _v939], _v888]),
+    _v954 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v950 = class extends _v822 {
+    _v955 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
       qa() {
-        let _v0 = _v769(this);
-        return null == _v0 ? _v657() : _v0;
+        let _v0 = _v774(this);
+        return null == _v0 ? _v662() : _v0;
       }
     },
-    _v951 = class extends _v822 {
+    _v956 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v952 = [1, 2],
-    _v953 = _v901(class extends _v822 {
+    _v957 = [1, 2],
+    _v958 = _v906(class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
-    }, [0, _v894, [0, _v952, _v895, [0, _v882], _v895, [0, _v896], _v886, _v893], _v883]),
-    _v954 = class extends _v822 {
-      constructor(_v0) {
-        super(_v0);
-      }
-    },
-    _v955 = [0, _v893, _v886, _v880, _v891, -1],
-    _v956 = class extends _v822 {
+    }, [0, _v899, [0, _v957, _v900, [0, _v887], _v900, [0, _v901], _v891, _v898], _v888]),
+    _v959 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v957 = [0, _v889, -1],
-    _v958 = class extends _v822 {
+    _v960 = [0, _v898, _v891, _v885, _v896, -1],
+    _v961 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v959 = [1, 2, 3, 4, 5],
-    _v960 = class extends _v822 {
+    _v962 = [0, _v894, -1],
+    _v963 = class extends _v827 {
+      constructor(_v0) {
+        super(_v0);
+      }
+    },
+    _v964 = [1, 2, 3, 4, 5],
+    _v965 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
       g() {
-        return null != _v769(this);
+        return null != _v774(this);
       }
       h() {
-        return null != _v730(_v762(this, 2));
+        return null != _v735(_v767(this, 2));
       }
     },
-    _v961 = class extends _v822 {
+    _v966 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
       g() {
-        return _v719(_v762(this, 2)) ?? !1;
+        return _v724(_v767(this, 2)) ?? !1;
       }
     },
-    _v962 = [0, _v896, _v893, [0, _v886, _v883, -1], [0, _v885, _v883]],
-    _v963 = [0, _v962, _v889, [0, _v959, _v895, _v915, _v895, _v911, _v895, _v909, _v895, _v914, _v895, _v912], _v898],
-    _v964 = class extends _v822 {
+    _v967 = [0, _v901, _v898, [0, _v891, _v888, -1], [0, _v890, _v888]],
+    _v968 = [0, _v967, _v894, [0, _v964, _v900, _v920, _v900, _v916, _v900, _v914, _v900, _v919, _v900, _v917], _v903],
+    _v969 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v965 = [0, _v963, _v880, -1, _v886],
-    _v966 = _v900(0, _v964);
-  _v917[0] = _v965;
-  var _v967 = _v901(class extends _v822 {
+    _v970 = [0, _v968, _v885, -1, _v891],
+    _v971 = _v905(0, _v969);
+  _v922[0] = _v970;
+  var _v972 = _v906(class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
-    }, [0, [0, _v898, -1, _v881, _v897], _v945]),
-    _v968 = class extends _v822 {
-      constructor(_v0) {
-        super(_v0);
-      }
-    },
-    _v969 = class extends _v822 {
+    }, [0, [0, _v903, -1, _v886, _v902], _v950]),
+    _v973 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v970 = [0, _v963, _v880, [0, _v963], _v889],
-    _v971 = [0, _v963, _v965, _v970, _v880, [0, [0, _v962]]],
-    _v972 = _v900(0, _v969);
-  _v917[0] = _v971, _v917[0] = _v970;
-  var _v973 = class extends _v822 {
+    _v974 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v974 = _v900(0, _v973);
-  _v917[0] = [0, _v963, _v971, _v886];
-  var _v975 = class extends _v822 {
+    _v975 = [0, _v968, _v885, [0, _v968], _v894],
+    _v976 = [0, _v968, _v970, _v975, _v885, [0, [0, _v967]]],
+    _v977 = _v905(0, _v974);
+  _v922[0] = _v976, _v922[0] = _v975;
+  var _v978 = class extends _v827 {
+      constructor(_v0) {
+        super(_v0);
+      }
+    },
+    _v979 = _v905(0, _v978);
+  _v922[0] = [0, _v968, _v976, _v891];
+  var _v980 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
       h() {
-        return _v783(this, _v954, 2);
+        return _v788(this, _v959, 2);
       }
       g() {
-        _v765(this, 2);
+        _v770(this, 2);
       }
     },
-    _v976 = [0, _v963, _v955];
-  _v917[0] = _v976;
-  var _v977 = class extends _v822 {
+    _v981 = [0, _v968, _v960];
+  _v922[0] = _v981;
+  var _v982 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v978 = class extends _v822 {
+    _v983 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v979 = class extends _v822 {
+    _v984 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v980 = class extends _v822 {
+    _v985 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v981 = class extends _v822 {
+    _v986 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v982 = [0, _v963, [0, _v963], _v976, -1],
-    _v983 = [0, _v963, _v880, _v886],
-    _v984 = [0, _v963, _v880],
-    _v985 = [0, _v963, _v983, _v984, _v880],
-    _v986 = _v900(0, _v981);
-  _v917[0] = [0, _v963, _v985, _v982], _v917[0] = _v982, _v917[0] = _v983;
-  var _v987 = _v900(0, _v980);
-  _v917[0] = _v985, _v917[0] = _v984;
-  var _v988 = class extends _v822 {
+    _v987 = [0, _v968, [0, _v968], _v981, -1],
+    _v988 = [0, _v968, _v885, _v891],
+    _v989 = [0, _v968, _v885],
+    _v990 = [0, _v968, _v988, _v989, _v885],
+    _v991 = _v905(0, _v986);
+  _v922[0] = [0, _v968, _v990, _v987], _v922[0] = _v987, _v922[0] = _v988;
+  var _v992 = _v905(0, _v985);
+  _v922[0] = _v990, _v922[0] = _v989;
+  var _v993 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v989 = class extends _v822 {
+    _v994 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v990 = class extends _v822 {
+    _v995 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v991 = class extends _v822 {
+    _v996 = class extends _v827 {
       constructor() {
         super();
       }
     },
-    _v992 = [0, _v963, _v880, -1, _v886],
-    _v993 = [0, _v963, _v880, _v889];
-  _v991.prototype.g = _v902([0, _v963, _v984, [0, _v963], _v965, _v970, _v992, _v993]);
-  var _v994 = class extends _v822 {
+    _v997 = [0, _v968, _v885, -1, _v891],
+    _v998 = [0, _v968, _v885, _v894];
+  _v996.prototype.g = _v907([0, _v968, _v989, [0, _v968], _v970, _v975, _v997, _v998]);
+  var _v999 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v995 = _v900(0, _v994);
-  _v917[0] = [0, _v963, _v955];
-  var _v996 = class extends _v822 {
+    _v1000 = _v905(0, _v999);
+  _v922[0] = [0, _v968, _v960];
+  var _v1001 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v997 = _v900(0, _v996);
-  _v917[0] = [0, _v963, _v957];
-  var _v998 = class extends _v822 {
+    _v1002 = _v905(0, _v1001);
+  _v922[0] = [0, _v968, _v962];
+  var _v1003 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v999 = class extends _v822 {
+    _v1004 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v1000 = [0, _v898, -1],
-    _v1001 = _v900(0, class extends _v822 {
+    _v1005 = [0, _v903, -1],
+    _v1006 = _v905(0, class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
       g() {
         var _v0 = this.u;
-        let _v1 = _v675(_v0),
+        let _v1 = _v680(_v0),
           _v2 = 2 & _v1;
         return _v0 = function (_v0, _v1, _v2) {
-          var _v3 = _v999;
+          var _v3 = _v1004;
           let _v4 = 2 & _v1,
             _v5 = !1;
           if (null == _v2) {
-            if (_v4) return _v753();
+            if (_v4) return _v758();
             _v2 = [];
-          } else if (_v2.constructor === _v749) {
+          } else if (_v2.constructor === _v754) {
             if (0 == (2 & _v2.M) || _v4) return _v2;
             _v2 = _v2.Y();
-          } else Array.isArray(_v2) ? _v5 = !!(2 & _v674(_v2)) : _v2 = [];
+          } else Array.isArray(_v2) ? _v5 = !!(2 & _v679(_v2)) : _v2 = [];
           if (_v4) {
-            if (!_v2.length) return _v753();
-            _v5 || (_v5 = !0, _v677(_v2));
-          } else _v5 && (_v5 = !1, _v2 = _v775(_v2));
-          return _v5 || (64 & _v674(_v2) ? _v673(_v2, 32) : 32 & _v1 && _v672(_v2, 32)), _v766(_v0, _v1, 2, _v3 = new _v749(_v2, _v3, _v732, void 0)), _v3;
-        }(_v0, _v1, _v764(_v0, _v1, 2)), !_v2 && _v999 && (_v0.ta = !0), _v0;
+            if (!_v2.length) return _v758();
+            _v5 || (_v5 = !0, _v682(_v2));
+          } else _v5 && (_v5 = !1, _v2 = _v780(_v2));
+          return _v5 || (64 & _v679(_v2) ? _v678(_v2, 32) : 32 & _v1 && _v677(_v2, 32)), _v771(_v0, _v1, 2, _v3 = new _v754(_v2, _v3, _v737, void 0)), _v3;
+        }(_v0, _v1, _v769(_v0, _v1, 2)), !_v2 && _v1004 && (_v0.ta = !0), _v0;
       }
     });
-  _v917[0] = [0, _v1000, _v871, [!0, _v883, [0, _v893, -1, _v891]]];
-  var _v1002 = class extends _v822 {
+  _v922[0] = [0, _v1005, _v876, [!0, _v888, [0, _v898, -1, _v896]]];
+  var _v1007 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v1003 = _v900(0, _v1002);
-  _v917[0] = [0, _v963, _v893, _v1000];
-  var _v1004 = class extends _v822 {
+    _v1008 = _v905(0, _v1007);
+  _v922[0] = [0, _v968, _v898, _v1005];
+  var _v1009 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v1005 = _v900(0, _v1004);
-  _v917[0] = [0, _v963, _v893, _v886, _v880, _v891, -1], _v917[0] = _v992;
-  var _v1006 = class extends _v822 {
+    _v1010 = _v905(0, _v1009);
+  _v922[0] = [0, _v968, _v898, _v891, _v885, _v896, -1], _v922[0] = _v997;
+  var _v1011 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v1007 = _v900(0, _v1006);
-  function _v1008(_v0, _v1) {
-    return _v1 = _v1 ? _v1.clone() : new _v954(), void 0 !== _v0.displayNamesLocale ? _v765(_v1, 1, _v729(_v0.displayNamesLocale)) : void 0 === _v0.displayNamesLocale && _v765(_v1, 1), void 0 !== _v0.maxResults ? _v795(_v1, 2, _v0.maxResults) : "maxResults" in _v0 && _v765(_v1, 2), void 0 !== _v0.scoreThreshold ? _v796(_v1, 3, _v0.scoreThreshold) : "scoreThreshold" in _v0 && _v765(_v1, 3), void 0 !== _v0.categoryAllowlist ? _v797(_v1, 4, _v0.categoryAllowlist) : "categoryAllowlist" in _v0 && _v765(_v1, 4), void 0 !== _v0.categoryDenylist ? _v797(_v1, 5, _v0.categoryDenylist) : "categoryDenylist" in _v0 && _v765(_v1, 5), _v1;
+    _v1012 = _v905(0, _v1011);
+  function _v1013(_v0, _v1) {
+    return _v1 = _v1 ? _v1.clone() : new _v959(), void 0 !== _v0.displayNamesLocale ? _v770(_v1, 1, _v734(_v0.displayNamesLocale)) : void 0 === _v0.displayNamesLocale && _v770(_v1, 1), void 0 !== _v0.maxResults ? _v800(_v1, 2, _v0.maxResults) : "maxResults" in _v0 && _v770(_v1, 2), void 0 !== _v0.scoreThreshold ? _v801(_v1, 3, _v0.scoreThreshold) : "scoreThreshold" in _v0 && _v770(_v1, 3), void 0 !== _v0.categoryAllowlist ? _v802(_v1, 4, _v0.categoryAllowlist) : "categoryAllowlist" in _v0 && _v770(_v1, 4), void 0 !== _v0.categoryDenylist ? _v802(_v1, 5, _v0.categoryDenylist) : "categoryDenylist" in _v0 && _v770(_v1, 5), _v1;
   }
-  function _v1009(_v0, _v1 = -1, _v2 = "") {
+  function _v1014(_v0, _v1 = -1, _v2 = "") {
     return {
       categories: _v0.map(_v0 => ({
-        index: _v791(_v0, 1) ?? 0 ?? -1,
-        score: _v792(_v0, 2) ?? 0,
-        categoryName: _v793(_v0, 3) ?? "",
-        displayName: _v793(_v0, 4) ?? ""
+        index: _v796(_v0, 1) ?? 0 ?? -1,
+        score: _v797(_v0, 2) ?? 0,
+        categoryName: _v798(_v0, 3) ?? "",
+        displayName: _v798(_v0, 4) ?? ""
       })),
       headIndex: _v1,
       headName: _v2
     };
   }
-  function _v1010(_v0) {
-    var _v1 = _v771(_v0, 3, _v718, _v770()),
-      _v2 = _v771(_v0, 2, _v722, _v770()),
-      _v3 = _v771(_v0, 1, _v730, _v770()),
-      _v4 = _v771(_v0, 9, _v730, _v770());
+  function _v1015(_v0) {
+    var _v1 = _v776(_v0, 3, _v723, _v775()),
+      _v2 = _v776(_v0, 2, _v727, _v775()),
+      _v3 = _v776(_v0, 1, _v735, _v775()),
+      _v4 = _v776(_v0, 9, _v735, _v775());
     let _v5 = {
       categories: [],
       keypoints: []
@@ -24001,44 +24096,44 @@
       categoryName: _v3[_v0] ?? "",
       displayName: _v4[_v0] ?? ""
     });
-    if ((_v1 = _v783(_v0, _v938, 4)?.h()) && (_v5.boundingBox = {
-      originX: _v791(_v1, 1) ?? 0,
-      originY: _v791(_v1, 2) ?? 0,
-      width: _v791(_v1, 3) ?? 0,
-      height: _v791(_v1, 4) ?? 0,
+    if ((_v1 = _v788(_v0, _v943, 4)?.h()) && (_v5.boundingBox = {
+      originX: _v796(_v1, 1) ?? 0,
+      originY: _v796(_v1, 2) ?? 0,
+      width: _v796(_v1, 3) ?? 0,
+      height: _v796(_v1, 4) ?? 0,
       angle: 0
-    }), _v783(_v0, _v938, 4)?.g().length) for (let _v0 of _v783(_v0, _v938, 4).g()) _v5.keypoints.push({
-      x: _v768(_v0, 1) ?? 0,
-      y: _v768(_v0, 2) ?? 0,
-      score: _v768(_v0, 4) ?? 0,
-      label: _v730(_v762(_v0, 3)) ?? ""
+    }), _v788(_v0, _v943, 4)?.g().length) for (let _v0 of _v788(_v0, _v943, 4).g()) _v5.keypoints.push({
+      x: _v773(_v0, 1) ?? 0,
+      y: _v773(_v0, 2) ?? 0,
+      score: _v773(_v0, 4) ?? 0,
+      label: _v735(_v767(_v0, 3)) ?? ""
     });
     return _v5;
   }
-  function _v1011(_v0) {
+  function _v1016(_v0) {
     let _v1 = [];
-    for (let _v0 of _v785(_v0, _v942, 1)) _v1.push({
-      x: _v792(_v0, 1) ?? 0,
-      y: _v792(_v0, 2) ?? 0,
-      z: _v792(_v0, 3) ?? 0,
-      visibility: _v792(_v0, 4) ?? 0
+    for (let _v0 of _v790(_v0, _v947, 1)) _v1.push({
+      x: _v797(_v0, 1) ?? 0,
+      y: _v797(_v0, 2) ?? 0,
+      z: _v797(_v0, 3) ?? 0,
+      visibility: _v797(_v0, 4) ?? 0
     });
     return _v1;
   }
-  function _v1012(_v0) {
+  function _v1017(_v0) {
     let _v1 = [];
-    for (let _v0 of _v785(_v0, _v940, 1)) _v1.push({
-      x: _v792(_v0, 1) ?? 0,
-      y: _v792(_v0, 2) ?? 0,
-      z: _v792(_v0, 3) ?? 0,
-      visibility: _v792(_v0, 4) ?? 0
+    for (let _v0 of _v790(_v0, _v945, 1)) _v1.push({
+      x: _v797(_v0, 1) ?? 0,
+      y: _v797(_v0, 2) ?? 0,
+      z: _v797(_v0, 3) ?? 0,
+      visibility: _v797(_v0, 4) ?? 0
     });
     return _v1;
   }
-  function _v1013(_v0) {
+  function _v1018(_v0) {
     return Array.from(_v0, _v0 => _v0 > 127 ? _v0 - 256 : _v0);
   }
-  function _v1014(_v0, _v1) {
+  function _v1019(_v0, _v1) {
     if (_v0.length !== _v1.length) throw Error(`Cannot compute cosine similarity between embeddings of different sizes (${_v0.length} vs. ${_v1.length}).`);
     let _v2 = 0,
       _v3 = 0,
@@ -24047,31 +24142,31 @@
     if (_v3 <= 0 || _v4 <= 0) throw Error("Cannot compute cosine similarity on embedding with 0 norm.");
     return _v2 / Math.sqrt(_v3 * _v4);
   }
-  _v917[0] = [0, _v963, _v992, _v993, _v880], _v917[0] = _v993;
-  let _v1015 = new Uint8Array([0, 97, 115, 109, 1, 0, 0, 0, 1, 5, 1, 96, 0, 1, 123, 3, 2, 1, 0, 10, 10, 1, 8, 0, 65, 0, 253, 15, 253, 98, 11]);
-  async function _v1016() {
+  _v922[0] = [0, _v968, _v997, _v998, _v885], _v922[0] = _v998;
+  let _v1020 = new Uint8Array([0, 97, 115, 109, 1, 0, 0, 0, 1, 5, 1, 96, 0, 1, 123, 3, 2, 1, 0, 10, 10, 1, 8, 0, 65, 0, 253, 15, 253, 98, 11]);
+  async function _v1021() {
     if (void 0 === _v22) try {
-      await WebAssembly.instantiate(_v1015), _v22 = !0;
+      await WebAssembly.instantiate(_v1020), _v22 = !0;
     } catch {
       _v22 = !1;
     }
     return _v22;
   }
-  async function _v1017(_v0, _v1 = _v908``) {
-    let _v2 = (await _v1016()) ? "wasm_internal" : "wasm_nosimd_internal";
+  async function _v1022(_v0, _v1 = _v913``) {
+    let _v2 = (await _v1021()) ? "wasm_internal" : "wasm_nosimd_internal";
     return {
       wasmLoaderPath: `${_v1}/${_v0}_${_v2}.js`,
       wasmBinaryPath: `${_v1}/${_v0}_${_v2}.wasm`
     };
   }
-  var _v1018 = class {};
-  function _v1019() {
+  var _v1023 = class {};
+  function _v1024() {
     var _v0 = navigator;
     return "u" > typeof OffscreenCanvas && (!function (_v0 = navigator) {
       return (_v0 = _v0.userAgent).includes("Safari") && !_v0.includes("Chrome");
     }(_v0) || !!((_v0 = _v0.userAgent.match(/Version\/([\d]+).*Safari/)) && _v0.length >= 1 && Number(_v0[1]) >= 17));
   }
-  async function _v1020(_v0) {
+  async function _v1025(_v0) {
     if ("function" != typeof importScripts) {
       let _v0 = document.createElement("script");
       return _v0.src = _v0.toString(), _v0.crossOrigin = "anonymous", new Promise((_v0, _v1) => {
@@ -24084,48 +24179,48 @@
     }
     importScripts(_v0.toString());
   }
-  function _v1021(_v0) {
+  function _v1026(_v0) {
     return void 0 !== _v0.videoWidth ? [_v0.videoWidth, _v0.videoHeight] : void 0 !== _v0.naturalWidth ? [_v0.naturalWidth, _v0.naturalHeight] : void 0 !== _v0.displayWidth ? [_v0.displayWidth, _v0.displayHeight] : [_v0.width, _v0.height];
   }
-  function _v1022(_v0, _v1, _v2) {
+  function _v1027(_v0, _v1, _v2) {
     _v0.m || console.error("No wasm multistream support detected: ensure dependency inclusion of :gl_graph_runner_internal_multi_input target"), _v2(_v1 = _v0.i.stringToNewUTF8(_v1)), _v0.i._free(_v1);
   }
-  function _v1023(_v0, _v1, _v2) {
+  function _v1028(_v0, _v1, _v2) {
     if (!_v0.i.canvas) throw Error("No OpenGL canvas configured.");
     if (_v2 ? _v0.i._bindTextureToStream(_v2) : _v0.i._bindTextureToCanvas(), !(_v2 = _v0.i.canvas.getContext("webgl2") || _v0.i.canvas.getContext("webgl"))) throw Error("Failed to obtain WebGL context from the provided canvas. `getContext()` should only be invoked with `webgl` or `webgl2`.");
     _v0.i.gpuOriginForWebTexturesIsBottomLeft && _v2.pixelStorei(_v2.UNPACK_FLIP_Y_WEBGL, !0), _v2.texImage2D(_v2.TEXTURE_2D, 0, _v2.RGBA, _v2.RGBA, _v2.UNSIGNED_BYTE, _v1), _v0.i.gpuOriginForWebTexturesIsBottomLeft && _v2.pixelStorei(_v2.UNPACK_FLIP_Y_WEBGL, !1);
-    let [_v3, _v4] = _v1021(_v1);
+    let [_v3, _v4] = _v1026(_v1);
     return _v0.l && (_v3 !== _v0.i.canvas.width || _v4 !== _v0.i.canvas.height) && (_v0.i.canvas.width = _v3, _v0.i.canvas.height = _v4), [_v3, _v4];
   }
-  function _v1024(_v0, _v1, _v2) {
+  function _v1029(_v0, _v1, _v2) {
     _v0.m || console.error("No wasm multistream support detected: ensure dependency inclusion of :gl_graph_runner_internal_multi_input target");
     let _v3 = new Uint32Array(_v1.length);
     for (let _v0 = 0; _v0 < _v1.length; _v0++) _v3[_v0] = _v0.i.stringToNewUTF8(_v1[_v0]);
     for (let _v0 of (_v1 = _v0.i._malloc(4 * _v3.length), _v0.i.HEAPU32.set(_v3, _v1 >> 2), _v2(_v1), _v3)) _v0.i._free(_v0);
     _v0.i._free(_v1);
   }
-  function _v1025(_v0, _v1, _v2) {
+  function _v1030(_v0, _v1, _v2) {
     _v0.i.simpleListeners = _v0.i.simpleListeners || {}, _v0.i.simpleListeners[_v1] = _v2;
   }
-  function _v1026(_v0, _v1, _v2) {
+  function _v1031(_v0, _v1, _v2) {
     let _v3 = [];
     _v0.i.simpleListeners = _v0.i.simpleListeners || {}, _v0.i.simpleListeners[_v1] = (_v0, _v1, _v2) => {
       _v1 ? (_v2(_v3, _v2), _v3 = []) : _v3.push(_v0);
     };
   }
-  async function _v1027(_v0, _v1, _v2, _v3) {
+  async function _v1032(_v0, _v1, _v2, _v3) {
     return _v0 = await (async (_v0, _v1, _v2, _v3, _v4) => {
-      if (_v1 && (await _v1020(_v1)), !self.ModuleFactory || _v2 && (await _v1020(_v2), !self.ModuleFactory)) throw Error("ModuleFactory not set.");
+      if (_v1 && (await _v1025(_v1)), !self.ModuleFactory || _v2 && (await _v1025(_v2), !self.ModuleFactory)) throw Error("ModuleFactory not set.");
       return self.Module && _v4 && ((_v1 = self.Module).locateFile = _v4.locateFile, _v4.mainScriptUrlOrBlob && (_v1.mainScriptUrlOrBlob = _v4.mainScriptUrlOrBlob)), _v4 = await self.ModuleFactory(self.Module || _v4), self.ModuleFactory = self.Module = void 0, new _v0(_v4, _v3);
     })(_v0, _v2.wasmLoaderPath, _v2.assetLoaderPath, _v1, {
       locateFile: _v0 => _v0.endsWith(".wasm") ? _v2.wasmBinaryPath.toString() : _v2.assetBinaryPath && _v0.endsWith(".data") ? _v2.assetBinaryPath.toString() : _v0
     }), await _v0.o(_v3), _v0;
   }
-  function _v1028(_v0, _v1) {
-    let _v2 = _v783(_v0.baseOptions, _v960, 1) || new _v960();
-    "string" == typeof _v1 ? (_v765(_v2, 2, _v729(_v1)), _v765(_v2, 1)) : _v1 instanceof Uint8Array && (_v765(_v2, 1, _v685(_v1, !1, !1)), _v765(_v2, 2)), _v786(_v0.baseOptions, 0, 1, _v2);
+  function _v1033(_v0, _v1) {
+    let _v2 = _v788(_v0.baseOptions, _v965, 1) || new _v965();
+    "string" == typeof _v1 ? (_v770(_v2, 2, _v734(_v1)), _v770(_v2, 1)) : _v1 instanceof Uint8Array && (_v770(_v2, 1, _v690(_v1, !1, !1)), _v770(_v2, 2)), _v791(_v0.baseOptions, 0, 1, _v2);
   }
-  function _v1029(_v0) {
+  function _v1034(_v0) {
     try {
       let _v0 = _v0.H.length;
       if (1 === _v0) throw Error(_v0.H[0].message);
@@ -24134,32 +24229,32 @@
       _v0.H = [];
     }
   }
-  function _v1030(_v0, _v1) {
+  function _v1035(_v0, _v1) {
     _v0.B = Math.max(_v0.B, _v1);
   }
-  function _v1031(_v0, _v1) {
-    _v0.A = new _v922(), _v919(_v0.A, "PassThroughCalculator"), _v920(_v0.A, "free_memory"), _v921(_v0.A, "free_memory_unused_out"), _v927(_v1, "free_memory"), _v926(_v1, _v0.A);
+  function _v1036(_v0, _v1) {
+    _v0.A = new _v927(), _v924(_v0.A, "PassThroughCalculator"), _v925(_v0.A, "free_memory"), _v926(_v0.A, "free_memory_unused_out"), _v932(_v1, "free_memory"), _v931(_v1, _v0.A);
   }
-  function _v1032(_v0, _v1) {
-    _v920(_v0.A, _v1), _v921(_v0.A, _v1 + "_unused_out");
+  function _v1037(_v0, _v1) {
+    _v925(_v0.A, _v1), _v926(_v0.A, _v1 + "_unused_out");
   }
-  function _v1033(_v0) {
+  function _v1038(_v0) {
     _v0.g.addBoolToStream(!0, "free_memory", _v0.B);
   }
-  _v1018.forVisionTasks = function (_v0) {
-    return _v1017("vision", _v0);
-  }, _v1018.forTextTasks = function (_v0) {
-    return _v1017("text", _v0);
-  }, _v1018.forGenAiExperimentalTasks = function (_v0) {
-    return _v1017("genai_experimental", _v0);
-  }, _v1018.forGenAiTasks = function (_v0) {
-    return _v1017("genai", _v0);
-  }, _v1018.forAudioTasks = function (_v0) {
-    return _v1017("audio", _v0);
-  }, _v1018.isSimdSupported = function () {
-    return _v1016();
+  _v1023.forVisionTasks = function (_v0) {
+    return _v1022("vision", _v0);
+  }, _v1023.forTextTasks = function (_v0) {
+    return _v1022("text", _v0);
+  }, _v1023.forGenAiExperimentalTasks = function (_v0) {
+    return _v1022("genai_experimental", _v0);
+  }, _v1023.forGenAiTasks = function (_v0) {
+    return _v1022("genai", _v0);
+  }, _v1023.forAudioTasks = function (_v0) {
+    return _v1022("audio", _v0);
+  }, _v1023.isSimdSupported = function () {
+    return _v1021();
   };
-  var _v1034 = class {
+  var _v1039 = class {
     constructor(_v0) {
       this.g = _v0, this.H = [], this.B = 0, this.g.setAutoRenderToScreen(!1);
     }
@@ -24167,14 +24262,14 @@
       if (_v1) {
         let _v0 = _v0.baseOptions || {};
         if (_v0.baseOptions?.modelAssetBuffer && _v0.baseOptions?.modelAssetPath) throw Error("Cannot set both baseOptions.modelAssetPath and baseOptions.modelAssetBuffer");
-        if (!(_v783(this.baseOptions, _v960, 1)?.g() || _v783(this.baseOptions, _v960, 1)?.h() || _v0.baseOptions?.modelAssetBuffer || _v0.baseOptions?.modelAssetPath)) throw Error("Either baseOptions.modelAssetPath or baseOptions.modelAssetBuffer must be set");
+        if (!(_v788(this.baseOptions, _v965, 1)?.g() || _v788(this.baseOptions, _v965, 1)?.h() || _v0.baseOptions?.modelAssetBuffer || _v0.baseOptions?.modelAssetPath)) throw Error("Either baseOptions.modelAssetPath or baseOptions.modelAssetBuffer must be set");
         if (function (_v0, _v1) {
-          let _v2 = _v783(_v0.baseOptions, _v958, 3);
+          let _v2 = _v788(_v0.baseOptions, _v963, 3);
           if (!_v2) {
-            var _v3 = _v2 = new _v958();
-            _v787(_v3, 4, _v959, new _v913());
+            var _v3 = _v2 = new _v963();
+            _v792(_v3, 4, _v964, new _v918());
           }
-          "delegate" in _v1 && ("GPU" === _v1.delegate ? _v787(_v1 = _v2, 2, _v959, _v3 = new _v910()) : _v787(_v1 = _v2, 4, _v959, _v3 = new _v913())), _v786(_v0.baseOptions, 0, 3, _v2);
+          "delegate" in _v1 && ("GPU" === _v1.delegate ? _v792(_v1 = _v2, 2, _v964, _v3 = new _v915()) : _v792(_v1 = _v2, 4, _v964, _v3 = new _v918())), _v791(_v0.baseOptions, 0, 3, _v2);
         }(this, _v0), _v0.modelAssetPath) return fetch(_v0.modelAssetPath.toString()).then(_v0 => {
           if (_v0.ok) return _v0.arrayBuffer();
           throw Error(`Failed to fetch model: ${_v0.modelAssetPath} (${_v0.status})`);
@@ -24182,9 +24277,9 @@
           try {
             this.g.i.FS_unlink("/model.dat");
           } catch {}
-          this.g.i.FS_createDataFile("/", "model.dat", new Uint8Array(_v0), !0, !1, !1), _v1028(this, "/model.dat"), this.m(), this.J();
+          this.g.i.FS_createDataFile("/", "model.dat", new Uint8Array(_v0), !0, !1, !1), _v1033(this, "/model.dat"), this.m(), this.J();
         });
-        if (_v0.modelAssetBuffer instanceof Uint8Array) _v1028(this, _v0.modelAssetBuffer);else if (_v0.modelAssetBuffer) return async function (_v0) {
+        if (_v0.modelAssetBuffer instanceof Uint8Array) _v1033(this, _v0.modelAssetBuffer);else if (_v0.modelAssetBuffer) return async function (_v0) {
           let _v1 = [];
           for (var _v2 = 0;;) {
             let {
@@ -24199,7 +24294,7 @@
           for (let _v0 of (_v0 = new Uint8Array(_v2), _v2 = 0, _v1)) _v0.set(_v0, _v2), _v2 += _v0.length;
           return _v0;
         }(_v0.modelAssetBuffer).then(_v0 => {
-          _v1028(this, _v0), this.m(), this.J();
+          _v1033(this, _v0), this.m(), this.J();
         });
       }
       return this.m(), this.J(), Promise.resolve();
@@ -24208,33 +24303,33 @@
     ea() {
       let _v0;
       if (this.g.ea(_v0 => {
-        _v0 = _v931(_v0);
+        _v0 = _v936(_v0);
       }), !_v0) throw Error("Failed to retrieve CalculatorGraphConfig");
       return _v0;
     }
     setGraph(_v0, _v1) {
       this.g.attachErrorListener((_v0, _v1) => {
         this.H.push(Error(_v1));
-      }), this.g.Ma(), this.g.setGraph(_v0, _v1), this.A = void 0, _v1029(this);
+      }), this.g.Ma(), this.g.setGraph(_v0, _v1), this.A = void 0, _v1034(this);
     }
     finishProcessing() {
-      this.g.finishProcessing(), _v1029(this);
+      this.g.finishProcessing(), _v1034(this);
     }
     close() {
       this.A = void 0, this.g.closeGraph();
     }
   };
-  function _v1035(_v0, _v1) {
+  function _v1040(_v0, _v1) {
     if (!_v0) throw Error(`Unable to obtain required WebGL resource: ${_v1}`);
     return _v0;
   }
-  _v1034.prototype.close = _v1034.prototype.close, function (_v0, _v1) {
+  _v1039.prototype.close = _v1039.prototype.close, function (_v0, _v1) {
     _v0 = _v0.split(".");
     var _v2,
-      _v3 = _v625;
+      _v3 = _v630;
     for ((_v0[0] in _v3) || void 0 === _v3.execScript || _v3.execScript("var " + _v0[0]); _v0.length && (_v2 = _v0.shift());) _v0.length || void 0 === _v1 ? _v3 = _v3[_v2] && _v3[_v2] !== Object.prototype[_v2] ? _v3[_v2] : _v3[_v2] = {} : _v3[_v2] = _v1;
-  }("TaskRunner", _v1034);
-  class _v1036 {
+  }("TaskRunner", _v1039);
+  class _v1041 {
     constructor(_v0, _v1, _v2, _v3) {
       this.g = _v0, this.h = _v1, this.m = _v2, this.l = _v3;
     }
@@ -24245,44 +24340,44 @@
       this.g.deleteVertexArray(this.h), this.g.deleteBuffer(this.m), this.g.deleteBuffer(this.l);
     }
   }
-  function _v1037(_v0, _v1, _v2) {
+  function _v1042(_v0, _v1, _v2) {
     let _v3 = _v0.g;
-    if (_v2 = _v1035(_v3.createShader(_v2), "Failed to create WebGL shader"), _v3.shaderSource(_v2, _v1), _v3.compileShader(_v2), !_v3.getShaderParameter(_v2, _v3.COMPILE_STATUS)) throw Error(`Could not compile WebGL shader: ${_v3.getShaderInfoLog(_v2)}`);
+    if (_v2 = _v1040(_v3.createShader(_v2), "Failed to create WebGL shader"), _v3.shaderSource(_v2, _v1), _v3.compileShader(_v2), !_v3.getShaderParameter(_v2, _v3.COMPILE_STATUS)) throw Error(`Could not compile WebGL shader: ${_v3.getShaderInfoLog(_v2)}`);
     return _v3.attachShader(_v0.h, _v2), _v2;
   }
-  function _v1038(_v0, _v1) {
+  function _v1043(_v0, _v1) {
     let _v2 = _v0.g,
-      _v3 = _v1035(_v2.createVertexArray(), "Failed to create vertex array");
+      _v3 = _v1040(_v2.createVertexArray(), "Failed to create vertex array");
     _v2.bindVertexArray(_v3);
-    let _v4 = _v1035(_v2.createBuffer(), "Failed to create buffer");
+    let _v4 = _v1040(_v2.createBuffer(), "Failed to create buffer");
     _v2.bindBuffer(_v2.ARRAY_BUFFER, _v4), _v2.enableVertexAttribArray(_v0.P), _v2.vertexAttribPointer(_v0.P, 2, _v2.FLOAT, !1, 0, 0), _v2.bufferData(_v2.ARRAY_BUFFER, new Float32Array([-1, -1, -1, 1, 1, 1, 1, -1]), _v2.STATIC_DRAW);
-    let _v5 = _v1035(_v2.createBuffer(), "Failed to create buffer");
-    return _v2.bindBuffer(_v2.ARRAY_BUFFER, _v5), _v2.enableVertexAttribArray(_v0.J), _v2.vertexAttribPointer(_v0.J, 2, _v2.FLOAT, !1, 0, 0), _v2.bufferData(_v2.ARRAY_BUFFER, new Float32Array(_v1 ? [0, 1, 0, 0, 1, 0, 1, 1] : [0, 0, 0, 1, 1, 1, 1, 0]), _v2.STATIC_DRAW), _v2.bindBuffer(_v2.ARRAY_BUFFER, null), _v2.bindVertexArray(null), new _v1036(_v2, _v3, _v4, _v5);
+    let _v5 = _v1040(_v2.createBuffer(), "Failed to create buffer");
+    return _v2.bindBuffer(_v2.ARRAY_BUFFER, _v5), _v2.enableVertexAttribArray(_v0.J), _v2.vertexAttribPointer(_v0.J, 2, _v2.FLOAT, !1, 0, 0), _v2.bufferData(_v2.ARRAY_BUFFER, new Float32Array(_v1 ? [0, 1, 0, 0, 1, 0, 1, 1] : [0, 0, 0, 1, 1, 1, 1, 0]), _v2.STATIC_DRAW), _v2.bindBuffer(_v2.ARRAY_BUFFER, null), _v2.bindVertexArray(null), new _v1041(_v2, _v3, _v4, _v5);
   }
-  function _v1039(_v0, _v1) {
+  function _v1044(_v0, _v1) {
     if (_v0.g) {
       if (_v1 !== _v0.g) throw Error("Cannot change GL context once initialized");
     } else _v0.g = _v1;
   }
-  function _v1040(_v0, _v1, _v2, _v3) {
-    return _v1039(_v0, _v1), _v0.h || (_v0.m(), _v0.C()), _v2 ? (_v0.s || (_v0.s = _v1038(_v0, !0)), _v2 = _v0.s) : (_v0.v || (_v0.v = _v1038(_v0, !1)), _v2 = _v0.v), _v1.useProgram(_v0.h), _v2.bind(), _v0.l(), _v0 = _v3(), _v2.g.bindVertexArray(null), _v0;
+  function _v1045(_v0, _v1, _v2, _v3) {
+    return _v1044(_v0, _v1), _v0.h || (_v0.m(), _v0.C()), _v2 ? (_v0.s || (_v0.s = _v1043(_v0, !0)), _v2 = _v0.s) : (_v0.v || (_v0.v = _v1043(_v0, !1)), _v2 = _v0.v), _v1.useProgram(_v0.h), _v2.bind(), _v0.l(), _v0 = _v3(), _v2.g.bindVertexArray(null), _v0;
   }
-  function _v1041(_v0, _v1, _v2) {
-    return _v1039(_v0, _v1), _v0 = _v1035(_v1.createTexture(), "Failed to create texture"), _v1.bindTexture(_v1.TEXTURE_2D, _v0), _v1.texParameteri(_v1.TEXTURE_2D, _v1.TEXTURE_WRAP_S, _v1.CLAMP_TO_EDGE), _v1.texParameteri(_v1.TEXTURE_2D, _v1.TEXTURE_WRAP_T, _v1.CLAMP_TO_EDGE), _v1.texParameteri(_v1.TEXTURE_2D, _v1.TEXTURE_MIN_FILTER, _v2 ?? _v1.LINEAR), _v1.texParameteri(_v1.TEXTURE_2D, _v1.TEXTURE_MAG_FILTER, _v2 ?? _v1.LINEAR), _v1.bindTexture(_v1.TEXTURE_2D, null), _v0;
+  function _v1046(_v0, _v1, _v2) {
+    return _v1044(_v0, _v1), _v0 = _v1040(_v1.createTexture(), "Failed to create texture"), _v1.bindTexture(_v1.TEXTURE_2D, _v0), _v1.texParameteri(_v1.TEXTURE_2D, _v1.TEXTURE_WRAP_S, _v1.CLAMP_TO_EDGE), _v1.texParameteri(_v1.TEXTURE_2D, _v1.TEXTURE_WRAP_T, _v1.CLAMP_TO_EDGE), _v1.texParameteri(_v1.TEXTURE_2D, _v1.TEXTURE_MIN_FILTER, _v2 ?? _v1.LINEAR), _v1.texParameteri(_v1.TEXTURE_2D, _v1.TEXTURE_MAG_FILTER, _v2 ?? _v1.LINEAR), _v1.bindTexture(_v1.TEXTURE_2D, null), _v0;
   }
-  function _v1042(_v0, _v1, _v2) {
-    _v1039(_v0, _v1), _v0.A || (_v0.A = _v1035(_v1.createFramebuffer(), "Failed to create framebuffe.")), _v1.bindFramebuffer(_v1.FRAMEBUFFER, _v0.A), _v1.framebufferTexture2D(_v1.FRAMEBUFFER, _v1.COLOR_ATTACHMENT0, _v1.TEXTURE_2D, _v2, 0);
+  function _v1047(_v0, _v1, _v2) {
+    _v1044(_v0, _v1), _v0.A || (_v0.A = _v1040(_v1.createFramebuffer(), "Failed to create framebuffe.")), _v1.bindFramebuffer(_v1.FRAMEBUFFER, _v0.A), _v1.framebufferTexture2D(_v1.FRAMEBUFFER, _v1.COLOR_ATTACHMENT0, _v1.TEXTURE_2D, _v2, 0);
   }
-  function _v1043(_v0) {
+  function _v1048(_v0) {
     _v0.g?.bindFramebuffer(_v0.g.FRAMEBUFFER, null);
   }
-  var _v1044 = class {
+  var _v1049 = class {
       H() {
         return "\n  precision mediump float;\n  varying vec2 vTex;\n  uniform sampler2D inputTexture;\n  void main() {\n    gl_FragColor = texture2D(inputTexture, vTex);\n  }\n ";
       }
       m() {
         let _v0 = this.g;
-        if (this.h = _v1035(_v0.createProgram(), "Failed to create WebGL program"), this.ba = _v1037(this, "\n  attribute vec2 aVertex;\n  attribute vec2 aTex;\n  varying vec2 vTex;\n  void main(void) {\n    gl_Position = vec4(aVertex, 0.0, 1.0);\n    vTex = aTex;\n  }", _v0.VERTEX_SHADER), this.aa = _v1037(this, this.H(), _v0.FRAGMENT_SHADER), _v0.linkProgram(this.h), !_v0.getProgramParameter(this.h, _v0.LINK_STATUS)) throw Error(`Error during program linking: ${_v0.getProgramInfoLog(this.h)}`);
+        if (this.h = _v1040(_v0.createProgram(), "Failed to create WebGL program"), this.ba = _v1042(this, "\n  attribute vec2 aVertex;\n  attribute vec2 aTex;\n  varying vec2 vTex;\n  void main(void) {\n    gl_Position = vec4(aVertex, 0.0, 1.0);\n    vTex = aTex;\n  }", _v0.VERTEX_SHADER), this.aa = _v1042(this, this.H(), _v0.FRAGMENT_SHADER), _v0.linkProgram(this.h), !_v0.getProgramParameter(this.h, _v0.LINK_STATUS)) throw Error(`Error during program linking: ${_v0.getProgramInfoLog(this.h)}`);
         this.P = _v0.getAttribLocation(this.h, "aVertex"), this.J = _v0.getAttribLocation(this.h, "aTex");
       }
       C() {}
@@ -24295,18 +24390,18 @@
         this.A && this.g.deleteFramebuffer(this.A), this.v && this.v.close(), this.s && this.s.close();
       }
     },
-    _v1045 = class extends _v1044 {
+    _v1050 = class extends _v1049 {
       H() {
         return "\n  precision mediump float;\n  uniform sampler2D backgroundTexture;\n  uniform sampler2D maskTexture;\n  uniform sampler2D colorMappingTexture;\n  varying vec2 vTex;\n  void main() {\n    vec4 backgroundColor = texture2D(backgroundTexture, vTex);\n    float category = texture2D(maskTexture, vTex).r;\n    vec4 categoryColor = texture2D(colorMappingTexture, vec2(category, 0.0));\n    gl_FragColor = mix(backgroundColor, categoryColor, categoryColor.a);\n  }\n ";
       }
       C() {
         let _v0 = this.g;
-        _v0.activeTexture(_v0.TEXTURE1), this.B = _v1041(this, _v0, _v0.LINEAR), _v0.activeTexture(_v0.TEXTURE2), this.j = _v1041(this, _v0, _v0.NEAREST);
+        _v0.activeTexture(_v0.TEXTURE1), this.B = _v1046(this, _v0, _v0.LINEAR), _v0.activeTexture(_v0.TEXTURE2), this.j = _v1046(this, _v0, _v0.NEAREST);
       }
       m() {
         super.m();
         let _v0 = this.g;
-        this.L = _v1035(_v0.getUniformLocation(this.h, "backgroundTexture"), "Uniform location"), this.U = _v1035(_v0.getUniformLocation(this.h, "colorMappingTexture"), "Uniform location"), this.K = _v1035(_v0.getUniformLocation(this.h, "maskTexture"), "Uniform location");
+        this.L = _v1040(_v0.getUniformLocation(this.h, "backgroundTexture"), "Uniform location"), this.U = _v1040(_v0.getUniformLocation(this.h, "colorMappingTexture"), "Uniform location"), this.K = _v1040(_v0.getUniformLocation(this.h, "maskTexture"), "Uniform location");
       }
       l() {
         super.l();
@@ -24317,18 +24412,18 @@
         this.B && this.g.deleteTexture(this.B), this.j && this.g.deleteTexture(this.j), super.close();
       }
     },
-    _v1046 = class extends _v1044 {
+    _v1051 = class extends _v1049 {
       H() {
         return "\n  precision mediump float;\n  uniform sampler2D maskTexture;\n  uniform sampler2D defaultTexture;\n  uniform sampler2D overlayTexture;\n  varying vec2 vTex;\n  void main() {\n    float confidence = texture2D(maskTexture, vTex).r;\n    vec4 defaultColor = texture2D(defaultTexture, vTex);\n    vec4 overlayColor = texture2D(overlayTexture, vTex);\n    // Apply the alpha from the overlay and merge in the default color\n    overlayColor = mix(defaultColor, overlayColor, overlayColor.a);\n    gl_FragColor = mix(defaultColor, overlayColor, confidence);\n  }\n ";
       }
       C() {
         let _v0 = this.g;
-        _v0.activeTexture(_v0.TEXTURE1), this.j = _v1041(this, _v0), _v0.activeTexture(_v0.TEXTURE2), this.B = _v1041(this, _v0);
+        _v0.activeTexture(_v0.TEXTURE1), this.j = _v1046(this, _v0), _v0.activeTexture(_v0.TEXTURE2), this.B = _v1046(this, _v0);
       }
       m() {
         super.m();
         let _v0 = this.g;
-        this.K = _v1035(_v0.getUniformLocation(this.h, "defaultTexture"), "Uniform location"), this.L = _v1035(_v0.getUniformLocation(this.h, "overlayTexture"), "Uniform location"), this.I = _v1035(_v0.getUniformLocation(this.h, "maskTexture"), "Uniform location");
+        this.K = _v1040(_v0.getUniformLocation(this.h, "defaultTexture"), "Uniform location"), this.L = _v1040(_v0.getUniformLocation(this.h, "overlayTexture"), "Uniform location"), this.I = _v1040(_v0.getUniformLocation(this.h, "maskTexture"), "Uniform location");
       }
       l() {
         super.l();
@@ -24339,7 +24434,7 @@
         this.j && this.g.deleteTexture(this.j), this.B && this.g.deleteTexture(this.B), super.close();
       }
     };
-  function _v1047(_v0, _v1) {
+  function _v1052(_v0, _v1) {
     switch (_v1) {
       case 0:
         return _v0.g.find(_v0 => _v0 instanceof Uint8Array);
@@ -24351,14 +24446,14 @@
         throw Error(`Type is not supported: ${_v1}`);
     }
   }
-  function _v1048(_v0) {
-    var _v1 = _v1047(_v0, 1);
+  function _v1053(_v0) {
+    var _v1 = _v1052(_v0, 1);
     if (!_v1) {
-      if (_v1 = _v1047(_v0, 0)) _v1 = new Float32Array(_v1).map(_v0 => _v0 / 255);else {
+      if (_v1 = _v1052(_v0, 0)) _v1 = new Float32Array(_v1).map(_v0 => _v0 / 255);else {
         _v1 = new Float32Array(_v0.width * _v0.height);
-        let _v0 = _v1050(_v0);
-        var _v2 = _v1052(_v0);
-        if (_v1042(_v2, _v0, _v1049(_v0)), "iPad Simulator;iPhone Simulator;iPod Simulator;iPad;iPhone;iPod".split(";").includes(navigator.platform) || navigator.userAgent.includes("Mac") && "document" in self && "ontouchend" in self.document) {
+        let _v0 = _v1055(_v0);
+        var _v2 = _v1057(_v0);
+        if (_v1047(_v2, _v0, _v1054(_v0)), "iPad Simulator;iPhone Simulator;iPod Simulator;iPad;iPhone;iPod".split(";").includes(navigator.platform) || navigator.userAgent.includes("Mac") && "document" in self && "ontouchend" in self.document) {
           _v2 = new Float32Array(_v0.width * _v0.height * 4), _v0.readPixels(0, 0, _v0.width, _v0.height, _v0.RGBA, _v0.FLOAT, _v2);
           for (let _v0 = 0, _v1 = 0; _v0 < _v1.length; ++_v0, _v1 += 4) _v1[_v0] = _v2[_v1];
         } else _v0.readPixels(0, 0, _v0.width, _v0.height, _v0.RED, _v0.FLOAT, _v1);
@@ -24367,63 +24462,63 @@
     }
     return _v1;
   }
-  function _v1049(_v0) {
-    let _v1 = _v1047(_v0, 2);
+  function _v1054(_v0) {
+    let _v1 = _v1052(_v0, 2);
     if (!_v1) {
-      let _v0 = _v1050(_v0);
-      _v1 = _v1053(_v0);
-      let _v1 = _v1048(_v0),
-        _v2 = _v1051(_v0);
-      _v0.texImage2D(_v0.TEXTURE_2D, 0, _v2, _v0.width, _v0.height, 0, _v0.RED, _v0.FLOAT, _v1), _v1054(_v0);
+      let _v0 = _v1055(_v0);
+      _v1 = _v1058(_v0);
+      let _v1 = _v1053(_v0),
+        _v2 = _v1056(_v0);
+      _v0.texImage2D(_v0.TEXTURE_2D, 0, _v2, _v0.width, _v0.height, 0, _v0.RED, _v0.FLOAT, _v1), _v1059(_v0);
     }
     return _v1;
   }
-  function _v1050(_v0) {
+  function _v1055(_v0) {
     if (!_v0.canvas) throw Error("Conversion to different image formats require that a canvas is passed when initializing the image.");
-    return _v0.h || (_v0.h = _v1035(_v0.canvas.getContext("webgl2"), "You cannot use a canvas that is already bound to a different type of rendering context.")), _v0.h;
+    return _v0.h || (_v0.h = _v1040(_v0.canvas.getContext("webgl2"), "You cannot use a canvas that is already bound to a different type of rendering context.")), _v0.h;
   }
-  function _v1051(_v0) {
-    if (_v0 = _v1050(_v0), !_v1055) if (_v0.getExtension("EXT_color_buffer_float") && _v0.getExtension("OES_texture_float_linear") && _v0.getExtension("EXT_float_blend")) _v1055 = _v0.R32F;else {
+  function _v1056(_v0) {
+    if (_v0 = _v1055(_v0), !_v1060) if (_v0.getExtension("EXT_color_buffer_float") && _v0.getExtension("OES_texture_float_linear") && _v0.getExtension("EXT_float_blend")) _v1060 = _v0.R32F;else {
       if (!_v0.getExtension("EXT_color_buffer_half_float")) throw Error("GPU does not fully support 4-channel float32 or float16 formats");
-      _v1055 = _v0.R16F;
+      _v1060 = _v0.R16F;
     }
-    return _v1055;
+    return _v1060;
   }
-  function _v1052(_v0) {
-    return _v0.l || (_v0.l = new _v1044()), _v0.l;
+  function _v1057(_v0) {
+    return _v0.l || (_v0.l = new _v1049()), _v0.l;
   }
-  function _v1053(_v0) {
-    let _v1 = _v1050(_v0);
+  function _v1058(_v0) {
+    let _v1 = _v1055(_v0);
     _v1.viewport(0, 0, _v0.width, _v0.height), _v1.activeTexture(_v1.TEXTURE0);
-    let _v2 = _v1047(_v0, 2);
-    return _v2 || (_v2 = _v1041(_v1052(_v0), _v1, _v0.m ? _v1.LINEAR : _v1.NEAREST), _v0.g.push(_v2), _v0.j = !0), _v1.bindTexture(_v1.TEXTURE_2D, _v2), _v2;
+    let _v2 = _v1052(_v0, 2);
+    return _v2 || (_v2 = _v1046(_v1057(_v0), _v1, _v0.m ? _v1.LINEAR : _v1.NEAREST), _v0.g.push(_v2), _v0.j = !0), _v1.bindTexture(_v1.TEXTURE_2D, _v2), _v2;
   }
-  function _v1054(_v0) {
+  function _v1059(_v0) {
     _v0.h.bindTexture(_v0.h.TEXTURE_2D, null);
   }
-  var _v1055,
-    _v1056 = class {
+  var _v1060,
+    _v1061 = class {
       constructor(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
-        this.g = _v0, this.m = _v1, this.j = _v2, this.canvas = _v3, this.l = _v4, this.width = _v5, this.height = _v6, this.j && 0 == --_v1057 && console.error("You seem to be creating MPMask instances without invoking .close(). This leaks resources.");
+        this.g = _v0, this.m = _v1, this.j = _v2, this.canvas = _v3, this.l = _v4, this.width = _v5, this.height = _v6, this.j && 0 == --_v1062 && console.error("You seem to be creating MPMask instances without invoking .close(). This leaks resources.");
       }
       Ha() {
-        return !!_v1047(this, 0);
+        return !!_v1052(this, 0);
       }
       la() {
-        return !!_v1047(this, 1);
+        return !!_v1052(this, 1);
       }
       R() {
-        return !!_v1047(this, 2);
+        return !!_v1052(this, 2);
       }
       ka() {
         var _v0;
-        return (_v0 = _v1047(this, 0)) || (_v0 = new Uint8Array((_v0 = _v1048(this)).map(_v0 => 255 * _v0)), this.g.push(_v0)), _v0;
+        return (_v0 = _v1052(this, 0)) || (_v0 = new Uint8Array((_v0 = _v1053(this)).map(_v0 => 255 * _v0)), this.g.push(_v0)), _v0;
       }
       ja() {
-        return _v1048(this);
+        return _v1053(this);
       }
       N() {
-        return _v1049(this);
+        return _v1054(this);
       }
       clone() {
         let _v0 = [];
@@ -24432,64 +24527,64 @@
           if (_v0 instanceof Uint8Array) _v0 = new Uint8Array(_v0);else if (_v0 instanceof Float32Array) _v0 = new Float32Array(_v0);else {
             if (!(_v0 instanceof WebGLTexture)) throw Error(`Type is not supported: ${_v0}`);
             {
-              let _v0 = _v1050(this),
-                _v1 = _v1052(this);
-              _v0.activeTexture(_v0.TEXTURE1), _v0 = _v1041(_v1, _v0, this.m ? _v0.LINEAR : _v0.NEAREST), _v0.bindTexture(_v0.TEXTURE_2D, _v0);
-              let _v2 = _v1051(this);
-              _v0.texImage2D(_v0.TEXTURE_2D, 0, _v2, this.width, this.height, 0, _v0.RED, _v0.FLOAT, null), _v0.bindTexture(_v0.TEXTURE_2D, null), _v1042(_v1, _v0, _v0), _v1040(_v1, _v0, !1, () => {
-                _v1053(this), _v0.clearColor(0, 0, 0, 0), _v0.clear(_v0.COLOR_BUFFER_BIT), _v0.drawArrays(_v0.TRIANGLE_FAN, 0, 4), _v1054(this);
-              }), _v1043(_v1), _v1054(this);
+              let _v0 = _v1055(this),
+                _v1 = _v1057(this);
+              _v0.activeTexture(_v0.TEXTURE1), _v0 = _v1046(_v1, _v0, this.m ? _v0.LINEAR : _v0.NEAREST), _v0.bindTexture(_v0.TEXTURE_2D, _v0);
+              let _v2 = _v1056(this);
+              _v0.texImage2D(_v0.TEXTURE_2D, 0, _v2, this.width, this.height, 0, _v0.RED, _v0.FLOAT, null), _v0.bindTexture(_v0.TEXTURE_2D, null), _v1047(_v1, _v0, _v0), _v1045(_v1, _v0, !1, () => {
+                _v1058(this), _v0.clearColor(0, 0, 0, 0), _v0.clear(_v0.COLOR_BUFFER_BIT), _v0.drawArrays(_v0.TRIANGLE_FAN, 0, 4), _v1059(this);
+              }), _v1048(_v1), _v1059(this);
             }
           }
           _v0.push(_v0);
         }
-        return new _v1056(_v0, this.m, this.R(), this.canvas, this.l, this.width, this.height);
+        return new _v1061(_v0, this.m, this.R(), this.canvas, this.l, this.width, this.height);
       }
       close() {
-        this.j && _v1050(this).deleteTexture(_v1047(this, 2)), _v1057 = -1;
+        this.j && _v1055(this).deleteTexture(_v1052(this, 2)), _v1062 = -1;
       }
     };
-  _v1056.prototype.close = _v1056.prototype.close, _v1056.prototype.clone = _v1056.prototype.clone, _v1056.prototype.getAsWebGLTexture = _v1056.prototype.N, _v1056.prototype.getAsFloat32Array = _v1056.prototype.ja, _v1056.prototype.getAsUint8Array = _v1056.prototype.ka, _v1056.prototype.hasWebGLTexture = _v1056.prototype.R, _v1056.prototype.hasFloat32Array = _v1056.prototype.la, _v1056.prototype.hasUint8Array = _v1056.prototype.Ha;
-  var _v1057 = 250;
-  let _v1058 = {
+  _v1061.prototype.close = _v1061.prototype.close, _v1061.prototype.clone = _v1061.prototype.clone, _v1061.prototype.getAsWebGLTexture = _v1061.prototype.N, _v1061.prototype.getAsFloat32Array = _v1061.prototype.ja, _v1061.prototype.getAsUint8Array = _v1061.prototype.ka, _v1061.prototype.hasWebGLTexture = _v1061.prototype.R, _v1061.prototype.hasFloat32Array = _v1061.prototype.la, _v1061.prototype.hasUint8Array = _v1061.prototype.Ha;
+  var _v1062 = 250;
+  let _v1063 = {
     color: "white",
     lineWidth: 4,
     radius: 6
   };
-  function _v1059(_v0) {
+  function _v1064(_v0) {
     return {
-      ..._v1058,
+      ..._v1063,
       fillColor: (_v0 = _v0 || {}).color,
       ..._v0
     };
   }
-  function _v1060(_v0, _v1) {
+  function _v1065(_v0, _v1) {
     return _v0 instanceof Function ? _v0(_v1) : _v0;
   }
-  function _v1061(_v0, _v1, _v2) {
+  function _v1066(_v0, _v1, _v2) {
     return Math.max(Math.min(_v1, _v2), Math.min(Math.max(_v1, _v2), _v0));
   }
-  function _v1062(_v0) {
+  function _v1067(_v0) {
     if (!_v0.l) throw Error("CPU rendering requested but CanvasRenderingContext2D not provided.");
     return _v0.l;
   }
-  function _v1063(_v0) {
+  function _v1068(_v0) {
     if (!_v0.j) throw Error("GPU rendering requested but WebGL2RenderingContext not provided.");
     return _v0.j;
   }
-  function _v1064(_v0, _v1, _v2) {
+  function _v1069(_v0, _v1, _v2) {
     if (_v1.R()) _v2(_v1.N());else {
       let _v0 = _v1.la() ? _v1.ja() : _v1.ka();
-      _v0.m = _v0.m ?? new _v1044();
-      let _v1 = _v1063(_v0);
-      _v2((_v0 = new _v1056([_v0], _v1.m, !1, _v1.canvas, _v0.m, _v1.width, _v1.height)).N()), _v0.close();
+      _v0.m = _v0.m ?? new _v1049();
+      let _v1 = _v1068(_v0);
+      _v2((_v0 = new _v1061([_v0], _v1.m, !1, _v1.canvas, _v0.m, _v1.width, _v1.height)).N()), _v0.close();
     }
   }
-  function _v1065(_v0, _v1, _v2, _v3) {
-    let _v4 = (_v0.g || (_v0.g = new _v1045()), _v0.g),
-      _v5 = _v1063(_v0),
+  function _v1070(_v0, _v1, _v2, _v3) {
+    let _v4 = (_v0.g || (_v0.g = new _v1050()), _v0.g),
+      _v5 = _v1068(_v0),
       _v6 = Array.isArray(_v2) ? new ImageData(new Uint8ClampedArray(_v2), 1, 1) : _v2;
-    _v1040(_v4, _v5, !0, () => {
+    _v1045(_v4, _v5, !0, () => {
       !function (_v0, _v1, _v2, _v3) {
         let _v4 = _v0.g;
         if (_v4.activeTexture(_v4.TEXTURE0), _v4.bindTexture(_v4.TEXTURE_2D, _v1), _v4.activeTexture(_v4.TEXTURE1), _v4.bindTexture(_v4.TEXTURE_2D, _v0.B), _v4.texImage2D(_v4.TEXTURE_2D, 0, _v4.RGBA, _v4.RGBA, _v4.UNSIGNED_BYTE, _v2), _v0.I && function (_v0, _v1) {
@@ -24515,36 +24610,36 @@
       _v0.activeTexture(_v0.TEXTURE0), _v0.bindTexture(_v0.TEXTURE_2D, null), _v0.activeTexture(_v0.TEXTURE1), _v0.bindTexture(_v0.TEXTURE_2D, null), _v0.activeTexture(_v0.TEXTURE2), _v0.bindTexture(_v0.TEXTURE_2D, null);
     });
   }
-  function _v1066(_v0, _v1, _v2, _v3) {
-    let _v4 = _v1063(_v0),
-      _v5 = (_v0.h || (_v0.h = new _v1046()), _v0.h),
+  function _v1071(_v0, _v1, _v2, _v3) {
+    let _v4 = _v1068(_v0),
+      _v5 = (_v0.h || (_v0.h = new _v1051()), _v0.h),
       _v6 = Array.isArray(_v2) ? new ImageData(new Uint8ClampedArray(_v2), 1, 1) : _v2,
       _v7 = Array.isArray(_v3) ? new ImageData(new Uint8ClampedArray(_v3), 1, 1) : _v3;
-    _v1040(_v5, _v4, !0, () => {
+    _v1045(_v5, _v4, !0, () => {
       var _v0 = _v5.g;
       _v0.activeTexture(_v0.TEXTURE0), _v0.bindTexture(_v0.TEXTURE_2D, _v1), _v0.activeTexture(_v0.TEXTURE1), _v0.bindTexture(_v0.TEXTURE_2D, _v5.j), _v0.texImage2D(_v0.TEXTURE_2D, 0, _v0.RGBA, _v0.RGBA, _v0.UNSIGNED_BYTE, _v6), _v0.activeTexture(_v0.TEXTURE2), _v0.bindTexture(_v0.TEXTURE_2D, _v5.B), _v0.texImage2D(_v0.TEXTURE_2D, 0, _v0.RGBA, _v0.RGBA, _v0.UNSIGNED_BYTE, _v7), _v4.clearColor(0, 0, 0, 0), _v4.clear(_v4.COLOR_BUFFER_BIT), _v4.drawArrays(_v4.TRIANGLE_FAN, 0, 4), _v4.bindTexture(_v4.TEXTURE_2D, null), (_v0 = _v5.g).activeTexture(_v0.TEXTURE0), _v0.bindTexture(_v0.TEXTURE_2D, null), _v0.activeTexture(_v0.TEXTURE1), _v0.bindTexture(_v0.TEXTURE_2D, null), _v0.activeTexture(_v0.TEXTURE2), _v0.bindTexture(_v0.TEXTURE_2D, null);
     });
   }
-  var _v1067 = class {
+  var _v1072 = class {
     constructor(_v0, _v1) {
       _v0 instanceof CanvasRenderingContext2D || _v0 instanceof OffscreenCanvasRenderingContext2D ? (this.l = _v0, this.j = _v1) : this.j = _v0;
     }
     Aa(_v0, _v1) {
       if (_v0) {
-        var _v2 = _v1062(this);
-        _v1 = _v1059(_v1), _v2.save();
+        var _v2 = _v1067(this);
+        _v1 = _v1064(_v1), _v2.save();
         var _v3 = _v2.canvas,
           _v4 = 0;
-        for (let _v0 of _v0) _v2.fillStyle = _v1060(_v1.fillColor, {
+        for (let _v0 of _v0) _v2.fillStyle = _v1065(_v1.fillColor, {
           index: _v4,
           from: _v0
-        }), _v2.strokeStyle = _v1060(_v1.color, {
+        }), _v2.strokeStyle = _v1065(_v1.color, {
           index: _v4,
           from: _v0
-        }), _v2.lineWidth = _v1060(_v1.lineWidth, {
+        }), _v2.lineWidth = _v1065(_v1.lineWidth, {
           index: _v4,
           from: _v0
-        }), (_v0 = new Path2D()).arc(_v0.x * _v3.width, _v0.y * _v3.height, _v1060(_v1.radius, {
+        }), (_v0 = new Path2D()).arc(_v0.x * _v3.width, _v0.y * _v3.height, _v1065(_v1.radius, {
           index: _v4,
           from: _v0
         }), 0, 2 * Math.PI), _v2.fill(_v0), _v2.stroke(_v0), ++_v4;
@@ -24553,18 +24648,18 @@
     }
     za(_v0, _v1, _v2) {
       if (_v0 && _v1) {
-        var _v3 = _v1062(this);
-        _v2 = _v1059(_v2), _v3.save();
+        var _v3 = _v1067(this);
+        _v2 = _v1064(_v2), _v3.save();
         var _v4 = _v3.canvas,
           _v5 = 0;
         for (let _v0 of _v1) {
           _v3.beginPath(), _v1 = _v0[_v0.start];
           let _v0 = _v0[_v0.end];
-          _v1 && _v0 && (_v3.strokeStyle = _v1060(_v2.color, {
+          _v1 && _v0 && (_v3.strokeStyle = _v1065(_v2.color, {
             index: _v5,
             from: _v1,
             to: _v0
-          }), _v3.lineWidth = _v1060(_v2.lineWidth, {
+          }), _v3.lineWidth = _v1065(_v2.lineWidth, {
             index: _v5,
             from: _v1,
             to: _v0
@@ -24574,28 +24669,28 @@
       }
     }
     wa(_v0, _v1) {
-      let _v2 = _v1062(this);
-      _v1 = _v1059(_v1), _v2.save(), _v2.beginPath(), _v2.lineWidth = _v1060(_v1.lineWidth, {}), _v2.strokeStyle = _v1060(_v1.color, {}), _v2.fillStyle = _v1060(_v1.fillColor, {}), _v2.moveTo(_v0.originX, _v0.originY), _v2.lineTo(_v0.originX + _v0.width, _v0.originY), _v2.lineTo(_v0.originX + _v0.width, _v0.originY + _v0.height), _v2.lineTo(_v0.originX, _v0.originY + _v0.height), _v2.lineTo(_v0.originX, _v0.originY), _v2.stroke(), _v2.fill(), _v2.restore();
+      let _v2 = _v1067(this);
+      _v1 = _v1064(_v1), _v2.save(), _v2.beginPath(), _v2.lineWidth = _v1065(_v1.lineWidth, {}), _v2.strokeStyle = _v1065(_v1.color, {}), _v2.fillStyle = _v1065(_v1.fillColor, {}), _v2.moveTo(_v0.originX, _v0.originY), _v2.lineTo(_v0.originX + _v0.width, _v0.originY), _v2.lineTo(_v0.originX + _v0.width, _v0.originY + _v0.height), _v2.lineTo(_v0.originX, _v0.originY + _v0.height), _v2.lineTo(_v0.originX, _v0.originY), _v2.stroke(), _v2.fill(), _v2.restore();
     }
     xa(_v0, _v1, _v2 = [0, 0, 0, 255]) {
       var _v3;
       let _v4;
-      this.l ? (_v3 = this, _v4 = _v1063(_v3), _v1064(_v3, _v0, _v0 => {
-        _v1065(_v3, _v0, _v2, _v1), (_v0 = _v1062(_v3)).drawImage(_v4.canvas, 0, 0, _v0.canvas.width, _v0.canvas.height);
-      })) : _v1065(this, _v0.N(), _v2, _v1);
+      this.l ? (_v3 = this, _v4 = _v1068(_v3), _v1069(_v3, _v0, _v0 => {
+        _v1070(_v3, _v0, _v2, _v1), (_v0 = _v1067(_v3)).drawImage(_v4.canvas, 0, 0, _v0.canvas.width, _v0.canvas.height);
+      })) : _v1070(this, _v0.N(), _v2, _v1);
     }
     ya(_v0, _v1, _v2) {
       var _v3;
       let _v4;
-      this.l ? (_v3 = this, _v4 = _v1063(_v3), _v1064(_v3, _v0, _v0 => {
-        _v1066(_v3, _v0, _v1, _v2), (_v0 = _v1062(_v3)).drawImage(_v4.canvas, 0, 0, _v0.canvas.width, _v0.canvas.height);
-      })) : _v1066(this, _v0.N(), _v1, _v2);
+      this.l ? (_v3 = this, _v4 = _v1068(_v3), _v1069(_v3, _v0, _v0 => {
+        _v1071(_v3, _v0, _v1, _v2), (_v0 = _v1067(_v3)).drawImage(_v4.canvas, 0, 0, _v0.canvas.width, _v0.canvas.height);
+      })) : _v1071(this, _v0.N(), _v1, _v2);
     }
     close() {
       this.g?.close(), this.g = void 0, this.h?.close(), this.h = void 0, this.m?.close(), this.m = void 0;
     }
   };
-  function _v1068(_v0, _v1) {
+  function _v1073(_v0, _v1) {
     switch (_v1) {
       case 0:
         return _v0.g.find(_v0 => _v0 instanceof ImageData);
@@ -24607,45 +24702,45 @@
         throw Error(`Type is not supported: ${_v1}`);
     }
   }
-  function _v1069(_v0) {
-    var _v1 = _v1068(_v0, 0);
-    if (!_v1) {
-      _v1 = _v1071(_v0);
-      let _v0 = _v1072(_v0),
-        _v1 = new Uint8Array(_v0.width * _v0.height * 4);
-      _v1042(_v0, _v1, _v1070(_v0)), _v1.readPixels(0, 0, _v0.width, _v0.height, _v1.RGBA, _v1.UNSIGNED_BYTE, _v1), _v1043(_v0), _v1 = new ImageData(new Uint8ClampedArray(_v1.buffer), _v0.width, _v0.height), _v0.g.push(_v1);
-    }
-    return _v1;
-  }
-  function _v1070(_v0) {
-    let _v1 = _v1068(_v0, 2);
-    if (!_v1) {
-      let _v0 = _v1071(_v0);
-      _v1 = _v1073(_v0);
-      let _v1 = _v1068(_v0, 1) || _v1069(_v0);
-      _v0.texImage2D(_v0.TEXTURE_2D, 0, _v0.RGBA, _v0.RGBA, _v0.UNSIGNED_BYTE, _v1), _v1074(_v0);
-    }
-    return _v1;
-  }
-  function _v1071(_v0) {
-    if (!_v0.canvas) throw Error("Conversion to different image formats require that a canvas is passed when iniitializing the image.");
-    return _v0.h || (_v0.h = _v1035(_v0.canvas.getContext("webgl2"), "You cannot use a canvas that is already bound to a different type of rendering context.")), _v0.h;
-  }
-  function _v1072(_v0) {
-    return _v0.l || (_v0.l = new _v1044()), _v0.l;
-  }
-  function _v1073(_v0) {
-    let _v1 = _v1071(_v0);
-    _v1.viewport(0, 0, _v0.width, _v0.height), _v1.activeTexture(_v1.TEXTURE0);
-    let _v2 = _v1068(_v0, 2);
-    return _v2 || (_v2 = _v1041(_v1072(_v0), _v1), _v0.g.push(_v2), _v0.m = !0), _v1.bindTexture(_v1.TEXTURE_2D, _v2), _v2;
-  }
   function _v1074(_v0) {
-    _v0.h.bindTexture(_v0.h.TEXTURE_2D, null);
+    var _v1 = _v1073(_v0, 0);
+    if (!_v1) {
+      _v1 = _v1076(_v0);
+      let _v0 = _v1077(_v0),
+        _v1 = new Uint8Array(_v0.width * _v0.height * 4);
+      _v1047(_v0, _v1, _v1075(_v0)), _v1.readPixels(0, 0, _v0.width, _v0.height, _v1.RGBA, _v1.UNSIGNED_BYTE, _v1), _v1048(_v0), _v1 = new ImageData(new Uint8ClampedArray(_v1.buffer), _v0.width, _v0.height), _v0.g.push(_v1);
+    }
+    return _v1;
   }
   function _v1075(_v0) {
-    let _v1 = _v1071(_v0);
-    return _v1040(_v1072(_v0), _v1, !0, () => function (_v0, _v1) {
+    let _v1 = _v1073(_v0, 2);
+    if (!_v1) {
+      let _v0 = _v1076(_v0);
+      _v1 = _v1078(_v0);
+      let _v1 = _v1073(_v0, 1) || _v1074(_v0);
+      _v0.texImage2D(_v0.TEXTURE_2D, 0, _v0.RGBA, _v0.RGBA, _v0.UNSIGNED_BYTE, _v1), _v1079(_v0);
+    }
+    return _v1;
+  }
+  function _v1076(_v0) {
+    if (!_v0.canvas) throw Error("Conversion to different image formats require that a canvas is passed when iniitializing the image.");
+    return _v0.h || (_v0.h = _v1040(_v0.canvas.getContext("webgl2"), "You cannot use a canvas that is already bound to a different type of rendering context.")), _v0.h;
+  }
+  function _v1077(_v0) {
+    return _v0.l || (_v0.l = new _v1049()), _v0.l;
+  }
+  function _v1078(_v0) {
+    let _v1 = _v1076(_v0);
+    _v1.viewport(0, 0, _v0.width, _v0.height), _v1.activeTexture(_v1.TEXTURE0);
+    let _v2 = _v1073(_v0, 2);
+    return _v2 || (_v2 = _v1046(_v1077(_v0), _v1), _v0.g.push(_v2), _v0.m = !0), _v1.bindTexture(_v1.TEXTURE_2D, _v2), _v2;
+  }
+  function _v1079(_v0) {
+    _v0.h.bindTexture(_v0.h.TEXTURE_2D, null);
+  }
+  function _v1080(_v0) {
+    let _v1 = _v1076(_v0);
+    return _v1045(_v1077(_v0), _v1, !0, () => function (_v0, _v1) {
       let _v2 = _v0.canvas;
       if (_v2.width === _v0.width && _v2.height === _v0.height) return _v1();
       let _v3 = _v2.width,
@@ -24656,65 +24751,65 @@
       return _v0.canvas.transferToImageBitmap();
     }));
   }
-  _v1067.prototype.close = _v1067.prototype.close, _v1067.prototype.drawConfidenceMask = _v1067.prototype.ya, _v1067.prototype.drawCategoryMask = _v1067.prototype.xa, _v1067.prototype.drawBoundingBox = _v1067.prototype.wa, _v1067.prototype.drawConnectors = _v1067.prototype.za, _v1067.prototype.drawLandmarks = _v1067.prototype.Aa, _v1067.lerp = function (_v0, _v1, _v2, _v3, _v4) {
-    return _v1061(_v3 * (1 - (_v0 - _v1) / (_v2 - _v1)) + _v4 * (1 - (_v2 - _v0) / (_v2 - _v1)), _v3, _v4);
-  }, _v1067.clamp = _v1061;
-  var _v1076 = class {
+  _v1072.prototype.close = _v1072.prototype.close, _v1072.prototype.drawConfidenceMask = _v1072.prototype.ya, _v1072.prototype.drawCategoryMask = _v1072.prototype.xa, _v1072.prototype.drawBoundingBox = _v1072.prototype.wa, _v1072.prototype.drawConnectors = _v1072.prototype.za, _v1072.prototype.drawLandmarks = _v1072.prototype.Aa, _v1072.lerp = function (_v0, _v1, _v2, _v3, _v4) {
+    return _v1066(_v3 * (1 - (_v0 - _v1) / (_v2 - _v1)) + _v4 * (1 - (_v2 - _v0) / (_v2 - _v1)), _v3, _v4);
+  }, _v1072.clamp = _v1066;
+  var _v1081 = class {
     constructor(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
-      this.g = _v0, this.j = _v1, this.m = _v2, this.canvas = _v3, this.l = _v4, this.width = _v5, this.height = _v6, (this.j || this.m) && 0 == --_v1077 && console.error("You seem to be creating MPImage instances without invoking .close(). This leaks resources.");
+      this.g = _v0, this.j = _v1, this.m = _v2, this.canvas = _v3, this.l = _v4, this.width = _v5, this.height = _v6, (this.j || this.m) && 0 == --_v1082 && console.error("You seem to be creating MPImage instances without invoking .close(). This leaks resources.");
     }
     Ga() {
-      return !!_v1068(this, 0);
+      return !!_v1073(this, 0);
     }
     ma() {
-      return !!_v1068(this, 1);
+      return !!_v1073(this, 1);
     }
     R() {
-      return !!_v1068(this, 2);
+      return !!_v1073(this, 2);
     }
     Ea() {
-      return _v1069(this);
+      return _v1074(this);
     }
     Da() {
-      var _v0 = _v1068(this, 1);
-      return _v0 || (_v1070(this), _v1073(this), _v0 = _v1075(this), _v1074(this), this.g.push(_v0), this.j = !0), _v0;
+      var _v0 = _v1073(this, 1);
+      return _v0 || (_v1075(this), _v1078(this), _v0 = _v1080(this), _v1079(this), this.g.push(_v0), this.j = !0), _v0;
     }
     N() {
-      return _v1070(this);
+      return _v1075(this);
     }
     clone() {
       let _v0 = [];
       for (let _v0 of this.g) {
         let _v0;
         if (_v0 instanceof ImageData) _v0 = new ImageData(_v0.data, this.width, this.height);else if (_v0 instanceof WebGLTexture) {
-          let _v0 = _v1071(this),
-            _v1 = _v1072(this);
-          _v0.activeTexture(_v0.TEXTURE1), _v0 = _v1041(_v1, _v0), _v0.bindTexture(_v0.TEXTURE_2D, _v0), _v0.texImage2D(_v0.TEXTURE_2D, 0, _v0.RGBA, this.width, this.height, 0, _v0.RGBA, _v0.UNSIGNED_BYTE, null), _v0.bindTexture(_v0.TEXTURE_2D, null), _v1042(_v1, _v0, _v0), _v1040(_v1, _v0, !1, () => {
-            _v1073(this), _v0.clearColor(0, 0, 0, 0), _v0.clear(_v0.COLOR_BUFFER_BIT), _v0.drawArrays(_v0.TRIANGLE_FAN, 0, 4), _v1074(this);
-          }), _v1043(_v1), _v1074(this);
+          let _v0 = _v1076(this),
+            _v1 = _v1077(this);
+          _v0.activeTexture(_v0.TEXTURE1), _v0 = _v1046(_v1, _v0), _v0.bindTexture(_v0.TEXTURE_2D, _v0), _v0.texImage2D(_v0.TEXTURE_2D, 0, _v0.RGBA, this.width, this.height, 0, _v0.RGBA, _v0.UNSIGNED_BYTE, null), _v0.bindTexture(_v0.TEXTURE_2D, null), _v1047(_v1, _v0, _v0), _v1045(_v1, _v0, !1, () => {
+            _v1078(this), _v0.clearColor(0, 0, 0, 0), _v0.clear(_v0.COLOR_BUFFER_BIT), _v0.drawArrays(_v0.TRIANGLE_FAN, 0, 4), _v1079(this);
+          }), _v1048(_v1), _v1079(this);
         } else {
           if (!(_v0 instanceof ImageBitmap)) throw Error(`Type is not supported: ${_v0}`);
-          _v1070(this), _v1073(this), _v0 = _v1075(this), _v1074(this);
+          _v1075(this), _v1078(this), _v0 = _v1080(this), _v1079(this);
         }
         _v0.push(_v0);
       }
-      return new _v1076(_v0, this.ma(), this.R(), this.canvas, this.l, this.width, this.height);
+      return new _v1081(_v0, this.ma(), this.R(), this.canvas, this.l, this.width, this.height);
     }
     close() {
-      this.j && _v1068(this, 1).close(), this.m && _v1071(this).deleteTexture(_v1068(this, 2)), _v1077 = -1;
+      this.j && _v1073(this, 1).close(), this.m && _v1076(this).deleteTexture(_v1073(this, 2)), _v1082 = -1;
     }
   };
-  _v1076.prototype.close = _v1076.prototype.close, _v1076.prototype.clone = _v1076.prototype.clone, _v1076.prototype.getAsWebGLTexture = _v1076.prototype.N, _v1076.prototype.getAsImageBitmap = _v1076.prototype.Da, _v1076.prototype.getAsImageData = _v1076.prototype.Ea, _v1076.prototype.hasWebGLTexture = _v1076.prototype.R, _v1076.prototype.hasImageBitmap = _v1076.prototype.ma, _v1076.prototype.hasImageData = _v1076.prototype.Ga;
-  var _v1077 = 250;
-  function _v1078(..._v0) {
+  _v1081.prototype.close = _v1081.prototype.close, _v1081.prototype.clone = _v1081.prototype.clone, _v1081.prototype.getAsWebGLTexture = _v1081.prototype.N, _v1081.prototype.getAsImageBitmap = _v1081.prototype.Da, _v1081.prototype.getAsImageData = _v1081.prototype.Ea, _v1081.prototype.hasWebGLTexture = _v1081.prototype.R, _v1081.prototype.hasImageBitmap = _v1081.prototype.ma, _v1081.prototype.hasImageData = _v1081.prototype.Ga;
+  var _v1082 = 250;
+  function _v1083(..._v0) {
     return _v0.map(([_v0, _v1]) => ({
       start: _v0,
       end: _v1
     }));
   }
-  let _v1079 = (_v1081 = class {
+  let _v1084 = (_v1086 = class {
     constructor(_v0, _v1) {
-      this.l = !0, this.i = _v0, this.g = null, this.h = 0, this.m = "function" == typeof this.i._addIntToInputStream, void 0 !== _v1 ? this.i.canvas = _v1 : _v1019() ? this.i.canvas = new OffscreenCanvas(1, 1) : (console.warn("OffscreenCanvas not supported and GraphRunner constructor glCanvas parameter is undefined. Creating backup canvas."), this.i.canvas = document.createElement("canvas"));
+      this.l = !0, this.i = _v0, this.g = null, this.h = 0, this.m = "function" == typeof this.i._addIntToInputStream, void 0 !== _v1 ? this.i.canvas = _v1 : _v1024() ? this.i.canvas = new OffscreenCanvas(1, 1) : (console.warn("OffscreenCanvas not supported and GraphRunner constructor glCanvas parameter is undefined. Creating backup canvas."), this.i.canvas = document.createElement("canvas"));
     }
     async initializeGraph(_v0) {
       let _v1 = await (await fetch(_v0)).arrayBuffer();
@@ -24729,8 +24824,8 @@
       this.i.HEAPU8.set(_v0, _v3), _v1 ? this.i._changeBinaryGraph(_v2, _v3) : this.i._changeTextGraph(_v2, _v3), this.i._free(_v3);
     }
     configureAudio(_v0, _v1, _v2, _v3, _v4) {
-      this.i._configureAudio || console.warn('Attempting to use configureAudio without support for input audio. Is build dep ":gl_graph_runner_audio" missing?'), _v1022(this, _v3 || "input_audio", _v0 => {
-        _v1022(this, _v4 = _v4 || "audio_header", _v0 => {
+      this.i._configureAudio || console.warn('Attempting to use configureAudio without support for input audio. Is build dep ":gl_graph_runner_audio" missing?'), _v1027(this, _v3 || "input_audio", _v0 => {
+        _v1027(this, _v4 = _v4 || "audio_header", _v0 => {
           this.i._configureAudio(_v0, _v0, _v0, _v1 ?? 0, _v2);
         });
       });
@@ -24745,9 +24840,9 @@
       this.i.gpuOriginForWebTexturesIsBottomLeft = _v0;
     }
     ea(_v0) {
-      _v1025(this, "__graph_config__", _v0 => {
+      _v1030(this, "__graph_config__", _v0 => {
         _v0(_v0);
-      }), _v1022(this, "__graph_config__", _v0 => {
+      }), _v1027(this, "__graph_config__", _v0 => {
         this.i._getGraphConfig(_v0, void 0);
       }), delete this.i.simpleListeners.__graph_config__;
     }
@@ -24762,72 +24857,72 @@
     }
     addAudioToStreamWithShape(_v0, _v1, _v2, _v3, _v4) {
       let _v5 = 4 * _v0.length;
-      this.h !== _v5 && (this.g && this.i._free(this.g), this.g = this.i._malloc(_v5), this.h = _v5), this.i.HEAPF32.set(_v0, this.g / 4), _v1022(this, _v3, _v0 => {
+      this.h !== _v5 && (this.g && this.i._free(this.g), this.g = this.i._malloc(_v5), this.h = _v5), this.i.HEAPF32.set(_v0, this.g / 4), _v1027(this, _v3, _v0 => {
         this.i._addAudioToInputStream(this.g, _v1, _v2, _v0, _v4);
       });
     }
     addGpuBufferToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
-        let [_v1, _v2] = _v1023(this, _v0, _v0);
+      _v1027(this, _v1, _v0 => {
+        let [_v1, _v2] = _v1028(this, _v0, _v0);
         this.i._addBoundTextureToStream(_v0, _v1, _v2, _v2);
       });
     }
     addBoolToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         this.i._addBoolToInputStream(_v0, _v0, _v2);
       });
     }
     addDoubleToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         this.i._addDoubleToInputStream(_v0, _v0, _v2);
       });
     }
     addFloatToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         this.i._addFloatToInputStream(_v0, _v0, _v2);
       });
     }
     addIntToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         this.i._addIntToInputStream(_v0, _v0, _v2);
       });
     }
     addUintToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         this.i._addUintToInputStream(_v0, _v0, _v2);
       });
     }
     addStringToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
-        _v1022(this, _v0, _v0 => {
+      _v1027(this, _v1, _v0 => {
+        _v1027(this, _v0, _v0 => {
           this.i._addStringToInputStream(_v0, _v0, _v2);
         });
       });
     }
     addStringRecordToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
-        _v1024(this, Object.keys(_v0), _v0 => {
-          _v1024(this, Object.values(_v0), _v0 => {
+      _v1027(this, _v1, _v0 => {
+        _v1029(this, Object.keys(_v0), _v0 => {
+          _v1029(this, Object.values(_v0), _v0 => {
             this.i._addFlatHashMapToInputStream(_v0, _v0, Object.keys(_v0).length, _v0, _v2);
           });
         });
       });
     }
     addProtoToStream(_v0, _v1, _v2, _v3) {
-      _v1022(this, _v2, _v0 => {
-        _v1022(this, _v1, _v0 => {
+      _v1027(this, _v2, _v0 => {
+        _v1027(this, _v1, _v0 => {
           let _v1 = this.i._malloc(_v0.length);
           this.i.HEAPU8.set(_v0, _v1), this.i._addProtoToInputStream(_v1, _v0.length, _v0, _v0, _v3), this.i._free(_v1);
         });
       });
     }
     addEmptyPacketToStream(_v0, _v1) {
-      _v1022(this, _v0, _v0 => {
+      _v1027(this, _v0, _v0 => {
         this.i._addEmptyPacketToInputStream(_v0, _v1);
       });
     }
     addBoolVectorToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         let _v1 = this.i._allocateBoolVector(_v0.length);
         if (!_v1) throw Error("Unable to allocate new bool vector on heap.");
         for (let _v0 of _v0) this.i._addBoolVectorEntry(_v1, _v0);
@@ -24835,7 +24930,7 @@
       });
     }
     addDoubleVectorToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         let _v1 = this.i._allocateDoubleVector(_v0.length);
         if (!_v1) throw Error("Unable to allocate new double vector on heap.");
         for (let _v0 of _v0) this.i._addDoubleVectorEntry(_v1, _v0);
@@ -24843,7 +24938,7 @@
       });
     }
     addFloatVectorToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         let _v1 = this.i._allocateFloatVector(_v0.length);
         if (!_v1) throw Error("Unable to allocate new float vector on heap.");
         for (let _v0 of _v0) this.i._addFloatVectorEntry(_v1, _v0);
@@ -24851,7 +24946,7 @@
       });
     }
     addIntVectorToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         let _v1 = this.i._allocateIntVector(_v0.length);
         if (!_v1) throw Error("Unable to allocate new int vector on heap.");
         for (let _v0 of _v0) this.i._addIntVectorEntry(_v1, _v0);
@@ -24859,7 +24954,7 @@
       });
     }
     addUintVectorToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         let _v1 = this.i._allocateUintVector(_v0.length);
         if (!_v1) throw Error("Unable to allocate new unsigned int vector on heap.");
         for (let _v0 of _v0) this.i._addUintVectorEntry(_v1, _v0);
@@ -24867,57 +24962,57 @@
       });
     }
     addStringVectorToStream(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         let _v1 = this.i._allocateStringVector(_v0.length);
         if (!_v1) throw Error("Unable to allocate new string vector on heap.");
-        for (let _v0 of _v0) _v1022(this, _v0, _v0 => {
+        for (let _v0 of _v0) _v1027(this, _v0, _v0 => {
           this.i._addStringVectorEntry(_v1, _v0);
         });
         this.i._addStringVectorToInputStream(_v1, _v0, _v2);
       });
     }
     addBoolToInputSidePacket(_v0, _v1) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         this.i._addBoolToInputSidePacket(_v0, _v0);
       });
     }
     addDoubleToInputSidePacket(_v0, _v1) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         this.i._addDoubleToInputSidePacket(_v0, _v0);
       });
     }
     addFloatToInputSidePacket(_v0, _v1) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         this.i._addFloatToInputSidePacket(_v0, _v0);
       });
     }
     addIntToInputSidePacket(_v0, _v1) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         this.i._addIntToInputSidePacket(_v0, _v0);
       });
     }
     addUintToInputSidePacket(_v0, _v1) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         this.i._addUintToInputSidePacket(_v0, _v0);
       });
     }
     addStringToInputSidePacket(_v0, _v1) {
-      _v1022(this, _v1, _v0 => {
-        _v1022(this, _v0, _v0 => {
+      _v1027(this, _v1, _v0 => {
+        _v1027(this, _v0, _v0 => {
           this.i._addStringToInputSidePacket(_v0, _v0);
         });
       });
     }
     addProtoToInputSidePacket(_v0, _v1, _v2) {
-      _v1022(this, _v2, _v0 => {
-        _v1022(this, _v1, _v0 => {
+      _v1027(this, _v2, _v0 => {
+        _v1027(this, _v1, _v0 => {
           let _v1 = this.i._malloc(_v0.length);
           this.i.HEAPU8.set(_v0, _v1), this.i._addProtoToInputSidePacket(_v1, _v0.length, _v0, _v0), this.i._free(_v1);
         });
       });
     }
     addBoolVectorToInputSidePacket(_v0, _v1) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         let _v1 = this.i._allocateBoolVector(_v0.length);
         if (!_v1) throw Error("Unable to allocate new bool vector on heap.");
         for (let _v0 of _v0) this.i._addBoolVectorEntry(_v1, _v0);
@@ -24925,7 +25020,7 @@
       });
     }
     addDoubleVectorToInputSidePacket(_v0, _v1) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         let _v1 = this.i._allocateDoubleVector(_v0.length);
         if (!_v1) throw Error("Unable to allocate new double vector on heap.");
         for (let _v0 of _v0) this.i._addDoubleVectorEntry(_v1, _v0);
@@ -24933,7 +25028,7 @@
       });
     }
     addFloatVectorToInputSidePacket(_v0, _v1) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         let _v1 = this.i._allocateFloatVector(_v0.length);
         if (!_v1) throw Error("Unable to allocate new float vector on heap.");
         for (let _v0 of _v0) this.i._addFloatVectorEntry(_v1, _v0);
@@ -24941,7 +25036,7 @@
       });
     }
     addIntVectorToInputSidePacket(_v0, _v1) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         let _v1 = this.i._allocateIntVector(_v0.length);
         if (!_v1) throw Error("Unable to allocate new int vector on heap.");
         for (let _v0 of _v0) this.i._addIntVectorEntry(_v1, _v0);
@@ -24949,7 +25044,7 @@
       });
     }
     addUintVectorToInputSidePacket(_v0, _v1) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         let _v1 = this.i._allocateUintVector(_v0.length);
         if (!_v1) throw Error("Unable to allocate new unsigned int vector on heap.");
         for (let _v0 of _v0) this.i._addUintVectorEntry(_v1, _v0);
@@ -24957,89 +25052,89 @@
       });
     }
     addStringVectorToInputSidePacket(_v0, _v1) {
-      _v1022(this, _v1, _v0 => {
+      _v1027(this, _v1, _v0 => {
         let _v1 = this.i._allocateStringVector(_v0.length);
         if (!_v1) throw Error("Unable to allocate new string vector on heap.");
-        for (let _v0 of _v0) _v1022(this, _v0, _v0 => {
+        for (let _v0 of _v0) _v1027(this, _v0, _v0 => {
           this.i._addStringVectorEntry(_v1, _v0);
         });
         this.i._addStringVectorToInputSidePacket(_v1, _v0);
       });
     }
     attachBoolListener(_v0, _v1) {
-      _v1025(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1030(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachBoolListener(_v0);
       });
     }
     attachBoolVectorListener(_v0, _v1) {
-      _v1026(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1031(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachBoolVectorListener(_v0);
       });
     }
     attachIntListener(_v0, _v1) {
-      _v1025(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1030(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachIntListener(_v0);
       });
     }
     attachIntVectorListener(_v0, _v1) {
-      _v1026(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1031(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachIntVectorListener(_v0);
       });
     }
     attachUintListener(_v0, _v1) {
-      _v1025(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1030(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachUintListener(_v0);
       });
     }
     attachUintVectorListener(_v0, _v1) {
-      _v1026(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1031(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachUintVectorListener(_v0);
       });
     }
     attachDoubleListener(_v0, _v1) {
-      _v1025(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1030(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachDoubleListener(_v0);
       });
     }
     attachDoubleVectorListener(_v0, _v1) {
-      _v1026(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1031(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachDoubleVectorListener(_v0);
       });
     }
     attachFloatListener(_v0, _v1) {
-      _v1025(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1030(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachFloatListener(_v0);
       });
     }
     attachFloatVectorListener(_v0, _v1) {
-      _v1026(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1031(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachFloatVectorListener(_v0);
       });
     }
     attachStringListener(_v0, _v1) {
-      _v1025(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1030(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachStringListener(_v0);
       });
     }
     attachStringVectorListener(_v0, _v1) {
-      _v1026(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1031(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachStringVectorListener(_v0);
       });
     }
     attachProtoListener(_v0, _v1, _v2) {
-      _v1025(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1030(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachProtoListener(_v0, _v2 || !1);
       });
     }
     attachProtoVectorListener(_v0, _v1, _v2) {
-      _v1026(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1031(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.i._attachProtoVectorListener(_v0, _v2 || !1);
       });
     }
     attachAudioListener(_v0, _v1, _v2) {
-      this.i._attachAudioListener || console.warn('Attempting to use attachAudioListener without support for output audio. Is build dep ":gl_graph_runner_audio_out" missing?'), _v1025(this, _v0, (_v0, _v1) => {
+      this.i._attachAudioListener || console.warn('Attempting to use attachAudioListener without support for output audio. Is build dep ":gl_graph_runner_audio_out" missing?'), _v1030(this, _v0, (_v0, _v1) => {
         _v1(_v0 = new Float32Array(_v0.buffer, _v0.byteOffset, _v0.length / 4), _v1);
-      }), _v1022(this, _v0, _v0 => {
+      }), _v1027(this, _v0, _v0 => {
         this.i._attachAudioListener(_v0, _v2 || !1);
       });
     }
@@ -25049,248 +25144,248 @@
     closeGraph() {
       this.i._closeGraph(), this.i.simpleListeners = void 0, this.i.emptyPacketListeners = void 0;
     }
-  }, _v1080 = class extends _v1081 {
+  }, _v1085 = class extends _v1086 {
     get ga() {
       return this.i;
     }
     sa(_v0, _v1, _v2) {
-      _v1022(this, _v1, _v0 => {
-        let [_v1, _v2] = _v1023(this, _v0, _v0);
+      _v1027(this, _v1, _v0 => {
+        let [_v1, _v2] = _v1028(this, _v0, _v0);
         this.ga._addBoundTextureAsImageToStream(_v0, _v1, _v2, _v2);
       });
     }
     V(_v0, _v1) {
-      _v1025(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1030(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.ga._attachImageListener(_v0);
       });
     }
     da(_v0, _v1) {
-      _v1026(this, _v0, _v1), _v1022(this, _v0, _v0 => {
+      _v1031(this, _v0, _v1), _v1027(this, _v0, _v0 => {
         this.ga._attachImageVectorListener(_v0);
       });
     }
-  }, class extends _v1080 {
+  }, class extends _v1085 {
     Ma() {
       this.i._registerModelResourcesGraphService();
     }
   });
-  var _v1080,
-    _v1081,
-    _v1082 = class extends _v1079 {};
-  async function _v1083(_v0, _v1, _v2) {
+  var _v1085,
+    _v1086,
+    _v1087 = class extends _v1084 {};
+  async function _v1088(_v0, _v1, _v2) {
     return async function (_v0, _v1, _v2, _v3) {
-      return _v1027(_v0, _v1, _v2, _v3);
-    }(_v0, _v2.canvas ?? (_v1019() ? void 0 : document.createElement("canvas")), _v1, _v2);
+      return _v1032(_v0, _v1, _v2, _v3);
+    }(_v0, _v2.canvas ?? (_v1024() ? void 0 : document.createElement("canvas")), _v1, _v2);
   }
-  function _v1084(_v0, _v1, _v2, _v3) {
+  function _v1089(_v0, _v1, _v2, _v3) {
     if (_v0.U) {
-      let _v0 = new _v946();
+      let _v0 = new _v951();
       if (_v2?.regionOfInterest) {
         if (!_v0.ra) throw Error("This task doesn't support region-of-interest.");
         var _v4 = _v2.regionOfInterest;
         if (_v4.left >= _v4.right || _v4.top >= _v4.bottom) throw Error("Expected RectF with left < right and top < bottom.");
         if (_v4.left < 0 || _v4.top < 0 || _v4.right > 1 || _v4.bottom > 1) throw Error("Expected RectF values to be in [0,1].");
-        _v796(_v0, 1, (_v4.left + _v4.right) / 2), _v796(_v0, 2, (_v4.top + _v4.bottom) / 2), _v796(_v0, 4, _v4.right - _v4.left), _v796(_v0, 3, _v4.bottom - _v4.top);
-      } else _v796(_v0, 1, .5), _v796(_v0, 2, .5), _v796(_v0, 4, 1), _v796(_v0, 3, 1);
+        _v801(_v0, 1, (_v4.left + _v4.right) / 2), _v801(_v0, 2, (_v4.top + _v4.bottom) / 2), _v801(_v0, 4, _v4.right - _v4.left), _v801(_v0, 3, _v4.bottom - _v4.top);
+      } else _v801(_v0, 1, .5), _v801(_v0, 2, .5), _v801(_v0, 4, 1), _v801(_v0, 3, 1);
       if (_v2?.rotationDegrees) {
         if (_v2?.rotationDegrees % 90 != 0) throw Error("Expected rotation to be a multiple of 90°.");
-        if (_v796(_v0, 5, -Math.PI * _v2.rotationDegrees / 180), _v2?.rotationDegrees % 180 != 0) {
-          let [_v0, _v1] = _v1021(_v1);
-          _v2 = _v792(_v0, 3) * _v1 / _v0, _v4 = _v792(_v0, 4) * _v0 / _v1, _v796(_v0, 4, _v2), _v796(_v0, 3, _v4);
+        if (_v801(_v0, 5, -Math.PI * _v2.rotationDegrees / 180), _v2?.rotationDegrees % 180 != 0) {
+          let [_v0, _v1] = _v1026(_v1);
+          _v2 = _v797(_v0, 3) * _v1 / _v0, _v4 = _v797(_v0, 4) * _v0 / _v1, _v801(_v0, 4, _v2), _v801(_v0, 3, _v4);
         }
       }
       _v0.g.addProtoToStream(_v0.g(), "mediapipe.NormalizedRect", _v0.U, _v3);
     }
     _v0.g.sa(_v1, _v0.ba, _v3 ?? performance.now()), _v0.finishProcessing();
   }
-  function _v1085(_v0, _v1, _v2) {
+  function _v1090(_v0, _v1, _v2) {
     if (_v0.baseOptions?.g()) throw Error("Task is not initialized with image mode. 'runningMode' must be set to 'IMAGE'.");
-    _v1084(_v0, _v1, _v2, _v0.B + 1);
+    _v1089(_v0, _v1, _v2, _v0.B + 1);
   }
-  function _v1086(_v0, _v1, _v2, _v3) {
+  function _v1091(_v0, _v1, _v2, _v3) {
     if (!_v0.baseOptions?.g()) throw Error("Task is not initialized with video mode. 'runningMode' must be set to 'VIDEO'.");
-    _v1084(_v0, _v1, _v2, _v3);
+    _v1089(_v0, _v1, _v2, _v3);
   }
-  function _v1087(_v0, _v1, _v2, _v3) {
+  function _v1092(_v0, _v1, _v2, _v3) {
     var _v4 = _v1.data;
     let _v5 = _v1.width,
       _v6 = _v5 * (_v1 = _v1.height);
     if ((_v4 instanceof Uint8Array || _v4 instanceof Float32Array) && _v4.length !== _v6) throw Error("Unsupported channel count: " + _v4.length / _v6);
-    return _v0 = new _v1056([_v4], _v2, !1, _v0.g.i.canvas, _v0.P, _v5, _v1), _v3 ? _v0.clone() : _v0;
+    return _v0 = new _v1061([_v4], _v2, !1, _v0.g.i.canvas, _v0.P, _v5, _v1), _v3 ? _v0.clone() : _v0;
   }
-  var _v1088 = class extends _v1034 {
+  var _v1093 = class extends _v1039 {
     constructor(_v0, _v1, _v2, _v3) {
-      super(_v0), this.g = _v0, this.ba = _v1, this.U = _v2, this.ra = _v3, this.P = new _v1044();
+      super(_v0), this.g = _v0, this.ba = _v1, this.U = _v2, this.ra = _v3, this.P = new _v1049();
     }
     l(_v0, _v1 = !0) {
-      if ("runningMode" in _v0 && _v794(this.baseOptions, 2, !!_v0.runningMode && "IMAGE" !== _v0.runningMode), void 0 !== _v0.canvas && this.g.i.canvas !== _v0.canvas) throw Error("You must create a new task to reset the canvas.");
+      if ("runningMode" in _v0 && _v799(this.baseOptions, 2, !!_v0.runningMode && "IMAGE" !== _v0.runningMode), void 0 !== _v0.canvas && this.g.i.canvas !== _v0.canvas) throw Error("You must create a new task to reset the canvas.");
       return super.l(_v0, _v1);
     }
     close() {
       this.P.close(), super.close();
     }
   };
-  _v1088.prototype.close = _v1088.prototype.close;
-  var _v1089 = class extends _v1088 {
+  _v1093.prototype.close = _v1093.prototype.close;
+  var _v1094 = class extends _v1093 {
     constructor(_v0, _v1) {
-      super(new _v1082(_v0, _v1), "image_in", "norm_rect_in", !1), this.j = {
+      super(new _v1087(_v0, _v1), "image_in", "norm_rect_in", !1), this.j = {
         detections: []
-      }, _v786(_v0 = this.h = new _v964(), 0, 1, _v1 = new _v961()), _v796(this.h, 2, .5), _v796(this.h, 3, .3);
+      }, _v791(_v0 = this.h = new _v969(), 0, 1, _v1 = new _v966()), _v801(this.h, 2, .5), _v801(this.h, 3, .3);
     }
     get baseOptions() {
-      return _v783(this.h, _v961, 1);
+      return _v788(this.h, _v966, 1);
     }
     set baseOptions(_v0) {
-      _v786(this.h, 0, 1, _v0);
+      _v791(this.h, 0, 1, _v0);
     }
     o(_v0) {
-      return "minDetectionConfidence" in _v0 && _v796(this.h, 2, _v0.minDetectionConfidence ?? .5), "minSuppressionThreshold" in _v0 && _v796(this.h, 3, _v0.minSuppressionThreshold ?? .3), this.l(_v0);
+      return "minDetectionConfidence" in _v0 && _v801(this.h, 2, _v0.minDetectionConfidence ?? .5), "minSuppressionThreshold" in _v0 && _v801(this.h, 3, _v0.minSuppressionThreshold ?? .3), this.l(_v0);
     }
     D(_v0, _v1) {
       return this.j = {
         detections: []
-      }, _v1085(this, _v0, _v1), this.j;
+      }, _v1090(this, _v0, _v1), this.j;
     }
     F(_v0, _v1, _v2) {
       return this.j = {
         detections: []
-      }, _v1086(this, _v0, _v2, _v1), this.j;
+      }, _v1091(this, _v0, _v2, _v1), this.j;
     }
     m() {
-      var _v0 = new _v929();
-      _v927(_v0, "image_in"), _v927(_v0, "norm_rect_in"), _v928(_v0, "detections");
-      let _v1 = new _v916();
-      _v821(_v1, _v966, this.h);
-      let _v2 = new _v922();
-      _v919(_v2, "mediapipe.tasks.vision.face_detector.FaceDetectorGraph"), _v920(_v2, "IMAGE:image_in"), _v920(_v2, "NORM_RECT:norm_rect_in"), _v921(_v2, "DETECTIONS:detections"), _v2.o(_v1), _v926(_v0, _v2), this.g.attachProtoVectorListener("detections", (_v0, _v1) => {
-        for (let _v0 of _v0) _v0 = _v939(_v0), this.j.detections.push(_v1010(_v0));
-        _v1030(this, _v1);
+      var _v0 = new _v934();
+      _v932(_v0, "image_in"), _v932(_v0, "norm_rect_in"), _v933(_v0, "detections");
+      let _v1 = new _v921();
+      _v826(_v1, _v971, this.h);
+      let _v2 = new _v927();
+      _v924(_v2, "mediapipe.tasks.vision.face_detector.FaceDetectorGraph"), _v925(_v2, "IMAGE:image_in"), _v925(_v2, "NORM_RECT:norm_rect_in"), _v926(_v2, "DETECTIONS:detections"), _v2.o(_v1), _v931(_v0, _v2), this.g.attachProtoVectorListener("detections", (_v0, _v1) => {
+        for (let _v0 of _v0) _v0 = _v944(_v0), this.j.detections.push(_v1015(_v0));
+        _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("detections", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
     }
   };
-  _v1089.prototype.detectForVideo = _v1089.prototype.F, _v1089.prototype.detect = _v1089.prototype.D, _v1089.prototype.setOptions = _v1089.prototype.o, _v1089.createFromModelPath = async function (_v0, _v1) {
-    return _v1083(_v1089, _v0, {
+  _v1094.prototype.detectForVideo = _v1094.prototype.F, _v1094.prototype.detect = _v1094.prototype.D, _v1094.prototype.setOptions = _v1094.prototype.o, _v1094.createFromModelPath = async function (_v0, _v1) {
+    return _v1088(_v1094, _v0, {
       baseOptions: {
         modelAssetPath: _v1
       }
     });
-  }, _v1089.createFromModelBuffer = function (_v0, _v1) {
-    return _v1083(_v1089, _v0, {
+  }, _v1094.createFromModelBuffer = function (_v0, _v1) {
+    return _v1088(_v1094, _v0, {
       baseOptions: {
         modelAssetBuffer: _v1
       }
     });
-  }, _v1089.createFromOptions = function (_v0, _v1) {
-    return _v1083(_v1089, _v0, _v1);
+  }, _v1094.createFromOptions = function (_v0, _v1) {
+    return _v1088(_v1094, _v0, _v1);
   };
-  var _v1090 = _v1078([61, 146], [146, 91], [91, 181], [181, 84], [84, 17], [17, 314], [314, 405], [405, 321], [321, 375], [375, 291], [61, 185], [185, 40], [40, 39], [39, 37], [37, 0], [0, 267], [267, 269], [269, 270], [270, 409], [409, 291], [78, 95], [95, 88], [88, 178], [178, 87], [87, 14], [14, 317], [317, 402], [402, 318], [318, 324], [324, 308], [78, 191], [191, 80], [80, 81], [81, 82], [82, 13], [13, 312], [312, 311], [311, 310], [310, 415], [415, 308]),
-    _v1091 = _v1078([263, 249], [249, 390], [390, 373], [373, 374], [374, 380], [380, 381], [381, 382], [382, 362], [263, 466], [466, 388], [388, 387], [387, 386], [386, 385], [385, 384], [384, 398], [398, 362]),
-    _v1092 = _v1078([276, 283], [283, 282], [282, 295], [295, 285], [300, 293], [293, 334], [334, 296], [296, 336]),
-    _v1093 = _v1078([474, 475], [475, 476], [476, 477], [477, 474]),
-    _v1094 = _v1078([33, 7], [7, 163], [163, 144], [144, 145], [145, 153], [153, 154], [154, 155], [155, 133], [33, 246], [246, 161], [161, 160], [160, 159], [159, 158], [158, 157], [157, 173], [173, 133]),
-    _v1095 = _v1078([46, 53], [53, 52], [52, 65], [65, 55], [70, 63], [63, 105], [105, 66], [66, 107]),
-    _v1096 = _v1078([469, 470], [470, 471], [471, 472], [472, 469]),
-    _v1097 = _v1078([10, 338], [338, 297], [297, 332], [332, 284], [284, 251], [251, 389], [389, 356], [356, 454], [454, 323], [323, 361], [361, 288], [288, 397], [397, 365], [365, 379], [379, 378], [378, 400], [400, 377], [377, 152], [152, 148], [148, 176], [176, 149], [149, 150], [150, 136], [136, 172], [172, 58], [58, 132], [132, 93], [93, 234], [234, 127], [127, 162], [162, 21], [21, 54], [54, 103], [103, 67], [67, 109], [109, 10]),
-    _v1098 = [..._v1090, ..._v1091, ..._v1092, ..._v1094, ..._v1095, ..._v1097],
-    _v1099 = _v1078([127, 34], [34, 139], [139, 127], [11, 0], [0, 37], [37, 11], [232, 231], [231, 120], [120, 232], [72, 37], [37, 39], [39, 72], [128, 121], [121, 47], [47, 128], [232, 121], [121, 128], [128, 232], [104, 69], [69, 67], [67, 104], [175, 171], [171, 148], [148, 175], [118, 50], [50, 101], [101, 118], [73, 39], [39, 40], [40, 73], [9, 151], [151, 108], [108, 9], [48, 115], [115, 131], [131, 48], [194, 204], [204, 211], [211, 194], [74, 40], [40, 185], [185, 74], [80, 42], [42, 183], [183, 80], [40, 92], [92, 186], [186, 40], [230, 229], [229, 118], [118, 230], [202, 212], [212, 214], [214, 202], [83, 18], [18, 17], [17, 83], [76, 61], [61, 146], [146, 76], [160, 29], [29, 30], [30, 160], [56, 157], [157, 173], [173, 56], [106, 204], [204, 194], [194, 106], [135, 214], [214, 192], [192, 135], [203, 165], [165, 98], [98, 203], [21, 71], [71, 68], [68, 21], [51, 45], [45, 4], [4, 51], [144, 24], [24, 23], [23, 144], [77, 146], [146, 91], [91, 77], [205, 50], [50, 187], [187, 205], [201, 200], [200, 18], [18, 201], [91, 106], [106, 182], [182, 91], [90, 91], [91, 181], [181, 90], [85, 84], [84, 17], [17, 85], [206, 203], [203, 36], [36, 206], [148, 171], [171, 140], [140, 148], [92, 40], [40, 39], [39, 92], [193, 189], [189, 244], [244, 193], [159, 158], [158, 28], [28, 159], [247, 246], [246, 161], [161, 247], [236, 3], [3, 196], [196, 236], [54, 68], [68, 104], [104, 54], [193, 168], [168, 8], [8, 193], [117, 228], [228, 31], [31, 117], [189, 193], [193, 55], [55, 189], [98, 97], [97, 99], [99, 98], [126, 47], [47, 100], [100, 126], [166, 79], [79, 218], [218, 166], [155, 154], [154, 26], [26, 155], [209, 49], [49, 131], [131, 209], [135, 136], [136, 150], [150, 135], [47, 126], [126, 217], [217, 47], [223, 52], [52, 53], [53, 223], [45, 51], [51, 134], [134, 45], [211, 170], [170, 140], [140, 211], [67, 69], [69, 108], [108, 67], [43, 106], [106, 91], [91, 43], [230, 119], [119, 120], [120, 230], [226, 130], [130, 247], [247, 226], [63, 53], [53, 52], [52, 63], [238, 20], [20, 242], [242, 238], [46, 70], [70, 156], [156, 46], [78, 62], [62, 96], [96, 78], [46, 53], [53, 63], [63, 46], [143, 34], [34, 227], [227, 143], [123, 117], [117, 111], [111, 123], [44, 125], [125, 19], [19, 44], [236, 134], [134, 51], [51, 236], [216, 206], [206, 205], [205, 216], [154, 153], [153, 22], [22, 154], [39, 37], [37, 167], [167, 39], [200, 201], [201, 208], [208, 200], [36, 142], [142, 100], [100, 36], [57, 212], [212, 202], [202, 57], [20, 60], [60, 99], [99, 20], [28, 158], [158, 157], [157, 28], [35, 226], [226, 113], [113, 35], [160, 159], [159, 27], [27, 160], [204, 202], [202, 210], [210, 204], [113, 225], [225, 46], [46, 113], [43, 202], [202, 204], [204, 43], [62, 76], [76, 77], [77, 62], [137, 123], [123, 116], [116, 137], [41, 38], [38, 72], [72, 41], [203, 129], [129, 142], [142, 203], [64, 98], [98, 240], [240, 64], [49, 102], [102, 64], [64, 49], [41, 73], [73, 74], [74, 41], [212, 216], [216, 207], [207, 212], [42, 74], [74, 184], [184, 42], [169, 170], [170, 211], [211, 169], [170, 149], [149, 176], [176, 170], [105, 66], [66, 69], [69, 105], [122, 6], [6, 168], [168, 122], [123, 147], [147, 187], [187, 123], [96, 77], [77, 90], [90, 96], [65, 55], [55, 107], [107, 65], [89, 90], [90, 180], [180, 89], [101, 100], [100, 120], [120, 101], [63, 105], [105, 104], [104, 63], [93, 137], [137, 227], [227, 93], [15, 86], [86, 85], [85, 15], [129, 102], [102, 49], [49, 129], [14, 87], [87, 86], [86, 14], [55, 8], [8, 9], [9, 55], [100, 47], [47, 121], [121, 100], [145, 23], [23, 22], [22, 145], [88, 89], [89, 179], [179, 88], [6, 122], [122, 196], [196, 6], [88, 95], [95, 96], [96, 88], [138, 172], [172, 136], [136, 138], [215, 58], [58, 172], [172, 215], [115, 48], [48, 219], [219, 115], [42, 80], [80, 81], [81, 42], [195, 3], [3, 51], [51, 195], [43, 146], [146, 61], [61, 43], [171, 175], [175, 199], [199, 171], [81, 82], [82, 38], [38, 81], [53, 46], [46, 225], [225, 53], [144, 163], [163, 110], [110, 144], [52, 65], [65, 66], [66, 52], [229, 228], [228, 117], [117, 229], [34, 127], [127, 234], [234, 34], [107, 108], [108, 69], [69, 107], [109, 108], [108, 151], [151, 109], [48, 64], [64, 235], [235, 48], [62, 78], [78, 191], [191, 62], [129, 209], [209, 126], [126, 129], [111, 35], [35, 143], [143, 111], [117, 123], [123, 50], [50, 117], [222, 65], [65, 52], [52, 222], [19, 125], [125, 141], [141, 19], [221, 55], [55, 65], [65, 221], [3, 195], [195, 197], [197, 3], [25, 7], [7, 33], [33, 25], [220, 237], [237, 44], [44, 220], [70, 71], [71, 139], [139, 70], [122, 193], [193, 245], [245, 122], [247, 130], [130, 33], [33, 247], [71, 21], [21, 162], [162, 71], [170, 169], [169, 150], [150, 170], [188, 174], [174, 196], [196, 188], [216, 186], [186, 92], [92, 216], [2, 97], [97, 167], [167, 2], [141, 125], [125, 241], [241, 141], [164, 167], [167, 37], [37, 164], [72, 38], [38, 12], [12, 72], [38, 82], [82, 13], [13, 38], [63, 68], [68, 71], [71, 63], [226, 35], [35, 111], [111, 226], [101, 50], [50, 205], [205, 101], [206, 92], [92, 165], [165, 206], [209, 198], [198, 217], [217, 209], [165, 167], [167, 97], [97, 165], [220, 115], [115, 218], [218, 220], [133, 112], [112, 243], [243, 133], [239, 238], [238, 241], [241, 239], [214, 135], [135, 169], [169, 214], [190, 173], [173, 133], [133, 190], [171, 208], [208, 32], [32, 171], [125, 44], [44, 237], [237, 125], [86, 87], [87, 178], [178, 86], [85, 86], [86, 179], [179, 85], [84, 85], [85, 180], [180, 84], [83, 84], [84, 181], [181, 83], [201, 83], [83, 182], [182, 201], [137, 93], [93, 132], [132, 137], [76, 62], [62, 183], [183, 76], [61, 76], [76, 184], [184, 61], [57, 61], [61, 185], [185, 57], [212, 57], [57, 186], [186, 212], [214, 207], [207, 187], [187, 214], [34, 143], [143, 156], [156, 34], [79, 239], [239, 237], [237, 79], [123, 137], [137, 177], [177, 123], [44, 1], [1, 4], [4, 44], [201, 194], [194, 32], [32, 201], [64, 102], [102, 129], [129, 64], [213, 215], [215, 138], [138, 213], [59, 166], [166, 219], [219, 59], [242, 99], [99, 97], [97, 242], [2, 94], [94, 141], [141, 2], [75, 59], [59, 235], [235, 75], [24, 110], [110, 228], [228, 24], [25, 130], [130, 226], [226, 25], [23, 24], [24, 229], [229, 23], [22, 23], [23, 230], [230, 22], [26, 22], [22, 231], [231, 26], [112, 26], [26, 232], [232, 112], [189, 190], [190, 243], [243, 189], [221, 56], [56, 190], [190, 221], [28, 56], [56, 221], [221, 28], [27, 28], [28, 222], [222, 27], [29, 27], [27, 223], [223, 29], [30, 29], [29, 224], [224, 30], [247, 30], [30, 225], [225, 247], [238, 79], [79, 20], [20, 238], [166, 59], [59, 75], [75, 166], [60, 75], [75, 240], [240, 60], [147, 177], [177, 215], [215, 147], [20, 79], [79, 166], [166, 20], [187, 147], [147, 213], [213, 187], [112, 233], [233, 244], [244, 112], [233, 128], [128, 245], [245, 233], [128, 114], [114, 188], [188, 128], [114, 217], [217, 174], [174, 114], [131, 115], [115, 220], [220, 131], [217, 198], [198, 236], [236, 217], [198, 131], [131, 134], [134, 198], [177, 132], [132, 58], [58, 177], [143, 35], [35, 124], [124, 143], [110, 163], [163, 7], [7, 110], [228, 110], [110, 25], [25, 228], [356, 389], [389, 368], [368, 356], [11, 302], [302, 267], [267, 11], [452, 350], [350, 349], [349, 452], [302, 303], [303, 269], [269, 302], [357, 343], [343, 277], [277, 357], [452, 453], [453, 357], [357, 452], [333, 332], [332, 297], [297, 333], [175, 152], [152, 377], [377, 175], [347, 348], [348, 330], [330, 347], [303, 304], [304, 270], [270, 303], [9, 336], [336, 337], [337, 9], [278, 279], [279, 360], [360, 278], [418, 262], [262, 431], [431, 418], [304, 408], [408, 409], [409, 304], [310, 415], [415, 407], [407, 310], [270, 409], [409, 410], [410, 270], [450, 348], [348, 347], [347, 450], [422, 430], [430, 434], [434, 422], [313, 314], [314, 17], [17, 313], [306, 307], [307, 375], [375, 306], [387, 388], [388, 260], [260, 387], [286, 414], [414, 398], [398, 286], [335, 406], [406, 418], [418, 335], [364, 367], [367, 416], [416, 364], [423, 358], [358, 327], [327, 423], [251, 284], [284, 298], [298, 251], [281, 5], [5, 4], [4, 281], [373, 374], [374, 253], [253, 373], [307, 320], [320, 321], [321, 307], [425, 427], [427, 411], [411, 425], [421, 313], [313, 18], [18, 421], [321, 405], [405, 406], [406, 321], [320, 404], [404, 405], [405, 320], [315, 16], [16, 17], [17, 315], [426, 425], [425, 266], [266, 426], [377, 400], [400, 369], [369, 377], [322, 391], [391, 269], [269, 322], [417, 465], [465, 464], [464, 417], [386, 257], [257, 258], [258, 386], [466, 260], [260, 388], [388, 466], [456, 399], [399, 419], [419, 456], [284, 332], [332, 333], [333, 284], [417, 285], [285, 8], [8, 417], [346, 340], [340, 261], [261, 346], [413, 441], [441, 285], [285, 413], [327, 460], [460, 328], [328, 327], [355, 371], [371, 329], [329, 355], [392, 439], [439, 438], [438, 392], [382, 341], [341, 256], [256, 382], [429, 420], [420, 360], [360, 429], [364, 394], [394, 379], [379, 364], [277, 343], [343, 437], [437, 277], [443, 444], [444, 283], [283, 443], [275, 440], [440, 363], [363, 275], [431, 262], [262, 369], [369, 431], [297, 338], [338, 337], [337, 297], [273, 375], [375, 321], [321, 273], [450, 451], [451, 349], [349, 450], [446, 342], [342, 467], [467, 446], [293, 334], [334, 282], [282, 293], [458, 461], [461, 462], [462, 458], [276, 353], [353, 383], [383, 276], [308, 324], [324, 325], [325, 308], [276, 300], [300, 293], [293, 276], [372, 345], [345, 447], [447, 372], [352, 345], [345, 340], [340, 352], [274, 1], [1, 19], [19, 274], [456, 248], [248, 281], [281, 456], [436, 427], [427, 425], [425, 436], [381, 256], [256, 252], [252, 381], [269, 391], [391, 393], [393, 269], [200, 199], [199, 428], [428, 200], [266, 330], [330, 329], [329, 266], [287, 273], [273, 422], [422, 287], [250, 462], [462, 328], [328, 250], [258, 286], [286, 384], [384, 258], [265, 353], [353, 342], [342, 265], [387, 259], [259, 257], [257, 387], [424, 431], [431, 430], [430, 424], [342, 353], [353, 276], [276, 342], [273, 335], [335, 424], [424, 273], [292, 325], [325, 307], [307, 292], [366, 447], [447, 345], [345, 366], [271, 303], [303, 302], [302, 271], [423, 266], [266, 371], [371, 423], [294, 455], [455, 460], [460, 294], [279, 278], [278, 294], [294, 279], [271, 272], [272, 304], [304, 271], [432, 434], [434, 427], [427, 432], [272, 407], [407, 408], [408, 272], [394, 430], [430, 431], [431, 394], [395, 369], [369, 400], [400, 395], [334, 333], [333, 299], [299, 334], [351, 417], [417, 168], [168, 351], [352, 280], [280, 411], [411, 352], [325, 319], [319, 320], [320, 325], [295, 296], [296, 336], [336, 295], [319, 403], [403, 404], [404, 319], [330, 348], [348, 349], [349, 330], [293, 298], [298, 333], [333, 293], [323, 454], [454, 447], [447, 323], [15, 16], [16, 315], [315, 15], [358, 429], [429, 279], [279, 358], [14, 15], [15, 316], [316, 14], [285, 336], [336, 9], [9, 285], [329, 349], [349, 350], [350, 329], [374, 380], [380, 252], [252, 374], [318, 402], [402, 403], [403, 318], [6, 197], [197, 419], [419, 6], [318, 319], [319, 325], [325, 318], [367, 364], [364, 365], [365, 367], [435, 367], [367, 397], [397, 435], [344, 438], [438, 439], [439, 344], [272, 271], [271, 311], [311, 272], [195, 5], [5, 281], [281, 195], [273, 287], [287, 291], [291, 273], [396, 428], [428, 199], [199, 396], [311, 271], [271, 268], [268, 311], [283, 444], [444, 445], [445, 283], [373, 254], [254, 339], [339, 373], [282, 334], [334, 296], [296, 282], [449, 347], [347, 346], [346, 449], [264, 447], [447, 454], [454, 264], [336, 296], [296, 299], [299, 336], [338, 10], [10, 151], [151, 338], [278, 439], [439, 455], [455, 278], [292, 407], [407, 415], [415, 292], [358, 371], [371, 355], [355, 358], [340, 345], [345, 372], [372, 340], [346, 347], [347, 280], [280, 346], [442, 443], [443, 282], [282, 442], [19, 94], [94, 370], [370, 19], [441, 442], [442, 295], [295, 441], [248, 419], [419, 197], [197, 248], [263, 255], [255, 359], [359, 263], [440, 275], [275, 274], [274, 440], [300, 383], [383, 368], [368, 300], [351, 412], [412, 465], [465, 351], [263, 467], [467, 466], [466, 263], [301, 368], [368, 389], [389, 301], [395, 378], [378, 379], [379, 395], [412, 351], [351, 419], [419, 412], [436, 426], [426, 322], [322, 436], [2, 164], [164, 393], [393, 2], [370, 462], [462, 461], [461, 370], [164, 0], [0, 267], [267, 164], [302, 11], [11, 12], [12, 302], [268, 12], [12, 13], [13, 268], [293, 300], [300, 301], [301, 293], [446, 261], [261, 340], [340, 446], [330, 266], [266, 425], [425, 330], [426, 423], [423, 391], [391, 426], [429, 355], [355, 437], [437, 429], [391, 327], [327, 326], [326, 391], [440, 457], [457, 438], [438, 440], [341, 382], [382, 362], [362, 341], [459, 457], [457, 461], [461, 459], [434, 430], [430, 394], [394, 434], [414, 463], [463, 362], [362, 414], [396, 369], [369, 262], [262, 396], [354, 461], [461, 457], [457, 354], [316, 403], [403, 402], [402, 316], [315, 404], [404, 403], [403, 315], [314, 405], [405, 404], [404, 314], [313, 406], [406, 405], [405, 313], [421, 418], [418, 406], [406, 421], [366, 401], [401, 361], [361, 366], [306, 408], [408, 407], [407, 306], [291, 409], [409, 408], [408, 291], [287, 410], [410, 409], [409, 287], [432, 436], [436, 410], [410, 432], [434, 416], [416, 411], [411, 434], [264, 368], [368, 383], [383, 264], [309, 438], [438, 457], [457, 309], [352, 376], [376, 401], [401, 352], [274, 275], [275, 4], [4, 274], [421, 428], [428, 262], [262, 421], [294, 327], [327, 358], [358, 294], [433, 416], [416, 367], [367, 433], [289, 455], [455, 439], [439, 289], [462, 370], [370, 326], [326, 462], [2, 326], [326, 370], [370, 2], [305, 460], [460, 455], [455, 305], [254, 449], [449, 448], [448, 254], [255, 261], [261, 446], [446, 255], [253, 450], [450, 449], [449, 253], [252, 451], [451, 450], [450, 252], [256, 452], [452, 451], [451, 256], [341, 453], [453, 452], [452, 341], [413, 464], [464, 463], [463, 413], [441, 413], [413, 414], [414, 441], [258, 442], [442, 441], [441, 258], [257, 443], [443, 442], [442, 257], [259, 444], [444, 443], [443, 259], [260, 445], [445, 444], [444, 260], [467, 342], [342, 445], [445, 467], [459, 458], [458, 250], [250, 459], [289, 392], [392, 290], [290, 289], [290, 328], [328, 460], [460, 290], [376, 433], [433, 435], [435, 376], [250, 290], [290, 392], [392, 250], [411, 416], [416, 433], [433, 411], [341, 463], [463, 464], [464, 341], [453, 464], [464, 465], [465, 453], [357, 465], [465, 412], [412, 357], [343, 412], [412, 399], [399, 343], [360, 363], [363, 440], [440, 360], [437, 399], [399, 456], [456, 437], [420, 456], [456, 363], [363, 420], [401, 435], [435, 288], [288, 401], [372, 383], [383, 353], [353, 372], [339, 255], [255, 249], [249, 339], [448, 261], [261, 255], [255, 448], [133, 243], [243, 190], [190, 133], [133, 155], [155, 112], [112, 133], [33, 246], [246, 247], [247, 33], [33, 130], [130, 25], [25, 33], [398, 384], [384, 286], [286, 398], [362, 398], [398, 414], [414, 362], [362, 463], [463, 341], [341, 362], [263, 359], [359, 467], [467, 263], [263, 249], [249, 255], [255, 263], [466, 467], [467, 260], [260, 466], [75, 60], [60, 166], [166, 75], [238, 239], [239, 79], [79, 238], [162, 127], [127, 139], [139, 162], [72, 11], [11, 37], [37, 72], [121, 232], [232, 120], [120, 121], [73, 72], [72, 39], [39, 73], [114, 128], [128, 47], [47, 114], [233, 232], [232, 128], [128, 233], [103, 104], [104, 67], [67, 103], [152, 175], [175, 148], [148, 152], [119, 118], [118, 101], [101, 119], [74, 73], [73, 40], [40, 74], [107, 9], [9, 108], [108, 107], [49, 48], [48, 131], [131, 49], [32, 194], [194, 211], [211, 32], [184, 74], [74, 185], [185, 184], [191, 80], [80, 183], [183, 191], [185, 40], [40, 186], [186, 185], [119, 230], [230, 118], [118, 119], [210, 202], [202, 214], [214, 210], [84, 83], [83, 17], [17, 84], [77, 76], [76, 146], [146, 77], [161, 160], [160, 30], [30, 161], [190, 56], [56, 173], [173, 190], [182, 106], [106, 194], [194, 182], [138, 135], [135, 192], [192, 138], [129, 203], [203, 98], [98, 129], [54, 21], [21, 68], [68, 54], [5, 51], [51, 4], [4, 5], [145, 144], [144, 23], [23, 145], [90, 77], [77, 91], [91, 90], [207, 205], [205, 187], [187, 207], [83, 201], [201, 18], [18, 83], [181, 91], [91, 182], [182, 181], [180, 90], [90, 181], [181, 180], [16, 85], [85, 17], [17, 16], [205, 206], [206, 36], [36, 205], [176, 148], [148, 140], [140, 176], [165, 92], [92, 39], [39, 165], [245, 193], [193, 244], [244, 245], [27, 159], [159, 28], [28, 27], [30, 247], [247, 161], [161, 30], [174, 236], [236, 196], [196, 174], [103, 54], [54, 104], [104, 103], [55, 193], [193, 8], [8, 55], [111, 117], [117, 31], [31, 111], [221, 189], [189, 55], [55, 221], [240, 98], [98, 99], [99, 240], [142, 126], [126, 100], [100, 142], [219, 166], [166, 218], [218, 219], [112, 155], [155, 26], [26, 112], [198, 209], [209, 131], [131, 198], [169, 135], [135, 150], [150, 169], [114, 47], [47, 217], [217, 114], [224, 223], [223, 53], [53, 224], [220, 45], [45, 134], [134, 220], [32, 211], [211, 140], [140, 32], [109, 67], [67, 108], [108, 109], [146, 43], [43, 91], [91, 146], [231, 230], [230, 120], [120, 231], [113, 226], [226, 247], [247, 113], [105, 63], [63, 52], [52, 105], [241, 238], [238, 242], [242, 241], [124, 46], [46, 156], [156, 124], [95, 78], [78, 96], [96, 95], [70, 46], [46, 63], [63, 70], [116, 143], [143, 227], [227, 116], [116, 123], [123, 111], [111, 116], [1, 44], [44, 19], [19, 1], [3, 236], [236, 51], [51, 3], [207, 216], [216, 205], [205, 207], [26, 154], [154, 22], [22, 26], [165, 39], [39, 167], [167, 165], [199, 200], [200, 208], [208, 199], [101, 36], [36, 100], [100, 101], [43, 57], [57, 202], [202, 43], [242, 20], [20, 99], [99, 242], [56, 28], [28, 157], [157, 56], [124, 35], [35, 113], [113, 124], [29, 160], [160, 27], [27, 29], [211, 204], [204, 210], [210, 211], [124, 113], [113, 46], [46, 124], [106, 43], [43, 204], [204, 106], [96, 62], [62, 77], [77, 96], [227, 137], [137, 116], [116, 227], [73, 41], [41, 72], [72, 73], [36, 203], [203, 142], [142, 36], [235, 64], [64, 240], [240, 235], [48, 49], [49, 64], [64, 48], [42, 41], [41, 74], [74, 42], [214, 212], [212, 207], [207, 214], [183, 42], [42, 184], [184, 183], [210, 169], [169, 211], [211, 210], [140, 170], [170, 176], [176, 140], [104, 105], [105, 69], [69, 104], [193, 122], [122, 168], [168, 193], [50, 123], [123, 187], [187, 50], [89, 96], [96, 90], [90, 89], [66, 65], [65, 107], [107, 66], [179, 89], [89, 180], [180, 179], [119, 101], [101, 120], [120, 119], [68, 63], [63, 104], [104, 68], [234, 93], [93, 227], [227, 234], [16, 15], [15, 85], [85, 16], [209, 129], [129, 49], [49, 209], [15, 14], [14, 86], [86, 15], [107, 55], [55, 9], [9, 107], [120, 100], [100, 121], [121, 120], [153, 145], [145, 22], [22, 153], [178, 88], [88, 179], [179, 178], [197, 6], [6, 196], [196, 197], [89, 88], [88, 96], [96, 89], [135, 138], [138, 136], [136, 135], [138, 215], [215, 172], [172, 138], [218, 115], [115, 219], [219, 218], [41, 42], [42, 81], [81, 41], [5, 195], [195, 51], [51, 5], [57, 43], [43, 61], [61, 57], [208, 171], [171, 199], [199, 208], [41, 81], [81, 38], [38, 41], [224, 53], [53, 225], [225, 224], [24, 144], [144, 110], [110, 24], [105, 52], [52, 66], [66, 105], [118, 229], [229, 117], [117, 118], [227, 34], [34, 234], [234, 227], [66, 107], [107, 69], [69, 66], [10, 109], [109, 151], [151, 10], [219, 48], [48, 235], [235, 219], [183, 62], [62, 191], [191, 183], [142, 129], [129, 126], [126, 142], [116, 111], [111, 143], [143, 116], [118, 117], [117, 50], [50, 118], [223, 222], [222, 52], [52, 223], [94, 19], [19, 141], [141, 94], [222, 221], [221, 65], [65, 222], [196, 3], [3, 197], [197, 196], [45, 220], [220, 44], [44, 45], [156, 70], [70, 139], [139, 156], [188, 122], [122, 245], [245, 188], [139, 71], [71, 162], [162, 139], [149, 170], [170, 150], [150, 149], [122, 188], [188, 196], [196, 122], [206, 216], [216, 92], [92, 206], [164, 2], [2, 167], [167, 164], [242, 141], [141, 241], [241, 242], [0, 164], [164, 37], [37, 0], [11, 72], [72, 12], [12, 11], [12, 38], [38, 13], [13, 12], [70, 63], [63, 71], [71, 70], [31, 226], [226, 111], [111, 31], [36, 101], [101, 205], [205, 36], [203, 206], [206, 165], [165, 203], [126, 209], [209, 217], [217, 126], [98, 165], [165, 97], [97, 98], [237, 220], [220, 218], [218, 237], [237, 239], [239, 241], [241, 237], [210, 214], [214, 169], [169, 210], [140, 171], [171, 32], [32, 140], [241, 125], [125, 237], [237, 241], [179, 86], [86, 178], [178, 179], [180, 85], [85, 179], [179, 180], [181, 84], [84, 180], [180, 181], [182, 83], [83, 181], [181, 182], [194, 201], [201, 182], [182, 194], [177, 137], [137, 132], [132, 177], [184, 76], [76, 183], [183, 184], [185, 61], [61, 184], [184, 185], [186, 57], [57, 185], [185, 186], [216, 212], [212, 186], [186, 216], [192, 214], [214, 187], [187, 192], [139, 34], [34, 156], [156, 139], [218, 79], [79, 237], [237, 218], [147, 123], [123, 177], [177, 147], [45, 44], [44, 4], [4, 45], [208, 201], [201, 32], [32, 208], [98, 64], [64, 129], [129, 98], [192, 213], [213, 138], [138, 192], [235, 59], [59, 219], [219, 235], [141, 242], [242, 97], [97, 141], [97, 2], [2, 141], [141, 97], [240, 75], [75, 235], [235, 240], [229, 24], [24, 228], [228, 229], [31, 25], [25, 226], [226, 31], [230, 23], [23, 229], [229, 230], [231, 22], [22, 230], [230, 231], [232, 26], [26, 231], [231, 232], [233, 112], [112, 232], [232, 233], [244, 189], [189, 243], [243, 244], [189, 221], [221, 190], [190, 189], [222, 28], [28, 221], [221, 222], [223, 27], [27, 222], [222, 223], [224, 29], [29, 223], [223, 224], [225, 30], [30, 224], [224, 225], [113, 247], [247, 225], [225, 113], [99, 60], [60, 240], [240, 99], [213, 147], [147, 215], [215, 213], [60, 20], [20, 166], [166, 60], [192, 187], [187, 213], [213, 192], [243, 112], [112, 244], [244, 243], [244, 233], [233, 245], [245, 244], [245, 128], [128, 188], [188, 245], [188, 114], [114, 174], [174, 188], [134, 131], [131, 220], [220, 134], [174, 217], [217, 236], [236, 174], [236, 198], [198, 134], [134, 236], [215, 177], [177, 58], [58, 215], [156, 143], [143, 124], [124, 156], [25, 110], [110, 7], [7, 25], [31, 228], [228, 25], [25, 31], [264, 356], [356, 368], [368, 264], [0, 11], [11, 267], [267, 0], [451, 452], [452, 349], [349, 451], [267, 302], [302, 269], [269, 267], [350, 357], [357, 277], [277, 350], [350, 452], [452, 357], [357, 350], [299, 333], [333, 297], [297, 299], [396, 175], [175, 377], [377, 396], [280, 347], [347, 330], [330, 280], [269, 303], [303, 270], [270, 269], [151, 9], [9, 337], [337, 151], [344, 278], [278, 360], [360, 344], [424, 418], [418, 431], [431, 424], [270, 304], [304, 409], [409, 270], [272, 310], [310, 407], [407, 272], [322, 270], [270, 410], [410, 322], [449, 450], [450, 347], [347, 449], [432, 422], [422, 434], [434, 432], [18, 313], [313, 17], [17, 18], [291, 306], [306, 375], [375, 291], [259, 387], [387, 260], [260, 259], [424, 335], [335, 418], [418, 424], [434, 364], [364, 416], [416, 434], [391, 423], [423, 327], [327, 391], [301, 251], [251, 298], [298, 301], [275, 281], [281, 4], [4, 275], [254, 373], [373, 253], [253, 254], [375, 307], [307, 321], [321, 375], [280, 425], [425, 411], [411, 280], [200, 421], [421, 18], [18, 200], [335, 321], [321, 406], [406, 335], [321, 320], [320, 405], [405, 321], [314, 315], [315, 17], [17, 314], [423, 426], [426, 266], [266, 423], [396, 377], [377, 369], [369, 396], [270, 322], [322, 269], [269, 270], [413, 417], [417, 464], [464, 413], [385, 386], [386, 258], [258, 385], [248, 456], [456, 419], [419, 248], [298, 284], [284, 333], [333, 298], [168, 417], [417, 8], [8, 168], [448, 346], [346, 261], [261, 448], [417, 413], [413, 285], [285, 417], [326, 327], [327, 328], [328, 326], [277, 355], [355, 329], [329, 277], [309, 392], [392, 438], [438, 309], [381, 382], [382, 256], [256, 381], [279, 429], [429, 360], [360, 279], [365, 364], [364, 379], [379, 365], [355, 277], [277, 437], [437, 355], [282, 443], [443, 283], [283, 282], [281, 275], [275, 363], [363, 281], [395, 431], [431, 369], [369, 395], [299, 297], [297, 337], [337, 299], [335, 273], [273, 321], [321, 335], [348, 450], [450, 349], [349, 348], [359, 446], [446, 467], [467, 359], [283, 293], [293, 282], [282, 283], [250, 458], [458, 462], [462, 250], [300, 276], [276, 383], [383, 300], [292, 308], [308, 325], [325, 292], [283, 276], [276, 293], [293, 283], [264, 372], [372, 447], [447, 264], [346, 352], [352, 340], [340, 346], [354, 274], [274, 19], [19, 354], [363, 456], [456, 281], [281, 363], [426, 436], [436, 425], [425, 426], [380, 381], [381, 252], [252, 380], [267, 269], [269, 393], [393, 267], [421, 200], [200, 428], [428, 421], [371, 266], [266, 329], [329, 371], [432, 287], [287, 422], [422, 432], [290, 250], [250, 328], [328, 290], [385, 258], [258, 384], [384, 385], [446, 265], [265, 342], [342, 446], [386, 387], [387, 257], [257, 386], [422, 424], [424, 430], [430, 422], [445, 342], [342, 276], [276, 445], [422, 273], [273, 424], [424, 422], [306, 292], [292, 307], [307, 306], [352, 366], [366, 345], [345, 352], [268, 271], [271, 302], [302, 268], [358, 423], [423, 371], [371, 358], [327, 294], [294, 460], [460, 327], [331, 279], [279, 294], [294, 331], [303, 271], [271, 304], [304, 303], [436, 432], [432, 427], [427, 436], [304, 272], [272, 408], [408, 304], [395, 394], [394, 431], [431, 395], [378, 395], [395, 400], [400, 378], [296, 334], [334, 299], [299, 296], [6, 351], [351, 168], [168, 6], [376, 352], [352, 411], [411, 376], [307, 325], [325, 320], [320, 307], [285, 295], [295, 336], [336, 285], [320, 319], [319, 404], [404, 320], [329, 330], [330, 349], [349, 329], [334, 293], [293, 333], [333, 334], [366, 323], [323, 447], [447, 366], [316, 15], [15, 315], [315, 316], [331, 358], [358, 279], [279, 331], [317, 14], [14, 316], [316, 317], [8, 285], [285, 9], [9, 8], [277, 329], [329, 350], [350, 277], [253, 374], [374, 252], [252, 253], [319, 318], [318, 403], [403, 319], [351, 6], [6, 419], [419, 351], [324, 318], [318, 325], [325, 324], [397, 367], [367, 365], [365, 397], [288, 435], [435, 397], [397, 288], [278, 344], [344, 439], [439, 278], [310, 272], [272, 311], [311, 310], [248, 195], [195, 281], [281, 248], [375, 273], [273, 291], [291, 375], [175, 396], [396, 199], [199, 175], [312, 311], [311, 268], [268, 312], [276, 283], [283, 445], [445, 276], [390, 373], [373, 339], [339, 390], [295, 282], [282, 296], [296, 295], [448, 449], [449, 346], [346, 448], [356, 264], [264, 454], [454, 356], [337, 336], [336, 299], [299, 337], [337, 338], [338, 151], [151, 337], [294, 278], [278, 455], [455, 294], [308, 292], [292, 415], [415, 308], [429, 358], [358, 355], [355, 429], [265, 340], [340, 372], [372, 265], [352, 346], [346, 280], [280, 352], [295, 442], [442, 282], [282, 295], [354, 19], [19, 370], [370, 354], [285, 441], [441, 295], [295, 285], [195, 248], [248, 197], [197, 195], [457, 440], [440, 274], [274, 457], [301, 300], [300, 368], [368, 301], [417, 351], [351, 465], [465, 417], [251, 301], [301, 389], [389, 251], [394, 395], [395, 379], [379, 394], [399, 412], [412, 419], [419, 399], [410, 436], [436, 322], [322, 410], [326, 2], [2, 393], [393, 326], [354, 370], [370, 461], [461, 354], [393, 164], [164, 267], [267, 393], [268, 302], [302, 12], [12, 268], [312, 268], [268, 13], [13, 312], [298, 293], [293, 301], [301, 298], [265, 446], [446, 340], [340, 265], [280, 330], [330, 425], [425, 280], [322, 426], [426, 391], [391, 322], [420, 429], [429, 437], [437, 420], [393, 391], [391, 326], [326, 393], [344, 440], [440, 438], [438, 344], [458, 459], [459, 461], [461, 458], [364, 434], [434, 394], [394, 364], [428, 396], [396, 262], [262, 428], [274, 354], [354, 457], [457, 274], [317, 316], [316, 402], [402, 317], [316, 315], [315, 403], [403, 316], [315, 314], [314, 404], [404, 315], [314, 313], [313, 405], [405, 314], [313, 421], [421, 406], [406, 313], [323, 366], [366, 361], [361, 323], [292, 306], [306, 407], [407, 292], [306, 291], [291, 408], [408, 306], [291, 287], [287, 409], [409, 291], [287, 432], [432, 410], [410, 287], [427, 434], [434, 411], [411, 427], [372, 264], [264, 383], [383, 372], [459, 309], [309, 457], [457, 459], [366, 352], [352, 401], [401, 366], [1, 274], [274, 4], [4, 1], [418, 421], [421, 262], [262, 418], [331, 294], [294, 358], [358, 331], [435, 433], [433, 367], [367, 435], [392, 289], [289, 439], [439, 392], [328, 462], [462, 326], [326, 328], [94, 2], [2, 370], [370, 94], [289, 305], [305, 455], [455, 289], [339, 254], [254, 448], [448, 339], [359, 255], [255, 446], [446, 359], [254, 253], [253, 449], [449, 254], [253, 252], [252, 450], [450, 253], [252, 256], [256, 451], [451, 252], [256, 341], [341, 452], [452, 256], [414, 413], [413, 463], [463, 414], [286, 441], [441, 414], [414, 286], [286, 258], [258, 441], [441, 286], [258, 257], [257, 442], [442, 258], [257, 259], [259, 443], [443, 257], [259, 260], [260, 444], [444, 259], [260, 467], [467, 445], [445, 260], [309, 459], [459, 250], [250, 309], [305, 289], [289, 290], [290, 305], [305, 290], [290, 460], [460, 305], [401, 376], [376, 435], [435, 401], [309, 250], [250, 392], [392, 309], [376, 411], [411, 433], [433, 376], [453, 341], [341, 464], [464, 453], [357, 453], [453, 465], [465, 357], [343, 357], [357, 412], [412, 343], [437, 343], [343, 399], [399, 437], [344, 360], [360, 440], [440, 344], [420, 437], [437, 456], [456, 420], [360, 420], [420, 363], [363, 360], [361, 401], [401, 288], [288, 361], [265, 372], [372, 353], [353, 265], [390, 339], [339, 249], [249, 390], [339, 448], [448, 255], [255, 339]);
-  function _v1100(_v0) {
+  var _v1095 = _v1083([61, 146], [146, 91], [91, 181], [181, 84], [84, 17], [17, 314], [314, 405], [405, 321], [321, 375], [375, 291], [61, 185], [185, 40], [40, 39], [39, 37], [37, 0], [0, 267], [267, 269], [269, 270], [270, 409], [409, 291], [78, 95], [95, 88], [88, 178], [178, 87], [87, 14], [14, 317], [317, 402], [402, 318], [318, 324], [324, 308], [78, 191], [191, 80], [80, 81], [81, 82], [82, 13], [13, 312], [312, 311], [311, 310], [310, 415], [415, 308]),
+    _v1096 = _v1083([263, 249], [249, 390], [390, 373], [373, 374], [374, 380], [380, 381], [381, 382], [382, 362], [263, 466], [466, 388], [388, 387], [387, 386], [386, 385], [385, 384], [384, 398], [398, 362]),
+    _v1097 = _v1083([276, 283], [283, 282], [282, 295], [295, 285], [300, 293], [293, 334], [334, 296], [296, 336]),
+    _v1098 = _v1083([474, 475], [475, 476], [476, 477], [477, 474]),
+    _v1099 = _v1083([33, 7], [7, 163], [163, 144], [144, 145], [145, 153], [153, 154], [154, 155], [155, 133], [33, 246], [246, 161], [161, 160], [160, 159], [159, 158], [158, 157], [157, 173], [173, 133]),
+    _v1100 = _v1083([46, 53], [53, 52], [52, 65], [65, 55], [70, 63], [63, 105], [105, 66], [66, 107]),
+    _v1101 = _v1083([469, 470], [470, 471], [471, 472], [472, 469]),
+    _v1102 = _v1083([10, 338], [338, 297], [297, 332], [332, 284], [284, 251], [251, 389], [389, 356], [356, 454], [454, 323], [323, 361], [361, 288], [288, 397], [397, 365], [365, 379], [379, 378], [378, 400], [400, 377], [377, 152], [152, 148], [148, 176], [176, 149], [149, 150], [150, 136], [136, 172], [172, 58], [58, 132], [132, 93], [93, 234], [234, 127], [127, 162], [162, 21], [21, 54], [54, 103], [103, 67], [67, 109], [109, 10]),
+    _v1103 = [..._v1095, ..._v1096, ..._v1097, ..._v1099, ..._v1100, ..._v1102],
+    _v1104 = _v1083([127, 34], [34, 139], [139, 127], [11, 0], [0, 37], [37, 11], [232, 231], [231, 120], [120, 232], [72, 37], [37, 39], [39, 72], [128, 121], [121, 47], [47, 128], [232, 121], [121, 128], [128, 232], [104, 69], [69, 67], [67, 104], [175, 171], [171, 148], [148, 175], [118, 50], [50, 101], [101, 118], [73, 39], [39, 40], [40, 73], [9, 151], [151, 108], [108, 9], [48, 115], [115, 131], [131, 48], [194, 204], [204, 211], [211, 194], [74, 40], [40, 185], [185, 74], [80, 42], [42, 183], [183, 80], [40, 92], [92, 186], [186, 40], [230, 229], [229, 118], [118, 230], [202, 212], [212, 214], [214, 202], [83, 18], [18, 17], [17, 83], [76, 61], [61, 146], [146, 76], [160, 29], [29, 30], [30, 160], [56, 157], [157, 173], [173, 56], [106, 204], [204, 194], [194, 106], [135, 214], [214, 192], [192, 135], [203, 165], [165, 98], [98, 203], [21, 71], [71, 68], [68, 21], [51, 45], [45, 4], [4, 51], [144, 24], [24, 23], [23, 144], [77, 146], [146, 91], [91, 77], [205, 50], [50, 187], [187, 205], [201, 200], [200, 18], [18, 201], [91, 106], [106, 182], [182, 91], [90, 91], [91, 181], [181, 90], [85, 84], [84, 17], [17, 85], [206, 203], [203, 36], [36, 206], [148, 171], [171, 140], [140, 148], [92, 40], [40, 39], [39, 92], [193, 189], [189, 244], [244, 193], [159, 158], [158, 28], [28, 159], [247, 246], [246, 161], [161, 247], [236, 3], [3, 196], [196, 236], [54, 68], [68, 104], [104, 54], [193, 168], [168, 8], [8, 193], [117, 228], [228, 31], [31, 117], [189, 193], [193, 55], [55, 189], [98, 97], [97, 99], [99, 98], [126, 47], [47, 100], [100, 126], [166, 79], [79, 218], [218, 166], [155, 154], [154, 26], [26, 155], [209, 49], [49, 131], [131, 209], [135, 136], [136, 150], [150, 135], [47, 126], [126, 217], [217, 47], [223, 52], [52, 53], [53, 223], [45, 51], [51, 134], [134, 45], [211, 170], [170, 140], [140, 211], [67, 69], [69, 108], [108, 67], [43, 106], [106, 91], [91, 43], [230, 119], [119, 120], [120, 230], [226, 130], [130, 247], [247, 226], [63, 53], [53, 52], [52, 63], [238, 20], [20, 242], [242, 238], [46, 70], [70, 156], [156, 46], [78, 62], [62, 96], [96, 78], [46, 53], [53, 63], [63, 46], [143, 34], [34, 227], [227, 143], [123, 117], [117, 111], [111, 123], [44, 125], [125, 19], [19, 44], [236, 134], [134, 51], [51, 236], [216, 206], [206, 205], [205, 216], [154, 153], [153, 22], [22, 154], [39, 37], [37, 167], [167, 39], [200, 201], [201, 208], [208, 200], [36, 142], [142, 100], [100, 36], [57, 212], [212, 202], [202, 57], [20, 60], [60, 99], [99, 20], [28, 158], [158, 157], [157, 28], [35, 226], [226, 113], [113, 35], [160, 159], [159, 27], [27, 160], [204, 202], [202, 210], [210, 204], [113, 225], [225, 46], [46, 113], [43, 202], [202, 204], [204, 43], [62, 76], [76, 77], [77, 62], [137, 123], [123, 116], [116, 137], [41, 38], [38, 72], [72, 41], [203, 129], [129, 142], [142, 203], [64, 98], [98, 240], [240, 64], [49, 102], [102, 64], [64, 49], [41, 73], [73, 74], [74, 41], [212, 216], [216, 207], [207, 212], [42, 74], [74, 184], [184, 42], [169, 170], [170, 211], [211, 169], [170, 149], [149, 176], [176, 170], [105, 66], [66, 69], [69, 105], [122, 6], [6, 168], [168, 122], [123, 147], [147, 187], [187, 123], [96, 77], [77, 90], [90, 96], [65, 55], [55, 107], [107, 65], [89, 90], [90, 180], [180, 89], [101, 100], [100, 120], [120, 101], [63, 105], [105, 104], [104, 63], [93, 137], [137, 227], [227, 93], [15, 86], [86, 85], [85, 15], [129, 102], [102, 49], [49, 129], [14, 87], [87, 86], [86, 14], [55, 8], [8, 9], [9, 55], [100, 47], [47, 121], [121, 100], [145, 23], [23, 22], [22, 145], [88, 89], [89, 179], [179, 88], [6, 122], [122, 196], [196, 6], [88, 95], [95, 96], [96, 88], [138, 172], [172, 136], [136, 138], [215, 58], [58, 172], [172, 215], [115, 48], [48, 219], [219, 115], [42, 80], [80, 81], [81, 42], [195, 3], [3, 51], [51, 195], [43, 146], [146, 61], [61, 43], [171, 175], [175, 199], [199, 171], [81, 82], [82, 38], [38, 81], [53, 46], [46, 225], [225, 53], [144, 163], [163, 110], [110, 144], [52, 65], [65, 66], [66, 52], [229, 228], [228, 117], [117, 229], [34, 127], [127, 234], [234, 34], [107, 108], [108, 69], [69, 107], [109, 108], [108, 151], [151, 109], [48, 64], [64, 235], [235, 48], [62, 78], [78, 191], [191, 62], [129, 209], [209, 126], [126, 129], [111, 35], [35, 143], [143, 111], [117, 123], [123, 50], [50, 117], [222, 65], [65, 52], [52, 222], [19, 125], [125, 141], [141, 19], [221, 55], [55, 65], [65, 221], [3, 195], [195, 197], [197, 3], [25, 7], [7, 33], [33, 25], [220, 237], [237, 44], [44, 220], [70, 71], [71, 139], [139, 70], [122, 193], [193, 245], [245, 122], [247, 130], [130, 33], [33, 247], [71, 21], [21, 162], [162, 71], [170, 169], [169, 150], [150, 170], [188, 174], [174, 196], [196, 188], [216, 186], [186, 92], [92, 216], [2, 97], [97, 167], [167, 2], [141, 125], [125, 241], [241, 141], [164, 167], [167, 37], [37, 164], [72, 38], [38, 12], [12, 72], [38, 82], [82, 13], [13, 38], [63, 68], [68, 71], [71, 63], [226, 35], [35, 111], [111, 226], [101, 50], [50, 205], [205, 101], [206, 92], [92, 165], [165, 206], [209, 198], [198, 217], [217, 209], [165, 167], [167, 97], [97, 165], [220, 115], [115, 218], [218, 220], [133, 112], [112, 243], [243, 133], [239, 238], [238, 241], [241, 239], [214, 135], [135, 169], [169, 214], [190, 173], [173, 133], [133, 190], [171, 208], [208, 32], [32, 171], [125, 44], [44, 237], [237, 125], [86, 87], [87, 178], [178, 86], [85, 86], [86, 179], [179, 85], [84, 85], [85, 180], [180, 84], [83, 84], [84, 181], [181, 83], [201, 83], [83, 182], [182, 201], [137, 93], [93, 132], [132, 137], [76, 62], [62, 183], [183, 76], [61, 76], [76, 184], [184, 61], [57, 61], [61, 185], [185, 57], [212, 57], [57, 186], [186, 212], [214, 207], [207, 187], [187, 214], [34, 143], [143, 156], [156, 34], [79, 239], [239, 237], [237, 79], [123, 137], [137, 177], [177, 123], [44, 1], [1, 4], [4, 44], [201, 194], [194, 32], [32, 201], [64, 102], [102, 129], [129, 64], [213, 215], [215, 138], [138, 213], [59, 166], [166, 219], [219, 59], [242, 99], [99, 97], [97, 242], [2, 94], [94, 141], [141, 2], [75, 59], [59, 235], [235, 75], [24, 110], [110, 228], [228, 24], [25, 130], [130, 226], [226, 25], [23, 24], [24, 229], [229, 23], [22, 23], [23, 230], [230, 22], [26, 22], [22, 231], [231, 26], [112, 26], [26, 232], [232, 112], [189, 190], [190, 243], [243, 189], [221, 56], [56, 190], [190, 221], [28, 56], [56, 221], [221, 28], [27, 28], [28, 222], [222, 27], [29, 27], [27, 223], [223, 29], [30, 29], [29, 224], [224, 30], [247, 30], [30, 225], [225, 247], [238, 79], [79, 20], [20, 238], [166, 59], [59, 75], [75, 166], [60, 75], [75, 240], [240, 60], [147, 177], [177, 215], [215, 147], [20, 79], [79, 166], [166, 20], [187, 147], [147, 213], [213, 187], [112, 233], [233, 244], [244, 112], [233, 128], [128, 245], [245, 233], [128, 114], [114, 188], [188, 128], [114, 217], [217, 174], [174, 114], [131, 115], [115, 220], [220, 131], [217, 198], [198, 236], [236, 217], [198, 131], [131, 134], [134, 198], [177, 132], [132, 58], [58, 177], [143, 35], [35, 124], [124, 143], [110, 163], [163, 7], [7, 110], [228, 110], [110, 25], [25, 228], [356, 389], [389, 368], [368, 356], [11, 302], [302, 267], [267, 11], [452, 350], [350, 349], [349, 452], [302, 303], [303, 269], [269, 302], [357, 343], [343, 277], [277, 357], [452, 453], [453, 357], [357, 452], [333, 332], [332, 297], [297, 333], [175, 152], [152, 377], [377, 175], [347, 348], [348, 330], [330, 347], [303, 304], [304, 270], [270, 303], [9, 336], [336, 337], [337, 9], [278, 279], [279, 360], [360, 278], [418, 262], [262, 431], [431, 418], [304, 408], [408, 409], [409, 304], [310, 415], [415, 407], [407, 310], [270, 409], [409, 410], [410, 270], [450, 348], [348, 347], [347, 450], [422, 430], [430, 434], [434, 422], [313, 314], [314, 17], [17, 313], [306, 307], [307, 375], [375, 306], [387, 388], [388, 260], [260, 387], [286, 414], [414, 398], [398, 286], [335, 406], [406, 418], [418, 335], [364, 367], [367, 416], [416, 364], [423, 358], [358, 327], [327, 423], [251, 284], [284, 298], [298, 251], [281, 5], [5, 4], [4, 281], [373, 374], [374, 253], [253, 373], [307, 320], [320, 321], [321, 307], [425, 427], [427, 411], [411, 425], [421, 313], [313, 18], [18, 421], [321, 405], [405, 406], [406, 321], [320, 404], [404, 405], [405, 320], [315, 16], [16, 17], [17, 315], [426, 425], [425, 266], [266, 426], [377, 400], [400, 369], [369, 377], [322, 391], [391, 269], [269, 322], [417, 465], [465, 464], [464, 417], [386, 257], [257, 258], [258, 386], [466, 260], [260, 388], [388, 466], [456, 399], [399, 419], [419, 456], [284, 332], [332, 333], [333, 284], [417, 285], [285, 8], [8, 417], [346, 340], [340, 261], [261, 346], [413, 441], [441, 285], [285, 413], [327, 460], [460, 328], [328, 327], [355, 371], [371, 329], [329, 355], [392, 439], [439, 438], [438, 392], [382, 341], [341, 256], [256, 382], [429, 420], [420, 360], [360, 429], [364, 394], [394, 379], [379, 364], [277, 343], [343, 437], [437, 277], [443, 444], [444, 283], [283, 443], [275, 440], [440, 363], [363, 275], [431, 262], [262, 369], [369, 431], [297, 338], [338, 337], [337, 297], [273, 375], [375, 321], [321, 273], [450, 451], [451, 349], [349, 450], [446, 342], [342, 467], [467, 446], [293, 334], [334, 282], [282, 293], [458, 461], [461, 462], [462, 458], [276, 353], [353, 383], [383, 276], [308, 324], [324, 325], [325, 308], [276, 300], [300, 293], [293, 276], [372, 345], [345, 447], [447, 372], [352, 345], [345, 340], [340, 352], [274, 1], [1, 19], [19, 274], [456, 248], [248, 281], [281, 456], [436, 427], [427, 425], [425, 436], [381, 256], [256, 252], [252, 381], [269, 391], [391, 393], [393, 269], [200, 199], [199, 428], [428, 200], [266, 330], [330, 329], [329, 266], [287, 273], [273, 422], [422, 287], [250, 462], [462, 328], [328, 250], [258, 286], [286, 384], [384, 258], [265, 353], [353, 342], [342, 265], [387, 259], [259, 257], [257, 387], [424, 431], [431, 430], [430, 424], [342, 353], [353, 276], [276, 342], [273, 335], [335, 424], [424, 273], [292, 325], [325, 307], [307, 292], [366, 447], [447, 345], [345, 366], [271, 303], [303, 302], [302, 271], [423, 266], [266, 371], [371, 423], [294, 455], [455, 460], [460, 294], [279, 278], [278, 294], [294, 279], [271, 272], [272, 304], [304, 271], [432, 434], [434, 427], [427, 432], [272, 407], [407, 408], [408, 272], [394, 430], [430, 431], [431, 394], [395, 369], [369, 400], [400, 395], [334, 333], [333, 299], [299, 334], [351, 417], [417, 168], [168, 351], [352, 280], [280, 411], [411, 352], [325, 319], [319, 320], [320, 325], [295, 296], [296, 336], [336, 295], [319, 403], [403, 404], [404, 319], [330, 348], [348, 349], [349, 330], [293, 298], [298, 333], [333, 293], [323, 454], [454, 447], [447, 323], [15, 16], [16, 315], [315, 15], [358, 429], [429, 279], [279, 358], [14, 15], [15, 316], [316, 14], [285, 336], [336, 9], [9, 285], [329, 349], [349, 350], [350, 329], [374, 380], [380, 252], [252, 374], [318, 402], [402, 403], [403, 318], [6, 197], [197, 419], [419, 6], [318, 319], [319, 325], [325, 318], [367, 364], [364, 365], [365, 367], [435, 367], [367, 397], [397, 435], [344, 438], [438, 439], [439, 344], [272, 271], [271, 311], [311, 272], [195, 5], [5, 281], [281, 195], [273, 287], [287, 291], [291, 273], [396, 428], [428, 199], [199, 396], [311, 271], [271, 268], [268, 311], [283, 444], [444, 445], [445, 283], [373, 254], [254, 339], [339, 373], [282, 334], [334, 296], [296, 282], [449, 347], [347, 346], [346, 449], [264, 447], [447, 454], [454, 264], [336, 296], [296, 299], [299, 336], [338, 10], [10, 151], [151, 338], [278, 439], [439, 455], [455, 278], [292, 407], [407, 415], [415, 292], [358, 371], [371, 355], [355, 358], [340, 345], [345, 372], [372, 340], [346, 347], [347, 280], [280, 346], [442, 443], [443, 282], [282, 442], [19, 94], [94, 370], [370, 19], [441, 442], [442, 295], [295, 441], [248, 419], [419, 197], [197, 248], [263, 255], [255, 359], [359, 263], [440, 275], [275, 274], [274, 440], [300, 383], [383, 368], [368, 300], [351, 412], [412, 465], [465, 351], [263, 467], [467, 466], [466, 263], [301, 368], [368, 389], [389, 301], [395, 378], [378, 379], [379, 395], [412, 351], [351, 419], [419, 412], [436, 426], [426, 322], [322, 436], [2, 164], [164, 393], [393, 2], [370, 462], [462, 461], [461, 370], [164, 0], [0, 267], [267, 164], [302, 11], [11, 12], [12, 302], [268, 12], [12, 13], [13, 268], [293, 300], [300, 301], [301, 293], [446, 261], [261, 340], [340, 446], [330, 266], [266, 425], [425, 330], [426, 423], [423, 391], [391, 426], [429, 355], [355, 437], [437, 429], [391, 327], [327, 326], [326, 391], [440, 457], [457, 438], [438, 440], [341, 382], [382, 362], [362, 341], [459, 457], [457, 461], [461, 459], [434, 430], [430, 394], [394, 434], [414, 463], [463, 362], [362, 414], [396, 369], [369, 262], [262, 396], [354, 461], [461, 457], [457, 354], [316, 403], [403, 402], [402, 316], [315, 404], [404, 403], [403, 315], [314, 405], [405, 404], [404, 314], [313, 406], [406, 405], [405, 313], [421, 418], [418, 406], [406, 421], [366, 401], [401, 361], [361, 366], [306, 408], [408, 407], [407, 306], [291, 409], [409, 408], [408, 291], [287, 410], [410, 409], [409, 287], [432, 436], [436, 410], [410, 432], [434, 416], [416, 411], [411, 434], [264, 368], [368, 383], [383, 264], [309, 438], [438, 457], [457, 309], [352, 376], [376, 401], [401, 352], [274, 275], [275, 4], [4, 274], [421, 428], [428, 262], [262, 421], [294, 327], [327, 358], [358, 294], [433, 416], [416, 367], [367, 433], [289, 455], [455, 439], [439, 289], [462, 370], [370, 326], [326, 462], [2, 326], [326, 370], [370, 2], [305, 460], [460, 455], [455, 305], [254, 449], [449, 448], [448, 254], [255, 261], [261, 446], [446, 255], [253, 450], [450, 449], [449, 253], [252, 451], [451, 450], [450, 252], [256, 452], [452, 451], [451, 256], [341, 453], [453, 452], [452, 341], [413, 464], [464, 463], [463, 413], [441, 413], [413, 414], [414, 441], [258, 442], [442, 441], [441, 258], [257, 443], [443, 442], [442, 257], [259, 444], [444, 443], [443, 259], [260, 445], [445, 444], [444, 260], [467, 342], [342, 445], [445, 467], [459, 458], [458, 250], [250, 459], [289, 392], [392, 290], [290, 289], [290, 328], [328, 460], [460, 290], [376, 433], [433, 435], [435, 376], [250, 290], [290, 392], [392, 250], [411, 416], [416, 433], [433, 411], [341, 463], [463, 464], [464, 341], [453, 464], [464, 465], [465, 453], [357, 465], [465, 412], [412, 357], [343, 412], [412, 399], [399, 343], [360, 363], [363, 440], [440, 360], [437, 399], [399, 456], [456, 437], [420, 456], [456, 363], [363, 420], [401, 435], [435, 288], [288, 401], [372, 383], [383, 353], [353, 372], [339, 255], [255, 249], [249, 339], [448, 261], [261, 255], [255, 448], [133, 243], [243, 190], [190, 133], [133, 155], [155, 112], [112, 133], [33, 246], [246, 247], [247, 33], [33, 130], [130, 25], [25, 33], [398, 384], [384, 286], [286, 398], [362, 398], [398, 414], [414, 362], [362, 463], [463, 341], [341, 362], [263, 359], [359, 467], [467, 263], [263, 249], [249, 255], [255, 263], [466, 467], [467, 260], [260, 466], [75, 60], [60, 166], [166, 75], [238, 239], [239, 79], [79, 238], [162, 127], [127, 139], [139, 162], [72, 11], [11, 37], [37, 72], [121, 232], [232, 120], [120, 121], [73, 72], [72, 39], [39, 73], [114, 128], [128, 47], [47, 114], [233, 232], [232, 128], [128, 233], [103, 104], [104, 67], [67, 103], [152, 175], [175, 148], [148, 152], [119, 118], [118, 101], [101, 119], [74, 73], [73, 40], [40, 74], [107, 9], [9, 108], [108, 107], [49, 48], [48, 131], [131, 49], [32, 194], [194, 211], [211, 32], [184, 74], [74, 185], [185, 184], [191, 80], [80, 183], [183, 191], [185, 40], [40, 186], [186, 185], [119, 230], [230, 118], [118, 119], [210, 202], [202, 214], [214, 210], [84, 83], [83, 17], [17, 84], [77, 76], [76, 146], [146, 77], [161, 160], [160, 30], [30, 161], [190, 56], [56, 173], [173, 190], [182, 106], [106, 194], [194, 182], [138, 135], [135, 192], [192, 138], [129, 203], [203, 98], [98, 129], [54, 21], [21, 68], [68, 54], [5, 51], [51, 4], [4, 5], [145, 144], [144, 23], [23, 145], [90, 77], [77, 91], [91, 90], [207, 205], [205, 187], [187, 207], [83, 201], [201, 18], [18, 83], [181, 91], [91, 182], [182, 181], [180, 90], [90, 181], [181, 180], [16, 85], [85, 17], [17, 16], [205, 206], [206, 36], [36, 205], [176, 148], [148, 140], [140, 176], [165, 92], [92, 39], [39, 165], [245, 193], [193, 244], [244, 245], [27, 159], [159, 28], [28, 27], [30, 247], [247, 161], [161, 30], [174, 236], [236, 196], [196, 174], [103, 54], [54, 104], [104, 103], [55, 193], [193, 8], [8, 55], [111, 117], [117, 31], [31, 111], [221, 189], [189, 55], [55, 221], [240, 98], [98, 99], [99, 240], [142, 126], [126, 100], [100, 142], [219, 166], [166, 218], [218, 219], [112, 155], [155, 26], [26, 112], [198, 209], [209, 131], [131, 198], [169, 135], [135, 150], [150, 169], [114, 47], [47, 217], [217, 114], [224, 223], [223, 53], [53, 224], [220, 45], [45, 134], [134, 220], [32, 211], [211, 140], [140, 32], [109, 67], [67, 108], [108, 109], [146, 43], [43, 91], [91, 146], [231, 230], [230, 120], [120, 231], [113, 226], [226, 247], [247, 113], [105, 63], [63, 52], [52, 105], [241, 238], [238, 242], [242, 241], [124, 46], [46, 156], [156, 124], [95, 78], [78, 96], [96, 95], [70, 46], [46, 63], [63, 70], [116, 143], [143, 227], [227, 116], [116, 123], [123, 111], [111, 116], [1, 44], [44, 19], [19, 1], [3, 236], [236, 51], [51, 3], [207, 216], [216, 205], [205, 207], [26, 154], [154, 22], [22, 26], [165, 39], [39, 167], [167, 165], [199, 200], [200, 208], [208, 199], [101, 36], [36, 100], [100, 101], [43, 57], [57, 202], [202, 43], [242, 20], [20, 99], [99, 242], [56, 28], [28, 157], [157, 56], [124, 35], [35, 113], [113, 124], [29, 160], [160, 27], [27, 29], [211, 204], [204, 210], [210, 211], [124, 113], [113, 46], [46, 124], [106, 43], [43, 204], [204, 106], [96, 62], [62, 77], [77, 96], [227, 137], [137, 116], [116, 227], [73, 41], [41, 72], [72, 73], [36, 203], [203, 142], [142, 36], [235, 64], [64, 240], [240, 235], [48, 49], [49, 64], [64, 48], [42, 41], [41, 74], [74, 42], [214, 212], [212, 207], [207, 214], [183, 42], [42, 184], [184, 183], [210, 169], [169, 211], [211, 210], [140, 170], [170, 176], [176, 140], [104, 105], [105, 69], [69, 104], [193, 122], [122, 168], [168, 193], [50, 123], [123, 187], [187, 50], [89, 96], [96, 90], [90, 89], [66, 65], [65, 107], [107, 66], [179, 89], [89, 180], [180, 179], [119, 101], [101, 120], [120, 119], [68, 63], [63, 104], [104, 68], [234, 93], [93, 227], [227, 234], [16, 15], [15, 85], [85, 16], [209, 129], [129, 49], [49, 209], [15, 14], [14, 86], [86, 15], [107, 55], [55, 9], [9, 107], [120, 100], [100, 121], [121, 120], [153, 145], [145, 22], [22, 153], [178, 88], [88, 179], [179, 178], [197, 6], [6, 196], [196, 197], [89, 88], [88, 96], [96, 89], [135, 138], [138, 136], [136, 135], [138, 215], [215, 172], [172, 138], [218, 115], [115, 219], [219, 218], [41, 42], [42, 81], [81, 41], [5, 195], [195, 51], [51, 5], [57, 43], [43, 61], [61, 57], [208, 171], [171, 199], [199, 208], [41, 81], [81, 38], [38, 41], [224, 53], [53, 225], [225, 224], [24, 144], [144, 110], [110, 24], [105, 52], [52, 66], [66, 105], [118, 229], [229, 117], [117, 118], [227, 34], [34, 234], [234, 227], [66, 107], [107, 69], [69, 66], [10, 109], [109, 151], [151, 10], [219, 48], [48, 235], [235, 219], [183, 62], [62, 191], [191, 183], [142, 129], [129, 126], [126, 142], [116, 111], [111, 143], [143, 116], [118, 117], [117, 50], [50, 118], [223, 222], [222, 52], [52, 223], [94, 19], [19, 141], [141, 94], [222, 221], [221, 65], [65, 222], [196, 3], [3, 197], [197, 196], [45, 220], [220, 44], [44, 45], [156, 70], [70, 139], [139, 156], [188, 122], [122, 245], [245, 188], [139, 71], [71, 162], [162, 139], [149, 170], [170, 150], [150, 149], [122, 188], [188, 196], [196, 122], [206, 216], [216, 92], [92, 206], [164, 2], [2, 167], [167, 164], [242, 141], [141, 241], [241, 242], [0, 164], [164, 37], [37, 0], [11, 72], [72, 12], [12, 11], [12, 38], [38, 13], [13, 12], [70, 63], [63, 71], [71, 70], [31, 226], [226, 111], [111, 31], [36, 101], [101, 205], [205, 36], [203, 206], [206, 165], [165, 203], [126, 209], [209, 217], [217, 126], [98, 165], [165, 97], [97, 98], [237, 220], [220, 218], [218, 237], [237, 239], [239, 241], [241, 237], [210, 214], [214, 169], [169, 210], [140, 171], [171, 32], [32, 140], [241, 125], [125, 237], [237, 241], [179, 86], [86, 178], [178, 179], [180, 85], [85, 179], [179, 180], [181, 84], [84, 180], [180, 181], [182, 83], [83, 181], [181, 182], [194, 201], [201, 182], [182, 194], [177, 137], [137, 132], [132, 177], [184, 76], [76, 183], [183, 184], [185, 61], [61, 184], [184, 185], [186, 57], [57, 185], [185, 186], [216, 212], [212, 186], [186, 216], [192, 214], [214, 187], [187, 192], [139, 34], [34, 156], [156, 139], [218, 79], [79, 237], [237, 218], [147, 123], [123, 177], [177, 147], [45, 44], [44, 4], [4, 45], [208, 201], [201, 32], [32, 208], [98, 64], [64, 129], [129, 98], [192, 213], [213, 138], [138, 192], [235, 59], [59, 219], [219, 235], [141, 242], [242, 97], [97, 141], [97, 2], [2, 141], [141, 97], [240, 75], [75, 235], [235, 240], [229, 24], [24, 228], [228, 229], [31, 25], [25, 226], [226, 31], [230, 23], [23, 229], [229, 230], [231, 22], [22, 230], [230, 231], [232, 26], [26, 231], [231, 232], [233, 112], [112, 232], [232, 233], [244, 189], [189, 243], [243, 244], [189, 221], [221, 190], [190, 189], [222, 28], [28, 221], [221, 222], [223, 27], [27, 222], [222, 223], [224, 29], [29, 223], [223, 224], [225, 30], [30, 224], [224, 225], [113, 247], [247, 225], [225, 113], [99, 60], [60, 240], [240, 99], [213, 147], [147, 215], [215, 213], [60, 20], [20, 166], [166, 60], [192, 187], [187, 213], [213, 192], [243, 112], [112, 244], [244, 243], [244, 233], [233, 245], [245, 244], [245, 128], [128, 188], [188, 245], [188, 114], [114, 174], [174, 188], [134, 131], [131, 220], [220, 134], [174, 217], [217, 236], [236, 174], [236, 198], [198, 134], [134, 236], [215, 177], [177, 58], [58, 215], [156, 143], [143, 124], [124, 156], [25, 110], [110, 7], [7, 25], [31, 228], [228, 25], [25, 31], [264, 356], [356, 368], [368, 264], [0, 11], [11, 267], [267, 0], [451, 452], [452, 349], [349, 451], [267, 302], [302, 269], [269, 267], [350, 357], [357, 277], [277, 350], [350, 452], [452, 357], [357, 350], [299, 333], [333, 297], [297, 299], [396, 175], [175, 377], [377, 396], [280, 347], [347, 330], [330, 280], [269, 303], [303, 270], [270, 269], [151, 9], [9, 337], [337, 151], [344, 278], [278, 360], [360, 344], [424, 418], [418, 431], [431, 424], [270, 304], [304, 409], [409, 270], [272, 310], [310, 407], [407, 272], [322, 270], [270, 410], [410, 322], [449, 450], [450, 347], [347, 449], [432, 422], [422, 434], [434, 432], [18, 313], [313, 17], [17, 18], [291, 306], [306, 375], [375, 291], [259, 387], [387, 260], [260, 259], [424, 335], [335, 418], [418, 424], [434, 364], [364, 416], [416, 434], [391, 423], [423, 327], [327, 391], [301, 251], [251, 298], [298, 301], [275, 281], [281, 4], [4, 275], [254, 373], [373, 253], [253, 254], [375, 307], [307, 321], [321, 375], [280, 425], [425, 411], [411, 280], [200, 421], [421, 18], [18, 200], [335, 321], [321, 406], [406, 335], [321, 320], [320, 405], [405, 321], [314, 315], [315, 17], [17, 314], [423, 426], [426, 266], [266, 423], [396, 377], [377, 369], [369, 396], [270, 322], [322, 269], [269, 270], [413, 417], [417, 464], [464, 413], [385, 386], [386, 258], [258, 385], [248, 456], [456, 419], [419, 248], [298, 284], [284, 333], [333, 298], [168, 417], [417, 8], [8, 168], [448, 346], [346, 261], [261, 448], [417, 413], [413, 285], [285, 417], [326, 327], [327, 328], [328, 326], [277, 355], [355, 329], [329, 277], [309, 392], [392, 438], [438, 309], [381, 382], [382, 256], [256, 381], [279, 429], [429, 360], [360, 279], [365, 364], [364, 379], [379, 365], [355, 277], [277, 437], [437, 355], [282, 443], [443, 283], [283, 282], [281, 275], [275, 363], [363, 281], [395, 431], [431, 369], [369, 395], [299, 297], [297, 337], [337, 299], [335, 273], [273, 321], [321, 335], [348, 450], [450, 349], [349, 348], [359, 446], [446, 467], [467, 359], [283, 293], [293, 282], [282, 283], [250, 458], [458, 462], [462, 250], [300, 276], [276, 383], [383, 300], [292, 308], [308, 325], [325, 292], [283, 276], [276, 293], [293, 283], [264, 372], [372, 447], [447, 264], [346, 352], [352, 340], [340, 346], [354, 274], [274, 19], [19, 354], [363, 456], [456, 281], [281, 363], [426, 436], [436, 425], [425, 426], [380, 381], [381, 252], [252, 380], [267, 269], [269, 393], [393, 267], [421, 200], [200, 428], [428, 421], [371, 266], [266, 329], [329, 371], [432, 287], [287, 422], [422, 432], [290, 250], [250, 328], [328, 290], [385, 258], [258, 384], [384, 385], [446, 265], [265, 342], [342, 446], [386, 387], [387, 257], [257, 386], [422, 424], [424, 430], [430, 422], [445, 342], [342, 276], [276, 445], [422, 273], [273, 424], [424, 422], [306, 292], [292, 307], [307, 306], [352, 366], [366, 345], [345, 352], [268, 271], [271, 302], [302, 268], [358, 423], [423, 371], [371, 358], [327, 294], [294, 460], [460, 327], [331, 279], [279, 294], [294, 331], [303, 271], [271, 304], [304, 303], [436, 432], [432, 427], [427, 436], [304, 272], [272, 408], [408, 304], [395, 394], [394, 431], [431, 395], [378, 395], [395, 400], [400, 378], [296, 334], [334, 299], [299, 296], [6, 351], [351, 168], [168, 6], [376, 352], [352, 411], [411, 376], [307, 325], [325, 320], [320, 307], [285, 295], [295, 336], [336, 285], [320, 319], [319, 404], [404, 320], [329, 330], [330, 349], [349, 329], [334, 293], [293, 333], [333, 334], [366, 323], [323, 447], [447, 366], [316, 15], [15, 315], [315, 316], [331, 358], [358, 279], [279, 331], [317, 14], [14, 316], [316, 317], [8, 285], [285, 9], [9, 8], [277, 329], [329, 350], [350, 277], [253, 374], [374, 252], [252, 253], [319, 318], [318, 403], [403, 319], [351, 6], [6, 419], [419, 351], [324, 318], [318, 325], [325, 324], [397, 367], [367, 365], [365, 397], [288, 435], [435, 397], [397, 288], [278, 344], [344, 439], [439, 278], [310, 272], [272, 311], [311, 310], [248, 195], [195, 281], [281, 248], [375, 273], [273, 291], [291, 375], [175, 396], [396, 199], [199, 175], [312, 311], [311, 268], [268, 312], [276, 283], [283, 445], [445, 276], [390, 373], [373, 339], [339, 390], [295, 282], [282, 296], [296, 295], [448, 449], [449, 346], [346, 448], [356, 264], [264, 454], [454, 356], [337, 336], [336, 299], [299, 337], [337, 338], [338, 151], [151, 337], [294, 278], [278, 455], [455, 294], [308, 292], [292, 415], [415, 308], [429, 358], [358, 355], [355, 429], [265, 340], [340, 372], [372, 265], [352, 346], [346, 280], [280, 352], [295, 442], [442, 282], [282, 295], [354, 19], [19, 370], [370, 354], [285, 441], [441, 295], [295, 285], [195, 248], [248, 197], [197, 195], [457, 440], [440, 274], [274, 457], [301, 300], [300, 368], [368, 301], [417, 351], [351, 465], [465, 417], [251, 301], [301, 389], [389, 251], [394, 395], [395, 379], [379, 394], [399, 412], [412, 419], [419, 399], [410, 436], [436, 322], [322, 410], [326, 2], [2, 393], [393, 326], [354, 370], [370, 461], [461, 354], [393, 164], [164, 267], [267, 393], [268, 302], [302, 12], [12, 268], [312, 268], [268, 13], [13, 312], [298, 293], [293, 301], [301, 298], [265, 446], [446, 340], [340, 265], [280, 330], [330, 425], [425, 280], [322, 426], [426, 391], [391, 322], [420, 429], [429, 437], [437, 420], [393, 391], [391, 326], [326, 393], [344, 440], [440, 438], [438, 344], [458, 459], [459, 461], [461, 458], [364, 434], [434, 394], [394, 364], [428, 396], [396, 262], [262, 428], [274, 354], [354, 457], [457, 274], [317, 316], [316, 402], [402, 317], [316, 315], [315, 403], [403, 316], [315, 314], [314, 404], [404, 315], [314, 313], [313, 405], [405, 314], [313, 421], [421, 406], [406, 313], [323, 366], [366, 361], [361, 323], [292, 306], [306, 407], [407, 292], [306, 291], [291, 408], [408, 306], [291, 287], [287, 409], [409, 291], [287, 432], [432, 410], [410, 287], [427, 434], [434, 411], [411, 427], [372, 264], [264, 383], [383, 372], [459, 309], [309, 457], [457, 459], [366, 352], [352, 401], [401, 366], [1, 274], [274, 4], [4, 1], [418, 421], [421, 262], [262, 418], [331, 294], [294, 358], [358, 331], [435, 433], [433, 367], [367, 435], [392, 289], [289, 439], [439, 392], [328, 462], [462, 326], [326, 328], [94, 2], [2, 370], [370, 94], [289, 305], [305, 455], [455, 289], [339, 254], [254, 448], [448, 339], [359, 255], [255, 446], [446, 359], [254, 253], [253, 449], [449, 254], [253, 252], [252, 450], [450, 253], [252, 256], [256, 451], [451, 252], [256, 341], [341, 452], [452, 256], [414, 413], [413, 463], [463, 414], [286, 441], [441, 414], [414, 286], [286, 258], [258, 441], [441, 286], [258, 257], [257, 442], [442, 258], [257, 259], [259, 443], [443, 257], [259, 260], [260, 444], [444, 259], [260, 467], [467, 445], [445, 260], [309, 459], [459, 250], [250, 309], [305, 289], [289, 290], [290, 305], [305, 290], [290, 460], [460, 305], [401, 376], [376, 435], [435, 401], [309, 250], [250, 392], [392, 309], [376, 411], [411, 433], [433, 376], [453, 341], [341, 464], [464, 453], [357, 453], [453, 465], [465, 357], [343, 357], [357, 412], [412, 343], [437, 343], [343, 399], [399, 437], [344, 360], [360, 440], [440, 344], [420, 437], [437, 456], [456, 420], [360, 420], [420, 363], [363, 360], [361, 401], [401, 288], [288, 361], [265, 372], [372, 353], [353, 265], [390, 339], [339, 249], [249, 390], [339, 448], [448, 255], [255, 339]);
+  function _v1105(_v0) {
     _v0.j = {
       faceLandmarks: [],
       faceBlendshapes: [],
       facialTransformationMatrixes: []
     };
   }
-  var _v1101 = class extends _v1088 {
+  var _v1106 = class extends _v1093 {
     constructor(_v0, _v1) {
-      super(new _v1082(_v0, _v1), "image_in", "norm_rect", !1), this.j = {
+      super(new _v1087(_v0, _v1), "image_in", "norm_rect", !1), this.j = {
         faceLandmarks: [],
         faceBlendshapes: [],
         facialTransformationMatrixes: []
-      }, this.outputFacialTransformationMatrixes = this.outputFaceBlendshapes = !1, _v786(_v0 = this.h = new _v969(), 0, 1, _v1 = new _v961()), this.v = new _v968(), _v786(this.h, 0, 3, this.v), this.s = new _v964(), _v786(this.h, 0, 2, this.s), _v795(this.s, 4, 1), _v796(this.s, 2, .5), _v796(this.v, 2, .5), _v796(this.h, 4, .5);
+      }, this.outputFacialTransformationMatrixes = this.outputFaceBlendshapes = !1, _v791(_v0 = this.h = new _v974(), 0, 1, _v1 = new _v966()), this.v = new _v973(), _v791(this.h, 0, 3, this.v), this.s = new _v969(), _v791(this.h, 0, 2, this.s), _v800(this.s, 4, 1), _v801(this.s, 2, .5), _v801(this.v, 2, .5), _v801(this.h, 4, .5);
     }
     get baseOptions() {
-      return _v783(this.h, _v961, 1);
+      return _v788(this.h, _v966, 1);
     }
     set baseOptions(_v0) {
-      _v786(this.h, 0, 1, _v0);
+      _v791(this.h, 0, 1, _v0);
     }
     o(_v0) {
-      return "numFaces" in _v0 && _v795(this.s, 4, _v0.numFaces ?? 1), "minFaceDetectionConfidence" in _v0 && _v796(this.s, 2, _v0.minFaceDetectionConfidence ?? .5), "minTrackingConfidence" in _v0 && _v796(this.h, 4, _v0.minTrackingConfidence ?? .5), "minFacePresenceConfidence" in _v0 && _v796(this.v, 2, _v0.minFacePresenceConfidence ?? .5), "outputFaceBlendshapes" in _v0 && (this.outputFaceBlendshapes = !!_v0.outputFaceBlendshapes), "outputFacialTransformationMatrixes" in _v0 && (this.outputFacialTransformationMatrixes = !!_v0.outputFacialTransformationMatrixes), this.l(_v0);
+      return "numFaces" in _v0 && _v800(this.s, 4, _v0.numFaces ?? 1), "minFaceDetectionConfidence" in _v0 && _v801(this.s, 2, _v0.minFaceDetectionConfidence ?? .5), "minTrackingConfidence" in _v0 && _v801(this.h, 4, _v0.minTrackingConfidence ?? .5), "minFacePresenceConfidence" in _v0 && _v801(this.v, 2, _v0.minFacePresenceConfidence ?? .5), "outputFaceBlendshapes" in _v0 && (this.outputFaceBlendshapes = !!_v0.outputFaceBlendshapes), "outputFacialTransformationMatrixes" in _v0 && (this.outputFacialTransformationMatrixes = !!_v0.outputFacialTransformationMatrixes), this.l(_v0);
     }
     D(_v0, _v1) {
-      return _v1100(this), _v1085(this, _v0, _v1), this.j;
+      return _v1105(this), _v1090(this, _v0, _v1), this.j;
     }
     F(_v0, _v1, _v2) {
-      return _v1100(this), _v1086(this, _v0, _v2, _v1), this.j;
+      return _v1105(this), _v1091(this, _v0, _v2, _v1), this.j;
     }
     m() {
-      var _v0 = new _v929();
-      _v927(_v0, "image_in"), _v927(_v0, "norm_rect"), _v928(_v0, "face_landmarks");
-      let _v1 = new _v916();
-      _v821(_v1, _v972, this.h);
-      let _v2 = new _v922();
-      _v919(_v2, "mediapipe.tasks.vision.face_landmarker.FaceLandmarkerGraph"), _v920(_v2, "IMAGE:image_in"), _v920(_v2, "NORM_RECT:norm_rect"), _v921(_v2, "NORM_LANDMARKS:face_landmarks"), _v2.o(_v1), _v926(_v0, _v2), this.g.attachProtoVectorListener("face_landmarks", (_v0, _v1) => {
-        for (let _v0 of _v0) _v0 = _v943(_v0), this.j.faceLandmarks.push(_v1011(_v0));
-        _v1030(this, _v1);
+      var _v0 = new _v934();
+      _v932(_v0, "image_in"), _v932(_v0, "norm_rect"), _v933(_v0, "face_landmarks");
+      let _v1 = new _v921();
+      _v826(_v1, _v977, this.h);
+      let _v2 = new _v927();
+      _v924(_v2, "mediapipe.tasks.vision.face_landmarker.FaceLandmarkerGraph"), _v925(_v2, "IMAGE:image_in"), _v925(_v2, "NORM_RECT:norm_rect"), _v926(_v2, "NORM_LANDMARKS:face_landmarks"), _v2.o(_v1), _v931(_v0, _v2), this.g.attachProtoVectorListener("face_landmarks", (_v0, _v1) => {
+        for (let _v0 of _v0) _v0 = _v948(_v0), this.j.faceLandmarks.push(_v1016(_v0));
+        _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("face_landmarks", _v0 => {
-        _v1030(this, _v0);
-      }), this.outputFaceBlendshapes && (_v928(_v0, "blendshapes"), _v921(_v2, "BLENDSHAPES:blendshapes"), this.g.attachProtoVectorListener("blendshapes", (_v0, _v1) => {
-        if (this.outputFaceBlendshapes) for (let _v0 of _v0) _v0 = _v935(_v0), this.j.faceBlendshapes.push(_v1009(_v0.g() ?? []));
-        _v1030(this, _v1);
+        _v1035(this, _v0);
+      }), this.outputFaceBlendshapes && (_v933(_v0, "blendshapes"), _v926(_v2, "BLENDSHAPES:blendshapes"), this.g.attachProtoVectorListener("blendshapes", (_v0, _v1) => {
+        if (this.outputFaceBlendshapes) for (let _v0 of _v0) _v0 = _v940(_v0), this.j.faceBlendshapes.push(_v1014(_v0.g() ?? []));
+        _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("blendshapes", _v0 => {
-        _v1030(this, _v0);
-      })), this.outputFacialTransformationMatrixes && (_v928(_v0, "face_geometry"), _v921(_v2, "FACE_GEOMETRY:face_geometry"), this.g.attachProtoVectorListener("face_geometry", (_v0, _v1) => {
-        if (this.outputFacialTransformationMatrixes) for (let _v0 of _v0) (_v0 = _v783(_v967(_v0), _v944, 2)) && this.j.facialTransformationMatrixes.push({
-          rows: _v791(_v0, 1) ?? 0 ?? 0,
-          columns: _v791(_v0, 2) ?? 0 ?? 0,
-          data: _v771(_v0, 3, _v718, _v770()).slice() ?? []
+        _v1035(this, _v0);
+      })), this.outputFacialTransformationMatrixes && (_v933(_v0, "face_geometry"), _v926(_v2, "FACE_GEOMETRY:face_geometry"), this.g.attachProtoVectorListener("face_geometry", (_v0, _v1) => {
+        if (this.outputFacialTransformationMatrixes) for (let _v0 of _v0) (_v0 = _v788(_v972(_v0), _v949, 2)) && this.j.facialTransformationMatrixes.push({
+          rows: _v796(_v0, 1) ?? 0 ?? 0,
+          columns: _v796(_v0, 2) ?? 0 ?? 0,
+          data: _v776(_v0, 3, _v723, _v775()).slice() ?? []
         });
-        _v1030(this, _v1);
+        _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("face_geometry", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       })), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
     }
   };
-  _v1101.prototype.detectForVideo = _v1101.prototype.F, _v1101.prototype.detect = _v1101.prototype.D, _v1101.prototype.setOptions = _v1101.prototype.o, _v1101.createFromModelPath = function (_v0, _v1) {
-    return _v1083(_v1101, _v0, {
+  _v1106.prototype.detectForVideo = _v1106.prototype.F, _v1106.prototype.detect = _v1106.prototype.D, _v1106.prototype.setOptions = _v1106.prototype.o, _v1106.createFromModelPath = function (_v0, _v1) {
+    return _v1088(_v1106, _v0, {
       baseOptions: {
         modelAssetPath: _v1
       }
     });
-  }, _v1101.createFromModelBuffer = function (_v0, _v1) {
-    return _v1083(_v1101, _v0, {
+  }, _v1106.createFromModelBuffer = function (_v0, _v1) {
+    return _v1088(_v1106, _v0, {
       baseOptions: {
         modelAssetBuffer: _v1
       }
     });
-  }, _v1101.createFromOptions = function (_v0, _v1) {
-    return _v1083(_v1101, _v0, _v1);
-  }, _v1101.FACE_LANDMARKS_LIPS = _v1090, _v1101.FACE_LANDMARKS_LEFT_EYE = _v1091, _v1101.FACE_LANDMARKS_LEFT_EYEBROW = _v1092, _v1101.FACE_LANDMARKS_LEFT_IRIS = _v1093, _v1101.FACE_LANDMARKS_RIGHT_EYE = _v1094, _v1101.FACE_LANDMARKS_RIGHT_EYEBROW = _v1095, _v1101.FACE_LANDMARKS_RIGHT_IRIS = _v1096, _v1101.FACE_LANDMARKS_FACE_OVAL = _v1097, _v1101.FACE_LANDMARKS_CONTOURS = _v1098, _v1101.FACE_LANDMARKS_TESSELATION = _v1099;
-  var _v1102 = class extends _v1088 {
+  }, _v1106.createFromOptions = function (_v0, _v1) {
+    return _v1088(_v1106, _v0, _v1);
+  }, _v1106.FACE_LANDMARKS_LIPS = _v1095, _v1106.FACE_LANDMARKS_LEFT_EYE = _v1096, _v1106.FACE_LANDMARKS_LEFT_EYEBROW = _v1097, _v1106.FACE_LANDMARKS_LEFT_IRIS = _v1098, _v1106.FACE_LANDMARKS_RIGHT_EYE = _v1099, _v1106.FACE_LANDMARKS_RIGHT_EYEBROW = _v1100, _v1106.FACE_LANDMARKS_RIGHT_IRIS = _v1101, _v1106.FACE_LANDMARKS_FACE_OVAL = _v1102, _v1106.FACE_LANDMARKS_CONTOURS = _v1103, _v1106.FACE_LANDMARKS_TESSELATION = _v1104;
+  var _v1107 = class extends _v1093 {
     constructor(_v0, _v1) {
-      super(new _v1082(_v0, _v1), "image_in", "norm_rect", !0), _v786(_v0 = this.j = new _v973(), 0, 1, _v1 = new _v961());
+      super(new _v1087(_v0, _v1), "image_in", "norm_rect", !0), _v791(_v0 = this.j = new _v978(), 0, 1, _v1 = new _v966());
     }
     get baseOptions() {
-      return _v783(this.j, _v961, 1);
+      return _v788(this.j, _v966, 1);
     }
     set baseOptions(_v0) {
-      _v786(this.j, 0, 1, _v0);
+      _v791(this.j, 0, 1, _v0);
     }
     o(_v0) {
       return super.l(_v0);
     }
     Pa(_v0, _v1, _v2) {
-      if (this.h = "function" == typeof _v1 ? _v1 : _v2, _v1085(this, _v0, ("function" != typeof _v1 ? _v1 : {}) ?? {}), !this.h) return this.s;
+      if (this.h = "function" == typeof _v1 ? _v1 : _v2, _v1090(this, _v0, ("function" != typeof _v1 ? _v1 : {}) ?? {}), !this.h) return this.s;
     }
     m() {
-      var _v0 = new _v929();
-      _v927(_v0, "image_in"), _v927(_v0, "norm_rect"), _v928(_v0, "stylized_image");
-      let _v1 = new _v916();
-      _v821(_v1, _v974, this.j);
-      let _v2 = new _v922();
-      _v919(_v2, "mediapipe.tasks.vision.face_stylizer.FaceStylizerGraph"), _v920(_v2, "IMAGE:image_in"), _v920(_v2, "NORM_RECT:norm_rect"), _v921(_v2, "STYLIZED_IMAGE:stylized_image"), _v2.o(_v1), _v926(_v0, _v2), this.g.V("stylized_image", (_v0, _v1) => {
+      var _v0 = new _v934();
+      _v932(_v0, "image_in"), _v932(_v0, "norm_rect"), _v933(_v0, "stylized_image");
+      let _v1 = new _v921();
+      _v826(_v1, _v979, this.j);
+      let _v2 = new _v927();
+      _v924(_v2, "mediapipe.tasks.vision.face_stylizer.FaceStylizerGraph"), _v925(_v2, "IMAGE:image_in"), _v925(_v2, "NORM_RECT:norm_rect"), _v926(_v2, "STYLIZED_IMAGE:stylized_image"), _v2.o(_v1), _v931(_v0, _v2), this.g.V("stylized_image", (_v0, _v1) => {
         var _v2 = !this.h,
           _v3 = _v0.data,
           _v4 = _v0.width;
@@ -25305,32 +25400,32 @@
             _v3 = new ImageData(new Uint8ClampedArray(_v3.buffer, _v3.byteOffset, _v3.length), _v4, _v0);
           }
         } else if (!(_v3 instanceof WebGLTexture)) throw Error(`Unsupported format: ${_v3.constructor.name}`);
-        _v4 = new _v1076([_v3], !1, !1, this.g.i.canvas, this.P, _v4, _v0), this.s = _v2 = _v2 ? _v4.clone() : _v4, this.h && this.h(_v2), _v1030(this, _v1);
+        _v4 = new _v1081([_v3], !1, !1, this.g.i.canvas, this.P, _v4, _v0), this.s = _v2 = _v2 ? _v4.clone() : _v4, this.h && this.h(_v2), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("stylized_image", _v0 => {
-        this.s = null, this.h && this.h(null), _v1030(this, _v0);
+        this.s = null, this.h && this.h(null), _v1035(this, _v0);
       }), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
     }
   };
-  _v1102.prototype.stylize = _v1102.prototype.Pa, _v1102.prototype.setOptions = _v1102.prototype.o, _v1102.createFromModelPath = function (_v0, _v1) {
-    return _v1083(_v1102, _v0, {
+  _v1107.prototype.stylize = _v1107.prototype.Pa, _v1107.prototype.setOptions = _v1107.prototype.o, _v1107.createFromModelPath = function (_v0, _v1) {
+    return _v1088(_v1107, _v0, {
       baseOptions: {
         modelAssetPath: _v1
       }
     });
-  }, _v1102.createFromModelBuffer = function (_v0, _v1) {
-    return _v1083(_v1102, _v0, {
+  }, _v1107.createFromModelBuffer = function (_v0, _v1) {
+    return _v1088(_v1107, _v0, {
       baseOptions: {
         modelAssetBuffer: _v1
       }
     });
-  }, _v1102.createFromOptions = function (_v0, _v1) {
-    return _v1083(_v1102, _v0, _v1);
+  }, _v1107.createFromOptions = function (_v0, _v1) {
+    return _v1088(_v1107, _v0, _v1);
   };
-  var _v1103 = _v1078([0, 1], [1, 2], [2, 3], [3, 4], [0, 5], [5, 6], [6, 7], [7, 8], [5, 9], [9, 10], [10, 11], [11, 12], [9, 13], [13, 14], [14, 15], [15, 16], [13, 17], [0, 17], [17, 18], [18, 19], [19, 20]);
-  function _v1104(_v0) {
+  var _v1108 = _v1083([0, 1], [1, 2], [2, 3], [3, 4], [0, 5], [5, 6], [6, 7], [7, 8], [5, 9], [9, 10], [10, 11], [11, 12], [9, 13], [13, 14], [14, 15], [15, 16], [13, 17], [0, 17], [17, 18], [18, 19], [19, 20]);
+  function _v1109(_v0) {
     _v0.gestures = [], _v0.landmarks = [], _v0.worldLandmarks = [], _v0.handedness = [];
   }
-  function _v1105(_v0) {
+  function _v1110(_v0) {
     return 0 === _v0.gestures.length ? {
       gestures: [],
       landmarks: [],
@@ -25345,93 +25440,93 @@
       handednesses: _v0.handedness
     };
   }
-  function _v1106(_v0, _v1 = !0) {
+  function _v1111(_v0, _v1 = !0) {
     let _v2 = [];
     for (let _v0 of _v0) {
-      var _v3 = _v935(_v0);
-      for (let _v0 of (_v0 = [], _v3.g())) _v3 = _v1 && null != _v791(_v0, 1) ? _v791(_v0, 1) ?? 0 : -1, _v0.push({
-        score: _v792(_v0, 2) ?? 0,
+      var _v3 = _v940(_v0);
+      for (let _v0 of (_v0 = [], _v3.g())) _v3 = _v1 && null != _v796(_v0, 1) ? _v796(_v0, 1) ?? 0 : -1, _v0.push({
+        score: _v797(_v0, 2) ?? 0,
         index: _v3,
-        categoryName: _v793(_v0, 3) ?? "",
-        displayName: _v793(_v0, 4) ?? ""
+        categoryName: _v798(_v0, 3) ?? "",
+        displayName: _v798(_v0, 4) ?? ""
       });
       _v2.push(_v0);
     }
     return _v2;
   }
-  var _v1107 = class extends _v1088 {
+  var _v1112 = class extends _v1093 {
     constructor(_v0, _v1) {
-      super(new _v1082(_v0, _v1), "image_in", "norm_rect", !1), this.gestures = [], this.landmarks = [], this.worldLandmarks = [], this.handedness = [], _v786(_v0 = this.j = new _v981(), 0, 1, _v1 = new _v961()), this.s = new _v980(), _v786(this.j, 0, 2, this.s), this.C = new _v979(), _v786(this.s, 0, 3, this.C), this.v = new _v978(), _v786(this.s, 0, 2, this.v), this.h = new _v977(), _v786(this.j, 0, 3, this.h), _v796(this.v, 2, .5), _v796(this.s, 4, .5), _v796(this.C, 2, .5);
+      super(new _v1087(_v0, _v1), "image_in", "norm_rect", !1), this.gestures = [], this.landmarks = [], this.worldLandmarks = [], this.handedness = [], _v791(_v0 = this.j = new _v986(), 0, 1, _v1 = new _v966()), this.s = new _v985(), _v791(this.j, 0, 2, this.s), this.C = new _v984(), _v791(this.s, 0, 3, this.C), this.v = new _v983(), _v791(this.s, 0, 2, this.v), this.h = new _v982(), _v791(this.j, 0, 3, this.h), _v801(this.v, 2, .5), _v801(this.s, 4, .5), _v801(this.C, 2, .5);
     }
     get baseOptions() {
-      return _v783(this.j, _v961, 1);
+      return _v788(this.j, _v966, 1);
     }
     set baseOptions(_v0) {
-      _v786(this.j, 0, 1, _v0);
+      _v791(this.j, 0, 1, _v0);
     }
     o(_v0) {
-      if (_v795(this.v, 3, _v0.numHands ?? 1), "minHandDetectionConfidence" in _v0 && _v796(this.v, 2, _v0.minHandDetectionConfidence ?? .5), "minTrackingConfidence" in _v0 && _v796(this.s, 4, _v0.minTrackingConfidence ?? .5), "minHandPresenceConfidence" in _v0 && _v796(this.C, 2, _v0.minHandPresenceConfidence ?? .5), _v0.cannedGesturesClassifierOptions) {
-        var _v1 = new _v975(),
+      if (_v800(this.v, 3, _v0.numHands ?? 1), "minHandDetectionConfidence" in _v0 && _v801(this.v, 2, _v0.minHandDetectionConfidence ?? .5), "minTrackingConfidence" in _v0 && _v801(this.s, 4, _v0.minTrackingConfidence ?? .5), "minHandPresenceConfidence" in _v0 && _v801(this.C, 2, _v0.minHandPresenceConfidence ?? .5), _v0.cannedGesturesClassifierOptions) {
+        var _v1 = new _v980(),
           _v2 = _v1,
-          _v3 = _v1008(_v0.cannedGesturesClassifierOptions, _v783(this.h, _v975, 3)?.h());
-        _v786(_v2, 0, 2, _v3), _v786(this.h, 0, 3, _v1);
-      } else void 0 === _v0.cannedGesturesClassifierOptions && _v783(this.h, _v975, 3)?.g();
-      return _v0.customGesturesClassifierOptions ? (_v786(_v2 = _v1 = new _v975(), 0, 2, _v3 = _v1008(_v0.customGesturesClassifierOptions, _v783(this.h, _v975, 4)?.h())), _v786(this.h, 0, 4, _v1)) : void 0 === _v0.customGesturesClassifierOptions && _v783(this.h, _v975, 4)?.g(), this.l(_v0);
+          _v3 = _v1013(_v0.cannedGesturesClassifierOptions, _v788(this.h, _v980, 3)?.h());
+        _v791(_v2, 0, 2, _v3), _v791(this.h, 0, 3, _v1);
+      } else void 0 === _v0.cannedGesturesClassifierOptions && _v788(this.h, _v980, 3)?.g();
+      return _v0.customGesturesClassifierOptions ? (_v791(_v2 = _v1 = new _v980(), 0, 2, _v3 = _v1013(_v0.customGesturesClassifierOptions, _v788(this.h, _v980, 4)?.h())), _v791(this.h, 0, 4, _v1)) : void 0 === _v0.customGesturesClassifierOptions && _v788(this.h, _v980, 4)?.g(), this.l(_v0);
     }
     Ka(_v0, _v1) {
-      return _v1104(this), _v1085(this, _v0, _v1), _v1105(this);
+      return _v1109(this), _v1090(this, _v0, _v1), _v1110(this);
     }
     La(_v0, _v1, _v2) {
-      return _v1104(this), _v1086(this, _v0, _v2, _v1), _v1105(this);
+      return _v1109(this), _v1091(this, _v0, _v2, _v1), _v1110(this);
     }
     m() {
-      var _v0 = new _v929();
-      _v927(_v0, "image_in"), _v927(_v0, "norm_rect"), _v928(_v0, "hand_gestures"), _v928(_v0, "hand_landmarks"), _v928(_v0, "world_hand_landmarks"), _v928(_v0, "handedness");
-      let _v1 = new _v916();
-      _v821(_v1, _v986, this.j);
-      let _v2 = new _v922();
-      _v919(_v2, "mediapipe.tasks.vision.gesture_recognizer.GestureRecognizerGraph"), _v920(_v2, "IMAGE:image_in"), _v920(_v2, "NORM_RECT:norm_rect"), _v921(_v2, "HAND_GESTURES:hand_gestures"), _v921(_v2, "LANDMARKS:hand_landmarks"), _v921(_v2, "WORLD_LANDMARKS:world_hand_landmarks"), _v921(_v2, "HANDEDNESS:handedness"), _v2.o(_v1), _v926(_v0, _v2), this.g.attachProtoVectorListener("hand_landmarks", (_v0, _v1) => {
+      var _v0 = new _v934();
+      _v932(_v0, "image_in"), _v932(_v0, "norm_rect"), _v933(_v0, "hand_gestures"), _v933(_v0, "hand_landmarks"), _v933(_v0, "world_hand_landmarks"), _v933(_v0, "handedness");
+      let _v1 = new _v921();
+      _v826(_v1, _v991, this.j);
+      let _v2 = new _v927();
+      _v924(_v2, "mediapipe.tasks.vision.gesture_recognizer.GestureRecognizerGraph"), _v925(_v2, "IMAGE:image_in"), _v925(_v2, "NORM_RECT:norm_rect"), _v926(_v2, "HAND_GESTURES:hand_gestures"), _v926(_v2, "LANDMARKS:hand_landmarks"), _v926(_v2, "WORLD_LANDMARKS:world_hand_landmarks"), _v926(_v2, "HANDEDNESS:handedness"), _v2.o(_v1), _v931(_v0, _v2), this.g.attachProtoVectorListener("hand_landmarks", (_v0, _v1) => {
         for (let _v0 of _v0) {
-          _v0 = _v943(_v0);
+          _v0 = _v948(_v0);
           let _v0 = [];
-          for (let _v0 of _v785(_v0, _v942, 1)) _v0.push({
-            x: _v792(_v0, 1) ?? 0,
-            y: _v792(_v0, 2) ?? 0,
-            z: _v792(_v0, 3) ?? 0,
-            visibility: _v792(_v0, 4) ?? 0
+          for (let _v0 of _v790(_v0, _v947, 1)) _v0.push({
+            x: _v797(_v0, 1) ?? 0,
+            y: _v797(_v0, 2) ?? 0,
+            z: _v797(_v0, 3) ?? 0,
+            visibility: _v797(_v0, 4) ?? 0
           });
           this.landmarks.push(_v0);
         }
-        _v1030(this, _v1);
+        _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("hand_landmarks", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), this.g.attachProtoVectorListener("world_hand_landmarks", (_v0, _v1) => {
         for (let _v0 of _v0) {
-          _v0 = _v941(_v0);
+          _v0 = _v946(_v0);
           let _v0 = [];
-          for (let _v0 of _v785(_v0, _v940, 1)) _v0.push({
-            x: _v792(_v0, 1) ?? 0,
-            y: _v792(_v0, 2) ?? 0,
-            z: _v792(_v0, 3) ?? 0,
-            visibility: _v792(_v0, 4) ?? 0
+          for (let _v0 of _v790(_v0, _v945, 1)) _v0.push({
+            x: _v797(_v0, 1) ?? 0,
+            y: _v797(_v0, 2) ?? 0,
+            z: _v797(_v0, 3) ?? 0,
+            visibility: _v797(_v0, 4) ?? 0
           });
           this.worldLandmarks.push(_v0);
         }
-        _v1030(this, _v1);
+        _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("world_hand_landmarks", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), this.g.attachProtoVectorListener("hand_gestures", (_v0, _v1) => {
-        this.gestures.push(..._v1106(_v0, !1)), _v1030(this, _v1);
+        this.gestures.push(..._v1111(_v0, !1)), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("hand_gestures", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), this.g.attachProtoVectorListener("handedness", (_v0, _v1) => {
-        this.handedness.push(..._v1106(_v0)), _v1030(this, _v1);
+        this.handedness.push(..._v1111(_v0)), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("handedness", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
     }
   };
-  function _v1108(_v0) {
+  function _v1113(_v0) {
     return {
       landmarks: _v0.landmarks,
       worldLandmarks: _v0.worldLandmarks,
@@ -25439,94 +25534,94 @@
       handedness: _v0.handedness
     };
   }
-  _v1107.prototype.recognizeForVideo = _v1107.prototype.La, _v1107.prototype.recognize = _v1107.prototype.Ka, _v1107.prototype.setOptions = _v1107.prototype.o, _v1107.createFromModelPath = function (_v0, _v1) {
-    return _v1083(_v1107, _v0, {
+  _v1112.prototype.recognizeForVideo = _v1112.prototype.La, _v1112.prototype.recognize = _v1112.prototype.Ka, _v1112.prototype.setOptions = _v1112.prototype.o, _v1112.createFromModelPath = function (_v0, _v1) {
+    return _v1088(_v1112, _v0, {
       baseOptions: {
         modelAssetPath: _v1
       }
     });
-  }, _v1107.createFromModelBuffer = function (_v0, _v1) {
-    return _v1083(_v1107, _v0, {
+  }, _v1112.createFromModelBuffer = function (_v0, _v1) {
+    return _v1088(_v1112, _v0, {
       baseOptions: {
         modelAssetBuffer: _v1
       }
     });
-  }, _v1107.createFromOptions = function (_v0, _v1) {
-    return _v1083(_v1107, _v0, _v1);
-  }, _v1107.HAND_CONNECTIONS = _v1103;
-  var _v1109 = class extends _v1088 {
+  }, _v1112.createFromOptions = function (_v0, _v1) {
+    return _v1088(_v1112, _v0, _v1);
+  }, _v1112.HAND_CONNECTIONS = _v1108;
+  var _v1114 = class extends _v1093 {
     constructor(_v0, _v1) {
-      super(new _v1082(_v0, _v1), "image_in", "norm_rect", !1), this.landmarks = [], this.worldLandmarks = [], this.handedness = [], _v786(_v0 = this.h = new _v980(), 0, 1, _v1 = new _v961()), this.s = new _v979(), _v786(this.h, 0, 3, this.s), this.j = new _v978(), _v786(this.h, 0, 2, this.j), _v795(this.j, 3, 1), _v796(this.j, 2, .5), _v796(this.s, 2, .5), _v796(this.h, 4, .5);
+      super(new _v1087(_v0, _v1), "image_in", "norm_rect", !1), this.landmarks = [], this.worldLandmarks = [], this.handedness = [], _v791(_v0 = this.h = new _v985(), 0, 1, _v1 = new _v966()), this.s = new _v984(), _v791(this.h, 0, 3, this.s), this.j = new _v983(), _v791(this.h, 0, 2, this.j), _v800(this.j, 3, 1), _v801(this.j, 2, .5), _v801(this.s, 2, .5), _v801(this.h, 4, .5);
     }
     get baseOptions() {
-      return _v783(this.h, _v961, 1);
+      return _v788(this.h, _v966, 1);
     }
     set baseOptions(_v0) {
-      _v786(this.h, 0, 1, _v0);
+      _v791(this.h, 0, 1, _v0);
     }
     o(_v0) {
-      return "numHands" in _v0 && _v795(this.j, 3, _v0.numHands ?? 1), "minHandDetectionConfidence" in _v0 && _v796(this.j, 2, _v0.minHandDetectionConfidence ?? .5), "minTrackingConfidence" in _v0 && _v796(this.h, 4, _v0.minTrackingConfidence ?? .5), "minHandPresenceConfidence" in _v0 && _v796(this.s, 2, _v0.minHandPresenceConfidence ?? .5), this.l(_v0);
+      return "numHands" in _v0 && _v800(this.j, 3, _v0.numHands ?? 1), "minHandDetectionConfidence" in _v0 && _v801(this.j, 2, _v0.minHandDetectionConfidence ?? .5), "minTrackingConfidence" in _v0 && _v801(this.h, 4, _v0.minTrackingConfidence ?? .5), "minHandPresenceConfidence" in _v0 && _v801(this.s, 2, _v0.minHandPresenceConfidence ?? .5), this.l(_v0);
     }
     D(_v0, _v1) {
-      return this.landmarks = [], this.worldLandmarks = [], this.handedness = [], _v1085(this, _v0, _v1), _v1108(this);
+      return this.landmarks = [], this.worldLandmarks = [], this.handedness = [], _v1090(this, _v0, _v1), _v1113(this);
     }
     F(_v0, _v1, _v2) {
-      return this.landmarks = [], this.worldLandmarks = [], this.handedness = [], _v1086(this, _v0, _v2, _v1), _v1108(this);
+      return this.landmarks = [], this.worldLandmarks = [], this.handedness = [], _v1091(this, _v0, _v2, _v1), _v1113(this);
     }
     m() {
-      var _v0 = new _v929();
-      _v927(_v0, "image_in"), _v927(_v0, "norm_rect"), _v928(_v0, "hand_landmarks"), _v928(_v0, "world_hand_landmarks"), _v928(_v0, "handedness");
-      let _v1 = new _v916();
-      _v821(_v1, _v987, this.h);
-      let _v2 = new _v922();
-      _v919(_v2, "mediapipe.tasks.vision.hand_landmarker.HandLandmarkerGraph"), _v920(_v2, "IMAGE:image_in"), _v920(_v2, "NORM_RECT:norm_rect"), _v921(_v2, "LANDMARKS:hand_landmarks"), _v921(_v2, "WORLD_LANDMARKS:world_hand_landmarks"), _v921(_v2, "HANDEDNESS:handedness"), _v2.o(_v1), _v926(_v0, _v2), this.g.attachProtoVectorListener("hand_landmarks", (_v0, _v1) => {
-        for (let _v0 of _v0) _v0 = _v943(_v0), this.landmarks.push(_v1011(_v0));
-        _v1030(this, _v1);
+      var _v0 = new _v934();
+      _v932(_v0, "image_in"), _v932(_v0, "norm_rect"), _v933(_v0, "hand_landmarks"), _v933(_v0, "world_hand_landmarks"), _v933(_v0, "handedness");
+      let _v1 = new _v921();
+      _v826(_v1, _v992, this.h);
+      let _v2 = new _v927();
+      _v924(_v2, "mediapipe.tasks.vision.hand_landmarker.HandLandmarkerGraph"), _v925(_v2, "IMAGE:image_in"), _v925(_v2, "NORM_RECT:norm_rect"), _v926(_v2, "LANDMARKS:hand_landmarks"), _v926(_v2, "WORLD_LANDMARKS:world_hand_landmarks"), _v926(_v2, "HANDEDNESS:handedness"), _v2.o(_v1), _v931(_v0, _v2), this.g.attachProtoVectorListener("hand_landmarks", (_v0, _v1) => {
+        for (let _v0 of _v0) _v0 = _v948(_v0), this.landmarks.push(_v1016(_v0));
+        _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("hand_landmarks", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), this.g.attachProtoVectorListener("world_hand_landmarks", (_v0, _v1) => {
-        for (let _v0 of _v0) _v0 = _v941(_v0), this.worldLandmarks.push(_v1012(_v0));
-        _v1030(this, _v1);
+        for (let _v0 of _v0) _v0 = _v946(_v0), this.worldLandmarks.push(_v1017(_v0));
+        _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("world_hand_landmarks", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), this.g.attachProtoVectorListener("handedness", (_v0, _v1) => {
         var _v2 = this.handedness,
           _v3 = _v2.push;
         let _v4 = [];
         for (let _v0 of _v0) {
-          _v0 = _v935(_v0);
+          _v0 = _v940(_v0);
           let _v0 = [];
           for (let _v0 of _v0.g()) _v0.push({
-            score: _v792(_v0, 2) ?? 0,
-            index: _v791(_v0, 1) ?? 0 ?? -1,
-            categoryName: _v793(_v0, 3) ?? "",
-            displayName: _v793(_v0, 4) ?? ""
+            score: _v797(_v0, 2) ?? 0,
+            index: _v796(_v0, 1) ?? 0 ?? -1,
+            categoryName: _v798(_v0, 3) ?? "",
+            displayName: _v798(_v0, 4) ?? ""
           });
           _v4.push(_v0);
         }
-        _v3.call(_v2, ..._v4), _v1030(this, _v1);
+        _v3.call(_v2, ..._v4), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("handedness", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
     }
   };
-  _v1109.prototype.detectForVideo = _v1109.prototype.F, _v1109.prototype.detect = _v1109.prototype.D, _v1109.prototype.setOptions = _v1109.prototype.o, _v1109.createFromModelPath = function (_v0, _v1) {
-    return _v1083(_v1109, _v0, {
+  _v1114.prototype.detectForVideo = _v1114.prototype.F, _v1114.prototype.detect = _v1114.prototype.D, _v1114.prototype.setOptions = _v1114.prototype.o, _v1114.createFromModelPath = function (_v0, _v1) {
+    return _v1088(_v1114, _v0, {
       baseOptions: {
         modelAssetPath: _v1
       }
     });
-  }, _v1109.createFromModelBuffer = function (_v0, _v1) {
-    return _v1083(_v1109, _v0, {
+  }, _v1114.createFromModelBuffer = function (_v0, _v1) {
+    return _v1088(_v1114, _v0, {
       baseOptions: {
         modelAssetBuffer: _v1
       }
     });
-  }, _v1109.createFromOptions = function (_v0, _v1) {
-    return _v1083(_v1109, _v0, _v1);
-  }, _v1109.HAND_CONNECTIONS = _v1103;
-  var _v1110 = _v1078([0, 1], [1, 2], [2, 3], [3, 7], [0, 4], [4, 5], [5, 6], [6, 8], [9, 10], [11, 12], [11, 13], [13, 15], [15, 17], [15, 19], [15, 21], [17, 19], [12, 14], [14, 16], [16, 18], [16, 20], [16, 22], [18, 20], [11, 23], [12, 24], [23, 24], [23, 25], [24, 26], [25, 27], [26, 28], [27, 29], [28, 30], [29, 31], [30, 32], [27, 31], [28, 32]);
-  function _v1111(_v0) {
+  }, _v1114.createFromOptions = function (_v0, _v1) {
+    return _v1088(_v1114, _v0, _v1);
+  }, _v1114.HAND_CONNECTIONS = _v1108;
+  var _v1115 = _v1083([0, 1], [1, 2], [2, 3], [3, 7], [0, 4], [4, 5], [5, 6], [6, 8], [9, 10], [11, 12], [11, 13], [13, 15], [15, 17], [15, 19], [15, 21], [17, 19], [12, 14], [14, 16], [16, 18], [16, 20], [16, 22], [18, 20], [11, 23], [12, 24], [23, 24], [23, 25], [24, 26], [25, 27], [26, 28], [27, 29], [28, 30], [29, 31], [30, 32], [27, 31], [28, 32]);
+  function _v1116(_v0) {
     _v0.h = {
       faceLandmarks: [],
       faceBlendshapes: [],
@@ -25539,20 +25634,20 @@
       rightHandWorldLandmarks: []
     };
   }
-  function _v1112(_v0) {
+  function _v1117(_v0) {
     try {
       if (!_v0.C) return _v0.h;
       _v0.C(_v0.h);
     } finally {
-      _v1033(_v0);
+      _v1038(_v0);
     }
   }
-  function _v1113(_v0, _v1) {
-    _v0 = _v943(_v0), _v1.push(_v1011(_v0));
+  function _v1118(_v0, _v1) {
+    _v0 = _v948(_v0), _v1.push(_v1016(_v0));
   }
-  var _v1114 = class extends _v1088 {
+  var _v1119 = class extends _v1093 {
     constructor(_v0, _v1) {
-      super(new _v1082(_v0, _v1), "input_frames_image", null, !1), this.h = {
+      super(new _v1087(_v0, _v1), "input_frames_image", null, !1), this.h = {
         faceLandmarks: [],
         faceBlendshapes: [],
         poseLandmarks: [],
@@ -25562,311 +25657,222 @@
         leftHandWorldLandmarks: [],
         rightHandLandmarks: [],
         rightHandWorldLandmarks: []
-      }, this.outputPoseSegmentationMasks = this.outputFaceBlendshapes = !1, _v786(_v0 = this.j = new _v991(), 0, 1, _v1 = new _v961()), this.K = new _v979(), _v786(this.j, 0, 2, this.K), this.aa = new _v988(), _v786(this.j, 0, 3, this.aa), this.s = new _v964(), _v786(this.j, 0, 4, this.s), this.I = new _v968(), _v786(this.j, 0, 5, this.I), this.v = new _v989(), _v786(this.j, 0, 6, this.v), this.L = new _v990(), _v786(this.j, 0, 7, this.L), _v796(this.s, 2, .5), _v796(this.s, 3, .3), _v796(this.I, 2, .5), _v796(this.v, 2, .5), _v796(this.v, 3, .3), _v796(this.L, 2, .5), _v796(this.K, 2, .5);
+      }, this.outputPoseSegmentationMasks = this.outputFaceBlendshapes = !1, _v791(_v0 = this.j = new _v996(), 0, 1, _v1 = new _v966()), this.K = new _v984(), _v791(this.j, 0, 2, this.K), this.aa = new _v993(), _v791(this.j, 0, 3, this.aa), this.s = new _v969(), _v791(this.j, 0, 4, this.s), this.I = new _v973(), _v791(this.j, 0, 5, this.I), this.v = new _v994(), _v791(this.j, 0, 6, this.v), this.L = new _v995(), _v791(this.j, 0, 7, this.L), _v801(this.s, 2, .5), _v801(this.s, 3, .3), _v801(this.I, 2, .5), _v801(this.v, 2, .5), _v801(this.v, 3, .3), _v801(this.L, 2, .5), _v801(this.K, 2, .5);
     }
     get baseOptions() {
-      return _v783(this.j, _v961, 1);
+      return _v788(this.j, _v966, 1);
     }
     set baseOptions(_v0) {
-      _v786(this.j, 0, 1, _v0);
+      _v791(this.j, 0, 1, _v0);
     }
     o(_v0) {
-      return "minFaceDetectionConfidence" in _v0 && _v796(this.s, 2, _v0.minFaceDetectionConfidence ?? .5), "minFaceSuppressionThreshold" in _v0 && _v796(this.s, 3, _v0.minFaceSuppressionThreshold ?? .3), "minFacePresenceConfidence" in _v0 && _v796(this.I, 2, _v0.minFacePresenceConfidence ?? .5), "outputFaceBlendshapes" in _v0 && (this.outputFaceBlendshapes = !!_v0.outputFaceBlendshapes), "minPoseDetectionConfidence" in _v0 && _v796(this.v, 2, _v0.minPoseDetectionConfidence ?? .5), "minPoseSuppressionThreshold" in _v0 && _v796(this.v, 3, _v0.minPoseSuppressionThreshold ?? .3), "minPosePresenceConfidence" in _v0 && _v796(this.L, 2, _v0.minPosePresenceConfidence ?? .5), "outputPoseSegmentationMasks" in _v0 && (this.outputPoseSegmentationMasks = !!_v0.outputPoseSegmentationMasks), "minHandLandmarksConfidence" in _v0 && _v796(this.K, 2, _v0.minHandLandmarksConfidence ?? .5), this.l(_v0);
+      return "minFaceDetectionConfidence" in _v0 && _v801(this.s, 2, _v0.minFaceDetectionConfidence ?? .5), "minFaceSuppressionThreshold" in _v0 && _v801(this.s, 3, _v0.minFaceSuppressionThreshold ?? .3), "minFacePresenceConfidence" in _v0 && _v801(this.I, 2, _v0.minFacePresenceConfidence ?? .5), "outputFaceBlendshapes" in _v0 && (this.outputFaceBlendshapes = !!_v0.outputFaceBlendshapes), "minPoseDetectionConfidence" in _v0 && _v801(this.v, 2, _v0.minPoseDetectionConfidence ?? .5), "minPoseSuppressionThreshold" in _v0 && _v801(this.v, 3, _v0.minPoseSuppressionThreshold ?? .3), "minPosePresenceConfidence" in _v0 && _v801(this.L, 2, _v0.minPosePresenceConfidence ?? .5), "outputPoseSegmentationMasks" in _v0 && (this.outputPoseSegmentationMasks = !!_v0.outputPoseSegmentationMasks), "minHandLandmarksConfidence" in _v0 && _v801(this.K, 2, _v0.minHandLandmarksConfidence ?? .5), this.l(_v0);
     }
     D(_v0, _v1, _v2) {
-      return this.C = "function" == typeof _v1 ? _v1 : _v2, _v1111(this), _v1085(this, _v0, "function" != typeof _v1 ? _v1 : {}), _v1112(this);
+      return this.C = "function" == typeof _v1 ? _v1 : _v2, _v1116(this), _v1090(this, _v0, "function" != typeof _v1 ? _v1 : {}), _v1117(this);
     }
     F(_v0, _v1, _v2, _v3) {
-      return this.C = "function" == typeof _v2 ? _v2 : _v3, _v1111(this), _v1086(this, _v0, "function" != typeof _v2 ? _v2 : {}, _v1), _v1112(this);
+      return this.C = "function" == typeof _v2 ? _v2 : _v3, _v1116(this), _v1091(this, _v0, "function" != typeof _v2 ? _v2 : {}, _v1), _v1117(this);
     }
     m() {
-      var _v0 = new _v929();
-      _v927(_v0, "input_frames_image"), _v928(_v0, "pose_landmarks"), _v928(_v0, "pose_world_landmarks"), _v928(_v0, "face_landmarks"), _v928(_v0, "left_hand_landmarks"), _v928(_v0, "left_hand_world_landmarks"), _v928(_v0, "right_hand_landmarks"), _v928(_v0, "right_hand_world_landmarks");
-      let _v1 = new _v916(),
-        _v2 = new _v903();
-      _v776(_v2, 1, _v729("type.googleapis.com/mediapipe.tasks.vision.holistic_landmarker.proto.HolisticLandmarkerGraphOptions"), ""), function (_v0, _v1) {
-        if (null != _v1) if (Array.isArray(_v1)) _v765(_v0, 2, _v755(_v1, _v757, void 0, void 0, !1));else {
-          if (!("string" == typeof _v1 || _v1 instanceof _v659 || _v654(_v1))) throw Error("invalid value in Any.value field: " + _v1 + " expected a ByteString, a base64 encoded string, a Uint8Array or a jspb array");
-          _v776(_v0, 2, _v685(_v1, !1, !1), _v657());
+      var _v0 = new _v934();
+      _v932(_v0, "input_frames_image"), _v933(_v0, "pose_landmarks"), _v933(_v0, "pose_world_landmarks"), _v933(_v0, "face_landmarks"), _v933(_v0, "left_hand_landmarks"), _v933(_v0, "left_hand_world_landmarks"), _v933(_v0, "right_hand_landmarks"), _v933(_v0, "right_hand_world_landmarks");
+      let _v1 = new _v921(),
+        _v2 = new _v908();
+      _v781(_v2, 1, _v734("type.googleapis.com/mediapipe.tasks.vision.holistic_landmarker.proto.HolisticLandmarkerGraphOptions"), ""), function (_v0, _v1) {
+        if (null != _v1) if (Array.isArray(_v1)) _v770(_v0, 2, _v760(_v1, _v762, void 0, void 0, !1));else {
+          if (!("string" == typeof _v1 || _v1 instanceof _v664 || _v659(_v1))) throw Error("invalid value in Any.value field: " + _v1 + " expected a ByteString, a base64 encoded string, a Uint8Array or a jspb array");
+          _v781(_v0, 2, _v690(_v1, !1, !1), _v662());
         }
       }(_v2, this.j.g());
-      let _v3 = new _v922();
-      _v919(_v3, "mediapipe.tasks.vision.holistic_landmarker.HolisticLandmarkerGraph"), _v790(_v3, 8, _v903, _v2), _v920(_v3, "IMAGE:input_frames_image"), _v921(_v3, "POSE_LANDMARKS:pose_landmarks"), _v921(_v3, "POSE_WORLD_LANDMARKS:pose_world_landmarks"), _v921(_v3, "FACE_LANDMARKS:face_landmarks"), _v921(_v3, "LEFT_HAND_LANDMARKS:left_hand_landmarks"), _v921(_v3, "LEFT_HAND_WORLD_LANDMARKS:left_hand_world_landmarks"), _v921(_v3, "RIGHT_HAND_LANDMARKS:right_hand_landmarks"), _v921(_v3, "RIGHT_HAND_WORLD_LANDMARKS:right_hand_world_landmarks"), _v3.o(_v1), _v926(_v0, _v3), _v1031(this, _v0), this.g.attachProtoListener("pose_landmarks", (_v0, _v1) => {
-        _v1113(_v0, this.h.poseLandmarks), _v1030(this, _v1);
+      let _v3 = new _v927();
+      _v924(_v3, "mediapipe.tasks.vision.holistic_landmarker.HolisticLandmarkerGraph"), _v795(_v3, 8, _v908, _v2), _v925(_v3, "IMAGE:input_frames_image"), _v926(_v3, "POSE_LANDMARKS:pose_landmarks"), _v926(_v3, "POSE_WORLD_LANDMARKS:pose_world_landmarks"), _v926(_v3, "FACE_LANDMARKS:face_landmarks"), _v926(_v3, "LEFT_HAND_LANDMARKS:left_hand_landmarks"), _v926(_v3, "LEFT_HAND_WORLD_LANDMARKS:left_hand_world_landmarks"), _v926(_v3, "RIGHT_HAND_LANDMARKS:right_hand_landmarks"), _v926(_v3, "RIGHT_HAND_WORLD_LANDMARKS:right_hand_world_landmarks"), _v3.o(_v1), _v931(_v0, _v3), _v1036(this, _v0), this.g.attachProtoListener("pose_landmarks", (_v0, _v1) => {
+        _v1118(_v0, this.h.poseLandmarks), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("pose_landmarks", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), this.g.attachProtoListener("pose_world_landmarks", (_v0, _v1) => {
         var _v2 = this.h.poseWorldLandmarks;
-        _v0 = _v941(_v0), _v2.push(_v1012(_v0)), _v1030(this, _v1);
+        _v0 = _v946(_v0), _v2.push(_v1017(_v0)), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("pose_world_landmarks", _v0 => {
-        _v1030(this, _v0);
-      }), this.outputPoseSegmentationMasks && (_v921(_v3, "POSE_SEGMENTATION_MASK:pose_segmentation_mask"), _v1032(this, "pose_segmentation_mask"), this.g.V("pose_segmentation_mask", (_v0, _v1) => {
-        this.h.poseSegmentationMasks = [_v1087(this, _v0, !0, !this.C)], _v1030(this, _v1);
+        _v1035(this, _v0);
+      }), this.outputPoseSegmentationMasks && (_v926(_v3, "POSE_SEGMENTATION_MASK:pose_segmentation_mask"), _v1037(this, "pose_segmentation_mask"), this.g.V("pose_segmentation_mask", (_v0, _v1) => {
+        this.h.poseSegmentationMasks = [_v1092(this, _v0, !0, !this.C)], _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("pose_segmentation_mask", _v0 => {
-        this.h.poseSegmentationMasks = [], _v1030(this, _v0);
+        this.h.poseSegmentationMasks = [], _v1035(this, _v0);
       })), this.g.attachProtoListener("face_landmarks", (_v0, _v1) => {
-        _v1113(_v0, this.h.faceLandmarks), _v1030(this, _v1);
+        _v1118(_v0, this.h.faceLandmarks), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("face_landmarks", _v0 => {
-        _v1030(this, _v0);
-      }), this.outputFaceBlendshapes && (_v928(_v0, "extra_blendshapes"), _v921(_v3, "FACE_BLENDSHAPES:extra_blendshapes"), this.g.attachProtoListener("extra_blendshapes", (_v0, _v1) => {
+        _v1035(this, _v0);
+      }), this.outputFaceBlendshapes && (_v933(_v0, "extra_blendshapes"), _v926(_v3, "FACE_BLENDSHAPES:extra_blendshapes"), this.g.attachProtoListener("extra_blendshapes", (_v0, _v1) => {
         var _v2 = this.h.faceBlendshapes;
-        this.outputFaceBlendshapes && (_v0 = _v935(_v0), _v2.push(_v1009(_v0.g() ?? []))), _v1030(this, _v1);
+        this.outputFaceBlendshapes && (_v0 = _v940(_v0), _v2.push(_v1014(_v0.g() ?? []))), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("extra_blendshapes", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       })), this.g.attachProtoListener("left_hand_landmarks", (_v0, _v1) => {
-        _v1113(_v0, this.h.leftHandLandmarks), _v1030(this, _v1);
+        _v1118(_v0, this.h.leftHandLandmarks), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("left_hand_landmarks", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), this.g.attachProtoListener("left_hand_world_landmarks", (_v0, _v1) => {
         var _v2 = this.h.leftHandWorldLandmarks;
-        _v0 = _v941(_v0), _v2.push(_v1012(_v0)), _v1030(this, _v1);
+        _v0 = _v946(_v0), _v2.push(_v1017(_v0)), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("left_hand_world_landmarks", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), this.g.attachProtoListener("right_hand_landmarks", (_v0, _v1) => {
-        _v1113(_v0, this.h.rightHandLandmarks), _v1030(this, _v1);
+        _v1118(_v0, this.h.rightHandLandmarks), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("right_hand_landmarks", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), this.g.attachProtoListener("right_hand_world_landmarks", (_v0, _v1) => {
         var _v2 = this.h.rightHandWorldLandmarks;
-        _v0 = _v941(_v0), _v2.push(_v1012(_v0)), _v1030(this, _v1);
+        _v0 = _v946(_v0), _v2.push(_v1017(_v0)), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("right_hand_world_landmarks", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
     }
   };
-  _v1114.prototype.detectForVideo = _v1114.prototype.F, _v1114.prototype.detect = _v1114.prototype.D, _v1114.prototype.setOptions = _v1114.prototype.o, _v1114.createFromModelPath = function (_v0, _v1) {
-    return _v1083(_v1114, _v0, {
+  _v1119.prototype.detectForVideo = _v1119.prototype.F, _v1119.prototype.detect = _v1119.prototype.D, _v1119.prototype.setOptions = _v1119.prototype.o, _v1119.createFromModelPath = function (_v0, _v1) {
+    return _v1088(_v1119, _v0, {
       baseOptions: {
         modelAssetPath: _v1
       }
     });
-  }, _v1114.createFromModelBuffer = function (_v0, _v1) {
-    return _v1083(_v1114, _v0, {
+  }, _v1119.createFromModelBuffer = function (_v0, _v1) {
+    return _v1088(_v1119, _v0, {
       baseOptions: {
         modelAssetBuffer: _v1
       }
     });
-  }, _v1114.createFromOptions = function (_v0, _v1) {
-    return _v1083(_v1114, _v0, _v1);
-  }, _v1114.HAND_CONNECTIONS = _v1103, _v1114.POSE_CONNECTIONS = _v1110, _v1114.FACE_LANDMARKS_LIPS = _v1090, _v1114.FACE_LANDMARKS_LEFT_EYE = _v1091, _v1114.FACE_LANDMARKS_LEFT_EYEBROW = _v1092, _v1114.FACE_LANDMARKS_LEFT_IRIS = _v1093, _v1114.FACE_LANDMARKS_RIGHT_EYE = _v1094, _v1114.FACE_LANDMARKS_RIGHT_EYEBROW = _v1095, _v1114.FACE_LANDMARKS_RIGHT_IRIS = _v1096, _v1114.FACE_LANDMARKS_FACE_OVAL = _v1097, _v1114.FACE_LANDMARKS_CONTOURS = _v1098, _v1114.FACE_LANDMARKS_TESSELATION = _v1099;
-  var _v1115 = class extends _v1088 {
+  }, _v1119.createFromOptions = function (_v0, _v1) {
+    return _v1088(_v1119, _v0, _v1);
+  }, _v1119.HAND_CONNECTIONS = _v1108, _v1119.POSE_CONNECTIONS = _v1115, _v1119.FACE_LANDMARKS_LIPS = _v1095, _v1119.FACE_LANDMARKS_LEFT_EYE = _v1096, _v1119.FACE_LANDMARKS_LEFT_EYEBROW = _v1097, _v1119.FACE_LANDMARKS_LEFT_IRIS = _v1098, _v1119.FACE_LANDMARKS_RIGHT_EYE = _v1099, _v1119.FACE_LANDMARKS_RIGHT_EYEBROW = _v1100, _v1119.FACE_LANDMARKS_RIGHT_IRIS = _v1101, _v1119.FACE_LANDMARKS_FACE_OVAL = _v1102, _v1119.FACE_LANDMARKS_CONTOURS = _v1103, _v1119.FACE_LANDMARKS_TESSELATION = _v1104;
+  var _v1120 = class extends _v1093 {
     constructor(_v0, _v1) {
-      super(new _v1082(_v0, _v1), "input_image", "norm_rect", !0), this.j = {
+      super(new _v1087(_v0, _v1), "input_image", "norm_rect", !0), this.j = {
         classifications: []
-      }, _v786(_v0 = this.h = new _v994(), 0, 1, _v1 = new _v961());
+      }, _v791(_v0 = this.h = new _v999(), 0, 1, _v1 = new _v966());
     }
     get baseOptions() {
-      return _v783(this.h, _v961, 1);
+      return _v788(this.h, _v966, 1);
     }
     set baseOptions(_v0) {
-      _v786(this.h, 0, 1, _v0);
+      _v791(this.h, 0, 1, _v0);
     }
     o(_v0) {
-      return _v786(this.h, 0, 2, _v1008(_v0, _v783(this.h, _v954, 2))), this.l(_v0);
+      return _v791(this.h, 0, 2, _v1013(_v0, _v788(this.h, _v959, 2))), this.l(_v0);
     }
     ua(_v0, _v1) {
       return this.j = {
         classifications: []
-      }, _v1085(this, _v0, _v1), this.j;
+      }, _v1090(this, _v0, _v1), this.j;
     }
     va(_v0, _v1, _v2) {
       return this.j = {
         classifications: []
-      }, _v1086(this, _v0, _v2, _v1), this.j;
+      }, _v1091(this, _v0, _v2, _v1), this.j;
     }
     m() {
-      var _v0 = new _v929();
-      _v927(_v0, "input_image"), _v927(_v0, "norm_rect"), _v928(_v0, "classifications");
-      let _v1 = new _v916();
-      _v821(_v1, _v995, this.h);
-      let _v2 = new _v922();
-      _v919(_v2, "mediapipe.tasks.vision.image_classifier.ImageClassifierGraph"), _v920(_v2, "IMAGE:input_image"), _v920(_v2, "NORM_RECT:norm_rect"), _v921(_v2, "CLASSIFICATIONS:classifications"), _v2.o(_v1), _v926(_v0, _v2), this.g.attachProtoListener("classifications", (_v0, _v1) => {
+      var _v0 = new _v934();
+      _v932(_v0, "input_image"), _v932(_v0, "norm_rect"), _v933(_v0, "classifications");
+      let _v1 = new _v921();
+      _v826(_v1, _v1000, this.h);
+      let _v2 = new _v927();
+      _v924(_v2, "mediapipe.tasks.vision.image_classifier.ImageClassifierGraph"), _v925(_v2, "IMAGE:input_image"), _v925(_v2, "NORM_RECT:norm_rect"), _v926(_v2, "CLASSIFICATIONS:classifications"), _v2.o(_v1), _v931(_v0, _v2), this.g.attachProtoListener("classifications", (_v0, _v1) => {
         var _v2;
         let _v3;
         this.j = (_v3 = {
-          classifications: _v785(_v2 = _v948(_v0), _v947, 1).map(_v0 => _v1009(_v783(_v0, _v933, 4)?.g() ?? [], _v791(_v0, 2) ?? 0, _v793(_v0, 3)))
-        }, null != _v727(_v762(_v2, 2)) && (_v3.timestampMs = _v727(_v762(_v2, 2)) ?? 0), _v3), _v1030(this, _v1);
+          classifications: _v790(_v2 = _v953(_v0), _v952, 1).map(_v0 => _v1014(_v788(_v0, _v938, 4)?.g() ?? [], _v796(_v0, 2) ?? 0, _v798(_v0, 3)))
+        }, null != _v732(_v767(_v2, 2)) && (_v3.timestampMs = _v732(_v767(_v2, 2)) ?? 0), _v3), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("classifications", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
     }
   };
-  _v1115.prototype.classifyForVideo = _v1115.prototype.va, _v1115.prototype.classify = _v1115.prototype.ua, _v1115.prototype.setOptions = _v1115.prototype.o, _v1115.createFromModelPath = function (_v0, _v1) {
-    return _v1083(_v1115, _v0, {
-      baseOptions: {
-        modelAssetPath: _v1
-      }
-    });
-  }, _v1115.createFromModelBuffer = function (_v0, _v1) {
-    return _v1083(_v1115, _v0, {
-      baseOptions: {
-        modelAssetBuffer: _v1
-      }
-    });
-  }, _v1115.createFromOptions = function (_v0, _v1) {
-    return _v1083(_v1115, _v0, _v1);
-  };
-  var _v1116 = class extends _v1088 {
-    constructor(_v0, _v1) {
-      super(new _v1082(_v0, _v1), "image_in", "norm_rect", !0), this.h = new _v996(), this.embeddings = {
-        embeddings: []
-      }, _v786(_v0 = this.h, 0, 1, _v1 = new _v961());
-    }
-    get baseOptions() {
-      return _v783(this.h, _v961, 1);
-    }
-    set baseOptions(_v0) {
-      _v786(this.h, 0, 1, _v0);
-    }
-    o(_v0) {
-      var _v1 = this.h,
-        _v2 = _v783(this.h, _v956, 2);
-      return _v2 = _v2 ? _v2.clone() : new _v956(), void 0 !== _v0.l2Normalize ? _v794(_v2, 1, _v0.l2Normalize) : "l2Normalize" in _v0 && _v765(_v2, 1), void 0 !== _v0.quantize ? _v794(_v2, 2, _v0.quantize) : "quantize" in _v0 && _v765(_v2, 2), _v786(_v1, 0, 2, _v2), this.l(_v0);
-    }
-    Ba(_v0, _v1) {
-      return _v1085(this, _v0, _v1), this.embeddings;
-    }
-    Ca(_v0, _v1, _v2) {
-      return _v1086(this, _v0, _v2, _v1), this.embeddings;
-    }
-    m() {
-      var _v0 = new _v929();
-      _v927(_v0, "image_in"), _v927(_v0, "norm_rect"), _v928(_v0, "embeddings_out");
-      let _v1 = new _v916();
-      _v821(_v1, _v997, this.h);
-      let _v2 = new _v922();
-      _v919(_v2, "mediapipe.tasks.vision.image_embedder.ImageEmbedderGraph"), _v920(_v2, "IMAGE:image_in"), _v920(_v2, "NORM_RECT:norm_rect"), _v921(_v2, "EMBEDDINGS:embeddings_out"), _v2.o(_v1), _v926(_v0, _v2), this.g.attachProtoListener("embeddings_out", (_v0, _v1) => {
-        var _v2;
-        _v0 = _v953(_v0), this.embeddings = {
-          embeddings: _v785(_v2 = _v0, _v951, 1).map(_v0 => {
-            let _v1 = {
-              headIndex: _v791(_v0, 3) ?? 0 ?? -1,
-              headName: _v793(_v0, 4) ?? ""
-            };
-            if (void 0 !== _v782(_v0, _v949, _v777(_v0, 1))) _v1.floatEmbedding = (_v0 = _v771(_v0 = _v783(_v0, _v949, _v777(_v0, 1)), 1, _v718, _v770())).slice();else {
-              let _v0 = new Uint8Array(0);
-              _v1.quantizedEmbedding = _v783(_v0, _v950, _v777(_v0, 2))?.qa()?.h() ?? _v0;
-            }
-            return _v1;
-          }),
-          timestampMs: _v727(_v762(_v2, 2)) ?? 0
-        }, _v1030(this, _v1);
-      }), this.g.attachEmptyPacketListener("embeddings_out", _v0 => {
-        _v1030(this, _v0);
-      }), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
-    }
-  };
-  _v1116.cosineSimilarity = function (_v0, _v1) {
-    if (_v0.floatEmbedding && _v1.floatEmbedding) _v0 = _v1014(_v0.floatEmbedding, _v1.floatEmbedding);else {
-      if (!_v0.quantizedEmbedding || !_v1.quantizedEmbedding) throw Error("Cannot compute cosine similarity between quantized and float embeddings.");
-      _v0 = _v1014(_v1013(_v0.quantizedEmbedding), _v1013(_v1.quantizedEmbedding));
-    }
-    return _v0;
-  }, _v1116.prototype.embedForVideo = _v1116.prototype.Ca, _v1116.prototype.embed = _v1116.prototype.Ba, _v1116.prototype.setOptions = _v1116.prototype.o, _v1116.createFromModelPath = function (_v0, _v1) {
-    return _v1083(_v1116, _v0, {
-      baseOptions: {
-        modelAssetPath: _v1
-      }
-    });
-  }, _v1116.createFromModelBuffer = function (_v0, _v1) {
-    return _v1083(_v1116, _v0, {
-      baseOptions: {
-        modelAssetBuffer: _v1
-      }
-    });
-  }, _v1116.createFromOptions = function (_v0, _v1) {
-    return _v1083(_v1116, _v0, _v1);
-  };
-  var _v1117 = class {
-    constructor(_v0, _v1, _v2) {
-      this.confidenceMasks = _v0, this.categoryMask = _v1, this.qualityScores = _v2;
-    }
-    close() {
-      this.confidenceMasks?.forEach(_v0 => {
-        _v0.close();
-      }), this.categoryMask?.close();
-    }
-  };
-  function _v1118(_v0) {
-    _v0.categoryMask = void 0, _v0.confidenceMasks = void 0, _v0.qualityScores = void 0;
-  }
-  function _v1119(_v0) {
-    try {
-      let _v0 = new _v1117(_v0.confidenceMasks, _v0.categoryMask, _v0.qualityScores);
-      if (!_v0.j) return _v0;
-      _v0.j(_v0);
-    } finally {
-      _v1033(_v0);
-    }
-  }
-  _v1117.prototype.close = _v1117.prototype.close;
-  var _v1120 = class extends _v1088 {
-    constructor(_v0, _v1) {
-      super(new _v1082(_v0, _v1), "image_in", "norm_rect", !1), this.s = [], this.outputCategoryMask = !1, this.outputConfidenceMasks = !0, this.h = new _v1002(), this.v = new _v998(), _v786(this.h, 0, 3, this.v), _v786(_v0 = this.h, 0, 1, _v1 = new _v961());
-    }
-    get baseOptions() {
-      return _v783(this.h, _v961, 1);
-    }
-    set baseOptions(_v0) {
-      _v786(this.h, 0, 1, _v0);
-    }
-    o(_v0) {
-      return void 0 !== _v0.displayNamesLocale ? _v765(this.h, 2, _v729(_v0.displayNamesLocale)) : "displayNamesLocale" in _v0 && _v765(this.h, 2), "outputCategoryMask" in _v0 && (this.outputCategoryMask = _v0.outputCategoryMask ?? !1), "outputConfidenceMasks" in _v0 && (this.outputConfidenceMasks = _v0.outputConfidenceMasks ?? !0), super.l(_v0);
-    }
-    J() {
-      var _v0 = this;
-      let _v1 = _v785(_v0.ea(), _v922, 1).filter(_v0 => _v793(_v0, 1).includes("mediapipe.tasks.TensorsToSegmentationCalculator"));
-      if (_v0.s = [], _v1.length > 1) throw Error("The graph has more than one mediapipe.tasks.TensorsToSegmentationCalculator.");
-      1 === _v1.length && (_v783(_v1[0], _v916, 7)?.l()?.g() ?? new Map()).forEach((_v0, _v1) => {
-        _v0.s[Number(_v1)] = _v793(_v0, 1);
-      });
-    }
-    fa(_v0, _v1, _v2) {
-      return this.j = "function" == typeof _v1 ? _v1 : _v2, _v1118(this), _v1085(this, _v0, "function" != typeof _v1 ? _v1 : {}), _v1119(this);
-    }
-    Na(_v0, _v1, _v2, _v3) {
-      return this.j = "function" == typeof _v2 ? _v2 : _v3, _v1118(this), _v1086(this, _v0, "function" != typeof _v2 ? _v2 : {}, _v1), _v1119(this);
-    }
-    Fa() {
-      return this.s;
-    }
-    m() {
-      var _v0 = new _v929();
-      _v927(_v0, "image_in"), _v927(_v0, "norm_rect");
-      let _v1 = new _v916();
-      _v821(_v1, _v1003, this.h);
-      let _v2 = new _v922();
-      _v919(_v2, "mediapipe.tasks.vision.image_segmenter.ImageSegmenterGraph"), _v920(_v2, "IMAGE:image_in"), _v920(_v2, "NORM_RECT:norm_rect"), _v2.o(_v1), _v926(_v0, _v2), _v1031(this, _v0), this.outputConfidenceMasks && (_v928(_v0, "confidence_masks"), _v921(_v2, "CONFIDENCE_MASKS:confidence_masks"), _v1032(this, "confidence_masks"), this.g.da("confidence_masks", (_v0, _v1) => {
-        this.confidenceMasks = _v0.map(_v0 => _v1087(this, _v0, !0, !this.j)), _v1030(this, _v1);
-      }), this.g.attachEmptyPacketListener("confidence_masks", _v0 => {
-        this.confidenceMasks = [], _v1030(this, _v0);
-      })), this.outputCategoryMask && (_v928(_v0, "category_mask"), _v921(_v2, "CATEGORY_MASK:category_mask"), _v1032(this, "category_mask"), this.g.V("category_mask", (_v0, _v1) => {
-        this.categoryMask = _v1087(this, _v0, !1, !this.j), _v1030(this, _v1);
-      }), this.g.attachEmptyPacketListener("category_mask", _v0 => {
-        this.categoryMask = void 0, _v1030(this, _v0);
-      })), _v928(_v0, "quality_scores"), _v921(_v2, "QUALITY_SCORES:quality_scores"), this.g.attachFloatVectorListener("quality_scores", (_v0, _v1) => {
-        this.qualityScores = _v0, _v1030(this, _v1);
-      }), this.g.attachEmptyPacketListener("quality_scores", _v0 => {
-        this.categoryMask = void 0, _v1030(this, _v0);
-      }), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
-    }
-  };
-  _v1120.prototype.getLabels = _v1120.prototype.Fa, _v1120.prototype.segmentForVideo = _v1120.prototype.Na, _v1120.prototype.segment = _v1120.prototype.fa, _v1120.prototype.setOptions = _v1120.prototype.o, _v1120.createFromModelPath = function (_v0, _v1) {
-    return _v1083(_v1120, _v0, {
+  _v1120.prototype.classifyForVideo = _v1120.prototype.va, _v1120.prototype.classify = _v1120.prototype.ua, _v1120.prototype.setOptions = _v1120.prototype.o, _v1120.createFromModelPath = function (_v0, _v1) {
+    return _v1088(_v1120, _v0, {
       baseOptions: {
         modelAssetPath: _v1
       }
     });
   }, _v1120.createFromModelBuffer = function (_v0, _v1) {
-    return _v1083(_v1120, _v0, {
+    return _v1088(_v1120, _v0, {
       baseOptions: {
         modelAssetBuffer: _v1
       }
     });
   }, _v1120.createFromOptions = function (_v0, _v1) {
-    return _v1083(_v1120, _v0, _v1);
+    return _v1088(_v1120, _v0, _v1);
   };
-  var _v1121 = class {
+  var _v1121 = class extends _v1093 {
+    constructor(_v0, _v1) {
+      super(new _v1087(_v0, _v1), "image_in", "norm_rect", !0), this.h = new _v1001(), this.embeddings = {
+        embeddings: []
+      }, _v791(_v0 = this.h, 0, 1, _v1 = new _v966());
+    }
+    get baseOptions() {
+      return _v788(this.h, _v966, 1);
+    }
+    set baseOptions(_v0) {
+      _v791(this.h, 0, 1, _v0);
+    }
+    o(_v0) {
+      var _v1 = this.h,
+        _v2 = _v788(this.h, _v961, 2);
+      return _v2 = _v2 ? _v2.clone() : new _v961(), void 0 !== _v0.l2Normalize ? _v799(_v2, 1, _v0.l2Normalize) : "l2Normalize" in _v0 && _v770(_v2, 1), void 0 !== _v0.quantize ? _v799(_v2, 2, _v0.quantize) : "quantize" in _v0 && _v770(_v2, 2), _v791(_v1, 0, 2, _v2), this.l(_v0);
+    }
+    Ba(_v0, _v1) {
+      return _v1090(this, _v0, _v1), this.embeddings;
+    }
+    Ca(_v0, _v1, _v2) {
+      return _v1091(this, _v0, _v2, _v1), this.embeddings;
+    }
+    m() {
+      var _v0 = new _v934();
+      _v932(_v0, "image_in"), _v932(_v0, "norm_rect"), _v933(_v0, "embeddings_out");
+      let _v1 = new _v921();
+      _v826(_v1, _v1002, this.h);
+      let _v2 = new _v927();
+      _v924(_v2, "mediapipe.tasks.vision.image_embedder.ImageEmbedderGraph"), _v925(_v2, "IMAGE:image_in"), _v925(_v2, "NORM_RECT:norm_rect"), _v926(_v2, "EMBEDDINGS:embeddings_out"), _v2.o(_v1), _v931(_v0, _v2), this.g.attachProtoListener("embeddings_out", (_v0, _v1) => {
+        var _v2;
+        _v0 = _v958(_v0), this.embeddings = {
+          embeddings: _v790(_v2 = _v0, _v956, 1).map(_v0 => {
+            let _v1 = {
+              headIndex: _v796(_v0, 3) ?? 0 ?? -1,
+              headName: _v798(_v0, 4) ?? ""
+            };
+            if (void 0 !== _v787(_v0, _v954, _v782(_v0, 1))) _v1.floatEmbedding = (_v0 = _v776(_v0 = _v788(_v0, _v954, _v782(_v0, 1)), 1, _v723, _v775())).slice();else {
+              let _v0 = new Uint8Array(0);
+              _v1.quantizedEmbedding = _v788(_v0, _v955, _v782(_v0, 2))?.qa()?.h() ?? _v0;
+            }
+            return _v1;
+          }),
+          timestampMs: _v732(_v767(_v2, 2)) ?? 0
+        }, _v1035(this, _v1);
+      }), this.g.attachEmptyPacketListener("embeddings_out", _v0 => {
+        _v1035(this, _v0);
+      }), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
+    }
+  };
+  _v1121.cosineSimilarity = function (_v0, _v1) {
+    if (_v0.floatEmbedding && _v1.floatEmbedding) _v0 = _v1019(_v0.floatEmbedding, _v1.floatEmbedding);else {
+      if (!_v0.quantizedEmbedding || !_v1.quantizedEmbedding) throw Error("Cannot compute cosine similarity between quantized and float embeddings.");
+      _v0 = _v1019(_v1018(_v0.quantizedEmbedding), _v1018(_v1.quantizedEmbedding));
+    }
+    return _v0;
+  }, _v1121.prototype.embedForVideo = _v1121.prototype.Ca, _v1121.prototype.embed = _v1121.prototype.Ba, _v1121.prototype.setOptions = _v1121.prototype.o, _v1121.createFromModelPath = function (_v0, _v1) {
+    return _v1088(_v1121, _v0, {
+      baseOptions: {
+        modelAssetPath: _v1
+      }
+    });
+  }, _v1121.createFromModelBuffer = function (_v0, _v1) {
+    return _v1088(_v1121, _v0, {
+      baseOptions: {
+        modelAssetBuffer: _v1
+      }
+    });
+  }, _v1121.createFromOptions = function (_v0, _v1) {
+    return _v1088(_v1121, _v0, _v1);
+  };
+  var _v1122 = class {
     constructor(_v0, _v1, _v2) {
       this.confidenceMasks = _v0, this.categoryMask = _v1, this.qualityScores = _v2;
     }
@@ -25876,173 +25882,262 @@
       }), this.categoryMask?.close();
     }
   };
-  _v1121.prototype.close = _v1121.prototype.close;
-  var _v1122 = class extends _v822 {
+  function _v1123(_v0) {
+    _v0.categoryMask = void 0, _v0.confidenceMasks = void 0, _v0.qualityScores = void 0;
+  }
+  function _v1124(_v0) {
+    try {
+      let _v0 = new _v1122(_v0.confidenceMasks, _v0.categoryMask, _v0.qualityScores);
+      if (!_v0.j) return _v0;
+      _v0.j(_v0);
+    } finally {
+      _v1038(_v0);
+    }
+  }
+  _v1122.prototype.close = _v1122.prototype.close;
+  var _v1125 = class extends _v1093 {
+    constructor(_v0, _v1) {
+      super(new _v1087(_v0, _v1), "image_in", "norm_rect", !1), this.s = [], this.outputCategoryMask = !1, this.outputConfidenceMasks = !0, this.h = new _v1007(), this.v = new _v1003(), _v791(this.h, 0, 3, this.v), _v791(_v0 = this.h, 0, 1, _v1 = new _v966());
+    }
+    get baseOptions() {
+      return _v788(this.h, _v966, 1);
+    }
+    set baseOptions(_v0) {
+      _v791(this.h, 0, 1, _v0);
+    }
+    o(_v0) {
+      return void 0 !== _v0.displayNamesLocale ? _v770(this.h, 2, _v734(_v0.displayNamesLocale)) : "displayNamesLocale" in _v0 && _v770(this.h, 2), "outputCategoryMask" in _v0 && (this.outputCategoryMask = _v0.outputCategoryMask ?? !1), "outputConfidenceMasks" in _v0 && (this.outputConfidenceMasks = _v0.outputConfidenceMasks ?? !0), super.l(_v0);
+    }
+    J() {
+      var _v0 = this;
+      let _v1 = _v790(_v0.ea(), _v927, 1).filter(_v0 => _v798(_v0, 1).includes("mediapipe.tasks.TensorsToSegmentationCalculator"));
+      if (_v0.s = [], _v1.length > 1) throw Error("The graph has more than one mediapipe.tasks.TensorsToSegmentationCalculator.");
+      1 === _v1.length && (_v788(_v1[0], _v921, 7)?.l()?.g() ?? new Map()).forEach((_v0, _v1) => {
+        _v0.s[Number(_v1)] = _v798(_v0, 1);
+      });
+    }
+    fa(_v0, _v1, _v2) {
+      return this.j = "function" == typeof _v1 ? _v1 : _v2, _v1123(this), _v1090(this, _v0, "function" != typeof _v1 ? _v1 : {}), _v1124(this);
+    }
+    Na(_v0, _v1, _v2, _v3) {
+      return this.j = "function" == typeof _v2 ? _v2 : _v3, _v1123(this), _v1091(this, _v0, "function" != typeof _v2 ? _v2 : {}, _v1), _v1124(this);
+    }
+    Fa() {
+      return this.s;
+    }
+    m() {
+      var _v0 = new _v934();
+      _v932(_v0, "image_in"), _v932(_v0, "norm_rect");
+      let _v1 = new _v921();
+      _v826(_v1, _v1008, this.h);
+      let _v2 = new _v927();
+      _v924(_v2, "mediapipe.tasks.vision.image_segmenter.ImageSegmenterGraph"), _v925(_v2, "IMAGE:image_in"), _v925(_v2, "NORM_RECT:norm_rect"), _v2.o(_v1), _v931(_v0, _v2), _v1036(this, _v0), this.outputConfidenceMasks && (_v933(_v0, "confidence_masks"), _v926(_v2, "CONFIDENCE_MASKS:confidence_masks"), _v1037(this, "confidence_masks"), this.g.da("confidence_masks", (_v0, _v1) => {
+        this.confidenceMasks = _v0.map(_v0 => _v1092(this, _v0, !0, !this.j)), _v1035(this, _v1);
+      }), this.g.attachEmptyPacketListener("confidence_masks", _v0 => {
+        this.confidenceMasks = [], _v1035(this, _v0);
+      })), this.outputCategoryMask && (_v933(_v0, "category_mask"), _v926(_v2, "CATEGORY_MASK:category_mask"), _v1037(this, "category_mask"), this.g.V("category_mask", (_v0, _v1) => {
+        this.categoryMask = _v1092(this, _v0, !1, !this.j), _v1035(this, _v1);
+      }), this.g.attachEmptyPacketListener("category_mask", _v0 => {
+        this.categoryMask = void 0, _v1035(this, _v0);
+      })), _v933(_v0, "quality_scores"), _v926(_v2, "QUALITY_SCORES:quality_scores"), this.g.attachFloatVectorListener("quality_scores", (_v0, _v1) => {
+        this.qualityScores = _v0, _v1035(this, _v1);
+      }), this.g.attachEmptyPacketListener("quality_scores", _v0 => {
+        this.categoryMask = void 0, _v1035(this, _v0);
+      }), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
+    }
+  };
+  _v1125.prototype.getLabels = _v1125.prototype.Fa, _v1125.prototype.segmentForVideo = _v1125.prototype.Na, _v1125.prototype.segment = _v1125.prototype.fa, _v1125.prototype.setOptions = _v1125.prototype.o, _v1125.createFromModelPath = function (_v0, _v1) {
+    return _v1088(_v1125, _v0, {
+      baseOptions: {
+        modelAssetPath: _v1
+      }
+    });
+  }, _v1125.createFromModelBuffer = function (_v0, _v1) {
+    return _v1088(_v1125, _v0, {
+      baseOptions: {
+        modelAssetBuffer: _v1
+      }
+    });
+  }, _v1125.createFromOptions = function (_v0, _v1) {
+    return _v1088(_v1125, _v0, _v1);
+  };
+  var _v1126 = class {
+    constructor(_v0, _v1, _v2) {
+      this.confidenceMasks = _v0, this.categoryMask = _v1, this.qualityScores = _v2;
+    }
+    close() {
+      this.confidenceMasks?.forEach(_v0 => {
+        _v0.close();
+      }), this.categoryMask?.close();
+    }
+  };
+  _v1126.prototype.close = _v1126.prototype.close;
+  var _v1127 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v1123 = [0, _v886, -2],
-    _v1124 = [0, _v879, -3, _v889, _v879, -1],
-    _v1125 = [0, _v1124],
-    _v1126 = [0, _v1124, _v886, -1],
-    _v1127 = class extends _v822 {
+    _v1128 = [0, _v891, -2],
+    _v1129 = [0, _v884, -3, _v894, _v884, -1],
+    _v1130 = [0, _v1129],
+    _v1131 = [0, _v1129, _v891, -1],
+    _v1132 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v1128 = [0, _v879, -1, _v889],
-    _v1129 = class extends _v822 {
+    _v1133 = [0, _v884, -1, _v894],
+    _v1134 = class extends _v827 {
       constructor() {
         super();
       }
     },
-    _v1130 = class extends _v822 {
+    _v1135 = class extends _v827 {
       constructor(_v0) {
         super(_v0);
       }
     },
-    _v1131 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 15],
-    _v1132 = class extends _v822 {
+    _v1136 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 15],
+    _v1137 = class extends _v827 {
       constructor() {
         super();
       }
     };
-  _v1132.prototype.g = _v902([0, _v894, [0, _v1131, _v895, _v1124, _v895, [0, _v1124, _v1123], _v895, _v1125, _v895, [0, _v1125, _v1123], _v895, _v1128, _v895, [0, _v879, -3, _v889, _v898], _v895, [0, _v879, -3, _v889], _v895, [0, _v893, _v879, -2, _v889, _v886, _v889, -1, 2, _v879, _v1123], _v895, _v1126, _v895, [0, _v1126, _v1123], _v879, _v1123, _v893, _v895, [0, _v879, -3, _v889, _v1123, -1], _v895, [0, _v894, _v1128]], _v893, [0, _v893, _v886, -1, _v889]]);
-  var _v1133 = class extends _v1088 {
+  _v1137.prototype.g = _v907([0, _v899, [0, _v1136, _v900, _v1129, _v900, [0, _v1129, _v1128], _v900, _v1130, _v900, [0, _v1130, _v1128], _v900, _v1133, _v900, [0, _v884, -3, _v894, _v903], _v900, [0, _v884, -3, _v894], _v900, [0, _v898, _v884, -2, _v894, _v891, _v894, -1, 2, _v884, _v1128], _v900, _v1131, _v900, [0, _v1131, _v1128], _v884, _v1128, _v898, _v900, [0, _v884, -3, _v894, _v1128, -1], _v900, [0, _v899, _v1133]], _v898, [0, _v898, _v891, -1, _v894]]);
+  var _v1138 = class extends _v1093 {
     constructor(_v0, _v1) {
-      super(new _v1082(_v0, _v1), "image_in", "norm_rect_in", !1), this.outputCategoryMask = !1, this.outputConfidenceMasks = !0, this.h = new _v1002(), this.s = new _v998(), _v786(this.h, 0, 3, this.s), _v786(_v0 = this.h, 0, 1, _v1 = new _v961());
+      super(new _v1087(_v0, _v1), "image_in", "norm_rect_in", !1), this.outputCategoryMask = !1, this.outputConfidenceMasks = !0, this.h = new _v1007(), this.s = new _v1003(), _v791(this.h, 0, 3, this.s), _v791(_v0 = this.h, 0, 1, _v1 = new _v966());
     }
     get baseOptions() {
-      return _v783(this.h, _v961, 1);
+      return _v788(this.h, _v966, 1);
     }
     set baseOptions(_v0) {
-      _v786(this.h, 0, 1, _v0);
+      _v791(this.h, 0, 1, _v0);
     }
     o(_v0) {
       return "outputCategoryMask" in _v0 && (this.outputCategoryMask = _v0.outputCategoryMask ?? !1), "outputConfidenceMasks" in _v0 && (this.outputConfidenceMasks = _v0.outputConfidenceMasks ?? !0), super.l(_v0);
     }
     fa(_v0, _v1, _v2, _v3) {
       let _v4 = "function" != typeof _v2 ? _v2 : {};
-      this.j = "function" == typeof _v2 ? _v2 : _v3, this.qualityScores = this.categoryMask = this.confidenceMasks = void 0, _v2 = this.B + 1, _v3 = new _v1132();
-      let _v5 = new _v1130();
-      var _v6 = new _v1122();
-      if (_v795(_v6, 1, 255), _v786(_v5, 0, 12, _v6), _v1.keypoint && _v1.scribble) throw Error("Cannot provide both keypoint and scribble.");
+      this.j = "function" == typeof _v2 ? _v2 : _v3, this.qualityScores = this.categoryMask = this.confidenceMasks = void 0, _v2 = this.B + 1, _v3 = new _v1137();
+      let _v5 = new _v1135();
+      var _v6 = new _v1127();
+      if (_v800(_v6, 1, 255), _v791(_v5, 0, 12, _v6), _v1.keypoint && _v1.scribble) throw Error("Cannot provide both keypoint and scribble.");
       if (_v1.keypoint) {
-        var _v7 = new _v1127();
-        _v794(_v7, 3, !0), _v796(_v7, 1, _v1.keypoint.x), _v796(_v7, 2, _v1.keypoint.y), _v787(_v5, 5, _v1131, _v7);
+        var _v7 = new _v1132();
+        _v799(_v7, 3, !0), _v801(_v7, 1, _v1.keypoint.x), _v801(_v7, 2, _v1.keypoint.y), _v792(_v5, 5, _v1136, _v7);
       } else {
         if (!_v1.scribble) throw Error("Must provide either a keypoint or a scribble.");
-        for (_v7 of (_v6 = new _v1129(), _v1.scribble)) _v794(_v1 = new _v1127(), 3, !0), _v796(_v1, 1, _v7.x), _v796(_v1, 2, _v7.y), _v790(_v6, 1, _v1127, _v1);
-        _v787(_v5, 15, _v1131, _v6);
+        for (_v7 of (_v6 = new _v1134(), _v1.scribble)) _v799(_v1 = new _v1132(), 3, !0), _v801(_v1, 1, _v7.x), _v801(_v1, 2, _v7.y), _v795(_v6, 1, _v1132, _v1);
+        _v792(_v5, 15, _v1136, _v6);
       }
-      _v790(_v3, 1, _v1130, _v5), this.g.addProtoToStream(_v3.g(), "drishti.RenderData", "roi_in", _v2), _v1085(this, _v0, _v4);
+      _v795(_v3, 1, _v1135, _v5), this.g.addProtoToStream(_v3.g(), "drishti.RenderData", "roi_in", _v2), _v1090(this, _v0, _v4);
       e: {
         try {
-          let _v0 = new _v1121(this.confidenceMasks, this.categoryMask, this.qualityScores);
+          let _v0 = new _v1126(this.confidenceMasks, this.categoryMask, this.qualityScores);
           if (!this.j) {
             var _v8 = _v0;
             break e;
           }
           this.j(_v0);
         } finally {
-          _v1033(this);
+          _v1038(this);
         }
         _v8 = void 0;
       }
       return _v8;
     }
     m() {
-      var _v0 = new _v929();
-      _v927(_v0, "image_in"), _v927(_v0, "roi_in"), _v927(_v0, "norm_rect_in");
-      let _v1 = new _v916();
-      _v821(_v1, _v1003, this.h);
-      let _v2 = new _v922();
-      _v919(_v2, "mediapipe.tasks.vision.interactive_segmenter.InteractiveSegmenterGraph"), _v920(_v2, "IMAGE:image_in"), _v920(_v2, "ROI:roi_in"), _v920(_v2, "NORM_RECT:norm_rect_in"), _v2.o(_v1), _v926(_v0, _v2), _v1031(this, _v0), this.outputConfidenceMasks && (_v928(_v0, "confidence_masks"), _v921(_v2, "CONFIDENCE_MASKS:confidence_masks"), _v1032(this, "confidence_masks"), this.g.da("confidence_masks", (_v0, _v1) => {
-        this.confidenceMasks = _v0.map(_v0 => _v1087(this, _v0, !0, !this.j)), _v1030(this, _v1);
+      var _v0 = new _v934();
+      _v932(_v0, "image_in"), _v932(_v0, "roi_in"), _v932(_v0, "norm_rect_in");
+      let _v1 = new _v921();
+      _v826(_v1, _v1008, this.h);
+      let _v2 = new _v927();
+      _v924(_v2, "mediapipe.tasks.vision.interactive_segmenter.InteractiveSegmenterGraph"), _v925(_v2, "IMAGE:image_in"), _v925(_v2, "ROI:roi_in"), _v925(_v2, "NORM_RECT:norm_rect_in"), _v2.o(_v1), _v931(_v0, _v2), _v1036(this, _v0), this.outputConfidenceMasks && (_v933(_v0, "confidence_masks"), _v926(_v2, "CONFIDENCE_MASKS:confidence_masks"), _v1037(this, "confidence_masks"), this.g.da("confidence_masks", (_v0, _v1) => {
+        this.confidenceMasks = _v0.map(_v0 => _v1092(this, _v0, !0, !this.j)), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("confidence_masks", _v0 => {
-        this.confidenceMasks = [], _v1030(this, _v0);
-      })), this.outputCategoryMask && (_v928(_v0, "category_mask"), _v921(_v2, "CATEGORY_MASK:category_mask"), _v1032(this, "category_mask"), this.g.V("category_mask", (_v0, _v1) => {
-        this.categoryMask = _v1087(this, _v0, !1, !this.j), _v1030(this, _v1);
+        this.confidenceMasks = [], _v1035(this, _v0);
+      })), this.outputCategoryMask && (_v933(_v0, "category_mask"), _v926(_v2, "CATEGORY_MASK:category_mask"), _v1037(this, "category_mask"), this.g.V("category_mask", (_v0, _v1) => {
+        this.categoryMask = _v1092(this, _v0, !1, !this.j), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("category_mask", _v0 => {
-        this.categoryMask = void 0, _v1030(this, _v0);
-      })), _v928(_v0, "quality_scores"), _v921(_v2, "QUALITY_SCORES:quality_scores"), this.g.attachFloatVectorListener("quality_scores", (_v0, _v1) => {
-        this.qualityScores = _v0, _v1030(this, _v1);
+        this.categoryMask = void 0, _v1035(this, _v0);
+      })), _v933(_v0, "quality_scores"), _v926(_v2, "QUALITY_SCORES:quality_scores"), this.g.attachFloatVectorListener("quality_scores", (_v0, _v1) => {
+        this.qualityScores = _v0, _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("quality_scores", _v0 => {
-        this.categoryMask = void 0, _v1030(this, _v0);
+        this.categoryMask = void 0, _v1035(this, _v0);
       }), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
     }
   };
-  _v1133.prototype.segment = _v1133.prototype.fa, _v1133.prototype.setOptions = _v1133.prototype.o, _v1133.createFromModelPath = function (_v0, _v1) {
-    return _v1083(_v1133, _v0, {
+  _v1138.prototype.segment = _v1138.prototype.fa, _v1138.prototype.setOptions = _v1138.prototype.o, _v1138.createFromModelPath = function (_v0, _v1) {
+    return _v1088(_v1138, _v0, {
       baseOptions: {
         modelAssetPath: _v1
       }
     });
-  }, _v1133.createFromModelBuffer = function (_v0, _v1) {
-    return _v1083(_v1133, _v0, {
+  }, _v1138.createFromModelBuffer = function (_v0, _v1) {
+    return _v1088(_v1138, _v0, {
       baseOptions: {
         modelAssetBuffer: _v1
       }
     });
-  }, _v1133.createFromOptions = function (_v0, _v1) {
-    return _v1083(_v1133, _v0, _v1);
+  }, _v1138.createFromOptions = function (_v0, _v1) {
+    return _v1088(_v1138, _v0, _v1);
   };
-  var _v1134 = class extends _v1088 {
+  var _v1139 = class extends _v1093 {
     constructor(_v0, _v1) {
-      super(new _v1082(_v0, _v1), "input_frame_gpu", "norm_rect", !1), this.j = {
+      super(new _v1087(_v0, _v1), "input_frame_gpu", "norm_rect", !1), this.j = {
         detections: []
-      }, _v786(_v0 = this.h = new _v1004(), 0, 1, _v1 = new _v961());
+      }, _v791(_v0 = this.h = new _v1009(), 0, 1, _v1 = new _v966());
     }
     get baseOptions() {
-      return _v783(this.h, _v961, 1);
+      return _v788(this.h, _v966, 1);
     }
     set baseOptions(_v0) {
-      _v786(this.h, 0, 1, _v0);
+      _v791(this.h, 0, 1, _v0);
     }
     o(_v0) {
-      return void 0 !== _v0.displayNamesLocale ? _v765(this.h, 2, _v729(_v0.displayNamesLocale)) : "displayNamesLocale" in _v0 && _v765(this.h, 2), void 0 !== _v0.maxResults ? _v795(this.h, 3, _v0.maxResults) : "maxResults" in _v0 && _v765(this.h, 3), void 0 !== _v0.scoreThreshold ? _v796(this.h, 4, _v0.scoreThreshold) : "scoreThreshold" in _v0 && _v765(this.h, 4), void 0 !== _v0.categoryAllowlist ? _v797(this.h, 5, _v0.categoryAllowlist) : "categoryAllowlist" in _v0 && _v765(this.h, 5), void 0 !== _v0.categoryDenylist ? _v797(this.h, 6, _v0.categoryDenylist) : "categoryDenylist" in _v0 && _v765(this.h, 6), this.l(_v0);
+      return void 0 !== _v0.displayNamesLocale ? _v770(this.h, 2, _v734(_v0.displayNamesLocale)) : "displayNamesLocale" in _v0 && _v770(this.h, 2), void 0 !== _v0.maxResults ? _v800(this.h, 3, _v0.maxResults) : "maxResults" in _v0 && _v770(this.h, 3), void 0 !== _v0.scoreThreshold ? _v801(this.h, 4, _v0.scoreThreshold) : "scoreThreshold" in _v0 && _v770(this.h, 4), void 0 !== _v0.categoryAllowlist ? _v802(this.h, 5, _v0.categoryAllowlist) : "categoryAllowlist" in _v0 && _v770(this.h, 5), void 0 !== _v0.categoryDenylist ? _v802(this.h, 6, _v0.categoryDenylist) : "categoryDenylist" in _v0 && _v770(this.h, 6), this.l(_v0);
     }
     D(_v0, _v1) {
       return this.j = {
         detections: []
-      }, _v1085(this, _v0, _v1), this.j;
+      }, _v1090(this, _v0, _v1), this.j;
     }
     F(_v0, _v1, _v2) {
       return this.j = {
         detections: []
-      }, _v1086(this, _v0, _v2, _v1), this.j;
+      }, _v1091(this, _v0, _v2, _v1), this.j;
     }
     m() {
-      var _v0 = new _v929();
-      _v927(_v0, "input_frame_gpu"), _v927(_v0, "norm_rect"), _v928(_v0, "detections");
-      let _v1 = new _v916();
-      _v821(_v1, _v1005, this.h);
-      let _v2 = new _v922();
-      _v919(_v2, "mediapipe.tasks.vision.ObjectDetectorGraph"), _v920(_v2, "IMAGE:input_frame_gpu"), _v920(_v2, "NORM_RECT:norm_rect"), _v921(_v2, "DETECTIONS:detections"), _v2.o(_v1), _v926(_v0, _v2), this.g.attachProtoVectorListener("detections", (_v0, _v1) => {
-        for (let _v0 of _v0) _v0 = _v939(_v0), this.j.detections.push(_v1010(_v0));
-        _v1030(this, _v1);
+      var _v0 = new _v934();
+      _v932(_v0, "input_frame_gpu"), _v932(_v0, "norm_rect"), _v933(_v0, "detections");
+      let _v1 = new _v921();
+      _v826(_v1, _v1010, this.h);
+      let _v2 = new _v927();
+      _v924(_v2, "mediapipe.tasks.vision.ObjectDetectorGraph"), _v925(_v2, "IMAGE:input_frame_gpu"), _v925(_v2, "NORM_RECT:norm_rect"), _v926(_v2, "DETECTIONS:detections"), _v2.o(_v1), _v931(_v0, _v2), this.g.attachProtoVectorListener("detections", (_v0, _v1) => {
+        for (let _v0 of _v0) _v0 = _v944(_v0), this.j.detections.push(_v1015(_v0));
+        _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("detections", _v0 => {
-        _v1030(this, _v0);
+        _v1035(this, _v0);
       }), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
     }
   };
-  _v1134.prototype.detectForVideo = _v1134.prototype.F, _v1134.prototype.detect = _v1134.prototype.D, _v1134.prototype.setOptions = _v1134.prototype.o, _v1134.createFromModelPath = async function (_v0, _v1) {
-    return _v1083(_v1134, _v0, {
+  _v1139.prototype.detectForVideo = _v1139.prototype.F, _v1139.prototype.detect = _v1139.prototype.D, _v1139.prototype.setOptions = _v1139.prototype.o, _v1139.createFromModelPath = async function (_v0, _v1) {
+    return _v1088(_v1139, _v0, {
       baseOptions: {
         modelAssetPath: _v1
       }
     });
-  }, _v1134.createFromModelBuffer = function (_v0, _v1) {
-    return _v1083(_v1134, _v0, {
+  }, _v1139.createFromModelBuffer = function (_v0, _v1) {
+    return _v1088(_v1139, _v0, {
       baseOptions: {
         modelAssetBuffer: _v1
       }
     });
-  }, _v1134.createFromOptions = function (_v0, _v1) {
-    return _v1083(_v1134, _v0, _v1);
+  }, _v1139.createFromOptions = function (_v0, _v1) {
+    return _v1088(_v1139, _v0, _v1);
   };
-  var _v1135 = class {
+  var _v1140 = class {
     constructor(_v0, _v1, _v2) {
       this.landmarks = _v0, this.worldLandmarks = _v1, this.segmentationMasks = _v2;
     }
@@ -26052,77 +26147,77 @@
       });
     }
   };
-  function _v1136(_v0) {
+  function _v1141(_v0) {
     _v0.landmarks = [], _v0.worldLandmarks = [], _v0.segmentationMasks = void 0;
   }
-  function _v1137(_v0) {
+  function _v1142(_v0) {
     try {
-      let _v0 = new _v1135(_v0.landmarks, _v0.worldLandmarks, _v0.segmentationMasks);
+      let _v0 = new _v1140(_v0.landmarks, _v0.worldLandmarks, _v0.segmentationMasks);
       if (!_v0.s) return _v0;
       _v0.s(_v0);
     } finally {
-      _v1033(_v0);
+      _v1038(_v0);
     }
   }
-  _v1135.prototype.close = _v1135.prototype.close;
-  var _v1138 = class extends _v1088 {
+  _v1140.prototype.close = _v1140.prototype.close;
+  var _v1143 = class extends _v1093 {
     constructor(_v0, _v1) {
-      super(new _v1082(_v0, _v1), "image_in", "norm_rect", !1), this.landmarks = [], this.worldLandmarks = [], this.outputSegmentationMasks = !1, _v786(_v0 = this.h = new _v1006(), 0, 1, _v1 = new _v961()), this.v = new _v990(), _v786(this.h, 0, 3, this.v), this.j = new _v989(), _v786(this.h, 0, 2, this.j), _v795(this.j, 4, 1), _v796(this.j, 2, .5), _v796(this.v, 2, .5), _v796(this.h, 4, .5);
+      super(new _v1087(_v0, _v1), "image_in", "norm_rect", !1), this.landmarks = [], this.worldLandmarks = [], this.outputSegmentationMasks = !1, _v791(_v0 = this.h = new _v1011(), 0, 1, _v1 = new _v966()), this.v = new _v995(), _v791(this.h, 0, 3, this.v), this.j = new _v994(), _v791(this.h, 0, 2, this.j), _v800(this.j, 4, 1), _v801(this.j, 2, .5), _v801(this.v, 2, .5), _v801(this.h, 4, .5);
     }
     get baseOptions() {
-      return _v783(this.h, _v961, 1);
+      return _v788(this.h, _v966, 1);
     }
     set baseOptions(_v0) {
-      _v786(this.h, 0, 1, _v0);
+      _v791(this.h, 0, 1, _v0);
     }
     o(_v0) {
-      return "numPoses" in _v0 && _v795(this.j, 4, _v0.numPoses ?? 1), "minPoseDetectionConfidence" in _v0 && _v796(this.j, 2, _v0.minPoseDetectionConfidence ?? .5), "minTrackingConfidence" in _v0 && _v796(this.h, 4, _v0.minTrackingConfidence ?? .5), "minPosePresenceConfidence" in _v0 && _v796(this.v, 2, _v0.minPosePresenceConfidence ?? .5), "outputSegmentationMasks" in _v0 && (this.outputSegmentationMasks = _v0.outputSegmentationMasks ?? !1), this.l(_v0);
+      return "numPoses" in _v0 && _v800(this.j, 4, _v0.numPoses ?? 1), "minPoseDetectionConfidence" in _v0 && _v801(this.j, 2, _v0.minPoseDetectionConfidence ?? .5), "minTrackingConfidence" in _v0 && _v801(this.h, 4, _v0.minTrackingConfidence ?? .5), "minPosePresenceConfidence" in _v0 && _v801(this.v, 2, _v0.minPosePresenceConfidence ?? .5), "outputSegmentationMasks" in _v0 && (this.outputSegmentationMasks = _v0.outputSegmentationMasks ?? !1), this.l(_v0);
     }
     D(_v0, _v1, _v2) {
-      return this.s = "function" == typeof _v1 ? _v1 : _v2, _v1136(this), _v1085(this, _v0, "function" != typeof _v1 ? _v1 : {}), _v1137(this);
+      return this.s = "function" == typeof _v1 ? _v1 : _v2, _v1141(this), _v1090(this, _v0, "function" != typeof _v1 ? _v1 : {}), _v1142(this);
     }
     F(_v0, _v1, _v2, _v3) {
-      return this.s = "function" == typeof _v2 ? _v2 : _v3, _v1136(this), _v1086(this, _v0, "function" != typeof _v2 ? _v2 : {}, _v1), _v1137(this);
+      return this.s = "function" == typeof _v2 ? _v2 : _v3, _v1141(this), _v1091(this, _v0, "function" != typeof _v2 ? _v2 : {}, _v1), _v1142(this);
     }
     m() {
-      var _v0 = new _v929();
-      _v927(_v0, "image_in"), _v927(_v0, "norm_rect"), _v928(_v0, "normalized_landmarks"), _v928(_v0, "world_landmarks"), _v928(_v0, "segmentation_masks");
-      let _v1 = new _v916();
-      _v821(_v1, _v1007, this.h);
-      let _v2 = new _v922();
-      _v919(_v2, "mediapipe.tasks.vision.pose_landmarker.PoseLandmarkerGraph"), _v920(_v2, "IMAGE:image_in"), _v920(_v2, "NORM_RECT:norm_rect"), _v921(_v2, "NORM_LANDMARKS:normalized_landmarks"), _v921(_v2, "WORLD_LANDMARKS:world_landmarks"), _v2.o(_v1), _v926(_v0, _v2), _v1031(this, _v0), this.g.attachProtoVectorListener("normalized_landmarks", (_v0, _v1) => {
-        for (let _v0 of (this.landmarks = [], _v0)) _v0 = _v943(_v0), this.landmarks.push(_v1011(_v0));
-        _v1030(this, _v1);
+      var _v0 = new _v934();
+      _v932(_v0, "image_in"), _v932(_v0, "norm_rect"), _v933(_v0, "normalized_landmarks"), _v933(_v0, "world_landmarks"), _v933(_v0, "segmentation_masks");
+      let _v1 = new _v921();
+      _v826(_v1, _v1012, this.h);
+      let _v2 = new _v927();
+      _v924(_v2, "mediapipe.tasks.vision.pose_landmarker.PoseLandmarkerGraph"), _v925(_v2, "IMAGE:image_in"), _v925(_v2, "NORM_RECT:norm_rect"), _v926(_v2, "NORM_LANDMARKS:normalized_landmarks"), _v926(_v2, "WORLD_LANDMARKS:world_landmarks"), _v2.o(_v1), _v931(_v0, _v2), _v1036(this, _v0), this.g.attachProtoVectorListener("normalized_landmarks", (_v0, _v1) => {
+        for (let _v0 of (this.landmarks = [], _v0)) _v0 = _v948(_v0), this.landmarks.push(_v1016(_v0));
+        _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("normalized_landmarks", _v0 => {
-        this.landmarks = [], _v1030(this, _v0);
+        this.landmarks = [], _v1035(this, _v0);
       }), this.g.attachProtoVectorListener("world_landmarks", (_v0, _v1) => {
-        for (let _v0 of (this.worldLandmarks = [], _v0)) _v0 = _v941(_v0), this.worldLandmarks.push(_v1012(_v0));
-        _v1030(this, _v1);
+        for (let _v0 of (this.worldLandmarks = [], _v0)) _v0 = _v946(_v0), this.worldLandmarks.push(_v1017(_v0));
+        _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("world_landmarks", _v0 => {
-        this.worldLandmarks = [], _v1030(this, _v0);
-      }), this.outputSegmentationMasks && (_v921(_v2, "SEGMENTATION_MASK:segmentation_masks"), _v1032(this, "segmentation_masks"), this.g.da("segmentation_masks", (_v0, _v1) => {
-        this.segmentationMasks = _v0.map(_v0 => _v1087(this, _v0, !0, !this.s)), _v1030(this, _v1);
+        this.worldLandmarks = [], _v1035(this, _v0);
+      }), this.outputSegmentationMasks && (_v926(_v2, "SEGMENTATION_MASK:segmentation_masks"), _v1037(this, "segmentation_masks"), this.g.da("segmentation_masks", (_v0, _v1) => {
+        this.segmentationMasks = _v0.map(_v0 => _v1092(this, _v0, !0, !this.s)), _v1035(this, _v1);
       }), this.g.attachEmptyPacketListener("segmentation_masks", _v0 => {
-        this.segmentationMasks = [], _v1030(this, _v0);
+        this.segmentationMasks = [], _v1035(this, _v0);
       })), _v0 = _v0.g(), this.setGraph(new Uint8Array(_v0), !0);
     }
   };
-  _v1138.prototype.detectForVideo = _v1138.prototype.F, _v1138.prototype.detect = _v1138.prototype.D, _v1138.prototype.setOptions = _v1138.prototype.o, _v1138.createFromModelPath = function (_v0, _v1) {
-    return _v1083(_v1138, _v0, {
+  _v1143.prototype.detectForVideo = _v1143.prototype.F, _v1143.prototype.detect = _v1143.prototype.D, _v1143.prototype.setOptions = _v1143.prototype.o, _v1143.createFromModelPath = function (_v0, _v1) {
+    return _v1088(_v1143, _v0, {
       baseOptions: {
         modelAssetPath: _v1
       }
     });
-  }, _v1138.createFromModelBuffer = function (_v0, _v1) {
-    return _v1083(_v1138, _v0, {
+  }, _v1143.createFromModelBuffer = function (_v0, _v1) {
+    return _v1088(_v1143, _v0, {
       baseOptions: {
         modelAssetBuffer: _v1
       }
     });
-  }, _v1138.createFromOptions = function (_v0, _v1) {
-    return _v1083(_v1138, _v0, _v1);
-  }, _v1138.POSE_CONNECTIONS = _v1110;
-  let _v1139 = new class _v0 {
+  }, _v1143.createFromOptions = function (_v0, _v1) {
+    return _v1088(_v1143, _v0, _v1);
+  }, _v1143.POSE_CONNECTIONS = _v1115;
+  let _v1144 = new class _v0 {
     initialization;
     static CDN_PATH = "https://recordwidget.vimeocdn.com/recordwidget/assets/@mediapipe/tasks-vision@0.10.18";
     initialize() {
@@ -26130,7 +26225,7 @@
       let {
         common: _v0
       } = _v86.useUIStore.getState();
-      return _v0.setModelLoading(!0), this.initialization = _v1018.forVisionTasks(_v0.CDN_PATH).then(_v0 => _v1120.createFromOptions(_v0, {
+      return _v0.setModelLoading(!0), this.initialization = _v1023.forVisionTasks(_v0.CDN_PATH).then(_v0 => _v1125.createFromOptions(_v0, {
         baseOptions: {
           modelAssetPath: `${_v0.CDN_PATH}/selfie_segmenter.tflite`,
           delegate: "GPU"
@@ -26144,7 +26239,7 @@
       this.initialization && (this.initialization.then(_v0 => _v0.close()), this.initialization = void 0);
     }
   }();
-  class _v1140 {
+  class _v1145 {
     context;
     settings;
     drawingUtils;
@@ -26189,7 +26284,7 @@
         if (!this.drawingUtils) {
           let _v0 = _v0.canvas,
             _v1 = _v0 ? _v0.getContext("webgl2") : null;
-          this.drawingUtils = new _v1067(this.context, _v1 ?? void 0);
+          this.drawingUtils = new _v1072(this.context, _v1 ?? void 0);
         }
         switch (this.settings.effect) {
           case "blur":
@@ -26197,10 +26292,10 @@
             break;
           case "upload":
             {
-              let _v0 = _v624.getState().cameraBackground;
+              let _v0 = _v629.getState().cameraBackground;
               if (_v0) {
                 let _v0 = this.context.getTransform();
-                this.context.resetTransform(), this.context.drawImage(_v0, ..._v1141(_v2, _v3, _v0.width, _v0.height)), this.context.setTransform(_v0);
+                this.context.resetTransform(), this.context.drawImage(_v0, ..._v1146(_v2, _v3, _v0.width, _v0.height)), this.context.setTransform(_v0);
               }
             }
         }
@@ -26211,9 +26306,9 @@
       this.context.resetTransform(), this.settings.flip && (this.context.translate(this.context.canvas.width, 0), this.context.scale(-1, 1));
     }
   }
-  _v1142(!0);
-  let _v1141 = _v1142(!1);
-  function _v1142(_v0) {
+  _v1147(!0);
+  let _v1146 = _v1147(!1);
+  function _v1147(_v0) {
     return (_v0, _v1, _v2, _v3, _v4 = 1, _v5 = .5, _v6 = .5) => {
       let _v7 = _v2 / _v3,
         _v8 = _v0 / _v1,
@@ -26222,10 +26317,10 @@
       return (_v0 ? _v7 > _v8 : _v7 < _v8) ? _v10 = _v9 / _v7 : _v9 = _v10 * _v7, [(_v0 - _v9) * _v5, (_v1 - _v10) * _v6, _v9, _v10];
     };
   }
-  async function _v1143() {
+  async function _v1148() {
     let {
         getCameraBackground: _v0
-      } = _v624.getState(),
+      } = _v629.getState(),
       {
         settings: _v1,
         update: _v2
@@ -26240,7 +26335,7 @@
       }
     }));
   }
-  let _v1144 = {
+  let _v1149 = {
     numMeasuredTimeIntervals: 0,
     lastMeasuredAt: null,
     framesSinceLastMeasured: 0,
@@ -26250,17 +26345,17 @@
       minFPS: null
     }
   };
-  class _v1145 {
+  class _v1150 {
     log;
     state;
     constructor(_v0 = _v136.createForCategory("FPSMeasurer")) {
-      this.log = _v0, this.state = "idle", this.fpsStats = _v1144, this.fpsAlerts = new Set();
+      this.log = _v0, this.state = "idle", this.fpsStats = _v1149, this.fpsAlerts = new Set();
     }
     fpsStats;
     fpsAlerts;
     static MeasurementIntervalMs = 0;
     get averageFrameTimeMs() {
-      return this.fpsStats.metrics.averageFPS ? _v1146(_v1145.MeasurementIntervalMs / this.fpsStats.metrics.averageFPS) : null;
+      return this.fpsStats.metrics.averageFPS ? _v1151(_v1150.MeasurementIntervalMs / this.fpsStats.metrics.averageFPS) : null;
     }
     start({
       resetStats: _v0
@@ -26279,7 +26374,7 @@
     tick() {
       if ("started" === this.state) try {
         let _v0 = Date.now();
-        this.fpsStats.lastMeasuredAt ? _v0 > this.fpsStats.lastMeasuredAt + _v1145.MeasurementIntervalMs ? this.commitMeasuredInterval(_v0) : this.fpsStats.framesSinceLastMeasured += 1 : (this.fpsStats.lastMeasuredAt = _v0, this.fpsStats.framesSinceLastMeasured += 1);
+        this.fpsStats.lastMeasuredAt ? _v0 > this.fpsStats.lastMeasuredAt + _v1150.MeasurementIntervalMs ? this.commitMeasuredInterval(_v0) : this.fpsStats.framesSinceLastMeasured += 1 : (this.fpsStats.lastMeasuredAt = _v0, this.fpsStats.framesSinceLastMeasured += 1);
       } catch (_v0) {
         this.log.error(_v0, {
           category: _v120.UNEXPECTED,
@@ -26289,7 +26384,7 @@
       }
     }
     resetState() {
-      this.fpsStats = _v1144;
+      this.fpsStats = _v1149;
     }
     commitMeasuredInterval(_v0) {
       let _v1 = this.fpsStats.framesSinceLastMeasured;
@@ -26306,7 +26401,7 @@
           averageFPS: _v4
         }
       } = this.fpsStats;
-      _v3 > 0 && null !== _v4 && (_v2.averageFPS = _v1146((_v4 * _v3 + _v1) / (_v3 + 1), 2)), this.fpsStats.numMeasuredTimeIntervals += 1, this.fpsStats.metrics = _v2, _v73 && this.fpsStats.numMeasuredTimeIntervals % (_v73 ? 10 : 60) == 0 && this.log.debug("commitMeasuredInterval", {
+      _v3 > 0 && null !== _v4 && (_v2.averageFPS = _v1151((_v4 * _v3 + _v1) / (_v3 + 1), 2)), this.fpsStats.numMeasuredTimeIntervals += 1, this.fpsStats.metrics = _v2, _v73 && this.fpsStats.numMeasuredTimeIntervals % (_v73 ? 10 : 60) == 0 && this.log.debug("commitMeasuredInterval", {
         ..._v2,
         numMeasuredTimeIntervals: this.fpsStats.numMeasuredTimeIntervals
       }), this.fpsAlerts.forEach(_v0 => {
@@ -26314,10 +26409,10 @@
       });
     }
   }
-  function _v1146(_v0, _v1 = 0) {
+  function _v1151(_v0, _v1 = 0) {
     return Math.round(_v0 * Math.pow(10, _v1)) / Math.pow(10, _v1);
   }
-  class _v1147 {
+  class _v1152 {
     log;
     isRecording;
     eventCount;
@@ -26356,7 +26451,7 @@
       this.eventCount = 0, this.totalAbsDriftMs = 0, this.maxDriftMs = 0, this.maxDriftPercentage = 0;
     }
   }
-  let _v1148 = (() => {
+  let _v1153 = (() => {
     let _v0 = "idle",
       _v1 = null,
       _v2 = null,
@@ -26432,14 +26527,14 @@
       }
     });
   }).toString();
-  class _v1149 {
+  class _v1154 {
     log;
     worker;
     callback;
     driftReporter;
     unsubscribeFromUIStore;
     constructor(_v0 = _v136.createForCategory("RequestFrameWorker")) {
-      this.log = _v0, this.callback = null, this.driftReporter = new _v1147(_v0);
+      this.log = _v0, this.callback = null, this.driftReporter = new _v1152(_v0);
       try {
         this.worker = (_v0 => {
           let _v1 = new Blob([`(${_v0})()`], {
@@ -26448,7 +26543,7 @@
             _v2 = URL.createObjectURL(_v1),
             _v3 = new Worker(_v2);
           return setTimeout(() => URL.revokeObjectURL(_v2), 0), _v3;
-        })(_v1148), this.subscribe();
+        })(_v1153), this.subscribe();
       } catch (_v0) {
         throw this.log.error(_v0 instanceof Error ? _v0 : Error(String(_v0)), {
           category: _v120.UNEXPECTED,
@@ -26514,8 +26609,8 @@
       }), this.driftReporter.stopRecording(), this.unsubscribeFromUIStore?.(), this.unsubscribeFromUIStore = void 0, this.callback = null;
     }
   }
-  let _v1150 = null,
-    _v1151 = (0, _v26.forwardRef)(({
+  let _v1155 = null,
+    _v1156 = (0, _v26.forwardRef)(({
       userMedia: _v0,
       displayMedia: _v1
     }, _v2) => {
@@ -26550,7 +26645,7 @@
           return (0, _v26.useEffect)(() => {
             _v1 ? _v8(_v0 => {
               let _v1;
-              return _v0 ?? ((_v1 = _v1.getContext("2d")) ? new _v1140(_v1) : null);
+              return _v0 ?? ((_v1 = _v1.getContext("2d")) ? new _v1145(_v1) : null);
             }) : _v8(null);
           }, [_v1]), (0, _v26.useEffect)(() => {
             if (!_v0) return void _v6(null);
@@ -26558,13 +26653,13 @@
             let {
               width: _v0,
               height: _v1
-            } = _v578(_v0);
+            } = _v583(_v0);
             if (_v1.width = _v0, _v1.height = _v1, _v7) {
               let [_v0, _v1] = _v7.getRenderFns(),
                 _v2 = () => {
                   _v0(_v0);
                 };
-              return _v12 && Promise.all([_v1139.initialize(), _v1143()]).then(([_v0]) => {
+              return _v12 && Promise.all([_v1144.initialize(), _v1148()]).then(([_v0]) => {
                 _v2 = () => {
                   try {
                     _v0.segmentForVideo(_v0, ++_v11.current, _v0 => {
@@ -26575,7 +26670,7 @@
               }), _v10(() => () => {
                 _v2();
               }), _v6(_v1), () => {
-                _v2 = () => void 0, _v10(null), _v7.close(), _v1139.close(), _v11.current = 0;
+                _v2 = () => void 0, _v10(null), _v7.close(), _v1144.close(), _v11.current = 0;
               };
             }
             _v10(null), _v6(_v0);
@@ -26589,7 +26684,7 @@
           }), [_v5, _v9]);
         })(_v0, _v15),
         _v19 = (0, _v26.useRef)(null),
-        _v20 = (_v3 = (0, _v26.useRef)(new _v1145()), _v4 = (0, _v86.useUIStore)(_v0 => _v0.common.setAverageFrameTime), _v6 = "recording" === (_v5 = (0, _v86.useUIStore)(_v0 => _v0.common.state)) || "paused" === _v5, _v7 = _v137("useTrackRecordingFrameRate"), (0, _v26.useEffect)(() => {
+        _v20 = (_v3 = (0, _v26.useRef)(new _v1150()), _v4 = (0, _v86.useUIStore)(_v0 => _v0.common.setAverageFrameTime), _v6 = "recording" === (_v5 = (0, _v86.useUIStore)(_v0 => _v0.common.state)) || "paused" === _v5, _v7 = _v137("useTrackRecordingFrameRate"), (0, _v26.useEffect)(() => {
           if (_v6) {
             let _v0 = _v3.current;
             return _v4(null), _v0.start({
@@ -26617,7 +26712,7 @@
           setClipElementRef: _v26,
           draggableElementsKeys: _v27,
           clipBoxLayoutChanged: _v28
-        } = _v610(),
+        } = _v615(),
         {
           setStream: _v29,
           removeStream: _v30,
@@ -26656,7 +26751,7 @@
           setSelectedAsset: _v0.setSelectedAsset,
           setCapturedResolution: _v0.setCapturedResolution
         }))),
-        [_v44, _v45, _v46] = _v469(),
+        [_v44, _v45, _v46] = _v474(),
         _v47 = (0, _v26.useMemo)(() => _v17 && _v1 ? _v38[_v35].BOTH : _v17 ? _v38[_v35].CAMERA : _v1 ? _v38[_v35].SCREEN : null, [_v35, _v1, _v38, _v17]),
         _v48 = (0, _v26.useCallback)(_v0 => {
           _v46(_v0), _v26(_v0);
@@ -26666,7 +26761,7 @@
       }, [_v47, _v39, _v40, _v41]), (0, _v26.useEffect)(() => () => {
         _v41(null), _v39(null), _v40(null), _v42(null);
       }, [_v39, _v40, _v41, _v42]), (0, _v26.useEffect)(() => {
-        if (_v10.current) return _v19.current = new _v593(_v10.current, (_v0, _v1) => {
+        if (_v10.current) return _v19.current = new _v598(_v10.current, (_v0, _v1) => {
           switch (_v0) {
             case "displayMedia":
               _v48({
@@ -26740,8 +26835,8 @@
         if (!_v19.current || !_v10.current) return;
         let _v1 = (_v0 = () => {
             _v19.current && _v19.current.render();
-          }, _v1150 || (_v1150 = new _v1149()), _v1150.setFPS(30), _v1150.start(_v0), () => {
-            _v1150?.stop();
+          }, _v1155 || (_v1155 = new _v1154()), _v1155.setFPS(30), _v1155.start(_v0), () => {
+            _v1155?.stop();
           }),
           _v2 = _v10.current.captureStream();
         return _v29({
@@ -26796,13 +26891,13 @@
             ref: _v16
           }), (0, _v25.jsx)("canvas", {
             ref: _v10
-          }), (0, _v25.jsx)(_v595, {
+          }), (0, _v25.jsx)(_v600, {
             preset: _v50.sizePreset
           })]
-        }), (0, _v25.jsx)(_v621, {})]
+        }), (0, _v25.jsx)(_v626, {})]
       });
     }),
-    _v1152 = (0, _v26.forwardRef)(({
+    _v1157 = (0, _v26.forwardRef)(({
       stream: _v0,
       onPlayable: _v1
     }, _v2) => {
@@ -26837,7 +26932,7 @@
         loop: !0
       }, _v0.id);
     }),
-    _v1153 = ({
+    _v1158 = ({
       cameraStream: _v0,
       displayStream: _v1
     }) => {
@@ -26858,7 +26953,7 @@
         [_v12, _v13] = (0, _v26.useState)(!1),
         {
           setUIVisible: _v14
-        } = _v610(),
+        } = _v615(),
         _v15 = (0, _v26.useRef)(null),
         _v16 = (0, _v26.useRef)(null);
       ((_v0, {
@@ -26922,12 +27017,12 @@
             onLoad: _v17
           })
         }), (0, _v25.jsx)("div", {
-          children: _v0 && !_v9 && (0, _v25.jsx)(_v1152, {
+          children: _v0 && !_v9 && (0, _v25.jsx)(_v1157, {
             stream: _v0,
             onPlayable: _v5
           })
         }), (0, _v25.jsx)("div", {
-          children: _v1 && (0, _v25.jsx)(_v1152, {
+          children: _v1 && (0, _v25.jsx)(_v1157, {
             ref: _v16,
             stream: _v1,
             onPlayable: _v7
@@ -26935,7 +27030,7 @@
         }), (0, _v25.jsx)(_v208.Box, {
           display: "flex",
           flex: 1,
-          children: (0, _v25.jsx)(_v1151, {
+          children: (0, _v25.jsx)(_v1156, {
             ref: _v15,
             displayMedia: _v6,
             userMedia: _v18
@@ -26943,7 +27038,7 @@
         })]
       });
     },
-    _v1154 = ({
+    _v1159 = ({
       children: _v0,
       enabled: _v1
     }) => {
@@ -26983,7 +27078,7 @@
         })]
       });
     },
-    _v1155 = () => {
+    _v1160 = () => {
       let _v0 = (0, _v26.useContext)(_v201),
         _v1 = _v137("CanvasCapturePreview"),
         _v2 = (0, _v86.useUIStore)(_v0 => _v0.common.state),
@@ -26993,12 +27088,12 @@
           display: _v5,
           noSourcesAvailable: _v6
         } = _v182(),
-        _v7 = _v563(),
-        [, _v8, _v9] = _v469(),
+        _v7 = _v568(),
+        [, _v8, _v9] = _v474(),
         {
           bestDimension: _v10,
           setContainerRef: _v11
-        } = _v470(_v3.width, _v3.height, 0, _v8),
+        } = _v475(_v3.width, _v3.height, 0, _v8),
         _v12 = (0, _v86.useUIStore)(_v0 => _v0.pip.supported) && _v6;
       (0, _v26.useEffect)(() => {
         _v12 && _v0(!1);
@@ -27017,7 +27112,7 @@
         gap: "0",
         children: [(0, _v25.jsx)(_v208.Box, {
           ref: _v9,
-          children: (0, _v25.jsx)(_v557, {
+          children: (0, _v25.jsx)(_v562, {
             isDisabled: _v6
           })
         }), (0, _v25.jsx)(_v208.Box, {
@@ -27025,24 +27120,24 @@
           aspectRatio: _v3.width / _v3.height,
           "data-testid": "record-studio-preview",
           [_v10]: "100%",
-          children: (0, _v25.jsx)(_v1154, {
-            children: (0, _v25.jsxs)(_v471, {
-              children: [_v6 && "pre-recording" === _v2 ? (0, _v25.jsx)(_v565, {
-                children: _v7 ? (0, _v25.jsx)(_v561, {
+          children: (0, _v25.jsx)(_v1159, {
+            children: (0, _v25.jsxs)(_v476, {
+              children: [_v6 && "pre-recording" === _v2 ? (0, _v25.jsx)(_v570, {
+                children: _v7 ? (0, _v25.jsx)(_v566, {
                   context: _v7
-                }) : (0, _v25.jsx)(_v560, {})
-              }) : (0, _v25.jsxs)(_v611, {
-                children: [(0, _v25.jsx)(_v1153, {
+                }) : (0, _v25.jsx)(_v565, {})
+              }) : (0, _v25.jsxs)(_v616, {
+                children: [(0, _v25.jsx)(_v1158, {
                   displayStream: _v5.stream,
                   cameraStream: _v4.stream
-                }), (0, _v25.jsx)(_v564, {})]
-              }), _v13 && (0, _v25.jsx)(_v570, {})]
+                }), (0, _v25.jsx)(_v569, {})]
+              }), _v13 && (0, _v25.jsx)(_v575, {})]
             })
           })
         })]
       });
     },
-    _v1156 = () => {
+    _v1161 = () => {
       let _v0 = (() => {
         let {
           setShowGuides: _v0,
@@ -27061,7 +27156,7 @@
           snapToGuides: _v3
         })));
         return (0, _v26.useMemo)(() => [{
-          title: _v568.showGuides,
+          title: _v573.showGuides,
           testId: "canvas-right-click-menu-show-guides-item",
           onClick: () => _v0(!_v2),
           icon: (0, _v25.jsx)(_v221.Checkmark, {
@@ -27071,7 +27166,7 @@
             opacity: +!!_v2
           })
         }, {
-          title: _v568.snapToGuides,
+          title: _v573.snapToGuides,
           testId: "canvas-right-click-menu-snap-to-guides-item",
           onClick: () => _v1(!_v3),
           icon: (0, _v25.jsx)(_v221.Checkmark, {
@@ -27082,22 +27177,22 @@
           })
         }], [_v2, _v3, _v0, _v1]);
       })();
-      return (0, _v25.jsx)(_v468, {
+      return (0, _v25.jsx)(_v473, {
         testId: "canvas-right-click-menu-content",
         items: _v0,
         children: (0, _v25.jsx)(_v28.Flex, {
           height: "100%",
           position: "relative",
           marginX: "300",
-          children: (0, _v25.jsx)(_v1155, {})
+          children: (0, _v25.jsx)(_v1160, {})
         })
       });
     };
-  var _v1157 = _v0.i(0),
-    _v1158 = _v0.i(0),
-    _v1159 = _v0.i(0),
-    _v1160 = _v0.i(0);
-  let _v1161 = _v0 => (0, _v25.jsx)(_v233.Icon, {
+  var _v1162 = _v0.i(0),
+    _v1163 = _v0.i(0),
+    _v1164 = _v0.i(0),
+    _v1165 = _v0.i(0);
+  let _v1166 = _v0 => (0, _v25.jsx)(_v233.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -27112,9 +27207,9 @@
       })]
     })
   });
-  var _v1162 = _v0.i(0),
-    _v1163 = _v0.i(0);
-  let _v1164 = {
+  var _v1167 = _v0.i(0),
+    _v1168 = _v0.i(0);
+  let _v1169 = {
       content: "''",
       position: "absolute",
       boxSizing: "content-box",
@@ -27124,24 +27219,24 @@
       border: "2px solid var(--vimeo-colors-input-stroke-hover)",
       pointerEvents: "none"
     },
-    _v1165 = {
+    _v1170 = {
       backgroundColor: "var(--vimeo-colors-lightBlueAlpha-300) !important",
       "&:after": {
         border: "2px solid var(--vimeo-colors-surface)"
       },
       "&:before": {
-        ..._v1164,
+        ..._v1169,
         border: "2px solid var(--vimeo-colors-focus-alt)"
       }
     },
-    _v1166 = {
+    _v1171 = {
       backgroundColor: "var(--vimeo-colors-lightBlueAlpha-300) !important",
       "&:after": {
         border: "2px solid var(--vimeo-colors-surface)"
       },
-      "&:before": _v1164
+      "&:before": _v1169
     },
-    _v1167 = {
+    _v1172 = {
       "&:after": {
         content: "''",
         position: "absolute",
@@ -27156,7 +27251,7 @@
         borderColor: "none"
       }
     },
-    _v1168 = ({
+    _v1173 = ({
       type: _v0,
       isLoading: _v1,
       icon: _v2,
@@ -27196,14 +27291,14 @@
             borderRadius: "8px",
             onClick: () => _v6(_v0),
             "aria-label": _v0,
-            sx: _v1167,
-            _active: _v1165,
-            _hover: _v1166
+            sx: _v1172,
+            _active: _v1170,
+            _hover: _v1171
           }, _v0)
         })
       });
     },
-    _v1169 = ({
+    _v1174 = ({
       playbackStream: _v0,
       ref: _v1,
       playbackPlaceholderSrc: _v2,
@@ -27229,14 +27324,14 @@
         };
       }, [_v0, _v1, _v2, _v3, _v4]);
     },
-    _v1170 = {
+    _v1175 = {
       width: "100%",
       borderRadius: "8px"
     },
-    _v1171 = () => {
+    _v1176 = () => {
       let _v0 = _v84(_v0 => _v0.capture.isVideoMuted),
         _v1 = (0, _v26.useRef)(null);
-      return _v1169({
+      return _v1174({
         playbackStream: _v175(_v0 => _v0[_v146.CANVAS_CAMERA_PREVIEW]?.stream),
         ref: _v1,
         playbackPlaceholderSrc: _v76,
@@ -27246,15 +27341,15 @@
         autoPlay: !0,
         muted: !0,
         ref: _v1,
-        style: _v1170,
+        style: _v1175,
         src: _v76
       });
     },
-    _v1172 = () => (0, _v25.jsx)(_v446.Center, {
+    _v1177 = () => (0, _v25.jsx)(_v447.Center, {
       aspectRatio: "16/9",
       height: "auto",
       bg: "background",
-      style: _v1170,
+      style: _v1175,
       children: (0, _v25.jsxs)(_v29.VStack, {
         children: [(0, _v25.jsx)(_v41.CameraOff, {
           color: "text-secondary"
@@ -27292,9 +27387,9 @@
         })]
       })
     });
-  var _v1173 = _v0.i(0),
-    _v1174 = _v0.i(0);
-  let _v1175 = {
+  var _v1178 = _v0.i(0),
+    _v1179 = _v0.i(0);
+  let _v1180 = {
       label: (0, _v205.translate)({
         singular: "Upload",
         dictionary: {
@@ -27348,7 +27443,7 @@
         }
       })
     },
-    _v1176 = ({
+    _v1181 = ({
       isLoading: _v0,
       setCameraEffect: _v1,
       selectedCameraEffect: _v2
@@ -27358,7 +27453,7 @@
         {
           getCameraBackground: _v7,
           setCameraBackground: _v8
-        } = _v624((0, _v27.useShallow)(({
+        } = _v629((0, _v27.useShallow)(({
           getCameraBackground: _v0,
           setCameraBackground: _v1
         }) => ({
@@ -27382,13 +27477,13 @@
           });
         }, [_v8, _v1]);
       return (0, _v25.jsxs)(_v25.Fragment, {
-        children: [(0, _v25.jsx)(_v1168, {
+        children: [(0, _v25.jsx)(_v1173, {
           type: "upload",
           isLoading: _v0 || _v3,
           image: "upload" === _v2 ? _v5 : void 0,
-          icon: _v5 && "upload" === _v2 ? void 0 : (0, _v25.jsx)(_v1173.ImagePlus, {}),
-          hoverIcon: (0, _v25.jsx)(_v1174.SyncRefresh, {}),
-          label: _v5 ? _v1175.secondaryLabel : _v1175.label,
+          icon: _v5 && "upload" === _v2 ? void 0 : (0, _v25.jsx)(_v1178.ImagePlus, {}),
+          hoverIcon: (0, _v25.jsx)(_v1179.SyncRefresh, {}),
+          label: _v5 ? _v1180.secondaryLabel : _v1180.label,
           selected: _v2,
           onClick: _v0 => {
             _v7().then(({
@@ -27410,7 +27505,7 @@
         })]
       });
     },
-    _v1177 = {
+    _v1182 = {
       effects: {
         noEffect: (0, _v205.translate)({
           singular: "No effect",
@@ -27506,7 +27601,7 @@
         })
       }
     },
-    _v1178 = () => {
+    _v1183 = () => {
       let _v0 = _v137("EffectsContent"),
         {
           trackRecordingCameraBackgroundChanged: _v1
@@ -27533,12 +27628,12 @@
         children: [(0, _v25.jsxs)(_v28.Flex, {
           position: "relative",
           marginBottom: (0, _v30.rem)(8),
-          children: [_v7 ? (0, _v25.jsx)(_v1172, {}) : (0, _v25.jsx)(_v1171, {}), !_v7 && (0, _v25.jsx)(_v216.IconButton, {
+          children: [_v7 ? (0, _v25.jsx)(_v1177, {}) : (0, _v25.jsx)(_v1176, {}), !_v7 && (0, _v25.jsx)(_v216.IconButton, {
             variant: "blur",
             position: "absolute",
             bottom: "75",
             right: "75",
-            icon: _v3 ? (0, _v25.jsx)(_v519.FlipLeft, {}) : (0, _v25.jsx)(_v520, {}),
+            icon: _v3 ? (0, _v25.jsx)(_v524.FlipLeft, {}) : (0, _v25.jsx)(_v525, {}),
             "aria-label": "flip",
             onClick: () => {
               var _v0;
@@ -27547,30 +27642,30 @@
               });
             }
           })]
-        }), (0, _v25.jsxs)(_v343.HStack, {
+        }), (0, _v25.jsxs)(_v344.HStack, {
           gap: "75",
-          children: [(0, _v25.jsx)(_v1168, {
+          children: [(0, _v25.jsx)(_v1173, {
             type: "none",
             isLoading: !1,
-            icon: (0, _v25.jsx)(_v1163.StopBanLeft, {}),
-            label: _v1177.effects.noEffect,
+            icon: (0, _v25.jsx)(_v1168.StopBanLeft, {}),
+            label: _v1182.effects.noEffect,
             selected: _v8,
             onClick: _v9
-          }), !_v144.isSafari && (0, _v25.jsx)(_v1168, {
+          }), !_v144.isSafari && (0, _v25.jsx)(_v1173, {
             type: "blur",
             isLoading: _v2,
-            icon: (0, _v25.jsx)(_v1162.Blur, {}),
-            label: _v1177.effects.blur,
+            icon: (0, _v25.jsx)(_v1167.Blur, {}),
+            label: _v1182.effects.blur,
             selected: _v8,
             onClick: _v9
-          }), (0, _v25.jsx)(_v1168, {
+          }), (0, _v25.jsx)(_v1173, {
             type: "transparent",
             isLoading: _v2,
-            icon: (0, _v25.jsx)(_v1161, {}),
-            label: _v1177.effects.transparent,
+            icon: (0, _v25.jsx)(_v1166, {}),
+            label: _v1182.effects.transparent,
             selected: _v8,
             onClick: _v9
-          }), (0, _v25.jsx)(_v1176, {
+          }), (0, _v25.jsx)(_v1181, {
             setCameraEffect: _v9,
             selectedCameraEffect: _v8,
             isLoading: _v2
@@ -27578,12 +27673,12 @@
         })]
       });
     },
-    _v1179 = "record-settings-quality-selector-toggle",
-    _v1180 = "record-settings-quality-selector-option";
-  var _v1181 = _v0.i(0);
-  let _v1182 = () => {
+    _v1184 = "record-settings-quality-selector-toggle",
+    _v1185 = "record-settings-quality-selector-option";
+  var _v1186 = _v0.i(0);
+  let _v1187 = () => {
     let _v0 = _v84(_v0 => _v0.update);
-    return (0, _v25.jsx)(_v1157.PanelHeader, {
+    return (0, _v25.jsx)(_v1162.PanelHeader, {
       paddingTop: (0, _v30.rem)(16),
       paddingBottom: (0, _v30.rem)(16),
       children: (0, _v25.jsxs)(_v28.Flex, {
@@ -27594,7 +27689,7 @@
         children: [(0, _v25.jsx)(_v28.Flex, {
           alignItems: "center",
           gap: "sm",
-          children: (0, _v25.jsx)(_v303.Header, {
+          children: (0, _v25.jsx)(_v304.Header, {
             variant: "heading-sm",
             size: "xl",
             children: (0, _v205.translate)({
@@ -27655,7 +27750,7 @@
             }),
             placement: "top",
             shouldWrapChildren: !0,
-            children: (0, _v25.jsx)(_v1181.CloseButton, {
+            children: (0, _v25.jsx)(_v1186.CloseButton, {
               size: "sm",
               variant: "tertiary",
               "aria-label": (0, _v205.translate)({
@@ -27696,8 +27791,8 @@
       })
     });
   };
-  var _v1183 = _v0.i(0);
-  let _v1184 = ({
+  var _v1188 = _v0.i(0);
+  let _v1189 = ({
       onClick: _v0,
       onClose: _v1
     }) => (0, _v25.jsxs)(_v208.Box, {
@@ -27706,7 +27801,7 @@
       backgroundColor: "upsell-secondary",
       borderRadius: "md",
       "data-testId": "record-ultra-quality-upsell-banner",
-      children: [(0, _v25.jsx)(_v1181.CloseButton, {
+      children: [(0, _v25.jsx)(_v1186.CloseButton, {
         position: "absolute",
         "aria-label": "hide-ultra-quality-upsell",
         size: "xs",
@@ -27774,7 +27869,7 @@
             }
           })
         })]
-      }), (0, _v25.jsx)(_v1183.UpgradeBadge, {
+      }), (0, _v25.jsx)(_v1188.UpgradeBadge, {
         "data-testId": "record-ultra-quality-upsell-banner-button",
         onClick: _v0,
         size: "sm",
@@ -27782,7 +27877,7 @@
         noMargin: !0
       })]
     }),
-    _v1185 = {
+    _v1190 = {
       "720p": (0, _v205.translate)({
         singular: "720p (HD)",
         dictionary: {
@@ -27834,7 +27929,7 @@
         }
       })
     },
-    _v1186 = {
+    _v1191 = {
       "720p": (0, _v205.translate)({
         singular: "Quick recordings to share on the go",
         dictionary: {
@@ -27940,7 +28035,7 @@
         }
       })
     },
-    _v1187 = (0, _v205.translate)({
+    _v1192 = (0, _v205.translate)({
       singular: "4K recordings",
       dictionary: {
         es: {
@@ -27966,13 +28061,13 @@
         }
       }
     }),
-    _v1188 = Object.keys(_v1185),
-    _v1189 = (0, _v391.default)(() => _v0.A(0), {
+    _v1193 = Object.keys(_v1190),
+    _v1194 = (0, _v392.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v1190 = () => {
+    _v1195 = () => {
       let [_v0, _v1] = (0, _v26.useState)(!1),
         [_v2, _v3] = (0, _v26.useState)(!1),
         [_v4, _v5] = (0, _v26.useState)(window.innerHeight - 140),
@@ -27986,9 +28081,9 @@
         }))),
         _v9 = _v153[_v7],
         _v10 = (0, _v26.useMemo)(() => _v9.map(_v0 => ({
-          label: _v1185[_v0.sizePreset],
+          label: _v1190[_v0.sizePreset],
           value: _v0.sizePreset
-        })).filter(_v0 => _v1188.includes(_v0.value)).reverse(), [_v9]),
+        })).filter(_v0 => _v1193.includes(_v0.value)).reverse(), [_v9]),
         {
           state: _v11,
           isEligibleForUltraQuality: _v12
@@ -28022,18 +28117,18 @@
         } = _v182(),
         {
           setNotice: _v21
-        } = _v298();
+        } = _v299();
       return (0, _v26.useEffect)(() => {
         let _v0 = _v9.find(_v0 => "4K" === _v0.sizePreset),
           _v1 = _v20.mediaInfo?.size && _v0 && _v20.mediaInfo?.size?.width < _v0?.width && _v20.mediaInfo?.size?.height < _v0?.height;
-        "4K" === _v16 && _v1 && "CAMERA" === _v8 ? _v21(_v301, !0) : _v21(_v301, !1);
+        "4K" === _v16 && _v1 && "CAMERA" === _v8 ? _v21(_v302, !0) : _v21(_v302, !1);
       }, [_v9, _v16, _v21, _v20.mediaInfo?.size, _v8]), (0, _v26.useEffect)(() => {
         let _v0 = () => {
           _v5(window.innerHeight - 140);
         };
         return _v0(), window.addEventListener("resize", _v0), () => window.removeEventListener("resize", _v0);
       }, []), (0, _v25.jsxs)(_v25.Fragment, {
-        children: [_v0 && (0, _v25.jsx)(_v1189, {
+        children: [_v0 && (0, _v25.jsx)(_v1194, {
           "data-testId": "record-ultra-quality-upsell-modal",
           templateType: "default",
           apiUrl: _v6?.apiUrl,
@@ -28058,7 +28153,7 @@
             }
           },
           modalConfig: {
-            ..._v1160.includedInAllPlansModalConfig,
+            ..._v1165.includedInAllPlansModalConfig,
             headerText: (0, _v205.translate)({
               singular: "Upgrade for 4K recording",
               dictionary: {
@@ -28112,22 +28207,22 @@
               }
             }),
             planOverrides: {
-              [_v1160.PLANS.STARTER]: {
-                featuresList: [_v1187, ..._v1160.PLANS_DEFAULT_FEATURES[_v1160.PLANS.PLUS].slice(0, -1)]
+              [_v1165.PLANS.STARTER]: {
+                featuresList: [_v1192, ..._v1165.PLANS_DEFAULT_FEATURES[_v1165.PLANS.PLUS].slice(0, -1)]
               }
             }
           }
         }), (0, _v25.jsx)(_v208.Box, {
           marginRight: "4",
-          children: (0, _v25.jsxs)(_v1157.Panel, {
+          children: (0, _v25.jsxs)(_v1162.Panel, {
             width: (0, _v30.rem)(360),
             isVisible: _v14,
-            children: [(0, _v25.jsx)(_v1182, {}), (0, _v25.jsxs)(_v1157.PanelBody, {
+            children: [(0, _v25.jsx)(_v1187, {}), (0, _v25.jsxs)(_v1162.PanelBody, {
               paddingTop: 0,
               height: (0, _v30.rem)(_v4),
               children: [(0, _v25.jsxs)(_v208.Box, {
                 marginBottom: "6",
-                children: [(0, _v25.jsx)(_v303.Header, {
+                children: [(0, _v25.jsx)(_v304.Header, {
                   marginBottom: (0, _v30.rem)(4),
                   size: "xs",
                   children: (0, _v205.translate)({
@@ -28156,7 +28251,7 @@
                       }
                     }
                   })
-                }), (0, _v25.jsx)(_v1158.Select, {
+                }), (0, _v25.jsx)(_v1163.Select, {
                   disabled: "pre-recording" !== _v11,
                   onValueChange: _v0 => {
                     var _v1;
@@ -28167,9 +28262,9 @@
                   value: [_v16],
                   items: _v10,
                   size: "sm",
-                  "data-testid": _v1179,
-                  children: _v0 => (0, _v25.jsx)(_v1158.SelectItem, {
-                    "data-testid": _v1180,
+                  "data-testid": _v1184,
+                  children: _v0 => (0, _v25.jsx)(_v1163.SelectItem, {
+                    "data-testid": _v1185,
                     display: "flex",
                     gap: (0, _v30.rem)(2),
                     justifyContent: "center",
@@ -28179,14 +28274,14 @@
                       w: "100%",
                       justifyContent: "space-between",
                       children: [(0, _v25.jsxs)(_v208.Box, {
-                        children: [(0, _v25.jsx)(_v1158.SelectItemText, {
+                        children: [(0, _v25.jsx)(_v1163.SelectItemText, {
                           children: _v0.label
                         }), (0, _v25.jsx)(_v203.Text, {
                           color: "text-secondary",
                           variant: "body-sm",
-                          children: _v1186[_v0.value]
+                          children: _v1191[_v0.value]
                         })]
-                      }), "4K" === _v0.value && !_v12 && (0, _v25.jsx)(_v1159.Badge, {
+                      }), "4K" === _v0.value && !_v12 && (0, _v25.jsx)(_v1164.Badge, {
                         variant: "upgrade",
                         size: "sm",
                         children: (0, _v205.translate)({
@@ -28218,7 +28313,7 @@
                 })]
               }), !_v12 && _v15 < 3 && !_v2 && (0, _v25.jsx)(_v208.Box, {
                 marginBottom: "6",
-                children: (0, _v25.jsx)(_v1184, {
+                children: (0, _v25.jsx)(_v1189, {
                   onClose: () => {
                     _v3(!0), _v13("stats", {
                       ultraQualityUpsellShownCount: _v15 + 1
@@ -28228,7 +28323,7 @@
                 })
               }), (0, _v25.jsxs)(_v208.Box, {
                 "data-testid": "record-settings-panel-camera-effects",
-                children: [(0, _v25.jsx)(_v303.Header, {
+                children: [(0, _v25.jsx)(_v304.Header, {
                   marginBottom: (0, _v30.rem)(4),
                   size: "xs",
                   children: (0, _v205.translate)({
@@ -28257,33 +28352,33 @@
                       }
                     }
                   })
-                }), (0, _v25.jsx)(_v1178, {})]
+                }), (0, _v25.jsx)(_v1183, {})]
               })]
             })]
           })
         })]
       });
     };
-  var _v1191 = _v0.i(0),
-    _v1192 = _v0.i(0);
-  let _v1193 = (0, _v26.createContext)({
+  var _v1196 = _v0.i(0),
+    _v1197 = _v0.i(0);
+  let _v1198 = (0, _v26.createContext)({
       pipWindow: void 0
     }),
-    _v1194 = {
+    _v1199 = {
       primary: {
-        default: _v566.bokehTheme.colors.red[400],
-        hover: _v566.bokehTheme.colors.red[500]
+        default: _v571.bokehTheme.colors.red[400],
+        hover: _v571.bokehTheme.colors.red[500]
       },
       secondary: {
-        default: _v566.bokehTheme.colors.lightBlueAlpha[300],
-        hover: _v566.bokehTheme.colors.lightBlueAlpha[400]
+        default: _v571.bokehTheme.colors.lightBlueAlpha[300],
+        hover: _v571.bokehTheme.colors.lightBlueAlpha[400]
       },
       icon: {
         default: "transparent",
-        hover: _v566.bokehTheme.colors.lightBlueAlpha[300]
+        hover: _v571.bokehTheme.colors.lightBlueAlpha[300]
       }
     },
-    _v1195 = ({
+    _v1200 = ({
       children: _v0,
       variant: _v1 = "primary",
       isDisabled: _v2 = !1,
@@ -28309,7 +28404,7 @@
           height: "32px",
           borderRadius: "8px",
           color: "white",
-          background: _v1194[_v1][_v5 ? "hover" : "default"],
+          background: _v1199[_v1][_v5 ? "hover" : "default"],
           opacity: _v2 ? .5 : 1,
           fontFamily: "inherit",
           cursor: _v2 ? "default" : "pointer",
@@ -28323,7 +28418,7 @@
         children: _v0
       });
     },
-    _v1196 = ({
+    _v1201 = ({
       type: _v0,
       isMinimizedMode: _v1
     }) => {
@@ -28355,13 +28450,13 @@
             flexDirection: "row",
             gap: "8px"
           },
-          children: [(0, _v25.jsx)(_v1195, {
+          children: [(0, _v25.jsx)(_v1200, {
             variant: "secondary",
             onClick: () => {
               _v2("requestDelete" === _v0 ? "cancelDelete" : "cancelRestart", "pip"), _v3(null);
             },
             children: _v4.reject
-          }), (0, _v25.jsx)(_v1195, {
+          }), (0, _v25.jsx)(_v1200, {
             onClick: () => {
               _v2("requestDelete" === _v0 ? "delete" : "restart", "pip"), _v3(null);
             },
@@ -28370,34 +28465,34 @@
         })]
       });
     },
-    _v1197 = () => {
+    _v1202 = () => {
       let _v0 = (0, _v86.useUIStore)(_v0 => _v0.controls.setControlsAction),
         _v1 = (0, _v86.useUIStore)(_v0 => !!_v0.controls.confirmDialogState),
         _v2 = (0, _v86.useUIStore)(_v0 => _v0.common.recordingStartedAt);
-      return (0, _v25.jsxs)(_v1195, {
+      return (0, _v25.jsxs)(_v1200, {
         isDisabled: _v1,
         style: {
           minWidth: "104px",
           padding: 0
         },
         onClick: () => _v0("stop", "pip"),
-        children: [(0, _v25.jsx)(_v397.StopFilled, {
+        children: [(0, _v25.jsx)(_v398.StopFilled, {
           style: {
             width: "20px",
             height: "20px"
           }
-        }), _v2 ? (0, _v25.jsx)(_v1198, {}) : ""]
+        }), _v2 ? (0, _v25.jsx)(_v1203, {}) : ""]
       });
     };
-  function _v1198() {
+  function _v1203() {
     let _v0 = (0, _v86.useUIStore)(_v0 => _v0.common.recordingDuration),
-      _v1 = _v292();
+      _v1 = _v293();
     return (0, _v25.jsx)("div", {
       "data-testid": _v38.TEST_IDS.RECORDING_DURATION,
-      children: _v398(0 === _v1 ? _v0 : _v1 / 0 - _v0)
+      children: _v399(0 === _v1 ? _v0 : _v1 / 0 - _v0)
     });
   }
-  let _v1199 = () => {
+  let _v1204 = () => {
       let {
         state: _v0,
         controlsDisabled: _v1,
@@ -28424,57 +28519,57 @@
             flexDirection: "row",
             gap: "4px",
             borderRadius: "8px",
-            background: _v566.bokehTheme.colors.lightBlueAlpha[300]
+            background: _v571.bokehTheme.colors.lightBlueAlpha[300]
           },
-          children: [(0, _v25.jsx)(_v1195, {
+          children: [(0, _v25.jsx)(_v1200, {
             variant: "icon",
             isDisabled: _v1,
             onClick: () => {
               _v3("pause", "pip"), _v2("requestDelete");
             },
-            children: (0, _v25.jsx)(_v404.TrashBin, {
+            children: (0, _v25.jsx)(_v405.TrashBin, {
               style: {
                 width: "20px",
                 height: "20px"
               }
             })
-          }), (0, _v25.jsx)(_v1195, {
+          }), (0, _v25.jsx)(_v1200, {
             variant: "icon",
             isDisabled: _v1,
             onClick: () => {
               _v3("pause", "pip"), _v2("requestRestart");
             },
-            children: (0, _v25.jsx)(_v403.Reset, {
+            children: (0, _v25.jsx)(_v404.Reset, {
               style: {
                 width: "20px",
                 height: "20px"
               }
             })
-          }), "recording" === _v0 ? (0, _v25.jsx)(_v1195, {
+          }), "recording" === _v0 ? (0, _v25.jsx)(_v1200, {
             variant: "icon",
             isDisabled: _v1,
             onClick: () => _v3("pause", "pip"),
-            children: (0, _v25.jsx)(_v401.Pause, {
+            children: (0, _v25.jsx)(_v402.Pause, {
               style: {
                 width: "20px",
                 height: "20px"
               }
             })
-          }) : (0, _v25.jsx)(_v1195, {
+          }) : (0, _v25.jsx)(_v1200, {
             variant: "icon",
             isDisabled: _v1,
             onClick: () => _v3("resume", "pip"),
-            children: (0, _v25.jsx)(_v402.Play, {
+            children: (0, _v25.jsx)(_v403.Play, {
               style: {
                 width: "20px",
                 height: "20px"
               }
             })
           })]
-        }), (0, _v25.jsx)(_v1197, {})]
+        }), (0, _v25.jsx)(_v1202, {})]
       });
     },
-    _v1200 = {
+    _v1205 = {
       enlargePiP: (0, _v205.translate)({
         singular: "Expand this window to view picture-in-picture.",
         dictionary: {
@@ -28632,7 +28727,7 @@
         }
       })
     },
-    _v1201 = () => {
+    _v1206 = () => {
       let {
         state: _v0,
         isRecordingAvailable: _v1,
@@ -28642,27 +28737,27 @@
         isRecordingAvailable: _v0.common.recordingAvailability.available,
         setControlsAction: _v0.controls.setControlsAction
       })));
-      return (0, _v25.jsx)(_v1195, {
+      return (0, _v25.jsx)(_v1200, {
         isDisabled: !_v1,
         onClick: () => {
           _v1 && "pre-recording" === _v0 && _v2("record", "pip");
         },
-        children: _v1200.startRecording
+        children: _v1205.startRecording
       });
     },
-    _v1202 = () => {
+    _v1207 = () => {
       let _v0 = (0, _v86.useUIStore)(_v0 => _v0.common.state);
-      return _v147.includes(_v0) ? null : "pre-recording" === _v0 ? (0, _v25.jsx)(_v1201, {}) : (0, _v25.jsx)(_v1199, {});
+      return _v147.includes(_v0) ? null : "pre-recording" === _v0 ? (0, _v25.jsx)(_v1206, {}) : (0, _v25.jsx)(_v1204, {});
     },
-    _v1203 = () => {
+    _v1208 = () => {
       let _v0 = (0, _v86.useUIStore)(_v0 => _v0.controls.setControlsAction);
-      return (0, _v25.jsx)(_v1195, {
+      return (0, _v25.jsx)(_v1200, {
         variant: "secondary",
         onClick: () => _v0("cancel", "pip"),
-        children: _v1200.countdownCancel
+        children: _v1205.countdownCancel
       });
     },
-    _v1204 = ({
+    _v1209 = ({
       secondsLeft: _v0,
       isMinimizedMode: _v1
     }) => _v1 ? (0, _v25.jsxs)("div", {
@@ -28674,7 +28769,7 @@
         alignItems: "center",
         justifyContent: "space-between"
       },
-      children: [_v1200.countdownSecondsLeft(_v0), (0, _v25.jsx)(_v1203, {})]
+      children: [_v1205.countdownSecondsLeft(_v0), (0, _v25.jsx)(_v1208, {})]
     }) : (0, _v25.jsxs)(_v25.Fragment, {
       children: [(0, _v25.jsx)("span", {
         style: {
@@ -28682,9 +28777,9 @@
           lineHeight: 1
         },
         children: _v0
-      }), (0, _v25.jsx)(_v1203, {})]
+      }), (0, _v25.jsx)(_v1208, {})]
     }),
-    _v1205 = (_v0, _v1) => {
+    _v1210 = (_v0, _v1) => {
       let [_v2, _v3] = (0, _v26.useState)(!1);
       return (0, _v26.useLayoutEffect)(() => {
         let _v0 = (_v1 ?? window).matchMedia(_v0);
@@ -28693,11 +28788,11 @@
         return _v0?.addEventListener("change", _v1), () => _v0?.removeEventListener("change", _v1);
       }, [_v0, _v1]), _v2;
     },
-    _v1206 = {
+    _v1211 = {
       width: 0,
       height: 0
     },
-    _v1207 = ({
+    _v1212 = ({
       isPreviewHidden: _v0
     }) => {
       let _v1 = _v175(_v0 => _v0[_v146.CANVAS_SCENE]?.stream),
@@ -28725,8 +28820,8 @@
           return [_v1, (0, _v26.useCallback)(_v0 => {
             _v3.current && _v3.current.removeEventListener("resize", _v4), _v0 && _v0.addEventListener("resize", _v4), _v3.current = _v0, _v4();
           }, [_v4]), _v3];
-        })(_v1206);
-      _v1169({
+        })(_v1211);
+      _v1174({
         playbackStream: _v1,
         ref: _v4,
         playbackPlaceholderSrc: _v76
@@ -28734,7 +28829,7 @@
       let {
         bestDimension: _v5,
         setContainerRef: _v6
-      } = _v470(_v2.width, _v2.height);
+      } = _v475(_v2.width, _v2.height);
       return (0, _v25.jsx)("div", {
         ref: _v6,
         style: {
@@ -28761,7 +28856,7 @@
         })
       });
     },
-    _v1208 = ({
+    _v1213 = ({
       size: _v0
     }) => (0, _v25.jsxs)(_v25.Fragment, {
       children: [(0, _v25.jsx)("style", {
@@ -28793,22 +28888,22 @@
         })]
       })]
     }),
-    _v1209 = _v566.bokehTheme.colors.blackAlpha[700],
-    _v1210 = ({
+    _v1214 = _v571.bokehTheme.colors.blackAlpha[700],
+    _v1215 = ({
       isMinimizedMode: _v0,
       appState: _v1
     }) => {
-      let _v2 = _v567(),
+      let _v2 = _v572(),
         {
           name: _v3
-        } = _v373();
+        } = _v374();
       return (0, _v25.jsx)("div", {
         style: {
           position: "relative",
           width: "100%",
           height: "100%",
           borderRadius: "6px",
-          background: !_v0 && _v2 ? `linear-gradient(to right, ${_v1209}, ${_v1209}), center / cover url(${_v2})` : void 0,
+          background: !_v0 && _v2 ? `linear-gradient(to right, ${_v1214}, ${_v1214}), center / cover url(${_v2})` : void 0,
           display: "flex",
           flexDirection: _v0 ? "row-reverse" : "column",
           alignItems: "center",
@@ -28817,15 +28912,15 @@
           gap: "12px"
         },
         children: ["uploading", "finalizing"].includes(_v1) && (0, _v25.jsxs)(_v25.Fragment, {
-          children: [(0, _v25.jsx)(_v1208, {
+          children: [(0, _v25.jsx)(_v1213, {
             size: _v0 ? "sm" : "md"
           }), (0, _v25.jsx)("span", {
-            children: _v568.savingToLibrary(_v3 ?? _v568.defaultLibraryName)
+            children: _v573.savingToLibrary(_v3 ?? _v573.defaultLibraryName)
           })]
         })
       });
     },
-    _v1211 = (_v0 = window) => {
+    _v1216 = (_v0 = window) => {
       let _v1 = function () {
           let {
             state: _v0,
@@ -28862,10 +28957,10 @@
         _v3 = (0, _v26.useCallback)(() => (_v0?.addEventListener("keydown", _v2), () => _v0?.removeEventListener("keydown", _v2)), [_v2, _v0]);
       (0, _v26.useEffect)(() => _v3(), [_v3]);
     },
-    _v1212 = () => {
+    _v1217 = () => {
       let {
           pipWindow: _v0
-        } = (0, _v26.useContext)(_v1193),
+        } = (0, _v26.useContext)(_v1198),
         _v1 = _v185(_v0 => _v0.countdownSeconds),
         {
           confirmDialogState: _v2,
@@ -28879,14 +28974,14 @@
         }))),
         _v4 = (0, _v86.useUIStore)(_v0 => _v0.common.error),
         _v5 = _v175(_v0 => _v0.displayMedia?.mediaInfo?.displaySurface);
-      _v1211(_v0);
+      _v1216(_v0);
       let _v6 = _v147.includes(_v3),
         _v7 = "monitor" === _v5 || void 0 !== _v1 || !!_v2 || _v6,
         _v8 = 255,
         _v9 = _v7 ? 63 : 203,
-        _v10 = _v1205(`screen and (max-width: ${_v8}px)`, _v0),
-        _v11 = _v1205(`screen and (max-height: ${_v9}px)`, _v0),
-        _v12 = _v1205("screen and (max-height: 144px)", _v0);
+        _v10 = _v1210(`screen and (max-width: ${_v8}px)`, _v0),
+        _v11 = _v1210(`screen and (max-height: ${_v9}px)`, _v0),
+        _v12 = _v1210("screen and (max-height: 144px)", _v0);
       return (0, _v25.jsx)("div", {
         style: {
           position: "fixed",
@@ -28899,13 +28994,13 @@
           justifyContent: "center",
           alignItems: "center",
           textAlign: "center",
-          background: _v566.bokehTheme.colors.gray[800],
+          background: _v571.bokehTheme.colors.gray[800],
           color: "white",
           fontFamily: "ABCRepro-Medium, sans-serif",
           fontSize: "14px"
         },
-        children: _v10 || _v11 ? _v1200.enlargePiP : "blocker-error" === _v4.type && _v4.errorKey === _v169.FIREWALL_ERROR ? (0, _v25.jsxs)(_v25.Fragment, {
-          children: [(0, _v25.jsx)(_v1192.CircleExclamation, {
+        children: _v10 || _v11 ? _v1205.enlargePiP : "blocker-error" === _v4.type && _v4.errorKey === _v169.FIREWALL_ERROR ? (0, _v25.jsxs)(_v25.Fragment, {
+          children: [(0, _v25.jsx)(_v1197.CircleExclamation, {
             style: {
               width: "20px",
               height: "20px"
@@ -28914,30 +29009,30 @@
             style: {
               fontFamily: "ABCRepro-Regular"
             },
-            children: _v1200.recordingIsNotAvailable
-          }), (0, _v25.jsx)(_v1195, {
+            children: _v1205.recordingIsNotAvailable
+          }), (0, _v25.jsx)(_v1200, {
             variant: "secondary",
             onClick: () => _v0?.opener.focus(),
-            children: _v1200.backToRecordStudio
+            children: _v1205.backToRecordStudio
           })]
         }) : (0, _v25.jsxs)(_v25.Fragment, {
-          children: [(0, _v25.jsx)(_v1207, {
+          children: [(0, _v25.jsx)(_v1212, {
             isPreviewHidden: _v7
-          }), _v6 && (0, _v25.jsx)(_v1210, {
+          }), _v6 && (0, _v25.jsx)(_v1215, {
             isMinimizedMode: _v12,
             appState: _v3
-          }), void 0 !== _v1 ? (0, _v25.jsx)(_v1204, {
+          }), void 0 !== _v1 ? (0, _v25.jsx)(_v1209, {
             secondsLeft: _v1,
             isMinimizedMode: _v12
-          }) : _v2 ? (0, _v25.jsx)(_v1196, {
+          }) : _v2 ? (0, _v25.jsx)(_v1201, {
             type: _v2,
             isMinimizedMode: _v12
-          }) : (0, _v25.jsx)(_v1202, {})]
+          }) : (0, _v25.jsx)(_v1207, {})]
         })
       });
     };
-  var _v1213 = _v0.i(0);
-  function _v1214() {
+  var _v1218 = _v0.i(0);
+  function _v1219() {
     let {
         selectedAudioDeviceId: _v0,
         selectedVideoDeviceId: _v1
@@ -28955,11 +29050,11 @@
       }) => _v0 === _v1)
     };
   }
-  var _v1215 = _v0.i(0);
-  function _v1216(_v0, _v1, _v2, _v3) {
-    return _v2 ? _v0 ? _v1 && _v1.includes(_v2) ? _v2 : _v437.DEFAULT_PRIVACY_VALUES.PRIVATE : (_v2 !== _v437.DEFAULT_PRIVACY_VALUES.UNLISTED || _v3) && Object.values(_v437.DEFAULT_PRIVACY_VALUES).includes(_v2) ? _v2 : _v437.DEFAULT_PRIVACY_VALUES.PRIVATE : _v437.DEFAULT_PRIVACY_VALUES.PRIVATE;
+  var _v1220 = _v0.i(0);
+  function _v1221(_v0, _v1, _v2, _v3) {
+    return _v2 ? _v0 ? _v1 && _v1.includes(_v2) ? _v2 : _v438.DEFAULT_PRIVACY_VALUES.PRIVATE : (_v2 !== _v438.DEFAULT_PRIVACY_VALUES.UNLISTED || _v3) && Object.values(_v438.DEFAULT_PRIVACY_VALUES).includes(_v2) ? _v2 : _v438.DEFAULT_PRIVACY_VALUES.PRIVATE : _v438.DEFAULT_PRIVACY_VALUES.PRIVATE;
   }
-  function _v1217(_v0, _v1 = {}) {
+  function _v1222(_v0, _v1 = {}) {
     let _v2 = _v138("alignStreamWithRecordState"),
       {
         capture: _v3,
@@ -28989,7 +29084,7 @@
       forceUpdate: _v1[_v146.CAMERA]
     }));
   }
-  let _v1218 = _v26.useLayoutEffect;
+  let _v1223 = _v26.useLayoutEffect;
   _v0.s(["RecordStudio", 0, ({
     sessionId: _v0,
     onStateChange: _v1,
@@ -29000,20 +29095,20 @@
     zIndex: _v6
   }) => {
     let _v7, _v8, _v9, _v10, _v11, _v12, _v13, _v14, _v15;
-    _v426(_v0);
+    _v427(_v0);
     let {
         setIntegrationConfiguration: _v16
       } = _v255(),
       _v17 = (0, _v32.useOrionSettingsFields)(["record_upload_approach"]);
     (0, _v26.useEffect)(() => {
-      let _v0 = _v84.subscribe(_v0 => _v0.capture, () => _v1217("captureConfig")),
-        _v1 = _v84.subscribe(_v0 => _v0.settings.camera.avatarAsPreview, () => _v1217("avatarToggle")),
-        _v2 = _v82.subscribe(_v0 => _v0.size, () => _v1217("canvasSize", {
+      let _v0 = _v84.subscribe(_v0 => _v0.capture, () => _v1222("captureConfig")),
+        _v1 = _v84.subscribe(_v0 => _v0.settings.camera.avatarAsPreview, () => _v1222("avatarToggle")),
+        _v2 = _v82.subscribe(_v0 => _v0.size, () => _v1222("canvasSize", {
           [_v146.CAMERA]: !0
         })),
         _v3 = _v86.useUIStore.subscribe(_v0 => _v0.common.state, (_v0, _v1) => {
           let _v2 = _v147.includes(_v0);
-          _v147.includes(_v1) !== _v2 && _v1217(_v2 ? "muteStream" : "openStream");
+          _v147.includes(_v1) !== _v2 && _v1222(_v2 ? "muteStream" : "openStream");
         });
       return () => {
         _v0(), _v1(), _v2(), _v3();
@@ -29096,7 +29191,7 @@
         {
           data: _v13,
           error: _v14
-        } = (0, _v1215.useGetUser)(() => _v6 ? {
+        } = (0, _v1220.useGetUser)(() => _v6 ? {
           where: {
             userId: _v6
           },
@@ -29107,8 +29202,8 @@
         } : null);
       (0, _v26.useEffect)(() => {
         if (_v5) _v4 && _v1(_v4);else if (_v12) {
-          let _v0 = [_v437.DEFAULT_PRIVACY_VALUES.PRIVATE];
-          _v9 && _v0.push(_v437.DEFAULT_PRIVACY_VALUES.UNLISTED), _v10 || _v0.push(_v437.DEFAULT_PRIVACY_VALUES.PUBLIC), _v11 || _v0.push(_v437.DEFAULT_PRIVACY_VALUES.PASSWORD), _v8 && _v0.push(_v437.DEFAULT_PRIVACY_VALUES.HIDE_FROM_VIMEO), _v1(_v0);
+          let _v0 = [_v438.DEFAULT_PRIVACY_VALUES.PRIVATE];
+          _v9 && _v0.push(_v438.DEFAULT_PRIVACY_VALUES.UNLISTED), _v10 || _v0.push(_v438.DEFAULT_PRIVACY_VALUES.PUBLIC), _v11 || _v0.push(_v438.DEFAULT_PRIVACY_VALUES.PASSWORD), _v8 && _v0.push(_v438.DEFAULT_PRIVACY_VALUES.HIDE_FROM_VIMEO), _v1(_v0);
         }
       }, [_v8, _v9, _v4, _v10, _v11, _v12, _v5, _v3, _v1]), (0, _v26.useEffect)(() => {
         let _v0 = !!(_v13 || _v14);
@@ -29116,7 +29211,7 @@
           let _v0 = _v13?.preferences?.videos?.password || _v13?.preferences?.videos?.privacy?.password,
             _v1 = _v13?.preferences?.videos?.privacy?.view;
           _v2({
-            value: _v7 || _v5 ? _v1216(!!_v5, _v4, _v1) : _v1216(!1, void 0, _v1, _v9),
+            value: _v7 || _v5 ? _v1221(!!_v5, _v4, _v1) : _v1221(!1, void 0, _v1, _v9),
             password: _v0
           });
         }
@@ -29126,7 +29221,7 @@
         let {
             audio: _v0,
             video: _v1
-          } = _v1214(),
+          } = _v1219(),
           {
             defaultVideoDevice: _v2,
             defaultAudioDevice: _v3
@@ -29136,7 +29231,7 @@
             defaultVideoDevice: _v4,
             defaultAudioDevice: _v5
           } = _v166.getState().data,
-          _v6 = _v1214(),
+          _v6 = _v1219(),
           _v7 = [];
         _v0 && _v0.deviceId !== _v6.audio?.deviceId && _v7.push(_v0), _v1 && _v1.deviceId !== _v6.video?.deviceId && _v7.push(_v1), _v7.length > 0 && _v7.info("Devices previously used were removed", {
           devices: _v7
@@ -29151,7 +29246,7 @@
         _v2 = _v179(_v0 => _v0.setError),
         _v3 = _v179(_v0 => _v0.check),
         _v4 = _v179(_v0 => _v0.permissions),
-        _v5 = _v423(),
+        _v5 = _v424(),
         {
           isMediaDevicesReceived: _v6,
           audioDevicesFound: _v7,
@@ -29260,12 +29355,12 @@
           currentSessionData: {
             lastLayoutTypeUsed: _v2
           }
-        } = _v426(),
+        } = _v427(),
         {
           activateScreen: _v3,
           activateCamera: _v4,
           activateBoth: _v5
-        } = _v425(),
+        } = _v426(),
         _v6 = _v137("useRetakeWithAssets"),
         _v7 = (0, _v26.useRef)(null),
         _v8 = (0, _v26.useRef)(_v2),
@@ -29318,7 +29413,7 @@
       })(),
       {
         clear: _v32
-      } = _v298(),
+      } = _v299(),
       _v33 = (() => {
         let _v0 = _v137("usePreviewPiP"),
           _v1 = (0, _v26.useRef)(!1),
@@ -29393,7 +29488,7 @@
                 _v3 = (0, _v26.useRef)(void 0);
               (0, _v26.useEffect)(() => {
                 if (!_v0) return;
-                let _v0 = (0, _v1213.default)(() => {
+                let _v0 = (0, _v1218.default)(() => {
                   _v2.current && _v3.current && (_v2.current !== _v0.innerWidth || _v3.current !== _v0.innerHeight) && _v1(), _v2.current = _v0.innerWidth, _v3.current = _v0.innerHeight;
                 }, 300);
                 return _v0.addEventListener("resize", _v0), () => {
@@ -29436,15 +29531,15 @@
                       _v1.rel = "stylesheet", _v1.type = _v0.type, _v1.href = _v0.href, _v0.document.head.appendChild(_v1);
                     }
                   });
-                  let _v2 = (0, _v1191.createRoot)(_v1);
-                  (0, _v465.flushSync)(() => {
+                  let _v2 = (0, _v1196.createRoot)(_v1);
+                  (0, _v470.flushSync)(() => {
                     _v2.render((0, _v25.jsx)(_v36.ViewerContext.Provider, {
                       value: _v8,
-                      children: (0, _v25.jsx)(_v1193.Provider, {
+                      children: (0, _v25.jsx)(_v1198.Provider, {
                         value: {
                           pipWindow: _v0
                         },
-                        children: (0, _v25.jsx)(_v1212, {})
+                        children: (0, _v25.jsx)(_v1217, {})
                       })
                     }));
                   }), _v0.addEventListener("pagehide", () => {
@@ -29492,9 +29587,9 @@
               });
             }
           }, [_v2, _v3, _v5, _v10, _v9, _v4, _v0]);
-        return (0, _v289.useLastVersion)(_v11);
+        return (0, _v290.useLastVersion)(_v11);
       })();
-    _v1211();
+    _v1216();
     let _v34 = (0, _v26.useCallback)(() => {
       _v124("record_studio_script_generation_started");
     }, []);
@@ -29505,20 +29600,20 @@
         isTeleprompterShown: _v35,
         showUpsell: _v36
       } = (0, _v34.useTeleprompter)(),
-      _v37 = _v419((0, _v26.useCallback)(_v0 => {
+      _v37 = _v420((0, _v26.useCallback)(_v0 => {
         let _v1 = _v35 && !_v36;
-        return _v0 !== _v299 || !_v1;
+        return _v0 !== _v300 || !_v1;
       }, [_v35, _v36])),
       _v38 = (() => {
-        let _v0 = _v419((0, _v26.useCallback)(_v0 => _v0 === _v299, [])) ?? [],
+        let _v0 = _v420((0, _v26.useCallback)(_v0 => _v0 === _v300, [])) ?? [],
           {
             ignore: _v1
-          } = _v298();
+          } = _v299();
         return _v0.map(_v0 => ({
           notice: _v0,
           onClose: () => _v1(_v0),
-          message: _v416.notices[_v0].message,
-          title: _v416.notices[_v0].title
+          message: _v417.notices[_v0].message,
+          title: _v417.notices[_v0].title
         }));
       })();
     (0, _v26.useEffect)(() => () => {
@@ -29562,7 +29657,7 @@
       isLiveUploadEnabled: _v4 = !1,
       uploadExperimentArm: _v5 = null
     }, _v6) {
-      _v1218(() => {
+      _v1223(() => {
         var _v0 = {
           APP_TYPE: _v0,
           SESSION_ID: _v1,
@@ -29603,7 +29698,7 @@
     }();
     return (0, _v25.jsx)(_v201.Provider, {
       value: _v33,
-      children: (0, _v25.jsx)(_v394, {
+      children: (0, _v25.jsx)(_v395, {
         children: (0, _v25.jsxs)(_v28.Flex, {
           flexDirection: "column",
           flexGrow: "1",
@@ -29619,7 +29714,7 @@
             minWidth: (0, _v30.rem)(900)
           }),
           children: [(0, _v25.jsx)(_v35.MoveModalContextProvider, {
-            children: _v2 === _v253 ? (0, _v25.jsx)(_v421, {}) : (0, _v25.jsx)(_v415, {})
+            children: _v2 === _v253 ? (0, _v25.jsx)(_v422, {}) : (0, _v25.jsx)(_v416, {})
           }), (0, _v25.jsx)(_v28.Flex, {
             "data-testid": "record-studio",
             background: "background-blur",
@@ -29628,21 +29723,21 @@
             },
             flexGrow: "1",
             position: "relative",
-            children: (0, _v25.jsxs)(_v344, {
+            children: (0, _v25.jsxs)(_v345, {
               children: [(0, _v25.jsx)(_v28.Flex, {
                 paddingTop: "200",
                 flexDirection: "column",
                 flexGrow: "1",
                 position: "relative",
-                children: (0, _v25.jsxs)(_v464, {
+                children: (0, _v25.jsxs)(_v469, {
                   children: [(0, _v25.jsxs)(_v29.VStack, {
                     marginX: "auto",
-                    children: [(0, _v25.jsx)(_v342, {}), _v19 ? (0, _v25.jsx)(_v422, {}) : null, _v37 && (0, _v25.jsx)(_v417, {
+                    children: [(0, _v25.jsx)(_v343, {}), _v19 ? (0, _v25.jsx)(_v423, {}) : null, _v37 && (0, _v25.jsx)(_v418, {
                       visibleNotices: _v37
                     })]
-                  }), (0, _v25.jsx)(_v1156, {}), (0, _v25.jsx)(_v302, {})]
+                  }), (0, _v25.jsx)(_v1161, {}), (0, _v25.jsx)(_v303, {})]
                 })
-              }), (0, _v25.jsx)(_v1190, {}), (0, _v25.jsx)(_v33.Teleprompter, {
+              }), (0, _v25.jsx)(_v1195, {}), (0, _v25.jsx)(_v33.Teleprompter, {
                 session: _v0,
                 visibleNotices: _v38,
                 audioTrack: _v28,

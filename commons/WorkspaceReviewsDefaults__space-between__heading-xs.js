@@ -132,7 +132,7 @@
       }), (0, _v1.jsx)(_v12.PrivacyDefaultsModal, {
         isOpen: _v2,
         onClose: _v4,
-        onSaveSuccess: () => _v0(!0),
+        onSaveSuccess: _v0 => _v0(!0, _v0),
         privacyRestrictionsHref: _v1
       })]
     });
@@ -175,7 +175,7 @@
       }), (0, _v1.jsx)(_v13.ViewerPermissionsModal, {
         isOpen: _v1,
         onClose: _v3,
-        onSaveSuccess: () => _v0(!0),
+        onSaveSuccess: _v0 => _v0(!0, _v0),
         onSaveFailure: () => _v0(!1)
       })]
     });

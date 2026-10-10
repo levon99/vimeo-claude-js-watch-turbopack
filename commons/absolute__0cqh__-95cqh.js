@@ -11,8 +11,9 @@
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
-  function _v12({
+    _v11 = _v0.i(0),
+    _v12 = _v0.i(0);
+  function _v13({
     reaction: _v0
   }) {
     let _v1 = (0, _v5.useMemo)(() => 4 + _v0.key.split("").reduce((_v0, _v1) => _v0 + _v1.charCodeAt(0), 0) % 26, [_v0.key]);
@@ -82,7 +83,9 @@
         if (_v3) return _v3;
         let _v4 = document.querySelector(".js-player");
         return _v4?.parentElement ?? null;
-      }() : null;
+      }() : null,
+      [_v3] = (0, _v5.useState)(() => new Set(_v1.map(_v0 => _v0.key))),
+      _v4 = (0, _v5.useMemo)(() => _v1.filter(_v0 => !_v3.has(_v0.key) && (0, _v12.getAbsoluteNow)() - _v0.createdAt <= _v11.REACTIONS_STALE_AGE_MS), [_v1, _v3]);
     return _v0 && _v2 ? (0, _v6.createPortal)((0, _v1.jsx)(_v7.Box, {
       position: "absolute",
       inset: 0,
@@ -94,7 +97,7 @@
       },
       "aria-hidden": !0,
       children: (0, _v1.jsx)(_v3.AnimatePresence, {
-        children: _v1.map(_v0 => (0, _v1.jsx)(_v12, {
+        children: _v4.map(_v0 => (0, _v1.jsx)(_v13, {
           reaction: _v0
         }, _v0.key))
       })

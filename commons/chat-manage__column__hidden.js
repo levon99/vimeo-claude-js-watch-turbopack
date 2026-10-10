@@ -1204,6 +1204,11 @@
       label: "Party"
     }];
   function _v118() {
+    if ("u" < typeof document) return null;
+    let _v0 = document.fullscreenElement ?? document.webkitFullscreenElement;
+    return _v0 instanceof HTMLElement ? _v0 : null;
+  }
+  function _v119() {
     let {
         isEnabled: _v0,
         isRateLimited: _v1,
@@ -1216,22 +1221,32 @@
         onOpen: _v4,
         onClose: _v5
       } = (0, _v112.useDisclosure)(),
-      _v6 = (0, _v3.useRef)(null);
+      _v6 = (0, _v3.useRef)(null),
+      [_v7, _v8] = (0, _v3.useState)(_v118);
+    (0, _v3.useEffect)(() => {
+      let _v0 = () => _v8(_v118());
+      return document.addEventListener("fullscreenchange", _v0), document.addEventListener("webkitfullscreenchange", _v0), () => {
+        document.removeEventListener("fullscreenchange", _v0), document.removeEventListener("webkitfullscreenchange", _v0);
+      };
+    }, []);
+    let _v9 = (0, _v3.useMemo)(() => _v7 ? {
+      current: _v7
+    } : void 0, [_v7]);
     (0, _v3.useEffect)(() => {
       _v1 && _v3 && _v5();
     }, [_v1, _v3, _v5]);
-    let _v7 = (0, _v111.useBreakpointValue)({
+    let _v10 = (0, _v111.useBreakpointValue)({
         base: !0,
         md: !1
       }) ?? !1,
-      _v8 = (0, _v3.useCallback)(_v0 => {
+      _v11 = (0, _v3.useCallback)(_v0 => {
         _v1 || _v2(_v0);
       }, [_v1, _v2]),
-      _v9 = (0, _v3.useCallback)(_v0 => {
+      _v12 = (0, _v3.useCallback)(_v0 => {
         "string" != typeof _v0?.native || "" === _v0.native || _v1 || _v2(_v0.native);
       }, [_v1, _v2]);
     if (!0 !== _v0) return null;
-    let _v10 = (0, _v114.translate)({
+    let _v13 = (0, _v114.translate)({
       singular: "Emoji break! Try again in a moment.",
       dictionary: {
         es: {
@@ -1294,7 +1309,7 @@
         emoji: _v0,
         label: _v1
       }) => {
-        let _v2 = _v1 ? _v10 : _v1;
+        let _v2 = _v1 ? _v13 : _v1;
         return (0, _v1.jsx)(_v115.BokehTooltip, {
           label: _v2,
           placement: "left",
@@ -1322,20 +1337,22 @@
             "aria-label": _v2,
             "aria-disabled": _v1,
             disabled: _v1,
-            onClick: () => _v8(_v0),
+            onClick: () => _v11(_v0),
             children: _v0
           })
         }, _v0);
       }), (0, _v1.jsxs)(_v105.Popover, {
         isLazy: !0,
-        placement: _v7 ? "top-end" : "left-end",
+        placement: _v10 ? "top-end" : "left-end",
         gutter: 16,
+        strategy: _v7 ? "fixed" : void 0,
+        autoFocus: !1,
         isOpen: _v3 && !_v1,
         onOpen: _v4,
         onClose: _v5,
         children: [(0, _v1.jsx)(_v108.PopoverTrigger, {
           children: (0, _v1.jsx)(_v95.IconButton, {
-            "aria-label": _v1 ? _v10 : (0, _v114.translate)({
+            "aria-label": _v1 ? _v13 : (0, _v114.translate)({
               singular: "More emojis",
               dictionary: {
                 es: {
@@ -1370,6 +1387,7 @@
             isDisabled: _v1
           })
         }), (0, _v1.jsx)(_v109.Portal, {
+          containerRef: _v9,
           children: (0, _v1.jsx)(_v107.PopoverContent, {
             padding: 0,
             zIndex: "popover",
@@ -1389,7 +1407,7 @@
                 children: (0, _v1.jsx)(_v116, {
                   ref: _v6,
                   isOpen: _v3,
-                  onSelect: _v9
+                  onSelect: _v12
                 })
               })
             })
@@ -1398,7 +1416,7 @@
       })]
     });
   }
-  function _v119({
+  function _v120({
     id: _v0 = "reactions-manage"
   }) {
     let {
@@ -1522,7 +1540,7 @@
             header: _v11 ? "Reactions" : void 0,
             panelWidth: _v11 ? void 0 : 60,
             panelAutoHeight: !_v11,
-            Content: _v11 ? _v119 : _v118
+            Content: _v11 ? _v120 : _v119
           };
         return [].concat(_v12 ? _v0 : [], _v13 ? _v1 : [], _v14 ? _v2 : [], _v15 ? _v3 : []);
       }, [_v11, _v12, _v13, _v14, _v15, _v0]),

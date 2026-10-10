@@ -85,9 +85,11 @@
       _v11() && _v12(this) && _v13(this);
     }
     onKeyDown(_v0) {
-      let _v1 = !!(_v0.isTrusted && !_v0.target.isContentEditable && !this.restrictedTags.includes(_v0.target.tagName) && _v4.liveApplicationConfig.KEY_BINDS.ENABLED_KEYS.includes(_v0.code)),
-        _v2 = _v1 && Date.now() - this.lastPageKeypress > _v4.liveApplicationConfig.KEY_BINDS.KEYPRESS_THROTTLING_PERIOD;
-      _v1 && (this.onUserPageInteraction(_v0), _v0.preventDefault(), _v0.stopPropagation(), _v2 && (this.lastPageKeypress = Date.now(), this.emitSignal({
+      let _v1 = _v0.composedPath()[0] ?? _v0.target,
+        _v2 = _v1 instanceof HTMLElement && (_v1.isContentEditable || this.restrictedTags.includes(_v1.tagName)),
+        _v3 = !!(_v0.isTrusted && !_v2 && _v4.liveApplicationConfig.KEY_BINDS.ENABLED_KEYS.includes(_v0.code)),
+        _v4 = _v3 && Date.now() - this.lastPageKeypress > _v4.liveApplicationConfig.KEY_BINDS.KEYPRESS_THROTTLING_PERIOD;
+      _v3 && (this.onUserPageInteraction(_v0), _v0.preventDefault(), _v0.stopPropagation(), _v4 && (this.lastPageKeypress = Date.now(), this.emitSignal({
         type: _v6.EPageSignal.PAGE_KEY_PRESSED,
         data: _v0
       })));

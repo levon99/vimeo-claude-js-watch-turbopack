@@ -10970,39 +10970,38 @@
       quota: _v2,
       videoId: _v3
     }, _v4) => {
-      let _v5 = (0, _v29.useContext)(_v32.ViewerContext),
-        _v6 = _v5?.user?.uploadQuota?.restricted,
-        {
-          data: _v7
+      let {
+          data: _v5
         } = (0, _v217.useGetVideo)({
           where: {
             videoId: _v3
           },
-          select: ["user.uri", "user.uploadQuota.space.unit", "metadata.connections.versions.currentUri", "privacy.view", "privacy.embed"],
+          select: ["user.uri", "user.uploadQuota.space.unit", "user.uploadQuota.restricted", "metadata.connections.versions.currentUri", "privacy.view", "privacy.embed"],
           headers: {
             Accept: "application/vnd.vimeo.*+json;version=3.4.10"
           }
         }),
+        _v6 = _v5?.user?.uploadQuota?.restricted,
         {
           capabilities: {
-            hasMultipleVersions: _v8,
-            hasUpsellsForFlatRateTiers: _v9
+            hasMultipleVersions: _v7,
+            hasUpsellsForFlatRateTiers: _v8
           }
-        } = (0, _v128.useCapability)(["hasUpsellsForFlatRateTiers", "hasMultipleVersions"], _v7?.user?.uri),
-        _v10 = _v7?.metadata?.connections?.versions?.currentUri ? parseInt(_v7?.metadata.connections.versions?.currentUri?.split("/versions/")[1]) : null,
+        } = (0, _v128.useCapability)(["hasUpsellsForFlatRateTiers", "hasMultipleVersions"], _v5?.user?.uri),
+        _v9 = _v5?.metadata?.connections?.versions?.currentUri ? parseInt(_v5?.metadata.connections.versions?.currentUri?.split("/versions/")[1]) : null,
         {
-          data: _v11
-        } = (0, _v442.useGetVideoVersion)(() => _v9 && !1 === _v8 && "number" == typeof _v10 ? {
+          data: _v10
+        } = (0, _v442.useGetVideoVersion)(() => _v8 && !1 === _v7 && "number" == typeof _v9 ? {
           where: {
             videoId: _v3,
-            versionId: _v10
+            versionId: _v9
           },
           select: ["filesize"],
           headers: {
             Accept: "application/vnd.vimeo.*+json;version=3.4.10"
           }
         } : null),
-        _v12 = !!_v7 && (_v7.privacy?.view !== "anybody" || _v7.privacy?.embed !== "public");
+        _v11 = !!_v5 && (_v5.privacy?.view !== "anybody" || _v5.privacy?.embed !== "public");
       return (0, _v16.jsx)("input", {
         "data-testid": "file-upload",
         disabled: _v1,
@@ -11013,20 +11012,20 @@
             files: _v1
           } = _v0.target;
           if (!_v1 || !_v1.length) return;
-          let _v2 = _v7?.user?.uploadQuota?.space?.unit === "video_count" || ((_v0, _v1, _v2, _v3 = 0) => {
+          let _v2 = _v5?.user?.uploadQuota?.space?.unit === "video_count" || ((_v0, _v1, _v2, _v3 = 0) => {
               if (!_v1) return !0;
               let _v4 = !1 === _v2 ? _v0 - _v3 : _v0,
                 _v5 = "number" == typeof _v1?.lifetime?.free && _v4 > _v1?.lifetime?.free;
               return !("number" == typeof _v1?.periodic?.free && _v4 > _v1?.periodic?.free) && !_v5;
-            })(_v1[0].size, _v2, _v8, _v11?.filesize ?? void 0),
-            _v3 = !_v12 || ((_v0, _v1, _v2, _v3 = 0) => {
+            })(_v1[0].size, _v2, _v7, _v10?.filesize ?? void 0),
+            _v3 = !_v11 || ((_v0, _v1, _v2, _v3 = 0) => {
               if (!_v1) return !0;
               let {
                 max: _v4,
                 used: _v5
               } = _v1;
               return null == _v4 || null == _v5 || _v5 + (!1 === _v2 ? _v0 - _v3 : _v0) <= _v4;
-            })(_v1[0].size, _v6, _v8, _v11?.filesize ?? void 0);
+            })(_v1[0].size, _v6, _v7, _v10?.filesize ?? void 0);
           _v0(_v1, _v2 && _v3);
         },
         ref: _v4,

@@ -442,42 +442,56 @@
     (0, _v3.useEffect)(() => {
       _v7 || _v23.current || (_v23.current = !0, (async () => {
         try {
-          let _v0 = _v6() ? "staging" : "production",
-            _v1 = await _v19(),
-            _v2 = await _v16({
-              goesThroughOrionProxy: !0,
-              appId: "vimeo_web",
-              appSpecificAttributeGetters: {
-                vimeoUserId: () => Promise.resolve(_v13.current),
-                vuid: () => Promise.resolve(_v14.current),
-                teamOwnerId: () => Promise.resolve(_v15.current),
-                actorId: () => Promise.resolve(_v16.current),
-                tier: () => Promise.resolve(_v17.current),
-                vimeoProductId: () => Promise.resolve(_v18.current),
-                currency: () => Promise.resolve(_v19.current),
-                minutesElapsedSinceRegistration: () => Promise.resolve(function (_v0) {
-                  if (!_v0) return null;
-                  let _v1 = Date.parse(_v0);
-                  return Number.isNaN(_v1) ? null : Math.max(0, Math.floor((Date.now() - _v1) / 0));
-                }(_v20.current?.user?.createdTime)),
-                clientEnvironment: () => Promise.resolve(_v6() ? "staging" : "production"),
-                surface: () => Promise.resolve(_v2)
-              },
-              persistenceManager: _v1,
-              defaultSettings: _v5.defaultSettings,
-              defaultSegmentations: {},
-              deviceAttributeGetters: {
-                isLoggedIn: () => Promise.resolve(!!_v13.current),
-                localStorageId: _v24(),
-                deviceType: _v22
-              },
-              logger: _v5,
-              baseUrl: _v28[_v0],
-              shouldReturnDefaultsImmediately: !("u" < typeof navigator) && /(?:google|bing|msn|facebook)bot[-imagevdo]{0,6}|bingpreview|gptbot|slack(?:bot)?(?:-imgproxy|-linkexpanding)?/i.test(navigator.userAgent),
-              fetcher: (..._v0) => fetch(..._v0),
-              userIdGenerator: _v0 => Promise.resolve(["localStorageId", "vimeoUserId", "vuid", "teamOwnerId"].filter(_v0 => void 0 !== _v0[_v0]).map(_v0 => _v0[_v0]).join("_")),
-              identityCacheTtlInMs: 0
-            });
+          let _v0,
+            _v1 = _v6() ? "staging" : "production";
+          try {
+            _v0 = await _v19();
+          } catch (_v0) {
+            let _v1;
+            _v5.error("Failed to open IndexedDB, falling back to in-memory persistence", _v0), _v1 = new Map(), _v0 = {
+              clearEntities: () => (_v1.clear(), Promise.resolve()),
+              loadIdentity: _v0 => Promise.resolve(_v1.get(_v0) ?? null),
+              saveIdentity: (_v0, _v1) => (_v1.set(_v1, {
+                identity: _v0,
+                updatedAt: Date.now(),
+                userId: _v1
+              }), Promise.resolve())
+            };
+          }
+          let _v2 = await _v16({
+            goesThroughOrionProxy: !0,
+            appId: "vimeo_web",
+            appSpecificAttributeGetters: {
+              vimeoUserId: () => Promise.resolve(_v13.current),
+              vuid: () => Promise.resolve(_v14.current),
+              teamOwnerId: () => Promise.resolve(_v15.current),
+              actorId: () => Promise.resolve(_v16.current),
+              tier: () => Promise.resolve(_v17.current),
+              vimeoProductId: () => Promise.resolve(_v18.current),
+              currency: () => Promise.resolve(_v19.current),
+              minutesElapsedSinceRegistration: () => Promise.resolve(function (_v0) {
+                if (!_v0) return null;
+                let _v1 = Date.parse(_v0);
+                return Number.isNaN(_v1) ? null : Math.max(0, Math.floor((Date.now() - _v1) / 0));
+              }(_v20.current?.user?.createdTime)),
+              clientEnvironment: () => Promise.resolve(_v6() ? "staging" : "production"),
+              surface: () => Promise.resolve(_v2)
+            },
+            persistenceManager: _v0,
+            defaultSettings: _v5.defaultSettings,
+            defaultSegmentations: {},
+            deviceAttributeGetters: {
+              isLoggedIn: () => Promise.resolve(!!_v13.current),
+              localStorageId: _v24(),
+              deviceType: _v22
+            },
+            logger: _v5,
+            baseUrl: _v28[_v1],
+            shouldReturnDefaultsImmediately: !("u" < typeof navigator) && /(?:google|bing|msn|facebook)bot[-imagevdo]{0,6}|bingpreview|gptbot|slack(?:bot)?(?:-imgproxy|-linkexpanding)?/i.test(navigator.userAgent),
+            fetcher: (..._v0) => fetch(..._v0),
+            userIdGenerator: _v0 => Promise.resolve(["localStorageId", "vimeoUserId", "vuid", "teamOwnerId"].filter(_v0 => void 0 !== _v0[_v0]).map(_v0 => _v0[_v0]).join("_")),
+            identityCacheTtlInMs: 0
+          });
           _v22(_v2);
         } catch (_v0) {
           _v5.error("Failed to initialize Orion client", _v0), _v23.current = !1, _v25(_v0 => _v0 + 1);

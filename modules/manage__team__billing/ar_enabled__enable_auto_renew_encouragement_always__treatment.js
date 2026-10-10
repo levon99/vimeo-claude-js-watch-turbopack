@@ -15814,7 +15814,7 @@
             display: _v167 || _v170 ? "inline-flex" : "none",
             children: [_v167 && (0, _v5.jsxs)(_v5.Fragment, {
               children: [(0, _v5.jsx)(_v33.Text, {
-                variant: "body-sm",
+                variant: "body-md",
                 color: "text-secondary",
                 whiteSpace: "nowrap",
                 pr: "2px",

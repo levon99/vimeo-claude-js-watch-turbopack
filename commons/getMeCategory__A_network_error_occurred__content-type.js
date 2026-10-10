@@ -818,6 +818,9 @@
           w: 320,
           borderRadius: "drawer",
           p: 0,
+          rootProps: {
+            zIndex: "popover"
+          },
           onClick: _v0 => _v0.stopPropagation(),
           children: [_v21 && (0, _v19.getPlayerAssetUrls)() ? (0, _v1.jsx)(_v22.PlayerContextProvider, {
             type: _v23.PlayerType.BarebonePlayer,

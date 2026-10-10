@@ -19,9 +19,11 @@
     _v16 = () => {
       let _v0 = (0, _v3.useToast)(),
         _v1 = (0, _v13.getTranslations)(),
-        _v2 = (0, _v2.useCallback)(_v0 => {
+        _v2 = (0, _v2.useCallback)((_v0, _v1 = !1) => {
           _v0.isActive(_v15) || _v0({
-            title: _v0 ? _v1.WorkspaceDefaultsUpdateSuccess : _v1.SomethingWentWrong,
+            title: _v0 ? _v1 ? (0, _v1.jsxs)(_v1.Fragment, {
+              children: [_v1.WorkspaceDefaultsUpdateSuccess, (0, _v1.jsx)("br", {}), _v1.WorkspaceDefaultsUpdateAppliedToAllDescription]
+            }) : _v1.WorkspaceDefaultsUpdateSuccess : _v1.SomethingWentWrong,
             id: _v15
           });
         }, [_v1, _v0]);

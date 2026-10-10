@@ -125,110 +125,146 @@
     title: _v9,
     usePortal: _v10 = !0,
     zIndex: _v11
-  }) => (0, _v18.useIsMobile)() ? (0, _v1.jsx)(_v23, {
-    disabled: _v0,
-    isV2: _v5,
-    onClick: _v2,
-    size: _v7,
-    title: _v9,
-    children: _v1
-  }) : (0, _v1.jsxs)(_v13.Box, {
-    onClick: _v0 => {
-      _v0.preventDefault(), _v0.stopPropagation();
-    },
-    children: [_v5 && (0, _v1.jsx)(_v21.ActionMenuContext.Provider, {
-      value: {
-        closeDrawer: null,
-        isMobile: !1,
-        isV2: _v5
+  }) => {
+    let _v12 = (0, _v18.useIsMobile)(),
+      [_v13, _v14] = (0, _v2.useState)({
+        openSubmenuId: null,
+        generations: {}
+      }),
+      _v15 = (0, _v2.useCallback)(() => {
+        _v14({
+          openSubmenuId: null,
+          generations: {}
+        });
+      }, []),
+      _v16 = (0, _v2.useCallback)((_v0, _v1) => {
+        _v14(_v0 => _v1 ? _v0.openSubmenuId === _v0 ? _v0 : null === _v0.openSubmenuId ? {
+          ..._v0,
+          openSubmenuId: _v0
+        } : {
+          openSubmenuId: _v0,
+          generations: {
+            ..._v0.generations,
+            [_v0.openSubmenuId]: (_v0.generations[_v0.openSubmenuId] ?? 0) + 1
+          }
+        } : _v0.openSubmenuId === _v0 ? {
+          ..._v0,
+          openSubmenuId: null
+        } : _v0);
+      }, []);
+    return _v12 ? (0, _v1.jsx)(_v23, {
+      disabled: _v0,
+      isV2: _v5,
+      onClick: _v2,
+      size: _v7,
+      title: _v9,
+      children: _v1
+    }) : (0, _v1.jsxs)(_v13.Box, {
+      onClick: _v0 => {
+        _v0.preventDefault(), _v0.stopPropagation();
       },
-      children: (0, _v1.jsxs)(_v15.NestedMenu, {
-        positioning: {
-          strategy: "fixed"
+      children: [_v5 && (0, _v1.jsx)(_v21.ActionMenuContext.Provider, {
+        value: {
+          closeDrawer: null,
+          isMobile: !1,
+          isV2: _v5,
+          submenuGenerations: _v13.generations,
+          reportSubmenuOpenChange: _v16
         },
-        onOpenChange: _v0 => _v3?.(_v0.open),
-        children: [(0, _v1.jsx)(_v15.NestedMenuTrigger, {
-          "aria-label": "menu",
+        children: (0, _v1.jsxs)(_v15.NestedMenu, {
+          positioning: {
+            strategy: "fixed"
+          },
+          onOpenChange: _v0 => {
+            _v0.open || _v15(), _v3?.(_v0.open);
+          },
+          children: [(0, _v1.jsx)(_v15.NestedMenuTrigger, {
+            "aria-label": "menu",
+            variant: "tertiary",
+            boxSize: _v7,
+            "data-testid": "action-menu-button-v2",
+            onClick: _v2,
+            children: (0, _v1.jsx)(_v17.EllipsisV, {
+              boxSize: "md"
+            })
+          }), (0, _v1.jsx)(_v22, {
+            usePortal: _v10,
+            children: (0, _v1.jsx)(_v15.NestedMenuPositioner, {
+              children: _v4((0, _v1.jsx)(_v15.NestedMenuContent, {
+                "data-testid": "action-menu-v2",
+                zIndex: _v11,
+                py: "sm",
+                px: "0",
+                minWidth: _v20.MENU_MIN_WIDTH,
+                maxWidth: `calc(2 * ${_v20.MENU_MIN_WIDTH})`,
+                children: _v1
+              }))
+            })
+          })]
+        })
+      }), !_v5 && (0, _v1.jsxs)(_v8.Menu, {
+        strategy: _v8,
+        placement: _v6,
+        onOpen: () => _v3?.(!0),
+        onClose: () => {
+          _v15(), _v3?.(!1);
+        },
+        children: [(0, _v1.jsx)(_v9.MenuButton, {
+          "data-testid": "action-menu-button",
+          className: "action-menu-button",
+          as: _v11.IconButton,
+          isDisabled: _v0,
+          "aria-label": (0, _v19.translate)({
+            singular: "Menu",
+            dictionary: {
+              es: {
+                singular: "Menú"
+              },
+              "de-DE": {
+                singular: "Menü"
+              },
+              "ja-JP": {
+                singular: "メニュー"
+              },
+              "ko-KR": {
+                singular: "메뉴"
+              },
+              "zh-CN": {
+                singular: "菜单"
+              }
+            }
+          }),
+          size: _v7,
+          icon: (0, _v1.jsx)(_v17.EllipsisV, {}),
           variant: "tertiary",
-          boxSize: _v7,
-          "data-testid": "action-menu-button-v2",
-          onClick: _v2,
-          children: (0, _v1.jsx)(_v17.EllipsisV, {
-            boxSize: "md"
-          })
+          onClick: _v2
         }), (0, _v1.jsx)(_v22, {
           usePortal: _v10,
-          children: (0, _v1.jsx)(_v15.NestedMenuPositioner, {
-            children: _v4((0, _v1.jsx)(_v15.NestedMenuContent, {
-              "data-testid": "action-menu-v2",
-              zIndex: _v11,
-              py: "sm",
-              px: "0",
-              minWidth: _v20.MENU_MIN_WIDTH,
-              maxWidth: `calc(2 * ${_v20.MENU_MIN_WIDTH})`,
-              children: _v1
-            }))
-          })
-        })]
-      })
-    }), !_v5 && (0, _v1.jsxs)(_v8.Menu, {
-      strategy: _v8,
-      placement: _v6,
-      onOpen: () => _v3?.(!0),
-      onClose: () => _v3?.(!1),
-      children: [(0, _v1.jsx)(_v9.MenuButton, {
-        "data-testid": "action-menu-button",
-        className: "action-menu-button",
-        as: _v11.IconButton,
-        isDisabled: _v0,
-        "aria-label": (0, _v19.translate)({
-          singular: "Menu",
-          dictionary: {
-            es: {
-              singular: "Menú"
-            },
-            "de-DE": {
-              singular: "Menü"
-            },
-            "ja-JP": {
-              singular: "メニュー"
-            },
-            "ko-KR": {
-              singular: "메뉴"
-            },
-            "zh-CN": {
-              singular: "菜单"
-            }
-          }
-        }),
-        size: _v7,
-        icon: (0, _v1.jsx)(_v17.EllipsisV, {}),
-        variant: "tertiary",
-        onClick: _v2
-      }), (0, _v1.jsx)(_v22, {
-        usePortal: _v10,
-        children: _v4((0, _v1.jsx)(_v10.MenuList, {
-          "data-testid": "action-menu",
-          py: "sm",
-          px: "0",
-          zIndex: _v11,
-          color: "text-primary",
-          minWidth: _v20.MENU_MIN_WIDTH,
-          maxWidth: `calc(2 * ${_v20.MENU_MIN_WIDTH})`,
-          maxHeight: (0, _v14.rem)(430),
-          children: (0, _v1.jsx)(_v21.ActionMenuContext.Provider, {
-            value: {
-              closeDrawer: null,
-              isMobile: !1
-            },
-            children: (0, _v1.jsx)(_v15.NestedMenu, {
-              children: _v1
+          children: _v4((0, _v1.jsx)(_v10.MenuList, {
+            "data-testid": "action-menu",
+            py: "sm",
+            px: "0",
+            zIndex: _v11,
+            color: "text-primary",
+            minWidth: _v20.MENU_MIN_WIDTH,
+            maxWidth: `calc(2 * ${_v20.MENU_MIN_WIDTH})`,
+            maxHeight: (0, _v14.rem)(430),
+            children: (0, _v1.jsx)(_v21.ActionMenuContext.Provider, {
+              value: {
+                closeDrawer: null,
+                isMobile: !1,
+                submenuGenerations: _v13.generations,
+                reportSubmenuOpenChange: _v16
+              },
+              children: (0, _v1.jsx)(_v15.NestedMenu, {
+                children: _v1
+              })
             })
-          })
-        }))
+          }))
+        })]
       })]
-    })]
-  })], 0);
+    });
+  }], 0);
   var _v24 = _v0.i(0);
   _v0.s(["SectionRenderer", 0, ({
     section: _v0,

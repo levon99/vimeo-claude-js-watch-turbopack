@@ -25,9 +25,11 @@
         _v1 = (0, _v13.useViewer)(),
         _v2 = (0, _v11.useTeamDefaultsPageAvailability)(),
         _v3 = _v1?.user?.organizationId != null ? _v14.ORGANIZATION_SETTINGS_ROUTES.PRIVACY_RESTRICTIONS : "/manage/team/settings/privacy-restrictions",
-        _v4 = (0, _v2.useCallback)(_v0 => {
+        _v4 = (0, _v2.useCallback)((_v0, _v1 = !1) => {
           _v0.isActive(_v19) || _v0({
-            title: _v0 ? _v10.T.DefaultsUpdateSuccess : _v10.T.DefaultsUpdateError,
+            title: _v0 ? _v1 ? (0, _v1.jsxs)(_v1.Fragment, {
+              children: [_v10.T.DefaultsUpdateSuccess, (0, _v1.jsx)("br", {}), _v10.T.DefaultsUpdateAppliedToAllDescription]
+            }) : _v10.T.DefaultsUpdateSuccess : _v10.T.DefaultsUpdateError,
             id: _v19
           });
         }, [_v0]);

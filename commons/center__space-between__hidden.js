@@ -106,13 +106,20 @@
   }) => {
     let {
         closeDrawer: _v4,
-        isV2: _v5
+        isV2: _v5,
+        submenuGenerations: _v6,
+        reportSubmenuOpenChange: _v7
       } = (0, _v12.useActionMenuContext)(),
-      _v6 = (0, _v2.useMemo)(() => ({
+      _v8 = (0, _v2.useId)(),
+      _v9 = _v6?.[_v8] ?? 0,
+      _v10 = _v9 > 0 ? `${_v8}-${_v9}` : _v8,
+      _v11 = (0, _v2.useMemo)(() => ({
         closeDrawer: _v4,
         isV2: !0
       }), [_v4]);
     return (0, _v1.jsxs)(_v7.NestedMenu, {
+      id: _v8,
+      onOpenChange: _v7 ? _v0 => _v7(_v8, _v0.open) : void 0,
       positioning: {
         placement: "right-start"
       },
@@ -149,12 +156,12 @@
             minWidth: _v11.MENU_MIN_WIDTH,
             maxWidth: `calc(2 * ${_v11.MENU_MIN_WIDTH})`,
             children: (0, _v1.jsx)(_v12.ActionMenuContext.Provider, {
-              value: _v6,
+              value: _v11,
               children: _v3
             })
           })
         })
       })]
-    });
+    }, _v10);
   }]);
 }

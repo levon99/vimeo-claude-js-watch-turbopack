@@ -169,9 +169,11 @@
           defaults: _v10,
           update: _v11
         } = (0, _v27.useUploadDefaultToggles)(),
-        _v12 = (0, _v4.useCallback)(_v0 => {
+        _v12 = (0, _v4.useCallback)((_v0, _v1 = !1) => {
           _v6.isActive(_v28) || _v6({
-            title: _v0 ? _v7.WorkspaceDefaultsUpdateSuccess : _v7.SomethingWentWrong,
+            title: _v0 ? _v1 ? (0, _v1.jsxs)(_v1.Fragment, {
+              children: [_v7.WorkspaceDefaultsUpdateSuccess, (0, _v1.jsx)("br", {}), _v7.WorkspaceDefaultsUpdateAppliedToAllDescription]
+            }) : _v7.WorkspaceDefaultsUpdateSuccess : _v7.SomethingWentWrong,
             id: _v28
           });
         }, [_v7, _v6]),
@@ -249,12 +251,12 @@
         }), (0, _v1.jsx)(_v26.ViewerPermissionsModal, {
           isOpen: _v0,
           onClose: _v2,
-          onSaveSuccess: () => _v12(!0),
+          onSaveSuccess: _v0 => _v12(!0, _v0),
           onSaveFailure: () => _v12(!1)
         }), (0, _v1.jsx)(_v25.PrivacyDefaultsModal, {
           isOpen: _v3,
           onClose: _v5,
-          onSaveSuccess: () => _v12(!0)
+          onSaveSuccess: _v0 => _v12(!0, _v0)
         })]
       });
     };

@@ -9066,6 +9066,32 @@
         }
       }
     }),
+    WorkspaceDefaultsUpdateAppliedToAllDescription: (0, _v5.translate)({
+      singular: "Changes to existing videos are being applied in the background.",
+      dictionary: {
+        es: {
+          singular: "Los cambios en los vídeos existentes se están aplicando en segundo plano."
+        },
+        "de-DE": {
+          singular: "Änderungen an bestehenden Videos werden im Hintergrund vorgenommen."
+        },
+        "fr-FR": {
+          singular: "Les modifications apportées aux vidéos existantes sont en cours d'application en arrière-plan."
+        },
+        "ja-JP": {
+          singular: "既存の動画に対する変更はバックグラウンドで適用されています。"
+        },
+        "ko-KR": {
+          singular: "기존 동영상에 대한 변경 사항이 백그라운드에서 적용되고 있습니다."
+        },
+        "pt-BR": {
+          singular: "As alterações nos vídeos existentes estão sendo aplicadas em segundo plano."
+        },
+        "zh-CN": {
+          singular: "对现有视频的更改正在后台应用。"
+        }
+      }
+    }),
     SomethingWentWrong: (0, _v5.translate)({
       singular: "Oops! Something went wrong. Please try again.",
       dictionary: {
