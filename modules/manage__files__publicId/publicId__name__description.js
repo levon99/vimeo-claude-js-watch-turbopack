@@ -377,7 +377,7 @@
           gap: "md",
           children: [(0, _v1.jsx)(_v12.Text, {
             flexShrink: 0,
-            variant: "heading-sm",
+            variant: "heading-xs",
             width: "11rem",
             children: (0, _v17.translate)({
               singular: "File information",
@@ -408,7 +408,7 @@
           }), (0, _v1.jsxs)(_v5.Flex, {
             flexDirection: "column",
             flexGrow: 1,
-            gap: "xs",
+            gap: "sm",
             children: [(0, _v1.jsx)(_v24, {
               label: (0, _v17.translate)({
                 singular: "File size",
@@ -1036,339 +1036,99 @@
         })]
       });
     };
-  var _v54 = _v0.i(0);
-  let _v55 = {
-    src: _v0.i(0).default,
-    width: 661,
-    height: 731,
-    blurWidth: 7,
-    blurHeight: 8,
-    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAYAAAA1BOUGAAAAgElEQVR42j3OvwpBYRjA4a/O6AaURf6UQZJFySCSwUAWJpPJgsFgM7kOmyuQ67G4Ds/X+c5565l+b71vCPlkzDhyY0cltVBlT50uB8Yx9JhwYUmLPtsYz7z48eZEm02Ma558U7zSYV7EOx8eLKgxLJ5psKKZbg7SQjnx0ymjJPsDleoQYNcZdD4AAAAASUVORK5CYII="
-  };
-  var _v56 = _v0.i(0),
-    _v57 = _v0.i(0),
-    _v58 = _v0.i(0),
-    _v59 = _v0.i(0),
-    _v60 = _v0.i(0),
-    _v61 = _v0.i(0);
-  let _v62 = _v0 => {
-      if (!Number.isFinite(_v0) || _v0 < 0) return "0:00";
-      let _v1 = Math.floor(_v0),
-        _v2 = Math.floor(_v1 / 60);
-      return `${_v2}:${String(_v1 % 60).padStart(2, "0")}`;
-    },
-    _v63 = ({
-      src: _v0,
-      name: _v1
-    }) => {
-      let _v2 = (0, _v3.useRef)(null),
-        _v3 = (0, _v3.useRef)(!1),
-        [_v4, _v5] = (0, _v3.useState)(!1),
-        [_v6, _v7] = (0, _v3.useState)(!1),
-        [_v8, _v9] = (0, _v3.useState)(0),
-        [_v10, _v11] = (0, _v3.useState)(0),
-        [_v12] = (0, _v3.useState)(_v0),
-        _v13 = (0, _v3.useCallback)(() => {
-          let _v0 = _v2.current;
-          null !== _v0 && (_v0.paused ? _v0.play().catch(() => void 0) : _v0.pause());
-        }, []),
-        _v14 = (0, _v3.useCallback)(() => {
-          let _v0 = _v2.current;
-          null !== _v0 && (_v0.muted = !_v0.muted, _v7(_v0.muted));
-        }, []);
-      return (0, _v1.jsxs)(_v5.Flex, {
-        alignItems: "center",
-        bg: "surface",
-        borderRadius: "full",
-        gap: "md",
-        maxWidth: "45rem",
-        pl: "md",
-        pr: "lg",
-        py: "md",
-        width: "100%",
-        children: [(0, _v1.jsx)("audio", {
-          "aria-hidden": "true",
-          onEmptied: () => _v5(!1),
-          onEnded: () => _v5(!1),
-          onError: () => _v5(!1),
-          onLoadedMetadata: _v0 => _v11(_v0.currentTarget.duration),
-          onPause: () => _v5(!1),
-          onPlay: () => _v5(!0),
-          onTimeUpdate: _v0 => {
-            _v3.current || _v9(_v0.currentTarget.currentTime);
-          },
-          preload: "metadata",
-          ref: _v2,
-          src: _v12,
-          tabIndex: -1
-        }), (0, _v1.jsx)(_v34.IconButton, {
-          "aria-label": _v4 ? (0, _v17.translate)({
-            singular: "Pause",
-            dictionary: {
-              es: {
-                singular: "Pausar"
-              },
-              "ja-JP": {
-                singular: "一時停止"
-              },
-              "ko-KR": {
-                singular: "일시중지"
-              },
-              "pt-BR": {
-                singular: "Pausar"
-              },
-              "zh-CN": {
-                singular: "暂停"
-              }
-            }
-          }) : (0, _v17.translate)({
-            singular: "Play",
-            dictionary: {
-              es: {
-                singular: "Reproducir"
-              },
-              "de-DE": {
-                singular: "Abspielen"
-              },
-              "fr-FR": {
-                singular: "Lire"
-              },
-              "ja-JP": {
-                singular: "再生"
-              },
-              "ko-KR": {
-                singular: "재생"
-              },
-              "zh-CN": {
-                singular: "播放"
-              }
-            }
-          }),
-          borderRadius: "full",
-          icon: _v4 ? (0, _v1.jsx)(_v58.PauseFilled, {}) : (0, _v1.jsx)(_v59.PlayFilled, {}),
-          onClick: _v13,
-          size: "sm",
-          variant: "primary"
-        }), (0, _v1.jsxs)(_v5.Flex, {
-          alignItems: "center",
-          flexGrow: 1,
-          gap: "md",
-          minWidth: 0,
-          children: [(0, _v1.jsx)(_v12.Text, {
-            flexShrink: 0,
-            variant: "body-sm",
-            children: (0, _v17.translate)({
-              singular: "{current} / {total}",
-              replacements: {
-                current: _v62(_v8),
-                total: _v62(_v10)
-              }
-            })
-          }), (0, _v1.jsx)(_v56.Slider, {
-            "aria-label": (0, _v17.translate)({
-              singular: "Seek in {name}",
-              replacements: {
-                name: _v1
-              },
-              dictionary: {
-                es: {
-                  singular: "Buscar en {name}"
-                },
-                "de-DE": {
-                  singular: "In {name} springen"
-                },
-                "fr-FR": {
-                  singular: "Se déplacer dans {name}"
-                },
-                "ja-JP": {
-                  singular: "{name}内をシーク"
-                },
-                "ko-KR": {
-                  singular: "{name}에서 탐색"
-                },
-                "pt-BR": {
-                  singular: "Procurar em {name}"
-                },
-                "zh-CN": {
-                  singular: "在 {name} 中跳转"
-                }
-              }
-            }),
-            flexGrow: 1,
-            max: _v10 > 0 ? _v10 : 1,
-            min: 0,
-            onChange: _v0 => _v9(_v0),
-            onChangeEnd: _v0 => {
-              let _v1 = _v2.current;
-              null !== _v1 && (_v1.currentTime = _v0), _v3.current = !1;
-            },
-            onChangeStart: () => {
-              _v3.current = !0;
-            },
-            step: 1,
-            value: _v8,
-            children: (0, _v1.jsxs)(_v57.SliderTrack, {
-              children: [(0, _v1.jsx)(_v57.SliderFilledTrack, {
-                bg: "gray.800"
-              }), (0, _v1.jsx)(_v57.SliderThumb, {
-                boxSize: "4"
-              })]
-            })
-          })]
-        }), (0, _v1.jsx)(_v34.IconButton, {
-          "aria-label": _v6 ? (0, _v17.translate)({
-            singular: "Unmute",
-            dictionary: {
-              es: {
-                singular: "Dejar de silenciar"
-              },
-              "de-DE": {
-                singular: "Stummschaltung aufheben"
-              },
-              "fr-FR": {
-                singular: "Rétablir le son"
-              },
-              "ja-JP": {
-                singular: "ミュートを解除"
-              },
-              "ko-KR": {
-                singular: "음소거 해제"
-              },
-              "pt-BR": {
-                singular: "Ativar som"
-              },
-              "zh-CN": {
-                singular: "取消静音"
-              }
-            }
-          }) : (0, _v17.translate)({
-            singular: "Mute",
-            dictionary: {
-              es: {
-                singular: "Silenciar"
-              },
-              "de-DE": {
-                singular: "Stummschalten"
-              },
-              "fr-FR": {
-                singular: "Mettre en sourdine"
-              },
-              "ja-JP": {
-                singular: "ミュート"
-              },
-              "ko-KR": {
-                singular: "음소거"
-              },
-              "pt-BR": {
-                singular: "Mudo"
-              },
-              "zh-CN": {
-                singular: "静音"
-              }
-            }
-          }),
-          flexShrink: 0,
-          icon: _v6 ? (0, _v1.jsx)(_v60.VolumeOff, {}) : (0, _v1.jsx)(_v61.VolumeOn, {}),
-          onClick: _v14,
-          size: "sm",
-          variant: "tertiary"
-        })]
-      });
-    },
-    _v64 = {
-      video: (0, _v17.translate)({
-        singular: "Video",
-        dictionary: {
-          "fr-FR": {
-            singular: "Vidéo"
-          },
-          "ja-JP": {
-            singular: "動画"
-          },
-          "ko-KR": {
-            singular: "동영상"
-          },
-          "pt-BR": {
-            singular: "Vídeo"
-          },
-          "zh-CN": {
-            singular: "视频"
-          }
-        }
-      }),
-      document: (0, _v17.translate)({
-        singular: "Document",
+  _v0.i(0);
+  var _v54 = _v0.i(0),
+    _v55 = _v0.i(0),
+    _v56 = _v0.i(0);
+  let _v57 = {
+      audio: (0, _v17.translate)({
+        singular: "Audio preview",
         dictionary: {
           es: {
-            singular: "Documento"
+            singular: "Vista previa de audio"
           },
           "de-DE": {
-            singular: "Dokument"
+            singular: "Audio‑Vorschau"
+          },
+          "fr-FR": {
+            singular: "Aperçu audio"
           },
           "ja-JP": {
-            singular: "ドキュメント"
+            singular: "オーディオプレビュー"
           },
           "ko-KR": {
-            singular: "문서"
+            singular: "오디오 미리보기"
           },
           "pt-BR": {
-            singular: "Documento"
+            singular: "Prévia de áudio"
           },
           "zh-CN": {
-            singular: "文档"
+            singular: "音频预览"
           }
         }
       }),
       image: (0, _v17.translate)({
-        singular: "Image",
+        singular: "Image preview",
         dictionary: {
           es: {
-            singular: "Imagen"
+            singular: "Vista previa de la imagen"
           },
           "de-DE": {
-            singular: "Bild"
+            singular: "Bildvorschau"
+          },
+          "fr-FR": {
+            singular: "Aperçu de l'image"
           },
           "ja-JP": {
-            singular: "画像"
+            singular: "画像プレビュー"
           },
           "ko-KR": {
-            singular: "이미지"
+            singular: "이미지 미리보기"
           },
           "pt-BR": {
-            singular: "Imagem"
+            singular: "Pré-visualização da imagem"
           },
           "zh-CN": {
-            singular: "图片"
+            singular: "图片预览"
           }
         }
       }),
-      audio: (0, _v17.translate)({
-        singular: "Audio",
+      none: (0, _v17.translate)({
+        singular: "No preview available",
         dictionary: {
+          es: {
+            singular: "No hay vista previa disponible"
+          },
+          "de-DE": {
+            singular: "Keine Vorschau verfügbar"
+          },
+          "fr-FR": {
+            singular: "Aucun aperçu disponible"
+          },
           "ja-JP": {
-            singular: "オーディオ"
+            singular: "プレビューは利用できません"
           },
           "ko-KR": {
-            singular: "오디오"
+            singular: "미리보기가 없습니다"
           },
           "pt-BR": {
-            singular: "Áudio"
+            singular: "Nenhuma visualização disponível"
           },
           "zh-CN": {
-            singular: "音频"
+            singular: "暂无预览"
           }
         }
       })
     },
-    _v65 = ({
+    _v58 = ({
       file: _v0
     }) => {
-      let _v1,
-        _v2,
-        _v3 = _v0.thumbnail?.url,
-        _v4 = null != _v3 && "" !== _v3,
-        _v5 = _v0.downloadUrl,
-        _v6 = "audio" === (0, _v14.getContentTypeCategory)(_v0.contentType) && null != _v5 && "" !== _v5;
+      let _v1 = (0, _v49.useColorModeValue)("surface", "fill-component"),
+        _v2 = (0, _v56.getFilePreviewKind)({
+          contentType: _v0.contentType,
+          thumbnailUrl: _v0.thumbnail?.url,
+          downloadUrl: _v0.downloadUrl
+        });
       return (0, _v1.jsxs)(_v5.Flex, {
         background: "fill-component",
         borderRadius: "lg",
@@ -1378,7 +1138,7 @@
         minHeight: "37.5rem",
         children: [(0, _v1.jsxs)(_v5.Flex, {
           alignItems: "center",
-          background: "surface",
+          background: _v1,
           borderTopRadius: "lg",
           gap: "md",
           py: "md",
@@ -1398,232 +1158,50 @@
             }), (0, _v1.jsx)(_v12.Text, {
               variant: "body-sm",
               color: "text-secondary",
-              children: (_v1 = [_v64[(0, _v14.getContentTypeCategory)(_v0.contentType)]], "" !== (_v2 = (0, _v14.getFileExtension)(_v0.name)) && _v1.push(_v2), null != _v0.fileSize && _v0.fileSize > 0 && _v1.push(String((0, _v18.bytesToSize)(_v0.fileSize, 1))), _v1.join(" · "))
+              children: (0, _v55.getFileMeta)({
+                name: _v0.name,
+                contentType: _v0.contentType,
+                fileSize: _v0.fileSize
+              })
             })]
           })]
         }), (0, _v1.jsx)(_v5.Flex, {
           alignItems: "center",
           flexGrow: 1,
           justifyContent: "center",
-          p: "lg",
-          children: _v6 ? (0, _v1.jsx)(_v63, {
+          minHeight: 0,
+          children: (0, _v1.jsx)(_v54.FilePreview, {
+            contentType: _v0.contentType,
+            downloadUrl: _v0.downloadUrl,
+            fileSize: _v0.fileSize,
             name: _v0.name,
-            src: _v5
-          }) : null != _v3 && "" !== _v3 ? (0, _v1.jsx)(_v54.Image, {
-            alt: "",
-            maxHeight: "100%",
-            maxWidth: "100%",
-            objectFit: "contain",
-            src: _v3
-          }) : (0, _v1.jsxs)(_v5.Flex, {
-            alignItems: "center",
-            flexDirection: "column",
-            gap: "lg",
-            maxWidth: "334px",
-            children: [(0, _v1.jsx)(_v54.Image, {
-              "aria-hidden": "true",
-              alt: "",
-              height: "90px",
-              src: _v55.src,
-              width: "81px"
-            }), (0, _v1.jsxs)(_v5.Flex, {
-              alignItems: "center",
-              flexDirection: "column",
-              gap: "sm",
-              children: [(0, _v1.jsx)(_v12.Text, {
-                variant: "heading-sm",
-                textAlign: "center",
-                children: (0, _v17.translate)({
-                  singular: "No preview for this file",
-                  dictionary: {
-                    es: {
-                      singular: "No hay vista previa para este archivo"
-                    },
-                    "de-DE": {
-                      singular: "Für diese Datei ist keine Vorschau verfügbar"
-                    },
-                    "fr-FR": {
-                      singular: "Aucun aperçu pour ce fichier"
-                    },
-                    "ja-JP": {
-                      singular: "このファイルのプレビューは利用できません"
-                    },
-                    "ko-KR": {
-                      singular: "이 파일에 대한 미리보기가 없습니다"
-                    },
-                    "pt-BR": {
-                      singular: "Nenhuma visualização para este arquivo"
-                    },
-                    "zh-CN": {
-                      singular: "此文件暂无预览"
-                    }
-                  }
-                })
-              }), (0, _v1.jsxs)(_v5.Flex, {
-                flexDirection: "column",
-                textAlign: "center",
-                children: [(0, _v1.jsx)(_v12.Text, {
-                  variant: "body-md",
-                  color: "text-secondary",
-                  children: (0, _v17.translate)({
-                    singular: "This file can’t be previewed.",
-                    dictionary: {
-                      es: {
-                        singular: "Este archivo no se puede previsualizar."
-                      },
-                      "de-DE": {
-                        singular: "Diese Datei kann nicht in der Vorschau angezeigt werden."
-                      },
-                      "fr-FR": {
-                        singular: "Ce fichier ne peut pas être prévisualisé."
-                      },
-                      "ja-JP": {
-                        singular: "このファイルはプレビューできません。"
-                      },
-                      "ko-KR": {
-                        singular: "이 파일은 미리볼 수 없습니다."
-                      },
-                      "pt-BR": {
-                        singular: "Este arquivo não pode ser visualizado."
-                      },
-                      "zh-CN": {
-                        singular: "无法预览此文件。"
-                      }
-                    }
-                  })
-                }), (0, _v1.jsx)(_v12.Text, {
-                  variant: "body-md",
-                  color: "text-secondary",
-                  children: (0, _v17.translate)({
-                    singular: "Download the original to open it on your device.",
-                    dictionary: {
-                      es: {
-                        singular: "Descarga el original para abrirlo en tu dispositivo."
-                      },
-                      "de-DE": {
-                        singular: "Laden Sie das Original herunter, um es auf Ihrem Gerät zu öffnen."
-                      },
-                      "fr-FR": {
-                        singular: "Téléchargez l'original pour l'ouvrir sur votre appareil."
-                      },
-                      "ja-JP": {
-                        singular: "元ファイルをダウンロードして、デバイスで開いてください。"
-                      },
-                      "ko-KR": {
-                        singular: "기기에서 열려면 원본을 다운로드하세요."
-                      },
-                      "pt-BR": {
-                        singular: "Baixe o original para abri-lo em seu dispositivo."
-                      },
-                      "zh-CN": {
-                        singular: "下载原文件以在您的设备上打开。"
-                      }
-                    }
-                  })
-                })]
-              })]
-            })]
+            thumbnailUrl: _v0.thumbnail?.url
           })
         }), (0, _v1.jsx)(_v5.Flex, {
-          background: "surface",
+          background: _v1,
           borderBottomRadius: "lg",
           px: "lg",
           py: "md",
           children: (0, _v1.jsx)(_v12.Text, {
             variant: "body-sm",
             color: "text-tertiary",
-            children: _v6 ? (0, _v17.translate)({
-              singular: "Audio preview",
-              dictionary: {
-                es: {
-                  singular: "Vista previa de audio"
-                },
-                "de-DE": {
-                  singular: "Audio‑Vorschau"
-                },
-                "fr-FR": {
-                  singular: "Aperçu audio"
-                },
-                "ja-JP": {
-                  singular: "オーディオプレビュー"
-                },
-                "ko-KR": {
-                  singular: "오디오 미리보기"
-                },
-                "pt-BR": {
-                  singular: "Prévia de áudio"
-                },
-                "zh-CN": {
-                  singular: "音频预览"
-                }
-              }
-            }) : _v4 ? (0, _v17.translate)({
-              singular: "Image preview",
-              dictionary: {
-                es: {
-                  singular: "Vista previa de la imagen"
-                },
-                "de-DE": {
-                  singular: "Bildvorschau"
-                },
-                "fr-FR": {
-                  singular: "Aperçu de l'image"
-                },
-                "ja-JP": {
-                  singular: "画像プレビュー"
-                },
-                "ko-KR": {
-                  singular: "이미지 미리보기"
-                },
-                "pt-BR": {
-                  singular: "Pré-visualização da imagem"
-                },
-                "zh-CN": {
-                  singular: "图片预览"
-                }
-              }
-            }) : (0, _v17.translate)({
-              singular: "No preview available",
-              dictionary: {
-                es: {
-                  singular: "No hay vista previa disponible"
-                },
-                "de-DE": {
-                  singular: "Keine Vorschau verfügbar"
-                },
-                "fr-FR": {
-                  singular: "Aucun aperçu disponible"
-                },
-                "ja-JP": {
-                  singular: "プレビューは利用できません"
-                },
-                "ko-KR": {
-                  singular: "미리보기가 없습니다"
-                },
-                "pt-BR": {
-                  singular: "Nenhuma visualização disponível"
-                },
-                "zh-CN": {
-                  singular: "暂无预览"
-                }
-              }
-            })
+            children: _v57[_v2]
           })
         })]
       });
     };
-  var _v66 = _v0.i(0),
+  var _v59 = _v0.i(0),
+    _v60 = _v0.i(0),
+    _v61 = _v0.i(0),
+    _v62 = _v0.i(0),
+    _v63 = _v0.i(0),
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0),
+    _v66 = _v0.i(0),
     _v67 = _v0.i(0),
-    _v68 = _v0.i(0),
-    _v69 = _v0.i(0),
-    _v70 = _v0.i(0),
-    _v71 = _v0.i(0),
-    _v72 = _v0.i(0),
-    _v73 = _v0.i(0),
-    _v74 = _v0.i(0),
-    _v75 = _v0.i(0);
-  let _v76 = ["nobody", "team", "unlisted", "password"],
-    _v77 = ({
+    _v68 = _v0.i(0);
+  let _v69 = ["nobody", "team", "unlisted", "password"],
+    _v70 = ({
       publicId: _v0,
       ownerId: _v1,
       file: _v2,
@@ -1640,17 +1218,19 @@
         } = (0, _v16.useGctlConfig)(),
         {
           capabilities: _v11
-        } = (0, _v70.useCapability)(["canAllowDownloads"], `/users/${_v1}`),
-        _v12 = (0, _v3.useMemo)(() => _v76.map(_v0 => ({
+        } = (0, _v63.useCapability)(["canAllowDownloads"], `/users/${_v1}`),
+        _v12 = (0, _v3.useMemo)(() => _v69.map(_v0 => ({
           privacy: _v0,
-          title: (0, _v75.getPrivacyLabel)(_v0, _v5?.teamUser),
-          description: (0, _v72.getFilePrivacyDescription)(_v0),
-          icon: (0, _v72.videoPrivacyIcons)("xs")[_v0]?.icon
+          title: (0, _v68.getPrivacyLabel)(_v0, _v5?.teamUser),
+          description: (0, _v65.getFilePrivacyDescription)(_v0),
+          icon: (0, _v65.videoPrivacyIcons)("xs")[_v0]?.icon
         })), [_v5?.teamUser]),
         [_v13, _v14] = (0, _v3.useState)("password" === _v2.privacy),
-        _v15 = (0, _v74.getFileLink)(_v2.publicId),
-        _v16 = _v11.canAllowDownloads,
-        _v17 = async _v0 => {
+        [_v15, _v16] = (0, _v3.useState)(!1),
+        _v17 = (0, _v3.useRef)(null),
+        _v18 = (0, _v67.getFileLink)(_v2.publicId),
+        _v19 = _v11.canAllowDownloads,
+        _v20 = async _v0 => {
           try {
             return await (0, _v15.patchUserFile)({
               where: {
@@ -1726,19 +1306,21 @@
             }), !1;
           }
         },
-        _v18 = async _v0 => {
-          await _v17({
+        _v21 = async _v0 => {
+          await _v20({
             privacy: "password",
             password: _v0
           });
         };
-      return (0, _v1.jsxs)(_v5.Flex, {
+      return (0, _v3.useEffect)(() => () => {
+        null != _v17.current && clearTimeout(_v17.current);
+      }, []), (0, _v1.jsxs)(_v5.Flex, {
         background: "surface",
         borderRadius: "xl",
         flexDirection: "column",
         width: "22.5rem",
         flexShrink: 0,
-        alignSelf: "flex-start",
+        alignSelf: "stretch",
         children: [(0, _v1.jsxs)(_v5.Flex, {
           alignItems: "center",
           justifyContent: "space-between",
@@ -1798,7 +1380,7 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v67.CloseX, {}),
+            icon: (0, _v1.jsx)(_v60.CloseX, {}),
             onClick: _v3,
             size: "xs",
             variant: "tertiary"
@@ -1842,10 +1424,10 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v69.PrivacyDropdown, {
+              }), (0, _v1.jsx)(_v62.PrivacyDropdown, {
                 activePrivacy: _v2.privacy,
                 onSelect: _v0 => {
-                  "password" === _v0 ? _v14(!0) : (_v14(!1), _v17({
+                  "password" === _v0 ? _v14(!0) : (_v14(!1), _v20({
                     privacy: _v0
                   }).then(_v0 => {
                     _v0 || "password" !== _v2.privacy || _v14(!0);
@@ -1855,15 +1437,15 @@
                 isVideoPrivacy: !0,
                 variant: "outlined"
               })]
-            }), _v13 && (0, _v1.jsx)(_v68.PasswordInput, {
+            }), _v13 && (0, _v1.jsx)(_v61.PasswordInput, {
               initialValue: "password" === _v2.privacy ? _v2.password ?? "" : "",
-              onSave: _v18
+              onSave: _v21
             }), (0, _v1.jsxs)(_v5.Flex, {
               flexDirection: "column",
-              gap: "sm",
+              gap: "xs",
               children: [(0, _v1.jsx)(_v12.Text, {
-                variant: "body-md",
-                color: "text-secondary",
+                my: (0, _v50.rem)(6),
+                variant: "heading-xs",
                 children: (0, _v17.translate)({
                   singular: "Viewer permissions",
                   dictionary: {
@@ -1893,7 +1475,7 @@
               }), (0, _v1.jsxs)(_v5.Flex, {
                 alignItems: "center",
                 gap: "xs",
-                h: "8",
+                h: (0, _v50.rem)(32),
                 children: [(0, _v1.jsx)(_v12.Text, {
                   flexGrow: 1,
                   variant: "body-md",
@@ -1917,7 +1499,7 @@
                       }
                     }
                   })
-                }), !0 !== _v16 && (0, _v1.jsx)(_v71.UpgradeBadge, {
+                }), !0 !== _v19 && (0, _v1.jsx)(_v64.UpgradeBadge, {
                   modalConfig: {
                     headerText: (0, _v17.translate)({
                       singular: "Upgrade to allow downloads",
@@ -1995,15 +1577,15 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v66.Switch, {
+                }), (0, _v1.jsx)(_v59.Switch, {
                   isChecked: _v2.allowDownloads,
-                  isDisabled: !0 !== _v16,
+                  isDisabled: !0 !== _v19,
                   onChange: _v0 => {
-                    _v17({
+                    _v20({
                       allowDownloads: _v0.target.checked
                     });
                   },
-                  size: "sm"
+                  size: "md"
                 })]
               })]
             })]
@@ -2035,41 +1617,66 @@
             }), (0, _v1.jsx)(_v11.Input, {
               id: "file-share-link",
               isReadOnly: !0,
-              value: _v15,
+              value: _v18,
               variant: "outlined"
             }), (0, _v1.jsx)(_v26.Button, {
               variant: "primary",
               onClick: () => {
-                (0, _v73.default)(_v15) && _v6({
+                (0, _v66.default)(_v18) && (_v6({
                   title: (0, _v17.translate)({
-                    singular: "Copied!",
+                    singular: "Link copied",
                     dictionary: {
                       es: {
-                        singular: "Copiado"
+                        singular: "Vínculo copiado"
                       },
                       "de-DE": {
-                        singular: "Kopiert!"
+                        singular: "Link kopiert"
                       },
                       "fr-FR": {
-                        singular: "Copié !"
+                        singular: "Lien copié"
                       },
                       "ja-JP": {
-                        singular: "コピー完了！"
+                        singular: "リンクがコピーされました"
                       },
                       "ko-KR": {
-                        singular: "복사 완료!"
+                        singular: "링크가 복사됐습니다"
                       },
                       "pt-BR": {
-                        singular: "Copiado!"
+                        singular: "Link copiado"
                       },
                       "zh-CN": {
-                        singular: "已复制！"
+                        singular: "链接已复制"
                       }
                     }
                   })
-                });
+                }), _v16(!0), null != _v17.current && clearTimeout(_v17.current), _v17.current = setTimeout(() => _v16(!1), 0));
               },
-              children: (0, _v17.translate)({
+              children: _v15 ? (0, _v17.translate)({
+                singular: "Copied!",
+                dictionary: {
+                  es: {
+                    singular: "Copiado"
+                  },
+                  "de-DE": {
+                    singular: "Kopiert!"
+                  },
+                  "fr-FR": {
+                    singular: "Copié !"
+                  },
+                  "ja-JP": {
+                    singular: "コピー完了！"
+                  },
+                  "ko-KR": {
+                    singular: "복사 완료!"
+                  },
+                  "pt-BR": {
+                    singular: "Copiado!"
+                  },
+                  "zh-CN": {
+                    singular: "已复制！"
+                  }
+                }
+              }) : (0, _v17.translate)({
                 singular: "Copy link",
                 dictionary: {
                   es: {
@@ -2100,7 +1707,7 @@
         })]
       });
     },
-    _v78 = ({
+    _v71 = ({
       publicId: _v0
     }) => {
       let _v1 = (0, _v10.useViewer)(),
@@ -2135,7 +1742,7 @@
             refresh: _v6
           };
         })(_v0),
-        [_v5, _v6] = (0, _v3.useState)(!1);
+        [_v5, _v6] = (0, _v3.useState)(!0);
       if (!_v1?.user || _v2 || "loading" === _v4.status) return (0, _v1.jsx)(_v4.Box, {
         minHeight: "100vh"
       });
@@ -2146,7 +1753,14 @@
       let _v7 = Number(_v4.file.uri.split("/")[2]);
       return (0, _v1.jsxs)(_v5.Flex, {
         direction: "column",
-        minHeight: "100vh",
+        height: {
+          base: "auto",
+          lg: "100vh"
+        },
+        overflow: {
+          base: "visible",
+          lg: "hidden"
+        },
         children: [(0, _v1.jsx)(_v53, {
           file: _v4.file,
           onShareClick: () => _v6(_v0 => !_v0),
@@ -2158,26 +1772,45 @@
             base: "column",
             lg: "row"
           },
+          flex: {
+            lg: "1"
+          },
           gap: "lg",
           justifyContent: "space-between",
+          minHeight: {
+            lg: 0
+          },
+          overflow: {
+            base: "visible",
+            lg: "hidden"
+          },
           paddingX: "lg",
           paddingY: "lg",
-          children: [(0, _v1.jsxs)(_v5.Flex, {
+          children: [(0, _v1.jsx)(_v5.Flex, {
             flexDirection: "column",
             flexGrow: 1,
-            gap: "2xl",
-            marginX: "auto",
-            maxWidth: "56rem",
             minWidth: 0,
-            children: [(0, _v1.jsx)(_v65, {
-              file: _v4.file
-            }), (0, _v1.jsx)(_v25, {
-              file: _v4.file,
-              onChanged: _v4.refresh,
-              ownerId: _v7,
-              publicId: _v0
-            })]
-          }), _v5 && (0, _v1.jsx)(_v77, {
+            overflowY: {
+              base: "visible",
+              lg: "auto"
+            },
+            children: (0, _v1.jsxs)(_v5.Flex, {
+              flexDirection: "column",
+              gap: "2xl",
+              marginX: "auto",
+              maxWidth: "56rem",
+              minWidth: 0,
+              width: "100%",
+              children: [(0, _v1.jsx)(_v58, {
+                file: _v4.file
+              }), (0, _v1.jsx)(_v25, {
+                file: _v4.file,
+                onChanged: _v4.refresh,
+                ownerId: _v7,
+                publicId: _v0
+              })]
+            })
+          }), _v5 && (0, _v1.jsx)(_v70, {
             file: _v4.file,
             onChanged: _v4.refresh,
             onClose: () => _v6(!1),
@@ -2200,7 +1833,7 @@
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, ({
     publicId: _v0
-  }) => (0, _v1.jsx)(_v78, {
+  }) => (0, _v1.jsx)(_v71, {
     publicId: _v0
   }, _v0)], 0);
 }

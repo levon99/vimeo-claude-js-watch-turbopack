@@ -30,8 +30,9 @@
     });
   }
   var _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
-  async function _v12(_v0) {
+    _v11 = _v0.i(0),
+    _v12 = _v0.i(0);
+  async function _v13(_v0) {
     if ((0, _v6.isLoggedOut)(_v0.req)) return !0;
     try {
       await (0, _v4.fetchAndFormatCapabilties)({
@@ -44,7 +45,7 @@
     }
     return !1;
   }
-  async function _v13(_v0) {
+  async function _v14(_v0) {
     let {
       redirect: _v1
     } = _v0.query;
@@ -67,7 +68,7 @@
     }
     return !0;
   }
-  (0, _v5.withPageSetup)(async _v0 => (await _v12(_v0)) ? (await _v13(_v0)) ? (_v0.res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups"), {
+  (0, _v5.withPageSetup)(async _v0 => (await _v13(_v0)) ? (await _v14(_v0)) ? (_v0.res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups"), {
     props: {
       isChinaRestricted: (0, _v6.isChinaRestrictedRequest)(_v0.req),
       layoutOptions: {
@@ -90,7 +91,8 @@
         iframe: _v1,
         popup: _v2
       } = (0, _v3.useRouter)().query,
-      _v3 = _v0 ? `${(0, _v10.translate)({
+      _v3 = (0, _v12.useAdoptedAuthAttribution)("join", "page"),
+      _v4 = _v0 ? `${(0, _v10.translate)({
         singular: "Join VideoJi",
         dictionary: {
           es: {
@@ -141,7 +143,7 @@
           }
         }
       }),
-      _v4 = _v0 ? (0, _v10.translate)({
+      _v5 = _v0 ? (0, _v10.translate)({
         singular: "Join VideoJi for everything you need to make, manage, and share brilliant videos.",
         dictionary: {
           es: {
@@ -195,13 +197,14 @@
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v2.default, {
         children: [(0, _v1.jsx)("title", {
-          children: _v3
+          children: _v4
         }), (0, _v1.jsx)("meta", {
           name: "description",
-          content: _v4
+          content: _v5
         })]
       }), (0, _v1.jsx)(_v11.AuthModal, {
         authType: "join",
+        attribution: _v3,
         disableDismiss: !0,
         isFullScreen: !_v1 && !_v2
       })]

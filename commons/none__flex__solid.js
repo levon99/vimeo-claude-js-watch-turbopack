@@ -25,7 +25,8 @@
     children: _v0
   });
   _v0.s(["HintWrapper", 0, _v6], 0), _v0.s(["UploadDropzoneHint", 0, ({
-    page: _v0
+    page: _v0,
+    universalHostingEnabled: _v1 = !1
   }) => (0, _v1.jsxs)(_v6, {
     children: [(0, _v1.jsx)(_v3.Upload, {
       height: "20px",
@@ -34,7 +35,35 @@
     }), (0, _v1.jsx)(_v2.Text, {
       variant: "body-md",
       color: "text-secondary",
-      children: _v0 ? (0, _v4.translate)({
+      children: _v0 ? _v1 ? (0, _v4.translate)({
+        singular: "Drag and drop files anywhere to upload to '{PAGE}', or directly into a folder",
+        replacements: {
+          PAGE: _v0
+        },
+        dictionary: {
+          es: {
+            singular: "Arrastra y suelta archivos en cualquier lugar para subirlos a '{PAGE}', o directamente en una carpeta"
+          },
+          "de-DE": {
+            singular: "Dateien per Drag & Drop überallhin ziehen, um sie auf '{PAGE}' hochzuladen, oder direkt in einen Ordner"
+          },
+          "fr-FR": {
+            singular: "Glissez-déposez des fichiers n'importe où pour les téléverser vers '{PAGE}', ou directement dans un dossier"
+          },
+          "ja-JP": {
+            singular: "ファイルを任意の場所にドラッグ＆ドロップして'{PAGE}'にアップロードするか、フォルダに直接ドラッグ＆ドロップしてください"
+          },
+          "ko-KR": {
+            singular: "파일을 '{PAGE}'에 업로드하려면 아무 곳에나 드래그 앤 드롭하거나, 폴더로 직접 끌어다 놓으세요"
+          },
+          "pt-BR": {
+            singular: "Arraste e solte arquivos em qualquer lugar para fazer o upload para '{PAGE}', ou diretamente em uma pasta"
+          },
+          "zh-CN": {
+            singular: "将文件拖放到任意位置以上传到 '{PAGE}', 或直接拖入文件夹"
+          }
+        }
+      }) : (0, _v4.translate)({
         singular: "Drag and drop videos anywhere to upload to '{PAGE}', or directly into a folder",
         replacements: {
           PAGE: _v0
@@ -60,6 +89,31 @@
           },
           "zh-CN": {
             singular: "将视频拖放到任意位置以上传到 '{PAGE}', 或直接放入文件夹"
+          }
+        }
+      }) : _v1 ? (0, _v4.translate)({
+        singular: "Drag and drop files anywhere to upload",
+        dictionary: {
+          es: {
+            singular: "Arrastra y suelta archivos en cualquier lugar para subirlos"
+          },
+          "de-DE": {
+            singular: "Dateien per Drag & Drop überallhin ziehen, um sie hochzuladen"
+          },
+          "fr-FR": {
+            singular: "Glissez-déposez des fichiers n'importe où pour les téléverser"
+          },
+          "ja-JP": {
+            singular: "ファイルを任意の場所にドラッグ＆ドロップしてアップロードしてください"
+          },
+          "ko-KR": {
+            singular: "파일을 업로드하려면 아무 곳에나 드래그 앤 드롭하세요"
+          },
+          "pt-BR": {
+            singular: "Arraste e solte arquivos em qualquer lugar para fazer o upload"
+          },
+          "zh-CN": {
+            singular: "将文件拖放到任意位置以上传"
           }
         }
       }) : (0, _v4.translate)({

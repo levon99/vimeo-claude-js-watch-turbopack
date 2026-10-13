@@ -224,17 +224,8 @@
       [_v53, _v54] = (0, _v3.useState)(!1),
       _v55 = "sm" === _v28,
       _v56 = () => void 0,
-      _v57 = null;
-    if ("" !== _v6 && (_v8 || _v9)) {
-      let _v0 = (0, _v1.jsx)(_v4.Avatar, {
-        alt: _v7 || "",
-        size: "xs",
-        src: _v6,
-        nameProps: {
-          name: _v7 || ""
-        }
-      });
-      _v57 = _v7 && _v48 ? (0, _v1.jsx)(_v10.Tooltip, {
+      _v57 = null,
+      _v58 = _v0 => _v7 && _v48 ? (0, _v1.jsx)(_v10.Tooltip, {
         label: _v7,
         children: (0, _v1.jsx)(_v5.Box, {
           display: "inline-flex",
@@ -242,11 +233,31 @@
           children: _v0
         })
       }) : _v0;
-    }
-    let _v58 = _v9 && null != _v57 ? (0, _v1.jsxs)(_v6.Flex, {
+    "" !== _v6 && (_v8 || _v9) && (_v57 = _v58((0, _v1.jsx)(_v4.Avatar, {
+      alt: _v7 ?? "",
+      size: "xs",
+      src: _v6,
+      nameProps: {
+        name: _v7 ?? ""
+      }
+    })));
+    let _v59 = null;
+    "" !== _v6 && _v9 && (_v59 = _v58((0, _v1.jsx)(_v5.Box, {
+      boxSize: "0.875rem",
+      display: "inline-flex",
+      children: (0, _v1.jsx)(_v4.Avatar, {
+        alt: _v7 ?? "",
+        size: "auto",
+        src: _v6,
+        nameProps: {
+          name: _v7 ?? ""
+        }
+      })
+    })));
+    let _v60 = _v9 && null != _v59 ? (0, _v1.jsxs)(_v6.Flex, {
       alignItems: "center",
       gap: "xs",
-      children: [_v57, (0, _v1.jsx)(_v9.Text, {
+      children: [_v59, (0, _v1.jsx)(_v9.Text, {
         variant: "body-sm",
         color: "text-tertiary",
         noOfLines: 1,
@@ -348,7 +359,7 @@
           avatar: null != _v10 ? void 0 : _v57,
           leadingIcon: _v10,
           title: _v0,
-          subtitle: _v58,
+          subtitle: _v60,
           isLocked: _v39,
           titleStyles: _v30,
           creator: _v33,

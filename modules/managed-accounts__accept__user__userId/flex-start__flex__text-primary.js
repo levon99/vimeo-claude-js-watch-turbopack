@@ -20,8 +20,9 @@
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
-    _v20 = _v0.i(0);
-  function _v21({
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0);
+  function _v22({
     icon: _v0,
     title: _v1,
     description: _v2
@@ -30,7 +31,7 @@
       gap: (0, _v6.rem)(6),
       alignItems: "flex-start",
       w: "100%",
-      children: [(0, _v1.jsx)(_v16.Box, {
+      children: [(0, _v1.jsx)(_v17.Box, {
         display: "flex",
         flexShrink: 0,
         color: "text-primary",
@@ -39,11 +40,11 @@
         direction: "column",
         flex: "1 0 0",
         minW: 0,
-        children: [(0, _v1.jsx)(_v17.Text, {
+        children: [(0, _v1.jsx)(_v18.Text, {
           variant: "heading-xs",
           color: "text-primary",
           children: _v1
-        }), (0, _v1.jsx)(_v17.Text, {
+        }), (0, _v1.jsx)(_v18.Text, {
           variant: "body-md",
           color: "text-secondary",
           children: _v2
@@ -51,7 +52,7 @@
       })]
     });
   }
-  function _v22({
+  function _v23({
     agencyUserId: _v0
   }) {
     let {
@@ -59,7 +60,7 @@
         avatarSrc: _v2,
         isLoading: _v3
       } = (0, _v9.useAgencyIdentity)(_v0),
-      _v4 = _v3 ? (0, _v20.translate)({
+      _v4 = _v3 ? (0, _v21.translate)({
         singular: "You’ve been invited to join Vimeo",
         dictionary: {
           es: {
@@ -84,7 +85,7 @@
             singular: "您已被邀请加入 Vimeo"
           }
         }
-      }) : (0, _v20.translate)({
+      }) : (0, _v21.translate)({
         singular: "{name} invited you to join Vimeo to manage content for you.",
         replacements: {
           name: _v1
@@ -123,17 +124,17 @@
         alignItems: "center",
         gap: (0, _v6.rem)(8),
         w: "100%",
-        children: [(0, _v1.jsx)(_v16.Box, {
+        children: [(0, _v1.jsx)(_v17.Box, {
           p: (0, _v6.rem)(8),
           borderRadius: (0, _v6.rem)(16),
           overflow: "hidden",
-          children: (0, _v1.jsx)(_v15.Avatar, {
+          children: (0, _v1.jsx)(_v16.Avatar, {
             size: "xl",
             shape: "full",
             src: _v2,
             alt: _v1
           })
-        }), (0, _v1.jsx)(_v17.Text, {
+        }), (0, _v1.jsx)(_v18.Text, {
           variant: "heading-md",
           color: "text-primary",
           textAlign: "center",
@@ -147,11 +148,11 @@
         p: (0, _v6.rem)(12),
         borderRadius: (0, _v6.rem)(16),
         background: "lightBlueAlpha.400",
-        children: [(0, _v1.jsx)(_v21, {
-          icon: (0, _v1.jsx)(_v19.ShieldCheck, {
+        children: [(0, _v1.jsx)(_v22, {
+          icon: (0, _v1.jsx)(_v20.ShieldCheck, {
             boxSize: (0, _v6.rem)(20)
           }),
-          title: (0, _v20.translate)({
+          title: (0, _v21.translate)({
             singular: "You have full control",
             dictionary: {
               es: {
@@ -177,7 +178,7 @@
               }
             }
           }),
-          description: (0, _v20.translate)({
+          description: (0, _v21.translate)({
             singular: "You’re the owner of the account. You see every action and can remove admins at any time.",
             dictionary: {
               es: {
@@ -203,11 +204,11 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v21, {
-          icon: (0, _v1.jsx)(_v18.Eye, {
+        }), (0, _v1.jsx)(_v22, {
+          icon: (0, _v1.jsx)(_v19.Eye, {
             boxSize: (0, _v6.rem)(20)
           }),
-          title: (0, _v20.translate)({
+          title: (0, _v21.translate)({
             singular: "What they can do",
             dictionary: {
               es: {
@@ -233,7 +234,7 @@
               }
             }
           }),
-          description: (0, _v20.translate)({
+          description: (0, _v21.translate)({
             singular: "They can upload, organize, and update your videos directly, so you skip the file transfers and email threads",
             dictionary: {
               es: {
@@ -263,23 +264,25 @@
       })]
     });
   }
-  let _v23 = "/home";
-  function _v24({
+  let _v24 = "/home";
+  function _v25({
     agencyUserId: _v0
   }) {
+    let _v1 = (0, _v15.useAdoptedAuthAttribution)("join", "page");
     return (0, _v3.useEffect)(() => {
-      window.sessionStorage.setItem("redirectUrl", _v23);
+      window.sessionStorage.setItem("redirectUrl", _v24);
     }, []), (0, _v1.jsx)(_v14.AuthModal, {
       authType: "join",
+      attribution: _v1,
       disableDismiss: !0,
       isFullScreen: !0,
-      redirectUrl: _v23,
-      banner: (0, _v1.jsx)(_v22, {
+      redirectUrl: _v24,
+      banner: (0, _v1.jsx)(_v23, {
         agencyUserId: _v0
       })
     });
   }
-  function _v25(_v0) {
+  function _v26(_v0) {
     return Array.isArray(_v0) ? _v0[0] ?? "" : _v0 ?? "";
   }
   (0, _v7.withPageSetup)(async () => ({
@@ -307,13 +310,13 @@
       if (!_v0.isReady || _v6.current) return;
       _v6.current = !0;
       let _v0 = function (_v0) {
-        let _v1 = _v25(_v0);
+        let _v1 = _v26(_v0);
         if (!/^\d+$/.test(_v1)) return null;
         let _v2 = Number(_v1);
         return Number.isSafeInteger(_v2) && _v2 > 0 ? _v2 : null;
       }(_v0.query.userId);
       if (null === _v0) return void _v0.replace(_v7 ? "/home" : "/join");
-      let _v1 = (0, _v8.normalizeManagedAccountsSource)(_v25(_v0.query.s)) ?? (_v3?.agencyUserId === _v0 ? _v3.s : null);
+      let _v1 = (0, _v8.normalizeManagedAccountsSource)(_v26(_v0.query.s)) ?? (_v3?.agencyUserId === _v0 ? _v3.s : null);
       _v4({
         agencyUserId: _v0,
         s: _v1
@@ -333,7 +336,7 @@
       justifyContent: "center",
       p: (0, _v6.rem)(24),
       children: (0, _v1.jsx)(_v5.Spinner, {})
-    }) : (0, _v1.jsx)(_v24, {
+    }) : (0, _v1.jsx)(_v25, {
       agencyUserId: _v3.agencyUserId
     });
   }], 0);

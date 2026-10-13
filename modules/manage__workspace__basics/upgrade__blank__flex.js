@@ -274,17 +274,18 @@
       isRedirectUpsell: _v3 = !0,
       onUpsellClick: _v4,
       onSelect: _v5,
-      isVideoPrivacy: _v6 = !1
+      isVideoPrivacy: _v6 = !1,
+      footer: _v7
     }) => {
       let {
-          isOpen: _v7,
-          onOpen: _v8,
-          onClose: _v9
+          isOpen: _v8,
+          onOpen: _v9,
+          onClose: _v10
         } = (0, _v14.useDisclosure)(),
-        [_v10, _v11] = (0, _v2.useState)(void 0),
-        _v12 = _v0.find(_v0 => _v0.privacy === _v1),
-        _v13 = _v12 && _v1 === _v12.privacy && _v12.showUpsell,
-        _v14 = _v0 => {
+        [_v11, _v12] = (0, _v2.useState)(void 0),
+        _v13 = _v0.find(_v0 => _v0.privacy === _v1),
+        _v14 = _v13 && _v1 === _v13.privacy && _v13.showUpsell,
+        _v15 = _v0 => {
           let {
               privacy: _v1,
               isDisabled: _v2,
@@ -294,7 +295,7 @@
           return (0, _v1.jsx)(_v10.MenuItem, {
             "data-testid": `video-privacy-option-${_v1}`,
             onClick: () => {
-              !_v2 && !_v3 && (_v13 ? (_v11(_v0.find(_v0 => _v0.privacy === _v1)), _v8()) : _v5(_v1));
+              !_v2 && !_v3 && (_v14 ? (_v12(_v0.find(_v0 => _v0.privacy === _v1)), _v9()) : _v5(_v1));
             },
             isDisabled: _v2 && !_v3,
             children: (0, _v1.jsx)(_v23, {
@@ -305,22 +306,22 @@
             })
           }, _v1);
         },
-        _v15 = _v0.filter(_v0 => _v0.privacy === _v17.DEFAULT_PRIVACY_VALUES.TEAM || _v0.privacy === _v17.DEFAULT_PRIVACY_VALUES.HIDE_FROM_VIMEO || _v0.privacy === _v17.EVENT_PRIVACY_VALUES.HIDE_FROM_VIMEO).map(_v0 => _v14(_v0)),
-        _v16 = [(0, _v1.jsx)(_v1.Fragment, {})];
-      if (0 === _v15.length) _v16 = _v0.map(_v0 => _v14(_v0));else {
-        let _v0 = _v0.filter(_v0 => _v0.privacy !== _v17.DEFAULT_PRIVACY_VALUES.TEAM && _v0.privacy !== _v17.DEFAULT_PRIVACY_VALUES.HIDE_FROM_VIMEO && _v0.privacy !== _v17.EVENT_PRIVACY_VALUES.HIDE_FROM_VIMEO).map(_v0 => _v14(_v0));
-        _v16 = _v6 ? [..._v0, (0, _v1.jsx)(_v9.MenuDivider, {}, "menu-divider"), ..._v15] : [..._v0.map(_v0 => _v14(_v0))];
+        _v16 = _v0.filter(_v0 => _v0.privacy === _v17.DEFAULT_PRIVACY_VALUES.TEAM || _v0.privacy === _v17.DEFAULT_PRIVACY_VALUES.HIDE_FROM_VIMEO || _v0.privacy === _v17.EVENT_PRIVACY_VALUES.HIDE_FROM_VIMEO).map(_v0 => _v15(_v0)),
+        _v17 = [(0, _v1.jsx)(_v1.Fragment, {})];
+      if (0 === _v16.length) _v17 = _v0.map(_v0 => _v15(_v0));else {
+        let _v0 = _v0.filter(_v0 => _v0.privacy !== _v17.DEFAULT_PRIVACY_VALUES.TEAM && _v0.privacy !== _v17.DEFAULT_PRIVACY_VALUES.HIDE_FROM_VIMEO && _v0.privacy !== _v17.EVENT_PRIVACY_VALUES.HIDE_FROM_VIMEO).map(_v0 => _v15(_v0));
+        _v17 = _v6 ? [..._v0, (0, _v1.jsx)(_v9.MenuDivider, {}, "menu-divider"), ..._v16] : [..._v0.map(_v0 => _v15(_v0))];
       }
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v11.MenuList, {
           ..._v2,
           zIndex: 0,
-          children: [_v13 && _v12 && (0, _v1.jsx)(_v3.Alert, {
+          children: [_v14 && _v13 && (0, _v1.jsx)(_v3.Alert, {
             children: (0, _v1.jsx)(_v4.AlertDescription, {
               children: (0, _v16.translate)({
                 singular: "{PRIVACY} now requires a paid plan. If privacy is changed, going back to {PRIVACY} will require an upgrade.",
                 replacements: {
-                  PRIVACY: _v12.title
+                  PRIVACY: _v13.title
                 },
                 dictionary: {
                   es: {
@@ -347,14 +348,16 @@
                 }
               })
             })
-          }), _v16]
-        }), _v10 && _v13 && _v12 && (0, _v1.jsx)(_v33, {
-          isOpen: _v7,
-          onClose: _v9,
-          selectedPrivacy: _v10,
-          activePrivacyOption: _v12,
+          }), _v17, null != _v7 && (0, _v1.jsxs)(_v1.Fragment, {
+            children: [(0, _v1.jsx)(_v9.MenuDivider, {}), _v7]
+          })]
+        }), _v11 && _v14 && _v13 && (0, _v1.jsx)(_v33, {
+          isOpen: _v8,
+          onClose: _v10,
+          selectedPrivacy: _v11,
+          activePrivacyOption: _v13,
           onSelect: _v0 => {
-            _v5(_v0), _v11(void 0);
+            _v5(_v0), _v12(void 0);
           }
         })]
       });
@@ -376,19 +379,20 @@
     showChevron: _v13 = !0,
     variant: _v14 = "default",
     lastSelectedPrivacyOption: _v15,
-    isVideoPrivacy: _v16 = !1
+    isVideoPrivacy: _v16 = !1,
+    footer: _v17
   }) => {
-    let [_v17, _v18] = (0, _v2.useState)(!1),
-      _v19 = _v7.find(_v0 => _v0.privacy === _v0) ?? _v15 ?? _v7[0],
-      _v20 = () => {
-        _v6?.(!_v17), _v18(_v0 => !_v0);
+    let [_v18, _v19] = (0, _v2.useState)(!1),
+      _v20 = _v7.find(_v0 => _v0.privacy === _v0) ?? _v15 ?? _v7[0],
+      _v21 = () => {
+        _v6?.(!_v18), _v19(_v0 => !_v0);
       },
-      _v21 = _v10 ? _v12.Portal : _v5.Box,
-      _v22 = !_v2 && _v19;
+      _v22 = _v10 ? _v12.Portal : _v5.Box,
+      _v23 = !_v2 && _v20;
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v6.Flex, {
         flexDirection: "column",
-        cursor: _v22 ? "pointer" : "not-allowed",
+        cursor: _v23 ? "pointer" : "not-allowed",
         borderRadius: "md",
         ...("outlined" === _v14 ? {
           transition: "all 120ms ease-in-out 0s",
@@ -407,24 +411,24 @@
           })
         }),
         children: (0, _v1.jsxs)(_v7.Menu, {
-          isOpen: _v17,
+          isOpen: _v18,
           matchWidth: _v8,
           closeOnBlur: !0,
-          onClose: () => _v18(!1),
+          onClose: () => _v19(!1),
           isLazy: !0,
           children: [(0, _v1.jsx)(_v8.MenuButton, {
             "data-testid": "video-privacy-dropdown",
             as: "div",
-            tabIndex: _v22 ? 0 : -1,
+            tabIndex: _v23 ? 0 : -1,
             onClick: () => {
-              _v22 && _v20();
+              _v23 && _v21();
             },
             onKeyDown: _v0 => {
-              _v22 && ["Enter", " ", "ArrowUp", "ArrowDown"].includes(_v0.key) && _v20();
+              _v23 && ["Enter", " ", "ArrowUp", "ArrowDown"].includes(_v0.key) && _v21();
             },
-            children: _v19 ? (0, _v1.jsx)(_v25, {
-              option: _v19,
-              isActive: _v17,
+            children: _v20 ? (0, _v1.jsx)(_v25, {
+              option: _v20,
+              isActive: _v18,
               showChevron: _v13,
               showDescription: _v12,
               variant: _v14
@@ -466,17 +470,18 @@
                 boxSize: "2xs"
               })]
             })
-          }), (0, _v1.jsx)(_v21, {
+          }), (0, _v1.jsx)(_v22, {
             children: (0, _v1.jsx)(_v34, {
               privacyOptions: _v7,
               activePrivacy: _v0,
               menuListProps: _v9,
               onSelect: _v0 => {
-                _v18(!1), _v4(_v0);
+                _v19(!1), _v4(_v0);
               },
               onUpsellClick: _v5,
               isRedirectUpsell: _v11,
-              isVideoPrivacy: _v16
+              isVideoPrivacy: _v16,
+              footer: _v17
             })
           })]
         })

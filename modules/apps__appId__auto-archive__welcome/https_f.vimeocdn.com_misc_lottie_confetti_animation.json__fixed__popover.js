@@ -30,15 +30,16 @@
     _v26 = _v0.i(0),
     _v27 = _v0.i(0);
   let _v28 = () => {
-      let _v0 = (0, _v19.useRef)(null);
-      return (0, _v19.useEffect)(() => {
-        _v0 && _v26.default.loadAnimation({
-          container: _v0?.current,
-          loop: !1,
-          autoplay: !0,
-          path: "https://f.vimeocdn.com/_misc/lottie_confetti_animation.json"
-        });
-      }, [_v0]), (0, _v1.jsx)(_v27.Box, {
+      let _v0 = (0, _v19.useRef)(null),
+        _v1 = (0, _v19.useRef)(null);
+      return (0, _v19.useEffect)(() => (_v1.current = _v26.default.loadAnimation({
+        container: _v0?.current,
+        loop: !1,
+        autoplay: !0,
+        path: "https://f.vimeocdn.com/_misc/lottie_confetti_animation.json"
+      }), () => {
+        _v1.current?.destroy(), _v1.current = null;
+      }), [_v0]), (0, _v1.jsx)(_v27.Box, {
         ref: _v0,
         position: "fixed",
         top: 0,

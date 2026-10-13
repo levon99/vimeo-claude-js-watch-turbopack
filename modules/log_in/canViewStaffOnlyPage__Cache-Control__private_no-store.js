@@ -11,8 +11,9 @@
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
-  async function _v12(_v0) {
+    _v11 = _v0.i(0),
+    _v12 = _v0.i(0);
+  async function _v13(_v0) {
     if ((0, _v6.isLoggedOut)(_v0.req)) return !0;
     try {
       await (0, _v5.fetchAndFormatCapabilties)({
@@ -25,7 +26,7 @@
     }
     return !1;
   }
-  (0, _v7.withPageSetup)(async _v0 => (await _v12(_v0)) ? (function (_v0) {
+  (0, _v7.withPageSetup)(async _v0 => (await _v13(_v0)) ? (function (_v0) {
     if ("1" === _v0.query.iframe) {
       var _v1;
       (_v0.res.setHeader("Cache-Control", "private, no-store"), _v0.res.setHeader("CDN-Cache-Control", "no-store"), (_v1 = _v0.req.headers.referer) && ["vimeo.com", "vimeows.com", "vimeo.dev", "vimeows.dev"].includes(function (_v0) {
@@ -54,7 +55,7 @@
           _v2 = _v0.clip_id;
         if (_v1 && _v2) return `/${_v2}`;
         let _v3 = _v0.redirect ?? "",
-          _v4 = (0, _v11.isVimeoRedirectableUrl)(_v3) ? _v3 : "/";
+          _v4 = (0, _v12.isVimeoRedirectableUrl)(_v3) ? _v3 : "/";
         return _v4.startsWith("http://help.vimeo.com") || _v4.startsWith("https://help.vimeo.com") || _v4.startsWith("http://vimeo.zendesk.com") || _v4.startsWith("https://vimeo.zendesk.com") ? `/help/sso?redirect_to=${encodeURIComponent(_v4)}` : _v4;
       }(_v0.query),
       statusCode: 302
@@ -70,14 +71,15 @@
         iframe: _v3,
         popup: _v4
       } = _v2.query,
-      _v5 = "1" === _v3 || "1" === _v4;
+      _v5 = "1" === _v3 || "1" === _v4,
+      _v6 = (0, _v10.useAdoptedAuthAttribution)("login", "page");
     if (_v5) {
       let {
         redirect: _v0
-      } = (0, _v10.getRedirectAndTypeFromQueryParams)(new URLSearchParams((0, _v2.encode)(_v2.query)));
+      } = (0, _v11.getRedirectAndTypeFromQueryParams)(new URLSearchParams((0, _v2.encode)(_v2.query)));
       _v1 = _v0 || void 0;
     }
-    let _v6 = _v0 ? `${(0, _v8.translate)({
+    let _v7 = _v0 ? `${(0, _v8.translate)({
         singular: "Log in to VideoJi",
         dictionary: {
           es: {
@@ -128,7 +130,7 @@
           }
         }
       }),
-      _v7 = _v0 ? (0, _v8.translate)({
+      _v8 = _v0 ? (0, _v8.translate)({
         singular: "Log in to VideoJi for everything you need to make, manage, and share brilliant videos.",
         dictionary: {
           es: {
@@ -182,13 +184,14 @@
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v3.default, {
         children: [(0, _v1.jsx)("title", {
-          children: _v6
+          children: _v7
         }), (0, _v1.jsx)("meta", {
           name: "description",
-          content: _v7
+          content: _v8
         })]
       }), (0, _v1.jsx)(_v9.AuthModal, {
         authType: "login",
+        attribution: _v6,
         disableDismiss: !0,
         isFullScreen: !_v5,
         redirectUrlAfterSocialLogin: _v1

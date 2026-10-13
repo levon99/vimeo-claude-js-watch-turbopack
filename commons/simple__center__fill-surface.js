@@ -2212,6 +2212,35 @@
         }
       }
     }),
+    setAsDefaultPresetDescription: _v0 => (0, _v16.translate)({
+      singular: '"{NAME}" will be the default preset for new uploads.',
+      replacements: {
+        NAME: _v0
+      },
+      dictionary: {
+        es: {
+          singular: '"{NAME}" será el preajuste predeterminado para las nuevas cargas.'
+        },
+        "de-DE": {
+          singular: '"{NAME}" wird die Standardvoreinstellung für neue Uploads sein.'
+        },
+        "fr-FR": {
+          singular: '"{NAME}" sera le préréglage par défaut pour les nouveaux téléversements.'
+        },
+        "ja-JP": {
+          singular: '"{NAME}" が新規アップロードのデフォルトプリセットになります。'
+        },
+        "ko-KR": {
+          singular: '"{NAME}"이(가) 새 업로드의 기본 프리셋이 됩니다.'
+        },
+        "pt-BR": {
+          singular: '"{NAME}" será a predefinição padrão para novos envios.'
+        },
+        "zh-CN": {
+          singular: '"{NAME}" 将成为新上传的默认预设.'
+        }
+      }
+    }),
     applyToAllExistingVideos: (0, _v16.translate)({
       singular: "Apply to all existing videos",
       dictionary: {
@@ -2741,35 +2770,6 @@
         }
       }
     }),
-    presetUnsetAsDefault: _v0 => (0, _v16.translate)({
-      singular: '"{NAME}" removed as default',
-      replacements: {
-        NAME: _v0
-      },
-      dictionary: {
-        es: {
-          singular: "“{NAME}” se eliminó como predeterminado"
-        },
-        "de-DE": {
-          singular: "„{NAME}“ als Standard entfernt"
-        },
-        "fr-FR": {
-          singular: "« {NAME} » supprimé par défaut"
-        },
-        "ja-JP": {
-          singular: "「{NAME}」がデフォルトから削除されました"
-        },
-        "ko-KR": {
-          singular: '"{NAME}"이(가) 기본값에서 제거되었습니다.'
-        },
-        "pt-BR": {
-          singular: '"{NAME}" removido como padrão'
-        },
-        "zh-CN": {
-          singular: "已默认删除“{NAME}”"
-        }
-      }
-    }),
     duplicateName: (0, _v16.translate)({
       singular: "This name is already used by one of your other presets",
       dictionary: {
@@ -3284,16 +3284,15 @@
     _v69 = _v0.i(0);
   let _v70 = ({
       isVisible: _v0,
-      isDefault: _v1 = !1,
-      onApplyToAll: _v2,
-      onDelete: _v3,
-      onEdit: _v4,
-      onSetAsDefault: _v5
+      onApplyToAll: _v1,
+      onDelete: _v2,
+      onEdit: _v3,
+      onSetAsDefault: _v4
     }) => {
       let {
-        isOpen: _v6,
-        onOpen: _v7,
-        onClose: _v8
+        isOpen: _v5,
+        onOpen: _v6,
+        onClose: _v7
       } = (0, _v4.useDisclosure)();
       return (0, _v2.jsx)(_v68.Tooltip, {
         label: (0, _v16.translate)({
@@ -3325,8 +3324,8 @@
         placement: "top",
         shouldWrapChildren: !0,
         children: (0, _v2.jsxs)(_v62.Menu, {
-          isOpen: _v6,
-          onClose: _v8,
+          isOpen: _v5,
+          onClose: _v7,
           children: [(0, _v2.jsx)(_v63.MenuButton, {
             as: _v61.IconButton,
             icon: (0, _v2.jsx)(_v69.EllipsisV, {}),
@@ -3360,15 +3359,15 @@
             size: "md",
             visibility: _v0 ? "visible" : "hidden",
             onClick: _v0 => {
-              _v0.stopPropagation(), _v7();
+              _v0.stopPropagation(), _v6();
             }
           }), (0, _v2.jsx)(_v67.Portal, {
             children: (0, _v2.jsx)(_v65.MenuList, {
-              w: _v2 ? (0, _v11.rem)(240) : (0, _v11.rem)(160),
+              w: _v1 ? (0, _v11.rem)(240) : (0, _v11.rem)(160),
               children: (0, _v2.jsxs)(_v64.MenuGroup, {
-                children: [_v4 && (0, _v2.jsx)(_v66.MenuItem, {
+                children: [_v3 && (0, _v2.jsx)(_v66.MenuItem, {
                   onClick: _v0 => {
-                    _v0.stopPropagation(), _v4();
+                    _v0.stopPropagation(), _v3();
                   },
                   children: (0, _v16.translate)({
                     singular: "Edit preset",
@@ -3396,9 +3395,9 @@
                       }
                     }
                   })
-                }), _v2 && (0, _v2.jsx)(_v66.MenuItem, {
+                }), _v1 && (0, _v2.jsx)(_v66.MenuItem, {
                   onClick: _v0 => {
-                    _v0.stopPropagation(), _v2();
+                    _v0.stopPropagation(), _v1();
                   },
                   children: (0, _v16.translate)({
                     singular: "Apply to all existing videos",
@@ -3426,36 +3425,11 @@
                       }
                     }
                   })
-                }), _v5 && (0, _v2.jsx)(_v66.MenuItem, {
+                }), _v4 && (0, _v2.jsx)(_v66.MenuItem, {
                   onClick: _v0 => {
-                    _v0.stopPropagation(), _v5();
+                    _v0.stopPropagation(), _v4();
                   },
-                  children: _v1 ? (0, _v16.translate)({
-                    singular: "Remove as default",
-                    dictionary: {
-                      es: {
-                        singular: "Eliminar como predeterminado"
-                      },
-                      "de-DE": {
-                        singular: "Als Standard entfernen"
-                      },
-                      "fr-FR": {
-                        singular: "Ne plus définir par défaut"
-                      },
-                      "ja-JP": {
-                        singular: "デフォルトから削除"
-                      },
-                      "ko-KR": {
-                        singular: "기본값에서 제거"
-                      },
-                      "pt-BR": {
-                        singular: "Remover como padrão"
-                      },
-                      "zh-CN": {
-                        singular: "默认删除"
-                      }
-                    }
-                  }) : (0, _v16.translate)({
+                  children: (0, _v16.translate)({
                     singular: "Set as default",
                     dictionary: {
                       es: {
@@ -3481,9 +3455,9 @@
                       }
                     }
                   })
-                }), _v3 && (0, _v2.jsx)(_v66.MenuItem, {
+                }), _v2 && (0, _v2.jsx)(_v66.MenuItem, {
                   onClick: _v0 => {
-                    _v0.stopPropagation(), _v3();
+                    _v0.stopPropagation(), _v2();
                   },
                   children: (0, _v16.translate)({
                     singular: "Delete",
@@ -3581,8 +3555,7 @@
               })
             }) : _v7.map((_v0, _v1) => {
               let _v2 = _v0.id === _v1,
-                _v3 = -1 === _v0.id,
-                _v4 = !_v3 || !_v2;
+                _v3 = -1 === _v0.id;
               return (0, _v2.jsxs)(_v24.Row, {
                 onClick: () => _v12(_v0),
                 children: [(0, _v2.jsxs)(_v14.VStack, {
@@ -3642,12 +3615,11 @@
                     src: _v0.settings?.customLogo?.url ?? null
                   }), (0, _v2.jsx)(_v70, {
                     isVisible: !0,
-                    isDefault: _v2,
                     onDelete: _v3 ? void 0 : () => {
                       _v16.current = _v0, _v18();
                     },
                     onEdit: () => _v12(_v0),
-                    onSetAsDefault: _v4 ? () => _v13(_v0) : void 0
+                    onSetAsDefault: _v2 ? void 0 : () => _v13(_v0)
                   })]
                 })]
               }, _v1);
@@ -3665,16 +3637,54 @@
         })]
       });
     };
-  var _v72 = _v0.i(0),
-    _v73 = _v0.i(0);
-  function _v74() {
-    let _v0 = (0, _v73.useViewer)(),
+  var _v72 = _v0.i(0);
+  let _v73 = ({
+    applyToAll: _v0,
+    description: _v1,
+    isLoading: _v2 = !1,
+    isOpen: _v3,
+    onApplyToAllChange: _v4,
+    onClose: _v5,
+    onConfirm: _v6
+  }) => {
+    let _v7 = _v38();
+    return (0, _v2.jsxs)(_v53, {
+      isOpen: _v3,
+      maxW: _v31,
+      title: _v7.setAsDefault,
+      onClose: _v5,
+      children: [(0, _v2.jsx)(_v53.Content, {
+        flexDirection: "column",
+        pb: "sm",
+        children: _v1
+      }), (0, _v2.jsxs)(_v53.Footer, {
+        justifyContent: "space-between",
+        border: "none",
+        children: [(0, _v2.jsx)(_v72.Checkbox, {
+          size: "md",
+          isChecked: _v0,
+          isDisabled: _v2,
+          onChange: _v0 => _v4(_v0.target.checked),
+          children: _v7.alsoApplyToAll
+        }), (0, _v2.jsx)(_v7.Button, {
+          variant: "primary",
+          onClick: _v6,
+          isLoading: _v2,
+          children: _v7.setAsDefault
+        })]
+      })]
+    });
+  };
+  var _v74 = _v0.i(0),
+    _v75 = _v0.i(0);
+  function _v76() {
+    let _v0 = (0, _v75.useViewer)(),
       _v1 = _v0?.teamUser?.ownerId || _v0?.user?.id,
       {
         data: _v2,
         isLoading: _v3,
         mutate: _v4
-      } = (0, _v72.useGetUser)(() => _v1 ? {
+      } = (0, _v74.useGetUser)(() => _v1 ? {
         where: {
           userId: _v1
         },
@@ -3683,16 +3693,17 @@
         revalidateOnFocus: !1
       }),
       [_v5, _v6] = (0, _v3.useMemo)(() => [_v39(_v2?.preferences?.videos?.embedPresetUri) || null, _v39(_v2?.preferences?.videos?.pagePresetUri) || null], [_v2]),
-      [_v7, _v8] = (0, _v72.usePatchUser)(),
-      _v9 = async (_v0, _v1) => {
+      [_v7, _v8] = (0, _v74.usePatchUser)(),
+      _v9 = async (_v0, _v1, _v2 = !1) => {
         if (!_v1) return;
-        let _v2 = "embed" === _v0 ? "embedPresetUri" : "pagePresetUri",
-          _v3 = [`preferences.videos.${_v2}`];
+        let _v3 = "embed" === _v0 ? "embedPresetUri" : "pagePresetUri",
+          _v4 = [`preferences.videos.${_v3}`];
         await _v7({
-          select: _v3,
+          select: _v4,
           variables: {
+            applyToAll: _v2,
             videos: {
-              [_v2]: _v1 === ("embed" === _v0 ? _v5 : _v6) ? "" : `/${_v1}`
+              [_v3]: null === _v1 || -1 === _v1 ? "" : `/${_v1}`
             }
           },
           where: {
@@ -3703,14 +3714,16 @@
     return {
       defaultEmbedPresetId: _v5,
       defaultPagePresetId: _v6,
+      error: _v8.error,
       isLoading: _v3 || _v8.loading,
+      isSaving: _v8.loading,
       update: _v9
     };
   }
-  var _v75 = _v0.i(0),
-    _v76 = _v0.i(0),
-    _v77 = _v0.i(0);
-  async function _v78({
+  var _v77 = _v0.i(0),
+    _v78 = _v0.i(0),
+    _v79 = _v0.i(0);
+  async function _v80({
     baseUrl: _v0,
     where: {
       userId: _v1,
@@ -3718,19 +3731,19 @@
     },
     ..._v3
   }) {
-    return (0, _v76.measureLatency)("deleteUserPreset", "DELETE", async () => {
+    return (0, _v78.measureLatency)("deleteUserPreset", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/users/${_v1}/presets/${_v2}`, {
         ..._v3,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v77.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v79.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v77.deepCamelCase)(_v1);
+      return (0, _v79.deepCamelCase)(_v1);
     });
   }
-  async function _v79({
+  async function _v81({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -3740,26 +3753,26 @@
     },
     ..._v5
   }) {
-    return (0, _v76.measureLatency)("patchUserPreset", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/presets/${_v4}?fields=${_v1.map(_v77.intoSnakeCase).join(",")}`, {
+    return (0, _v78.measureLatency)("patchUserPreset", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/presets/${_v4}?fields=${_v1.map(_v79.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PATCH",
-        body: JSON.stringify((0, _v77.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v79.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v77.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v79.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v77.deepCamelCase)(_v1);
+      return (0, _v79.deepCamelCase)(_v1);
     });
   }
-  var _v80 = _v0.i(0),
-    _v81 = _v0.i(0),
-    _v82 = _v0.i(0),
+  var _v82 = _v0.i(0),
     _v83 = _v0.i(0),
     _v84 = _v0.i(0),
-    _v85 = _v0.i(0);
-  let _v86 = (_v0, _v1) => {
+    _v85 = _v0.i(0),
+    _v86 = _v0.i(0),
+    _v87 = _v0.i(0);
+  let _v88 = (_v0, _v1) => {
       let {
         customLogo: _v2,
         embed: _v3,
@@ -3799,7 +3812,7 @@
           share: _v14,
           watchlater: _v17
         },
-        endScreen: _v87(_v4, _v1),
+        endScreen: _v89(_v4, _v1),
         title: {
           owner: _v7 ? "show" : "hide",
           portrait: _v12 ? "show" : "hide",
@@ -3811,7 +3824,7 @@
         }
       };
     },
-    _v87 = (_v0, _v1) => {
+    _v89 = (_v0, _v1) => {
       let {
           type: _v2,
           text: _v3,
@@ -3842,7 +3855,7 @@
                 outroVideosCollectionType: _v0
               }),
               picture: null,
-              pictureUri: _v3 ? _v88(_v3, _v1) : null
+              pictureUri: _v3 ? _v90(_v3, _v1) : null
             }
           };
           break;
@@ -3859,14 +3872,14 @@
         case "image":
           _v8 = {
             image: {
-              pictureUri: _v88(_v6?.pictureUri, _v1)
+              pictureUri: _v90(_v6?.pictureUri, _v1)
             }
           };
           break;
         case "share":
           _v8 = {
             share: {
-              pictureUri: _v88(_v7?.pictureUri, _v1)
+              pictureUri: _v90(_v7?.pictureUri, _v1)
             }
           };
           break;
@@ -3878,9 +3891,9 @@
         ..._v8
       };
     },
-    _v88 = (_v0, _v1) => `resources/presets/${_v1}/${_v0}`,
-    _v89 = ["name", "uri", "createdOn", "modifiedOn", "settings.colors", "settings.logos", "settings.buttons.embed", "settings.buttons.reaction", "settings.buttons.like", "settings.buttons.share", "settings.buttons.fullscreen", "settings.buttons.watchlater", "settings.pip", "settings.volume", "settings.speed", "settings.byline", "settings.title", "settings.portrait", "settings.playbar", "settings.chapters", "settings.airplay", "settings.chromecast", "settings.closedCaptions", "settings.transcript", "settings.qualitySelector", "settings.playButton.position", "settings.audioTracks", "settings.skippingForward", "settings.endScreen", "settings.askAi"],
-    _v90 = _v0 => ({
+    _v90 = (_v0, _v1) => `resources/presets/${_v1}/${_v0}`,
+    _v91 = ["name", "uri", "createdOn", "modifiedOn", "settings.colors", "settings.logos", "settings.buttons.embed", "settings.buttons.reaction", "settings.buttons.like", "settings.buttons.share", "settings.buttons.fullscreen", "settings.buttons.watchlater", "settings.pip", "settings.volume", "settings.speed", "settings.byline", "settings.title", "settings.portrait", "settings.playbar", "settings.chapters", "settings.airplay", "settings.chromecast", "settings.closedCaptions", "settings.transcript", "settings.qualitySelector", "settings.playButton.position", "settings.audioTracks", "settings.skippingForward", "settings.endScreen", "settings.askAi"],
+    _v92 = _v0 => ({
       id: _v39(_v0.uri),
       name: _v0.name,
       settings: (_v0 => {
@@ -3916,10 +3929,10 @@
         return {
           ..._v2,
           colors: {
-            colorOne: _v3?.colorOne ? (0, _v85.withHashPrefix)(_v3.colorOne) : _v26.colorOne,
-            colorTwo: _v3?.colorTwo ? (0, _v85.withHashPrefix)(_v3.colorTwo) : _v26.colorTwo,
-            colorThree: _v3?.colorThree ? (0, _v85.withHashPrefix)(_v3.colorThree) : _v26.colorThree,
-            colorFour: _v3?.colorFour ? (0, _v85.withHashPrefix)(_v3.colorFour) : _v26.colorFour
+            colorOne: _v3?.colorOne ? (0, _v87.withHashPrefix)(_v3.colorOne) : _v26.colorOne,
+            colorTwo: _v3?.colorTwo ? (0, _v87.withHashPrefix)(_v3.colorTwo) : _v26.colorTwo,
+            colorThree: _v3?.colorThree ? (0, _v87.withHashPrefix)(_v3.colorThree) : _v26.colorThree,
+            colorFour: _v3?.colorFour ? (0, _v87.withHashPrefix)(_v3.colorFour) : _v26.colorFour
           },
           endScreen: {
             type: "email" !== _v14 && _v14 ? _v14 : "nothing",
@@ -3941,13 +3954,13 @@
       createdDate: _v0.createdOn,
       modifiedDate: _v0.modifiedOn
     });
-  var _v91 = _v0.i(0),
-    _v92 = _v0.i(0),
-    _v93 = _v0.i(0),
-    _v94 = _v0.i(0);
-  let _v95 = {},
-    _v96 = {},
-    _v97 = {
+  var _v93 = _v0.i(0),
+    _v94 = _v0.i(0),
+    _v95 = _v0.i(0),
+    _v96 = _v0.i(0);
+  let _v97 = {},
+    _v98 = {},
+    _v99 = {
       presetName: "Untitled preset",
       airplay: !0,
       askAi: !0,
@@ -4001,14 +4014,14 @@
       volume: !0,
       watchlater: !0
     },
-    _v98 = (_v1 = (_v0, _v1) => ({
+    _v100 = (_v1 = (_v0, _v1) => ({
       preset: (({
         set: _v0,
         get: _v1
       }) => ({
         applyToAll: _v1()?.preset.applyToAll ?? !1,
-        committed: _v1()?.preset.committed ?? _v97,
-        draft: _v1()?.preset.draft ?? _v97,
+        committed: _v1()?.preset.committed ?? _v99,
+        draft: _v1()?.preset.draft ?? _v99,
         isSubmitting: _v1()?.preset.isSubmitting ?? !1,
         presetId: _v1()?.preset.presetId ?? 0,
         actions: {
@@ -4016,11 +4029,11 @@
             preset: _v0
           }) => {
             _v0.presetId = _v0.id, _v0.committed = {
-              ..._v97,
+              ..._v99,
               ..._v0.settings,
               presetName: _v0.name
             }, _v0.draft = {
-              ..._v97,
+              ..._v99,
               ..._v0.settings,
               presetName: _v0.name
             };
@@ -4028,7 +4041,7 @@
           resetState: () => _v0(({
             preset: _v0
           }) => {
-            _v0.presetId = 0, _v0.draft = _v97, _v0.committed = _v97, _v0.applyToAll = !1;
+            _v0.presetId = 0, _v0.draft = _v99, _v0.committed = _v99, _v0.applyToAll = !1;
           }),
           toggleSetting: _v0 => {
             _v0(({
@@ -4077,7 +4090,7 @@
             preset: _v0
           }) => {
             _v0.draft.endScreen = {
-              type: _v0.draft?.endScreen?.type ?? _v97.endScreen.type,
+              type: _v0.draft?.endScreen?.type ?? _v99.endScreen.type,
               ..._v0.draft.endScreen,
               ..._v0
             };
@@ -4108,8 +4121,8 @@
         set: _v0,
         get: _v1
       }) => ({
-        fields: _v1()?.form.fields ?? _v95,
-        errors: _v1()?.form.errors ?? _v96,
+        fields: _v1()?.form.fields ?? _v97,
+        errors: _v1()?.form.errors ?? _v98,
         actions: {
           register: (_v0, _v1) => {
             _v0(({
@@ -4150,7 +4163,7 @@
             _v0(({
               form: _v0
             }) => {
-              _v0.fields = _v95, _v0.errors = _v96;
+              _v0.fields = _v97, _v0.errors = _v98;
             });
           }
         }
@@ -4163,15 +4176,15 @@
           _v1().preset.actions.resetState(), _v1().form.actions.reset();
         }
       }
-    }), (0, _v92.create)((0, _v94.immer)((0, _v93.devtools)(_v1, {
+    }), (0, _v94.create)((0, _v96.immer)((0, _v95.devtools)(_v1, {
       enabled: !1
     })))),
-    _v99 = "2004-11-05T22:00:36+00:00",
-    _v100 = "Vimeo (none applied)",
-    _v101 = {
+    _v101 = "2004-11-05T22:00:36+00:00",
+    _v102 = "Vimeo (none applied)",
+    _v103 = {
       id: -1,
-      name: _v100,
-      createdDate: _v99,
+      name: _v102,
+      createdDate: _v101,
       modifiedDate: "",
       settings: {
         airplay: !0,
@@ -4217,10 +4230,10 @@
         watchlater: !0
       }
     },
-    _v102 = {
+    _v104 = {
       id: -1,
-      name: _v100,
-      createdDate: _v99,
+      name: _v102,
+      createdDate: _v101,
       modifiedDate: "",
       settings: {
         airplay: !0,
@@ -4267,9 +4280,7 @@
         views: !1
       }
     };
-  var _v103 = _v0.i(0),
-    _v104 = _v0.i(0),
-    _v105 = _v0.i(0),
+  var _v105 = _v0.i(0),
     _v106 = _v0.i(0),
     _v107 = _v0.i(0),
     _v108 = _v0.i(0),
@@ -4280,11 +4291,13 @@
     _v113 = _v0.i(0),
     _v114 = _v0.i(0),
     _v115 = _v0.i(0),
-    _v116 = _v0.i(0);
-  let _v117 = ({
+    _v116 = _v0.i(0),
+    _v117 = _v0.i(0),
+    _v118 = _v0.i(0);
+  let _v119 = ({
       children: _v0,
       ..._v1
-    }) => (0, _v2.jsx)(_v111.Accordion, {
+    }) => (0, _v2.jsx)(_v113.Accordion, {
       w: "100%",
       borderRadius: "sm",
       defaultIndex: 0,
@@ -4293,24 +4306,24 @@
       ..._v1,
       children: _v0
     }),
-    _v118 = ({
+    _v120 = ({
       children: _v0,
       label: _v1
-    }) => (0, _v2.jsx)(_v114.AccordionItem, {
+    }) => (0, _v2.jsx)(_v116.AccordionItem, {
       children: ({
         isExpanded: _v0
       }) => (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsxs)(_v112.AccordionButton, {
+        children: [(0, _v2.jsxs)(_v114.AccordionButton, {
           display: "flex",
           justifyContent: "space-between",
           bgColor: "transparent",
-          children: [(0, _v2.jsx)(_v116.Header, {
+          children: [(0, _v2.jsx)(_v118.Header, {
             variant: "heading-sm",
             my: "sm",
             size: "xl",
             children: _v1
-          }), (0, _v2.jsx)(_v113.AccordionIcon, {})]
-        }), (0, _v2.jsx)(_v115.AccordionPanel, {
+          }), (0, _v2.jsx)(_v115.AccordionIcon, {})]
+        }), (0, _v2.jsx)(_v117.AccordionPanel, {
           children: (0, _v2.jsx)(_v9.Flex, {
             direction: "column",
             gap: "md",
@@ -4320,9 +4333,9 @@
         })]
       })
     });
-  var _v119 = _v0.i(0),
-    _v120 = _v0.i(0);
-  let _v121 = ({
+  var _v121 = _v0.i(0),
+    _v122 = _v0.i(0);
+  let _v123 = ({
     disabled: _v0 = !1,
     options: _v1,
     state: _v2,
@@ -4332,10 +4345,10 @@
       _v6 = (0, _v56.useColorModeValue)("blackAlpha.500", "whiteAlpha.500"),
       _v7 = (0, _v3.useCallback)(() => {
         _v4 || _v1?.forEach(_v0 => {
-          "toggle" !== _v0.type || (_v0.payload ? (0, _v119.default)(_v2, _v0.payload) : null) && _v3?.(_v0.payload);
+          "toggle" !== _v0.type || (_v0.payload ? (0, _v121.default)(_v2, _v0.payload) : null) && _v3?.(_v0.payload);
         }), _v5(_v0 => !_v0);
       }, [_v2, _v4, _v1, _v3]);
-    return (0, _v2.jsx)(_v120.Toggle, {
+    return (0, _v2.jsx)(_v122.Toggle, {
       label: (0, _v2.jsx)(_v13.Text, {
         color: _v0 ? _v6 : "inherit",
         variant: "heading-xs",
@@ -4371,56 +4384,56 @@
       onChange: _v7
     });
   };
-  var _v122 = _v0.i(0),
-    _v123 = _v0.i(0),
-    _v124 = _v0.i(0),
+  var _v124 = _v0.i(0),
     _v125 = _v0.i(0),
     _v126 = _v0.i(0),
     _v127 = _v0.i(0),
     _v128 = _v0.i(0),
-    _v129 = _v0.i(0);
-  let _v130 = ({
+    _v129 = _v0.i(0),
+    _v130 = _v0.i(0),
+    _v131 = _v0.i(0);
+  let _v132 = ({
     children: _v0,
     defaultValue: _v1,
     placement: _v2 = "right-start",
     onChange: _v3
-  }) => (0, _v2.jsxs)(_v126.ColorPickerRoot, {
-    defaultValue: (0, _v128.parseColor)(_v1),
-    onValueChange: _v0 => _v3((0, _v129.toHex)(_v0.valueAsString)),
+  }) => (0, _v2.jsxs)(_v128.ColorPickerRoot, {
+    defaultValue: (0, _v130.parseColor)(_v1),
+    onValueChange: _v0 => _v3((0, _v131.toHex)(_v0.valueAsString)),
     positioning: {
       placement: _v2
     },
-    children: [(0, _v2.jsx)(_v127.ColorPickerControl, {
-      children: (0, _v2.jsx)(_v126.ColorPickerTrigger, {
+    children: [(0, _v2.jsx)(_v129.ColorPickerControl, {
+      children: (0, _v2.jsx)(_v128.ColorPickerTrigger, {
         children: _v0
       })
     }), (0, _v2.jsx)(_v67.Portal, {
-      children: (0, _v2.jsx)(_v126.ColorPickerPositioner, {
-        children: (0, _v2.jsxs)(_v126.ColorPickerContent, {
+      children: (0, _v2.jsx)(_v128.ColorPickerPositioner, {
+        children: (0, _v2.jsxs)(_v128.ColorPickerContent, {
           style: {
             height: "max-content",
             maxHeight: "100%"
           },
-          children: [(0, _v2.jsx)(_v126.ColorPickerArea, {}), (0, _v2.jsx)(_v9.Flex, {
+          children: [(0, _v2.jsx)(_v128.ColorPickerArea, {}), (0, _v2.jsx)(_v9.Flex, {
             w: "100%",
             align: "center",
-            children: (0, _v2.jsxs)(_v126.ColorPickerChannelSlider, {
+            children: (0, _v2.jsxs)(_v128.ColorPickerChannelSlider, {
               channel: "hue",
-              children: [(0, _v2.jsx)(_v126.ColorPickerChannelSliderTrack, {}), (0, _v2.jsx)(_v126.ColorPickerChannelSliderThumb, {})]
+              children: [(0, _v2.jsx)(_v128.ColorPickerChannelSliderTrack, {}), (0, _v2.jsx)(_v128.ColorPickerChannelSliderThumb, {})]
             })
           }), (0, _v2.jsxs)(_v9.Flex, {
             gap: "sm",
             align: "center",
-            children: [(0, _v2.jsx)(_v126.ColorPickerChannelInput, {
+            children: [(0, _v2.jsx)(_v128.ColorPickerChannelInput, {
               channel: "hex"
-            }), (0, _v2.jsx)(_v126.ColorPickerEyeDropperTrigger, {})]
+            }), (0, _v2.jsx)(_v128.ColorPickerEyeDropperTrigger, {})]
           })]
         })
       })
     })]
   });
-  var _v131 = _v0.i(0);
-  function _v132({
+  var _v133 = _v0.i(0);
+  function _v134({
     hasBrandkit: _v0,
     label: _v1,
     onChange: _v2,
@@ -4428,12 +4441,12 @@
     isDisabled: _v4 = !1
   }) {
     let [_v5, _v6] = (0, _v3.useState)(_v3),
-      _v7 = (0, _v122.default)(_v2, 50);
+      _v7 = (0, _v124.default)(_v2, 50);
     (0, _v3.useEffect)(() => {
       _v6(_v3);
     }, [_v3]);
     let _v8 = _v0 => _v7(_v0);
-    return (0, _v2.jsx)(_v131.LabeledControl, {
+    return (0, _v2.jsx)(_v133.LabeledControl, {
       label: _v1,
       isDisabled: _v4,
       children: (0, _v2.jsxs)(_v10.HStack, {
@@ -4443,23 +4456,23 @@
           variant: "body-xl",
           fontSize: "inherit",
           children: _v5
-        }), _v4 && (0, _v2.jsx)(_v133, {
+        }), _v4 && (0, _v2.jsx)(_v135, {
           color: _v5
-        }), !_v4 && (_v0 ? (0, _v2.jsx)(_v124.ColorPickerBrandKit, {
-          color: _v5 ?? _v125.DEFAULT_BRANDING_COLOR,
-          position: _v125.DEFAULT_PICKER_PLACEMENT,
+        }), !_v4 && (_v0 ? (0, _v2.jsx)(_v126.ColorPickerBrandKit, {
+          color: _v5 ?? _v127.DEFAULT_BRANDING_COLOR,
+          position: _v127.DEFAULT_PICKER_PLACEMENT,
           onChange: _v8,
           productName: "single_video_view",
           children: (0, _v2.jsx)(_v44.Box, {
-            children: (0, _v2.jsx)(_v133, {
-              color: _v5 ?? _v125.DEFAULT_BRANDING_COLOR
+            children: (0, _v2.jsx)(_v135, {
+              color: _v5 ?? _v127.DEFAULT_BRANDING_COLOR
             })
           })
-        }) : (0, _v2.jsx)(_v130, {
+        }) : (0, _v2.jsx)(_v132, {
           defaultValue: _v3,
           onChange: _v8,
           children: (0, _v2.jsx)(_v44.Box, {
-            children: (0, _v2.jsx)(_v133, {
+            children: (0, _v2.jsx)(_v135, {
               color: _v5
             })
           })
@@ -4467,9 +4480,9 @@
       })
     });
   }
-  let _v133 = ({
+  let _v135 = ({
     color: _v0
-  }) => (0, _v2.jsx)(_v123.CircleShapeFilled, {
+  }) => (0, _v2.jsx)(_v125.CircleShapeFilled, {
     color: _v0,
     cursor: "inherit",
     stroke: "stroke",
@@ -4479,18 +4492,18 @@
       backgroundColor: "transparent"
     }
   });
-  var _v134 = _v0.i(0),
-    _v135 = _v0.i(0),
-    _v136 = _v0.i(0),
+  var _v136 = _v0.i(0),
     _v137 = _v0.i(0),
     _v138 = _v0.i(0),
     _v139 = _v0.i(0),
-    _v140 = _v0.i(0);
-  let _v141 = {
+    _v140 = _v0.i(0),
+    _v141 = _v0.i(0),
+    _v142 = _v0.i(0);
+  let _v143 = {
       h: (0, _v11.rem)(32),
       w: (0, _v11.rem)(52)
     },
-    _v142 = ({
+    _v144 = ({
       canAddPlayerLogo: _v0,
       committedLogo: _v1,
       disabled: _v2,
@@ -4507,7 +4520,7 @@
         } = (0, _v4.useDisclosure)(),
         _v11 = !!_v3?.link && !_v42(_v3?.link),
         _v12 = _v2 || !_v0;
-      (0, _v138.useOutsideClick)({
+      (0, _v140.useOutsideClick)({
         enabled: _v8,
         ref: _v6,
         handler: _v0 => {
@@ -4537,16 +4550,16 @@
         }, [_v3, _v4, _v9]),
         _v16 = (0, _v2.jsx)(_v57, {
           src: _v3?.url,
-          width: _v141.w,
-          height: _v141.h,
+          width: _v143.w,
+          height: _v143.h,
           showOverlay: _v0,
           showFallback: !0,
-          children: (0, _v2.jsx)(_v139.EditPencil, {
+          children: (0, _v2.jsx)(_v141.EditPencil, {
             color: "white",
             visibility: "hidden"
           })
         }),
-        _v17 = (0, _v2.jsx)(_v140.LogoPickerBrandKit, {
+        _v17 = (0, _v2.jsx)(_v142.LogoPickerBrandKit, {
           LogoPickerControlComponent: () => (0, _v2.jsx)(_v44.Box, {
             onClick: _v10,
             children: _v16
@@ -4568,7 +4581,7 @@
         direction: "column",
         gap: "md",
         w: "100%",
-        children: [(0, _v2.jsxs)(_v131.LabeledControl, {
+        children: [(0, _v2.jsxs)(_v133.LabeledControl, {
           label: (0, _v16.translate)({
             singular: "Custom logo",
             dictionary: {
@@ -4596,7 +4609,7 @@
             }
           }),
           isDisabled: _v12,
-          children: [!_v12 && _v3?.active && _v17, (0, _v2.jsx)(_v137.Switch, {
+          children: [!_v12 && _v3?.active && _v17, (0, _v2.jsx)(_v139.Switch, {
             isChecked: _v3?.active || !1,
             onChange: _v13,
             isDisabled: _v12,
@@ -4604,7 +4617,7 @@
             pr: "75"
           })]
         }), _v3?.active && (0, _v2.jsxs)(_v2.Fragment, {
-          children: [(0, _v2.jsx)(_v120.Toggle, {
+          children: [(0, _v2.jsx)(_v122.Toggle, {
             label: _v5.showLogoDuringPlayback,
             isChecked: _v3?.sticky || !1,
             isDisabled: !_v3?.active,
@@ -4614,7 +4627,7 @@
                 sticky: !_v3.sticky
               });
             }
-          }), (0, _v2.jsx)(_v120.Toggle, {
+          }), (0, _v2.jsx)(_v122.Toggle, {
             label: _v5.linkThisLogo,
             isChecked: _v3?.useLink || !1,
             isDisabled: !_v3?.active,
@@ -4624,10 +4637,10 @@
                 useLink: !_v3.useLink
               });
             }
-          }), !!_v3?.useLink && (0, _v2.jsxs)(_v134.FormControl, {
+          }), !!_v3?.useLink && (0, _v2.jsxs)(_v136.FormControl, {
             w: "100%",
             isInvalid: _v11,
-            children: [(0, _v2.jsx)(_v136.Input, {
+            children: [(0, _v2.jsx)(_v138.Input, {
               placeholder: _v5.linkUrl,
               variant: "md",
               value: _v3?.link || "",
@@ -4637,27 +4650,27 @@
                   link: _v0.target.value
                 });
               }
-            }), (0, _v2.jsx)(_v135.FormErrorMessage, {
+            }), (0, _v2.jsx)(_v137.FormErrorMessage, {
               children: _v5.invalidUrl
             })]
           })]
         })]
       });
     },
-    _v143 = ({
+    _v145 = ({
       canAddPlayerLogo: _v0,
       committedLogo: _v1,
       disabled: _v2,
       draftLogo: _v3,
       onChange: _v4
-    }) => (0, _v2.jsx)(_v142, {
+    }) => (0, _v2.jsx)(_v144, {
       committedLogo: _v1,
       disabled: _v2,
       draftLogo: _v3,
       canAddPlayerLogo: _v0,
       onChange: _v4
     }),
-    _v144 = ({
+    _v146 = ({
       title: _v0,
       committed: _v1,
       disabled: _v2,
@@ -4667,9 +4680,9 @@
       onColorChange: _v6,
       onToggle: _v7,
       onLogoChange: _v8
-    }) => (0, _v2.jsxs)(_v118, {
+    }) => (0, _v2.jsxs)(_v120, {
       label: _v0,
-      children: [_v5 && (0, _v2.jsx)(_v121, {
+      children: [_v5 && (0, _v2.jsx)(_v123, {
         state: _v3,
         options: _v4,
         onToggle: _v7,
@@ -4684,27 +4697,27 @@
           _v5 = !!_v0.disableReason;
         switch (_v4) {
           case "color":
-            _v1 = (0, _v2.jsx)(_v132, {
+            _v1 = (0, _v2.jsx)(_v134, {
               label: _v2,
-              value: (0, _v119.default)(_v3, `colors.${_v3}`) ?? "",
+              value: (0, _v121.default)(_v3, `colors.${_v3}`) ?? "",
               isDisabled: _v5 || _v2,
               hasBrandkit: !1,
               onChange: _v0 => _v6?.(_v0.payload, _v0)
             }, _v0.payload);
             break;
           case "custom-logo":
-            _v1 = (0, _v2.jsx)(_v143, {
-              committedLogo: (0, _v119.default)(_v1, _v3) || {},
-              draftLogo: (0, _v119.default)(_v3, _v3) || {},
+            _v1 = (0, _v2.jsx)(_v145, {
+              committedLogo: (0, _v121.default)(_v1, _v3) || {},
+              draftLogo: (0, _v121.default)(_v3, _v3) || {},
               onChange: _v0 => _v8?.(_v0),
               canAddPlayerLogo: !0,
               disabled: _v5 || _v2
             }, _v0.payload);
             break;
           default:
-            _v1 = (0, _v2.jsx)(_v120.Toggle, {
+            _v1 = (0, _v2.jsx)(_v122.Toggle, {
               label: _v2,
-              isChecked: (0, _v119.default)(_v3, _v3),
+              isChecked: (0, _v121.default)(_v3, _v3),
               isDisabled: _v5 || _v2,
               onChange: () => _v7?.(_v3)
             }, _v3);
@@ -4719,7 +4732,7 @@
         }) : _v1;
       })(_v0))]
     }),
-    _v145 = ({
+    _v147 = ({
       value: _v0,
       isDisabled: _v1,
       onChange: _v2
@@ -4866,7 +4879,7 @@
         })]
       });
     },
-    _v146 = ({
+    _v148 = ({
       disabled: _v0 = !1,
       title: _v1,
       state: _v2,
@@ -4927,28 +4940,28 @@
           label: _v5.vimeoLogo,
           payload: "vimeoLogo"
         }];
-      return (0, _v2.jsxs)(_v118, {
+      return (0, _v2.jsxs)(_v120, {
         label: _v1,
-        children: [(0, _v2.jsx)(_v145, {
+        children: [(0, _v2.jsx)(_v147, {
           isDisabled: _v0,
-          value: (0, _v119.default)(_v2, "playButtonPosition"),
+          value: (0, _v121.default)(_v2, "playButtonPosition"),
           onChange: _v4
-        }), (0, _v2.jsx)(_v105.Divider, {
+        }), (0, _v2.jsx)(_v107.Divider, {
           borderColor: "stroke"
-        }), (0, _v2.jsx)(_v121, {
+        }), (0, _v2.jsx)(_v123, {
           state: _v2,
           onToggle: _v3,
           options: _v6,
           disabled: _v0
-        }), _v6.map(_v0 => (0, _v2.jsx)(_v120.Toggle, {
+        }), _v6.map(_v0 => (0, _v2.jsx)(_v122.Toggle, {
           label: _v0.label,
-          isChecked: (0, _v119.default)(_v2, _v0.payload),
+          isChecked: (0, _v121.default)(_v2, _v0.payload),
           isDisabled: _v0,
           onChange: () => _v3(_v0.payload)
         }, _v0.payload))]
       });
     },
-    _v147 = ({
+    _v149 = ({
       isLoading: _v0 = !1,
       isOpen: _v1,
       onClose: _v2,
@@ -4979,8 +4992,8 @@
         })]
       });
     };
-  var _v148 = _v0.i(0);
-  let _v149 = ({
+  var _v150 = _v0.i(0);
+  let _v151 = ({
     title: _v0,
     description: _v1,
     mainContent: _v2,
@@ -5005,8 +5018,8 @@
       children: _v4
     })]
   });
-  var _v150 = _v0.i(0);
-  let _v151 = ({
+  var _v152 = _v0.i(0);
+  let _v153 = ({
     name: _v0,
     label: _v1,
     maxLength: _v2,
@@ -5018,11 +5031,11 @@
     children: _v8
   }) => {
     let _v9 = _v4?.length || 0;
-    return (0, _v2.jsxs)(_v134.FormControl, {
+    return (0, _v2.jsxs)(_v136.FormControl, {
       isDisabled: _v6,
       isInvalid: !!_v7,
       w: "100%",
-      children: [(0, _v2.jsx)(_v150.FormLabel, {
+      children: [(0, _v2.jsx)(_v152.FormLabel, {
         children: (0, _v2.jsx)(_v13.Text, {
           variant: "heading-xs",
           children: _v1
@@ -5030,19 +5043,19 @@
       }), _v8, (0, _v2.jsxs)(_v10.HStack, {
         alignItems: "center",
         justifyContent: _v7 ? "space-between" : "flex-end",
-        children: [(0, _v2.jsx)(_v135.FormErrorMessage, {
+        children: [(0, _v2.jsx)(_v137.FormErrorMessage, {
           children: (0, _v2.jsx)(_v13.Text, {
             variant: "body-sm",
             children: _v7
           })
-        }), _v3 === _v0 && (0, _v2.jsx)(_v134.FormHelperText, {
+        }), _v3 === _v0 && (0, _v2.jsx)(_v136.FormHelperText, {
           color: _v9 >= _v5 ? _v9 >= _v2 ? "status-destructive-primary" : "status-caution-primary" : "text-primary",
           children: `${_v9}/${_v2}`
         })]
       })]
     });
   };
-  function _v152({
+  function _v154({
     name: _v0,
     value: _v1,
     error: _v2,
@@ -5055,7 +5068,7 @@
     handleBlur: _v9,
     ..._v10
   }) {
-    return (0, _v2.jsx)(_v151, {
+    return (0, _v2.jsx)(_v153, {
       name: _v0,
       maxLength: _v6,
       value: _v1,
@@ -5064,7 +5077,7 @@
       warningThreshold: _v5,
       disabled: _v7,
       error: _v2,
-      children: (0, _v2.jsx)(_v136.Input, {
+      children: (0, _v2.jsx)(_v138.Input, {
         name: _v0,
         value: _v1,
         maxLength: _v6,
@@ -5075,21 +5088,21 @@
       })
     });
   }
-  var _v153 = _v0.i(0);
-  let _v154 = ({
+  var _v155 = _v0.i(0);
+  let _v156 = ({
     configUrl: _v0,
     mode: _v1
   }) => {
     let {
         draft: _v2
-      } = _v98(({
+      } = _v100(({
         preset: _v0
       }) => _v0),
       [_v3, _v4] = (0, _v3.useState)(!1),
       _v5 = (0, _v3.useRef)(null),
       {
         player: _v6
-      } = (0, _v153.usePlayer)(_v5, 0, !0, _v0, !1);
+      } = (0, _v155.usePlayer)(_v5, 0, !0, _v0, !1);
     return (0, _v3.useEffect)(() => {
       if (_v6 && _v6.ready) switch (_v1) {
         case "endscreen":
@@ -5218,9 +5231,9 @@
       })]
     });
   };
-  var _v155 = _v0.i(0),
-    _v156 = _v0.i(0);
-  async function _v157({
+  var _v157 = _v0.i(0),
+    _v158 = _v0.i(0);
+  async function _v159({
     baseUrl: _v0,
     where: {
       resourceType: _v1,
@@ -5229,19 +5242,19 @@
     },
     ..._v4
   }) {
-    return (0, _v76.measureLatency)("deleteResourceResourceIdOutrobackground", "DELETE", async () => {
+    return (0, _v78.measureLatency)("deleteResourceResourceIdOutrobackground", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/resources/${_v1}/${_v2}/outrobackgrounds/${_v3}`, {
         ..._v4,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v77.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v79.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v77.deepCamelCase)(_v1);
+      return (0, _v79.deepCamelCase)(_v1);
     });
   }
-  async function _v158({
+  async function _v160({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -5250,25 +5263,25 @@
     },
     ..._v4
   }) {
-    return (0, _v76.measureLatency)("getResourceResourceIdOutrobackgrounds", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/resources/${_v2}/${_v3}/outrobackgrounds?fields=${_v1.map(_v77.intoSnakeCase).join(",")}`, {
+    return (0, _v78.measureLatency)("getResourceResourceIdOutrobackgrounds", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/resources/${_v2}/${_v3}/outrobackgrounds?fields=${_v1.map(_v79.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v77.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v79.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v77.deepCamelCase)(_v1);
+      return (0, _v79.deepCamelCase)(_v1);
     });
   }
-  let _v159 = "presets",
-    _v160 = {
+  let _v161 = "presets",
+    _v162 = {
       loading: !1,
       error: null,
       data: []
     };
-  function _v161(_v0, _v1) {
+  function _v163(_v0, _v1) {
     switch (_v1.type) {
       case "REQUEST":
         return {
@@ -5293,16 +5306,16 @@
         return _v0;
     }
   }
-  var _v162 = _v0.i(0),
-    _v163 = _v0.i(0);
-  let _v164 = ({
+  var _v164 = _v0.i(0),
+    _v165 = _v0.i(0);
+  let _v166 = ({
     icon: _v0,
     tooltipLabel: _v1,
     onChange: _v2,
     isUploading: _v3,
     size: _v4 = "xs",
     ..._v5
-  }) => (0, _v2.jsx)(_v163.FileInput, {
+  }) => (0, _v2.jsx)(_v165.FileInput, {
     label: (0, _v2.jsx)(_v68.Tooltip, {
       label: _v1,
       children: (0, _v2.jsx)(_v8.Center, {
@@ -5323,9 +5336,9 @@
     size: _v4,
     ..._v5
   });
-  var _v165 = _v0.i(0),
-    _v166 = _v0.i(0);
-  function _v167({
+  var _v167 = _v0.i(0),
+    _v168 = _v0.i(0);
+  function _v169({
     item: _v0,
     value: _v1,
     onChange: _v2,
@@ -5444,15 +5457,15 @@
             "aria-label": _v6.deleteImage,
             size: "xs",
             variant: "blur",
-            icon: (0, _v2.jsx)(_v166.TrashBin, {}),
+            icon: (0, _v2.jsx)(_v168.TrashBin, {}),
             onClick: _v0 => _v3(_v0, _v0.id),
             disabled: _v5
           })
         }), (0, _v2.jsx)(_v68.Tooltip, {
           label: _v6.replaceImage,
           children: (0, _v2.jsx)(_v44.Box, {
-            children: (0, _v2.jsx)(_v164, {
-              icon: (0, _v2.jsx)(_v165.SyncRefresh, {}),
+            children: (0, _v2.jsx)(_v166, {
+              icon: (0, _v2.jsx)(_v167.SyncRefresh, {}),
               tooltipLabel: _v6.replaceImage,
               onChange: _v4,
               accept: _v27,
@@ -5463,7 +5476,7 @@
       })]
     }, _v0.id);
   }
-  let _v168 = ({
+  let _v170 = ({
       images: _v0 = [],
       value: _v1,
       loading: _v2,
@@ -5567,12 +5580,12 @@
           justify: "space-between",
           align: "center",
           w: "100%",
-          children: [(0, _v2.jsx)(_v116.Header, {
+          children: [(0, _v2.jsx)(_v118.Header, {
             as: "h6",
             size: "xs",
             children: _v7.image
-          }), !_v10 && (0, _v2.jsx)(_v164, {
-            icon: (0, _v2.jsx)(_v162.PlusSmall, {}),
+          }), !_v10 && (0, _v2.jsx)(_v166, {
+            icon: (0, _v2.jsx)(_v164.PlusSmall, {}),
             tooltipLabel: _v7.addImage,
             onChange: _v9,
             isUploading: _v2,
@@ -5584,7 +5597,7 @@
           w: "100%",
           gap: "sm",
           wrap: "wrap",
-          children: _v0.map(_v0 => (0, _v2.jsx)(_v167, {
+          children: _v0.map(_v0 => (0, _v2.jsx)(_v169, {
             item: _v0,
             value: _v1,
             isUploading: _v2,
@@ -5595,14 +5608,14 @@
         }) : null]
       });
     },
-    _v169 = ({
+    _v171 = ({
       uriName: _v0,
       urlName: _v1,
       disabled: _v2 = !1
     }) => {
       let {
           setValue: _v3
-        } = (0, _v104.useFormContext)(),
+        } = (0, _v106.useFormContext)(),
         {
           images: _v4,
           isLoading: _v5,
@@ -5611,11 +5624,11 @@
           upload: _v8,
           refetch: _v9
         } = (() => {
-          let _v0 = (0, _v73.useViewer)(),
+          let _v0 = (0, _v75.useViewer)(),
             _v1 = _v0?.teamUser?.ownerId ?? _v0?.user?.id,
             {
               presetId: _v2
-            } = _v98(({
+            } = _v100(({
               preset: _v0
             }) => _v0),
             {
@@ -5629,8 +5642,8 @@
                   jwt: _v4,
                   xVimeoPage: _v5,
                   locale: _v6
-                } = (0, _v82.useGctlConfig)();
-              return (0, _v80.default)(_v2 ? `/resources/${_v2.where.resourceType}/${_v2.where.resourceId}/outrobackgrounds${(0, _v75.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v158({
+                } = (0, _v84.useGctlConfig)();
+              return (0, _v82.default)(_v2 ? `/resources/${_v2.where.resourceType}/${_v2.where.resourceId}/outrobackgrounds${(0, _v77.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v160({
                 ..._v2,
                 headers: {
                   ..._v2.headers,
@@ -5643,7 +5656,7 @@
               }) : null, _v1);
             }(() => _v1 && _v2 ? {
               where: {
-                resourceType: _v159,
+                resourceType: _v161,
                 resourceId: _v2
               },
               select: ["uri", "baseLink", "sizes.link"]
@@ -5658,20 +5671,20 @@
             [_v7] = function () {
               let {
                   mutate: _v0
-                } = (0, _v81.useSWRConfig)(),
+                } = (0, _v83.useSWRConfig)(),
                 {
                   baseUrl: _v1,
                   jwt: _v2,
                   xVimeoPage: _v3,
                   locale: _v4
-                } = (0, _v82.useGctlConfig)(),
-                [_v5, _v6] = (0, _v75.useInternalState)();
+                } = (0, _v84.useGctlConfig)(),
+                [_v5, _v6] = (0, _v77.useInternalState)();
               return [(0, _v3.useCallback)(async _v0 => {
                 _v6({
                   type: "REQUEST"
                 });
                 try {
-                  let _v0 = await _v0(`/resources/${_v0.where.resourceType}/${_v0.where.resourceId}/outrobackgrounds/${_v0.where.imageId}${(0, _v75.serializeQuery)(_v0)}`, _v157({
+                  let _v0 = await _v0(`/resources/${_v0.where.resourceType}/${_v0.where.resourceId}/outrobackgrounds/${_v0.where.imageId}${(0, _v77.serializeQuery)(_v0)}`, _v159({
                     ..._v0,
                     baseUrl: _v1,
                     headers: {
@@ -5697,13 +5710,13 @@
             _v8 = (0, _v3.useCallback)(async _v0 => {
               await _v7({
                 where: {
-                  resourceType: _v159,
+                  resourceType: _v161,
                   resourceId: `${_v2 || 0}`,
                   imageId: _v0
                 }
               }), await _v5();
             }, [_v2, _v7, _v5]),
-            [_v9, _v10] = (0, _v3.useReducer)(_v161, _v160);
+            [_v9, _v10] = (0, _v3.useReducer)(_v163, _v162);
           return {
             images: _v6,
             isLoading: _v4,
@@ -5718,7 +5731,7 @@
                 let {
                     url: _v0,
                     response: _v1
-                  } = await (0, _v156.uploadImageViaWebController)({
+                  } = await (0, _v158.uploadImageViaWebController)({
                     file: _v0,
                     type: "clip_preset_outro_background",
                     id: _v2,
@@ -5746,7 +5759,7 @@
             }, [_v2])
           };
         })(),
-        _v10 = (0, _v104.useWatch)({
+        _v10 = (0, _v106.useWatch)({
           name: _v0
         }),
         _v11 = _v10 ? Number(_v10?.split("/")?.pop()) : void 0,
@@ -5762,7 +5775,7 @@
         _v15 = async _v0 => {
           await _v7(_v0), await _v9();
         };
-      return (0, _v2.jsx)(_v168, {
+      return (0, _v2.jsx)(_v170, {
         images: _v4,
         value: _v11,
         loading: _v6.loading || _v5,
@@ -5776,9 +5789,9 @@
         onDeleteFile: _v15
       });
     };
-  var _v170 = _v0.i(0);
-  let _v171 = (0, _v11.rem)(250),
-    _v172 = ({
+  var _v172 = _v0.i(0);
+  let _v173 = (0, _v11.rem)(250),
+    _v174 = ({
       name: _v0,
       label: _v1,
       tooltip: _v2,
@@ -5791,47 +5804,47 @@
       children: [(0, _v2.jsxs)(_v9.Flex, {
         alignItems: "center",
         gap: "xs",
-        children: [(0, _v2.jsx)(_v116.Header, {
+        children: [(0, _v2.jsx)(_v118.Header, {
           as: "h6",
           size: "xs",
           children: _v1
         }), _v2 && (0, _v2.jsx)(_v68.Tooltip, {
           label: _v2,
           placement: "top",
-          maxW: _v171,
+          maxW: _v173,
           children: (0, _v2.jsx)(_v9.Flex, {
-            children: (0, _v2.jsx)(_v170.InfoCircle, {
+            children: (0, _v2.jsx)(_v172.InfoCircle, {
               boxSize: "2xs"
             })
           })
         })]
-      }), (0, _v2.jsxs)(_v134.FormControl, {
+      }), (0, _v2.jsxs)(_v136.FormControl, {
         isInvalid: !!_v3,
         w: "100%",
-        children: [(0, _v2.jsx)(_v136.Input, {
+        children: [(0, _v2.jsx)(_v138.Input, {
           name: _v0,
           size: "md",
           error: _v3,
           ..._v4
-        }), (0, _v2.jsx)(_v135.FormErrorMessage, {
+        }), (0, _v2.jsx)(_v137.FormErrorMessage, {
           children: _v3
         })]
       })]
     }),
-    _v173 = ({
+    _v175 = ({
       disabled: _v0
     }) => {
       let {
           control: _v1
-        } = (0, _v104.useFormContext)(),
+        } = (0, _v106.useFormContext)(),
         _v2 = _v38();
       return (0, _v2.jsxs)(_v14.VStack, {
         gap: "md",
-        children: [(0, _v2.jsx)(_v169, {
+        children: [(0, _v2.jsx)(_v171, {
           uriName: "image.pictureUri",
           urlName: "image.picture.baseLink",
           disabled: _v0
-        }), (0, _v2.jsx)(_v104.Controller, {
+        }), (0, _v2.jsx)(_v106.Controller, {
           name: "image.link",
           control: _v1,
           rules: {
@@ -5845,7 +5858,7 @@
             fieldState: {
               error: _v1
             }
-          }) => (0, _v2.jsx)(_v172, {
+          }) => (0, _v2.jsx)(_v174, {
             ..._v0,
             label: _v2.link,
             tooltip: _v2.linkDescription,
@@ -5854,7 +5867,7 @@
             isInvalid: !!_v1,
             disabled: _v0
           })
-        }), (0, _v2.jsx)(_v104.Controller, {
+        }), (0, _v2.jsx)(_v106.Controller, {
           name: "image.description",
           control: _v1,
           render: ({
@@ -5862,7 +5875,7 @@
             fieldState: {
               error: _v1
             }
-          }) => (0, _v2.jsx)(_v172, {
+          }) => (0, _v2.jsx)(_v174, {
             ..._v0,
             label: _v2.altText,
             tooltip: _v2.altTextDescription,
@@ -5874,29 +5887,29 @@
         })]
       });
     };
-  var _v174 = _v0.i(0),
-    _v175 = _v0.i(0),
-    _v176 = _v0.i(0),
+  var _v176 = _v0.i(0),
     _v177 = _v0.i(0),
-    _v178 = _v0.i(0);
-  let _v179 = (0, _v11.rem)(56),
-    _v180 = {
+    _v178 = _v0.i(0),
+    _v179 = _v0.i(0),
+    _v180 = _v0.i(0);
+  let _v181 = (0, _v11.rem)(56),
+    _v182 = {
       opacity: .5
     },
-    _v181 = {
+    _v183 = {
       p: "xs",
       w: "lg",
       h: "lg",
       flexShrink: "0",
-      ..._v180
+      ..._v182
     },
-    _v182 = {
+    _v184 = {
       textOverflow: "ellipsis",
       overflow: "hidden",
       whiteSpace: "nowrap",
       mb: "0"
     },
-    _v183 = {
+    _v185 = {
       objectFit: "cover",
       w: "100%",
       h: "100%",
@@ -5905,7 +5918,7 @@
         boxShadow: "none"
       }
     },
-    _v184 = ({
+    _v186 = ({
       name: _v0,
       thumbnailUrl: _v1,
       uri: _v2,
@@ -5917,14 +5930,14 @@
       onRemove: _v8
     }) => {
       let [_v9, _v10] = (0, _v3.useState)(!1),
-        _v11 = _v178.DEFAULT_PRIVACY_OPTIONS.reduce((_v0, _v1) => (_v0[_v1.privacy] = {
+        _v11 = _v180.DEFAULT_PRIVACY_OPTIONS.reduce((_v0, _v1) => (_v0[_v1.privacy] = {
           label: _v1.title,
-          icon: _v178.VIDEO_PRIVACY_ICON_MAP[_v1.privacy]?.icon
+          icon: _v180.VIDEO_PRIVACY_ICON_MAP[_v1.privacy]?.icon
         }, _v0), {}),
         _v12 = _v4 && "anybody" !== _v4 || !_v6,
-        _v13 = _v5 ? (0, _v2.jsx)(_v176.StopBanRight, {
+        _v13 = _v5 ? (0, _v2.jsx)(_v178.StopBanRight, {
           boxSize: "lg"
-        }) : (0, _v2.jsx)(_v175.PlusCircle, {}),
+        }) : (0, _v2.jsx)(_v177.PlusCircle, {}),
         _v14 = _v5 ? (0, _v16.translate)({
           singular: "Remove from end screen",
           dictionary: {
@@ -5993,7 +6006,7 @@
             align: "center"
           }),
           gap: "sm",
-          h: _v179,
+          h: _v181,
           w: "100%",
           p: "sm",
           borderRadius: "sm",
@@ -6020,7 +6033,7 @@
             overflow: "hidden",
             border: "0",
             flexShrink: "0",
-            ...(_v12 && _v180)
+            ...(_v12 && _v182)
           },
           children: _v1 && (0, _v2.jsx)(_v44.Box, {
             as: "img",
@@ -6051,7 +6064,7 @@
                 }
               }
             }),
-            sx: _v183
+            sx: _v185
           })
         }), (0, _v2.jsxs)(_v9.Flex, {
           sx: {
@@ -6061,21 +6074,21 @@
             flexShrink: "1",
             overflow: "hidden",
             w: `calc(100% - ${_v28})`,
-            ...(_v12 && _v180)
+            ...(_v12 && _v182)
           },
-          children: [(0, _v2.jsx)(_v116.Header, {
+          children: [(0, _v2.jsx)(_v118.Header, {
             as: "p",
             size: "xs",
-            sx: _v182,
+            sx: _v184,
             children: _v0
-          }), _v3 && (0, _v2.jsx)(_v174.Paragraph, {
+          }), _v3 && (0, _v2.jsx)(_v176.Paragraph, {
             size: "xs",
             mb: "0",
-            children: (0, _v177.fromNow)(new Date(_v3))
+            children: (0, _v179.fromNow)(new Date(_v3))
           })]
         }), _v12 && _v4 && (0, _v2.jsx)(_v44.Box, {
           "aria-label": _v11[_v4]?.label,
-          sx: _v181,
+          sx: _v183,
           children: _v11[_v4]?.icon
         }), !_v12 && _v4 && (0, _v2.jsx)(_v68.Tooltip, {
           label: _v14,
@@ -6090,10 +6103,10 @@
         })]
       });
     };
-  var _v185 = _v0.i(0),
-    _v186 = _v0.i(0),
-    _v187 = _v0.i(0);
-  async function _v188({
+  var _v187 = _v0.i(0),
+    _v188 = _v0.i(0),
+    _v189 = _v0.i(0);
+  async function _v190({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -6102,24 +6115,24 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v76.measureLatency)("getUserLikes", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/likes?${(0, _v77.searchQueryString)(_v3)}&fields=${_v1.map(_v77.intoSnakeCase).join(",")}`, {
+    return (0, _v78.measureLatency)("getUserLikes", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/likes?${(0, _v79.searchQueryString)(_v3)}&fields=${_v1.map(_v79.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v77.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v79.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v77.deepCamelCase)(_v1);
+      return (0, _v79.deepCamelCase)(_v1);
     });
   }
   _v0.i(0);
-  var _v189 = _v0.i(0),
-    _v190 = _v0.i(0);
-  let _v191 = {},
-    _v192 = ["uri", "name", "privacy.view", "createdTime", "pictures.sizes"],
-    _v193 = () => ({
+  var _v191 = _v0.i(0),
+    _v192 = _v0.i(0);
+  let _v193 = {},
+    _v194 = ["uri", "name", "privacy.view", "createdTime", "pictures.sizes"],
+    _v195 = () => ({
       uploadOption: {
         label: (0, _v16.translate)({
           singular: "My videos",
@@ -6263,27 +6276,27 @@
         value: "likes"
       }
     }),
-    _v194 = ["unlisted", "password", "nobody", "anybody", "disable"],
-    _v195 = {
+    _v196 = ["unlisted", "password", "nobody", "anybody", "disable"],
+    _v197 = {
       size: "md",
       style: {
         width: "100%"
       }
     },
-    _v196 = ({
+    _v198 = ({
       disabled: _v0 = !1
     }) => {
       let _v1 = _v38(),
         {
           register: _v2,
           setValue: _v3
-        } = (0, _v104.useFormContext)(),
+        } = (0, _v106.useFormContext)(),
         {
           uploadOption: _v4,
           showcaseOption: _v5,
           likesOption: _v6
-        } = _v193(),
-        [_v7, _v8, _v9] = (0, _v104.useWatch)({
+        } = _v195(),
+        [_v7, _v8, _v9] = (0, _v106.useWatch)({
           name: ["videos.outroVideosCollectionType", "videos.outroVideosCollectionUri", "videos.videoUris"]
         }),
         {
@@ -6301,7 +6314,7 @@
         } = (({
           videoUris: _v0
         }) => {
-          let _v1 = (0, _v73.useViewer)(),
+          let _v1 = (0, _v75.useViewer)(),
             _v2 = _v1?.teamUser?.ownerId ?? _v1?.user?.id,
             {
               channelOption: _v3,
@@ -6309,29 +6322,29 @@
               likesOption: _v5,
               showcaseOption: _v6,
               uploadOption: _v7
-            } = _v193(),
+            } = _v195(),
             [_v8, _v9] = (0, _v3.useState)(1),
             {
               data: _v10,
               isLoading: _v11
-            } = (0, _v189.useGetUserVideos)({
+            } = (0, _v191.useGetUserVideos)({
               where: {
                 userId: _v2
               },
-              select: _v192,
+              select: _v194,
               query: {
                 perPage: 8,
                 page: _v8
               }
             }),
             _v12 = _v10?.paging?.next === null;
-          _v10 && (_v191[_v10.page] = _v10);
-          let _v13 = Object.values(_v191).flatMap(_v0 => _v0.data),
+          _v10 && (_v193[_v10.page] = _v10);
+          let _v13 = Object.values(_v193).flatMap(_v0 => _v0.data),
             {
               data: _v14,
               isLoading: _v15
-            } = (0, _v190.useGetVideos)(() => _v2 && _v0?.length ? {
-              select: _v192,
+            } = (0, _v192.useGetVideos)(() => _v2 && _v0?.length ? {
+              select: _v194,
               query: {
                 userId: _v2,
                 uris: _v0?.join(",")
@@ -6349,8 +6362,8 @@
                   jwt: _v3,
                   xVimeoPage: _v4,
                   locale: _v5
-                } = (0, _v82.useGctlConfig)();
-              return (0, _v80.default)(_v1 ? `/users/${_v1.where.userId}/likes${(0, _v75.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v188({
+                } = (0, _v84.useGctlConfig)();
+              return (0, _v82.default)(_v1 ? `/users/${_v1.where.userId}/likes${(0, _v77.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v190({
                 ..._v1,
                 headers: {
                   ..._v1.headers,
@@ -6365,7 +6378,7 @@
               where: {
                 userId: _v2
               },
-              select: _v192,
+              select: _v194,
               query: {
                 perPage: 8,
                 sort: "date"
@@ -6380,7 +6393,7 @@
               error: _v20,
               isValidating: _v21,
               setSize: _v22
-            } = (0, _v187.useGetUserAlbumsInfinite)({
+            } = (0, _v189.useGetUserAlbumsInfinite)({
               where: {
                 userId: _v2
               },
@@ -6402,7 +6415,7 @@
           let {
               data: _v27,
               isLoading: _v28
-            } = (0, _v185.useGetMeChannels)({
+            } = (0, _v187.useGetMeChannels)({
               select: ["uri", "name"],
               query: {
                 filter: "moderated"
@@ -6411,7 +6424,7 @@
             {
               data: _v29,
               isLoading: _v30
-            } = (0, _v186.useGetMeGroups)({
+            } = (0, _v188.useGetMeGroups)({
               select: ["uri", "name"]
             }),
             _v31 = [_v7, ...(_v18 && _v18.length > 0 ? [_v5] : []), ...(_v26 && _v26.length > 0 ? [_v6] : []), ...(_v27?.data && _v27.data.length > 0 ? [_v3] : []), ...(_v29?.data && _v29.data.length > 0 ? [_v4] : [])];
@@ -6472,11 +6485,11 @@
         children: [(0, _v2.jsxs)(_v14.VStack, {
           w: "100%",
           alignItems: "flex-start",
-          children: [(0, _v2.jsx)(_v116.Header, {
+          children: [(0, _v2.jsx)(_v118.Header, {
             size: "sm",
             children: _v1.from
-          }), (0, _v2.jsx)(_v155.Select, {
-            ..._v195,
+          }), (0, _v2.jsx)(_v157.Select, {
+            ..._v197,
             "data-testid": "videos-from-select",
             disabled: _v0,
             items: _v16,
@@ -6487,11 +6500,11 @@
         }), _v7 === _v5.value && _v10.length > 0 && (0, _v2.jsxs)(_v14.VStack, {
           w: "100%",
           alignItems: "flex-start",
-          children: [(0, _v2.jsx)(_v116.Header, {
+          children: [(0, _v2.jsx)(_v118.Header, {
             size: "sm",
             children: _v1.showcase
-          }), (0, _v2.jsx)(_v155.Select, {
-            ..._v195,
+          }), (0, _v2.jsx)(_v157.Select, {
+            ..._v197,
             "data-testid": "album-select",
             items: _v24,
             disabled: _v0,
@@ -6504,7 +6517,7 @@
           direction: "column",
           gap: "sm",
           "data-testid": "uploaded_videos_roll",
-          children: _v11?.map(_v0 => (0, _v2.jsx)(_v184, {
+          children: _v11?.map(_v0 => (0, _v2.jsx)(_v186, {
             name: _v0.name,
             thumbnailUrl: _v0.pictures?.sizes[0].link,
             selected: !0,
@@ -6517,7 +6530,7 @@
           children: [(0, _v2.jsxs)(_v9.Flex, {
             direction: "column",
             gap: "sm",
-            children: [(0, _v2.jsx)(_v116.Header, {
+            children: [(0, _v2.jsx)(_v118.Header, {
               as: "h6",
               size: "xs",
               color: "text-primary",
@@ -6578,7 +6591,7 @@
               })
             }), _v13 && (0, _v2.jsx)(_v8.Center, {
               children: (0, _v2.jsx)(_v12.Spinner, {})
-            }), _v21 && Array.isArray(_v17) && _v17.map(_v0 => (0, _v2.jsx)(_v184, {
+            }), _v21 && Array.isArray(_v17) && _v17.map(_v0 => (0, _v2.jsx)(_v186, {
               uri: _v0.uri,
               name: _v0.name,
               privacy: "anybody",
@@ -6587,7 +6600,7 @@
               onSelect: _v25,
               onRemove: _v26,
               editable: !_v0
-            }, _v0.uri)), _v18.filter(_v0 => !_v9.includes(_v0.uri) && _v194.includes(_v0.privacy?.view)).map(_v0 => (0, _v2.jsx)(_v184, {
+            }, _v0.uri)), _v18.filter(_v0 => !_v9.includes(_v0.uri) && _v196.includes(_v0.privacy?.view)).map(_v0 => (0, _v2.jsx)(_v186, {
               uri: _v0.uri,
               name: _v0.name,
               privacy: _v0.privacy?.view,
@@ -6630,14 +6643,14 @@
               }
             })
           })]
-        }), (0, _v2.jsx)(_v169, {
+        }), (0, _v2.jsx)(_v171, {
           uriName: "videos.pictureUri",
           urlName: "videos.picture.baseLink",
           disabled: _v0
         })]
       });
     },
-    _v197 = ({
+    _v199 = ({
       disabled: _v0 = !1
     }) => {
       let _v1 = _v38();
@@ -6648,14 +6661,14 @@
           variant: "body-md",
           color: "text-secondary",
           children: _v1.shareButtonDescription
-        }), (0, _v2.jsx)(_v169, {
+        }), (0, _v2.jsx)(_v171, {
           uriName: "share.pictureUri",
           urlName: "share.picture.baseLink",
           disabled: _v0
         })]
       });
     },
-    _v198 = ({
+    _v200 = ({
       message: _v0
     }) => (0, _v2.jsx)(_v13.Text, {
       as: "span",
@@ -6663,8 +6676,8 @@
       color: "text-secondary",
       children: _v0
     });
-  var _v199 = _v0.i(0);
-  function _v200({
+  var _v201 = _v0.i(0);
+  function _v202({
     name: _v0,
     value: _v1,
     focusedInput: _v2,
@@ -6676,14 +6689,14 @@
     handleBlur: _v8,
     ..._v9
   }) {
-    return (0, _v2.jsx)(_v151, {
+    return (0, _v2.jsx)(_v153, {
       name: _v0,
       maxLength: _v5,
       value: _v1,
       focusedInput: _v2,
       label: _v3,
       warningThreshold: _v4,
-      children: (0, _v2.jsx)(_v199.Textarea, {
+      children: (0, _v2.jsx)(_v201.Textarea, {
         name: _v0,
         value: _v1,
         disabled: _v6,
@@ -6693,13 +6706,13 @@
       })
     });
   }
-  let _v201 = ({
+  let _v203 = ({
       disabled: _v0 = !1
     }) => {
       let _v1 = _v38(),
         {
           control: _v2
-        } = (0, _v104.useFormContext)(),
+        } = (0, _v106.useFormContext)(),
         [_v3, _v4] = (0, _v3.useState)(""),
         _v5 = {
           value: _v37,
@@ -6711,12 +6724,12 @@
         };
       return (0, _v2.jsxs)(_v14.VStack, {
         gap: "md",
-        children: [(0, _v2.jsx)(_v104.Controller, {
+        children: [(0, _v2.jsx)(_v106.Controller, {
           control: _v2,
           name: "link.name",
           render: ({
             field: _v0
-          }) => (0, _v2.jsx)(_v152, {
+          }) => (0, _v2.jsx)(_v154, {
             ..._v0,
             label: _v1.title,
             maxLength: 40,
@@ -6725,12 +6738,12 @@
             handleBlur: _v6,
             disabled: _v0
           })
-        }), (0, _v2.jsx)(_v104.Controller, {
+        }), (0, _v2.jsx)(_v106.Controller, {
           control: _v2,
           name: "link.description",
           render: ({
             field: _v0
-          }) => (0, _v2.jsx)(_v200, {
+          }) => (0, _v2.jsx)(_v202, {
             ..._v0,
             label: _v1.message,
             placeholder: _v1.enterMessage,
@@ -6741,12 +6754,12 @@
             rows: 4,
             disabled: _v0
           })
-        }), (0, _v2.jsx)(_v104.Controller, {
+        }), (0, _v2.jsx)(_v106.Controller, {
           control: _v2,
           name: "link.button.label",
           render: ({
             field: _v0
-          }) => (0, _v2.jsx)(_v152, {
+          }) => (0, _v2.jsx)(_v154, {
             ..._v0,
             label: _v1.buttonText,
             maxLength: 20,
@@ -6755,7 +6768,7 @@
             handleBlur: _v6,
             disabled: _v0
           })
-        }), (0, _v2.jsx)(_v104.Controller, {
+        }), (0, _v2.jsx)(_v106.Controller, {
           control: _v2,
           name: "link.button.link",
           rules: {
@@ -6766,19 +6779,19 @@
             fieldState: {
               error: _v1
             }
-          }) => (0, _v2.jsx)(_v172, {
+          }) => (0, _v2.jsx)(_v174, {
             ..._v0,
             error: _v1?.message,
             label: _v1.url,
             placeholder: "https://www.vimeo.com",
             disabled: _v0
           })
-        }), (0, _v2.jsx)(_v104.Controller, {
+        }), (0, _v2.jsx)(_v106.Controller, {
           control: _v2,
           name: "link.secondaryLink.label",
           render: ({
             field: _v0
-          }) => (0, _v2.jsx)(_v152, {
+          }) => (0, _v2.jsx)(_v154, {
             ..._v0,
             label: _v1.link,
             focusedInput: _v3,
@@ -6787,7 +6800,7 @@
             maxLength: 20,
             disabled: _v0
           })
-        }), (0, _v2.jsx)(_v104.Controller, {
+        }), (0, _v2.jsx)(_v106.Controller, {
           control: _v2,
           name: "link.secondaryLink.link",
           rules: {
@@ -6798,34 +6811,34 @@
             fieldState: {
               error: _v1
             }
-          }) => (0, _v2.jsx)(_v172, {
+          }) => (0, _v2.jsx)(_v174, {
             ..._v0,
             error: _v1?.message,
             label: _v1.url,
             placeholder: "https://www.vimeo.com",
             disabled: _v0
           })
-        }), (0, _v2.jsx)(_v169, {
+        }), (0, _v2.jsx)(_v171, {
           urlName: "link.picture.baseLink",
           uriName: "link.pictureUri",
           disabled: _v0
         })]
       });
     },
-    _v202 = ({
+    _v204 = ({
       disabled: _v0
     }) => {
       let _v1 = _v38(),
         {
           control: _v2
-        } = (0, _v104.useFormContext)(),
+        } = (0, _v106.useFormContext)(),
         [_v3, _v4] = (0, _v3.useState)("");
-      return (0, _v2.jsx)(_v104.Controller, {
+      return (0, _v2.jsx)(_v106.Controller, {
         name: "text.description",
         control: _v2,
         render: ({
           field: _v0
-        }) => (0, _v2.jsx)(_v200, {
+        }) => (0, _v2.jsx)(_v202, {
           focusedInput: _v3,
           ..._v0,
           label: _v1.message,
@@ -6838,7 +6851,7 @@
         })
       });
     };
-  function _v203({
+  function _v205({
     disabled: _v0 = !1
   }) {
     let _v1,
@@ -6872,7 +6885,7 @@
         watch: _v4,
         register: _v5,
         setValue: _v6
-      } = (0, _v104.useFormContext)(),
+      } = (0, _v106.useFormContext)(),
       {
         type: _v7
       } = _v4();
@@ -6881,7 +6894,7 @@
       gap: "md",
       my: "sm",
       w: "100%",
-      children: [(0, _v2.jsx)(_v155.Select, {
+      children: [(0, _v2.jsx)(_v157.Select, {
         disabled: _v0,
         size: "md",
         items: _v3,
@@ -6891,35 +6904,35 @@
       }), (() => {
         switch (_v7) {
           case _v32.moreVideos:
-            return (0, _v2.jsx)(_v196, {
+            return (0, _v2.jsx)(_v198, {
               disabled: _v0
             });
           case _v32.callToAction:
-            return (0, _v2.jsx)(_v201, {
+            return (0, _v2.jsx)(_v203, {
               disabled: _v0
             });
           case _v32.shareButton:
-            return (0, _v2.jsx)(_v197, {
+            return (0, _v2.jsx)(_v199, {
               disabled: _v0
             });
           case _v32.customImage:
-            return (0, _v2.jsx)(_v173, {
+            return (0, _v2.jsx)(_v175, {
               disabled: _v0
             });
           case _v32.customMessage:
-            return (0, _v2.jsx)(_v202, {
+            return (0, _v2.jsx)(_v204, {
               disabled: _v0
             });
           case _v32.loop:
-            return (0, _v2.jsx)(_v198, {
+            return (0, _v2.jsx)(_v200, {
               message: _v2.loopDescription
             });
           case _v32.thumbnail:
-            return (0, _v2.jsx)(_v198, {
+            return (0, _v2.jsx)(_v200, {
               message: _v2.backToBeginningDescription
             });
           case _v32.empty:
-            return (0, _v2.jsx)(_v198, {
+            return (0, _v2.jsx)(_v200, {
               message: _v2.emptyDescription
             });
           default:
@@ -6928,7 +6941,7 @@
       })()]
     });
   }
-  let _v204 = ({
+  let _v206 = ({
     configUrl: _v0,
     defaultPresetId: _v1,
     isSubmitting: _v2,
@@ -6943,10 +6956,10 @@
         committed: _v9,
         applyToAll: _v10,
         actions: _v11
-      } = _v98(({
+      } = _v100(({
         preset: _v0
       }) => _v0),
-      _v12 = (0, _v104.useForm)({
+      _v12 = (0, _v106.useForm)({
         defaultValues: _v8.endScreen,
         mode: "onChange"
       }),
@@ -7085,14 +7098,14 @@
         }
       }), [_v3]);
     (0, _v3.useEffect)(() => {
-      let _v0 = _v13(_v0 => _v11.setEndScreen((0, _v103.default)(_v0)));
+      let _v0 = _v13(_v0 => _v11.setEndScreen((0, _v105.default)(_v0)));
       return () => _v0.unsubscribe();
     }, [_v13, _v11]);
     let _v26 = _v12.handleSubmit(() => {
         _v8.presetName?.trim() ? _v10 ? _v21() : _v5() : _v17(_v7.emptyName);
       }),
       _v27 = (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsx)(_v152, {
+        children: [(0, _v2.jsx)(_v154, {
           name: "presetName",
           value: _v8.presetName || "",
           focusedInput: _v14,
@@ -7103,13 +7116,13 @@
           onChange: _v0 => _v11.setName(_v0.target.value),
           onFocus: () => _v15("presetName"),
           onBlur: () => _v15("")
-        }), (0, _v2.jsx)(_v105.Divider, {
+        }), (0, _v2.jsx)(_v107.Divider, {
           borderColor: "stroke"
-        }), (0, _v2.jsxs)(_v108.Tabs, {
+        }), (0, _v2.jsxs)(_v110.Tabs, {
           variant: "soft",
           onChange: () => _v19("embed" === _v18 ? "endscreen" : "embed"),
-          children: [(0, _v2.jsxs)(_v107.TabList, {
-            children: [(0, _v2.jsx)(_v106.Tab, {
+          children: [(0, _v2.jsxs)(_v109.TabList, {
+            children: [(0, _v2.jsx)(_v108.Tab, {
               children: (0, _v16.translate)({
                 singular: "Player",
                 dictionary: {
@@ -7127,7 +7140,7 @@
                   }
                 }
               })
-            }), (0, _v2.jsx)(_v106.Tab, {
+            }), (0, _v2.jsx)(_v108.Tab, {
               children: (0, _v16.translate)({
                 singular: "End screen",
                 dictionary: {
@@ -7154,13 +7167,13 @@
                   }
                 }
               })
-            }), (0, _v2.jsx)(_v108.TabIndicator, {})]
-          }), (0, _v2.jsxs)(_v110.TabPanels, {
-            children: [(0, _v2.jsx)(_v109.TabPanel, {
+            }), (0, _v2.jsx)(_v110.TabIndicator, {})]
+          }), (0, _v2.jsxs)(_v112.TabPanels, {
+            children: [(0, _v2.jsx)(_v111.TabPanel, {
               children: (0, _v2.jsx)(_v14.VStack, {
                 gap: "md",
-                children: (0, _v2.jsxs)(_v117, {
-                  children: [_v23.map(_v0 => (0, _v2.jsx)(_v144, {
+                children: (0, _v2.jsxs)(_v119, {
+                  children: [_v23.map(_v0 => (0, _v2.jsx)(_v146, {
                     title: _v0.title,
                     hasHideAll: _v0?.hasHideAll,
                     options: _v0.options,
@@ -7170,7 +7183,7 @@
                     onToggle: _v11.toggleSetting,
                     onColorChange: _v11.setColor,
                     onLogoChange: _v11.setCustomLogo
-                  }, _v0.id)), (0, _v2.jsx)(_v146, {
+                  }, _v0.id)), (0, _v2.jsx)(_v148, {
                     disabled: _v3,
                     title: _v7.controls,
                     state: _v8,
@@ -7179,10 +7192,10 @@
                   })]
                 })
               })
-            }), (0, _v2.jsx)(_v109.TabPanel, {
-              children: (0, _v2.jsx)(_v104.FormProvider, {
+            }), (0, _v2.jsx)(_v111.TabPanel, {
+              children: (0, _v2.jsx)(_v106.FormProvider, {
                 ..._v12,
-                children: (0, _v2.jsx)(_v203, {
+                children: (0, _v2.jsx)(_v205, {
                   disabled: _v3
                 })
               })
@@ -7190,11 +7203,11 @@
           })]
         })]
       }),
-      _v28 = (0, _v2.jsx)(_v154, {
+      _v28 = (0, _v2.jsx)(_v156, {
         configUrl: _v0,
         mode: _v18
       }),
-      _v29 = (0, _v2.jsx)(_v148.DefaultFooterContent, {
+      _v29 = (0, _v2.jsx)(_v150.DefaultFooterContent, {
         disableApplyToAll: _v3 && -1 === _v1,
         isLoading: _v2,
         isSaveDisabled: !_v24,
@@ -7202,13 +7215,13 @@
         onApplyToAll: _v11.setApplyToAll
       });
     return (0, _v2.jsxs)(_v2.Fragment, {
-      children: [(0, _v2.jsx)(_v149, {
+      children: [(0, _v2.jsx)(_v151, {
         title: _v25,
         mainContent: _v27,
         sideContent: _v28,
         footer: _v29,
         onClose: _v4
-      }), (0, _v2.jsx)(_v147, {
+      }), (0, _v2.jsx)(_v149, {
         isOpen: _v20,
         onClose: _v22,
         onConfirm: _v5,
@@ -7216,7 +7229,7 @@
       })]
     });
   };
-  async function _v205({
+  async function _v207({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -7225,19 +7238,19 @@
     },
     ..._v4
   }) {
-    return (0, _v76.measureLatency)("deleteUserPagePreset", "DELETE", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/page_presets/${_v3}?fields=${_v1.map(_v77.intoSnakeCase).join(",")}`, {
+    return (0, _v78.measureLatency)("deleteUserPagePreset", "DELETE", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/page_presets/${_v3}?fields=${_v1.map(_v79.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v77.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v79.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v77.deepCamelCase)(_v1);
+      return (0, _v79.deepCamelCase)(_v1);
     });
   }
-  async function _v206({
+  async function _v208({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -7247,17 +7260,17 @@
     },
     ..._v5
   }) {
-    return (0, _v76.measureLatency)("patchUserPagePreset", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/page_presets/${_v4}?fields=${_v1.map(_v77.intoSnakeCase).join(",")}`, {
+    return (0, _v78.measureLatency)("patchUserPagePreset", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/page_presets/${_v4}?fields=${_v1.map(_v79.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PATCH",
-        body: JSON.stringify((0, _v77.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v79.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v77.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v79.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v77.deepCamelCase)(_v1);
+      return (0, _v79.deepCamelCase)(_v1);
     });
   }
   _v0.s(["EmbedPresetListModule", 0, () => {
@@ -7270,7 +7283,7 @@
           setName: _v4
         },
         ..._v5
-      } = _v98(({
+      } = _v100(({
         preset: _v0
       }) => _v0),
       {
@@ -7278,7 +7291,7 @@
           reset: _v6,
           setError: _v7
         }
-      } = _v98(({
+      } = _v100(({
         form: _v0
       }) => _v0),
       {
@@ -7296,7 +7309,7 @@
         update: _v19,
         loadMorePresets: _v20
       } = function () {
-        let _v0 = (0, _v73.useViewer)(),
+        let _v0 = (0, _v75.useViewer)(),
           _v1 = _v0?.teamUser?.ownerId || _v0?.user?.id,
           {
             data: _v2,
@@ -7304,11 +7317,11 @@
             isLoading: _v4,
             size: _v5,
             setSize: _v6
-          } = (0, _v83.useGetUserPresetsInfinite)(() => _v1 ? {
+          } = (0, _v85.useGetUserPresetsInfinite)(() => _v1 ? {
             where: {
               userId: _v1
             },
-            select: _v89,
+            select: _v91,
             query: {
               perPage: 10
             },
@@ -7318,34 +7331,34 @@
           } : null, {
             revalidateOnFocus: !1
           }),
-          _v7 = (0, _v3.useMemo)(() => _v2?.filter(Boolean)?.flatMap(_v0 => _v0.data).map(_v90), [_v2]),
+          _v7 = (0, _v3.useMemo)(() => _v2?.filter(Boolean)?.flatMap(_v0 => _v0.data).map(_v92), [_v2]),
           {
             isLoadingInitialData: _v8,
             isLoadingMore: _v9,
             isDone: _v10
-          } = (0, _v84.getInfiniteRequestLoadingState)({
+          } = (0, _v86.getInfiniteRequestLoadingState)({
             data: _v2,
             size: _v5,
             itemsPerPage: 10
           }),
-          [_v11, _v12] = (0, _v83.usePostUserPresets)(),
+          [_v11, _v12] = (0, _v85.usePostUserPresets)(),
           [_v13, _v14] = function () {
             let {
                 mutate: _v0
-              } = (0, _v81.useSWRConfig)(),
+              } = (0, _v83.useSWRConfig)(),
               {
                 baseUrl: _v1,
                 jwt: _v2,
                 xVimeoPage: _v3,
                 locale: _v4
-              } = (0, _v82.useGctlConfig)(),
-              [_v5, _v6] = (0, _v75.useInternalState)();
+              } = (0, _v84.useGctlConfig)(),
+              [_v5, _v6] = (0, _v77.useInternalState)();
             return [(0, _v3.useCallback)(async _v0 => {
               _v6({
                 type: "REQUEST"
               });
               try {
-                let _v0 = await _v0(`/users/${_v0.where.userId}/presets/${_v0.where.presetId}${(0, _v75.serializeQuery)(_v0)}`, _v79({
+                let _v0 = await _v0(`/users/${_v0.where.userId}/presets/${_v0.where.presetId}${(0, _v77.serializeQuery)(_v0)}`, _v81({
                   ..._v0,
                   baseUrl: _v1,
                   headers: {
@@ -7371,20 +7384,20 @@
           [_v15, _v16] = function () {
             let {
                 mutate: _v0
-              } = (0, _v81.useSWRConfig)(),
+              } = (0, _v83.useSWRConfig)(),
               {
                 baseUrl: _v1,
                 jwt: _v2,
                 xVimeoPage: _v3,
                 locale: _v4
-              } = (0, _v82.useGctlConfig)(),
-              [_v5, _v6] = (0, _v75.useInternalState)();
+              } = (0, _v84.useGctlConfig)(),
+              [_v5, _v6] = (0, _v77.useInternalState)();
             return [(0, _v3.useCallback)(async _v0 => {
               _v6({
                 type: "REQUEST"
               });
               try {
-                let _v0 = await _v0(`/users/${_v0.where.userId}/presets/${_v0.where.presetId}${(0, _v75.serializeQuery)(_v0)}`, _v78({
+                let _v0 = await _v0(`/users/${_v0.where.userId}/presets/${_v0.where.presetId}${(0, _v77.serializeQuery)(_v0)}`, _v80({
                   ..._v0,
                   baseUrl: _v1,
                   headers: {
@@ -7407,7 +7420,7 @@
               }
             }, [_v1, _v3, _v2, _v4, _v6]), _v5];
           }(),
-          _v17 = (0, _v3.useMemo)(() => _v12.called && !_v12.loading && !_v12.error && _v12.data ? _v90(_v12.data) : null, [_v12.called, _v12.loading, _v12.error, _v12.data]);
+          _v17 = (0, _v3.useMemo)(() => _v12.called && !_v12.loading && !_v12.error && _v12.data ? _v92(_v12.data) : null, [_v12.called, _v12.loading, _v12.error, _v12.data]);
         (0, _v3.useEffect)(() => {
           _v17 && _v3();
         }, [_v17, _v3]);
@@ -7420,7 +7433,7 @@
               },
               variables: {
                 name: _v0.draft.presetName,
-                embed: _v86(_v0.draft, _v0.presetId),
+                embed: _v88(_v0.draft, _v0.presetId),
                 applyToAll: _v0.applyToAll
               },
               select: ["uri"]
@@ -7452,10 +7465,10 @@
               },
               variables: {
                 name: _v0.draft.presetName,
-                embed: _v86(_v0.draft, 0),
+                embed: _v88(_v0.draft, 0),
                 applyToAll: _v0.applyToAll
               },
-              select: _v89,
+              select: _v91,
               headers: {
                 Accept: `application/vnd.vimeo.*+json;version=${_v30}`
               }
@@ -7470,14 +7483,16 @@
       }(),
       {
         defaultEmbedPresetId: _v21,
-        update: _v22
-      } = _v74(),
+        error: _v22,
+        isSaving: _v23,
+        update: _v24
+      } = _v76(),
       {
-        configUrl: _v23
+        configUrl: _v25
       } = (() => {
         let {
           data: _v0
-        } = (0, _v91.useGetVideo)({
+        } = (0, _v93.useGetVideo)({
           where: {
             videoId: 0
           },
@@ -7491,15 +7506,15 @@
         };
       })(),
       {
-        isOpen: _v24,
-        onOpen: _v25,
-        onClose: _v26
+        isOpen: _v26,
+        onOpen: _v27,
+        onClose: _v28
       } = (0, _v4.useDisclosure)(),
-      _v27 = [_v101, ...(_v8 || [])],
-      _v28 = _v21 ?? -1,
-      _v29 = async () => {
+      _v29 = [_v103, ...(_v8 || [])],
+      _v30 = _v21 ?? -1,
+      _v31 = async () => {
         try {
-          await _v22("embed", null), _v1({
+          await _v24("embed", null), _v1({
             title: _v0.changesSaved
           });
         } catch (_v0) {
@@ -7509,46 +7524,50 @@
           });
         }
       },
-      _v30 = () => {
-        _v6(), _v3(), _v26();
+      _v32 = () => {
+        _v6(), _v3(), _v28();
       },
-      _v31 = async _v0 => {
-        let {
-          name: _v1,
-          id: _v2
-        } = _v0;
-        try {
-          await _v22("embed", _v2);
-          let _v0 = (_v2 === _v21 ? _v0.presetUnsetAsDefault : _v0.presetSetAsDefault)(_v1);
-          _v1({
-            title: _v0
-          });
-        } catch (_v0) {
-          _v1({
-            title: _v0.changesWerentSaved,
-            status: "error"
-          });
-        }
-      },
-      _v32 = async _v0 => {
-        await _v17(_v0.id), _v1({
-          title: _v0.presetDeleted(_v0.name)
-        });
-      };
+      {
+        isOpen: _v33,
+        onOpen: _v34,
+        onClose: _v35
+      } = (0, _v4.useDisclosure)(),
+      [_v36, _v37] = (0, _v3.useState)(null),
+      [_v38, _v39] = (0, _v3.useState)(!1),
+      _v40 = (0, _v3.useRef)(!1),
+      _v41 = (0, _v3.useCallback)(() => {
+        _v35(), _v37(null), _v39(!1), _v40.current = !1;
+      }, [_v35]),
+      _v42 = (0, _v3.useEffectEvent)(() => {
+        null !== _v22 ? _v1({
+          title: _v0.changesWerentSaved,
+          status: "error"
+        }) : (_v1({
+          title: _v0.presetSetAsDefault(_v36?.name ?? "")
+        }), _v41());
+      });
+    (0, _v3.useEffect)(() => {
+      _v40.current && !_v23 && (_v40.current = !1, _v42());
+    }, [_v22, _v23]);
+    let _v43 = async _v0 => {
+      await _v17(_v0.id), _v1({
+        title: _v0.presetDeleted(_v0.name)
+      });
+    };
     (0, _v3.useEffect)(() => {
       _v9 && (_v2(_v9), _v1({
         title: _v0.presetCreated
-      }), _v25());
-    }, [_v9, _v2, _v1, _v25, _v0]), (0, _v3.useEffect)(() => {
+      }), _v27());
+    }, [_v9, _v2, _v1, _v27, _v0]), (0, _v3.useEffect)(() => {
       _v10 && _v1({
         title: _v0.changesWerentSaved,
         status: "error"
       });
     }, [_v10, _v1, _v0]);
-    let _v33 = async () => {
+    let _v44 = async () => {
       let _v0;
       if ((_v0 = _v41(_v8 || [], _v5)) && _v7("embed.name", _v0.duplicateName), !_v0) {
-        if (-1 === _v5.presetId && !0 === _v5.applyToAll) await _v29();else try {
+        if (-1 === _v5.presetId && !0 === _v5.applyToAll) await _v31();else try {
           await _v19(_v5), _v1({
             title: _v0.changesSaved
           });
@@ -7558,20 +7577,20 @@
             status: "error"
           });
         }
-        _v30();
+        _v32();
       }
     };
     return (0, _v2.jsxs)(_v2.Fragment, {
       children: [(0, _v2.jsx)(_v71, {
         title: _v0.embeds,
         description: _v0.embedDescription,
-        defaultPresetId: _v28,
+        defaultPresetId: _v30,
         canLoadMore: _v11,
         isLoadingMore: _v14,
         isLoadingPresets: _v15,
         isCreating: _v13,
         isDeleting: _v12,
-        presets: _v27,
+        presets: _v29,
         onCreate: () => {
           let _v0 = _v43(_v8?.map(_v0 => _v0.name) || []);
           _v4(_v0), _v18({
@@ -7582,24 +7601,36 @@
             }
           });
         },
-        onDelete: _v32,
+        onDelete: _v43,
         onLoadMore: _v20,
         onPresetClick: _v0 => {
-          _v2(_v0), _v25();
+          _v2(_v0), _v27();
         },
-        onSetAsDefault: _v31
-      }), _v24 && (0, _v2.jsx)(_v204, {
-        configUrl: _v23,
-        defaultPresetId: _v28,
-        onClose: _v30,
-        onSave: _v33,
+        onSetAsDefault: _v0 => {
+          _v37(_v0), _v34();
+        }
+      }), _v26 && (0, _v2.jsx)(_v206, {
+        configUrl: _v25,
+        defaultPresetId: _v30,
+        onClose: _v32,
+        onSave: _v44,
         isVimeoDefault: -1 === _v5.presetId,
         isSubmitting: _v16
+      }), (0, _v2.jsx)(_v73, {
+        applyToAll: _v38,
+        description: _v0.setAsDefaultPresetDescription(_v36?.name ?? ""),
+        isLoading: _v23,
+        isOpen: _v33,
+        onApplyToAllChange: _v39,
+        onClose: _v41,
+        onConfirm: () => {
+          null !== _v36 && (_v40.current = !0, _v24("embed", _v36.id, _v38));
+        }
       })]
     });
   }], 0);
-  var _v207 = _v0.i(0);
-  let _v208 = _v0 => ({
+  var _v209 = _v0.i(0);
+  let _v210 = _v0 => ({
       askAi: _v0.askAi,
       categories: _v0.categories,
       chapters: _v0.chapters,
@@ -7649,8 +7680,8 @@
         volume: _v0.volume
       }
     }),
-    _v209 = ["name", "uri", "settings", "createdOn", "modifiedOn"],
-    _v210 = _v0 => ({
+    _v211 = ["name", "uri", "settings", "createdOn", "modifiedOn"],
+    _v212 = _v0 => ({
       id: _v39(_v0.uri),
       name: _v0.name,
       settings: (_v0 => {
@@ -7665,10 +7696,10 @@
           ..._v1,
           ..._v2,
           colors: {
-            colorOne: _v2?.colors?.colorOne ? (0, _v85.withHashPrefix)(_v2.colors.colorOne) : _v26.colorOne,
-            colorTwo: _v2?.colors?.colorTwo ? (0, _v85.withHashPrefix)(_v2.colors.colorTwo) : _v26.colorTwo,
-            colorThree: _v2?.colors?.colorThree ? (0, _v85.withHashPrefix)(_v2.colors.colorThree) : _v26.colorThree,
-            colorFour: _v2?.colors?.colorFour ? (0, _v85.withHashPrefix)(_v2.colors.colorFour) : _v26.colorFour
+            colorOne: _v2?.colors?.colorOne ? (0, _v87.withHashPrefix)(_v2.colors.colorOne) : _v26.colorOne,
+            colorTwo: _v2?.colors?.colorTwo ? (0, _v87.withHashPrefix)(_v2.colors.colorTwo) : _v26.colorTwo,
+            colorThree: _v2?.colors?.colorThree ? (0, _v87.withHashPrefix)(_v2.colors.colorThree) : _v26.colorThree,
+            colorFour: _v2?.colors?.colorFour ? (0, _v87.withHashPrefix)(_v2.colors.colorFour) : _v26.colorFour
           },
           customLogo: {
             active: _v2?.logos?.custom?.active || !1,
@@ -7686,7 +7717,7 @@
       createdDate: _v0.createdOn,
       modifiedDate: _v0.modifiedOn
     }),
-    _v211 = ({
+    _v213 = ({
       defaultPresetId: _v0,
       isVimeoDefault: _v1,
       isSubmitting: _v2,
@@ -7700,7 +7731,7 @@
           committed: _v8,
           applyToAll: _v9,
           actions: _v10
-        } = _v98(({
+        } = _v100(({
           preset: _v0
         }) => _v0),
         {
@@ -7866,7 +7897,7 @@
           }
         }), [_v1]),
         _v21 = (0, _v2.jsxs)(_v2.Fragment, {
-          children: [(0, _v2.jsx)(_v152, {
+          children: [(0, _v2.jsx)(_v154, {
             name: "presetName",
             focusedInput: _v15,
             label: _v6.presetName,
@@ -7879,8 +7910,8 @@
             onChange: _v0 => _v10.setName(_v0.target.value)
           }), (0, _v2.jsx)(_v14.VStack, {
             gap: "sm",
-            children: (0, _v2.jsxs)(_v117, {
-              children: [_v14.map(_v0 => (0, _v2.jsx)(_v144, {
+            children: (0, _v2.jsxs)(_v119, {
+              children: [_v14.map(_v0 => (0, _v2.jsx)(_v146, {
                 title: _v0.title,
                 hasHideAll: _v0?.hasHideAll,
                 options: _v0.options,
@@ -7890,7 +7921,7 @@
                 onToggle: _v10.toggleSetting,
                 onColorChange: _v10.setColor,
                 onLogoChange: _v10.setCustomLogo
-              }, _v0.id)), (0, _v2.jsx)(_v146, {
+              }, _v0.id)), (0, _v2.jsx)(_v148, {
                 disabled: _v1,
                 title: _v6.controls,
                 state: _v7,
@@ -7900,7 +7931,7 @@
             })
           })]
         }),
-        _v22 = (0, _v2.jsx)(_v148.DefaultFooterContent, {
+        _v22 = (0, _v2.jsx)(_v150.DefaultFooterContent, {
           disableApplyToAll: _v1 && -1 === _v0,
           isLoading: _v2,
           isSaveDisabled: !_v19,
@@ -7910,13 +7941,13 @@
           onApplyToAll: _v10.setApplyToAll
         });
       return (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsx)(_v149, {
+        children: [(0, _v2.jsx)(_v151, {
           title: _v20,
           description: _v6.pagePresetModalDescription,
           mainContent: _v21,
           footer: _v22,
           onClose: _v3
-        }), (0, _v2.jsx)(_v147, {
+        }), (0, _v2.jsx)(_v149, {
           isOpen: _v11,
           onClose: _v13,
           onConfirm: _v4,
@@ -7934,7 +7965,7 @@
           setName: _v4
         },
         ..._v5
-      } = _v98(({
+      } = _v100(({
         preset: _v0
       }) => _v0),
       {
@@ -7942,7 +7973,7 @@
           reset: _v6,
           setError: _v7
         }
-      } = _v98(({
+      } = _v100(({
         form: _v0
       }) => _v0),
       {
@@ -7960,7 +7991,7 @@
         update: _v19,
         loadMorePresets: _v20
       } = function () {
-        let _v0 = (0, _v73.useViewer)(),
+        let _v0 = (0, _v75.useViewer)(),
           _v1 = _v0?.teamUser?.ownerId || _v0?.user?.id,
           {
             data: _v2,
@@ -7968,11 +7999,11 @@
             size: _v4,
             mutate: _v5,
             setSize: _v6
-          } = (0, _v207.useGetUserPagePresetsInfinite)(() => _v1 ? {
+          } = (0, _v209.useGetUserPagePresetsInfinite)(() => _v1 ? {
             where: {
               userId: _v1
             },
-            select: _v209,
+            select: _v211,
             query: {
               perPage: 10
             },
@@ -7982,34 +8013,34 @@
           } : null, {
             revalidateOnFocus: !1
           }),
-          _v7 = (0, _v3.useMemo)(() => _v2?.filter(Boolean)?.flatMap(_v0 => _v0.data).map(_v210), [_v2]),
+          _v7 = (0, _v3.useMemo)(() => _v2?.filter(Boolean)?.flatMap(_v0 => _v0.data).map(_v212), [_v2]),
           {
             isLoadingInitialData: _v8,
             isLoadingMore: _v9,
             isDone: _v10
-          } = (0, _v84.getInfiniteRequestLoadingState)({
+          } = (0, _v86.getInfiniteRequestLoadingState)({
             data: _v2,
             size: _v4,
             itemsPerPage: 10
           }),
-          [_v11, _v12] = (0, _v207.usePostUserPagePresets)(),
+          [_v11, _v12] = (0, _v209.usePostUserPagePresets)(),
           [_v13, _v14] = function () {
             let {
                 mutate: _v0
-              } = (0, _v81.useSWRConfig)(),
+              } = (0, _v83.useSWRConfig)(),
               {
                 baseUrl: _v1,
                 jwt: _v2,
                 xVimeoPage: _v3,
                 locale: _v4
-              } = (0, _v82.useGctlConfig)(),
-              [_v5, _v6] = (0, _v75.useInternalState)();
+              } = (0, _v84.useGctlConfig)(),
+              [_v5, _v6] = (0, _v77.useInternalState)();
             return [(0, _v3.useCallback)(async _v0 => {
               _v6({
                 type: "REQUEST"
               });
               try {
-                let _v0 = await _v0(`/users/${_v0.where.userId}/page_presets/${_v0.where.pagePresetId}${(0, _v75.serializeQuery)(_v0)}`, _v206({
+                let _v0 = await _v0(`/users/${_v0.where.userId}/page_presets/${_v0.where.pagePresetId}${(0, _v77.serializeQuery)(_v0)}`, _v208({
                   ..._v0,
                   baseUrl: _v1,
                   headers: {
@@ -8035,20 +8066,20 @@
           [_v15, _v16] = function () {
             let {
                 mutate: _v0
-              } = (0, _v81.useSWRConfig)(),
+              } = (0, _v83.useSWRConfig)(),
               {
                 baseUrl: _v1,
                 jwt: _v2,
                 xVimeoPage: _v3,
                 locale: _v4
-              } = (0, _v82.useGctlConfig)(),
-              [_v5, _v6] = (0, _v75.useInternalState)();
+              } = (0, _v84.useGctlConfig)(),
+              [_v5, _v6] = (0, _v77.useInternalState)();
             return [(0, _v3.useCallback)(async _v0 => {
               _v6({
                 type: "REQUEST"
               });
               try {
-                let _v0 = await _v0(`/users/${_v0.where.userId}/page_presets/${_v0.where.pagePresetId}${(0, _v75.serializeQuery)(_v0)}`, _v205({
+                let _v0 = await _v0(`/users/${_v0.where.userId}/page_presets/${_v0.where.pagePresetId}${(0, _v77.serializeQuery)(_v0)}`, _v207({
                   ..._v0,
                   baseUrl: _v1,
                   headers: {
@@ -8071,7 +8102,7 @@
               }
             }, [_v1, _v3, _v2, _v4, _v6]), _v5];
           }(),
-          _v17 = (0, _v3.useMemo)(() => _v12.called && !_v12.loading && !_v12.error && _v12.data ? _v210(_v12.data) : null, [_v12.called, _v12.loading, _v12.error, _v12.data]);
+          _v17 = (0, _v3.useMemo)(() => _v12.called && !_v12.loading && !_v12.error && _v12.data ? _v212(_v12.data) : null, [_v12.called, _v12.loading, _v12.error, _v12.data]);
         (0, _v3.useEffect)(() => {
           _v17 && _v5();
         }, [_v17, _v5]);
@@ -8084,7 +8115,7 @@
               },
               variables: {
                 name: _v0.draft.presetName,
-                page: _v208(_v0.draft),
+                page: _v210(_v0.draft),
                 applyToAll: _v0.applyToAll
               },
               select: ["uri"]
@@ -8117,10 +8148,10 @@
               },
               variables: {
                 name: _v0.draft.presetName,
-                page: _v208(_v0.draft),
+                page: _v210(_v0.draft),
                 applyToAll: _v0.applyToAll
               },
-              select: _v209,
+              select: _v211,
               headers: {
                 Accept: `application/vnd.vimeo.*+json;version=${_v30}`
               }
@@ -8135,18 +8166,20 @@
       }(),
       {
         defaultPagePresetId: _v21,
-        update: _v22
-      } = _v74(),
+        error: _v22,
+        isSaving: _v23,
+        update: _v24
+      } = _v76(),
       {
-        isOpen: _v23,
-        onOpen: _v24,
-        onClose: _v25
+        isOpen: _v25,
+        onOpen: _v26,
+        onClose: _v27
       } = (0, _v4.useDisclosure)(),
-      _v26 = [_v102, ...(_v8 || [])],
-      _v27 = _v21 ?? -1,
-      _v28 = async () => {
+      _v28 = [_v104, ...(_v8 || [])],
+      _v29 = _v21 ?? -1,
+      _v30 = async () => {
         try {
-          await _v22("page", null), _v1({
+          await _v24("page", null), _v1({
             title: _v0.changesSaved
           });
         } catch (_v0) {
@@ -8156,44 +8189,50 @@
           });
         }
       },
-      _v29 = () => {
-        _v3(), _v6(), _v25();
+      _v31 = () => {
+        _v3(), _v6(), _v27();
       },
-      _v30 = async _v0 => {
-        let {
-          name: _v1,
-          id: _v2
-        } = _v0;
-        try {
-          await _v22("page", _v2), _v1({
-            title: (_v2 === _v21 ? _v0.presetUnsetAsDefault : _v0.presetSetAsDefault)(_v1)
-          });
-        } catch (_v0) {
-          _v1({
-            title: _v0.changesWerentSaved,
-            status: "error"
-          });
-        }
-      },
-      _v31 = async _v0 => {
-        await _v17(_v0.id), _v1({
-          title: _v0.presetDeleted(_v0.name)
-        });
-      };
+      {
+        isOpen: _v32,
+        onOpen: _v33,
+        onClose: _v34
+      } = (0, _v4.useDisclosure)(),
+      [_v35, _v36] = (0, _v3.useState)(null),
+      [_v37, _v38] = (0, _v3.useState)(!1),
+      _v39 = (0, _v3.useRef)(!1),
+      _v40 = (0, _v3.useCallback)(() => {
+        _v34(), _v36(null), _v38(!1), _v39.current = !1;
+      }, [_v34]),
+      _v41 = (0, _v3.useEffectEvent)(() => {
+        null !== _v22 ? _v1({
+          title: _v0.changesWerentSaved,
+          status: "error"
+        }) : (_v1({
+          title: _v0.presetSetAsDefault(_v35?.name ?? "")
+        }), _v40());
+      });
+    (0, _v3.useEffect)(() => {
+      _v39.current && !_v23 && (_v39.current = !1, _v41());
+    }, [_v22, _v23]);
+    let _v42 = async _v0 => {
+      await _v17(_v0.id), _v1({
+        title: _v0.presetDeleted(_v0.name)
+      });
+    };
     (0, _v3.useEffect)(() => {
       _v9 && (_v2(_v9), _v1({
         title: _v0.presetCreated
-      }), _v24());
-    }, [_v9, _v2, _v1, _v24, _v0]), (0, _v3.useEffect)(() => {
+      }), _v26());
+    }, [_v9, _v2, _v1, _v26, _v0]), (0, _v3.useEffect)(() => {
       _v10 && _v1({
         title: _v0.changesWerentSaved,
         status: "error"
       });
     }, [_v10, _v1, _v0]);
-    let _v32 = async () => {
+    let _v43 = async () => {
       let _v0;
       if ((_v0 = _v41(_v8 || [], _v5)) && _v7("page.name", _v0.duplicateName), !_v0) {
-        if (-1 === _v5.presetId && !0 === _v5.applyToAll) await _v28();else try {
+        if (-1 === _v5.presetId && !0 === _v5.applyToAll) await _v30();else try {
           await _v19(_v5), _v1({
             title: _v0.changesSaved
           });
@@ -8203,20 +8242,20 @@
             status: "error"
           });
         }
-        _v29();
+        _v31();
       }
     };
     return (0, _v2.jsxs)(_v2.Fragment, {
       children: [(0, _v2.jsx)(_v71, {
         title: _v0.videoPage,
         description: _v0.videoPageDescription,
-        defaultPresetId: _v27,
+        defaultPresetId: _v29,
         canLoadMore: _v11,
         isLoadingMore: _v14,
         isLoadingPresets: _v15,
         isCreating: _v13,
         isDeleting: _v12,
-        presets: _v26,
+        presets: _v28,
         onCreate: () => {
           let _v0 = _v43(_v8?.map(_v0 => _v0.name) || []);
           _v4(_v0), _v18({
@@ -8227,22 +8266,34 @@
             }
           });
         },
-        onDelete: _v31,
+        onDelete: _v42,
         onLoadMore: _v20,
         onPresetClick: _v0 => {
-          _v2(_v0), _v24();
+          _v2(_v0), _v26();
         },
-        onSetAsDefault: _v30
-      }), _v23 && (0, _v2.jsx)(_v211, {
-        defaultPresetId: _v27,
-        onClose: _v29,
-        onSave: _v32,
+        onSetAsDefault: _v0 => {
+          _v36(_v0), _v33();
+        }
+      }), _v25 && (0, _v2.jsx)(_v213, {
+        defaultPresetId: _v29,
+        onClose: _v31,
+        onSave: _v43,
         isVimeoDefault: -1 === _v5.presetId,
         isSubmitting: _v16
+      }), (0, _v2.jsx)(_v73, {
+        applyToAll: _v37,
+        description: _v0.setAsDefaultPresetDescription(_v35?.name ?? ""),
+        isLoading: _v23,
+        isOpen: _v32,
+        onApplyToAllChange: _v38,
+        onClose: _v40,
+        onConfirm: () => {
+          null !== _v35 && (_v39.current = !0, _v24("page", _v35.id, _v37));
+        }
       })]
     });
   }], 0);
-  let _v212 = ({
+  let _v214 = ({
     isLoading: _v0 = !1,
     isOpen: _v1,
     presetName: _v2,
@@ -8271,44 +8322,6 @@
       })]
     });
   };
-  var _v213 = _v0.i(0);
-  let _v214 = ({
-    applyToAll: _v0,
-    isLoading: _v1 = !1,
-    isOpen: _v2,
-    presetName: _v3,
-    onApplyToAllChange: _v4,
-    onClose: _v5,
-    onConfirm: _v6
-  }) => {
-    let _v7 = _v38();
-    return (0, _v2.jsxs)(_v53, {
-      isOpen: _v2,
-      maxW: _v31,
-      title: _v7.setAsDefault,
-      onClose: _v5,
-      children: [(0, _v2.jsx)(_v53.Content, {
-        flexDirection: "column",
-        pb: "sm",
-        children: _v7.setAsDefaultDescription(_v3)
-      }), (0, _v2.jsxs)(_v53.Footer, {
-        justifyContent: "space-between",
-        border: "none",
-        children: [(0, _v2.jsx)(_v213.Checkbox, {
-          size: "md",
-          isChecked: _v0,
-          isDisabled: _v1,
-          onChange: _v0 => _v4(_v0.target.checked),
-          children: _v7.alsoApplyToAll
-        }), (0, _v2.jsx)(_v7.Button, {
-          variant: "primary",
-          onClick: _v6,
-          isLoading: _v1,
-          children: _v7.setAsDefault
-        })]
-      })]
-    });
-  };
   var _v215 = _v0.i(0);
   let _v216 = ["name", "uri"],
     _v217 = "preferences.videos.customPagePresetUri";
@@ -8323,7 +8336,7 @@
         isSaving: _v6,
         setDefaultPreset: _v7
       } = function () {
-        let _v0 = (0, _v73.useViewer)(),
+        let _v0 = (0, _v75.useViewer)(),
           _v1 = _v0?.teamUser?.ownerId ?? _v0?.user?.id,
           {
             data: _v2,
@@ -8343,7 +8356,7 @@
             data: _v4,
             isLoading: _v5,
             mutate: _v6
-          } = (0, _v72.useGetUser)(() => void 0 === _v1 ? null : {
+          } = (0, _v74.useGetUser)(() => void 0 === _v1 ? null : {
             where: {
               userId: _v1
             },
@@ -8356,7 +8369,7 @@
             name: _v0.name
           })), [_v2]),
           _v8 = _v39(_v4?.preferences?.videos?.customPagePresetUri),
-          [_v9, _v10] = (0, _v72.usePatchUser)(),
+          [_v9, _v10] = (0, _v74.usePatchUser)(),
           _v11 = async (_v0, _v1) => {
             void 0 !== _v1 && (await _v9({
               select: [_v217],
@@ -8490,7 +8503,6 @@
                 w: "100%",
                 children: (0, _v2.jsx)(_v70, {
                   isVisible: !0,
-                  isDefault: _v1,
                   onApplyToAll: _v1 ? _v22 : void 0,
                   onSetAsDefault: _v1 ? void 0 : () => _v21(_v0)
                 })
@@ -8508,24 +8520,24 @@
           alignItems: "center",
           color: "text-tertiary",
           gap: "2",
-          children: [(0, _v2.jsx)(_v170.InfoCircle, {
+          children: [(0, _v2.jsx)(_v172.InfoCircle, {
             boxSize: "2xs"
           }), (0, _v2.jsx)(_v13.Text, {
             variant: "body-md",
             children: _v0.videoPageThemeHelper
           })]
         })
-      }), (0, _v2.jsx)(_v214, {
+      }), (0, _v2.jsx)(_v73, {
         applyToAll: _v10,
+        description: _v0.setAsDefaultDescription(_v8?.name ?? ""),
         isLoading: _v6,
         isOpen: _v12,
-        presetName: _v8?.name ?? "",
         onApplyToAllChange: _v11,
         onClose: _v20,
         onConfirm: () => {
           null !== _v8 && (_v23.current = !0, _v7(_v8.id, _v10));
         }
-      }), (0, _v2.jsx)(_v212, {
+      }), (0, _v2.jsx)(_v214, {
         isLoading: _v6,
         isOpen: _v15,
         presetName: _v19,

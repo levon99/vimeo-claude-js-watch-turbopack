@@ -1749,7 +1749,8 @@
             }) : (0, _v1.jsx)(_v71.FileRowThumbnail, {
               name: _v0.file.name,
               contentType: _v0.file.contentType,
-              thumbnailSrc: _v0.file.thumbnail?.url
+              thumbnailSrc: _v0.file.thumbnail?.url,
+              publicId: _v0.file.publicId
             })
           }), (0, _v1.jsx)(_v68.ContentRow.Column, {
             overflow: "hidden",
@@ -2508,7 +2509,7 @@
   }
   var _v97 = _v0.i(0),
     _v98 = _v0.i(0);
-  let _v99 = ["file.contentType", "file.createdTime", "file.deletedBy", "file.deletedBy.name", "file.deletedBy.pictures", "file.deletedBy.uri", "file.fileSize", "file.modifiedTime", "file.name", "file.thumbnail.url", "file.uri", "video.createdTime", "video.deletedBy", "video.deletedBy.name", "video.deletedBy.pictures", "video.deletedBy.uri", "video.duration", "video.filesSize", "video.filesSize.fileSizeType", "video.filesSize.totalSize", "video.modifiedTime", "video.name", "video.pictures.defaultPicture", "video.pictures.sizes", "video.pictures.uri", "video.uri"];
+  let _v99 = ["file.contentType", "file.createdTime", "file.deletedBy", "file.deletedBy.name", "file.deletedBy.pictures", "file.deletedBy.uri", "file.fileSize", "file.modifiedTime", "file.name", "file.publicId", "file.thumbnail.url", "file.uri", "video.createdTime", "video.deletedBy", "video.deletedBy.name", "video.deletedBy.pictures", "video.deletedBy.uri", "video.duration", "video.filesSize", "video.filesSize.fileSizeType", "video.filesSize.totalSize", "video.modifiedTime", "video.name", "video.pictures.defaultPicture", "video.pictures.sizes", "video.pictures.uri", "video.uri"];
   var _v100 = _v0.i(0);
   let _v101 = ["video", "file"],
     _v102 = ["video"];
@@ -3614,22 +3615,22 @@
             singular: "No results found",
             dictionary: {
               es: {
-                singular: "No encontramos resultados."
+                singular: "No se han encontrado resultados"
               },
               "de-DE": {
-                singular: "Keine Ergebnisse"
+                singular: "Keine Ergebnisse gefunden"
               },
               "fr-FR": {
                 singular: "Aucun résultat trouvé"
               },
               "ja-JP": {
-                singular: "検索結果がありません"
+                singular: "結果が見つかりませんでした"
               },
               "ko-KR": {
-                singular: "검색 결과가 없습니다"
+                singular: "결과가 없습니다"
               },
               "pt-BR": {
-                singular: "Nenhum resultado encontrado."
+                singular: "Nenhum resultado encontrado"
               },
               "zh-CN": {
                 singular: "未找到结果"

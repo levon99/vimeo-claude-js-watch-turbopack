@@ -109,7 +109,7 @@
     enable_library_grace_period_notifications: !1,
     show_custom_metadata: !1,
     enable_vertical_player: !1,
-    clip_page_rework: !1,
+    clip_page_rework: !0,
     clip_page_player_new_speed_menu_enabled: !1,
     viewer_premium_plan_v0: "control",
     bulk_privacy_modal_variant: "hidden",

@@ -48,7 +48,7 @@
     margin-bottom: 0.5rem !important;
   }
 `;
-  let _v18 = (0, _v2.default)(_v5.Button).withConfig({
+  let _v18 = (0, _v2.default)(_v6.Button).withConfig({
     displayName: "Form__SubmitButton",
     componentId: "sc-87a15327-3"
   })`
@@ -70,7 +70,7 @@
             token: _v3,
             locale: _v8
           }).then(_v0 => {
-            _v7(!1), _v0.ok ? (0, _v10.applyLanguageChange)(_v8) : _v5((0, _v3.translate)({
+            _v7(!1), _v0.ok ? (0, _v10.applyLanguageChange)(_v8) : _v5((0, _v4.translate)({
               singular: "Sorry, something weird happened. Please try again.",
               dictionary: {
                 es: {
@@ -116,7 +116,7 @@
         }, _v1)), (0, _v1.jsx)(_v18, {
           type: "submit",
           loading: _v6,
-          children: (0, _v3.translate)({
+          children: (0, _v4.translate)({
             singular: "Confirm",
             dictionary: {
               es: {
@@ -145,8 +145,9 @@
         })]
       });
     },
-    _v21 = (0, _v2.default)(_v7.Header).attrs({
-      size: "4"
+    _v21 = (0, _v2.default)(_v3.Header).attrs({
+      as: "h4",
+      size: "md"
     }).withConfig({
       displayName: "LanguageSelectModal__Header",
       componentId: "sc-1264dec5-0"
@@ -167,8 +168,8 @@
     min-width: 28rem;
   }
 `,
-    _v23 = (0, _v2.default)(_v5.Button).attrs({
-      icon: (0, _v1.jsx)(_v6.DismissX, {}),
+    _v23 = (0, _v2.default)(_v6.Button).attrs({
+      icon: (0, _v1.jsx)(_v7.DismissX, {}),
       format: "basic",
       variant: "minimalTransparent"
     }).withConfig({
@@ -188,11 +189,11 @@
     locales: _v4 = [],
     token: _v5
   }) {
-    return (0, _v1.jsx)(_v4.Modal, {
+    return (0, _v1.jsx)(_v5.Modal, {
       active: _v0,
       content: (0, _v1.jsxs)(_v22, {
         children: [(0, _v1.jsx)(_v21, {
-          children: (0, _v3.translate)({
+          children: (0, _v4.translate)({
             singular: "Choose a different language",
             dictionary: {
               es: {

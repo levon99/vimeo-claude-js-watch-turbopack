@@ -13,10 +13,11 @@
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
-    _v13 = _v0.i(0);
-  let _v14 = {
+    _v13 = _v0.i(0),
+    _v14 = _v0.i(0);
+  let _v15 = {
       pageTitle: {
-        preRecording: (0, _v13.translate)({
+        preRecording: (0, _v14.translate)({
           singular: "Vimeo | Ready to record",
           dictionary: {
             es: {
@@ -42,7 +43,7 @@
             }
           }
         }),
-        recording: (0, _v13.translate)({
+        recording: (0, _v14.translate)({
           singular: "Vimeo | Recording...",
           dictionary: {
             es: {
@@ -68,7 +69,7 @@
             }
           }
         }),
-        paused: (0, _v13.translate)({
+        paused: (0, _v14.translate)({
           singular: "Vimeo | Paused",
           dictionary: {
             es: {
@@ -94,7 +95,7 @@
             }
           }
         }),
-        uploading: (0, _v13.translate)({
+        uploading: (0, _v14.translate)({
           singular: "Vimeo | Uploading",
           dictionary: {
             es: {
@@ -122,29 +123,42 @@
         })
       }
     },
-    _v15 = "record_session_id",
-    _v16 = () => {
+    _v16 = "record_session_id",
+    _v17 = () => {
       let [_v0, _v1] = (0, _v4.useState)(null),
         [_v2, _v3] = (0, _v4.useState)(null),
         _v4 = (0, _v3.useRouter)(),
-        _v5 = (0, _v4.useContext)(_v12.ViewerContext),
+        _v5 = (0, _v4.useContext)(_v13.ViewerContext),
         {
-          trackRecordingPageDisplayed: _v6
+          modalState: _v6,
+          open: _v7,
+          close: _v8
+        } = (0, _v12.useAttributedLoginModal)({
+          entry: "record_studio_join",
+          type: "join"
+        }),
+        {
+          trackRecordingPageDisplayed: _v9
         } = (0, _v9.useRecordingTracking)(),
-        _v7 = window.location.pathname;
+        _v10 = window.location.pathname;
       return (0, _v4.useEffect)(() => {
-        if (_v4.isReady) if ("string" == typeof _v4.query[_v15]) _v1(_v4.query[_v15]);else {
+        if (_v5) {
+          if (_v5.user) return void _v8();
+          _v7();
+        }
+      }, [_v5, _v7, _v8]), (0, _v4.useEffect)(() => {
+        if (_v4.isReady) if ("string" == typeof _v4.query[_v16]) _v1(_v4.query[_v16]);else {
           let _v0 = (0, _v6.v4)();
           _v4.replace({
             pathname: _v4.route,
             query: {
               ..._v4.query,
-              [_v15]: _v0
+              [_v16]: _v0
             }
           });
         }
       }, [_v4]), (0, _v8.usePicoEffect)(() => {
-        _v6();
+        _v9();
       }, [], {
         once: !0
       }), (0, _v1.jsxs)(_v1.Fragment, {
@@ -154,13 +168,13 @@
               switch (_v0) {
                 case "pre-recording":
                 default:
-                  return _v14.pageTitle.preRecording;
+                  return _v15.pageTitle.preRecording;
                 case "recording":
-                  return _v14.pageTitle.recording;
+                  return _v15.pageTitle.recording;
                 case "paused":
-                  return _v14.pageTitle.paused;
+                  return _v15.pageTitle.paused;
                 case "uploading":
-                  return _v14.pageTitle.uploading;
+                  return _v15.pageTitle.uploading;
               }
             })(_v2)
           })
@@ -173,16 +187,17 @@
           children: (0, _v1.jsx)(_v11.LoginJoinModal, {
             type: "join",
             xsrft: _v5.xsrft,
-            redirectUrl: _v7,
-            redirectUrlAfterSocialLogin: _v7,
+            redirectUrl: _v10,
+            redirectUrlAfterSocialLogin: _v10,
             onSuccess: () => {
-              _v7 && (window.location.href = _v7);
+              _v10 && (window.location.href = _v10);
             },
+            attribution: _v6.attribution,
             disableDismiss: !0,
-            isShowing: !_v5.user
+            isShowing: _v6.isShowing
           })
         })]
       });
     };
-  _v16.getLayout = _v0 => _v0, _v0.s(["RecordStudioPage", 0, _v16, "SESSION_ID", 0, _v15], 0);
+  _v17.getLayout = _v0 => _v0, _v0.s(["RecordStudioPage", 0, _v17, "SESSION_ID", 0, _v16], 0);
 }

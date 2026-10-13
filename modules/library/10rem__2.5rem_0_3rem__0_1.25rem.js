@@ -108,19 +108,21 @@
     },
     _v89 = _v0 => {
       let {
-        layout: _v1,
-        isLoadingMore: _v2,
-        canLoadMore: _v3 = !1,
-        onActivate: _v4,
-        isDropzoneEnabled: _v5 = !1,
-        page: _v6 = ""
-      } = _v0;
+          layout: _v1,
+          isLoadingMore: _v2,
+          canLoadMore: _v3 = !1,
+          onActivate: _v4,
+          isDropzoneEnabled: _v5 = !1,
+          page: _v6 = ""
+        } = _v0,
+        _v7 = (0, _v27.useUniversalHostingEnabled)();
       return _v3 ? (0, _v1.jsx)(_v88, {
         layout: _v1,
         isLoading: _v2,
         onLoadMore: _v4
       }) : _v5 && !_v2 ? (0, _v1.jsx)(_v85.UploadDropzoneHint, {
-        page: _v6
+        page: _v6,
+        universalHostingEnabled: _v7
       }) : (0, _v1.jsx)(_v84.Box, {
         margin: "2.5rem 0 3rem",
         padding: "0 1.25rem"
@@ -2877,7 +2879,8 @@
               thumbnail: (0, _v1.jsx)(_v203.FileRowThumbnail, {
                 name: _v0.name,
                 contentType: _v0.contentType,
-                thumbnailSrc: _v0.thumbnail?.url
+                thumbnailSrc: _v0.thumbnail?.url,
+                publicId: _v0.publicId
               }),
               shouldShowFileSize: _v16,
               fileSize: _v2,
@@ -3298,7 +3301,7 @@
         }
       });
     (0, _v39.useUploadLifecycle)((_v0, _v1) => {
-      _v1.clipId && _v47();
+      (_v1.clipId || _v1.publicId) && _v47();
     }, []), (0, _v25.useOttRedirect)({
       toast: _v8,
       config: {
@@ -3368,6 +3371,9 @@
             Accept: "application/vnd.vimeo.*+json;version=3.4"
           }
         } : null;
+      }, {
+        revalidateOnFocus: !1,
+        revalidateFirstPage: !1
       }),
       {
         data: _v97

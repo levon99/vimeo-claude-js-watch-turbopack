@@ -332,10 +332,10 @@
                     singular: "Select language",
                     dictionary: {
                       es: {
-                        singular: "Seleccionar el idioma"
+                        singular: "Seleccionar idioma"
                       },
                       "de-DE": {
-                        singular: "Sprache aussuchen"
+                        singular: "Sprache auswählen"
                       },
                       "fr-FR": {
                         singular: "Sélectionner la langue"
@@ -347,7 +347,7 @@
                         singular: "언어 선택"
                       },
                       "pt-BR": {
-                        singular: "Selecione o idioma"
+                        singular: "Selecionar idioma"
                       },
                       "zh-CN": {
                         singular: "选择语言"

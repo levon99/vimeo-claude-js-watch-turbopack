@@ -49,22 +49,29 @@
           disableAPI: _v6 = !1,
           onPlayerAPIReady: _v7,
           onIframeLoad: _v8,
-          ..._v9
+          onPlayerInitError: _v9,
+          ..._v10
         } = _v0,
-        [_v10, _v11] = (0, _v2.useState)(!_v6),
-        [_v12, _v13] = (0, _v2.useState)(!1),
-        _v14 = (0, _v4.useHasMounted)(),
-        _v15 = (0, _v2.useRef)(null),
-        _v16 = (0, _v2.useRef)(null);
+        _v11 = (0, _v2.useEffectEvent)(_v0 => {
+          _v9?.(_v0);
+        }),
+        [_v12, _v13] = (0, _v2.useState)(!_v6),
+        [_v14, _v15] = (0, _v2.useState)(!1),
+        _v16 = (0, _v4.useHasMounted)(),
+        _v17 = (0, _v2.useRef)(null),
+        _v18 = (0, _v2.useRef)(null);
       (0, _v2.useEffect)(() => {
-        if (!_v14 || !_v15.current) return;
-        if (_v6 || !window.Vimeo?.Player) return void _v11(!1);
+        if (!_v16 || !_v17.current) return;
+        if (_v6 || !window.Vimeo?.Player) {
+          _v13(!1), _v6 || _v11(Error("window.Vimeo.Player is not available"));
+          return;
+        }
         let _v0 = !0,
           _v1 = null;
         try {
           var _v2;
           let _v0,
-            _v1 = (_v2 = _v1 = new window.Vimeo.Player(_v15.current), _v0 = (_v0, _v1) => {
+            _v1 = (_v2 = _v1 = new window.Vimeo.Player(_v17.current), _v0 = (_v0, _v1) => {
               try {
                 let _v0 = _v1();
                 if (_v0 instanceof Promise) return _v0.catch(_v0 => {
@@ -94,49 +101,49 @@
               }
             }));
           _v1.on("loaded", () => {
-            _v0 && _v13(!0);
-          }), _v0 && (_v16.current = _v1, _v6 && console.log("DEBUG:: Player API initialized."));
+            _v0 && _v15(!0);
+          }), _v0 && (_v18.current = _v1, _v6 && console.log("DEBUG:: Player API initialized."));
         } catch (_v0) {
-          console.error("Error initializing player:", _v0), _v0 && _v11(!1);
+          console.error("Error initializing player:", _v0), _v0 && (_v13(!1), _v11(_v0));
         }
         return () => {
-          _v0 = !1, _v1 && _v1.off("loaded"), _v16.current = null;
+          _v0 = !1, _v1 && _v1.off("loaded"), _v18.current = null;
         };
-      }, [_v14, _v6]);
-      let _v17 = (0, _v2.useRef)(_v2);
+      }, [_v16, _v6]);
+      let _v19 = (0, _v2.useRef)(_v2);
       (0, _v2.useEffect)(() => {
-        let _v0 = _v16.current;
-        _v0 && _v3 && (_v13(!1), _v0.loadVideo(_v3).then(() => _v13(!0)));
+        let _v0 = _v18.current;
+        _v0 && _v3 && (_v15(!1), _v0.loadVideo(_v3).then(() => _v15(!0)));
       }, [_v3]), (0, _v2.useEffect)(() => {
-        let _v0 = _v16.current;
-        _v12 && _v0 && _v7 && (_v6 && console.log("DEBUG:: Player API Ready."), _v7(_v0));
-      }, [_v12, _v7]);
-      let _v18 = (0, _v2.useMemo)(() => Object.keys(_v9).reduce((_v0, _v1) => {
-        let _v2 = _v9[_v1],
+        let _v0 = _v18.current;
+        _v14 && _v0 && _v7 && (_v6 && console.log("DEBUG:: Player API Ready."), _v7(_v0));
+      }, [_v14, _v7]);
+      let _v20 = (0, _v2.useMemo)(() => Object.keys(_v10).reduce((_v0, _v1) => {
+        let _v2 = _v10[_v1],
           _v3 = _v5[_v1];
         return _v2 && _v3 && _v0.push({
           eventName: _v3,
           callback: _v2
         }), _v0;
-      }, []), [_v9]);
+      }, []), [_v10]);
       return (0, _v2.useEffect)(() => {
-        let _v0 = _v16.current;
-        return _v12 && _v0 && _v18.forEach(({
+        let _v0 = _v18.current;
+        return _v14 && _v0 && _v20.forEach(({
           eventName: _v0,
           callback: _v1
         }) => {
           _v0.on(_v0, _v1);
         }), () => {
-          _v0 && _v12 && _v18.forEach(({
+          _v0 && _v14 && _v20.forEach(({
             eventName: _v0
           }) => {
             _v0.off(_v0);
           });
         };
-      }, [_v12, _v18]), (0, _v2.useImperativeHandle)(_v1, () => _v15.current, []), (0, _v1.jsx)("iframe", {
-        ref: _v15,
+      }, [_v14, _v20]), (0, _v2.useImperativeHandle)(_v1, () => _v17.current, []), (0, _v1.jsx)("iframe", {
+        ref: _v17,
         title: _v4,
-        src: _v10 ? _v17.current : _v2,
+        src: _v12 ? _v19.current : _v2,
         onLoad: _v8,
         allow: "autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share",
         style: {

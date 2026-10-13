@@ -1312,11 +1312,13 @@
           onClick: _v3,
           isDropzoneEnabled: _v4 = !1,
           page: _v5 = "",
-          shouldShowTeamLibraryNotification: _v6 = !1
+          shouldShowTeamLibraryNotification: _v6 = !1,
+          universalHostingEnabled: _v7 = !1
         } = _v0,
-        _v7 = _v4 && !_v1;
-      if (!_v2) if (_v6) return (0, _v1.jsx)(_v140, {});else if (_v7) return (0, _v1.jsx)(_v141.UploadDropzoneHint, {
-        page: _v5
+        _v8 = _v4 && !_v1;
+      if (!_v2) if (_v6) return (0, _v1.jsx)(_v140, {});else if (_v8) return (0, _v1.jsx)(_v141.UploadDropzoneHint, {
+        page: _v5,
+        universalHostingEnabled: _v7
       });else return (0, _v1.jsx)(_v142, {});
       return (0, _v1.jsx)(_v142, {
         children: (0, _v1.jsx)(_v136.Button, {
@@ -2724,10 +2726,11 @@
         _v46 = (0, _v122.useOrionSettingsFields)(["enable_new_library_drag_and_drop_upload"]),
         _v47 = _v46?.enable_new_library_drag_and_drop_upload ?? !1,
         _v48 = _v45 && !_v47,
-        _v49 = (0, _v131.useLiveEventDeleteModal)(),
-        _v50 = (0, _v130.useDeleteLiveEvent)({
+        _v49 = (0, _v18.useUniversalHostingEnabled)(),
+        _v50 = (0, _v131.useLiveEventDeleteModal)(),
+        _v51 = (0, _v130.useDeleteLiveEvent)({
           onFailure: () => {
-            _v49.setIsLoading(!1);
+            _v50.setIsLoading(!1);
           },
           onSuccess: ({
             uri: _v0
@@ -2759,32 +2762,33 @@
                   }
                 }
               })
-            }), _v49.setIsLoading(!1), _v49.close();
+            }), _v50.setIsLoading(!1), _v50.close();
           }
         }),
-        _v51 = (0, _v1.jsx)(_v143, {
+        _v52 = (0, _v1.jsx)(_v143, {
           canLoadMore: !_v20,
           isLoadingMore: !!_v22,
           onClick: _v21,
           isDropzoneEnabled: _v45,
           page: _v2.name,
-          shouldShowTeamLibraryNotification: _v2.shouldShowTeamLibraryNotification
+          shouldShowTeamLibraryNotification: _v2.shouldShowTeamLibraryNotification,
+          universalHostingEnabled: _v49
         }),
-        [_v52, {
-          loading: _v53
+        [_v53, {
+          loading: _v54
         }] = (0, _v132.useMoveItem)(),
-        [_v54, _v55] = (0, _v4.useState)(null),
-        [_v56, _v57] = (0, _v4.useState)([]),
-        [_v58, _v59] = (0, _v4.useState)(new Set()),
-        _v60 = ({
+        [_v55, _v56] = (0, _v4.useState)(null),
+        [_v57, _v58] = (0, _v4.useState)([]),
+        [_v59, _v60] = (0, _v4.useState)(new Set()),
+        _v61 = ({
           dropTarget: _v0,
           items: _v1
         }) => {
-          if (_v55(_v0), _v57(_v1), _v0) if (!_v2.isPrivateToUser || _v0.isPrivateToUser || _v25) {
+          if (_v56(_v0), _v58(_v1), _v0) if (!_v2.isPrivateToUser || _v0.isPrivateToUser || _v25) {
             let _v0 = new Set("");
-            _v0.add(_v0.uri), _v59(_v0), _v38(_v0);
+            _v0.add(_v0.uri), _v60(_v0), _v38(_v0);
             let [,, _v1,, _v2] = _v0.uri.split("/");
-            _v52({
+            _v53({
               ownerId: parseInt(_v1, 10),
               folderId: parseInt(_v2, 10),
               targetItems: _v1
@@ -2799,13 +2803,13 @@
                 status: "error"
               });
             }).finally(() => {
-              _v55(null), _v57([]), _v59(new Set()), _v38(new Set()), _v26(!1), _v1.length > 1 ? _v30.gtm.trackBulkMove() : _v30.gtm.trackVideoMove();
+              _v56(null), _v58([]), _v60(new Set()), _v38(new Set()), _v26(!1), _v1.length > 1 ? _v30.gtm.trackBulkMove() : _v30.gtm.trackVideoMove();
             });
           } else _v26(!0);
         },
         {
-          draggableItemIsHovering: _v61,
-          dropRef: _v62
+          draggableItemIsHovering: _v62,
+          dropRef: _v63
         } = (0, _v128.useDropFolder)({
           dropTargetType: _v133.DROP_TARGET_TYPES.FOLDER_MENU_ITEM,
           dropTarget: void 0,
@@ -2839,9 +2843,9 @@
           disabled: !_v48,
           destinationText: _v2.name,
           children: (0, _v1.jsx)(_v88.Box, {
-            ref: _v62,
-            backgroundColor: _v61 ? "rgba(23, 213, 255, 0.06)" : "transparent",
-            borderColor: _v61 ? "vimeoBlue.500" : "transparent",
+            ref: _v63,
+            backgroundColor: _v62 ? "rgba(23, 213, 255, 0.06)" : "transparent",
+            borderColor: _v62 ? "vimeoBlue.500" : "transparent",
             borderRadius: "lg",
             borderWidth: ".125rem",
             transition: "background-color 0.2s ease, border-color 0.2s ease",
@@ -2858,23 +2862,23 @@
                 projectItems: _v15,
                 libraryTitle: _v33,
                 contentSpaceEnabled: !!_v30,
-                loadMoreCta: _v51,
+                loadMoreCta: _v52,
                 onFolderSettingsChange: _v19,
                 sortOptions: _v8,
                 selectItem: _v11,
                 selectedItemURIs: _v14,
-                handleMoveItemsOnDrop: _v60,
+                handleMoveItemsOnDrop: _v61,
                 onDeleteLiveEvent: (_v0, _v1, _v2) => {
-                  _v49.open({
+                  _v50.open({
                     onConfirm: () => {
-                      _v49.setIsLoading(!0), _v50({
+                      _v50.setIsLoading(!0), _v51({
                         title: _v0,
                         uri: _v1,
                         ownerId: _v2
                       });
                     },
                     onDismiss: () => {
-                      _v49.close();
+                      _v50.close();
                     },
                     name: _v0
                   });
@@ -2910,13 +2914,13 @@
               deselectItem: _v12,
               libraryTitle: _v33,
               contentSpaceEnabled: !!_v30,
-              loadingFolderURIs: _v58,
-              loadMoreCta: _v51,
+              loadingFolderURIs: _v59,
+              loadMoreCta: _v52,
               selectedItemURIs: _v14,
               selectItem: _v11,
               sort: _v8,
               handleRemoveVideo: _v16,
-              handleMoveItemsOnDrop: _v60,
+              handleMoveItemsOnDrop: _v61,
               setIsUploadDropzoneEnabled: _v28,
               hasFolderShareUpsell: !!_v29.canSeeUpsellModalOnShare,
               hasReviewPageLinkUpsell: !!_v29.hasVideoReviewPageDemo,
@@ -2926,12 +2930,12 @@
             })
           })
         }), _v25 && (0, _v1.jsx)(_v125.MovePrivateVideoConfirmationModal, {
-          dropTarget: _v54,
-          items: _v56,
+          dropTarget: _v55,
+          items: _v57,
           isOpen: _v25,
           setIsOpen: _v26,
-          onMoveConfirmation: _v60,
-          isLoading: _v53
+          onMoveConfirmation: _v61,
+          isLoading: _v54
         }), _v43]
       });
     },
@@ -3252,7 +3256,7 @@
       }, [_v1]);
       let [_v105, _v106] = (0, _v4.useState)(null);
       (0, _v28.useUploadLifecycle)((_v0, _v1) => {
-        _v1.clipId && (_v73 ? _v11(_v73.uri) : _v7.push(`/manage/videos/${_v1.clipId}/privacy`));
+        _v1.clipId ? _v73 ? _v11(_v73.uri) : _v7.push(`/manage/videos/${_v1.clipId}/privacy`) : _v1.publicId && _v73 && _v11(_v73.uri);
       }, []);
       let _v107 = _v4?.user?.id === _v3 || _v4?.teamUser?.ownerId === _v3,
         _v108 = _v46.shouldHideFilter || _v73?.isPrivateToUser,

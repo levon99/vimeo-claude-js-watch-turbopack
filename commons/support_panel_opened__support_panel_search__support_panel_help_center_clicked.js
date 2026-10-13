@@ -1895,8 +1895,9 @@
     _v91 = _v0.i(0),
     _v92 = _v0.i(0),
     _v93 = _v0.i(0),
-    _v94 = _v0.i(0);
-  let _v95 = (0, _v19.translate)({
+    _v94 = _v0.i(0),
+    _v95 = _v0.i(0);
+  let _v96 = (0, _v19.translate)({
       singular: "Untitled showcase",
       dictionary: {
         es: {
@@ -1922,18 +1923,18 @@
         }
       }
     }),
-    _v96 = (0, _v2.default)(() => _v0.A(0), {
+    _v97 = (0, _v2.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v97 = (0, _v2.default)(() => _v0.A(0), {
+    _v98 = (0, _v2.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       },
       ssr: !1
     }),
-    _v98 = (0, _v2.default)(async () => {
+    _v99 = (0, _v2.default)(async () => {
       let {
         EventCreationWizardModal: _v0
       } = await _v0.A(0);
@@ -1946,7 +1947,7 @@
       },
       ssr: !1
     }),
-    _v99 = (0, _v2.default)(async () => {
+    _v100 = (0, _v2.default)(async () => {
       let {
         MobileContentMenu: _v0
       } = await _v0.A(0);
@@ -1959,16 +1960,16 @@
       },
       ssr: !1
     });
-  function _v100({
+  function _v101({
     hasUploader: _v0
   }) {
     let _v1 = (0, _v11.useViewer)();
-    return !_v1 || _v1.teamUser?.plainTextPermissionLevel === "Viewer" || _v1.isSimplifiedSite ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v101, {
+    return !_v1 || _v1.teamUser?.plainTextPermissionLevel === "Viewer" || _v1.isSimplifiedSite ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v102, {
       viewer: _v1,
       hasUploader: _v0
     });
   }
-  function _v101({
+  function _v102({
     viewer: _v0,
     hasUploader: _v1
   }) {
@@ -1976,8 +1977,8 @@
         base: !0,
         sm: !1
       }),
-      _v3 = (0, _v88.useEmailVerificationGateRequest)(),
-      _v4 = (0, _v89.useUniversalHostingEnabled)(),
+      _v3 = (0, _v89.useEmailVerificationGateRequest)(),
+      _v4 = (0, _v90.useUniversalHostingEnabled)(),
       _v5 = _v0.teamUser?.ownerId ?? _v0.user?.id,
       {
         capabilities: _v6,
@@ -2008,7 +2009,7 @@
         isOpen: _v29,
         onOpen: _v30,
         onClose: _v31
-      } = (0, _v79.useDisclosure)(),
+      } = (0, _v80.useDisclosure)(),
       {
         canCreateShowcase: _v32,
         isCreatingShowcase: _v33,
@@ -2019,7 +2020,7 @@
         canManageTeamCollections: _v0,
         viewer: _v1
       }) => {
-        let _v2 = (0, _v92.useToast)(),
+        let _v2 = (0, _v93.useToast)(),
           [_v3, _v4] = (0, _v3.useState)(!1),
           _v5 = _v1?.teamUser?.ownerId || _v1?.user?.id,
           {
@@ -2044,7 +2045,7 @@
               data: _v5,
               error: _v6,
               loading: _v7
-            }] = (0, _v94.usePostUserAlbums)();
+            }] = (0, _v95.usePostUserAlbums)();
             return (0, _v3.useEffect)(() => {
               _v4 && !_v7 && (_v5 && _v1?.({
                 uri: _v5.uri
@@ -2056,7 +2057,7 @@
                 },
                 select: ["uri"],
                 variables: {
-                  name: _v95
+                  name: _v96
                 }
               });
             }, {
@@ -2092,7 +2093,7 @@
                   }
                 }),
                 variant: "warning",
-                icon: (0, _v1.jsx)(_v93.CircleExclamationFilled, {
+                icon: (0, _v1.jsx)(_v94.CircleExclamationFilled, {
                   color: "status-destructive-primary"
                 }),
                 isClosable: !1
@@ -2120,11 +2121,11 @@
         trackHeaderCreateMenuItemClicked: _v38
       } = (0, _v10.useHeaderTracking)();
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v80.NestedMenu, {
+      children: [(0, _v1.jsxs)(_v81.NestedMenu, {
         positioning: {
           placement: "bottom-end"
         },
-        children: [(0, _v1.jsx)(_v80.NestedMenuTrigger, {
+        children: [(0, _v1.jsx)(_v81.NestedMenuTrigger, {
           onClick: _v0 => {
             _v2 && (_v0.preventDefault(), _v30()), _v37();
           },
@@ -2135,7 +2136,7 @@
             sm: "md"
           },
           "data-id": "new_content_menu_button",
-          leftIcon: (0, _v1.jsx)(_v87.PlusSmall, {}),
+          leftIcon: (0, _v1.jsx)(_v88.PlusSmall, {}),
           children: (0, _v19.translate)({
             singular: "Create",
             dictionary: {
@@ -2162,13 +2163,13 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v80.NestedMenuPositioner, {
-          children: (0, _v1.jsxs)(_v80.NestedMenuContent, {
+        }), (0, _v1.jsx)(_v81.NestedMenuPositioner, {
+          children: (0, _v1.jsxs)(_v81.NestedMenuContent, {
             minWidth: (0, _v5.rem)(202),
-            children: [(0, _v1.jsx)(_v80.NestedMenuItem, {
+            children: [(0, _v1.jsx)(_v81.NestedMenuItem, {
               id: "upload",
               value: "upload",
-              as: _v78.default,
+              as: _v79.default,
               href: _v22,
               prefetch: !1,
               onClick: () => {
@@ -2179,7 +2180,7 @@
               children: _v4 ? (0, _v1.jsxs)(_v4.Flex, {
                 alignItems: "flex-start",
                 gap: "sm",
-                children: [(0, _v1.jsx)(_v82.Upload, {}), (0, _v1.jsxs)(_v4.Flex, {
+                children: [(0, _v1.jsx)(_v83.Upload, {}), (0, _v1.jsxs)(_v4.Flex, {
                   flexDirection: "column",
                   gap: "2xs",
                   children: [(0, _v1.jsxs)(_v4.Flex, {
@@ -2213,7 +2214,7 @@
                           }
                         }
                       })
-                    }), (0, _v1.jsx)(_v91.NewBadge, {})]
+                    }), (0, _v1.jsx)(_v92.NewBadge, {})]
                   }), (0, _v1.jsx)(_v22.Text, {
                     variant: "body-xs",
                     color: "text-secondary",
@@ -2246,7 +2247,7 @@
                   })]
                 })]
               }) : (0, _v1.jsxs)(_v1.Fragment, {
-                children: [(0, _v1.jsx)(_v82.Upload, {}), " ", (0, _v19.translate)({
+                children: [(0, _v1.jsx)(_v83.Upload, {}), " ", (0, _v19.translate)({
                   singular: "Upload",
                   dictionary: {
                     es: {
@@ -2273,7 +2274,7 @@
                   }
                 })]
               })
-            }), _v1 ? (0, _v1.jsxs)(_v80.NestedMenuItem, {
+            }), _v1 ? (0, _v1.jsxs)(_v81.NestedMenuItem, {
               id: "import",
               value: "import",
               onClick: () => {
@@ -2281,7 +2282,7 @@
                   createMenuItem: "import"
                 }));
               },
-              children: [(0, _v1.jsx)(_v86.DownloadImport, {}), " ", (0, _v19.translate)({
+              children: [(0, _v1.jsx)(_v87.DownloadImport, {}), " ", (0, _v19.translate)({
                 singular: "Import",
                 dictionary: {
                   es: {
@@ -2307,10 +2308,10 @@
                   }
                 }
               })]
-            }) : null, (0, _v1.jsx)(_v80.NestedMenuDivider, {}), _v9 && (0, _v1.jsxs)(_v80.NestedMenuItem, {
+            }) : null, (0, _v1.jsx)(_v81.NestedMenuDivider, {}), _v9 && (0, _v1.jsxs)(_v81.NestedMenuItem, {
               id: "create",
               value: "create",
-              as: _v78.default,
+              as: _v79.default,
               href: _v28,
               prefetch: !1,
               onClick: () => {
@@ -2318,7 +2319,7 @@
                   createMenuItem: "video_project"
                 });
               },
-              children: [(0, _v1.jsx)(_v85.ClapperBoard, {}), " ", (0, _v19.translate)({
+              children: [(0, _v1.jsx)(_v86.ClapperBoard, {}), " ", (0, _v19.translate)({
                 singular: "Video project",
                 dictionary: {
                   es: {
@@ -2344,10 +2345,10 @@
                   }
                 }
               })]
-            }), (0, _v1.jsxs)(_v80.NestedMenuItem, {
+            }), (0, _v1.jsxs)(_v81.NestedMenuItem, {
               id: "record",
               value: "record",
-              as: _v78.default,
+              as: _v79.default,
               href: _v27,
               prefetch: !1,
               onClick: () => {
@@ -2355,7 +2356,7 @@
                   createMenuItem: "recording"
                 });
               },
-              children: [(0, _v1.jsx)(_v83.Record, {}), " ", (0, _v19.translate)({
+              children: [(0, _v1.jsx)(_v84.Record, {}), " ", (0, _v19.translate)({
                 singular: "Recording",
                 dictionary: {
                   es: {
@@ -2381,7 +2382,7 @@
                   }
                 }
               })]
-            }), _v18 && (0, _v1.jsxs)(_v80.NestedMenuItem, {
+            }), _v18 && (0, _v1.jsxs)(_v81.NestedMenuItem, {
               id: "host",
               value: "host",
               onClick: () => {
@@ -2389,7 +2390,7 @@
                   createMenuItem: "event"
                 }), _v12(!0);
               },
-              children: [(0, _v1.jsx)(_v84.CameraOn, {}), " ", (0, _v19.translate)({
+              children: [(0, _v1.jsx)(_v85.CameraOn, {}), " ", (0, _v19.translate)({
                 singular: "Event",
                 dictionary: {
                   es: {
@@ -2412,7 +2413,7 @@
                   }
                 }
               })]
-            }), _v32 && (0, _v1.jsxs)(_v80.NestedMenuItem, {
+            }), _v32 && (0, _v1.jsxs)(_v81.NestedMenuItem, {
               id: "showcase",
               value: "showcase",
               disabled: _v33,
@@ -2421,7 +2422,7 @@
                   createMenuItem: "showcase"
                 }), _v35();
               },
-              children: [(0, _v1.jsx)(_v81._3GridLeftLayout, {}), " ", (0, _v19.translate)({
+              children: [(0, _v1.jsx)(_v82._3GridLeftLayout, {}), " ", (0, _v19.translate)({
                 singular: "Showcase",
                 dictionary: {
                   es: {
@@ -2449,11 +2450,11 @@
               })]
             })]
           })
-        }), (0, _v1.jsx)(_v98, {
+        }), (0, _v1.jsx)(_v99, {
           active: _v11,
           activeSet: _v12
         })]
-      }), (0, _v1.jsx)(_v99, {
+      }), (0, _v1.jsx)(_v100, {
         isOpen: _v29,
         onClose: _v31,
         canCreateLiveEvents: !0,
@@ -2467,7 +2468,7 @@
         ...(_v9 && {
           creationLink: _v28
         })
-      }), _v34 && (0, _v1.jsx)(_v96, {
+      }), _v34 && (0, _v1.jsx)(_v97, {
         apiUrl: _v0?.apiUrl,
         onClose: () => _v36(!1),
         templateType: "default",
@@ -2475,7 +2476,7 @@
           params: {
             feature: "showcases",
             location: "top_navigation_bar",
-            page: (0, _v90.getPageNameFromPath)(window.location.pathname, _v0?.user) || "ss_lihp",
+            page: (0, _v91.getPageNameFromPath)(window.location.pathname, _v0?.user) || "ss_lihp",
             upsell_name: "showcase_limit"
           },
           paywallTracking: {
@@ -2492,7 +2493,7 @@
         modalConfig: {
           mkcCode: "unified-top-nav-legacy"
         }
-      }), _v13 ? (0, _v1.jsx)(_v97, {
+      }), _v13 ? (0, _v1.jsx)(_v98, {
         isOpen: _v13,
         setIsOpen: _v14,
         referrerPage: "create_menu",
@@ -2500,9 +2501,9 @@
       }) : null]
     });
   }
-  var _v102 = _v0.i(0);
-  let _v103 = () => {
-    let _v0 = (0, _v102.buildUpgradePlanUrl)({
+  var _v103 = _v0.i(0);
+  let _v104 = () => {
+    let _v0 = (0, _v103.buildUpgradePlanUrl)({
       paywallTrigger: "top_nav_bar_pricing_button",
       paywallLocation: "top_navigation",
       paywallFeature: "general"
@@ -2543,15 +2544,15 @@
       })
     });
   };
-  _v0.s(["PricingCTA", 0, _v103], 0);
-  var _v104 = _v0.i(0),
-    _v105 = _v0.i(0);
-  let _v106 = ({
+  _v0.s(["PricingCTA", 0, _v104], 0);
+  var _v105 = _v0.i(0),
+    _v106 = _v0.i(0);
+  let _v107 = ({
     isSideNavActive: _v0,
     setIsSideNavActive: _v1
   }) => (0, _v1.jsx)(_v14.IconButton, {
     "aria-label": "open-sidenav",
-    icon: (0, _v1.jsx)(_v105.Menu, {}),
+    icon: (0, _v1.jsx)(_v106.Menu, {}),
     variant: "tertiary",
     display: _v0 ? "none" : "flex",
     onClick: () => {
@@ -2564,15 +2565,15 @@
     },
     "data-testid": "open-sidenav"
   });
-  _v0.s(["SideNavToggle", 0, _v106], 0);
-  let _v107 = (0, _v2.default)(async () => ({
+  _v0.s(["SideNavToggle", 0, _v107], 0);
+  let _v108 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).LoginJoinModal
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v108 = (0, _v5.rem)(24);
+    _v109 = (0, _v5.rem)(24);
   _v0.s(["DefaultNavigation", 0, ({
     fixed: _v0 = !0,
     hasSearch: _v1 = !0,
@@ -2603,15 +2604,11 @@
       _v17 = _v13;
     _v6 && (_v17 = !1);
     let _v18 = !_v17 && _v11 || _v15,
-      [_v19, _v20] = (0, _v3.useState)(),
-      _v21 = _v9?.isSimplifiedSite,
-      _v22 = _v9?.isEnterpriseSite,
-      _v23 = _v7 && !_v3,
-      _v24 = _v7 && _v8 ? `calc(max(0px, calc((100cqw - var(--search-content-max-width)) / 2)) + var(--search-content-inline-start) - ${_v108})` : _v23 ? (0, _v5.rem)(24) : void 0,
-      _v25 = (0, _v3.useMemo)(() => ({
-        modal: _v19,
-        setModal: _v20
-      }), [_v19, _v20]);
+      _v19 = (0, _v78.useLoginJoinModalState)(),
+      _v20 = _v9?.isSimplifiedSite,
+      _v21 = _v9?.isEnterpriseSite,
+      _v22 = _v7 && !_v3,
+      _v23 = _v7 && _v8 ? `calc(max(0px, calc((100cqw - var(--search-content-max-width)) / 2)) + var(--search-content-inline-start) - ${_v109})` : _v22 ? (0, _v5.rem)(24) : void 0;
     return (0, _v1.jsxs)(_v7.Navigation, {
       position: _v0 ? "sticky" : "unset",
       top: "0",
@@ -2637,7 +2634,7 @@
         },
         flexShrink: _v17 ? void 0 : 0,
         zIndex: 1,
-        children: [_v4 && (0, _v1.jsx)(_v106, {
+        children: [_v4 && (0, _v1.jsx)(_v107, {
           isSideNavActive: !!_v3,
           setIsSideNavActive: _v4
         }), (0, _v1.jsx)(_v7.Navigation.VimeoLogo, {
@@ -2646,8 +2643,8 @@
         }), _v1 && _v17 && (0, _v1.jsx)(_v4.Flex, {
           flexGrow: 1,
           minWidth: 0,
-          marginLeft: _v24,
-          children: (0, _v1.jsx)(_v104.Search, {})
+          marginLeft: _v23,
+          children: (0, _v1.jsx)(_v105.Search, {})
         })]
       }), (0, _v1.jsx)(_v7.Navigation.RightContent, {
         justifyContent: "end",
@@ -2657,7 +2654,7 @@
           md: "md"
         },
         children: (0, _v1.jsx)(_v77.LoginJoinModalContext.Provider, {
-          value: _v25,
+          value: _v19,
           children: (0, _v1.jsxs)(_v4.Flex, {
             alignItems: "center",
             gap: {
@@ -2668,18 +2665,18 @@
             justifyContent: "end",
             children: [!_v18 && (0, _v1.jsx)(_v7.Navigation.Upgrade, {
               viewer: _v9
-            }), _v1 && !_v17 && (0, _v1.jsx)(_v104.Search, {
+            }), _v1 && !_v17 && (0, _v1.jsx)(_v105.Search, {
               withToggle: !0,
               updateGlobalNavSearchState: _v12
-            }), !_v16 && !_v21 && (0, _v1.jsxs)(_v1.Fragment, {
+            }), !_v16 && !_v20 && (0, _v1.jsxs)(_v1.Fragment, {
               children: [(0, _v1.jsx)(_v75, {}), (0, _v1.jsx)(_v12, {})]
             }), _v9 && !_v10 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [!_v18 && !_v22 && (0, _v1.jsx)(_v103, {}), !(_v15 && _v11) && (0, _v1.jsx)(_v76.Login, {})]
-            }), !_v16 && (_v10 ? (0, _v1.jsx)(_v100, {
+              children: [!_v18 && !_v21 && (0, _v1.jsx)(_v104, {}), !(_v15 && _v11) && (0, _v1.jsx)(_v76.Login, {})]
+            }), !_v16 && (_v10 ? (0, _v1.jsx)(_v101, {
               hasUploader: _v5
-            }) : _v9 && !_v22 && (0, _v1.jsx)(_v76.Join, {})), !(_v15 && _v11) && (0, _v1.jsx)(_v8.AccountMenu, {
+            }) : _v9 && !_v21 && (0, _v1.jsx)(_v76.Join, {})), !(_v15 && _v11) && (0, _v1.jsx)(_v8.AccountMenu, {
               hasThemeSupport: _v2
-            }), _v9 && !_v10 && _v19 && (0, _v1.jsx)(_v107, {})]
+            }), _v9 && !_v10 && _v19.modal && (0, _v1.jsx)(_v108, {})]
           })
         })
       })]

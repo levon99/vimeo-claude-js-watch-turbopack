@@ -81,9 +81,10 @@
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
-    _v24 = _v0.i(0);
-  let _v25 = window.location.pathname.substring(1),
-    _v26 = ({
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0);
+  let _v26 = window.location.pathname.substring(1),
+    _v27 = ({
       text: _v0,
       href: _v1
     }) => (0, _v8.jsx)(_v12.Link, {
@@ -95,7 +96,7 @@
       fontSize: "inherit",
       children: _v0
     }, _v1),
-    _v27 = ({
+    _v28 = ({
       xsrft: _v0,
       closeModal: _v1,
       onSuccessfulLogin: _v2,
@@ -108,20 +109,32 @@
       namePlaceholderText: _v9,
       isCompact: _v10 = !1,
       canReactToCollabComments: _v11,
-      onLoginModalOpenChange: _v12
+      onLoginModalOpenChange: _v12,
+      entry: _v13
     }) => {
-      let [_v13, _v14] = (0, _v5.useState)(""),
-        [_v15, _v16] = (0, _v5.useState)(!0);
+      let [_v14, _v15] = (0, _v5.useState)(""),
+        [_v16, _v17] = (0, _v5.useState)(!0),
+        {
+          modalState: _v18,
+          open: _v19,
+          close: _v20
+        } = (0, _v24.useAttributedLoginModal)({
+          entry: _v13 ?? "guest_review_login",
+          type: "login"
+        });
       (0, _v5.useEffect)(() => {
-        _v16(!_v13.trim());
-      }, [_v13]);
-      let _v17 = () => {
-          _v6?.(0), _v14("");
+        _v17(!_v14.trim());
+      }, [_v14]);
+      let _v21 = () => {
+          _v6?.(0), _v15("");
         },
-        _v18 = () => {
-          _v13.trim() && (_v6?.(0), _v3(_v13));
+        _v22 = () => {
+          _v21(), _v12?.(!0), _v19();
         },
-        _v19 = (0, _v5.useCallback)(_v0 => {
+        _v23 = () => {
+          _v14.trim() && (_v6?.(0), _v3(_v14));
+        },
+        _v24 = (0, _v5.useCallback)(_v0 => {
           _v2(_v0);
         }, []);
       return (0, _v8.jsxs)(_v18.Box, {
@@ -143,7 +156,7 @@
           size: "lg",
           "aria-label": "close button",
           onClick: () => {
-            _v17(), _v1();
+            _v21(), _v1();
           }
         }), (0, _v8.jsxs)(_v18.Box, {
           width: _v10 ? "100%" : ["310px", "322px"],
@@ -236,16 +249,16 @@
                   }
                 }
               }),
-              value: _v13,
+              value: _v14,
               type: "text",
               _placeholder: {
                 color: "text-secondary"
               },
               onChange: _v0 => {
-                _v14(_v0.target.value);
+                _v15(_v0.target.value);
               },
               onKeyDown: _v0 => {
-                "Enter" === _v0.key && _v18();
+                "Enter" === _v0.key && _v23();
               }
             })]
           }), [0, 0, 0].includes(_v5 ?? 0) && (0, _v8.jsx)(_v13.Alert, {
@@ -285,8 +298,8 @@
             variant: "primary",
             padding: "5px 0px",
             width: "100%",
-            onClick: _v18,
-            isDisabled: _v15,
+            onClick: _v23,
+            isDisabled: _v16,
             isLoading: _v4,
             children: _v8 ?? (0, _v23.translate)({
               singular: "Post comment",
@@ -315,15 +328,19 @@
               }
             })
           })]
-        }), (0, _v8.jsx)(_v24.LoginJoinModal, {
+        }), (0, _v8.jsx)(_v25.LoginJoinModal, {
           type: "login",
           xsrft: _v0,
+          attribution: _v18.attribution,
+          isShowing: _v18.isShowing,
           onSuccess: _v0 => {
-            _v12?.(!1), _v19(_v0);
+            _v20(), _v12?.(!1), _v24(_v0);
           },
-          onDismiss: () => _v12?.(!1),
-          redirectUrl: _v25,
-          children: _v0 => (0, _v8.jsx)(_v17.Text, {
+          onDismiss: () => {
+            _v20(), _v12?.(!1);
+          },
+          redirectUrl: _v26,
+          children: () => (0, _v8.jsx)(_v17.Text, {
             variant: _v10 ? "body-sm" : "body-lg",
             textAlign: "center",
             mt: 16,
@@ -336,10 +353,10 @@
                   variant: "inline-primary",
                   textUnderlineOffset: "2px",
                   onClick: () => {
-                    _v17(), _v12?.(!0), _v0();
+                    _v22();
                   },
                   onKeyDown: _v0 => {
-                    "Enter" === _v0.key && (_v17(), _v12?.(!0), _v0());
+                    "Enter" === _v0.key && _v22();
                   },
                   children: _v0
                 })
@@ -376,11 +393,11 @@
           children: _v11 ? (0, _v23.translate)({
             singular: "By posting a comment or reacting to a comment, you agree to our {TERMS_OF_SERVICE} Terms of Service {/TERMS_OF_SERVICE} and acknowledge our {PRIVACY_POLICY} Privacy Policy {/PRIVACY_POLICY}",
             replacements: {
-              TERMS_OF_SERVICE: _v0 => (0, _v8.jsx)(_v26, {
+              TERMS_OF_SERVICE: _v0 => (0, _v8.jsx)(_v27, {
                 text: _v0,
                 href: "/terms"
               }),
-              PRIVACY_POLICY: _v0 => (0, _v8.jsx)(_v26, {
+              PRIVACY_POLICY: _v0 => (0, _v8.jsx)(_v27, {
                 text: _v0,
                 href: "/privacy"
               })
@@ -411,11 +428,11 @@
           }) : (0, _v23.translate)({
             singular: "By posting a comment, you agree to our {TERMS_OF_SERVICE} Terms of Service {/TERMS_OF_SERVICE} and acknowledge our {PRIVACY_POLICY} Privacy Policy {/PRIVACY_POLICY}",
             replacements: {
-              TERMS_OF_SERVICE: _v0 => (0, _v8.jsx)(_v26, {
+              TERMS_OF_SERVICE: _v0 => (0, _v8.jsx)(_v27, {
                 text: _v0,
                 href: "/terms"
               }),
-              PRIVACY_POLICY: _v0 => (0, _v8.jsx)(_v26, {
+              PRIVACY_POLICY: _v0 => (0, _v8.jsx)(_v27, {
                 text: _v0,
                 href: "/privacy"
               })
@@ -458,14 +475,15 @@
     resetApiErrorCode: _v7,
     titleText: _v8,
     submitButtonText: _v9,
-    canReactToCollabComments: _v10
+    canReactToCollabComments: _v10,
+    entry: _v11
   }) => (0, _v8.jsxs)(_v9.Modal, {
     isOpen: _v4,
     onClose: _v1,
     size: "sm",
     children: [(0, _v8.jsx)(_v10.ModalOverlay, {}), (0, _v8.jsx)(_v11.ModalContent, {
       maxW: "418px",
-      children: (0, _v8.jsx)(_v27, {
+      children: (0, _v8.jsx)(_v28, {
         closeModal: _v1,
         xsrft: _v0,
         onSuccessfulLogin: _v2,
@@ -475,7 +493,8 @@
         resetApiErrorCode: _v7,
         titleText: _v8,
         submitButtonText: _v9,
-        canReactToCollabComments: _v10
+        canReactToCollabComments: _v10,
+        entry: _v11
       })
     })]
   })], 0), _v0.s(["default", 0, ({
@@ -491,28 +510,29 @@
     submitButtonText: _v9,
     namePlaceholderText: _v10,
     isCompact: _v11 = !1,
-    canReactToCollabComments: _v12
+    canReactToCollabComments: _v12,
+    entry: _v13
   }) => {
-    let _v13 = (0, _v5.useRef)(null),
-      _v14 = (0, _v5.useRef)(!1),
-      _v15 = (0, _v5.useCallback)(_v0 => {
-        _v14.current = _v0;
+    let _v14 = (0, _v5.useRef)(null),
+      _v15 = (0, _v5.useRef)(!1),
+      _v16 = (0, _v5.useCallback)(_v0 => {
+        _v15.current = _v0;
       }, []);
     return (0, _v5.useEffect)(() => {
       if (!_v1) return;
       let _v0 = _v0 => {
-        _v14.current || _v13.current?.contains(_v0.target) || _v2();
+        _v15.current || _v14.current?.contains(_v0.target) || _v2();
       };
       return document.addEventListener("pointerdown", _v0, !0), () => document.removeEventListener("pointerdown", _v0, !0);
     }, [_v1, _v2]), (0, _v8.jsx)(_v18.Box, {
-      ref: _v13,
+      ref: _v14,
       width: "100%",
       display: _v1 ? void 0 : "none",
       bg: "fill-surface",
       borderRadius: "input-md",
       border: "1px solid",
       borderColor: "input-stroke",
-      children: (0, _v8.jsx)(_v27, {
+      children: (0, _v8.jsx)(_v28, {
         closeModal: _v2,
         xsrft: _v0,
         onSuccessfulLogin: _v3,
@@ -525,14 +545,15 @@
         namePlaceholderText: _v10,
         isCompact: _v11,
         canReactToCollabComments: _v12,
-        onLoginModalOpenChange: _v15
+        onLoginModalOpenChange: _v16,
+        entry: _v13
       })
     });
   }], 0);
-  var _v28 = _v0.i(0),
-    _v29 = _v0.i(0),
+  var _v29 = _v0.i(0),
     _v30 = _v0.i(0),
-    _v31 = _v0.i(0);
+    _v31 = _v0.i(0),
+    _v32 = _v0.i(0);
   _v0.s(["DismissConfirmationModal", 0, ({
     isOpen: _v0,
     onContinue: _v1,
@@ -547,7 +568,7 @@
     closeOnEsc: !1,
     children: [(0, _v8.jsx)(_v10.ModalOverlay, {}), (0, _v8.jsxs)(_v11.ModalContent, {
       maxW: "368px",
-      children: [(0, _v8.jsx)(_v30.ModalHeader, {
+      children: [(0, _v8.jsx)(_v31.ModalHeader, {
         textAlign: "center",
         pb: "6px",
         children: (0, _v23.translate)({
@@ -576,7 +597,7 @@
             }
           }
         })
-      }), (0, _v8.jsx)(_v28.ModalBody, {
+      }), (0, _v8.jsx)(_v29.ModalBody, {
         textAlign: "center",
         fontSize: "14px",
         fontWeight: "normal",
@@ -634,9 +655,9 @@
             }
           }
         })
-      }), (0, _v8.jsx)(_v29.ModalFooter, {
+      }), (0, _v8.jsx)(_v30.ModalFooter, {
         pt: 0,
-        children: (0, _v8.jsxs)(_v31.Stack, {
+        children: (0, _v8.jsxs)(_v32.Stack, {
           spacing: 2,
           width: "100%",
           children: [(0, _v8.jsx)(_v15.Button, {

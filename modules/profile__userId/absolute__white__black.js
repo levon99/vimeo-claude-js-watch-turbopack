@@ -93,8 +93,9 @@
       className: _v12,
       style: _v13
     }, _v14) => (0, _v2.jsxs)(_v2.Fragment, {
-      children: [_v10 && (0, _v2.jsx)(_v23.Header, {
-        size: "6",
+      children: [_v10 && (0, _v2.jsx)(_v18.Header, {
+        as: "h6",
+        size: "xs",
         children: _v10
       }), (0, _v2.jsxs)(_v26, {
         children: [!_v8 && (0, _v2.jsx)(_v29, {}), _v8 && _v11 && _v4 && (0, _v2.jsx)(_v28, {
@@ -115,10 +116,10 @@
           style: _v13
         }), _v9 && !_v4 && (0, _v2.jsx)(_v31, {
           format: "secondary",
-          icon: (0, _v2.jsx)(_v22.Search, {})
+          icon: (0, _v2.jsx)(_v23.Search, {})
         }), _v4 && (0, _v2.jsx)(_v31, {
           format: "secondary",
-          icon: (0, _v2.jsx)(_v21.DismissX, {}),
+          icon: (0, _v2.jsx)(_v22.DismissX, {}),
           onClick: _v3
         })]
       })]
@@ -148,7 +149,7 @@
   height: 100%;
   justify-content: center;
 `,
-    _v29 = (0, _v5.default)(_v20.CircleInfoSmall).withConfig({
+    _v29 = (0, _v5.default)(_v21.CircleInfoSmall).withConfig({
       displayName: "LocationInputField__ErrorCircle",
       componentId: "sc-3de6c16b-2"
     })`
@@ -158,7 +159,7 @@
     fill: ${_v7.bokehTheme.colors.red["600"]};
   }
 `,
-    _v30 = (0, _v5.default)(_v19.Input).withConfig({
+    _v30 = (0, _v5.default)(_v20.Input).withConfig({
       displayName: "LocationInputField__CustomInputField",
       componentId: "sc-3de6c16b-3"
     })`
@@ -179,7 +180,7 @@
           `}
   }
 `,
-    _v31 = (0, _v5.default)(_v18.Button).withConfig({
+    _v31 = (0, _v5.default)(_v19.Button).withConfig({
       displayName: "LocationInputField__IconButton",
       componentId: "sc-3de6c16b-4"
     })`

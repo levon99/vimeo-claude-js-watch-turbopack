@@ -196,19 +196,23 @@
     let _v9 = (0, _v1.useCallback)(() => _v7({
         type: "RESET"
       }), [_v7]),
-      _v10 = (0, _v1.useCallback)(async _v0 => {
-        _v0.preventDefault(), _v7({
-          type: "SUBMIT"
-        });
-        let _v1 = _v2(_v6.draft);
-        if (_v1 && ("object" == typeof _v1 || "function" == typeof _v1) && "function" == typeof _v1.then) try {
-          await _v1, _v7({
-            type: "COMMIT"
-          });
-        } catch (_v0) {} else _v7({
+      _v10 = (0, _v1.useRef)(_v2);
+    (0, _v1.useEffect)(() => {
+      _v10.current = _v2;
+    });
+    let _v11 = (0, _v1.useCallback)(async _v0 => {
+      _v0.preventDefault(), _v7({
+        type: "SUBMIT"
+      });
+      let _v1 = _v10.current(_v6.draft);
+      if (_v1 && ("object" == typeof _v1 || "function" == typeof _v1) && "function" == typeof _v1.then) try {
+        await _v1, _v7({
           type: "COMMIT"
         });
-      }, [_v2, _v7]);
+      } catch (_v0) {} else _v7({
+        type: "COMMIT"
+      });
+    }, [_v6.draft, _v7]);
     return (0, _v1.useEffect)(() => {
       _v5 && _v8();
     }, []), (0, _v1.useEffect)(() => {
@@ -217,7 +221,7 @@
       _v3 && _v8();
     }, [_v6.touched]), (0, _v1.useMemo)(() => ({
       handleReset: _v9,
-      handleSubmit: _v10,
+      handleSubmit: _v11,
       dirty: _v6.dirty.size > 0,
       valid: 0 === _v6.errors.size,
       submitting: _v6.submitting,

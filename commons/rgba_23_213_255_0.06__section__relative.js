@@ -482,7 +482,8 @@
     let {
       user: _v6,
       name: _v7,
-      onClick: _v8
+      onClick: _v8,
+      deferDetails: _v9
     } = _v1;
     return _v2 && _v6 ? (0, _v1.jsx)(_v20, {
       user: _v6,
@@ -491,6 +492,7 @@
       followSource: _v5,
       onProfileClick: _v8,
       openDelay: 500,
+      deferDetails: _v9,
       children: _v0
     }) : (0, _v1.jsx)(_v18.OverflowToolTip, {
       labelToolTip: _v7,

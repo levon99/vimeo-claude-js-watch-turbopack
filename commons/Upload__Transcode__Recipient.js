@@ -15,35 +15,33 @@
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
-    _v15 = _v0.i(0),
-    _v16 = _v0.i(0),
-    _v17 = ((_v1 = {})[_v1.Upload = 1] = "Upload", _v1[_v1.Transcode = 2] = "Transcode", _v1[_v1.Recipient = 3] = "Recipient", _v1[_v1.ReplaceOverQuota = 4] = "ReplaceOverQuota", _v1);
-  let _v18 = _v5.default.button.withConfig({
+    _v15 = ((_v1 = {})[_v1.Upload = 1] = "Upload", _v1[_v1.Transcode = 2] = "Transcode", _v1[_v1.Recipient = 3] = "Recipient", _v1[_v1.ReplaceOverQuota = 4] = "ReplaceOverQuota", _v1);
+  let _v16 = _v5.default.button.withConfig({
       displayName: "errors__UnstyledButton",
       componentId: "sc-ba056818-0"
     })`
   background-color: unset;
   border: none;
   cursor: pointer;
-  font-size: ${_v11.core.typography.size(200)}px;
+  font-size: ${(0, _v3.rem)(14)};
   outline: none;
   padding: 0;
   text-align: unset;
 
   &:focus {
-    border-color: ${({
-      theme: _v0
-    }) => _v0.element.bg1};
+    border-color: var(--vimeo-colors-surface);
   }
 `,
-    _v19 = ({
+    _v17 = ({
       children: _v0,
       videoId: _v1
     }) => {
       let {
-        upload: _v2
-      } = (0, _v16.useUploader)();
-      return (0, _v2.jsx)(_v13.FileUpload, {
+          upload: _v2
+        } = (0, _v14.useUploader)(),
+        _v3 = (0, _v4.useRef)(null);
+      return (0, _v2.jsx)(_v12.FileInput, {
+        ref: _v3,
         onChange: _v0 => {
           let {
             files: _v1
@@ -53,18 +51,20 @@
             clipId: _v1
           });
         },
-        children: (0, _v2.jsx)(_v18, {
-          children: (0, _v2.jsx)(_v14.Link, {
-            element: "span",
+        label: (0, _v2.jsx)(_v16, {
+          onClick: () => _v3.current?.click(),
+          children: (0, _v2.jsx)(_v8.Link, {
+            as: "span",
+            color: "vimeoBlue.500",
             children: _v0
           })
         }, "generic-error")
       });
     },
-    _v20 = (_v0, _v1, _v2) => _v1 ? (0, _v9.translate)({
+    _v18 = (_v0, _v1, _v2) => _v1 ? (0, _v10.translate)({
       singular: "Upload failed. Your video has not been replaced. {link}Try again.{/link}",
       replacements: {
-        link: _v0 => _v2 ? (0, _v2.jsx)(_v19, {
+        link: _v0 => _v2 ? (0, _v2.jsx)(_v17, {
           videoId: _v2,
           children: _v0
         }, "error-cta") : _v0
@@ -92,7 +92,7 @@
           singular: "上传失败。您的视频没有被替换。{link}请重试。{/link}"
         }
       }
-    }) : (0, _v9.translate)({
+    }) : (0, _v10.translate)({
       singular: "There was a problem with your upload. {link}Please try again.{/link}",
       replacements: {
         link: _v0 => _v0 ? (0, _v2.jsx)("a", {
@@ -124,12 +124,12 @@
         }
       }
     }),
-    _v21 = new Map([[_v15.ERRORS.NO_MACHINE_ID, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.NO_MACHINE_ID],
-      getDescription: _v20
-    }], [_v15.ERRORS.VERIFICATION_FAILED, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.VERIFICATION_FAILED],
-      getDescription: () => (0, _v9.translate)({
+    _v19 = new Map([[_v13.ERRORS.NO_MACHINE_ID, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.NO_MACHINE_ID],
+      getDescription: _v18
+    }], [_v13.ERRORS.VERIFICATION_FAILED, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.VERIFICATION_FAILED],
+      getDescription: () => (0, _v10.translate)({
         singular: "We were unable to complete your upload.",
         dictionary: {
           es: {
@@ -155,12 +155,12 @@
           }
         }
       })
-    }], [_v15.ERRORS.DNS_ERROR, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.DNS_ERROR],
-      getDescription: _v20
-    }], [_v15.ERRORS.RETRY_FAILED, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.RETRY_FAILED],
-      getDescription: () => (0, _v9.translate)({
+    }], [_v13.ERRORS.DNS_ERROR, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.DNS_ERROR],
+      getDescription: _v18
+    }], [_v13.ERRORS.RETRY_FAILED, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.RETRY_FAILED],
+      getDescription: () => (0, _v10.translate)({
         singular: "Your upload has failed. This is usually caused by a dropped connection. Please try uploading again.",
         dictionary: {
           es: {
@@ -186,9 +186,9 @@
           }
         }
       })
-    }], [_v15.ERRORS.ATTACH_FAILED, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.ATTACH_FAILED],
-      getDescription: () => (0, _v9.translate)({
+    }], [_v13.ERRORS.ATTACH_FAILED, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.ATTACH_FAILED],
+      getDescription: () => (0, _v10.translate)({
         singular: "Your upload didn’t start. That’s a pretty rare thing, and it shouldn’t happen again. Please give it another go.",
         dictionary: {
           es: {
@@ -214,21 +214,21 @@
           }
         }
       })
-    }], [_v15.ERRORS.PROGRESS_CALL_ERROR, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.PROGRESS_CALL_ERROR],
-      getDescription: _v20
-    }], [_v15.ERRORS.METADATA_CALL_ERROR, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.METADATA_CALL_ERROR],
-      getDescription: _v20
-    }], [_v15.ERRORS.PROGRESS_STATE_MISMATCH, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.PROGRESS_STATE_MISMATCH],
-      getDescription: _v20
-    }], [_v15.ERRORS.VIDEO_FILE_INVALID, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.VIDEO_FILE_INVALID],
-      getDescription: () => (0, _v9.translate)({
+    }], [_v13.ERRORS.PROGRESS_CALL_ERROR, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.PROGRESS_CALL_ERROR],
+      getDescription: _v18
+    }], [_v13.ERRORS.METADATA_CALL_ERROR, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.METADATA_CALL_ERROR],
+      getDescription: _v18
+    }], [_v13.ERRORS.PROGRESS_STATE_MISMATCH, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.PROGRESS_STATE_MISMATCH],
+      getDescription: _v18
+    }], [_v13.ERRORS.VIDEO_FILE_INVALID, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.VIDEO_FILE_INVALID],
+      getDescription: () => (0, _v10.translate)({
         singular: "Hmmm, this does not appear to be a valid video file. Please review our {A}Compression Guidelines{/A} and double-check that you’re uploading a file type that we support.",
         replacements: {
-          A: _v0 => (0, _v2.jsx)(_v14.Link, {
+          A: _v0 => (0, _v2.jsx)(_v8.Link, {
             href: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426043233169-Video-and-audio-compression-guidelines",
             target: "_blank",
             children: _v0
@@ -258,9 +258,9 @@
           }
         }
       })
-    }], [_v15.ERRORS.NETWORK_ERROR, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.NETWORK_ERROR],
-      getDescription: () => (0, _v9.translate)({
+    }], [_v13.ERRORS.NETWORK_ERROR, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.NETWORK_ERROR],
+      getDescription: () => (0, _v10.translate)({
         singular: "Oops! You’re no longer connected to the Internet. Once you reconnect, your upload will resume.",
         dictionary: {
           es: {
@@ -286,9 +286,9 @@
           }
         }
       })
-    }], [_v15.ERRORS.VIDEO_FILE_REMOVED, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.VIDEO_FILE_REMOVED],
-      getDescription: () => (0, _v9.translate)({
+    }], [_v13.ERRORS.VIDEO_FILE_REMOVED, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.VIDEO_FILE_REMOVED],
+      getDescription: () => (0, _v10.translate)({
         singular: "The file you are uploading was either moved or deleted. Please try again.",
         dictionary: {
           es: {
@@ -314,9 +314,9 @@
           }
         }
       })
-    }], [_v15.ERRORS.VIDEO_FILE_SIZE_CHANGED, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.VIDEO_FILE_SIZE_CHANGED],
-      getDescription: () => (0, _v9.translate)({
+    }], [_v13.ERRORS.VIDEO_FILE_SIZE_CHANGED, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.VIDEO_FILE_SIZE_CHANGED],
+      getDescription: () => (0, _v10.translate)({
         singular: "The size of file you are uploading has changed. Please try again.",
         dictionary: {
           es: {
@@ -342,9 +342,9 @@
           }
         }
       })
-    }], [_v15.ERRORS.FILE_TOO_SMALL, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.FILE_TOO_SMALL],
-      getDescription: () => (0, _v9.translate)({
+    }], [_v13.ERRORS.FILE_TOO_SMALL, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.FILE_TOO_SMALL],
+      getDescription: () => (0, _v10.translate)({
         singular: "Sorry, the file you selected is too small to be a valid video.",
         dictionary: {
           es: {
@@ -370,17 +370,17 @@
           }
         }
       })
-    }], [_v15.ERRORS.INVALID_DROPBOX_URL, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.INVALID_DROPBOX_URL],
-      getDescription: () => (0, _v9.translate)({
+    }], [_v13.ERRORS.INVALID_DROPBOX_URL, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.INVALID_DROPBOX_URL],
+      getDescription: () => (0, _v10.translate)({
         singular: "It looks like Dropbox has suspended your sharable links, which is what we use to upload your videos to Vimeo. You can re-enable them in your Dropbox {A_ACCOUNT}Account Page{/A_ACCOUNT} or learn more in the Dropbox {A_HELP}Help Center{/A_HELP}.",
         replacements: {
-          A_ACCOUNT: _v0 => (0, _v2.jsx)(_v14.Link, {
+          A_ACCOUNT: _v0 => (0, _v2.jsx)(_v8.Link, {
             href: "https://www.dropbox.com/account#personal",
             target: "_blank",
             children: _v0
           }, "dropbox-error"),
-          A_HELP: _v0 => (0, _v2.jsx)(_v14.Link, {
+          A_HELP: _v0 => (0, _v2.jsx)(_v8.Link, {
             href: "https://www.dropbox.com/help/45",
             target: "_blank",
             children: _v0
@@ -410,36 +410,36 @@
           }
         }
       })
-    }], [_v15.ERRORS.INVALID_UPLOAD_ENDPOINT, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.INVALID_UPLOAD_ENDPOINT],
-      getDescription: _v20
-    }], [_v15.ERRORS.RANGE_FAILED, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.RANGE_FAILED],
-      getDescription: _v20
-    }], [_v15.ERRORS.RANGE_RESUME_FAILED, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.RANGE_RESUME_FAILED],
-      getDescription: _v20
-    }], [_v15.ERRORS.PULL_FAILED, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.PULL_FAILED],
-      getDescription: _v20
-    }], [_v15.ERRORS.VALIDATOR_CALL_ERROR, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.VALIDATOR_CALL_ERROR],
-      getDescription: _v20
-    }], [_v15.ERRORS.LIGHTHOUSE_LOAD_ERROR, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.LIGHTHOUSE_LOAD_ERROR],
-      getDescription: _v20
-    }], [_v15.ERRORS.LIGHTHOUSE_RACE_ERROR, {
-      code: _v15.ERROR_CODES[_v15.ERRORS.LIGHTHOUSE_RACE_ERROR],
-      getDescription: _v20
+    }], [_v13.ERRORS.INVALID_UPLOAD_ENDPOINT, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.INVALID_UPLOAD_ENDPOINT],
+      getDescription: _v18
+    }], [_v13.ERRORS.RANGE_FAILED, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.RANGE_FAILED],
+      getDescription: _v18
+    }], [_v13.ERRORS.RANGE_RESUME_FAILED, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.RANGE_RESUME_FAILED],
+      getDescription: _v18
+    }], [_v13.ERRORS.PULL_FAILED, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.PULL_FAILED],
+      getDescription: _v18
+    }], [_v13.ERRORS.VALIDATOR_CALL_ERROR, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.VALIDATOR_CALL_ERROR],
+      getDescription: _v18
+    }], [_v13.ERRORS.LIGHTHOUSE_LOAD_ERROR, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.LIGHTHOUSE_LOAD_ERROR],
+      getDescription: _v18
+    }], [_v13.ERRORS.LIGHTHOUSE_RACE_ERROR, {
+      code: _v13.ERROR_CODES[_v13.ERRORS.LIGHTHOUSE_RACE_ERROR],
+      getDescription: _v18
     }], [1, {
       code: 1,
-      getDescription: _v20
+      getDescription: _v18
     }], [2, {
       code: 2,
-      getDescription: _v20
+      getDescription: _v18
     }], [3, {
       code: 3,
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "This video is unavailable, please contact the owner",
         dictionary: {
           es: {
@@ -467,10 +467,10 @@
       })
     }], ["analysis_failed", {
       code: "analysis_failed",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "We couldn't process your file. Try again, or {A}check our encoding guidelines{/A} to make sure your file is compatible.",
         replacements: {
-          A: _v0 => (0, _v2.jsx)(_v14.Link, {
+          A: _v0 => (0, _v2.jsx)(_v8.Link, {
             href: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426043233169-Video-and-audio-compression-guidelines",
             target: "_blank",
             children: _v0
@@ -502,7 +502,7 @@
       })
     }], ["duration_too_long", {
       code: "duration_too_long",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "Your video exceeds the 24-hour maximum duration. Please trim it and try again.",
         dictionary: {
           es: {
@@ -530,7 +530,7 @@
       })
     }], ["duration_too_short", {
       code: "duration_too_short",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "Your video is too short. Vimeo requires videos of at least 0.5 seconds.",
         dictionary: {
           es: {
@@ -558,10 +558,10 @@
       })
     }], ["missing_video_stream", {
       code: "missing_video_stream",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "Your file doesn't contain a video stream. {A}Check our encoding guidelines{/A} for supported formats.",
         replacements: {
-          A: _v0 => (0, _v2.jsx)(_v14.Link, {
+          A: _v0 => (0, _v2.jsx)(_v8.Link, {
             href: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426043233169-Video-and-audio-compression-guidelines",
             target: "_blank",
             children: _v0
@@ -593,7 +593,7 @@
       })
     }], ["resolution_dimension_too_small", {
       code: "resolution_dimension_too_small",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "Your video resolution is too small. Please upload a video with a minimum width and height of 2 pixels.",
         dictionary: {
           es: {
@@ -621,7 +621,7 @@
       })
     }], ["max_file_size_exceeded", {
       code: "max_file_size_exceeded",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "Your file exceeds the 300 GB maximum file size. Please use a smaller file.",
         dictionary: {
           es: {
@@ -649,7 +649,7 @@
       })
     }], ["empty_upload", {
       code: "empty_upload",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "Your file appears to be empty (0 bytes). Please check the file and try again.",
         dictionary: {
           es: {
@@ -677,10 +677,10 @@
       })
     }], ["disallowed_content_type", {
       code: "disallowed_content_type",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "This file type is not supported. {A}Check our encoding guidelines{/A} for supported formats.",
         replacements: {
-          A: _v0 => (0, _v2.jsx)(_v14.Link, {
+          A: _v0 => (0, _v2.jsx)(_v8.Link, {
             href: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426043233169-Video-and-audio-compression-guidelines",
             target: "_blank",
             children: _v0
@@ -712,10 +712,10 @@
       })
     }], ["exceeded_retry_count", {
       code: "exceeded_retry_count",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "Your upload failed too many times. Please try again, or {A}check our encoding guidelines{/A}.",
         replacements: {
-          A: _v0 => (0, _v2.jsx)(_v14.Link, {
+          A: _v0 => (0, _v2.jsx)(_v8.Link, {
             href: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426043233169-Video-and-audio-compression-guidelines",
             target: "_blank",
             children: _v0
@@ -747,7 +747,7 @@
       })
     }], ["internal", {
       code: "internal",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "Something went wrong on our end. Please try uploading again.",
         dictionary: {
           es: {
@@ -775,7 +775,7 @@
       })
     }], ["disallowed_address", {
       code: "disallowed_address",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "The URL you provided resolves to a restricted address.",
         dictionary: {
           es: {
@@ -803,7 +803,7 @@
       })
     }], ["invalid_redirects", {
       code: "invalid_redirects",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "The URL you provided redirects too many times or to a different host.",
         dictionary: {
           es: {
@@ -831,7 +831,7 @@
       })
     }], ["remote_not_found", {
       code: "remote_not_found",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "The file at the URL you provided could not be found (404). Please check the URL and try again.",
         dictionary: {
           es: {
@@ -859,7 +859,7 @@
       })
     }], ["remote_unauthorized", {
       code: "remote_unauthorized",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "Access to the URL was denied (401). Please check that the URL is publicly accessible, or set the appropriate authorization headers.",
         dictionary: {
           es: {
@@ -887,7 +887,7 @@
       })
     }], ["remote_forbidden", {
       code: "remote_forbidden",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "Access to the URL was forbidden (403). Please check that the URL is publicly accessible, or set the appropriate authorization headers.",
         dictionary: {
           es: {
@@ -915,7 +915,7 @@
       })
     }], ["remote_bad_request", {
       code: "remote_bad_request",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "The server at the URL you provided rejected the request (4xx). Please check the URL and try again.",
         dictionary: {
           es: {
@@ -943,7 +943,7 @@
       })
     }], ["remote_internal", {
       code: "remote_internal",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "The server at the URL you provided encountered an error (5xx). Please check the URL or try again later.",
         dictionary: {
           es: {
@@ -971,10 +971,10 @@
       })
     }], ["unsupported_video_projection", {
       code: "unsupported_video_projection",
-      getDescription: () => (0, _v9.translate)({
+      getDescription: () => (0, _v10.translate)({
         singular: "Your video uses a spatial projection we don't support yet. {A}Check our encoding guidelines{/A} for supported formats.",
         replacements: {
-          A: _v0 => (0, _v2.jsx)(_v14.Link, {
+          A: _v0 => (0, _v2.jsx)(_v8.Link, {
             href: "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426043233169-Video-and-audio-compression-guidelines",
             target: "_blank",
             children: _v0
@@ -1005,11 +1005,11 @@
         }
       })
     }]]),
-    _v22 = (0, _v5.default)(_v10.Notice).withConfig({
+    _v20 = (0, _v5.default)(_v11.Notice).withConfig({
       displayName: "UploadErrorMessage__StyledNotice",
       componentId: "sc-8b55cbec-0"
     })`
-  font-size: ${_v11.core.typography.size(200)}px;
+  font-size: ${(0, _v3.rem)(14)};
   ${({
       hasMaxWidth: _v0
     }) => _v0 && _v5.css`
@@ -1017,7 +1017,7 @@
     `}
 
   > span {
-    font-size: ${_v11.core.typography.size(200)}px;
+    font-size: ${(0, _v3.rem)(14)};
   }
 `;
   _v0.s(["UploadErrorMessage", 0, ({
@@ -1034,7 +1034,7 @@
     ..._v10
   }) => {
     let [_v11, _v12] = (0, _v4.useState)(!!_v0);
-    if (_v0 === _v17.ReplaceOverQuota) return (0, _v2.jsx)(_v6.Alert, {
+    if (_v0 === _v15.ReplaceOverQuota) return (0, _v2.jsx)(_v6.Alert, {
       size: "sm",
       status: "error",
       maxWidth: _v5,
@@ -1047,7 +1047,7 @@
       alignItems: "center",
       ..._v10,
       children: (0, _v2.jsx)(_v7.AlertDescription, {
-        children: _v8 ? (0, _v9.translate)({
+        children: _v8 ? (0, _v10.translate)({
           singular: "The selected file exceeds your storage limit.",
           dictionary: {
             es: {
@@ -1072,7 +1072,7 @@
               singular: "所选文件超出了您的存储限制。"
             }
           }
-        }) : _v9 ? (0, _v9.translate)({
+        }) : _v9 ? (0, _v10.translate)({
           singular: "The selected file exceeds your storage limit. To add a new version, try a smaller file or {LINK}upgrade for more storage.{/LINK}",
           replacements: {
             LINK: _v0 => (0, _v2.jsx)(_v8.Link, {
@@ -1107,7 +1107,7 @@
               singular: "所选文件超出了您的存储限制。要添加新版本，请尝试较小的文件或{LINK}升级以获得更多存储空间。{/LINK}"
             }
           }
-        }) : (0, _v9.translate)({
+        }) : (0, _v10.translate)({
           singular: "The selected file exceeds your storage limit. To replace this video, try a smaller file or {LINK}upgrade for more storage.{/LINK}",
           replacements: {
             LINK: _v0 => (0, _v2.jsx)(_v8.Link, {
@@ -1146,15 +1146,15 @@
       })
     });
     let _v13 = ((_v0, _v1, _v2, _v3) => {
-      let _v4 = _v21.get(_v0) || "";
+      let _v4 = _v19.get(_v0) || "";
       if (!_v4) return _v0;
       let _v5 = _v4.getDescription(_v1, _v2, _v3);
-      return "string" == typeof _v5 ? _v5 : _v5.map((_v0, _v1) => "string" == typeof _v0 ? (0, _v2.jsx)(_v12.Paragraph, {
-        size: "2",
+      return "string" == typeof _v5 ? _v5 : _v5.map((_v0, _v1) => "string" == typeof _v0 ? (0, _v2.jsx)(_v9.Paragraph, {
+        size: "md",
         children: _v0
       }, `error-${_v1}`) : _v0);
     })(_v0, _v1, _v3, _v4);
-    return _v11 ? (0, _v2.jsx)(_v22, {
+    return _v11 ? (0, _v2.jsx)(_v20, {
       format: "negative",
       onClose: () => {
         _v12(!1), _v2?.();

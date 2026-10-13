@@ -740,22 +740,22 @@
                   singular: "No results found",
                   dictionary: {
                     es: {
-                      singular: "No encontramos resultados."
+                      singular: "No se han encontrado resultados"
                     },
                     "de-DE": {
-                      singular: "Keine Ergebnisse"
+                      singular: "Keine Ergebnisse gefunden"
                     },
                     "fr-FR": {
                       singular: "Aucun résultat trouvé"
                     },
                     "ja-JP": {
-                      singular: "検索結果がありません"
+                      singular: "結果が見つかりませんでした"
                     },
                     "ko-KR": {
-                      singular: "검색 결과가 없습니다"
+                      singular: "결과가 없습니다"
                     },
                     "pt-BR": {
-                      singular: "Nenhum resultado encontrado."
+                      singular: "Nenhum resultado encontrado"
                     },
                     "zh-CN": {
                       singular: "未找到结果"

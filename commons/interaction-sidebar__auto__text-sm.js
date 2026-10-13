@@ -475,8 +475,9 @@
   var _v61 = _v0.i(0),
     _v62 = _v0.i(0),
     _v63 = _v0.i(0),
-    _v64 = _v0.i(0);
-  function _v65(_v0) {
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
+  function _v66(_v0) {
     let _v1 = (0, _v12.useLogger)("auth"),
       {
         roomInfo: {
@@ -492,7 +493,7 @@
       _v7 = !!_v3 && _v3?.data?.authType === _v0,
       _v8 = (0, _v3.useMemo)(() => {
         if (!_v7 || _v4) return null;
-        if ((0, _v64.isApiError)(_v3)) switch (_v3.data.body.errorCode) {
+        if ((0, _v65.isApiError)(_v3)) switch (_v3.data.body.errorCode) {
           case _v34.EApiErrorCode.ROOM_AUTHORIZATION_FAILED:
             return _v20.translations.errorRoomJoinFailed + ".";
           case _v34.EApiErrorCode.ROOM_AUTHORIZATION_FAILED_SESSION_ENDED:
@@ -519,37 +520,47 @@
       }, [_v6])
     };
   }
-  function _v66({
+  function _v67({
     id: _v0 = (0, _v5.createInteractionDomName)("vimeo-user-login"),
     loginType: _v1 = _v10.EInteractionAuthOption.VIMEO,
     buttonRenderer: _v2
   }) {
-    let [_v3, _v4] = (0, _v3.useState)(!1),
-      [_v5, _v6] = (0, _v3.useState)("login"),
-      _v7 = (0, _v63.useViewer)(),
+    let {
+        modalState: _v3,
+        setModalState: _v4,
+        open: _v5,
+        close: _v6
+      } = (0, _v62.useAttributedLoginModal)({
+        entry: "live_chat_login",
+        type: "login"
+      }),
+      _v7 = (0, _v64.useViewer)(),
       {
         isLoading: _v8,
         isLoginFailed: _v9,
         errorMessage: _v10,
         onLogin: _v11
-      } = _v65(_v1),
+      } = _v66(_v1),
       _v12 = !!(_v7 && !_v7?.user),
       _v13 = (0, _v3.useCallback)(() => _v11(), [_v11]),
-      _v14 = (0, _v3.useCallback)(() => _v4(!1), []),
-      _v15 = (0, _v3.useCallback)(() => _v4(!0), []),
+      _v14 = (0, _v3.useCallback)(() => _v6(), [_v6]),
+      _v15 = (0, _v3.useCallback)(() => _v5(), [_v5]),
       _v16 = (0, _v3.useCallback)(async () => {
-        _v7?.refreshJwt && (await _v7.refreshJwt(), await (0, _v61.nextAsyncQueue)(), await _v11()), _v4(!1);
-      }, [_v7, _v11]);
+        _v7?.refreshJwt && (await _v7.refreshJwt(), await (0, _v61.nextAsyncQueue)(), await _v11()), _v6();
+      }, [_v7, _v11, _v6]);
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v12 ? (0, _v1.jsx)(_v62.LoginJoinModal, {
-        type: _v5,
+      children: [_v12 ? (0, _v1.jsx)(_v63.LoginJoinModal, {
+        type: _v3.type,
         xsrft: _v7?.xsrft ?? "",
-        isShowing: _v3,
+        isShowing: _v3.isShowing,
         onDismiss: _v14,
         onSuccess: _v16,
         redirectUrl: window.location.href,
         redirectUrlAfterSocialLogin: window.location.href,
-        updateInitialType: _v6
+        updateInitialType: _v0 => _v4({
+          type: _v0
+        }),
+        attribution: _v3.attribution
       }) : null, _v2({
         id: (0, _v5.createInteractionDomName)(_v0, "button"),
         label: _v20.translations.loginWithVimeo,
@@ -563,7 +574,7 @@
       }) : null]
     });
   }
-  _v0.s(["useInteractionLoginOption", 0, _v65], 0), _v0.s(["VimeoUserLogin", 0, _v66], 0), _v0.s(["AdminLogin", 0, function ({
+  _v0.s(["useInteractionLoginOption", 0, _v66], 0), _v0.s(["VimeoUserLogin", 0, _v67], 0), _v0.s(["AdminLogin", 0, function ({
     id: _v0 = (0, _v5.createInteractionDomName)("admin-login")
   }) {
     return (0, _v1.jsxs)(_v4.Flex, {
@@ -583,7 +594,7 @@
         size: "md",
         color: "text-secondary",
         children: _v20.translations.ifYouAreModeratorForThisEvent
-      }), (0, _v1.jsx)(_v66, {
+      }), (0, _v1.jsx)(_v67, {
         id: _v0,
         loginType: _v10.EInteractionAuthOption.ADMIN,
         buttonRenderer: ({
@@ -599,10 +610,10 @@
       })]
     });
   }], 0);
-  var _v67 = _v0.i(0),
-    _v68 = _v0.i(0),
+  var _v68 = _v0.i(0),
     _v69 = _v0.i(0),
-    _v70 = _v0.i(0);
+    _v70 = _v0.i(0),
+    _v71 = _v0.i(0);
   _v0.s(["AnonymousLogin", 0, function ({
     id: _v0 = (0, _v5.createInteractionDomName)("anonymous-login")
   }) {
@@ -616,7 +627,7 @@
         errorMessage: _v8,
         onResetError: _v9,
         onLogin: _v10
-      } = _v65(_v10.EInteractionAuthOption.ANONYMOUS),
+      } = _v66(_v10.EInteractionAuthOption.ANONYMOUS),
       _v11 = (0, _v3.useCallback)(_v0 => {
         _v2(_v0.target.value), _v7 && _v9();
       }, [_v7, _v9]),
@@ -630,17 +641,17 @@
       id: _v0,
       children: [(0, _v1.jsxs)(_v46.FormControl, {
         isInvalid: _v6,
-        children: [(0, _v1.jsx)(_v67.FormLabel, {
+        children: [(0, _v1.jsx)(_v68.FormLabel, {
           color: "text-primary",
           fontWeight: 700,
           marginBottom: (0, _v19.rem)(8),
           children: _v20.translations.name
-        }), (0, _v1.jsx)(_v68.Input, {
+        }), (0, _v1.jsx)(_v69.Input, {
           id: (0, _v5.createInteractionDomName)(_v0, "input"),
           size: "md",
           value: _v1,
           isDisabled: _v5,
-          fontSize: (0, _v19.rem)(_v70.browserConfig.BROWSER?.isMobile ? 16 : 14),
+          fontSize: (0, _v19.rem)(_v71.browserConfig.BROWSER?.isMobile ? 16 : 14),
           onChange: _v11
         })]
       }), (0, _v1.jsx)(_v50.Button, {
@@ -655,7 +666,7 @@
         status: "error",
         margin: `${(0, _v19.rem)(8)} 0 0 0`,
         onClose: _v9,
-        children: (0, _v1.jsx)(_v69.AlertDescription, {
+        children: (0, _v1.jsx)(_v70.AlertDescription, {
           margin: 0,
           children: _v8
         })

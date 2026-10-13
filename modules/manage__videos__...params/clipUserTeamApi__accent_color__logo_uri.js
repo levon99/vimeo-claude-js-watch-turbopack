@@ -20772,7 +20772,10 @@
           _v11.current && "hoverOut" !== _v11.current.name && (_v11.current.destroy(), _v11.current = _v670.default.loadAnimation(_v16(_v7.current, "hoverOut"))), _v11.current?.play();
         }, [_v16]);
       return (0, _v29.useEffect)(function () {
-        _v7 && (_v8.current || _v10?.current !== _v9) && (_v11?.current?.destroy(), _v11.current = _v670.default.loadAnimation(_v16(_v7.current, "hoverIn")), _v8.current = !1, _v10.current = _v9);
+        let _v0 = _v7.current;
+        return null !== _v0 && (_v8.current || _v10.current !== _v9 || null === _v11.current) && (_v11.current?.destroy(), _v11.current = _v670.default.loadAnimation(_v16(_v0, "hoverIn")), _v8.current = !1, _v10.current = _v9), () => {
+          _v11.current?.destroy(), _v11.current = null;
+        };
       }, [_v8, _v7, _v16, _v9]), (0, _v29.useImperativeHandle)(_v3, () => ({
         playHoverInOutAnimation: () => {
           _v17(), setTimeout(() => _v18(), 0);
@@ -24474,17 +24477,18 @@
           } = {}) => {
             let [_v1, _v2] = (0, _v29.useState)(null),
               _v3 = (0, _v29.useRef)(null),
-              [_v4, _v5] = (0, _v29.useState)(null),
+              _v4 = (0, _v29.useRef)(null),
+              [_v5, _v6] = (0, _v29.useState)(null),
               {
-                colorMode: _v6
+                colorMode: _v7
               } = (0, _v207.useColorMode)(),
-              _v7 = (0, _v29.useRef)(_v6),
-              _v8 = (0, _v29.useCallback)((_v0 = 0) => {
+              _v8 = (0, _v29.useRef)(_v7),
+              _v9 = (0, _v29.useCallback)((_v0 = 0) => {
                 _v1 && (_v1.play(), setTimeout(() => {
                   _v1?.stop();
                 }, _v0));
               }, [_v1]),
-              _v9 = (0, _v29.useCallback)(() => {
+              _v10 = (0, _v29.useCallback)(() => {
                 _v0.f({
                   "./icon_dark.json": {
                     id: () => 0,
@@ -24494,36 +24498,38 @@
                     id: () => 0,
                     module: () => _v0.A(0)
                   }
-                }).import(`./icon_${_v6}.json`).then(_v0 => _v5(_v0.default));
-              }, [_v6]),
-              _v10 = (0, _v29.useCallback)(() => {
-                _v4 && _v2(_v670.default.loadAnimation({
+                }).import(`./icon_${_v7}.json`).then(_v0 => _v6(_v0.default));
+              }, [_v7]),
+              _v11 = (0, _v29.useCallback)(() => {
+                if (!_v5) return;
+                let _v0 = _v670.default.loadAnimation({
                   renderer: "svg",
-                  animationData: _v4,
-                  container: _v3.current,
+                  animationData: _v5,
+                  container: _v4.current,
                   autoplay: _v0
-                }));
-              }, [_v4, _v0]);
+                });
+                _v3.current = _v0, _v2(_v0);
+              }, [_v5, _v0]);
             (0, _v29.useEffect)(() => {
-              _v4 && _v3.current && _v10();
-            }, [_v4, _v10]), (0, _v29.useEffect)(() => {
-              _v1 && _v7.current !== _v6 && (_v7.current = _v6, _v1?.destroy(), _v2(null), _v9());
-            }, [_v1, _v6, _v9]), (0, _v29.useEffect)(() => {
-              _v9();
+              _v5 && _v4.current && _v11();
+            }, [_v5, _v11]), (0, _v29.useEffect)(() => {
+              _v1 && _v8.current !== _v7 && (_v8.current = _v7, _v1?.destroy(), _v3.current = null, _v2(null), _v10());
+            }, [_v1, _v7, _v10]), (0, _v29.useEffect)(() => {
+              _v10();
             }, []);
-            let _v11 = (0, _v29.useCallback)(() => {
+            let _v12 = (0, _v29.useCallback)(() => {
                 _v1?.play();
               }, [_v1]),
-              _v12 = (0, _v29.useCallback)(() => {
+              _v13 = (0, _v29.useCallback)(() => {
                 _v1?.stop();
               }, [_v1]);
             return (0, _v29.useEffect)(() => () => {
-              _v1?.destroy(), _v2(null);
+              _v3.current?.destroy(), _v3.current = null;
             }, []), {
-              animationContainer: _v3,
-              playAnimationForDefinedTime: _v8,
-              animationStop: _v12,
-              animationStart: _v11
+              animationContainer: _v4,
+              playAnimationForDefinedTime: _v9,
+              animationStop: _v13,
+              animationStart: _v12
             };
           })();
           return (0, _v29.useEffect)(() => {
