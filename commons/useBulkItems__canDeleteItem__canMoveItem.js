@@ -3,8 +3,7 @@
 
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
-    _v3 = _v0.i(0),
-    _v4 = _v0.i(0);
+    _v3 = _v0.i(0);
   _v0.s(["useBulkItems", 0, ({
     canDeleteItem: _v0,
     canMoveItem: _v1,
@@ -75,7 +74,7 @@
             isSelected: _v3
           });
         }), _v5 = _v7.some(_v0 => _v4?.(_v0));
-        let _v8 = (0, _v4.mergeSets)(_v0, _v1, _v2, _v3);
+        let _v8 = (0, _v3.mergeSets)(_v0, _v1, _v2, _v3);
         return {
           allItems: _v6,
           canDeleteURIs: _v0,
@@ -89,19 +88,15 @@
         };
       }, [_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8]),
       _v18 = (_v14?.size ?? 0) > 0,
-      _v19 = _v6.size > 0 && (0, _v4.isSubsetOf)(_v6, _v10),
-      _v20 = _v6.size > 0 && (0, _v4.isSubsetOf)(_v6, _v11),
-      _v21 = _v6.size > 0 && (0, _v4.isSubsetOf)(_v6, _v12),
-      _v22 = _v6.size > 0 && (0, _v4.isSubsetOf)(_v6, _v13),
+      _v19 = _v6.size > 0 && (0, _v3.isSubsetOf)(_v6, _v10),
+      _v20 = _v6.size > 0 && (0, _v3.isSubsetOf)(_v6, _v11),
+      _v21 = _v6.size > 0 && (0, _v3.isSubsetOf)(_v6, _v12),
+      _v22 = _v6.size > 0 && (0, _v3.isSubsetOf)(_v6, _v13),
       _v23 = _v6.size > 0 && _v15,
-      {
-        isEnabled: _v24
-      } = (0, _v2.useEnableFolderBulkPrivacy)(),
-      _v25 = _v24 ? _v3.MAX_SELECTION_FOR_NEW_BULK_PRIVACY : _v3.MAX_SELECTION_FOR_BULK_PRIVACY,
-      _v26 = _v20 && _v6.size > _v3.MAX_SELECTION_FOR_BULK_MOVE,
-      _v27 = _v21 && _v6.size > _v25,
-      _v28 = _v21 && _v6.size > _v3.MAX_SELECTION_FOR_BULK_PRIVACY,
-      _v29 = _v22 && _v6.size > _v3.MAX_SELECTION_FOR_BULK_ADD_TO_SHOWCASES;
+      _v24 = _v20 && _v6.size > _v2.MAX_SELECTION_FOR_BULK_MOVE,
+      _v25 = _v21 && _v6.size > _v2.MAX_SELECTION_FOR_NEW_BULK_PRIVACY,
+      _v26 = _v21 && _v6.size > _v2.MAX_SELECTION_FOR_BULK_PRIVACY,
+      _v27 = _v22 && _v6.size > _v2.MAX_SELECTION_FOR_BULK_ADD_TO_SHOWCASES;
     return {
       allItems: _v9,
       canDeleteSelection: _v19,
@@ -112,11 +107,11 @@
       hasLegalHoldSelection: _v23,
       canSelectURIs: _v16,
       selectedItems: _v17,
-      hasReachedMaxSelectionForMove: _v26,
-      hasReachedMaxSelectionForPrivacy: _v27,
-      hasReachedMaxSelectionForSentimentWidget: _v28,
-      hasReachedMaxSelectionForShowcases: _v29,
-      maxBulkActionSelection: (0, _v1.useMemo)(() => Math.max(_v3.MAX_SELECTION_FOR_BULK_MOVE, _v25, _v3.MAX_SELECTION_FOR_BULK_ADD_TO_SHOWCASES), [_v25])
+      hasReachedMaxSelectionForMove: _v24,
+      hasReachedMaxSelectionForPrivacy: _v25,
+      hasReachedMaxSelectionForSentimentWidget: _v26,
+      hasReachedMaxSelectionForShowcases: _v27,
+      maxBulkActionSelection: (0, _v1.useMemo)(() => Math.max(_v2.MAX_SELECTION_FOR_BULK_MOVE, _v2.MAX_SELECTION_FOR_NEW_BULK_PRIVACY, _v2.MAX_SELECTION_FOR_BULK_ADD_TO_SHOWCASES), [])
     };
   }]);
 }

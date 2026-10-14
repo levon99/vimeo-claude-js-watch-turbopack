@@ -2956,25 +2956,25 @@
                           singular: "Set default",
                           dictionary: {
                             es: {
-                              singular: "Establecer valor predeterminado"
+                              singular: "Establecer predeterminado"
                             },
                             "de-DE": {
-                              singular: "Standard festlegen"
+                              singular: "Als Standard festlegen"
                             },
                             "fr-FR": {
-                              singular: "Définir les paramètres par défaut"
+                              singular: "Définir par défaut"
                             },
                             "ja-JP": {
                               singular: "デフォルトを設定"
                             },
                             "ko-KR": {
-                              singular: "기본값으로 설정"
+                              singular: "기본값 설정"
                             },
                             "pt-BR": {
-                              singular: "Definir padrão"
+                              singular: "Definir como padrão"
                             },
                             "zh-CN": {
-                              singular: "设置默认值"
+                              singular: "设为默认"
                             }
                           }
                         }),
@@ -3010,25 +3010,25 @@
                             singular: "Set default",
                             dictionary: {
                               es: {
-                                singular: "Establecer valor predeterminado"
+                                singular: "Establecer predeterminado"
                               },
                               "de-DE": {
-                                singular: "Standard festlegen"
+                                singular: "Als Standard festlegen"
                               },
                               "fr-FR": {
-                                singular: "Définir les paramètres par défaut"
+                                singular: "Définir par défaut"
                               },
                               "ja-JP": {
                                 singular: "デフォルトを設定"
                               },
                               "ko-KR": {
-                                singular: "기본값으로 설정"
+                                singular: "기본값 설정"
                               },
                               "pt-BR": {
-                                singular: "Definir padrão"
+                                singular: "Definir como padrão"
                               },
                               "zh-CN": {
-                                singular: "设置默认值"
+                                singular: "设为默认"
                               }
                             }
                           }),
@@ -5628,25 +5628,25 @@
                             singular: "Set default",
                             dictionary: {
                               es: {
-                                singular: "Establecer valor predeterminado"
+                                singular: "Establecer predeterminado"
                               },
                               "de-DE": {
-                                singular: "Standard festlegen"
+                                singular: "Als Standard festlegen"
                               },
                               "fr-FR": {
-                                singular: "Définir les paramètres par défaut"
+                                singular: "Définir par défaut"
                               },
                               "ja-JP": {
                                 singular: "デフォルトを設定"
                               },
                               "ko-KR": {
-                                singular: "기본값으로 설정"
+                                singular: "기본값 설정"
                               },
                               "pt-BR": {
-                                singular: "Definir padrão"
+                                singular: "Definir como padrão"
                               },
                               "zh-CN": {
-                                singular: "设置默认值"
+                                singular: "设为默认"
                               }
                             }
                           }),
@@ -5682,25 +5682,25 @@
                               singular: "Set default",
                               dictionary: {
                                 es: {
-                                  singular: "Establecer valor predeterminado"
+                                  singular: "Establecer predeterminado"
                                 },
                                 "de-DE": {
-                                  singular: "Standard festlegen"
+                                  singular: "Als Standard festlegen"
                                 },
                                 "fr-FR": {
-                                  singular: "Définir les paramètres par défaut"
+                                  singular: "Définir par défaut"
                                 },
                                 "ja-JP": {
                                   singular: "デフォルトを設定"
                                 },
                                 "ko-KR": {
-                                  singular: "기본값으로 설정"
+                                  singular: "기본값 설정"
                                 },
                                 "pt-BR": {
-                                  singular: "Definir padrão"
+                                  singular: "Definir como padrão"
                                 },
                                 "zh-CN": {
-                                  singular: "设置默认值"
+                                  singular: "设为默认"
                                 }
                               }
                             }),

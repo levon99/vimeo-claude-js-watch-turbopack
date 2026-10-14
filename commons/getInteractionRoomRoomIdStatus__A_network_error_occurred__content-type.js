@@ -32,10 +32,11 @@
   var _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0);
-  let _v11 = (0, _v2.createContext)({
-    isApplicationAvailableForModeration: !1,
-    setIsApplicationAvailableForModeration: _v3.CallablePlaceholder
-  });
+  let _v11 = ["status"],
+    _v12 = (0, _v2.createContext)({
+      isApplicationAvailableForModeration: !1,
+      setIsApplicationAvailableForModeration: _v3.CallablePlaceholder
+    });
   _v0.s(["InteractionToolsStatusObserver", 0, function ({
     isActive: _v0 = !1,
     isBypass: _v1 = !1,
@@ -76,7 +77,7 @@
             roomType: _v2,
             roomId: _v1
           },
-          select: ["status.enabled"]
+          select: _v11
         } : null, [_v0, _v1, _v2]), {
           refreshInterval: _v10.interactionToolsConfig.INTERACTION_ROOM_STATUS_POLLING_INTERVAL,
           refreshWhenHidden: !0,
@@ -93,11 +94,11 @@
         isApplicationAvailableForModeration: _v7,
         setIsApplicationAvailableForModeration: _v8
       }), [_v7]);
-    return _v1 || _v9 || _v7 ? (0, _v1.jsx)(_v11.Provider, {
+    return _v1 || _v9 || _v7 ? (0, _v1.jsx)(_v12.Provider, {
       value: _v10,
       children: _v2
     }) : _v5;
   }, "useInteractionToolsStatusObserverContext", 0, function () {
-    return (0, _v2.useContext)(_v11);
+    return (0, _v2.useContext)(_v12);
   }], 0);
 }

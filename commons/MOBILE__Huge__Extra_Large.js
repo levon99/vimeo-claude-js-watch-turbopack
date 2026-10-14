@@ -40,49 +40,53 @@
       CONFIRMATION: "CONFIRMATION",
       REMINDER: "REMINDER",
       FOLLOWUP: "FOLLOWUP"
-    };
-  _v7.CONFIRMATION, _v7.REMINDER, _v7.FOLLOWUP;
-  let _v8 = {
+    },
+    _v8 = {
+      [_v7.CONFIRMATION]: "confirmation",
+      [_v7.REMINDER]: "reminder",
+      [_v7.FOLLOWUP]: "follow_up"
+    },
+    _v9 = {
       MINUTES: "minutes",
       HOURS: "hours",
       DAYS: "days"
     },
-    _v9 = {
+    _v10 = {
       BEFORE: "before",
       AFTER: "after"
     },
-    _v10 = {
+    _v11 = {
       value: 1,
-      unit: _v8.DAYS,
-      direction: _v9.BEFORE
+      unit: _v9.DAYS,
+      direction: _v10.BEFORE
     },
-    _v11 = [{
+    _v12 = [{
       value: 7,
-      unit: _v8.DAYS,
-      direction: _v9.BEFORE
+      unit: _v9.DAYS,
+      direction: _v10.BEFORE
     }, {
       value: 3,
-      unit: _v8.DAYS,
-      direction: _v9.BEFORE
+      unit: _v9.DAYS,
+      direction: _v10.BEFORE
     }, {
       value: 1,
-      unit: _v8.DAYS,
-      direction: _v9.BEFORE
+      unit: _v9.DAYS,
+      direction: _v10.BEFORE
     }, {
       value: 1,
-      unit: _v8.HOURS,
-      direction: _v9.BEFORE
+      unit: _v9.HOURS,
+      direction: _v10.BEFORE
     }, {
       value: 10,
-      unit: _v8.MINUTES,
-      direction: _v9.BEFORE
+      unit: _v9.MINUTES,
+      direction: _v10.BEFORE
     }],
-    _v12 = {
-      [_v8.MINUTES]: 59,
-      [_v8.HOURS]: 23,
-      [_v8.DAYS]: 90
-    },
     _v13 = {
+      [_v9.MINUTES]: 59,
+      [_v9.HOURS]: 23,
+      [_v9.DAYS]: 90
+    },
+    _v14 = {
       [_v7.CONFIRMATION]: "Your registration is confirmed",
       [_v7.REMINDER]: "Event Reminder",
       [_v7.FOLLOWUP]: "Event Replay"
@@ -91,7 +95,7 @@
     UNDO: "undo",
     REDO: "redo",
     RESET: "reset"
-  }, "BROADCAST_CHANNEL_NAME", 0, "lead-email-broadcast-channel", "CALENDAR_LIST", 0, ["Google", "Outlook", "iCal"], "CONFIGURABLE_REMINDER_EMAIL_TYPE", 0, "email_event_reminder", "CUSTOM_RANGE_OPTION", 0, "custom_range", "CUSTOM_RANGE_VALUE_MAX", 0, _v12, "DEFAULT_REMINDER_OFFSET", 0, _v10, "EMAIL_ADDRESS", 0, "Email address", "EMAIL_AUTO_SAVE_DEBOUNCED_INTERVAL", 0, 0, "EMAIL_CUSTOMIZATION_FIELDS", 0, ["accentColor", "emailReminders.reminderId", "emailReminders.enabled", "emailReminders.offset.value", "emailReminders.offset.unit", "emailReminders.offset.direction", "emailReminders.content.custom", "emailReminders.content.default", "emailEventReminder_24Hrs.default", "emailPostEventThankYou.custom", "emailPostEventThankYou.default", "emailRegistrationConfirmation.custom", "emailRegistrationConfirmation.default", "emailPreferences", "followUpSendOn", "followUpSender.name", "followUpSender.uri", "from", "logoUri", "pictures", "replyEmail", "senderAddress", "senderPolicyUrl", "useReplyEmail", "useSenderAddress", "useSenderPolicyUrl"], "EMAIL_LIST_FORMAT", 0, {
+  }, "BROADCAST_CHANNEL_NAME", 0, "lead-email-broadcast-channel", "CALENDAR_LIST", 0, ["Google", "Outlook", "iCal"], "CONFIGURABLE_REMINDER_EMAIL_TYPE", 0, "email_event_reminder", "CUSTOM_RANGE_OPTION", 0, "custom_range", "CUSTOM_RANGE_VALUE_MAX", 0, _v13, "DEFAULT_REMINDER_OFFSET", 0, _v11, "EMAIL_ADDRESS", 0, "Email address", "EMAIL_AUTO_SAVE_DEBOUNCED_INTERVAL", 0, 0, "EMAIL_CUSTOMIZATION_FIELDS", 0, ["accentColor", "emailReminders.reminderId", "emailReminders.enabled", "emailReminders.offset.value", "emailReminders.offset.unit", "emailReminders.offset.direction", "emailReminders.content.custom", "emailReminders.content.default", "emailEventReminder_24Hrs.default", "emailPostEventThankYou.custom", "emailPostEventThankYou.default", "emailRegistrationConfirmation.custom", "emailRegistrationConfirmation.default", "emailPreferences", "followUpSendOn", "followUpSender.name", "followUpSender.uri", "from", "logoUri", "pictures", "replyEmail", "senderAddress", "senderPolicyUrl", "useReplyEmail", "useSenderAddress", "useSenderPolicyUrl"], "EMAIL_LIST_FORMAT", 0, {
     BULLETED: "bulletList",
     NUMBERED: "orderedList"
   }, "EMAIL_LOGOS_CACHE_KEY", 0, "email_logo_cache_key", "EMAIL_MAX_LENGTH", 0, {
@@ -118,7 +122,7 @@
     TITLE: "TITLE",
     GENERAL: "GENERAL",
     SUBJECT: "SUBJECT"
-  }, "EMAIL_TYPES", 0, _v7, "EMAIL_TYPE_TEXT", 0, _v13, "EMAIL_UNDO_REDO_DEBOUNCED_INTERVAL", 0, 0, "ENTITY_STATUS", 0, {
+  }, "EMAIL_TYPES", 0, _v7, "EMAIL_TYPE_TEXT", 0, _v14, "EMAIL_UNDO_REDO_DEBOUNCED_INTERVAL", 0, 0, "ENTITY_STATUS", 0, {
     STARTED: "started",
     ENDED: "ended",
     EMPTY: null
@@ -126,17 +130,17 @@
     TAB: "Tab",
     ENTER: "Enter",
     ESCAPE: "Escape"
-  }, "LEGACY_REMINDER_ID", 0, "reminder_24_hrs", "LIVE_EVENT_API_FIELDS", 0, ["user", "uri", "title", "link", "metadata", "streamPrivacy", "schedule", "emailQuota", "status", "completedOn"], "MAX_REMINDERS", 0, 10, "PREVIEW_WIDTH", 0, _v2, "REMINDER_DIRECTIONS", 0, _v9, "REMINDER_OFFSET_PRESETS", 0, _v11, "REMINDER_OFFSET_UNITS", 0, _v8, "SUPPORTED_IMAGE_FILES", 0, "image/png,image/x-png,image/jpeg,.jpg,.jpeg,.png", "TABLET_SIZE", 0, 768, "TEST_EMAIL_TEMPLATE", 0, {
+  }, "LEGACY_REMINDER_ID", 0, "reminder_24_hrs", "LIVE_EVENT_API_FIELDS", 0, ["user", "uri", "title", "link", "metadata", "streamPrivacy", "schedule", "emailQuota", "status", "completedOn"], "MAX_REMINDERS", 0, 10, "PICO_EMAIL_TYPES", 0, _v8, "PREVIEW_WIDTH", 0, _v2, "REMINDER_DIRECTIONS", 0, _v10, "REMINDER_OFFSET_PRESETS", 0, _v12, "REMINDER_OFFSET_UNITS", 0, _v9, "SUPPORTED_IMAGE_FILES", 0, "image/png,image/x-png,image/jpeg,.jpg,.jpeg,.png", "TABLET_SIZE", 0, 768, "TEST_EMAIL_TEMPLATE", 0, {
     CONFIRMATION: "email_registration_confirmation",
     REMINDER: "email_event_reminder_24_hrs",
     FOLLOWUP: "email_post_event_thank_you"
   }, "TRAIL_STATUS", 0, "free_trial", "VIMEO", 0, "Vimeo", "logoFetchOptions", 0, {
     sizes: "500"
   }], 0);
-  var _v14 = _v0.i(0),
-    _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
-  async function _v17({
+  var _v15 = _v0.i(0),
+    _v16 = _v0.i(0),
+    _v17 = _v0.i(0);
+  async function _v18({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -145,19 +149,19 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v15.measureLatency)("getUserTeamLogos", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/team_logos?${(0, _v16.searchQueryString)(_v3)}&fields=${_v1.map(_v16.intoSnakeCase).join(",")}`, {
+    return (0, _v16.measureLatency)("getUserTeamLogos", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/team_logos?${(0, _v17.searchQueryString)(_v3)}&fields=${_v1.map(_v17.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v16.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v16.deepCamelCase)(_v1);
+      return (0, _v17.deepCamelCase)(_v1);
     });
   }
-  async function _v18({
+  async function _v19({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -165,40 +169,40 @@
     },
     ..._v3
   }) {
-    return (0, _v15.measureLatency)("postUserTeamLogos", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/team_logos?fields=${_v1.map(_v16.intoSnakeCase).join(",")}`, {
+    return (0, _v16.measureLatency)("postUserTeamLogos", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/team_logos?fields=${_v1.map(_v17.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "POST"
       });
-      if (!_v0.ok) throw new _v16.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v17.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v16.deepCamelCase)(_v1);
+      return (0, _v17.deepCamelCase)(_v1);
     });
   }
-  var _v19 = _v0.i(0);
-  _v0.i(0);
   var _v20 = _v0.i(0);
   _v0.i(0);
   var _v21 = _v0.i(0);
+  _v0.i(0);
+  var _v22 = _v0.i(0);
   _v0.s(["useGetUserTeamLogosLazy", 0, function () {
     let {
         mutate: _v0
-      } = (0, _v20.useSWRConfig)(),
+      } = (0, _v21.useSWRConfig)(),
       {
         baseUrl: _v1,
         jwt: _v2,
         xVimeoPage: _v3,
         locale: _v4
-      } = (0, _v21.useGctlConfig)(),
-      [_v5, _v6] = (0, _v14.useInternalState)();
-    return [(0, _v19.useCallback)(async _v0 => {
+      } = (0, _v22.useGctlConfig)(),
+      [_v5, _v6] = (0, _v15.useInternalState)();
+    return [(0, _v20.useCallback)(async _v0 => {
       _v6({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v0(`/users/${_v0.where.userId}/team_logos${(0, _v14.serializeQuery)(_v0)}`, _v17({
+        let _v0 = await _v0(`/users/${_v0.where.userId}/team_logos${(0, _v15.serializeQuery)(_v0)}`, _v18({
           ..._v0,
           baseUrl: _v1,
           headers: {
@@ -226,14 +230,14 @@
         jwt: _v1,
         xVimeoPage: _v2,
         locale: _v3
-      } = (0, _v21.useGctlConfig)(),
-      [_v4, _v5] = (0, _v14.useInternalState)();
-    return [(0, _v19.useCallback)(async _v0 => {
+      } = (0, _v22.useGctlConfig)(),
+      [_v4, _v5] = (0, _v15.useInternalState)();
+    return [(0, _v20.useCallback)(async _v0 => {
       _v5({
         type: "REQUEST"
       });
       try {
-        let _v0 = await _v18({
+        let _v0 = await _v19({
           ..._v0,
           baseUrl: _v0,
           headers: {

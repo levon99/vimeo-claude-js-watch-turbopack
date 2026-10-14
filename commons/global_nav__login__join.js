@@ -45,6 +45,7 @@
       pricing_purchase: ["pricing", "purchase"],
       pricing_login: ["pricing", "login"],
       record_studio_join: ["record_studio", "join"],
+      satellite_upload_upload: ["satellite_upload", "upload"],
       new_video_join: ["new_video", "join"],
       new_video_upload: ["new_video", "upload"],
       new_video_create: ["new_video", "create"],
@@ -57,6 +58,6 @@
       iframe_join: ["iframe", "join"],
       iframe_login: ["iframe", "login"]
     },
-    originRoutes: ["/", "/home", "/watch", "/my-feed", "/upgrade-plan", "/pricing", "/create", "/create/templates", "/about", "/accessibility", "/bestoftheyear", "/blog", "/campaigns", "/careers", "/customers", "/enterprise", "/europeanfilmacademy", "/events", "/experts", "/fast-fwd-2023", "/features", "/integrations", "/languages", "/lp", "/new-individual-plans", "/offer-terms", "/ott", "/partners", "/press", "/product", "/product-updates", "/security", "/series", "/shortfilmgrant", "/solutions", "/storiesinplace", "/studio-plan", "/sxsw2023", "/vimeo-academy", "/watch-demo", "/workplace", "/upload", "/record/start-recording", "/stats", "/help", "/stock", "/ondemand", "/portfolio", "/group", "/amp", "/search", "/:username", "/:clipId", "/video/:clipId", "/channels/:channel", "/showcase/:albumId", "/event/:eventId", "/reviews/:reviewId/videos/:clipId", "/user/:userId"]
+    originRoutes: ["/", "/home", "/watch", "/my-feed", "/upgrade-plan", "/pricing", "/create", "/create/templates", "/about", "/accessibility", "/bestoftheyear", "/blog", "/campaigns", "/careers", "/customers", "/enterprise", "/europeanfilmacademy", "/events", "/experts", "/fast-fwd-2023", "/features", "/integrations", "/languages", "/lp", "/new-individual-plans", "/offer-terms", "/ott", "/partners", "/press", "/product", "/product-updates", "/security", "/series", "/shortfilmgrant", "/solutions", "/storiesinplace", "/studio-plan", "/sxsw2023", "/vimeo-academy", "/watch-demo", "/workplace", "/upload", "/video-uploader", "/record/start-recording", "/stats", "/help", "/stock", "/ondemand", "/portfolio", "/group", "/amp", "/search", "/:username", "/:clipId", "/video/:clipId", "/channels/:channel", "/showcase/:albumId", "/event/:eventId", "/reviews/:reviewId/videos/:clipId", "/user/:userId"]
   };
 }

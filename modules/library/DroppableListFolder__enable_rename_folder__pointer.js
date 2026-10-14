@@ -157,12 +157,18 @@
             pointerEvents: "all",
             maxWidth: (0, _v7.rem)(265),
             offset: [16, 8],
-            children: (0, _v1.jsx)("span", {
+            children: (0, _v1.jsx)(_v3.Box, {
+              as: "span",
+              alignItems: "center",
+              display: "inline-flex",
+              justifyContent: "center",
+              lineHeight: 0,
+              marginLeft: "sm",
+              position: "relative",
+              top: (0, _v7.rem)(-2),
+              verticalAlign: "middle",
               children: (0, _v1.jsx)(_v8.InfoCircle, {
-                position: "absolute",
-                boxSize: "1rem",
-                marginLeft: "sm",
-                marginTop: "px"
+                boxSize: "1rem"
               })
             })
           })]

@@ -3046,6 +3046,7 @@
           }), _v22 && (0, _v1.jsx)(_v80.Alert, {
             status: "warning",
             mt: "sm",
+            alignItems: "center",
             children: (0, _v1.jsx)(_v81.AlertDescription, {
               children: _v18.applyToAllUnratedVideosWarning
             })

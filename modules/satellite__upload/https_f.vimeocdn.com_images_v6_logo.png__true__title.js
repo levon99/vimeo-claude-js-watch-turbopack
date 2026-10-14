@@ -2834,13 +2834,14 @@
                 })
               };
             })(_v0, _v2), [_v0, _v2])),
-            [_v8, _v9] = (0, _v10.useState)(null),
-            [_v10, _v11] = (0, _v10.useState)(_v0);
-          _v0 !== _v10 && (_v11(_v0), _v9(null));
-          let _v12 = 0 === _v0.length ? "selectFiles" : _v6 ? "upload" : "login",
-            _v13 = (0, _v10.useCallback)(() => (0, _v88.openSatelliteAuthTab)("upload-poc", "login"), []),
-            _v14 = (0, _v10.useCallback)(() => {
-              if (!_v7.ok) return void _v9(_v7.error ?? null);
+            _v8 = (0, _v88.useSatelliteAuthTab)(),
+            [_v9, _v10] = (0, _v10.useState)(null),
+            [_v11, _v12] = (0, _v10.useState)(_v0);
+          _v0 !== _v11 && (_v12(_v0), _v10(null));
+          let _v13 = 0 === _v0.length ? "selectFiles" : _v6 ? "upload" : "login",
+            _v14 = (0, _v10.useCallback)(() => _v8("upload-poc", "login", "satellite_upload_upload"), [_v8]),
+            _v15 = (0, _v10.useCallback)(() => {
+              if (!_v7.ok) return void _v10(_v7.error ?? null);
               let _v0 = _v0.filter(_v0 => _v0.isDropzone).map(_v0 => _v0.file),
                 _v1 = _v0.filter(_v0 => !_v0.isDropzone).map(_v0 => _v0.file);
               _v0.length > 0 && _v4(_v0, {
@@ -2861,7 +2862,7 @@
             }, [_v7, _v0, _v4, _v5, _v1.targetUserId, _v1.folderId, _v1.clipProperties]);
           return {
             isLoggedIn: _v6,
-            label: "selectFiles" === _v12 ? (0, _v7.translate)({
+            label: "selectFiles" === _v13 ? (0, _v7.translate)({
               singular: "Select files",
               dictionary: {
                 es: {
@@ -2886,7 +2887,7 @@
                   singular: "选择文件"
                 }
               }
-            }) : "login" === _v12 ? (0, _v7.translate)({
+            }) : "login" === _v13 ? (0, _v7.translate)({
               singular: "Log in to upload",
               dictionary: {
                 es: {
@@ -2949,10 +2950,10 @@
                 }
               }
             }),
-            action: _v12,
-            error: _v8,
-            login: _v13,
-            runUpload: _v14
+            action: _v13,
+            error: _v9,
+            login: _v14,
+            runUpload: _v15
           };
         })(_v0, _v4),
         {

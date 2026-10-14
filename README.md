@@ -74,6 +74,7 @@
 - https://vimeo.com/integration/live/interaction_tools/[sessionType]/[sessionId]
 - https://vimeo.com/integration/live/rtc/[sessionType]/[sessionId]
 - https://vimeo.com/integration/live/rtmp/[sessionType]/[sessionId]
+- https://vimeo.com/integration/transcript-editor/[videoId]
 - https://vimeo.com/integrations-center/marketo/connect
 - https://vimeo.com/integrations-center/shopify/connect
 - https://vimeo.com/integrations-center/[partnerIntegrationId]/details/[[...slug]]

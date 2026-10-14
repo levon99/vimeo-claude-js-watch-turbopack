@@ -87,6 +87,10 @@
       _v15 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_select_all_banner_displayed", {
         library_type: _v0.libraryType,
         library_select_all_banner_items_count: _v0.itemsCount ?? 0
+      }), !0), [_v0]),
+      _v16 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_select_all_banner_select_all_clicked", {
+        library_type: _v0.libraryType,
+        library_select_all_banner_items_count: _v0.itemsCount ?? 0
       }), !0), [_v0]);
     return {
       trackLibraryPageDisplayed: _v3,
@@ -102,12 +106,14 @@
       trackLibraryMarketingCardClicked: _v13,
       trackLibraryMarketingCardDismissed: _v14,
       trackLibrarySelectAllBannerDisplayed: _v15,
-      trackLibrarySelectAllBannerSelectAllClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_select_all_banner_select_all_clicked", {
-        library_type: _v0.libraryType,
-        library_select_all_banner_items_count: _v0.itemsCount ?? 0
-      }), !0), [_v0]),
+      trackLibrarySelectAllBannerSelectAllClicked: _v16,
       trackLibrarySelectAllBannerClearAllClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_select_all_banner_clear_all_clicked", {
         library_type: _v0.libraryType
+      }), !0), [_v0]),
+      trackLibraryFolderDefaultValueUpdated: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_folder_default_value_updated", {
+        link_privacy: _v0.linkPrivacy,
+        embed_availability: _v0.embedAvailability,
+        allow_downloads: _v0.allowDownloads
       }), !0), [_v0])
     };
   }]);

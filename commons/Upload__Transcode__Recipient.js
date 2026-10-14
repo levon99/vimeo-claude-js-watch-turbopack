@@ -38,7 +38,7 @@
     }) => {
       let {
           upload: _v2
-        } = (0, _v14.useUploader)(),
+        } = (0, _v14.useUploaderActions)(),
         _v3 = (0, _v4.useRef)(null);
       return (0, _v2.jsx)(_v12.FileInput, {
         ref: _v3,

@@ -6301,22 +6301,22 @@
       singular: "No results found",
       dictionary: {
         es: {
-          singular: "No se han encontrado resultados"
+          singular: "No encontramos resultados."
         },
         "de-DE": {
-          singular: "Keine Ergebnisse gefunden"
+          singular: "Keine Ergebnisse"
         },
         "fr-FR": {
           singular: "Aucun résultat trouvé"
         },
         "ja-JP": {
-          singular: "結果が見つかりませんでした"
+          singular: "検索結果がありません"
         },
         "ko-KR": {
-          singular: "결과가 없습니다"
+          singular: "검색 결과가 없습니다"
         },
         "pt-BR": {
-          singular: "Nenhum resultado encontrado"
+          singular: "Nenhum resultado encontrado."
         },
         "zh-CN": {
           singular: "未找到结果"

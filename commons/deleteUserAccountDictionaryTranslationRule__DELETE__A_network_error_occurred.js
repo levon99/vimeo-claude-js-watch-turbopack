@@ -8341,6 +8341,9 @@ ${_v2}`;
               },
               "pt-BR": {
                 singular: "Idiomas"
+              },
+              "zh-CN": {
+                singular: "语言"
               }
             }
           }),
@@ -8406,10 +8409,10 @@ ${_v2}`;
             singular: "Select language",
             dictionary: {
               es: {
-                singular: "Seleccionar idioma"
+                singular: "Seleccionar el idioma"
               },
               "de-DE": {
-                singular: "Sprache auswählen"
+                singular: "Sprache aussuchen"
               },
               "fr-FR": {
                 singular: "Sélectionner la langue"
@@ -8421,7 +8424,7 @@ ${_v2}`;
                 singular: "언어 선택"
               },
               "pt-BR": {
-                singular: "Selecionar idioma"
+                singular: "Selecione o idioma"
               },
               "zh-CN": {
                 singular: "选择语言"

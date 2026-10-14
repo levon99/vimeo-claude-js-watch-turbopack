@@ -112,7 +112,6 @@
     clip_page_rework: !0,
     clip_page_player_new_speed_menu_enabled: !1,
     viewer_premium_plan_v0: "control",
-    bulk_privacy_modal_variant: "hidden",
     business_plans_enforced: !1,
     core_tier_enabled: !1,
     in_product_support_panel: !1,

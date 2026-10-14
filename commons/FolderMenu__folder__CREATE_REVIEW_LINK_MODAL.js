@@ -33,8 +33,7 @@
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
+    _v33 = _v0.i(0);
   _v0.s(["FolderMenu", 0, function ({
     folder: _v0,
     onMoveSuccess: _v1,
@@ -49,202 +48,198 @@
   }) {
     let {
         trackLibraryFolderContextMenuActionClicked: _v10
-      } = (0, _v7.useLibraryTracking)(),
-      _v11 = (0, _v18.useNotification)(),
-      _v12 = (0, _v12.useCopyFolderLinkToast)(),
+      } = (0, _v6.useLibraryTracking)(),
+      _v11 = (0, _v17.useNotification)(),
+      _v12 = (0, _v11.useCopyFolderLinkToast)(),
       {
         openDeleteFolderModal: _v13
-      } = (0, _v13.useDeleteFolderModal)(),
+      } = (0, _v12.useDeleteFolderModal)(),
       {
         openMoveModal: _v14
-      } = (0, _v17.useMoveModal)(),
+      } = (0, _v16.useMoveModal)(),
       {
         openFolderDefaultsModal: _v15
-      } = (0, _v14.useFolderDefaultsModal)(),
-      _v16 = (0, _v33.useAcknowledgeFolderDefaultsIntro)(),
+      } = (0, _v13.useFolderDefaultsModal)(),
+      _v16 = (0, _v32.useAcknowledgeFolderDefaultsIntro)(),
       {
         openFolderSettingsModal: _v17
-      } = (0, _v15.useFolderSettingsModal)(),
+      } = (0, _v14.useFolderSettingsModal)(),
       {
         openSlackIntegrationModal: _v18
-      } = (0, _v21.useSlackIntegrationModal)(),
+      } = (0, _v20.useSlackIntegrationModal)(),
       {
         openBulkAiModal: _v19
       } = (0, _v3.useBulkAiModal)(),
       {
         openAddFolderToShowcaseModal: _v20,
         closeAddFolderToShowcaseModal: _v21
-      } = (0, _v23.useAddFolderToShowcaseModal)(),
+      } = (0, _v22.useAddFolderToShowcaseModal)(),
       {
-        isEnabled: _v22,
-        variant: _v23
-      } = (0, _v5.useEnableFolderBulkPrivacy)(),
-      {
-        openBulkPrivacyModal: _v24
+        openBulkPrivacyModal: _v22
       } = (0, _v4.useBulkPrivacyModal)(),
-      _v25 = (0, _v20.useRevalidateVideoListCaches)(),
-      _v26 = (0, _v2.useContext)(_v10.ViewerContext),
-      _v27 = (0, _v19.usePageName)(),
+      _v23 = (0, _v19.useRevalidateVideoListCaches)(),
+      _v24 = (0, _v2.useContext)(_v9.ViewerContext),
+      _v25 = (0, _v18.usePageName)(),
       {
-        getFolderShareLoopTrackingParams: _v28
-      } = (0, _v22.useShareLoopTrackingParams)(),
+        getFolderShareLoopTrackingParams: _v26
+      } = (0, _v21.useShareLoopTrackingParams)(),
       {
-        handleStarMenuState: _v29
-      } = (0, _v34.useStarMenuItem)(),
+        handleStarMenuState: _v27
+      } = (0, _v33.useStarMenuItem)(),
       {
-        isItemStarred: _v30,
-        onStarClick: _v31,
-        ..._v32
-      } = _v29("folder", _v0, !0),
-      _v33 = (0, _v27.useFolderShareClick)({
+        isItemStarred: _v28,
+        onStarClick: _v29,
+        ..._v30
+      } = _v27("folder", _v0, !0),
+      _v31 = (0, _v26.useFolderShareClick)({
         folder: _v0,
         analytics: {
           ..._v7,
-          shareModalEntryPoint: _v11.SHARE_RESOURCE_FOLDER_CARD_OVERFLOW_ENTRY_POINT
+          shareModalEntryPoint: _v10.SHARE_RESOURCE_FOLDER_CARD_OVERFLOW_ENTRY_POINT
         }
       }),
-      _v34 = (0, _v25.useReviewLinkCopiedToast)(),
-      _v35 = (0, _v24.useCreateAndCopyFolderReviewLink)((0, _v2.useCallback)((_v0, _v1) => {
-        _v34(() => _v33?.("CREATE_REVIEW_LINK_MODAL", _v1));
-      }, [_v34, _v33])),
-      _v36 = (0, _v30.useActivityCenterStore)(_v0 => _v0.handleNewTranslationJob),
+      _v32 = (0, _v24.useReviewLinkCopiedToast)(),
+      _v33 = (0, _v23.useCreateAndCopyFolderReviewLink)((0, _v2.useCallback)((_v0, _v1) => {
+        _v32(() => _v31?.("CREATE_REVIEW_LINK_MODAL", _v1));
+      }, [_v32, _v31])),
+      _v34 = (0, _v29.useActivityCenterStore)(_v0 => _v0.handleNewTranslationJob),
       {
-        uri: _v37,
-        name: _v38,
-        isPrivateToUser: _v39,
-        useParentSlackSettings: _v40,
-        isSlackNotificationEnabled: _v41,
-        slackIncomingWebhooksId: _v42,
-        metadata: _v43
+        uri: _v35,
+        name: _v36,
+        isPrivateToUser: _v37,
+        useParentSlackSettings: _v38,
+        isSlackNotificationEnabled: _v39,
+        slackIncomingWebhooksId: _v40,
+        metadata: _v41
       } = _v0,
       {
+        capabilities: _v42
+      } = (0, _v5.useCapability)(["hasContentSpaceEnabled", "canSeeUpsellModalOnShare", "canGenerateClipTranslation", "canGenerateClipTextTranslation", "hasExtraEmbedOptions", "hasProhibitMultipleReviewLinks", "hasMultipleReviewLinks", "canManageTeamCollections"], _v35),
+      _v43 = _v24?.teamUser?.ownerId ?? _v24?.user?.id,
+      {
         capabilities: _v44
-      } = (0, _v6.useCapability)(["hasContentSpaceEnabled", "canSeeUpsellModalOnShare", "canGenerateClipTranslation", "canGenerateClipTextTranslation", "hasExtraEmbedOptions", "hasProhibitMultipleReviewLinks", "hasMultipleReviewLinks", "canManageTeamCollections"], _v37),
-      _v45 = _v26?.teamUser?.ownerId ?? _v26?.user?.id,
+      } = (0, _v5.useCapability)(["canPerformBulkTranslations"], _v43),
+      _v45 = !!_v42.canGenerateClipTextTranslation,
+      _v46 = !!_v42.canGenerateClipTranslation,
+      _v47 = parseInt(_v35.split("/").pop() || ""),
+      _v48 = parseInt(_v35.split("/")[2]),
+      _v49 = parseInt(_v24?.user?.uri.split("/").pop() || "") === _v48,
       {
-        capabilities: _v46
-      } = (0, _v6.useCapability)(["canPerformBulkTranslations"], _v45),
-      _v47 = !!_v44.canGenerateClipTextTranslation,
-      _v48 = !!_v44.canGenerateClipTranslation,
-      _v49 = parseInt(_v37.split("/").pop() || ""),
-      _v50 = parseInt(_v37.split("/")[2]),
-      _v51 = parseInt(_v26?.user?.uri.split("/").pop() || "") === _v50,
-      {
-        canDelete: _v52,
-        canEdit: _v53,
-        canEditSettings: _v54,
-        canInvite: _v55
-      } = (0, _v32.getFolderPermissions)(_v0),
-      _v56 = _v0 => {
+        canDelete: _v50,
+        canEdit: _v51,
+        canEditSettings: _v52,
+        canInvite: _v53
+      } = (0, _v31.getFolderPermissions)(_v0),
+      _v54 = _v0 => {
         _v10({
-          isPrivateToUser: _v39,
-          libraryFolderId: String(_v49),
+          isPrivateToUser: _v37,
+          libraryFolderId: String(_v47),
           libraryFolderContextMenuAction: _v0
         });
       },
-      _v57 = _v53 && (_v48 || _v47) && !!_v46.canPerformBulkTranslations,
-      _v58 = _v44.hasExtraEmbedOptions && _v54,
-      _v59 = !_v44.hasProhibitMultipleReviewLinks && !!_v44.hasMultipleReviewLinks,
+      _v55 = _v51 && (_v46 || _v45) && !!_v44.canPerformBulkTranslations,
+      _v56 = _v42.hasExtraEmbedOptions && _v52,
+      _v57 = !_v42.hasProhibitMultipleReviewLinks && !!_v42.hasMultipleReviewLinks,
       {
-        canCreateReviewLink: _v60,
-        canCopyReviewPageLink: _v61,
-        canManageReviewLinks: _v62,
-        reviewPageLink: _v63
-      } = (0, _v26.useReviewLinkMenuState)({
-        hasReviewLinkCapabilities: _v59,
-        hasMultipleReviewLinks: !!_v44.hasMultipleReviewLinks,
+        canCreateReviewLink: _v58,
+        canCopyReviewPageLink: _v59,
+        canManageReviewLinks: _v60,
+        reviewPageLink: _v61
+      } = (0, _v25.useReviewLinkMenuState)({
+        hasReviewLinkCapabilities: _v57,
+        hasMultipleReviewLinks: !!_v42.hasMultipleReviewLinks,
         reviewLinks: _v0.reviewLinks,
-        getReviewPageUrl: (0, _v2.useCallback)(_v0 => (0, _v9.getFolderReviewPageUrl)(_v0, _v49, _v50), [_v49, _v50])
+        getReviewPageUrl: (0, _v2.useCallback)(_v0 => (0, _v8.getFolderReviewPageUrl)(_v0, _v47, _v48), [_v47, _v48])
       }),
-      _v64 = (0, _v16.useManageShareAction)({
-        canEdit: _v54,
+      _v62 = (0, _v15.useManageShareAction)({
+        canEdit: _v52,
         entityUri: _v0.uri,
-        location: _v11.SHARE_RESOURCE_FOLDER_CARD_OVERFLOW_ENTRY_POINT,
+        location: _v10.SHARE_RESOURCE_FOLDER_CARD_OVERFLOW_ENTRY_POINT,
         panel: "INVITE_PANEL"
       }),
-      _v65 = (0, _v2.useCallback)(() => {
+      _v63 = (0, _v2.useCallback)(() => {
         _v12({
-          onManage: _v64
+          onManage: _v62
         });
-      }, [_v12, _v64]);
-    if (isNaN(_v49) || isNaN(_v50)) return (0, _v1.jsx)(_v1.Fragment, {});
-    let _v66 = _v43.connections.parentFolder?.uri,
-      _v67 = _v26?.vimeoHttpsUrl || "",
-      _v68 = `${_v67}${(0, _v31.getFolderPageUriFromApiUri)(_v37)}${_v28(_v27, !!_v0.isPrivateToUser)}`,
-      _v69 = _v67 + (0, _v31.getFolderAnalyticsPageUriFromApiUri)(_v37),
-      _v70 = () => {
-        _v4?.(), _v30 && _v31?.();
+      }, [_v12, _v62]);
+    if (isNaN(_v47) || isNaN(_v48)) return (0, _v1.jsx)(_v1.Fragment, {});
+    let _v64 = _v41.connections.parentFolder?.uri,
+      _v65 = _v24?.vimeoHttpsUrl || "",
+      _v66 = `${_v65}${(0, _v30.getFolderPageUriFromApiUri)(_v35)}${_v26(_v25, !!_v0.isPrivateToUser)}`,
+      _v67 = _v65 + (0, _v30.getFolderAnalyticsPageUriFromApiUri)(_v35),
+      _v68 = () => {
+        _v4?.(), _v28 && _v29?.();
       },
-      _v71 = Math.max(0, (_v43.connections.items?.total ?? 0) - (_v43.connections.folders?.total ?? 0)),
-      _v72 = _v53 && _v44.canManageTeamCollections,
-      _v73 = _v71 > 0 && _v72 && _v71 <= 100;
-    return (0, _v1.jsx)(_v8.FolderMenu, {
+      _v69 = Math.max(0, (_v41.connections.items?.total ?? 0) - (_v41.connections.folders?.total ?? 0)),
+      _v70 = _v51 && _v42.canManageTeamCollections,
+      _v71 = _v69 > 0 && _v70 && _v69 <= 100;
+    return (0, _v1.jsx)(_v7.FolderMenu, {
       ..._v9,
-      canTranslateVideos: _v57,
+      canTranslateVideos: _v55,
       handleTranslateVideo: () => {
-        _v56("translate_videos"), _v19({
-          folderId: _v49,
+        _v54("translate_videos"), _v19({
+          folderId: _v47,
           isFolder: !0,
-          folderName: _v38,
-          canTranslateText: _v47,
-          canTranslateDubbing: _v48,
+          folderName: _v36,
+          canTranslateText: _v45,
+          canTranslateDubbing: _v46,
           onComplete: () => {
-            _v45 && _v36(_v45);
+            _v43 && _v34(_v43);
           }
         });
       },
-      canShare: _v55 || _v44.canSeeUpsellModalOnShare,
-      onShare: _v33,
-      canDelete: _v52,
+      canShare: _v53 || _v42.canSeeUpsellModalOnShare,
+      onShare: _v31,
+      canDelete: _v50,
       onDelete: () => {
-        _v56("delete"), _v13?.(_v38, _v49, _v7.location, _v66, _v50, _v39, !!_v44.hasContentSpaceEnabled, _v70);
+        _v54("delete"), _v13?.(_v36, _v47, _v7.location, _v64, _v48, _v37, !!_v42.hasContentSpaceEnabled, _v68);
       },
-      canEditFolderSettings: _v54,
+      canEditFolderSettings: _v52,
       onFolderDefaults: () => {
-        _v56("folder_setting"), _v16(), _v15({
-          folderId: _v49,
-          ownerId: _v50,
-          isFolderOwner: _v51,
+        _v54("folder_setting"), _v16(), _v15({
+          folderId: _v47,
+          ownerId: _v48,
+          isFolderOwner: _v49,
           presetId: _v0?.settings?.embedPresetId,
           isInheritanceEnabled: _v0?.settings?.isEmbedPresetInheritanceEnabled,
-          displayUpsell: !_v58,
+          displayUpsell: !_v56,
           location: _v7.location,
           feature: _v7.feature,
-          page: _v27.toUpperCase(),
+          page: _v25.toUpperCase(),
           onSave: () => {
             _v11({
-              content: _v29.folderDefaultsSaved,
+              content: _v28.folderDefaultsSaved,
               status: ""
             });
           }
         });
       },
       onFolderSettings: () => {
-        _v56("folder_setting"), _v17({
-          userId: _v50,
-          parentFolderUri: _v66 ?? null,
-          currentFolderUri: _v37,
+        _v54("folder_setting"), _v17({
+          userId: _v48,
+          parentFolderUri: _v64 ?? null,
+          currentFolderUri: _v35,
           location: location.toString(),
           onSettingsChange: _v3,
           isEditingFolder: !0,
           initialColor: _v0.settings?.color
         });
       },
-      canMove: _v52,
+      canMove: _v50,
       onMove: () => {
-        _v56("move"), _v14({
-          activeFolderURI: _v37,
+        _v54("move"), _v14({
+          activeFolderURI: _v35,
           feature: _v7.feature,
-          initialDestination: _v66 || _v39 ? void 0 : "root",
+          initialDestination: _v64 || _v37 ? void 0 : "root",
           location: _v7.location,
           items: [{
-            name: _v38,
+            name: _v36,
             type: "folder",
-            parentFolder: _v66 ? {
-              uri: _v66,
-              isPrivateToUser: _v39
+            parentFolder: _v64 ? {
+              uri: _v64,
+              isPrivateToUser: _v37
             } : void 0,
-            uri: _v37
+            uri: _v35
           }],
           onMoveSuccess: ({
             selectedDestination: _v0,
@@ -260,83 +255,82 @@
           }) => {
             _v2?.(_v0, _v1);
           },
-          teamOwnerId: _v50
+          teamOwnerId: _v48
         });
       },
-      canBulkPrivacyChange: _v53 && _v22,
+      canBulkPrivacyChange: _v51,
       onBulkPrivacyChange: () => {
-        _v24({
-          userId: _v50,
-          folderUris: [_v37],
-          folderName: _v38,
+        _v22({
+          userId: _v48,
+          folderUris: [_v35],
+          folderName: _v36,
           location: "folder_card_folder_menu",
-          variant: _v23,
           onSuccess: () => {
-            _v25();
+            _v23();
           }
         });
       },
-      canEdit: _v53,
-      analyticsPageLink: _v69,
-      folderLink: _v68,
+      canEdit: _v51,
+      analyticsPageLink: _v67,
+      folderLink: _v66,
       onCopyLink: () => {
-        _v56("copy_link"), _v65();
+        _v54("copy_link"), _v63();
       },
       onClickAnalyticsLink: () => {
-        _v56("analytics");
+        _v54("analytics");
       },
-      hasFolderDefaultsUpsell: !_v58,
-      hasShareUpsell: _v44.canSeeUpsellModalOnShare,
-      hasSlackIntegration: !_v40,
-      isConnectedToSlack: !!_v42,
+      hasFolderDefaultsUpsell: !_v56,
+      hasShareUpsell: _v42.canSeeUpsellModalOnShare,
+      hasSlackIntegration: !_v38,
+      isConnectedToSlack: !!_v40,
       onSlackIntegration: () => {
-        _v56("connect_to_slack"), _v18({
-          userId: _v50,
-          hasSlackIntegration: !!_v42,
-          isSlackNotificationEnabled: !!_v41,
-          folderId: _v49,
-          folderName: _v38,
-          currentFolderUri: _v37,
+        _v54("connect_to_slack"), _v18({
+          userId: _v48,
+          hasSlackIntegration: !!_v40,
+          isSlackNotificationEnabled: !!_v39,
+          folderId: _v47,
+          folderName: _v36,
+          currentFolderUri: _v35,
           updateSubFolderData: _v6
         });
       },
-      onStarClick: _v31 ? () => {
-        _v30 || _v56("add_to_starred"), _v31();
+      onStarClick: _v29 ? () => {
+        _v28 || _v54("add_to_starred"), _v29();
       } : void 0,
-      canCreateReviewLink: _v60,
+      canCreateReviewLink: _v58,
       onCreateReviewLink: () => {
-        _v56("create_review_link"), _v33?.("CREATE_REVIEW_LINK_MODAL");
+        _v54("create_review_link"), _v31?.("CREATE_REVIEW_LINK_MODAL");
       },
-      canCopyReviewPageLink: _v61,
-      reviewPageLink: _v63,
+      canCopyReviewPageLink: _v59,
+      reviewPageLink: _v61,
       onCopyReviewPageLink: () => {
-        if (_v56("copy_review_link"), _v63) {
+        if (_v54("copy_review_link"), _v61) {
           let _v0 = _v0.reviewLinks?.[0]?.uri;
-          _v34(_v0 ? () => _v33?.("CREATE_REVIEW_LINK_MODAL", _v0) : void 0);
-        } else _v35(_v49, _v50, _v37);
+          _v32(_v0 ? () => _v31?.("CREATE_REVIEW_LINK_MODAL", _v0) : void 0);
+        } else _v33(_v47, _v48, _v35);
       },
-      canManageReviewLinks: _v62,
-      hasProhibitMultipleReviewLinks: _v44.hasProhibitMultipleReviewLinks,
+      canManageReviewLinks: _v60,
+      hasProhibitMultipleReviewLinks: _v42.hasProhibitMultipleReviewLinks,
       onManageReviewLinks: () => {
-        _v56("manage_review_links"), _v33?.("REVIEW_LINKS_PANEL");
+        _v54("manage_review_links"), _v31?.("REVIEW_LINKS_PANEL");
       },
-      ..._v32,
+      ..._v30,
       onRename: () => {
-        _v56("rename"), _v5?.();
+        _v54("rename"), _v5?.();
       },
-      showAddToShowcase: _v72,
-      canAddToShowcase: _v73,
+      showAddToShowcase: _v70,
+      canAddToShowcase: _v71,
       onAddToShowcase: () => {
-        _v56("add_to_showcase"), _v20({
-          ownerId: _v50,
+        _v54("add_to_showcase"), _v20({
+          ownerId: _v48,
           onClose: _v21,
-          folderId: _v49,
-          pageName: _v27,
+          folderId: _v47,
+          pageName: _v25,
           pageUrl: window.location.pathname,
-          itemCount: _v71
+          itemCount: _v69
         });
       },
-      zIndex: _v28.ACTIONS_MENU_Z_INDEX
+      zIndex: _v27.ACTIONS_MENU_Z_INDEX
     });
   }]);
 }

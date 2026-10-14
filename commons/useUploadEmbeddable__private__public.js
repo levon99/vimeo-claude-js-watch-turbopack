@@ -10,9 +10,7 @@
     defaultEmbedPreference: _v2,
     onQuotaRevalidate: _v3
   }) {
-    let {
-        uploads: _v4
-      } = (0, _v3.useUploader)(),
+    let _v4 = (0, _v3.useUploads)(),
       [_v5] = (0, _v1.usePatchUserItems)(),
       _v6 = _v4.find(_v0 => _v0.clipId)?.clipId,
       _v7 = (0, _v2.useEmbeddable)(_v6) ?? (!_v2 || "private" !== _v2);

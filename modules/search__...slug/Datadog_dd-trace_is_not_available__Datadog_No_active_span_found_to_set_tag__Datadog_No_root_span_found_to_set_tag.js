@@ -13005,7 +13005,7 @@
                 onToggleSelected: () => _v1(_v6),
                 showNewMoments: _v2,
                 hoverActions: (0, _v1.jsx)(_v339.ListViewHoverActionsContainer, {
-                  children: (0, _v1.jsx)(_v337.TopRightDecoration, {
+                  children: (0, _v1.jsx)(_v338.VideoTopRightDecoration, {
                     video: _v0,
                     buttonVariant: "minimal",
                     flexDirection: "row",
@@ -13099,7 +13099,7 @@
                 location: _v127(_v0),
                 ..._v15,
                 hoverActions: (0, _v1.jsx)(_v339.ListViewHoverActionsContainer, {
-                  children: (0, _v1.jsx)(_v338.FolderTopRightDecoration, {
+                  children: (0, _v1.jsx)(_v337.FolderTopRightDecoration, {
                     folder: _v1,
                     buttonVariant: "minimal",
                     flexDirection: "row",

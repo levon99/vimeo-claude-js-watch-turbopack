@@ -413,15 +413,14 @@
       })]
     });
   var _v71 = _v0.i(0),
-    _v72 = _v0.i(0);
-  let _v73 = ({
+    _v72 = _v0.i(0),
+    _v73 = _v0.i(0);
+  let _v74 = ({
     videoId: _v0,
     isCommentsPanelOpen: _v1
   }) => {
     var _v2;
-    let {
-        uploads: _v3
-      } = (0, _v56.useUploader)(),
+    let _v3 = (0, _v73.useUploads)(),
       _v4 = (0, _v16.useToast)(),
       _v5 = (0, _v21.useIsMobile)(),
       _v6 = (0, _v5.useRef)(new Set()),
@@ -526,10 +525,10 @@
       })
     }) : null;
   };
-  var _v74 = _v0.i(0),
-    _v75 = _v0.i(0),
-    _v76 = _v0.i(0);
-  let _v77 = ({
+  var _v75 = _v0.i(0),
+    _v76 = _v0.i(0),
+    _v77 = _v0.i(0);
+  let _v78 = ({
       videoId: _v0
     }) => (0, _v1.jsx)("div", {
       style: {
@@ -552,7 +551,7 @@
         }
       })
     }),
-    _v78 = ({
+    _v79 = ({
       title: _v0,
       description: _v1,
       videoId: _v2
@@ -564,7 +563,7 @@
         variant: "heading-md",
         color: "text-primary",
         children: _v0
-      }), _v2 && (0, _v1.jsx)(_v77, {
+      }), _v2 && (0, _v1.jsx)(_v78, {
         videoId: _v2
       }), (0, _v1.jsx)(_v11.Text, {
         variant: "body-md",
@@ -572,12 +571,12 @@
         children: _v1
       })]
     }),
-    _v79 = "review-page",
-    _v80 = (0, _v76.defineTour)(_v79, {
+    _v80 = "review-page",
+    _v81 = (0, _v77.defineTour)(_v80, {
       player: {
         order: 0,
         placement: "right",
-        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v78, {
+        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v79, {
           title: (0, _v24.translate)({
             singular: "Comment anywhere on the video",
             dictionary: {
@@ -636,7 +635,7 @@
       comments: {
         order: 1,
         placement: "auto",
-        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v78, {
+        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v79, {
           title: (0, _v24.translate)({
             singular: "Everyone's feedback, in one place",
             dictionary: {
@@ -694,7 +693,7 @@
       copyLink: {
         order: 2,
         placement: "auto",
-        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v78, {
+        content: (0, _v1.jsx)(() => (0, _v1.jsx)(_v79, {
           title: (0, _v24.translate)({
             singular: "Copy a secure review link",
             dictionary: {
@@ -750,13 +749,13 @@
         }), {})
       }
     });
-  _v0.s(["REVIEW_TOUR_NAME", 0, _v79, "ReviewTour", 0, _v80], 0);
-  var _v81 = _v0.i(0),
-    _v82 = _v0.i(0),
+  _v0.s(["REVIEW_TOUR_NAME", 0, _v80, "ReviewTour", 0, _v81], 0);
+  var _v82 = _v0.i(0),
     _v83 = _v0.i(0),
     _v84 = _v0.i(0),
-    _v85 = _v0.i(0);
-  let _v86 = (0, _v2.default)(async () => ({
+    _v85 = _v0.i(0),
+    _v86 = _v0.i(0);
+  let _v87 = (0, _v2.default)(async () => ({
     default: (await _v0.A(0)).LoginJoinModal
   }), {
     loadableGenerated: {
@@ -818,7 +817,7 @@
         isLoading: _v36
       } = (0, _v63.useReplace)(_v1, _v12),
       _v37 = (0, _v28.useLoginJoinModalState)(),
-      _v38 = (0, _v84.formatVersionNumber)(_v7 || _v60.DEFAULT_VERSION_NUMBER),
+      _v38 = (0, _v85.formatVersionNumber)(_v7 || _v60.DEFAULT_VERSION_NUMBER),
       [_v39, _v40] = (0, _v5.useState)(!1),
       [_v41, _v42] = (0, _v5.useState)(!0),
       _v43 = (0, _v29.useOrionSettingsFields)(["replace_in_review", "new_replace_feature"]),
@@ -833,7 +832,7 @@
       {
         restoreVersion: _v47,
         isRestoreInProgress: _v48
-      } = (0, _v81.useRestoreVersion)(),
+      } = (0, _v82.useRestoreVersion)(),
       {
         restore: _v49,
         isRestoreInProgress: _v50
@@ -854,7 +853,7 @@
         isDark: _v56,
         showMyLogo: _v57,
         logoUrl: _v58
-      } = (0, _v5.useContext)(_v82.ReviewLinkContext);
+      } = (0, _v5.useContext)(_v83.ReviewLinkContext);
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v3.default, {
         children: (0, _v1.jsx)("title", {
@@ -907,7 +906,7 @@
                 children: _v0
               })
             })
-          }), !(_v51 && "complete" === _v19) && (0, _v1.jsx)(_v85.VersionListPicker, {
+          }), !(_v51 && "complete" === _v19) && (0, _v1.jsx)(_v86.VersionListPicker, {
             videoId: _v1,
             clipHash: _v2,
             allowReplace: _v35,
@@ -1038,7 +1037,7 @@
               children: (0, _v24.translate)({
                 singular: "See {versionNumber}",
                 replacements: {
-                  versionNumber: (0, _v84.formatVersionNumber)(_v7)
+                  versionNumber: (0, _v85.formatVersionNumber)(_v7)
                 },
                 dictionary: {
                   es: {
@@ -1072,7 +1071,7 @@
           gap: "sm",
           children: (0, _v1.jsxs)(_v27.LoginJoinModalContext.Provider, {
             value: _v37,
-            children: [!_v27 && _v11 && (0, _v1.jsx)(_v75.ReviewStatusMenu, {
+            children: [!_v27 && _v11 && (0, _v1.jsx)(_v76.ReviewStatusMenu, {
               clipId: _v1,
               defaultStatus: _v10 ?? null,
               isReadOnly: !_v55,
@@ -1095,7 +1094,7 @@
               isDisabled: _v4
             }), _v23 && _v15 && !_v16 && (0, _v1.jsx)(_v12.Button, {
               variant: "primary",
-              onClick: () => void (_v42(!0), _v40(!0), _v5 && (0, _v83.bpStartRestoreVersion)({
+              onClick: () => void (_v42(!0), _v40(!0), _v5 && (0, _v84.bpStartRestoreVersion)({
                 videoId: _v1,
                 viewer: _v28,
                 currentVersion: _v38,
@@ -1126,7 +1125,7 @@
                 }
               })
             }), _v12 && (0, _v1.jsx)(_v32, {
-              step: _v80.copyLink,
+              step: _v81.copyLink,
               children: (0, _v1.jsx)(_v42.CopyReviewLinkButton, {
                 surface: "video_review_page",
                 clipId: String(_v1)
@@ -1137,21 +1136,21 @@
                 reviewId: _v12,
                 onReplaceCompleted: _v14,
                 isReplacing: "in_progress" === _v19
-              }), (0, _v1.jsx)(_v73, {
+              }), (0, _v1.jsx)(_v74, {
                 videoId: _v1,
                 isCommentsPanelOpen: _v13
               })]
             }), (0, _v1.jsx)(_v26.AccountMenu, {
               hasThemeSupport: !_v56
-            }), _v28 && !_v29 && (0, _v1.jsx)(_v86, {})]
+            }), _v28 && !_v29 && (0, _v1.jsx)(_v87, {})]
           })
         })]
-      }), (0, _v1.jsx)(_v74.RestoreConfirmationModal, {
+      }), (0, _v1.jsx)(_v75.RestoreConfirmationModal, {
         isOpen: _v39,
         onClose: () => _v40(!1),
         onRestoreVersion: () => {
           if (_v15) {
-            if (_v5 && (0, _v83.bpRestoreVersion)({
+            if (_v5 && (0, _v84.bpRestoreVersion)({
               videoId: _v1,
               viewer: _v28,
               currentVersion: _v38,
@@ -1252,7 +1251,7 @@
         showCreateNewVersionOption: _v43.new_replace_feature,
         createNewVersion: _v41,
         onCreateNewVersionChange: _v42,
-        nextVersionNumber: (0, _v84.getNextVersionSequenceNumber)(_v46)
+        nextVersionNumber: (0, _v85.getNextVersionSequenceNumber)(_v46)
       })]
     });
   }], 0);

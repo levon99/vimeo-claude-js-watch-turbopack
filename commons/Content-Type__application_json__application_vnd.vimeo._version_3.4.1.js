@@ -30,10 +30,10 @@
       targetUserId: _v0,
       onQuotaReached: _v1
     }) => {
-      let {
-          addShouldUploadStartCallback: _v2,
-          uploads: _v3
-        } = (0, _v7.useUploader)(),
+      let _v2 = (0, _v7.useUploads)(),
+        {
+          addShouldUploadStartCallback: _v3
+        } = (0, _v7.useUploaderActions)(),
         _v4 = (0, _v6.useViewer)(),
         _v5 = (0, _v2.useRef)(new Set()),
         {
@@ -54,10 +54,10 @@
         }) => ({
           size: _v0.size
         })), _v2))({
-          uploads: _v3,
+          uploads: _v2,
           targetUserId: _v0,
           unit: _v6.uploadQuota.space.unit
-        }) : 0, [_v3, _v0, _v6?.uploadQuota?.space?.unit]),
+        }) : 0, [_v2, _v0, _v6?.uploadQuota?.space?.unit]),
         _v9 = (0, _v2.useCallback)((_v0, _v1) => {
           if ("number" == typeof _v0 && _v1.targetUserId !== _v0) return !0;
           if (!_v6 || !_v6.uploadQuota?.space || !_v6.uploadQuota.space.unit || "function" != typeof _v1) return console.error("Missing quota prerequisites"), !1;
@@ -102,22 +102,22 @@
           }), _v1(_v6.uploadQuota.space.unit, _v6.uploadQuota.space.showing)), _v5;
         }, [_v6, _v1, _v8, _v0, _v4?.jwt, _v4?.xsrft]);
       (0, _v2.useEffect)(() => {
-        if ("function" == typeof _v1) return _v2(_v9);
-      }, [_v2, _v1, _v9]);
+        if ("function" == typeof _v1) return _v3(_v9);
+      }, [_v3, _v1, _v9]);
       let _v10 = _v6?.uploadQuota?.space?.unit,
         _v11 = _v6?.uploadQuota?.space?.showing;
       return (0, _v2.useEffect)(() => {
-        let _v0 = new Set(_v3.map(({
+        let _v0 = new Set(_v2.map(({
           id: _v0
         }) => _v0));
         _v5.current.forEach(_v0 => {
           _v0.has(_v0) || _v5.current.delete(_v0);
-        }), _v3.some(_v0 => {
+        }), _v2.some(_v0 => {
           let _v1,
             _v2 = _v0.state === _v5.STATES.FAILED && !_v5.current.has(_v0.id) && (_v1 = _v0.error, _v11.some(_v0 => _v1.includes(_v0)));
           return _v2 && _v5.current.add(_v0.id), _v2;
         }) && _v1?.(_v10 ?? void 0, _v11);
-      }, [_v3, _v1, _v10, _v11]), {
+      }, [_v2, _v1, _v10, _v11]), {
         isLoading: _v7
       };
     };
@@ -139,7 +139,7 @@
     } = function (_v0, _v1, _v2, _v3, _v4 = "library") {
       let {
           upload: _v5
-        } = (0, _v7.useUploader)(),
+        } = (0, _v7.useUploaderActions)(),
         _v6 = (0, _v2.useRef)(null),
         {
           trackReplaceVersion: _v7

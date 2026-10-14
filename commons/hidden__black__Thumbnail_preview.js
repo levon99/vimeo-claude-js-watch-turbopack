@@ -480,9 +480,10 @@
       } = (0, _v4.useManager)(_v11.EventSettingsManager),
       _v5 = (0, _v23.useToast)(),
       {
-        trackLiveStreamBasicsChanged: _v6
+        trackLiveStreamBasicsChanged: _v6,
+        trackLiveStreamBasicsThumbnailSelectClicked: _v7
       } = (0, _v14.useLiveStreamBroadcasterTracking)(),
-      _v7 = (0, _v5.useCallback)((_v0, _v1) => {
+      _v8 = (0, _v5.useCallback)((_v0, _v1) => {
         _v5({
           status: "error",
           duration: 0,
@@ -516,50 +517,60 @@
           })
         });
       }, [_v5]),
-      _v8 = (0, _v5.useRef)(null),
-      [_v9, _v10] = (0, _v5.useState)(null),
-      _v11 = null !== _v9,
-      _v12 = (0, _v5.useRef)(!1),
-      [_v13, _v14] = (0, _v5.useState)(!1),
-      [_v15, _v16] = (0, _v5.useState)(null),
-      [_v17, _v18] = (0, _v5.useState)(null),
-      _v19 = (0, _v5.useRef)(void 0),
-      _v20 = (0, _v5.useRef)(!1),
-      [_v21, _v22] = (0, _v5.useState)(null),
-      [_v23, _v24] = (0, _v5.useState)(!0),
-      _v25 = (0, _v5.useRef)(0),
-      _v26 = (0, _v5.useCallback)(async () => {
-        let _v0 = ++_v25.current;
-        _v24(!0);
+      _v9 = (0, _v5.useRef)(null),
+      [_v10, _v11] = (0, _v5.useState)(null),
+      _v12 = null !== _v10,
+      _v13 = (0, _v5.useRef)(!1),
+      [_v14, _v15] = (0, _v5.useState)(!1),
+      [_v16, _v17] = (0, _v5.useState)(null),
+      [_v18, _v19] = (0, _v5.useState)(null),
+      _v20 = (0, _v5.useRef)(void 0),
+      _v21 = (0, _v5.useRef)(!1),
+      [_v22, _v23] = (0, _v5.useState)(null),
+      [_v24, _v25] = (0, _v5.useState)(!0),
+      _v26 = (0, _v5.useRef)(0),
+      _v27 = (0, _v5.useCallback)(async () => {
+        let _v0 = ++_v26.current;
+        _v25(!0);
         try {
           let _v0 = await _v1();
-          _v0 === _v25.current && _v22(_v0);
+          _v0 === _v26.current && _v23(_v0);
         } catch {} finally {
-          _v0 === _v25.current && _v24(!1);
+          _v0 === _v26.current && _v25(!1);
         }
       }, [_v1]);
     (0, _v5.useEffect)(() => {
-      let _v0 = ++_v25.current,
+      let _v0 = ++_v26.current,
         _v1 = !1;
       return (async () => {
         try {
           let _v0 = await _v1();
-          _v1 || _v0 !== _v25.current || _v22(_v0);
+          _v1 || _v0 !== _v26.current || _v23(_v0);
         } catch {} finally {
-          _v1 || _v0 !== _v25.current || _v24(!1);
+          _v1 || _v0 !== _v26.current || _v25(!1);
         }
       })(), () => {
         _v1 = !0;
       };
     }, [_v1]);
-    let _v27 = (0, _v5.useCallback)(() => {
-        _v8.current?.click();
+    let _v28 = (0, _v5.useCallback)(() => {
+        _v9.current?.click();
       }, []),
-      _v28 = (0, _v5.useRef)(!1),
-      _v29 = (0, _v5.useCallback)(() => {
-        _v21 && 0 === _v21.length ? (_v28.current = !1, _v14(!1), _v27()) : (_v28.current = !0, _v14(!0));
-      }, [_v21, _v27]),
-      _v30 = (0, _v5.useCallback)(_v0 => {
+      _v29 = (0, _v5.useRef)(!1),
+      _v30 = (0, _v5.useCallback)(() => {
+        _v22 && 0 === _v22.length ? (_v29.current = !1, _v15(!1), _v28()) : (_v29.current = !0, _v15(!0));
+      }, [_v22, _v28]),
+      _v31 = (0, _v5.useCallback)(() => {
+        _v7({
+          liveStreamThumbnailState: "empty"
+        }), _v30();
+      }, [_v30, _v7]),
+      _v32 = (0, _v5.useCallback)(() => {
+        _v7({
+          liveStreamThumbnailState: "filled"
+        }), _v30();
+      }, [_v30, _v7]),
+      _v33 = (0, _v5.useCallback)(_v0 => {
         let _v1 = _v0.target.files?.[0];
         if (_v0.target.value = "", _v1) {
           if (_v1.size > _v29.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT) return void _v5({
@@ -595,18 +606,18 @@
               }
             })
           });
-          _v14(!1), _v16(_v1);
+          _v15(!1), _v17(_v1);
         }
       }, [_v5]),
-      _v31 = (0, _v5.useCallback)(async _v0 => {
-        if (!_v12.current && !(0 >= (0, _v31.parseThumbnailIdFromUrl)(_v0.uri))) {
-          _v12.current = !0, _v14(!1), _v10("activate");
+      _v34 = (0, _v5.useCallback)(async _v0 => {
+        if (!_v13.current && !(0 >= (0, _v31.parseThumbnailIdFromUrl)(_v0.uri))) {
+          _v13.current = !0, _v15(!1), _v11("activate");
           try {
             await _v3(_v0), _v6({
               liveStreamBasicsField: "thumbnail"
-            }), _v18(null), await _v26();
+            }), _v19(null), await _v27();
           } catch (_v0) {
-            _v7(_v0, (0, _v25.translate)({
+            _v8(_v0, (0, _v25.translate)({
               singular: "Couldn't update the thumbnail. Please try again.",
               dictionary: {
                 es: {
@@ -633,35 +644,35 @@
               }
             }));
           } finally {
-            _v12.current = !1, _v10(null);
+            _v13.current = !1, _v11(null);
           }
         }
-      }, [_v3, _v26, _v7, _v6]),
-      _v32 = (0, _v5.useRef)(!1),
-      _v33 = (0, _v5.useCallback)(() => {
-        _v27();
-      }, [_v27]),
-      _v34 = (0, _v5.useCallback)(() => {
-        _v32.current = _v28.current, _v16(null);
+      }, [_v3, _v27, _v8, _v6]),
+      _v35 = (0, _v5.useRef)(!1),
+      _v36 = (0, _v5.useCallback)(() => {
+        _v28();
+      }, [_v28]),
+      _v37 = (0, _v5.useCallback)(() => {
+        _v35.current = _v29.current, _v17(null);
       }, []),
-      _v35 = (0, _v5.useCallback)(() => {
-        _v32.current && (_v32.current = !1, _v14(!0));
+      _v38 = (0, _v5.useCallback)(() => {
+        _v35.current && (_v35.current = !1, _v15(!0));
       }, []),
-      _v36 = (0, _v5.useCallback)(async () => {
-        if (_v15 && !_v12.current) {
-          _v12.current = !0, _v10("upload");
+      _v39 = (0, _v5.useCallback)(async () => {
+        if (_v16 && !_v13.current) {
+          _v13.current = !0, _v11("upload");
           try {
-            let _v0 = await _v2(_v15);
+            let _v0 = await _v2(_v16);
             _v6({
               liveStreamBasicsField: "thumbnail"
-            }), _v20.current = !0, _v18(_v15), _v16(null), _v22(_v0 => [{
+            }), _v21.current = !0, _v19(_v16), _v17(null), _v23(_v0 => [{
               uri: _v0.uri,
               baseLink: _v0.baseLink,
               sizes: [],
               active: !0
-            }, ...(_v0 ?? []).filter(_v0 => _v0.uri !== _v0.uri)]), await _v26();
+            }, ...(_v0 ?? []).filter(_v0 => _v0.uri !== _v0.uri)]), await _v27();
           } catch (_v0) {
-            _v7(_v0, (0, _v25.translate)({
+            _v8(_v0, (0, _v25.translate)({
               singular: "Couldn't save the thumbnail. Please try again.",
               dictionary: {
                 es: {
@@ -688,21 +699,21 @@
               }
             }));
           } finally {
-            _v12.current = !1, _v10(null);
+            _v13.current = !1, _v11(null);
           }
         }
-      }, [_v15, _v2, _v26, _v7, _v6]),
-      _v37 = (0, _v5.useCallback)(async () => {
-        if (_v12.current) return;
+      }, [_v16, _v2, _v27, _v8, _v6]),
+      _v40 = (0, _v5.useCallback)(async () => {
+        if (_v13.current) return;
         let _v0 = (0, _v31.parseThumbnailIdFromUrl)(_v0?.pictures?.uri);
         if (!(_v0 <= 0)) {
-          _v12.current = !0, _v10("remove");
+          _v13.current = !0, _v11("remove");
           try {
             await _v4(_v0), _v6({
               liveStreamBasicsField: "thumbnail"
-            }), _v18(null), await _v26();
+            }), _v19(null), await _v27();
           } catch (_v0) {
-            _v7(_v0, (0, _v25.translate)({
+            _v8(_v0, (0, _v25.translate)({
               singular: "Couldn't remove the thumbnail. Please try again.",
               dictionary: {
                 es: {
@@ -729,20 +740,20 @@
               }
             }));
           } finally {
-            _v12.current = !1, _v10(null);
+            _v13.current = !1, _v11(null);
           }
         }
-      }, [_v0?.pictures?.uri, _v4, _v26, _v7, _v6]),
-      _v38 = _v0?.pictures?.active ? _v0.pictures.uri : void 0;
+      }, [_v0?.pictures?.uri, _v4, _v27, _v8, _v6]),
+      _v41 = _v0?.pictures?.active ? _v0.pictures.uri : void 0;
     if ((0, _v5.useEffect)(() => {
-      _v20.current ? (_v19.current = _v38, _v20.current = !1) : _v38 !== _v19.current && (_v19.current = _v38, _v18(null));
-    }, [_v38, _v17]), !_v0) return (0, _v3.jsx)(_v8.BokehSkeleton, {
+      _v21.current ? (_v20.current = _v41, _v21.current = !1) : _v41 !== _v20.current && (_v20.current = _v41, _v19(null));
+    }, [_v41, _v18]), !_v0) return (0, _v3.jsx)(_v8.BokehSkeleton, {
       borderRadius: (0, _v6.rem)(4),
       height: (0, _v6.rem)(92),
       marginTop: (0, _v6.rem)(16)
     });
-    let _v39 = _v0?.pictures,
-      _v40 = !!(_v39?.active && _v39.baseLink);
+    let _v42 = _v0?.pictures,
+      _v43 = !!(_v42?.active && _v42.baseLink);
     return (0, _v3.jsxs)(_v7.Flex, {
       direction: "column",
       width: "100%",
@@ -779,15 +790,15 @@
           }
         })
       }), (0, _v3.jsxs)(_v20.Popover, {
-        isOpen: _v13 && !_v15,
-        onClose: () => _v14(!1),
+        isOpen: _v14 && !_v16,
+        onClose: () => _v15(!1),
         placement: "left-start",
         flip: !0,
         preventOverflow: !0,
         gutter: 8,
         isLazy: !0,
         children: [(0, _v3.jsx)(_v21.PopoverAnchor, {
-          children: _v40 && _v39 ? (0, _v3.jsxs)(_v7.Flex, {
+          children: _v43 && _v42 ? (0, _v3.jsxs)(_v7.Flex, {
             align: "center",
             gap: (0, _v6.rem)(16),
             paddingY: (0, _v6.rem)(8),
@@ -800,7 +811,7 @@
             borderRadius: _v57,
             backgroundColor: "fill-surface",
             children: [(0, _v3.jsx)(_v18.Image, {
-              src: _v39.baseLink,
+              src: _v42.baseLink,
               alt: (0, _v25.translate)({
                 singular: "Event thumbnail",
                 dictionary: {
@@ -837,17 +848,17 @@
               gap: (0, _v6.rem)(2),
               flex: "1",
               minWidth: 0,
-              children: _v17 ? (0, _v3.jsxs)(_v3.Fragment, {
+              children: _v18 ? (0, _v3.jsxs)(_v3.Fragment, {
                 children: [(0, _v3.jsx)(_v22.Text, {
                   variant: "body-md",
                   fontWeight: "medium",
                   color: "text-primary",
                   noOfLines: 1,
-                  children: _v17.name
+                  children: _v18.name
                 }), (0, _v3.jsx)(_v22.Text, {
                   variant: "body-sm",
                   color: "text-secondary",
-                  children: (0, _v32.bytesToSize)(_v17.size)
+                  children: (0, _v32.bytesToSize)(_v18.size)
                 })]
               }) : null
             }), (0, _v3.jsxs)(_v7.Flex, {
@@ -884,8 +895,8 @@
                 variant: "tertiary",
                 size: "sm",
                 borderRadius: (0, _v6.rem)(8),
-                isDisabled: _v11,
-                onClick: _v29
+                isDisabled: _v12,
+                onClick: _v32
               }), (0, _v3.jsx)(_v17.IconButton, {
                 "aria-label": (0, _v25.translate)({
                   singular: "Remove thumbnail",
@@ -917,9 +928,9 @@
                 variant: "tertiary",
                 size: "sm",
                 borderRadius: (0, _v6.rem)(8),
-                isLoading: "remove" === _v9,
-                isDisabled: _v11,
-                onClick: _v37
+                isLoading: "remove" === _v10,
+                isDisabled: _v12,
+                onClick: _v40
               })]
             })]
           }) : (0, _v3.jsxs)(_v16.Box, {
@@ -937,11 +948,11 @@
             borderColor: "input-stroke",
             borderRadius: _v57,
             backgroundColor: "fill-surface",
-            cursor: _v11 ? "not-allowed" : "pointer",
-            opacity: _v11 ? .6 : 1,
+            cursor: _v12 ? "not-allowed" : "pointer",
+            opacity: _v12 ? .6 : 1,
             textAlign: "left",
-            disabled: _v11,
-            onClick: _v29,
+            disabled: _v12,
+            onClick: _v31,
             children: [(0, _v3.jsxs)(_v7.Flex, {
               position: "relative",
               align: "center",
@@ -1033,25 +1044,25 @@
             })]
           })
         }), (0, _v3.jsx)(_v55, {
-          thumbnails: _v21 ?? [],
-          activeUri: _v40 ? _v39?.uri : void 0,
-          isLoading: _v23,
-          onUploadClick: _v27,
-          onSelectThumbnail: _v31
+          thumbnails: _v22 ?? [],
+          activeUri: _v43 ? _v42?.uri : void 0,
+          isLoading: _v24,
+          onUploadClick: _v28,
+          onSelectThumbnail: _v34
         })]
       }), (0, _v3.jsx)("input", {
-        ref: _v8,
+        ref: _v9,
         type: "file",
         accept: "image/png,image/x-png,image/jpeg,.jpg,.jpeg,.png",
-        onChange: _v30,
+        onChange: _v33,
         hidden: !0
       }), (0, _v3.jsx)(_v45, {
-        file: _v15,
-        isSaving: "upload" === _v9,
-        onChange: _v33,
-        onCancel: _v34,
-        onSave: _v36,
-        onCloseComplete: _v35
+        file: _v16,
+        isSaving: "upload" === _v10,
+        onChange: _v36,
+        onCancel: _v37,
+        onSave: _v39,
+        onCloseComplete: _v38
       })]
     });
   }

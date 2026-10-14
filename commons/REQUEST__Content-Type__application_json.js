@@ -1081,7 +1081,7 @@
             singular: "Browse files",
             dictionary: {
               es: {
-                singular: "Examinar archivos"
+                singular: "Explorar archivos"
               },
               "de-DE": {
                 singular: "Dateien durchsuchen"
@@ -1090,13 +1090,13 @@
                 singular: "Parcourir les fichiers"
               },
               "ja-JP": {
-                singular: "ファイルを参照"
+                singular: "ファイルを閲覧"
               },
               "ko-KR": {
                 singular: "파일 찾아보기"
               },
               "pt-BR": {
-                singular: "Procurar arquivos"
+                singular: "Navegar nos arquivos"
               },
               "zh-CN": {
                 singular: "浏览文件"

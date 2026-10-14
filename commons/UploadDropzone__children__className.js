@@ -20,7 +20,7 @@
   }) {
     let {
       upload: _v12
-    } = (0, _v3.useUploader)();
+    } = (0, _v3.useUploaderActions)();
     return _v8 && !_v9 ? (0, _v1.jsx)(_v1.Fragment, {
       children: _v0
     }) : (0, _v1.jsx)(_v2.Dropzone, {

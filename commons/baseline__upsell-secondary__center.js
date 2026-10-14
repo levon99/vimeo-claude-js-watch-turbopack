@@ -9005,7 +9005,8 @@
               ..._v0,
               position: _v1 + 1
             }))).map(() => 0)), _v2?.(_v2), _v8(_v2.length - 1), _v6(!0), _v14?.(_v318[_v0] || _v0), _v16 === _v27.ENTITY_TYPE.EVENT && _v15({
-              liveStreamFieldCategory: "registration_field"
+              liveStreamFieldCategory: "registration_field",
+              registrationFieldType: _v0
             });
           },
           showDescriptionField: !0

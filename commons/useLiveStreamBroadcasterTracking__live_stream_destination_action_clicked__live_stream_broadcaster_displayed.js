@@ -77,54 +77,59 @@
         });
       }, [_v0]),
       _v15 = (0, _v1.useCallback)(_v0 => {
+        _v0?.track("live_stream_basics_thumbnail_select_clicked", {
+          live_stream_thumbnail_state: _v0.liveStreamThumbnailState
+        });
+      }, [_v0]),
+      _v16 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_privacy_changed", {
           live_stream_privacy_type: _v0.liveStreamPrivacyType,
           live_stream_privacy_value: _v0.liveStreamPrivacyValue
         });
       }, [_v0]),
-      _v16 = (0, _v1.useCallback)(_v0 => {
+      _v17 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_schedule_configured", {
           live_stream_has_start_date: _v0.liveStreamHasStartDate,
           live_stream_has_end_date: _v0.liveStreamHasEndDate,
           live_stream_recurring_event: _v0.liveStreamRecurringEvent
         });
       }, [_v0]),
-      _v17 = (0, _v1.useCallback)(_v0 => {
+      _v18 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_production_mode_changed", {
           live_stream_production_mode: _v0.liveStreamProductionMode
         });
       }, [_v0]),
-      _v18 = (0, _v1.useCallback)(_v0 => {
+      _v19 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_latency_changed", {
           live_stream_latency: _v0.liveStreamLatency
         });
       }, [_v0]),
-      _v19 = (0, _v1.useCallback)(_v0 => {
+      _v20 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_reactions_toggled", {
           live_stream_new_status: _v0.liveStreamNewStatus
         });
       }, [_v0]),
-      _v20 = (0, _v1.useCallback)(_v0 => {
+      _v21 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_audience_speakers_toggled", {
           live_stream_new_status: _v0.liveStreamNewStatus
         });
       }, [_v0]),
-      _v21 = (0, _v1.useCallback)(_v0 => {
+      _v22 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_closed_captions_toggled", {
           live_stream_new_status: _v0.liveStreamNewStatus
         });
       }, [_v0]),
-      _v22 = (0, _v1.useCallback)(_v0 => {
+      _v23 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_custom_keyword_use", {
           live_stream_custom_keyword_count: _v0.liveStreamCustomKeywordCount
         });
       }, [_v0]),
-      _v23 = (0, _v1.useCallback)(_v0 => {
+      _v24 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_registration_toggled", {
           live_stream_new_status: _v0.liveStreamNewStatus
         });
       }, [_v0]),
-      _v24 = (0, _v1.useCallback)(_v0 => {
+      _v25 = (0, _v1.useCallback)(_v0 => {
         if (null === _v0) {
           _v1.current.length < 32 && _v1.current.push(_v0);
           return;
@@ -134,46 +139,54 @@
           live_stream_destination_action: _v0.liveStreamDestinationAction
         });
       }, [_v0]),
-      _v25 = (0, _v1.useCallback)(_v0 => {
+      _v26 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_registration_section_clicked", {
           live_stream_registration_section: _v0.liveStreamRegistrationSection
         });
       }, [_v0]),
-      _v26 = (0, _v1.useCallback)(_v0 => {
+      _v27 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_registration_form_tab_changed", {
           live_stream_form_tab: _v0.liveStreamFormTab
         });
       }, [_v0]),
-      _v27 = (0, _v1.useCallback)(_v0 => {
+      _v28 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_registration_field_added", {
-          live_stream_field_category: _v0.liveStreamFieldCategory
+          live_stream_field_category: _v0.liveStreamFieldCategory,
+          ...(void 0 !== _v0.registrationFieldType ? {
+            registration_field_type: _v0.registrationFieldType
+          } : {})
         });
       }, [_v0]),
-      _v28 = (0, _v1.useCallback)(() => {
+      _v29 = (0, _v1.useCallback)(() => {
         _v0?.track("live_stream_registration_preset_changed", {});
       }, [_v0]),
-      _v29 = (0, _v1.useCallback)(_v0 => {
+      _v30 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_registration_appearance_changed", {
           live_stream_appearance_setting: _v0.liveStreamAppearanceSetting
         });
       }, [_v0]),
-      _v30 = (0, _v1.useCallback)(_v0 => {
+      _v31 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_registration_background_added", {
           live_stream_background_source: _v0.liveStreamBackgroundSource
         });
       }, [_v0]),
-      _v31 = (0, _v1.useCallback)(_v0 => {
+      _v32 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_registration_preview_changed", {
           live_stream_preview_type: _v0.liveStreamPreviewType
         });
       }, [_v0]),
-      _v32 = (0, _v1.useCallback)(_v0 => {
+      _v33 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_registration_email_toggled", {
           live_stream_email_type: _v0.liveStreamEmailType,
           live_stream_new_status: _v0.liveStreamNewStatus
         });
       }, [_v0]),
-      _v33 = (0, _v1.useCallback)(_v0 => {
+      _v34 = (0, _v1.useCallback)(_v0 => {
+        _v0?.track("live_stream_registration_email_from_changed", {
+          live_stream_email_type: _v0.liveStreamEmailType
+        });
+      }, [_v0]),
+      _v35 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_registration_reminder_configured", {
           live_stream_reminder_action: _v0.liveStreamReminderAction,
           live_stream_reminder_offset_value: _v0.liveStreamReminderOffsetValue,
@@ -181,98 +194,98 @@
           live_stream_reminder_offset_direction: _v0.liveStreamReminderOffsetDirection
         });
       }, [_v0]),
-      _v34 = (0, _v1.useCallback)(_v0 => {
+      _v36 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_registrants_action_clicked", {
           live_stream_registrants_action: _v0.liveStreamRegistrantsAction
         });
       }, [_v0]),
-      _v35 = (0, _v1.useCallback)(() => {
+      _v37 = (0, _v1.useCallback)(() => {
         _v0?.track("live_stream_qa_started", {});
       }, [_v0]),
-      _v36 = (0, _v1.useCallback)(() => {
+      _v38 = (0, _v1.useCallback)(() => {
         _v0?.track("live_stream_qa_ended", {});
       }, [_v0]),
-      _v37 = (0, _v1.useCallback)(_v0 => {
+      _v39 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_qa_overflow_action_clicked", {
           live_stream_qa_action: _v0.liveStreamQaAction
         });
       }, [_v0]),
-      _v38 = (0, _v1.useCallback)(_v0 => {
+      _v40 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_qa_speaker_replies_toggled", {
           live_stream_new_status: _v0.liveStreamNewStatus
         });
       }, [_v0]),
-      _v39 = (0, _v1.useCallback)(_v0 => {
+      _v41 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_poll_created", {
           live_stream_poll_option_count: _v0.liveStreamPollOptionCount
         });
       }, [_v0]),
-      _v40 = (0, _v1.useCallback)(_v0 => {
+      _v42 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_chat_toggled", {
           live_stream_new_status: _v0.liveStreamNewStatus
         });
       }, [_v0]),
-      _v41 = (0, _v1.useCallback)(_v0 => {
+      _v43 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_chat_tab_changed", {
           live_stream_chat_tab: _v0.liveStreamChatTab
         });
       }, [_v0]),
-      _v42 = (0, _v1.useCallback)(_v0 => {
+      _v44 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_chat_overflow_action_clicked", {
           live_stream_chat_action: _v0.liveStreamChatAction
         });
       }, [_v0]),
-      _v43 = (0, _v1.useCallback)(_v0 => {
+      _v45 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_top_bar_action_clicked", {
           live_stream_top_bar_action: _v0.liveStreamTopBarAction
         });
       }, [_v0]),
-      _v44 = (0, _v1.useCallback)(() => {
+      _v46 = (0, _v1.useCallback)(() => {
         _v0?.track("live_stream_share_link_copied", {});
       }, [_v0]),
-      _v45 = (0, _v1.useCallback)(_v0 => {
+      _v47 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_embed_configured", {
           live_stream_embed_type: _v0.liveStreamEmbedType,
           live_stream_embed_privacy: _v0.liveStreamEmbedPrivacy
         });
       }, [_v0]),
-      _v46 = (0, _v1.useCallback)(_v0 => {
+      _v48 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_toolbar_action_clicked", {
           live_stream_toolbar_action: _v0.liveStreamToolbarAction
         });
       }, [_v0]),
-      _v47 = (0, _v1.useCallback)(() => {
+      _v49 = (0, _v1.useCallback)(() => {
         _v0?.track("live_stream_go_live_clicked", {});
       }, [_v0]),
-      _v48 = (0, _v1.useCallback)(() => {
+      _v50 = (0, _v1.useCallback)(() => {
         _v0?.track("live_stream_engagement_menu_opened", {});
       }, [_v0]),
-      _v49 = (0, _v1.useCallback)(() => {
+      _v51 = (0, _v1.useCallback)(() => {
         _v0?.track("live_stream_google_slides_import_started", {});
       }, [_v0]),
-      _v50 = (0, _v1.useCallback)(_v0 => {
+      _v52 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_google_slides_account_connected", {
           live_stream_google_slides_connection_type: _v0.liveStreamGoogleSlidesConnectionType
         });
       }, [_v0]),
-      _v51 = (0, _v1.useCallback)(_v0 => {
+      _v53 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_google_slides_import_completed", {
           live_stream_google_slides_import_method: _v0.liveStreamGoogleSlidesImportMethod,
           live_stream_google_slides_file_size_bytes: _v0.liveStreamGoogleSlidesFileSizeBytes,
           live_stream_google_slides_duration_ms: _v0.liveStreamGoogleSlidesDurationMs
         });
       }, [_v0]),
-      _v52 = (0, _v1.useCallback)(_v0 => {
+      _v54 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_google_slides_import_failed", {
           live_stream_google_slides_error_reason: _v0.liveStreamGoogleSlidesErrorReason,
           live_stream_google_slides_page_count: _v0.liveStreamGoogleSlidesPageCount ?? null,
           live_stream_google_slides_duration_ms: _v0.liveStreamGoogleSlidesDurationMs ?? null
         });
       }, [_v0]),
-      _v53 = (0, _v1.useCallback)(() => {
+      _v55 = (0, _v1.useCallback)(() => {
         _v0?.track("live_stream_google_slides_account_disconnected", {});
       }, [_v0]),
-      _v54 = (0, _v1.useCallback)(_v0 => {
+      _v56 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_camera_position_preset_selected", {
           live_stream_camera_position_corner: _v0.liveStreamCameraPositionCorner
         });
@@ -291,46 +304,48 @@
       trackLiveStreamBrandColorChanged: _v12,
       trackLiveStreamSettingsSectionClicked: _v13,
       trackLiveStreamBasicsChanged: _v14,
-      trackLiveStreamPrivacyChanged: _v15,
-      trackLiveStreamScheduleConfigured: _v16,
-      trackLiveStreamProductionModeChanged: _v17,
-      trackLiveStreamLatencyChanged: _v18,
-      trackLiveStreamReactionsToggled: _v19,
-      trackLiveStreamAudienceSpeakersToggled: _v20,
-      trackLiveStreamClosedCaptionsToggled: _v21,
-      trackLiveStreamCustomKeywordUse: _v22,
-      trackLiveStreamRegistrationToggled: _v23,
-      trackLiveStreamDestinationActionClicked: _v24,
-      trackLiveStreamRegistrationSectionClicked: _v25,
-      trackLiveStreamRegistrationFormTabChanged: _v26,
-      trackLiveStreamRegistrationFieldAdded: _v27,
-      trackLiveStreamRegistrationPresetChanged: _v28,
-      trackLiveStreamRegistrationAppearanceChanged: _v29,
-      trackLiveStreamRegistrationBackgroundAdded: _v30,
-      trackLiveStreamRegistrationPreviewChanged: _v31,
-      trackLiveStreamRegistrationEmailToggled: _v32,
-      trackLiveStreamRegistrationReminderConfigured: _v33,
-      trackLiveStreamRegistrantsActionClicked: _v34,
-      trackLiveStreamQaStarted: _v35,
-      trackLiveStreamQaEnded: _v36,
-      trackLiveStreamQaOverflowActionClicked: _v37,
-      trackLiveStreamQaSpeakerRepliesToggled: _v38,
-      trackLiveStreamPollCreated: _v39,
-      trackLiveStreamChatToggled: _v40,
-      trackLiveStreamChatTabChanged: _v41,
-      trackLiveStreamChatOverflowActionClicked: _v42,
-      trackLiveStreamTopBarActionClicked: _v43,
-      trackLiveStreamShareLinkCopied: _v44,
-      trackLiveStreamEmbedConfigured: _v45,
-      trackLiveStreamToolbarActionClicked: _v46,
-      trackLiveStreamGoLiveClicked: _v47,
-      trackLiveStreamEngagementMenuOpened: _v48,
-      trackLiveStreamGoogleSlidesImportStarted: _v49,
-      trackLiveStreamGoogleSlidesAccountConnected: _v50,
-      trackLiveStreamGoogleSlidesImportCompleted: _v51,
-      trackLiveStreamGoogleSlidesImportFailed: _v52,
-      trackLiveStreamGoogleSlidesAccountDisconnected: _v53,
-      trackLiveStreamCameraPositionPresetSelected: _v54,
+      trackLiveStreamBasicsThumbnailSelectClicked: _v15,
+      trackLiveStreamPrivacyChanged: _v16,
+      trackLiveStreamScheduleConfigured: _v17,
+      trackLiveStreamProductionModeChanged: _v18,
+      trackLiveStreamLatencyChanged: _v19,
+      trackLiveStreamReactionsToggled: _v20,
+      trackLiveStreamAudienceSpeakersToggled: _v21,
+      trackLiveStreamClosedCaptionsToggled: _v22,
+      trackLiveStreamCustomKeywordUse: _v23,
+      trackLiveStreamRegistrationToggled: _v24,
+      trackLiveStreamDestinationActionClicked: _v25,
+      trackLiveStreamRegistrationSectionClicked: _v26,
+      trackLiveStreamRegistrationFormTabChanged: _v27,
+      trackLiveStreamRegistrationFieldAdded: _v28,
+      trackLiveStreamRegistrationPresetChanged: _v29,
+      trackLiveStreamRegistrationAppearanceChanged: _v30,
+      trackLiveStreamRegistrationBackgroundAdded: _v31,
+      trackLiveStreamRegistrationPreviewChanged: _v32,
+      trackLiveStreamRegistrationEmailToggled: _v33,
+      trackLiveStreamRegistrationEmailFromChanged: _v34,
+      trackLiveStreamRegistrationReminderConfigured: _v35,
+      trackLiveStreamRegistrantsActionClicked: _v36,
+      trackLiveStreamQaStarted: _v37,
+      trackLiveStreamQaEnded: _v38,
+      trackLiveStreamQaOverflowActionClicked: _v39,
+      trackLiveStreamQaSpeakerRepliesToggled: _v40,
+      trackLiveStreamPollCreated: _v41,
+      trackLiveStreamChatToggled: _v42,
+      trackLiveStreamChatTabChanged: _v43,
+      trackLiveStreamChatOverflowActionClicked: _v44,
+      trackLiveStreamTopBarActionClicked: _v45,
+      trackLiveStreamShareLinkCopied: _v46,
+      trackLiveStreamEmbedConfigured: _v47,
+      trackLiveStreamToolbarActionClicked: _v48,
+      trackLiveStreamGoLiveClicked: _v49,
+      trackLiveStreamEngagementMenuOpened: _v50,
+      trackLiveStreamGoogleSlidesImportStarted: _v51,
+      trackLiveStreamGoogleSlidesAccountConnected: _v52,
+      trackLiveStreamGoogleSlidesImportCompleted: _v53,
+      trackLiveStreamGoogleSlidesImportFailed: _v54,
+      trackLiveStreamGoogleSlidesAccountDisconnected: _v55,
+      trackLiveStreamCameraPositionPresetSelected: _v56,
       trackLiveStreamCameraPositionDragged: (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_camera_position_dragged", {
           live_stream_camera_position_left: _v0.liveStreamCameraPositionLeft,
