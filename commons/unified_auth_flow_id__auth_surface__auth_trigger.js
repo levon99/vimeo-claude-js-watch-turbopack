@@ -152,8 +152,8 @@
       return _v1.toString();
     },
     _v34 = new Map([["/home", "/home"], ["/watch", "/watch"], ["/my-feed", "/my-feed"], ["/upgrade-plan", "/upgrade-plan"], ["/pricing", "/pricing"], ["/create", "/create"], ["/create/templates", "/create/templates"], ["/upload", "/upload"], ["/record/start-recording", "/record/start-recording"], ["/stats", "/stats"], ["/help", "/help"], ["/stock", "/stock"], ["/ondemand", "/ondemand"], ["/portfolio", "/portfolio"], ["/group", "/group"], ["/amp", "/amp"]]),
-    _v35 = new Map([["/video/[clipId]", "/video/:clipId"], ["/video/[clipId]/[clipHash]", "/video/:clipId"], ["/[username]", "/:username"], ["/profile/[userId]", "/:username"], ["/user/[userId]", "/user/:userId"], ["/channels/[channel]", "/channels/:channel"], ["/search/[[...slug]]", "/search"], ["/create/templates/[[...params]]", "/create/templates"], ["/apps/[appId]/create/[...slug]", "/create/templates"], ["/showcase/[albumId]", "/showcase/:albumId"], ["/event/[...params]", "/event/:eventId"], ["/reviews/[reviewId]/videos/[clipId]", "/reviews/:reviewId/videos/:clipId"]]),
-    _v36 = [[/^\/video\/\d+$/, "/video/:clipId"], [/^\/video\/\d+\/[0-9a-fA-F]+$/, "/video/:clipId"], [/^\/reviews\/[^/]+\/videos\/[^/]+$/, "/reviews/:reviewId/videos/:clipId"], [/^\/showcase\/[^/]+$/, "/showcase/:albumId"], [/^\/channels\/[^/]+$/, "/channels/:channel"], [/^\/event\/[^/]+$/, "/event/:eventId"], [/^\/user\/[^/]+$/, "/user/:userId"], [/^\/search(?:\/.*)?$/, "/search"], [/^\/create\/templates(?:\/.*)?$/, "/create/templates"], [/^\/apps\/\d+\/create\/templates(?:\/.*)?$/, "/create/templates"], [/^\/\d+$/, "/:clipId"], [/^\/\d+\/[0-9a-fA-F]+$/, "/:clipId"]],
+    _v35 = new Map([["/video/[clipId]", "/video/:clipId"], ["/video/[clipId]/[clipHash]", "/video/:clipId"], ["/share/[token]", "/share/:token"], ["/[username]", "/:username"], ["/profile/[userId]", "/:username"], ["/user/[userId]", "/user/:userId"], ["/channels/[channel]", "/channels/:channel"], ["/search/[[...slug]]", "/search"], ["/create/templates/[[...params]]", "/create/templates"], ["/apps/[appId]/create/[...slug]", "/create/templates"], ["/showcase/[albumId]", "/showcase/:albumId"], ["/event/[...params]", "/event/:eventId"], ["/reviews/[reviewId]/videos/[clipId]", "/reviews/:reviewId/videos/:clipId"]]),
+    _v36 = [[/^\/video\/\d+$/, "/video/:clipId"], [/^\/video\/\d+\/[0-9a-fA-F]+$/, "/video/:clipId"], [/^\/share\/[^/]+$/, "/share/:token"], [/^\/reviews\/[^/]+\/videos\/[^/]+$/, "/reviews/:reviewId/videos/:clipId"], [/^\/showcase\/[^/]+$/, "/showcase/:albumId"], [/^\/channels\/[^/]+$/, "/channels/:channel"], [/^\/event\/[^/]+$/, "/event/:eventId"], [/^\/user\/[^/]+$/, "/user/:userId"], [/^\/search(?:\/.*)?$/, "/search"], [/^\/create\/templates(?:\/.*)?$/, "/create/templates"], [/^\/apps\/\d+\/create\/templates(?:\/.*)?$/, "/create/templates"], [/^\/\d+$/, "/:clipId"], [/^\/\d+\/[0-9a-fA-F]+$/, "/:clipId"]],
     _v37 = _v0 => {
       let _v1 = _v0.indexOf("#"),
         _v2 = -1 === _v1 ? "" : _v0.slice(_v1),
@@ -255,8 +255,8 @@
       _v6 = _v33(_v1),
       _v7 = "" === _v5 ? _v6 : `${_v5}&${_v6}`;
     return `${_v2}?${_v7}${_v4}`;
-  }, "buildAuthAttribution", 0, _v31, "createAuthEntryContext", 0, (_v0, _v1, _v2, _v3) => _v31({
-    flowId: crypto.randomUUID(),
+  }, "buildAuthAttribution", 0, _v31, "createAuthEntryContext", 0, (_v0, _v1, _v2, _v3, _v4) => _v31({
+    flowId: _v4?.mintFlowId === !1 ? null : crypto.randomUUID(),
     entry: _v0,
     originRoute: _v1,
     surfaceType: _v2,

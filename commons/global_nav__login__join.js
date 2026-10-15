@@ -56,8 +56,9 @@
       marketing_login: ["marketing", "login"],
       marketing_join: ["marketing", "join"],
       iframe_join: ["iframe", "join"],
-      iframe_login: ["iframe", "login"]
+      iframe_login: ["iframe", "login"],
+      google_one_tap_continue: ["google_one_tap", "continue"]
     },
-    originRoutes: ["/", "/home", "/watch", "/my-feed", "/upgrade-plan", "/pricing", "/create", "/create/templates", "/about", "/accessibility", "/bestoftheyear", "/blog", "/campaigns", "/careers", "/customers", "/enterprise", "/europeanfilmacademy", "/events", "/experts", "/fast-fwd-2023", "/features", "/integrations", "/languages", "/lp", "/new-individual-plans", "/offer-terms", "/ott", "/partners", "/press", "/product", "/product-updates", "/security", "/series", "/shortfilmgrant", "/solutions", "/storiesinplace", "/studio-plan", "/sxsw2023", "/vimeo-academy", "/watch-demo", "/workplace", "/upload", "/video-uploader", "/record/start-recording", "/stats", "/help", "/stock", "/ondemand", "/portfolio", "/group", "/amp", "/search", "/:username", "/:clipId", "/video/:clipId", "/channels/:channel", "/showcase/:albumId", "/event/:eventId", "/reviews/:reviewId/videos/:clipId", "/user/:userId"]
+    originRoutes: ["/", "/home", "/watch", "/my-feed", "/upgrade-plan", "/pricing", "/create", "/create/templates", "/about", "/accessibility", "/bestoftheyear", "/blog", "/campaigns", "/careers", "/customers", "/enterprise", "/europeanfilmacademy", "/events", "/experts", "/fast-fwd-2023", "/features", "/integrations", "/languages", "/lp", "/new-individual-plans", "/offer-terms", "/ott", "/partners", "/press", "/product", "/product-updates", "/security", "/series", "/shortfilmgrant", "/solutions", "/storiesinplace", "/studio-plan", "/sxsw2023", "/vimeo-academy", "/watch-demo", "/workplace", "/upload", "/video-uploader", "/record/start-recording", "/stats", "/help", "/stock", "/ondemand", "/portfolio", "/group", "/amp", "/search", "/:username", "/:clipId", "/video/:clipId", "/share/:token", "/channels/:channel", "/showcase/:albumId", "/event/:eventId", "/reviews/:reviewId/videos/:clipId", "/user/:userId"]
   };
 }

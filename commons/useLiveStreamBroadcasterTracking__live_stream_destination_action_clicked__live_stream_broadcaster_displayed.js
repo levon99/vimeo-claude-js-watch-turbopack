@@ -254,38 +254,49 @@
           live_stream_toolbar_action: _v0.liveStreamToolbarAction
         });
       }, [_v0]),
-      _v49 = (0, _v1.useCallback)(() => {
-        _v0?.track("live_stream_go_live_clicked", {});
+      _v49 = (0, _v1.useCallback)(_v0 => {
+        _v0?.track("live_stream_effects_clicked", {
+          live_stream_participant_role: _v0.liveStreamParticipantRole
+        });
       }, [_v0]),
-      _v50 = (0, _v1.useCallback)(() => {
-        _v0?.track("live_stream_engagement_menu_opened", {});
+      _v50 = (0, _v1.useCallback)(_v0 => {
+        _v0?.track("live_stream_camera_background_changed", {
+          live_stream_camera_background_type: _v0.liveStreamCameraBackgroundType,
+          live_stream_participant_role: _v0.liveStreamParticipantRole
+        });
       }, [_v0]),
       _v51 = (0, _v1.useCallback)(() => {
+        _v0?.track("live_stream_go_live_clicked", {});
+      }, [_v0]),
+      _v52 = (0, _v1.useCallback)(() => {
+        _v0?.track("live_stream_engagement_menu_opened", {});
+      }, [_v0]),
+      _v53 = (0, _v1.useCallback)(() => {
         _v0?.track("live_stream_google_slides_import_started", {});
       }, [_v0]),
-      _v52 = (0, _v1.useCallback)(_v0 => {
+      _v54 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_google_slides_account_connected", {
           live_stream_google_slides_connection_type: _v0.liveStreamGoogleSlidesConnectionType
         });
       }, [_v0]),
-      _v53 = (0, _v1.useCallback)(_v0 => {
+      _v55 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_google_slides_import_completed", {
           live_stream_google_slides_import_method: _v0.liveStreamGoogleSlidesImportMethod,
           live_stream_google_slides_file_size_bytes: _v0.liveStreamGoogleSlidesFileSizeBytes,
           live_stream_google_slides_duration_ms: _v0.liveStreamGoogleSlidesDurationMs
         });
       }, [_v0]),
-      _v54 = (0, _v1.useCallback)(_v0 => {
+      _v56 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_google_slides_import_failed", {
           live_stream_google_slides_error_reason: _v0.liveStreamGoogleSlidesErrorReason,
           live_stream_google_slides_page_count: _v0.liveStreamGoogleSlidesPageCount ?? null,
           live_stream_google_slides_duration_ms: _v0.liveStreamGoogleSlidesDurationMs ?? null
         });
       }, [_v0]),
-      _v55 = (0, _v1.useCallback)(() => {
+      _v57 = (0, _v1.useCallback)(() => {
         _v0?.track("live_stream_google_slides_account_disconnected", {});
       }, [_v0]),
-      _v56 = (0, _v1.useCallback)(_v0 => {
+      _v58 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_camera_position_preset_selected", {
           live_stream_camera_position_corner: _v0.liveStreamCameraPositionCorner
         });
@@ -338,14 +349,16 @@
       trackLiveStreamShareLinkCopied: _v46,
       trackLiveStreamEmbedConfigured: _v47,
       trackLiveStreamToolbarActionClicked: _v48,
-      trackLiveStreamGoLiveClicked: _v49,
-      trackLiveStreamEngagementMenuOpened: _v50,
-      trackLiveStreamGoogleSlidesImportStarted: _v51,
-      trackLiveStreamGoogleSlidesAccountConnected: _v52,
-      trackLiveStreamGoogleSlidesImportCompleted: _v53,
-      trackLiveStreamGoogleSlidesImportFailed: _v54,
-      trackLiveStreamGoogleSlidesAccountDisconnected: _v55,
-      trackLiveStreamCameraPositionPresetSelected: _v56,
+      trackLiveStreamEffectsClicked: _v49,
+      trackLiveStreamCameraBackgroundChanged: _v50,
+      trackLiveStreamGoLiveClicked: _v51,
+      trackLiveStreamEngagementMenuOpened: _v52,
+      trackLiveStreamGoogleSlidesImportStarted: _v53,
+      trackLiveStreamGoogleSlidesAccountConnected: _v54,
+      trackLiveStreamGoogleSlidesImportCompleted: _v55,
+      trackLiveStreamGoogleSlidesImportFailed: _v56,
+      trackLiveStreamGoogleSlidesAccountDisconnected: _v57,
+      trackLiveStreamCameraPositionPresetSelected: _v58,
       trackLiveStreamCameraPositionDragged: (0, _v1.useCallback)(_v0 => {
         _v0?.track("live_stream_camera_position_dragged", {
           live_stream_camera_position_left: _v0.liveStreamCameraPositionLeft,

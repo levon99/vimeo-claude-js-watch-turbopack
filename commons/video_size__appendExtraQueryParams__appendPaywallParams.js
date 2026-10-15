@@ -86,7 +86,7 @@
       _v5 = _v1 ? _v4 : _v3;
     if (_v2) {
       let _v0 = _v5.includes("?") ? "&" : "?";
-      return `${_v5}${_v0}campaignId=${_v2}&usePaymentsService=true`;
+      return `${_v5}${_v0}campaign=${_v2}&usePaymentsService=true`;
     }
     return _v5;
   }, "getPlanDisplayPrice", 0, (_v0, _v1, _v2) => _v2 ? `${_v0.priceFormatted.annual}` : `${_v1 ? _v0.priceFormatted.monthly : _v0.priceFormatted.annualMonthly}`, "getPlanFeaturesList", 0, (_v0, _v1) => {

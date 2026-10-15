@@ -3793,24 +3793,23 @@
       shouldShowLocation: _v19,
       rootLocationLabel: _v20
     });
-  var _v159 = _v0.i(0),
-    _v160 = _v0.i(0);
-  let _v161 = _v159.default.div.withConfig({
+  var _v159 = _v0.i(0);
+  let _v160 = _v159.default.div.withConfig({
       displayName: "LoadMoreButton__Wrapper",
       componentId: "sc-86c75073-0"
     })`
   margin: ${(0, _v43.rem)(40)} 0 ${(0, _v43.rem)(48)};
 `,
-    _v162 = ({
+    _v161 = ({
       isLoading: _v0 = !1,
       onClick: _v1
-    }) => (0, _v1.jsx)(_v161, {
-      children: (0, _v1.jsx)(_v160.Button, {
-        disabled: _v0,
-        fluid: !0,
-        format: "secondary",
-        loading: _v0,
+    }) => (0, _v1.jsx)(_v160, {
+      children: (0, _v1.jsx)(_v37.Button, {
+        isDisabled: _v0,
+        isLoading: _v0,
         onClick: _v1,
+        variant: "secondary",
+        width: "100%",
         children: (0, _v17.translate)({
           singular: "Load more…",
           dictionary: {
@@ -3839,8 +3838,8 @@
         })
       })
     });
-  var _v163 = _v0.i(0);
-  let _v164 = ({
+  var _v162 = _v0.i(0);
+  let _v163 = ({
     onClick: _v0
   }) => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v67.IconButton, {
@@ -3849,7 +3848,7 @@
         base: "inline-flex",
         md: "none"
       },
-      icon: (0, _v1.jsx)(_v163.PlusCircle, {}),
+      icon: (0, _v1.jsx)(_v162.PlusCircle, {}),
       onClick: _v0,
       variant: "primary"
     }), (0, _v1.jsx)(_v37.Button, {
@@ -3862,22 +3861,22 @@
       children: _v51
     })]
   });
-  var _v165 = _v0.i(0),
+  var _v164 = _v0.i(0),
+    _v165 = _v0.i(0),
     _v166 = _v0.i(0),
     _v167 = _v0.i(0),
-    _v168 = _v0.i(0),
-    _v169 = _v0.i(0);
-  let _v170 = ["eventUri", "eventTitle", "eventType", "startTime", "endTime", "status", "settingsLink", "link", "thumbnail", "event.uri", "event.title", "event.eventType", "event.link", "event.viewLink", "event.settingsLink", "event.embed.html", "event.nextOccurrenceTime", "event.status", "event.streamPrivacy.view", "event.hasRegistration", "event.createdTime", "event.pictures", "event.metadata.connections.liveVideo.status", "event.metadata.interactions.delete", "event.metadata.interactions.edit", "event.parentFolder.name", "event.parentFolder.uri"];
-  function _v171(_v0) {
+    _v168 = _v0.i(0);
+  let _v169 = ["eventUri", "eventTitle", "eventType", "startTime", "endTime", "status", "settingsLink", "link", "thumbnail", "event.uri", "event.title", "event.eventType", "event.link", "event.viewLink", "event.settingsLink", "event.embed.html", "event.nextOccurrenceTime", "event.status", "event.streamPrivacy.view", "event.hasRegistration", "event.createdTime", "event.pictures", "event.metadata.connections.liveVideo.status", "event.metadata.interactions.delete", "event.metadata.interactions.edit", "event.parentFolder.name", "event.parentFolder.uri"];
+  function _v170(_v0) {
     return _v0 ? "string" == typeof _v0 ? _v0 : "object" == typeof _v0 && "date" in _v0 ? new Date(_v0.date + " UTC").toISOString() : null : null;
   }
-  function _v172(_v0) {
+  function _v171(_v0) {
     return _v0.event ? {
       ..._v0.event,
       nextOccurrenceTime: _v0.startTime
     } : null;
   }
-  let _v173 = ({
+  let _v172 = ({
     ownerId: _v0,
     onDelete: _v1,
     onMove: _v2
@@ -3917,7 +3916,7 @@
             isValidating: _v7,
             mutate: _v8
           } = _v129(() => _v0 ? {
-            select: _v170,
+            select: _v169,
             where: {
               userId: _v0
             },
@@ -3938,8 +3937,8 @@
                 eventUri: _v0.eventUri ?? _v0.event_uri ?? "",
                 eventTitle: _v0.eventTitle ?? _v0.event_title ?? "",
                 eventType: _v0.eventType ?? _v0.event_type ?? "",
-                startTime: _v171(_v0.startTime ?? _v0.start_time) ?? "",
-                endTime: _v171(_v0.endTime ?? _v0.end_time),
+                startTime: _v170(_v0.startTime ?? _v0.start_time) ?? "",
+                endTime: _v170(_v0.endTime ?? _v0.end_time),
                 status: _v0.status ?? "",
                 hasRegistration: _v0.hasRegistration ?? _v0.has_registration ?? !1,
                 settingsLink: _v0.settingsLink ?? _v0.settings_link ?? null,
@@ -3951,7 +3950,7 @@
               let _v2 = _v0.event?.metadata?.connections?.liveVideo?.status === "streaming",
                 _v3 = _v1.event?.metadata?.connections?.liveVideo?.status === "streaming";
               return _v2 && !_v3 ? -1 : !_v2 && _v3 ? 1 : 0;
-            }), _v2.map(_v172).filter(_v0 => null !== _v0).slice(0, _v1);
+            }), _v2.map(_v171).filter(_v0 => null !== _v0).slice(0, _v1);
           }, [_v4, _v1]),
           isLoading: _v6,
           isValidating: _v7,
@@ -3967,11 +3966,11 @@
       sx: {
         contain: "inline-size"
       },
-      children: (0, _v1.jsxs)(_v167.Playlist, {
+      children: (0, _v1.jsxs)(_v166.Playlist, {
         gap: "sm",
         w: "100%",
         overflow: "hidden",
-        children: [(0, _v1.jsx)(_v169.PlaylistHeader, {
+        children: [(0, _v1.jsx)(_v168.PlaylistHeader, {
           pt: 0,
           header: {
             text: (0, _v17.translate)({
@@ -4001,17 +4000,17 @@
               }
             })
           },
-          children: (0, _v1.jsx)(_v168.PlaylistCarouselNavigation, {
+          children: (0, _v1.jsx)(_v167.PlaylistCarouselNavigation, {
             onPrevClick: _v4,
             onNextClick: _v5
           })
-        }), (0, _v1.jsx)(_v166.Carousel, {
+        }), (0, _v1.jsx)(_v165.Carousel, {
           children: Array.from({
             length: 5
           }).map((_v0, _v1) => (0, _v1.jsx)(_v8.Box, {
             w: (0, _v38.rem)(380),
             flexShrink: 0,
-            children: (0, _v1.jsx)(_v165.LoadingCard, {})
+            children: (0, _v1.jsx)(_v164.LoadingCard, {})
           }, `upcoming-loading-${_v1}`))
         })]
       })
@@ -4020,11 +4019,11 @@
       sx: {
         contain: "inline-size"
       },
-      children: (0, _v1.jsxs)(_v167.Playlist, {
+      children: (0, _v1.jsxs)(_v166.Playlist, {
         gap: "sm",
         w: "100%",
         overflow: "hidden",
-        children: [(0, _v1.jsx)(_v169.PlaylistHeader, {
+        children: [(0, _v1.jsx)(_v168.PlaylistHeader, {
           pt: 0,
           header: {
             text: (0, _v17.translate)({
@@ -4054,11 +4053,11 @@
               }
             })
           },
-          children: (0, _v1.jsx)(_v168.PlaylistCarouselNavigation, {
+          children: (0, _v1.jsx)(_v167.PlaylistCarouselNavigation, {
             onPrevClick: _v4,
             onNextClick: _v5
           })
-        }), (0, _v1.jsx)(_v166.Carousel, {
+        }), (0, _v1.jsx)(_v165.Carousel, {
           children: _v6.map(_v0 => (0, _v1.jsx)(_v8.Box, {
             w: (0, _v38.rem)(380),
             flexShrink: 0,
@@ -4080,12 +4079,12 @@
       })
     }) : null;
   };
-  var _v174 = _v0.i(0),
-    _v175 = _v0.i(0);
-  let _v176 = ({
+  var _v173 = _v0.i(0),
+    _v174 = _v0.i(0);
+  let _v175 = ({
     isEnterprise: _v0
   }) => {
-    let _v1 = (0, _v175.useUpsellModal)();
+    let _v1 = (0, _v174.useUpsellModal)();
     return (0, _v1.jsx)(_v1.Fragment, {
       children: (0, _v1.jsx)(_v9.Flex, {
         gap: "lg",
@@ -4126,7 +4125,7 @@
                     mkcCode: "ent-upgrade-bottom",
                     headerText: _v52,
                     subHeaderText: _v53,
-                    excludePlans: [_v174.PLANS.STARTER, _v174.PLANS.STANDARD, _v174.PLANS.CREATOR],
+                    excludePlans: [_v173.PLANS.STARTER, _v173.PLANS.STANDARD, _v173.PLANS.CREATOR],
                     planOverrides: {
                       ADVANCE: {
                         subHeading: _v54,
@@ -4157,12 +4156,12 @@
       })
     });
   };
-  function _v177(_v0, _v1) {
+  function _v176(_v0, _v1) {
     return !(_v0.size > _v1.size) && new Set([..._v0, ..._v1]).size === _v1.size;
   }
-  var _v178 = _v0.i(0);
-  let _v179 = ["title", "link", "viewLink", "settingsLink", "embed.html", "eventType", "nextOccurrenceTime", "pictures", "metadata.connections.liveVideo.status", "metadata.interactions.delete", "metadata.interactions.edit", "uri", "createdTime", "streamPrivacy.view", "hasRegistration", "status", "parentFolder.name", "parentFolder.uri"],
-    _v180 = ({
+  var _v177 = _v0.i(0);
+  let _v178 = ["title", "link", "viewLink", "settingsLink", "embed.html", "eventType", "nextOccurrenceTime", "pictures", "metadata.connections.liveVideo.status", "metadata.interactions.delete", "metadata.interactions.edit", "uri", "createdTime", "streamPrivacy.view", "hasRegistration", "status", "parentFolder.name", "parentFolder.uri"],
+    _v179 = ({
       ownerId: _v0,
       sortDirection: _v1,
       sortType: _v2,
@@ -4175,8 +4174,8 @@
           setSize: _v7,
           size: _v8,
           mutate: _v9
-        } = (0, _v178.useGetUserLiveEventsInfinite)(() => _v0 ? {
-          select: _v179,
+        } = (0, _v177.useGetUserLiveEventsInfinite)(() => _v0 ? {
+          select: _v178,
           where: {
             userId: _v0
           },
@@ -4222,11 +4221,11 @@
         }
       };
     };
-  function _v181(_v0) {
+  function _v180(_v0) {
     return void 0 !== _v0;
   }
-  let _v182 = _v0 => _v0.split("_")[0].toLowerCase(),
-    _v183 = (0, _v5.default)(async () => {
+  let _v181 = _v0 => _v0.split("_")[0].toLowerCase(),
+    _v182 = (0, _v5.default)(async () => {
       let {
         EventCreationWizardModal: _v0
       } = await _v0.A(0);
@@ -4239,7 +4238,7 @@
       },
       ssr: !1
     });
-  function _v184() {
+  function _v183() {
     let _v0 = (0, _v19.useOrionSettingsFields)(["is_new_live_events_dashboard_enabled"]).is_new_live_events_dashboard_enabled,
       _v1 = (0, _v6.useContext)(_v35.ViewerContext),
       _v2 = (0, _v25.useNotification)(),
@@ -4292,12 +4291,12 @@
     }, [_v19]);
     let _v34 = (0, _v6.useCallback)(_v0 => {
         _v21({
-          newLayout: _v182(_v0)
+          newLayout: _v181(_v0)
         }), _v0 && "CALENDAR_LAYOUT" === _v0 ? (_v12(!0), _v10(!0)) : (_v12(!1), _v10(!1), _v8(_v0));
       }, [_v0, _v8, _v10, _v21]),
       _v35 = (0, _v6.useCallback)(_v0 => {
         _v21({
-          newLayout: _v182(_v0)
+          newLayout: _v181(_v0)
         }), _v8(_v0);
       }, [_v8, _v21]),
       _v36 = (0, _v6.useCallback)(_v0 => {
@@ -4315,7 +4314,7 @@
       _v49 = (0, _v6.useCallback)(_v0 => {
         _v43(_v0), _v48.current && clearTimeout(_v48.current), _v48.current = setTimeout(() => {
           _v45(_v0), _v24({
-            layout: _v182(_v19),
+            layout: _v181(_v19),
             query: _v0
           });
         }, 300);
@@ -4325,7 +4324,7 @@
     }, []);
     let _v50 = (0, _v6.useCallback)(() => {
         _v47(!0), _v23({
-          layout: _v182(_v19)
+          layout: _v181(_v19)
         });
       }, [_v19, _v23]),
       _v51 = (0, _v6.useCallback)(() => {
@@ -4348,7 +4347,7 @@
         total: _v58,
         removeFromCacheByUri: _v59,
         removeFromCacheByUris: _v60
-      } = _v180({
+      } = _v179({
         ownerId: _v6,
         sortDirection: _v29.DEFAULT_EVENTS_SORT.direction,
         sortType: _v29.DEFAULT_EVENTS_SORT.type,
@@ -4363,7 +4362,7 @@
         total: _v66,
         removeFromCacheByUri: _v67,
         removeFromCacheByUris: _v68
-      } = _v180({
+      } = _v179({
         ownerId: _v6,
         sortDirection: _v15.direction,
         sortType: _v15.type,
@@ -4602,9 +4601,9 @@
               selectedItems: _v4
             };
           }, [_v0, _v1, _v2, _v3, _v4]),
-          _v11 = _v4.size > 0 && _v177(_v4, _v6),
-          _v12 = _v4.size > 0 && _v177(_v4, _v7),
-          _v13 = _v4.size > 0 && _v177(_v4, _v8),
+          _v11 = _v4.size > 0 && _v176(_v4, _v6),
+          _v12 = _v4.size > 0 && _v176(_v4, _v7),
+          _v13 = _v4.size > 0 && _v176(_v4, _v8),
           _v14 = _v12 && _v4.size > _v29.MAX_SELECTION_FOR_BULK_MOVE,
           _v15 = _v13 && _v4.size > _v29.MAX_SELECTION_FOR_BULK_PRIVACY;
         return {
@@ -4660,7 +4659,7 @@
         metadata: {
           connections: {}
         }
-      })).filter(_v181),
+      })).filter(_v180),
       _v101 = _v65?.length === 0,
       _v102 = _v1?.teamUser ? "enterprise" === _v1.teamUser.accountType : !!_v1?.user && "enterprise" === _v1.user.account,
       _v103 = (0, _v1.jsx)(_v34.CheckboxItemCount, {
@@ -4718,7 +4717,7 @@
           children: [!!_v70 && !_v71 && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsxs)(_v30.Page.StickyTop, {
               children: [(0, _v1.jsx)(_v31.PageHeader, {
-                actions: (0, _v1.jsx)(_v164, {
+                actions: (0, _v1.jsx)(_v163, {
                   onClick: _v80
                 }),
                 title: _v0 ? (0, _v17.translate)({
@@ -4867,7 +4866,7 @@
                 shouldShowFileSize: !1
               })]
             }), _v0 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v173, {
+              children: [(0, _v1.jsx)(_v172, {
                 ownerId: _v6,
                 onDelete: _v78,
                 onMove: _v79
@@ -5039,18 +5038,18 @@
                 streamsMaximum: _v0 ? _v57 : void 0,
                 shouldShowLocation: _v0,
                 rootLocationLabel: _v0 ? _v74 : void 0
-              }), (!_v0 || "CALENDAR_LAYOUT" !== _v19 || _v52 || "CALENDAR_LAYOUT" === _v19 && "UNSCHEDULED" === _v13) && (0, _v1.jsx)(() => _v61 || _v63 || _v101 ? null : (0, _v1.jsx)(_v162, {
+              }), (!_v0 || "CALENDAR_LAYOUT" !== _v19 || _v52 || "CALENDAR_LAYOUT" === _v19 && "UNSCHEDULED" === _v13) && (0, _v1.jsx)(() => _v61 || _v63 || _v101 ? null : (0, _v1.jsx)(_v161, {
                 isLoading: !!_v63,
                 onClick: _v69
               }), {})]
             })]
           }), !_v70 && _v72 && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v60, {}), (0, _v1.jsx)(_v176, {
+            children: [(0, _v1.jsx)(_v60, {}), (0, _v1.jsx)(_v175, {
               isEnterprise: _v102
             })]
           })]
         })
-      }), (0, _v1.jsx)(_v183, {
+      }), (0, _v1.jsx)(_v182, {
         active: _v37,
         activeSet: _v38
       }), (0, _v1.jsx)(_v16.LiveTrialBlockModal, {
@@ -5074,17 +5073,17 @@
       })]
     });
   }
-  var _v185 = _v0.i(0),
+  var _v184 = _v0.i(0),
+    _v185 = _v0.i(0),
     _v186 = _v0.i(0),
     _v187 = _v0.i(0),
     _v188 = _v0.i(0),
     _v189 = _v0.i(0),
-    _v190 = _v0.i(0),
-    _v191 = _v0.i(0);
-  let _v192 = ({
+    _v190 = _v0.i(0);
+  let _v191 = ({
     playerAssetUrls: _v0
   }) => {
-    let _v1 = (0, _v191.useViewer)(),
+    let _v1 = (0, _v190.useViewer)(),
       _v2 = _v1?.user?.id,
       _v3 = _v1?.teamUser?.ownerId,
       {
@@ -5093,7 +5092,7 @@
       } = (0, _v2.useCapability)(["hasVideoManagerLiveEventsMenu"], _v3 || _v2);
     if (!_v5) return null;
     if (_v4?.hasVideoManagerLiveEventsMenu === !1) throw new _v3.ResourceNotFoundError();
-    return (0, _v1.jsx)(_v185.PlayerContextProvider, {
+    return (0, _v1.jsx)(_v184.PlayerContextProvider, {
       assetUrls: _v0 ?? {
         barebone_js: "",
         chromeless_css: "",
@@ -5102,19 +5101,19 @@
         js: "",
         player_url: ""
       },
-      type: _v186.PlayerType.VimeoPlayer,
-      children: (0, _v1.jsx)(_v189.VideoModalContextProvider, {
-        children: (0, _v1.jsx)(_v190.LiveEventDeleteModalProvider, {
-          children: (0, _v1.jsx)(_v184, {})
+      type: _v185.PlayerType.VimeoPlayer,
+      children: (0, _v1.jsx)(_v188.VideoModalContextProvider, {
+        children: (0, _v1.jsx)(_v189.LiveEventDeleteModalProvider, {
+          children: (0, _v1.jsx)(_v183, {})
         })
       })
     });
   };
-  _v192.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v188.VideoLibraryLayout, {
+  _v191.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v187.VideoLibraryLayout, {
     hasSideNav: !0,
     hasUploader: _v1.hasUploader,
     searchContentAlignment: _v30.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
-    sideNavContent: (0, _v1.jsx)(_v187.SideNavContent, {
+    sideNavContent: (0, _v1.jsx)(_v186.SideNavContent, {
       surface: "home"
     }),
     sideNavSurface: "home",
@@ -5129,5 +5128,5 @@
     noIndex: !0,
     inlineViewer: !0,
     inlinePlayerAssets: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v192], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v191], 0);
 }

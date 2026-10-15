@@ -311,12 +311,12 @@
             maxLength: _v2,
             isDisabled: _v5 || _v4,
             isInvalid: _v22,
-            pr: _v30 + 88 - 32,
+            pr: _v30 + 104 - 40,
             onChange: _v25,
             onFocus: _v26,
             ..._v13
           }), !_v8 && (0, _v1.jsx)(_v11.InputRightElement, {
-            width: _v30 + 88,
+            width: _v30 + 104,
             pointerEvents: "none",
             hidden: _v5,
             children: (0, _v1.jsx)(_v5.Button, {

@@ -17,9 +17,10 @@
       rp_2026: "01KGEWQ5SAS6NW735YSBYK68XG",
       rp_2026_strict: "01KGPR56B56Z9H89TBNS98ASMT",
       rp_2026_low: "01KW9DH1F0FDGXW85ZBDYXYCRK",
-      rp_2026_high: "01KW9DH1F0Z5XGAH2JCG9FWC4K"
+      rp_2026_high: "01KW9DH1F0Z5XGAH2JCG9FWC4K",
+      rp_2026_oct_rollout: "01M4WTDVF8PGHG3XH1Q4R07RW9"
     },
-    _v5 = ["rp_2026", "rp_2026_strict", "rp_2026_low", "rp_2026_high"].map(_v0 => _v4[_v0]),
+    _v5 = ["rp_2026", "rp_2026_strict", "rp_2026_low", "rp_2026_high", "rp_2026_oct_rollout"].map(_v0 => _v4[_v0]),
     _v6 = _v4.rp_2026_low,
     _v7 = _v4.rp_2026_high,
     _v8 = _v0 => _v0 && "null" !== _v0 && _v4.hasOwnProperty(_v0) ? _v4[_v0] : null,

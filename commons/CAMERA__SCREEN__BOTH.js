@@ -29988,14 +29988,15 @@
       uploadQuotaState: _v43
     } = function () {
       let _v0 = (0, _v47.useViewer)(),
+        _v1 = (0, _v86.useUIStore)(_v0 => _v0.common.uploadToAccountId) ?? _v188(_v0),
         {
-          capabilities: _v1,
-          ready: _v2
-        } = (0, _v185.useCapability)(["recordQuotaBypass"], _v188(_v0)),
-        _v3 = _v0?.user?.uploadQuota;
+          capabilities: _v2,
+          ready: _v3
+        } = (0, _v185.useCapability)(["recordQuotaBypass"], _v1),
+        _v4 = null != _v1 && _v1 === _v0?.user?.id ? _v0?.user?.uploadQuota : void 0;
       return {
-        recordQuotaBypass: _v2 ? _v1?.recordQuotaBypass === !0 : null,
-        uploadQuotaState: (0, _v26.useMemo)(() => _v3 ? _v187(_v3, .8) : null, [_v3])
+        recordQuotaBypass: _v3 ? _v2?.recordQuotaBypass === !0 : null,
+        uploadQuotaState: (0, _v26.useMemo)(() => _v4 ? _v187(_v4, .8) : null, [_v4])
       };
     }();
     !function ({

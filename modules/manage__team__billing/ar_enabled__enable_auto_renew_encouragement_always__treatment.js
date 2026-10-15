@@ -17555,6 +17555,7 @@
         switch (_v0) {
           case "rp_2026":
           case "rp_2026_high":
+          case "rp_2026_oct_rollout":
             return "https://vimeo.com/new-plans-feb-2026-50";
           case "rp_2026_strict":
           case "rp_2026_low":
