@@ -37,32 +37,33 @@
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
-    _v30 = _v0.i(0);
-  let _v31 = (0, _v7.memo)(() => (0, _v1.jsx)(_v29.Flex, {
+    _v30 = _v0.i(0),
+    _v31 = _v0.i(0);
+  let _v32 = (0, _v7.memo)(() => (0, _v1.jsx)(_v30.Flex, {
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
-    padding: (0, _v27.rem)(64),
+    padding: (0, _v28.rem)(64),
     grow: 1,
     background: "surface",
     width: "100%",
     height: "100%",
-    children: (0, _v1.jsx)(_v28.Paragraph, {
+    children: (0, _v1.jsx)(_v29.Paragraph, {
       size: "lg",
       color: "text-secondary",
-      children: _v30.translations.whenAudienceEngagementIsOpen
+      children: _v31.translations.whenAudienceEngagementIsOpen
     })
   }));
-  var _v32 = _v0.i(0),
-    _v33 = _v0.i(0);
-  function _v34({
+  var _v33 = _v0.i(0),
+    _v34 = _v0.i(0);
+  function _v35({
     pageProps: _v0,
     sessionId: _v1,
     sessionType: _v2
   }) {
-    let _v3 = (0, _v22.useViewer)(),
+    let _v3 = (0, _v23.useViewer)(),
       _v4 = (0, _v14.useInitialRenderTime)(),
-      _v5 = (0, _v23.useIsVpaas)(),
+      _v5 = (0, _v24.useIsVpaas)(),
       _v6 = (0, _v7.useMemo)(() => {
         let _v0 = (0, _v18.getUrlQueryValue)(_v13.liveQueryConfig.INTERACTION.IS_MANAGEMENT_DISABLED),
           _v1 = "string" == typeof _v0 ? "true" === _v0 : _v12.environmentConfig.IS_IFRAME,
@@ -116,28 +117,34 @@
       userLocale: _v3?.locale
     }), function (_v0 = "light") {
       let {
-        setTheme: _v1
-      } = (0, _v19.useThemeContext)();
-      (0, _v21.useIsomorphicLayoutEffect)(() => {
-        _v20.Logger.getGlobal().info("Synchronizing theme:", _v0), _v1({
+          setTheme: _v1
+        } = (0, _v20.useThemeContext)(),
+        {
+          colorMode: _v2,
+          setColorMode: _v3
+        } = (0, _v19.useColorMode)();
+      (0, _v22.useIsomorphicLayoutEffect)(() => {
+        _v21.Logger.getGlobal().info("Synchronizing theme:", _v0), _v1({
           name: _v0
         });
-      }, [_v1]);
+      }, [_v1]), (0, _v22.useIsomorphicLayoutEffect)(() => {
+        _v2 !== _v0 && _v3?.(_v0);
+      }, [_v2, _v3, _v0]);
     }(_v6.interaction?.theme);
-    let _v7 = (0, _v1.jsxs)(_v32.InteractionToolsProvider, {
+    let _v7 = (0, _v1.jsxs)(_v33.InteractionToolsProvider, {
       pageProps: _v0,
       initialState: _v6,
-      children: [(0, _v1.jsx)(_v33.InteractionToolsRouter, {}), (0, _v1.jsx)(_v24.InteractionToolsAmbient, {}), (0, _v1.jsx)(_v26.InteractionToolsFooter, {})]
+      children: [(0, _v1.jsx)(_v34.InteractionToolsRouter, {}), (0, _v1.jsx)(_v25.InteractionToolsAmbient, {}), (0, _v1.jsx)(_v27.InteractionToolsFooter, {})]
     });
     return (0, _v1.jsxs)(_v6.ScopeProvider, {
       children: [_v6?.interaction?.feature?.isOverlay ? (0, _v1.jsx)(_v10, {}) : null, (0, _v1.jsx)(_v8.ScopeErrorBoundary, {
         fallback: _v5.InteractionToolsErrorPage,
-        children: _v6?.interaction?.feature?.module === _v17.EInteractionModule.AUTO ? (0, _v1.jsx)(_v25.InteractionToolsStatusObserver, {
+        children: _v6?.interaction?.feature?.module === _v17.EInteractionModule.AUTO ? (0, _v1.jsx)(_v26.InteractionToolsStatusObserver, {
           isActive: !0,
           isAvailableForModeration: !0,
           sessionId: _v1,
           sessionType: _v2,
-          placeholder: (0, _v1.jsx)(_v31, {}),
+          placeholder: (0, _v1.jsx)(_v32, {}),
           children: _v7
         }) : _v7
       })]
@@ -152,7 +159,7 @@
     return _v1 ? (0, _v1.jsx)(_v2.LiveErrorBoundary, {
       component: "LiveInteractionToolsRoot",
       componentHandler: _v5.InteractionToolsErrorPage,
-      children: (0, _v1.jsx)(_v34, {
+      children: (0, _v1.jsx)(_v35, {
         sessionId: _v2,
         sessionType: _v3,
         pageProps: _v0

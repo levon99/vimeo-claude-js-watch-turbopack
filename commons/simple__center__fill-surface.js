@@ -3795,6 +3795,7 @@
       } = _v0;
       return {
         ..._v19,
+        color: _v18?.colorTwo,
         colors: _v18 && {
           ..._v18
         },

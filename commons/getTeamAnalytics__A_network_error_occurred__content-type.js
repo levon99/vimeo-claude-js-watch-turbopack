@@ -27,8 +27,9 @@
   var _v4 = _v0.i(0);
   _v0.i(0);
   var _v5 = _v0.i(0);
-  _v0.i(0), _v0.i(0);
-  var _v6 = _v0.i(0);
+  _v0.i(0);
+  var _v6 = _v0.i(0),
+    _v7 = _v0.i(0);
   _v0.s(["useGetTeamAnalytics", 0, function (_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
@@ -36,7 +37,7 @@
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v6.useGctlConfig)();
+      } = (0, _v7.useGctlConfig)();
     return (0, _v4.default)(_v2 ? `/teams/${_v2.where.userId}/analytics${(0, _v5.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v3({
       ..._v2,
       headers: {
@@ -47,6 +48,39 @@
         "Accept-Language": _v6 ?? "en"
       },
       baseUrl: _v3
+    }) : null, _v1);
+  }, "useGetTeamAnalyticsInfinite", 0, function (_v0, _v1) {
+    let _v2 = "function" == typeof _v0 ? _v0() : _v0,
+      {
+        baseUrl: _v3,
+        jwt: _v4,
+        xVimeoPage: _v5,
+        locale: _v6
+      } = (0, _v7.useGctlConfig)();
+    return (0, _v6.default)((_v0, _v1) => {
+      if (null === _v2 || _v1 && !_v1.paging.next) return null;
+      let {
+          perPage: _v2 = 25,
+          page: _v3,
+          ..._v4
+        } = _v2.query ?? {},
+        _v5 = _v2.select.join(","),
+        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
+      return [`/teams/${_v2.where.userId}/analytics?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
+    }, null !== _v2 ? ([_v0, _v1]) => _v3({
+      ..._v2,
+      baseUrl: _v3,
+      headers: {
+        ..._v2.headers,
+        "Content-Type": "application/json",
+        Authorization: _v4 ? `jwt ${_v4}` : "",
+        "Vimeo-Page": `${_v5}`,
+        "Accept-Language": _v6 ?? "en"
+      },
+      query: {
+        ..._v2.query,
+        page: _v1 + 1
+      }
     }) : null, _v1);
   }], 0);
 }

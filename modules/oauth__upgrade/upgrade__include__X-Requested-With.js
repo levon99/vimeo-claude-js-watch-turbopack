@@ -1636,9 +1636,8 @@
         })]
       }) : null;
     };
-  var _v52 = _v0.i(0),
-    _v53 = _v0.i(0);
-  let _v54 = _v6.default.div.withConfig({
+  var _v52 = _v0.i(0);
+  let _v53 = _v6.default.div.withConfig({
       displayName: "staging__Layout",
       componentId: "sc-30d2e11d-0"
     })`
@@ -1653,7 +1652,7 @@
     text-decoration: none;
   }
 `,
-    _v55 = _v6.default.div.withConfig({
+    _v54 = _v6.default.div.withConfig({
       displayName: "staging__InterstitialContainer",
       componentId: "sc-30d2e11d-1"
     })`
@@ -1661,7 +1660,7 @@
   text-align: center;
   background-color: ${_v0 => _v0.upgrade ? "none" : (0, _v11.blue)(50)};
 `,
-    _v56 = _v6.default.div.withConfig({
+    _v55 = _v6.default.div.withConfig({
       displayName: "staging__InterstitialContent",
       componentId: "sc-30d2e11d-2"
     })`
@@ -1669,41 +1668,41 @@
   margin: auto;
   padding: ${(0, _v4.rem)(60)} ${(0, _v4.rem)(20)};
 `,
-    _v57 = (0, _v6.default)(_v14.Paragraph).withConfig({
+    _v56 = (0, _v6.default)(_v14.Paragraph).withConfig({
       displayName: "staging__InterstitialRedirectMessage",
       componentId: "sc-30d2e11d-3"
     })`
   display: block;
   margin-top: ${(0, _v4.rem)(8)};
 `,
-    _v58 = (0, _v6.default)(_v13.VimeoLogo).withConfig({
+    _v57 = (0, _v6.default)(_v13.VimeoLogo).withConfig({
       displayName: "staging__Logo",
       componentId: "sc-30d2e11d-4"
     })`
   width: ${(0, _v4.rem)(80)};
   margin-bottom: ${(0, _v4.rem)(40)};
 `,
-    _v59 = (0, _v6.default)(_v15.Header).withConfig({
+    _v58 = (0, _v6.default)(_v15.Header).withConfig({
       displayName: "staging__InterstitialHeader",
       componentId: "sc-30d2e11d-5"
     })`
   margin-bottom: ${(0, _v4.rem)(30)};
 `,
-    _v60 = (0, _v6.default)(_v14.Paragraph).withConfig({
+    _v59 = (0, _v6.default)(_v14.Paragraph).withConfig({
       displayName: "staging__InterstitialSubheading",
       componentId: "sc-30d2e11d-6"
     })`
   display: block;
   margin-bottom: ${(0, _v4.rem)(20)};
 `,
-    _v61 = _v6.default.div.withConfig({
+    _v60 = _v6.default.div.withConfig({
       displayName: "staging__UpsellContainer",
       componentId: "sc-30d2e11d-7"
     })`
   width: 100%;
   padding: 0 ${(0, _v4.rem)(20)} ${(0, _v4.rem)(60)} ${(0, _v4.rem)(20)};
 `,
-    _v62 = (0, _v6.default)(_v14.Paragraph).withConfig({
+    _v61 = (0, _v6.default)(_v14.Paragraph).withConfig({
       displayName: "staging__UpsellPrompt",
       componentId: "sc-30d2e11d-8"
     })`
@@ -1714,13 +1713,13 @@
   line-height: ${(0, _v4.rem)(26)};
   padding-top: ${(0, _v4.rem)(60)};
 `,
-    _v63 = _v6.default.span.withConfig({
+    _v62 = _v6.default.span.withConfig({
       displayName: "staging__UpsellEmphasis",
       componentId: "sc-30d2e11d-9"
     })`
   font-weight: 700;
 `,
-    _v64 = _v6.default.div.withConfig({
+    _v63 = _v6.default.div.withConfig({
       displayName: "staging__UpsellPlans",
       componentId: "sc-30d2e11d-10"
     })`
@@ -1729,7 +1728,7 @@
   max-width: ${(0, _v4.rem)(0)};
   margin: 0 auto;
 `,
-    _v65 = _v6.default.div.withConfig({
+    _v64 = _v6.default.div.withConfig({
       displayName: "staging__UpsellPlan",
       componentId: "sc-30d2e11d-11"
     })`
@@ -1758,24 +1757,24 @@
     margin: ${(0, _v4.rem)(8)} 0;
   }
 `,
-    _v66 = _v6.default.div.withConfig({
+    _v65 = _v6.default.div.withConfig({
       displayName: "staging__PlanContent",
       componentId: "sc-30d2e11d-12"
     })`
   width: 100%;
   text-align: left;
 `,
-    _v67 = (0, _v6.default)(_v15.Header).withConfig({
+    _v66 = (0, _v6.default)(_v15.Header).withConfig({
       displayName: "staging__PlanHeader",
       componentId: "sc-30d2e11d-13"
     })``,
-    _v68 = (0, _v6.default)(_v15.Header).attrs({
+    _v67 = (0, _v6.default)(_v15.Header).attrs({
       size: "4"
     }).withConfig({
       displayName: "staging__PlanPrice",
       componentId: "sc-30d2e11d-14"
     })``,
-    _v69 = (0, _v6.default)(_v14.Paragraph).attrs({
+    _v68 = (0, _v6.default)(_v14.Paragraph).attrs({
       size: "2"
     }).withConfig({
       displayName: "staging__PlanSubscriptionDuration",
@@ -1784,13 +1783,13 @@
   color: ${(0, _v11.slate)(400)};
   display: block;
 `,
-    _v70 = _v6.default.div.withConfig({
+    _v69 = _v6.default.div.withConfig({
       displayName: "staging__PlanPurchaseWrapper",
       componentId: "sc-30d2e11d-16"
     })`
   margin: ${(0, _v4.rem)(20)} 0;
 `,
-    _v71 = (0, _v6.default)(_v14.Paragraph).attrs({
+    _v70 = (0, _v6.default)(_v14.Paragraph).attrs({
       size: "2"
     }).withConfig({
       displayName: "staging__PlanHighlightFeature",
@@ -1800,7 +1799,7 @@
   display: block;
   margin-bottom: ${(0, _v4.rem)(3)};
 `,
-    _v72 = (0, _v6.default)(_v14.Paragraph).attrs({
+    _v71 = (0, _v6.default)(_v14.Paragraph).attrs({
       size: "2"
     }).withConfig({
       displayName: "staging__PlanDescriptionHeader",
@@ -1810,27 +1809,26 @@
   display: block;
   margin: ${(0, _v4.rem)(12)} 0 ${(0, _v4.rem)(4)};
 `,
-    _v73 = _v6.default.ul.withConfig({
+    _v72 = _v6.default.ul.withConfig({
       displayName: "staging__PlanDescription",
       componentId: "sc-30d2e11d-19"
     })`
   list-style-type: disc;
   margin-left: ${(0, _v4.rem)(20)};
 `,
-    _v74 = _v6.default.span.withConfig({
+    _v73 = _v6.default.span.withConfig({
       displayName: "staging__ButtonAlignedContent",
       componentId: "sc-30d2e11d-20"
     })`
   display: flex;
   align-items: center;
 `,
-    _v75 = ["plus", "pro", "business", "livePremium"];
-  function _v76({
+    _v74 = ["plus", "pro", "business", "livePremium"];
+  function _v75({
     userInfo: _v0
   }) {
-    let _v1 = (0, _v52.usePremiumWebinarCappingExperiment)(),
-      _v2 = (0, _v16.useGetSubscriptionPlansData)(_v75),
-      _v3 = {
+    let _v1 = (0, _v16.useGetSubscriptionPlansData)(_v74),
+      _v2 = {
         plus: {
           size: (0, _v10.translate)({
             singular: "250GB every year",
@@ -2430,7 +2428,7 @@
           }), (0, _v10.translate)({
             singular: "Webinar registration (up to {COUNT} registrants per event)",
             replacements: {
-              COUNT: _v1
+              COUNT: 100
             },
             dictionary: {
               es: {
@@ -2558,70 +2556,70 @@
           })]
         }
       },
-      _v4 = (0, _v5.useContext)(_v17.ViewerContext),
-      _v5 = (0, _v2.useRouter)(),
-      _v6 = _v5.query,
-      _v7 = (0, _v22.getSingleRedirectUri)(_v5.query.redirect_uri) ?? "",
-      _v8 = _v6?.auth_action,
-      _v9 = _v0.app_id ?? "0",
-      _v10 = _v0?.managed_user?.transfer_status ?? _v19.TransferStatus.TRANSFER_NOT_REQUESTED,
-      _v11 = _v0.managed_user?.id?.toString() ?? "0",
+      _v3 = (0, _v5.useContext)(_v17.ViewerContext),
+      _v4 = (0, _v2.useRouter)(),
+      _v5 = _v4.query,
+      _v6 = (0, _v22.getSingleRedirectUri)(_v4.query.redirect_uri) ?? "",
+      _v7 = _v5?.auth_action,
+      _v8 = _v0.app_id ?? "0",
+      _v9 = _v0?.managed_user?.transfer_status ?? _v19.TransferStatus.TRANSFER_NOT_REQUESTED,
+      _v10 = _v0.managed_user?.id?.toString() ?? "0",
       {
-        link: _v12,
-        managed_user: _v13 = "",
-        token: _v14,
-        code: _v15,
-        state: _v16,
-        via: _v17
-      } = _v6,
-      _v18 = window?.location?.search ?? "";
-    null === _v4 || _v4.user || _v5.push({
-      pathname: _v8 ? _v18.RequiredOAuthPaths[_v8] : _v18.RequiredOAuthPaths.join,
-      query: _v5.query
+        link: _v11,
+        managed_user: _v12 = "",
+        token: _v13,
+        code: _v14,
+        state: _v15,
+        via: _v16
+      } = _v5,
+      _v17 = window?.location?.search ?? "";
+    null === _v3 || _v3.user || _v4.push({
+      pathname: _v7 ? _v18.RequiredOAuthPaths[_v7] : _v18.RequiredOAuthPaths.join,
+      query: _v4.query
     });
-    let _v19 = (0, _v53.getCopyForApp)(_v9),
-      [_v20, _v21] = (0, _v5.useState)(!1),
+    let _v18 = (0, _v52.getCopyForApp)(_v8),
+      [_v19, _v20] = (0, _v5.useState)(!1),
       {
-        transferStatus: _v22
-      } = (0, _v19.useManagedUserTransferStatus)(_v9.toString(), _v11.toString(), _v13, _v20 ? void 0 : 0),
-      _v23 = "0" === _v11 ? _v10 : _v22,
-      _v24 = _v23 !== _v19.TransferStatus.TRANSFER_COMPLETED && _v23 !== _v19.TransferStatus.TRANSFER_FAILED && !_v20,
-      _v25 = _v23 === _v19.TransferStatus.TRANSFER_COMPLETED || _v23 === _v19.TransferStatus.TRANSFER_FAILED || _v20,
-      _v26 = "0" === _v11 || _v10 === _v19.TransferStatus.TRANSFER_COMPLETED || _v10 === _v19.TransferStatus.TRANSFER_FAILED,
-      _v27 = _v12 && (0, _v9.deepDecodeURIComponent)(_v12),
-      _v28 = !!_v27?.match("upgrade"),
-      _v29 = !!_v27?.match(/^videos\/\d+/),
-      _v30 = !!_v27?.match(/^\/apps\/\d+\/create\/templates/),
-      _v31 = _v29 || _v30,
+        transferStatus: _v21
+      } = (0, _v19.useManagedUserTransferStatus)(_v8.toString(), _v10.toString(), _v12, _v19 ? void 0 : 0),
+      _v22 = "0" === _v10 ? _v9 : _v21,
+      _v23 = _v22 !== _v19.TransferStatus.TRANSFER_COMPLETED && _v22 !== _v19.TransferStatus.TRANSFER_FAILED && !_v19,
+      _v24 = _v22 === _v19.TransferStatus.TRANSFER_COMPLETED || _v22 === _v19.TransferStatus.TRANSFER_FAILED || _v19,
+      _v25 = "0" === _v10 || _v9 === _v19.TransferStatus.TRANSFER_COMPLETED || _v9 === _v19.TransferStatus.TRANSFER_FAILED,
+      _v26 = _v11 && (0, _v9.deepDecodeURIComponent)(_v11),
+      _v27 = !!_v26?.match("upgrade"),
+      _v28 = !!_v26?.match(/^videos\/\d+/),
+      _v29 = !!_v26?.match(/^\/apps\/\d+\/create\/templates/),
+      _v30 = _v28 || _v29,
       {
-        data: _v32,
-        loading: _v33
+        data: _v31,
+        loading: _v32
       } = (0, _v8.useQuery)(`/apps/${_v0.app_id}?fields=callbacks`),
-      _v34 = (0, _v5.useMemo)(() => {
-        if (!_v33 && _v32 && _v7) {
-          if (_v7.match(/\/apps\/[0-9]+\/create.*/)?.index === 0 || _v7.match(/\/apps\/[0-9]+\/preview.*/)?.index === 0) return !0;
-          let _v0 = _v32.callbacks.some(_v0 => _v0 === _v7 || _v0 === _v7.split("?")[0]);
+      _v33 = (0, _v5.useMemo)(() => {
+        if (!_v32 && _v31 && _v6) {
+          if (_v6.match(/\/apps\/[0-9]+\/create.*/)?.index === 0 || _v6.match(/\/apps\/[0-9]+\/preview.*/)?.index === 0) return !0;
+          let _v0 = _v31.callbacks.some(_v0 => _v0 === _v6 || _v0 === _v6.split("?")[0]);
           if (!_v0) throw Error("Redirect URI is invalid.");
           return _v0;
         }
-      }, [_v32, _v33, _v7]),
-      _v35 = (0, _v5.useMemo)(() => {
-        let _v0 = (0, _v9.deepDecodeURIComponent)(_v7),
+      }, [_v31, _v32, _v6]),
+      _v34 = (0, _v5.useMemo)(() => {
+        let _v0 = (0, _v9.deepDecodeURIComponent)(_v6),
           _v1 = (0, _v23.httpBuildQuery)({
-            state: _v16,
-            code: _v15,
-            token: _v14
+            state: _v15,
+            code: _v14,
+            token: _v13
           }),
           _v2 = _v0 + (_v0.includes("?") ? "&" : "?") + _v1;
-        return _v19?.hasReturnPromptLink() ? _v28 ? (0, _v1.jsx)("a", {
+        return _v18?.hasReturnPromptLink() ? _v27 ? (0, _v1.jsx)("a", {
           href: _v2,
           children: (0, _v1.jsx)(_v12.Button, {
             variant: "minimalTransparent",
             style: {
               margin: "auto"
             },
-            children: (0, _v1.jsxs)(_v74, {
-              children: [(0, _v1.jsx)(_v45.ArrowLeft, {}), _v19?.getReturnPrompt()]
+            children: (0, _v1.jsxs)(_v73, {
+              children: [(0, _v1.jsx)(_v45.ArrowLeft, {}), _v18?.getReturnPrompt()]
             })
           })
         }) : (0, _v1.jsx)("a", {
@@ -2631,7 +2629,7 @@
             style: {
               margin: "auto"
             },
-            children: "vimeo_create" === _v17 ? (0, _v10.translate)({
+            children: "vimeo_create" === _v16 ? (0, _v10.translate)({
               singular: "Back to Vimeo Create",
               dictionary: {
                 es: {
@@ -2656,40 +2654,40 @@
                   singular: "返回 Vimeo Create"
                 }
               }
-            }) : _v19?.getReturnPrompt()
+            }) : _v18?.getReturnPrompt()
           })
         }) : (0, _v1.jsxs)(_v14.Paragraph, {
           size: "1",
-          children: [_v19?.getReturnPrompt(), " "]
+          children: [_v18?.getReturnPrompt(), " "]
         });
-      }, [_v7, _v16, _v15, _v14, _v19, _v28, _v17]),
-      [_v36, _v37] = (0, _v5.useState)(0);
+      }, [_v6, _v15, _v14, _v13, _v18, _v27, _v16]),
+      [_v35, _v36] = (0, _v5.useState)(0);
     (0, _v5.useEffect)(() => {
-      if (_v25) return;
-      60 === _v36 && _v21(!0);
+      if (_v24) return;
+      60 === _v35 && _v20(!0);
       let _v0 = setInterval(() => {
-        _v37(_v0 => _v0 + 1);
+        _v36(_v0 => _v0 + 1);
       }, 0);
       return () => clearInterval(_v0);
-    }, [_v36, _v25]), (0, _v5.useEffect)(() => {
+    }, [_v35, _v24]), (0, _v5.useEffect)(() => {
       let _v0 = 0;
-      return _v31 && _v27 && _v25 && !_v26 && (_v0 = window.setTimeout(() => {
-        let _v0 = (0, _v23.tryTransformLink)(_v27, _v6);
+      return _v30 && _v26 && _v24 && !_v25 && (_v0 = window.setTimeout(() => {
+        let _v0 = (0, _v23.tryTransformLink)(_v26, _v5);
         _v0 && window.location.replace(_v0);
       }, 0)), () => {
         _v0 && clearTimeout(_v0);
       };
-    }, [_v26, _v27, _v31, _v6, _v25]);
-    let _v38 = [_v53.PartnerAppIds.AsanaDevelopmentApp, _v53.PartnerAppIds.AsanaProductionApp, _v53.PartnerAppIds.AsanaTestApp].includes(_v9);
-    return (0, _v1.jsx)(_v54, {
-      bgColor: _v31 ? (0, _v11.blue)(50) : "none",
+    }, [_v25, _v26, _v30, _v5, _v24]);
+    let _v37 = [_v52.PartnerAppIds.AsanaDevelopmentApp, _v52.PartnerAppIds.AsanaProductionApp, _v52.PartnerAppIds.AsanaTestApp].includes(_v8);
+    return (0, _v1.jsx)(_v53, {
+      bgColor: _v30 ? (0, _v11.blue)(50) : "none",
       children: (0, _v1.jsxs)("div", {
-        children: [(0, _v1.jsx)(_v55, {
-          upgrade: _v26,
-          children: (0, _v1.jsxs)(_v56, {
-            children: [(0, _v1.jsx)(_v58, {}), (0, _v1.jsxs)(_v59, {
+        children: [(0, _v1.jsx)(_v54, {
+          upgrade: _v25,
+          children: (0, _v1.jsxs)(_v55, {
+            children: [(0, _v1.jsx)(_v57, {}), (0, _v1.jsxs)(_v58, {
               size: "2",
-              children: [_v26 && _v19?.getUploadAlreadyConnected(), _v24 && !_v26 && _v19?.getUploadConnecting(), _v25 && !_v26 && (0, _v10.translate)({
+              children: [_v25 && _v18?.getUploadAlreadyConnected(), _v23 && !_v25 && _v18?.getUploadConnecting(), _v24 && !_v25 && (0, _v10.translate)({
                 singular: "Your accounts are connected",
                 dictionary: {
                   es: {
@@ -2715,10 +2713,10 @@
                   }
                 }
               })]
-            }), !_v26 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsxs)(_v60, {
+            }), !_v25 && (0, _v1.jsxs)(_v1.Fragment, {
+              children: [(0, _v1.jsxs)(_v59, {
                 size: "2",
-                children: [_v24 && (0, _v10.translate)({
+                children: [_v23 && (0, _v10.translate)({
                   singular: "Depending on how many videos you have, this may take a few minutes.",
                   dictionary: {
                     es: {
@@ -2743,8 +2741,8 @@
                       singular: "这可能需要几分钟时间，具体取决于您的视频数量。"
                     }
                   }
-                }), _v25 && _v19?.getUploadTransferComplete()]
-              }), (_v24 || _v31) && (0, _v1.jsx)(_v7.Progress, {
+                }), _v24 && _v18?.getUploadTransferComplete()]
+              }), (_v23 || _v30) && (0, _v1.jsx)(_v7.Progress, {
                 value: 100,
                 colorScheme: "vimeoBlue",
                 size: "md",
@@ -2752,10 +2750,10 @@
                 isAnimated: !0,
                 maxW: (0, _v4.rem)(440),
                 mx: "auto"
-              }), !_v28 && !_v31 && _v25 && _v34 && _v35, _v31 && _v25 && !_v24 && (0, _v1.jsx)(_v57, {
+              }), !_v27 && !_v30 && _v24 && _v33 && _v34, _v30 && _v24 && !_v23 && (0, _v1.jsx)(_v56, {
                 size: "3",
                 format: "alternative",
-                children: _v29 ? (0, _v10.translate)({
+                children: _v28 ? (0, _v10.translate)({
                   singular: "Redirecting to your video settings…",
                   dictionary: {
                     es: {
@@ -2809,15 +2807,15 @@
               })]
             })]
           })
-        }), _v38 && (_v26 || _v25) && _v19?.extensionUpsellLink && (0, _v1.jsx)(_v51, {
-          extensionLink: _v19?.extensionUpsellLink
-        }), !_v31 && !_v38 && (0, _v1.jsxs)(_v61, {
-          children: [!_v26 && (0, _v1.jsx)(_v62, {
+        }), _v37 && (_v25 || _v24) && _v18?.extensionUpsellLink && (0, _v1.jsx)(_v51, {
+          extensionLink: _v18?.extensionUpsellLink
+        }), !_v30 && !_v37 && (0, _v1.jsxs)(_v60, {
+          children: [!_v25 && (0, _v1.jsx)(_v61, {
             size: "1",
             children: (0, _v10.translate)({
               singular: "It’s easy to get more storage, faster video conversion, advanced customization, and speedier support. {EMPHASIS}Try risk-free for 30 days.{EMPHASIS}",
               replacements: {
-                EMPHASIS: _v0 => (0, _v1.jsx)(_v63, {
+                EMPHASIS: _v0 => (0, _v1.jsx)(_v62, {
                   children: _v0
                 })
               },
@@ -2845,17 +2843,17 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v64, {
-            children: _v2 && _v2.map((_v0, _v1) => {
-              let _v2 = _v26 || _v25,
-                _v3 = _v3[_v0.tier];
-              return (0, _v1.jsx)(_v65, {
+          }), (0, _v1.jsx)(_v63, {
+            children: _v1 && _v1.map((_v0, _v1) => {
+              let _v2 = _v25 || _v24,
+                _v3 = _v2[_v0.tier];
+              return (0, _v1.jsx)(_v64, {
                 showContent: _v2,
-                children: _v2 && (0, _v1.jsxs)(_v66, {
-                  children: [(0, _v1.jsx)(_v67, {
+                children: _v2 && (0, _v1.jsxs)(_v65, {
+                  children: [(0, _v1.jsx)(_v66, {
                     size: "2",
                     children: _v0.name
-                  }), (0, _v1.jsxs)(_v68, {
+                  }), (0, _v1.jsxs)(_v67, {
                     children: ["$", _v0.price?.annualMonthly, " ", (0, _v10.translate)({
                       singular: "/month",
                       dictionary: {
@@ -2882,7 +2880,7 @@
                         }
                       }
                     })]
-                  }), (0, _v1.jsx)(_v69, {
+                  }), (0, _v1.jsx)(_v68, {
                     children: (0, _v10.translate)({
                       singular: "billed annually",
                       dictionary: {
@@ -2909,7 +2907,7 @@
                         }
                       }
                     })
-                  }), !!_v18 && (0, _v1.jsx)(_v70, {
+                  }), !!_v17 && (0, _v1.jsx)(_v69, {
                     children: _v0.metadata.interactions?.purchase?.uri?.freeTrial ? (0, _v1.jsxs)(_v1.Fragment, {
                       children: [(0, _v1.jsx)(_v12.Button, {
                         element: "a",
@@ -3007,13 +3005,13 @@
                       })
                     })
                   }), _v3 && (0, _v1.jsxs)(_v1.Fragment, {
-                    children: [(0, _v1.jsx)(_v71, {
+                    children: [(0, _v1.jsx)(_v70, {
                       children: _v3.size
-                    }), (0, _v1.jsx)(_v71, {
+                    }), (0, _v1.jsx)(_v70, {
                       children: _v3.users
-                    }), (0, _v1.jsx)(_v72, {
+                    }), (0, _v1.jsx)(_v71, {
                       children: _v3.descriptionTitle
-                    }), (0, _v1.jsx)(_v73, {
+                    }), (0, _v1.jsx)(_v72, {
                       children: _v3.description.map((_v0, _v1) => (0, _v1.jsx)("li", {
                         children: (0, _v1.jsx)(_v14.Paragraph, {
                           size: "2",
@@ -3026,11 +3024,11 @@
               }, `plan-${_v0.tier}-${_v1}`);
             })
           })]
-        }), _v28 && (_v25 || _v26) && _v35]
+        }), _v27 && (_v24 || _v25) && _v34]
       })
     });
   }
-  let _v77 = _v6.default.div.withConfig({
+  let _v76 = _v6.default.div.withConfig({
       displayName: "wixProduction__Layout",
       componentId: "sc-339eb819-0"
     })`
@@ -3045,7 +3043,7 @@
     text-decoration: none;
   }
 `,
-    _v78 = _v6.default.div.withConfig({
+    _v77 = _v6.default.div.withConfig({
       displayName: "wixProduction__InterstitialContainer",
       componentId: "sc-339eb819-1"
     })`
@@ -3053,7 +3051,7 @@
   text-align: center;
   background-color: ${_v0 => _v0.upgrade ? "none" : (0, _v11.blue)(50)};
 `,
-    _v79 = _v6.default.div.withConfig({
+    _v78 = _v6.default.div.withConfig({
       displayName: "wixProduction__InterstitialContent",
       componentId: "sc-339eb819-2"
     })`
@@ -3061,27 +3059,27 @@
   margin: auto;
   padding: ${(0, _v4.rem)(60)} ${(0, _v4.rem)(20)};
 `,
-    _v80 = (0, _v6.default)(_v13.VimeoLogo).withConfig({
+    _v79 = (0, _v6.default)(_v13.VimeoLogo).withConfig({
       displayName: "wixProduction__Logo",
       componentId: "sc-339eb819-3"
     })`
   width: ${(0, _v4.rem)(80)};
   margin-bottom: ${(0, _v4.rem)(40)};
 `,
-    _v81 = (0, _v6.default)(_v15.Header).withConfig({
+    _v80 = (0, _v6.default)(_v15.Header).withConfig({
       displayName: "wixProduction__InterstitialHeader",
       componentId: "sc-339eb819-4"
     })`
   margin-bottom: ${(0, _v4.rem)(30)};
 `,
-    _v82 = (0, _v6.default)(_v14.Paragraph).withConfig({
+    _v81 = (0, _v6.default)(_v14.Paragraph).withConfig({
       displayName: "wixProduction__InterstitialSubheading",
       componentId: "sc-339eb819-5"
     })`
   display: block;
   margin-bottom: ${(0, _v4.rem)(20)};
 `;
-  function _v83({
+  function _v82({
     userInfo: _v0
   }) {
     let _v1 = (0, _v5.useContext)(_v17.ViewerContext),
@@ -3103,7 +3101,7 @@
       pathname: _v5 ? _v18.RequiredOAuthPaths[_v5] : _v18.RequiredOAuthPaths.join,
       query: _v2.query
     });
-    let _v14 = (0, _v53.getCopyForApp)(_v6),
+    let _v14 = (0, _v52.getCopyForApp)(_v6),
       [_v15, _v16] = (0, _v5.useState)(!1),
       {
         transferStatus: _v17
@@ -3154,12 +3152,12 @@
       return () => {
         _v0 && clearTimeout(_v0);
       };
-    }, [_v21, _v22, _v20, _v19, _v4, _v11, _v12, _v13, _v23]), (0, _v1.jsx)(_v77, {
+    }, [_v21, _v22, _v20, _v19, _v4, _v11, _v12, _v13, _v23]), (0, _v1.jsx)(_v76, {
       bgColor: (0, _v11.blue)(50),
-      children: (0, _v1.jsx)(_v78, {
+      children: (0, _v1.jsx)(_v77, {
         upgrade: _v21,
-        children: (0, _v1.jsxs)(_v79, {
-          children: [(0, _v1.jsx)(_v80, {}), (0, _v1.jsxs)(_v81, {
+        children: (0, _v1.jsxs)(_v78, {
+          children: [(0, _v1.jsx)(_v79, {}), (0, _v1.jsxs)(_v80, {
             size: "2",
             children: [_v19 && !_v21 && _v14?.getUploadConnecting(), _v20 && !_v21 && (0, _v10.translate)({
               singular: "Your accounts are connected",
@@ -3188,7 +3186,7 @@
               }
             })]
           }), !_v21 && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsxs)(_v82, {
+            children: [(0, _v1.jsxs)(_v81, {
               size: "2",
               children: [_v19 && (0, _v10.translate)({
                 singular: "Depending on how many videos you have, this may take a few minutes.",
@@ -3230,8 +3228,8 @@
       })
     });
   }
-  var _v84 = _v0.i(0),
-    _v85 = _v0.i(0);
+  var _v83 = _v0.i(0),
+    _v84 = _v0.i(0);
   (0, _v3.withPageSetup)({
     inlineViewer: "all"
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, function () {
@@ -3242,17 +3240,17 @@
       {
         isLoading: _v2,
         userInfo: _v3
-      } = (0, _v85.useManagedUserOauthInfo)((0, _v85.decodeOAuthQuery)(_v0.query)),
+      } = (0, _v84.useManagedUserOauthInfo)((0, _v84.decodeOAuthQuery)(_v0.query)),
       {
         app_id: _v4
       } = _v3 || {},
-      _v5 = Object.values(_v53.PartnerAppIds).includes(_v4);
-    return parseInt(_v1, 10) === _v53.PartnerAppIds.GoDaddyProductionApp ? (0, _v1.jsx)(_v44, {}) : parseInt(_v1, 10) === _v53.PartnerAppIds.WixProductionApp ? (0, _v1.jsx)(_v83, {
+      _v5 = Object.values(_v52.PartnerAppIds).includes(_v4);
+    return parseInt(_v1, 10) === _v52.PartnerAppIds.GoDaddyProductionApp ? (0, _v1.jsx)(_v44, {}) : parseInt(_v1, 10) === _v52.PartnerAppIds.WixProductionApp ? (0, _v1.jsx)(_v82, {
       userInfo: _v3
-    }) : !_v2 && _v5 ? (0, _v1.jsx)(_v76, {
+    }) : !_v2 && _v5 ? (0, _v1.jsx)(_v75, {
       userInfo: _v3
-    }) : (0, _v1.jsx)(_v84.Layout, {
-      children: (0, _v1.jsx)(_v84.Loader, {})
+    }) : (0, _v1.jsx)(_v83.Layout, {
+      children: (0, _v1.jsx)(_v83.Loader, {})
     });
   }], 0);
 }

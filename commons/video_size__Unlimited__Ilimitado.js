@@ -8644,9 +8644,9 @@
       production: !1,
       enterprise: !0
     }
-  }], "isCreatorJuly2026", 0, _v0 => {
+  }], "isCreatorSharingLimited", 0, _v0 => {
     let _v1 = _v0?.find(_v0 => "creator" === _v0.tier);
-    return (0, _v2.isCreatorJuly2026Plan)(_v1);
+    return (0, _v2.isCreatorSharingLimitedPlan)(_v1);
   }, "isCreatorV2", 0, _v0 => {
     let _v1 = _v0?.find(_v0 => "creator" === _v0.tier);
     return (0, _v2.isCreatorV2Plan)(_v1);

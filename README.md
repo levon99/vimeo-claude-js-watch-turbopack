@@ -270,9 +270,6 @@
 - https://vimeo.com/viewer-showcase/[albumId]
 - https://vimeo.com/watch
 - https://vimeo.com/webinars/events/[eventUuid]
-- https://vimeo.com/welcome/create/[[...plans]]
-- https://vimeo.com/welcome/mobile/[[...plans]]
-- https://vimeo.com/welcome/[[...plans]]
 - https://vimeo.com/welcome-survey
 - https://vimeo.com/whats-new
 - https://vimeo.com/[username]/download/[clipId]/[clipHash]

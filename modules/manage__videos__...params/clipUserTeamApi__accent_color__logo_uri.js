@@ -31523,22 +31523,22 @@
                         singular: "Please enter a valid email address.",
                         dictionary: {
                           es: {
-                            singular: "Introduce una dirección de correo electrónico válida."
+                            singular: "Por favor, introduzca una dirección de correo electrónico válida."
                           },
                           "de-DE": {
-                            singular: "Bitte gib eine gültige E-Mail-Adresse an."
+                            singular: "Bitte geben Sie eine gültige E-Mail-Adresse ein."
                           },
                           "fr-FR": {
                             singular: "Veuillez saisir une adresse e-mail valide."
                           },
                           "ja-JP": {
-                            singular: "有効な E メールアドレスを入力してください。"
+                            singular: "有効なメールアドレスを入力してください。"
                           },
                           "ko-KR": {
-                            singular: "올바른 이메일 주소를 입력하세요."
+                            singular: "유효한 이메일 주소를 입력해 주세요."
                           },
                           "pt-BR": {
-                            singular: "Digite um endereço de e-mail válido."
+                            singular: "Por favor, insira um endereço de e-mail válido."
                           },
                           "zh-CN": {
                             singular: "请输入有效的电子邮件地址。"

@@ -21,5 +21,5 @@
   }, "isCreatorRestrictedForFeature", 0, ({
     creatorPlan: _v0,
     feature: _v1
-  }) => "privacy" === _v1 && ((0, _v1.isCreatorV2Plan)(_v0) || (0, _v1.isCreatorJuly2026Plan)(_v0))]);
+  }) => "privacy" === _v1 && ((0, _v1.isCreatorV2Plan)(_v0) || (0, _v1.isCreatorSharingLimitedPlan)(_v0))]);
 }

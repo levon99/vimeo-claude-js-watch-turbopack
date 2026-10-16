@@ -20,7 +20,7 @@
     _v9 = () => {
       let [_v0, _v1] = (0, _v2.useState)(!1);
       return (0, _v1.jsxs)(_v6.Page, {
-        children: [(0, _v1.jsx)(_v4.Button, {
+        children: [(0, _v1.jsx)(_v3.Button, {
           onClick: () => _v1(!0),
           children: "Error on component mount"
         }), _v0 && (0, _v1.jsx)(_v8, {})]
@@ -30,7 +30,7 @@
     children: [(0, _v1.jsx)(_v5.HeaderLayout, {
       ..._v1
     }), (0, _v1.jsx)(_v7.NextNavigationLayout, {}), _v0]
-  }), (0, _v3.withPageSetup)({
+  }), (0, _v4.withPageSetup)({
     staffOnly: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v9], 0);
 }

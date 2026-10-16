@@ -145,18 +145,9 @@
         })]
       });
     },
-    _v21 = (0, _v2.default)(_v3.Header).attrs({
-      as: "h4",
-      size: "md"
-    }).withConfig({
-      displayName: "LanguageSelectModal__Header",
-      componentId: "sc-1264dec5-0"
-    })`
-  margin-bottom: 1rem;
-`,
-    _v22 = _v2.default.div.withConfig({
+    _v21 = _v2.default.div.withConfig({
       displayName: "LanguageSelectModal__ModalStyled",
-      componentId: "sc-1264dec5-1"
+      componentId: "sc-1264dec5-0"
     })`
   background: ${({
       theme: _v0
@@ -168,13 +159,13 @@
     min-width: 28rem;
   }
 `,
-    _v23 = (0, _v2.default)(_v6.Button).attrs({
+    _v22 = (0, _v2.default)(_v6.Button).attrs({
       icon: (0, _v1.jsx)(_v7.DismissX, {}),
       format: "basic",
       variant: "minimalTransparent"
     }).withConfig({
       displayName: "LanguageSelectModal__Dismiss",
-      componentId: "sc-1264dec5-2"
+      componentId: "sc-1264dec5-1"
     })`
   cursor: pointer;
   position: absolute;
@@ -191,8 +182,11 @@
   }) {
     return (0, _v1.jsx)(_v5.Modal, {
       active: _v0,
-      content: (0, _v1.jsxs)(_v22, {
-        children: [(0, _v1.jsx)(_v21, {
+      content: (0, _v1.jsxs)(_v21, {
+        children: [(0, _v1.jsx)(_v3.Header, {
+          as: "h4",
+          size: "md",
+          mb: "md",
           children: (0, _v4.translate)({
             singular: "Choose a different language",
             dictionary: {
@@ -219,7 +213,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v23, {
+        }), (0, _v1.jsx)(_v22, {
           onClick: () => _v1(null)
         }), (0, _v1.jsx)(_v20, {
           locale: _v2,

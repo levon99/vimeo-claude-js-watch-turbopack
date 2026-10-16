@@ -4577,7 +4577,7 @@
             onClick: () => {
               _v2(_v3 ? _v3 - 1 : 1);
             },
-            icon: (0, _v1.jsx)(_v279.ChevronLeft, {})
+            icon: (0, _v1.jsx)(_v279.ChevronLeftSmall, {})
           })
         }), (0, _v1.jsx)(_v46.Flex, {
           display: "flex",
@@ -4589,7 +4589,7 @@
             onClick: () => {
               _v2(_v3 ? _v3 + 1 : 2);
             },
-            icon: (0, _v1.jsx)(_v280.ChevronRight, {})
+            icon: (0, _v1.jsx)(_v280.ChevronRightSmall, {})
           })
         })]
       })]

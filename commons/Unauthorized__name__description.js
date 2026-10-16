@@ -23,15 +23,15 @@
   }) => {
     let {
       data: _v1
-    } = (0, _v4.useGetUserVideos)({
+    } = (0, _v5.useGetUserVideos)({
       where: {
         userId: _v0
       },
       select: ["uri", "name", "description", "pictures", "createdTime"]
     });
     return (0, _v1.jsxs)(_v8.SectionLayout, {
-      children: [(0, _v1.jsx)(_v5.Header, {
-        size: "2",
+      children: [(0, _v1.jsx)(_v3.Header, {
+        size: "lg",
         children: "Query Example"
       }), (0, _v1.jsx)("p", {
         children: "Fetch videos for a user."
@@ -39,8 +39,8 @@
         children: "Loading..."
       }), (0, _v1.jsx)(_v8.List, {
         children: _v1?.data.map(_v0 => (0, _v1.jsxs)(_v8.ListItem, {
-          children: [(0, _v1.jsx)(_v5.Header, {
-            size: "5",
+          children: [(0, _v1.jsx)(_v3.Header, {
+            size: "sm",
             style: {
               gridArea: "t",
               margin: 0,
@@ -70,7 +70,7 @@
         children: _v0
       })]
     })]
-  }), (0, _v3.withPageSetup)(async () => ({
+  }), (0, _v4.withPageSetup)(async () => ({
     props: {
       layoutOptions: {
         globalSearch: !1,

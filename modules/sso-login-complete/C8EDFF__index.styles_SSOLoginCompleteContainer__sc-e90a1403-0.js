@@ -13,21 +13,20 @@
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
-    _v13 = _v0.i(0),
-    _v14 = _v0.i(0);
-  let _v15 = "#C8EDFF";
-  var _v16 = _v0.i(0);
-  let _v17 = _v11.default.div.withConfig({
+    _v13 = _v0.i(0);
+  let _v14 = "#C8EDFF";
+  var _v15 = _v0.i(0);
+  let _v16 = _v11.default.div.withConfig({
       displayName: "index.styles__SSOLoginCompleteContainer",
       componentId: "sc-e90a1403-0"
     })`
   display: flex;
   height: 100vh;
-  @media (max-width: ${_v16.TABLET}) {
-    background: ${_v15};
+  @media (max-width: ${_v15.TABLET}) {
+    background: ${_v14};
   }
 `,
-    _v18 = _v11.default.div.withConfig({
+    _v17 = _v11.default.div.withConfig({
       displayName: "index.styles__Left",
       componentId: "sc-e90a1403-1"
     })`
@@ -36,48 +35,48 @@
   align-items: center;
   justify-content: center;
 `,
-    _v19 = _v11.default.div.withConfig({
+    _v18 = _v11.default.div.withConfig({
       displayName: "index.styles__Right",
       componentId: "sc-e90a1403-2"
     })`
-  background: ${_v15};
+  background: ${_v14};
   flex: 2;
 
-  @media (max-width: ${_v16.TABLET}) {
+  @media (max-width: ${_v15.TABLET}) {
     flex-grow: 0;
   }
 `,
-    _v20 = _v11.default.div.withConfig({
+    _v19 = _v11.default.div.withConfig({
       displayName: "index.styles__CTABlock",
       componentId: "sc-e90a1403-3"
     })`
-  background: ${_v12.white};
+  background: var(--vimeo-colors-white);
   padding: ${(0, _v10.rem)(27)};
   text-align: center;
   max-width: ${(0, _v10.rem)(441)};
   border-radius: ${(0, _v10.rem)(8)};
 
-  @media (max-width: ${_v16.TABLET}) {
+  @media (max-width: ${_v15.TABLET}) {
     box-shadow:
       0px 10px 6.2px -4.95px rgba(0, 0, 0, 0.06),
       0px 0px 10.2px 0.55px rgba(0, 0, 0, 0.02);
   }
 `,
-    _v21 = (0, _v11.default)(_v13.Button).withConfig({
+    _v20 = (0, _v11.default)(_v12.Button).withConfig({
       displayName: "index.styles__ButtonStyled",
       componentId: "sc-e90a1403-4"
     })`
   margin: ${(0, _v10.rem)(24)} 0;
   width: 100%;
 `,
-    _v22 = _v11.default.img.withConfig({
+    _v21 = _v11.default.img.withConfig({
       displayName: "index.styles__Logo",
       componentId: "sc-e90a1403-5"
     })`
   width: 40%;
   margin-bottom: ${(0, _v10.rem)(16)};
 `,
-    _v23 = _v11.default.p.withConfig({
+    _v22 = _v11.default.p.withConfig({
       displayName: "index.styles__Description",
       componentId: "sc-e90a1403-6"
     })`
@@ -86,24 +85,24 @@
   font-size: smaller;
   line-height: ${(0, _v10.rem)(19)};
 `,
-    _v24 = (0, _v11.default)(_v14.VimeoLogo).withConfig({
+    _v23 = (0, _v11.default)(_v13.VimeoLogo).withConfig({
       displayName: "index.styles__VimeoCompanyLogo",
       componentId: "sc-e90a1403-7"
     })`
-  @media (min-width: ${_v16.TABLET}) {
+  @media (min-width: ${_v15.TABLET}) {
     position: absolute;
     top: ${(0, _v10.rem)(20)};
     left: ${(0, _v10.rem)(20)};
   }
 
-  @media (max-width: ${_v16.TABLET}) {
+  @media (max-width: ${_v15.TABLET}) {
     margin: ${(0, _v10.rem)(10)} auto;
     display: block;
   }
 `;
-  var _v25 = _v0.i(0);
-  let _v26 = {
-      CompleteLogin: (0, _v25.translate)({
+  var _v24 = _v0.i(0);
+  let _v25 = {
+      CompleteLogin: (0, _v24.translate)({
         singular: "Complete login",
         dictionary: {
           es: {
@@ -129,7 +128,7 @@
           }
         }
       }),
-      AccountAdded: _v0 => (0, _v25.translate)({
+      AccountAdded: _v0 => (0, _v24.translate)({
         singular: "Your Vimeo account has been added to {TEAM_NAME}",
         replacements: {
           TEAM_NAME: _v0
@@ -158,7 +157,7 @@
           }
         }
       }),
-      Description: (0, _v25.translate)({
+      Description: (0, _v24.translate)({
         singular: "All content on your Vimeo account is viewable by your organization. If you're currently storing personal content on your account, consider downloading and then deleting this content and uploading it to a personal Vimeo account.",
         dictionary: {
           es: {
@@ -185,7 +184,7 @@
         }
       })
     },
-    _v27 = () => {
+    _v26 = () => {
       let _v0 = (0, _v3.useContext)(_v9.ViewerContext),
         _v1 = (0, _v2.useRouter)(),
         _v2 = _v1?.query?.prev_page,
@@ -206,41 +205,38 @@
         } : null);
       return _v1 && _v5 && !_v3 && _v1.push("/"), (0, _v1.jsx)(_v1.Fragment, {
         children: _v3 && !_v4 ? (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v24, {
+          children: [(0, _v1.jsx)(_v23, {
             width: 100,
             height: 30
-          }), (0, _v1.jsxs)(_v17, {
-            children: [(0, _v1.jsx)(_v18, {
-              children: (0, _v1.jsxs)(_v20, {
-                children: [(0, _v1.jsx)(_v22, {
+          }), (0, _v1.jsxs)(_v16, {
+            children: [(0, _v1.jsx)(_v17, {
+              children: (0, _v1.jsxs)(_v19, {
+                children: [(0, _v1.jsx)(_v21, {
                   src: _v6?.pictures?.sizes?.[3]?.link ?? _v0?.teamUser?.imageUrl ?? _v0?.user?.pictures.sizes?.[7]?.link,
                   alt: _v0?.teamUser?.displayName
                 }), (0, _v1.jsx)("h2", {
-                  children: _v26.AccountAdded(_v0?.teamUser?.displayName ?? "")
-                }), (0, _v1.jsx)(_v21, {
-                  format: "primary",
+                  children: _v25.AccountAdded(_v0?.teamUser?.displayName ?? "")
+                }), (0, _v1.jsx)(_v20, {
                   onClick: () => {
                     let _v0 = _v2 ? String(_v2) : "/";
                     _v1.push((0, _v8.isVimeoRedirectableUrl)(_v0) ? _v0 : "/");
                   },
-                  children: _v26.CompleteLogin
-                }), (0, _v1.jsx)(_v23, {
-                  children: _v26.Description
+                  children: _v25.CompleteLogin
+                }), (0, _v1.jsx)(_v22, {
+                  children: _v25.Description
                 })]
               })
-            }), (0, _v1.jsx)(_v19, {})]
+            }), (0, _v1.jsx)(_v18, {})]
           })]
         }) : (0, _v1.jsx)(_v7.default, {})
       });
     };
   (0, _v5.withPageSetup)(() => ({
-    props: {
-      hasThemeSupport: !0
-    }
+    props: {}
   }), {
     requireLogin: !0,
     inlineViewer: !0
-  }), _v27.getLayout = _v0 => (0, _v1.jsx)("div", {
+  }), _v26.getLayout = _v0 => (0, _v1.jsx)("div", {
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v27], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v26], 0);
 }

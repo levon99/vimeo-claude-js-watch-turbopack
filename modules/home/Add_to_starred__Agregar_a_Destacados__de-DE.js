@@ -10,8 +10,9 @@
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
-    _v10 = _v0.i(0);
-  let _v11 = {
+    _v10 = _v0.i(0),
+    _v11 = _v0.i(0);
+  let _v12 = {
     addToStarred: (0, _v9.translate)({
       singular: "Add to starred",
       dictionary: {
@@ -117,8 +118,7 @@
       }
     })
   };
-  var _v12 = _v0.i(0),
-    _v13 = _v0.i(0),
+  var _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
@@ -130,7 +130,8 @@
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
-    _v25 = _v0.i(0);
+    _v25 = _v0.i(0),
+    _v26 = _v0.i(0);
   _v0.s(["HoverActions", 0, ({
     type: _v0,
     entity: _v1,
@@ -140,54 +141,58 @@
     onMoreInfo: _v5,
     onQuickActionClick: _v6
   }) => {
-    let _v7 = (0, _v13.usePageName)(),
+    let _v7 = (0, _v14.usePageName)(),
       {
         getFolderShareLoopTrackingParams: _v8
-      } = (0, _v14.useShareLoopTrackingParams)(),
-      _v9 = (0, _v15.useCopyFolderLinkToast)(),
-      _v10 = "folder" === _v0 && (0, _v25.getFolderPermissions)(_v1).canEditSettings,
-      _v11 = (0, _v18.useManageShareAction)({
-        canEdit: _v10,
+      } = (0, _v15.useShareLoopTrackingParams)(),
+      _v9 = (0, _v16.useCopyFolderLinkToast)(),
+      {
+        isEnabled: _v10,
+        copyFolderShareLink: _v11
+      } = (0, _v10.useCopyFolderShareLink)(),
+      _v12 = "folder" === _v0 && (0, _v26.getFolderPermissions)(_v1).canEditSettings,
+      _v13 = (0, _v19.useManageShareAction)({
+        canEdit: _v12,
         entityUri: _v1.uri,
-        location: _v12.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT,
+        location: _v13.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT,
         panel: "INVITE_PANEL"
       }),
-      _v12 = (0, _v16.useCopyVideoLink)({
+      _v14 = (0, _v17.useCopyVideoLink)({
         video: _v1,
         surface: "hover_icon",
         analyticsElement: "icon",
-        manageActionLocation: _v12.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT
+        manageActionLocation: _v13.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT
       }),
-      _v13 = "file" !== _v0 && (_v3 ?? !!_v1.metadata?.interactions?.invite?.uri),
-      _v14 = (0, _v20.useRegistrationRequiredToast)(),
-      _v15 = "video" === _v0 && _v1.metadata?.hasMandatoryEmailCapture === !0,
-      _v16 = "video" === _v0 && _v1.isColdStorage,
-      _v17 = (0, _v19.useNotification)(),
+      _v15 = "file" !== _v0 && (_v3 ?? !!_v1.metadata?.interactions?.invite?.uri),
+      _v16 = (0, _v21.useRegistrationRequiredToast)(),
+      _v17 = "video" === _v0 && _v1.metadata?.hasMandatoryEmailCapture === !0,
+      _v18 = "video" === _v0 && _v1.isColdStorage,
+      _v19 = (0, _v20.useNotification)(),
       {
-        isLocked: _v18,
-        renderLocked: _v19
-      } = (0, _v21.useVideoMetadataLock)("video" === _v0 ? _v1 : void 0),
-      _v20 = (0, _v17.useFolderShareClick)({
+        isLocked: _v20,
+        renderLocked: _v21
+      } = (0, _v22.useVideoMetadataLock)("video" === _v0 ? _v1 : void 0),
+      _v22 = (0, _v18.useFolderShareClick)({
         folder: _v1,
         analytics: {
-          feature: _v2?.feature ?? _v12.AnalyticsFeatures.VIDEO_LIBRARY,
-          location: _v2?.location ?? _v12.AnalyticsLocations.FOLDER_CARD,
+          feature: _v2?.feature ?? _v13.AnalyticsFeatures.VIDEO_LIBRARY,
+          location: _v2?.location ?? _v13.AnalyticsLocations.FOLDER_CARD,
           page: _v2?.page,
-          shareModalEntryPoint: _v2?.shareModalEntryPoint ?? _v12.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT
+          shareModalEntryPoint: _v2?.shareModalEntryPoint ?? _v13.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT
         }
       }),
-      _v21 = (0, _v22.useVideoShareClick)({
+      _v23 = (0, _v23.useVideoShareClick)({
         video: _v1,
         analytics: {
-          feature: _v2?.feature ?? _v12.AnalyticsFeatures.VIDEO_LIBRARY,
-          location: _v2?.location ?? _v12.AnalyticsLocations.VIDEO_CARD,
+          feature: _v2?.feature ?? _v13.AnalyticsFeatures.VIDEO_LIBRARY,
+          location: _v2?.location ?? _v13.AnalyticsLocations.VIDEO_CARD,
           page: _v2?.page,
-          shareModalEntryPoint: _v2?.shareModalEntryPoint ?? _v12.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT
+          shareModalEntryPoint: _v2?.shareModalEntryPoint ?? _v13.SHARE_RESOURCE_FOLDER_CARD_HOVER_ENTRY_POINT
         },
         parentFolder: _v1?.parentProject ?? void 0,
         canShare: _v3
       });
-    return _v16 ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsxs)(_v8.ContentCard.HoverActions, {
+    return _v18 ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsxs)(_v8.ContentCard.HoverActions, {
       children: [_v4 && (0, _v1.jsx)(_v8.ContentCard.HoverAction, {
         children: (0, _v1.jsx)(_v3.Tooltip, {
           label: (0, _v9.translate)({
@@ -251,52 +256,59 @@
             }
           })
         })
-      }), _v13 && ("folder" === _v0 || "video" === _v0) && (0, _v1.jsx)(_v8.ContentCard.HoverAction, {
-        children: "video" === _v0 && _v18 ? _v19((0, _v1.jsx)(_v2.IconButton, {
-          "aria-label": _v11.share,
+      }), _v15 && ("folder" === _v0 || "video" === _v0) && (0, _v1.jsx)(_v8.ContentCard.HoverAction, {
+        children: "video" === _v0 && _v20 ? _v21((0, _v1.jsx)(_v2.IconButton, {
+          "aria-label": _v12.share,
           icon: (0, _v1.jsx)(_v6.Lock, {}),
           variant: "blur",
           size: "xs",
           isDisabled: !0,
           pointerEvents: "none"
         })) : (0, _v1.jsx)(_v3.Tooltip, {
-          label: _v11.share,
+          label: _v12.share,
           placement: "top",
           children: (0, _v1.jsx)(_v2.IconButton, {
-            "aria-label": _v11.share,
+            "aria-label": _v12.share,
             icon: (0, _v1.jsx)(_v7.Share, {}),
             variant: "blur",
             size: "xs",
-            onClick: "folder" === _v0 ? () => _v20?.() : "video" === _v0 ? () => {
-              _v6?.("share"), _v21?.();
+            onClick: "folder" === _v0 ? () => _v22?.() : "video" === _v0 ? () => {
+              _v6?.("share"), _v23?.();
             } : void 0
           })
         })
       }), (0, _v1.jsx)(_v8.ContentCard.HoverAction, {
         children: (0, _v1.jsx)(_v3.Tooltip, {
-          label: _v11.copyLink,
+          label: _v12.copyLink,
           placement: "top",
           children: (0, _v1.jsx)(_v2.IconButton, {
-            "aria-label": _v11.copyLink,
+            "aria-label": _v12.copyLink,
             icon: (0, _v1.jsx)(_v5.Link, {}),
             variant: "blur",
             size: "xs",
             onClick: () => {
-              if (_v15) return void _v14(_v1);
-              if (_v6?.("copy_link"), "folder" === _v0) {
-                let _v0 = _v1.uri.split("/"),
-                  _v1 = _v8(_v7, !!_v1.isPrivateToUser),
-                  _v2 = `${window.location.protocol}//${window.location.hostname}/user/${_v0[2]}/folder/${_v0[4]}${_v1}`;
-                _v9({
-                  isSuccess: (0, _v10.default)(_v2),
-                  onManage: _v11
-                });
-              } else "video" === _v0 ? _v12() : "file" === _v0 && ((0, _v10.default)((0, _v24.getFileLink)(_v1.publicId)) ? _v17({
-                content: _v23.linkCopySuccess
-              }) : _v17({
-                content: _v23.linkCopyFailed,
-                status: "error"
-              }));
+              _v17 ? _v16(_v1) : (_v6?.("copy_link"), (() => {
+                if ("folder" === _v0) {
+                  let _v0 = _v1.uri.split("/"),
+                    _v1 = _v8(_v7, !!_v1.isPrivateToUser),
+                    _v2 = `${window.location.protocol}//${window.location.hostname}/user/${_v0[2]}/folder/${_v0[4]}${_v1}`;
+                  if (_v10) return _v11(parseInt(_v0[4], 10), _v2, _v0 => {
+                    _v9({
+                      isSuccess: _v0,
+                      onManage: _v13
+                    });
+                  });
+                  _v9({
+                    isSuccess: (0, _v11.default)(_v2),
+                    onManage: _v13
+                  });
+                } else "video" === _v0 ? _v14() : "file" === _v0 && ((0, _v11.default)((0, _v25.getFileLink)(_v1.publicId)) ? _v19({
+                  content: _v24.linkCopySuccess
+                }) : _v19({
+                  content: _v24.linkCopyFailed,
+                  status: "error"
+                }));
+              })());
             }
           })
         })

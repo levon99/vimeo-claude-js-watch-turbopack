@@ -12,12 +12,12 @@
     _v9 = _v0.i(0),
     _v10 = _v0.i(0);
   function _v11() {
-    let [_v0, _v1] = (0, _v5.useGetVideosLazy)(),
+    let [_v0, _v1] = (0, _v7.useGetVideosLazy)(),
       [_v2, _v3] = (0, _v3.useState)(""),
       _v4 = (0, _v3.useMemo)(() => _v1.called ? _v1.data ? (0, _v1.jsx)(_v9.List, {
         children: _v1.data?.data.map(_v0 => (0, _v1.jsxs)(_v9.ListItem, {
-          children: [(0, _v1.jsxs)(_v7.Header, {
-            size: "5",
+          children: [(0, _v1.jsxs)(_v4.Header, {
+            size: "sm",
             style: {
               gridArea: "t",
               margin: 0,
@@ -38,8 +38,8 @@
         children: "Loading..."
       }) : null, [_v1]);
     return (0, _v1.jsxs)(_v9.SectionLayout, {
-      children: [(0, _v1.jsx)(_v7.Header, {
-        size: "2",
+      children: [(0, _v1.jsx)(_v4.Header, {
+        size: "lg",
         children: "Lazy Query Example"
       }), (0, _v1.jsx)(_v12, {
         onSubmit: function (_v0) {
@@ -50,13 +50,13 @@
             select: ["uri", "name", "description", "createdTime", "pictures"]
           }), _v3("");
         },
-        children: (0, _v1.jsx)(_v6.Search, {
+        children: (0, _v1.jsx)(_v5.Search, {
           label: "Find videos",
           value: _v2,
           onChange: function (_v0) {
             _v3(_v0.currentTarget.value);
           },
-          disabled: _v1.loading
+          isDisabled: _v1.loading
         })
       }), _v4]
     });
@@ -71,7 +71,7 @@
         children: _v0
       })]
     })]
-  }), (0, _v4.withPageSetup)(async () => ({
+  }), (0, _v6.withPageSetup)(async () => ({
     props: {
       layoutOptions: {
         globalSearch: !1,

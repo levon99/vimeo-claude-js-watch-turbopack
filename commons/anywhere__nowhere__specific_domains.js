@@ -83,19 +83,24 @@
         review_id: _v0.reviewId,
         review_links_new_status: _v0.reviewLinksNewStatus
       }), !0), [_v0]),
-      _v15 = (0, _v1.useCallback)(_v0 => {
+      _v15 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_link_prompt_displayed", {
+        surface: _v0.surface,
+        clip_id: _v0.clipId,
+        display_index: _v0.displayIndex
+      }), !0), [_v0]),
+      _v16 = (0, _v1.useCallback)(_v0 => {
         var _v1, _v2;
         return null !== _v0 && (_v0.track("embed_code_copied", {
           clip_id: _v0.clipId,
           embed_code_copied_source: (_v1 = _v0.pageName, _v2 = _v0.location, "single_video_view" === _v1 ? "video_manage" : "modal" === _v2 ? "share_modal" : "share_panel")
         }), !0);
       }, [_v0]),
-      _v16 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("sharing_link_copied", {
+      _v17 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("sharing_link_copied", {
         clip_id: _v0.clipId,
         sharing_link_copied_surface: _v0.surface,
         interval_days: _v0.intervalDays
       }), !0), [_v0]),
-      _v17 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("video_link_copied", {
+      _v18 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("video_link_copied", {
         clip_id: _v0.clipId,
         video_link_copied_source: _v0.source
       }), !0), [_v0]);
@@ -114,9 +119,10 @@
       trackReviewLinksCopied: _v12,
       trackReviewLinksMenuActionClicked: _v13,
       trackReviewLinksToggled: _v14,
-      trackEmbedCodeCopied: _v15,
-      trackSharingLinkCopied: _v16,
-      trackVideoLinkCopied: _v17,
+      trackReviewLinkPromptDisplayed: _v15,
+      trackEmbedCodeCopied: _v16,
+      trackSharingLinkCopied: _v17,
+      trackVideoLinkCopied: _v18,
       trackSharingLinkExpirationValueChanged: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("sharing_link_expiration_value_changed", {
         video_id: _v0.videoId,
         from_value: _v0.fromValue,

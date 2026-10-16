@@ -16,18 +16,18 @@
       _v2 = (0, _v2.useContext)(_v8.ViewerContext),
       {
         data: _v3
-      } = (0, _v4.useGetUserVideos)(() => !_v2?.user || _v0 ? null : {
+      } = (0, _v6.useGetUserVideos)(() => !_v2?.user || _v0 ? null : {
         where: {
           userId: _v2.user.id
         },
         select: ["uri", "name", "description", "pictures", "createdTime"]
       });
     return (0, _v1.jsxs)("div", {
-      children: [(0, _v1.jsx)(_v6.Header, {
-        size: "2",
+      children: [(0, _v1.jsx)(_v4.Header, {
+        size: "lg",
         children: "Conditional Query Example"
-      }), (0, _v1.jsx)(_v5.Button, {
-        disabled: !_v0,
+      }), (0, _v1.jsx)(_v3.Button, {
+        isDisabled: !_v0,
         onClick: () => _v1(!1),
         children: "Unblock call"
       }), !_v3 && (0, _v1.jsx)("p", {
@@ -36,8 +36,8 @@
         children: "Loading..."
       }), (0, _v1.jsx)(_v9.List, {
         children: _v3?.data?.map(_v0 => (0, _v1.jsxs)(_v9.ListItem, {
-          children: [(0, _v1.jsx)(_v6.Header, {
-            size: "5",
+          children: [(0, _v1.jsx)(_v4.Header, {
+            size: "sm",
             style: {
               gridArea: "t",
               margin: 0,
@@ -57,7 +57,7 @@
       })]
     });
   }
-  (0, _v3.withPageSetup)({
+  (0, _v5.withPageSetup)({
     staffOnly: !0
   }), _v11.getLayout = (_v0, _v1) => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v7.HeaderLayout, {

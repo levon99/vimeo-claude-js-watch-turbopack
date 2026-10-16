@@ -124,8 +124,6 @@
             case "google":
             case "google_one_tap":
               return "Google";
-            case "google_identity_platform":
-              return "Email";
             default:
               return "SSO";
           }

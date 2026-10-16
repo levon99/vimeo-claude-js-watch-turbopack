@@ -20,34 +20,43 @@
       _v8 = (0, _v4.useRef)(null),
       [_v9, _v10] = (0, _v4.useState)(!0),
       _v11 = (0, _v4.useRef)(null),
-      [_v12, _v13] = (0, _v4.useState)({
+      _v12 = (0, _v4.useRef)(null),
+      [_v13, _v14] = (0, _v4.useState)({
         top: 0,
         left: 0
       }),
       [{
-        pos: _v14
-      }, _v15] = (0, _v3.useSpring)(() => ({
+        pos: _v15
+      }, _v16] = (0, _v3.useSpring)(() => ({
         from: {
           pos: [0, 0]
         }
       })),
-      [_v16, _v17] = (0, _v4.useState)(!1),
-      _v18 = (0, _v4.useCallback)(_v0 => {
-        if (null !== _v0) {
+      [_v17, _v18] = (0, _v4.useState)(!1),
+      _v19 = (0, _v4.useCallback)(_v0 => {
+        if (_v12.current = _v0, null !== _v0) {
           let {
             offsetWidth: _v0,
             offsetHeight: _v1
           } = _v0;
-          _v15({
-            pos: [-(_v0 * _v1.naturalWidth - _v0) / 2, -(_v0 * _v1.naturalHeight - _v1) / 2],
-            immediate: !0
-          }), _v13({
+          _v14({
             left: (_v0 - _v2) / 2,
             top: (_v1 - _v2) / 2
           });
         }
       }, [_v3, _v1, _v2]);
-    (0, _v4.useImperativeHandle)(_v5, () => ({
+    (0, _v4.useLayoutEffect)(() => {
+      let _v0 = _v12.current;
+      if (!_v0) return;
+      let {
+        offsetWidth: _v1,
+        offsetHeight: _v2
+      } = _v0;
+      _v16({
+        pos: [-(_v0 * _v1.naturalWidth - _v1) / 2, -(_v0 * _v1.naturalHeight - _v2) / 2],
+        immediate: !0
+      });
+    }, [_v1, _v2, _v3]), (0, _v4.useImperativeHandle)(_v5, () => ({
       calculateCropSize() {
         let _v0 = _v8.current,
           _v1 = _v6.current;
@@ -74,7 +83,7 @@
         }
       }
     }));
-    let _v19 = _v0 => {
+    let _v20 = _v0 => {
         let [_v1, _v2] = _v0,
           {
             offsetWidth: _v3,
@@ -83,19 +92,19 @@
             offsetWidth: 0,
             offsetHeight: 0
           },
-          _v5 = _v12.left + _v2 - _v3,
-          _v6 = _v12.top + _v2 - _v4;
-        return _v1 > _v12.left ? _v1 = _v12.left : _v1 < _v5 && (_v1 = _v5), _v2 > _v12.top ? _v2 = _v12.top : _v2 < _v6 && (_v2 = _v6), [_v1, _v2];
+          _v5 = _v13.left + _v2 - _v3,
+          _v6 = _v13.top + _v2 - _v4;
+        return _v1 > _v13.left ? _v1 = _v13.left : _v1 < _v5 && (_v1 = _v5), _v2 > _v13.top ? _v2 = _v13.top : _v2 < _v6 && (_v2 = _v6), [_v1, _v2];
       },
-      _v20 = (0, _v5.useDrag)(({
+      _v21 = (0, _v5.useDrag)(({
         down: _v0,
         active: _v1,
         movement: _v2,
-        memo: _v3 = _v14.get()
+        memo: _v3 = _v15.get()
       }) => {
         let _v4 = (0, _v5.addV)(_v2, _v3);
-        return _v17(_v0), _v15({
-          pos: _v19(_v4),
+        return _v18(_v0), _v16({
+          pos: _v20(_v4),
           immediate: _v1
         }), _v3;
       });
@@ -106,27 +115,27 @@
         } = _v1,
         _v2 = _v0 * _v0,
         _v3 = _v1 * _v0,
-        [_v4, _v5] = _v14.get();
+        [_v4, _v5] = _v15.get();
       if (_v2 >= _v2 && _v3 >= _v2 && _v6.current && _v7.current) {
         let _v0 = (_v6.current.width - _v2) / 2 + _v4,
           _v1 = (_v6.current.height - _v3) / 2 + _v5;
-        _v6.current.height = _v7.current.height = _v3, _v6.current.width = _v7.current.width = _v2, _v9 ? _v10(!1) : _v15({
-          pos: _v19([_v0, _v1]),
+        _v6.current.height = _v7.current.height = _v3, _v6.current.width = _v7.current.width = _v2, _v9 ? _v10(!1) : _v16({
+          pos: _v20([_v0, _v1]),
           immediate: !0
         });
       }
     }, [_v0, _v3]);
-    let _v21 = (_v0, _v1 = {
+    let _v22 = (_v0, _v1 = {
       top: 0,
       left: 0
     }) => {
       let _v2 = _v2.animated.div;
       return (0, _v1.jsx)(_v2, {
-        ..._v20(),
+        ..._v21(),
         ref: _v11,
         style: {
-          cursor: _v16 ? "grabbing" : "grab",
-          transform: _v14.to((_v0, _v1) => `translate3d(${_v0 - _v1.left}px, ${_v1 - _v1.top}px, 0px)`)
+          cursor: _v17 ? "grabbing" : "grab",
+          transform: _v15.to((_v0, _v1) => `translate3d(${_v0 - _v1.left}px, ${_v1 - _v1.top}px, 0px)`)
         },
         children: (0, _v1.jsx)("img", {
           src: _v1.src,
@@ -140,7 +149,7 @@
       });
     };
     return (0, _v1.jsxs)(_v6.Box, {
-      ref: _v18,
+      ref: _v19,
       bg: "blackAlpha.700",
       overflow: "hidden",
       position: "relative",
@@ -156,14 +165,14 @@
         borderRadius: "circle" === _v4 ? "50%" : "1rem",
         overflow: "hidden",
         style: {
-          transform: `translate3d(${_v12.left}px, ${_v12.top}px, 0px)`
+          transform: `translate3d(${_v13.left}px, ${_v13.top}px, 0px)`
         },
-        children: _v21(_v7, _v12)
+        children: _v22(_v7, _v13)
       }), (0, _v1.jsx)(_v6.Box, {
         opacity: .5,
         position: "relative",
         userSelect: "none",
-        children: _v21(_v6)
+        children: _v22(_v6)
       })]
     });
   });

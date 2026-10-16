@@ -30,13 +30,13 @@
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0);
-  let _v21 = (0, _v17.default)(_v20.Header).attrs({
-      size: "1"
+  let _v21 = (0, _v17.default)(_v18.Header).attrs({
+      size: "xl"
     }).withConfig({
       displayName: "style__Header",
       componentId: "sc-34d1e2b6-0"
     })`
-  padding-left: ${(0, _v18.rem)(24)};
+  padding-left: ${(0, _v19.rem)(24)};
 `,
     _v22 = _v17.default.div.withConfig({
       displayName: "style__Wrapper",
@@ -54,11 +54,11 @@
   padding-top: 20px;
   padding-bottom: 90px;
 `,
-    _v23 = (0, _v17.default)(_v19.Spinner).withConfig({
+    _v23 = (0, _v17.default)(_v20.Spinner).withConfig({
       displayName: "style__LoaderWithMargin",
       componentId: "sc-34d1e2b6-2"
     })`
-  margin-top: -${(0, _v18.rem)(163)};
+  margin-top: -${(0, _v19.rem)(163)};
 `,
     _v24 = (0, _v17.default)(_v0 => (0, _v1.jsx)("div", {
       ..._v0,

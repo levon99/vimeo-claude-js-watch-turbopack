@@ -33,7 +33,8 @@
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
-    _v33 = _v0.i(0);
+    _v33 = _v0.i(0),
+    _v34 = _v0.i(0);
   _v0.s(["FolderMenu", 0, function ({
     folder: _v0,
     onMoveSuccess: _v1,
@@ -49,197 +50,202 @@
     let {
         trackLibraryFolderContextMenuActionClicked: _v10
       } = (0, _v6.useLibraryTracking)(),
-      _v11 = (0, _v17.useNotification)(),
-      _v12 = (0, _v11.useCopyFolderLinkToast)(),
+      _v11 = (0, _v18.useNotification)(),
+      _v12 = (0, _v12.useCopyFolderLinkToast)(),
       {
-        openDeleteFolderModal: _v13
-      } = (0, _v12.useDeleteFolderModal)(),
+        isEnabled: _v13,
+        copyFolderShareLink: _v14
+      } = (0, _v8.useCopyFolderShareLink)(),
       {
-        openMoveModal: _v14
-      } = (0, _v16.useMoveModal)(),
+        openDeleteFolderModal: _v15
+      } = (0, _v13.useDeleteFolderModal)(),
       {
-        openFolderDefaultsModal: _v15
-      } = (0, _v13.useFolderDefaultsModal)(),
-      _v16 = (0, _v32.useAcknowledgeFolderDefaultsIntro)(),
+        openMoveModal: _v16
+      } = (0, _v17.useMoveModal)(),
       {
-        openFolderSettingsModal: _v17
-      } = (0, _v14.useFolderSettingsModal)(),
+        openFolderDefaultsModal: _v17
+      } = (0, _v14.useFolderDefaultsModal)(),
+      _v18 = (0, _v33.useAcknowledgeFolderDefaultsIntro)(),
       {
-        openSlackIntegrationModal: _v18
-      } = (0, _v20.useSlackIntegrationModal)(),
+        openFolderSettingsModal: _v19
+      } = (0, _v15.useFolderSettingsModal)(),
       {
-        openBulkAiModal: _v19
+        openSlackIntegrationModal: _v20
+      } = (0, _v21.useSlackIntegrationModal)(),
+      {
+        openBulkAiModal: _v21
       } = (0, _v3.useBulkAiModal)(),
       {
-        openAddFolderToShowcaseModal: _v20,
-        closeAddFolderToShowcaseModal: _v21
-      } = (0, _v22.useAddFolderToShowcaseModal)(),
+        openAddFolderToShowcaseModal: _v22,
+        closeAddFolderToShowcaseModal: _v23
+      } = (0, _v23.useAddFolderToShowcaseModal)(),
       {
-        openBulkPrivacyModal: _v22
+        openBulkPrivacyModal: _v24
       } = (0, _v4.useBulkPrivacyModal)(),
-      _v23 = (0, _v19.useRevalidateVideoListCaches)(),
-      _v24 = (0, _v2.useContext)(_v9.ViewerContext),
-      _v25 = (0, _v18.usePageName)(),
+      _v25 = (0, _v20.useRevalidateVideoListCaches)(),
+      _v26 = (0, _v2.useContext)(_v10.ViewerContext),
+      _v27 = (0, _v19.usePageName)(),
       {
-        getFolderShareLoopTrackingParams: _v26
-      } = (0, _v21.useShareLoopTrackingParams)(),
+        getFolderShareLoopTrackingParams: _v28
+      } = (0, _v22.useShareLoopTrackingParams)(),
       {
-        handleStarMenuState: _v27
-      } = (0, _v33.useStarMenuItem)(),
+        handleStarMenuState: _v29
+      } = (0, _v34.useStarMenuItem)(),
       {
-        isItemStarred: _v28,
-        onStarClick: _v29,
-        ..._v30
-      } = _v27("folder", _v0, !0),
-      _v31 = (0, _v26.useFolderShareClick)({
+        isItemStarred: _v30,
+        onStarClick: _v31,
+        ..._v32
+      } = _v29("folder", _v0, !0),
+      _v33 = (0, _v27.useFolderShareClick)({
         folder: _v0,
         analytics: {
           ..._v7,
-          shareModalEntryPoint: _v10.SHARE_RESOURCE_FOLDER_CARD_OVERFLOW_ENTRY_POINT
+          shareModalEntryPoint: _v11.SHARE_RESOURCE_FOLDER_CARD_OVERFLOW_ENTRY_POINT
         }
       }),
-      _v32 = (0, _v24.useReviewLinkCopiedToast)(),
-      _v33 = (0, _v23.useCreateAndCopyFolderReviewLink)((0, _v2.useCallback)((_v0, _v1) => {
-        _v32(() => _v31?.("CREATE_REVIEW_LINK_MODAL", _v1));
-      }, [_v32, _v31])),
-      _v34 = (0, _v29.useActivityCenterStore)(_v0 => _v0.handleNewTranslationJob),
+      _v34 = (0, _v25.useReviewLinkCopiedToast)(),
+      _v35 = (0, _v24.useCreateAndCopyFolderReviewLink)((0, _v2.useCallback)((_v0, _v1) => {
+        _v34(() => _v33?.("CREATE_REVIEW_LINK_MODAL", _v1));
+      }, [_v34, _v33])),
+      _v36 = (0, _v30.useActivityCenterStore)(_v0 => _v0.handleNewTranslationJob),
       {
-        uri: _v35,
-        name: _v36,
-        isPrivateToUser: _v37,
-        useParentSlackSettings: _v38,
-        isSlackNotificationEnabled: _v39,
-        slackIncomingWebhooksId: _v40,
-        metadata: _v41
+        uri: _v37,
+        name: _v38,
+        isPrivateToUser: _v39,
+        useParentSlackSettings: _v40,
+        isSlackNotificationEnabled: _v41,
+        slackIncomingWebhooksId: _v42,
+        metadata: _v43
       } = _v0,
       {
-        capabilities: _v42
-      } = (0, _v5.useCapability)(["hasContentSpaceEnabled", "canSeeUpsellModalOnShare", "canGenerateClipTranslation", "canGenerateClipTextTranslation", "hasExtraEmbedOptions", "hasProhibitMultipleReviewLinks", "hasMultipleReviewLinks", "canManageTeamCollections"], _v35),
-      _v43 = _v24?.teamUser?.ownerId ?? _v24?.user?.id,
-      {
         capabilities: _v44
-      } = (0, _v5.useCapability)(["canPerformBulkTranslations"], _v43),
-      _v45 = !!_v42.canGenerateClipTextTranslation,
-      _v46 = !!_v42.canGenerateClipTranslation,
-      _v47 = parseInt(_v35.split("/").pop() || ""),
-      _v48 = parseInt(_v35.split("/")[2]),
-      _v49 = parseInt(_v24?.user?.uri.split("/").pop() || "") === _v48,
+      } = (0, _v5.useCapability)(["hasContentSpaceEnabled", "canSeeUpsellModalOnShare", "canGenerateClipTranslation", "canGenerateClipTextTranslation", "hasExtraEmbedOptions", "hasProhibitMultipleReviewLinks", "hasMultipleReviewLinks", "canManageTeamCollections"], _v37),
+      _v45 = _v26?.teamUser?.ownerId ?? _v26?.user?.id,
       {
-        canDelete: _v50,
-        canEdit: _v51,
-        canEditSettings: _v52,
-        canInvite: _v53
-      } = (0, _v31.getFolderPermissions)(_v0),
-      _v54 = _v0 => {
+        capabilities: _v46
+      } = (0, _v5.useCapability)(["canPerformBulkTranslations"], _v45),
+      _v47 = !!_v44.canGenerateClipTextTranslation,
+      _v48 = !!_v44.canGenerateClipTranslation,
+      _v49 = parseInt(_v37.split("/").pop() || ""),
+      _v50 = parseInt(_v37.split("/")[2]),
+      _v51 = parseInt(_v26?.user?.uri.split("/").pop() || "") === _v50,
+      {
+        canDelete: _v52,
+        canEdit: _v53,
+        canEditSettings: _v54,
+        canInvite: _v55
+      } = (0, _v32.getFolderPermissions)(_v0),
+      _v56 = _v0 => {
         _v10({
-          isPrivateToUser: _v37,
-          libraryFolderId: String(_v47),
+          isPrivateToUser: _v39,
+          libraryFolderId: String(_v49),
           libraryFolderContextMenuAction: _v0
         });
       },
-      _v55 = _v51 && (_v46 || _v45) && !!_v44.canPerformBulkTranslations,
-      _v56 = _v42.hasExtraEmbedOptions && _v52,
-      _v57 = !_v42.hasProhibitMultipleReviewLinks && !!_v42.hasMultipleReviewLinks,
+      _v57 = _v53 && (_v48 || _v47) && !!_v46.canPerformBulkTranslations,
+      _v58 = _v44.hasExtraEmbedOptions && _v54,
+      _v59 = !_v44.hasProhibitMultipleReviewLinks && !!_v44.hasMultipleReviewLinks,
       {
-        canCreateReviewLink: _v58,
-        canCopyReviewPageLink: _v59,
-        canManageReviewLinks: _v60,
-        reviewPageLink: _v61
-      } = (0, _v25.useReviewLinkMenuState)({
-        hasReviewLinkCapabilities: _v57,
-        hasMultipleReviewLinks: !!_v42.hasMultipleReviewLinks,
+        canCreateReviewLink: _v60,
+        canCopyReviewPageLink: _v61,
+        canManageReviewLinks: _v62,
+        reviewPageLink: _v63
+      } = (0, _v26.useReviewLinkMenuState)({
+        hasReviewLinkCapabilities: _v59,
+        hasMultipleReviewLinks: !!_v44.hasMultipleReviewLinks,
         reviewLinks: _v0.reviewLinks,
-        getReviewPageUrl: (0, _v2.useCallback)(_v0 => (0, _v8.getFolderReviewPageUrl)(_v0, _v47, _v48), [_v47, _v48])
+        getReviewPageUrl: (0, _v2.useCallback)(_v0 => (0, _v9.getFolderReviewPageUrl)(_v0, _v49, _v50), [_v49, _v50])
       }),
-      _v62 = (0, _v15.useManageShareAction)({
-        canEdit: _v52,
+      _v64 = (0, _v16.useManageShareAction)({
+        canEdit: _v54,
         entityUri: _v0.uri,
-        location: _v10.SHARE_RESOURCE_FOLDER_CARD_OVERFLOW_ENTRY_POINT,
+        location: _v11.SHARE_RESOURCE_FOLDER_CARD_OVERFLOW_ENTRY_POINT,
         panel: "INVITE_PANEL"
       }),
-      _v63 = (0, _v2.useCallback)(() => {
+      _v65 = (0, _v2.useCallback)((_v0 = !0) => {
         _v12({
-          onManage: _v62
+          isSuccess: _v0,
+          onManage: _v64
         });
-      }, [_v12, _v62]);
-    if (isNaN(_v47) || isNaN(_v48)) return (0, _v1.jsx)(_v1.Fragment, {});
-    let _v64 = _v41.connections.parentFolder?.uri,
-      _v65 = _v24?.vimeoHttpsUrl || "",
-      _v66 = `${_v65}${(0, _v30.getFolderPageUriFromApiUri)(_v35)}${_v26(_v25, !!_v0.isPrivateToUser)}`,
-      _v67 = _v65 + (0, _v30.getFolderAnalyticsPageUriFromApiUri)(_v35),
-      _v68 = () => {
-        _v4?.(), _v28 && _v29?.();
+      }, [_v12, _v64]);
+    if (isNaN(_v49) || isNaN(_v50)) return (0, _v1.jsx)(_v1.Fragment, {});
+    let _v66 = _v43.connections.parentFolder?.uri,
+      _v67 = _v26?.vimeoHttpsUrl || "",
+      _v68 = `${_v67}${(0, _v31.getFolderPageUriFromApiUri)(_v37)}${_v28(_v27, !!_v0.isPrivateToUser)}`,
+      _v69 = _v67 + (0, _v31.getFolderAnalyticsPageUriFromApiUri)(_v37),
+      _v70 = () => {
+        _v4?.(), _v30 && _v31?.();
       },
-      _v69 = Math.max(0, (_v41.connections.items?.total ?? 0) - (_v41.connections.folders?.total ?? 0)),
-      _v70 = _v51 && _v42.canManageTeamCollections,
-      _v71 = _v69 > 0 && _v70 && _v69 <= 100;
+      _v71 = Math.max(0, (_v43.connections.items?.total ?? 0) - (_v43.connections.folders?.total ?? 0)),
+      _v72 = _v53 && _v44.canManageTeamCollections,
+      _v73 = _v71 > 0 && _v72 && _v71 <= 100;
     return (0, _v1.jsx)(_v7.FolderMenu, {
       ..._v9,
-      canTranslateVideos: _v55,
+      canTranslateVideos: _v57,
       handleTranslateVideo: () => {
-        _v54("translate_videos"), _v19({
-          folderId: _v47,
+        _v56("translate_videos"), _v21({
+          folderId: _v49,
           isFolder: !0,
-          folderName: _v36,
-          canTranslateText: _v45,
-          canTranslateDubbing: _v46,
+          folderName: _v38,
+          canTranslateText: _v47,
+          canTranslateDubbing: _v48,
           onComplete: () => {
-            _v43 && _v34(_v43);
+            _v45 && _v36(_v45);
           }
         });
       },
-      canShare: _v53 || _v42.canSeeUpsellModalOnShare,
-      onShare: _v31,
-      canDelete: _v50,
+      canShare: _v55 || _v44.canSeeUpsellModalOnShare,
+      onShare: _v33,
+      canDelete: _v52,
       onDelete: () => {
-        _v54("delete"), _v13?.(_v36, _v47, _v7.location, _v64, _v48, _v37, !!_v42.hasContentSpaceEnabled, _v68);
+        _v56("delete"), _v15?.(_v38, _v49, _v7.location, _v66, _v50, _v39, !!_v44.hasContentSpaceEnabled, _v70);
       },
-      canEditFolderSettings: _v52,
+      canEditFolderSettings: _v54,
       onFolderDefaults: () => {
-        _v54("folder_setting"), _v16(), _v15({
-          folderId: _v47,
-          ownerId: _v48,
-          isFolderOwner: _v49,
+        _v56("folder_setting"), _v18(), _v17({
+          folderId: _v49,
+          ownerId: _v50,
+          isFolderOwner: _v51,
           presetId: _v0?.settings?.embedPresetId,
           isInheritanceEnabled: _v0?.settings?.isEmbedPresetInheritanceEnabled,
-          displayUpsell: !_v56,
+          displayUpsell: !_v58,
           location: _v7.location,
           feature: _v7.feature,
-          page: _v25.toUpperCase(),
+          page: _v27.toUpperCase(),
           onSave: () => {
             _v11({
-              content: _v28.folderDefaultsSaved,
+              content: _v29.folderDefaultsSaved,
               status: ""
             });
           }
         });
       },
       onFolderSettings: () => {
-        _v54("folder_setting"), _v17({
-          userId: _v48,
-          parentFolderUri: _v64 ?? null,
-          currentFolderUri: _v35,
+        _v56("folder_setting"), _v19({
+          userId: _v50,
+          parentFolderUri: _v66 ?? null,
+          currentFolderUri: _v37,
           location: location.toString(),
           onSettingsChange: _v3,
           isEditingFolder: !0,
           initialColor: _v0.settings?.color
         });
       },
-      canMove: _v50,
+      canMove: _v52,
       onMove: () => {
-        _v54("move"), _v14({
-          activeFolderURI: _v35,
+        _v56("move"), _v16({
+          activeFolderURI: _v37,
           feature: _v7.feature,
-          initialDestination: _v64 || _v37 ? void 0 : "root",
+          initialDestination: _v66 || _v39 ? void 0 : "root",
           location: _v7.location,
           items: [{
-            name: _v36,
+            name: _v38,
             type: "folder",
-            parentFolder: _v64 ? {
-              uri: _v64,
-              isPrivateToUser: _v37
+            parentFolder: _v66 ? {
+              uri: _v66,
+              isPrivateToUser: _v39
             } : void 0,
-            uri: _v35
+            uri: _v37
           }],
           onMoveSuccess: ({
             selectedDestination: _v0,
@@ -255,82 +261,85 @@
           }) => {
             _v2?.(_v0, _v1);
           },
-          teamOwnerId: _v48
+          teamOwnerId: _v50
         });
       },
-      canBulkPrivacyChange: _v51,
+      canBulkPrivacyChange: _v53,
       onBulkPrivacyChange: () => {
-        _v22({
-          userId: _v48,
-          folderUris: [_v35],
-          folderName: _v36,
+        _v24({
+          userId: _v50,
+          folderUris: [_v37],
+          folderName: _v38,
           location: "folder_card_folder_menu",
           onSuccess: () => {
-            _v23();
+            _v25();
           }
         });
       },
-      canEdit: _v51,
-      analyticsPageLink: _v67,
-      folderLink: _v66,
-      onCopyLink: () => {
-        _v54("copy_link"), _v63();
+      canEdit: _v53,
+      analyticsPageLink: _v69,
+      folderLink: _v68,
+      onCopyLink: _v0 => {
+        _v56("copy_link"), _v65(_v0);
       },
+      onCopyLinkAsync: _v13 ? () => {
+        _v56("copy_link"), _v14(_v49, _v68, _v65);
+      } : void 0,
       onClickAnalyticsLink: () => {
-        _v54("analytics");
+        _v56("analytics");
       },
-      hasFolderDefaultsUpsell: !_v56,
-      hasShareUpsell: _v42.canSeeUpsellModalOnShare,
-      hasSlackIntegration: !_v38,
-      isConnectedToSlack: !!_v40,
+      hasFolderDefaultsUpsell: !_v58,
+      hasShareUpsell: _v44.canSeeUpsellModalOnShare,
+      hasSlackIntegration: !_v40,
+      isConnectedToSlack: !!_v42,
       onSlackIntegration: () => {
-        _v54("connect_to_slack"), _v18({
-          userId: _v48,
-          hasSlackIntegration: !!_v40,
-          isSlackNotificationEnabled: !!_v39,
-          folderId: _v47,
-          folderName: _v36,
-          currentFolderUri: _v35,
+        _v56("connect_to_slack"), _v20({
+          userId: _v50,
+          hasSlackIntegration: !!_v42,
+          isSlackNotificationEnabled: !!_v41,
+          folderId: _v49,
+          folderName: _v38,
+          currentFolderUri: _v37,
           updateSubFolderData: _v6
         });
       },
-      onStarClick: _v29 ? () => {
-        _v28 || _v54("add_to_starred"), _v29();
+      onStarClick: _v31 ? () => {
+        _v30 || _v56("add_to_starred"), _v31();
       } : void 0,
-      canCreateReviewLink: _v58,
+      canCreateReviewLink: _v60,
       onCreateReviewLink: () => {
-        _v54("create_review_link"), _v31?.("CREATE_REVIEW_LINK_MODAL");
+        _v56("create_review_link"), _v33?.("CREATE_REVIEW_LINK_MODAL");
       },
-      canCopyReviewPageLink: _v59,
-      reviewPageLink: _v61,
+      canCopyReviewPageLink: _v61,
+      reviewPageLink: _v63,
       onCopyReviewPageLink: () => {
-        if (_v54("copy_review_link"), _v61) {
+        if (_v56("copy_review_link"), _v63) {
           let _v0 = _v0.reviewLinks?.[0]?.uri;
-          _v32(_v0 ? () => _v31?.("CREATE_REVIEW_LINK_MODAL", _v0) : void 0);
-        } else _v33(_v47, _v48, _v35);
+          _v34(_v0 ? () => _v33?.("CREATE_REVIEW_LINK_MODAL", _v0) : void 0);
+        } else _v35(_v49, _v50, _v37);
       },
-      canManageReviewLinks: _v60,
-      hasProhibitMultipleReviewLinks: _v42.hasProhibitMultipleReviewLinks,
+      canManageReviewLinks: _v62,
+      hasProhibitMultipleReviewLinks: _v44.hasProhibitMultipleReviewLinks,
       onManageReviewLinks: () => {
-        _v54("manage_review_links"), _v31?.("REVIEW_LINKS_PANEL");
+        _v56("manage_review_links"), _v33?.("REVIEW_LINKS_PANEL");
       },
-      ..._v30,
+      ..._v32,
       onRename: () => {
-        _v54("rename"), _v5?.();
+        _v56("rename"), _v5?.();
       },
-      showAddToShowcase: _v70,
-      canAddToShowcase: _v71,
+      showAddToShowcase: _v72,
+      canAddToShowcase: _v73,
       onAddToShowcase: () => {
-        _v54("add_to_showcase"), _v20({
-          ownerId: _v48,
-          onClose: _v21,
-          folderId: _v47,
-          pageName: _v25,
+        _v56("add_to_showcase"), _v22({
+          ownerId: _v50,
+          onClose: _v23,
+          folderId: _v49,
+          pageName: _v27,
           pageUrl: window.location.pathname,
-          itemCount: _v69
+          itemCount: _v71
         });
       },
-      zIndex: _v27.ACTIONS_MENU_Z_INDEX
+      zIndex: _v28.ACTIONS_MENU_Z_INDEX
     });
   }]);
 }
