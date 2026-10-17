@@ -5624,7 +5624,7 @@
     tiers: {
       free: _v5(_v0?.free, "3GB"),
       creator: _v5(_v0?.creator, "50GB"),
-      core: _v5(_v0?.core, "300GB"),
+      core: _v5(_v0?.core, "500GB"),
       professional: _v5(_v0?.professional, "7TB"),
       studio: _v5(_v0?.studio, "10TB"),
       production: _v5(_v0?.production, "25TB"),

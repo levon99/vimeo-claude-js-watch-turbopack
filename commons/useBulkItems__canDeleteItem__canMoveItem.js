@@ -12,7 +12,7 @@
     hasLegalHold: _v4,
     items: _v5,
     selectedURIs: _v6 = new Set(),
-    reviewId: _v7,
+    isReadOnly: _v7 = !1,
     allowColdStorageDeletion: _v8 = !1
   }) => {
     let {

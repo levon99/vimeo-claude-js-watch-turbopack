@@ -20,10 +20,12 @@
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
-    _v20 = _v0.i(0);
-  let _v21 = ["publicId", "uri", "name", "description", "contentType", "thumbnail.url", "fileSize", "width", "height", "privacy", "password", "allowDownloads", "downloadUrl", "createdTime", "modifiedTime", "metadata.connections.ancestorPath.name", "metadata.connections.ancestorPath.link", "parentFolder.name", "parentFolder.uri", "parentFolder.isPrivateToUser", "uploadState", "uploader.name", "canUserEdit", "canUserDelete"],
-    _v22 = {
-      video: (0, _v17.translate)({
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0);
+  let _v23 = ["publicId", "uri", "name", "description", "contentType", "thumbnail.url", "fileSize", "width", "height", "privacy", "password", "allowDownloads", "downloadUrl", "createdTime", "modifiedTime", "metadata.connections.ancestorPath.name", "metadata.connections.ancestorPath.link", "parentFolder.name", "parentFolder.uri", "parentFolder.isPrivateToUser", "uploadState", "uploader.name", "canUserEdit", "canUserDelete"],
+    _v24 = {
+      video: (0, _v19.translate)({
         singular: "Video",
         dictionary: {
           "fr-FR": {
@@ -43,7 +45,7 @@
           }
         }
       }),
-      document: (0, _v17.translate)({
+      document: (0, _v19.translate)({
         singular: "Document",
         dictionary: {
           es: {
@@ -66,7 +68,7 @@
           }
         }
       }),
-      image: (0, _v17.translate)({
+      image: (0, _v19.translate)({
         singular: "Image",
         dictionary: {
           es: {
@@ -89,7 +91,7 @@
           }
         }
       }),
-      audio: (0, _v17.translate)({
+      audio: (0, _v19.translate)({
         singular: "Audio",
         dictionary: {
           "ja-JP": {
@@ -107,7 +109,7 @@
         }
       })
     },
-    _v23 = ({
+    _v25 = ({
       label: _v0,
       placeholder: _v1,
       value: _v2,
@@ -116,12 +118,12 @@
     }) => (0, _v1.jsxs)(_v5.Flex, {
       alignItems: "center",
       gap: "lg",
-      children: [(0, _v1.jsx)(_v12.Text, {
+      children: [(0, _v1.jsx)(_v14.Text, {
         flexShrink: 0,
         variant: "heading-xs",
         width: "11rem",
         children: _v0
-      }), (0, _v1.jsx)(_v11.Input, {
+      }), (0, _v1.jsx)(_v13.Input, {
         "aria-label": _v0,
         defaultValue: _v2,
         flexGrow: 1,
@@ -138,45 +140,45 @@
         variant: "outlined"
       }, _v2)]
     }),
-    _v24 = ({
+    _v26 = ({
       label: _v0,
       value: _v1
     }) => (0, _v1.jsxs)(_v5.Flex, {
       alignItems: "center",
       gap: "sm",
-      children: [(0, _v1.jsx)(_v12.Text, {
+      children: [(0, _v1.jsx)(_v14.Text, {
         color: "text-secondary",
         flexShrink: 0,
         variant: "body-md",
         width: "7.5rem",
         children: _v0
-      }), (0, _v1.jsx)(_v12.Text, {
+      }), (0, _v1.jsx)(_v14.Text, {
         variant: "body-md",
         children: _v1
       })]
     }),
-    _v25 = ({
+    _v27 = ({
       publicId: _v0,
       ownerId: _v1,
       file: _v2,
       onChanged: _v3
     }) => {
-      let _v4 = (0, _v13.useToast)(),
+      let _v4 = (0, _v15.useToast)(),
         {
           baseUrl: _v5,
           jwt: _v6,
           xVimeoPage: _v7,
           locale: _v8
-        } = (0, _v16.useGctlConfig)(),
-        _v9 = (0, _v19.useFormatDateTime)(),
+        } = (0, _v18.useGctlConfig)(),
+        _v9 = (0, _v21.useFormatDateTime)(),
         _v10 = async _v0 => {
           try {
-            await (0, _v15.patchUserFile)({
+            await (0, _v17.patchUserFile)({
               where: {
                 userId: _v1,
                 fileId: _v0
               },
-              select: _v21,
+              select: _v23,
               variables: _v0,
               baseUrl: _v5,
               headers: {
@@ -186,7 +188,7 @@
                 "Accept-Language": _v8 ?? "en"
               }
             }), _v4({
-              title: (0, _v17.translate)({
+              title: (0, _v19.translate)({
                 singular: "Changes saved",
                 dictionary: {
                   es: {
@@ -215,7 +217,7 @@
             }), _v3();
           } catch {
             _v4({
-              title: (0, _v17.translate)({
+              title: (0, _v19.translate)({
                 singular: "Something went wrong",
                 dictionary: {
                   es: {
@@ -245,9 +247,9 @@
             });
           }
         },
-        _v11 = (0, _v14.getFileExtension)(_v2.name),
-        _v12 = null != _v2.fileSize && _v2.fileSize > 0 ? String((0, _v18.bytesToSize)(_v2.fileSize, 1)) : "",
-        _v13 = _v2.uploader.name ? (0, _v17.translate)({
+        _v11 = (0, _v16.getFileExtension)(_v2.name),
+        _v12 = null != _v2.fileSize && _v2.fileSize > 0 ? String((0, _v20.bytesToSize)(_v2.fileSize, 1)) : "",
+        _v13 = _v2.uploader.name ? (0, _v19.translate)({
           singular: "{date} by {name}",
           replacements: {
             date: _v9.getDisplayDate(_v2.createdTime),
@@ -277,7 +279,7 @@
             }
           }
         }) : _v9.getDisplayDate(_v2.createdTime),
-        _v14 = null != _v2.width && null != _v2.height ? (0, _v17.translate)({
+        _v14 = null != _v2.width && null != _v2.height ? (0, _v19.translate)({
           singular: "{width} x {height}",
           replacements: {
             width: _v2.width,
@@ -291,9 +293,9 @@
         children: [(0, _v1.jsxs)(_v5.Flex, {
           flexDirection: "column",
           gap: "md",
-          children: [(0, _v1.jsx)(_v23, {
+          children: [(0, _v1.jsx)(_v25, {
             isReadOnly: !_v2.canUserEdit,
-            label: (0, _v17.translate)({
+            label: (0, _v19.translate)({
               singular: "Title",
               dictionary: {
                 es: {
@@ -323,9 +325,9 @@
             onSave: _v0 => void _v10({
               name: _v0
             })
-          }), (0, _v1.jsx)(_v23, {
+          }), (0, _v1.jsx)(_v25, {
             isReadOnly: !_v2.canUserEdit,
-            label: (0, _v17.translate)({
+            label: (0, _v19.translate)({
               singular: "Description",
               dictionary: {
                 es: {
@@ -348,7 +350,7 @@
                 }
               }
             }),
-            placeholder: (0, _v17.translate)({
+            placeholder: (0, _v19.translate)({
               singular: "Add description",
               dictionary: {
                 es: {
@@ -382,11 +384,11 @@
         }), (0, _v1.jsxs)(_v5.Flex, {
           alignItems: "flex-start",
           gap: "md",
-          children: [(0, _v1.jsx)(_v12.Text, {
+          children: [(0, _v1.jsx)(_v14.Text, {
             flexShrink: 0,
             variant: "heading-xs",
             width: "11rem",
-            children: (0, _v17.translate)({
+            children: (0, _v19.translate)({
               singular: "File information",
               dictionary: {
                 es: {
@@ -416,8 +418,8 @@
             flexDirection: "column",
             flexGrow: 1,
             gap: "sm",
-            children: [null !== _v14 && (0, _v1.jsx)(_v24, {
-              label: (0, _v17.translate)({
+            children: [null !== _v14 && (0, _v1.jsx)(_v26, {
+              label: (0, _v19.translate)({
                 singular: "Resolution",
                 dictionary: {
                   es: {
@@ -444,8 +446,8 @@
                 }
               }),
               value: _v14
-            }), (0, _v1.jsx)(_v24, {
-              label: (0, _v17.translate)({
+            }), (0, _v1.jsx)(_v26, {
+              label: (0, _v19.translate)({
                 singular: "File size",
                 dictionary: {
                   es: {
@@ -472,8 +474,8 @@
                 }
               }),
               value: _v12
-            }), (0, _v1.jsx)(_v24, {
-              label: (0, _v17.translate)({
+            }), (0, _v1.jsx)(_v26, {
+              label: (0, _v19.translate)({
                 singular: "File type",
                 dictionary: {
                   es: {
@@ -499,9 +501,9 @@
                   }
                 }
               }),
-              value: _v22[(0, _v14.getContentTypeCategory)(_v2.contentType)]
-            }), "" !== _v11 && (0, _v1.jsx)(_v24, {
-              label: (0, _v17.translate)({
+              value: _v24[(0, _v16.getContentTypeCategory)(_v2.contentType)]
+            }), "" !== _v11 && (0, _v1.jsx)(_v26, {
+              label: (0, _v19.translate)({
                 singular: "File format",
                 dictionary: {
                   es: {
@@ -528,8 +530,8 @@
                 }
               }),
               value: _v11
-            }), (0, _v1.jsx)(_v24, {
-              label: (0, _v17.translate)({
+            }), (0, _v1.jsx)(_v26, {
+              label: (0, _v19.translate)({
                 singular: "Uploaded",
                 dictionary: {
                   es: {
@@ -561,9 +563,7 @@
         })]
       });
     };
-  var _v26 = _v0.i(0),
-    _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
+  var _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
@@ -582,24 +582,26 @@
     _v44 = _v0.i(0),
     _v45 = _v0.i(0),
     _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  let _v48 = ({
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0);
+  let _v50 = ({
     publicId: _v0,
     ownerId: _v1,
     file: _v2
   }) => {
-    let _v3 = (0, _v33.useRouter)(),
-      _v4 = (0, _v13.useToast)(),
+    let _v3 = (0, _v35.useRouter)(),
+      _v4 = (0, _v15.useToast)(),
       {
         baseUrl: _v5,
         jwt: _v6,
         xVimeoPage: _v7,
         locale: _v8
-      } = (0, _v16.useGctlConfig)(),
+      } = (0, _v18.useGctlConfig)(),
       {
         openCopyFileModal: _v9,
         copyModal: _v10
-      } = (0, _v47.useCopyFileFlow)(),
+      } = (0, _v49.useCopyFileFlow)(),
       [_v11, _v12] = (0, _v3.useState)(!1),
       [_v13, _v14] = (0, _v3.useState)(!1),
       [_v15, _v16] = (0, _v3.useState)(!1),
@@ -611,7 +613,7 @@
       _v22 = async () => {
         _v12(!0);
         try {
-          await (0, _v15.deleteUserFile)({
+          await (0, _v17.deleteUserFile)({
             where: {
               userId: _v1,
               fileId: _v0
@@ -627,7 +629,7 @@
               "Accept-Language": _v8 ?? "en"
             }
           }), _v4({
-            title: (0, _v17.translate)({
+            title: (0, _v19.translate)({
               singular: "Moved to Recently Deleted",
               dictionary: {
                 es: {
@@ -656,7 +658,7 @@
           }), _v16(!1), _v3.push("/library");
         } catch {
           _v4({
-            title: (0, _v17.translate)({
+            title: (0, _v19.translate)({
               singular: "Something went wrong",
               dictionary: {
                 es: {
@@ -689,9 +691,9 @@
         }
       };
     return _v21 || _v17 || _v18 ? (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v35.Menu, {
-        children: [(0, _v1.jsx)(_v36.MenuButton, {
-          "aria-label": (0, _v17.translate)({
+      children: [(0, _v1.jsxs)(_v37.Menu, {
+        children: [(0, _v1.jsx)(_v38.MenuButton, {
+          "aria-label": (0, _v19.translate)({
             singular: "More actions",
             dictionary: {
               es: {
@@ -717,16 +719,16 @@
               }
             }
           }),
-          as: _v34.IconButton,
-          icon: (0, _v1.jsx)(_v42.EllipsisV, {}),
+          as: _v36.IconButton,
+          icon: (0, _v1.jsx)(_v44.EllipsisV, {}),
           size: "md",
           variant: "tertiary"
-        }), (0, _v1.jsxs)(_v39.MenuList, {
-          children: [_v21 && (0, _v1.jsxs)(_v38.MenuItem, {
+        }), (0, _v1.jsxs)(_v41.MenuList, {
+          children: [_v21 && (0, _v1.jsxs)(_v40.MenuItem, {
             as: "a",
             href: _v20,
-            icon: (0, _v1.jsx)(_v41.DownloadImport, {}),
-            children: [(0, _v17.translate)({
+            icon: (0, _v1.jsx)(_v43.DownloadImport, {}),
+            children: [(0, _v19.translate)({
               singular: "Download",
               dictionary: {
                 es: {
@@ -752,10 +754,10 @@
                 }
               }
             }), "…"]
-          }), _v17 && (0, _v1.jsx)(_v38.MenuItem, {
-            icon: (0, _v1.jsx)(_v43.FolderOpen, {}),
+          }), _v17 && (0, _v1.jsx)(_v40.MenuItem, {
+            icon: (0, _v1.jsx)(_v45.FolderOpen, {}),
             onClick: () => _v14(!0),
-            children: (0, _v17.translate)({
+            children: (0, _v19.translate)({
               singular: "Move…",
               dictionary: {
                 es: {
@@ -781,10 +783,10 @@
                 }
               }
             })
-          }), _v19 && (0, _v1.jsx)(_v38.MenuItem, {
-            icon: (0, _v1.jsx)(_v40.CopyPortrait, {}),
+          }), _v19 && (0, _v1.jsx)(_v40.MenuItem, {
+            icon: (0, _v1.jsx)(_v42.CopyPortrait, {}),
             onClick: () => _v9(_v2),
-            children: (0, _v17.translate)({
+            children: (0, _v19.translate)({
               singular: "Create a copy",
               dictionary: {
                 es: {
@@ -810,10 +812,10 @@
                 }
               }
             })
-          }), (_v21 || _v17) && _v18 && (0, _v1.jsx)(_v37.MenuDivider, {}), _v18 && (0, _v1.jsx)(_v38.MenuItem, {
-            icon: (0, _v1.jsx)(_v44.TrashBin, {}),
+          }), (_v21 || _v17) && _v18 && (0, _v1.jsx)(_v39.MenuDivider, {}), _v18 && (0, _v1.jsx)(_v40.MenuItem, {
+            icon: (0, _v1.jsx)(_v46.TrashBin, {}),
             onClick: () => _v16(!0),
-            children: (0, _v17.translate)({
+            children: (0, _v19.translate)({
               singular: "Delete",
               dictionary: {
                 es: {
@@ -841,7 +843,7 @@
             })
           })]
         })]
-      }), (0, _v1.jsx)(_v46.MoveModal, {
+      }), (0, _v1.jsx)(_v48.MoveModal, {
         feature: "file_manage",
         location: "file_manage",
         isActive: _v13,
@@ -858,7 +860,7 @@
         teamOwnerId: _v1,
         onMoveSuccess: () => {
           _v4({
-            title: (0, _v17.translate)({
+            title: (0, _v19.translate)({
               singular: "Changes saved",
               dictionary: {
                 es: {
@@ -888,7 +890,7 @@
         },
         onMoveFailure: () => {
           _v4({
-            title: (0, _v17.translate)({
+            title: (0, _v19.translate)({
               singular: "Something went wrong",
               dictionary: {
                 es: {
@@ -917,8 +919,8 @@
             variant: "warning"
           });
         }
-      }), (0, _v1.jsx)(_v45.DeleteModal, {
-        headerContent: (0, _v17.translate)({
+      }), (0, _v1.jsx)(_v47.DeleteModal, {
+        headerContent: (0, _v19.translate)({
           singular: "Move to Recently deleted?",
           dictionary: {
             es: {
@@ -951,7 +953,7 @@
             }
           }
         }),
-        bodyContent: (0, _v17.translate)({
+        bodyContent: (0, _v19.translate)({
           singular: '"{NAME}" will be deleted forever after 30 days.',
           replacements: {
             NAME: _v2.name
@@ -987,35 +989,35 @@
       }), _v10]
     }) : (0, _v1.jsx)(_v1.Fragment, {});
   };
-  var _v49 = _v0.i(0),
-    _v50 = _v0.i(0),
-    _v51 = _v0.i(0);
-  let _v52 = () => {
-      let _v0 = (0, _v49.useColorModeValue)("slate.800", "white");
-      return (0, _v1.jsx)(_v51.VimeoV, {
-        height: (0, _v50.rem)(26.7),
+  var _v51 = _v0.i(0),
+    _v52 = _v0.i(0),
+    _v53 = _v0.i(0);
+  let _v54 = () => {
+      let _v0 = (0, _v51.useColorModeValue)("slate.800", "white");
+      return (0, _v1.jsx)(_v53.VimeoV, {
+        height: (0, _v52.rem)(26.7),
         color: _v0
       });
     },
-    _v53 = ({
+    _v55 = ({
       publicId: _v0,
       ownerId: _v1,
       file: _v2,
       onShareClick: _v3
     }) => {
       let _v4 = (0, _v3.useRef)(null);
-      return (0, _v1.jsxs)(_v29.Navigation, {
+      return (0, _v1.jsxs)(_v31.Navigation, {
         id: "header",
-        children: [(0, _v1.jsx)(_v29.Navigation.LeftContent, {
+        children: [(0, _v1.jsx)(_v31.Navigation.LeftContent, {
           children: (0, _v1.jsx)("div", {
             ref: _v4,
             children: (0, _v1.jsxs)(_v5.Flex, {
               alignItems: "center",
-              children: [(0, _v1.jsx)(_v31.default, {
-                vimeoLogo: (0, _v1.jsx)(_v52, {})
+              children: [(0, _v1.jsx)(_v33.default, {
+                vimeoLogo: (0, _v1.jsx)(_v54, {})
               }), (0, _v1.jsx)(_v4.Box, {
                 pl: "md",
-                children: (0, _v1.jsx)(_v28.ContentBreadcrumbs, {
+                children: (0, _v1.jsx)(_v30.ContentBreadcrumbs, {
                   ancestorPath: _v2.metadata.connections.ancestorPath,
                   ownerUri: `/users/${_v1}`,
                   page: "manage",
@@ -1024,15 +1026,15 @@
               })]
             })
           })
-        }), (0, _v1.jsx)(_v29.Navigation.RightContent, {
+        }), (0, _v1.jsx)(_v31.Navigation.RightContent, {
           children: (0, _v1.jsxs)(_v5.Flex, {
             alignItems: "center",
             gap: "sm",
-            children: [_v2.canUserEdit && (0, _v1.jsx)(_v26.Button, {
-              leftIcon: (0, _v1.jsx)(_v27.Globe, {}),
+            children: [_v2.canUserEdit && (0, _v1.jsx)(_v28.Button, {
+              leftIcon: (0, _v1.jsx)(_v29.Globe, {}),
               onClick: _v3,
               variant: "primary",
-              children: (0, _v17.translate)({
+              children: (0, _v19.translate)({
                 singular: "Share",
                 dictionary: {
                   es: {
@@ -1058,67 +1060,67 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v48, {
+            }), (0, _v1.jsx)(_v50, {
               file: _v2,
               ownerId: _v1,
               publicId: _v0
-            }), (0, _v1.jsx)(_v32.SearchField, {
+            }), (0, _v1.jsx)(_v34.SearchField, {
               fadeOutLeftNav: !0,
               leftNavbarRef: _v4,
               withToggle: !0
-            }), (0, _v1.jsx)(_v30.AccountMenu, {})]
+            }), (0, _v1.jsx)(_v32.AccountMenu, {})]
           })
         })]
       });
     };
-  var _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
-    _v56 = _v0.i(0),
+  var _v56 = _v0.i(0),
     _v57 = _v0.i(0),
     _v58 = _v0.i(0),
     _v59 = _v0.i(0),
     _v60 = _v0.i(0),
     _v61 = _v0.i(0),
     _v62 = _v0.i(0),
-    _v63 = _v0.i(0);
-  let _v64 = ["nobody", "team", "unlisted", "password"],
-    _v65 = ({
+    _v63 = _v0.i(0),
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
+  let _v66 = ["nobody", "team", "unlisted", "password"],
+    _v67 = ({
       publicId: _v0,
       ownerId: _v1,
       file: _v2,
       onClose: _v3,
       onChanged: _v4
     }) => {
-      let _v5 = (0, _v10.useViewer)(),
-        _v6 = (0, _v13.useToast)(),
+      let _v5 = (0, _v12.useViewer)(),
+        _v6 = (0, _v15.useToast)(),
         {
           baseUrl: _v7,
           jwt: _v8,
           xVimeoPage: _v9,
           locale: _v10
-        } = (0, _v16.useGctlConfig)(),
+        } = (0, _v18.useGctlConfig)(),
         {
           capabilities: _v11
-        } = (0, _v58.useCapability)(["canAllowDownloads"], `/users/${_v1}`),
-        _v12 = (0, _v3.useMemo)(() => _v64.map(_v0 => ({
+        } = (0, _v60.useCapability)(["canAllowDownloads"], `/users/${_v1}`),
+        _v12 = (0, _v3.useMemo)(() => _v66.map(_v0 => ({
           privacy: _v0,
-          title: (0, _v63.getPrivacyLabel)(_v0, _v5?.teamUser),
-          description: (0, _v60.getFilePrivacyDescription)(_v0),
-          icon: (0, _v60.videoPrivacyIcons)("xs")[_v0]?.icon
+          title: (0, _v65.getPrivacyLabel)(_v0, _v5?.teamUser),
+          description: (0, _v62.getFilePrivacyDescription)(_v0),
+          icon: (0, _v62.videoPrivacyIcons)("xs")[_v0]?.icon
         })), [_v5?.teamUser]),
         [_v13, _v14] = (0, _v3.useState)("password" === _v2.privacy),
         [_v15, _v16] = (0, _v3.useState)(!1),
         _v17 = (0, _v3.useRef)(null),
-        _v18 = (0, _v62.getFileLink)(_v2.publicId),
+        _v18 = (0, _v64.getFileLink)(_v2.publicId),
         _v19 = _v11.canAllowDownloads,
         _v20 = async _v0 => {
           try {
-            return await (0, _v15.patchUserFile)({
+            return await (0, _v17.patchUserFile)({
               where: {
                 userId: _v1,
                 fileId: _v0
               },
-              select: _v21,
+              select: _v23,
               variables: _v0,
               baseUrl: _v7,
               headers: {
@@ -1128,7 +1130,7 @@
                 "Accept-Language": _v10 ?? "en"
               }
             }), _v6({
-              title: (0, _v17.translate)({
+              title: (0, _v19.translate)({
                 singular: "Changes saved",
                 dictionary: {
                   es: {
@@ -1157,7 +1159,7 @@
             }), _v4(), !0;
           } catch {
             return _v6({
-              title: (0, _v17.translate)({
+              title: (0, _v19.translate)({
                 singular: "Something went wrong",
                 dictionary: {
                   es: {
@@ -1196,19 +1198,41 @@
       return (0, _v3.useEffect)(() => () => {
         null != _v17.current && clearTimeout(_v17.current);
       }, []), (0, _v1.jsxs)(_v5.Flex, {
-        background: "surface",
-        borderRadius: "xl",
-        flexDirection: "column",
-        width: "22.5rem",
-        flexShrink: 0,
         alignSelf: "stretch",
+        background: "surface",
+        borderRadius: {
+          base: "none",
+          lg: "xl"
+        },
+        flexDirection: "column",
+        flexShrink: 0,
+        inset: {
+          base: 0,
+          lg: "auto"
+        },
+        overflowY: {
+          base: "auto",
+          lg: "visible"
+        },
+        position: {
+          base: "absolute",
+          lg: "relative"
+        },
+        width: {
+          base: "100%",
+          lg: "22.5rem"
+        },
+        zIndex: {
+          base: "overlay",
+          lg: "auto"
+        },
         children: [(0, _v1.jsxs)(_v5.Flex, {
           alignItems: "center",
           justifyContent: "space-between",
           p: "lg",
-          children: [(0, _v1.jsx)(_v12.Text, {
+          children: [(0, _v1.jsx)(_v14.Text, {
             variant: "heading-sm",
-            children: (0, _v17.translate)({
+            children: (0, _v19.translate)({
               singular: "Share",
               dictionary: {
                 es: {
@@ -1234,8 +1258,8 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v34.IconButton, {
-            "aria-label": (0, _v17.translate)({
+          }), (0, _v1.jsx)(_v36.IconButton, {
+            "aria-label": (0, _v19.translate)({
               singular: "Close",
               dictionary: {
                 es: {
@@ -1261,7 +1285,7 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v55.CloseX, {}),
+            icon: (0, _v1.jsx)(_v57.CloseX, {}),
             onClick: _v3,
             size: "xs",
             variant: "tertiary"
@@ -1277,9 +1301,9 @@
             children: [(0, _v1.jsxs)(_v5.Flex, {
               flexDirection: "column",
               gap: "xs",
-              children: [(0, _v1.jsx)(_v12.Text, {
+              children: [(0, _v1.jsx)(_v14.Text, {
                 variant: "heading-xs",
-                children: (0, _v17.translate)({
+                children: (0, _v19.translate)({
                   singular: "Privacy",
                   dictionary: {
                     es: {
@@ -1305,7 +1329,7 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v57.PrivacyDropdown, {
+              }), (0, _v1.jsx)(_v59.PrivacyDropdown, {
                 activePrivacy: _v2.privacy,
                 onSelect: _v0 => {
                   "password" === _v0 ? _v14(!0) : (_v14(!1), _v20({
@@ -1318,16 +1342,16 @@
                 isVideoPrivacy: !0,
                 variant: "outlined"
               })]
-            }), _v13 && (0, _v1.jsx)(_v56.PasswordInput, {
+            }), _v13 && (0, _v1.jsx)(_v58.PasswordInput, {
               initialValue: "password" === _v2.privacy ? _v2.password ?? "" : "",
               onSave: _v21
             }), (0, _v1.jsxs)(_v5.Flex, {
               flexDirection: "column",
               gap: "xs",
-              children: [(0, _v1.jsx)(_v12.Text, {
-                my: (0, _v50.rem)(6),
+              children: [(0, _v1.jsx)(_v14.Text, {
+                my: (0, _v52.rem)(6),
                 variant: "heading-xs",
-                children: (0, _v17.translate)({
+                children: (0, _v19.translate)({
                   singular: "Viewer permissions",
                   dictionary: {
                     es: {
@@ -1356,11 +1380,11 @@
               }), (0, _v1.jsxs)(_v5.Flex, {
                 alignItems: "center",
                 gap: "xs",
-                h: (0, _v50.rem)(32),
-                children: [(0, _v1.jsx)(_v12.Text, {
+                h: (0, _v52.rem)(32),
+                children: [(0, _v1.jsx)(_v14.Text, {
                   flexGrow: 1,
                   variant: "body-md",
-                  children: (0, _v17.translate)({
+                  children: (0, _v19.translate)({
                     singular: "Downloads",
                     dictionary: {
                       es: {
@@ -1380,9 +1404,9 @@
                       }
                     }
                   })
-                }), !0 !== _v19 && (0, _v1.jsx)(_v59.UpgradeBadge, {
+                }), !0 !== _v19 && (0, _v1.jsx)(_v61.UpgradeBadge, {
                   modalConfig: {
-                    headerText: (0, _v17.translate)({
+                    headerText: (0, _v19.translate)({
                       singular: "Upgrade to allow downloads",
                       dictionary: {
                         es: {
@@ -1408,7 +1432,7 @@
                         }
                       }
                     }),
-                    subHeaderText: (0, _v17.translate)({
+                    subHeaderText: (0, _v19.translate)({
                       singular: "Get full access to robust privacy and engagement tools",
                       dictionary: {
                         es: {
@@ -1435,7 +1459,7 @@
                       }
                     })
                   },
-                  children: (0, _v17.translate)({
+                  children: (0, _v19.translate)({
                     singular: "Upgrade",
                     dictionary: {
                       es: {
@@ -1458,7 +1482,7 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v54.Switch, {
+                }), (0, _v1.jsx)(_v56.Switch, {
                   isChecked: _v2.allowDownloads,
                   isDisabled: !0 !== _v19,
                   onChange: _v0 => {
@@ -1473,9 +1497,9 @@
           }), (0, _v1.jsxs)(_v5.Flex, {
             flexDirection: "column",
             gap: "sm",
-            children: [(0, _v1.jsx)(_v12.Text, {
+            children: [(0, _v1.jsx)(_v14.Text, {
               variant: "heading-xs",
-              children: (0, _v17.translate)({
+              children: (0, _v19.translate)({
                 singular: "Link",
                 dictionary: {
                   es: {
@@ -1495,16 +1519,16 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v11.Input, {
+            }), (0, _v1.jsx)(_v13.Input, {
               id: "file-share-link",
               isReadOnly: !0,
               value: _v18,
               variant: "outlined"
-            }), (0, _v1.jsx)(_v26.Button, {
+            }), (0, _v1.jsx)(_v28.Button, {
               variant: "primary",
               onClick: () => {
-                (0, _v61.default)(_v18) && (_v6({
-                  title: (0, _v17.translate)({
+                (0, _v63.default)(_v18) && (_v6({
+                  title: (0, _v19.translate)({
                     singular: "Link copied",
                     dictionary: {
                       es: {
@@ -1532,7 +1556,7 @@
                   })
                 }), _v16(!0), null != _v17.current && clearTimeout(_v17.current), _v17.current = setTimeout(() => _v16(!1), 0));
               },
-              children: _v15 ? (0, _v17.translate)({
+              children: _v15 ? (0, _v19.translate)({
                 singular: "Copied!",
                 dictionary: {
                   es: {
@@ -1557,7 +1581,7 @@
                     singular: "已复制！"
                   }
                 }
-              }) : (0, _v17.translate)({
+              }) : (0, _v19.translate)({
                 singular: "Copy link",
                 dictionary: {
                   es: {
@@ -1589,124 +1613,127 @@
       });
     };
   _v0.i(0);
-  var _v66 = _v0.i(0);
-  let _v67 = ({
-    publicId: _v0
-  }) => {
-    let _v1 = (0, _v10.useViewer)(),
-      _v2 = (0, _v8.useOrionLoading)(),
-      _v3 = (0, _v9.useUniversalHostingEnabled)(),
-      _v4 = (_v0 => {
-        let _v1 = (0, _v10.useViewer)(),
-          {
-            data: _v2,
-            error: _v3,
-            isLoading: _v4,
-            mutate: _v5
-          } = (0, _v20.useGetUserFile)(() => _v1?.user ? {
-            where: {
-              userId: _v1.user.id,
-              fileId: _v0
-            },
-            select: _v21
-          } : null),
-          _v6 = (0, _v3.useCallback)(() => {
-            _v5();
-          }, [_v5]);
-        return _v4 ? {
-          status: "loading",
-          refresh: _v6
-        } : null != _v3 || null == _v2 ? {
-          status: "error",
-          refresh: _v6
-        } : {
-          status: "success",
-          file: _v2,
-          refresh: _v6
+  var _v68 = _v0.i(0);
+  let _v69 = `(min-width: ${_v6.bokehTheme.breakpoints.lg})`,
+    _v70 = _v0 => {
+      let _v1 = _v7.safeWindow?.matchMedia(_v69);
+      return void 0 === _v1 ? () => void 0 : (_v1.addEventListener("change", _v0), () => _v1.removeEventListener("change", _v0));
+    },
+    _v71 = () => _v7.safeWindow?.matchMedia(_v69).matches ?? !1,
+    _v72 = () => !1,
+    _v73 = ({
+      publicId: _v0
+    }) => {
+      let _v1 = (0, _v12.useViewer)(),
+        _v2 = (0, _v10.useOrionLoading)(),
+        _v3 = (0, _v11.useUniversalHostingEnabled)(),
+        _v4 = (_v0 => {
+          let _v1 = (0, _v12.useViewer)(),
+            {
+              data: _v2,
+              error: _v3,
+              isLoading: _v4,
+              mutate: _v5
+            } = (0, _v22.useGetUserFile)(() => _v1?.user ? {
+              where: {
+                userId: _v1.user.id,
+                fileId: _v0
+              },
+              select: _v23
+            } : null),
+            _v6 = (0, _v3.useCallback)(() => {
+              _v5();
+            }, [_v5]);
+          return _v4 ? {
+            status: "loading",
+            refresh: _v6
+          } : null != _v3 || null == _v2 ? {
+            status: "error",
+            refresh: _v6
+          } : {
+            status: "success",
+            file: _v2,
+            refresh: _v6
+          };
+        })(_v0),
+        _v5 = (0, _v3.useSyncExternalStore)(_v70, _v71, _v72),
+        [_v6, _v7] = (0, _v3.useState)(null),
+        _v8 = _v6 ?? _v5;
+      if ((0, _v3.useEffect)(() => {
+        let _v0 = _v7.safeWindow?.matchMedia(_v69);
+        if (void 0 === _v0) return;
+        let _v1 = _v0 => {
+          _v0.matches || _v7(!1);
         };
-      })(_v0),
-      [_v5, _v6] = (0, _v3.useState)(!0);
-    if (!_v1?.user || _v2 || "loading" === _v4.status) return (0, _v1.jsx)(_v4.Box, {
-      minHeight: "100vh"
-    });
-    if (!_v3 || "error" === _v4.status) return (0, _v1.jsx)(_v7.ErrorPageWithHeader, {
-      error: new _v6.ForbiddenError(),
-      shouldShowSearch: !1
-    });
-    let _v7 = Number(_v4.file.uri.split("/")[2]);
-    return (0, _v1.jsxs)(_v5.Flex, {
-      direction: "column",
-      height: {
-        base: "auto",
-        lg: "100vh"
-      },
-      overflow: {
-        base: "visible",
-        lg: "hidden"
-      },
-      children: [(0, _v1.jsx)(_v53, {
-        file: _v4.file,
-        onShareClick: () => _v6(_v0 => !_v0),
-        ownerId: _v7,
-        publicId: _v0
-      }), (0, _v1.jsxs)(_v5.Flex, {
-        as: "main",
-        flexDirection: {
-          base: "column",
-          lg: "row"
-        },
-        flex: {
-          lg: "1"
-        },
-        gap: "lg",
-        justifyContent: "space-between",
-        minHeight: {
-          lg: 0
-        },
-        overflow: {
-          base: "visible",
-          lg: "hidden"
-        },
-        paddingX: "lg",
-        paddingY: "lg",
-        children: [(0, _v1.jsx)(_v5.Flex, {
-          flexDirection: "column",
-          flexGrow: 1,
-          minWidth: 0,
-          overflowY: {
-            base: "visible",
-            lg: "auto"
-          },
-          children: (0, _v1.jsxs)(_v5.Flex, {
-            flexDirection: "column",
-            gap: "lg",
-            marginX: "auto",
-            maxWidth: "56rem",
-            minWidth: 0,
-            width: "100%",
-            children: [(0, _v1.jsx)(_v66.FilePreview, {
-              contentType: _v4.file.contentType,
-              downloadUrl: _v4.file.downloadUrl,
-              fileSize: _v4.file.fileSize,
-              name: _v4.file.name,
-              thumbnailUrl: _v4.file.thumbnail?.url
-            }), (0, _v1.jsx)(_v25, {
-              file: _v4.file,
-              onChanged: _v4.refresh,
-              ownerId: _v7,
-              publicId: _v0
-            })]
-          })
-        }), _v5 && (0, _v1.jsx)(_v65, {
+        return _v0.addEventListener("change", _v1), () => _v0.removeEventListener("change", _v1);
+      }, []), !_v1?.user || _v2 || "loading" === _v4.status) return (0, _v1.jsx)(_v4.Box, {
+        minHeight: "100vh"
+      });
+      if (!_v3 || "error" === _v4.status) return (0, _v1.jsx)(_v9.ErrorPageWithHeader, {
+        error: new _v8.ForbiddenError(),
+        shouldShowSearch: !1
+      });
+      let _v9 = Number(_v4.file.uri.split("/")[2]);
+      return (0, _v1.jsxs)(_v5.Flex, {
+        direction: "column",
+        height: "100dvh",
+        overflow: "hidden",
+        children: [(0, _v1.jsx)(_v55, {
           file: _v4.file,
-          onChanged: _v4.refresh,
-          onClose: () => _v6(!1),
-          ownerId: _v7,
+          onShareClick: () => _v7(!_v8),
+          ownerId: _v9,
           publicId: _v0
+        }), (0, _v1.jsxs)(_v5.Flex, {
+          as: "main",
+          flexDirection: {
+            base: "column",
+            lg: "row"
+          },
+          flex: "1",
+          gap: "lg",
+          justifyContent: "space-between",
+          minHeight: 0,
+          overflow: "hidden",
+          paddingX: "lg",
+          paddingY: "lg",
+          position: "relative",
+          children: [(0, _v1.jsx)(_v5.Flex, {
+            flexDirection: "column",
+            flexGrow: 1,
+            minWidth: 0,
+            overflowY: "auto",
+            children: (0, _v1.jsxs)(_v5.Flex, {
+              flexDirection: "column",
+              gap: "lg",
+              marginX: "auto",
+              maxWidth: "56rem",
+              minWidth: 0,
+              width: "100%",
+              children: [(0, _v1.jsx)(_v68.FilePreview, {
+                contentType: _v4.file.contentType,
+                downloadUrl: _v4.file.downloadUrl,
+                fileSize: _v4.file.fileSize,
+                height: _v4.file.height,
+                name: _v4.file.name,
+                thumbnailUrl: _v4.file.thumbnail?.url,
+                width: _v4.file.width
+              }), (0, _v1.jsx)(_v27, {
+                file: _v4.file,
+                onChanged: _v4.refresh,
+                ownerId: _v9,
+                publicId: _v0
+              })]
+            })
+          }), _v8 && (0, _v1.jsx)(_v67, {
+            file: _v4.file,
+            onChanged: _v4.refresh,
+            onClose: () => _v7(!1),
+            ownerId: _v9,
+            publicId: _v0
+          })]
         })]
-      })]
-    });
-  };
+      });
+    };
   (0, _v2.withPageSetup)(_v0 => {
     let _v1 = _v0.query.publicId;
     return {
@@ -1720,7 +1747,7 @@
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, ({
     publicId: _v0
-  }) => (0, _v1.jsx)(_v67, {
+  }) => (0, _v1.jsx)(_v73, {
     publicId: _v0
   }, _v0)], 0);
 }

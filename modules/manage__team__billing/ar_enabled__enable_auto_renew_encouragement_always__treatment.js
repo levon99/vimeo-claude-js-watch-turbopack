@@ -1165,7 +1165,7 @@
                 storage: (0, _v16.translate)({
                   singular: "{STORAGE} managed storage for embeddable and non-public videos",
                   replacements: {
-                    STORAGE: _v3?.restrictedVideoStorageLimit ?? "300 GB"
+                    STORAGE: _v3?.restrictedVideoStorageLimit ?? "500 GB"
                   },
                   dictionary: {
                     es: {

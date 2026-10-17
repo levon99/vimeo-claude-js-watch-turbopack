@@ -162,7 +162,6 @@
     enable_email_section_redesign: !1,
     enable_prewarm_filmstrip_sprite: !1,
     show_ai_credits_revamp: !0,
-    record_upload_approach: "live",
     enabled_new_live_engagement_ui: !1,
     enable_non_video_upload_fake_door: !1,
     universal_hosting_enabled: !1,

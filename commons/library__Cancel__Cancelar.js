@@ -1472,9 +1472,10 @@
   }) {
     return (0, _v1.jsxs)(_v9.Flex, {
       alignItems: "center",
-      gap: "xs",
-      paddingX: "sm",
-      height: "32px",
+      gap: (0, _v12.rem)(12),
+      paddingX: "md",
+      py: "sm",
+      minHeight: (0, _v12.rem)(40),
       transition: "all 120ms ease-in-out 0s",
       outline: "1px solid",
       outlineColor: "input-stroke",
@@ -1486,7 +1487,7 @@
         outlineColor: "input-stroke-hover"
       },
       children: [(0, _v1.jsx)(_v11.Text, {
-        variant: "body-md",
+        variant: "heading-xs",
         children: (0, _v17.translate)({
           singular: "Embeddable",
           dictionary: {

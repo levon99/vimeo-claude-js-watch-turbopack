@@ -245,6 +245,8 @@
 - https://vimeo.com/settings/marketing/provider/hubspot/mediabridge/onboard/folder-select
 - https://vimeo.com/settings/marketing/provider/hubspot/mediabridge/onboard/progress
 - https://vimeo.com/settings/marketing/provider/hubspot/mediabridge/onboard/success
+- https://vimeo.com/share/folder/[token]
+- https://vimeo.com/share/folder/[token]/video/[clipId]
 - https://vimeo.com/share/[token]
 - https://vimeo.com/shared-with-me
 - https://vimeo.com/showcase/[albumId]

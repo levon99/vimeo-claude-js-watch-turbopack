@@ -8647,7 +8647,7 @@
             singular: "Live-Event"
           },
           "fr-FR": {
-            singular: "Évènement en direct"
+            singular: "Événement en direct"
           },
           "ja-JP": {
             singular: "ライブイベント"

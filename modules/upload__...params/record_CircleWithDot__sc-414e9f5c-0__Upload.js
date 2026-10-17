@@ -2143,7 +2143,7 @@
           callback: () => _v14(!0)
         });
       }, [_v19, _v5, _v6]), (0, _v5.useEffect)(() => {
-        _v7 && !_v8 && window.google && (_v12.current = google?.accounts?.oauth2?.initTokenClient({
+        _v7 && !_v8 && window.google && _v9 && (_v12.current = google?.accounts?.oauth2?.initTokenClient({
           client_id: _v9,
           scope: _v2
         }));

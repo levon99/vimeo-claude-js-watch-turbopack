@@ -10,8 +10,10 @@
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
-    _v10 = _v0.i(0);
-  let _v11 = {
+    _v10 = _v0.i(0),
+    _v11 = _v0.i(0),
+    _v12 = _v0.i(0);
+  let _v13 = {
       video: {
         backgroundLight: "rgba(190, 227, 248, 0.5)",
         backgroundDark: "blue.900",
@@ -37,70 +39,38 @@
         colorDark: "purple.300"
       }
     },
-    _v12 = _v0 => {
-      let _v1 = _v11[_v0];
+    _v14 = _v0 => {
+      let _v1 = _v13[_v0];
       return {
         background: (0, _v4.useColorModeValue)(_v1.backgroundLight, _v1.backgroundDark),
         color: (0, _v4.useColorModeValue)(_v1.colorLight, _v1.colorDark)
       };
     };
-  _v0.s(["useContentTypeColors", 0, _v12], 0);
-  let _v13 = {
+  _v0.s(["useContentTypeColors", 0, _v14], 0);
+  let _v15 = {
       video: {
         Filled: _v8.PlayerFilled,
         Outline: _v7.Player
       },
       document: {
-        Filled: _v0 => (0, _v1.jsx)(_v6.Icon, {
-          viewBox: "0 0 24 24",
-          ..._v0,
-          fill: "none",
-          children: (0, _v1.jsx)("path", {
-            d: "M15 8h4.4L14 2.6V7c0 .6.4 1 1 1Zm0 2c-1.7 0-3-1.3-3-3V2H7C5.3 2 4 3.3 4 5v14c0 1.7 1.3 3 3 3h10c1.7 0 3-1.3 3-3v-9h-5ZM9 8h1c.6 0 1 .4 1 1s-.4 1-1 1H9c-.6 0-1-.4-1-1s.4-1 1-1Zm6 10H9c-.6 0-1-.4-1-1s.4-1 1-1h6c.6 0 1 .4 1 1s-.4 1-1 1Zm0-4H9c-.6 0-1-.4-1-1s.4-1 1-1h6c.6 0 1 .4 1 1s-.4 1-1 1Z",
-            fill: "currentColor"
-          })
-        }),
+        Filled: _v10.ScriptFilled,
         Outline: _v9.Script
       },
       image: {
-        Filled: _v0 => (0, _v1.jsx)(_v6.Icon, {
-          viewBox: "0 0 24 24",
-          ..._v0,
-          fill: "none",
-          children: (0, _v1.jsxs)("g", {
-            fill: "currentColor",
-            children: [(0, _v1.jsx)("path", {
-              d: "M7 9a2 2 0 1 1 4 0 2 2 0 0 1-4 0Z"
-            }), (0, _v1.jsx)("path", {
-              fillRule: "evenodd",
-              clipRule: "evenodd",
-              d: "M7 3a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4H7ZM5 7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5.12l-.978-.783a3 3 0 0 0-3.995.222l-2.425 2.424a1 1 0 0 1-1.357.052l-.793-.679a3 3 0 0 0-3.904 0l-.548.47V7Z"
-            })]
-          })
-        }),
+        Filled: _v6.ImageFilled,
         Outline: _v5.Image
       },
       audio: {
-        Filled: _v0 => (0, _v1.jsx)(_v6.Icon, {
-          viewBox: "0 0 24 24",
-          ..._v0,
-          fill: "none",
-          children: (0, _v1.jsx)("path", {
-            fillRule: "evenodd",
-            clipRule: "evenodd",
-            d: "M8 6a1 1 0 0 1 1 1v10a1 1 0 1 1-2 0V7a1 1 0 0 1 1-1Zm4-4a1 1 0 0 1 1 1v18a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm8 8a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1ZM4 10a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1Zm12-4a1 1 0 0 1 1 1v10a1 1 0 1 1-2 0V7a1 1 0 0 1 1-1Z",
-            fill: "currentColor"
-          })
-        }),
-        Outline: _v10.SoundWaves
+        Filled: _v12.SoundWavesFilled,
+        Outline: _v11.SoundWaves
       }
     },
-    _v14 = _v0 => {
+    _v16 = _v0 => {
       let _v1 = (_v0 ?? "").toLowerCase();
       return _v1.startsWith("image/") ? "image" : _v1.startsWith("audio/") ? "audio" : _v1.startsWith("video/") ? "video" : "document";
     },
-    _v15 = ["image/jpeg", "image/png", "image/webp"],
-    _v16 = ({
+    _v17 = ["image/jpeg", "image/png", "image/webp"],
+    _v18 = ({
       category: _v0,
       size: _v1 = "2xl",
       color: _v2 = "text-secondary",
@@ -110,28 +80,28 @@
       let {
         Outline: _v5,
         Filled: _v6
-      } = _v13[_v0];
+      } = _v15[_v0];
       return (0, _v1.jsx)("filled" === _v4 ? _v6 : _v5, {
         color: _v2,
         boxSize: _v1,
         opacity: _v3
       });
     },
-    _v17 = _v0 => {
+    _v19 = _v0 => {
       let _v1 = _v0.lastIndexOf(".");
       return _v1 <= 0 || _v1 === _v0.length - 1 ? "" : _v0.slice(_v1 + 1).toUpperCase();
     };
-  _v0.s(["CATEGORY_CONFIG", 0, _v13, "ContentTypeIcon", 0, ({
+  _v0.s(["CATEGORY_CONFIG", 0, _v15, "ContentTypeIcon", 0, ({
     category: _v0,
     size: _v1 = "md"
   }) => {
     let {
         Filled: _v2
-      } = _v13[_v0],
+      } = _v15[_v0],
       {
         background: _v3,
         color: _v4
-      } = _v12(_v0);
+      } = _v14(_v0);
     return (0, _v1.jsx)(_v2.Flex, {
       alignItems: "center",
       justifyContent: "center",
@@ -150,8 +120,8 @@
     size: _v2 = "grid",
     variant: _v3 = "outline"
   }) => {
-    let _v4 = _v14(_v1),
-      _v5 = _v17(_v0),
+    let _v4 = _v16(_v1),
+      _v5 = _v19(_v0),
       _v6 = (0, _v4.useColorModeValue)("gray.50", "fill-component-hover");
     return (0, _v1.jsx)(_v2.Flex, {
       alignItems: "center",
@@ -163,7 +133,7 @@
         direction: "column",
         alignItems: "center",
         gap: "xs",
-        children: [(0, _v1.jsx)(_v16, {
+        children: [(0, _v1.jsx)(_v18, {
           category: _v4,
           color: "gray.400",
           size: "grid" === _v2 ? "28px" : "20px",
@@ -176,5 +146,5 @@
         })]
       })
     });
-  }, "getContentTypeCategory", 0, _v14, "getFileExtension", 0, _v17, "supportsGeneratedThumbnail", 0, _v0 => _v15.includes((_v0 ?? "").toLowerCase())], 0);
+  }, "getContentTypeCategory", 0, _v16, "getFileExtension", 0, _v19, "supportsGeneratedThumbnail", 0, _v0 => _v17.includes((_v0 ?? "").toLowerCase())], 0);
 }

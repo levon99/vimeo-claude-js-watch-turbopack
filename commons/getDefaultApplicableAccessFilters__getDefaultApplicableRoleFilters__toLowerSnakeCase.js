@@ -199,7 +199,9 @@
         hasTeamAllowedIpsEnabled: !1,
         hasMultipleReviewLinks: !1,
         loading: !1,
-        hasCanUseOverlayWatermarking: !1
+        hasCanUseOverlayWatermarking: !1,
+        hasCanUsePersonalizedViewerWatermarking: !1,
+        hasCanUseForensicWatermarking: !1
       },
       modalToDisplay: {
         currentModalInDisplay: null

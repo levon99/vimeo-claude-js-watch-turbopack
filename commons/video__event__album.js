@@ -1,20 +1,28 @@
 {
   "use strict";
 
-  var _v1 = _v0.i(0),
-    _v2 = _v0.i(0);
-  let _v3 = {
-    [_v1.ENTITY_TYPE.VIDEO]: "video",
-    [_v1.ENTITY_TYPE.EVENT]: "event",
-    [_v1.ENTITY_TYPE.SHOWCASE]: "album"
-  };
-  _v0.s(["useRegistrationFormEntity", 0, () => {
-    let _v0 = (0, _v2.useGlobalStore)(_v0 => _v0.entityType),
-      _v1 = (0, _v2.useGlobalStore)(_v0 => _v0.entityId),
-      _v2 = null == _v0 ? void 0 : _v3[_v0];
-    return void 0 === _v2 ? null : {
-      entityType: _v2,
-      entityId: _v1
+  let _v1 = {
+      VIDEO: "video",
+      EVENT: "event",
+      SHOWCASE: "album",
+      EMPTY: ""
+    },
+    _v2 = {
+      [_v1.VIDEO]: "videos",
+      [_v1.EVENT]: "live_events",
+      [_v1.SHOWCASE]: "albums"
     };
-  }]);
+  _v0.s(["DOUBLE_GATE_BROADCAST_CHANNEL", 0, "lc_double_gate", "DOUBLE_GATE_MESSAGE_TYPE", 0, {
+    REQUEST_PARENT_LEAD_DETAILS: "requestParentLeadDetails",
+    RESPONSE_PARENT_LEAD_DETAILS: "responseParentLeadDetails"
+  }, "EMAIL_REGEX", 0, /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, "ENTITY_TO_PATH_MAP", 0, _v2, "ENTITY_TYPE", 0, _v1, "GET_TROUBLESHOOTING_TIPS", 0, "https://help.vimeo.com/hc/en-us/articles/20925479262737-How-to-sync-a-contact-form-with-your-email-service-provider", "KEY_CODES", 0, {
+    TAB: "Tab",
+    ENTER: "Enter",
+    ESCAPE: "Escape"
+  }, "LEAD_CAPTURE_COOKIE_NAME_PREFIX", 0, "lc_", "LOCATION_STATE", 0, {
+    TAB: "tab",
+    SIDE_MENU: "side_menu",
+    PREVIEW_TYPE: "preview_type",
+    SECTION: "section"
+  }, "MAX_URL_LINK", 0, 250]);
 }

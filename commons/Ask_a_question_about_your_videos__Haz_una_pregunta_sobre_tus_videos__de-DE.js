@@ -645,8 +645,8 @@
                   plural: "{count}개 항목"
                 },
                 "zh-CN": {
-                  singular: "{count} 项",
-                  plural: "{count} 项"
+                  singular: "{count} 个项目",
+                  plural: "{count} 个项目"
                 }
               }
             }) : _v0.duration

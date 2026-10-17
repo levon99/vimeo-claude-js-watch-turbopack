@@ -34,7 +34,7 @@
       _v13 = (0, _v2.useMemo)(() => _v0 ? (0, _v15.filterVideoFilesForKnownResolutionThenSortAlphabetically)(_v0, {
         allowAudioDownload: _v12.enable_audio_download
       }) : [], [_v0, _v12.enable_audio_download]),
-      _v14 = _v13.length > 0 || _v10;
+      _v14 = _v13.length > 0 || !!_v10 || !!_v5;
     return (0, _v1.jsxs)(_v5.Modal, {
       isOpen: _v1,
       onClose: _v2,

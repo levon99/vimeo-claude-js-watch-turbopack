@@ -45,7 +45,7 @@
   var _v12 = _v0.i(0),
     _v13 = _v0.i(0);
   let _v14 = "video/*,.mkv,.m2ts",
-    _v15 = "video/*,.mkv,.m2ts,.txt,.md,.srt,.vtt,.csv,.pdf,.jpg,.jpeg,.png,.webp,.mp3,.wav",
+    _v15 = "video/*,.mkv,.m2ts,.txt,.md,.srt,.vtt,.csv,.jpg,.jpeg,.png,.webp,.mp3,.wav",
     _v16 = new Set(["3g2", "3gp", "asf", "asx", "avi", "flv", "m2t", "m2ts", "m4v", "mkv", "mod", "mov", "mp4", "mpeg", "mpg", "mts", "webm", "wmv"]),
     _v17 = new Set([..._v16, "7z", "aac", "aep", "ai", "csv", "doc", "docx", "flac", "gif", "gz", "heic", "heif", "jpeg", "jpg", "m4a", "md", "mp3", "ogg", "pdf", "png", "ppt", "pptx", "prproj", "psd", "rar", "rtf", "srt", "svg", "tar", "txt", "vtt", "wav", "webp", "xls", "xlsx", "zip"]),
     _v18 = new Set(["application/octet-stream", "application/x-matroska"]),

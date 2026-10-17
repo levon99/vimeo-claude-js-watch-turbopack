@@ -24,19 +24,23 @@
     _v21 = _v0.i(0),
     _v22 = _v0.i(0);
   let _v23 = "request_a_refund",
-    _v24 = ["request_a_refund", "cancel_my_subscription"];
-  function _v25(_v0) {
+    _v24 = ["request_a_refund", "cancel_my_subscription"],
+    _v25 = {
+      cf_core_billing_request_a_refund: "request_a_refund",
+      cf_core_billing_cancel_my_subscription: "cancel_my_subscription"
+    };
+  function _v26(_v0) {
     return "object" == typeof _v0 && null !== _v0;
   }
-  function _v26(_v0, _v1) {
+  function _v27(_v0, _v1) {
     return {
       refund_offer_entry_point: _v1
     };
   }
-  function _v27(_v0) {
+  function _v28(_v0) {
     return _v0.replace(/\.00$/, "");
   }
-  let _v28 = () => {
+  let _v29 = () => {
     let _v0 = (0, _v21.usePico)(),
       _v1 = (0, _v22.useViewer)(),
       [_v2, _v3] = (0, _v3.useState)({
@@ -72,23 +76,24 @@
             credentials: "include"
           });
           if (!_v0.ok) throw Error("Unable to accept the refund offer");
-          if (_v1 = await _v0.json(), !_v25(_v1) || !0 !== _v1.success) throw Error("Invalid refund offer redemption response");
+          if (_v1 = await _v0.json(), !_v26(_v1) || !0 !== _v1.success) throw Error("Invalid refund offer redemption response");
           _v3({
             type: "accepted",
             offer: _v0
-          }), _v0.track("refund_offer_contact_accepted", _v26(_v0, _v6));
+          }), _v0.track("refund_offer_contact_accepted", _v27(_v0, _v6));
         } catch {
           _v3({
             type: "error",
             retry: "accept",
             offer: _v0
-          }), _v0.track("refund_offer_contact_error", _v26(_v0, _v6));
+          }), _v0.track("refund_offer_contact_error", _v27(_v0, _v6));
         }
       }, [_v6, _v0, _v1]);
     (0, _v3.useEffect)(() => {
       let _v0 = _v0 => {
-        var _v1, _v2, _v3;
-        if (_v0.origin !== window.location.origin || _v0.source !== window.parent || !_v25(_v0.data) || _v8.current || "refund_offer_data" !== _v0.data.type || !(_v25(_v1 = _v0.data.offer) && !0 === _v1.eligible && "string" == typeof _v1.current_tier && "string" == typeof _v1.target_tier && "string" == typeof _v1.target_price_formatted && "string" == typeof _v1.current_payment_formatted && "string" == typeof _v1.target_monthly_price_formatted && "string" == typeof _v1.current_monthly_price_formatted && "string" == typeof _v1.refund_amount_formatted && "number" == typeof _v1.refund_percentage && "string" == typeof _v1.renewal_date && "number" == typeof _v1.billing_period_months && "string" == typeof _v1.currency)) return;
+        var _v1, _v2;
+        let _v3;
+        if (_v0.origin !== window.location.origin || _v0.source !== window.parent || !_v26(_v0.data) || _v8.current || "refund_offer_data" !== _v0.data.type || !(_v26(_v1 = _v0.data.offer) && !0 === _v1.eligible && "string" == typeof _v1.current_tier && "string" == typeof _v1.target_tier && "string" == typeof _v1.target_price_formatted && "string" == typeof _v1.current_payment_formatted && "string" == typeof _v1.target_monthly_price_formatted && "string" == typeof _v1.current_monthly_price_formatted && "string" == typeof _v1.refund_amount_formatted && "number" == typeof _v1.refund_percentage && "string" == typeof _v1.renewal_date && "number" == typeof _v1.billing_period_months && "string" == typeof _v1.currency)) return;
         _v8.current = !0;
         let _v4 = {
             eligible: !0,
@@ -104,11 +109,11 @@
             billingPeriodMonths: _v2.billing_period_months,
             currency: _v2.currency
           },
-          _v5 = (_v3 = _v0.data, _v24.find(_v0 => _v0 === _v3.entry_point) ?? _v23);
+          _v5 = (_v3 = _v0.data.entry_point, _v24.find(_v0 => _v0 === _v3) ?? ("string" == typeof _v3 ? _v25[_v3] : void 0) ?? _v23);
         _v7(_v5), _v3({
           type: "offer",
           offer: _v4
-        }), _v0.track("refund_offer_contact_modal_displayed", _v26(_v4, _v5));
+        }), _v0.track("refund_offer_contact_modal_displayed", _v27(_v4, _v5));
       };
       return window.addEventListener("message", _v0), () => window.removeEventListener("message", _v0);
     }, [_v0]), (0, _v3.useEffect)(() => {
@@ -146,7 +151,7 @@
     let _v12 = (0, _v3.useCallback)(() => {
         if ("accepting" === _v2.type) return;
         let _v0 = "accepted" === _v2.type ? "accepted" : "error" === _v2.type ? "error" : "declined";
-        "offer" === _v2.type && _v0.track("refund_offer_contact_declined", _v26(_v2.offer, _v6)), _v10(_v0), _v3({
+        "offer" === _v2.type && _v0.track("refund_offer_contact_declined", _v27(_v2.offer, _v6)), _v10(_v0), _v3({
           type: "closed"
         });
       }, [_v6, _v0, _v10, _v2]),
@@ -154,7 +159,7 @@
         "offer" === _v2.type && _v11(_v2.offer);
       }, [_v11, _v2]),
       _v14 = (0, _v3.useCallback)(() => {
-        "offer" === _v2.type && (_v0.track("refund_offer_contact_declined", _v26(_v2.offer, _v6)), _v10("continue_to_ticket"), _v3({
+        "offer" === _v2.type && (_v0.track("refund_offer_contact_declined", _v27(_v2.offer, _v6)), _v10("continue_to_ticket"), _v3({
           type: "closed"
         }));
       }, [_v6, _v0, _v10, _v2]),
@@ -230,28 +235,28 @@
                 }
               }
             }), (0, _v20.translate)({
-              singular: "300 GB storage for Embeds and non-Public videos",
+              singular: "500 GB storage for Embeds and non-Public videos",
               dictionary: {
                 es: {
-                  singular: "300 GB de almacenamiento para Embeds y vídeos no públicos"
+                  singular: "500 GB de almacenamiento para Embeds y vídeos no públicos"
                 },
                 "de-DE": {
-                  singular: "300 GB Speicher für Einbettungen und nicht-öffentliche Videos"
+                  singular: "500 GB Speicher für Einbettungen und nicht-öffentliche Videos"
                 },
                 "fr-FR": {
-                  singular: "300 Go de stockage pour les intégrations et les vidéos non publiques"
+                  singular: "500 Go de stockage pour les lecteurs intégrés et les vidéos non publiques"
                 },
                 "ja-JP": {
-                  singular: "埋め込みおよび非公開動画用 300 GB ストレージ"
+                  singular: "埋め込みと非公開動画用の500 GB ストレージ"
                 },
                 "ko-KR": {
-                  singular: "임베드 및 비공개 동영상용 300 GB 저장 공간"
+                  singular: "임베드 및 비공개 동영상용 500 GB 저장공간"
                 },
                 "pt-BR": {
-                  singular: "300 GB de armazenamento para incorporações e vídeos não públicos"
+                  singular: "500 GB de armazenamento para Embeds e vídeos não públicos"
                 },
                 "zh-CN": {
-                  singular: "用于嵌入和非公开视频的 300 GB 存储空间"
+                  singular: "500 GB 存储，用于嵌入视频和非公开视频"
                 }
               }
             }), (0, _v20.translate)({
@@ -514,11 +519,11 @@
         }
       }(_v18.currentTier),
       _v21 = _v18?.billingPeriodMonths === 12,
-      _v22 = null === _v18 ? "" : _v27(_v18.targetPriceFormatted),
-      _v23 = null === _v18 ? "" : _v27(_v18.currentPaymentFormatted),
-      _v24 = null === _v18 ? "" : _v27(_v18.targetMonthlyPriceFormatted),
-      _v25 = null === _v18 ? "" : _v27(_v18.currentMonthlyPriceFormatted),
-      _v26 = null === _v18 ? "" : _v27(_v18.refundAmountFormatted);
+      _v22 = null === _v18 ? "" : _v28(_v18.targetPriceFormatted),
+      _v23 = null === _v18 ? "" : _v28(_v18.currentPaymentFormatted),
+      _v24 = null === _v18 ? "" : _v28(_v18.targetMonthlyPriceFormatted),
+      _v25 = null === _v18 ? "" : _v28(_v18.currentMonthlyPriceFormatted),
+      _v26 = null === _v18 ? "" : _v28(_v18.refundAmountFormatted);
     return (0, _v1.jsxs)(_v8.Modal, {
       isOpen: !0,
       onClose: _v12,
@@ -1114,7 +1119,7 @@
               children: (0, _v20.translate)({
                 singular: "Your refund of {refundAmountFormatted} has been processed.",
                 replacements: {
-                  refundAmountFormatted: _v27(_v2.offer.refundAmountFormatted)
+                  refundAmountFormatted: _v28(_v2.offer.refundAmountFormatted)
                 },
                 dictionary: {
                   es: {
@@ -1355,6 +1360,6 @@
         html, body, #__next { background: transparent !important; }
         .chakra-modal__content-container { overflow: hidden !important; padding: 0 !important; }
       `
-    }), (0, _v1.jsx)(_v28, {})]
+    }), (0, _v1.jsx)(_v29, {})]
   })], 0);
 }

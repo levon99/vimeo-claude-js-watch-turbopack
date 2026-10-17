@@ -5,5 +5,5 @@
     _v2 = "video/mp4;codecs=avc1,mp4a.40.2",
     _v3 = _v0 => "tus_stream" === _v0 ? _v2 : _v1.find(MediaRecorder.isTypeSupported) ?? "video/webm",
     _v4 = _v0 => _v0.startsWith("video/mp4");
-  _v0.s(["getMimeType", 0, _v3, "isMp4MimeType", 0, _v4, "isTusStreamMimeTypeSupported", 0, () => MediaRecorder.isTypeSupported(_v2)], 0), _v0.s(["getLocalIntegrationSupported", 0, () => !!_v4(_v3())], 0);
+  _v0.s(["getMimeType", 0, _v3, "isMp4MimeType", 0, _v4, "isTusStreamMimeTypeSupported", 0, () => "u" > typeof MediaRecorder && MediaRecorder.isTypeSupported(_v2)], 0), _v0.s(["getLocalIntegrationSupported", 0, () => !!_v4(_v3())], 0);
 }
