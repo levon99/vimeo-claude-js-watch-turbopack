@@ -19,8 +19,9 @@
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  let _v20 = (0, _v2.default)(async () => {
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
+  let _v21 = (0, _v2.default)(async () => {
       let {
         UserCard: _v0
       } = await _v0.A(0);
@@ -32,10 +33,10 @@
         modules: [0]
       }
     }),
-    _v21 = (0, _v4.createContext)({
+    _v22 = (0, _v4.createContext)({
       isSelected: !1
     }),
-    _v22 = ({
+    _v23 = ({
       children: _v0,
       isDisabled: _v1 = !1,
       isDragging: _v2 = !1,
@@ -124,7 +125,7 @@
               pointerEvents: "auto"
             }
           },
-          children: (0, _v1.jsx)(_v21.Provider, {
+          children: (0, _v1.jsx)(_v22.Provider, {
             value: {
               isSelected: _v3,
               onToggleSelected: _v6
@@ -134,7 +135,7 @@
         })]
       });
     };
-  _v22.Body = ({
+  _v23.Body = ({
     children: _v0,
     aspectRatio: _v1 = "16 / 9",
     onMouseEnter: _v2,
@@ -146,7 +147,7 @@
     onMouseEnter: _v2,
     onMouseLeave: _v3,
     children: _v0
-  }), _v22.Badge = ({
+  }), _v23.Badge = ({
     children: _v0,
     variant: _v1 = "default",
     ..._v2
@@ -159,7 +160,7 @@
     right: (0, _v13.rem)(8),
     ..._v2,
     children: _v0
-  }), _v22.HoverActions = ({
+  }), _v23.HoverActions = ({
     children: _v0
   }) => (0, _v1.jsx)(_v12.VStack, {
     position: "absolute",
@@ -171,7 +172,7 @@
       _v0.stopPropagation(), _v0.preventDefault();
     },
     children: _v0
-  }), _v22.HoverAction = ({
+  }), _v23.HoverAction = ({
     children: _v0,
     isAlwaysVisible: _v1
   }) => (0, _v1.jsx)(_v5.Box, {
@@ -185,7 +186,7 @@
     },
     children: _v0
   });
-  let _v23 = {
+  let _v24 = {
       badge: {
         position: "absolute",
         bottom: (0, _v13.rem)(8),
@@ -222,7 +223,7 @@
         borderColor: "gray.600"
       }
     },
-    _v24 = {
+    _v25 = {
       badge: {},
       grid: {
         gap: "0.4em"
@@ -238,7 +239,7 @@
         borderColor: "transparent"
       }
     };
-  _v22.VideoPrivacyBadge = ({
+  _v23.VideoPrivacyBadge = ({
     videoPrivacy: _v0,
     onClick: _v1,
     variant: _v2 = "default",
@@ -252,7 +253,7 @@
         icon: _v8
       } = _v0 || {};
     if (!_v7) return null;
-    let _v9 = "overlay" === _v3 ? _v23 : _v24;
+    let _v9 = "overlay" === _v3 ? _v24 : _v25;
     if ("coldStorage" === _v2 || "coldPrivacy" === _v2) {
       let _v0 = (0, _v1.jsx)(_v11.Badge, {
         ...(_v4 ? {
@@ -358,7 +359,7 @@
       })
     });
   };
-  let _v25 = {
+  let _v26 = {
     display: {
       base: "none",
       md: "flex"
@@ -376,45 +377,46 @@
     },
     backgroundColor: "fill-surface"
   };
-  _v22.SelectCheckbox = ({
+  _v23.SelectCheckbox = ({
     size: _v0 = "sm"
   }) => {
     let {
       isSelected: _v1,
       onToggleSelected: _v2
-    } = (0, _v4.useContext)(_v21);
+    } = (0, _v4.useContext)(_v22);
     return (0, _v1.jsx)(_v7.Checkbox, {
-      ..._v25,
-      opacity: _v25.opacity(_v1),
+      ..._v26,
+      opacity: _v26.opacity(_v1),
       size: _v0,
       isChecked: _v1,
       onChange: _v2,
       position: "absolute",
       borderRadius: "sm"
     });
-  }, _v22.SelectRadio = ({
+  }, _v23.SelectRadio = ({
     size: _v0 = "sm"
   }) => {
     let {
       isSelected: _v1,
       onToggleSelected: _v2
-    } = (0, _v4.useContext)(_v21);
+    } = (0, _v4.useContext)(_v22);
     return (0, _v1.jsx)(_v14.Radio, {
-      ..._v25,
-      opacity: _v25.opacity(_v1),
+      ..._v26,
+      opacity: _v26.opacity(_v1),
       size: _v0,
       isChecked: _v1,
       onChange: _v2,
       position: "absolute"
     });
-  }, _v22.Thumbnail = ({
+  }, _v23.Thumbnail = ({
     alt: _v0,
     src: _v1,
     srcSet: _v2,
     aspectRatio: _v3 = "16 / 9",
     opacity: _v4 = 1,
     isLocked: _v5 = !1,
-    onClick: _v6
+    isPasswordLocked: _v6 = !1,
+    onClick: _v7
   }) => (0, _v1.jsxs)(_v5.Box, {
     opacity: _v4,
     position: "relative",
@@ -424,8 +426,8 @@
     borderRadius: "md",
     overflow: "hidden",
     backgroundColor: "background",
-    onClick: _v5 ? void 0 : _v6,
-    children: [_v5 && (0, _v1.jsx)(_v27, {}), (0, _v1.jsx)(_v5.Box, {
+    onClick: _v5 ? void 0 : _v7,
+    children: [_v5 && (0, _v1.jsx)(_v28, {}), (0, _v1.jsx)(_v5.Box, {
       as: "img",
       alt: _v0,
       src: _v1,
@@ -440,16 +442,18 @@
       borderStyle: "solid",
       borderColor: "stroke",
       aspectRatio: _v3,
-      objectFit: "cover"
-    })]
-  }), _v22.DefaultThumbnail = ({
+      objectFit: "cover",
+      style: _v6 ? _v20.PASSWORD_LOCKED_IMAGE_STYLE : void 0
+    }), _v6 && (0, _v1.jsx)(_v20.PasswordLockedOverlay, {})]
+  }), _v23.DefaultThumbnail = ({
     children: _v0,
     background: _v1,
     _groupHover: _v2,
     _groupFocusWithin: _v3,
     border: _v4,
     isLocked: _v5,
-    onClick: _v6
+    isPasswordLocked: _v6,
+    onClick: _v7
   }) => (0, _v1.jsxs)(_v6.Center, {
     position: "absolute",
     inset: "0",
@@ -465,10 +469,10 @@
     _groupHover: _v2,
     _groupFocusWithin: _v3,
     border: _v4,
-    onClick: _v5 ? void 0 : _v6,
-    children: [_v5 && (0, _v1.jsx)(_v27, {}), _v0]
+    onClick: _v5 ? void 0 : _v7,
+    children: [_v5 && (0, _v1.jsx)(_v28, {}), _v0, _v6 && (0, _v1.jsx)(_v20.PasswordLockedOverlay, {})]
   });
-  let _v26 = ({
+  let _v27 = ({
     children: _v0,
     creator: _v1,
     showCard: _v2,
@@ -485,7 +489,7 @@
       onClick: _v8,
       deferDetails: _v9
     } = _v1;
-    return _v2 && _v6 ? (0, _v1.jsx)(_v20, {
+    return _v2 && _v6 ? (0, _v1.jsx)(_v21, {
       user: _v6,
       profileUrl: _v6.link,
       hasFollow: _v4,
@@ -500,7 +504,7 @@
       children: _v0
     });
   };
-  _v22.Footer = ({
+  _v23.Footer = ({
     actions: _v0,
     avatar: _v1,
     leadingIcon: _v2,
@@ -548,7 +552,7 @@
           grow: "1",
           gap: "sm",
           width: "100%",
-          children: [_v2, !!_v1 && (0, _v1.jsx)(_v26, {
+          children: [_v2, !!_v1 && (0, _v1.jsx)(_v27, {
             creator: _v5,
             showCard: !!_v16,
             showOverflow: !1,
@@ -609,7 +613,7 @@
                   children: _v4
                 })
               })
-            }), _v5?.name && (0, _v1.jsx)(_v26, {
+            }), _v5?.name && (0, _v1.jsx)(_v27, {
               creator: _v5,
               showCard: !!_v16,
               showOverflow: !_v16,
@@ -657,7 +661,7 @@
         })
       })
     });
-  }, _v22.ThumbnailGrid = ({
+  }, _v23.ThumbnailGrid = ({
     thumbnails: _v0
   }) => {
     let _v1 = {
@@ -714,7 +718,7 @@
         })
       })]
     });
-  }, _v22.ThumbnailContentAnchor = ({
+  }, _v23.ThumbnailContentAnchor = ({
     children: _v0,
     position: _v1
   }) => {
@@ -738,14 +742,14 @@
       ..._v2,
       children: _v0
     });
-  }, _v22.ComposableFooter = ({
+  }, _v23.ComposableFooter = ({
     children: _v0
   }) => (0, _v1.jsx)(_v8.Flex, {
     gap: "0.5rem",
     justifyContent: "space-between",
     children: _v0
   });
-  let _v27 = () => (0, _v1.jsxs)(_v5.Box, {
+  let _v28 = () => (0, _v1.jsxs)(_v5.Box, {
     position: "absolute",
     width: "100%",
     height: "100%",
@@ -789,5 +793,5 @@
       })
     })]
   });
-  _v0.s(["ContentCard", 0, _v22]);
+  _v0.s(["ContentCard", 0, _v23]);
 }

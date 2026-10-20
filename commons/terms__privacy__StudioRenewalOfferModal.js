@@ -166,8 +166,8 @@
       }),
       _v22 = _v0 => _v0 => (0, _v1.jsx)(_v5.Link, {
         href: _v0,
-        textDecoration: "underline",
-        color: "text-primary",
+        variant: "inline-primary",
+        color: "vimeoBlue.600",
         target: "_blank",
         rel: "noopener noreferrer",
         children: _v0

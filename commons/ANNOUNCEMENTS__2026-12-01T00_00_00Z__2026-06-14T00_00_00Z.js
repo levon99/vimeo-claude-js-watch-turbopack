@@ -121,6 +121,18 @@
       latestEligibleAccountCreationDate: "2026-10-01T00:00:00Z",
       order: 21,
       priority: "high"
+    },
+    end_of_q3_update: {
+      expirationDate: "2026-12-31T00:00:00Z",
+      latestEligibleAccountCreationDate: "2026-10-15T00:00:00Z",
+      order: 22,
+      priority: "high"
+    },
+    universal_hosting_intro: {
+      expirationDate: "2027-01-31T00:00:00Z",
+      latestEligibleAccountCreationDate: "2026-10-19T00:00:00Z",
+      order: 23,
+      priority: "critical"
     }
   }, "PRIORITY_RANK", 0, {
     critical: 4,

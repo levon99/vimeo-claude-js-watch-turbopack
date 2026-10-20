@@ -21,27 +21,27 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0);
-  function _v16(_v0, _v1, _v2) {
+  function _v16(_v0, _v1, _v2, _v3, _v4) {
     let {
-        data: _v3
-      } = _v17(_v0, _v1, _v2),
-      _v4 = _v2(),
-      _v5 = _v4?.user?.uri,
-      _v6 = _v3?.user?.uri,
-      _v7 = _v3?.metadata.interactions,
-      _v8 = !!_v7?.edit;
+        data: _v5
+      } = _v17(_v0, _v1, _v2, _v3, _v4),
+      _v6 = _v2(),
+      _v7 = _v6?.user?.uri,
+      _v8 = _v5?.user?.uri,
+      _v9 = _v5?.metadata.interactions,
+      _v10 = !!_v9?.edit;
     return {
-      isOwner: !!_v5 && _v6 === _v5,
-      canEdit: _v8,
-      canDelete: !!_v7?.delete,
-      canReactToCollabComments: !!_v7?.canReactToCollabComments
+      isOwner: !!_v7 && _v8 === _v7,
+      canEdit: _v10,
+      canDelete: !!_v9?.delete,
+      canReactToCollabComments: !!_v9?.canReactToCollabComments
     };
   }
-  let _v17 = (_v0, _v1, _v2) => {
-    let _v3 = (0, _v1.useViewer)(),
-      _v4 = (0, _v13.useGetVideo)(() => {
-        if (!_v3 || !_v0 || !_v2 || _v1) return null;
-        let _v0 = (0, _v11.getReviewPasswordHashFromCookie)(_v2);
+  let _v17 = (_v0, _v1, _v2, _v3, _v4) => {
+    let _v5 = (0, _v1.useViewer)(),
+      _v6 = (0, _v13.useGetVideo)(() => {
+        if (!_v5 || !_v0 || !_v2 && !_v3 || _v1) return null;
+        let _v0 = _v2 ? (0, _v11.getReviewPasswordHashFromCookie)(_v2) : void 0;
         return {
           where: {
             videoId: _v0
@@ -49,14 +49,15 @@
           select: _v10.USER_PERMISSION_FIELDS,
           query: {
             reviewId: _v2,
-            password: _v0
+            password: _v0,
+            ...(0, _v11.getFolderShareQuery)(_v3, _v4)
           }
         };
       }, {
         revalidateOnFocus: !1
       }),
-      _v5 = (0, _v14.useGetAlbumVideoData)(_v1 || null, Number((0, _v11.getVideoIdFromClipRequestId)(_v0)), (0, _v11.mapToClipFields)(_v10.USER_PERMISSION_FIELDS), !_v1),
-      _v6 = (0, _v15.useGetUnlockedVideo)(() => !_v3 || !_v0 || _v1 || _v2 ? null : {
+      _v7 = (0, _v14.useGetAlbumVideoData)(_v1 || null, Number((0, _v11.getVideoIdFromClipRequestId)(_v0)), (0, _v11.mapToClipFields)(_v10.USER_PERMISSION_FIELDS), !_v1),
+      _v8 = (0, _v15.useGetUnlockedVideo)(() => !_v5 || !_v0 || _v1 || _v2 || _v3 ? null : {
         where: {
           videoId: _v0
         },
@@ -64,21 +65,21 @@
       }, {
         revalidateOnFocus: !1
       });
-    return _v2 ? _v4 : _v1 ? {
-      data: (0, _v11.extractClipData)(_v5.data)
-    } : _v6;
+    return _v2 || _v3 ? _v6 : _v1 ? {
+      data: (0, _v11.extractClipData)(_v7.data)
+    } : _v8;
   };
-  function _v18(_v0, _v1, _v2, _v3) {
-    let _v4 = (0, _v1.useViewer)(),
+  function _v18(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
+    let _v7 = (0, _v1.useViewer)(),
       {
-        isOwner: _v5,
-        canDelete: _v6
-      } = _v16(_v0, _v3),
+        isOwner: _v8,
+        canDelete: _v9
+      } = _v16(_v0, _v3, void 0, _v5, _v6),
       {
-        guestUser: _v7
+        guestUser: _v10
       } = (0, _v3.useContext)(_v12.guestLoginModalContext),
-      _v8 = _v7 ? JSON.parse(_v7)?.guestUserId : null,
-      _v9 = (0, _v6.useGetVideoCommentsInfinite)(() => {
+      _v11 = _v10 ? JSON.parse(_v10)?.guestUserId : null,
+      _v12 = (0, _v6.useGetVideoCommentsInfinite)(() => {
         if (!_v0 || _v3) return null;
         let _v0 = (0, _v9.getPasswordHashFromCookie)(_v0);
         return {
@@ -86,12 +87,15 @@
             videoId: _v0
           },
           select: _v10.PUBLIC_COMMENTS_FIELDS,
-          query: (0, _v11.getPublicCommentsQuery)(_v0, _v1, _v2)
+          query: {
+            ...(0, _v11.getPublicCommentsQuery)(_v0, _v1, _v2),
+            ...(0, _v11.getFolderShareQuery)(_v5, _v6)
+          }
         };
       }, {
         parallel: !0
       }),
-      _v10 = (0, _v5.useGetAlbumVideoCommentsInfinite)(() => {
+      _v13 = (0, _v5.useGetAlbumVideoCommentsInfinite)(() => {
         if (!_v0 || !_v3) return null;
         let _v0 = (0, _v11.getShowcasePasswordHashFromCookie)(_v3);
         return {
@@ -104,19 +108,19 @@
         };
       }),
       {
-        data: _v11,
-        mutate: _v12,
-        isLoading: _v13,
-        error: _v14,
-        size: _v15,
-        setSize: _v16
-      } = _v3 ? _v10 : _v9,
-      _v17 = !_v11?.[_v11?.length - 1]?.paging.next,
-      _v18 = !_v11 && !_v14 || _v15 > 0 && _v11 && void 0 === _v11[_v15 - 1];
+        data: _v14,
+        mutate: _v15,
+        isLoading: _v16,
+        error: _v17,
+        size: _v18,
+        setSize: _v19
+      } = _v3 ? _v13 : _v12,
+      _v20 = !_v14?.[_v14?.length - 1]?.paging.next,
+      _v21 = !_v14 && !_v17 || _v18 > 0 && _v14 && void 0 === _v14[_v18 - 1];
     return {
       comments: (0, _v3.useMemo)(() => {
         let _v0 = _v0 => {
-          let _v1 = (0, _v11.checkIsOwnComment)(_v4?.user?.uri, _v8, _v0.metadata?.connections?.user?.uri, _v0.metadata?.connections?.guestUser?.uri);
+          let _v1 = (0, _v11.checkIsOwnComment)(_v7?.user?.uri, _v11, _v0.metadata?.connections?.user?.uri, _v0.metadata?.connections?.guestUser?.uri);
           return {
             text: _v0.richtext ?? _v0.text,
             plainText: _v0.text,
@@ -132,32 +136,32 @@
             id: _v0.uri,
             createdTime: _v0.createdOn,
             isRichComment: !!_v0.richtext,
-            isOwnVideo: _v5 || _v6,
+            isOwnVideo: _v8 || _v9,
             isOwnComment: _v1,
             textDecorations: _v0.textDecorations,
             deletedOn: _v0.deletedOn,
             editedTime: _v0.lastEditedOn ?? void 0
           };
         };
-        return _v11?.filter(_v0 => !!_v0)?.flatMap(_v0 => _v0.data.flatMap(_v0 => _v0))?.map(_v0 => ({
+        return _v14?.filter(_v0 => !!_v0)?.flatMap(_v0 => _v0.data.flatMap(_v0 => _v0))?.map(_v0 => ({
           ..._v0(_v0),
           replies: _v0.replies?.map(_v0 => _v0(_v0))
         }));
-      }, [_v11, _v5, _v6, _v4?.user, _v8]),
-      totalComments: _v11 ? _v11[0]?.filteredTotal : 0,
-      commentsLoading: _v13,
-      commentsError: _v14,
-      revalidateComments: _v12,
+      }, [_v14, _v8, _v9, _v7?.user, _v11]),
+      totalComments: _v14 ? _v14[0]?.filteredTotal : 0,
+      commentsLoading: _v16,
+      commentsError: _v17,
+      revalidateComments: _v15,
       loadMoreComments: _v0 => {
-        _v16(_v0 ?? _v15 + 1);
+        _v19(_v0 ?? _v18 + 1);
       },
-      isCommentsDone: _v17,
-      isLoadingMoreComments: _v18,
-      page: _v15,
+      isCommentsDone: _v20,
+      isLoadingMoreComments: _v21,
+      page: _v18,
       copyComment: (_v0, _v1 = "") => {
-        let _v2 = _v4?.vimeoHttpsUrl,
+        let _v2 = _v7?.vimeoHttpsUrl,
           _v3 = `comment=${(0, _v11.idFromUri)(_v1 || _v0)}`,
-          _v4 = _v3 ? `/showcase/${_v3}?video=${_v0.split?.(":")?.[0]}&${_v3}` : `/${_v0.replace(":", "/")}?${_v3}`;
+          _v4 = _v3 ? `/showcase/${_v3}?video=${_v0.split?.(":")?.[0]}&${_v3}` : _v5 ? `${window.location.pathname}?${_v3}` : `/${_v0.replace(":", "/")}?${_v3}`;
         _v1 && (_v4 = _v4.concat(`&reply=${(0, _v11.idFromUri)(_v0)}`)), (0, _v8.default)(`${_v2}${_v4}`);
       }
     };
@@ -261,7 +265,7 @@
       }
     };
   }
-  _v0.s(["useUserPermissions", 0, _v16], 0), _v0.s(["useGetComments", 0, function (_v0, _v1, _v2, _v3, _v4, _v5) {
-    return (_v1 ? _v18 : _v19)(_v0, _v2, _v3, _v4, _v5);
+  _v0.s(["useUserPermissions", 0, _v16], 0), _v0.s(["useGetComments", 0, function (_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7) {
+    return (_v1 ? _v18 : _v19)(_v0, _v2, _v3, _v4, _v5, _v6, _v7);
   }, "usePrivateComments", 0, _v19, "usePublicComments", 0, _v18], 0);
 }

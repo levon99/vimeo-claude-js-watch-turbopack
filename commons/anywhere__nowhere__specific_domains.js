@@ -23,7 +23,10 @@
         }), !0);
       }, [_v0]),
       _v3 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("share_privacy_dropdown_opened", {
-        clip_id: _v0.clipId,
+        clip_id: _v0.clipId ?? null,
+        ...(null != _v0.fileId ? {
+          file_id: _v0.fileId
+        } : {}),
         share_surface: _v0.shareSurface
       }), !0), [_v0]),
       _v4 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("share_embed_button_clicked", {
@@ -103,6 +106,10 @@
       _v18 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("video_link_copied", {
         clip_id: _v0.clipId,
         video_link_copied_source: _v0.source
+      }), !0), [_v0]),
+      _v19 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("file_link_copied", {
+        file_id: _v0.fileId,
+        file_link_copied_source: _v0.source
       }), !0), [_v0]);
     return {
       trackSharePublishButtonClicked: _v1,
@@ -123,6 +130,7 @@
       trackEmbedCodeCopied: _v16,
       trackSharingLinkCopied: _v17,
       trackVideoLinkCopied: _v18,
+      trackFileLinkCopied: _v19,
       trackSharingLinkExpirationValueChanged: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("sharing_link_expiration_value_changed", {
         video_id: _v0.videoId,
         from_value: _v0.fromValue,

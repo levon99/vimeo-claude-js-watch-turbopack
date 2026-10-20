@@ -2,7 +2,7 @@
   "use strict";
 
   let _v1 = "application/vnd.vimeo.*+json;version=3.4.1";
-  _v0.s(["FOLDER_SHARE_API_ACCEPT_HEADER", 0, _v1, "FOLDER_SHARE_CACHE_CONTROL", 0, "no-store, no-cache, must-revalidate, post-check=0, pre-check=0", "FOLDER_SHARE_INCORRECT_PASSWORD", 0, 1, "FOLDER_SHARE_REFERRER_POLICY", 0, "no-referrer", "FOLDER_SHARE_ROBOTS_TAG", 0, "noindex, nofollow", "folderShareClipHref", 0, (_v0, _v1) => `/share/folder/${_v0}/video/${_v1}`], 0);
+  _v0.s(["FOLDER_SHARE_API_ACCEPT_HEADER", 0, _v1, "FOLDER_SHARE_CACHE_CONTROL", 0, "no-store, no-cache, must-revalidate, post-check=0, pre-check=0", "FOLDER_SHARE_INCORRECT_PASSWORD", 0, 1, "FOLDER_SHARE_REFERRER_POLICY", 0, "no-referrer", "FOLDER_SHARE_ROBOTS_TAG", 0, "noindex, nofollow", "folderShareClipHref", 0, (_v0, _v1) => `/share/folder/${_v0}/video/${_v1}`, "folderShareFileHref", 0, (_v0, _v1) => `/share/folder/${_v0}/file/${_v1}`], 0);
   let _v2 = _v0 => {
       let _v1 = {
           ..._v0.headers,

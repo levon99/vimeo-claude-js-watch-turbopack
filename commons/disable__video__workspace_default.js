@@ -3,7 +3,7 @@
 
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0);
-  let _v3 = (_v0, _v1) => _v0 ? "disable" === _v0 && ("video" === _v1 || "workspace_default" === _v1) || "embed_only" === _v0 && ("live_event" === _v1 || "showcase" === _v1) ? "hide" : "anybody" === _v0 ? "public" : "team" === _v0 && "showcase" === _v1 || "nobody" === _v0 && ("video" === _v1 || "workspace_default" === _v1 || "live_event" === _v1) ? "private" : "team" === _v0 && ("video" === _v1 || "workspace_default" === _v1 || "live_event" === _v1) ? "team" : _v0 : _v0;
+  let _v3 = (_v0, _v1) => _v0 ? "disable" === _v0 && ("video" === _v1 || "workspace_default" === _v1) || "embed_only" === _v0 && ("live_event" === _v1 || "showcase" === _v1) ? "hide" : "anybody" === _v0 ? "public" : "team" === _v0 && "showcase" === _v1 || "nobody" === _v0 && ("video" === _v1 || "workspace_default" === _v1 || "live_event" === _v1 || "file" === _v1) ? "private" : "team" === _v0 && ("video" === _v1 || "workspace_default" === _v1 || "live_event" === _v1) ? "team" : _v0 : _v0;
   _v0.s(["mapPrivacyToStandardizedName", 0, _v3, "useViewPrivacyChangeTracking", 0, () => {
     let _v0 = (0, _v2.usePico)();
     return {
@@ -12,7 +12,9 @@
         previousPrivacy: _v1,
         newPrivacy: _v2,
         pageSource: _v3,
-        entryPoint: _v4
+        entryPoint: _v4,
+        fileId: _v5,
+        fileOwnerId: _v6
       }) => {
         _v0?.track("privacy_changed", {
           entity_type: _v0,
@@ -23,6 +25,12 @@
           } : {}),
           ...(void 0 !== _v4 ? {
             entry_point: _v4
+          } : {}),
+          ...("file" === _v0 && void 0 !== _v5 ? {
+            file_id: _v5
+          } : {}),
+          ...("file" === _v0 && void 0 !== _v6 ? {
+            file_owner_id: _v6
           } : {})
         });
       }, [_v0])

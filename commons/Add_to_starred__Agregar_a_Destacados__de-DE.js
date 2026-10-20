@@ -304,7 +304,7 @@
                     isSuccess: (0, _v11.default)(_v2),
                     onManage: _v14
                   });
-                } else "video" === _v0 ? _v15() : "file" === _v0 && ((0, _v11.default)((0, _v25.getFileLink)(_v1.publicId)) ? _v20({
+                } else "video" === _v0 ? _v15() : "file" === _v0 && ((0, _v11.default)(_v7 ?? (0, _v25.getFileLink)(_v1.publicId)) ? _v20({
                   content: _v24.linkCopySuccess
                 }) : _v20({
                   content: _v24.linkCopyFailed,

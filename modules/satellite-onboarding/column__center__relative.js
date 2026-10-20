@@ -24,9 +24,10 @@
     paywallTracking: _v1,
     defaultPeriodicity: _v2,
     monthlyFreeTrial: _v3,
-    isFreeTrialEligible: _v4,
-    postCheckoutUrl: _v5,
-    onSkip: _v6
+    weeklyFreeTrial: _v4,
+    isFreeTrialEligible: _v5,
+    postCheckoutUrl: _v6,
+    onSkip: _v7
   }) {
     return (0, _v1.jsxs)(_v15.Flex, {
       direction: "column",
@@ -45,7 +46,7 @@
         width: "74px"
       }), (0, _v1.jsx)(_v17.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: "top_right",
-        onDismiss: _v6
+        onDismiss: _v7
       }), (0, _v1.jsx)(_v15.Flex, {
         flex: "1",
         width: "100%",
@@ -57,8 +58,9 @@
           paywallTracking: _v1,
           defaultPeriodicity: _v2,
           monthlyFreeTrial: _v3,
-          isFreeTrialEligible: _v4,
-          postCheckoutUrl: _v5
+          weeklyFreeTrial: _v4,
+          isFreeTrialEligible: _v5,
+          postCheckoutUrl: _v6
         })
       })]
     });
@@ -71,7 +73,7 @@
     alreadyOnHigherOrEqualPlan: _v4,
     onLeave: _v5
   }) {
-    let _v6 = (0, _v12.useOrionSettingsFields)(["onboarding_paywall_monthly_free_trial"]),
+    let _v6 = (0, _v12.useOrionSettingsFields)(["onboarding_paywall_monthly_free_trial", "onboarding_paywall_weekly_free_trial"]),
       _v7 = (0, _v3.useMemo)(() => [_v0], [_v0]),
       {
         isReady: _v8,
@@ -94,6 +96,7 @@
       paywallTracking: _v3,
       isFreeTrialEligible: _v1,
       monthlyFreeTrial: _v6.onboarding_paywall_monthly_free_trial,
+      weeklyFreeTrial: _v6.onboarding_paywall_weekly_free_trial,
       postCheckoutUrl: _v2,
       onSkip: () => {
         _v10(), _v5();

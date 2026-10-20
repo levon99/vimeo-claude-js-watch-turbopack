@@ -28,6 +28,7 @@
 - https://vimeo.com/checkout/[plan]/renew-now
 - https://vimeo.com/checkout/[plan]/trial
 - https://vimeo.com/checkout/[plan]/weekly
+- https://vimeo.com/checkout/[plan]/weekly/trial
 - https://vimeo.com/create/templates/[[...params]]
 - https://vimeo.com/create/[path]
 - https://vimeo.com/demo/baseline/blank
@@ -246,6 +247,7 @@
 - https://vimeo.com/settings/marketing/provider/hubspot/mediabridge/onboard/progress
 - https://vimeo.com/settings/marketing/provider/hubspot/mediabridge/onboard/success
 - https://vimeo.com/share/folder/[token]
+- https://vimeo.com/share/folder/[token]/file/[publicId]
 - https://vimeo.com/share/folder/[token]/video/[clipId]
 - https://vimeo.com/share/[token]
 - https://vimeo.com/shared-with-me

@@ -233,67 +233,69 @@
     paywallTracking: _v1,
     defaultPeriodicity: _v2 = "yearly",
     monthlyFreeTrial: _v3 = !1,
-    isFreeTrialEligible: _v4 = !0,
-    postCheckoutUrl: _v5,
-    title: _v6,
-    subtitle: _v7,
-    hideTierBadge: _v8 = !1,
-    isExistingSubscriber: _v9 = !1,
-    showOtherPlans: _v10 = !1,
-    visual: _v11,
-    isModal: _v12 = !1,
-    uploadDefaultsUrl: _v13,
-    onCtaClick: _v14,
-    allowBundleOffer: _v15 = !1
+    weeklyFreeTrial: _v4 = !1,
+    isFreeTrialEligible: _v5 = !0,
+    postCheckoutUrl: _v6,
+    title: _v7,
+    subtitle: _v8,
+    hideTierBadge: _v9 = !1,
+    isExistingSubscriber: _v10 = !1,
+    showOtherPlans: _v11 = !1,
+    visual: _v12,
+    isModal: _v13 = !1,
+    uploadDefaultsUrl: _v14,
+    onCtaClick: _v15,
+    allowBundleOffer: _v16 = !1
   }) {
-    var _v16;
-    let _v17,
-      _v18 = (0, _v16.useOrionSetting)("onboarding_paywall_weekly_enabled"),
-      [_v19, _v20] = (0, _v3.useState)(_v2),
-      [_v21, _v22] = (0, _v3.useState)(!1),
-      _v23 = (0, _v3.useRef)(!1);
+    var _v17;
+    let _v18,
+      _v19 = (0, _v16.useOrionSetting)("onboarding_paywall_weekly_enabled"),
+      [_v20, _v21] = (0, _v3.useState)(_v2),
+      [_v22, _v23] = (0, _v3.useState)(!1),
+      _v24 = (0, _v3.useRef)(!1);
     (0, _v3.useEffect)(() => {
-      _v23.current || _v20(_v18 || "weekly" !== _v2 ? _v2 : "yearly");
-    }, [_v2, _v18]);
-    let _v24 = _v4 && _v21,
-      _v25 = (0, _v19.useGetSubscriptionPlansData)([_v0], void 0, !1),
-      _v26 = (0, _v21.useViewer)(),
-      _v27 = (0, _v20.isUkLocation)(_v26?.location),
-      _v28 = _v25?.find(_v0 => _v0.tier === _v0) ?? _v25?.[0],
-      _v29 = _v28?.currency?.currencyCode || "USD",
-      _v30 = _v27 ? (0, _v20.formatUkVatPrice)(_v28?.price.annualMonthly, _v29) : _v28?.priceFormatted.annualMonthly,
-      _v31 = _v27 ? (0, _v20.formatUkVatPrice)(_v28?.price.monthly, _v29) : _v28?.priceFormatted.monthly,
-      _v32 = _v18 ? _v27 ? (0, _v20.formatUkVatPrice)(_v28?.price.weekly, _v29) : _v28?.priceFormatted.weekly : void 0,
-      _v33 = void 0 === _v25,
-      _v34 = (0, _v9.useColorModeValue)("https://i.vimeocdn.com/custom_asset/4a6f0f615c4cf9d30b48f79df970438e", "https://i.vimeocdn.com/custom_asset/edb2ec4f5620a90adb065894bbb08419"),
-      _v35 = (0, _v9.useColorModeValue)("var(--vimeo-colors-vimeoBlue-50)", "var(--vimeo-colors-vimeoBlue-900)"),
+      _v24.current || _v21(_v19 || "weekly" !== _v2 ? _v2 : "yearly");
+    }, [_v2, _v19]);
+    let _v25 = _v5 && _v22,
+      _v26 = (0, _v19.useGetSubscriptionPlansData)([_v0], void 0, !1),
+      _v27 = (0, _v21.useViewer)(),
+      _v28 = (0, _v20.isUkLocation)(_v27?.location),
+      _v29 = _v26?.find(_v0 => _v0.tier === _v0) ?? _v26?.[0],
+      _v30 = _v29?.currency?.currencyCode || "USD",
+      _v31 = _v28 ? (0, _v20.formatUkVatPrice)(_v29?.price.annualMonthly, _v30) : _v29?.priceFormatted.annualMonthly,
+      _v32 = _v28 ? (0, _v20.formatUkVatPrice)(_v29?.price.monthly, _v30) : _v29?.priceFormatted.monthly,
+      _v33 = _v19 ? _v28 ? (0, _v20.formatUkVatPrice)(_v29?.price.weekly, _v30) : _v29?.priceFormatted.weekly : void 0,
+      _v34 = void 0 === _v26,
+      _v35 = (0, _v9.useColorModeValue)("https://i.vimeocdn.com/custom_asset/4a6f0f615c4cf9d30b48f79df970438e", "https://i.vimeocdn.com/custom_asset/edb2ec4f5620a90adb065894bbb08419"),
+      _v36 = (0, _v9.useColorModeValue)("var(--vimeo-colors-vimeoBlue-50)", "var(--vimeo-colors-vimeoBlue-900)"),
       {
-        offer: _v36
+        offer: _v37
       } = (0, _v13.useTriggeredBundleOffer)({
         trigger: "onboarding",
-        periodicity: "monthly" === _v19 ? "monthly" : "annual",
-        enabled: _v15 && "weekly" !== _v19,
+        periodicity: "monthly" === _v20 ? "monthly" : "annual",
+        enabled: _v16 && "weekly" !== _v20,
         priceDisplay: "monthly-equivalent"
       }),
       {
-        trackBundleOfferCtaClick: _v37
+        trackBundleOfferCtaClick: _v38
       } = (0, _v18.useBundleTracking)();
     (0, _v12.useBundleOfferDisplayed)({
       surface: "intro_paywall",
       unit: "plan_tile_row",
-      bundleType: _v36?.bundleType ?? null,
-      bundlePrice: _v36?.priceTier ?? null,
-      enabled: null !== _v36 && !_v33
+      bundleType: _v37?.bundleType ?? null,
+      bundlePrice: _v37?.priceTier ?? null,
+      enabled: null !== _v37 && !_v34
     });
-    let _v38 = _v15 && null !== _v36 ? (0, _v1.jsx)(_v11.PlanTileBundleRow, {
-        bundleType: _v36.bundleType,
-        price: _v36.price
+    let _v39 = _v16 && null !== _v37 ? (0, _v1.jsx)(_v11.PlanTileBundleRow, {
+        bundleType: _v37.bundleType,
+        price: _v37.price
       }) : void 0,
-      _v39 = _v0 => {
-        _v23.current = !0, _v20(_v0), "weekly" !== _v0 && ("monthly" !== _v0 || _v3) || _v22(!1);
+      _v40 = _v0 => "weekly" === _v0 ? _v4 : "monthly" !== _v0 || _v3,
+      _v41 = _v0 => {
+        _v24.current = !0, _v21(_v0), _v40(_v0) || _v23(!1);
       },
-      _v40 = _v28?.name ?? (0, _v2.default)(`${_v0}`),
-      _v41 = _v6 ?? (_v9 ? (0, _v15.translate)({
+      _v42 = _v29?.name ?? (0, _v2.default)(`${_v0}`),
+      _v43 = _v7 ?? (_v10 ? (0, _v15.translate)({
         singular: "Upgrade your plan",
         dictionary: {
           es: {
@@ -344,10 +346,10 @@
           }
         }
       })),
-      _v42 = _v7 ?? (_v9 ? (0, _v15.translate)({
+      _v44 = _v8 ?? (_v10 ? (0, _v15.translate)({
         singular: "Get more with {PLAN_NAME}.",
         replacements: {
-          PLAN_NAME: _v40
+          PLAN_NAME: _v42
         },
         dictionary: {
           es: {
@@ -398,17 +400,17 @@
           }
         }
       })),
-      _v43 = !_v8,
-      _v44 = _v41.length > 12;
+      _v45 = !_v9,
+      _v46 = _v43.length > 12;
     return (0, _v1.jsxs)(_v6.Flex, {
       direction: "column",
       alignItems: "center",
       width: "100%",
-      maxHeight: _v12 ? void 0 : "calc(100vh - 120px)",
-      height: _v12 ? "100%" : void 0,
-      minHeight: _v12 ? "0" : void 0,
+      maxHeight: _v13 ? void 0 : "calc(100vh - 120px)",
+      height: _v13 ? "100%" : void 0,
+      minHeight: _v13 ? "0" : void 0,
       position: "relative",
-      children: [_v12 && (0, _v1.jsx)(_v6.Flex, {
+      children: [_v13 && (0, _v1.jsx)(_v6.Flex, {
         justifyContent: "center",
         width: "100%",
         flexShrink: 0,
@@ -423,18 +425,18 @@
         direction: "column",
         alignItems: "center",
         width: "100%",
-        maxWidth: _v12 ? "100%" : "400px",
+        maxWidth: _v13 ? "100%" : "400px",
         gap: {
           base: "12px",
           md: "24px"
         },
         flex: "1",
         minHeight: "0",
-        pb: _v12 ? "0" : {
+        pb: _v13 ? "0" : {
           base: "24px",
           md: "48px"
         },
-        mx: _v12 ? "0" : {
+        mx: _v13 ? "0" : {
           base: "0",
           md: "32px"
         },
@@ -444,7 +446,7 @@
           alignItems: "center",
           gap: "md",
           width: "100%",
-          paddingX: _v12 ? {
+          paddingX: _v13 ? {
             base: "0",
             md: "8px"
           } : {
@@ -459,15 +461,15 @@
             children: [(0, _v1.jsx)(_v8.Text, {
               variant: {
                 base: "heading-lg",
-                md: _v44 ? "heading-xl" : "heading-2xl"
+                md: _v46 ? "heading-xl" : "heading-2xl"
               },
               textAlign: "center",
-              whiteSpace: _v43 ? "nowrap" : "normal",
-              children: _v41
-            }), _v43 && (0, _v1.jsx)(_v4.Box, {
+              whiteSpace: _v45 ? "nowrap" : "normal",
+              children: _v43
+            }), _v45 && (0, _v1.jsx)(_v4.Box, {
               pt: {
                 base: "0",
-                md: _v44 ? "4px" : "8px"
+                md: _v46 ? "4px" : "8px"
               },
               children: (0, _v1.jsx)(_v4.Box, {
                 bg: "#8a5ee8",
@@ -481,7 +483,7 @@
                   fontSize: "14px",
                   fontWeight: "medium",
                   color: "white",
-                  children: _v40
+                  children: _v42
                 })
               })
             })]
@@ -490,14 +492,14 @@
             fontWeight: "medium",
             color: "text-primary",
             textAlign: "center",
-            children: _v42
+            children: _v44
           })]
-        }), _v11 ?? (0, _v1.jsx)(_v4.Box, {
+        }), _v12 ?? (0, _v1.jsx)(_v4.Box, {
           width: "100%",
           maxWidth: "252px",
           maxHeight: {
-            base: _v24 ? "120px" : "140px",
-            md: _v24 ? "180px" : "200px"
+            base: _v25 ? "120px" : "140px",
+            md: _v25 ? "180px" : "200px"
           },
           minHeight: {
             base: "80px",
@@ -505,12 +507,12 @@
           },
           aspectRatio: "1333/1058",
           flexShrink: "1",
-          backgroundImage: `url(${_v34})`,
+          backgroundImage: `url(${_v35})`,
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          transition: _v24 ? "all 0.3s ease" : "all 0.3s ease 0.1s"
-        }), _v4 && (0, _v1.jsxs)(_v6.Flex, {
+          transition: _v25 ? "all 0.3s ease" : "all 0.3s ease 0.1s"
+        }), _v5 && (0, _v1.jsxs)(_v6.Flex, {
           direction: "column",
           gap: "8px",
           width: "100%",
@@ -522,22 +524,22 @@
             as: "button",
             type: "button",
             onClick: () => {
-              let _v0 = !_v21;
-              _v22(_v0), _v0 && ("weekly" === _v19 || !_v3) && _v20("yearly");
+              let _v0 = !_v22;
+              _v23(_v0), _v0 && !_v40(_v20) && _v21("yearly");
             },
             alignItems: "center",
             gap: "md",
             padding: "md",
             width: "100%",
             height: "78px",
-            borderColor: _v24 ? "fill-brand" : "input-stroke",
+            borderColor: _v25 ? "fill-brand" : "input-stroke",
             borderRadius: "16px",
             borderWidth: "1px",
             borderStyle: "solid",
             cursor: "pointer",
-            bg: _v24 ? _v35 : "surface",
+            bg: _v25 ? _v36 : "surface",
             _hover: {
-              bg: _v24 ? _v35 : "input-fill-hover"
+              bg: _v25 ? _v36 : "input-fill-hover"
             },
             transition: "background-color 0.15s ease, border-color 0.15s ease",
             sx: {
@@ -552,7 +554,7 @@
                 variant: "heading-sm",
                 fontWeight: "medium",
                 color: "text-primary",
-                children: _v24 ? (0, _v15.translate)({
+                children: _v25 ? (0, _v15.translate)({
                   singular: "Free trial enabled",
                   dictionary: {
                     es: {
@@ -603,7 +605,7 @@
                     }
                   }
                 })
-              }), !_v24 && (0, _v1.jsx)(_v8.Text, {
+              }), !_v25 && (0, _v1.jsx)(_v8.Text, {
                 variant: "body-md",
                 color: "text-tertiary",
                 children: (0, _v15.translate)({
@@ -634,16 +636,16 @@
                 })
               })]
             }), (0, _v1.jsx)(_v30, {
-              selected: _v24
+              selected: _v25
             })]
           }), (0, _v1.jsxs)(_v6.Flex, {
             width: "100%",
             px: "md",
             justifyContent: "space-between",
             alignItems: "center",
-            height: _v24 ? "20px" : "0px",
-            opacity: +!!_v24,
-            transition: _v24 ? "height 0.3s ease, opacity 0.3s ease 0.1s" : "height 0.3s ease 0.1s, opacity 0.3s ease",
+            height: _v25 ? "20px" : "0px",
+            opacity: +!!_v25,
+            transition: _v25 ? "height 0.3s ease, opacity 0.3s ease 0.1s" : "height 0.3s ease 0.1s, opacity 0.3s ease",
             overflow: "hidden",
             children: [(0, _v1.jsx)(_v8.Text, {
               variant: "heading-2xs",
@@ -651,9 +653,9 @@
               children: (0, _v15.translate)({
                 singular: "{amount} due today",
                 replacements: {
-                  amount: (_v16 = _v29, _v17 = (0, _v15.getCurrentLocale)(), new Intl.NumberFormat(_v17, {
+                  amount: (_v17 = _v30, _v18 = (0, _v15.getCurrentLocale)(), new Intl.NumberFormat(_v18, {
                     style: "currency",
-                    currency: _v16,
+                    currency: _v17,
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2
                   }).format(0))
@@ -717,7 +719,7 @@
           direction: "column",
           gap: "12px",
           width: "100%",
-          children: [_v33 ? (0, _v1.jsx)(_v4.Box, {
+          children: [_v34 ? (0, _v1.jsx)(_v4.Box, {
             position: "relative",
             width: "100%",
             children: (0, _v1.jsx)(_v7.Skeleton, {
@@ -752,7 +754,7 @@
                 }
               }
             }),
-            price: _v30 ? `${_v30}${(0, _v15.translate)({
+            price: _v31 ? `${_v31}${(0, _v15.translate)({
               singular: "/month",
               dictionary: {
                 es: {
@@ -778,8 +780,8 @@
                 }
               }
             })}` : "-",
-            selected: "yearly" === _v19,
-            onClick: () => _v39("yearly"),
+            selected: "yearly" === _v20,
+            onClick: () => _v41("yearly"),
             badge: (0, _v15.translate)({
               singular: "Most popular",
               dictionary: {
@@ -806,8 +808,8 @@
                 }
               }
             }),
-            bundleRow: "yearly" === _v19 ? _v38 : void 0
-          }), _v33 ? (0, _v1.jsx)(_v4.Box, {
+            bundleRow: "yearly" === _v20 ? _v39 : void 0
+          }), _v34 ? (0, _v1.jsx)(_v4.Box, {
             width: "100%",
             children: (0, _v1.jsx)(_v7.Skeleton, {
               width: "100%",
@@ -841,7 +843,7 @@
                 }
               }
             }),
-            price: _v31 ? `${_v31}${(0, _v15.translate)({
+            price: _v32 ? `${_v32}${(0, _v15.translate)({
               singular: "/month",
               dictionary: {
                 es: {
@@ -867,10 +869,10 @@
                 }
               }
             })}` : "-",
-            selected: "monthly" === _v19,
-            onClick: () => _v39("monthly"),
-            bundleRow: "monthly" === _v19 ? _v38 : void 0
-          }), !!_v32 && (0, _v1.jsx)(_v27, {
+            selected: "monthly" === _v20,
+            onClick: () => _v41("monthly"),
+            bundleRow: "monthly" === _v20 ? _v39 : void 0
+          }), !!_v33 && (0, _v1.jsx)(_v27, {
             title: (0, _v15.translate)({
               singular: "Weekly",
               dictionary: {
@@ -897,7 +899,7 @@
                 }
               }
             }),
-            price: _v32 ? `${_v32}${(0, _v15.translate)({
+            price: _v33 ? `${_v33}${(0, _v15.translate)({
               singular: "/week",
               dictionary: {
                 "fr-FR": {
@@ -917,13 +919,13 @@
                 }
               }
             })}` : "-",
-            selected: "weekly" === _v19,
-            onClick: () => _v39("weekly")
-          }), !_v33 && !_v12 && (0, _v1.jsx)(_v8.Text, {
+            selected: "weekly" === _v20,
+            onClick: () => _v41("weekly")
+          }), !_v34 && !_v13 && (0, _v1.jsx)(_v8.Text, {
             variant: "body-sm",
             color: "text-tertiary",
             textAlign: "center",
-            children: _v27 ? (0, _v15.translate)({
+            children: _v28 ? (0, _v15.translate)({
               singular: "incl. 20% VAT",
               dictionary: {
                 es: {
@@ -979,10 +981,10 @@
         position: "sticky",
         bottom: "0",
         width: "100%",
-        maxWidth: _v12 ? "100%" : "400px",
+        maxWidth: _v13 ? "100%" : "400px",
         flexShrink: 0,
         pt: "24px",
-        pb: _v12 ? "0" : {
+        pb: _v13 ? "0" : {
           base: "0px",
           md: "48px"
         },
@@ -992,22 +994,22 @@
           size: "md",
           variant: "primary",
           onClick: () => {
-            _v14?.("primary"), null !== _v36 && _v37({
+            _v15?.("primary"), null !== _v37 && _v38({
               surface: "intro_paywall",
               cta: "checkout",
               bundleIncluded: !0
             });
-            let _v0 = "yearly" === _v19 ? _v0 : `${_v0}/${_v19}`,
+            let _v0 = "yearly" === _v20 ? _v0 : `${_v0}/${_v20}`,
               _v1 = (0, _v14.withBundleOfferToggleParam)((0, _v17.buildCheckoutUrl)({
                 ..._v1,
                 tier: _v0,
-                isTrial: _v24,
-                postCheckoutUrl: _v5
-              }), null !== _v36);
+                isTrial: _v25,
+                postCheckoutUrl: _v6
+              }), null !== _v37);
             window.location.assign(_v1);
           },
-          isDisabled: _v33,
-          children: _v24 ? (0, _v15.translate)({
+          isDisabled: _v34,
+          children: _v25 ? (0, _v15.translate)({
             singular: "Try for free",
             dictionary: {
               es: {
@@ -1058,14 +1060,14 @@
               }
             }
           })
-        }), _v10 && (0, _v1.jsx)(_v22.OtherPlansButton, {
+        }), _v11 && (0, _v1.jsx)(_v22.OtherPlansButton, {
           paywallTracking: _v1,
           size: "md",
           height: _v29,
-          onCtaClick: _v14
-        }), _v13 && (0, _v1.jsx)(_v23, {
-          href: _v13,
-          onCtaClick: _v14,
+          onCtaClick: _v15
+        }), _v14 && (0, _v1.jsx)(_v23, {
+          href: _v14,
+          onCtaClick: _v15,
           size: "md",
           height: _v29
         })]

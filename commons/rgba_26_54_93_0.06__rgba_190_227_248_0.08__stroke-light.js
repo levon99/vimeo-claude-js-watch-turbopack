@@ -13,11 +13,12 @@
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
-    _v13 = _v0.i(0);
-  let _v14 = (0, _v3.createContext)({
+    _v13 = _v0.i(0),
+    _v14 = _v0.i(0);
+  let _v15 = (0, _v3.createContext)({
       isSelected: !1
     }),
-    _v15 = ({
+    _v16 = ({
       children: _v0,
       href: _v1,
       listGridColumns: _v2,
@@ -61,7 +62,7 @@
           onMouseLeave: _v10,
           ..._v13,
           "data-testid": "content-row",
-          children: (0, _v1.jsx)(_v14.Provider, {
+          children: (0, _v1.jsx)(_v15.Provider, {
             value: {
               isSelected: _v5,
               onToggleSelected: _v11
@@ -69,13 +70,13 @@
             children: _v0
           })
         });
-      return (0, _v1.jsx)(_v16, {
+      return (0, _v1.jsx)(_v17, {
         href: _v1,
         shouldUseNextLink: _v12,
         children: _v16
       });
     },
-    _v16 = ({
+    _v17 = ({
       children: _v0,
       href: _v1,
       shouldUseNextLink: _v2 = !0
@@ -87,7 +88,7 @@
       href: _v1,
       children: _v0
     }) : _v0;
-  _v15.Column = ({
+  _v16.Column = ({
     children: _v0,
     href: _v1,
     width: _v2,
@@ -117,49 +118,49 @@
       overflow: _v3,
       maxWidth: _v6,
       ..._v10,
-      children: (0, _v1.jsx)(_v16, {
+      children: (0, _v1.jsx)(_v17, {
         href: _v1,
         shouldUseNextLink: _v8,
         children: _v12
       })
     });
   };
-  let _v17 = {
+  let _v18 = {
     margin: (0, _v8.rem)(2),
     padding: "inherit"
   };
-  _v15.SelectCheckbox = ({
+  _v16.SelectCheckbox = ({
     isDisabled: _v0,
     size: _v1 = "sm"
   }) => {
     let {
       isSelected: _v2,
       onToggleSelected: _v3
-    } = (0, _v3.useContext)(_v14);
+    } = (0, _v3.useContext)(_v15);
     return (0, _v1.jsx)(_v6.Checkbox, {
-      ..._v17,
+      ..._v18,
       isChecked: _v2,
       onChange: _v3,
       disabled: _v0,
       size: _v1,
       "data-testid": "checkbox"
     });
-  }, _v15.SelectRadio = ({
+  }, _v16.SelectRadio = ({
     isDisabled: _v0,
     size: _v1 = "sm"
   }) => {
     let {
       isSelected: _v2,
       onToggleSelected: _v3
-    } = (0, _v3.useContext)(_v14);
+    } = (0, _v3.useContext)(_v15);
     return (0, _v1.jsx)(_v12.Radio, {
-      ..._v17,
+      ..._v18,
       isChecked: _v2,
       onChange: _v3,
       disabled: _v0,
       size: _v1
     });
-  }, _v15.Thumbnail = ({
+  }, _v16.Thumbnail = ({
     alt: _v0,
     src: _v1,
     srcSet: _v2,
@@ -171,15 +172,18 @@
     minWidth: _v8 = (0, _v8.rem)(130),
     variant: _v9 = "default",
     isLocked: _v10 = !1,
-    lockIconSize: _v11,
-    lockIconPadding: _v12
+    isPasswordLocked: _v11 = !1,
+    lockIconSize: _v12,
+    lockIconPadding: _v13
   }) => (0, _v1.jsxs)(_v4.Box, {
     position: "relative",
     zIndex: 0,
     isolation: "isolate",
-    children: [_v10 && (0, _v1.jsx)(_v18, {
-      iconSize: _v11,
-      iconPadding: _v12,
+    overflow: _v11 ? "hidden" : void 0,
+    borderRadius: _v11 ? _v7 : void 0,
+    children: [_v10 && (0, _v1.jsx)(_v19, {
+      iconSize: _v12,
+      iconPadding: _v13,
       borderRadius: _v7
     }), (0, _v1.jsx)(_v4.Box, {
       as: "img",
@@ -197,7 +201,11 @@
       aspectRatio: "16 / 9",
       objectFit: "cover",
       minWidth: _v8,
+      style: _v11 ? _v13.PASSWORD_LOCKED_IMAGE_STYLE : void 0,
       "data-testid": "thumbnail"
+    }), _v11 && (0, _v1.jsx)(_v13.PasswordLockedOverlay, {
+      iconSize: _v12 ?? (0, _v8.rem)(20),
+      borderRadius: _v7
     }), _v4 && (0, _v1.jsx)(_v5.Badge, {
       position: "absolute",
       bottom: (0, _v8.rem)(8),
@@ -209,7 +217,7 @@
       sx: _v6,
       children: _v4
     })]
-  }), _v15.DefaultThumbnail = ({
+  }), _v16.DefaultThumbnail = ({
     children: _v0,
     background: _v1,
     border: _v2,
@@ -219,9 +227,10 @@
     borderRadius: _v6 = "md",
     minWidth: _v7 = (0, _v8.rem)(150),
     variant: _v8 = "default",
-    badgeSize: _v9 = "sm"
+    badgeSize: _v9 = "sm",
+    isPasswordLocked: _v10 = !1
   }) => (0, _v1.jsxs)(_v1.Fragment, {
-    children: [(0, _v1.jsx)(_v7.Center, {
+    children: [(0, _v1.jsxs)(_v7.Center, {
       position: "relative",
       inset: "0",
       width: "100%",
@@ -234,7 +243,9 @@
       border: _v2,
       minWidth: _v7,
       aspectRatio: "16 / 9",
-      children: _v0
+      children: [_v0, _v10 && (0, _v1.jsx)(_v13.PasswordLockedOverlay, {
+        iconSize: (0, _v8.rem)(20)
+      })]
     }), _v4 && (0, _v1.jsx)(_v5.Badge, {
       position: "absolute",
       bottom: (0, _v8.rem)(8),
@@ -247,14 +258,14 @@
       children: _v4
     })]
   });
-  let _v18 = ({
+  let _v19 = ({
     iconSize: _v0,
     iconPadding: _v1,
     borderRadius: _v2
-  } = {}) => (0, _v1.jsx)(_v13.ColdStorageThumbnailLockOverlay, {
+  } = {}) => (0, _v1.jsx)(_v14.ColdStorageThumbnailLockOverlay, {
     iconSize: _v0,
     iconPadding: _v1,
     borderRadius: _v2
   });
-  _v0.s(["ContentRow", 0, _v15]);
+  _v0.s(["ContentRow", 0, _v16]);
 }

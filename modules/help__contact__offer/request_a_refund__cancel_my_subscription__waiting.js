@@ -872,40 +872,39 @@
                 variant: "body-sm",
                 color: "text-secondary",
                 children: [(0, _v20.translate)({
-                  singular: 'By clicking "Confirm {refundAmountFormatted} Refund" you agree: you’ll get a one time discount on an automatically renewing subscription valid for one year, for a total price of {discountedAmount}. If you don’t cancel before {renewalDate}, your subscription will automatically renew at full price and you’ll be charged {fullAmount} (plus tax) on that date and every year thereafter unless you cancel in your {billingSettings}Billing Settings{/billingSettings}. Pricing may change. Your content may be deleted upon cancellation.',
+                  singular: 'By clicking "Confirm" you agree: you’ll get a one time discount on an automatically renewing subscription valid for one year, for a total price of {discountedAmount}. If you don’t cancel before {renewalDate}, your subscription will automatically renew at full price and you’ll be charged {fullAmount} (plus tax) on that date and every year thereafter unless you cancel in your {billingSettings}Billing Settings{/billingSettings}. Pricing may change. Your content may be deleted upon cancellation.',
                   replacements: {
-                    refundAmountFormatted: _v26,
                     discountedAmount: _v22,
                     renewalDate: _v18.renewalDate,
                     fullAmount: _v23,
                     billingSettings: _v0 => (0, _v1.jsx)(_v7.Link, {
                       href: "/manage/team/billing",
-                      textDecoration: "underline",
-                      color: "text-secondary",
+                      variant: "inline-primary",
+                      color: "vimeoBlue.600",
                       children: _v0
                     })
                   },
                   dictionary: {
                     es: {
-                      singular: 'Al hacer clic en "Confirmar reembolso de {refundAmountFormatted}" aceptas: recibirás un descuento único en una suscripción que se renueva automáticamente y es válida por un año, por un precio total de {discountedAmount}. Si no cancelas antes de {renewalDate}, tu suscripción se renovará automáticamente al precio completo y se te cobrará {fullAmount} (más impuestos) en esa fecha y cada año posterior, a menos que canceles en tus {billingSettings}Configuración de facturación{/billingSettings}. Los precios pueden cambiar. Tu contenido puede ser eliminado al cancelar.'
+                      singular: 'Al hacer clic en "Confirmar" aceptas: recibirás un descuento único en una suscripción que se renueva automáticamente y es válida por un año, por un precio total de {discountedAmount}. Si no cancelas antes de {renewalDate}, tu suscripción se renovará automáticamente al precio completo y se te cobrará {fullAmount} (más impuestos) en esa fecha y cada año posterior, a menos que canceles en tus {billingSettings}Configuración de facturación{/billingSettings}. Los precios pueden cambiar. Tu contenido puede ser eliminado al cancelar.'
                     },
                     "de-DE": {
-                      singular: "Wenn Sie auf „Rückerstattung {refundAmountFormatted} bestätigen“ klicken, stimmen Sie zu: Sie erhalten einen einmaligen Rabatt auf ein automatisch verlängerndes Abonnement, gültig für ein Jahr, zum Gesamtpreis von {discountedAmount}. Wenn Sie nicht vor dem {renewalDate} kündigen, verlängert sich Ihr Abonnement automatisch zum vollen Preis und Ihnen werden an diesem Datum und jedes Jahr danach {fullAmount} (zzgl. Steuern) berechnet, sofern Sie nicht in Ihren {billingSettings}Billing Settings{/billingSettings} kündigen. Preise können sich ändern. Ihre Inhalte können bei Kündigung gelöscht werden."
+                      singular: "Wenn Sie auf „Bestätigen“ klicken, stimmen Sie zu: Sie erhalten einen einmaligen Rabatt auf ein automatisch verlängerndes Abonnement, gültig für ein Jahr, zum Gesamtpreis von {discountedAmount}. Wenn Sie nicht vor dem {renewalDate} kündigen, verlängert sich Ihr Abonnement automatisch zum vollen Preis und Ihnen werden an diesem Datum und jedes Jahr danach {fullAmount} (zzgl. Steuern) berechnet, sofern Sie nicht in Ihren {billingSettings}Billing Settings{/billingSettings} kündigen. Preise können sich ändern. Ihre Inhalte können bei Kündigung gelöscht werden."
                     },
                     "fr-FR": {
-                      singular: "En cliquant sur \"Confirmer le remboursement de {refundAmountFormatted}\" vous acceptez: vous bénéficierez d'une remise unique sur un abonnement à reconduction automatique valable un an, pour un prix total de {discountedAmount}. Si vous n'annulez pas avant le {renewalDate}, votre abonnement sera automatiquement renouvelé au plein tarif et vous serez facturé {fullAmount} (plus taxes) à cette date et chaque année par la suite, sauf si vous annulez dans vos {billingSettings}Paramètres de facturation{/billingSettings}. Les tarifs peuvent changer. Votre contenu peut être supprimé en cas d'annulation."
+                      singular: "En cliquant sur \"Confirmer\" vous acceptez: vous bénéficierez d'une remise unique sur un abonnement à reconduction automatique valable un an, pour un prix total de {discountedAmount}. Si vous n'annulez pas avant le {renewalDate}, votre abonnement sera automatiquement renouvelé au plein tarif et vous serez facturé {fullAmount} (plus taxes) à cette date et chaque année par la suite, sauf si vous annulez dans vos {billingSettings}Paramètres de facturation{/billingSettings}. Les tarifs peuvent changer. Votre contenu peut être supprimé en cas d'annulation."
                     },
                     "ja-JP": {
-                      singular: '"Confirm {refundAmountFormatted} Refund"をクリックすると、以下に同意したことになります：自動更新されるサブスクリプションに対して1回限りの割引が適用され、1年間有効で合計金額は{discountedAmount}になります。{renewalDate}までに解約しない場合、サブスクリプションは満額で自動更新され、その更新日および以降毎年{fullAmount}（税別）が請求されます（{billingSettings}請求設定{/billingSettings}でキャンセルしない限り）。価格は変更される場合があります。解約時にコンテンツが削除される場合があります。'
+                      singular: '"Confirm"をクリックすると、以下に同意したことになります：自動更新されるサブスクリプションに対して1回限りの割引が適用され、1年間有効で合計金額は{discountedAmount}になります。{renewalDate}までに解約しない場合、サブスクリプションは満額で自動更新され、その更新日および以降毎年{fullAmount}（税別）が請求されます（{billingSettings}請求設定{/billingSettings}でキャンセルしない限り）。価格は変更される場合があります。解約時にコンテンツが削除される場合があります。'
                     },
                     "ko-KR": {
-                      singular: '버튼 "Confirm {refundAmountFormatted} Refund"을 클릭하면 다음에 동의하게 됩니다: 자동으로 갱신되는 1년간 유효한 구독에 대해 일회성 할인이 적용되어 총 결제 금액은 {discountedAmount}가 됩니다. {renewalDate} 이전에 취소하지 않으면 구독은 정가로 자동 갱신되며, 해당 날짜 및 이후 매년 {fullAmount} (세금 별도)가 청구됩니다. 취소는 {billingSettings}결제 설정{/billingSettings}에서 가능합니다. 가격은 변경될 수 있으며, 취소 시 콘텐츠가 삭제될 수 있습니다.'
+                      singular: '버튼 "Confirm"을 클릭하면 다음에 동의하게 됩니다: 자동으로 갱신되는 1년간 유효한 구독에 대해 일회성 할인이 적용되어 총 결제 금액은 {discountedAmount}가 됩니다. {renewalDate} 이전에 취소하지 않으면 구독은 정가로 자동 갱신되며, 해당 날짜 및 이후 매년 {fullAmount} (세금 별도)가 청구됩니다. 취소는 {billingSettings}결제 설정{/billingSettings}에서 가능합니다. 가격은 변경될 수 있으며, 취소 시 콘텐츠가 삭제될 수 있습니다.'
                     },
                     "pt-BR": {
-                      singular: 'Ao clicar em "Confirmar reembolso de {refundAmountFormatted}" você concorda: você receberá um desconto único em uma assinatura com renovação automática válida por um ano, por um preço total de {discountedAmount}. Se você não cancelar antes de {renewalDate}, sua assinatura será renovada automaticamente pelo preço integral e você será cobrado {fullAmount} (mais impostos) nessa data e em cada ano subsequente, a menos que cancele em suas {billingSettings}Configurações de cobrança{/billingSettings}. Os preços podem mudar. Seu conteúdo pode ser excluído após o cancelamento.'
+                      singular: 'Ao clicar em "Confirmar" você concorda: você receberá um desconto único em uma assinatura com renovação automática válida por um ano, por um preço total de {discountedAmount}. Se você não cancelar antes de {renewalDate}, sua assinatura será renovada automaticamente pelo preço integral e você será cobrado {fullAmount} (mais impostos) nessa data e em cada ano subsequente, a menos que cancele em suas {billingSettings}Configurações de cobrança{/billingSettings}. Os preços podem mudar. Seu conteúdo pode ser excluído após o cancelamento.'
                     },
                     "zh-CN": {
-                      singular: '点击 "确认 {refundAmountFormatted} 退款" 即表示您同意：您将获得一次性折扣，适用于自动续订且有效期为一年的订阅，总价为 {discountedAmount}。如果您未在 {renewalDate} 之前取消，订阅将按全价自动续订，且在该日期及此后每年将向您收取 {fullAmount}（另计税费），除非您在 {billingSettings}Billing Settings{/billingSettings} 中取消。价格可能会变动。取消后您的内容可能会被删除。'
+                      singular: '点击 "确认" 即表示您同意：您将获得一次性折扣，适用于自动续订且有效期为一年的订阅，总价为 {discountedAmount}。如果您未在 {renewalDate} 之前取消，订阅将按全价自动续订，且在该日期及此后每年将向您收取 {fullAmount}（另计税费），除非您在 {billingSettings}Billing Settings{/billingSettings} 中取消。价格可能会变动。取消后您的内容可能会被删除。'
                     }
                   }
                 }), (0, _v1.jsx)("br", {}), (0, _v1.jsx)("br", {}), (0, _v20.translate)({
@@ -913,14 +912,14 @@
                   replacements: {
                     terms: _v0 => (0, _v1.jsx)(_v7.Link, {
                       href: "/terms",
-                      textDecoration: "underline",
-                      color: "text-secondary",
+                      variant: "inline-primary",
+                      color: "vimeoBlue.600",
                       children: _v0
                     }),
                     privacy: _v0 => (0, _v1.jsx)(_v7.Link, {
                       href: "/privacy",
-                      textDecoration: "underline",
-                      color: "text-secondary",
+                      variant: "inline-primary",
+                      color: "vimeoBlue.600",
                       children: _v0
                     })
                   },
@@ -965,31 +964,28 @@
                 onClick: _v13,
                 isLoading: _v16,
                 children: (0, _v20.translate)({
-                  singular: "Confirm {refundAmountFormatted} Refund",
-                  replacements: {
-                    refundAmountFormatted: _v26
-                  },
+                  singular: "Confirm",
                   dictionary: {
                     es: {
-                      singular: "Confirmar reembolso de {refundAmountFormatted}"
+                      singular: "Confirmar"
                     },
                     "de-DE": {
-                      singular: "Rückerstattung {refundAmountFormatted} bestätigen"
+                      singular: "Bestätigen"
                     },
                     "fr-FR": {
-                      singular: "Confirmer le remboursement de {refundAmountFormatted}"
+                      singular: "Confirmer"
                     },
                     "ja-JP": {
-                      singular: "返金（{refundAmountFormatted}）を確定"
+                      singular: "確定"
                     },
                     "ko-KR": {
-                      singular: "{refundAmountFormatted} 환불 확인"
+                      singular: "확인"
                     },
                     "pt-BR": {
-                      singular: "Confirmar reembolso de {refundAmountFormatted}"
+                      singular: "Confirmar"
                     },
                     "zh-CN": {
-                      singular: "确认 {refundAmountFormatted} 退款"
+                      singular: "确认"
                     }
                   }
                 })

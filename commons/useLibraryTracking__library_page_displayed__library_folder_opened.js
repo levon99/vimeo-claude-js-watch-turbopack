@@ -50,7 +50,23 @@
       }), !0), [_v0]),
       _v8 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_filter_applied", {
         library_type: _v0.libraryType,
-        library_filter_type: _v0.libraryFilterType
+        library_filter_type: _v0.libraryFilterType,
+        ...((_v0, _v1) => {
+          if ("type" !== _v0 || void 0 === _v1) return {
+            library_filter_type_videos: !1,
+            library_filter_type_folders: !1,
+            library_filter_type_files: !1,
+            library_filter_type_events: !1
+          };
+          let _v2 = 0 === _v1.length,
+            _v3 = _v0 => _v2 || _v1.includes(_v0);
+          return {
+            library_filter_type_videos: _v3("video"),
+            library_filter_type_folders: _v3("folder"),
+            library_filter_type_files: _v3("file"),
+            library_filter_type_events: _v3("live_event")
+          };
+        })(_v0.libraryFilterType, _v0.appliedContentTypes)
       }), !0), [_v0]),
       _v9 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("filter_by_custom_metadata", {
         applied_filters: _v0.appliedFilters

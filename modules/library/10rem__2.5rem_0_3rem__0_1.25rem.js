@@ -2250,7 +2250,10 @@
         surface: "card",
         pageSurface: _v24 ? "team_library" : "library"
       }),
-      _v28 = (0, _v184.useFilePrivacyBadgeHandlers)(),
+      _v28 = (0, _v184.useFilePrivacyBadgeHandlers)({
+        surface: _v24 ? "team_library" : "library",
+        badgeVariant: "card"
+      }),
       {
         trackLibraryFolderOpened: _v29
       } = (0, _v31.useLibraryTracking)(),
@@ -2438,6 +2441,7 @@
             } = _v28(_v0);
           return (0, _v1.jsx)(_v181.FileCard, {
             file: _v0,
+            menuContext: "team_library",
             title: _v0.name,
             subtitle: _v0.createdTime ? _v21(_v0.createdTime) : void 0,
             href: _v2,
@@ -2572,7 +2576,10 @@
           surface: "list",
           pageSurface: _v26 ? "team_library" : "library"
         }),
-        _v30 = (0, _v184.useFilePrivacyBadgeHandlers)(),
+        _v30 = (0, _v184.useFilePrivacyBadgeHandlers)({
+          surface: _v26 ? "team_library" : "library",
+          badgeVariant: "list"
+        }),
         {
           trackLibraryFolderOpened: _v31
         } = (0, _v31.useLibraryTracking)(),
@@ -2860,6 +2867,7 @@
               } = _v30(_v0);
             return (0, _v1.jsx)(_v203.FileListRow, {
               file: _v0,
+              menuContext: "team_library",
               title: _v0.name,
               subTitle: _v0.createdTime ? (0, _v1.jsxs)(_v6.Flex, {
                 alignItems: "center",
@@ -4052,13 +4060,15 @@
                           _v4 = _v73.isDraftActive && _v73.isDraftUpdated();
                         _v65.commitDraft(), _v69.commitDraft(), _v68.commitDraft(), _v73.commitDraft(), _v1 && _v32({
                           libraryType: _v0,
-                          libraryFilterType: "type"
+                          libraryFilterType: "type",
+                          appliedContentTypes: [..._v65.draft]
                         }), _v2 && _v32({
                           libraryType: _v0,
                           libraryFilterType: "privacy"
                         }), _v3 && _v32({
                           libraryType: _v0,
-                          libraryFilterType: "type"
+                          libraryFilterType: "type",
+                          appliedContentTypes: [..._v65.draft]
                         }), _v4 && _v32({
                           libraryType: _v0,
                           libraryFilterType: "created_by"
@@ -4119,7 +4129,8 @@
                         libraryType: (0, _v32.deriveLibraryType)({
                           hasContentSpaceEnabled: !!_v40
                         }),
-                        libraryFilterType: "type"
+                        libraryFilterType: "type",
+                        appliedContentTypes: [..._v1]
                       }), _v65.setSelection(_v1), (0, _v78.doesSelectionIncludeVideos)(_v64, _v1) || _v68.clearFilter();
                     },
                     options: _v64,

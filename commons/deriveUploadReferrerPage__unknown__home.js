@@ -43,7 +43,8 @@
         upload_third_party_source: _v0.uploadThirdPartySource
       }), !0), [_v0]),
       trackUploadLinkPrivacyChanged: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("upload_link_privacy_changed", {
-        upload_link_privacy_new_value: _v0.uploadLinkPrivacyNewValue
+        upload_link_privacy_new_value: _v0.uploadLinkPrivacyNewValue,
+        upload_link_privacy_entity_type: _v0.entityType
       }), !0), [_v0])
     };
   }]);

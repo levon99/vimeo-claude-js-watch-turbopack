@@ -452,31 +452,48 @@
   var _v50 = _v0.i(0),
     _v51 = _v0.i(0),
     _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0),
-    _v55 = _v0.i(0);
-  let _v56 = "video/*,.mkv,.m2ts",
-    _v57 = _v56.split(","),
-    _v58 = _v57.filter(_v0 => _v0.endsWith("/*")).map(_v0 => _v0.slice(0, -1)),
-    _v59 = _v57.filter(_v0 => _v0.startsWith(".")).map(_v0 => _v0.toLowerCase()),
-    _v60 = _v0 => Array.from(_v0).filter(_v0 => {
-      if (_v58.some(_v0 => _v0.type.startsWith(_v0))) return !0;
-      let _v1 = _v0.name.toLowerCase();
-      return _v59.some(_v0 => _v1.endsWith(_v0));
+    _v53 = _v0.i(0);
+  let _v54 = _v0 => (0, _v1.jsx)(_v53.Icon, {
+      viewBox: "0 0 24 24",
+      ..._v0,
+      fill: "none",
+      children: (0, _v1.jsx)("path", {
+        d: "M18.42 9.21a7 7 0 0 0-13.36 1.9A4 4 0 0 0 6 19h11a5 5 0 0 0 1.42-9.79ZM17 17H6a2 2 0 1 1 0-4 1 1 0 0 0 1-1 5 5 0 0 1 9.73-1.61 1 1 0 0 0 .78.66A3 3 0 0 1 17 17Z",
+        fill: "currentColor"
+      })
     }),
-    _v61 = () => {
+    _v55 = _v0 => (0, _v1.jsx)(_v53.Icon, {
+      viewBox: "0 0 24 24",
+      ..._v0,
+      fill: "none",
+      children: (0, _v1.jsx)("path", {
+        d: "M18 11h-5V6c0-.6-.4-1-1-1s-1 .4-1 1v5H6c-.6 0-1 .4-1 1s.4 1 1 1h5v5c0 .6.4 1 1 1s1-.4 1-1v-5h5c.6 0 1-.4 1-1s-.4-1-1-1Z",
+        fill: "currentColor"
+      })
+    });
+  var _v56 = _v0.i(0);
+  let _v57 = "video/*,.mkv,.m2ts",
+    _v58 = _v57.split(","),
+    _v59 = _v58.filter(_v0 => _v0.endsWith("/*")).map(_v0 => _v0.slice(0, -1)),
+    _v60 = _v58.filter(_v0 => _v0.startsWith(".")).map(_v0 => _v0.toLowerCase()),
+    _v61 = _v0 => Array.from(_v0).filter(_v0 => {
+      if (_v59.some(_v0 => _v0.type.startsWith(_v0))) return !0;
+      let _v1 = _v0.name.toLowerCase();
+      return _v60.some(_v0 => _v1.endsWith(_v0));
+    }),
+    _v62 = () => {
       let _v0 = (0, _v51.useColorModeValue)("black", "white");
       return (0, _v1.jsxs)(_v50.Center, {
         width: (0, _v22.rem)(170),
         height: (0, _v22.rem)(100),
         position: "relative",
-        children: [(0, _v1.jsx)(_v53.Cloud, {
+        children: [(0, _v1.jsx)(_v54, {
           width: "100%",
           height: "100%"
         }), (0, _v1.jsx)(_v18.Box, {
           position: "absolute",
           bottom: (0, _v22.rem)(20),
-          children: (0, _v1.jsx)(_v55.ArrowUpFilled, {
+          children: (0, _v1.jsx)(_v56.ArrowUpFilled, {
             boxSize: "md",
             stroke: _v0,
             strokeWidth: "2"
@@ -485,7 +502,7 @@
           position: "absolute",
           left: (0, _v22.rem)(-4),
           bottom: (0, _v22.rem)(18),
-          children: (0, _v1.jsx)(_v54.PlusSmallFilled, {
+          children: (0, _v1.jsx)(_v55, {
             boxSize: "xs",
             stroke: _v0,
             strokeWidth: "3"
@@ -494,7 +511,7 @@
           position: "absolute",
           right: (0, _v22.rem)(8),
           top: (0, _v22.rem)(14),
-          children: (0, _v1.jsx)(_v54.PlusSmallFilled, {
+          children: (0, _v1.jsx)(_v55, {
             boxSize: "xs",
             stroke: _v0,
             strokeWidth: "3"
@@ -503,7 +520,7 @@
           position: "absolute",
           right: (0, _v22.rem)(-2),
           top: (0, _v22.rem)(40),
-          children: (0, _v1.jsx)(_v54.PlusSmallFilled, {
+          children: (0, _v1.jsx)(_v55, {
             boxSize: "xs",
             stroke: _v0,
             strokeWidth: "3"
@@ -511,7 +528,7 @@
         })]
       });
     },
-    _v62 = ({
+    _v63 = ({
       isDragging: _v0,
       onDragOver: _v1,
       onDragLeave: _v2,
@@ -536,7 +553,7 @@
         onDragOver: _v1,
         onDragLeave: _v2,
         onDrop: _v3,
-        children: [(0, _v1.jsx)(_v61, {}), (0, _v1.jsx)(_v20.Header, {
+        children: [(0, _v1.jsx)(_v62, {}), (0, _v1.jsx)(_v20.Header, {
           size: "2xl",
           color: "text-primary",
           as: "h2",
@@ -580,7 +597,7 @@
           }),
           ref: _v10,
           multiple: !0,
-          accept: _v56,
+          accept: _v57,
           variant: "filled",
           size: "lg",
           onChange: _v4,
@@ -591,10 +608,10 @@
         }) : null]
       });
     };
-  var _v63 = _v0.i(0),
-    _v64 = _v0.i(0),
-    _v65 = _v0.i(0);
-  let _v66 = ({
+  var _v64 = _v0.i(0),
+    _v65 = _v0.i(0),
+    _v66 = _v0.i(0);
+  let _v67 = ({
       files: _v0,
       onRemoveFile: _v1
     }) => 0 === _v0.length ? null : (0, _v1.jsx)(_v19.Flex, {
@@ -636,11 +653,11 @@
           color: "text-secondary",
           flexShrink: 0,
           whiteSpace: "nowrap",
-          children: (0, _v65.bytesToSize)(_v1.size)
-        }), (0, _v1.jsx)(_v63.IconButton, {
+          children: (0, _v66.bytesToSize)(_v1.size)
+        }), (0, _v1.jsx)(_v64.IconButton, {
           variant: "tertiary",
           size: "sm",
-          icon: (0, _v1.jsx)(_v64.CloseXSmall, {}),
+          icon: (0, _v1.jsx)(_v65.CloseXSmall, {}),
           "aria-label": (0, _v7.translate)({
             singular: "Remove {FILE_NAME}",
             replacements: {
@@ -674,7 +691,7 @@
         })]
       }, _v0))
     }),
-    _v67 = ({
+    _v68 = ({
       onRestart: _v0,
       onGoToFolder: _v1
     }) => (0, _v1.jsxs)(_v19.Flex, {
@@ -742,8 +759,8 @@
         })
       })]
     }),
-    _v68 = (0, _v22.rem)(360),
-    _v69 = ({
+    _v69 = (0, _v22.rem)(360),
+    _v70 = ({
       phase: _v0,
       isDragging: _v1 = !1,
       children: _v2
@@ -751,24 +768,24 @@
       let _v3 = "staging" === _v0;
       return (0, _v1.jsx)(_v19.Flex, {
         flexDirection: "column",
-        minHeight: _v68,
+        minHeight: _v69,
         border: _v3 ? "1px dashed" : "1px solid",
         borderColor: _v3 && _v1 ? "text-primary" : "stroke",
         borderRadius: "md",
         children: _v2
       });
     };
-  var _v70 = _v0.i(0),
-    _v71 = _v0.i(0),
+  var _v71 = _v0.i(0),
     _v72 = _v0.i(0),
-    _v72 = _v72,
     _v73 = _v0.i(0),
+    _v73 = _v73,
     _v74 = _v0.i(0),
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
-    _v78 = _v0.i(0);
-  let _v79 = ({
+    _v78 = _v0.i(0),
+    _v79 = _v0.i(0);
+  let _v80 = ({
       privacy: _v0,
       isLoading: _v1,
       capabilities: _v2,
@@ -781,22 +798,22 @@
       updateContentRating: _v9,
       onClose: _v10
     }) => {
-      let _v11 = (0, _v10.useContext)(_v78.ViewerContext),
+      let _v11 = (0, _v10.useContext)(_v79.ViewerContext),
         {
           trackUploadLinkPrivacyChanged: _v12
-        } = (0, _v75.useUploadPageTracking)(),
+        } = (0, _v76.useUploadPageTracking)(),
         _v13 = _v3 === _v11?.user?.id,
         _v14 = _v2?.hasEnterprise,
         {
           data: _v15
-        } = (0, _v74.useGetUserPreferences)(() => _v14 && _v3 ? {
+        } = (0, _v75.useGetUserPreferences)(() => _v14 && _v3 ? {
           where: {
             userId: _v3
           },
           select: ["tapa", "tapc"]
         } : null),
-        _v16 = _v14 ? (0, _v76.getAllowedEnterprisePrivacyOptions)(_v4, _v15) : void 0;
-      return (0, _v1.jsx)(_v77.PrivacyDrawer, {
+        _v16 = _v14 ? (0, _v77.getAllowedEnterprisePrivacyOptions)(_v4, _v15) : void 0;
+      return (0, _v1.jsx)(_v78.PrivacyDrawer, {
         video: {
           privacy: {
             ..._v0,
@@ -830,7 +847,8 @@
         }),
         onPrivacyChange: (_v0, _v1) => {
           _v0 !== _v0?.view && _v12({
-            uploadLinkPrivacyNewValue: _v0
+            uploadLinkPrivacyNewValue: _v0,
+            entityType: "video"
           }), _v8({
             view: _v0,
             password: _v1
@@ -848,7 +866,7 @@
         onClose: _v10
       });
     },
-    _v80 = ({
+    _v81 = ({
       privacy: _v0,
       setPrivacy: _v1,
       contentRating: _v2,
@@ -862,14 +880,14 @@
     }) => {
       let [_v10, _v11] = (0, _v10.useState)(!1);
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v72.default, {
+        children: [(0, _v1.jsx)(_v73.default, {
           privacy: _v0.view ?? "nobody",
           onClick: () => _v11(!0)
-        }), (0, _v1.jsx)(_v73.SideDrawer, {
+        }), (0, _v1.jsx)(_v74.SideDrawer, {
           isOpen: _v10,
           onClose: () => _v11(!1),
           side: "right",
-          children: (0, _v1.jsx)(_v79, {
+          children: (0, _v1.jsx)(_v80, {
             privacy: _v0,
             isLoading: _v5,
             capabilities: _v4,
@@ -885,7 +903,7 @@
         })]
       });
     },
-    _v81 = ({
+    _v82 = ({
       knobs: _v0
     }) => (0, _v1.jsxs)(_v19.Flex, {
       flexDirection: "column",
@@ -896,7 +914,7 @@
         justifyContent: "center",
         gap: (0, _v22.rem)(8),
         flexWrap: "wrap",
-        children: (0, _v1.jsx)(_v71.TeamSwitcher, {
+        children: (0, _v1.jsx)(_v72.TeamSwitcher, {
           teams: _v0.teams,
           selectedTeamId: _v0.selectedTeamId,
           selectTeam: _v0.selectTeam,
@@ -904,9 +922,9 @@
           selectFolder: _v0.selectFolder,
           isLoading: _v0.isLoadingTeams,
           disabled: !1,
-          enabledRoles: _v70.ALL_TEAM_ROLES
+          enabledRoles: _v71.ALL_TEAM_ROLES
         })
-      }), (0, _v1.jsx)(_v80, {
+      }), (0, _v1.jsx)(_v81, {
         privacy: _v0.privacy,
         setPrivacy: _v0.setPrivacy,
         contentRating: _v0.contentRating,
@@ -919,7 +937,7 @@
         uploadingFileSize: _v0.uploadingFileSize
       })]
     }),
-    _v82 = ({
+    _v83 = ({
       percent: _v0,
       failed: _v1
     }) => (0, _v1.jsx)(_v18.Box, {
@@ -934,7 +952,7 @@
         backgroundColor: _v1 ? "status-destructive-primary" : "fill-brand"
       })
     }),
-    _v83 = ({
+    _v84 = ({
       uploads: _v0,
       uploaderSummary: _v1
     }) => 0 === _v0.length ? null : (0, _v1.jsxs)(_v19.Flex, {
@@ -1251,7 +1269,7 @@
                   }
                 })(_v0.state)
               })]
-            }), (0, _v1.jsx)(_v82, {
+            }), (0, _v1.jsx)(_v83, {
               percent: _v2,
               failed: _v1
             }), (0, _v1.jsx)(_v23.Text, {
@@ -1285,8 +1303,8 @@
               }) : (0, _v7.translate)({
                 singular: "{UPLOADED} of {TOTAL}",
                 replacements: {
-                  UPLOADED: (0, _v65.bytesToSize)(_v0.bytesUploaded),
-                  TOTAL: (0, _v65.bytesToSize)(_v0.initialSize)
+                  UPLOADED: (0, _v66.bytesToSize)(_v0.bytesUploaded),
+                  TOTAL: (0, _v66.bytesToSize)(_v0.initialSize)
                 },
                 dictionary: {
                   es: {
@@ -1317,7 +1335,7 @@
         })
       })]
     }),
-    _v84 = () => (0, _v1.jsx)(_v23.Text, {
+    _v85 = () => (0, _v1.jsx)(_v23.Text, {
       variant: "body-sm",
       color: "text-secondary",
       textAlign: "center",
@@ -1364,7 +1382,7 @@
         }
       })
     }),
-    _v85 = (0, _v10.memo)(function () {
+    _v86 = (0, _v10.memo)(function () {
       let _v0 = [{
           imgSrc: "https://i.vimeocdn.com/custom_asset/41c190163f6117e8313cd91f48f5fef5",
           imgAlt: (0, _v7.translate)({
@@ -2463,7 +2481,7 @@
         })]
       });
     }),
-    _v86 = ({
+    _v87 = ({
       files: _v0,
       onRemoveFile: _v1,
       label: _v2,
@@ -2526,10 +2544,10 @@
             children: (0, _v1.jsx)(_v17.AlertDescription, {
               children: _v5
             })
-          }) : null, (0, _v1.jsx)(_v69, {
+          }) : null, (0, _v1.jsx)(_v70, {
             phase: _v12,
             isDragging: _v6.isDragging,
-            children: _v13 ? (0, _v1.jsx)(_v62, {
+            children: _v13 ? (0, _v1.jsx)(_v63, {
               isDragging: _v6.isDragging,
               onDragOver: _v6.onDragOver,
               onDragLeave: _v6.onDragLeave,
@@ -2538,51 +2556,51 @@
               label: _v2,
               action: _v3,
               onPrimaryAction: _v4,
-              knobs: _v9 ? (0, _v1.jsx)(_v81, {
+              knobs: _v9 ? (0, _v1.jsx)(_v82, {
                 knobs: _v9
               }) : null,
-              stagedList: _v0.length > 0 ? (0, _v1.jsx)(_v66, {
+              stagedList: _v0.length > 0 ? (0, _v1.jsx)(_v67, {
                 files: _v0,
                 onRemoveFile: _v1
               }) : null
             }) : (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v83, {
+              children: [(0, _v1.jsx)(_v84, {
                 uploads: _v7,
                 uploaderSummary: _v8
-              }), "terminal" === _v12 ? (0, _v1.jsx)(_v67, {
+              }), "terminal" === _v12 ? (0, _v1.jsx)(_v68, {
                 onRestart: _v10,
                 onGoToFolder: _v11
               }) : null]
             })
-          }), (0, _v1.jsx)(_v84, {})]
-        }), (0, _v1.jsx)(_v85, {})]
+          }), (0, _v1.jsx)(_v85, {})]
+        }), (0, _v1.jsx)(_v86, {})]
       });
     };
-  var _v87 = _v0.i(0),
-    _v88 = _v0.i(0),
+  var _v88 = _v0.i(0),
     _v89 = _v0.i(0),
     _v90 = _v0.i(0),
     _v91 = _v0.i(0),
     _v92 = _v0.i(0),
     _v93 = _v0.i(0),
     _v94 = _v0.i(0),
-    _v95 = _v0.i(0);
-  let _v96 = {
+    _v95 = _v0.i(0),
+    _v96 = _v0.i(0);
+  let _v97 = {
       add: !1,
       comments: "nobody",
       download: !1,
       embed: "private",
       view: "nobody"
     },
-    _v97 = ["canAllowDownloads", "canUnlistVideo", "canHideVideos", "hasExtraEmbedOptions", "hasPrivateModeOff", "hasProEmbedOptions", "hasVideoPasswordPrivacyUpsell", "hasCreation", "hasEnterprise"];
-  var _v98 = _v0.i(0);
-  let _v99 = "Upload in progress: navigation aborted. Please ignore this error.";
-  function _v100(_v0) {
-    _v0.reason === _v99 && _v0.preventDefault();
+    _v98 = ["canAllowDownloads", "canUnlistVideo", "canHideVideos", "hasExtraEmbedOptions", "hasPrivateModeOff", "hasProEmbedOptions", "hasVideoPasswordPrivacyUpsell", "hasCreation", "hasEnterprise"];
+  var _v99 = _v0.i(0);
+  let _v100 = "Upload in progress: navigation aborted. Please ignore this error.";
+  function _v101(_v0) {
+    _v0.reason === _v100 && _v0.preventDefault();
   }
-  var _v101 = _v0.i(0),
-    _v102 = _v0.i(0);
-  let _v103 = {
+  var _v102 = _v0.i(0),
+    _v103 = _v0.i(0);
+  let _v104 = {
       barebone_js: "",
       chromeless_css: "",
       chromeless_js: "",
@@ -2590,11 +2608,11 @@
       js: "",
       player_url: ""
     },
-    _v104 = ({
+    _v105 = ({
       children: _v0
     }) => {
       let _v1 = (0, _v15.useViewer)();
-      return (0, _v101.useHasMounted)() ? (0, _v1.jsx)(_v102.default, {
+      return (0, _v102.useHasMounted)() ? (0, _v1.jsx)(_v103.default, {
         user: _v1?.user ?? null,
         jwt: _v1?.jwt ?? "",
         apiUrl: _v1?.apiUrl ?? "",
@@ -2602,28 +2620,28 @@
         vuid: _v1?.vuid ?? "",
         xsrft: "",
         magistoApiHost: "",
-        playerAssetUrls: _v103,
+        playerAssetUrls: _v104,
         children: _v0
       }) : (0, _v1.jsx)(_v1.Fragment, {
         children: _v0
       });
     },
-    _v105 = {
+    _v106 = {
       paywallTrigger: "satellite_upload_button",
       paywallLocation: "satellite_upload",
       paywallType: "popup",
       paywallFeature: "upload"
     },
-    _v106 = () => {
+    _v107 = () => {
       let {
           files: _v0,
           removeFile: _v1,
           clear: _v2
-        } = (0, _v87.useStagedFiles)(),
+        } = (0, _v88.useStagedFiles)(),
         _v3 = (() => {
           let {
               addFiles: _v0
-            } = (0, _v87.useStagedFiles)(),
+            } = (0, _v88.useStagedFiles)(),
             [_v1, _v2] = (0, _v10.useState)(!1),
             _v3 = (0, _v10.useCallback)(_v0 => {
               _v0.preventDefault(), _v2(!0);
@@ -2636,10 +2654,10 @@
             onDragOver: _v3,
             onDragLeave: _v4,
             onDrop: (0, _v10.useCallback)(_v0 => {
-              _v0.preventDefault(), _v2(!1), _v0.dataTransfer?.files?.length && _v0(_v60(_v0.dataTransfer.files), !0);
+              _v0.preventDefault(), _v2(!1), _v0.dataTransfer?.files?.length && _v0(_v61(_v0.dataTransfer.files), !0);
             }, [_v0]),
             onSelectFiles: (0, _v10.useCallback)(_v0 => {
-              _v0.target.files?.length && _v0(_v60(_v0.target.files), !1), _v0.target.value = "";
+              _v0.target.files?.length && _v0(_v61(_v0.target.files), !1), _v0.target.value = "";
             }, [_v0])
           };
         })(),
@@ -2647,11 +2665,11 @@
           let _v0 = (0, _v15.useViewer)(),
             {
               files: _v1
-            } = (0, _v87.useStagedFiles)(),
+            } = (0, _v88.useStagedFiles)(),
             {
               data: _v2,
               isLoading: _v3
-            } = (0, _v92.useGetAllWorkspacesForUser)(),
+            } = (0, _v93.useGetAllWorkspacesForUser)(),
             [_v4, _v5] = (0, _v10.useState)(null),
             [_v6, _v7] = (0, _v10.useState)(null),
             [_v8, _v9] = (0, _v10.useState)({}),
@@ -2660,7 +2678,7 @@
             _v14 = _v4 ?? _v0?.user?.id ?? null,
             {
               data: _v15
-            } = (0, _v91.useGetUser)(() => _v14 ? {
+            } = (0, _v92.useGetUser)(() => _v14 ? {
               where: {
                 userId: _v14
               },
@@ -2668,7 +2686,7 @@
             } : null),
             {
               config: _v16
-            } = (0, _v94.useUploadPageConfig)(_v14),
+            } = (0, _v95.useUploadPageConfig)(_v14),
             _v17 = (0, _v10.useMemo)(() => _v16?.teamConfigs?.find(_v0 => _v0.ownerId === _v14), [_v16, _v14]),
             _v18 = (0, _v10.useMemo)(() => (_v2?.data ?? []).map(_v0 => ({
               id: _v0.teamOwnerId,
@@ -2685,7 +2703,7 @@
             _v22 = _v17?.permissionLevel ?? null,
             _v23 = (0, _v10.useMemo)(() => {
               var _v0;
-              return _v0 = _v15?.preferences?.videos, _v22 === _v95.TeamUserPermissionLevel.Uploader ? _v96 : {
+              return _v0 = _v15?.preferences?.videos, _v22 === _v96.TeamUserPermissionLevel.Uploader ? _v97 : {
                 ..._v0?.privacy,
                 password: _v0?.password,
                 embedDomains: _v0?.privacy?.clipEmbedAllowedDomains?.map(_v0 => ({
@@ -2695,7 +2713,7 @@
                 }))
               };
             }, [_v15, _v22]),
-            _v24 = _v22 === _v95.TeamUserPermissionLevel.Uploader ? void 0 : _v15?.preferences?.videos?.rating;
+            _v24 = _v22 === _v96.TeamUserPermissionLevel.Uploader ? void 0 : _v15?.preferences?.videos?.rating;
           _v14 !== _v12 && (_v13(_v14), _v9({}), _v11(void 0), _v7(null));
           let _v25 = (0, _v10.useMemo)(() => ({
               ..._v23,
@@ -2705,12 +2723,12 @@
             {
               capabilities: _v27,
               loading: _v28
-            } = (0, _v89.useCapability)([..._v97], _v14),
+            } = (0, _v90.useCapability)([..._v98], _v14),
             {
               isDisabled: _v29
-            } = (0, _v93.useGetEditEmbedPrivacyDisabled)(),
+            } = (0, _v94.useGetEditEmbedPrivacyDisabled)(),
             _v30 = _v1.length > 0 ? _v1.reduce((_v0, _v1) => _v0 + _v1.file.size, 0) : void 0,
-            _v31 = _v6?.uri != null ? (0, _v90.getProjectId)({
+            _v31 = _v6?.uri != null ? (0, _v91.getProjectId)({
               uri: _v6.uri
             }) ?? void 0 : void 0,
             _v32 = (0, _v10.useMemo)(() => ((_v0, _v1, _v2 = !0) => {
@@ -2765,7 +2783,7 @@
             } = (0, _v11.useUploader)(),
             {
               clear: _v5
-            } = (0, _v87.useStagedFiles)(),
+            } = (0, _v88.useStagedFiles)(),
             _v6 = (_v3?.user ?? null) !== null,
             _v7 = (_v2 = _v3?.user?.uploadQuota?.space, (0, _v10.useMemo)(() => ((_v0, _v1) => {
               if (0 === _v0.length || !_v1) return {
@@ -2834,7 +2852,7 @@
                 })
               };
             })(_v0, _v2), [_v0, _v2])),
-            _v8 = (0, _v88.useSatelliteAuthTab)(),
+            _v8 = (0, _v89.useSatelliteAuthTab)(),
             [_v9, _v10] = (0, _v10.useState)(null),
             [_v11, _v12] = (0, _v10.useState)(_v0);
           _v0 !== _v11 && (_v12(_v0), _v10(null));
@@ -2966,7 +2984,7 @@
         _v17 = !(0, _v12.isUserPlanHigherOrEqualThan)(_v14?.user?.account, _v13.PLANS.STANDARD),
         _v18 = _v14?.user?.capabilities?.hasFreeTrialEligibility ?? !1;
       !function () {
-        let _v0 = (0, _v98.useRouter)(),
+        let _v0 = (0, _v99.useRouter)(),
           {
             uploaderSummary: _v1
           } = (0, _v11.useUploader)(),
@@ -3005,10 +3023,10 @@
                 }
               }))) throw _v0.events.emit("routeChangeError", "", "", {
                 shallow: !1
-              }), _v99;
+              }), _v100;
             };
-          return window.addEventListener("beforeunload", _v1), window.addEventListener("unhandledrejection", _v100), _v0.events.on("routeChangeStart", _v2), () => {
-            window.removeEventListener("beforeunload", _v1), window.removeEventListener("unhandledrejection", _v100), _v0.events.off("routeChangeStart", _v2);
+          return window.addEventListener("beforeunload", _v1), window.addEventListener("unhandledrejection", _v101), _v0.events.on("routeChangeStart", _v2), () => {
+            window.removeEventListener("beforeunload", _v1), window.removeEventListener("unhandledrejection", _v101), _v0.events.off("routeChangeStart", _v2);
           };
         }, [_v2, _v0]);
       }();
@@ -3037,8 +3055,8 @@
             teamId: _v4.targetUserId
           }));
         }, [_v4.folderId, _v4.targetUserId]);
-      return (0, _v1.jsxs)(_v104, {
-        children: [(0, _v1.jsx)(_v86, {
+      return (0, _v1.jsxs)(_v105, {
+        children: [(0, _v1.jsx)(_v87, {
           files: _v0,
           onRemoveFile: _v1,
           label: _v6,
@@ -3057,7 +3075,7 @@
           isFreeTrialEligible: _v18,
           checkoutTarget: "_blank",
           postCheckoutUrl: "/satellite/auth-complete?source=upload-poc",
-          paywallTracking: _v105,
+          paywallTracking: _v106,
           onDismiss: _v20
         })]
       });
@@ -3121,6 +3139,6 @@
         }
       }),
       publicBasePath: "/video-uploader"
-    }), (0, _v1.jsx)(_v106, {})]
+    }), (0, _v1.jsx)(_v107, {})]
   })], 0);
 }

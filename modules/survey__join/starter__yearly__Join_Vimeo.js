@@ -239,55 +239,56 @@
   }) {
     let _v4 = (0, _v38.useViewer)(),
       _v5 = _v4?.user?.capabilities?.hasFreeTrialEligibility ?? !1,
-      _v6 = (0, _v14.useOrionSettingsFields)(["onboarding_paywall_kind", "onboarding_paywall_tier", "onboarding_paywall_default_periodicity", "onboarding_paywall_monthly_free_trial", "onboarding_paywall_dismiss_button_position", "onboarding_welcome_offer_dismiss_variant", "reverse_free_trial_arm", "onboarding_welcome_offer_reverse_trial_on_dismiss", "onboarding_welcome_offer_show_continue_link"]),
+      _v6 = (0, _v14.useOrionSettingsFields)(["onboarding_paywall_kind", "onboarding_paywall_tier", "onboarding_paywall_default_periodicity", "onboarding_paywall_monthly_free_trial", "onboarding_paywall_weekly_free_trial", "onboarding_paywall_dismiss_button_position", "onboarding_welcome_offer_dismiss_variant", "reverse_free_trial_arm", "onboarding_welcome_offer_reverse_trial_on_dismiss", "onboarding_welcome_offer_show_continue_link"]),
       _v7 = _v6.onboarding_paywall_kind,
       _v8 = _v6.onboarding_paywall_tier,
       _v9 = _v6.onboarding_paywall_default_periodicity,
       _v10 = _v6.onboarding_paywall_monthly_free_trial,
-      _v11 = _v6.onboarding_paywall_dismiss_button_position,
-      _v12 = _v6.onboarding_welcome_offer_dismiss_variant,
-      _v13 = _v6.reverse_free_trial_arm,
-      _v14 = "control" !== _v13,
-      _v15 = _v14 && _v5,
-      _v16 = _v14 && !_v5,
-      _v17 = "welcomeOffer" === _v7,
-      [_v18, _v19] = (0, _v8.useState)(!1),
-      _v20 = _v15 || _v18,
-      [_v21, _v22] = (0, _v8.useState)(!1),
+      _v11 = _v6.onboarding_paywall_weekly_free_trial,
+      _v12 = _v6.onboarding_paywall_dismiss_button_position,
+      _v13 = _v6.onboarding_welcome_offer_dismiss_variant,
+      _v14 = _v6.reverse_free_trial_arm,
+      _v15 = "control" !== _v14,
+      _v16 = _v15 && _v5,
+      _v17 = _v15 && !_v5,
+      _v18 = "welcomeOffer" === _v7,
+      [_v19, _v20] = (0, _v8.useState)(!1),
+      _v21 = _v16 || _v19,
+      [_v22, _v23] = (0, _v8.useState)(!1),
       {
-        isReady: _v23,
-        hasWeeklyPlan: _v24
+        isReady: _v24,
+        hasWeeklyPlan: _v25
       } = (0, _v36.useWeeklyPlanAvailability)(_v8),
-      _v25 = _v20 ? {
+      _v26 = _v21 ? {
         paywallStyle: "reverse_trial",
         paywallPlansDisplayed: ["starter"],
         paywallPeriodicitiesDisplayed: []
       } : {
-        paywallStyle: _v17 ? "welcome_offer_modal" : _v7.replace(/[A-Z]/g, _v0 => `_${_v0.toLowerCase()}`),
+        paywallStyle: _v18 ? "welcome_offer_modal" : _v7.replace(/[A-Z]/g, _v0 => `_${_v0.toLowerCase()}`),
         paywallPlansDisplayed: [_v8],
-        paywallPeriodicitiesDisplayed: "plansComparison" === _v7 ? _v24 ? ["monthly", "yearly", "weekly"] : ["monthly", "yearly"] : "featureList" === _v7 ? "monthly" === _v9 ? ["monthly"] : [] : _v17 ? ["yearly"] : []
+        paywallPeriodicitiesDisplayed: "plansComparison" === _v7 ? _v25 ? ["monthly", "yearly", "weekly"] : ["monthly", "yearly"] : "featureList" === _v7 ? "monthly" === _v9 ? ["monthly"] : [] : _v18 ? ["yearly"] : []
       },
-      _v26 = {
-        paywallTrigger: _v20 ? `registration_survey_reverse_trial_${_v13}` : `registration_survey_trial_upsell_page_${_v7}`,
+      _v27 = {
+        paywallTrigger: _v21 ? `registration_survey_reverse_trial_${_v14}` : `registration_survey_trial_upsell_page_${_v7}`,
         paywallLocation: "registration_survey",
         paywallType: "page",
         paywallFeature: "registration_survey",
-        ..._v25
+        ..._v26
       },
       {
-        trackPaywallDismissed: _v27
+        trackPaywallDismissed: _v28
       } = (0, _v37.usePaywallTracking)({
-        ..._v26,
-        isVisible: !_v16 && !_v20 && ("plansComparison" !== _v7 || _v23)
+        ..._v27,
+        isVisible: !_v17 && !_v21 && ("plansComparison" !== _v7 || _v24)
       }),
-      _v28 = (0, _v8.useRef)(!1);
+      _v29 = (0, _v8.useRef)(!1);
     (0, _v8.useEffect)(() => {
-      _v16 && !_v28.current && (_v28.current = !0, _v1());
-    }, [_v16, _v1]);
-    let _v29 = () => {
-      (_v27(), _v17 && !_v14 && !_v18 && _v6.onboarding_welcome_offer_reverse_trial_on_dismiss && _v5) ? _v19(!0) : _v2 ? _v2() : _v1();
+      _v17 && !_v29.current && (_v29.current = !0, _v1());
+    }, [_v17, _v1]);
+    let _v30 = () => {
+      (_v28(), _v18 && !_v15 && !_v19 && _v6.onboarding_welcome_offer_reverse_trial_on_dismiss && _v5) ? _v20(!0) : _v2 ? _v2() : _v1();
     };
-    return _v16 ? (0, _v1.jsx)(_v39.default, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+    return _v17 ? (0, _v1.jsx)(_v39.default, {}) : (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v9.Flex, {
         grow: "1",
         gap: "3",
@@ -308,45 +309,46 @@
             style: {
               width: "100%"
             },
-            children: [_v20 && (0, _v1.jsx)(_v35.ReverseTrialPaywall, {
-              trialDays: "14d" === _v13 ? 14 : 7,
-              paywallTracking: _v26,
-              onComplete: _v29,
-              onActivated: () => _v22(!0),
+            children: [_v21 && (0, _v1.jsx)(_v35.ReverseTrialPaywall, {
+              trialDays: "14d" === _v14 ? 14 : 7,
+              paywallTracking: _v27,
+              onComplete: _v30,
+              onActivated: () => _v23(!0),
               postActivationUrl: _v3
-            }), !_v20 && "plansComparison" === _v7 && (0, _v1.jsx)(_v32.PlansComparisonPaywall, {
+            }), !_v21 && "plansComparison" === _v7 && (0, _v1.jsx)(_v32.PlansComparisonPaywall, {
               tier: _v8,
-              paywallTracking: _v26,
+              paywallTracking: _v27,
               defaultPeriodicity: _v9,
               monthlyFreeTrial: _v10,
+              weeklyFreeTrial: _v11,
               postCheckoutUrl: _v3,
               allowBundleOffer: !0
-            }), !_v20 && "featureList" === _v7 && (0, _v1.jsx)(_v31, {
+            }), !_v21 && "featureList" === _v7 && (0, _v1.jsx)(_v31, {
               tier: _v8,
-              paywallTracking: _v26,
+              paywallTracking: _v27,
               defaultPeriodicity: _v9,
               monthlyFreeTrial: _v10,
               isUserEligibleForFreeTrial: _v5,
               postCheckoutUrl: _v3
-            }), !_v20 && _v17 && (0, _v1.jsx)(_v34.WelcomeOfferModalPaywall, {
+            }), !_v21 && _v18 && (0, _v1.jsx)(_v34.WelcomeOfferModalPaywall, {
               isOpen: !0,
               isPage: !0,
               showContinueLink: _v6.onboarding_welcome_offer_show_continue_link,
-              paywallTracking: _v26,
+              paywallTracking: _v27,
               postCheckoutUrl: _v3,
-              onClose: _v29,
+              onClose: _v30,
               tier: _v8
             })]
           }, "animate-content")
         })]
-      }), _v20 && !_v21 && (0, _v1.jsx)(_v33.PlansComparisonPaywallNavigation, {
+      }), _v21 && !_v22 && (0, _v1.jsx)(_v33.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: "responsive",
-        onDismiss: _v29
-      }), !_v20 && !(_v17 && "none" === _v12) && (0, _v1.jsx)(_v33.PlansComparisonPaywallNavigation, {
-        dismissButtonPosition: _v11,
-        dismissButtonVariant: _v17 ? _v12 : "skip",
+        onDismiss: _v30
+      }), !_v21 && !(_v18 && "none" === _v13) && (0, _v1.jsx)(_v33.PlansComparisonPaywallNavigation, {
+        dismissButtonPosition: _v12,
+        dismissButtonVariant: _v18 ? _v13 : "skip",
         skipLabel: _v0,
-        onDismiss: _v29
+        onDismiss: _v30
       })]
     });
   }

@@ -173,7 +173,13 @@
   }, "useAcknowledgeAnnouncement", 0, function () {
     let _v0 = (0, _v2.useContext)(_v9);
     return _v0?.acknowledge ?? _v12;
-  }, "useAnnouncement", 0, _v11, "useAnnouncementOnDisplay", 0, function ({
+  }, "useAnnouncement", 0, _v11, "useAnnouncementBlocker", 0, function (_v0) {
+    let _v1 = (0, _v2.useContext)(_v9),
+      _v2 = (0, _v2.useId)(),
+      _v3 = _v1?.registerBlocker,
+      _v4 = _v1?.unregisterBlocker;
+    (0, _v2.useEffect)(() => _v0 && void 0 !== _v3 && void 0 !== _v4 ? (_v3(_v2), () => _v4(_v2)) : () => void 0, [_v0, _v3, _v2, _v4]);
+  }, "useAnnouncementOnDisplay", 0, function ({
     id: _v0,
     isEligible: _v1 = !0
   }) {

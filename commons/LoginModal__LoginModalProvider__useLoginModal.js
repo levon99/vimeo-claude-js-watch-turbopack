@@ -238,7 +238,7 @@
   }, "GuestLoginModalProvider", 0, _v23, "guestLoginModalContext", 0, _v22, "withGuestLoginModal", 0, _v0 => _v0 => {
     let {
         privacy: _v1
-      } = (0, _v15.useVideoPrivacy)(_v0.clipRequestId, _v0.showcaseId, _v0.reviewId),
+      } = (0, _v15.useVideoPrivacy)(_v0.clipRequestId, _v0.showcaseId, _v0.reviewId, _v0.folderShareLinkId, _v0.folderPassword),
       _v2 = _v1?.view === "unlisted" || !!_v0.reviewId;
     return (0, _v1.jsx)(_v23, {
       children: (0, _v1.jsxs)(_v17, {

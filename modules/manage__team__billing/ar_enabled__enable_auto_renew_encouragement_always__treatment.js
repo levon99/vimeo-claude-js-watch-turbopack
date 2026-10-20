@@ -3379,8 +3379,8 @@
                     PRICE: _v1,
                     BILLING_SETTINGS: (0, _v5.jsx)(_v32.Link, {
                       href: "https://vimeo.com/settings/billing",
-                      variant: "inline-secondary",
-                      textDecoration: "underline",
+                      variant: "inline-primary",
+                      color: "vimeoBlue.600",
                       isExternal: !0,
                       children: (0, _v16.translate)({
                         singular: "Billing Settings",
@@ -3411,8 +3411,8 @@
                     }, "billing-settings"),
                     DELETED: (0, _v5.jsx)(_v32.Link, {
                       href: "https://help.vimeo.com/hc/en-us/articles/12425417275665-What-happens-when-I-lapse-to-the-Free-plan",
-                      variant: "inline-secondary",
-                      textDecoration: "underline",
+                      variant: "inline-primary",
+                      color: "vimeoBlue.600",
                       isExternal: !0,
                       children: (0, _v16.translate)({
                         singular: "deleted",
@@ -3443,8 +3443,8 @@
                     }, "deleted"),
                     TERMS_OF_SERVICE: (0, _v5.jsx)(_v32.Link, {
                       href: "https://vimeo.com/terms",
-                      variant: "inline-secondary",
-                      textDecoration: "underline",
+                      variant: "inline-primary",
+                      color: "vimeoBlue.600",
                       isExternal: !0,
                       children: (0, _v16.translate)({
                         singular: "Terms of Service",
@@ -3475,8 +3475,8 @@
                     }, "terms-of-service"),
                     PRIVACY_POLICY: (0, _v5.jsx)(_v32.Link, {
                       href: "https://vimeo.com/privacy",
-                      variant: "inline-secondary",
-                      textDecoration: "underline",
+                      variant: "inline-primary",
+                      color: "vimeoBlue.600",
                       isExternal: !0,
                       children: (0, _v16.translate)({
                         singular: "Privacy Policy",
@@ -10097,8 +10097,8 @@
         },
         _v18 = (_v0, _v1) => _v0 => (0, _v5.jsx)(_v32.Link, {
           href: _v0,
-          textDecoration: "underline",
-          color: "text-primary",
+          variant: "inline-primary",
+          color: "vimeoBlue.600",
           target: "_blank",
           rel: "noopener noreferrer",
           children: _v0
@@ -11418,8 +11418,8 @@
       }, [_v9, _v1]);
       let _v97 = (_v0, _v1) => _v0 => (0, _v5.jsx)(_v32.Link, {
           href: _v0,
-          textDecoration: "underline",
-          color: "text-primary",
+          variant: "inline-primary",
+          color: "vimeoBlue.600",
           target: "_blank",
           rel: "noopener noreferrer",
           children: _v0

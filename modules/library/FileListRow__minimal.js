@@ -12,72 +12,78 @@
     _v9 = _v0.i(0);
   _v0.s(["FileListRow", 0, ({
     file: _v0,
-    onDeleted: _v1,
-    title: _v2,
-    ..._v3
+    menuContext: _v1,
+    onDeleted: _v2,
+    title: _v3,
+    copyLinkOverride: _v4,
+    showActionsMenu: _v5 = !0,
+    ..._v6
   }) => {
-    let [_v4, _v5] = (0, _v2.useState)(!1),
-      [_v6, _v7] = (0, _v2.useState)(_v2),
+    let [_v7, _v8] = (0, _v2.useState)(!1),
+      [_v9, _v10] = (0, _v2.useState)(_v3),
       {
-        canEdit: _v8,
-        canDelete: _v9,
-        canMove: _v10,
-        canCopy: _v11,
-        copyLink: _v12,
-        onCopyLink: _v13,
-        copyLinkOnClick: _v14,
-        downloadHref: _v15,
-        onMove: _v16,
-        onCopy: _v17,
-        onDelete: _v18,
-        deleteModal: _v19,
-        copyModal: _v20
-      } = (0, _v5.useFileActions)({
+        canEdit: _v11,
+        canDelete: _v12,
+        canMove: _v13,
+        canCopy: _v14,
+        copyLink: _v15,
+        onCopyLink: _v16,
+        copyLinkOnClick: _v17,
+        downloadHref: _v18,
+        onMove: _v19,
+        onCopy: _v20,
+        onDelete: _v21,
+        deleteModal: _v22,
+        copyModal: _v23
+      } = (0, _v4.useFileActions)({
         file: _v0,
-        onDeleted: _v1
+        copyLinkOverride: _v4,
+        onDeleted: _v2
       }),
-      _v21 = () => {
-        _v5(!0);
+      _v24 = () => {
+        _v8(!0);
       },
-      _v22 = _v4 ? (0, _v1.jsx)(_v7.FileEditableTitle, {
+      _v25 = _v7 ? (0, _v1.jsx)(_v7.FileEditableTitle, {
         ownerId: Number(_v0.uri.split("/")[2]),
         publicId: _v0.publicId,
         fileUri: _v0.uri,
-        isEditing: _v4,
-        setCurrentTitle: _v7,
-        setIsEditingContentTitle: _v5,
-        value: _v6
+        isEditing: _v7,
+        setCurrentTitle: _v10,
+        setIsEditingContentTitle: _v8,
+        value: _v9
       }) : void 0;
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v4.ListRow, {
-        ..._v3,
-        title: _v6,
-        isEditingContentTitle: _v4,
-        editableTitle: _v22,
-        menuButton: (0, _v1.jsx)(_v3.FileMenu, {
-          copyLink: _v12,
-          onCopyLink: _v13,
-          canEdit: _v8,
-          onRename: _v21,
-          onCopy: _v11 ? _v17 : void 0,
-          onMove: _v10 ? _v16 : void 0,
-          downloadHref: _v15,
-          canDelete: _v9,
-          onDelete: _v18,
+      children: [(0, _v1.jsx)(_v3.ListRow, {
+        ..._v6,
+        title: _v9,
+        isEditingContentTitle: _v7,
+        editableTitle: _v25,
+        menuButton: _v5 ? (0, _v1.jsx)(_v6.FileActionsMenu, {
+          fileId: _v0.publicId,
+          context: _v1,
+          copyLink: _v15,
+          onCopyLink: _v16,
+          canEdit: _v11,
+          onRename: _v24,
+          onCopy: _v14 ? _v20 : void 0,
+          onMove: _v13 ? _v19 : void 0,
+          downloadHref: _v18,
+          canDelete: _v12,
+          onDelete: _v21,
           title: _v0.name,
-          zIndex: _v6.ACTIONS_MENU_Z_INDEX
-        }),
+          zIndex: _v5.ACTIONS_MENU_Z_INDEX
+        }) : null,
         hoverActions: (0, _v1.jsx)(_v9.ListViewHoverActionsContainer, {
           children: (0, _v1.jsx)(_v8.FileTopRightDecoration, {
-            onCopyLink: _v14,
-            onRename: _v8 ? _v21 : void 0,
-            downloadHref: _v15,
-            onDelete: _v9 ? _v18 : void 0,
+            onCopyLink: _v17,
+            onRename: _v11 ? _v24 : void 0,
+            downloadHref: _v18,
+            onDelete: _v12 ? _v21 : void 0,
             buttonVariant: "minimal",
             flexDirection: "row"
           })
         })
-      }), _v19, _v20]
+      }), _v22, _v23]
     });
   }]);
 }

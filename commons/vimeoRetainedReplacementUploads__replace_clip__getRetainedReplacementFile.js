@@ -294,11 +294,21 @@
             }
             if (!_v7.every(_v0 => _v0(_v0, _v1))) return !1;
             let _v12 = () => {
+              var _v0, _v1;
+              let _v2;
               if (_v6 && _v7) {
                 let _v0, _v1, _v2, _v3;
-                return _v0 = _v4.filter(_v22), _v1 = _v4.filter(_v0 => !_v22(_v0)), _v2 = _v0.length + _v1.length, _v3 = !1, _v0.length > 0 && (_v3 = _v3(_v32(_v0, _v1), _v3.TYPES.CLIP, _v1, _v2, _v2) || _v3), _v1.length > 0 && (_v3 = _v3(_v32(_v1, _v1), _v3.TYPES.FILE, _v1, void 0, _v2) || _v3), _v3;
+                return _v0 = _v4.filter(_v22), _v1 = _v4.filter(_v0 => !_v22(_v0)), _v2 = {
+                  total: _v0.length + _v1.length,
+                  clips: _v0.length,
+                  files: _v1.length
+                }, _v3 = !1, _v0.length > 0 && (_v3 = _v3(_v32(_v0, _v1), _v3.TYPES.CLIP, _v1, _v2, _v2) || _v3), _v1.length > 0 && (_v3 = _v3(_v32(_v1, _v1), _v3.TYPES.FILE, _v1, void 0, _v2) || _v3), _v3;
               }
-              return _v3(_v32(_v3, _v1), _v1.uploadType ?? _v3.TYPES.CLIP, _v1, _v2, _v3.length);
+              return _v3(_v32(_v3, _v1), _v1.uploadType ?? _v3.TYPES.CLIP, _v1, _v2, (_v0 = _v1.uploadType ?? _v3.TYPES.CLIP, _v1 = _v3.length, {
+                total: _v1,
+                clips: (_v2 = _v0 === _v3.TYPES.FILE) ? 0 : _v1,
+                files: _v2 ? _v1 : 0
+              }));
             };
             return !_v8.some(_v0 => _v0(_v0, _v1, _v12, _v2)) && _v12();
           },

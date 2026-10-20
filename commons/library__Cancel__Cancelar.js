@@ -2107,9 +2107,13 @@
       _v5 = (0, _v2.useCallback)(() => null !== _v0 && (_v0.track("upload_modal_cancel_all_clicked", {}), !0), [_v0]),
       _v6 = (0, _v2.useCallback)(() => null !== _v0 && (_v0.track("upload_modal_privacy_dropdown_clicked", {}), !0), [_v0]),
       _v7 = (0, _v2.useCallback)(_v0 => null !== _v0 && (_v0.track("upload_modal_privacy_changed", {
-        upload_modal_privacy_new_value: _v0.uploadModalPrivacyNewValue
+        upload_modal_privacy_new_value: _v0.uploadModalPrivacyNewValue,
+        upload_modal_privacy_entity_type: _v0.entityType
       }), !0), [_v0]),
-      _v8 = (0, _v2.useCallback)(() => null !== _v0 && (_v0.track("upload_modal_share_clicked", {}), !0), [_v0]);
+      _v8 = (0, _v2.useCallback)(_v0 => null !== _v0 && (_v0.track("upload_modal_share_clicked", {
+        entity_type: _v0.uploadModalShareEntityType
+      }), !0), [_v0]),
+      _v9 = (0, _v2.useCallback)(() => null !== _v0 && (_v0.track("upload_modal_video_removed", {}), !0), [_v0]);
     return {
       trackUploadModalMinimizeClicked: _v1,
       trackUploadModalDismissed: _v2,
@@ -2119,7 +2123,8 @@
       trackUploadModalPrivacyDropdownClicked: _v6,
       trackUploadModalPrivacyChanged: _v7,
       trackUploadModalShareClicked: _v8,
-      trackUploadModalVideoRemoved: (0, _v2.useCallback)(() => null !== _v0 && (_v0.track("upload_modal_video_removed", {}), !0), [_v0]),
+      trackUploadModalVideoRemoved: _v9,
+      trackUploadModalFileRemoved: (0, _v2.useCallback)(() => null !== _v0 && (_v0.track("upload_modal_file_removed", {}), !0), [_v0]),
       trackUploadModalUploadMoreClicked: (0, _v2.useCallback)(() => null !== _v0 && (_v0.track("upload_modal_upload_more_clicked", {}), !0), [_v0])
     };
   }
@@ -2583,13 +2588,14 @@
         })(),
         _v8 = (0, _v91.useIsMobile)(),
         {
-          trackUploadModalVideoRemoved: _v9
+          trackUploadModalVideoRemoved: _v9,
+          trackUploadModalFileRemoved: _v10
         } = _v52(),
-        _v10 = _v1.state === _v5.STATES.COMPLETED,
-        _v11 = _v10 && !!_v1.clipId;
-      if (_v10 || _v0 && !_v8 || _v6 && _v8) {
-        let _v0 = _v11 ? _v88.EditPencil : _v36.CloseXCircle,
-          _v1 = _v11 ? (0, _v17.translate)({
+        _v11 = _v1.state === _v5.STATES.COMPLETED,
+        _v12 = _v11 && (!!_v1.clipId || !!_v1.publicId);
+      if (_v11 || _v0 && !_v8 || _v6 && _v8) {
+        let _v0 = _v12 ? _v88.EditPencil : _v36.CloseXCircle,
+          _v1 = _v12 ? (0, _v17.translate)({
             singular: "Manage",
             dictionary: {
               es: {
@@ -2640,10 +2646,10 @@
               }
             }
           }),
-          _v2 = _v11 ? _v0 => {
+          _v2 = _v12 ? _v0 => {
             _v0.stopPropagation(), _v4?.(_v1);
           } : _v0 => {
-            _v0.stopPropagation(), _v9(), _v3(_v1);
+            _v0.stopPropagation(), _v1.uploadType === _v5.TYPES.FILE ? _v10() : _v9(), _v3(_v1);
           };
         return (0, _v1.jsx)("div", {
           ref: _v5,
@@ -2667,30 +2673,30 @@
           })
         });
       }
-      let _v12 = _v8 ? {
+      let _v13 = _v8 ? {
           onClick: _v7
         } : {},
-        _v13 = null;
+        _v14 = null;
       switch (_v1.state) {
         case _v5.STATES.FAILED:
-          _v13 = (0, _v1.jsx)(_v35.CircleExclamationFilled, {
+          _v14 = (0, _v1.jsx)(_v35.CircleExclamationFilled, {
             boxSize: "xs",
             color: "status-destructive-primary",
-            ..._v12
+            ..._v13
           });
           break;
         case _v5.STATES.CANCELED:
           break;
         default:
-          if (_v2) _v13 = (0, _v1.jsx)(_v90, {
+          if (_v2) _v14 = (0, _v1.jsx)(_v90, {
             boxSize: "xs"
           });else {
             let _v0 = Math.floor(100 * _v1.bytesUploaded / _v1.initialSize);
-            _v13 = (0, _v1.jsx)(_v87.CircularProgress, {
+            _v14 = (0, _v1.jsx)(_v87.CircularProgress, {
               size: "sm",
               value: _v0,
               color: "text-primary",
-              ..._v12
+              ..._v13
             });
           }
       }
@@ -2699,7 +2705,7 @@
         style: {
           minWidth: "32px"
         },
-        children: _v13
+        children: _v14
       });
     }),
     _v93 = (_v0, _v1 = 0, _v2 = !1) => {
@@ -3304,11 +3310,13 @@
               })]
             })]
           }), !_v1 && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [_v0.clipId && (0, _v1.jsx)(_v21.Button, {
+            children: [(_v0.clipId || _v33 && _v0.publicId) && (0, _v1.jsx)(_v21.Button, {
               variant: "secondary",
               size: "sm",
               onClick: _v0 => {
-                _v0.stopPropagation(), _v15(), _v12?.(_v0);
+                _v0.stopPropagation(), _v15({
+                  uploadModalShareEntityType: _v33 ? "file" : "clip"
+                }), _v12?.(_v0);
               },
               children: (0, _v17.translate)({
                 singular: "Share",
@@ -3598,7 +3606,8 @@
           }, [_v3, _v13, _v2]),
           _v17 = (0, _v2.useCallback)(_v0 => {
             _v14({
-              uploadModalPrivacyNewValue: _v0
+              uploadModalPrivacyNewValue: _v0,
+              entityType: "video"
             });
             let _v1 = _v1(),
               _v2 = _v0.find(_v0 => _v0.privacy === _v0);
@@ -3611,8 +3620,11 @@
             })));
           }, [_v1, _v3, _v13, _v12, _v0, _v2, _v14]),
           _v18 = (0, _v2.useCallback)(_v0 => {
-            _v8(_v0), _v4?.(_v0);
-          }, [_v4]),
+            _v14({
+              uploadModalPrivacyNewValue: _v0,
+              entityType: "file"
+            }), _v8(_v0), _v4?.(_v0);
+          }, [_v4, _v14]),
           _v19 = "password" === _v5 ? _v9 ?? _v1().password : void 0;
         return {
           passwordValue: _v9,

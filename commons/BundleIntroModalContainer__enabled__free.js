@@ -16,24 +16,25 @@
     _v13 = _v0.i(0);
   _v0.s(["BundleIntroModalContainer", 0, ({
     isSuppressed: _v0 = !1,
-    productDescriptionsVariant: _v1 = "default"
+    onOpenChange: _v1,
+    productDescriptionsVariant: _v2 = "default"
   }) => {
-    let _v2 = (0, _v11.useBundleOffer)(),
-      _v3 = "enabled" === _v2.status && "free" === _v2.price,
+    let _v3 = (0, _v11.useBundleOffer)(),
+      _v4 = "enabled" === _v3.status && "free" === _v3.price,
       {
-        ownsBundle: _v4,
-        isResolving: _v5
+        ownsBundle: _v5,
+        isResolving: _v6
       } = (0, _v12.useBundleOwnership)({
-        enabled: _v3
+        enabled: _v4
       }),
-      _v6 = (0, _v7.useViewer)(),
-      _v7 = (0, _v3.useCampaignIdOverride)(),
-      _v8 = (0, _v6.normalizeTier)(_v6?.teamUser?.accountType?.toString() ?? _v6?.user?.account?.toString() ?? ""),
-      _v9 = (0, _v6.isPaidRepackagingTier)(_v8) || null !== _v7 && _v3.REPACKAGING_CAMPAIGN_IDS.includes(_v7),
-      _v10 = _v3 && !_v5 && !_v4 && !_v0 && !_v9,
+      _v7 = (0, _v7.useViewer)(),
+      _v8 = (0, _v3.useCampaignIdOverride)(),
+      _v9 = (0, _v6.normalizeTier)(_v7?.teamUser?.accountType?.toString() ?? _v7?.user?.account?.toString() ?? ""),
+      _v10 = (0, _v6.isPaidRepackagingTier)(_v9) || null !== _v8 && _v3.REPACKAGING_CAMPAIGN_IDS.includes(_v8),
+      _v11 = _v4 && !_v6 && !_v5 && !_v0 && !_v10,
       {
-        isOpen: _v11,
-        dismiss: _v12
+        isOpen: _v12,
+        dismiss: _v13
       } = (({
         enabled: _v0
       }) => {
@@ -63,46 +64,49 @@
           dismiss: (0, _v2.useCallback)(() => _v4(!1), [])
         };
       })({
-        enabled: _v10
-      }),
-      {
-        trackBundleIntroModalDisplayed: _v13,
-        trackBundleIntroModalCtaClick: _v14,
-        trackBundleIntroModalDismissed: _v15
+        enabled: _v11
+      });
+    (0, _v2.useEffect)(() => {
+      _v1?.(_v12 && _v11);
+    }, [_v11, _v12, _v1]);
+    let {
+        trackBundleIntroModalDisplayed: _v14,
+        trackBundleIntroModalCtaClick: _v15,
+        trackBundleIntroModalDismissed: _v16
       } = (0, _v4.useBundleTracking)(),
-      _v16 = (0, _v10.useBundleExperimentKey)(),
-      _v17 = "enabled" === _v2.status ? _v2.bundleType : null;
-    (0, _v5.usePicoEffect)(() => !!_v11 && !!_v10 && null !== _v17 && (_v13({
+      _v17 = (0, _v10.useBundleExperimentKey)(),
+      _v18 = "enabled" === _v3.status ? _v3.bundleType : null;
+    (0, _v5.usePicoEffect)(() => !!_v12 && !!_v11 && null !== _v18 && (_v14({
       surface: "weekly_intro",
-      bundleType: _v17,
+      bundleType: _v18,
       bundlePrice: "free",
-      experimentKey: _v16
-    }), !0), [_v11, _v10, _v17, _v13, _v16], {
+      experimentKey: _v17
+    }), !0), [_v12, _v11, _v18, _v14, _v17], {
       once: !0
     });
-    let _v18 = (0, _v2.useCallback)(_v0 => {
-        null !== _v17 && _v15({
+    let _v19 = (0, _v2.useCallback)(_v0 => {
+        null !== _v18 && _v16({
           surface: "weekly_intro",
-          bundleType: _v17,
+          bundleType: _v18,
           bundlePrice: "free",
           dismissMethod: _v0,
-          experimentKey: _v16
-        }), _v12();
-      }, [_v17, _v15, _v12, _v16]),
-      _v19 = (0, _v2.useCallback)(() => {
-        null !== _v17 && _v14({
+          experimentKey: _v17
+        }), _v13();
+      }, [_v18, _v16, _v13, _v17]),
+      _v20 = (0, _v2.useCallback)(() => {
+        null !== _v18 && _v15({
           surface: "weekly_intro",
-          bundleType: _v17,
+          bundleType: _v18,
           bundlePrice: "free",
-          experimentKey: _v16
-        }), _v12(), (0, _v13.openBundleLibrary)();
-      }, [_v17, _v14, _v12, _v16]);
-    return null === _v17 ? null : (0, _v1.jsx)(_v8.BundleIntroModal, {
-      isOpen: _v11 && _v10,
-      bundleType: _v17,
-      onCtaClick: _v19,
-      onDismiss: _v18,
-      productDescriptionsVariant: _v1
+          experimentKey: _v17
+        }), _v13(), (0, _v13.openBundleLibrary)();
+      }, [_v18, _v15, _v13, _v17]);
+    return null === _v18 ? null : (0, _v1.jsx)(_v8.BundleIntroModal, {
+      isOpen: _v12 && _v11,
+      bundleType: _v18,
+      onCtaClick: _v20,
+      onDismiss: _v19,
+      productDescriptionsVariant: _v2
     });
   }], 0);
 }

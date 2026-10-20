@@ -25,66 +25,69 @@
     _v22 = _v0.i(0);
   let _v23 = "vimeo_corporate_upgrade_modal_seen";
   _v0.s(["CorporateUpgradeModal", 0, ({
-    productName: _v0
+    productName: _v0,
+    onOpenChange: _v1
   }) => {
-    let [_v1, _v2] = (0, _v2.useState)(!1),
-      [_v3, _v4] = (0, _v2.useState)("corporate"),
-      _v5 = (0, _v17.useBundleOffer)(),
+    let [_v2, _v3] = (0, _v2.useState)(!1),
+      [_v4, _v5] = (0, _v2.useState)("corporate"),
+      _v6 = (0, _v17.useBundleOffer)(),
       {
-        trackBillingB2bModalDisplayed: _v6,
-        trackBillingB2bModalDismissed: _v7,
-        trackBillingB2bModalExplorePlansClicked: _v8,
-        trackBillingB2bModalContactSupportClicked: _v9,
-        trackBillingPageRepackagingLearnMoreClicked: _v10
+        trackBillingB2bModalDisplayed: _v7,
+        trackBillingB2bModalDismissed: _v8,
+        trackBillingB2bModalExplorePlansClicked: _v9,
+        trackBillingB2bModalContactSupportClicked: _v10,
+        trackBillingPageRepackagingLearnMoreClicked: _v11
       } = (0, _v20.useBillingTracking)(),
       {
-        trackBundleIntroModalDisplayed: _v11,
-        trackBundleIntroModalCtaClick: _v12,
-        trackBundleIntroModalDismissed: _v13
+        trackBundleIntroModalDisplayed: _v12,
+        trackBundleIntroModalCtaClick: _v13,
+        trackBundleIntroModalDismissed: _v14
       } = (0, _v21.useBundleTracking)(),
-      _v14 = (0, _v16.useBundleExperimentKey)();
+      _v15 = (0, _v16.useBundleExperimentKey)();
     (0, _v2.useEffect)(() => {
       try {
-        localStorage.getItem(_v23) || (_v2(!0), _v6());
+        localStorage.getItem(_v23) || (_v3(!0), _v7());
       } catch {}
     }, []);
-    let _v15 = () => {
-      _v7(), _v2(!1);
+    let _v16 = () => {
+      _v8(), _v3(!1);
       try {
         localStorage.setItem(_v23, "1");
       } catch {}
     };
-    return ((0, _v22.usePicoEffect)(() => "bundleIntro" === _v3 && "enabled" === _v5.status && !!_v5.triggers.includes("b2b_studio_repackaging_bundle") && (_v11({
+    return ((0, _v2.useEffect)(() => {
+      _v1?.(_v2);
+    }, [_v2, _v1]), (0, _v2.useEffect)(() => () => _v1?.(!1), [_v1]), (0, _v22.usePicoEffect)(() => "bundleIntro" === _v4 && "enabled" === _v6.status && !!_v6.triggers.includes("b2b_studio_repackaging_bundle") && (_v12({
       surface: "corporate_upgrade_modal",
-      bundleType: _v5.bundleType,
-      bundlePrice: _v5.price,
-      experimentKey: _v14
-    }), !0), [_v3, _v5, _v11, _v14], {
+      bundleType: _v6.bundleType,
+      bundlePrice: _v6.price,
+      experimentKey: _v15
+    }), !0), [_v4, _v6, _v12, _v15], {
       once: !0
-    }), _v1) ? "bundleIntro" === _v3 && "enabled" === _v5.status && _v5.triggers.includes("b2b_studio_repackaging_bundle") ? (0, _v1.jsx)(_v14.BundleIntroModal, {
+    }), _v2) ? "bundleIntro" === _v4 && "enabled" === _v6.status && _v6.triggers.includes("b2b_studio_repackaging_bundle") ? (0, _v1.jsx)(_v14.BundleIntroModal, {
       isOpen: !0,
-      bundleType: _v5.bundleType,
+      bundleType: _v6.bundleType,
       productDescriptionsVariant: "b2bStudioRepackaging",
       onCtaClick: () => {
-        "enabled" === _v5.status && _v12({
+        "enabled" === _v6.status && _v13({
           surface: "corporate_upgrade_modal",
-          bundleType: _v5.bundleType,
-          bundlePrice: _v5.price,
-          experimentKey: _v14
-        }), _v15(), (0, _v15.openBundleLibrary)();
+          bundleType: _v6.bundleType,
+          bundlePrice: _v6.price,
+          experimentKey: _v15
+        }), _v16(), (0, _v15.openBundleLibrary)();
       },
       onDismiss: _v0 => {
-        _v13({
+        _v14({
           surface: "corporate_upgrade_modal",
-          bundleType: _v5.bundleType,
-          bundlePrice: _v5.price,
+          bundleType: _v6.bundleType,
+          bundlePrice: _v6.price,
           dismissMethod: _v0,
-          experimentKey: _v14
-        }), _v15();
+          experimentKey: _v15
+        }), _v16();
       }
     }) : (0, _v1.jsxs)(_v7.Modal, {
-      isOpen: _v1,
-      onClose: _v15,
+      isOpen: _v2,
+      onClose: _v16,
       size: ["full", "md"],
       scrollBehavior: "outside",
       children: [(0, _v1.jsx)(_v12.ModalOverlay, {}), (0, _v1.jsxs)(_v10.ModalContent, {
@@ -179,7 +182,7 @@
                   isExternal: !0,
                   variant: "inline-secondary",
                   textDecoration: "underline",
-                  onClick: _v10,
+                  onClick: _v11,
                   children: _v0
                 }),
                 LINK_B: _v0 => (0, _v1.jsx)(_v6.Link, {
@@ -187,7 +190,7 @@
                   isExternal: !0,
                   variant: "inline-secondary",
                   textDecoration: "underline",
-                  onClick: _v10,
+                  onClick: _v11,
                   children: _v0
                 })
               },
@@ -227,7 +230,7 @@
             size: "md",
             width: "100%",
             onClick: () => {
-              "enabled" === _v5.status && _v5.triggers.includes("b2b_studio_repackaging_bundle") ? _v4("bundleIntro") : _v15();
+              "enabled" === _v6.status && _v6.triggers.includes("b2b_studio_repackaging_bundle") ? _v5("bundleIntro") : _v16();
             },
             children: (0, _v18.translate)({
               singular: "Got it!",
@@ -292,7 +295,7 @@
               }),
               variant: "inline-secondary",
               textDecoration: "underline",
-              onClick: _v8,
+              onClick: _v9,
               children: (0, _v18.translate)({
                 singular: "Explore plans",
                 dictionary: {
@@ -349,7 +352,7 @@
               isExternal: !0,
               variant: "inline-secondary",
               textDecoration: "underline",
-              onClick: _v9,
+              onClick: _v10,
               children: (0, _v18.translate)({
                 singular: "Contact Support",
                 dictionary: {
