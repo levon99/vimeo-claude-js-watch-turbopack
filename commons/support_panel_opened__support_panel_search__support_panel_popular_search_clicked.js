@@ -78,25 +78,23 @@
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
     _v27 = _v0.i(0),
-    _v28 = _v0.i(0);
-  let _v29 = "https://help.vimeo.com",
-    _v30 = new Map([["en", "en-us"], ["de-DE", "de"], ["es", "es"], ["fr-FR", "fr"], ["ja-JP", "ja"], ["ko-KR", "ko"], ["pt-BR", "pt-br"], ["zh-CN", "zh-cn"]]),
-    _v31 = _v0 => _v30.get(_v0) ?? "en-us",
-    _v32 = {
+    _v28 = _v0.i(0),
+    _v29 = _v0.i(0);
+  let _v30 = {
       isPanelOpen: !1,
       currentPage: "home",
       history: [],
-      currentHCUrl: `${_v29}/hc`,
+      currentHCUrl: `${_v28.HC_BASE_URL}/hc`,
       searchQuery: "",
-      hc_base_url: _v29
+      hc_base_url: _v28.HC_BASE_URL
     },
-    _v33 = (0, _v3.createContext)(void 0),
-    _v34 = ({
+    _v31 = (0, _v3.createContext)(void 0),
+    _v32 = ({
       children: _v0
     }) => {
       let _v1 = (0, _v3.useContext)(_v27.ViewerContext),
         _v2 = _v1?.locale ?? "en",
-        [_v3, _v4] = (0, _v3.useState)(_v31(_v2)),
+        [_v3, _v4] = (0, _v3.useState)((0, _v28.getZendeskLocale)(_v2)),
         {
           trackSupportPanelSearch: _v5
         } = _v22(),
@@ -120,7 +118,7 @@
               } catch (_v0) {}
             }
           }, [_v0, _v3, _v2?.storageKeys]), [_v3, _v4];
-        })("vimeo-help-panel", _v32, {
+        })("vimeo-help-panel", _v30, {
           storageKeys: ["currentPage", "history"]
         }),
         _v8 = (0, _v3.useRef)(0),
@@ -133,7 +131,7 @@
           let {
               baseUrl: _v0,
               jwt: _v1
-            } = (0, _v28.useGctlConfig)(),
+            } = (0, _v29.useGctlConfig)(),
             _v2 = (0, _v3.useContext)(_v27.ViewerContext),
             _v3 = _v2?.user,
             [_v4, _v5] = (0, _v3.useState)(null),
@@ -181,7 +179,7 @@
           };
         })();
       (0, _v3.useEffect)(() => {
-        let _v0 = _v31(_v2);
+        let _v0 = (0, _v28.getZendeskLocale)(_v2);
         _v3 !== _v0 && _v4(_v0);
       }, [_v2, _v3]);
       let _v13 = (_v0, _v1) => {
@@ -219,7 +217,7 @@
         },
         _v15 = {
           ..._v6,
-          hc_base_url: _v29,
+          hc_base_url: _v28.HC_BASE_URL,
           locale: _v3,
           agenticHelp: _v9,
           isAgenticHelpLoading: _v10,
@@ -229,7 +227,7 @@
               isPanelOpen: !0,
               currentPage: "home",
               history: [],
-              currentHCUrl: `${_v29}/hc/${_v3}`
+              currentHCUrl: `${_v28.HC_BASE_URL}/hc/${_v3}`
             }));
           },
           closePanel: () => {
@@ -255,20 +253,20 @@
           goToPage: _v13,
           handleSearch: _v14
         };
-      return (0, _v1.jsx)(_v33.Provider, {
+      return (0, _v1.jsx)(_v31.Provider, {
         value: _v15,
         children: _v0
       });
     },
-    _v35 = () => {
-      let _v0 = (0, _v3.useContext)(_v33);
+    _v33 = () => {
+      let _v0 = (0, _v3.useContext)(_v31);
       if (void 0 === _v0) throw Error("useHelpPanel must be used within a HelpPanelProvider");
       return _v0;
     },
-    _v36 = () => {
+    _v34 = () => {
       let {
           handleSearch: _v0
-        } = _v35(),
+        } = _v33(),
         {
           trackSupportPanelPopularSearchClicked: _v1
         } = _v22(),
@@ -460,12 +458,12 @@
         })]
       });
     };
-  var _v37 = _v0.i(0),
+  var _v35 = _v0.i(0),
+    _v36 = _v0.i(0),
+    _v37 = _v0.i(0),
     _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  let _v42 = _v0 => (0, _v1.jsx)(_v41.Icon, {
+    _v39 = _v0.i(0);
+  let _v40 = _v0 => (0, _v1.jsx)(_v39.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -476,24 +474,24 @@
       fill: "currentColor"
     })
   });
-  _v0.s(["PopOutFilled", 0, _v42], 0);
-  var _v43 = _v0.i(0),
+  _v0.s(["PopOutFilled", 0, _v40], 0);
+  var _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0),
     _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  let _v48 = new Date("2026-09-04T00:00:00Z");
-  function _v49() {
+    _v45 = _v0.i(0);
+  let _v46 = new Date("2026-09-04T00:00:00Z");
+  function _v47() {
     let _v0 = (0, _v11.useViewer)(),
       {
         data: _v1,
         mutate: _v2
-      } = (0, _v47.useGetMePreferences)(() => _v0?.user ? {
+      } = (0, _v45.useGetMePreferences)(() => _v0?.user ? {
         select: ["iasp"]
       } : null),
-      [_v3] = (0, _v47.usePatchMePreferences)(),
+      [_v3] = (0, _v45.usePatchMePreferences)(),
       _v4 = _v0?.user?.createdTime,
-      _v5 = !_v4 || new Date(_v4) < _v48,
+      _v5 = !_v4 || new Date(_v4) < _v46,
       _v6 = _v1?.iasp;
     return {
       showDot: _v5 && void 0 !== _v1 && !_v6,
@@ -511,15 +509,15 @@
       }, [_v6, _v3, _v2])
     };
   }
-  let _v50 = () => {
+  let _v48 = () => {
     let {
         currentHCUrl: _v0,
         currentPage: _v1
-      } = _v35(),
+      } = _v33(),
       {
         showDot: _v2,
         dismissDot: _v3
-      } = _v49(),
+      } = _v47(),
       {
         trackSupportPanelYourRequestsClicked: _v4
       } = _v22();
@@ -566,7 +564,7 @@
               singular: "请求"
             }
           }
-        }), (0, _v1.jsx)(_v46.ChevronRightSmall, {
+        }), (0, _v1.jsx)(_v44.ChevronRightSmall, {
           mr: "-1"
         })]
       }), _v2 && (0, _v1.jsx)(_v17.NewFeatureDot, {
@@ -576,8 +574,8 @@
       })]
     });
   };
-  var _v51 = _v0.i(0);
-  let _v52 = ({
+  var _v49 = _v0.i(0);
+  let _v50 = ({
       title: _v0,
       showBackButton: _v1,
       showSearchButton: _v2,
@@ -591,7 +589,7 @@
           isAgenticHelpLoading: _v8,
           closePanel: _v9,
           searchQuery: _v10
-        } = _v35(),
+        } = _v33(),
         {
           trackSupportPanelHelpCenterClicked: _v11
         } = _v22(),
@@ -612,7 +610,7 @@
             alignItems: "center",
             flex: "1",
             children: [_v1 && (0, _v1.jsx)(_v14.IconButton, {
-              icon: (0, _v1.jsx)(_v40.ChevronLeft, {}),
+              icon: (0, _v1.jsx)(_v38.ChevronLeft, {}),
               "aria-label": (0, _v19.translate)({
                 singular: "Back",
                 dictionary: {
@@ -679,7 +677,7 @@
                 href: `https://vimeo.com/help/sso?redirect_to=${_v5}`,
                 target: "_blank",
                 rel: "noopener noreferrer",
-                icon: (0, _v1.jsx)(_v42, {}),
+                icon: (0, _v1.jsx)(_v40, {}),
                 "aria-label": (0, _v19.translate)({
                   singular: "Go to Help Center",
                   dictionary: {
@@ -719,9 +717,9 @@
             alignItems: "center",
             children: [(0, _v1.jsx)(_v13.Box, {
               w: "md"
-            }), (0, _v1.jsx)(_v50, {})]
+            }), (0, _v1.jsx)(_v48, {})]
           }), (0, _v1.jsx)(_v14.IconButton, {
-            icon: (0, _v1.jsx)(_v45.CloseXSmall, {}),
+            icon: (0, _v1.jsx)(_v43.CloseXSmall, {}),
             "aria-label": (0, _v19.translate)({
               singular: "Close help panel",
               dictionary: {
@@ -763,13 +761,13 @@
             position: "relative",
             padding: "2px",
             borderRadius: "md",
-            bg: _v8 ? _v51.FLOW_GRADIENT_MUTED : "stroke",
+            bg: _v8 ? _v49.FLOW_GRADIENT_MUTED : "stroke",
             boxShadow: _v16 && !_v8 ? "0 0 0 3px rgba(110, 220, 245, 0.14)" : "0 2px 10px rgba(78, 205, 234, 0.13)",
             sx: _v8 ? {
-              ..._v51.FLOW_GRADIENT_KEYFRAMES
+              ..._v49.FLOW_GRADIENT_KEYFRAMES
             } : {
-              ..._v51.FLOW_GRADIENT_KEYFRAMES,
-              ..._v51.FLOW_GRADIENT_EDGE_PULSE_SX
+              ..._v49.FLOW_GRADIENT_KEYFRAMES,
+              ..._v49.FLOW_GRADIENT_EDGE_PULSE_SX
             },
             children: [!_v8 && (0, _v1.jsx)(_v13.Box, {
               "aria-hidden": !0,
@@ -779,12 +777,12 @@
               pointerEvents: "none",
               zIndex: 0,
               sx: {
-                ..._v51.FLOW_INNER_GLOW_SX
+                ..._v49.FLOW_INNER_GLOW_SX
               }
-            }), (0, _v1.jsxs)(_v38.InputGroup, {
+            }), (0, _v1.jsxs)(_v36.InputGroup, {
               position: "relative",
               zIndex: 1,
-              children: [(0, _v1.jsx)(_v37.Input, {
+              children: [(0, _v1.jsx)(_v35.Input, {
                 placeholder: (0, _v19.translate)({
                   singular: "Search for help or ask a question",
                   dictionary: {
@@ -829,13 +827,13 @@
                   boxShadow: "none"
                 },
                 ref: _v19
-              }), (0, _v1.jsxs)(_v39.InputRightElement, {
+              }), (0, _v1.jsxs)(_v37.InputRightElement, {
                 width: "auto",
                 height: "var(--vimeo-sizes-sm)",
                 margin: "xs",
                 gap: "xs",
                 children: [_v12 && (0, _v1.jsx)(_v14.IconButton, {
-                  icon: (0, _v1.jsx)(_v44.CloseXCircleFilled, {}),
+                  icon: (0, _v1.jsx)(_v42.CloseXCircleFilled, {}),
                   "aria-label": (0, _v19.translate)({
                     singular: "Clear search",
                     dictionary: {
@@ -870,7 +868,7 @@
                     _v13(""), _v19.current?.focus();
                   }
                 }), (0, _v1.jsx)(_v14.IconButton, {
-                  icon: (0, _v1.jsx)(_v43.SearchMagnifierAi, {}),
+                  icon: (0, _v1.jsx)(_v41.SearchMagnifierAi, {}),
                   "aria-label": (0, _v19.translate)({
                     singular: "Search",
                     dictionary: {
@@ -909,7 +907,7 @@
         })]
       });
     },
-    _v53 = _v0 => _v0.filter(_v0 => (_v0 => {
+    _v51 = _v0 => _v0.filter(_v0 => (_v0 => {
       try {
         let _v0 = new URL(_v0);
         return "https:" === _v0.protocol && "help.vimeo.com" === _v0.hostname;
@@ -917,9 +915,9 @@
         return !1;
       }
     })(_v0.url));
-  var _v54 = _v0.i(0),
-    _v55 = _v0.i(0);
-  let _v56 = ({
+  var _v52 = _v0.i(0),
+    _v53 = _v0.i(0);
+  let _v54 = ({
       sources: _v0,
       panelPage: _v1,
       gap: _v2 = 2
@@ -987,20 +985,20 @@
             children: [(0, _v1.jsx)(_v26.Text, {
               variant: "body-md",
               children: _v0.title
-            }), (0, _v1.jsx)(_v55.PopOut, {
+            }), (0, _v1.jsx)(_v53.PopOut, {
               boxSize: 16
             })]
           }, _v0.url))
         })]
       });
     },
-    _v57 = () => {
+    _v55 = () => {
       let {
           agenticHelp: _v0,
           handleSearch: _v1,
           searchQuery: _v2
-        } = _v35(),
-        _v3 = (0, _v3.useMemo)(() => _v53(_v0?.sources ?? []), [_v0]),
+        } = _v33(),
+        _v3 = (0, _v3.useMemo)(() => _v51(_v0?.sources ?? []), [_v0]),
         _v4 = _v3.length > 0;
       return (0, _v1.jsxs)(_v4.Flex, {
         direction: "column",
@@ -1015,7 +1013,7 @@
             width: (0, _v5.rem)(40),
             height: (0, _v5.rem)(40),
             marginBottom: (0, _v5.rem)(13),
-            children: (0, _v1.jsx)(_v54.AiSparkles, {
+            children: (0, _v1.jsx)(_v52.AiSparkles, {
               boxSize: (0, _v5.rem)(22)
             })
           }), (0, _v1.jsx)(_v26.Text, {
@@ -1138,7 +1136,7 @@
           })
         }), _v4 && (0, _v1.jsx)(_v13.Box, {
           marginTop: (0, _v5.rem)(18),
-          children: (0, _v1.jsx)(_v56, {
+          children: (0, _v1.jsx)(_v54, {
             sources: _v3,
             panelPage: "search_error",
             gap: 12
@@ -1146,18 +1144,18 @@
         })]
       });
     };
-  var _v58 = _v0.i(0),
-    _v59 = _v0.i(0),
-    _v60 = _v0.i(0);
-  let _v61 = () => {
+  var _v56 = _v0.i(0),
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0);
+  let _v59 = () => {
       let {
           agenticHelp: _v0,
           isAgenticHelpLoading: _v1
-        } = _v35(),
-        _v2 = (0, _v3.useMemo)(() => _v53(_v0?.sources ?? []), [_v0]),
+        } = _v33(),
+        _v2 = (0, _v3.useMemo)(() => _v51(_v0?.sources ?? []), [_v0]),
         _v3 = _v1 || null == _v0;
       return (0, _v1.jsxs)(_v13.Box, {
-        children: [(0, _v1.jsx)(_v59.CardShell, {
+        children: [(0, _v1.jsx)(_v57.CardShell, {
           variant: "panel",
           title: _v3 ? (0, _v19.translate)({
             singular: "Preparing your smart overview",
@@ -1211,7 +1209,7 @@
             }
           }),
           isLoading: _v3,
-          children: null == _v0 || _v1 ? (0, _v1.jsx)(_v58.CardLoading, {
+          children: null == _v0 || _v1 ? (0, _v1.jsx)(_v56.CardLoading, {
             caption: (0, _v19.translate)({
               singular: "Finding the most useful help for your question…",
               dictionary: {
@@ -1238,7 +1236,7 @@
                 }
               }
             })
-          }) : (0, _v1.jsx)(_v60.HelpBody, {
+          }) : (0, _v1.jsx)(_v58.HelpBody, {
             result: _v0,
             sourceCaption: (0, _v19.translate)({
               singular: "Based on Help Center articles",
@@ -1270,20 +1268,20 @@
           })
         }), !_v3 && _v2.length > 0 && (0, _v1.jsx)(_v13.Box, {
           mt: "xl",
-          children: (0, _v1.jsx)(_v56, {
+          children: (0, _v1.jsx)(_v54, {
             sources: _v2,
             panelPage: "search"
           })
         })]
       });
     },
-    _v62 = _v3.useLayoutEffect,
-    _v63 = (0, _v3.forwardRef)((_v0, _v1) => {
+    _v60 = _v3.useLayoutEffect,
+    _v61 = (0, _v3.forwardRef)((_v0, _v1) => {
       let {
           isPanelOpen: _v2,
           currentPage: _v3,
           history: _v4
-        } = _v35(),
+        } = _v33(),
         _v5 = (0, _v3.useMemo)(() => {
           let _v0 = _v4.length > 0 && "home" !== _v3,
             _v1 = "home" === _v3 || "search" === _v3 || "search_error" === _v3;
@@ -1322,7 +1320,7 @@
         _v6 = (0, _v3.useRef)(null),
         [_v7, _v8] = (0, _v3.useState)("auto"),
         _v9 = !0 === (0, _v24.useReducedMotion)();
-      return (_v62(() => {
+      return (_v60(() => {
         if (!_v2) return void _v8("auto");
         let _v0 = _v6.current;
         if (!_v0) return;
@@ -1353,7 +1351,7 @@
         isolation: "isolate",
         fontFamily: "body",
         backdropFilter: "blur(12px)",
-        children: [(0, _v1.jsx)(_v52, {
+        children: [(0, _v1.jsx)(_v50, {
           ..._v5
         }), (0, _v1.jsx)(_v13.Box, {
           flex: "1",
@@ -1382,11 +1380,11 @@
                 switch (_v0) {
                   case "home":
                   default:
-                    return (0, _v1.jsx)(_v36, {});
+                    return (0, _v1.jsx)(_v34, {});
                   case "search":
-                    return (0, _v1.jsx)(_v61, {});
+                    return (0, _v1.jsx)(_v59, {});
                   case "search_error":
-                    return (0, _v1.jsx)(_v57, {});
+                    return (0, _v1.jsx)(_v55, {});
                 }
               })(_v3)
             })
@@ -1394,24 +1392,24 @@
         })]
       }) : null;
     });
-  var _v64 = _v0.i(0);
-  let _v65 = (_v0, _v1, _v2, _v3) => {
+  var _v62 = _v0.i(0);
+  let _v63 = (_v0, _v1, _v2, _v3) => {
       setTimeout(() => {
         let _v0 = document.getElementById(_v0);
         _v0 && _v0.addEventListener("click", function () {
           let _v0;
-          (_v0 = document.getElementById(_v1)) && (_v0.style.display = "none"), _v65(_v2, _v3, _v0, _v1);
+          (_v0 = document.getElementById(_v1)) && (_v0.style.display = "none"), _v63(_v2, _v3, _v0, _v1);
         });
       }, 0);
     },
-    _v66 = "/help/sso?redirect_to=https://help.vimeo.com/",
-    _v67 = () => {
+    _v64 = "/help/sso?redirect_to=https://help.vimeo.com/",
+    _v65 = () => {
       let _v0 = (0, _v11.useViewer)(),
         {
           openPanel: _v1,
           closePanel: _v2,
           isPanelOpen: _v3
-        } = _v35(),
+        } = _v33(),
         {
           trackHeaderHelpButtonClicked: _v4
         } = (0, _v10.useHeaderTracking)(),
@@ -1427,14 +1425,14 @@
         _v10 = _v9.hasEnterprise,
         _v11 = _v0?.isSimplifiedSite,
         _v12 = !!_v0 && !_v0?.user,
-        _v13 = (0, _v64.useOrionSetting)("in_product_support_panel") && !_v11 && !_v12,
+        _v13 = (0, _v62.useOrionSetting)("in_product_support_panel") && !_v11 && !_v12,
         {
           showDot: _v14
-        } = _v49(),
+        } = _v47(),
         _v15 = (0, _v3.useMemo)(() => _v12 ? {
           "data-id": "help_link",
           as: "a",
-          href: _v66,
+          href: _v64,
           target: "_blank"
         } : _v13 ? {
           "data-id": "help_link",
@@ -1445,7 +1443,7 @@
         } : {
           "data-id": "help_link",
           as: "a",
-          href: _v66,
+          href: _v64,
           target: "_blank"
         }, [_v12, _v13, _v10]),
         _v16 = (0, _v3.useCallback)(_v0 => {
@@ -1492,7 +1490,7 @@
               icon: (0, _v1.jsx)(_v16.QuestionCircle, {}),
               variant: "tertiary",
               onClick: () => {
-                _v4(), _v13 ? _v3 ? _v2() : (_v1(), _v5()) : _v65("pendo-link-9e2e9ac7-1", "pendo-g-gGIq9Pjwp5KjK6P-yRQzNQ_Zy-g", "pendo-left-caret-229848f1", "pendo-g-0VqsBgo3lrYNn-v0y0Mj3DYh46k");
+                _v4(), _v13 ? _v3 ? _v2() : (_v1(), _v5()) : _v63("pendo-link-9e2e9ac7-1", "pendo-g-gGIq9Pjwp5KjK6P-yRQzNQ_Zy-g", "pendo-left-caret-229848f1", "pendo-g-0VqsBgo3lrYNn-v0y0Mj3DYh46k");
               },
               size: {
                 base: "sm",
@@ -1506,16 +1504,18 @@
               right: 1
             })]
           })
-        }), _v13 && (0, _v1.jsx)(_v63, {
+        }), _v13 && (0, _v1.jsx)(_v61, {
           ref: _v7
         })]
       });
     },
-    _v68 = () => (0, _v1.jsx)(_v34, {
-      children: (0, _v1.jsx)(_v67, {})
+    _v66 = () => (0, _v1.jsx)(_v32, {
+      children: (0, _v1.jsx)(_v65, {})
     });
-  _v0.s(["HelpCTA", 0, _v68], 0);
-  var _v69 = _v0.i(0),
+  _v0.s(["HelpCTA", 0, _v66], 0);
+  var _v67 = _v0.i(0),
+    _v68 = _v0.i(0),
+    _v69 = _v0.i(0),
     _v70 = _v0.i(0),
     _v71 = _v0.i(0),
     _v72 = _v0.i(0),
@@ -1532,10 +1532,8 @@
     _v83 = _v0.i(0),
     _v84 = _v0.i(0),
     _v85 = _v0.i(0),
-    _v86 = _v0.i(0),
-    _v87 = _v0.i(0),
-    _v88 = _v0.i(0);
-  let _v89 = (0, _v19.translate)({
+    _v86 = _v0.i(0);
+  let _v87 = (0, _v19.translate)({
       singular: "Untitled showcase",
       dictionary: {
         es: {
@@ -1561,18 +1559,18 @@
         }
       }
     }),
-    _v90 = (0, _v2.default)(() => _v0.A(0), {
+    _v88 = (0, _v2.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v91 = (0, _v2.default)(() => _v0.A(0), {
+    _v89 = (0, _v2.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       },
       ssr: !1
     }),
-    _v92 = (0, _v2.default)(async () => {
+    _v90 = (0, _v2.default)(async () => {
       let {
         EventCreationWizardModal: _v0
       } = await _v0.A(0);
@@ -1585,7 +1583,7 @@
       },
       ssr: !1
     }),
-    _v93 = (0, _v2.default)(async () => {
+    _v91 = (0, _v2.default)(async () => {
       let {
         MobileContentMenu: _v0
       } = await _v0.A(0);
@@ -1598,16 +1596,16 @@
       },
       ssr: !1
     });
-  function _v94({
+  function _v92({
     hasUploader: _v0
   }) {
     let _v1 = (0, _v11.useViewer)();
-    return !_v1 || _v1.teamUser?.plainTextPermissionLevel === "Viewer" || _v1.isSimplifiedSite ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v95, {
+    return !_v1 || _v1.teamUser?.plainTextPermissionLevel === "Viewer" || _v1.isSimplifiedSite ? (0, _v1.jsx)(_v1.Fragment, {}) : (0, _v1.jsx)(_v93, {
       viewer: _v1,
       hasUploader: _v0
     });
   }
-  function _v95({
+  function _v93({
     viewer: _v0,
     hasUploader: _v1
   }) {
@@ -1615,8 +1613,8 @@
         base: !0,
         sm: !1
       }),
-      _v3 = (0, _v82.useEmailVerificationGateRequest)(),
-      _v4 = (0, _v83.useUniversalHostingEnabled)(),
+      _v3 = (0, _v80.useEmailVerificationGateRequest)(),
+      _v4 = (0, _v81.useUniversalHostingEnabled)(),
       _v5 = _v0.teamUser?.ownerId ?? _v0.user?.id,
       {
         capabilities: _v6,
@@ -1647,7 +1645,7 @@
         isOpen: _v29,
         onOpen: _v30,
         onClose: _v31
-      } = (0, _v73.useDisclosure)(),
+      } = (0, _v71.useDisclosure)(),
       {
         canCreateShowcase: _v32,
         isCreatingShowcase: _v33,
@@ -1658,7 +1656,7 @@
         canManageTeamCollections: _v0,
         viewer: _v1
       }) => {
-        let _v2 = (0, _v86.useToast)(),
+        let _v2 = (0, _v84.useToast)(),
           [_v3, _v4] = (0, _v3.useState)(!1),
           _v5 = _v1?.teamUser?.ownerId || _v1?.user?.id,
           {
@@ -1683,7 +1681,7 @@
               data: _v5,
               error: _v6,
               loading: _v7
-            }] = (0, _v88.usePostUserAlbums)();
+            }] = (0, _v86.usePostUserAlbums)();
             return (0, _v3.useEffect)(() => {
               _v4 && !_v7 && (_v5 && _v1?.({
                 uri: _v5.uri
@@ -1695,7 +1693,7 @@
                 },
                 select: ["uri"],
                 variables: {
-                  name: _v89
+                  name: _v87
                 }
               });
             }, {
@@ -1731,7 +1729,7 @@
                   }
                 }),
                 variant: "warning",
-                icon: (0, _v1.jsx)(_v87.CircleExclamationFilled, {
+                icon: (0, _v1.jsx)(_v85.CircleExclamationFilled, {
                   color: "status-destructive-primary"
                 }),
                 isClosable: !1
@@ -1759,11 +1757,11 @@
         trackHeaderCreateMenuItemClicked: _v38
       } = (0, _v10.useHeaderTracking)();
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v74.NestedMenu, {
+      children: [(0, _v1.jsxs)(_v72.NestedMenu, {
         positioning: {
           placement: "bottom-end"
         },
-        children: [(0, _v1.jsx)(_v74.NestedMenuTrigger, {
+        children: [(0, _v1.jsx)(_v72.NestedMenuTrigger, {
           onClick: _v0 => {
             _v2 && (_v0.preventDefault(), _v30()), _v37();
           },
@@ -1774,7 +1772,7 @@
             sm: "md"
           },
           "data-id": "new_content_menu_button",
-          leftIcon: (0, _v1.jsx)(_v81.PlusSmall, {}),
+          leftIcon: (0, _v1.jsx)(_v79.PlusSmall, {}),
           children: (0, _v19.translate)({
             singular: "Create",
             dictionary: {
@@ -1801,13 +1799,13 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v74.NestedMenuPositioner, {
-          children: (0, _v1.jsxs)(_v74.NestedMenuContent, {
+        }), (0, _v1.jsx)(_v72.NestedMenuPositioner, {
+          children: (0, _v1.jsxs)(_v72.NestedMenuContent, {
             minWidth: (0, _v5.rem)(202),
-            children: [(0, _v1.jsx)(_v74.NestedMenuItem, {
+            children: [(0, _v1.jsx)(_v72.NestedMenuItem, {
               id: "upload",
               value: "upload",
-              as: _v72.default,
+              as: _v70.default,
               href: _v22,
               prefetch: !1,
               onClick: () => {
@@ -1818,7 +1816,7 @@
               children: _v4 ? (0, _v1.jsxs)(_v4.Flex, {
                 alignItems: "flex-start",
                 gap: "sm",
-                children: [(0, _v1.jsx)(_v76.Upload, {}), (0, _v1.jsxs)(_v4.Flex, {
+                children: [(0, _v1.jsx)(_v74.Upload, {}), (0, _v1.jsxs)(_v4.Flex, {
                   flexDirection: "column",
                   gap: "2xs",
                   children: [(0, _v1.jsxs)(_v4.Flex, {
@@ -1852,7 +1850,7 @@
                           }
                         }
                       })
-                    }), (0, _v1.jsx)(_v85.NewBadge, {})]
+                    }), (0, _v1.jsx)(_v83.NewBadge, {})]
                   }), (0, _v1.jsx)(_v26.Text, {
                     variant: "body-xs",
                     color: "text-secondary",
@@ -1885,7 +1883,7 @@
                   })]
                 })]
               }) : (0, _v1.jsxs)(_v1.Fragment, {
-                children: [(0, _v1.jsx)(_v76.Upload, {}), " ", (0, _v19.translate)({
+                children: [(0, _v1.jsx)(_v74.Upload, {}), " ", (0, _v19.translate)({
                   singular: "Upload",
                   dictionary: {
                     es: {
@@ -1912,7 +1910,7 @@
                   }
                 })]
               })
-            }), _v1 ? (0, _v1.jsxs)(_v74.NestedMenuItem, {
+            }), _v1 ? (0, _v1.jsxs)(_v72.NestedMenuItem, {
               id: "import",
               value: "import",
               onClick: () => {
@@ -1920,7 +1918,7 @@
                   createMenuItem: "import"
                 }));
               },
-              children: [(0, _v1.jsx)(_v80.DownloadImport, {}), " ", (0, _v19.translate)({
+              children: [(0, _v1.jsx)(_v78.DownloadImport, {}), " ", (0, _v19.translate)({
                 singular: "Import",
                 dictionary: {
                   es: {
@@ -1946,10 +1944,10 @@
                   }
                 }
               })]
-            }) : null, (0, _v1.jsx)(_v74.NestedMenuDivider, {}), _v9 && (0, _v1.jsxs)(_v74.NestedMenuItem, {
+            }) : null, (0, _v1.jsx)(_v72.NestedMenuDivider, {}), _v9 && (0, _v1.jsxs)(_v72.NestedMenuItem, {
               id: "create",
               value: "create",
-              as: _v72.default,
+              as: _v70.default,
               href: _v28,
               prefetch: !1,
               onClick: () => {
@@ -1957,7 +1955,7 @@
                   createMenuItem: "video_project"
                 });
               },
-              children: [(0, _v1.jsx)(_v79.ClapperBoard, {}), " ", (0, _v19.translate)({
+              children: [(0, _v1.jsx)(_v77.ClapperBoard, {}), " ", (0, _v19.translate)({
                 singular: "Video project",
                 dictionary: {
                   es: {
@@ -1983,10 +1981,10 @@
                   }
                 }
               })]
-            }), (0, _v1.jsxs)(_v74.NestedMenuItem, {
+            }), (0, _v1.jsxs)(_v72.NestedMenuItem, {
               id: "record",
               value: "record",
-              as: _v72.default,
+              as: _v70.default,
               href: _v27,
               prefetch: !1,
               onClick: () => {
@@ -1994,7 +1992,7 @@
                   createMenuItem: "recording"
                 });
               },
-              children: [(0, _v1.jsx)(_v77.Record, {}), " ", (0, _v19.translate)({
+              children: [(0, _v1.jsx)(_v75.Record, {}), " ", (0, _v19.translate)({
                 singular: "Recording",
                 dictionary: {
                   es: {
@@ -2020,7 +2018,7 @@
                   }
                 }
               })]
-            }), _v18 && (0, _v1.jsxs)(_v74.NestedMenuItem, {
+            }), _v18 && (0, _v1.jsxs)(_v72.NestedMenuItem, {
               id: "host",
               value: "host",
               onClick: () => {
@@ -2028,7 +2026,7 @@
                   createMenuItem: "event"
                 }), _v12(!0);
               },
-              children: [(0, _v1.jsx)(_v78.CameraOn, {}), " ", (0, _v19.translate)({
+              children: [(0, _v1.jsx)(_v76.CameraOn, {}), " ", (0, _v19.translate)({
                 singular: "Event",
                 dictionary: {
                   es: {
@@ -2051,7 +2049,7 @@
                   }
                 }
               })]
-            }), _v32 && (0, _v1.jsxs)(_v74.NestedMenuItem, {
+            }), _v32 && (0, _v1.jsxs)(_v72.NestedMenuItem, {
               id: "showcase",
               value: "showcase",
               disabled: _v33,
@@ -2060,7 +2058,7 @@
                   createMenuItem: "showcase"
                 }), _v35();
               },
-              children: [(0, _v1.jsx)(_v75._3GridLeftLayout, {}), " ", (0, _v19.translate)({
+              children: [(0, _v1.jsx)(_v73._3GridLeftLayout, {}), " ", (0, _v19.translate)({
                 singular: "Showcase",
                 dictionary: {
                   es: {
@@ -2088,11 +2086,11 @@
               })]
             })]
           })
-        }), (0, _v1.jsx)(_v92, {
+        }), (0, _v1.jsx)(_v90, {
           active: _v11,
           activeSet: _v12
         })]
-      }), (0, _v1.jsx)(_v93, {
+      }), (0, _v1.jsx)(_v91, {
         isOpen: _v29,
         onClose: _v31,
         canCreateLiveEvents: !0,
@@ -2106,7 +2104,7 @@
         ...(_v9 && {
           creationLink: _v28
         })
-      }), _v34 && (0, _v1.jsx)(_v90, {
+      }), _v34 && (0, _v1.jsx)(_v88, {
         apiUrl: _v0?.apiUrl,
         onClose: () => _v36(!1),
         templateType: "default",
@@ -2114,7 +2112,7 @@
           params: {
             feature: "showcases",
             location: "top_navigation_bar",
-            page: (0, _v84.getPageNameFromPath)(window.location.pathname, _v0?.user) || "ss_lihp",
+            page: (0, _v82.getPageNameFromPath)(window.location.pathname, _v0?.user) || "ss_lihp",
             upsell_name: "showcase_limit"
           },
           paywallTracking: {
@@ -2131,7 +2129,7 @@
         modalConfig: {
           mkcCode: "unified-top-nav-legacy"
         }
-      }), _v13 ? (0, _v1.jsx)(_v91, {
+      }), _v13 ? (0, _v1.jsx)(_v89, {
         isOpen: _v13,
         setIsOpen: _v14,
         referrerPage: "create_menu",
@@ -2139,9 +2137,9 @@
       }) : null]
     });
   }
-  var _v96 = _v0.i(0);
-  let _v97 = () => {
-    let _v0 = (0, _v96.buildUpgradePlanUrl)({
+  var _v94 = _v0.i(0);
+  let _v95 = () => {
+    let _v0 = (0, _v94.buildUpgradePlanUrl)({
       paywallTrigger: "top_nav_bar_pricing_button",
       paywallLocation: "top_navigation",
       paywallFeature: "general"
@@ -2182,15 +2180,15 @@
       })
     });
   };
-  _v0.s(["PricingCTA", 0, _v97], 0);
-  var _v98 = _v0.i(0),
-    _v99 = _v0.i(0);
-  let _v100 = ({
+  _v0.s(["PricingCTA", 0, _v95], 0);
+  var _v96 = _v0.i(0),
+    _v97 = _v0.i(0);
+  let _v98 = ({
     isSideNavActive: _v0,
     setIsSideNavActive: _v1
   }) => (0, _v1.jsx)(_v14.IconButton, {
     "aria-label": "open-sidenav",
-    icon: (0, _v1.jsx)(_v99.Menu, {}),
+    icon: (0, _v1.jsx)(_v97.Menu, {}),
     variant: "tertiary",
     display: _v0 ? "none" : "flex",
     onClick: () => {
@@ -2203,15 +2201,15 @@
     },
     "data-testid": "open-sidenav"
   });
-  _v0.s(["SideNavToggle", 0, _v100], 0);
-  let _v101 = (0, _v2.default)(async () => ({
+  _v0.s(["SideNavToggle", 0, _v98], 0);
+  let _v99 = (0, _v2.default)(async () => ({
       default: (await _v0.A(0)).LoginJoinModal
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v102 = (0, _v5.rem)(24);
+    _v100 = (0, _v5.rem)(24);
   _v0.s(["DefaultNavigation", 0, ({
     fixed: _v0 = !0,
     hasSearch: _v1 = !0,
@@ -2242,11 +2240,11 @@
       _v17 = _v13;
     _v6 && (_v17 = !1);
     let _v18 = !_v17 && _v11 || _v15,
-      _v19 = (0, _v71.useLoginJoinModalState)(),
+      _v19 = (0, _v69.useLoginJoinModalState)(),
       _v20 = _v9?.isSimplifiedSite,
       _v21 = _v9?.isEnterpriseSite,
       _v22 = _v7 && !_v3,
-      _v23 = _v7 && _v8 ? `calc(max(0px, calc((100cqw - var(--search-content-max-width)) / 2)) + var(--search-content-inline-start) - ${_v102})` : _v22 ? (0, _v5.rem)(24) : void 0;
+      _v23 = _v7 && _v8 ? `calc(max(0px, calc((100cqw - var(--search-content-max-width)) / 2)) + var(--search-content-inline-start) - ${_v100})` : _v22 ? (0, _v5.rem)(24) : void 0;
     return (0, _v1.jsxs)(_v7.Navigation, {
       position: _v0 ? "sticky" : "unset",
       top: "0",
@@ -2272,7 +2270,7 @@
         },
         flexShrink: _v17 ? void 0 : 0,
         zIndex: 1,
-        children: [_v4 && (0, _v1.jsx)(_v100, {
+        children: [_v4 && (0, _v1.jsx)(_v98, {
           isSideNavActive: !!_v3,
           setIsSideNavActive: _v4
         }), (0, _v1.jsx)(_v7.Navigation.VimeoLogo, {
@@ -2282,7 +2280,7 @@
           flexGrow: 1,
           minWidth: 0,
           marginLeft: _v23,
-          children: (0, _v1.jsx)(_v98.Search, {})
+          children: (0, _v1.jsx)(_v96.Search, {})
         })]
       }), (0, _v1.jsx)(_v7.Navigation.RightContent, {
         justifyContent: "end",
@@ -2291,7 +2289,7 @@
           base: "sm",
           md: "md"
         },
-        children: (0, _v1.jsx)(_v70.LoginJoinModalContext.Provider, {
+        children: (0, _v1.jsx)(_v68.LoginJoinModalContext.Provider, {
           value: _v19,
           children: (0, _v1.jsxs)(_v4.Flex, {
             alignItems: "center",
@@ -2303,18 +2301,18 @@
             justifyContent: "end",
             children: [!_v18 && (0, _v1.jsx)(_v7.Navigation.Upgrade, {
               viewer: _v9
-            }), _v1 && !_v17 && (0, _v1.jsx)(_v98.Search, {
+            }), _v1 && !_v17 && (0, _v1.jsx)(_v96.Search, {
               withToggle: !0,
               updateGlobalNavSearchState: _v12
             }), !_v16 && !_v20 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [(0, _v1.jsx)(_v68, {}), (0, _v1.jsx)(_v12, {})]
+              children: [(0, _v1.jsx)(_v66, {}), (0, _v1.jsx)(_v12, {})]
             }), _v9 && !_v10 && (0, _v1.jsxs)(_v1.Fragment, {
-              children: [!_v18 && !_v21 && (0, _v1.jsx)(_v97, {}), !(_v15 && _v11) && (0, _v1.jsx)(_v69.Login, {})]
-            }), !_v16 && (_v10 ? (0, _v1.jsx)(_v94, {
+              children: [!_v18 && !_v21 && (0, _v1.jsx)(_v95, {}), !(_v15 && _v11) && (0, _v1.jsx)(_v67.Login, {})]
+            }), !_v16 && (_v10 ? (0, _v1.jsx)(_v92, {
               hasUploader: _v5
-            }) : _v9 && !_v21 && (0, _v1.jsx)(_v69.Join, {})), !(_v15 && _v11) && (0, _v1.jsx)(_v8.AccountMenu, {
+            }) : _v9 && !_v21 && (0, _v1.jsx)(_v67.Join, {})), !(_v15 && _v11) && (0, _v1.jsx)(_v8.AccountMenu, {
               hasThemeSupport: _v2
-            }), _v9 && !_v10 && _v19.modal && (0, _v1.jsx)(_v101, {})]
+            }), _v9 && !_v10 && _v19.modal && (0, _v1.jsx)(_v99, {})]
           })
         })
       })]

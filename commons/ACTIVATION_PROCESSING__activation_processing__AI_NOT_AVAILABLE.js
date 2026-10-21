@@ -72,7 +72,14 @@
     TYPE_SELECTION: "type_selection",
     SUBTITLING: "subtitling",
     DUBBING: "dubbing"
-  }, "VIEWER_QNA_ANSWER_PLACEHOLDER_ANIMATION", 0, _v3, "Z_INDEX", 0, {
+  }, "VIEWER_QNA_ANSWER_PLACEHOLDER_ANIMATION", 0, _v3, "VideoDetailsPresets", 0, {
+    NONE: "none",
+    CONCISE: "concise",
+    MARKETING: "marketing",
+    TECHNICAL: "technical",
+    TRAINING: "training",
+    CUSTOM: "custom"
+  }, "Z_INDEX", 0, {
     BOKEH_MODAL: 0,
     BOKEH_DROPDOWN_MENU: 0
   }]);

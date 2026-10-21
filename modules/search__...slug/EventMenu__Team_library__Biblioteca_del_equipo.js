@@ -204,7 +204,6 @@
       onRename: _v6,
       eventLink: _v1,
       embedCode: _v10.html,
-      viewPrivacy: _v0.streamPrivacy?.view,
       title: _v0.title
     });
   }]);

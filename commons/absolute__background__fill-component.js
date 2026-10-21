@@ -138,8 +138,8 @@
         }) : (0, _v1.jsx)(_v14.ContentCard.SelectRadio, {
           size: "lg"
         })
-      }), _v22, (0, _v1.jsx)(_v14.ContentCard.VideoPrivacyBadge, {
-        videoPrivacy: _v23,
+      }), _v22, (0, _v1.jsx)(_v14.ContentCard.PrivacyBadge, {
+        privacy: _v23,
         variant: _v24,
         onClick: _v25,
         layout: "overlay",

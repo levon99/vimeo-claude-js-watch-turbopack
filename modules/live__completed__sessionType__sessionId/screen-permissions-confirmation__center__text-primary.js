@@ -24,10 +24,9 @@
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
-    _v24 = _v0.i(0),
-    _v25 = _v0.i(0);
-  function _v26({
-    id: _v0 = (0, _v24.createLiveDomName)("screen-permissions-confirmation"),
+    _v24 = _v0.i(0);
+  function _v25({
+    id: _v0 = (0, _v23.createLiveDomName)("screen-permissions-confirmation"),
     roomScreenShareContext: {
       pendingScreenShareId: _v1,
       roomScreenShareActions: _v2,
@@ -40,11 +39,11 @@
     let [_v5, _v6] = (0, _v19.useState)(!1),
       _v7 = (0, _v19.useCallback)(() => {
         _v6(!0), _v2.confirmPermissions(_v1).finally(() => {
-          _v6(!1), (0, _v22.trackAllowSpeakerToScreenshare)();
+          _v6(!1);
         });
       }, [_v1, _v2]),
       _v8 = !!_v1,
-      _v9 = (0, _v23.parseUidFromAgora)(_v1),
+      _v9 = (0, _v22.parseUidFromAgora)(_v1),
       _v10 = _v9 ? _v4[_v9] : null,
       _v11 = _v10 ? _v10.name : "?";
     return _v8 && _v3 ? (0, _v1.jsxs)(_v4.Modal, {
@@ -61,7 +60,7 @@
         children: [(0, _v1.jsx)(_v7.Header, {
           width: "100%",
           size: "md",
-          children: _v25.translations.guestScreenShareRequest(_v11)
+          children: _v24.translations.guestScreenShareRequest(_v11)
         }), (0, _v1.jsxs)(_v10.Flex, {
           width: "100%",
           justifyContent: "flex-end",
@@ -77,7 +76,7 @@
             variant: "primary",
             isLoading: _v5,
             onClick: _v7,
-            children: _v25.translations.allow
+            children: _v24.translations.allow
           })]
         })]
       })]
@@ -95,7 +94,7 @@
       }
     } = (0, _v13.useLiveGlobals)();
     return _v1?.variant === _v18.EConfirmationVariant.GLOBAL ? (0, _v1.jsxs)(_v4.Modal, {
-      id: (0, _v24.createLiveDomName)("global-notification"),
+      id: (0, _v23.createLiveDomName)("global-notification"),
       isOpen: !0,
       onClose: _v17.CallablePlaceholder,
       children: [(0, _v1.jsx)(_v6.ModalOverlay, {}), (0, _v1.jsxs)(_v5.ModalContent, {
@@ -134,12 +133,12 @@
           }) : null, (0, _v1.jsx)(_v9.Button, {
             variant: "primary",
             onClick: _v0.confirmConfirmationNotification,
-            children: _v1?.confirmMessage || _v25.translations.confirm
+            children: _v1?.confirmMessage || _v24.translations.confirm
           })]
         })]
       })]
-    }) : _v2 === _v16.EComposerApplicationType.BROADCASTER ? (0, _v1.jsx)(_v26, {
-      id: (0, _v24.createLiveDomName)("screen-permission-notification")
+    }) : _v2 === _v16.EComposerApplicationType.BROADCASTER ? (0, _v1.jsx)(_v25, {
+      id: (0, _v23.createLiveDomName)("screen-permission-notification")
     }) : null;
   }], 0);
 }

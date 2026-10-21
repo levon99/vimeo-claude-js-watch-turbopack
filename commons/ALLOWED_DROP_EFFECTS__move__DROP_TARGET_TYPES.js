@@ -9,6 +9,7 @@
   }, "ITEM_TYPES", 0, {
     ROOT_VIDEO: "root video",
     VIDEO: "video",
-    LIVE_EVENT: "live event"
+    LIVE_EVENT: "live event",
+    FILE: "file"
   }]);
 }

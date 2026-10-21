@@ -137,18 +137,17 @@
   }
   _v0.s(["default", 0, function ({
     user: _v0,
-    videoId: _v1,
-    isFollowing: _v2,
-    isLoadingFollow: _v3,
-    onFollowClick: _v4,
-    onProfileClick: _v5,
-    onProfileMouseOver: _v6,
-    showByline: _v7,
-    showCard: _v8,
-    showFollow: _v9,
-    showProfile: _v10,
-    showProfileLink: _v11,
-    extraActions: _v12
+    isFollowing: _v1,
+    isLoadingFollow: _v2,
+    onFollowClick: _v3,
+    onProfileClick: _v4,
+    onProfileMouseOver: _v5,
+    showByline: _v6,
+    showCard: _v7,
+    showFollow: _v8,
+    showProfile: _v9,
+    showProfileLink: _v10,
+    extraActions: _v11
   }) {
     return _v0 ? (0, _v1.jsxs)(_v2.Flex, {
       "data-testid": "uploader-details",
@@ -156,23 +155,20 @@
       gap: "75",
       children: [(0, _v1.jsx)(_v15, {
         user: _v0,
-        showByline: _v7,
-        showCard: _v8,
-        showProfile: _v10,
-        showProfileLink: _v11,
-        onProfileClick: _v5,
-        onProfileMouseOver: _v6
-      }), _v0.isStaffPicked && _v10 && _v7 && (0, _v1.jsx)(_v2.Flex, {
+        showByline: _v6,
+        showCard: _v7,
+        showProfile: _v9,
+        showProfileLink: _v10,
+        onProfileClick: _v4,
+        onProfileMouseOver: _v5
+      }), _v0.isStaffPicked && _v9 && _v6 && (0, _v1.jsx)(_v2.Flex, {
         gap: 10,
         children: (0, _v1.jsx)(_v8.StaffPickBadge, {
-          href: "/watch",
-          videoId: parseInt(_v1),
-          userUri: _v0.uri,
-          feature: "profile"
+          href: "/watch"
         })
-      }), _v9 ? (0, _v1.jsx)(_v7, {
-        isDisabled: _v3,
-        isActive: _v2,
+      }), _v8 ? (0, _v1.jsx)(_v7, {
+        isDisabled: _v2,
+        isActive: _v1,
         offStateText: (0, _v9.translate)({
           singular: "Follow",
           dictionary: {
@@ -199,7 +195,7 @@
             }
           }
         }),
-        onClick: _v4,
+        onClick: _v3,
         onIcon: (0, _v1.jsx)(_v3.Checkmark, {}),
         onStateText: (0, _v9.translate)({
           singular: "Following",
@@ -255,7 +251,7 @@
         }),
         turnOffIcon: (0, _v1.jsx)(_v4.CloseX, {}),
         size: "xs"
-      }) : null, _v12]
+      }) : null, _v11]
     }) : null;
   }], 0);
 }

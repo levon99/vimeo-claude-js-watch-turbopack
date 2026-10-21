@@ -238,43 +238,101 @@
         backgroundColor: "button-secondary-hover",
         borderColor: "transparent"
       }
-    };
-  _v23.VideoPrivacyBadge = ({
-    videoPrivacy: _v0,
-    onClick: _v1,
-    variant: _v2 = "default",
-    layout: _v3,
-    tooltipLabel: _v4,
-    isDimmed: _v5 = !1
-  }) => {
-    let _v6 = (0, _v17.useColorModeValue)("darkBlueAlpha.500", "lightBlueAlpha.500"),
-      {
-        label: _v7,
-        icon: _v8
-      } = _v0 || {};
-    if (!_v7) return null;
-    let _v9 = "overlay" === _v3 ? _v24 : _v25;
-    if ("coldStorage" === _v2 || "coldPrivacy" === _v2) {
-      let _v0 = (0, _v1.jsx)(_v11.Badge, {
-        ...(_v4 ? {
-          position: "relative"
-        } : _v9.badge),
+    },
+    _v26 = ({
+      privacy: _v0,
+      onClick: _v1,
+      variant: _v2 = "default",
+      layout: _v3,
+      tooltipLabel: _v4,
+      isDimmed: _v5 = !1
+    }) => {
+      let _v6 = (0, _v17.useColorModeValue)("darkBlueAlpha.500", "lightBlueAlpha.500"),
+        {
+          label: _v7,
+          icon: _v8
+        } = _v0 || {};
+      if (!_v7) return null;
+      let _v9 = "overlay" === _v3 ? _v24 : _v25;
+      if ("coldStorage" === _v2 || "coldPrivacy" === _v2) {
+        let _v0 = (0, _v1.jsx)(_v11.Badge, {
+          ...(_v4 ? {
+            position: "relative"
+          } : _v9.badge),
+          size: "sm",
+          right: "auto",
+          height: "auto",
+          padding: (0, _v13.rem)(3),
+          backgroundColor: "status-caution-secondary",
+          color: "status-caution-primary",
+          borderWidth: "0",
+          backdropFilter: "blur(20px)",
+          ...(_v1 && {
+            as: "button",
+            type: "button",
+            cursor: "pointer",
+            _hover: {
+              backgroundColor: "status-caution-secondary",
+              filter: "brightness(0.96)"
+            },
+            onClick: _v0 => {
+              _v0.stopPropagation(), _v0.preventDefault(), _v1(_v0);
+            }
+          }),
+          children: (0, _v1.jsxs)(_v15.Grid, {
+            display: "inline-grid",
+            gridAutoFlow: "column",
+            alignItems: "center",
+            ..._v9.grid,
+            children: [_v8 && (0, _v1.jsx)(_v5.Box, {
+              flexShrink: 0,
+              lineHeight: 0,
+              color: "status-caution-primary",
+              children: _v8
+            }), (0, _v1.jsx)(_v5.Box, {
+              as: "span",
+              flexShrink: 0,
+              whiteSpace: "nowrap",
+              lineHeight: "1",
+              ..._v9.label,
+              children: (0, _v1.jsx)(_v10.Text, {
+                as: "span",
+                variant: "body-sm",
+                fontWeight: 500,
+                color: "status-caution-primary",
+                children: _v7
+              })
+            })]
+          })
+        });
+        return _v4 ? (0, _v1.jsx)(_v16.Tooltip, {
+          label: _v4,
+          children: (0, _v1.jsx)(_v5.Box, {
+            "data-clickable": !0,
+            display: "inline-flex",
+            ...("overlay" === _v3 && {
+              position: "absolute",
+              bottom: (0, _v13.rem)(8),
+              left: (0, _v13.rem)(8)
+            }),
+            children: _v0
+          })
+        }) : _v0;
+      }
+      return (0, _v1.jsx)(_v11.Badge, {
+        ..._v9.badge,
         size: "sm",
-        right: "auto",
+        padding: (0, _v13.rem)(4),
         height: "auto",
-        padding: (0, _v13.rem)(3),
-        backgroundColor: "status-caution-secondary",
-        color: "status-caution-primary",
-        borderWidth: "0",
-        backdropFilter: "blur(20px)",
+        ..._v9.defaultVariantColors,
+        ...(_v5 && {
+          color: _v6
+        }),
         ...(_v1 && {
           as: "button",
           type: "button",
           cursor: "pointer",
-          _hover: {
-            backgroundColor: "status-caution-secondary",
-            filter: "brightness(0.96)"
-          },
+          _hover: _v9.defaultVariantHover,
           onClick: _v0 => {
             _v0.stopPropagation(), _v0.preventDefault(), _v1(_v0);
           }
@@ -284,82 +342,25 @@
           gridAutoFlow: "column",
           alignItems: "center",
           ..._v9.grid,
-          children: [_v8 && (0, _v1.jsx)(_v5.Box, {
-            flexShrink: 0,
-            lineHeight: 0,
-            color: "status-caution-primary",
-            children: _v8
-          }), (0, _v1.jsx)(_v5.Box, {
+          children: [_v5 && _v8 ? (0, _v1.jsx)(_v5.Box, {
             as: "span",
             flexShrink: 0,
+            lineHeight: 0,
+            color: _v6,
+            children: _v8
+          }) : _v8, (0, _v1.jsx)(_v5.Box, {
+            as: "span",
+            flexShrink: "0",
             whiteSpace: "nowrap",
             lineHeight: "1",
             ..._v9.label,
-            children: (0, _v1.jsx)(_v10.Text, {
-              as: "span",
-              variant: "body-sm",
-              fontWeight: 500,
-              color: "status-caution-primary",
-              children: _v7
-            })
+            children: _v7
           })]
         })
       });
-      return _v4 ? (0, _v1.jsx)(_v16.Tooltip, {
-        label: _v4,
-        children: (0, _v1.jsx)(_v5.Box, {
-          "data-clickable": !0,
-          display: "inline-flex",
-          ...("overlay" === _v3 && {
-            position: "absolute",
-            bottom: (0, _v13.rem)(8),
-            left: (0, _v13.rem)(8)
-          }),
-          children: _v0
-        })
-      }) : _v0;
-    }
-    return (0, _v1.jsx)(_v11.Badge, {
-      ..._v9.badge,
-      size: "sm",
-      padding: (0, _v13.rem)(4),
-      height: "auto",
-      ..._v9.defaultVariantColors,
-      ...(_v5 && {
-        color: _v6
-      }),
-      ...(_v1 && {
-        as: "button",
-        type: "button",
-        cursor: "pointer",
-        _hover: _v9.defaultVariantHover,
-        onClick: _v0 => {
-          _v0.stopPropagation(), _v0.preventDefault(), _v1(_v0);
-        }
-      }),
-      children: (0, _v1.jsxs)(_v15.Grid, {
-        display: "inline-grid",
-        gridAutoFlow: "column",
-        alignItems: "center",
-        ..._v9.grid,
-        children: [_v5 && _v8 ? (0, _v1.jsx)(_v5.Box, {
-          as: "span",
-          flexShrink: 0,
-          lineHeight: 0,
-          color: _v6,
-          children: _v8
-        }) : _v8, (0, _v1.jsx)(_v5.Box, {
-          as: "span",
-          flexShrink: "0",
-          whiteSpace: "nowrap",
-          lineHeight: "1",
-          ..._v9.label,
-          children: _v7
-        })]
-      })
-    });
-  };
-  let _v26 = {
+    };
+  _v23.PrivacyBadge = _v26, _v23.VideoPrivacyBadge = _v26;
+  let _v27 = {
     display: {
       base: "none",
       md: "flex"
@@ -385,8 +386,8 @@
       onToggleSelected: _v2
     } = (0, _v4.useContext)(_v22);
     return (0, _v1.jsx)(_v7.Checkbox, {
-      ..._v26,
-      opacity: _v26.opacity(_v1),
+      ..._v27,
+      opacity: _v27.opacity(_v1),
       size: _v0,
       isChecked: _v1,
       onChange: _v2,
@@ -401,8 +402,8 @@
       onToggleSelected: _v2
     } = (0, _v4.useContext)(_v22);
     return (0, _v1.jsx)(_v14.Radio, {
-      ..._v26,
-      opacity: _v26.opacity(_v1),
+      ..._v27,
+      opacity: _v27.opacity(_v1),
       size: _v0,
       isChecked: _v1,
       onChange: _v2,
@@ -427,7 +428,7 @@
     overflow: "hidden",
     backgroundColor: "background",
     onClick: _v5 ? void 0 : _v7,
-    children: [_v5 && (0, _v1.jsx)(_v28, {}), (0, _v1.jsx)(_v5.Box, {
+    children: [_v5 && (0, _v1.jsx)(_v29, {}), (0, _v1.jsx)(_v5.Box, {
       as: "img",
       alt: _v0,
       src: _v1,
@@ -470,9 +471,9 @@
     _groupFocusWithin: _v3,
     border: _v4,
     onClick: _v5 ? void 0 : _v7,
-    children: [_v5 && (0, _v1.jsx)(_v28, {}), _v0, _v6 && (0, _v1.jsx)(_v20.PasswordLockedOverlay, {})]
+    children: [_v5 && (0, _v1.jsx)(_v29, {}), _v0, _v6 && (0, _v1.jsx)(_v20.PasswordLockedOverlay, {})]
   });
-  let _v27 = ({
+  let _v28 = ({
     children: _v0,
     creator: _v1,
     showCard: _v2,
@@ -552,7 +553,7 @@
           grow: "1",
           gap: "sm",
           width: "100%",
-          children: [_v2, !!_v1 && (0, _v1.jsx)(_v27, {
+          children: [_v2, !!_v1 && (0, _v1.jsx)(_v28, {
             creator: _v5,
             showCard: !!_v16,
             showOverflow: !1,
@@ -613,7 +614,7 @@
                   children: _v4
                 })
               })
-            }), _v5?.name && (0, _v1.jsx)(_v27, {
+            }), _v5?.name && (0, _v1.jsx)(_v28, {
               creator: _v5,
               showCard: !!_v16,
               showOverflow: !_v16,
@@ -749,7 +750,7 @@
     justifyContent: "space-between",
     children: _v0
   });
-  let _v28 = () => (0, _v1.jsxs)(_v5.Box, {
+  let _v29 = () => (0, _v1.jsxs)(_v5.Box, {
     position: "absolute",
     width: "100%",
     height: "100%",

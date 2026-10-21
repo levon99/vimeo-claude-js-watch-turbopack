@@ -106,7 +106,7 @@
       alignItems: "center",
       justifyContent: "center",
       boxSize: "sm" === _v1 ? "18px" : "20px",
-      borderRadius: "sm",
+      borderRadius: "5px",
       bg: _v3,
       flexShrink: 0,
       children: (0, _v1.jsx)(_v2, {
@@ -122,26 +122,36 @@
   }) => {
     let _v4 = _v16(_v1),
       _v5 = _v19(_v0),
-      _v6 = (0, _v4.useColorModeValue)("gray.50", "fill-component-hover");
+      _v6 = (0, _v4.useColorModeValue)("gray.50", "fill-component-hover"),
+      _v7 = "grid" === _v2;
     return (0, _v1.jsx)(_v2.Flex, {
       alignItems: "center",
       justifyContent: "center",
-      boxSize: "grid" === _v2 ? "56px" : "46px",
+      ...(_v7 ? {
+        paddingX: "12px",
+        paddingY: "8px",
+        width: "56px"
+      } : {
+        boxSize: "46px"
+      }),
       borderRadius: "sm",
       bg: _v6,
       children: (0, _v1.jsxs)(_v2.Flex, {
         direction: "column",
         alignItems: "center",
-        gap: "xs",
+        gap: _v7 ? "3px" : "xs",
         children: [(0, _v1.jsx)(_v18, {
           category: _v4,
           color: "gray.400",
-          size: "grid" === _v2 ? "28px" : "20px",
+          size: _v7 ? "28px" : "20px",
           variant: _v3
         }), "" !== _v5 && (0, _v1.jsx)(_v3.Text, {
-          variant: "body-xs",
-          fontFamily: "heading",
           color: "gray.400",
+          fontFamily: "heading",
+          fontSize: _v7 ? "8px" : void 0,
+          letterSpacing: _v7 ? "-0.16px" : void 0,
+          lineHeight: _v7 ? "1.2" : void 0,
+          variant: _v7 ? void 0 : "body-xs",
           children: _v5
         })]
       })

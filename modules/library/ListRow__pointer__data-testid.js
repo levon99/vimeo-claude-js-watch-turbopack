@@ -35,11 +35,15 @@
     menuButton: _v17,
     shouldUseNextLink: _v18 = !0,
     isEditingContentTitle: _v19,
-    editableTitle: _v20
+    editableTitle: _v20,
+    isDragging: _v21,
+    dragDropRef: _v22
   }) => (0, _v1.jsxs)(_v9.ContentRow, {
     listGridColumns: `${(0, _v6.rem)(32)} ${(0, _v6.rem)(150)} 8fr 0.2fr`,
     sx: _v9 ? _v11.responsiveRowSxWithLocation : _v11.responsiveRowSx,
     isSelected: _v12,
+    isDragging: _v21,
+    dragDropRef: _v22,
     onToggleSelected: _v15,
     cursor: "pointer",
     onClick: _v13,

@@ -23,7 +23,7 @@
     trackingEventsQueue = [];
     log = new _v3.Logger("➡TM");
     constructor(_v0) {
-      super(), _v0?.sessionApplicationType === _v7.EComposerApplicationType.BROADCASTER && (this.context.config.BIG_PICTURE_LIVE_SCHEMA_BASE.leadSource = this.getLeadSource());
+      super(), _v0?.sessionApplicationType === _v7.EComposerApplicationType.BROADCASTER && (this.context.config.LIVE_SCHEMA_BASE.leadSource = this.getLeadSource());
     }
     setConfig(_v0) {
       this.log.info("Tracking config update:", _v0), (0, _v6.updateTrackingConfig)(_v0, this.context.config), this.forceUpdate();

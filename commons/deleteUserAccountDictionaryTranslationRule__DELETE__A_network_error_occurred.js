@@ -8192,7 +8192,7 @@ ${_v2}`;
             singular: "Add languages",
             dictionary: {
               es: {
-                singular: "Agregar idiomas"
+                singular: "Añadir idiomas"
               },
               "de-DE": {
                 singular: "Sprachen hinzufügen"

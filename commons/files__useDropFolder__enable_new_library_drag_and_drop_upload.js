@@ -43,7 +43,7 @@
       [{
         draggableItemIsHovering: _v9
       }, _v10] = (0, _v3.useDrop)(() => ({
-        accept: [...(_v6 ? [_v11.ITEM_TYPES.ROOT_VIDEO, _v11.ITEM_TYPES.VIDEO, _v11.ITEM_TYPES.LIVE_EVENT] : []), ...(_v7 ? [_v4.NativeTypes.FILE] : [])],
+        accept: [...(_v6 ? [_v11.ITEM_TYPES.ROOT_VIDEO, _v11.ITEM_TYPES.VIDEO, _v11.ITEM_TYPES.LIVE_EVENT, _v11.ITEM_TYPES.FILE] : []), ...(_v7 ? [_v4.NativeTypes.FILE] : [])],
         drop: (_v0, _v1) => {
           if (!_v1.didDrop()) {
             var _v2;

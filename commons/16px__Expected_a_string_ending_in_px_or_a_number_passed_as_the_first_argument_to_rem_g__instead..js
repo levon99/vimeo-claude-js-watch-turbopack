@@ -18464,8 +18464,7 @@
           trackingParams: {
             upsell: "editor_general_bottom_banner",
             integration: "none",
-            feature: "watermark",
-            bpEventVersion: 41
+            feature: "watermark"
           }
         })),
         onSelectGetty: _v0(({
@@ -18486,8 +18485,7 @@
           trackingParams: {
             upsell: "editor_stock_footage",
             integration: "none",
-            feature: "stock",
-            bpEventVersion: 41
+            feature: "stock"
           }
         })),
         onOpenBrand: _v0(({
@@ -18580,7 +18578,7 @@
         authenticate: _v11,
         featureFlags: _v25,
         partnershipsConfig: _v34,
-        thirdPartyIntegration: _v12?.bigPictureConfig.thirdPartyIntegration,
+        thirdPartyIntegration: _v12?.partnerIntegrationConfig.thirdPartyIntegration,
         isShopifyUser: _v1,
         flowHooks: _v31,
         labeledCapabilities: _v18?.capabilities

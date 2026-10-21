@@ -25,7 +25,8 @@
       advanced: .9989,
       creator: .9908,
       core: .9966,
-      professional: .9988
+      professional: .9988,
+      studio: .99979375
     },
     _v20 = {
       starter: "Starter",
@@ -33,7 +34,8 @@
       advanced: "Advanced",
       creator: "Creator",
       core: "Core",
-      professional: "Professional"
+      professional: "Professional",
+      studio: "Studio"
     };
   function _v21(_v0) {
     try {

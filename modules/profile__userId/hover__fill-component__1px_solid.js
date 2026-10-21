@@ -1675,25 +1675,25 @@
             },
             dictionary: {
               es: {
-                singular: "{COUNT} seleccionadas"
+                singular: "{COUNT} seleccionado(s)"
               },
               "de-DE": {
                 singular: "{COUNT} ausgewählt"
               },
               "fr-FR": {
-                singular: "{COUNT} sélectionnés"
+                singular: "{COUNT} sélectionné(s)"
               },
               "ja-JP": {
-                singular: "{COUNT} 個選択されています"
+                singular: "{COUNT} 選択済み"
               },
               "ko-KR": {
                 singular: "{COUNT}개 선택됨"
               },
               "pt-BR": {
-                singular: "{COUNT} selecionadas"
+                singular: "{COUNT} selecionado(s)"
               },
               "zh-CN": {
-                singular: "已选择 {COUNT} 个"
+                singular: "{COUNT} 个已选择"
               }
             }
           })

@@ -3208,7 +3208,6 @@
         } : void 0,
         embedCode: _v13.html,
         title: _v3.title,
-        viewPrivacy: _v3.streamPrivacy?.view,
         zIndex: _v29.ACTIONS_MENU_Z_INDEX
       });
     },
@@ -3702,7 +3701,6 @@
           eventLink: _v35,
           embedCode: _v15.html,
           title: _v0.title,
-          viewPrivacy: _v0.streamPrivacy?.view,
           zIndex: _v29.ACTIONS_MENU_Z_INDEX
         }),
         uri: _v0.uri

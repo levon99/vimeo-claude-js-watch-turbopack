@@ -62,18 +62,19 @@
         paywallPlansDisplayed: _v6,
         paywallPeriodicitiesDisplayed: _v7,
         isVisible: _v8,
-        displayKey: _v9
+        displayKey: _v9,
+        onDisplayed: _v10
       } = _v0,
-      _v10 = (0, _v3.usePico)(),
-      _v11 = (0, _v1.useRef)(null);
+      _v11 = (0, _v3.usePico)(),
+      _v12 = (0, _v1.useRef)(null);
     return (0, _v1.useEffect)(() => {
       if (!_v8) {
-        _v11.current = null;
+        _v12.current = null;
         return;
       }
       let _v0 = _v9 ?? "";
-      if (null === _v10 || _v11.current === _v0) return;
-      _v11.current = _v0;
+      if (null === _v11 || _v12.current === _v0) return;
+      _v12.current = _v0;
       let _v1 = (0, _v2.v4)();
       _v14(_v1, {
         paywallTrigger: _v1,
@@ -83,7 +84,7 @@
         paywallStyle: _v5,
         paywallPlansDisplayed: _v6,
         paywallPeriodicitiesDisplayed: _v7
-      }), _v10.track("paywall_displayed", {
+      }), _v10?.(_v1), _v11.track("paywall_displayed", {
         paywall_id: _v1,
         paywall_trigger: _v1,
         paywall_location: _v2,
@@ -95,10 +96,10 @@
           paywallPeriodicitiesDisplayed: _v7
         })
       });
-    }, [_v10, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9]), {
+    }, [_v11, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9, _v10]), {
       trackPaywallDismissed: () => {
         let _v0 = sessionStorage.getItem(_v4) ?? "unknown";
-        sessionStorage.setItem(_v4, ""), _v13(), null !== _v10 && _v10.track("paywall_dismissed", {
+        sessionStorage.setItem(_v4, ""), _v13(), null !== _v11 && _v11.track("paywall_dismissed", {
           paywall_id: _v0,
           paywall_trigger: _v1,
           paywall_location: _v2,
@@ -113,7 +114,7 @@
       },
       trackPaywallCtaClicked: (_v0 = "primary") => {
         let _v1 = sessionStorage.getItem(_v4) ?? "unknown";
-        null !== _v10 && _v10.track("paywall_cta_clicked", {
+        null !== _v11 && _v11.track("paywall_cta_clicked", {
           paywall_id: _v1,
           paywall_trigger: _v1,
           paywall_location: _v2,

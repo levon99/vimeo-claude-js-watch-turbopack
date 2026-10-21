@@ -25,7 +25,7 @@
         locale: _v11
       } = (0, _v4.useGctlConfig)(),
       _v12 = async _v0 => {
-        if (_v0 !== _v5.value) try {
+        if (_v4(!1), _v0 !== _v5.value) try {
           await (0, _v3.patchUserFile)({
             where: {
               userId: _v0,
@@ -105,7 +105,6 @@
             status: "error"
           });
         }
-        _v4(!1);
       };
     return (0, _v1.jsx)(_v2.EditableTitle, {
       onChange: _v0 => {

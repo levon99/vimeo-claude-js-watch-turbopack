@@ -826,13 +826,13 @@
                     singular: "Obtener ayuda"
                   },
                   "de-DE": {
-                    singular: "Hilfe"
+                    singular: "Hilfe erhalten"
                   },
                   "fr-FR": {
-                    singular: "Obtenir de l'aide"
+                    singular: "Obtenir de l’aide"
                   },
                   "ja-JP": {
-                    singular: "ヘルプ"
+                    singular: "サポートを受ける"
                   },
                   "ko-KR": {
                     singular: "도움 받기"

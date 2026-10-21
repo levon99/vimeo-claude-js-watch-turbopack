@@ -26,7 +26,7 @@
           USER_ID: _v3,
           USER_LOCALE: _v4
         },
-        BIG_PICTURE_TEAM_CONTEXT_BASE: {
+        TEAM_CONTEXT_BASE: {
           teamOwnerId: _v5,
           teamAccountType: _v6,
           teamUser: _v7

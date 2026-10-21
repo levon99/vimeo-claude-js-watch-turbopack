@@ -507,33 +507,8 @@
           paywallLocation: "review_player",
           paywallType: "popup",
           paywallFeature: _v61
-        },
-        onOpen: () => {
-          _v21 && (0, _v34.sendBpUpsellEvent)({
-            viewer: _v58,
-            analyticsProps: _v21,
-            eventName: "vimeo.view_upsell",
-            eventVersion: _v34.UPGRADE_VIEW_GROUP_EVENT_VERSION,
-            includeViewContext: !0
-          });
-        },
-        onClose: () => {
-          _v21 && (0, _v34.sendBpUpsellEvent)({
-            viewer: _v58,
-            analyticsProps: _v21,
-            eventName: "vimeo.close_upsell",
-            eventVersion: _v34.UPGRADE_ACTION_GROUP_EVENT_VERSION
-          });
-        },
-        onButtonClick: () => {
-          _v21 && (0, _v34.sendBpUpsellEvent)({
-            viewer: _v58,
-            analyticsProps: _v21,
-            eventName: "vimeo.proceed_to_checkout",
-            eventVersion: _v34.UPGRADE_ACTION_GROUP_EVENT_VERSION
-          });
         }
-      }), [_v21, _v61, _v58]),
+      }), [_v61]),
       _v71 = _v25 ?? {
         paddingX: _v18 ? "0px" : "lg",
         paddingBottom: _v18 ? "0px" : "lg",
@@ -565,12 +540,7 @@
                 _v54 && _v55(!1), _v16?.(!1);
               },
               onClickQuotaMessage: () => {
-                _v21 && (0, _v34.sendBpUpsellEvent)({
-                  viewer: _v58,
-                  analyticsProps: _v21,
-                  eventName: "vimeo.trigger_upsell",
-                  eventVersion: _v34.UPGRADE_ACTION_GROUP_EVENT_VERSION
-                }), _v55(!0);
+                _v55(!0);
               }
             })
           }), _v28 ? (0, _v1.jsx)(_v4.Box, {

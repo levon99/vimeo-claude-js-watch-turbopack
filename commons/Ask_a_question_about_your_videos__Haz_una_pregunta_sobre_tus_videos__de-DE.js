@@ -735,7 +735,7 @@
                     singular: "Bibliothek durchsuchen"
                   },
                   "fr-FR": {
-                    singular: "Bibliothèque de recherche"
+                    singular: "Rechercher dans la bibliothèque"
                   },
                   "ja-JP": {
                     singular: "ライブラリを検索"
@@ -744,10 +744,10 @@
                     singular: "라이브러리 검색"
                   },
                   "pt-BR": {
-                    singular: "Pesquisar na biblioteca"
+                    singular: "Pesquisar na Biblioteca"
                   },
                   "zh-CN": {
-                    singular: "搜索视频库"
+                    singular: "搜索库"
                   }
                 }
               })
@@ -946,7 +946,7 @@
               singular: "Bibliothek durchsuchen"
             },
             "fr-FR": {
-              singular: "Bibliothèque de recherche"
+              singular: "Rechercher dans la bibliothèque"
             },
             "ja-JP": {
               singular: "ライブラリを検索"
@@ -955,10 +955,10 @@
               singular: "라이브러리 검색"
             },
             "pt-BR": {
-              singular: "Pesquisar na biblioteca"
+              singular: "Pesquisar na Biblioteca"
             },
             "zh-CN": {
-              singular: "搜索视频库"
+              singular: "搜索库"
             }
           }
         }),

@@ -32,7 +32,6 @@
       SECTION_FILTER: "LSC.DEBUG.SECTION_FILTER",
       LOGGING: "LSC.DEBUG.LOGGING",
       FILE_LOGGING: "LSC.DEBUG.FILE_LOGGING",
-      BP_TRACKING_LOGGING: "LSC.DEBUG.BP_TRACKING_LOGGING",
       AGORA_STATS_COLLECTING: "LSC.DEBUG.AGORA_STATS_COLLECTING",
       DATADOG_TRACKING_LOGGING: "LSC.DEBUG.DATADOG_TRACKING_LOGGING",
       API_TRACKING_LOGGING: "LSC.DEBUG.API_TRACKING_LOGGING",
@@ -218,7 +217,6 @@
     USE_COMBINED_PROVIDERS: _v45(_v21.LIVE.COMBINED_PROVIDERS, !1),
     TRACKING: {
       IS_ENABLED: !0,
-      IS_BP_LOG_ENABLED: _v45(_v21.DEBUG.BP_TRACKING_LOGGING, !1),
       IS_AGORA_STATS_COLLECTING_ENABLED: _v45(_v21.DEBUG.AGORA_STATS_COLLECTING, !1),
       IS_DATADOG_LOG_ENABLED: _v45(_v21.DEBUG.DATADOG_TRACKING_LOGGING, _v20.environmentConfig.IS_LOCAL_DEV),
       IS_EMBED_MESSAGING_LOG_ENABLED: _v45(_v21.DEBUG.EMBED_MESSAGING_ACTIONS_LOGGING, !0),
@@ -228,9 +226,7 @@
       NR_LOG_ERRORS_TRACKED: 0,
       NR_LOG_ERRORS_LIMIT: 200,
       NR_AGORA_IGNORED_CODES: [_v26.PERMISSION_DENIED, _v26.OPERATION_ABORTED],
-      NR_IGNORED_USERS: [0, 0, 0, 0, 0, 0],
-      BP_IGNORED_USERS: [0, 0, 0, 0, 0, 0],
-      BP_FREQUENT_EVENTS_THROTTLE_PERIOD: 0
+      NR_IGNORED_USERS: [0, 0, 0, 0, 0, 0]
     },
     MARKETING: {
       QNA_UPSELL_LAST_EVENT_ID: _v45(_v21.MARKETING.QNA_UPSELL, 0),
@@ -306,7 +302,7 @@
       USER_LOCALE: null,
       SESSION_CLOUD_ID: null
     },
-    BIG_PICTURE_LIVE_SCHEMA_BASE: {
+    LIVE_SCHEMA_BASE: {
       page: null,
       liveStatus: null,
       videoId: null,
@@ -315,7 +311,7 @@
       isTestEvent: !1,
       leadSource: null
     },
-    BIG_PICTURE_INTERACTION_SCHEMA_BASE: {
+    INTERACTION_SCHEMA_BASE: {
       liveStatus: null,
       page: null,
       view: null,
@@ -323,20 +319,20 @@
       roomId: null,
       roomType: null
     },
-    BIG_PICTURE_SCHEME_ADDITIONAL: {
+    SCHEME_ADDITIONAL: {
       isSimulive: null,
       isRecord: null
     },
-    BIG_PICTURE_TEAM_CONTEXT_BASE: {
+    TEAM_CONTEXT_BASE: {
       teamOwnerId: null,
       teamAccountType: null,
       teamUser: null
     },
-    BIG_PICTURE_EVENT_SETTINGS_SCHEMA_BASE: {
+    EVENT_SETTINGS_SCHEMA_BASE: {
       eventPrivacy: null,
       productionMethod: null
     },
-    BIG_PICTURE_VENUE_SCHEMA_BASE: {}
+    VENUE_SCHEMA_BASE: {}
   };
   _v0.s(["liveTrackingConfig", 0, _v49], 0);
   var _v50 = ((_v19 = {}).LIVE = "LIVE", _v19.GENERIC = "GENERIC", _v19.AGORA = "AGORA", _v19.MEDIA = "MEDIA", _v19.GUEST = "GUEST", _v19.INTERACTION = "INTERACTION", _v19.GRAPHICS = "GRAPHICS", _v19.FIREBASE = "FIREBASE", _v19.RTMP = "RTMP", _v19);
@@ -364,7 +360,7 @@
       pageErrorsTracked: _v46.TRACKING.NR_LOG_ERRORS_TRACKED,
       pageSessionCloudId: _v49.DETAILS.SESSION_CLOUD_ID,
       pageSessionUserRole: _v49.DETAILS.SESSION_USER_ROLE,
-      pageEventState: _v49.BIG_PICTURE_LIVE_SCHEMA_BASE.liveStatus,
+      pageEventState: _v49.LIVE_SCHEMA_BASE.liveStatus,
       usedJSHeapSize: Math.floor((_v0?.usedJSHeapSize || 0) / 0 / 0),
       totalJSHeapSize: Math.floor((_v0?.totalJSHeapSize || 0) / 0 / 0),
       jsHeapSizeLimit: Math.floor((_v0?.jsHeapSizeLimit || 0) / 0 / 0)

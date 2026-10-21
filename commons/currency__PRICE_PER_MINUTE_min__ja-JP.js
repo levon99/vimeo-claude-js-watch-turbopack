@@ -94,16 +94,13 @@
     _v91 = _v0.i(0),
     _v92 = _v0.i(0),
     _v93 = _v0.i(0),
-    _v94 = _v0.i(0),
-    _v95 = _v0.i(0),
-    _v96 = _v0.i(0),
-    _v97 = _v0.i(0);
-  function _v98(_v0, _v1) {
+    _v94 = _v0.i(0);
+  function _v95(_v0, _v1) {
     return new Intl.NumberFormat(_v1, {
       maximumFractionDigits: 2
     }).format(_v0);
   }
-  function _v99({
+  function _v96({
     isOpen: _v0,
     onClose: _v1,
     translationLanguageCount: _v2,
@@ -112,11 +109,11 @@
     unitAmount: _v5,
     currency: _v6
   }) {
-    let _v7 = (0, _v97.useLocale)(),
+    let _v7 = (0, _v94.useLocale)(),
       _v8 = _v2 > 0,
       _v9 = _v3 + _v4,
-      _v10 = _v98(_v3, _v7),
-      _v11 = _v98(_v4, _v7),
+      _v10 = _v95(_v3, _v7),
+      _v11 = _v95(_v4, _v7),
       _v12 = null !== _v5 && null !== _v6 ? function (_v0, _v1, _v2) {
         try {
           return new Intl.NumberFormat(_v2, {
@@ -169,12 +166,12 @@
           }
         }
       });
-    return (0, _v39.jsxs)(_v91.Modal, {
+    return (0, _v39.jsxs)(_v88.Modal, {
       isOpen: _v0,
       onClose: _v1,
-      children: [(0, _v39.jsx)(_v96.ModalOverlay, {}), (0, _v39.jsxs)(_v94.ModalContent, {
+      children: [(0, _v39.jsx)(_v93.ModalOverlay, {}), (0, _v39.jsxs)(_v91.ModalContent, {
         maxWidth: (0, _v56.rem)(480),
-        children: [(0, _v39.jsx)(_v95.ModalHeader, {
+        children: [(0, _v39.jsx)(_v92.ModalHeader, {
           children: (0, _v63.translate)({
             singular: "Credits cost",
             dictionary: {
@@ -201,7 +198,7 @@
               }
             }
           })
-        }), (0, _v39.jsx)(_v93.ModalCloseButton, {}), (0, _v39.jsxs)(_v92.ModalBody, {
+        }), (0, _v39.jsx)(_v90.ModalCloseButton, {}), (0, _v39.jsxs)(_v89.ModalBody, {
           paddingX: (0, _v56.rem)(24),
           paddingY: (0, _v56.rem)(20),
           children: [(0, _v39.jsx)(_v50.Paragraph, {
@@ -537,14 +534,14 @@
       })]
     });
   }
-  function _v100(_v0) {
+  function _v97(_v0) {
     return _v0.toLocaleString(void 0, {
       maximumFractionDigits: 2
     });
   }
   _v0.s(["AutoCcSettings", 0, function ({
-    id: _v0 = (0, _v83.createDomName)("auto-cc-settings"),
-    className: _v1 = (0, _v83.createDomName)("auto-cc-settings"),
+    id: _v0 = (0, _v80.createDomName)("auto-cc-settings"),
+    className: _v1 = (0, _v80.createDomName)("auto-cc-settings"),
     eventSettingsContext: {
       settings: {
         isLoading: _v2,
@@ -553,27 +550,27 @@
       actions: {
         updateLiveEventSettings: _v4
       }
-    } = (0, _v40.useManager)(_v78.EventSettingsManager),
+    } = (0, _v40.useManager)(_v77.EventSettingsManager),
     composerSessionStatusContext: {
       liveComposerStatuses: _v5
-    } = (0, _v40.useManager)(_v77.ComposerSessionStatusManager)
+    } = (0, _v40.useManager)(_v76.ComposerSessionStatusManager)
   }) {
     let {
         trackLiveStreamClosedCaptionsToggled: _v6
-      } = (0, _v89.useLiveStreamBroadcasterTracking)(),
+      } = (0, _v86.useLiveStreamBroadcasterTracking)(),
       {
         trackDictionaryUseCustomDictionaryToggled: _v7
-      } = (0, _v88.useDictionaryTracking)(),
+      } = (0, _v85.useDictionaryTracking)(),
       {
         open: _v8,
         upgradeModal: _v9
       } = (0, _v66.useAutoCCUpgradeModal)(),
-      _v10 = (0, _v73.useIsLiveDemoSubscription)(),
+      _v10 = (0, _v72.useIsLiveDemoSubscription)(),
       _v11 = _v5.isSessionRequested || _v5.isSessionInitializing,
-      _v12 = (0, _v90.useIsVpaas)(),
-      _v13 = (0, _v76.useSessionOwnerId)(),
-      _v14 = (0, _v87.useOrionSettingsFields)(["enable_account_wide_dictionary_management"]),
-      _v15 = (0, _v86.useOrionLoading)(),
+      _v12 = (0, _v87.useIsVpaas)(),
+      _v13 = (0, _v75.useSessionOwnerId)(),
+      _v14 = (0, _v84.useOrionSettingsFields)(["enable_account_wide_dictionary_management"]),
+      _v15 = (0, _v83.useOrionLoading)(),
       _v16 = !_v15 && _v14.enable_account_wide_dictionary_management,
       _v17 = (0, _v42.useAccountDictionaryHasEntries)(_v16 ? _v13 : null),
       _v18 = _v16 && void 0 === _v17,
@@ -586,8 +583,8 @@
           surface: "live_auto_cc"
         });
       }, [_v7, _v4]),
-      _v21 = !!(0, _v75.useLiveLocalizationTrialExpiry)(),
-      _v22 = (0, _v72.useCanEnableLiveCaptionsForLiveEvent)(_v13),
+      _v21 = !!(0, _v74.useLiveLocalizationTrialExpiry)(),
+      _v22 = (0, _v71.useCanEnableLiveCaptionsForLiveEvent)(_v13),
       {
         capabilities: _v23
       } = (0, _v60.useCapability)(["hasEntitlementAiCredits", "hasLiveAutoCcAiCredits", "hasLiveAutoTranslation"], _v13 || null),
@@ -604,7 +601,7 @@
         }
       } : null),
       _v29 = _v28?.aiCreditsQuota?.remaining ?? 0,
-      _v30 = !(0, _v74.useIsSalesAssistedTier)(_v13),
+      _v30 = !(0, _v73.useIsSalesAssistedTier)(_v13),
       _v31 = _v3?.autoCcTranslationLanguages?.length ?? 0,
       _v32 = (0, _v67.getEstimatedLiveCreditRates)(_v3?.autoCcEstimatedCreditsPerMinute, _v3?.autoCcTranslationsEstimatedCreditsPerMinute, _v31),
       {
@@ -629,7 +626,7 @@
           _v7 = (0, _v41.useCallback)(() => _v6(!0), []),
           _v8 = (0, _v41.useCallback)(() => _v6(!1), []);
         return {
-          modal: (0, _v39.jsx)(_v99, {
+          modal: (0, _v39.jsx)(_v96, {
             isOpen: _v5,
             onClose: _v8,
             translationLanguageCount: _v0,
@@ -650,12 +647,12 @@
         currency: _v33?.currency ?? null
       }),
       _v36 = (0, _v41.useCallback)(() => {
-        (0, _v80.trackUpgradeAutoCc)(_v71.vimeoConfig.PATH.CONTACT_US_FORM_EVENT), _v8();
+        _v8();
       }, [_v8]),
       _v37 = (0, _v41.useCallback)(_v0 => {
-        _v0.enabled !== _v3?.autoCcEnabled && ((0, _v79.trackEnabledAutoCc)(_v0.enabled), _v6({
+        _v0.enabled !== _v3?.autoCcEnabled && _v6({
           liveStreamNewStatus: _v0.enabled
-        })), null !== _v0.language && _v0.language !== _v3?.autoCcLanguage && (0, _v79.trackSelectAutoCcLanguage)(_v0.language), _v4({
+        }), _v4({
           autoCcEnabled: _v0.enabled,
           ...(null === _v0.language ? {} : {
             autoCcLanguage: _v0.language
@@ -666,9 +663,9 @@
             autoCcTranslationLanguages: []
           })
         }, []);
-      }, [_v3?.autoCcEnabled, _v3?.autoCcLanguage, _v3?.autoCcKeywords, _v4, _v6]),
+      }, [_v3?.autoCcEnabled, _v3?.autoCcKeywords, _v4, _v6]),
       _v38 = (0, _v41.useCallback)(_v0 => {
-        (0, _v79.trackEnterAutoCcKeywords)(), _v4({
+        _v4({
           autoCcKeywords: _v0.join(","),
           autoCcEnabled: _v3?.autoCcEnabled,
           autoCcLanguage: _v3?.autoCcLanguage
@@ -686,8 +683,8 @@
         }, ["autoCcEstimatedCreditsPerMinute", "autoCcTranslationsEstimatedCreditsPerMinute"]);
       }, [_v3, _v4]);
     if (_v2 || !_v3) return (0, _v39.jsx)(_v64.BokehSkeleton, {
-      id: (0, _v83.createDomName)(_v0, "loader"),
-      className: (0, _v83.createDomName)(_v1, "loader"),
+      id: (0, _v80.createDomName)(_v0, "loader"),
+      className: (0, _v80.createDomName)(_v1, "loader"),
       height: (0, _v56.rem)(80),
       marginBottom: (0, _v56.rem)(8),
       width: "100%",
@@ -707,7 +704,7 @@
       _v49 = _v5.isSessionLive,
       _v50 = (_v43?.length ?? 0) > 0,
       _v51 = !_v48 && !_v50,
-      _v52 = _v49 ? _v81.T_AUTO_CC_LOCKED_WHILE_LIVE : _v51 ? _v81.T_FEATURE_DISABLED_WHEN_DVR_DISABLED : void 0,
+      _v52 = _v49 ? _v78.T_AUTO_CC_LOCKED_WHILE_LIVE : _v51 ? _v78.T_FEATURE_DISABLED_WHEN_DVR_DISABLED : void 0,
       _v53 = _v43?.length ?? 0,
       _v54 = _v32.captions,
       _v55 = _v32.translations,
@@ -964,9 +961,9 @@
       });
     if (_v24) {
       let _v0 = _v55 + (_v46 ? 0 : _v54),
-        _v1 = _v47 === _v82.EEventLatency.Low || _v10 || !_v22,
+        _v1 = _v47 === _v79.EEventLatency.Low || _v10 || !_v22,
         _v2 = _v57 && !_v46 && !_v12,
-        _v3 = (0, _v84.inline)(() => _v49 ? _v81.T_AUTO_CC_LOCKED_WHILE_LIVE : _v10 ? _v81.T_AUTO_CC_IS_NOT_AVAILABLE_FOR_DEMO : _v22 ? _v47 === _v82.EEventLatency.Low ? (0, _v81.T_AUTO_CC_LOW_LATENCY_STREAM_TIP)() : "" : (0, _v63.translate)({
+        _v3 = (0, _v81.inline)(() => _v49 ? _v78.T_AUTO_CC_LOCKED_WHILE_LIVE : _v10 ? _v78.T_AUTO_CC_IS_NOT_AVAILABLE_FOR_DEMO : _v22 ? _v47 === _v79.EEventLatency.Low ? (0, _v78.T_AUTO_CC_LOW_LATENCY_STREAM_TIP)() : "" : (0, _v63.translate)({
           singular: "You are not permitted to enable auto CC for live events. Please ask your team owner to change this if needed.",
           dictionary: {
             es: {
@@ -1100,7 +1097,7 @@
             })
           })
         }) : null, (0, _v39.jsx)(_v68.AutoCc, {
-          location: _v82.ESettingsLocation.Settings,
+          location: _v79.ESettingsLocation.Settings,
           value: _v42,
           language: _v41,
           isDisabled: _v1,
@@ -1344,7 +1341,7 @@
                   children: (0, _v63.translate)({
                     singular: "{RATE}/min",
                     replacements: {
-                      RATE: _v100(_v54)
+                      RATE: _v97(_v54)
                     },
                     dictionary: {
                       "ja-JP": {
@@ -1416,7 +1413,7 @@
                   children: (0, _v63.translate)({
                     singular: "{RATE}/min",
                     replacements: {
-                      RATE: _v100(_v55)
+                      RATE: _v97(_v55)
                     },
                     dictionary: {
                       "ja-JP": {
@@ -1491,7 +1488,7 @@
       });
     }
     let _v63 = Number((100 - (_v45 ?? 0) / (_v44 ?? 1) * 100).toFixed(2)),
-      _v64 = _v47 === _v82.EEventLatency.Low || _v56 || _v10 || !_v22,
+      _v64 = _v47 === _v79.EEventLatency.Low || _v56 || _v10 || !_v22,
       _v65 = (0, _v63.translate)({
         replacements: {
           NUMBER: _v55
@@ -1521,7 +1518,7 @@
           }
         }
       }),
-      _v66 = (0, _v84.inline)(() => _v49 ? _v81.T_AUTO_CC_LOCKED_WHILE_LIVE : _v10 ? _v81.T_AUTO_CC_IS_NOT_AVAILABLE_FOR_DEMO : _v56 ? _v81.T_AUTO_CC_PLAN_LIMIT_REACHED : _v22 ? _v47 === _v82.EEventLatency.Low ? (0, _v81.T_AUTO_CC_LOW_LATENCY_STREAM_TIP)() : "" : (0, _v63.translate)({
+      _v66 = (0, _v81.inline)(() => _v49 ? _v78.T_AUTO_CC_LOCKED_WHILE_LIVE : _v10 ? _v78.T_AUTO_CC_IS_NOT_AVAILABLE_FOR_DEMO : _v56 ? _v78.T_AUTO_CC_PLAN_LIMIT_REACHED : _v22 ? _v47 === _v79.EEventLatency.Low ? (0, _v78.T_AUTO_CC_LOW_LATENCY_STREAM_TIP)() : "" : (0, _v63.translate)({
         singular: "You are not permitted to enable auto CC for live events. Please ask your team owner to change this if needed.",
         dictionary: {
           es: {
@@ -1586,7 +1583,7 @@
           })
         })
       }) : null, (0, _v39.jsx)(_v68.AutoCc, {
-        location: _v82.ESettingsLocation.Settings,
+        location: _v79.ESettingsLocation.Settings,
         value: _v42 && !_v56,
         language: _v41,
         isDisabled: _v64,
@@ -1607,12 +1604,12 @@
           size: "md",
           color: "text-primary",
           fontWeight: "bold",
-          children: (0, _v85.getFormattedTimecodeFromSeconds)(Math.max(_v45 ?? 0, 0), _v85.TimecodeFormats.LongWithoutDays, {
+          children: (0, _v82.getFormattedTimecodeFromSeconds)(Math.max(_v45 ?? 0, 0), _v82.TimecodeFormats.LongWithoutDays, {
             shouldShowZero: !0
           })
         }), (0, _v39.jsx)(_v54.Progress, {
-          id: (0, _v83.createDomName)(_v0, "usage-progress"),
-          className: (0, _v83.createDomName)(_v1, "usage-progress"),
+          id: (0, _v80.createDomName)(_v0, "usage-progress"),
+          className: (0, _v80.createDomName)(_v1, "usage-progress"),
           margin: `${(0, _v56.rem)(4)} 0`,
           size: "sm",
           variant: "neutral",
@@ -1627,9 +1624,9 @@
           gap: (0, _v56.rem)(4),
           children: [(0, _v39.jsxs)(_v49.Header, {
             size: "xs",
-            children: [" ", _v81.T_AUTO_CC_REMAINING, " "]
+            children: [" ", _v78.T_AUTO_CC_REMAINING, " "]
           }), (0, _v39.jsx)(_v65.CircleTip, {
-            label: _v81.T_AUTO_CC_TIP
+            label: _v78.T_AUTO_CC_TIP
           })]
         }), (0, _v39.jsx)(_v47.Divider, {
           borderColor: "stroke",
@@ -1637,18 +1634,18 @@
         }), (0, _v39.jsx)(_v50.Paragraph, {
           size: "md",
           color: "text-secondary",
-          children: _v56 ? _v81.T_AUTO_CC_UPSELL_REACHED : _v81.T_AUTO_CC_UPSELL
+          children: _v56 ? _v78.T_AUTO_CC_UPSELL_REACHED : _v78.T_AUTO_CC_UPSELL
         }), (0, _v39.jsx)(_v45.Button, {
           size: "sm",
           width: "100%",
           marginTop: (0, _v56.rem)(12),
           variant: "upsell",
           onClick: _v36,
-          children: _v81.T_CONTACT_SALES
+          children: _v78.T_CONTACT_SALES
         })]
       }), _v25 ? (0, _v39.jsx)(_v70.CaptionsTranslations, {
         isDisabled: _v49 || !_v57,
-        disabledTip: _v49 ? _v81.T_AUTO_CC_LOCKED_WHILE_LIVE : void 0,
+        disabledTip: _v49 ? _v78.T_AUTO_CC_LOCKED_WHILE_LIVE : void 0,
         selectedLanguages: _v43 ?? [],
         sourceLanguage: _v41,
         onChange: _v39,
@@ -1722,7 +1719,7 @@
                 children: (0, _v63.translate)({
                   singular: "{RATE}/min",
                   replacements: {
-                    RATE: _v100(_v55)
+                    RATE: _v97(_v55)
                   },
                   dictionary: {
                     "ja-JP": {
@@ -1795,16 +1792,16 @@
         })]
       }) : null, _v34, _v9]
     });
-  }], 0), _v0.s(["trackAddEventDescription", 0, function () {}, "trackAddEventTitle", 0, function () {}], 0);
-  var _v101 = _v0.i(0);
-  function _v102() {
-    return (_v102 = Object.assign.bind()).apply(null, arguments);
+  }], 0);
+  var _v98 = _v0.i(0);
+  function _v99() {
+    return (_v99 = Object.assign.bind()).apply(null, arguments);
   }
-  function _v103() {
-    return (_v103 = Object.assign.bind()).apply(null, arguments);
+  function _v100() {
+    return (_v100 = Object.assign.bind()).apply(null, arguments);
   }
-  function _v104() {
-    return (_v104 = Object.assign.bind()).apply(null, arguments);
+  function _v101() {
+    return (_v101 = Object.assign.bind()).apply(null, arguments);
   }
   _v0.s(["BasicSettingsControls", 0, function ({
     position: _v0,
@@ -1831,18 +1828,18 @@
         isDisabled: _v7,
         variant: "secondary",
         onClick: _v5,
-        children: _v81.T_CANCEL
+        children: _v78.T_CANCEL
       }), (0, _v39.jsx)(_v45.Button, {
         size: "xs",
         isLoading: _v7,
         isDisabled: _v8,
         variant: "primary",
         onClick: _v6,
-        children: _v101.rtmpTranslations.save
+        children: _v98.rtmpTranslations.save
       })]
     });
   }], 0), _v0.s(["default", 0, function (_v0) {
-    return _v41.createElement("svg", _v102({
+    return _v41.createElement("svg", _v99({
       viewBox: "6 6 20 20",
       fill: "none",
       xmlns: "http://www.w3.org/2000/svg"
@@ -1851,7 +1848,7 @@
       fill: "currentColor"
     })));
   }], 0), _v0.s(["default", 0, function (_v0) {
-    return _v41.createElement("svg", _v103({
+    return _v41.createElement("svg", _v100({
       viewBox: "6 6 20 20",
       fill: "none",
       xmlns: "http://www.w3.org/2000/svg"
@@ -1860,7 +1857,7 @@
       fill: "currentColor"
     })));
   }], 0), _v0.s(["default", 0, function (_v0) {
-    return _v41.createElement("svg", _v104({
+    return _v41.createElement("svg", _v101({
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 410 406"
     }, _v0), _v3 || (_v3 = _v41.createElement("path", {

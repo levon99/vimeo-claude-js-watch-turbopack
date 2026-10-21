@@ -129,14 +129,17 @@
           })]
         })
       }), (0, _v1.jsx)(_v11.ContentRow.Column, {
-        href: _v10,
+        href: "string" == typeof _v4 || "number" == typeof _v4 ? _v10 : void 0,
         hideAtWidth: _v10.bokehTheme.breakpoints.xl,
         children: (0, _v1.jsx)(_v4.Flex, {
           alignItems: "center",
-          children: (0, _v1.jsx)(_v5.Text, {
+          children: "string" == typeof _v4 || "number" == typeof _v4 ? (0, _v1.jsx)(_v5.Text, {
             variant: "body-md",
             marginRight: "10px",
             color: "text-secondary",
+            "data-testid": "privacy",
+            children: _v4
+          }) : (0, _v1.jsx)(_v3.Box, {
             "data-testid": "privacy",
             children: _v4
           })

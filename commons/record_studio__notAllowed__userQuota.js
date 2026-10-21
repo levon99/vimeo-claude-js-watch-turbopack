@@ -35,7 +35,6 @@
     client: "record_studio",
     isGuestUser: !1,
     guestUserInfo: void 0,
-    getClientAnalyticContext: () => ({}),
     onScriptGenerationStarted: () => void 0
   });
   var _v30 = _v0.i(0);
@@ -6220,27 +6219,8 @@ ${_v7.innerHTML}
           transformCopiedText: this.options.transformCopiedText
         })];
       }
-    }),
-    _v268 = "record-studio-toggle-generator-panel-button",
-    _v269 = "record-studio-generator-panel-container",
-    _v270 = "record-studio-configure-modifiers-popover-option",
-    _v271 = {
-      USER_PROMPT_INPUT: "record-studio-generator-panel-user-prompt-input",
-      CONFIGURE_PROMPT_MODIFIERS_POPOVER: {
-        POPOVER_CONTAINER: "record-studio-configure-modifiers-popover-container"
-      },
-      ACTIONS: {
-        CONFIGURE_PROMPT_MODIFIERS: "record-studio-configure-modifiers-button",
-        LEGAL_INFO: "record-studio-legal-info-button",
-        START_GENERATING: "record-studio-start-generating-button"
-      }
-    },
-    _v272 = {
-      SAMPLE_PROMPTS_ROW: "record-studio-sample-prompts-row",
-      SAMPLE_PROMPT_BUTTON: "record-studio-sample-prompt-button"
-    };
-  var _v273 = _v0.i(0);
-  function _v274() {
+    });
+  function _v268() {
     let _v0 = (0, _v42.useTeleprompterStore)(_v0 => _v0.updatePersistentData),
       {
         updateCurrentSessionData: _v1,
@@ -6277,142 +6257,150 @@ ${_v7.innerHTML}
       }));
     }, [_v2, _v1, _v0]);
   }
-  let _v275 = ({
-    onCharacterReceived: _v0,
-    placeholderText: _v1,
-    scrollWrapRef: _v2,
-    initialScrollTop: _v3
-  }) => {
-    let [_v4, _v5] = (0, _v19.useState)(!1),
-      [_v6, _v7] = (0, _v19.useState)(!1),
-      _v8 = (0, _v19.useRef)(null),
-      _v9 = (0, _v19.useRef)(!1),
-      {
-        currentSessionData: _v10
-      } = (0, _v80.useSession)(),
-      {
-        trackUserInteractionEvent: _v11
-      } = _v37(),
-      {
-        client: _v12,
-        getClientAnalyticContext: _v13
-      } = (0, _v19.useContext)(_v29),
-      {
-        sendAddScriptToTeleprompterBpEvent: _v14
-      } = (0, _v273.useTeleprompterAnalytics)({
-        element: "text",
-        feature: "teleprompter",
-        location: "modal"
-      }, _v12, _v13),
-      {
-        isPopOverVisible: _v15,
-        setIsPopOverVisible: _v16,
-        promptRequestStatus: _v17,
-        receivedPromptCharacters: _v18,
-        setIsFollowupPromptShown: _v19,
-        setIsGeneratePanelShown: _v20
-      } = (0, _v42.useTeleprompterStore)((0, _v20.useShallow)(_v0 => ({
-        isPopOverVisible: _v0.isPopOverVisible,
-        setIsPopOverVisible: _v0.setIsPopOverVisible,
-        receivedPromptCharacters: _v0.receivedPromptCharacters,
-        promptRequestStatus: _v0.promptRequestStatus,
-        setIsFollowupPromptShown: _v0.setIsFollowupPromptShown,
-        setIsGeneratePanelShown: _v0.setIsGeneratePanelShown
-      }))),
-      _v21 = "started" === _v17,
-      _v22 = !_v21,
-      _v23 = null !== _v18,
-      _v24 = _v23 ? _v18 : _v10.teleprompterRawContent,
-      _v25 = _v23 ? _v18 : _v10.teleprompterTextContent,
-      _v26 = _v274(),
-      _v27 = (0, _v91.useEditor)({
-        editable: _v22,
-        onFocus: () => {
-          _v15 && _v16(!1), _v20(!1);
-        },
-        onUpdate: ({
-          editor: _v0
-        }) => {
-          let _v1 = _v0.getHTML(),
-            _v2 = _v0.getText();
-          _v2.current && !_v6 && (_v2.current.scrollTop = _v3, _v7(!0)), _v4 ? _v26("manual", _v1, _v2) : (_v26("manual", _v24, _v25), _v0.commands.setContent(_v24), _v5(!0)), _v24 !== _v1 && _v0.isFocused && (_v19(!0), _v9.current || (_v14(), _v11({
-            name: "add_script_to_teleprompter",
-            eventType: "type",
-            location: "teleprompter"
-          }), _v9.current = !0));
-        },
-        extensions: [_v92.default, _v267.configure({
-          breaks: !0,
-          bulletListMarker: "-"
-        }), _v90.configure({
-          placeholder: _v1
-        })],
-        editorProps: {
-          handleDOMEvents: {
-            drop: (_v0, _v1) => {
-              _v1.preventDefault();
-            }
-          }
-        },
-        content: _v24
-      });
-    return (0, _v19.useEffect)(() => {
-      _v27?.setEditable(_v22), _v22 && _v27?.commands.focus("end");
-    }, [_v22, _v27]), (0, _v19.useEffect)(() => {
-      _v24 && _v27?.getText() !== _v24 && _v27 && _v21 && (_v27.commands.setContent(_v24), _v8.current && _v0?.(_v8.current.scrollHeight));
-    }, [_v24, _v22, _v27, _v21, _v0]), (0, _v18.jsx)(_v22.VStack, {
-      justifyContent: "space-between",
-      overflow: "hidden",
-      alignItems: "flex-start",
-      onMouseDown: _v0 => _v0.stopPropagation(),
-      children: (0, _v18.jsx)(_v83.Box, {
-        w: "100%",
-        h: "100%",
-        lineHeight: 1.5,
-        outline: "none",
-        fontSize: "inherit",
-        ref: _v8,
-        sx: {
-          div: {
-            height: "100%",
-            ".ProseMirror": {
-              outline: "none",
-              height: "100%"
+  let _v269 = "record-studio-toggle-generator-panel-button",
+    _v270 = "record-studio-generator-panel-container",
+    _v271 = "record-studio-configure-modifiers-popover-option",
+    _v272 = {
+      USER_PROMPT_INPUT: "record-studio-generator-panel-user-prompt-input",
+      CONFIGURE_PROMPT_MODIFIERS_POPOVER: {
+        POPOVER_CONTAINER: "record-studio-configure-modifiers-popover-container"
+      },
+      ACTIONS: {
+        CONFIGURE_PROMPT_MODIFIERS: "record-studio-configure-modifiers-button",
+        LEGAL_INFO: "record-studio-legal-info-button",
+        START_GENERATING: "record-studio-start-generating-button"
+      }
+    },
+    _v273 = {
+      SAMPLE_PROMPTS_ROW: "record-studio-sample-prompts-row",
+      SAMPLE_PROMPT_BUTTON: "record-studio-sample-prompt-button"
+    },
+    _v274 = ({
+      onCharacterReceived: _v0,
+      placeholderText: _v1,
+      scrollWrapRef: _v2,
+      initialScrollTop: _v3
+    }) => {
+      let [_v4, _v5] = (0, _v19.useState)(!1),
+        [_v6, _v7] = (0, _v19.useState)(!1),
+        _v8 = (0, _v19.useRef)(null),
+        _v9 = (0, _v19.useRef)(!1),
+        {
+          currentSessionData: _v10
+        } = (0, _v80.useSession)(),
+        {
+          trackUserInteractionEvent: _v11
+        } = _v37(),
+        {
+          isPopOverVisible: _v12,
+          setIsPopOverVisible: _v13,
+          promptRequestStatus: _v14,
+          receivedPromptCharacters: _v15,
+          setIsFollowupPromptShown: _v16,
+          setIsGeneratePanelShown: _v17
+        } = (0, _v42.useTeleprompterStore)((0, _v20.useShallow)(_v0 => ({
+          isPopOverVisible: _v0.isPopOverVisible,
+          setIsPopOverVisible: _v0.setIsPopOverVisible,
+          receivedPromptCharacters: _v0.receivedPromptCharacters,
+          promptRequestStatus: _v0.promptRequestStatus,
+          setIsFollowupPromptShown: _v0.setIsFollowupPromptShown,
+          setIsGeneratePanelShown: _v0.setIsGeneratePanelShown
+        }))),
+        _v18 = "started" === _v14,
+        _v19 = !_v18,
+        _v20 = null !== _v15,
+        _v21 = _v20 ? _v15 : _v10.teleprompterRawContent,
+        _v22 = _v20 ? _v15 : _v10.teleprompterTextContent,
+        _v23 = _v268(),
+        _v24 = (0, _v91.useEditor)({
+          editable: _v19,
+          onFocus: () => {
+            _v12 && _v13(!1), _v17(!1);
+          },
+          onUpdate: ({
+            editor: _v0
+          }) => {
+            let _v1 = _v0.getHTML(),
+              _v2 = _v0.getText();
+            _v2.current && !_v6 && (_v2.current.scrollTop = _v3, _v7(!0)), _v4 ? _v23("manual", _v1, _v2) : (_v23("manual", _v21, _v22), _v0.commands.setContent(_v21), _v5(!0)), _v21 !== _v1 && _v0.isFocused && (_v16(!0), _v9.current || (_v11({
+              name: "add_script_to_teleprompter",
+              eventType: "type",
+              location: "teleprompter"
+            }), _v9.current = !0));
+          },
+          extensions: [_v92.default, _v267.configure({
+            breaks: !0,
+            bulletListMarker: "-"
+          }), _v90.configure({
+            placeholder: _v1
+          })],
+          editorProps: {
+            handleDOMEvents: {
+              drop: (_v0, _v1) => {
+                _v1.preventDefault();
+              }
             }
           },
-          ".ProseMirror p.is-editor-empty:first-of-type::before": {
-            content: `"${_v1}"`,
-            color: "input-stroke",
-            float: "left",
-            height: 0,
-            pointerEvents: "none"
-          },
-          ".ProseMirror > :not(ol):not(ul):not(pre):last-child::after,.ProseMirror > ul:last-child > li:last-child > p:last-child::after,.ProseMirror > ol:last-child > li:last-child > p:last-child::after": {
-            content: '"▋"',
-            color: _v23 ? "black" : "transparent",
-            animation: "blink 1s infinite",
-            marginLeft: (0, _v85.rem)(4)
-          },
-          "@keyframes blink": {
-            "0%": {
-              opacity: 1
+          content: _v21
+        });
+      return (0, _v19.useEffect)(() => {
+        _v24?.setEditable(_v19), _v19 && _v24?.commands.focus("end");
+      }, [_v19, _v24]), (0, _v19.useEffect)(() => {
+        _v21 && _v24?.getText() !== _v21 && _v24 && _v18 && (_v24.commands.setContent(_v21), _v8.current && _v0?.(_v8.current.scrollHeight));
+      }, [_v21, _v19, _v24, _v18, _v0]), (0, _v18.jsx)(_v22.VStack, {
+        justifyContent: "space-between",
+        overflow: "hidden",
+        alignItems: "flex-start",
+        onMouseDown: _v0 => _v0.stopPropagation(),
+        children: (0, _v18.jsx)(_v83.Box, {
+          w: "100%",
+          h: "100%",
+          lineHeight: 1.5,
+          outline: "none",
+          fontSize: "inherit",
+          ref: _v8,
+          sx: {
+            div: {
+              height: "100%",
+              ".ProseMirror": {
+                outline: "none",
+                height: "100%"
+              }
             },
-            "50%": {
-              opacity: 0
+            ".ProseMirror p.is-editor-empty:first-of-type::before": {
+              content: `"${_v1}"`,
+              color: "input-stroke",
+              float: "left",
+              height: 0,
+              pointerEvents: "none"
             },
-            "100%": {
-              opacity: 1
+            ".ProseMirror > :not(ol):not(ul):not(pre):last-child::after,.ProseMirror > ul:last-child > li:last-child > p:last-child::after,.ProseMirror > ol:last-child > li:last-child > p:last-child::after": {
+              content: '"▋"',
+              color: _v20 ? "black" : "transparent",
+              animation: "blink 1s infinite",
+              marginLeft: (0, _v85.rem)(4)
+            },
+            "@keyframes blink": {
+              "0%": {
+                opacity: 1
+              },
+              "50%": {
+                opacity: 0
+              },
+              "100%": {
+                opacity: 1
+              }
             }
-          }
-        },
-        children: (0, _v18.jsx)(_v91.EditorContent, {
-          "data-testid": "record-studio-teleprompter-editor",
-          editor: _v27
+          },
+          children: (0, _v18.jsx)(_v91.EditorContent, {
+            "data-testid": "record-studio-teleprompter-editor",
+            editor: _v24
+          })
         })
-      })
-    });
-  };
-  var _v276 = _v0.i(0),
+      });
+    };
+  var _v275 = _v0.i(0),
+    _v276 = _v0.i(0),
     _v277 = _v0.i(0),
     _v278 = _v0.i(0),
     _v279 = _v0.i(0),
@@ -6420,9 +6408,8 @@ ${_v7.innerHTML}
     _v281 = _v0.i(0),
     _v282 = _v0.i(0),
     _v283 = _v0.i(0),
-    _v284 = _v0.i(0),
-    _v285 = _v0.i(0);
-  let _v286 = _v0 => (0, _v18.jsx)(_v285.Icon, {
+    _v284 = _v0.i(0);
+  let _v285 = _v0 => (0, _v18.jsx)(_v284.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -6433,7 +6420,7 @@ ${_v7.innerHTML}
         fill: "currentColor"
       })
     }),
-    _v287 = _v0 => (0, _v18.jsx)(_v285.Icon, {
+    _v286 = _v0 => (0, _v18.jsx)(_v284.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -6444,13 +6431,13 @@ ${_v7.innerHTML}
         fill: "currentColor"
       })
     });
-  var _v288 = _v0.i(0),
+  var _v287 = _v0.i(0),
+    _v288 = _v0.i(0),
     _v289 = _v0.i(0),
     _v290 = _v0.i(0),
     _v291 = _v0.i(0),
-    _v292 = _v0.i(0),
-    _v293 = _v0.i(0);
-  let _v294 = () => {
+    _v292 = _v0.i(0);
+  let _v293 = () => {
       let {
           isScrollingActive: _v0,
           updateScrollingState: _v1
@@ -6464,54 +6451,53 @@ ${_v7.innerHTML}
         _v3 = 0 === _v2.teleprompterTextContent.length,
         _v4 = (0, _v19.useMemo)(() => _v0 ? _v36.tooltips.scrollButtons.pause : _v36.tooltips.scrollButtons.play, [_v0]);
       return (0, _v18.jsxs)(_v18.Fragment, {
-        children: [(0, _v18.jsx)(_v282.Tooltip, {
+        children: [(0, _v18.jsx)(_v281.Tooltip, {
           label: _v3 ? void 0 : _v4,
           shouldWrapChildren: !0,
-          children: (0, _v18.jsx)(_v277.IconButton, {
+          children: (0, _v18.jsx)(_v276.IconButton, {
             variant: "tertiary",
             size: "sm",
             onClick: () => {
               _v0 ? _v1("paused") : _v1("active");
             },
             isDisabled: _v3,
-            icon: _v0 ? (0, _v18.jsx)(_v292.Pause, {
-              boxSize: _v295
-            }) : (0, _v18.jsx)(_v291.Play, {
-              boxSize: _v295
+            icon: _v0 ? (0, _v18.jsx)(_v291.Pause, {
+              boxSize: _v294
+            }) : (0, _v18.jsx)(_v290.Play, {
+              boxSize: _v294
             }),
             "aria-label": "start-stop-scroll-button"
           })
-        }), (0, _v18.jsx)(_v282.Tooltip, {
+        }), (0, _v18.jsx)(_v281.Tooltip, {
           label: _v3 ? void 0 : _v36.tooltips.scrollButtons.reset,
           shouldWrapChildren: !0,
-          children: (0, _v18.jsx)(_v277.IconButton, {
+          children: (0, _v18.jsx)(_v276.IconButton, {
             variant: "tertiary",
             size: "sm",
             onClick: () => {
               _v1("disabled");
             },
             isDisabled: _v3,
-            icon: (0, _v18.jsx)(_v293.Reset, {
-              boxSize: _v295
+            icon: (0, _v18.jsx)(_v292.Reset, {
+              boxSize: _v294
             }),
             "aria-label": "reset-scroll-button"
           })
         })]
       });
     },
-    _v295 = `${(0, _v85.rem)(20)} !important`,
-    _v296 = ({
+    _v294 = `${(0, _v85.rem)(20)} !important`,
+    _v295 = ({
       popOut: _v0,
       isPoppedOut: _v1,
       showUpsell: _v2,
       setForceDisposeSpeechRecognition: _v3,
       client: _v4,
-      isGuestUser: _v5,
-      getClientAnalyticContext: _v6
+      isGuestUser: _v5
     }) => {
       let {
-          increase: _v7,
-          decrease: _v8
+          increase: _v6,
+          decrease: _v7
         } = (() => {
           let _v0 = (0, _v78.useLogger)("useDynamicFontSize"),
             {
@@ -6553,26 +6539,19 @@ ${_v7.innerHTML}
           };
         })(),
         {
-          trackUserInteractionEvent: _v9,
-          trackTeleprompterUpgrade: _v10
+          trackUserInteractionEvent: _v8,
+          trackTeleprompterUpgrade: _v9
         } = _v37(),
+        _v10 = (0, _v42.useTeleprompterStore)(_v0 => "started" === _v0.promptRequestStatus),
         {
-          sendToggleTeleprompterBpEvent: _v11
-        } = (0, _v273.useTeleprompterAnalytics)({
-          element: "icon",
-          feature: "teleprompter",
-          location: "modal_upper_banner"
-        }, _v4, _v6),
-        _v12 = (0, _v42.useTeleprompterStore)(_v0 => "started" === _v0.promptRequestStatus),
+          toggleTeleprompter: _v11
+        } = (0, _v289.useTeleprompter)(_v5),
         {
-          toggleTeleprompter: _v13
-        } = (0, _v290.useTeleprompter)(_v5),
-        {
-          isSpeechRecognitionSupported: _v14,
-          autoScrollSpeed: _v15,
-          getAvailableScrollModes: _v16,
-          setCertainMode: _v17,
-          autoEvaluatedForCurrentInput: _v18
+          isSpeechRecognitionSupported: _v12,
+          autoScrollSpeed: _v13,
+          getAvailableScrollModes: _v14,
+          setCertainMode: _v15,
+          autoEvaluatedForCurrentInput: _v16
         } = (0, _v42.useTeleprompterStore)((0, _v20.useShallow)(({
           persistentData: _v0,
           getAvailableScrollModes: _v1,
@@ -6586,37 +6565,37 @@ ${_v7.innerHTML}
           setCertainMode: _v2
         }))),
         {
-          mode: _v19
+          mode: _v17
         } = (0, _v79.useScrollMode)(),
-        _v20 = (0, _v19.useCallback)(_v0 => {
-          _v17(_v0) && _v9({
+        _v18 = (0, _v19.useCallback)(_v0 => {
+          _v15(_v0) && _v8({
             name: "change_teleprompter_speed",
             eventType: "click",
             location: "teleprompter"
           });
-        }, [_v17, _v9]),
-        _v21 = (0, _v19.useCallback)(() => {
-          _v13(!1), _v11(!1), _v9({
+        }, [_v15, _v8]),
+        _v19 = (0, _v19.useCallback)(() => {
+          _v11(!1), _v8({
             name: "close_teleprompter",
             eventType: "click",
             location: "teleprompter"
-          }), _v2 && _v10({
+          }), _v2 && _v9({
             copy: "dismiss",
             actionType: "dismiss"
           });
-        }, [_v11, _v2, _v13, _v10, _v9]),
-        _v22 = (0, _v19.useCallback)(() => {
+        }, [_v2, _v11, _v9, _v8]),
+        _v20 = (0, _v19.useCallback)(() => {
           _v3(!0), setTimeout(() => {
             window.opener?.postMessage("popIn");
           }, 333);
         }, [_v3]),
-        _v23 = (0, _v19.useMemo)(() => _v16(_v14).map(_v0 => ({
+        _v21 = (0, _v19.useMemo)(() => _v14(_v12).map(_v0 => ({
           ..._v0,
           label: "dictationBased" === _v0.mode ? _v36.dictationBasedScroll : 0 === _v0.speed ? _v36.speedOff : `${_v0.speed}x`,
-          isDisabled: "dictationBased" === _v0.mode && "staticSpeed" === _v18
-        })), [_v18, _v16, _v14]),
-        _v24 = (0, _v19.useMemo)(() => _v23.find(_v0 => _v0.mode === _v19 && ("staticSpeed" !== _v0.mode || _v0.speed === _v15))?.label, [_v15, _v19, _v23]),
-        _v25 = _v2 || _v12;
+          isDisabled: "dictationBased" === _v0.mode && "staticSpeed" === _v16
+        })), [_v16, _v14, _v12]),
+        _v22 = (0, _v19.useMemo)(() => _v21.find(_v0 => _v0.mode === _v17 && ("staticSpeed" !== _v0.mode || _v0.speed === _v13))?.label, [_v13, _v17, _v21]),
+        _v23 = _v2 || _v10;
       return (0, _v18.jsx)(_v84.Flex, {
         w: "100%",
         h: 56,
@@ -6624,102 +6603,102 @@ ${_v7.innerHTML}
         justifyContent: "flex-end",
         alignItems: "center",
         children: (0, _v18.jsxs)(_v23.HStack, {
-          children: ["live" === _v4 && (0, _v18.jsx)(_v294, {}), (0, _v18.jsxs)(_v278.Menu, {
-            children: [(0, _v18.jsx)(_v282.Tooltip, {
+          children: ["live" === _v4 && (0, _v18.jsx)(_v293, {}), (0, _v18.jsxs)(_v277.Menu, {
+            children: [(0, _v18.jsx)(_v281.Tooltip, {
               label: _v36.tooltips.speed,
-              children: (0, _v18.jsx)(_v279.MenuButton, {
-                as: _v276.Button,
+              children: (0, _v18.jsx)(_v278.MenuButton, {
+                as: _v275.Button,
                 variant: "tertiary",
                 size: "sm",
-                leftIcon: (0, _v18.jsx)(_v283.Clock, {
-                  boxSize: _v295
+                leftIcon: (0, _v18.jsx)(_v282.Clock, {
+                  boxSize: _v294
                 }),
-                isDisabled: _v25,
-                isLoading: "uncertain" === _v19,
-                children: _v24
+                isDisabled: _v23,
+                isLoading: "uncertain" === _v17,
+                children: _v22
               })
-            }), (0, _v18.jsx)(_v281.MenuList, {
-              children: _v23.map(({
+            }), (0, _v18.jsx)(_v280.MenuList, {
+              children: _v21.map(({
                 isDisabled: _v0,
                 label: _v1,
                 ..._v2
-              }) => (0, _v18.jsx)(_v280.MenuItem, {
-                onClick: () => _v20(_v2),
+              }) => (0, _v18.jsx)(_v279.MenuItem, {
+                onClick: () => _v18(_v2),
                 isDisabled: _v0,
                 children: _v1
               }, _v1))
             })]
-          }), (0, _v18.jsx)(_v282.Tooltip, {
+          }), (0, _v18.jsx)(_v281.Tooltip, {
             label: _v36.tooltips.decreaseFontSize,
-            children: (0, _v18.jsx)(_v277.IconButton, {
-              variant: "tertiary",
-              size: "sm",
-              onClick: _v8,
-              isDisabled: _v25,
-              icon: (0, _v18.jsx)(_v286, {
-                boxSize: _v295
-              }),
-              "aria-label": "font-size-decrease-button"
-            })
-          }), (0, _v18.jsx)(_v282.Tooltip, {
-            label: _v36.tooltips.increaseFontSize,
-            children: (0, _v18.jsx)(_v277.IconButton, {
+            children: (0, _v18.jsx)(_v276.IconButton, {
               variant: "tertiary",
               size: "sm",
               onClick: _v7,
-              isDisabled: _v25,
-              icon: (0, _v18.jsx)(_v287, {
-                boxSize: _v295
+              isDisabled: _v23,
+              icon: (0, _v18.jsx)(_v285, {
+                boxSize: _v294
+              }),
+              "aria-label": "font-size-decrease-button"
+            })
+          }), (0, _v18.jsx)(_v281.Tooltip, {
+            label: _v36.tooltips.increaseFontSize,
+            children: (0, _v18.jsx)(_v276.IconButton, {
+              variant: "tertiary",
+              size: "sm",
+              onClick: _v6,
+              isDisabled: _v23,
+              icon: (0, _v18.jsx)(_v286, {
+                boxSize: _v294
               }),
               "aria-label": "font-size-increase-button"
             })
-          }), _v81 && (0, _v18.jsx)(_v277.IconButton, {
+          }), _v81 && (0, _v18.jsx)(_v276.IconButton, {
             variant: "tertiary",
             size: "sm",
-            onClick: _v1 ? _v22 : _v0,
-            isDisabled: _v25,
-            icon: _v1 ? (0, _v18.jsx)(_v288.PopIn, {
-              boxSize: _v295
-            }) : (0, _v18.jsx)(_v289.PopOut, {
-              boxSize: _v295
+            onClick: _v1 ? _v20 : _v0,
+            isDisabled: _v23,
+            icon: _v1 ? (0, _v18.jsx)(_v287.PopIn, {
+              boxSize: _v294
+            }) : (0, _v18.jsx)(_v288.PopOut, {
+              boxSize: _v294
             }),
             "aria-label": "toggle-popped-out-teleprompter-button"
-          }), !_v1 && (0, _v18.jsx)(_v282.Tooltip, {
+          }), !_v1 && (0, _v18.jsx)(_v281.Tooltip, {
             label: _v36.tooltips.close,
-            children: (0, _v18.jsx)(_v277.IconButton, {
+            children: (0, _v18.jsx)(_v276.IconButton, {
               variant: "tertiary",
               size: "sm",
-              onClick: _v21,
-              icon: (0, _v18.jsx)(_v284.CloseX, {}),
+              onClick: _v19,
+              icon: (0, _v18.jsx)(_v283.CloseX, {}),
               "aria-label": "close-button"
             })
           })]
         })
       });
     };
-  var _v297 = _v0.i(0),
-    _v298 = _v0.i(0),
-    _v299 = _v0.i(0);
-  let _v300 = ({
+  var _v296 = _v0.i(0),
+    _v297 = _v0.i(0),
+    _v298 = _v0.i(0);
+  let _v299 = ({
       message: _v0,
       title: _v1,
       onClose: _v2,
       status: _v3
-    }) => (0, _v18.jsxs)(_v297.Alert, {
+    }) => (0, _v18.jsxs)(_v296.Alert, {
       w: "auto",
       status: _v3,
       minWidth: (0, _v85.rem)(200),
       onClose: _v2,
       marginX: "300",
-      children: [(0, _v18.jsx)(_v299.AlertTitle, {
+      children: [(0, _v18.jsx)(_v298.AlertTitle, {
         fontSize: "heading-xs",
         children: _v1
-      }), (0, _v18.jsx)(_v298.AlertDescription, {
+      }), (0, _v18.jsx)(_v297.AlertDescription, {
         fontSize: "body-sm",
         children: _v0
       })]
     }),
-    _v301 = ({
+    _v300 = ({
       visibleNotices: _v0
     }) => (0, _v18.jsx)(_v18.Fragment, {
       children: _v0.map(({
@@ -6727,69 +6706,69 @@ ${_v7.innerHTML}
         message: _v1,
         onClose: _v2,
         title: _v3
-      }) => (0, _v18.jsx)(_v300, {
+      }) => (0, _v18.jsx)(_v299, {
         title: _v3,
         message: _v1,
         status: "info",
         onClose: _v2
       }, _v0))
     });
-  var _v302 = _v0.i(0),
-    _v303 = _v0.i(0);
-  function _v304(_v0, _v1) {
+  var _v301 = _v0.i(0),
+    _v302 = _v0.i(0);
+  function _v303(_v0, _v1) {
     let [_v2, _v3] = (0, _v19.useState)(!1);
     return (0, _v19.useEffect)(() => {
       let _v0;
       return _v0 && !_v2 ? _v3(!0) : !_v0 && _v2 && (_v0 = setTimeout(() => _v3(!1), _v1)), () => clearTimeout(_v0);
     }, [_v0, _v1, _v2]), _v2;
   }
-  var _v305 = _v0.i(0),
+  var _v304 = _v0.i(0),
+    _v305 = _v0.i(0),
     _v306 = _v0.i(0),
     _v307 = _v0.i(0),
     _v308 = _v0.i(0),
     _v309 = _v0.i(0),
-    _v310 = _v0.i(0),
-    _v311 = _v0.i(0);
-  let _v312 = _v36.script.promptConfigurator,
-    _v313 = {
-      label: _v312.tone.label,
+    _v310 = _v0.i(0);
+  let _v311 = _v36.script.promptConfigurator,
+    _v312 = {
+      label: _v311.tone.label,
       options: [{
-        label: _v312.tone.options.confident,
+        label: _v311.tone.options.confident,
         value: "confident",
         isDefaultOption: !0
       }, {
-        label: _v312.tone.options.funny,
+        label: _v311.tone.options.funny,
         value: "funny"
       }, {
-        label: _v312.tone.options.direct,
+        label: _v311.tone.options.direct,
         value: "direct"
       }, {
-        label: _v312.tone.options.inspiring,
+        label: _v311.tone.options.inspiring,
         value: "inspiring"
       }, {
-        label: _v312.tone.options.casual,
+        label: _v311.tone.options.casual,
         value: "casual"
       }, {
-        label: _v312.tone.options.formal,
+        label: _v311.tone.options.formal,
         value: "formal"
       }]
     },
-    _v314 = {
-      label: _v312.duration.label,
+    _v313 = {
+      label: _v311.duration.label,
       options: [{
-        label: _v312.duration.options.short,
+        label: _v311.duration.options.short,
         value: "short",
         isDefaultOption: !0
       }, {
-        label: _v312.duration.options.medium,
+        label: _v311.duration.options.medium,
         value: "medium"
       }, {
-        label: _v312.duration.options.long,
+        label: _v311.duration.options.long,
         value: "long"
       }]
     };
-  var _v315 = _v0.i(0);
-  let _v316 = _v0 => {
+  var _v314 = _v0.i(0);
+  let _v315 = _v0 => {
       let {
           label: _v1,
           options: _v2,
@@ -6814,12 +6793,12 @@ ${_v7.innerHTML}
         children: [(0, _v18.jsx)(_v21.Text, {
           variant: "heading-sm",
           children: _v1
-        }), (0, _v18.jsx)(_v315.Wrap, {
+        }), (0, _v18.jsx)(_v314.Wrap, {
           children: _v2.map(_v0 => {
             let _v1,
               _v2 = _v0.value === _v7 || !!(_v0.isDefaultOption && "default" === _v7);
             return (0, _v18.jsx)(_v83.Box, {
-              "data-testid": `${_v0.label}_${_v270}`,
+              "data-testid": `${_v0.label}_${_v271}`,
               onClick: (_v1 = _v0.value, () => {
                 _v5({
                   scriptGeneratorModifiers: {
@@ -6860,18 +6839,18 @@ ${_v7.innerHTML}
         })]
       });
     },
-    _v317 = () => (0, _v18.jsxs)(_v18.Fragment, {
-      children: [(0, _v18.jsx)(_v316, {
+    _v316 = () => (0, _v18.jsxs)(_v18.Fragment, {
+      children: [(0, _v18.jsx)(_v315, {
         modifierKey: "duration",
-        label: _v314.label,
-        options: _v314.options
-      }), (0, _v18.jsx)(_v316, {
-        modifierKey: "tone",
         label: _v313.label,
         options: _v313.options
+      }), (0, _v18.jsx)(_v315, {
+        modifierKey: "tone",
+        label: _v312.label,
+        options: _v312.options
       })]
     }),
-    _v318 = ({
+    _v317 = ({
       isDisabled: _v0
     }) => {
       let {
@@ -6885,48 +6864,37 @@ ${_v7.innerHTML}
         } = (0, _v42.useTeleprompterStore)((0, _v20.useShallow)(_v0 => ({
           isPopOverVisible: _v0.isPopOverVisible,
           setIsPopOverVisible: _v0.setIsPopOverVisible
-        }))),
-        {
-          client: _v6,
-          getClientAnalyticContext: _v7
-        } = (0, _v19.useContext)(_v29),
-        {
-          sendOpenTeleprompterScriptSettingsBpEvent: _v8
-        } = (0, _v273.useTeleprompterAnalytics)({
-          element: "icon",
-          feature: "teleprompter",
-          location: "modal_bottom_banner"
-        }, _v6, _v7);
-      (0, _v309.useOutsideClick)({
+        })));
+      (0, _v308.useOutsideClick)({
         ref: _v2,
         handler: _v0 => {
           !_v4 || _v0.target && _v3.current?.contains(_v0.target) || _v0.target && !_v2.current?.contains(_v0.target) && (_v5(!1), _v0.stopPropagation());
         },
         enabled: !0
       });
-      let _v9 = (0, _v310.useColorModeValue)("rgba(244, 246, 248, 0.7)", "rgba(37, 45, 53, 0.7)");
-      return (0, _v18.jsxs)(_v306.Popover, {
+      let _v6 = (0, _v309.useColorModeValue)("rgba(244, 246, 248, 0.7)", "rgba(37, 45, 53, 0.7)");
+      return (0, _v18.jsxs)(_v305.Popover, {
         isOpen: _v4,
         placement: "top-end",
         offset: [50, 10],
-        children: [(0, _v18.jsx)(_v307.PopoverTrigger, {
-          children: (0, _v18.jsx)(_v277.IconButton, {
+        children: [(0, _v18.jsx)(_v306.PopoverTrigger, {
+          children: (0, _v18.jsx)(_v276.IconButton, {
             "aria-label": "open-modifiers",
             onClick: () => {
               let _v0 = !_v4;
-              _v0 && (_v8(), _v1({
+              _v0 && _v1({
                 name: "open_script_settings",
                 eventType: "click",
                 location: "teleprompter"
-              })), _v5(_v0);
+              }), _v5(_v0);
             },
             ref: _v3,
             isActive: _v4,
             variant: "tertiary",
             size: "sm",
             isDisabled: _v0,
-            icon: (0, _v18.jsx)(_v311.FiltersLevers, {}),
-            "data-testid": _v271.ACTIONS.CONFIGURE_PROMPT_MODIFIERS,
+            icon: (0, _v18.jsx)(_v310.FiltersLevers, {}),
+            "data-testid": _v272.ACTIONS.CONFIGURE_PROMPT_MODIFIERS,
             sx: {
               svg: {
                 width: (0, _v85.rem)(20),
@@ -6934,24 +6902,24 @@ ${_v7.innerHTML}
               }
             }
           })
-        }), (0, _v18.jsx)(_v308.PopoverContent, {
+        }), (0, _v18.jsx)(_v307.PopoverContent, {
           sx: {
-            backgroundColor: `${_v9} !important`,
+            backgroundColor: `${_v6} !important`,
             backdropFilter: "blur(var(--vimeo-blur-lg))"
           },
           children: (0, _v18.jsx)(_v22.VStack, {
             p: (0, _v85.rem)(15),
             width: (0, _v85.rem)(322),
             ref: _v2,
-            "data-testid": _v271.CONFIGURE_PROMPT_MODIFIERS_POPOVER.POPOVER_CONTAINER,
-            children: (0, _v18.jsx)(_v317, {})
+            "data-testid": _v272.CONFIGURE_PROMPT_MODIFIERS_POPOVER.POPOVER_CONTAINER,
+            children: (0, _v18.jsx)(_v316, {})
           })
         })]
       });
     };
-  var _v319 = _v0.i(0),
-    _v320 = _v0.i(0);
-  let _v321 = ({
+  var _v318 = _v0.i(0),
+    _v319 = _v0.i(0);
+  let _v320 = ({
     children: _v0,
     isDisabled: _v1,
     onGenerate: _v2,
@@ -6961,7 +6929,7 @@ ${_v7.innerHTML}
         trackUserInteractionEvent: _v4
       } = _v37(),
       _v5 = (0, _v19.useRef)(!1),
-      _v6 = (0, _v320.useHasMounted)(),
+      _v6 = (0, _v319.useHasMounted)(),
       {
         currentSessionData: _v7,
         updateCurrentSessionData: _v8
@@ -6970,7 +6938,7 @@ ${_v7.innerHTML}
       paddingY: (0, _v85.rem)(12),
       alignItems: "center",
       h: "100%",
-      children: [(0, _v18.jsx)(_v319.Input, {
+      children: [(0, _v18.jsx)(_v318.Input, {
         _focus: {
           outline: "none"
         },
@@ -7009,25 +6977,25 @@ ${_v7.innerHTML}
         maxLength: 512,
         isDisabled: _v1,
         backgroundColor: "transparent",
-        "data-testid": _v271.USER_PROMPT_INPUT
+        "data-testid": _v272.USER_PROMPT_INPUT
       }), _v0]
     });
   };
-  var _v322 = _v0.i(0),
-    _v323 = _v0.i(0);
-  let _v324 = ({
+  var _v321 = _v0.i(0),
+    _v322 = _v0.i(0);
+  let _v323 = ({
     isDisabled: _v0
-  }) => (0, _v18.jsxs)(_v306.Popover, {
+  }) => (0, _v18.jsxs)(_v305.Popover, {
     placement: "top",
     trigger: "hover",
-    children: [(0, _v18.jsx)(_v307.PopoverTrigger, {
-      children: (0, _v18.jsx)(_v277.IconButton, {
+    children: [(0, _v18.jsx)(_v306.PopoverTrigger, {
+      children: (0, _v18.jsx)(_v276.IconButton, {
         variant: "tertiary",
         size: "sm",
         isDisabled: _v0,
-        "data-testid": _v271.ACTIONS.LEGAL_INFO,
+        "data-testid": _v272.ACTIONS.LEGAL_INFO,
         "aria-label": "open-legal-info",
-        icon: (0, _v18.jsx)(_v323.InfoCircle, {}),
+        icon: (0, _v18.jsx)(_v322.InfoCircle, {}),
         sx: {
           svg: {
             width: (0, _v85.rem)(20),
@@ -7035,7 +7003,7 @@ ${_v7.innerHTML}
           }
         }
       })
-    }), (0, _v18.jsx)(_v308.PopoverContent, {
+    }), (0, _v18.jsx)(_v307.PopoverContent, {
       padding: "100",
       children: (0, _v18.jsx)(_v21.Text, {
         color: "text-primary",
@@ -7043,7 +7011,7 @@ ${_v7.innerHTML}
         children: (0, _v30.translate)({
           singular: "Your use of this feature is governed by our {LINK}Vimeo AI Addendum.{/LINK}",
           replacements: {
-            LINK: _v0 => (0, _v18.jsxs)(_v322.Link, {
+            LINK: _v0 => (0, _v18.jsxs)(_v321.Link, {
               fontSize: 14,
               variant: "inline-primary",
               target: "_blank",
@@ -7078,11 +7046,11 @@ ${_v7.innerHTML}
       })
     })]
   });
-  var _v325 = _v0.i(0),
-    _v326 = _v0.i(0);
-  let _v327 = _v326.IS_DEV ? "https://us-central1-vimeo-record-prod.cloudfunctions.net/vimeo-record-script-generator-v2-staging" : "https://us-central1-vimeo-record-prod.cloudfunctions.net/vimeo-record-script-generator-v2",
-    _v328 = () => new URLSearchParams(window.location.search).get("script_gen_secret") ?? "",
-    _v329 = new class {
+  var _v324 = _v0.i(0),
+    _v325 = _v0.i(0);
+  let _v326 = _v325.IS_DEV ? "https://us-central1-vimeo-record-prod.cloudfunctions.net/vimeo-record-script-generator-v2-staging" : "https://us-central1-vimeo-record-prod.cloudfunctions.net/vimeo-record-script-generator-v2",
+    _v327 = () => new URLSearchParams(window.location.search).get("script_gen_secret") ?? "",
+    _v328 = new class {
       baseUrl = null;
       isInitialized = !1;
       additionalHeaders = {};
@@ -7143,7 +7111,7 @@ ${_v7.innerHTML}
         }
       }
     }(),
-    _v330 = async _v0 => {
+    _v329 = async _v0 => {
       var _v1;
       let _v2,
         {
@@ -7154,14 +7122,14 @@ ${_v7.innerHTML}
         } = (_v2 = (_v1 = {
           body: _v0.body,
           headers: _v0.headers
-        }).body, _v326.IS_DEV && (_v2.devSecretKey = _v328()), {
+        }).body, _v325.IS_DEV && (_v2.devSecretKey = _v327()), {
           headers: _v1?.headers ? {
             "Content-Type": _v1.headers["Content-Type"],
             Authorization: _v1.headers.Authorization
           } : void 0,
           method: "POST",
           body: JSON.stringify(_v2),
-          url: _v326.IS_DEV ? `${_v327}/generate-dev` : `${_v327}/generate`
+          url: _v325.IS_DEV ? `${_v326}/generate-dev` : `${_v326}/generate`
         });
       return fetch(_v6, {
         headers: _v3,
@@ -7170,27 +7138,27 @@ ${_v7.innerHTML}
         signal: _v0?.signal
       });
     },
-    _v331 = async (_v0, _v1) => _v329.fetchWithJWT(_v330, {
+    _v330 = async (_v0, _v1) => _v328.fetchWithJWT(_v329, {
       body: _v0,
       signal: _v1,
-      baseUrl: _v327
+      baseUrl: _v326
     }, !0),
-    _v332 = async (_v0, _v1, _v2) => {
-      let _v3 = _v326.IS_DEV ? `${_v327}/live-guest/generate-dev` : `${_v327}/live-guest/generate`;
-      _v326.IS_DEV && (_v0.devSecretKey = _v328());
+    _v331 = async (_v0, _v1, _v2) => {
+      let _v3 = _v325.IS_DEV ? `${_v326}/live-guest/generate-dev` : `${_v326}/live-guest/generate`;
+      _v325.IS_DEV && (_v0.devSecretKey = _v327());
       let _v4 = {
         Authorization: `jwt ${_v2}`,
         "Content-Type": "application/json"
       };
-      return _v326.IS_DEV || (_v4.origin = window.location.origin), fetch(_v3, {
+      return _v325.IS_DEV || (_v4.origin = window.location.origin), fetch(_v3, {
         method: "POST",
         body: JSON.stringify(_v0),
         signal: _v1,
         headers: _v4
       });
     },
-    _v333 = _v0 => _v0.body?.pipeThrough(new TextDecoderStream()).getReader(),
-    _v334 = async (_v0, _v1) => {
+    _v332 = _v0 => _v0.body?.pipeThrough(new TextDecoderStream()).getReader(),
+    _v333 = async (_v0, _v1) => {
       let _v2 = "",
         _v3 = !1;
       for (;;) {
@@ -7214,7 +7182,7 @@ ${_v7.innerHTML}
         });
       }
     },
-    _v335 = _v0 => _v0.modifiers?.style ? _v0.payload && 0 === _v0.payload.length || _v0.chatPayload && 0 === _v0.chatPayload.length ? {
+    _v334 = _v0 => _v0.modifiers?.style ? _v0.payload && 0 === _v0.payload.length || _v0.chatPayload && 0 === _v0.chatPayload.length ? {
       isValid: !1,
       message: "Please enter any prompt"
     } : {
@@ -7224,7 +7192,7 @@ ${_v7.innerHTML}
       isValid: !1,
       message: "Please select tone"
     },
-    _v336 = _v0 => {
+    _v335 = _v0 => {
       switch (_v0) {
         case 3:
           return _v33;
@@ -7237,12 +7205,12 @@ ${_v7.innerHTML}
           return _v31;
       }
     },
-    _v337 = _v0 => _v0 ? _v35 : _v34,
-    _v338 = _v0 => "default" === _v0 ? "confident" : _v0,
-    _v339 = _v0 => "default" === _v0 ? "short" : ["short", "medium", "long"].includes(_v0) ? _v0 : "unset";
-  _v0.s(["getDuration", 0, _v339, "getErrorByCode", 0, _v336, "getReader", 0, _v333, "getTone", 0, _v338, "getUnexpectedError", 0, _v337, "makeGuestRequest", 0, _v332, "makeRequest", 0, _v331, "readResponse", 0, _v334, "validateBody", 0, _v335], 0);
-  var _v340 = ((_v10 = {}).UNEXPECTED = "UNEXPECTED", _v10.NETWORK = "NETWORK", _v10.SCRIPT_GENERATOR = "SCRIPT_GENERATOR", _v10.ANALYTIC = "ANALYTIC", _v10);
-  let _v341 = ({
+    _v336 = _v0 => _v0 ? _v35 : _v34,
+    _v337 = _v0 => "default" === _v0 ? "confident" : _v0,
+    _v338 = _v0 => "default" === _v0 ? "short" : ["short", "medium", "long"].includes(_v0) ? _v0 : "unset";
+  _v0.s(["getDuration", 0, _v338, "getErrorByCode", 0, _v335, "getReader", 0, _v332, "getTone", 0, _v337, "getUnexpectedError", 0, _v336, "makeGuestRequest", 0, _v331, "makeRequest", 0, _v330, "readResponse", 0, _v333, "validateBody", 0, _v334], 0);
+  var _v339 = ((_v10 = {}).UNEXPECTED = "UNEXPECTED", _v10.NETWORK = "NETWORK", _v10.SCRIPT_GENERATOR = "SCRIPT_GENERATOR", _v10.ANALYTIC = "ANALYTIC", _v10);
+  let _v340 = ({
     setStep: _v0
   } = {}) => {
     let _v1 = (0, _v78.useLogger)("useScriptGenerator"),
@@ -7251,18 +7219,18 @@ ${_v7.innerHTML}
         isGuestUser: _v3,
         guestUserInfo: _v4
       } = (0, _v19.useContext)(_v29),
-      _v5 = _v274(),
+      _v5 = _v268(),
       {
         updateCurrentSessionData: _v6
       } = (0, _v80.useSession)(),
-      _v7 = (0, _v325.useGctlConfig)(),
+      _v7 = (0, _v324.useGctlConfig)(),
       {
         locale: _v8,
         teamUser: _v9,
         jwt: _v10
       } = (0, _v19.useContext)(_v28.ViewerContext) ?? {};
     (0, _v19.useEffect)(() => {
-      _v329.initialize({
+      _v328.initialize({
         baseUrl: _v7.baseUrl,
         xVimeoPage: _v7.xVimeoPage,
         locale: _v7.locale
@@ -7307,17 +7275,17 @@ ${_v7.innerHTML}
           let {
             isValid: _v1,
             message: _v2
-          } = _v335(_v0);
+          } = _v334(_v0);
           if (!_v1 && _v2) return void _v13("failed");
           _v13("started");
           let _v3 = new AbortController();
-          if (_v14(_v3), _v3 && "live" === _v2 ? (_v0.liveGuestInfo = _v4, _v0 = await _v332(_v0, _v3.signal, _v10 ?? "")) : _v0 = await _v331(_v0, _v3.signal), _v0.ok) {
-            let _v0 = _v333(_v0);
+          if (_v14(_v3), _v3 && "live" === _v2 ? (_v0.liveGuestInfo = _v4, _v0 = await _v331(_v0, _v3.signal, _v10 ?? "")) : _v0 = await _v330(_v0, _v3.signal), _v0.ok) {
+            let _v0 = _v332(_v0);
             if (!_v0) {
               _v13("failed"), _v1.warn("script generation failed - missing reader");
               return;
             }
-            if (_v1.info("script generation has successful response"), await _v334(_v0, _v0 => {
+            if (_v1.info("script generation has successful response"), await _v333(_v0, _v0 => {
               _v15 || _v20({
                 isPrivacyLinkWasShowed: !0
               }), "" === _v1 && (_v18(null), _v0?.("editor")), _v1 += _v0, _v12(_v1);
@@ -7333,7 +7301,7 @@ ${_v7.innerHTML}
               chatPayload: _v0.chatPayload?.slice(_v0.chatPayload.length - 1)
             });else {
               _v0?.("editor"), _v13("failed");
-              let _v0 = _v336(_v0.errorCode);
+              let _v0 = _v335(_v0.errorCode);
               _v18(_v0), _v1.warn("script generation failed", {
                 errorCode: _v0.errorCode
               });
@@ -7345,9 +7313,9 @@ ${_v7.innerHTML}
             return;
           }
           _v0?.("editor"), _v13("failed");
-          let _v1 = _v337(!!_v1.length);
+          let _v1 = _v336(!!_v1.length);
           _v18(_v1), _v1.error(Error("script generation failed"), {
-            category: _v340.SCRIPT_GENERATOR,
+            category: _v339.SCRIPT_GENERATOR,
             method: "makePromptRequest",
             component: "useScriptGenerator",
             data: {
@@ -7368,8 +7336,8 @@ ${_v7.innerHTML}
       makePromptRequest: _v21,
       getPromptRequestBody: (_v0, _v1, _v2) => {
         let _v3 = {
-            style: _v338(_v17.tone),
-            duration: _v2 ?? _v339(_v17.duration)
+            style: _v337(_v17.tone),
+            duration: _v2 ?? _v338(_v17.duration)
           },
           _v4 = {
             chatPayload: [...(_v1 = []), {
@@ -7382,15 +7350,15 @@ ${_v7.innerHTML}
       }
     };
   };
-  var _v342 = _v0.i(0);
-  let _v343 = ({
+  var _v341 = _v0.i(0);
+  let _v342 = ({
       categoryKey: _v0,
       categoryLabel: _v1,
       isDisabled: _v2,
       onClick: _v3
     }) => {
-      let _v4 = (0, _v310.useColorModeValue)("rgba(35, 49, 59, 0.1)", "rgba(239, 239, 239, 0.1)");
-      return (0, _v18.jsx)(_v276.Button, {
+      let _v4 = (0, _v309.useColorModeValue)("rgba(35, 49, 59, 0.1)", "rgba(239, 239, 239, 0.1)");
+      return (0, _v18.jsx)(_v275.Button, {
         backgroundColor: _v4,
         color: "text-primary",
         size: "sm",
@@ -7398,7 +7366,7 @@ ${_v7.innerHTML}
         maxW: (0, _v85.rem)(200),
         flex: 1,
         _hover: {
-          backgroundColor: (0, _v310.useColorModeValue)("rgba(35, 49, 59, 0.13)", "rgba(239, 239, 239, 0.13)")
+          backgroundColor: (0, _v309.useColorModeValue)("rgba(35, 49, 59, 0.13)", "rgba(239, 239, 239, 0.13)")
         },
         _active: {
           backgroundColor: "input-fill"
@@ -7408,14 +7376,14 @@ ${_v7.innerHTML}
         },
         onClick: _v3,
         isDisabled: _v2,
-        "data-testid": `${_v272.SAMPLE_PROMPT_BUTTON}__${_v0}`,
-        children: (0, _v18.jsx)(_v342.Paragraph, {
+        "data-testid": `${_v273.SAMPLE_PROMPT_BUTTON}__${_v0}`,
+        children: (0, _v18.jsx)(_v341.Paragraph, {
           size: "sm",
           children: _v1
         })
       });
     },
-    _v344 = {
+    _v343 = {
       longerCustomInput: (0, _v30.translate)({
         singular: "Make longer",
         dictionary: {
@@ -7573,7 +7541,7 @@ ${_v7.innerHTML}
         }
       })
     },
-    _v345 = {
+    _v344 = {
       demo: {
         label: (0, _v30.translate)({
           singular: "Demo",
@@ -8844,27 +8812,27 @@ ${_v7.innerHTML}
         })]
       }
     },
-    _v346 = [{
-      categoryLabel: _v344.shorter,
+    _v345 = [{
+      categoryLabel: _v343.shorter,
       categoryKey: "shorterCustomInput"
     }, {
-      categoryLabel: _v344.longer,
+      categoryLabel: _v343.longer,
       categoryKey: "longerCustomInput"
     }, {
-      categoryLabel: _v344.showSamplePrompts,
+      categoryLabel: _v343.showSamplePrompts,
       categoryKey: "showSamplePrompts"
     }],
-    _v347 = [{
-      categoryLabel: _v344.shorter,
+    _v346 = [{
+      categoryLabel: _v343.shorter,
       categoryKey: "shorter"
     }, {
-      categoryLabel: _v344.longer,
+      categoryLabel: _v343.longer,
       categoryKey: "longer"
     }, {
-      categoryLabel: _v344.tryAgain,
+      categoryLabel: _v343.tryAgain,
       categoryKey: "tryAgain"
     }],
-    _v348 = () => {
+    _v347 = () => {
       let {
           currentSessionData: _v0,
           updateCurrentSessionData: _v1
@@ -8872,7 +8840,7 @@ ${_v7.innerHTML}
         {
           makePromptRequest: _v2,
           getPromptRequestBody: _v3
-        } = _v341(),
+        } = _v340(),
         {
           trackUserInteractionEvent: _v4
         } = _v37(),
@@ -8903,10 +8871,10 @@ ${_v7.innerHTML}
         overflow: "hidden",
         width: "85%",
         gap: (0, _v85.rem)(10),
-        children: (_v11 ? _v347 : _v346).map(({
+        children: (_v11 ? _v346 : _v345).map(({
           categoryLabel: _v0,
           categoryKey: _v1
-        }) => (0, _v18.jsx)(_v343, {
+        }) => (0, _v18.jsx)(_v342, {
           categoryKey: _v1,
           categoryLabel: _v0,
           onClick: async () => {
@@ -8948,8 +8916,8 @@ ${_v7.innerHTML}
         }, _v1))
       });
     },
-    _v349 = ["demo", "marketing", "bugReport", "internalComms", "training", "presentation", "testimonial", "howTo", "interview", "announcement"],
-    _v350 = () => {
+    _v348 = ["demo", "marketing", "bugReport", "internalComms", "training", "presentation", "testimonial", "howTo", "interview", "announcement"],
+    _v349 = () => {
       let _v0 = (0, _v78.useLogger)("SamplePrompts"),
         {
           updateCurrentSessionData: _v1
@@ -8975,7 +8943,7 @@ ${_v7.innerHTML}
                     _v4 = [..._v0];
                   for (_v3 = _v4.length - 1; _v3 > 0; _v3--) _v2 = Math.floor(Math.random() * (_v3 + 1)), _v1 = _v4[_v3], _v4[_v3] = _v4[_v2], _v4[_v2] = _v1;
                   return _v4;
-                }(_v349).slice().forEach(_v0 => {
+                }(_v348).slice().forEach(_v0 => {
                   let _v1 = Math.floor(4 * Math.random()) + 0;
                   _v0[_v0] = {
                     promptIndex: _v1
@@ -9013,9 +8981,9 @@ ${_v7.innerHTML}
           return Object.entries(_v4).forEach(([_v0, {
             promptIndex: _v1
           }]) => {
-            let _v2 = _v345[_v0];
+            let _v2 = _v344[_v0];
             void 0 === _v2.options[_v1] ? _v0.error(TypeError(`translationsError: sample prompt of category ${_v0} is "undefined"`), {
-              category: _v340.UNEXPECTED,
+              category: _v339.UNEXPECTED,
               method: "useMemo",
               component: "SamplePrompts",
               data: {
@@ -9030,7 +8998,7 @@ ${_v7.innerHTML}
           }), _v0;
         }, [_v0, _v4]);
       return _v6.length ? (0, _v18.jsx)(_v84.Flex, {
-        "data-testid": _v272.SAMPLE_PROMPTS_ROW,
+        "data-testid": _v273.SAMPLE_PROMPTS_ROW,
         flexDir: "row",
         flexWrap: "wrap",
         alignItems: "center",
@@ -9043,7 +9011,7 @@ ${_v7.innerHTML}
           categoryLabel: _v0,
           categoryKey: _v1,
           samplePrompt: _v2
-        }) => (0, _v18.jsx)(_v343, {
+        }) => (0, _v18.jsx)(_v342, {
           categoryKey: _v1,
           categoryLabel: _v0,
           onClick: () => _v5(_v0, _v2),
@@ -9051,7 +9019,7 @@ ${_v7.innerHTML}
         }, _v1))
       }) : null;
     },
-    _v351 = () => {
+    _v350 = () => {
       let {
         isFollowupPromptShown: _v0,
         promptRequestStarted: _v1
@@ -9062,22 +9030,22 @@ ${_v7.innerHTML}
       return (0, _v18.jsxs)(_v84.Flex, {
         justifyContent: "space-between",
         w: "100%",
-        children: [_v0 ? (0, _v18.jsx)(_v348, {}) : (0, _v18.jsx)(_v350, {}), (0, _v18.jsx)(_v84.Flex, {
-          children: (0, _v18.jsx)(_v324, {
+        children: [_v0 ? (0, _v18.jsx)(_v347, {}) : (0, _v18.jsx)(_v349, {}), (0, _v18.jsx)(_v84.Flex, {
+          children: (0, _v18.jsx)(_v323, {
             isDisabled: _v1
           })
         })]
       });
     };
-  var _v352 = _v0.i(0);
-  let _v353 = _v0 => {
+  var _v351 = _v0.i(0);
+  let _v352 = _v0 => {
       let {
           buttonRef: _v1
         } = _v0,
         {
           makePromptRequest: _v2,
           getPromptRequestBody: _v3
-        } = _v341(),
+        } = _v340(),
         {
           trackUserInteractionEvent: _v4
         } = _v37(),
@@ -9088,55 +9056,46 @@ ${_v7.innerHTML}
           }
         } = (0, _v80.useSession)(),
         {
-          client: _v7,
-          getClientAnalyticContext: _v8,
-          onScriptGenerationStarted: _v9
+          onScriptGenerationStarted: _v7
         } = (0, _v19.useContext)(_v29),
         {
-          sendGenerateTeleprompterScriptBpEvent: _v10
-        } = (0, _v273.useTeleprompterAnalytics)({
-          element: "icon",
-          feature: "teleprompter",
-          location: "modal_bottom_banner"
-        }, _v7, _v8),
-        {
-          setIsFollowupPromptShown: _v11,
-          setIsPopOverVisible: _v12,
-          promptRequestStatus: _v13
+          setIsFollowupPromptShown: _v8,
+          setIsPopOverVisible: _v9,
+          promptRequestStatus: _v10
         } = (0, _v42.useTeleprompterStore)((0, _v20.useShallow)(_v0 => ({
           setIsFollowupPromptShown: _v0.setIsFollowupPromptShown,
           setIsPopOverVisible: _v0.setIsPopOverVisible,
           promptRequestStatus: _v0.promptRequestStatus
         }))),
-        _v14 = async () => {
-          if ("started" === _v13) return;
-          _v12(!1), _v10(), _v4({
+        _v11 = async () => {
+          if ("started" === _v10) return;
+          _v9(!1), _v4({
             name: "generate_script",
             eventType: "click",
             location: "teleprompter"
-          }), _v9();
+          }), _v7();
           let _v0 = _v3(_v5, _v6);
-          await _v2(_v0), _v11(!0);
+          await _v2(_v0), _v8(!0);
         },
-        _v15 = 0 === _v5.length || _v5.length > 512,
-        _v16 = (0, _v310.useColorModeValue)("gray.800", "gray.50"),
-        _v17 = (0, _v310.useColorModeValue)("var(--vimeo-colors-gray-900)", "var(--vimeo-colors-gray-0)");
-      return (0, _v18.jsx)(_v277.IconButton, {
+        _v12 = 0 === _v5.length || _v5.length > 512,
+        _v13 = (0, _v309.useColorModeValue)("gray.800", "gray.50"),
+        _v14 = (0, _v309.useColorModeValue)("var(--vimeo-colors-gray-900)", "var(--vimeo-colors-gray-0)");
+      return (0, _v18.jsx)(_v276.IconButton, {
         "aria-label": "start-generation-button",
         size: "sm",
         variant: "primary",
         ref: _v1,
-        isDisabled: _v15,
-        isLoading: "started" === _v13,
-        onClick: _v14,
-        icon: (0, _v18.jsx)(_v352.ArrowUp, {}),
-        backgroundColor: _v16,
-        "data-testid": _v271.ACTIONS.START_GENERATING,
+        isDisabled: _v12,
+        isLoading: "started" === _v10,
+        onClick: _v11,
+        icon: (0, _v18.jsx)(_v351.ArrowUp, {}),
+        backgroundColor: _v13,
+        "data-testid": _v272.ACTIONS.START_GENERATING,
         _active: {
-          backgroundColor: _v17
+          backgroundColor: _v14
         },
         _hover: {
-          backgroundColor: _v17
+          backgroundColor: _v14
         },
         sx: {
           ".chakra-button__spinner": {
@@ -9152,7 +9111,7 @@ ${_v7.innerHTML}
         }
       });
     },
-    _v354 = _v0 => {
+    _v353 = _v0 => {
       let {
           shouldBeShown: _v1
         } = _v0,
@@ -9164,22 +9123,22 @@ ${_v7.innerHTML}
           promptRequestStarted: "started" === _v0.promptRequestStatus,
           setIsPopoverVisible: _v0.setIsPopOverVisible
         })));
-      return (0, _v18.jsx)(_v303.Fade, {
+      return (0, _v18.jsx)(_v302.Fade, {
         enterDuration: "2xl",
         in: _v1,
         children: (0, _v18.jsxs)(_v84.Flex, {
-          "data-testid": _v269,
+          "data-testid": _v270,
           zIndex: 10,
           flexDir: "column",
           backgroundColor: "input-fill",
           borderRadius: "input-sm",
           margin: 12,
           padding: 12,
-          children: [(0, _v18.jsx)(_v351, {}), (0, _v18.jsx)(_v84.Flex, {
+          children: [(0, _v18.jsx)(_v350, {}), (0, _v18.jsx)(_v84.Flex, {
             flexDir: "column",
             alignItems: "stretch",
             onMouseDown: _v0 => _v0.stopPropagation(),
-            children: (0, _v18.jsx)(_v321, {
+            children: (0, _v18.jsx)(_v320, {
               isDisabled: _v3,
               onClick: () => {
                 _v4(!1);
@@ -9191,7 +9150,7 @@ ${_v7.innerHTML}
                 flexDir: "row",
                 alignItems: "center",
                 gap: (0, _v85.rem)(10),
-                children: [(0, _v18.jsx)(_v318, {}), (0, _v18.jsx)(_v353, {
+                children: [(0, _v18.jsx)(_v317, {}), (0, _v18.jsx)(_v352, {
                   buttonRef: _v2
                 })]
               })
@@ -9200,7 +9159,8 @@ ${_v7.innerHTML}
         })
       });
     };
-  var _v355 = _v0.i(0),
+  var _v354 = _v0.i(0),
+    _v355 = _v0.i(0),
     _v356 = _v0.i(0),
     _v357 = _v0.i(0),
     _v358 = _v0.i(0),
@@ -9210,42 +9170,41 @@ ${_v7.innerHTML}
     _v362 = _v0.i(0),
     _v363 = _v0.i(0),
     _v364 = _v0.i(0),
-    _v365 = _v0.i(0),
-    _v366 = _v0.i(0);
-  let _v367 = ({
+    _v365 = _v0.i(0);
+  let _v366 = ({
       header: _v0,
       placeholder: _v1,
       onSubmit: _v2,
       onClose: _v3,
       button: _v4,
       onInputChange: _v5
-    }) => (0, _v18.jsxs)(_v359.Modal, {
+    }) => (0, _v18.jsxs)(_v358.Modal, {
       isOpen: !0,
       onClose: _v3,
-      children: [(0, _v18.jsx)(_v365.ModalOverlay, {}), (0, _v18.jsxs)(_v362.ModalContent, {
+      children: [(0, _v18.jsx)(_v364.ModalOverlay, {}), (0, _v18.jsxs)(_v361.ModalContent, {
         maxWidth: (0, _v85.rem)(600),
-        children: [(0, _v18.jsx)(_v361.ModalCloseButton, {}), (0, _v18.jsx)(_v364.ModalHeader, {
-          children: (0, _v18.jsx)(_v358.Header, {
+        children: [(0, _v18.jsx)(_v360.ModalCloseButton, {}), (0, _v18.jsx)(_v363.ModalHeader, {
+          children: (0, _v18.jsx)(_v357.Header, {
             size: "md",
             children: _v0
           })
-        }), (0, _v18.jsx)(_v360.ModalBody, {
-          children: (0, _v18.jsx)(_v366.Textarea, {
+        }), (0, _v18.jsx)(_v359.ModalBody, {
+          children: (0, _v18.jsx)(_v365.Textarea, {
             onChange: _v5,
             placeholder: _v1,
             minHeight: (0, _v85.rem)(150),
             width: "100%",
             resize: "none"
           })
-        }), (0, _v18.jsx)(_v363.ModalFooter, {
-          children: (0, _v18.jsx)(_v276.Button, {
+        }), (0, _v18.jsx)(_v362.ModalFooter, {
+          children: (0, _v18.jsx)(_v275.Button, {
             onClick: _v2,
             children: _v4
           })
         })]
       })]
     }),
-    _v368 = () => {
+    _v367 = () => {
       let {
           trackUserInteractionEvent: _v0
         } = _v37(),
@@ -9261,7 +9220,7 @@ ${_v7.innerHTML}
           surveyThumbsSelected: _v0.persistentData.surveyThumbsSelected
         })));
       return (0, _v18.jsxs)(_v18.Fragment, {
-        children: [!!_v5 && (0, _v18.jsx)(_v367, {
+        children: [!!_v5 && (0, _v18.jsx)(_v366, {
           onInputChange: _v0 => {
             _v3(_v0.target.value);
           },
@@ -9293,7 +9252,7 @@ ${_v7.innerHTML}
               scriptGeneratorIsSurveyShown: !1
             });
           }
-        }), (0, _v18.jsx)(_v355.SlideFade, {
+        }), (0, _v18.jsx)(_v354.SlideFade, {
           enterDuration: "xl",
           in: !0,
           offsetX: 300,
@@ -9301,14 +9260,14 @@ ${_v7.innerHTML}
             mr: 20,
             justifyContent: "center",
             alignItems: "center",
-            children: [(0, _v18.jsx)(_v357.ThumbUp, {
+            children: [(0, _v18.jsx)(_v356.ThumbUp, {
               mr: "75",
               onClick: () => {
                 _v4({
                   surveyThumbsSelected: "like"
                 });
               }
-            }), (0, _v18.jsx)(_v356.ThumbDown, {
+            }), (0, _v18.jsx)(_v355.ThumbDown, {
               onClick: () => {
                 _v4({
                   surveyThumbsSelected: "dislike"
@@ -9319,7 +9278,7 @@ ${_v7.innerHTML}
         })]
       });
     },
-    _v369 = () => {
+    _v368 = () => {
       let {
           currentSessionData: _v0
         } = (0, _v80.useSession)(),
@@ -9353,40 +9312,29 @@ ${_v7.innerHTML}
                 enableAiScriptGeneration: _v4
               },
               ready: _v5
-            } = (0, _v305.useCapability)(["enableAiScriptGeneration"], _v0?.teamUser?.ownerId);
+            } = (0, _v304.useCapability)(["enableAiScriptGeneration"], _v0?.teamUser?.ownerId);
           return !!_v1 && "live" === _v2 || !!_v3 || !!_v5 && !!_v4;
         })(),
         {
-          client: _v9,
-          getClientAnalyticContext: _v10
-        } = (0, _v19.useContext)(_v29),
-        {
-          sendOpenTeleprompterScriptGeneratorBpEvent: _v11
-        } = (0, _v273.useTeleprompterAnalytics)({
-          element: "icon",
-          feature: "teleprompter",
-          location: "modal_bottom_banner"
-        }, _v9, _v10),
-        {
-          scriptGeneratorIsSurveyShown: _v12
+          scriptGeneratorIsSurveyShown: _v9
         } = _v0,
-        _v13 = _v304(_v3, 300),
-        _v14 = (0, _v19.useCallback)(() => {
+        _v10 = _v303(_v3, 300),
+        _v11 = (0, _v19.useCallback)(() => {
           _v5?.abort();
         }, [_v5]);
       (0, _v19.useEffect)(() => _v6, [_v6]), (0, _v19.useEffect)(() => {
         _v2 && !_v42.useTeleprompterStore.getState().isPopOverVisible && _v7(!1);
       }, [_v2, _v7]);
-      let _v15 = (0, _v19.useCallback)(() => {
-          _v7(!0), _v11(), _v1({
+      let _v12 = (0, _v19.useCallback)(() => {
+          _v7(!0), _v1({
             name: "open_script_generator",
             eventType: "click",
             location: "teleprompter"
           });
-        }, [_v11, _v1, _v7]),
-        _v16 = "started" === _v4;
+        }, [_v1, _v7]),
+        _v13 = "started" === _v4;
       return _v8 ? (0, _v18.jsxs)(_v18.Fragment, {
-        children: [_v13 && (0, _v18.jsx)(_v354, {
+        children: [_v10 && (0, _v18.jsx)(_v353, {
           shouldBeShown: _v3
         }), !_v3 && (0, _v18.jsxs)(_v83.Box, {
           position: "absolute",
@@ -9399,22 +9347,22 @@ ${_v7.innerHTML}
           flexDirection: "row",
           alignItems: "center",
           zIndex: 100,
-          children: [_v16 && (0, _v18.jsx)(_v276.Button, {
+          children: [_v13 && (0, _v18.jsx)(_v275.Button, {
             variant: "secondary",
             size: "sm",
             mr: (0, _v85.rem)(8),
-            onClick: _v14,
+            onClick: _v11,
             children: _v36.script.editor.stopGenerationButton
-          }), _v12 && "finished" === _v4 && (0, _v18.jsx)(_v368, {}), (0, _v18.jsx)(_v303.Fade, {
+          }), _v9 && "finished" === _v4 && (0, _v18.jsx)(_v367, {}), (0, _v18.jsx)(_v302.Fade, {
             enterDuration: "2xl",
             in: !_v3,
-            children: (0, _v18.jsx)(_v282.Tooltip, {
+            children: (0, _v18.jsx)(_v281.Tooltip, {
               label: _v36.tooltips.generateScript,
               children: (0, _v18.jsx)(_v83.Box, {
-                "data-testid": _v268,
-                children: (0, _v18.jsx)(_v302.AiActionBarButton, {
-                  onClick: _v15,
-                  isDisabled: _v16,
+                "data-testid": _v269,
+                children: (0, _v18.jsx)(_v301.AiActionBarButton, {
+                  onClick: _v12,
+                  isDisabled: _v13,
                   label: ""
                 })
               })
@@ -9423,7 +9371,7 @@ ${_v7.innerHTML}
         })]
       }) : null;
     };
-  function _v370(_v0) {
+  function _v369(_v0) {
     let {
       width: _v1,
       height: _v2,
@@ -9447,8 +9395,8 @@ ${_v7.innerHTML}
       height: _v4
     } : _v72(_v1, _v2);
   }
-  let [_v371, _v372] = [0, .75],
-    _v373 = ({
+  let [_v370, _v371] = [0, .75],
+    _v372 = ({
       isPoppedOut: _v0,
       contentWrapperRef: _v1,
       fontSize: _v2
@@ -9457,7 +9405,7 @@ ${_v7.innerHTML}
           spacerHeight: _v3,
           setSpacerHeight: _v4
         } = function (_v0, _v1) {
-          let _v2 = _v370(_v0).height,
+          let _v2 = _v369(_v0).height,
             {
               panelShouldBeShown: _v3,
               spacerHeight: _v4,
@@ -9467,12 +9415,12 @@ ${_v7.innerHTML}
               setSpacerHeight: _v0.setSpacerHeight,
               panelShouldBeShown: _v0.isGeneratePanelShown
             }))),
-            _v6 = _v304(_v3, 300);
+            _v6 = _v303(_v3, 300);
           return (0, _v19.useEffect)(() => {
             let _v0 = _v1.current?.offsetHeight;
             _v0 && _v5(_v0 => {
-              let _v1 = Math.round(Math.min(_v0 * _v372, _v0 - 0));
-              return 0 === _v0 ? Math.max(Math.round(_v2 * _v371), 0) : _v0 > _v1 ? _v1 : _v0;
+              let _v1 = Math.round(Math.min(_v0 * _v371, _v0 - 0));
+              return 0 === _v0 ? Math.max(Math.round(_v2 * _v370), 0) : _v0 > _v1 ? _v1 : _v0;
             });
           }, [_v2, _v1, _v5, _v6]), {
             spacerHeight: _v4,
@@ -9494,7 +9442,7 @@ ${_v7.innerHTML}
                     offsetHeight: _v1
                   } = _v1,
                   _v2 = _v2.current.offsetTop + _v0,
-                  _v3 = Math.round(Math.min(_v1 * _v372, _v1 - 0));
+                  _v3 = Math.round(Math.min(_v1 * _v371, _v1 - 0));
                 _v2 >= 0 && _v2 <= _v3 && (_v0(() => _v2), _v3.current = {
                   x: _v0.clientX,
                   y: _v0.clientY
@@ -9535,7 +9483,7 @@ ${_v7.innerHTML}
           };
         }(_v4, _v1),
         _v8 = (0, _v42.useTeleprompterStore)(_v0 => "started" === _v0.promptRequestStatus),
-        _v9 = (0, _v310.useColorModeValue)("rgb(101, 121, 135)", "rgb(222, 228, 233)");
+        _v9 = (0, _v309.useColorModeValue)("rgb(101, 121, 135)", "rgb(222, 228, 233)");
       return (0, _v18.jsx)(_v83.Box, {
         ref: _v7,
         fontSize: _v2,
@@ -9581,7 +9529,7 @@ ${_v7.innerHTML}
         })
       });
     };
-  function _v374(_v0, _v1, _v2, _v3, _v4, _v5) {
+  function _v373(_v0, _v1, _v2, _v3, _v4, _v5) {
     let _v6,
       _v7 = Object.entries(_v1),
       _v8 = "top" === _v2,
@@ -9589,31 +9537,31 @@ ${_v7.innerHTML}
     for (let [_v0, _v1] of _v8 ? _v7.slice(0, _v0 + 1).reverse() : _v7.slice(_v0, _v1.length)) {
       let _v0 = !1;
       if (_v1.forEach(_v0 => {
-        _v0 || (_v9(_v0) - _v3 + _v0.offsetHeight * _v384 < _v4() ? _v8 && _v6 && (_v0 = !0) : (_v6 = parseInt(_v0), _v8 || (_v0 = !0)));
+        _v0 || (_v9(_v0) - _v3 + _v0.offsetHeight * _v383 < _v4() ? _v8 && _v6 && (_v0 = !0) : (_v6 = parseInt(_v0), _v8 || (_v0 = !0)));
       }), _v0) break;
     }
     return void 0 === _v6 && "bottom" === _v2 ? _v1.length : _v6;
   }
-  function _v375() {
+  function _v374() {
     let _v0 = window.webkitSpeechRecognition || window.SpeechRecognition;
     if (!_v0) throw Error("SpeechRecognition is not supported by the browser");
     return new _v0();
   }
-  let _v376 = (_v1 = !1, async () => {
+  let _v375 = (_v1 = !1, async () => {
     let _v0 = (0, _v78.getLogger)("checkSpeechRecognitionSupport");
     if (_v1) return void _v0.info("skip check.");
     _v1 = !0, _v0.debug("run check.");
-    let _v1 = await _v377();
+    let _v1 = await _v376();
     return _v1 = !1, _v0.debug("awaited check result.", {
       supportStatus: _v1
     }), _v1;
   });
-  async function _v377() {
+  async function _v376() {
     let _v0,
       _v1 = (0, _v78.getLogger)("checkSpeechRecognitionSupport");
     return new Promise(_v0 => {
       try {
-        let _v0 = _v375();
+        let _v0 = _v374();
         _v0.lang = "en-US", _v0.onerror = ({
           error: _v0
         }) => {
@@ -9632,13 +9580,13 @@ ${_v7.innerHTML}
       }
     });
   }
-  function _v378(_v0) {
+  function _v377(_v0) {
     return _v0.trim().toLocaleLowerCase().replace(/[^a-z]/gi, "");
   }
-  function _v379(_v0) {
+  function _v378(_v0) {
     let _v1 = _v0.trim().split(/\s+/).filter(Boolean).map(_v0 => ({
         word: _v0,
-        containLetters: !!_v378(_v0)
+        containLetters: !!_v377(_v0)
       })).reduce((_v0, _v1) => {
         let _v2 = _v0[_v0.length - 1];
         return void 0 === _v2 ? _v0.concat(_v1) : (_v2.containLetters ? _v0.push(_v1) : _v2.containLetters || (_v0.pop(), _v0.push({
@@ -9653,9 +9601,9 @@ ${_v7.innerHTML}
       containLetters: !0
     }).map(_v0 => _v0.word) : _v1.map(_v0 => _v0.word);
   }
-  var _v380 = _v0.i(0);
-  function _v381(_v0, _v1) {
-    let _v2 = (0, _v380.distance)(_v0, _v1),
+  var _v379 = _v0.i(0);
+  function _v380(_v0, _v1) {
+    let _v2 = (0, _v379.distance)(_v0, _v1),
       _v3 = Math.max(_v0.length, _v1.length);
     return {
       similarityRounded: Math.round((_v3 - _v2) / _v3 * 100) / 100,
@@ -9663,7 +9611,7 @@ ${_v7.innerHTML}
       editDistance: _v2
     };
   }
-  function _v382(_v0) {
+  function _v381(_v0) {
     let _v1 = 0,
       _v2 = 0;
     for (let {
@@ -9672,15 +9620,15 @@ ${_v7.innerHTML}
     } of _v0) _v1 += _v0.length, _v2 += _v1 * _v0.length;
     return 0 === _v1 ? 0 : _v2 / _v1;
   }
-  function _v383(_v0) {
+  function _v382(_v0) {
     let _v1 = (0, _v19.useRef)(_v0);
     return (0, _v19.useEffect)(() => {
       _v1.current = _v0;
     }, [_v0]), (0, _v19.useCallback)(_v0 => _v1.current(_v0), []);
   }
-  _v0.s(["useLastVersion", 0, _v383], 0);
-  let _v384 = .5,
-    _v385 = (0, _v19.memo)(_v0 => {
+  _v0.s(["useLastVersion", 0, _v382], 0);
+  let _v383 = .5,
+    _v384 = (0, _v19.memo)(_v0 => {
       let {
           children: _v1,
           wordsRefsList: _v2,
@@ -9765,7 +9713,7 @@ ${_v7.innerHTML}
                     _v20,
                     _v21,
                     _v22,
-                    _v23 = _v0.map(_v378),
+                    _v23 = _v0.map(_v377),
                     _v24 = {
                       current: _v1
                     },
@@ -9781,7 +9729,7 @@ ${_v7.innerHTML}
                       let _v1 = function (_v0, _v1, _v2, _v3) {
                         if (_v3 === _v1.length) return null;
                         let _v4 = _v1[_v3],
-                          _v5 = _v378(_v0.content);
+                          _v5 = _v377(_v0.content);
                         if (_v2.recognizers.length > 0) {
                           for (let _v0 of _v2.recognizers) "addition" === _v0.type ? _v0.sendNextWord(_v0, _v5) : _v0.updateWordAtIndex(_v0, _v5);
                           let _v0 = [],
@@ -9798,7 +9746,7 @@ ${_v7.innerHTML}
                             nextIndex: _v2[0].endIndex
                           };
                         }
-                        if (_v5 === _v4 || _v381(_v5, _v4).similarityRounded > .7) return {
+                        if (_v5 === _v4 || _v380(_v5, _v4).similarityRounded > .7) return {
                           nextIndex: _v3 + 1
                         };
                         if ("correction" === _v0.type || _v3 === _v1.length - 1) return null;
@@ -9814,13 +9762,13 @@ ${_v7.innerHTML}
                             };
                             function _v3(_v0, _v1) {
                               let _v2 = _v1[_v0 + _v0],
-                                _v3 = _v381(_v1, _v2).similarityRounded;
+                                _v3 = _v380(_v1, _v2).similarityRounded;
                               if (_v2.results[_v0] = {
                                 recognizedWord: _v1,
                                 similarity: _v3,
                                 referenceWord: _v2
                               }, _v2.results.length < 2) return;
-                              let _v4 = _v382(_v2.results);
+                              let _v4 = _v381(_v2.results);
                               (_v4 > .6 || 3 === _v2.results.length) && (_v2 = {
                                 ..._v2,
                                 weightedSimilarity: _v4,
@@ -9840,7 +9788,7 @@ ${_v7.innerHTML}
                                   _v2 = {
                                     ..._v2,
                                     isCompleted: !0,
-                                    weightedSimilarity: _v382(_v2.results),
+                                    weightedSimilarity: _v381(_v2.results),
                                     endIndex: _v0 + _v2.results.length
                                   };
                                   return;
@@ -9887,7 +9835,7 @@ ${_v7.innerHTML}
                         let _v0 = _v24.current;
                         _v27(_v0, _v24), _v24.current !== _v0 && _v2(_v24.current);
                       }
-                    }, _v10 = (0, _v78.getLogger)("initSpeechRecognition"), _v11 = Array.from(new Set(_v23)).slice(0, 780), _v12 = `#JSGF V1.0; grammar word; public <word> = ${_v11.join(" | ")};`, _v13 = 0, _v14 = !0, _v15 = null, _v16 = _v375(), (_v17 = function () {
+                    }, _v10 = (0, _v78.getLogger)("initSpeechRecognition"), _v11 = Array.from(new Set(_v23)).slice(0, 780), _v12 = `#JSGF V1.0; grammar word; public <word> = ${_v11.join(" | ")};`, _v13 = 0, _v14 = !0, _v15 = null, _v16 = _v374(), (_v17 = function () {
                       try {
                         let _v0 = window.webkitSpeechGrammarList || window.SpeechGrammarList;
                         if (!_v0) return;
@@ -9993,7 +9941,7 @@ ${_v7.innerHTML}
                 }(_v0, _v42.useTeleprompterStore.getState().textProgress, _v1, _v9, _v2, _v7), _v5.current.setAudioTrack(_v42.useTeleprompterStore.getState().audioTrack), _v11(!0);
               } catch (_v0) {
                 _v4.error(_v0, {
-                  category: _v340.UNEXPECTED,
+                  category: _v339.UNEXPECTED,
                   method: "initRecognition",
                   component: "useSpeechRecognition",
                   data: {
@@ -10021,7 +9969,7 @@ ${_v7.innerHTML}
             }, []),
             recognitionState: _v8
           };
-        }(_v10, _v12, _v383(_v0 => {
+        }(_v10, _v12, _v382(_v0 => {
           _v8.warn("speech recognition error caught", {
             errorCode: _v0,
             isDictationMode: _v18
@@ -10064,10 +10012,10 @@ ${_v7.innerHTML}
             } = _v0.target,
             _v2 = _v7.current > _v1 ? "top" : "bottom";
           _v7.current = _v1;
-          let _v3 = _v374(_v9, _v2.current ?? [], _v2, _v1, _v26, _v27);
+          let _v3 = _v373(_v9, _v2.current ?? [], _v2, _v1, _v26, _v27);
           void 0 !== _v3 && _v3 !== _v9 && (_v12(_v3), _v24(_v3));
         }, [_v12, _v9, _v24, _v2, _v27, _v26]),
-        _v29 = (0, _v19.useRef)(() => _v374(_v9, _v2.current ?? [], "bottom", _v3.current?.scrollTop ?? 0, _v26, _v27));
+        _v29 = (0, _v19.useRef)(() => _v373(_v9, _v2.current ?? [], "bottom", _v3.current?.scrollTop ?? 0, _v26, _v27));
       (0, _v19.useEffect)(() => {
         let _v0 = _v29.current() ?? 0;
         return _v12(_v0), _v24(_v0), () => {
@@ -10085,7 +10033,7 @@ ${_v7.innerHTML}
           _v4 = _v2.current[_v3]?.[0],
           _v5 = _v27();
         if (_v4 && _v1) {
-          let _v0 = _v5(_v4) - _v26() - _v4.offsetHeight * (1 - _v384);
+          let _v0 = _v5(_v4) - _v26() - _v4.offsetHeight * (1 - _v383);
           _v2 && (_v0 += _v4.offsetHeight), (_v0 = Math.round(_v0)) > _v1.scrollTop && (_v1.scrollTop = Math.min(_v1.scrollHeight, _v0));
         }
       }, [_v9, _v18, _v14, _v3, _v2, _v27, _v26]);
@@ -10097,7 +10045,7 @@ ${_v7.innerHTML}
         children: _v1
       });
     }),
-    _v386 = {
+    _v385 = {
       "p > br": {
         height: "1.5em",
         lineHeight: "90%"
@@ -10112,7 +10060,7 @@ ${_v7.innerHTML}
         whiteSpace: "normal"
       }
     },
-    _v387 = {
+    _v386 = {
       ol: {
         listStyleType: "decimal",
         li: {
@@ -10128,10 +10076,10 @@ ${_v7.innerHTML}
         }
       }
     };
-  var _v388 = _v0.i(0),
-    _v389 = _v0.i(0),
-    _v390 = _v0.i(0);
-  let _v391 = ({
+  var _v387 = _v0.i(0),
+    _v388 = _v0.i(0),
+    _v389 = _v0.i(0);
+  let _v390 = ({
       children: _v0,
       wordIndex: _v1
     }) => {
@@ -10146,7 +10094,7 @@ ${_v7.innerHTML}
         children: _v0
       });
     },
-    _v392 = {
+    _v391 = {
       ":before": {
         content: '"\\007c"',
         display: "inline-block",
@@ -10169,12 +10117,12 @@ ${_v7.innerHTML}
         }
       }
     },
-    _v393 = {
+    _v392 = {
       ":after": {
         content: '"\\00a0"'
       }
     },
-    _v394 = _v0 => {
+    _v393 = _v0 => {
       let {
           setRef: _v1,
           wordIndex: _v2,
@@ -10202,10 +10150,10 @@ ${_v7.innerHTML}
         position: "relative",
         display: "inline-block",
         sx: _v10 ? {
-          ..._v393,
-          ..._v392
+          ..._v392,
+          ..._v391
         } : {
-          ..._v393
+          ..._v392
         },
         transition: _v7 ? "color ease-in-out 200ms;" : "",
         color: _v9 ? "text-secondary" : "text-primary",
@@ -10215,7 +10163,7 @@ ${_v7.innerHTML}
         children: _v3
       });
     },
-    _v395 = ({
+    _v394 = ({
       textContent: _v0,
       rawContent: _v1,
       setRefForWord: _v2
@@ -10226,7 +10174,7 @@ ${_v7.innerHTML}
         _v6 = (0, _v19.useRef)([]);
       (0, _v19.useEffect)(() => () => _v4(null), [_v4]);
       let _v7 = (0, _v19.useCallback)(_v0 => {
-          _v6.current = _v379(_v5.current.map(_v0 => _v0.charactersRaw).concat(_v0.data).join(""));
+          _v6.current = _v378(_v5.current.map(_v0 => _v0.charactersRaw).concat(_v0.data).join(""));
         }, []),
         _v8 = (0, _v19.useCallback)(_v0 => {
           let _v1 = {
@@ -10244,7 +10192,7 @@ ${_v7.innerHTML}
           if (_v4 !== _v5) {
             _v1.trailingWordPart = !0, _v1.startWordIndex = _v3;
             let _v0 = _v5.slice(_v4.length, _v5.length);
-            _v1.words.push(_v0), _v6 = [(0, _v18.jsx)(_v394, {
+            _v1.words.push(_v0), _v6 = [(0, _v18.jsx)(_v393, {
               setRef: _v2,
               wordIndex: _v3,
               wordPart: _v0,
@@ -10253,7 +10201,7 @@ ${_v7.innerHTML}
           } else _v1.startWordIndex = _v2.length;
           return _v6.current.slice(_v2.length).forEach((_v0, _v1) => {
             let _v2 = _v2.length;
-            _v1.words.push(_v0), _v6.push((0, _v18.jsx)(_v394, {
+            _v1.words.push(_v0), _v6.push((0, _v18.jsx)(_v393, {
               setRef: _v2,
               wordIndex: _v2 + _v1,
               wordPart: _v0
@@ -10264,22 +10212,22 @@ ${_v7.innerHTML}
         }, [_v2, _v7]),
         _v9 = (0, _v19.useMemo)(() => ({
           replace: _v0 => {
-            if (_v0 instanceof _v390.Text && _v0.data.length) return _v8(_v0);
-            if (_v0 instanceof _v390.Element && "br" === _v0.tagName) _v5.current.push({
+            if (_v0 instanceof _v389.Text && _v0.data.length) return _v8(_v0);
+            if (_v0 instanceof _v389.Element && "br" === _v0.tagName) _v5.current.push({
               charactersRaw: " ",
               kind: "whitespace"
-            });else if (_v0 instanceof _v390.Element && _v5.current.length && (["p", "code"].includes(_v0.tagName) || /^h[1-6]$/.test(_v0.tagName))) {
+            });else if (_v0 instanceof _v389.Element && _v5.current.length && (["p", "code"].includes(_v0.tagName) || /^h[1-6]$/.test(_v0.tagName))) {
               _v5.current.push({
                 charactersRaw: " ",
                 kind: "whitespace"
               });
               let _v0 = `${_v0.tagName}`;
               return (0, _v18.jsx)(_v0, {
-                children: _v0.children.length ? (0, _v390.domToReact)(_v0.children, _v9) : (0, _v18.jsx)("br", {})
+                children: _v0.children.length ? (0, _v389.domToReact)(_v0.children, _v9) : (0, _v18.jsx)("br", {})
               });
-            } else if (_v0 instanceof _v390.Element && "li" === _v0.tagName) return (0, _v18.jsx)(_v391, {
+            } else if (_v0 instanceof _v389.Element && "li" === _v0.tagName) return (0, _v18.jsx)(_v390, {
               wordIndex: _v6.current.length,
-              children: (0, _v390.domToReact)(_v0.children, _v9)
+              children: (0, _v389.domToReact)(_v0.children, _v9)
             });
           }
         }), [_v8]),
@@ -10287,10 +10235,10 @@ ${_v7.innerHTML}
           _v5.current = [], _v6.current = [];
           let _v0 = null;
           try {
-            _v0 = (0, _v389.default)(_v1, _v9);
+            _v0 = (0, _v388.default)(_v1, _v9);
           } catch (_v0) {
             _v3.error(Error("An error occurred when parsing editor's HTML content with html-react-parser"), {
-              category: _v340.SCRIPT_GENERATOR,
+              category: _v339.SCRIPT_GENERATOR,
               method: "useMemo",
               component: "EditorLayoutParser",
               data: {
@@ -10299,7 +10247,7 @@ ${_v7.innerHTML}
             }), _v0 = null;
           }
           let _v1 = _v5.current.filter(_v0 => "content" === _v0.kind);
-          return _v0 && _v6.current.length && _v1.length ? _v0 : (_v6.current = _v379(_v0), _v6.current.map((_v0, _v1) => (0, _v18.jsx)(_v394, {
+          return _v0 && _v6.current.length && _v1.length ? _v0 : (_v6.current = _v378(_v0), _v6.current.map((_v0, _v1) => (0, _v18.jsx)(_v393, {
             setRef: _v2,
             wordIndex: _v1,
             wordPart: _v0
@@ -10311,14 +10259,14 @@ ${_v7.innerHTML}
         children: _v10
       });
     },
-    _v396 = {
+    _v395 = {
       0: 0,
       .5: .75,
       1: 1,
       1.5: 1.5,
       2: 2.25
     },
-    _v397 = (0, _v19.memo)(({
+    _v396 = (0, _v19.memo)(({
       children: _v0,
       isScrollingActive: _v1,
       scrollWrapRef: _v2,
@@ -10355,7 +10303,7 @@ ${_v7.innerHTML}
             teleprompterWidth: _v2,
             scrollStepPx: _v3
           }) {
-            let _v4 = 1.5 * _v1 * (3 * 4.7 / (_v2 / _v1 * 2)) * _v396[_v0] / _v3;
+            let _v4 = 1.5 * _v1 * (3 * 4.7 / (_v2 / _v1 * 2)) * _v395[_v0] / _v3;
             return 0 === _v4 ? null : Math.round(0 / _v4);
           }({
             fontSize: _v3,
@@ -10382,14 +10330,14 @@ ${_v7.innerHTML}
         container: _v2,
         isEnabled: "staticSpeed" === _v9 && 0 !== _v7 && _v1 && !_v5,
         speed: _v7,
-        teleprompterWidth: _v370(_v3).width,
+        teleprompterWidth: _v369(_v3).width,
         fontSize: _v6
       });
       let _v10 = (0, _v19.useCallback)(_v0 => {
           _v8(!1), _v0.nativeEvent.offsetX > _v0.currentTarget.clientWidth && _v0.stopPropagation();
         }, [_v8]),
         _v11 = Math.max((_v2.current?.offsetHeight ?? 0) - _v4, 0),
-        _v12 = (0, _v310.useColorModeValue)("rgba(26, 46, 59, 0.4)", "rgba(255, 255, 255, 0.1)");
+        _v12 = (0, _v309.useColorModeValue)("rgba(26, 46, 59, 0.4)", "rgba(255, 255, 255, 0.1)");
       return (0, _v18.jsx)(_v83.Box, {
         fontSize: _v6,
         paddingX: (0, _v85.rem)(20),
@@ -10418,68 +10366,67 @@ ${_v7.innerHTML}
         children: _v0
       });
     }),
-    _v398 = ({
+    _v397 = ({
       audioMuted: _v0,
       defaultMicSelected: _v1,
       micId: _v2 = null,
       session: _v3,
       client: _v4 = "record_studio",
-      getClientAnalyticContext: _v5 = () => ({}),
-      visibleNotices: _v6 = [],
-      logger: _v7,
-      onUserInteractionEvent: _v8 = () => _v2,
-      onScriptGenerationError: _v9,
-      onScriptGenerationStarted: _v10 = () => _v2,
-      isPoppedOut: _v11 = !1,
-      popOut: _v12,
-      guestUserInfo: _v13
+      visibleNotices: _v5 = [],
+      logger: _v6,
+      onUserInteractionEvent: _v7 = () => _v2,
+      onScriptGenerationError: _v8,
+      onScriptGenerationStarted: _v9 = () => _v2,
+      isPoppedOut: _v10 = !1,
+      popOut: _v11,
+      guestUserInfo: _v12
     }) => {
-      let _v14,
+      let _v13,
+        _v14,
         _v15,
         _v16,
-        _v17,
-        _v18 = (0, _v86.useIsVpaas)(),
+        _v17 = (0, _v86.useIsVpaas)(),
         {
-          currentSessionData: _v19
+          currentSessionData: _v18
         } = (0, _v80.useSession)(),
-        [_v20, _v21] = (0, _v19.useState)(!1),
+        [_v19, _v20] = (0, _v19.useState)(!1),
+        _v21 = (0, _v19.useRef)(null),
         _v22 = (0, _v19.useRef)(null),
-        _v23 = (0, _v19.useRef)(null),
-        _v24 = (0, _v19.useRef)(_v23.current?.scrollTop ?? 0),
-        _v25 = (_v14 = (0, _v42.useTeleprompterStore)(_v0 => _v0.setIsMicrophonePermissionsGranted), _v15 = (0, _v19.useCallback)(_v0 => {
-          _v14("granted" === _v0);
-        }, [_v14]), _v16 = (0, _v42.useTeleprompterStore)(_v0 => _v0.isMicrophonePermissionsGranted), _v17 = (0, _v19.useCallback)(async () => await window.navigator.permissions.query({
+        _v23 = (0, _v19.useRef)(_v22.current?.scrollTop ?? 0),
+        _v24 = (_v13 = (0, _v42.useTeleprompterStore)(_v0 => _v0.setIsMicrophonePermissionsGranted), _v14 = (0, _v19.useCallback)(_v0 => {
+          _v13("granted" === _v0);
+        }, [_v13]), _v15 = (0, _v42.useTeleprompterStore)(_v0 => _v0.isMicrophonePermissionsGranted), _v16 = (0, _v19.useCallback)(async () => await window.navigator.permissions.query({
           name: "microphone"
         }), []), (0, _v19.useEffect)(() => {
           let _v0;
-          return _v17().then(_v0 => {
-            _v15(_v0.state), _v0.onchange = function () {
-              _v15(this.state);
+          return _v16().then(_v0 => {
+            _v14(_v0.state), _v0.onchange = function () {
+              _v14(this.state);
             }, _v0 = _v0;
           }), () => {
             _v0 && (_v0.onchange = null);
           };
-        }, [_v17, _v15]), _v16),
-        _v26 = !!_v13,
-        _v27 = (0, _v38.useShowTeleprompterUpsell)(_v26) && !_v18,
+        }, [_v16, _v14]), _v15),
+        _v25 = !!_v12,
+        _v26 = (0, _v38.useShowTeleprompterUpsell)(_v25) && !_v17,
         {
-          scriptGeneratorError: _v28,
-          setPromptError: _v29,
-          setScrollPaused: _v30,
-          isScrollingActive: _v31,
-          fontSize: _v32,
-          scrollingState: _v33
+          scriptGeneratorError: _v27,
+          setPromptError: _v28,
+          setScrollPaused: _v29,
+          isScrollingActive: _v30,
+          fontSize: _v31,
+          scrollingState: _v32
         } = (0, _v42.useTeleprompterStore)((0, _v20.useShallow)(_v0 => ({
           scriptGeneratorError: _v0.promptRequestError,
           setPromptError: _v0.setPromptError,
           setScrollPaused: _v0.setScrollPaused,
-          isScrollingActive: _v11 ? "active" === _v0.persistentData.poppedOutScrollingState : "active" === _v0.scrollingState,
+          isScrollingActive: _v10 ? "active" === _v0.persistentData.poppedOutScrollingState : "active" === _v0.scrollingState,
           scrollingState: _v0.scrollingState,
           fontSize: _v0.persistentData.fontSize,
           teleprompterUpsellShown: _v0.isUpsellModalShown
         })));
       !function (_v0 = !1) {
-        let _v1 = (0, _v388.useViewer)(),
+        let _v1 = (0, _v387.useViewer)(),
           _v2 = (0, _v78.useLogger)("useSetDefaultScrollMode"),
           {
             alignPersistScrollWithRecognitionSupport: _v3,
@@ -10498,7 +10445,7 @@ ${_v7.innerHTML}
           _v5 && null === _v4 && (_v81 && !_v0 && _v2.info("skip SpeechRecognition check for non-default microphone on Safari", {
             defaultMicSelected: _v0
           }), (async () => {
-            let _v0 = await _v376();
+            let _v0 = await _v375();
             void 0 !== _v0 && _v6({
               isSpeechRecognitionSupported: _v0
             });
@@ -10522,43 +10469,42 @@ ${_v7.innerHTML}
             mode: _v0
           }), _v4(_v0);
         }, [_v4, _v1, _v3, _v2, _v0]);
-      }(_v2, _v1), (0, _v78.useLogger)("Teleprompter", _v7), (0, _v19.useEffect)(() => {
-        _v9 && _v28 && _v9(_v28);
-      }, [_v9, _v28]);
-      let _v34 = (0, _v19.useCallback)(() => _v29(null), [_v29]),
-        _v35 = (0, _v19.useCallback)(() => _v30(!0), [_v30]),
-        _v36 = (0, _v19.useCallback)(() => _v30(!1), [_v30]),
-        _v37 = (0, _v19.useRef)([]),
-        _v38 = (0, _v19.useCallback)((_v0, _v1) => {
-          _v37.current[_v1] || (_v37.current[_v1] = []), _v37.current[_v1].includes(_v0) || _v37.current[_v1].push(_v0);
+      }(_v2, _v1), (0, _v78.useLogger)("Teleprompter", _v6), (0, _v19.useEffect)(() => {
+        _v8 && _v27 && _v8(_v27);
+      }, [_v8, _v27]);
+      let _v33 = (0, _v19.useCallback)(() => _v28(null), [_v28]),
+        _v34 = (0, _v19.useCallback)(() => _v29(!0), [_v29]),
+        _v35 = (0, _v19.useCallback)(() => _v29(!1), [_v29]),
+        _v36 = (0, _v19.useRef)([]),
+        _v37 = (0, _v19.useCallback)((_v0, _v1) => {
+          _v36.current[_v1] || (_v36.current[_v1] = []), _v36.current[_v1].includes(_v0) || _v36.current[_v1].push(_v0);
         }, []),
-        [_v39, _v40] = (0, _v19.useState)(!_v31),
-        [, _v41] = (0, _v19.useTransition)(),
-        _v42 = "disabled" === _v33,
-        _v43 = "disabled" === _v33 || "paused" === _v33 && "live" === _v4;
+        [_v38, _v39] = (0, _v19.useState)(!_v30),
+        [, _v40] = (0, _v19.useTransition)(),
+        _v41 = "disabled" === _v32,
+        _v42 = "disabled" === _v32 || "paused" === _v32 && "live" === _v4;
       return (0, _v19.useEffect)(() => {
-        _v42 && (_v37.current = []);
-      }, [_v42]), (0, _v19.useEffect)(() => {
-        _v41(() => {
-          "live" === _v4 && "paused" === _v33 ? _v24.current = _v23.current?.scrollTop ?? 0 : _v24.current = 0, _v40(_v43);
+        _v41 && (_v36.current = []);
+      }, [_v41]), (0, _v19.useEffect)(() => {
+        _v40(() => {
+          "live" === _v4 && "paused" === _v32 ? _v23.current = _v22.current?.scrollTop ?? 0 : _v23.current = 0, _v39(_v42);
         });
-      }, [_v4, _v33, _v43]), (0, _v18.jsx)(_v29.Provider, {
+      }, [_v4, _v32, _v42]), (0, _v18.jsx)(_v29.Provider, {
         value: {
           session: _v3,
-          visibleNotices: _v6,
-          trackUserInteractionEvent: _v8,
+          visibleNotices: _v5,
+          trackUserInteractionEvent: _v7,
           client: _v4,
-          isGuestUser: _v26,
-          guestUserInfo: _v13,
-          getClientAnalyticContext: _v5,
-          onScriptGenerationStarted: _v10
+          isGuestUser: _v25,
+          guestUserInfo: _v12,
+          onScriptGenerationStarted: _v9
         },
         children: (0, _v18.jsxs)(_v83.Box, {
           "data-testid": "record-studio-teleprompter-container",
           className: _v73,
           width: "100%",
-          height: _v11 ? "100vh" : _v27 ? "auto" : "100%",
-          borderRadius: _v11 ? 0 : "12px",
+          height: _v10 ? "100vh" : _v26 ? "auto" : "100%",
+          borderRadius: _v10 ? 0 : "12px",
           border: "1px",
           borderStyle: "solid",
           borderColor: "stroke",
@@ -10567,30 +10513,29 @@ ${_v7.innerHTML}
           sx: {
             backdropFilter: "blur(var(--vimeo-blur-lg))"
           },
-          children: [(0, _v18.jsx)(_v296, {
-            isGuestUser: _v26,
+          children: [(0, _v18.jsx)(_v295, {
+            isGuestUser: _v25,
             client: _v4,
-            getClientAnalyticContext: _v5,
-            isPoppedOut: _v11,
-            popOut: _v12,
-            showUpsell: _v27,
-            setForceDisposeSpeechRecognition: _v21
+            isPoppedOut: _v10,
+            popOut: _v11,
+            showUpsell: _v26,
+            setForceDisposeSpeechRecognition: _v20
           }), (0, _v18.jsxs)(_v84.Flex, {
             direction: "column",
             h: "calc(100% - 56px)",
             children: [(0, _v18.jsxs)(_v83.Box, {
-              children: [_v6 && (0, _v18.jsx)(_v301, {
-                visibleNotices: _v6
-              }), _v28 && (0, _v18.jsx)(_v300, {
-                message: _v36.script.generate.errors[_v28].text,
+              children: [_v5 && (0, _v18.jsx)(_v300, {
+                visibleNotices: _v5
+              }), _v27 && (0, _v18.jsx)(_v299, {
+                message: _v36.script.generate.errors[_v27].text,
                 status: "error",
-                onClose: _v34
+                onClose: _v33
               })]
             }), (0, _v18.jsxs)(_v84.Flex, {
-              ref: _v22,
-              onMouseEnter: _v35,
-              onMouseLeave: _v36,
-              onWheel: _v35,
+              ref: _v21,
+              onMouseEnter: _v34,
+              onMouseLeave: _v35,
+              onWheel: _v34,
               direction: "column",
               flexBasis: "100%",
               fontWeight: "medium",
@@ -10599,39 +10544,39 @@ ${_v7.innerHTML}
               padding: (0, _v85.rem)(2),
               position: "relative",
               sx: {
-                ..._v386,
-                ..._v387
+                ..._v385,
+                ..._v386
               },
-              children: [(0, _v18.jsx)(_v373, {
-                isPoppedOut: _v11,
-                contentWrapperRef: _v22,
-                fontSize: _v32
-              }), (0, _v18.jsx)(_v397, {
-                isPoppedOut: _v11,
-                scrollWrapRef: _v23,
-                isScrollingActive: _v31,
-                children: _v39 ? (0, _v18.jsx)(_v275, {
-                  scrollWrapRef: _v23,
+              children: [(0, _v18.jsx)(_v372, {
+                isPoppedOut: _v10,
+                contentWrapperRef: _v21,
+                fontSize: _v31
+              }), (0, _v18.jsx)(_v396, {
+                isPoppedOut: _v10,
+                scrollWrapRef: _v22,
+                isScrollingActive: _v30,
+                children: _v38 ? (0, _v18.jsx)(_v274, {
+                  scrollWrapRef: _v22,
                   placeholderText: _v36.editorPlaceholder,
-                  initialScrollTop: _v24.current
-                }) : (0, _v18.jsx)(_v385, {
-                  forceDisposeSpeechRecognition: _v20,
-                  micEnabled: _v25 && !_v0,
-                  scrollWrapRef: _v23,
-                  wordsRefsList: _v37,
-                  children: (0, _v18.jsx)(_v395, {
-                    setRefForWord: _v38,
-                    textContent: _v19.teleprompterTextContent,
-                    rawContent: _v19.teleprompterRawContent
+                  initialScrollTop: _v23.current
+                }) : (0, _v18.jsx)(_v384, {
+                  forceDisposeSpeechRecognition: _v19,
+                  micEnabled: _v24 && !_v0,
+                  scrollWrapRef: _v22,
+                  wordsRefsList: _v36,
+                  children: (0, _v18.jsx)(_v394, {
+                    setRefForWord: _v37,
+                    textContent: _v18.teleprompterTextContent,
+                    rawContent: _v18.teleprompterRawContent
                   })
                 })
               })]
-            }), !_v18 && _v39 && (0, _v18.jsx)(_v369, {})]
+            }), !_v17 && _v38 && (0, _v18.jsx)(_v368, {})]
           })]
         })
       });
     };
-  _v0.s(["TeleprompterPoppedOut", 0, _v0 => ((0, _v80.useSession)(_v0.session), (0, _v18.jsx)(_v398, {
+  _v0.s(["TeleprompterPoppedOut", 0, _v0 => ((0, _v80.useSession)(_v0.session), (0, _v18.jsx)(_v397, {
     ..._v0,
     isPoppedOut: !0
   })), "TeleprompterRoot", 0, _v0 => {
@@ -10770,7 +10715,7 @@ ${_v7.innerHTML}
       _v5(_v0.audioTrack ?? null);
     }, [_v0.audioTrack, _v5]), (0, _v18.jsxs)(_v18.Fragment, {
       children: [_v3.isTeleprompterShown && !_v2 && (0, _v18.jsx)(_v77, {
-        children: (0, _v18.jsx)(_v398, {
+        children: (0, _v18.jsx)(_v397, {
           ..._v0,
           popOut: _v1
         })

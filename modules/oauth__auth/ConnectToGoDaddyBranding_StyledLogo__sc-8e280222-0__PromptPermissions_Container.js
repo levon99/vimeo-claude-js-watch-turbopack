@@ -661,7 +661,7 @@
       } = (0, _v39.useQuery)(`/apps/${_v0.app_id}?fields=name,thumbnail,callbacks`);
     (0, _v5.useEffect)(() => {
       if (!_v25 && _v24 && _v0 && (!_v18 || _v18.match(/\/apps\/[0-9]+\/create.*/)?.index !== 0 && _v18.match(/\/apps\/[0-9]+\/preview.*/)?.index !== 0)) {
-        if (_v18 && !_v24.callbacks.some(_v0 => _v0 === _v18 || _v0 === _v18.split("?")[0])) throw Error("Redirect URI is invalid.");
+        if (_v18 && _v24.callbacks && !_v24.callbacks.some(_v0 => _v0 === _v18 || _v0 === _v18.split("?")[0])) throw Error("Redirect URI is invalid.");
         _v8((0, _v42.getCopyForApp)(_v0.app_id ?? "0", _v24));
       }
     }, [_v25, _v0, _v24, _v18]), (0, _v5.useEffect)(() => {

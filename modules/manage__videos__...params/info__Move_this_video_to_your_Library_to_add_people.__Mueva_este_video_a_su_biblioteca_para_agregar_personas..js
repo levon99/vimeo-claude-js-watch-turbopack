@@ -475,19 +475,22 @@
       let _v0 = (0, _v2.useRef)(null),
         _v1 = (0, _v2.useContext)(_v28.ViewerContext),
         _v2 = (0, _v2.useContext)(_v24.RefsState),
-        [_v3, _v4] = (0, _v2.useState)({
+        {
+          autoFocusInviteInput: _v3 = !0
+        } = (0, _v2.useContext)(_v23.ResourceConfigContext),
+        [_v4, _v5] = (0, _v2.useState)({
           value: "",
           hasError: !1
         }),
-        _v5 = (0, _v35.useToast)(),
+        _v6 = (0, _v35.useToast)(),
         {
-          modalWrapperRef: _v6
+          modalWrapperRef: _v7
         } = _v2,
-        _v7 = (0, _v4.useGlobalStore)(({
+        _v8 = (0, _v4.useGlobalStore)(({
           capabilities: _v0
         }) => _v0.data.hasEnterprise),
         {
-          canViewerShare: _v8
+          canViewerShare: _v9
         } = (0, _v4.useGlobalStore)((0, _v9.useShallow)(({
           resourceProps: _v0
         }) => ({
@@ -495,34 +498,34 @@
           canViewerShare: _v0.data.canViewerShare
         }))),
         {
-          isMobileOrTab: _v9,
-          teamPermissionLevel: _v10
+          isMobileOrTab: _v10,
+          teamPermissionLevel: _v11
         } = (0, _v4.useGlobalStore)((0, _v9.useShallow)(({
           shared: _v0
         }) => ({
           isMobileOrTab: _v0.data.isMobileOrTab,
           teamPermissionLevel: _v0.data.teamPermissionLevel
         }))),
-        _v11 = (0, _v4.useGlobalStore)(({
+        _v12 = (0, _v4.useGlobalStore)(({
           invite: _v0
         }) => _v0.data.emailInputs),
         {
-          addEmailInputs: _v12,
-          removeEmailInput: _v13,
-          addEntityMember: _v14
+          addEmailInputs: _v13,
+          removeEmailInput: _v14,
+          addEntityMember: _v15
         } = (0, _v4.useGlobalStore)(({
           invite: _v0
         }) => _v0.actions),
-        _v15 = _v3.value.trim(),
-        _v16 = (0, _v37.useDebouncedValue)(_v15, 500),
-        _v17 = (0, _v51.validateEmail)(_v15),
-        _v18 = (0, _v2.useRef)(!1),
-        _v19 = (0, _v2.useCallback)(_v0 => {
-          if (!_v15.length) return;
-          let _v1 = _v11.some(_v0 => "email" === _v0.type);
-          if (!_v8 && _v1) {
+        _v16 = _v4.value.trim(),
+        _v17 = (0, _v37.useDebouncedValue)(_v16, 500),
+        _v18 = (0, _v51.validateEmail)(_v16),
+        _v19 = (0, _v2.useRef)(!1),
+        _v20 = (0, _v2.useCallback)(_v0 => {
+          if (!_v16.length) return;
+          let _v1 = _v12.some(_v0 => "email" === _v0.type);
+          if (!_v9 && _v1) {
             let _v0 = "rsm-mixed-invitation-box-error";
-            _v5.isActive(_v0) || _v5({
+            _v6.isActive(_v0) || _v6({
               title: (0, _v15.translate)({
                 singular: "Contact an Admin to share with someone outside your team",
                 dictionary: {
@@ -554,15 +557,15 @@
             return;
           }
           if (_v0) {
-            if ((0, _v51.hasArrayDuplicates)(_v11.map(_v0 => _v0.name), [_v0.displayName ?? _v0.email])) return;
-            _v14(_v0);
-          } else if (!(0, _v51.validateEmail)(_v15) && _v15.length > 0) {
-            _v4(_v0 => ({
+            if ((0, _v51.hasArrayDuplicates)(_v12.map(_v0 => _v0.name), [_v0.displayName ?? _v0.email])) return;
+            _v15(_v0);
+          } else if (!(0, _v51.validateEmail)(_v16) && _v16.length > 0) {
+            _v5(_v0 => ({
               ..._v0,
               hasError: !0
             }));
             let _v0 = "rsm-mixed-invitation-box-invalid-email";
-            _v5.isActive(_v0) || _v5({
+            _v6.isActive(_v0) || _v6({
               title: (0, _v15.translate)({
                 singular: "Please enter a valid email address",
                 dictionary: {
@@ -593,10 +596,10 @@
             });
             return;
           } else {
-            if ((0, _v51.hasArrayDuplicates)(_v11.map(_v0 => _v0.name), [_v15])) return;
-            if (!_v8) {
+            if ((0, _v51.hasArrayDuplicates)(_v12.map(_v0 => _v0.name), [_v16])) return;
+            if (!_v9) {
               let _v0 = "rsm-mixed-invitation-box-warning";
-              _v5.isActive(_v0) || _v5({
+              _v6.isActive(_v0) || _v6({
                 title: (0, _v15.translate)({
                   singular: "Enter an existing member or group name",
                   dictionary: {
@@ -629,19 +632,19 @@
               });
               return;
             }
-            _v12([{
-              name: _v15,
-              email: _v15,
+            _v13([{
+              name: _v16,
+              email: _v16,
               type: _v5.EMAIL_INPUT_EMAIL_TYPE
             }]);
           }
-          _v4({
+          _v5({
             value: "",
             hasError: !1
           }), _v0.current?.focus();
-        }, [_v12, _v14, _v8, _v11, _v15, _v5]),
-        _v20 = !!_v10 || !!_v1?.teamUser?.ownerId || !!_v1?.team?.ownerId,
-        _v21 = _v11.length > 0 ? "" : _v20 ? _v7 ? (0, _v15.translate)({
+        }, [_v13, _v15, _v9, _v12, _v16, _v6]),
+        _v21 = !!_v11 || !!_v1?.teamUser?.ownerId || !!_v1?.team?.ownerId,
+        _v22 = _v12.length > 0 ? "" : _v21 ? _v8 ? (0, _v15.translate)({
           singular: "Add name, group or email",
           dictionary: {
             es: {
@@ -717,21 +720,21 @@
             }
           }
         }),
-        _v22 = (0, _v2.useCallback)(_v0 => {
-          _v13(_v0), _v3.hasError && _v4({
-            ..._v3,
+        _v23 = (0, _v2.useCallback)(_v0 => {
+          _v14(_v0), _v4.hasError && _v5({
+            ..._v4,
             hasError: !1
           }), _v0.current?.focus();
-        }, [_v3, _v13]),
-        _v23 = (0, _v2.useCallback)(_v0 => {
-          (_v0.code === _v20.KEY_CODES.ENTER || _v17 && [_v20.KEY_CODES.SPACE, _v20.KEY_CODES.TAB].includes(_v0.code)) && (_v0.preventDefault(), _v0.stopPropagation(), _v19()), 0 === _v15.length && _v0.code === _v20.KEY_CODES.BACKSPACE && _v11.length > 0 && _v22(_v11[_v11.length - 1]);
-        }, [_v19, _v17, _v15, _v11, _v22]);
+        }, [_v4, _v14]),
+        _v24 = (0, _v2.useCallback)(_v0 => {
+          (_v0.code === _v20.KEY_CODES.ENTER || _v18 && [_v20.KEY_CODES.SPACE, _v20.KEY_CODES.TAB].includes(_v0.code)) && (_v0.preventDefault(), _v0.stopPropagation(), _v20()), 0 === _v16.length && _v0.code === _v20.KEY_CODES.BACKSPACE && _v12.length > 0 && _v23(_v12[_v12.length - 1]);
+        }, [_v20, _v18, _v16, _v12, _v23]);
       return (0, _v1.jsx)(_v11.Box, {
         position: "relative",
         zIndex: 10,
         children: (0, _v1.jsxs)(_v32.Popover, {
           placement: "bottom-start",
-          isOpen: (!_v17 || !_v8) && _v20 && _v15.length > 0,
+          isOpen: (!_v18 || !_v9) && _v21 && _v16.length > 0,
           initialFocusRef: _v0,
           isLazy: !0,
           matchWidth: !0,
@@ -743,7 +746,7 @@
                 zIndex: 10,
                 children: [(0, _v1.jsx)(_v29.Flex, {
                   sx: _v60,
-                  outlineColor: _v3.hasError ? "status-destructive-primary" : "input-stroke",
+                  outlineColor: _v4.hasError ? "status-destructive-primary" : "input-stroke",
                   children: (0, _v1.jsxs)(_v29.Flex, {
                     direction: "row",
                     wrap: "wrap",
@@ -753,48 +756,48 @@
                     align: "center",
                     justify: "flex-start",
                     gap: (0, _v14.rem)(4),
-                    maxH: _v9 ? (0, _v14.rem)(80) : "none",
+                    maxH: _v10 ? (0, _v14.rem)(80) : "none",
                     overflowY: "auto",
                     sx: {
                       "& div[data-lastpass-icon-root]": {
                         display: "none !important"
                       }
                     },
-                    children: [_v11.map(_v0 => (0, _v1.jsx)(_v42, {
+                    children: [_v12.map(_v0 => (0, _v1.jsx)(_v42, {
                       emailInput: _v0,
-                      onRemove: () => _v22(_v0)
+                      onRemove: () => _v23(_v0)
                     }, _v0.email)), (0, _v1.jsx)(_v30.Input, {
                       size: "xs",
                       type: "text",
                       autoComplete: "off",
                       ref: _v0,
                       id: _v58,
-                      value: _v3.value,
-                      placeholder: _v21,
+                      value: _v4.value,
+                      placeholder: _v22,
                       onChange: _v0 => {
-                        if (_v11.length >= _v20.MAX_INVITE_EMAIL_LIMIT) return _v18.current = !0, _v4({
-                          ..._v3,
+                        if (_v12.length >= _v20.MAX_INVITE_EMAIL_LIMIT) return _v19.current = !0, _v5({
+                          ..._v4,
                           hasError: !0
                         }), !1;
-                        _v18.current && (_v18.current = !1);
+                        _v19.current && (_v19.current = !1);
                         let _v1 = _v0.currentTarget.value;
-                        _v4({
-                          ..._v3,
+                        _v5({
+                          ..._v4,
                           hasError: !1,
                           value: _v1
                         });
                       },
-                      onKeyDown: _v23,
+                      onKeyDown: _v24,
                       onBlur: () => {
-                        _v4({
-                          ..._v3,
+                        _v5({
+                          ..._v4,
                           hasError: !1
-                        }), _v17 && _v19();
+                        }), _v18 && _v20();
                       },
-                      autoFocus: !0,
+                      autoFocus: _v3,
                       "data-1p-ignore": !0,
                       sx: _v61,
-                      fontSize: _v9 ? "text" : (0, _v14.rem)(14),
+                      fontSize: _v10 ? "text" : (0, _v14.rem)(14),
                       _focus: {
                         border: "none"
                       },
@@ -804,7 +807,7 @@
                       "data-testid": _v58
                     })]
                   })
-                }), _v3.hasError && _v18.current && (0, _v1.jsx)(_v31.Paragraph, {
+                }), _v4.hasError && _v19.current && (0, _v1.jsx)(_v31.Paragraph, {
                   size: "sm",
                   color: "status-destructive-primary",
                   children: (0, _v15.translate)({
@@ -840,11 +843,11 @@
               })
             })
           }), (0, _v1.jsx)(_v13.Portal, {
-            containerRef: _v6,
+            containerRef: _v7,
             children: (0, _v1.jsx)(_v33.PopoverContent, {
               children: (0, _v1.jsx)(_v56, {
-                searchQuery: _v16,
-                onInviteNewMember: _v19
+                searchQuery: _v17,
+                onInviteNewMember: _v20
               })
             })
           })]

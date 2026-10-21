@@ -922,6 +922,7 @@
       } = (0, _v8.useQuery)(`/apps/${_v7}?fields=callbacks`),
       _v19 = (0, _v5.useMemo)(() => {
         if (!_v18 && _v17 && _v5) {
+          if (!_v17.callbacks) return !1;
           let _v0 = _v17.callbacks.some(_v0 => _v0 === _v5 || _v0 === _v5.split("?")[0] || _v5.startsWith(_v0) || _v0.endsWith("/") && _v5.startsWith(_v0.slice(0, -1)));
           if (!_v0) throw Error("Redirect URI is invalid.");
           return _v0;
@@ -1017,6 +1018,7 @@
             })
           })
         });
+        if (!_v19) return null;
         let _v1 = (0, _v9.deepDecodeURIComponent)(_v5),
           _v2 = (0, _v23.httpBuildQuery)({
             state: _v14,
@@ -1084,7 +1086,7 @@
             })
           })
         });
-      }, [_v8, _v5, _v14, _v13, _v12, _v20, _v4]),
+      }, [_v8, _v5, _v14, _v13, _v12, _v20, _v4, _v19]),
       [_v32, _v33] = (0, _v5.useState)(0);
     return (0, _v5.useEffect)(() => {
       if (_v26) return;
@@ -1101,7 +1103,7 @@
           _v0 ? window.location.replace(_v0) : _v19 && window.location.replace(_v5);
         } else _v19 && window.location.replace(_v5);
       }
-    }, [_v27, _v29, _v28, _v30, _v8, _v26, _v4, _v5, _v20]), (0, _v1.jsx)(_v24, {
+    }, [_v27, _v29, _v28, _v19, _v30, _v8, _v26, _v4, _v5, _v20]), (0, _v1.jsx)(_v24, {
       children: (0, _v1.jsxs)("div", {
         children: [(0, _v1.jsx)(_v25, {
           upgrade: _v27,
@@ -2598,6 +2600,7 @@
       _v33 = (0, _v5.useMemo)(() => {
         if (!_v32 && _v31 && _v6) {
           if (_v6.match(/\/apps\/[0-9]+\/create.*/)?.index === 0 || _v6.match(/\/apps\/[0-9]+\/preview.*/)?.index === 0) return !0;
+          if (!_v31.callbacks) return !1;
           let _v0 = _v31.callbacks.some(_v0 => _v0 === _v6 || _v0 === _v6.split("?")[0]);
           if (!_v0) throw Error("Redirect URI is invalid.");
           return _v0;
@@ -2611,7 +2614,7 @@
             token: _v13
           }),
           _v2 = _v0 + (_v0.includes("?") ? "&" : "?") + _v1;
-        return _v18?.hasReturnPromptLink() ? _v27 ? (0, _v1.jsx)("a", {
+        return _v18?.hasReturnPromptLink() ? _v33 ? _v27 ? (0, _v1.jsx)("a", {
           href: _v2,
           children: (0, _v1.jsx)(_v12.Button, {
             variant: "minimalTransparent",
@@ -2656,11 +2659,11 @@
               }
             }) : _v18?.getReturnPrompt()
           })
-        }) : (0, _v1.jsxs)(_v14.Paragraph, {
+        }) : null : (0, _v1.jsxs)(_v14.Paragraph, {
           size: "1",
           children: [_v18?.getReturnPrompt(), " "]
         });
-      }, [_v6, _v15, _v14, _v13, _v18, _v27, _v16]),
+      }, [_v6, _v15, _v14, _v13, _v18, _v27, _v16, _v33]),
       [_v35, _v36] = (0, _v5.useState)(0);
     (0, _v5.useEffect)(() => {
       if (_v24) return;

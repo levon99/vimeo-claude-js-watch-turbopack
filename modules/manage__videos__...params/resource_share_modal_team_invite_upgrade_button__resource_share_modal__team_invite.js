@@ -91,9 +91,10 @@
     canSeeUpsellModalOnShare: _v5,
     isDisabled: _v6,
     isMobile: _v7,
-    setIsInputFocused: _v8
+    setIsInputFocused: _v8,
+    autoFocus: _v9 = !0
   }) => {
-    let _v9 = (0, _v2.useCallback)(_v0 => {
+    let _v10 = (0, _v2.useCallback)(_v0 => {
       _v0.keyCode === _v11.KeyCodes.ENTER && (_v0.preventDefault(), _v0.stopPropagation(), _v1.current && _v1.current.focus(), _v0 && _v0(_v0));
     }, [_v1, _v0]);
     return (0, _v1.jsx)(_v1.Fragment, {
@@ -113,7 +114,7 @@
               value: _v1
             });
           },
-          onKeyDown: _v9,
+          onKeyDown: _v10,
           placeholder: _v4,
           onBlur: () => {
             _v3({
@@ -124,7 +125,7 @@
           onFocus: () => _v8(!0),
           "aria-label": _v4,
           isDisabled: _v6,
-          autoFocus: !0,
+          autoFocus: _v9,
           "data-1p-ignore": !0,
           mb: 8,
           "data-testid": _v12

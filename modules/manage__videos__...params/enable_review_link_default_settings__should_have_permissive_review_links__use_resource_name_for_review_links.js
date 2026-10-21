@@ -74,12 +74,11 @@
         {
           upsellModalConfig: _v27,
           upsellTrackingProps: _v28,
-          setUpsellAndTriggerEvent: _v29,
-          bpTriggerUpsellImpression: _v30
-        } = (0, _v25.useUpsellTrackingProps)(_v1),
-        [_v31, _v32] = (0, _v4.useState)(!1),
-        [_v33, _v34] = (0, _v4.useState)(!1),
-        _v35 = (_v0, _v1) => {
+          setUpsellAndTriggerEvent: _v29
+        } = (0, _v25.useUpsellTrackingProps)(),
+        [_v30, _v31] = (0, _v4.useState)(!1),
+        [_v32, _v33] = (0, _v4.useState)(!1),
+        _v34 = (_v0, _v1) => {
           let _v2 = {
               ..._v23
             },
@@ -91,9 +90,9 @@
             [_v1.name]: _v5
           } : delete _v2[_v1.name], _v24(_v2);
         },
-        [_v36, _v37] = (0, _v4.useState)(() => {
+        [_v35, _v36] = (0, _v4.useState)(() => {
           let _v0;
-          if ("create" !== _v5 && _v6) return _v35(_v6.expiresOn ?? "", {
+          if ("create" !== _v5 && _v6) return _v34(_v6.expiresOn ?? "", {
             name: "expiresOn",
             type: "dateTime",
             showUpsell: !1,
@@ -274,23 +273,23 @@
           };
         }),
         {
-          createReviewLink: _v38,
-          isLoading: _v39,
-          isCreateApiCalled: _v40
+          createReviewLink: _v37,
+          isLoading: _v38,
+          isCreateApiCalled: _v39
         } = (0, _v24.usePostReviewLink)({
           resourceId: _v0,
           resourceType: _v1
         }),
         {
-          editReviewLink: _v41,
-          isPatchApiCallInProgress: _v42,
-          isPatchApiCalled: _v43,
-          isPatchApiError: _v44
+          editReviewLink: _v40,
+          isPatchApiCallInProgress: _v41,
+          isPatchApiCalled: _v42,
+          isPatchApiError: _v43
         } = (0, _v23.useEditReviewLink)(_v0, _v1),
-        _v45 = _v42 || _v39,
-        _v46 = _v40 || _v43,
-        _v47 = Object.keys(_v23).length > 0 || !_v36.name?.trim(),
-        _v48 = (0, _v4.useMemo)(() => [{
+        _v44 = _v41 || _v38,
+        _v45 = _v39 || _v42,
+        _v46 = Object.keys(_v23).length > 0 || !_v35.name?.trim(),
+        _v47 = (0, _v4.useMemo)(() => [{
           fields: [{
             label: (0, _v15.translate)({
               singular: "Link name",
@@ -884,14 +883,8 @@
           }]
         }], [_v12, _v14, _v13, _v5, _v6]);
       return (0, _v4.useEffect)(() => {
-        _v48.forEach(_v0 => {
-          _v0.fields.forEach(_v0 => {
-            "name" !== _v0.name && _v0.upsellName && _v0.showUpsell && _v30(_v0.upsellName);
-          });
-        });
-      }, []), (0, _v4.useEffect)(() => {
-        _v46 && !_v45 && (_v3(), _v7?.());
-      }, [_v46, _v45, _v3, _v7]), (0, _v4.useEffect)(() => {
+        _v45 && !_v44 && (_v3(), _v7?.());
+      }, [_v45, _v44, _v3, _v7]), (0, _v4.useEffect)(() => {
         if (_v16 && _v0 && _v1) {
           let _v0 = (0, _v28.computeAnalyticsProps)({
             pathname: _v20,
@@ -907,7 +900,7 @@
           });
         }
       }, [_v20, _v22, _v0, _v1, _v16]), (0, _v4.useEffect)(() => {
-        _v43 && !_v42 && (_v18.close(_v19.current), _v44 ? _v19.current = _v18({
+        _v42 && !_v41 && (_v18.close(_v19.current), _v43 ? _v19.current = _v18({
           title: (0, _v15.translate)({
             singular: "Unable to update. Try again.",
             dictionary: {
@@ -967,7 +960,7 @@
           duration: _v28.TOAST_DURATION,
           isClosable: !1
         }));
-      }, [_v44, _v43, _v42]), (0, _v1.jsxs)(_v1.Fragment, {
+      }, [_v43, _v42, _v41]), (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v5.Box, {
           width: "100%",
           children: [(0, _v1.jsx)(_v8.Flex, {
@@ -978,26 +971,26 @@
             paddingTop: "0px",
             overflowY: "auto",
             maxHeight: _v15 ? (0, _v11.rem)(_v27.REVIEW_LINK_MAX_HEIGHT_FOR_MOBILE) : (0, _v11.rem)(_v27.REVIEW_LINK_MAX_HEIGHT_FOR_DEKSTOP),
-            children: _v48.map(_v0 => (0, _v1.jsxs)(_v8.Flex, {
+            children: _v47.map(_v0 => (0, _v1.jsxs)(_v8.Flex, {
               direction: "column",
               gap: "sm",
               children: [_v0.title && (0, _v1.jsx)(_v10.Text, {
                 variant: "heading-xs",
                 children: _v0.title
               }), _v0.fields.map(_v0 => (0, _v1.jsx)(_v21.ReviewLinkFormField, {
-                value: _v36[_v0.name],
+                value: _v35[_v0.name],
                 onChange: _v0 => {
-                  _v37(_v0 => ({
+                  _v36(_v0 => ({
                     ..._v0,
                     [_v0.name]: _v0
-                  })), _v35(_v0, _v0);
+                  })), _v34(_v0, _v0);
                 },
                 field: _v0,
                 isInvalid: !!_v23[_v0.name],
                 errorMessage: _v23[_v0.name],
                 maxLength: _v0.maxLength,
                 openUpsellModal: () => {
-                  _v29(_v0.upsellName || ""), _v32(!0);
+                  _v29(_v0.upsellName || ""), _v31(!0);
                 },
                 onPresetChange: "expiresOn" === _v0.name ? _v26 : void 0
               }, `review-link-form-${_v0.name}`))]
@@ -1012,9 +1005,9 @@
               justifyContent: _v17 ? "space-between" : "flex-end",
               alignItems: "center",
               children: [_v17 && (0, _v1.jsx)(_v7.Checkbox, {
-                isChecked: _v33,
+                isChecked: _v32,
                 isDisabled: _v14,
-                onChange: _v0 => _v34(_v0.target.checked),
+                onChange: _v0 => _v33(_v0.target.checked),
                 children: _v15 ? (0, _v15.translate)({
                   singular: "Set as default",
                   dictionary: {
@@ -1105,25 +1098,22 @@
                   variant: "primary",
                   onClick: () => {
                     let _v0 = {
-                      ..._v36
+                      ..._v35
                     };
                     Object.keys(_v0).forEach(_v0 => {
                       "" === _v0[_v0] && (_v0[_v0] = null);
                     }), _v12 && "edit" === _v5 && delete _v0.hideEndCards;
-                    let _v1 = !!_v11.enable_review_link_default_settings && _v33;
+                    let _v1 = !!_v11.enable_review_link_default_settings && _v32;
                     "edit" === _v5 ? ((_v0, _v1) => {
                       if (_v6?.uri) {
                         let _v0 = (0, _v28.reviewIdFromUri)(_v6.uri);
-                        _v41({
+                        _v40({
                           ..._v0,
                           saveAsDefault: _v1,
                           isPermissiveReviewLinks: _v13
-                        }, _v0, {
-                          ..._v0,
-                          uri: _v6.uri
-                        });
+                        }, _v0);
                       } else _v3();
-                    })(_v0, _v1) : _v38({
+                    })(_v0, _v1) : _v37({
                       ..._v0,
                       saveAsDefault: _v1,
                       isPermissiveReviewLinks: _v13,
@@ -1131,8 +1121,8 @@
                       expirationPreset: _v25
                     });
                   },
-                  isDisabled: _v45 && _v46 || _v47,
-                  isLoading: _v46 && _v45,
+                  isDisabled: _v44 && _v45 || _v46,
+                  isLoading: _v45 && _v44,
                   children: "edit" === _v5 ? (0, _v15.translate)({
                     singular: "Save",
                     dictionary: {
@@ -1188,7 +1178,7 @@
               })]
             })
           })]
-        }), _v31 && (0, _v1.jsx)(_v19.default, {
+        }), _v30 && (0, _v1.jsx)(_v19.default, {
           apiUrl: _v16?.apiUrl,
           userConfig: {
             jwt: _v16?.jwt,
@@ -1196,7 +1186,7 @@
           },
           templateType: "default",
           modalConfig: _v27,
-          onClose: () => _v32(!1),
+          onClose: () => _v31(!1),
           tracking: _v28
         })]
       });

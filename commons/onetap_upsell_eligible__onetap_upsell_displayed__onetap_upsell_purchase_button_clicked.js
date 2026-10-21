@@ -18,9 +18,8 @@
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
-    _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  async function _v20({
+    _v18 = _v0.i(0);
+  async function _v19({
     data: _v0,
     error: _v1
   }) {
@@ -28,48 +27,48 @@
       if (_v1) {
         let _v0 = _v1.res,
           _v1 = _v0 ? await _v0.clone().json().catch(() => null) : null;
-        return (0, _v19.getDeclineMessage)((0, _v19.parseGatewayDeclineCode)(_v1?.error ?? _v1.message));
+        return (0, _v18.getDeclineMessage)((0, _v18.parseGatewayDeclineCode)(_v1?.error ?? _v1.message));
       }
-      if (_v0?.error) return (0, _v19.getDeclineMessage)((0, _v19.parseGatewayDeclineCode)(_v0.error));
-      if (_v0?.shouldBlockPurchase) return (0, _v19.getErrorMessage)(_v19.ERROR_TYPE.SIFT_ERROR);
+      if (_v0?.error) return (0, _v18.getDeclineMessage)((0, _v18.parseGatewayDeclineCode)(_v0.error));
+      if (_v0?.shouldBlockPurchase) return (0, _v18.getErrorMessage)(_v18.ERROR_TYPE.SIFT_ERROR);
       return null;
     } catch {
-      return (0, _v19.getDeclineMessage)();
+      return (0, _v18.getDeclineMessage)();
     }
   }
-  var _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
-  let _v24 = (_v0, _v1) => ({
+  var _v20 = _v0.i(0),
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0);
+  let _v23 = (_v0, _v1) => ({
       tier: _v0.tier,
       periodicity: _v0.periodicity,
       is_free_trial: _v0.isFreeTrial ?? !1,
-      ...(0, _v22.readStoredPaywallContext)(),
+      ...(0, _v21.readStoredPaywallContext)(),
       ..._v1
     }),
-    _v25 = () => {
-      let _v0 = (0, _v23.usePico)(),
+    _v24 = () => {
+      let _v0 = (0, _v22.usePico)(),
         _v1 = (0, _v2.useCallback)(_v0 => {
-          _v0.track("onetap_upsell_eligible", _v24(_v0));
+          _v0.track("onetap_upsell_eligible", _v23(_v0));
         }, [_v0]),
         _v2 = (0, _v2.useCallback)(_v0 => {
-          _v0.track("onetap_upsell_displayed", _v24(_v0));
+          _v0.track("onetap_upsell_displayed", _v23(_v0));
         }, [_v0]);
       return {
         trackOneTapEligible: _v1,
         trackOneTapDisplayed: _v2,
         trackOneTapPurchaseButtonClicked: (0, _v2.useCallback)(_v0 => {
-          _v0.track("onetap_upsell_purchase_button_clicked", _v24(_v0));
+          _v0.track("onetap_upsell_purchase_button_clicked", _v23(_v0));
         }, [_v0]),
         trackOneTapCheckoutRedirect: (0, _v2.useCallback)((_v0, _v1) => {
-          _v0.track("onetap_upsell_checkout_redirect", _v24(_v0, {
+          _v0.track("onetap_upsell_checkout_redirect", _v23(_v0, {
             reason: _v1
           }));
         }, [_v0])
       };
     };
-  _v0.s(["useOneTapUpsellTracking", 0, _v25], 0);
-  let _v26 = _v0 => _v0 => (0, _v1.jsx)(_v8.Link, {
+  _v0.s(["useOneTapUpsellTracking", 0, _v24], 0);
+  let _v25 = _v0 => _v0 => (0, _v1.jsx)(_v8.Link, {
     href: _v0,
     color: "fill-brand",
     textDecoration: "underline",
@@ -99,111 +98,108 @@
     onChargingChange: _v20,
     isUpgrading: _v21
   }) {
-    let _v22 = (0, _v17.useViewer)(),
-      {
-        data: _v23,
-        isLoading: _v24
+    let {
+        data: _v22,
+        isLoading: _v23
       } = (0, _v12.useGetMePaymentMethods)({
-        select: _v21.PAYMENT_METHOD_FIELDS,
+        select: _v20.PAYMENT_METHOD_FIELDS,
         query: {
           showDisabled: !1
         }
       }),
-      _v25 = (_v23?.data ?? []).filter(_v0 => !_v16 || (0, _v21.isInPlaceChargeable)(_v0)),
-      _v26 = (_v25.find(_v0 => _v0.isDefault) ?? _v25[0])?.id,
-      [_v27, _v28] = (0, _v2.useState)(void 0),
-      _v29 = _v27 ?? _v26,
-      _v30 = (_v8 ? _v0.id?.monthly : _v0.id?.annual) ?? void 0,
-      [_v31, _v32] = (0, _v11.usePostMeOrdersSubscription)(),
-      [_v33, _v34] = (0, _v2.useState)(!1),
+      _v24 = (_v22?.data ?? []).filter(_v0 => !_v16 || (0, _v20.isInPlaceChargeable)(_v0)),
+      _v25 = (_v24.find(_v0 => _v0.isDefault) ?? _v24[0])?.id,
+      [_v26, _v27] = (0, _v2.useState)(void 0),
+      _v28 = _v26 ?? _v25,
+      _v29 = (_v8 ? _v0.id?.monthly : _v0.id?.annual) ?? void 0,
+      [_v30, _v31] = (0, _v11.usePostMeOrdersSubscription)(),
+      [_v32, _v33] = (0, _v2.useState)(!1),
       {
-        trackCheckoutPurchaseButtonClicked: _v35,
-        trackCheckoutFailed: _v36,
-        trackUserConverted: _v37
+        trackCheckoutPurchaseButtonClicked: _v34,
+        trackCheckoutFailed: _v35,
+        trackUserConverted: _v36
       } = (0, _v14.useCheckoutTracking)(),
       {
-        trackOneTapDisplayed: _v38,
-        trackOneTapPurchaseButtonClicked: _v39,
-        trackOneTapCheckoutRedirect: _v40
-      } = _v25(),
-      _v41 = {
+        trackOneTapDisplayed: _v37,
+        trackOneTapPurchaseButtonClicked: _v38,
+        trackOneTapCheckoutRedirect: _v39
+      } = _v24(),
+      _v40 = {
         tier: String(_v0.tier),
         periodicity: _v8 ? "monthly" : "annual",
         isFreeTrial: _v9
       },
-      _v42 = (0, _v2.useRef)(_v41);
+      _v41 = (0, _v2.useRef)(_v40);
     (0, _v2.useEffect)(() => {
-      _v42.current = _v41;
+      _v41.current = _v40;
     });
-    let _v43 = (_v0, _v1) => {
-        _v0 ? (_v36({
-          ..._v41,
+    let _v42 = (_v0, _v1) => {
+        _v0 ? (_v35({
+          ..._v40,
           error_message: _v0
-        }), _v40(_v41, "charge_declined"), _v20(!0), window.location.assign((0, _v14.buildCheckoutUrl)({
+        }), _v39(_v40, "charge_declined"), _v20(!0), window.location.assign((0, _v14.buildCheckoutUrl)({
           ..._v12,
           tier: _v0.tier,
           isMonthly: _v8,
           postCheckoutUrl: _v11
-        }))) : (_v34(!0), _v37(_v41), _v17(_v1));
+        }))) : (_v33(!0), _v36(_v40), _v17(_v1));
       },
-      _v44 = (0, _v2.useRef)(_v43);
+      _v43 = (0, _v2.useRef)(_v42);
     (0, _v2.useEffect)(() => {
-      _v44.current = _v43;
+      _v43.current = _v42;
     });
-    let _v45 = _v24 || _v14,
-      _v46 = !_v45 && 0 === _v25.length,
-      _v47 = !!_v15 || !!_v16,
-      _v48 = _v25.find(_v0 => _v0.id === _v29),
-      _v49 = _v13 || _v46 || !_v45 && (!_v47 || !_v30),
-      _v50 = _v7 && !_v13 && _v25.length > 0,
-      _v51 = (0, _v2.useRef)(!1);
+    let _v44 = _v23 || _v14,
+      _v45 = !_v44 && 0 === _v24.length,
+      _v46 = !!_v15 || !!_v16,
+      _v47 = _v24.find(_v0 => _v0.id === _v28),
+      _v48 = _v13 || _v45 || !_v44 && (!_v46 || !_v29),
+      _v49 = _v7 && !_v13 && _v24.length > 0,
+      _v50 = (0, _v2.useRef)(!1);
     (0, _v2.useEffect)(() => {
-      _v51.current || _v45 || _v49 || (_v51.current = !0, _v38(_v42.current));
-    }, [_v45, _v49, _v38]);
-    let _v52 = _v16?.state ?? _v32,
+      _v50.current || _v44 || _v48 || (_v50.current = !0, _v37(_v41.current));
+    }, [_v44, _v48, _v37]);
+    let _v51 = _v16?.state ?? _v31,
       {
-        called: _v53,
-        loading: _v54,
-        data: _v55,
-        error: _v56
-      } = _v52;
+        called: _v52,
+        loading: _v53,
+        data: _v54,
+        error: _v55
+      } = _v51;
     (0, _v2.useEffect)(() => {
-      if (!_v53 || _v54) return;
+      if (!_v52 || _v53) return;
       let _v0 = !1;
-      return _v20({
-        data: _v55,
-        error: _v56
+      return _v19({
+        data: _v54,
+        error: _v55
       }).then(_v0 => {
-        _v0 || _v44.current(_v0, _v55?.orderId ?? _v55?.id);
+        _v0 || _v43.current(_v0, _v54?.orderId ?? _v54?.id);
       }), () => {
         _v0 = !0;
       };
-    }, [_v53, _v54, _v55, _v56]);
-    let _v57 = (0, _v16.isUkLocation)(_v22?.location),
-      _v58 = _v0.currency?.currencyCode || "USD",
-      _v59 = _v0 => _v57 ? (0, _v16.formatUkVatPrice)(_v0, _v58) : void 0,
-      _v60 = _v59(_v8 ? _v0.price?.monthly : _v0.price?.annualMonthly),
-      _v61 = _v59(_v8 ? _v0.price?.monthly : _v0.price?.annual),
-      _v62 = _v60 && _v61 ? (0, _v13.translate)({
-        singular: "incl. 20% VAT",
+    }, [_v52, _v53, _v54, _v55]);
+    let _v56 = (0, _v16.isTaxInclusivePrices)(_v0.metadata) ? (0, _v13.translate)({
+        singular: "including tax",
         dictionary: {
           es: {
-            singular: "incl. 20% IVA"
+            singular: "impuestos incluidos"
           },
           "de-DE": {
-            singular: "inkl. 20% MwSt."
+            singular: "inkl. MwSt."
           },
           "fr-FR": {
-            singular: "incl. 20 % TVA"
+            singular: "taxes incluses"
           },
           "ja-JP": {
-            singular: "付加価値税（20%）を含む"
+            singular: "税込"
           },
           "ko-KR": {
-            singular: "부가가치세 20% 포함"
+            singular: "세금 포함"
+          },
+          "pt-BR": {
+            singular: "incluindo impostos"
           },
           "zh-CN": {
-            singular: "含 20% 增值税"
+            singular: "含税"
           }
         }
       }) : (0, _v13.translate)({
@@ -232,9 +228,9 @@
           }
         }
       }),
-      _v63 = _v60 ?? (_v8 ? _v0.priceFormatted?.monthly : _v0.priceFormatted?.annualMonthly) ?? "",
-      _v64 = _v61 ?? (_v8 ? _v0.priceFormatted?.monthly : _v0.priceFormatted?.annual) ?? "",
-      _v65 = _v8 ? (0, _v13.translate)({
+      _v57 = (_v8 ? _v0.priceFormatted?.monthly : _v0.priceFormatted?.annualMonthly) ?? "",
+      _v58 = (_v8 ? _v0.priceFormatted?.monthly : _v0.priceFormatted?.annual) ?? "",
+      _v59 = _v8 ? (0, _v13.translate)({
         singular: "per month, billed monthly",
         dictionary: {
           es: {
@@ -285,7 +281,7 @@
           }
         }
       }),
-      _v66 = _v3 ?? (0, _v13.translate)({
+      _v60 = _v3 ?? (0, _v13.translate)({
         singular: "Do more with {PLAN}",
         replacements: {
           PLAN: _v1
@@ -314,7 +310,7 @@
           }
         }
       }),
-      _v67 = _v49 ? (0, _v13.translate)({
+      _v61 = _v48 ? (0, _v13.translate)({
         singular: "Go to checkout",
         dictionary: {
           es: {
@@ -342,7 +338,7 @@
       }) : _v6 || (_v8 ? (0, _v13.translate)({
         singular: "Upgrade and pay {PRICE}/month",
         replacements: {
-          PRICE: _v64
+          PRICE: _v58
         },
         dictionary: {
           es: {
@@ -370,7 +366,7 @@
       }) : (0, _v13.translate)({
         singular: "Upgrade and pay {PRICE}/year",
         replacements: {
-          PRICE: _v64
+          PRICE: _v58
         },
         dictionary: {
           es: {
@@ -396,7 +392,7 @@
           }
         }
       })),
-      _v68 = function ({
+      _v62 = function ({
         isMonthly: _v0,
         isFreeTrial: _v1,
         planName: _v2,
@@ -408,9 +404,9 @@
           PLAN: _v2,
           AMOUNT: _v3,
           TAX: _v4,
-          BILLING_SETTINGS_LINK: _v26("/settings/account/subscription"),
-          TOS_LINK: _v26("/terms"),
-          PRIVACY_LINK: _v26("/privacy")
+          BILLING_SETTINGS_LINK: _v25("/settings/account/subscription"),
+          TOS_LINK: _v25("/terms"),
+          PRIVACY_LINK: _v25("/privacy")
         };
         return _v1 ? _v5 ? _v0 ? (0, _v13.translate)({
           singular: "By completing this purchase, your free trial ends now and your monthly {PLAN} subscription starts. You'll be charged {AMOUNT}/month ({TAX}) today and again every month unless you cancel in {BILLING_SETTINGS_LINK}Billing Settings{/BILLING_SETTINGS_LINK} at least 1 day before renewal. Prices may change. If you cancel or downgrade, you may lose access to some content or features, and some content may be deleted. You also agree to the {TOS_LINK}Terms of Service{/TOS_LINK}, including the arbitration agreement and class action waiver, and acknowledge our {PRIVACY_LINK}Privacy Policy{/PRIVACY_LINK}.",
@@ -625,9 +621,9 @@
         isMonthly: _v8,
         isFreeTrial: _v9,
         planName: _v1,
-        amount: _v64,
-        tax: _v62,
-        mustUseCheckout: _v49
+        amount: _v58,
+        tax: _v56,
+        mustUseCheckout: _v48
       });
     return (0, _v1.jsxs)(_v4.Box, {
       width: "100%",
@@ -745,7 +741,7 @@
                 base: "lg",
                 md: "xl"
               },
-              children: _v66
+              children: _v60
             }), _v4 ? (0, _v1.jsx)(_v9.Text, {
               variant: "body-md",
               color: "text-secondary",
@@ -760,34 +756,34 @@
                 base: "xl",
                 md: "2xl"
               },
-              children: _v63
+              children: _v57
             }), (0, _v1.jsxs)(_v6.Flex, {
               direction: "column",
               color: "text-secondary",
               children: [(0, _v1.jsx)(_v9.Text, {
                 as: "span",
                 variant: "body-md",
-                children: _v65
+                children: _v59
               }), (0, _v1.jsx)(_v9.Text, {
                 as: "span",
                 variant: "body-md",
-                children: _v62
+                children: _v56
               })]
             })]
           }), _v2]
         }), (0, _v1.jsxs)(_v6.Flex, {
           direction: "column",
           gap: (0, _v10.rem)(16),
-          children: [!_v45 && _v50 ? (0, _v1.jsx)(_v18.SavedCardSelect, {
-            paymentMethods: _v25,
-            paymentMethodId: _v29,
-            onSelectPaymentMethod: _v28,
+          children: [!_v44 && _v49 ? (0, _v1.jsx)(_v17.SavedCardSelect, {
+            paymentMethods: _v24,
+            paymentMethodId: _v28,
+            onSelectPaymentMethod: _v27,
             disabled: _v19
           }) : null, (0, _v1.jsx)(_v9.Text, {
             variant: "body-sm",
             color: "text-primary",
             children: (0, _v1.jsx)("span", {
-              children: _v68
+              children: _v62
             })
           }), (0, _v1.jsxs)(_v6.Flex, {
             direction: "column",
@@ -796,8 +792,8 @@
               variant: "brand",
               size: "lg",
               onClick: () => {
-                if (_v49 || !_v47 || !_v30 || !_v48) {
-                  _v40(_v41, _v13 ? "account_opt_in_required" : _v46 ? "no_payment_method" : _v47 && _v30 ? "no_card_selected" : "cannot_upgrade_in_place"), _v20(!0), window.location.assign((0, _v14.buildCheckoutUrl)({
+                if (_v48 || !_v46 || !_v29 || !_v47) {
+                  _v39(_v40, _v13 ? "account_opt_in_required" : _v45 ? "no_payment_method" : _v46 && _v29 ? "no_card_selected" : "cannot_upgrade_in_place"), _v20(!0), window.location.assign((0, _v14.buildCheckoutUrl)({
                     ..._v12,
                     tier: _v0.tier,
                     isMonthly: _v8,
@@ -805,21 +801,21 @@
                   }));
                   return;
                 }
-                (_v35(_v41), _v39(_v41), _v20(!0), _v16 && !_v15) ? _v16.charge(_v30, _v48) : _v31({
+                (_v34(_v40), _v38(_v40), _v20(!0), _v16 && !_v15) ? _v16.charge(_v29, _v47) : _v30({
                   select: ["id", "orderId", "status", "shouldBlockPurchase"],
                   where: {
                     subscriptionId: _v15
                   },
                   variables: {
                     type: "upgrade",
-                    billingPlanId: _v30,
-                    paymentMethodId: _v48.id
+                    billingPlanId: _v29,
+                    paymentMethodId: _v47.id
                   }
                 });
               },
               isDisabled: _v19,
-              isLoading: _v21 || _v45 || _v52.loading || _v33,
-              children: _v67
+              isLoading: _v21 || _v44 || _v51.loading || _v32,
+              children: _v61
             }), (0, _v1.jsx)(_v5.Button, {
               variant: "secondary",
               size: "lg",
@@ -863,6 +859,6 @@
       })]
     });
   }], 0), _v0.s(["isAutorenewalOptInProtected", 0, function (_v0) {
-    return _v0?.country === "US" && !!_v0.postalCode && (0, _v21.isZipCodeIsRequiredAutorenewalOptInRange)(_v0.postalCode.trim().slice(0, 5));
+    return _v0?.country === "US" && !!_v0.postalCode && (0, _v20.isZipCodeIsRequiredAutorenewalOptInRange)(_v0.postalCode.trim().slice(0, 5));
   }], 0);
 }

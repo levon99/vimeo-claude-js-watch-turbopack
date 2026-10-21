@@ -110,7 +110,7 @@
             singular: "Negrito"
           },
           "zh-CN": {
-            singular: "粗体"
+            singular: "加粗"
           }
         }
       }),
@@ -153,7 +153,7 @@
             singular: "斜体"
           },
           "ko-KR": {
-            singular: "기울임"
+            singular: "기울임꼴"
           },
           "pt-BR": {
             singular: "Itálico"

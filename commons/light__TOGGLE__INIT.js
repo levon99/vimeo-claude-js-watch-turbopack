@@ -137,7 +137,10 @@
       }),
       _v10 = (0, _v2.useMemo)(() => ({
         toggleTheme: _v0 => {
-          _v9({
+          _v9(_v0 ? {
+            type: "SET",
+            payload: _v4.themes[_v0]
+          } : {
             type: "TOGGLE"
           });
         },

@@ -2134,39 +2134,40 @@
     isDisabled: _v2 = !1,
     onPrivacyUpsellClick: _v3,
     dropdownPrivacy: _v4,
-    footer: _v5
+    footer: _v5,
+    isVideoPrivacy: _v6 = !0
   }) {
     let {
-        trackUpsellTrigger: _v6
+        trackUpsellTrigger: _v7
       } = {
         trackUpsellTriggerImpression: (0, _v2.useCallback)(() => {}, []),
         trackUpsellTrigger: (0, _v2.useCallback)(() => {}, [])
       },
       {
-        trackUploadModalPrivacyDropdownClicked: _v7
+        trackUploadModalPrivacyDropdownClicked: _v8
       } = _v52(),
-      [_v8, _v9] = (0, _v2.useState)(void 0),
-      _v10 = (0, _v2.useMemo)(() => _v4 ? _v0.find(_v0 => _v0.privacy === _v4) : void 0, [_v4, _v0]);
+      [_v9, _v10] = (0, _v2.useState)(void 0),
+      _v11 = (0, _v2.useMemo)(() => _v4 ? _v0.find(_v0 => _v0.privacy === _v4) : void 0, [_v4, _v0]);
     return (0, _v2.useEffect)(() => {
-      _v10 && _v9(_v0 => _v0?.privacy === _v10.privacy ? _v0 : _v10);
-    }, [_v10]), (0, _v1.jsx)(_v50.PrivacyDropdown, {
-      isVideoPrivacy: !0,
+      _v11 && _v10(_v0 => _v0?.privacy === _v11.privacy ? _v0 : _v11);
+    }, [_v11]), (0, _v1.jsx)(_v50.PrivacyDropdown, {
+      isVideoPrivacy: _v6,
       hasPortal: !0,
       privacyOptions: _v0,
       activePrivacy: _v4 ?? "",
       isRedirectUpsell: !1,
       onSelect: _v0 => _v1(_v0),
       onMenuToggle: _v0 => {
-        _v0 && _v7();
+        _v0 && _v8();
       },
       onUpsellClick: _v0 => {
-        _v6(), _v3?.(_v0);
+        _v7(), _v3?.(_v0);
       },
       variant: "outlined",
       showSelectedPrivacyDescription: !1,
       matchWidth: !1,
       isDisabled: _v2,
-      lastSelectedPrivacyOption: _v8,
+      lastSelectedPrivacyOption: _v9,
       footer: _v5
     });
   }
@@ -3648,13 +3649,14 @@
       _v47 = (0, _v2.useCallback)(() => {
         _v40(), _v23();
       }, [_v23, _v40]),
-      _v48 = (_v0, _v1, _v2, _v3) => (0, _v1.jsx)(_v53, {
+      _v48 = (_v0, _v1, _v2, _v3, _v4 = !0) => (0, _v1.jsx)(_v53, {
         isDisabled: !_v3 || 0 === _v0.length,
         onSelectionChange: _v2,
         privacyOptions: _v0,
         onPrivacyUpsellClick: _v9,
         dropdownPrivacy: _v1,
-        footer: _v3
+        footer: _v3,
+        isVideoPrivacy: _v4
       }),
       _v49 = _v0 => _v28 ? (0, _v1.jsx)(_v13.Tooltip, {
         label: _v20.moreActions,
@@ -3794,12 +3796,12 @@
               })]
             }),
             trailing: (0, _v1.jsxs)(_v1.Fragment, {
-              children: [_v48(_v1, _v46.dropdownFilePrivacy, _v46.onFilePrivacySelect, _v100), _v49(!1)]
+              children: [_v48(_v1, _v46.dropdownFilePrivacy, _v46.onFilePrivacySelect, _v100, !1), _v49(!1)]
             })
           }), _v50(_v30)]
         }), !_v36 && !_v18 && !_v33 && (0, _v1.jsx)(_v56, {
           groupTrailing: !1,
-          leading: _v48(_v32 ? _v1 : _v0, _v32 ? _v46.dropdownFilePrivacy : _v46.effectiveDropdownPrivacy, _v32 ? _v46.onFilePrivacySelect : _v46.onPrivacyChange, _v32 ? _v100 : void 0),
+          leading: _v48(_v32 ? _v1 : _v0, _v32 ? _v46.dropdownFilePrivacy : _v46.effectiveDropdownPrivacy, _v32 ? _v46.onFilePrivacySelect : _v46.onPrivacyChange, _v32 ? _v100 : void 0, !_v32),
           trailing: (0, _v1.jsxs)(_v1.Fragment, {
             children: [_v15 && !_v32 && (0, _v1.jsx)(_v29, {
               isEmbeddable: _v16,
@@ -3845,8 +3847,9 @@
       })]
     });
   }
-  var _v102 = _v0.i(0);
-  let _v103 = {
+  var _v102 = _v0.i(0),
+    _v103 = _v0.i(0);
+  let _v104 = {
       "disable privacy": {
         feature: "privacy",
         upsell_name: "privacy_settings_hide_from_vimeo",
@@ -3863,7 +3866,7 @@
         location: "embeddable_uploader"
       }
     },
-    _v104 = {
+    _v105 = {
       "disable privacy": {
         paywallTrigger: "upload_progress_widget_disable_privacy_button",
         paywallLocation: "embeddable_uploader",
@@ -3883,482 +3886,12 @@
         paywallFeature: "privacy"
       }
     },
-    _v105 = ({
+    _v106 = ({
       upsellType: _v0,
       isOpen: _v1,
       onClose: _v2
     }) => {
-      let _v3 = (0, _v41.useViewer)(),
-        _v4 = {
-          hidePlansSummary: !0,
-          hasFreeFeaturedBanner: !0,
-          headerText: "",
-          subHeaderText: "",
-          planOverrides: {
-            starter: {
-              featuresList: [(0, _v17.translate)({
-                singular: "Customizable video player",
-                dictionary: {
-                  es: {
-                    singular: "Reproductor de video personalizable"
-                  },
-                  "de-DE": {
-                    singular: "Individuell anpassbarer Video-Player "
-                  },
-                  "fr-FR": {
-                    singular: "Player vidéo personnalisable"
-                  },
-                  "ja-JP": {
-                    singular: "カスタマイズ可能な動画プレーヤー"
-                  },
-                  "ko-KR": {
-                    singular: "사용자 지정 가능한 동영상 플레이어"
-                  },
-                  "pt-BR": {
-                    singular: "Video Player customizável"
-                  },
-                  "zh-CN": {
-                    singular: "可定制的视频播放器"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Transfer video files",
-                dictionary: {
-                  es: {
-                    singular: "Transfiera archivos de video"
-                  },
-                  "de-DE": {
-                    singular: "Videodateien übertragen"
-                  },
-                  "fr-FR": {
-                    singular: "Transférer des fichiers vidéo"
-                  },
-                  "ja-JP": {
-                    singular: "動画ファイルを転送"
-                  },
-                  "ko-KR": {
-                    singular: "동영상 파일 전송"
-                  },
-                  "pt-BR": {
-                    singular: "Transferir arquivos de vídeo"
-                  },
-                  "zh-CN": {
-                    singular: "传输视频文件"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Password privacy & unlisted links",
-                dictionary: {
-                  es: {
-                    singular: "Privacidad de la contraseña y enlaces sin listar"
-                  },
-                  "de-DE": {
-                    singular: "Passwortschutz und nicht gelistete Links"
-                  },
-                  "fr-FR": {
-                    singular: "Confidentialité des mots de passe et liens non répertoriés"
-                  },
-                  "ja-JP": {
-                    singular: "パスワードのプライバシーと限定公開リンク"
-                  },
-                  "ko-KR": {
-                    singular: "비밀번호 보호 및 일부 공개 링크"
-                  },
-                  "pt-BR": {
-                    singular: "Privacidade de senha e links não listados"
-                  },
-                  "zh-CN": {
-                    singular: "密码隐私与未公开发布的链接"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Review and collaboration tools",
-                dictionary: {
-                  es: {
-                    singular: "Herramientas de revisión y colaboración"
-                  },
-                  "de-DE": {
-                    singular: "Tools für Prüfung und Zusammenarbeit"
-                  },
-                  "fr-FR": {
-                    singular: "Outils de collaboration et de révision"
-                  },
-                  "ja-JP": {
-                    singular: "レビュー＆共同作業ツール"
-                  },
-                  "ko-KR": {
-                    singular: "리뷰 및 콜라보레이션 도구"
-                  },
-                  "pt-BR": {
-                    singular: "Ferramentas de revisão e colaboração"
-                  },
-                  "zh-CN": {
-                    singular: "审查和协作工具"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Engagement analytics",
-                dictionary: {
-                  es: {
-                    singular: "Estadísticas de interacción"
-                  },
-                  "de-DE": {
-                    singular: "Analysen zur Interaktion"
-                  },
-                  "fr-FR": {
-                    singular: "Analyses liées à l'implication"
-                  },
-                  "ja-JP": {
-                    singular: "エンゲージメント分析"
-                  },
-                  "ko-KR": {
-                    singular: "참여도 분석"
-                  },
-                  "pt-BR": {
-                    singular: "Análise de engajamento"
-                  },
-                  "zh-CN": {
-                    singular: "参与分析"
-                  }
-                }
-              })]
-            },
-            standard: {
-              featuresList: [(0, _v17.translate)({
-                singular: "Branding in the player",
-                dictionary: {
-                  es: {
-                    singular: "Presencia de la marca en el reproductor"
-                  },
-                  "de-DE": {
-                    singular: "Branding im Player"
-                  },
-                  "fr-FR": {
-                    singular: "Branding dans le lecteur"
-                  },
-                  "ja-JP": {
-                    singular: "プレーヤー内でのブランディング"
-                  },
-                  "ko-KR": {
-                    singular: "플레이어 내 브랜딩"
-                  },
-                  "pt-BR": {
-                    singular: "Presença da marca no player"
-                  },
-                  "zh-CN": {
-                    singular: "播放器中的品牌标识"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Third party player support",
-                dictionary: {
-                  es: {
-                    singular: "Compatibilidad con reproductores de terceros"
-                  },
-                  "de-DE": {
-                    singular: "Support für externe Video-Player"
-                  },
-                  "fr-FR": {
-                    singular: "Prise en charge des lecteurs tiers"
-                  },
-                  "ja-JP": {
-                    singular: "Vimeo以外のプレーヤーにも対応"
-                  },
-                  "ko-KR": {
-                    singular: "타사 플레이어 지원"
-                  },
-                  "pt-BR": {
-                    singular: "Suporte para players de terceiros"
-                  },
-                  "zh-CN": {
-                    singular: "第三方播放器支持"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Custom watermark",
-                dictionary: {
-                  es: {
-                    singular: "Marca de agua personalizada"
-                  },
-                  "de-DE": {
-                    singular: "Benutzerdefiniertes Wasserzeichen"
-                  },
-                  "fr-FR": {
-                    singular: "Filigrane personnalisé"
-                  },
-                  "ja-JP": {
-                    singular: "カスタムウォーターマーク"
-                  },
-                  "ko-KR": {
-                    singular: "커스텀 워터마크"
-                  },
-                  "pt-BR": {
-                    singular: "Marca d´água customizada"
-                  },
-                  "zh-CN": {
-                    singular: "自定义水印"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Lead capture",
-                dictionary: {
-                  es: {
-                    singular: "Captura de oportunidades de venta"
-                  },
-                  "de-DE": {
-                    singular: "Lead-Erfassung"
-                  },
-                  "fr-FR": {
-                    singular: "Collecte d'opportunités commerciales"
-                  },
-                  "ja-JP": {
-                    singular: "リードキャプチャー"
-                  },
-                  "ko-KR": {
-                    singular: "리드 수집"
-                  },
-                  "pt-BR": {
-                    singular: "Captura de lead"
-                  },
-                  "zh-CN": {
-                    singular: "线索捕获"
-                  }
-                }
-              })]
-            },
-            advanced: {
-              featuresList: [(0, _v17.translate)({
-                singular: "Host livestreamed events",
-                dictionary: {
-                  es: {
-                    singular: "Organice eventos transmitidos en vivo"
-                  },
-                  "de-DE": {
-                    singular: "Veranstalten Sie Livestream-Events"
-                  },
-                  "fr-FR": {
-                    singular: "Héberger des événements en direct"
-                  },
-                  "ja-JP": {
-                    singular: "ライブ配信イベントを主催"
-                  },
-                  "ko-KR": {
-                    singular: "라이브 스트리밍 이벤트 주최"
-                  },
-                  "pt-BR": {
-                    singular: "Hospedar eventos transmitidos ao vivo"
-                  },
-                  "zh-CN": {
-                    singular: "举办直播活动"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Events Q&A, polls, and chat",
-                dictionary: {
-                  es: {
-                    singular: "Sesión de preguntas y respuestas de eventos, encuestas y chat"
-                  },
-                  "de-DE": {
-                    singular: "Event-Fragerunden, Umfragen und Chat"
-                  },
-                  "fr-FR": {
-                    singular: "Questions-réponses, sondages et discussions des événements"
-                  },
-                  "ja-JP": {
-                    singular: "イベントの質問セッション、アンケート、チャット"
-                  },
-                  "ko-KR": {
-                    singular: "이벤트 Q&A, 투표, 채팅"
-                  },
-                  "pt-BR": {
-                    singular: "Perguntas e respostas, enquetes e chat de eventos"
-                  },
-                  "zh-CN": {
-                    singular: "活动问答、投票和聊天"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Stream to multiple destinations",
-                dictionary: {
-                  es: {
-                    singular: "Transmisión a varios destinos"
-                  },
-                  "de-DE": {
-                    singular: "Stream an mehrere Ziele schicken"
-                  },
-                  "fr-FR": {
-                    singular: "Diffusez des vidéos en streaming vers de multiples destinations"
-                  },
-                  "ja-JP": {
-                    singular: "複数の配信先にストリーム"
-                  },
-                  "ko-KR": {
-                    singular: "여러 목적지로 라이브 스트리밍"
-                  },
-                  "pt-BR": {
-                    singular: "Transmissão ao vivo para vários destinos"
-                  },
-                  "zh-CN": {
-                    singular: "串流至多个目的地"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Marketing automation integrations",
-                dictionary: {
-                  es: {
-                    singular: "Integraciones de automatización de marketing"
-                  },
-                  "de-DE": {
-                    singular: "Marketing-Automatisierungsintegrationen"
-                  },
-                  "fr-FR": {
-                    singular: "Intégrations d'automatisation marketing"
-                  },
-                  "ja-JP": {
-                    singular: "マーケティングオートメーションのインテグレーション"
-                  },
-                  "ko-KR": {
-                    singular: "마케팅 자동화 통합"
-                  },
-                  "pt-BR": {
-                    singular: "Integrações de automação de marketing"
-                  },
-                  "zh-CN": {
-                    singular: "营销自动化集成"
-                  }
-                }
-              })]
-            },
-            enterprise: {
-              featuresList: [(0, _v17.translate)({
-                singular: "Custom permissions",
-                dictionary: {
-                  es: {
-                    singular: "Permisos personalizados"
-                  },
-                  "de-DE": {
-                    singular: "Benutzerdefinierte Berechtigungen"
-                  },
-                  "fr-FR": {
-                    singular: "Autorisations personnalisées"
-                  },
-                  "ja-JP": {
-                    singular: "カスタム権限"
-                  },
-                  "ko-KR": {
-                    singular: "커스텀 권한"
-                  },
-                  "pt-BR": {
-                    singular: "Permissões customizadas"
-                  },
-                  "zh-CN": {
-                    singular: "自定义权限"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Advanced AI capabilities",
-                dictionary: {
-                  es: {
-                    singular: "Capacidades de IA de Advanced"
-                  },
-                  "de-DE": {
-                    singular: "Erweiterte KI-Fähigkeiten"
-                  },
-                  "fr-FR": {
-                    singular: "Capacités d'IA avancées"
-                  },
-                  "ja-JP": {
-                    singular: "高度なAI機能"
-                  },
-                  "ko-KR": {
-                    singular: "고급 AI 기능"
-                  },
-                  "pt-BR": {
-                    singular: "Recursos avançados de IA"
-                  },
-                  "zh-CN": {
-                    singular: "高级 AI 功能"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "SSO (SAML) and SCIM (OKTA, AZURE)",
-                dictionary: {
-                  es: {
-                    singular: "SSO (SAML) y SCIM (OKTA, AZURE)"
-                  },
-                  "de-DE": {
-                    singular: "SSO (SAML) und SCIM (OKTA, AZURE)"
-                  },
-                  "fr-FR": {
-                    singular: "SSO (SAML) et SCIM (OKTA, AZURE)"
-                  },
-                  "ja-JP": {
-                    singular: "SSO（SAML）と SCIM（OKTA、AZURE）"
-                  },
-                  "ko-KR": {
-                    singular: "SSO(SAML) 및 SCIM(OKTA, AZURE)"
-                  },
-                  "pt-BR": {
-                    singular: "SSO (SAML) e SCIM (OKTA, AZURE)"
-                  },
-                  "zh-CN": {
-                    singular: "SSO (SAML) 和 SCIM（OKTA、AZURE）"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Quality events (backup streams, eCDN)",
-                dictionary: {
-                  es: {
-                    singular: "Eventos de calidad (transmisiones de respaldo, eCDN)"
-                  },
-                  "de-DE": {
-                    singular: "Hochwertige Events (Backup-Streams, eCDN)"
-                  },
-                  "fr-FR": {
-                    singular: "Événements de qualité (streams de secours, eCDN)"
-                  },
-                  "ja-JP": {
-                    singular: "高品質なイベント（バックアップストリーム、eCDN）"
-                  },
-                  "ko-KR": {
-                    singular: "고품질 이벤트(백업 스트림, eCDN)"
-                  },
-                  "pt-BR": {
-                    singular: "Eventos de qualidade (cópias de segurança da transmissão ao vivo, eCDN)"
-                  },
-                  "zh-CN": {
-                    singular: "高质量活动（备份流、eCDN）"
-                  }
-                }
-              }), (0, _v17.translate)({
-                singular: "Dedicated support",
-                dictionary: {
-                  es: {
-                    singular: "Asistencia exclusiva"
-                  },
-                  "de-DE": {
-                    singular: "Dedizierter Support"
-                  },
-                  "fr-FR": {
-                    singular: "Assistance dédiée"
-                  },
-                  "ja-JP": {
-                    singular: "専用のサポート"
-                  },
-                  "ko-KR": {
-                    singular: "전담 지원"
-                  },
-                  "pt-BR": {
-                    singular: "Suporte exclusivo"
-                  },
-                  "zh-CN": {
-                    singular: "专门支持"
-                  }
-                }
-              })]
-            }
-          }
-        };
+      let _v3 = (0, _v41.useViewer)();
       return (0, _v1.jsx)(_v1.Fragment, {
         children: _v1 && (0, _v1.jsx)(_v102.default, {
           apiUrl: _v3?.apiUrl,
@@ -4368,15 +3901,18 @@
           },
           templateType: "default",
           onClose: _v2,
-          modalConfig: _v4,
+          modalConfig: {
+            ..._v103.includedInAllPlansModalConfig,
+            planOverrides: _v103.privacyPaywallPlanOverrides
+          },
           tracking: {
-            params: _v103[_v0],
-            paywallTracking: _v104[_v0]
+            params: _v104[_v0],
+            paywallTracking: _v105[_v0]
           }
         })
       });
     };
-  var _v106 = _v0.i(0);
+  var _v107 = _v0.i(0);
   _v0.s(["ProgressWidgetModule", 0, _v0 => {
     let _v1 = (0, _v42.useUploads)(),
       _v2 = _v1?.find(_v0 => _v0.state !== _v5.STATES.CANCELED && _v0.state !== _v5.STATES.FAILED && !!_v0.clipId)?.clipId,
@@ -4391,7 +3927,7 @@
           _v1 = _v0?.teamUser ? _v0?.teamUser.ownerId : _v0?.user?.id,
           {
             data: _v2
-          } = (0, _v106.useGetUserFoldersDefault)(() => _v1 ? {
+          } = (0, _v107.useGetUserFoldersDefault)(() => _v1 ? {
             where: {
               userId: _v1
             },
@@ -4408,7 +3944,7 @@
         isOpen: !1
       });
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v105, {
+      children: [(0, _v1.jsx)(_v106, {
         onClose: () => {
           _v7(_v0 => ({
             ..._v0,

@@ -1584,8 +1584,7 @@
       dynamicTagRef: _v3
     }) => {
       let {
-        dynamicTags: _v4,
-        unTranslatedDynamicTags: _v5
+        dynamicTags: _v4
       } = (() => {
         let [_v0, _v1] = (0, _v2.useState)([]),
           [_v2, _v3] = (0, _v2.useState)([]),
@@ -1637,7 +1636,9 @@
           ref: _v3,
           children: _v4.map((_v0, _v1) => (0, _v1.jsx)(_v103.Tag, {
             size: "md",
-            onClick: () => (_v5[_v1], void _v2(_v0)),
+            onClick: () => {
+              _v2(_v0);
+            },
             children: (0, _v1.jsx)(_v11.Paragraph, {
               fontSize: "body-md",
               cursor: "pointer",

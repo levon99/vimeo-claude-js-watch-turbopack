@@ -2890,16 +2890,14 @@
     userId: _v0,
     onConnectionUpdateSuccess: _v1,
     onError: _v2,
-    oldConnection: _v3,
-    shouldCloseModal: _v4 = !0,
-    toggleUpdate: _v5 = !1
+    shouldCloseModal: _v3 = !0
   }) => {
-    let _v6 = (0, _v2.useRef)(0),
-      [_v7, {
-        data: _v8,
-        loading: _v9,
-        error: _v10,
-        callCount: _v11
+    let _v4 = (0, _v2.useRef)(0),
+      [_v5, {
+        data: _v6,
+        loading: _v7,
+        error: _v8,
+        callCount: _v9
       }] = function () {
         let {
             mutate: _v0
@@ -2940,11 +2938,11 @@
         }, [_v1, _v3, _v2, _v4, _v6]), _v5];
       }();
     return (0, _v2.useEffect)(() => {
-      _v10 && _v6.current < _v11 && (_v28(_v10, _v2), _v6.current = _v11);
-    }, [_v10, _v2, _v11]), (0, _v2.useEffect)(() => {
-      _v8 && _v6.current < _v11 && !_v9 && !_v10 && (_v1(_v8, _v3, _v4, _v5), _v6.current = _v11);
-    }, [_v11, _v9, _v10, _v8]), {
-      onUpdateSsoConnection: _v0 => _v7({
+      _v8 && _v4.current < _v9 && (_v28(_v8, _v2), _v4.current = _v9);
+    }, [_v8, _v2, _v9]), (0, _v2.useEffect)(() => {
+      _v6 && _v4.current < _v9 && !_v7 && !_v8 && (_v1(_v6, _v3), _v4.current = _v9);
+    }, [_v9, _v7, _v8, _v6]), {
+      onUpdateSsoConnection: _v0 => _v5({
         where: {
           userId: _v0,
           connectionUuid: _v24(_v0.uri)
@@ -2952,7 +2950,7 @@
         variables: _v0,
         select: _v15
       }),
-      updateLoading: _v9
+      updateLoading: _v7
     };
   };
   var _v47 = _v0.i(0),
@@ -3794,9 +3792,7 @@
           userId: _v0,
           onConnectionUpdateSuccess: _v11,
           onError: _v14,
-          oldConnection: _v2,
-          shouldCloseModal: !1,
-          toggleUpdate: !0
+          shouldCloseModal: !1
         }),
         [_v22, _v23] = (0, _v2.useState)(!0);
       (0, _v2.useEffect)(() => {
@@ -4066,8 +4062,7 @@
       } = _v46({
         userId: _v0,
         onConnectionUpdateSuccess: _v14,
-        onError: _v19,
-        oldConnection: _v1
+        onError: _v19
       }),
       {
         deleteLoading: _v27,
@@ -4611,8 +4606,7 @@
         } = _v46({
           userId: _v0,
           onConnectionUpdateSuccess: _v5,
-          onError: _v6,
-          toggleUpdate: !0
+          onError: _v6
         }),
         _v9 = (0, _v1.jsx)(_v55.Button, {
           id: "createConnectionBtn",
@@ -4948,49 +4942,38 @@
         openModal: _v13,
         closeModal: _v14,
         setModalViewState: _v15
-      }) => {
-        let {
-          sendSSOConnectionCreateAttempt: _v16,
-          sendSSOConnectionSaved: _v17,
-          sendSSOConnectionEnabled: _v18
-        } = {
-          sendSSOConnectionCreateAttempt: () => {},
-          sendSSOConnectionSaved: (_v0, _v1) => {},
-          sendSSOConnectionEnabled: _v0 => {}
-        };
-        return {
-          onEditConnection: _v0 => {
-            _v15("edit"), _v2(_v0), _v13();
-          },
-          onCreateConnection: () => {
-            _v15("create"), _v2(_v0), _v9(), _v13(), _v16();
-          },
-          onConnectionUpdateSuccess: (_v0, _v1, _v2 = !0, _v3 = !1) => {
-            _v4(_v12.ConnectionUpdated), _v5(_v0), _v2 && _v14(), _v3 && _v0.isActive && _v18(_v0.title), _v1 && _v0.singleLogoutUrl != _v1.singleLogoutUrl && _v17(_v0.singleLogoutUrl, _v24(_v0.uri));
-          },
-          onConnectionDeleteSuccess: _v0 => {
-            _v4(_v12.ConnectionDeleted), _v14(), _v6(_v0);
-          },
-          onConnectionCreateSuccess: _v0 => {
-            _v4(_v12.ConnectionCreated), _v7(_v0), _v15("info"), _v1(_v25()), _v3(_v0), _v12(crypto.randomUUID()), _v17(_v0.singleLogoutUrl, _v24(_v0.uri));
-          },
-          onDomainCreateSuccess: _v0 => {
-            _v4(_v12.DomainRequestCreated), _v8(_v0);
-          },
-          onDomainDeleteSuccess: (_v0, _v1) => {
-            _v4(_v12.DomainDeleted), _v10(_v0), _v1.metadata.interactions.connect.domains = _v1.metadata.interactions.connect.domains.filter(_v0 => _v0 !== _v0.domainName), _v5(_v1);
-          },
-          onSettingUpdateSuccess: _v0 => {
-            _v4(_v12.Saved), _v11(_v0);
-          },
-          onError: _v0 => {
-            _v0 || (_v0 = _v12.SomethingWentWrong), void 0 !== _v0 && _v4(_v0);
-          },
-          onCopy: () => {
-            _v4(_v12.Copied);
-          }
-        };
-      })({
+      }) => ({
+        onEditConnection: _v0 => {
+          _v15("edit"), _v2(_v0), _v13();
+        },
+        onCreateConnection: () => {
+          _v15("create"), _v2(_v0), _v9(), _v13();
+        },
+        onConnectionUpdateSuccess: (_v0, _v1 = !0) => {
+          _v4(_v12.ConnectionUpdated), _v5(_v0), _v1 && _v14();
+        },
+        onConnectionDeleteSuccess: _v0 => {
+          _v4(_v12.ConnectionDeleted), _v14(), _v6(_v0);
+        },
+        onConnectionCreateSuccess: _v0 => {
+          _v4(_v12.ConnectionCreated), _v7(_v0), _v15("info"), _v1(_v25()), _v3(_v0), _v12(crypto.randomUUID());
+        },
+        onDomainCreateSuccess: _v0 => {
+          _v4(_v12.DomainRequestCreated), _v8(_v0);
+        },
+        onDomainDeleteSuccess: (_v0, _v1) => {
+          _v4(_v12.DomainDeleted), _v10(_v0), _v1.metadata.interactions.connect.domains = _v1.metadata.interactions.connect.domains.filter(_v0 => _v0 !== _v0.domainName), _v5(_v1);
+        },
+        onSettingUpdateSuccess: _v0 => {
+          _v4(_v12.Saved), _v11(_v0);
+        },
+        onError: _v0 => {
+          _v0 || (_v0 = _v12.SomethingWentWrong), void 0 !== _v0 && _v4(_v0);
+        },
+        onCopy: () => {
+          _v4(_v12.Copied);
+        }
+      }))({
         newConnection: _v8,
         setNewConnection: _v9,
         setSelectedConnection: _v15,

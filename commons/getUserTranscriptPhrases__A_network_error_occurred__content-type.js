@@ -113,22 +113,10 @@
     });
   }
   var _v31 = _v0.i(0),
-    _v32 = _v0.i(0);
-  let _v33 = () => {
-    let _v0 = (0, _v2.useCallback)(_v0 => {}, []),
-      _v1 = (0, _v2.useCallback)((_v0, _v1) => {}, []),
-      _v2 = (0, _v2.useCallback)(() => {}, []);
-    return {
-      trackViewModal: _v0,
-      trackViewModalSaveCancel: _v1,
-      trackViewModalUploadCsv: _v2,
-      trackViewUpgradeBadge: (0, _v2.useCallback)(_v0 => {}, []),
-      trackClickUpgradeBadge: (0, _v2.useCallback)(() => {}, [])
-    };
-  };
-  var _v34 = _v0.i(0);
-  let _v35 = {
-    addCustomVocabulary: (0, _v34.translate)({
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0);
+  let _v34 = {
+    addCustomVocabulary: (0, _v33.translate)({
       singular: "Add to custom vocabulary",
       dictionary: {
         es: {
@@ -154,7 +142,7 @@
         }
       }
     }),
-    addUniqueWordsOrPhrasesToHelpVimeoAI: (0, _v34.translate)({
+    addUniqueWordsOrPhrasesToHelpVimeoAI: (0, _v33.translate)({
       singular: "Add unique words or phrases to help Vimeo AI transcribe videos",
       dictionary: {
         es: {
@@ -180,7 +168,7 @@
         }
       }
     }),
-    cancel: (0, _v34.translate)({
+    cancel: (0, _v33.translate)({
       singular: "Cancel",
       dictionary: {
         es: {
@@ -206,7 +194,7 @@
         }
       }
     }),
-    changesCouldNotBeSaved: (0, _v34.translate)({
+    changesCouldNotBeSaved: (0, _v33.translate)({
       singular: "Changes could not be saved",
       dictionary: {
         es: {
@@ -232,7 +220,7 @@
         }
       }
     }),
-    changesSaved: (0, _v34.translate)({
+    changesSaved: (0, _v33.translate)({
       singular: "Changes saved",
       dictionary: {
         es: {
@@ -258,7 +246,7 @@
         }
       }
     }),
-    countOfCount: (_v0, _v1) => (0, _v34.translate)({
+    countOfCount: (_v0, _v1) => (0, _v33.translate)({
       singular: "{COUNT_1} of {COUNT_2}",
       replacements: {
         COUNT_1: _v0,
@@ -288,7 +276,7 @@
         }
       }
     }),
-    save: (0, _v34.translate)({
+    save: (0, _v33.translate)({
       singular: "Save",
       dictionary: {
         es: {
@@ -314,7 +302,7 @@
         }
       }
     }),
-    deleteAll: (0, _v34.translate)({
+    deleteAll: (0, _v33.translate)({
       singular: "Delete all",
       dictionary: {
         es: {
@@ -340,7 +328,7 @@
         }
       }
     }),
-    import: (0, _v34.translate)({
+    import: (0, _v33.translate)({
       singular: "Import",
       dictionary: {
         es: {
@@ -366,7 +354,7 @@
         }
       }
     }),
-    importCSV: (0, _v34.translate)({
+    importCSV: (0, _v33.translate)({
       singular: "Import CSV",
       dictionary: {
         es: {
@@ -392,7 +380,7 @@
         }
       }
     }),
-    download: (0, _v34.translate)({
+    download: (0, _v33.translate)({
       singular: "Download",
       dictionary: {
         es: {
@@ -418,7 +406,7 @@
         }
       }
     }),
-    upgradeForMore: (0, _v34.translate)({
+    upgradeForMore: (0, _v33.translate)({
       singular: "Upgrade for more",
       dictionary: {
         es: {
@@ -445,9 +433,9 @@
       }
     })
   };
-  var _v36 = _v0.i(0),
-    _v37 = _v0.i(0);
-  let _v38 = (0, _v34.translate)({
+  var _v35 = _v0.i(0),
+    _v36 = _v0.i(0);
+  let _v37 = (0, _v33.translate)({
     singular: "Unsupported file type. Upload a CSV or add words manually.",
     dictionary: {
       es: {
@@ -473,19 +461,16 @@
       }
     }
   });
-  function _v39({
+  function _v38({
     onUpload: _v0,
     onError: _v1
   }) {
-    let {
-        trackViewModalUploadCsv: _v2
-      } = _v33(),
-      _v3 = (0, _v2.useRef)(null),
-      [_v4, _v5] = (0, _v2.useState)(!1);
+    let _v2 = (0, _v2.useRef)(null),
+      [_v3, _v4] = (0, _v2.useState)(!1);
     return (0, _v1.jsx)(_v15.Tooltip, {
-      isDisabled: _v4,
+      isDisabled: _v3,
       placement: "top",
-      label: (0, _v34.translate)({
+      label: (0, _v33.translate)({
         singular: "Import CSV",
         dictionary: {
           es: {
@@ -512,20 +497,19 @@
         }
       }),
       children: (0, _v1.jsx)("div", {
-        children: (0, _v1.jsx)(_v36.FileInput, {
-          ref: _v3,
+        children: (0, _v1.jsx)(_v35.FileInput, {
+          ref: _v2,
           sx: {
             padding: `0 ${(0, _v6.rem)(6)}`
           },
-          isLoading: _v4,
-          "aria-label": _v35.import,
+          isLoading: _v3,
+          "aria-label": _v34.import,
           size: "sm",
           variant: "tertiary",
-          label: (0, _v1.jsx)(_v37.FileUpload, {}),
-          onClick: _v2,
+          label: (0, _v1.jsx)(_v36.FileUpload, {}),
           onChange: _v0 => {
             _v0.target.files?.[0] && (_v0 => {
-              if (_v5(!0), _v0.size > 0) _v1((0, _v34.translate)({
+              if (_v4(!0), _v0.size > 0) _v1((0, _v33.translate)({
                 singular: "{FILE_NAME} is too big. Please upload a file under 5MB.",
                 replacements: {
                   FILE_NAME: () => (0, _v1.jsx)("strong", {
@@ -555,21 +539,21 @@
                     singular: "{FILE_NAME} 太大了。请上传小于 5MB 的文件。"
                   }
                 }
-              })), _v5(!1);else {
+              })), _v4(!1);else {
                 _v1("");
                 let _v0 = new FileReader();
                 _v0.onload = function (_v0) {
                   let _v1 = _v0?.target?.result;
                   if ("string" != typeof _v1 || _v1.length <= 1) {
-                    _v1(_v38), _v5(!1), _v3.current && (_v3.current.value = "");
+                    _v1(_v37), _v4(!1), _v2.current && (_v2.current.value = "");
                     return;
                   }
-                  _v0(_v1.split(/\r\n|\n/)), _v5(!1);
+                  _v0(_v1.split(/\r\n|\n/)), _v4(!1);
                 }, _v0.onerror = function () {
-                  _v1(_v38), _v5(!1);
+                  _v1(_v37), _v4(!1);
                 }, _v0.readAsText(_v0);
               }
-              _v3.current && (_v3.current.value = "");
+              _v2.current && (_v2.current.value = "");
             })(_v0.target.files[0]);
           },
           accept: ".csv"
@@ -577,20 +561,20 @@
       })
     });
   }
-  var _v40 = _v0.i(0),
+  var _v39 = _v0.i(0),
+    _v40 = _v0.i(0),
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
     _v44 = _v0.i(0),
     _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  let _v48 = new RegExp(/[^\p{L}\p{M} .,!?'":;_()-]/u),
-    _v49 = "maxCharactersLengthError",
-    _v50 = "maxWordLengthError",
-    _v51 = "forbiddenSymbolsError",
-    _v52 = {
-      CHARACTERS_LIMIT_EXCEEDED: (0, _v34.translate)({
+    _v46 = _v0.i(0);
+  let _v47 = new RegExp(/[^\p{L}\p{M} .,!?'":;_()-]/u),
+    _v48 = "maxCharactersLengthError",
+    _v49 = "maxWordLengthError",
+    _v50 = "forbiddenSymbolsError",
+    _v51 = {
+      CHARACTERS_LIMIT_EXCEEDED: (0, _v33.translate)({
         singular: "Words must be {MAX_CHARACTERS} characters or less",
         replacements: {
           MAX_CHARACTERS: 50
@@ -619,7 +603,7 @@
           }
         }
       }),
-      SOME_ITEMS_ARE_TOO_LONG: (0, _v34.translate)({
+      SOME_ITEMS_ARE_TOO_LONG: (0, _v33.translate)({
         singular: "Some items are too long and weren’t added. Words must be {MAX_CHARACTERS} characters or less, and phrases must be {MAX_WORDS} words or less.",
         replacements: {
           MAX_CHARACTERS: 50,
@@ -649,7 +633,7 @@
           }
         }
       }),
-      WORDS_LIMIT_EXCEEDED: (0, _v34.translate)({
+      WORDS_LIMIT_EXCEEDED: (0, _v33.translate)({
         singular: "Phrases must be {MAX_WORDS} words or less",
         replacements: {
           MAX_WORDS: 5
@@ -678,7 +662,7 @@
           }
         }
       }),
-      PHRASES_LIMIT_REACHED: (_v0, _v1) => (0, _v34.translate)({
+      PHRASES_LIMIT_REACHED: (_v0, _v1) => (0, _v33.translate)({
         singular: "You can add up to {MAX_PHRASES} words and phrases. Remove {EXTRA_PHRASES} to add.",
         replacements: {
           MAX_PHRASES: _v0,
@@ -708,7 +692,7 @@
           }
         }
       }),
-      PHRASE_ALREADY_ADDED: (0, _v34.translate)({
+      PHRASE_ALREADY_ADDED: (0, _v33.translate)({
         singular: "This word or phrase has already been added",
         dictionary: {
           es: {
@@ -734,7 +718,7 @@
           }
         }
       }),
-      FORBIDDEN_CHARACTERS: (0, _v34.translate)({
+      FORBIDDEN_CHARACTERS: (0, _v33.translate)({
         singular: "Remove any numerals, dashes, or special characters",
         dictionary: {
           es: {
@@ -760,7 +744,7 @@
           }
         }
       }),
-      SOME_WERE_NOT_ADDED: (0, _v34.translate)({
+      SOME_WERE_NOT_ADDED: (0, _v33.translate)({
         singular: "Some items weren’t added. Remove any numerals, dashes, or non-standard characters and try again.",
         dictionary: {
           es: {
@@ -787,19 +771,19 @@
         }
       })
     };
-  function _v53(_v0) {
+  function _v52(_v0) {
     return _v0.length > 50 ? {
-      message: _v52.CHARACTERS_LIMIT_EXCEEDED,
-      error: _v49
-    } : _v0.match(_v48) ? {
-      message: _v52.FORBIDDEN_CHARACTERS,
-      error: _v51
-    } : _v0.trim().split(/\s+/).length > 5 ? {
-      message: _v52.WORDS_LIMIT_EXCEEDED,
+      message: _v51.CHARACTERS_LIMIT_EXCEEDED,
+      error: _v48
+    } : _v0.match(_v47) ? {
+      message: _v51.FORBIDDEN_CHARACTERS,
       error: _v50
+    } : _v0.trim().split(/\s+/).length > 5 ? {
+      message: _v51.WORDS_LIMIT_EXCEEDED,
+      error: _v49
     } : null;
   }
-  function _v54(_v0, _v1 = [], _v2 = 0) {
+  function _v53(_v0, _v1 = [], _v2 = 0) {
     let _v3 = _v0.split(",").reduce((_v0, _v1) => {
       let _v2 = _v1.trim();
       return _v2 && _v0.push(_v2), _v0;
@@ -807,14 +791,14 @@
     if (_v1.length) {
       let _v0 = _v2 - _v1.length - _v3.length;
       if (_v0 < 0) return {
-        error: _v52.PHRASES_LIMIT_REACHED(_v2, Math.abs(_v0))
+        error: _v51.PHRASES_LIMIT_REACHED(_v2, Math.abs(_v0))
       };
       if (_v1.filter(_v0 => _v3.includes(_v0.phrase)).length) return {
-        error: _v52.PHRASE_ALREADY_ADDED
+        error: _v51.PHRASE_ALREADY_ADDED
       };
     }
     for (let _v0 = 0; _v0 < _v3.length; _v0++) {
-      let _v0 = _v53(_v3[_v0]);
+      let _v0 = _v52(_v3[_v0]);
       if (_v0) return {
         error: _v0.message
       };
@@ -823,7 +807,7 @@
       phrases: _v3
     };
   }
-  function _v55(_v0, _v1, _v2) {
+  function _v54(_v0, _v1, _v2) {
     let _v3 = [],
       _v4 = "";
     _v0.forEach(_v0 => {
@@ -833,8 +817,8 @@
         }, []),
         _v2 = _v1.map(_v0 => _v0.phrase);
       _v1.forEach(_v0 => {
-        let _v1 = _v53(_v0);
-        _v4 || _v1?.error !== _v49 && _v1?.error !== _v50 && _v1?.error !== _v51 || (_v4 = _v1.error), _v1 || _v2.includes(_v0) || _v3.push(_v0);
+        let _v1 = _v52(_v0);
+        _v4 || _v1?.error !== _v48 && _v1?.error !== _v49 && _v1?.error !== _v50 || (_v4 = _v1.error), _v1 || _v2.includes(_v0) || _v3.push(_v0);
       });
     });
     let _v5 = _v3.filter(function (_v0, _v1, _v2) {
@@ -842,18 +826,18 @@
       }),
       _v6 = _v2 - _v1.length - _v5.length;
     return _v6 < 0 ? {
-      error: _v52.PHRASES_LIMIT_REACHED(_v2, Math.abs(_v6))
-    } : _v4 === _v51 ? {
+      error: _v51.PHRASES_LIMIT_REACHED(_v2, Math.abs(_v6))
+    } : _v4 === _v50 ? {
       phrases: _v5,
-      error: _v52.SOME_WERE_NOT_ADDED
-    } : _v4 === _v50 || _v4 === _v49 ? {
+      error: _v51.SOME_WERE_NOT_ADDED
+    } : _v4 === _v49 || _v4 === _v48 ? {
       phrases: _v5,
-      error: _v52.SOME_ITEMS_ARE_TOO_LONG
+      error: _v51.SOME_ITEMS_ARE_TOO_LONG
     } : {
       phrases: _v5
     };
   }
-  function _v56({
+  function _v55({
     isLoading: _v0,
     phrases: _v1,
     phrasesLimit: _v2,
@@ -863,7 +847,7 @@
     let [_v5, _v6] = (0, _v2.useState)(""),
       [_v7, _v8] = (0, _v2.useState)(""),
       _v9 = (0, _v2.useCallback)(() => {
-        let _v0 = _v54(_v7, _v1, _v2);
+        let _v0 = _v53(_v7, _v1, _v2);
         _v0?.error ? _v6(_v0.error) : _v0?.phrases && (_v8(""), _v3(_v0.phrases));
       }, [_v7, _v3, _v1, _v2]),
       _v10 = (0, _v2.useCallback)(_v0 => {
@@ -872,25 +856,25 @@
       _v11 = (0, _v2.useCallback)(_v0 => {
         _v6(""), _v8(_v0.target.value);
       }, []);
-    return (0, _v1.jsxs)(_v40.VStack, {
+    return (0, _v1.jsxs)(_v39.VStack, {
       gap: (0, _v6.rem)(12),
-      children: [(0, _v1.jsxs)(_v45.FormControl, {
+      children: [(0, _v1.jsxs)(_v44.FormControl, {
         w: "100%",
-        children: [(0, _v1.jsx)(_v46.Flex, {
+        children: [(0, _v1.jsx)(_v45.Flex, {
           gap: "10",
-          children: (0, _v1.jsxs)(_v43.InputGroup, {
-            children: [(0, _v1.jsx)(_v42.Input, {
+          children: (0, _v1.jsxs)(_v42.InputGroup, {
+            children: [(0, _v1.jsx)(_v41.Input, {
               isInvalid: !!_v5,
               onKeyDown: _v10,
               onChange: _v11,
               isDisabled: _v0,
               value: _v7
-            }), (0, _v1.jsx)(_v44.InputRightElement, {})]
+            }), (0, _v1.jsx)(_v43.InputRightElement, {})]
           })
-        }), (0, _v1.jsx)(_v45.FormHelperText, {
+        }), (0, _v1.jsx)(_v44.FormHelperText, {
           mt: (0, _v6.rem)(8),
           color: _v5 ? "status-destructive-primary" : void 0,
-          children: _v5 || (0, _v34.translate)({
+          children: _v5 || (0, _v33.translate)({
             singular: "Press enter to add a word, phrase, or list separated by commas",
             dictionary: {
               es: {
@@ -923,16 +907,16 @@
         flexWrap: "wrap",
         justifyContent: "flex-start",
         overflow: "auto",
-        children: _v1.map(_v0 => (0, _v1.jsxs)(_v41.Tag, {
+        children: _v1.map(_v0 => (0, _v1.jsxs)(_v40.Tag, {
           size: "md",
-          children: [(0, _v1.jsx)(_v41.TagLabel, {
+          children: [(0, _v1.jsx)(_v40.TagLabel, {
             children: _v0.phrase
-          }), (0, _v1.jsx)(_v41.TagCloseButton, {
+          }), (0, _v1.jsx)(_v40.TagCloseButton, {
             onClick: () => _v4(_v0),
             children: (0, _v1.jsx)(_v16.IconButton, {
               isDisabled: _v0,
               marginLeft: "8px",
-              "aria-label": (0, _v34.translate)({
+              "aria-label": (0, _v33.translate)({
                 singular: "Delete phrase",
                 dictionary: {
                   es: {
@@ -959,7 +943,7 @@
                 }
               }),
               variant: "tertiary",
-              icon: (0, _v1.jsx)(_v47.CloseX, {}),
+              icon: (0, _v1.jsx)(_v46.CloseX, {}),
               size: "xs"
             })
           })]
@@ -967,19 +951,19 @@
       })]
     });
   }
-  _v0.s(["getValidatedPhrases", 0, _v54, "getValidatedPhrasesCsv", 0, _v55], 0);
-  var _v57 = _v0.i(0);
-  let _v58 = ({
+  _v0.s(["getValidatedPhrases", 0, _v53, "getValidatedPhrasesCsv", 0, _v54], 0);
+  var _v56 = _v0.i(0);
+  let _v57 = ({
       onClick: _v0
-    }) => (0, _v1.jsx)(_v57.Badge, {
+    }) => (0, _v1.jsx)(_v56.Badge, {
       onClick: _v0,
       marginLeft: "8px",
       variant: "upgrade",
       cursor: "pointer",
       size: "sm",
-      children: _v35.upgradeForMore
+      children: _v34.upgradeForMore
     }),
-    _v59 = ({
+    _v58 = ({
       onCancel: _v0,
       userId: _v1,
       onOpenEnterpriseModal: _v2,
@@ -992,21 +976,14 @@
           xVimeoPage: _v7,
           locale: _v8
         } = (0, _v27.useGctlConfig)(),
-        _v9 = (0, _v2.useRef)(!1),
-        _v10 = (0, _v2.useRef)(null),
-        {
-          trackViewModal: _v11,
-          trackViewModalSaveCancel: _v12,
-          trackViewUpgradeBadge: _v13,
-          trackClickUpgradeBadge: _v14
-        } = _v33(),
-        [_v15, _v16] = (0, _v2.useState)(!1),
-        [_v17, _v18] = (0, _v2.useState)([]),
-        [_v19, _v20] = (0, _v2.useState)([]),
-        [_v21, _v22] = (0, _v2.useState)([]),
-        [_v23, _v24] = (0, _v2.useState)(""),
-        _v25 = (0, _v2.useMemo)(() => _v3 && _v3 < 0, [_v3]),
-        [_v26, _v27] = function () {
+        _v9 = (0, _v2.useRef)(null),
+        [_v10, _v11] = (0, _v2.useState)(!1),
+        [_v12, _v13] = (0, _v2.useState)([]),
+        [_v14, _v15] = (0, _v2.useState)([]),
+        [_v16, _v17] = (0, _v2.useState)([]),
+        [_v18, _v19] = (0, _v2.useState)(""),
+        _v20 = (0, _v2.useMemo)(() => _v3 && _v3 < 0, [_v3]),
+        [_v21, _v22] = function () {
           let {
               mutate: _v0
             } = (0, _v31.useSWRConfig)(),
@@ -1045,7 +1022,7 @@
             }
           }, [_v1, _v3, _v2, _v4, _v6]), _v5];
         }(),
-        [_v28, _v29] = function () {
+        [_v23, _v24] = function () {
           let {
               mutate: _v0
             } = (0, _v31.useSWRConfig)(),
@@ -1084,27 +1061,27 @@
             }
           }, [_v1, _v3, _v2, _v4, _v6]), _v5];
         }(),
-        _v30 = (0, _v2.useRef)(_v4);
+        _v25 = (0, _v2.useRef)(_v4);
       (0, _v2.useEffect)(() => {
-        _v30.current = _v4;
+        _v25.current = _v4;
       }, [_v4]), (0, _v2.useEffect)(() => {
-        (_v27.error instanceof _v23.NetworkError && 409 === _v27.error.status || _v29.error instanceof _v23.NetworkError && 409 === _v29.error.status) && _v30.current?.();
-      }, [_v29.error, _v27.error]);
-      let _v31 = (0, _v2.useCallback)((_v0, _v1) => -1 !== _v0.findIndex(_v0 => _v0.uri === _v1.uri), []),
-        _v32 = (0, _v13.useToast)({
-          title: _v35.changesSaved,
+        (_v22.error instanceof _v23.NetworkError && 409 === _v22.error.status || _v24.error instanceof _v23.NetworkError && 409 === _v24.error.status) && _v25.current?.();
+      }, [_v24.error, _v22.error]);
+      let _v26 = (0, _v2.useCallback)((_v0, _v1) => -1 !== _v0.findIndex(_v0 => _v0.uri === _v1.uri), []),
+        _v27 = (0, _v13.useToast)({
+          title: _v34.changesSaved,
           duration: 0,
           icon: (0, _v1.jsx)(_v19.InfoCircle, {})
         }),
-        _v33 = (0, _v13.useToast)({
-          title: _v35.changesCouldNotBeSaved,
+        _v28 = (0, _v13.useToast)({
+          title: _v34.changesCouldNotBeSaved,
           duration: 0,
           icon: (0, _v1.jsx)(_v20.CircleExclamation, {})
         }),
-        _v34 = (0, _v2.useCallback)(() => {
-          _v12("cancel", _v17.length), _v0();
-        }, [_v0, _v12, _v17]),
-        _v35 = (0, _v2.useCallback)(() => _v25({
+        _v29 = (0, _v2.useCallback)(() => {
+          _v0();
+        }, [_v0]),
+        _v30 = (0, _v2.useCallback)(() => _v25({
           select: ["uri", "phrase"],
           where: {
             userId: _v1
@@ -1117,138 +1094,137 @@
           },
           baseUrl: _v5
         }).then(_v0 => {
-          let _v1 = _v0.data;
-          _v18(_v1), _v1 && !_v9.current && (_v9.current = !0, _v11(_v1.length), _v25 && _v13(_v1.length));
-        }), [_v1, _v6, _v7, _v8, _v5, _v11, _v25, _v13]),
-        _v36 = (0, _v2.useCallback)(_v0 => {
-          let _v1 = _v19.length - 1,
+          _v13(_v0.data);
+        }), [_v1, _v6, _v7, _v8, _v5]),
+        _v31 = (0, _v2.useCallback)(_v0 => {
+          let _v1 = _v14.length - 1,
             _v2 = _v0.map((_v0, _v1) => ({
               phrase: _v0,
               uri: `add_phrase#${_v1 + _v1}`
             }));
-          _v20(_v0 => [..._v0, ..._v2]);
-        }, [_v19.length]),
-        _v37 = (0, _v2.useCallback)(_v0 => {
-          _v31(_v19, _v0) ? _v20(_v0 => _v0.filter(_v0 => _v0.uri !== _v0.uri)) : _v22(_v0 => [..._v0, _v0]);
-        }, [_v31, _v19]),
-        _v38 = (0, _v2.useMemo)(() => [..._v17.filter(_v0 => !_v31(_v21, _v0)), ..._v19], [_v31, _v17, _v19, _v21]),
-        _v39 = (0, _v2.useCallback)(() => {
-          _v12("save", _v38.length), _v16(!0);
+          _v15(_v0 => [..._v0, ..._v2]);
+        }, [_v14.length]),
+        _v32 = (0, _v2.useCallback)(_v0 => {
+          _v26(_v14, _v0) ? _v15(_v0 => _v0.filter(_v0 => _v0.uri !== _v0.uri)) : _v17(_v0 => [..._v0, _v0]);
+        }, [_v26, _v14]),
+        _v33 = (0, _v2.useMemo)(() => [..._v12.filter(_v0 => !_v26(_v16, _v0)), ..._v14], [_v26, _v12, _v14, _v16]),
+        _v34 = (0, _v2.useCallback)(() => {
+          _v11(!0);
           let _v0 = [];
-          _v21.length && _v0.push(_v28({
+          _v16.length && _v0.push(_v23({
             where: {
               userId: _v1
             },
             variables: {
-              uuids: _v21.map(_v0 => String(_v0.uri.split("/").pop()))
+              uuids: _v16.map(_v0 => String(_v0.uri.split("/").pop()))
             }
-          })), _v19.length && _v0.push(_v26({
+          })), _v14.length && _v0.push(_v21({
             where: {
               userId: _v1
             },
             variables: {
-              phrases: _v19.map(_v0 => _v0.phrase)
+              phrases: _v14.map(_v0 => _v0.phrase)
             }
-          })), Promise.allSettled(_v0).then(_v35).then(() => {
-            _v20([]), _v22([]), _v16(!1), _v32();
-          }).catch(() => _v33());
-        }, [_v28, _v19, _v38.length, _v21, _v26, _v35, _v33, _v32, _v12, _v1]),
-        _v40 = (0, _v2.useCallback)(() => {
-          _v22(_v17), _v20([]);
-        }, [_v17]),
-        _v41 = (0, _v2.useCallback)(() => {
-          let _v0 = new Blob([_v17.map(_v0 => _v0.phrase).join(",")], {
+          })), Promise.allSettled(_v0).then(_v30).then(() => {
+            _v15([]), _v17([]), _v11(!1), _v27();
+          }).catch(() => _v28());
+        }, [_v23, _v14, _v16, _v21, _v30, _v28, _v27, _v1]),
+        _v35 = (0, _v2.useCallback)(() => {
+          _v17(_v12), _v15([]);
+        }, [_v12]),
+        _v36 = (0, _v2.useCallback)(() => {
+          let _v0 = new Blob([_v12.map(_v0 => _v0.phrase).join(",")], {
               type: "text/csv;charset=utf-8;"
             }),
             _v1 = URL.createObjectURL(_v0);
           (0, _v32.downloadFile)(_v1);
-        }, [_v17]),
-        _v42 = (0, _v2.useCallback)(_v0 => {
-          let _v1 = _v55(_v0, [..._v17, ..._v19], _v3);
-          (!_v1?.error || (_v24(_v1.error), _v1.phrases)) && _v1?.phrases && _v36(_v1?.phrases);
-        }, [_v17, _v19, _v3, _v36]),
-        _v43 = (0, _v2.useCallback)(() => {
-          _v2(), _v14();
-        }, [_v2, _v14]);
+        }, [_v12]),
+        _v37 = (0, _v2.useCallback)(_v0 => {
+          let _v1 = _v54(_v0, [..._v12, ..._v14], _v3);
+          (!_v1?.error || (_v19(_v1.error), _v1.phrases)) && _v1?.phrases && _v31(_v1?.phrases);
+        }, [_v12, _v14, _v3, _v31]),
+        _v38 = (0, _v2.useCallback)(() => {
+          _v2();
+        }, [_v2]);
       (0, _v2.useEffect)(() => {
-        _v16(!0), _v35().then(() => _v16(!1));
+        _v11(!0), _v30().then(() => _v11(!1));
       }, []), (0, _v14.useOutsideClick)({
-        ref: _v10,
+        ref: _v9,
         handler: () => {
-          _v19.length || _v21.length || _v0();
+          _v14.length || _v16.length || _v0();
         }
       });
-      let _v44 = !_v15 && !!(_v19.length || _v21.length),
-        _v45 = _v17.length + _v19.length - _v21.length;
+      let _v39 = !_v10 && !!(_v14.length || _v16.length),
+        _v40 = _v12.length + _v14.length - _v16.length;
       return (0, _v1.jsxs)(_v9.Box, {
-        ref: _v10,
+        ref: _v9,
         children: [(0, _v1.jsx)(_v10.Text, {
           variant: "heading-md",
           mb: (0, _v6.rem)(12),
-          children: _v35.addCustomVocabulary
+          children: _v34.addCustomVocabulary
         }), (0, _v1.jsx)(_v10.Text, {
           variant: "body-md",
           color: "text-secondary",
           mb: (0, _v6.rem)(16),
-          children: _v35.addUniqueWordsOrPhrasesToHelpVimeoAI
-        }), _v23 && (0, _v1.jsx)(_v17.Alert, {
+          children: _v34.addUniqueWordsOrPhrasesToHelpVimeoAI
+        }), _v18 && (0, _v1.jsx)(_v17.Alert, {
           status: "error",
           mb: (0, _v6.rem)(12),
-          onClose: () => _v24(""),
+          onClose: () => _v19(""),
           children: (0, _v1.jsx)(_v18.AlertDescription, {
-            children: _v23
+            children: _v18
           })
-        }), (0, _v1.jsx)(_v56, {
-          setIsLoading: _v16,
-          isLoading: _v15,
-          phrases: _v38,
-          onAddPhrases: _v36,
+        }), (0, _v1.jsx)(_v55, {
+          setIsLoading: _v11,
+          isLoading: _v10,
+          phrases: _v33,
+          onAddPhrases: _v31,
           phrasesLimit: Number(_v3),
-          onRemovePhrase: _v37
+          onRemovePhrase: _v32
         }), _v3 && (0, _v1.jsxs)(_v10.Text, {
           variant: "body-xl",
           fontSize: "text-xs",
           ml: (0, _v6.rem)(4),
           mt: (0, _v6.rem)(16),
           color: "text-secondary",
-          children: [_v35.countOfCount(_v45, _v3), _v25 && (0, _v1.jsx)(_v58, {
-            onClick: _v43
+          children: [_v34.countOfCount(_v40, _v3), _v20 && (0, _v1.jsx)(_v57, {
+            onClick: _v38
           })]
         }), (0, _v1.jsxs)(_v12.HStack, {
           justifyContent: "space-between",
           children: [(0, _v1.jsxs)(_v12.HStack, {
             justifyContent: "start",
             children: [(0, _v1.jsx)(_v15.Tooltip, {
-              label: _v35.importCSV,
-              isDisabled: _v15,
+              label: _v34.importCSV,
+              isDisabled: _v10,
               placement: "top",
-              children: (0, _v1.jsx)(_v39, {
-                onUpload: _v42,
-                onError: _v24
+              children: (0, _v1.jsx)(_v38, {
+                onUpload: _v37,
+                onError: _v19
               })
             }), (0, _v1.jsx)(_v15.Tooltip, {
-              label: _v35.download,
-              isDisabled: !_v17.length,
+              label: _v34.download,
+              isDisabled: !_v12.length,
               placement: "top",
               children: (0, _v1.jsx)(_v16.IconButton, {
-                isDisabled: !_v17.length,
-                "aria-label": _v35.download,
+                isDisabled: !_v12.length,
+                "aria-label": _v34.download,
                 variant: "tertiary",
                 icon: (0, _v1.jsx)(_v22.DownloadImport, {}),
                 size: "sm",
-                onClick: _v41
+                onClick: _v36
               })
             }), (0, _v1.jsx)(_v15.Tooltip, {
-              label: _v35.deleteAll,
-              isDisabled: !_v38.length,
+              label: _v34.deleteAll,
+              isDisabled: !_v33.length,
               placement: "top",
               children: (0, _v1.jsx)(_v16.IconButton, {
-                isDisabled: !_v38.length,
-                "aria-label": _v35.deleteAll,
+                isDisabled: !_v33.length,
+                "aria-label": _v34.deleteAll,
                 variant: "tertiary",
                 icon: (0, _v1.jsx)(_v21.TrashBin, {}),
                 size: "sm",
-                onClick: _v40
+                onClick: _v35
               })
             })]
           }), (0, _v1.jsxs)(_v12.HStack, {
@@ -1256,29 +1232,29 @@
             children: [(0, _v1.jsx)(_v11.Button, {
               size: "md",
               variant: "tertiary",
-              onClick: _v34,
-              children: _v35.cancel
+              onClick: _v29,
+              children: _v34.cancel
             }), (0, _v1.jsx)(_v11.Button, {
-              isDisabled: !_v44,
+              isDisabled: !_v39,
               size: "md",
               variant: "primary",
-              onClick: _v39,
-              children: _v35.save
+              onClick: _v34,
+              children: _v34.save
             })]
           })]
         })]
       });
     },
-    _v60 = (0, _v0.i(0).default)(() => _v0.A(0), {
+    _v59 = (0, _v0.i(0).default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v61 = ({
+    _v60 = ({
       onClose: _v0
     }) => {
       let _v1 = (0, _v8.useViewer)();
-      return (0, _v1.jsx)(_v60, {
+      return (0, _v1.jsx)(_v59, {
         apiUrl: _v1?.apiUrl,
         userConfig: {
           jwt: _v1?.jwt,
@@ -1305,10 +1281,10 @@
         }
       });
     },
-    _v62 = (0, _v2.createContext)({
+    _v61 = (0, _v2.createContext)({
       page: "single_video_view_manage"
     }),
-    _v63 = (0, _v2.forwardRef)(({
+    _v62 = (0, _v2.forwardRef)(({
       onMigrationConflict: _v0
     }, _v1) => {
       let _v2 = (0, _v8.useViewer)(),
@@ -1335,7 +1311,7 @@
         _v11 = (0, _v2.useCallback)(() => {
           _v4(!1), _v6(!1);
         }, []);
-      return _v5 ? (0, _v1.jsx)(_v61, {
+      return _v5 ? (0, _v1.jsx)(_v60, {
         onClose: _v11
       }) : (0, _v1.jsxs)(_v3.Modal, {
         isOpen: _v3,
@@ -1345,7 +1321,7 @@
           p: `${(0, _v6.rem)(16)} ${(0, _v6.rem)(24)}`,
           maxWidth: (0, _v6.rem)(480),
           maxHeight: (0, _v6.rem)(660),
-          children: _v7 && _v9 && (0, _v1.jsx)(_v59, {
+          children: _v7 && _v9 && (0, _v1.jsx)(_v58, {
             onCancel: _v10,
             userId: _v7,
             onOpenEnterpriseModal: () => _v6(!0),
@@ -1363,9 +1339,9 @@
     let _v3 = (0, _v2.useMemo)(() => ({
       page: _v1
     }), [_v1]);
-    return (0, _v1.jsx)(_v62.Provider, {
+    return (0, _v1.jsx)(_v61.Provider, {
       value: _v3,
-      children: (0, _v1.jsx)(_v63, {
+      children: (0, _v1.jsx)(_v62, {
         ref: _v0,
         onMigrationConflict: _v2
       })

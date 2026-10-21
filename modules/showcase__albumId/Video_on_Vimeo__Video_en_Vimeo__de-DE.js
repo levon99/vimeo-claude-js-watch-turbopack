@@ -3414,9 +3414,6 @@
         }), _v2?.signature && (0, _v1.jsx)("meta", {
           name: `album-signature-${_v2.albumId}`,
           content: _v2.signature
-        }), _v2?.bpSessionId && (0, _v1.jsx)("meta", {
-          name: "bp-server-session-id",
-          content: _v2.bpSessionId
         }), _v2?.links?.map(_v0 => "canonical" === _v0.rel ? (0, _v1.jsx)("link", {
           rel: "canonical",
           href: _v0.href

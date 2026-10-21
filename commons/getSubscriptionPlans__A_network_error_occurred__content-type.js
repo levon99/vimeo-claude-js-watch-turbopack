@@ -52,27 +52,29 @@
   }
   _v0.s(["useGetSubscriptionPlans", 0, _v10], 0);
   var _v11 = _v0.i(0),
-    _v12 = _v0.i(0);
-  let _v13 = (_v0, _v1, _v2 = !0, _v3) => {
+    _v12 = _v0.i(0),
+    _v13 = _v0.i(0);
+  let _v14 = (_v0, _v1, _v2 = !0, _v3) => {
       let _v4 = (0, _v11.useCampaignIdOverride)(),
         _v5 = {
+          includeTax: (0, _v12.useOrionSettingsFields)(["show_tax_inclusive_prices"]).show_tax_inclusive_prices ?? !1,
           filter: _v0 ? _v0.map(_v0 => (0, _v3.intoSnakeCase)(_v0)) : void 0,
           promos: _v1 ? (0, _v2.encodeJson)(_v1) : void 0
         };
       _v3 && (_v5 = {
         ..._v5,
-        ...(0, _v3.deepSnakeCase)(_v3)
+        ..._v3
       });
       let _v6 = _v4 ?? _v5.campaignId;
-      return _v6 && (_v5.campaignId = _v6), _v14(_v5, _v2);
+      return _v6 && (_v5.campaignId = _v6), _v15(_v5, _v2);
     },
-    _v14 = (_v0, _v1) => {
-      let _v2 = (0, _v1.useContext)(_v12.ViewerContext),
+    _v15 = (_v0, _v1) => {
+      let _v2 = (0, _v1.useContext)(_v13.ViewerContext),
         {
           data: _v3,
           error: _v4,
           isLoading: _v5
-        } = (_v2?.user && _v1 ? _v4.useGetMeSubscriptionPlans : _v10)(() => _v2 ? (_v2.vuid && (_v0.vuid = _v2.vuid), {
+        } = (_v2?.user && _v1 ? _v4.useGetMeSubscriptionPlans : _v10)(() => _v2 ? (_v0.country = _v0.country ?? _v2.location ?? void 0, _v2.vuid && (_v0.vuid = _v2.vuid), {
           select: ["currency", "discount", "id", "metadata", "price", "promotion", "name", "uri", "tier", "priceFormatted"],
           query: _v0
         }) : null);
@@ -84,5 +86,5 @@
         isLoading: _v5
       });
     };
-  _v0.s(["useGetSubscriptionPlansData", 0, (_v0, _v1, _v2 = !0, _v3) => _v13(_v0, _v1, _v2, _v3).plans, "useGetSubscriptionPlansDataResult", 0, _v13], 0);
+  _v0.s(["useGetSubscriptionPlansData", 0, (_v0, _v1, _v2 = !0, _v3) => _v14(_v0, _v1, _v2, _v3).plans, "useGetSubscriptionPlansDataResult", 0, _v14], 0);
 }

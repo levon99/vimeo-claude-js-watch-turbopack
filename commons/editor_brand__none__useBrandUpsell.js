@@ -54,8 +54,7 @@
           trackingParams: _v4 ? {
             upsell: "editor_brand",
             integration: "none",
-            feature: _v4,
-            bpEventVersion: 41
+            feature: _v4
           } : void 0
         });
       },
@@ -2602,19 +2601,19 @@
                       singular: "Zuletzt geändert"
                     },
                     "fr-FR": {
-                      singular: "Modifiées en dernier"
+                      singular: "Dernière modification"
                     },
                     "ja-JP": {
-                      singular: "最終変更日"
+                      singular: "最終更新日"
                     },
                     "ko-KR": {
-                      singular: "마지막 수정"
+                      singular: "최근 수정"
                     },
                     "pt-BR": {
-                      singular: "Modificado por último"
+                      singular: "Última modificação"
                     },
                     "zh-CN": {
-                      singular: "最后修改"
+                      singular: "最近修改"
                     }
                   }
                 })
@@ -2652,25 +2651,25 @@
                   singular: "Last added",
                   dictionary: {
                     es: {
-                      singular: "Último agregado"
+                      singular: "Más recientemente añadidos"
                     },
                     "de-DE": {
                       singular: "Zuletzt hinzugefügt"
                     },
                     "fr-FR": {
-                      singular: "Ajoutées en dernier"
+                      singular: "Ajout le plus récent"
                     },
                     "ja-JP": {
-                      singular: "最終追加日"
+                      singular: "最新追加"
                     },
                     "ko-KR": {
-                      singular: "마지막 추가"
+                      singular: "최근 추가"
                     },
                     "pt-BR": {
-                      singular: "Adicionado por último"
+                      singular: "Últimos adicionados"
                     },
                     "zh-CN": {
-                      singular: "最后添加"
+                      singular: "最近添加"
                     }
                   }
                 })

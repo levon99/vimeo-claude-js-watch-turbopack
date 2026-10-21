@@ -25,6 +25,7 @@
       SHOWCASE_VIEW_URL: _v0 => `${window.location.origin}/showcase/${_v0}`,
       BROADCASTER_PAGE: (_v0, _v1, _v2 = null) => `/live/broadcaster/${_v3(_v0)}/${_v1}${(0, _v4.encodeQueryObjectAsString)(_v2)}`,
       RTMP_PAGE: (_v0, _v1, _v2 = null) => `/live/rtmp/${_v3(_v0)}/${_v1}${(0, _v4.encodeQueryObjectAsString)(_v2)}`,
+      EVENTS_LIBRARY_PAGE: "/library/events",
       EVENT_VIEWER_PAGE: (_v0, _v1 = null) => `${window.location.origin}/event/${_v0}${_v1 ? "/" + _v1 : ""}`,
       INTERACTION_TOOLS_PAGE: (_v0, _v1, _v2 = null) => `/live/interaction_tools/${_v3(_v0)}/${_v1}${(0, _v4.encodeQueryObjectAsString)(_v2)}`,
       COMPLETED_PAGE: (_v0, _v1, _v2 = null) => `/live/completed/${_v3(_v0)}/${_v1}${(0, _v4.encodeQueryObjectAsString)(_v2)}`,

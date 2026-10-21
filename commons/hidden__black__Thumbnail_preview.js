@@ -31,21 +31,20 @@
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
-    _v32 = _v0.i(0);
-  let _v33 = 16 / 9;
-  var _v34 = _v0.i(0),
+    _v31 = _v0.i(0);
+  let _v32 = 16 / 9;
+  var _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
     _v35 = _v0.i(0),
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
     _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  let _v42 = (0, _v6.rem)(20),
-    _v43 = (0, _v6.rem)(16),
-    _v44 = (0, _v6.rem)(544);
-  function _v45({
+    _v40 = _v0.i(0);
+  let _v41 = (0, _v6.rem)(20),
+    _v42 = (0, _v6.rem)(16),
+    _v43 = (0, _v6.rem)(544);
+  function _v44({
     file: _v0,
     isSaving: _v1,
     onChange: _v2,
@@ -59,7 +58,7 @@
       return _v7(_v0), () => {
         _v0 && URL.revokeObjectURL(_v0);
       };
-    }, [_v0]), (0, _v3.jsxs)(_v36.Modal, {
+    }, [_v0]), (0, _v3.jsxs)(_v35.Modal, {
       isOpen: null !== _v0,
       onClose: _v3,
       onCloseComplete: _v5,
@@ -67,20 +66,20 @@
       closeOnOverlayClick: !_v1,
       isCentered: !0,
       size: "lg",
-      children: [(0, _v3.jsx)(_v40.ModalOverlay, {}), (0, _v3.jsxs)(_v38.ModalContent, {
-        maxWidth: _v44,
-        borderRadius: _v42,
-        children: [(0, _v3.jsx)(_v37.ModalBody, {
+      children: [(0, _v3.jsx)(_v39.ModalOverlay, {}), (0, _v3.jsxs)(_v37.ModalContent, {
+        maxWidth: _v43,
+        borderRadius: _v41,
+        children: [(0, _v3.jsx)(_v36.ModalBody, {
           padding: (0, _v6.rem)(8),
-          children: (0, _v3.jsx)(_v34.AspectRatio, {
-            ratio: _v33,
+          children: (0, _v3.jsx)(_v33.AspectRatio, {
+            ratio: _v32,
             width: "100%",
-            borderRadius: _v43,
+            borderRadius: _v42,
             overflow: "hidden",
             backgroundColor: "black",
-            children: _v6 ? (0, _v3.jsx)(_v18.Image, {
+            children: _v6 ? (0, _v3.jsx)(_v17.Image, {
               src: _v6,
-              alt: (0, _v25.translate)({
+              alt: (0, _v24.translate)({
                 singular: "Thumbnail preview",
                 dictionary: {
                   es: {
@@ -109,12 +108,12 @@
               width: "100%",
               height: "100%",
               objectFit: "contain"
-            }) : (0, _v3.jsx)(_v16.Box, {
+            }) : (0, _v3.jsx)(_v15.Box, {
               width: "100%",
               height: "100%"
             })
           })
-        }), (0, _v3.jsx)(_v39.ModalFooter, {
+        }), (0, _v3.jsx)(_v38.ModalFooter, {
           paddingTop: (0, _v6.rem)(16),
           paddingBottom: (0, _v6.rem)(24),
           paddingX: (0, _v6.rem)(24),
@@ -122,13 +121,13 @@
             align: "center",
             gap: (0, _v6.rem)(12),
             width: "100%",
-            children: [(0, _v3.jsx)(_v35.Button, {
+            children: [(0, _v3.jsx)(_v34.Button, {
               variant: "secondary",
               size: "md",
-              leftIcon: (0, _v3.jsx)(_v41.Redo, {}),
+              leftIcon: (0, _v3.jsx)(_v40.Redo, {}),
               onClick: _v2,
               isDisabled: _v1,
-              children: (0, _v25.translate)({
+              children: (0, _v24.translate)({
                 singular: "Change",
                 dictionary: {
                   es: {
@@ -160,12 +159,12 @@
               align: "center",
               gap: (0, _v6.rem)(12),
               minWidth: 0,
-              children: [(0, _v3.jsx)(_v35.Button, {
+              children: [(0, _v3.jsx)(_v34.Button, {
                 variant: "tertiary",
                 size: "md",
                 onClick: _v3,
                 isDisabled: _v1,
-                children: (0, _v25.translate)({
+                children: (0, _v24.translate)({
                   singular: "Cancel",
                   dictionary: {
                     es: {
@@ -191,12 +190,12 @@
                     }
                   }
                 })
-              }), (0, _v3.jsx)(_v35.Button, {
+              }), (0, _v3.jsx)(_v34.Button, {
                 variant: "primary",
                 size: "md",
                 onClick: _v4,
                 isLoading: _v1,
-                children: (0, _v25.translate)({
+                children: (0, _v24.translate)({
                   singular: "Save",
                   dictionary: {
                     es: {
@@ -229,13 +228,13 @@
       })]
     });
   }
-  var _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  function _v48() {
-    return (_v48 = Object.assign.bind()).apply(null, arguments);
+  var _v45 = _v0.i(0),
+    _v46 = _v0.i(0);
+  function _v47() {
+    return (_v47 = Object.assign.bind()).apply(null, arguments);
   }
-  let _v49 = function (_v0) {
-      return _v5.createElement("svg", _v48({
+  let _v48 = function (_v0) {
+      return _v5.createElement("svg", _v47({
         viewBox: "0 0 24 24",
         fill: "none",
         xmlns: "http://www.w3.org/2000/svg"
@@ -251,55 +250,55 @@
         fill: "currentColor"
       })));
     },
-    _v50 = (0, _v6.rem)(8),
-    _v51 = (0, _v6.rem)(8);
-  function _v52({
+    _v49 = (0, _v6.rem)(8),
+    _v50 = (0, _v6.rem)(8);
+  function _v51({
     thumbnails: _v0,
     activeUri: _v1,
     isLoading: _v2,
     onSelect: _v3
   }) {
-    return _v2 ? (0, _v3.jsx)(_v16.Box, {
+    return _v2 ? (0, _v3.jsx)(_v15.Box, {
       display: "grid",
       gridTemplateColumns: "repeat(2, 1fr)",
-      gap: _v51,
+      gap: _v50,
       width: "100%",
       children: Array.from({
         length: 4
-      }).map((_v0, _v1) => (0, _v3.jsx)(_v34.AspectRatio, {
-        ratio: _v33,
+      }).map((_v0, _v1) => (0, _v3.jsx)(_v33.AspectRatio, {
+        ratio: _v32,
         width: "100%",
         children: (0, _v3.jsx)(_v8.BokehSkeleton, {
           width: "100%",
           height: "100%",
-          borderRadius: _v50
+          borderRadius: _v49
         })
       }, _v1))
-    }) : (0, _v3.jsx)(_v16.Box, {
+    }) : (0, _v3.jsx)(_v15.Box, {
       display: "grid",
       gridTemplateColumns: "repeat(2, 1fr)",
-      gap: _v51,
+      gap: _v50,
       width: "100%",
       children: _v0.map(_v0 => {
         let _v1 = !!(_v1 && _v0.uri === _v1);
-        return (0, _v3.jsx)(_v16.Box, {
+        return (0, _v3.jsx)(_v15.Box, {
           as: "button",
           type: "button",
           width: "100%",
           padding: 0,
-          borderRadius: _v50,
+          borderRadius: _v49,
           borderWidth: "2px",
           borderStyle: "solid",
           borderColor: _v1 ? "stroke-focus" : "transparent",
           overflow: "hidden",
           cursor: "pointer",
           onClick: () => _v3(_v0),
-          children: (0, _v3.jsx)(_v34.AspectRatio, {
-            ratio: _v33,
+          children: (0, _v3.jsx)(_v33.AspectRatio, {
+            ratio: _v32,
             width: "100%",
-            children: (0, _v3.jsx)(_v18.Image, {
+            children: (0, _v3.jsx)(_v17.Image, {
               src: _v0.baseLink,
-              alt: (0, _v25.translate)({
+              alt: (0, _v24.translate)({
                 singular: "Saved thumbnail",
                 dictionary: {
                   es: {
@@ -335,12 +334,12 @@
       })
     });
   }
-  let _v53 = (0, _v6.rem)(233),
-    _v54 = {
+  let _v52 = (0, _v6.rem)(233),
+    _v53 = {
       width: 20,
       height: 20
     };
-  function _v55({
+  function _v54({
     thumbnails: _v0,
     activeUri: _v1,
     isLoading: _v2,
@@ -348,10 +347,10 @@
     onSelectThumbnail: _v4
   }) {
     let _v5 = _v2 || _v0.length > 0;
-    return (0, _v3.jsx)(_v47.Portal, {
-      children: (0, _v3.jsx)(_v46.PopoverContent, {
-        width: _v53,
-        maxWidth: _v53,
+    return (0, _v3.jsx)(_v46.Portal, {
+      children: (0, _v3.jsx)(_v45.PopoverContent, {
+        width: _v52,
+        maxWidth: _v52,
         maxHeight: (0, _v6.rem)(300),
         padding: (0, _v6.rem)(8),
         borderRadius: (0, _v6.rem)(12),
@@ -375,17 +374,17 @@
           width: "100%",
           flex: "1",
           minHeight: 0,
-          children: [(0, _v3.jsx)(_v35.Button, {
+          children: [(0, _v3.jsx)(_v34.Button, {
             variant: "secondary",
             size: "md",
             width: "100%",
             flexShrink: 0,
-            leftIcon: (0, _v3.jsx)(_v49, {
-              style: _v54
+            leftIcon: (0, _v3.jsx)(_v48, {
+              style: _v53
             }),
             iconSpacing: (0, _v6.rem)(6),
             onClick: _v3,
-            children: (0, _v25.translate)({
+            children: (0, _v24.translate)({
               singular: "Upload image",
               dictionary: {
                 es: {
@@ -417,10 +416,10 @@
             width: "100%",
             flex: "1",
             minHeight: 0,
-            children: [(0, _v3.jsx)(_v22.Text, {
+            children: [(0, _v3.jsx)(_v21.Text, {
               variant: "body-sm",
               color: "text-tertiary",
-              children: (0, _v25.translate)({
+              children: (0, _v24.translate)({
                 singular: "Previously used",
                 dictionary: {
                   es: {
@@ -446,12 +445,12 @@
                   }
                 }
               })
-            }), (0, _v3.jsx)(_v16.Box, {
+            }), (0, _v3.jsx)(_v15.Box, {
               flex: "1",
               minHeight: 0,
               width: "100%",
               overflowY: "auto",
-              children: (0, _v3.jsx)(_v52, {
+              children: (0, _v3.jsx)(_v51, {
                 thumbnails: _v0,
                 activeUri: _v1,
                 isLoading: _v2,
@@ -463,10 +462,10 @@
       })
     });
   }
-  let _v56 = (0, _v6.rem)(48),
-    _v57 = (0, _v6.rem)(12),
-    _v58 = (0, _v6.rem)(8);
-  function _v59() {
+  let _v55 = (0, _v6.rem)(48),
+    _v56 = (0, _v6.rem)(12),
+    _v57 = (0, _v6.rem)(8);
+  function _v58() {
     let {
         settings: {
           value: _v0
@@ -478,17 +477,17 @@
           deactivateThumbnail: _v4
         }
       } = (0, _v4.useManager)(_v11.EventSettingsManager),
-      _v5 = (0, _v23.useToast)(),
+      _v5 = (0, _v22.useToast)(),
       {
         trackLiveStreamBasicsChanged: _v6,
         trackLiveStreamBasicsThumbnailSelectClicked: _v7
-      } = (0, _v14.useLiveStreamBroadcasterTracking)(),
+      } = (0, _v13.useLiveStreamBroadcasterTracking)(),
       _v8 = (0, _v5.useCallback)((_v0, _v1) => {
         _v5({
           status: "error",
           duration: 0,
-          title: (0, _v30.getErrorToastTitle)(_v0, _v1, {
-            403: (0, _v25.translate)({
+          title: (0, _v29.getErrorToastTitle)(_v0, _v1, {
+            403: (0, _v24.translate)({
               singular: "You don't have permission to change this event's thumbnail.",
               dictionary: {
                 es: {
@@ -573,13 +572,13 @@
       _v33 = (0, _v5.useCallback)(_v0 => {
         let _v1 = _v0.target.files?.[0];
         if (_v0.target.value = "", _v1) {
-          if (_v1.size > _v29.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT) return void _v5({
+          if (_v1.size > _v28.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT) return void _v5({
             status: "error",
             duration: 0,
-            title: (0, _v25.translate)({
+            title: (0, _v24.translate)({
               singular: "Your file can’t be uploaded because it exceeds the size limit of {FILE_SIZE_LIMIT}MB",
               replacements: {
-                FILE_SIZE_LIMIT: _v29.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT_MB
+                FILE_SIZE_LIMIT: _v28.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT_MB
               },
               dictionary: {
                 es: {
@@ -610,14 +609,14 @@
         }
       }, [_v5]),
       _v34 = (0, _v5.useCallback)(async _v0 => {
-        if (!_v13.current && !(0 >= (0, _v31.parseThumbnailIdFromUrl)(_v0.uri))) {
+        if (!_v13.current && !(0 >= (0, _v30.parseThumbnailIdFromUrl)(_v0.uri))) {
           _v13.current = !0, _v15(!1), _v11("activate");
           try {
             await _v3(_v0), _v6({
               liveStreamBasicsField: "thumbnail"
             }), _v19(null), await _v27();
           } catch (_v0) {
-            _v8(_v0, (0, _v25.translate)({
+            _v8(_v0, (0, _v24.translate)({
               singular: "Couldn't update the thumbnail. Please try again.",
               dictionary: {
                 es: {
@@ -672,7 +671,7 @@
               active: !0
             }, ...(_v0 ?? []).filter(_v0 => _v0.uri !== _v0.uri)]), await _v27();
           } catch (_v0) {
-            _v8(_v0, (0, _v25.translate)({
+            _v8(_v0, (0, _v24.translate)({
               singular: "Couldn't save the thumbnail. Please try again.",
               dictionary: {
                 es: {
@@ -705,7 +704,7 @@
       }, [_v16, _v2, _v27, _v8, _v6]),
       _v40 = (0, _v5.useCallback)(async () => {
         if (_v13.current) return;
-        let _v0 = (0, _v31.parseThumbnailIdFromUrl)(_v0?.pictures?.uri);
+        let _v0 = (0, _v30.parseThumbnailIdFromUrl)(_v0?.pictures?.uri);
         if (!(_v0 <= 0)) {
           _v13.current = !0, _v11("remove");
           try {
@@ -713,7 +712,7 @@
               liveStreamBasicsField: "thumbnail"
             }), _v19(null), await _v27();
           } catch (_v0) {
-            _v8(_v0, (0, _v25.translate)({
+            _v8(_v0, (0, _v24.translate)({
               singular: "Couldn't remove the thumbnail. Please try again.",
               dictionary: {
                 es: {
@@ -758,12 +757,12 @@
       direction: "column",
       width: "100%",
       marginTop: (0, _v6.rem)(16),
-      children: [(0, _v3.jsx)(_v19.Paragraph, {
+      children: [(0, _v3.jsx)(_v18.Paragraph, {
         size: "md",
         color: "text-primary",
         fontWeight: "bold",
         marginBottom: (0, _v6.rem)(8),
-        children: (0, _v25.translate)({
+        children: (0, _v24.translate)({
           singular: "Thumbnail",
           dictionary: {
             es: {
@@ -789,7 +788,7 @@
             }
           }
         })
-      }), (0, _v3.jsxs)(_v20.Popover, {
+      }), (0, _v3.jsxs)(_v19.Popover, {
         isOpen: _v14 && !_v16,
         onClose: () => _v15(!1),
         placement: "left-start",
@@ -797,7 +796,7 @@
         preventOverflow: !0,
         gutter: 8,
         isLazy: !0,
-        children: [(0, _v3.jsx)(_v21.PopoverAnchor, {
+        children: [(0, _v3.jsx)(_v20.PopoverAnchor, {
           children: _v43 && _v42 ? (0, _v3.jsxs)(_v7.Flex, {
             align: "center",
             gap: (0, _v6.rem)(16),
@@ -808,11 +807,11 @@
             borderWidth: "1px",
             borderStyle: "solid",
             borderColor: "input-stroke",
-            borderRadius: _v57,
+            borderRadius: _v56,
             backgroundColor: "fill-surface",
-            children: [(0, _v3.jsx)(_v18.Image, {
+            children: [(0, _v3.jsx)(_v17.Image, {
               src: _v42.baseLink,
-              alt: (0, _v25.translate)({
+              alt: (0, _v24.translate)({
                 singular: "Event thumbnail",
                 dictionary: {
                   es: {
@@ -838,9 +837,9 @@
                   }
                 }
               }),
-              boxSize: _v56,
+              boxSize: _v55,
               objectFit: "cover",
-              borderRadius: _v58,
+              borderRadius: _v57,
               backgroundColor: "background",
               flexShrink: 0
             }), (0, _v3.jsx)(_v7.Flex, {
@@ -849,23 +848,23 @@
               flex: "1",
               minWidth: 0,
               children: _v18 ? (0, _v3.jsxs)(_v3.Fragment, {
-                children: [(0, _v3.jsx)(_v22.Text, {
+                children: [(0, _v3.jsx)(_v21.Text, {
                   variant: "body-md",
                   fontWeight: "medium",
                   color: "text-primary",
                   noOfLines: 1,
                   children: _v18.name
-                }), (0, _v3.jsx)(_v22.Text, {
+                }), (0, _v3.jsx)(_v21.Text, {
                   variant: "body-sm",
                   color: "text-secondary",
-                  children: (0, _v32.bytesToSize)(_v18.size)
+                  children: (0, _v31.bytesToSize)(_v18.size)
                 })]
               }) : null
             }), (0, _v3.jsxs)(_v7.Flex, {
               align: "center",
               gap: (0, _v6.rem)(8),
-              children: [(0, _v3.jsx)(_v17.IconButton, {
-                "aria-label": (0, _v25.translate)({
+              children: [(0, _v3.jsx)(_v16.IconButton, {
+                "aria-label": (0, _v24.translate)({
                   singular: "Reselect thumbnail",
                   dictionary: {
                     es: {
@@ -891,14 +890,14 @@
                     }
                   }
                 }),
-                icon: (0, _v3.jsx)(_v27.default, {}),
+                icon: (0, _v3.jsx)(_v26.default, {}),
                 variant: "tertiary",
                 size: "sm",
                 borderRadius: (0, _v6.rem)(8),
                 isDisabled: _v12,
                 onClick: _v32
-              }), (0, _v3.jsx)(_v17.IconButton, {
-                "aria-label": (0, _v25.translate)({
+              }), (0, _v3.jsx)(_v16.IconButton, {
+                "aria-label": (0, _v24.translate)({
                   singular: "Remove thumbnail",
                   dictionary: {
                     es: {
@@ -924,7 +923,7 @@
                     }
                   }
                 }),
-                icon: (0, _v3.jsx)(_v26.default, {}),
+                icon: (0, _v3.jsx)(_v25.default, {}),
                 variant: "tertiary",
                 size: "sm",
                 borderRadius: (0, _v6.rem)(8),
@@ -933,7 +932,7 @@
                 onClick: _v40
               })]
             })]
-          }) : (0, _v3.jsxs)(_v16.Box, {
+          }) : (0, _v3.jsxs)(_v15.Box, {
             as: "button",
             type: "button",
             display: "flex",
@@ -946,7 +945,7 @@
             borderWidth: "1px",
             borderStyle: "solid",
             borderColor: "input-stroke",
-            borderRadius: _v57,
+            borderRadius: _v56,
             backgroundColor: "fill-surface",
             cursor: _v12 ? "not-allowed" : "pointer",
             opacity: _v12 ? .6 : 1,
@@ -957,11 +956,11 @@
               position: "relative",
               align: "center",
               justify: "center",
-              boxSize: _v56,
-              borderRadius: _v58,
+              boxSize: _v55,
+              borderRadius: _v57,
               overflow: "hidden",
               flexShrink: 0,
-              children: [(0, _v3.jsx)(_v28.default, {
+              children: [(0, _v3.jsx)(_v27.default, {
                 width: "100%",
                 height: "100%",
                 preserveAspectRatio: "xMidYMid meet",
@@ -969,7 +968,7 @@
                   position: "absolute",
                   inset: 0
                 }
-              }), (0, _v3.jsx)(_v24.Image, {
+              }), (0, _v3.jsx)(_v23.Image, {
                 color: "text-secondary",
                 style: {
                   position: "relative"
@@ -978,11 +977,11 @@
             }), (0, _v3.jsxs)(_v7.Flex, {
               direction: "column",
               gap: (0, _v6.rem)(2),
-              children: [(0, _v3.jsx)(_v22.Text, {
+              children: [(0, _v3.jsx)(_v21.Text, {
                 variant: "body-md",
                 fontWeight: "medium",
                 color: "text-primary",
-                children: (0, _v25.translate)({
+                children: (0, _v24.translate)({
                   singular: "Select thumbnail",
                   dictionary: {
                     es: {
@@ -1008,13 +1007,13 @@
                     }
                   }
                 })
-              }), (0, _v3.jsx)(_v22.Text, {
+              }), (0, _v3.jsx)(_v21.Text, {
                 variant: "body-sm",
                 color: "text-secondary",
-                children: (0, _v25.translate)({
+                children: (0, _v24.translate)({
                   singular: "Max size {FILE_SIZE_LIMIT}MB",
                   replacements: {
-                    FILE_SIZE_LIMIT: _v29.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT_MB
+                    FILE_SIZE_LIMIT: _v28.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT_MB
                   },
                   dictionary: {
                     es: {
@@ -1043,7 +1042,7 @@
               })]
             })]
           })
-        }), (0, _v3.jsx)(_v55, {
+        }), (0, _v3.jsx)(_v54, {
           thumbnails: _v22 ?? [],
           activeUri: _v43 ? _v42?.uri : void 0,
           isLoading: _v24,
@@ -1056,7 +1055,7 @@
         accept: "image/png,image/x-png,image/jpeg,.jpg,.jpeg,.png",
         onChange: _v33,
         hidden: !0
-      }), (0, _v3.jsx)(_v45, {
+      }), (0, _v3.jsx)(_v44, {
         file: _v16,
         isSaving: "upload" === _v10,
         onChange: _v36,
@@ -1066,9 +1065,9 @@
       })]
     });
   }
-  var _v60 = _v0.i(0);
+  var _v59 = _v0.i(0);
   _v0.s(["BasicSettings", 0, function ({
-    id: _v0 = (0, _v60.createLiveDomName)("basic-settings"),
+    id: _v0 = (0, _v59.createLiveDomName)("basic-settings"),
     eventSettingsContext: {
       settings: {
         value: _v1
@@ -1080,8 +1079,8 @@
   }) {
     let {
         trackLiveStreamBasicsChanged: _v3
-      } = (0, _v14.useLiveStreamBroadcasterTracking)(),
-      _v4 = (0, _v13.useOrionSettingsFields)(["enable_live_event_basics_thumbnail"]),
+      } = (0, _v13.useLiveStreamBroadcasterTracking)(),
+      _v4 = (0, _v12.useOrionSettingsFields)(["enable_live_event_basics_thumbnail"]),
       [_v5, _v6] = (0, _v5.useState)(_v1?.title ?? null),
       [_v7, _v8] = (0, _v5.useState)(_v1?.streamDescription ?? null),
       [_v9, _v10] = (0, _v5.useState)(!1),
@@ -1114,7 +1113,7 @@
           ...(_v1?.automaticallyTitleStream ? {} : {
             streamTitle: _v0
           })
-        }), _v10(!0), (0, _v12.trackAddEventTitle)(), _v3({
+        }), _v10(!0), _v3({
           liveStreamBasicsField: "title"
         })), _v6(_v0);
       }, [_v5, _v2, _v9, _v10, _v6, _v3, _v1?.automaticallyTitleStream]),
@@ -1122,7 +1121,7 @@
         let _v0 = _v7?.trim() ?? "";
         _v11 || (_v2({
           streamDescription: _v0
-        }), _v12(!0), (0, _v12.trackAddEventDescription)(), _v3({
+        }), _v12(!0), _v3({
           liveStreamBasicsField: "description"
         }), _v8(_v0));
       }, [_v7, _v2, _v11, _v12, _v3]),
@@ -1142,7 +1141,7 @@
           required: !0,
           onChange: _v21,
           onSetTitleInvalid: _v14,
-          children: _v27 ? (0, _v3.jsx)(_v15.BasicSettingsControls, {
+          children: _v27 ? (0, _v3.jsx)(_v14.BasicSettingsControls, {
             isLoading: _v9,
             isDisabled: !_v5 || _v13,
             onCancelClick: _v23,
@@ -1161,7 +1160,7 @@
           description: _v7,
           onChange: _v22,
           onSetDescriptionInvalid: _v16,
-          children: _v28 ? (0, _v3.jsx)(_v15.BasicSettingsControls, {
+          children: _v28 ? (0, _v3.jsx)(_v14.BasicSettingsControls, {
             onCancelClick: _v24,
             onSaveClick: _v26,
             isLoading: _v11,
@@ -1171,20 +1170,20 @@
       }) : (0, _v3.jsx)(_v8.BokehSkeleton, {
         borderRadius: (0, _v6.rem)(4),
         height: (0, _v6.rem)(104)
-      }), _v4.enable_live_event_basics_thumbnail ? (0, _v3.jsx)(_v59, {}) : null]
+      }), _v4.enable_live_event_basics_thumbnail ? (0, _v3.jsx)(_v58, {}) : null]
     });
   }], 0);
-  var _v61 = _v0.i(0),
-    _v62 = _v0.i(0);
+  var _v60 = _v0.i(0),
+    _v61 = _v0.i(0);
   _v0.s(["DictionaryIntroLiveEventsAnnouncement", 0, function ({
     children: _v0
   }) {
-    let _v1 = (0, _v62.useSessionOwnerId)();
-    return (0, _v3.jsx)(_v61.AccountDictionaryAnnouncement, {
+    let _v1 = (0, _v61.useSessionOwnerId)();
+    return (0, _v3.jsx)(_v60.AccountDictionaryAnnouncement, {
       surface: "live_events",
       ownerUserId: _v1 > 0 ? _v1 : null,
       placement: "left-start",
-      title: (0, _v25.translate)({
+      title: (0, _v24.translate)({
         singular: "Create your custom dictionary",
         dictionary: {
           es: {
@@ -1210,7 +1209,7 @@
           }
         }
       }),
-      body: (0, _v25.translate)({
+      body: (0, _v24.translate)({
         singular: "Define your brand names, product terms, and acronyms once, and they'll be applied consistently in live captions.",
         dictionary: {
           es: {
@@ -1236,7 +1235,7 @@
           }
         }
       }),
-      acknowledgeLabel: (0, _v25.translate)({
+      acknowledgeLabel: (0, _v24.translate)({
         singular: "Set up dictionary",
         dictionary: {
           es: {
@@ -1271,40 +1270,40 @@
       children: _v0
     });
   }], 0);
-  var _v63 = _v0.i(0),
+  var _v62 = _v0.i(0),
+    _v63 = _v0.i(0),
     _v64 = _v0.i(0),
     _v65 = _v0.i(0),
     _v66 = _v0.i(0),
-    _v67 = _v0.i(0),
-    _v68 = _v0.i(0);
-  let _v69 = [{
+    _v67 = _v0.i(0);
+  let _v68 = [{
     key: "chatMaxMessageLength",
-    label: _v68.translations.chatMaxMessageLength,
+    label: _v67.translations.chatMaxMessageLength,
     min: 1,
     max: 512,
     fallback: 512
   }, {
     key: "chatRateLimitMaxMessages",
-    label: _v68.translations.chatMessagesPerWindow,
+    label: _v67.translations.chatMessagesPerWindow,
     min: 1,
     max: 5,
     fallback: 5
   }, {
     key: "chatRateLimitWindowSeconds",
-    label: _v68.translations.chatRateLimitWindowSeconds,
+    label: _v67.translations.chatRateLimitWindowSeconds,
     min: 10,
     max: 0,
     fallback: 10
   }, {
     key: "chatRateLimitCooldownSeconds",
-    label: _v68.translations.chatCooldownSeconds,
+    label: _v67.translations.chatCooldownSeconds,
     min: 30,
     max: 0,
     fallback: 30
   }];
   _v0.s(["EngagementSettings", 0, function ({
-    id: _v0 = (0, _v67.createDomName)("engagement-settings"),
-    className: _v1 = (0, _v67.createDomName)("engagement-settings")
+    id: _v0 = (0, _v66.createDomName)("engagement-settings"),
+    className: _v1 = (0, _v66.createDomName)("engagement-settings")
   }) {
     var _v2;
     let _v3,
@@ -1318,7 +1317,7 @@
       } = (0, _v4.useManager)(_v11.EventSettingsManager),
       [_v6, _v7] = (0, _v5.useState)({}),
       _v8 = {
-        ...(_v2 = _v4?.interactionToolsSettings, _v3 = {}, _v69.forEach(({
+        ...(_v2 = _v4?.interactionToolsSettings, _v3 = {}, _v68.forEach(({
           key: _v0,
           fallback: _v1
         }) => {
@@ -1332,22 +1331,22 @@
       direction: "column",
       gap: (0, _v6.rem)(16),
       width: "100%",
-      children: _v69.map(_v0 => {
+      children: _v68.map(_v0 => {
         let _v1 = Number(_v8[_v0.key]),
           _v2 = !Number.isFinite(_v1) || _v1 < _v0.min || _v1 > _v0.max;
-        return (0, _v3.jsxs)(_v63.FormControl, {
+        return (0, _v3.jsxs)(_v62.FormControl, {
           isInvalid: _v2,
-          children: [(0, _v3.jsx)(_v65.FormLabel, {
+          children: [(0, _v3.jsx)(_v64.FormLabel, {
             color: "text-primary",
             fontWeight: "bold",
             role: "heading",
-            children: (0, _v3.jsx)(_v19.Paragraph, {
+            children: (0, _v3.jsx)(_v18.Paragraph, {
               size: "md",
               color: "text-primary",
               fontWeight: "bold",
               children: _v0.label
             })
-          }), (0, _v3.jsx)(_v66.Input, {
+          }), (0, _v3.jsx)(_v65.Input, {
             type: "number",
             inputMode: "numeric",
             size: "sm",
@@ -1374,8 +1373,8 @@
                 }
               }, ["interactionToolsSettings"]));
             }
-          }), _v2 ? (0, _v3.jsx)(_v64.FormErrorMessage, {
-            children: (0, _v25.translate)({
+          }), _v2 ? (0, _v3.jsx)(_v63.FormErrorMessage, {
+            children: (0, _v24.translate)({
               singular: "Value must be between {MIN} and {MAX}",
               replacements: {
                 MIN: () => String(_v0.min),
@@ -1413,13 +1412,13 @@
       height: (0, _v6.rem)(180)
     });
   }], 0);
-  var _v70 = _v0.i(0),
+  var _v69 = _v0.i(0),
+    _v70 = _v0.i(0),
     _v71 = _v0.i(0),
-    _v72 = _v0.i(0),
-    _v73 = _v0.i(0);
+    _v72 = _v0.i(0);
   _v0.s(["HostAudioSettings", 0, function ({
-    id: _v0 = (0, _v67.createDomName)("host-audio-settings"),
-    className: _v1 = (0, _v67.createDomName)("host-audio-settings")
+    id: _v0 = (0, _v66.createDomName)("host-audio-settings"),
+    className: _v1 = (0, _v66.createDomName)("host-audio-settings")
   }) {
     let {
         level: _v2,
@@ -1428,7 +1427,7 @@
       } = function (_v0 = 15) {
         let {
             audio: _v1
-          } = (0, _v4.useManager)(_v72.LocalMediaManager),
+          } = (0, _v4.useManager)(_v71.LocalMediaManager),
           {
             track: _v2,
             isMuted: _v3
@@ -1444,7 +1443,7 @@
         (0, _v5.useEffect)(() => {
           if (!_v8) return;
           let _v0 = function (_v0, _v1) {
-            if (!_v73.browserConfig.FEATURE.CAN_USE_AUDIO_CONTEXT) return {
+            if (!_v72.browserConfig.FEATURE.CAN_USE_AUDIO_CONTEXT) return {
               stop: () => void 0
             };
             let _v2 = new AudioContext(),
@@ -1501,7 +1500,7 @@
       _v6 = _v5 ? Math.round(_v2 / 100 * 16) : 0,
       _v7 = (0, _v5.useMemo)(() => Array.from({
         length: 16
-      }, (_v0, _v1) => (0, _v3.jsx)(_v16.Box, {
+      }, (_v0, _v1) => (0, _v3.jsx)(_v15.Box, {
         flex: "1",
         height: (0, _v6.rem)(8),
         borderRadius: (0, _v6.rem)(2),
@@ -1514,20 +1513,20 @@
       align: "center",
       gap: (0, _v6.rem)(12),
       paddingY: (0, _v6.rem)(8),
-      children: [_v5 ? (0, _v3.jsx)(_v71.MicOn, {
+      children: [_v5 ? (0, _v3.jsx)(_v70.MicOn, {
         boxSize: 20
-      }) : (0, _v3.jsx)(_v70.MicOff, {
+      }) : (0, _v3.jsx)(_v69.MicOff, {
         boxSize: 20,
         color: "status-destructive-primary"
-      }), (0, _v3.jsx)(_v22.Text, {
+      }), (0, _v3.jsx)(_v21.Text, {
         variant: "body-md",
-        children: _v68.translations.host
+        children: _v67.translations.host
       }), (0, _v3.jsx)(_v7.Flex, {
         align: "center",
         gap: (0, _v6.rem)(2),
         flex: "1",
         role: "meter",
-        "aria-label": _v68.translations.microphoneLevel,
+        "aria-label": _v67.translations.microphoneLevel,
         "aria-valuenow": _v2,
         "aria-valuemin": 0,
         "aria-valuemax": 100,
@@ -1535,21 +1534,20 @@
       })]
     });
   }], 0);
-  var _v74 = _v0.i(0),
+  var _v73 = _v0.i(0),
+    _v74 = _v0.i(0),
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
     _v78 = _v0.i(0),
     _v79 = _v0.i(0),
-    _v80 = _v0.i(0),
-    _v81 = _v0.i(0),
-    _v82 = _v0.i(0);
-  let _v83 = {
+    _v80 = _v0.i(0);
+  let _v81 = {
       showLatestArchivedClip: "show_latest_archived_clip",
       eventSchedule: "event_schedule",
       schedule: "schedule"
     },
-    _v84 = 0;
+    _v82 = 0;
   _v0.s(["PlayerSettings", 0, function () {
     let {
         settings: {
@@ -1565,27 +1563,27 @@
           value: _v3,
           isLoading: _v4
         }
-      } = (0, _v4.useManager)(_v77.ComposerSessionManager),
+      } = (0, _v4.useManager)(_v76.ComposerSessionManager),
       {
         scheduledStartTime: _v5
-      } = (0, _v4.useManager)(_v78.ComposerSessionStatusManager),
+      } = (0, _v4.useManager)(_v77.ComposerSessionStatusManager),
       {
         trackLiveStreamDestinationActionClicked: _v6
-      } = (0, _v14.useLiveStreamBroadcasterTracking)(),
+      } = (0, _v13.useLiveStreamBroadcasterTracking)(),
       {
         trackSingleEventCustomizationPlayerSettingToggled: _v7
-      } = (0, _v82.useSingleEventCustomizationTracking)(),
+      } = (0, _v80.useSingleEventCustomizationTracking)(),
       [_v8, _v9] = (0, _v5.useState)({}),
-      _v10 = (0, _v23.useToast)(),
+      _v10 = (0, _v22.useToast)(),
       _v11 = _v3?.appearanceLink?.uri,
       _v12 = !!_v11,
-      _v13 = (0, _v81.getThumbnail)(_v3?.thumbnail.sizes),
+      _v13 = (0, _v79.getThumbnail)(_v3?.thumbnail.sizes),
       _v14 = _v0?.embed,
-      _v15 = _v0?.status === _v80.ENTITY_STATUS.ENDED,
+      _v15 = _v0?.status === _v78.ENTITY_STATUS.ENDED,
       _v16 = [{
         key: "showLatestArchivedClip",
         switchId: "player-settings-show-latest-recording",
-        label: (0, _v25.translate)({
+        label: (0, _v24.translate)({
           singular: "Show latest recording",
           dictionary: {
             es: {
@@ -1611,7 +1609,7 @@
             }
           }
         }),
-        tip: (0, _v25.translate)({
+        tip: (0, _v24.translate)({
           singular: "Play the most recent recording while viewers wait for the event to start.",
           dictionary: {
             es: {
@@ -1640,7 +1638,7 @@
       }, {
         key: "eventSchedule",
         switchId: "player-settings-show-event-date-time",
-        label: (0, _v25.translate)({
+        label: (0, _v24.translate)({
           singular: "Show event date & time",
           dictionary: {
             es: {
@@ -1666,7 +1664,7 @@
             }
           }
         }),
-        tip: (0, _v25.translate)({
+        tip: (0, _v24.translate)({
           singular: "Display this event's start date and time before it goes live.",
           dictionary: {
             es: {
@@ -1695,7 +1693,7 @@
       }, {
         key: "schedule",
         switchId: "player-settings-show-recurring-schedule",
-        label: (0, _v25.translate)({
+        label: (0, _v24.translate)({
           singular: "Show recurring schedule",
           dictionary: {
             es: {
@@ -1721,7 +1719,7 @@
             }
           }
         }),
-        tip: (0, _v25.translate)({
+        tip: (0, _v24.translate)({
           singular: "Display the repeat schedule for recurring events.",
           dictionary: {
             es: {
@@ -1758,10 +1756,10 @@
         children: [(0, _v3.jsxs)(_v7.Flex, {
           direction: "column",
           gap: "sm",
-          children: [(0, _v3.jsx)(_v22.Text, {
+          children: [(0, _v3.jsx)(_v21.Text, {
             variant: "heading-xs",
             color: "text-tertiary",
-            children: _v68.translations.preview
+            children: _v67.translations.preview
           }), (0, _v3.jsx)(_v7.Flex, {
             justifyContent: "center",
             alignItems: "center",
@@ -1781,28 +1779,28 @@
               height: "100%",
               background: "rgba(0, 0, 0, 0.64)",
               children: null != _v5 && "" !== _v5 ? (0, _v3.jsxs)(_v3.Fragment, {
-                children: [(0, _v3.jsx)(_v19.Paragraph, {
+                children: [(0, _v3.jsx)(_v18.Paragraph, {
                   color: "white",
                   size: "md",
-                  children: _v68.translations.thisEventIsScheduledFor
-                }), (0, _v3.jsx)(_v74.Header, {
+                  children: _v67.translations.thisEventIsScheduledFor
+                }), (0, _v3.jsx)(_v73.Header, {
                   color: "white",
                   size: "md",
-                  children: new Date(_v5).toLocaleString((0, _v25.getCurrentLocale)(), {
+                  children: new Date(_v5).toLocaleString((0, _v24.getCurrentLocale)(), {
                     month: "long",
                     day: "numeric",
                     hour: "numeric",
                     minute: "numeric"
                   })
                 })]
-              }) : (0, _v3.jsx)(_v19.Paragraph, {
+              }) : (0, _v3.jsx)(_v18.Paragraph, {
                 color: "white",
                 size: "md",
-                children: _v68.translations.thisEventHasNotStartedYet
+                children: _v67.translations.thisEventHasNotStartedYet
               })
             })
           })]
-        }), (0, _v3.jsx)(_v35.Button, {
+        }), (0, _v3.jsx)(_v34.Button, {
           as: "a",
           href: _v11 ?? void 0,
           isDisabled: !_v12,
@@ -1811,12 +1809,12 @@
           variant: "secondary",
           width: "100%",
           onClick: () => {
-            (0, _v79.trackOpenCustomizePlayer)(), _v6({
+            _v6({
               liveStreamDestination: "vimeo",
               liveStreamDestinationAction: "customize"
             });
           },
-          children: (0, _v25.translate)({
+          children: (0, _v24.translate)({
             singular: "Customize appearance",
             dictionary: {
               es: {
@@ -1846,10 +1844,10 @@
       }), (0, _v3.jsxs)(_v7.Flex, {
         direction: "column",
         gap: "xs",
-        children: [(0, _v3.jsx)(_v22.Text, {
+        children: [(0, _v3.jsx)(_v21.Text, {
           variant: "heading-xs",
           color: "text-tertiary",
-          children: (0, _v25.translate)({
+          children: (0, _v24.translate)({
             singular: "Preferences",
             dictionary: {
               es: {
@@ -1880,8 +1878,8 @@
           switchId: _v1,
           label: _v2,
           tip: _v3
-        }) => (0, _v3.jsx)(_v63.FormControl, {
-          children: (0, _v3.jsxs)(_v65.FormLabel, {
+        }) => (0, _v3.jsx)(_v62.FormControl, {
+          children: (0, _v3.jsxs)(_v64.FormLabel, {
             alignItems: "center",
             cursor: _v15 ? "not-allowed" : "pointer",
             display: "flex",
@@ -1892,22 +1890,22 @@
             children: [(0, _v3.jsxs)(_v7.Flex, {
               align: "center",
               gap: "xs",
-              children: [(0, _v3.jsx)(_v22.Text, {
+              children: [(0, _v3.jsx)(_v21.Text, {
                 variant: "heading-xs",
                 children: _v2
-              }), (0, _v3.jsx)(_v76.CircleTip, {
+              }), (0, _v3.jsx)(_v75.CircleTip, {
                 as: "span",
                 label: _v3,
                 placement: "left"
               })]
-            }), (0, _v3.jsx)(_v75.Switch, {
+            }), (0, _v3.jsx)(_v74.Switch, {
               id: _v1,
               isChecked: _v8[_v0]?.value ?? !!_v14[_v0],
               isDisabled: _v15,
               onChange: _v0 => {
                 var _v1;
                 let _v2, _v3;
-                return _v1 = _v0.currentTarget.checked, _v2 = ++_v84, _v3 = () => _v9(_v0 => _v0[_v0]?.requestId === _v2 ? {
+                return _v1 = _v0.currentTarget.checked, _v2 = ++_v82, _v3 = () => _v9(_v0 => _v0[_v0]?.requestId === _v2 ? {
                   ..._v0,
                   [_v0]: void 0
                 } : _v0), void (_v9(_v0 => ({
@@ -1922,12 +1920,12 @@
                   }
                 }, _v11.EventSettingsManager.EVENT_PLAYER_FIELDS).then(() => {
                   _v3(), _v7({
-                    playerSetting: _v83[_v0],
+                    playerSetting: _v81[_v0],
                     newStatus: _v1
                   }), _v10({
                     status: "success",
                     duration: 0,
-                    title: _v1 ? (0, _v25.translate)({
+                    title: _v1 ? (0, _v24.translate)({
                       singular: "{feature} enabled",
                       replacements: {
                         feature: _v2
@@ -1955,7 +1953,7 @@
                           singular: "{feature} 已启用"
                         }
                       }
-                    }) : (0, _v25.translate)({
+                    }) : (0, _v24.translate)({
                       singular: "{feature} disabled",
                       replacements: {
                         feature: _v2
@@ -1988,7 +1986,7 @@
                 }).catch(_v0 => (_v10({
                   status: "error",
                   duration: 0,
-                  title: (0, _v30.getErrorToastTitle)(_v0, (0, _v25.translate)({
+                  title: (0, _v29.getErrorToastTitle)(_v0, (0, _v24.translate)({
                     singular: "Something went wrong updating your player settings. Try again.",
                     dictionary: {
                       es: {
@@ -2028,46 +2026,339 @@
       })]
     });
   }], 0);
-  var _v85 = _v0.i(0),
+  var _v83 = _v0.i(0),
+    _v84 = _v0.i(0),
+    _v85 = _v0.i(0),
     _v86 = _v0.i(0),
     _v87 = _v0.i(0),
-    _v88 = _v0.i(0),
-    _v89 = _v0.i(0),
-    _v90 = _v0.i(0),
-    _v91 = _v0.i(0);
-  function _v92({
+    _v88 = _v0.i(0);
+  function _v89({
+    id: _v0,
+    label: _v1,
+    tooltip: _v2,
+    isChecked: _v3,
+    isEnabled: _v4,
+    onChange: _v5
+  }) {
+    let _v6 = `${_v0}-switch`,
+      _v7 = !_v4,
+      _v8 = (0, _v5.useCallback)(_v0 => {
+        _v0.stopPropagation();
+      }, []);
+    return (0, _v3.jsxs)(_v64.FormLabel, {
+      htmlFor: _v6,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      gap: (0, _v6.rem)(8),
+      margin: 0,
+      cursor: _v7 ? "default" : "pointer",
+      children: [(0, _v3.jsxs)(_v7.Flex, {
+        alignItems: "center",
+        gap: (0, _v6.rem)(8),
+        children: [(0, _v3.jsx)(_v21.Text, {
+          variant: "body-md",
+          color: _v7 ? "text-tertiary" : "text-primary",
+          children: _v1
+        }), (0, _v3.jsx)(_v88.BokehTooltip, {
+          label: _v2,
+          placement: "bottom",
+          maxWidth: (0, _v6.rem)(300),
+          shouldWrapChildren: !1,
+          children: (0, _v3.jsx)(_v7.Flex, {
+            height: (0, _v6.rem)(16),
+            width: (0, _v6.rem)(16),
+            cursor: "pointer",
+            onClick: _v8,
+            children: (0, _v3.jsx)(_v87.InfoCircle, {
+              boxSize: (0, _v6.rem)(16),
+              color: "text-tertiary"
+            })
+          })
+        })]
+      }), (0, _v3.jsx)(_v74.Switch, {
+        id: _v6,
+        size: "sm",
+        isChecked: _v3,
+        isDisabled: _v7,
+        onChange: _v5
+      })]
+    });
+  }
+  function _v90({
+    canUsePersonalizedViewerWatermarking: _v0,
+    canUseForensicWatermarking: _v1,
+    isPersonalizedViewerWatermarkingEnabled: _v2,
+    isForensicWatermarkingEnabled: _v3
+  }) {
+    let [_v4, _v5] = (0, _v5.useState)(!1),
+      [_v6, _v7] = (0, _v5.useState)(!1),
+      _v8 = (0, _v5.useCallback)(() => {
+        _v5(_v0 => !_v0);
+      }, []),
+      _v9 = (0, _v5.useCallback)(() => {
+        _v7(_v0 => !_v0);
+      }, []);
+    return (0, _v3.jsxs)(_v7.Flex, {
+      direction: "column",
+      gap: (0, _v6.rem)(12),
+      width: "100%",
+      "data-testid": "event-content-protection",
+      children: [(0, _v3.jsxs)(_v7.Flex, {
+        direction: "column",
+        gap: (0, _v6.rem)(4),
+        children: [(0, _v3.jsxs)(_v7.Flex, {
+          alignItems: "center",
+          gap: (0, _v6.rem)(8),
+          children: [(0, _v3.jsx)(_v21.Text, {
+            variant: "heading-xs",
+            color: "text-primary",
+            children: (0, _v24.translate)({
+              singular: "Content protection",
+              dictionary: {
+                es: {
+                  singular: "Protección de contenido"
+                },
+                "de-DE": {
+                  singular: "Inhaltsschutz"
+                },
+                "fr-FR": {
+                  singular: "Protection du contenu"
+                },
+                "ja-JP": {
+                  singular: "コンテンツ保護"
+                },
+                "ko-KR": {
+                  singular: "콘텐츠 보호"
+                },
+                "pt-BR": {
+                  singular: "Proteção de conteúdo"
+                },
+                "zh-CN": {
+                  singular: "内容保护"
+                }
+              }
+            })
+          }), (0, _v3.jsx)(_v86.Badge, {
+            variant: "new",
+            size: "xs",
+            height: (0, _v6.rem)(14),
+            lineHeight: 1.2,
+            py: 0,
+            children: (0, _v24.translate)({
+              singular: "New",
+              dictionary: {
+                es: {
+                  singular: "Nuevo"
+                },
+                "de-DE": {
+                  singular: "Neu"
+                },
+                "fr-FR": {
+                  singular: "Nouveau"
+                },
+                "ja-JP": {
+                  singular: "新規作成"
+                },
+                "ko-KR": {
+                  singular: "신규"
+                },
+                "pt-BR": {
+                  singular: "Novo"
+                },
+                "zh-CN": {
+                  singular: "新"
+                }
+              }
+            })
+          })]
+        }), (0, _v3.jsx)(_v21.Text, {
+          variant: "body-sm",
+          color: "text-secondary",
+          children: (0, _v24.translate)({
+            singular: "Protect your live event from unauthorized sharing. Protection won't apply to event recordings.",
+            dictionary: {
+              es: {
+                singular: "Protege tu evento en directo frente al uso compartido no autorizado. La protección no se aplicará a las grabaciones del evento."
+              },
+              "de-DE": {
+                singular: "Schützen Sie Ihr Live-Event vor unbefugtem Teilen. Der Schutz gilt nicht für Aufzeichnungen der Veranstaltung."
+              },
+              "fr-FR": {
+                singular: "Protégez votre événement en direct contre le partage non autorisé. La protection ne s'applique pas aux enregistrements de l'événement."
+              },
+              "ja-JP": {
+                singular: "ライブイベントを不正な共有から保護します。保護はイベントの録画には適用されません。"
+              },
+              "ko-KR": {
+                singular: "라이브 이벤트를 무단 공유로부터 보호합니다. 보호는 이벤트 녹화본에는 적용되지 않습니다."
+              },
+              "pt-BR": {
+                singular: "Proteja seu evento ao vivo contra compartilhamento não autorizado. A proteção não se aplicará às gravações do evento."
+              },
+              "zh-CN": {
+                singular: "保护您的直播活动，防止未经授权的分享。该保护不适用于活动录制内容。"
+              }
+            }
+          })
+        })]
+      }), (0, _v3.jsxs)(_v7.Flex, {
+        direction: "column",
+        gap: (0, _v6.rem)(12),
+        children: [_v0 ? (0, _v3.jsx)(_v89, {
+          id: "viewer-watermarking",
+          label: (0, _v24.translate)({
+            singular: "Viewer watermarking",
+            dictionary: {
+              es: {
+                singular: "Marca de agua del espectador"
+              },
+              "de-DE": {
+                singular: "Zuschauer-Wasserzeichen"
+              },
+              "fr-FR": {
+                singular: "Filigrane du spectateur"
+              },
+              "ja-JP": {
+                singular: "視聴者透かし"
+              },
+              "ko-KR": {
+                singular: "시청자 워터마킹"
+              },
+              "pt-BR": {
+                singular: "Marca d'água do espectador"
+              },
+              "zh-CN": {
+                singular: "观众水印"
+              }
+            }
+          }),
+          tooltip: (0, _v24.translate)({
+            singular: "Display viewer-specific information on the video to discourage unauthorized sharing and recordings.",
+            dictionary: {
+              es: {
+                singular: "Mostrar información específica del espectador en el vídeo para desalentar el uso compartido y las grabaciones no autorizadas."
+              },
+              "de-DE": {
+                singular: "Zeigen Sie zuschauerbezogene Informationen im Video an, um unbefugtes Teilen und Aufzeichnen zu erschweren."
+              },
+              "fr-FR": {
+                singular: "Afficher des informations spécifiques au spectateur sur la vidéo pour décourager le partage et les enregistrements non autorisés."
+              },
+              "ja-JP": {
+                singular: "不正な共有や録画を抑止するために、視聴者固有の情報を動画上に表示します。"
+              },
+              "ko-KR": {
+                singular: "무단 공유 및 녹화를 억제하기 위해 동영상에 시청자별 정보를 표시합니다."
+              },
+              "pt-BR": {
+                singular: "Exibir informações específicas do espectador no vídeo para desencorajar compartilhamentos e gravações não autorizados."
+              },
+              "zh-CN": {
+                singular: "在视频上显示特定于观众的信息，以阻止未经授权的分享和录制。"
+              }
+            }
+          }),
+          isChecked: _v4,
+          isEnabled: _v2,
+          onChange: _v8
+        }) : null, _v1 ? (0, _v3.jsx)(_v89, {
+          id: "forensic-watermarking",
+          label: (0, _v24.translate)({
+            singular: "Forensic watermarking",
+            dictionary: {
+              es: {
+                singular: "Marcado forense"
+              },
+              "de-DE": {
+                singular: "Forensisches Wasserzeichen"
+              },
+              "fr-FR": {
+                singular: "Filigrane médico-légal"
+              },
+              "ja-JP": {
+                singular: "フォレンジック透かし"
+              },
+              "ko-KR": {
+                singular: "포렌식 워터마킹"
+              },
+              "pt-BR": {
+                singular: "Marca d'água forense"
+              },
+              "zh-CN": {
+                singular: "取证水印"
+              }
+            }
+          }),
+          tooltip: (0, _v24.translate)({
+            singular: "Embed an invisible watermark in the video and audio to help trace unauthorized recordings back to a viewer.",
+            dictionary: {
+              es: {
+                singular: "Insertar una marca de agua invisible en el vídeo y el audio para ayudar a rastrear las grabaciones no autorizadas hasta un espectador."
+              },
+              "de-DE": {
+                singular: "Betten Sie ein unsichtbares Wasserzeichen in Video und Audio ein, um unbefugte Aufnahmen auf einen bestimmten Zuschauer zurückverfolgen zu können."
+              },
+              "fr-FR": {
+                singular: "Intégrer un filigrane invisible dans la vidéo et l'audio pour aider à remonter les enregistrements non autorisés jusqu'à un spectateur."
+              },
+              "ja-JP": {
+                singular: "不正な録画を視聴者へ遡って追跡するため、動画および音声に目に見えない透かしを埋め込みます。"
+              },
+              "ko-KR": {
+                singular: "동영상과 오디오에 보이지 않는 워터마크를 삽입하여 무단 녹화를 특정 시청자에게 추적하는 데 도움을 줍니다."
+              },
+              "pt-BR": {
+                singular: "Incorporar uma marca d'água invisível no vídeo e no áudio para ajudar a rastrear gravações não autorizadas até um espectador."
+              },
+              "zh-CN": {
+                singular: "在视频和音频中嵌入不可见的水印，以便将未经授权的录制追溯到具体观众。"
+              }
+            }
+          }),
+          isChecked: _v6,
+          isEnabled: _v3,
+          onChange: _v9
+        }) : null]
+      })]
+    });
+  }
+  var _v91 = _v0.i(0),
+    _v92 = _v0.i(0),
+    _v93 = _v0.i(0);
+  function _v94({
     contentRating: _v0,
     isDisabled: _v1 = !1,
     onChange: _v2
   }) {
     let _v3 = (0, _v5.useMemo)(() => {
-        let _v0 = _v91.GeneralContentRatingVariants.Unrated;
-        return _v0.some(_v0 => _v91.MatureContentRatingArray.includes(_v0)) && (_v0 = _v91.GeneralContentRatingVariants.Mature), _v0.includes(_v91.GeneralContentRatingVariants.Safe) && (_v0 = _v91.GeneralContentRatingVariants.Safe), _v91.ContentRatingOptions.find(_v0 => _v0.value === _v0);
+        let _v0 = _v93.GeneralContentRatingVariants.Unrated;
+        return _v0.some(_v0 => _v93.MatureContentRatingArray.includes(_v0)) && (_v0 = _v93.GeneralContentRatingVariants.Mature), _v0.includes(_v93.GeneralContentRatingVariants.Safe) && (_v0 = _v93.GeneralContentRatingVariants.Safe), _v93.ContentRatingOptions.find(_v0 => _v0.value === _v0);
       }, [_v0]),
-      _v4 = (0, _v5.useMemo)(() => _v0.includes(_v91.EventContentRating.Advertisement), [_v0]),
+      _v4 = (0, _v5.useMemo)(() => _v0.includes(_v93.EventContentRating.Advertisement), [_v0]),
       _v5 = (0, _v5.useCallback)(_v0 => {
-        let _v1 = _v4 ? [_v91.EventContentRating.Advertisement] : [];
-        _v0 === _v91.GeneralContentRatingVariants.Safe ? _v1.push(_v91.EventContentRating.Safe) : _v0 === _v91.GeneralContentRatingVariants.Mature ? _v1 = [..._v1, ..._v91.MatureContentRatingArray] : _v1.push(_v91.EventContentRating.Unrated), _v2(_v1);
+        let _v1 = _v4 ? [_v93.EventContentRating.Advertisement] : [];
+        _v0 === _v93.GeneralContentRatingVariants.Safe ? _v1.push(_v93.EventContentRating.Safe) : _v0 === _v93.GeneralContentRatingVariants.Mature ? _v1 = [..._v1, ..._v93.MatureContentRatingArray] : _v1.push(_v93.EventContentRating.Unrated), _v2(_v1);
       }, [_v4, _v2]),
       _v6 = (0, _v5.useCallback)(_v0 => {
         let _v1 = [..._v0],
           _v2 = _v1.indexOf(_v0);
-        _v2 > -1 ? _v1.splice(_v2, 1) : _v1.push(_v0), _v1.length === +!!_v4 && _v1.push(_v91.EventContentRating.Safe), _v2(_v1);
+        _v2 > -1 ? _v1.splice(_v2, 1) : _v1.push(_v0), _v1.length === +!!_v4 && _v1.push(_v93.EventContentRating.Safe), _v2(_v1);
       }, [_v0, _v4, _v2]),
       _v7 = (0, _v5.useCallback)(() => {
         let _v0 = [..._v0],
-          _v1 = _v0.indexOf(_v91.EventContentRating.Advertisement);
-        _v1 > -1 ? _v0.splice(_v1, 1) : _v0.push(_v91.EventContentRating.Advertisement), _v2(_v0);
+          _v1 = _v0.indexOf(_v93.EventContentRating.Advertisement);
+        _v1 > -1 ? _v0.splice(_v1, 1) : _v0.push(_v93.EventContentRating.Advertisement), _v2(_v0);
       }, [_v0, _v2]);
     return (0, _v3.jsxs)(_v7.Flex, {
       position: "relative",
       direction: "column",
       "data-testid": "event-content-rating",
-      children: [(0, _v3.jsx)(_v74.Header, {
+      children: [(0, _v3.jsx)(_v73.Header, {
         size: "xs",
         marginBottom: (0, _v6.rem)(8),
         color: "text-primary",
-        children: (0, _v25.translate)({
+        children: (0, _v24.translate)({
           singular: "Select content rating",
           dictionary: {
             es: {
@@ -2093,14 +2384,14 @@
             }
           }
         })
-      }), (0, _v3.jsx)(_v19.Paragraph, {
+      }), (0, _v3.jsx)(_v18.Paragraph, {
         size: "sm",
         color: "text-secondary",
         marginBottom: (0, _v6.rem)(12),
-        children: (0, _v25.translate)({
+        children: (0, _v24.translate)({
           singular: "Content ratings are required. They help keep Vimeo safe and ensure your intended audience can view your video. {A}Learn more{/A}",
           replacements: {
-            A: _v0 => (0, _v3.jsx)(_v22.Text, {
+            A: _v0 => (0, _v3.jsx)(_v21.Text, {
               variant: "body-xl",
               color: "blue.500",
               cursor: "pointer",
@@ -2136,10 +2427,10 @@
             }
           }
         })
-      }), (0, _v3.jsx)(_v90.Select, {
+      }), (0, _v3.jsx)(_v92.Select, {
         onValueChange: _v0 => _v5(_v0.value[0]),
-        items: _v91.ContentRatingOptions.filter(_v0 => _v0.visible),
-        placeholder: (0, _v25.translate)({
+        items: _v93.ContentRatingOptions.filter(_v0 => _v0.visible),
+        placeholder: (0, _v24.translate)({
           singular: "Select rating",
           dictionary: {
             es: {
@@ -2168,18 +2459,18 @@
         size: "sm",
         variant: "withCheck",
         value: [_v3.value]
-      }), _v3.value === _v91.GeneralContentRatingVariants.Mature ? (0, _v3.jsxs)(_v7.Flex, {
+      }), _v3.value === _v93.GeneralContentRatingVariants.Mature ? (0, _v3.jsxs)(_v7.Flex, {
         direction: "column",
         paddingTop: (0, _v6.rem)(18),
         paddingBottom: (0, _v6.rem)(20),
         gap: (0, _v6.rem)(16),
         borderBottom: "1px solid",
         borderColor: "stroke",
-        children: [(0, _v3.jsx)(_v19.Paragraph, {
+        children: [(0, _v3.jsx)(_v18.Paragraph, {
           size: "sm",
           color: "text-secondary",
           background: "transparent",
-          children: (0, _v25.translate)({
+          children: (0, _v24.translate)({
             singular: "Select one or more of the following:",
             dictionary: {
               es: {
@@ -2205,14 +2496,14 @@
               }
             }
           })
-        }), _v91.MatureContentRatingOptions.map(_v0 => (0, _v3.jsx)(_v89.Checkbox, {
+        }), _v93.MatureContentRatingOptions.map(_v0 => (0, _v3.jsx)(_v91.Checkbox, {
           isDisabled: _v1,
           onChange: () => _v6(_v0.value),
           isChecked: _v0.includes(_v0.value),
           name: _v0.value,
           id: `${_v0.value}-checkbox`,
           value: _v0.value,
-          children: (0, _v3.jsx)(_v22.Text, {
+          children: (0, _v3.jsx)(_v21.Text, {
             variant: "body-xl",
             fontSize: (0, _v6.rem)(14),
             color: "text-primary",
@@ -2221,18 +2512,18 @@
         }, `${_v0.value}-checkbox`))]
       }) : null, (0, _v3.jsxs)(_v7.Flex, {
         direction: "column",
-        children: [(0, _v3.jsx)(_v89.Checkbox, {
+        children: [(0, _v3.jsx)(_v91.Checkbox, {
           isDisabled: _v1,
           name: "ads",
           margin: `${(0, _v6.rem)(8)} 0`,
-          value: _v91.EventContentRating.Advertisement,
+          value: _v93.EventContentRating.Advertisement,
           isChecked: _v4,
           onChange: _v7,
-          children: (0, _v3.jsx)(_v22.Text, {
+          children: (0, _v3.jsx)(_v21.Text, {
             variant: "body-xl",
             fontSize: (0, _v6.rem)(12),
             color: "text-primary",
-            children: (0, _v25.translate)({
+            children: (0, _v24.translate)({
               singular: "This video contains an advertisement",
               dictionary: {
                 es: {
@@ -2259,9 +2550,9 @@
               }
             })
           })
-        }), _v4 ? null : (0, _v3.jsx)(_v86.Alert, {
-          children: (0, _v3.jsx)(_v87.AlertDescription, {
-            children: (0, _v25.translate)({
+        }), _v4 ? null : (0, _v3.jsx)(_v84.Alert, {
+          children: (0, _v3.jsx)(_v85.AlertDescription, {
+            children: (0, _v24.translate)({
               singular: "If this video contains advertisements, you are required to indicate so",
               dictionary: {
                 es: {
@@ -2292,19 +2583,18 @@
       })]
     });
   }
-  var _v93 = _v0.i(0),
-    _v94 = _v0.i(0),
-    _v95 = _v0.i(0),
+  var _v95 = _v0.i(0),
     _v96 = _v0.i(0),
     _v97 = _v0.i(0),
-    _v98 = _v0.i(0);
-  let _v99 = {
+    _v98 = _v0.i(0),
+    _v99 = _v0.i(0);
+  let _v100 = {
       EMBED_PRIVACY_NOWHERE: "private",
       EMBED_PRIVACY_ANYWHERE: "public",
       EMBED_PRIVACY_SPECIFIC_DOMAINS: "whitelist"
     },
-    _v100 = {
-      [_v99.EMBED_PRIVACY_NOWHERE]: (0, _v25.translate)({
+    _v101 = {
+      [_v100.EMBED_PRIVACY_NOWHERE]: (0, _v24.translate)({
         singular: "Nowhere",
         dictionary: {
           es: {
@@ -2330,7 +2620,7 @@
           }
         }
       }),
-      [_v99.EMBED_PRIVACY_ANYWHERE]: (0, _v25.translate)({
+      [_v100.EMBED_PRIVACY_ANYWHERE]: (0, _v24.translate)({
         singular: "Anywhere",
         dictionary: {
           es: {
@@ -2356,7 +2646,7 @@
           }
         }
       }),
-      [_v99.EMBED_PRIVACY_SPECIFIC_DOMAINS]: (0, _v25.translate)({
+      [_v100.EMBED_PRIVACY_SPECIFIC_DOMAINS]: (0, _v24.translate)({
         singular: "Specific domains",
         dictionary: {
           es: {
@@ -2383,7 +2673,6 @@
         }
       })
     };
-  var _v101 = _v0.i(0);
   function _v102({
     embedPrivacy: _v0,
     domains: _v1,
@@ -2409,11 +2698,11 @@
           _v2 = _v1.indexOf(_v0);
         _v1.splice(_v2, 1), _v7(_v0, _v1);
       }, [_v1, _v0, _v7]),
-      _v17 = (0, _v5.useMemo)(() => Object.values(_v99).map(_v0 => ({
-        label: _v100[_v0],
+      _v17 = (0, _v5.useMemo)(() => Object.values(_v100).map(_v0 => ({
+        label: _v101[_v0],
         value: _v0
       })), []);
-    return (0, _v96.useOutsideClick)({
+    return (0, _v98.useOutsideClick)({
       enabled: _v10,
       ref: _v12,
       handler: () => {
@@ -2434,11 +2723,11 @@
           flexShrink: 0,
           alignItems: "center",
           gap: (0, _v6.rem)(4),
-          children: [(0, _v3.jsx)(_v74.Header, {
+          children: [(0, _v3.jsx)(_v73.Header, {
             size: "xs",
             color: "text-primary",
             letterSpacing: "-0.03em",
-            children: (0, _v25.translate)({
+            children: (0, _v24.translate)({
               singular: "Embed privacy",
               dictionary: {
                 es: {
@@ -2464,8 +2753,8 @@
                 }
               }
             })
-          }), (0, _v3.jsx)(_v101.BokehTooltip, {
-            label: _v5 && _v6 ? _v6 : (0, _v25.translate)({
+          }), (0, _v3.jsx)(_v88.BokehTooltip, {
+            label: _v5 && _v6 ? _v6 : (0, _v24.translate)({
               singular: "Where can the video be embedded?",
               dictionary: {
                 es: {
@@ -2497,21 +2786,21 @@
               height: (0, _v6.rem)(16),
               width: (0, _v6.rem)(16),
               cursor: "pointer",
-              children: (0, _v3.jsx)(_v97.InfoCircle, {
+              children: (0, _v3.jsx)(_v87.InfoCircle, {
                 boxSize: (0, _v6.rem)(16),
                 color: "text-tertiary"
               })
             })
           })]
-        }), (0, _v3.jsxs)(_v16.Box, {
+        }), (0, _v3.jsxs)(_v15.Box, {
           width: "100%",
-          children: [(0, _v3.jsx)(_v16.Box, {
+          children: [(0, _v3.jsx)(_v15.Box, {
             position: "relative",
-            children: (0, _v3.jsx)(_v90.Select, {
+            children: (0, _v3.jsx)(_v92.Select, {
               onValueChange: _v0 => _v14(_v0.value[0]),
               items: _v17,
               withPortal: !1,
-              placeholder: (0, _v25.translate)({
+              placeholder: (0, _v24.translate)({
                 singular: "Select rating",
                 dictionary: {
                   es: {
@@ -2543,29 +2832,29 @@
               disabled: _v5,
               children: ({
                 label: _v0
-              }) => (0, _v3.jsx)(_v90.SelectItem, {
+              }) => (0, _v3.jsx)(_v92.SelectItem, {
                 display: "flex",
                 width: "100%",
-                children: (0, _v3.jsx)(_v101.BokehTooltip, {
+                children: (0, _v3.jsx)(_v88.BokehTooltip, {
                   shouldWrapChildren: !1,
                   placement: "bottom",
                   maxWidth: (0, _v6.rem)(300),
                   label: _v6,
                   isDisabled: !_v4 || _v4 && !_v6,
-                  children: (0, _v3.jsx)(_v90.SelectItemText, {
+                  children: (0, _v3.jsx)(_v92.SelectItemText, {
                     children: _v0
                   })
                 })
               })
             })
-          }), _v0 === _v99.EMBED_PRIVACY_SPECIFIC_DOMAINS ? (0, _v3.jsxs)(_v7.Flex, {
+          }), _v0 === _v100.EMBED_PRIVACY_SPECIFIC_DOMAINS ? (0, _v3.jsxs)(_v7.Flex, {
             position: "relative",
             direction: "column",
             width: "100%",
             marginTop: (0, _v6.rem)(8),
-            children: [(0, _v3.jsxs)(_v94.InputGroup, {
+            children: [(0, _v3.jsxs)(_v96.InputGroup, {
               size: "sm",
-              children: [(0, _v3.jsx)(_v66.Input, {
+              children: [(0, _v3.jsx)(_v65.Input, {
                 onChange: _v0 => {
                   _v9(_v0.target.value);
                 },
@@ -2575,10 +2864,10 @@
                 onKeyDown: _v0 => {
                   "Enter" === _v0.key && _v15();
                 }
-              }), (0, _v3.jsx)(_v95.InputRightElement, {
+              }), (0, _v3.jsx)(_v97.InputRightElement, {
                 cursor: _v13 ? "pointer" : "not-allowed",
                 onClick: _v13 ? _v15 : void 0,
-                children: (0, _v3.jsx)(_v98.PlusCircle, {
+                children: (0, _v3.jsx)(_v99.PlusCircle, {
                   color: _v13 ? "text-primary" : "text-secondary"
                 })
               })]
@@ -2586,20 +2875,20 @@
               flexWrap: "wrap",
               gap: (0, _v6.rem)(4),
               marginTop: (0, _v6.rem)(8),
-              children: _v1.map((_v0, _v1) => (0, _v3.jsxs)(_v93.Tag, {
+              children: _v1.map((_v0, _v1) => (0, _v3.jsxs)(_v95.Tag, {
                 size: "sm",
-                children: [(0, _v3.jsx)(_v93.TagLabel, {
+                children: [(0, _v3.jsx)(_v95.TagLabel, {
                   fontSize: (0, _v6.rem)(14),
                   children: _v0
-                }), !_v5 && (0, _v3.jsx)(_v93.TagCloseButton, {
+                }), !_v5 && (0, _v3.jsx)(_v95.TagCloseButton, {
                   onClick: () => _v16(_v0)
                 })]
               }, `${_v0}-idx:${_v1}`))
             })]
-          }, `domains-${_v1.length}`) : null, _v2 ? (0, _v3.jsx)(_v86.Alert, {
+          }, `domains-${_v1.length}`) : null, _v2 ? (0, _v3.jsx)(_v84.Alert, {
             marginTop: (0, _v6.rem)(8),
-            children: (0, _v3.jsx)(_v87.AlertDescription, {
-              children: (0, _v25.translate)({
+            children: (0, _v3.jsx)(_v85.AlertDescription, {
+              children: (0, _v24.translate)({
                 singular: "When link privacy is set to Private, the embedded event won’t be visible to everyone",
                 dictionary: {
                   es: {
@@ -2663,7 +2952,7 @@
         isDisabled: _v4,
         disabledTip: _v3,
         onPrivacySelect: _v10
-      }, `view-${_v6}`), _v6 === _v80.EStreamPrivacy.PASSWORD && (0, _v3.jsx)(_v107.EventPassword, {
+      }, `view-${_v6}`), _v6 === _v78.EStreamPrivacy.PASSWORD && (0, _v3.jsx)(_v107.EventPassword, {
         isDisabled: _v4,
         onChange: _v11,
         password: _v8
@@ -2674,133 +2963,150 @@
     _v111 = _v0.i(0);
   let _v112 = ["link", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "streamPrivacy.unlistedHash"];
   _v0.s(["PrivacySettings", 0, function ({
-    id: _v0 = (0, _v60.createLiveDomName)("privacy-settings"),
+    canUsePersonalizedViewerWatermarking: _v0 = !1,
+    canUseForensicWatermarking: _v1 = !1,
+    id: _v2 = (0, _v59.createLiveDomName)("privacy-settings"),
     eventSettingsContext: {
-      settings: _v1,
-      embedWhitelist: _v2,
+      settings: _v3,
+      embedWhitelist: _v4,
       actions: {
-        updateLiveEventSettings: _v3,
-        updateEmbedWhitelist: _v4
+        updateLiveEventSettings: _v5,
+        updateEmbedWhitelist: _v6
       }
     } = (0, _v4.useManager)(_v11.EventSettingsManager),
-    onlyShowStreamPrivacy: _v5 = !1
+    onlyShowStreamPrivacy: _v7 = !1
   }) {
-    let _v6 = _v1.value?.allowedPrivacies ?? [],
-      _v7 = _v1.value?.streamPrivacy?.view,
-      _v8 = _v1.value?.streamPrivacy?.embed,
-      _v9 = _v1.value?.streamPassword,
-      _v10 = _v1.value?.contentRating,
-      _v11 = (0, _v104.useIsLiveDemoSubscription)(),
+    let _v8 = _v3.value?.allowedPrivacies ?? [],
+      _v9 = _v3.value?.streamPrivacy?.view,
+      _v10 = _v3.value?.streamPrivacy?.embed,
+      _v11 = _v3.value?.streamPassword,
+      _v12 = _v3.value?.contentRating,
+      _v13 = (0, _v104.useIsLiveDemoSubscription)(),
       {
-        trackPrivacyChanged: _v12
+        trackPrivacyChanged: _v14
       } = (0, _v105.useViewPrivacyChangeTracking)(),
       {
-        trackLiveStreamPrivacyChanged: _v13
-      } = (0, _v14.useLiveStreamBroadcasterTracking)(),
-      _v14 = !!_v1.value?.fromShowcase,
-      _v15 = _v1.value?.album?.id,
-      _v16 = !_v14 && !_v6.find(_v0 => _v0 === _v7),
-      _v17 = (0, _v5.useMemo)(() => _v2.value || [], [_v2.value]),
-      _v18 = (0, _v5.useCallback)((_v0, _v1) => {
-        (_v7 !== _v0 || _v9 !== _v1) && (_v0 !== _v80.EStreamPrivacy.PASSWORD || _v1.length) && (_v3({
+        trackLiveStreamPrivacyChanged: _v15
+      } = (0, _v13.useLiveStreamBroadcasterTracking)(),
+      _v16 = !!_v3.value?.fromShowcase,
+      _v17 = _v3.value?.album?.id,
+      _v18 = !_v16 && !_v8.find(_v0 => _v0 === _v9),
+      _v19 = (0, _v5.useMemo)(() => _v4.value || [], [_v4.value]),
+      _v20 = (0, _v5.useCallback)((_v0, _v1) => {
+        (_v9 !== _v0 || _v11 !== _v1) && (_v0 !== _v78.EStreamPrivacy.PASSWORD || _v1.length) && _v5({
           streamPrivacy: {
             view: _v0
           },
-          streamPassword: _v0 === _v80.EStreamPrivacy.PASSWORD ? _v1 : void 0
+          streamPassword: _v0 === _v78.EStreamPrivacy.PASSWORD ? _v1 : void 0
         }, _v112).then(() => {
-          _v7 !== _v0 && (_v12({
+          _v9 !== _v0 && (_v14({
             entityType: "live_event",
-            previousPrivacy: _v7 ?? null,
+            previousPrivacy: _v9 ?? null,
             newPrivacy: _v0
-          }), _v13({
+          }), _v15({
             liveStreamPrivacyType: "link_privacy",
             liveStreamPrivacyValue: String(_v0)
           }));
-        }), _v80.EStreamPrivacy.PASSWORD);
-      }, [_v3, _v7, _v9, _v12, _v13]),
-      _v19 = (0, _v5.useCallback)((_v0, _v1) => {
-        _v8 !== _v0 && (_v3({
+        });
+      }, [_v5, _v9, _v11, _v14, _v15]),
+      _v21 = (0, _v5.useCallback)((_v0, _v1) => {
+        _v10 !== _v0 && (_v5({
           streamPrivacy: {
             embed: _v0
           }
-        }, _v112), _v80.EStreamPrivacy.PASSWORD, _v13({
+        }, _v112), _v15({
           liveStreamPrivacyType: "embed_privacy",
           liveStreamPrivacyValue: String(_v0)
-        }));
-        _v1 !== _v17 && _v4(_v1);
-      }, [_v8, _v17, _v3, _v4, _v7, _v13]),
-      _v20 = (0, _v5.useCallback)(_v0 => {
-        _v3({
+        })), _v1 !== _v19 && _v6(_v1);
+      }, [_v10, _v19, _v5, _v6, _v15]),
+      _v22 = (0, _v5.useCallback)(_v0 => {
+        _v5({
           contentRating: _v0
-        }), function (_v0 = !1) {}(_v7 === _v80.EStreamPrivacy.PASSWORD), _v13({
+        }), _v15({
           liveStreamPrivacyType: "content_rating",
           liveStreamPrivacyValue: JSON.stringify(_v0)
         });
-      }, [_v3, _v10, _v7, _v13]),
+      }, [_v5, _v15]),
       {
-        tooltip: _v21,
-        isDisabled: _v22
-      } = (0, _v106.useGetEditEmbedPrivacyDisabled)();
-    return (0, _v3.jsxs)(_v7.Flex, {
-      id: _v0,
+        tooltip: _v23,
+        isDisabled: _v24
+      } = (0, _v106.useGetEditEmbedPrivacyDisabled)(),
+      _v25 = (0, _v3.jsxs)(_v3.Fragment, {
+        children: [_v16 && _v17 ? (0, _v3.jsx)(_v84.Alert, {
+          children: (0, _v3.jsxs)(_v85.AlertDescription, {
+            margin: 0,
+            children: [_v111.sharedTranslations.showcasePrivacyNotice, " ", (0, _v3.jsx)(_v21.Text, {
+              href: _v103.vimeoConfig.PATH.SHOWCASE_MANAGE_URL(_v17),
+              target: "_blank",
+              variant: "body-md",
+              color: "blue.500",
+              textDecoration: "underline",
+              as: "a",
+              children: _v111.sharedTranslations.manageShowcase
+            })]
+          })
+        }) : null, _v18 ? (0, _v3.jsx)(_v84.Alert, {
+          children: (0, _v3.jsx)(_v85.AlertDescription, {
+            margin: 0,
+            children: _v111.sharedTranslations.eventPrivacyFrozen
+          })
+        }) : null]
+      }),
+      _v26 = _v9 && _v8 ? (0, _v3.jsx)(_v109, {
+        isDisabled: _v13 || _v16,
+        disabledTip: _v13 ? _v110.rtmpTranslations.viewPrivacyDemoDisabledTip : void 0,
+        privacy: _v9,
+        allowedPrivacies: _v8,
+        password: _v11,
+        onChange: (0, _v83.default)(_v20, 0)
+      }) : (0, _v3.jsx)(_v8.BokehSkeleton, {
+        height: (0, _v6.rem)(110),
+        borderRadius: (0, _v6.rem)(4)
+      });
+    return _v7 ? (0, _v3.jsxs)(_v7.Flex, {
+      id: _v2,
       direction: "column",
       maxWidth: "100%",
       width: "100%",
-      children: [_v14 && _v15 ? (0, _v3.jsx)(_v86.Alert, {
-        children: (0, _v3.jsxs)(_v87.AlertDescription, {
-          margin: 0,
-          children: [_v111.sharedTranslations.showcasePrivacyNotice, " ", (0, _v3.jsx)(_v22.Text, {
-            href: _v103.vimeoConfig.PATH.SHOWCASE_MANAGE_URL(_v15),
-            target: "_blank",
-            variant: "body-md",
-            color: "blue.500",
-            textDecoration: "underline",
-            as: "a",
-            children: _v111.sharedTranslations.manageShowcase
-          })]
-        })
-      }) : null, _v16 ? (0, _v3.jsx)(_v86.Alert, {
-        children: (0, _v3.jsx)(_v87.AlertDescription, {
-          margin: 0,
-          children: _v111.sharedTranslations.eventPrivacyFrozen
-        })
-      }) : null, _v7 && _v6 ? (0, _v3.jsx)(_v109, {
-        isDisabled: _v11 || _v14,
-        disabledTip: _v11 ? _v110.rtmpTranslations.viewPrivacyDemoDisabledTip : void 0,
-        privacy: _v7,
-        allowedPrivacies: _v6,
-        password: _v9,
-        onChange: (0, _v85.default)(_v18, 0)
-      }) : (0, _v3.jsx)(_v8.BokehSkeleton, {
-        height: (0, _v6.rem)(110),
-        borderRadius: (0, _v6.rem)(4),
-        marginBottom: (0, _v6.rem)(16)
-      }), !_v5 && (0, _v3.jsxs)(_v3.Fragment, {
-        children: [(0, _v3.jsx)(_v88.Divider, {
-          borderColor: "stroke",
-          margin: `${(0, _v6.rem)(24)} 0`
-        }), _v8 ? (0, _v3.jsx)(_v102, {
-          isDisabled: _v11 || _v14 || _v22,
-          isSelectDisabled: _v22,
-          disabledTip: _v11 ? _v110.rtmpTranslations.embedPrivacyDemoDisabledTip : _v22 ? _v21 : void 0,
-          embedPrivacy: _v8,
-          domains: _v17,
-          showNotice: _v7 === _v80.EStreamPrivacy.NOBODY,
-          onChange: _v19
-        }) : (0, _v3.jsx)(_v8.BokehSkeleton, {
-          height: (0, _v6.rem)(200),
-          borderRadius: (0, _v6.rem)(4)
-        }), (0, _v3.jsx)(_v88.Divider, {
-          borderColor: "stroke",
-          margin: `${(0, _v6.rem)(24)} 0`
-        }), _v10 ? (0, _v3.jsx)(_v92, {
-          contentRating: _v10,
-          isDisabled: !1,
-          onChange: _v20
+      gap: (0, _v6.rem)(32),
+      children: [_v25, (0, _v3.jsx)(_v7.Flex, {
+        direction: "column",
+        gap: (0, _v6.rem)(24),
+        children: _v26
+      })]
+    }) : (0, _v3.jsxs)(_v7.Flex, {
+      id: _v2,
+      direction: "column",
+      maxWidth: "100%",
+      width: "100%",
+      gap: (0, _v6.rem)(32),
+      children: [_v25, (0, _v3.jsxs)(_v7.Flex, {
+        direction: "column",
+        gap: (0, _v6.rem)(24),
+        children: [_v26, _v10 ? (0, _v3.jsx)(_v102, {
+          isDisabled: _v13 || _v16 || _v24,
+          isSelectDisabled: _v24,
+          disabledTip: _v13 ? _v110.rtmpTranslations.embedPrivacyDemoDisabledTip : _v24 ? _v23 : void 0,
+          embedPrivacy: _v10,
+          domains: _v19,
+          showNotice: _v9 === _v78.EStreamPrivacy.NOBODY,
+          onChange: _v21
         }) : (0, _v3.jsx)(_v8.BokehSkeleton, {
           height: (0, _v6.rem)(200),
           borderRadius: (0, _v6.rem)(4)
         })]
+      }), _v0 || _v1 ? (0, _v3.jsx)(_v90, {
+        canUsePersonalizedViewerWatermarking: _v0,
+        canUseForensicWatermarking: _v1,
+        isPersonalizedViewerWatermarkingEnabled: !0,
+        isForensicWatermarkingEnabled: !0
+      }) : null, _v12 ? (0, _v3.jsx)(_v94, {
+        contentRating: _v12,
+        isDisabled: !1,
+        onChange: _v22
+      }) : (0, _v3.jsx)(_v8.BokehSkeleton, {
+        height: (0, _v6.rem)(200),
+        borderRadius: (0, _v6.rem)(4)
       })]
     });
   }], 0);
