@@ -874,23 +874,23 @@
   _v0.s(["FacebookDestination", 0, function ({
     id: _v0 = (0, _v102.createDomName)("facebook-destination"),
     className: _v1 = (0, _v102.createDomName)("facebook-destination"),
-    isDisabled: _v2 = !1,
-    destinationsContext: {
-      destinations: {
-        facebook: _v3
-      },
-      connections: {
-        facebook: _v4
-      },
-      destinationsActions: _v5,
-      hasValidConnection: _v6,
-      destinationsConnectionActions: _v7
-    } = (0, _v15.useManager)(_v58),
-    sessionStatusContext: {
-      isProvisionUpdating: _v8
-    } = (0, _v15.useManager)(_v86.ComposerSessionStatusManager)
+    isDisabled: _v2 = !1
   }) {
     let {
+        destinations: {
+          facebook: _v3
+        },
+        connections: {
+          facebook: _v4
+        },
+        destinationsActions: _v5,
+        hasValidConnection: _v6,
+        destinationsConnectionActions: _v7
+      } = (0, _v15.useManager)(_v58),
+      {
+        isProvisionUpdating: _v8
+      } = (0, _v15.useManager)(_v86.ComposerSessionStatusManager),
+      {
         trackLiveStreamDestinationActionClicked: _v9
       } = (0, _v104.useLiveStreamBroadcasterTracking)(),
       {
@@ -1112,21 +1112,21 @@
   }];
   function _v108({
     id: _v0 = (0, _v65.createLiveDomName)("facebook-settings-modal"),
-    className: _v1 = (0, _v65.createLiveDomName)("facebook-settings-modal"),
-    destinationsContext: {
-      destinations: {
-        facebook: _v2
-      },
-      connections: {
-        facebook: _v3
-      },
-      destinationsActions: _v4
-    } = (0, _v15.useManager)(_v58),
-    composerSessionStatusContext: {
-      liveComposerStatuses: _v5
-    } = (0, _v15.useManager)(_v86.ComposerSessionStatusManager)
+    className: _v1 = (0, _v65.createLiveDomName)("facebook-settings-modal")
   }) {
-    let [_v6, _v7] = (0, _v60.useState)(null),
+    let {
+        destinations: {
+          facebook: _v2
+        },
+        connections: {
+          facebook: _v3
+        },
+        destinationsActions: _v4
+      } = (0, _v15.useManager)(_v58),
+      {
+        liveComposerStatuses: _v5
+      } = (0, _v15.useManager)(_v86.ComposerSessionStatusManager),
+      [_v6, _v7] = (0, _v60.useState)(null),
       [_v8, _v9] = (0, _v60.useState)(!1);
     (0, _v60.useEffect)(() => {
       _v2?.value && _v3?.value?.destinations && null === _v6 && _v7(_v3.value.destinations.map(_v0 => {
@@ -1342,16 +1342,16 @@
   }
   function _v111({
     id: _v0 = (0, _v65.createLiveDomName)("linkedin-in-connect-modal"),
-    className: _v1 = (0, _v65.createLiveDomName)("linkedin-in-connect-modal"),
-    destinationsContext: {
-      destinationsActions: _v2,
-      destinationsConnectionActions: _v3,
-      connections: {
-        linkedin: _v4
-      }
-    } = (0, _v15.useManager)(_v58)
+    className: _v1 = (0, _v65.createLiveDomName)("linkedin-in-connect-modal")
   }) {
-    let [_v5, _v6] = (0, _v60.useState)(_v30.PROFILE),
+    let {
+        destinationsActions: _v2,
+        destinationsConnectionActions: _v3,
+        connections: {
+          linkedin: _v4
+        }
+      } = (0, _v15.useManager)(_v58),
+      [_v5, _v6] = (0, _v60.useState)(_v30.PROFILE),
       _v7 = (0, _v60.useCallback)(_v0 => {
         _v6(_v0);
       }, [_v6]),
@@ -1523,14 +1523,14 @@
   function _v122({
     setScheduledAt: _v0,
     setProviderVideoId: _v1,
-    destinationVideos: _v2,
-    destinationsContext: {
-      destinations: {
-        linkedin: _v3
-      }
-    } = (0, _v15.useManager)(_v58)
+    destinationVideos: _v2
   }) {
-    let _v4 = _v3?.value?.[0],
+    let {
+        destinations: {
+          linkedin: _v3
+        }
+      } = (0, _v15.useManager)(_v58),
+      _v4 = _v3?.value?.[0],
       [_v5, _v6] = (0, _v60.useState)(() => _v4 ? _v2.find(_v0 => _v0.id === _v4.providerVideoId) : null),
       [_v7, _v8] = (0, _v60.useState)(_v4?.scheduledAt ? "existing" : "new"),
       [_v9, _v10] = (0, _v60.useState)(_v112.DateTime.local().plus({
@@ -1650,19 +1650,19 @@
   }
   function _v123({
     id: _v0 = (0, _v102.createDomName)("linkedin-settings-modal"),
-    className: _v1 = (0, _v102.createDomName)("linkedin-settings-modal"),
-    destinationsContext: {
-      destinations: {
-        linkedin: _v2
-      },
-      connections: {
-        linkedin: _v3
-      },
-      destinationsActions: _v4,
-      destinationsConnectionActions: _v5
-    } = (0, _v15.useManager)(_v58)
+    className: _v1 = (0, _v102.createDomName)("linkedin-settings-modal")
   }) {
-    let _v6 = _v3?.value?.destinations[0],
+    let {
+        destinations: {
+          linkedin: _v2
+        },
+        connections: {
+          linkedin: _v3
+        },
+        destinationsActions: _v4,
+        destinationsConnectionActions: _v5
+      } = (0, _v15.useManager)(_v58),
+      _v6 = _v3?.value?.destinations[0],
       _v7 = _v2?.value?.find(_v0 => _v0.providerDestinationId === _v6?.destinationId),
       [_v8, _v9] = (0, _v60.useState)(_v7?.providerDestinationId ?? _v6?.destinationId ?? null),
       _v10 = _v3.value?.destinations.find(_v0 => _v0.destinationId === _v8)?.videos ?? [],
@@ -1832,18 +1832,18 @@
     _v126 = _v0.i(0);
   function _v127({
     id: _v0 = (0, _v65.createLiveDomName)("ott-settings-modal"),
-    className: _v1 = (0, _v65.createLiveDomName)("ott-settings-modal"),
-    destinationsContext: {
-      destinations: {
-        ott: _v2
-      },
-      connections: {
-        ott: _v3
-      },
-      destinationsActions: _v4
-    } = (0, _v15.useManager)(_v58)
+    className: _v1 = (0, _v65.createLiveDomName)("ott-settings-modal")
   }) {
-    let [_v5, _v6] = (0, _v60.useState)(null),
+    let {
+        destinations: {
+          ott: _v2
+        },
+        connections: {
+          ott: _v3
+        },
+        destinationsActions: _v4
+      } = (0, _v15.useManager)(_v58),
+      [_v5, _v6] = (0, _v60.useState)(null),
       [_v7, _v8] = (0, _v60.useState)(!1);
     (0, _v60.useEffect)(() => {
       _v2?.value && _v3?.value?.destinations && null === _v5 ? _v6(_v3.value.destinations.map(_v0 => {
@@ -2017,15 +2017,15 @@
   function _v131({
     className: _v0,
     destinationId: _v1,
-    type: _v2,
-    destinationsContext: {
-      destinations: {
-        customRtmp: _v3
-      },
-      destinationsActions: _v4
-    } = (0, _v15.useManager)(_v58)
+    type: _v2
   }) {
-    let _v5 = _v1 ? _v3.value?.find(_v0 => _v0.id === _v1) : null,
+    let {
+        destinations: {
+          customRtmp: _v3
+        },
+        destinationsActions: _v4
+      } = (0, _v15.useManager)(_v58),
+      _v5 = _v1 ? _v3.value?.find(_v0 => _v0.id === _v1) : null,
       [_v6, _v7] = (0, _v60.useState)(_v5?.displayName ?? ""),
       [_v8, _v9] = (0, _v60.useState)(_v5?.streamKey ?? ""),
       [_v10, _v11] = (0, _v60.useState)(_v5?.streamUrl ?? ""),
@@ -2143,18 +2143,18 @@
   }];
   function _v134({
     id: _v0 = (0, _v102.createDomName)("youtube-settings-modal"),
-    className: _v1 = (0, _v102.createDomName)("youtube-settings-modal"),
-    destinationsContext: {
-      destinations: {
-        youtube: _v2
-      },
-      connections: {
-        youtube: _v3
-      },
-      destinationsActions: _v4
-    } = (0, _v15.useManager)(_v58)
+    className: _v1 = (0, _v102.createDomName)("youtube-settings-modal")
   }) {
-    let _v5 = (0, _v132.useSimpleNotification)(),
+    let {
+        destinations: {
+          youtube: _v2
+        },
+        connections: {
+          youtube: _v3
+        },
+        destinationsActions: _v4
+      } = (0, _v15.useManager)(_v58),
+      _v5 = (0, _v132.useSimpleNotification)(),
       _v6 = _v2.isLoading || _v3.isLoading,
       _v7 = _v3?.value?.destinations[0],
       _v8 = _v2?.value?.find(_v0 => _v0.providerDestinationId === _v7?.destinationId),
@@ -2283,14 +2283,14 @@
     })
   };
   _v0.s(["DestinationModals", 0, function ({
-    id: _v0 = (0, _v65.createLiveDomName)("destinations-modal"),
-    destinationsContext: {
-      activeModal: _v1,
-      modalState: _v2,
-      destinationsActions: _v3
-    } = (0, _v15.useManager)(_v58)
+    id: _v0 = (0, _v65.createLiveDomName)("destinations-modal")
   }) {
-    let _v4 = (0, _v60.useMemo)(() => _v135[_v1](_v2), [_v1, _v2]);
+    let {
+        activeModal: _v1,
+        modalState: _v2,
+        destinationsActions: _v3
+      } = (0, _v15.useManager)(_v58),
+      _v4 = (0, _v60.useMemo)(() => _v135[_v1](_v2), [_v1, _v2]);
     return (0, _v59.jsxs)(_v70.Modal, {
       id: _v0,
       size: "md",
@@ -2307,23 +2307,23 @@
   _v0.s(["LinkedinDestination", 0, function ({
     id: _v0 = (0, _v102.createDomName)("linkedin-destination"),
     className: _v1 = (0, _v102.createDomName)("linkedin-destination"),
-    isDisabled: _v2 = !1,
-    destinationsContext: {
-      destinations: {
-        linkedin: _v3
-      },
-      connections: {
-        linkedin: _v4
-      },
-      destinationsActions: _v5,
-      hasValidConnection: _v6
-    } = (0, _v15.useManager)(_v58),
-    sessionStatusContext: {
-      liveComposerStatusGetters: _v7,
-      isProvisionUpdating: _v8
-    } = (0, _v15.useManager)(_v86.ComposerSessionStatusManager)
+    isDisabled: _v2 = !1
   }) {
     let {
+        destinations: {
+          linkedin: _v3
+        },
+        connections: {
+          linkedin: _v4
+        },
+        destinationsActions: _v5,
+        hasValidConnection: _v6
+      } = (0, _v15.useManager)(_v58),
+      {
+        liveComposerStatusGetters: _v7,
+        isProvisionUpdating: _v8
+      } = (0, _v15.useManager)(_v86.ComposerSessionStatusManager),
+      {
         trackLiveStreamDestinationActionClicked: _v9
       } = (0, _v104.useLiveStreamBroadcasterTracking)(),
       {
@@ -2560,12 +2560,12 @@
   function _v143({
     className: _v0 = (0, _v65.createLiveDomName)("ott-channel"),
     destination: _v1,
-    isDisabled: _v2,
-    destinationsContext: {
-      destinationsActions: _v3
-    } = (0, _v15.useManager)(_v58)
+    isDisabled: _v2
   }) {
     let {
+        destinationsActions: _v3
+      } = (0, _v15.useManager)(_v58),
+      {
         isOpen: _v4,
         onClose: _v5,
         onToggle: _v6
@@ -2610,22 +2610,22 @@
   _v0.s(["OttDestination", 0, function ({
     id: _v0 = (0, _v102.createDomName)("ott-destination"),
     className: _v1 = (0, _v102.createDomName)("ott-destination"),
-    isDisabled: _v2 = !1,
-    context: {
-      liveComposerStatusGetters: _v3
-    } = (0, _v15.useManager)(_v86.ComposerSessionStatusManager),
-    destinationsContext: {
-      destinations: {
-        ott: _v4
-      },
-      connections: {
-        ott: _v5
-      },
-      destinationsActions: _v6,
-      activeModal: _v7
-    } = (0, _v15.useManager)(_v58)
+    isDisabled: _v2 = !1
   }) {
     let {
+        liveComposerStatusGetters: _v3
+      } = (0, _v15.useManager)(_v86.ComposerSessionStatusManager),
+      {
+        destinations: {
+          ott: _v4
+        },
+        connections: {
+          ott: _v5
+        },
+        destinationsActions: _v6,
+        activeModal: _v7
+      } = (0, _v15.useManager)(_v58),
+      {
         trackLiveStreamDestinationActionClicked: _v8
       } = (0, _v104.useLiveStreamBroadcasterTracking)(),
       {
@@ -2908,18 +2908,18 @@
     className: _v1 = (0, _v65.createLiveDomName)("custom-rtmp-destination"),
     isDisabled: _v2 = !1,
     isRestricted: _v3 = !1,
-    type: _v4,
-    destinationsContext: {
-      destinationsActions: _v5,
-      destinations: {
-        customRtmp: _v6
-      }
-    } = (0, _v15.useManager)(_v58),
-    liveComposerContext: {
-      liveComposerStatuses: _v7
-    } = (0, _v15.useManager)(_v86.ComposerSessionStatusManager)
+    type: _v4
   }) {
     let {
+        destinationsActions: _v5,
+        destinations: {
+          customRtmp: _v6
+        }
+      } = (0, _v15.useManager)(_v58),
+      {
+        liveComposerStatuses: _v7
+      } = (0, _v15.useManager)(_v86.ComposerSessionStatusManager),
+      {
         trackLiveStreamDestinationActionClicked: _v8
       } = (0, _v104.useLiveStreamBroadcasterTracking)(),
       _v9 = (0, _v101.useIsLiveDemoSubscription)(),
@@ -3039,14 +3039,14 @@
     _v159 = _v0.i(0);
   _v0.s(["ShowcaseDestination", 0, function ({
     id: _v0 = (0, _v65.createLiveDomName)("showcase-destination"),
-    className: _v1 = (0, _v65.createLiveDomName)("showcase-destination"),
-    eventSettingsContext: {
-      settings: {
-        value: _v2
-      }
-    } = (0, _v15.useManager)(_v157.EventSettingsManager)
+    className: _v1 = (0, _v65.createLiveDomName)("showcase-destination")
   }) {
     let {
+        settings: {
+          value: _v2
+        }
+      } = (0, _v15.useManager)(_v157.EventSettingsManager),
+      {
         isOpen: _v3,
         onClose: _v4,
         onToggle: _v5

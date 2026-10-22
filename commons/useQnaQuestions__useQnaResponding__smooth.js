@@ -62,15 +62,15 @@
   var _v10 = _v0.i(0);
   function _v11({
     isActive: _v0,
-    isManagementAccessed: _v1,
-    qnaContext: {
-      activeSession: _v2,
-      isEventModerated: _v3,
-      activeSessionQuestions: _v4,
-      activeSessionPendingQuestions: _v5
-    } = (0, _v2.useManager)(_v6.QnAManager)
+    isManagementAccessed: _v1
   }) {
     let {
+        activeSession: _v2,
+        isEventModerated: _v3,
+        activeSessionQuestions: _v4,
+        activeSessionPendingQuestions: _v5
+      } = (0, _v2.useManager)(_v6.QnAManager),
+      {
         initialState: {
           renderAt: _v6
         }

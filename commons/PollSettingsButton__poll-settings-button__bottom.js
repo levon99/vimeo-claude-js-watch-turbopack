@@ -22,14 +22,14 @@
     id: _v0 = (0, _v13.createDomName)("poll-settings-button"),
     className: _v1 = (0, _v13.createDomName)("poll-settings-button"),
     withInteractionSubmenu: _v2 = !1,
-    buttonIcon: _v3,
-    pollContext: {
-      pollsHistory: _v4
-    } = (0, _v2.useManager)(_v11.PollManager, ({
-      pollsHistory: _v0
-    }) => [_v0])
+    buttonIcon: _v3
   }) {
     let {
+        pollsHistory: _v4
+      } = (0, _v2.useManager)(_v11.PollManager, ({
+        pollsHistory: _v0
+      }) => [_v0]),
+      {
         triggerRef: _v5,
         contentRef: _v6,
         isOpen: _v7,

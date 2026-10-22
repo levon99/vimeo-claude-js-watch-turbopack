@@ -1510,36 +1510,35 @@
   max-height: ${(0, _v22.rem)(600)};
   overflow-y: auto;
 `;
-  function _v103({
-    interviewContext: {
-      config: _v0
-    } = (0, _v16.useManager)(_v84),
-    studioContext: {
-      studioPreview: _v1,
-      rtc: _v2,
-      signaling: _v3
-    } = (0, _v16.useManager)(_v101),
-    studioDebugContext: {
-      isModalEnabled: _v4,
-      info: _v5,
-      isRTCStatObserving: _v6,
-      stats: _v7,
-      debugActions: _v8
-    } = (0, _v16.useManager)(_v56),
-    debugContext: {
-      debugActions: _v9,
-      isFileLoggingEnabled: _v10
-    } = (0, _v16.useManager)(_v21.DebugControlManager),
-    mediaContext: {
-      isScreenSharing: _v11,
-      activeAudioDeviceId: _v12,
-      activeVideoDeviceId: _v13,
-      audioMuted: _v14,
-      videoMuted: _v15,
-      localPreview: _v16
-    } = (0, _v16.useManager)(_v95)
-  }) {
-    let _v17 = (0, _v17.useCallback)(() => {
+  function _v103() {
+    let {
+        config: _v0
+      } = (0, _v16.useManager)(_v84),
+      {
+        studioPreview: _v1,
+        rtc: _v2,
+        signaling: _v3
+      } = (0, _v16.useManager)(_v101),
+      {
+        isModalEnabled: _v4,
+        info: _v5,
+        isRTCStatObserving: _v6,
+        stats: _v7,
+        debugActions: _v8
+      } = (0, _v16.useManager)(_v56),
+      {
+        debugActions: _v9,
+        isFileLoggingEnabled: _v10
+      } = (0, _v16.useManager)(_v21.DebugControlManager),
+      {
+        isScreenSharing: _v11,
+        activeAudioDeviceId: _v12,
+        activeVideoDeviceId: _v13,
+        audioMuted: _v14,
+        videoMuted: _v15,
+        localPreview: _v16
+      } = (0, _v16.useManager)(_v95),
+      _v17 = (0, _v17.useCallback)(() => {
         _v9.setFileReporting(!1);
       }, []),
       _v18 = (0, _v17.useCallback)(() => {
@@ -2758,16 +2757,16 @@
 `;
   function _v125({
     onSave: _v0,
-    onCancel: _v1,
-    interviewMediaContext: {
-      activeVideoDeviceId: _v2,
-      activeAudioDeviceId: _v3,
-      audioDevices: _v4,
-      videoDevices: _v5,
-      mediaError: _v6
-    } = (0, _v16.useManager)(_v95)
+    onCancel: _v1
   }) {
-    let [_v7, _v8] = (0, _v17.useState)(_v3),
+    let {
+        activeVideoDeviceId: _v2,
+        activeAudioDeviceId: _v3,
+        audioDevices: _v4,
+        videoDevices: _v5,
+        mediaError: _v6
+      } = (0, _v16.useManager)(_v95),
+      [_v7, _v8] = (0, _v17.useState)(_v3),
       [_v9, _v10] = (0, _v17.useState)(_v2),
       _v11 = _v6 === _v61.EMediaError.DEVICE_NOT_AVAILABLE,
       _v12 = (0, _v17.useCallback)(() => {
@@ -2872,23 +2871,22 @@
     top: ${(0, _v22.rem)(-1)};
   }
 `;
-  function _v128({
-    interviewMediaContext: {
-      audioMuted: _v0,
-      videoMuted: _v1,
-      isScreenSharing: _v2,
-      isLocalAudioLoading: _v3,
-      isLocalVideoLoading: _v4,
-      mediaActions: _v5
-    } = (0, _v16.useManager)(_v95),
-    debugControlContext: {
-      isEnabled: _v6
-    } = (0, _v16.useManager)(_v21.DebugControlManager),
-    studioDebugContext: {
-      debugActions: _v7
-    } = (0, _v16.useManager)(_v56)
-  }) {
-    let [_v8, _v9] = (0, _v17.useState)(!1),
+  function _v128() {
+    let {
+        audioMuted: _v0,
+        videoMuted: _v1,
+        isScreenSharing: _v2,
+        isLocalAudioLoading: _v3,
+        isLocalVideoLoading: _v4,
+        mediaActions: _v5
+      } = (0, _v16.useManager)(_v95),
+      {
+        isEnabled: _v6
+      } = (0, _v16.useManager)(_v21.DebugControlManager),
+      {
+        debugActions: _v7
+      } = (0, _v16.useManager)(_v56),
+      [_v8, _v9] = (0, _v17.useState)(!1),
       _v10 = (0, _v17.useCallback)(_v0 => {
         _v83(!0), _v9(!1), _v5.setActiveDevices(_v0);
       }, []),
@@ -2991,19 +2989,18 @@
     background-color: ${_v25.bokehTheme.colors.red["600"]};
   }
 `;
-  function _v133({
-    interviewContext: {
-      isJoined: _v0,
-      isOnAir: _v1,
-      interviewActions: _v2
-    } = (0, _v16.useManager)(_v84),
-    studioContext: {
-      rtc: _v3
-    } = (0, _v16.useManager)(_v101, ({
-      rtc: _v0
-    }) => [_v0])
-  }) {
-    let [_v4, _v5] = (0, _v17.useState)(_v73.LOCAL_PREVIEW),
+  function _v133() {
+    let {
+        isJoined: _v0,
+        isOnAir: _v1,
+        interviewActions: _v2
+      } = (0, _v16.useManager)(_v84),
+      {
+        rtc: _v3
+      } = (0, _v16.useManager)(_v101, ({
+        rtc: _v0
+      }) => [_v0]),
+      [_v4, _v5] = (0, _v17.useState)(_v73.LOCAL_PREVIEW),
       _v6 = (0, _v17.useMemo)(() => ({
         [_v73.LOCAL_PREVIEW]: _v107.localPreview,
         [_v73.WAITING_FOR_HOST]: _v107.waitingForHost,
@@ -3295,25 +3292,24 @@
   padding: ${(0, _v22.rem)(16)};
   align-items: center;
 `;
-  function _v150({
-    mediaContext: {
-      localPreview: _v0,
-      mediaError: _v1,
-      isScreenSharing: _v2
-    } = (0, _v16.useManager)(_v95),
-    interviewContext: {
-      interviewActions: _v3,
-      username: _v4,
-      config: _v5
-    } = (0, _v16.useManager)(_v84)
-  }) {
-    let _v6 = (0, _v17.useCallback)(() => {
-      _v71.FatalAttraction.trackClick({
-        container: _v74,
-        component: "local_preview_guest",
-        keyword: "join"
-      }), _v3.joinInterview();
-    }, [_v3]);
+  function _v150() {
+    let {
+        localPreview: _v0,
+        mediaError: _v1,
+        isScreenSharing: _v2
+      } = (0, _v16.useManager)(_v95),
+      {
+        interviewActions: _v3,
+        username: _v4,
+        config: _v5
+      } = (0, _v16.useManager)(_v84),
+      _v6 = (0, _v17.useCallback)(() => {
+        _v71.FatalAttraction.trackClick({
+          container: _v74,
+          component: "local_preview_guest",
+          keyword: "join"
+        }), _v3.joinInterview();
+      }, [_v3]);
     return (0, _v10.jsxs)(_v148, {
       children: [(0, _v10.jsx)(_v133, {}), (0, _v10.jsxs)(_v149, {
         children: [(0, _v10.jsx)(_v147, {
@@ -3629,14 +3625,13 @@
   display: flex;
   justify-content: center;
 `;
-  function _v170({
-    studioContext: {
-      chatMessagesHistory: _v0
-    } = (0, _v16.useManager)(_v101, ({
-      chatMessagesHistory: _v0
-    }) => [_v0])
-  }) {
-    let [_v1, _v2] = (0, _v17.useState)(0),
+  function _v170() {
+    let {
+        chatMessagesHistory: _v0
+      } = (0, _v16.useManager)(_v101, ({
+        chatMessagesHistory: _v0
+      }) => [_v0]),
+      [_v1, _v2] = (0, _v17.useState)(0),
       _v3 = (0, _v17.useRef)(null),
       _v4 = _v0.length > 0,
       _v5 = (0, _v17.useCallback)(() => {
@@ -3708,13 +3703,12 @@
     })`
   background: rgba(255, 255, 255, 0.1);
 `;
-  function _v175({
-    studioContext: {
-      studioActions: _v0,
-      signaling: _v1
-    } = (0, _v16.useManager)(_v101)
-  }) {
-    let [_v2, _v3] = (0, _v17.useState)(""),
+  function _v175() {
+    let {
+        studioActions: _v0,
+        signaling: _v1
+      } = (0, _v16.useManager)(_v101),
+      [_v2, _v3] = (0, _v17.useState)(""),
       [_v4, _v5] = (0, _v17.useState)(!1),
       _v6 = (0, _v17.useRef)(null),
       _v7 = (0, _v17.useRef)(null),
@@ -3963,21 +3957,20 @@
     })`
   position: absolute;
 `;
-  function _v191({
-    mediaContext: {
-      isScreenSharing: _v0,
-      localPreview: _v1,
-      mediaError: _v2
-    } = (0, _v16.useManager)(_v95),
-    interviewContext: {
-      username: _v3
-    } = (0, _v16.useManager)(_v84),
-    studioContext: {
-      studioPreview: _v4,
-      rtc: _v5
-    } = (0, _v16.useManager)(_v101)
-  }) {
-    let _v6 = (0, _v17.useRef)(null),
+  function _v191() {
+    let {
+        isScreenSharing: _v0,
+        localPreview: _v1,
+        mediaError: _v2
+      } = (0, _v16.useManager)(_v95),
+      {
+        username: _v3
+      } = (0, _v16.useManager)(_v84),
+      {
+        studioPreview: _v4,
+        rtc: _v5
+      } = (0, _v16.useManager)(_v101),
+      _v6 = (0, _v17.useRef)(null),
       _v7 = (0, _v17.useRef)(null),
       _v8 = _v5 !== _v48.ERTCConnectionState.CONNECTED && _v5 !== _v48.ERTCConnectionState.NEW;
     return !function (_v0, _v1, _v2 = {}) {
@@ -4029,18 +4022,17 @@
       }), (0, _v10.jsx)(_v181, {})]
     });
   }
-  function _v192({
-    debugControlContext: {
-      isEnabled: _v0
-    } = (0, _v16.useManager)(_v21.DebugControlManager, ({
-      isEnabled: _v0
-    }) => [_v0]),
-    interviewContext: {
-      isJoined: _v1
-    } = (0, _v16.useManager)(_v84, ({
-      isJoined: _v0
-    }) => [_v0])
-  }) {
+  function _v192() {
+    let {
+        isEnabled: _v0
+      } = (0, _v16.useManager)(_v21.DebugControlManager, ({
+        isEnabled: _v0
+      }) => [_v0]),
+      {
+        isJoined: _v1
+      } = (0, _v16.useManager)(_v84, ({
+        isJoined: _v0
+      }) => [_v0]);
     return (0, _v10.jsxs)(_v20.DarkMode, {
       children: [_v1 ? (0, _v10.jsx)(_v191, {}) : (0, _v10.jsx)(_v150, {}), _v0 ? (0, _v10.jsx)(_v103, {}) : null]
     });

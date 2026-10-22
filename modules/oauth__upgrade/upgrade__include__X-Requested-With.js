@@ -875,19 +875,19 @@
             singular: "Audience chat",
             dictionary: {
               es: {
-                singular: "Chat para los espectadores"
+                singular: "Chat de la audiencia"
               },
               "de-DE": {
-                singular: "Publikum-Chat"
+                singular: "Zuschauer-Chat"
               },
               "fr-FR": {
-                singular: "Fenêtre de discussion"
+                singular: "Chat public"
               },
               "ja-JP": {
                 singular: "視聴者チャット"
               },
               "ko-KR": {
-                singular: "시청자 채팅"
+                singular: "관객 채팅"
               },
               "pt-BR": {
                 singular: "Chat com o público"

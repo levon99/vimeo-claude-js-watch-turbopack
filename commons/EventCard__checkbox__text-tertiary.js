@@ -63,6 +63,8 @@
       title: _v0,
       subtitle: _v1,
       titleStyles: _v14,
+      href: _v3,
+      shouldUseNextLink: !1,
       editableTitle: _v5,
       isEditingContentTitle: _v6
     })]

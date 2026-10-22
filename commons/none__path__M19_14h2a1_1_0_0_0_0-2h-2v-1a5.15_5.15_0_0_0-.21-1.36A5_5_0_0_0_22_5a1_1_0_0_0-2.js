@@ -38,15 +38,15 @@
     _v19 = _v0.i(0);
   function _v20({
     id: _v0 = (0, _v18.createDomName)("live-composer-debugging-options"),
-    className: _v1 = (0, _v18.createDomName)("live-composer-debugging-options"),
-    debugContext: {
-      isEnabled: _v2,
-      isLoggingEnabled: _v3,
-      isFileLoggingEnabled: _v4,
-      debugActions: _v5
-    } = (0, _v4.useManager)(_v16.DebugControlManager)
+    className: _v1 = (0, _v18.createDomName)("live-composer-debugging-options")
   }) {
-    let _v6 = (0, _v5.useMemo)(() => new _v12.Logger("DBG"), []),
+    let {
+        isEnabled: _v2,
+        isLoggingEnabled: _v3,
+        isFileLoggingEnabled: _v4,
+        debugActions: _v5
+      } = (0, _v4.useManager)(_v16.DebugControlManager),
+      _v6 = (0, _v5.useMemo)(() => new _v12.Logger("DBG"), []),
       _v7 = (0, _v4.useScope)(),
       _v8 = (0, _v17.useCanToggleDebugTools)(),
       _v9 = (0, _v5.useCallback)(() => _v5.setDebugState(!_v2), [_v5, _v2]),

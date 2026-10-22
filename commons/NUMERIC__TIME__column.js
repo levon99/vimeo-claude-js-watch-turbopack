@@ -103,12 +103,12 @@
     _v26 = _v0.i(0);
   _v0.s(["AnalyticsTab", 0, function ({
     id: _v0 = (0, _v25.createLiveDomName)("analytics-tab"),
-    className: _v1 = (0, _v25.createLiveDomName)("analytics-tab"),
-    composerSessionStatsContext: {
-      stats: _v2
-    } = (0, _v3.useManager)(_v14.ComposerSessionStatsManager)
+    className: _v1 = (0, _v25.createLiveDomName)("analytics-tab")
   }) {
-    let _v3 = (0, _v13.useScrollbarStyles)();
+    let {
+        stats: _v2
+      } = (0, _v3.useManager)(_v14.ComposerSessionStatsManager),
+      _v3 = (0, _v13.useScrollbarStyles)();
     return (0, _v2.jsxs)(_v5.Box, {
       id: _v0,
       className: _v1,

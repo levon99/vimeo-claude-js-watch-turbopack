@@ -1109,6 +1109,7 @@
         children: (0, _v1.jsx)(_v72, {
           isShowing: _v3.isShowing,
           attribution: _v3.attribution,
+          originUrl: _v3.originUrl,
           type: _v3.type,
           onDismiss: _v6,
           xsrft: _v2?.xsrft || "",

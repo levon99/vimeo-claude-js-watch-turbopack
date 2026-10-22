@@ -33,13 +33,15 @@
         _v5.current || (_v5.current = !0, _v6({
           isShowing: !0,
           type: _v1,
+          originUrl: (0, _v2.captureAuthOriginUrl)() ?? void 0,
           attribution: void 0 === _v0 ? (0, _v2.adoptAuthAttribution)("", _v1, "modal") : _v2(_v0, _v1)
         }));
       }, [_v6, _v2, _v0, _v1]),
       _v8 = (0, _v1.useCallback)(() => {
         _v5.current = !1, _v6({
           isShowing: !1,
-          attribution: void 0
+          attribution: void 0,
+          originUrl: void 0
         });
       }, [_v6]);
     return {

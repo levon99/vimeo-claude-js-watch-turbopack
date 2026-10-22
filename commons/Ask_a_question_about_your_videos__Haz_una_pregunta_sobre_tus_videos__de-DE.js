@@ -817,13 +817,16 @@
         [_v11, _v12] = (0, _v3.useState)(!1),
         [_v13, _v14] = (0, _v3.useState)(""),
         _v15 = (0, _v39.routeSearchScope)(_v4.asPath, _v4.isReady),
-        [_v16, _v17] = (0, _v3.useState)(),
-        _v18 = _v16 && _v16.from === _v15 ? _v16.scope : _v15 ?? "library",
-        _v19 = (0, _v3.useCallback)(_v0 => _v17({
+        _v16 = _v4.query.q,
+        _v17 = (Array.isArray(_v16) ? _v16[0] : _v16) ?? "",
+        _v18 = null !== _v15 && "" !== _v17,
+        [_v19, _v20] = (0, _v3.useState)(),
+        _v21 = _v19 && _v19.from === _v15 ? _v19.scope : _v15 ?? "library",
+        _v22 = (0, _v3.useCallback)(_v0 => _v20({
           scope: _v0,
           from: _v15
         }), [_v15]),
-        _v20 = (() => {
+        _v23 = (() => {
           let _v0 = (0, _v10.useRouter)(),
             _v1 = (0, _v3.useContext)(_v7.ViewerContext),
             {
@@ -868,22 +871,48 @@
             })
           } : null;
         })(),
-        [_v21, _v22] = (0, _v3.useState)(!1),
-        _v23 = (0, _v3.useRef)(null),
-        [_v24, _v25] = (0, _v3.useState)(0),
+        [_v24, _v25] = (0, _v3.useState)(!1),
         _v26 = (0, _v3.useRef)(null),
-        [_v27, _v28] = (0, _v3.useState)("auto"),
+        [_v27, _v28] = (0, _v3.useState)(0),
+        _v29 = (0, _v3.useRef)(null),
+        [_v30, _v31] = (0, _v3.useState)("auto"),
         {
           capabilities: {
-            hasPublicSearchDisabled: _v29 = !0
+            hasPublicSearchDisabled: _v32 = !0
           }
         } = (0, _v36.useCapability)(["hasPublicSearchDisabled"], _v6?.teamUser?.ownerId),
-        _v30 = (0, _v39.isPublicSearchAvailable)(_v29, _v6),
-        [_v31, _v32] = (0, _v3.useState)([]),
-        _v33 = _v13.trim().toLowerCase(),
-        _v34 = _v33.length > 0,
-        _v35 = "vimeo" === _v18,
-        _v36 = _v35 ? (0, _v37.translate)({
+        _v33 = (0, _v39.isPublicSearchAvailable)(_v32, _v6),
+        [_v34, _v35] = (0, _v3.useState)([]),
+        _v36 = _v13.trim().toLowerCase(),
+        _v37 = _v36.length > 0,
+        _v38 = "vimeo" === _v21,
+        _v39 = (0, _v37.translate)({
+          singular: "Search Library or ask a question",
+          dictionary: {
+            es: {
+              singular: "Buscar en la biblioteca o hacer una pregunta"
+            },
+            "de-DE": {
+              singular: "Bibliothek durchsuchen oder eine Frage stellen"
+            },
+            "fr-FR": {
+              singular: "Rechercher dans la bibliothèque ou poser une question"
+            },
+            "ja-JP": {
+              singular: "ライブラリを検索するか、質問してください"
+            },
+            "ko-KR": {
+              singular: "라이브러리에서 검색하거나 질문하세요"
+            },
+            "pt-BR": {
+              singular: "Pesquise na Biblioteca ou faça uma pergunta"
+            },
+            "zh-CN": {
+              singular: "在库中搜索或提出问题"
+            }
+          }
+        }),
+        _v40 = _v38 ? (0, _v37.translate)({
           singular: "Search all of Vimeo",
           dictionary: {
             es: {
@@ -908,10 +937,10 @@
               singular: "搜索 Vimeo 的所有内容"
             }
           }
-        }) : _v20 ? (0, _v37.translate)({
+        }) : _v23 ? (0, _v37.translate)({
           singular: "Search in: {name}…",
           replacements: {
-            name: _v20.name
+            name: _v23.name
           },
           dictionary: {
             es: {
@@ -936,37 +965,13 @@
               singular: "搜索于: {name}…"
             }
           }
-        }) : (0, _v37.translate)({
-          singular: "Search Library",
-          dictionary: {
-            es: {
-              singular: "Buscar en la biblioteca"
-            },
-            "de-DE": {
-              singular: "Bibliothek durchsuchen"
-            },
-            "fr-FR": {
-              singular: "Rechercher dans la bibliothèque"
-            },
-            "ja-JP": {
-              singular: "ライブラリを検索"
-            },
-            "ko-KR": {
-              singular: "라이브러리 검색"
-            },
-            "pt-BR": {
-              singular: "Pesquisar na Biblioteca"
-            },
-            "zh-CN": {
-              singular: "搜索库"
-            }
-          }
-        }),
-        [_v37, _v38] = (0, _v3.useState)([]),
-        _v39 = (0, _v3.useRef)(0),
+        }) : _v39,
+        _v41 = _v18 ? _v17 : _v40,
+        [_v42, _v43] = (0, _v3.useState)([]),
+        _v44 = (0, _v3.useRef)(0),
         {
-          items: _v40,
-          isLoading: _v41
+          items: _v45,
+          isLoading: _v46
         } = (({
           query: _v0,
           enabled: _v1,
@@ -1050,13 +1055,13 @@
             isLoading: _v8 || _v5 !== _v0
           };
         })({
-          query: _v33,
-          enabled: _v9 && !_v35,
-          folderId: _v21 && _v20?.type === "folder" ? _v20.folderId : null
+          query: _v36,
+          enabled: _v9 && !_v38,
+          folderId: _v24 && _v23?.type === "folder" ? _v23.folderId : null
         }),
-        _v42 = (0, _v3.useMemo)(() => _v31.filter(_v0 => _v0.scope === _v18 && (!_v33 || _v0.query.toLowerCase().includes(_v33))), [_v33, _v31, _v18]),
-        _v43 = (0, _v3.useCallback)(() => {
-          _v32((0, _v41.readRecentSearches)());
+        _v47 = (0, _v3.useMemo)(() => _v34.filter(_v0 => _v0.scope === _v21 && (!_v36 || _v0.query.toLowerCase().includes(_v36))), [_v36, _v34, _v21]),
+        _v48 = (0, _v3.useCallback)(() => {
+          _v35((0, _v41.readRecentSearches)()), _v14(_v18 ? _v17 : "");
           let _v0 = (_v0 => {
             let _v1 = [..._v0];
             for (let _v0 = _v1.length - 1; _v0 > 0; _v0 -= 1) {
@@ -1076,13 +1081,13 @@
               scope: "library"
             };
           });
-          _v38(_v0), _v10(!0);
-          let _v1 = ++_v39.current;
+          _v43(_v0), _v10(!0);
+          let _v1 = ++_v44.current;
           (0, _v40.fetchOwnerSmartSuggestions)({
             apiUrl: _v6?.apiUrl,
             jwt: _v6?.jwt
           }).then(_v0 => {
-            _v1 === _v39.current && _v0.length > 0 && _v38(((_v0, _v1) => {
+            _v1 === _v44.current && _v0.length > 0 && _v43(((_v0, _v1) => {
               let _v2 = _v0.slice(0, 3).map(({
                 kind: _v0,
                 prompt: _v1
@@ -1190,57 +1195,57 @@
               }) => _v0 !== _v3.id)].slice(0, 3);
             })(_v0, _v0));
           });
-        }, [_v6?.apiUrl, _v6?.jwt]),
-        _v44 = (0, _v3.useCallback)(() => {
-          _v39.current += 1, _v10(!1), _v28("auto"), _v22(!1);
+        }, [_v6?.apiUrl, _v6?.jwt, _v18, _v17]),
+        _v49 = (0, _v3.useCallback)(() => {
+          _v44.current += 1, _v10(!1), _v31("auto"), _v25(!1);
         }, []);
       (0, _v3.useEffect)(() => {
-        if (_v8) return _v8.current = _v43, () => {
+        if (_v8) return _v8.current = _v48, () => {
           _v8.current = null;
         };
-      }, [_v8, _v43]), (0, _v3.useEffect)(() => {
+      }, [_v8, _v48]), (0, _v3.useEffect)(() => {
         let _v0 = _v0 => {
-          (/mac/i.test(navigator.platform) ? _v0.metaKey : _v0.ctrlKey) && "k" === _v0.key.toLowerCase() && (_v0.preventDefault(), _v9 ? _v44() : _v43());
+          (/mac/i.test(navigator.platform) ? _v0.metaKey : _v0.ctrlKey) && "k" === _v0.key.toLowerCase() && (_v0.preventDefault(), _v9 ? _v49() : _v48());
         };
         return document.addEventListener("keydown", _v0), () => document.removeEventListener("keydown", _v0);
-      }, [_v9, _v43, _v44]), _v50(() => {
-        let _v0 = _v26.current;
+      }, [_v9, _v48, _v49]), _v50(() => {
+        let _v0 = _v29.current;
         if (!_v0) return;
         let _v1 = _v0.offsetHeight;
-        _v28(_v0 => _v0 === _v1 ? _v0 : _v1);
+        _v31(_v0 => _v0 === _v1 ? _v0 : _v1);
       }), _v50(() => {
-        if (!_v21) return;
-        let _v0 = _v23.current?.offsetWidth ?? 0;
-        _v25(_v0 => _v0 === _v0 ? _v0 : _v0);
-      }, [_v21, _v20?.name]), (0, _v3.useEffect)(() => {
+        if (!_v24) return;
+        let _v0 = _v26.current?.offsetWidth ?? 0;
+        _v28(_v0 => _v0 === _v0 ? _v0 : _v0);
+      }, [_v24, _v23?.name]), (0, _v3.useEffect)(() => {
         if (!_v11) return;
         let _v0 = () => {
-          _v12(!1), _v44();
+          _v12(!1), _v49();
         };
         _v4.events.on("routeChangeComplete", _v0), _v4.events.on("routeChangeError", _v0);
         let _v1 = window.setTimeout(_v0, 0);
         return () => {
           _v4.events.off("routeChangeComplete", _v0), _v4.events.off("routeChangeError", _v0), window.clearTimeout(_v1);
         };
-      }, [_v11, _v44, _v4.events]);
-      let _v45 = (_v0, _v1 = _v18, _v2 = !0) => {
+      }, [_v11, _v49, _v4.events]);
+      let _v50 = (_v0, _v1 = _v21, _v2 = !0) => {
         let _v3 = _v0.trim();
         if (!_v3) return;
         if (_v5({
           location: "global_nav"
         }), _v2 && (0, _v41.saveRecentSearch)(_v3, _v1), _v12(!0), "vimeo" === _v1) return void _v4.push(`/search?q=${encodeURIComponent(_v3)}`);
-        let _v4 = _v21 && _v20?.type === "folder" && _v20.folderId ? `&filter_folder_include=${encodeURIComponent(_v20.folderId)}` : "";
+        let _v4 = _v24 && _v23?.type === "folder" && _v23.folderId ? `&filter_folder_include=${encodeURIComponent(_v23.folderId)}` : "";
         _v4.push(`/search/library?q=${encodeURIComponent(_v3)}${_v4}`);
       };
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(_v3 = _v2 ? (0, _v1.jsx)(_v25.IconButton, {
-          "aria-label": _v36,
+          "aria-label": _v40,
           variant: "tertiary",
           icon: (0, _v1.jsx)(_v34.SearchMagnifierAi, {
             boxSize: "sm",
             color: "text-primary"
           }),
-          onClick: _v43,
+          onClick: _v48,
           "data-testid": "smart-search-trigger"
         }) : (0, _v1.jsxs)(_v4.Box, {
           position: "relative",
@@ -1254,8 +1259,9 @@
           children: [(0, _v1.jsxs)(_v4.Box, {
             as: "button",
             type: "button",
-            onClick: _v43,
+            onClick: _v48,
             "data-testid": "smart-search-trigger",
+            "aria-label": _v40,
             position: "relative",
             zIndex: 1,
             display: "flex",
@@ -1264,7 +1270,7 @@
             width: "100%",
             height: (0, _v5.rem)(40),
             paddingX: "md",
-            paddingRight: _v30 ? (0, _v5.rem)(48) : void 0,
+            paddingRight: _v33 ? (0, _v5.rem)(48) : void 0,
             borderRadius: "input-md",
             bg: "fill-surface",
             border: "1px solid",
@@ -1273,10 +1279,10 @@
             _hover: {
               bg: "fill-component"
             },
-            sx: _v35 ? void 0 : {
+            sx: _v38 ? void 0 : {
               ..._v42.FLOW_GRADIENT_LAYERS_SX
             },
-            children: [!_v35 && (0, _v1.jsx)(_v4.Box, {
+            children: [!_v38 && (0, _v1.jsx)(_v4.Box, {
               "aria-hidden": !0,
               position: "absolute",
               inset: 0,
@@ -1293,34 +1299,42 @@
               display: "flex",
               alignItems: "center",
               gap: "sm",
-              children: [_v35 ? (0, _v1.jsx)(_v33.SearchMagnifier, {
+              minWidth: 0,
+              overflow: "hidden",
+              children: [_v38 ? (0, _v1.jsx)(_v33.SearchMagnifier, {
                 boxSize: "xs",
-                color: "text-secondary"
+                color: "text-secondary",
+                flexShrink: 0
               }) : (0, _v1.jsx)(_v34.SearchMagnifierAi, {
                 boxSize: "xs",
-                color: "text-secondary"
+                color: "text-secondary",
+                flexShrink: 0
               }), (0, _v1.jsx)(_v12.Text, {
                 variant: "body-md",
-                color: "text-secondary",
-                children: _v36
+                color: _v18 ? "text-primary" : "text-secondary",
+                noOfLines: 1,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                minWidth: 0,
+                children: _v41
               })]
             })]
-          }), _v30 && (0, _v1.jsx)(_v4.Box, {
+          }), _v33 && (0, _v1.jsx)(_v4.Box, {
             position: "absolute",
             right: (0, _v5.rem)(6),
             top: "50%",
             transform: "translateY(-50%)",
             zIndex: 2,
             children: (0, _v1.jsx)(_v56, {
-              scope: _v18,
-              onChange: _v19
+              scope: _v21,
+              onChange: _v22
             })
           })]
         }), _v7 ? (0, _v1.jsx)(_v26.PopoverAnchor, {
           children: _v3
         }) : _v3), (0, _v1.jsxs)(_v21.Modal, {
           isOpen: _v9,
-          onClose: _v44,
+          onClose: _v49,
           size: "xl",
           scrollBehavior: "inside",
           isCentered: !0,
@@ -1340,7 +1354,7 @@
             children: (0, _v1.jsx)(_v9.motion.div, {
               initial: !1,
               animate: {
-                height: _v27
+                height: _v30
               },
               transition: {
                 duration: .24,
@@ -1350,19 +1364,19 @@
                 overflow: "hidden"
               },
               children: (0, _v1.jsxs)("div", {
-                ref: _v26,
+                ref: _v29,
                 children: [(0, _v1.jsx)(_v4.Box, {
                   paddingX: "sm",
                   paddingY: "sm",
                   children: (0, _v1.jsxs)(_v14.InputGroup, {
                     size: "md",
-                    children: [_v21 && _v20 ? (0, _v1.jsx)(_v15.InputLeftElement, {
+                    children: [_v24 && _v23 ? (0, _v1.jsx)(_v15.InputLeftElement, {
                       width: "auto",
                       pointerEvents: "none",
                       paddingLeft: (0, _v5.rem)(5),
                       justifyContent: "flex-start",
                       children: (0, _v1.jsx)(_v11.Flex, {
-                        ref: _v23,
+                        ref: _v26,
                         as: "span",
                         display: "inline-flex",
                         align: "center",
@@ -1384,7 +1398,7 @@
                           children: (0, _v37.translate)({
                             singular: "in: {name}",
                             replacements: {
-                              name: _v20.name
+                              name: _v23.name
                             },
                             dictionary: {
                               es: {
@@ -1408,7 +1422,7 @@
                       })
                     }) : (0, _v1.jsx)(_v15.InputLeftElement, {
                       pointerEvents: "none",
-                      children: _v35 ? (0, _v1.jsx)(_v33.SearchMagnifier, {
+                      children: _v38 ? (0, _v1.jsx)(_v33.SearchMagnifier, {
                         boxSize: (0, _v5.rem)(20),
                         color: "text-secondary"
                       }) : (0, _v1.jsx)(_v34.SearchMagnifierAi, {
@@ -1422,9 +1436,9 @@
                         _v14(_v0.target.value);
                       },
                       onKeyDown: _v0 => {
-                        "Enter" === _v0.key ? _v45(_v13) : _v21 && ("Backspace" === _v0.key || "Delete" === _v0.key) && 0 === _v13.length && (_v0.preventDefault(), _v22(!1));
+                        "Enter" === _v0.key ? _v50(_v13) : _v24 && ("Backspace" === _v0.key || "Delete" === _v0.key) && 0 === _v13.length && (_v0.preventDefault(), _v25(!1));
                       },
-                      placeholder: _v21 ? (0, _v37.translate)({
+                      placeholder: _v24 ? (0, _v37.translate)({
                         singular: "Search…",
                         dictionary: {
                           es: {
@@ -1449,27 +1463,52 @@
                             singular: "搜索…"
                           }
                         }
-                      }) : _v36,
-                      "aria-label": _v36,
+                      }) : _v38 ? (0, _v37.translate)({
+                        singular: "Search all of Vimeo",
+                        dictionary: {
+                          es: {
+                            singular: "Buscar en todo Vimeo"
+                          },
+                          "de-DE": {
+                            singular: "Ganz Vimeo durchsuchen"
+                          },
+                          "fr-FR": {
+                            singular: "Rechercher dans tout Vimeo"
+                          },
+                          "ja-JP": {
+                            singular: "Vimeoのすべてを検索"
+                          },
+                          "ko-KR": {
+                            singular: "Vimeo 전체 검색"
+                          },
+                          "pt-BR": {
+                            singular: "Pesquisar tudo no Vimeo"
+                          },
+                          "zh-CN": {
+                            singular: "搜索 Vimeo 的所有内容"
+                          }
+                        }
+                      }) : _v39,
+                      "aria-label": _v40,
                       borderRadius: "md",
-                      paddingLeft: _v21 ? (0, _v5.rem)(_v24 + 13) : void 0,
-                      paddingRight: !_v21 && _v30 ? (0, _v5.rem)(56) : void 0
-                    }), !_v21 && _v30 && (0, _v1.jsx)(_v15.InputRightElement, {
+                      paddingLeft: _v24 ? (0, _v5.rem)(_v27 + 13) : void 0,
+                      paddingRight: !_v24 && _v33 ? (0, _v5.rem)(56) : void 0
+                    }), !_v24 && _v33 && (0, _v1.jsx)(_v15.InputRightElement, {
                       width: "auto",
                       paddingRight: (0, _v5.rem)(6),
                       height: "100%",
                       children: (0, _v1.jsx)(_v56, {
-                        scope: _v18,
-                        onChange: _v19
+                        scope: _v21,
+                        onChange: _v22
                       })
                     })]
                   })
-                }), _v20 && !_v35 && !_v21 && (0, _v1.jsx)(_v4.Box, {
+                }), _v23 && !_v38 && !_v24 && (0, _v1.jsx)(_v4.Box, {
                   paddingX: "sm",
                   children: (0, _v1.jsxs)(_v4.Box, {
                     as: "button",
                     type: "button",
-                    onClick: () => _v22(!0),
+                    onClick: () => _v25(!0),
                     display: "flex",
                     width: "100%",
                     textAlign: "left",
@@ -1487,7 +1526,7 @@
                       alignItems: "center",
                       justifyContent: "center",
                       boxSize: (0, _v5.rem)(20),
-                      children: "folder" === _v20.type ? (0, _v1.jsx)(_v30.FolderFilled, {
+                      children: "folder" === _v23.type ? (0, _v1.jsx)(_v30.FolderFilled, {
                         boxSize: (0, _v5.rem)(20),
                         color: "text-secondary"
                       }) : (0, _v1.jsx)(_v32.MyLibrary, {
@@ -1501,7 +1540,7 @@
                       children: (0, _v37.translate)({
                         singular: "Search in {name}…",
                         replacements: {
-                          name: _v20.name
+                          name: _v23.name
                         },
                         dictionary: {
                           es: {
@@ -1535,12 +1574,12 @@
                   sx: {
                     scrollbarWidth: "thin"
                   },
-                  children: [(_v34 || !_v35 && !_v21 && _v37.length > 0) && (0, _v1.jsxs)(_v11.Flex, {
+                  children: [(_v37 || !_v38 && !_v24 && _v42.length > 0) && (0, _v1.jsxs)(_v11.Flex, {
                     flexDir: "column",
                     gap: "sm",
                     paddingX: "sm",
                     paddingY: "md",
-                    children: [!_v35 && !_v21 && (0, _v1.jsx)(_v53, {
+                    children: [!_v38 && !_v24 && (0, _v1.jsx)(_v53, {
                       children: (0, _v37.translate)({
                         singular: "Smart search",
                         dictionary: {
@@ -1570,8 +1609,8 @@
                     }), (0, _v1.jsxs)(_v11.Flex, {
                       flexDir: "column",
                       gap: (0, _v5.rem)(2),
-                      children: [_v34 && (0, _v1.jsx)(_v54, {
-                        icon: _v35 ? (0, _v1.jsx)(_v33.SearchMagnifier, {
+                      children: [_v37 && (0, _v1.jsx)(_v54, {
+                        icon: _v38 ? (0, _v1.jsx)(_v33.SearchMagnifier, {
                           boxSize: (0, _v5.rem)(20),
                           color: "text-secondary"
                         }) : (0, _v1.jsx)(_v34.SearchMagnifierAi, {
@@ -1579,7 +1618,7 @@
                           color: "text-secondary"
                         }),
                         title: _v13.trim(),
-                        subtitle: _v35 ? (0, _v37.translate)({
+                        subtitle: _v38 ? (0, _v37.translate)({
                           singular: "Search all of Vimeo",
                           dictionary: {
                             es: {
@@ -1630,10 +1669,10 @@
                             }
                           }
                         }),
-                        scope: _v18,
-                        hoverBg: _v35 ? _v52 : _v51,
-                        onSelect: () => _v45(_v13.trim())
-                      }), !_v35 && !_v21 && !_v34 && _v37.map(_v0 => (0, _v1.jsx)(_v54, {
+                        scope: _v21,
+                        hoverBg: _v38 ? _v52 : _v51,
+                        onSelect: () => _v50(_v13.trim())
+                      }), !_v38 && !_v24 && !_v37 && _v42.map(_v0 => (0, _v1.jsx)(_v54, {
                         icon: (0, _v1.jsx)(_v27.AiSparkles, {
                           boxSize: (0, _v5.rem)(20),
                           color: "text-primary"
@@ -1642,10 +1681,10 @@
                         subtitle: _v0.subtitle,
                         scope: _v0.scope,
                         hoverBg: _v51,
-                        onSelect: () => _v45(_v0.title, _v0.scope, !1)
+                        onSelect: () => _v50(_v0.title, _v0.scope, !1)
                       }, _v0.id))]
                     })]
-                  }), !_v35 && _v34 && (0, _v1.jsxs)(_v11.Flex, {
+                  }), !_v38 && _v37 && (0, _v1.jsxs)(_v11.Flex, {
                     flexDir: "column",
                     gap: "sm",
                     paddingX: "sm",
@@ -1679,7 +1718,7 @@
                           }
                         }
                       })
-                    }), _v41 && 0 === _v40.length ? (0, _v1.jsx)(_v11.Flex, {
+                    }), _v46 && 0 === _v45.length ? (0, _v1.jsx)(_v11.Flex, {
                       justifyContent: "center",
                       alignItems: "center",
                       paddingY: "md",
@@ -1687,10 +1726,10 @@
                         size: "sm",
                         color: "text-primary"
                       })
-                    }) : _v40.length > 0 ? (0, _v1.jsx)(_v11.Flex, {
+                    }) : _v45.length > 0 ? (0, _v1.jsx)(_v11.Flex, {
                       flexDir: "column",
                       gap: (0, _v5.rem)(2),
-                      children: _v40.map(_v0 => (0, _v1.jsx)(_v54, {
+                      children: _v45.map(_v0 => (0, _v1.jsx)(_v54, {
                         icon: "folder" === _v0.kind ? (0, _v1.jsx)(_v30.FolderFilled, {
                           boxSize: (0, _v5.rem)(20),
                           color: "text-secondary"
@@ -1702,7 +1741,7 @@
                         scope: "library",
                         hoverBg: _v52,
                         href: _v0.link,
-                        onSelect: _v44
+                        onSelect: _v49
                       }, `${_v0.kind}-${_v0.id}`))
                     }) : (0, _v1.jsx)(_v12.Text, {
                       variant: "body-sm",
@@ -1735,7 +1774,7 @@
                         }
                       })
                     })]
-                  }), _v42.length > 0 && (0, _v1.jsxs)(_v11.Flex, {
+                  }), _v47.length > 0 && (0, _v1.jsxs)(_v11.Flex, {
                     flexDir: "column",
                     gap: "sm",
                     paddingX: "sm",
@@ -1777,7 +1816,7 @@
                         size: "xs",
                         variant: "tertiary",
                         onClick: () => {
-                          (0, _v41.clearRecentSearches)(), _v32([]);
+                          (0, _v41.clearRecentSearches)(), _v35([]);
                         },
                         children: (0, _v37.translate)({
                           singular: "Clear",
@@ -1809,7 +1848,7 @@
                     }), (0, _v1.jsx)(_v11.Flex, {
                       flexDir: "column",
                       gap: (0, _v5.rem)(2),
-                      children: _v42.map(_v0 => (0, _v1.jsx)(_v54, {
+                      children: _v47.map(_v0 => (0, _v1.jsx)(_v54, {
                         icon: (0, _v1.jsx)(_v33.SearchMagnifier, {
                           boxSize: (0, _v5.rem)(20),
                           color: "text-secondary"
@@ -1817,10 +1856,10 @@
                         title: _v0.query,
                         scope: _v0.scope,
                         hoverBg: _v52,
-                        onSelect: () => _v45(_v0.query, _v0.scope)
+                        onSelect: () => _v50(_v0.query, _v0.scope)
                       }, _v0.id))
                     })]
-                  }), !_v35 && !_v33 && _v40.length > 0 && (0, _v1.jsxs)(_v11.Flex, {
+                  }), !_v38 && !_v36 && _v45.length > 0 && (0, _v1.jsxs)(_v11.Flex, {
                     flexDir: "column",
                     gap: "sm",
                     paddingY: "md",
@@ -1857,9 +1896,9 @@
                     }), (0, _v1.jsx)(_v11.Flex, {
                       gap: "sm",
                       paddingX: "md",
-                      children: _v40.map(_v0 => (0, _v1.jsx)(_v55, {
+                      children: _v45.map(_v0 => (0, _v1.jsx)(_v55, {
                         item: _v0,
-                        onSelect: _v44
+                        onSelect: _v49
                       }, `${_v0.kind}-${_v0.id}`))
                     })]
                   })]
@@ -1890,16 +1929,19 @@
     let _v3 = (0, _v3.useContext)(_v7.ViewerContext),
       [, _v4] = (0, _v3.useState)(!1),
       {
-        showSmartOverlay: _v5
+        showSmartOverlay: _v5,
+        isLoading: _v6
       } = (() => {
         let _v0 = (0, _v3.useContext)(_v7.ViewerContext),
           {
             capabilities: {
               hasAgenticSearch: _v1 = !1
-            }
+            },
+            ready: _v2
           } = (0, _v36.useCapability)(["hasAgenticSearch"], _v0?.teamUser?.ownerId);
         return {
-          showSmartOverlay: _v1
+          showSmartOverlay: _v1,
+          isLoading: !!(_v0?.teamUser?.ownerId ?? _v0?.user?.id) && !_v2
         };
       })();
     return _v3 && (!_v3.isSimplifiedSite || _v3.user) ? _v5 ? (0, _v1.jsx)(_v8.SmartSearchAnnouncement, {
@@ -1918,6 +1960,8 @@
     }) : (0, _v1.jsxs)(_v4.Box, {
       display: "contents",
       "data-global-nav-search": !0,
+      visibility: _v6 ? "hidden" : "visible",
+      "aria-hidden": _v6 || void 0,
       children: [(0, _v1.jsx)(_v58, {}), (0, _v1.jsx)(_v6.SearchField, {
         updateGlobalNavSearchState: _v0 || _v4,
         width: "100%",

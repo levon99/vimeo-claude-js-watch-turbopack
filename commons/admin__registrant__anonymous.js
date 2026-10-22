@@ -119,7 +119,9 @@
       gctlConfig: (0, _v5.queryManagerGctlConfigWithFallback)(_v0),
       connection: _v0.connections.auth,
       fields: _v24
-    }, _v2);
+    }, _v2, {
+      refreshJwt: (0, _v19.queryOptionalViewerSync)(_v0)?.refreshJwt
+    });
   }
   async function _v26(_v0) {
     let {

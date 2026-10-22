@@ -5,24 +5,23 @@
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
     _v4 = _v0.i(0),
-    _v5 = _v0.i(0),
-    _v6 = _v0.i(0);
-  let _v7 = _v4.default.div.withConfig({
+    _v5 = _v0.i(0);
+  let _v6 = _v4.default.div.withConfig({
       displayName: "src__Wrapper",
       componentId: "sc-e46e2faa-0"
     })`
-  background: ${_v6.white};
+  background: var(--vimeo-colors-white);
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
   justify-content: center;
   align-items: center;
 `,
-    _v8 = _v4.default.div.withConfig({
+    _v7 = _v4.default.div.withConfig({
       displayName: "src__Message",
       componentId: "sc-e46e2faa-1"
     })`
-  color: ${(0, _v6.grayscale)(800)};
+  color: var(--vimeo-colors-gray-800);
   font-size: ${(0, _v3.rem)(18)};
   font-weight: 500;
   line-height: ${(0, _v3.rem)(26)};
@@ -30,7 +29,7 @@
   width: 80%;
   padding-top: ${(0, _v3.rem)(25)};
 `,
-    _v9 = _v4.keyframes`
+    _v8 = _v4.keyframes`
   0% {
     transform: translateY(0);
   }
@@ -41,7 +40,7 @@
     transform: translateY(0);
   }
 `,
-    _v10 = (0, _v4.default)(_v0 => (0, _v1.jsxs)("svg", {
+    _v9 = (0, _v4.default)(_v0 => (0, _v1.jsxs)("svg", {
       width: 200,
       height: 200,
       viewBox: "0 0 200 200",
@@ -105,10 +104,10 @@
       displayName: "src__HoveringIcon",
       componentId: "sc-e46e2faa-2"
     })`
-  animation: 2.5s ${_v9} ease infinite forwards;
+  animation: 2.5s ${_v8} ease infinite forwards;
 `,
-    _v11 = () => (0, _v1.jsxs)(_v7, {
-      children: [(0, _v1.jsx)(_v10, {}), (0, _v1.jsx)(_v8, {
+    _v10 = () => (0, _v1.jsxs)(_v6, {
+      children: [(0, _v1.jsx)(_v9, {}), (0, _v1.jsx)(_v7, {
         children: (0, _v5.translate)({
           singular: "For the best team experience, open this email on your computer.",
           dictionary: {
@@ -137,9 +136,9 @@
         })
       })]
     });
-  _v11.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
+  _v10.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v2.DefaultNavigation, {
       hasThemeSupport: !1
     }), _v0]
-  }), _v0.s(["default", 0, _v11], 0);
+  }), _v0.s(["default", 0, _v10], 0);
 }

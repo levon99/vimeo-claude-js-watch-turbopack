@@ -28,159 +28,181 @@
     };
   };
   var _v13 = _v0.i(0),
-    _v14 = _v0.i(0);
+    _v14 = _v0.i(0),
+    _v15 = _v0.i(0);
   _v0.s(["FilePasswordPage", 0, ({
-    publicId: _v0
+    publicId: _v0,
+    folderShareFolderId: _v1
   }) => {
-    let _v1 = (0, _v14.useViewer)(),
+    let _v2 = (0, _v15.useViewer)(),
       {
-        trackFilePasswordGateDisplayed: _v2
+        trackFilePasswordGateDisplayed: _v3
       } = _v12(),
-      [_v3, _v4] = (0, _v2.useState)(!1),
-      [_v5, _v6] = (0, _v2.useState)(!1),
-      [_v7, _v8] = (0, _v2.useState)(null);
-    (0, _v13.usePicoEffect)(() => (_v2({
+      {
+        trackFolderSharePasswordPageDisplayed: _v4,
+        trackFolderSharePasswordSubmitted: _v5
+      } = (0, _v13.useFolderShareTracking)(),
+      [_v6, _v7] = (0, _v2.useState)(!1),
+      [_v8, _v9] = (0, _v2.useState)(!1),
+      [_v10, _v11] = (0, _v2.useState)(null);
+    (0, _v14.usePicoEffect)(() => (_v3({
       fileId: _v0
-    }), !0), [_v0, _v2], {
+    }), void 0 !== _v1 && _v4({
+      folderId: _v1,
+      passwordScope: "file",
+      fileId: _v0
+    }), !0), [_v0, _v1, _v3, _v4], {
       once: !0
     });
-    let _v9 = async _v0 => {
-      _v6(!0), _v8(null);
-      try {
-        let _v0 = await fetch(`/files/${_v0}/password`, {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Requested-With": "XMLHttpRequest"
-          },
-          body: JSON.stringify({
-            password: _v0,
-            token: _v1?.xsrft
-          })
+    let _v12 = (_v0, _v1) => {
+        void 0 !== _v1 && _v5({
+          folderId: _v1,
+          isSuccess: _v0,
+          errorType: _v1,
+          passwordScope: "file",
+          fileId: _v0
         });
-        if (_v0.ok) return void window.location.reload();
-        let _v1 = await _v0.json().catch(() => ({}));
-        if (429 === _v0.status) _v8(Error((0, _v10.translate)({
-          singular: "Too many failed attempts. Try again later.",
-          dictionary: {
-            es: {
-              singular: "Demasiados intentos fallidos. Vuelva a intentarlo más tarde."
+      },
+      _v13 = async _v0 => {
+        _v9(!0), _v11(null);
+        try {
+          let _v0 = await fetch(`/files/${_v0}/password`, {
+            method: "POST",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+              "X-Requested-With": "XMLHttpRequest"
             },
-            "de-DE": {
-              singular: "Zu viele fehlgeschlagene Versuche. Versuche es später noch einmal."
-            },
-            "fr-FR": {
-              singular: "Trop de tentatives infructueuses. Veuillez réessayer plus tard."
-            },
-            "ja-JP": {
-              singular: "試行に繰り返し失敗しました。しばらくしてから、再試行してください。"
-            },
-            "ko-KR": {
-              singular: "실패 횟수가 너무 많습니다. 나중에 다시 시도하세요."
-            },
-            "pt-BR": {
-              singular: "Excesso de tentativas com falha. Tente de novo depois."
-            },
-            "zh-CN": {
-              singular: "尝试失败次数过多。请稍后再试。"
-            }
+            body: JSON.stringify({
+              password: _v0,
+              token: _v2?.xsrft
+            })
+          });
+          if (_v0.ok) {
+            _v12(!0, null), window.location.reload();
+            return;
           }
-        })));else 401 === _v0.status && ("object" == typeof _v1 && null !== _v1 && "error_code" in _v1 && "number" == typeof _v1.error_code ? _v1.error_code : void 0) === 1 ? _v8(Error((0, _v10.translate)({
-          singular: "Sorry, that password was incorrect. Please try again.",
-          dictionary: {
-            es: {
-              singular: "Lo sentimos, pero esta contraseña es incorrecta. Inténtalo de nuevo."
-            },
-            "de-DE": {
-              singular: "Leider ist das Kennwort falsch. Bitte noch einmal versuchen."
-            },
-            "fr-FR": {
-              singular: "Désolé, ce mot de passe est incorrect. Veuillez réessayer."
-            },
-            "ja-JP": {
-              singular: "パスワードが間違っています。再度お試しください。"
-            },
-            "ko-KR": {
-              singular: "죄송합니다, 잘못된 비밀번호입니다. 올바른 비밀번호로 다시 시도해주세요."
-            },
-            "pt-BR": {
-              singular: "Desculpe, mas a senha estava incorreta. Tente de novo."
-            },
-            "zh-CN": {
-              singular: "抱歉，密码不正确。请重试。"
+          let _v1 = await _v0.json().catch(() => ({}));
+          if (429 === _v0.status) _v12(!1, "attempts_exceeded"), _v11(Error((0, _v10.translate)({
+            singular: "Too many failed attempts. Try again later.",
+            dictionary: {
+              es: {
+                singular: "Demasiados intentos fallidos. Vuelva a intentarlo más tarde."
+              },
+              "de-DE": {
+                singular: "Zu viele fehlgeschlagene Versuche. Versuche es später noch einmal."
+              },
+              "fr-FR": {
+                singular: "Trop de tentatives infructueuses. Veuillez réessayer plus tard."
+              },
+              "ja-JP": {
+                singular: "試行に繰り返し失敗しました。しばらくしてから、再試行してください。"
+              },
+              "ko-KR": {
+                singular: "실패 횟수가 너무 많습니다. 나중에 다시 시도하세요."
+              },
+              "pt-BR": {
+                singular: "Excesso de tentativas com falha. Tente de novo depois."
+              },
+              "zh-CN": {
+                singular: "尝试失败次数过多。请稍后再试。"
+              }
             }
-          }
-        }))) : _v8(Error((0, _v10.translate)({
-          singular: "Unable to validate password. Ensure cookies are enabled in your browser, refresh the page, and try again.",
-          dictionary: {
-            es: {
-              singular: "No se puede validar la contraseña. Asegúrese de que las cookies estén habilitadas en su navegador, actualice la página y vuelva a intentarlo."
-            },
-            "de-DE": {
-              singular: "Das Kennwort kann nicht validiert werden. Stellen Sie sicher, dass Cookies in Ihrem Browser aktiviert sind, aktualisieren Sie die Seite und versuchen Sie es erneut."
-            },
-            "fr-FR": {
-              singular: "Impossible de valider le mot de passe. Assurez-vous que les cookies sont activés dans votre navigateur, actualisez la page et réessayez."
-            },
-            "ja-JP": {
-              singular: "パスワードを認証できませんでした。ブラウザでCookieが有効になっていることを確認し、ページを更新してからもう一度お試しください。"
-            },
-            "ko-KR": {
-              singular: "비밀번호를 인증할 수 없습니다. 브라우저에서 쿠키가 활성화되어 있는지 확인하고, 페이지를 새로 고침한 후 다시 시도하세요."
-            },
-            "pt-BR": {
-              singular: "Não foi possível validar a senha. Certifique-se de que os cookies estão habilitados no seu navegador, atualize a página e tente novamente."
-            },
-            "zh-CN": {
-              singular: "无法验证密码。确保浏览器已启用 cookie，刷新页面后再试一次。"
+          })));else 401 === _v0.status && ("object" == typeof _v1 && null !== _v1 && "error_code" in _v1 && "number" == typeof _v1.error_code ? _v1.error_code : void 0) === 1 ? (_v12(!1, "incorrect_password"), _v11(Error((0, _v10.translate)({
+            singular: "Sorry, that password was incorrect. Please try again.",
+            dictionary: {
+              es: {
+                singular: "Lo sentimos, pero esta contraseña es incorrecta. Inténtalo de nuevo."
+              },
+              "de-DE": {
+                singular: "Leider ist das Kennwort falsch. Bitte noch einmal versuchen."
+              },
+              "fr-FR": {
+                singular: "Désolé, ce mot de passe est incorrect. Veuillez réessayer."
+              },
+              "ja-JP": {
+                singular: "パスワードが間違っています。再度お試しください。"
+              },
+              "ko-KR": {
+                singular: "죄송합니다, 잘못된 비밀번호입니다. 올바른 비밀번호로 다시 시도해주세요."
+              },
+              "pt-BR": {
+                singular: "Desculpe, mas a senha estava incorreta. Tente de novo."
+              },
+              "zh-CN": {
+                singular: "抱歉，密码不正确。请重试。"
+              }
             }
-          }
-        })));
-        _v4(!0);
-      } catch {
-        _v8(Error((0, _v10.translate)({
-          singular: "Unable to validate password. Ensure cookies are enabled in your browser, refresh the page, and try again.",
-          dictionary: {
-            es: {
-              singular: "No se puede validar la contraseña. Asegúrese de que las cookies estén habilitadas en su navegador, actualice la página y vuelva a intentarlo."
-            },
-            "de-DE": {
-              singular: "Das Kennwort kann nicht validiert werden. Stellen Sie sicher, dass Cookies in Ihrem Browser aktiviert sind, aktualisieren Sie die Seite und versuchen Sie es erneut."
-            },
-            "fr-FR": {
-              singular: "Impossible de valider le mot de passe. Assurez-vous que les cookies sont activés dans votre navigateur, actualisez la page et réessayez."
-            },
-            "ja-JP": {
-              singular: "パスワードを認証できませんでした。ブラウザでCookieが有効になっていることを確認し、ページを更新してからもう一度お試しください。"
-            },
-            "ko-KR": {
-              singular: "비밀번호를 인증할 수 없습니다. 브라우저에서 쿠키가 활성화되어 있는지 확인하고, 페이지를 새로 고침한 후 다시 시도하세요."
-            },
-            "pt-BR": {
-              singular: "Não foi possível validar a senha. Certifique-se de que os cookies estão habilitados no seu navegador, atualize a página e tente novamente."
-            },
-            "zh-CN": {
-              singular: "无法验证密码。确保浏览器已启用 cookie，刷新页面后再试一次。"
+          })))) : (_v12(!1, "generic_error"), _v11(Error((0, _v10.translate)({
+            singular: "Unable to validate password. Ensure cookies are enabled in your browser, refresh the page, and try again.",
+            dictionary: {
+              es: {
+                singular: "No se puede validar la contraseña. Asegúrese de que las cookies estén habilitadas en su navegador, actualice la página y vuelva a intentarlo."
+              },
+              "de-DE": {
+                singular: "Das Kennwort kann nicht validiert werden. Stellen Sie sicher, dass Cookies in Ihrem Browser aktiviert sind, aktualisieren Sie die Seite und versuchen Sie es erneut."
+              },
+              "fr-FR": {
+                singular: "Impossible de valider le mot de passe. Assurez-vous que les cookies sont activés dans votre navigateur, actualisez la page et réessayez."
+              },
+              "ja-JP": {
+                singular: "パスワードを認証できませんでした。ブラウザでCookieが有効になっていることを確認し、ページを更新してからもう一度お試しください。"
+              },
+              "ko-KR": {
+                singular: "비밀번호를 인증할 수 없습니다. 브라우저에서 쿠키가 활성화되어 있는지 확인하고, 페이지를 새로 고침한 후 다시 시도하세요."
+              },
+              "pt-BR": {
+                singular: "Não foi possível validar a senha. Certifique-se de que os cookies estão habilitados no seu navegador, atualize a página e tente novamente."
+              },
+              "zh-CN": {
+                singular: "无法验证密码。确保浏览器已启用 cookie，刷新页面后再试一次。"
+              }
             }
-          }
-        }))), _v4(!0);
-      } finally {
-        _v6(!1);
-      }
-    };
+          }))));
+          _v7(!0);
+        } catch {
+          _v12(!1, "generic_error"), _v11(Error((0, _v10.translate)({
+            singular: "Unable to validate password. Ensure cookies are enabled in your browser, refresh the page, and try again.",
+            dictionary: {
+              es: {
+                singular: "No se puede validar la contraseña. Asegúrese de que las cookies estén habilitadas en su navegador, actualice la página y vuelva a intentarlo."
+              },
+              "de-DE": {
+                singular: "Das Kennwort kann nicht validiert werden. Stellen Sie sicher, dass Cookies in Ihrem Browser aktiviert sind, aktualisieren Sie die Seite und versuchen Sie es erneut."
+              },
+              "fr-FR": {
+                singular: "Impossible de valider le mot de passe. Assurez-vous que les cookies sont activés dans votre navigateur, actualisez la page et réessayez."
+              },
+              "ja-JP": {
+                singular: "パスワードを認証できませんでした。ブラウザでCookieが有効になっていることを確認し、ページを更新してからもう一度お試しください。"
+              },
+              "ko-KR": {
+                singular: "비밀번호를 인증할 수 없습니다. 브라우저에서 쿠키가 활성화되어 있는지 확인하고, 페이지를 새로 고침한 후 다시 시도하세요."
+              },
+              "pt-BR": {
+                singular: "Não foi possível validar a senha. Certifique-se de que os cookies estão habilitados no seu navegador, atualize a página e tente novamente."
+              },
+              "zh-CN": {
+                singular: "无法验证密码。确保浏览器已启用 cookie，刷新页面后再试一次。"
+              }
+            }
+          }))), _v7(!0);
+        } finally {
+          _v9(!1);
+        }
+      };
     return (0, _v1.jsxs)(_v4.Flex, {
       background: "background",
       flexDirection: "column",
       minHeight: "100vh",
       children: [(0, _v1.jsx)(_v9.DefaultNavigation, {}), (0, _v1.jsx)(_v3.Center, {
         flexGrow: 1,
-        children: _v5 ? (0, _v1.jsx)(_v7.Spinner, {
+        children: _v8 ? (0, _v1.jsx)(_v7.Spinner, {
           size: "xl"
         }) : (0, _v1.jsxs)(_v8.PasswordForm, {
-          error: _v7,
-          isInvalid: _v3,
-          onSubmit: _v0 => void _v9(_v0),
+          error: _v10,
+          isInvalid: _v6,
+          onSubmit: _v0 => void _v13(_v0),
           children: [(0, _v1.jsx)(_v5.Header, {
             textAlign: "center",
             variant: "heading-2xl",
@@ -244,41 +266,40 @@
       })]
     });
   }], 0);
-  var _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
-  _v0.s(["FileUnavailablePage", 0, () => (0, _v1.jsx)(_v16.ErrorPageWithHeader, {
-    error: new _v15.ResourceNotFoundError(),
+  var _v16 = _v0.i(0),
+    _v17 = _v0.i(0);
+  _v0.s(["FileUnavailablePage", 0, () => (0, _v1.jsx)(_v17.ErrorPageWithHeader, {
+    error: new _v16.ResourceNotFoundError(),
     shouldShowSearch: !1
   })], 0);
-  var _v17 = _v0.i(0),
-    _v18 = _v0.i(0),
+  var _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
-  let _v24 = _v0 => _v0.isOpen ? (0, _v1.jsx)(_v25, {
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0);
+  let _v25 = _v0 => _v0.isOpen ? (0, _v1.jsx)(_v26, {
       ..._v0
     }) : null,
-    _v25 = ({
+    _v26 = ({
       publicId: _v0,
       isOpen: _v1,
       onClose: _v2,
       onSubmitReport: _v3
     }) => {
-      let _v4 = (0, _v23.useFileReport)({
+      let _v4 = (0, _v24.useFileReport)({
         publicId: _v0,
         onClose: _v2,
         onSubmitted: _v3
       });
-      return (0, _v1.jsx)(_v21.ReportFlowModal, {
+      return (0, _v1.jsx)(_v22.ReportFlowModal, {
         report: _v4,
         isOpen: _v1,
-        headerAction: (0, _v1.jsx)(_v22.ReportHelpLink, {})
+        headerAction: (0, _v1.jsx)(_v23.ReportHelpLink, {})
       });
     };
-  var _v26 = _v0.i(0),
-    _v27 = _v0.i(0),
+  var _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
@@ -287,38 +308,39 @@
     _v33 = _v0.i(0),
     _v34 = _v0.i(0),
     _v35 = _v0.i(0),
-    _v36 = _v0.i(0);
-  let _v37 = ({
+    _v36 = _v0.i(0),
+    _v37 = _v0.i(0);
+  let _v38 = ({
       label: _v0,
       value: _v1
     }) => (0, _v1.jsxs)(_v4.Flex, {
       alignItems: "center",
       gap: "sm",
       justifyContent: "space-between",
-      children: [(0, _v1.jsx)(_v19.Text, {
+      children: [(0, _v1.jsx)(_v20.Text, {
         color: "text-secondary",
         variant: "body-sm",
         children: _v0
-      }), (0, _v1.jsx)(_v19.Text, {
+      }), (0, _v1.jsx)(_v20.Text, {
         variant: "body-sm",
         children: _v1
       })]
     }),
-    _v38 = ({
+    _v39 = ({
       file: _v0
     }) => {
-      let _v1 = (0, _v36.useFormatDateTime)(),
+      let _v1 = (0, _v37.useFormatDateTime)(),
         {
           trackFileDownloadStarted: _v2
-        } = (0, _v32.useDownloadTracking)(),
-        _v3 = (0, _v31.getContentTypeCategory)(_v0.contentType),
-        _v4 = (0, _v31.getFileExtension)(_v0.name),
-        _v5 = (0, _v35.getContentTypeLabel)(_v3),
+        } = (0, _v33.useDownloadTracking)(),
+        _v3 = (0, _v32.getContentTypeCategory)(_v0.contentType),
+        _v4 = (0, _v32.getFileExtension)(_v0.name),
+        _v5 = (0, _v36.getContentTypeLabel)(_v3),
         _v6 = "" === _v4 ? _v5 : `${_v5} \xb7 ${_v4}`,
         _v7 = "" === _v4 ? _v5 : _v4,
-        _v8 = _v0.fileSize > 0 ? String((0, _v33.bytesToSize)(_v0.fileSize, 1)) : "",
+        _v8 = _v0.fileSize > 0 ? String((0, _v34.bytesToSize)(_v0.fileSize, 1)) : "",
         _v9 = _v0.uploader.name,
-        [_v10, _v11] = (0, _v34.getAvatarImages)(_v0.uploader.pictures?.sizes),
+        [_v10, _v11] = (0, _v35.getAvatarImages)(_v0.uploader.pictures?.sizes),
         _v12 = _v0.allowDownloads && null != _v0.downloadUrl && "" !== _v0.downloadUrl;
       return (0, _v1.jsxs)(_v4.Flex, {
         background: "surface",
@@ -339,27 +361,27 @@
           children: [(0, _v1.jsxs)(_v4.Flex, {
             flexDirection: "column",
             gap: "sm",
-            children: [(0, _v1.jsx)(_v31.FileThumbnailContent, {
+            children: [(0, _v1.jsx)(_v32.FileThumbnailContent, {
               contentType: _v0.contentType,
               name: _v0.name,
               variant: "filled"
             }), (0, _v1.jsxs)(_v4.Flex, {
               flexDirection: "column",
-              children: [(0, _v1.jsx)(_v19.Text, {
+              children: [(0, _v1.jsx)(_v20.Text, {
                 noOfLines: 2,
                 variant: "heading-md",
                 children: _v0.name
-              }), (0, _v1.jsx)(_v19.Text, {
+              }), (0, _v1.jsx)(_v20.Text, {
                 color: "text-secondary",
                 variant: "body-sm",
                 children: _v6
               })]
             })]
-          }), _v12 && (0, _v1.jsx)(_v18.Button, {
+          }), _v12 && (0, _v1.jsx)(_v19.Button, {
             as: "a",
             "data-testid": "file-viewer-download",
             href: _v0.downloadUrl,
-            leftIcon: (0, _v1.jsx)(_v30.DownloadImport, {}),
+            leftIcon: (0, _v1.jsx)(_v31.DownloadImport, {}),
             onClick: () => {
               _v2({
                 fileId: _v0.publicId,
@@ -394,10 +416,10 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v29.Divider, {}), (0, _v1.jsxs)(_v4.Flex, {
+          }), (0, _v1.jsx)(_v30.Divider, {}), (0, _v1.jsxs)(_v4.Flex, {
             flexDirection: "column",
             gap: "sm",
-            children: [(0, _v1.jsx)(_v37, {
+            children: [(0, _v1.jsx)(_v38, {
               label: (0, _v10.translate)({
                 singular: "Date",
                 dictionary: {
@@ -425,7 +447,7 @@
                 }
               }),
               value: _v1.getDisplayDate(_v0.createdTime)
-            }), (0, _v1.jsx)(_v37, {
+            }), (0, _v1.jsx)(_v38, {
               label: (0, _v10.translate)({
                 singular: "File type",
                 dictionary: {
@@ -453,7 +475,7 @@
                 }
               }),
               value: _v7
-            }), (0, _v1.jsx)(_v37, {
+            }), (0, _v1.jsx)(_v38, {
               label: (0, _v10.translate)({
                 singular: "File size",
                 dictionary: {
@@ -486,7 +508,7 @@
         }), (0, _v1.jsxs)(_v4.Flex, {
           alignItems: "center",
           gap: "md",
-          children: [(0, _v1.jsx)(_v28.Avatar, {
+          children: [(0, _v1.jsx)(_v29.Avatar, {
             alt: _v9,
             nameProps: {
               name: _v9
@@ -496,7 +518,7 @@
             srcSet: _v11
           }), (0, _v1.jsxs)(_v4.Flex, {
             flexDirection: "column",
-            children: [(0, _v1.jsx)(_v19.Text, {
+            children: [(0, _v1.jsx)(_v20.Text, {
               color: "text-secondary",
               variant: "body-xs",
               children: (0, _v10.translate)({
@@ -525,7 +547,7 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v19.Text, {
+            }), (0, _v1.jsx)(_v20.Text, {
               variant: "body-md",
               children: _v9
             })]
@@ -534,28 +556,28 @@
       });
     };
   _v0.i(0);
-  var _v39 = _v0.i(0);
+  var _v40 = _v0.i(0);
   _v0.s(["FileViewerPage", 0, ({
     file: _v0
   }) => {
-    let _v1 = (0, _v17.useRouter)(),
-      _v2 = (0, _v14.useViewer)(),
+    let _v1 = (0, _v18.useRouter)(),
+      _v2 = (0, _v15.useViewer)(),
       {
         trackFilePageDisplayed: _v3
       } = _v12(),
       {
         trackReportFlowOpened: _v4
-      } = (0, _v27.useReportFlowTracking)(),
+      } = (0, _v28.useReportFlowTracking)(),
       {
         isOpen: _v5,
         onOpen: _v6,
         onClose: _v7
-      } = (0, _v20.useDisclosure)(),
+      } = (0, _v21.useDisclosure)(),
       _v8 = _v0.allowDownloads && null != _v0.downloadUrl && "" !== _v0.downloadUrl;
-    return (0, _v13.usePicoEffect)(() => (_v3({
+    return (0, _v14.usePicoEffect)(() => (_v3({
       fileId: _v0.publicId,
       fileOwnerId: _v0.uri.split("/")[2],
-      referrerPage: (0, _v26.deriveReferrerPage)()
+      referrerPage: (0, _v27.deriveReferrerPage)()
     }), !0), [_v0.publicId, _v0.uri, _v3], {
       once: !0
     }), (0, _v1.jsxs)(_v4.Flex, {
@@ -592,7 +614,7 @@
             base: "18rem",
             lg: 0
           },
-          children: (0, _v1.jsx)(_v39.FilePreview, {
+          children: (0, _v1.jsx)(_v40.FilePreview, {
             canDownload: _v8,
             contentType: _v0.contentType,
             controlsPlacement: "center",
@@ -604,7 +626,7 @@
             thumbnailUrl: _v0.thumbnail?.url,
             width: _v0.width
           })
-        }), (0, _v1.jsx)(_v38, {
+        }), (0, _v1.jsx)(_v39, {
           file: _v0
         })]
       }), (0, _v1.jsx)(_v4.Flex, {
@@ -618,7 +640,7 @@
           alignItems: "baseline",
           gap: "xs",
           justifyContent: "center",
-          children: [(0, _v1.jsx)(_v19.Text, {
+          children: [(0, _v1.jsx)(_v20.Text, {
             color: "text-primary",
             variant: "body-sm",
             children: (0, _v10.translate)({
@@ -647,7 +669,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v18.Button, {
+          }), (0, _v1.jsx)(_v19.Button, {
             _hover: {
               background: "transparent",
               color: "text-primary"
@@ -700,17 +722,17 @@
             })
           })]
         })
-      }), (0, _v1.jsx)(_v24, {
+      }), (0, _v1.jsx)(_v25, {
         publicId: _v0.publicId,
         isOpen: _v5,
         onClose: _v7
       })]
     });
   }], 0);
-  var _v40 = _v0.i(0),
-    _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  async function _v43({
+  var _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0);
+  async function _v44({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -719,32 +741,32 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v41.measureLatency)("getFile", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/files/${_v2}?${(0, _v42.searchQueryString)(_v3)}&fields=${_v1.map(_v42.intoSnakeCase).join(",")}`, {
+    return (0, _v42.measureLatency)("getFile", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/files/${_v2}?${(0, _v43.searchQueryString)(_v3)}&fields=${_v1.map(_v43.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v42.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v43.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v42.deepCamelCase)(_v1);
+      return (0, _v43.deepCamelCase)(_v1);
     });
   }
-  let _v44 = ["publicId", "uri", "name", "contentType", "thumbnail.url", "fileSize", "width", "height", "privacy", "allowDownloads", "downloadUrl", "createdTime", "uploader.name", "uploader.pictures.sizes"],
-    _v45 = async _v0 => {
+  let _v45 = ["publicId", "uri", "name", "contentType", "thumbnail.url", "fileSize", "width", "height", "privacy", "allowDownloads", "downloadUrl", "createdTime", "uploader.name", "uploader.pictures.sizes"],
+    _v46 = async _v0 => {
       let _v1 = "object" == typeof _v0 && null !== _v0 && "res" in _v0 && _v0.res instanceof Response ? _v0.res : void 0;
       if (!_v1) return;
       let _v2 = await _v1.json().catch(() => ({}));
       return "object" == typeof _v2 && null !== _v2 && "error_code" in _v2 && "number" == typeof _v2.error_code ? _v2.error_code : void 0;
     },
-    _v46 = async (_v0, _v1) => {
+    _v47 = async (_v0, _v1) => {
       let _v2 = _v0.query.publicId,
         _v3 = (Array.isArray(_v2) ? _v2[0] : _v2) ?? "",
         _v4 = _v0.req.cookies[`${_v3}_password`];
       try {
-        let _v0 = await _v43({
-          select: _v44,
+        let _v0 = await _v44({
+          select: _v45,
           where: {
             fileId: _v3
           },
@@ -759,7 +781,7 @@
             accept: "application/json"
           }
         });
-        return ("password" === _v0.privacy || void 0 !== _v4) && (0, _v40.setCacheHeaders)(_v0.req, _v0.res, {
+        return ("password" === _v0.privacy || void 0 !== _v4) && (0, _v41.setCacheHeaders)(_v0.req, _v0.res, {
           ttl: 0
         }), {
           props: {
@@ -770,8 +792,8 @@
           }
         };
       } catch (_v0) {
-        let _v1 = await _v45(_v0);
-        if (0 === _v1 || 0 === _v1) return (0, _v40.setCacheHeaders)(_v0.req, _v0.res, {
+        let _v1 = await _v46(_v0);
+        if (0 === _v1 || 0 === _v1) return (0, _v41.setCacheHeaders)(_v0.req, _v0.res, {
           ttl: 0
         }), {
           props: {
@@ -791,5 +813,5 @@
         };
       }
     };
-  _v0.s(["fileViewerGetServerSideProps", 0, _v46], 0);
+  _v0.s(["fileViewerGetServerSideProps", 0, _v47], 0);
 }

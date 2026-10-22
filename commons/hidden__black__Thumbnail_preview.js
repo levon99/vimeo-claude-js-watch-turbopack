@@ -1067,17 +1067,17 @@
   }
   var _v59 = _v0.i(0);
   _v0.s(["BasicSettings", 0, function ({
-    id: _v0 = (0, _v59.createLiveDomName)("basic-settings"),
-    eventSettingsContext: {
-      settings: {
-        value: _v1
-      },
-      actions: {
-        updateLiveEventSettings: _v2
-      }
-    } = (0, _v4.useManager)(_v11.EventSettingsManager)
+    id: _v0 = (0, _v59.createLiveDomName)("basic-settings")
   }) {
     let {
+        settings: {
+          value: _v1
+        },
+        actions: {
+          updateLiveEventSettings: _v2
+        }
+      } = (0, _v4.useManager)(_v11.EventSettingsManager),
+      {
         trackLiveStreamBasicsChanged: _v3
       } = (0, _v13.useLiveStreamBroadcasterTracking)(),
       _v4 = (0, _v12.useOrionSettingsFields)(["enable_live_event_basics_thumbnail"]),
@@ -2081,7 +2081,7 @@
         size: "sm",
         isChecked: _v3,
         isDisabled: _v7,
-        onChange: _v5
+        onChange: _v0 => _v5(_v0.target.checked)
       })]
     });
   }
@@ -2089,16 +2089,12 @@
     canUsePersonalizedViewerWatermarking: _v0,
     canUseForensicWatermarking: _v1,
     isPersonalizedViewerWatermarkingEnabled: _v2,
-    isForensicWatermarkingEnabled: _v3
+    isForensicWatermarkingEnabled: _v3,
+    isPersonalizedViewerWatermarkingChecked: _v4,
+    isForensicWatermarkingChecked: _v5,
+    onPersonalizedViewerWatermarkingChange: _v6,
+    onForensicWatermarkingChange: _v7
   }) {
-    let [_v4, _v5] = (0, _v5.useState)(!1),
-      [_v6, _v7] = (0, _v5.useState)(!1),
-      _v8 = (0, _v5.useCallback)(() => {
-        _v5(_v0 => !_v0);
-      }, []),
-      _v9 = (0, _v5.useCallback)(() => {
-        _v7(_v0 => !_v0);
-      }, []);
     return (0, _v3.jsxs)(_v7.Flex, {
       direction: "column",
       gap: (0, _v6.rem)(12),
@@ -2261,7 +2257,7 @@
           }),
           isChecked: _v4,
           isEnabled: _v2,
-          onChange: _v8
+          onChange: _v6
         }) : null, _v1 ? (0, _v3.jsx)(_v89, {
           id: "forensic-watermarking",
           label: (0, _v24.translate)({
@@ -2316,9 +2312,9 @@
               }
             }
           }),
-          isChecked: _v6,
+          isChecked: _v5,
           isEnabled: _v3,
-          onChange: _v9
+          onChange: _v7
         }) : null]
       })]
     });
@@ -2961,26 +2957,28 @@
   }
   var _v110 = _v0.i(0),
     _v111 = _v0.i(0);
-  let _v112 = ["link", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "streamPrivacy.unlistedHash"];
+  let _v112 = ["link", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "streamPrivacy.unlistedHash"],
+    _v113 = ["personalizedViewerWatermarking"],
+    _v114 = ["forensicWatermarking"];
   _v0.s(["PrivacySettings", 0, function ({
     canUsePersonalizedViewerWatermarking: _v0 = !1,
     canUseForensicWatermarking: _v1 = !1,
     id: _v2 = (0, _v59.createLiveDomName)("privacy-settings"),
-    eventSettingsContext: {
-      settings: _v3,
-      embedWhitelist: _v4,
-      actions: {
-        updateLiveEventSettings: _v5,
-        updateEmbedWhitelist: _v6
-      }
-    } = (0, _v4.useManager)(_v11.EventSettingsManager),
-    onlyShowStreamPrivacy: _v7 = !1
+    onlyShowStreamPrivacy: _v3 = !1
   }) {
-    let _v8 = _v3.value?.allowedPrivacies ?? [],
-      _v9 = _v3.value?.streamPrivacy?.view,
-      _v10 = _v3.value?.streamPrivacy?.embed,
-      _v11 = _v3.value?.streamPassword,
-      _v12 = _v3.value?.contentRating,
+    let {
+        settings: _v4,
+        embedWhitelist: _v5,
+        actions: {
+          updateLiveEventSettings: _v6,
+          updateEmbedWhitelist: _v7
+        }
+      } = (0, _v4.useManager)(_v11.EventSettingsManager),
+      _v8 = _v4.value?.allowedPrivacies ?? [],
+      _v9 = _v4.value?.streamPrivacy?.view,
+      _v10 = _v4.value?.streamPrivacy?.embed,
+      _v11 = _v4.value?.streamPassword,
+      _v12 = _v4.value?.contentRating,
       _v13 = (0, _v104.useIsLiveDemoSubscription)(),
       {
         trackPrivacyChanged: _v14
@@ -2988,12 +2986,12 @@
       {
         trackLiveStreamPrivacyChanged: _v15
       } = (0, _v13.useLiveStreamBroadcasterTracking)(),
-      _v16 = !!_v3.value?.fromShowcase,
-      _v17 = _v3.value?.album?.id,
+      _v16 = !!_v4.value?.fromShowcase,
+      _v17 = _v4.value?.album?.id,
       _v18 = !_v16 && !_v8.find(_v0 => _v0 === _v9),
-      _v19 = (0, _v5.useMemo)(() => _v4.value || [], [_v4.value]),
+      _v19 = (0, _v5.useMemo)(() => _v5.value || [], [_v5.value]),
       _v20 = (0, _v5.useCallback)((_v0, _v1) => {
-        (_v9 !== _v0 || _v11 !== _v1) && (_v0 !== _v78.EStreamPrivacy.PASSWORD || _v1.length) && _v5({
+        (_v9 !== _v0 || _v11 !== _v1) && (_v0 !== _v78.EStreamPrivacy.PASSWORD || _v1.length) && _v6({
           streamPrivacy: {
             view: _v0
           },
@@ -3008,30 +3006,40 @@
             liveStreamPrivacyValue: String(_v0)
           }));
         });
-      }, [_v5, _v9, _v11, _v14, _v15]),
+      }, [_v6, _v9, _v11, _v14, _v15]),
       _v21 = (0, _v5.useCallback)((_v0, _v1) => {
-        _v10 !== _v0 && (_v5({
+        _v10 !== _v0 && (_v6({
           streamPrivacy: {
             embed: _v0
           }
         }, _v112), _v15({
           liveStreamPrivacyType: "embed_privacy",
           liveStreamPrivacyValue: String(_v0)
-        })), _v1 !== _v19 && _v6(_v1);
-      }, [_v10, _v19, _v5, _v6, _v15]),
+        })), _v1 !== _v19 && _v7(_v1);
+      }, [_v10, _v19, _v6, _v7, _v15]),
       _v22 = (0, _v5.useCallback)(_v0 => {
-        _v5({
+        _v6({
           contentRating: _v0
         }), _v15({
           liveStreamPrivacyType: "content_rating",
           liveStreamPrivacyValue: JSON.stringify(_v0)
         });
-      }, [_v5, _v15]),
+      }, [_v6, _v15]),
+      _v23 = (0, _v5.useCallback)(_v0 => {
+        _v6({
+          personalizedViewerWatermarking: _v0
+        }, _v113);
+      }, [_v6]),
+      _v24 = (0, _v5.useCallback)(_v0 => {
+        _v6({
+          forensicWatermarking: _v0
+        }, _v114);
+      }, [_v6]),
       {
-        tooltip: _v23,
-        isDisabled: _v24
+        tooltip: _v25,
+        isDisabled: _v26
       } = (0, _v106.useGetEditEmbedPrivacyDisabled)(),
-      _v25 = (0, _v3.jsxs)(_v3.Fragment, {
+      _v27 = (0, _v3.jsxs)(_v3.Fragment, {
         children: [_v16 && _v17 ? (0, _v3.jsx)(_v84.Alert, {
           children: (0, _v3.jsxs)(_v85.AlertDescription, {
             margin: 0,
@@ -3052,7 +3060,7 @@
           })
         }) : null]
       }),
-      _v26 = _v9 && _v8 ? (0, _v3.jsx)(_v109, {
+      _v28 = _v9 && _v8 ? (0, _v3.jsx)(_v109, {
         isDisabled: _v13 || _v16,
         disabledTip: _v13 ? _v110.rtmpTranslations.viewPrivacyDemoDisabledTip : void 0,
         privacy: _v9,
@@ -3063,16 +3071,16 @@
         height: (0, _v6.rem)(110),
         borderRadius: (0, _v6.rem)(4)
       });
-    return _v7 ? (0, _v3.jsxs)(_v7.Flex, {
+    return _v3 ? (0, _v3.jsxs)(_v7.Flex, {
       id: _v2,
       direction: "column",
       maxWidth: "100%",
       width: "100%",
       gap: (0, _v6.rem)(32),
-      children: [_v25, (0, _v3.jsx)(_v7.Flex, {
+      children: [_v27, (0, _v3.jsx)(_v7.Flex, {
         direction: "column",
         gap: (0, _v6.rem)(24),
-        children: _v26
+        children: _v28
       })]
     }) : (0, _v3.jsxs)(_v7.Flex, {
       id: _v2,
@@ -3080,13 +3088,13 @@
       maxWidth: "100%",
       width: "100%",
       gap: (0, _v6.rem)(32),
-      children: [_v25, (0, _v3.jsxs)(_v7.Flex, {
+      children: [_v27, (0, _v3.jsxs)(_v7.Flex, {
         direction: "column",
         gap: (0, _v6.rem)(24),
-        children: [_v26, _v10 ? (0, _v3.jsx)(_v102, {
-          isDisabled: _v13 || _v16 || _v24,
-          isSelectDisabled: _v24,
-          disabledTip: _v13 ? _v110.rtmpTranslations.embedPrivacyDemoDisabledTip : _v24 ? _v23 : void 0,
+        children: [_v28, _v10 ? (0, _v3.jsx)(_v102, {
+          isDisabled: _v13 || _v16 || _v26,
+          isSelectDisabled: _v26,
+          disabledTip: _v13 ? _v110.rtmpTranslations.embedPrivacyDemoDisabledTip : _v26 ? _v25 : void 0,
           embedPrivacy: _v10,
           domains: _v19,
           showNotice: _v9 === _v78.EStreamPrivacy.NOBODY,
@@ -3099,7 +3107,11 @@
         canUsePersonalizedViewerWatermarking: _v0,
         canUseForensicWatermarking: _v1,
         isPersonalizedViewerWatermarkingEnabled: !0,
-        isForensicWatermarkingEnabled: !0
+        isForensicWatermarkingEnabled: !0,
+        isPersonalizedViewerWatermarkingChecked: !!_v4.value?.personalizedViewerWatermarking,
+        isForensicWatermarkingChecked: !!_v4.value?.forensicWatermarking,
+        onPersonalizedViewerWatermarkingChange: _v23,
+        onForensicWatermarkingChange: _v24
       }) : null, _v12 ? (0, _v3.jsx)(_v94, {
         contentRating: _v12,
         isDisabled: !1,
@@ -3110,13 +3122,13 @@
       })]
     });
   }], 0);
-  var _v113 = _v0.i(0),
-    _v114 = _v0.i(0),
-    _v115 = _v0.i(0);
+  var _v115 = _v0.i(0),
+    _v116 = _v0.i(0),
+    _v117 = _v0.i(0);
   _v0.s(["useFailsafeUpgradeModal", 0, function ({
     canOpen: _v0 = !0
   } = {}) {
-    return (0, _v115.useUpgradeModal)({
+    return (0, _v117.useUpgradeModal)({
       canOpen: _v0,
       tracking: {
         params: {
@@ -3136,17 +3148,17 @@
       templateType: "enterprise",
       modalConfig: {
         mkcCode: "109813",
-        enterpriseTitle: _v113.T_GO_LIVE_WITH_PEACE_OF_MIND,
-        enterpriseSubtitle: _v113.T_ADD_FAIL_SAFE_STREAMING,
-        customFeaturesList: (0, _v3.jsx)(_v114.UpsellFeaturesList, {
-          featuresList: _v113.T_FAIL_SAFE_STREAMING_FEATURES
+        enterpriseTitle: _v115.T_GO_LIVE_WITH_PEACE_OF_MIND,
+        enterpriseSubtitle: _v115.T_ADD_FAIL_SAFE_STREAMING,
+        customFeaturesList: (0, _v3.jsx)(_v116.UpsellFeaturesList, {
+          featuresList: _v115.T_FAIL_SAFE_STREAMING_FEATURES
         })
       }
     });
   }], 0), _v0.s(["useUnlimitedStreamUpgradeModal", 0, function ({
     canOpen: _v0 = !0
   } = {}) {
-    return (0, _v115.useUpgradeModal)({
+    return (0, _v117.useUpgradeModal)({
       canOpen: _v0,
       tracking: {
         params: {
@@ -3166,16 +3178,16 @@
       templateType: "enterprise",
       modalConfig: {
         mkcCode: "109754",
-        enterpriseTitle: _v113.T_STREAM_WITHOUT_INTERRUPTIONS,
-        enterpriseSubtitle: _v113.T_CREATE_CONTINUOUS_STREAM,
-        customFeaturesList: (0, _v3.jsx)(_v114.UpsellFeaturesList, {
-          featuresList: _v113.T_UNLIMITED_DURATION_FEATURES
+        enterpriseTitle: _v115.T_STREAM_WITHOUT_INTERRUPTIONS,
+        enterpriseSubtitle: _v115.T_CREATE_CONTINUOUS_STREAM,
+        customFeaturesList: (0, _v3.jsx)(_v116.UpsellFeaturesList, {
+          featuresList: _v115.T_UNLIMITED_DURATION_FEATURES
         })
       }
     });
   }], 0);
-  var _v116 = _v0.i(0),
-    _v117 = _v0.i(0);
+  var _v118 = _v0.i(0),
+    _v119 = _v0.i(0);
   _v0.s(["useTimeBasedDismissableNotification", 0, function ({
     storedKey: _v0,
     cooldownMs: _v1 = 0,
@@ -3183,12 +3195,12 @@
   }) {
     let [_v3, _v4] = (0, _v5.useState)(() => {
       if (_v2) return !1;
-      let _v0 = (0, _v116.getFromLocalStorage)(_v0),
+      let _v0 = (0, _v118.getFromLocalStorage)(_v0),
         _v1 = _v0 ? Number(_v0) : null;
-      return !_v1 || _v1 < (0, _v117.getAbsoluteNow)() - _v1;
+      return !_v1 || _v1 < (0, _v119.getAbsoluteNow)() - _v1;
     });
     return [_v3, (0, _v5.useCallback)(() => {
-      (0, _v116.setLocalStorageItem)(_v0, (0, _v117.getAbsoluteNow)()), _v4(!1);
+      (0, _v118.setLocalStorageItem)(_v0, (0, _v119.getAbsoluteNow)()), _v4(!1);
     }, [_v0])];
   }], 0);
 }

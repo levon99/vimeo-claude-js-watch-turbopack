@@ -315,153 +315,155 @@
       renderFreePlanCta: _v9,
       ignoreCurrentPlanState: _v10,
       bundleStripTiers: _v11,
-      bundleStripAvailableOnly: _v12 = !1
+      bundleStripAvailableOnly: _v12 = !1,
+      postCheckoutUrl: _v13
     }) => {
       let {
-          width: _v13
+          width: _v14
         } = (0, _v14.useWindowSize)(),
-        _v14 = _v5 && _v13 > 768,
+        _v15 = _v5 && _v14 > 768,
         {
-          tier: _v15,
-          name: _v16,
-          metadata: _v17
+          tier: _v16,
+          name: _v17,
+          metadata: _v18
         } = _v0,
-        _v18 = (0, _v3.useContext)(_v25.PlansDataContext),
-        _v19 = (0, _v3.useContext)(_v24.OverridesContext),
+        _v19 = (0, _v3.useContext)(_v25.PlansDataContext),
+        _v20 = (0, _v3.useContext)(_v24.OverridesContext),
         {
-          cardSurface: _v20,
-          compact: _v21
+          cardSurface: _v21,
+          compact: _v22
+        } = _v20,
+        {
+          isFlatRateData: _v23,
+          isSolutionData: _v24,
+          isRepackagingData: _v25,
+          downgradeEnabled: _v26,
+          effectiveTier: _v27,
+          upcomingTier: _v28
         } = _v19,
-        {
-          isFlatRateData: _v22,
-          isSolutionData: _v23,
-          isRepackagingData: _v24,
-          downgradeEnabled: _v25,
-          effectiveTier: _v26,
-          upcomingTier: _v27
-        } = _v18,
-        _v28 = _v17.entitlements?.params?.videoStoragePeriodicQuota || _v17.entitlements?.params?.videoStorageQuotaCap,
-        _v29 = _v17.entitlements?.params?.videoStorageQuotaPeriod,
-        _v30 = _v17.entitlements?.params?.bandwidth?.periodicQuota,
-        _v31 = _v17?.interactions?.purchase?.status,
-        _v32 = _v17?.purchasedProduct?.isMonthly,
-        _v33 = _v17?.purchasedProduct?.isWeekly,
-        _v34 = void 0 !== _v27 && _v15 === _v27,
-        _v35 = _v24 && void 0 !== _v27,
-        _v36 = "annual" === (0, _v13.resolveBillingPeriod)(_v0, _v2 ? "annual" : "monthly"),
-        _v37 = (0, _v12.getEffectivePurchaseStatus)({
-          purchaseStatus: _v31,
-          tier: _v15,
-          isViewingAnnual: _v36,
-          isPurchasedMonthly: _v32
+        _v29 = _v18.entitlements?.params?.videoStoragePeriodicQuota || _v18.entitlements?.params?.videoStorageQuotaCap,
+        _v30 = _v18.entitlements?.params?.videoStorageQuotaPeriod,
+        _v31 = _v18.entitlements?.params?.bandwidth?.periodicQuota,
+        _v32 = _v18?.interactions?.purchase?.status,
+        _v33 = _v18?.purchasedProduct?.isMonthly,
+        _v34 = _v18?.purchasedProduct?.isWeekly,
+        _v35 = void 0 !== _v28 && _v16 === _v28,
+        _v36 = _v25 && void 0 !== _v28,
+        _v37 = "annual" === (0, _v13.resolveBillingPeriod)(_v0, _v2 ? "annual" : "monthly"),
+        _v38 = (0, _v12.getEffectivePurchaseStatus)({
+          purchaseStatus: _v32,
+          tier: _v16,
+          isViewingAnnual: _v37,
+          isPurchasedMonthly: _v33
         }),
-        _v38 = !_v10 && "available" !== _v37,
-        _v39 = (_v38 || _v34) && _v24,
-        _v40 = _v39 ? .7 : 1,
-        _v41 = (0, _v29.useBundleCtaIntercept)(_v15),
-        _v42 = (0, _v29.useBundleOfferSelector)(_v0 => _v0.isBundleActive),
-        _v43 = (0, _v29.useBundleOfferSelector)(_v0 => _v0.isEnabled),
-        _v44 = (0, _v29.useBundleOfferSelector)(_v0 => _v0.bundleType),
-        _v45 = (0, _v29.useBundleOfferSelector)(_v0 => _v0.price),
-        _v46 = (_v11 ?? _v37).has(_v15) && _v43 && null !== _v44 && (!_v12 || "available" === _v37),
-        _v47 = (0, _v23.getPlanCardPresentation)(_v20, _v21),
-        _v48 = _v14 && (0, _v7.rem)(586) || _v5 && "50%" || "25%",
-        _v49 = _v14 && "auto" || _v5 && "100%" || (0, _v7.rem)(330);
-      if (_v38 && !_v34 && _v5 && !_v24 && !_v25) return null;
-      let _v50 = !_v22 || _v24,
-        _v51 = !("free" === _v15 && _v5);
+        _v39 = !_v10 && "available" !== _v38,
+        _v40 = (_v39 || _v35) && _v25,
+        _v41 = _v40 ? .7 : 1,
+        _v42 = (0, _v29.useBundleCtaIntercept)(_v16),
+        _v43 = (0, _v29.useBundleOfferSelector)(_v0 => _v0.isBundleActive),
+        _v44 = (0, _v29.useBundleOfferSelector)(_v0 => _v0.isEnabled),
+        _v45 = (0, _v29.useBundleOfferSelector)(_v0 => _v0.bundleType),
+        _v46 = (0, _v29.useBundleOfferSelector)(_v0 => _v0.price),
+        _v47 = (_v11 ?? _v37).has(_v16) && _v44 && null !== _v45 && (!_v12 || "available" === _v38),
+        _v48 = (0, _v23.getPlanCardPresentation)(_v21, _v22),
+        _v49 = _v15 && (0, _v7.rem)(586) || _v5 && "50%" || "25%",
+        _v50 = _v15 && "auto" || _v5 && "100%" || (0, _v7.rem)(330);
+      if (_v39 && !_v35 && _v5 && !_v25 && !_v26) return null;
+      let _v51 = !_v23 || _v25,
+        _v52 = !("free" === _v16 && _v5);
       return (0, _v1.jsxs)(_v4.Box, {
-        width: _v48,
+        width: _v49,
         position: "relative",
-        margin: _v1 && "purchased" !== _v37 ? `${(0, _v7.rem)(40)} auto 0` : "0 auto",
-        minWidth: _v49,
-        display: _v5 || "customSelfServe" === _v15 ? "block" : "table-cell",
+        margin: _v1 && "purchased" !== _v38 ? `${(0, _v7.rem)(40)} auto 0` : "0 auto",
+        minWidth: _v50,
+        display: _v5 || "customSelfServe" === _v16 ? "block" : "table-cell",
         border: `${(0, _v7.rem)(8)} solid transparent`,
         children: [(0, _v1.jsx)(_v27.default, {
           showBadge: _v1,
           planData: _v0
         }), (0, _v1.jsx)(_v15.CardBorder, {
           showBadge: _v1,
-          purchaseStatus: _v10 ? "available" : _v37,
-          showCardBorder: _v19?.showCardBorder,
-          compact: _v47.condensed
+          purchaseStatus: _v10 ? "available" : _v38,
+          showCardBorder: _v20?.showCardBorder,
+          compact: _v48.condensed
         }), (0, _v1.jsx)(_v38, {
-          isDisabled: _v38 && !_v24,
-          compact: _v47.condensed,
+          isDisabled: _v39 && !_v25,
+          compact: _v48.condensed,
           children: (0, _v1.jsxs)(_v4.Box, {
             className: "card-section-container",
-            gap: _v14 ? "lg" : void 0,
-            display: _v14 ? "flex" : void 0,
-            margin: _v14 ? "0 auto" : void 0,
+            gap: _v15 ? "lg" : void 0,
+            display: _v15 ? "flex" : void 0,
+            margin: _v15 ? "0 auto" : void 0,
             children: [(0, _v1.jsxs)(_v4.Box, {
-              paddingBottom: _v35 ? (0, _v7.rem)(16) : void 0,
+              paddingBottom: _v36 ? (0, _v7.rem)(16) : void 0,
               children: [(0, _v1.jsxs)(_v39, {
                 as: "h1",
-                size: _v47.condensed ? "md" : "lg",
-                allowWrap: _v24,
+                size: _v48.condensed ? "md" : "lg",
+                allowWrap: _v25,
                 children: [(0, _v1.jsx)(_v4.Box, {
                   as: "span",
-                  opacity: _v40,
-                  children: _v16
+                  opacity: _v41,
+                  children: _v17
                 }), " ", (0, _v1.jsx)(_v28.default, {
-                  showBadge: "purchased" === _v37 && !_v10
+                  showBadge: "purchased" === _v38 && !_v10
                 })]
-              }), _v17.isBandwidthProduct && (0, _v1.jsx)(_v4.Box, {
-                opacity: _v40,
+              }), _v18.isBandwidthProduct && (0, _v1.jsx)(_v4.Box, {
+                opacity: _v41,
                 children: (0, _v1.jsx)(_v5.Header, {
                   size: "sm",
-                  children: "enterprise" !== _v15 ? `${_v30} annual bandwidth` : ""
+                  children: "enterprise" !== _v16 ? `${_v31} annual bandwidth` : ""
                 })
-              }), !_v23 && _v19?.subHeadingType?.[_v15] && (0, _v1.jsx)(_v40, {
+              }), !_v24 && _v20?.subHeadingType?.[_v16] && (0, _v1.jsx)(_v40, {
                 children: (0, _v1.jsx)(_v4.Box, {
-                  opacity: _v40,
+                  opacity: _v41,
                   children: (0, _v1.jsx)(_v19.default, {
-                    tier: _v15
+                    tier: _v16
                   })
                 })
-              }), _v46 && null !== _v44 && (0, _v1.jsx)(_v4.Box, {
-                opacity: _v40,
+              }), _v47 && null !== _v45 && (0, _v1.jsx)(_v4.Box, {
+                opacity: _v41,
                 marginTop: (0, _v7.rem)(12),
                 marginBottom: (0, _v7.rem)(8),
                 children: (0, _v1.jsx)(_v9.BundlePlanCardStrip, {
-                  bundleType: _v44,
-                  isVisible: _v42,
-                  price: _v45
+                  bundleType: _v45,
+                  isVisible: _v43,
+                  price: _v46
                 })
-              }), !("free" === _v15 && _v5) && (0, _v1.jsx)(_v4.Box, {
+              }), !("free" === _v16 && _v5) && (0, _v1.jsx)(_v4.Box, {
                 className: "plan-pricing-section",
-                opacity: _v40,
+                opacity: _v41,
                 children: (0, _v1.jsx)(_v20.default, {
                   planData: _v0,
-                  showYearly: _v36,
+                  showYearly: _v37,
                   isBillingFreqToggleAvailable: _v3,
-                  disabled: _v38,
+                  disabled: _v39,
                   showStrikePrice: _v4,
                   isMobileBreakpoint: _v5,
                   renewalDiscount: _v7,
-                  isPurchasedWeekly: _v33
+                  isPurchasedWeekly: _v34
                 })
               }), (0, _v1.jsx)(_v4.Box, {
-                marginTop: _v47.condensed ? 12 : 24,
-                marginBottom: _v35 || _v47.condensed ? 12 : 24,
-                opacity: _v39 ? .5 : 1,
-                children: "free" === _v15 ? _v9 ? _v9() : (0, _v1.jsx)(_v33.default, {
+                marginTop: _v48.condensed ? 12 : 24,
+                marginBottom: _v36 || _v48.condensed ? 12 : 24,
+                opacity: _v40 ? .5 : 1,
+                children: "free" === _v16 ? _v9 ? _v9() : (0, _v1.jsx)(_v33.default, {
                   location: "vertical"
                 }) : (0, _v1.jsx)(_v32.default, {
                   planData: _v0,
-                  showYearly: _v36,
+                  showYearly: _v37,
                   showFreeTrial: _v0.metadata?.interactions?.purchase?.uri?.freeTrial !== null,
                   location: "vertical",
                   isMobileBreakpoint: _v5,
-                  upcomingTier: _v27,
-                  effectiveTier: _v26,
+                  upcomingTier: _v28,
+                  effectiveTier: _v27,
                   renewalDiscountPercent: _v7?.savingsPercent,
                   onRenewalDiscount: _v8,
-                  onPurchaseIntercept: _v41
+                  onPurchaseIntercept: _v42,
+                  postCheckoutUrl: _v13
                 })
-              }), _v35 && (0, _v1.jsxs)(_v4.Box, {
-                "aria-hidden": !_v34,
-                visibility: _v34 ? void 0 : "hidden",
+              }), _v36 && (0, _v1.jsxs)(_v4.Box, {
+                "aria-hidden": !_v35,
+                visibility: _v35 ? void 0 : "hidden",
                 display: "flex",
                 gap: (0, _v7.rem)(8),
                 alignItems: "flex-start",
@@ -485,7 +487,7 @@
                   children: (0, _v10.translate)({
                     singular: "Starting from the next renewal, you will be moved to the new {B}{PLAN_NAME}{/B} plan.",
                     replacements: {
-                      PLAN_NAME: _v16,
+                      PLAN_NAME: _v17,
                       B: _v0 => (0, _v1.jsx)(_v6.Text, {
                         as: "span",
                         fontWeight: 500,
@@ -519,20 +521,20 @@
                   })
                 })]
               })]
-            }), _v51 && (0, _v1.jsxs)(_v4.Box, {
-              opacity: _v40,
-              children: [_v50 && (0, _v1.jsx)(_v16.default, {
+            }), _v52 && (0, _v1.jsxs)(_v4.Box, {
+              opacity: _v41,
+              children: [_v51 && (0, _v1.jsx)(_v16.default, {
                 planData: _v0,
                 showYearly: _v2
               }), (0, _v1.jsx)(_v17.default, {
                 planData: _v0,
-                quotaPeriod: _v29,
-                periodicQuota: "free" === _v15 && null !== _v28 ? _v28 : _v17.entitlements?.params?.videoStoragePeriodicQuota || 0,
+                quotaPeriod: _v30,
+                periodicQuota: "free" === _v16 && null !== _v29 ? _v29 : _v18.entitlements?.params?.videoStoragePeriodicQuota || 0,
                 planView: _v6
               })]
             })]
           })
-        }), !_v5 && _v47.showComparisonLink && (0, _v1.jsx)(_v31, {})]
+        }), !_v5 && _v48.showComparisonLink && (0, _v1.jsx)(_v31, {})]
       });
     },
     _v42 = ({
@@ -552,52 +554,53 @@
       renderFreePlanCta: _v13,
       ignoreCurrentPlanState: _v14,
       bundleStripTiers: _v15,
-      bundleStripAvailableOnly: _v16 = !1
+      bundleStripAvailableOnly: _v16 = !1,
+      postCheckoutUrl: _v17
     }) => {
-      let _v17 = (0, _v3.useContext)(_v24.OverridesContext),
+      let _v18 = (0, _v3.useContext)(_v24.OverridesContext),
         {
-          cardSurface: _v18,
-          compact: _v19
-        } = _v17,
-        _v20 = (0, _v23.getPlanCardPresentation)(_v18, _v19),
+          cardSurface: _v19,
+          compact: _v20
+        } = _v18,
+        _v21 = (0, _v23.getPlanCardPresentation)(_v19, _v20),
         {
-          plansData: _v21,
-          isRepackagingData: _v22,
-          hideFreePlan: _v23,
-          hideIndividualPlans: _v24
+          plansData: _v22,
+          isRepackagingData: _v23,
+          hideFreePlan: _v24,
+          hideIndividualPlans: _v25
         } = (0, _v3.useContext)(_v25.PlansDataContext),
-        _v25 = (0, _v3.useRef)(null),
+        _v26 = (0, _v3.useRef)(null),
         {
-          shouldReorder: _v26,
-          isResolving: _v27
+          shouldReorder: _v27,
+          isResolving: _v28
         } = (0, _v26.useColdStoragePlanReorder)(),
-        _v28 = (0, _v11.useOrionSettingsFields)(["enable_low_tier_below_fold"]).enable_low_tier_below_fold,
-        _v29 = _v26 || _v28,
-        _v30 = (0, _v3.useMemo)(() => !_v21 || !_v29 || _v22 || _v5 ? _v21 : (_v0 => {
+        _v29 = (0, _v11.useOrionSettingsFields)(["enable_low_tier_below_fold"]).enable_low_tier_below_fold,
+        _v30 = _v27 || _v29,
+        _v31 = (0, _v3.useMemo)(() => !_v22 || !_v30 || _v23 || _v5 ? _v22 : (_v0 => {
           let _v1 = _v0.findIndex(_v0 => "free" !== _v0.tier);
           if (_v1 < 0 || _v1 === _v0.length - 1) return _v0;
           let _v2 = [..._v0],
             [_v3] = _v2.splice(_v1, 1);
           return _v2.push(_v3), _v2;
-        })(_v21), [_v21, _v29, _v22, _v5]),
-        _v31 = (0, _v3.useMemo)(() => _v30 ? _v17?.plans ? _v30.filter(_v0 => _v17.plans?.includes(_v0.tier)) : _v17?.excludedPlans ? _v30.filter(_v0 => !_v17.excludedPlans?.includes(_v0.tier)) : _v5 ? _v30 : _v30.length > _v21.maxVerticalCards ? _v30.slice(0, -1) : _v30 : [], [_v30, _v17, _v5]),
-        _v32 = (0, _v3.useMemo)(() => {
-          if (!_v21 || !_v22) return [];
-          let _v0 = _v21.some(_v0 => "core" === _v0.tier);
+        })(_v22), [_v22, _v30, _v23, _v5]),
+        _v32 = (0, _v3.useMemo)(() => _v31 ? _v18?.plans ? _v31.filter(_v0 => _v18.plans?.includes(_v0.tier)) : _v18?.excludedPlans ? _v31.filter(_v0 => !_v18.excludedPlans?.includes(_v0.tier)) : _v5 ? _v31 : _v31.length > _v21.maxVerticalCards ? _v31.slice(0, -1) : _v31 : [], [_v31, _v18, _v5]),
+        _v33 = (0, _v3.useMemo)(() => {
+          if (!_v22 || !_v23) return [];
+          let _v0 = _v22.some(_v0 => "core" === _v0.tier);
           return _v22.REPACKAGING_INDIVIDUAL_VIEW_TIERS.reduce((_v0, _v1) => {
-            if ((_v23 || _v0) && "free" === _v1) return _v0;
-            let _v2 = _v21.find(_v0 => _v0.tier === _v1);
+            if ((_v24 || _v0) && "free" === _v1) return _v0;
+            let _v2 = _v22.find(_v0 => _v0.tier === _v1);
             return _v2 && _v0.push(_v2), _v0;
           }, []);
-        }, [_v21, _v22, _v23]),
-        _v33 = (0, _v3.useMemo)(() => _v8 ?? ["professional", "studio", "enterprise"], [_v8]),
-        _v34 = (0, _v3.useMemo)(() => _v21 && _v22 ? _v33.reduce((_v0, _v1) => {
-          let _v2 = _v21.find(_v0 => _v0.tier === _v1);
+        }, [_v22, _v23, _v24]),
+        _v34 = (0, _v3.useMemo)(() => _v8 ?? ["professional", "studio", "enterprise"], [_v8]),
+        _v35 = (0, _v3.useMemo)(() => _v22 && _v23 ? _v34.reduce((_v0, _v1) => {
+          let _v2 = _v22.find(_v0 => _v0.tier === _v1);
           return _v2 && _v0.push(_v2), _v0;
-        }, []) : [], [_v21, _v22, _v33]),
-        _v35 = "individual" === _v6 ? _v32 : _v34,
-        _v36 = (0, _v3.useCallback)(() => {
-          let _v0 = _v25.current;
+        }, []) : [], [_v22, _v23, _v34]),
+        _v36 = "individual" === _v6 ? _v33 : _v35,
+        _v37 = (0, _v3.useCallback)(() => {
+          let _v0 = _v26.current;
           if (!_v0 || _v5) return;
           let _v1 = Array.from(_v0.querySelectorAll(".plan-pricing-section"));
           _v1.forEach(_v0 => {
@@ -607,7 +610,7 @@
           _v1.forEach(_v0 => {
             _v0.style.minHeight = `${_v2}px`;
           });
-          let _v3 = _v22 ? `[data-panel="${_v6}"] .card-section-container` : ".card-section-container",
+          let _v3 = _v23 ? `[data-panel="${_v6}"] .card-section-container` : ".card-section-container",
             _v4 = new Map(),
             _v5 = Array.from(_v0.querySelectorAll(_v3));
           _v5.length && (_v5.forEach(_v0 => {
@@ -619,26 +622,26 @@
               _v0 && _v0.style && (_v0.style.minHeight = (0, _v7.rem)(_v4.get(_v1)), _v0.style.height = "auto");
             });
           }));
-        }, [_v22, _v6, _v5]);
+        }, [_v23, _v6, _v5]);
       (0, _v3.useEffect)(() => {
-        let _v0 = (0, _v2.default)(_v36, 300);
+        let _v0 = (0, _v2.default)(_v37, 300);
         return window.addEventListener("resize", _v0), () => {
           window.removeEventListener("resize", _v0);
         };
-      }, [_v22, _v6, _v5, _v36]), (0, _v3.useEffect)(() => {
-        if (!_v21 || _v5) return;
-        let _v0 = requestAnimationFrame(_v36);
+      }, [_v23, _v6, _v5, _v37]), (0, _v3.useEffect)(() => {
+        if (!_v22 || _v5) return;
+        let _v0 = requestAnimationFrame(_v37);
         return () => cancelAnimationFrame(_v0);
-      }, [_v36, _v1, _v5, _v6, _v21, _v13, _v4, _v0]), (0, _v3.useEffect)(() => {
-        if (_v22) {
-          let _v0 = setTimeout(_v36, 450);
+      }, [_v37, _v1, _v5, _v6, _v22, _v13, _v4, _v0]), (0, _v3.useEffect)(() => {
+        if (_v23) {
+          let _v0 = setTimeout(_v37, 450);
           return () => clearTimeout(_v0);
         }
-      }, [_v6, _v22, _v36]);
-      let _v37 = (0, _v3.useCallback)(_v0 => {
-          _v0 && _v25.current && _v36();
-        }, [_v36]),
-        _v38 = (0, _v3.useCallback)((_v0, _v1) => (_v5 && !_v20.condensed ? [..._v0].reverse() : _v0).map(_v0 => (0, _v1.jsx)(_v41, {
+      }, [_v6, _v23, _v37]);
+      let _v38 = (0, _v3.useCallback)(_v0 => {
+          _v0 && _v26.current && _v37();
+        }, [_v37]),
+        _v39 = (0, _v3.useCallback)((_v0, _v1) => (_v5 && !_v21.condensed ? [..._v0].reverse() : _v0).map(_v0 => (0, _v1.jsx)(_v41, {
           showBadge: _v3 === _v0.tier,
           planData: _v0,
           showYearly: _v0,
@@ -651,13 +654,14 @@
           renderFreePlanCta: _v13,
           ignoreCurrentPlanState: _v14,
           bundleStripTiers: _v15,
-          bundleStripAvailableOnly: _v16
-        }, _v0.name)), [_v3, _v20.condensed, _v1, _v5, _v4, _v0, _v10, _v11, _v12, _v13, _v14, _v15, _v16]);
-      if (!_v21 || _v27 && !_v22 && !_v5) return null;
-      if (_v22 && _v7) {
+          bundleStripAvailableOnly: _v16,
+          postCheckoutUrl: _v17
+        }, _v0.name)), [_v3, _v21.condensed, _v1, _v5, _v4, _v0, _v10, _v11, _v12, _v13, _v14, _v15, _v16, _v17]);
+      if (!_v22 || _v28 && !_v23 && !_v5) return null;
+      if (_v23 && _v7) {
         let _v0 = "business" === _v6;
-        if (_v24) {
-          let _v0 = _v5 ? 0 : Math.max(0, 3 - _v34.length),
+        if (_v25) {
+          let _v0 = _v5 ? 0 : Math.max(0, 3 - _v35.length),
             _v1 = _v0 > 0 && (0, _v1.jsx)(_v4.Box, {
               display: "table-cell",
               width: `${25 * _v0 / 2}%`,
@@ -668,7 +672,7 @@
           return (0, _v1.jsx)(_v4.Box, {
             marginTop: _v5 ? 0 : (0, _v7.rem)(50),
             padding: `0 ${(0, _v7.rem)(2)}`,
-            ref: _v37,
+            ref: _v38,
             children: (0, _v1.jsxs)(_v4.Box, {
               margin: `${(0, _v7.rem)(24)} auto ${(0, _v7.rem)(38)}`,
               display: _v5 ? "block" : "table",
@@ -677,21 +681,21 @@
               sx: _v5 ? void 0 : {
                 tableLayout: "fixed"
               },
-              ref: _v25,
+              ref: _v26,
               "data-panel": "business",
-              children: [_v1, _v38(_v34, "business"), _v1]
+              children: [_v1, _v39(_v35, "business"), _v1]
             })
           });
         }
         return _v5 ? (0, _v1.jsx)(_v4.Box, {
           marginTop: 0,
           padding: `0 ${(0, _v7.rem)(2)}`,
-          ref: _v37,
+          ref: _v38,
           children: (0, _v1.jsxs)(_v4.Box, {
             margin: `${(0, _v7.rem)(24)} auto ${(0, _v7.rem)(38)}`,
             width: "100%",
-            ref: _v25,
-            children: [_v38(_v35, _v6), _v9 && (0, _v1.jsx)(_v36, {
+            ref: _v26,
+            children: [_v39(_v36, _v6), _v9 && (0, _v1.jsx)(_v36, {
               targetView: _v0 ? "individual" : "business",
               onSwitch: _v7,
               isMobileBreakpoint: _v5
@@ -700,13 +704,13 @@
         }) : (0, _v1.jsx)(_v4.Box, {
           marginTop: (0, _v7.rem)(50),
           padding: `0 ${(0, _v7.rem)(2)}`,
-          ref: _v37,
+          ref: _v38,
           children: (0, _v1.jsx)(_v4.Box, {
             margin: `${(0, _v7.rem)(24)} auto ${(0, _v7.rem)(38)}`,
             overflow: "hidden",
             paddingTop: (0, _v7.rem)(40),
             maxWidth: "1440px",
-            ref: _v25,
+            ref: _v26,
             children: (0, _v1.jsxs)(_v4.Box, {
               display: "flex",
               width: "200%",
@@ -724,7 +728,7 @@
                     verticalAlign: "top"
                   }
                 },
-                children: [_v38(_v32, "individual"), _v9 && (0, _v1.jsx)(_v36, {
+                children: [_v39(_v33, "individual"), _v9 && (0, _v1.jsx)(_v36, {
                   targetView: "business",
                   onSwitch: _v7,
                   isMobileBreakpoint: _v5
@@ -743,34 +747,35 @@
                   targetView: "individual",
                   onSwitch: _v7,
                   isMobileBreakpoint: _v5
-                }), _v38(_v34, "business")]
+                }), _v39(_v35, "business")]
               })]
             })
           })
         });
       }
-      return _v31.length ? (0, _v1.jsxs)(_v4.Box, {
-        marginTop: _v5 ? 0 : _v20.condensed ? _v3 ? (0, _v7.rem)(28) : 0 : (0, _v7.rem)(50),
+      return _v32.length ? (0, _v1.jsxs)(_v4.Box, {
+        marginTop: _v5 ? 0 : _v21.condensed ? _v3 ? (0, _v7.rem)(28) : 0 : (0, _v7.rem)(50),
         padding: `0 ${(0, _v7.rem)(2)}`,
-        ref: _v37,
+        ref: _v38,
         children: [(0, _v1.jsx)(_v4.Box, {
-          margin: _v20.condensed ? `0 auto ${(0, _v7.rem)(8)}` : `${(0, _v7.rem)(24)} auto ${(0, _v7.rem)(38)}`,
+          margin: _v21.condensed ? `0 auto ${(0, _v7.rem)(8)}` : `${(0, _v7.rem)(24)} auto ${(0, _v7.rem)(38)}`,
           display: "table",
           width: "100%",
           maxWidth: "1440px",
           sx: {
             tableLayout: "fixed"
           },
-          ref: _v25,
-          children: _v38(_v31)
-        }), _v30 && _v30.length > _v21.maxVerticalCards && !_v17?.plans && !_v17?.excludedPlans?.includes(_v30[_v30.length - 1].tier) && !_v5 && (0, _v1.jsx)(_v4.Box, {
+          ref: _v26,
+          children: _v39(_v32)
+        }), _v31 && _v31.length > _v21.maxVerticalCards && !_v18?.plans && !_v18?.excludedPlans?.includes(_v31[_v31.length - 1].tier) && !_v5 && (0, _v1.jsx)(_v4.Box, {
           margin: "0 auto",
           maxWidth: "1440px",
           children: (0, _v1.jsx)(_v18.default, {
-            showBadge: _v3 === _v30[_v30.length - 1]?.tier,
-            planData: _v30[_v30.length - 1],
+            showBadge: _v3 === _v31[_v31.length - 1]?.tier,
+            planData: _v31[_v31.length - 1],
             showYearly: _v0,
-            isPageTopToggleVisible: _v2
+            isPageTopToggleVisible: _v2,
+            postCheckoutUrl: _v17
           })
         })]
       }) : null;

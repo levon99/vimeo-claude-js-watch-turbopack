@@ -32,17 +32,17 @@
     maxSize: _v5,
     onOpen: _v6,
     onClose: _v7,
-    onToggleExtend: _v8,
-    interactionSessionContext: {
-      roomInfo: {
-        value: _v9
-      },
-      roomUser: {
-        value: _v10
-      }
-    } = (0, _v2.useManager)(_v9.InteractionSessionManager)
+    onToggleExtend: _v8
   }) {
     let {
+        roomInfo: {
+          value: _v9
+        },
+        roomUser: {
+          value: _v10
+        }
+      } = (0, _v2.useManager)(_v9.InteractionSessionManager),
+      {
         initialState: _v11,
         initialState: {
           interaction: _v12
@@ -139,12 +139,12 @@
   function _v42({
     id: _v0 = (0, _v5.createInteractionDomName)("content"),
     activeModule: _v1,
-    isManagementAccessed: _v2,
-    firebaseContext: {
-      isInteractionReady: _v3
-    } = (0, _v2.useManager)(_v32.InteractionFirebaseManager)
+    isManagementAccessed: _v2
   }) {
     let {
+        isInteractionReady: _v3
+      } = (0, _v2.useManager)(_v32.InteractionFirebaseManager),
+      {
         initialState: _v4
       } = (0, _v7.useLiveGlobals)(),
       {
@@ -228,20 +228,20 @@
     });
   }
   _v0.s(["InteractionRoomLayout", 0, function ({
-    id: _v0 = (0, _v5.createInteractionDomName)("widget-room"),
-    interactionSessionContext: {
-      sessionId: _v1,
-      roomInfo: {
-        value: _v2
-      },
-      roomUser: {
-        value: _v3
-      },
-      roomPassword: _v4,
-      roomHashedPassword: _v5
-    } = (0, _v2.useManager)(_v9.InteractionSessionManager)
+    id: _v0 = (0, _v5.createInteractionDomName)("widget-room")
   }) {
-    let _v6 = (0, _v12.useLogger)("📡 BC in InteractionRoomLayout"),
+    let {
+        sessionId: _v1,
+        roomInfo: {
+          value: _v2
+        },
+        roomUser: {
+          value: _v3
+        },
+        roomPassword: _v4,
+        roomHashedPassword: _v5
+      } = (0, _v2.useManager)(_v9.InteractionSessionManager),
+      _v6 = (0, _v12.useLogger)("📡 BC in InteractionRoomLayout"),
       {
         initialState: {
           interaction: _v7
@@ -326,19 +326,19 @@
     _v55 = _v0.i(0);
   _v0.s(["InteractionPasswordLayout", 0, function ({
     id: _v0 = (0, _v52.createDomName)("password-screen"),
-    className: _v1 = (0, _v52.createDomName)("password-screen"),
-    interactionSessionContext: {
-      sessionId: _v2,
-      roomUser: {
-        error: _v3,
-        isLoading: _v4
-      },
-      interactionSessionActions: {
-        checkPasswordAuth: _v5
-      }
-    } = (0, _v2.useManager)(_v9.InteractionSessionManager)
+    className: _v1 = (0, _v52.createDomName)("password-screen")
   }) {
-    let [_v6, _v7] = (0, _v3.useState)(!1),
+    let {
+        sessionId: _v2,
+        roomUser: {
+          error: _v3,
+          isLoading: _v4
+        },
+        interactionSessionActions: {
+          checkPasswordAuth: _v5
+        }
+      } = (0, _v2.useManager)(_v9.InteractionSessionManager),
+      [_v6, _v7] = (0, _v3.useState)(!1),
       [_v8, _v9] = (0, _v3.useState)(!1),
       [_v10,, _v11] = (0, _v51.useDomInputValue)(""),
       _v12 = !!(_v3 && !_v4 && _v8),
@@ -555,12 +555,14 @@
         isShowing: _v3.isShowing,
         onDismiss: _v14,
         onSuccess: _v16,
+        completionSupported: !1,
         redirectUrl: window.location.href,
         redirectUrlAfterSocialLogin: window.location.href,
         updateInitialType: _v0 => _v4({
           type: _v0
         }),
-        attribution: _v3.attribution
+        attribution: _v3.attribution,
+        originUrl: _v3.originUrl
       }) : null, _v2({
         id: (0, _v5.createInteractionDomName)(_v0, "button"),
         label: _v20.translations.loginWithVimeo,

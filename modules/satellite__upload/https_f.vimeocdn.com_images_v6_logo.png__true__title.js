@@ -1499,25 +1499,25 @@
             singular: "Customize your video player",
             dictionary: {
               es: {
-                singular: "Personaliza tu reproductor de video"
+                singular: "Personaliza tu reproductor de vídeo"
               },
               "de-DE": {
-                singular: "Video-Player nach Bedarf einstellen"
+                singular: "Passen Sie Ihren Videoplayer an"
               },
               "fr-FR": {
-                singular: "Personnaliser votre player vidéo"
+                singular: "Personnalisez votre lecteur vidéo"
               },
               "ja-JP": {
-                singular: "動画プレーヤーをカスタマイズ"
+                singular: "ビデオプレーヤーをカスタマイズ"
               },
               "ko-KR": {
-                singular: "동영상 플레이어 커스텀"
+                singular: "비디오 플레이어 맞춤 설정"
               },
               "pt-BR": {
-                singular: "Customizar seu player de vídeo"
+                singular: "Personalize seu player de vídeo"
               },
               "zh-CN": {
-                singular: "自定义视频播放器"
+                singular: "自定义您的视频播放器"
               }
             }
           }),
@@ -1525,25 +1525,25 @@
             singular: "Customize your video player",
             dictionary: {
               es: {
-                singular: "Personaliza tu reproductor de video"
+                singular: "Personaliza tu reproductor de vídeo"
               },
               "de-DE": {
-                singular: "Video-Player nach Bedarf einstellen"
+                singular: "Passen Sie Ihren Videoplayer an"
               },
               "fr-FR": {
-                singular: "Personnaliser votre player vidéo"
+                singular: "Personnalisez votre lecteur vidéo"
               },
               "ja-JP": {
-                singular: "動画プレーヤーをカスタマイズ"
+                singular: "ビデオプレーヤーをカスタマイズ"
               },
               "ko-KR": {
-                singular: "동영상 플레이어 커스텀"
+                singular: "비디오 플레이어 맞춤 설정"
               },
               "pt-BR": {
-                singular: "Customizar seu player de vídeo"
+                singular: "Personalize seu player de vídeo"
               },
               "zh-CN": {
-                singular: "自定义视频播放器"
+                singular: "自定义您的视频播放器"
               }
             }
           }),

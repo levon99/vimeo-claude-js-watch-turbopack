@@ -120,8 +120,8 @@
     });
   };
   _v0.s(["CardShell", 0, ({
-    children: _v0,
-    footer: _v1,
+    actions: _v0,
+    children: _v1,
     infoLabel: _v2,
     isCollapsed: _v3 = !1,
     isLoading: _v4 = !1,
@@ -171,6 +171,7 @@
         justifyContent: "space-between",
         gap: "sm",
         paddingTop: "md",
+        paddingBottom: _v3 ? "md" : void 0,
         paddingX: "5",
         children: [(0, _v1.jsxs)(_v2.Flex, {
           alignItems: "center",
@@ -203,75 +204,113 @@
               })
             })
           })]
-        }), _v5 && (0, _v1.jsx)(_v10.IconButton, {
-          size: "sm",
-          variant: "tertiary",
-          "aria-label": _v3 ? (0, _v17.translate)({
-            singular: "Show more",
-            dictionary: {
-              es: {
-                singular: "Mostrar más"
-              },
-              "de-DE": {
-                singular: "Mehr anzeigen"
-              },
-              "fr-FR": {
-                singular: "Afficher plus"
-              },
-              "ja-JP": {
-                singular: "その他を表示する"
-              },
-              "ko-KR": {
-                singular: "더 보기"
-              },
-              "pt-BR": {
-                singular: "Mostar mais"
-              },
-              "zh-CN": {
-                singular: "显示更多"
+        }), (0, _v1.jsxs)(_v2.Flex, {
+          alignItems: "center",
+          gap: "md",
+          flexShrink: 0,
+          children: [null != _v0 && (0, _v1.jsxs)(_v2.Flex, {
+            alignItems: "center",
+            gap: "md",
+            "aria-hidden": _v3 || void 0,
+            pointerEvents: _v3 ? "none" : "auto",
+            sx: {
+              opacity: +!_v3,
+              visibility: _v3 ? "hidden" : "visible",
+              transition: _v3 ? "opacity 150ms ease, visibility 0s linear 150ms" : "opacity 150ms ease, visibility 0s linear 0s"
+            },
+            children: [(0, _v1.jsx)(_v2.Flex, {
+              alignItems: "center",
+              gap: "xs",
+              children: _v0
+            }), _v5 && (0, _v1.jsx)(_v9.Box, {
+              height: (0, _v5.rem)(20),
+              width: "1px",
+              backgroundColor: "stroke",
+              flexShrink: 0
+            })]
+          }), _v5 && (0, _v1.jsx)(_v10.IconButton, {
+            size: "sm",
+            variant: "tertiary",
+            "aria-label": _v3 ? (0, _v17.translate)({
+              singular: "Show more",
+              dictionary: {
+                es: {
+                  singular: "Mostrar más"
+                },
+                "de-DE": {
+                  singular: "Mehr anzeigen"
+                },
+                "fr-FR": {
+                  singular: "Afficher plus"
+                },
+                "ja-JP": {
+                  singular: "その他を表示する"
+                },
+                "ko-KR": {
+                  singular: "더 보기"
+                },
+                "pt-BR": {
+                  singular: "Mostar mais"
+                },
+                "zh-CN": {
+                  singular: "显示更多"
+                }
               }
-            }
-          }) : (0, _v17.translate)({
-            singular: "Show less",
-            dictionary: {
-              es: {
-                singular: "Mostrar menos"
-              },
-              "de-DE": {
-                singular: "Weniger anzeigen"
-              },
-              "fr-FR": {
-                singular: "Afficher moins"
-              },
-              "ja-JP": {
-                singular: "表示件数を減らす"
-              },
-              "ko-KR": {
-                singular: "줄이기"
-              },
-              "pt-BR": {
-                singular: "Mostrar menos"
-              },
-              "zh-CN": {
-                singular: "收起"
+            }) : (0, _v17.translate)({
+              singular: "Show less",
+              dictionary: {
+                es: {
+                  singular: "Mostrar menos"
+                },
+                "de-DE": {
+                  singular: "Weniger anzeigen"
+                },
+                "fr-FR": {
+                  singular: "Afficher moins"
+                },
+                "ja-JP": {
+                  singular: "表示件数を減らす"
+                },
+                "ko-KR": {
+                  singular: "줄이기"
+                },
+                "pt-BR": {
+                  singular: "Mostrar menos"
+                },
+                "zh-CN": {
+                  singular: "收起"
+                }
               }
-            }
-          }),
-          "aria-expanded": !_v3,
-          onClick: _v5,
-          icon: _v3 ? (0, _v1.jsx)(_v14.ChevronDown, {
-            boxSize: "sm"
-          }) : (0, _v1.jsx)(_v15.ChevronUp, {
-            boxSize: "sm"
-          })
+            }),
+            "aria-expanded": !_v3,
+            onClick: _v5,
+            icon: _v3 ? (0, _v1.jsx)(_v14.ChevronDown, {
+              boxSize: "sm"
+            }) : (0, _v1.jsx)(_v15.ChevronUp, {
+              boxSize: "sm"
+            })
+          })]
         })]
-      }), !_v3 && (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v9.Box, {
-          paddingX: "5",
-          paddingTop: "md",
-          paddingBottom: "5",
-          children: _v0
-        }), _v1]
+      }), (0, _v1.jsx)(_v9.Box, {
+        display: "grid",
+        gridTemplateRows: _v3 ? "0fr" : "1fr",
+        opacity: +!_v3,
+        "aria-hidden": _v3 || void 0,
+        pointerEvents: _v3 ? "none" : "auto",
+        sx: {
+          transition: _v3 ? "grid-template-rows 240ms ease, opacity 240ms ease, visibility 0s linear 240ms" : "grid-template-rows 240ms ease, opacity 240ms ease, visibility 0s linear 0s",
+          visibility: _v3 ? "hidden" : "visible"
+        },
+        children: (0, _v1.jsx)(_v9.Box, {
+          minHeight: 0,
+          overflow: "hidden",
+          children: (0, _v1.jsx)(_v9.Box, {
+            paddingX: "5",
+            paddingTop: "md",
+            paddingBottom: "5",
+            children: _v1
+          })
+        })
       })]
     });
   }], 0);

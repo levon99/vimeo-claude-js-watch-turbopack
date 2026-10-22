@@ -11,18 +11,17 @@
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0);
-  function _v11({
-    pollContext: {
-      polls: _v0,
-      activePollId: _v1
-    } = (0, _v4.useManager)(_v7.PollManager),
-    qnaContext: {
-      activeSession: _v2
-    } = (0, _v4.useManager)(_v8.QnAManager, ({
-      activeSession: _v0
-    }) => [_v0])
-  }) {
-    let _v3 = (0, _v6.useRef)(null),
+  function _v11() {
+    let {
+        polls: _v0,
+        activePollId: _v1
+      } = (0, _v4.useManager)(_v7.PollManager),
+      {
+        activeSession: _v2
+      } = (0, _v4.useManager)(_v8.QnAManager, ({
+        activeSession: _v0
+      }) => [_v0]),
+      _v3 = (0, _v6.useRef)(null),
       _v4 = (0, _v6.useRef)(null);
     return (0, _v6.useEffect)(() => {
       let _v0 = _v3.current,

@@ -13253,24 +13253,24 @@
           }));
         },
         _v62 = _v3.length > 0,
-        _v63 = _v3.length >= (_v4 ? 20 : 3);
+        _v63 = _v3.length >= (_v4 ? 20 : 3),
+        _v64 = (0, _v4.useCallback)(() => {
+          _v19(!0), _v51(null), _v23(null), _v29(!0), _v39(null);
+        }, [_v39]);
       (0, _v4.useEffect)(() => {
         if (_v44.loading || null !== _v44.error || null == _v44.data || _v30.current === _v44.data.id) return;
         let _v0 = _v44.data;
-        _v30.current = _v0.id, _v9(_v0 => [..._v0.filter(_v0 => _v0.id !== _v0.id), _v0]), _v35(_v0.id), _v19(!0), _v23(null), _v33("");
-      }, [_v9, _v44.data, _v44.error, _v44.loading]);
-      let _v64 = (0, _v4.useRef)(null);
+        _v30.current = _v0.id, _v9(_v0 => [..._v0.filter(_v0 => _v0.id !== _v0.id), _v0]), _v35(_v0.id), _v64(), _v33("");
+      }, [_v64, _v9, _v44.data, _v44.error, _v44.loading]);
+      let _v65 = (0, _v4.useRef)(null);
       (0, _v4.useEffect)(() => {
-        null !== _v34 && null !== _v64.current && (_v64.current.scrollIntoView({
+        null !== _v34 && null !== _v65.current && (_v65.current.scrollIntoView({
           behavior: "smooth",
           block: "nearest"
         }), _v35(null));
       }, [_v34, _v3]);
-      let _v65 = () => {
+      let _v66 = () => {
           _v27(!0);
-        },
-        _v66 = () => {
-          _v19(!0), _v51(null), _v23(null), _v29(!0), _v39(null);
         },
         _v67 = _v0 => {
           _v21(_v0);
@@ -13323,7 +13323,7 @@
               calendarPresets: _v243.CALENDAR_PRESETS[_v365.Reports.AI],
               headerActions: (0, _v3.jsx)(_v202, {
                 size: "md",
-                onClick: _v65
+                onClick: _v66
               })
             }) : null, _v62 ? (0, _v3.jsx)(_v5.Box, {
               paddingX: "lg",
@@ -13356,7 +13356,7 @@
                   datasetAccess: _v8,
                   trackingContext: _v7,
                   isScrollTarget: _v0.id === _v34,
-                  scrollTargetRef: _v64,
+                  scrollTargetRef: _v65,
                   onDelete: () => _v67(_v0),
                   onExpand: () => {
                     _v51(_v0.id), _v39(_v485(_v0), _v0.id);
@@ -13391,7 +13391,7 @@
                   color: "text-secondary",
                   children: _v483
                 }), (0, _v3.jsx)(_v202, {
-                  onClick: _v65
+                  onClick: _v66
                 })]
               })]
             })]
@@ -13424,8 +13424,8 @@
           },
           onRenameWidget: _v25,
           onDeleteWidget: _v67,
-          onShareFeedback: _v65,
-          onClose: _v66
+          onShareFeedback: _v66,
+          onClose: _v64
         }), (0, _v3.jsx)(_v80, {
           isOpen: null !== _v22,
           isSaving: _v53,
@@ -13475,7 +13475,7 @@
                 userId: _v2,
                 widgetId: _v20.id
               }
-            }), _v66());
+            }), _v64());
           },
           onClose: () => {
             _v21(null);

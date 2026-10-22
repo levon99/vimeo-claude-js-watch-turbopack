@@ -18911,13 +18911,16 @@
           } = _v30;
         return _v1?.action && (window.location.search ? _v0 += `${window.location.search}&action=${_v1.action}` : _v0 += `?action=${_v1.action}`), _v1?.orientation && (_v0 += `&orientation=${_v1.orientation}`), _v1?.bpLocation && (_v0 += `&bp=${_v1.bpLocation}`), _v1?.tier && (_v0 += `&tier=${_v1.tier}`), _v0;
       }, [_v30]),
-      _v46 = _v9?.iframeModeConfig?.succesfullConnectCallback;
+      _v46 = (0, _v7.useCallback)(_v0 => {
+        _v9?.eventCollector?.triggerEvent(_v0?.signup ? _v59.FlowEvent.USER_REGISTRATION : _v59.FlowEvent.USER_LOGIN);
+      }, [_v9]),
+      _v47 = _v9?.iframeModeConfig?.succesfullConnectCallback;
     (0, _v7.useEffect)(() => {
       let _v0 = _v45(),
         _v1 = _v0 ? () => window.location.href = _v0 : () => window.location.reload();
-      _v46 && _v46(_v1);
-    }, [_v46, _v45, _v9?.app]);
-    let _v47 = {
+      _v47 && _v47(_v1);
+    }, [_v47, _v45, _v9?.app]);
+    let _v48 = {
       canCreateUnlimitedDraftVideos: _v36,
       canSaveDraftVideos: _v37,
       canUpgradeToPro: _v38,
@@ -18927,7 +18930,7 @@
       teamUser: _v8
     };
     return _v19 ? (0, _v6.jsx)(_v762, {
-      ..._v47,
+      ..._v48,
       children: (0, _v6.jsxs)(_v8.Switch, {
         children: [(0, _v6.jsx)(_v8.Route, {
           path: _v1.paths.edit,
@@ -18951,7 +18954,7 @@
         })]
       })
     }) : _v44 ? (0, _v6.jsx)(_v762, {
-      ..._v47,
+      ..._v48,
       children: (0, _v6.jsxs)(_v6.Fragment, {
         children: [(0, _v6.jsx)(_v43, {
           isShowing: _v23 && _v20?.called && !_v20?.loading && _v20?.shops?.length == 0,
@@ -18974,6 +18977,7 @@
             }
             _v39.current ? _v39.current((0, _v10.camelizeDeep)(_v0)) : window.location.reload();
           },
+          onAuthSuccessEffects: _v46,
           faContainer: _v30.creationPath === _v97.CreationPath.Customize ? "customize_template" : _v30.creationPath === _v97.CreationPath.StartFromScratch ? "start_from_scratch" : _v30.creationPath === _v97.CreationPath.ProBadge ? "pro_badge" : void 0,
           redirectUrl: _v9?.iframeModeConfig?.redirectUri ? _v9?.iframeModeConfig?.redirectUri : _v30.redirectUrl && !_v29 ? `/welcome-survey?type=segment&vimeoHref=${encodeURIComponent(_v45())}` : _v30.redirectUrl,
           redirectUrlAfterSocialLogin: _v9?.iframeModeConfig?.redirectUri ?? _v30.redirectUrl,

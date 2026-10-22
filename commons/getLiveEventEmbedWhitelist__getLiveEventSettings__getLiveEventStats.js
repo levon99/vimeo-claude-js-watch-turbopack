@@ -5,7 +5,7 @@
     _v2 = _v0.i(0),
     _v3 = _v0.i(0);
   function _v4(_v0) {
-    return "number" == typeof _v0?.rtmpPreview && (_v0.rtmpPreview = !!_v0.rtmpPreview), "number" == typeof _v0?.autoCcEnabled && (_v0.autoCcEnabled = !!_v0.autoCcEnabled), _v0;
+    return "number" == typeof _v0?.rtmpPreview && (_v0.rtmpPreview = !!_v0.rtmpPreview), "number" == typeof _v0?.autoCcEnabled && (_v0.autoCcEnabled = !!_v0.autoCcEnabled), "number" == typeof _v0?.personalizedViewerWatermarking && (_v0.personalizedViewerWatermarking = !!_v0.personalizedViewerWatermarking), "number" == typeof _v0?.forensicWatermarking && (_v0.forensicWatermarking = !!_v0.forensicWatermarking), _v0;
   }
   async function _v5(_v0) {
     return _v4(await (0, _v2.withConnectionSupport)(_v3.ERequestMethod.GET, _v0, ({

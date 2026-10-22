@@ -541,7 +541,7 @@
             singular: "Unable to load data. Please try again.",
             dictionary: {
               es: {
-                singular: "No se han podido cargar los datos. Por favor, inténtelo de nuevo."
+                singular: "No se pudo cargar los datos. Por favor, inténtelo de nuevo."
               },
               "de-DE": {
                 singular: "Daten konnten nicht geladen werden. Bitte versuchen Sie es erneut."
@@ -550,7 +550,7 @@
                 singular: "Impossible de charger les données. Veuillez réessayer."
               },
               "ja-JP": {
-                singular: "データの読み込みに失敗しました。再度お試しください。"
+                singular: "データを読み込めませんでした。もう一度お試しください。"
               },
               "ko-KR": {
                 singular: "데이터를 불러올 수 없습니다. 다시 시도해 주세요."

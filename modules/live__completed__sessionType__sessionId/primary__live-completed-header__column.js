@@ -70,17 +70,16 @@
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0);
-  function _v39({
-    composerSessionContext: {
-      sessionInfo: {
-        value: _v0
-      }
-    } = (0, _v13.useManager)(_v37.ComposerSessionManager)
-  }) {
-    let _v1 = (0, _v6.useCallback)(() => {
-      let _v0 = _v0?.metadata?.connections?.latestVideo;
-      _v0 && (window.location.href = _v0.uri);
-    }, [_v0]);
+  function _v39() {
+    let {
+        sessionInfo: {
+          value: _v0
+        }
+      } = (0, _v13.useManager)(_v37.ComposerSessionManager),
+      _v1 = (0, _v6.useCallback)(() => {
+        let _v0 = _v0?.metadata?.connections?.latestVideo;
+        _v0 && (window.location.href = _v0.uri);
+      }, [_v0]);
     return (0, _v1.jsx)(_v36.Button, {
       isLoading: !_v0,
       isDisabled: !_v0,
@@ -500,22 +499,22 @@
     _v87 = _v0.i(0);
   function _v88({
     id: _v0 = (0, _v32.createDomName)("export-tab"),
-    className: _v1,
-    qnaContext: {
-      qnaSessionsHistory: _v2
-    } = (0, _v13.useManager)(_v87.QnAManager),
-    chatContext: {
-      chatSessionsHistory: _v3
-    } = (0, _v13.useManager)(_v85.ChatManager),
-    pollContext: {
-      pollsHistory: _v4
-    } = (0, _v13.useManager)(_v86.PollManager),
-    composerSessionContext: {
-      sessionId: _v5,
-      sessionInfo: _v6
-    } = (0, _v13.useManager)(_v37.ComposerSessionManager)
+    className: _v1
   }) {
-    let _v7 = (0, _v21.useViewer)(),
+    let {
+        qnaSessionsHistory: _v2
+      } = (0, _v13.useManager)(_v87.QnAManager),
+      {
+        chatSessionsHistory: _v3
+      } = (0, _v13.useManager)(_v85.ChatManager),
+      {
+        pollsHistory: _v4
+      } = (0, _v13.useManager)(_v86.PollManager),
+      {
+        sessionId: _v5,
+        sessionInfo: _v6
+      } = (0, _v13.useManager)(_v37.ComposerSessionManager),
+      _v7 = (0, _v21.useViewer)(),
       {
         jwt: _v8,
         locale: _v9,
@@ -756,20 +755,20 @@
     _v97 = _v0.i(0);
   function _v98({
     id: _v0 = (0, _v32.createDomName)("completed-panel-right"),
-    className: _v1 = (0, _v32.createDomName)("completed-panel-right"),
-    composerSessionStatusContext: {
-      isHydrated: _v2
-    } = (0, _v13.useManager)(_v97.ComposerSessionStatusManager, ({
-      isHydrated: _v0
-    }) => [_v0])
+    className: _v1 = (0, _v32.createDomName)("completed-panel-right")
   }) {
-    let _v3 = (0, _v6.useMemo)(() => [{
-      id: _v30.ERightPanelId.EVENT_SETTINGS,
-      content: () => (0, _v1.jsx)(_v95.EventSettingsTab, {
-        isCompleted: !0
-      }),
-      isVisible: !0
-    }], []);
+    let {
+        isHydrated: _v2
+      } = (0, _v13.useManager)(_v97.ComposerSessionStatusManager, ({
+        isHydrated: _v0
+      }) => [_v0]),
+      _v3 = (0, _v6.useMemo)(() => [{
+        id: _v30.ERightPanelId.EVENT_SETTINGS,
+        content: () => (0, _v1.jsx)(_v95.EventSettingsTab, {
+          isCompleted: !0
+        }),
+        isVisible: !0
+      }], []);
     return (0, _v1.jsx)(_v96.RightPanel, {
       id: _v0,
       className: _v1,

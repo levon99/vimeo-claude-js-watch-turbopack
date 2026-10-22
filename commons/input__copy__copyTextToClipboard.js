@@ -114,17 +114,17 @@
     _v32 = _v0.i(0);
   _v0.s(["ShareButton", 0, function ({
     id: _v0 = (0, _v31.createLiveDomName)("share-button"),
-    className: _v1 = (0, _v31.createLiveDomName)("share-button"),
-    composerSessionContext: {
-      sessionId: _v2
-    } = (0, _v2.useManager)(_v25.ComposerSessionManager),
-    eventSettingsContext: {
-      settings: {
-        value: _v3
-      }
-    } = (0, _v2.useManager)(_v26.EventSettingsManager)
+    className: _v1 = (0, _v31.createLiveDomName)("share-button")
   }) {
-    let _v4 = (0, _v2.useScope)(),
+    let {
+        sessionId: _v2
+      } = (0, _v2.useManager)(_v25.ComposerSessionManager),
+      {
+        settings: {
+          value: _v3
+        }
+      } = (0, _v2.useManager)(_v26.EventSettingsManager),
+      _v4 = (0, _v2.useScope)(),
       {
         trackLiveStreamShareLinkCopied: _v5,
         trackLiveStreamTopBarActionClicked: _v6

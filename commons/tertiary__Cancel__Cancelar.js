@@ -4181,17 +4181,16 @@
     uri: null,
     url: null
   };
-  function _v133({
-    eventSettingsContext: {
-      settings: {
-        value: _v0
-      },
-      actions: {
-        updateLiveEventSettings: _v1
-      }
-    } = (0, _v12.useManager)(_v17.EventSettingsManager)
-  }) {
-    let [_v2, _v3] = (0, _v13.useState)(!1),
+  function _v133() {
+    let {
+        settings: {
+          value: _v0
+        },
+        actions: {
+          updateLiveEventSettings: _v1
+        }
+      } = (0, _v12.useManager)(_v17.EventSettingsManager),
+      [_v2, _v3] = (0, _v13.useState)(!1),
       {
         trackSingleEventCustomizationLogoChanged: _v4
       } = (0, _v67.useSingleEventCustomizationTracking)(),

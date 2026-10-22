@@ -147,29 +147,29 @@
   }
   function _v73({
     id: _v0 = (0, _v37.createDomName)("streaming-4k"),
-    className: _v1 = (0, _v37.createDomName)("streaming-4k"),
-    composerSessionContext: {
-      sessionInfo: {
-        value: _v2
-      }
-    } = (0, _v3.useManager)(_v30.ComposerSessionManager)
+    className: _v1 = (0, _v37.createDomName)("streaming-4k")
   }) {
-    var _v3;
-    let _v4,
+    var _v2;
+    let _v3,
+      _v4,
       _v5,
       _v6,
       _v7,
-      _v8,
+      {
+        sessionInfo: {
+          value: _v8
+        }
+      } = (0, _v3.useManager)(_v30.ComposerSessionManager),
       {
         streamingTime: _v9,
         viewingTime: _v10,
         maxStreamingTime: _v11,
         maxViewingTime: _v12
-      } = (_v3 = _v2?.liveQuota, _v4 = _v71(_v3?.hiResStreaming?.remaining), _v5 = _v71(_v3?.hiResStreaming?.maximum), _v6 = (0, _v69.inline)(() => _v4 < 0 ? Math.abs(_v4) + _v5 : Math.max(_v5 - _v4, 0)), _v7 = _v71(_v3?.hiResViewing?.remaining), _v8 = _v71(_v3?.hiResViewing?.maximum), {
-        streamingTime: _v6,
-        viewingTime: (0, _v69.inline)(() => _v7 < 0 ? Math.abs(_v7) + _v8 : Math.max(_v8 - _v7, 0)),
-        maxStreamingTime: _v5,
-        maxViewingTime: _v8
+      } = (_v2 = _v8?.liveQuota, _v3 = _v71(_v2?.hiResStreaming?.remaining), _v4 = _v71(_v2?.hiResStreaming?.maximum), _v5 = (0, _v69.inline)(() => _v3 < 0 ? Math.abs(_v3) + _v4 : Math.max(_v4 - _v3, 0)), _v6 = _v71(_v2?.hiResViewing?.remaining), _v7 = _v71(_v2?.hiResViewing?.maximum), {
+        streamingTime: _v5,
+        viewingTime: (0, _v69.inline)(() => _v6 < 0 ? Math.abs(_v6) + _v7 : Math.max(_v7 - _v6, 0)),
+        maxStreamingTime: _v4,
+        maxViewingTime: _v7
       });
     return (0, _v2.jsxs)(_v12.Flex, {
       id: _v0,
@@ -318,27 +318,27 @@
   }
   function _v80({
     id: _v0 = (0, _v37.createDomName)("live-settings-production"),
-    className: _v1 = (0, _v37.createDomName)("live-settings-production"),
-    composerSessionContext: {
-      sessionApplicationType: _v2,
-      sessionInfo: {
-        value: _v3
-      },
-      permissions: _v4
-    } = (0, _v3.useManager)(_v30.ComposerSessionManager),
-    eventSettingsContext: {
-      settings: {
-        value: _v5
-      },
-      actions: _v6
-    } = (0, _v3.useManager)(_v34.EventSettingsManager),
-    composerSessionStatusContext: {
-      streamMode: _v7,
-      liveComposerStatuses: _v8
-    } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
-    eventAudioTracksContext: _v9 = (0, _v3.useManager)(_v66.EventAudioTracksManager)
+    className: _v1 = (0, _v37.createDomName)("live-settings-production")
   }) {
     let {
+        sessionApplicationType: _v2,
+        sessionInfo: {
+          value: _v3
+        },
+        permissions: _v4
+      } = (0, _v3.useManager)(_v30.ComposerSessionManager),
+      {
+        settings: {
+          value: _v5
+        },
+        actions: _v6
+      } = (0, _v3.useManager)(_v34.EventSettingsManager),
+      {
+        streamMode: _v7,
+        liveComposerStatuses: _v8
+      } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
+      _v9 = (0, _v3.useManager)(_v66.EventAudioTracksManager),
+      {
         trackLiveStreamLatencyChanged: _v10
       } = (0, _v39.useLiveStreamBroadcasterTracking)(),
       _v11 = (0, _v70.useLogger)("🥪settings-production"),
@@ -653,24 +653,23 @@
     _v84 = (0, _v4.lazy)(() => _v0.A(0).then(_v0 => ({
       default: _v0.RegistrationToast
     })));
-  function _v85({
-    composerSessionContext: {
-      sessionInfo: {
-        value: _v0
-      },
-      sessionId: _v1
-    } = (0, _v3.useManager)(_v30.ComposerSessionManager),
-    composerSessionStatusContext: {
-      liveComposerStatusGetters: _v2
-    } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
-    eventSettingsContext: {
-      settings: _v3,
-      actions: {
-        updateLiveEventSettings: _v4
-      }
-    } = (0, _v3.useManager)(_v34.EventSettingsManager)
-  }) {
-    let _v5 = (0, _v4.useMemo)(() => _v3.value?.schedule ?? null, [_v3.value?.schedule]),
+  function _v85() {
+    let {
+        sessionInfo: {
+          value: _v0
+        },
+        sessionId: _v1
+      } = (0, _v3.useManager)(_v30.ComposerSessionManager),
+      {
+        liveComposerStatusGetters: _v2
+      } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
+      {
+        settings: _v3,
+        actions: {
+          updateLiveEventSettings: _v4
+        }
+      } = (0, _v3.useManager)(_v34.EventSettingsManager),
+      _v5 = (0, _v4.useMemo)(() => _v3.value?.schedule ?? null, [_v3.value?.schedule]),
       _v6 = (0, _v81.useToast)(),
       _v7 = _v0?.registrationFormLink?.uri,
       _v8 = _v0?.registrationEmailLink?.uri,
@@ -756,15 +755,14 @@
     });
   }
   var _v86 = _v0.i(0);
-  function _v87({
-    eventSettingsContext: {
-      settings: _v0,
-      actions: {
-        updateLiveEventSettings: _v1
-      }
-    } = (0, _v3.useManager)(_v34.EventSettingsManager)
-  }) {
+  function _v87() {
     let {
+        settings: _v0,
+        actions: {
+          updateLiveEventSettings: _v1
+        }
+      } = (0, _v3.useManager)(_v34.EventSettingsManager),
+      {
         trackLiveStreamScheduleConfigured: _v2
       } = (0, _v39.useLiveStreamBroadcasterTracking)(),
       _v3 = (0, _v4.useMemo)(() => _v0.value?.schedule ?? null, [_v0.value?.schedule]),
@@ -858,35 +856,35 @@
   function _v113({
     id: _v0 = (0, _v37.createDomName)("tracks-management-modal"),
     className: _v1 = (0, _v37.createDomName)("tracks-management-modal"),
-    onClose: _v2,
-    panelsContext: {
-      panelActions: _v3
-    } = (0, _v3.useManager)(_v98.PanelsManager),
-    eventAudioTracksContext: {
-      audioTracksActions: _v4,
-      eventLanguages: {
-        value: _v5,
-        isLoading: _v6
-      },
-      availableLanguages: {
-        value: _v7
-      }
-    } = (0, _v3.useManager)(_v66.EventAudioTracksManager),
-    composerSessionContext: {
-      sessionInfo: {
-        value: _v8
-      }
-    } = (0, _v3.useManager)(_v30.ComposerSessionManager),
-    composerSessionStatusContext: {
-      liveComposerStatuses: _v9
-    } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
-    eventSettingsContext: {
-      settings: {
-        value: _v10
-      }
-    } = (0, _v3.useManager)(_v34.EventSettingsManager)
+    onClose: _v2
   }) {
-    let [_v11, _v12] = (0, _v4.useState)(_v5?.primary ?? _v109.liveApplicationConfig.AUDIO_TRACKS.DEFAULT_LANGUAGE),
+    let {
+        panelActions: _v3
+      } = (0, _v3.useManager)(_v98.PanelsManager),
+      {
+        audioTracksActions: _v4,
+        eventLanguages: {
+          value: _v5,
+          isLoading: _v6
+        },
+        availableLanguages: {
+          value: _v7
+        }
+      } = (0, _v3.useManager)(_v66.EventAudioTracksManager),
+      {
+        sessionInfo: {
+          value: _v8
+        }
+      } = (0, _v3.useManager)(_v30.ComposerSessionManager),
+      {
+        liveComposerStatuses: _v9
+      } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
+      {
+        settings: {
+          value: _v10
+        }
+      } = (0, _v3.useManager)(_v34.EventSettingsManager),
+      [_v11, _v12] = (0, _v4.useState)(_v5?.primary ?? _v109.liveApplicationConfig.AUDIO_TRACKS.DEFAULT_LANGUAGE),
       [_v13, _v14] = (0, _v4.useState)(_v5?.secondary ?? []),
       _v15 = (0, _v40.useIsVpaas)(),
       _v16 = _v8?.liveQuota?.maxEventAudioTracks ?? _v109.liveApplicationConfig.AUDIO_TRACKS.DEFAULT_LANGUAGES_COUNT,
@@ -1026,25 +1024,25 @@
   }
   function _v114({
     id: _v0 = (0, _v37.createDomName)("audio-tracks-settings"),
-    className: _v1 = (0, _v37.createDomName)("audio-tracks-settings"),
-    panelsContext: {
-      panelActions: _v2
-    } = (0, _v3.useManager)(_v98.PanelsManager),
-    eventAudioTracksContext: {
-      eventLanguages: {
-        value: _v3
-      }
-    } = (0, _v3.useManager)(_v66.EventAudioTracksManager),
-    composerSessionStatusContext: {
-      liveComposerStatuses: _v4
-    } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
-    eventSettingsContext: {
-      settings: {
-        value: _v5
-      }
-    } = (0, _v3.useManager)(_v34.EventSettingsManager)
+    className: _v1 = (0, _v37.createDomName)("audio-tracks-settings")
   }) {
-    let _v6 = _v4.isSessionLive,
+    let {
+        panelActions: _v2
+      } = (0, _v3.useManager)(_v98.PanelsManager),
+      {
+        eventLanguages: {
+          value: _v3
+        }
+      } = (0, _v3.useManager)(_v66.EventAudioTracksManager),
+      {
+        liveComposerStatuses: _v4
+      } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
+      {
+        settings: {
+          value: _v5
+        }
+      } = (0, _v3.useManager)(_v34.EventSettingsManager),
+      _v6 = _v4.isSessionLive,
       _v7 = !!_v5?.dvr,
       _v8 = _v6 ? _v35.T_U_CANT_ADD_REMOVE_DURING_BROADCAST : _v7 ? "" : _v35.T_FEATURE_DISABLED_WHEN_DVR_DISABLED,
       _v9 = (0, _v4.useCallback)(() => {
@@ -1287,24 +1285,24 @@
       onCopyEncryptionPassphrase: _v17,
       onToggleEncryption: _v18
     } = function ({
-      encoderMode: _v0,
-      eventSettingsContext: {
-        settings: {
-          value: _v1,
-          isLoading: _v2
-        },
-        actions: _v3
-      } = (0, _v3.useManager)(_v34.EventSettingsManager),
-      sessionContext: {
-        sessionInfo: {
-          value: _v4
-        }
-      } = (0, _v3.useManager)(_v30.ComposerSessionManager),
-      composerSessionStatusContext: {
-        liveComposerStatuses: _v5
-      } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager)
+      encoderMode: _v0
     }) {
-      let _v6 = _v1?.latency === _v68.ELatency.FAIL_SAFE,
+      let {
+          settings: {
+            value: _v1,
+            isLoading: _v2
+          },
+          actions: _v3
+        } = (0, _v3.useManager)(_v34.EventSettingsManager),
+        {
+          sessionInfo: {
+            value: _v4
+          }
+        } = (0, _v3.useManager)(_v30.ComposerSessionManager),
+        {
+          liveComposerStatuses: _v5
+        } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
+        _v6 = _v1?.latency === _v68.ELatency.FAIL_SAFE,
         _v7 = !!_v4?.owner?.capabilities?.canUseBackupStream,
         _v8 = _v0 === _v116.SRT,
         _v9 = _v5.isSessionRequested || _v5.isSessionUpdating || _v5.isSessionActive,
@@ -1504,14 +1502,14 @@
   }
   function _v129({
     id: _v0 = (0, _v37.createDomName)("encoder-mode-panels"),
-    className: _v1 = (0, _v37.createDomName)("encoder-mode-panels"),
-    composerSessionContext: {
-      permissions: {
-        hasAudioTracksManagement: _v2
-      }
-    } = (0, _v3.useManager)(_v30.ComposerSessionManager)
+    className: _v1 = (0, _v37.createDomName)("encoder-mode-panels")
   }) {
-    let _v3 = (0, _v4.useMemo)(() => [{
+    let {
+        permissions: {
+          hasAudioTracksManagement: _v2
+        }
+      } = (0, _v3.useManager)(_v30.ComposerSessionManager),
+      _v3 = (0, _v4.useMemo)(() => [{
         label: _v35.T_RTMPS,
         content: _v2 ? (0, _v2.jsxs)(_v12.Flex, {
           direction: "column",
@@ -1574,21 +1572,21 @@
   var _v130 = _v0.i(0);
   function _v131({
     id: _v0 = (0, _v130.createLiveDomName)("stream-settings-tab"),
-    className: _v1 = (0, _v130.createLiveDomName)("stream-settings-tab"),
-    eventSettingsContext: {
-      settings: {
-        value: _v2,
-        isLoading: _v3
-      },
-      actions: _v4
-    } = (0, _v3.useManager)(_v34.EventSettingsManager),
-    composerSessionStatusContext: {
-      liveComposerStatuses: _v5
-    } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager)
+    className: _v1 = (0, _v130.createLiveDomName)("stream-settings-tab")
   }) {
-    let _v6 = (0, _v4.useCallback)(() => {
-      _v4.updateRtmpPreview(!_v2?.rtmpPreview);
-    }, [_v2?.rtmpPreview, _v4]);
+    let {
+        settings: {
+          value: _v2,
+          isLoading: _v3
+        },
+        actions: _v4
+      } = (0, _v3.useManager)(_v34.EventSettingsManager),
+      {
+        liveComposerStatuses: _v5
+      } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
+      _v6 = (0, _v4.useCallback)(() => {
+        _v4.updateRtmpPreview(!_v2?.rtmpPreview);
+      }, [_v2?.rtmpPreview, _v4]);
     return (0, _v2.jsxs)(_v12.Flex, {
       id: _v0,
       className: _v1,
@@ -1632,21 +1630,21 @@
   _v0.s(["EventSettingsTab", 0, function ({
     id: _v0 = (0, _v37.createDomName)("event-settings-tab"),
     className: _v1 = (0, _v37.createDomName)("event-settings-tab"),
-    isCompleted: _v2 = !1,
-    composerSessionContext: {
-      permissions: _v3
-    } = (0, _v3.useManager)(_v30.ComposerSessionManager),
-    composerSessionStatusContext: {
-      streamMode: _v4
-    } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
-    eventSettingsContext: {
-      settings: {
-        value: _v5,
-        isLoading: _v6
-      }
-    } = (0, _v3.useManager)(_v34.EventSettingsManager)
+    isCompleted: _v2 = !1
   }) {
-    let _v7 = (0, _v3.useManager)(_v33.DestinationsManager),
+    let {
+        permissions: _v3
+      } = (0, _v3.useManager)(_v30.ComposerSessionManager),
+      {
+        streamMode: _v4
+      } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
+      {
+        settings: {
+          value: _v5,
+          isLoading: _v6
+        }
+      } = (0, _v3.useManager)(_v34.EventSettingsManager),
+      _v7 = (0, _v3.useManager)(_v33.DestinationsManager),
       _v8 = !!_v7?.connections?.ott?.value?.isConnected,
       {
         trackLiveStreamSettingsSectionClicked: _v9

@@ -32,14 +32,14 @@
     _v10 = _v0.i(0);
   _v0.s(["RightPanelDismiss", 0, function ({
     id: _v0 = (0, _v9.createDomName)("right-panel-dismiss"),
-    className: _v1 = (0, _v9.createDomName)("right-panel-dismiss"),
-    panelsContext: {
-      panelActions: _v2
-    } = (0, _v4.useManager)(_v7.PanelsManager, ({
-      panelActions: _v0
-    }) => [_v0])
+    className: _v1 = (0, _v9.createDomName)("right-panel-dismiss")
   }) {
-    let _v3 = (0, _v5.useCallback)(() => _v2.setRightPanel(null), [_v2]);
+    let {
+        panelActions: _v2
+      } = (0, _v4.useManager)(_v7.PanelsManager, ({
+        panelActions: _v0
+      }) => [_v0]),
+      _v3 = (0, _v5.useCallback)(() => _v2.setRightPanel(null), [_v2]);
     return (0, _v1.jsx)(_v10.BokehTooltip, {
       placement: "bottom",
       label: _v8.T_CLOSE,

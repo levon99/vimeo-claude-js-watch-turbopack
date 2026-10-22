@@ -37,48 +37,56 @@
   function _v17({
     children: _v0,
     onSuccess: _v1,
-    type: _v2,
-    isShowing: _v3,
-    disableDismiss: _v4,
-    onDismiss: _v5,
-    attribution: _v6,
-    redirectUrlAfterSocialLogin: _v7,
-    redirectUrl: _v8,
-    showFBCreativeConnectJoinModal: _v9,
-    target: _v10
+    onAuthSuccessEffects: _v2,
+    completionSupported: _v3,
+    type: _v4,
+    isShowing: _v5,
+    disableDismiss: _v6,
+    onDismiss: _v7,
+    attribution: _v8,
+    originUrl: _v9,
+    redirectUrlAfterSocialLogin: _v10,
+    redirectUrl: _v11,
+    showFBCreativeConnectJoinModal: _v12,
+    target: _v13
   }) {
-    let [_v11, _v12] = (0, _v5.useState)(!!_v3),
-      [_v13, _v14] = (0, _v5.useState)(_v2),
-      _v15 = (0, _v14.useAuthAttributionLifecycle)({
-        isOpen: _v11,
-        supplied: _v6,
-        initialIntent: _v2,
+    let [_v14, _v15] = (0, _v5.useState)(!!_v5),
+      [_v16, _v17] = (0, _v5.useState)(_v4),
+      _v18 = (0, _v14.useAuthAttributionLifecycle)({
+        isOpen: _v14,
+        supplied: _v8,
+        initialIntent: _v4,
         surfaceType: "modal"
       });
     (0, _v5.useEffect)(() => {
-      _v14(_v2);
-    }, [_v2]), (0, _v5.useEffect)(() => {
-      _v12(!!_v3);
-    }, [_v3]);
-    let _v16 = () => {
-      _v12(_v0 => !_v0);
+      _v17(_v4);
+    }, [_v4]), (0, _v5.useEffect)(() => {
+      _v15(!!_v5);
+    }, [_v5]);
+    let _v19 = () => {
+      _v15(_v0 => !_v0);
     };
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v0 ? _v0(_v16) : null, (0, _v1.jsx)(_v15, {
-        type: _v13,
-        active: _v11,
-        attribution: _v15 ?? void 0,
-        disableDismiss: _v4,
-        redirectUrlAfterSocialLogin: _v7,
-        redirectUrl: _v8,
-        showFBCreativeConnectJoinModal: _v9,
-        target: _v10,
+      children: [_v0 ? _v0(_v19) : null, (0, _v1.jsx)(_v15, {
+        type: _v16,
+        active: _v14,
+        attribution: _v18 ?? void 0,
+        originUrl: _v9,
+        disableDismiss: _v6,
+        redirectUrlAfterSocialLogin: _v10,
+        redirectUrl: _v11,
+        showFBCreativeConnectJoinModal: _v12,
+        target: _v13,
         onDismiss: () => {
-          _v16(), _v5 && _v5(), _v14(_v2);
+          _v19(), _v7 && _v7(), _v17(_v4);
         },
         onSuccess: _v0 => {
-          _v16(), _v1 && _v1(_v0);
-        }
+          _v19(), _v1 && _v1(_v0);
+        },
+        onAuthSuccessEffects: _v0 => {
+          _v19(), _v2?.(_v0);
+        },
+        completionSupported: _v3
       })]
     });
   }

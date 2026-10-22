@@ -57,20 +57,19 @@
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0);
-  function _v30({
-    userPreferencesContext: {
-      isPendoLoaded: _v0,
-      isRtmpOnboardingTourActive: _v1,
-      isActiveFinishedStreamSurvey: _v2,
-      isEnterpriseTiersUpgradeModalActive: _v3,
-      userPreferencesActions: _v4,
-      tourActions: _v5
-    } = (0, _v12.useManager)(_v26.UserPreferencesManager),
-    composerSessionStatusContext: {
-      ingestStatus: _v6
-    } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager)
-  }) {
-    let _v7 = _v6 === _v27.EIngestStatus.UNKNOWN || !_v0,
+  function _v30() {
+    let {
+        isPendoLoaded: _v0,
+        isRtmpOnboardingTourActive: _v1,
+        isActiveFinishedStreamSurvey: _v2,
+        isEnterpriseTiersUpgradeModalActive: _v3,
+        userPreferencesActions: _v4,
+        tourActions: _v5
+      } = (0, _v12.useManager)(_v26.UserPreferencesManager),
+      {
+        ingestStatus: _v6
+      } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager),
+      _v7 = _v6 === _v27.EIngestStatus.UNKNOWN || !_v0,
       _v8 = (0, _v5.useCallback)(() => {
         _v4.setEnterpriseUpgradeTiersModalState(!1);
       }, [_v4]);
@@ -93,31 +92,30 @@
     _v38 = _v0.i(0),
     _v39 = _v0.i(0),
     _v40 = _v0.i(0);
-  function _v41({
-    composerSessionContext: {
-      sessionInfo: {
-        value: _v0
-      }
-    } = (0, _v12.useManager)(_v35.ComposerSessionManager),
-    composerSessionStatusContext: {
-      liveComposerStatuses: _v1
-    } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager)
-  }) {
-    let _v2;
-    return (0, _v34.useRTMPTrackingConfigUpdater)(), (_v2 = (0, _v12.useScope)(), (0, _v40.useUserPreferencesPendoSync)({
+  function _v41() {
+    let _v0,
+      {
+        sessionInfo: {
+          value: _v1
+        }
+      } = (0, _v12.useManager)(_v35.ComposerSessionManager),
+      {
+        liveComposerStatuses: _v2
+      } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager);
+    return (0, _v34.useRTMPTrackingConfigUpdater)(), (_v0 = (0, _v12.useScope)(), (0, _v40.useUserPreferencesPendoSync)({
       onGuideDisplayed: async _v0 => {
-        _v0?.guideId === _v28.EPendoToursIds.ONBOARDING_RTMP_REGULAR_PENDO_ID && (_v2.emitSignal({
+        _v0?.guideId === _v28.EPendoToursIds.ONBOARDING_RTMP_REGULAR_PENDO_ID && (_v0.emitSignal({
           type: _v39.ELiveSignal.RIGHT_PANEL_TAB_CHANGE_REQUEST,
           data: _v38.ERightPanelId.EVENT_SETTINGS
-        }), await (0, _v36.nextAsyncQueue)(), _v2.emitSignal({
+        }), await (0, _v36.nextAsyncQueue)(), _v0.emitSignal({
           type: _v39.ELiveSignal.ACCORDION_ITEM_CHANGE_REQUEST,
           data: _v37.EAccordionItemId.REGISTRATION
         }));
       }
-    }, [_v2]), _v1.isSessionEnded) ? (0, _v1.jsx)(_v23.LiveBroadcastEnded, {}) : _v1.isRtcMode && _v1.isSessionLive ? (0, _v1.jsx)(_v31.LiveEncoderWarningModal, {
-      redirectLink: _v0?.rtcPreviewLink?.uri || _v0?.viewLink?.uri
-    }) : _v1.isSessionUnknown ? null : (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v32.GlobalConfirmations, {}), (0, _v1.jsx)(_v33.SimpleNotifications, {}), _v1.isSessionPreparing ? (0, _v1.jsx)(_v1.Fragment, {
+    }, [_v0]), _v2.isSessionEnded) ? (0, _v1.jsx)(_v23.LiveBroadcastEnded, {}) : _v2.isRtcMode && _v2.isSessionLive ? (0, _v1.jsx)(_v31.LiveEncoderWarningModal, {
+      redirectLink: _v1?.rtcPreviewLink?.uri || _v1?.viewLink?.uri
+    }) : _v2.isSessionUnknown ? null : (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsx)(_v32.GlobalConfirmations, {}), (0, _v1.jsx)(_v33.SimpleNotifications, {}), _v2.isSessionPreparing ? (0, _v1.jsx)(_v1.Fragment, {
         children: (0, _v1.jsx)(_v30, {})
       }) : null]
     });
@@ -497,14 +495,14 @@
   }
   function _v106({
     id: _v0 = (0, _v49.createDomName)("rtmp-preview-audio-settings"),
-    className: _v1 = (0, _v49.createDomName)("rtmp-preview-audio-settings"),
-    studioContext: {
-      isPreviewMuted: _v2,
-      previewLanguage: _v3,
-      studioActions: _v4
-    } = (0, _v12.useManager)(_v63.StudioManager)
+    className: _v1 = (0, _v49.createDomName)("rtmp-preview-audio-settings")
   }) {
     let {
+        isPreviewMuted: _v2,
+        previewLanguage: _v3,
+        studioActions: _v4
+      } = (0, _v12.useManager)(_v63.StudioManager),
+      {
         primaryLanguage: _v5,
         secondaryLanguages: _v6,
         languagesInfo: _v7
@@ -683,37 +681,37 @@
   }
   function _v115({
     id: _v0 = (0, _v49.createDomName)("rtmp-preview-scene"),
-    className: _v1 = (0, _v49.createDomName)("rtmp-preview-scene"),
-    studioContext: {
-      preview: _v2,
-      isPreviewMuted: _v3
-    } = (0, _v12.useManager)(_v63.StudioManager, ({
-      preview: _v0,
-      isPreviewMuted: _v1
-    }) => [_v0, _v1]),
-    eventSettingsContext: {
-      settings: {
-        value: _v4
-      }
-    } = (0, _v12.useManager)(_v62.EventSettingsManager, ({
-      settings: _v0
-    }) => [_v0.value?.rtmpPreview]),
-    composerSessionStatusContext: {
-      ingestStatus: _v5,
-      startedAt: _v6,
-      endedAt: _v7,
-      liveComposerStatuses: _v8
-    } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager, ({
-      ingestStatus: _v0,
-      startedAt: _v1,
-      endedAt: _v2
-    }) => [_v0, _v1, _v2]),
-    composerSessionStatsContext: {
-      stats: {
-        value: _v9
-      }
-    } = (0, _v12.useManager)(_v80.ComposerSessionStatsManager)
+    className: _v1 = (0, _v49.createDomName)("rtmp-preview-scene")
   }) {
+    let {
+        preview: _v2,
+        isPreviewMuted: _v3
+      } = (0, _v12.useManager)(_v63.StudioManager, ({
+        preview: _v0,
+        isPreviewMuted: _v1
+      }) => [_v0, _v1]),
+      {
+        settings: {
+          value: _v4
+        }
+      } = (0, _v12.useManager)(_v62.EventSettingsManager, ({
+        settings: _v0
+      }) => [_v0.value?.rtmpPreview]),
+      {
+        ingestStatus: _v5,
+        startedAt: _v6,
+        endedAt: _v7,
+        liveComposerStatuses: _v8
+      } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager, ({
+        ingestStatus: _v0,
+        startedAt: _v1,
+        endedAt: _v2
+      }) => [_v0, _v1, _v2]),
+      {
+        stats: {
+          value: _v9
+        }
+      } = (0, _v12.useManager)(_v80.ComposerSessionStatsManager);
     return (0, _v1.jsxs)(_v42.Flex, {
       id: _v0,
       className: _v1,
@@ -789,25 +787,25 @@
   }
   function _v117({
     id: _v0 = (0, _v49.createDomName)("rtmp-preview-scene-layout"),
-    className: _v1 = (0, _v49.createDomName)("rtmp-preview-scene-layout"),
-    studioContext: {
-      preview: _v2
-    } = (0, _v12.useManager)(_v63.StudioManager, ({
-      preview: _v0
-    }) => [_v0]),
-    composerSessionStatusContext: {
-      liveComposerStatuses: _v3
-    } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager),
-    rtmpContext: {
-      settings: {
-        value: _v4,
-        isLoading: _v5
-      }
-    } = (0, _v12.useManager)(_v62.EventSettingsManager, ({
-      settings: _v0
-    }) => [_v0.value?.latency, _v0.value?.app?.uri, _v0.isLoading])
+    className: _v1 = (0, _v49.createDomName)("rtmp-preview-scene-layout")
   }) {
-    let _v6 = (0, _v22.useIsVpaas)(),
+    let {
+        preview: _v2
+      } = (0, _v12.useManager)(_v63.StudioManager, ({
+        preview: _v0
+      }) => [_v0]),
+      {
+        liveComposerStatuses: _v3
+      } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager),
+      {
+        settings: {
+          value: _v4,
+          isLoading: _v5
+        }
+      } = (0, _v12.useManager)(_v62.EventSettingsManager, ({
+        settings: _v0
+      }) => [_v0.value?.latency, _v0.value?.app?.uri, _v0.isLoading]),
+      _v6 = (0, _v22.useIsVpaas)(),
       _v7 = !!(_v4?.app?.uri && _v61.vimeoConfig.STREAMYARD_APP_URIS.includes(_v4.app.uri)),
       _v8 = !!(_v4 && (null === _v2 || _v3.isRtcMode) && !_v6),
       [_v9, _v10] = (0, _v5.useState)(() => !(0, _v65.getFromLocalStorage)(_v60.localStorageConfig.MARKETING.HOW_GO_LIVE_NOTICE)),
@@ -1019,26 +1017,26 @@
   let _v159 = (0, _v0.i(0).createDefaultPollInteractionObject)();
   function _v160({
     id: _v0 = (0, _v49.createDomName)("poll-tab"),
-    className: _v1 = (0, _v49.createDomName)("poll-tab"),
-    pollContext: {
-      isHydrated: _v2,
-      polls: _v3,
-      pollsHistory: _v4,
-      activePollId: _v5,
-      pollActions: {
-        createPoll: _v6,
-        updatePoll: _v7,
-        deletePoll: _v8,
-        setActivePoll: _v9
-      }
-    } = (0, _v12.useManager)(_v157.PollManager),
-    composerSessionContext: {
-      sessionType: _v10
-    } = (0, _v12.useManager)(_v35.ComposerSessionManager, ({
-      sessionType: _v0
-    }) => [_v0])
+    className: _v1 = (0, _v49.createDomName)("poll-tab")
   }) {
-    let [_v11, _v12] = (0, _v5.useState)(!1),
+    let {
+        isHydrated: _v2,
+        polls: _v3,
+        pollsHistory: _v4,
+        activePollId: _v5,
+        pollActions: {
+          createPoll: _v6,
+          updatePoll: _v7,
+          deletePoll: _v8,
+          setActivePoll: _v9
+        }
+      } = (0, _v12.useManager)(_v157.PollManager),
+      {
+        sessionType: _v10
+      } = (0, _v12.useManager)(_v35.ComposerSessionManager, ({
+        sessionType: _v0
+      }) => [_v0]),
+      [_v11, _v12] = (0, _v5.useState)(!1),
       [_v13, _v14] = (0, _v5.useState)(null),
       {
         setIsHeaderEnabled: _v15
@@ -1296,31 +1294,31 @@
     _v178 = _v0.i(0);
   function _v179({
     id: _v0 = (0, _v49.createDomName)("qna-tab"),
-    className: _v1 = (0, _v49.createDomName)("qna-tab"),
-    qnaContext: {
-      activeSessionId: _v2,
-      activeSessionPinnedQuestionId: _v3,
-      isHydrated: _v4,
-      config: {
-        canUseQnaModeration: _v5
-      },
-      qnaReplies: _v6,
-      qnaActions: {
-        approveQuestion: _v7,
-        archiveQuestion: _v8,
-        unArchiveQuestion: _v9,
-        pinQuestion: _v10,
-        unPinQuestion: _v11,
-        deleteQuestionReply: _v12
-      }
-    } = (0, _v12.useManager)(_v175.QnAManager),
-    composerSessionContext: {
-      sessionType: _v13
-    } = (0, _v12.useManager)(_v35.ComposerSessionManager, ({
-      sessionType: _v0
-    }) => [_v0])
+    className: _v1 = (0, _v49.createDomName)("qna-tab")
   }) {
     let {
+        activeSessionId: _v2,
+        activeSessionPinnedQuestionId: _v3,
+        isHydrated: _v4,
+        config: {
+          canUseQnaModeration: _v5
+        },
+        qnaReplies: _v6,
+        qnaActions: {
+          approveQuestion: _v7,
+          archiveQuestion: _v8,
+          unArchiveQuestion: _v9,
+          pinQuestion: _v10,
+          unPinQuestion: _v11,
+          deleteQuestionReply: _v12
+        }
+      } = (0, _v12.useManager)(_v175.QnAManager),
+      {
+        sessionType: _v13
+      } = (0, _v12.useManager)(_v35.ComposerSessionManager, ({
+        sessionType: _v0
+      }) => [_v0]),
+      {
         selectedQuestionId: _v14,
         selectedQuestionElement: _v15,
         selectedQuestionState: _v16,
@@ -1520,17 +1518,17 @@
   })));
   function _v181({
     id: _v0 = (0, _v49.createDomName)("rtmp-panel-left"),
-    className: _v1 = (0, _v49.createDomName)("rtmp-panel-left"),
-    composerSessionStatusContext: {
-      isHydrated: _v2
-    } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager, ({
-      isHydrated: _v0
-    }) => [_v0]),
-    panelsContext: {
-      leftPanel: _v3
-    } = (0, _v12.useManager)(_v129.PanelsManager)
+    className: _v1 = (0, _v49.createDomName)("rtmp-panel-left")
   }) {
     let {
+        isHydrated: _v2
+      } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager, ({
+        isHydrated: _v0
+      }) => [_v0]),
+      {
+        leftPanel: _v3
+      } = (0, _v12.useManager)(_v129.PanelsManager),
+      {
         permissions: _v4
       } = (0, _v12.useManager)(_v35.ComposerSessionManager),
       _v5 = (0, _v22.useIsVpaas)(),
@@ -1628,25 +1626,25 @@
     _v193 = _v0.i(0);
   function _v194({
     id: _v0 = (0, _v49.createDomName)("audio-tracks-tab"),
-    className: _v1 = (0, _v49.createDomName)("audio-tracks-tab"),
-    panelsContext: {
-      panelActions: _v2
-    } = (0, _v12.useManager)(_v129.PanelsManager),
-    composerSessionStatusContext: {
-      liveComposerStatuses: _v3
-    } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager),
-    sessionContext: {
-      permissions: {
-        canUseBackupStream: _v4
-      }
-    } = (0, _v12.useManager)(_v35.ComposerSessionManager),
-    eventSettingsContext: {
-      settings: {
-        value: _v5
-      }
-    } = (0, _v12.useManager)(_v62.EventSettingsManager)
+    className: _v1 = (0, _v49.createDomName)("audio-tracks-tab")
   }) {
-    let _v6 = (0, _v137.useScrollbarStyles)({
+    let {
+        panelActions: _v2
+      } = (0, _v12.useManager)(_v129.PanelsManager),
+      {
+        liveComposerStatuses: _v3
+      } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager),
+      {
+        permissions: {
+          canUseBackupStream: _v4
+        }
+      } = (0, _v12.useManager)(_v35.ComposerSessionManager),
+      {
+        settings: {
+          value: _v5
+        }
+      } = (0, _v12.useManager)(_v62.EventSettingsManager),
+      _v6 = (0, _v137.useScrollbarStyles)({
         width: (0, _v43.rem)(0),
         scrollbarColor: "transparent"
       }),
@@ -1783,22 +1781,22 @@
     _v203 = _v0.i(0);
   function _v204({
     id: _v0 = (0, _v49.createDomName)("tabbed-chat"),
-    className: _v1 = (0, _v49.createDomName)("tabbed-chat"),
-    chatContext: {
-      isHydrated: _v2,
-      isEnabled: _v3,
-      chatActions: {
-        enableChat: _v4
-      }
-    } = (0, _v12.useManager)(_v203.ChatManager),
-    firebaseContext: {
-      interactionCredentials: _v5,
-      connectionStatuses: {
-        isInteractionConnected: _v6
-      }
-    } = (0, _v12.useManager)(_v202.RtmpFirebaseManager)
+    className: _v1 = (0, _v49.createDomName)("tabbed-chat")
   }) {
-    let _v7 = (0, _v22.useIsVpaas)(),
+    let {
+        isHydrated: _v2,
+        isEnabled: _v3,
+        chatActions: {
+          enableChat: _v4
+        }
+      } = (0, _v12.useManager)(_v203.ChatManager),
+      {
+        interactionCredentials: _v5,
+        connectionStatuses: {
+          isInteractionConnected: _v6
+        }
+      } = (0, _v12.useManager)(_v202.RtmpFirebaseManager),
+      _v7 = (0, _v22.useIsVpaas)(),
       {
         initialState: {
           sessionType: _v8
@@ -2336,31 +2334,30 @@
       })]
     });
   });
-  function _v219({
-    streamHealthContext: {
-      stats: _v0,
-      ticks: _v1
-    } = (0, _v12.useManager)(_v90.StreamHealthManager),
-    sessionStatusContext: {
-      cloudSessionId: _v2
-    } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager),
-    eventAudioTracksContext: {
-      eventLanguages: {
-        value: _v3
-      },
-      audioTracksActions: _v4
-    } = (0, _v12.useManager)(_v88.EventAudioTracksManager),
-    composerSessionContext: {
-      permissions: {
-        hasAudioTracksManagement: _v5
-      }
-    } = (0, _v12.useManager)(_v35.ComposerSessionManager)
-  }) {
-    let _v6 = (0, _v5.useMemo)(() => _v3 && 0 !== _v3.secondary.length ? _v3.secondary.map(_v0 => ({
-      ...(_v0.altEncoders.find(_v0 => _v0.language === _v0) ?? _v205.ENCODER_STATS_STATE_NA),
-      language: _v0,
-      languageLabel: _v4.getLanguageLabelByCode(_v0)
-    })) : [], [_v3, _v4, _v0.altEncoders]);
+  function _v219() {
+    let {
+        stats: _v0,
+        ticks: _v1
+      } = (0, _v12.useManager)(_v90.StreamHealthManager),
+      {
+        cloudSessionId: _v2
+      } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager),
+      {
+        eventLanguages: {
+          value: _v3
+        },
+        audioTracksActions: _v4
+      } = (0, _v12.useManager)(_v88.EventAudioTracksManager),
+      {
+        permissions: {
+          hasAudioTracksManagement: _v5
+        }
+      } = (0, _v12.useManager)(_v35.ComposerSessionManager),
+      _v6 = (0, _v5.useMemo)(() => _v3 && 0 !== _v3.secondary.length ? _v3.secondary.map(_v0 => ({
+        ...(_v0.altEncoders.find(_v0 => _v0.language === _v0) ?? _v205.ENCODER_STATS_STATE_NA),
+        language: _v0,
+        languageLabel: _v4.getLanguageLabelByCode(_v0)
+      })) : [], [_v3, _v4, _v0.altEncoders]);
     return (0, _v1.jsxs)(_v42.Flex, {
       width: "100%",
       direction: "column",
@@ -2427,34 +2424,34 @@
   }
   function _v221({
     id: _v0 = (0, _v49.createDomName)("rtmp-panel-right"),
-    className: _v1 = (0, _v49.createDomName)("rtmp-panel-right"),
-    composerSessionStatusContext: {
-      isHydrated: _v2
-    } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager, ({
-      isHydrated: _v0
-    }) => [_v0])
+    className: _v1 = (0, _v49.createDomName)("rtmp-panel-right")
   }) {
-    let _v3 = (0, _v5.useMemo)(() => [{
-      id: _v38.ERightPanelId.EVENT_SETTINGS,
-      content: _v183.EventSettingsTab,
-      isVisible: !0
-    }, {
-      id: _v38.ERightPanelId.ANALYTICS,
-      content: _v182.AnalyticsTab,
-      isVisible: !0
-    }, {
-      id: _v38.ERightPanelId.STREAM_HEALTH,
-      content: _v220,
-      isVisible: !0
-    }, {
-      id: _v38.ERightPanelId.CHAT,
-      content: _v204,
-      isVisible: !0
-    }, {
-      id: _v38.ERightPanelId.AUDIO_TRACKS,
-      content: _v194,
-      isVisible: !0
-    }], []);
+    let {
+        isHydrated: _v2
+      } = (0, _v12.useManager)(_v25.ComposerSessionStatusManager, ({
+        isHydrated: _v0
+      }) => [_v0]),
+      _v3 = (0, _v5.useMemo)(() => [{
+        id: _v38.ERightPanelId.EVENT_SETTINGS,
+        content: _v183.EventSettingsTab,
+        isVisible: !0
+      }, {
+        id: _v38.ERightPanelId.ANALYTICS,
+        content: _v182.AnalyticsTab,
+        isVisible: !0
+      }, {
+        id: _v38.ERightPanelId.STREAM_HEALTH,
+        content: _v220,
+        isVisible: !0
+      }, {
+        id: _v38.ERightPanelId.CHAT,
+        content: _v204,
+        isVisible: !0
+      }, {
+        id: _v38.ERightPanelId.AUDIO_TRACKS,
+        content: _v194,
+        isVisible: !0
+      }], []);
     return (0, _v1.jsx)(_v195.RightPanel, {
       id: _v0,
       className: _v1,

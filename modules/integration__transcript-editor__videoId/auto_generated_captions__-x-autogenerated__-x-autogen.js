@@ -1642,12 +1642,13 @@
             }, !1), _v1(_v0);
           }, _v2];
         }(_v11),
-        _v23 = (0, _v15.useRef)(!1);
+        _v23 = (0, _v15.useRef)(""),
+        _v24 = (0, _v15.useRef)(!1);
       (0, _v15.useEffect)(() => {
-        let _v0 = _v20.uploaded && !_v23.current;
-        _v23.current = _v20.uploaded, _v0 && !_v20.error && _v20.data && _v6?.(String(_v20.data.id));
+        let _v0 = _v20.uploaded && !_v24.current;
+        _v24.current = _v20.uploaded, _v0 && !_v20.error && _v20.data && _v6?.(String(_v20.data.id), _v23.current);
       }, [_v20.uploaded, _v20.error, _v20.data, _v6]);
-      let [_v24, _v25] = function (_v0) {
+      let [_v25, _v26] = function (_v0) {
           let [_v1, _v2] = (0, _v82.usePatchVideoTexttrack)(),
             _v3 = (0, _v15.useRef)(void 0);
           return (0, _v15.useEffect)(() => {
@@ -1674,7 +1675,7 @@
             }, !1), _v1(_v0);
           }, _v2];
         }(_v11),
-        [_v26, _v27] = function (_v0) {
+        [_v27, _v28] = function (_v0) {
           let [_v1, _v2] = (0, _v82.useDeleteVideoTexttrack)(),
             [_v3, _v4] = _v84(),
             _v5 = (0, _v15.useRef)(void 0),
@@ -1769,28 +1770,29 @@
             error: _v4.error || _v2?.error
           }];
         }(_v11),
-        _v28 = (0, _v15.useRef)([]),
-        _v29 = (0, _v15.useRef)(0);
+        _v29 = (0, _v15.useRef)([]),
+        _v30 = (0, _v15.useRef)(0);
       (0, _v15.useEffect)(() => {
-        let _v0 = _v25.callCount - _v29.current;
-        if (_v0 <= 0 || _v25.loading) return;
-        _v29.current = _v25.callCount;
-        let _v1 = _v28.current.splice(0, _v0);
-        _v25.error || _v1.forEach(({
+        let _v0 = _v26.callCount - _v30.current;
+        if (_v0 <= 0 || _v26.loading) return;
+        _v30.current = _v26.callCount;
+        let _v1 = _v29.current.splice(0, _v0);
+        _v26.error || _v1.forEach(({
           textTrackId: _v0,
-          active: _v1
-        }) => _v8?.(_v0, _v1));
-      }, [_v25.callCount, _v25.loading, _v25.error, _v8]);
-      let _v30 = _v20.callCount + _v25.callCount + _v22.callCount + _v27.callCount,
-        _v31 = _v20.loading || _v25.loading || _v22.loading || _v27.loading;
+          active: _v1,
+          language: _v2
+        }) => _v8?.(_v0, _v1, _v2));
+      }, [_v26.callCount, _v26.loading, _v26.error, _v8]);
+      let _v31 = _v20.callCount + _v26.callCount + _v22.callCount + _v28.callCount,
+        _v32 = _v20.loading || _v26.loading || _v22.loading || _v28.loading;
       (0, _v15.useEffect)(() => {
-        _v30 && !_v31 && (_v18(void 0), setTimeout(() => _v1()));
-      }, [_v1, _v31, _v30]), (0, _v15.useEffect)(() => {
+        _v31 && !_v32 && (_v18(void 0), setTimeout(() => _v1()));
+      }, [_v1, _v32, _v31]), (0, _v15.useEffect)(() => {
         _v2(!!_v10);
       }, [_v2, _v10]);
-      let _v32 = _v0 => !_v10 || _v10.filter(_v0 => _v0.id !== _v0.id && _v0.active && _v0.language === _v0.language && _v0.type === _v0.type).length > 0,
-        _v33 = (_v0, _v1) => {
-          _v5?.(_v1.language ?? void 0), _v18(_v1.id), _v26({
+      let _v33 = _v0 => !_v10 || _v10.filter(_v0 => _v0.id !== _v0.id && _v0.active && _v0.language === _v0.language && _v0.type === _v0.type).length > 0,
+        _v34 = (_v0, _v1) => {
+          _v5?.(_v1.language ?? void 0), _v18(_v1.id), _v27({
             where: {
               videoId: _v0,
               textTrackId: _v1.id
@@ -1802,30 +1804,37 @@
             }
           }, _v0);
         },
-        _v34 = _v0 => {
-          null != _v0.id && (null != _v0.active && _v28.current.push({
-            textTrackId: String(_v0.id),
-            active: _v0.active
-          }), _v18(_v0.id), _v24({
-            where: {
-              videoId: _v0,
-              texttrackId: _v0.id
-            },
-            select: _v30,
-            variables: {
-              ..._v0
-            }
-          }));
-        },
         _v35 = _v0 => {
-          _v7?.(String(_v0.id)), _v18(_v0.id), _v21({
+          if (null != _v0.id) {
+            if (null != _v0.active) {
+              let _v0 = _v10?.find(_v0 => _v0.id === _v0.id);
+              _v29.current.push({
+                textTrackId: String(_v0.id),
+                active: _v0.active,
+                language: _v0?.language ?? ""
+              });
+            }
+            _v18(_v0.id), _v25({
+              where: {
+                videoId: _v0,
+                texttrackId: _v0.id
+              },
+              select: _v30,
+              variables: {
+                ..._v0
+              }
+            });
+          }
+        },
+        _v36 = _v0 => {
+          _v7?.(String(_v0.id), _v0.language ?? ""), _v18(_v0.id), _v21({
             where: {
               videoId: _v0,
               texttrackId: _v0.id
             }
           });
         },
-        _v36 = (0, _v15.useMemo)(() => {
+        _v37 = (0, _v15.useMemo)(() => {
           let _v0 = _v10 || [],
             [_v1] = _v0 ? _v0.reduce(([_v0, _v1], _v2) => (_v27.some(_v0 => _v2.language?.includes(_v0)) || _v2.name?.includes(_v24) ? _v0 = [..._v0, _v2] : _v1 = [..._v1, _v2], [_v0, _v1]), [[], []]) : [[], []],
             _v2 = new Set(_v1.map(_v0 => _v0.id)),
@@ -1843,7 +1852,7 @@
             };
           });
         }, [_v10]),
-        _v37 = _v14 || _v20.error || _v25.error || _v22.error;
+        _v38 = _v14 || _v20.error || _v26.error || _v22.error;
       return _v14 && !_v12 ? (0, _v13.jsx)(_v49.Center, {
         h: "100%",
         py: "3xl",
@@ -2027,8 +2036,8 @@
                       return !_v0.includes(_v24) && _v1?.includes(_v0) !== !0;
                     },
                     onCreate: (_v0, _v1) => {
-                      _v5?.(_v1.language);
-                      let _v2 = !_v32(_v1),
+                      _v5?.(_v1.language), _v23.current = _v1.language;
+                      let _v2 = !_v33(_v1),
                         _v3 = (_v10?.length ?? 0) + 1;
                       _v18(_v3), _v19({
                         where: {
@@ -2043,7 +2052,7 @@
                         }
                       }, _v0), _v16(!1);
                     },
-                    onUpdate: _v34
+                    onUpdate: _v35
                   })
                 })
               })]
@@ -2053,17 +2062,17 @@
           flex: "1",
           overflowY: "auto",
           minH: 0,
-          children: [_v37 && (0, _v13.jsx)(_v34.Alert, {
+          children: [_v38 && (0, _v13.jsx)(_v34.Alert, {
             status: "error",
             mb: "md",
-            children: _v37.message
+            children: _v38.message
           }), _v12 && (0, _v13.jsx)(_v70.Flex, {
             justifyContent: "center",
             py: (0, _v76.rem)(24),
             children: (0, _v13.jsx)(_v50.Spinner, {
               size: _v9 ? "sm" : "lg"
             })
-          }), _v36.map(({
+          }), _v37.map(({
             baseLang: _v0,
             displayLanguage: _v1,
             tracks: _v2
@@ -2078,11 +2087,11 @@
               children: _v2.map(_v0 => (0, _v13.jsx)(_v97, {
                 textTrack: _v0,
                 isAutoGenerated: _v0.isAutoGenerated,
-                validateTextTrackEnabledUniqueness: _v32,
+                validateTextTrackEnabledUniqueness: _v33,
                 loading: _v17 === _v0.id,
-                onReplace: _v33,
-                onUpdate: _v34,
-                onDelete: _v35,
+                onReplace: _v34,
+                onUpdate: _v35,
+                onDelete: _v36,
                 onEditTranscript: _v3
               }, _v0.id))
             })]
@@ -4261,8 +4270,11 @@
     let _v57 = _v11;
     _v48 && (_v57 = _v48.data ?? []), _v57.sort((_v0, _v1) => _v0.cueStart - _v1.cueStart);
     let _v58 = _v0 => {
-      _v34(_v0);
-    };
+        _v34(_v0);
+      },
+      _v59 = _v33?.language ?? void 0,
+      _v60 = _v17 ? _v0 => _v17(_v0, _v59) : void 0,
+      _v61 = _v20 ? _v0 => _v20(_v0, _v59) : void 0;
     return (0, _v13.jsx)(_v18.Drawer, {
       pt: !0 === _v18 ? "xs" : void 0,
       children: (0, _v13.jsx)(_v18.Drawer.Content, {
@@ -4293,15 +4305,15 @@
               _v48 && _v49({
                 ..._v48,
                 data: _v0
-              }, !1), _v13?.(String(_v1)), _v46();
+              }, !1), _v13?.(String(_v1), _v33?.language ?? void 0), _v46();
             },
             setHasTextTracks: _v9,
             hideSettingsTab: _v16,
-            onSegmentFocus: _v17,
+            onSegmentFocus: _v60,
             autoEnterEditMode: _v18,
             onTrackSelected: _v19,
-            onEditModeChanged: _v20,
-            onUnsavedChanges: _v21,
+            onEditModeChanged: _v61,
+            onUnsavedChanges: _v21 ? _v0 => _v21(_v0) : void 0,
             onCaptionUploadStarted: _v22,
             onCaptionUploadComplete: _v23,
             onCaptionDeleted: _v24,
@@ -4362,11 +4374,12 @@
           videoId: _v5.videoId
         });
       }, [_v5, _v4]),
-      _v9 = (0, _v15.useCallback)(_v0 => {
+      _v9 = (0, _v15.useCallback)((_v0, _v1) => {
         _v5 && _v4(_v161.ETranscriptEditorCrossWindowEvents.TRANSCRIPT_SAVED, {
           videoId: _v5.videoId,
           textTrackId: _v0,
-          savedAt: Date.now()
+          savedAt: Date.now(),
+          language: _v1
         });
       }, [_v5, _v4]),
       _v10 = (0, _v15.useCallback)((_v0, _v1) => {
@@ -4376,12 +4389,13 @@
           message: _v1
         });
       }, [_v5, _v4]),
-      _v11 = (0, _v15.useCallback)(_v0 => {
+      _v11 = (0, _v15.useCallback)((_v0, _v1) => {
         _v5 && _v4(_v161.ETranscriptEditorCrossWindowEvents.CAPTION_FOCUS, {
           videoId: _v5.videoId,
           cueStart: _v0.cueStart / 0,
           cueEnd: _v0.cueEnd / 0,
-          text: _v0.lines[0]?.text ?? ""
+          text: _v0.lines[0]?.text ?? "",
+          language: _v1
         });
       }, [_v5, _v4]),
       _v12 = (0, _v15.useCallback)(() => {
@@ -4397,10 +4411,11 @@
           language: _v1
         });
       }, [_v5, _v4]),
-      _v14 = (0, _v15.useCallback)(_v0 => {
+      _v14 = (0, _v15.useCallback)((_v0, _v1) => {
         _v5 && _v4(_v161.ETranscriptEditorCrossWindowEvents.EDIT_MODE_CHANGED, {
           videoId: _v5.videoId,
-          isEditing: _v0
+          isEditing: _v0,
+          language: _v1
         });
       }, [_v5, _v4]),
       _v15 = (0, _v15.useCallback)(_v0 => {
@@ -4415,23 +4430,26 @@
           language: _v0
         });
       }, [_v5, _v4]),
-      _v17 = (0, _v15.useCallback)(_v0 => {
+      _v17 = (0, _v15.useCallback)((_v0, _v1) => {
         _v5 && _v4(_v161.ETranscriptEditorCrossWindowEvents.CAPTION_UPLOAD_COMPLETE, {
           videoId: _v5.videoId,
-          textTrackId: _v0
+          textTrackId: _v0,
+          language: _v1
         });
       }, [_v5, _v4]),
-      _v18 = (0, _v15.useCallback)(_v0 => {
+      _v18 = (0, _v15.useCallback)((_v0, _v1) => {
         _v5 && _v4(_v161.ETranscriptEditorCrossWindowEvents.CAPTION_DELETED, {
           videoId: _v5.videoId,
-          textTrackId: _v0
+          textTrackId: _v0,
+          language: _v1
         });
       }, [_v5, _v4]),
-      _v19 = (0, _v15.useCallback)((_v0, _v1) => {
+      _v19 = (0, _v15.useCallback)((_v0, _v1, _v2) => {
         _v5 && _v4(_v161.ETranscriptEditorCrossWindowEvents.CAPTION_ACTIVE_CHANGED, {
           videoId: _v5.videoId,
           textTrackId: _v0,
-          active: _v1
+          active: _v1,
+          language: _v2
         });
       }, [_v5, _v4]);
     if (_v3) return (0, _v13.jsx)(_v165, {

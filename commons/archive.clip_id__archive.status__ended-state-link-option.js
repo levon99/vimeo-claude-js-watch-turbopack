@@ -884,29 +884,29 @@
   }
   function _v57({
     id: _v0 = (0, _v40.createLiveDomName)("broadcaster-event-ended"),
-    className: _v1 = (0, _v40.createLiveDomName)("broadcaster-event-ended"),
-    composerSessionContext: {
-      sessionInfo: {
-        value: _v2
-      },
-      sessionId: _v3
-    } = (0, _v9.useManager)(_v33.ComposerSessionManager),
-    composerSessionStatusContext: {
-      streamMode: _v4,
-      startedAt: _v5,
-      endedAt: _v6
-    } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager, ({
-      streamMode: _v0,
-      startedAt: _v1,
-      endedAt: _v2
-    }) => [_v0, _v1, _v2]),
-    eventSettingsContext: {
-      settings: {
-        value: _v7
-      }
-    } = (0, _v9.useManager)(_v36.EventSettingsManager)
+    className: _v1 = (0, _v40.createLiveDomName)("broadcaster-event-ended")
   }) {
-    let _v8 = (0, _v34.useSessionOwnerId)(),
+    let {
+        sessionInfo: {
+          value: _v2
+        },
+        sessionId: _v3
+      } = (0, _v9.useManager)(_v33.ComposerSessionManager),
+      {
+        streamMode: _v4,
+        startedAt: _v5,
+        endedAt: _v6
+      } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager, ({
+        streamMode: _v0,
+        startedAt: _v1,
+        endedAt: _v2
+      }) => [_v0, _v1, _v2]),
+      {
+        settings: {
+          value: _v7
+        }
+      } = (0, _v9.useManager)(_v36.EventSettingsManager),
+      _v8 = (0, _v34.useSessionOwnerId)(),
       {
         capabilities: _v9
       } = (0, _v22.useCapability)(["hasLiveAutoCcAiCredits", "hasLiveAutoTranslation"], _v8 || null),
@@ -1074,19 +1074,19 @@
   var _v58 = _v0.i(0);
   function _v59({
     id: _v0 = (0, _v7.createDomName)("vpaas-broadcaster-event-ended"),
-    className: _v1 = (0, _v7.createDomName)("vpaas-broadcaster-event-ended"),
-    composerSessionContext: {
-      sessionInfo: {
-        value: _v2
-      }
-    } = (0, _v9.useManager)(_v33.ComposerSessionManager),
-    composerSessionStatusContext: {
-      streamMode: _v3
-    } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager, ({
-      streamMode: _v0
-    }) => [_v0])
+    className: _v1 = (0, _v7.createDomName)("vpaas-broadcaster-event-ended")
   }) {
-    let _v4 = _v3 === _v6.EComposerStreamModeType.RECORD,
+    let {
+        sessionInfo: {
+          value: _v2
+        }
+      } = (0, _v9.useManager)(_v33.ComposerSessionManager),
+      {
+        streamMode: _v3
+      } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager, ({
+        streamMode: _v0
+      }) => [_v0]),
+      _v4 = _v3 === _v6.EComposerStreamModeType.RECORD,
       _v5 = _v2?.title ?? "Your event",
       _v6 = (0, _v10.useCallback)(() => {
         window.location.reload();
@@ -1144,17 +1144,17 @@
   }
   function _v60({
     id: _v0 = (0, _v7.createDomName)("live-broadcaster-venue-ended"),
-    className: _v1 = (0, _v7.createDomName)("live-broadcaster-venue-ended"),
-    composerSessionContext: {
-      sessionInfo: {
-        value: _v2
-      }
-    } = (0, _v9.useManager)(_v33.ComposerSessionManager),
-    composerSessionStatusContext: {
-      cloudSessionId: _v3
-    } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager)
+    className: _v1 = (0, _v7.createDomName)("live-broadcaster-venue-ended")
   }) {
     let {
+        sessionInfo: {
+          value: _v2
+        }
+      } = (0, _v9.useManager)(_v33.ComposerSessionManager),
+      {
+        cloudSessionId: _v3
+      } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager),
+      {
         value: _v4
       } = _v31({
         isClipIdRequired: !0,
@@ -1393,24 +1393,24 @@
     _v71 = _v0.i(0);
   function _v72({
     id: _v0 = (0, _v7.createDomName)("simultaneous-stream-limit-notice"),
-    className: _v1 = (0, _v7.createDomName)("simultaneous-stream-limit-notice"),
-    composerSessionStatusContext: {
-      isSimultaneousStreamLimitExceeded: _v2,
-      liveComposerStatuses: {
-        isSessionLive: _v3,
-        isSessionUnknown: _v4
-      }
-    } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager, ({
-      isSimultaneousStreamLimitExceeded: _v0,
-      ingestStatus: _v1
-    }) => [_v0, _v1]),
-    composerSessionContext: {
-      sessionInfo: {
-        value: _v5
-      }
-    } = (0, _v9.useManager)(_v33.ComposerSessionManager)
+    className: _v1 = (0, _v7.createDomName)("simultaneous-stream-limit-notice")
   }) {
-    let _v6 = function () {
+    let {
+        isSimultaneousStreamLimitExceeded: _v2,
+        liveComposerStatuses: {
+          isSessionLive: _v3,
+          isSessionUnknown: _v4
+        }
+      } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager, ({
+        isSimultaneousStreamLimitExceeded: _v0,
+        ingestStatus: _v1
+      }) => [_v0, _v1]),
+      {
+        sessionInfo: {
+          value: _v5
+        }
+      } = (0, _v9.useManager)(_v33.ComposerSessionManager),
+      _v6 = function () {
         let _v0 = (0, _v71.useOptionalViewer)();
         if (!_v0?.teamUser) return !0;
         switch (_v0.teamUser.permissionLevel) {
@@ -1460,13 +1460,13 @@
   _v0.s(["LiveBroadcasterErrorNotification", 0, function ({
     id: _v0 = (0, _v40.createLiveDomName)("live-broadcaster-error-notification"),
     className: _v1 = (0, _v40.createLiveDomName)("live-broadcaster-error-notification"),
-    margin: _v2 = "",
-    composerSessionStatusContext: {
+    margin: _v2 = ""
+  }) {
+    let {
       liveComposerStatusGetters: _v3
     } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager, ({
       ingestStatus: _v0
-    }) => [_v0])
-  }) {
+    }) => [_v0]);
     return _v3.isEnded() ? null : (0, _v4.jsx)(_v13.Flex, {
       direction: "column",
       margin: _v2,
@@ -1687,13 +1687,15 @@
     _v115 = _v0.i(0),
     _v116 = _v0.i(0);
   function _v117({
-    sceneContext: {
-      scenes: _v0,
-      scenesOrder: _v1,
-      isHydrated: _v2
-    } = (0, _v9.useManager)(_v116.SceneManager) || {}
+    sceneContext: _v0
   } = {}) {
-    return (0, _v10.useMemo)(() => _v2 ? (0, _v115.pickScheduledScenesList)((0, _v115.pickSortedScenesList)(_v0, _v1)).some(_v0 => (0, _v115.isSceneValidForScheduledPlayback)(_v0)) : null, [_v0, _v1, _v2]);
+    let _v1 = (0, _v9.useManager)(_v116.SceneManager) || {},
+      {
+        scenes: _v2,
+        scenesOrder: _v3,
+        isHydrated: _v4
+      } = _v0 ?? _v1;
+    return (0, _v10.useMemo)(() => _v4 ? (0, _v115.pickScheduledScenesList)((0, _v115.pickSortedScenesList)(_v2, _v3)).some(_v0 => (0, _v115.isSceneValidForScheduledPlayback)(_v0)) : null, [_v2, _v3, _v4]);
   }
   _v0.s(["useIsValidScheduledEvent", 0, _v117], 0);
   var _v118 = _v0.i(0),
@@ -1758,14 +1760,14 @@
   }
   function _v123({
     id: _v0 = (0, _v40.createLiveDomName)("advanced-button"),
-    className: _v1 = (0, _v40.createLiveDomName)("advanced-button"),
-    composerSessionStatusContext: _v2 = (0, _v9.useManager)(_v35.ComposerSessionStatusManager),
-    composerSessionContext: _v3 = (0, _v9.useManager)(_v33.ComposerSessionManager),
-    userPreferencesContext: _v4 = (0, _v9.useManager)(_v63.UserPreferencesManager),
-    composerSettingsContext: _v5 = (0, _v9.useManager)(_v100.ComposerSettingsManager) || {},
-    eventSettingsContext: _v6 = (0, _v9.useManager)(_v36.EventSettingsManager)
+    className: _v1 = (0, _v40.createLiveDomName)("advanced-button")
   }) {
-    let {
+    let _v2 = (0, _v9.useManager)(_v35.ComposerSessionStatusManager),
+      _v3 = (0, _v9.useManager)(_v33.ComposerSessionManager),
+      _v4 = (0, _v9.useManager)(_v63.UserPreferencesManager),
+      _v5 = (0, _v9.useManager)(_v100.ComposerSettingsManager) || {},
+      _v6 = (0, _v9.useManager)(_v36.EventSettingsManager),
+      {
         trackLiveStreamProductionModeChanged: _v7
       } = (0, _v83.useLiveStreamBroadcasterTracking)(),
       [_v8, _v9] = (0, _v10.useState)(!1),
@@ -1933,15 +1935,15 @@
         onToggleDropDown: _v29,
         isStartTimePassed: _v30,
         isStartTimePassedOver: _v31,
-        onLiveTrialBlocked: _v32,
-        eventSettingsContext: {
-          settings: _v33,
-          actions: {
-            forcedUpdate: _v34
-          }
-        } = (0, _v9.useManager)(_v36.EventSettingsManager)
+        onLiveTrialBlocked: _v32
       }) {
-        let _v35 = (0, _v9.useManager)(_v112.EventAudioTracksManager),
+        let {
+            settings: _v33,
+            actions: {
+              forcedUpdate: _v34
+            }
+          } = (0, _v9.useManager)(_v36.EventSettingsManager),
+          _v35 = (0, _v9.useManager)(_v112.EventAudioTracksManager),
           _v36 = (0, _v9.useScope)(),
           _v37 = (0, _v8.useIsVpaas)(),
           {
@@ -4080,19 +4082,19 @@
   var _v171 = _v0.i(0);
   function _v172({
     id: _v0 = (0, _v40.createLiveDomName)("embed-header"),
-    className: _v1 = (0, _v40.createLiveDomName)("embed-header"),
-    eventSettingsContext: {
-      settings: {
-        value: _v2
-      },
-      embedWhitelist: _v3,
-      actions: {
-        updateLiveEventSettings: _v4,
-        updateEmbedWhitelist: _v5
-      }
-    } = (0, _v9.useManager)(_v36.EventSettingsManager)
+    className: _v1 = (0, _v40.createLiveDomName)("embed-header")
   }) {
     let {
+        settings: {
+          value: _v2
+        },
+        embedWhitelist: _v3,
+        actions: {
+          updateLiveEventSettings: _v4,
+          updateEmbedWhitelist: _v5
+        }
+      } = (0, _v9.useManager)(_v36.EventSettingsManager),
+      {
         trackLiveStreamEmbedConfigured: _v6
       } = (0, _v83.useLiveStreamBroadcasterTracking)(),
       _v7 = (0, _v171.useViewer)(),
@@ -5291,12 +5293,11 @@
       }, _v0))
     });
   }
-  var _v221 = _v9,
+  var _v221 = _v0.i(0),
     _v222 = _v0.i(0),
     _v223 = _v0.i(0),
-    _v224 = _v0.i(0),
-    _v225 = _v0.i(0);
-  function _v226({
+    _v224 = _v0.i(0);
+  function _v225({
     className: _v0 = (0, _v40.createLiveDomName)("broadcaster-presence-circle-item"),
     participant: _v1,
     isBroadcaster: _v2
@@ -5327,7 +5328,7 @@
           border: "none"
         }
       },
-      children: (0, _v4.jsx)(_v225.Avatar, {
+      children: (0, _v4.jsx)(_v224.Avatar, {
         className: (0, _v40.createLiveDomName)(_v0, "avatar"),
         alt: "avatar",
         src: _v4 ?? void 0,
@@ -5335,7 +5336,7 @@
       })
     });
   }
-  function _v227({
+  function _v226({
     id: _v0 = (0, _v40.createLiveDomName)("broadcaster-presence-circle-more"),
     className: _v1 = (0, _v40.createLiveDomName)("broadcaster-presence-circle-more"),
     count: _v2
@@ -5360,10 +5361,10 @@
       children: ["+", _v2]
     });
   }
-  var _v228 = _v0.i(0),
-    _v229 = _v0.i(0),
-    _v230 = _v0.i(0);
-  function _v231({
+  var _v227 = _v0.i(0),
+    _v228 = _v0.i(0),
+    _v229 = _v0.i(0);
+  function _v230({
     className: _v0 = (0, _v40.createLiveDomName)("broadcaster-presence-list-item"),
     participant: _v1,
     isYou: _v2,
@@ -5382,7 +5383,7 @@
       _hover: {
         background: "fill-component-hover"
       },
-      children: [(0, _v4.jsx)(_v225.Avatar, {
+      children: [(0, _v4.jsx)(_v224.Avatar, {
         className: (0, _v40.createLiveDomName)(_v0, "avatar"),
         alt: "avatar",
         src: _v5 ?? void 0,
@@ -5414,35 +5415,35 @@
           color: "text-secondary",
           children: _v3 ? _v41.translations.broadcaster : _v41.translations.admin
         })]
-      }), _v2 || _v3 ? (0, _v4.jsx)(_v230.TooltipIconButton, {
+      }), _v2 || _v3 ? (0, _v4.jsx)(_v229.TooltipIconButton, {
         className: (0, _v40.createLiveDomName)(_v0, "switch-button"),
         "aria-label": _v3 ? _v41.translations.broadcaster : _v41.translations.setAsBroadcaster,
         size: "sm",
         variant: "tertiary",
         isDisabled: _v3,
         label: _v3 ? _v41.translations.broadcaster : _v41.translations.setAsBroadcaster,
-        icon: _v3 ? (0, _v4.jsx)(_v229.CameraOnFilled, {}) : (0, _v4.jsx)(_v228.CameraOn, {}),
+        icon: _v3 ? (0, _v4.jsx)(_v228.CameraOnFilled, {}) : (0, _v4.jsx)(_v227.CameraOn, {}),
         onClick: _v4
       }) : null]
     });
   }
-  var _v232 = _v40;
-  let _v233 = (0, _v10.memo)(({
-    id: _v0 = (0, _v232.createLiveDomName)("broadcaster-presence-list"),
-    className: _v1 = (0, _v232.createLiveDomName)("broadcaster-presence-list"),
-    presenceContext: {
-      eventConnections: _v2,
-      broadcasterId: _v3,
-      currentConnectionId: _v4,
-      presenceActions: _v5
-    } = (0, _v221.useManager)(_v224.PresenceManager)
+  var _v231 = _v40;
+  let _v232 = (0, _v10.memo)(({
+    id: _v0 = (0, _v231.createLiveDomName)("broadcaster-presence-list"),
+    className: _v1 = (0, _v231.createLiveDomName)("broadcaster-presence-list")
   }) => {
     let {
+        eventConnections: _v2,
+        broadcasterId: _v3,
+        currentConnectionId: _v4,
+        presenceActions: _v5
+      } = (0, _v9.useManager)(_v223.PresenceManager),
+      {
         triggerRef: _v6,
         contentRef: _v7,
         isOpen: _v8,
         onTogglePopover: _v9
-      } = (0, _v223.useControlledPopover)(),
+      } = (0, _v222.useControlledPopover)(),
       [_v10, _v11] = function ({
         eventConnections: _v0,
         broadcasterId: _v1,
@@ -5471,11 +5472,11 @@
       alignItems: "center",
       justifyContent: "center",
       children: (0, _v4.jsx)(_v45.Spinner, {
-        id: (0, _v232.createLiveDomName)(_v0, "loader"),
-        className: (0, _v232.createLiveDomName)(_v1, "loader"),
+        id: (0, _v231.createLiveDomName)(_v0, "loader"),
+        className: (0, _v231.createLiveDomName)(_v1, "loader"),
         size: "xs"
       })
-    }) : (0, _v4.jsx)(_v222.BokehPopover, {
+    }) : (0, _v4.jsx)(_v221.BokehPopover, {
       isOpen: _v8,
       placement: "bottom",
       triggerContent: (0, _v4.jsx)("div", {
@@ -5497,20 +5498,20 @@
             },
             onClick: _v9,
             children: (0, _v4.jsxs)(_v13.Flex, {
-              id: (0, _v232.createLiveDomName)(_v0, "content"),
-              className: (0, _v232.createLiveDomName)(_v1, "content"),
+              id: (0, _v231.createLiveDomName)(_v0, "content"),
+              className: (0, _v231.createLiveDomName)(_v1, "content"),
               position: "relative",
               justifyContent: "flex-end",
               alignItems: "center",
               height: "100%",
               padding: `${(0, _v11.rem)(4)} ${(0, _v11.rem)(4)} ${(0, _v11.rem)(4)} ${(0, _v11.rem)(14)}`,
-              children: [_v11.slice(0, 3).map(_v0 => (0, _v4.jsx)(_v226, {
-                className: (0, _v232.createLiveDomName)(_v1, "circle-item"),
+              children: [_v11.slice(0, 3).map(_v0 => (0, _v4.jsx)(_v225, {
+                className: (0, _v231.createLiveDomName)(_v1, "circle-item"),
                 participant: _v0,
                 isBroadcaster: _v0.id === _v3
-              }, _v0.id)), _v11.length > 3 ? (0, _v4.jsx)(_v227, {
-                id: (0, _v232.createLiveDomName)(_v0, "circle-more"),
-                className: (0, _v232.createLiveDomName)(_v1, "circle-more"),
+              }, _v0.id)), _v11.length > 3 ? (0, _v4.jsx)(_v226, {
+                id: (0, _v231.createLiveDomName)(_v0, "circle-more"),
+                className: (0, _v231.createLiveDomName)(_v1, "circle-more"),
                 count: _v11.length - 3
               }) : null]
             })
@@ -5519,13 +5520,13 @@
       }),
       content: (0, _v4.jsxs)(_v13.Flex, {
         ref: _v7,
-        id: (0, _v232.createLiveDomName)(_v0, "popover-content"),
-        className: (0, _v232.createLiveDomName)(_v1, "popover-content"),
+        id: (0, _v231.createLiveDomName)(_v0, "popover-content"),
+        className: (0, _v231.createLiveDomName)(_v1, "popover-content"),
         direction: "column",
         width: (0, _v11.rem)(300),
         children: [(0, _v4.jsxs)(_v13.Flex, {
-          id: (0, _v232.createLiveDomName)(_v0, "popover-title"),
-          className: (0, _v232.createLiveDomName)(_v1, "popover-title"),
+          id: (0, _v231.createLiveDomName)(_v0, "popover-title"),
+          className: (0, _v231.createLiveDomName)(_v1, "popover-title"),
           alignItems: "center",
           gap: (0, _v11.rem)(4),
           padding: (0, _v11.rem)(4),
@@ -5538,15 +5539,15 @@
             children: _v11.length
           })]
         }), (0, _v4.jsx)(_v13.Flex, {
-          id: (0, _v232.createLiveDomName)(_v0, "popover-list"),
-          className: (0, _v232.createLiveDomName)(_v1, "popover-list"),
+          id: (0, _v231.createLiveDomName)(_v0, "popover-list"),
+          className: (0, _v231.createLiveDomName)(_v1, "popover-list"),
           direction: "column",
           gap: (0, _v11.rem)(8),
           padding: (0, _v11.rem)(4),
           maxHeight: (0, _v11.rem)(400),
           overflowY: "auto",
-          children: _v10.map(_v0 => (0, _v4.jsx)(_v231, {
-            className: (0, _v232.createLiveDomName)(_v1, "popover-list-item"),
+          children: _v10.map(_v0 => (0, _v4.jsx)(_v230, {
+            className: (0, _v231.createLiveDomName)(_v1, "popover-list-item"),
             participant: _v0,
             isBroadcaster: _v0.id === _v3,
             isYou: _v0.id === _v4,
@@ -5556,9 +5557,9 @@
       })
     });
   });
-  var _v234 = _v0.i(0),
-    _v235 = _v0.i(0);
-  let _v236 = _v0 => (0, _v4.jsx)(_v217.Icon, {
+  var _v233 = _v0.i(0),
+    _v234 = _v0.i(0);
+  let _v235 = _v0 => (0, _v4.jsx)(_v217.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -5567,9 +5568,9 @@
       fill: "currentColor"
     })
   });
-  var _v237 = _v0.i(0),
-    _v238 = _v0.i(0);
-  function _v239({
+  var _v236 = _v0.i(0),
+    _v237 = _v0.i(0);
+  function _v238({
     id: _v0,
     className: _v1,
     title: _v2,
@@ -5591,7 +5592,7 @@
       children: [(0, _v4.jsx)(_v94.BokehTooltip, {
         label: _v7,
         placement: "bottom",
-        children: (0, _v4.jsx)(_v238.BokehIconButton, {
+        children: (0, _v4.jsx)(_v237.BokehIconButton, {
           id: _v0,
           className: _v1,
           ariaLabel: _v6,
@@ -5614,22 +5615,22 @@
       })]
     });
   }
-  function _v240({
+  function _v239({
     id: _v0 = (0, _v40.createLiveDomName)("recording-action-button"),
-    className: _v1 = (0, _v40.createLiveDomName)("recording-action-button"),
-    composerSessionStatusContext: {
-      ingestStatus: _v2,
-      isProvisionUpdating: _v3,
-      isProvisionStarting: _v4,
-      liveComposerStatusActions: _v5,
-      liveComposerStatuses: _v6,
-      isResumePauseLoading: _v7
-    } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager),
-    composerSettingsContext: {
-      isRecordingPaused: _v8
-    } = (0, _v9.useManager)(_v100.ComposerSettingsManager)
+    className: _v1 = (0, _v40.createLiveDomName)("recording-action-button")
   }) {
-    let _v9 = _v2 === _v29.EIngestStatus.UNKNOWN && !_v6.isRtmpMode,
+    let {
+        ingestStatus: _v2,
+        isProvisionUpdating: _v3,
+        isProvisionStarting: _v4,
+        liveComposerStatusActions: _v5,
+        liveComposerStatuses: _v6,
+        isResumePauseLoading: _v7
+      } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager),
+      {
+        isRecordingPaused: _v8
+      } = (0, _v9.useManager)(_v100.ComposerSettingsManager),
+      _v9 = _v2 === _v29.EIngestStatus.UNKNOWN && !_v6.isRtmpMode,
       _v10 = _v2 === _v29.EIngestStatus.PROVISION_REQUESTED || _v4,
       _v11 = _v3 || _v9 || _v10,
       _v12 = (0, _v10.useCallback)(() => {
@@ -5656,10 +5657,10 @@
       children: [(0, _v4.jsx)(_v94.BokehTooltip, {
         label: _v8 ? _v41.translations.resumeRecording : _v41.translations.pauseRecording,
         placement: "bottom",
-        children: (0, _v4.jsx)(_v238.BokehIconButton, {
+        children: (0, _v4.jsx)(_v237.BokehIconButton, {
           id: (0, _v40.createLiveDomName)(_v0, _v8 ? "resume-recording" : "pause-recording"),
           className: (0, _v40.createLiveDomName)(_v1, _v8 ? "resume-recording" : "pause-recording"),
-          icon: _v8 ? (0, _v4.jsx)(_v235.PlayFilled, {}) : (0, _v4.jsx)(_v234.PauseFilled, {}),
+          icon: _v8 ? (0, _v4.jsx)(_v234.PlayFilled, {}) : (0, _v4.jsx)(_v233.PauseFilled, {}),
           size: "md",
           ariaLabel: _v41.translations.mediaVolume,
           isDisabled: _v11,
@@ -5668,11 +5669,11 @@
           },
           onClick: _v12
         })
-      }), (0, _v4.jsx)(_v239, {
+      }), (0, _v4.jsx)(_v238, {
         id: (0, _v40.createLiveDomName)(_v0, "restart-recording"),
         className: (0, _v40.createLiveDomName)(_v1, "restart-recording"),
         isDisabled: _v11,
-        icon: (0, _v4.jsx)(_v236, {}),
+        icon: (0, _v4.jsx)(_v235, {}),
         title: _v41.translations.startOver,
         description: _v41.translations.recordingDiscardNotice,
         ariaLabel: "restart-recording",
@@ -5680,11 +5681,11 @@
         tooltipLabel: _v41.translations.startOver,
         isOkButtonLoading: _v3,
         onSubmit: _v14
-      }), (0, _v4.jsx)(_v239, {
+      }), (0, _v4.jsx)(_v238, {
         id: (0, _v40.createLiveDomName)(_v0, "delete-recording"),
         className: (0, _v40.createLiveDomName)(_v1, "delete-recording"),
         isDisabled: _v11,
-        icon: (0, _v4.jsx)(_v237.TrashBin, {}),
+        icon: (0, _v4.jsx)(_v236.TrashBin, {}),
         ariaLabel: "delete-recording",
         title: _v41.translations.deleteRecordingAlertNotice,
         submitLabel: _v41.translations.discard,
@@ -5696,25 +5697,25 @@
   }
   _v0.s(["LiveBroadcasterHeader", 0, function ({
     id: _v0 = (0, _v7.createDomName)("live-broadcaster-header"),
-    className: _v1 = (0, _v7.createDomName)("live-broadcaster-header"),
-    composerSessionStatusContext: {
-      isProvisionStarting: _v2,
-      liveComposerStatuses: _v3,
-      streamMode: _v4
-    } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager),
-    composerSessionContext: {
-      sessionApplicationType: _v5,
-      sessionType: _v6,
-      sessionInfo: {
-        value: _v7
-      },
-      permissions: _v8
-    } = (0, _v9.useManager)(_v33.ComposerSessionManager),
-    panelsContext: {
-      rightPanel: _v9
-    } = (0, _v9.useManager)(_v80.PanelsManager)
+    className: _v1 = (0, _v7.createDomName)("live-broadcaster-header")
   }) {
     let {
+        isProvisionStarting: _v2,
+        liveComposerStatuses: _v3,
+        streamMode: _v4
+      } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager),
+      {
+        sessionApplicationType: _v5,
+        sessionType: _v6,
+        sessionInfo: {
+          value: _v7
+        },
+        permissions: _v8
+      } = (0, _v9.useManager)(_v33.ComposerSessionManager),
+      {
+        rightPanel: _v9
+      } = (0, _v9.useManager)(_v80.PanelsManager),
+      {
         trackLiveStreamTopBarActionClicked: _v10
       } = (0, _v83.useLiveStreamBroadcasterTracking)(),
       _v11 = (0, _v8.useIsVpaas)(),
@@ -5857,7 +5858,7 @@
             flexShrink: 0,
             gap: (0, _v11.rem)(12),
             height: "100%",
-            children: [_v17 ? (0, _v4.jsx)(_v233, {
+            children: [_v17 ? (0, _v4.jsx)(_v232, {
               id: (0, _v7.createDomName)(_v0, "presence"),
               className: (0, _v7.createDomName)(_v1, "presence")
             }) : null, (0, _v4.jsx)(_v78.RightPanelControls, {
@@ -5873,7 +5874,7 @@
                 id: (0, _v7.createDomName)(_v0, "embed-button"),
                 className: (0, _v7.createDomName)(_v1, "embed-button")
               })]
-            }), _v19 ? (0, _v4.jsx)(_v240, {
+            }), _v19 ? (0, _v4.jsx)(_v239, {
               id: (0, _v7.createDomName)(_v0, "record-button"),
               className: (0, _v7.createDomName)(_v1, "record-button")
             }) : null, (0, _v4.jsx)(_v123, {
@@ -5895,61 +5896,60 @@
       })]
     });
   }], 0);
-  var _v241 = _v0.i(0),
+  var _v240 = _v0.i(0),
+    _v241 = _v0.i(0),
     _v242 = _v0.i(0),
-    _v243 = _v0.i(0),
-    _v244 = _v0.i(0);
-  _v0.s(["LiveSubscriptionUpsell", 0, function ({
-    sessionStatusContext: {
-      metering: _v0
-    } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager)
-  }) {
+    _v243 = _v0.i(0);
+  _v0.s(["LiveSubscriptionUpsell", 0, function () {
     let {
+        metering: _v0
+      } = (0, _v9.useManager)(_v35.ComposerSessionStatusManager),
+      {
         open: _v1,
         upgradeModal: _v2
       } = function ({
-        canOpen: _v0 = !0,
-        composerSessionContext: {
-          sessionInfo: {
-            value: _v1
-          }
-        } = (0, _v9.useManager)(_v33.ComposerSessionManager)
+        canOpen: _v0 = !0
       } = {}) {
-        let _v2 = !!_v1?.owner?.capabilities?.hasEnterprise,
+        let {
+            sessionInfo: {
+              value: _v1
+            }
+          } = (0, _v9.useManager)(_v33.ComposerSessionManager),
+          _v2 = !!_v1?.owner?.capabilities?.hasEnterprise,
           _v3 = !!_v1?.owner?.capabilities?.hasLiveSubscription,
           _v4 = _v2 ? "enterprise" : "default",
           _v5 = "enterprise" === _v4 && _v3,
           _v6 = (0, _v10.useMemo)(() => "default" === _v4 ? {
-            headerText: _v241.T_CREATE_ENGAGING_EVENTS,
-            subHeaderText: _v241.T_HOST_ANY_TYPE_OF_EVENT,
+            headerText: _v240.T_CREATE_ENGAGING_EVENTS,
+            subHeaderText: _v240.T_HOST_ANY_TYPE_OF_EVENT,
             excludePlans: ["starter", "standard", "creator"],
             planOverrides: {
               advanced: {
-                subHeading: _v241.T_STREAM_HIGH_QUALITY_EVENTS,
-                featuresList: _v241.T_ADVANCE_FEATURES_LIST
+                subHeading: _v240.T_STREAM_HIGH_QUALITY_EVENTS,
+                featuresList: _v240.T_ADVANCE_FEATURES_LIST
               },
               enterprise: {
-                subHeading: _v241.T_SUPERIOR_ENGAGEMENT_QUALITY,
-                featuresList: _v241.T_ENTERPRISE_FEATURES_LIST
+                subHeading: _v240.T_SUPERIOR_ENGAGEMENT_QUALITY,
+                featuresList: _v240.T_ENTERPRISE_FEATURES_LIST
               }
             },
             mkcCode: "ent-upgrade-bottom"
           } : _v5 ? {
-            enterpriseTitle: _v241.T_CAPTURE_LEADS_AND_VIEWER_LEVEL_INSIGHTS,
-            enterpriseSubtitle: _v241.T_TALK_TO_TEAM_ENTERPRISE,
-            customFeaturesList: (0, _v4.jsx)(_v242.UpsellFeaturesList, {
-              featuresList: _v241.T_TIER_1_ENTERPRISE_FEATURES_LIST
+            enterpriseTitle: _v240.T_CAPTURE_LEADS_AND_VIEWER_LEVEL_INSIGHTS,
+            enterpriseSubtitle: _v240.T_TALK_TO_TEAM_ENTERPRISE,
+            customFeaturesList: (0, _v4.jsx)(_v241.UpsellFeaturesList, {
+              featuresList: _v240.T_TIER_1_ENTERPRISE_FEATURES_LIST
             }),
             mkcCode: "ent-upgrade-bottom"
           } : {
-            headerText: _v241.T_CREATE_ENGAGING_EVENTS,
-            subHeaderText: _v241.T_HOST_ANY_TYPE_OF_EVENT,
-            customFeaturesList: (0, _v4.jsx)(_v242.UpsellFeaturesList, {
-              featuresList: _v241.T_DEMO_ENTERPRISE_FEATURES_LIST
+            headerText: _v240.T_CREATE_ENGAGING_EVENTS,
+            subHeaderText: _v240.T_HOST_ANY_TYPE_OF_EVENT,
+            customFeaturesList: (0, _v4.jsx)(_v241.UpsellFeaturesList, {
+              featuresList: _v240.T_DEMO_ENTERPRISE_FEATURES_LIST
             }),
             mkcCode: "ent-upgrade-bottom"
           }, [_v4, _v5]);
-        return (0, _v243.useUpgradeModal)({
+        return (0, _v242.useUpgradeModal)({
           canOpen: _v0,
           templateType: _v4,
           modalConfig: _v6,
@@ -5970,7 +5970,7 @@
         });
       }(),
       _v3 = (0, _v8.useIsVpaas)(),
-      [_v4, _v5] = (0, _v10.useMemo)(() => (0, _v244.getTimeComponents)(Math.max(_v0?.secondsRemaining || 0, 0)), [_v0?.secondsRemaining]),
+      [_v4, _v5] = (0, _v10.useMemo)(() => (0, _v243.getTimeComponents)(Math.max(_v0?.secondsRemaining || 0, 0)), [_v0?.secondsRemaining]),
       _v6 = (0, _v10.useCallback)(() => {
         _v1();
       }, [_v1]);
@@ -6017,8 +6017,8 @@
       }), _v2]
     });
   }], 0);
-  var _v245 = _v0.i(0);
-  let _v246 = _v0 => (0, _v4.jsx)(_v217.Icon, {
+  var _v244 = _v0.i(0);
+  let _v245 = _v0 => (0, _v4.jsx)(_v217.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -6027,7 +6027,7 @@
       fill: "currentColor"
     })
   });
-  function _v247({
+  function _v246({
     id: _v0 = (0, _v7.createDomName)("reactions-toggle-row"),
     className: _v1 = (0, _v7.createDomName)("reactions-toggle-row"),
     isEnabled: _v2,
@@ -6053,7 +6053,7 @@
           borderRadius: "full",
           position: "relative",
           flexShrink: 0,
-          children: (0, _v4.jsx)(_v246, {
+          children: (0, _v4.jsx)(_v245, {
             boxSize: "xs"
           })
         }), (0, _v4.jsxs)(_v13.Flex, {
@@ -6094,7 +6094,7 @@
                   }
                 }
               })
-            }), (0, _v4.jsx)(_v245.Badge, {
+            }), (0, _v4.jsx)(_v244.Badge, {
               size: "xs",
               variant: "new",
               height: (0, _v11.rem)(16),
@@ -6192,11 +6192,11 @@
       })]
     });
   }
-  _v0.s(["ReactionsToggleRow", 0, _v247], 0);
-  var _v248 = _v0.i(0),
+  _v0.s(["ReactionsToggleRow", 0, _v246], 0);
+  var _v247 = _v0.i(0),
+    _v248 = _v0.i(0),
     _v249 = _v0.i(0),
-    _v250 = _v0.i(0),
-    _v251 = _v0.i(0);
+    _v250 = _v0.i(0);
   _v0.s(["ReactionsTab", 0, function ({
     id: _v0 = (0, _v7.createDomName)("reactions-tab"),
     className: _v1 = (0, _v7.createDomName)("reactions-tab")
@@ -6204,7 +6204,7 @@
     let {
         isEnabled: _v2,
         reactionActions: _v3
-      } = (0, _v9.useManager)(_v248.ReactionManager),
+      } = (0, _v9.useManager)(_v247.ReactionManager),
       {
         trackLiveStreamReactionsToggled: _v4
       } = (0, _v83.useLiveStreamBroadcasterTracking)(),
@@ -6217,7 +6217,7 @@
         _v5(!0 !== _v2);
       }, [_v2, _v5]);
     return (0, _v4.jsxs)(_v4.Fragment, {
-      children: [(0, _v4.jsx)(_v251.LeftPanelHeader, {
+      children: [(0, _v4.jsx)(_v250.LeftPanelHeader, {
         id: (0, _v7.createDomName)(_v0, "header"),
         className: (0, _v7.createDomName)(_v1, "header"),
         label: (0, _v53.translate)({
@@ -6246,13 +6246,13 @@
             }
           }
         }),
-        controls: (0, _v4.jsx)(_v250.LeftPanelDismiss, {
+        controls: (0, _v4.jsx)(_v249.LeftPanelDismiss, {
           id: (0, _v7.createDomName)(_v0, "dismiss-button"),
           className: (0, _v7.createDomName)(_v1, "dismiss-button")
         })
-      }), (0, _v4.jsx)(_v249.LeftPanelContent, {
+      }), (0, _v4.jsx)(_v248.LeftPanelContent, {
         fitContent: !0,
-        children: (0, _v4.jsx)(_v247, {
+        children: (0, _v4.jsx)(_v246, {
           id: (0, _v7.createDomName)(_v0, "toggle-row"),
           className: (0, _v7.createDomName)(_v1, "toggle-row"),
           isEnabled: _v2,
@@ -6261,12 +6261,12 @@
       })]
     });
   }], 0);
-  var _v252 = _v0.i(0);
+  var _v251 = _v0.i(0);
   _v0.s(["useLiveReactionsAvailable", 0, function () {
     let _v0 = (0, _v34.useSessionOwnerId)(),
       {
         capabilities: _v1
       } = (0, _v22.useCapability)(["canEnableLiveReactions"], _v0);
-    return (0, _v252.useOrionSettingsFields)(["enable_live_reactions"]).enable_live_reactions && !!_v1.canEnableLiveReactions;
+    return (0, _v251.useOrionSettingsFields)(["enable_live_reactions"]).enable_live_reactions && !!_v1.canEnableLiveReactions;
   }], 0);
 }

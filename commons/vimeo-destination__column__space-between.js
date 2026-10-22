@@ -36,18 +36,18 @@
     _v33 = _v0.i(0);
   function _v34({
     id: _v0 = (0, _v31.createLiveDomName)("vimeo-destination"),
-    className: _v1 = (0, _v31.createLiveDomName)("vimeo-destination"),
-    composerSessionContext: {
-      sessionInfo: {
-        value: _v2,
-        isLoading: _v3
-      }
-    } = (0, _v2.useManager)(_v11.ComposerSessionManager),
-    composerSessionStatusContext: {
-      scheduledStartTime: _v4
-    } = (0, _v2.useManager)(_v28.ComposerSessionStatusManager)
+    className: _v1 = (0, _v31.createLiveDomName)("vimeo-destination")
   }) {
     let {
+        sessionInfo: {
+          value: _v2,
+          isLoading: _v3
+        }
+      } = (0, _v2.useManager)(_v11.ComposerSessionManager),
+      {
+        scheduledStartTime: _v4
+      } = (0, _v2.useManager)(_v28.ComposerSessionStatusManager),
+      {
         trackLiveStreamDestinationActionClicked: _v5
       } = (0, _v30.useLiveStreamBroadcasterTracking)(),
       _v6 = _v2?.appearanceLink?.uri,
@@ -138,26 +138,26 @@
   function _v52({
     id: _v0 = (0, _v31.createLiveDomName)("youtube-destination"),
     className: _v1 = (0, _v31.createLiveDomName)("youtube-destination"),
-    isDisabled: _v2 = !1,
-    destinationsContext: {
-      destinations: {
-        youtube: _v3
-      },
-      connections: {
-        youtube: _v4
-      },
-      destinationsActions: _v5,
-      destinationsConnectionActions: _v6,
-      hasValidConnection: _v7
-    } = (0, _v2.useManager)(_v12.DestinationsManager),
-    composerSessionStatusContext: {
-      liveComposerStatusGetters: {
-        isStreaming: _v8
-      },
-      isProvisionUpdating: _v9
-    } = (0, _v2.useManager)(_v28.ComposerSessionStatusManager)
+    isDisabled: _v2 = !1
   }) {
     let {
+        destinations: {
+          youtube: _v3
+        },
+        connections: {
+          youtube: _v4
+        },
+        destinationsActions: _v5,
+        destinationsConnectionActions: _v6,
+        hasValidConnection: _v7
+      } = (0, _v2.useManager)(_v12.DestinationsManager),
+      {
+        liveComposerStatusGetters: {
+          isStreaming: _v8
+        },
+        isProvisionUpdating: _v9
+      } = (0, _v2.useManager)(_v28.ComposerSessionStatusManager),
+      {
         trackLiveStreamDestinationActionClicked: _v10
       } = (0, _v30.useLiveStreamBroadcasterTracking)(),
       {
@@ -364,36 +364,36 @@
     id: _v0 = (0, _v15.createDomName)("live-destinations-settings"),
     className: _v1 = (0, _v15.createDomName)("live-destinations-settings"),
     isStreamYardEvent: _v2 = !1,
-    composerSessionContext: {
-      permissions: _v3
-    } = (0, _v2.useManager)(_v11.ComposerSessionManager),
-    eventSettingsContext: {
-      settings: {
-        value: _v4
-      }
-    } = (0, _v2.useManager)(_v13.EventSettingsManager),
-    destinationsContext: {
-      hasAnyDestinationsCreated: {
-        value: _v5
-      },
-      connections: {
-        youtube: _v6,
-        facebook: _v7,
-        linkedin: _v8,
-        ott: _v9
-      }
-    } = (0, _v2.useManager)(_v12.DestinationsManager),
-    hideVimeoDestination: _v10 = !1
+    hideVimeoDestination: _v3 = !1
   }) {
-    let _v11 = (0, _v16.useViewer)(),
+    let {
+        permissions: _v4
+      } = (0, _v2.useManager)(_v11.ComposerSessionManager),
+      {
+        settings: {
+          value: _v5
+        }
+      } = (0, _v2.useManager)(_v13.EventSettingsManager),
+      {
+        hasAnyDestinationsCreated: {
+          value: _v6
+        },
+        connections: {
+          youtube: _v7,
+          facebook: _v8,
+          linkedin: _v9,
+          ott: _v10
+        }
+      } = (0, _v2.useManager)(_v12.DestinationsManager),
+      _v11 = (0, _v16.useViewer)(),
       _v12 = !!_v11?.isEnterpriseSite,
-      _v13 = _v2 && !!_v9.value?.isConnected,
+      _v13 = _v2 && !!_v10.value?.isConnected,
       _v14 = (0, _v10.useIsPublishToSocialRestricted)(),
-      _v15 = !!_v4?.fromShowcase,
-      _v16 = !!_v4?.hasRegistration,
-      _v17 = !!_v4?.unlimitedDuration,
-      _v18 = !!(_v14 || _v17 && !_v3.canUseExtendedStreamWithSimulcast),
-      _v19 = (0, _v3.useMemo)(() => _v14 && _v5 ? _v53.sharedTranslations.destinationsAreRestrictedByOwner : _v14 ? _v53.sharedTranslations.destinationsStreamRestrictedByOwner : null, [_v14, _v5]);
+      _v15 = !!_v5?.fromShowcase,
+      _v16 = !!_v5?.hasRegistration,
+      _v17 = !!_v5?.unlimitedDuration,
+      _v18 = !!(_v14 || _v17 && !_v4.canUseExtendedStreamWithSimulcast),
+      _v19 = (0, _v3.useMemo)(() => _v14 && _v6 ? _v53.sharedTranslations.destinationsAreRestrictedByOwner : _v14 ? _v53.sharedTranslations.destinationsStreamRestrictedByOwner : null, [_v14, _v6]);
     return _v13 ? (0, _v1.jsxs)(_v4.Flex, {
       id: _v0,
       className: _v1,
@@ -413,7 +413,7 @@
       direction: "column",
       width: "100%",
       gap: (0, _v8.rem)(20),
-      children: [_v17 && !_v3.canUseExtendedStreamWithSimulcast ? (0, _v1.jsx)(_v5.Alert, {
+      children: [_v17 && !_v4.canUseExtendedStreamWithSimulcast ? (0, _v1.jsx)(_v5.Alert, {
         children: (0, _v1.jsx)(_v6.AlertDescription, {
           margin: 0,
           children: _v53.sharedTranslations.destinationsAreNotWithExtended
@@ -428,14 +428,14 @@
           margin: 0,
           children: _v53.sharedTranslations.viewersAtDestinationsWillNot
         })
-      }) : null, _v10 ? null : (0, _v1.jsx)(_v34, {
+      }) : null, _v3 ? null : (0, _v1.jsx)(_v34, {
         id: (0, _v15.createDomName)(_v0, "vimeo"),
         className: (0, _v15.createDomName)(_v1, "vimeo")
       }), (0, _v1.jsx)(_v9.RemoveConnectionSharingNotificationForNonOwners, {
         shouldShow: _v11?.user?.id !== _v11?.team?.ownerId,
         from: "LIVE",
         marginY: (0, _v8.rem)(5)
-      }), _v10 ? null : (0, _v1.jsx)(_v7.Divider, {
+      }), _v3 ? null : (0, _v1.jsx)(_v7.Divider, {
         borderColor: "stroke"
       }), _v15 ? (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v22.ShowcaseDestination, {

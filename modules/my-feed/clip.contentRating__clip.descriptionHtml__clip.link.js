@@ -1379,6 +1379,7 @@
             isShowing: _v1.isShowing,
             type: _v1.type,
             attribution: _v1.attribution,
+            originUrl: _v1.originUrl,
             onDismiss: _v4,
             xsrft: _v0?.xsrft || "",
             updateInitialType: _v0 => _v2({

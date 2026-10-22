@@ -72,6 +72,7 @@
 - https://vimeo.com/help/contact/offer
 - https://vimeo.com/help/contact/partners/[partner]
 - https://vimeo.com/home
+- https://vimeo.com/indie-program
 - https://vimeo.com/integration/live/guest/[sessionType]/[sessionId]/[sessionCode]
 - https://vimeo.com/integration/live/interaction_tools/[sessionType]/[sessionId]
 - https://vimeo.com/integration/live/rtc/[sessionType]/[sessionId]

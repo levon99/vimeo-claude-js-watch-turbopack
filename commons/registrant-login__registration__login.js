@@ -52,14 +52,14 @@
   let _v49 = (0, _v3.createContext)({});
   var _v50 = _v0.i(0);
   function _v51({
-    id: _v0 = (0, _v20.createInteractionDomName)("registrant-login"),
-    interactionSessionContext: {
-      roomPassword: _v1,
-      roomHashedPassword: _v2,
-      roomUnlistedHash: _v3
-    } = (0, _v2.useManager)(_v7.InteractionSessionManager)
+    id: _v0 = (0, _v20.createInteractionDomName)("registrant-login")
   }) {
-    let _v4 = (0, _v2.useScope)(),
+    let {
+        roomPassword: _v1,
+        roomHashedPassword: _v2,
+        roomUnlistedHash: _v3
+      } = (0, _v2.useManager)(_v7.InteractionSessionManager),
+      _v4 = (0, _v2.useScope)(),
       _v5 = (0, _v3.useRef)(null),
       [_v6, _v7] = (0, _v3.useState)(_v43.EIngestStatus.UNKNOWN),
       [_v8, _v9] = (0, _v3.useState)(!1),
@@ -194,25 +194,25 @@
   }
   var _v56 = _v0.i(0);
   function _v57({
-    id: _v0 = (0, _v20.createInteractionDomName)("widget-login"),
-    interactionSessionContext: {
-      sessionId: _v1,
-      roomInfo: {
-        value: _v2
-      },
-      roomUser: {
-        value: _v3,
-        isLoading: _v4
-      },
-      roomPassword: _v5,
-      roomHashedPassword: _v6,
-      interactionSessionActions: {
-        checkPasswordAuth: _v7,
-        authorizeInteractionUser: _v8
-      }
-    } = (0, _v2.useManager)(_v7.InteractionSessionManager)
+    id: _v0 = (0, _v20.createInteractionDomName)("widget-login")
   }) {
-    let _v9 = (0, _v29.useLogger)("📡 BC in InteractionLoginLayout"),
+    let {
+        sessionId: _v1,
+        roomInfo: {
+          value: _v2
+        },
+        roomUser: {
+          value: _v3,
+          isLoading: _v4
+        },
+        roomPassword: _v5,
+        roomHashedPassword: _v6,
+        interactionSessionActions: {
+          checkPasswordAuth: _v7,
+          authorizeInteractionUser: _v8
+        }
+      } = (0, _v2.useManager)(_v7.InteractionSessionManager),
+      _v9 = (0, _v29.useLogger)("📡 BC in InteractionLoginLayout"),
       {
         initialState: {
           interaction: _v10
@@ -369,14 +369,14 @@
     _v63 = _v0.i(0);
   function _v64({
     id: _v0 = (0, _v20.createInteractionDomName)("widget-collapsible-login"),
-    className: _v1 = (0, _v20.createInteractionDomName)("widget-collapsible-login"),
-    interactionSessionContext: {
-      roomUser: {
-        value: _v2
-      }
-    } = (0, _v2.useManager)(_v7.InteractionSessionManager)
+    className: _v1 = (0, _v20.createInteractionDomName)("widget-collapsible-login")
   }) {
     let {
+        roomUser: {
+          value: _v2
+        }
+      } = (0, _v2.useManager)(_v7.InteractionSessionManager),
+      {
         initialState: {
           interaction: _v3
         }
@@ -446,19 +446,19 @@
   }
   _v0.s(["InteractionToolsRouter", 0, function ({
     id: _v0 = (0, _v9.createDomName)("loader"),
-    className: _v1 = (0, _v9.createDomName)("loader"),
-    interactionSessionContext: {
-      roomInfo: {
-        value: _v2,
-        isLoading: _v3
-      },
-      roomUser: {
-        value: _v4,
-        isLoading: _v5
-      }
-    } = (0, _v2.useManager)(_v7.InteractionSessionManager)
+    className: _v1 = (0, _v9.createDomName)("loader")
   }) {
     let {
+        roomInfo: {
+          value: _v2,
+          isLoading: _v3
+        },
+        roomUser: {
+          value: _v4,
+          isLoading: _v5
+        }
+      } = (0, _v2.useManager)(_v7.InteractionSessionManager),
+      {
         initialState: _v6
       } = (0, _v6.useLiveGlobals)(),
       {

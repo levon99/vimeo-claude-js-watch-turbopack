@@ -390,35 +390,35 @@
     isDisabled: _v2 = !1,
     place: _v3,
     isJoined: _v4,
-    onSettingsClicked: _v5,
-    localMediaContext: {
-      audio: _v6,
-      audioDevices: _v7,
-      playbackDeviceId: _v8,
-      playbackDevices: _v9,
-      mediaActions: _v10
-    } = (0, _v2.useManager)(_v13.LocalMediaManager),
-    composerSettingsContext: {
-      audioMode: _v11
-    } = (0, _v2.useManager)(_v12.ComposerSettingsManager, ({
-      isLocalMirrored: _v0,
-      composerSettingsActions: _v1,
-      audioMode: _v2
-    }) => [_v0, _v1, _v2]),
-    composerSessionStatusContext: {
-      ingestStatus: _v12,
-      streamMode: _v13
-    } = (0, _v2.useManager)(_v11.ComposerSessionStatusManager, ({
-      ingestStatus: _v0,
-      streamMode: _v1
-    }) => [_v0, _v1]),
-    remoteMediaContext: {
-      isProgramAudioPlayback: _v14
-    } = (0, _v2.useManager)(_v14.RemoteMediaManager, ({
-      roomMedia: _v0
-    }) => [_v0])
+    onSettingsClicked: _v5
   }) {
     let {
+        audio: _v6,
+        audioDevices: _v7,
+        playbackDeviceId: _v8,
+        playbackDevices: _v9,
+        mediaActions: _v10
+      } = (0, _v2.useManager)(_v13.LocalMediaManager),
+      {
+        audioMode: _v11
+      } = (0, _v2.useManager)(_v12.ComposerSettingsManager, ({
+        isLocalMirrored: _v0,
+        composerSettingsActions: _v1,
+        audioMode: _v2
+      }) => [_v0, _v1, _v2]),
+      {
+        ingestStatus: _v12,
+        streamMode: _v13
+      } = (0, _v2.useManager)(_v11.ComposerSessionStatusManager, ({
+        ingestStatus: _v0,
+        streamMode: _v1
+      }) => [_v0, _v1]),
+      {
+        isProgramAudioPlayback: _v14
+      } = (0, _v2.useManager)(_v14.RemoteMediaManager, ({
+        roomMedia: _v0
+      }) => [_v0]),
+      {
         trackLiveStreamToolbarActionClicked: _v15
       } = (0, _v18.useLiveStreamBroadcasterTracking)(),
       _v16 = (0, _v2.useScope)(),
@@ -590,17 +590,17 @@
   function _v77({
     isMirrored: _v0,
     margin: _v1 = `${(0, _v23.rem)(16)} auto ${(0, _v23.rem)(24)} auto`,
-    children: _v2,
-    localMediaContext: {
-      video: _v3,
-      agoraSDK: _v4,
-      videoDevices: _v5,
-      isMediaAllowed: _v6,
-      isBrowserPrompted: _v7,
-      previewBackgroundProcessor: _v8
-    } = (0, _v2.useManager)(_v13.LocalMediaManager)
+    children: _v2
   }) {
-    let _v9 = (0, _v64.useLogger)("CS"),
+    let {
+        video: _v3,
+        agoraSDK: _v4,
+        videoDevices: _v5,
+        isMediaAllowed: _v6,
+        isBrowserPrompted: _v7,
+        previewBackgroundProcessor: _v8
+      } = (0, _v2.useManager)(_v13.LocalMediaManager),
+      _v9 = (0, _v64.useLogger)("CS"),
       _v10 = _v68(),
       _v11 = (0, _v3.useRef)(!1),
       _v12 = (0, _v3.useRef)(null),
@@ -1466,14 +1466,14 @@
     className: _v1 = (0, _v19.createLiveDomName)("video-control-button"),
     isDisabled: _v2 = !1,
     place: _v3,
-    onSettingsClicked: _v4,
-    localMediaContext: {
-      video: _v5,
-      videoDevices: _v6,
-      mediaActions: _v7
-    } = (0, _v2.useManager)(_v13.LocalMediaManager)
+    onSettingsClicked: _v4
   }) {
     let {
+        video: _v5,
+        videoDevices: _v6,
+        mediaActions: _v7
+      } = (0, _v2.useManager)(_v13.LocalMediaManager),
+      {
         trackLiveStreamToolbarActionClicked: _v8,
         trackLiveStreamEffectsClicked: _v9
       } = (0, _v18.useLiveStreamBroadcasterTracking)(),

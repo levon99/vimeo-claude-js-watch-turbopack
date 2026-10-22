@@ -408,7 +408,7 @@
     })`
   margin-bottom: ${(0, _v3.rem)(38)};
 `,
-    _v22 = (0, _v5.default)(_v7.Paragraph).withConfig({
+    _v22 = (0, _v5.default)(_v6.Paragraph).withConfig({
       displayName: "customauth__SubHeading",
       componentId: "sc-96801456-4"
     })`
@@ -471,7 +471,7 @@
         children: [(0, _v1.jsx)(_v20, {
           children: _v17.JoinHeading
         }), (0, _v1.jsx)(_v22, {
-          size: "2",
+          size: "md",
           children: _v17.JoinSubHeading
         })]
       }) : (0, _v1.jsx)(_v21, {
@@ -479,8 +479,8 @@
       });
     return _v0 ? (0, _v1.jsxs)(_v18, {
       children: [(0, _v1.jsx)(_v15, {}), _v11, (0, _v1.jsx)(_v19, {
-        children: (0, _v1.jsx)(_v6.Tabs, {
-          children: _v10.map((_v0, _v1) => (0, _v1.jsx)(_v6.Tabs.Panel, {
+        children: (0, _v1.jsx)(_v7.Tabs, {
+          children: _v10.map((_v0, _v1) => (0, _v1.jsx)(_v7.Tabs.Panel, {
             active: _v1 === _v3,
             label: _v0.label,
             onActivate: _v0.onClick,

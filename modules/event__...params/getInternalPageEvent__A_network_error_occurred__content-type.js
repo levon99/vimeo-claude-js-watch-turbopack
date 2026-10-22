@@ -3171,6 +3171,7 @@
               xsrft: _v1?.xsrft || "",
               onSuccess: _v5,
               attribution: _v2.attribution,
+              originUrl: _v2.originUrl,
               isShowing: _v2.isShowing,
               onDismiss: _v4,
               children: () => (0, _v3.jsx)(_v27.Button, {
@@ -4625,7 +4626,8 @@
         onSuccess: _v4,
         redirectUrl: _v5,
         redirectUrlAfterSocialLogin: _v5,
-        attribution: _v1.attribution
+        attribution: _v1.attribution,
+        originUrl: _v1.originUrl
       })]
     });
   }
@@ -6708,6 +6710,7 @@
               xsrft: _v2?.xsrft || "",
               onSuccess: _v9,
               attribution: _v3.attribution,
+              originUrl: _v3.originUrl,
               isShowing: _v3.isShowing,
               onDismiss: _v5,
               children: () => (0, _v3.jsx)(_v27.Button, {
@@ -7399,6 +7402,7 @@
               xsrft: _v1?.xsrft || "",
               onSuccess: _v5,
               attribution: _v2.attribution,
+              originUrl: _v2.originUrl,
               isShowing: _v2.isShowing,
               onDismiss: _v4,
               children: () => (0, _v3.jsx)(_v315.HeaderButton, {

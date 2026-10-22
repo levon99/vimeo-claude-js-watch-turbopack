@@ -541,21 +541,21 @@
   }
   _v0.s(["AutoCcSettings", 0, function ({
     id: _v0 = (0, _v80.createDomName)("auto-cc-settings"),
-    className: _v1 = (0, _v80.createDomName)("auto-cc-settings"),
-    eventSettingsContext: {
-      settings: {
-        isLoading: _v2,
-        value: _v3
-      },
-      actions: {
-        updateLiveEventSettings: _v4
-      }
-    } = (0, _v40.useManager)(_v77.EventSettingsManager),
-    composerSessionStatusContext: {
-      liveComposerStatuses: _v5
-    } = (0, _v40.useManager)(_v76.ComposerSessionStatusManager)
+    className: _v1 = (0, _v80.createDomName)("auto-cc-settings")
   }) {
     let {
+        settings: {
+          isLoading: _v2,
+          value: _v3
+        },
+        actions: {
+          updateLiveEventSettings: _v4
+        }
+      } = (0, _v40.useManager)(_v77.EventSettingsManager),
+      {
+        liveComposerStatuses: _v5
+      } = (0, _v40.useManager)(_v76.ComposerSessionStatusManager),
+      {
         trackLiveStreamClosedCaptionsToggled: _v6
       } = (0, _v86.useLiveStreamBroadcasterTracking)(),
       {

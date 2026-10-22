@@ -29,6 +29,6 @@
     };
   _v0.s(["useAuthEntry", 0, _v6, "useAuthEntryContext", 0, _v5, "useAuthPageEntry", 0, () => {
     let _v0 = _v6();
-    return (0, _v2.useCallback)((_v0, _v1, _v2) => (0, _v3.authAttributionUrl)(_v2, _v0(_v0, _v1, "page")), [_v0]);
+    return (0, _v2.useCallback)((_v0, _v1, _v2) => (0, _v3.appendAuthOriginUrl)((0, _v3.authAttributionUrl)(_v2, _v0(_v0, _v1, "page")), (0, _v3.captureAuthOriginUrl)()), [_v0]);
   }]);
 }

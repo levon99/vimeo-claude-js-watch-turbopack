@@ -364,25 +364,25 @@
         singular: "Stock photos, videos, and music",
         dictionary: {
           es: {
-            singular: "Archivo de fotos, videos y música"
+            singular: "Fotos, videos y música de stock"
           },
           "de-DE": {
-            singular: "Stockfotos, Videos und Musik"
+            singular: "Stock-Fotos, -Videos und -Musik"
           },
           "fr-FR": {
-            singular: "Photos, vidéos et sons sous licence"
+            singular: "Photos, vidéos et musiques libres de droits"
           },
           "ja-JP": {
             singular: "ストック写真、動画、音楽"
           },
           "ko-KR": {
-            singular: "스톡 사진, 동영상, 음악"
+            singular: "스톡 사진, 동영상 및 음악"
           },
           "pt-BR": {
-            singular: "Acervo de fotos, vídeos e músicas"
+            singular: "Banco de fotos, vídeos e músicas"
           },
           "zh-CN": {
-            singular: "库存图片、视频和音乐"
+            singular: "图库照片、视频和音乐"
           }
         }
       }),
@@ -900,22 +900,22 @@
         singular: "AI script generator",
         dictionary: {
           es: {
-            singular: "Generador de guiones de IA"
+            singular: "Generador de guiones con IA"
           },
           "de-DE": {
-            singular: "KI-Skript-Generator"
+            singular: "KI-Skriptgenerator"
           },
           "fr-FR": {
-            singular: "Générateur de scripts optimisé par l'IA"
+            singular: "Générateur de scripts IA"
           },
           "ja-JP": {
             singular: "AIスクリプトジェネレーター"
           },
           "ko-KR": {
-            singular: "AI 스크립트 작성기"
+            singular: "AI 스크립트 생성기"
           },
           "pt-BR": {
-            singular: "Gerador de roteiros de IA"
+            singular: "Gerador de roteiros com IA"
           },
           "zh-CN": {
             singular: "AI 脚本生成器"
@@ -1532,7 +1532,7 @@
         singular: "Simulcasting",
         dictionary: {
           es: {
-            singular: "Transmisión simultánea"
+            singular: "Emisión simultánea"
           },
           "fr-FR": {
             singular: "Diffusion simultanée"
@@ -1541,13 +1541,13 @@
             singular: "同時配信"
           },
           "ko-KR": {
-            singular: "동시 방송"
+            singular: "동시 송출"
           },
           "pt-BR": {
             singular: "Transmissão simultânea"
           },
           "zh-CN": {
-            singular: "联播"
+            singular: "同步直播"
           }
         }
       }),
@@ -1637,19 +1637,19 @@
         singular: "Audience chat",
         dictionary: {
           es: {
-            singular: "Chat para los espectadores"
+            singular: "Chat de la audiencia"
           },
           "de-DE": {
-            singular: "Publikum-Chat"
+            singular: "Zuschauer-Chat"
           },
           "fr-FR": {
-            singular: "Fenêtre de discussion"
+            singular: "Chat public"
           },
           "ja-JP": {
             singular: "視聴者チャット"
           },
           "ko-KR": {
-            singular: "시청자 채팅"
+            singular: "관객 채팅"
           },
           "pt-BR": {
             singular: "Chat com o público"
@@ -2660,25 +2660,25 @@
         singular: "Branded invite and reminder emails",
         dictionary: {
           es: {
-            singular: "Correos electrónicos de invitación y recordatorios con presencia de la marca"
+            singular: "Correos electrónicos de invitación y recordatorio con marca"
           },
           "de-DE": {
-            singular: "Markenspezifische Einladungs- und Erinnerungs-E-Mails"
+            singular: "Markenbezogene Einladungs- und Erinnerungs-E-Mails"
           },
           "fr-FR": {
-            singular: "Invitations et e-mails de rappel à l'image de votre marque"
+            singular: "E-mails d'invitation et de rappel aux couleurs de la marque"
           },
           "ja-JP": {
-            singular: "ブランド化された招待状とリマインダーメール"
+            singular: "ブランド化された招待およびリマインダーメール"
           },
           "ko-KR": {
-            singular: "브랜딩 가능한 초대 및 알림 이메일"
+            singular: "브랜디드 초대 및 리마인더 이메일"
           },
           "pt-BR": {
-            singular: "Convites e e-mails de lembrete com sua marca"
+            singular: "E-mails de convite e lembrete com marca"
           },
           "zh-CN": {
-            singular: "品牌邀请和提醒电子邮件"
+            singular: "品牌化邀请与提醒邮件"
           }
         }
       }),

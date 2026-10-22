@@ -59,11 +59,11 @@
       componentId: "sc-f69b2524-1"
     })`
   display: flex;
-  gap: ${_v21.core.space(200)};
+  gap: ${(0, _v23.rem)(16)};
   margin: auto 0 auto auto;
 `,
     _v27 = {
-      header: (0, _v19.translate)({
+      header: (0, _v24.translate)({
         singular: "Your appeal has already been submitted",
         dictionary: {
           es: {
@@ -89,7 +89,7 @@
           }
         }
       }),
-      message: (0, _v19.translate)({
+      message: (0, _v24.translate)({
         singular: "Once a decision about your appeal has been made, you’ll get an email from our team notifying you of the outcome.",
         dictionary: {
           es: {
@@ -120,7 +120,7 @@
       new: _v27,
       appeal_in_progress: _v27,
       submitted: {
-        header: (0, _v19.translate)({
+        header: (0, _v24.translate)({
           singular: "Your appeal has been submitted",
           dictionary: {
             es: {
@@ -146,7 +146,7 @@
             }
           }
         }),
-        message: (0, _v19.translate)({
+        message: (0, _v24.translate)({
           singular: "Once a decision about your appeal has been made, you’ll get an email from our team notifying you of the outcome.",
           dictionary: {
             es: {
@@ -174,7 +174,7 @@
         })
       },
       failed_appeal: {
-        header: (0, _v19.translate)({
+        header: (0, _v24.translate)({
           singular: "Your appeal has been denied",
           dictionary: {
             es: {
@@ -200,7 +200,7 @@
             }
           }
         }),
-        message: (0, _v19.translate)({
+        message: (0, _v24.translate)({
           singular: "We’ve reviewed your appeal. Based on your submission, we were unable to verify that you own or are otherwise authorized to use the music used in this video. This video will remain restricted to Private. You can still replace it with a version that doesn’t contain unauthorized music.",
           dictionary: {
             es: {
@@ -227,7 +227,7 @@
           }
         }),
         link: {
-          message: (0, _v19.translate)({
+          message: (0, _v24.translate)({
             singular: "Learn more about copyright detection",
             dictionary: {
               es: {
@@ -263,22 +263,21 @@
     }) => {
       let _v2 = _v28[_v1];
       return (0, _v1.jsxs)(_v25, {
-        children: [(0, _v1.jsx)(_v22.Header, {
-          size: "3",
+        children: [(0, _v1.jsx)(_v20.Header, {
+          size: "md",
           children: _v2.header
         }), (0, _v1.jsx)(_v17.Spacer, {
           size: 200,
           direction: "vertical"
-        }), (0, _v1.jsx)(_v23.Paragraph, {
-          size: "2",
+        }), (0, _v1.jsx)(_v22.Paragraph, {
+          size: "md",
           children: _v2.message
         }), (0, _v1.jsx)(_v17.Spacer, {
           size: 500,
           direction: "vertical"
-        }), _v2?.link && (0, _v1.jsx)(_v23.Paragraph, {
-          size: "2",
-          children: (0, _v1.jsx)(_v24.Link, {
-            format: "basic",
+        }), _v2?.link && (0, _v1.jsx)(_v22.Paragraph, {
+          size: "md",
+          children: (0, _v1.jsx)(_v21.Link, {
             href: _v2.link.href,
             children: _v2.link.message
           })
@@ -289,11 +288,12 @@
           size: 500,
           direction: "vertical"
         }), (0, _v1.jsxs)(_v26, {
-          children: ["failed_appeal" === _v1 && (0, _v1.jsx)(_v20.Button, {
-            element: "a",
-            format: "secondary",
+          children: ["failed_appeal" === _v1 && (0, _v1.jsx)(_v19.Button, {
+            as: "a",
+            variant: "outline",
+            colorScheme: "gray",
             href: `/manage/videos/${_v0}/replace`,
-            children: (0, _v19.translate)({
+            children: (0, _v24.translate)({
               singular: "Replace video",
               dictionary: {
                 es: {
@@ -319,10 +319,10 @@
                 }
               }
             })
-          }), "submitted" === _v1 ? (0, _v1.jsx)(_v20.Button, {
-            element: "a",
+          }), "submitted" === _v1 ? (0, _v1.jsx)(_v19.Button, {
+            as: "a",
             href: "/rights-management",
-            children: (0, _v19.translate)({
+            children: (0, _v24.translate)({
               singular: "Back to rights management",
               dictionary: {
                 es: {
@@ -348,10 +348,10 @@
                 }
               }
             })
-          }) : (0, _v1.jsx)(_v20.Button, {
-            element: "a",
+          }) : (0, _v1.jsx)(_v19.Button, {
+            as: "a",
             href: "/manage/videos",
-            children: (0, _v19.translate)({
+            children: (0, _v24.translate)({
               singular: "Back to my videos",
               dictionary: {
                 es: {
@@ -384,8 +384,15 @@
   var _v30 = _v0.i(0),
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
-    _v33 = _v0.i(0);
-  async function _v34({
+    _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0),
+    _v36 = _v0.i(0),
+    _v37 = _v0.i(0),
+    _v38 = _v0.i(0),
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0);
+  async function _v41({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -408,7 +415,7 @@
       return (0, _v9.deepCamelCase)(_v1);
     });
   }
-  async function _v35({
+  async function _v42({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -432,54 +439,48 @@
       return (0, _v9.deepCamelCase)(_v1);
     });
   }
-  var _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  let _v43 = _v18.default.div.withConfig({
+  var _v43 = _v0.i(0),
+    _v44 = _v0.i(0);
+  let _v45 = _v18.default.div.withConfig({
       displayName: "styles__SubmitFormWrapper",
       componentId: "sc-135a2525-0"
     })`
   display: flex;
-  gap: ${_v21.core.space(0)};
+  gap: ${(0, _v44.rem)(96)};
 `,
-    _v44 = _v18.default.div.withConfig({
+    _v46 = _v18.default.div.withConfig({
       displayName: "styles__ButtonContainer",
       componentId: "sc-135a2525-1"
     })`
   justify-content: flex-end;
   display: flex;
-  gap: ${_v21.core.space(200)};
+  gap: ${(0, _v44.rem)(16)};
 `,
-    _v45 = _v18.default.form.withConfig({
+    _v47 = _v18.default.form.withConfig({
       displayName: "styles__StyledForm",
       componentId: "sc-135a2525-2"
     })`
   display: flex;
   flex-direction: column;
-  gap: ${_v21.core.space(200)};
-  max-width: ${(0, _v40.rem)(600)};
+  gap: ${(0, _v44.rem)(32)};
+  max-width: ${(0, _v44.rem)(600)};
 `,
-    _v46 = (0, _v18.default)(_v23.Paragraph).withConfig({
-      displayName: "styles__ErrorMessage",
+    _v48 = _v18.default.section.withConfig({
+      displayName: "styles__Section",
       componentId: "sc-135a2525-3"
     })`
-  display: block;
-  color: ${_v21.core.color.status.negative};
+  display: flex;
+  flex-direction: column;
+  gap: ${(0, _v44.rem)(16)};
 `,
-    _v47 = (0, _v18.default)(_v42.Radio).withConfig({
-      displayName: "styles__StyledRadio",
+    _v49 = (0, _v18.default)(_v22.Paragraph).withConfig({
+      displayName: "styles__ErrorMessage",
       componentId: "sc-135a2525-4"
     })`
-  // NOTE: There is bold text inside the radio labels, the inline-flex put on the radio label must be redefined as inline-block here, as inline-flex places the <b> element in a flexed position.
-  & label {
-    display: inline-block;
-  }
+  display: block;
+  color: var(--vimeo-colors-status-destructive-primary);
 `,
-    _v48 = _v18.default.label.withConfig({
+    _v50 = _v18.default.label.withConfig({
       displayName: "styles__FileInputLabel",
       componentId: "sc-135a2525-5"
     })`
@@ -487,11 +488,11 @@
   align-items: center;
   gap: 0.5rem;
   position: relative;
-  border: 1px solid ${(0, _v41.blue)(400)};
+  border: 1px solid var(--vimeo-colors-vimeoBlue-400);
   max-width: 120px;
   padding: 0.75rem;
   border-radius: 0.5rem;
-  color: ${(0, _v41.blue)(400)};
+  color: var(--vimeo-colors-vimeoBlue-400);
   font-weight: 600;
   transition:
     all 170ms ease-in-out,
@@ -509,7 +510,7 @@
     border-radius: 0.625rem;
     transition: 150ms ease-in-out;
     transform-origin: center;
-    border: 0.125rem solid ${(0, _v41.blue)(400)};
+    border: 0.125rem solid var(--vimeo-colors-vimeoBlue-400);
     opacity: 0;
     top: -0.25rem;
     left: -0.25rem;
@@ -529,11 +530,11 @@
     width: 20px;
 
     & path {
-      fill: ${(0, _v41.blue)(400)};
+      fill: var(--vimeo-colors-vimeoBlue-400);
     }
   }
 `,
-    _v49 = _v18.default.input.withConfig({
+    _v51 = _v18.default.input.withConfig({
       displayName: "styles__FileInput",
       componentId: "sc-135a2525-6"
     })`
@@ -542,27 +543,27 @@
   opacity: 0;
   outline: none;
 
-  &:focus + ${_v48}::before {
+  &:focus + ${_v50}::before {
     opacity: 1;
-    border: 0.125rem solid ${(0, _v41.blue)(400)};
+    border: 0.125rem solid var(--vimeo-colors-vimeoBlue-400);
   }
 `,
-    _v50 = _v18.default.ul.withConfig({
+    _v52 = _v18.default.ul.withConfig({
       displayName: "styles__Acknowledgements",
       componentId: "sc-135a2525-7"
     })`
   list-style-type: initial;
   padding-inline-start: 24px;
 `,
-    _v51 = _v18.default.li.withConfig({
+    _v53 = _v18.default.li.withConfig({
       displayName: "styles__Acknowledgement",
       componentId: "sc-135a2525-8"
     })``,
-    _v52 = "original_content",
-    _v53 = "explicit_permission",
-    _v54 = "other",
-    _v55 = [{
-      label: (0, _v19.translate)({
+    _v54 = "original_content",
+    _v55 = "explicit_permission",
+    _v56 = "other",
+    _v57 = [{
+      label: (0, _v24.translate)({
         singular: "I own the rights to this music",
         dictionary: {
           es: {
@@ -588,9 +589,9 @@
           }
         }
       }),
-      value: _v52
+      value: _v54
     }, {
-      label: (0, _v19.translate)({
+      label: (0, _v24.translate)({
         singular: "I have permission from the owner of the rights to use this music",
         dictionary: {
           es: {
@@ -616,9 +617,9 @@
           }
         }
       }),
-      value: _v53
+      value: _v55
     }, {
-      label: (0, _v19.translate)({
+      label: (0, _v24.translate)({
         singular: "I’m otherwise allowed to use this music (for example, it’s in the public domain)",
         dictionary: {
           es: {
@@ -644,20 +645,20 @@
           }
         }
       }),
-      value: _v54
+      value: _v56
     }],
-    _v56 = "description",
-    _v57 = "files",
-    _v58 = {
-      [_v52]: [_v57],
-      [_v53]: [_v57],
-      [_v54]: [_v56]
+    _v58 = "description",
+    _v59 = "files",
+    _v60 = {
+      [_v54]: [_v59],
+      [_v55]: [_v59],
+      [_v56]: [_v58]
     },
-    _v59 = {
+    _v61 = {
       description: ""
     },
-    _v60 = _v0 => parseInt(_v0.split("/").pop() ?? "0");
-  function _v61(_v0, _v1) {
+    _v62 = _v0 => parseInt(_v0.split("/").pop() ?? "0");
+  function _v63(_v0, _v1) {
     let {
       type: _v2,
       filename: _v3,
@@ -700,16 +701,16 @@
         throw Error(`Unknown action: ${_v2}`);
     }
   }
-  let _v62 = ({
+  let _v64 = ({
     videoId: _v0,
     infringement: _v1,
     onSubmissionComplete: _v2
   }) => {
-    let _v3 = _v60(_v1?.uri ?? ""),
+    let _v3 = _v62(_v1?.uri ?? ""),
       [_v4, _v5] = (0, _v3.useState)(),
       [_v6, _v7] = (0, _v3.useState)(!1),
       [_v8, _v9] = (0, _v3.useState)(!1),
-      [_v10, _v11] = (0, _v3.useReducer)(_v61, {}),
+      [_v10, _v11] = (0, _v3.useReducer)(_v63, {}),
       _v12 = Object.values(_v10),
       _v13 = _v12.length,
       _v14 = void 0 !== _v12.find(_v0 => _v0.isLarge),
@@ -751,7 +752,7 @@
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v0(`/videos/${_v0.where.videoId}/licensed_music_infringements/${_v0.where.infringementId}/licensed_music_appeals${(0, _v13.serializeQuery)(_v0)}`, _v34({
+            let _v0 = await _v0(`/videos/${_v0.where.videoId}/licensed_music_infringements/${_v0.where.infringementId}/licensed_music_appeals${(0, _v13.serializeQuery)(_v0)}`, _v41({
               ..._v0,
               baseUrl: _v1,
               headers: {
@@ -793,7 +794,7 @@
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v0(`/videos/${_v0.where.videoId}/licensed_music_infringements/${_v0.where.infringementId}/licensed_music_appeals/${_v0.where.appealId}/supporting_documents${(0, _v13.serializeQuery)(_v0)}`, _v35({
+            let _v0 = await _v0(`/videos/${_v0.where.videoId}/licensed_music_infringements/${_v0.where.infringementId}/licensed_music_appeals/${_v0.where.appealId}/supporting_documents${(0, _v13.serializeQuery)(_v0)}`, _v42({
               ..._v0,
               baseUrl: _v1,
               headers: {
@@ -850,7 +851,7 @@
     }, [_v10, _v23, _v22]), (0, _v3.useEffect)(() => {
       if (_v19) {
         _v5(_v19);
-        let _v0 = _v60(_v19.uri);
+        let _v0 = _v62(_v19.uri);
         _v12.filter(({
           status: _v0
         }) => "selected" === _v0).forEach(({
@@ -886,26 +887,27 @@
         },
         setError: _v29,
         clearErrors: _v30,
-        watch: _v31
+        watch: _v31,
+        control: _v32
       } = (0, _v30.useForm)({
-        defaultValues: _v59
+        defaultValues: _v61
       }),
-      _v32 = _v31(),
-      _v33 = _v32.option,
-      _v34 = "other" !== _v33,
-      _v35 = "other" === _v33,
-      _v36 = _v58[_v33],
-      _v37 = Array.isArray(_v36) && _v36.every(_v0 => _v0 === _v57 ? _v13 > 0 : !!_v32[_v0]),
-      _v38 = 0 === Object.keys(_v27).length,
-      _v39 = _v38 && _v28 && _v37;
+      _v33 = _v31(),
+      _v34 = _v33.option,
+      _v35 = "other" !== _v34,
+      _v36 = "other" === _v34,
+      _v37 = _v60[_v34],
+      _v38 = Array.isArray(_v37) && _v37.every(_v0 => _v0 === _v59 ? _v13 > 0 : !!_v33[_v0]),
+      _v39 = 0 === Object.keys(_v27).length,
+      _v40 = _v39 && _v28 && _v38;
     return (0, _v3.useEffect)(() => {
-      !_v38 && _v37 && _v6 && _v30(), _v6 && !_v37 && (_v35 && !_v27[_v56] && _v29(_v56, {
+      !_v39 && _v38 && _v6 && _v30(), _v6 && !_v38 && (_v36 && !_v27[_v58] && _v29(_v58, {
         message: "Description required"
-      }), _v34 && !_v27[_v57] && _v29(_v57, {
+      }), _v35 && !_v27[_v59] && _v29(_v59, {
         message: "Supporting document required"
-      }), (!_v35 || _v35 && "" !== _v32[_v56]) && _v27[_v56] && _v30(_v56), (!_v34 || _v34 && _v13 > 0) && _v27[_v57] && _v30(_v57));
-    }, [_v29, _v30, _v38, _v37, _v6, _v35, _v34, _v13, _v32, _v27]), (0, _v1.jsx)(_v43, {
-      children: (0, _v1.jsxs)(_v45, {
+      }), (!_v36 || _v36 && "" !== _v33[_v58]) && _v27[_v58] && _v30(_v58), (!_v35 || _v35 && _v13 > 0) && _v27[_v59] && _v30(_v59));
+    }, [_v29, _v30, _v39, _v38, _v6, _v36, _v35, _v13, _v33, _v27]), (0, _v1.jsx)(_v45, {
+      children: (0, _v1.jsxs)(_v47, {
         onSubmit: _v25(_v0 => {
           _v9(!0);
           let {
@@ -926,94 +928,96 @@
             }
           });
         }),
-        children: [(0, _v1.jsx)(_v22.Header, {
-          size: "3",
-          children: (0, _v19.translate)({
-            singular: "Submit a copyright appeal",
-            dictionary: {
-              es: {
-                singular: "Presenta una apelación sobre derechos de autor"
-              },
-              "de-DE": {
-                singular: "Urheberrechtswiderspruch absenden"
-              },
-              "fr-FR": {
-                singular: "Déposer un recours concernant des droits d'auteur"
-              },
-              "ja-JP": {
-                singular: "著作権に関する異議申し立てを送信"
-              },
-              "ko-KR": {
-                singular: "저작권 이의 제기 제출"
-              },
-              "pt-BR": {
-                singular: "Enviar um recurso de direitos autorais"
-              },
-              "zh-CN": {
-                singular: "提交版权申诉"
+        children: [(0, _v1.jsxs)(_v48, {
+          children: [(0, _v1.jsx)(_v20.Header, {
+            size: "md",
+            children: (0, _v24.translate)({
+              singular: "Submit a copyright appeal",
+              dictionary: {
+                es: {
+                  singular: "Presenta una apelación sobre derechos de autor"
+                },
+                "de-DE": {
+                  singular: "Urheberrechtswiderspruch absenden"
+                },
+                "fr-FR": {
+                  singular: "Déposer un recours concernant des droits d'auteur"
+                },
+                "ja-JP": {
+                  singular: "著作権に関する異議申し立てを送信"
+                },
+                "ko-KR": {
+                  singular: "저작권 이의 제기 제출"
+                },
+                "pt-BR": {
+                  singular: "Enviar um recurso de direitos autorais"
+                },
+                "zh-CN": {
+                  singular: "提交版权申诉"
+                }
               }
-            }
-          })
-        }), (0, _v1.jsx)(_v23.Paragraph, {
-          size: "2",
-          children: (0, _v19.translate)({
-            singular: "This video contains music that may be owned by someone else. Videos containing protected music are restricted to Private if the issue isn’t resolved within 48 hours.",
-            dictionary: {
-              es: {
-                singular: "Este video contiene música que puede ser propiedad de otra persona. Los videos que contienen música protegida se restringen a Privado si el problema no se resuelve en 48 horas."
-              },
-              "de-DE": {
-                singular: "Dieses Video enthält Musik, die möglicherweise Eigentum einer anderen Person ist. Videos mit urheberrechtlich geschützter Musik werden in den Privatmodus gesetzt, sofern das Problem nicht innerhalb von 48 Stunden behoben wird."
-              },
-              "fr-FR": {
-                singular: "Cette vidéo contient une musique qui pourrait appartenir à autrui. Les vidéos qui contiennent de la musique protégée sont définies uniquement sur Privé si le problème n'a pas été résolu dans les 48 heures."
-              },
-              "ja-JP": {
-                singular: "この動画には、他の人が所有している可能性のある音楽が含まれています。48時間以内にこの問題が解決されない場合、著作権保護対象の音楽を含む動画は非公開化に制限されたままになります。"
-              },
-              "ko-KR": {
-                singular: "이 동영상에는 다른 사람이 소유했을 수 있는 음악이 포함되어 있습니다. 저작권이 있는 음악이 포함된 동영상은 48시간 이내에 문제가 해결되지 않으면 비공개로 제한됩니다."
-              },
-              "pt-BR": {
-                singular: "Este vídeo contém músicas que podem ser de propriedade de outra pessoa. Os vídeos que contêm músicas protegidas são restritos ao modo Privado se o problema não for resolvido em 48 horas."
-              },
-              "zh-CN": {
-                singular: "本视频包含的音乐可能归他人所有。如果问题未在 48 小时内得到解决，则包含受保护音乐的视频将仅限于私密观看。"
+            })
+          }), (0, _v1.jsx)(_v22.Paragraph, {
+            size: "md",
+            children: (0, _v24.translate)({
+              singular: "This video contains music that may be owned by someone else. Videos containing protected music are restricted to Private if the issue isn’t resolved within 48 hours.",
+              dictionary: {
+                es: {
+                  singular: "Este video contiene música que puede ser propiedad de otra persona. Los videos que contienen música protegida se restringen a Privado si el problema no se resuelve en 48 horas."
+                },
+                "de-DE": {
+                  singular: "Dieses Video enthält Musik, die möglicherweise Eigentum einer anderen Person ist. Videos mit urheberrechtlich geschützter Musik werden in den Privatmodus gesetzt, sofern das Problem nicht innerhalb von 48 Stunden behoben wird."
+                },
+                "fr-FR": {
+                  singular: "Cette vidéo contient une musique qui pourrait appartenir à autrui. Les vidéos qui contiennent de la musique protégée sont définies uniquement sur Privé si le problème n'a pas été résolu dans les 48 heures."
+                },
+                "ja-JP": {
+                  singular: "この動画には、他の人が所有している可能性のある音楽が含まれています。48時間以内にこの問題が解決されない場合、著作権保護対象の音楽を含む動画は非公開化に制限されたままになります。"
+                },
+                "ko-KR": {
+                  singular: "이 동영상에는 다른 사람이 소유했을 수 있는 음악이 포함되어 있습니다. 저작권이 있는 음악이 포함된 동영상은 48시간 이내에 문제가 해결되지 않으면 비공개로 제한됩니다."
+                },
+                "pt-BR": {
+                  singular: "Este vídeo contém músicas que podem ser de propriedade de outra pessoa. Os vídeos que contêm músicas protegidas são restritos ao modo Privado se o problema não for resolvido em 48 horas."
+                },
+                "zh-CN": {
+                  singular: "本视频包含的音乐可能归他人所有。如果问题未在 48 小时内得到解决，则包含受保护音乐的视频将仅限于私密观看。"
+                }
               }
-            }
-          })
-        }), (0, _v1.jsx)(_v23.Paragraph, {
-          size: "2",
-          children: (0, _v19.translate)({
-            singular: "If you have permission to use the music, use this form to submit an appeal.",
-            dictionary: {
-              es: {
-                singular: "Si tienes permiso para utilizar la música, utiliza este formulario para presentar una apelación."
-              },
-              "de-DE": {
-                singular: "Wenn du die Erlaubnis zur Verwendung der Musik hast, kannst du über dieses Formular Widerspruch einlegen."
-              },
-              "fr-FR": {
-                singular: "Si vous êtes autorisé(e) à utiliser cette musique, utilisez ce formulaire pour déposer un recours."
-              },
-              "ja-JP": {
-                singular: "音楽の使用許可をお持ちの場合は、このフォームを使用して異議申し立てを送信してください。"
-              },
-              "ko-KR": {
-                singular: "음악 사용 권한이 있는 경우 이 양식을 사용하여 이의 제기를 제출하세요."
-              },
-              "pt-BR": {
-                singular: "Se você tiver permissão para usar a música, use este formulário para enviar um recurso."
-              },
-              "zh-CN": {
-                singular: "如果您已获得使用此音乐的许可，请使用此表单提交申诉。"
+            })
+          }), (0, _v1.jsx)(_v22.Paragraph, {
+            size: "md",
+            children: (0, _v24.translate)({
+              singular: "If you have permission to use the music, use this form to submit an appeal.",
+              dictionary: {
+                es: {
+                  singular: "Si tienes permiso para utilizar la música, utiliza este formulario para presentar una apelación."
+                },
+                "de-DE": {
+                  singular: "Wenn du die Erlaubnis zur Verwendung der Musik hast, kannst du über dieses Formular Widerspruch einlegen."
+                },
+                "fr-FR": {
+                  singular: "Si vous êtes autorisé(e) à utiliser cette musique, utilisez ce formulaire pour déposer un recours."
+                },
+                "ja-JP": {
+                  singular: "音楽の使用許可をお持ちの場合は、このフォームを使用して異議申し立てを送信してください。"
+                },
+                "ko-KR": {
+                  singular: "음악 사용 권한이 있는 경우 이 양식을 사용하여 이의 제기를 제출하세요."
+                },
+                "pt-BR": {
+                  singular: "Se você tiver permissão para usar a música, use este formulário para enviar um recurso."
+                },
+                "zh-CN": {
+                  singular: "如果您已获得使用此音乐的许可，请使用此表单提交申诉。"
+                }
               }
-            }
-          })
-        }), (0, _v1.jsxs)("section", {
-          children: [(0, _v1.jsx)(_v22.Header, {
-            size: "4",
-            children: (0, _v19.translate)({
+            })
+          })]
+        }), (0, _v1.jsxs)(_v48, {
+          children: [(0, _v1.jsx)(_v20.Header, {
+            size: "sm",
+            children: (0, _v24.translate)({
               singular: "Tell us why you’re submitting an appeal",
               dictionary: {
                 es: {
@@ -1039,56 +1043,72 @@
                 }
               }
             })
-          }), _v55.map(({
-            label: _v0,
-            value: _v1
-          }, _v2) => (0, _v1.jsx)(_v47, {
-            label: _v0,
-            value: _v1,
-            ..._v24("option", {
+          }), (0, _v1.jsx)(_v30.Controller, {
+            name: "option",
+            control: _v32,
+            rules: {
               required: "Option required"
+            },
+            render: ({
+              field: _v0
+            }) => (0, _v1.jsx)(_v37.RadioGroup, {
+              value: _v0.value ?? "",
+              onChange: _v0.onChange,
+              children: (0, _v1.jsx)(_v39.VStack, {
+                align: "stretch",
+                spacing: 3,
+                children: _v57.map(({
+                  label: _v0,
+                  value: _v1
+                }, _v2) => (0, _v1.jsx)(_v36.Radio, {
+                  value: _v1,
+                  children: (0, _v1.jsx)(_v22.Paragraph, {
+                    as: "span",
+                    size: "md",
+                    children: _v0
+                  })
+                }, `reason-${_v2}-${_v1}`))
+              })
             })
-          }, `reason-${_v2}-${_v1}`)), (0, _v1.jsx)(_v17.Spacer, {
-            direction: "vertical",
-            size: 150
-          }), (0, _v1.jsx)(_v37.TextArea, {
-            ..._v24(_v56),
-            placeholder: (0, _v19.translate)({
-              singular: "Please provide additional information for your appeal",
-              dictionary: {
-                es: {
-                  singular: "Proporciona información adicional para tu apelación"
-                },
-                "de-DE": {
-                  singular: "Bitte gib zusätzliche Informationen zu deiner Beschwerde an"
-                },
-                "fr-FR": {
-                  singular: "Dans le cadre de votre déclaration d'appel, veuillez fournir un complément d'informations."
-                },
-                "ja-JP": {
-                  singular: "異議申し立ての追加情報を提供してください"
-                },
-                "ko-KR": {
-                  singular: "이의 제기에 관한 내용을 추가로 알려주세요."
-                },
-                "pt-BR": {
-                  singular: "Forneça informações adicionais para seu recurso"
-                },
-                "zh-CN": {
-                  singular: "请为您的申述提供补充信息"
+          }), (0, _v1.jsxs)(_v34.FormControl, {
+            isInvalid: !!_v27.description,
+            children: [(0, _v1.jsx)(_v38.Textarea, {
+              ..._v24(_v58),
+              placeholder: (0, _v24.translate)({
+                singular: "Please provide additional information for your appeal",
+                dictionary: {
+                  es: {
+                    singular: "Proporciona información adicional para tu apelación"
+                  },
+                  "de-DE": {
+                    singular: "Bitte gib zusätzliche Informationen zu deiner Beschwerde an"
+                  },
+                  "fr-FR": {
+                    singular: "Dans le cadre de votre déclaration d'appel, veuillez fournir un complément d'informations."
+                  },
+                  "ja-JP": {
+                    singular: "異議申し立ての追加情報を提供してください"
+                  },
+                  "ko-KR": {
+                    singular: "이의 제기에 관한 내용을 추가로 알려주세요."
+                  },
+                  "pt-BR": {
+                    singular: "Forneça informações adicionais para seu recurso"
+                  },
+                  "zh-CN": {
+                    singular: "请为您的申述提供补充信息"
+                  }
                 }
-              }
-            }),
-            format: _v27.description ? "negative" : "neutral",
-            "aria-invalid": _v27.description ? "true" : "false",
-            messages: _v27.description && {
-              error: _v27.description.message
-            }
+              }),
+              "aria-invalid": _v27.description ? "true" : "false"
+            }), _v27.description && (0, _v1.jsx)(_v35.FormErrorMessage, {
+              children: _v27.description.message
+            })]
           })]
-        }), (0, _v1.jsxs)("section", {
-          children: [(0, _v1.jsx)(_v22.Header, {
-            size: "4",
-            children: (0, _v19.translate)({
+        }), (0, _v1.jsxs)(_v48, {
+          children: [(0, _v1.jsx)(_v20.Header, {
+            size: "sm",
+            children: (0, _v24.translate)({
               singular: "Upload supporting documents",
               dictionary: {
                 es: {
@@ -1114,9 +1134,9 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v23.Paragraph, {
-            size: "2",
-            children: (0, _v19.translate)({
+          }), (0, _v1.jsx)(_v22.Paragraph, {
+            size: "md",
+            children: (0, _v24.translate)({
               singular: "If you have permission from the owner of the rights to use this music, include a copy of their permission. Upload documents in English only.",
               dictionary: {
                 es: {
@@ -1142,111 +1162,111 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v17.Spacer, {
-            direction: "vertical",
-            size: 150
-          }), (0, _v1.jsx)(_v49, {
-            id: "file input",
-            ..._v24(_v57, {
-              validate: _v0 => !_v34 && 0 === _v0.length || _v0.length > 0 || _v13 > 0 && _v13 <= 5
-            }),
-            type: "file",
-            accept: ".doc,.docx,.pdf,.jpg,.png",
-            disabled: _v16,
-            onChange: _v0 => {
-              if (!_v0.target.files?.[0]) return;
-              let _v1 = _v0.target.files?.[0];
-              _v11({
-                type: "selected",
-                ...{
-                  file: _v1,
-                  filename: _v1.name
-                }
-              });
-            }
-          }), (0, _v1.jsxs)(_v48, {
-            htmlFor: "file input",
-            disabled: _v16,
-            children: [(0, _v1.jsx)(_v31.Upload, {}), (0, _v19.translate)({
-              singular: "Upload",
-              dictionary: {
-                es: {
-                  singular: "Subir"
-                },
-                "de-DE": {
-                  singular: "Hochladen"
-                },
-                "fr-FR": {
-                  singular: "Importer"
-                },
-                "ja-JP": {
-                  singular: "アップロード"
-                },
-                "ko-KR": {
-                  singular: "업로드"
-                },
-                "pt-BR": {
-                  singular: "Carregar"
-                },
-                "zh-CN": {
-                  singular: "上传"
-                }
+          }), (0, _v1.jsxs)("div", {
+            children: [(0, _v1.jsx)(_v51, {
+              id: "file input",
+              ..._v24(_v59, {
+                validate: _v0 => !_v35 && 0 === _v0.length || _v0.length > 0 || _v13 > 0 && _v13 <= 5
+              }),
+              type: "file",
+              accept: ".doc,.docx,.pdf,.jpg,.png",
+              disabled: _v16,
+              onChange: _v0 => {
+                if (!_v0.target.files?.[0]) return;
+                let _v1 = _v0.target.files?.[0];
+                _v11({
+                  type: "selected",
+                  ...{
+                    file: _v1,
+                    filename: _v1.name
+                  }
+                });
               }
-            })]
-          }), (0, _v1.jsx)(_v23.Paragraph, {
-            size: "4",
-            style: {
-              display: "block",
-              margin: `${_v21.core.space(100)} 0`
-            },
-            children: (0, _v19.translate)({
-              singular: "Upload up to {MAX_FILES} files. Supported file types: PDF, DOC, DOCX, JPG, PNG.",
-              replacements: {
-                MAX_FILES: 5
+            }), (0, _v1.jsxs)(_v50, {
+              htmlFor: "file input",
+              disabled: _v16,
+              children: [(0, _v1.jsx)(_v40.Upload, {}), (0, _v24.translate)({
+                singular: "Upload",
+                dictionary: {
+                  es: {
+                    singular: "Subir"
+                  },
+                  "de-DE": {
+                    singular: "Hochladen"
+                  },
+                  "fr-FR": {
+                    singular: "Importer"
+                  },
+                  "ja-JP": {
+                    singular: "アップロード"
+                  },
+                  "ko-KR": {
+                    singular: "업로드"
+                  },
+                  "pt-BR": {
+                    singular: "Carregar"
+                  },
+                  "zh-CN": {
+                    singular: "上传"
+                  }
+                }
+              })]
+            }), (0, _v1.jsx)(_v22.Paragraph, {
+              size: "xs",
+              style: {
+                display: "block",
+                margin: `${(0, _v23.rem)(4)} 0`
               },
-              dictionary: {
-                es: {
-                  singular: "Sube hasta {MAX_FILES} archivos. Tipos de archivo admitidos: PDF, DOC, DOCX, JPG, PNG."
+              children: (0, _v24.translate)({
+                singular: "Upload up to {MAX_FILES} files. Supported file types: PDF, DOC, DOCX, JPG, PNG.",
+                replacements: {
+                  MAX_FILES: 5
                 },
-                "de-DE": {
-                  singular: "Lade bis zu {MAX_FILES} Dateien hoch. Unterstützte Dateitypen: PDF, DOC, DOCX, JPG, PNG."
-                },
-                "fr-FR": {
-                  singular: "Mettez en ligne jusqu'à {MAX_FILES} fichiers. Fichiers pris en charge : PDF, DOC, DOCX, JPG, PNG."
-                },
-                "ja-JP": {
-                  singular: "最大{MAX_FILES}ファイルまでアップロードできます。アップロードできるファイルタイプは、PDF、DOC、DOCX、JPG、PNG です。"
-                },
-                "ko-KR": {
-                  singular: "파일은 최대 {MAX_FILES}개 업로드할 수 있습니다. 지원되는 파일 형식: PDF, DOC, DOCX, JPG, PNG"
-                },
-                "pt-BR": {
-                  singular: "Carregue até {MAX_FILES} arquivos. Tipos de arquivo compatíveis: PDF, DOC, DOCX, JPG, PNG."
-                },
-                "zh-CN": {
-                  singular: "最多上传 {MAX_FILES} 个文件。支持的文件类型：PDF、DOC、DOCX、JPG、PNG。"
+                dictionary: {
+                  es: {
+                    singular: "Sube hasta {MAX_FILES} archivos. Tipos de archivo admitidos: PDF, DOC, DOCX, JPG, PNG."
+                  },
+                  "de-DE": {
+                    singular: "Lade bis zu {MAX_FILES} Dateien hoch. Unterstützte Dateitypen: PDF, DOC, DOCX, JPG, PNG."
+                  },
+                  "fr-FR": {
+                    singular: "Mettez en ligne jusqu'à {MAX_FILES} fichiers. Fichiers pris en charge : PDF, DOC, DOCX, JPG, PNG."
+                  },
+                  "ja-JP": {
+                    singular: "最大{MAX_FILES}ファイルまでアップロードできます。アップロードできるファイルタイプは、PDF、DOC、DOCX、JPG、PNG です。"
+                  },
+                  "ko-KR": {
+                    singular: "파일은 최대 {MAX_FILES}개 업로드할 수 있습니다. 지원되는 파일 형식: PDF, DOC, DOCX, JPG, PNG"
+                  },
+                  "pt-BR": {
+                    singular: "Carregue até {MAX_FILES} arquivos. Tipos de arquivo compatíveis: PDF, DOC, DOCX, JPG, PNG."
+                  },
+                  "zh-CN": {
+                    singular: "最多上传 {MAX_FILES} 个文件。支持的文件类型：PDF、DOC、DOCX、JPG、PNG。"
+                  }
                 }
-              }
-            })
-          }), _v27.files && (0, _v1.jsx)(_v46, {
-            size: "3",
-            children: _v27.files.message
+              })
+            }), _v27.files && (0, _v1.jsx)(_v49, {
+              size: "sm",
+              children: _v27.files.message
+            })]
           })]
         }), (0, _v1.jsx)("div", {
-          children: 0 !== _v12.length && _v12.map((_v0, _v1) => (0, _v1.jsx)(_v38.Notice, {
-            format: _v15 || _v0.isLarge ? "negative" : "primary",
-            icon: _v0.isLarge ? (0, _v1.jsx)(_v33.CircleExclamation, {}) : (0, _v1.jsx)(_v32.Checkmark, {}),
+          children: 0 !== _v12.length && _v12.map((_v0, _v1) => (0, _v1.jsx)(_v31.Alert, {
+            status: _v15 || _v0.isLarge ? "error" : "info",
             onClose: () => {
               _v11({
                 type: "removed",
                 filename: _v0.filename
               });
             },
-            children: _v0.filename
+            children: (0, _v1.jsx)(_v32.AlertDescription, {
+              children: _v0.filename
+            })
           }, _v1))
-        }), _v15 && (0, _v1.jsx)(_v46, {
-          size: "3",
-          children: (0, _v19.translate)({
+        }), _v15 && (0, _v1.jsx)(_v49, {
+          size: "sm",
+          children: (0, _v24.translate)({
             singular: "Max files reached.",
             dictionary: {
               es: {
@@ -1272,12 +1292,12 @@
               }
             }
           })
-        }), _v14 && (0, _v1.jsx)(_v46, {
-          size: "3",
-          children: (0, _v19.translate)({
+        }), _v14 && (0, _v1.jsx)(_v49, {
+          size: "sm",
+          children: (0, _v24.translate)({
             singular: "File is too large, upload files less than {MAXFILESIZE}. Please delete and try again.",
             replacements: {
-              MAXFILESIZE: (0, _v39.bytesToSize)(10)
+              MAXFILESIZE: (0, _v43.bytesToSize)(10)
             },
             dictionary: {
               es: {
@@ -1303,10 +1323,10 @@
               }
             }
           })
-        }), (0, _v1.jsxs)("section", {
-          children: [(0, _v1.jsx)(_v22.Header, {
-            size: "4",
-            children: (0, _v19.translate)({
+        }), (0, _v1.jsxs)(_v48, {
+          children: [(0, _v1.jsx)(_v20.Header, {
+            size: "sm",
+            children: (0, _v24.translate)({
               singular: "Agree and submit",
               dictionary: {
                 es: {
@@ -1332,9 +1352,9 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v23.Paragraph, {
-            size: "3",
-            children: (0, _v19.translate)({
+          }), (0, _v1.jsx)(_v22.Paragraph, {
+            size: "md",
+            children: (0, _v24.translate)({
               singular: "By submitting, you:",
               dictionary: {
                 es: {
@@ -1360,14 +1380,11 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v17.Spacer, {
-            direction: "vertical",
-            size: 150
-          }), (0, _v1.jsxs)(_v50, {
-            children: [(0, _v1.jsx)(_v51, {
-              children: (0, _v1.jsx)(_v23.Paragraph, {
-                size: "3",
-                children: (0, _v19.translate)({
+          }), (0, _v1.jsxs)(_v52, {
+            children: [(0, _v1.jsx)(_v53, {
+              children: (0, _v1.jsx)(_v22.Paragraph, {
+                size: "md",
+                children: (0, _v24.translate)({
                   singular: "Acknowledge that you may be liable if you knowingly misrepresent any information",
                   dictionary: {
                     es: {
@@ -1394,10 +1411,10 @@
                   }
                 })
               })
-            }), (0, _v1.jsx)(_v51, {
-              children: (0, _v1.jsx)(_v23.Paragraph, {
-                size: "3",
-                children: (0, _v19.translate)({
+            }), (0, _v1.jsx)(_v53, {
+              children: (0, _v1.jsx)(_v22.Paragraph, {
+                size: "md",
+                children: (0, _v24.translate)({
                   singular: "Acknowledge that the information you’ve submitted may be shared with third parties",
                   dictionary: {
                     es: {
@@ -1424,10 +1441,10 @@
                   }
                 })
               })
-            }), (0, _v1.jsx)(_v51, {
-              children: (0, _v1.jsx)(_v23.Paragraph, {
-                size: "3",
-                children: (0, _v19.translate)({
+            }), (0, _v1.jsx)(_v53, {
+              children: (0, _v1.jsx)(_v22.Paragraph, {
+                size: "md",
+                children: (0, _v24.translate)({
                   singular: "Declare your belief that this video was restricted by mistake",
                   dictionary: {
                     es: {
@@ -1454,10 +1471,10 @@
                   }
                 })
               })
-            }), (0, _v1.jsx)(_v51, {
-              children: (0, _v1.jsx)(_v23.Paragraph, {
-                size: "3",
-                children: (0, _v19.translate)({
+            }), (0, _v1.jsx)(_v53, {
+              children: (0, _v1.jsx)(_v22.Paragraph, {
+                size: "md",
+                children: (0, _v24.translate)({
                   singular: "Affirm that the information you’ve provided is true, correct, and complete",
                   dictionary: {
                     es: {
@@ -1485,12 +1502,9 @@
                 })
               })
             })]
-          }), (0, _v1.jsx)(_v17.Spacer, {
-            direction: "vertical",
-            size: 150
-          }), (0, _v1.jsx)(_v23.Paragraph, {
-            size: "3",
-            children: (0, _v19.translate)({
+          }), (0, _v1.jsx)(_v22.Paragraph, {
+            size: "md",
+            children: (0, _v24.translate)({
               singular: "Once you submit this appeal, you won’t be able to change or undo it.",
               dictionary: {
                 es: {
@@ -1516,50 +1530,52 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v17.Spacer, {
-            direction: "vertical",
-            size: 150
-          }), (0, _v1.jsx)(_v36.Checkbox, {
-            label: (0, _v19.translate)({
-              singular: "I agree",
-              dictionary: {
-                es: {
-                  singular: "Acepto"
-                },
-                "de-DE": {
-                  singular: "Ich stimme zu"
-                },
-                "fr-FR": {
-                  singular: "J'accepte"
-                },
-                "ja-JP": {
-                  singular: "同意します"
-                },
-                "ko-KR": {
-                  singular: "동의합니다"
-                },
-                "pt-BR": {
-                  singular: "Eu concordo"
-                },
-                "zh-CN": {
-                  singular: "我同意"
-                }
-              }
-            }),
+          }), (0, _v1.jsx)(_v33.Checkbox, {
             value: "acknowledged",
             ..._v24("signature", {
               onChange: _v0 => _v7(_v0.target?.checked)
+            }),
+            children: (0, _v1.jsx)(_v22.Paragraph, {
+              as: "span",
+              size: "md",
+              children: (0, _v24.translate)({
+                singular: "I agree",
+                dictionary: {
+                  es: {
+                    singular: "Acepto"
+                  },
+                  "de-DE": {
+                    singular: "Ich stimme zu"
+                  },
+                  "fr-FR": {
+                    singular: "J'accepte"
+                  },
+                  "ja-JP": {
+                    singular: "同意します"
+                  },
+                  "ko-KR": {
+                    singular: "동의합니다"
+                  },
+                  "pt-BR": {
+                    singular: "Eu concordo"
+                  },
+                  "zh-CN": {
+                    singular: "我同意"
+                  }
+                }
+              })
             })
-          }), (0, _v1.jsxs)(_v44, {
-            children: [(0, _v1.jsx)(_v20.Button, {
+          }), (0, _v1.jsxs)(_v46, {
+            children: [(0, _v1.jsx)(_v19.Button, {
               variant: "outline",
-              disabled: _v8,
+              colorScheme: "gray",
+              isDisabled: _v8,
               onClick: () => {
                 _v26(), _v11({
                   type: "cleared"
                 });
               },
-              children: (0, _v19.translate)({
+              children: (0, _v24.translate)({
                 singular: "Cancel",
                 dictionary: {
                   es: {
@@ -1585,12 +1601,12 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v20.Button, {
+            }), (0, _v1.jsx)(_v19.Button, {
               type: "submit",
-              disabled: !(_v6 && _v39),
+              isDisabled: !(_v6 && _v40),
               children: _v8 ? (0, _v1.jsx)(_v6.Spinner, {
                 size: "sm"
-              }) : (0, _v19.translate)({
+              }) : (0, _v24.translate)({
                 singular: "Submit Appeal",
                 dictionary: {
                   es: {
@@ -1622,57 +1638,56 @@
       })
     });
   };
-  var _v63 = _v0.i(0),
-    _v64 = _v0.i(0);
-  let _v65 = _v18.default.div.withConfig({
+  var _v65 = _v0.i(0);
+  let _v66 = _v18.default.div.withConfig({
       displayName: "MatchedContentInfo__InfoContainer",
       componentId: "sc-40cb1898-0"
     })`
   display: flex;
 `,
-    _v66 = _v18.default.div.withConfig({
+    _v67 = _v18.default.div.withConfig({
       displayName: "MatchedContentInfo__InfoIconColumn",
       componentId: "sc-40cb1898-1"
     })`
-  padding: 0 ${(0, _v63.rem)(12)} 0 ${(0, _v63.rem)(24)};
+  padding: 0 ${(0, _v23.rem)(12)} 0 ${(0, _v23.rem)(24)};
 `,
-    _v67 = _v18.default.div.withConfig({
+    _v68 = _v18.default.div.withConfig({
       displayName: "MatchedContentInfo__InfoTextColumn",
       componentId: "sc-40cb1898-2"
     })`
-  padding-right: ${(0, _v63.rem)(12)};
+  padding-right: ${(0, _v23.rem)(12)};
 `,
-    _v68 = ({
+    _v69 = ({
       children: _v0
-    }) => (0, _v1.jsx)(_v22.Header, {
-      size: "4",
+    }) => (0, _v1.jsx)(_v20.Header, {
+      size: "md",
       style: {
         marginBottom: 0
       },
       children: _v0
     }),
-    _v69 = ({
+    _v70 = ({
       infringement: _v0
-    }) => (0, _v1.jsxs)(_v65, {
-      children: [(0, _v1.jsx)(_v66, {
-        children: (0, _v1.jsx)(_v64.MusicFilled, {
-          boxSize: (0, _v63.rem)(36),
-          marginTop: (0, _v63.rem)(12)
+    }) => (0, _v1.jsxs)(_v66, {
+      children: [(0, _v1.jsx)(_v67, {
+        children: (0, _v1.jsx)(_v65.MusicFilled, {
+          boxSize: (0, _v23.rem)(36),
+          marginTop: (0, _v23.rem)(12)
         })
-      }), (0, _v1.jsxs)(_v67, {
-        children: [(0, _v1.jsx)(_v68, {
+      }), (0, _v1.jsxs)(_v68, {
+        children: [(0, _v1.jsx)(_v69, {
           children: _v0?.title
-        }), (0, _v1.jsx)(_v68, {
+        }), (0, _v1.jsx)(_v69, {
           children: _v0?.artist
-        }), (0, _v1.jsx)(_v68, {
+        }), (0, _v1.jsx)(_v69, {
           children: _v0?.label
-        }), (0, _v1.jsx)(_v23.Paragraph, {
-          size: "2",
-          format: "alternative",
+        }), (0, _v1.jsx)(_v22.Paragraph, {
+          size: "md",
+          color: "gray.600",
           style: {
             display: "block"
           },
-          children: (0, _v19.translate)({
+          children: (0, _v24.translate)({
             singular: "Music detected",
             dictionary: {
               es: {
@@ -1698,12 +1713,12 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v23.Paragraph, {
-          size: "2",
-          children: (0, _v1.jsx)(_v24.Link, {
+        }), (0, _v1.jsx)(_v22.Paragraph, {
+          size: "md",
+          children: (0, _v1.jsx)(_v21.Link, {
             href: "",
-            format: "soft",
-            children: (0, _v19.translate)({
+            variant: "inline-secondary",
+            children: (0, _v24.translate)({
               singular: "How do I know if I have permission to use this music?",
               dictionary: {
                 es: {
@@ -1736,15 +1751,15 @@
         })]
       })]
     });
-  var _v70 = _v0.i(0);
-  let _v71 = ({
+  var _v71 = _v0.i(0);
+  let _v72 = ({
       videoId: _v0,
       configUrl: _v1
     }) => {
       let _v2 = (0, _v3.useRef)(null),
         {
           player: _v3
-        } = (0, _v70.usePlayer)(_v2, _v0, !0, _v1, !1),
+        } = (0, _v71.usePlayer)(_v2, _v0, !0, _v1, !1),
         [_v4, _v5] = (0, _v3.useState)();
       return (0, _v3.useEffect)(() => {
         _v3 && _v3.ready && _v3.ready(() => {
@@ -1759,7 +1774,7 @@
             height: _v3.videoHeight
           });
         });
-      }, [_v3, _v2]), (0, _v1.jsx)(_v72, {
+      }, [_v3, _v2]), (0, _v1.jsx)(_v73, {
         width: _v4?.width || 0,
         height: _v4?.height || 0,
         children: (0, _v1.jsx)("div", {
@@ -1768,63 +1783,66 @@
         })
       });
     },
-    _v72 = _v18.default.div.withConfig({
+    _v73 = _v18.default.div.withConfig({
       displayName: "Player__PlayerContainer",
       componentId: "sc-949758c9-0"
     })`
+  // Fill the card width. The player reports intrinsic dimensions, so use them
+  // only for the aspect ratio (never for absolute px, which shrank the video).
+  width: 100%;
+  aspect-ratio: ${({
+      width: _v0,
+      height: _v1
+    }) => _v0 && _v1 ? `${_v0} / ${_v1}` : "16 / 9"};
   margin: auto;
-  width: ${_v0 => _v0.width / 4}px;
-  height: ${_v0 => _v0.height / 4}px;
+
+  & .player,
+  & iframe {
+    width: 100%;
+    height: 100%;
+  }
 `;
   _v18.default.div.withConfig({
     displayName: "styles__SubmitFormWrapper",
     componentId: "sc-d4664baa-0"
   })`
   display: flex;
-  gap: ${_v21.core.space(0)};
+  gap: ${(0, _v44.rem)(96)};
 `, _v18.default.div.withConfig({
     displayName: "styles__ButtonContainer",
     componentId: "sc-d4664baa-1"
   })`
   justify-content: flex-end;
   display: flex;
-  gap: ${_v21.core.space(200)};
+  gap: ${(0, _v44.rem)(16)};
 `, _v18.default.form.withConfig({
     displayName: "styles__StyledForm",
     componentId: "sc-d4664baa-2"
   })`
   display: flex;
   flex-direction: column;
-  gap: ${_v21.core.space(200)};
-  max-width: ${(0, _v40.rem)(600)};
-`, (0, _v18.default)(_v23.Paragraph).withConfig({
+  gap: ${(0, _v44.rem)(16)};
+  max-width: ${(0, _v44.rem)(600)};
+`, (0, _v18.default)(_v22.Paragraph).withConfig({
     displayName: "styles__ErrorMessage",
     componentId: "sc-d4664baa-3"
   })`
   display: block;
-  color: ${_v21.core.color.status.negative};
-`, (0, _v18.default)(_v42.Radio).withConfig({
-    displayName: "styles__StyledRadio",
-    componentId: "sc-d4664baa-4"
-  })`
-  // NOTE: There is bold text inside the radio labels, the inline-flex put on the radio label must be redefined as inline-block here, as inline-flex places the <b> element in a flexed position.
-  & label {
-    display: inline-block;
-  }
+  color: var(--vimeo-colors-status-destructive-primary);
 `;
-  let _v73 = _v18.default.label.withConfig({
+  let _v74 = _v18.default.label.withConfig({
     displayName: "styles__FileInputLabel",
-    componentId: "sc-d4664baa-5"
+    componentId: "sc-d4664baa-4"
   })`
   display: flex;
   align-items: center;
   gap: 0.5rem;
   position: relative;
-  border: 1px solid ${(0, _v41.blue)(400)};
+  border: 1px solid var(--vimeo-colors-vimeoBlue-400);
   max-width: 120px;
   padding: 0.75rem;
   border-radius: 0.5rem;
-  color: ${(0, _v41.blue)(400)};
+  color: var(--vimeo-colors-vimeoBlue-400);
   font-weight: 600;
   transition:
     all 170ms ease-in-out,
@@ -1842,7 +1860,7 @@
     border-radius: 0.625rem;
     transition: 150ms ease-in-out;
     transform-origin: center;
-    border: 0.125rem solid ${(0, _v41.blue)(400)};
+    border: 0.125rem solid var(--vimeo-colors-vimeoBlue-400);
     opacity: 0;
     top: -0.25rem;
     left: -0.25rem;
@@ -1862,53 +1880,53 @@
     width: 20px;
 
     & path {
-      fill: ${(0, _v41.blue)(400)};
+      fill: var(--vimeo-colors-vimeoBlue-400);
     }
   }
 `;
   _v18.default.input.withConfig({
     displayName: "styles__FileInput",
-    componentId: "sc-d4664baa-6"
+    componentId: "sc-d4664baa-5"
   })`
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
   outline: none;
 
-  &:focus + ${_v73}::before {
+  &:focus + ${_v74}::before {
     opacity: 1;
-    border: 0.125rem solid ${(0, _v41.blue)(400)};
+    border: 0.125rem solid var(--vimeo-colors-vimeoBlue-400);
   }
 `, _v18.default.ul.withConfig({
     displayName: "styles__Acknowledgements",
-    componentId: "sc-d4664baa-7"
+    componentId: "sc-d4664baa-6"
   })`
   list-style-type: initial;
   padding-inline-start: 24px;
 `, _v18.default.li.withConfig({
     displayName: "styles__Acknowledgement",
-    componentId: "sc-d4664baa-8"
+    componentId: "sc-d4664baa-7"
   })``;
-  let _v74 = _v18.default.div.withConfig({
+  let _v75 = _v18.default.div.withConfig({
       displayName: "styles__PageLayout",
-      componentId: "sc-d4664baa-9"
+      componentId: "sc-d4664baa-8"
     })`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 `,
-    _v75 = _v18.default.main.withConfig({
+    _v76 = _v18.default.main.withConfig({
       displayName: "styles__Main",
-      componentId: "sc-d4664baa-10"
+      componentId: "sc-d4664baa-9"
     })`
   flex: 1 1 400px;
   flex-shrink: 0;
   margin: 2rem auto;
   padding: 2rem 4rem;
 `,
-    _v76 = _v18.default.aside.withConfig({
+    _v77 = _v18.default.aside.withConfig({
       displayName: "styles__Aside",
-      componentId: "sc-d4664baa-11"
+      componentId: "sc-d4664baa-10"
     })`
   position: relative;
   flex: 1 1 400px;
@@ -1919,26 +1937,28 @@
   width: 45vw;
   min-height: 100vh;
   padding: 2rem 1rem;
-  background: ${(0, _v41.slate)(50)};
+  background: #eef1f4;
 `,
-    _v77 = _v18.default.div.withConfig({
+    _v78 = _v18.default.div.withConfig({
       displayName: "styles__MatchedContentContent",
-      componentId: "sc-d4664baa-12"
+      componentId: "sc-d4664baa-11"
     })`
-  background: ${_v41.white};
-  padding: ${(0, _v40.rem)(12)};
+  background: var(--vimeo-colors-white);
+  padding: ${(0, _v44.rem)(12)};
   border-radius: 8px;
+  width: 100%;
+  max-width: ${(0, _v44.rem)(640)};
 `;
   _v18.default.div.withConfig({
     displayName: "styles__Buttons",
-    componentId: "sc-d4664baa-13"
+    componentId: "sc-d4664baa-12"
   })`
   display: flex;
-  gap: ${_v21.core.space(200)};
+  gap: ${(0, _v44.rem)(16)};
   margin: auto 0 auto auto;
 `;
-  let _v78 = ["uri", "title", "artist", "status", "label", "metadata.connections.appeals"],
-    _v79 = ({
+  let _v79 = ["uri", "title", "artist", "status", "label", "metadata.connections.appeals"],
+    _v80 = ({
       videoId: _v0,
       contentMatchId: _v1,
       assetUrls: _v2
@@ -1968,7 +1988,7 @@
             baseUrl: _v2
           }) : null, void 0);
         }({
-          select: _v78,
+          select: _v79,
           where: {
             videoId: _v0,
             infringementId: _v1
@@ -1985,7 +2005,7 @@
         _v9 = null;
       if (_v5 || !_v7 && _v6 || window.location.replace(`/manage/videos/${_v0}`), _v6) {
         let _v0 = _v3 ? "submitted" : _v6.status;
-        _v9 = null === _v0 ? (0, _v1.jsx)(_v62, {
+        _v9 = null === _v0 ? (0, _v1.jsx)(_v64, {
           videoId: _v0,
           infringement: _v6,
           onSubmissionComplete: _v0 => {
@@ -2001,16 +2021,16 @@
           paddingTop: "120px"
         }
       });
-      return (0, _v1.jsxs)(_v74, {
-        children: [(0, _v1.jsx)(_v75, {
+      return (0, _v1.jsxs)(_v75, {
+        children: [(0, _v1.jsx)(_v76, {
           children: _v9
-        }), (0, _v1.jsx)(_v76, {
-          children: (0, _v1.jsxs)(_v77, {
+        }), (0, _v1.jsx)(_v77, {
+          children: (0, _v1.jsxs)(_v78, {
             children: [(0, _v1.jsx)("div", {
               children: _v2 && (0, _v1.jsx)(_v15.PlayerContextProvider, {
                 type: _v16.PlayerType.VimeoPlayer,
                 assetUrls: _v2,
-                children: _v8?.configUrl ? (0, _v1.jsx)(_v71, {
+                children: _v8?.configUrl ? (0, _v1.jsx)(_v72, {
                   videoId: _v0,
                   configUrl: _v8?.configUrl
                 }) : null
@@ -2019,7 +2039,7 @@
               children: [(0, _v1.jsx)(_v17.Spacer, {
                 direction: "vertical",
                 size: 300
-              }), _v6 && (0, _v1.jsx)(_v69, {
+              }), _v6 && (0, _v1.jsx)(_v70, {
                 infringement: _v6
               })]
             })]
@@ -2027,8 +2047,8 @@
         })]
       });
     };
-  var _v80 = _v0.i(0),
-    _v81 = _v0.i(0);
+  var _v81 = _v0.i(0),
+    _v82 = _v0.i(0);
   (0, _v4.withPageSetup)(async () => ({
     props: {
       hasThemeSupport: !0
@@ -2038,7 +2058,7 @@
     inlineViewer: !0,
     inlinePlayerAssets: !0
   });
-  let _v82 = ({
+  let _v83 = ({
     playerAssetUrls: _v0
   }) => {
     let {
@@ -2048,18 +2068,18 @@
       _v3 = _v1.contentMatchId,
       _v4 = _v2 && parseInt(Array.isArray(_v2) ? _v2[0] : _v2),
       _v5 = _v3 && parseInt(Array.isArray(_v3) ? _v3[0] : _v3),
-      _v6 = (0, _v3.useContext)(_v81.ViewerContext);
+      _v6 = (0, _v3.useContext)(_v82.ViewerContext);
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v4 && _v5 && (0, _v1.jsx)(_v79, {
+      children: [_v4 && _v5 && (0, _v1.jsx)(_v80, {
         videoId: _v4,
         contentMatchId: _v5,
         assetUrls: _v0
-      }), _v6 && (0, _v1.jsx)(_v80.EssentialFooter, {
+      }), _v6 && (0, _v1.jsx)(_v81.EssentialFooter, {
         ..._v6
       })]
     });
   };
-  _v82.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
+  _v83.getLayout = _v0 => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsx)(_v5.DefaultNavigation, {}), _v0]
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v82], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v83], 0);
 }

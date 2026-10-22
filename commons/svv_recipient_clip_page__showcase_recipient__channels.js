@@ -106,17 +106,31 @@
       let _v0 = _v4(window.parent.location.pathname);
       _v3.includes(_v0) && window.sessionStorage.setItem("reg-source", "clip_page");
     }
-  }, "handleRedirect", 0, (_v0, _v1, _v2) => {
-    if ("join" === _v2) {
-      if (window.sessionStorage.setItem("upsellModal-dismissed", "joinWithEmail"), window.localStorage.setItem("upsellModal-dismissed", "joinWithEmail"), window.location.pathname.includes("/reviews/")) {
-        window.parent.location.href = window.location.pathname + window.location.search;
-        return;
+  }, "handleRedirect", 0, (_v0, _v1, _v2, _v3, _v4) => {
+    let _v5 = _v1?.post_auth_redirect_applied === !0,
+      _v6 = _v1?.redirect_user_to_help_desk === !0,
+      _v7 = _v5 && !_v6 && "string" == typeof _v1.redirect_url && (0, _v2.isVimeoRedirectableUrl)(_v1.redirect_url) ? _v1.redirect_url : null;
+    if (_v5 && null === _v7 && !_v6 && console.error("[post-auth-routing] marked response is missing a navigable redirect_url"), "join" === _v2) {
+      if (window.sessionStorage.setItem("upsellModal-dismissed", "joinWithEmail"), window.localStorage.setItem("upsellModal-dismissed", "joinWithEmail"), null === _v7) {
+        if (window.location.pathname.includes("/reviews/")) {
+          window.parent.location.href = window.location.pathname + window.location.search;
+          return;
+        }
+        let _v0 = sessionStorage.getItem("redirectUrl");
+        if (_v0 && (sessionStorage.removeItem("redirectUrl"), (0, _v2.isVimeoRedirectableUrl)(_v0))) {
+          window.parent.location.href = _v0;
+          return;
+        }
+      } else sessionStorage.removeItem("redirectUrl");
+    } else null !== _v7 && sessionStorage.removeItem("redirectUrl");
+    if (null !== _v7) {
+      if (void 0 !== _v3) try {
+        _v3(_v1);
+      } catch (_v0) {
+        console.error("[post-auth-routing] completion effects threw", _v0);
       }
-      let _v0 = sessionStorage.getItem("redirectUrl");
-      if (_v0 && (sessionStorage.removeItem("redirectUrl"), (0, _v2.isVimeoRedirectableUrl)(_v0))) {
-        window.parent.location.href = _v0;
-        return;
-      }
+      _v4?.(_v7, _v1?.signup === !0), window.parent.location.href = _v7;
+      return;
     }
     if (_v1?.redirect_user_to_help_desk) {
       let _v0 = (0, _v2.isVimeoRedirectableUrl)(_v1.redirect_url) ? _v1.redirect_url : "";

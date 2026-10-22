@@ -896,7 +896,7 @@
       singular: "Simulcasting",
       dictionary: {
         es: {
-          singular: "Transmisión simultánea"
+          singular: "Emisión simultánea"
         },
         "fr-FR": {
           singular: "Diffusion simultanée"
@@ -905,13 +905,13 @@
           singular: "同時配信"
         },
         "ko-KR": {
-          singular: "동시 방송"
+          singular: "동시 송출"
         },
         "pt-BR": {
           singular: "Transmissão simultânea"
         },
         "zh-CN": {
-          singular: "联播"
+          singular: "同步直播"
         }
       }
     }), (0, _v10.translate)({
@@ -969,7 +969,7 @@
       singular: "Simulcasting",
       dictionary: {
         es: {
-          singular: "Transmisión simultánea"
+          singular: "Emisión simultánea"
         },
         "fr-FR": {
           singular: "Diffusion simultanée"
@@ -978,13 +978,13 @@
           singular: "同時配信"
         },
         "ko-KR": {
-          singular: "동시 방송"
+          singular: "동시 송출"
         },
         "pt-BR": {
           singular: "Transmissão simultânea"
         },
         "zh-CN": {
-          singular: "联播"
+          singular: "同步直播"
         }
       }
     }), (0, _v10.translate)({

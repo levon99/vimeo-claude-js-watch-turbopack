@@ -61,6 +61,7 @@
           onMouseEnter: _v9,
           onMouseLeave: _v10,
           ..._v13,
+          "data-navigation-link": "",
           "data-testid": "content-row",
           children: (0, _v1.jsx)(_v15.Provider, {
             value: {

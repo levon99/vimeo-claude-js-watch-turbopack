@@ -136,7 +136,10 @@
         },
         _v24 = (0, _v5.useCallback)(_v0 => {
           _v2(_v0);
-        }, []);
+        }, []),
+        _v25 = (0, _v5.useCallback)(() => {
+          _v20(), _v12?.(!1), _v6?.(0), _v15("");
+        }, [_v20, _v12, _v6]);
       return (0, _v8.jsxs)(_v18.Box, {
         borderRadius: "xl",
         display: "flex",
@@ -332,10 +335,12 @@
           type: "login",
           xsrft: _v0,
           attribution: _v18.attribution,
+          originUrl: _v18.originUrl,
           isShowing: _v18.isShowing,
           onSuccess: _v0 => {
             _v20(), _v12?.(!1), _v24(_v0);
           },
+          onAuthSuccessEffects: _v25,
           onDismiss: () => {
             _v20(), _v12?.(!1);
           },

@@ -1551,6 +1551,7 @@
         children: (0, _v1.jsx)(_v83, {
           isShowing: _v7.isShowing,
           attribution: _v7.attribution,
+          originUrl: _v7.originUrl,
           type: _v7.type,
           onDismiss: _v10,
           xsrft: _v1?.xsrft ?? "",

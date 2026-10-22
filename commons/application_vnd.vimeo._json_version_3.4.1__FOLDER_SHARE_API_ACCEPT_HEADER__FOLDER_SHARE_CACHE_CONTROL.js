@@ -52,8 +52,11 @@
   _v0.s(["buildFolderShareHeaders", 0, _v2, "resolveFolderShareLink", 0, _v3], 0);
   var _v4 = _v0.i(0),
     _v5 = _v0.i(0),
-    _v6 = _v0.i(0);
-  let _v7 = (_v0, _v1) => {
+    _v6 = _v0.i(0),
+    _v7 = _v0.i(0),
+    _v8 = _v0.i(0),
+    _v9 = _v0.i(0);
+  let _v10 = (_v0, _v1) => {
     switch (_v0) {
       case 429:
         return "attempts_exceeded";
@@ -65,48 +68,79 @@
   };
   _v0.s(["FolderSharePasswordPage", 0, ({
     token: _v0
-  }) => (0, _v4.jsx)(_v6.PasswordPageView, {
-    heading: (0, _v5.translate)({
-      singular: "This link is password protected",
-      dictionary: {
-        es: {
-          singular: "Este enlace está protegido por contraseña."
-        },
-        "de-DE": {
-          singular: "Dieser Link ist kennwortgeschützt"
-        },
-        "fr-FR": {
-          singular: "Ce lien est protégé par un mot de passe"
-        },
-        "ja-JP": {
-          singular: "このリンクはパスワードで保護されています"
-        },
-        "ko-KR": {
-          singular: "이 링크는 비밀번호로 보호되어 있습니다."
-        },
-        "pt-BR": {
-          singular: "Este link está protegido por senha"
-        },
-        "zh-CN": {
-          singular: "此链接受密码保护"
+  }) => {
+    let {
+      trackFolderSharePasswordPageDisplayed: _v1,
+      trackFolderSharePasswordSubmitted: _v2
+    } = (0, _v7.useFolderShareTracking)();
+    (0, _v8.usePicoEffect)(() => {
+      _v1({
+        folderId: null
+      });
+    }, [_v1], {
+      once: !0
+    });
+    let _v3 = (0, _v5.useCallback)(async _v0 => {
+      let _v1 = await (({
+        password: _v0,
+        token: _v1
+      }) => fetch(`/folder_share_links/${_v0}/auth`, {
+        method: "POST",
+        credentials: "include",
+        body: JSON.stringify({
+          token: _v1,
+          password: _v0
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest"
         }
-      }
-    }),
-    submit: ({
-      password: _v0,
-      token: _v1
-    }) => fetch(`/folder_share_links/${_v0}/auth`, {
-      method: "POST",
-      credentials: "include",
-      body: JSON.stringify({
-        token: _v1,
-        password: _v0
+      }))(_v0);
+      if (_v1.ok) return _v2({
+        folderId: null,
+        isSuccess: !0,
+        errorType: null
+      }), _v1;
+      let _v2 = await _v1.clone().json().catch(() => void 0);
+      return _v2({
+        folderId: null,
+        isSuccess: !1,
+        errorType: _v10(_v1.status, (_v0 => {
+          if ("object" != typeof _v0 || null === _v0 || !("error_code" in _v0)) return 0;
+          let _v1 = _v0.error_code;
+          return "number" == typeof _v1 ? _v1 : 0;
+        })(_v2))
+      }), _v1;
+    }, [_v0, _v2]);
+    return (0, _v4.jsx)(_v9.PasswordPageView, {
+      heading: (0, _v6.translate)({
+        singular: "This link is password protected",
+        dictionary: {
+          es: {
+            singular: "Este enlace está protegido por contraseña."
+          },
+          "de-DE": {
+            singular: "Dieser Link ist kennwortgeschützt"
+          },
+          "fr-FR": {
+            singular: "Ce lien est protégé par un mot de passe"
+          },
+          "ja-JP": {
+            singular: "このリンクはパスワードで保護されています"
+          },
+          "ko-KR": {
+            singular: "이 링크는 비밀번호로 보호되어 있습니다."
+          },
+          "pt-BR": {
+            singular: "Este link está protegido por senha"
+          },
+          "zh-CN": {
+            singular: "此链接受密码保护"
+          }
+        }
       }),
-      headers: {
-        "Content-Type": "application/json",
-        "X-Requested-With": "XMLHttpRequest"
-      }
-    }),
-    getErrorType: _v7
-  })], 0);
+      submit: _v3,
+      getErrorType: _v10
+    });
+  }], 0);
 }

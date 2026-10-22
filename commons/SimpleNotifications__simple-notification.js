@@ -7,15 +7,15 @@
     _v4 = _v0.i(0),
     _v5 = _v0.i(0);
   _v0.s(["SimpleNotifications", 0, function ({
-    id: _v0 = (0, _v5.createLiveDomName)("simple-notification"),
-    notificationContext: {
-      simpleNotification: _v1,
-      notificationActions: _v2
-    } = (0, _v1.useManager)(_v4.NotificationManager, ({
-      simpleNotification: _v0
-    }) => [_v0])
+    id: _v0 = (0, _v5.createLiveDomName)("simple-notification")
   }) {
-    let [_v3, _v4] = (0, _v2.useState)(0),
+    let {
+        simpleNotification: _v1,
+        notificationActions: _v2
+      } = (0, _v1.useManager)(_v4.NotificationManager, ({
+        simpleNotification: _v0
+      }) => [_v0]),
+      [_v3, _v4] = (0, _v2.useState)(0),
       _v5 = (0, _v3.useToast)();
     return (0, _v2.useEffect)(() => {
       if (_v1) {

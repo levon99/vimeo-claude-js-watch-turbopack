@@ -164,6 +164,7 @@
         value: _v10,
         children: [(0, _v1.jsx)(_v6, {}), (0, _v1.jsx)(_v5.BokehProvider, {
           colorMode: _v5 || _v8.name,
+          persistColorMode: _v3,
           children: _v0
         })]
       })

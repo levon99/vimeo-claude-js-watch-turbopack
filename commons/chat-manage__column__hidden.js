@@ -35,21 +35,21 @@
     _v32 = _v0.i(0),
     _v33 = _v0.i(0);
   function _v34({
-    id: _v0 = (0, _v27.createInteractionDomName)("chat-manage"),
-    chatContext: {
-      isEnabled: _v1,
-      chatActions: {
-        enableChat: _v2
-      }
-    } = (0, _v2.useManager)(_v13.ChatManager),
-    firebaseContext: {
-      interactionCredentials: _v3,
-      connectionStatuses: {
-        isInteractionConnected: _v4
-      }
-    } = (0, _v2.useManager)(_v33.InteractionFirebaseManager)
+    id: _v0 = (0, _v27.createInteractionDomName)("chat-manage")
   }) {
     let {
+        isEnabled: _v1,
+        chatActions: {
+          enableChat: _v2
+        }
+      } = (0, _v2.useManager)(_v13.ChatManager),
+      {
+        interactionCredentials: _v3,
+        connectionStatuses: {
+          isInteractionConnected: _v4
+        }
+      } = (0, _v2.useManager)(_v33.InteractionFirebaseManager),
+      {
         initialState: _v5
       } = (0, _v12.useLiveGlobals)(),
       _v6 = _v3?.user?.id,
@@ -102,23 +102,23 @@
   function _v35({
     id: _v0 = (0, _v27.createInteractionDomName)("chat-view"),
     className: _v1 = (0, _v27.createInteractionDomName)("chat-view"),
-    chatType: _v2,
-    firebaseContext: {
-      interactionCredentials: _v3,
-      connectionStatuses: {
-        isInteractionConnected: _v4
-      }
-    } = (0, _v2.useManager)(_v33.InteractionFirebaseManager, ({
-      interactionCredentials: _v0
-    }) => [_v0]),
-    chatContext: {
-      isEnabled: _v5,
-      [_v2]: {
-        banList: _v6
-      }
-    } = (0, _v2.useManager)(_v13.ChatManager)
+    chatType: _v2
   }) {
     let {
+        interactionCredentials: _v3,
+        connectionStatuses: {
+          isInteractionConnected: _v4
+        }
+      } = (0, _v2.useManager)(_v33.InteractionFirebaseManager, ({
+        interactionCredentials: _v0
+      }) => [_v0]),
+      {
+        isEnabled: _v5,
+        [_v2]: {
+          banList: _v6
+        }
+      } = (0, _v2.useManager)(_v13.ChatManager),
+      {
         initialState: _v7
       } = (0, _v12.useLiveGlobals)(),
       _v8 = _v3?.user?.id,
@@ -258,21 +258,21 @@
   });
   function _v61({
     id: _v0 = (0, _v27.createInteractionDomName)("poll-manage"),
-    className: _v1 = (0, _v27.createInteractionDomName)("poll-manage"),
-    pollContext: {
-      isHydrated: _v2,
-      activePollId: _v3,
-      polls: _v4,
-      pollsHistory: _v5,
-      pollActions: {
-        createPoll: _v6,
-        updatePoll: _v7,
-        deletePoll: _v8,
-        setActivePoll: _v9
-      }
-    } = (0, _v2.useManager)(_v14.PollManager)
+    className: _v1 = (0, _v27.createInteractionDomName)("poll-manage")
   }) {
-    let [_v10, _v11] = (0, _v3.useState)(!1),
+    let {
+        isHydrated: _v2,
+        activePollId: _v3,
+        polls: _v4,
+        pollsHistory: _v5,
+        pollActions: {
+          createPoll: _v6,
+          updatePoll: _v7,
+          deletePoll: _v8,
+          setActivePoll: _v9
+        }
+      } = (0, _v2.useManager)(_v14.PollManager),
+      [_v10, _v11] = (0, _v3.useState)(!1),
       [_v12, _v13] = (0, _v3.useState)(null),
       {
         initialState: _v14
@@ -597,15 +597,15 @@
     overflow: "auto"
   };
   function _v73({
-    id: _v0 = (0, _v27.createInteractionDomName)("poll-view"),
-    pollContext: {
-      isHydrated: _v1,
-      polls: _v2,
-      activePollId: _v3,
-      pollActions: _v4
-    } = (0, _v2.useManager)(_v14.PollManager)
+    id: _v0 = (0, _v27.createInteractionDomName)("poll-view")
   }) {
-    let _v5 = _v3 ? _v2[_v3] : null;
+    let {
+        isHydrated: _v1,
+        polls: _v2,
+        activePollId: _v3,
+        pollActions: _v4
+      } = (0, _v2.useManager)(_v14.PollManager),
+      _v5 = _v3 ? _v2[_v3] : null;
     if (!_v1) return (0, _v1.jsx)(_v24.Flex, {
       id: _v0,
       sx: _v72,
@@ -671,28 +671,28 @@
     _v84 = _v0.i(0),
     _v85 = _v0.i(0);
   function _v86({
-    id: _v0 = (0, _v27.createInteractionDomName)("qna-manage"),
-    qnaContext: {
-      isHydrated: _v1,
-      activeSession: _v2,
-      activeSessionPinnedQuestionId: _v3,
-      qnaReplies: _v4,
-      qnaActions: {
-        approveQuestion: _v5,
-        archiveQuestion: _v6,
-        unArchiveQuestion: _v7,
-        pinQuestion: _v8,
-        unPinQuestion: _v9,
-        deleteQuestionReply: _v10
-      }
-    } = (0, _v2.useManager)(_v15.QnAManager),
-    firebaseContext: {
-      connectionStatuses: {
-        isInteractionConnected: _v11
-      }
-    } = (0, _v2.useManager)(_v33.InteractionFirebaseManager)
+    id: _v0 = (0, _v27.createInteractionDomName)("qna-manage")
   }) {
     let {
+        isHydrated: _v1,
+        activeSession: _v2,
+        activeSessionPinnedQuestionId: _v3,
+        qnaReplies: _v4,
+        qnaActions: {
+          approveQuestion: _v5,
+          archiveQuestion: _v6,
+          unArchiveQuestion: _v7,
+          pinQuestion: _v8,
+          unPinQuestion: _v9,
+          deleteQuestionReply: _v10
+        }
+      } = (0, _v2.useManager)(_v15.QnAManager),
+      {
+        connectionStatuses: {
+          isInteractionConnected: _v11
+        }
+      } = (0, _v2.useManager)(_v33.InteractionFirebaseManager),
+      {
         initialState: _v12
       } = (0, _v12.useLiveGlobals)(),
       {
@@ -878,15 +878,15 @@
   function _v97({
     id: _v0 = (0, _v51.createDomName)("qna-question-input-form"),
     className: _v1 = (0, _v51.createDomName)("qna-question-input-form"),
-    isDisabled: _v2 = !1,
-    qnaContext: {
-      isAnonymousQuestionsDisabled: _v3,
-      qnaActions: _v4
-    } = (0, _v2.useManager)(_v15.QnAManager, ({
-      isAnonymousQuestionsDisabled: _v0
-    }) => [_v0])
+    isDisabled: _v2 = !1
   }) {
-    let _v5 = (0, _v3.useRef)(null),
+    let {
+        isAnonymousQuestionsDisabled: _v3,
+        qnaActions: _v4
+      } = (0, _v2.useManager)(_v15.QnAManager, ({
+        isAnonymousQuestionsDisabled: _v0
+      }) => [_v0]),
+      _v5 = (0, _v3.useRef)(null),
       [_v6, _v7] = (0, _v3.useState)(""),
       [_v8, _v9] = (0, _v3.useState)(!1),
       [_v10, _v11] = (0, _v3.useState)(!1),
@@ -1022,25 +1022,25 @@
   }
   var _v98 = _v0.i(0);
   function _v99({
-    id: _v0 = (0, _v27.createInteractionDomName)("qna-view"),
-    firebaseContext: {
-      connectionStatuses: {
-        isInteractionConnected: _v1
-      }
-    } = (0, _v2.useManager)(_v33.InteractionFirebaseManager),
-    qnaContext: {
-      activeSession: _v2,
-      activeSessionQuestions: _v3,
-      activeSessionPendingQuestions: _v4,
-      activeSessionPinnedQuestionId: _v5,
-      isHydrated: _v6,
-      qnaReplies: _v7,
-      qnaActions: {
-        voteQuestion: _v8
-      }
-    } = (0, _v2.useManager)(_v15.QnAManager)
+    id: _v0 = (0, _v27.createInteractionDomName)("qna-view")
   }) {
     let {
+        connectionStatuses: {
+          isInteractionConnected: _v1
+        }
+      } = (0, _v2.useManager)(_v33.InteractionFirebaseManager),
+      {
+        activeSession: _v2,
+        activeSessionQuestions: _v3,
+        activeSessionPendingQuestions: _v4,
+        activeSessionPinnedQuestionId: _v5,
+        isHydrated: _v6,
+        qnaReplies: _v7,
+        qnaActions: {
+          voteQuestion: _v8
+        }
+      } = (0, _v2.useManager)(_v15.QnAManager),
+      {
         initialState: _v9
       } = (0, _v12.useLiveGlobals)(),
       {

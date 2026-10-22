@@ -19,11 +19,12 @@
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
   _v0.s(["useInvitation", 0, () => {
     let {
         logError: _v0
-      } = (0, _v9.useErrorTracking)(),
+      } = (0, _v10.useErrorTracking)(),
       [_v1, _v2] = (0, _v1.useState)(!1),
       [_v3] = function () {
         let {
@@ -31,11 +32,11 @@
             jwt: _v1,
             xVimeoPage: _v2,
             locale: _v3
-          } = (0, _v17.useGctlConfig)(),
-          [_v4, _v5] = (0, _v18.useInternalState)();
+          } = (0, _v18.useGctlConfig)(),
+          [_v4, _v5] = (0, _v19.useInternalState)();
         return [(0, _v1.useCallback)(async _v0 => (_v5({
           type: "REQUEST"
-        }), (0, _v16.postUserTeammembers)({
+        }), (0, _v17.postUserTeammembers)({
           ..._v0,
           baseUrl: _v0,
           headers: {
@@ -49,7 +50,7 @@
           type: "SUCCESS",
           payload: _v0
         }), _v0)).catch(_v0 => {
-          throw (0, _v19.trackError)(_v0, {
+          throw (0, _v20.trackError)(_v0, {
             additionalData: {
               action: "post_user_teammembers",
               userId: _v0.where?.userId
@@ -64,19 +65,19 @@
       _v5 = (0, _v4.useToast)(),
       {
         updateTeamPermission: _v6
-      } = (0, _v15.useTeamPermissionsActions)(),
+      } = (0, _v16.useTeamPermissionsActions)(),
       {
         isOwner: _v7,
         totalTeamMembers: _v8,
         isTeamUser: _v9
-      } = (0, _v12.useGlobalStore)((0, _v2.useShallow)(({
+      } = (0, _v13.useGlobalStore)((0, _v2.useShallow)(({
         shared: _v0
       }) => ({
         isOwner: _v0.data.isOwner,
         totalTeamMembers: _v0.data.totalTeamMembers,
         isTeamUser: _v0.data.teamPermissionLevel
       }))),
-      _v10 = (0, _v12.useGlobalStore)(({
+      _v10 = (0, _v13.useGlobalStore)(({
         resourceProps: _v0
       }) => _v0.resourceType),
       {
@@ -89,7 +90,7 @@
         customMessage: _v17,
         shouldSendEmail: _v18,
         setShouldSendEmail: _v19
-      } = (0, _v12.useGlobalStore)((0, _v2.useShallow)(({
+      } = (0, _v13.useGlobalStore)((0, _v2.useShallow)(({
         invite: _v0
       }) => ({
         newEmails: _v0.data.newEmails,
@@ -106,22 +107,22 @@
         clearSelectedTeamMembers: _v20,
         updateCustomMessage: _v21,
         setInviteRemaining: _v22
-      } = (0, _v12.useGlobalStore)(({
+      } = (0, _v13.useGlobalStore)(({
         invite: _v0
       }) => _v0.actions),
-      _v23 = (0, _v12.useGlobalStore)(({
+      _v23 = (0, _v13.useGlobalStore)(({
         shared: _v0
       }) => _v0.actions.setSharedData),
-      _v24 = (0, _v12.useGlobalStore)(({
+      _v24 = (0, _v13.useGlobalStore)(({
         screen: _v0
       }) => _v0.actions.setMainScreen),
-      _v25 = (0, _v12.useGlobalStore)(({
+      _v25 = (0, _v13.useGlobalStore)(({
         membership: _v0
       }) => _v0.data),
-      _v26 = (0, _v12.useGlobalStore)(({
+      _v26 = (0, _v13.useGlobalStore)(({
         membership: _v0
       }) => _v0.actions.fetchMembership),
-      _v27 = (0, _v12.useGlobalStore)(({
+      _v27 = (0, _v13.useGlobalStore)(({
         shared: _v0
       }) => _v0.actions.closeResourceShareModal),
       {
@@ -129,7 +130,7 @@
         userId: _v29,
         resourceUri: _v30,
         resourceId: _v31
-      } = (0, _v12.useGlobalStore)((0, _v2.useShallow)(({
+      } = (0, _v13.useGlobalStore)((0, _v2.useShallow)(({
         resourceProps: _v0
       }) => ({
         canEdit: _v0.data.canEdit,
@@ -141,13 +142,13 @@
         hasPerSeatPricingModelTeamMember: _v32,
         hasEnterprise: _v33,
         hasTeamInvite: _v34
-      } = (0, _v12.useGlobalStore)(({
+      } = (0, _v13.useGlobalStore)(({
         capabilities: _v0
       }) => _v0.data),
       {
         revalidateAllTeamPermission: _v35,
         revalidateTeamPermissions: _v36
-      } = (0, _v12.useGlobalStore)((0, _v2.useShallow)(({
+      } = (0, _v13.useGlobalStore)((0, _v2.useShallow)(({
         teamPermissions: _v0
       }) => ({
         revalidateAllTeamPermission: _v0.actions.revalidateAllTeamPermission,
@@ -157,24 +158,28 @@
         trackShareAddPeopleInvited: _v37
       } = (0, _v8.useDistributionTracking)(),
       {
+        trackFolderShareInviteSubmitted: _v38,
+        trackFolderSharePeopleInvited: _v39
+      } = (0, _v9.useFolderShareTracking)(),
+      {
         hooks: {
-          useInvitation: _v38
+          useInvitation: _v40
         },
-        shareSurface: _v39 = "panel"
-      } = (0, _v1.useContext)(_v11.ResourceConfigContext),
-      _v40 = _v38?.();
+        shareSurface: _v41 = "panel"
+      } = (0, _v1.useContext)(_v12.ResourceConfigContext),
+      _v42 = _v40?.();
     (0, _v1.useEffect)(() => {
-      _v11.length < 1 && !_v13 && _v12.length < 1 && _v24(_v13.ShareModalState.Default);
+      _v11.length < 1 && !_v13 && _v12.length < 1 && _v24(_v14.ShareModalState.Default);
     }, [_v12.length, _v13, _v11.length, _v24]);
-    let [_v41, _v42] = (0, _v14.shouldShowTeamNotice)(_v25, _v8, _v14, _v11),
-      _v43 = (0, _v14.getActiveUpsell)(_v32, _v33, _v11, _v8 ?? 0, _v15),
-      _v44 = (0, _v14.shouldShowUpsell)(_v43, _v11),
-      _v45 = (0, _v14.shouldShowPurchaseNotice)(_v7, _v14, _v25, _v11, _v15 ?? _v25.currentUnassignedSeatCount),
-      _v46 = _v44 || _v42 || _v41 || _v1 || !_v28 && _v12.length < 1 || !_v9 && !_v16,
-      _v47 = (0, _v1.useCallback)(async (_v0, _v1) => {
+    let [_v43, _v44] = (0, _v15.shouldShowTeamNotice)(_v25, _v8, _v14, _v11),
+      _v45 = (0, _v15.getActiveUpsell)(_v32, _v33, _v11, _v8 ?? 0, _v15),
+      _v46 = (0, _v15.shouldShowUpsell)(_v45, _v11),
+      _v47 = (0, _v15.shouldShowPurchaseNotice)(_v7, _v14, _v25, _v11, _v15 ?? _v25.currentUnassignedSeatCount),
+      _v48 = _v46 || _v44 || _v43 || _v1 || !_v28 && _v12.length < 1 || !_v9 && !_v16,
+      _v49 = (0, _v1.useCallback)(async (_v0, _v1) => {
         if (!_v34) return null;
         let _v2 = _v14.rawLabel || _v14.label,
-          _v3 = _v40?.inviteNewUsers ? _v40.inviteNewUsers(_v0, _v2) : _v0.map(_v0 => {
+          _v3 = _v42?.inviteNewUsers ? _v42.inviteNewUsers(_v0, _v2) : _v0.map(_v0 => {
             let _v1 = {
               email: _v0,
               permissionLevel: _v2.toString().toLowerCase(),
@@ -183,10 +188,10 @@
               resourcePermissionPolicyUri: _v14.resourcePermissionPolicyUri
             };
             switch (_v10) {
-              case _v13.ResourceType.Folder:
+              case _v14.ResourceType.Folder:
                 _v1.folderUri = _v30;
                 break;
-              case _v13.ResourceType.Album:
+              case _v14.ResourceType.Album:
                 _v1.albumUri = _v30;
                 break;
               default:
@@ -214,10 +219,15 @@
           });
           _v23({
             totalTeamMembers: _v1
-          }), _v22(_v0), _v10 === _v13.ResourceType.Video && _v37({
+          }), _v22(_v0), _v10 === _v14.ResourceType.Video && _v37({
             clipId: String(_v31),
             role: _v14.value,
-            shareSurface: _v39
+            shareSurface: _v41
+          }), _v10 === _v14.ResourceType.Folder && _v39({
+            folderId: _v31,
+            inviteType: "team_member",
+            inviteCount: _v0.length,
+            role: _v14.value
           }), _v20(), _v21("");
           let _v2 = "invite-toast";
           _v5.isActive(_v2) || _v5({
@@ -320,14 +330,14 @@
             });
           }
         }
-      }, [_v20, _v17, _v26, _v34, _v40, _v3, _v0, _v23, _v22, _v14, _v31, _v10, _v30, _v36, _v5, _v37, _v39, _v21, _v29]),
-      _v48 = (0, _v1.useCallback)(async (_v0, _v1) => {
-        let _v2 = _v0.applicablePermissionPolicies.find(_v0 => _v10.PERMISSION_POLICY_NAME_TO_PERMISSION_LEVELS[_v0.name].value === _v14.value),
+      }, [_v20, _v17, _v26, _v34, _v42, _v3, _v0, _v23, _v22, _v14, _v31, _v10, _v30, _v36, _v5, _v37, _v39, _v41, _v21, _v29]),
+      _v50 = (0, _v1.useCallback)(async (_v0, _v1) => {
+        let _v2 = _v0.applicablePermissionPolicies.find(_v0 => _v11.PERMISSION_POLICY_NAME_TO_PERMISSION_LEVELS[_v0.name].value === _v14.value),
           {
             type: _v3,
             entityUri: _v4
-          } = (0, _v14.getTeamEntityDetails)(_v0.teamEntity);
-        if (_v40?.inviteTeamMember) await _v40.inviteTeamMember(_v0, _v2);else if (_v0.metadata?.interactions && _v0.metadata.interactions.edit && _v2) try {
+          } = (0, _v15.getTeamEntityDetails)(_v0.teamEntity);
+        if (_v42?.inviteTeamMember) await _v42.inviteTeamMember(_v0, _v2);else if (_v0.metadata?.interactions && _v0.metadata.interactions.edit && _v2) try {
           if (!_v3 || !_v4) throw Error("Team entity type or uri is missing");
           await _v6({
             teamEntityType: _v3,
@@ -335,10 +345,15 @@
             permissionPolicyUri: _v2.uri,
             customMessage: _v17,
             sendEmail: _v1
-          }), _v10 === _v13.ResourceType.Video && _v37({
+          }), _v10 === _v14.ResourceType.Video && _v37({
             clipId: String(_v31),
             role: _v14.value,
-            shareSurface: _v39
+            shareSurface: _v41
+          }), _v10 === _v14.ResourceType.Folder && _v39({
+            folderId: _v31,
+            inviteType: "team_member",
+            inviteCount: 1,
+            role: _v14.value
           });
           let _v0 = "invite-toast";
           _v5.isActive(_v0) || _v5({
@@ -440,16 +455,16 @@
             id: _v0
           });
         }
-        _v3 === _v10.EntityTypes.AllTeam ? (await _v35(), _v36()) : (_v36(), window.dispatchEvent(new CustomEvent("RSM_PERMISSION_CREATED"))), _v20(), _v21("");
-      }, [_v20, _v17, _v40, _v0, _v14.value, _v10, _v35, _v36, _v5, _v21, _v6, _v31, _v37, _v39]),
-      _v49 = (0, _v1.useCallback)(async (_v0, _v1) => {
+        _v3 === _v11.EntityTypes.AllTeam ? (await _v35(), _v36()) : (_v36(), window.dispatchEvent(new CustomEvent("RSM_PERMISSION_CREATED"))), _v20(), _v21("");
+      }, [_v20, _v17, _v42, _v0, _v14.value, _v10, _v35, _v36, _v5, _v21, _v6, _v31, _v37, _v39, _v41]),
+      _v51 = (0, _v1.useCallback)(async (_v0, _v1) => {
         let _v2 = [],
           _v3 = [];
         _v0.forEach(_v0 => {
           _v0.uri ? _v2.push(_v0.uri.replace(/^\/users\/(\d+)$/, "/all_team/$1")) : _v0.email && _v3.push(_v0.email);
         });
         try {
-          await _v4({
+          if (await _v4({
             where: {
               userId: _v29
             },
@@ -460,7 +475,15 @@
               gRecaptchaResponse: _v1 ?? "",
               customMessage: _v17 ?? ""
             }
-          });
+          }), _v10 === _v14.ResourceType.Folder) {
+            let _v0 = _v2.length > 0 && _v3.length > 0 ? "mixed" : _v2.length > 0 ? "team_member" : "viewer_email_link";
+            _v39({
+              folderId: _v31,
+              inviteType: _v0,
+              inviteCount: _v3.length + _v2.length,
+              role: null
+            });
+          }
           let _v0 = "link-sent-toast";
           _v5.isActive(_v0) || _v5({
             title: (0, _v7.translate)({
@@ -530,23 +553,37 @@
             id: _v1
           });
         }
-      }, [_v20, _v17, _v0, _v30, _v4, _v5, _v21, _v29]);
+      }, [_v20, _v17, _v0, _v31, _v10, _v30, _v4, _v5, _v39, _v21, _v29]);
     return {
       isInviting: _v1,
-      isInviteButtonDisabled: _v46,
+      isInviteButtonDisabled: _v48,
       sendInvites: async () => {
-        _v3.FatalAttraction.trackClick({
+        if (_v3.FatalAttraction.trackClick({
           container: "folder_share_modal",
           component: "add_team_members",
           keyword: "add_submit"
-        }), _v2(!0), _v12.length ? (await _v49(_v12, _v16), _v24(_v13.ShareModalState.Default), _v27()) : _v11.length ? await _v47(_v11, _v18) : _v13 && (await _v48(_v13, _v18)), _v2(!1), _v19(!0);
+        }), _v2(!0), _v10 === _v14.ResourceType.Folder) {
+          let _v0 = _v12.some(_v0 => _v0.type === _v14.EMAIL_INPUT_EMAIL_TYPE),
+            _v1 = _v12.some(_v0 => _v0.type !== _v14.EMAIL_INPUT_EMAIL_TYPE),
+            _v2 = _v11.length > 0,
+            _v3 = null != _v13,
+            _v4 = _v1 || _v2 || _v3,
+            _v5 = _v12.length || _v11.length || +!!_v13;
+          _v5 > 0 && _v38({
+            folderId: _v31,
+            inviteType: _v0 && _v4 ? "mixed" : _v0 ? "viewer_email_link" : "team_member",
+            inviteCount: _v5,
+            role: _v4 ? _v14.value : null
+          });
+        }
+        _v12.length ? (await _v51(_v12, _v16), _v24(_v14.ShareModalState.Default), _v27()) : _v11.length ? await _v49(_v11, _v18) : _v13 && (await _v50(_v13, _v18)), _v2(!1), _v19(!0);
       },
       shouldSendEmail: _v18,
-      showPurchaseNotice: _v45,
-      showViewerNotice: _v41,
-      showSeatNotice: _v42,
-      showUpsell: _v44,
-      activeUpsell: _v43
+      showPurchaseNotice: _v47,
+      showViewerNotice: _v43,
+      showSeatNotice: _v44,
+      showUpsell: _v46,
+      activeUpsell: _v45
     };
   }], 0);
 }

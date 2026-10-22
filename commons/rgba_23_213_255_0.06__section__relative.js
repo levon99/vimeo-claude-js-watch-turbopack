@@ -93,6 +93,7 @@
           as: _v3.default,
           href: _v5,
           "aria-label": _v11,
+          "data-navigation-link": "",
           "data-testid": "content-card-link",
           position: "absolute",
           inset: "0",
@@ -105,6 +106,7 @@
           as: "a",
           href: _v5,
           "aria-label": _v11,
+          "data-navigation-link": "",
           "data-testid": "content-card-link",
           position: "absolute",
           inset: "0",
@@ -597,6 +599,7 @@
                   href: _v14,
                   onClick: _v8,
                   cursor: "pointer",
+                  "data-navigation-link": "",
                   "data-testid": "content-card-title",
                   ..._v20,
                   children: _v4
@@ -605,6 +608,7 @@
                   href: _v14,
                   onClick: _v8,
                   cursor: "pointer",
+                  "data-navigation-link": "",
                   "data-testid": "content-card-title",
                   ..._v20,
                   children: _v4

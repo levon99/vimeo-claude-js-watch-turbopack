@@ -26,17 +26,17 @@
     id: _v0 = (0, _v17.createDomName)("chat-settings-button"),
     className: _v1 = (0, _v17.createDomName)("chat-settings-button"),
     withInteractionSubmenu: _v2 = !1,
-    buttonIcon: _v3,
-    chatContext: {
-      chatSessionsHistory: _v4,
-      isEnabled: _v5,
-      chatActions: {
-        enableChat: _v6,
-        disableChat: _v7
-      }
-    } = (0, _v2.useManager)(_v15.ChatManager)
+    buttonIcon: _v3
   }) {
     let {
+        chatSessionsHistory: _v4,
+        isEnabled: _v5,
+        chatActions: {
+          enableChat: _v6,
+          disableChat: _v7
+        }
+      } = (0, _v2.useManager)(_v15.ChatManager),
+      {
         trackLiveStreamChatToggled: _v8,
         trackLiveStreamChatOverflowActionClicked: _v9
       } = (0, _v13.useLiveStreamBroadcasterTracking)(),

@@ -117,7 +117,10 @@
     in_product_support_panel: !1,
     reverse_free_trial_arm: "control",
     welcome_offer_modal_arm: "control",
-    video_upload_onboarding_arm: "control",
+    home_signup_paywalls_enabled: !0,
+    post_auth_routing_targets: "control",
+    post_auth_routing_mode_desktop: "control",
+    post_auth_routing_mode_mobile: "control",
     email_verification_gate: "control",
     single_question_survey_arm: "control",
     spontaneous_paywall_arm: "control",
@@ -215,6 +218,7 @@
     enable_dictionary_settings_intro_announcement: !1,
     enable_dictionary_announcements: !1,
     enable_speaker_qna_replies: !1,
+    indie_program_enrollment: "closed",
     in_app_ticket_widget: !1,
     enable_single_event_localization: !1
   };

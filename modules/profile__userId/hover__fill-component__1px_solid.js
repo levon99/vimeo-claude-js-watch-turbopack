@@ -3943,9 +3943,11 @@
         type: "login",
         xsrft: _v0,
         attribution: _v5.attribution,
+        originUrl: _v5.originUrl,
         isShowing: _v5.isShowing,
         onDismiss: _v7,
         onSuccess: _v19,
+        completionSupported: !1,
         children: () => (0, _v6.jsx)(_v32.Button, {
           w: "100%",
           variant: "secondary",

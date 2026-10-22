@@ -13,7 +13,8 @@
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
     _v12 = _v0.i(0),
-    _v13 = _v0.i(0);
+    _v13 = _v0.i(0),
+    _v14 = _v0.i(0);
   _v0.s(["CopyReviewLinkButton", 0, ({
     surface: _v0,
     clipId: _v1,
@@ -26,14 +27,17 @@
       _v8 = (0, _v2.useRef)(null),
       {
         reviewId: _v9
-      } = (0, _v2.useContext)(_v13.ReviewLinkContext),
+      } = (0, _v2.useContext)(_v14.ReviewLinkContext),
       {
         trackReviewLinksCopied: _v10
-      } = (0, _v12.useDistributionTracking)();
+      } = (0, _v12.useDistributionTracking)(),
+      {
+        trackFolderShareReviewLinkCopied: _v11
+      } = (0, _v13.useFolderShareTracking)();
     (0, _v2.useEffect)(() => () => {
       _v8.current && clearTimeout(_v8.current);
     }, []);
-    let _v11 = (0, _v11.translate)({
+    let _v12 = (0, _v11.translate)({
         singular: "Copy review link",
         dictionary: {
           es: {
@@ -59,7 +63,7 @@
           }
         }
       }),
-      _v12 = (0, _v11.translate)({
+      _v13 = (0, _v11.translate)({
         singular: "Copied!",
         dictionary: {
           es: {
@@ -85,11 +89,16 @@
           }
         }
       }),
-      _v13 = async () => {
+      _v14 = async () => {
         try {
-          await navigator.clipboard.writeText(window.location.href), _v10({
+          await navigator.clipboard.writeText(window.location.href);
+          let _v0 = null == _v2 ? null : parseInt(_v2, 10);
+          null !== _v0 && Number.isFinite(_v0) ? _v11({
+            folderId: _v0,
+            reviewId: _v9 ?? "",
+            surface: _v0
+          }) : _v10({
             clipId: _v1,
-            folderId: _v2,
             reviewId: _v9 ?? "",
             surface: _v0
           }), _v4({
@@ -151,21 +160,21 @@
           });
         }
       },
-      _v14 = _v6 ? (0, _v1.jsx)(_v8.CircleCheckFilled, {}) : (0, _v1.jsx)(_v9.Link, {});
+      _v15 = _v6 ? (0, _v1.jsx)(_v8.CircleCheckFilled, {}) : (0, _v1.jsx)(_v9.Link, {});
     return _v5 ? (0, _v1.jsx)(_v5.IconButton, {
       ref: _v3,
-      icon: _v14,
-      onClick: _v13,
+      icon: _v15,
+      onClick: _v14,
       size: "md",
       variant: "primary",
-      "aria-label": _v11,
+      "aria-label": _v12,
       "data-testid": "copy-review-link-button"
     }) : (0, _v1.jsx)(_v4.Button, {
       ref: _v3,
       variant: "primary",
       size: "md",
-      leftIcon: _v14,
-      onClick: _v13,
+      leftIcon: _v15,
+      onClick: _v14,
       "data-testid": "copy-review-link-button",
       children: (0, _v1.jsxs)(_v3.Box, {
         as: "span",
@@ -185,12 +194,12 @@
           as: "span",
           "aria-hidden": _v6,
           opacity: +!_v6,
-          children: _v11
+          children: _v12
         }), (0, _v1.jsx)(_v6.Text, {
           as: "span",
           "aria-hidden": !_v6,
           opacity: +!!_v6,
-          children: _v12
+          children: _v13
         })]
       })
     });

@@ -9,14 +9,14 @@
     _v6 = _v0.i(0),
     _v7 = _v0.i(0);
   _v0.s(["useAutoCCUpgradeModal", 0, function ({
-    canOpen: _v0 = !0,
-    composerSessionContext: {
-      sessionInfo: {
-        value: _v1
-      }
-    } = (0, _v3.useManager)(_v4.ComposerSessionManager)
+    canOpen: _v0 = !0
   } = {}) {
-    let _v2 = !!_v1?.owner?.capabilities?.hasEnterprise;
+    let {
+        sessionInfo: {
+          value: _v1
+        }
+      } = (0, _v3.useManager)(_v4.ComposerSessionManager),
+      _v2 = !!_v1?.owner?.capabilities?.hasEnterprise;
     return (0, _v7.useUpgradeModal)({
       canOpen: _v0,
       templateType: "enterprise",

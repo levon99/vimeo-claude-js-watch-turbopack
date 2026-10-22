@@ -193,6 +193,7 @@
               _v10 && (window.location.href = _v10);
             },
             attribution: _v6.attribution,
+            originUrl: _v6.originUrl,
             disableDismiss: !0,
             isShowing: _v6.isShowing
           })

@@ -13,19 +13,19 @@
     _v10 = _v0.i(0),
     _v11 = _v0.i(0);
   _v0.s(["QnAUpsell", 0, function ({
-    canUseQnaModeration: _v0,
-    userPreferencesContext: {
-      userPreferencesActions: _v1
-    } = (0, _v2.useManager)(_v9.UserPreferencesManager, ({
-      userPreferencesActions: _v0
-    }) => [_v0]),
-    composerSessionContext: {
-      sessionInfo: {
-        value: _v2
-      }
-    } = (0, _v2.useManager)(_v8.ComposerSessionManager)
+    canUseQnaModeration: _v0
   }) {
     let {
+        userPreferencesActions: _v1
+      } = (0, _v2.useManager)(_v9.UserPreferencesManager, ({
+        userPreferencesActions: _v0
+      }) => [_v0]),
+      {
+        sessionInfo: {
+          value: _v2
+        }
+      } = (0, _v2.useManager)(_v8.ComposerSessionManager),
+      {
         initialState: {
           sessionId: _v3
         }
@@ -197,21 +197,21 @@
   var _v26 = _v0.i(0),
     _v27 = _v0.i(0);
   _v0.s(["SessionControlButton", 0, function ({
-    id: _v0 = (0, _v21.createDomName)("qna-session-control-button"),
-    qnaContext: {
-      activeSessionId: _v1,
-      isEventModerated: _v2,
-      qnaActions: {
-        createQnASession: _v3,
-        openQnASession: _v4,
-        closeQnASession: _v5
-      }
-    } = (0, _v2.useManager)(_v19.QnAManager, ({
-      activeSessionId: _v0,
-      isEventModerated: _v1
-    }) => [_v0, _v1])
+    id: _v0 = (0, _v21.createDomName)("qna-session-control-button")
   }) {
     let {
+        activeSessionId: _v1,
+        isEventModerated: _v2,
+        qnaActions: {
+          createQnASession: _v3,
+          openQnASession: _v4,
+          closeQnASession: _v5
+        }
+      } = (0, _v2.useManager)(_v19.QnAManager, ({
+        activeSessionId: _v0,
+        isEventModerated: _v1
+      }) => [_v0, _v1]),
+      {
         trackLiveStreamQaEnded: _v6,
         trackLiveStreamQaStarted: _v7
       } = (0, _v18.useLiveStreamBroadcasterTracking)(),
