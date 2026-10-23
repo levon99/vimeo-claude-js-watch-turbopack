@@ -2256,7 +2256,10 @@
         surface: _v24 ? "team_library" : "library",
         badgeVariant: "card"
       }),
-      _v29 = (0, _v186.useFolderPrivacyBadgeHandlers)(),
+      _v29 = (0, _v186.useFolderPrivacyBadgeHandlers)({
+        surface: _v24 ? "team_library" : "library",
+        badgeVariant: "card"
+      }),
       {
         trackLibraryFolderOpened: _v30
       } = (0, _v31.useLibraryTracking)(),
@@ -2602,7 +2605,10 @@
           surface: _v26 ? "team_library" : "library",
           badgeVariant: "list"
         }),
-        _v31 = (0, _v186.useFolderPrivacyBadgeHandlers)(),
+        _v31 = (0, _v186.useFolderPrivacyBadgeHandlers)({
+          surface: _v26 ? "team_library" : "library",
+          badgeVariant: "list"
+        }),
         {
           trackLibraryFolderOpened: _v32
         } = (0, _v31.useLibraryTracking)(),

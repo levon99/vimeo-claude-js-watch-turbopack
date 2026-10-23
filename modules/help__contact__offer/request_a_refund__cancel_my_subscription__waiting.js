@@ -22,32 +22,33 @@
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
-    _v22 = _v0.i(0);
-  let _v23 = "request_a_refund",
-    _v24 = ["request_a_refund", "cancel_my_subscription"],
-    _v25 = {
+    _v22 = _v0.i(0),
+    _v23 = _v0.i(0);
+  let _v24 = "request_a_refund",
+    _v25 = ["request_a_refund", "cancel_my_subscription"],
+    _v26 = {
       cf_core_billing_request_a_refund: "request_a_refund",
       cf_core_billing_cancel_my_subscription: "cancel_my_subscription"
     };
-  function _v26(_v0) {
+  function _v27(_v0) {
     return "object" == typeof _v0 && null !== _v0;
   }
-  function _v27(_v0, _v1) {
+  function _v28(_v0, _v1) {
     return {
       refund_offer_entry_point: _v1
     };
   }
-  function _v28(_v0) {
+  function _v29(_v0) {
     return _v0.replace(/\.00$/, "");
   }
-  let _v29 = () => {
-    let _v0 = (0, _v21.usePico)(),
-      _v1 = (0, _v22.useViewer)(),
+  let _v30 = () => {
+    let _v0 = (0, _v22.usePico)(),
+      _v1 = (0, _v23.useViewer)(),
       [_v2, _v3] = (0, _v3.useState)({
         type: "waiting"
       }),
       [_v4, _v5] = (0, _v3.useState)(null),
-      [_v6, _v7] = (0, _v3.useState)(_v23),
+      [_v6, _v7] = (0, _v3.useState)(_v24),
       _v8 = (0, _v3.useRef)(!1),
       _v9 = (0, _v3.useRef)(null),
       _v10 = (0, _v3.useCallback)(_v0 => {
@@ -76,24 +77,24 @@
             credentials: "include"
           });
           if (!_v0.ok) throw Error("Unable to accept the refund offer");
-          if (_v1 = await _v0.json(), !_v26(_v1) || !0 !== _v1.success) throw Error("Invalid refund offer redemption response");
+          if (_v1 = await _v0.json(), !_v27(_v1) || !0 !== _v1.success) throw Error("Invalid refund offer redemption response");
           _v3({
             type: "accepted",
             offer: _v0
-          }), _v0.track("refund_offer_contact_accepted", _v27(_v0, _v6));
+          }), _v0.track("refund_offer_contact_accepted", _v28(_v0, _v6));
         } catch {
           _v3({
             type: "error",
             retry: "accept",
             offer: _v0
-          }), _v0.track("refund_offer_contact_error", _v27(_v0, _v6));
+          }), _v0.track("refund_offer_contact_error", _v28(_v0, _v6));
         }
       }, [_v6, _v0, _v1]);
     (0, _v3.useEffect)(() => {
       let _v0 = _v0 => {
         var _v1, _v2;
         let _v3;
-        if (_v0.origin !== window.location.origin || _v0.source !== window.parent || !_v26(_v0.data) || _v8.current || "refund_offer_data" !== _v0.data.type || !(_v26(_v1 = _v0.data.offer) && !0 === _v1.eligible && "string" == typeof _v1.current_tier && "string" == typeof _v1.target_tier && "string" == typeof _v1.target_price_formatted && "string" == typeof _v1.current_payment_formatted && "string" == typeof _v1.target_monthly_price_formatted && "string" == typeof _v1.current_monthly_price_formatted && "string" == typeof _v1.refund_amount_formatted && "number" == typeof _v1.refund_percentage && "string" == typeof _v1.renewal_date && "number" == typeof _v1.billing_period_months && "string" == typeof _v1.currency)) return;
+        if (_v0.origin !== window.location.origin || _v0.source !== window.parent || !_v27(_v0.data) || _v8.current || "refund_offer_data" !== _v0.data.type || !(_v27(_v1 = _v0.data.offer) && !0 === _v1.eligible && "string" == typeof _v1.current_tier && "string" == typeof _v1.target_tier && "string" == typeof _v1.target_price_formatted && "string" == typeof _v1.current_payment_formatted && "string" == typeof _v1.target_monthly_price_formatted && "string" == typeof _v1.current_monthly_price_formatted && "string" == typeof _v1.refund_amount_formatted && "number" == typeof _v1.refund_percentage && "string" == typeof _v1.renewal_date && "number" == typeof _v1.billing_period_months && "string" == typeof _v1.currency)) return;
         _v8.current = !0;
         let _v4 = {
             eligible: !0,
@@ -109,11 +110,11 @@
             billingPeriodMonths: _v2.billing_period_months,
             currency: _v2.currency
           },
-          _v5 = (_v3 = _v0.data.entry_point, _v24.find(_v0 => _v0 === _v3) ?? ("string" == typeof _v3 ? _v25[_v3] : void 0) ?? _v23);
+          _v5 = (_v3 = _v0.data.entry_point, _v25.find(_v0 => _v0 === _v3) ?? ("string" == typeof _v3 ? _v26[_v3] : void 0) ?? _v24);
         _v7(_v5), _v3({
           type: "offer",
           offer: _v4
-        }), _v0.track("refund_offer_contact_modal_displayed", _v27(_v4, _v5));
+        }), _v0.track("refund_offer_contact_modal_displayed", _v28(_v4, _v5));
       };
       return window.addEventListener("message", _v0), () => window.removeEventListener("message", _v0);
     }, [_v0]), (0, _v3.useEffect)(() => {
@@ -151,7 +152,7 @@
     let _v12 = (0, _v3.useCallback)(() => {
         if ("accepting" === _v2.type) return;
         let _v0 = "accepted" === _v2.type ? "accepted" : "error" === _v2.type ? "error" : "declined";
-        "offer" === _v2.type && _v0.track("refund_offer_contact_declined", _v27(_v2.offer, _v6)), _v10(_v0), _v3({
+        "offer" === _v2.type && _v0.track("refund_offer_contact_declined", _v28(_v2.offer, _v6)), _v10(_v0), _v3({
           type: "closed"
         });
       }, [_v6, _v0, _v10, _v2]),
@@ -159,7 +160,7 @@
         "offer" === _v2.type && _v11(_v2.offer);
       }, [_v11, _v2]),
       _v14 = (0, _v3.useCallback)(() => {
-        "offer" === _v2.type && (_v0.track("refund_offer_contact_declined", _v27(_v2.offer, _v6)), _v10("continue_to_ticket"), _v3({
+        "offer" === _v2.type && (_v0.track("refund_offer_contact_declined", _v28(_v2.offer, _v6)), _v10("continue_to_ticket"), _v3({
           type: "closed"
         }));
       }, [_v6, _v0, _v10, _v2]),
@@ -173,13 +174,13 @@
       _v19 = null === _v18 ? "" : function (_v0) {
         switch (_v0) {
           case "core":
-            return (0, _v20.translate)("Core");
+            return (0, _v21.translate)("Core");
           case "professional":
-            return (0, _v20.translate)("Professional");
+            return (0, _v21.translate)("Professional");
           case "studio":
-            return (0, _v20.translate)("Studio");
+            return (0, _v21.translate)("Studio");
           case "production":
-            return (0, _v20.translate)({
+            return (0, _v21.translate)({
               singular: "Production",
               dictionary: {
                 es: {
@@ -209,7 +210,7 @@
       _v20 = null === _v18 ? null : function (_v0) {
         switch (_v0) {
           case "core":
-            return [(0, _v20.translate)({
+            return [(0, _v21.translate)({
               singular: "3 users",
               dictionary: {
                 es: {
@@ -234,7 +235,7 @@
                   singular: "3 位用户"
                 }
               }
-            }), (0, _v20.translate)({
+            }), (0, _v21.translate)({
               singular: "500 GB storage for Embeds and non-Public videos",
               dictionary: {
                 es: {
@@ -259,7 +260,7 @@
                   singular: "500 GB 存储，用于嵌入视频和非公开视频"
                 }
               }
-            }), (0, _v20.translate)({
+            }), (0, _v21.translate)({
               singular: "7 TB of Public Storage",
               dictionary: {
                 es: {
@@ -286,7 +287,7 @@
               }
             })];
           case "professional":
-            return [(0, _v20.translate)({
+            return [(0, _v21.translate)({
               singular: "10 users (up to 20)",
               dictionary: {
                 es: {
@@ -311,7 +312,7 @@
                   singular: "10 个用户 (最多 20 个)"
                 }
               }
-            }), (0, _v20.translate)({
+            }), (0, _v21.translate)({
               singular: "7 TB storage for Embeds and non-Public videos",
               dictionary: {
                 es: {
@@ -336,7 +337,7 @@
                   singular: "用于嵌入和非公开视频的 7 TB 存储空间"
                 }
               }
-            }), (0, _v20.translate)({
+            }), (0, _v21.translate)({
               singular: "7 TB of Public Storage",
               dictionary: {
                 es: {
@@ -363,7 +364,7 @@
               }
             })];
           case "production":
-            return [(0, _v20.translate)({
+            return [(0, _v21.translate)({
               singular: "20 users + 10 admins (unlimited)",
               dictionary: {
                 es: {
@@ -388,7 +389,7 @@
                   singular: "20 名用户 + 10 名管理员（无限制）"
                 }
               }
-            }), (0, _v20.translate)({
+            }), (0, _v21.translate)({
               singular: "25 TB storage for Embeds and non-Public videos",
               dictionary: {
                 es: {
@@ -413,7 +414,7 @@
                   singular: "用于嵌入和非公开视频的 25 TB 存储空间"
                 }
               }
-            }), (0, _v20.translate)({
+            }), (0, _v21.translate)({
               singular: "25 TB of Public Storage",
               dictionary: {
                 es: {
@@ -440,7 +441,7 @@
               }
             })];
           default:
-            return [(0, _v20.translate)({
+            return [(0, _v21.translate)({
               singular: "10 users + 3 admins (up to 200)",
               dictionary: {
                 es: {
@@ -465,7 +466,7 @@
                   singular: "10 名用户 + 3 名管理员（最多 200 名）"
                 }
               }
-            }), (0, _v20.translate)({
+            }), (0, _v21.translate)({
               singular: "10 TB storage for Embeds and non-Public videos",
               dictionary: {
                 es: {
@@ -490,7 +491,7 @@
                   singular: "用于嵌入和非公开视频的 10 TB 存储空间"
                 }
               }
-            }), (0, _v20.translate)({
+            }), (0, _v21.translate)({
               singular: "7 TB of Public Storage",
               dictionary: {
                 es: {
@@ -519,11 +520,11 @@
         }
       }(_v18.currentTier),
       _v21 = _v18?.billingPeriodMonths === 12,
-      _v22 = null === _v18 ? "" : _v28(_v18.targetPriceFormatted),
-      _v23 = null === _v18 ? "" : _v28(_v18.currentPaymentFormatted),
-      _v24 = null === _v18 ? "" : _v28(_v18.targetMonthlyPriceFormatted),
-      _v25 = null === _v18 ? "" : _v28(_v18.currentMonthlyPriceFormatted),
-      _v26 = null === _v18 ? "" : _v28(_v18.refundAmountFormatted);
+      _v22 = null === _v18 ? "" : _v29(_v18.targetPriceFormatted),
+      _v23 = null === _v18 ? "" : _v29(_v18.currentPaymentFormatted),
+      _v24 = null === _v18 ? "" : _v29(_v18.targetMonthlyPriceFormatted),
+      _v25 = null === _v18 ? "" : _v29(_v18.currentMonthlyPriceFormatted),
+      _v26 = null === _v18 ? "" : _v29(_v18.refundAmountFormatted);
     return (0, _v1.jsxs)(_v8.Modal, {
       isOpen: !0,
       onClose: _v12,
@@ -544,7 +545,7 @@
         children: [(0, _v1.jsx)(_v10.ModalCloseButton, {
           top: (0, _v15.rem)(24),
           right: (0, _v15.rem)(32),
-          "aria-label": (0, _v20.translate)({
+          "aria-label": (0, _v21.translate)({
             singular: "Close refund offer",
             dictionary: {
               es: {
@@ -580,7 +581,7 @@
             children: [(0, _v1.jsx)(_v17.Text, {
               as: "h1",
               variant: "heading-lg",
-              children: (0, _v20.translate)({
+              children: (0, _v21.translate)({
                 singular: "Keep {currentTier} with an {refundPercentage}% refund",
                 replacements: {
                   currentTier: _v19,
@@ -613,7 +614,7 @@
             }), (0, _v1.jsx)(_v17.Text, {
               variant: "body-md",
               mt: (0, _v15.rem)(8),
-              children: (0, _v20.translate)({
+              children: (0, _v21.translate)({
                 singular: "To help you through the transition to our business plans, we’d like to offer you a one-time goodwill {refundPercentage}% refund of {refundAmountFormatted} on your recent {currentPaymentFormatted} {currentTier} payment.",
                 replacements: {
                   refundPercentage: _v18.refundPercentage,
@@ -648,7 +649,7 @@
             }), (0, _v1.jsx)(_v17.Text, {
               variant: "body-md",
               mt: (0, _v15.rem)(20),
-              children: (0, _v20.translate)({
+              children: (0, _v21.translate)({
                 singular: "If you accept, your current plan will remain active until {renewalDate}. After that, the subscription will renew at full price (plus any applicable taxes) unless you cancel or change plans before the renewal date.",
                 replacements: {
                   renewalDate: _v18.renewalDate
@@ -704,7 +705,7 @@
                   children: [(0, _v1.jsx)(_v17.Text, {
                     variant: "body-sm",
                     color: "text-secondary",
-                    children: (0, _v20.translate)({
+                    children: (0, _v21.translate)({
                       singular: "plus taxes. Per month, billed annually, locked for the first year",
                       dictionary: {
                         es: {
@@ -733,7 +734,7 @@
                   }), (0, _v1.jsx)(_v17.Text, {
                     variant: "body-sm",
                     color: "text-secondary",
-                    children: (0, _v20.translate)({
+                    children: (0, _v21.translate)({
                       singular: "Renews at {amount}/month, billed annually",
                       replacements: {
                         amount: _v25
@@ -767,7 +768,7 @@
                   children: [(0, _v1.jsx)(_v17.Text, {
                     variant: "body-sm",
                     color: "text-secondary",
-                    children: (0, _v20.translate)({
+                    children: (0, _v21.translate)({
                       singular: "plus taxes. Per month, billed monthly",
                       dictionary: {
                         es: {
@@ -796,7 +797,7 @@
                   }), (0, _v1.jsx)(_v17.Text, {
                     variant: "body-sm",
                     color: "text-secondary",
-                    children: (0, _v20.translate)({
+                    children: (0, _v21.translate)({
                       singular: "Renews at {amount}/month, billed monthly",
                       replacements: {
                         amount: _v25
@@ -834,7 +835,7 @@
                 children: [(0, _v1.jsxs)(_v6.Flex, {
                   align: "center",
                   gap: (0, _v15.rem)(12),
-                  children: [(0, _v1.jsx)(_v19.Users, {
+                  children: [(0, _v1.jsx)(_v20.Users, {
                     boxSize: (0, _v15.rem)(20),
                     flexShrink: 0,
                     "aria-hidden": "true"
@@ -846,7 +847,7 @@
                 }), (0, _v1.jsxs)(_v6.Flex, {
                   align: "center",
                   gap: (0, _v15.rem)(12),
-                  children: [(0, _v1.jsx)(_v18.Database, {
+                  children: [(0, _v1.jsx)(_v19.ManagedStorage, {
                     boxSize: (0, _v15.rem)(20),
                     flexShrink: 0,
                     "aria-hidden": "true"
@@ -871,7 +872,7 @@
               }), (0, _v1.jsxs)(_v17.Text, {
                 variant: "body-sm",
                 color: "text-secondary",
-                children: [(0, _v20.translate)({
+                children: [(0, _v21.translate)({
                   singular: 'By clicking "Confirm" you agree: you’ll get a one time discount on an automatically renewing subscription valid for one year, for a total price of {discountedAmount}. If you don’t cancel before {renewalDate}, your subscription will automatically renew at full price and you’ll be charged {fullAmount} (plus tax) on that date and every year thereafter unless you cancel in your {billingSettings}Billing Settings{/billingSettings}. Pricing may change. Your content may be deleted upon cancellation.',
                   replacements: {
                     discountedAmount: _v22,
@@ -907,7 +908,7 @@
                       singular: '点击 "确认" 即表示您同意：您将获得一次性折扣，适用于自动续订且有效期为一年的订阅，总价为 {discountedAmount}。如果您未在 {renewalDate} 之前取消，订阅将按全价自动续订，且在该日期及此后每年将向您收取 {fullAmount}（另计税费），除非您在 {billingSettings}Billing Settings{/billingSettings} 中取消。价格可能会变动。取消后您的内容可能会被删除。'
                     }
                   }
-                }), (0, _v1.jsx)("br", {}), (0, _v1.jsx)("br", {}), (0, _v20.translate)({
+                }), (0, _v1.jsx)("br", {}), (0, _v1.jsx)("br", {}), (0, _v21.translate)({
                   singular: "By accepting this discount, you agree to our {terms}Terms of Service{/terms}, including the arbitration agreement and class action waiver, and acknowledge our {privacy}Privacy Policy{/privacy}.",
                   replacements: {
                     terms: _v0 => (0, _v1.jsx)(_v7.Link, {
@@ -963,7 +964,7 @@
                 width: "100%",
                 onClick: _v13,
                 isLoading: _v16,
-                children: (0, _v20.translate)({
+                children: (0, _v21.translate)({
                   singular: "Confirm",
                   dictionary: {
                     es: {
@@ -995,7 +996,7 @@
                 width: "100%",
                 onClick: _v14,
                 isDisabled: _v16,
-                children: (0, _v20.translate)({
+                children: (0, _v21.translate)({
                   singular: "No thanks, continue my refund request with Support",
                   dictionary: {
                     es: {
@@ -1025,7 +1026,7 @@
                 variant: "body-md",
                 color: "text-secondary",
                 textAlign: "center",
-                children: (0, _v20.translate)({
+                children: (0, _v21.translate)({
                   singular: "If you believe your account has been misclassified, you can request a review here: {link}Request a business classification review{/link}.",
                   replacements: {
                     link: _v0 => (0, _v1.jsx)(_v7.Link, {
@@ -1076,7 +1077,7 @@
             children: (0, _v1.jsx)(_v17.Text, {
               as: "h1",
               variant: "heading-md",
-              children: (0, _v20.translate)({
+              children: (0, _v21.translate)({
                 singular: "Refund processed",
                 dictionary: {
                   es: {
@@ -1112,10 +1113,10 @@
             children: (0, _v1.jsx)(_v17.Text, {
               variant: "body-md",
               color: "text-secondary",
-              children: (0, _v20.translate)({
+              children: (0, _v21.translate)({
                 singular: "Your refund of {refundAmountFormatted} has been processed.",
                 replacements: {
-                  refundAmountFormatted: _v28(_v2.offer.refundAmountFormatted)
+                  refundAmountFormatted: _v29(_v2.offer.refundAmountFormatted)
                 },
                 dictionary: {
                   es: {
@@ -1155,7 +1156,7 @@
               variant: "primary",
               width: "100%",
               onClick: _v12,
-              children: (0, _v20.translate)({
+              children: (0, _v21.translate)({
                 singular: "Close",
                 dictionary: {
                   es: {
@@ -1197,7 +1198,7 @@
             children: (0, _v1.jsx)(_v17.Text, {
               as: "h1",
               variant: "heading-md",
-              children: (0, _v20.translate)({
+              children: (0, _v21.translate)({
                 singular: "Something went wrong",
                 dictionary: {
                   es: {
@@ -1233,7 +1234,7 @@
             children: (0, _v1.jsx)(_v17.Text, {
               variant: "body-md",
               color: "text-secondary",
-              children: (0, _v20.translate)({
+              children: (0, _v21.translate)({
                 singular: "Please try again.",
                 dictionary: {
                   es: {
@@ -1280,7 +1281,7 @@
                 variant: "secondary",
                 width: "100%",
                 onClick: _v12,
-                children: (0, _v20.translate)({
+                children: (0, _v21.translate)({
                   singular: "Close",
                   dictionary: {
                     es: {
@@ -1310,7 +1311,7 @@
                 variant: "primary",
                 width: "100%",
                 onClick: _v15,
-                children: (0, _v20.translate)({
+                children: (0, _v21.translate)({
                   singular: "Try again",
                   dictionary: {
                     es: {
@@ -1356,6 +1357,6 @@
         html, body, #__next { background: transparent !important; }
         .chakra-modal__content-container { overflow: hidden !important; padding: 0 !important; }
       `
-    }), (0, _v1.jsx)(_v29, {})]
+    }), (0, _v1.jsx)(_v30, {})]
   })], 0);
 }

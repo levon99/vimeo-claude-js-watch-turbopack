@@ -4305,9 +4305,10 @@
     _v192 = _v0.i(0),
     _v193 = _v0.i(0),
     _v194 = _v0.i(0),
-    _v195 = _v0.i(0);
-  let _v196 = ["lastAdded", "alphabetical", "lastModified"],
-    _v197 = {
+    _v195 = _v0.i(0),
+    _v196 = _v0.i(0);
+  let _v197 = ["lastAdded", "alphabetical", "lastModified"],
+    _v198 = {
       lastAdded: {
         sort: "date",
         direction: "desc"
@@ -4321,21 +4322,25 @@
         direction: "desc"
       }
     },
-    _v198 = /\/event_series\/(\d+)/,
-    _v199 = /\/live_events\/(\d+)/,
-    _v200 = (0, _v11.rem)(400),
-    _v201 = (0, _v11.rem)(100),
-    _v202 = (0, _v11.rem)(56),
-    _v203 = (0, _v11.rem)(36),
-    _v204 = (0, _v11.rem)(116),
-    _v205 = (0, _v11.rem)(100),
-    _v206 = (0, _v11.rem)(200),
-    _v207 = {
+    _v199 = /\/event_series\/(\d+)/,
+    _v200 = /\/live_events\/(\d+)/,
+    _v201 = (0, _v11.rem)(700),
+    _v202 = (0, _v11.rem)(400),
+    _v203 = (0, _v11.rem)(100),
+    _v204 = (0, _v11.rem)(56),
+    _v205 = (0, _v11.rem)(20),
+    _v206 = (0, _v11.rem)(16),
+    _v207 = (0, _v11.rem)(44),
+    _v208 = (0, _v11.rem)(36),
+    _v209 = (0, _v11.rem)(116),
+    _v210 = (0, _v11.rem)(100),
+    _v211 = (0, _v11.rem)(200),
+    _v212 = {
       h: (0, _v11.rem)(80),
       px: "sm",
       py: (0, _v11.rem)(12)
     },
-    _v208 = _v0 => {
+    _v213 = _v0 => {
       switch (_v0) {
         case "lastAdded":
           return (0, _v53.translate)({
@@ -4422,11 +4427,11 @@
           throw Error(`Unhandled sort: ${String(_v0)}`);
       }
     },
-    _v209 = (_v0, _v1) => {
+    _v214 = (_v0, _v1) => {
       let _v2 = _v1.exec(_v0);
       return _v2?.[1] === void 0 ? null : Number(_v2[1]);
     },
-    _v210 = ({
+    _v215 = ({
       eventUri: _v0,
       onDismiss: _v1
     }) => {
@@ -4438,18 +4443,30 @@
           locale: _v6
         } = (0, _v27.useGctlConfig)(),
         _v7 = (0, _v174.useToast)(),
-        [_v8, _v9] = (0, _v10.useState)(""),
-        [_v10, _v11] = (0, _v10.useState)("lastAdded"),
-        [_v12, _v13] = (0, _v10.useState)(new Set()),
-        [_v14, _v15] = (0, _v10.useState)(!1),
-        _v16 = (0, _v192.useDebouncedValue)(_v8.trim(), 400),
-        _v17 = _v209(_v0, _v199),
         {
-          data: _v18,
-          isLoading: _v19,
-          size: _v20,
-          setSize: _v21,
-          mutate: _v22
+          trackEventSeriesAddModalDisplayed: _v8,
+          trackEventSeriesAddModalSelectionChanged: _v9,
+          trackEventSeriesAddModalSubmitted: _v10,
+          trackEventSeriesEventAdded: _v11
+        } = (0, _v195.useEventSeriesTracking)(),
+        [_v12, _v13] = (0, _v10.useState)(""),
+        [_v14, _v15] = (0, _v10.useState)("lastAdded"),
+        [_v16, _v17] = (0, _v10.useState)(new Set()),
+        [_v18, _v19] = (0, _v10.useState)(!1),
+        _v20 = (0, _v192.useDebouncedValue)(_v12.trim(), 400),
+        _v21 = _v214(_v0, _v200),
+        _v22 = null === _v21 ? null : String(_v21);
+      (0, _v10.useEffect)(() => {
+        null !== _v22 && _v8({
+          liveEventId: _v22
+        });
+      }, [_v8, _v22]);
+      let {
+          data: _v23,
+          isLoading: _v24,
+          size: _v25,
+          setSize: _v26,
+          mutate: _v27
         } = (0, _v194.useGetUserEventSeriesInfinite)(() => _v2 <= 0 ? null : {
           select: ["uri", "name", "privacy", "createdTime", "pictures.sizes.link"],
           where: {
@@ -4457,42 +4474,57 @@
           },
           query: {
             perPage: 25,
-            ..._v197[_v10],
-            ...("" === _v16 ? {} : {
-              query: _v16
+            ..._v198[_v14],
+            ...("" === _v20 ? {} : {
+              query: _v20
             }),
-            ...(null === _v17 ? {} : {
-              excludeLiveEventId: _v17
+            ...(null === _v21 ? {} : {
+              excludeLiveEventId: _v21
             })
           }
         }),
-        _v23 = (0, _v10.useMemo)(() => _v18?.flatMap(_v0 => _v0.data) ?? [], [_v18]),
-        _v24 = !!_v18?.[_v18.length - 1]?.paging.next,
-        _v25 = void 0 !== _v18 && _v20 > 0 && void 0 === _v18[_v20 - 1],
-        _v26 = _v12.size,
-        _v27 = _v23.length > 0 && _v23.every(_v0 => _v12.has(_v0.uri)),
-        _v28 = (0, _v10.useCallback)(_v0 => {
-          _v13(_v0 => {
+        _v28 = (0, _v10.useMemo)(() => _v23?.flatMap(_v0 => _v0.data) ?? [], [_v23]),
+        _v29 = !!_v23?.[_v23.length - 1]?.paging.next,
+        _v30 = void 0 !== _v23 && _v25 > 0 && void 0 === _v23[_v25 - 1],
+        _v31 = _v16.size,
+        _v32 = _v28.length > 0 && _v28.every(_v0 => _v16.has(_v0.uri)),
+        _v33 = (0, _v10.useCallback)(_v0 => {
+          _v17(_v0 => {
             let _v1 = new Set(_v0);
             return _v1.has(_v0) ? _v1.delete(_v0) : _v1.add(_v0), _v1;
           });
-        }, []),
-        _v29 = (0, _v10.useCallback)(() => {
-          _v13(_v27 ? new Set() : new Set(_v23.map(_v0 => _v0.uri)));
-        }, [_v23, _v27]),
-        _v30 = (0, _v10.useCallback)(() => {
-          _v21(_v0 => _v0 + 1);
-        }, [_v21]),
-        _v31 = (0, _v10.useCallback)(async () => {
-          let _v0 = [..._v12].flatMap(_v0 => {
-            let _v1 = _v209(_v0, _v198);
+          let _v1 = !_v16.has(_v0);
+          _v9({
+            liveEventId: _v22,
+            action: _v1 ? "select" : "deselect",
+            selectedCount: _v16.size + (_v1 ? 1 : -1)
+          });
+        }, [_v16, _v9, _v22]),
+        _v34 = (0, _v10.useCallback)(() => {
+          let _v0 = _v32 ? new Set() : new Set(_v28.map(_v0 => _v0.uri));
+          _v17(_v0), _v9({
+            liveEventId: _v22,
+            action: _v32 ? "deselect_all" : "select_all",
+            selectedCount: _v0.size
+          });
+        }, [_v28, _v32, _v9, _v22]),
+        _v35 = (0, _v10.useCallback)(() => {
+          _v26(_v0 => _v0 + 1);
+        }, [_v26]),
+        _v36 = (0, _v10.useCallback)(async () => {
+          let _v0 = [..._v16].flatMap(_v0 => {
+            let _v1 = _v214(_v0, _v199);
             return null === _v1 ? [] : [{
               uri: _v0,
               eventSeriesId: _v1
             }];
           });
           if (0 === _v0.length) return;
-          _v15(!0);
+          _v10({
+            liveEventId: _v22,
+            selectedCount: _v0.length,
+            hasSearchQuery: "" !== _v20
+          }), _v19(!0);
           let _v1 = {
               "Content-Type": "application/json",
               Authorization: null != _v4 && "" !== _v4 ? `jwt ${_v4}` : "",
@@ -4513,10 +4545,18 @@
                 events: [_v0]
               }
             })));
-          _v15(!1), await _v22();
+          _v19(!1), _v0.forEach(({
+            eventSeriesId: _v0
+          }, _v1) => {
+            _v2[_v1]?.status === "fulfilled" && _v11({
+              eventSeriesId: String(_v0),
+              addedEventsCount: 1,
+              source: "broadcaster"
+            });
+          }), await _v27();
           let _v3 = _v2.find(_v0 => "rejected" === _v0.status);
           if (void 0 !== _v3) {
-            _v13(new Set(_v0.filter((_v0, _v1) => _v2[_v1]?.status === "rejected").map(({
+            _v17(new Set(_v0.filter((_v0, _v1) => _v2[_v1]?.status === "rejected").map(({
               uri: _v0
             }) => _v0))), _v7({
               status: "error",
@@ -4590,14 +4630,16 @@
               }
             })
           }), _v1();
-        }, [_v12, _v4, _v5, _v6, _v3, _v2, _v0, _v22, _v7, _v1]);
+        }, [_v16, _v4, _v5, _v6, _v3, _v2, _v0, _v27, _v7, _v1, _v10, _v11, _v22, _v20]);
       return (0, _v4.jsxs)(_v15.Modal, {
         isOpen: !0,
         onClose: _v1,
-        closeOnOverlayClick: !_v14,
+        closeOnOverlayClick: !_v18,
         size: "lg",
         children: [(0, _v4.jsx)(_v17.ModalOverlay, {}), (0, _v4.jsxs)(_v16.ModalContent, {
+          maxW: _v201,
           children: [(0, _v4.jsx)(_v95.ModalHeader, {
+            pb: "sm",
             children: (0, _v4.jsx)(_v49.Text, {
               variant: "heading-md",
               children: (0, _v53.translate)({
@@ -4636,9 +4678,17 @@
             children: [(0, _v4.jsxs)(_v152.InputGroup, {
               flexShrink: 0,
               children: [(0, _v4.jsx)(_v153.InputLeftElement, {
+                left: _v206,
                 pointerEvents: "none",
-                children: (0, _v4.jsx)(_v190.SearchMagnifier, {})
+                w: _v205,
+                children: (0, _v4.jsx)(_v190.SearchMagnifier, {
+                  boxSize: _v205,
+                  color: "text-secondary"
+                })
               }), (0, _v4.jsx)(_v135.Input, {
+                _hover: {
+                  outlineColor: "transparent"
+                },
                 "aria-label": (0, _v53.translate)({
                   singular: "Search Library",
                   dictionary: {
@@ -4665,7 +4715,9 @@
                     }
                   }
                 }),
-                onChange: _v0 => _v9(_v0.target.value),
+                bg: "fill-component",
+                onChange: _v0 => _v13(_v0.target.value),
+                outlineColor: "transparent",
                 placeholder: (0, _v53.translate)({
                   singular: "Search Library",
                   dictionary: {
@@ -4692,17 +4744,18 @@
                     }
                   }
                 }),
-                value: _v8
+                ps: _v207,
+                value: _v12
               })]
             }), (0, _v4.jsxs)(_v13.Flex, {
               align: "center",
               flexShrink: 0,
               justify: "space-between",
               children: [(0, _v4.jsx)(_v179.Checkbox, {
-                isChecked: _v27,
-                isDisabled: 0 === _v23.length,
-                isIndeterminate: _v26 > 0 && !_v27,
-                onChange: _v29,
+                isChecked: _v32,
+                isDisabled: 0 === _v28.length,
+                isIndeterminate: _v31 > 0 && !_v32,
+                onChange: _v34,
                 size: "sm",
                 children: (0, _v4.jsx)(_v49.Text, {
                   color: "text-primary",
@@ -4710,7 +4763,7 @@
                   children: (0, _v53.translate)({
                     singular: "{COUNT} selected",
                     replacements: {
-                      COUNT: _v26
+                      COUNT: _v31
                     },
                     dictionary: {
                       es: {
@@ -4742,11 +4795,11 @@
                 children: [(0, _v4.jsx)(_v182.MenuButton, {
                   as: _v12.Button,
                   rightIcon: (0, _v4.jsx)(_v191.SortSmall, {
-                    boxSize: "2xs"
+                    boxSize: _v205
                   }),
                   size: "sm",
                   variant: "tertiary",
-                  children: _v208(_v10)
+                  children: _v213(_v14)
                 }), (0, _v4.jsx)(_v185.MenuList, {
                   children: (0, _v4.jsx)(_v183.MenuGroup, {
                     title: (0, _v53.translate)({
@@ -4775,25 +4828,25 @@
                         }
                       }
                     }),
-                    children: _v196.map(_v0 => (0, _v4.jsx)(_v184.MenuItemOption, {
-                      isChecked: _v10 === _v0,
-                      onClick: () => _v11(_v0),
-                      children: _v208(_v0)
+                    children: _v197.map(_v0 => (0, _v4.jsx)(_v184.MenuItemOption, {
+                      isChecked: _v14 === _v0,
+                      onClick: () => _v15(_v0),
+                      children: _v213(_v0)
                     }, _v0))
                   })
                 })]
               })]
             }), (0, _v4.jsx)(_v46.Box, {
               flex: "1",
-              maxH: _v200,
-              minH: _v200,
+              maxH: _v202,
+              minH: _v202,
               overflowY: "auto",
-              children: _v19 ? (0, _v4.jsx)(_v13.Flex, {
+              children: _v24 ? (0, _v4.jsx)(_v13.Flex, {
                 align: "center",
                 h: "100%",
                 justify: "center",
                 children: (0, _v4.jsx)(_v45.Spinner, {})
-              }) : 0 === _v23.length ? (0, _v4.jsx)(_v13.Flex, {
+              }) : 0 === _v28.length ? (0, _v4.jsx)(_v13.Flex, {
                 align: "center",
                 h: "100%",
                 justify: "center",
@@ -4831,31 +4884,33 @@
                 children: [(0, _v4.jsx)(_v186.Table, {
                   variant: "unstyled",
                   children: (0, _v4.jsx)(_v187.Tbody, {
-                    children: _v23.map(_v0 => {
+                    children: _v28.map(_v0 => {
                       let _v1 = _v0.pictures?.sizes?.at(-1)?.link;
                       return (0, _v4.jsxs)(_v189.Tr, {
                         cursor: "pointer",
-                        onClick: () => _v28(_v0.uri),
+                        onClick: () => _v33(_v0.uri),
+                        borderRadius: "md",
+                        px: "xs",
                         children: [(0, _v4.jsx)(_v188.Td, {
-                          w: _v203,
-                          ..._v207,
+                          w: _v208,
+                          ..._v212,
                           children: (0, _v4.jsx)(_v179.Checkbox, {
                             "aria-label": _v0.name,
-                            isChecked: _v12.has(_v0.uri),
-                            onChange: () => _v28(_v0.uri),
+                            isChecked: _v16.has(_v0.uri),
+                            onChange: () => _v33(_v0.uri),
                             onClick: _v0 => _v0.stopPropagation()
                           })
                         }), (0, _v4.jsx)(_v188.Td, {
-                          w: _v204,
-                          ..._v207,
+                          w: _v209,
+                          ..._v212,
                           children: (0, _v4.jsx)(_v13.Flex, {
                             align: "center",
                             bg: "fill-component",
                             borderRadius: "sm",
-                            h: _v202,
+                            h: _v204,
                             justify: "center",
                             overflow: "hidden",
-                            w: _v201,
+                            w: _v203,
                             children: null != _v1 ? (0, _v4.jsx)(_v180.Image, {
                               alt: "",
                               h: "100%",
@@ -4869,7 +4924,7 @@
                             })
                           })
                         }), (0, _v4.jsx)(_v188.Td, {
-                          ..._v207,
+                          ..._v212,
                           children: (0, _v4.jsx)(_v49.Text, {
                             color: "text-primary",
                             noOfLines: 1,
@@ -4877,17 +4932,17 @@
                             children: _v0.name
                           })
                         }), (0, _v4.jsx)(_v188.Td, {
-                          w: _v205,
-                          ..._v207,
+                          w: _v210,
+                          ..._v212,
                           children: (0, _v4.jsx)(_v49.Text, {
                             color: "text-secondary",
                             noOfLines: 1,
                             variant: "body-md",
-                            children: _v195.EVENT_SERIES_PRIVACY_OPTIONS.find(_v0 => _v0.privacy === _v0.privacy)?.title
+                            children: _v196.EVENT_SERIES_PRIVACY_OPTIONS.find(_v0 => _v0.privacy === _v0.privacy)?.title
                           })
                         }), (0, _v4.jsx)(_v188.Td, {
-                          w: _v206,
-                          ..._v207,
+                          w: _v211,
+                          ..._v212,
                           children: (0, _v4.jsx)(_v49.Text, {
                             color: "text-secondary",
                             noOfLines: 1,
@@ -4940,12 +4995,12 @@
                       }, _v0.uri);
                     })
                   })
-                }), _v24 ? (0, _v4.jsx)(_v13.Flex, {
+                }), _v29 ? (0, _v4.jsx)(_v13.Flex, {
                   justify: "center",
                   py: "md",
                   children: (0, _v4.jsx)(_v12.Button, {
-                    isLoading: _v25,
-                    onClick: _v30,
+                    isLoading: _v30,
+                    onClick: _v35,
                     size: "sm",
                     variant: "tertiary",
                     children: (0, _v53.translate)({
@@ -4979,9 +5034,9 @@
               })
             })]
           }), (0, _v4.jsxs)(_v98.ModalFooter, {
-            gap: "sm",
+            pb: "lg",
             children: [(0, _v4.jsx)(_v12.Button, {
-              isDisabled: _v14,
+              isDisabled: _v18,
               onClick: _v1,
               variant: "tertiary",
               children: (0, _v53.translate)({
@@ -5011,9 +5066,9 @@
                 }
               })
             }), (0, _v4.jsx)(_v12.Button, {
-              isDisabled: 0 === _v26,
-              isLoading: _v14,
-              onClick: () => void _v31(),
+              isDisabled: 0 === _v31,
+              isLoading: _v18,
+              onClick: () => void _v36(),
               variant: "primary",
               children: (0, _v53.translate)({
                 singular: "Add to event series",
@@ -5046,7 +5101,7 @@
         })]
       });
     },
-    _v211 = ({
+    _v216 = ({
       zIndex: _v0
     }) => {
       let {
@@ -5129,6 +5184,7 @@
           zIndex: _v0,
           canEdit: !0,
           canDelete: !0,
+          isInset: !0,
           onClick: () => {
             _v8({
               origin: "broadcaster",
@@ -5137,7 +5193,7 @@
           },
           onDelete: () => _v13(!0),
           onAddToEventSeries: () => _v11(!0)
-        }), _v10 ? (0, _v4.jsx)(_v210, {
+        }), _v10 ? (0, _v4.jsx)(_v215, {
           eventUri: `/live_events/${_v1}`,
           onDismiss: () => _v11(!1)
         }) : null, _v12 ? (0, _v4.jsx)(_v175, {
@@ -5235,39 +5291,39 @@
         }) : null]
       });
     };
-  var _v212 = _v0.i(0),
-    _v213 = _v0.i(0),
-    _v214 = _v0.i(0);
-  let _v215 = ["Owner", "Admin", "Contributor Plus"],
-    _v216 = ["enterpriseAddonTrials.expiresOn", "enterpriseAddonTrials.forcedUpsell", "enterpriseAddonTrials.key", "enterpriseAddonTrials.paid", "enterpriseAddonTrials.trial"];
   var _v217 = _v0.i(0),
     _v218 = _v0.i(0),
     _v219 = _v0.i(0);
-  function _v220({
+  let _v220 = ["Owner", "Admin", "Contributor Plus"],
+    _v221 = ["enterpriseAddonTrials.expiresOn", "enterpriseAddonTrials.forcedUpsell", "enterpriseAddonTrials.key", "enterpriseAddonTrials.paid", "enterpriseAddonTrials.trial"];
+  var _v222 = _v0.i(0),
+    _v223 = _v0.i(0),
+    _v224 = _v0.i(0);
+  function _v225({
     ..._v0
   }) {
     let {
         stats: _v1
-      } = (0, _v9.useManager)(_v219.StreamHealthManager),
-      _v2 = _v1?.streamStatus || _v218.EStreamStatus.UNKNOWN,
+      } = (0, _v9.useManager)(_v224.StreamHealthManager),
+      _v2 = _v1?.streamStatus || _v223.EStreamStatus.UNKNOWN,
       _v3 = (0, _v88.useColorModeValue)("#0E1216", "#F9FAFB"),
       _v4 = (0, _v88.useColorModeValue)("#3D4751", "#B6C0CC"),
       _v5 = (0, _v88.useColorModeValue)("#68727C", "#7E8894"),
       _v6 = (0, _v10.useMemo)(() => {
         switch (_v2) {
-          case _v218.EStreamStatus.GOOD:
-          case _v218.EStreamStatus.READY:
+          case _v223.EStreamStatus.GOOD:
+          case _v223.EStreamStatus.READY:
             return {
               activeBars: 4,
               getColor: () => _v82.CONNECTED_STATUS_COLOR
             };
-          case _v218.EStreamStatus.UNSTABLE:
+          case _v223.EStreamStatus.UNSTABLE:
             return {
               activeBars: 3,
               getColor: _v0 => _v0 < 3 ? _v82.WARNING_LAYOUT_COLOR : _v5
             };
-          case _v218.EStreamStatus.OFFLINE:
-          case _v218.EStreamStatus.UNKNOWN:
+          case _v223.EStreamStatus.OFFLINE:
+          case _v223.EStreamStatus.UNKNOWN:
             return {
               activeBars: 0,
               getColor: () => _v4
@@ -5279,7 +5335,7 @@
             };
         }
       }, [_v2, _v3, _v4, _v5]);
-    return (0, _v4.jsx)(_v217.Icon, {
+    return (0, _v4.jsx)(_v222.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       children: (0, _v81.range)(4).map(_v0 => (0, _v4.jsx)("rect", {
@@ -5293,11 +5349,11 @@
       }, _v0))
     });
   }
-  var _v221 = _v0.i(0),
-    _v222 = _v0.i(0),
-    _v223 = _v0.i(0),
-    _v224 = _v0.i(0);
-  function _v225({
+  var _v226 = _v0.i(0),
+    _v227 = _v0.i(0),
+    _v228 = _v0.i(0),
+    _v229 = _v0.i(0);
+  function _v230({
     className: _v0 = (0, _v40.createLiveDomName)("broadcaster-presence-circle-item"),
     participant: _v1,
     isBroadcaster: _v2
@@ -5328,7 +5384,7 @@
           border: "none"
         }
       },
-      children: (0, _v4.jsx)(_v224.Avatar, {
+      children: (0, _v4.jsx)(_v229.Avatar, {
         className: (0, _v40.createLiveDomName)(_v0, "avatar"),
         alt: "avatar",
         src: _v4 ?? void 0,
@@ -5336,7 +5392,7 @@
       })
     });
   }
-  function _v226({
+  function _v231({
     id: _v0 = (0, _v40.createLiveDomName)("broadcaster-presence-circle-more"),
     className: _v1 = (0, _v40.createLiveDomName)("broadcaster-presence-circle-more"),
     count: _v2
@@ -5361,10 +5417,10 @@
       children: ["+", _v2]
     });
   }
-  var _v227 = _v0.i(0),
-    _v228 = _v0.i(0),
-    _v229 = _v0.i(0);
-  function _v230({
+  var _v232 = _v0.i(0),
+    _v233 = _v0.i(0),
+    _v234 = _v0.i(0);
+  function _v235({
     className: _v0 = (0, _v40.createLiveDomName)("broadcaster-presence-list-item"),
     participant: _v1,
     isYou: _v2,
@@ -5383,7 +5439,7 @@
       _hover: {
         background: "fill-component-hover"
       },
-      children: [(0, _v4.jsx)(_v224.Avatar, {
+      children: [(0, _v4.jsx)(_v229.Avatar, {
         className: (0, _v40.createLiveDomName)(_v0, "avatar"),
         alt: "avatar",
         src: _v5 ?? void 0,
@@ -5415,35 +5471,35 @@
           color: "text-secondary",
           children: _v3 ? _v41.translations.broadcaster : _v41.translations.admin
         })]
-      }), _v2 || _v3 ? (0, _v4.jsx)(_v229.TooltipIconButton, {
+      }), _v2 || _v3 ? (0, _v4.jsx)(_v234.TooltipIconButton, {
         className: (0, _v40.createLiveDomName)(_v0, "switch-button"),
         "aria-label": _v3 ? _v41.translations.broadcaster : _v41.translations.setAsBroadcaster,
         size: "sm",
         variant: "tertiary",
         isDisabled: _v3,
         label: _v3 ? _v41.translations.broadcaster : _v41.translations.setAsBroadcaster,
-        icon: _v3 ? (0, _v4.jsx)(_v228.CameraOnFilled, {}) : (0, _v4.jsx)(_v227.CameraOn, {}),
+        icon: _v3 ? (0, _v4.jsx)(_v233.CameraOnFilled, {}) : (0, _v4.jsx)(_v232.CameraOn, {}),
         onClick: _v4
       }) : null]
     });
   }
-  var _v231 = _v40;
-  let _v232 = (0, _v10.memo)(({
-    id: _v0 = (0, _v231.createLiveDomName)("broadcaster-presence-list"),
-    className: _v1 = (0, _v231.createLiveDomName)("broadcaster-presence-list")
+  var _v236 = _v40;
+  let _v237 = (0, _v10.memo)(({
+    id: _v0 = (0, _v236.createLiveDomName)("broadcaster-presence-list"),
+    className: _v1 = (0, _v236.createLiveDomName)("broadcaster-presence-list")
   }) => {
     let {
         eventConnections: _v2,
         broadcasterId: _v3,
         currentConnectionId: _v4,
         presenceActions: _v5
-      } = (0, _v9.useManager)(_v223.PresenceManager),
+      } = (0, _v9.useManager)(_v228.PresenceManager),
       {
         triggerRef: _v6,
         contentRef: _v7,
         isOpen: _v8,
         onTogglePopover: _v9
-      } = (0, _v222.useControlledPopover)(),
+      } = (0, _v227.useControlledPopover)(),
       [_v10, _v11] = function ({
         eventConnections: _v0,
         broadcasterId: _v1,
@@ -5472,11 +5528,11 @@
       alignItems: "center",
       justifyContent: "center",
       children: (0, _v4.jsx)(_v45.Spinner, {
-        id: (0, _v231.createLiveDomName)(_v0, "loader"),
-        className: (0, _v231.createLiveDomName)(_v1, "loader"),
+        id: (0, _v236.createLiveDomName)(_v0, "loader"),
+        className: (0, _v236.createLiveDomName)(_v1, "loader"),
         size: "xs"
       })
-    }) : (0, _v4.jsx)(_v221.BokehPopover, {
+    }) : (0, _v4.jsx)(_v226.BokehPopover, {
       isOpen: _v8,
       placement: "bottom",
       triggerContent: (0, _v4.jsx)("div", {
@@ -5498,20 +5554,20 @@
             },
             onClick: _v9,
             children: (0, _v4.jsxs)(_v13.Flex, {
-              id: (0, _v231.createLiveDomName)(_v0, "content"),
-              className: (0, _v231.createLiveDomName)(_v1, "content"),
+              id: (0, _v236.createLiveDomName)(_v0, "content"),
+              className: (0, _v236.createLiveDomName)(_v1, "content"),
               position: "relative",
               justifyContent: "flex-end",
               alignItems: "center",
               height: "100%",
               padding: `${(0, _v11.rem)(4)} ${(0, _v11.rem)(4)} ${(0, _v11.rem)(4)} ${(0, _v11.rem)(14)}`,
-              children: [_v11.slice(0, 3).map(_v0 => (0, _v4.jsx)(_v225, {
-                className: (0, _v231.createLiveDomName)(_v1, "circle-item"),
+              children: [_v11.slice(0, 3).map(_v0 => (0, _v4.jsx)(_v230, {
+                className: (0, _v236.createLiveDomName)(_v1, "circle-item"),
                 participant: _v0,
                 isBroadcaster: _v0.id === _v3
-              }, _v0.id)), _v11.length > 3 ? (0, _v4.jsx)(_v226, {
-                id: (0, _v231.createLiveDomName)(_v0, "circle-more"),
-                className: (0, _v231.createLiveDomName)(_v1, "circle-more"),
+              }, _v0.id)), _v11.length > 3 ? (0, _v4.jsx)(_v231, {
+                id: (0, _v236.createLiveDomName)(_v0, "circle-more"),
+                className: (0, _v236.createLiveDomName)(_v1, "circle-more"),
                 count: _v11.length - 3
               }) : null]
             })
@@ -5520,13 +5576,13 @@
       }),
       content: (0, _v4.jsxs)(_v13.Flex, {
         ref: _v7,
-        id: (0, _v231.createLiveDomName)(_v0, "popover-content"),
-        className: (0, _v231.createLiveDomName)(_v1, "popover-content"),
+        id: (0, _v236.createLiveDomName)(_v0, "popover-content"),
+        className: (0, _v236.createLiveDomName)(_v1, "popover-content"),
         direction: "column",
         width: (0, _v11.rem)(300),
         children: [(0, _v4.jsxs)(_v13.Flex, {
-          id: (0, _v231.createLiveDomName)(_v0, "popover-title"),
-          className: (0, _v231.createLiveDomName)(_v1, "popover-title"),
+          id: (0, _v236.createLiveDomName)(_v0, "popover-title"),
+          className: (0, _v236.createLiveDomName)(_v1, "popover-title"),
           alignItems: "center",
           gap: (0, _v11.rem)(4),
           padding: (0, _v11.rem)(4),
@@ -5539,15 +5595,15 @@
             children: _v11.length
           })]
         }), (0, _v4.jsx)(_v13.Flex, {
-          id: (0, _v231.createLiveDomName)(_v0, "popover-list"),
-          className: (0, _v231.createLiveDomName)(_v1, "popover-list"),
+          id: (0, _v236.createLiveDomName)(_v0, "popover-list"),
+          className: (0, _v236.createLiveDomName)(_v1, "popover-list"),
           direction: "column",
           gap: (0, _v11.rem)(8),
           padding: (0, _v11.rem)(4),
           maxHeight: (0, _v11.rem)(400),
           overflowY: "auto",
-          children: _v10.map(_v0 => (0, _v4.jsx)(_v230, {
-            className: (0, _v231.createLiveDomName)(_v1, "popover-list-item"),
+          children: _v10.map(_v0 => (0, _v4.jsx)(_v235, {
+            className: (0, _v236.createLiveDomName)(_v1, "popover-list-item"),
             participant: _v0,
             isBroadcaster: _v0.id === _v3,
             isYou: _v0.id === _v4,
@@ -5557,9 +5613,9 @@
       })
     });
   });
-  var _v233 = _v0.i(0),
-    _v234 = _v0.i(0);
-  let _v235 = _v0 => (0, _v4.jsx)(_v217.Icon, {
+  var _v238 = _v0.i(0),
+    _v239 = _v0.i(0);
+  let _v240 = _v0 => (0, _v4.jsx)(_v222.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -5568,9 +5624,9 @@
       fill: "currentColor"
     })
   });
-  var _v236 = _v0.i(0),
-    _v237 = _v0.i(0);
-  function _v238({
+  var _v241 = _v0.i(0),
+    _v242 = _v0.i(0);
+  function _v243({
     id: _v0,
     className: _v1,
     title: _v2,
@@ -5592,7 +5648,7 @@
       children: [(0, _v4.jsx)(_v94.BokehTooltip, {
         label: _v7,
         placement: "bottom",
-        children: (0, _v4.jsx)(_v237.BokehIconButton, {
+        children: (0, _v4.jsx)(_v242.BokehIconButton, {
           id: _v0,
           className: _v1,
           ariaLabel: _v6,
@@ -5615,7 +5671,7 @@
       })]
     });
   }
-  function _v239({
+  function _v244({
     id: _v0 = (0, _v40.createLiveDomName)("recording-action-button"),
     className: _v1 = (0, _v40.createLiveDomName)("recording-action-button")
   }) {
@@ -5657,10 +5713,10 @@
       children: [(0, _v4.jsx)(_v94.BokehTooltip, {
         label: _v8 ? _v41.translations.resumeRecording : _v41.translations.pauseRecording,
         placement: "bottom",
-        children: (0, _v4.jsx)(_v237.BokehIconButton, {
+        children: (0, _v4.jsx)(_v242.BokehIconButton, {
           id: (0, _v40.createLiveDomName)(_v0, _v8 ? "resume-recording" : "pause-recording"),
           className: (0, _v40.createLiveDomName)(_v1, _v8 ? "resume-recording" : "pause-recording"),
-          icon: _v8 ? (0, _v4.jsx)(_v234.PlayFilled, {}) : (0, _v4.jsx)(_v233.PauseFilled, {}),
+          icon: _v8 ? (0, _v4.jsx)(_v239.PlayFilled, {}) : (0, _v4.jsx)(_v238.PauseFilled, {}),
           size: "md",
           ariaLabel: _v41.translations.mediaVolume,
           isDisabled: _v11,
@@ -5669,11 +5725,11 @@
           },
           onClick: _v12
         })
-      }), (0, _v4.jsx)(_v238, {
+      }), (0, _v4.jsx)(_v243, {
         id: (0, _v40.createLiveDomName)(_v0, "restart-recording"),
         className: (0, _v40.createLiveDomName)(_v1, "restart-recording"),
         isDisabled: _v11,
-        icon: (0, _v4.jsx)(_v235, {}),
+        icon: (0, _v4.jsx)(_v240, {}),
         title: _v41.translations.startOver,
         description: _v41.translations.recordingDiscardNotice,
         ariaLabel: "restart-recording",
@@ -5681,11 +5737,11 @@
         tooltipLabel: _v41.translations.startOver,
         isOkButtonLoading: _v3,
         onSubmit: _v14
-      }), (0, _v4.jsx)(_v238, {
+      }), (0, _v4.jsx)(_v243, {
         id: (0, _v40.createLiveDomName)(_v0, "delete-recording"),
         className: (0, _v40.createLiveDomName)(_v1, "delete-recording"),
         isDisabled: _v11,
-        icon: (0, _v4.jsx)(_v236.TrashBin, {}),
+        icon: (0, _v4.jsx)(_v241.TrashBin, {}),
         ariaLabel: "delete-recording",
         title: _v41.translations.deleteRecordingAlertNotice,
         submitLabel: _v41.translations.discard,
@@ -5721,9 +5777,9 @@
       _v11 = (0, _v8.useIsVpaas)(),
       _v12 = (() => {
         let _v0 = (0, _v34.useSessionOwnerId)(),
-          _v1 = (0, _v214.useOrionSetting)("release_event_series_v1"),
-          _v2 = (0, _v214.useOrionSetting)("enable_event_series_in_dev_features"),
-          _v3 = (0, _v213.useOrionLoading)(),
+          _v1 = (0, _v219.useOrionSetting)("release_event_series_v1"),
+          _v2 = (0, _v219.useOrionSetting)("enable_single_event_action_menu"),
+          _v3 = (0, _v218.useOrionLoading)(),
           _v4 = _v0 > 0,
           {
             capabilities: _v5,
@@ -5732,7 +5788,7 @@
           {
             data: _v7,
             isLoading: _v8
-          } = (0, _v212.useGetUserTeamRole)(() => _v4 && !_v3 && _v1 && _v2 ? {
+          } = (0, _v217.useGetUserTeamRole)(() => _v4 && !_v3 && _v1 && _v2 ? {
             select: ["permissionLevel"],
             where: {
               userId: _v0
@@ -5747,7 +5803,7 @@
             where: {
               userId: _v0
             },
-            select: _v216
+            select: _v221
           } : null, {
             revalidateOnFocus: !1
           }),
@@ -5758,7 +5814,7 @@
           _v13 = _v11?.trial === !0 && !_v11.paid,
           _v14 = null != _v11 && !!_v11.expiresOn && !_v11.trial && !_v11.paid,
           _v15 = _v7?.permissionLevel,
-          _v16 = _v2 && _v1 && null != _v15 && _v215.includes(_v15),
+          _v16 = _v2 && _v1 && null != _v15 && _v220.includes(_v15),
           _v17 = _v5.hasEventSeriesEnabled;
         return !(!_v4 || _v3 || _v8 || !_v6 || _v10) && _v16 && ((_v13 || _v14) && !_v12 || _v17);
       })(),
@@ -5775,7 +5831,7 @@
       _v23 = (0, _v10.useMemo)(() => [{
         id: _v77.ERightPanelId.STREAM_HEALTH,
         label: _v41.translations.streamHealth,
-        icon: (0, _v4.jsx)(_v220, {}),
+        icon: (0, _v4.jsx)(_v225, {}),
         isVisible: _v18
       }, {
         id: _v77.ERightPanelId.ANALYTICS,
@@ -5858,7 +5914,7 @@
             flexShrink: 0,
             gap: (0, _v11.rem)(12),
             height: "100%",
-            children: [_v17 ? (0, _v4.jsx)(_v232, {
+            children: [_v17 ? (0, _v4.jsx)(_v237, {
               id: (0, _v7.createDomName)(_v0, "presence"),
               className: (0, _v7.createDomName)(_v1, "presence")
             }) : null, (0, _v4.jsx)(_v78.RightPanelControls, {
@@ -5874,7 +5930,7 @@
                 id: (0, _v7.createDomName)(_v0, "embed-button"),
                 className: (0, _v7.createDomName)(_v1, "embed-button")
               })]
-            }), _v19 ? (0, _v4.jsx)(_v239, {
+            }), _v19 ? (0, _v4.jsx)(_v244, {
               id: (0, _v7.createDomName)(_v0, "record-button"),
               className: (0, _v7.createDomName)(_v1, "record-button")
             }) : null, (0, _v4.jsx)(_v123, {
@@ -5883,7 +5939,7 @@
             }), !_v15 && _v12 && (0, _v4.jsx)(_v46.Box, {
               id: (0, _v7.createDomName)(_v0, "action-button"),
               className: (0, _v7.createDomName)(_v1, "action-button"),
-              children: (0, _v4.jsx)(_v211, {
+              children: (0, _v4.jsx)(_v216, {
                 zIndex: _v79.graphicsConfig.GRAPHICS_POSITIONING.Z_INDEX.SCENE_LABEL + 1
               })
             }), _v11 ? null : (0, _v4.jsx)(_v85.LiveBroadcasterHeaderProfile, {
@@ -5896,10 +5952,10 @@
       })]
     });
   }], 0);
-  var _v240 = _v0.i(0),
-    _v241 = _v0.i(0),
-    _v242 = _v0.i(0),
-    _v243 = _v0.i(0);
+  var _v245 = _v0.i(0),
+    _v246 = _v0.i(0),
+    _v247 = _v0.i(0),
+    _v248 = _v0.i(0);
   _v0.s(["LiveSubscriptionUpsell", 0, function () {
     let {
         metering: _v0
@@ -5920,36 +5976,36 @@
           _v4 = _v2 ? "enterprise" : "default",
           _v5 = "enterprise" === _v4 && _v3,
           _v6 = (0, _v10.useMemo)(() => "default" === _v4 ? {
-            headerText: _v240.T_CREATE_ENGAGING_EVENTS,
-            subHeaderText: _v240.T_HOST_ANY_TYPE_OF_EVENT,
+            headerText: _v245.T_CREATE_ENGAGING_EVENTS,
+            subHeaderText: _v245.T_HOST_ANY_TYPE_OF_EVENT,
             excludePlans: ["starter", "standard", "creator"],
             planOverrides: {
               advanced: {
-                subHeading: _v240.T_STREAM_HIGH_QUALITY_EVENTS,
-                featuresList: _v240.T_ADVANCE_FEATURES_LIST
+                subHeading: _v245.T_STREAM_HIGH_QUALITY_EVENTS,
+                featuresList: _v245.T_ADVANCE_FEATURES_LIST
               },
               enterprise: {
-                subHeading: _v240.T_SUPERIOR_ENGAGEMENT_QUALITY,
-                featuresList: _v240.T_ENTERPRISE_FEATURES_LIST
+                subHeading: _v245.T_SUPERIOR_ENGAGEMENT_QUALITY,
+                featuresList: _v245.T_ENTERPRISE_FEATURES_LIST
               }
             },
             mkcCode: "ent-upgrade-bottom"
           } : _v5 ? {
-            enterpriseTitle: _v240.T_CAPTURE_LEADS_AND_VIEWER_LEVEL_INSIGHTS,
-            enterpriseSubtitle: _v240.T_TALK_TO_TEAM_ENTERPRISE,
-            customFeaturesList: (0, _v4.jsx)(_v241.UpsellFeaturesList, {
-              featuresList: _v240.T_TIER_1_ENTERPRISE_FEATURES_LIST
+            enterpriseTitle: _v245.T_CAPTURE_LEADS_AND_VIEWER_LEVEL_INSIGHTS,
+            enterpriseSubtitle: _v245.T_TALK_TO_TEAM_ENTERPRISE,
+            customFeaturesList: (0, _v4.jsx)(_v246.UpsellFeaturesList, {
+              featuresList: _v245.T_TIER_1_ENTERPRISE_FEATURES_LIST
             }),
             mkcCode: "ent-upgrade-bottom"
           } : {
-            headerText: _v240.T_CREATE_ENGAGING_EVENTS,
-            subHeaderText: _v240.T_HOST_ANY_TYPE_OF_EVENT,
-            customFeaturesList: (0, _v4.jsx)(_v241.UpsellFeaturesList, {
-              featuresList: _v240.T_DEMO_ENTERPRISE_FEATURES_LIST
+            headerText: _v245.T_CREATE_ENGAGING_EVENTS,
+            subHeaderText: _v245.T_HOST_ANY_TYPE_OF_EVENT,
+            customFeaturesList: (0, _v4.jsx)(_v246.UpsellFeaturesList, {
+              featuresList: _v245.T_DEMO_ENTERPRISE_FEATURES_LIST
             }),
             mkcCode: "ent-upgrade-bottom"
           }, [_v4, _v5]);
-        return (0, _v242.useUpgradeModal)({
+        return (0, _v247.useUpgradeModal)({
           canOpen: _v0,
           templateType: _v4,
           modalConfig: _v6,
@@ -5970,7 +6026,7 @@
         });
       }(),
       _v3 = (0, _v8.useIsVpaas)(),
-      [_v4, _v5] = (0, _v10.useMemo)(() => (0, _v243.getTimeComponents)(Math.max(_v0?.secondsRemaining || 0, 0)), [_v0?.secondsRemaining]),
+      [_v4, _v5] = (0, _v10.useMemo)(() => (0, _v248.getTimeComponents)(Math.max(_v0?.secondsRemaining || 0, 0)), [_v0?.secondsRemaining]),
       _v6 = (0, _v10.useCallback)(() => {
         _v1();
       }, [_v1]);
@@ -6017,8 +6073,8 @@
       }), _v2]
     });
   }], 0);
-  var _v244 = _v0.i(0);
-  let _v245 = _v0 => (0, _v4.jsx)(_v217.Icon, {
+  var _v249 = _v0.i(0);
+  let _v250 = _v0 => (0, _v4.jsx)(_v222.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -6027,7 +6083,7 @@
       fill: "currentColor"
     })
   });
-  function _v246({
+  function _v251({
     id: _v0 = (0, _v7.createDomName)("reactions-toggle-row"),
     className: _v1 = (0, _v7.createDomName)("reactions-toggle-row"),
     isEnabled: _v2,
@@ -6053,7 +6109,7 @@
           borderRadius: "full",
           position: "relative",
           flexShrink: 0,
-          children: (0, _v4.jsx)(_v245, {
+          children: (0, _v4.jsx)(_v250, {
             boxSize: "xs"
           })
         }), (0, _v4.jsxs)(_v13.Flex, {
@@ -6094,7 +6150,7 @@
                   }
                 }
               })
-            }), (0, _v4.jsx)(_v244.Badge, {
+            }), (0, _v4.jsx)(_v249.Badge, {
               size: "xs",
               variant: "new",
               height: (0, _v11.rem)(16),
@@ -6192,11 +6248,11 @@
       })]
     });
   }
-  _v0.s(["ReactionsToggleRow", 0, _v246], 0);
-  var _v247 = _v0.i(0),
-    _v248 = _v0.i(0),
-    _v249 = _v0.i(0),
-    _v250 = _v0.i(0);
+  _v0.s(["ReactionsToggleRow", 0, _v251], 0);
+  var _v252 = _v0.i(0),
+    _v253 = _v0.i(0),
+    _v254 = _v0.i(0),
+    _v255 = _v0.i(0);
   _v0.s(["ReactionsTab", 0, function ({
     id: _v0 = (0, _v7.createDomName)("reactions-tab"),
     className: _v1 = (0, _v7.createDomName)("reactions-tab")
@@ -6204,7 +6260,7 @@
     let {
         isEnabled: _v2,
         reactionActions: _v3
-      } = (0, _v9.useManager)(_v247.ReactionManager),
+      } = (0, _v9.useManager)(_v252.ReactionManager),
       {
         trackLiveStreamReactionsToggled: _v4
       } = (0, _v83.useLiveStreamBroadcasterTracking)(),
@@ -6217,7 +6273,7 @@
         _v5(!0 !== _v2);
       }, [_v2, _v5]);
     return (0, _v4.jsxs)(_v4.Fragment, {
-      children: [(0, _v4.jsx)(_v250.LeftPanelHeader, {
+      children: [(0, _v4.jsx)(_v255.LeftPanelHeader, {
         id: (0, _v7.createDomName)(_v0, "header"),
         className: (0, _v7.createDomName)(_v1, "header"),
         label: (0, _v53.translate)({
@@ -6246,13 +6302,13 @@
             }
           }
         }),
-        controls: (0, _v4.jsx)(_v249.LeftPanelDismiss, {
+        controls: (0, _v4.jsx)(_v254.LeftPanelDismiss, {
           id: (0, _v7.createDomName)(_v0, "dismiss-button"),
           className: (0, _v7.createDomName)(_v1, "dismiss-button")
         })
-      }), (0, _v4.jsx)(_v248.LeftPanelContent, {
+      }), (0, _v4.jsx)(_v253.LeftPanelContent, {
         fitContent: !0,
-        children: (0, _v4.jsx)(_v246, {
+        children: (0, _v4.jsx)(_v251, {
           id: (0, _v7.createDomName)(_v0, "toggle-row"),
           className: (0, _v7.createDomName)(_v1, "toggle-row"),
           isEnabled: _v2,
@@ -6261,12 +6317,12 @@
       })]
     });
   }], 0);
-  var _v251 = _v0.i(0);
+  var _v256 = _v0.i(0);
   _v0.s(["useLiveReactionsAvailable", 0, function () {
     let _v0 = (0, _v34.useSessionOwnerId)(),
       {
         capabilities: _v1
       } = (0, _v22.useCapability)(["canEnableLiveReactions"], _v0);
-    return (0, _v251.useOrionSettingsFields)(["enable_live_reactions"]).enable_live_reactions && !!_v1.canEnableLiveReactions;
+    return (0, _v256.useOrionSettingsFields)(["enable_live_reactions"]).enable_live_reactions && !!_v1.canEnableLiveReactions;
   }], 0);
 }

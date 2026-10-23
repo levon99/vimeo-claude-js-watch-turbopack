@@ -12,13 +12,14 @@
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
-    _v12 = _v0.i(0);
+    _v12 = _v0.i(0),
+    _v13 = _v0.i(0);
   _v0.s(["default", 0, _v0 => {
     let {
         planData: _v1,
         modalConfig: _v2
       } = _v0,
-      _v3 = (0, _v12.getPlanQuota)(_v1),
+      _v3 = (0, _v13.getPlanQuota)(_v1),
       {
         entitlements: _v4
       } = _v1.metadata,
@@ -31,10 +32,10 @@
         },
         children: _v0
       });
-    if ((0, _v12.isRepackagingTier)(_v1.tier)) {
+    if ((0, _v13.isRepackagingTier)(_v1.tier)) {
       let _v0 = _v4?.params?.teamSeats,
-        _v1 = (0, _v9.selectStorageQuota)(_v4?.params ?? {}).quantity ?? "",
-        _v2 = _v4?.params?.videoStoragePeriodicQuota ?? (0, _v8.translate)({
+        _v1 = (0, _v10.selectStorageQuota)(_v4?.params ?? {}).quantity ?? "",
+        _v2 = _v4?.params?.videoStoragePeriodicQuota ?? (0, _v9.translate)({
           singular: "Unlimited",
           dictionary: {
             es: {
@@ -64,8 +65,8 @@
         _v4 = _v4?.params?.bandwidth?.quotaPeriod === "year",
         _v5 = _v5 ? `${_v0} ${_v5}` : (() => {
           switch (_v1.tier) {
-            case _v11.PLANS.PROFESSIONAL:
-              return (0, _v8.translate)({
+            case _v12.PLANS.PROFESSIONAL:
+              return (0, _v9.translate)({
                 singular: "{AMOUNT} users (up to {ADD_USERS})",
                 replacements: {
                   AMOUNT: _v0,
@@ -95,8 +96,8 @@
                   }
                 }
               });
-            case _v11.PLANS.STUDIO:
-              return (0, _v8.translate)({
+            case _v12.PLANS.STUDIO:
+              return (0, _v9.translate)({
                 singular: "{AMOUNT} users (up to {ADD_USERS})",
                 replacements: {
                   AMOUNT: _v0,
@@ -126,12 +127,12 @@
                   }
                 }
               });
-            case _v11.PLANS.PRODUCTION:
-              return (0, _v8.translate)({
+            case _v12.PLANS.PRODUCTION:
+              return (0, _v9.translate)({
                 singular: "{AMOUNT} users (up to {ADD_USERS})",
                 replacements: {
                   AMOUNT: _v0,
-                  ADD_USERS: (0, _v8.translate)({
+                  ADD_USERS: (0, _v9.translate)({
                     singular: "Unlimited",
                     dictionary: {
                       es: {
@@ -183,7 +184,7 @@
                 }
               });
             default:
-              return (0, _v8.translate)({
+              return (0, _v9.translate)({
                 singular: "{AMOUNT} user",
                 plural: "{AMOUNT} users",
                 count: _v0 ?? 0,
@@ -224,7 +225,7 @@
           }
         })(),
         _v6 = [{
-          icon: (0, _v1.jsx)(_v6.Users, {
+          icon: (0, _v1.jsx)(_v7.Users, {
             h: {
               base: (0, _v2.rem)(16),
               md: (0, _v2.rem)(20),
@@ -238,7 +239,7 @@
           }),
           value: _v5
         }, {
-          icon: (0, _v1.jsx)(_v5.Database, {
+          icon: (0, _v1.jsx)(_v6.ManagedStorage, {
             h: {
               base: (0, _v2.rem)(16),
               md: (0, _v2.rem)(20),
@@ -250,7 +251,7 @@
               xl: (0, _v2.rem)(16)
             }
           }),
-          value: (0, _v8.translate)({
+          value: (0, _v9.translate)({
             singular: "{AMOUNT} managed storage for embeddable and non-Public videos",
             replacements: {
               AMOUNT: _v1
@@ -279,7 +280,7 @@
               }
             }
           })
-        }, ...(_v1.tier === _v11.PLANS.CREATOR ? [{
+        }, ...(_v1.tier === _v12.PLANS.CREATOR ? [{
           icon: (0, _v1.jsx)(_v5.Database, {
             h: {
               base: (0, _v2.rem)(16),
@@ -292,7 +293,7 @@
               xl: (0, _v2.rem)(16)
             }
           }),
-          value: (0, _v8.translate)({
+          value: (0, _v9.translate)({
             singular: "{AMOUNT} total storage (including public, non-embedded videos)",
             replacements: {
               AMOUNT: _v2
@@ -334,7 +335,7 @@
               xl: (0, _v2.rem)(16)
             }
           }),
-          value: _v4 ? (0, _v8.translate)({
+          value: _v4 ? (0, _v9.translate)({
             singular: "{AMOUNT} yearly bandwidth",
             replacements: {
               AMOUNT: _v3
@@ -362,7 +363,7 @@
                 singular: "{AMOUNT} 年带宽"
               }
             }
-          }) : (0, _v8.translate)({
+          }) : (0, _v9.translate)({
             singular: "{AMOUNT} monthly bandwidth",
             replacements: {
               AMOUNT: _v3
@@ -392,9 +393,9 @@
             }
           })
         }];
-      return (0, _v1.jsx)(_v10.PlanQuotaContainer, {
-        children: (0, _v1.jsx)(_v10.StorageQuotaContainer, {
-          children: _v6.map((_v0, _v1) => (0, _v1.jsxs)(_v10.StyledRow, {
+      return (0, _v1.jsx)(_v11.PlanQuotaContainer, {
+        children: (0, _v1.jsx)(_v11.StorageQuotaContainer, {
+          children: _v6.map((_v0, _v1) => (0, _v1.jsxs)(_v11.StyledRow, {
             children: [(0, _v1.jsx)("div", {
               children: _v0.icon
             }), _v6(_v0.value)]
@@ -410,11 +411,11 @@
         getBandwidth: _v10
       } = _v3,
       _v11 = _v4?.params?.videoStorageQuotaUnit === "video_size";
-    return (0, _v1.jsx)(_v10.PlanQuotaContainer, {
-      children: (0, _v1.jsxs)(_v10.StorageQuotaContainer, {
-        children: [(0, _v1.jsxs)(_v10.StyledRow, {
+    return (0, _v1.jsx)(_v11.PlanQuotaContainer, {
+      children: (0, _v1.jsxs)(_v11.StorageQuotaContainer, {
+        children: [(0, _v1.jsxs)(_v11.StyledRow, {
           children: [(0, _v1.jsx)("div", {
-            children: (0, _v1.jsx)(_v6.Users, {
+            children: (0, _v1.jsx)(_v7.Users, {
               h: {
                 base: (0, _v2.rem)(16),
                 md: (0, _v2.rem)(20),
@@ -434,7 +435,7 @@
             },
             children: _v5 ? `${_v4?.params?.teamSeats} ${_v5}` : _v7(_v4?.params?.teamSeats, !0)
           })]
-        }), (0, _v1.jsxs)(_v10.StyledRow, {
+        }), (0, _v1.jsxs)(_v11.StyledRow, {
           children: [_v11 ? (0, _v1.jsx)(_v5.Database, {
             h: {
               base: (0, _v2.rem)(16),
@@ -446,7 +447,7 @@
               md: (0, _v2.rem)(20),
               xl: (0, _v2.rem)(16)
             }
-          }) : (0, _v1.jsx)(_v7.VideosStack, {
+          }) : (0, _v1.jsx)(_v8.VideosStack, {
             h: {
               base: (0, _v2.rem)(16),
               md: (0, _v2.rem)(20),
@@ -458,7 +459,7 @@
               xl: (0, _v2.rem)(16)
             }
           }), _v6(_v11 ? _v9(_v4?.params?.videoStoragePeriodicQuota) : _v8(_v4?.params?.videoStoragePeriodicQuota))]
-        }), _v10 && _v1.metadata.isBandwidthProduct && (0, _v1.jsxs)(_v10.StyledRow, {
+        }), _v10 && _v1.metadata.isBandwidthProduct && (0, _v1.jsxs)(_v11.StyledRow, {
           children: [(0, _v1.jsx)("div", {
             children: (0, _v1.jsx)(_v4.Speedometer, {
               h: {

@@ -166,18 +166,18 @@
             explicitRedirect: _v3,
             originUrl: _v4
           }) => {
+            var _v5, _v6;
+            let _v7, _v8;
             if (!_v10(_v0.rules, _v1)) return {
               status: "legacy"
             };
-            let _v5 = "mobile" === _v2 ? _v0.modes.mobile : _v0.modes.desktop;
-            if (null === _v5) return {
+            let _v9 = "mobile" === _v2 ? _v0.modes.mobile : _v0.modes.desktop;
+            if (null === _v9) return {
               status: "legacy"
             };
-            let _v6 = ((_v0, _v1) => {
-              let _v2 = void 0 === _v1 ? void 0 : _v14(_v1),
-                _v3 = void 0 !== _v2 && (0, _v11.isAllowedReturnTarget)(_v2, "login");
-              if (void 0 !== _v0) {
-                let _v0 = _v14((_v0 => {
+            let _v10 = (_v0 => {
+                if (void 0 === _v0) return;
+                let _v1 = _v14((_v0 => {
                   let _v1;
                   try {
                     _v1 = new URL(_v0, _v12);
@@ -186,21 +186,22 @@
                   }
                   return "/welcome-survey" !== _v1.pathname ? _v0 : _v1.searchParams.get("vimeoHref") ?? _v1.searchParams.get("redirect") ?? _v0;
                 })(_v0));
-                if ((0, _v11.isAllowedReturnTarget)(_v0, "login")) return _v3 && void 0 !== _v2 && ((_v0, _v1) => {
-                  if (/[?#]/.test(_v0) || !/[?#]/.test(_v1)) return !1;
-                  let _v2 = _v15(_v0);
-                  return null !== _v2 && _v2 === _v15(_v1);
-                })(_v0, _v2) ? _v2 : _v0;
-              }
-              return _v3 && void 0 !== _v2 ? _v2 : _v11.DEFAULT_RETURN_TARGET;
-            })(_v3, _v4);
+                return (0, _v11.isAllowedReturnTarget)(_v1, "login") ? _v1 : void 0;
+              })(_v3),
+              _v11 = (_v5 = _v10, _v8 = void 0 !== (_v7 = void 0 === (_v6 = _v4) ? void 0 : _v14(_v6)) && (0, _v11.isAllowedReturnTarget)(_v7, "login"), void 0 !== _v5 ? _v8 && void 0 !== _v7 && ((_v0, _v1) => {
+                if (/[?#]/.test(_v0) || !/[?#]/.test(_v1)) return !1;
+                let _v2 = _v15(_v0);
+                return null !== _v2 && _v2 === _v15(_v1);
+              })(_v5, _v7) ? _v7 : _v5 : _v8 && void 0 !== _v7 ? _v7 : _v11.DEFAULT_RETURN_TARGET),
+              _v12 = void 0 !== _v10 && (0, _v11.isCheckoutTarget)(_v10);
             return {
               status: "routed",
               target: _v0.target,
-              mode: _v5,
-              returnTo: _v6,
-              signupRedirect: (0, _v11.buildOnboardingEnvelope)(_v5, _v6),
-              loginRedirect: _v6
+              mode: _v9,
+              skipOnboarding: _v12,
+              returnTo: _v11,
+              signupRedirect: _v12 ? _v11 : (0, _v11.buildOnboardingEnvelope)(_v9, _v11),
+              loginRedirect: _v11
             };
           })({
             policy: _v3,
@@ -211,7 +212,7 @@
           })).status && _v10(_v3.rules, _v0) && (_v7 = "control" === _v6 ? "control_device_mode" : "invalid_config");
         }
       }
-      "routed" === _v4.status && (_v7 = "routed"), _v20.current = {
+      "routed" === _v4.status && (_v7 = _v4.skipOnboarding ? "routed_direct" : "routed"), _v20.current = {
         reason: _v7,
         target: _v8,
         deviceMode: _v6,

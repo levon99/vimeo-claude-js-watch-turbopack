@@ -36,16 +36,17 @@
     usePortal: _v15,
     zIndex: _v16,
     title: _v17,
-    size: _v18
+    size: _v18,
+    isInset: _v19
   }) => {
-    let _v19 = (0, _v10.useIsMobile)(),
-      _v20 = "venue" === _v0,
-      _v21 = (0, _v2.rem)(_v14.ACTION_ICON_BOX_SIZE),
-      _v22 = [(0, _v13.createSection)([_v12 && void 0 !== _v9 && (0, _v1.jsx)(_v16.CopyAction, {
+    let _v20 = (0, _v10.useIsMobile)(),
+      _v21 = "venue" === _v0,
+      _v22 = (0, _v2.rem)(_v14.ACTION_ICON_BOX_SIZE),
+      _v23 = [(0, _v13.createSection)([_v12 && void 0 !== _v9 && (0, _v1.jsx)(_v16.CopyAction, {
         icon: (0, _v1.jsx)(_v7.Link, {
-          boxSize: _v21
+          boxSize: _v22
         }),
-        label: _v20 ? (0, _v11.translate)({
+        label: _v21 ? (0, _v11.translate)({
           singular: "Copy venue link",
           dictionary: {
             es: {
@@ -98,11 +99,11 @@
         }),
         content: _v12,
         onClick: _v9
-      }), _v13 && !_v19 && void 0 !== _v10 && (0, _v1.jsx)(_v16.CopyAction, {
+      }), _v13 && !_v20 && void 0 !== _v10 && (0, _v1.jsx)(_v16.CopyAction, {
         icon: (0, _v1.jsx)(_v4.CodeSquare, {
-          boxSize: _v21
+          boxSize: _v22
         }),
-        label: _v20 ? (0, _v11.translate)({
+        label: _v21 ? (0, _v11.translate)({
           singular: "Copy venue embed code",
           dictionary: {
             es: {
@@ -157,9 +158,9 @@
         onClick: _v10
       })]), (0, _v13.createSection)([_v5 && _v12 && void 0 !== _v11 && (0, _v1.jsx)(_v15.Action, {
         icon: (0, _v1.jsx)(_v5.Eye, {
-          boxSize: _v21
+          boxSize: _v22
         }),
-        label: _v20 ? (0, _v11.translate)({
+        label: _v21 ? (0, _v11.translate)({
           singular: "View venue page",
           dictionary: {
             es: {
@@ -214,9 +215,9 @@
         onClick: _v11
       }), _v5 && void 0 !== _v6 && (0, _v1.jsx)(_v15.Action, {
         icon: (0, _v1.jsx)(_v6.FolderOpen, {
-          boxSize: _v21
+          boxSize: _v22
         }),
-        label: _v20 ? (0, _v11.translate)({
+        label: _v21 ? (0, _v11.translate)({
           singular: "Move venue...",
           dictionary: {
             es: {
@@ -270,7 +271,7 @@
         onClick: _v6
       }), _v5 && void 0 !== _v7 && (0, _v1.jsx)(_v15.Action, {
         icon: (0, _v1.jsx)(_v9.RenamePencil, {
-          boxSize: _v21
+          boxSize: _v22
         }),
         label: (0, _v11.translate)({
           singular: "Rename",
@@ -299,9 +300,9 @@
           }
         }),
         onClick: _v7
-      }), _v5 && !_v20 && void 0 !== _v8 && (0, _v1.jsx)(_v15.Action, {
+      }), _v5 && !_v21 && void 0 !== _v8 && (0, _v1.jsx)(_v15.Action, {
         icon: (0, _v1.jsx)(_v3.BrowserWindow, {
-          boxSize: _v21
+          boxSize: _v22
         }),
         label: (0, _v11.translate)({
           singular: "Add to event series",
@@ -332,9 +333,9 @@
         onClick: _v8
       })]), (0, _v13.createSection)([_v3 && void 0 !== _v4 && (0, _v1.jsx)(_v15.Action, {
         icon: (0, _v1.jsx)(_v8.TrashBin, {
-          boxSize: _v21
+          boxSize: _v22
         }),
-        label: _v20 ? (0, _v11.translate)({
+        label: _v21 ? (0, _v11.translate)({
           singular: "Delete venue",
           dictionary: {
             es: {
@@ -395,8 +396,9 @@
       disabled: _v1,
       title: _v17,
       isV2: !1,
+      isInset: _v19,
       size: _v18,
-      children: _v22.map((_v0, _v1) => (0, _v1.jsx)(_v13.SectionRenderer, {
+      children: _v23.map((_v0, _v1) => (0, _v1.jsx)(_v13.SectionRenderer, {
         section: _v0,
         index: _v1
       }, _v1))

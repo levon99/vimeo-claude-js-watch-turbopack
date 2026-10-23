@@ -15,7 +15,7 @@
     maxHeight: _v1,
     gridAutoFlow: "row",
     alignContent: "flex-end",
-    zIndex: _v2 ? "10" : "0",
+    zIndex: _v2 ? "40" : "0",
     position: "fixed",
     left: _v3 ? "50%" : "auto",
     top: _v1 ? "unset" : (0, _v3.rem)(64),

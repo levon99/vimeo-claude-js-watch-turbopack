@@ -316,6 +316,7 @@
     _v68 = _v0.i(0);
   let _v69 = [..._v67.dimensionValueTypes, _v66.color, _v64.complex],
     _v70 = new WeakMap();
+  _v0.s(["visualElementStore", 0, _v70], 0);
   var _v71 = _v0.i(0);
   let _v72 = ["AnimationStart", "AnimationComplete", "Update", "BeforeLayoutMeasure", "LayoutMeasure", "LayoutAnimationStart", "LayoutAnimationComplete"];
   class _v73 {
@@ -510,6 +511,7 @@
       this.events[_v0] && this.events[_v0].notify(..._v1);
     }
   }
+  _v0.s(["VisualElement", 0, _v73], 0);
   var _v74 = _v0.i(0);
   class _v75 extends _v73 {
     constructor() {
@@ -565,6 +567,7 @@
       return _v43(_v0, _v1, _v2);
     }
   }
+  _v0.s(["HTMLVisualElement", 0, _v77], 0);
   class _v78 extends _v75 {
     constructor() {
       super(...arguments), this.type = "svg", this.isSVGTag = !1, this.measureInstanceViewportBox = _v55.createBox;
@@ -592,6 +595,7 @@
       this.isSVGTag = _v35(_v0.tagName), super.mount(_v0);
     }
   }
+  _v0.s(["SVGVisualElement", 0, _v78], 0);
   let _v79 = (_v2 = {
       ..._v5.animations,
       ..._v7.gestureAnimations,

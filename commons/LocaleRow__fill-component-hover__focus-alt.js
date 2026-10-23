@@ -322,161 +322,265 @@
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0),
-    _v36 = _v0.i(0),
+    _v34 = _v0.i(0);
+  let _v35 = ({
+    label: _v0,
+    panelProps: _v1,
+    children: _v2
+  }) => (0, _v1.jsx)(_v33.AccordionItem, {
+    bg: "transparent",
+    border: "none",
+    w: "100%",
+    children: ({
+      isExpanded: _v0
+    }) => (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsxs)(_v32.AccordionButton, {
+        borderRadius: "sm",
+        gap: "xs",
+        justifyContent: "flex-start",
+        pl: "0",
+        pr: "xs",
+        py: "xs",
+        children: [(0, _v1.jsx)(_v31.ChevronDownSmall, {
+          "aria-hidden": !0,
+          boxSize: "2xs",
+          color: "text-tertiary",
+          flexShrink: 0,
+          transform: _v0 ? void 0 : "rotate(-90deg)",
+          transition: "transform 150ms ease"
+        }), (0, _v1.jsx)(_v9.Text, {
+          color: "text-tertiary",
+          variant: "heading-2xs",
+          children: _v0
+        })]
+      }), (0, _v1.jsx)(_v34.AccordionPanel, {
+        pb: "0",
+        ..._v1,
+        children: _v2
+      })]
+    })
+  });
+  var _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0);
-  let _v42 = ({
-      onCancel: _v0,
-      onDiscard: _v1
-    }) => (0, _v1.jsxs)(_v38.Modal, {
-      isOpen: !0,
-      onClose: _v0,
-      children: [(0, _v1.jsx)(_v33.ModalOverlay, {}), (0, _v1.jsxs)(_v40.ModalContent, {
-        borderRadius: "md",
-        children: [(0, _v1.jsx)(_v41.ModalHeader, {
-          color: "text-primary",
-          fontSize: "heading-md",
-          padding: "lg",
+    _v39 = _v0.i(0);
+  let _v40 = ({
+    onCancel: _v0,
+    onDiscard: _v1
+  }) => (0, _v1.jsxs)(_v36.Modal, {
+    isOpen: !0,
+    onClose: _v0,
+    children: [(0, _v1.jsx)(_v29.ModalOverlay, {}), (0, _v1.jsxs)(_v38.ModalContent, {
+      borderRadius: "md",
+      children: [(0, _v1.jsx)(_v39.ModalHeader, {
+        color: "text-primary",
+        fontSize: "heading-md",
+        padding: "lg",
+        children: (0, _v18.translate)({
+          singular: "Discard changes?",
+          dictionary: {
+            es: {
+              singular: "¿Descartar cambios?"
+            },
+            "de-DE": {
+              singular: "Änderungen verwerfen?"
+            },
+            "fr-FR": {
+              singular: "Abandonner les modifications ? "
+            },
+            "ja-JP": {
+              singular: "変更を破棄しますか？"
+            },
+            "ko-KR": {
+              singular: "변경 사항을 폐기하시겠습니까?"
+            },
+            "pt-BR": {
+              singular: "Descartar alterações?"
+            },
+            "zh-CN": {
+              singular: "要放弃更改吗？"
+            }
+          }
+        })
+      }), (0, _v1.jsx)(_v37.ModalBody, {
+        color: "text-primary",
+        fontSize: "body-md",
+        padding: "0.5rem 1.5rem",
+        children: (0, _v18.translate)({
+          singular: "If you continue, all unsaved changes will be permanently removed and cannot be recovered.",
+          dictionary: {
+            es: {
+              singular: "Si continúa, todos los cambios no guardados se eliminarán de forma permanente y no podrán recuperarse."
+            },
+            "de-DE": {
+              singular: "Wenn Sie fortfahren, werden alle ungespeicherten Änderungen dauerhaft entfernt und können nicht wiederhergestellt werden."
+            },
+            "fr-FR": {
+              singular: "Si vous continuez, toutes les modifications non enregistrées seront définitivement supprimées et ne pourront pas être récupérées."
+            },
+            "ja-JP": {
+              singular: "続行すると、保存されていないすべての変更が完全に削除され、復元できなくなります。"
+            },
+            "ko-KR": {
+              singular: "계속하면 저장되지 않은 모든 변경 사항이 영구적으로 제거되며 복구할 수 없습니다."
+            },
+            "pt-BR": {
+              singular: "Se você continuar, todas as alterações não salvas serão removidas permanentemente e não poderão ser recuperadas."
+            },
+            "zh-CN": {
+              singular: "如果继续，所有未保存的更改将被永久删除且无法恢复。"
+            }
+          }
+        })
+      }), (0, _v1.jsxs)(_v28.ModalFooter, {
+        border: "0",
+        padding: "lg",
+        children: [(0, _v1.jsx)(_v25.Button, {
+          onClick: _v0,
+          variant: "tertiary",
           children: (0, _v18.translate)({
-            singular: "Discard changes?",
+            singular: "Keep editing",
             dictionary: {
               es: {
-                singular: "¿Descartar cambios?"
+                singular: "Seguir editando"
               },
               "de-DE": {
-                singular: "Änderungen verwerfen?"
+                singular: "Weiter bearbeiten"
               },
               "fr-FR": {
-                singular: "Abandonner les modifications ? "
+                singular: "Poursuivre le montage"
               },
               "ja-JP": {
-                singular: "変更を破棄しますか？"
+                singular: "編集を続ける"
               },
               "ko-KR": {
-                singular: "변경 사항을 폐기하시겠습니까?"
+                singular: "계속 편집"
               },
               "pt-BR": {
-                singular: "Descartar alterações?"
+                singular: "Continuar editando"
               },
               "zh-CN": {
-                singular: "要放弃更改吗？"
+                singular: "继续编辑"
               }
             }
           })
-        }), (0, _v1.jsx)(_v39.ModalBody, {
-          color: "text-primary",
-          fontSize: "body-md",
-          padding: "0.5rem 1.5rem",
+        }), (0, _v1.jsx)(_v25.Button, {
+          onClick: _v1,
+          variant: "destructive",
           children: (0, _v18.translate)({
-            singular: "If you continue, all unsaved changes will be permanently removed and cannot be recovered.",
+            singular: "Discard",
             dictionary: {
               es: {
-                singular: "Si continúa, todos los cambios no guardados se eliminarán de forma permanente y no podrán recuperarse."
+                singular: "Descartar"
               },
               "de-DE": {
-                singular: "Wenn Sie fortfahren, werden alle ungespeicherten Änderungen dauerhaft entfernt und können nicht wiederhergestellt werden."
+                singular: "Verwerfen"
               },
               "fr-FR": {
-                singular: "Si vous continuez, toutes les modifications non enregistrées seront définitivement supprimées et ne pourront pas être récupérées."
+                singular: "Ignorer"
               },
               "ja-JP": {
-                singular: "続行すると、保存されていないすべての変更が完全に削除され、復元できなくなります。"
+                singular: "破棄する"
               },
               "ko-KR": {
-                singular: "계속하면 저장되지 않은 모든 변경 사항이 영구적으로 제거되며 복구할 수 없습니다."
+                singular: "폐기"
               },
               "pt-BR": {
-                singular: "Se você continuar, todas as alterações não salvas serão removidas permanentemente e não poderão ser recuperadas."
+                singular: "Descartar"
               },
               "zh-CN": {
-                singular: "如果继续，所有未保存的更改将被永久删除且无法恢复。"
+                singular: "丢弃"
               }
             }
           })
-        }), (0, _v1.jsxs)(_v32.ModalFooter, {
-          border: "0",
-          padding: "lg",
-          children: [(0, _v1.jsx)(_v28.Button, {
-            onClick: _v0,
-            variant: "tertiary",
-            children: (0, _v18.translate)({
-              singular: "Keep editing",
-              dictionary: {
-                es: {
-                  singular: "Seguir editando"
-                },
-                "de-DE": {
-                  singular: "Weiter bearbeiten"
-                },
-                "fr-FR": {
-                  singular: "Poursuivre le montage"
-                },
-                "ja-JP": {
-                  singular: "編集を続ける"
-                },
-                "ko-KR": {
-                  singular: "계속 편집"
-                },
-                "pt-BR": {
-                  singular: "Continuar editando"
-                },
-                "zh-CN": {
-                  singular: "继续编辑"
-                }
-              }
-            })
-          }), (0, _v1.jsx)(_v28.Button, {
-            onClick: _v1,
-            variant: "destructive",
-            children: (0, _v18.translate)({
-              singular: "Discard",
-              dictionary: {
-                es: {
-                  singular: "Descartar"
-                },
-                "de-DE": {
-                  singular: "Verwerfen"
-                },
-                "fr-FR": {
-                  singular: "Ignorer"
-                },
-                "ja-JP": {
-                  singular: "破棄する"
-                },
-                "ko-KR": {
-                  singular: "폐기"
-                },
-                "pt-BR": {
-                  singular: "Descartar"
-                },
-                "zh-CN": {
-                  singular: "丢弃"
-                }
-              }
-            })
-          })]
         })]
       })]
+    })]
+  });
+  var _v41 = _v0.i(0),
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0);
+  let _v44 = (0, _v11.rem)(32),
+    _v45 = ({
+      source: _v0,
+      target: _v1
+    }) => (0, _v1.jsxs)(_v3.Flex, {
+      align: "center",
+      gap: "lg",
+      w: "100%",
+      children: [(0, _v1.jsx)(_v3.Flex, {
+        align: "center",
+        flex: "1",
+        minH: _v44,
+        minW: 0,
+        children: _v0
+      }), (0, _v1.jsx)(_v43.ArrowRight, {
+        "aria-hidden": !0,
+        boxSize: "2xs",
+        color: "text-primary",
+        flexShrink: 0
+      }), (0, _v1.jsx)(_v3.Flex, {
+        align: "center",
+        flex: "1",
+        gap: "xs",
+        minH: _v44,
+        minW: 0,
+        children: _v1
+      })]
     }),
-    _v43 = ({
+    _v46 = ({
+      field: _v0,
+      value: _v1,
+      onChange: _v2
+    }) => (0, _v1.jsx)(_v35, {
+      label: _v0.label,
+      panelProps: {
+        pt: "xs",
+        px: "0"
+      },
+      children: (0, _v1.jsx)(_v45, {
+        source: !0 === _v0.isMultiline ? (0, _v1.jsx)(_v42.Textarea, {
+          "aria-label": _v0.sourceAriaLabel,
+          isDisabled: !0,
+          resize: "none",
+          rows: 5,
+          value: _v0.sourceValue
+        }) : (0, _v1.jsx)(_v41.Input, {
+          "aria-label": _v0.sourceAriaLabel,
+          isDisabled: !0,
+          value: _v0.sourceValue
+        }),
+        target: !0 === _v0.isMultiline ? (0, _v1.jsx)(_v42.Textarea, {
+          "aria-label": _v0.targetAriaLabel,
+          maxLength: _v0.maxLength,
+          onChange: _v0 => _v2(_v0.path, _v0.target.value),
+          placeholder: _v0.sourceValue,
+          resize: "none",
+          rows: 5,
+          value: _v1
+        }) : (0, _v1.jsx)(_v41.Input, {
+          "aria-label": _v0.targetAriaLabel,
+          maxLength: _v0.maxLength,
+          onChange: _v0 => _v2(_v0.path, _v0.target.value),
+          placeholder: _v0.sourceValue,
+          value: _v1
+        })
+      })
+    }),
+    _v47 = ({
       sourceLocale: _v0,
       isTranslating: _v1,
       onCancel: _v2,
       onConfirm: _v3
     }) => {
       let _v4 = (0, _v19.useLocale)();
-      return (0, _v1.jsxs)(_v38.Modal, {
+      return (0, _v1.jsxs)(_v36.Modal, {
         closeOnEsc: !_v1,
         closeOnOverlayClick: !_v1,
         isOpen: !0,
         onClose: _v2,
-        children: [(0, _v1.jsx)(_v33.ModalOverlay, {}), (0, _v1.jsxs)(_v40.ModalContent, {
-          children: [(0, _v1.jsx)(_v41.ModalHeader, {
+        children: [(0, _v1.jsx)(_v29.ModalOverlay, {}), (0, _v1.jsxs)(_v38.ModalContent, {
+          children: [(0, _v1.jsx)(_v39.ModalHeader, {
             children: (0, _v18.translate)({
               singular: "Translate again",
               dictionary: {
@@ -503,7 +607,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v39.ModalBody, {
+          }), (0, _v1.jsx)(_v37.ModalBody, {
             children: (0, _v1.jsxs)(_v3.Flex, {
               direction: "column",
               gap: "lg",
@@ -571,8 +675,8 @@
                 })
               })]
             })
-          }), (0, _v1.jsxs)(_v32.ModalFooter, {
-            children: [(0, _v1.jsx)(_v28.Button, {
+          }), (0, _v1.jsxs)(_v28.ModalFooter, {
+            children: [(0, _v1.jsx)(_v25.Button, {
               isDisabled: _v1,
               onClick: _v2,
               variant: "tertiary",
@@ -602,7 +706,7 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v28.Button, {
+            }), (0, _v1.jsx)(_v25.Button, {
               "data-testid": "confirm-translate-again-button",
               isLoading: _v1,
               onClick: _v3,
@@ -638,84 +742,15 @@
         })]
       });
     },
-    _v44 = (0, _v11.rem)(32),
-    _v45 = (0, _v11.rem)(980),
-    _v46 = (0, _v11.rem)(265),
-    _v47 = {
+    _v48 = (0, _v11.rem)(980),
+    _v49 = (0, _v11.rem)(265),
+    _v50 = {
       unsaved: "default",
       inProgress: "warning",
       savedDraft: "info",
       published: "success",
       unpublished: "info"
-    },
-    _v48 = ({
-      source: _v0,
-      target: _v1
-    }) => (0, _v1.jsxs)(_v3.Flex, {
-      align: "center",
-      gap: "lg",
-      w: "100%",
-      children: [(0, _v1.jsx)(_v3.Flex, {
-        align: "center",
-        flex: "1",
-        minH: _v44,
-        minW: 0,
-        children: _v0
-      }), (0, _v1.jsx)(_v36.ArrowRight, {
-        "aria-hidden": !0,
-        boxSize: "2xs",
-        color: "text-primary",
-        flexShrink: 0
-      }), (0, _v1.jsx)(_v3.Flex, {
-        align: "center",
-        flex: "1",
-        gap: "xs",
-        minH: _v44,
-        minW: 0,
-        children: _v1
-      })]
-    }),
-    _v49 = ({
-      label: _v0,
-      source: _v1,
-      target: _v2
-    }) => (0, _v1.jsx)(_v25.AccordionItem, {
-      bg: "transparent",
-      border: "none",
-      w: "100%",
-      children: ({
-        isExpanded: _v0
-      }) => (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v24.AccordionButton, {
-          borderRadius: "sm",
-          gap: "xs",
-          justifyContent: "flex-start",
-          pl: "0",
-          pr: "xs",
-          py: "xs",
-          children: [(0, _v1.jsx)(_v37.ChevronDownSmall, {
-            "aria-hidden": !0,
-            boxSize: "2xs",
-            color: "text-tertiary",
-            flexShrink: 0,
-            transform: _v0 ? void 0 : "rotate(-90deg)",
-            transition: "transform 150ms ease"
-          }), (0, _v1.jsx)(_v9.Text, {
-            color: "text-tertiary",
-            variant: "heading-2xs",
-            children: _v0
-          })]
-        }), (0, _v1.jsx)(_v26.AccordionPanel, {
-          pb: "0",
-          pt: "xs",
-          px: "0",
-          children: (0, _v1.jsx)(_v48, {
-            source: _v1,
-            target: _v2
-          })
-        })]
-      })
-    });
+    };
   _v0.s(["LocalizationModal", 0, ({
     onClose: _v0,
     sourceLocale: _v1,
@@ -768,10 +803,10 @@
         minW: 0,
         px: "lg",
         py: "md",
-        children: [_v13 ? (0, _v1.jsx)(_v28.Button, {
+        children: [_v13 ? (0, _v1.jsx)(_v25.Button, {
           isDisabled: _v12,
           isLoading: _v11,
-          leftIcon: (0, _v1.jsx)(_v35.AiSparkles, {}),
+          leftIcon: (0, _v1.jsx)(_v30.AiSparkles, {}),
           onClick: () => _v16(!0),
           variant: "secondary",
           children: (0, _v18.translate)({
@@ -806,7 +841,7 @@
           gap: "3",
           justify: "flex-end",
           minW: 0,
-          children: [(0, _v1.jsx)(_v28.Button, {
+          children: [(0, _v1.jsx)(_v25.Button, {
             isDisabled: _v12 || _v11,
             onClick: _v27,
             variant: "tertiary",
@@ -839,9 +874,9 @@
           }), (0, _v1.jsxs)(_v5.Menu, {
             placement: "top-end",
             children: [(0, _v1.jsx)(_v6.MenuButton, {
-              as: _v28.Button,
+              as: _v25.Button,
               isLoading: _v12,
-              rightIcon: (0, _v1.jsx)(_v37.ChevronDownSmall, {}),
+              rightIcon: (0, _v1.jsx)(_v31.ChevronDownSmall, {}),
               variant: "primary",
               children: (0, _v18.translate)({
                 singular: "Save changes",
@@ -932,14 +967,14 @@
         })]
       });
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v30.ModalAdvanced, {
+      children: [(0, _v1.jsxs)(_v26.ModalAdvanced, {
         blockScrollOnMount: !1,
         isOpen: !0,
         onClose: _v27,
-        children: [(0, _v1.jsx)(_v33.ModalOverlay, {}), (0, _v1.jsxs)(_v30.ModalAdvancedContent, {
-          maxWidth: _v45,
-          width: _v45,
-          children: [(0, _v1.jsx)(_v30.ModalAdvancedHeader, {
+        children: [(0, _v1.jsx)(_v29.ModalOverlay, {}), (0, _v1.jsxs)(_v26.ModalAdvancedContent, {
+          maxWidth: _v48,
+          width: _v48,
+          children: [(0, _v1.jsx)(_v26.ModalAdvancedHeader, {
             description: (0, _v18.translate)({
               singular: "Save your draft, then preview and publish when ready.",
               dictionary: {
@@ -992,14 +1027,14 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v31.ModalCloseButton, {
+          }), (0, _v1.jsx)(_v27.ModalCloseButton, {
             isDisabled: _v11 || _v12
-          }), (0, _v1.jsxs)(_v30.ModalAdvancedBody, {
+          }), (0, _v1.jsxs)(_v26.ModalAdvancedBody, {
             borderBottomWidth: "0",
-            children: [(0, _v1.jsxs)(_v30.ModalAdvancedSidebar, {
-              maxW: _v46,
-              minW: _v46,
-              w: _v46,
+            children: [(0, _v1.jsxs)(_v26.ModalAdvancedSidebar, {
+              maxW: _v49,
+              minW: _v49,
+              w: _v49,
               children: [(0, _v1.jsx)(_v9.Text, {
                 color: "text-secondary",
                 pb: "sm",
@@ -1028,7 +1063,7 @@
                   }
                 })
               }), _v5.map(_v0 => {
-                let _v1 = (0, _v1.jsx)(_v30.ModalAdvancedSidebarItem, {
+                let _v1 = (0, _v1.jsx)(_v26.ModalAdvancedSidebarItem, {
                   isActive: _v19 === _v0.id,
                   isDisabled: _v0.isDisabled,
                   onClick: () => {
@@ -1076,7 +1111,7 @@
                   children: _v1
                 }, _v0.id);
               })]
-            }), (0, _v1.jsx)(_v30.ModalAdvancedPanel, {
+            }), (0, _v1.jsx)(_v26.ModalAdvancedPanel, {
               children: (0, _v1.jsxs)(_v3.Flex, {
                 direction: "column",
                 flex: "1",
@@ -1090,7 +1125,7 @@
                   pl: "3",
                   py: "xs",
                   w: "100%",
-                  children: (0, _v1.jsx)(_v48, {
+                  children: (0, _v1.jsx)(_v45, {
                     source: (0, _v1.jsx)(_v9.Text, {
                       color: "text-primary",
                       noOfLines: 1,
@@ -1119,9 +1154,9 @@
                     target: (0, _v1.jsxs)(_v1.Fragment, {
                       children: [(0, _v1.jsxs)(_v5.Menu, {
                         children: [(0, _v1.jsx)(_v6.MenuButton, {
-                          as: _v28.Button,
+                          as: _v25.Button,
                           isDisabled: _v12,
-                          rightIcon: (0, _v1.jsx)(_v37.ChevronDownSmall, {}),
+                          rightIcon: (0, _v1.jsx)(_v31.ChevronDownSmall, {}),
                           size: "sm",
                           variant: "tertiary",
                           children: (0, _v21.getLocaleLabel)(_v2, _v14)
@@ -1131,9 +1166,9 @@
                             children: (0, _v21.getLocaleLabel)(_v0, _v14)
                           }, _v0))
                         })]
-                      }), (0, _v1.jsx)(_v27.Badge, {
+                      }), (0, _v1.jsx)(_v24.Badge, {
                         size: "sm",
-                        variant: _v47[_v24],
+                        variant: _v50[_v24],
                         children: (0, _v20.getLocaleStatusLabel)(_v24)
                       })]
                     })
@@ -1143,44 +1178,49 @@
                   minH: 0,
                   overflowY: "auto",
                   w: "100%",
-                  children: void 0 === _v21 ? null : (0, _v1.jsx)(_v23.Accordion, {
-                    allowMultiple: !0,
-                    defaultIndex: [0, 1],
-                    w: "100%",
-                    children: _v21.fields.map(_v0 => (0, _v1.jsx)(_v49, {
-                      label: _v0.label,
-                      source: !0 === _v0.isMultiline ? (0, _v1.jsx)(_v34.Textarea, {
-                        "aria-label": _v0.sourceAriaLabel,
-                        isDisabled: !0,
-                        resize: "none",
-                        rows: 5,
-                        value: _v0.sourceValue
-                      }) : (0, _v1.jsx)(_v29.Input, {
-                        "aria-label": _v0.sourceAriaLabel,
-                        isDisabled: !0,
-                        value: _v0.sourceValue
-                      }),
-                      target: !0 === _v0.isMultiline ? (0, _v1.jsx)(_v34.Textarea, {
-                        "aria-label": _v0.targetAriaLabel,
-                        maxLength: _v0.maxLength,
-                        onChange: _v0 => _v25(_v0.path, _v0.target.value),
-                        placeholder: _v0.sourceValue,
-                        resize: "none",
-                        rows: 5,
+                  children: void 0 === _v21 ? null : (0, _v1.jsxs)(_v22.Fragment, {
+                    children: [_v21.fields.length > 0 ? (0, _v1.jsx)(_v23.Accordion, {
+                      allowMultiple: !0,
+                      defaultIndex: [0, 1],
+                      w: "100%",
+                      children: _v21.fields.map(_v0 => (0, _v1.jsx)(_v46, {
+                        field: _v0,
+                        onChange: _v25,
                         value: _v23[_v0.path]?.value ?? ""
-                      }) : (0, _v1.jsx)(_v29.Input, {
-                        "aria-label": _v0.targetAriaLabel,
-                        maxLength: _v0.maxLength,
-                        onChange: _v0 => _v25(_v0.path, _v0.target.value),
-                        placeholder: _v0.sourceValue,
-                        value: _v23[_v0.path]?.value ?? ""
-                      })
-                    }, _v0.path))
+                      }, _v0.path))
+                    }) : null, void 0 !== _v21.groups && _v21.groups.length > 0 ? (0, _v1.jsx)(_v23.Accordion, {
+                      allowMultiple: !0,
+                      defaultIndex: [0, 1],
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "md",
+                      w: "100%",
+                      children: _v21.groups.map(_v0 => (0, _v1.jsx)(_v35, {
+                        label: _v0.label,
+                        panelProps: {
+                          pt: "sm",
+                          px: "md"
+                        },
+                        children: (0, _v1.jsx)(_v23.Accordion, {
+                          allowMultiple: !0,
+                          defaultIndex: _v0.fields.map((_v0, _v1) => _v1),
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: "md",
+                          w: "100%",
+                          children: _v0.fields.map(_v0 => (0, _v1.jsx)(_v46, {
+                            field: _v0,
+                            onChange: _v25,
+                            value: _v23[_v0.path]?.value ?? ""
+                          }, _v0.path))
+                        })
+                      }, _v0.id))
+                    }) : null]
                   }, _v21.id)
                 })]
               })
             })]
-          }), (0, _v1.jsxs)(_v32.ModalFooter, {
+          }), (0, _v1.jsxs)(_v28.ModalFooter, {
             alignItems: "stretch",
             gap: "0",
             p: "0",
@@ -1189,22 +1229,22 @@
               borderRightWidth: "1px",
               borderStyle: "solid",
               flexShrink: 0,
-              w: _v46
+              w: _v49
             }), _v29]
           })]
         })]
-      }), _v15 ? (0, _v1.jsx)(_v43, {
+      }), _v15 ? (0, _v1.jsx)(_v47, {
         isTranslating: _v11,
         onCancel: () => _v16(!1),
         onConfirm: _v28,
         sourceLocale: _v1
-      }) : null, _v17 ? (0, _v1.jsx)(_v42, {
+      }) : null, _v17 ? (0, _v1.jsx)(_v40, {
         onCancel: () => _v18(!1),
         onDiscard: _v0
       }) : null]
     });
   }], 0);
-  var _v50 = _v0.i(0);
+  var _v51 = _v0.i(0);
   _v0.s(["MainLanguageSection", 0, ({
     locales: _v0,
     sourceLocale: _v1,
@@ -1249,7 +1289,7 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v50.Select, {
+      }), (0, _v1.jsx)(_v51.Select, {
         "data-testid": "main-language-select",
         disabled: _v3,
         items: _v5,

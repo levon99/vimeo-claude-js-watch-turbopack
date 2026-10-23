@@ -631,7 +631,7 @@
       });
     },
     _v15 = async (_v0, _v1) => await (0, _v2.getUserCapabilities)({
-      capabilities: ["canAddCustomUrl", "canAddTeamMembers", "canCustomizeAlbums", "canUsePaymentsService", "hasPerSeatPricingModelTeamMember", "hasEnterprise", "canAllowDownloads", "hasTeamInvite", "canUnlistVideo", "hasPrivateModeOff", "hasVideoPasswordPrivacyUpsell", "canHideVideos", "hasRestrictedPrivacyOptions", "hasSunsetHideFromVimeo", "hasExtraEmbedOptions", "hasUpsellsForFlatRateTiers", "regionalDeliveryPublishContentToChina", "canSeeUpsellModalOnShare", "canCreateEmbeddedPlaylists", "hasShowcaseTeamPrivacy", "contentSpaceEnabled", "hasShowcasePasswordPrivacyUpsell", "hasSuggestedSharingRecipients", "hasMultipleReviewLinks", "hasMultiUserSharing"],
+      capabilities: ["canAddCustomUrl", "canCustomizeAlbums", "canUsePaymentsService", "hasPerSeatPricingModelTeamMember", "hasEnterprise", "canAllowDownloads", "hasTeamInvite", "canUnlistVideo", "hasPrivateModeOff", "hasVideoPasswordPrivacyUpsell", "canHideVideos", "hasRestrictedPrivacyOptions", "hasSunsetHideFromVimeo", "hasExtraEmbedOptions", "hasUpsellsForFlatRateTiers", "regionalDeliveryPublishContentToChina", "canSeeUpsellModalOnShare", "canCreateEmbeddedPlaylists", "hasShowcaseTeamPrivacy", "contentSpaceEnabled", "hasShowcasePasswordPrivacyUpsell", "hasSuggestedSharingRecipients", "hasMultipleReviewLinks", "hasMultiUserSharing"],
       userId: _v0,
       jwt: _v1.jwt,
       apiUrl: _v1.apiUrl
@@ -652,7 +652,6 @@
   var _v16 = _v0.i(0);
   let _v17 = {
     canAddCustomUrl: !1,
-    canAddTeamMembers: !1,
     canAllowDownloads: !1,
     canCustomizeAlbums: !1,
     canHideVideos: !1,

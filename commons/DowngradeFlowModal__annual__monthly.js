@@ -305,7 +305,7 @@
           paddingTop: "12px",
           overflowY: "auto",
           children: (0, _v1.jsx)(_v3.Box, {
-            backgroundColor: "color-mix(in srgb, var(--vimeo-colors-status-destructive-primary) 10%, transparent)",
+            backgroundColor: "rgba(229, 62, 62, 0.08)",
             paddingX: "24px",
             paddingY: "32px",
             children: (0, _v1.jsxs)(_v15.Stack, {

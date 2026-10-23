@@ -220,6 +220,7 @@
     enable_speaker_qna_replies: !1,
     indie_program_enrollment: "closed",
     in_app_ticket_widget: !1,
+    enable_single_event_action_menu: !1,
     enable_single_event_localization: !1
   };
   function _v3(_v0) {

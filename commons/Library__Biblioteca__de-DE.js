@@ -1528,16 +1528,16 @@
                 singular: "Learn more in the Help Center",
                 dictionary: {
                   es: {
-                    singular: "Obtén más información en el Centro de ayuda"
+                    singular: "Obtener más información en el Centro de ayuda"
                   },
                   "de-DE": {
-                    singular: "Erfahren Sie mehr im Help Center"
+                    singular: "Erfahre mehr beim Hilfecenter"
                   },
                   "fr-FR": {
-                    singular: "En savoir plus dans le Centre d'aide"
+                    singular: "En savoir plus dans notre Centre d'aide"
                   },
                   "ja-JP": {
-                    singular: "ヘルプセンターで詳細をご確認ください"
+                    singular: "ヘルプセンターで詳細を見る"
                   },
                   "ko-KR": {
                     singular: "도움말 센터에서 자세히 알아보세요"
@@ -1546,7 +1546,7 @@
                     singular: "Saiba mais na Central de Ajuda"
                   },
                   "zh-CN": {
-                    singular: "在帮助中心了解更多"
+                    singular: "访问“帮助中心”了解更多信息"
                   }
                 }
               })
@@ -1717,16 +1717,16 @@
               singular: "Learn more in the Help Center",
               dictionary: {
                 es: {
-                  singular: "Obtén más información en el Centro de ayuda"
+                  singular: "Obtener más información en el Centro de ayuda"
                 },
                 "de-DE": {
-                  singular: "Erfahren Sie mehr im Help Center"
+                  singular: "Erfahre mehr beim Hilfecenter"
                 },
                 "fr-FR": {
-                  singular: "En savoir plus dans le Centre d'aide"
+                  singular: "En savoir plus dans notre Centre d'aide"
                 },
                 "ja-JP": {
-                  singular: "ヘルプセンターで詳細をご確認ください"
+                  singular: "ヘルプセンターで詳細を見る"
                 },
                 "ko-KR": {
                   singular: "도움말 센터에서 자세히 알아보세요"
@@ -1735,7 +1735,7 @@
                   singular: "Saiba mais na Central de Ajuda"
                 },
                 "zh-CN": {
-                  singular: "在帮助中心了解更多"
+                  singular: "访问“帮助中心”了解更多信息"
                 }
               }
             })

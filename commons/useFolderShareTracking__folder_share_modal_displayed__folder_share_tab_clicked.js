@@ -7,30 +7,46 @@
   _v0.s(["useFolderShareTracking", 0, () => {
     let _v0 = (0, _v2.usePico)(),
       _v1 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_modal_displayed", {
-        folder_id: _v3(_v0.folderId),
-        folder_share_entry_point: _v0.entryPoint,
-        folder_share_page: _v0.page,
+        ...(null != _v0.folderId && {
+          folder_id: _v3(_v0.folderId)
+        }),
+        ...(null != _v0.entryPoint && {
+          folder_share_entry_point: _v0.entryPoint
+        }),
+        ...(null != _v0.page && {
+          folder_share_page: _v0.page
+        }),
         folder_share_tab: _v0.tab
       }), !0), [_v0]),
       _v2 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_tab_clicked", {
-        folder_id: _v3(_v0.folderId),
+        ...(null != _v0.folderId && {
+          folder_id: _v3(_v0.folderId)
+        }),
         folder_share_tab: _v0.tab
       }), !0), [_v0]),
       _v3 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_privacy_changed", {
         folder_id: _v3(_v0.folderId),
-        folder_share_privacy_from: _v0.fromPrivacy,
+        ...(null != _v0.fromPrivacy && {
+          folder_share_privacy_from: _v0.fromPrivacy
+        }),
         folder_share_privacy_to: _v0.toPrivacy,
         folder_share_has_password: _v0.hasPassword
       }), !0), [_v0]),
       _v4 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_upsell_displayed", {
         folder_id: _v3(_v0.folderId),
-        folder_share_upsell_event: _v0.upsellEvent
+        ...(null != _v0.upsellEvent && {
+          folder_share_upsell_event: _v0.upsellEvent
+        })
       }), !0), [_v0]),
       _v5 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_link_copied", {
         folder_id: _v3(_v0.folderId),
-        folder_share_link_privacy: _v0.privacy,
+        ...(null != _v0.privacy && {
+          folder_share_link_privacy: _v0.privacy
+        }),
         folder_share_link_has_expiration: _v0.hasExpiration,
-        folder_share_link_expiration_days: _v0.expirationDays,
+        ...(null != _v0.expirationDays && {
+          folder_share_link_expiration_days: _v0.expirationDays
+        }),
         folder_share_link_copy_surface: _v0.copySurface,
         folder_share_link_copy_source: _v0.copySource
       }), !0), [_v0]),
@@ -38,16 +54,24 @@
         folder_id: _v3(_v0.folderId),
         folder_share_link_creation_source: _v0.source,
         folder_share_link_has_expiration: _v0.hasExpiration,
-        folder_share_link_expiration_days: _v0.expirationDays
+        ...(null != _v0.expirationDays && {
+          folder_share_link_expiration_days: _v0.expirationDays
+        })
       }), !0), [_v0]),
       _v7 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_link_password_changed", {
         folder_id: _v3(_v0.folderId)
       }), !0), [_v0]),
       _v8 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_link_expiration_changed", {
         folder_id: _v3(_v0.folderId),
-        from_value: _v0.fromValue,
-        to_value: _v0.toValue,
-        default_value_shown: _v0.defaultShown,
+        ...(null != _v0.fromValue && {
+          from_value: _v0.fromValue
+        }),
+        ...(null != _v0.toValue && {
+          to_value: _v0.toValue
+        }),
+        ...(null != _v0.defaultShown && {
+          default_value_shown: _v0.defaultShown
+        }),
         is_first_link_value: _v0.isFirstLinkValue,
         entry_point: "library"
       }), !0), [_v0]),
@@ -59,13 +83,17 @@
         folder_id: _v3(_v0.folderId),
         folder_share_invite_type: _v0.inviteType,
         folder_share_invite_count: _v0.inviteCount,
-        folder_share_invite_role: _v0.role
+        ...(null != _v0.role && {
+          folder_share_invite_role: _v0.role
+        })
       }), !0), [_v0]),
       _v11 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_people_invited", {
         folder_id: _v3(_v0.folderId),
         folder_share_invite_type: _v0.inviteType,
         folder_share_invite_count: _v0.inviteCount,
-        folder_share_invite_role: _v0.role
+        ...(null != _v0.role && {
+          folder_share_invite_role: _v0.role
+        })
       }), !0), [_v0]),
       _v12 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_review_links_displayed", {
         folder_id: _v3(_v0.folderId),
@@ -76,7 +104,7 @@
         ...(void 0 !== _v0.hasExpiration && {
           folder_share_review_link_has_expiration: _v0.hasExpiration
         }),
-        ...(void 0 !== _v0.expirationPreset && {
+        ...(null != _v0.expirationPreset && {
           folder_share_review_link_expiration_preset: _v0.expirationPreset
         }),
         ...(void 0 !== _v0.hasPassword && {
@@ -138,19 +166,31 @@
         folder_share_viewer_auth_status: _v0.viewerAuthStatus
       }), !0), [_v0]),
       _v20 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_password_page_displayed", {
-        folder_id: _v3(_v0.folderId),
+        ...(null != _v0.folderId && {
+          folder_id: _v3(_v0.folderId)
+        }),
         folder_share_password_scope: _v0.passwordScope ?? "folder",
-        file_id: _v0.fileId ?? null
+        ...(null != _v0.fileId && {
+          file_id: _v0.fileId
+        })
       }), !0), [_v0]),
       _v21 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_password_submitted", {
-        folder_id: _v3(_v0.folderId),
+        ...(null != _v0.folderId && {
+          folder_id: _v3(_v0.folderId)
+        }),
         folder_share_password_is_success: _v0.isSuccess,
-        folder_share_password_error_type: _v0.errorType,
+        ...(null != _v0.errorType && {
+          folder_share_password_error_type: _v0.errorType
+        }),
         folder_share_password_scope: _v0.passwordScope ?? "folder",
-        file_id: _v0.fileId ?? null
+        ...(null != _v0.fileId && {
+          file_id: _v0.fileId
+        })
       }), !0), [_v0]),
       _v22 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_link_unavailable_displayed", {
-        folder_id: _v3(_v0.folderId)
+        ...(null != _v0.folderId && {
+          folder_id: _v3(_v0.folderId)
+        })
       }), !0), [_v0]),
       _v23 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_item_clicked", {
         folder_id: _v3(_v0.folderId),
@@ -185,7 +225,9 @@
         clip_id: _v0.clipId
       }), !0), [_v0]),
       trackFolderShareFileDisplayed: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("folder_share_file_displayed", {
-        folder_id: _v3(_v0.folderId),
+        ...(null != _v0.folderId && {
+          folder_id: _v3(_v0.folderId)
+        }),
         file_id: _v0.fileId
       }), !0), [_v0])
     };

@@ -285,8 +285,7 @@
         [_v11, _v12] = (0, _v2.useState)(void 0),
         _v13 = _v0.find(_v0 => _v0.privacy === _v1),
         _v14 = null != _v13 && _v1 === _v13.privacy && !0 === _v13.showUpsell,
-        _v15 = null != _v13 && _v1 === _v13.privacy && !0 === _v13.showUpsellWarning,
-        _v16 = _v0 => {
+        _v15 = _v0 => {
           let {
               privacy: _v1,
               isDisabled: _v2,
@@ -299,7 +298,7 @@
               _v2 || _v3 || (_v0 => {
                 if (_v0 === _v1) return _v5(_v0);
                 let _v1 = _v0.find(_v0 => _v0.privacy === _v0);
-                _v14 || _v15 && _v1?.isPaidPrivacy !== !0 ? (_v12(_v1), _v9()) : _v5(_v0);
+                _v14 ? (_v12(_v1), _v9()) : _v5(_v0);
               })(_v1);
             },
             isDisabled: _v2 && !_v3,
@@ -311,11 +310,11 @@
             })
           }, _v1);
         },
-        _v17 = _v0.filter(_v0 => _v0.privacy === _v17.DEFAULT_PRIVACY_VALUES.TEAM || _v0.privacy === _v17.DEFAULT_PRIVACY_VALUES.HIDE_FROM_VIMEO || _v0.privacy === _v17.EVENT_PRIVACY_VALUES.HIDE_FROM_VIMEO).map(_v0 => _v16(_v0)),
-        _v18 = [(0, _v1.jsx)(_v1.Fragment, {})];
-      if (0 === _v17.length) _v18 = _v0.map(_v0 => _v16(_v0));else {
-        let _v0 = _v0.filter(_v0 => _v0.privacy !== _v17.DEFAULT_PRIVACY_VALUES.TEAM && _v0.privacy !== _v17.DEFAULT_PRIVACY_VALUES.HIDE_FROM_VIMEO && _v0.privacy !== _v17.EVENT_PRIVACY_VALUES.HIDE_FROM_VIMEO).map(_v0 => _v16(_v0));
-        _v18 = _v6 ? [..._v0, (0, _v1.jsx)(_v9.MenuDivider, {}, "menu-divider"), ..._v17] : [..._v0.map(_v0 => _v16(_v0))];
+        _v16 = _v0.filter(_v0 => _v0.privacy === _v17.DEFAULT_PRIVACY_VALUES.TEAM || _v0.privacy === _v17.DEFAULT_PRIVACY_VALUES.HIDE_FROM_VIMEO || _v0.privacy === _v17.EVENT_PRIVACY_VALUES.HIDE_FROM_VIMEO).map(_v0 => _v15(_v0)),
+        _v17 = [(0, _v1.jsx)(_v1.Fragment, {})];
+      if (0 === _v16.length) _v17 = _v0.map(_v0 => _v15(_v0));else {
+        let _v0 = _v0.filter(_v0 => _v0.privacy !== _v17.DEFAULT_PRIVACY_VALUES.TEAM && _v0.privacy !== _v17.DEFAULT_PRIVACY_VALUES.HIDE_FROM_VIMEO && _v0.privacy !== _v17.EVENT_PRIVACY_VALUES.HIDE_FROM_VIMEO).map(_v0 => _v15(_v0));
+        _v17 = _v6 ? [..._v0, (0, _v1.jsx)(_v9.MenuDivider, {}, "menu-divider"), ..._v16] : [..._v0.map(_v0 => _v15(_v0))];
       }
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v11.MenuList, {
@@ -353,7 +352,7 @@
                 }
               })
             })
-          }), _v18, null != _v7 && (0, _v1.jsxs)(_v1.Fragment, {
+          }), _v17, null != _v7 && (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v9.MenuDivider, {}), _v7]
           })]
         }), _v11 && _v13 && (0, _v1.jsx)(_v33, {

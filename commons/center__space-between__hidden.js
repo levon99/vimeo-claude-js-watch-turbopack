@@ -23,7 +23,8 @@
   }) => {
     let {
       closeDrawer: _v6,
-      isV2: _v7
+      isV2: _v7,
+      isInset: _v8 = !1
     } = (0, _v12.useActionMenuContext)();
     if (_v7) {
       let _v0 = (0, _v1.jsxs)(_v5.Flex, {
@@ -62,6 +63,7 @@
       target: _v5 ? "_blank" : void 0,
       href: _v5,
       isDisabled: _v4,
+      px: _v8 ? (0, _v6.rem)(12) : void 0,
       children: (0, _v1.jsxs)(_v5.Flex, {
         align: "center",
         gap: "sm",
@@ -74,9 +76,9 @@
           overflow: "hidden",
           textOverflow: "ellipsis",
           whiteSpace: "nowrap",
-          variant: "body-xl",
-          fontSize: (0, _v6.rem)(14),
-          lineHeight: (0, _v6.rem)(20),
+          variant: _v8 ? "body-md" : "body-xl",
+          fontSize: _v8 ? void 0 : (0, _v6.rem)(14),
+          lineHeight: _v8 ? void 0 : (0, _v6.rem)(20),
           children: _v2
         }), _v0]
       })
