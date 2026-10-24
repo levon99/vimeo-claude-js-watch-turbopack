@@ -334,7 +334,7 @@
             singular: "Maybe later",
             dictionary: {
               es: {
-                singular: "Tal vez más tarde"
+                singular: "Quizás más tarde"
               },
               "de-DE": {
                 singular: "Vielleicht später"

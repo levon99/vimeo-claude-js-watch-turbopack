@@ -13,7 +13,25 @@
       _v3 = "true" === _v0.searchParams.get("isPrivate");
     return /^\/search/.test(_v2) ? "search" : /^\/staff_picks/.test(_v2) ? "staff_picks" : /^\/categories/.test(_v2) ? "category_page" : /^\/watch\/?$/.test(_v2) || /^\/watch\//.test(_v2) ? "watchpage" : /^\/analytics(\/|$)/.test(_v2) || /^\/manage\/organization\/analytics(\/|$)/.test(_v2) ? "analytics" : /^\/manage\/team(\/|$)/.test(_v2) ? "manage_team" : /^\/manage\/workspace(\/|$)/.test(_v2) ? "manage_workspace" : /^\/manage\/organization(\/|$)/.test(_v2) ? "manage_organization" : /^\/manage\/files(\/|$)/.test(_v2) ? "manage_file_page" : /^\/files(\/|$)/.test(_v2) ? "file_page" : "/" === _v2 || /^\/home\/?$/.test(_v2) ? "homepage" : /^\/create\/edit(\/|$)/.test(_v2) ? "editor" : /^\/shared-with-me(\/|$)/.test(_v2) ? "shared_with_me" : /^\/my-feed(\/|$)/.test(_v2) ? "feed" : /^\/recently-deleted(\/|$)/.test(_v2) ? "recently_deleted" : /^\/channels\/staffpicks(\/|$)/.test(_v2) ? "staff_picks" : /^\/channels(\/|$)/.test(_v2) ? "channel_page" : /^\/apps(\/|$)/.test(_v2) ? "app_center" : /^\/library\/events(\/|$)/.test(_v2) ? "live_events" : /^\/library\/event_series(\/|$)/.test(_v2) ? "event_series" : /^\/library\/showcases(\/|$)/.test(_v2) ? "showcases" : /^\/user\/[^/]+\/folder\//.test(_v2) ? _v3 ? "my_library" : "team_library" : /^\/library(\/|$)/.test(_v2) ? _v1?.is_team_user == null ? "unknown" : _v1.is_team_user ? "team_library" : "my_library" : /^\/\d+(?:\/[0-9a-fA-F]+)?\/?$/.test(_v2) || /^\/video\/\d+(?:\/[0-9a-fA-F]+)?\/?$/.test(_v2) || /^\/share\/[^/]+\/?$/.test(_v2) ? "clip_page" : /^\/album\/\d+(?:\/[0-9a-fA-F]+)?\/?$/.test(_v2) || /^\/showcase\/[^/]+(?:\/[^/]+)?\/?$/.test(_v2) ? "showcases" : /^\/channels\/[^/]+(\/|$)/.test(_v2) ? "channel_page" : /^\/[^/]+\/?$/.test(_v2) ? "user_profile" : "unknown";
   }
-  _v0.s(["deriveCanonicalPage", 0, _v6, "deriveIsInGracePeriod", 0, function () {
+  let _v7 = {
+    "application/x-subrip": "srt",
+    "audio/mp3": "mp3",
+    "audio/mpeg": "mp3",
+    "audio/wav": "wav",
+    "audio/wave": "wav",
+    "audio/x-wav": "wav",
+    "image/jpeg": "jpg",
+    "image/png": "png",
+    "image/webp": "webp",
+    "text/csv": "csv",
+    "text/markdown": "md",
+    "text/plain": "txt",
+    "text/vtt": "vtt",
+    "text/x-markdown": "md"
+  };
+  _v0.s(["deriveCanonicalPage", 0, _v6, "deriveFileType", 0, function (_v0) {
+    return null == _v0 ? null : _v7[_v0.split(";")[0].trim().toLowerCase()] ?? null;
+  }, "deriveIsInGracePeriod", 0, function () {
     return !("u" < typeof document) && "1" === _v4.default.get("is_in_grace_period");
   }, "deriveLibraryReferrerPage", 0, function (_v0) {
     if ("sidebar" === _v0) return "sidebar";
@@ -76,8 +94,8 @@
       is_mobile: _v0.isMobile
     };
   }], 0);
-  let _v7 = ["uri"];
-  function _v8(_v0, _v1, _v2) {
+  let _v8 = ["uri"];
+  function _v9(_v0, _v1, _v2) {
     let _v3 = null !== _v0 ? `picox:cold_content:${_v0}:${_v1}` : null,
       _v4 = function (_v0) {
         if (null === _v0) return null;
@@ -99,7 +117,7 @@
         where: {
           userId: _v0
         },
-        select: _v7,
+        select: _v8,
         query: {
           filter: _v1,
           perPage: 1
@@ -128,8 +146,8 @@
       _v1 = _v0?.user?.id ?? null,
       _v2 = !!_v1 && "paid" !== _v5(_v0);
     return {
-      has_cold_storage_videos: _v8(_v1, "cold_storage", _v2),
-      has_cold_privacy_videos: _v8(_v1, "cold_privacy", _v2)
+      has_cold_storage_videos: _v9(_v1, "cold_storage", _v2),
+      has_cold_privacy_videos: _v9(_v1, "cold_privacy", _v2)
     };
   }], 0);
 }

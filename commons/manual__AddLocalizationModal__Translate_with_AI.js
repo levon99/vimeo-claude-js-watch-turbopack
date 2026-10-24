@@ -50,7 +50,7 @@
               singular: "Mit KI übersetzen"
             },
             "fr-FR": {
-              singular: "Traduire avec l’IA"
+              singular: "Traduire avec l'IA"
             },
             "ja-JP": {
               singular: "AIで翻訳"
@@ -539,7 +539,7 @@
                   singular: "Mit KI übersetzen"
                 },
                 "fr-FR": {
-                  singular: "Traduire avec l’IA"
+                  singular: "Traduire avec l'IA"
                 },
                 "ja-JP": {
                   singular: "AIで翻訳"

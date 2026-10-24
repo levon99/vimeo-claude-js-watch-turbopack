@@ -35,9 +35,10 @@
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
     _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  let _v36 = (_v0, _v1) => !_v1 || null === _v0 || _v0 <= 0 ? null : _v0,
-    _v37 = [{
+    _v35 = _v0.i(0),
+    _v36 = _v0.i(0);
+  let _v37 = (_v0, _v1) => !_v1 || null === _v0 || _v0 <= 0 ? null : _v0,
+    _v38 = [{
       label: () => (0, _v31.translate)({
         singular: "Tomorrow",
         dictionary: {
@@ -121,7 +122,12 @@
         }
       }),
       days: 30
-    }];
+    }],
+    _v39 = {
+      width: 55,
+      height: 20,
+      fontSize: 10
+    };
   _v0.s(["SharingLinkExpiryPicker", 0, ({
     intervalDays: _v0,
     expiresOn: _v1,
@@ -138,31 +144,34 @@
     canManageDefaults: _v12 = !1,
     hasWorkspace: _v13 = !1,
     videoId: _v14,
-    entryPoint: _v15
+    entryPoint: _v15,
+    freeTierExpiryDays: _v16,
+    isExpiryLocked: _v17 = !1,
+    onLockedOptionClick: _v18
   }) => {
-    let [_v16, _v17] = (0, _v2.useState)(!1),
-      [_v18, _v19] = (0, _v2.useState)(!1),
-      [_v20, _v21] = (0, _v2.useState)(0),
-      _v22 = (0, _v2.useRef)(null),
-      _v23 = (0, _v2.useRef)(null),
-      _v24 = (0, _v2.useRef)(null),
+    let [_v19, _v20] = (0, _v2.useState)(!1),
+      [_v21, _v22] = (0, _v2.useState)(!1),
+      [_v23, _v24] = (0, _v2.useState)(0),
+      _v25 = (0, _v2.useRef)(null),
+      _v26 = (0, _v2.useRef)(null),
+      _v27 = (0, _v2.useRef)(null),
       {
-        trackSharingLinkExpirationValueChanged: _v25
-      } = (0, _v32.useDistributionTracking)(),
-      _v26 = _v36(_v0, _v2),
-      _v27 = _v36(_v7 && _v7 > 0 ? _v7 : null, null != _v7 && _v7 > 0),
-      _v28 = (0, _v2.useMemo)(() => {
+        trackSharingLinkExpirationValueChanged: _v28
+      } = (0, _v33.useDistributionTracking)(),
+      _v29 = _v37(_v0, _v2),
+      _v30 = _v37(_v7 && _v7 > 0 ? _v7 : null, null != _v7 && _v7 > 0),
+      _v31 = (0, _v2.useMemo)(() => {
         let _v0 = new Date();
         return _v0.setDate(_v0.getDate() + 1), _v0.setHours(0, 0, 0, 0), _v0;
       }, []),
-      _v29 = (0, _v2.useMemo)(() => {
+      _v32 = (0, _v2.useMemo)(() => {
         let _v0 = new Date();
-        return _v0.setDate(_v0.getDate() + _v35.MAX_EXPIRY_DAYS), _v0.setHours(0, 0, 0, 0), _v0;
+        return _v0.setDate(_v0.getDate() + _v36.MAX_EXPIRY_DAYS), _v0.setHours(0, 0, 0, 0), _v0;
       }, []),
-      _v30 = (0, _v2.useMemo)(() => !!_v1 && new Date(_v1).getTime() < Date.now(), [_v1]),
-      _v31 = (0, _v2.useMemo)(() => _v1 ? (0, _v35.getRemainingDays)(_v1) : null, [_v1]),
-      _v32 = !_v30 && null !== _v31 && _v31 <= _v35.EXPIRY_SOON_DAYS,
-      _v33 = (0, _v2.useMemo)(() => _v2 && null !== _v31 ? _v30 ? (0, _v31.translate)({
+      _v33 = (0, _v2.useMemo)(() => !!_v1 && new Date(_v1).getTime() < Date.now(), [_v1]),
+      _v34 = (0, _v2.useMemo)(() => _v1 ? (0, _v36.getRemainingDays)(_v1) : null, [_v1]),
+      _v35 = !_v33 && null !== _v34 && _v34 <= _v36.EXPIRY_SOON_DAYS,
+      _v36 = (0, _v2.useMemo)(() => _v2 && null !== _v34 ? _v33 ? (0, _v31.translate)({
         singular: "Expired",
         dictionary: {
           es: {
@@ -187,7 +196,7 @@
             singular: "已过期"
           }
         }
-      }) : 0 === _v31 ? (0, _v31.translate)({
+      }) : 0 === _v34 ? (0, _v31.translate)({
         singular: "Expires today",
         dictionary: {
           es: {
@@ -212,7 +221,7 @@
             singular: "今天到期"
           }
         }
-      }) : 1 === _v31 ? (0, _v31.translate)({
+      }) : 1 === _v34 ? (0, _v31.translate)({
         singular: "Expires tomorrow",
         dictionary: {
           es: {
@@ -240,9 +249,9 @@
       }) : (0, _v31.translate)({
         singular: "Expires in {count} day",
         plural: "Expires in {count} days",
-        count: _v31,
+        count: _v34,
         replacements: {
-          count: String(_v31)
+          count: String(_v34)
         },
         dictionary: {
           es: {
@@ -274,8 +283,49 @@
             plural: "{count} 天后到期"
           }
         }
-      }) : null, [_v2, _v31, _v30]),
-      _v34 = (0, _v2.useMemo)(() => _v2 ? null !== _v0 ? (0, _v34.formatIntervalLabel)(_v0) : _v7 && _v7 > 0 ? (0, _v34.formatIntervalLabel)(_v7) : (0, _v31.translate)({
+      }) : null, [_v2, _v34, _v33]),
+      _v37 = void 0 !== _v16 && _v16 > 0 ? _v16 : null,
+      _v38 = null !== _v37,
+      _v39 = _v38 || _v17,
+      _v40 = _v17 || _v38 && !_v33,
+      _v41 = (0, _v2.useMemo)(() => _v2 ? null !== _v37 ? (0, _v31.translate)({
+        singular: "{count} day",
+        plural: "{count} days",
+        count: _v37,
+        replacements: {
+          count: String(_v37)
+        },
+        dictionary: {
+          es: {
+            singular: "{count} día",
+            plural: "{count} días"
+          },
+          "de-DE": {
+            singular: "{count} Tag",
+            plural: "{count} Tage"
+          },
+          "fr-FR": {
+            singular: "{count} jour",
+            plural: "{count} jours"
+          },
+          "ja-JP": {
+            singular: "{count}日",
+            plural: "{count}日"
+          },
+          "ko-KR": {
+            singular: "{count}일",
+            plural: "{count}일"
+          },
+          "pt-BR": {
+            singular: "{count} dia",
+            plural: "{count} dias"
+          },
+          "zh-CN": {
+            singular: "{count} 天",
+            plural: "{count} 天"
+          }
+        }
+      }) : null !== _v0 ? (0, _v35.formatIntervalLabel)(_v0) : _v7 && _v7 > 0 ? (0, _v35.formatIntervalLabel)(_v7) : (0, _v31.translate)({
         singular: "No expiration",
         dictionary: {
           es: {
@@ -325,28 +375,28 @@
             singular: "无限期"
           }
         }
-      }), [_v2, _v0, _v7]),
-      _v35 = (0, _v2.useCallback)(_v0 => new Date(Date.now() + _v0 * _v35.MS_PER_DAY).toISOString(), []),
-      _v36 = (0, _v2.useCallback)(_v0 => {
-        _v14 && _v15 && _v26 !== _v0 && _v25({
+      }), [_v2, _v0, _v7, _v37]),
+      _v42 = (0, _v2.useCallback)(_v0 => new Date(Date.now() + _v0 * _v36.MS_PER_DAY).toISOString(), []),
+      _v43 = (0, _v2.useCallback)(_v0 => {
+        _v14 && _v15 && _v29 !== _v0 && _v28({
           videoId: _v14,
-          fromValue: _v26,
+          fromValue: _v29,
           toValue: _v0,
-          defaultValueShown: _v27,
+          defaultValueShown: _v30,
           entryPoint: _v15,
           isFirstLinkValue: !_v8
         });
-      }, [_v14, _v26, _v27, _v15, _v8, _v25]),
-      _v37 = (0, _v2.useCallback)(() => {
-        _v4(), _v36(null), _v17(!1);
-      }, [_v4, _v36]),
-      _v38 = (0, _v2.useCallback)(_v0 => {
-        _v3(_v0, _v35(_v0)), _v17(!1), _v36(_v0);
-      }, [_v3, _v35, _v36]),
-      _v39 = (0, _v2.useCallback)(() => {
-        _v21(_v0 => _v0 + 1), _v19(!0), _v17(!1);
+      }, [_v14, _v29, _v30, _v15, _v8, _v28]),
+      _v44 = (0, _v2.useCallback)(() => {
+        _v4(), _v43(null), _v20(!1);
+      }, [_v4, _v43]),
+      _v45 = (0, _v2.useCallback)(_v0 => {
+        _v3(_v0, _v42(_v0)), _v20(!1), _v43(_v0);
+      }, [_v3, _v42, _v43]),
+      _v46 = (0, _v2.useCallback)(() => {
+        _v24(_v0 => _v0 + 1), _v22(!0), _v20(!1);
       }, []),
-      _v40 = (0, _v2.useCallback)(_v0 => {
+      _v47 = (0, _v2.useCallback)(_v0 => {
         if (!_v0.value.length) return;
         let {
             day: _v1,
@@ -357,45 +407,84 @@
         _v4.setHours(0, 0, 0, 0);
         let _v5 = new Date(_v3, _v2 - 1, _v1);
         _v5.setHours(0, 0, 0, 0);
-        let _v6 = Math.round((_v5.getTime() - _v4.getTime()) / _v35.MS_PER_DAY);
-        _v6 > 0 && _v6 <= _v35.MAX_EXPIRY_DAYS && (_v3(_v6, _v35(_v6)), _v36(_v6)), _v21(_v0 => _v0 + 1), _v19(!1);
-      }, [_v3, _v35, _v36]);
-    return (0, _v24.useOutsideClick)({
-      enabled: _v16,
-      ref: _v22,
+        let _v6 = Math.round((_v5.getTime() - _v4.getTime()) / _v36.MS_PER_DAY);
+        _v6 > 0 && _v6 <= _v36.MAX_EXPIRY_DAYS && (_v3(_v6, _v42(_v6)), _v43(_v6)), _v24(_v0 => _v0 + 1), _v22(!1);
+      }, [_v3, _v42, _v43]);
+    (0, _v24.useOutsideClick)({
+      enabled: _v19,
+      ref: _v25,
       handler: _v0 => {
-        _v0.target && _v23?.current && (_v23.current === _v0.target || _v23.current.contains(_v0.target)) || _v17(!1);
+        _v0.target && _v26?.current && (_v26.current === _v0.target || _v26.current.contains(_v0.target)) || _v20(!1);
       }
     }), (0, _v24.useOutsideClick)({
-      enabled: _v18,
-      ref: _v24,
+      enabled: _v21,
+      ref: _v27,
       handler: () => {
-        _v19(!1);
+        _v22(!1);
       }
-    }), (0, _v1.jsxs)(_v20.Flex, {
+    });
+    let _v48 = null !== _v37 ? (0, _v31.translate)({
+      singular: "{count} day",
+      plural: "{count} days",
+      count: _v37,
+      replacements: {
+        count: String(_v37)
+      },
+      dictionary: {
+        es: {
+          singular: "{count} día",
+          plural: "{count} días"
+        },
+        "de-DE": {
+          singular: "{count} Tag",
+          plural: "{count} Tage"
+        },
+        "fr-FR": {
+          singular: "{count} jour",
+          plural: "{count} jours"
+        },
+        "ja-JP": {
+          singular: "{count}日",
+          plural: "{count}日"
+        },
+        "ko-KR": {
+          singular: "{count}일",
+          plural: "{count}일"
+        },
+        "pt-BR": {
+          singular: "{count} dia",
+          plural: "{count} dias"
+        },
+        "zh-CN": {
+          singular: "{count} 天",
+          plural: "{count} 天"
+        }
+      }
+    }) : null;
+    return (0, _v1.jsxs)(_v20.Flex, {
       flexDirection: "column",
       gap: "sm",
       children: [_v8 && (0, _v1.jsxs)(_v20.Flex, {
         alignItems: "center",
         justifyContent: "space-between",
         minHeight: (0, _v17.rem)(24),
-        visibility: _v33 ? "visible" : "hidden",
-        "aria-hidden": !_v33,
+        visibility: _v36 ? "visible" : "hidden",
+        "aria-hidden": !_v36,
         children: [(0, _v1.jsx)(_v3.Badge, {
           size: "xs",
-          variant: _v30 ? "error" : _v32 ? "staff" : "default",
+          variant: _v33 ? "error" : _v35 ? "staff" : "default",
           children: (0, _v1.jsx)(_v10.Text, {
             variant: "heading-2xs",
             whiteSpace: "nowrap",
-            children: _v33 ?? " "
+            children: _v36 ?? " "
           })
         }), (0, _v1.jsxs)(_v20.Flex, {
           as: "button",
           type: "button",
           alignItems: "center",
           gap: "xs",
-          onClick: _v5,
-          disabled: _v9 || !_v33 || _v6,
+          onClick: _v40 ? _v18 : _v5,
+          disabled: _v9 || !_v36 || _v6,
           color: "text-secondary",
           background: "transparent",
           border: "none",
@@ -434,7 +523,10 @@
               }
             }
           }),
-          children: [_v6 ? (0, _v1.jsx)(_v22.Spinner, {
+          children: [_v40 && (0, _v1.jsx)(_v32.UpgradeBadge, {
+            style: _v39,
+            noMargin: !0
+          }), _v6 ? (0, _v1.jsx)(_v22.Spinner, {
             size: "xs"
           }) : (0, _v1.jsx)(_v30.Reset, {
             boxSize: (0, _v17.rem)(16)
@@ -568,8 +660,8 @@
           position: "relative",
           zIndex: "dropdown",
           children: [(0, _v1.jsxs)(_v4.Menu, {
-            isOpen: _v16,
-            onClose: () => _v17(!1),
+            isOpen: _v19,
+            onClose: () => _v20(!1),
             placement: "bottom-end",
             isLazy: !0,
             children: [(0, _v1.jsx)(_v5.MenuButton, {
@@ -582,19 +674,19 @@
               rightIcon: (0, _v1.jsx)(_v27.ChevronDownSmall, {
                 boxSize: (0, _v17.rem)(16)
               }),
-              onClick: () => _v17(_v0 => !_v0),
-              ref: _v23,
+              onClick: () => _v20(_v0 => !_v0),
+              ref: _v26,
               isDisabled: _v9 || _v10,
               children: (0, _v1.jsx)(_v10.Text, {
                 variant: "heading-2xs",
                 whiteSpace: "nowrap",
-                children: _v34
+                children: _v41
               })
             }), (0, _v1.jsx)(_v7.MenuList, {
               paddingY: "xs",
               width: "auto",
               maxWidth: (0, _v17.rem)(350),
-              ref: _v22,
+              ref: _v25,
               children: (0, _v1.jsxs)(_v9.MenuGroup, {
                 title: (0, _v31.translate)({
                   singular: "Link expires",
@@ -633,55 +725,73 @@
                   flexDirection: "row-reverse",
                   justifyContent: "space-between",
                   isDisabled: !_v8,
-                  onClick: _v37,
-                  "aria-current": _v2 ? void 0 : "true",
-                  children: (0, _v1.jsx)(_v10.Text, {
-                    variant: "body-md",
-                    children: (0, _v31.translate)({
-                      singular: "No expiration",
-                      dictionary: {
-                        es: {
-                          singular: "Sin expiración"
-                        },
-                        "de-DE": {
-                          singular: "Kein Ablaufdatum"
-                        },
-                        "fr-FR": {
-                          singular: "Pas d'expiration"
-                        },
-                        "ja-JP": {
-                          singular: "期限なし"
-                        },
-                        "ko-KR": {
-                          singular: "만료 없음"
-                        },
-                        "pt-BR": {
-                          singular: "Sem expiração"
-                        },
-                        "zh-CN": {
-                          singular: "无限期"
+                  onClick: _v39 ? _v18 : _v44,
+                  "aria-current": _v39 || _v2 ? void 0 : "true",
+                  children: (0, _v1.jsxs)(_v20.Flex, {
+                    alignItems: "center",
+                    gap: "2",
+                    children: [(0, _v1.jsx)(_v10.Text, {
+                      variant: "body-md",
+                      children: (0, _v31.translate)({
+                        singular: "No expiration",
+                        dictionary: {
+                          es: {
+                            singular: "Sin expiración"
+                          },
+                          "de-DE": {
+                            singular: "Kein Ablaufdatum"
+                          },
+                          "fr-FR": {
+                            singular: "Pas d'expiration"
+                          },
+                          "ja-JP": {
+                            singular: "期限なし"
+                          },
+                          "ko-KR": {
+                            singular: "만료 없음"
+                          },
+                          "pt-BR": {
+                            singular: "Sem expiração"
+                          },
+                          "zh-CN": {
+                            singular: "无限期"
+                          }
                         }
-                      }
-                    })
+                      })
+                    }), _v39 && (0, _v1.jsx)(_v32.UpgradeBadge, {
+                      style: _v39,
+                      noMargin: !0
+                    })]
                   })
-                }), _v37.map(_v0 => {
-                  let _v1,
-                    _v2 = (_v1 = _v0.days, _v2 && _v0 === _v1);
+                }), _v38.map(_v0 => {
+                  let _v1 = 7 === _v0.days && null !== _v37 ? _v37 : _v0.days,
+                    _v2 = _v17 || null !== _v37 && _v1 !== _v37,
+                    _v3 = _v2 && _v0 === _v1,
+                    _v4 = 7 === _v0.days && null !== _v37 ? _v48 : _v0.label();
                   return (0, _v1.jsx)(_v18.MenuItem, {
                     padding: "sm",
                     borderRadius: "sm",
                     icon: (0, _v1.jsx)(_v26.Checkmark, {
                       boxSize: (0, _v17.rem)(16),
-                      visibility: _v2 ? "visible" : "hidden"
+                      visibility: !_v2 && _v3 ? "visible" : "hidden"
                     }),
                     iconSpacing: (0, _v17.rem)(8),
                     flexDirection: "row-reverse",
                     justifyContent: "space-between",
-                    onClick: () => _v38(_v0.days),
-                    "aria-current": _v2 ? "true" : void 0,
-                    children: (0, _v1.jsx)(_v10.Text, {
-                      variant: "body-md",
-                      children: _v0.label()
+                    onClick: () => {
+                      _v2 ? _v18?.() : _v38 ? _v20(!1) : _v45(_v1);
+                    },
+                    "aria-current": !_v2 && _v3 ? "true" : void 0,
+                    children: (0, _v1.jsxs)(_v20.Flex, {
+                      alignItems: "center",
+                      gap: "2",
+                      children: [(0, _v1.jsx)(_v10.Text, {
+                        variant: "body-md",
+                        children: _v4
+                      }), _v2 && (0, _v1.jsx)(_v32.UpgradeBadge, {
+                        style: _v39,
+                        noMargin: !0
+                      })]
                     })
                   }, _v0.days);
                 }), (0, _v1.jsx)(_v8.MenuDivider, {
@@ -695,42 +805,49 @@
                   iconSpacing: (0, _v17.rem)(8),
                   flexDirection: "row-reverse",
                   justifyContent: "space-between",
-                  onClick: _v39,
-                  children: (0, _v1.jsx)(_v10.Text, {
-                    variant: "body-md",
-                    children: (0, _v31.translate)({
-                      singular: "Choose custom date",
-                      dictionary: {
-                        es: {
-                          singular: "Elegir fecha personalizada"
-                        },
-                        "de-DE": {
-                          singular: "Benutzerdefiniertes Datum wählen"
-                        },
-                        "fr-FR": {
-                          singular: "Choisir une date personnalisée"
-                        },
-                        "ja-JP": {
-                          singular: "カスタム日付を選択"
-                        },
-                        "ko-KR": {
-                          singular: "사용자 지정 날짜 선택"
-                        },
-                        "pt-BR": {
-                          singular: "Escolher data personalizada"
-                        },
-                        "zh-CN": {
-                          singular: "选择自定义日期"
+                  onClick: _v39 ? _v18 : _v46,
+                  children: (0, _v1.jsxs)(_v20.Flex, {
+                    alignItems: "center",
+                    gap: "2",
+                    children: [(0, _v1.jsx)(_v10.Text, {
+                      variant: "body-md",
+                      children: (0, _v31.translate)({
+                        singular: "Choose custom date",
+                        dictionary: {
+                          es: {
+                            singular: "Elegir fecha personalizada"
+                          },
+                          "de-DE": {
+                            singular: "Benutzerdefiniertes Datum wählen"
+                          },
+                          "fr-FR": {
+                            singular: "Choisir une date personnalisée"
+                          },
+                          "ja-JP": {
+                            singular: "カスタム日付を選択"
+                          },
+                          "ko-KR": {
+                            singular: "사용자 지정 날짜 선택"
+                          },
+                          "pt-BR": {
+                            singular: "Escolher data personalizada"
+                          },
+                          "zh-CN": {
+                            singular: "选择自定义日期"
+                          }
                         }
-                      }
-                    })
+                      })
+                    }), _v39 && (0, _v1.jsx)(_v32.UpgradeBadge, {
+                      style: _v39,
+                      noMargin: !0
+                    })]
                   })
                 })]
               })
             })]
           }), (0, _v1.jsxs)(_v13.Popover, {
-            isOpen: _v18,
-            onClose: () => _v19(!1),
+            isOpen: _v21,
+            onClose: () => _v22(!1),
             placement: "bottom-end",
             flip: !0,
             preventOverflow: !0,
@@ -746,7 +863,7 @@
               padding: "0px",
               width: (0, _v17.rem)(300),
               maxWidth: (0, _v17.rem)(300),
-              ref: _v24,
+              ref: _v27,
               sx: {
                 '[data-part="table-cell"]': {
                   width: "xs",
@@ -774,16 +891,16 @@
                   "aria-disabled": !_v2,
                   inert: !_v2 || void 0,
                   children: (0, _v1.jsx)(_v11.DatePicker, {
-                    onValueChange: _v40,
+                    onValueChange: _v47,
                     open: !0,
                     closeOnSelect: !0,
-                    min: new _v12.BokehDate.CalendarDate(_v28.getFullYear(), _v28.getMonth() + 1, _v28.getDate()),
-                    max: new _v12.BokehDate.CalendarDate(_v29.getFullYear(), _v29.getMonth() + 1, _v29.getDate()),
+                    min: new _v12.BokehDate.CalendarDate(_v31.getFullYear(), _v31.getMonth() + 1, _v31.getDate()),
+                    max: new _v12.BokehDate.CalendarDate(_v32.getFullYear(), _v32.getMonth() + 1, _v32.getDate()),
                     children: (0, _v1.jsx)(_v11.Calendar, {
                       padding: "md",
                       width: (0, _v17.rem)(300)
                     })
-                  }, _v20)
+                  }, _v23)
                 }), (0, _v1.jsx)(_v19.Box, {
                   paddingTop: "sm",
                   paddingX: "md",
@@ -791,7 +908,7 @@
                   children: (0, _v1.jsx)(_v10.Text, {
                     variant: "caption",
                     color: "text-secondary",
-                    children: _v11 ? _v12 ? _v11 === _v33.WORKSPACE_BASICS_URL ? (0, _v31.translate)({
+                    children: _v11 ? _v12 ? _v11 === _v34.WORKSPACE_BASICS_URL ? (0, _v31.translate)({
                       singular: 'Go to the "Privacy" tab in {LINK}Manage Defaults{/LINK} to change the default link expiration.',
                       replacements: {
                         LINK: _v0 => (0, _v1.jsx)(_v21.Link, {

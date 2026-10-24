@@ -188,6 +188,7 @@
           allowDownloads: _v0
         })) && _v9({
           fileId: _v1.publicId,
+          contentType: _v1.contentType,
           allowDownloads: _v0
         });
       };
@@ -433,6 +434,7 @@
           onClick: () => {
             (0, _v21.default)(_v21) && (null != _v4 && _v8({
               fileId: _v1.publicId,
+              contentType: _v1.contentType,
               source: _v4
             }), _v5({
               title: (0, _v15.translate)({

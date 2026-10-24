@@ -2,8 +2,9 @@
   "use strict";
 
   var _v1 = _v0.i(0),
-    _v2 = _v0.i(0);
-  let _v3 = {
+    _v2 = _v0.i(0),
+    _v3 = _v0.i(0);
+  let _v4 = {
     public: "anywhere",
     private: "nowhere",
     whitelist: "specific_domains"
@@ -37,7 +38,7 @@
         var _v1;
         return null !== _v0 && (_v0.track("share_embed_privacy_changed", {
           clip_id: _v0.clipId,
-          share_embed_new_privacy: _v3[_v1 = _v0.privacy] ?? _v1,
+          share_embed_new_privacy: _v4[_v1 = _v0.privacy] ?? _v1,
           share_surface: _v0.shareSurface
         }), !0);
       }, [_v0]),
@@ -109,10 +110,14 @@
       }), !0), [_v0]),
       _v19 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("video_link_copied", {
         clip_id: _v0.clipId,
-        video_link_copied_source: _v0.source
+        video_link_copied_source: _v0.source,
+        ...(void 0 !== _v0.intervalDays ? {
+          interval_days: _v0.intervalDays
+        } : {})
       }), !0), [_v0]),
       _v20 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("file_link_copied", {
         file_id: _v0.fileId,
+        file_type: (0, _v3.deriveFileType)(_v0.contentType),
         file_link_copied_source: _v0.source
       }), !0), [_v0]);
     return {

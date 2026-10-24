@@ -238,6 +238,7 @@
               })
             }), _v3(), _v12({
               fileId: _v0,
+              contentType: _v2.contentType,
               field: _v0
             });
           } catch {
@@ -766,6 +767,7 @@
             })
           }), _v12({
             fileId: _v0,
+            contentType: _v2.contentType,
             fileOwnerId: String(_v1)
           }), _v19(!1), _v3.push("/library");
         } catch {
@@ -843,9 +845,11 @@
             onClick: () => {
               _v11({
                 fileId: _v0,
+                contentType: _v2.contentType,
                 action: "download"
               }), _v13({
                 fileId: _v0,
+                contentType: _v2.contentType,
                 source: "actions_menu"
               });
             },
@@ -880,6 +884,7 @@
             onClick: () => {
               _v11({
                 fileId: _v0,
+                contentType: _v2.contentType,
                 action: "move"
               }), _v17(!0);
             },
@@ -914,6 +919,7 @@
             onClick: () => {
               _v11({
                 fileId: _v0,
+                contentType: _v2.contentType,
                 action: "make_a_copy"
               }), _v9(_v2);
             },
@@ -948,6 +954,7 @@
             onClick: () => {
               _v11({
                 fileId: _v0,
+                contentType: _v2.contentType,
                 action: "delete"
               }), _v19(!0);
             },
@@ -1174,6 +1181,7 @@
               onClick: () => {
                 _v5({
                   fileId: _v0,
+                  contentType: _v2.contentType,
                   source: "manage_header"
                 }), _v3();
               },
@@ -1380,26 +1388,29 @@
         {
           trackFileDownloadStarted: _v6
         } = (0, _v12.useDownloadTracking)(),
-        _v7 = !_v1?.user || _v2;
+        _v7 = !_v1?.user || _v2,
+        _v8 = "success" === _v4.status ? _v4.file.contentType : null;
       (0, _v14.usePicoEffect)(() => !_v7 && !!_v3 && "success" === _v4.status && (_v5({
-        fileId: _v0
-      }), !0), [_v7, _v3, _v4.status, _v0, _v5], {
+        fileId: _v0,
+        contentType: _v8
+      }), !0), [_v8, _v7, _v3, _v4.status, _v0, _v5], {
         once: !0
       });
-      let _v8 = (0, _v3.useCallback)(() => {
+      let _v9 = (0, _v3.useCallback)(() => {
           _v6({
             fileId: _v0,
+            contentType: _v8,
             source: "preview"
           });
-        }, [_v0, _v6]),
-        _v9 = (0, _v3.useSyncExternalStore)(_v69, _v70, _v71),
-        [_v10, _v11] = (0, _v3.useState)(null),
-        _v12 = _v10 ?? _v9;
+        }, [_v8, _v0, _v6]),
+        _v10 = (0, _v3.useSyncExternalStore)(_v69, _v70, _v71),
+        [_v11, _v12] = (0, _v3.useState)(null),
+        _v13 = _v11 ?? _v10;
       if ((0, _v3.useEffect)(() => {
         let _v0 = _v7.safeWindow?.matchMedia(_v68);
         if (void 0 === _v0) return;
         let _v1 = _v0 => {
-          _v0.matches || _v11(!1);
+          _v0.matches || _v12(!1);
         };
         return _v0.addEventListener("change", _v1), () => _v0.removeEventListener("change", _v1);
       }, []), _v7 || "loading" === _v4.status) return (0, _v1.jsx)(_v4.Box, {
@@ -1409,15 +1420,15 @@
         error: new _v8.ForbiddenError(),
         shouldShowSearch: !1
       });
-      let _v13 = Number(_v4.file.uri.split("/")[2]);
+      let _v14 = Number(_v4.file.uri.split("/")[2]);
       return (0, _v1.jsxs)(_v5.Flex, {
         direction: "column",
         height: "100dvh",
         overflow: "hidden",
         children: [(0, _v1.jsx)(_v63, {
           file: _v4.file,
-          onShareClick: () => _v11(!_v12),
-          ownerId: _v13,
+          onShareClick: () => _v12(!_v13),
+          ownerId: _v14,
           publicId: _v0
         }), (0, _v1.jsxs)(_v5.Flex, {
           as: "main",
@@ -1451,21 +1462,21 @@
                 fileSize: _v4.file.fileSize,
                 height: _v4.file.height,
                 name: _v4.file.name,
-                onDownloadClick: _v8,
+                onDownloadClick: _v9,
                 thumbnailUrl: _v4.file.thumbnail?.url,
                 width: _v4.file.width
               }), (0, _v1.jsx)(_v35, {
                 file: _v4.file,
                 onChanged: _v4.refresh,
-                ownerId: _v13,
+                ownerId: _v14,
                 publicId: _v0
               })]
             })
-          }), _v12 && (0, _v1.jsx)(_v66, {
+          }), _v13 && (0, _v1.jsx)(_v66, {
             file: _v4.file,
             onChanged: _v4.refresh,
-            onClose: () => _v11(!1),
-            ownerId: _v13
+            onClose: () => _v12(!1),
+            ownerId: _v14
           })]
         })]
       });

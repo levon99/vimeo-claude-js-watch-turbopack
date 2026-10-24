@@ -10736,9 +10736,11 @@
           isEmptyState: !1,
           webContextCopy: "recents"
         }), (0, _v3.useEffect)(() => {
-          _v3 || 0 !== _v2.length || setTimeout(() => {
+          if (_v3 || 0 !== _v2.length) return;
+          let _v0 = setTimeout(() => {
             _v22(!1);
           }, 500);
+          return () => clearTimeout(_v0);
         }, [_v3, _v2.length]), _v3 || _v19) ? (0, _v1.jsx)(_v254, {
           children: (0, _v1.jsx)(_v315.Playlist, {
             w: "100%",

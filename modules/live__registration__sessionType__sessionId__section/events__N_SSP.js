@@ -27,12 +27,13 @@
     section: _v2
   }) => {
     let _v3 = (0, _v2.useContext)(_v7.ViewerContext),
-      [_v4, _v5] = (0, _v2.useState)("");
-    return _v3 ? (0, _v1.jsx)(_v5.UpsellContext.Provider, {
-      value: {
+      [_v4, _v5] = (0, _v2.useState)(""),
+      _v6 = (0, _v2.useMemo)(() => ({
         message: _v4,
         setMessage: _v5
-      },
+      }), [_v4]);
+    return _v3 ? (0, _v1.jsx)(_v5.UpsellContext.Provider, {
+      value: _v6,
       children: (0, _v1.jsx)(_v4.LiveLeadCapture, {
         sessionType: _v0,
         sessionId: _v1,

@@ -23,23 +23,22 @@
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
-    _v23 = _v0.i(0),
-    _v24 = ((_v1 = {}).STEP_FORWARD = "step_forward", _v1.STEP_BACK = "step_back", _v1.SET_TEAM_BRANDING = "set_team_branding", _v1.SET_TEAM_BRANDING_SUGGESTION = "set_team_branding_suggestion", _v1.SKIP_STEP = "skip_step", _v1);
-  let _v25 = (_v0, _v1) => {
+    _v23 = ((_v1 = {}).STEP_FORWARD = "step_forward", _v1.STEP_BACK = "step_back", _v1.SET_TEAM_BRANDING = "set_team_branding", _v1.SET_TEAM_BRANDING_SUGGESTION = "set_team_branding_suggestion", _v1.SKIP_STEP = "skip_step", _v1);
+  let _v24 = (_v0, _v1) => {
       _v0({
         type: "set_team_branding",
         payload: _v1
       });
     },
-    _v26 = (_v0, _v1) => {
+    _v25 = (_v0, _v1) => {
       _v0({
         type: "set_team_branding_suggestion",
         payload: _v1
       });
     };
-  var _v27 = _v0.i(0);
-  let _v28 = {
-      [_v24.STEP_BACK]: _v0 => {
+  var _v26 = _v0.i(0);
+  let _v27 = {
+      [_v23.STEP_BACK]: _v0 => {
         let {
           stepIndex: _v1,
           flow: _v2,
@@ -54,7 +53,7 @@
           stepIndex: _v1 - 1
         };
       },
-      [_v24.STEP_FORWARD]: _v0 => {
+      [_v23.STEP_FORWARD]: _v0 => {
         let {
           sectionIndex: _v1,
           stepIndex: _v2,
@@ -69,14 +68,14 @@
           stepIndex: _v2 + 1
         };
       },
-      [_v24.SET_TEAM_BRANDING]: (_v0, _v1) => ({
+      [_v23.SET_TEAM_BRANDING]: (_v0, _v1) => ({
         ..._v0,
         team: {
           ..._v0.team,
           ..._v1
         }
       }),
-      [_v24.SET_TEAM_BRANDING_SUGGESTION]: (_v0, _v1) => ({
+      [_v23.SET_TEAM_BRANDING_SUGGESTION]: (_v0, _v1) => ({
         ..._v0,
         team: {
           ..._v0.team,
@@ -86,7 +85,7 @@
           }
         }
       }),
-      [_v24.SKIP_STEP]: _v0 => {
+      [_v23.SKIP_STEP]: _v0 => {
         let {
           sectionIndex: _v1,
           stepIndex: _v2,
@@ -102,12 +101,12 @@
         };
       }
     },
-    _v29 = (_v0, _v1) => {
-      let _v2 = _v28[_v1.type];
+    _v28 = (_v0, _v1) => {
+      let _v2 = _v27[_v1.type];
       return _v2 ? _v2(_v0, _v1.payload) : _v0;
     };
-  var _v30 = _v0.i(0);
-  let _v31 = (0, _v12.default)(_v30.Spinner).attrs({
+  var _v29 = _v0.i(0);
+  let _v30 = (0, _v12.default)(_v29.Spinner).attrs({
     size: "xl"
   }).withConfig({
     displayName: "PageLoader",
@@ -116,32 +115,32 @@
   margin-left: calc(50vw - 1.5rem);
   margin-top: calc(50vh - 1.5rem);
 `;
-  var _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  let _v35 = "TOAST_OOPS",
-    _v36 = "SelectRole";
-  class _v37 extends Error {
+  var _v31 = _v0.i(0),
+    _v32 = _v0.i(0),
+    _v33 = _v0.i(0);
+  let _v34 = "TOAST_OOPS",
+    _v35 = "SelectRole";
+  class _v36 extends Error {
     email;
     errorCode;
     constructor(_v0, _v1) {
       super(`Failed inviting team member ${_v0}`), this.name = "TeamInviteError", this.email = _v0, this.errorCode = _v1;
     }
   }
-  let _v38 = (_v0, _v1 = !1) => ({
+  let _v37 = (_v0, _v1 = !1) => ({
       email: "",
       isEmailValid: !0,
-      role: _v1 ? _v36 : _v0 ? _v33.TeamUserPermissionLevel.Viewer : _v33.TeamUserPermissionLevel.Admin
+      role: _v1 ? _v35 : _v0 ? _v32.TeamUserPermissionLevel.Viewer : _v32.TeamUserPermissionLevel.Admin
     }),
-    _v39 = _v0 => _v0.filter(_v0 => !!_v0.email),
-    _v40 = _v0 => {
-      let _v1 = (0, _v34.getReceiptValue)(_v34.RECEIPT_ONBOARDING_USER_EMAIL);
+    _v38 = _v0 => _v0.filter(_v0 => !!_v0.email),
+    _v39 = _v0 => {
+      let _v1 = (0, _v33.getReceiptValue)(_v33.RECEIPT_ONBOARDING_USER_EMAIL);
       return !!_v1 && _v0.trim().toLowerCase() === _v1.toLowerCase();
     };
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
-  let _v44 = ({
+  var _v40 = _v0.i(0),
+    _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  let _v43 = ({
     accentColor: _v0,
     isLarge: _v1 = !1,
     setAccentColor: _v2,
@@ -157,13 +156,13 @@
           _v4 && _v0.length > 0 && _v2(_v0[0]), _v6(_v0);
         }, _v0.src = _v3;
       }
-    }, [_v3, _v6]), (0, _v4.jsx)(_v43.ColorSelect, {
+    }, [_v3, _v6]), (0, _v4.jsx)(_v42.ColorSelect, {
       attach: "top",
       width: 237,
       height: 172,
-      label: (0, _v4.jsx)(_v43.ColorSelect.Presets, {
+      label: (0, _v4.jsx)(_v42.ColorSelect.Presets, {
         palette: _v5,
-        label: (0, _v42.translate)({
+        label: (0, _v41.translate)({
           singular: "Accent color",
           dictionary: {
             es: {
@@ -196,8 +195,8 @@
       onChange: _v0 => {
         _v0.match(/^#(?:[0-9a-fA-F]{3}){1,2}$/) && _v0 !== _v0 && _v2(_v0);
       },
-      initialColor: (0, _v18.blue)(500),
-      resetLabel: (0, _v42.translate)({
+      initialColor: _v33.DEFAULT_ACCENT_COLOR,
+      resetLabel: (0, _v41.translate)({
         singular: "Reset",
         dictionary: {
           es: {
@@ -223,35 +222,38 @@
           }
         }
       }),
-      resetColor: (0, _v18.blue)(500),
+      resetColor: _v33.DEFAULT_ACCENT_COLOR,
       size: _v1 ? "xl" : "md",
-      value: _v0 || (0, _v18.blue)(500)
+      value: _v0 || _v33.DEFAULT_ACCENT_COLOR
     }, "color-select");
   };
-  var _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
-    _v47 = _v0.i(0);
-  let _v48 = ({
+  var _v44 = _v0.i(0),
+    _v45 = _v0.i(0),
+    _v46 = _v0.i(0);
+  let _v47 = ({
       description: _v0,
       title: _v1
     }) => {
       let {
         team: _v2
-      } = (0, _v6.useContext)(_v27.StateContext);
-      return (0, _v4.jsxs)(_v49, {
-        children: [_v2.logoUrl ? (0, _v4.jsx)(_v52, {
+      } = (0, _v6.useContext)(_v26.StateContext);
+      return (0, _v4.jsxs)(_v48, {
+        children: [_v2.logoUrl ? (0, _v4.jsx)(_v51, {
           src: _v2.logoUrl,
           alt: "team-logo"
-        }) : (0, _v4.jsx)(_v51, {}), (0, _v4.jsx)(_v46.Header, {
-          size: "1",
+        }) : (0, _v4.jsx)(_v50, {}), (0, _v4.jsx)(_v44.Header, {
+          as: "h1",
+          size: "xl",
+          fontWeight: "bold",
+          mb: "sm",
           children: _v1
-        }), (0, _v4.jsx)(_v47.Paragraph, {
-          size: "1",
+        }), (0, _v4.jsx)(_v45.Paragraph, {
+          size: "lg",
           children: _v0
         })]
       });
     },
-    _v49 = _v12.default.div.withConfig({
+    _v48 = _v12.default.div.withConfig({
       displayName: "InstructionPanel__InstructionPanelContainer",
       componentId: "sc-7ddcdbd0-0"
     })`
@@ -263,49 +265,49 @@
   height: 35vh;
 
   p {
-    max-width: ${(0, _v41.rem)(450)};
+    max-width: ${(0, _v40.rem)(450)};
     text-align: center;
   }
 `,
-    _v50 = _v12.css`
-  margin-bottom: ${(0, _v41.rem)(40)};
+    _v49 = _v12.css`
+  margin-bottom: ${(0, _v40.rem)(40)};
 `,
-    _v51 = (0, _v12.default)(_v45.VimeoLogo).withConfig({
+    _v50 = (0, _v12.default)(_v46.VimeoLogo).withConfig({
       displayName: "InstructionPanel__VimeoLogoStyled",
       componentId: "sc-7ddcdbd0-1"
     })`
-  width: ${(0, _v41.rem)(150)};
-  ${_v50}
+  width: ${(0, _v40.rem)(150)};
+  ${_v49}
 `,
-    _v52 = _v12.default.img.withConfig({
+    _v51 = _v12.default.img.withConfig({
       displayName: "InstructionPanel__TeamLogo",
       componentId: "sc-7ddcdbd0-2"
     })`
-  max-height: ${(0, _v41.rem)(100)};
-  max-width: ${(0, _v41.rem)(150)};
-  ${_v50}
+  max-height: ${(0, _v40.rem)(100)};
+  max-width: ${(0, _v40.rem)(150)};
+  ${_v49}
 `;
-  var _v53 = _v0.i(0),
-    _v54 = _v0.i(0);
-  let _v55 = ({
+  var _v52 = _v0.i(0),
+    _v53 = _v0.i(0);
+  let _v54 = ({
       onBack: _v0,
       onSkip: _v1,
       nextButton: _v2
     }) => {
-      let _v3 = (0, _v6.useContext)(_v27.DispatchContext),
+      let _v3 = (0, _v6.useContext)(_v26.DispatchContext),
         _v4 = (0, _v6.useCallback)(() => {
           _v0?.(), _v3({
-            type: _v24.STEP_BACK
+            type: _v23.STEP_BACK
           });
         }, [_v3, _v0]),
         _v5 = (0, _v6.useCallback)(() => {
           _v1?.(), _v3({
-            type: _v24.SKIP_STEP
+            type: _v23.SKIP_STEP
           });
         }, [_v3, _v1]);
-      return (0, _v4.jsxs)(_v57, {
-        children: [(0, _v4.jsx)(_v56, {
-          children: (0, _v42.translate)({
+      return (0, _v4.jsxs)(_v56, {
+        children: [(0, _v4.jsx)(_v55, {
+          children: (0, _v41.translate)({
             singular: "Back",
             dictionary: {
               es: {
@@ -331,13 +333,12 @@
               }
             }
           }),
-          format: "alternative",
-          icon: (0, _v4.jsx)(_v54.ArrowLeft, {}),
+          leftIcon: (0, _v4.jsx)(_v53.ArrowLeft, {}),
           onClick: _v4,
-          variant: "hyperminimal"
-        }), (0, _v4.jsxs)(_v58, {
-          children: [(0, _v4.jsx)(_v53.Button, {
-            children: (0, _v42.translate)({
+          variant: "tertiary"
+        }), (0, _v4.jsxs)(_v57, {
+          children: [(0, _v4.jsx)(_v52.Button, {
+            children: (0, _v41.translate)({
               singular: "Skip",
               dictionary: {
                 es: {
@@ -363,30 +364,29 @@
                 }
               }
             }),
-            format: "alternative",
             onClick: _v5,
-            variant: "hyperminimal"
+            variant: "tertiary"
           }), _v2]
         })]
       });
     },
-    _v56 = (0, _v12.default)(_v53.Button).withConfig({
+    _v55 = (0, _v12.default)(_v52.Button).withConfig({
       displayName: "Navigation__BackButton",
       componentId: "sc-789010b1-0"
     })`
   span {
-    margin-left: ${(0, _v41.rem)(8)};
+    margin-left: ${(0, _v40.rem)(8)};
   }
 `,
-    _v57 = _v12.default.div.withConfig({
+    _v56 = _v12.default.div.withConfig({
       displayName: "Navigation__Container",
       componentId: "sc-789010b1-1"
     })`
-  border-top: ${(0, _v41.rem)(1)} solid ${(0, _v18.slate)(200)};
+  border-top: ${(0, _v40.rem)(1)} solid var(--vimeo-colors-gray-200);
   display: flex;
-  height: ${(0, _v41.rem)(80)};
+  height: ${(0, _v40.rem)(80)};
   margin-top: auto;
-  padding: 0 ${(0, _v41.rem)(20)};
+  padding: 0 ${(0, _v40.rem)(20)};
   justify-content: space-between;
   position: fixed;
   bottom: 0;
@@ -394,7 +394,7 @@
   z-index: 2;
   background: white;
 `,
-    _v58 = _v12.default.div.withConfig({
+    _v57 = _v12.default.div.withConfig({
       displayName: "Navigation__ForwardButtons",
       componentId: "sc-789010b1-2"
     })`
@@ -402,26 +402,26 @@
   justify-content: space-between;
   align-items: center;
 `,
-    _v59 = ({
+    _v58 = ({
       children: _v0,
       description: _v1,
       title: _v2,
       onBack: _v3,
       onSkip: _v4,
       nextButton: _v5
-    }) => (0, _v4.jsxs)(_v60, {
-      children: [(0, _v4.jsx)(_v48, {
+    }) => (0, _v4.jsxs)(_v59, {
+      children: [(0, _v4.jsx)(_v47, {
         description: _v1,
         title: _v2
-      }), (0, _v4.jsx)(_v61, {
+      }), (0, _v4.jsx)(_v60, {
         children: _v0
-      }), (0, _v4.jsx)(_v55, {
+      }), (0, _v4.jsx)(_v54, {
         onBack: _v3,
         onSkip: _v4,
         nextButton: _v5
       })]
     }),
-    _v60 = _v12.default.div.withConfig({
+    _v59 = _v12.default.div.withConfig({
       displayName: "StepTemplate__Container",
       componentId: "sc-daa760e-0"
     })`
@@ -429,7 +429,7 @@
   flex: 1;
   flex-direction: column;
 `,
-    _v61 = _v12.default.div.withConfig({
+    _v60 = _v12.default.div.withConfig({
       displayName: "StepTemplate__Content",
       componentId: "sc-daa760e-1"
     })`
@@ -438,40 +438,40 @@
   min-height: 65vh;
   justify-content: center;
   align-items: flex-start;
-  padding: ${(0, _v41.rem)(4)} ${(0, _v41.rem)(40)} ${(0, _v41.rem)(80)};
+  padding: ${(0, _v40.rem)(4)} ${(0, _v40.rem)(40)} ${(0, _v40.rem)(80)};
 `;
-  var _v62 = _v0.i(0),
+  var _v61 = _v0.i(0),
+    _v62 = _v0.i(0),
     _v63 = _v0.i(0),
     _v64 = _v0.i(0),
     _v65 = _v0.i(0),
     _v66 = _v0.i(0),
-    _v67 = _v0.i(0),
-    _v68 = _v0.i(0);
-  let _v69 = async _v0 => {
+    _v67 = _v0.i(0);
+  let _v68 = async _v0 => {
       let _v1 = await fetch(_v0);
       return new File([await _v1.blob()], "logo", {
         type: _v1.headers.get("content-type") || "image/png"
       });
     },
-    _v70 = [],
-    _v71 = async _v0 => {
-      if (!_v70.length) try {
+    _v69 = [],
+    _v70 = async _v0 => {
+      if (!_v69.length) try {
         let _v0 = _v6.default.lazy(() => _v0.A(0));
-        _v70 = Object.values(_v0);
+        _v69 = Object.values(_v0);
       } catch (_v0) {
         return console.error(_v0), console.error("failed to load free email domains"), !0;
       }
-      return _v70.includes(_v0);
+      return _v69.includes(_v0);
     },
-    _v72 = async (_v0, _v1) => {
+    _v71 = async (_v0, _v1) => {
       try {
-        let _v0 = await _v69(_v0);
+        let _v0 = await _v68(_v0);
         if (_v0) return await (0, _v15.uploadLogo)(_v1, _v0);
       } catch (_v0) {
         return console.error("failed to upload Brandfetch logo to vimeo", _v0), "";
       }
     },
-    _v73 = async (_v0, _v1) => {
+    _v72 = async (_v0, _v1) => {
       try {
         let _v0 = await fetch(`//${_v0.apiUrl}/users/${_v0.ownerId}/team/brand_suggestion`, {
           method: "GET",
@@ -482,7 +482,7 @@
         });
         if (_v0.ok) {
           let _v0 = await _v0.json();
-          _v26(_v1, {
+          _v25(_v1, {
             teamName: _v0.team_name ?? "",
             logoUrl: _v0.logo_url ?? "",
             logoSource: _v0.logo_url && _v0.logo_source ? _v0.logo_source : ""
@@ -492,10 +492,10 @@
         console.error(_v0);
       }
     },
-    _v74 = async (_v0, _v1) => {
+    _v73 = async (_v0, _v1) => {
       try {
         let _v0 = await (0, _v15.fetchPlayerLogoUrl)(_v0);
-        _v26(_v1, {
+        _v25(_v1, {
           logoUrl: _v0,
           logoSource: "player"
         });
@@ -503,25 +503,25 @@
         console.error(_v0);
       }
     },
+    _v74 = !1,
     _v75 = !1,
-    _v76 = !1,
-    _v77 = () => {
-      _v75 || (_v75 = !0);
+    _v76 = () => {
+      _v74 || (_v74 = !0);
     },
-    _v78 = async (_v0, _v1, _v2, _v3, _v4) => {
-      let _v5 = !_v0.logoUrl && !_v75;
-      if (await _v71(_v1)) _v5 && (await _v74(_v2, _v3)), _v77(), _v76 = !0;else {
-        let _v0 = !_v0.teamName && !_v76;
-        _v5 || _v77(), (_v5 || _v0) && (await _v73(_v2, _v3), _v75 = !0, _v76 = !0);
+    _v77 = async (_v0, _v1, _v2, _v3, _v4) => {
+      let _v5 = !_v0.logoUrl && !_v74;
+      if (await _v70(_v1)) _v5 && (await _v73(_v2, _v3)), _v76(), _v75 = !0;else {
+        let _v0 = !_v0.teamName && !_v75;
+        _v5 || _v76(), (_v5 || _v0) && (await _v72(_v2, _v3), _v74 = !0, _v75 = !0);
       }
       _v4(!1);
     };
-  var _v79 = _v0.i(0),
+  var _v78 = _v0.i(0),
+    _v79 = _v0.i(0),
     _v80 = _v0.i(0),
     _v81 = _v0.i(0),
-    _v82 = _v0.i(0),
-    _v83 = (0, _v6.forwardRef)(function (_v0, _v1) {
-      return _v6.default.createElement("svg", (0, _v82.c)({
+    _v82 = (0, _v6.forwardRef)(function (_v0, _v1) {
+      return _v6.default.createElement("svg", (0, _v81.c)({
         viewBox: "0 0 44 47",
         ref: _v1
       }, _v0), _v6.default.createElement("g", {
@@ -561,9 +561,9 @@
         fill: "#23313b"
       }))))));
     }),
-    _v84 = _v0.i(0),
-    _v85 = _v0.i(0);
-  let _v86 = ({
+    _v83 = _v0.i(0),
+    _v84 = _v0.i(0);
+  let _v85 = ({
     active: _v0,
     attach: _v1,
     content: _v2,
@@ -572,7 +572,7 @@
     color: _v5 = "#392D86",
     onClick: _v6,
     pointerSize: _v7 = 10
-  }) => (0, _v4.jsx)(_v87, {
+  }) => (0, _v4.jsx)(_v86, {
     active: _v0,
     attach: _v1,
     className: _v4,
@@ -585,7 +585,7 @@
   });
   _v12.keyframes`
   0% {
-    transform: translateY(${(0, _v84.rem)(50)});
+    transform: translateY(${(0, _v83.rem)(50)});
     opacity: 0;
   }
   100% {
@@ -593,14 +593,14 @@
     opacity: 1;
   }
 `;
-  let _v87 = (0, _v12.default)(_v85.PopOver).withConfig({
+  let _v86 = (0, _v12.default)(_v84.PopOver).withConfig({
       displayName: "BubblePopOver__StyledPopOver",
       componentId: "sc-8cfa3c51-0"
     })`
   background: ${({
       color: _v0
     }) => _v0};
-  border-radius: ${(0, _v84.rem)(10)};
+  border-radius: ${(0, _v83.rem)(10)};
   position: relative;
   ${function ({
       pointerSize: _v0,
@@ -609,19 +609,19 @@
       switch (_v1) {
         case "top":
           return _v12.css`
-        bottom: ${(0, _v84.rem)(_v0)};
+        bottom: ${(0, _v83.rem)(_v0)};
       `;
         case "bottom":
           return _v12.css`
-        top: ${(0, _v84.rem)(_v0)};
+        top: ${(0, _v83.rem)(_v0)};
       `;
         case "left":
           return _v12.css`
-        right: ${(0, _v84.rem)(_v0)};
+        right: ${(0, _v83.rem)(_v0)};
       `;
         case "right":
           return _v12.css`
-        left: ${(0, _v84.rem)(_v0)};
+        left: ${(0, _v83.rem)(_v0)};
       `;
       }
     }};
@@ -629,7 +629,7 @@
   &:after {
     border: ${({
       pointerSize: _v0
-    }) => `${(0, _v84.rem)(_v0)} solid transparent`};
+    }) => `${(0, _v83.rem)(_v0)} solid transparent`};
     content: '';
     height: 0;
     position: absolute;
@@ -642,65 +642,65 @@
       switch (_v2) {
         case "top":
           return _v12.css`
-        bottom: ${(0, _v84.rem)(-_v1)};
+        bottom: ${(0, _v83.rem)(-_v1)};
         border-bottom: 0;
         border-top-color: ${_v0};
 
-        ${_v88(_v1)}
+        ${_v87(_v1)}
       `;
         case "bottom":
           return _v12.css`
-        top: ${(0, _v84.rem)(-_v1)};
+        top: ${(0, _v83.rem)(-_v1)};
         border-bottom-color: ${_v0};
         border-top: 0;
 
-        ${_v88(_v1)}
+        ${_v87(_v1)}
       `;
         case "left":
           return _v12.css`
-        right: ${(0, _v84.rem)(-_v1)};
+        right: ${(0, _v83.rem)(-_v1)};
         border-right: 0;
         border-left-color: ${_v0};
 
-        ${_v89(_v1)}
+        ${_v88(_v1)}
       `;
         case "right":
           return _v12.css`
-        left: ${(0, _v84.rem)(-_v1)};
+        left: ${(0, _v83.rem)(-_v1)};
         border-left: 0;
         border-right-color: ${_v0};
 
-        ${_v89(_v1)}
+        ${_v88(_v1)}
       `;
       }
     }};
   }
 `,
-    _v88 = _v0 => `
+    _v87 = _v0 => `
   left: 50%;
-  margin-left: ${(0, _v84.rem)(-_v0)};
+  margin-left: ${(0, _v83.rem)(-_v0)};
 `,
-    _v89 = _v0 => `
-  margin-top: ${(0, _v84.rem)(-_v0)};
+    _v88 = _v0 => `
+  margin-top: ${(0, _v83.rem)(-_v0)};
   top: 50%;
 `,
-    _v90 = () => {
+    _v89 = () => {
       let {
           team: _v0
-        } = (0, _v6.useContext)(_v27.StateContext),
+        } = (0, _v6.useContext)(_v26.StateContext),
         [_v1, _v2] = (0, _v6.useState)(!1),
-        _v3 = (0, _v6.useContext)(_v27.DispatchContext);
+        _v3 = (0, _v6.useContext)(_v26.DispatchContext);
       return (0, _v6.useEffect)(() => {
         _v0.logoUrl || "brandfetch" !== _v0.brandingSuggestion.logoSource || _v2(!0);
-      }, [_v0.brandingSuggestion.logoSource]), (0, _v4.jsx)(_v86, {
+      }, [_v0.brandingSuggestion.logoSource]), (0, _v4.jsx)(_v85, {
         active: _v1,
         attach: "right",
-        content: (0, _v4.jsxs)(_v91, {
-          children: [(0, _v4.jsx)(_v83, {
+        content: (0, _v4.jsxs)(_v90, {
+          children: [(0, _v4.jsx)(_v82, {
             width: "40",
             height: "40"
-          }), (0, _v4.jsx)(_v92, {
-            children: (0, _v42.translate)({
+          }), (0, _v4.jsx)(_v91, {
+            children: (0, _v41.translate)({
               singular: "We recognize this logo based on your email. Do you want to apply the logo to your account?",
               dictionary: {
                 es: {
@@ -726,19 +726,18 @@
                 }
               }
             })
-          }), (0, _v4.jsx)(_v93, {
-            children: (0, _v4.jsx)(_v94, {
+          }), (0, _v4.jsx)(_v92, {
+            children: (0, _v4.jsx)(_v93, {
               url: _v0.brandingSuggestion.logoUrl
             })
-          }), (0, _v4.jsxs)(_v95, {
-            children: [(0, _v4.jsx)(_v96, {
+          }), (0, _v4.jsxs)(_v94, {
+            children: [(0, _v4.jsx)(_v95, {
               size: "sm",
-              format: "basic",
-              variant: "hyperminimal",
+              variant: "tertiary",
               onClick: () => {
                 _v2(!1);
               },
-              children: (0, _v42.translate)({
+              children: (0, _v41.translate)({
                 singular: "No thanks",
                 dictionary: {
                   es: {
@@ -764,14 +763,14 @@
                   }
                 }
               })
-            }), (0, _v4.jsx)(_v96, {
+            }), (0, _v4.jsx)(_v95, {
               size: "sm",
               onClick: () => {
-                _v25(_v3, {
+                _v24(_v3, {
                   logoUrl: _v0.brandingSuggestion.logoUrl
                 }), _v2(!1);
               },
-              children: (0, _v42.translate)({
+              children: (0, _v41.translate)({
                 singular: "Yes",
                 dictionary: {
                   es: {
@@ -801,10 +800,10 @@
           })]
         }),
         color: "#DAF2FB",
-        children: (0, _v4.jsx)(_v97, {})
+        children: (0, _v4.jsx)(_v96, {})
       });
     },
-    _v91 = _v12.default.div.withConfig({
+    _v90 = _v12.default.div.withConfig({
       displayName: "BrandSuggestion__BodyWrapper",
       componentId: "sc-6269d9cb-0"
     })`
@@ -812,35 +811,35 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: ${(0, _v41.rem)(350)};
+  height: ${(0, _v40.rem)(350)};
   max-width: 18rem;
-  padding: ${(0, _v41.rem)(20)};
+  padding: ${(0, _v40.rem)(20)};
 `,
-    _v92 = (0, _v12.default)(_v81.Text).withConfig({
+    _v91 = (0, _v12.default)(_v79.Text).withConfig({
       displayName: "BrandSuggestion__Message",
       componentId: "sc-6269d9cb-1"
     })`
-  font-size: ${(0, _v41.rem)(16)};
+  font-size: ${(0, _v40.rem)(16)};
   text-align: center;
 `,
-    _v93 = _v12.default.div.withConfig({
+    _v92 = _v12.default.div.withConfig({
       displayName: "BrandSuggestion__BrandLogoContainer",
       componentId: "sc-6269d9cb-2"
     })`
-  padding: ${(0, _v41.rem)(8)};
+  padding: ${(0, _v40.rem)(8)};
   background: white;
-  border-radius: ${(0, _v41.rem)(3)};
+  border-radius: ${(0, _v40.rem)(3)};
 `,
-    _v94 = _v12.default.div.withConfig({
+    _v93 = _v12.default.div.withConfig({
       displayName: "BrandSuggestion__BrandLogo",
       componentId: "sc-6269d9cb-3"
     })`
-  height: ${(0, _v41.rem)(60)};
-  width: ${(0, _v41.rem)(240)};
+  height: ${(0, _v40.rem)(60)};
+  width: ${(0, _v40.rem)(240)};
   background: url(${_v0 => _v0.url}) center/contain no-repeat content-box;
-  padding: ${(0, _v41.rem)(4)};
+  padding: ${(0, _v40.rem)(4)};
 `,
-    _v95 = _v12.default.div.withConfig({
+    _v94 = _v12.default.div.withConfig({
       displayName: "BrandSuggestion__ButtonContainer",
       componentId: "sc-6269d9cb-4"
     })`
@@ -848,17 +847,17 @@
   justify-content: flex-end;
   width: 100%;
 `,
-    _v96 = (0, _v12.default)(_v53.Button).withConfig({
+    _v95 = (0, _v12.default)(_v52.Button).withConfig({
       displayName: "BrandSuggestion__CtaButton",
       componentId: "sc-6269d9cb-5"
     })`
-  min-width: ${(0, _v41.rem)(100)};
-  height: ${(0, _v41.rem)(40)};
+  min-width: ${(0, _v40.rem)(100)};
+  height: ${(0, _v40.rem)(40)};
   border-color: transparent;
-  margin-left: ${(0, _v41.rem)(4)};
+  margin-left: ${(0, _v40.rem)(4)};
   font-weight: 400;
 `,
-    _v97 = _v12.default.div.withConfig({
+    _v96 = _v12.default.div.withConfig({
       displayName: "BrandSuggestion__PopOverChildren",
       componentId: "sc-6269d9cb-6"
     })`
@@ -866,15 +865,15 @@
   top: 50%;
   right: 0;
 `,
-    _v98 = _v12.default.div.withConfig({
+    _v97 = _v12.default.div.withConfig({
       displayName: "SingleLogoSection__Wrapper",
       componentId: "sc-4d3a4d7c-0"
     })`
   display: flex;
   flex-direction: column;
-  margin-bottom: ${(0, _v41.rem)(30)};
+  margin-bottom: ${(0, _v40.rem)(30)};
 `,
-    _v99 = _v12.default.div.withConfig({
+    _v98 = _v12.default.div.withConfig({
       displayName: "SingleLogoSection__InteractionWrapper",
       componentId: "sc-4d3a4d7c-1"
     })`
@@ -882,37 +881,37 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-top: ${(0, _v41.rem)(8)};
+  margin-top: ${(0, _v40.rem)(8)};
 `,
-    _v100 = _v12.default.div.withConfig({
+    _v99 = _v12.default.div.withConfig({
       displayName: "SingleLogoSection__LogoContainer",
       componentId: "sc-4d3a4d7c-2"
     })`
-  margin-bottom: ${(0, _v41.rem)(12)};
-  height: ${(0, _v41.rem)(160)};
+  margin-bottom: ${(0, _v40.rem)(12)};
+  height: ${(0, _v40.rem)(160)};
   width: 100%;
-  padding: ${(0, _v41.rem)(30)};
-  border: ${_v0 => _v0.isDragging ? `${(0, _v41.rem)(2)} solid ${(0, _v18.blue)(400)}` : `${(0, _v41.rem)(1)} solid ${(0, _v18.slate)(200)}`};
-  border-radius: ${(0, _v41.rem)(10)};
+  padding: ${(0, _v40.rem)(30)};
+  border: ${_v0 => _v0.isDragging ? `${(0, _v40.rem)(2)} solid var(--vimeo-colors-vimeoBlue-400)` : `${(0, _v40.rem)(1)} solid var(--vimeo-colors-gray-200)`};
+  border-radius: ${(0, _v40.rem)(10)};
   position: relative;
   ${_v0 => _v0.url && !_v0.isDragging && `background: url(${_v0.url}) center/contain no-repeat content-box;`}
-  ${_v0 => _v0.isDragging && `background: ${(0, _v18.blue)(400) + "0D"};`}
+  ${_v0 => _v0.isDragging && "background: color-mix(in srgb, var(--vimeo-colors-vimeoBlue-400) 5%, transparent);"}
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
   ${_v0 => _v0.hasError && !_v0.isDragging && `
-    border-color: ${(0, _v18.red)(500)};
+    border-color: var(--vimeo-colors-red-500);
     white-space: normal;
     text-align: center;
   
     svg path {
-      fill: ${(0, _v18.red)(500)};
+      fill: var(--vimeo-colors-red-500);
     }
   `}
 `,
-    _v101 = _v12.default.div.withConfig({
+    _v100 = _v12.default.div.withConfig({
       displayName: "SingleLogoSection__DropMask",
       componentId: "sc-4d3a4d7c-3"
     })`
@@ -921,14 +920,8 @@
   height: 100%;
   z-index: ${_v0 => _v0.isDragging ? 100 : -1};
 `,
-    _v102 = (0, _v12.default)(_v53.Button).withConfig({
-      displayName: "SingleLogoSection__UploadButton",
-      componentId: "sc-4d3a4d7c-4"
-    })`
-  padding: 0;
-`,
-    _v103 = ["image/png", "image/x-png", "image/jpeg", ".jpg", ".jpeg", ".png"],
-    _v104 = ({
+    _v101 = ["image/png", "image/x-png", "image/jpeg", ".jpg", ".jpeg", ".png"],
+    _v102 = ({
       errorMessage: _v0,
       logoUrl: _v1,
       setErrorMessage: _v2,
@@ -936,7 +929,7 @@
     }) => {
       let [_v4, _v5] = (0, _v6.useState)(!1),
         [_v6, _v7] = (0, _v6.useState)(!1),
-        _v8 = (0, _v6.useContext)(_v27.ConfigContext),
+        _v8 = (0, _v6.useContext)(_v26.ConfigContext),
         _v9 = {
           apiUrl: _v8.apiUrl,
           jwt: _v8.jwt,
@@ -944,7 +937,7 @@
         },
         _v10 = (0, _v6.useCallback)(async _v0 => {
           if (_v2(""), _v0 && 0 !== _v0.length) {
-            if (_v0[0].size > _v15.logoUploadLimit || 0 > _v103.indexOf(_v0[0].type)) return void _v2((0, _v42.translate)({
+            if (_v0[0].size > _v15.logoUploadLimit || 0 > _v101.indexOf(_v0[0].type)) return void _v2((0, _v41.translate)({
               singular: "Please use a JPEG or PNG file (limit 5MB).",
               dictionary: {
                 es: {
@@ -996,10 +989,11 @@
           _v0.preventDefault(), _v5(!1);
         }, []),
         _v16 = !_v1 && !_v6 || _v4;
-      return (0, _v4.jsxs)(_v98, {
-        children: [(0, _v4.jsx)(_v46.Header, {
-          size: "4",
-          children: (0, _v42.translate)({
+      return (0, _v4.jsxs)(_v97, {
+        children: [(0, _v4.jsx)(_v44.Header, {
+          size: "md",
+          mb: "sm",
+          children: (0, _v41.translate)({
             singular: "Logo",
             dictionary: {
               "ja-JP": {
@@ -1013,33 +1007,37 @@
               }
             }
           })
-        }), (0, _v4.jsxs)(_v99, {
-          children: [(0, _v4.jsxs)(_v100, {
+        }), (0, _v4.jsxs)(_v98, {
+          children: [(0, _v4.jsxs)(_v99, {
             hasError: !!_v0,
             url: _v6 || _v0 ? "" : _v1,
             onDragEnter: _v11,
             onDragEnd: _v15,
             onDragOver: _v14,
             isDragging: _v4,
-            children: [(0, _v4.jsx)(_v90, {}), (0, _v4.jsx)(_v101, {
+            children: [(0, _v4.jsx)(_v89, {}), (0, _v4.jsx)(_v100, {
               isDragging: _v4,
               onDragLeave: _v12,
               onDrop: _v13
-            }), _v16 && [(0, _v4.jsx)(_v46.Header, {
-              size: "6",
-              children: (0, _v42.translate)({
+            }), _v16 && [(0, _v4.jsx)(_v44.Header, {
+              size: "xs",
+              children: (0, _v41.translate)({
                 singular: "Drag and drop or {UPLOAD}select an image{/UPLOAD}",
                 replacements: {
-                  UPLOAD: _v0 => (0, _v4.jsx)(_v79.FileUpload, {
+                  UPLOAD: _v0 => (0, _v4.jsx)(_v78.FileInput, {
                     accept: "image/png,image/x-png,image/jpeg,.jpg,.jpeg,.png",
                     onChange: _v0 => {
                       _v10(_v0.target.files);
                     },
-                    disabled: _v6,
-                    children: (0, _v4.jsx)(_v102, {
-                      variant: "hyperminimal",
-                      children: _v0
-                    })
+                    isDisabled: _v6,
+                    label: _v0,
+                    size: "sm",
+                    variant: "tertiary",
+                    sx: {
+                      display: "inline-flex",
+                      height: "auto",
+                      paddingX: 0
+                    }
                   })
                 },
                 dictionary: {
@@ -1066,8 +1064,8 @@
                   }
                 }
               })
-            }, "placeholder-header"), (0, _v4.jsx)(_v47.Paragraph, {
-              children: (0, _v42.translate)({
+            }, "placeholder-header"), (0, _v4.jsx)(_v45.Paragraph, {
+              children: (0, _v41.translate)({
                 singular: "Please use a JPEG or PNG file (limit 5MB).",
                 dictionary: {
                   es: {
@@ -1093,66 +1091,69 @@
                   }
                 }
               })
-            }, "placeholder-paragraph")], _v6 && (0, _v4.jsx)(_v30.Spinner, {}), _v0 && !_v4 && [(0, _v4.jsx)(_v80.CircleWarning, {
-              height: (0, _v41.rem)(24),
-              width: (0, _v41.rem)(24)
-            }, "error-message-icon"), (0, _v4.jsx)(_v81.Text, {
-              status: "negative",
+            }, "placeholder-paragraph")], _v6 && (0, _v4.jsx)(_v29.Spinner, {}), _v0 && !_v4 && [(0, _v4.jsx)(_v80.CircleExclamation, {
+              height: (0, _v40.rem)(24),
+              width: (0, _v40.rem)(24)
+            }, "error-message-icon"), (0, _v4.jsx)(_v79.Text, {
+              color: "red.500",
               children: _v0
             }, "error-message-text")]]
-          }), _v1 && (0, _v4.jsx)(_v47.Paragraph, {
-            size: "3",
-            children: (0, _v4.jsx)(_v79.FileUpload, {
-              accept: _v103.join(","),
+          }), _v1 && (0, _v4.jsx)(_v45.Paragraph, {
+            size: "sm",
+            children: (0, _v4.jsx)(_v78.FileInput, {
+              accept: _v101.join(","),
               onChange: _v0 => {
                 _v10(_v0.target.files);
               },
-              disabled: _v6,
-              children: (0, _v4.jsx)(_v102, {
-                format: "alternative",
-                variant: "hyperminimal",
-                children: (0, _v42.translate)({
-                  singular: "Replace logo",
-                  dictionary: {
-                    es: {
-                      singular: "Reemplazar logotipo"
-                    },
-                    "de-DE": {
-                      singular: "Logo ersetzen"
-                    },
-                    "fr-FR": {
-                      singular: "Remplacer le logo"
-                    },
-                    "ja-JP": {
-                      singular: "ロゴを差し替え"
-                    },
-                    "ko-KR": {
-                      singular: "로고 교체"
-                    },
-                    "pt-BR": {
-                      singular: "Substituir logotipo"
-                    },
-                    "zh-CN": {
-                      singular: "替换徽标"
-                    }
+              isDisabled: _v6,
+              label: (0, _v41.translate)({
+                singular: "Replace logo",
+                dictionary: {
+                  es: {
+                    singular: "Reemplazar logotipo"
+                  },
+                  "de-DE": {
+                    singular: "Logo ersetzen"
+                  },
+                  "fr-FR": {
+                    singular: "Remplacer le logo"
+                  },
+                  "ja-JP": {
+                    singular: "ロゴを差し替え"
+                  },
+                  "ko-KR": {
+                    singular: "로고 교체"
+                  },
+                  "pt-BR": {
+                    singular: "Substituir logotipo"
+                  },
+                  "zh-CN": {
+                    singular: "替换徽标"
                   }
-                })
-              })
+                }
+              }),
+              size: "sm",
+              variant: "tertiary",
+              sx: {
+                display: "inline-flex",
+                height: "auto",
+                paddingX: 0
+              }
             })
           })]
         })]
       });
     },
-    _v105 = ({
+    _v103 = ({
       isDisabled: _v0,
       isSubmitting: _v1,
       onClick: _v2,
       label: _v3
-    }) => (0, _v4.jsx)(_v106, {
-      disabled: _v0,
-      loading: _v1,
+    }) => (0, _v4.jsx)(_v104, {
+      isDisabled: _v0,
+      isLoading: _v1,
       onClick: _v2,
-      children: _v3 ?? (0, _v42.translate)({
+      children: _v3 ?? (0, _v41.translate)({
         singular: "Next",
         dictionary: {
           es: {
@@ -1179,13 +1180,13 @@
         }
       })
     }),
-    _v106 = (0, _v12.default)(_v53.Button).withConfig({
+    _v104 = (0, _v12.default)(_v52.Button).withConfig({
       displayName: "NextButton__CustomButton",
       componentId: "sc-77cf8e4b-0"
     })`
-  border-radius: ${(0, _v41.rem)(6)};
+  border-radius: ${(0, _v40.rem)(6)};
   text-decoration: none;
-  height: ${(0, _v41.rem)(40)};
+  height: ${(0, _v40.rem)(40)};
   box-sizing: border-box;
   transition:
     background-color 0.2s,
@@ -1193,15 +1194,15 @@
     color 0.2s;
   margin-left: auto;
 `,
-    _v107 = ({
+    _v105 = ({
       setErrorMessage: _v0,
       storedTeamInfo: _v1
     }) => {
-      let _v2 = (0, _v6.useContext)(_v27.DispatchContext),
-        _v3 = (0, _v6.useContext)(_v27.ConfigContext),
+      let _v2 = (0, _v6.useContext)(_v26.DispatchContext),
+        _v3 = (0, _v6.useContext)(_v26.ConfigContext),
         {
           team: _v4
-        } = (0, _v6.useContext)(_v27.StateContext),
+        } = (0, _v6.useContext)(_v26.StateContext),
         {
           accentColor: _v5,
           id: _v6,
@@ -1216,7 +1217,7 @@
               ownerId: _v3.user.id
             },
             _v1 = _v7;
-          _v7.includes("assets.brandfetch.io") && (_v1 = await _v72(_v7, _v0));
+          _v7.includes("assets.brandfetch.io") && (_v1 = await _v71(_v7, _v0));
           let _v2 = (0, _v15.teamLogoUrlToUri)(_v1),
             _v3 = JSON.stringify({
               team_name: _v8.trim(),
@@ -1226,13 +1227,13 @@
           _v10(!0);
           try {
             await (0, _v15.updateTeamInfo)(_v0, _v6, _v3), _v10(!1), _v2({
-              type: _v24.STEP_FORWARD
+              type: _v23.STEP_FORWARD
             });
           } catch (_v0) {
             _v10(!1), _v0(_v15.defaultError);
           }
         }, [_v7, _v8, _v5, _v3.apiUrl, _v3.jwt, _v3.user.id, _v6, _v2, _v0]);
-      return (0, _v4.jsx)(_v105, {
+      return (0, _v4.jsx)(_v103, {
         isDisabled: !1,
         isSubmitting: _v9,
         onClick: () => {
@@ -1241,54 +1242,56 @@
             name_changed: _v8.trim() !== _v1.teamName,
             accent_color_changed: _v5 !== _v1.accentColor
           }).some(_v0 => _v0) ? _v11() : _v2({
-            type: _v24.STEP_FORWARD
+            type: _v23.STEP_FORWARD
           });
         }
       });
     };
-  var _v108 = _v0.i(0);
-  function _v109(_v0, _v1) {
+  var _v106 = _v0.i(0);
+  function _v107(_v0, _v1) {
     var _v2 = _v1.type,
       _v3 = _v1.payload,
       _v4 = void 0 === _v3 ? null : _v3;
     switch (_v2) {
       case "SET_ERROR":
-        return (0, _v82.c)((0, _v82.c)({}, _v0), {
+        return (0, _v81.c)((0, _v81.c)({}, _v0), {
           error: _v4,
           warning: !1
         });
       case "SET_WARNING":
-        return (0, _v82.c)((0, _v82.c)({}, _v0), {
+        return (0, _v81.c)((0, _v81.c)({}, _v0), {
           warning: _v4,
           error: !1
         });
       case "SET_REMAINING_CHARACTERS":
-        return (0, _v82.c)((0, _v82.c)({}, _v0), {
+        return (0, _v81.c)((0, _v81.c)({}, _v0), {
           remainingCharacters: _v4
         });
     }
   }
-  var _v110 = (0, _v12.default)(_v47.Paragraph).attrs(function (_v0) {
-    return {
-      size: 3,
-      format: "dark" === _v0.theme.name ? "soft" : "alternative"
-    };
-  })(_v3 || (_v3 = (0, _v82.a)(["\n  margin-top: 0.25rem;\n  margin-bottom: 0;\n\n  ", ";\n  ", ";\n"], ["\n  margin-top: 0.25rem;\n  margin-bottom: 0;\n\n  ", ";\n  ", ";\n"])), function (_v0) {
-    return _v0.warning && {
-      fontWeight: 800,
-      color: (0, _v18.yellow)(600)
-    };
-  }, function (_v0) {
-    return _v0.error && {
-      fontWeight: 600,
-      color: (0, _v18.red)(500)
-    };
-  });
+  var _v108 = _v0.i(0),
+    _v109 = _v0.i(0),
+    _v110 = (0, _v12.default)(_v108.Paragraph).attrs(function (_v0) {
+      return {
+        size: 3,
+        format: "dark" === _v0.theme.name ? "soft" : "alternative"
+      };
+    })(_v3 || (_v3 = (0, _v81.a)(["\n  margin-top: 0.25rem;\n  margin-bottom: 0;\n\n  ", ";\n  ", ";\n"], ["\n  margin-top: 0.25rem;\n  margin-bottom: 0;\n\n  ", ";\n  ", ";\n"])), function (_v0) {
+      return _v0.warning && {
+        fontWeight: 800,
+        color: (0, _v109.yellow)(600)
+      };
+    }, function (_v0) {
+      return _v0.error && {
+        fontWeight: 600,
+        color: (0, _v109.red)(500)
+      };
+    });
   let _v111 = _v12.css`
   input {
     padding: 0;
-    height: ${(0, _v41.rem)(40)};
-    font-size: ${(0, _v41.rem)(20)};
+    height: ${(0, _v40.rem)(40)};
+    font-size: ${(0, _v40.rem)(20)};
     font-weight: bold;
 
     &:focus {
@@ -1300,11 +1303,11 @@
       displayName: "TeamNameInput__InputWrapper",
       componentId: "sc-38b37bf1-0"
     })`
-  margin-top: ${(0, _v41.rem)(4)};
+  margin-top: ${(0, _v40.rem)(4)};
   position: relative;
 
   span {
-    margin-bottom: ${(0, _v41.rem)(8)};
+    margin-bottom: ${(0, _v40.rem)(8)};
   }
 
   p {
@@ -1318,7 +1321,7 @@
 
   ${_v111}
 `,
-    _v113 = (_v2 = _v108.Input, function (_v0) {
+    _v113 = (_v2 = _v106.Input, function (_v0) {
       var _v1 = _v0.defaultValue,
         _v2 = _v0.maxCharacters,
         _v3 = void 0 === _v2 ? 30 : _v2,
@@ -1330,11 +1333,11 @@
         _v9 = _v0.warningThreshold,
         _v10 = void 0 === _v9 ? 5 : _v9,
         _v11 = _v0.messages,
-        _v12 = (0, _v82.b)(_v0, ["defaultValue", "maxCharacters", "onChange", "onError", "onWarn", "plural", "singular", "warningThreshold", "messages"]),
+        _v12 = (0, _v81.b)(_v0, ["defaultValue", "maxCharacters", "onChange", "onError", "onWarn", "plural", "singular", "warningThreshold", "messages"]),
         _v13 = {
           remainingCharacters: _v1 ? _v3 - _v1.length : _v3
         },
-        _v14 = (0, _v82._)((0, _v6.useReducer)(_v109, _v13), 2),
+        _v14 = (0, _v81._)((0, _v6.useReducer)(_v107, _v13), 2),
         _v15 = _v14[0],
         _v16 = _v14[1],
         _v17 = _v15.error,
@@ -1357,7 +1360,7 @@
         error: _v17,
         warning: _v18
       }, _v19, " ", _v20);
-      return _v6.default.createElement(_v2, (0, _v82.c)({}, _v12, {
+      return _v6.default.createElement(_v2, (0, _v81.c)({}, _v12, {
         defaultValue: _v1,
         onChange: function (_v0) {
           var _v1 = _v3 - _v0.target.value.length;
@@ -1375,7 +1378,7 @@
       children: (0, _v4.jsx)(_v113, {
         autoFocus: _v0.autoFocus,
         maxCharacters: 32,
-        placeholder: (0, _v42.translate)({
+        placeholder: (0, _v41.translate)({
           singular: "Enter a team name",
           dictionary: {
             es: {
@@ -1405,7 +1408,7 @@
         onChange: _v0 => {
           _v0.setTeamName(_v0.target.value);
         },
-        singular: (0, _v42.translate)({
+        singular: (0, _v41.translate)({
           singular: "character",
           dictionary: {
             es: {
@@ -1431,7 +1434,7 @@
             }
           }
         }),
-        plural: (0, _v42.translate)({
+        plural: (0, _v41.translate)({
           singular: "characters",
           dictionary: {
             es: {
@@ -1466,59 +1469,59 @@
       componentId: "sc-1e713bce-0"
     })`
   width: 100%;
-  max-width: ${(0, _v41.rem)(700)};
+  max-width: ${(0, _v40.rem)(700)};
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding: 0 ${(0, _v41.rem)(20)} 0 ${(0, _v41.rem)(20)};
+  padding: 0 ${(0, _v40.rem)(20)} 0 ${(0, _v40.rem)(20)};
   position: relative;
   justify-content: center;
 
   h6 {
-    font-size: ${(0, _v41.rem)(18)};
+    font-size: ${(0, _v40.rem)(18)};
   }
 `,
     _v116 = () => {
       let {
           team: _v0
-        } = (0, _v6.useContext)(_v27.StateContext),
+        } = (0, _v6.useContext)(_v26.StateContext),
         {
           accentColor: _v1,
           logoUrl: _v2,
           teamName: _v3
         } = _v0,
-        _v4 = (0, _v6.useContext)(_v27.DispatchContext),
+        _v4 = (0, _v6.useContext)(_v26.DispatchContext),
         _v5 = (0, _v6.useRef)(_v0),
         [_v6, _v7] = (0, _v6.useState)(""),
-        _v8 = (0, _v6.useContext)(_v27.ConfigContext),
+        _v8 = (0, _v6.useContext)(_v26.ConfigContext),
         _v9 = {
           apiUrl: _v8.apiUrl,
           jwt: _v8.jwt,
           ownerId: _v8.user.id
         },
         _v10 = () => {
-          _v25(_v4, {
+          _v24(_v4, {
             ..._v5.current,
             brandingSuggestion: _v0.brandingSuggestion
           });
         },
-        _v11 = (0, _v34.getReceiptValue)(_v34.RECEIPT_ONBOARDING_USER_EMAIL),
+        _v11 = (0, _v33.getReceiptValue)(_v33.RECEIPT_ONBOARDING_USER_EMAIL),
         _v12 = ((_v0, _v1, _v2, _v3) => {
-          let [_v4, _v5] = (0, _v6.useState)(!_v76 || !_v75);
+          let [_v4, _v5] = (0, _v6.useState)(!_v75 || !_v74);
           return (0, _v6.useEffect)(() => {
-            _v1 ? _v78(_v0, _v1.split("@")[1], _v2, _v3, _v5) : _v5(!1);
+            _v1 ? _v77(_v0, _v1.split("@")[1], _v2, _v3, _v5) : _v5(!1);
           }, [_v1]), _v4;
         })(_v5.current, _v11, _v9, _v4);
       return ((0, _v6.useEffect)(() => {
-        _v0.logoUrl || "player" !== _v0.brandingSuggestion.logoSource || _v25(_v4, {
+        _v0.logoUrl || "player" !== _v0.brandingSuggestion.logoSource || _v24(_v4, {
           logoUrl: _v0.brandingSuggestion.logoUrl
         });
       }, [_v0.logoUrl, _v0.brandingSuggestion.logoSource]), (0, _v6.useEffect)(() => {
-        !_v0.teamName && _v0.brandingSuggestion.teamName && _v25(_v4, {
+        !_v0.teamName && _v0.brandingSuggestion.teamName && _v24(_v4, {
           teamName: _v0.brandingSuggestion.teamName
         });
-      }, [_v0.brandingSuggestion.teamName]), _v12) ? (0, _v4.jsx)(_v31, {}) : (0, _v4.jsx)(_v59, {
-        description: (0, _v42.translate)({
+      }, [_v0.brandingSuggestion.teamName]), _v12) ? (0, _v4.jsx)(_v30, {}) : (0, _v4.jsx)(_v58, {
+        description: (0, _v41.translate)({
           singular: "Select a name, logo, and brand color before you invite your team admins.",
           dictionary: {
             es: {
@@ -1544,7 +1547,7 @@
             }
           }
         }),
-        title: (0, _v42.translate)({
+        title: (0, _v41.translate)({
           singular: "Build your team",
           dictionary: {
             es: {
@@ -1572,7 +1575,7 @@
         }),
         onBack: _v10,
         onSkip: _v10,
-        nextButton: (0, _v4.jsx)(_v107, {
+        nextButton: (0, _v4.jsx)(_v105, {
           setErrorMessage: _v7,
           storedTeamInfo: _v5.current
         }),
@@ -1581,24 +1584,24 @@
             autoFocus: !0,
             teamName: _v3,
             setTeamName: _v0 => {
-              _v25(_v4, {
+              _v24(_v4, {
                 teamName: _v0
               });
             }
-          }), (0, _v4.jsx)(_v104, {
+          }), (0, _v4.jsx)(_v102, {
             errorMessage: _v6,
             logoUrl: _v2,
             setErrorMessage: _v7,
             setLogoUrl: _v0 => {
-              _v25(_v4, {
+              _v24(_v4, {
                 logoUrl: _v0
               });
             }
-          }), (0, _v4.jsx)(_v44, {
+          }), (0, _v4.jsx)(_v43, {
             accentColor: _v1,
             isLarge: !0,
             setAccentColor: _v0 => {
-              _v25(_v4, {
+              _v24(_v4, {
                 accentColor: _v0
               });
             },
@@ -1610,22 +1613,7 @@
     };
   var _v117 = _v0.i(0),
     _v118 = _v0.i(0),
-    _v119 = (0, _v6.forwardRef)(function (_v0, _v1) {
-      return _v6.default.createElement("svg", (0, _v82.c)({
-        id: "circle-plus_svg__Layer_1",
-        x: 0,
-        y: 0,
-        viewBox: "0 0 20 20",
-        xmlSpace: "preserve",
-        ref: _v1
-      }, _v0), _v6.default.createElement("path", {
-        className: "circle-plus_svg__st0",
-        d: "M10 20C4.5 20 0 15.5 0 10S4.5 0 10 0s10 4.5 10 10-4.5 10-10 10zm0-18c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8z"
-      }), _v6.default.createElement("path", {
-        className: "circle-plus_svg__st0",
-        d: "M14 9h-3V6H9v3H6v2h3v3h2v-3h3z"
-      }));
-    }),
+    _v119 = _v0.i(0),
     _v120 = _v0.i(0),
     _v121 = _v0.i(0),
     _v122 = _v0.i(0),
@@ -1633,7 +1621,7 @@
     _v123 = _v123,
     _v124 = _v0.i(0),
     _v125 = (0, _v6.forwardRef)(function (_v0, _v1) {
-      return _v6.default.createElement("svg", (0, _v82.c)({
+      return _v6.default.createElement("svg", (0, _v81.c)({
         "data-name": "Layer 1",
         viewBox: "0 0 20 20",
         ref: _v1
@@ -1643,8 +1631,9 @@
       }));
     }),
     _v126 = _v0.i(0),
-    _v127 = _v0.i(0);
-  let _v128 = _v12.default.div.withConfig({
+    _v127 = _v0.i(0),
+    _v128 = _v0.i(0);
+  let _v129 = _v12.default.div.withConfig({
       displayName: "InviteCount__Wrapper",
       componentId: "sc-5e5ca15f-0"
     })`
@@ -1652,7 +1641,7 @@
   display: flex;
 
   span {
-    padding-top: ${(0, _v41.rem)(1)};
+    padding-top: ${(0, _v40.rem)(1)};
   }
 
   * {
@@ -1660,38 +1649,38 @@
     fill: ${_v127.core.color.text(600)};
   }
 `,
-    _v129 = _v12.default.div.withConfig({
+    _v130 = _v12.default.div.withConfig({
       displayName: "InviteCount__TipIconWrapper",
       componentId: "sc-5e5ca15f-1"
     })`
   align-items: center;
   cursor: pointer;
   display: flex;
-  margin-left: ${(0, _v41.rem)(11)};
-  margin-top: ${(0, _v41.rem)(-1)};
+  margin-left: ${(0, _v40.rem)(11)};
+  margin-top: ${(0, _v40.rem)(-1)};
 
   svg {
-    height: ${(0, _v41.rem)(20)};
+    height: ${(0, _v40.rem)(20)};
     width: auto;
   }
 `,
-    _v130 = (0, _v12.default)(_v125).withConfig({
+    _v131 = (0, _v12.default)(_v125).withConfig({
       displayName: "InviteCount__Person",
       componentId: "sc-5e5ca15f-2"
     })`
-  height: ${(0, _v41.rem)(20)};
-  margin-right: ${(0, _v41.rem)(8)};
-  padding: ${(0, _v41.rem)(3)};
+  height: ${(0, _v40.rem)(20)};
+  margin-right: ${(0, _v40.rem)(8)};
+  padding: ${(0, _v40.rem)(3)};
   width: auto;
 `,
-    _v131 = ({
+    _v132 = ({
       invitationsOutstanding: _v0,
       tip: _v1,
       isSingleSeatOnboarding: _v2
-    }) => (0, _v4.jsxs)(_v128, {
-      children: [(0, _v4.jsx)(_v130, {}), (0, _v4.jsx)(_v81.Text, {
+    }) => (0, _v4.jsxs)(_v129, {
+      children: [(0, _v4.jsx)(_v131, {}), (0, _v4.jsx)(_v128.Text, {
         size: 100,
-        children: _v2 ? (0, _v42.translate)({
+        children: _v2 ? (0, _v41.translate)({
           singular: "{REMAINING_SEATS} invitation remaining",
           plural: "{REMAINING_SEATS} invitations remaining",
           count: _v0,
@@ -1728,7 +1717,7 @@
               plural: "剩余 {REMAINING_SEATS} 个邀请"
             }
           }
-        }) : (0, _v42.translate)({
+        }) : (0, _v41.translate)({
           singular: "{REMAINING_SEATS} seat remaining",
           plural: "{REMAINING_SEATS} seats remaining",
           count: _v0,
@@ -1769,51 +1758,57 @@
       }), (0, _v4.jsx)(_v124.Tip, {
         attach: "top",
         content: _v1,
-        children: (0, _v4.jsx)(_v129, {
+        children: (0, _v4.jsx)(_v130, {
           children: (0, _v4.jsx)(_v126.CircleInfoSmall, {})
         })
       })]
     });
-  var _v132 = _v0.i(0);
-  let _v133 = _v12.default.div.withConfig({
+  var _v133 = _v0.i(0),
+    _v134 = _v0.i(0);
+  let _v135 = _v12.default.div.withConfig({
       displayName: "MaxInvitesSentNotification__Wrapper",
       componentId: "sc-9f43f8a0-0"
     })`
   align-items: center;
-  background-color: ${_v0 => (0, _v41.transparentize)(.85, _v0.accentColor || (0, _v18.blue)(500))};
+  background-color: color-mix(
+    in srgb,
+    ${_v0 => _v0.accentColor || _v33.DEFAULT_ACCENT_COLOR} 15%,
+    transparent
+  );
   display: flex;
-  padding: ${(0, _v41.rem)(5)};
+  padding: ${(0, _v40.rem)(5)};
 
   svg {
-    width: ${(0, _v41.rem)(32)};
-    height: ${(0, _v41.rem)(32)};
+    width: ${(0, _v40.rem)(32)};
+    height: ${(0, _v40.rem)(32)};
     g {
-      fill: ${_v0 => _v0.accentColor || (0, _v18.blue)(500)};
+      fill: ${_v0 => _v0.accentColor || _v33.DEFAULT_ACCENT_COLOR};
     }
   }
 `,
-    _v134 = ({
+    _v136 = ({
       accentColor: _v0,
       invitationsOutstanding: _v1,
       isSingleSeatOnboarding: _v2,
       isTrialPlan: _v3
-    }) => (0, _v4.jsxs)(_v133, {
+    }) => (0, _v4.jsxs)(_v135, {
       accentColor: _v0,
-      children: [(0, _v4.jsx)(_v126.CircleInfoSmall, {}), (0, _v4.jsx)(_v81.Text, {
-        size: 200,
-        children: _v2 ? _v3 ? (0, _v42.translate)({
+      children: [(0, _v4.jsx)(_v133.CircleInfoSmall, {}), (0, _v4.jsx)(_v79.Text, {
+        fontSize: "body-md",
+        children: _v2 ? _v3 ? (0, _v41.translate)({
           singular: "You have {REMAINING_INVITATIONS} invitation remaining. {A}To invite more people, upgrade to a paid plan.{/A}",
           plural: "You have {REMAINING_INVITATIONS} invitations remaining. {A}To invite more people, upgrade to a paid plan.{/A}",
           count: _v1,
           replacements: {
             REMAINING_INVITATIONS: _v1,
-            A: _v0 => (0, _v4.jsx)(_v120.Link, {
-              href: (0, _v132.buildUpgradePlanUrl)({
+            A: _v0 => (0, _v4.jsx)(_v117.Link, {
+              href: (0, _v134.buildUpgradePlanUrl)({
                 paywallTrigger: "onboarding_team_settings_invite_upgrade_link",
                 paywallLocation: "onboarding_team_settings",
                 paywallFeature: "team_seats"
               }),
               target: "_blank",
+              color: "vimeoBlue.500",
               children: _v0
             })
           },
@@ -1847,15 +1842,16 @@
               plural: "您还可以邀请 {REMAINING_INVITATIONS} 人。{A}要邀请更多人，请升级到付费套餐。{/A}"
             }
           }
-        }) : (0, _v42.translate)({
+        }) : (0, _v41.translate)({
           singular: "You have {REMAINING_INVITATIONS} invitation remaining. {A}To invite more people, visit the team management page.{/A}",
           plural: "You have {REMAINING_INVITATIONS} invitations remaining. {A}To invite more people, visit the team management page.{/A}",
           count: _v1,
           replacements: {
             REMAINING_INVITATIONS: _v1,
-            A: _v0 => (0, _v4.jsx)(_v120.Link, {
+            A: _v0 => (0, _v4.jsx)(_v117.Link, {
               href: "/settings/account/team_members",
               target: "_blank",
+              color: "vimeoBlue.500",
               children: _v0
             })
           },
@@ -1889,15 +1885,16 @@
               plural: "您还剩下 {REMAINING_INVITATIONS} 份邀请函。{A}要邀请更多人，请访问团队管理页面。{/A}"
             }
           }
-        }) : (0, _v42.translate)({
+        }) : (0, _v41.translate)({
           singular: "You have {REMAINING_SEATS} paid seat remaining. {A}To invite more people, visit the team management page.{/A}",
           plural: "You have {REMAINING_SEATS} paid seats remaining. {A}To invite more people, visit the team management page.{/A}",
           count: _v1,
           replacements: {
             REMAINING_SEATS: _v1,
-            A: _v0 => (0, _v4.jsx)(_v120.Link, {
+            A: _v0 => (0, _v4.jsx)(_v117.Link, {
               href: "/settings/account/team_members",
               target: "_blank",
+              color: "vimeoBlue.500",
               children: _v0
             })
           },
@@ -1934,8 +1931,8 @@
         })
       })]
     }),
-    _v135 = {
-      Viewer: (0, _v42.translate)({
+    _v137 = {
+      Viewer: (0, _v41.translate)({
         singular: "Viewer",
         dictionary: {
           es: {
@@ -1961,7 +1958,7 @@
           }
         }
       }),
-      Contributor: (0, _v42.translate)({
+      Contributor: (0, _v41.translate)({
         singular: "Contributor",
         dictionary: {
           es: {
@@ -1987,7 +1984,7 @@
           }
         }
       }),
-      Admin: (0, _v42.translate)({
+      Admin: (0, _v41.translate)({
         singular: "Admin",
         dictionary: {
           es: {
@@ -2010,7 +2007,7 @@
           }
         }
       }),
-      SelectRole: (0, _v42.translate)({
+      SelectRole: (0, _v41.translate)({
         singular: "Select role",
         dictionary: {
           es: {
@@ -2037,35 +2034,35 @@
         }
       })
     },
-    _v136 = _v0 => (0, _v4.jsx)(_v120.Link, {
+    _v138 = _v0 => (0, _v4.jsx)(_v117.Link, {
       href: "/settings/account/team_members",
       target: "_blank",
       children: _v0
     }),
-    _v137 = () => {
+    _v139 = () => {
       var _v0, _v1, _v2, _v3, _v4, _v5;
       let _v6,
         {
           team: _v7
-        } = (0, _v6.useContext)(_v27.StateContext),
+        } = (0, _v6.useContext)(_v26.StateContext),
         {
           apiUrl: _v8,
           jwt: _v9,
           remainingInviteCount: _v10,
           user: _v11,
           isSingleSeatOnboarding: _v12
-        } = (0, _v6.useContext)(_v27.ConfigContext),
-        _v13 = (0, _v6.useContext)(_v27.DispatchContext),
-        [_v14, _v15] = (0, _v6.useState)(Array(Math.min(_v10, 3)).fill(_v38(_v12))),
+        } = (0, _v6.useContext)(_v26.ConfigContext),
+        _v13 = (0, _v6.useContext)(_v26.DispatchContext),
+        [_v14, _v15] = (0, _v6.useState)(Array(Math.min(_v10, 3)).fill(_v37(_v12))),
         [_v16, _v17] = (0, _v6.useState)(!1),
         [_v18, _v19] = (0, _v6.useState)(""),
         [_v20, _v21] = (0, _v6.useState)(""),
         [_v22, _v23] = (0, _v6.useState)(""),
         [_v24, _v25] = (0, _v6.useState)(!1),
-        _v26 = _v39(_v14).length,
-        [_v27, _v28, _v29] = ((_v6 = [])[_v33.TeamUserPermissionLevel.Admin] = 0, _v6[_v33.TeamUserPermissionLevel.Contributor] = 0, _v6[_v33.TeamUserPermissionLevel.Viewer] = 0, _v14.forEach(_v0 => {
+        _v26 = _v38(_v14).length,
+        [_v27, _v28, _v29] = ((_v6 = [])[_v32.TeamUserPermissionLevel.Admin] = 0, _v6[_v32.TeamUserPermissionLevel.Contributor] = 0, _v6[_v32.TeamUserPermissionLevel.Viewer] = 0, _v14.forEach(_v0 => {
           _v6[_v0.role] += 1;
-        }), [_v6[_v33.TeamUserPermissionLevel.Admin], _v6[_v33.TeamUserPermissionLevel.Contributor], _v6[_v33.TeamUserPermissionLevel.Viewer]]),
+        }), [_v6[_v32.TeamUserPermissionLevel.Admin], _v6[_v32.TeamUserPermissionLevel.Contributor], _v6[_v32.TeamUserPermissionLevel.Viewer]]),
         _v30 = _v14.length,
         _v31 = _v30 < Math.min(10, _v10),
         _v32 = _v10 > 10,
@@ -2092,8 +2089,8 @@
                 hasPerSeatPricingModelTeamMember: _v6
               }
             } = (0, _v7.useCapability)(["hasPerSeatPricingModelTeamMember"]),
-            [_v7, _v8] = (0, _v62.useGetUserSettingsBillingMembershipLazy)(),
-            [_v9, _v10] = (0, _v63.useGetUserSettingsBillingPaymentMethodsLazy)(),
+            [_v7, _v8] = (0, _v61.useGetUserSettingsBillingMembershipLazy)(),
+            [_v9, _v10] = (0, _v62.useGetUserSettingsBillingPaymentMethodsLazy)(),
             {
               data: _v11,
               loading: _v12
@@ -2116,12 +2113,12 @@
               }
             }));
           }, [_v6, _v15]);
-          let _v16 = (0, _v65.useGetSubscriptionPlansData)(),
+          let _v16 = (0, _v64.useGetSubscriptionPlansData)(),
             _v17 = _v11?.isFreeTrial ?? !1,
-            _v18 = _v11?.tier === _v68.Tier.Creator,
+            _v18 = _v11?.tier === _v67.Tier.Creator,
             {
               isBlocked: _v19
-            } = (0, _v64.useIsSeatChangeBlocked)({
+            } = (0, _v63.useIsSeatChangeBlocked)({
               tier: _v11?.tier
             }),
             _v20 = _v15 && !_v18 && _v13?.data[0]?.type !== "paypal" && _v1;
@@ -2142,10 +2139,10 @@
             isFreeTrial: _v17,
             shouldShowNewOnboardingFlow: _v20,
             membershipData: _v11,
-            getRoleMenuType: () => _v20 ? _v11?.isFreeTrial ? _v67.RoleMenuType.TrialSingleSeatOnBoarfingFlow : _v67.RoleMenuType.PaidSingleSeatOnBoardingFlow : _v67.RoleMenuType.MultipleSeatOnBoardingFlow,
-            canTriggerPurchaseSeats: _v0 => !_v18 && !_v19 && _v20 && _v0.some(_v0 => _v0.email && _v0.isEmailValid && (_v0.role === _v33.TeamUserPermissionLevel.Admin || _v0.role === _v33.TeamUserPermissionLevel.Contributor)),
-            getMinimumPurchaseForInvite: _v0 => _v0.filter(_v0 => _v0.email && _v0.isEmailValid && (_v0.role === _v33.TeamUserPermissionLevel.Admin || _v0.role === _v33.TeamUserPermissionLevel.Contributor)).length,
-            getMaximumPurchaseSeatsForInvite: () => _v17 ? _v66.MAX_SEATS_ALLOWED_FOR_FREE_TRIALERS : _v66.MAX_PURCHASE_SEATS_DEFAULT
+            getRoleMenuType: () => _v20 ? _v11?.isFreeTrial ? _v66.RoleMenuType.TrialSingleSeatOnBoarfingFlow : _v66.RoleMenuType.PaidSingleSeatOnBoardingFlow : _v66.RoleMenuType.MultipleSeatOnBoardingFlow,
+            canTriggerPurchaseSeats: _v0 => !_v18 && !_v19 && _v20 && _v0.some(_v0 => _v0.email && _v0.isEmailValid && (_v0.role === _v32.TeamUserPermissionLevel.Admin || _v0.role === _v32.TeamUserPermissionLevel.Contributor)),
+            getMinimumPurchaseForInvite: _v0 => _v0.filter(_v0 => _v0.email && _v0.isEmailValid && (_v0.role === _v32.TeamUserPermissionLevel.Admin || _v0.role === _v32.TeamUserPermissionLevel.Contributor)).length,
+            getMaximumPurchaseSeatsForInvite: () => _v17 ? _v65.MAX_SEATS_ALLOWED_FOR_FREE_TRIALERS : _v65.MAX_PURCHASE_SEATS_DEFAULT
           };
         })(_v11.id, _v12, _v27 + _v28, _v29),
         {
@@ -2176,7 +2173,7 @@
       }, [_v22]), (0, _v6.useEffect)(() => {
         _v37 && _v15(_v0 => _v0.map(_v0 => ({
           ..._v0,
-          role: _v36
+          role: _v35
         })));
       }, [_v37]);
       let _v44 = (0, _v6.useCallback)(async () => {
@@ -2197,11 +2194,11 @@
           });
           if (_v15(_v0), _v0.length > 0 && _v0.every(_v0 => _v0.isEmailValid)) {
             _v17(!0);
-            let _v0 = _v39(_v0);
+            let _v0 = _v38(_v0);
             try {
               var _v1, _v2;
               let _v0, _v1;
-              _v2 = (await (_v1 = _v11.id, _v0 = (0, _v34.getReceiptValue)(_v34.RECEIPT_ONBOARDING_USER_EMAIL), Promise.all(_v0.filter(_v0 => _v0.email.toLowerCase() !== _v0?.toLowerCase()).map(async _v0 => {
+              _v2 = (await (_v1 = _v11.id, _v0 = (0, _v33.getReceiptValue)(_v33.RECEIPT_ONBOARDING_USER_EMAIL), Promise.all(_v0.filter(_v0 => _v0.email.toLowerCase() !== _v0?.toLowerCase()).map(async _v0 => {
                 try {
                   let _v0 = await fetch(`https://${_v8}/users/${_v1}/teammembers/${_v0.email}`, {
                     method: "PUT",
@@ -2219,16 +2216,16 @@
                       let _v0 = await _v0.json();
                       "number" == typeof _v0?.error_code && (_v0 = _v0.error_code);
                     } catch {}
-                    throw new _v37(_v0.email, _v0);
+                    throw new _v36(_v0.email, _v0);
                   }
                   return _v0;
                 } catch (_v0) {
                   throw _v0;
                 }
-              })))).length, _v1 = new Date(new Date().getTime() + 0), _v32.default.set("post_checkout_teams_action", "invited", {
+              })))).length, _v1 = new Date(new Date().getTime() + 0), _v31.default.set("post_checkout_teams_action", "invited", {
                 expires: _v1
               }), window.localStorage.setItem("teams_onboarding_invites_count", JSON.stringify(_v2)), _v17(!1), _v13({
-                type: _v24.STEP_FORWARD
+                type: _v23.STEP_FORWARD
               });
             } catch (_v0) {
               if (_v0 instanceof Error && "TeamInviteError" === _v0.name) {
@@ -2239,7 +2236,7 @@
                 _v21(((_v0, _v1) => {
                   switch (_v1) {
                     case 0:
-                      return (0, _v42.translate)({
+                      return (0, _v41.translate)({
                         singular: "{BOLD}'{EMAIL}'{/BOLD} is already part of your team.",
                         replacements: {
                           EMAIL: _v0,
@@ -2272,7 +2269,7 @@
                         }
                       });
                     case 0:
-                      return (0, _v42.translate)({
+                      return (0, _v41.translate)({
                         singular: "{BOLD}'{EMAIL}'{/BOLD} is already invited and is yet to respond.",
                         replacements: {
                           EMAIL: _v0,
@@ -2306,7 +2303,7 @@
                       });
                     case 0:
                     case 0:
-                      return (0, _v42.translate)({
+                      return (0, _v41.translate)({
                         singular: "You hit your maximum number of invites.",
                         dictionary: {
                           es: {
@@ -2333,11 +2330,11 @@
                         }
                       });
                     default:
-                      return (0, _v42.translate)({
+                      return (0, _v41.translate)({
                         singular: "There was a problem inviting {EMAIL}. Make sure they aren't already on your team. If the problem persists, you can invite them from your {A}account settings{/A}.",
                         replacements: {
                           EMAIL: _v0,
-                          A: _v136
+                          A: _v138
                         },
                         dictionary: {
                           es: {
@@ -2368,7 +2365,7 @@
                   ..._v0,
                   isEmailValid: !1
                 } : _v0));
-              } else _v19(_v35);
+              } else _v19(_v34);
               _v17(!1);
             }
           }
@@ -2377,12 +2374,12 @@
           if (!_v12) return !0;
           let _v0 = !0;
           return _v14.map(_v0 => {
-            "" != _v0.email && _v0.role == _v36 && (_v0 = !1);
+            "" != _v0.email && _v0.role == _v35 && (_v0 = !1);
           }), _v0;
         })();
-      return _v34 ? (0, _v4.jsx)(_v31, {}) : (0, _v4.jsx)(_v59, {
+      return _v34 ? (0, _v4.jsx)(_v30, {}) : (0, _v4.jsx)(_v58, {
         description: _v37 ? (0, _v4.jsxs)(_v4.Fragment, {
-          children: [`${_v36 ? (0, _v42.translate)({
+          children: [`${_v36 ? (0, _v41.translate)({
             singular: "Your Free Trial plan allows you to invite up to 5 Admins and Contributors and up to 5 Viewers.",
             dictionary: {
               es: {
@@ -2407,7 +2404,7 @@
                 singular: "Free Trial 套餐允许您邀请最多 5 名管理员和贡献者，以及最多 5 名观众。"
               }
             }
-          }) : (0, _v42.translate)({
+          }) : (0, _v41.translate)({
             singular: "Purchase additional seats to invite Admins and Contributors. Or invite Viewers for free.",
             dictionary: {
               es: {
@@ -2432,11 +2429,10 @@
                 singular: "购买额外席位以邀请管理员和贡献者。或免费邀请观众。"
               }
             }
-          })} `, (0, _v4.jsx)(_v147, {
-            format: "soft",
+          })} `, (0, _v4.jsx)(_v149, {
             href: "https://vimeo.zendesk.com/hc/en-us/articles/8550140484877-Manage-the-number-of-seats-on-your-Vimeo-account",
             target: "_blank",
-            children: (0, _v42.translate)({
+            children: (0, _v41.translate)({
               singular: "Learn more about seats.",
               dictionary: {
                 es: {
@@ -2463,7 +2459,7 @@
               }
             })
           })]
-        }) : _v12 ? (0, _v42.translate)({
+        }) : _v12 ? (0, _v41.translate)({
           singular: "Team members can view and comment on videos you share",
           dictionary: {
             es: {
@@ -2488,7 +2484,7 @@
               singular: "团队成员可以观看和评论您分享的视频"
             }
           }
-        }) : (0, _v42.translate)({
+        }) : (0, _v41.translate)({
           singular: "Add your collaborators to unlock the power of video",
           dictionary: {
             es: {
@@ -2514,7 +2510,7 @@
             }
           }
         }),
-        title: _v37 ? (0, _v42.translate)({
+        title: _v37 ? (0, _v41.translate)({
           singular: "Invite your team members",
           dictionary: {
             es: {
@@ -2539,7 +2535,7 @@
               singular: "邀请团队成员"
             }
           }
-        }) : (0, _v42.translate)({
+        }) : (0, _v41.translate)({
           singular: "Add team members for free",
           dictionary: {
             es: {
@@ -2565,13 +2561,13 @@
             }
           }
         }),
-        nextButton: (0, _v4.jsx)(_v105, {
+        nextButton: (0, _v4.jsx)(_v103, {
           isDisabled: !_v45,
           isSubmitting: _v16,
           onClick: () => {
             _v40(_v14) ? _v25(!0) : _v44();
           },
-          label: (0, _v42.translate)({
+          label: (0, _v41.translate)({
             singular: "Invite",
             dictionary: {
               es: {
@@ -2598,29 +2594,29 @@
             }
           })
         }),
-        children: (0, _v4.jsxs)(_v138, {
-          children: [_v20 && (0, _v4.jsx)(_v117.Notice, {
+        children: (0, _v4.jsxs)(_v140, {
+          children: [_v20 && (0, _v4.jsx)(_v119.Notice, {
             format: "negative",
             onClose: () => {
               _v21("");
             },
-            children: (0, _v4.jsx)(_v47.Paragraph, {
-              size: "2",
+            children: (0, _v4.jsx)(_v45.Paragraph, {
+              size: "md",
               children: _v20
             })
-          }), (0, _v4.jsx)(_v139, {
-            children: (0, _v4.jsxs)(_v140, {
+          }), (0, _v4.jsx)(_v141, {
+            children: (0, _v4.jsxs)(_v142, {
               children: [_v14.map((_v0, _v1) => {
                 let _v2, _v3;
-                return (0, _v4.jsxs)(_v143, {
-                  children: [(0, _v4.jsx)(_v108.Input, {
+                return (0, _v4.jsxs)(_v145, {
+                  children: [(0, _v4.jsx)(_v106.Input, {
                     autoComplete: "off",
                     autoFocus: 0 === _v1,
                     defaultValue: _v0.email,
                     id: `emailInput_${_v1}`,
                     label: null,
                     messages: {
-                      error: _v40(_v0.email) ? (0, _v42.translate)({
+                      error: _v39(_v0.email) ? (0, _v41.translate)({
                         singular: "You're already part of the team. Try a different email.",
                         dictionary: {
                           es: {
@@ -2645,7 +2641,7 @@
                             singular: "您已经是团队的一员了。尝试其他电子邮件。"
                           }
                         }
-                      }) : (0, _v42.translate)({
+                      }) : (0, _v41.translate)({
                         singular: "Please enter a valid email address.",
                         dictionary: {
                           es: {
@@ -2677,10 +2673,10 @@
                       _v15([..._v14.slice(0, _v1), {
                         ..._v14[_v1],
                         email: _v0.target.value,
-                        isEmailValid: !_v40(_v0.target.value)
+                        isEmailValid: !_v39(_v0.target.value)
                       }, ..._v14.slice(_v1 + 1)]);
                     },
-                    placeholder: (0, _v42.translate)({
+                    placeholder: (0, _v41.translate)({
                       singular: "Email address",
                       dictionary: {
                         es: {
@@ -2710,16 +2706,16 @@
                     status: _v0.isEmailValid ? "neutral" : "negative",
                     type: "email",
                     variant: "underline"
-                  }), (0, _v4.jsx)(_v144, {
+                  }), (0, _v4.jsx)(_v146, {
                     children: (0, _v4.jsx)(_v123.default, {
                       format: "alternative",
                       variant: "minimalTransparent",
                       selectedRole: {
-                        label: _v135[_v0.role],
-                        value: _v0.role === _v36 ? "" : _v0.role
+                        label: _v137[_v0.role],
+                        value: _v0.role === _v35 ? "" : _v0.role
                       },
                       permissionLevels: (_v2 = [{
-                        label: (0, _v42.translate)({
+                        label: (0, _v41.translate)({
                           singular: "Viewer",
                           dictionary: {
                             es: {
@@ -2747,7 +2743,7 @@
                         }),
                         value: "Viewer"
                       }, {
-                        label: (0, _v42.translate)({
+                        label: (0, _v41.translate)({
                           singular: "Contributor",
                           dictionary: {
                             es: {
@@ -2775,7 +2771,7 @@
                         }),
                         value: "Contributor"
                       }, {
-                        label: (0, _v42.translate)({
+                        label: (0, _v41.translate)({
                           singular: "Admin",
                           dictionary: {
                             es: {
@@ -2801,7 +2797,7 @@
                         value: "Admin"
                       }], _v37 || !_v12 ? _v2 : [_v2[0]]),
                       permissionLevelDescriptions: (_v3 = [{
-                        label: (0, _v42.translate)({
+                        label: (0, _v41.translate)({
                           singular: "Viewer",
                           dictionary: {
                             es: {
@@ -2827,7 +2823,7 @@
                             }
                           }
                         }),
-                        description: (0, _v42.translate)({
+                        description: (0, _v41.translate)({
                           singular: "Can view and comment on videos inside folders they’re invited to join.",
                           dictionary: {
                             es: {
@@ -2854,7 +2850,7 @@
                           }
                         })
                       }, {
-                        label: (0, _v42.translate)({
+                        label: (0, _v41.translate)({
                           singular: "Contributor",
                           dictionary: {
                             es: {
@@ -2880,7 +2876,7 @@
                             }
                           }
                         }),
-                        description: (0, _v42.translate)({
+                        description: (0, _v41.translate)({
                           singular: "Can view, comment, upload, edit, share videos, and view clip analytics inside folders they’re invited to join.",
                           dictionary: {
                             es: {
@@ -2907,7 +2903,7 @@
                           }
                         })
                       }, {
-                        label: (0, _v42.translate)({
+                        label: (0, _v41.translate)({
                           singular: "Contributor Plus",
                           dictionary: {
                             es: {
@@ -2930,7 +2926,7 @@
                             }
                           }
                         }),
-                        description: (0, _v42.translate)({
+                        description: (0, _v41.translate)({
                           singular: "Can view, comment, upload, edit, share videos, view clip analytics, and more, inside folders they’re invited to join.",
                           dictionary: {
                             es: {
@@ -2957,7 +2953,7 @@
                           }
                         })
                       }, {
-                        label: (0, _v42.translate)({
+                        label: (0, _v41.translate)({
                           singular: "Admin",
                           dictionary: {
                             es: {
@@ -2980,7 +2976,7 @@
                             }
                           }
                         }),
-                        description: (0, _v42.translate)({
+                        description: (0, _v41.translate)({
                           singular: "Can view and manage all videos, folders, people, and analytics on the account.",
                           dictionary: {
                             es: {
@@ -3010,7 +3006,7 @@
                       onSelect: _v0 => {
                         _v15([..._v14.slice(0, _v1), {
                           ..._v14[_v1],
-                          role: _v33.TeamUserPermissionLevel[_v0.value]
+                          role: _v32.TeamUserPermissionLevel[_v0.value]
                         }, ..._v14.slice(_v1 + 1)]);
                       },
                       onDelete: void 0,
@@ -3023,22 +3019,21 @@
                     })
                   })]
                 });
-              }), !_v31 && _v32 && (0, _v4.jsx)(_v146, {
-                children: (0, _v4.jsx)(_v134, {
+              }), !_v31 && _v32 && (0, _v4.jsx)(_v148, {
+                children: (0, _v4.jsx)(_v136, {
                   accentColor: _v7.accentColor,
                   invitationsOutstanding: (_v36 ? 10 : _v10) - _v26,
                   isSingleSeatOnboarding: _v12,
                   isTrialPlan: _v36
                 })
-              }), (0, _v4.jsxs)(_v141, {
-                children: [_v31 && (0, _v4.jsx)(_v142, {
-                  icon: (0, _v4.jsx)(_v119, {}),
-                  format: "basic",
+              }), (0, _v4.jsxs)(_v143, {
+                children: [_v31 && (0, _v4.jsx)(_v144, {
+                  leftIcon: (0, _v4.jsx)(_v118.Plus, {}),
+                  variant: "tertiary",
                   onClick: () => {
-                    _v15(_v0 => [..._v0, _v38(_v12, _v37)]);
+                    _v15(_v0 => [..._v0, _v37(_v12, _v37)]);
                   },
-                  variant: "minimalTransparent",
-                  children: _v37 ? (0, _v42.translate)({
+                  children: _v37 ? (0, _v41.translate)({
                     singular: "Add more members",
                     dictionary: {
                       es: {
@@ -3063,7 +3058,7 @@
                         singular: "增加更多成员"
                       }
                     }
-                  }) : (0, _v42.translate)({
+                  }) : (0, _v41.translate)({
                     singular: "Invite more members",
                     dictionary: {
                       es: {
@@ -3089,11 +3084,11 @@
                       }
                     }
                   })
-                }), !(_v30 >= 10 && _v32) && (0, _v4.jsx)(_v145, {
-                  children: (0, _v4.jsx)(_v131, {
+                }), !(_v30 >= 10 && _v32) && (0, _v4.jsx)(_v147, {
+                  children: (0, _v4.jsx)(_v132, {
                     isSingleSeatOnboarding: _v12,
                     invitationsOutstanding: _v12 && _v36 ? 10 - _v26 : _v10 - _v26,
-                    tip: (_v0 = _v10 - _v26, _v1 = _v26, _v2 = _v10, _v3 = _v12, _v4 = _v36, _v5 = _v37, 0 === _v0 ? _v3 ? (0, _v42.translate)({
+                    tip: (_v0 = _v10 - _v26, _v1 = _v26, _v2 = _v10, _v3 = _v12, _v4 = _v36, _v5 = _v37, 0 === _v0 ? _v3 ? (0, _v41.translate)({
                       singular: "To invite more people or purchase Admin and Contributor seats, visit the team management page.",
                       dictionary: {
                         es: {
@@ -3118,7 +3113,7 @@
                           singular: "要邀请更多人或购买管理员和贡献者席位，请访问团队管理页面。"
                         }
                       }
-                    }) : (0, _v42.translate)({
+                    }) : (0, _v41.translate)({
                       singular: "To invite more people visit the team management page to purchase additional seats or invite viewers for free.",
                       dictionary: {
                         es: {
@@ -3143,7 +3138,7 @@
                           singular: "要邀请更多人，请访问团队管理页面购买额外席位或免费邀请观众。"
                         }
                       }
-                    }) : _v5 ? _v4 ? (0, _v42.translate)({
+                    }) : _v5 ? _v4 ? (0, _v41.translate)({
                       singular: "You can invite up to {COUNT} people on your free trial. To invite more people, upgrade to a paid plan.",
                       replacements: {
                         COUNT: 10
@@ -3171,7 +3166,7 @@
                           singular: "您最多可以邀请 {COUNT} 人免费试用。要邀请更多人，请升级到付费套餐。"
                         }
                       }
-                    }) : (0, _v42.translate)({
+                    }) : (0, _v41.translate)({
                       singular: "You can invite up to {COUNT} people on this page. To invite more people, visit the team management page.",
                       replacements: {
                         COUNT: 10
@@ -3199,7 +3194,7 @@
                           singular: "您在此页面最多可以邀请 {COUNT} 人。要邀请更多人，请访问团队管理页面。"
                         }
                       }
-                    }) : _v2 >= 10 ? _v3 ? (0, _v42.translate)({
+                    }) : _v2 >= 10 ? _v3 ? (0, _v41.translate)({
                       singular: "You can invite up to {REMAINING_INVITES} other person now. To invite more or purchase Admin and Contributor seats, visit the team management page.",
                       plural: "You can invite up to {REMAINING_INVITES} people. To invite more or purchase Admin and Contributor seats, visit the team management page.",
                       count: 10 - _v1,
@@ -3236,7 +3231,7 @@
                           plural: "您最多可以邀请 {REMAINING_INVITES} 人。要邀请更多人或购买管理员和贡献者席位，请访问团队管理页面。"
                         }
                       }
-                    }) : (0, _v42.translate)({
+                    }) : (0, _v41.translate)({
                       singular: "You can invite up to {REMAINING_INVITES} other person. To invite more, visit the team management page to purchase additional seats or invite viewers for free.",
                       plural: "You can invite up to {REMAINING_INVITES} people. To invite more, visit the team management page to purchase additional seats or invite viewers for free.",
                       count: 10 - _v1,
@@ -3273,7 +3268,7 @@
                           plural: "您最多可以邀请 {REMAINING_INVITES} 人。要邀请更多人，请访问团队管理页面购买额外席位或免费邀请观众。"
                         }
                       }
-                    }) : _v3 ? (0, _v42.translate)({
+                    }) : _v3 ? (0, _v41.translate)({
                       singular: "You can invite up to {REMAINING_INVITES} other person now. To invite more or purchase Admin and Contributor seats, visit the team management page.",
                       plural: "You can invite up to {REMAINING_INVITES} people. To invite more or purchase Admin and Contributor seats, visit the team management page.",
                       count: _v2 - _v1,
@@ -3310,7 +3305,7 @@
                           plural: "您最多可以邀请 {REMAINING_INVITES} 人。要邀请更多人或购买管理员和贡献者席位，请访问团队管理页面。"
                         }
                       }
-                    }) : (0, _v42.translate)({
+                    }) : (0, _v41.translate)({
                       singular: "You can invite up to {REMAINING_INVITES} other person. To invite more, visit the team management page to purchase additional seats or invite viewers for free.",
                       plural: "You can invite up to {REMAINING_INVITES} people. To invite more, visit the team management page to purchase additional seats or invite viewers for free.",
                       count: _v2 - _v1,
@@ -3350,8 +3345,8 @@
                     }))
                   })
                 })]
-              }), (0, _v4.jsx)(_v118.Notification, {
-                content: _v18 === _v35 && (0, _v42.translate)({
+              }), (0, _v4.jsx)(_v120.Notification, {
+                content: _v18 === _v34 && (0, _v41.translate)({
                   singular: "Oops! Something went wrong. Please try again.",
                   dictionary: {
                     es: {
@@ -3399,7 +3394,7 @@
                 onCancel: () => {
                   _v25(!1), _v15(_v14.map(_v0 => ({
                     ..._v0,
-                    role: _v33.TeamUserPermissionLevel.Viewer
+                    role: _v32.TeamUserPermissionLevel.Viewer
                   }))), _v23(Date.now().toString(36));
                 },
                 analyticsData: {
@@ -3419,7 +3414,7 @@
         })
       });
     },
-    _v138 = _v12.default.div.withConfig({
+    _v140 = _v12.default.div.withConfig({
       displayName: "TeamInvites__OuterWrapper",
       componentId: "sc-4c1c7007-0"
     })`
@@ -3427,11 +3422,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: ${(0, _v41.rem)(700)};
-  padding: 0 ${(0, _v41.rem)(2)};
+  max-width: ${(0, _v40.rem)(700)};
+  padding: 0 ${(0, _v40.rem)(2)};
   width: 100%;
 `,
-    _v139 = _v12.default.div.withConfig({
+    _v141 = _v12.default.div.withConfig({
       displayName: "TeamInvites__InnerWrapper",
       componentId: "sc-4c1c7007-1"
     })`
@@ -3439,72 +3434,72 @@
   display: flex;
   justify-content: center;
 `,
-    _v140 = _v12.default.div.withConfig({
+    _v142 = _v12.default.div.withConfig({
       displayName: "TeamInvites__ContentWrapper",
       componentId: "sc-4c1c7007-2"
     })`
   max-height: 100%;
   width: 100%;
 `,
-    _v141 = _v12.default.div.withConfig({
+    _v143 = _v12.default.div.withConfig({
       displayName: "TeamInvites__ControlsWrapper",
       componentId: "sc-4c1c7007-3"
     })`
   display: flex;
   justify-content: space-between;
-  padding: ${(0, _v41.rem)(30)} 0 ${(0, _v41.rem)(20)} 0;
+  padding: ${(0, _v40.rem)(30)} 0 ${(0, _v40.rem)(20)} 0;
 `,
-    _v142 = (0, _v12.default)(_v53.Button).withConfig({
+    _v144 = (0, _v12.default)(_v52.Button).withConfig({
       displayName: "TeamInvites__AddMoreButton",
       componentId: "sc-4c1c7007-4"
     })`
-  left: -${(0, _v41.rem)(8)};
+  left: -${(0, _v40.rem)(8)};
   svg {
-    height: ${(0, _v41.rem)(20)};
-    width: ${(0, _v41.rem)(20)};
-    margin-right: ${(0, _v41.rem)(8)};
+    height: ${(0, _v40.rem)(20)};
+    width: ${(0, _v40.rem)(20)};
+    margin-right: ${(0, _v40.rem)(8)};
   }
 `,
-    _v143 = _v12.default.div.withConfig({
+    _v145 = _v12.default.div.withConfig({
       displayName: "TeamInvites__EmailInputWrapperStyled",
       componentId: "sc-4c1c7007-5"
     })`
   position: relative;
   ${_v111};
-  height: ${(0, _v41.rem)(80)};
+  height: ${(0, _v40.rem)(80)};
 `,
-    _v144 = _v12.default.div.withConfig({
+    _v146 = _v12.default.div.withConfig({
       displayName: "TeamInvites__RoleMenuWrapper",
       componentId: "sc-4c1c7007-6"
     })`
   position: absolute;
   right: 0;
-  top: ${(0, _v41.rem)(-5)};
+  top: ${(0, _v40.rem)(-5)};
 `,
-    _v145 = _v12.default.div.withConfig({
+    _v147 = _v12.default.div.withConfig({
       displayName: "TeamInvites__InviteCountWrapper",
       componentId: "sc-4c1c7007-7"
     })`
   display: flex;
   margin-left: auto;
 `,
-    _v146 = _v12.default.div.withConfig({
+    _v148 = _v12.default.div.withConfig({
       displayName: "TeamInvites__MaxInvitesSentNotificationWrapper",
       componentId: "sc-4c1c7007-8"
     })`
-  padding-bottom: ${(0, _v41.rem)(20)};
+  padding-bottom: ${(0, _v40.rem)(20)};
 `,
-    _v147 = (0, _v12.default)(_v120.Link).withConfig({
+    _v149 = (0, _v12.default)(_v117.Link).withConfig({
       displayName: "TeamInvites__CustomLink",
       componentId: "sc-4c1c7007-9"
     })`
-  color: ${(0, _v18.slate)(540)};
+  color: var(--vimeo-colors-gray-500);
   &:hover {
-    color: ${(0, _v18.slate)(540)};
+    color: var(--vimeo-colors-gray-500);
   }
 `;
-  var _v148 = _v0.i(0);
-  let _v149 = _v0 => {
+  var _v150 = _v0.i(0);
+  let _v151 = _v0 => {
       let {
           data: _v1,
           error: _v2
@@ -3515,48 +3510,48 @@
           }
         }),
         _v3 = 0;
-      return _v2 ? console.error(_v2) : _v3 = 200 - (_v1?.data?.[0]?.teamMembersCount?.viewer || 0), (0, _v4.jsx)(_v150, {
+      return _v2 ? console.error(_v2) : _v3 = 200 - (_v1?.data?.[0]?.teamMembersCount?.viewer || 0), (0, _v4.jsx)(_v152, {
         ..._v0,
         remainingInviteCount: _v3
       });
     },
-    _v150 = _v0 => {
+    _v152 = _v0 => {
       let _v1,
         _v2,
         _v3,
         _v4 = (0, _v11.useSearchParams)(),
         {
           trackUserConverted: _v5
-        } = (0, _v22.useCheckoutTracking)(),
-        _v6 = (0, _v23.usePico)(),
+        } = (0, _v21.useCheckoutTracking)(),
+        _v6 = (0, _v22.usePico)(),
         _v7 = (0, _v6.useRef)(!1),
         {
           user: _v8,
           remainingInviteCount: _v9
         } = _v0,
-        [_v10, _v11] = (0, _v6.useReducer)(_v29, (_v1 = [_v148.WelcomePage], _v3 = [_v1, _v2 = [_v116]], _v9 > 0 && _v2.push(_v137), {
-          ..._v27.defaultState,
+        [_v10, _v11] = (0, _v6.useReducer)(_v28, (_v1 = [_v150.WelcomePage], _v3 = [_v1, _v2 = [_v116]], _v9 > 0 && _v2.push(_v139), {
+          ..._v26.defaultState,
           flow: _v3
         })),
-        [_v12, _v13] = (0, _v6.useState)(_v20.themes.light),
+        [_v12, _v13] = (0, _v6.useState)(_v19.themes.light),
         {
           data: _v14
         } = (0, _v14.useQuery)(`/users/${_v8.id}/team`, _v15.logoFetchOptions),
-        _v15 = (0, _v21.useOrionSettingsFields)(["email_verification_gate"]),
+        _v15 = (0, _v20.useOrionSettingsFields)(["email_verification_gate"]),
         {
           capabilities: _v16,
           loading: _v17
         } = (0, _v7.useCapability)(["canSkipEmailVerification"]),
         _v18 = _v15.email_verification_gate;
       if ((0, _v6.useEffect)(() => {
-        _v14?.id && _v25(_v11, {
-          accentColor: _v14.accentColor || (0, _v18.blue)(500),
+        _v14?.id && _v24(_v11, {
+          accentColor: _v14.accentColor || _v33.DEFAULT_ACCENT_COLOR,
           id: _v14.id,
           logoUrl: _v14.pictures?.sizes[0]?.link || "",
           teamName: _v14.teamName || ""
         });
       }, [_v14?.id]), (0, _v6.useEffect)(() => {
-        let _v0 = JSON.parse(JSON.stringify(_v20.themes.light));
+        let _v0 = JSON.parse(JSON.stringify(_v19.themes.light));
         _v0.content.focus = _v10.team.accentColor, _v0.formats.primary = _v10.team.accentColor, _v13(_v0);
       }, [_v10.team.accentColor]), (0, _v6.useEffect)(() => {
         if (_v7.current || null === _v6) return;
@@ -3566,7 +3561,7 @@
           periodicity: _v1,
           isFreeTrial: "free" === _v2
         }));
-      }, [_v6, _v5, _v4]), _v10.sectionIndex === _v10.flow.length) return "onboarding" === _v18 && _v17 ? (0, _v4.jsx)(_v31, {}) : "onboarding" === _v18 && !1 === _v16.canSkipEmailVerification ? (0, _v4.jsx)(_v12.ThemeProvider, {
+      }, [_v6, _v5, _v4]), _v10.sectionIndex === _v10.flow.length) return "onboarding" === _v18 && _v17 ? (0, _v4.jsx)(_v30, {}) : "onboarding" === _v18 && !1 === _v16.canSkipEmailVerification ? (0, _v4.jsx)(_v12.ThemeProvider, {
         theme: _v12,
         children: (0, _v4.jsx)(_v13.Flex, {
           alignItems: "center",
@@ -3577,21 +3572,21 @@
             variant: "page",
             surface: "onboarding",
             onVerified: () => {
-              window.parent.location.href = `${_v34.REDIRECT_LOCATION_AFTER_ONBOARDING}?verified=1`;
+              window.parent.location.href = `${_v33.REDIRECT_LOCATION_AFTER_ONBOARDING}?verified=1`;
             }
           })
         })
-      }) : (window.parent.location.href = _v34.REDIRECT_LOCATION_AFTER_ONBOARDING, null);
-      let _v19 = _v14 ? _v10.flow[_v10.sectionIndex][_v10.stepIndex] : _v31;
+      }) : (window.parent.location.href = _v33.REDIRECT_LOCATION_AFTER_ONBOARDING, null);
+      let _v19 = _v14 ? _v10.flow[_v10.sectionIndex][_v10.stepIndex] : _v30;
       return (0, _v4.jsx)(_v12.ThemeProvider, {
         theme: _v12,
-        children: (0, _v4.jsx)(_v27.ConfigContext.Provider, {
+        children: (0, _v4.jsx)(_v26.ConfigContext.Provider, {
           value: _v0,
-          children: (0, _v4.jsx)(_v27.StateContext.Provider, {
+          children: (0, _v4.jsx)(_v26.StateContext.Provider, {
             value: _v10,
-            children: (0, _v4.jsxs)(_v27.DispatchContext.Provider, {
+            children: (0, _v4.jsxs)(_v26.DispatchContext.Provider, {
               value: _v11,
-              children: [(0, _v4.jsx)(_v151, {
+              children: [(0, _v4.jsx)(_v153, {
                 animate: !1,
                 size: "xs",
                 background: _v10.team.accentColor
@@ -3601,17 +3596,17 @@
         })
       });
     },
-    _v151 = (0, _v12.default)(_v19.Ribbon).withConfig({
+    _v153 = (0, _v12.default)(_v18.Ribbon).withConfig({
       displayName: "_components__StyledRibbon",
       componentId: "sc-2dc44614-0"
     })`
   position: absolute;
   top: 0;
   left: 0;
-  ${_v0 => _v0.background !== (0, _v18.blue)(500) && `background: ${_v0.background};`}
+  ${_v0 => _v0.background !== _v33.DEFAULT_ACCENT_COLOR && `background: ${_v0.background};`}
 `;
-  var _v152 = _v0.i(0),
-    _v153 = _v0.i(0);
+  var _v154 = _v0.i(0),
+    _v155 = _v0.i(0);
   (0, _v8.withPageSetup)(() => ({
     props: {
       layoutOptions: {
@@ -3624,7 +3619,7 @@
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => {
     let _v0 = (0, _v5.useRouter)(),
       _v1 = (0, _v6.useContext)(_v10.ViewerContext),
-      _v2 = "string" == typeof _v0.query[_v152.SATELLITE_ONBOARDING_NEXT_PARAM] ? _v0.query[_v152.SATELLITE_ONBOARDING_NEXT_PARAM] : void 0,
+      _v2 = "string" == typeof _v0.query[_v154.SATELLITE_ONBOARDING_NEXT_PARAM] ? _v0.query[_v154.SATELLITE_ONBOARDING_NEXT_PARAM] : void 0,
       _v3 = _v2 && _v2.startsWith("/") && (0, _v9.isVimeoRedirectableUrl)(_v2) ? _v2 : void 0;
     (0, _v6.useEffect)(() => {
       _v0.isReady && _v3 && _v0.replace(_v3);
@@ -3637,14 +3632,14 @@
       } = (0, _v7.useCapability)(["hasAddATeamMemberPage"]),
       _v6 = _v1?.user?.account && ["plus", "producer"].includes(_v1?.user?.account);
     return !_v3 && _v1?.user && (_v1?.team || _v6) && !_v5 && void 0 !== _v4 ? _v4 || _v6 ? (0, _v4.jsxs)(_v4.Fragment, {
-      children: [(0, _v4.jsx)(_v153.ExtoleConversionTracker, {}), (0, _v4.jsx)(_v149, {
+      children: [(0, _v4.jsx)(_v155.ExtoleConversionTracker, {}), (0, _v4.jsx)(_v151, {
         user: _v1.user,
         jwt: _v1.jwt,
         apiUrl: _v1.apiUrl,
         isSingleSeatOnboarding: !0
       })]
     }) : (0, _v4.jsxs)(_v4.Fragment, {
-      children: [(0, _v4.jsx)(_v153.ExtoleConversionTracker, {}), (0, _v4.jsx)(_v150, {
+      children: [(0, _v4.jsx)(_v155.ExtoleConversionTracker, {}), (0, _v4.jsx)(_v152, {
         user: _v1.user,
         jwt: _v1.jwt,
         apiUrl: _v1.apiUrl,

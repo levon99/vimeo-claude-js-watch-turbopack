@@ -48,7 +48,7 @@
   let _v27 = function ({
       isExpanded: _v0
     }) {
-      let _v1 = (0, _v8.useMemo)(_v25.getTranslatedStrings, []);
+      let _v1 = (0, _v8.useMemo)(() => (0, _v25.getTranslatedStrings)(), []);
       return (0, _v1.jsxs)(_v32, {
         isExpanded: _v0,
         children: [(0, _v1.jsx)(_v30, {
@@ -141,7 +141,7 @@
     },
     _v35 = (0, _v10.createTypedForm)(),
     _v36 = function () {
-      let _v0 = (0, _v8.useMemo)(_v25.getTranslatedStrings, []),
+      let _v0 = (0, _v8.useMemo)(() => (0, _v25.getTranslatedStrings)(), []),
         _v1 = (0, _v8.useContext)(_v24.ViewerContext),
         [_v2, _v3] = (0, _v8.useState)(!1),
         [_v4, _v5] = (0, _v8.useState)(!1),

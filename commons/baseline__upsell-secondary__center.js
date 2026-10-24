@@ -307,7 +307,7 @@
         data: _v1
       } = (0, _v50.useGetTeamSettingsWithMutate)({
         userId: _v0 ?? void 0,
-        settings: ["enableRegistrationFormAiUserTranslation"]
+        settings: ["enableParentPermissionAiLocalization", "enableRegistrationFormAiUserTranslation"]
       }),
       {
         capabilities: {
@@ -315,7 +315,7 @@
         },
         ready: _v3
       } = (0, _v19.useCapability)(["enableRegistrationFormAiTranslation"], _v0 ?? void 0);
-    return _v3 ? !!_v2 : _v1?.enableRegistrationFormAiUserTranslation ?? !0;
+    return _v3 ? !!_v2 : (_v1?.enableParentPermissionAiLocalization ?? !0) && (_v1?.enableRegistrationFormAiUserTranslation ?? !0);
   };
   var _v52 = _v0.i(0);
   let _v53 = () => {
@@ -10103,9 +10103,10 @@
           _v2(_v134.SIDE_MENU_CONTENT.SETTINGS);
         };
       return (0, _v4.useEffect)(() => {
-        setTimeout(() => {
+        let _v0 = setTimeout(() => {
           (0, _v133.setLocationQuery)(_v27.LOCATION_STATE.SIDE_MENU, _v1);
         }, 0);
+        return () => clearTimeout(_v0);
       }, [_v1]), (0, _v1.jsxs)(_v5.Box, {
         overflow: "hidden",
         position: "relative",

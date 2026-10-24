@@ -11,42 +11,46 @@
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
-    _v11 = _v0.i(0);
-  let _v12 = () => {
+    _v11 = _v0.i(0),
+    _v12 = _v0.i(0);
+  let _v13 = () => {
     let _v0 = (0, _v11.usePico)();
     return {
       trackFilePageDisplayed: (0, _v2.useCallback)(_v0 => null !== _v0 && (_v0.track("file_page_displayed", {
         file_id: _v0.fileId,
+        file_type: (0, _v12.deriveFileType)(_v0.contentType),
         ...(void 0 === _v0.fileOwnerId ? {} : {
           file_owner_id: _v0.fileOwnerId
         }),
         referrer_page: _v0.referrerPage
       }), !0), [_v0]),
       trackFilePasswordGateDisplayed: (0, _v2.useCallback)(_v0 => null !== _v0 && (_v0.track("file_password_gate_displayed", {
-        file_id: _v0.fileId
+        file_id: _v0.fileId,
+        file_type: (0, _v12.deriveFileType)(_v0.contentType)
       }), !0), [_v0])
     };
   };
-  var _v13 = _v0.i(0),
-    _v14 = _v0.i(0),
-    _v15 = _v0.i(0);
+  var _v14 = _v0.i(0),
+    _v15 = _v0.i(0),
+    _v16 = _v0.i(0);
   _v0.s(["FilePasswordPage", 0, ({
     publicId: _v0,
     folderShareFolderId: _v1
   }) => {
-    let _v2 = (0, _v15.useViewer)(),
+    let _v2 = (0, _v16.useViewer)(),
       {
         trackFilePasswordGateDisplayed: _v3
-      } = _v12(),
+      } = _v13(),
       {
         trackFolderSharePasswordPageDisplayed: _v4,
         trackFolderSharePasswordSubmitted: _v5
-      } = (0, _v13.useFolderShareTracking)(),
+      } = (0, _v14.useFolderShareTracking)(),
       [_v6, _v7] = (0, _v2.useState)(!1),
       [_v8, _v9] = (0, _v2.useState)(!1),
       [_v10, _v11] = (0, _v2.useState)(null);
-    (0, _v14.usePicoEffect)(() => (_v3({
-      fileId: _v0
+    (0, _v15.usePicoEffect)(() => (_v3({
+      fileId: _v0,
+      contentType: null
     }), void 0 !== _v1 && _v4({
       folderId: _v1,
       passwordScope: "file",
@@ -266,41 +270,40 @@
       })]
     });
   }], 0);
-  var _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  _v0.s(["FileUnavailablePage", 0, () => (0, _v1.jsx)(_v17.ErrorPageWithHeader, {
-    error: new _v16.ResourceNotFoundError(),
+  var _v17 = _v0.i(0),
+    _v18 = _v0.i(0);
+  _v0.s(["FileUnavailablePage", 0, () => (0, _v1.jsx)(_v18.ErrorPageWithHeader, {
+    error: new _v17.ResourceNotFoundError(),
     shouldShowSearch: !1
   })], 0);
-  var _v18 = _v0.i(0),
-    _v19 = _v0.i(0),
+  var _v19 = _v0.i(0),
     _v20 = _v0.i(0),
     _v21 = _v0.i(0),
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
-    _v24 = _v0.i(0);
-  let _v25 = _v0 => _v0.isOpen ? (0, _v1.jsx)(_v26, {
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0);
+  let _v26 = _v0 => _v0.isOpen ? (0, _v1.jsx)(_v27, {
       ..._v0
     }) : null,
-    _v26 = ({
+    _v27 = ({
       publicId: _v0,
       isOpen: _v1,
       onClose: _v2,
       onSubmitReport: _v3
     }) => {
-      let _v4 = (0, _v24.useFileReport)({
+      let _v4 = (0, _v25.useFileReport)({
         publicId: _v0,
         onClose: _v2,
         onSubmitted: _v3
       });
-      return (0, _v1.jsx)(_v22.ReportFlowModal, {
+      return (0, _v1.jsx)(_v23.ReportFlowModal, {
         report: _v4,
         isOpen: _v1,
-        headerAction: (0, _v1.jsx)(_v23.ReportHelpLink, {})
+        headerAction: (0, _v1.jsx)(_v24.ReportHelpLink, {})
       });
     };
-  var _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
+  var _v28 = _v0.i(0),
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
@@ -317,11 +320,11 @@
       alignItems: "center",
       gap: "sm",
       justifyContent: "space-between",
-      children: [(0, _v1.jsx)(_v20.Text, {
+      children: [(0, _v1.jsx)(_v21.Text, {
         color: "text-secondary",
         variant: "body-sm",
         children: _v0
-      }), (0, _v1.jsx)(_v20.Text, {
+      }), (0, _v1.jsx)(_v21.Text, {
         variant: "body-sm",
         children: _v1
       })]
@@ -367,17 +370,17 @@
               variant: "filled"
             }), (0, _v1.jsxs)(_v4.Flex, {
               flexDirection: "column",
-              children: [(0, _v1.jsx)(_v20.Text, {
+              children: [(0, _v1.jsx)(_v21.Text, {
                 noOfLines: 2,
                 variant: "heading-md",
                 children: _v0.name
-              }), (0, _v1.jsx)(_v20.Text, {
+              }), (0, _v1.jsx)(_v21.Text, {
                 color: "text-secondary",
                 variant: "body-sm",
                 children: _v6
               })]
             })]
-          }), _v12 && (0, _v1.jsx)(_v19.Button, {
+          }), _v12 && (0, _v1.jsx)(_v20.Button, {
             as: "a",
             "data-testid": "file-viewer-download",
             href: _v0.downloadUrl,
@@ -385,6 +388,7 @@
             onClick: () => {
               _v2({
                 fileId: _v0.publicId,
+                contentType: _v0.contentType,
                 source: "viewer_panel"
               });
             },
@@ -518,7 +522,7 @@
             srcSet: _v11
           }), (0, _v1.jsxs)(_v4.Flex, {
             flexDirection: "column",
-            children: [(0, _v1.jsx)(_v20.Text, {
+            children: [(0, _v1.jsx)(_v21.Text, {
               color: "text-secondary",
               variant: "body-xs",
               children: (0, _v10.translate)({
@@ -547,7 +551,7 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v20.Text, {
+            }), (0, _v1.jsx)(_v21.Text, {
               variant: "body-md",
               children: _v9
             })]
@@ -560,11 +564,11 @@
   _v0.s(["FileViewerPage", 0, ({
     file: _v0
   }) => {
-    let _v1 = (0, _v18.useRouter)(),
-      _v2 = (0, _v15.useViewer)(),
+    let _v1 = (0, _v19.useRouter)(),
+      _v2 = (0, _v16.useViewer)(),
       {
         trackFilePageDisplayed: _v3
-      } = _v12(),
+      } = _v13(),
       {
         trackReportFlowOpened: _v4
       } = (0, _v28.useReportFlowTracking)(),
@@ -572,13 +576,14 @@
         isOpen: _v5,
         onOpen: _v6,
         onClose: _v7
-      } = (0, _v21.useDisclosure)(),
+      } = (0, _v22.useDisclosure)(),
       _v8 = _v0.allowDownloads && null != _v0.downloadUrl && "" !== _v0.downloadUrl;
-    return (0, _v14.usePicoEffect)(() => (_v3({
+    return (0, _v15.usePicoEffect)(() => (_v3({
       fileId: _v0.publicId,
+      contentType: _v0.contentType,
       fileOwnerId: _v0.uri.split("/")[2],
-      referrerPage: (0, _v27.deriveReferrerPage)()
-    }), !0), [_v0.publicId, _v0.uri, _v3], {
+      referrerPage: (0, _v12.deriveReferrerPage)()
+    }), !0), [_v0.contentType, _v0.publicId, _v0.uri, _v3], {
       once: !0
     }), (0, _v1.jsxs)(_v4.Flex, {
       background: "background",
@@ -640,7 +645,7 @@
           alignItems: "baseline",
           gap: "xs",
           justifyContent: "center",
-          children: [(0, _v1.jsx)(_v20.Text, {
+          children: [(0, _v1.jsx)(_v21.Text, {
             color: "text-primary",
             variant: "body-sm",
             children: (0, _v10.translate)({
@@ -669,7 +674,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v19.Button, {
+          }), (0, _v1.jsx)(_v20.Button, {
             _hover: {
               background: "transparent",
               color: "text-primary"
@@ -722,7 +727,7 @@
             })
           })]
         })
-      }), (0, _v1.jsx)(_v25, {
+      }), (0, _v1.jsx)(_v26, {
         publicId: _v0.publicId,
         isOpen: _v5,
         onClose: _v7

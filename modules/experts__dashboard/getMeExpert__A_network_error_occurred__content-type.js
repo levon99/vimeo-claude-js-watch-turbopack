@@ -452,7 +452,7 @@
   }
 `;
   function _v69(_v0) {
-    let _v1 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+    let _v1 = (0, _v8.useMemo)(() => (0, _v42.getTranslatedStrings)(), []);
     return (0, _v6.jsx)(_v59, {
       children: (0, _v6.jsxs)(_v70, {
         color: _v0.pathColor,
@@ -497,7 +497,7 @@
   color: ${_v0 => _v0.color ? _v0.color : (0, _v26.slate)(800)};
 `;
   function _v72() {
-    let _v0 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+    let _v0 = (0, _v8.useMemo)(() => (0, _v42.getTranslatedStrings)(), []);
     return (0, _v6.jsx)(_v73, {
       children: (0, _v6.jsx)("div", {
         children: _v0.NonExpertsSubHeadingText
@@ -833,7 +833,7 @@
   function _v96({
     showText: _v0
   }) {
-    let _v1 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+    let _v1 = (0, _v8.useMemo)(() => (0, _v42.getTranslatedStrings)(), []);
     return (0, _v6.jsxs)(_v98, {
       children: [(0, _v6.jsx)(_v99, {
         children: (0, _v6.jsx)(_v77, {})
@@ -930,7 +930,7 @@
     playerAssetUrls: _v0,
     setExpertData: _v1
   }) {
-    let _v2 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []),
+    let _v2 = (0, _v8.useMemo)(() => (0, _v42.getTranslatedStrings)(), []),
       _v3 = (0, _v8.useContext)(_v13.ViewerContext),
       [_v4, _v5] = (0, _v8.useState)(!1),
       [_v6, _v7] = (0, _v8.useState)(!1),
@@ -1156,7 +1156,7 @@
   }
 `,
     _v105 = function () {
-      let _v0 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+      let _v0 = (0, _v8.useMemo)(() => (0, _v42.getTranslatedStrings)(), []);
       return (0, _v6.jsxs)(_v112, {
         children: [(0, _v6.jsxs)(_v111, {
           children: [(0, _v6.jsx)(_v109, {
@@ -1312,7 +1312,7 @@
       });
     },
     _v116 = function () {
-      let _v0 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+      let _v0 = (0, _v8.useMemo)(() => (0, _v42.getTranslatedStrings)(), []);
       return (0, _v6.jsxs)(_v117, {
         children: [(0, _v6.jsx)(_v120, {
           children: _v0.JoinCommunity
@@ -1404,7 +1404,7 @@
   text-align: center;
 `,
     _v122 = function () {
-      let _v0 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+      let _v0 = (0, _v8.useMemo)(() => (0, _v42.getTranslatedStrings)(), []);
       return (0, _v6.jsxs)(_v124, {
         children: [(0, _v6.jsx)(_v126, {
           children: _v0.HereToHelp
@@ -1481,7 +1481,7 @@
   text-align: center;
 `,
     _v128 = function () {
-      let _v0 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []);
+      let _v0 = (0, _v8.useMemo)(() => (0, _v42.getTranslatedStrings)(), []);
       return (0, _v6.jsxs)(_v129, {
         children: [(0, _v6.jsx)(_v130, {
           children: _v0.Questions
@@ -1611,7 +1611,7 @@
     _v134 = function ({
       isExpert: _v0
     }) {
-      let _v1 = (0, _v8.useMemo)(_v42.getTranslatedStrings, []),
+      let _v1 = (0, _v8.useMemo)(() => (0, _v42.getTranslatedStrings)(), []),
         _v2 = (0, _v8.useContext)(_v13.ViewerContext),
         _v3 = _v2?.user && _v46.ALLOWED_PLANS_FOR_REWARD_SECTION.includes(_v2.user.account),
         [_v4, _v5] = (0, _v8.useState)(!1);

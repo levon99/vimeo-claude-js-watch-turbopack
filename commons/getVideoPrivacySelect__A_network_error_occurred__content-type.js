@@ -30,13 +30,15 @@
     _v7 = _v0.i(0),
     _v8 = _v0.i(0),
     _v9 = _v0.i(0),
-    _v10 = _v0.i(0);
+    _v10 = _v0.i(0),
+    _v11 = _v0.i(0);
   _v0.s(["useClipPrivacyOptions", 0, (_v0, _v1 = !0, _v2 = "xs") => {
     let _v3 = (0, _v8.useViewer)(),
+      _v4 = (0, _v11.useEffectiveCanUnlistVideo)(),
       {
-        data: _v4,
-        error: _v5,
-        isLoading: _v6
+        data: _v5,
+        error: _v6,
+        isLoading: _v7
       } = function (_v0) {
         let _v1 = "function" == typeof _v0 ? _v0() : _v0,
           {
@@ -66,28 +68,30 @@
         }
       });
     return {
-      privacyOptions: (0, _v1.useMemo)(() => ((_v0, _v1 = !0, _v2) => {
+      privacyOptions: (0, _v1.useMemo)(() => ((_v0, _v1 = !0, _v2, _v3) => {
         if (!_v0?.options?.length) return [];
-        let _v3 = (0, _v9.videoPrivacyIcons)(_v2);
+        let _v4 = (0, _v9.videoPrivacyIcons)(_v2);
         return _v0.options.map(_v0 => {
-          let _v1 = _v0.hasUpsell ? _v9.PRIVACY_VALUE_TO_UPSELL[_v0.value] : void 0;
+          let _v1 = _v0.value === _v9.DEFAULT_PRIVACY_VALUES.UNLISTED && _v3,
+            _v2 = _v0.hasUpsell && !_v1,
+            _v3 = _v2 ? _v9.PRIVACY_VALUE_TO_UPSELL[_v0.value] : void 0;
           return {
             privacy: _v0.value,
             title: _v0.label,
             description: _v0.description,
-            icon: _v3[_v0.value]?.icon,
+            icon: _v4[_v0.value]?.icon,
             isDisabled: _v0.isDisabled,
-            upsellEvent: _v1,
-            showUpsell: _v0.hasUpsell,
-            showUpsellModal: _v1 && _v0.hasUpsell && _v9.PAID_PRIVACY_UPSELL_MODAL_VALUES.has(_v0.value)
+            upsellEvent: _v3,
+            showUpsell: _v2,
+            showUpsellModal: _v1 && _v2 && _v9.PAID_PRIVACY_UPSELL_MODAL_VALUES.has(_v0.value)
           };
         });
-      })(_v4 ?? null, _v1, _v2).map(_v0 => ({
+      })(_v5 ?? null, _v1, _v2, _v4).map(_v0 => ({
         ..._v0,
         title: "team" === _v0.privacy ? (0, _v10.getTranslations)().getTeamPrivacyTranslation(_v3?.teamUser?.teamName, _v3?.teamUser?.isWorkspace) : _v0.title
-      })), [_v4, _v3?.teamUser?.teamName, _v3?.teamUser?.isWorkspace, _v1, _v2]),
-      error: _v5,
-      isLoading: _v6
+      })), [_v5, _v3?.teamUser?.teamName, _v3?.teamUser?.isWorkspace, _v1, _v2, _v4]),
+      error: _v6,
+      isLoading: _v7
     };
   }], 0);
 }

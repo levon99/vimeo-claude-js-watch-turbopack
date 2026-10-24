@@ -998,8 +998,8 @@
     display: none;
   }
 `;
-  var _v104 = _v8,
-    _v105 = _v0.i(0),
+  var _v104 = _v0.i(0),
+    _v105 = _v8,
     _v106 = _v0.i(0),
     _v107 = _v0.i(0),
     _v108 = _v0.i(0),
@@ -1060,7 +1060,7 @@
             return _v14(!1);
           }, 0));
         }
-      }, _v2)), _v8.default.createElement(_v105.Notification, {
+      }, _v2)), _v8.default.createElement(_v106.Notification, {
         showing: _v13,
         content: _v5.success
       }));
@@ -1210,18 +1210,18 @@
             isInvalid: !_v2,
             children: [(0, _v6.jsx)(_v110.FormLabel, {
               htmlFor: "userEmail",
-              children: _v106.T.Email
+              children: _v104.T.Email
             }), (0, _v6.jsx)(_v136.Input, {
               name: "email",
               id: "userEmail",
-              placeholder: _v106.T.EmailText,
+              placeholder: _v104.T.EmailText,
               value: _v3,
               onChange: this.handleChange,
               onKeyDown: this.handleKeyDown,
               onBlur: this.offFocus
             }), (0, _v6.jsx)(_v109.FormErrorMessage, {
               children: (0, _v6.jsx)(_v131, {
-                children: _v106.T.InvalidEmail
+                children: _v104.T.InvalidEmail
               })
             })]
           })
@@ -1251,7 +1251,7 @@
       });
     };
     handleEmailInput = _v0 => {
-      for (let _v0 of _v0.split(",")) (_v0 = _v0.trim()) && _v106.EMAIL_REGEX.test(String(_v0).toLowerCase()) ? (this.setEmailValidity(!0), this.props.updateEmailArray(_v0), this.clearEmailField(), this.props.onAddEmail && this.props.onAddEmail()) : this.setEmailValidity(!1);
+      for (let _v0 of _v0.split(",")) (_v0 = _v0.trim()) && _v104.EMAIL_REGEX.test(String(_v0).toLowerCase()) ? (this.setEmailValidity(!0), this.props.updateEmailArray(_v0), this.clearEmailField(), this.props.onAddEmail && this.props.onAddEmail()) : this.setEmailValidity(!1);
     };
     offFocus = _v0 => {
       let _v1 = _v0.target.value;
@@ -1294,7 +1294,7 @@
     modalDescriptionId: "Share a clip to multiple users via email",
     firstFocusSelector: "No first focus",
     modalCloseLabel: "Close this dialog.",
-    modalTitle: _v106.T.Share,
+    modalTitle: _v104.T.Share,
     onDismiss: _v3,
     dismissButtonFormat: "dark",
     isShowing: _v4,
@@ -1302,18 +1302,18 @@
     children: (0, _v6.jsxs)(_v123, {
       children: [_v0, _v20 ? (0, _v6.jsx)(_v117, {
         id: "copyClipUri",
-        label: _v106.T.CopyLink,
+        label: _v104.T.CopyLink,
         messages: {
-          success: _v106.T.Copied
+          success: _v104.T.Copied
         },
         value: _v1,
         onCopy: _v13
       }) : (0, _v6.jsx)(_v128, {
         children: (0, _v6.jsx)(_v117, {
           id: "copyClipUri",
-          label: _v106.T.CopyLink,
+          label: _v104.T.CopyLink,
           messages: {
-            success: _v106.T.Copied
+            success: _v104.T.Copied
           },
           value: _v1,
           onCopy: _v13
@@ -1329,14 +1329,14 @@
             isInvalid: _v6,
             children: [(0, _v6.jsx)(_v110.FormLabel, {
               htmlFor: "msg1",
-              children: _v106.T.OptionalMsg
+              children: _v104.T.OptionalMsg
             }), (0, _v6.jsx)(_v111.Textarea, {
               name: "shareMsg",
               id: "msg1",
               defaultValue: _v11,
               onChange: _v18
             }), _v6 && (0, _v6.jsx)(_v109.FormErrorMessage, {
-              children: `- ${_v7} ${_v106.T.Characters}`
+              children: `- ${_v7} ${_v104.T.Characters}`
             })]
           })
         }), (0, _v6.jsx)(_v134, {
@@ -1348,19 +1348,19 @@
             variant: "outline",
             colorScheme: "gray",
             onClick: _v3,
-            children: _v106.T.Cancel
+            children: _v104.T.Cancel
           }), (0, _v6.jsx)(_v19.Button, {
             variant: "primary",
             isDisabled: !_v2,
             isLoading: _v5,
             onClick: () => _v16(_v8),
-            children: _v106.T.Send
+            children: _v104.T.Send
           })]
         })]
       })]
     })
   });
-  class _v139 extends _v104.default.Component {
+  class _v139 extends _v105.default.Component {
     handleMsgInputThrottled;
     static getDerivedStateFromProps(_v0, _v1) {
       return _v1.showModal !== _v0.showModal ? {
@@ -1381,7 +1381,7 @@
         removeEmail: () => void 0,
         closeModal: () => void 0,
         handleSendBtnState: () => void 0
-      }, this.handleMsgInputThrottled = (0, _v60.default)(this.handleMessageInputValue, _v106.THROTTLE_TIME);
+      }, this.handleMsgInputThrottled = (0, _v60.default)(this.handleMessageInputValue, _v104.THROTTLE_TIME);
     }
     render() {
       let {
@@ -1403,11 +1403,11 @@
           updateEmailArray: this.updateEmailArray,
           handleCaptchaExpire: this.handleCaptchaExpire,
           handleMessageInput: this.handleMessageInput
-        }), (0, _v6.jsx)(_v105.Notification, {
+        }), (0, _v6.jsx)(_v106.Notification, {
           status: "negative",
           showing: _v1,
           onComplete: this.hideToast,
-          content: _v106.T.ErrorMsg
+          content: _v104.T.ErrorMsg
         })]
       });
     }
@@ -1433,11 +1433,12 @@
       _v0.persist(), this.handleMsgInputThrottled(_v0.target.value);
     };
     handleMessageInputValue = _v0 => {
-      _v0.length > _v106.MESSAGE_CHAR_LIMIT && this.setState({
-        exceededCount: _v0.length - _v106.MESSAGE_CHAR_LIMIT
+      let _v1 = this.props.messageCharLimit ?? _v104.MESSAGE_CHAR_LIMIT;
+      _v0.length > _v1 && this.setState({
+        exceededCount: _v0.length - _v1
       }), this.setState({
         messageInputValue: _v0,
-        hasExceededCount: _v0.length > _v106.MESSAGE_CHAR_LIMIT
+        hasExceededCount: _v0.length > _v1
       });
     };
     hideToast = () => {
@@ -1499,6 +1500,7 @@
       loading: _v1
     }) => (0, _v6.jsx)(_v139, {
       ..._v0,
+      messageCharLimit: _v104.EMAIL_SHARE_MESSAGE_CHAR_LIMIT,
       loading: _v1,
       api: {
         execute: _v0 => {
@@ -3063,7 +3065,7 @@
               }
             })
           })
-        }), (0, _v6.jsx)(_v105.Notification, {
+        }), (0, _v6.jsx)(_v106.Notification, {
           status: "negative",
           showing: _v4,
           onComplete: () => this.setState({
@@ -4375,7 +4377,7 @@
             })
           })]
         })]
-      }), _v14 && (0, _v6.jsx)(_v105.Notification, {
+      }), _v14 && (0, _v6.jsx)(_v106.Notification, {
         showing: !!_v14,
         onActionClick: _v23,
         actionLabel: _v20 ? (0, _v30.translate)({
@@ -10126,7 +10128,7 @@
       return (0, _v6.jsxs)("div", {
         children: [this.props.children({
           handleError: this.state.handleError
-        }), (0, _v6.jsx)(_v105.Notification, {
+        }), (0, _v6.jsx)(_v106.Notification, {
           status: "negative",
           showing: !!_v0,
           content: _v0 || ""

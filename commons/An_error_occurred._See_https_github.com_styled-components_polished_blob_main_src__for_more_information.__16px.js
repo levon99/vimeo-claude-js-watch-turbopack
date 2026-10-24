@@ -452,14 +452,6 @@
     }),
     _v44 = _v33(function (_v0, _v1) {
       return "transparent" === _v1 ? _v1 : _v39(parseFloat(_v0), "rgb(255, 255, 255)", _v1);
-    }),
-    _v45 = _v33(function (_v0, _v1) {
-      if ("transparent" === _v1) return _v1;
-      var _v2 = _v24(_v1),
-        _v3 = "number" == typeof _v2.alpha ? _v2.alpha : 1;
-      return _v31((0, _v1.default)({}, _v2, {
-        alpha: _v35(0, 1, (100 * _v3 - 100 * parseFloat(_v0)).toFixed(2) / 100)
-      }));
     });
   _v0.s(["adjustHue", 0, _v34, "darken", 0, _v36, "em", 0, _v10, "getLuminance", 0, _v37, "lighten", 0, _v38, "readableColor", 0, function (_v0, _v1, _v2, _v3) {
     void 0 === _v1 && (_v1 = _v40), void 0 === _v2 && (_v2 = _v41), void 0 === _v3 && (_v3 = !0);
@@ -468,5 +460,5 @@
       _v6 = _v37(_v0) > .179,
       _v7 = _v6 ? _v1 : _v2;
     return !_v3 || parseFloat(((_v4 = _v37(_v0)) > (_v5 = _v37(_v7)) ? (_v4 + .05) / (_v5 + .05) : (_v5 + .05) / (_v4 + .05)).toFixed(2)) >= 4.5 ? _v7 : _v6 ? _v40 : _v41;
-  }, "rem", 0, _v11, "rgba", 0, _v31, "saturate", 0, _v42, "shade", 0, _v43, "tint", 0, _v44, "transparentize", 0, _v45]);
+  }, "rem", 0, _v11, "rgba", 0, _v31, "saturate", 0, _v42, "shade", 0, _v43, "tint", 0, _v44]);
 }

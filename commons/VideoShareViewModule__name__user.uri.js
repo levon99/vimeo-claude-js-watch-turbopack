@@ -63,19 +63,18 @@
     onClose: _v4,
     onCreateReviewLinkSuccess: _v5,
     onPrivacyChange: _v6,
-    onEmbedChange: _v7,
-    transferInlineLinkSurface: _v8,
-    privacyChangePageSource: _v9,
-    privacyChangeEntryPoint: _v10
+    transferInlineLinkSurface: _v7,
+    privacyChangePageSource: _v8,
+    privacyChangeEntryPoint: _v9
   }) => {
-    let _v11 = (0, _v3.useRouter)(),
+    let _v10 = (0, _v3.useRouter)(),
       {
-        openAddToShowcaseModal: _v12,
-        closeAddToShowcaseModal: _v13
+        openAddToShowcaseModal: _v11,
+        closeAddToShowcaseModal: _v12
       } = (0, _v6.useAddToShowcaseModal)(),
-      [_v14, _v15] = (0, _v4.useState)(null),
+      [_v13, _v14] = (0, _v4.useState)(null),
       {
-        data: _v16
+        data: _v15
       } = (0, _v5.useGetVideo)(() => _v0 ? {
         where: {
           videoId: _v0
@@ -85,32 +84,32 @@
           Accept: "application/vnd.vimeo.*+json;version=3.4.1"
         }
       } : null),
-      _v17 = (0, _v4.useMemo)(() => ({
+      _v16 = (0, _v4.useMemo)(() => ({
         videoId: Number(_v0),
-        ownerId: Number(_v16?.user.uri.split("/").pop()) || 0,
-        videoName: _v16?.name || "",
+        ownerId: Number(_v15?.user.uri.split("/").pop()) || 0,
+        videoName: _v15?.name || "",
         pageName: "library",
-        pageUrl: _v11.pathname,
-        onClose: () => _v15(null)
-      }), [_v0, _v16, _v11]),
-      _v18 = (0, _v4.useCallback)(({
+        pageUrl: _v10.pathname,
+        onClose: () => _v14(null)
+      }), [_v0, _v15, _v10]),
+      _v17 = (0, _v4.useCallback)(({
         destination: _v0
       }) => {
-        if (("channel" === _v0 || "group" === _v0 || "portfolio" === _v0 || "showcase" === _v0) && _v17.ownerId) {
-          if ("showcase" === _v0) return void _v12({
-            onClose: _v13,
+        if (("channel" === _v0 || "group" === _v0 || "portfolio" === _v0 || "showcase" === _v0) && _v16.ownerId) {
+          if ("showcase" === _v0) return void _v11({
+            onClose: _v12,
             showcaseItems: [{
-              id: _v17.videoId,
-              name: _v17.videoName,
+              id: _v16.videoId,
+              name: _v16.videoName,
               type: "video"
             }],
-            ownerId: _v17.ownerId,
-            pageName: _v17.pageName,
-            pageUrl: _v17.pageUrl
+            ownerId: _v16.ownerId,
+            pageName: _v16.pageName,
+            pageUrl: _v16.pageUrl
           });
-          _v15(_v0);
+          _v14(_v0);
         }
-      }, [_v12, _v13, _v17]);
+      }, [_v11, _v12, _v16]);
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v7, {
         clipId: _v0,
@@ -118,25 +117,24 @@
         trackingContextConfig: {
           pageName: "video_library",
           location: "modal",
-          privacyChangePageSource: _v9,
-          privacyChangeEntryPoint: _v10
+          privacyChangePageSource: _v8,
+          privacyChangeEntryPoint: _v9
         },
         defaultPanel: _v2,
         editReviewLinkUri: _v3,
         isOpen: _v1,
         onClose: _v4,
-        onPublishToClick: _v18,
+        onPublishToClick: _v17,
         onCreateReviewLinkSuccess: _v5,
         onPrivacyChange: _v6,
-        onEmbedChange: _v7,
-        transferInlineLinkSurface: _v8,
+        transferInlineLinkSurface: _v7,
         expiryPickerEntryPoint: "library"
-      }), "channel" === _v14 && (0, _v1.jsx)(_v9, {
-        ..._v17
-      }), "group" === _v14 && (0, _v1.jsx)(_v8, {
-        ..._v17
-      }), "portfolio" === _v14 && (0, _v1.jsx)(_v10, {
-        ..._v17
+      }), "channel" === _v13 && (0, _v1.jsx)(_v9, {
+        ..._v16
+      }), "group" === _v13 && (0, _v1.jsx)(_v8, {
+        ..._v16
+      }), "portfolio" === _v13 && (0, _v1.jsx)(_v10, {
+        ..._v16
       })]
     });
   }]);

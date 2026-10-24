@@ -2,7 +2,8 @@
   "use strict";
 
   var _v1 = _v0.i(0),
-    _v2 = _v0.i(0);
+    _v2 = _v0.i(0),
+    _v3 = _v0.i(0);
   _v0.s(["useDownloadTracking", 0, () => {
     let _v0 = (0, _v2.usePico)();
     return {
@@ -16,6 +17,7 @@
       trackFileDownloadStarted: (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("file_download_started", {
           file_id: _v0.fileId,
+          file_type: (0, _v3.deriveFileType)(_v0.contentType),
           file_download_source: _v0.source
         });
       }, [_v0])

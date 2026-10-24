@@ -51,7 +51,7 @@
     header: _v0,
     subheader: _v1
   }) {
-    let _v2 = (0, _v3.useMemo)(_v7.getTranslatedStrings, []);
+    let _v2 = (0, _v3.useMemo)(() => (0, _v7.getTranslatedStrings)(), []);
     return (0, _v1.jsxs)(_v10, {
       children: [(0, _v1.jsx)(_v9, {
         children: _v0

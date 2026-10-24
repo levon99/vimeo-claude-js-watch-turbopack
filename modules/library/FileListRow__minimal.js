@@ -85,6 +85,7 @@
         editableTitle: _v37,
         menuButton: _v5 ? (0, _v1.jsx)(_v8.FileActionsMenu, {
           fileId: _v0.publicId,
+          contentType: _v0.contentType,
           context: _v1,
           copyLink: _v23,
           onCopyLink: _v24,

@@ -29002,6 +29002,7 @@
     }) => {
       let [_v5, _v6] = (0, _v26.useState)(!1);
       return (0, _v25.jsx)("button", {
+        type: "button",
         disabled: _v2,
         onMouseEnter: () => {
           _v6(!0);

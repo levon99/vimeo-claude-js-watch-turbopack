@@ -189,23 +189,25 @@
         _v3 = _v0.maxSimultaneousUploads,
         _v4 = new Map(),
         _v5 = new Map(),
-        _v6 = [],
+        _v6 = new Map(),
         _v7 = [],
         _v8 = [],
-        _v9 = () => _v2?.summary ? _v8(_v2.summary) : {
+        _v9 = [],
+        _v10 = () => _v2?.summary ? _v8(_v2.summary) : {
           ..._v27
         },
-        _v10 = () => {
-          _v5.forEach(_v0 => _v0()), _v5.clear(), _v4.clear();
+        _v11 = () => {
+          _v6.forEach(_v0 => _v0()), _v6.clear(), _v4.clear(), _v5.clear();
         };
       return _v1 = (_v0, _v1) => {
         let _v2 = (_v0, _v1, _v2) => {
             let _v3 = _v4.get(_v1.id),
-              _v4 = _v9();
-            _v6(_v1), _v6.forEach(_v0 => _v0(_v0, _v1, _v4, _v2, _v3)), _v0(_v0 => ({
+              _v4 = _v5.get(_v1.id) ?? null,
+              _v5 = _v10();
+            _v6(_v1), _v7.forEach(_v0 => _v0(_v0, _v1, _v5, _v2, _v3, _v4)), _v0(_v0 => ({
               uploads: _v0.uploads.map(_v0 => _v0.id === _v1.id ? _v1 : _v0),
-              uploaderSummary: _v4
-            })), (_v0 === _v3.STATES.COMPLETED || _v0 === _v3.STATES.FAILED || _v0 === _v3.STATES.CANCELED) && (_v4.delete(_v1.id), _v5.get(_v1.id)?.(), _v5.delete(_v1.id));
+              uploaderSummary: _v5
+            })), (_v0 === _v3.STATES.COMPLETED || _v0 === _v3.STATES.FAILED || _v0 === _v3.STATES.CANCELED) && (_v4.delete(_v1.id), _v5.delete(_v1.id), _v6.get(_v1.id)?.(), _v6.delete(_v1.id));
           },
           _v3 = (_v0, _v1, _v2, _v3, _v4) => {
             let _v5 = _v2?.config?.service ?? _v3.SERVICES.UPLOAD_SERVICE_SITE,
@@ -214,13 +216,14 @@
             if (!_v7) return !1;
             Array.isArray(_v7) || (_v7 = [_v7]);
             let {
-              origin: _v8
-            } = _v2;
-            _v8 && _v7.forEach(_v0 => {
-              _v4.set(_v0.id, _v8);
+                origin: _v8
+              } = _v2,
+              _v9 = _v3?.privacy?.view ?? null;
+            _v7.forEach(_v0 => {
+              _v8 && _v4.set(_v0.id, _v8), null !== _v9 && _v5.set(_v0.id, _v9);
             }), _v7.forEach(_v0 => {
               let _v1 = (0, _v2.default)(_v0 => {
-                  let _v1 = _v9();
+                  let _v1 = _v10();
                   _v0(_v0 => ({
                     uploads: _v0.uploads.map(_v0 => _v0.id === _v0.id ? {
                       ..._v0,
@@ -235,15 +238,15 @@
                   let _v1 = _v11(_v0.upload);
                   _v2(_v1.state, _v1, _v4);
                 };
-              _v0.on(_v3.EVENTS.STATE_CHANGE, _v2), _v0.on(_v3.EVENTS.PROGRESS, _v1), _v5.set(_v0.id, () => {
+              _v0.on(_v3.EVENTS.STATE_CHANGE, _v2), _v0.on(_v3.EVENTS.PROGRESS, _v1), _v6.set(_v0.id, () => {
                 _v0.removeListener(_v3.EVENTS.STATE_CHANGE, _v2), _v0.removeListener(_v3.EVENTS.PROGRESS, _v1), _v1.cancel();
               });
               let _v3 = _v11(_v0);
               _v3.state && _v2(_v3.state, _v3, _v4);
             });
-            let _v9 = _v7.map(_v11);
-            return _v9.forEach(_v6), _v0(_v0 => ({
-              uploads: [..._v9.slice().reverse(), ..._v0.uploads]
+            let _v10 = _v7.map(_v11);
+            return _v10.forEach(_v6), _v0(_v0 => ({
+              uploads: [..._v10.slice().reverse(), ..._v0.uploads]
             })), !0;
           };
         return {
@@ -275,7 +278,7 @@
             fileInputAccept: _v28(_v0)
           }),
           resetListeners: () => {
-            _v10();
+            _v11();
           },
           upload: (_v0, _v1, _v2) => {
             let _v3 = Array.isArray(_v0) ? _v0 : Array.from(_v0),
@@ -292,7 +295,7 @@
               let _v0 = (_v10 = _v4, _v11 = _v1, _v8 ? _v23(_v10, _v11.origin) : null);
               if (_v0) return _v9?.(_v0), !1;
             }
-            if (!_v7.every(_v0 => _v0(_v0, _v1))) return !1;
+            if (!_v8.every(_v0 => _v0(_v0, _v1))) return !1;
             let _v12 = () => {
               var _v0, _v1;
               let _v2;
@@ -310,7 +313,7 @@
                 files: _v2 ? _v1 : 0
               }));
             };
-            return !_v8.some(_v0 => _v0(_v0, _v1, _v12, _v2)) && _v12();
+            return !_v9.some(_v0 => _v0(_v0, _v1, _v12, _v2)) && _v12();
           },
           pauseAll: () => {
             _v2?.pauseAll();
@@ -322,7 +325,7 @@
             _v2?.cancelAll();
           },
           clearAll: () => {
-            _v2?.clearAll(), _v10();
+            _v2?.clearAll(), _v11();
             let {
               fileInputAccept: _v0,
               enableUniversalHosting: _v1,
@@ -343,7 +346,7 @@
             let _v1 = _v2.uploads.get(_v0.id);
             _v1 && (_v2.clear(_v1), _v0(_v0 => ({
               uploads: _v0.uploads.filter(_v0 => _v0.id !== _v0.id),
-              uploaderSummary: _v9()
+              uploaderSummary: _v10()
             })));
           },
           fileSelectStateChange: _v0 => {
@@ -358,17 +361,17 @@
               document.body.addEventListener("focus", _v0);
             }
           },
-          addShouldUploadStartCallback: _v0 => (_v7.push(_v0), () => {
-            let _v0 = _v7.indexOf(_v0);
-            -1 !== _v0 && _v7.splice(_v0, 1);
-          }),
-          addDeferredUploadPreflight: _v0 => (_v8.push(_v0), () => {
+          addShouldUploadStartCallback: _v0 => (_v8.push(_v0), () => {
             let _v0 = _v8.indexOf(_v0);
             -1 !== _v0 && _v8.splice(_v0, 1);
           }),
-          addUploadLifecycleListener: _v0 => (_v6.push(_v0), () => {
-            let _v0 = _v6.indexOf(_v0);
-            -1 !== _v0 && _v6.splice(_v0, 1);
+          addDeferredUploadPreflight: _v0 => (_v9.push(_v0), () => {
+            let _v0 = _v9.indexOf(_v0);
+            -1 !== _v0 && _v9.splice(_v0, 1);
+          }),
+          addUploadLifecycleListener: _v0 => (_v7.push(_v0), () => {
+            let _v0 = _v7.indexOf(_v0);
+            -1 !== _v0 && _v7.splice(_v0, 1);
           })
         };
       }, (0, _v13.createStore)()((0, _v12.subscribeWithSelector)(_v1));

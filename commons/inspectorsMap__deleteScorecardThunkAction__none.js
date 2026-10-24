@@ -1,7 +1,7 @@
 {
   "use strict";
 
-  _v0.s(["inspectorsMap", () => _v109], 0);
+  _v0.s(["inspectorsMap", () => _v108], 0);
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
@@ -92,36 +92,35 @@
         fill: "currentcolor"
       })
     })),
-    _v70 = () => ({
-      Delete: (0, _v43.translate)({
-        singular: "Delete",
-        dictionary: {
-          es: {
-            singular: "Eliminar"
-          },
-          "de-DE": {
-            singular: "Löschen"
-          },
-          "fr-FR": {
-            singular: "Supprimer"
-          },
-          "ja-JP": {
-            singular: "削除"
-          },
-          "ko-KR": {
-            singular: "삭제"
-          },
-          "pt-BR": {
-            singular: "Excluir"
-          },
-          "zh-CN": {
-            singular: "删除"
-          }
-        }
-      })
-    }),
-    _v71 = () => {
-      let _v0 = (0, _v60.useMemo)(_v70, []),
+    _v70 = () => {
+      let _v0 = (0, _v60.useMemo)(() => ({
+          Delete: (0, _v43.translate)({
+            singular: "Delete",
+            dictionary: {
+              es: {
+                singular: "Eliminar"
+              },
+              "de-DE": {
+                singular: "Löschen"
+              },
+              "fr-FR": {
+                singular: "Supprimer"
+              },
+              "ja-JP": {
+                singular: "削除"
+              },
+              "ko-KR": {
+                singular: "삭제"
+              },
+              "pt-BR": {
+                singular: "Excluir"
+              },
+              "zh-CN": {
+                singular: "删除"
+              }
+            }
+          })
+        }), []),
         _v1 = (0, _v68.useAppDispatch)(),
         _v2 = (0, _v68.useAppSelector)(_v65.scorecardTitleCompositionSelector),
         [_v3, _v4] = (0, _v60.useState)(!1),
@@ -185,7 +184,7 @@
         })]
       });
     },
-    _v72 = () => {
+    _v71 = () => {
       let _v0 = (0, _v68.useAppSelector)(_v66.hasTimeTriggerScorecardSelector),
         _v1 = (0, _v68.useAppSelector)(_v66.hasQuizzesSelector),
         {
@@ -315,27 +314,27 @@
               isDisabled: _v3
             })
           })]
-        }), _v0 && (0, _v29.jsx)(_v71, {})]
+        }), _v0 && (0, _v29.jsx)(_v70, {})]
       });
     };
-  var _v73 = _v0.i(0),
+  var _v72 = _v0.i(0),
+    _v73 = _v0.i(0),
     _v74 = _v0.i(0),
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
-    _v78 = _v0.i(0),
-    _v79 = _v0.i(0);
-  let _v80 = {
+    _v78 = _v0.i(0);
+  let _v79 = {
       backgroundColor: "fill-component-hover"
     },
-    _v81 = {
+    _v80 = {
       width: "1rem",
       height: "1rem"
     },
-    _v82 = _v0 => {
+    _v81 = _v0 => {
       _v0.stopPropagation();
     },
-    _v83 = () => {
+    _v82 = () => {
       let _v0 = (0, _v68.useAppDispatch)(),
         _v1 = (0, _v68.useAppSelector)(_v3.selectedElementsIdsSelector),
         _v2 = (0, _v68.useAppSelector)(_v66.pollListSelector),
@@ -344,18 +343,18 @@
         _v5 = (0, _v68.useAppSelector)(_v64.activeOverlayIdSelector),
         {
           alertDiscardOrSaveOverlayChanges: _v6
-        } = (0, _v75.useAlerts)(),
+        } = (0, _v74.useAlerts)(),
         {
           toggleInspector: _v7
-        } = (0, _v76.useInspector)(),
+        } = (0, _v75.useInspector)(),
         {
           seek: _v8
-        } = (0, _v73.useDragonfly)(),
+        } = (0, _v72.useDragonfly)(),
         {
           editOverlay: _v9,
           switchToAnotherOverlay: _v10,
           closeOverlayEditor: _v11
-        } = (0, _v74.useInteractiveOverlay)(),
+        } = (0, _v73.useInteractiveOverlay)(),
         _v12 = (_v0, _v1) => {
           _v0((0, _v3.selectCEsAction)({
             ceIds: [_v0]
@@ -392,7 +391,7 @@
             }
           })
         }), (0, _v29.jsx)(_v40.VStack, {
-          sx: _v79.ScrollerSX,
+          sx: _v78.ScrollerSX,
           overflowY: "auto",
           "data-testid": "poll-overview-list",
           children: _v2.map(({
@@ -458,19 +457,19 @@
               height: "2.5rem",
               borderRadius: "sm",
               width: "100%",
-              _hover: _v80,
+              _hover: _v79,
               cursor: "pointer",
               role: "group",
-              ...(_v4 && _v80),
+              ...(_v4 && _v79),
               "data-testid": `poll-question-${_v0.id}`,
               children: [(0, _v29.jsxs)(_v45.Flex, {
                 justifyContent: "center",
                 alignItems: "center",
                 children: [_v1 ? (0, _v29.jsx)(_v56.OverlayTemplate, {
-                  ..._v81
+                  ..._v80
                 }) : _v0.variant === _v44.POLL_VARIANT.POLL ? (0, _v29.jsx)(_v41.ChartGrowthAlt, {
-                  ..._v81
-                }) : (0, _v29.jsx)(_v78.QuizIcon, {}), (0, _v29.jsx)(_v39.Text, {
+                  ..._v80
+                }) : (0, _v29.jsx)(_v77.QuizIcon, {}), (0, _v29.jsx)(_v39.Text, {
                   variant: "body-xs",
                   children: _v3 + 1
                 })]
@@ -492,14 +491,14 @@
                   _groupHover: {
                     display: "block"
                   },
-                  onClick: _v82
+                  onClick: _v81
                 }), (0, _v29.jsxs)(_v50.MenuList, {
                   children: [(0, _v29.jsx)(_v49.MenuItem, {
                     icon: (0, _v29.jsx)(_v53.DropShadow, {
                       boxSize: "xs"
                     }),
                     onClick: _v0 => {
-                      _v0.stopPropagation(), _v0((0, _v77.duplicateElementsThunkAction)([_v0]));
+                      _v0.stopPropagation(), _v0((0, _v76.duplicateElementsThunkAction)([_v0]));
                     },
                     children: (0, _v29.jsx)(_v39.Text, {
                       variant: "body-md",
@@ -577,26 +576,26 @@
         }), (0, _v29.jsx)(_v52.Divider, {
           borderColor: "stroke",
           my: "4"
-        }), (0, _v29.jsx)(_v72, {})]
+        }), (0, _v29.jsx)(_v71, {})]
       });
     };
   _v0.i(0);
-  var _v84 = _v0.i(0),
+  var _v83 = _v0.i(0),
+    _v84 = _v0.i(0),
     _v85 = _v0.i(0),
     _v86 = _v0.i(0),
-    _v87 = _v0.i(0),
-    _v88 = _v0.i(0);
-  let _v89 = {
+    _v87 = _v0.i(0);
+  let _v88 = {
       width: "100%",
       height: (0, _v33.rem)(32),
       justifyContent: "space-between"
     },
-    _v90 = {
+    _v89 = {
       width: (0, _v33.rem)(66),
       variant: "outlined",
       size: "sm"
     },
-    _v91 = () => {
+    _v90 = () => {
       let _v0 = (0, _v68.useAppDispatch)(),
         _v1 = (0, _v68.useAppSelector)(_v66.quizQuestionCountSelector),
         _v2 = (0, _v68.useAppSelector)(_v65.quizScorePassPercentageSelector),
@@ -606,7 +605,7 @@
         _v6 = (0, _v68.useAppSelector)(_v65.quizRetakesAmountSelector),
         [_v7, _v8] = (0, _v60.useState)(_v2),
         _v9 = Math.ceil(_v1 * _v2 / 100),
-        _v10 = (0, _v87.shouldShowInDevelopmentFeature)("question_progress", !0);
+        _v10 = (0, _v86.shouldShowInDevelopmentFeature)("question_progress", !0);
       return (0, _v29.jsxs)(_v40.VStack, {
         alignItems: "flex-start",
         gap: "md",
@@ -616,7 +615,7 @@
           gap: "0",
           "data-testid": "passing-score",
           children: [(0, _v29.jsxs)(_v57.HStack, {
-            ..._v89,
+            ..._v88,
             children: [(0, _v29.jsx)(_v39.Text, {
               variant: "body-md",
               children: (0, _v43.translate)({
@@ -645,7 +644,7 @@
                   }
                 }
               })
-            }), (0, _v29.jsxs)(_v85.NumberInput, {
+            }), (0, _v29.jsxs)(_v84.NumberInput, {
               step: 1,
               min: 1,
               max: 100,
@@ -657,9 +656,9 @@
                   passPercentage: _v1
                 }));
               },
-              ..._v90,
-              children: [(0, _v29.jsx)(_v85.NumberInputField, {}), (0, _v29.jsxs)(_v85.NumberInputStepper, {
-                children: [(0, _v29.jsx)(_v85.NumberIncrementStepper, {}), (0, _v29.jsx)(_v85.NumberDecrementStepper, {})]
+              ..._v89,
+              children: [(0, _v29.jsx)(_v84.NumberInputField, {}), (0, _v29.jsxs)(_v84.NumberInputStepper, {
+                children: [(0, _v29.jsx)(_v84.NumberIncrementStepper, {}), (0, _v29.jsx)(_v84.NumberDecrementStepper, {})]
               })]
             })]
           }), (0, _v29.jsx)(_v39.Text, {
@@ -734,7 +733,7 @@
             width: "100%",
             gap: "sm",
             children: [(0, _v29.jsxs)(_v57.HStack, {
-              ..._v89,
+              ..._v88,
               children: [(0, _v29.jsx)(_v39.Text, {
                 variant: "body-md",
                 children: (0, _v43.translate)({
@@ -763,7 +762,7 @@
                     }
                   }
                 })
-              }), (0, _v29.jsx)(_v86.Switch, {
+              }), (0, _v29.jsx)(_v85.Switch, {
                 size: "md",
                 "data-testid": _v62.testIds.polls.inspector.settings.showCorrectAnswerIfIncorrectSelected,
                 isChecked: _v3,
@@ -774,7 +773,7 @@
                 }
               })]
             }), (0, _v29.jsxs)(_v57.HStack, {
-              ..._v89,
+              ..._v88,
               children: [(0, _v29.jsx)(_v39.Text, {
                 variant: "body-md",
                 children: (0, _v43.translate)({
@@ -803,7 +802,7 @@
                     }
                   }
                 })
-              }), (0, _v29.jsx)(_v86.Switch, {
+              }), (0, _v29.jsx)(_v85.Switch, {
                 size: "md",
                 "data-testid": _v62.testIds.polls.inspector.settings.shuffleAnswers,
                 isChecked: _v4,
@@ -814,7 +813,7 @@
                 }
               })]
             }), _v10 && (0, _v29.jsxs)(_v57.HStack, {
-              ..._v89,
+              ..._v88,
               children: [(0, _v29.jsx)(_v39.Text, {
                 variant: "body-md",
                 children: (0, _v43.translate)({
@@ -843,7 +842,7 @@
                     }
                   }
                 })
-              }), (0, _v29.jsx)(_v86.Switch, {
+              }), (0, _v29.jsx)(_v85.Switch, {
                 size: "md",
                 "data-testid": _v62.testIds.polls.inspector.settings.questionProgress,
                 isChecked: _v5,
@@ -854,7 +853,7 @@
                 }
               })]
             }), (0, _v29.jsxs)(_v57.HStack, {
-              ..._v89,
+              ..._v88,
               children: [(0, _v29.jsx)(_v39.Text, {
                 variant: "body-md",
                 children: (0, _v43.translate)({
@@ -883,21 +882,21 @@
                     }
                   }
                 })
-              }), (0, _v29.jsx)(_v86.Switch, {
+              }), (0, _v29.jsx)(_v85.Switch, {
                 size: "md",
                 "data-testid": _v62.testIds.polls.inspector.settings.limitRetakes,
-                isChecked: _v6 !== _v88.UNLIMITED_RETAKES_VALUE,
+                isChecked: _v6 !== _v87.UNLIMITED_RETAKES_VALUE,
                 onChange: _v0 => {
-                  let _v1 = _v0.target.checked ? _v88.MAX_ALLOWED_RETAKES : _v88.UNLIMITED_RETAKES_VALUE;
-                  (0, _v84.batch)(() => {
+                  let _v1 = _v0.target.checked ? _v87.MAX_ALLOWED_RETAKES : _v87.UNLIMITED_RETAKES_VALUE;
+                  (0, _v83.batch)(() => {
                     _v0((0, _v65.updateInteractiveQuizAction)({
                       retakesAmount: _v1
                     })), _v0((0, _v65.updateScorecardRetakesLeftTextThunkAction)(_v1));
                   });
                 }
               })]
-            }), _v6 !== _v88.UNLIMITED_RETAKES_VALUE && (0, _v29.jsxs)(_v57.HStack, {
-              ..._v89,
+            }), _v6 !== _v87.UNLIMITED_RETAKES_VALUE && (0, _v29.jsxs)(_v57.HStack, {
+              ..._v88,
               children: [(0, _v29.jsx)(_v39.Text, {
                 variant: "body-md",
                 children: (0, _v43.translate)({
@@ -926,25 +925,25 @@
                     }
                   }
                 })
-              }), (0, _v29.jsxs)(_v85.NumberInput, {
-                defaultValue: _v88.UNLIMITED_RETAKES_VALUE,
+              }), (0, _v29.jsxs)(_v84.NumberInput, {
+                defaultValue: _v87.UNLIMITED_RETAKES_VALUE,
                 step: 1,
-                min: _v88.MIN_ALLOWED_RETAKES,
-                max: _v88.MAX_ALLOWED_RETAKES,
+                min: _v87.MIN_ALLOWED_RETAKES,
+                max: _v87.MAX_ALLOWED_RETAKES,
                 maxWidth: (0, _v33.rem)(66),
                 size: "sm",
                 "data-testid": _v62.testIds.polls.inspector.settings.retakesAmount,
-                isDisabled: _v6 === _v88.UNLIMITED_RETAKES_VALUE,
+                isDisabled: _v6 === _v87.UNLIMITED_RETAKES_VALUE,
                 value: _v6,
                 onChange: (_v0, _v1) => {
-                  isNaN(_v1) || (0, _v84.batch)(() => {
+                  isNaN(_v1) || (0, _v83.batch)(() => {
                     _v0((0, _v65.updateInteractiveQuizAction)({
                       retakesAmount: _v1
                     })), _v0((0, _v65.updateScorecardRetakesLeftTextThunkAction)(_v1));
                   });
                 },
-                children: [(0, _v29.jsx)(_v85.NumberInputField, {}), (0, _v29.jsxs)(_v85.NumberInputStepper, {
-                  children: [(0, _v29.jsx)(_v85.NumberIncrementStepper, {}), (0, _v29.jsx)(_v85.NumberDecrementStepper, {})]
+                children: [(0, _v29.jsx)(_v84.NumberInputField, {}), (0, _v29.jsxs)(_v84.NumberInputStepper, {
+                  children: [(0, _v29.jsx)(_v84.NumberIncrementStepper, {}), (0, _v29.jsx)(_v84.NumberDecrementStepper, {})]
                 })]
               })]
             })]
@@ -952,14 +951,14 @@
         })]
       });
     };
-  var _v92 = _v0.i(0),
+  var _v91 = _v0.i(0),
+    _v92 = _v0.i(0),
     _v93 = _v0.i(0),
-    _v94 = _v0.i(0),
-    _v95 = _v0.i(0);
-  let _v96 = () => {
+    _v94 = _v0.i(0);
+  let _v95 = () => {
     let {
       createPoll: _v0
-    } = (0, _v92.usePoll)();
+    } = (0, _v91.usePoll)();
     return (0, _v29.jsxs)(_v32.Center, {
       flexDirection: "column",
       h: "100%",
@@ -1035,7 +1034,7 @@
         "data-testid": _v62.testIds.polls.inspector.addQuestion,
         onClick: () => {
           _v0({
-            pollStyleId: _v88.DEFAULT_POLL_STYLE,
+            pollStyleId: _v87.DEFAULT_POLL_STYLE,
             addToStoryboard: !0,
             variant: _v44.POLL_VARIANT.QUIZ
           });
@@ -1072,15 +1071,21 @@
       })]
     });
   };
-  var _v97 = _v0.i(0),
+  var _v96 = _v0.i(0),
+    _v97 = _v0.i(0),
     _v98 = _v0.i(0),
     _v99 = _v0.i(0),
     _v100 = _v0.i(0),
     _v101 = _v0.i(0),
     _v102 = _v0.i(0),
-    _v103 = _v0.i(0),
-    _v104 = _v0.i(0);
-  let _v105 = _v100.GraphicsTag.OVERLAY_ELEMENTS,
+    _v103 = _v0.i(0);
+  let _v104 = _v99.GraphicsTag.OVERLAY_ELEMENTS,
+    _v105 = (0, _v1.default)(() => _v0.A(0), {
+      loadableGenerated: {
+        modules: [0]
+      },
+      ssr: !1
+    }),
     _v106 = (0, _v1.default)(() => _v0.A(0), {
       loadableGenerated: {
         modules: [0]
@@ -1093,13 +1098,7 @@
       },
       ssr: !1
     }),
-    _v108 = (0, _v1.default)(() => _v0.A(0), {
-      loadableGenerated: {
-        modules: [0]
-      },
-      ssr: !1
-    }),
-    _v109 = {
+    _v108 = {
       [_v4.InspectorType.MEDIA]: {
         component: _v17.default
       },
@@ -1113,11 +1112,11 @@
         component: _v7.default
       },
       [_v4.InspectorType.TEXT_EDIT]: {
-        component: _v106,
+        component: _v105,
         isApplicable: _v0 => (0, _v5.isTextElement)((0, _v3.firstSelectedElementSelector)(_v0))
       },
       [_v4.InspectorType.BUTTON_TEXT_EDIT]: {
-        component: _v107,
+        component: _v106,
         isApplicable: _v0 => (0, _v5.isButtonElement)((0, _v3.firstSelectedElementSelector)(_v0))
       },
       [_v4.InspectorType.MUSIC]: {
@@ -1139,8 +1138,8 @@
       [_v4.InspectorType.POLLS]: {
         component: () => {
           let _v0 = !(0, _v68.useAppSelector)(_v66.hasPollOrQuizQuestionsSelector);
-          return (0, _v29.jsxs)(_v93.Inspector, {
-            children: [(0, _v29.jsx)(_v94.InspectorHeader, {
+          return (0, _v29.jsxs)(_v92.Inspector, {
+            children: [(0, _v29.jsx)(_v93.InspectorHeader, {
               title: (0, _v43.translate)({
                 singular: "Polls and quizzes",
                 dictionary: {
@@ -1167,8 +1166,8 @@
                   }
                 }
               }),
-              quickActions: _v0 ? null : (0, _v29.jsx)(_v95.NewPollMenu, {})
-            }), _v0 ? (0, _v29.jsx)(_v96, {}) : (0, _v29.jsx)(_v30.Box, {
+              quickActions: _v0 ? null : (0, _v29.jsx)(_v94.NewPollMenu, {})
+            }), _v0 ? (0, _v29.jsx)(_v95, {}) : (0, _v29.jsx)(_v30.Box, {
               paddingX: "md",
               height: "100%",
               children: (0, _v29.jsxs)(_v35.Tabs, {
@@ -1240,9 +1239,9 @@
                   height: `calc(100% - ${(0, _v33.rem)(150)})`,
                   children: [(0, _v29.jsx)(_v37.TabPanel, {
                     height: "100%",
-                    children: (0, _v29.jsx)(_v83, {})
+                    children: (0, _v29.jsx)(_v82, {})
                   }), (0, _v29.jsx)(_v37.TabPanel, {
-                    children: (0, _v29.jsx)(_v91, {})
+                    children: (0, _v29.jsx)(_v90, {})
                   })]
                 })]
               })
@@ -1277,21 +1276,21 @@
           let _v0 = (0, _v68.useAppSelector)(_v65.brandSecondaryColorSelector),
             {
               handleAddButtonFromLibrary: _v1
-            } = (0, _v98.useButton)(),
+            } = (0, _v97.useButton)(),
             {
               createOrReplaceAndAddHotspotFromGraphic: _v2
-            } = (0, _v99.useHotspot)(),
+            } = (0, _v98.useHotspot)(),
             _v3 = (0, _v68.useAppSelector)(_v65.orientationSelector),
             _v4 = (0, _v60.useRef)(1),
             {
               data: _v5
-            } = (0, _v101.useFetchGraphicsCategoriesQuery)({
-              tag: _v105
+            } = (0, _v100.useFetchGraphicsCategoriesQuery)({
+              tag: _v104
             }),
             [_v6, {
               data: _v7,
               isFetching: _v8
-            }] = (0, _v101.useLazyFetchGraphicsQuery)(),
+            }] = (0, _v100.useLazyFetchGraphicsQuery)(),
             _v9 = (0, _v60.useCallback)(() => {
               _v1({
                 preset: {
@@ -1303,7 +1302,7 @@
                   },
                   backgroundColor: _v0,
                   textContent: "",
-                  ..._v97.NO_ACTION_PRESET
+                  ..._v96.NO_ACTION_PRESET
                 },
                 shouldAddElement: !0,
                 shouldUseBrandColors: !1,
@@ -1316,18 +1315,18 @@
               if (!_v7) return void _v6({
                 categoryId: _v10,
                 page: _v4.current,
-                tag: _v105
+                tag: _v104
               });
               _v7.hasNextPage && (_v6({
                 page: _v4.current + 1,
                 categoryId: _v10,
-                tag: _v105
+                tag: _v104
               }), _v4.current++);
             }
           }, [_v4, _v7, _v6, _v10]);
-          let _v11 = (0, _v60.useMemo)(() => [..._v97.BUTTON_HOTSPOT_SHAPES_PRESETS.map(_v102.createGraphicItemFromButtonPreset), ...(_v7?.items ?? [])], [_v7?.items]),
+          let _v11 = (0, _v60.useMemo)(() => [..._v96.BUTTON_HOTSPOT_SHAPES_PRESETS.map(_v101.createGraphicItemFromButtonPreset), ...(_v7?.items ?? [])], [_v7?.items]),
             _v12 = (0, _v60.useCallback)(async (_v0, _v1) => {
-              let _v2 = _v97.BUTTON_HOTSPOT_SHAPES_PRESETS.find(({
+              let _v2 = _v96.BUTTON_HOTSPOT_SHAPES_PRESETS.find(({
                   id: _v0
                 }) => _v0 === _v0.id),
                 _v3 = !_v1;
@@ -1338,11 +1337,11 @@
                 shouldUseBrandColors: !1
               }) : _v2(_v0, _v1, {
                 shouldAddElement: _v3,
-                ..._v97.NO_ACTION_PRESET
+                ..._v96.NO_ACTION_PRESET
               });
             }, [_v2, _v1, _v3]);
-          return (0, _v29.jsxs)(_v93.Inspector, {
-            children: [(0, _v29.jsx)(_v94.InspectorHeader, {
+          return (0, _v29.jsxs)(_v92.Inspector, {
+            children: [(0, _v29.jsx)(_v93.InspectorHeader, {
               title: (0, _v43.translate)({
                 singular: "Graphics",
                 dictionary: {
@@ -1369,7 +1368,7 @@
                   }
                 }
               })
-            }), (0, _v29.jsx)(_v104.InspectorPaddedRow, {
+            }), (0, _v29.jsx)(_v103.InspectorPaddedRow, {
               padRight: !0,
               children: (0, _v29.jsx)(_v31.Button, {
                 leftIcon: (0, _v29.jsx)(_v59.Plus, {}),
@@ -1409,7 +1408,7 @@
               mt: "8px",
               px: "8px",
               height: "100%",
-              children: (0, _v29.jsx)(_v103.ImageLibraryItemsView, {
+              children: (0, _v29.jsx)(_v102.ImageLibraryItemsView, {
                 testIdPrefix: "shapes",
                 items: _v11,
                 onImageSelect: _v12,
@@ -1459,7 +1458,7 @@
         isApplicable: _v0 => (0, _v3.selectedTransitionsIdsSelector)(_v0).length > 0
       },
       [_v4.InspectorType.SCORECARD]: {
-        component: _v108,
+        component: _v107,
         isApplicable: _v0 => {
           let _v1 = (0, _v3.firstSelectedElementSelector)(_v0);
           return (0, _v5.isTimeTriggerElement)(_v1) && _v1.action.type === _v2.TimeTriggerActionType.SHOW_OVERLAY;

@@ -45,8 +45,9 @@
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
     _v44 = _v0.i(0),
-    _v45 = ((_v1 = {}).Safe = "safe", _v1.Mature = "mature", _v1.Unrated = "unrated", _v1.Ads = "advertisement", _v1);
-  let _v46 = {
+    _v45 = _v0.i(0),
+    _v46 = ((_v1 = {}).Safe = "safe", _v1.Mature = "mature", _v1.Unrated = "unrated", _v1.Ads = "advertisement", _v1);
+  let _v47 = {
       violence: (0, _v13.translate)({
         singular: "Violence",
         dictionary: {
@@ -227,9 +228,9 @@
         }
       })
     },
-    _v47 = {
-      contentRatings: _v45.Unrated,
-      generalRating: _v45.Unrated,
+    _v48 = {
+      contentRatings: _v46.Unrated,
+      generalRating: _v46.Unrated,
       matureCheckboxes: {
         drugs: !1,
         violence: !1,
@@ -238,7 +239,7 @@
       },
       containsAds: !1
     },
-    _v48 = (_v0, _v1) => {
+    _v49 = (_v0, _v1) => {
       switch (_v1.type) {
         case "HYDRATE":
           return _v1.payload;
@@ -252,12 +253,12 @@
               ..._v0.matureCheckboxes
             },
             _v1 = [..._v0.contentRatings];
-          return _v1.payload === _v45.Mature && (_v1 = Object.keys(_v0 = {
+          return _v1.payload === _v46.Mature && (_v1 = Object.keys(_v0 = {
             drugs: !0,
             violence: !0,
             language: !0,
             nudity: !0
-          })), _v1.payload !== _v45.Safe || _v1.includes(_v45.Safe) || (_v1 = [_v45.Safe]), _v0.containsAds && _v1.push(_v45.Ads), {
+          })), _v1.payload !== _v46.Safe || _v1.includes(_v46.Safe) || (_v1 = [_v46.Safe]), _v0.containsAds && _v1.push(_v46.Ads), {
             ..._v0,
             generalRating: _v1.payload,
             matureCheckboxes: _v0,
@@ -276,8 +277,8 @@
               [_v1.payload]: !_v2
             },
             _v5 = Object.keys(_v4).filter(_v0 => _v4[_v0]),
-            _v6 = _v5.length ? _v5 : [_v45.Safe];
-          return _v5.length || (_v3 = _v45.Safe), _v0.containsAds && _v6.push(_v45.Ads), {
+            _v6 = _v5.length ? _v5 : [_v46.Safe];
+          return _v5.length || (_v3 = _v46.Safe), _v0.containsAds && _v6.push(_v46.Ads), {
             ..._v0,
             matureCheckboxes: _v4,
             contentRatings: _v6,
@@ -286,7 +287,7 @@
         case "TOGGLE_CONTAINS_ADS":
           let _v7 = [..._v0.contentRatings],
             _v8 = !_v0.containsAds;
-          return _v8 ? _v7.push(_v45.Ads) : _v7 = _v7.filter(_v0 => _v0 !== _v45.Ads), {
+          return _v8 ? _v7.push(_v46.Ads) : _v7 = _v7.filter(_v0 => _v0 !== _v46.Ads), {
             ..._v0,
             containsAds: _v8,
             contentRatings: _v7
@@ -295,19 +296,19 @@
           return _v0;
       }
     };
-  var _v49 = _v0.i(0);
-  let _v50 = [{
+  var _v50 = _v0.i(0);
+  let _v51 = [{
       value: "safe",
-      label: _v46.safe
+      label: _v47.safe
     }, {
       value: "mature",
-      label: _v46.mature
+      label: _v47.mature
     }],
-    _v51 = ({
+    _v52 = ({
       onRatingChange: _v0,
       isRatingModlocked: _v1,
       selectedGeneralRating: _v2
-    }) => (0, _v2.jsx)(_v49.Select, {
+    }) => (0, _v2.jsx)(_v50.Select, {
       placeholder: (0, _v13.translate)({
         singular: "Select a rating...",
         dictionary: {
@@ -334,57 +335,57 @@
           }
         }
       }),
-      items: _v50,
+      items: _v51,
       value: [_v2 ?? ""],
       disabled: _v1,
       onValueChange: _v0 => {
         _v0(_v0.value[0]);
       },
       variant: "outlined",
-      children: _v0 => (0, _v2.jsx)(_v49.SelectItem, {
+      children: _v0 => (0, _v2.jsx)(_v50.SelectItem, {
         display: "flex",
         "data-testid": `${_v0.value}-option`,
-        children: (0, _v2.jsx)(_v49.SelectItemText, {
+        children: (0, _v2.jsx)(_v50.SelectItemText, {
           children: _v0.label
         })
       })
     }),
-    _v52 = "violence",
-    _v53 = "language",
-    _v54 = "nudity",
-    _v55 = "drugs",
-    _v56 = [_v53, _v55, _v52, _v54],
-    _v57 = ["unrated"],
-    _v58 = ({
+    _v53 = "violence",
+    _v54 = "language",
+    _v55 = "nudity",
+    _v56 = "drugs",
+    _v57 = [_v54, _v56, _v53, _v55],
+    _v58 = ["unrated"],
+    _v59 = ({
       video: _v0,
       updateContentRating: _v1
     }) => {
       let _v2 = _v0?.id,
-        _v3 = _v0?.contentRating ?? _v57,
+        _v3 = _v0?.contentRating ?? _v58,
         _v4 = _v0?.ratingModLocked ?? !1,
         [_v5, _v6] = (0, _v16.useState)(!1),
         _v7 = (0, _v16.useRef)(null),
         _v8 = (0, _v16.useRef)(!1),
         _v9 = () => ({
-          ..._v47,
+          ..._v48,
           contentRatings: _v3,
-          containsAds: _v3.includes(_v45.Ads),
-          generalRating: _v3.includes(_v45.Safe) ? _v45.Safe : _v3.includes(_v45.Unrated) ? _v45.Unrated : _v45.Mature,
+          containsAds: _v3.includes(_v46.Ads),
+          generalRating: _v3.includes(_v46.Safe) ? _v46.Safe : _v3.includes(_v46.Unrated) ? _v46.Unrated : _v46.Mature,
           matureCheckboxes: {
-            drugs: _v3.includes(_v55),
-            violence: _v3.includes(_v52),
-            language: _v3.includes(_v53),
-            nudity: _v3.includes(_v54)
+            drugs: _v3.includes(_v56),
+            violence: _v3.includes(_v53),
+            language: _v3.includes(_v54),
+            nudity: _v3.includes(_v55)
           }
         }),
         _v10 = _v9(),
-        [_v11, _v12] = (0, _v16.useReducer)(_v48, _v10);
+        [_v11, _v12] = (0, _v16.useReducer)(_v49, _v10);
       return (0, _v16.useEffect)(() => {
         _v2 || _v12({
           type: "HYDRATE",
           payload: _v9()
         });
-      }, [_v3]), (0, _v44.default)([_v7], () => {
+      }, [_v3]), (0, _v45.default)([_v7], () => {
         _v6(!1);
       }, null, [_v5]), (0, _v16.useEffect)(() => {
         _v8.current && _v1?.(_v11.contentRatings), _v8.current = !0;
@@ -457,7 +458,7 @@
               })
             })
           })]
-        }), _v11.generalRating === _v45.Unrated ? (0, _v2.jsx)(_v20.Alert, {
+        }), _v11.generalRating === _v46.Unrated ? (0, _v2.jsx)(_v20.Alert, {
           status: "info",
           children: (0, _v2.jsx)(_v21.AlertDescription, {
             children: (0, _v2.jsx)(_v19.Paragraph, {
@@ -466,7 +467,7 @@
                 children: (0, _v13.translate)({
                   singular: "Videos without a content rating can't be watched by some viewers. {LINK}Learn more{/LINK}",
                   replacements: {
-                    LINK: _v0 => (0, _v2.jsx)(_v41.Link, {
+                    LINK: _v0 => (0, _v2.jsx)(_v42.Link, {
                       target: "_blank",
                       href: "https://vimeo.zendesk.com/hc/en-us/articles/224818087-Content-ratings",
                       fontSize: 14,
@@ -501,7 +502,7 @@
               })
             })
           })
-        }) : null, (0, _v2.jsx)(_v51, {
+        }) : null, (0, _v2.jsx)(_v52, {
           onRatingChange: _v0 => {
             _v12({
               type: "CHANGE_GENERAL_RATING",
@@ -543,7 +544,7 @@
               })
             })
           })
-        }), _v11.generalRating === _v45.Mature && (0, _v2.jsxs)(_v2.Fragment, {
+        }), _v11.generalRating === _v46.Mature && (0, _v2.jsxs)(_v2.Fragment, {
           children: [(0, _v2.jsxs)(_v3.Box, {
             children: [(0, _v2.jsx)(_v6.Header, {
               size: "xs",
@@ -581,8 +582,8 @@
               direction: "column",
               gap: "2",
               mt: (0, _v18.rem)(8),
-              children: _v56.map(_v0 => (0, _v2.jsx)(_v2.Fragment, {
-                children: (0, _v2.jsx)(_v42.Checkbox, {
+              children: _v57.map(_v0 => (0, _v2.jsx)(_v2.Fragment, {
+                children: (0, _v2.jsx)(_v43.Checkbox, {
                   isDisabled: _v4,
                   onChange: () => {
                     _v12({
@@ -594,18 +595,18 @@
                   name: _v0,
                   id: `${_v0}-checkbox`,
                   value: _v0,
-                  children: _v46[_v0]
+                  children: _v47[_v0]
                 }, `${_v0}-checkbox`)
               }))
             })]
-          }), (0, _v2.jsx)(_v43.Divider, {
+          }), (0, _v2.jsx)(_v44.Divider, {
             borderColor: "stroke",
             _dark: {
               borderColor: "stroke"
             }
           })]
         }), (0, _v2.jsx)(_v3.Box, {
-          children: (0, _v2.jsx)(_v42.Checkbox, {
+          children: (0, _v2.jsx)(_v43.Checkbox, {
             disabled: _v4,
             name: "ads",
             "data-testid": "ads-checkbox",
@@ -646,28 +647,28 @@
         })]
       });
     };
-  var _v59 = _v0.i(0),
-    _v60 = _v0.i(0),
+  var _v60 = _v0.i(0),
     _v61 = _v0.i(0),
     _v62 = _v0.i(0),
     _v63 = _v0.i(0),
     _v64 = _v0.i(0),
-    _v65 = _v0.i(0);
-  let _v66 = ({
+    _v65 = _v0.i(0),
+    _v66 = _v0.i(0);
+  let _v67 = ({
       domain: _v0,
       removeDomain: _v1,
       canBeRemoved: _v2 = !0
-    }) => (0, _v2.jsxs)(_v65.Tag, {
+    }) => (0, _v2.jsxs)(_v66.Tag, {
       size: "sm",
-      children: [(0, _v2.jsxs)(_v65.TagLabel, {
+      children: [(0, _v2.jsxs)(_v66.TagLabel, {
         children: [" ", _v0.slice(0, 56)]
-      }), _v2 && (0, _v2.jsx)(_v65.TagCloseButton, {
+      }), _v2 && (0, _v2.jsx)(_v66.TagCloseButton, {
         onClick: _v1
       })]
     }),
-    _v67 = /^(http(s)?\:)?\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(localhost|(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?))(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i,
-    _v68 = _v0 => _v0.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").replace(/\s/g, "").split("/")[0].toLowerCase(),
-    _v69 = ({
+    _v68 = /^(http(s)?\:)?\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(localhost|(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?))(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i,
+    _v69 = _v0 => _v0.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").replace(/\s/g, "").split("/")[0].toLowerCase(),
+    _v70 = ({
       onPrivacyChange: _v0,
       initialPrivacy: _v1,
       onDeletingLastDomain: _v2,
@@ -678,7 +679,7 @@
       let [_v6, _v7] = (0, _v16.useState)(""),
         [_v8, _v9] = (0, _v16.useState)(!0),
         [_v10, _v11] = (0, _v16.useState)(null),
-        _v12 = _v1 === _v64.EmbedPrivacy.Whitelist,
+        _v12 = _v1 === _v65.EmbedPrivacy.Whitelist,
         _v13 = _v4 ?? [],
         _v14 = _v13.map(_v0 => _v0.domain),
         _v15 = _v13.length > 0,
@@ -695,13 +696,13 @@
               let _v1;
               if (!_v0) return;
               let _v2 = ((_v1 = _v0.trim()) && !_v1.match(/^(http(s)?\:)?\/\//) && (_v1 = `https://${_v1}`), _v1);
-              return _v2.length < 250 && _v67.test(_v2);
+              return _v2.length < 250 && _v68.test(_v2);
             })(_v0)) return _v16(!1), !1;
-            let _v1 = _v68(_v0);
+            let _v1 = _v69(_v0);
             return !(_v14.indexOf(_v1) > -1);
           })(_v0)) return;
           _v8 || _v16(!0);
-          let _v1 = _v68(_v0);
+          let _v1 = _v69(_v0);
           _v7(""), _v3?.([..._v13, {
             domain: _v1,
             allowHd: !1,
@@ -745,9 +746,9 @@
           })
         }), (0, _v2.jsxs)(_v24.FormControl, {
           isInvalid: !_v8,
-          children: [(0, _v2.jsxs)(_v59.InputGroup, {
+          children: [(0, _v2.jsxs)(_v60.InputGroup, {
             size: "md",
-            children: [(0, _v2.jsx)(_v60.Input, {
+            children: [(0, _v2.jsx)(_v61.Input, {
               placeholder: (0, _v13.translate)({
                 singular: "domain.com",
                 dictionary: {
@@ -768,10 +769,10 @@
                 "Enter" === _v0.key && _v18(_v6);
               },
               variant: "outlined"
-            }), (0, _v2.jsx)(_v61.InputRightElement, {
+            }), (0, _v2.jsx)(_v62.InputRightElement, {
               children: (0, _v2.jsx)(_v8.IconButton, {
                 "aria-label": "add domain",
-                icon: (0, _v2.jsx)(_v63.PlusCircle, {
+                icon: (0, _v2.jsx)(_v64.PlusCircle, {
                   cursor: "pointer"
                 }),
                 onClick: () => {
@@ -782,7 +783,7 @@
                 size: "sm"
               })
             })]
-          }), !_v8 && (0, _v2.jsx)(_v62.FormErrorMessage, {
+          }), !_v8 && (0, _v2.jsx)(_v63.FormErrorMessage, {
             children: (0, _v13.translate)({
               singular: "Enter a valid URL.",
               dictionary: {
@@ -814,7 +815,7 @@
           flexWrap: "wrap",
           maxH: "initial",
           overflowY: "initial",
-          children: _v13.map((_v0, _v1) => (0, _v2.jsx)(_v66, {
+          children: _v13.map((_v0, _v1) => (0, _v2.jsx)(_v67, {
             domain: _v0.domain,
             removeDomain: () => _v19(_v0),
             canBeRemoved: !_v5
@@ -822,10 +823,10 @@
         })]
       });
     };
-  var _v70 = _v0.i(0),
-    _v71 = _v0.i(0),
-    _v72 = _v0.i(0);
-  let _v73 = [{
+  var _v71 = _v0.i(0),
+    _v72 = _v0.i(0),
+    _v73 = _v0.i(0);
+  let _v74 = [{
       value: "public",
       label: (0, _v13.translate)({
         singular: "Anywhere",
@@ -910,18 +911,18 @@
         }
       })
     }],
-    _v74 = {
+    _v75 = {
       public: {
-        icon: (0, _v2.jsx)(_v71.Globe, {})
+        icon: (0, _v2.jsx)(_v72.Globe, {})
       },
       private: {
-        icon: (0, _v2.jsx)(_v70.EyeShut, {})
+        icon: (0, _v2.jsx)(_v71.EyeShut, {})
       },
       whitelist: {
-        icon: (0, _v2.jsx)(_v72.Lock, {})
+        icon: (0, _v2.jsx)(_v73.Lock, {})
       }
     },
-    _v75 = ({
+    _v76 = ({
       shouldDisableAll: _v0,
       selectedEmbedPrivacy: _v1,
       hasExtraEmbedOptions: _v2,
@@ -929,8 +930,8 @@
       onEmbedUpsellClick: _v4,
       hidePrivateOption: _v5
     }) => {
-      let _v6 = _v5 ? _v73.filter(_v0 => "private" !== _v0.value) : _v73;
-      return (0, _v2.jsx)(_v49.Select, {
+      let _v6 = _v5 ? _v74.filter(_v0 => "private" !== _v0.value) : _v74;
+      return (0, _v2.jsx)(_v50.Select, {
         "data-testid": "embed-dropdown",
         placeholder: "",
         items: _v6,
@@ -940,20 +941,20 @@
           let _v1 = _v0.value[0];
           "whitelist" !== _v1 || _v2 ? _v3(_v1) : _v4?.();
         },
-        leftIcon: _v74[_v1]?.icon,
+        leftIcon: _v75[_v1]?.icon,
         variant: "outlined",
-        children: _v0 => "whitelist" !== _v0.value || _v2 ? (0, _v2.jsxs)(_v49.SelectItem, {
+        children: _v0 => "whitelist" !== _v0.value || _v2 ? (0, _v2.jsxs)(_v50.SelectItem, {
           display: "flex",
           "data-testid": `embed-privacy-${_v0.value}`,
-          children: [_v74[_v0.value].icon, (0, _v2.jsx)(_v49.SelectItemText, {
+          children: [_v75[_v0.value].icon, (0, _v2.jsx)(_v50.SelectItemText, {
             children: _v0.label
           })]
-        }) : (0, _v2.jsxs)(_v49.SelectItem, {
+        }) : (0, _v2.jsxs)(_v50.SelectItem, {
           "data-testid": `embed-privacy-${_v0.value}`,
           children: [(0, _v2.jsx)(_v3.Box, {
-            children: _v74[_v0.value].icon
+            children: _v75[_v0.value].icon
           }), (0, _v2.jsx)(_v3.Box, {
-            children: (0, _v2.jsx)(_v49.SelectItemText, {
+            children: (0, _v2.jsx)(_v50.SelectItemText, {
               children: _v0.label
             })
           }), (0, _v2.jsx)(_v31.UpgradeBadge, {
@@ -964,7 +965,7 @@
         })
       });
     },
-    _v76 = {
+    _v77 = {
       activeLinkPrivacyOption: "",
       showEmbedInput: !1,
       allowDownloads: !1,
@@ -973,7 +974,7 @@
       activeEmbedPrivacy: "",
       allowComments: !0
     },
-    _v77 = (_v0, _v1) => {
+    _v78 = (_v0, _v1) => {
       switch (_v1.type) {
         case "PRIVACY_DRAWER.HYDRATE":
           return _v1.payload;
@@ -1006,7 +1007,7 @@
           return _v0;
       }
     },
-    _v78 = ({
+    _v79 = ({
       linkText: _v0,
       privacyMessageOnClick: _v1,
       showLink: _v2 = !1
@@ -1042,7 +1043,7 @@
               }
             }
           })
-        }), _v2 && (0, _v2.jsx)(_v41.Link, {
+        }), _v2 && (0, _v2.jsx)(_v42.Link, {
           textDecoration: "none",
           onClick: () => {
             _v1 && _v1();
@@ -1051,7 +1052,7 @@
         })]
       })
     }),
-    _v79 = (0, _v13.translate)({
+    _v80 = (0, _v13.translate)({
       singular: "People I follow",
       dictionary: {
         es: {
@@ -1077,8 +1078,8 @@
         }
       }
     }),
-    _v80 = {
-      contacts: _v79,
+    _v81 = {
+      contacts: _v80,
       users: (0, _v13.translate)({
         singular: "People I choose",
         dictionary: {
@@ -1132,11 +1133,11 @@
         }
       })
     },
-    _v81 = {
+    _v82 = {
       legacy: _v0 => (0, _v13.translate)({
         singular: 'Based on community feedback, we improved privacy settings. This video\'s current setting, "{PRIVACY}," is no longer supported. Instead, we recommend "Private" below. Your embeds won\'t be affected, and your video won\'t be searchable.',
         replacements: {
-          PRIVACY: _v80[_v0]
+          PRIVACY: _v81[_v0]
         },
         dictionary: {
           es: {
@@ -1165,7 +1166,7 @@
       vod: _v0 => (0, _v13.translate)({
         singular: "Vimeo On Demand videos are automatically private. Edit VOD settings {A}here{/A}.",
         replacements: {
-          A: _v0 => (0, _v2.jsx)(_v41.Link, {
+          A: _v0 => (0, _v2.jsx)(_v42.Link, {
             href: _v0,
             children: _v0
           })
@@ -1247,7 +1248,7 @@
         }
       })
     },
-    _v82 = _v0 => {
+    _v83 = _v0 => {
       let {
         privacy: _v1,
         privacySettingLink: _v2,
@@ -1260,18 +1261,18 @@
             size: "md",
             children: (0, _v2.jsx)("span", {
               children: (() => {
-                if (!_v3) return _v81.unlicensedMusic;
+                if (!_v3) return _v82.unlicensedMusic;
                 switch (_v1) {
                   case "contacts":
                   case "disable":
                   case "users":
-                    return _v81.legacy(_v1);
+                    return _v82.legacy(_v1);
                   case "ptv":
                   case "ptvhide":
-                    return _v81.vod(_v2);
+                    return _v82.vod(_v2);
                   case "stock":
                   case "stock_purchased":
-                    return _v81.stock;
+                    return _v82.stock;
                 }
               })()
             })
@@ -1279,7 +1280,7 @@
         })
       });
     },
-    _v83 = {
+    _v84 = {
       privacy: {
         feature: "teams",
         upsell_name: "video_share",
@@ -1301,7 +1302,7 @@
         location: "privacy drawer"
       }
     },
-    _v84 = {
+    _v85 = {
       privacy: {
         paywallTrigger: "upload_privacy_drawer_share_button",
         paywallLocation: "privacy_drawer",
@@ -1327,9 +1328,9 @@
         paywallFeature: "storage_limit"
       }
     },
-    _v85 = ["contacts", "users"],
-    _v86 = ["ptv", "ptvhide", "stock", "stock_purchased"],
-    _v87 = ({
+    _v86 = ["contacts", "users"],
+    _v87 = ["ptv", "ptvhide", "stock", "stock_purchased"],
+    _v88 = ({
       video: _v0,
       show: _v1,
       capabilities: _v2,
@@ -1347,17 +1348,17 @@
       updateContentRating: _v14
     }) => {
       let _v15 = _v0?.id,
-        _v16 = (0, _v16.useContext)(_v40.ViewerContext),
+        _v16 = (0, _v16.useContext)(_v41.ViewerContext),
         {
           uploadQuota: _v17,
           isValidating: _v18
-        } = (0, _v37.useUserQuotaApi)(_v7 ?? void 0),
+        } = (0, _v38.useUserQuotaApi)(_v7 ?? void 0),
         _v19 = _v17?.restricted,
         _v20 = (0, _v16.useRef)(_v0?.privacy?.view),
         {
           tooltip: _v21,
           isDisabled: _v22
-        } = (0, _v35.useGetEditEmbedPrivacyDisabled)(),
+        } = (0, _v36.useGetEditEmbedPrivacyDisabled)(),
         [_v23, _v24] = (0, _v16.useState)(),
         [_v25, _v26] = (0, _v16.useState)(null),
         [_v27, _v28] = (0, _v16.useState)(_v0?.password ?? ""),
@@ -1583,10 +1584,10 @@
         {
           canAllowDownloads: _v37,
           canHideVideos: _v38,
-          canUnlistVideo: _v39,
-          hasVideoPasswordPrivacyUpsell: _v40,
-          hasPrivateModeOff: _v41
+          hasVideoPasswordPrivacyUpsell: _v39,
+          hasPrivateModeOff: _v40
         } = _v2 ?? {},
+        _v41 = (0, _v35.useEffectiveCanUnlistVideo)(),
         [_v42] = (0, _v30.useDeleteVideoPrivacyDomain)(),
         _v43 = async (_v0, _v1) => {
           _v24(_v0), ("whitelist" !== _v0 || _v1) && (_v25 && _v15 && (await _v42({
@@ -1612,7 +1613,7 @@
         _v53 = _v0?.privacy?.download ?? !1,
         _v54 = _v0?.privacy?.comments === "anybody",
         _v55 = {
-          ..._v76,
+          ..._v77,
           activeLinkPrivacyOption: _v0?.privacy?.view,
           allowDownloads: _v53,
           allowShareLink: _v47,
@@ -1620,35 +1621,35 @@
           activeEmbedPrivacy: _v48,
           allowComments: _v54
         },
-        [_v56, _v57] = (0, _v16.useReducer)(_v77, _v55);
+        [_v56, _v57] = (0, _v16.useReducer)(_v78, _v55);
       (0, _v16.useEffect)(() => {
         _v0?.privacy?.view && _v56?.activeLinkPrivacyOption !== _v0?.privacy?.view && (_v28(""), _v57({
           type: "PRIVACY_DRAWER.SET_ACTIVE_LINK_PRIVACY_OPTION",
           payload: _v0?.privacy?.view
         }));
       }, [_v0?.privacy?.view]);
-      let _v58 = void 0 !== _v41 && !_v41,
+      let _v58 = void 0 !== _v40 && !_v40,
         _v59 = _v0?.allowedPrivacies && _v0?.privacy?.view && !_v0.allowedPrivacies.includes(_v0?.privacy?.view),
-        _v60 = !_v0?.privacy?.view || _v86.indexOf(_v0?.privacy?.view) > -1 || _v59,
-        _v61 = _v0?.privacy?.view && _v85.indexOf(_v0?.privacy?.view) > -1,
+        _v60 = !_v0?.privacy?.view || _v87.indexOf(_v0?.privacy?.view) > -1 || _v59,
+        _v61 = _v0?.privacy?.view && _v86.indexOf(_v0?.privacy?.view) > -1,
         _v62 = _v0?.privacy?.view && ["stock", "stock_purchased"].indexOf(_v0?.privacy?.view) > -1,
         {
           privacyOptions: _v63
         } = (0, _v33.useClipPrivacyOptions)(_v15, !1),
-        _v64 = (0, _v34.useDefaultPrivacyOptions)(_v16, _v39 && !_v40 && _v38, !1),
+        _v64 = (0, _v34.useDefaultPrivacyOptions)(_v16, _v41 && !_v39 && _v38, !1),
         _v65 = (0, _v16.useMemo)(() => _v63?.length ? _v63 : _v64, [_v63, _v64]),
         _v66 = (0, _v16.useMemo)(() => _v65.filter(_v0 => "unlisted" !== _v0.privacy || !_v51).map(_v0 => ({
           ..._v0,
           showUpsell: _v0.showUpsell ?? (!_v52 && !!_v0?.allowedPrivacies && !_v0?.allowedPrivacies?.includes(_v0.privacy)),
-          isDisabled: _v0.isDisabled || !_v49 || "unlisted" === _v0.privacy && !_v39 && !_v50 || "disable" === _v0.privacy && (!_v38 && !_v58 || _v58 && _v51) || "anybody" === _v0.privacy && !!_v5 && !!_v3
-        })), [_v38, _v39, _v3, _v58, _v5, _v51, _v52, _v49, _v50, _v65, _v0?.allowedPrivacies]);
+          isDisabled: _v0.isDisabled || !_v49 || "unlisted" === _v0.privacy && !_v41 && !_v50 || "disable" === _v0.privacy && (!_v38 && !_v58 || _v58 && _v51) || "anybody" === _v0.privacy && !!_v5 && !!_v3
+        })), [_v38, _v41, _v3, _v58, _v5, _v51, _v52, _v49, _v50, _v65, _v0?.allowedPrivacies]);
       (0, _v16.useEffect)(() => {
         _v1 && _v57({
           type: "PRIVACY_DRAWER.HYDRATE",
           payload: _v55
         });
       }, [_v1]);
-      let _v67 = (0, _v38.useDebouncedCallback)(_v0 => {
+      let _v67 = (0, _v39.useDebouncedCallback)(_v0 => {
         !_v36 && (_v11("password", _v0 ?? void 0), _v20.current = "password");
       }, 600);
       (0, _v16.useEffect)(() => {
@@ -1702,7 +1703,7 @@
                   }
                 }
               })
-            }), _v0?.privacy?.view && (_v60 || _v61 || !_v49) && !_v59 && (0, _v2.jsx)(_v82, {
+            }), _v0?.privacy?.view && (_v60 || _v61 || !_v49) && !_v59 && (0, _v2.jsx)(_v83, {
               privacy: _v0?.privacy?.view,
               privacySettingLink: _v4,
               isMusicLicensed: _v49
@@ -1803,7 +1804,7 @@
           }), null != _v19 ? (0, _v2.jsxs)(_v10.VStack, {
             alignItems: "stretch",
             gap: "lg",
-            children: [(0, _v2.jsx)(_v36.EmbeddableQuotaMeter, {
+            children: [(0, _v2.jsx)(_v37.EmbeddableQuotaMeter, {
               isChecked: _v23 !== _v32.EMBED_PRIVACY_VALUES.PRIVATE,
               isDisabled: !!_v62 || _v22,
               viewPrivacy: _v56.activeLinkPrivacyOption,
@@ -1855,7 +1856,7 @@
                     }
                   })
                 }), _v69]
-              }), _v0?.privacy?.view === "nobody" && (0, _v2.jsx)(_v78, {}), (0, _v2.jsx)(_v75, {
+              }), _v0?.privacy?.view === "nobody" && (0, _v2.jsx)(_v79, {}), (0, _v2.jsx)(_v76, {
                 selectedEmbedPrivacy: _v62 ? _v32.EMBED_PRIVACY_VALUES.PRIVATE : _v23,
                 shouldDisableAll: !!_v62 || _v22,
                 hasUpsellsForFlatRateTiers: _v2?.hasUpsellsForFlatRateTiers,
@@ -1902,7 +1903,7 @@
             }), _v0?.privacy?.embed && _v23 === _v32.EMBED_PRIVACY_VALUES.WHITELIST && (0, _v2.jsx)(_v10.VStack, {
               align: "stetch",
               gap: "2",
-              children: (0, _v2.jsx)(_v69, {
+              children: (0, _v2.jsx)(_v70, {
                 initialPrivacy: _v0?.privacy?.embed,
                 onPrivacyChange: _v45,
                 onDeletingLastDomain: _v0 => {
@@ -1954,7 +1955,7 @@
                     }
                   })
                 }), _v69]
-              }), _v0?.privacy?.view === "nobody" && (0, _v2.jsx)(_v78, {}), (0, _v2.jsx)(_v75, {
+              }), _v0?.privacy?.view === "nobody" && (0, _v2.jsx)(_v79, {}), (0, _v2.jsx)(_v76, {
                 selectedEmbedPrivacy: _v62 ? _v32.EMBED_PRIVACY_VALUES.PRIVATE : _v23,
                 shouldDisableAll: !!_v62 || _v22,
                 hasUpsellsForFlatRateTiers: _v2?.hasUpsellsForFlatRateTiers,
@@ -2000,7 +2001,7 @@
             }), _v0?.privacy?.embed && _v23 === _v32.EMBED_PRIVACY_VALUES.WHITELIST && (0, _v2.jsx)(_v10.VStack, {
               align: "stetch",
               gap: "2",
-              children: (0, _v2.jsx)(_v69, {
+              children: (0, _v2.jsx)(_v70, {
                 initialPrivacy: _v0?.privacy?.embed,
                 onPrivacyChange: _v45,
                 onDeletingLastDomain: _v0 => {
@@ -2013,7 +2014,7 @@
                 isDisabled: _v22
               })
             })]
-          }), (0, _v2.jsx)(_v58, {
+          }), (0, _v2.jsx)(_v59, {
             video: _v0,
             updateContentRating: _v14
           }), (0, _v2.jsxs)(_v10.VStack, {
@@ -2250,7 +2251,7 @@
               })]
             })]
           })]
-        }), !!_v31 && (0, _v2.jsx)(_v39.default, {
+        }), null !== _v31 && (0, _v2.jsx)(_v40.default, {
           apiUrl: _v16?.apiUrl,
           userConfig: {
             jwt: _v16?.jwt,
@@ -2260,13 +2261,13 @@
           onClose: () => _v32(null),
           modalConfig: _v35[_v31],
           tracking: {
-            params: _v83[_v31],
-            paywallTracking: _v84[_v31]
+            params: _v84[_v31],
+            paywallTracking: _v85[_v31]
           }
         })]
       }) : null;
     },
-    _v88 = ({
+    _v89 = ({
       video: _v0,
       capabilities: _v1,
       hasRestrictedPrivacyOptions: _v2,
@@ -2295,7 +2296,7 @@
         gap: "md",
         w: "100%",
         alignItems: "stretch",
-        children: (0, _v2.jsx)(_v87, {
+        children: (0, _v2.jsx)(_v88, {
           video: _v0,
           show: _v14,
           capabilities: _v1,
@@ -2356,7 +2357,7 @@
         })
       })]
     }),
-    _v89 = _v0 => {
+    _v90 = _v0 => {
       let {
         onClose: _v1,
         show: _v2
@@ -2403,7 +2404,7 @@
             icon: (0, _v2.jsx)(_v11.CloseX, {}),
             onClick: _v1
           })]
-        }), _v2 ? (0, _v2.jsx)(_v88, {
+        }), _v2 ? (0, _v2.jsx)(_v89, {
           ..._v0
         }) : (0, _v2.jsx)(_v5.Center, {
           h: "100%",
@@ -2412,7 +2413,7 @@
         })]
       });
     };
-  _v0.s(["PrivacyDrawer", 0, _v0 => (0, _v2.jsx)(_v89, {
+  _v0.s(["PrivacyDrawer", 0, _v0 => (0, _v2.jsx)(_v90, {
     ..._v0
   })], 0);
 }

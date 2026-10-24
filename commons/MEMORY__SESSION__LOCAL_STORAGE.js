@@ -53,6 +53,7 @@
       COMPOSER: {
         ACTIVE_BROADCASTER: _v0 => `/active_broadcaster/${_v0}`,
         PARTICIPANTS: (_v0, _v1) => `/participants/${_v0}${_v1 ? `/${_v1}` : ""}`,
+        PARTICIPANT_HEALTH: _v0 => `/participant_health/${_v0}`,
         SCENE: {
           ACTIVE_SCENE: _v0 => `/active_scene/${_v0}`,
           SCENES: _v0 => `/scenes/${_v0}`,

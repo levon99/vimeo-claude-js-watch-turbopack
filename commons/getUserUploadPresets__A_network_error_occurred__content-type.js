@@ -2001,7 +2001,9 @@
       _v13 = _v12?.teamUser?.ownerId ?? _v12?.user?.id,
       {
         allowedPrivacies: _v14
-      } = (0, _v39.useUserAllowedPrivacies)(),
+      } = (0, _v39.useUserAllowedPrivacies)(void 0, {
+        includeFreeTierUnlisted: !1
+      }),
       _v15 = (0, _v37.useOrionSettingsFields)(["bi_expiring_links_ux_enabled", "bi_expiring_links_default_expiry_days"]),
       {
         capabilities: _v16,

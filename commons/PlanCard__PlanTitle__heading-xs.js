@@ -321,7 +321,7 @@
     }) => {
       let {
           width: _v14
-        } = (0, _v15.useWindowSize)(),
+        } = (0, _v16.useWindowSize)(),
         _v15 = _v5 && _v14 > 768,
         {
           tier: _v16,
@@ -350,15 +350,15 @@
         _v34 = _v18?.purchasedProduct?.isWeekly,
         _v35 = void 0 !== _v28 && _v16 === _v28,
         _v36 = _v25 && void 0 !== _v28,
-        _v37 = "annual" === (0, _v14.resolveBillingPeriod)(_v0, _v2 ? "annual" : "monthly"),
-        _v38 = (0, _v12.getEffectivePurchaseStatus)({
+        _v37 = "annual" === (0, _v15.resolveBillingPeriod)(_v0, _v2 ? "annual" : "monthly"),
+        _v38 = (0, _v13.getEffectivePurchaseStatus)({
           purchaseStatus: _v32,
           tier: _v16,
           isViewingAnnual: _v37,
           isPurchasedMonthly: _v33
         }),
         _v39 = !_v10 && "available" !== _v38,
-        _v40 = void 0 !== _v27 && ((0, _v13.getTierComparisonRank)(_v16) ?? 0) < ((0, _v13.getTierComparisonRank)(_v27) ?? 0) && "free" !== _v16,
+        _v40 = void 0 !== _v27 && ((0, _v14.getTierComparisonRank)(_v16) ?? 0) < ((0, _v14.getTierComparisonRank)(_v27) ?? 0) && "free" !== _v16,
         _v41 = (_v39 || _v35) && _v25 && !_v40,
         _v42 = _v41 ? .7 : 1,
         _v43 = (0, _v30.useBundleCtaIntercept)(_v16),
@@ -383,7 +383,7 @@
         children: [(0, _v1.jsx)(_v28.default, {
           showBadge: _v1,
           planData: _v0
-        }), (0, _v1.jsx)(_v16.CardBorder, {
+        }), (0, _v1.jsx)(_v12.CardBorder, {
           showBadge: _v1,
           purchaseStatus: _v10 ? "available" : _v38,
           showCardBorder: _v20?.showCardBorder,
