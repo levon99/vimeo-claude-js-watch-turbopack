@@ -58,9 +58,12 @@
     _v26 = _v0.i(0),
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
-    _v29 = _v0.i(0);
-  let _v30 = ["publicId", "contentType", "privacy", "password", "allowDownloads"],
-    _v31 = ({
+    _v29 = _v0.i(0),
+    _v30 = _v0.i(0),
+    _v31 = _v0.i(0),
+    _v32 = _v0.i(0);
+  let _v33 = ["publicId", "contentType", "privacy", "password", "allowDownloads"],
+    _v34 = ({
       isOpen: _v0,
       publicId: _v1,
       ownerId: _v2,
@@ -71,12 +74,12 @@
           error: _v5,
           isLoading: _v6,
           mutate: _v7
-        } = (0, _v27.useGetUserFile)(() => _v0 ? {
+        } = (0, _v30.useGetUserFile)(() => _v0 ? {
           where: {
             userId: _v2,
             fileId: _v1
           },
-          select: _v30
+          select: _v33
         } : null),
         _v8 = _v4 ? {
           publicId: _v4.publicId,
@@ -86,14 +89,14 @@
           allowDownloads: _v4.allowDownloads
         } : void 0,
         _v9 = (0, _v5.useCallback)(() => void _v7(), [_v7]);
-      return (0, _v1.jsxs)(_v19.Modal, {
+      return (0, _v1.jsxs)(_v22.Modal, {
         isOpen: _v0,
         onClose: _v3,
-        children: [(0, _v1.jsx)(_v24.ModalOverlay, {}), (0, _v1.jsxs)(_v22.ModalContent, {
-          children: [(0, _v1.jsx)(_v23.ModalHeader, {
-            children: (0, _v1.jsx)(_v18.Header, {
+        children: [(0, _v1.jsx)(_v27.ModalOverlay, {}), (0, _v1.jsxs)(_v25.ModalContent, {
+          children: [(0, _v1.jsx)(_v26.ModalHeader, {
+            children: (0, _v1.jsx)(_v21.Header, {
               size: "md",
-              children: (0, _v28.translate)({
+              children: (0, _v31.translate)({
                 singular: "Share",
                 dictionary: {
                   es: {
@@ -120,27 +123,27 @@
                 }
               })
             })
-          }), (0, _v1.jsx)(_v21.ModalCloseButton, {}), (0, _v1.jsx)(_v20.ModalBody, {
-            children: _v8 ? (0, _v1.jsx)(_v29.FileShareSettings, {
+          }), (0, _v1.jsx)(_v24.ModalCloseButton, {}), (0, _v1.jsx)(_v23.ModalBody, {
+            children: _v8 ? (0, _v1.jsx)(_v32.FileShareSettings, {
               file: _v8,
               onChanged: _v9,
               ownerId: _v2,
               shareSurface: "modal"
-            }) : _v6 ? (0, _v1.jsx)(_v17.Flex, {
+            }) : _v6 ? (0, _v1.jsx)(_v20.Flex, {
               alignItems: "center",
               justifyContent: "center",
               paddingY: "2xl",
-              children: (0, _v1.jsx)(_v25.Spinner, {
+              children: (0, _v1.jsx)(_v28.Spinner, {
                 size: "md"
               })
-            }) : (0, _v1.jsxs)(_v17.Flex, {
+            }) : (0, _v1.jsxs)(_v20.Flex, {
               alignItems: "flex-start",
               flexDirection: "column",
               gap: "md",
-              children: [(0, _v1.jsx)(_v26.Text, {
+              children: [(0, _v1.jsx)(_v29.Text, {
                 color: "text-secondary",
                 variant: "body-md",
-                children: (0, _v28.translate)({
+                children: (0, _v31.translate)({
                   singular: "Something went wrong",
                   dictionary: {
                     es: {
@@ -166,10 +169,10 @@
                     }
                   }
                 })
-              }), null != _v5 && (0, _v1.jsx)(_v16.Button, {
+              }), null != _v5 && (0, _v1.jsx)(_v19.Button, {
                 variant: "secondary",
                 onClick: () => void _v7(),
-                children: (0, _v28.translate)({
+                children: (0, _v31.translate)({
                   singular: "Try again",
                   dictionary: {
                     es: {
@@ -201,14 +204,14 @@
         })]
       });
     };
-  _v0.s(["FileShareModal", 0, _v31], 0);
-  var _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0),
-    _v35 = _v0.i(0),
+  _v0.s(["FileShareModal", 0, _v34], 0);
+  var _v35 = _v0.i(0),
     _v36 = _v0.i(0),
-    _v37 = _v0.i(0);
-  let _v38 = {
+    _v37 = _v0.i(0),
+    _v38 = _v0.i(0),
+    _v39 = _v0.i(0),
+    _v40 = _v0.i(0);
+  let _v41 = {
     view: void 0,
     password: void 0
   };
@@ -224,34 +227,53 @@
   }) => {
     let _v8,
       _v9,
-      _v10 = (0, _v14.useViewer)(),
+      _v10 = (0, _v17.useViewer)(),
       _v11 = (0, _v4.useRouter)(),
       {
         contentSpaceEnabled: _v12
       } = (0, _v7.useContentSpaceEnabled)(_v5),
-      _v13 = (_v8 = _v10?.teamUser?.teamName, _v9 = _v10?.teamUser?.isWorkspace, _v35.DEFAULT_PRIVACY_OPTIONS.reduce((_v0, _v1) => (_v0[_v1.privacy] = {
-        title: _v1.privacy === _v35.DEFAULT_PRIVACY_VALUES.TEAM ? (0, _v36.getTeamPrivacyTranslation)(_v8, _v9) : _v1.title,
-        description: _v1.description ?? "",
-        icon: _v35.VIDEO_PRIVACY_ICON_MAP[_v1.privacy]?.icon
-      }, _v0), {})),
-      _v14 = (0, _v12.useUploads)(),
-      _v15 = (0, _v12.useUploaderSummary)(),
-      [_v16] = (0, _v9.usePatchUserItems)(),
-      [_v17] = (0, _v8.usePatchUserFiles)(),
       {
-        open: _v18,
-        close: _v19
-      } = (0, _v33.useUpsellModal)(),
-      [_v20, _v21] = (0, _v5.useState)(_v38),
-      [_v22, _v23] = (0, _v5.useState)(void 0),
-      [_v24, _v25] = (0, _v5.useState)(null),
-      [_v26, _v27] = (0, _v5.useState)(null),
-      [_v28, _v29] = (0, _v5.useState)({
+        mutate: _v13
+      } = (0, _v11.useUserQuotaApi)(),
+      _v14 = (_v8 = _v10?.teamUser?.teamName, _v9 = _v10?.teamUser?.isWorkspace, _v38.DEFAULT_PRIVACY_OPTIONS.reduce((_v0, _v1) => (_v0[_v1.privacy] = {
+        title: _v1.privacy === _v38.DEFAULT_PRIVACY_VALUES.TEAM ? (0, _v39.getTeamPrivacyTranslation)(_v8, _v9) : _v1.title,
+        description: _v1.description ?? "",
+        icon: _v38.VIDEO_PRIVACY_ICON_MAP[_v1.privacy]?.icon
+      }, _v0), {})),
+      _v15 = (0, _v13.useUploads)(),
+      _v16 = (0, _v13.useUploaderSummary)(),
+      [_v17] = (0, _v9.usePatchUserItems)(),
+      [_v18] = (0, _v8.usePatchUserFiles)(),
+      {
+        open: _v19,
+        close: _v20
+      } = (0, _v36.useUpsellModal)(),
+      [_v21, _v22] = (0, _v5.useState)(_v41),
+      [_v23, _v24] = (0, _v5.useState)(void 0),
+      [_v25, _v26] = (0, _v5.useState)(null),
+      [_v27, _v28] = (0, _v5.useState)(null),
+      [_v29, _v30] = (0, _v5.useState)({
         clipId: "",
-        privacy: _v38.view
+        privacy: _v41.view
       }),
       {
-        data: _v30
+        showEmbedToggle: _v31,
+        isEmbeddable: _v32,
+        onEmbedToggle: _v33,
+        clearEmbeddable: _v34
+      } = (0, _v14.useUploadEmbeddable)({
+        userId: _v10?.teamUser?.ownerId ?? _v10?.user?.id ?? 0,
+        hasRestrictedStorage: _v10?.user?.uploadQuota?.restricted != null,
+        defaultEmbedPreference: _v10?.user?.preferences?.videos?.privacy?.embed,
+        onQuotaRevalidate: () => _v13(void 0, {
+          revalidate: !0
+        })
+      }),
+      _v35 = (0, _v5.useCallback)(_v0 => {
+        _v25 && _v15.embeddableStore.set(_v25, _v0);
+      }, [_v25]),
+      {
+        data: _v36
       } = (0, _v10.useGetVideo)(() => _v1 ? {
         where: {
           videoId: _v1
@@ -262,40 +284,40 @@
         }
       } : null),
       {
-        isLocked: _v31,
-        showLockedToast: _v32
-      } = (0, _v34.useVideoMetadataLock)(_v30),
-      _v33 = "/home" === _v11.pathname || "/wayfinder-home" === _v11.pathname,
-      _v34 = (0, _v37.getPrivacyChangePageSource)(_v11.pathname),
-      _v35 = _v33 ? "homepage" : (0, _v15.getLibraryUploadSurface)({
+        isLocked: _v37,
+        showLockedToast: _v38
+      } = (0, _v37.useVideoMetadataLock)(_v36),
+      _v39 = "/home" === _v11.pathname || "/wayfinder-home" === _v11.pathname,
+      _v40 = (0, _v40.getPrivacyChangePageSource)(_v11.pathname),
+      _v41 = _v39 ? "homepage" : (0, _v18.getLibraryUploadSurface)({
         contentSpaceEnabled: _v12,
-        isPrivateToUser: _v30?.parentProject?.isPrivateToUser
+        isPrivateToUser: _v36?.parentProject?.isPrivateToUser
       }),
-      _v36 = _v10?.user?.capabilities?.hasEnterprise && _v10.team?.ownerId === _v10.user.id,
-      _v37 = _v10?.teamUser?.accountType === "enterprise" || _v36,
-      _v38 = (0, _v5.useMemo)(() => {
-        if (!_v30) return [];
-        let _v0 = _v30.metadata.interactions.hasRestrictedPrivacyOptions,
-          _v1 = _v30.parentProject?.isPrivateToUser;
-        return _v7 || _v0 || _v1 || _v37 ? Object.keys(_v13).filter(_v0 => _v30.allowedPrivacies?.find(_v0 => _v0 === _v0)).map(_v0 => ({
+      _v42 = _v10?.user?.capabilities?.hasEnterprise && _v10.team?.ownerId === _v10.user.id,
+      _v43 = _v10?.teamUser?.accountType === "enterprise" || _v42,
+      _v44 = (0, _v5.useMemo)(() => {
+        if (!_v36) return [];
+        let _v0 = _v36.metadata.interactions.hasRestrictedPrivacyOptions,
+          _v1 = _v36.parentProject?.isPrivateToUser;
+        return _v7 || _v0 || _v1 || _v43 ? Object.keys(_v14).filter(_v0 => _v36.allowedPrivacies?.find(_v0 => _v0 === _v0)).map(_v0 => ({
           value: _v0,
-          label: _v13[_v0].title,
+          label: _v14[_v0].title,
           showUpgradeBadge: !1
-        })) : _v13.hasOwnProperty(_v30.privacy.view) ? Object.keys(_v13).map(_v0 => {
-          let _v1 = _v30.allowedPrivacies?.find(_v0 => _v0 === _v0);
+        })) : _v14.hasOwnProperty(_v36.privacy.view) ? Object.keys(_v14).map(_v0 => {
+          let _v1 = _v36.allowedPrivacies?.find(_v0 => _v0 === _v0);
           return {
             value: _v0,
-            label: _v13[_v0].title,
+            label: _v14[_v0].title,
             showUpgradeBadge: !_v1
           };
         }) : [];
-      }, [_v30, _v7, _v37, _v13]),
-      _v39 = (_v0, _v1) => {
+      }, [_v36, _v7, _v43, _v14]),
+      _v45 = (_v0, _v1) => {
         if (_v0 || _v1) {
-          if (_v31) return void _v32();
-          if (_v38.find(_v0 => _v0.value === _v0 && _v0.showUpgradeBadge)) {
+          if (_v37) return void _v38();
+          if (_v44.find(_v0 => _v0.value === _v0 && _v0.showUpgradeBadge)) {
             var _v2;
-            (_v2 = `${_v0}_privacy`) && _v18({
+            (_v2 = `${_v0}_privacy`) && _v19({
               tracking: {
                 params: {
                   feature: "privacy",
@@ -310,14 +332,14 @@
                   paywallFeature: "privacy"
                 }
               },
-              onClose: _v19
+              onClose: _v20
             });
           } else {
-            let _v0 = _v14.filter(_v0 => _v0.clipId).map(_v0 => _v0.clipId).map(_v0 => `/videos/${_v0}`).join(),
+            let _v0 = _v15.filter(_v0 => _v0.clipId).map(_v0 => _v0.clipId).map(_v0 => `/videos/${_v0}`).join(),
               _v1 = {
                 privacy: {}
               };
-            _v0 && (_v1.privacy.view = _v0), _v1 && (_v1.password = _v1), _v16({
+            _v0 && (_v1.privacy.view = _v0), _v1 && (_v1.password = _v1), _v17({
               where: {
                 userId: _v10?.teamUser?.ownerId ?? _v10?.user?.id ?? 0
               },
@@ -326,7 +348,7 @@
               },
               variables: _v1
             }).then(() => {
-              _v21({
+              _v22({
                 view: _v0,
                 password: _v1
               });
@@ -334,9 +356,9 @@
           }
         }
       },
-      _v40 = _v0 => {
-        let _v1 = _v14.filter(_v0 => _v0.uploadType === _v13.TYPES.FILE).map(_v0 => _v0.publicId).filter(_v0 => !!_v0).map(_v0 => `/files/${_v0}`).join(",");
-        "" !== _v1 && _v17({
+      _v46 = _v0 => {
+        let _v1 = _v15.filter(_v0 => _v0.uploadType === _v16.TYPES.FILE).map(_v0 => _v0.publicId).filter(_v0 => !!_v0).map(_v0 => `/files/${_v0}`).join(",");
+        "" !== _v1 && _v18({
           where: {
             userId: _v10?.teamUser?.ownerId ?? _v10?.user?.id ?? 0
           },
@@ -348,22 +370,22 @@
           }
         });
       },
-      _v41 = (0, _v5.useRef)(_v32);
+      _v47 = (0, _v5.useRef)(_v38);
     (0, _v5.useEffect)(() => {
-      _v41.current = _v32;
-    }, [_v32]);
-    let _v42 = (0, _v5.useCallback)(_v0 => {
-        _v0.clipId === _v1 && _v31 ? _v41.current() : _v0.clipId ? _v25(_v0.clipId) : _v0.publicId && _v27(_v0.publicId);
-      }, [_v31, _v1]),
-      _v43 = (0, _v5.useCallback)(_v0 => {
+      _v47.current = _v38;
+    }, [_v38]);
+    let _v48 = (0, _v5.useCallback)(_v0 => {
+        _v0.clipId === _v1 && _v37 ? _v47.current() : _v0.clipId ? _v26(_v0.clipId) : _v0.publicId && _v28(_v0.publicId);
+      }, [_v37, _v1]),
+      _v49 = (0, _v5.useCallback)(_v0 => {
         _v0.clipId ? _v11.push(`/manage/videos/${_v0.clipId}${_v4 ? "" : "/privacy"}`) : _v0.publicId && _v11.push(`/manage/files/${_v0.publicId}`);
       }, [_v4, _v11]),
-      _v44 = (0, _v5.useCallback)(_v0 => {
+      _v50 = (0, _v5.useCallback)(_v0 => {
         _v0.clipId ? _v11.push(`/manage/videos/${_v0.clipId}`) : _v0.publicId && _v11.push(`/manage/files/${_v0.publicId}`);
       }, [_v11]);
     return ((0, _v5.useEffect)(() => {
-      _v15.isComplete && (_v39(_v20.view, _v20.password), _v22 && _v40(_v22));
-    }, [_v15.isComplete]), 0 === _v14.length) ? null : (0, _v1.jsxs)(_v6.Box, {
+      _v16.isComplete && (_v45(_v21.view, _v21.password), _v23 && _v46(_v23));
+    }, [_v16.isComplete]), 0 === _v15.length) ? null : (0, _v1.jsxs)(_v6.Box, {
       width: "100%",
       height: "100%",
       children: [(0, _v1.jsx)(_v6.Box, {
@@ -371,51 +393,55 @@
         left: _v4 ? "50%" : "auto",
         right: _v4 ? "none" : (0, _v3.rem)(30),
         bottom: (0, _v3.rem)(52),
-        children: (0, _v1.jsx)(_v11.ProgressWidgetModule, {
+        children: (0, _v1.jsx)(_v12.ProgressWidgetModule, {
           isShowing: _v0,
           page: _v6,
-          uploadSurface: _v35,
-          revalidatePrivacy: _v28,
-          showPrivacySettings: !_v31,
+          uploadSurface: _v41,
+          revalidatePrivacy: _v29,
+          showPrivacySettings: !_v37,
           getPrivacyState: () => ({
-            view: _v20.view ?? _v30?.privacy.view,
-            password: _v20.password ?? _v30?.password
+            view: _v21.view ?? _v36?.privacy.view,
+            password: _v21.password ?? _v36?.password
           }),
           setPrivacy: _v0 => {
-            _v39(_v0.view, _v0.password), _v29({
+            _v45(_v0.view, _v0.password), _v30({
               clipId: "",
-              privacy: _v38.view
+              privacy: _v41.view
             });
           },
           onClose: () => {
-            _v3(!1), _v21(_v38), _v23(void 0), _v2(""), _v29({
+            _v3(!1), _v22(_v41), _v24(void 0), _v2(""), _v30({
               clipId: "",
-              privacy: _v38.view
-            });
+              privacy: _v41.view
+            }), _v34();
           },
           onFilePrivacyChange: _v0 => {
-            ("nobody" === _v0 || "team" === _v0 || "unlisted" === _v0) && (_v23(_v0), _v40(_v0));
+            ("nobody" === _v0 || "team" === _v0 || "unlisted" === _v0) && (_v24(_v0), _v46(_v0));
           },
-          onShareClick: _v42,
-          onUploadClick: _v43,
-          onEditClick: _v44
+          onShareClick: _v48,
+          onUploadClick: _v49,
+          onEditClick: _v50,
+          showEmbedToggle: _v31,
+          isEmbeddable: _v32,
+          onEmbedToggle: _v33
         })
-      }), _v24 && (0, _v1.jsx)(_v32.VideoShareViewModule, {
-        clipId: _v24,
-        isOpen: !!_v24,
-        onClose: () => _v25(null),
-        onPrivacyChange: _v0 => _v29({
-          clipId: _v24 || "",
+      }), _v25 && (0, _v1.jsx)(_v35.VideoShareViewModule, {
+        clipId: _v25,
+        isOpen: !!_v25,
+        onClose: () => _v26(null),
+        onPrivacyChange: _v0 => _v30({
+          clipId: _v25 || "",
           privacy: _v0.view
         }),
-        privacyChangePageSource: _v34,
+        onEmbedChange: _v35,
+        privacyChangePageSource: _v40,
         privacyChangeEntryPoint: "share_button",
         transferInlineLinkSurface: "home_upload_completed"
-      }), _v26 && (0, _v1.jsx)(_v31, {
+      }), _v27 && (0, _v1.jsx)(_v34, {
         isOpen: !0,
-        publicId: _v26,
+        publicId: _v27,
         ownerId: _v10?.teamUser?.ownerId ?? _v10?.user?.id ?? 0,
-        onClose: () => _v27(null)
+        onClose: () => _v28(null)
       })]
     });
   }], 0);

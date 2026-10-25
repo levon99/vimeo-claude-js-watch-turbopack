@@ -61,7 +61,7 @@
               singular: "Embeddable",
               dictionary: {
                 es: {
-                  singular: "Incrustable"
+                  singular: "Insertable"
                 },
                 "de-DE": {
                   singular: "Einbettbar"

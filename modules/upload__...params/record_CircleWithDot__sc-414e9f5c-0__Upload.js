@@ -3882,7 +3882,7 @@
           _v1 = !_v0?.isDefault,
           _v2 = null !== _v5 && _v5 === _v14?.user?.id,
           _v3 = _v2 && _v12 && _v13 && _v11 > 0,
-          _v4 = _v2 && _v1 && _v0?.view === _v38.DEFAULT_PRIVACY_VALUES.UNLISTED && _v13 && _v11 <= 0 ? _v38.DEFAULT_PRIVACY_VALUES.PRIVATE : _v1 ? _v0?.view : _v3 ? _v38.DEFAULT_PRIVACY_VALUES.UNLISTED : _v38.DEFAULT_PRIVACY_VALUES.PRIVATE;
+          _v4 = _v2 && _v1 && _v0?.view === _v38.DEFAULT_PRIVACY_VALUES.UNLISTED && _v13 && _v11 <= 0 ? _v38.DEFAULT_PRIVACY_VALUES.PUBLIC : _v1 ? _v0?.view : _v3 ? _v38.DEFAULT_PRIVACY_VALUES.UNLISTED : _v38.DEFAULT_PRIVACY_VALUES.PUBLIC;
         _v10({
           ..._v0,
           view: _v4,
