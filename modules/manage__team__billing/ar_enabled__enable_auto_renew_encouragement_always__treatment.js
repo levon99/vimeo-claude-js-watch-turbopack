@@ -10158,7 +10158,33 @@
           rel: "noopener noreferrer",
           children: _v0
         }, _v1),
-        _v19 = (_v0, _v1) => (0, _v5.jsxs)(_v162.Stack, {
+        _v19 = (0, _v16.translate)({
+          singular: "Accept the offer",
+          dictionary: {
+            es: {
+              singular: "Aceptar la oferta"
+            },
+            "de-DE": {
+              singular: "Angebot annehmen"
+            },
+            "fr-FR": {
+              singular: "Accepter l'offre"
+            },
+            "ja-JP": {
+              singular: "オファーを受け入れる"
+            },
+            "ko-KR": {
+              singular: "제안 수락"
+            },
+            "pt-BR": {
+              singular: "Aceitar a oferta"
+            },
+            "zh-CN": {
+              singular: "接受此优惠"
+            }
+          }
+        }),
+        _v20 = (_v0, _v1) => (0, _v5.jsxs)(_v162.Stack, {
           spacing: "6px",
           width: "100%",
           align: "flex-start",
@@ -10582,7 +10608,7 @@
                     color: "text-primary",
                     children: (0, _v16.translate)("$0")
                   })
-                }), _v19({
+                }), _v20({
                   teamSeats: 1,
                   adminSeats: null,
                   restrictedStorage: "3 GB",
@@ -10812,7 +10838,7 @@
                       }
                     })
                   })]
-                }), _v19(_v14), _v12 && (0, _v5.jsx)(_v33.Text, {
+                }), _v20(_v14), _v12 && (0, _v5.jsx)(_v33.Text, {
                   variant: "body-xs",
                   color: "text-secondary",
                   children: (0, _v16.translate)({
@@ -10903,32 +10929,7 @@
                   onClick: _v17(_v4),
                   isLoading: _v6,
                   disabled: _v6 || _v5,
-                  children: (0, _v16.translate)({
-                    singular: "Accept the offer",
-                    dictionary: {
-                      es: {
-                        singular: "Aceptar la oferta"
-                      },
-                      "de-DE": {
-                        singular: "Angebot annehmen"
-                      },
-                      "fr-FR": {
-                        singular: "Accepter l'offre"
-                      },
-                      "ja-JP": {
-                        singular: "オファーを受け入れる"
-                      },
-                      "ko-KR": {
-                        singular: "제안 수락"
-                      },
-                      "pt-BR": {
-                        singular: "Aceitar a oferta"
-                      },
-                      "zh-CN": {
-                        singular: "接受此优惠"
-                      }
-                    }
-                  })
+                  children: _v19
                 })]
               })]
             }), (0, _v5.jsx)(_v33.Text, {
@@ -10936,8 +10937,9 @@
               color: "text-secondary",
               mt: 5,
               children: (0, _v16.translate)({
-                singular: "By accepting the discount, you agree: You’ll get a promotional discount on an automatically renewing subscription valid for one year. Your subscription will continue to automatically renew {PERIOD_ADVERB} unless you cancel from the Billing Settings page. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
+                singular: "By clicking ‘{CTA}’, you agree: You’ll get a promotional discount on an automatically renewing subscription valid for one year. Your subscription will continue to automatically renew {PERIOD_ADVERB} unless you cancel from the Billing Settings page. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
                 replacements: {
+                  CTA: _v19,
                   PERIOD_ADVERB: _v7 ? (0, _v16.translate)({
                     singular: "annually",
                     dictionary: {
@@ -10994,25 +10996,25 @@
                 },
                 dictionary: {
                   es: {
-                    singular: "Al aceptar el descuento, usted acepta: Recibirá un descuento promocional en una suscripción que se renueva automáticamente y es válida por un año. Su suscripción se seguirá renovando automáticamente {PERIOD_ADVERB} a menos que la cancele desde la página de Configuración de facturación. Su contenido podrá eliminarse al cancelar. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluido el acuerdo de arbitraje y la renuncia a acciones colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
+                    singular: "Al hacer clic en ‘{CTA}’, usted acepta: Obtendrá un descuento promocional en una suscripción que se renueva automáticamente y es válida por un año. Su suscripción continuará renovándose automáticamente {PERIOD_ADVERB} a menos que la cancele desde la página de Ajustes de facturación. Su contenido puede eliminarse al cancelar. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluido el acuerdo de arbitraje y la renuncia a acciones colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
                   },
                   "de-DE": {
-                    singular: "Indem Sie den Rabatt annehmen, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein sich automatisch verlängerndes Abonnement, das für ein Jahr gültig ist. Ihr Abonnement wird sich weiterhin automatisch {PERIOD_ADVERB} verlängern, sofern Sie es nicht über die Seite mit den Abrechnungseinstellungen kündigen. Ihre Inhalte können bei einer Kündigung gelöscht werden. Durch den Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsklausel und des Verzichts auf Sammelklagen, und erkennen unsere {PP_URL}Datenschutzerklärung{/PP_URL} an."
+                    singular: "Wenn Sie auf ‚{CTA}‘ klicken, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein automatisch verlängerndes Abonnement mit einer Laufzeit von einem Jahr. Ihr Abonnement wird sich weiterhin {PERIOD_ADVERB} automatisch verlängern, sofern Sie nicht in den Abrechnungseinstellungen kündigen. Ihre Inhalte können bei Kündigung gelöscht werden. Durch Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und nehmen unsere {PP_URL}Datenschutzerklärung{/PP_URL} zur Kenntnis."
                   },
                   "fr-FR": {
-                    singular: "En acceptant la réduction, vous acceptez : vous bénéficierez d'une remise promotionnelle sur un abonnement à reconduction automatique valable un an. Votre abonnement sera automatiquement renouvelé {PERIOD_ADVERB} sauf si vous l'annulez depuis la page des paramètres de facturation. Votre contenu peut être supprimé lors de l'annulation. En finalisant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux actions collectives, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
+                    singular: "En cliquant sur ‘{CTA}’, vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique valable un an. Votre abonnement continuera de se renouveler automatiquement {PERIOD_ADVERB} sauf si vous l'annulez depuis la page Paramètres de facturation. Votre contenu peut être supprimé lors de l'annulation. En effectuant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux recours collectifs, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
                   },
                   "ja-JP": {
-                    singular: "割引を受け入れることで、次の内容に同意するものとします: 自動更新され1年間有効なサブスクリプションに対するプロモーション割引が適用されます。サブスクリプションは請求設定ページからキャンセルしない限り{PERIOD_ADVERB}自動的に更新されます。キャンセル時にコンテンツが削除される場合があります。本購入を完了することで、仲裁条項および集団訴訟放棄を含む当社の{TOS_URL}利用規約{/TOS_URL}に同意し、{PP_URL}プライバシーポリシー{/PP_URL}を確認したものとします。"
+                    singular: "‘{CTA}’をクリックすると、次の内容に同意するものとします: 1年有効の自動更新サブスクリプションにプロモーション割引が適用されます。請求設定ページから解約しない限り、サブスクリプションは{PERIOD_ADVERB}に自動的に更新され続けます。解約時にコンテンツが削除される場合があります。本購入を完了することで、{TOS_URL}利用規約{/TOS_URL}（仲裁条項および集団訴訟の放棄を含む）に同意し、{PP_URL}プライバシーポリシー{/PP_URL}を承認したものとみなされます。"
                   },
                   "ko-KR": {
-                    singular: "할인을 수락하면 다음에 동의하게 됩니다: 자동으로 갱신되는 구독에 대해 1년간 유효한 프로모션 할인이 적용됩니다. 구독은 청구 설정 페이지에서 취소하지 않는 한 {PERIOD_ADVERB} 자동으로 갱신됩니다. 취소 시 귀하의 콘텐츠가 삭제될 수 있습니다. 본 구매를 완료함으로써 귀하는 중재 합의 및 집단 소송 포기 조항을 포함한 당사의 {TOS_URL}서비스 약관{/TOS_URL}에 동의하고 당사의 {PP_URL}개인정보 처리방침{/PP_URL}을 확인하였음을 인정합니다."
+                    singular: "‘{CTA}’를 클릭하면 다음에 동의하게 됩니다: 유효 기간이 1년인 자동 갱신 구독에 대해 프로모션 할인이 적용됩니다. 구독은 Billing Settings 페이지에서 취소하지 않는 한 {PERIOD_ADVERB} 자동으로 갱신됩니다. 취소 시 콘텐츠가 삭제될 수 있습니다. 이 구매를 완료함으로써 귀하는 중재 합의 및 집단소송 포기 조항을 포함한 당사의 {TOS_URL}Terms of Service{/TOS_URL}에 동의하고 당사의 {PP_URL}Privacy Policy{/PP_URL}를 확인하였음을 인정합니다."
                   },
                   "pt-BR": {
-                    singular: "Ao aceitar o desconto, você concorda: Você receberá um desconto promocional em uma assinatura com renovação automática válida por um ano. Sua assinatura continuará a ser renovada automaticamente {PERIOD_ADVERB} a menos que você cancele na página de Configurações de cobrança. Seu conteúdo pode ser excluído após o cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia de ação coletiva, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
+                    singular: "Ao clicar em ‘{CTA}’, você concorda: você receberá um desconto promocional em uma assinatura com renovação automática válida por um ano. Sua assinatura continuará a ser renovada automaticamente {PERIOD_ADVERB}, a menos que você a cancele na página Configurações de Cobrança. Seu conteúdo pode ser excluído após o cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia a ações coletivas, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
                   },
                   "zh-CN": {
-                    singular: "接受折扣即表示您同意：您将获得一项自动续订的促销折扣，订阅有效期为一年。除非您在计费设置页面取消，否则您的订阅将{PERIOD_ADVERB}自动续订。取消后您的内容可能会被删除。完成此次购买即表示您同意我们的 {TOS_URL}服务条款{/TOS_URL}，其中包括仲裁协议和集体诉讼豁免，并已阅读我们的 {PP_URL}隐私政策{/PP_URL}。"
+                    singular: "点击‘{CTA}’即表示您同意：您将获得一个为期一年的自动续订订阅促销折扣。除非您到账单设置页面取消，否则您的订阅将会{PERIOD_ADVERB}自动续订。取消后您的内容可能会被删除。完成本次购买即表示您同意我们的 {TOS_URL}服务条款{/TOS_URL}，包括仲裁协议及放弃集体诉讼权，并已知悉我们的 {PP_URL}隐私政策{/PP_URL}。"
                   }
                 }
               })
@@ -11244,26 +11246,110 @@
         _v80 = _v21 ? _v78 : _v24 || _v32 && _v78,
         _v81 = _v30 ? _v21 ? _v71 : _v69 : _v19 ? _v47?.find(_v0 => _v0.tier === _v19) ?? null : null,
         _v82 = _v74 ? _v6?.productName?.replace(/^vimeo /i, "") ?? "" : _v81?.name ?? "",
-        _v83 = _v81?.metadata?.entitlements?.params ?? null,
-        _v84 = _v77?.teamSeats ?? _v83?.teamSeats ?? null,
-        _v85 = _v77?.seats?.admin ?? _v83?.seats?.admin ?? null,
-        _v86 = _v77?.restrictedVideoStorageLimit ?? _v83?.restrictedVideoStorageLimit ?? null,
-        _v87 = _v77?.bandwidth?.periodicQuota ?? _v83?.bandwidth?.periodicQuota ?? null,
-        _v88 = (_v77?.bandwidth?.quotaPeriod ?? _v83?.bandwidth?.quotaPeriod) === "year",
-        _v89 = _v24 ? "discount" : "downgrade",
-        _v90 = _v24 ? _v19 ?? null : _v36 ?? null,
-        _v91 = _v19 ? _v47?.find(_v0 => _v0.tier === _v19) ?? null : null,
-        _v92 = (_v13 = (_v12 = _v7.billingPeriod === _v99.UserPlanType.Year) ? _v66?.price?.annualMonthly : _v66?.price?.monthly, (_v14 = _v12 ? _v91?.price?.annualMonthly : _v91?.price?.monthly) && _v13 && _v14 > _v13 ? Math.floor((_v14 - _v13) / _v14 * 100) : null),
-        _v93 = _v7.billingPeriod === _v99.UserPlanType.Year ? _v66?.id?.annual ?? "" : _v66?.id?.monthly ?? "",
-        _v94 = _v74 ? _v73 ?? "" : _v7.billingPeriod === _v99.UserPlanType.Year ? _v81?.id?.annual ?? "" : _v81?.id?.monthly ?? "",
-        _v95 = (0, _v7.useCallback)(async () => {
+        _v83 = (0, _v16.translate)({
+          singular: "Continue with {PLAN}",
+          replacements: {
+            PLAN: _v82
+          },
+          dictionary: {
+            es: {
+              singular: "Continuar con {PLAN}"
+            },
+            "de-DE": {
+              singular: "Mit {PLAN} fortfahren"
+            },
+            "fr-FR": {
+              singular: "Continuer avec {PLAN}"
+            },
+            "ja-JP": {
+              singular: "{PLAN}で続行"
+            },
+            "ko-KR": {
+              singular: "계속 진행: {PLAN}"
+            },
+            "pt-BR": {
+              singular: "Continuar com {PLAN}"
+            },
+            "zh-CN": {
+              singular: "继续使用 {PLAN}"
+            }
+          }
+        }),
+        _v84 = (0, _v16.translate)({
+          singular: "Downgrade to {PLAN}",
+          replacements: {
+            PLAN: _v66?.name ?? ""
+          },
+          dictionary: {
+            es: {
+              singular: "Cambiar a {PLAN}"
+            },
+            "de-DE": {
+              singular: "Auf {PLAN} herabstufen"
+            },
+            "fr-FR": {
+              singular: "Rétrograder vers {PLAN}"
+            },
+            "ja-JP": {
+              singular: "{PLAN}にダウングレード"
+            },
+            "ko-KR": {
+              singular: "{PLAN}으로 다운그레이드"
+            },
+            "pt-BR": {
+              singular: "Rebaixar para {PLAN}"
+            },
+            "zh-CN": {
+              singular: "降级到 {PLAN}"
+            }
+          }
+        }),
+        _v85 = (0, _v16.translate)({
+          singular: "Accept the offer",
+          dictionary: {
+            es: {
+              singular: "Aceptar la oferta"
+            },
+            "de-DE": {
+              singular: "Angebot annehmen"
+            },
+            "fr-FR": {
+              singular: "Accepter l'offre"
+            },
+            "ja-JP": {
+              singular: "オファーを受け入れる"
+            },
+            "ko-KR": {
+              singular: "제안 수락"
+            },
+            "pt-BR": {
+              singular: "Aceitar a oferta"
+            },
+            "zh-CN": {
+              singular: "接受此优惠"
+            }
+          }
+        }),
+        _v86 = _v81?.metadata?.entitlements?.params ?? null,
+        _v87 = _v77?.teamSeats ?? _v86?.teamSeats ?? null,
+        _v88 = _v77?.seats?.admin ?? _v86?.seats?.admin ?? null,
+        _v89 = _v77?.restrictedVideoStorageLimit ?? _v86?.restrictedVideoStorageLimit ?? null,
+        _v90 = _v77?.bandwidth?.periodicQuota ?? _v86?.bandwidth?.periodicQuota ?? null,
+        _v91 = (_v77?.bandwidth?.quotaPeriod ?? _v86?.bandwidth?.quotaPeriod) === "year",
+        _v92 = _v24 ? "discount" : "downgrade",
+        _v93 = _v24 ? _v19 ?? null : _v36 ?? null,
+        _v94 = _v19 ? _v47?.find(_v0 => _v0.tier === _v19) ?? null : null,
+        _v95 = (_v13 = (_v12 = _v7.billingPeriod === _v99.UserPlanType.Year) ? _v66?.price?.annualMonthly : _v66?.price?.monthly, (_v14 = _v12 ? _v94?.price?.annualMonthly : _v94?.price?.monthly) && _v13 && _v14 > _v13 ? Math.floor((_v14 - _v13) / _v14 * 100) : null),
+        _v96 = _v7.billingPeriod === _v99.UserPlanType.Year ? _v66?.id?.annual ?? "" : _v66?.id?.monthly ?? "",
+        _v97 = _v74 ? _v73 ?? "" : _v7.billingPeriod === _v99.UserPlanType.Year ? _v81?.id?.annual ?? "" : _v81?.id?.monthly ?? "",
+        _v98 = (0, _v7.useCallback)(async () => {
           if (_v66) {
             if (_v59({
               currentPlan: _v7.tier ?? null,
               newPlan: _v36 ?? "",
               newPeriodicity: _v64,
               offerKind: "downgrade",
-              discountPercent: _v92,
+              discountPercent: _v95,
               priceSegment: _v22,
               experimentName: _v31
             }), !_v7.hasAutorenew) {
@@ -11302,7 +11388,7 @@
                   subscriptionId: _v65
                 },
                 variables: {
-                  billingPlanId: _v93,
+                  billingPlanId: _v96,
                   acceptedFromCancellationFlow: !0
                 },
                 baseUrl: _v52,
@@ -11333,7 +11419,7 @@
                 errorMessage: _v0 instanceof Error ? _v0.message : String(_v0),
                 offerKind: "downgrade",
                 offerDuration: "one_term",
-                discountPercent: _v92,
+                discountPercent: _v95,
                 experimentArm: _v30 ? _v27 : _v26,
                 layout: "standard",
                 priceSegment: _v22,
@@ -11343,24 +11429,24 @@
               _v57(!1);
             }
           }
-        }, [_v65, _v66, _v93, _v52, _v53, _v54, _v55, _v1, _v59, _v62, _v61, _v26, _v27, _v30, _v22, _v31, _v7.tier, _v7.hasAutorenew, _v36, _v64, _v92, _v4, _v5]),
-        _v96 = _v74 ? _v45 : _v7.billingPeriod === _v99.UserPlanType.Year ? _v81?.price?.annualMonthly : _v81?.price?.monthly,
-        _v97 = _v7.billingPeriod === _v99.UserPlanType.Year ? _v67?.price?.annualMonthly : _v67?.price?.monthly,
-        _v98 = _v96 && _v97 && _v96 > _v97 ? Math.floor((_v96 - _v97) / _v96 * 100) : null,
-        _v99 = _v35 && _v30 && (_v78 || _v48),
-        _v100 = _v99 || _v32 ? _v79 : _v25 ? _v98 : _v23.discountPercent ?? null,
-        _v101 = (_v34 || _v35) && !_v30,
-        _v102 = _v101 ? "B2B_CANCELLATION_PERMANENT_DISCOUNT_V1" : void 0,
-        _v103 = _v24 ? _v100 : _v92,
-        _v104 = (0, _v7.useCallback)(async () => {
-          if (_v94 && null !== _v100) {
+        }, [_v65, _v66, _v96, _v52, _v53, _v54, _v55, _v1, _v59, _v62, _v61, _v26, _v27, _v30, _v22, _v31, _v7.tier, _v7.hasAutorenew, _v36, _v64, _v95, _v4, _v5]),
+        _v99 = _v74 ? _v45 : _v7.billingPeriod === _v99.UserPlanType.Year ? _v81?.price?.annualMonthly : _v81?.price?.monthly,
+        _v100 = _v7.billingPeriod === _v99.UserPlanType.Year ? _v67?.price?.annualMonthly : _v67?.price?.monthly,
+        _v101 = _v99 && _v100 && _v99 > _v100 ? Math.floor((_v99 - _v100) / _v99 * 100) : null,
+        _v102 = _v35 && _v30 && (_v78 || _v48),
+        _v103 = _v102 || _v32 ? _v79 : _v25 ? _v101 : _v23.discountPercent ?? null,
+        _v104 = (_v34 || _v35) && !_v30,
+        _v105 = _v104 ? "B2B_CANCELLATION_PERMANENT_DISCOUNT_V1" : void 0,
+        _v106 = _v24 ? _v103 : _v95,
+        _v107 = (0, _v7.useCallback)(async () => {
+          if (_v97 && null !== _v103) {
             if (_v59({
               currentPlan: _v7.tier ?? null,
               newPlan: _v19 ?? "",
               newPeriodicity: _v64,
               offerKind: "discount",
-              discountPercent: _v100,
-              offerDuration: _v101 ? "permanent" : "one_term",
+              discountPercent: _v103,
+              offerDuration: _v104 ? "permanent" : "one_term",
               experimentArm: _v30 ? _v27 : _v26,
               layout: _v35 ? "prominent" : "standard",
               priceSegment: _v22,
@@ -11401,11 +11487,11 @@
                   subscriptionId: _v65
                 },
                 variables: {
-                  billingPlanId: _v94,
-                  discountPercent: _v100,
+                  billingPlanId: _v97,
+                  discountPercent: _v103,
                   acceptedFromCancellationFlow: !0,
-                  ...(_v102 ? {
-                    offerMarker: _v102
+                  ...(_v105 ? {
+                    offerMarker: _v105
                   } : {})
                 },
                 baseUrl: _v52,
@@ -11420,7 +11506,7 @@
                 newPlan: _v19 ?? "",
                 newPeriodicity: _v64,
                 offerKind: "discount",
-                offerDuration: _v101 ? "permanent" : "one_term",
+                offerDuration: _v104 ? "permanent" : "one_term",
                 experimentArm: _v30 ? _v27 : _v26,
                 layout: _v35 ? "prominent" : "standard",
                 priceSegment: _v22,
@@ -11435,8 +11521,8 @@
                 targetPeriodicity: _v64,
                 errorMessage: _v0 instanceof Error ? _v0.message : String(_v0),
                 offerKind: "discount",
-                offerDuration: _v101 ? "permanent" : "one_term",
-                discountPercent: _v100,
+                offerDuration: _v104 ? "permanent" : "one_term",
+                discountPercent: _v103,
                 experimentArm: _v30 ? _v27 : _v26,
                 layout: _v35 ? "prominent" : "standard",
                 priceSegment: _v22,
@@ -11446,74 +11532,74 @@
               _v57(!1);
             }
           }
-        }, [_v94, _v82, _v19, _v100, _v65, _v102, _v101, _v35, _v52, _v53, _v54, _v55, _v1, _v59, _v62, _v61, _v26, _v27, _v30, _v22, _v31, _v7.tier, _v7.hasAutorenew, _v64, _v4, _v5]),
-        _v105 = _v21 ? _v48 : (_v33 || _v32) && (_v48 || void 0 === _v50 || void 0 === _v51),
-        _v106 = (0, _v7.useRef)(!1),
-        _v107 = (0, _v7.useRef)(!1);
+        }, [_v97, _v82, _v19, _v103, _v65, _v105, _v104, _v35, _v52, _v53, _v54, _v55, _v1, _v59, _v62, _v61, _v26, _v27, _v30, _v22, _v31, _v7.tier, _v7.hasAutorenew, _v64, _v4, _v5]),
+        _v108 = _v21 ? _v48 : (_v33 || _v32) && (_v48 || void 0 === _v50 || void 0 === _v51),
+        _v109 = (0, _v7.useRef)(!1),
+        _v110 = (0, _v7.useRef)(!1);
       (0, _v7.useEffect)(() => {
         if (!_v0) {
-          _v106.current = !1, _v107.current = !1;
+          _v109.current = !1, _v110.current = !1;
           return;
         }
-        (_v105 ? !_v78 : _v24 ? null == _v81 || _v25 && null == _v67 : null == _v66) || _v106.current || (_v58({
+        (_v108 ? !_v78 : _v24 ? null == _v81 || _v25 && null == _v67 : null == _v66) || _v109.current || (_v58({
           tier: _v7.tier ?? null,
           periodicity: _v64,
-          offerKind: _v89,
-          targetTier: _v90,
-          discountPercent: _v103,
-          offerDuration: _v101 ? "permanent" : "one_term",
+          offerKind: _v92,
+          targetTier: _v93,
+          discountPercent: _v106,
+          offerDuration: _v104 ? "permanent" : "one_term",
           experimentArm: _v30 ? _v27 : _v26,
           layout: _v35 ? "prominent" : "standard",
           priceSegment: _v22,
           experimentName: _v31
-        }), _v106.current = !0), !_v99 && (!_v32 || !_v78) && (_v80 || _v66 || _v36 || _v105 || _v107.current || (_v107.current = !0, _v2()));
-      }, [_v0, _v24, _v66, _v81, _v67, _v36, _v105, _v99, _v32, _v78, _v80, _v2]);
-      let _v108 = _v7.renewalDate ? new Date(_v7.renewalDate) : null,
-        _v109 = _v108 && !Number.isNaN(_v108.getTime()) ? new Intl.DateTimeFormat(_v55 ?? "en", {
+        }), _v109.current = !0), !_v102 && (!_v32 || !_v78) && (_v80 || _v66 || _v36 || _v108 || _v110.current || (_v110.current = !0, _v2()));
+      }, [_v0, _v24, _v66, _v81, _v67, _v36, _v108, _v102, _v32, _v78, _v80, _v2]);
+      let _v111 = _v7.renewalDate ? new Date(_v7.renewalDate) : null,
+        _v112 = _v111 && !Number.isNaN(_v111.getTime()) ? new Intl.DateTimeFormat(_v55 ?? "en", {
           day: "2-digit",
           month: "2-digit",
           year: "numeric"
-        }).format(_v108) : "",
-        _v110 = _v74 ? _v6?.originalPrice?.formatted ?? _v6?.price?.formatted ?? null : (_v43 ? _v81?.priceFormatted?.annual : _v81?.priceFormatted?.monthly) ?? null,
-        _v111 = _v74 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? null : (_v43 ? _v81?.priceFormatted?.annualMonthly : _v81?.priceFormatted?.monthly) ?? null,
-        _v112 = _v74 ? _v6?.originalPrice?.amount ?? _v6?.price?.amount ?? null : (_v43 ? _v81?.price?.annual : _v81?.price?.monthly) ?? null,
-        _v113 = _v74 ? _v6?.originalPrice?.currency ?? _v6?.price?.currency ?? null : _v81?.currency?.currencyCode ?? null,
-        _v114 = null != _v112 && null !== _v100 ? (0, _v224.resolveEffectiveDiscountedPrice)(_v112, _v100) : null,
-        _v115 = null !== _v114 && _v113 ? new Intl.NumberFormat(_v55 ?? "en", {
+        }).format(_v111) : "",
+        _v113 = _v74 ? _v6?.originalPrice?.formatted ?? _v6?.price?.formatted ?? null : (_v43 ? _v81?.priceFormatted?.annual : _v81?.priceFormatted?.monthly) ?? null,
+        _v114 = _v74 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? null : (_v43 ? _v81?.priceFormatted?.annualMonthly : _v81?.priceFormatted?.monthly) ?? null,
+        _v115 = _v74 ? _v6?.originalPrice?.amount ?? _v6?.price?.amount ?? null : (_v43 ? _v81?.price?.annual : _v81?.price?.monthly) ?? null,
+        _v116 = _v74 ? _v6?.originalPrice?.currency ?? _v6?.price?.currency ?? null : _v81?.currency?.currencyCode ?? null,
+        _v117 = null != _v115 && null !== _v103 ? (0, _v224.resolveEffectiveDiscountedPrice)(_v115, _v103) : null,
+        _v118 = null !== _v117 && _v116 ? new Intl.NumberFormat(_v55 ?? "en", {
           style: "currency",
-          currency: _v113,
+          currency: _v116,
           minimumFractionDigits: 0,
           maximumFractionDigits: 2
-        }).format(_v114) : null,
-        _v116 = _v43 ? _v66?.priceFormatted?.annual : _v66?.priceFormatted?.monthly,
-        _v117 = () => {
+        }).format(_v117) : null,
+        _v119 = _v43 ? _v66?.priceFormatted?.annual : _v66?.priceFormatted?.monthly,
+        _v120 = () => {
           _v63({
             location: "cancellation_offer",
             offerKind: _v24 ? "discount" : "downgrade"
           }), _v1(), _v8?.();
         },
-        _v118 = () => {
+        _v121 = () => {
           _v9 || (_v60({
             tier: _v7.tier ?? null,
             periodicity: _v64,
-            offerKind: _v89,
-            targetTier: _v90,
-            offerDuration: _v101 ? "permanent" : "one_term",
+            offerKind: _v92,
+            targetTier: _v93,
+            offerDuration: _v104 ? "permanent" : "one_term",
             experimentArm: _v30 ? _v27 : _v26,
             layout: _v35 ? "prominent" : "standard",
             priceSegment: _v22,
             experimentName: _v31
           }), _v2());
         },
-        _v119 = (0, _v7.useRef)(!1);
+        _v122 = (0, _v7.useRef)(!1);
       (0, _v7.useEffect)(() => {
-        if (_v9 && !_v119.current) {
-          _v119.current = !0;
+        if (_v9 && !_v122.current) {
+          _v122.current = !0;
           return;
         }
-        !_v9 && _v119.current && (_v119.current = !1, _v1());
+        !_v9 && _v122.current && (_v122.current = !1, _v1());
       }, [_v9, _v1]);
-      let _v120 = (_v0, _v1) => _v0 => (0, _v5.jsx)(_v32.Link, {
+      let _v123 = (_v0, _v1) => _v0 => (0, _v5.jsx)(_v32.Link, {
           href: _v0,
           variant: "inline-primary",
           color: "vimeoBlue.600",
@@ -11521,142 +11607,146 @@
           rel: "noopener noreferrer",
           children: _v0
         }, _v1),
-        _v121 = _v43 ? (0, _v16.translate)({
-          singular: "By accepting this discount, you agree: You’ll get a promotional discount on an automatically renewing subscription valid for one year, for a total price of {DISCOUNTED_AMOUNT}. If you don’t cancel before {RENEWAL_DATE} your subscription will renew at full price and you’ll be charged {ANNUAL_AMOUNT} (plus tax) on that date and every year thereafter until you cancel in your Billing Settings. Pricing may change. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
+        _v124 = _v43 ? (0, _v16.translate)({
+          singular: "By clicking ‘{CTA}’, you agree: You’ll get a promotional discount on an automatically renewing subscription valid for one year, for a total price of {DISCOUNTED_AMOUNT}. If you don’t cancel before {RENEWAL_DATE} your subscription will renew at full price and you’ll be charged {ANNUAL_AMOUNT} (plus tax) on that date and every year thereafter until you cancel in your Billing Settings. Pricing may change. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
           replacements: {
-            DISCOUNTED_AMOUNT: _v115 ?? "",
-            RENEWAL_DATE: _v109,
-            ANNUAL_AMOUNT: _v110 ?? "",
-            TOS_URL: _v120(_v234, "tos"),
-            PP_URL: _v120(_v235, "privacy")
+            CTA: _v83,
+            DISCOUNTED_AMOUNT: _v118 ?? "",
+            RENEWAL_DATE: _v112,
+            ANNUAL_AMOUNT: _v113 ?? "",
+            TOS_URL: _v123(_v234, "tos"),
+            PP_URL: _v123(_v235, "privacy")
           },
           dictionary: {
             es: {
-              singular: "Al aceptar este descuento, usted acepta: Recibirá un descuento promocional en una suscripción de renovación automática válida por un año, por un precio total de {DISCOUNTED_AMOUNT}. Si no cancela antes del {RENEWAL_DATE}, su suscripción se renovará al precio completo y se le cobrará {ANNUAL_AMOUNT} (más impuestos) en esa fecha y cada año posteriormente hasta que cancele en sus Ajustes de facturación. Los precios pueden cambiar. Su contenido puede ser eliminado tras la cancelación. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluido el acuerdo de arbitraje y la renuncia a demandas colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
+              singular: "Al hacer clic en ‘{CTA}’, usted acepta: Obtendrá un descuento promocional en una suscripción que se renueva automáticamente y es válida por un año, por un precio total de {DISCOUNTED_AMOUNT}. Si no cancela antes de {RENEWAL_DATE} su suscripción se renovará al precio completo y se le cobrará {ANNUAL_AMOUNT} (más impuestos) en esa fecha y cada año a partir de entonces hasta que cancele en sus Ajustes de facturación. Los precios pueden cambiar. Su contenido puede eliminarse al cancelar. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluido el acuerdo de arbitraje y la renuncia a acciones colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
             },
             "de-DE": {
-              singular: "Wenn Sie diesen Rabatt annehmen, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein automatisch verlängerndes Abonnement, das für ein Jahr gültig ist, zu einem Gesamtpreis von {DISCOUNTED_AMOUNT}. Wenn Sie nicht vor dem {RENEWAL_DATE} kündigen, wird Ihr Abonnement zum vollen Preis verlängert und Ihnen an diesem Datum und jedes Jahr danach bis zur Kündigung in Ihren Abrechnungseinstellungen {ANNUAL_AMOUNT} (zzgl. Steuern) berechnet. Preise können sich ändern. Ihre Inhalte können bei Kündigung gelöscht werden. Mit dem Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und erkennen unsere {PP_URL}Datenschutzerklärung{/PP_URL} an."
+              singular: "Wenn Sie auf ‚{CTA}‘ klicken, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein automatisch verlängerndes Abonnement mit einer Laufzeit von einem Jahr zum Gesamtpreis von {DISCOUNTED_AMOUNT}. Wenn Sie nicht vor dem {RENEWAL_DATE} kündigen, wird Ihr Abonnement zum vollen Preis verlängert und Ihnen an diesem Datum und anschließend jedes Jahr bis zur Kündigung in Ihren Abrechnungseinstellungen {ANNUAL_AMOUNT} (zzgl. Steuern) berechnet. Preise können sich ändern. Ihre Inhalte können bei Kündigung gelöscht werden. Durch Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und nehmen unsere {PP_URL}Datenschutzerklärung{/PP_URL} zur Kenntnis."
             },
             "fr-FR": {
-              singular: "En acceptant cette remise, vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique valable pendant un an, pour un prix total de {DISCOUNTED_AMOUNT}. Si vous ne résiliez pas avant le {RENEWAL_DATE}, votre abonnement sera renouvelé au tarif plein et vous serez facturé {ANNUAL_AMOUNT} (plus taxes) à cette date, puis chaque année par la suite jusqu'à ce que vous annuliez dans vos Paramètres de facturation. Les tarifs peuvent changer. Votre contenu peut être supprimé lors de la résiliation. En complétant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux actions collectives, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
+              singular: "En cliquant sur ‘{CTA}’, vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique valable un an, pour un prix total de {DISCOUNTED_AMOUNT}. Si vous n'annulez pas avant le {RENEWAL_DATE}, votre abonnement sera renouvelé au tarif normal et {ANNUAL_AMOUNT} (taxes en sus) vous sera facturé à cette date, puis chaque année par la suite, jusqu'à ce que vous l'annuliez dans les Paramètres de facturation. Les prix peuvent être modifiés. Votre contenu peut être supprimé lors de l'annulation. En effectuant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux recours collectifs, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
             },
             "ja-JP": {
-              singular: "この割引を受け入れることで、以下に同意するものとします：自動更新される1年間有効なサブスクリプションに対してプロモーション割引が適用され、合計金額は{DISCOUNTED_AMOUNT}になります。{RENEWAL_DATE}までに解約しない場合、サブスクリプションは通常料金で更新され、その日およびその後毎年、{ANNUAL_AMOUNT}（税金が加算されます）が請求されます。価格は変更される場合があります。解約時にコンテンツが削除されることがあります。この購入を完了することで、{TOS_URL}利用規約{/TOS_URL}（仲裁合意および集団訴訟放棄を含む）に同意し、{PP_URL}プライバシーポリシー{/PP_URL}を確認したことを了承します。"
+              singular: "‘{CTA}’をクリックすると、次の内容に同意するものとします: 1年有効の自動更新サブスクリプションに対してプロモーション割引が適用され、合計金額は{DISCOUNTED_AMOUNT}になります。{RENEWAL_DATE}までに解約しない場合、サブスクリプションは通常料金で更新され、その日に{ANNUAL_AMOUNT} (税別)が請求され、その後解約するまで毎年同額が請求されます。料金は変更される場合があります。解約時にコンテンツが削除される場合があります。本購入を完了することで、{TOS_URL}利用規約{/TOS_URL}（仲裁条項および集団訴訟の放棄を含む）に同意し、{PP_URL}プライバシーポリシー{/PP_URL}を承認したものとみなされます。"
             },
             "ko-KR": {
-              singular: "본 할인 혜택을 수락하면 다음에 동의하게 됩니다: 자동으로 갱신되는 1년 유효 구독에 대해 프로모션 할인이 적용되어 총 금액은 {DISCOUNTED_AMOUNT}입니다. {RENEWAL_DATE} 이전에 취소하지 않으면 구독이 정가로 갱신되며 해당 날짜 및 이후 매년 {ANNUAL_AMOUNT} (세금 별도)가 청구됩니다(결제 설정에서 취소할 때까지). 가격은 변경될 수 있습니다. 취소 시 콘텐츠가 삭제될 수 있습니다. 본 구매를 완료함으로써 귀하는 중재 합의 및 집단 소송 포기를 포함한 당사의 {TOS_URL}서비스 약관{/TOS_URL}에 동의하고 당사의 {PP_URL}개인정보 처리방침{/PP_URL}을 확인합니다."
+              singular: "‘{CTA}’를 클릭하면 다음에 동의하게 됩니다: 자동으로 갱신되는 구독에 대한 프로모션 할인이 적용되며 유효 기간은 1년이고 총 금액은 {DISCOUNTED_AMOUNT}입니다. {RENEWAL_DATE} 이전에 취소하지 않으면 구독은 전액으로 갱신되며 해당 날짜와 그 이후 매년 Billing Settings에서 취소할 때까지 {ANNUAL_AMOUNT} (세금 별도)가 청구됩니다. 가격은 변경될 수 있습니다. 취소 시 콘텐츠가 삭제될 수 있습니다. 이 구매를 완료함으로써 귀하는 중재 합의 및 집단소송 포기 조항을 포함한 당사의 {TOS_URL}Terms of Service{/TOS_URL}에 동의하고 당사의 {PP_URL}Privacy Policy{/PP_URL}를 확인하였음을 인정합니다."
             },
             "pt-BR": {
-              singular: "Ao aceitar este desconto, você concorda: Você receberá um desconto promocional em uma assinatura que renova automaticamente, válida por um ano, por um preço total de {DISCOUNTED_AMOUNT}. Se você não cancelar antes de {RENEWAL_DATE}, sua assinatura será renovada pelo preço cheio e você será cobrado {ANNUAL_AMOUNT} (mais impostos) nessa data e a cada ano subsequente até que você cancele em suas Configurações de Cobrança. Os preços podem mudar. Seu conteúdo pode ser excluído após o cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia a ações coletivas, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
+              singular: "Ao clicar em ‘{CTA}’, você concorda: você receberá um desconto promocional em uma assinatura com renovação automática válida por um ano, por um preço total de {DISCOUNTED_AMOUNT}. Se você não cancelar antes de {RENEWAL_DATE}, sua assinatura será renovada pelo preço integral e você será cobrado {ANNUAL_AMOUNT} (mais impostos) nessa data e em todo ano subsequente até cancelar em Configurações de Cobrança. Os preços podem mudar. Seu conteúdo pode ser excluído após o cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia a ações coletivas, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
             },
             "zh-CN": {
-              singular: "接受此折扣即表示您同意：您将获得一项为期一年的自动续订订阅的促销折扣，总价为 {DISCOUNTED_AMOUNT}。如果您未在 {RENEWAL_DATE} 前取消，您的订阅将在该日期按全价续订，届时及此后每年您都将被收取 {ANNUAL_AMOUNT}（加税），直至您在账单设置中取消。价格可能会变动。取消订阅后您的内容可能会被删除。完成购买即表示您同意我们的 {TOS_URL}服务条款{/TOS_URL}，包括仲裁协议和集体诉讼放弃条款，并已知悉我们的 {PP_URL}隐私政策{/PP_URL}。"
+              singular: "点击‘{CTA}’即表示您同意：您将获得一个为期一年的自动续订订阅促销折扣，总价为 {DISCOUNTED_AMOUNT}。如果您未在 {RENEWAL_DATE} 前取消，您的订阅将以原价续订，且在该日及此后每年将收取 {ANNUAL_AMOUNT}（另加税费），直至您在账单设置中取消。价格可能会变更。取消后您的内容可能会被删除。完成本次购买即表示您同意我们的 {TOS_URL}服务条款{/TOS_URL}，包括仲裁协议及放弃集体诉讼权，并已知悉我们的 {PP_URL}隐私政策{/PP_URL}。"
             }
           }
         }) : (0, _v16.translate)({
-          singular: "By accepting this discount, you agree: You’ll get a promotional discount on an automatically renewing subscription valid for one month, for a total price of {DISCOUNTED_AMOUNT}. If you don’t cancel before {RENEWAL_DATE} your subscription will renew at full price and you’ll be charged {FULL_AMOUNT} (plus tax) on that date and every month thereafter until you cancel in your Billing Settings. Pricing may change. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
+          singular: "By clicking ‘{CTA}’, you agree: You’ll get a promotional discount on an automatically renewing subscription valid for one month, for a total price of {DISCOUNTED_AMOUNT}. If you don’t cancel before {RENEWAL_DATE} your subscription will renew at full price and you’ll be charged {FULL_AMOUNT} (plus tax) on that date and every month thereafter until you cancel in your Billing Settings. Pricing may change. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
           replacements: {
-            DISCOUNTED_AMOUNT: _v115 ?? "",
-            RENEWAL_DATE: _v109,
-            FULL_AMOUNT: _v110 ?? "",
-            TOS_URL: _v120(_v234, "tos"),
-            PP_URL: _v120(_v235, "privacy")
+            CTA: _v83,
+            DISCOUNTED_AMOUNT: _v118 ?? "",
+            RENEWAL_DATE: _v112,
+            FULL_AMOUNT: _v113 ?? "",
+            TOS_URL: _v123(_v234, "tos"),
+            PP_URL: _v123(_v235, "privacy")
           },
           dictionary: {
             es: {
-              singular: "Al aceptar este descuento, usted acepta: Recibirá un descuento promocional en una suscripción que se renueva automáticamente, válido por un mes, por un precio total de {DISCOUNTED_AMOUNT}. Si no cancela antes del {RENEWAL_DATE}, su suscripción se renovará al precio completo y se le cobrará {FULL_AMOUNT} (más impuestos) en esa fecha y cada mes a partir de entonces hasta que cancele en su Configuración de facturación. Los precios pueden cambiar. Su contenido puede ser eliminado al cancelar. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluido el acuerdo de arbitraje y la renuncia a las acciones colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
+              singular: "Al hacer clic en ‘{CTA}’, usted acepta: Obtendrá un descuento promocional en una suscripción que se renueva automáticamente y es válida por un mes, por un precio total de {DISCOUNTED_AMOUNT}. Si no cancela antes de {RENEWAL_DATE} su suscripción se renovará al precio completo y se le cobrará {FULL_AMOUNT} (más impuestos) en esa fecha y cada mes a partir de entonces hasta que cancele en sus Ajustes de facturación. Los precios pueden cambiar. Su contenido puede eliminarse al cancelar. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluido el acuerdo de arbitraje y la renuncia a acciones colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
             },
             "de-DE": {
-              singular: "Wenn Sie diesen Rabatt annehmen, stimmen Sie folgendem zu: Sie erhalten einen Aktionsrabatt auf ein sich automatisch verlängerndes Abonnement, das für einen Monat gilt, zum Gesamtpreis von {DISCOUNTED_AMOUNT}. Wenn Sie nicht vor dem {RENEWAL_DATE} kündigen, wird Ihr Abonnement zum vollen Preis verlängert und Ihnen wird an diesem Datum und anschließend jeden Monat bis zur Kündigung in Ihren Abrechnungseinstellungen {FULL_AMOUNT} (zzgl. Steuern) berechnet. Preise können sich ändern. Ihr Inhalt kann bei Kündigung gelöscht werden. Mit dem Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und nehmen unsere {PP_URL}Datenschutzerklärung{/PP_URL} zur Kenntnis."
+              singular: "Wenn Sie auf ‚{CTA}‘ klicken, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein automatisch verlängerndes Abonnement mit einer Laufzeit von einem Monat zum Gesamtpreis von {DISCOUNTED_AMOUNT}. Wenn Sie nicht vor dem {RENEWAL_DATE} kündigen, wird Ihr Abonnement zum vollen Preis verlängert und Ihnen an diesem Datum und anschließend jeden Monat bis zur Kündigung in Ihren Abrechnungseinstellungen {FULL_AMOUNT} (zzgl. Steuern) berechnet. Preise können sich ändern. Ihre Inhalte können bei Kündigung gelöscht werden. Durch Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und nehmen unsere {PP_URL}Datenschutzerklärung{/PP_URL} zur Kenntnis."
             },
             "fr-FR": {
-              singular: "En acceptant cette remise,  vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique valable pendant un mois, pour un prix total de {DISCOUNTED_AMOUNT}. Si vous n'annulez pas avant le {RENEWAL_DATE}, votre abonnement sera renouvelé au plein tarif et vous serez facturé {FULL_AMOUNT} (plus taxes) à cette date, puis chaque mois par la suite jusqu'à ce que vous annuliez dans vos Paramètres de facturation. Les tarifs peuvent changer. Votre contenu peut être supprimé lors de l'annulation. En complétant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux recours collectifs, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
+              singular: "En cliquant sur ‘{CTA}’, vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique valable un mois, pour un prix total de {DISCOUNTED_AMOUNT}. Si vous n'annulez pas avant le {RENEWAL_DATE}, votre abonnement sera renouvelé au tarif normal et {FULL_AMOUNT} (taxes en sus) vous sera facturé à cette date, puis chaque mois par la suite, jusqu'à ce que vous l'annuliez dans les Paramètres de facturation. Les prix peuvent être modifiés. Votre contenu peut être supprimé lors de l'annulation. En effectuant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux recours collectifs, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
             },
             "ja-JP": {
-              singular: "この割引を受け入れることで、以下に同意するものとします：1か月有効な自動更新サブスクリプションにプロモーション割引が適用され、合計金額は{DISCOUNTED_AMOUNT}となります。{RENEWAL_DATE}までに解約しない場合、サブスクリプションは定価で更新され、その日および以降毎月、課金設定で解約するまで{FULL_AMOUNT}（税別）が請求されます。価格は変更される場合があります。解約時にコンテンツが削除される場合があります。本購入を完了することで、仲裁条項および集団訴訟放棄を含む当社の{TOS_URL}利用規約{/TOS_URL}に同意し、当社の{PP_URL}プライバシーポリシー{/PP_URL}を承認するものとします。"
+              singular: "‘{CTA}’をクリックすると、次の内容に同意するものとします: 1か月有効の自動更新サブスクリプションに対してプロモーション割引が適用され、合計金額は{DISCOUNTED_AMOUNT}になります。{RENEWAL_DATE}までに解約しない場合、サブスクリプションは通常料金で更新され、その日に{FULL_AMOUNT} (税別)が請求され、その後解約するまで毎月同額が請求されます。料金は変更される場合があります。解約時にコンテンツが削除される場合があります。本購入を完了することで、{TOS_URL}利用規約{/TOS_URL}（仲裁条項および集団訴訟の放棄を含む）に同意し、{PP_URL}プライバシーポリシー{/PP_URL}を承認したものとみなされます。"
             },
             "ko-KR": {
-              singular: "할인을 수락함으로써 귀하는 다음에 동의합니다: 자동으로 갱신되는 구독에 대해 1개월간 유효한 프로모션 할인을 받아 총 금액 {DISCOUNTED_AMOUNT}을(를) 결제하게 됩니다. {RENEWAL_DATE} 이전에 취소하지 않으면 구독이 정가로 갱신되며 해당 날짜와 그 이후 매월 결제 시 {FULL_AMOUNT} (세금 별도)가 청구됩니다. 가격은 변경될 수 있습니다. 취소 시 귀하의 콘텐츠가 삭제될 수 있습니다. 이 구매를 완료함으로써 귀하는 중재 합의 및 집단 소송 포기 조항을 포함한 {TOS_URL}서비스 이용약관{/TOS_URL}에 동의하고 {PP_URL}개인정보 처리방침{/PP_URL}을(를) 확인합니다."
+              singular: "‘{CTA}’를 클릭하면 다음에 동의하게 됩니다: 자동으로 갱신되는 구독에 대한 프로모션 할인이 적용되며 유효 기간은 한 달이고 총 금액은 {DISCOUNTED_AMOUNT}입니다. {RENEWAL_DATE} 이전에 취소하지 않으면 구독은 전액으로 갱신되며 해당 날짜와 그 이후 매달 Billing Settings에서 취소할 때까지 {FULL_AMOUNT} (세금 별도)가 청구됩니다. 가격은 변경될 수 있습니다. 취소 시 콘텐츠가 삭제될 수 있습니다. 이 구매를 완료함으로써 귀하는 중재 합의 및 집단소송 포기 조항을 포함한 당사의 {TOS_URL}Terms of Service{/TOS_URL}에 동의하고 당사의 {PP_URL}Privacy Policy{/PP_URL}를 확인하였음을 인정합니다."
             },
             "pt-BR": {
-              singular: "Ao aceitar este desconto, você concorda: você receberá um desconto promocional em uma assinatura com renovação automática válida por um mês, por um preço total de {DISCOUNTED_AMOUNT}. Se você não cancelar antes de {RENEWAL_DATE}, sua assinatura será renovada pelo preço cheio e você será cobrado {FULL_AMOUNT} (mais impostos) nessa data e em todo mês subsequente até que cancele nas suas Configurações de cobrança. Os preços podem mudar. Seu conteúdo pode ser excluído após o cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia à ação coletiva, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
+              singular: "Ao clicar em ‘{CTA}’, você concorda: você receberá um desconto promocional em uma assinatura com renovação automática válida por um mês, por um preço total de {DISCOUNTED_AMOUNT}. Se você não cancelar antes de {RENEWAL_DATE}, sua assinatura será renovada pelo preço integral e você será cobrado {FULL_AMOUNT} (mais impostos) nessa data e em todo mês subsequente até cancelar em Configurações de Cobrança. Os preços podem mudar. Seu conteúdo pode ser excluído após o cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia a ações coletivas, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
             },
             "zh-CN": {
-              singular: "接受此优惠即表示您同意：您将获得一个自动续订订阅的促销折扣，优惠有效期为一个月，总价为 {DISCOUNTED_AMOUNT}。如果您未在 {RENEWAL_DATE} 之前取消，您的订阅将按全价续订，并且在该日期及之后每月将向您收取 {FULL_AMOUNT} (加税)，直至您在账单设置中取消。价格可能会变动。取消订阅后，您的内容可能会被删除。完成此购买即表示您同意我们的 {TOS_URL}Terms of Service{/TOS_URL}，包括仲裁协议和集体诉讼豁免，并已知悉我们的 {PP_URL}Privacy Policy{/PP_URL}。"
+              singular: "点击‘{CTA}’即表示您同意：您将获得一个为期一个月的自动续订订阅促销折扣，总价为 {DISCOUNTED_AMOUNT}。如果您未在 {RENEWAL_DATE} 前取消，您的订阅将以原价续订，且在该日及此后每月将收取 {FULL_AMOUNT}（另加税费），直至您在账单设置中取消。价格可能会变更。取消后您的内容可能会被删除。完成本次购买即表示您同意我们的 {TOS_URL}服务条款{/TOS_URL}，包括仲裁协议及放弃集体诉讼权，并已知悉我们的 {PP_URL}隐私政策{/PP_URL}。"
             }
           }
         }),
-        _v122 = _v43 ? (0, _v16.translate)({
-          singular: "By accepting this downgrade, you agree: You’ll get a promotional discount on an automatically renewing subscription. If you don’t cancel before {RENEWAL_DATE} your subscription will renew at full price and you’ll be charged {FULL_PRICE} (plus tax) on that date and every year thereafter until you cancel in your Billing Settings. Pricing may change. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
+        _v125 = _v43 ? (0, _v16.translate)({
+          singular: "By clicking ‘{CTA}’, you agree: You’ll get a promotional discount on an automatically renewing subscription. If you don’t cancel before {RENEWAL_DATE} your subscription will renew at full price and you’ll be charged {FULL_PRICE} (plus tax) on that date and every year thereafter until you cancel in your Billing Settings. Pricing may change. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
           replacements: {
-            RENEWAL_DATE: _v109,
-            FULL_PRICE: _v116 ?? "",
-            TOS_URL: _v120(_v234, "tos"),
-            PP_URL: _v120(_v235, "privacy")
+            CTA: _v84,
+            RENEWAL_DATE: _v112,
+            FULL_PRICE: _v119 ?? "",
+            TOS_URL: _v123(_v234, "tos"),
+            PP_URL: _v123(_v235, "privacy")
           },
           dictionary: {
             es: {
-              singular: "Al aceptar esta rebaja de plan, usted acepta: Recibirá un descuento promocional en una suscripción de renovación automática. Si no cancela antes del {RENEWAL_DATE}, su suscripción se renovará al precio completo y se le cobrará {FULL_PRICE} (más impuestos) en esa fecha y cada año posteriormente hasta que cancele en sus Ajustes de facturación. Los precios pueden cambiar. Su contenido puede ser eliminado tras la cancelación. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluido el acuerdo de arbitraje y la renuncia a demandas colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
+              singular: "Al hacer clic en ‘{CTA}’, usted acepta: Obtendrá un descuento promocional en una suscripción que se renueva automáticamente. Si no cancela antes de {RENEWAL_DATE} su suscripción se renovará al precio completo y se le cobrará {FULL_PRICE} (más impuestos) en esa fecha y cada año a partir de entonces hasta que cancele en sus Ajustes de facturación. Los precios pueden cambiar. Su contenido puede eliminarse al cancelar. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluido el acuerdo de arbitraje y la renuncia a acciones colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
             },
             "de-DE": {
-              singular: "Wenn Sie dieses Downgrade annehmen, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein automatisch verlängerndes Abonnement. Wenn Sie nicht vor dem {RENEWAL_DATE} kündigen, wird Ihr Abonnement zum vollen Preis verlängert und Ihnen an diesem Datum und jedes Jahr danach bis zur Kündigung in Ihren Abrechnungseinstellungen {FULL_PRICE} (zzgl. Steuern) berechnet. Preise können sich ändern. Ihre Inhalte können bei Kündigung gelöscht werden. Mit dem Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und erkennen unsere {PP_URL}Datenschutzerklärung{/PP_URL} an."
+              singular: "Wenn Sie auf ‚{CTA}‘ klicken, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein automatisch verlängerndes Abonnement. Wenn Sie nicht vor dem {RENEWAL_DATE} kündigen, wird Ihr Abonnement zum vollen Preis verlängert und Ihnen an diesem Datum und anschließend jedes Jahr bis zur Kündigung in Ihren Abrechnungseinstellungen {FULL_PRICE} (zzgl. Steuern) berechnet. Preise können sich ändern. Ihre Inhalte können bei Kündigung gelöscht werden. Durch Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und nehmen unsere {PP_URL}Datenschutzerklärung{/PP_URL} zur Kenntnis."
             },
             "fr-FR": {
-              singular: "En acceptant ce déclassement, vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique. Si vous ne résiliez pas avant le {RENEWAL_DATE}, votre abonnement sera renouvelé au tarif plein et vous serez facturé {FULL_PRICE} (plus taxes) à cette date, puis chaque année par la suite jusqu'à ce que vous annuliez dans vos Paramètres de facturation. Les tarifs peuvent changer. Votre contenu peut être supprimé lors de la résiliation. En complétant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux actions collectives, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
+              singular: "En cliquant sur ‘{CTA}’, vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique. Si vous n'annulez pas avant le {RENEWAL_DATE}, votre abonnement sera renouvelé au tarif normal et {FULL_PRICE} (taxes en sus) vous sera facturé à cette date, puis chaque année par la suite, jusqu'à ce que vous l'annuliez dans les Paramètres de facturation. Les prix peuvent être modifiés. Votre contenu peut être supprimé lors de l'annulation. En effectuant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux recours collectifs, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
             },
             "ja-JP": {
-              singular: "このダウングレードを受け入れることで、以下に同意するものとします：自動更新されるサブスクリプションに対してプロモーション割引が適用されます。{RENEWAL_DATE}までに解約しない場合、サブスクリプションは通常料金で更新され、その日およびその後毎年、{FULL_PRICE}（税金が加算されます）が請求されます。価格は変更される場合があります。解約時にコンテンツが削除されることがあります。この購入を完了することで、{TOS_URL}利用規約{/TOS_URL}（仲裁合意および集団訴訟放棄を含む）に同意し、{PP_URL}プライバシーポリシー{/PP_URL}を確認したことを了承します。"
+              singular: "‘{CTA}’をクリックすると、次の内容に同意するものとします: 自動更新サブスクリプションにプロモーション割引が適用されます。{RENEWAL_DATE}までに解約しない場合、サブスクリプションは通常料金で更新され、その日に{FULL_PRICE} (税別)が請求され、その後解約するまで毎年同額が請求されます。料金は変更される場合があります。解約時にコンテンツが削除される場合があります。本購入を完了することで、{TOS_URL}利用規約{/TOS_URL}（仲裁条項および集団訴訟の放棄を含む）に同意し、{PP_URL}プライバシーポリシー{/PP_URL}を承認したものとみなされます。"
             },
             "ko-KR": {
-              singular: "본 다운그레이드를 수락하면 다음에 동의하게 됩니다: 자동으로 갱신되는 구독에 대해 프로모션 할인이 적용됩니다. {RENEWAL_DATE} 이전에 취소하지 않으면 구독이 정가로 갱신되며 해당 날짜 및 이후 매년 {FULL_PRICE} (세금 별도)가 청구됩니다(결제 설정에서 취소할 때까지). 가격은 변경될 수 있습니다. 취소 시 콘텐츠가 삭제될 수 있습니다. 본 구매를 완료함으로써 귀하는 중재 합의 및 집단 소송 포기를 포함한 당사의 {TOS_URL}서비스 약관{/TOS_URL}에 동의하고 당사의 {PP_URL}개인정보 처리방침{/PP_URL}을 확인합니다."
+              singular: "‘{CTA}’를 클릭하면 다음에 동의하게 됩니다: 자동으로 갱신되는 구독에 대해 프로모션 할인이 적용됩니다. {RENEWAL_DATE} 이전에 취소하지 않으면 구독은 전액으로 갱신되며 해당 날짜와 그 이후 매년 Billing Settings에서 취소할 때까지 {FULL_PRICE} (세금 별도)가 청구됩니다. 가격은 변경될 수 있습니다. 취소 시 콘텐츠가 삭제될 수 있습니다. 이 구매를 완료함으로써 귀하는 중재 합의 및 집단소송 포기 조항을 포함한 당사의 {TOS_URL}Terms of Service{/TOS_URL}에 동의하고 당사의 {PP_URL}Privacy Policy{/PP_URL}를 확인하였음을 인정합니다."
             },
             "pt-BR": {
-              singular: "Ao aceitar este downgrade, você concorda: Você receberá um desconto promocional em uma assinatura que renova automaticamente. Se você não cancelar antes de {RENEWAL_DATE}, sua assinatura será renovada pelo preço cheio e você será cobrado {FULL_PRICE} (mais impostos) nessa data e a cada ano subsequente até que você cancele em suas Configurações de Cobrança. Os preços podem mudar. Seu conteúdo pode ser excluído após o cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia a ações coletivas, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
+              singular: "Ao clicar em ‘{CTA}’, você concorda: você receberá um desconto promocional em uma assinatura com renovação automática. Se você não cancelar antes de {RENEWAL_DATE}, sua assinatura será renovada pelo preço integral e você será cobrado {FULL_PRICE} (mais impostos) nessa data e em todo ano subsequente até cancelar em Configurações de Cobrança. Os preços podem mudar. Seu conteúdo pode ser excluído após o cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia a ações coletivas, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
             },
             "zh-CN": {
-              singular: "接受此降级即表示您同意：您将获得一项自动续订订阅的促销折扣。如果您未在 {RENEWAL_DATE} 前取消，您的订阅将在该日期按全价续订，届时及此后每年您都将被收取 {FULL_PRICE}（加税），直至您在账单设置中取消。价格可能会变动。取消订阅后您的内容可能会被删除。完成购买即表示您同意我们的 {TOS_URL}服务条款{/TOS_URL}，包括仲裁协议和集体诉讼放弃条款，并已知悉我们的 {PP_URL}隐私政策{/PP_URL}。"
+              singular: "点击‘{CTA}’即表示您同意：您将获得一个自动续订订阅的促销折扣。如果您未在 {RENEWAL_DATE} 前取消，您的订阅将以原价续订，且在该日及此后每年将收取 {FULL_PRICE}（另加税费），直至您在账单设置中取消。价格可能会变更。取消后您的内容可能会被删除。完成本次购买即表示您同意我们的 {TOS_URL}服务条款{/TOS_URL}，包括仲裁协议及放弃集体诉讼权，并已知悉我们的 {PP_URL}隐私政策{/PP_URL}。"
             }
           }
         }) : (0, _v16.translate)({
-          singular: "By accepting this downgrade, you agree: You’ll get a promotional discount on an automatically renewing subscription. If you don’t cancel before {RENEWAL_DATE} your subscription will renew at full price and you’ll be charged {FULL_PRICE} (plus tax) on that date and every month thereafter until you cancel in your Billing Settings. Pricing may change. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
+          singular: "By clicking ‘{CTA}’, you agree: You’ll get a promotional discount on an automatically renewing subscription. If you don’t cancel before {RENEWAL_DATE} your subscription will renew at full price and you’ll be charged {FULL_PRICE} (plus tax) on that date and every month thereafter until you cancel in your Billing Settings. Pricing may change. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
           replacements: {
-            RENEWAL_DATE: _v109,
-            FULL_PRICE: _v116 ?? "",
-            TOS_URL: _v120(_v234, "tos"),
-            PP_URL: _v120(_v235, "privacy")
+            CTA: _v84,
+            RENEWAL_DATE: _v112,
+            FULL_PRICE: _v119 ?? "",
+            TOS_URL: _v123(_v234, "tos"),
+            PP_URL: _v123(_v235, "privacy")
           },
           dictionary: {
             es: {
-              singular: "Al aceptar esta reducción de plan, usted acepta: Recibirá un descuento promocional en una suscripción que se renueva automáticamente. Si no cancela antes del {RENEWAL_DATE}, su suscripción se renovará al precio completo y se le cobrará {FULL_PRICE} (más impuestos) en esa fecha y cada mes a partir de entonces hasta que cancele en su Configuración de facturación. Los precios pueden cambiar. Su contenido puede ser eliminado al cancelar. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluido el acuerdo de arbitraje y la renuncia a las acciones colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
+              singular: "Al hacer clic en ‘{CTA}’, usted acepta: Obtendrá un descuento promocional en una suscripción que se renueva automáticamente. Si no cancela antes de {RENEWAL_DATE} su suscripción se renovará al precio completo y se le cobrará {FULL_PRICE} (más impuestos) en esa fecha y cada mes a partir de entonces hasta que cancele en sus Ajustes de facturación. Los precios pueden cambiar. Su contenido puede eliminarse al cancelar. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluido el acuerdo de arbitraje y la renuncia a acciones colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
             },
             "de-DE": {
-              singular: "Wenn Sie dieses Downgrade annehmen, stimmen Sie folgendem zu: Sie erhalten einen Aktionsrabatt auf ein sich automatisch verlängerndes Abonnement. Wenn Sie nicht vor dem {RENEWAL_DATE} kündigen, wird Ihr Abonnement zum vollen Preis verlängert und Ihnen wird an diesem Datum und anschließend jeden Monat bis zur Kündigung in Ihren Abrechnungseinstellungen {FULL_PRICE} (zzgl. Steuern) berechnet. Preise können sich ändern. Ihr Inhalt kann bei Kündigung gelöscht werden. Mit dem Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und nehmen unsere {PP_URL}Datenschutzerklärung{/PP_URL} zur Kenntnis."
+              singular: "Wenn Sie auf ‚{CTA}‘ klicken, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein automatisch verlängerndes Abonnement. Wenn Sie nicht vor dem {RENEWAL_DATE} kündigen, wird Ihr Abonnement zum vollen Preis verlängert und Ihnen an diesem Datum und anschließend jeden Monat bis zur Kündigung in Ihren Abrechnungseinstellungen {FULL_PRICE} (zzgl. Steuern) berechnet. Preise können sich ändern. Ihre Inhalte können bei Kündigung gelöscht werden. Durch Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und nehmen unsere {PP_URL}Datenschutzerklärung{/PP_URL} zur Kenntnis."
             },
             "fr-FR": {
-              singular: "En acceptant cette rétrogradation,  vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique. Si vous n'annulez pas avant le {RENEWAL_DATE}, votre abonnement sera renouvelé au plein tarif et vous serez facturé {FULL_PRICE} (plus taxes) à cette date, puis chaque mois par la suite jusqu'à ce que vous annuliez dans vos Paramètres de facturation. Les tarifs peuvent changer. Votre contenu peut être supprimé lors de l'annulation. En complétant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux recours collectifs, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
+              singular: "En cliquant sur ‘{CTA}’, vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique. Si vous n'annulez pas avant le {RENEWAL_DATE}, votre abonnement sera renouvelé au tarif normal et {FULL_PRICE} (taxes en sus) vous sera facturé à cette date, puis chaque mois par la suite, jusqu'à ce que vous l'annuliez dans les Paramètres de facturation. Les prix peuvent être modifiés. Votre contenu peut être supprimé lors de l'annulation. En effectuant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux recours collectifs, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
             },
             "ja-JP": {
-              singular: "このダウングレードを受け入れることで、以下に同意するものとします：プロモーション割引が自動更新サブスクリプションに適用されます。{RENEWAL_DATE}までに解約しない場合、サブスクリプションは定価で更新され、その日および以降毎月、課金設定で解約するまで{FULL_PRICE}（税別）が請求されます。価格は変更される場合があります。解約時にコンテンツが削除される場合があります。本購入を完了することで、仲裁条項および集団訴訟放棄を含む当社の{TOS_URL}利用規約{/TOS_URL}に同意し、当社の{PP_URL}プライバシーポリシー{/PP_URL}を承認するものとします。"
+              singular: "‘{CTA}’をクリックすると、次の内容に同意するものとします: 自動更新サブスクリプションにプロモーション割引が適用されます。{RENEWAL_DATE}までに解約しない場合、サブスクリプションは通常料金で更新され、その日に{FULL_PRICE} (税別)が請求され、その後解約するまで毎月同額が請求されます。料金は変更される場合があります。解約時にコンテンツが削除される場合があります。本購入を完了することで、{TOS_URL}利用規約{/TOS_URL}（仲裁条項および集団訴訟の放棄を含む）に同意し、{PP_URL}プライバシーポリシー{/PP_URL}を承認したものとみなされます。"
             },
             "ko-KR": {
-              singular: "이 다운그레이드를 수락함으로써 귀하는 다음에 동의합니다: 자동으로 갱신되는 구독에 대해 프로모션 할인을 받게 됩니다. {RENEWAL_DATE} 이전에 취소하지 않으면 구독이 정가로 갱신되며 해당 날짜와 그 이후 매월 결제 시 {FULL_PRICE} (세금 별도)가 청구됩니다. 가격은 변경될 수 있습니다. 취소 시 귀하의 콘텐츠가 삭제될 수 있습니다. 이 구매를 완료함으로써 귀하는 중재 합의 및 집단 소송 포기 조항을 포함한 {TOS_URL}서비스 이용약관{/TOS_URL}에 동의하고 {PP_URL}개인정보 처리방침{/PP_URL}을(를) 확인합니다."
+              singular: "‘{CTA}’를 클릭하면 다음에 동의하게 됩니다: 자동으로 갱신되는 구독에 대해 프로모션 할인이 적용됩니다. {RENEWAL_DATE} 이전에 취소하지 않으면 구독은 전액으로 갱신되며 해당 날짜와 그 이후 매달 Billing Settings에서 취소할 때까지 {FULL_PRICE} (세금 별도)가 청구됩니다. 가격은 변경될 수 있습니다. 취소 시 콘텐츠가 삭제될 수 있습니다. 이 구매를 완료함으로써 귀하는 중재 합의 및 집단소송 포기 조항을 포함한 당사의 {TOS_URL}Terms of Service{/TOS_URL}에 동의하고 당사의 {PP_URL}Privacy Policy{/PP_URL}를 확인하였음을 인정합니다."
             },
             "pt-BR": {
-              singular: "Ao aceitar este downgrade, você concorda: você receberá um desconto promocional em uma assinatura com renovação automática. Se você não cancelar antes de {RENEWAL_DATE}, sua assinatura será renovada pelo preço cheio e você será cobrado {FULL_PRICE} (mais impostos) nessa data e em todo mês subsequente até que cancele nas suas Configurações de cobrança. Os preços podem mudar. Seu conteúdo pode ser excluído após o cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia à ação coletiva, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
+              singular: "Ao clicar em ‘{CTA}’, você concorda: você receberá um desconto promocional em uma assinatura com renovação automática. Se você não cancelar antes de {RENEWAL_DATE}, sua assinatura será renovada pelo preço integral e você será cobrado {FULL_PRICE} (mais impostos) nessa data e em todo mês subsequente até cancelar em Configurações de Cobrança. Os preços podem mudar. Seu conteúdo pode ser excluído após o cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia a ações coletivas, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
             },
             "zh-CN": {
-              singular: "接受此降级即表示您同意：您将获得一个自动续订订阅的促销折扣。如果您未在 {RENEWAL_DATE} 之前取消，您的订阅将按全价续订，并且在该日期及之后每月将向您收取 {FULL_PRICE} (加税)，直至您在账单设置中取消。价格可能会变动。取消订阅后，您的内容可能会被删除。完成此购买即表示您同意我们的 {TOS_URL}Terms of Service{/TOS_URL}，包括仲裁协议和集体诉讼豁免，并已知悉我们的 {PP_URL}Privacy Policy{/PP_URL}。"
+              singular: "点击‘{CTA}’即表示您同意：您将获得一个自动续订订阅的促销折扣。如果您未在 {RENEWAL_DATE} 前取消，您的订阅将以原价续订，且在该日及此后每月将收取 {FULL_PRICE}（另加税费），直至您在账单设置中取消。价格可能会变更。取消后您的内容可能会被删除。完成本次购买即表示您同意我们的 {TOS_URL}服务条款{/TOS_URL}，包括仲裁协议及放弃集体诉讼权，并已知悉我们的 {PP_URL}隐私政策{/PP_URL}。"
             }
           }
         }),
-        _v123 = _v0 => (0, _v5.jsx)(_v33.Text, {
+        _v126 = _v0 => (0, _v5.jsx)(_v33.Text, {
           variant: "body-xs",
           color: "text-secondary",
           mt: 5,
-          children: "discount" === _v0 ? _v121 : _v122
+          children: "discount" === _v0 ? _v124 : _v125
         }),
-        _v124 = () => {
-          let _v0 = _v7.billingPeriod === _v99.UserPlanType.Year ? (0, _v16.translate)({
+        _v127 = _v0 => {
+          let _v1 = _v7.billingPeriod === _v99.UserPlanType.Year ? (0, _v16.translate)({
             singular: "year",
             dictionary: {
               es: {
@@ -11712,47 +11802,48 @@
             color: "text-secondary",
             mt: 3,
             children: (0, _v16.translate)({
-              singular: "By accepting this discount, you agree: You’ll get a promotional discount on an automatically renewing subscription, for a total price of {DISCOUNTED_AMOUNT}. If you don’t cancel before {RENEWAL_DATE}, your subscription will renew at the promotional price of {DISCOUNTED_AMOUNT} (plus tax) on that date and will continue to automatically renew at the promotional price every {PERIOD} unless you cancel in Billing Settings. Subscription price may change in accordance with our Terms of Service. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
+              singular: "By clicking ‘{CTA}’, you agree: You’ll get a promotional discount on an automatically renewing subscription, for a total price of {DISCOUNTED_AMOUNT}. If you don’t cancel before {RENEWAL_DATE}, your subscription will renew at the promotional price of {DISCOUNTED_AMOUNT} (plus tax) on that date and will continue to automatically renew at the promotional price every {PERIOD} unless you cancel in Billing Settings. Subscription price may change in accordance with our Terms of Service. Your content may be deleted upon cancellation. By completing this purchase, you agree to our {TOS_URL}Terms of Service{/TOS_URL}, including the arbitration agreement and class action waiver, and acknowledge our {PP_URL}Privacy Policy{/PP_URL}.",
               replacements: {
-                DISCOUNTED_AMOUNT: _v115 ?? "",
-                RENEWAL_DATE: _v109,
-                PERIOD: _v0,
-                TOS_URL: _v120(_v234, "tos"),
-                PP_URL: _v120(_v235, "privacy")
+                CTA: _v0,
+                DISCOUNTED_AMOUNT: _v118 ?? "",
+                RENEWAL_DATE: _v112,
+                PERIOD: _v1,
+                TOS_URL: _v123(_v234, "tos"),
+                PP_URL: _v123(_v235, "privacy")
               },
               dictionary: {
                 es: {
-                  singular: "Al aceptar este descuento, usted acepta: Recibirá un descuento promocional en una suscripción que se renueva automáticamente, por un precio total de {DISCOUNTED_AMOUNT}. Si no cancela antes de {RENEWAL_DATE}, su suscripción se renovará al precio promocional de {DISCOUNTED_AMOUNT} (más impuestos) en esa fecha y continuará renovándose automáticamente al precio promocional cada {PERIOD} a menos que cancele en Configuración de facturación. El precio de la suscripción puede cambiar de acuerdo con nuestros Términos de servicio. Su contenido puede ser eliminado al cancelar. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluyendo el acuerdo de arbitraje y la renuncia a demandas colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
+                  singular: "Al hacer clic en ‘{CTA}’, usted acepta: Obtendrá un descuento promocional en una suscripción que se renueva automáticamente, por un precio total de {DISCOUNTED_AMOUNT}. Si no cancela antes de {RENEWAL_DATE}, su suscripción se renovará al precio promocional de {DISCOUNTED_AMOUNT} (más impuestos) en esa fecha y continuará renovándose automáticamente al precio promocional cada {PERIOD} a menos que cancele en sus Ajustes de facturación. El precio de la suscripción puede cambiar de acuerdo con nuestros Términos de servicio. Su contenido puede eliminarse al cancelar. Al completar esta compra, usted acepta nuestros {TOS_URL}Términos de servicio{/TOS_URL}, incluido el acuerdo de arbitraje y la renuncia a acciones colectivas, y reconoce nuestra {PP_URL}Política de privacidad{/PP_URL}."
                 },
                 "de-DE": {
-                  singular: "Wenn Sie diesen Rabatt annehmen, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein sich automatisch verlängerndes Abonnement zu einem Gesamtpreis von {DISCOUNTED_AMOUNT}. Wenn Sie nicht vor dem {RENEWAL_DATE} kündigen, wird Ihr Abonnement an diesem Datum zum Aktionspreis von {DISCOUNTED_AMOUNT} (zuzüglich Steuern) verlängert und verlängert sich anschließend alle {PERIOD} automatisch zum Aktionspreis, sofern Sie nicht in den Abrechnungseinstellungen kündigen. Der Abonnementpreis kann sich gemäß unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} ändern. Ihre Inhalte können bei Kündigung gelöscht werden. Mit dem Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und erkennen unsere {PP_URL}Datenschutzerklärung{/PP_URL} an."
+                  singular: "Wenn Sie auf ‚{CTA}‘ klicken, stimmen Sie zu: Sie erhalten einen Aktionsrabatt auf ein automatisch verlängerndes Abonnement zum Gesamtpreis von {DISCOUNTED_AMOUNT}. Wenn Sie nicht vor dem {RENEWAL_DATE} kündigen, wird Ihr Abonnement an diesem Datum zum Aktionspreis von {DISCOUNTED_AMOUNT} (zzgl. Steuern) verlängert und sich danach alle {PERIOD} weiterhin automatisch zum Aktionspreis verlängern, sofern Sie nicht in den Abrechnungseinstellungen kündigen. Der Abonnementpreis kann sich gemäß unseren Nutzungsbedingungen ändern. Ihre Inhalte können bei Kündigung gelöscht werden. Durch Abschluss dieses Kaufs stimmen Sie unseren {TOS_URL}Nutzungsbedingungen{/TOS_URL} zu, einschließlich der Schiedsvereinbarung und des Verzichts auf Sammelklagen, und nehmen unsere {PP_URL}Datenschutzerklärung{/PP_URL} zur Kenntnis."
                 },
                 "fr-FR": {
-                  singular: "En acceptant cette remise , vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique, pour un prix total de {DISCOUNTED_AMOUNT}. Si vous n'annulez pas avant {RENEWAL_DATE}, votre abonnement sera renouvelé au prix promotionnel de {DISCOUNTED_AMOUNT} (plus taxes) à cette date et continuera d'être automatiquement renouvelé au prix promotionnel tous les {PERIOD} sauf si vous annulez dans les Paramètres de facturation. Le prix de l'abonnement peut changer conformément à nos Conditions d'utilisation. Votre contenu peut être supprimé à l'annulation. En finalisant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux recours collectifs, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
+                  singular: "En cliquant sur ‘{CTA}’, vous acceptez : Vous bénéficierez d'une remise promotionnelle sur un abonnement à renouvellement automatique, pour un prix total de {DISCOUNTED_AMOUNT}. Si vous n'annulez pas avant le {RENEWAL_DATE}, votre abonnement sera renouvelé au prix promotionnel de {DISCOUNTED_AMOUNT} (taxes en sus) à cette date et continuera à se renouveler automatiquement au prix promotionnel tous les {PERIOD}, sauf si vous l'annulez dans les Paramètres de facturation. Le prix de l'abonnement peut être modifié conformément à nos Conditions d'utilisation. Votre contenu peut être supprimé lors de l'annulation. En effectuant cet achat, vous acceptez nos {TOS_URL}Conditions d'utilisation{/TOS_URL}, y compris la clause d'arbitrage et la renonciation aux recours collectifs, et reconnaissez notre {PP_URL}Politique de confidentialité{/PP_URL}."
                 },
                 "ja-JP": {
-                  singular: "この割引を受け入れることで、次のことに同意するものとします：自動更新されるサブスクリプションにプロモーション割引が適用され、合計金額は {DISCOUNTED_AMOUNT} になります。{RENEWAL_DATE} より前にキャンセルしない場合、サブスクリプションはその日にプロモーション価格 {DISCOUNTED_AMOUNT}（税別）で更新され、その後も請求設定でキャンセルしない限り {PERIOD} ごとにプロモーション価格で自動更新され続けます。サブスクリプション価格は当社の利用規約に従って変更される場合があります。解約時にコンテンツが削除されることがあります。本購入を完了することで、仲裁合意および集団訴訟放棄を含む当社の {TOS_URL}利用規約{/TOS_URL} に同意し、{PP_URL}プライバシーポリシー{/PP_URL} を確認したことを承認するものとします。"
+                  singular: "‘{CTA}’をクリックすると、次の内容に同意するものとします: 自動更新サブスクリプションにプロモーション割引が適用され、合計金額は{DISCOUNTED_AMOUNT}になります。{RENEWAL_DATE}までに解約しない場合、サブスクリプションはその日にプロモーション価格の{DISCOUNTED_AMOUNT} (税別)で更新され、その後解約しない限り毎{PERIOD}プロモーション価格で自動的に更新されます。サブスクリプション価格は当社の利用規約に従って変更される場合があります。解約時にコンテンツが削除される場合があります。本購入を完了することで、{TOS_URL}利用規約{/TOS_URL}（仲裁条項および集団訴訟の放棄を含む）に同意し、{PP_URL}プライバシーポリシー{/PP_URL}を承認したものとみなされます。"
                 },
                 "ko-KR": {
-                  singular: "이 할인을 수락하면 다음에 동의하게 됩니다: 자동 갱신되는 구독에 프로모션 할인이 적용되어 총 금액은 {DISCOUNTED_AMOUNT}가 됩니다. {RENEWAL_DATE} 이전에 취소하지 않으면 귀하의 구독은 해당 날짜에 프로모션 가격 {DISCOUNTED_AMOUNT}(세금 별도)로 갱신되며, 결제 설정에서 취소하지 않는 한 매 {PERIOD}마다 프로모션 가격으로 자동 갱신됩니다. 구독 가격은 당사의 서비스 약관에 따라 변경될 수 있습니다. 취소 시 귀하의 콘텐츠가 삭제될 수 있습니다. 본 구매를 완료함으로써 귀하는 중재 합의 및 집단 소송 포기를 포함한 당사의 {TOS_URL}서비스 약관{/TOS_URL}에 동의하고 당사의 {PP_URL}개인정보 처리방침{/PP_URL}을 확인합니다."
+                  singular: "‘{CTA}’를 클릭하면 다음에 동의하게 됩니다: 자동으로 갱신되는 구독에 대해 프로모션 할인이 적용되며 총 금액은 {DISCOUNTED_AMOUNT}입니다. {RENEWAL_DATE} 이전에 취소하지 않으면 귀하의 구독은 해당 날짜에 프로모션 가격인 {DISCOUNTED_AMOUNT} (세금 별도)로 갱신되며 Billing Settings에서 취소하지 않는 한 이후에도 매 {PERIOD}마다 프로모션 가격으로 자동 갱신됩니다. 구독 가격은 당사의 Terms of Service에 따라 변경될 수 있습니다. 취소 시 콘텐츠가 삭제될 수 있습니다. 이 구매를 완료함으로써 귀하는 중재 합의 및 집단소송 포기 조항을 포함한 당사의 {TOS_URL}Terms of Service{/TOS_URL}에 동의하고 당사의 {PP_URL}Privacy Policy{/PP_URL}를 확인하였음을 인정합니다."
                 },
                 "pt-BR": {
-                  singular: "Ao aceitar este desconto, você concorda: Você receberá um desconto promocional em uma assinatura com renovação automática, por um preço total de {DISCOUNTED_AMOUNT}. Se você não cancelar antes de {RENEWAL_DATE}, sua assinatura será renovada pelo preço promocional de {DISCOUNTED_AMOUNT} (mais impostos) nessa data e continuará a ser renovada automaticamente pelo preço promocional a cada {PERIOD}, a menos que você cancele nas Configurações de Cobrança. O preço da assinatura pode mudar de acordo com nossos Termos de Serviço. Seu conteúdo pode ser excluído em caso de cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia à ação coletiva, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
+                  singular: "Ao clicar em ‘{CTA}’, você concorda: você receberá um desconto promocional em uma assinatura com renovação automática, por um preço total de {DISCOUNTED_AMOUNT}. Se você não cancelar antes de {RENEWAL_DATE}, sua assinatura será renovada pelo preço promocional de {DISCOUNTED_AMOUNT} (mais impostos) nessa data e continuará a ser renovada automaticamente pelo preço promocional a cada {PERIOD}, a menos que você cancele em Configurações de Cobrança. O preço da assinatura pode mudar de acordo com nossos {TOS_URL}Termos de Serviço{/TOS_URL}. Seu conteúdo pode ser excluído após o cancelamento. Ao concluir esta compra, você concorda com nossos {TOS_URL}Termos de Serviço{/TOS_URL}, incluindo o acordo de arbitragem e a renúncia a ações coletivas, e reconhece nossa {PP_URL}Política de Privacidade{/PP_URL}."
                 },
                 "zh-CN": {
-                  singular: "接受此折扣，即表示您同意：您将获得一项自动续订订阅的促销折扣，总价为 {DISCOUNTED_AMOUNT}。如果您未在 {RENEWAL_DATE} 之前取消，您的订阅将在该日期以 {DISCOUNTED_AMOUNT} 的促销价格（另加税费）续订，并将每 {PERIOD} 自动以该促销价格续订，除非您在计费设置中取消。订阅价格可能会根据我们的服务条款发生变动。取消后，您的内容可能会被删除。完成本次购买即表示您同意我们的 {TOS_URL}服务条款{/TOS_URL}（包括仲裁协议和集体诉讼放弃条款），并已知悉我们的 {PP_URL}隐私政策{/PP_URL}。"
+                  singular: "点击‘{CTA}’即表示您同意：您将获得一个自动续订订阅的促销折扣，总价为 {DISCOUNTED_AMOUNT}。如果您未在 {RENEWAL_DATE} 前取消，您的订阅将在该日以促销价 {DISCOUNTED_AMOUNT}（另加税费）续订，并将按每{PERIOD}以促销价继续自动续订，除非您在账单设置中取消。订阅价格可能会根据我们的服务条款而变更。取消后您的内容可能会被删除。完成本次购买即表示您同意我们的 {TOS_URL}服务条款{/TOS_URL}，包括仲裁协议及放弃集体诉讼权，并已知悉我们的 {PP_URL}隐私政策{/PP_URL}。"
                 }
               }
             })
           });
         };
-      if (_v99) {
+      if (_v102) {
         let _v0 = _v7.billingPeriod === _v99.UserPlanType.Year,
           _v1 = _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v81?.priceFormatted?.annualMonthly ?? null : _v6?.originalPrice?.formatted ?? _v6?.price?.formatted ?? _v81?.priceFormatted?.monthly ?? null,
-          _v2 = _v70 ? _v68?.effectiveDiscountedPrice ?? null : null != _v96 && null !== _v100 ? (0, _v224.resolveEffectiveDiscountedPrice)(_v96, _v100) : null,
-          _v3 = null !== _v2 && _v113 ? new Intl.NumberFormat(_v55 ?? "en", {
+          _v2 = _v70 ? _v68?.effectiveDiscountedPrice ?? null : null != _v99 && null !== _v103 ? (0, _v224.resolveEffectiveDiscountedPrice)(_v99, _v103) : null,
+          _v3 = null !== _v2 && _v116 ? new Intl.NumberFormat(_v55 ?? "en", {
             style: "currency",
-            currency: _v113,
+            currency: _v116,
             minimumFractionDigits: 0,
             maximumFractionDigits: 2
           }).format(_v2) : null,
@@ -11762,9 +11853,9 @@
           isOpen: _v0,
           onClose: _v1,
           onBack: _v3,
-          onConfirmCancellation: _v118,
+          onConfirmCancellation: _v121,
           onAcceptOffer: () => {
-            _v104();
+            _v107();
           },
           cancelRequestPending: _v9,
           isAccepting: _v56,
@@ -11772,38 +11863,38 @@
           planName: _v82,
           discountedPrice: _v3,
           originalPrice: _v1,
-          savingsPercent: _v100,
+          savingsPercent: _v103,
           renewalPriceLabel: _v4,
           renewalMonthlyPriceLabel: _v5,
           planFeatures: {
-            teamSeats: _v84,
-            adminSeats: _v85,
-            restrictedStorage: _v86,
-            bandwidth: _v87,
-            bandwidthIsYearly: _v88
+            teamSeats: _v87,
+            adminSeats: _v88,
+            restrictedStorage: _v89,
+            bandwidth: _v90,
+            bandwidthIsYearly: _v91
           }
         });
       }
       if (_v80) {
         let _v0 = _v7.billingPeriod === _v99.UserPlanType.Year,
           _v1 = _v30 ? _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v81?.priceFormatted?.annualMonthly : _v6?.originalPrice?.formatted ?? _v6?.price?.formatted ?? _v81?.priceFormatted?.monthly : _v0 ? _v81?.priceFormatted?.annualMonthly : _v81?.priceFormatted?.monthly,
-          _v2 = _v70 ? _v68?.effectiveDiscountedPrice ?? null : null != _v96 && null !== _v100 ? (0, _v224.resolveEffectiveDiscountedPrice)(_v96, _v100) : null,
-          _v3 = null !== _v2 && _v113 ? new Intl.NumberFormat(_v55 ?? "en", {
+          _v2 = _v70 ? _v68?.effectiveDiscountedPrice ?? null : null != _v99 && null !== _v103 ? (0, _v224.resolveEffectiveDiscountedPrice)(_v99, _v103) : null,
+          _v3 = null !== _v2 && _v116 ? new Intl.NumberFormat(_v55 ?? "en", {
             style: "currency",
-            currency: _v113,
+            currency: _v116,
             minimumFractionDigits: 0,
             maximumFractionDigits: 2
           }).format(_v2) : null;
-        if (_v99) {
+        if (_v102) {
           let _v0 = _v0 ? _v6?.originalPrice?.formatted ?? _v81?.priceFormatted?.annual ?? null : _v3,
             _v1 = _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v81?.priceFormatted?.annualMonthly ?? null : _v3;
           return (0, _v5.jsx)(_v233, {
             isOpen: _v0,
             onClose: _v1,
             onBack: _v3,
-            onConfirmCancellation: _v118,
+            onConfirmCancellation: _v121,
             onAcceptOffer: () => {
-              _v104();
+              _v107();
             },
             cancelRequestPending: _v9,
             isAccepting: _v56,
@@ -11811,30 +11902,30 @@
             planName: _v82,
             discountedPrice: _v3,
             originalPrice: _v1 ?? null,
-            savingsPercent: _v100,
+            savingsPercent: _v103,
             renewalPriceLabel: _v0,
             renewalMonthlyPriceLabel: _v1,
             planFeatures: {
-              teamSeats: _v84,
-              adminSeats: _v85,
-              restrictedStorage: _v86,
-              bandwidth: _v87,
-              bandwidthIsYearly: _v88
+              teamSeats: _v87,
+              adminSeats: _v88,
+              restrictedStorage: _v89,
+              bandwidth: _v90,
+              bandwidthIsYearly: _v91
             }
           });
         }
         if (_v35 && !_v30) {
-          var _v125;
+          var _v128;
           let _v0, _v1, _v2, _v3, _v4;
-          return _v125 = {
-            teamSeats: _v84,
-            adminSeats: _v85,
-            restrictedStorage: _v86,
-            bandwidth: _v87,
-            bandwidthIsYearly: _v88
-          }, _v1 = (_v0 = _v7.billingPeriod === _v99.UserPlanType.Year) ? _v81?.priceFormatted?.annualMonthly : _v81?.priceFormatted?.monthly, _v3 = null !== (_v2 = null != _v96 && null !== _v100 ? (0, _v224.resolveEffectiveDiscountedPrice)(_v96, _v100) : null) && _v113 ? new Intl.NumberFormat(_v55 ?? "en", {
+          return _v128 = {
+            teamSeats: _v87,
+            adminSeats: _v88,
+            restrictedStorage: _v89,
+            bandwidth: _v90,
+            bandwidthIsYearly: _v91
+          }, _v1 = (_v0 = _v7.billingPeriod === _v99.UserPlanType.Year) ? _v81?.priceFormatted?.annualMonthly : _v81?.priceFormatted?.monthly, _v3 = null !== (_v2 = null != _v99 && null !== _v103 ? (0, _v224.resolveEffectiveDiscountedPrice)(_v99, _v103) : null) && _v116 ? new Intl.NumberFormat(_v55 ?? "en", {
             style: "currency",
-            currency: _v113,
+            currency: _v116,
             minimumFractionDigits: 0,
             maximumFractionDigits: 2
           }).format(_v2) : null, _v4 = _v0 => (0, _v5.jsxs)(_v162.Stack, {
@@ -12197,7 +12288,7 @@
                       size: "md",
                       width: "100%",
                       marginTop: "auto",
-                      onClick: _v118,
+                      onClick: _v121,
                       isLoading: _v9,
                       disabled: _v9 || _v56,
                       children: (0, _v16.translate)({
@@ -12258,7 +12349,7 @@
                           as: "span",
                           textDecoration: "line-through",
                           children: _v1
-                        }), null !== _v100 && (0, _v5.jsx)(_v71.Badge, {
+                        }), null !== _v103 && (0, _v5.jsx)(_v71.Badge, {
                           size: "sm",
                           backgroundColor: "status-positive-secondary",
                           textColor: "status-positive-primary",
@@ -12269,7 +12360,7 @@
                           children: (0, _v16.translate)({
                             singular: "Save {PERCENT}%",
                             replacements: {
-                              PERCENT: _v100
+                              PERCENT: _v103
                             },
                             dictionary: {
                               es: {
@@ -12351,43 +12442,17 @@
                           }
                         })
                       })]
-                    }), _v4(_v125), (0, _v5.jsx)(_v11.Button, {
+                    }), _v4(_v128), (0, _v5.jsx)(_v11.Button, {
                       variant: "primary",
                       size: "md",
                       width: "100%",
-                      onClick: _v104,
+                      onClick: _v107,
                       isLoading: _v56,
                       disabled: _v56,
-                      children: (0, _v16.translate)({
-                        singular: "Accept the offer",
-                        replacements: {},
-                        dictionary: {
-                          es: {
-                            singular: "Aceptar la oferta"
-                          },
-                          "de-DE": {
-                            singular: "Angebot annehmen"
-                          },
-                          "fr-FR": {
-                            singular: "Accepter l'offre"
-                          },
-                          "ja-JP": {
-                            singular: "オファーを受け入れる"
-                          },
-                          "ko-KR": {
-                            singular: "제안 수락"
-                          },
-                          "pt-BR": {
-                            singular: "Aceitar a oferta"
-                          },
-                          "zh-CN": {
-                            singular: "接受此优惠"
-                          }
-                        }
-                      })
+                      children: _v85
                     })]
                   })]
-                }), _v124(), _v38 && (0, _v5.jsxs)(_v5.Fragment, {
+                }), _v127(_v85), _v38 && (0, _v5.jsxs)(_v5.Fragment, {
                   children: [(0, _v5.jsxs)(_v12.Flex, {
                     gap: "8px",
                     alignItems: "center",
@@ -12508,7 +12573,7 @@
                       size: "sm",
                       backgroundColor: "status-info-primary",
                       color: "white",
-                      onClick: _v117,
+                      onClick: _v120,
                       children: (0, _v16.translate)({
                         singular: "Request individual plan",
                         dictionary: {
@@ -12614,7 +12679,7 @@
                   as: "span",
                   textDecoration: "line-through",
                   children: _v1
-                }), null !== _v100 && (0, _v5.jsx)(_v71.Badge, {
+                }), null !== _v103 && (0, _v5.jsx)(_v71.Badge, {
                   size: "sm",
                   backgroundColor: "status-positive-secondary",
                   textColor: "status-positive-primary",
@@ -12625,7 +12690,7 @@
                   children: (0, _v16.translate)({
                     singular: "Save {PERCENT}%",
                     replacements: {
-                      PERCENT: _v100
+                      PERCENT: _v103
                     },
                     dictionary: {
                       es: {
@@ -12762,13 +12827,13 @@
                       }
                     }
                   })
-                }), _v111 && (0, _v5.jsx)(_v33.Text, {
+                }), _v114 && (0, _v5.jsx)(_v33.Text, {
                   variant: "body-sm",
                   color: "text-secondary",
                   children: _v0 ? (0, _v16.translate)({
                     singular: "Renews at {AMOUNT}/month, billed annually",
                     replacements: {
-                      AMOUNT: _v111
+                      AMOUNT: _v114
                     },
                     dictionary: {
                       es: {
@@ -12796,7 +12861,7 @@
                   }) : (0, _v16.translate)({
                     singular: "Renews at {AMOUNT}/month, billed monthly",
                     replacements: {
-                      AMOUNT: _v111
+                      AMOUNT: _v114
                     }
                   })
                 }), (0, _v5.jsx)(_v33.Text, {
@@ -12833,17 +12898,17 @@
                 align: "flex-start",
                 spacing: 3,
                 mt: 5,
-                children: [null !== _v84 && (0, _v5.jsxs)(_v10.Box, {
+                children: [null !== _v87 && (0, _v5.jsxs)(_v10.Box, {
                   display: "flex",
                   alignItems: "center",
                   gap: 2,
-                  children: [_v84 <= 1 ? (0, _v5.jsx)(_v212.PersonUser, {}) : (0, _v5.jsx)(_v111.Users, {}), (0, _v5.jsx)(_v33.Text, {
+                  children: [_v87 <= 1 ? (0, _v5.jsx)(_v212.PersonUser, {}) : (0, _v5.jsx)(_v111.Users, {}), (0, _v5.jsx)(_v33.Text, {
                     variant: "body-sm",
-                    children: _v85 ? (0, _v16.translate)({
+                    children: _v88 ? (0, _v16.translate)({
                       singular: "{USERS} users + {ADMINS} admins",
                       replacements: {
-                        USERS: _v84,
-                        ADMINS: _v85
+                        USERS: _v87,
+                        ADMINS: _v88
                       },
                       dictionary: {
                         es: {
@@ -12871,9 +12936,9 @@
                     }) : (0, _v16.translate)({
                       singular: "{AMOUNT} user",
                       plural: "{AMOUNT} users",
-                      count: _v84,
+                      count: _v87,
                       replacements: {
-                        AMOUNT: _v84
+                        AMOUNT: _v87
                       },
                       dictionary: {
                         es: {
@@ -12907,7 +12972,7 @@
                       }
                     })
                   })]
-                }), _v86 && (0, _v5.jsxs)(_v10.Box, {
+                }), _v89 && (0, _v5.jsxs)(_v10.Box, {
                   display: "flex",
                   alignItems: "center",
                   gap: 2,
@@ -12916,7 +12981,7 @@
                     children: (0, _v16.translate)({
                       singular: "{AMOUNT} storage for Embeds and non-Public videos",
                       replacements: {
-                        AMOUNT: _v86
+                        AMOUNT: _v89
                       },
                       dictionary: {
                         es: {
@@ -12943,16 +13008,16 @@
                       }
                     })
                   })]
-                }), _v87 && (0, _v5.jsxs)(_v10.Box, {
+                }), _v90 && (0, _v5.jsxs)(_v10.Box, {
                   display: "flex",
                   alignItems: "center",
                   gap: 2,
                   children: [(0, _v5.jsx)(_v226.Database, {}), (0, _v5.jsx)(_v33.Text, {
                     variant: "body-sm",
-                    children: _v88 ? (0, _v16.translate)({
+                    children: _v91 ? (0, _v16.translate)({
                       singular: "{AMOUNT} of bandwidth per year",
                       replacements: {
-                        AMOUNT: _v87
+                        AMOUNT: _v90
                       },
                       dictionary: {
                         es: {
@@ -12980,7 +13045,7 @@
                     }) : (0, _v16.translate)({
                       singular: "{AMOUNT} of bandwidth per month",
                       replacements: {
-                        AMOUNT: _v87
+                        AMOUNT: _v90
                       },
                       dictionary: {
                         es: {
@@ -13008,7 +13073,7 @@
                     })
                   })]
                 })]
-              }), _v34 ? _v124() : _v123("discount")]
+              }), _v34 ? _v127(_v83) : _v126("discount")]
             }), (0, _v5.jsx)(_v106.ModalFooter, {
               p: 0,
               mt: 6,
@@ -13019,43 +13084,15 @@
                   variant: "primary",
                   size: "md",
                   width: "100%",
-                  onClick: _v104,
+                  onClick: _v107,
                   isLoading: _v56,
                   disabled: _v56,
-                  children: (0, _v16.translate)({
-                    singular: "Continue with {PLAN}",
-                    replacements: {
-                      PLAN: _v82
-                    },
-                    dictionary: {
-                      es: {
-                        singular: "Continuar con {PLAN}"
-                      },
-                      "de-DE": {
-                        singular: "Mit {PLAN} fortfahren"
-                      },
-                      "fr-FR": {
-                        singular: "Continuer avec {PLAN}"
-                      },
-                      "ja-JP": {
-                        singular: "{PLAN}で続行"
-                      },
-                      "ko-KR": {
-                        singular: "계속 진행: {PLAN}"
-                      },
-                      "pt-BR": {
-                        singular: "Continuar com {PLAN}"
-                      },
-                      "zh-CN": {
-                        singular: "继续使用 {PLAN}"
-                      }
-                    }
-                  })
+                  children: _v83
                 }), (0, _v5.jsx)(_v11.Button, {
                   variant: "destructive",
                   size: "md",
                   width: "100%",
-                  onClick: _v118,
+                  onClick: _v121,
                   isLoading: _v9,
                   disabled: _v9 || _v56,
                   children: (0, _v16.translate)({
@@ -13089,7 +13126,7 @@
                   background: "none",
                   size: "md",
                   width: "100%",
-                  onClick: _v117,
+                  onClick: _v120,
                   children: (0, _v16.translate)({
                     singular: "Request an individual plan",
                     dictionary: {
@@ -13124,21 +13161,21 @@
       }
       if (!_v66) return null;
       let {
-          teamSeats: _v126,
-          restrictedVideoStorageLimit: _v127,
-          bandwidth: _v128,
-          seats: _v129
+          teamSeats: _v129,
+          restrictedVideoStorageLimit: _v130,
+          bandwidth: _v131,
+          seats: _v132
         } = _v66?.metadata?.entitlements?.params ?? {},
-        _v130 = _v129?.admin ?? null,
-        _v131 = _v128?.periodicQuota ?? null,
-        _v132 = _v128?.quotaPeriod === "year",
-        _v133 = _v7.billingPeriod === _v99.UserPlanType.Year,
-        _v134 = _v19 ? _v47?.find(_v0 => _v0.tier === _v19) ?? null : null,
-        _v135 = _v133 ? _v66?.price?.annualMonthly : _v66?.price?.monthly,
-        _v136 = _v133 ? _v134?.price?.annualMonthly : _v134?.price?.monthly,
-        _v137 = _v136 && _v135 && _v136 > _v135 ? Math.floor((_v136 - _v135) / _v136 * 100) : null,
-        _v138 = _v133 ? _v134?.priceFormatted?.annualMonthly : _v134?.priceFormatted?.monthly,
-        _v139 = "professional" === _v36 ? (0, _v16.translate)({
+        _v133 = _v132?.admin ?? null,
+        _v134 = _v131?.periodicQuota ?? null,
+        _v135 = _v131?.quotaPeriod === "year",
+        _v136 = _v7.billingPeriod === _v99.UserPlanType.Year,
+        _v137 = _v19 ? _v47?.find(_v0 => _v0.tier === _v19) ?? null : null,
+        _v138 = _v136 ? _v66?.price?.annualMonthly : _v66?.price?.monthly,
+        _v139 = _v136 ? _v137?.price?.annualMonthly : _v137?.price?.monthly,
+        _v140 = _v139 && _v138 && _v139 > _v138 ? Math.floor((_v139 - _v138) / _v139 * 100) : null,
+        _v141 = _v136 ? _v137?.priceFormatted?.annualMonthly : _v137?.priceFormatted?.monthly,
+        _v142 = "professional" === _v36 ? (0, _v16.translate)({
           singular: "Professional is built for individual creators. Get the same essentials at a lower price.",
           dictionary: {
             es: {
@@ -13279,7 +13316,7 @@
               variant: "body-md",
               color: "text-secondary",
               mt: 2,
-              children: _v139
+              children: _v142
             }), (0, _v5.jsxs)(_v12.Flex, {
               mt: 4,
               alignItems: "center",
@@ -13288,14 +13325,14 @@
               children: [(0, _v5.jsx)(_v33.Text, {
                 variant: "heading-xl",
                 as: "span",
-                children: _v133 ? _v66?.priceFormatted?.annualMonthly : _v66?.priceFormatted?.monthly
-              }), _v138 && null !== _v137 && (0, _v5.jsx)(_v33.Text, {
+                children: _v136 ? _v66?.priceFormatted?.annualMonthly : _v66?.priceFormatted?.monthly
+              }), _v141 && null !== _v140 && (0, _v5.jsx)(_v33.Text, {
                 variant: "body-lg",
                 color: "text-tertiary",
                 as: "span",
                 textDecoration: "line-through",
-                children: _v138
-              }), null !== _v137 && (0, _v5.jsx)(_v71.Badge, {
+                children: _v141
+              }), null !== _v140 && (0, _v5.jsx)(_v71.Badge, {
                 size: "sm",
                 backgroundColor: "status-positive-secondary",
                 textColor: "status-positive-primary",
@@ -13306,7 +13343,7 @@
                 children: (0, _v16.translate)({
                   singular: "Save {PERCENT}%",
                   replacements: {
-                    PERCENT: _v137
+                    PERCENT: _v140
                   },
                   dictionary: {
                     es: {
@@ -13338,7 +13375,7 @@
               children: [(0, _v5.jsx)(_v33.Text, {
                 variant: "body-sm",
                 color: "text-secondary",
-                children: _v133 ? (0, _v16.translate)({
+                children: _v136 ? (0, _v16.translate)({
                   singular: "per month, billed annually",
                   dictionary: {
                     es: {
@@ -13423,17 +13460,17 @@
               align: "flex-start",
               spacing: 3,
               mt: 5,
-              children: [null != _v126 && (0, _v5.jsxs)(_v10.Box, {
+              children: [null != _v129 && (0, _v5.jsxs)(_v10.Box, {
                 display: "flex",
                 alignItems: "center",
                 gap: 2,
-                children: [_v126 <= 1 ? (0, _v5.jsx)(_v212.PersonUser, {}) : (0, _v5.jsx)(_v111.Users, {}), (0, _v5.jsx)(_v33.Text, {
+                children: [_v129 <= 1 ? (0, _v5.jsx)(_v212.PersonUser, {}) : (0, _v5.jsx)(_v111.Users, {}), (0, _v5.jsx)(_v33.Text, {
                   variant: "body-sm",
-                  children: _v130 ? (0, _v16.translate)({
+                  children: _v133 ? (0, _v16.translate)({
                     singular: "{USERS} users + {ADMINS} admins",
                     replacements: {
-                      USERS: _v126,
-                      ADMINS: _v130
+                      USERS: _v129,
+                      ADMINS: _v133
                     },
                     dictionary: {
                       es: {
@@ -13461,9 +13498,9 @@
                   }) : (0, _v16.translate)({
                     singular: "{AMOUNT} user",
                     plural: "{AMOUNT} users",
-                    count: _v126,
+                    count: _v129,
                     replacements: {
-                      AMOUNT: _v126
+                      AMOUNT: _v129
                     },
                     dictionary: {
                       es: {
@@ -13497,7 +13534,7 @@
                     }
                   })
                 })]
-              }), _v127 && (0, _v5.jsxs)(_v10.Box, {
+              }), _v130 && (0, _v5.jsxs)(_v10.Box, {
                 display: "flex",
                 alignItems: "center",
                 gap: 2,
@@ -13506,7 +13543,7 @@
                   children: (0, _v16.translate)({
                     singular: "{AMOUNT} storage for Embeds and non-Public videos",
                     replacements: {
-                      AMOUNT: _v127
+                      AMOUNT: _v130
                     },
                     dictionary: {
                       es: {
@@ -13533,16 +13570,16 @@
                     }
                   })
                 })]
-              }), _v131 && (0, _v5.jsxs)(_v10.Box, {
+              }), _v134 && (0, _v5.jsxs)(_v10.Box, {
                 display: "flex",
                 alignItems: "center",
                 gap: 2,
                 children: [(0, _v5.jsx)(_v226.Database, {}), (0, _v5.jsx)(_v33.Text, {
                   variant: "body-sm",
-                  children: _v132 ? (0, _v16.translate)({
+                  children: _v135 ? (0, _v16.translate)({
                     singular: "{AMOUNT} of bandwidth per year",
                     replacements: {
-                      AMOUNT: _v131
+                      AMOUNT: _v134
                     },
                     dictionary: {
                       es: {
@@ -13570,7 +13607,7 @@
                   }) : (0, _v16.translate)({
                     singular: "{AMOUNT} of bandwidth per month",
                     replacements: {
-                      AMOUNT: _v131
+                      AMOUNT: _v134
                     },
                     dictionary: {
                       es: {
@@ -13598,7 +13635,7 @@
                   })
                 })]
               })]
-            }), _v123("downgrade")]
+            }), _v126("downgrade")]
           }), (0, _v5.jsx)(_v106.ModalFooter, {
             p: 0,
             mt: 6,
@@ -13609,43 +13646,15 @@
                 variant: "primary",
                 size: "md",
                 width: "100%",
-                onClick: _v95,
+                onClick: _v98,
                 isLoading: _v56,
                 disabled: _v56,
-                children: (0, _v16.translate)({
-                  singular: "Downgrade to {PLAN}",
-                  replacements: {
-                    PLAN: _v66?.name ?? ""
-                  },
-                  dictionary: {
-                    es: {
-                      singular: "Cambiar a {PLAN}"
-                    },
-                    "de-DE": {
-                      singular: "Auf {PLAN} herabstufen"
-                    },
-                    "fr-FR": {
-                      singular: "Rétrograder vers {PLAN}"
-                    },
-                    "ja-JP": {
-                      singular: "{PLAN}にダウングレード"
-                    },
-                    "ko-KR": {
-                      singular: "{PLAN}으로 다운그레이드"
-                    },
-                    "pt-BR": {
-                      singular: "Rebaixar para {PLAN}"
-                    },
-                    "zh-CN": {
-                      singular: "降级到 {PLAN}"
-                    }
-                  }
-                })
+                children: _v84
               }), (0, _v5.jsx)(_v11.Button, {
                 variant: "destructive",
                 size: "md",
                 width: "100%",
-                onClick: _v118,
+                onClick: _v121,
                 isLoading: _v9,
                 disabled: _v9 || _v56,
                 children: (0, _v16.translate)({
@@ -13679,7 +13688,7 @@
                 background: "none",
                 size: "md",
                 width: "100%",
-                onClick: _v117,
+                onClick: _v120,
                 children: (0, _v16.translate)({
                   singular: "Request an individual plan",
                   dictionary: {
