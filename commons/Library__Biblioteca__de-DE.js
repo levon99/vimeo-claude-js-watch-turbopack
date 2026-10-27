@@ -1256,16 +1256,15 @@
     _v137 = _v0.i(0),
     _v138 = _v0.i(0),
     _v139 = _v0.i(0),
-    _v140 = _v0.i(0),
-    _v141 = _v0.i(0);
-  let _v142 = () => (0, _v1.jsx)(_v141.HintWrapper, {
-    children: (0, _v1.jsx)(_v139.Text, {
+    _v140 = _v0.i(0);
+  let _v141 = () => (0, _v1.jsx)(_v140.HintWrapper, {
+    children: (0, _v1.jsx)(_v138.Text, {
       variant: "body-md",
       color: "text-secondary",
       children: (0, _v17.translate)({
         singular: "Looking for other videos? Try {LINK}Team library{/LINK}",
         replacements: {
-          LINK: _v0 => (0, _v1.jsx)(_v140.Link, {
+          LINK: _v0 => (0, _v1.jsx)(_v139.Link, {
             href: "/library",
             variant: "inline-secondary",
             fontSize: "inherit",
@@ -1298,15 +1297,15 @@
       })
     })
   });
-  var _v143 = _v0.i(0);
-  let _v144 = _v5.default.div.withConfig({
+  var _v142 = _v0.i(0);
+  let _v143 = _v5.default.div.withConfig({
       displayName: "LoadMore__LoadMoreWrapper",
       componentId: "sc-39ae2d88-0"
     })`
   margin: ${(0, _v136.rem)(40)} 0 ${(0, _v136.rem)(48)};
   padding: 0 1.25rem;
 `,
-    _v145 = _v0 => {
+    _v144 = _v0 => {
       let {
           isLoadingMore: _v1,
           canLoadMore: _v2 = !1,
@@ -1317,15 +1316,15 @@
           universalHostingEnabled: _v7 = !1
         } = _v0,
         _v8 = _v4 && !_v1;
-      if (!_v2) if (_v6) return (0, _v1.jsx)(_v142, {});else if (_v8) return (0, _v1.jsx)(_v143.UploadDropzoneHint, {
+      if (!_v2) if (_v6) return (0, _v1.jsx)(_v141, {});else if (_v8) return (0, _v1.jsx)(_v142.UploadDropzoneHint, {
         page: _v5,
         universalHostingEnabled: _v7
-      });else return (0, _v1.jsx)(_v144, {});
-      return (0, _v1.jsx)(_v144, {
-        children: (0, _v1.jsx)(_v138.Button, {
-          format: "secondary",
-          fluid: !0,
-          disabled: _v1,
+      });else return (0, _v1.jsx)(_v143, {});
+      return (0, _v1.jsx)(_v143, {
+        children: (0, _v1.jsx)(_v119.Button, {
+          variant: "secondary",
+          width: "full",
+          isDisabled: _v1,
           onClick: _v3,
           children: _v1 ? (0, _v1.jsx)(_v137.Spinner, {}) : (0, _v17.translate)({
             singular: "Load more…",
@@ -1356,22 +1355,22 @@
         })
       });
     };
-  var _v146 = _v0.i(0),
-    _v147 = _v0.i(0);
-  let _v148 = _v5.default.h5.withConfig({
+  var _v145 = _v0.i(0),
+    _v146 = _v0.i(0);
+  let _v147 = _v5.default.h5.withConfig({
       displayName: "WebexFolderEmptyState__HelpLink",
       componentId: "sc-e56c9c55-0"
     })`
   margin-top: ${(0, _v136.rem)(20)};
 `,
-    _v149 = _v5.default.div.withConfig({
+    _v148 = _v5.default.div.withConfig({
       displayName: "WebexFolderEmptyState__InfoText",
       componentId: "sc-e56c9c55-1"
     })`
   margin-left: 40px;
   text-align: left;
 `,
-    _v150 = _v5.default.li.withConfig({
+    _v149 = _v5.default.li.withConfig({
       displayName: "WebexFolderEmptyState__Instruction",
       componentId: "sc-e56c9c55-2"
     })`
@@ -1379,7 +1378,7 @@
   list-style: disc inside;
   line-height: 200%;
 `,
-    _v151 = _v5.default.div.withConfig({
+    _v150 = _v5.default.div.withConfig({
       displayName: "WebexFolderEmptyState__Container",
       componentId: "sc-e56c9c55-3"
     })`
@@ -1390,7 +1389,7 @@
   flex-direction: row;
   margin: ${(0, _v136.rem)(60)} 0;
 `,
-    _v152 = _v5.default.img.withConfig({
+    _v151 = _v5.default.img.withConfig({
       displayName: "WebexFolderEmptyState__Image",
       componentId: "sc-e56c9c55-4"
     })`
@@ -1398,13 +1397,13 @@
   max-width: ${(0, _v136.rem)(300)};
   margin-right: ${(0, _v136.rem)(40)};
 `,
-    _v153 = () => {
+    _v152 = () => {
       let _v0 = "Webex";
-      return (0, _v1.jsxs)(_v151, {
-        children: [(0, _v1.jsx)(_v152, {
+      return (0, _v1.jsxs)(_v150, {
+        children: [(0, _v1.jsx)(_v151, {
           src: "https://i.vimeocdn.com/custom_asset/c41b7fa74a5b0d8f3cb9956c46e40972",
           alt: "instruction image"
-        }), (0, _v1.jsxs)(_v149, {
+        }), (0, _v1.jsxs)(_v148, {
           children: [(0, _v1.jsx)("h2", {
             children: (0, _v17.translate)({
               singular: "How to record a {appName} meeting",
@@ -1436,7 +1435,7 @@
               }
             })
           }), (0, _v1.jsxs)("ul", {
-            children: [(0, _v1.jsx)(_v150, {
+            children: [(0, _v1.jsx)(_v149, {
               children: (0, _v17.translate)({
                 singular: "Confirm that your {appName} account supports cloud recordings.",
                 replacements: {
@@ -1466,7 +1465,7 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v150, {
+            }), (0, _v1.jsx)(_v149, {
               children: (0, _v17.translate)({
                 singular: 'Click "Record in cloud".',
                 dictionary: {
@@ -1493,7 +1492,7 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v150, {
+            }), (0, _v1.jsx)(_v149, {
               children: (0, _v17.translate)({
                 singular: "Your recordings will automatically save to this folder",
                 dictionary: {
@@ -1521,7 +1520,7 @@
                 }
               })
             })]
-          }), (0, _v1.jsx)(_v148, {
+          }), (0, _v1.jsx)(_v147, {
             children: (0, _v1.jsx)("a", {
               href: "https://www.vimeo.com/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12427373941649-Record-and-upload-your-Webex-meetings-to-Vimeo",
               children: (0, _v17.translate)({
@@ -1555,20 +1554,20 @@
         })]
       });
     },
-    _v154 = _v5.default.h5.withConfig({
+    _v153 = _v5.default.h5.withConfig({
       displayName: "ZoomFolderEmptyState__HelpLink",
       componentId: "sc-127e1348-0"
     })`
   margin-top: ${(0, _v136.rem)(20)};
 `,
-    _v155 = _v5.default.div.withConfig({
+    _v154 = _v5.default.div.withConfig({
       displayName: "ZoomFolderEmptyState__InfoText",
       componentId: "sc-127e1348-1"
     })`
   margin-left: 40px;
   text-align: left;
 `,
-    _v156 = _v5.default.li.withConfig({
+    _v155 = _v5.default.li.withConfig({
       displayName: "ZoomFolderEmptyState__Instruction",
       componentId: "sc-127e1348-2"
     })`
@@ -1576,7 +1575,7 @@
   list-style: disc inside;
   line-height: 200%;
 `,
-    _v157 = _v5.default.div.withConfig({
+    _v156 = _v5.default.div.withConfig({
       displayName: "ZoomFolderEmptyState__Container",
       componentId: "sc-127e1348-3"
     })`
@@ -1587,7 +1586,7 @@
   flex-direction: row;
   margin: ${(0, _v136.rem)(60)} 0;
 `,
-    _v158 = _v5.default.img.withConfig({
+    _v157 = _v5.default.img.withConfig({
       displayName: "ZoomFolderEmptyState__Image",
       componentId: "sc-127e1348-4"
     })`
@@ -1595,11 +1594,11 @@
   max-width: ${(0, _v136.rem)(300)};
   margin-right: ${(0, _v136.rem)(40)};
 `,
-    _v159 = () => (0, _v1.jsxs)(_v157, {
-      children: [(0, _v1.jsx)(_v158, {
+    _v158 = () => (0, _v1.jsxs)(_v156, {
+      children: [(0, _v1.jsx)(_v157, {
         src: "https://i.vimeocdn.com/custom_asset/c575706fd67f11e4cc905fb449195a6b",
         alt: "instruction image"
-      }), (0, _v1.jsxs)(_v155, {
+      }), (0, _v1.jsxs)(_v154, {
         children: [(0, _v1.jsx)("h2", {
           children: (0, _v17.translate)({
             singular: "How to record a Zoom meeting",
@@ -1628,7 +1627,7 @@
             }
           })
         }), (0, _v1.jsxs)("ul", {
-          children: [(0, _v1.jsx)(_v156, {
+          children: [(0, _v1.jsx)(_v155, {
             children: (0, _v17.translate)({
               singular: "Enable cloud recording in Zoom",
               dictionary: {
@@ -1655,7 +1654,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v156, {
+          }), (0, _v1.jsx)(_v155, {
             children: (0, _v17.translate)({
               singular: 'Click "Record to the cloud"',
               dictionary: {
@@ -1682,7 +1681,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v156, {
+          }), (0, _v1.jsx)(_v155, {
             children: (0, _v17.translate)({
               singular: "Your recordings will automatically save to this folder",
               dictionary: {
@@ -1710,7 +1709,7 @@
               }
             })
           })]
-        }), (0, _v1.jsx)(_v154, {
+        }), (0, _v1.jsx)(_v153, {
           children: (0, _v1.jsx)("a", {
             href: "https://www.vimeo.com/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12427429159185-How-to-record-and-upload-your-Zoom-meetings-to-Vimeo",
             children: (0, _v17.translate)({
@@ -1743,7 +1742,8 @@
         })]
       })]
     });
-  var _v160 = _v0.i(0),
+  var _v159 = _v0.i(0),
+    _v160 = _v0.i(0),
     _v161 = _v0.i(0),
     _v162 = _v0.i(0),
     _v163 = _v0.i(0),
@@ -1751,19 +1751,18 @@
     _v165 = _v0.i(0),
     _v166 = _v0.i(0),
     _v167 = _v0.i(0),
-    _v168 = _v0.i(0),
-    _v169 = _v0.i(0);
-  let _v170 = () => {
+    _v168 = _v0.i(0);
+  let _v169 = () => {
       let {
           hasTeamLibraryContent: _v0,
           isLoading: _v1
         } = (() => {
-          let _v0 = (0, _v168.useViewer)(),
+          let _v0 = (0, _v167.useViewer)(),
             {
               data: _v1,
               isLoading: _v2,
               error: _v3
-            } = (0, _v169.useGetUserFoldersRoot)(() => {
+            } = (0, _v168.useGetUserFoldersRoot)(() => {
               let _v0 = _v0?.teamUser?.ownerId ?? _v0?.user?.id;
               return _v0 ? {
                 where: {
@@ -1789,12 +1788,12 @@
           hasSharedWithMeContent: _v2,
           isLoading: _v3
         } = (() => {
-          let _v0 = (0, _v168.useViewer)(),
+          let _v0 = (0, _v167.useViewer)(),
             {
               data: _v1,
               isLoading: _v2,
               error: _v3
-            } = (0, _v167.useGetUserTeamsSharedItems)(() => _v0?.user?.id ? {
+            } = (0, _v166.useGetUserTeamsSharedItems)(() => _v0?.user?.id ? {
               select: ["type"],
               where: {
                 userId: _v0.user.id
@@ -1819,7 +1818,7 @@
         children: (0, _v1.jsx)(_v137.Spinner, {
           size: "xl"
         })
-      }) : (0, _v1.jsx)(_v171, {
+      }) : (0, _v1.jsx)(_v170, {
         title: (0, _v17.translate)({
           singular: "This space is empty",
           dictionary: {
@@ -1979,15 +1978,15 @@
         })
       });
     },
-    _v171 = ({
+    _v170 = ({
       title: _v0,
       description: _v1,
       icon: _v2
     }) => (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v2 || (0, _v1.jsx)(_v166.MyLibrary, {
-        w: (0, _v165.rem)(64),
-        h: (0, _v165.rem)(64)
-      }), (0, _v1.jsx)(_v139.Text, {
+      children: [_v2 || (0, _v1.jsx)(_v165.MyLibrary, {
+        w: (0, _v164.rem)(64),
+        h: (0, _v164.rem)(64)
+      }), (0, _v1.jsx)(_v138.Text, {
         variant: {
           base: "heading-md",
           md: "heading-lg"
@@ -1997,7 +1996,7 @@
           md: "1rem 0"
         },
         children: _v0
-      }), (0, _v1.jsx)(_v139.Text, {
+      }), (0, _v1.jsx)(_v138.Text, {
         display: {
           base: "none",
           md: "block"
@@ -2007,7 +2006,7 @@
         children: _v1
       })]
     }),
-    _v172 = ({
+    _v171 = ({
       hasContentSpaceEnabled: _v0,
       canInviteToFolder: _v1,
       folder: _v2,
@@ -2049,7 +2048,7 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v164.FolderOpen, {
+            icon: (0, _v1.jsx)(_v163.FolderOpen, {
               w: {
                 base: "3rem",
                 md: "4rem"
@@ -2115,7 +2114,7 @@
           _v2 = _v5 ? (0, _v17.translate)({
             singular: "Looking for videos you already added? Try {LINK}Team library{/LINK}",
             replacements: {
-              LINK: _v0 => (0, _v1.jsx)(_v140.Link, {
+              LINK: _v0 => (0, _v1.jsx)(_v139.Link, {
                 href: "/library",
                 variant: "inline-secondary",
                 children: _v0
@@ -2198,7 +2197,7 @@
         return (0, _v1.jsx)(_v7.Flex, {
           flexDirection: "column",
           alignItems: "center",
-          children: (0, _v1.jsx)(_v171, {
+          children: (0, _v1.jsx)(_v170, {
             title: _v0,
             description: _v2,
             icon: _v1
@@ -2208,7 +2207,7 @@
       return _v1 || _v3 ? (0, _v1.jsxs)(_v7.Flex, {
         flexDirection: "column",
         alignItems: "center",
-        children: [(0, _v1.jsx)(_v164.FolderOpen, {
+        children: [(0, _v1.jsx)(_v163.FolderOpen, {
           width: {
             base: "3rem",
             md: "4rem"
@@ -2217,7 +2216,7 @@
             base: "3rem",
             md: "4rem"
           }
-        }), (0, _v1.jsx)(_v162.Header, {
+        }), (0, _v1.jsx)(_v161.Header, {
           size: {
             base: "md",
             md: "lg"
@@ -2252,7 +2251,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v163.Paragraph, {
+        }), (0, _v1.jsx)(_v162.Paragraph, {
           display: {
             base: "none",
             md: "block"
@@ -2288,9 +2287,9 @@
         })]
       }) : null;
     };
-  var _v173 = _v0.i(0),
-    _v174 = _v0.i(0);
-  let _v175 = ({
+  var _v172 = _v0.i(0),
+    _v173 = _v0.i(0);
+  let _v174 = ({
       folder: _v0,
       owner: _v1
     }) => {
@@ -2298,7 +2297,7 @@
         {
           data: _v3,
           isLoading: _v4
-        } = (0, _v174.useGetUserTeamRole)(() => _v1?.id ? {
+        } = (0, _v173.useGetUserTeamRole)(() => _v1?.id ? {
           select: ["role"],
           where: {
             userId: _v1.id
@@ -2309,9 +2308,9 @@
         } : null);
       return _v4 ? (0, _v1.jsx)(_v137.Spinner, {
         size: "xl"
-      }) : _v3?.role === "Viewer" ? (0, _v1.jsx)(_v173.VStack, {
+      }) : _v3?.role === "Viewer" ? (0, _v1.jsx)(_v172.VStack, {
         textAlign: "center",
-        children: (0, _v1.jsx)(_v171, {
+        children: (0, _v1.jsx)(_v170, {
           title: (0, _v17.translate)({
             singular: "This space is empty",
             dictionary: {
@@ -2365,9 +2364,9 @@
             }
           })
         })
-      }) : (0, _v1.jsx)(_v173.VStack, {
+      }) : (0, _v1.jsx)(_v172.VStack, {
         textAlign: "center",
-        children: (0, _v1.jsx)(_v171, {
+        children: (0, _v1.jsx)(_v170, {
           title: (0, _v17.translate)({
             singular: "This space is empty",
             dictionary: {
@@ -2423,12 +2422,12 @@
         })
       });
     },
-    _v176 = (0, _v4.lazy)(() => _v0.A(0).then(({
+    _v175 = (0, _v4.lazy)(() => _v0.A(0).then(({
       TeamSwitcherDropzone: _v0
     }) => ({
       default: _v0
     }))),
-    _v177 = ({
+    _v176 = ({
       owner: _v0,
       folder: _v1,
       set360SourceType: _v2,
@@ -2446,7 +2445,7 @@
         [_v11, _v12] = (0, _v4.useState)(""),
         {
           data: _v13
-        } = (0, _v146.useGetUser)(() => _v0?.id ? {
+        } = (0, _v145.useGetUser)(() => _v0?.id ? {
           select: ["preferences.videos"],
           where: {
             userId: _v0.id
@@ -2455,7 +2454,7 @@
             Accept: "application/vnd.vimeo.*+json;version=3.4.1"
           }
         } : null);
-      return _v6 && _v10 ? (0, _v1.jsx)(_v175, {
+      return _v6 && _v10 ? (0, _v1.jsx)(_v174, {
         folder: _v1,
         owner: _v0
       }) : (0, _v1.jsx)(_v4.Suspense, {
@@ -2467,11 +2466,11 @@
           width: "100%",
           children: [_v11 && (0, _v1.jsx)(_v7.Flex, {
             justifyContent: "center",
-            children: (0, _v1.jsx)(_v160.UploadErrorMessage, {
+            children: (0, _v1.jsx)(_v159.UploadErrorMessage, {
               error: _v11,
               onClose: () => _v12("")
             })
-          }), (0, _v1.jsx)(_v176, {
+          }), (0, _v1.jsx)(_v175, {
             uploadClipProperties: {
               content_rating: _v13?.preferences?.videos?.rating,
               password: _v13?.preferences?.videos?.password,
@@ -2489,43 +2488,43 @@
             onUploadFailure: _v0 => {
               _v12(_v0);
             },
-            mvvEmptyStateContent: (0, _v1.jsx)(_v172, {
+            mvvEmptyStateContent: (0, _v1.jsx)(_v171, {
               canInviteToFolder: _v7,
               folder: _v1,
               hasContentSpaceEnabled: _v6,
               isOwner: _v9
             })
-          }), (0, _v1.jsx)(_v161.EmptyStateDropzoneFooter, {
+          }), (0, _v1.jsx)(_v160.EmptyStateDropzoneFooter, {
             set360SourceType: _v2,
             threeSixtyType: _v3
           })]
         })
       });
     },
-    _v178 = ({
+    _v177 = ({
       isContentSpacePrivateToMeFolder: _v0
     }) => _v0 ? (0, _v1.jsx)(_v7.Flex, {
       flexDirection: "column",
       alignItems: "center",
       margin: "auto",
       px: {
-        md: (0, _v165.rem)(100),
-        xl: (0, _v165.rem)(300),
-        "2xl": (0, _v165.rem)(400)
+        md: (0, _v164.rem)(100),
+        xl: (0, _v164.rem)(300),
+        "2xl": (0, _v164.rem)(400)
       },
       textAlign: "center",
-      maxWidth: (0, _v165.rem)(0),
-      children: (0, _v1.jsx)(_v170, {})
+      maxWidth: (0, _v164.rem)(0),
+      children: (0, _v1.jsx)(_v169, {})
     }) : (0, _v1.jsxs)(_v7.Flex, {
       flexDirection: "column",
       alignItems: "center",
       margin: "auto",
-      children: [(0, _v1.jsx)(_v164.FolderOpen, {
-        w: (0, _v165.rem)(64),
-        h: (0, _v165.rem)(64)
-      }), (0, _v1.jsx)(_v139.Text, {
+      children: [(0, _v1.jsx)(_v163.FolderOpen, {
+        w: (0, _v164.rem)(64),
+        h: (0, _v164.rem)(64)
+      }), (0, _v1.jsx)(_v138.Text, {
         variant: "heading-lg",
-        margin: `${(0, _v165.rem)(16)} 0`,
+        margin: `${(0, _v164.rem)(16)} 0`,
         children: (0, _v17.translate)({
           singular: "This folder is empty",
           dictionary: {
@@ -2552,7 +2551,7 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v139.Text, {
+      }), (0, _v1.jsx)(_v138.Text, {
         variant: "body-lg",
         color: "text-secondary",
         children: (0, _v17.translate)({
@@ -2583,7 +2582,7 @@
         })
       })]
     }),
-    _v179 = ({
+    _v178 = ({
       canEditFolder: _v0,
       defaultFolderId: _v1,
       owner: _v2,
@@ -2598,7 +2597,7 @@
       let {
           data: _v10,
           isLoading: _v11
-        } = (0, _v146.useGetUser)(() => _v8?.user?.id ? {
+        } = (0, _v145.useGetUser)(() => _v8?.user?.id ? {
           select: ["metadata.connections.webexUploadFolder", "metadata.connections.zoomUploadFolder"],
           where: {
             userId: _v8.user.id
@@ -2625,12 +2624,12 @@
         children: (0, _v1.jsx)(_v137.Spinner, {
           size: "xl"
         })
-      }) : _v14?.uri === _v6 ? (0, _v1.jsx)(_v159, {}) : _v15?.uri === _v6 ? (0, _v1.jsx)(_v153, {}) : (0, _v1.jsx)(_v7.Flex, {
+      }) : _v14?.uri === _v6 ? (0, _v1.jsx)(_v158, {}) : _v15?.uri === _v6 ? (0, _v1.jsx)(_v152, {}) : (0, _v1.jsx)(_v7.Flex, {
         alignItems: "center",
         justifyContent: "center",
         w: "100%",
         h: "100%",
-        children: _v9 ? (0, _v1.jsx)(_v147.FilterEmptyState, {}) : _v0 ? (0, _v1.jsx)(_v177, {
+        children: _v9 ? (0, _v1.jsx)(_v146.FilterEmptyState, {}) : _v0 ? (0, _v1.jsx)(_v176, {
           owner: _v2,
           folder: _v7,
           defaultFolderId: _v1,
@@ -2641,27 +2640,27 @@
           canAllowDownloads: _v12,
           hasContentSpaceEnabled: _v13,
           isOwner: !!(_v8?.user?.id && _v8?.user?.id === _v2?.id)
-        }) : (0, _v1.jsx)(_v178, {
+        }) : (0, _v1.jsx)(_v177, {
           isContentSpacePrivateToMeFolder: _v7.isPrivateToUser && !!_v13
         })
       });
     };
-  var _v180 = _v0.i(0);
-  let _v181 = (0, _v2.default)(() => _v0.A(0).then(_v0 => ({
+  var _v179 = _v0.i(0);
+  let _v180 = (0, _v2.default)(() => _v0.A(0).then(_v0 => ({
       default: _v0.GridView
     })), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v182 = (0, _v2.default)(() => _v0.A(0).then(_v0 => ({
+    _v181 = (0, _v2.default)(() => _v0.A(0).then(_v0 => ({
       default: _v0.ListView
     })), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v183 = ({
+    _v182 = ({
       canEditFolder: _v0 = !1,
       disableUploads: _v1 = !1,
       folderData: _v2,
@@ -2772,7 +2771,7 @@
         } = (0, _v129.useCopyVideoFlow)({
           onAfterCopySuccess: (_v0, _v1) => _v18(_v1.uri, _v0)
         }),
-        _v44 = (0, _v180.useIsLinkRecipient)(),
+        _v44 = (0, _v179.useIsLinkRecipient)(),
         _v45 = !!(_v27 && _v2.metadata.interactions.uploadVideo && !_v44 && !_v1),
         _v46 = (0, _v124.useOrionSettingsFields)(["enable_new_library_drag_and_drop_upload"]),
         _v47 = _v46?.enable_new_library_drag_and_drop_upload ?? !1,
@@ -2816,7 +2815,7 @@
             }), _v50.setIsLoading(!1), _v50.close();
           }
         }),
-        _v52 = (0, _v1.jsx)(_v145, {
+        _v52 = (0, _v1.jsx)(_v144, {
           canLoadMore: !_v20,
           isLoadingMore: !!_v22,
           onClick: _v21,
@@ -2873,7 +2872,7 @@
           } : void 0
         });
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v15?.length === 0 && _v20 ? (0, _v1.jsx)(_v179, {
+        children: [_v15?.length === 0 && _v20 ? (0, _v1.jsx)(_v178, {
           canEditFolder: _v0,
           defaultFolderId: _v3,
           owner: {
@@ -2904,7 +2903,7 @@
             children: _v5 === _v39.LAYOUT.GRID ? (0, _v1.jsx)(_v125.PlayerContextProvider, {
               assetUrls: _v4,
               type: _v126.PlayerType.BarebonePlayer,
-              children: (0, _v1.jsx)(_v181, {
+              children: (0, _v1.jsx)(_v180, {
                 deselectItem: _v12,
                 folder: _v2,
                 handleRemoveVideo: _v16,
@@ -2959,7 +2958,7 @@
                 onMoreInfo: _v24,
                 onCopyVideo: _v42
               })
-            }) : (0, _v1.jsx)(_v182, {
+            }) : (0, _v1.jsx)(_v181, {
               folder: _v2,
               projectItems: _v15,
               deselectItem: _v12,
@@ -2990,7 +2989,7 @@
         }), _v43]
       });
     },
-    _v184 = () => (0, _v1.jsx)(_v7.Flex, {
+    _v183 = () => (0, _v1.jsx)(_v7.Flex, {
       height: "100vh",
       justifyContent: "center",
       width: "100%",
@@ -3005,9 +3004,9 @@
         })
       })
     }),
-    _v185 = ["video", "folder"],
-    _v186 = ["video", "folder", "file"],
-    _v187 = (0, _v2.default)(() => _v0.A(0).then(_v0 => ({
+    _v184 = ["video", "folder"],
+    _v185 = ["video", "folder", "file"],
+    _v186 = (0, _v2.default)(() => _v0.A(0).then(_v0 => ({
       default: _v0.BulkActions
     })), {
       loadableGenerated: {
@@ -3015,7 +3014,7 @@
       },
       ssr: !1
     }),
-    _v188 = (0, _v2.default)(() => _v0.A(0).then(_v0 => ({
+    _v187 = (0, _v2.default)(() => _v0.A(0).then(_v0 => ({
       default: _v0.ResourceSidePanel
     })), {
       loadableGenerated: {
@@ -3023,7 +3022,7 @@
       },
       ssr: !1
     }),
-    _v189 = ({
+    _v188 = ({
       folderData: _v0,
       folderId: _v1,
       playerAssetUrls: _v2,
@@ -3094,7 +3093,7 @@
       });
       let _v39 = !!_v20.coldStorageClips && _v34 || _v32 && _v34,
         _v40 = (0, _v19.useUniversalHostingEnabled)(),
-        _v41 = (0, _v4.useMemo)(() => _v40 ? _v186 : _v185, [_v40]),
+        _v41 = (0, _v4.useMemo)(() => _v40 ? _v185 : _v184, [_v40]),
         _v42 = (0, _v49.useContentTypeFilter)([..._v41]),
         _v43 = (0, _v52.useVideoAvailabilityFilter)(),
         _v44 = (0, _v50.useClipPrivacyFilter)(["unlisted", "password", "hide_from_vimeo", "team", "private", "public", ...(_v35 ? ["cold_privacy"] : [])], !!_v20?.hasTeamPrivacy),
@@ -3837,7 +3836,7 @@
                 itemHref: _v8,
                 fileHref: _v9,
                 onItemClick: _v10,
-                children: (0, _v1.jsx)(_v183, {
+                children: (0, _v1.jsx)(_v182, {
                   threeSixtyType: _v111,
                   setThreeSixtyType: _v112,
                   canEditFolder: _v106,
@@ -3896,7 +3895,7 @@
                   areFiltersApplied: _v54,
                   onMoreInfo: _v14
                 })
-              }), _v77 && (0, _v1.jsx)(_v187, {
+              }), _v77 && (0, _v1.jsx)(_v186, {
                 ..._v156,
                 isLoading: _v155,
                 canUseBulkTranslation: _v49,
@@ -3922,7 +3921,7 @@
                 }
               })]
             }), _v13 && (0, _v1.jsx)(_v42.Page.Panel, {
-              children: (0, _v1.jsx)(_v188, {
+              children: (0, _v1.jsx)(_v187, {
                 isOpen: !0,
                 onClose: () => _v14(null),
                 onVideoPrivacyChange: ({
@@ -3945,17 +3944,17 @@
             onErrorClose: _v26
           })]
         })
-      }) : (0, _v1.jsx)(_v184, {});
+      }) : (0, _v1.jsx)(_v183, {});
     };
   _v0.s(["App", 0, _v0 => (0, _v1.jsx)(_v88, {
     folderId: _v0.folderId,
     viewer: _v0.viewer,
-    children: (0, _v1.jsx)(_v189, {
+    children: (0, _v1.jsx)(_v188, {
       ..._v0
     }, _v0.folderId)
   })], 0);
-  let _v190 = (0, _v4.createContext)({
+  let _v189 = (0, _v4.createContext)({
     locale: "default"
   });
-  _v0.s(["ConfigContext", 0, _v190], 0), _v0.s(["setCdnUrl", 0, _v0 => {}], 0);
+  _v0.s(["ConfigContext", 0, _v189], 0), _v0.s(["setCdnUrl", 0, _v0 => {}], 0);
 }

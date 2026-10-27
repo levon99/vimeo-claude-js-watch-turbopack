@@ -157,8 +157,10 @@
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
     _v34 = _v0.i(0),
-    _v35 = _v0.i(0);
-  async function _v36(_v0, _v1) {
+    _v35 = _v0.i(0),
+    _v36 = _v0.i(0),
+    _v37 = _v0.i(0);
+  async function _v38(_v0, _v1) {
     let _v2 = {
         isCodecSupported: !0,
         isResolutionSupported: !0,
@@ -184,7 +186,7 @@
     }
     throw Error(_v9.MP4_SOURCE_TRACK_MISSING_OR_INVALID_TRACK_TYPE);
   }
-  async function _v37(_v0, _v1) {
+  async function _v39(_v0, _v1) {
     let {
         isFragmented: _v2
       } = _v0,
@@ -220,11 +222,11 @@
       isKeyframeIntervalSupported: !0
     };
   }
-  async function _v38(_v0, _v1) {
+  async function _v40(_v0, _v1) {
     try {
-      let _v0 = (0, _v35.getExtension)(_v0.name)?.toLowerCase();
-      if ("mp4" !== _v0) return !1;
-      let _v1 = new _v34.MP4Source(_v0),
+      let _v0 = (0, _v37.getExtension)(_v0.name)?.toLowerCase();
+      if ("mp4" !== _v0 || _v1 && _v0.size > 0) return !1;
+      let _v1 = new _v36.MP4Source(_v0),
         _v2 = await _v1.getInfo(),
         {
           isFragmented: _v3,
@@ -232,21 +234,21 @@
           timescale: _v5,
           duration: _v6
         } = _v2,
-        _v7 = await _v36(_v2, _v3 && _v4 ? _v4 / _v5 : _v6 / _v5),
+        _v7 = await _v38(_v2, _v3 && _v4 ? _v4 / _v5 : _v6 / _v5),
         _v8 = Object.values(_v7).includes(!1);
-      return !_v8 && _v1 && (_v7.isKeyframeIntervalSupported = (await _v37(_v2, _v1)).isKeyframeIntervalSupported), !(_v8 = Object.values(_v7).includes(!1));
+      return !_v8 && _v1 && (_v7.isKeyframeIntervalSupported = (await _v39(_v2, _v1)).isKeyframeIntervalSupported), !(_v8 = Object.values(_v7).includes(!1));
     } catch (_v0) {
       return !1;
     }
   }
-  async function _v39(_v0) {
+  async function _v41(_v0) {
     return new File([await _v0.arrayBuffer()], _v0.name);
   }
   _v0.s(["useLocalFile", 0, () => {
-    let _v0 = (0, _v31.useAppDispatch)(),
-      _v1 = (0, _v31.useAppSelector)(_v29.videoSessionIdSelector),
-      _v2 = (0, _v31.useAppSelector)(_v29.sourceMapSelector),
-      _v3 = (0, _v31.useAppSelector)(_v0 => _v0.storyboard.id),
+    let _v0 = (0, _v32.useAppDispatch)(),
+      _v1 = (0, _v32.useAppSelector)(_v30.videoSessionIdSelector),
+      _v2 = (0, _v32.useAppSelector)(_v30.sourceMapSelector),
+      _v3 = (0, _v32.useAppSelector)(_v0 => _v0.storyboard.id),
       _v4 = (0, _v1.useContext)(_v2.ArtifactsUploaderContext),
       {
         addElement: _v5
@@ -337,8 +339,8 @@
         createMediaSource: _v12,
         createSoundSource: _v13
       } = _v24(),
-      [_v14] = (0, _v26.useLazyCreateMediaSourceQuery)(),
-      [_v15] = (0, _v26.useLazyCreateSoundSourceQuery)(),
+      [_v14] = (0, _v27.useLazyCreateMediaSourceQuery)(),
+      [_v15] = (0, _v27.useLazyCreateSoundSourceQuery)(),
       _v16 = (0, _v1.useCallback)(async (_v0, _v1, _v2) => {
         let _v3 = [{
             id: _v2,
@@ -366,11 +368,11 @@
           sourceHash: _v1,
           time: _v2
         });
-        _v3 && (0, _v33.isImageElement)(_v4) && (_v4 = _v11({
+        _v3 && (0, _v35.isImageElement)(_v4) && (_v4 = _v11({
           imageElement: _v4
         }));
         let _v5 = await _v12(_v0, _v1);
-        _v1 && _v2[_v1] || _v0((0, _v29.addSourceAction)(_v5)), _v9(_v4, !0);
+        _v1 && _v2[_v1] || _v0((0, _v30.addSourceAction)(_v5)), _v9(_v4, !0);
       }, [_v12, _v2, _v8, _v9, _v0, _v11]),
       _v18 = (0, _v1.useCallback)(async ({
         source: _v0,
@@ -394,16 +396,16 @@
             sourceHash: _v0.hash,
             time: 0
           });
-        return (0, _v29.storyboardIdSelector)(_v30.default.getState()) === _v3 && ((0, _v29.sourceMapSelector)(_v30.default.getState())[_v0.hash] || _v0((0, _v29.addSourceAction)(_v0)), _v5({
+        return (0, _v30.storyboardIdSelector)(_v31.default.getState()) === _v3 && ((0, _v30.sourceMapSelector)(_v31.default.getState())[_v0.hash] || _v0((0, _v30.addSourceAction)(_v0)), _v5({
           ..._v3,
           id: _v1
         }), !0);
       }, [_v5, _v8, _v0, _v3]),
       _v19 = (0, _v1.useCallback)(_v0 => {
-        (0, _v29.sourceMapSelector)(_v30.default.getState())[_v0.hash] && (_v0((0, _v29.updateSourceAction)({
+        (0, _v30.sourceMapSelector)(_v31.default.getState())[_v0.hash] && (_v0((0, _v30.updateSourceAction)({
           hash: _v0.hash,
           source: _v0
-        })), _v0((0, _v27.updateSourceAction)({
+        })), _v0((0, _v28.updateSourceAction)({
           hash: _v0.hash,
           source: _v0
         })));
@@ -419,16 +421,16 @@
             time: _v2
           }),
           _v4 = _v13(_v0, _v1);
-        _v1 && _v2[_v1] || _v0((0, _v29.addSourceAction)(_v4)), _v5(_v3);
+        _v1 && _v2[_v1] || _v0((0, _v30.addSourceAction)(_v4)), _v5(_v3);
       }, [_v10, _v13, _v2, _v5, _v0]),
       _v21 = (0, _v1.useCallback)(_v0 => {
         let {
           id: _v1,
           sourceHash: _v2
         } = _v0;
-        _v0((0, _v28.removeLoadingItemAction)({
+        _v0((0, _v29.removeLoadingItemAction)({
           id: _v1
-        })), _v0((0, _v29.removeElementsBySourceHashAction)({
+        })), _v0((0, _v30.removeElementsBySourceHashAction)({
           sourceHash: _v2
         }));
       }, [_v0]),
@@ -447,17 +449,17 @@
             hash: _v2
           } = _v1;
           try {
-            _v0((0, _v28.updateLoadingItemSourceAction)({
+            _v0((0, _v29.updateLoadingItemSourceAction)({
               hash: _v1,
               source: {
                 hash: _v2
               }
-            })), _v0((0, _v29.updateSourceAction)({
+            })), _v0((0, _v30.updateSourceAction)({
               hash: _v1,
               source: {
                 hash: _v2
               }
-            })), _v0((0, _v27.updateSourceAction)({
+            })), _v0((0, _v28.updateSourceAction)({
               hash: _v1,
               source: {
                 hash: _v2
@@ -466,17 +468,17 @@
           } catch (_v0) {
             if (_v0.message !== _v9.SOURCE_NOT_FOUND) throw _v0;
           }
-          _v0((0, _v28.updateLoadingItemAction)({
+          _v0((0, _v29.updateLoadingItemAction)({
             id: _v1,
             item: {
-              status: _v32.STATUS.DONE
+              status: _v34.STATUS.DONE
             }
           }));
         } catch (_v0) {
-          throw _v0((0, _v28.updateLoadingItemAction)({
+          throw _v0((0, _v29.updateLoadingItemAction)({
             id: _v1,
             item: {
-              status: _v32.STATUS.ERROR
+              status: _v34.STATUS.ERROR
             }
           })), _v0;
         }
@@ -484,7 +486,7 @@
       _v23 = (0, _v1.useCallback)(async _v0 => {
         let _v1 = (0, _v12.createUuidV4)(),
           _v2 = await _v7(_v0);
-        _v0((0, _v28.addLoadingSoundItemAction)({
+        _v0((0, _v29.addLoadingSoundItemAction)({
           id: _v1,
           item: _v2
         })), await _v22(_v0, _v1);
@@ -494,23 +496,24 @@
         itemId: _v1,
         mediaItem: _v2,
         itemType: _v3,
-        isHotspot: _v4
+        isHotspot: _v4,
+        beforeSourceSwap: _v5
       }) => {
-        let _v5 = _v0.name.toLowerCase().endsWith(".gif"),
-          _v6 = _v0.name.endsWith(".svg"),
-          _v7 = _v5 || _v6 ? await _v39(_v0) : _v0;
+        let _v6 = _v0.name.toLowerCase().endsWith(".gif"),
+          _v7 = _v0.name.endsWith(".svg"),
+          _v8 = _v6 || _v7 ? await _v41(_v0) : _v0;
         try {
-          let _v0 = _v3 === _v11.UploadQueueFileType.VIDEO || _v5 || _v6,
-            _v1 = await _v16(_v7, _v0 ? _v3.UPLOAD_TYPE_NAME.CREATE_VIDEO_ASSET : _v3.UPLOAD_TYPE_NAME.CREATE_IMAGE_ASSET, _v1),
+          let _v0 = _v3 === _v11.UploadQueueFileType.VIDEO || _v6 || _v7,
+            _v1 = await _v16(_v8, _v0 ? _v3.UPLOAD_TYPE_NAME.CREATE_VIDEO_ASSET : _v3.UPLOAD_TYPE_NAME.CREATE_IMAGE_ASSET, _v1),
             _v2 = await _v14({
               storyboardId: _v3,
               vsid: _v1,
-              fileName: _v7.name,
-              fileSize: _v7.size,
+              fileName: _v8.name,
+              fileSize: _v8.size,
               storageObjectId: (_v0 ? "starlord-" : "") + _v1,
               isHotspot: _v4,
               caller: "localUpload",
-              ...(_v6 && {
+              ...(_v7 && {
                 width: _v2.width,
                 height: _v2.height
               })
@@ -522,39 +525,39 @@
             {
               hash: _v4
             } = _v3;
-          _v0((0, _v28.addRemoteUrl)({
+          await _v5, _v0((0, _v29.addRemoteUrl)({
             localUrl: _v2.url,
             remoteUrl: _v3.previewUrl
           }));
           try {
             let _v0 = structuredClone(_v3);
-            _v0.previewUrl, _v0((0, _v28.updateLoadingItemSourceAction)({
+            _v0.previewUrl, _v0((0, _v29.updateLoadingItemSourceAction)({
               hash: _v1,
               source: _v3
-            })), _v0((0, _v29.updateSourceAction)({
+            })), _v0((0, _v30.updateSourceAction)({
               hash: _v1,
               source: _v0
-            })), _v0((0, _v27.updateSourceAction)({
+            })), _v0((0, _v28.updateSourceAction)({
               hash: _v1,
               source: _v0
             }));
           } catch (_v0) {
             if (_v0.message !== _v9.SOURCE_NOT_FOUND) throw _v0;
           }
-          _v3.type === _v4.SourceType.CLIP && _v0(_v26.sourceAssetsApi.endpoints.getThumbnailsForSource.initiate({
+          _v3.type === _v4.SourceType.CLIP && _v0(_v27.sourceAssetsApi.endpoints.getThumbnailsForSource.initiate({
             sourceHash: _v4,
-            userId: _v25.default.teamOwnerId
-          })), _v0((0, _v28.updateLoadingItemAction)({
+            userId: _v26.default.teamOwnerId
+          })), _v0((0, _v29.updateLoadingItemAction)({
             id: _v1,
             item: {
-              status: _v32.STATUS.DONE
+              status: _v34.STATUS.DONE
             }
           }));
         } catch (_v0) {
-          throw _v0((0, _v28.updateLoadingItemAction)({
+          throw _v0((0, _v29.updateLoadingItemAction)({
             id: _v1,
             item: {
-              status: _v32.STATUS.ERROR
+              status: _v34.STATUS.ERROR
             }
           })), _v0;
         }
@@ -565,10 +568,10 @@
           _v3 = new File([_v2], _v0.data.name, {
             type: _v2.type
           });
-        _v0((0, _v28.updateLoadingItemAction)({
+        _v0((0, _v29.updateLoadingItemAction)({
           id: _v0.id,
           item: {
-            status: _v32.STATUS.PROGRESS
+            status: _v34.STATUS.PROGRESS
           }
         }));
         let _v4 = (0, _v16.getItemType)(_v11.UploadMediaOrigin.BROWSER, _v3);
@@ -587,44 +590,47 @@
           _v3 = new File([_v2], _v0.data.name, {
             type: _v2.type
           });
-        _v0((0, _v28.updateLoadingItemAction)({
+        _v0((0, _v29.updateLoadingItemAction)({
           id: _v0.id,
           item: {
-            status: _v32.STATUS.PROGRESS
+            status: _v34.STATUS.PROGRESS
           }
         })), await _v22(_v3, _v0.id);
       }, [_v0, _v22]);
     return {
       initialUploadLocalMediaFile: (0, _v1.useCallback)(async (_v0, _v1 = {}) => {
-        let _v2,
-          _v3 = (0, _v16.getItemType)(_v11.UploadMediaOrigin.BROWSER, _v0);
-        if (!_v3) throw Error(_v9.UPLOAD_FILE_TYPE_ERROR);
-        let _v4 = (0, _v12.createUuidV4)(),
-          _v5 = await _v6(_v0);
-        _v0((0, _v28.addLoadingMediaItemAction)({
-          id: _v4,
-          item: _v5,
+        let _v2 = (0, _v16.getItemType)(_v11.UploadMediaOrigin.BROWSER, _v0);
+        if (!_v2) throw Error(_v9.UPLOAD_FILE_TYPE_ERROR);
+        let _v3 = (0, _v12.createUuidV4)(),
+          _v4 = await _v6(_v0);
+        _v0((0, _v29.addLoadingMediaItemAction)({
+          id: _v3,
+          item: _v4,
           canBeUseLocally: !1
         }));
-        let _v6 = _v3 !== _v11.UploadQueueFileType.IMAGE && (await _v38(_v0, !0));
-        _v6 && _v0((0, _v28.updateLoadingItemAction)({
-          id: _v4,
+        let _v5 = (_v2 === _v11.UploadQueueFileType.IMAGE ? Promise.resolve(!1) : _v40(_v0, !0)).then(async _v0 => !!_v0 && (_v0((0, _v29.updateLoadingItemAction)({
+          id: _v3,
           item: {
-            canBeUseLocally: _v6
+            canBeUseLocally: _v0
           }
-        })), _v6 && _v1.addToStoryboard && (_v2 = _v17({
-          mediaItem: _v5,
-          sourceHash: _v4,
+        })), !!_v1.addToStoryboard && (await _v17({
+          mediaItem: _v4,
+          sourceHash: _v3,
           addItemAsHotspot: _v1.isHotspot
-        })), await _v24({
+        }), !0))).catch(_v0 => (_v25.default.sendLog(_v9.FAILED_TO_CREATE_MEDIA_ELEMENT, _v33.LogComponent.EDITOR_UPLOAD_ERROR, {
+          fileName: _v0.name,
+          error: _v0 instanceof Error ? _v0.message : String(_v0)
+        }), !1));
+        await _v24({
           file: _v0,
-          itemId: _v4,
-          mediaItem: _v5,
-          itemType: _v3,
-          isHotspot: _v1.isHotspot ?? !1
-        }), !_v2 && _v1.addToStoryboard && _v17({
-          mediaItem: _v5,
-          sourceHash: _v4,
+          itemId: _v3,
+          mediaItem: _v4,
+          itemType: _v2,
+          isHotspot: _v1.isHotspot ?? !1,
+          beforeSourceSwap: _v5
+        }), _v1.addToStoryboard && !(await _v5) && _v17({
+          mediaItem: _v4,
+          sourceHash: _v3,
           addItemAsHotspot: _v1.isHotspot
         });
       }, [_v6, _v0, _v17, _v24]),

@@ -1470,82 +1470,111 @@
     isDisabled: _v1,
     onToggle: _v2
   }) {
-    return (0, _v1.jsxs)(_v9.Flex, {
-      alignItems: "center",
-      gap: (0, _v12.rem)(12),
-      paddingX: "md",
-      py: "sm",
-      minHeight: (0, _v12.rem)(40),
-      transition: "all 120ms ease-in-out 0s",
-      outline: "1px solid",
-      outlineColor: "input-stroke",
-      outlineOffset: "-1px",
-      borderRadius: "md",
-      opacity: _v1 ? .5 : 1,
-      cursor: _v1 ? "not-allowed" : "default",
-      _hover: _v1 ? void 0 : {
-        outlineColor: "input-stroke-hover"
-      },
-      children: [(0, _v1.jsx)(_v11.Text, {
-        variant: "heading-xs",
-        children: (0, _v17.translate)({
-          singular: "Embeddable",
-          dictionary: {
-            es: {
-              singular: "Insertable"
-            },
-            "de-DE": {
-              singular: "Einbettbar"
-            },
-            "fr-FR": {
-              singular: "Intégrable"
-            },
-            "ja-JP": {
-              singular: "埋め込み可能"
-            },
-            "ko-KR": {
-              singular: "임베드 가능"
-            },
-            "pt-BR": {
-              singular: "Incorporável"
-            },
-            "zh-CN": {
-              singular: "可嵌入"
-            }
+    return (0, _v1.jsx)(_v13.Tooltip, {
+      label: (0, _v17.translate)({
+        singular: "Allow this video to be embedded on external sites",
+        dictionary: {
+          es: {
+            singular: "Permitir que este vídeo se incruste en sitios externos"
+          },
+          "de-DE": {
+            singular: "Einbetten dieses Videos auf externen Websites erlauben"
+          },
+          "fr-FR": {
+            singular: "Autoriser l’intégration de cette vidéo sur des sites externes"
+          },
+          "ja-JP": {
+            singular: "この動画を外部サイトに埋め込むことを許可する"
+          },
+          "ko-KR": {
+            singular: "이 동영상을 외부 사이트에 임베드할 수 있도록 허용"
+          },
+          "pt-BR": {
+            singular: "Permitir que este vídeo seja incorporado em sites externos"
+          },
+          "zh-CN": {
+            singular: "允许在外部站点嵌入此视频"
           }
-        })
-      }), (0, _v1.jsx)(_v28.Switch, {
-        size: "sm",
-        isChecked: _v0 ?? !1,
-        isDisabled: _v1,
-        onChange: _v2,
-        "aria-label": (0, _v17.translate)({
-          singular: "Toggle embeddable",
-          dictionary: {
-            es: {
-              singular: "Alternar inserción"
-            },
-            "de-DE": {
-              singular: "Einbettung umschalten"
-            },
-            "fr-FR": {
-              singular: "Activer/désactiver l'intégration"
-            },
-            "ja-JP": {
-              singular: "埋め込みを切り替え"
-            },
-            "ko-KR": {
-              singular: "임베드 가능 전환"
-            },
-            "pt-BR": {
-              singular: "Alternar incorporação"
-            },
-            "zh-CN": {
-              singular: "切换可嵌入"
+        }
+      }),
+      placement: "top",
+      children: (0, _v1.jsxs)(_v9.Flex, {
+        alignItems: "center",
+        gap: (0, _v12.rem)(12),
+        paddingX: "md",
+        py: "sm",
+        minHeight: (0, _v12.rem)(40),
+        transition: "all 120ms ease-in-out 0s",
+        outline: "1px solid",
+        outlineColor: "input-stroke",
+        outlineOffset: "-1px",
+        borderRadius: "md",
+        opacity: _v1 ? .5 : 1,
+        cursor: _v1 ? "not-allowed" : "default",
+        _hover: _v1 ? void 0 : {
+          outlineColor: "input-stroke-hover"
+        },
+        children: [(0, _v1.jsx)(_v11.Text, {
+          variant: "heading-xs",
+          children: (0, _v17.translate)({
+            singular: "Embeddable",
+            dictionary: {
+              es: {
+                singular: "Insertable"
+              },
+              "de-DE": {
+                singular: "Einbettbar"
+              },
+              "fr-FR": {
+                singular: "Intégrable"
+              },
+              "ja-JP": {
+                singular: "埋め込み可能"
+              },
+              "ko-KR": {
+                singular: "임베드 가능"
+              },
+              "pt-BR": {
+                singular: "Incorporável"
+              },
+              "zh-CN": {
+                singular: "可嵌入"
+              }
             }
-          }
-        })
-      })]
+          })
+        }), (0, _v1.jsx)(_v28.Switch, {
+          size: "sm",
+          isChecked: _v0 ?? !1,
+          isDisabled: _v1,
+          onChange: _v2,
+          "aria-label": (0, _v17.translate)({
+            singular: "Toggle embeddable",
+            dictionary: {
+              es: {
+                singular: "Alternar inserción"
+              },
+              "de-DE": {
+                singular: "Einbettung umschalten"
+              },
+              "fr-FR": {
+                singular: "Activer/désactiver l'intégration"
+              },
+              "ja-JP": {
+                singular: "埋め込みを切り替え"
+              },
+              "ko-KR": {
+                singular: "임베드 가능 전환"
+              },
+              "pt-BR": {
+                singular: "Alternar incorporação"
+              },
+              "zh-CN": {
+                singular: "切换可嵌入"
+              }
+            }
+          })
+        })]
+      })
     });
   }
   var _v30 = _v0.i(0),
@@ -3201,10 +3230,10 @@
                 singular: "Waiting",
                 dictionary: {
                   es: {
-                    singular: "Esperando"
+                    singular: "En espera"
                   },
                   "de-DE": {
-                    singular: "Wartet"
+                    singular: "Warten"
                   },
                   "fr-FR": {
                     singular: "En attente"
@@ -3219,7 +3248,7 @@
                     singular: "Aguardando"
                   },
                   "zh-CN": {
-                    singular: "请稍候"
+                    singular: "等待中"
                   }
                 }
               });

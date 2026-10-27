@@ -7,18 +7,17 @@
     _v4 = _v0.i(0),
     _v5 = _v0.i(0),
     _v6 = _v0.i(0),
-    _v7 = _v0.i(0),
-    _v8 = _v0.i(0);
-  let _v9 = 256,
-    _v10 = 600,
-    _v11 = ({
+    _v7 = _v0.i(0);
+  let _v8 = 256,
+    _v9 = 600,
+    _v10 = ({
       active: _v0,
       attach: _v1 = "left",
       children: _v2,
       collapsed: _v3 = !1,
       dragConstraint: _v4 = {
-        min: _v9,
-        max: _v10
+        min: _v8,
+        max: _v9
       },
       isFixed: _v5 = !1,
       onCollapsedRailClick: _v6,
@@ -51,14 +50,19 @@
               offsetLeft: _v2
             } = document.body,
             _v3 = _v4.min;
-          "right" === _v1 && (_v3 = _v1 - _v0.clientX), "left" === _v1 && (_v3 = _v0.clientX - _v2), _v14(_v3 = (0, _v7.clamp)(_v3, _v4));
+          "right" === _v1 && (_v3 = _v1 - _v0.clientX), "left" === _v1 && (_v3 = _v0.clientX - _v2), _v14(_v3 = function (_v0, {
+            min: _v1 = 0,
+            max: _v2 = 0
+          } = {}) {
+            return Math.min(Math.max(_v0, _v1), _v2);
+          }(_v3, _v4));
           let _v4 = {
             ..._v4,
             current: _v3
           };
           _v9?.(_v0, _v4);
         }, [_v11]),
-        _v25 = (0, _v8.useThrottledCallback)(_v0 => {
+        _v25 = (0, _v7.useThrottledCallback)(_v0 => {
           _v15 && (_v0.preventDefault(), _v24(_v0));
         }, [_v24, _v15], 16),
         _v26 = _v0 => {
@@ -152,13 +156,13 @@
         })]
       }) : (0, _v1.jsx)(_v1.Fragment, {});
     };
-  _v11.Header = ({
+  _v10.Header = ({
     children: _v0
   }) => (0, _v1.jsx)(_v3.Box, {
     padding: "0",
     marginBottom: (0, _v5.rem)(12),
     children: _v0
-  }), _v11.Body = ({
+  }), _v10.Body = ({
     children: _v0
   }) => (0, _v1.jsx)(_v3.Box, {
     display: "flex",
@@ -167,14 +171,14 @@
     px: "16px",
     flexGrow: 1,
     children: _v0
-  }), _v11.Section = ({
+  }), _v10.Section = ({
     children: _v0
   }) => (0, _v1.jsx)(_v3.Box, {
     display: "flex",
     flexDirection: "column",
     py: "8",
     children: _v0
-  }), _v11.MenuItems = ({
+  }), _v10.MenuItems = ({
     children: _v0,
     customStyles: _v1
   }) => (0, _v1.jsx)(_v3.Box, {
@@ -187,13 +191,13 @@
     gap: "2",
     ..._v1,
     children: _v0
-  }), _v11.Footer = ({
+  }), _v10.Footer = ({
     children: _v0
   }) => (0, _v1.jsx)(_v3.Box, {
     bottom: "0",
     width: "100%",
     children: _v0
-  }), _v11.Divider = _v0 => (0, _v1.jsx)(_v3.Box, {
+  }), _v10.Divider = _v0 => (0, _v1.jsx)(_v3.Box, {
     as: "hr",
     margin: "0",
     border: "0",
@@ -204,5 +208,5 @@
       borderColor: "stroke"
     },
     ..._v0
-  }), _v0.s(["COLLAPSED_RAIL_WIDTH", 0, 72, "ResizableSideNav", 0, _v11]);
+  }), _v0.s(["COLLAPSED_RAIL_WIDTH", 0, 72, "ResizableSideNav", 0, _v10]);
 }

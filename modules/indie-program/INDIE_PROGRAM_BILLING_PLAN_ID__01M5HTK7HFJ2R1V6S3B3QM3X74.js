@@ -1,0 +1,5 @@
+{
+  "use strict";
+
+  _v0.s(["INDIE_PROGRAM_BILLING_PLAN_ID", 0, "01M5HTK7HFJ2R1V6S3B3QM3X74"]);
+}

@@ -267,18 +267,19 @@
       return (0, _v46.deepCamelCase)(_v1);
     });
   }
-  _v0.i(0), _v0.i(0), _v0.i(0);
+  _v0.i(0), _v0.i(0);
   var _v48 = _v0.i(0),
     _v49 = _v0.i(0),
     _v50 = _v0.i(0),
     _v51 = _v0.i(0),
     _v52 = _v0.i(0),
     _v53 = _v0.i(0),
-    _v54 = _v0.i(0);
-  let _v55 = {
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0);
+  let _v56 = {
       gap: 0
     },
-    _v56 = (0, _v2.memo)(({
+    _v57 = (0, _v2.memo)(({
       searchQuery: _v0,
       onInviteNewMember: _v1
     }) => {
@@ -299,7 +300,7 @@
             _v3 = (0, _v35.useToast)(),
             {
               getAbortSignal: _v4
-            } = (0, _v50.useGetAbortSignal)({
+            } = (0, _v51.useGetAbortSignal)({
               query: _v2
             }),
             _v5 = (0, _v2.useContext)(_v28.ViewerContext),
@@ -319,17 +320,23 @@
                   jwt: _v4,
                   xVimeoPage: _v5,
                   locale: _v6
-                } = (0, _v49.useGctlConfig)();
-              return (0, _v48.default)((_v0, _v1) => {
+                } = (0, _v50.useGctlConfig)();
+              return (0, _v49.default)((_v0, _v1) => {
                 if (null === _v2 || _v1 && !_v1.paging.next) return null;
                 let {
                     perPage: _v2 = 25,
                     page: _v3,
                     ..._v4
                   } = _v2.query ?? {},
-                  _v5 = _v2.select.join(","),
-                  _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-                return [`/users/${_v2.where.userId}/team_entities?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
+                  _v5 = {
+                    page: _v0 + 1,
+                    perPage: _v2,
+                    ..._v4
+                  };
+                return [`/users/${_v2.where.userId}/team_entities${(0, _v48.serializeQuery)({
+                  query: _v5,
+                  select: _v2.select
+                })}`, _v0];
               }, null !== _v2 ? ([_v0, _v1]) => _v47({
                 ..._v2,
                 baseUrl: _v3,
@@ -400,7 +407,7 @@
             }, [_v12, _v11]),
             _v15 = (0, _v2.useMemo)(() => {
               if (_v7) {
-                let _v0 = _v7.filter(_v0 => !!_v0).flatMap(_v0 => _v0.data.filter(_v0 => (0, _v51.permissionsBySearchKeywordFilter)(_v0, _v2)).flatMap(_v0 => _v0));
+                let _v0 = _v7.filter(_v0 => !!_v0).flatMap(_v0 => _v0.data.filter(_v0 => (0, _v52.permissionsBySearchKeywordFilter)(_v0, _v2)).flatMap(_v0 => _v0));
                 return {
                   ..._v7[_v7.length - 1],
                   data: _v0 ?? []
@@ -428,12 +435,12 @@
           },
           shouldSkip: () => !_v0 || _v2 === _v5.ShareModalState.Invitation
         }),
-        _v8 = (0, _v51.validateEmail)(_v0) ? _v0 : "",
+        _v8 = (0, _v52.validateEmail)(_v0) ? _v0 : "",
         _v9 = _v5.find(_v0 => _v8 && _v0.email === _v8);
       (0, _v2.useEffect)(() => {
         _v9 && _v1(_v9);
       }, [_v9, _v1]);
-      let _v10 = (0, _v2.useMemo)(() => _v5.map((_v0, _v1) => (0, _v1.jsx)(_v53.SearchItem, {
+      let _v10 = (0, _v2.useMemo)(() => _v5.map((_v0, _v1) => (0, _v1.jsx)(_v54.SearchItem, {
           teamEntity: {
             ..._v0,
             currentPermissionPolicy: null
@@ -444,12 +451,12 @@
         }, _v1)), [_v1, _v5]),
         _v11 = (0, _v2.useMemo)(() => {
           let _v0 = [];
-          return _v10?.length && _v0.push(..._v10), _v4 && _v0.push((0, _v1.jsx)(_v52.Loader, {})), _v0;
+          return _v10?.length && _v0.push(..._v10), _v4 && _v0.push((0, _v1.jsx)(_v53.Loader, {})), _v0;
         }, [_v10, _v4]);
-      if (_v3 || _v9) return (0, _v1.jsx)(_v52.Loader, {});
+      if (_v3 || _v9) return (0, _v1.jsx)(_v53.Loader, {});
       let _v12 = !!_v5.length && !!_v0;
       return (0, _v1.jsxs)(_v11.Box, {
-        children: [(0, _v1.jsx)(_v54.SearchPrompt, {
+        children: [(0, _v1.jsx)(_v55.SearchPrompt, {
           searchQuery: _v0,
           isViewerShareScreen: !0,
           onInviteNewMember: _v1
@@ -458,20 +465,20 @@
             borderColor: "stroke"
           }), (0, _v1.jsx)(_v44.VirtualizedList, {
             listItems: _v11,
-            wrapperOverrides: _v57,
+            wrapperOverrides: _v58,
             canLoadMore: _v6,
             isFetchingMore: _v4,
             loadMore: _v7,
-            virtualizerOptions: _v55
+            virtualizerOptions: _v56
           })]
         })]
       });
     }),
-    _v57 = {
+    _v58 = {
       maxH: 300
     },
-    _v58 = "team_share_input",
-    _v59 = () => {
+    _v59 = "team_share_input",
+    _v60 = () => {
       let _v0 = (0, _v2.useRef)(null),
         _v1 = (0, _v2.useContext)(_v28.ViewerContext),
         _v2 = (0, _v2.useContext)(_v24.RefsState),
@@ -518,7 +525,7 @@
         }) => _v0.actions),
         _v16 = _v4.value.trim(),
         _v17 = (0, _v37.useDebouncedValue)(_v16, 500),
-        _v18 = (0, _v51.validateEmail)(_v16),
+        _v18 = (0, _v52.validateEmail)(_v16),
         _v19 = (0, _v2.useRef)(!1),
         _v20 = (0, _v2.useCallback)(_v0 => {
           if (!_v16.length) return;
@@ -557,9 +564,9 @@
             return;
           }
           if (_v0) {
-            if ((0, _v51.hasArrayDuplicates)(_v12.map(_v0 => _v0.name), [_v0.displayName ?? _v0.email])) return;
+            if ((0, _v52.hasArrayDuplicates)(_v12.map(_v0 => _v0.name), [_v0.displayName ?? _v0.email])) return;
             _v15(_v0);
-          } else if (!(0, _v51.validateEmail)(_v16) && _v16.length > 0) {
+          } else if (!(0, _v52.validateEmail)(_v16) && _v16.length > 0) {
             _v5(_v0 => ({
               ..._v0,
               hasError: !0
@@ -596,7 +603,7 @@
             });
             return;
           } else {
-            if ((0, _v51.hasArrayDuplicates)(_v12.map(_v0 => _v0.name), [_v16])) return;
+            if ((0, _v52.hasArrayDuplicates)(_v12.map(_v0 => _v0.name), [_v16])) return;
             if (!_v9) {
               let _v0 = "rsm-mixed-invitation-box-warning";
               _v6.isActive(_v0) || _v6({
@@ -745,7 +752,7 @@
                 position: "relative",
                 zIndex: 10,
                 children: [(0, _v1.jsx)(_v29.Flex, {
-                  sx: _v60,
+                  sx: _v61,
                   outlineColor: _v4.hasError ? "status-destructive-primary" : "input-stroke",
                   children: (0, _v1.jsxs)(_v29.Flex, {
                     direction: "row",
@@ -771,7 +778,7 @@
                       type: "text",
                       autoComplete: "off",
                       ref: _v0,
-                      id: _v58,
+                      id: _v59,
                       value: _v4.value,
                       placeholder: _v22,
                       onChange: _v0 => {
@@ -796,7 +803,7 @@
                       },
                       autoFocus: _v3,
                       "data-1p-ignore": !0,
-                      sx: _v61,
+                      sx: _v62,
                       fontSize: _v10 ? "text" : (0, _v14.rem)(14),
                       _focus: {
                         border: "none"
@@ -804,7 +811,7 @@
                       _hover: {
                         outline: "none"
                       },
-                      "data-testid": _v58
+                      "data-testid": _v59
                     })]
                   })
                 }), _v4.hasError && _v19.current && (0, _v1.jsx)(_v31.Paragraph, {
@@ -845,7 +852,7 @@
           }), (0, _v1.jsx)(_v13.Portal, {
             containerRef: _v7,
             children: (0, _v1.jsx)(_v33.PopoverContent, {
-              children: (0, _v1.jsx)(_v56, {
+              children: (0, _v1.jsx)(_v57, {
                 searchQuery: _v17,
                 onInviteNewMember: _v20
               })
@@ -854,7 +861,7 @@
         })
       });
     },
-    _v60 = {
+    _v61 = {
       flexWrap: "nowrap",
       width: "100%",
       height: "auto",
@@ -877,7 +884,7 @@
       },
       ..._v25.ScrollbarStyle
     },
-    _v61 = {
+    _v62 = {
       flex: 1,
       height: "100%",
       paddingLeft: 1,
@@ -887,9 +894,9 @@
       paddingY: 0,
       bgColor: "inherit"
     };
-  _v0.s(["MixedInvitationBox", 0, _v59], 0);
-  var _v62 = _v0.i(0);
-  let _v63 = () => {
+  _v0.s(["MixedInvitationBox", 0, _v60], 0);
+  var _v63 = _v0.i(0);
+  let _v64 = () => {
     let {
         modalFooterRef: _v0
       } = (0, _v2.useContext)(_v24.RefsState),
@@ -937,9 +944,9 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v59, {}), (0, _v1.jsx)(_v11.Box, {
+      }), (0, _v1.jsx)(_v60, {}), (0, _v1.jsx)(_v11.Box, {
         pt: (0, _v14.rem)(16),
-        children: (0, _v1.jsx)(_v62.InvitationContent, {
+        children: (0, _v1.jsx)(_v63.InvitationContent, {
           shouldSendEmail: !0,
           existingTeamMember: null,
           hasPerSeatPricingModelTeamMember: !1,
@@ -985,7 +992,7 @@
     }, [_v2]), (0, _v2.useCallback)(() => {
       switch (_v1) {
         case _v5.ShareModalState.Default:
-          return _v0 || !_v3 ? (0, _v1.jsx)(_v26, {}) : (0, _v1.jsx)(_v63, {});
+          return _v0 || !_v3 ? (0, _v1.jsx)(_v26, {}) : (0, _v1.jsx)(_v64, {});
         case _v5.ShareModalState.Invitation:
           return (0, _v1.jsx)(_v7.InvitationScreen, {});
         case _v5.ShareModalState.Purchase:

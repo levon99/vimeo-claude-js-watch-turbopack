@@ -1584,81 +1584,83 @@
         {
           canAllowDownloads: _v37,
           canHideVideos: _v38,
-          hasVideoPasswordPrivacyUpsell: _v39,
-          hasPrivateModeOff: _v40
+          canUnlistVideo: _v39,
+          hasVideoPasswordPrivacyUpsell: _v40,
+          hasPrivateModeOff: _v41
         } = _v2 ?? {},
-        _v41 = (0, _v35.useEffectiveCanUnlistVideo)(),
-        [_v42] = (0, _v30.useDeleteVideoPrivacyDomain)(),
-        _v43 = async (_v0, _v1) => {
-          _v24(_v0), ("whitelist" !== _v0 || _v1) && (_v25 && _v15 && (await _v42({
+        _v42 = (0, _v35.useEffectiveCanUnlistVideo)(),
+        _v43 = null == _v7 || _v7 === _v16?.user?.id ? _v42 : !!_v39,
+        [_v44] = (0, _v30.useDeleteVideoPrivacyDomain)(),
+        _v45 = async (_v0, _v1) => {
+          _v24(_v0), ("whitelist" !== _v0 || _v1) && (_v25 && _v15 && (await _v44({
             where: {
               videoId: _v15,
               domain: _v25.domain
             }
           }), _v26(null)), _v12(_v0));
         },
-        _v44 = async _v0 => {
-          _v43(_v0, !1);
+        _v46 = async _v0 => {
+          _v45(_v0, !1);
         },
-        _v45 = async _v0 => {
-          _v43(_v0, !0);
+        _v47 = async _v0 => {
+          _v45(_v0, !0);
         },
-        _v46 = _v0?.privacy?.add ?? !1,
-        _v47 = _v0?.privacy?.allowShareLink ?? !0,
-        _v48 = _v0?.privacy?.embed ?? "private",
-        _v49 = _v0?.editSession?.isMusicLicensed ?? !0,
-        _v50 = _v0?.metadata?.isScreenRecord,
-        _v51 = _v2?.hasSunsetHideFromVimeo ?? !1,
-        _v52 = _v2?.enterprise ?? !1,
-        _v53 = _v0?.privacy?.download ?? !1,
-        _v54 = _v0?.privacy?.comments === "anybody",
-        _v55 = {
+        _v48 = _v0?.privacy?.add ?? !1,
+        _v49 = _v0?.privacy?.allowShareLink ?? !0,
+        _v50 = _v0?.privacy?.embed ?? "private",
+        _v51 = _v0?.editSession?.isMusicLicensed ?? !0,
+        _v52 = _v0?.metadata?.isScreenRecord,
+        _v53 = _v2?.hasSunsetHideFromVimeo ?? !1,
+        _v54 = _v2?.enterprise ?? !1,
+        _v55 = _v0?.privacy?.download ?? !1,
+        _v56 = _v0?.privacy?.comments === "anybody",
+        _v57 = {
           ..._v77,
           activeLinkPrivacyOption: _v0?.privacy?.view,
-          allowDownloads: _v53,
-          allowShareLink: _v47,
-          allowShowcase: _v46,
-          activeEmbedPrivacy: _v48,
-          allowComments: _v54
+          allowDownloads: _v55,
+          allowShareLink: _v49,
+          allowShowcase: _v48,
+          activeEmbedPrivacy: _v50,
+          allowComments: _v56
         },
-        [_v56, _v57] = (0, _v16.useReducer)(_v78, _v55);
+        [_v58, _v59] = (0, _v16.useReducer)(_v78, _v57);
       (0, _v16.useEffect)(() => {
-        _v0?.privacy?.view && _v56?.activeLinkPrivacyOption !== _v0?.privacy?.view && (_v28(""), _v57({
+        _v0?.privacy?.view && _v58?.activeLinkPrivacyOption !== _v0?.privacy?.view && (_v28(""), _v59({
           type: "PRIVACY_DRAWER.SET_ACTIVE_LINK_PRIVACY_OPTION",
           payload: _v0?.privacy?.view
         }));
       }, [_v0?.privacy?.view]);
-      let _v58 = void 0 !== _v40 && !_v40,
-        _v59 = _v0?.allowedPrivacies && _v0?.privacy?.view && !_v0.allowedPrivacies.includes(_v0?.privacy?.view),
-        _v60 = !_v0?.privacy?.view || _v87.indexOf(_v0?.privacy?.view) > -1 || _v59,
-        _v61 = _v0?.privacy?.view && _v86.indexOf(_v0?.privacy?.view) > -1,
-        _v62 = _v0?.privacy?.view && ["stock", "stock_purchased"].indexOf(_v0?.privacy?.view) > -1,
+      let _v60 = void 0 !== _v41 && !_v41,
+        _v61 = _v0?.allowedPrivacies && _v0?.privacy?.view && !_v0.allowedPrivacies.includes(_v0?.privacy?.view),
+        _v62 = !_v0?.privacy?.view || _v87.indexOf(_v0?.privacy?.view) > -1 || _v61,
+        _v63 = _v0?.privacy?.view && _v86.indexOf(_v0?.privacy?.view) > -1,
+        _v64 = _v0?.privacy?.view && ["stock", "stock_purchased"].indexOf(_v0?.privacy?.view) > -1,
         {
-          privacyOptions: _v63
+          privacyOptions: _v65
         } = (0, _v33.useClipPrivacyOptions)(_v15, !1),
-        _v64 = (0, _v34.useDefaultPrivacyOptions)(_v16, _v41 && !_v39 && _v38, !1),
-        _v65 = (0, _v16.useMemo)(() => _v63?.length ? _v63 : _v64, [_v63, _v64]),
-        _v66 = (0, _v16.useMemo)(() => _v65.filter(_v0 => "unlisted" !== _v0.privacy || !_v51).map(_v0 => ({
+        _v66 = (0, _v34.useDefaultPrivacyOptions)(_v16, _v43 && !_v40 && _v38, !1),
+        _v67 = (0, _v16.useMemo)(() => _v65?.length ? _v65 : _v66, [_v65, _v66]),
+        _v68 = (0, _v16.useMemo)(() => _v67.filter(_v0 => "unlisted" !== _v0.privacy || !_v53).map(_v0 => ({
           ..._v0,
-          showUpsell: _v0.showUpsell ?? (!_v52 && !!_v0?.allowedPrivacies && !_v0?.allowedPrivacies?.includes(_v0.privacy)),
-          isDisabled: _v0.isDisabled || !_v49 || "unlisted" === _v0.privacy && !_v41 && !_v50 || "disable" === _v0.privacy && (!_v38 && !_v58 || _v58 && _v51) || "anybody" === _v0.privacy && !!_v5 && !!_v3
-        })), [_v38, _v41, _v3, _v58, _v5, _v51, _v52, _v49, _v50, _v65, _v0?.allowedPrivacies]);
+          showUpsell: _v0.showUpsell ?? (!_v54 && !!_v0?.allowedPrivacies && !_v0?.allowedPrivacies?.includes(_v0.privacy)),
+          isDisabled: _v0.isDisabled || !_v51 || "unlisted" === _v0.privacy && !_v43 && !_v52 || "disable" === _v0.privacy && (!_v38 && !_v60 || _v60 && _v53) || "anybody" === _v0.privacy && !!_v5 && !!_v3
+        })), [_v38, _v43, _v3, _v60, _v5, _v53, _v54, _v51, _v52, _v67, _v0?.allowedPrivacies]);
       (0, _v16.useEffect)(() => {
-        _v1 && _v57({
+        _v1 && _v59({
           type: "PRIVACY_DRAWER.HYDRATE",
-          payload: _v55
+          payload: _v57
         });
       }, [_v1]);
-      let _v67 = (0, _v39.useDebouncedCallback)(_v0 => {
+      let _v69 = (0, _v39.useDebouncedCallback)(_v0 => {
         !_v36 && (_v11("password", _v0 ?? void 0), _v20.current = "password");
       }, 600);
       (0, _v16.useEffect)(() => {
         _v0?.privacy?.embed && _v24(_v0?.privacy?.embed);
       }, [_v0?.privacy?.embed]);
-      let _v68 = (_v0, _v1) => {
+      let _v70 = (_v0, _v1) => {
           _v32(_v0);
         },
-        _v69 = _v22 && _v21 ? (0, _v2.jsx)(_v17.Tooltip, {
+        _v71 = _v22 && _v21 ? (0, _v2.jsx)(_v17.Tooltip, {
           shouldWrapChildren: !0,
           label: _v21,
           children: (0, _v2.jsx)(_v28.InfoCircle, {
@@ -1667,7 +1669,7 @@
             height: "2xs"
           })
         }) : null;
-      return _v56.activeLinkPrivacyOption ? (0, _v2.jsxs)(_v2.Fragment, {
+      return _v58.activeLinkPrivacyOption ? (0, _v2.jsxs)(_v2.Fragment, {
         children: [(0, _v2.jsxs)(_v10.VStack, {
           alignItems: "stretch",
           gap: "lg",
@@ -1703,36 +1705,36 @@
                   }
                 }
               })
-            }), _v0?.privacy?.view && (_v60 || _v61 || !_v49) && !_v59 && (0, _v2.jsx)(_v83, {
+            }), _v0?.privacy?.view && (_v62 || _v63 || !_v51) && !_v61 && (0, _v2.jsx)(_v83, {
               privacy: _v0?.privacy?.view,
               privacySettingLink: _v4,
-              isMusicLicensed: _v49
+              isMusicLicensed: _v51
             }), (0, _v2.jsx)(_v29.PrivacyDropdown, {
               isVideoPrivacy: !0,
-              privacyOptions: _v66,
-              activePrivacy: _v56.activeLinkPrivacyOption,
+              privacyOptions: _v68,
+              activePrivacy: _v58.activeLinkPrivacyOption,
               onSelect: _v0 => {
                 if (null != _v19 && "anybody" !== _v0) {
                   let _v0 = _v17?.restricted?.max,
                     _v1 = _v17?.restricted?.used;
                   if (null != _v0 && null != _v1 && _v1 + (_v6 ?? 0) > _v0) return void _v32("storage_limit");
                 }
-                _v57({
+                _v59({
                   type: "PRIVACY_DRAWER.SET_ACTIVE_LINK_PRIVACY_OPTION",
                   payload: _v0
                 }), _v0 !== _v32.DEFAULT_PRIVACY_VALUES.PASSWORD && _v0 !== _v20.current && (_v11(_v0), _v28(""), _v20.current = _v0);
               },
-              onUpsellClick: _v0 => _v68("privacy", _v0),
+              onUpsellClick: _v0 => _v70("privacy", _v0),
               isRedirectUpsell: !1,
               variant: "outlined"
-            }), _v56.activeLinkPrivacyOption !== _v32.DEFAULT_PRIVACY_VALUES.PASSWORD || _v59 ? null : (0, _v2.jsxs)(_v10.VStack, {
+            }), _v58.activeLinkPrivacyOption !== _v32.DEFAULT_PRIVACY_VALUES.PASSWORD || _v61 ? null : (0, _v2.jsxs)(_v10.VStack, {
               alignItems: "stretch",
               gap: "2",
               children: [(0, _v2.jsx)(_v26.Password, {
                 name: "upload-page-password-input",
                 size: "md",
                 variant: "outlined",
-                autoFocus: _v56.activeLinkPrivacyOption === _v32.DEFAULT_PRIVACY_VALUES.PASSWORD && _v0?.privacy?.view !== _v32.DEFAULT_PRIVACY_VALUES.PASSWORD,
+                autoFocus: _v58.activeLinkPrivacyOption === _v32.DEFAULT_PRIVACY_VALUES.PASSWORD && _v0?.privacy?.view !== _v32.DEFAULT_PRIVACY_VALUES.PASSWORD,
                 autoComplete: "new-password",
                 isInvalid: _v36,
                 value: _v27,
@@ -1765,7 +1767,7 @@
                 "data-lpignore": "true",
                 "data-1p-ignore": "true",
                 onChange: _v0 => {
-                  _v29 || _v30(!0), _v28(_v0.target.value), _v67.debouncedCallback(_v0.target.value);
+                  _v29 || _v30(!0), _v28(_v0.target.value), _v69.debouncedCallback(_v0.target.value);
                 },
                 onFocus: () => _v34(!0),
                 onBlur: () => _v34(!1)
@@ -1806,15 +1808,15 @@
             gap: "lg",
             children: [(0, _v2.jsx)(_v37.EmbeddableQuotaMeter, {
               isChecked: _v23 !== _v32.EMBED_PRIVACY_VALUES.PRIVATE,
-              isDisabled: !!_v62 || _v22,
-              viewPrivacy: _v56.activeLinkPrivacyOption,
+              isDisabled: !!_v64 || _v22,
+              viewPrivacy: _v58.activeLinkPrivacyOption,
               onChange: () => {
                 if (_v23 === _v32.EMBED_PRIVACY_VALUES.PRIVATE) {
                   let _v0 = _v17?.restricted?.max,
                     _v1 = _v17?.restricted?.used;
                   if (null != _v0 && null != _v1 && _v1 + (_v6 ?? 0) > _v0) return void _v32("storage_limit");
                 }
-                _v44(_v23 === _v32.EMBED_PRIVACY_VALUES.PRIVATE ? _v32.EMBED_PRIVACY_VALUES.PUBLIC : _v32.EMBED_PRIVACY_VALUES.PRIVATE);
+                _v46(_v23 === _v32.EMBED_PRIVACY_VALUES.PRIVATE ? _v32.EMBED_PRIVACY_VALUES.PUBLIC : _v32.EMBED_PRIVACY_VALUES.PRIVATE);
               },
               quota: _v17 ?? null,
               isQuotaLoading: _v18,
@@ -1855,16 +1857,16 @@
                       }
                     }
                   })
-                }), _v69]
+                }), _v71]
               }), _v0?.privacy?.view === "nobody" && (0, _v2.jsx)(_v79, {}), (0, _v2.jsx)(_v76, {
-                selectedEmbedPrivacy: _v62 ? _v32.EMBED_PRIVACY_VALUES.PRIVATE : _v23,
-                shouldDisableAll: !!_v62 || _v22,
+                selectedEmbedPrivacy: _v64 ? _v32.EMBED_PRIVACY_VALUES.PRIVATE : _v23,
+                shouldDisableAll: !!_v64 || _v22,
                 hasUpsellsForFlatRateTiers: _v2?.hasUpsellsForFlatRateTiers,
                 hasExtraEmbedOptions: _v2?.hasExtraEmbedOptions,
-                onEmbedChangeClick: _v44,
-                onEmbedUpsellClick: () => _v68("embed"),
+                onEmbedChangeClick: _v46,
+                onEmbedUpsellClick: () => _v70("embed"),
                 hidePrivateOption: !0
-              }), !_v49 && (0, _v2.jsx)(_v20.Alert, {
+              }), !_v51 && (0, _v2.jsx)(_v20.Alert, {
                 status: "info",
                 mb: 0,
                 "data-testid": "embed-music-notice",
@@ -1905,7 +1907,7 @@
               gap: "2",
               children: (0, _v2.jsx)(_v70, {
                 initialPrivacy: _v0?.privacy?.embed,
-                onPrivacyChange: _v45,
+                onPrivacyChange: _v47,
                 onDeletingLastDomain: _v0 => {
                   _v26(_v0);
                 },
@@ -1954,15 +1956,15 @@
                       }
                     }
                   })
-                }), _v69]
+                }), _v71]
               }), _v0?.privacy?.view === "nobody" && (0, _v2.jsx)(_v79, {}), (0, _v2.jsx)(_v76, {
-                selectedEmbedPrivacy: _v62 ? _v32.EMBED_PRIVACY_VALUES.PRIVATE : _v23,
-                shouldDisableAll: !!_v62 || _v22,
+                selectedEmbedPrivacy: _v64 ? _v32.EMBED_PRIVACY_VALUES.PRIVATE : _v23,
+                shouldDisableAll: !!_v64 || _v22,
                 hasUpsellsForFlatRateTiers: _v2?.hasUpsellsForFlatRateTiers,
                 hasExtraEmbedOptions: _v2?.hasExtraEmbedOptions,
-                onEmbedChangeClick: _v44,
-                onEmbedUpsellClick: () => _v68("embed")
-              }), _v23 !== _v32.EMBED_PRIVACY_VALUES.PRIVATE && !_v49 && (0, _v2.jsx)(_v20.Alert, {
+                onEmbedChangeClick: _v46,
+                onEmbedUpsellClick: () => _v70("embed")
+              }), _v23 !== _v32.EMBED_PRIVACY_VALUES.PRIVATE && !_v51 && (0, _v2.jsx)(_v20.Alert, {
                 status: "info",
                 mb: 0,
                 "data-testid": "embed-music-notice",
@@ -2003,7 +2005,7 @@
               gap: "2",
               children: (0, _v2.jsx)(_v70, {
                 initialPrivacy: _v0?.privacy?.embed,
-                onPrivacyChange: _v45,
+                onPrivacyChange: _v47,
                 onDeletingLastDomain: _v0 => {
                   _v26(_v0);
                 },
@@ -2080,7 +2082,7 @@
                 })
               }), (0, _v2.jsxs)(_v3.Box, {
                 children: [_v37 ? null : (0, _v2.jsx)(_v31.UpgradeBadge, {
-                  onClick: () => _v68("download"),
+                  onClick: () => _v70("download"),
                   name: "upload_home_downloads_upgrade_button",
                   location: "upload_home_privacy_drawer",
                   children: (0, _v13.translate)({
@@ -2107,14 +2109,14 @@
                     }
                   })
                 }), (0, _v2.jsx)(_v23.Switch, {
-                  isChecked: _v56.allowDownloads,
-                  isDisabled: _v60 || !_v37,
+                  isChecked: _v58.allowDownloads,
+                  isDisabled: _v62 || !_v37,
                   id: "allow-downloads-toggle",
                   size: "md",
                   onChange: () => {
-                    _v57({
+                    _v59({
                       type: "PRIVACY_DRAWER.TOGGLE_ALLOW_DOWNLOADS"
-                    }), _v8(!_v56.allowDownloads);
+                    }), _v8(!_v58.allowDownloads);
                   },
                   placeContent: "space-between"
                 })]
@@ -2155,14 +2157,14 @@
                   }
                 })
               }), (0, _v2.jsx)(_v23.Switch, {
-                isChecked: _v56.allowComments,
-                isDisabled: _v60,
+                isChecked: _v58.allowComments,
+                isDisabled: _v62,
                 id: "allow-comments-toggle",
                 size: "md",
                 onChange: () => {
-                  _v57({
+                  _v59({
                     type: "PRIVACY_DRAWER.TOGGLE_ALLOW_COMMENTS"
-                  }), _v10 && _v10(!_v56.allowComments);
+                  }), _v10 && _v10(!_v58.allowComments);
                 }
               })]
             }), (0, _v2.jsxs)(_v24.FormControl, {
@@ -2239,14 +2241,14 @@
                   })
                 })]
               }), (0, _v2.jsx)(_v23.Switch, {
-                isChecked: _v56.allowShowcase,
-                isDisabled: _v60,
+                isChecked: _v58.allowShowcase,
+                isDisabled: _v62,
                 id: "allow-showcase-toggle",
                 size: "md",
                 onChange: () => {
-                  _v57({
+                  _v59({
                     type: "PRIVACY_DRAWER.TOGGLE_ALLOW_SHOWCASE"
-                  }), _v9 && _v9(!_v56.allowShowcase);
+                  }), _v9 && _v9(!_v58.allowShowcase);
                 }
               })]
             })]

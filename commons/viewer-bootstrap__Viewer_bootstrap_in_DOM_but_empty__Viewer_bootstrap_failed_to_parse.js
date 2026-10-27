@@ -27,10 +27,12 @@
       _v3 = (0, _v1.camelizeDeep)(_v2);
     return _v1 && (_v3.playerAssetUrls = _v1), _v3;
   }
-  _v0.s(["camelizeViewer", 0, _v5, "getViewerBootstrap", 0, _v4, "getViewerPromise", 0, () => new Promise(_v0 => {
+  _v0.s(["camelizeViewer", 0, _v5, "getViewerBootstrap", 0, _v4, "getViewerPromise", 0, ({
+    dnt: _v0 = !1
+  } = {}) => new Promise(_v0 => {
     let _v1 = _v4();
     if (_v1) _v0(_v1);else {
-      let _v0 = () => fetch("/_next/viewer").then(_v0 => {
+      let _v0 = () => fetch(_v0 ? "/_next/viewer?dnt=1" : "/_next/viewer").then(_v0 => {
         if (!_v0.ok) throw Error(`Viewer bootstrap request failed: ${_v0.status}`);
         return _v0.json();
       });

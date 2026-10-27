@@ -28,7 +28,7 @@
   align-items: center;
   justify-content: center;
 `;
-  (0, _v1.rem)(72), (0, _v1.rem)(360), (0, _v1.rem)(256), _v0.s(["CENTERED_FLEX", 0, _v5, "EMOJI_FONT_FAMILY", 0, "-apple-system, BlinkMacSystemFont, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'", "FULL_WIDTH_ABSOLUTE_STYLE", 0, {
+  (0, _v1.rem)(72), (0, _v1.rem)(360), (0, _v1.rem)(256), _v0.s(["CENTERED_FLEX", 0, _v5, "EMOJI_FONT_FAMILY", 0, "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif", "FULL_WIDTH_ABSOLUTE_STYLE", 0, {
     position: "absolute",
     left: 0,
     top: 0,

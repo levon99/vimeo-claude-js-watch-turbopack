@@ -77,6 +77,7 @@
     creator_monetisation_viewer_treatment: "false",
     clip_page_app_redirect: "control",
     clip_page_app_redirect_dismissal: "session_per_clip",
+    clip_page_app_redirect_dismiss_position: "backdrop",
     enable_billing_menu_item: !1,
     enable_managed_accounts: !1,
     free_trial_banner_tier: "none",

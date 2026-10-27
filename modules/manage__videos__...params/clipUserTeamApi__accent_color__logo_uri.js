@@ -31859,7 +31859,7 @@
                     singular: "Optimizando"
                   },
                   "de-DE": {
-                    singular: "Optimierung"
+                    singular: "Wird optimiert"
                   },
                   "fr-FR": {
                     singular: "Optimisation en cours"
@@ -33389,7 +33389,7 @@
                   singular: "Optimizando"
                 },
                 "de-DE": {
-                  singular: "Optimierung"
+                  singular: "Wird optimiert"
                 },
                 "fr-FR": {
                   singular: "Optimisation en cours"
@@ -34225,7 +34225,7 @@
               singular: "Optimizando"
             },
             "de-DE": {
-              singular: "Optimierung"
+              singular: "Wird optimiert"
             },
             "fr-FR": {
               singular: "Optimisation en cours"

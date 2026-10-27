@@ -34,7 +34,7 @@
       return (0, _v12.deepCamelCase)(_v1);
     });
   }
-  _v0.i(0), _v0.i(0), _v0.i(0);
+  _v0.i(0), _v0.i(0);
   var _v14 = _v0.i(0),
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
@@ -48,52 +48,53 @@
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
-    _v27 = _v0.i(0);
-  let _v28 = _v19.default.div.withConfig({
+    _v27 = _v0.i(0),
+    _v28 = _v0.i(0);
+  let _v29 = _v20.default.div.withConfig({
       displayName: "DeleteFolderModal__ModalContent",
       componentId: "sc-8050be53-0"
     })`
   ${({
       theme: _v0
     }) => _v0.shadows[200]}
-  padding: ${(0, _v18.rem)(27)} ${(0, _v18.rem)(21)} ${(0, _v18.rem)(16)} ${(0, _v18.rem)(21)};
-  border-radius: ${(0, _v18.rem)(8)};
-  background: ${_v25.core.color.surface(0)};
-  border: ${(0, _v18.rem)(1)} solid ${({
+  padding: ${(0, _v19.rem)(27)} ${(0, _v19.rem)(21)} ${(0, _v19.rem)(16)} ${(0, _v19.rem)(21)};
+  border-radius: ${(0, _v19.rem)(8)};
+  background: ${_v26.core.color.surface(0)};
+  border: ${(0, _v19.rem)(1)} solid ${({
       theme: _v0
-    }) => "dark" === _v0.name ? (0, _v21.grayscale)(600) : (0, _v21.slate)(100)};
+    }) => "dark" === _v0.name ? (0, _v22.grayscale)(600) : (0, _v22.slate)(100)};
 
-  width: ${(0, _v18.rem)(440)};
-  max-width: calc(100vw - ${(0, _v18.rem)(20)});
+  width: ${(0, _v19.rem)(440)};
+  max-width: calc(100vw - ${(0, _v19.rem)(20)});
 `,
-    _v29 = (0, _v19.default)(_v24.Modal.Header).withConfig({
+    _v30 = (0, _v20.default)(_v25.Modal.Header).withConfig({
       displayName: "DeleteFolderModal__ModalHeaderContent",
       componentId: "sc-8050be53-1"
     })`
-  letter-spacing: ${(0, _v18.rem)(.2)};
+  letter-spacing: ${(0, _v19.rem)(.2)};
   align-items: center;
   display: flex;
-  font-size: ${(0, _v18.rem)(18)};
-  margin-bottom: ${(0, _v18.rem)(24)};
+  font-size: ${(0, _v19.rem)(18)};
+  margin-bottom: ${(0, _v19.rem)(24)};
 `,
-    _v30 = (0, _v19.default)(_v22.Button).withConfig({
+    _v31 = (0, _v20.default)(_v23.Button).withConfig({
       displayName: "DeleteFolderModal__DismissButton",
       componentId: "sc-8050be53-2"
     })`
   margin-left: auto;
-  right: ${(0, _v18.rem)(16)};
+  right: ${(0, _v19.rem)(16)};
   position: absolute;
 `,
-    _v31 = _v19.default.div.withConfig({
+    _v32 = _v20.default.div.withConfig({
       displayName: "DeleteFolderModal__FooterActions",
       componentId: "sc-8050be53-3"
     })`
   display: flex;
-  margin-top: ${(0, _v18.rem)(15)};
+  margin-top: ${(0, _v19.rem)(15)};
   justify-content: flex-end;
-  gap: ${(0, _v18.rem)(10)};
+  gap: ${(0, _v19.rem)(10)};
 `,
-    _v32 = ({
+    _v33 = ({
       folderId: _v0,
       isOpen: _v1,
       ownerId: _v2,
@@ -103,9 +104,9 @@
       let [_v5, {
           error: _v6,
           loading: _v7
-        }] = (0, _v20.useDeleteUserProject)(),
+        }] = (0, _v21.useDeleteUserProject)(),
         _v8 = (0, _v3.useRef)(null);
-      (0, _v27.default)([_v8], () => {
+      (0, _v28.default)([_v8], () => {
         _v1 && _v3();
       }, null, [_v1]);
       let _v9 = async () => {
@@ -116,13 +117,13 @@
           }
         }), _v6 || (_v4(), _v3());
       };
-      return (0, _v1.jsx)(_v24.Modal, {
+      return (0, _v1.jsx)(_v25.Modal, {
         active: _v1,
         size: "md",
-        content: (0, _v1.jsxs)(_v28, {
+        content: (0, _v1.jsxs)(_v29, {
           ref: _v8,
-          children: [(0, _v1.jsxs)(_v29, {
-            children: [(0, _v16.translate)({
+          children: [(0, _v1.jsxs)(_v30, {
+            children: [(0, _v17.translate)({
               singular: "Delete folder",
               dictionary: {
                 es: {
@@ -147,14 +148,14 @@
                   singular: "删除文件夹"
                 }
               }
-            }), (0, _v1.jsx)(_v30, {
+            }), (0, _v1.jsx)(_v31, {
               id: "delete-folder-modal-dismiss-button",
-              icon: (0, _v1.jsx)(_v23.DismissX, {}),
+              icon: (0, _v1.jsx)(_v24.DismissX, {}),
               size: "md",
               variant: "minimalTransparent",
               format: "basic",
               onClick: _v3,
-              "aria-label": (0, _v16.translate)({
+              "aria-label": (0, _v17.translate)({
                 singular: "Close",
                 dictionary: {
                   es: {
@@ -181,9 +182,9 @@
                 }
               })
             })]
-          }), (0, _v1.jsx)(_v26.Paragraph, {
+          }), (0, _v1.jsx)(_v27.Paragraph, {
             size: "2",
-            children: (0, _v16.translate)({
+            children: (0, _v17.translate)({
               singular: "This will delete the folder, and permanently delete all of its items and subfolders. If you don't want to delete items, you can move them to a different folder.",
               dictionary: {
                 es: {
@@ -209,13 +210,13 @@
                 }
               }
             })
-          }), (0, _v1.jsxs)(_v31, {
-            children: [(0, _v1.jsx)(_v22.Button, {
+          }), (0, _v1.jsxs)(_v32, {
+            children: [(0, _v1.jsx)(_v23.Button, {
               onClick: () => {
                 _v3();
               },
               format: "secondary",
-              children: (0, _v16.translate)({
+              children: (0, _v17.translate)({
                 singular: "Cancel",
                 dictionary: {
                   es: {
@@ -241,11 +242,11 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v22.Button, {
+            }), (0, _v1.jsx)(_v23.Button, {
               onClick: _v9,
               status: "negative",
               loading: _v7,
-              children: (0, _v16.translate)({
+              children: (0, _v17.translate)({
                 singular: "Delete",
                 dictionary: {
                   es: {
@@ -276,21 +277,21 @@
         })
       });
     },
-    _v33 = () => Promise.reject(Error("not implemented yet")),
-    _v34 = {
+    _v34 = () => Promise.reject(Error("not implemented yet")),
+    _v35 = {
       folderId: -1,
       isOpen: !1,
       ownerId: -1,
-      updateList: _v33
+      updateList: _v34
     },
-    _v35 = _v3.default.createContext({
-      state: _v34,
-      openDeleteFolderModal: _v33
+    _v36 = _v3.default.createContext({
+      state: _v35,
+      openDeleteFolderModal: _v34
     });
-  function _v36({
+  function _v37({
     children: _v0
   }) {
-    let [_v1, _v2] = (0, _v3.useState)(_v34),
+    let [_v1, _v2] = (0, _v3.useState)(_v35),
       _v3 = (_v0, _v1, _v2) => {
         _v2({
           folderId: _v0,
@@ -303,29 +304,29 @@
         state: _v1,
         openDeleteFolderModal: _v3
       }), [_v1]);
-    return (0, _v1.jsxs)(_v35.Provider, {
+    return (0, _v1.jsxs)(_v36.Provider, {
       value: _v4,
-      children: [_v0, (0, _v1.jsx)(_v32, {
+      children: [_v0, (0, _v1.jsx)(_v33, {
         folderId: _v1.folderId,
         isOpen: _v1.isOpen,
         ownerId: _v1.ownerId,
         updateList: _v1.updateList,
         closeModal: () => {
-          _v2(_v34);
+          _v2(_v35);
         }
       })]
     });
   }
-  let _v37 = ({
+  let _v38 = ({
       children: _v0
-    }) => (0, _v1.jsx)(_v36, {
+    }) => (0, _v1.jsx)(_v37, {
       children: _v0
     }),
-    _v38 = "desc",
-    _v39 = "alphabetical",
-    _v40 = "last_user_action_event_date";
-  var _v41 = _v0.i(0);
-  let _v42 = () => (0, _v1.jsxs)("svg", {
+    _v39 = "desc",
+    _v40 = "alphabetical",
+    _v41 = "last_user_action_event_date";
+  var _v42 = _v0.i(0);
+  let _v43 = () => (0, _v1.jsxs)("svg", {
     width: "128",
     height: "128",
     viewBox: "0 0 128 128",
@@ -366,17 +367,17 @@
       fill: "#496073"
     })]
   });
-  function _v43() {
+  function _v44() {
     return (0, _v1.jsx)(_v7.HStack, {
       py: (0, _v9.rem)(200),
       justifyContent: "center",
-      children: (0, _v1.jsxs)(_v41.VStack, {
+      children: (0, _v1.jsxs)(_v42.VStack, {
         rowGap: "lg",
-        children: [(0, _v1.jsx)(_v42, {}), (0, _v1.jsx)(_v8.Header, {
+        children: [(0, _v1.jsx)(_v43, {}), (0, _v1.jsx)(_v8.Header, {
           size: "xl",
           fontSize: (0, _v9.rem)(36),
           fontWeight: "bold",
-          children: (0, _v16.translate)({
+          children: (0, _v17.translate)({
             singular: "No deactivated member folders",
             dictionary: {
               es: {
@@ -406,8 +407,7 @@
       })
     });
   }
-  var _v44 = _v0.i(0),
-    _v45 = _v0.i(0),
+  var _v45 = _v0.i(0),
     _v46 = _v0.i(0),
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
@@ -426,14 +426,15 @@
     _v61 = _v0.i(0),
     _v62 = _v0.i(0),
     _v63 = _v0.i(0),
-    _v64 = _v0.i(0);
-  function _v65({
+    _v64 = _v0.i(0),
+    _v65 = _v0.i(0);
+  function _v66({
     uri: _v0
   }) {
     let {
       data: _v1,
       isValidating: _v2
-    } = (0, _v64.useGetUser)(() => _v0 ? {
+    } = (0, _v65.useGetUser)(() => _v0 ? {
       where: {
         userId: _v0 ? parseInt(_v0.split("/")[2], 10) : 0
       },
@@ -442,15 +443,15 @@
       revalidateOnFocus: !1,
       revalidateOnReconnect: !1
     });
-    return _v2 ? (0, _v1.jsx)(_v63.Spinner, {}) : (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v62.Avatar, {
+    return _v2 ? (0, _v1.jsx)(_v64.Spinner, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsx)(_v63.Avatar, {
         size: "md",
         src: _v1?.pictures?.sizes[1].link,
         alt: _v1?.name ?? "",
         nameProps: {
           name: _v1?.name ?? ""
         }
-      }), (0, _v1.jsx)(_v50.Paragraph, {
+      }), (0, _v1.jsx)(_v51.Paragraph, {
         size: "md",
         fontWeight: "normal",
         color: "text-secondary",
@@ -458,18 +459,18 @@
       })]
     });
   }
-  function _v66({
+  function _v67({
     folder: _v0,
     updateList: _v1
   }) {
-    let _v2 = (0, _v3.useContext)(_v61.ViewerContext),
-      _v3 = (0, _v53.useRouter)(),
+    let _v2 = (0, _v3.useContext)(_v62.ViewerContext),
+      _v3 = (0, _v54.useRouter)(),
       {
         openDeleteFolderModal: _v4
-      } = (0, _v3.useContext)(_v35),
+      } = (0, _v3.useContext)(_v36),
       _v5 = parseInt(_v0.uri.split("/").pop() ?? ""),
       _v6 = _v2?.teamUser?.ownerId || _v2?.user?.id || -1;
-    return (0, _v1.jsxs)(_v49.Tr, {
+    return (0, _v1.jsxs)(_v50.Tr, {
       onClick: () => {
         var _v0, _v1, _v2;
         let _v3, _v4, _v5, _v6;
@@ -480,7 +481,7 @@
       },
       borderRadius: "sm",
       cursor: "pointer",
-      children: [(0, _v1.jsx)(_v47.Td, {
+      children: [(0, _v1.jsx)(_v48.Td, {
         colSpan: 4,
         px: 0,
         pl: (0, _v9.rem)(16),
@@ -492,11 +493,11 @@
             py: (0, _v9.rem)(15),
             bgColor: "fill-component",
             borderRadius: "sm",
-            children: (0, _v1.jsx)(_v60.FolderFilled, {
+            children: (0, _v1.jsx)(_v61.FolderFilled, {
               boxSize: (0, _v9.rem)(60),
               color: "slate.400"
             })
-          }), (0, _v1.jsxs)(_v41.VStack, {
+          }), (0, _v1.jsxs)(_v42.VStack, {
             minW: (0, _v9.rem)(50),
             maxW: (0, _v9.rem)(250),
             alignItems: "flex-start",
@@ -506,28 +507,28 @@
               noOfLines: 1,
               fontWeight: 500,
               children: _v0.name
-            }), (0, _v1.jsxs)(_v50.Paragraph, {
+            }), (0, _v1.jsxs)(_v51.Paragraph, {
               size: "md",
               color: "text-secondary",
               children: [_v0.metadata?.connections?.items?.total, " items"]
             })]
           })]
         })
-      }), (0, _v1.jsx)(_v47.Td, {
+      }), (0, _v1.jsx)(_v48.Td, {
         colSpan: 2,
         px: 0,
         children: (0, _v1.jsx)(_v7.HStack, {
-          children: (0, _v1.jsx)(_v65, {
+          children: (0, _v1.jsx)(_v66, {
             uri: _v0.metadata?.connections?.personalTeamFolderOwner?.uri || ""
           })
         })
-      }), (0, _v1.jsx)(_v47.Td, {
+      }), (0, _v1.jsx)(_v48.Td, {
         colSpan: 2,
         px: 0,
         pr: (0, _v9.rem)(16),
         children: (0, _v1.jsxs)(_v7.HStack, {
           justifyContent: "flex-end",
-          children: [(0, _v1.jsx)(_v50.Paragraph, {
+          children: [(0, _v1.jsx)(_v51.Paragraph, {
             size: "md",
             color: "text-secondary",
             children: new Intl.DateTimeFormat("en-US", {
@@ -538,21 +539,21 @@
               minute: "2-digit",
               hour12: !0
             }).format(new Date(_v0.modifiedTime))
-          }), (0, _v1.jsxs)(_v54.Menu, {
-            children: [(0, _v1.jsx)(_v55.MenuButton, {
-              as: _v56.IconButton,
-              icon: (0, _v1.jsx)(_v59.EllipsisH, {}),
+          }), (0, _v1.jsxs)(_v55.Menu, {
+            children: [(0, _v1.jsx)(_v56.MenuButton, {
+              as: _v57.IconButton,
+              icon: (0, _v1.jsx)(_v60.EllipsisH, {}),
               variant: "tertiary",
               size: "sm",
               onClick: _v0 => {
                 _v0.stopPropagation();
               }
-            }), (0, _v1.jsx)(_v57.MenuList, {
-              children: (0, _v1.jsx)(_v58.MenuItem, {
+            }), (0, _v1.jsx)(_v58.MenuList, {
+              children: (0, _v1.jsx)(_v59.MenuItem, {
                 onClick: _v0 => {
                   _v0.preventDefault(), _v0.stopPropagation(), _v4?.(_v5, _v6, _v1);
                 },
-                children: (0, _v16.translate)({
+                children: (0, _v17.translate)({
                   singular: "Delete",
                   dictionary: {
                     es: {
@@ -585,17 +586,17 @@
       })]
     });
   }
-  var _v67 = _v0.i(0),
-    _v68 = _v0.i(0);
-  let _v69 = _v0 => {
+  var _v68 = _v0.i(0),
+    _v69 = _v0.i(0);
+  let _v70 = _v0 => {
       let {
         onClick: _v1,
         sortDirection: _v2 = "asc"
       } = _v0;
-      return (0, _v1.jsx)(_v56.IconButton, {
+      return (0, _v1.jsx)(_v57.IconButton, {
         id: "sorting-arrow-button",
         variant: "tertiary",
-        icon: "asc" === _v2 ? (0, _v1.jsx)(_v68.ArrowUp, {}) : (0, _v1.jsx)(_v67.ArrowDown, {}),
+        icon: "asc" === _v2 ? (0, _v1.jsx)(_v69.ArrowUp, {}) : (0, _v1.jsx)(_v68.ArrowDown, {}),
         isRound: !0,
         onClick: _v1,
         size: "sm",
@@ -608,16 +609,16 @@
         "aria-label": "sorting-arrow-button"
       });
     },
-    _v70 = ({
+    _v71 = ({
       children: _v0,
       ..._v1
-    }) => (0, _v1.jsx)(_v50.Paragraph, {
+    }) => (0, _v1.jsx)(_v51.Paragraph, {
       size: "md",
       fontWeight: "bold",
       ..._v1,
       children: _v0
     });
-  function _v71({
+  function _v72({
     sortDirection: _v0,
     sortValue: _v1,
     setSortDirection: _v2,
@@ -627,24 +628,24 @@
     isValidating: _v6
   }) {
     let _v7 = () => {
-      _v2("asc" === _v0 ? _v38 : "asc");
+      _v2("asc" === _v0 ? _v39 : "asc");
     };
-    return (0, _v1.jsx)(_v45.TableContainer, {
+    return (0, _v1.jsx)(_v46.TableContainer, {
       px: 0,
-      children: (0, _v1.jsxs)(_v44.Table, {
+      children: (0, _v1.jsxs)(_v45.Table, {
         variant: "unstyled",
-        children: [(0, _v1.jsx)(_v48.Thead, {
-          children: (0, _v1.jsxs)(_v49.Tr, {
-            children: [(0, _v1.jsx)(_v52.Th, {
+        children: [(0, _v1.jsx)(_v49.Thead, {
+          children: (0, _v1.jsxs)(_v50.Tr, {
+            children: [(0, _v1.jsx)(_v53.Th, {
               colSpan: 4,
               p: 0,
               pl: (0, _v9.rem)(16),
               children: (0, _v1.jsxs)(_v7.HStack, {
-                children: [(0, _v1.jsx)(_v70, {
+                children: [(0, _v1.jsx)(_v71, {
                   onClick: () => {
-                    _v1 !== _v39 && _v3(_v39);
+                    _v1 !== _v40 && _v3(_v40);
                   },
-                  children: (0, _v16.translate)({
+                  children: (0, _v17.translate)({
                     singular: "Name",
                     dictionary: {
                       es: {
@@ -667,16 +668,16 @@
                       }
                     }
                   })
-                }), _v1 === _v39 && (0, _v1.jsx)(_v69, {
+                }), _v1 === _v40 && (0, _v1.jsx)(_v70, {
                   sortDirection: _v0,
                   onClick: () => _v7()
                 })]
               })
-            }), (0, _v1.jsx)(_v52.Th, {
+            }), (0, _v1.jsx)(_v53.Th, {
               colSpan: 2,
               p: 0,
-              children: (0, _v1.jsx)(_v70, {
-                children: (0, _v16.translate)({
+              children: (0, _v1.jsx)(_v71, {
+                children: (0, _v17.translate)({
                   singular: "Owner",
                   dictionary: {
                     es: {
@@ -703,16 +704,16 @@
                   }
                 })
               })
-            }), (0, _v1.jsx)(_v52.Th, {
+            }), (0, _v1.jsx)(_v53.Th, {
               colSpan: 2,
               p: 0,
               children: (0, _v1.jsxs)(_v7.HStack, {
                 justifyContent: "center",
-                children: [(0, _v1.jsx)(_v70, {
+                children: [(0, _v1.jsx)(_v71, {
                   onClick: () => {
-                    _v1 !== _v40 && _v3(_v40);
+                    _v1 !== _v41 && _v3(_v41);
                   },
-                  children: (0, _v16.translate)({
+                  children: (0, _v17.translate)({
                     singular: "Modified",
                     dictionary: {
                       es: {
@@ -738,22 +739,22 @@
                       }
                     }
                   })
-                }), _v1 === _v40 && (0, _v1.jsx)(_v69, {
+                }), _v1 === _v41 && (0, _v1.jsx)(_v70, {
                   sortDirection: _v0,
                   onClick: () => _v7()
                 })]
               })
             })]
           })
-        }), (0, _v1.jsx)(_v46.Tbody, {
-          children: !_v6 && _v4 ? _v4.map(_v0 => (0, _v1.jsx)(_v66, {
+        }), (0, _v1.jsx)(_v47.Tbody, {
+          children: !_v6 && _v4 ? _v4.map(_v0 => (0, _v1.jsx)(_v67, {
             folder: _v0,
             updateList: _v5
-          }, _v0.uri)) : (0, _v1.jsx)(_v49.Tr, {
-            children: (0, _v1.jsx)(_v47.Td, {
+          }, _v0.uri)) : (0, _v1.jsx)(_v50.Tr, {
+            children: (0, _v1.jsx)(_v48.Td, {
               colSpan: 8,
               px: 0,
-              children: (0, _v1.jsx)(_v51.Skeleton, {
+              children: (0, _v1.jsx)(_v52.Skeleton, {
                 h: 130
               })
             })
@@ -762,26 +763,26 @@
       })
     });
   }
-  var _v72 = _v0.i(0);
-  let _v73 = _v19.default.div.withConfig({
+  var _v73 = _v0.i(0);
+  let _v74 = _v20.default.div.withConfig({
       displayName: "LoadMore__LoadMoreWrapper",
       componentId: "sc-b062ef88-0"
     })`
-  margin: ${(0, _v18.rem)(40)} 0 ${(0, _v18.rem)(48)};
+  margin: ${(0, _v19.rem)(40)} 0 ${(0, _v19.rem)(48)};
 `,
-    _v74 = _v0 => {
+    _v75 = _v0 => {
       let {
         isLoadingMore: _v1,
         onClick: _v2
       } = _v0;
-      return (0, _v1.jsx)(_v73, {
-        children: (0, _v1.jsx)(_v72.Button, {
+      return (0, _v1.jsx)(_v74, {
+        children: (0, _v1.jsx)(_v73.Button, {
           variant: "outline",
           colorScheme: "gray",
           width: "full",
           isLoading: _v1,
           onClick: _v2,
-          children: (0, _v16.translate)({
+          children: (0, _v17.translate)({
             singular: "Load more…",
             dictionary: {
               es: {
@@ -810,16 +811,16 @@
         })
       });
     };
-  var _v75 = _v0.i(0),
-    _v76 = _v0.i(0),
-    _v77 = _v0.i(0);
-  function _v78({
+  var _v76 = _v0.i(0),
+    _v77 = _v0.i(0),
+    _v78 = _v0.i(0);
+  function _v79({
     onChange: _v0,
     searchValue: _v1
   }) {
     let [_v2, _v3] = (0, _v3.useState)(!1),
       _v4 = (0, _v3.useRef)(null);
-    (0, _v76.useOutsideClick)({
+    (0, _v77.useOutsideClick)({
       ref: _v4,
       handler: () => {
         _v2 && !_v1 && _v3(!1);
@@ -832,8 +833,8 @@
       ref: _v4,
       position: "relative",
       justifyContent: "flex-end",
-      children: [(0, _v1.jsx)(_v56.IconButton, {
-        "aria-label": (0, _v16.translate)({
+      children: [(0, _v1.jsx)(_v57.IconButton, {
+        "aria-label": (0, _v17.translate)({
           singular: "Search",
           dictionary: {
             es: {
@@ -860,18 +861,18 @@
           }
         }),
         id: "ptfSearchToggle",
-        icon: (0, _v1.jsx)(_v77.SearchMagnifier, {}),
+        icon: (0, _v1.jsx)(_v78.SearchMagnifier, {}),
         variant: "tertiary",
         onClick: () => _v3(!0)
-      }), _v2 && (0, _v1.jsx)(_v80, {
-        children: (0, _v1.jsx)(_v75.Search, {
+      }), _v2 && (0, _v1.jsx)(_v81, {
+        children: (0, _v1.jsx)(_v76.Search, {
           autoFocus: !0,
           onChange: _v5
         })
       })]
     });
   }
-  let _v79 = _v19.keyframes`
+  let _v80 = _v20.keyframes`
   from {
     width: ${(0, _v9.rem)(35)};
     opacity: 0
@@ -882,7 +883,7 @@
     opacity: 1
   }
 `,
-    _v80 = _v19.default.div.withConfig({
+    _v81 = _v20.default.div.withConfig({
       displayName: "SearchField__InputWrapper",
       componentId: "sc-92f9ae7d-0"
     })`
@@ -890,13 +891,13 @@
   top: 50%;
   transform: translateY(-50%);
   max-width: ${(0, _v9.rem)(500)};
-  animation: ${_v79} 250ms ease forwards;
+  animation: ${_v80} 250ms ease forwards;
 
   input {
     height: ${(0, _v9.rem)(40)};
   }
 `,
-    _v81 = ["uri", "name", "creatorUri", "modifiedTime", "metadata.connections.items", "metadata.connections.personalTeamFolderOwner", "metadata.interactions"];
+    _v82 = ["uri", "name", "creatorUri", "modifiedTime", "metadata.connections.items", "metadata.connections.personalTeamFolderOwner", "metadata.interactions"];
   _v0.s(["DeactivatedPtf", 0, function ({
     ownerUserId: _v0
   }) {
@@ -904,8 +905,8 @@
         isTeamManagementVisible: _v1,
         loading: _v2
       } = (0, _v10.useTeamManagementVisible)(),
-      [_v3, _v4] = (0, _v3.useState)(_v38),
-      [_v5, _v6] = (0, _v3.useState)(_v40),
+      [_v3, _v4] = (0, _v3.useState)(_v39),
+      [_v5, _v6] = (0, _v3.useState)(_v41),
       [_v7, _v8] = (0, _v3.useState)(""),
       {
         data: _v9,
@@ -921,17 +922,23 @@
             jwt: _v4,
             xVimeoPage: _v5,
             locale: _v6
-          } = (0, _v15.useGctlConfig)();
-        return (0, _v14.default)((_v0, _v1) => {
+          } = (0, _v16.useGctlConfig)();
+        return (0, _v15.default)((_v0, _v1) => {
           if (null === _v2 || _v1 && !_v1.paging.next) return null;
           let {
               perPage: _v2 = 25,
               page: _v3,
               ..._v4
             } = _v2.query ?? {},
-            _v5 = _v2.select.join(","),
-            _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-          return [`/users/${_v2.where.userId}/projects/deactivated?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
+            _v5 = {
+              page: _v0 + 1,
+              perPage: _v2,
+              ..._v4
+            };
+          return [`/users/${_v2.where.userId}/projects/deactivated${(0, _v14.serializeQuery)({
+            query: _v5,
+            select: _v2.select
+          })}`, _v0];
         }, null !== _v2 ? ([_v0, _v1]) => _v13({
           ..._v2,
           baseUrl: _v3,
@@ -951,7 +958,7 @@
         where: {
           userId: _v0
         },
-        select: _v81,
+        select: _v82,
         query: {
           query: _v7 ?? null,
           sort: _v5,
@@ -966,13 +973,13 @@
       _v17 = (0, _v3.useMemo)(() => _v9?.filter(_v0 => !!_v0)?.flatMap(_v0 => _v0.data.flatMap(_v0 => _v0)), [_v9]),
       {
         debouncedCallback: _v18
-      } = (0, _v17.useDebouncedCallback)(async _v0 => {
+      } = (0, _v18.useDebouncedCallback)(async _v0 => {
         _v7 !== _v0 && _v8(_v0);
       }, 0),
       _v19 = (0, _v3.useCallback)(_v0 => {
         _v18(_v0);
       }, [_v18]);
-    return (0, _v1.jsx)(_v37, {
+    return (0, _v1.jsx)(_v38, {
       children: (0, _v1.jsxs)(_v4.Box, {
         w: "80%",
         maxW: (0, _v9.rem)(0),
@@ -994,7 +1001,7 @@
                 color: "slate.600",
                 fontWeight: "bold",
                 fontSize: (0, _v9.rem)(28),
-                children: (0, _v16.translate)({
+                children: (0, _v17.translate)({
                   singular: "Team management",
                   dictionary: {
                     es: {
@@ -1026,7 +1033,7 @@
                 fontWeight: "bold",
                 fontSize: (0, _v9.rem)(28),
                 size: "xl",
-                children: (0, _v16.translate)({
+                children: (0, _v17.translate)({
                   singular: "Team management",
                   dictionary: {
                     es: {
@@ -1062,7 +1069,7 @@
                   color: "text-primary",
                   fontWeight: "bold",
                   size: "xl",
-                  children: (0, _v16.translate)({
+                  children: (0, _v17.translate)({
                     singular: "Deactivated member folders",
                     dictionary: {
                       es: {
@@ -1091,11 +1098,11 @@
                 })
               })
             })]
-          }), (0, _v1.jsx)(_v78, {
+          }), (0, _v1.jsx)(_v79, {
             searchValue: _v7,
             onChange: _v19
           })]
-        }), _v14 || _v17 && _v17.length > 0 ? (0, _v1.jsx)(_v71, {
+        }), _v14 || _v17 && _v17.length > 0 ? (0, _v1.jsx)(_v72, {
           isValidating: _v14,
           folders: _v17,
           updateList: () => {
@@ -1105,7 +1112,7 @@
           setSortDirection: _v0 => _v4(_v0),
           sortValue: _v5,
           setSortValue: _v6
-        }) : (0, _v1.jsx)(_v43, {}), !_v14 && _v16 && (0, _v1.jsx)(_v74, {
+        }) : (0, _v1.jsx)(_v44, {}), !_v14 && _v16 && (0, _v1.jsx)(_v75, {
           isLoadingMore: !!_v15,
           onClick: () => {
             _v11(_v10 + 1);

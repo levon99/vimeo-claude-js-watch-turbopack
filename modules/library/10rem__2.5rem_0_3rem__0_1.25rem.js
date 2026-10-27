@@ -3350,9 +3350,7 @@
           }
         }
       });
-    (0, _v39.useUploadLifecycle)((_v0, _v1) => {
-      (_v1.clipId || _v1.publicId) && _v47();
-    }, []), (0, _v25.useOttRedirect)({
+    (0, _v25.useOttRedirect)({
       toast: _v8,
       config: {
         message: (0, _v23.translate)({
@@ -3424,8 +3422,11 @@
       }, {
         revalidateOnFocus: !1,
         revalidateFirstPage: !1
-      }),
-      {
+      });
+    (0, _v39.useUploadLifecycle)((_v0, _v1) => {
+      (_v1.clipId || _v1.publicId) && (_v94(), _v47());
+    }, []);
+    let {
         data: _v97
       } = (0, _v22.useGetUserFoldersRoot)(() => _v17 && _v38 && !_v39 ? {
         where: {

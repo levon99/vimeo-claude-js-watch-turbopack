@@ -1067,10 +1067,11 @@
       return (0, _v85.deepCamelCase)(_v1);
     });
   }
-  _v0.i(0), _v0.i(0), _v0.i(0);
+  _v0.i(0), _v0.i(0);
   var _v87 = _v0.i(0),
-    _v88 = _v0.i(0);
-  let _v89 = () => {
+    _v88 = _v0.i(0),
+    _v89 = _v0.i(0);
+  let _v90 = () => {
     let _v0 = (0, _v31.useViewer)(),
       {
         data: _v1,
@@ -1085,17 +1086,23 @@
             jwt: _v3,
             xVimeoPage: _v4,
             locale: _v5
-          } = (0, _v88.useGctlConfig)();
-        return (0, _v87.default)((_v0, _v1) => {
+          } = (0, _v89.useGctlConfig)();
+        return (0, _v88.default)((_v0, _v1) => {
           if (null === _v1 || _v1 && !_v1.paging.next) return null;
           let {
               perPage: _v2 = 25,
               page: _v3,
               ..._v4
             } = _v1.query ?? {},
-            _v5 = _v1.select.join(","),
-            _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-          return [`/users/${_v1.where.userId}/teams/shared/members?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
+            _v5 = {
+              page: _v0 + 1,
+              perPage: _v2,
+              ..._v4
+            };
+          return [`/users/${_v1.where.userId}/teams/shared/members${(0, _v87.serializeQuery)({
+            query: _v5,
+            select: _v1.select
+          })}`, _v0];
         }, null !== _v1 ? ([_v0, _v1]) => _v86({
           ..._v1,
           baseUrl: _v2,
@@ -1157,13 +1164,13 @@
       size: _v5
     };
   };
-  var _v90 = _v0.i(0);
-  let _v91 = () => {
+  var _v91 = _v0.i(0);
+  let _v92 = () => {
     let _v0 = (0, _v31.useViewer)(),
       {
         data: _v1,
         isLoading: _v2
-      } = (0, _v90.useGetUserWorkspaces)(() => _v0?.user?.id ? {
+      } = (0, _v91.useGetUserWorkspaces)(() => _v0?.user?.id ? {
         where: {
           userId: _v0.user.id
         },
@@ -1179,8 +1186,8 @@
       teamsAndWorkspaces: _v3
     };
   };
-  var _v92 = _v0.i(0);
-  let _v93 = (0, _v7.default)(async () => {
+  var _v93 = _v0.i(0);
+  let _v94 = (0, _v7.default)(async () => {
       let {
         SharedItems: _v0
       } = await _v0.A(0);
@@ -1193,8 +1200,8 @@
       },
       ssr: !1
     }),
-    _v94 = ["video", "folder", "showcase"];
-  function _v95() {
+    _v95 = ["video", "folder", "showcase"];
+  function _v96() {
     let _v0 = (0, _v31.useViewer)(),
       _v1 = (0, _v10.useIsMobile)(),
       [_v2, _v3] = (0, _v8.useState)(!1),
@@ -1208,7 +1215,7 @@
         let {
             isLoading: _v0,
             teamsAndWorkspaces: _v1
-          } = _v91(),
+          } = _v92(),
           _v2 = _v1 ? _v1.map(_v0 => ({
             label: _v0?.displayName ?? "",
             value: _v0?.teamOwnerId.toString() ?? ""
@@ -1227,14 +1234,14 @@
           teamFilterAllOption: _v3
         };
       }(),
-      _v11 = (0, _v25.useContentTypeFilter)([..._v94]),
+      _v11 = (0, _v25.useContentTypeFilter)([..._v95]),
       _v12 = (() => {
         let _v0 = (0, _v83.useFilter)({
             initialValue: new Set()
           }),
           {
             users: _v1
-          } = _v89(),
+          } = _v90(),
           [_v2, _v3] = (0, _v8.useState)(""),
           [_v4, _v5] = (0, _v8.useState)(_v1),
           _v6 = (0, _v82.useDebouncedValue)(_v2, 500);
@@ -1292,17 +1299,17 @@
         teamsAndWorkspaces: _v16,
         isLoading: _v17,
         getTeamOrWorkspaceNameByOwnerUri: _v18
-      } = _v91(),
+      } = _v92(),
       {
         isLoading: _v19,
         setSize: _v20,
         isLoadingInitialData: _v21,
         isLoadingMore: _v22,
         isDone: _v23
-      } = _v89(),
+      } = _v90(),
       _v24 = [..._v12.value].flat(),
       _v25 = _v24.length > 0 ? _v24.map(_v0 => _v0.userId).join(",") : void 0,
-      _v26 = (0, _v30.getContentTypeApiFilterParam)(_v94, _v11.value),
+      _v26 = (0, _v30.getContentTypeApiFilterParam)(_v95, _v11.value),
       {
         data: _v27,
         error: _v28,
@@ -1351,7 +1358,7 @@
       _v38 = (0, _v8.useMemo)(() => {
         if (!_v27) return;
         let _v0 = _v27.flatMap(_v0 => _v0.data);
-        return _v37 ? _v0.filter(_v0 => (0, _v30.passesContentTypeSelection)(_v0, _v94, _v11.value)) : _v0;
+        return _v37 ? _v0.filter(_v0 => (0, _v30.passesContentTypeSelection)(_v0, _v95, _v11.value)) : _v0;
       }, [_v11.value, _v27, _v37]),
       _v39 = !_v32 && (!_v38 || 0 === _v38.length),
       _v40 = "all" !== _v10.value || _v11.isFilterApplied || _v12.isFilterActive;
@@ -1392,7 +1399,7 @@
                     onToggleType: _v0 => {
                       _v11.toggle(_v0);
                     },
-                    options: _v94,
+                    options: _v95,
                     page: "shared-with-me"
                   }), _v12.hasSharedTeamMembers && (0, _v1.jsx)(_v71, {
                     isLoading: _v19,
@@ -1437,10 +1444,10 @@
                     children: [(0, _v1.jsx)(_v20.MobileContentTypeFilter, {
                       filter: _v11.draft,
                       onToggle: _v0 => {
-                        let _v1 = (0, _v30.toggleContentTypeSelection)(_v94, _v11.draft, _v0);
+                        let _v1 = (0, _v30.toggleContentTypeSelection)(_v95, _v11.draft, _v0);
                         _v11.setSelection(_v1, !0);
                       },
-                      options: _v94,
+                      options: _v95,
                       page: "shared-with-me"
                     }), (0, _v1.jsx)(_v61, {
                       filter: [..._v12.draft],
@@ -1485,12 +1492,12 @@
             setSort: _v9,
             sort: _v8
           })]
-        }), !_v39 && (0, _v1.jsx)(_v93, {
+        }), !_v39 && (0, _v1.jsx)(_v94, {
           isLoading: !!_v33,
           items: _v38,
           layout: _v6,
           onClickItem: (_v0, _v1) => {
-            if (_v0 && _v13 && _v16) _v13 !== (0, _v92.idFromUri)(_v1.user.uri) && _v16.some(_v0 => _v0.uri === _v1.user.uri) && (_v0.preventDefault(), _v5({
+            if (_v0 && _v13 && _v16) _v13 !== (0, _v93.idFromUri)(_v1.user.uri) && _v16.some(_v0 => _v0.uri === _v1.user.uri) && (_v0.preventDefault(), _v5({
               isOpen: !0,
               teamName: _v18(_v1.user.uri)
             }), fetch("/manage/videos?action=SWITCH_TEAMS", {
@@ -1500,7 +1507,7 @@
                 "X-Requested-With": "XMLHttpRequest"
               },
               body: JSON.stringify({
-                team_owner_id: (0, _v92.idFromUri)(_v1.user.uri),
+                team_owner_id: (0, _v93.idFromUri)(_v1.user.uri),
                 token: _v0.xsrft
               })
             }).finally(() => {
@@ -1527,16 +1534,16 @@
       })
     });
   }
-  var _v96 = _v0.i(0),
-    _v97 = _v0.i(0),
-    _v98 = _v0.i(0);
-  let _v99 = () => {
+  var _v97 = _v0.i(0),
+    _v98 = _v0.i(0),
+    _v99 = _v0.i(0);
+  let _v100 = () => {
     let _v0 = (0, _v31.useViewer)(),
       {
         capabilities: _v1,
         error: _v2
       } = (0, _v3.useCapability)(_v0?.team?.ownerId ? ["hasSharedWithMe"] : [], _v0?.team?.ownerId);
-    return _v0 && void 0 !== _v1.hasSharedWithMe ? _v2 || !1 === _v1.hasSharedWithMe ? (0, _v1.jsx)(_v96.ErrorPage, {
+    return _v0 && void 0 !== _v1.hasSharedWithMe ? _v2 || !1 === _v1.hasSharedWithMe ? (0, _v1.jsx)(_v97.ErrorPage, {
       error: new _v4.ResourceNotFoundError()
     }) : (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v2.default, {
@@ -1568,7 +1575,7 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v95, {})]
+      }), (0, _v1.jsx)(_v96, {})]
     }) : null;
   };
   (0, _v5.withPageSetup)(() => ({
@@ -1579,14 +1586,14 @@
   }), {
     requireLogin: !0,
     inlineViewer: !0
-  }), _v99.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v98.VideoLibraryLayout, {
+  }), _v100.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v99.VideoLibraryLayout, {
     hasSideNav: !0,
-    sideNavContent: (0, _v1.jsx)(_v97.SideNavContent, {
+    sideNavContent: (0, _v1.jsx)(_v98.SideNavContent, {
       surface: "home"
     }),
     sideNavSurface: "home",
     hasUploader: _v1.hasUploader,
     searchContentAlignment: _v26.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
     children: _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v99], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v100], 0);
 }

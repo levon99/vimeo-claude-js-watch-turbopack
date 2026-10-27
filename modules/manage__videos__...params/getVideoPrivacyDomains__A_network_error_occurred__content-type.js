@@ -24,9 +24,11 @@
       return (0, _v2.deepCamelCase)(_v1);
     });
   }
-  _v0.i(0), _v0.i(0), _v0.i(0), _v0.i(0);
-  var _v4 = _v0.i(0),
-    _v5 = _v0.i(0);
+  _v0.i(0), _v0.i(0);
+  var _v4 = _v0.i(0);
+  _v0.i(0);
+  var _v5 = _v0.i(0),
+    _v6 = _v0.i(0);
   _v0.s(["useGetVideoPrivacyDomainsInfinite", 0, function (_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
@@ -34,17 +36,23 @@
         jwt: _v4,
         xVimeoPage: _v5,
         locale: _v6
-      } = (0, _v5.useGctlConfig)();
-    return (0, _v4.default)((_v0, _v1) => {
+      } = (0, _v6.useGctlConfig)();
+    return (0, _v5.default)((_v0, _v1) => {
       if (null === _v2 || _v1 && !_v1.paging.next) return null;
       let {
           perPage: _v2 = 25,
           page: _v3,
           ..._v4
         } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/videos/${_v2.where.videoId}/privacy/domains?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
+        _v5 = {
+          page: _v0 + 1,
+          perPage: _v2,
+          ..._v4
+        };
+      return [`/videos/${_v2.where.videoId}/privacy/domains${(0, _v4.serializeQuery)({
+        query: _v5,
+        select: _v2.select
+      })}`, _v0];
     }, null !== _v2 ? ([_v0, _v1]) => _v3({
       ..._v2,
       baseUrl: _v3,

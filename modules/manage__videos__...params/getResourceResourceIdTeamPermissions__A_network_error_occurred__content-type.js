@@ -87,9 +87,15 @@
           page: _v3,
           ..._v4
         } = _v2.query ?? {},
-        _v5 = _v2.select.join(","),
-        _v6 = Object.entries(_v4 ?? {}).filter(([, _v0]) => void 0 !== _v0).map(([_v0, _v1]) => `${_v0}=${_v1}`).join("&");
-      return [`/resources/${_v2.where.resourceType}/${_v2.where.resourceId}/team_permissions?page=${_v0 + 1}&perPage=${_v2}&fields=${_v5}&${_v6}`, _v0];
+        _v5 = {
+          page: _v0 + 1,
+          perPage: _v2,
+          ..._v4
+        };
+      return [`/resources/${_v2.where.resourceType}/${_v2.where.resourceId}/team_permissions${(0, _v1.serializeQuery)({
+        query: _v5,
+        select: _v2.select
+      })}`, _v0];
     }, null !== _v2 ? ([_v0, _v1]) => _v4({
       ..._v2,
       baseUrl: _v3,

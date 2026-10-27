@@ -1,7 +1,7 @@
 {
   "use strict";
 
-  _v0.s(["default", () => _v105], 0), _v0.s(["AddTextInspectorView", () => _v104, "TextPresetItem", () => _v102], 0);
+  _v0.s(["default", () => _v106], 0), _v0.s(["AddTextInspectorView", () => _v105, "TextPresetItem", () => _v103], 0);
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
     _v3 = _v0.i(0),
@@ -170,7 +170,19 @@
       pointerEvents: "none",
       borderRadius: "4px"
     },
-    _v45 = (0, _v2.memo)(function ({
+    _v45 = {
+      position: "absolute",
+      left: "4px",
+      top: `${_v33.STATUS_BADGE_TOP}px`,
+      height: `${_v33.STATUS_BADGE_HEIGHT}px`,
+      padding: "0 4px",
+      pointerEvents: "none",
+      borderRadius: "4px",
+      "&:empty": {
+        display: "none"
+      }
+    },
+    _v46 = (0, _v2.memo)(function ({
       id: _v0,
       videoUrl: _v1,
       imageUrl: _v2,
@@ -179,72 +191,73 @@
       width: _v5,
       gridStyleType: _v6,
       overlay: _v7,
-      duration: _v8,
-      title: _v9,
-      menuData: _v10,
-      icon: _v11,
-      subtitle: _v12,
-      style: _v13,
-      testid: _v14,
-      draggableData: _v15,
-      expandedItemData: _v16,
-      isActive: _v17 = !1,
-      alignToCenter: _v18 = !1,
-      blurBackground: _v19 = !0,
-      isCrossOrigin: _v20 = !1,
-      onClick: _v21,
-      onHover: _v22,
-      onMouseDown: _v23,
-      onDelete: _v24,
-      onExpand: _v25,
-      isShowPlusButton: _v26,
-      deleteTooltip: _v27,
-      backgroundColor: _v28,
-      previewDelay: _v29
+      statusBadge: _v8,
+      duration: _v9,
+      title: _v10,
+      menuData: _v11,
+      icon: _v12,
+      subtitle: _v13,
+      style: _v14,
+      testid: _v15,
+      draggableData: _v16,
+      expandedItemData: _v17,
+      isActive: _v18 = !1,
+      alignToCenter: _v19 = !1,
+      blurBackground: _v20 = !0,
+      isCrossOrigin: _v21 = !1,
+      onClick: _v22,
+      onHover: _v23,
+      onMouseDown: _v24,
+      onDelete: _v25,
+      onExpand: _v26,
+      isShowPlusButton: _v27,
+      deleteTooltip: _v28,
+      backgroundColor: _v29,
+      previewDelay: _v30
     }) {
-      let _v30 = (0, _v2.useRef)(!1),
+      let _v31 = (0, _v2.useRef)(!1),
         {
-          colorMode: _v31
+          colorMode: _v32
         } = (0, _v26.useColorMode)(),
-        [_v32, _v33, _v34, _v35, _v36] = (0, _v27.useToken)("colors", ["text-primary", "surface", "fill-blur", "check-radio-stroke", "input-stroke-hover"]),
-        [_v37, _v38] = (0, _v2.useState)(!1),
-        _v39 = (0, _v2.useCallback)(_v0 => {
-          _v0 && (_v30.current = !1);
+        [_v33, _v34, _v35, _v36, _v37] = (0, _v27.useToken)("colors", ["text-primary", "surface", "fill-blur", "check-radio-stroke", "input-stroke-hover"]),
+        [_v38, _v39] = (0, _v2.useState)(!1),
+        _v40 = (0, _v2.useCallback)(_v0 => {
+          _v0 && (_v31.current = !1);
         }, []),
-        _v40 = {
+        _v41 = {
           onMouseDown: () => {
-            _v30.current = !0, _v23 && _v23(_v0);
+            _v31.current = !0, _v24 && _v24(_v0);
           },
           onMouseUp: () => {
-            _v30.current && _v21 && _v21(_v0);
+            _v31.current && _v22 && _v22(_v0);
           }
         };
       return (0, _v1.jsxs)(_v34.default, {
         width: _v5,
         id: _v0,
-        title: _v9,
-        draggableData: _v15,
-        onIsDraggingChange: _v39,
+        title: _v10,
+        draggableData: _v16,
+        onIsDraggingChange: _v40,
         children: [(0, _v1.jsxs)(_v33.MediaContainer, {
-          isActive: _v17 || !1,
-          isBokehDarkMode: "dark" === _v31,
+          isActive: _v18 || !1,
+          isBokehDarkMode: "dark" === _v32,
           colorTokens: {
-            textPrimaryColor: _v32,
-            surfaceColor: _v33,
-            fillBlurColor: _v34,
-            checkRadioStroke: _v35,
-            strokeColor: _v36,
-            backgroundColor: _v28
+            textPrimaryColor: _v33,
+            surfaceColor: _v34,
+            fillBlurColor: _v35,
+            checkRadioStroke: _v36,
+            strokeColor: _v37,
+            backgroundColor: _v29
           },
           gridStyleType: _v6,
           "data-id": _v0,
-          "data-name": _v9,
-          "data-testid": `${_v14}-grid-box`,
+          "data-name": _v10,
+          "data-testid": `${_v15}-grid-box`,
           "data-no-dnd": !0,
           onMouseOver: () => {
-            _v38(!0), _v22 && _v22(_v0);
+            _v39(!0), _v23 && _v23(_v0);
           },
-          onMouseLeave: () => _v38(!1),
+          onMouseLeave: () => _v39(!1),
           children: [(_v2 || _v1) && (0, _v1.jsxs)(_v19.Flex, {
             width: "100%",
             height: "100%",
@@ -252,7 +265,7 @@
             justifyContent: "center",
             alignContent: "center",
             "data-testid": "media-view-wrap",
-            children: [_v19 && !_v20 && (0, _v1.jsxs)(_v1.Fragment, {
+            children: [_v20 && !_v21 && (0, _v1.jsxs)(_v1.Fragment, {
               children: [_v2 && (0, _v1.jsx)(_v19.Flex, {
                 width: "100%",
                 height: "100%",
@@ -276,24 +289,24 @@
               imageUrl: _v2,
               videoStartTime: _v3,
               videoEndTime: _v4,
-              delay: _v29 ?? 300,
-              alignToCenter: _v18,
-              style: _v13,
-              isCrossOrigin: _v20,
-              ..._v40
+              delay: _v30 ?? 300,
+              alignToCenter: _v19,
+              style: _v14,
+              isCrossOrigin: _v21,
+              ..._v41
             })]
-          }), _v24 && (_v37 || _v17) && (0, _v1.jsx)(_v25.Tooltip, {
+          }), _v25 && (_v38 || _v18) && (0, _v1.jsx)(_v25.Tooltip, {
             placement: "top",
-            label: _v27,
-            isDisabled: !_v27,
+            label: _v28,
+            isDisabled: !_v28,
             children: (0, _v1.jsx)(_v20.IconButton, {
               variant: "blur",
-              "data-testid": `${_v14}-inspector-content-grid-delete-button`,
+              "data-testid": `${_v15}-inspector-content-grid-delete-button`,
               size: "xs",
               onClick: () => {
-                _v24(_v0);
+                _v25(_v0);
               },
-              "aria-label": `${_v14}-inspector-content-grid-delete-button`,
+              "aria-label": `${_v15}-inspector-content-grid-delete-button`,
               icon: (0, _v1.jsx)(_v31.TrashBin, {}),
               position: "absolute",
               right: "4px",
@@ -301,8 +314,8 @@
               transition: "opacity 0.2s linear",
               zIndex: "1"
             })
-          }), _v25 && _v16 && (_v37 || _v17) && (0, _v1.jsx)(_v25.Tooltip, {
-            ...(_v16.type === _v35.ExpandType.TEXT_ANIMATIONS && {
+          }), _v26 && _v17 && (_v38 || _v18) && (0, _v1.jsx)(_v25.Tooltip, {
+            ...(_v17.type === _v35.ExpandType.TEXT_ANIMATIONS && {
               isDisabled: !0
             }),
             label: (0, _v32.translate)({
@@ -334,18 +347,19 @@
             children: (0, _v1.jsx)(_v20.IconButton, {
               variant: "blur",
               size: "xs",
-              onClick: () => _v25(_v16),
-              "aria-label": `${_v14}-inspector-content-grid-expand-button`,
-              "data-testid": `${_v14}-inspector-content-grid-expand-button`,
-              icon: _v16.type === _v35.ExpandType.TEXT_ANIMATIONS ? (0, _v1.jsx)(_v30.FiltersLevers, {}) : (0, _v1.jsx)(_v29.ExpandArrowsAlt, {}),
+              onClick: () => _v26(_v17),
+              "aria-label": `${_v15}-inspector-content-grid-expand-button`,
+              "data-testid": `${_v15}-inspector-content-grid-expand-button`,
+              icon: _v17.type === _v35.ExpandType.TEXT_ANIMATIONS ? (0, _v1.jsx)(_v30.FiltersLevers, {}) : (0, _v1.jsx)(_v29.ExpandArrowsAlt, {}),
               position: "absolute",
               right: "4px",
               top: "4px",
               transition: "opacity 0.2s linear",
               zIndex: "1"
             })
-          }), _v26 && (_v37 || _v17) && (0, _v1.jsx)(_v33.AddButtonClickArea, {
-            onClick: _v21 && (() => _v21(_v0)),
+          }), _v27 && (_v38 || _v18) && (0, _v1.jsx)(_v33.AddButtonClickArea, {
+            onClick: _v22 && (() => _v22(_v0)),
+            isBelowStatusBadge: !!_v8,
             children: (0, _v1.jsx)(_v25.Tooltip, {
               label: (0, _v32.translate)({
                 singular: "Add to timeline",
@@ -382,39 +396,45 @@
               })
             })
           }), _v7 && (0, _v1.jsx)(_v33.Overlay, {
-            ..._v40,
+            ..._v41,
             children: _v7
-          }), _v8 ? (0, _v1.jsx)(_v18.Center, {
+          }), _v9 ? (0, _v1.jsx)(_v18.Center, {
             sx: _v44,
             as: "span",
             backgroundColor: "fill-page-overlay",
-            "data-testid": `${_v14}-inspector-content-grid-item-duration`,
+            "data-testid": `${_v15}-inspector-content-grid-item-duration`,
             children: (0, _v1.jsx)(_v16.Text, {
               variant: "body-xs",
               color: "white",
-              children: (0, _v36.timeFormatHHMMSS)(_v8)
+              children: (0, _v36.timeFormatHHMMSS)(_v9)
             })
+          }) : null, _v8 ? (0, _v1.jsx)(_v18.Center, {
+            sx: _v45,
+            as: "span",
+            backgroundColor: "fill-page-overlay",
+            "data-testid": `${_v15}-inspector-content-grid-item-status`,
+            children: _v8
           }) : null]
-        }), (_v11 || _v9) && (0, _v1.jsxs)(_v33.BoxFooter, {
+        }), (_v12 || _v10) && (0, _v1.jsxs)(_v33.BoxFooter, {
           children: [(0, _v1.jsxs)(_v33.BoxText, {
-            onClick: _v21 && (() => _v21(_v0)),
-            children: [(_v11 || _v9) && (0, _v1.jsxs)(_v33.TitleContainer, {
-              children: [_v11 && (0, _v1.jsx)(_v33.Icon, {
-                children: _v11
-              }), _v9 && (0, _v1.jsx)(_v16.Text, {
+            onClick: _v22 && (() => _v22(_v0)),
+            children: [(_v12 || _v10) && (0, _v1.jsxs)(_v33.TitleContainer, {
+              children: [_v12 && (0, _v1.jsx)(_v33.Icon, {
+                children: _v12
+              }), _v10 && (0, _v1.jsx)(_v16.Text, {
                 ..._v43,
                 color: "text-primary",
                 "data-testid": "grid-box-title",
-                title: _v9,
-                children: _v9
+                title: _v10,
+                children: _v10
               })]
-            }), _v12 && (0, _v1.jsx)(_v16.Text, {
+            }), _v13 && (0, _v1.jsx)(_v16.Text, {
               ..._v43,
               color: "text-tertiary",
               "data-testid": "grid-box-subtitle",
-              children: _v12
+              children: _v13
             })]
-          }), _v10 && (0, _v1.jsxs)(_v21.Menu, {
+          }), _v11 && (0, _v1.jsxs)(_v21.Menu, {
             isLazy: !0,
             children: [(0, _v1.jsx)(_v22.MenuButton, {
               as: _v20.IconButton,
@@ -423,7 +443,7 @@
               variant: "blur",
               icon: (0, _v1.jsx)(_v28.EllipsisH, {})
             }), (0, _v1.jsx)(_v24.MenuList, {
-              children: _v10.map(_v0 => (0, _v1.jsx)(_v23.MenuItem, {
+              children: _v11.map(_v0 => (0, _v1.jsx)(_v23.MenuItem, {
                 onClick: _v0.onClick,
                 "data-testid": `menu-item-${_v0.label.toLowerCase().replaceAll(" ", "-")}`,
                 color: "negative" === _v0.status ? "status-destructive-primary" : "",
@@ -434,19 +454,19 @@
         })]
       });
     });
-  _v0.s(["default", 0, _v45], 0), _v0.s(["Box", 0, _v45], 0);
-  var _v46 = _v0.i(0),
-    _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  let _v49 = _v48.MARGIN - 8 - 4 - 4,
-    _v50 = _v14.default.div.withConfig({
+  _v0.s(["default", 0, _v46], 0), _v0.s(["Box", 0, _v46], 0);
+  var _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0);
+  let _v50 = _v49.MARGIN - 8 - 4 - 4,
+    _v51 = _v14.default.div.withConfig({
       displayName: "Grid.style__GridContainer",
       componentId: "sc-c96b971f-0"
     })`
   width: 100%;
   height: 100%;
 `,
-    _v51 = _v14.default.div.withConfig({
+    _v52 = _v14.default.div.withConfig({
       displayName: "Grid.style__GridRowElement",
       componentId: "sc-c96b971f-1"
     })`
@@ -454,7 +474,7 @@
   gap: ${8}px;
   padding-bottom: 8px;
 `,
-    _v52 = _v14.keyframes`
+    _v53 = _v14.keyframes`
     0% {
       opacity: 0;
     }
@@ -465,7 +485,7 @@
       opacity: 1;
     }
   `,
-    _v53 = _v14.default.div.withConfig({
+    _v54 = _v14.default.div.withConfig({
       displayName: "ExpandedView.style__ExpandedViewContainer",
       componentId: "sc-f92b136a-0"
     })`
@@ -498,10 +518,10 @@
     0px 10px 6.8px -4.8px rgba(0, 0, 0, 0.09),
     0px 0px 10.8px 0.7px rgba(0, 0, 0, 0.06);
   transition: transform 0.1s linear;
-  animation: ${_v52} 0.25s linear;
+  animation: ${_v53} 0.25s linear;
 `;
-  var _v54 = _v0.i(0);
-  let _v55 = (_v0, _v1, _v2) => {
+  var _v55 = _v0.i(0);
+  let _v56 = (_v0, _v1, _v2) => {
     let _v3 = document.querySelector(`[data-id="${_v0}"]`)?.getBoundingClientRect(),
       _v4 = document.querySelector("[data-testid=expanded-view-container]")?.getBoundingClientRect(),
       _v5 = document.querySelector("[data-testid=virtuoso-scroller]")?.getBoundingClientRect();
@@ -518,16 +538,16 @@
       _v9 = !1;
     return _v2 ? _v3.top + _v6 >= _v5.bottom && (_v8.top = _v3?.top - _v7, _v8.bottom = _v3?.bottom, _v8.isPinnedToTop = !1, _v9 = !0) : _v1 || (_v8.top = _v3?.top - _v7, _v9 = !0), (!_v9 && _v3.top + _v6 >= _v5.bottom || !_v1 && _v3.bottom >= _v5.bottom) && (_v8.top = _v5.bottom - _v6, _v3.bottom >= _v5.bottom && (_v8.isPinnedToTop = !1)), (_v3.top <= _v5.top && _v6 <= _v5.height || !_v1 && _v3.top - _v7 <= _v5.top && _v6 <= _v5.height) && (_v8.top = _v5.top, _v3.top <= _v5.top && (_v8.isPinnedToTop = !0)), _v8;
   };
-  var _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  let _v58 = _v14.default.img.withConfig({
+  var _v57 = _v0.i(0),
+    _v58 = _v0.i(0);
+  let _v59 = _v14.default.img.withConfig({
       displayName: "MediaExpandedContent.style__ImagePreview",
       componentId: "sc-335fbeee-0"
     })`
   height: 100%;
   border-radius: 6px;
 `,
-    _v59 = _v14.default.video.withConfig({
+    _v60 = _v14.default.video.withConfig({
       displayName: "MediaExpandedContent.style__VideoPreviewComponent",
       componentId: "sc-335fbeee-1"
     })`
@@ -538,7 +558,7 @@
   width: 100%;
   height: 100%;
 `,
-    _v60 = _v14.default.div.withConfig({
+    _v61 = _v14.default.div.withConfig({
       displayName: "MediaExpandedContent.style__MediaContainer",
       componentId: "sc-335fbeee-2"
     })`
@@ -557,7 +577,7 @@
   overflow: hidden;
   position: relative;
 `,
-    _v61 = _v14.default.div.withConfig({
+    _v62 = _v14.default.div.withConfig({
       displayName: "MediaExpandedContent.style__VideoBorder",
       componentId: "sc-335fbeee-3"
     })`
@@ -571,13 +591,13 @@
   overflow: hidden;
   position: relative;
 `,
-    _v62 = _v14.default.div.withConfig({
+    _v63 = _v14.default.div.withConfig({
       displayName: "MediaExpandedContent.style__MediaInformation",
       componentId: "sc-335fbeee-4"
     })`
   display: inline-block;
 `,
-    _v63 = _v14.default.div.withConfig({
+    _v64 = _v14.default.div.withConfig({
       displayName: "MediaExpandedContent.style__Footer",
       componentId: "sc-335fbeee-5"
     })`
@@ -586,7 +606,7 @@
   align-items: center;
   gap: 16px;
 `,
-    _v64 = _v14.default.div.withConfig({
+    _v65 = _v14.default.div.withConfig({
       displayName: "MediaExpandedContent.style__MediaContent",
       componentId: "sc-335fbeee-6"
     })`
@@ -595,11 +615,11 @@
   margin-bottom: 5px;
   align-items: flex-start;
 `,
-    _v65 = _v14.default.div.withConfig({
+    _v66 = _v14.default.div.withConfig({
       displayName: "MediaExpandedContent.style__MediaExpandedDescription",
       componentId: "sc-335fbeee-7"
     })`
-  ${_v57.ScrollerCSS};
+  ${_v58.ScrollerCSS};
 
   font-size: 12px;
   max-height: 140px;
@@ -615,7 +635,7 @@
         display: -webkit-box;
       `}
 `,
-    _v66 = ({
+    _v67 = ({
       src: _v0,
       setIsLoading: _v1,
       onCanPlay: _v2,
@@ -635,7 +655,7 @@
         return _v2 && (_v2.currentTime = _v3 || 0, _v2.addEventListener("canplay", _v0), _v2.addEventListener("timeupdate", _v1)), () => {
           _v2 && (_v2.removeEventListener("canplay", _v0), _v2.removeEventListener("timeupdate", _v1));
         };
-      }, [_v2, _v1, _v3, _v4]), (0, _v1.jsx)(_v59, {
+      }, [_v2, _v1, _v3, _v4]), (0, _v1.jsx)(_v60, {
         ref: _v6,
         src: _v0,
         autoPlay: !0,
@@ -650,11 +670,11 @@
         })
       });
     },
-    _v67 = "Invalid Date";
-  var _v68 = _v0.i(0),
-    _v69 = _v0.i(0),
-    _v70 = _v0.i(0);
-  let _v71 = ({
+    _v68 = "Invalid Date";
+  var _v69 = _v0.i(0),
+    _v70 = _v0.i(0),
+    _v71 = _v0.i(0);
+  let _v72 = ({
     expandedItem: _v0,
     onDelete: _v1,
     onCTA: _v2,
@@ -678,29 +698,29 @@
         year: "numeric",
         month: "short",
         day: "numeric"
-      }) : _v67,
+      }) : _v68,
       _v17 = (0, _v2.useRef)(null),
       _v18 = (0, _v2.useRef)(null),
       [_v19, _v20] = (0, _v2.useState)(!0),
       [_v21, _v22] = (0, _v2.useState)(!1),
       [_v23, _v24] = (0, _v2.useState)(!1),
-      _v25 = _v16.toString() !== _v67,
+      _v25 = _v16.toString() !== _v68,
       _v26 = 0;
-    _v8 && _v7 ? _v26 = 313 / _v8 * _v7 : _v14 === (_v69.Orientation.LANDSCAPE || _v70.OrientationShorthand.LANDSCAPE) ? _v26 = 530 : (_v14 === (_v69.Orientation.SQUARE || _v70.OrientationShorthand.SQUARE) || _v14 === (_v69.Orientation.PORTRAIT || _v70.OrientationShorthand.PORTRAIT)) && (_v26 = 313);
+    _v8 && _v7 ? _v26 = 313 / _v8 * _v7 : _v14 === (_v70.Orientation.LANDSCAPE || _v71.OrientationShorthand.LANDSCAPE) ? _v26 = 530 : (_v14 === (_v70.Orientation.SQUARE || _v71.OrientationShorthand.SQUARE) || _v14 === (_v70.Orientation.PORTRAIT || _v71.OrientationShorthand.PORTRAIT)) && (_v26 = 313);
     let _v27 = (_v1 ? .7 : 1) * _v26;
     return (0, _v2.useEffect)(() => {
       _v17?.current && _v17.current.clientHeight < _v17.current.scrollHeight && _v24(!0);
     }, [_v17]), (0, _v2.useEffect)(() => {
       _v6();
     }, [_v6, _v21]), (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v60, {
+      children: [(0, _v1.jsxs)(_v61, {
         ref: _v18,
         height: 313,
         width: _v26,
-        children: [_v12 && (0, _v1.jsx)(_v61, {
+        children: [_v12 && (0, _v1.jsx)(_v62, {
           height: 313,
           width: _v26,
-          children: (0, _v1.jsx)(_v66, {
+          children: (0, _v1.jsx)(_v67, {
             isLoading: _v19 || _v5,
             setIsLoading: _v20,
             src: _v12,
@@ -709,7 +729,7 @@
             onCanPlay: () => _v20(!1),
             isCrossOrigin: _v15
           })
-        }), !_v12 && _v11 && (0, _v1.jsx)(_v58, {
+        }), !_v12 && _v11 && (0, _v1.jsx)(_v59, {
           src: _v11,
           height: 313,
           alt: _v11,
@@ -718,18 +738,18 @@
             crossOrigin: "anonymous"
           })
         }), _v19 || _v5 && (0, _v1.jsx)(_v40.Loader, {})]
-      }), (0, _v1.jsxs)(_v63, {
-        children: [(0, _v1.jsxs)(_v62, {
+      }), (0, _v1.jsxs)(_v64, {
+        children: [(0, _v1.jsxs)(_v63, {
           style: {
             maxWidth: _v27
           },
-          children: [(0, _v1.jsx)(_v56.Header, {
+          children: [(0, _v1.jsx)(_v57.Header, {
             size: "xs",
             "data-testid": "expanded-view-title",
             mb: 1,
             children: _v9
-          }), _v0.caption && (0, _v1.jsxs)(_v64, {
-            children: [(0, _v1.jsx)(_v65, {
+          }), _v0.caption && (0, _v1.jsxs)(_v65, {
+            children: [(0, _v1.jsx)(_v66, {
               "data-testid": "expanded-view-description",
               ref: _v17,
               isShowMore: _v21,
@@ -793,11 +813,11 @@
                 }
               })
             })]
-          }), _v25 && (0, _v1.jsx)(_v56.Header, {
+          }), _v25 && (0, _v1.jsx)(_v57.Header, {
             size: "xs",
             fontSize: "12px",
             color: "text-secondary",
-            "data-testid": _v68.testIds.expandedViewUploadedDate,
+            "data-testid": _v69.testIds.expandedViewUploadedDate,
             fontWeight: "normal",
             children: `${(0, _v32.translate)({
               singular: "Uploaded",
@@ -881,9 +901,9 @@
       })]
     });
   };
-  var _v72 = _v0.i(0),
-    _v73 = _v0.i(0);
-  let _v74 = _v14.default.div.withConfig({
+  var _v73 = _v0.i(0),
+    _v74 = _v0.i(0);
+  let _v75 = _v14.default.div.withConfig({
       displayName: "TextAnimationExpandedContent.style__SubAnimationsContainer",
       componentId: "sc-61abc106-0"
     })`
@@ -909,20 +929,20 @@
     }) => `calc(${100 / _v0}% - ${2 * _v0}px)`};
   }
 `,
-    _v75 = (0, _v14.default)(_v73.ArrowRight).withConfig({
+    _v76 = (0, _v14.default)(_v74.ArrowRight).withConfig({
       displayName: "TextAnimationExpandedContent.style__ArrowDown",
       componentId: "sc-61abc106-1"
     })`
   transform: rotate(90deg);
 `,
-    _v76 = (0, _v14.default)(_v72.ArrowLeft).withConfig({
+    _v77 = (0, _v14.default)(_v73.ArrowLeft).withConfig({
       displayName: "TextAnimationExpandedContent.style__ArrowUp",
       componentId: "sc-61abc106-2"
     })`
   transform: rotate(90deg);
 `;
-  var _v77 = _v0.i(0);
-  let _v78 = (_v0, _v1, _v2) => {
+  var _v78 = _v0.i(0);
+  let _v79 = (_v0, _v1, _v2) => {
       let _v3 = [],
         _v4 = _v1[_v0];
       if (!_v4) return [];
@@ -936,7 +956,7 @@
         _v1[_v0] && _v3.push(_v1[_v0]);
       }), _v3;
     },
-    _v79 = (_v0, _v1) => {
+    _v80 = (_v0, _v1) => {
       let _v2 = [];
       return Object.values(_v1).forEach(_v0 => {
         _v0.directions && _v0.directions.find(({
@@ -954,7 +974,7 @@
         });
       }), _v2;
     },
-    _v80 = (_v0, _v1) => {
+    _v81 = (_v0, _v1) => {
       let _v2 = null;
       return Object.values(_v1).forEach(_v0 => {
         _v0.directions && _v0.isSubAnimation && _v0.directions.forEach(({
@@ -964,18 +984,18 @@
         });
       }), _v2;
     };
-  _v0.s(["getDirections", 0, _v79, "getSubAnimationByDirectionAnimation", 0, _v80, "getSubAnimationWithDirections", 0, (_v0, _v1, _v2) => {
+  _v0.s(["getDirections", 0, _v80, "getSubAnimationByDirectionAnimation", 0, _v81, "getSubAnimationWithDirections", 0, (_v0, _v1, _v2) => {
     let _v3 = [];
-    return _v78(_v0, _v1, _v2).forEach(_v0 => {
+    return _v79(_v0, _v1, _v2).forEach(_v0 => {
       _v0.directions ? _v0.directions.forEach(_v0 => _v3.push(_v0.animation)) : _v3.push(_v0.name);
     }), _v3;
-  }, "getSubAnimations", 0, _v78], 0);
-  var _v81 = _v0.i(0);
-  let _v82 = ({
+  }, "getSubAnimations", 0, _v79], 0);
+  var _v82 = _v0.i(0);
+  let _v83 = ({
     children: _v0,
     isSelected: _v1,
     isFillRow: _v2
-  }) => (0, _v1.jsx)(_v81.Box, {
+  }) => (0, _v1.jsx)(_v82.Box, {
     ...(_v1 && {
       outline: "2px solid",
       outlineColor: "text-primary"
@@ -989,22 +1009,22 @@
     "data-selected": _v1,
     children: _v0
   });
-  _v0.s(["SelectionBorder", 0, _v82], 0);
-  let _v83 = {
-      up: (0, _v1.jsx)(_v76, {}),
-      down: (0, _v1.jsx)(_v75, {}),
-      left: (0, _v1.jsx)(_v72.ArrowLeft, {}),
-      right: (0, _v1.jsx)(_v73.ArrowRight, {})
+  _v0.s(["SelectionBorder", 0, _v83], 0);
+  let _v84 = {
+      up: (0, _v1.jsx)(_v77, {}),
+      down: (0, _v1.jsx)(_v76, {}),
+      left: (0, _v1.jsx)(_v73.ArrowLeft, {}),
+      right: (0, _v1.jsx)(_v74.ArrowRight, {})
     },
-    _v84 = {
+    _v85 = {
       TextBox: "Text box",
       ZoomInDirection: "In",
       ZoomOutDirection: "Out"
     },
-    _v85 = ({
+    _v86 = ({
       expandedItem: _v0
     }) => {
-      let _v1 = (0, _v11.useAppSelector)(_v77.textAnimationsMetadataSelector),
+      let _v1 = (0, _v11.useAppSelector)(_v78.textAnimationsMetadataSelector),
         _v2 = (0, _v11.useAppSelector)(_v9.selectedElementsSelector),
         {
           mainTextAnimations: _v3,
@@ -1015,17 +1035,17 @@
           let _v0 = _v2[0];
           return _v0 ? _v0.textStyleId : "";
         }, [_v2]),
-        _v7 = (0, _v2.useMemo)(() => _v78(_v5, _v1, _v3), [_v1, _v5, _v3]),
+        _v7 = (0, _v2.useMemo)(() => _v79(_v5, _v1, _v3), [_v1, _v5, _v3]),
         _v8 = (0, _v2.useMemo)(() => {
-          let _v0 = _v79(_v5, _v1);
+          let _v0 = _v80(_v5, _v1);
           return _v7.forEach(_v0 => {
-            _v0.name === _v80(_v6, _v1) && (_v0 = _v79(_v6, _v1));
+            _v0.name === _v81(_v6, _v1) && (_v0 = _v80(_v6, _v1));
           }), _v0;
         }, [_v1, _v5, _v6, _v7]),
-        _v9 = (0, _v2.useMemo)(() => _v7.find(_v0 => _v0.name === _v6 || _v0.name === _v80(_v6, _v1)), [_v1, _v6, _v7]);
+        _v9 = (0, _v2.useMemo)(() => _v7.find(_v0 => _v0.name === _v6 || _v0.name === _v81(_v6, _v1)), [_v1, _v6, _v7]);
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [_v7.length > 1 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v56.Header, {
+          children: [(0, _v1.jsx)(_v57.Header, {
             size: "2xs",
             "data-testid": "animation-expanded-view-title",
             sx: {
@@ -1060,10 +1080,10 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v74, {
+          }), (0, _v1.jsx)(_v75, {
             rowItems: _v7.length % 2 == 0 ? 2 : 3,
             shouldBreakLines: 4 === _v7.length,
-            children: _v7.map(_v0 => (0, _v1.jsx)(_v82, {
+            children: _v7.map(_v0 => (0, _v1.jsx)(_v83, {
               isSelected: _v9?.name === _v0.name,
               isFillRow: !0,
               children: (0, _v1.jsx)(_v15.Button, {
@@ -1073,13 +1093,13 @@
                 "data-testid": `${_v9?.name === _v0.name ? "selected-" : ""}animation-button`,
                 children: (0, _v1.jsx)(_v16.Text, {
                   variant: "heading-2xs",
-                  children: _v84[_v0.subAnimationLabel] || _v0.subAnimationLabel
+                  children: _v85[_v0.subAnimationLabel] || _v0.subAnimationLabel
                 })
               })
             }, _v0.name))
           })]
         }), _v8.length > 1 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v56.Header, {
+          children: [(0, _v1.jsx)(_v57.Header, {
             size: "2xs",
             "data-testid": "direction-expanded-view-title",
             mt: {
@@ -1114,16 +1134,16 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v74, {
+          }), (0, _v1.jsx)(_v75, {
             rowItems: 4,
-            children: _v8.map(_v0 => (0, _v1.jsx)(_v82, {
+            children: _v8.map(_v0 => (0, _v1.jsx)(_v83, {
               isSelected: _v0.animation === _v6,
               isFillRow: !0,
               children: !_v0.subAnimationLabel && _v0.direction ? (0, _v1.jsx)(_v20.IconButton, {
                 size: "sm",
                 variant: "tertiary",
                 onClick: () => _v4(_v0.animation),
-                icon: _v83[_v0.direction],
+                icon: _v84[_v0.direction],
                 "data-key": _v0.direction,
                 "aria-label": `${_v0.animation === _v6 ? "selected-" : ""}direction-button`,
                 "data-testid": `${_v0.animation === _v6 ? "selected-" : ""}direction-button`
@@ -1132,13 +1152,13 @@
                 variant: "tertiary",
                 onClick: () => _v4(_v0.animation),
                 ...(_v0.direction && {
-                  leftIcon: _v83[_v0.direction]
+                  leftIcon: _v84[_v0.direction]
                 }),
                 "data-key": _v0.direction,
                 "data-testid": `${_v0.animation === _v6 ? "selected-" : ""}direction-button`,
                 children: _v0.subAnimationLabel && (0, _v1.jsx)(_v16.Text, {
                   variant: "body-sm",
-                  children: _v84[_v0.subAnimationLabel]
+                  children: _v85[_v0.subAnimationLabel]
                 })
               })
             }, _v0.animation))
@@ -1146,8 +1166,8 @@
         })]
       });
     };
-  _v0.s(["default", 0, _v85], 0);
-  let _v86 = ({
+  _v0.s(["default", 0, _v86], 0);
+  let _v87 = ({
     expandedItem: _v0,
     onClose: _v1,
     onDelete: _v2,
@@ -1158,15 +1178,15 @@
         id: _v5,
         type: _v6
       } = _v0,
-      [_v7, _v8] = (0, _v2.useState)(() => _v55(_v5, !0, !0)),
+      [_v7, _v8] = (0, _v2.useState)(() => _v56(_v5, !0, !0)),
       [_v9, _v10] = (0, _v2.useState)(() => {
-        let _v0 = _v55(_v5, !0, !0);
+        let _v0 = _v56(_v5, !0, !0);
         return !_v0 || _v0.isPinnedToTop;
       }),
       _v11 = (0, _v2.useRef)(null);
-    (0, _v54.useOnClickOutside)(_v11, _v1);
+    (0, _v55.useOnClickOutside)(_v11, _v1);
     let _v12 = (0, _v2.useCallback)(() => {
-      let _v0 = _v55(_v5, _v6 === _v35.ExpandType.MEDIA || _v9, !1);
+      let _v0 = _v56(_v5, _v6 === _v35.ExpandType.MEDIA || _v9, !1);
       _v8(_v0), _v0 && _v10(_v0.isPinnedToTop);
     }, [_v5, _v9, _v6]);
     return (0, _v2.useEffect)(() => {
@@ -1179,8 +1199,8 @@
       };
     }, [_v12]), (0, _v2.useEffect)(() => {
       _v12();
-    }, [_v11, _v12]), (0, _v1.jsx)(_v47.Portal, {
-      children: (0, _v1.jsxs)(_v53, {
+    }, [_v11, _v12]), (0, _v1.jsx)(_v48.Portal, {
+      children: (0, _v1.jsxs)(_v54, {
         ref: _v11,
         ...(_v6 === _v35.ExpandType.TEXT_ANIMATIONS && {
           width: 100
@@ -1188,7 +1208,7 @@
         type: _v6,
         position: _v7,
         "data-testid": "expanded-view-container",
-        children: [_v6 === _v35.ExpandType.MEDIA && (0, _v1.jsx)(_v71, {
+        children: [_v6 === _v35.ExpandType.MEDIA && (0, _v1.jsx)(_v72, {
           expandedItem: _v0,
           onDelete: _v2,
           onCTA: _v3,
@@ -1196,31 +1216,31 @@
           onClose: _v1,
           isLoading: _v0.isLoading,
           handleScroll: _v12
-        }), _v6 === _v35.ExpandType.TEXT_ANIMATIONS && (0, _v1.jsx)(_v85, {
+        }), _v6 === _v35.ExpandType.TEXT_ANIMATIONS && (0, _v1.jsx)(_v86, {
           expandedItem: _v0
         })]
       })
     });
   };
-  var _v87 = _v0.i(0);
-  let _v88 = (0, _v2.forwardRef)(({
+  var _v88 = _v0.i(0);
+  let _v89 = (0, _v2.forwardRef)(({
       style: _v0,
       ..._v1
     }, _v2) => (0, _v1.jsx)("div", {
       style: {
         ..._v0,
-        marginRight: `${_v49}px`
+        marginRight: `${_v50}px`
       },
       ref: _v2,
       ..._v1
     })),
-    _v89 = (0, _v2.forwardRef)(({
+    _v90 = (0, _v2.forwardRef)(({
       style: _v0,
       ..._v1
-    }, _v2) => (0, _v1.jsx)(_v81.Box, {
+    }, _v2) => (0, _v1.jsx)(_v82.Box, {
       sx: {
         ..._v0,
-        ..._v57.ScrollerSX
+        ..._v58.ScrollerSX
       },
       className: "scroller",
       ref: _v2,
@@ -1229,7 +1249,7 @@
       marginLeft: `-${_v33.HOVER_BORDER}px`,
       marginTop: 0
     })),
-    _v90 = (0, _v2.forwardRef)(({
+    _v91 = (0, _v2.forwardRef)(({
       style: _v0,
       ..._v1
     }, _v2) => (0, _v1.jsx)("div", {
@@ -1241,7 +1261,7 @@
       ref: _v2,
       ..._v1
     })),
-    _v91 = () => (0, _v1.jsx)("div", {
+    _v92 = () => (0, _v1.jsx)("div", {
       style: {
         display: "flex",
         justifyContent: "center",
@@ -1249,23 +1269,23 @@
         paddingTop: "24px"
       },
       "data-testid": "grid-loader",
-      children: (0, _v1.jsx)(_v87.Spinner, {
+      children: (0, _v1.jsx)(_v88.Spinner, {
         size: "xl"
       })
     });
-  _v0.s(["VirtuosoFooter", 0, _v91, "VirtuosoItem", 0, _v88, "VirtuosoList", 0, _v90, "VirtuosoScroller", 0, _v89], 0);
-  var _v92 = _v0.i(0);
-  let _v93 = (_v0, _v1, _v2) => {
+  _v0.s(["VirtuosoFooter", 0, _v92, "VirtuosoItem", 0, _v89, "VirtuosoList", 0, _v91, "VirtuosoScroller", 0, _v90], 0);
+  var _v93 = _v0.i(0);
+  let _v94 = (_v0, _v1, _v2) => {
       let _v3 = 0 === _v1 ? 1 : parseFloat((_v0 / _v1).toFixed(2));
       return _v2 === _v12.GridStyleType.JUSTIFIED ? Math.min(Math.max(_v3, .76), 1.77) : _v3;
     },
-    _v94 = ({
+    _v95 = ({
       gridStyle: _v0,
       itemsCount: _v1,
       ratio: _v2,
       maxItemsPerRow: _v3
     }) => _v0 === _v12.GridStyleType.SQUARE ? +_v3 : _v0 === _v12.GridStyleType.LANDSCAPE ? 3.54 : _v1 < 2 ? Math.max(_v2, 2.2) : _v2,
-    _v95 = ({
+    _v96 = ({
       gridStyle: _v0,
       items: _v1,
       maxItemsPerRow: _v2
@@ -1288,7 +1308,7 @@
             width: 9,
             height: 16
           }), _v2),
-          _v4 = _v93(_v3.width, _v3.height, _v0),
+          _v4 = _v94(_v3.width, _v3.height, _v0),
           _v5 = _v4.length < _v2 - 1 && _v5 < 2.2,
           _v6 = _v4.length === _v2 - 1 && _v5 + _v4 < 3.2;
         _v5 || _v6 ? (_v5 += _v4, _v4.push({
@@ -1309,8 +1329,8 @@
   _v0.s(["DEFAULT_MAX_ITEMS_PER_ROW", 0, 3, "LANDSCAPE_GRID_ITEM_DIMENSIONS", 0, {
     width: 16,
     height: 9
-  }, "getNormalizedRatio", 0, _v93, "getNormalizedRowRatio", 0, _v94, "justifyItemsToRows", 0, _v95], 98);
-  let _v96 = (0, _v2.forwardRef)(function ({
+  }, "getNormalizedRatio", 0, _v94, "getNormalizedRowRatio", 0, _v95, "justifyItemsToRows", 0, _v96], 98);
+  let _v97 = (0, _v2.forwardRef)(function ({
     items: _v0,
     styleType: _v1,
     itemRenderer: _v2,
@@ -1325,8 +1345,8 @@
       [_v12, _v13] = (0, _v2.useState)(!1),
       _v14 = (0, _v2.useRef)(null),
       _v15 = (0, _v2.useRef)(null),
-      _v16 = (0, _v92.default)(_v15),
-      _v17 = (0, _v2.useMemo)(() => _v95({
+      _v16 = (0, _v93.default)(_v15),
+      _v17 = (0, _v2.useMemo)(() => _v96({
         items: _v0,
         gridStyle: _v1,
         maxItemsPerRow: _v8
@@ -1336,7 +1356,7 @@
       }, []),
       _v19 = (0, _v2.useCallback)(_v0 => {
         let _v1 = _v17[_v0].items,
-          _v2 = _v94({
+          _v2 = _v95({
             gridStyle: _v1,
             itemsCount: _v1.length,
             ratio: _v17[_v0].ratio,
@@ -1344,13 +1364,13 @@
           }),
           _v3 = `${_v16.width / _v2}px`,
           _v4 = 0;
-        return _v1 === _v12.GridStyleType.SQUARE && _v1.length < _v8 && (_v4 = 16), (0, _v1.jsx)(_v51, {
+        return _v1 === _v12.GridStyleType.SQUARE && _v1.length < _v8 && (_v4 = 16), (0, _v1.jsx)(_v52, {
           style: {
             height: _v1 === _v12.GridStyleType.JUSTIFIED ? _v3 : "auto",
             paddingRight: `${_v4}px`
           },
           children: _v1.map(_v0 => {
-            let _v1 = _v93(_v0.size.width, _v0.size.height, _v1);
+            let _v1 = _v94(_v0.size.width, _v0.size.height, _v1);
             return _v2(_v0.index, 100 * _v1 / _v2, _v18);
           })
         }, `row-${_v0}`);
@@ -1362,9 +1382,9 @@
     })), (0, _v2.useEffect)(() => {
       _v12 && _v13(_v12);
     }, [_v12, _v10]), (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v50, {
+      children: [(0, _v1.jsx)(_v51, {
         ref: _v15,
-        children: (0, _v1.jsx)(_v46.Virtuoso, {
+        children: (0, _v1.jsx)(_v47.Virtuoso, {
           ref: _v14,
           totalCount: _v17.length,
           itemContent: _v19,
@@ -1373,15 +1393,15 @@
             _v0 && _v4 && _v4();
           },
           components: {
-            Item: _v88,
-            Scroller: _v89,
-            List: _v90,
+            Item: _v89,
+            Scroller: _v90,
+            List: _v91,
             ...(_v3 && {
-              Footer: _v91
+              Footer: _v92
             })
           }
         })
-      }), _v10 && _v12 && (0, _v1.jsx)(_v86, {
+      }), _v10 && _v12 && (0, _v1.jsx)(_v87, {
         onDelete: _v5,
         onCTA: _v6,
         CTAText: _v7,
@@ -1390,13 +1410,13 @@
       })]
     });
   });
-  _v0.s(["default", 0, _v96], 0), _v0.s(["Grid", 0, _v96], 0);
-  var _v97 = _v0.i(0),
-    _v98 = _v0.i(0),
-    _v99 = _v0.i(0);
-  let _v100 = ({
+  _v0.s(["default", 0, _v97], 0), _v0.s(["Grid", 0, _v97], 0);
+  var _v98 = _v0.i(0),
+    _v99 = _v0.i(0),
+    _v100 = _v0.i(0);
+  let _v101 = ({
     children: _v0
-  }) => (0, _v1.jsx)(_v99.PanelBody, {
+  }) => (0, _v1.jsx)(_v100.PanelBody, {
     display: "flex",
     flexDirection: "column",
     overflow: "hidden",
@@ -1404,9 +1424,9 @@
     padding: "0 0 16px",
     children: _v0
   });
-  _v0.s(["InspectorBody", 0, _v100], 0);
-  var _v101 = _v0.i(0);
-  let _v102 = ({
+  _v0.s(["InspectorBody", 0, _v101], 0);
+  var _v102 = _v0.i(0);
+  let _v103 = ({
       item: _v0
     }) => (0, _v1.jsx)(_v16.Text, {
       "data-testid": _v0.dataTestId,
@@ -1420,7 +1440,7 @@
       fontFamily: "system-ui, serif",
       children: _v0.thumbnailText
     }, _v0.dataTestId),
-    _v103 = (0, _v14.default)(_v48.InspectorPaddedRow).withConfig({
+    _v104 = (0, _v14.default)(_v49.InspectorPaddedRow).withConfig({
       displayName: "AddTextInspectorView__TextPresetsContainer",
       componentId: "sc-c24e9f00-0"
     })`
@@ -1428,7 +1448,7 @@
   height: 100%;
   margin-top: 18px;
 `;
-  function _v104({
+  function _v105({
     items: _v0,
     defaultItem: _v1,
     onItemClick: _v2,
@@ -1438,7 +1458,7 @@
   }) {
     let _v6 = (0, _v2.useCallback)((_v0, _v1) => {
       let _v2 = _v0[_v0];
-      return (0, _v1.jsx)(_v45, {
+      return (0, _v1.jsx)(_v46, {
         id: _v2.dataTestId,
         gridStyleType: _v12.GridStyleType.LANDSCAPE,
         width: _v1,
@@ -1453,17 +1473,17 @@
         draggableData: {
           id: _v2.dataTestId,
           data: _v2,
-          type: _v97.DnDItemType.GRID_ELEMENT_TEXT,
+          type: _v98.DnDItemType.GRID_ELEMENT_TEXT,
           createElement: _v0 => _v3(_v2, _v0),
           onElementAdded: _v5
         }
       }, _v0);
     }, [_v4, _v3, _v0, _v5, _v2]);
-    return (0, _v1.jsxs)(_v98.Inspector, {
-      children: [(0, _v1.jsx)(_v101.InspectorHeader, {
+    return (0, _v1.jsxs)(_v99.Inspector, {
+      children: [(0, _v1.jsx)(_v102.InspectorHeader, {
         title: "Text"
-      }), (0, _v1.jsxs)(_v100, {
-        children: [(0, _v1.jsx)(_v48.InspectorPaddedRow, {
+      }), (0, _v1.jsxs)(_v101, {
+        children: [(0, _v1.jsx)(_v49.InspectorPaddedRow, {
           children: (0, _v1.jsx)(_v15.Button, {
             leftIcon: (0, _v1.jsx)(_v17.Plus, {}),
             variant: "primary",
@@ -1473,9 +1493,9 @@
             size: "sm",
             children: _v1.thumbnailText
           })
-        }), (0, _v1.jsx)(_v103, {
+        }), (0, _v1.jsx)(_v104, {
           padRight: !1,
-          children: (0, _v1.jsx)(_v96, {
+          children: (0, _v1.jsx)(_v97, {
             itemRenderer: _v6,
             styleType: _v12.GridStyleType.LANDSCAPE,
             items: _v0,
@@ -1485,7 +1505,7 @@
       })]
     });
   }
-  let _v105 = () => {
+  let _v106 = () => {
     let _v0 = (0, _v11.useAppDispatch)(),
       _v1 = (0, _v11.useAppSelector)(_v10.storyboardIdSelector),
       {
@@ -1544,18 +1564,18 @@
           editorTextType: _v0.id
         });
       }, [_v4, _v5, _v6, _v1, _v2]);
-    return (0, _v1.jsx)(_v104, {
+    return (0, _v1.jsx)(_v105, {
       items: _v5.textPresets,
       onItemClick: _v7,
       createElement: _v5,
-      OverlayComponent: _v102,
+      OverlayComponent: _v103,
       defaultItem: _v5.textDefaultPreset,
       onElementAdded: _v6
     });
   };
-  var _v106 = _v0.i(0),
-    _v107 = _v0.i(0);
-  let _v108 = {
+  var _v107 = _v0.i(0),
+    _v108 = _v0.i(0);
+  let _v109 = {
     variant: "tertiary",
     width: "100%",
     size: "lg",
@@ -1573,15 +1593,15 @@
   }) => {
     let {
       hasCreateBrandEdit: _v5
-    } = (0, _v2.useContext)(_v107.PermissionsContext);
-    return (0, _v1.jsx)(_v106.ColorPickerBrandKit, {
+    } = (0, _v2.useContext)(_v108.PermissionsContext);
+    return (0, _v1.jsx)(_v107.ColorPickerBrandKit, {
       color: _v1,
       onChange: _v2,
       onClose: _v3,
       disabled: !_v5,
       productName: "editor",
       children: (0, _v1.jsx)(_v15.Button, {
-        ..._v108,
+        ..._v109,
         style: {
           display: "flex",
           width: "100%"
@@ -1592,7 +1612,7 @@
           alignItems: "center",
           "data-testid": `${_v0.toLowerCase().replace(" ", "-")}-picker`,
           width: "100%",
-          children: [(0, _v1.jsx)(_v56.Header, {
+          children: [(0, _v1.jsx)(_v57.Header, {
             size: "xs",
             mb: 0,
             lineHeight: "32px",
@@ -1604,7 +1624,7 @@
       })
     });
   }], 0);
-  let _v109 = _v14.default.div.withConfig({
+  let _v110 = _v14.default.div.withConfig({
     displayName: "BrandColorsInspector.style__ColorsContainer",
     componentId: "sc-862aff3e-0"
   })`
@@ -1612,5 +1632,5 @@
   flex-direction: column;
   gap: 8px;
 `;
-  _v0.s(["ColorsContainer", 0, _v109], 0);
+  _v0.s(["ColorsContainer", 0, _v110], 0);
 }

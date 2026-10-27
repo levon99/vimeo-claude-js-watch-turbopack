@@ -245,25 +245,37 @@
         source: !0 === _v0.isMultiline ? (0, _v1.jsx)(_v33.Textarea, {
           "aria-label": _v0.sourceAriaLabel,
           isDisabled: !0,
+          name: `${_v0.path}-source`,
           resize: "none",
-          rows: 5,
-          value: _v0.sourceValue
+          rows: 3,
+          value: _v0.sourceValue,
+          _disabled: {
+            opacity: 1,
+            cursor: "not-allowed"
+          }
         }) : (0, _v1.jsx)(_v32.Input, {
           "aria-label": _v0.sourceAriaLabel,
           isDisabled: !0,
-          value: _v0.sourceValue
+          name: `${_v0.path}-source`,
+          value: _v0.sourceValue,
+          _disabled: {
+            opacity: 1,
+            cursor: "not-allowed"
+          }
         }),
         target: !0 === _v0.isMultiline ? (0, _v1.jsx)(_v33.Textarea, {
           "aria-label": _v0.targetAriaLabel,
           maxLength: _v0.maxLength,
+          name: _v0.path,
           onChange: _v0 => _v2(_v0.path, _v0.target.value),
           placeholder: _v0.sourceValue,
           resize: "none",
-          rows: 5,
+          rows: 3,
           value: _v1
         }) : (0, _v1.jsx)(_v32.Input, {
           "aria-label": _v0.targetAriaLabel,
           maxLength: _v0.maxLength,
+          name: _v0.path,
           onChange: _v0 => _v2(_v0.path, _v0.target.value),
           placeholder: _v0.sourceValue,
           value: _v1
@@ -447,7 +459,7 @@
     });
   };
   var _v40 = _v0.i(0);
-  let _v41 = (0, _v18.rem)(980),
+  let _v41 = (0, _v18.rem)(0),
     _v42 = (0, _v18.rem)(265),
     _v43 = {
       unsaved: "default",
@@ -827,7 +839,7 @@
                   backgroundColor: "fill-component",
                   borderRadius: "md",
                   flexShrink: 0,
-                  pl: "3",
+                  px: "3",
                   py: "xs",
                   w: "100%",
                   children: (0, _v1.jsx)(_v36, {
