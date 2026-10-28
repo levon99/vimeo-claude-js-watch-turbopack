@@ -19,17 +19,18 @@
     _v16 = _v0.i(0),
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
-    _v19 = _v0.i(0);
-  function _v20() {
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0);
+  function _v21() {
     return (0, _v1.jsxs)(_v2.default, {
       children: [(0, _v1.jsx)("title", {
-        children: (0, _v13.translate)("Vimeo")
+        children: (0, _v14.translate)("Vimeo")
       }), (0, _v1.jsx)("meta", {
         name: "robots",
         content: "noindex, nofollow"
       }), (0, _v1.jsx)("meta", {
         name: "description",
-        content: (0, _v13.translate)({
+        content: (0, _v14.translate)({
           singular: "Join the web’s most supportive community of creators and get high-quality tools for hosting, sharing, and streaming videos in gorgeous HD and 4K with no ads.",
           dictionary: {
             es: {
@@ -58,14 +59,14 @@
       })]
     });
   }
-  function _v21({
+  function _v22({
     ogTitle: _v0,
     ogDescription: _v1,
     ogImage: _v2,
     ogUrl: _v3
   }) {
-    let _v4 = _v0 ?? (0, _v13.translate)("Vimeo"),
-      _v5 = _v1 ?? (0, _v13.translate)({
+    let _v4 = _v0 ?? (0, _v14.translate)("Vimeo"),
+      _v5 = _v1 ?? (0, _v14.translate)({
         singular: "Join the web’s most supportive community of creators and get high-quality tools for hosting, sharing, and streaming videos in gorgeous HD and 4K with no ads.",
         dictionary: {
           es: {
@@ -142,7 +143,7 @@
       })]
     });
   }
-  let _v22 = ({
+  let _v23 = ({
     folderData: _v0,
     folderId: _v1,
     playerAssetUrls: _v2,
@@ -154,13 +155,13 @@
     ogImage: _v8,
     ogUrl: _v9
   }) => {
-    let _v10 = (0, _v19.useViewer)(),
-      _v11 = (0, _v3.useMemo)(() => _v6 ? (0, _v1.jsx)(_v21, {
+    let _v10 = (0, _v20.useViewer)(),
+      _v11 = (0, _v3.useMemo)(() => _v6 ? (0, _v1.jsx)(_v22, {
         ogTitle: _v6,
         ogDescription: _v7,
         ogImage: _v8,
         ogUrl: _v9
-      }) : (0, _v1.jsx)(_v20, {}), []);
+      }) : (0, _v1.jsx)(_v21, {}), []);
     if (!_v10) return _v11;
     (0, _v10.setCdnUrl)(_v10.viewmasterCdnUrl);
     let _v12 = {
@@ -174,7 +175,7 @@
         },
         children: (0, _v1.jsx)(_v8.ConfigContext.Provider, {
           value: _v12,
-          children: (0, _v1.jsx)(_v14.ReviewLinkContextProvider, {
+          children: (0, _v1.jsx)(_v15.ReviewLinkContextProvider, {
             resourceId: _v1,
             resourceType: "folder",
             reviewId: _v3,
@@ -184,7 +185,7 @@
               userId: _v4,
               viewer: _v10,
               reviewId: _v3,
-              folderData: _v0,
+              folderBase: _v0 ? (0, _v11.toFolderBase)(_v0) : void 0,
               showPasswordPage: _v5
             })
           })
@@ -211,7 +212,7 @@
       _v10 = _v0.req.cookies;
     _v10[`${_v5}_password`] && (_v1 = _v10[`${_v5}_password`]);
     try {
-      _v8 = (await (0, _v11.getFolderReviewLink)({
+      _v8 = (await (0, _v12.getFolderReviewLink)({
         headers: _v0.headers,
         baseUrl: _v0.baseUrl,
         where: {
@@ -279,7 +280,7 @@
       }
     };
     try {
-      if (!(_v11 = await (0, _v12.getUserProject)({
+      if (!(_v11 = await (0, _v13.getUserProject)({
         headers: _v0.headers,
         baseUrl: _v0.baseUrl,
         where: {
@@ -290,7 +291,7 @@
           reviewId: _v5,
           password: _v1
         },
-        select: _v9.DEFAULT_FOLDER_API_FIELDS
+        select: _v9.FOLDER_REVIEW_SSR_FIELDS
       })) || !_v11?.metadata?.interactions?.allowMultipleReviewLinks) return {
         notFound: !0
       };
@@ -301,7 +302,7 @@
     }
     let _v13 = _v11.metadata?.connections?.videos?.total ?? 0,
       _v14 = _v11.name,
-      _v15 = (0, _v13.translate)({
+      _v15 = (0, _v14.translate)({
         count: _v13,
         singular: "Review folder — {COUNT} video",
         plural: "Review folder — {COUNT} videos",
@@ -353,16 +354,16 @@
   }, {
     inlineViewer: "all",
     inlinePlayerAssets: !0
-  }), _v22.getLayout = (_v0, _v1) => _v1.isDisabledOrExpired ? (0, _v1.jsxs)(_v1.Fragment, {
-    children: [(0, _v1.jsx)(_v20, {}), (0, _v1.jsx)(_v16.default, {}), (0, _v1.jsx)(_v15.DisabledReviewLinkErrorPage, {})]
-  }) : (0, _v1.jsx)(_v17.VideoLibraryLayout, {
+  }), _v23.getLayout = (_v0, _v1) => _v1.isDisabledOrExpired ? (0, _v1.jsxs)(_v1.Fragment, {
+    children: [(0, _v1.jsx)(_v21, {}), (0, _v1.jsx)(_v17.default, {}), (0, _v1.jsx)(_v16.DisabledReviewLinkErrorPage, {})]
+  }) : (0, _v1.jsx)(_v18.VideoLibraryLayout, {
     isReviewPage: !0,
     hasThemeSupport: !_v1.isReviewLinkDarkMode,
-    searchContentAlignment: _v18.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
+    searchContentAlignment: _v19.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
     children: _v1.isReviewLinkDarkMode ? (0, _v1.jsx)(_v5.Box, {
       color: "text-primary",
       display: "contents",
       children: _v0
     }) : _v0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v22], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v23], 0);
 }

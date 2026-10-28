@@ -495,6 +495,7 @@
           }) : null, 1 !== _v8 || _v6 ? null : (0, _v1.jsx)(_v4.Button, {
             "data-testid": "confirm-translation-button",
             isDisabled: 0 === _v10.length,
+            isLoading: _v5,
             onClick: () => _v4(_v10, "manual"),
             variant: "primary",
             children: (0, _v21.translate)({

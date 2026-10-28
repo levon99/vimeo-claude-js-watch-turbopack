@@ -2028,28 +2028,28 @@
       }
     }),
     videoPage: (0, _v16.translate)({
-      singular: "Video player and comments",
+      singular: "Video page preset",
       dictionary: {
         es: {
-          singular: "Reproductor de video y comentarios"
+          singular: "Configuración predeterminada de la página de video"
         },
         "de-DE": {
-          singular: "Videoplayer und Kommentare"
+          singular: "Videoseiten-Voreinstellung"
         },
         "fr-FR": {
-          singular: "Lecteur vidéo et commentaires"
+          singular: "Préréglage de la page vidéo"
         },
         "ja-JP": {
-          singular: "動画プレーヤーとコメント"
+          singular: "動画ページプリセット"
         },
         "ko-KR": {
-          singular: "동영상 플레이어 및 댓글"
+          singular: "동영상 페이지 사전 설정"
         },
         "pt-BR": {
-          singular: "Reprodutor de vídeo e comentários"
+          singular: "Predefinição de página de vídeo"
         },
         "zh-CN": {
-          singular: "视频播放器和评论"
+          singular: "视频页面预设"
         }
       }
     }),

@@ -3695,7 +3695,7 @@
         itemsPerPage: 25,
         size: _v96
       }),
-      _v149 = _v125?.length === 0,
+      _v149 = !_v147 && 0 === _v125.length,
       _v150 = !!_v65.isFilterApplied,
       _v151 = !_v92,
       _v152 = _v150 || _v74 || (0, _v48.isVideoAvailabilityFilterExplicitlyEngaged)(_v68.value),

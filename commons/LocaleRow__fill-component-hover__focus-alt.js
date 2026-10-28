@@ -21,7 +21,8 @@
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
     _v20 = _v0.i(0),
-    _v21 = _v0.i(0);
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0);
   _v0.s(["LocaleRow", 0, ({
     locale: _v0,
     savedLocale: _v1,
@@ -33,7 +34,12 @@
     let _v6 = (0, _v19.useLocale)(),
       _v7 = _v1?.isPublished ?? !1,
       _v8 = _v1?.isOutOfSync === !0,
-      _v9 = (0, _v20.getLocaleStatusLabel)((0, _v20.getLocaleStatus)(_v1, !1));
+      _v9 = (0, _v21.getLocaleStatusLabel)((0, _v21.getLocaleStatus)(_v1, !1)),
+      {
+        trackLocalizationEditClicked: _v10,
+        trackLocalizationPublishedToggled: _v11,
+        trackLocalizationRemoveClicked: _v12
+      } = (0, _v20.useLocalizationResourceTracking)();
     return (0, _v1.jsxs)(_v3.Flex, {
       _focusWithin: {
         backgroundColor: "fill-component-hover",
@@ -49,7 +55,12 @@
       cursor: "pointer",
       gap: "xs",
       minH: (0, _v11.rem)(40),
-      onClick: _v3,
+      onClick: () => {
+        _v10({
+          locale: _v0,
+          isPublished: _v7
+        }), _v3();
+      },
       pl: "md",
       pr: "sm",
       py: "sm",
@@ -69,7 +80,7 @@
             minW: 0,
             noOfLines: 1,
             variant: "body-md",
-            children: (0, _v21.getLocaleOptionLabel)(_v0, _v6)
+            children: (0, _v22.getLocaleOptionLabel)(_v0, _v6)
           }), _v8 ? (0, _v1.jsx)(_v15.InfoCircle, {
             boxSize: "2xs",
             color: "status-caution-primary",
@@ -177,7 +188,10 @@
             }),
             icon: (0, _v1.jsx)(_v13.EditPencil, {}),
             onClick: _v0 => {
-              _v0.stopPropagation(), _v3();
+              _v0.stopPropagation(), _v10({
+                locale: _v0,
+                isPublished: _v7
+              }), _v3();
             },
             size: "sm",
             variant: "tertiary"
@@ -222,7 +236,12 @@
               children: [(0, _v1.jsx)(_v7.MenuItem, {
                 icon: _v7 ? (0, _v1.jsx)(_v16.MinusCircle, {}) : (0, _v1.jsx)(_v12.CircleCheck, {}),
                 isDisabled: _v2,
-                onClick: () => _v4(!_v7),
+                onClick: () => {
+                  _v11({
+                    locale: _v0,
+                    newStatus: !_v7
+                  }), _v4(!_v7);
+                },
                 children: _v7 ? (0, _v18.translate)({
                   singular: "Unpublish",
                   dictionary: {
@@ -276,7 +295,11 @@
                 })
               }), (0, _v1.jsx)(_v7.MenuItem, {
                 icon: (0, _v1.jsx)(_v17.TrashBin, {}),
-                onClick: _v5,
+                onClick: () => {
+                  _v12({
+                    locale: _v0
+                  }), _v5();
+                },
                 children: (0, _v18.translate)({
                   singular: "Remove translation",
                   dictionary: {

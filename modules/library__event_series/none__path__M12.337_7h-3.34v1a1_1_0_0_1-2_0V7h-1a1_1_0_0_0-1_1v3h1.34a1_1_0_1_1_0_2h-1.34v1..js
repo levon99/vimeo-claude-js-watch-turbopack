@@ -1101,7 +1101,7 @@
                         singular: "Página de vista previa"
                       },
                       "de-DE": {
-                        singular: "Vorschau-Seite"
+                        singular: "Vorschauseite"
                       },
                       "fr-FR": {
                         singular: "Page d’aperçu"
@@ -1113,7 +1113,7 @@
                         singular: "미리보기 페이지"
                       },
                       "pt-BR": {
-                        singular: "Visualizar página"
+                        singular: "Página de pré-visualização"
                       },
                       "zh-CN": {
                         singular: "预览页面"

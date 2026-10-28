@@ -136,47 +136,13 @@
           generation_id: _v0.generationId ?? null
         });
       }, [_v0]),
-      _v15 = (0, _v1.useCallback)(_v0 => {
-        null !== _v0 && _v0.track("moments_timeline_clicks", {
-          search_id: _v0.searchId,
-          results_page_number: _v0.resultsPageNumber,
-          result_position: _v0.resultPosition,
-          entity_id: _v0.entityId
-        });
-      }, [_v0]),
-      _v16 = (0, _v1.useCallback)(_v0 => {
-        null !== _v0 && _v0.track("moments_panel_clicks_interactions", {
-          search_id: _v0.searchId,
-          results_page_number: _v0.resultsPageNumber,
-          entity_id: _v0.entityId,
-          value_name: _v0.valueName
-        });
-      }, [_v0]),
-      _v17 = (0, _v1.useCallback)(_v0 => {
-        null !== _v0 && _v0.track("moments_results_impressions", {
-          search_id: _v0.searchId,
-          results_page_number: _v0.resultsPageNumber
-        });
-      }, [_v0]),
-      _v18 = (0, _v1.useCallback)(_v0 => {
-        null !== _v0 && _v0.track("moments_timeline_impressions", {
-          search_id: _v0.searchId,
-          results_page_number: _v0.resultsPageNumber
-        });
-      }, [_v0]),
-      _v19 = (0, _v1.useCallback)(_v0 => {
-        null !== _v0 && _v0.track("moments_panel_impressions", {
-          search_id: _v0.searchId,
-          results_page_number: _v0.resultsPageNumber
-        });
-      }, [_v0]),
-      _v20 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("search_page_displayed", {
+      _v15 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("search_page_displayed", {
         search_query: _v0.searchQuery,
         search_active_tab: _v0.searchActiveTab,
         search_result_type: _v0.searchResultType,
         search_page_viewer_auth_status: _v0.searchPageViewerAuthStatus
       }), !0), [_v0]),
-      _v21 = (0, _v1.useCallback)(_v0 => {
+      _v16 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_submitted", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
@@ -184,7 +150,7 @@
           max_results: _v0.maxResults
         });
       }, [_v0]),
-      _v22 = (0, _v1.useCallback)(_v0 => {
+      _v17 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_page_viewed", {
           search_id: _v0.searchId,
           search_text: null,
@@ -193,7 +159,7 @@
           overview_state: _v0.overviewState
         });
       }, [_v0]),
-      _v23 = (0, _v1.useCallback)(_v0 => {
+      _v18 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_response", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
@@ -209,7 +175,7 @@
           summary: null
         });
       }, [_v0]),
-      _v24 = (0, _v1.useCallback)(_v0 => {
+      _v19 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_result_click", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
@@ -221,7 +187,7 @@
           start_time_seconds: _v0.startTimeSeconds
         });
       }, [_v0]),
-      _v25 = (0, _v1.useCallback)(_v0 => {
+      _v20 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_interaction", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
@@ -232,14 +198,14 @@
           entity_id: _v0.entityId
         });
       }, [_v0]),
-      _v26 = (0, _v1.useCallback)(_v0 => {
+      _v21 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_rated", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
           is_positive: _v0.isPositive
         });
       }, [_v0]),
-      _v27 = (0, _v1.useCallback)(_v0 => {
+      _v22 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_feedback", {
           search_id: _v0.searchId,
           search_request_id: _v0.searchRequestId,
@@ -248,14 +214,14 @@
         });
       }, [_v0]);
     return {
-      trackSearchPageDisplayed: _v20,
-      trackAgenticSearchPageViewed: _v22,
-      trackAgenticSearchSubmitted: _v21,
-      trackAgenticSearchResponse: _v23,
-      trackAgenticSearchResultClick: _v24,
-      trackAgenticSearchInteraction: _v25,
-      trackAgenticSearchRated: _v26,
-      trackAgenticSearchFeedback: _v27,
+      trackSearchPageDisplayed: _v15,
+      trackAgenticSearchPageViewed: _v17,
+      trackAgenticSearchSubmitted: _v16,
+      trackAgenticSearchResponse: _v18,
+      trackAgenticSearchResultClick: _v19,
+      trackAgenticSearchInteraction: _v20,
+      trackAgenticSearchRated: _v21,
+      trackAgenticSearchFeedback: _v22,
       trackAgenticSearchFeedbackDismissed: (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("agentic_search_feedback_dismissed", {
           search_id: _v0.searchId,
@@ -281,12 +247,7 @@
       trackViewSuggestedAiSearch: _v11,
       trackSelectSuggestedAiSearch: _v12,
       trackAiSearchWidgetActions: _v13,
-      trackThumbsRate: _v14,
-      trackMomentsTimelineClick: _v15,
-      trackMomentsPanelClick: _v16,
-      trackMomentsResultsImpressions: _v17,
-      trackMomentsTimelineImpressions: _v18,
-      trackMomentsPanelImpressions: _v19
+      trackThumbsRate: _v14
     };
   }]);
 }

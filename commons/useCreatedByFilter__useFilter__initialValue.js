@@ -23,20 +23,14 @@
       }, [_v5]),
       _v10 = _v1.length > 0,
       _v11 = !_v6 && !_v10 && 0 === _v4.length,
-      _v12 = _v0.value.size > 0,
-      _v13 = _v0.draft.size > 0;
-    return {
-      ..._v0,
-      createdByUsers: _v4,
-      membersLoadingInitialData: _v6,
-      membersLoadingMore: _v7,
-      membersDone: _v8,
-      loadMoreMembers: _v9,
-      setFilterValues: (_v0, _v1) => {
-        let _v2 = new Set(_v0);
-        _v0.setDraft(_v2), _v1 || _v0.setValue(_v2);
-      },
-      updateFilterValues: (_v0, _v1) => {
+      _v12 = (0, _v1.useCallback)(() => {
+        let _v0 = Array.from(_v0.value),
+          _v1 = Array.from(_v0.draft),
+          _v2 = _v0.map(_v0 => _v0.userId),
+          _v3 = _v1.map(_v0 => _v0.userId);
+        return _v2.length !== _v3.length || !_v2.every(_v0 => _v3.includes(_v0));
+      }, [_v0]),
+      _v13 = (0, _v1.useCallback)((_v0, _v1) => {
         let _v2 = Array.from(_v0.value),
           _v3 = Array.from(_v0.draft),
           _v4 = _v2.map(_v0 => _v0.userId),
@@ -48,19 +42,28 @@
           let _v0 = _v4.includes(_v0.userId) ? _v2.filter(_v0 => _v0.userId !== _v0.userId) : [..._v2, _v0];
           _v0.setDraft(new Set(_v0)), _v0.setValue(new Set(_v0));
         }
-      },
-      isFilterActive: _v12,
-      isDraftActive: _v13,
-      isDraftUpdated: () => {
-        let _v0 = Array.from(_v0.value),
-          _v1 = Array.from(_v0.draft),
-          _v2 = _v0.map(_v0 => _v0.userId),
-          _v3 = _v1.map(_v0 => _v0.userId);
-        return _v2.length !== _v3.length || !_v2.every(_v0 => _v3.includes(_v0));
-      },
+      }, [_v0]),
+      _v14 = (0, _v1.useCallback)((_v0, _v1) => {
+        let _v2 = new Set(_v0);
+        _v0.setDraft(_v2), _v1 || _v0.setValue(_v2);
+      }, [_v0]),
+      _v15 = _v0.value.size > 0,
+      _v16 = _v0.draft.size > 0;
+    return (0, _v1.useMemo)(() => ({
+      ..._v0,
+      createdByUsers: _v4,
+      membersLoadingInitialData: _v6,
+      membersLoadingMore: _v7,
+      membersDone: _v8,
+      loadMoreMembers: _v9,
+      setFilterValues: _v14,
+      updateFilterValues: _v13,
+      isFilterActive: _v15,
+      isDraftActive: _v16,
+      isDraftUpdated: _v12,
       shouldHideFilter: _v11,
       createdByUsersSearchTerm: _v1,
       setCreatedByUsersSearchTerm: _v2
-    };
+    }), [_v0, _v4, _v6, _v7, _v8, _v9, _v14, _v13, _v15, _v16, _v12, _v11, _v1]);
   }]);
 }

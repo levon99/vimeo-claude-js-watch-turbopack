@@ -1147,28 +1147,28 @@
         }
       }),
       tooltip: (0, _v1.translate)({
-        singular: "Enable viewers to ask questions by selecting from pre-generated Q&A or ask open-ended natural language questions",
+        singular: "Let viewers ask questions by picking from pre-generated Q&As or asking open-ended ones",
         dictionary: {
           es: {
-            singular: "Permita que los espectadores hagan preguntas seleccionando preguntas y respuestas generadas previamente o haga preguntas abiertas en lenguaje natural."
+            singular: "Permite a los espectadores hacer preguntas eligiendo entre Q&As predefinidas o formulando preguntas abiertas"
           },
           "de-DE": {
-            singular: "Ermöglichen Sie es den Zuschauern, Fragen zu stellen, indem Sie aus vorgefertigten Fragen und Antworten auswählen oder offene Fragen in natürlicher Sprache stellen."
+            singular: "Lassen Sie Zuschauer:innen Fragen stellen, indem sie aus vorgefertigten Q&As wählen oder offene Fragen stellen"
           },
           "fr-FR": {
-            singular: "Permettez aux spectateurs de poser des questions provenant de questions-réponses pré-générées ou de poser des questions ouvertes en langage naturel"
+            singular: "Permettez aux spectateurs de poser des questions en sélectionnant des Q&R pré-générées ou en posant des questions ouvertes"
           },
           "ja-JP": {
-            singular: "視聴者が事前生成されたQ&Aから選択して質問したり、自然言語で自由形式の質問をしたりできるようにします"
+            singular: "視聴者が事前に用意されたQ&Asから選ぶか、自由形式の質問をすることで質問できるようにします"
           },
           "ko-KR": {
-            singular: "뷰어가 미리 생성된 Q&A 중에서 궁금한 질문과 그에 대한 답변을 찾아보거나 직접 질문을 자유롭게 할 수 있습니다."
+            singular: "시청자가 사전 생성된 Q&A를 선택하거나 자유형 질문을 통해 질문할 수 있도록 허용합니다."
           },
           "pt-BR": {
-            singular: "Permita que os espectadores façam perguntas selecionando opções geradas com antecedência ou fazendo perguntas abertas usando linguagem natural"
+            singular: "Permita que os espectadores façam perguntas escolhendo entre perguntas e respostas pré-geradas ou fazendo perguntas abertas"
           },
           "zh-CN": {
-            singular: "让观众能够通过选择预先生成的问答进行提问，或提出开放式自然语言问题。"
+            singular: "允许观众通过从预先生成的问答中选择或提出开放式问题来提问"
           }
         }
       }),
@@ -2229,28 +2229,28 @@
         }
       }),
       tooltip: (0, _v1.translate)({
-        singular: "Vimeo automatically translate audio to text during live events using Google's transcription service.",
+        singular: "Vimeo automatically translates audio to text during live events.",
         dictionary: {
           es: {
-            singular: "Vimeo traduce automáticamente el audio a texto durante los eventos en vivo utilizando el servicio de transcripción de Google."
+            singular: "Vimeo traduce automáticamente el audio a texto durante los eventos en directo."
           },
           "de-DE": {
-            singular: "Vimeo nutzt den Transkriptionsservice von Google, um während Live-Events Audio in Text zu übertragen."
+            singular: "Vimeo wandelt Audio während Live-Events automatisch in Text um."
           },
           "fr-FR": {
-            singular: "Vimeo convertit automatiquement l'audio en texte pendant les événements en direct grâce au service de transcription de Google."
+            singular: "Vimeo traduit automatiquement l'audio en texte lors des événements en direct."
           },
           "ja-JP": {
-            singular: "Vimeoは、Googleのトランスクリプションサービスを使用してライブイベント中に音声をテキストへ自動的に翻訳します。"
+            singular: "Vimeoはライブイベント中に音声を自動でテキストに変換します。"
           },
           "ko-KR": {
-            singular: "Vimeo는 Google의 트랜스크립션 서비스를 사용하여 라이브 이벤트 중에 오디오를 텍스트로 자동 변환합니다."
+            singular: "Vimeo는 라이브 이벤트 중 오디오를 자동으로 텍스트로 변환합니다."
           },
           "pt-BR": {
-            singular: "O Vimeo traduz automaticamente áudio para texto durante eventos ao vivo usando o serviço de transcrição do Google."
+            singular: "Vimeo transcreve automaticamente o áudio para texto durante eventos ao vivo."
           },
           "zh-CN": {
-            singular: "Vimeo 使用了 Google 的转录服务，在直播活动中会自动将音频转录为文本。"
+            singular: "Vimeo 会在直播活动期间自动将音频转写为文本。"
           }
         }
       }),
@@ -5201,7 +5201,7 @@
         enterprise: !0
       }
     }];
-  _v0.s(["AI_FEATURES", 0, _v9, "ANALYTICS_FEATURES", 0, _v13, "COLLABORATION_FEATURES", 0, _v11, "EDITING_FEATURES", 0, _v8, "ENTERPRISE_FEATURES", 0, _v15, "REVIEWS_FEATURES", 0, _v12, "SUPPORT_FEATURES", 0, _v14, "WEBINARS_FEATURES", 0, _v10, "getCoreFeatures", 0, (_v0, _v1 = !1) => [{
+  _v0.s(["AI_FEATURES", 0, _v9, "ANALYTICS_FEATURES", 0, _v13, "COLLABORATION_FEATURES", 0, _v11, "EDITING_FEATURES", 0, _v8, "ENTERPRISE_FEATURES", 0, _v15, "REVIEWS_FEATURES", 0, _v12, "SUPPORT_FEATURES", 0, _v14, "WEBINARS_FEATURES", 0, _v10, "getCoreFeatures", 0, _v0 => [{
     text: (0, _v1.translate)({
       singular: "Seats",
       dictionary: {
@@ -5570,54 +5570,29 @@
         }
       }
     }),
-    tooltip: _v1 ? (0, _v1.translate)({
-      singular: "Storage for private and embeddable videos. Public non-embeddable videos do not contribute to managed storage",
+    tooltip: (0, _v1.translate)({
+      singular: "Storage for non-public or embeddable videos. Public, non-embeddable videos don’t count toward this limit.",
       dictionary: {
         es: {
-          singular: "Almacenamiento para vídeos privados e incrustables. Los vídeos públicos no incrustables no contribuyen al almacenamiento gestionado"
+          singular: "Almacenamiento para vídeos no públicos o embebibles. Los vídeos públicos no embebibles no cuentan para este límite."
         },
         "de-DE": {
-          singular: "Speicher für private und einbettbare Videos. Öffentliche nicht einbettbare Videos tragen nicht zum verwalteten Speicher bei"
+          singular: "Speicher für nicht-öffentliche oder einbettbare Videos. Öffentliche, nicht einbettbare Videos zählen nicht zu diesem Limit."
         },
         "fr-FR": {
-          singular: "Stockage pour les vidéos privées et intégrables. Les vidéos publiques non intégrables ne contribuent pas au stockage géré"
+          singular: "Stockage pour les vidéos non publiques ou intégrables. Les vidéos publiques non intégrables ne sont pas prises en compte dans cette limite."
         },
         "ja-JP": {
-          singular: "プライベートおよび埋め込み可能な動画のストレージ。公開の埋め込み不可動画は管理対象ストレージには含まれません"
+          singular: "非公開または埋め込み可能な動画用のストレージ。公開かつ埋め込み不可の動画はこの制限に含まれません。"
         },
         "ko-KR": {
-          singular: "비공개 및 임베드 가능한 동영상용 저장소입니다. 임베드 불가한 공개 동영상은 관리형 저장소에 포함되지 않습니다"
+          singular: "비공개 또는 임베드 가능한 동영상을 위한 저장 공간입니다. 공개되어 있으나 임베드할 수 없는 동영상은 이 한도에 포함되지 않습니다."
         },
         "pt-BR": {
-          singular: "Armazenamento para vídeos privados e incorporáveis. Vídeos públicos não incorporáveis não contribuem para o armazenamento gerenciado"
+          singular: "Armazenamento para vídeos não públicos ou incorporáveis. Vídeos públicos não incorporáveis não contam para este limite."
         },
         "zh-CN": {
-          singular: "用于私有和可嵌入视频的存储。公开的不可嵌入视频不计入托管存储"
-        }
-      }
-    }) : (0, _v1.translate)({
-      singular: "Storage for private, unlisted, and embeddable videos. Public videos non-embeddable do not contribute to managed storage",
-      dictionary: {
-        es: {
-          singular: "Almacenamiento para videos privados, no listados e integrables. Los videos públicos no integrables no contribuyen al almacenamiento gestionado"
-        },
-        "de-DE": {
-          singular: "Speicher für private, nicht gelistete und einbettbare Videos. Öffentliche, nicht einbettbare Videos tragen nicht zum verwalteten Speicher bei"
-        },
-        "fr-FR": {
-          singular: "Stockage pour les vidéos privées, non répertoriées et intégrables. Les vidéos publiques non intégrables ne contribuent pas au stockage géré"
-        },
-        "ja-JP": {
-          singular: "プライベート、非公開、埋め込み可能な動画のためのストレージ。埋め込み不可のパブリック動画は管理対象ストレージにカウントされません"
-        },
-        "ko-KR": {
-          singular: "비공개, 미등록 및 임베드 가능한 동영상을 위한 스토리지. 임베드 불가한 공개 동영상은 관리형 스토리지에 포함되지 않습니다"
-        },
-        "pt-BR": {
-          singular: "Armazenamento para vídeos privados, não listados e incorporáveis. Vídeos públicos não incorporáveis não contribuem para o armazenamento gerenciado"
-        },
-        "zh-CN": {
-          singular: "用于私有、未列出和可嵌入视频的存储。公开的不可嵌入视频不计入托管存储"
+          singular: "用于非公开或可嵌入视频的存储。公开、不可嵌入的视频不计入此限制。"
         }
       }
     }),
@@ -5657,54 +5632,54 @@
     }
   }, {
     text: (0, _v1.translate)({
-      singular: "Total storage",
+      singular: "Public storage",
       dictionary: {
         es: {
-          singular: "Almacenamiento total"
+          singular: "Almacenamiento público"
         },
         "de-DE": {
-          singular: "Gesamtspeicher"
+          singular: "Öffentlicher Speicher"
         },
         "fr-FR": {
-          singular: "Stockage total"
+          singular: "Stockage public"
         },
         "ja-JP": {
-          singular: "合計ストレージ"
+          singular: "公開ストレージ"
         },
         "ko-KR": {
-          singular: "총 저장 용량"
+          singular: "공개 저장 공간"
         },
         "pt-BR": {
-          singular: "Armazenamento total"
+          singular: "Armazenamento público"
         },
         "zh-CN": {
-          singular: "总存储"
+          singular: "公共存储"
         }
       }
     }),
     tooltip: (0, _v1.translate)({
-      singular: "Total storage for all videos including public and non-embedded videos.",
+      singular: "Storage for public and non-embeddable videos.",
       dictionary: {
         es: {
-          singular: "Almacenamiento total para todos los videos, incluidos los videos públicos y los videos no integrados."
+          singular: "Almacenamiento para vídeos públicos y no embebibles."
         },
         "de-DE": {
-          singular: "Gesamtspeicher für alle Videos, einschließlich öffentlicher und nicht eingebetteter Videos."
+          singular: "Speicher für öffentliche und nicht einbettbare Videos."
         },
         "fr-FR": {
-          singular: "Stockage total pour toutes les vidéos, y compris les vidéos publiques et les vidéos non intégrées."
+          singular: "Stockage pour les vidéos publiques et non intégrables."
         },
         "ja-JP": {
-          singular: "パブリック動画や埋め込みされていない動画を含む、すべての動画の合計ストレージ。"
+          singular: "公開かつ埋め込み不可の動画用のストレージ。"
         },
         "ko-KR": {
-          singular: "공개 및 임베드되지 않은 동영상을 포함한 모든 동영상의 총 저장 용량입니다."
+          singular: "공개 및 임베드 불가능한 동영상을 위한 저장 공간입니다."
         },
         "pt-BR": {
-          singular: "Armazenamento total para todos os vídeos, incluindo vídeos públicos e não incorporados."
+          singular: "Armazenamento para vídeos públicos e não incorporáveis."
         },
         "zh-CN": {
-          singular: "包括公开视频和非嵌入式视频在内的所有视频的总存储。"
+          singular: "用于公开且不可嵌入的视频的存储。"
         }
       }
     }),

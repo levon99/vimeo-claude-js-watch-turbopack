@@ -6924,36 +6924,37 @@
     },
     _v310 = ({
       eventId: _v0,
-      contentLocale: _v1
+      apiEventId: _v1,
+      contentLocale: _v2
     }) => {
       let {
-          data: _v2
-        } = (0, _v306.useGetLiveEventSpeakerProfiles)(() => _v0 ? {
+          data: _v3
+        } = (0, _v306.useGetLiveEventSpeakerProfiles)(() => _v1 ? {
           select: ["uri", "name", "role", "description", "personProfile.pictures.baseLink"],
           where: {
-            liveEventId: Number(_v0)
+            liveEventId: _v1
           },
           query: {
             visibilityStatus: "visible",
-            ...(_v1 && {
-              contentLocale: _v1
+            ...(_v2 && {
+              contentLocale: _v2
             })
           }
         } : null, {
           revalidateOnFocus: !1
         }),
-        _v3 = _v2?.data ?? [],
-        _v4 = _v3.length,
+        _v4 = _v3?.data ?? [],
+        _v5 = _v4.length,
         {
-          trackSingleEventCustomizationSpeakersDisplayed: _v5
+          trackSingleEventCustomizationSpeakersDisplayed: _v6
         } = (0, _v308.useSingleEventCustomizationTracking)(),
-        _v6 = (0, _v5.useRef)(null);
+        _v7 = (0, _v5.useRef)(null);
       return ((0, _v5.useEffect)(() => {
-        0 !== _v4 && _v6.current !== _v0 && (_v6.current = _v0, _v5({
+        0 !== _v5 && _v7.current !== _v0 && (_v7.current = _v0, _v6({
           liveEventId: _v0,
-          speakerCount: _v4
+          speakerCount: _v5
         }));
-      }, [_v0, _v4, _v5]), 0 === _v3.length) ? null : (0, _v3.jsxs)(_v109.Flex, {
+      }, [_v0, _v5, _v6]), 0 === _v4.length) ? null : (0, _v3.jsxs)(_v109.Flex, {
         flexDirection: "column",
         bgColor: "surface",
         borderRadius: "lg",
@@ -6995,7 +6996,7 @@
           flexDirection: "row",
           gap: "md",
           overflow: "auto",
-          children: _v3.map(_v0 => (0, _v3.jsx)(_v307.SpeakerProfileCard, {
+          children: _v4.map(_v0 => (0, _v3.jsx)(_v307.SpeakerProfileCard, {
             name: _v0.name,
             role: _v0.role,
             description: _v0.description,
@@ -7210,6 +7211,7 @@
               }), _v4 ? (0, _v3.jsx)(_v209, {
                 children: (0, _v3.jsx)(_v310, {
                   eventId: _v4,
+                  apiEventId: _v2,
                   contentLocale: _v9
                 })
               }) : null, _v33 ? (0, _v3.jsx)(_v208, {

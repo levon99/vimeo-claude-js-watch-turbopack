@@ -494,26 +494,31 @@
         return !(0, _v40.areLeavesEqual)((0, _v40.getWorkingLeaves)(_v1, _v7[_v0]), _v1);
       }), [_v4, _v6, _v7]),
       _v23 = (0, _v2.useMemo)(() => (0, _v40.getWorkingLeaves)(_v6[_v2]?.leaves, _v7[_v2]), [_v6, _v7, _v2]),
-      _v24 = (0, _v2.useMemo)(() => {
-        let _v0 = _v6[_v2];
-        return (0, _v40.getLocaleStatus)(_v0, !(0, _v40.areLeavesEqual)(_v23, _v0?.leaves ?? _v40.EMPTY_LEAVES));
-      }, [_v6, _v2, _v23]),
-      _v25 = (0, _v2.useCallback)((_v0, _v1) => _v8(_v2, _v0, _v1), [_v8, _v2]),
-      _v26 = (0, _v2.useCallback)(_v0 => {
-        _v9(_v2, _v23, _v0);
-      }, [_v9, _v2, _v23]),
-      _v27 = (0, _v2.useCallback)(() => {
+      _v24 = (0, _v2.useMemo)(() => !(0, _v40.areLeavesEqual)(_v23, _v6[_v2]?.leaves ?? _v40.EMPTY_LEAVES), [_v6, _v2, _v23]),
+      _v25 = (0, _v2.useMemo)(() => (0, _v40.getLocaleStatus)(_v6[_v2], _v24), [_v6, _v2, _v24]),
+      _v26 = (0, _v2.useCallback)((_v0, _v1) => _v8(_v2, _v0, _v1), [_v8, _v2]),
+      _v27 = (0, _v2.useCallback)(_v0 => {
+        let _v1 = _v4.some(_v0 => {
+          if (_v0 === _v2) return !1;
+          let _v1 = _v6[_v0]?.leaves;
+          return void 0 === _v1 || !(0, _v40.areLeavesEqual)((0, _v40.getWorkingLeaves)(_v1, _v7[_v0]), _v1);
+        });
+        _v9(_v2, _v23, _v0).then(_v0 => {
+          _v0 && !_v1 && _v0();
+        });
+      }, [_v9, _v0, _v2, _v23, _v4, _v6, _v7]),
+      _v28 = (0, _v2.useCallback)(() => {
         if (!_v12 && !_v11) {
           if (_v22) return void _v18(!0);
           _v0();
         }
       }, [_v12, _v11, _v22, _v0]),
-      _v28 = (0, _v2.useCallback)(() => {
+      _v29 = (0, _v2.useCallback)(() => {
         _v10().then(_v0 => {
           _v0 && _v16(!1);
         });
       }, [_v10]),
-      _v29 = (0, _v1.jsxs)(_v7.Flex, {
+      _v30 = (0, _v1.jsxs)(_v7.Flex, {
         align: "center",
         flex: "1",
         gap: "3",
@@ -560,7 +565,7 @@
           minW: 0,
           children: [(0, _v1.jsx)(_v6.Button, {
             isDisabled: _v12 || _v11,
-            onClick: _v27,
+            onClick: _v28,
             variant: "tertiary",
             children: (0, _v21.translate)({
               singular: "Discard changes",
@@ -592,6 +597,7 @@
             placement: "top-end",
             children: [(0, _v1.jsx)(_v9.MenuButton, {
               as: _v6.Button,
+              isDisabled: !_v24 || _v11,
               isLoading: _v12,
               rightIcon: (0, _v1.jsx)(_v20.ChevronDownSmall, {}),
               variant: "primary",
@@ -623,7 +629,7 @@
               })
             }), (0, _v1.jsxs)(_v11.MenuList, {
               children: [(0, _v1.jsx)(_v10.MenuItem, {
-                onClick: () => _v26(!0),
+                onClick: () => _v27(!0),
                 children: (0, _v21.translate)({
                   singular: "Save and publish",
                   dictionary: {
@@ -651,7 +657,7 @@
                   }
                 })
               }), (0, _v1.jsx)(_v10.MenuItem, {
-                onClick: () => _v26(!1),
+                onClick: () => _v27(!1),
                 children: (0, _v21.translate)({
                   singular: "Save as draft",
                   dictionary: {
@@ -687,7 +693,7 @@
       children: [(0, _v1.jsxs)(_v12.ModalAdvanced, {
         blockScrollOnMount: !1,
         isOpen: !0,
-        onClose: _v27,
+        onClose: _v28,
         children: [(0, _v1.jsx)(_v15.ModalOverlay, {}), (0, _v1.jsxs)(_v12.ModalAdvancedContent, {
           maxWidth: _v41,
           width: _v41,
@@ -885,8 +891,8 @@
                         })]
                       }), (0, _v1.jsx)(_v4.Badge, {
                         size: "sm",
-                        variant: _v43[_v24],
-                        children: (0, _v40.getLocaleStatusLabel)(_v24)
+                        variant: _v43[_v25],
+                        children: (0, _v40.getLocaleStatusLabel)(_v25)
                       })]
                     })
                   })
@@ -902,7 +908,7 @@
                       w: "100%",
                       children: _v21.fields.map(_v0 => (0, _v1.jsx)(_v37, {
                         field: _v0,
-                        onChange: _v25,
+                        onChange: _v26,
                         value: _v23[_v0.path]?.value ?? ""
                       }, _v0.path))
                     }) : null, void 0 !== _v21.groups && _v21.groups.length > 0 ? (0, _v1.jsx)(_v3.Accordion, {
@@ -927,7 +933,7 @@
                           w: "100%",
                           children: _v0.fields.map(_v0 => (0, _v1.jsx)(_v37, {
                             field: _v0,
-                            onChange: _v25,
+                            onChange: _v26,
                             value: _v23[_v0.path]?.value ?? ""
                           }, _v0.path))
                         })
@@ -947,13 +953,13 @@
               borderStyle: "solid",
               flexShrink: 0,
               w: _v42
-            }), _v29]
+            }), _v30]
           })]
         })]
       }), _v15 ? (0, _v1.jsx)(_v39, {
         isTranslating: _v11,
         onCancel: () => _v16(!1),
-        onConfirm: _v28,
+        onConfirm: _v29,
         sourceLocale: _v1
       }) : null, _v17 ? (0, _v1.jsx)(_v31, {
         onCancel: () => _v18(!1),

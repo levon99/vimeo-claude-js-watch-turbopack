@@ -146,12 +146,14 @@
       }, [_v0]),
       _v28 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("repackaging_modal_displayed", {
-          tier: _v0?.tier ?? null
+          tier: _v0?.tier ?? null,
+          variant: _v0?.variant ?? null
         });
       }, [_v0]),
       _v29 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("repackaging_modal_dismissed", {
-          tier: _v0?.tier ?? null
+          tier: _v0?.tier ?? null,
+          variant: _v0?.variant ?? null
         });
       }, [_v0]),
       _v30 = (0, _v1.useCallback)(_v0 => {

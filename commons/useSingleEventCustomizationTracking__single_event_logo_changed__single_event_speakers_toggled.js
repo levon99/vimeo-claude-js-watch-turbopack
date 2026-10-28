@@ -31,6 +31,18 @@
       }, [_v0]),
       _v6 = (0, _v1.useCallback)(() => {
         _v0?.track("single_event_speaker_deleted", {});
+      }, [_v0]),
+      _v7 = (0, _v1.useCallback)(_v0 => {
+        _v0?.track("single_event_player_setting_toggled", {
+          single_event_player_setting: _v0.playerSetting,
+          single_event_new_status: _v0.newStatus
+        });
+      }, [_v0]),
+      _v8 = (0, _v1.useCallback)(_v0 => {
+        _v0?.track("single_event_speakers_displayed", {
+          live_event_id: _v0.liveEventId,
+          single_event_speaker_count: _v0.speakerCount
+        });
       }, [_v0]);
     return {
       trackSingleEventCustomizationLogoChanged: _v1,
@@ -39,16 +51,16 @@
       trackSingleEventCustomizationSpeakerSaved: _v4,
       trackSingleEventCustomizationSpeakerVisibilityChanged: _v5,
       trackSingleEventCustomizationSpeakerDeleted: _v6,
-      trackSingleEventCustomizationPlayerSettingToggled: (0, _v1.useCallback)(_v0 => {
-        _v0?.track("single_event_player_setting_toggled", {
-          single_event_player_setting: _v0.playerSetting,
-          single_event_new_status: _v0.newStatus
+      trackSingleEventCustomizationPlayerSettingToggled: _v7,
+      trackSingleEventCustomizationSpeakersDisplayed: _v8,
+      trackSingleEventCustomizationSpeakersTranslateAiClicked: (0, _v1.useCallback)(_v0 => {
+        _v0?.track("single_event_speakers_translate_ai_clicked", {
+          live_event_id: _v0.liveEventId
         });
       }, [_v0]),
-      trackSingleEventCustomizationSpeakersDisplayed: (0, _v1.useCallback)(_v0 => {
-        _v0?.track("single_event_speakers_displayed", {
-          live_event_id: _v0.liveEventId,
-          single_event_speaker_count: _v0.speakerCount
+      trackSingleEventCustomizationSpeakersMarkedUpToDate: (0, _v1.useCallback)(_v0 => {
+        _v0?.track("single_event_speakers_marked_up_to_date", {
+          live_event_id: _v0.liveEventId
         });
       }, [_v0])
     };

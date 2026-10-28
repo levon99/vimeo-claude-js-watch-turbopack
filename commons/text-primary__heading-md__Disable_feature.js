@@ -2568,7 +2568,7 @@
         isParentPreference: !0,
         type: _v71,
         sectionVisibility: {
-          capabilitiesToCheck: ["canGenerateClipTranslation", "canGenerateClipTextTranslation"]
+          capabilitiesToCheck: ["canSeeAiTranslationSettings"]
         }
       }, {
         key: _v39.enableTranslationsProfanityFilter,
@@ -2629,7 +2629,7 @@
         isParentPreference: !0,
         type: _v71,
         sectionVisibility: {
-          capabilitiesToCheck: ["canGenerateClipSummary"]
+          capabilitiesToCheck: ["canSeeAiVideoDetailsSettings"]
         }
       }, {
         key: _v39.enableAutoGenerateAiMetadata,
@@ -2685,7 +2685,7 @@
         isParentPreference: !0,
         type: _v71,
         sectionVisibility: {
-          capabilitiesToCheck: ["hasClipHighlights"]
+          capabilitiesToCheck: ["canSeeAiHighlightsSettings"]
         }
       }, {
         key: _v39.userRolePermissionAiHighlights,
