@@ -1588,77 +1588,13 @@
       justifyContent: "center"
     });
   var _v119 = _v0.i(0),
-    _v120 = _v0.i(0),
-    _v121 = _v0.i(0);
-  let _v122 = `${(0, _v119.em)(750)}`;
-  _v49.default.ul.withConfig({
-    displayName: "styles__Wrapper",
-    componentId: "sc-f16b8650-0"
-  })`
-  padding-left: 0;
-  margin: 0;
-`;
-  let _v123 = _v120.bokehTheme.colors.gray["400"],
-    _v124 = _v120.bokehTheme.colors.gray["200"];
-  (0, _v49.default)(_v121.Checkmark).withConfig({
-    displayName: "styles__StyledCheckmark",
-    componentId: "sc-f16b8650-1"
-  })`
-  path {
-    fill: #b3bfc8;
-  }
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: -3px;
-`;
-  let _v125 = _v49.default.div.withConfig({
-    displayName: "styles__ItemTextWrapper",
-    componentId: "sc-f16b8650-2"
-  })``;
-  _v49.default.li.withConfig({
-    displayName: "styles__Item",
-    componentId: "sc-f16b8650-3"
-  })`
-  ${_v0 => _v0.isBottomPositioned ? "position: absolute; bottom: 0;" : "position: relative;"}
-  margin-bottom: ${_v0 => _v0.isSplit ? "30px" : "8px"};
-  margin-left: ${_v0 => "none" === _v0.decoration ? "0" : "12px"};
-  font-size: 14px;
-  color: ${_v0 => _v0.theme.content.color};
-  line-height: 18px;
-  list-style: none;
-  display: ${_v0 => _v0.hideIfMobile ? "none" : null};
-  ${_v0 => _v0.isWindows ? _v0.bold ? "font-family: Arial; white-space: nowrap; font-weight: bold;" : "font-family: Arial" : _v0.bold && !_v0.isWindows ? "white-space: nowrap; font-family: Arial, system-ui, sans-serif;" : null};
-  @media (min-width: ${_v122}) {
-    display: block;
-  }
-
-  ${_v125} {
-    margin-left: ${_v0 => "checkmarks" === _v0.decoration ? "36px" : "0"};
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  &::before {
-    content: '';
-    display: ${_v0 => "bullets" === _v0.decoration ? "block" : "none"};
-    width: 5px;
-    height: 5px;
-    position: absolute;
-    left: -12px;
-    top: 7px;
-    background-color: ${_v0 => _v0.isHighlighted ? `${_v123}` : `${_v124}`};
-    border-radius: 50%;
-  }
-`;
-  var _v126 = _v0.i(0);
-  let _v127 = _v49.default.div.withConfig({
+    _v120 = _v0.i(0);
+  let _v121 = `${(0, _v119.em)(750)}`,
+    _v122 = _v49.default.div.withConfig({
       displayName: "styles__UpgradeRequestListItem",
       componentId: "sc-7a84386f-0"
     })`
-  @media (min-width: ${_v122}) {
+  @media (min-width: ${_v121}) {
     min-width: ${(0, _v119.rem)(600)};
   }
 
@@ -1677,7 +1613,7 @@
   font-size: ${(0, _v119.rem)(14)};
   line-height: ${(0, _v119.rem)(20)};
 `,
-    _v128 = _v49.default.div.withConfig({
+    _v123 = _v49.default.div.withConfig({
       displayName: "styles__ButtonContainer",
       componentId: "sc-7a84386f-1"
     })`
@@ -1685,26 +1621,26 @@
   margin-top: ${(0, _v119.rem)(18)};
   display: flex;
 `,
-    _v129 = (0, _v49.default)(_v31.Button).withConfig({
+    _v124 = (0, _v49.default)(_v31.Button).withConfig({
       displayName: "styles__ButtonStyled",
       componentId: "sc-7a84386f-2"
     })`
   width: 100%;
 `,
-    _v130 = (0, _v49.default)(_v129).withConfig({
+    _v125 = (0, _v49.default)(_v124).withConfig({
       displayName: "styles__ButtonReject",
       componentId: "sc-7a84386f-3"
     })`
   margin-right: ${(0, _v119.rem)(8)};
 `,
-    _v131 = _v49.default.div.withConfig({
+    _v126 = _v49.default.div.withConfig({
       displayName: "styles__TeamUserInfo",
       componentId: "sc-7a84386f-4"
     })`
   display: flex;
   flex-direction: column;
 `,
-    _v132 = _v49.default.div.withConfig({
+    _v127 = _v49.default.div.withConfig({
       displayName: "styles__ActionButtonsStyled",
       componentId: "sc-7a84386f-5"
     })`
@@ -1712,7 +1648,7 @@
   justify-content: flex-end;
   flex: 1;
 `,
-    _v133 = _v49.default.div.withConfig({
+    _v128 = _v49.default.div.withConfig({
       displayName: "styles__LoaderWrapper",
       componentId: "sc-7a84386f-6"
     })`
@@ -1726,7 +1662,7 @@
   margin: auto;
   font-style: italic;
 `;
-  let _v134 = _v49.default.div.withConfig({
+  let _v129 = _v49.default.div.withConfig({
       displayName: "styles__ModalContentWrapper",
       componentId: "sc-7a84386f-8"
     })`
@@ -1744,7 +1680,7 @@
     font-size: ${(0, _v119.rem)(18)};
   }
 `,
-    _v135 = _v49.default.div.withConfig({
+    _v130 = _v49.default.div.withConfig({
       displayName: "styles__StyledButtonContainer",
       componentId: "sc-7a84386f-9"
     })`
@@ -1755,7 +1691,7 @@
           width: 100%;
         ` : ""}
 `,
-    _v136 = _v49.default.div.withConfig({
+    _v131 = _v49.default.div.withConfig({
       displayName: "styles__ModalHeaderContainer",
       componentId: "sc-7a84386f-10"
     })`
@@ -1765,39 +1701,39 @@
   margin-bottom: 20px;
   color: var(--vimeo-colors-text-primary);
 `,
-    _v137 = _v49.default.div.withConfig({
+    _v132 = _v49.default.div.withConfig({
       displayName: "styles__StyledModalFooter",
       componentId: "sc-7a84386f-11"
     })`
   margin-top: ${(0, _v119.rem)(10)};
   & .invite-modal-footer {
     border-top: 0;
-    ${_v126.media.sm`
+    ${_v120.media.sm`
       padding-top: ${(0, _v119.rem)(10)};
       margin-top: ${(0, _v119.rem)(33)};
     `}
   }
 `;
-  var _v138 = _v0.i(0),
-    _v139 = _v0.i(0);
-  let _v140 = async (_v0, _v1, _v2, _v3, _v4 = null) => {
+  var _v133 = _v0.i(0),
+    _v134 = _v0.i(0);
+  let _v135 = async (_v0, _v1, _v2, _v3, _v4 = null) => {
       if (!_v3) throw Error("no viewer");
       let _v5 = _v2 ?? _v3.user?.id,
-        _v6 = encodeURIComponent(_v138.RoleUpgradeField.join(",")),
+        _v6 = encodeURIComponent(_v133.RoleUpgradeField.join(",")),
         _v7 = `/teams/${_v5}/role_upgrade/${_v0.id}?fields=${_v6}`;
-      return (0, _v139.makeApiCall)(_v7, _v3, "POST", {
+      return (0, _v134.makeApiCall)(_v7, _v3, "POST", {
         action: _v1,
         reject_reason: _v4
       });
     },
-    _v141 = async (_v0, _v1, _v2, _v3) => {
+    _v136 = async (_v0, _v1, _v2, _v3) => {
       let _v4, _v5;
       if (!_v1) throw Error("no viewer");
-      return (0, _v139.makeApiCall)((_v4 = _v2 ?? _v1.user?.id, _v5 = encodeURIComponent(_v138.RoleUpgradeField.join(",")), `/teams/${_v4}/role_upgrades?fields=${_v5}`), _v1).then(_v0 => {
+      return (0, _v134.makeApiCall)((_v4 = _v2 ?? _v1.user?.id, _v5 = encodeURIComponent(_v133.RoleUpgradeField.join(",")), `/teams/${_v4}/role_upgrades?fields=${_v5}`), _v1).then(_v0 => {
         _v0(_v0.data.filter(_v0 => _v0.user && _v0.teamUser)), _v3();
       });
     },
-    _v142 = (0, _v49.withTheme)(_v3.default.memo(({
+    _v137 = (0, _v49.withTheme)(_v3.default.memo(({
       theme: _v0,
       isOpen: _v1,
       onRejectReasonModalClosed: _v2,
@@ -1815,8 +1751,8 @@
           }
         } = (0, _v3.useContext)(_v20.ManageTeamStateCtx),
         _v12 = (0, _v3.useContext)(_v38.ViewerContext),
-        _v13 = (0, _v2.jsxs)(_v134, {
-          children: [(0, _v2.jsx)(_v136, {
+        _v13 = (0, _v2.jsxs)(_v129, {
+          children: [(0, _v2.jsx)(_v131, {
             children: _v3 && (0, _v2.jsx)("div", {
               children: (0, _v35.translate)({
                 singular: "Reject {USER_NAME} ({EMAIL}) from becoming {NEW_ROLE}",
@@ -1918,13 +1854,13 @@
               defaultValue: _v5 || "",
               onChange: _v0 => _v6(_v0.target.value)
             })]
-          }), (0, _v2.jsx)(_v137, {
+          }), (0, _v2.jsx)(_v132, {
             children: (0, _v2.jsx)(_v53.Modal.Footer, {
               className: "invite-modal-footer",
-              children: (0, _v2.jsx)(_v135, {
+              children: (0, _v2.jsx)(_v130, {
                 children: _v9 ? (0, _v2.jsx)(_v118, {}) : (0, _v2.jsx)(_v31.Button, {
                   onClick: () => {
-                    _v3 && (_v10(!0), _v140(_v3, "reject", _v11, _v12, _v5).then(() => {
+                    _v3 && (_v10(!0), _v135(_v3, "reject", _v11, _v12, _v5).then(() => {
                       _v6(""), _v4(_v3), _v2();
                     }).catch(() => {
                       _v8(!0);
@@ -1974,9 +1910,9 @@
         })
       });
     }));
-  var _v143 = _v0.i(0),
-    _v144 = _v0.i(0);
-  let _v145 = () => {
+  var _v138 = _v0.i(0),
+    _v139 = _v0.i(0);
+  let _v140 = () => {
     let {
         membership: {
           currentUnassignedSeatCount: _v0,
@@ -1997,7 +1933,7 @@
       _v9 = _v5 === _v26.Tier.Creator,
       {
         isBlocked: _v10
-      } = (0, _v144.useIsSeatChangeBlocked)({
+      } = (0, _v139.useIsSeatChangeBlocked)({
         tier: _v5
       }),
       _v11 = _v3 || _v7?.basePlanCount || 0,
@@ -2015,10 +1951,10 @@
       showContactOwnerBanner: _v14
     };
   };
-  var _v146 = _v0.i(0),
-    _v147 = _v0.i(0);
-  let _v148 = "accept",
-    _v149 = ({
+  var _v141 = _v0.i(0),
+    _v142 = _v0.i(0);
+  let _v143 = "accept",
+    _v144 = ({
       upgradeRequest: _v0,
       onUpgradeRequestRemoved: _v1,
       onError: _v2
@@ -2042,13 +1978,13 @@
         _v10 = (0, _v3.useContext)(_v38.ViewerContext),
         {
           approveDisabled: _v11
-        } = _v145(),
+        } = _v140(),
         _v12 = (_v0, _v1) => {
-          _v4(!0), _v7(!0), _v140(_v0, _v1, _v5, _v10).then(_v0 => {
+          _v4(!0), _v7(!0), _v135(_v0, _v1, _v5, _v10).then(_v0 => {
             _v1({
               ..._v0,
               status: _v0.status
-            }), _v1 === _v148 ? (_v8({
+            }), _v1 === _v143 ? (_v8({
               ..._v6,
               currentUnassignedSeatCount: _v6.currentUnassignedSeatCount - 1
             }), _v9({
@@ -2068,20 +2004,20 @@
             _v4(!1), _v7(!1);
           });
         };
-      return (0, _v2.jsx)(_v132, {
-        children: (0, _v2.jsx)(_v128, {
-          children: _v3 ? (0, _v2.jsx)(_v133, {
+      return (0, _v2.jsx)(_v127, {
+        children: (0, _v2.jsx)(_v123, {
+          children: _v3 ? (0, _v2.jsx)(_v128, {
             children: (0, _v2.jsx)(_v58.Spinner, {
               size: "md"
             })
           }) : _v3 || 0 !== _v0.status ? (0, _v2.jsx)(_v2.Fragment, {}) : (0, _v2.jsxs)(_v2.Fragment, {
-            children: [(0, _v2.jsx)(_v130, {
+            children: [(0, _v2.jsx)(_v125, {
               onClick: () => _v12(_v0, "reject"),
               variant: "tertiary",
               size: "sm",
               children: _v27.T.Deny
-            }), (0, _v2.jsx)(_v129, {
-              onClick: () => _v12(_v0, _v148),
+            }), (0, _v2.jsx)(_v124, {
+              onClick: () => _v12(_v0, _v143),
               size: "sm",
               variant: "positive",
               isDisabled: _v11(),
@@ -2091,7 +2027,7 @@
         })
       });
     },
-    _v150 = _v49.default.div.withConfig({
+    _v145 = _v49.default.div.withConfig({
       displayName: "UpgradeRequest__UpgradeRequestAnimated",
       componentId: "sc-d29bfdd3-0"
     })`
@@ -2109,7 +2045,7 @@
     overflow: hidden;
   }
 `,
-    _v151 = (0, _v49.default)(_v56.Header).withConfig({
+    _v146 = (0, _v49.default)(_v56.Header).withConfig({
       displayName: "UpgradeRequest__Title",
       componentId: "sc-d29bfdd3-1"
     })`
@@ -2117,14 +2053,14 @@
   font-weight: 700;
   color: var(--vimeo-colors-text-primary);
 `,
-    _v152 = (0, _v49.default)(_v21.Paragraph).withConfig({
+    _v147 = (0, _v49.default)(_v21.Paragraph).withConfig({
       displayName: "UpgradeRequest__Email",
       componentId: "sc-d29bfdd3-2"
     })`
   margin: 0;
   color: var(--vimeo-colors-text-secondary);
 `,
-    _v153 = (0, _v49.default)(_v151).withConfig({
+    _v148 = (0, _v49.default)(_v146).withConfig({
       displayName: "UpgradeRequest__RoleAccess",
       componentId: "sc-d29bfdd3-3"
     })`
@@ -2132,7 +2068,7 @@
   font-weight: 400;
   color: var(--vimeo-colors-text-primary);
 `,
-    _v154 = ({
+    _v149 = ({
       upgradeRequest: _v0,
       onError: _v1,
       onUpgradeRequestRemoved: _v2,
@@ -2146,23 +2082,23 @@
         };
       return (0, _v3.useEffect)(() => {
         _v3 && _v6(_v3);
-      }, [_v3]), (0, _v2.jsx)(_v150, {
+      }, [_v3]), (0, _v2.jsx)(_v145, {
         className: _v4,
-        children: (0, _v2.jsxs)(_v127, {
-          children: [(0, _v2.jsxs)(_v131, {
-            children: [(0, _v2.jsx)(_v151, {
+        children: (0, _v2.jsxs)(_v122, {
+          children: [(0, _v2.jsxs)(_v126, {
+            children: [(0, _v2.jsx)(_v146, {
               as: "h5",
               size: "sm",
               children: _v0.user.name
-            }), (0, _v2.jsx)(_v152, {
+            }), (0, _v2.jsx)(_v147, {
               size: "md",
               children: _v0.teamUser.email
-            }), (0, _v2.jsx)(_v153, {
+            }), (0, _v2.jsx)(_v148, {
               as: "h5",
               size: "sm",
               children: _v27.T.RoleUpgradeRequest(_v0.roleName)
             })]
-          }), (0, _v2.jsx)(_v149, {
+          }), (0, _v2.jsx)(_v144, {
             upgradeRequest: _v0,
             onError: _v1,
             onUpgradeRequestRemoved: _v6
@@ -2170,8 +2106,8 @@
         })
       });
     };
-  var _v155 = ((_v1 = _v155 || {})[_v1.PERMISSION_OWNER = 1] = "PERMISSION_OWNER", _v1[_v1.PERMISSION_ADMIN = 2] = "PERMISSION_ADMIN", _v1[_v1.PERMISSION_UPLOADER = 3] = "PERMISSION_UPLOADER", _v1[_v1.PERMISSION_CONTRIBUTOR = 4] = "PERMISSION_CONTRIBUTOR", _v1[_v1.PERMISSION_VIEWER = 5] = "PERMISSION_VIEWER", _v1);
-  let _v156 = (0, _v49.default)(_v31.Button).withConfig({
+  var _v150 = ((_v1 = _v150 || {})[_v1.PERMISSION_OWNER = 1] = "PERMISSION_OWNER", _v1[_v1.PERMISSION_ADMIN = 2] = "PERMISSION_ADMIN", _v1[_v1.PERMISSION_UPLOADER = 3] = "PERMISSION_UPLOADER", _v1[_v1.PERMISSION_CONTRIBUTOR = 4] = "PERMISSION_CONTRIBUTOR", _v1[_v1.PERMISSION_VIEWER = 5] = "PERMISSION_VIEWER", _v1);
+  let _v151 = (0, _v49.default)(_v31.Button).withConfig({
       displayName: "UpgradeRequestsModal__StyledTeamRequestsButton",
       componentId: "sc-3a03c8fa-0"
     })`
@@ -2185,7 +2121,7 @@
     color: var(--vimeo-colors-text-primary);
   }
 `,
-    _v157 = (0, _v49.default)(_v56.Header).withConfig({
+    _v152 = (0, _v49.default)(_v56.Header).withConfig({
       displayName: "UpgradeRequestsModal__Count",
       componentId: "sc-3a03c8fa-1"
     })`
@@ -2199,13 +2135,13 @@
   margin-left: ${(0, _v119.rem)(10)};
   line-height: ${(0, _v119.rem)(24)};
 `,
-    _v158 = (0, _v49.default)(_v31.Button).withConfig({
+    _v153 = (0, _v49.default)(_v31.Button).withConfig({
       displayName: "UpgradeRequestsModal__ApproveAllButton",
       componentId: "sc-3a03c8fa-2"
     })`
   margin-bottom: ${(0, _v119.rem)(20)};
 `,
-    _v159 = (0, _v49.default)(_v54.Notice).attrs({
+    _v154 = (0, _v49.default)(_v54.Notice).attrs({
       format: "primary"
     }).withConfig({
       displayName: "UpgradeRequestsModal__ContactNotice",
@@ -2222,7 +2158,7 @@
     margin-top: ${_v0 => _v0.marginTop ? (0, _v119.rem)(_v0.marginTop) : 0};
   }
 `,
-    _v160 = (0, _v49.withTheme)(_v3.default.memo(({
+    _v155 = (0, _v49.withTheme)(_v3.default.memo(({
       theme: _v0,
       isOpen: _v1,
       upgradeRequests: _v2,
@@ -2255,9 +2191,9 @@
           showAddSeatsBanner: _v19,
           showContactOwnerBanner: _v20,
           approveAllDisabled: _v21
-        } = _v145(),
+        } = _v140(),
         _v22 = () => {
-          _v11(!0), Promise.all(_v2.map(_v0 => _v140(_v0, "accept", _v14, _v12))).then(_v0 => {
+          _v11(!0), Promise.all(_v2.map(_v0 => _v135(_v0, "accept", _v14, _v12))).then(_v0 => {
             for (let _v0 of _v0) 1 === _v0.status && _v23(_v0);
             _v3(_v0.filter(_v0 => 0 === _v0.status)), _v17({
               actor_team_role: _v2[0].teamUser.role.toLowerCase(),
@@ -2276,22 +2212,22 @@
             let _v0 = {
               ..._v0,
               role: _v0.roleName,
-              permissionLevel: _v155[_v0.roleName]
+              permissionLevel: _v150[_v0.roleName]
             };
-            _v15(_v155[_v0.roleName], _v0);
+            _v15(_v150[_v0.roleName], _v0);
           }
         },
         _v24 = () => {
           _v4(), _v16({
             currentModalInDisplay: _v26.TeamManagementModals.PURCHASE_SEATS_MODAL,
             data: {
-              purchaseSeatModalLocation: _v143.PURCHASE_TRIGGERED_FROM.ROLE_CHANGE_MENU,
+              purchaseSeatModalLocation: _v138.PURCHASE_TRIGGERED_FROM.ROLE_CHANGE_MENU,
               seatsCount: _v2.length
             }
           });
         },
-        _v25 = (0, _v2.jsxs)(_v134, {
-          children: [(0, _v2.jsx)(_v146.ModalHeader, {
+        _v25 = (0, _v2.jsxs)(_v129, {
+          children: [(0, _v2.jsx)(_v141.ModalHeader, {
             theme: _v0,
             style: {
               fontSize: (0, _v119.rem)(18),
@@ -2303,7 +2239,7 @@
           }), _v8 && (0, _v2.jsx)(_v54.Notice, {
             format: "negative",
             children: _v27.T.SomethingWentWrong
-          }), _v2.map((_v0, _v1) => (0, _v2.jsx)(_v154, {
+          }), _v2.map((_v0, _v1) => (0, _v2.jsx)(_v149, {
             upgradeRequest: _v0,
             onError: () => _v9(!0),
             onUpgradeRequestRemoved: _v0 => {
@@ -2311,12 +2247,12 @@
             },
             onRejectReasonModalOpen: _v6,
             rejectedUpgradeRequest: _v7
-          }, _v1)), (0, _v2.jsx)(_v137, {
+          }, _v1)), (0, _v2.jsx)(_v132, {
             children: (0, _v2.jsx)(_v53.Modal.Footer, {
               className: "invite-modal-footer",
-              children: (0, _v2.jsx)(_v135, {
+              children: (0, _v2.jsx)(_v130, {
                 fullWidth: _v18() || _v19() || _v20(),
-                children: (0, _v2.jsx)(() => _v18() ? (0, _v2.jsx)(_v147.ContactUsBanner, {
+                children: (0, _v2.jsx)(() => _v18() ? (0, _v2.jsx)(_v142.ContactUsBanner, {
                   message: _v27.T.RoleUpgradePurchaseSeats,
                   buttonMessage: _v27.T.PurchaseSeats,
                   isDismissable: !1,
@@ -2327,7 +2263,7 @@
                     width: "100%",
                     borderRadius: (0, _v119.rem)(3)
                   }
-                }) : _v19() ? (0, _v2.jsx)(_v147.ContactUsBanner, {
+                }) : _v19() ? (0, _v2.jsx)(_v142.ContactUsBanner, {
                   message: _v27.T.UpgradeRoleAddSeatsToTrial,
                   buttonMessage: _v27.T.AddSeats,
                   isDismissable: !1,
@@ -2338,21 +2274,21 @@
                     width: "100%",
                     borderRadius: (0, _v119.rem)(3)
                   }
-                }) : _v20() ? (0, _v2.jsx)(_v159, {
+                }) : _v20() ? (0, _v2.jsx)(_v154, {
                   format: "primary",
                   children: _v27.T.UpgradeRoleContactOwnerInTrial
                 }) : _v10 ? (0, _v2.jsx)(_v118, {}) : _v21(_v2) ? (0, _v2.jsx)(_v23.Tooltip, {
                   label: _v27.T.ApproveAllDisabledTooltip,
                   placement: "top",
                   hasArrow: !0,
-                  children: (0, _v2.jsx)(_v158, {
+                  children: (0, _v2.jsx)(_v153, {
                     style: {
                       opacity: "0.5"
                     },
                     size: "sm",
                     children: _v27.T.ApproveAll
                   })
-                }) : (0, _v2.jsx)(_v158, {
+                }) : (0, _v2.jsx)(_v153, {
                   onClick: _v22,
                   size: "sm",
                   children: _v27.T.ApproveAll
@@ -2370,11 +2306,11 @@
             active: _v1,
             content: _v25,
             onOpen: () => _v4(),
-            children: (0, _v2.jsxs)(_v156, {
+            children: (0, _v2.jsxs)(_v151, {
               theme: _v0,
               variant: "ghost",
               onClick: () => _v5(),
-              children: [_v27.T.TeamRequests, (0, _v2.jsx)(_v157, {
+              children: [_v27.T.TeamRequests, (0, _v2.jsx)(_v152, {
                 size: "xs",
                 children: _v2.length
               })]
@@ -2383,7 +2319,7 @@
         })
       });
     })),
-    _v161 = ({
+    _v156 = ({
       upgradeRequests: _v0,
       onUpgradeRequestsUpdate: _v1
     }) => {
@@ -2392,7 +2328,7 @@
         [_v6, _v7] = (0, _v3.useState)(null),
         [_v8, _v9] = (0, _v3.useState)(null);
       return (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsx)(_v160, {
+        children: [(0, _v2.jsx)(_v155, {
           upgradeRequests: _v0,
           isOpen: _v4,
           onUpgradeRequestsUpdate: _v1,
@@ -2402,7 +2338,7 @@
           onUpgradeRequestsModalClosed: () => _v5(!1),
           onUpgradeRequestsModalOpen: () => _v5(!0),
           rejectedUpgradeRequest: _v8
-        }), (0, _v2.jsx)(_v142, {
+        }), (0, _v2.jsx)(_v137, {
           isOpen: _v2,
           onRejectReasonModalClosed: () => {
             _v3(!1), _v5(!0);
@@ -2412,15 +2348,15 @@
         })]
       });
     };
-  var _v162 = _v0.i(0);
-  let _v163 = ({
+  var _v157 = _v0.i(0);
+  let _v158 = ({
       children: _v0,
       dataId: _v1,
       href: _v2,
       rightIcon: _v3,
       onClick: _v4
     }) => (0, _v2.jsx)(_v31.Button, {
-      as: _v162.default,
+      as: _v157.default,
       href: _v2,
       variant: "tertiary",
       justifyContent: "space-between",
@@ -2429,7 +2365,7 @@
       onClick: _v4,
       children: _v0
     }),
-    _v164 = ({
+    _v159 = ({
       upgradeRequests: _v0,
       setUpgradeRequests: _v1
     }) => {
@@ -2474,7 +2410,7 @@
       return (0, _v2.jsxs)(_v32.HStack, {
         alignContent: "center",
         children: [(0, _v2.jsxs)(_v44, {
-          children: [(0, _v2.jsx)(_v163, {
+          children: [(0, _v2.jsx)(_v158, {
             variant: "secondary",
             rightIcon: _v6 ? (0, _v2.jsx)(_v33.DownloadArrow, {
               style: {
@@ -2499,7 +2435,7 @@
             href: _v6 ? _v27 : _v26,
             onClick: _v22,
             children: _v27.T.DownloadUsers
-          }), (0, _v2.jsx)(_v163, {
+          }), (0, _v2.jsx)(_v158, {
             rightIcon: _v8 ? (0, _v2.jsx)(_v48, {
               href: _v26,
               children: (0, _v35.translate)({
@@ -2517,7 +2453,7 @@
             href: _v9 ? _v28 : _v26,
             children: _v27.T.ViewTeamActivity
           })]
-        }), _v0.length > 0 && (0, _v2.jsx)(_v161, {
+        }), _v0.length > 0 && (0, _v2.jsx)(_v156, {
           upgradeRequests: _v0,
           onUpgradeRequestsUpdate: _v0 => _v1(_v0)
         }), !_v3 && (0, _v2.jsx)(_v45.TeamApiConfigCtx.Provider, {
@@ -2559,8 +2495,8 @@
         })]
       });
     };
-  var _v165 = _v0.i(0);
-  function _v166() {
+  var _v160 = _v0.i(0);
+  function _v161() {
     let [_v0, _v1] = (0, _v3.useState)(!1),
       [_v2, _v3] = (0, _v3.useState)({
         format: "primary",
@@ -2617,7 +2553,7 @@
       let _v0 = new URLSearchParams(window.location.search).get("approve-upgrade-request");
       if (_v0) {
         if (!_v4) throw Error("No viewer");
-        (0, _v139.makeApiCall)(`/teams/${_v4.user?.id}/role_upgrade/${_v0}?fields=user.name`, _v4, "POST", {
+        (0, _v134.makeApiCall)(`/teams/${_v4.user?.id}/role_upgrade/${_v0}?fields=user.name`, _v4, "POST", {
           action: "accept"
         }).then(_v0 => {
           _v3({
@@ -2630,9 +2566,9 @@
             message: _v27.T.SomethingWentWrong
           });
         }).finally(() => {
-          _v1(!0), !_v5 && _v8.teamData.ownerId && _v141(_v27, _v4, null, () => _v24(!0));
+          _v1(!0), !_v5 && _v8.teamData.ownerId && _v136(_v27, _v4, null, () => _v24(!0));
         });
-      } else !_v5 && _v8.teamData.ownerId && _v141(_v27, _v4, _v8.teamData.ownerId, () => _v24(!0));
+      } else !_v5 && _v8.teamData.ownerId && _v136(_v27, _v4, _v8.teamData.ownerId, () => _v24(!0));
     }, [_v8.untranslatedUserRole, _v4, _v8.teamData.ownerId, _v5]), (0, _v3.useEffect)(() => {
       _v17 || _v25(_v26);
     }, [_v26]), (0, _v17.useOttRedirect)({
@@ -2742,7 +2678,7 @@
               base: "column",
               sm: "row"
             },
-            children: [(0, _v2.jsx)(_v28, {}), (0, _v2.jsx)(_v164, {
+            children: [(0, _v2.jsx)(_v28, {}), (0, _v2.jsx)(_v159, {
               upgradeRequests: _v26,
               setUpgradeRequests: _v27
             })]
@@ -2770,5 +2706,5 @@
     requireLogin: !0,
     inlineViewer: !0,
     noIndex: !0
-  }), _v166.getLayout = _v165.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v166], 0);
+  }), _v161.getLayout = _v160.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v161], 0);
 }

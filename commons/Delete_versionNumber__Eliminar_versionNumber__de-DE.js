@@ -338,12 +338,16 @@
         sequenceNumber: _v20,
         versionTranscodeStatus: _v16
       }),
-      _v66 = _v15?.status === "failed" || _v65,
-      _v67 = !_v18?.files?.length,
-      _v68 = "in_progress" === _v16,
-      _v69 = _v52 && _v68 && null === _v20 && _v31 ? (0, _v45.getVersionLabel)(_v31) : (0, _v45.getVersionLabel)(_v20),
-      _v70 = _v65 ? "" : _v69,
-      _v71 = _v65 ? (0, _v19.translate)({
+      _v66 = (0, _v45.isStaleInProgressVersion)({
+        createdTime: _v8 ?? "",
+        versionTranscodeStatus: _v16
+      }),
+      _v67 = _v15?.status === "failed" || _v65,
+      _v68 = !_v18?.files?.length,
+      _v69 = "in_progress" === _v16 && !_v66,
+      _v70 = _v52 && _v69 && null === _v20 && _v31 ? (0, _v45.getVersionLabel)(_v31) : (0, _v45.getVersionLabel)(_v20),
+      _v71 = _v65 ? "" : _v70,
+      _v72 = _v65 ? (0, _v19.translate)({
         singular: "Version",
         dictionary: {
           es: {
@@ -362,35 +366,35 @@
             singular: "版本"
           }
         }
-      }) : _v69,
-      _v72 = _v9 || _v8 || "",
-      _v73 = !_v65 && !_v4,
-      _v74 = !_v65 && _v4 && _v24,
-      _v75 = _v30 || !_v65,
-      _v76 = () => {
-        _v73 && (_v23 && (0, _v32.bpViewVersion)({
+      }) : _v70,
+      _v73 = _v9 || _v8 || "",
+      _v74 = !_v65 && !_v4,
+      _v75 = !_v65 && _v4 && _v24,
+      _v76 = _v30 || !_v65,
+      _v77 = () => {
+        _v74 && (_v23 && (0, _v32.bpViewVersion)({
           videoId: _v12,
           viewer: _v34,
           currentVersion: _v22,
-          chosenVersion: _v69,
+          chosenVersion: _v70,
           analyticsProps: _v23
         }), window.location.href = _v64, _v19(!1));
       },
-      _v77 = (0, _v2.useCallback)(() => {
+      _v78 = (0, _v2.useCallback)(() => {
         _v44(!0), _v19(!1), _v23 && (0, _v32.bpStartDeleteVersion)({
           videoId: _v12,
           viewer: _v34,
           currentVersion: _v22,
-          chosenVersion: _v69,
+          chosenVersion: _v70,
           analyticsProps: _v23
         });
-      }, [_v44, _v19, _v23, _v12, _v34, _v22, _v69]),
-      _v78 = async () => {
-        _v33.close(_v81.current), _v81.current = _v33({
+      }, [_v44, _v19, _v23, _v12, _v34, _v22, _v70]),
+      _v79 = async () => {
+        _v33.close(_v82.current), _v82.current = _v33({
           title: (0, _v19.translate)({
             singular: "{versionNumber} deleted",
             replacements: {
-              versionNumber: _v71
+              versionNumber: _v72
             },
             dictionary: {
               es: {
@@ -422,11 +426,11 @@
           videoId: _v12,
           viewer: _v34,
           currentVersion: _v22,
-          chosenVersion: _v69,
+          chosenVersion: _v70,
           analyticsProps: _v23
         });
       },
-      _v79 = async () => {
+      _v80 = async () => {
         if (_v52) {
           let _v0 = await _v59(_v12, _v47, {
             headers: {
@@ -473,7 +477,7 @@
             duration: _v34.TOAST_DURATION,
             isClosable: !1,
             variant: "warning"
-          }) : await _v78();
+          }) : await _v79();
           return;
         }
         _v55({
@@ -488,7 +492,7 @@
           _v44(!1);
         });
       },
-      _v80 = _v0 => {
+      _v81 = _v0 => {
         if (_v0 && !_v39) return "";
         let _v1 = _v1;
         return _v14 === _v45.VERSION_TYPE_VIMEO_CREATE ? _v1 = (0, _v19.translate)({
@@ -543,9 +547,9 @@
           }
         })), _v1;
       },
-      _v81 = (0, _v2.useRef)("");
+      _v82 = (0, _v2.useRef)("");
     (0, _v2.useEffect)(() => {
-      _v58 && !_v61 && (_v33.close(_v81.current), _v56 ? _v81.current = _v33({
+      _v58 && !_v61 && (_v33.close(_v82.current), _v56 ? _v82.current = _v33({
         title: (0, _v19.translate)({
           singular: "Unable to delete {versionNumber}. {LINK}Try again{/LINK}",
           replacements: {
@@ -558,13 +562,13 @@
                 }
               },
               onClick: () => {
-                _v77();
+                _v78();
               },
               fontSize: "body-md",
               variant: "inline-primary",
               children: _v0
             }),
-            versionNumber: _v69
+            versionNumber: _v70
           },
           dictionary: {
             es: {
@@ -593,11 +597,11 @@
         duration: _v34.TOAST_WITH_LINK_DURATION,
         isClosable: !1,
         variant: "warning"
-      }) : (_v81.current = _v33({
+      }) : (_v82.current = _v33({
         title: (0, _v19.translate)({
           singular: "{versionNumber} deleted",
           replacements: {
-            versionNumber: _v71
+            versionNumber: _v72
           },
           dictionary: {
             es: {
@@ -629,39 +633,39 @@
         videoId: _v12,
         viewer: _v34,
         currentVersion: _v22,
-        chosenVersion: _v69,
+        chosenVersion: _v70,
         analyticsProps: _v23
       })));
-    }, [_v56, _v58, _v61, _v77, _v20, _v63]);
-    let _v82 = () => {
+    }, [_v56, _v58, _v61, _v78, _v20, _v63]);
+    let _v83 = () => {
         _v23 && (0, _v32.bpOpenVersionMenu)({
           videoId: _v12,
           viewer: _v34,
           analyticsProps: _v23
         });
       },
-      [_v83, _v84] = (0, _v2.useState)(!1),
-      [_v85, _v86] = (0, _v2.useState)(!0),
+      [_v84, _v85] = (0, _v2.useState)(!1),
+      [_v86, _v87] = (0, _v2.useState)(!0),
       {
-        restoreVersion: _v87,
-        isRestoreInProgress: _v88,
-        isRestoreCalled: _v89,
-        restoredVersion: _v90
+        restoreVersion: _v88,
+        isRestoreInProgress: _v89,
+        isRestoreCalled: _v90,
+        restoredVersion: _v91
       } = (0, _v31.useRestoreVersion)(),
       {
-        restore: _v91,
-        isRestoreInProgress: _v92
+        restore: _v92,
+        isRestoreInProgress: _v93
       } = (0, _v26.useRestoreVersionWorkflow)(),
-      _v93 = _v52 ? _v92 : _v88,
-      _v94 = async () => {
+      _v94 = _v52 ? _v93 : _v89,
+      _v95 = async () => {
         if (_v23 && (0, _v32.bpRestoreVersion)({
           videoId: _v12,
           viewer: _v34,
           currentVersion: _v22,
-          chosenVersion: _v69,
+          chosenVersion: _v70,
           analyticsProps: _v23
         }), _v52) {
-          let _v0 = await _v91(_v12, _v47, _v85, {
+          let _v0 = await _v92(_v12, _v47, _v86, {
             headers: {
               Accept: _v33.API_ACCEPT_HEADER
             }
@@ -682,7 +686,7 @@
             versionTranscodeStatus: _v16 ?? null,
             status: _v0.ok ? "succeeded" : "failed",
             error: _v0.ok ? null : _v0.error instanceof Error ? _v0.error.message : String(_v0.error),
-            newVersionNumber: _v85
+            newVersionNumber: _v86
           }), !_v0.ok) return void _v33({
             title: (0, _v19.translate)({
               singular: "Unable to restore",
@@ -715,7 +719,7 @@
             variant: "warning"
           });
           let _v1 = _v0.version;
-          return _v84(!1), await _v63().catch(() => (0, _v24.handleVersionRefreshError)(_v33)), _v26?.(!1, _v1.configUrl), _v25?.(), void _v33({
+          return _v85(!1), await _v63().catch(() => (0, _v24.handleVersionRefreshError)(_v33)), _v26?.(!1, _v1.configUrl), _v25?.(), void _v33({
             title: (0, _v19.translate)({
               singular: "Version restored",
               dictionary: {
@@ -746,13 +750,13 @@
             isClosable: !1
           });
         }
-        _v87(_v12, _v47).then(() => {
-          _v84(!1), _v25?.();
+        _v88(_v12, _v47).then(() => {
+          _v85(!1), _v25?.();
         });
       };
     return (0, _v2.useEffect)(() => {
-      _v89 && !_v93 && _v90 && _v26?.(!1, _v90.configUrl);
-    }, [_v89, _v93, _v90, _v26]), (0, _v1.jsxs)(_v1.Fragment, {
+      _v90 && !_v94 && _v91 && _v26?.(!1, _v91.configUrl);
+    }, [_v90, _v94, _v91, _v26]), (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v4.Box, {
         display: "flex",
         flexDirection: "row",
@@ -761,7 +765,7 @@
         p: "sm",
         gap: "sm",
         _hover: {
-          cursor: _v73 || _v74 ? "pointer" : "default",
+          cursor: _v74 || _v75 ? "pointer" : "default",
           borderRadius: "md",
           background: "fill-component-hover",
           _dark: {
@@ -772,11 +776,11 @@
         onMouseEnter: () => _v42(!0),
         onMouseLeave: () => _v42(!1),
         onClick: () => {
-          (_v73 || _v74) && (_v23 && (0, _v32.bpViewVersion)({
+          (_v74 || _v75) && (_v23 && (0, _v32.bpViewVersion)({
             videoId: _v12,
             viewer: _v34,
             currentVersion: _v22,
-            chosenVersion: _v69,
+            chosenVersion: _v70,
             analyticsProps: _v23
           }), _v4 ? _v24 && (window.location.href = _v27 ? (0, _v34.buildReviewClipUri)(_v12.toString(), _v27) : (0, _v34.formClipManageUri)(_v12.toString(), _v13)) : window.location.href = _v64);
         },
@@ -785,7 +789,7 @@
           variant: "heading-xs",
           p: "sm",
           minW: `${_v21}px`,
-          children: _v70
+          children: _v71
         }), (0, _v1.jsx)(_v4.Box, {
           id: "version-thumbnail",
           display: "flex",
@@ -820,14 +824,14 @@
             flexDirection: "row",
             gap: "sm",
             children: [(0, _v1.jsx)(_v13.Tooltip, {
-              label: _v38 ? (0, _v45.formatDate)(_v72, _v34?.locale) : "",
+              label: _v38 ? (0, _v45.formatDate)(_v73, _v34?.locale) : "",
               children: (0, _v1.jsx)(_v12.Text, {
                 ref: _v35,
                 variant: "heading-xs",
                 whiteSpace: "nowrap",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
-                children: (0, _v45.formatDate)(_v72, _v34?.locale)
+                children: (0, _v45.formatDate)(_v73, _v34?.locale)
               })
             }), _v4 && (0, _v1.jsx)(_v3.Badge, {
               size: "sm",
@@ -860,7 +864,7 @@
                   }
                 }
               })
-            }), _v52 && _v68 && !_v4 && !_v66 && (0, _v1.jsx)(_v3.Badge, {
+            }), _v52 && _v69 && !_v4 && !_v67 && (0, _v1.jsx)(_v3.Badge, {
               size: "sm",
               fontSize: "14px",
               fontWeight: "500",
@@ -891,7 +895,7 @@
                   }
                 }
               })
-            }), _v66 && (0, _v1.jsx)(_v3.Badge, {
+            }), _v67 && (0, _v1.jsx)(_v3.Badge, {
               size: "sm",
               fontSize: "14px",
               fontWeight: "500",
@@ -924,14 +928,14 @@
               })
             })]
           }), (0, _v1.jsx)(_v13.Tooltip, {
-            label: _v80(!0),
+            label: _v81(!0),
             children: (0, _v1.jsx)(_v12.Text, {
               ref: _v36,
               variant: "body-md",
               whiteSpace: "nowrap",
               overflow: "hidden",
               textOverflow: "ellipsis",
-              children: _v80()
+              children: _v81()
             })
           }), (0, _v1.jsxs)(_v4.Box, {
             display: "flex",
@@ -956,7 +960,7 @@
               children: (0, _v22.bytesToSize)(_v2, _v33.FILE_SIZE_DECIMAL_PLACES)
             })]
           })]
-        }), !_v4 && (!_v68 || _v66) && _v75 && (0, _v1.jsx)(_v8.Menu, {
+        }), !_v4 && (!_v69 || _v67) && _v76 && (0, _v1.jsx)(_v8.Menu, {
           children: ({
             isOpen: _v0
           }) => (0, _v1.jsxs)(_v4.Box, {
@@ -971,7 +975,7 @@
                 base: 1,
                 md: _v0 || _v41 ? 1 : 0
               },
-              onClick: _v82
+              onClick: _v83
             }), (0, _v1.jsxs)(_v11.MenuList, {
               minW: "138px",
               backgroundColor: "#f4f6f8",
@@ -979,7 +983,7 @@
                 backgroundColor: "#3d4751"
               },
               children: [!_v65 && (0, _v1.jsx)(_v10.MenuItem, {
-                onClick: _v76,
+                onClick: _v77,
                 children: (0, _v19.translate)({
                   singular: "View",
                   dictionary: {
@@ -1007,11 +1011,11 @@
                   }
                 })
               }), _v29 && !_v65 && (0, _v1.jsx)(_v10.MenuItem, {
-                onClick: () => void (_v86(!0), _v84(!0), _v23 && (0, _v32.bpStartRestoreVersion)({
+                onClick: () => void (_v87(!0), _v85(!0), _v23 && (0, _v32.bpStartRestoreVersion)({
                   videoId: _v12,
                   viewer: _v34,
                   currentVersion: _v22,
-                  chosenVersion: _v69,
+                  chosenVersion: _v70,
                   analyticsProps: _v23
                 })),
                 children: (0, _v19.translate)({
@@ -1040,8 +1044,8 @@
                     }
                   }
                 })
-              }), _v28 && !_v66 && (0, _v1.jsx)(_v10.MenuItem, {
-                isDisabled: _v67,
+              }), _v28 && !_v67 && (0, _v1.jsx)(_v10.MenuItem, {
+                isDisabled: _v68,
                 onClick: () => {
                   _v19(!1), _v46(!0);
                 },
@@ -1072,7 +1076,7 @@
                   }
                 })
               }), _v30 && (0, _v1.jsx)(_v10.MenuItem, {
-                onClick: () => _v77(),
+                onClick: () => _v78(),
                 children: (0, _v19.translate)({
                   singular: "Delete",
                   dictionary: {
@@ -1107,12 +1111,12 @@
         width: `${_v21}px`
       }), (0, _v1.jsx)(_v44, {
         fileName: [_v45.VERSION_TYPE_VIMEO_CREATE, _v45.VERSION_TYPE_VIMEO_RECORD].includes(_v14) ? "" : _v1,
-        versionLabel: _v69,
+        versionLabel: _v70,
         isDeleteApiInProgress: _v61,
         isOpen: _v43,
-        onDelete: _v79,
+        onDelete: _v80,
         onCancel: () => _v44(!1)
-      }), !_v67 && (0, _v1.jsx)(_v35.DownloadVersionModal, {
+      }), !_v68 && (0, _v1.jsx)(_v35.DownloadVersionModal, {
         isOpen: _v45,
         onClose: () => _v46(!1),
         videoId: _v12,
@@ -1121,13 +1125,13 @@
         versionUri: _v11,
         pageName: _v23?.webContextFields?.page_name
       }), (0, _v1.jsx)(_v36.RestoreConfirmationModal, {
-        isOpen: _v83,
-        onClose: () => _v84(!1),
-        onRestoreVersion: _v94,
-        isRestoreApiInProgress: _v93,
+        isOpen: _v84,
+        onClose: () => _v85(!1),
+        onRestoreVersion: _v95,
+        isRestoreApiInProgress: _v94,
         showCreateNewVersionOption: _v52,
-        createNewVersion: _v85,
-        onCreateNewVersionChange: _v86,
+        createNewVersion: _v86,
+        onCreateNewVersionChange: _v87,
         nextVersionNumber: _v31
       })]
     });

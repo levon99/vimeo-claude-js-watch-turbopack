@@ -33,17 +33,18 @@
     paywallTracking: _v3,
     subscriptionTier: _v4,
     postCheckoutUrl: _v5,
-    isBundleIncluded: _v6 = !1,
-    bundleSurface: _v7
+    checkoutExtraParams: _v6,
+    isBundleIncluded: _v7 = !1,
+    bundleSurface: _v8
   }) {
     let {
-        trackBundleOfferCtaClick: _v8
-      } = (0, _v8.useBundleTracking)(),
-      _v9 = _v2 ?? (_v4 ? (0, _v3.default)(`${_v4}`) : ""),
-      _v10 = _v9 ? _v0 ? (0, _v6.translate)({
+        trackBundleOfferCtaClick: _v9
+      } = (0, _v7.useBundleTracking)(),
+      _v10 = _v2 ?? (_v4 ? (0, _v3.default)(`${_v4}`) : ""),
+      _v11 = _v10 ? _v0 ? (0, _v6.translate)({
         singular: "Try {PLAN_NAME} for free",
         replacements: {
-          PLAN_NAME: _v9
+          PLAN_NAME: _v10
         },
         dictionary: {
           es: {
@@ -71,7 +72,7 @@
       }) : (0, _v6.translate)({
         singular: "Join Vimeo {PLAN_NAME}",
         replacements: {
-          PLAN_NAME: _v9
+          PLAN_NAME: _v10
         },
         dictionary: {
           es: {
@@ -100,22 +101,22 @@
         singular: "Try for free",
         dictionary: {
           es: {
-            singular: "Prueba gratuita"
+            singular: "Probar gratis"
           },
           "de-DE": {
-            singular: "Kostenlos testen"
+            singular: "Gratis-Angebot"
           },
           "fr-FR": {
-            singular: "Essayer gratuitement"
+            singular: "Essai gratuit"
           },
           "ja-JP": {
             singular: "無料で試す"
           },
           "ko-KR": {
-            singular: "무료로 체험해 보기"
+            singular: "무료 체험하기"
           },
           "pt-BR": {
-            singular: "Experimente grátis"
+            singular: "Teste gratuitamente"
           },
           "zh-CN": {
             singular: "免费试用"
@@ -153,21 +154,21 @@
       width: "100%",
       onClick: () => {
         if (!_v4) return;
-        _v6 && void 0 !== _v7 && _v8({
-          surface: _v7,
+        _v7 && void 0 !== _v8 && _v9({
+          surface: _v8,
           cta: "checkout",
           bundleIncluded: !0
         });
-        let _v0 = (0, _v5.withBundleOfferToggleParam)((0, _v7.buildCheckoutUrl)({
+        let _v0 = (0, _v5.withBundleOfferToggleParam)((0, _v8.buildCheckoutUrlWithParams)({
           ..._v3,
           tier: _v4,
           isMonthly: "monthly" === _v1,
           isTrial: _v0,
           postCheckoutUrl: _v5
-        }), _v6);
+        }, _v6), _v7);
         window.location.assign(_v0);
       },
-      children: _v10
+      children: _v11
     });
   }], 0);
   var _v9 = _v0.i(0),

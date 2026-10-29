@@ -2,9 +2,9 @@
   "use strict";
 
   let _v1, _v2, _v3, _v4, _v5;
-  var _v6 = _v0.i(0),
-    _v7 = _v0.i(0),
-    _v8 = _v0.i(0),
+  var _v6,
+    _v7,
+    _v8,
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
@@ -21,19 +21,22 @@
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
-    _v25 = _v0.i(0);
-  let _v26 = () => window.location.assign(_v25.INDIE_SOLD_OUT_URL),
-    _v27 = ({
+    _v25 = _v0.i(0),
+    _v26 = _v0.i(0),
+    _v27 = _v0.i(0),
+    _v28 = _v0.i(0);
+  let _v29 = () => window.location.assign(_v28.INDIE_SOLD_OUT_URL),
+    _v30 = ({
       isOpen: _v0,
       onClose: _v1
-    }) => (0, _v7.jsxs)(_v16.Modal, {
+    }) => (0, _v10.jsxs)(_v19.Modal, {
       closeOnOverlayClick: !1,
       isCentered: !0,
       isOpen: _v0,
       onClose: _v1,
       scrollBehavior: "inside",
       size: "lg",
-      children: [(0, _v7.jsx)(_v22.ModalOverlay, {
+      children: [(0, _v10.jsx)(_v25.ModalOverlay, {
         backdropFilter: {
           base: "none",
           md: "blur(5px)"
@@ -42,8 +45,8 @@
           base: "rgba(14, 18, 22, 0.8)",
           md: "rgba(0, 0, 0, 0.8)"
         }
-      }), (0, _v7.jsx)(_v15.LightMode, {
-        children: (0, _v7.jsxs)(_v19.ModalContent, {
+      }), (0, _v10.jsx)(_v18.LightMode, {
+        children: (0, _v10.jsxs)(_v22.ModalContent, {
           containerProps: {
             p: {
               base: "16px",
@@ -66,16 +69,16 @@
           m: "0",
           overflow: "hidden",
           w: "100%",
-          children: [(0, _v7.jsx)(_v18.ModalCloseButton, {
+          children: [(0, _v10.jsx)(_v21.ModalCloseButton, {
             borderRadius: "12px",
             boxSize: "40px",
             right: "12px",
             top: "12px"
-          }), (0, _v7.jsx)(_v21.ModalHeader, {
+          }), (0, _v10.jsx)(_v24.ModalHeader, {
             pb: "0",
             pt: "24px",
             px: "24px",
-            children: (0, _v7.jsx)(_v23.Text, {
+            children: (0, _v10.jsx)(_v26.Text, {
               as: "h2",
               color: "text-primary",
               fontFamily: "heading",
@@ -83,7 +86,7 @@
               letterSpacing: "-0.8px",
               lineHeight: "28px",
               pr: "40px",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "All indie spots have been claimed",
                 dictionary: {
                   es: {
@@ -110,16 +113,16 @@
                 }
               })
             })
-          }), (0, _v7.jsx)(_v17.ModalBody, {
+          }), (0, _v10.jsx)(_v20.ModalBody, {
             px: "24px",
             pb: "24px",
             pt: "20px",
-            children: (0, _v7.jsx)(_v23.Text, {
+            children: (0, _v10.jsx)(_v26.Text, {
               color: "text-secondary",
               fontSize: "14px",
               letterSpacing: "-0.42px",
               lineHeight: "21px",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "This round of the Indie Program is full. Thank you for being part of this community.",
                 dictionary: {
                   es: {
@@ -146,15 +149,15 @@
                 }
               })
             })
-          }), (0, _v7.jsx)(_v20.ModalFooter, {
+          }), (0, _v10.jsx)(_v23.ModalFooter, {
             alignItems: "stretch",
             flexDirection: "column",
             px: "24px",
             pb: "24px",
             pt: "0",
-            children: (0, _v7.jsx)(_v14.Button, {
-              onClick: _v26,
-              children: (0, _v24.translate)({
+            children: (0, _v10.jsx)(_v17.Button, {
+              onClick: _v29,
+              children: (0, _v27.translate)({
                 singular: "Explore plans",
                 dictionary: {
                   es: {
@@ -185,27 +188,27 @@
         })
       })]
     });
-  var _v28 = _v0.i(0),
-    _v29 = _v0.i(0),
-    _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
+  var _v31 = _v0.i(0),
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  let _v35 = ({
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0),
+    _v36 = _v0.i(0),
+    _v37 = _v0.i(0);
+  let _v38 = ({
       onLeave: _v0,
       onStay: _v1
-    }) => (0, _v7.jsxs)(_v16.Modal, {
+    }) => (0, _v10.jsxs)(_v19.Modal, {
       closeOnOverlayClick: !1,
       isCentered: !0,
       isOpen: !0,
       onClose: _v1,
       scrollBehavior: "inside",
       size: "sm",
-      children: [(0, _v7.jsx)(_v22.ModalOverlay, {
+      children: [(0, _v10.jsx)(_v25.ModalOverlay, {
         backdropFilter: "blur(2px)",
         bg: "rgba(14, 18, 22, 0.55)"
-      }), (0, _v7.jsxs)(_v19.ModalContent, {
+      }), (0, _v10.jsxs)(_v22.ModalContent, {
         bg: "white",
         borderRadius: "20px",
         boxShadow: "0 4px 32px rgba(11, 26, 41, 0.18)",
@@ -217,18 +220,18 @@
         },
         position: "relative",
         w: "100%",
-        children: [(0, _v7.jsx)(_v18.ModalCloseButton, {
+        children: [(0, _v10.jsx)(_v21.ModalCloseButton, {
           right: "15px",
           size: "sm",
           top: "15px"
-        }), (0, _v7.jsx)(_v23.Text, {
+        }), (0, _v10.jsx)(_v26.Text, {
           as: "h2",
           fontFamily: "heading",
           fontSize: "24px",
           letterSpacing: "-0.8px",
           lineHeight: "30px",
           mr: "22px",
-          children: (0, _v24.translate)({
+          children: (0, _v27.translate)({
             singular: "Leave your application?",
             dictionary: {
               es: {
@@ -254,12 +257,12 @@
               }
             }
           })
-        }), (0, _v7.jsxs)(_v23.Text, {
+        }), (0, _v10.jsxs)(_v26.Text, {
           color: "text-secondary",
           fontSize: "14px",
           lineHeight: "21px",
           mt: "12px",
-          children: [(0, _v24.translate)({
+          children: [(0, _v27.translate)({
             singular: "Your progress will be lost.",
             dictionary: {
               es: {
@@ -284,7 +287,7 @@
                 singular: "您的进度将丢失。"
               }
             }
-          }), (0, _v7.jsx)("br", {}), (0, _v24.translate)({
+          }), (0, _v10.jsx)("br", {}), (0, _v27.translate)({
             singular: "You can always start again when you’re ready.",
             dictionary: {
               es: {
@@ -310,14 +313,14 @@
               }
             }
           })]
-        }), (0, _v7.jsxs)(_v32.Flex, {
+        }), (0, _v10.jsxs)(_v35.Flex, {
           direction: {
             base: "column-reverse",
             md: "row"
           },
           gap: "10px",
           mt: "28px",
-          children: [(0, _v7.jsx)(_v14.Button, {
+          children: [(0, _v10.jsx)(_v17.Button, {
             borderRadius: "12px",
             flex: {
               base: "0 0 auto",
@@ -331,7 +334,7 @@
               base: "100%",
               md: "auto"
             },
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "Leave application",
               dictionary: {
                 es: {
@@ -357,7 +360,7 @@
                 }
               }
             })
-          }), (0, _v7.jsx)(_v14.Button, {
+          }), (0, _v10.jsx)(_v17.Button, {
             borderRadius: "12px",
             flex: {
               base: "0 0 auto",
@@ -371,7 +374,7 @@
               base: "100%",
               md: "auto"
             },
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "Keep applying",
               dictionary: {
                 es: {
@@ -401,8 +404,8 @@
         })]
       })]
     }),
-    _v36 = ["Portfolio / website", "Instagram", "Vimeo profile", "LinkedIn", "Letterboxd", "IMDb", "YouTube", "Other"],
-    _v37 = {
+    _v39 = ["Portfolio / website", "Instagram", "Vimeo profile", "LinkedIn", "Letterboxd", "IMDb", "YouTube", "Other"],
+    _v40 = {
       links: [{
         id: 1,
         platform: "Portfolio / website",
@@ -411,7 +414,7 @@
       bio: "",
       declarations: [!1, !1, !1]
     },
-    _v38 = _v0 => {
+    _v41 = _v0 => {
       try {
         let _v0 = new URL(_v0.trim());
         return ["https:", "http:"].includes(_v0.protocol) && /\.[a-z]{2,}$/i.test(_v0.hostname) && !/\s/.test(_v0.trim());
@@ -419,13 +422,13 @@
         return !1;
       }
     };
-  var _v39 = _v0.i(0),
-    _v40 = _v0.i(0),
-    _v41 = _v0.i(0),
-    _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
-  let _v44 = {
-      pending: (0, _v24.translate)({
+  var _v42 = _v0.i(0),
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0),
+    _v45 = _v0.i(0),
+    _v46 = _v0.i(0);
+  let _v47 = {
+      pending: (0, _v27.translate)({
         singular: "Analyzing your request",
         dictionary: {
           es: {
@@ -451,7 +454,7 @@
           }
         }
       }),
-      approved: (0, _v24.translate)({
+      approved: (0, _v27.translate)({
         singular: "You're approved for the Indie Program",
         dictionary: {
           es: {
@@ -477,7 +480,7 @@
           }
         }
       }),
-      claiming: (0, _v24.translate)({
+      claiming: (0, _v27.translate)({
         singular: "Claiming your discount",
         dictionary: {
           es: {
@@ -503,7 +506,7 @@
           }
         }
       }),
-      ineligible: (0, _v24.translate)({
+      ineligible: (0, _v27.translate)({
         singular: "You are not eligible for Indie Program",
         dictionary: {
           es: {
@@ -529,7 +532,7 @@
           }
         }
       }),
-      error: (0, _v24.translate)({
+      error: (0, _v27.translate)({
         singular: "Something went wrong",
         dictionary: {
           es: {
@@ -555,10 +558,10 @@
           }
         }
       }),
-      unsupported: (0, _v24.translate)("We couldn't apply your discount")
+      unsupported: (0, _v27.translate)("We couldn't apply your discount")
     },
-    _v45 = {
-      pending: (0, _v24.translate)({
+    _v48 = {
+      pending: (0, _v27.translate)({
         singular: "Our system is reviewing the details you provided. This usually takes less than a minute, please don't close this window.",
         dictionary: {
           es: {
@@ -584,7 +587,7 @@
           }
         }
       }),
-      approved: (0, _v24.translate)({
+      approved: (0, _v27.translate)({
         singular: "Great news—our automated review found that you’re eligible for the Indie Program. If a follow-up manual review finds that the eligibility criteria aren’t met, your approval may be updated or withdrawn.",
         dictionary: {
           es: {
@@ -610,8 +613,8 @@
           }
         }
       }),
-      ineligible: (0, _v7.jsxs)(_v7.Fragment, {
-        children: [(0, _v24.translate)({
+      ineligible: (0, _v10.jsxs)(_v10.Fragment, {
+        children: [(0, _v27.translate)({
           singular: "We have reviewed your request and your account is not eligible for the Indie Program.",
           dictionary: {
             es: {
@@ -636,7 +639,7 @@
               singular: "我们已审核您的请求，您的账户不符合 Indie Program 的资格。"
             }
           }
-        }), (0, _v7.jsx)("br", {}), (0, _v24.translate)({
+        }), (0, _v10.jsx)("br", {}), (0, _v27.translate)({
           singular: "If you think you should be eligible for the Indie Program and you want to request a deeper analysis, contact customer support.",
           dictionary: {
             es: {
@@ -663,7 +666,7 @@
           }
         })]
       }),
-      claiming: (0, _v24.translate)({
+      claiming: (0, _v27.translate)({
         singular: "Hang tight while we take you to checkout.",
         dictionary: {
           es: {
@@ -689,56 +692,53 @@
           }
         }
       }),
-      error: (0, _v24.translate)("We couldn't check your eligibility. Try again."),
-      unsupported: (0, _v24.translate)({
+      error: (0, _v27.translate)("We couldn't check your eligibility. Try again."),
+      unsupported: (0, _v27.translate)({
         singular: "We couldn't apply the Indie Program discount to your current plan. Contact support.",
         dictionary: {
-          en: {
-            singular: "We couldn't apply the Indie Program discount to your current plan. Contact support and we'll help you."
-          },
           es: {
-            singular: "We couldn't apply the Indie Program discount to your current plan. Contact support and we'll help you."
+            singular: "No pudimos aplicar el descuento del Programa Indie a tu plan actual. Contacta con el equipo de soporte."
           },
           "de-DE": {
-            singular: "We couldn't apply the Indie Program discount to your current plan. Contact support and we'll help you."
+            singular: "Wir konnten den Indie Program-Rabatt auf Ihren aktuellen Plan nicht anwenden. Kontaktieren Sie den Support."
           },
           "fr-FR": {
-            singular: "We couldn't apply the Indie Program discount to your current plan. Contact support and we'll help you."
+            singular: "Nous n'avons pas pu appliquer la remise du programme Indie à votre forfait actuel. Contactez l'assistance."
           },
           "ja-JP": {
-            singular: "We couldn't apply the Indie Program discount to your current plan. Contact support and we'll help you."
+            singular: "現在のプランにIndie Programの割引を適用できませんでした。サポートにお問い合わせください。"
           },
           "ko-KR": {
-            singular: "We couldn't apply the Indie Program discount to your current plan. Contact support and we'll help you."
+            singular: "현재 플랜에 Indie Program 할인을 적용할 수 없습니다. 지원팀에 문의하세요."
           },
           "pt-BR": {
-            singular: "We couldn't apply the Indie Program discount to your current plan. Contact support and we'll help you."
+            singular: "Não foi possível aplicar o desconto do Indie Program ao seu plano atual. Entre em contato com o suporte."
           },
           "zh-CN": {
-            singular: "We couldn't apply the Indie Program discount to your current plan. Contact support and we'll help you."
+            singular: "我们无法将 Indie Program 的折扣应用到您当前的计划. 请联系支持."
           }
         }
       })
     },
-    _v46 = {
-      approved: (0, _v7.jsx)(_v40.CircleCheckFilled, {
+    _v49 = {
+      approved: (0, _v10.jsx)(_v43.CircleCheckFilled, {
         boxSize: "53px",
         color: "status-positive-primary"
       }),
-      ineligible: (0, _v7.jsx)(_v42.CloseXCircleFilled, {
+      ineligible: (0, _v10.jsx)(_v45.CloseXCircleFilled, {
         boxSize: "53px",
         color: "status-destructive-primary"
       }),
-      error: (0, _v7.jsx)(_v41.CircleExclamationFilled, {
+      error: (0, _v10.jsx)(_v44.CircleExclamationFilled, {
         boxSize: "53px",
         color: "status-destructive-primary"
       }),
-      unsupported: (0, _v7.jsx)(_v43.CreditCard, {
+      unsupported: (0, _v10.jsx)(_v46.CreditCard, {
         boxSize: "53px",
         color: "status-destructive-primary"
       })
     },
-    _v47 = ({
+    _v50 = ({
       isClaimDisabled: _v0,
       onClaim: _v1,
       onClose: _v2,
@@ -748,13 +748,13 @@
     }) => {
       switch (_v5) {
         case "approved":
-          return (0, _v7.jsx)(_v14.Button, {
+          return (0, _v10.jsx)(_v17.Button, {
             isDisabled: _v0 || null === _v4,
             onClick: () => {
               null !== _v4 && _v1(_v4);
             },
             size: "lg",
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "Claim offer",
               dictionary: {
                 es: {
@@ -782,11 +782,11 @@
             })
           });
         case "ineligible":
-          return (0, _v7.jsxs)(_v7.Fragment, {
-            children: [(0, _v7.jsx)(_v14.Button, {
-              onClick: () => window.location.assign(_v25.INDIE_INELIGIBLE_URL),
+          return (0, _v10.jsxs)(_v10.Fragment, {
+            children: [(0, _v10.jsx)(_v17.Button, {
+              onClick: () => window.location.assign(_v28.INDIE_INELIGIBLE_URL),
               size: "lg",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "Got it",
                 dictionary: {
                   es: {
@@ -812,14 +812,14 @@
                   }
                 }
               })
-            }), (0, _v7.jsx)(_v14.Button, {
+            }), (0, _v10.jsx)(_v17.Button, {
               as: "a",
-              href: _v25.SUPPORT_URL,
+              href: _v28.SUPPORT_URL,
               rel: "noreferrer",
               size: "sm",
               target: "_blank",
               variant: "tertiary",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "Contact Support",
                 dictionary: {
                   es: {
@@ -848,14 +848,14 @@
             })]
           });
         case "unsupported":
-          return (0, _v7.jsx)(_v14.Button, {
+          return (0, _v10.jsx)(_v17.Button, {
             as: "a",
-            href: _v25.SUPPORT_URL,
+            href: _v28.SUPPORT_URL,
             rel: "noreferrer",
             size: "lg",
             target: "_blank",
             width: "100%",
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "Contact Support",
               dictionary: {
                 es: {
@@ -883,11 +883,11 @@
             })
           });
         case "error":
-          return (0, _v7.jsxs)(_v7.Fragment, {
-            children: [(0, _v7.jsx)(_v14.Button, {
+          return (0, _v10.jsxs)(_v10.Fragment, {
+            children: [(0, _v10.jsx)(_v17.Button, {
               onClick: _v3,
               size: "lg",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "Try again",
                 dictionary: {
                   es: {
@@ -913,11 +913,11 @@
                   }
                 }
               })
-            }), (0, _v7.jsx)(_v14.Button, {
+            }), (0, _v10.jsx)(_v17.Button, {
               onClick: _v2,
               size: "sm",
               variant: "tertiary",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "Close",
                 dictionary: {
                   es: {
@@ -949,12 +949,12 @@
           throw Error(`Unhandled review state: ${String(_v5)}`);
       }
     },
-    _v48 = _v0 => {
+    _v51 = _v0 => {
       let {
         state: _v1
       } = _v0;
-      return (0, _v7.jsxs)(_v7.Fragment, {
-        children: [(0, _v7.jsx)(_v18.ModalCloseButton, {
+      return (0, _v10.jsxs)(_v10.Fragment, {
+        children: [(0, _v10.jsx)(_v21.ModalCloseButton, {
           _disabled: {
             cursor: "default",
             opacity: .4
@@ -964,7 +964,7 @@
           isDisabled: "pending" === _v1 || "claiming" === _v1,
           right: "16px",
           top: "16px"
-        }), (0, _v7.jsx)(_v21.ModalHeader, {
+        }), (0, _v10.jsx)(_v24.ModalHeader, {
           pb: "0",
           pt: {
             base: "28px",
@@ -974,7 +974,7 @@
             base: "24px",
             md: "32px"
           },
-          children: (0, _v7.jsx)(_v23.Text, {
+          children: (0, _v10.jsx)(_v26.Text, {
             as: "h2",
             color: "text-primary",
             fontFamily: "heading",
@@ -982,36 +982,36 @@
             letterSpacing: "-0.8px",
             lineHeight: "28px",
             pr: "40px",
-            children: _v44[_v1]
+            children: _v47[_v1]
           })
-        }), (0, _v7.jsx)(_v17.ModalBody, {
+        }), (0, _v10.jsx)(_v20.ModalBody, {
           px: {
             base: "24px",
             md: "32px"
           },
           pb: "20px",
           pt: "32px",
-          children: (0, _v7.jsxs)(_v32.Flex, {
+          children: (0, _v10.jsxs)(_v35.Flex, {
             direction: "column",
             gap: "16px",
-            children: [(0, _v7.jsx)(_v32.Flex, {
+            children: [(0, _v10.jsx)(_v35.Flex, {
               align: "center",
               boxSize: "64px",
               justify: "center",
               mx: "auto",
-              children: "pending" === _v1 || "claiming" === _v1 ? (0, _v7.jsx)(_v39.Spinner, {
+              children: "pending" === _v1 || "claiming" === _v1 ? (0, _v10.jsx)(_v42.Spinner, {
                 color: "fill-brand",
                 size: "lg"
-              }) : _v46[_v1]
-            }), (0, _v7.jsx)(_v23.Text, {
+              }) : _v49[_v1]
+            }), (0, _v10.jsx)(_v26.Text, {
               color: "text-secondary",
               fontSize: "14px",
               letterSpacing: "-0.42px",
               lineHeight: "19.6px",
-              children: _v45[_v1]
+              children: _v48[_v1]
             })]
           })
-        }), "pending" === _v1 || "claiming" === _v1 ? null : (0, _v7.jsx)(_v20.ModalFooter, {
+        }), "pending" === _v1 || "claiming" === _v1 ? null : (0, _v10.jsx)(_v23.ModalFooter, {
           alignItems: "stretch",
           flexDirection: "column",
           gap: "8px",
@@ -1021,40 +1021,40 @@
             base: "24px",
             md: "32px"
           },
-          children: (0, _v7.jsx)(_v47, {
+          children: (0, _v10.jsx)(_v50, {
             ..._v0,
             state: _v1
           })
         })]
       });
     };
-  var _v49 = _v0.i(0),
-    _v50 = _v0.i(0),
-    _v51 = _v0.i(0),
-    _v52 = _v0.i(0);
-  let _v53 = ({
+  var _v52 = _v0.i(0),
+    _v53 = _v0.i(0),
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0);
+  let _v56 = ({
     data: _v0,
     touch: _v1,
     touched: _v2,
     update: _v3
   }) => {
     let _v4 = _v0.bio.trim().length;
-    return (0, _v7.jsxs)(_v49.FormControl, {
+    return (0, _v10.jsxs)(_v52.FormControl, {
       isInvalid: (_v2.all || _v2.bio) && _v4 < 100,
-      children: [(0, _v7.jsxs)(_v32.Flex, {
+      children: [(0, _v10.jsxs)(_v35.Flex, {
         direction: "column",
         gap: "12px",
-        children: [(0, _v7.jsxs)(_v32.Flex, {
+        children: [(0, _v10.jsxs)(_v35.Flex, {
           direction: "column",
           gap: "4px",
-          children: [(0, _v7.jsx)(_v51.FormLabel, {
+          children: [(0, _v10.jsx)(_v54.FormLabel, {
             color: "text-primary",
             fontSize: "14px",
             fontWeight: "medium",
             letterSpacing: "-0.42px",
             lineHeight: "19.6px",
             mb: "0",
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "Tell us about you and your work",
               dictionary: {
                 es: {
@@ -1080,12 +1080,12 @@
                 }
               }
             })
-          }), (0, _v7.jsx)(_v23.Text, {
+          }), (0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             fontSize: "14px",
             letterSpacing: "-0.42px",
             lineHeight: "19.6px",
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "What do you make, and what drives you? At least 100 characters.",
               dictionary: {
                 es: {
@@ -1112,10 +1112,10 @@
               }
             })
           })]
-        }), (0, _v7.jsxs)(_v32.Flex, {
+        }), (0, _v10.jsxs)(_v35.Flex, {
           direction: "column",
           gap: "6px",
-          children: [(0, _v7.jsx)(_v52.Textarea, {
+          children: [(0, _v10.jsx)(_v55.Textarea, {
             bg: "white",
             borderRadius: "12px",
             borderColor: "rgba(26, 54, 93, 0.16)",
@@ -1125,7 +1125,7 @@
             },
             onBlur: () => _v1("bio"),
             onChange: _v0 => _v3("bio", _v0.target.value),
-            placeholder: (0, _v24.translate)({
+            placeholder: (0, _v27.translate)({
               singular: "I'm a documentary filmmaker based in Lisbon, working on…",
               dictionary: {
                 es: {
@@ -1152,16 +1152,16 @@
               }
             }),
             value: _v0.bio
-          }), (0, _v7.jsxs)(_v32.Flex, {
+          }), (0, _v10.jsxs)(_v35.Flex, {
             align: "center",
             gap: "12px",
             justify: "space-between",
-            children: [(0, _v7.jsx)(_v23.Text, {
+            children: [(0, _v10.jsx)(_v26.Text, {
               color: "text-secondary",
               fontSize: "14px",
               letterSpacing: "-0.42px",
               lineHeight: "19.6px",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "Your words. Your perspective.",
                 dictionary: {
                   es: {
@@ -1187,7 +1187,7 @@
                   }
                 }
               })
-            }), (0, _v7.jsx)(_v23.Text, {
+            }), (0, _v10.jsx)(_v26.Text, {
               color: _v4 >= 100 ? "status-positive-primary" : "text-secondary",
               fontSize: "14px",
               letterSpacing: "-0.42px",
@@ -1195,7 +1195,7 @@
               sx: {
                 fontVariantNumeric: "tabular-nums"
               },
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "{count} / 100 min",
                 replacements: {
                   count: _v4
@@ -1212,8 +1212,8 @@
             })]
           })]
         })]
-      }), (0, _v7.jsx)(_v50.FormErrorMessage, {
-        children: (0, _v24.translate)({
+      }), (0, _v10.jsx)(_v53.FormErrorMessage, {
+        children: (0, _v27.translate)({
           singular: "Please write at least 100 characters ({remaining} more to go)",
           replacements: {
             remaining: 100 - _v4
@@ -1245,136 +1245,136 @@
       })]
     });
   };
-  var _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
-    _v56 = _v0.i(0);
-  let _v57 = ({
+  var _v57 = _v0.i(0),
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0);
+  let _v60 = ({
     children: _v0
-  }) => (0, _v7.jsxs)(_v55.HStack, {
+  }) => (0, _v10.jsxs)(_v58.HStack, {
     align: "flex-start",
     color: "status-destructive-primary",
     spacing: "6px",
-    children: [(0, _v7.jsx)(_v56.CircleExclamation, {
+    children: [(0, _v10.jsx)(_v59.CircleExclamation, {
       "aria-hidden": "true",
       boxSize: "15px",
       mt: "1px"
-    }), (0, _v7.jsx)(_v23.Text, {
+    }), (0, _v10.jsx)(_v26.Text, {
       fontSize: "12px",
       lineHeight: "18px",
       children: _v0
     })]
   });
-  var _v58 = _v0.i(0);
-  let _v59 = ({
+  var _v61 = _v0.i(0);
+  let _v62 = ({
       pricing: _v0
-    }) => (0, _v7.jsxs)(_v32.Flex, {
+    }) => (0, _v10.jsxs)(_v35.Flex, {
       align: "center",
       bg: "rgba(26, 54, 93, 0.04)",
       borderRadius: "12px",
       justify: "space-between",
       minH: "100px",
       p: "20px",
-      children: [(0, _v7.jsxs)(_v32.Flex, {
+      children: [(0, _v10.jsxs)(_v35.Flex, {
         direction: "column",
         gap: "4px",
-        children: [(0, _v7.jsx)(_v23.Text, {
+        children: [(0, _v10.jsx)(_v26.Text, {
           color: "text-primary",
           fontFamily: "heading",
           fontSize: "16px",
           letterSpacing: "-0.48px",
           lineHeight: "22.4px",
-          children: (0, _v24.translate)("Vimeo Professional")
-        }), (0, _v7.jsx)(_v23.Text, {
+          children: (0, _v27.translate)("Vimeo Professional")
+        }), (0, _v10.jsx)(_v26.Text, {
           color: "text-secondary",
           fontSize: "12px",
           letterSpacing: "-0.24px",
           lineHeight: "14.4px",
-          children: (0, _v24.translate)({
-            singular: "Unlimited storage · 7 TB managed",
+          children: (0, _v27.translate)({
+            singular: "Unlimited public storage and bandwidth · 7 TB managed storage",
             dictionary: {
               es: {
-                singular: "Almacenamiento ilimitado · 7 TB gestionados"
+                singular: "Almacenamiento público y ancho de banda ilimitados · 7 TB de almacenamiento gestionado"
               },
               "de-DE": {
-                singular: "Unbegrenzter Speicher · 7 TB verwaltet"
+                singular: "Unbegrenzter öffentlicher Speicherplatz und unbegrenzte Bandbreite · 7 TB verwalteter Speicher"
               },
               "fr-FR": {
-                singular: "Stockage illimité · 7 TB gérés"
+                singular: "Stockage public et bande passante illimités · 7 TB de stockage géré"
               },
               "ja-JP": {
-                singular: "無制限ストレージ · 管理ストレージ 7 TB"
+                singular: "公開ストレージと帯域幅が無制限 · 7 TB の管理済みストレージ"
               },
               "ko-KR": {
-                singular: "무제한 스토리지 · 관리형 7TB"
+                singular: "무제한 공개 스토리지 및 대역폭 · 7 TB 관리형 스토리지"
               },
               "pt-BR": {
-                singular: "Armazenamento ilimitado · 7 TB gerenciados"
+                singular: "Armazenamento público e largura de banda ilimitados · 7 TB de armazenamento gerenciado"
               },
               "zh-CN": {
-                singular: "无限存储 · 7 TB 托管"
+                singular: "无限公共存储和带宽 · 7 TB 托管存储"
               }
             }
           })
-        }), (0, _v7.jsx)(_v23.Text, {
+        }), (0, _v10.jsx)(_v26.Text, {
           color: "text-secondary",
           fontSize: "12px",
           letterSpacing: "-0.24px",
           lineHeight: "14.4px",
-          children: (0, _v24.translate)({
-            singular: "2 TB bandwidth/month",
+          children: (0, _v27.translate)({
+            singular: "2 TB/mo managed bandwidth",
             dictionary: {
               es: {
-                singular: "2 TB de ancho de banda/mes"
+                singular: "2 TB/mes de ancho de banda gestionado"
               },
               "de-DE": {
-                singular: "2 TB Bandbreite/Monat"
+                singular: "2 TB/Monat verwaltete Bandbreite"
               },
               "fr-FR": {
-                singular: "2 TB de bande passante/mois"
+                singular: "2 TB/mo de bande passante gérée"
               },
               "ja-JP": {
-                singular: "2 TB の月間帯域幅"
+                singular: "2 TB/月 の管理帯域幅"
               },
               "ko-KR": {
-                singular: "월 2TB 대역폭"
+                singular: "2 TB/월 관리형 대역폭"
               },
               "pt-BR": {
-                singular: "2 TB de largura de banda/mês"
+                singular: "2 TB/mês de largura de banda gerenciada"
               },
               "zh-CN": {
-                singular: "2 TB 带宽/月"
+                singular: "每月 2 TB 托管带宽"
               }
             }
           })
         })]
-      }), (0, _v7.jsx)(_v32.Flex, {
+      }), (0, _v10.jsx)(_v35.Flex, {
         align: "flex-end",
         direction: "column",
         gap: "2px",
-        children: _v0 ? (0, _v7.jsxs)(_v7.Fragment, {
-          children: [(0, _v7.jsxs)(_v32.Flex, {
+        children: _v0 ? (0, _v10.jsxs)(_v10.Fragment, {
+          children: [(0, _v10.jsxs)(_v35.Flex, {
             align: "baseline",
             gap: "2px",
-            children: [(0, _v7.jsx)(_v23.Text, {
+            children: [(0, _v10.jsx)(_v26.Text, {
               color: "text-secondary",
               fontSize: "12px",
               letterSpacing: "-0.24px",
               lineHeight: "14.4px",
               textDecoration: "line-through",
               children: _v0.listMonthly
-            }), (0, _v7.jsx)(_v23.Text, {
+            }), (0, _v10.jsx)(_v26.Text, {
               color: "text-primary",
               fontFamily: "heading",
               fontSize: "36px",
               letterSpacing: "-1.44px",
               lineHeight: "43.2px",
               children: _v0.indieMonthly
-            }), (0, _v7.jsx)(_v23.Text, {
+            }), (0, _v10.jsx)(_v26.Text, {
               color: "text-secondary",
               fontSize: "12px",
               letterSpacing: "-0.24px",
               lineHeight: "14.4px",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "/mo",
                 dictionary: {
                   "de-DE": {
@@ -1392,12 +1392,12 @@
                 }
               })
             })]
-          }), (0, _v7.jsx)(_v23.Text, {
+          }), (0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             fontSize: "11px",
             letterSpacing: "-0.22px",
             lineHeight: "14px",
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "{price}/year, billed annually",
               replacements: {
                 price: _v0.indieAnnual
@@ -1427,13 +1427,13 @@
               }
             })
           })]
-        }) : (0, _v7.jsx)(_v58.Skeleton, {
+        }) : (0, _v10.jsx)(_v61.Skeleton, {
           h: "43.2px",
           w: "7rem"
         })
       })]
     }),
-    _v60 = [(0, _v24.translate)({
+    _v63 = [(0, _v27.translate)({
       singular: "I make original films as my main pursuit, whether as a career, professional practice, or field of study, and I'm applying as an individual",
       dictionary: {
         es: {
@@ -1458,7 +1458,7 @@
           singular: "我以创作原创影片为主要追求，无论是作为职业、专业实践或学习领域，我以个人身份申请"
         }
       }
-    }), (0, _v24.translate)({
+    }), (0, _v27.translate)({
       singular: "I won't primarily use Vimeo for commercial client work or to operate or support a business",
       dictionary: {
         es: {
@@ -1483,7 +1483,7 @@
           singular: "我不会主要将 Vimeo 用于商业客户工作或经营/支持企业"
         }
       }
-    }), (0, _v24.translate)({
+    }), (0, _v27.translate)({
       singular: "I understand Vimeo may verify my eligibility",
       dictionary: {
         es: {
@@ -1509,7 +1509,7 @@
         }
       }
     })],
-    _v61 = ({
+    _v64 = ({
       data: _v0,
       touch: _v1,
       touched: _v2,
@@ -1517,26 +1517,26 @@
       pricing: _v4
     }) => {
       let _v5 = _v0.declarations.every(Boolean);
-      return (0, _v7.jsxs)(_v32.Flex, {
+      return (0, _v10.jsxs)(_v35.Flex, {
         direction: "column",
         gap: "32px",
-        children: [(0, _v7.jsxs)(_v32.Flex, {
+        children: [(0, _v10.jsxs)(_v35.Flex, {
           direction: "column",
           gap: "16px",
-          children: [_v60.map((_v0, _v1) => (0, _v7.jsx)(_v54.Checkbox, {
+          children: [_v63.map((_v0, _v1) => (0, _v10.jsx)(_v57.Checkbox, {
             isChecked: _v0.declarations[_v1],
             isInvalid: (_v2.all || _v2.declarations) && !_v0.declarations[_v1],
             onChange: _v0 => {
               _v3("declarations", _v0.declarations.map((_v0, _v1) => _v1 === _v1 ? _v0.target.checked : _v0)), _v1("declarations");
             },
-            children: (0, _v7.jsx)(_v23.Text, {
+            children: (0, _v10.jsx)(_v26.Text, {
               fontSize: "12px",
               letterSpacing: "-0.24px",
               lineHeight: "14.4px",
               children: _v0
             })
-          }, _v0)), (_v2.all || _v2.declarations) && !_v5 ? (0, _v7.jsx)(_v57, {
-            children: (0, _v24.translate)({
+          }, _v0)), (_v2.all || _v2.declarations) && !_v5 ? (0, _v10.jsx)(_v60, {
+            children: (0, _v27.translate)({
               singular: "Please confirm all three statements to continue",
               dictionary: {
                 es: {
@@ -1563,15 +1563,15 @@
               }
             })
           }) : null]
-        }), (0, _v7.jsxs)(_v32.Flex, {
+        }), (0, _v10.jsxs)(_v35.Flex, {
           direction: "column",
           gap: "12px",
-          children: [(0, _v7.jsx)(_v23.Text, {
+          children: [(0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             fontSize: "12px",
             letterSpacing: "-0.24px",
             lineHeight: "18px",
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "If you don't qualify or no longer qualify, Vimeo may end your discount, refund prepaid fees for the unused portion, and offer you another available plan. If you provide false or misleading information or misuse the discount, Vimeo may end it without a refund.",
               dictionary: {
                 es: {
@@ -1597,14 +1597,14 @@
                 }
               }
             })
-          }), (0, _v7.jsx)(_v59, {
+          }), (0, _v10.jsx)(_v62, {
             pricing: _v4
-          }), (0, _v7.jsx)(_v23.Text, {
+          }), (0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             fontSize: "12px",
             letterSpacing: "-0.24px",
             lineHeight: "14.4px",
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "You'll review billing details at checkout. No payment is taken here.",
               dictionary: {
                 es: {
@@ -1634,31 +1634,31 @@
         })]
       });
     };
-  var _v62 = _v0.i(0),
-    _v63 = _v0.i(0),
-    _v64 = _v0.i(0),
-    _v65 = _v0.i(0),
+  var _v65 = _v0.i(0),
     _v66 = _v0.i(0),
-    _v67 = _v0.i(0);
-  let _v68 = ({
+    _v67 = _v0.i(0),
+    _v68 = _v0.i(0),
+    _v69 = _v0.i(0),
+    _v70 = _v0.i(0);
+  let _v71 = ({
       changeLink: _v0,
       data: _v1,
       touch: _v2,
       touched: _v3,
       update: _v4
-    }) => (0, _v7.jsxs)(_v32.Flex, {
+    }) => (0, _v10.jsxs)(_v35.Flex, {
       direction: "column",
       gap: "12px",
-      children: [(0, _v7.jsxs)(_v32.Flex, {
+      children: [(0, _v10.jsxs)(_v35.Flex, {
         direction: "column",
         gap: "4px",
-        children: [(0, _v7.jsx)(_v23.Text, {
+        children: [(0, _v10.jsx)(_v26.Text, {
           color: "text-primary",
           fontSize: "14px",
           fontWeight: "medium",
           letterSpacing: "-0.42px",
           lineHeight: "19.6px",
-          children: (0, _v24.translate)({
+          children: (0, _v27.translate)({
             singular: "Your profiles & portfolio",
             dictionary: {
               es: {
@@ -1684,12 +1684,12 @@
               }
             }
           })
-        }), (0, _v7.jsx)(_v23.Text, {
+        }), (0, _v10.jsx)(_v26.Text, {
           color: "text-secondary",
           fontSize: "14px",
           letterSpacing: "-0.42px",
           lineHeight: "19.6px",
-          children: (0, _v24.translate)({
+          children: (0, _v27.translate)({
             singular: "Add at least one link, up to three.",
             dictionary: {
               es: {
@@ -1716,35 +1716,35 @@
             }
           })
         })]
-      }), (0, _v7.jsxs)(_v32.Flex, {
+      }), (0, _v10.jsxs)(_v35.Flex, {
         direction: "column",
         gap: "17px",
-        children: [(0, _v7.jsx)(_v32.Flex, {
+        children: [(0, _v10.jsx)(_v35.Flex, {
           direction: "column",
           gap: "17px",
           children: _v1.links.map((_v0, _v1) => {
-            let _v2 = (_v3.all || _v3[`url-${_v0.id}`]) && (!_v0.url.trim() && 0 === _v1 && !_v1.links.some(_v0 => _v38(_v0.url)) || !!_v0.url.trim() && !_v38(_v0.url));
-            return (0, _v7.jsxs)(_v32.Flex, {
+            let _v2 = (_v3.all || _v3[`url-${_v0.id}`]) && (!_v0.url.trim() && 0 === _v1 && !_v1.links.some(_v0 => _v41(_v0.url)) || !!_v0.url.trim() && !_v41(_v0.url));
+            return (0, _v10.jsxs)(_v35.Flex, {
               direction: "column",
               gap: "4px",
-              children: [(0, _v7.jsxs)(_v32.Flex, {
+              children: [(0, _v10.jsxs)(_v35.Flex, {
                 bg: "rgba(26, 54, 93, 0.04)",
                 borderRadius: "20px",
                 direction: "column",
                 gap: "4px",
                 p: "8px",
-                children: [(0, _v7.jsxs)(_v32.Flex, {
+                children: [(0, _v10.jsxs)(_v35.Flex, {
                   align: "center",
                   gap: "4px",
-                  children: [(0, _v7.jsx)(_v12.Box, {
+                  children: [(0, _v10.jsx)(_v15.Box, {
                     flex: "1",
                     minW: "0",
-                    children: (0, _v7.jsx)(_v64.Select, {
-                      items: _v36.map(_v0 => ({
+                    children: (0, _v10.jsx)(_v67.Select, {
+                      items: _v39.map(_v0 => ({
                         label: _v0,
                         value: _v0
                       })),
-                      leftIcon: (0, _v7.jsx)(_v65.Link, {}),
+                      leftIcon: (0, _v10.jsx)(_v68.Link, {}),
                       onValueChange: _v0 => _v0(_v0.id, {
                         platform: _v0.value[0]
                       }),
@@ -1752,14 +1752,14 @@
                       withPortal: !1,
                       children: ({
                         label: _v0
-                      }) => (0, _v7.jsx)(_v64.SelectItem, {
-                        children: (0, _v7.jsx)(_v64.SelectItemText, {
+                      }) => (0, _v10.jsx)(_v67.SelectItem, {
+                        children: (0, _v10.jsx)(_v67.SelectItemText, {
                           children: _v0
                         })
                       })
                     })
-                  }), _v1.links.length > 1 ? (0, _v7.jsx)(_v62.IconButton, {
-                    "aria-label": (0, _v24.translate)({
+                  }), _v1.links.length > 1 ? (0, _v10.jsx)(_v65.IconButton, {
+                    "aria-label": (0, _v27.translate)({
                       singular: "Remove link",
                       dictionary: {
                         es: {
@@ -1786,12 +1786,12 @@
                       }
                     }),
                     color: "text-secondary",
-                    icon: (0, _v7.jsx)(_v67.TrashBin, {}),
+                    icon: (0, _v10.jsx)(_v70.TrashBin, {}),
                     mr: "4px",
                     onClick: () => _v4("links", _v1.links.filter(_v0 => _v0.id !== _v0.id)),
                     variant: "tertiary"
                   }) : null]
-                }), (0, _v7.jsx)(_v63.Input, {
+                }), (0, _v10.jsx)(_v66.Input, {
                   bg: "white",
                   borderRadius: "12px",
                   borderColor: _v2 ? "status-destructive-primary" : "rgba(26, 54, 93, 0.16)",
@@ -1804,8 +1804,8 @@
                   type: "url",
                   value: _v0.url
                 })]
-              }), _v2 ? (0, _v7.jsx)(_v57, {
-                children: _v0.url.trim() ? (0, _v24.translate)({
+              }), _v2 ? (0, _v10.jsx)(_v60, {
+                children: _v0.url.trim() ? (0, _v27.translate)({
                   singular: "Please enter a valid URL",
                   dictionary: {
                     es: {
@@ -1830,7 +1830,7 @@
                       singular: "请输入有效的 URL"
                     }
                   }
-                }) : (0, _v24.translate)({
+                }) : (0, _v27.translate)({
                   singular: "Add at least one link to your work",
                   dictionary: {
                     es: {
@@ -1859,13 +1859,13 @@
               }) : null]
             }, _v0.id);
           })
-        }), _v1.links.length < 3 ? (0, _v7.jsxs)(_v32.Flex, {
+        }), _v1.links.length < 3 ? (0, _v10.jsxs)(_v35.Flex, {
           align: "center",
           gap: "8px",
-          children: [(0, _v7.jsx)(_v14.Button, {
+          children: [(0, _v10.jsx)(_v17.Button, {
             borderRadius: "8px",
             color: "text-primary",
-            leftIcon: (0, _v7.jsx)(_v66.Plus, {}),
+            leftIcon: (0, _v10.jsx)(_v69.Plus, {}),
             size: "sm",
             variant: "tertiary",
             onClick: () => _v4("links", [..._v1.links, {
@@ -1873,7 +1873,7 @@
               platform: "Portfolio / website",
               url: ""
             }]),
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "Add another link",
               dictionary: {
                 es: {
@@ -1899,7 +1899,7 @@
                 }
               }
             })
-          }), (0, _v7.jsx)(_v23.Text, {
+          }), (0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             fontSize: "12px",
             letterSpacing: "-0.24px",
@@ -1909,7 +1909,7 @@
         }) : null]
       })]
     }),
-    _v69 = async (_v0, _v1) => {
+    _v72 = async (_v0, _v1) => {
       try {
         var _v2;
         let _v0 = await fetch(`${_v1.baseUrl}/me/indie_program/eligibility`, {
@@ -1950,16 +1950,16 @@
         };
       }
     },
-    _v70 = async (_v0, _v1) => {
-      let [_v2] = await Promise.allSettled([_v69(_v0, _v1), new Promise(_v0 => {
+    _v73 = async (_v0, _v1) => {
+      let [_v2] = await Promise.allSettled([_v72(_v0, _v1), new Promise(_v0 => {
         setTimeout(_v0, 0);
       })]);
       return "fulfilled" === _v2.status ? _v2.value : {
         outcome: "error"
       };
     },
-    _v71 = () => structuredClone(_v37),
-    _v72 = [(0, _v24.translate)({
+    _v74 = () => structuredClone(_v40),
+    _v75 = [(0, _v27.translate)({
       singular: "Confirm eligibility",
       dictionary: {
         es: {
@@ -1984,7 +1984,7 @@
           singular: "确认资格"
         }
       }
-    }), (0, _v24.translate)({
+    }), (0, _v27.translate)({
       singular: "Show us your work",
       dictionary: {
         es: {
@@ -2009,7 +2009,7 @@
           singular: "展示您的作品"
         }
       }
-    }), (0, _v24.translate)({
+    }), (0, _v27.translate)({
       singular: "Tell us about yourself",
       dictionary: {
         es: {
@@ -2035,7 +2035,7 @@
         }
       }
     })],
-    _v73 = [(0, _v24.translate)({
+    _v76 = [(0, _v27.translate)({
       singular: "This discount makes more room for independent voices. To qualify, you must meet all three requirements below.",
       dictionary: {
         es: {
@@ -2060,7 +2060,7 @@
           singular: "该折扣为独立声音提供更多空间。要符合资格，您必须满足下面的三项要求。"
         }
       }
-    }), (0, _v24.translate)({
+    }), (0, _v27.translate)({
       singular: "Every filmmaker starts somewhere. Share a place where we can get to know your work.",
       dictionary: {
         es: {
@@ -2085,7 +2085,7 @@
           singular: "每位电影制作人都有起点。分享一个我们可以了解您作品的地方。"
         }
       }
-    }), (0, _v24.translate)({
+    }), (0, _v27.translate)({
       singular: "The person behind the camera matters. Tell us your story, in your own words.",
       dictionary: {
         es: {
@@ -2111,7 +2111,7 @@
         }
       }
     })],
-    _v74 = ({
+    _v77 = ({
       canRedeem: _v0,
       hasActivePsSub: _v1,
       isClaimContextError: _v2,
@@ -2123,7 +2123,7 @@
       onRetryClaimContext: _v8,
       pricing: _v9
     }) => {
-      let _v10 = (0, _v34.useGctlConfig)(),
+      let _v10 = (0, _v37.useGctlConfig)(),
         {
           changeLink: _v11,
           data: _v12,
@@ -2134,31 +2134,31 @@
           touched: _v17,
           update: _v18
         } = (() => {
-          let [_v0, _v1] = (0, _v28.useState)(_v71),
-            [_v2, _v3] = (0, _v28.useState)({}),
-            _v4 = (0, _v28.useCallback)((_v0, _v1) => _v1(_v0 => ({
+          let [_v0, _v1] = (0, _v31.useState)(_v74),
+            [_v2, _v3] = (0, _v31.useState)({}),
+            _v4 = (0, _v31.useCallback)((_v0, _v1) => _v1(_v0 => ({
               ..._v0,
               [_v0]: _v1
             })), []),
-            _v5 = (0, _v28.useCallback)((_v0, _v1) => _v1(_v0 => ({
+            _v5 = (0, _v31.useCallback)((_v0, _v1) => _v1(_v0 => ({
               ..._v0,
               links: _v0.links.map(_v0 => _v0.id === _v0 ? {
                 ..._v0,
                 ..._v1
               } : _v0)
             })), []),
-            _v6 = (0, _v28.useCallback)(_v0 => _v3(_v0 => ({
+            _v6 = (0, _v31.useCallback)(_v0 => _v3(_v0 => ({
               ..._v0,
               [_v0]: !0
             })), []),
-            _v7 = (0, _v28.useCallback)(() => {
-              _v1(_v71()), _v3({});
+            _v7 = (0, _v31.useCallback)(() => {
+              _v1(_v74()), _v3({});
             }, []),
-            _v8 = (0, _v28.useCallback)(_v0 => 1 === _v0 ? _v0.declarations.every(Boolean) : 2 === _v0 ? _v0.links.some(_v0 => _v38(_v0.url)) && _v0.links.every(_v0 => !_v0.url.trim() || _v38(_v0.url)) : 3 === _v0 && _v0.bio.trim().length >= 100, [_v0]);
+            _v8 = (0, _v31.useCallback)(_v0 => 1 === _v0 ? _v0.declarations.every(Boolean) : 2 === _v0 ? _v0.links.some(_v0 => _v41(_v0.url)) && _v0.links.every(_v0 => !_v0.url.trim() || _v41(_v0.url)) : 3 === _v0 && _v0.bio.trim().length >= 100, [_v0]);
           return {
             changeLink: _v5,
             data: _v0,
-            dirty: JSON.stringify(_v0) !== JSON.stringify(_v37),
+            dirty: JSON.stringify(_v0) !== JSON.stringify(_v40),
             isValidForStep: _v8,
             reset: _v7,
             touch: _v6,
@@ -2166,13 +2166,13 @@
             update: _v4
           };
         })(),
-        [_v19, _v20] = (0, _v28.useState)(1),
-        [_v21, _v22] = (0, _v28.useState)(!1),
-        [_v23, _v24] = (0, _v28.useState)(null),
-        [_v25, _v26] = (0, _v28.useState)(!1),
-        [_v27, _v28] = (0, _v28.useState)(!1),
-        _v29 = (0, _v28.useRef)(0),
-        _v30 = (0, _v33.useBreakpointValue)({
+        [_v19, _v20] = (0, _v31.useState)(1),
+        [_v21, _v22] = (0, _v31.useState)(!1),
+        [_v23, _v24] = (0, _v31.useState)(null),
+        [_v25, _v26] = (0, _v31.useState)(!1),
+        [_v27, _v28] = (0, _v31.useState)(!1),
+        _v29 = (0, _v31.useRef)(0),
+        _v30 = (0, _v36.useBreakpointValue)({
           base: !1,
           md: !0
         }, {
@@ -2182,10 +2182,10 @@
         _v32 = _v14(_v19),
         _v33 = _v25 ? "claiming" : null === _v23 ? "pending" : "approved" !== _v23.outcome ? _v23.outcome : _v2 ? "error" : _v3 || _v0 ? "approved" : "unsupported",
         _v34 = _v21 && "pending" === _v33,
-        _v35 = (0, _v28.useCallback)(() => {
+        _v35 = (0, _v31.useCallback)(() => {
           _v29.current += 1, _v20(1), _v22(!1), _v24(null), _v26(!1), _v28(!1), _v15();
         }, [_v15]),
-        _v36 = (0, _v28.useCallback)(() => {
+        _v36 = (0, _v31.useCallback)(() => {
           if (!_v34 && !_v25) {
             if (_v21 || !_v13) {
               _v6(), _v35();
@@ -2194,7 +2194,7 @@
             _v28(!0);
           }
         }, [_v25, _v13, _v6, _v34, _v35, _v21]),
-        _v37 = (0, _v28.useCallback)(async () => {
+        _v37 = (0, _v31.useCallback)(async () => {
           _v29.current += 1;
           let _v0 = _v29.current;
           _v22(!0), _v24(null);
@@ -2202,7 +2202,7 @@
             outcome: "error"
           };
           try {
-            _v1 = await _v70(_v12, {
+            _v1 = await _v73(_v12, {
               baseUrl: _v10.baseUrl ?? "",
               jwt: _v10.jwt ?? "",
               xVimeoPage: _v10.xVimeoPage ?? "",
@@ -2216,7 +2216,7 @@
             _v29.current === _v0 && _v24(_v1);
           }
         }, [_v12, _v10.baseUrl, _v10.jwt, _v10.locale, _v10.xVimeoPage]),
-        _v38 = (0, _v28.useCallback)(_v0 => {
+        _v38 = (0, _v31.useCallback)(_v0 => {
           var _v1;
           let _v2 = (_v1 = {
             canRedeem: _v0,
@@ -2228,7 +2228,7 @@
           }
           "checkout" === _v2 && _v5(_v0);
         }, [_v0, _v1, _v5, _v7, _v35]),
-        _v39 = (0, _v28.useCallback)(() => {
+        _v39 = (0, _v31.useCallback)(() => {
           _v8(), _v23?.outcome !== "approved" && _v37();
         }, [_v23, _v8, _v37]),
         _v40 = {
@@ -2238,8 +2238,8 @@
           touched: _v17,
           update: _v18
         };
-      return (0, _v7.jsxs)(_v7.Fragment, {
-        children: [(0, _v7.jsxs)(_v16.Modal, {
+      return (0, _v10.jsxs)(_v10.Fragment, {
+        children: [(0, _v10.jsxs)(_v19.Modal, {
           closeOnEsc: !_v25 && !_v27 && !_v34,
           closeOnOverlayClick: !1,
           isCentered: !0,
@@ -2247,7 +2247,7 @@
           onClose: _v36,
           scrollBehavior: "inside",
           size: "lg",
-          children: [(0, _v7.jsx)(_v22.ModalOverlay, {
+          children: [(0, _v10.jsx)(_v25.ModalOverlay, {
             backdropFilter: {
               base: "none",
               md: "blur(5px)"
@@ -2257,8 +2257,8 @@
               md: "rgba(0, 0, 0, 0.8)"
             },
             display: _v31 ? "none" : void 0
-          }), (0, _v7.jsx)(_v15.LightMode, {
-            children: (0, _v7.jsxs)(_v19.ModalContent, {
+          }), (0, _v10.jsx)(_v18.LightMode, {
+            children: (0, _v10.jsxs)(_v22.ModalContent, {
               containerProps: {
                 display: _v31 ? "none" : void 0,
                 p: {
@@ -2291,37 +2291,37 @@
               m: "0",
               overflow: "hidden",
               w: "100%",
-              children: [_v21 ? null : (0, _v7.jsx)(_v18.ModalCloseButton, {
+              children: [_v21 ? null : (0, _v10.jsx)(_v21.ModalCloseButton, {
                 borderRadius: "12px",
                 boxSize: "40px",
                 right: "16px",
                 top: "16px"
-              }), (0, _v7.jsx)(_v21.ModalHeader, {
+              }), (0, _v10.jsx)(_v24.ModalHeader, {
                 pb: "24px",
                 pt: "36px",
                 px: {
                   base: "24px",
                   md: "32px"
                 },
-                children: (0, _v7.jsxs)(_v32.Flex, {
+                children: (0, _v10.jsxs)(_v35.Flex, {
                   direction: "column",
                   gap: "17px",
-                  children: [(0, _v7.jsxs)(_v32.Flex, {
+                  children: [(0, _v10.jsxs)(_v35.Flex, {
                     direction: "column",
                     gap: "12px",
-                    children: [(0, _v7.jsx)(_v12.Box, {
+                    children: [(0, _v10.jsx)(_v15.Box, {
                       pr: "40px",
-                      children: (0, _v7.jsx)(_v23.Text, {
+                      children: (0, _v10.jsx)(_v26.Text, {
                         color: "text-primary",
                         fontSize: "14px",
                         fontWeight: "medium",
                         letterSpacing: "-0.42px",
                         lineHeight: "19.6px",
-                        children: (0, _v24.translate)({
+                        children: (0, _v27.translate)({
                           singular: "Step {step} of {total}",
                           replacements: {
                             step: _v19,
-                            total: _v72.length
+                            total: _v75.length
                           },
                           dictionary: {
                             es: {
@@ -2348,50 +2348,50 @@
                           }
                         })
                       })
-                    }), (0, _v7.jsx)(_v32.Flex, {
+                    }), (0, _v10.jsx)(_v35.Flex, {
                       gap: "8px",
-                      children: _v72.map((_v0, _v1) => (0, _v7.jsx)(_v12.Box, {
+                      children: _v75.map((_v0, _v1) => (0, _v10.jsx)(_v15.Box, {
                         bg: _v1 + 1 <= _v19 ? "fill-brand" : "#e4e9ef",
                         borderRadius: "2px",
                         flex: "1",
                         h: "4px"
                       }, _v0))
                     })]
-                  }), (0, _v7.jsxs)(_v32.Flex, {
+                  }), (0, _v10.jsxs)(_v35.Flex, {
                     direction: "column",
                     gap: "8px",
-                    children: [(0, _v7.jsx)(_v23.Text, {
+                    children: [(0, _v10.jsx)(_v26.Text, {
                       as: "h2",
                       color: "text-primary",
                       fontFamily: "heading",
                       fontSize: "20px",
                       letterSpacing: "-0.8px",
                       lineHeight: "28px",
-                      children: _v72[_v19 - 1]
-                    }), (0, _v7.jsx)(_v23.Text, {
+                      children: _v75[_v19 - 1]
+                    }), (0, _v10.jsx)(_v26.Text, {
                       color: "text-secondary",
                       fontSize: "14px",
                       letterSpacing: "-0.42px",
                       lineHeight: "19.6px",
-                      children: _v73[_v19 - 1]
+                      children: _v76[_v19 - 1]
                     })]
                   })]
                 })
-              }), (0, _v7.jsxs)(_v17.ModalBody, {
+              }), (0, _v10.jsxs)(_v20.ModalBody, {
                 px: {
                   base: "24px",
                   md: "32px"
                 },
                 py: "12px",
-                children: [1 === _v19 ? (0, _v7.jsx)(_v61, {
+                children: [1 === _v19 ? (0, _v10.jsx)(_v64, {
                   ..._v40,
                   pricing: _v9
-                }) : null, 2 === _v19 ? (0, _v7.jsx)(_v68, {
+                }) : null, 2 === _v19 ? (0, _v10.jsx)(_v71, {
                   ..._v40
-                }) : null, 3 === _v19 ? (0, _v7.jsx)(_v53, {
+                }) : null, 3 === _v19 ? (0, _v10.jsx)(_v56, {
                   ..._v40
                 }) : null]
-              }), (0, _v7.jsxs)(_v20.ModalFooter, {
+              }), (0, _v10.jsxs)(_v23.ModalFooter, {
                 borderColor: "rgba(26, 54, 93, 0.16)",
                 borderTopWidth: "1px",
                 justifyContent: "space-between",
@@ -2404,7 +2404,7 @@
                   base: "24px",
                   md: "32px"
                 },
-                children: [(0, _v7.jsx)(_v14.Button, {
+                children: [(0, _v10.jsx)(_v17.Button, {
                   borderRadius: "12px",
                   color: "text-primary",
                   fontSize: "14px",
@@ -2412,7 +2412,7 @@
                   onClick: () => _v20(_v19 - 1),
                   size: "lg",
                   variant: "tertiary",
-                  children: (0, _v24.translate)({
+                  children: (0, _v27.translate)({
                     singular: "Back",
                     dictionary: {
                       es: {
@@ -2438,7 +2438,7 @@
                       }
                     }
                   })
-                }), (0, _v7.jsx)(_v14.Button, {
+                }), (0, _v10.jsx)(_v17.Button, {
                   borderRadius: "12px",
                   flex: {
                     base: "1",
@@ -2452,13 +2452,13 @@
                   },
                   onClick: () => {
                     if (_v32) {
-                      if (_v19 < _v72.length) return void _v20(_v19 + 1);
+                      if (_v19 < _v75.length) return void _v20(_v19 + 1);
                       _v37();
                     }
                   },
                   size: "lg",
                   variant: "primary",
-                  children: _v19 === _v72.length ? (0, _v24.translate)({
+                  children: _v19 === _v75.length ? (0, _v27.translate)({
                     singular: "Submit & claim my discount",
                     dictionary: {
                       es: {
@@ -2483,7 +2483,7 @@
                         singular: "提交并领取我的折扣"
                       }
                     }
-                  }) : (0, _v24.translate)({
+                  }) : (0, _v27.translate)({
                     singular: "Continue",
                     dictionary: {
                       es: {
@@ -2510,7 +2510,7 @@
                     }
                   })
                 })]
-              }), _v27 ? (0, _v7.jsx)(_v35, {
+              }), _v27 ? (0, _v10.jsx)(_v38, {
                 onLeave: () => {
                   _v6(), _v35();
                 },
@@ -2518,7 +2518,7 @@
               }) : null]
             })
           })]
-        }), (0, _v7.jsxs)(_v16.Modal, {
+        }), (0, _v10.jsxs)(_v19.Modal, {
           closeOnEsc: !_v25 && !_v34,
           closeOnOverlayClick: !1,
           isCentered: !0,
@@ -2526,7 +2526,7 @@
           onClose: _v36,
           scrollBehavior: "inside",
           size: "lg",
-          children: [(0, _v7.jsx)(_v22.ModalOverlay, {
+          children: [(0, _v10.jsx)(_v25.ModalOverlay, {
             backdropFilter: {
               base: "none",
               md: "blur(5px)"
@@ -2535,8 +2535,8 @@
               base: "rgba(14, 18, 22, 0.8)",
               md: "rgba(0, 0, 0, 0.8)"
             }
-          }), (0, _v7.jsx)(_v15.LightMode, {
-            children: (0, _v7.jsx)(_v19.ModalContent, {
+          }), (0, _v10.jsx)(_v18.LightMode, {
+            children: (0, _v10.jsx)(_v22.ModalContent, {
               containerProps: {
                 p: {
                   base: "16px",
@@ -2559,7 +2559,7 @@
               m: "0",
               overflow: "hidden",
               w: "100%",
-              children: (0, _v7.jsx)(_v48, {
+              children: (0, _v10.jsx)(_v51, {
                 isClaimDisabled: _v3,
                 onClaim: _v38,
                 onClose: _v36,
@@ -2572,107 +2572,157 @@
         })]
       });
     };
-  var _v75 = _v0.i(0),
-    _v76 = _v0.i(0),
-    _v77 = _v0.i(0),
-    _v78 = _v0.i(0),
+  var _v78 = _v0.i(0),
     _v79 = _v0.i(0),
     _v80 = _v0.i(0),
     _v81 = _v0.i(0),
-    _v82 = _v0.i(0);
-  let _v83 = (0, _v76.rem)(20),
-    _v84 = [{
-      icon: (0, _v7.jsx)(_v81.Users, {
+    _v82 = _v0.i(0),
+    _v83 = _v0.i(0),
+    _v84 = _v0.i(0),
+    _v85 = _v0.i(0);
+  let _v86 = (0, _v79.rem)(20),
+    _v87 = [{
+      icon: (0, _v10.jsx)(_v84.Users, {
         "aria-hidden": "true",
-        boxSize: _v83
+        boxSize: _v86
       }),
-      label: (0, _v24.translate)("10 seats included (up to 20)")
+      label: (0, _v27.translate)("10 seats included (up to 20)")
     }, {
-      icon: (0, _v7.jsx)(_v78.Database, {
+      icon: (0, _v10.jsx)(_v82.Globe, {
         "aria-hidden": "true",
-        boxSize: _v83
+        boxSize: _v86
       }),
-      label: (0, _v24.translate)("7 TB for embeds and non-public videos")
-    }, {
-      icon: (0, _v7.jsx)(_v79.Globe, {
-        "aria-hidden": "true",
-        boxSize: _v83
-      }),
-      label: (0, _v24.translate)("Unlimited public storage")
-    }, {
-      icon: (0, _v7.jsx)(_v80.Speedometer, {
-        "aria-hidden": "true",
-        boxSize: _v83
-      }),
-      label: (0, _v24.translate)({
-        singular: "2 TB monthly bandwidth",
+      label: (0, _v27.translate)({
+        singular: "Unlimited public storage and bandwidth",
         dictionary: {
           es: {
-            singular: "2 TB de ancho de banda mensual"
+            singular: "Almacenamiento y ancho de banda públicos ilimitados"
           },
           "de-DE": {
-            singular: "2 TB monatliche Bandbreite"
+            singular: "Unbegrenzter öffentlicher Speicherplatz und Bandbreite"
           },
           "fr-FR": {
-            singular: "2 TB de bande passante mensuelle"
+            singular: "Stockage public illimité et bande passante illimitée"
           },
           "ja-JP": {
-            singular: "月間帯域幅 2 TB"
+            singular: "無制限の公開ストレージと帯域幅"
           },
           "ko-KR": {
-            singular: "월 2TB 대역폭"
+            singular: "공개 저장 공간 및 대역폭 무제한"
           },
           "pt-BR": {
-            singular: "2 TB de largura de banda mensal"
+            singular: "Armazenamento público e largura de banda ilimitados"
           },
           "zh-CN": {
-            singular: "每月 2 TB 带宽"
+            singular: "无限公共存储和带宽"
+          }
+        }
+      })
+    }, {
+      icon: (0, _v10.jsx)(_v81.Database, {
+        "aria-hidden": "true",
+        boxSize: _v86
+      }),
+      label: (0, _v27.translate)({
+        singular: "7 TB managed storage",
+        dictionary: {
+          es: {
+            singular: "7 TB de almacenamiento gestionado"
+          },
+          "de-DE": {
+            singular: "7 TB verwalteter Speicher"
+          },
+          "fr-FR": {
+            singular: "7 TB de stockage géré"
+          },
+          "ja-JP": {
+            singular: "7 TB の管理済みストレージ"
+          },
+          "ko-KR": {
+            singular: "7 TB 관리형 스토리지"
+          },
+          "pt-BR": {
+            singular: "7 TB de armazenamento gerenciado"
+          },
+          "zh-CN": {
+            singular: "7 TB 托管存储"
+          }
+        }
+      })
+    }, {
+      icon: (0, _v10.jsx)(_v83.Speedometer, {
+        "aria-hidden": "true",
+        boxSize: _v86
+      }),
+      label: (0, _v27.translate)({
+        singular: "2 TB/mo managed bandwidth",
+        dictionary: {
+          es: {
+            singular: "2 TB/mes de ancho de banda gestionado"
+          },
+          "de-DE": {
+            singular: "2 TB/Monat verwaltete Bandbreite"
+          },
+          "fr-FR": {
+            singular: "2 TB/mo de bande passante gérée"
+          },
+          "ja-JP": {
+            singular: "2 TB/月 の管理帯域幅"
+          },
+          "ko-KR": {
+            singular: "2 TB/월 관리형 대역폭"
+          },
+          "pt-BR": {
+            singular: "2 TB/mês de largura de banda gerenciada"
+          },
+          "zh-CN": {
+            singular: "每月 2 TB 托管带宽"
           }
         }
       })
     }],
-    _v85 = _v0 => (0, _v7.jsx)(_v75.Link, {
+    _v88 = _v0 => (0, _v10.jsx)(_v78.Link, {
       href: "/terms",
       variant: "inline-secondary",
       children: _v0
     }, "terms"),
-    _v86 = _v0 => (0, _v7.jsx)(_v75.Link, {
+    _v89 = _v0 => (0, _v10.jsx)(_v78.Link, {
       href: "/privacy",
       variant: "inline-secondary",
       children: _v0
     }, "privacy"),
-    _v87 = ({
+    _v90 = ({
       onClose: _v0
-    }) => (0, _v7.jsxs)(_v7.Fragment, {
-      children: [(0, _v7.jsx)(_v21.ModalHeader, {
+    }) => (0, _v10.jsxs)(_v10.Fragment, {
+      children: [(0, _v10.jsx)(_v24.ModalHeader, {
         p: "0",
         pr: "40px",
-        children: (0, _v7.jsx)(_v23.Text, {
+        children: (0, _v10.jsx)(_v26.Text, {
           as: "h2",
           fontFamily: "heading",
           fontSize: "20px",
           letterSpacing: "-0.8px",
-          children: (0, _v24.translate)("You're moving to Professional")
+          children: (0, _v27.translate)("You're moving to Professional")
         })
-      }), (0, _v7.jsx)(_v17.ModalBody, {
+      }), (0, _v10.jsx)(_v20.ModalBody, {
         p: "0",
         pt: "16px",
-        children: (0, _v7.jsx)(_v23.Text, {
+        children: (0, _v10.jsx)(_v26.Text, {
           color: "text-secondary",
           fontSize: "14px",
           letterSpacing: "-0.42px",
           lineHeight: "1.4",
-          children: (0, _v24.translate)("We'll switch you to Professional at the end of your current billing period. You won't be charged today.")
+          children: (0, _v27.translate)("We'll switch you to Professional at the end of your current billing period. You won't be charged today.")
         })
-      }), (0, _v7.jsx)(_v20.ModalFooter, {
+      }), (0, _v10.jsx)(_v23.ModalFooter, {
         mt: "24px",
         pb: "0",
         px: "0",
-        children: (0, _v7.jsx)(_v14.Button, {
+        children: (0, _v10.jsx)(_v17.Button, {
           onClick: _v0,
           size: "lg",
           width: "100%",
-          children: (0, _v24.translate)({
+          children: (0, _v27.translate)({
             singular: "Got it",
             dictionary: {
               es: {
@@ -2701,7 +2751,7 @@
         })
       })]
     }),
-    _v88 = ({
+    _v91 = ({
       discountPercent: _v0,
       isAutorenewOff: _v1,
       onClose: _v2,
@@ -2709,14 +2759,14 @@
       pricing: _v4,
       renewalDate: _v5,
       status: _v6
-    }) => (0, _v7.jsxs)(_v7.Fragment, {
-      children: [(0, _v7.jsx)(_v12.Box, {
+    }) => (0, _v10.jsxs)(_v10.Fragment, {
+      children: [(0, _v10.jsx)(_v15.Box, {
         left: "16px",
         position: "absolute",
         top: "16px",
         zIndex: 1,
-        children: (0, _v7.jsx)(_v62.IconButton, {
-          "aria-label": (0, _v24.translate)({
+        children: (0, _v10.jsx)(_v65.IconButton, {
+          "aria-label": (0, _v27.translate)({
             singular: "Back",
             dictionary: {
               es: {
@@ -2742,14 +2792,14 @@
               }
             }
           }),
-          icon: (0, _v7.jsx)(_v77.ChevronLeft, {
+          icon: (0, _v10.jsx)(_v80.ChevronLeft, {
             boxSize: "24px"
           }),
           onClick: _v2,
           size: "sm",
           variant: "tertiary"
         })
-      }), (0, _v7.jsx)(_v21.ModalHeader, {
+      }), (0, _v10.jsx)(_v24.ModalHeader, {
         px: {
           base: "24px",
           md: "32px"
@@ -2759,62 +2809,62 @@
           base: "56px",
           md: "64px"
         },
-        children: (0, _v7.jsx)(_v23.Text, {
+        children: (0, _v10.jsx)(_v26.Text, {
           as: "h2",
           fontFamily: "heading",
           fontSize: "24px",
           letterSpacing: "-0.96px",
           lineHeight: "1.2",
-          children: (0, _v24.translate)("Move to Professional?")
+          children: (0, _v27.translate)("Move to Professional?")
         })
-      }), (0, _v7.jsx)(_v17.ModalBody, {
+      }), (0, _v10.jsx)(_v20.ModalBody, {
         px: {
           base: "24px",
           md: "32px"
         },
         py: "12px",
-        children: (0, _v7.jsxs)(_v32.Flex, {
+        children: (0, _v10.jsxs)(_v35.Flex, {
           direction: "column",
           gap: "20px",
-          children: [(0, _v7.jsx)(_v23.Text, {
+          children: [(0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             fontSize: "14px",
             letterSpacing: "-0.42px",
             lineHeight: "1.4",
-            children: null === _v5 ? (0, _v24.translate)("Your current plan stays active until your next renewal. Professional starts then, with no charge today.") : (0, _v24.translate)({
+            children: null === _v5 ? (0, _v27.translate)("Your current plan stays active until your next renewal. Professional starts then, with no charge today.") : (0, _v27.translate)({
               singular: "Your current plan stays active until {DATE}. Professional starts at your next renewal, with no charge today.",
               replacements: {
                 DATE: _v5
               }
             })
-          }), null === _v4 ? (0, _v7.jsx)(_v58.Skeleton, {
+          }), null === _v4 ? (0, _v10.jsx)(_v61.Skeleton, {
             h: "48px",
             w: "220px"
-          }) : (0, _v7.jsxs)(_v32.Flex, {
+          }) : (0, _v10.jsxs)(_v35.Flex, {
             align: "baseline",
             gap: "8px",
             wrap: "wrap",
-            children: [(0, _v7.jsx)(_v23.Text, {
+            children: [(0, _v10.jsx)(_v26.Text, {
               fontFamily: "heading",
               fontSize: "36px",
               letterSpacing: "-1.44px",
               lineHeight: "1.2",
               children: _v4.indieMonthly
-            }), (0, _v7.jsx)(_v23.Text, {
+            }), (0, _v10.jsx)(_v26.Text, {
               color: "text-secondary",
               fontSize: "16px",
               letterSpacing: "-0.48px",
               textDecoration: "line-through",
               children: _v4.listMonthly
-            }), (0, _v7.jsx)(_v12.Box, {
+            }), (0, _v10.jsx)(_v15.Box, {
               bg: "fill-component",
               borderRadius: "full",
               px: "8px",
               py: "2px",
-              children: (0, _v7.jsx)(_v23.Text, {
+              children: (0, _v10.jsx)(_v26.Text, {
                 fontSize: "12px",
                 letterSpacing: "-0.24px",
-                children: (0, _v24.translate)({
+                children: (0, _v27.translate)({
                   singular: "Save {PERCENT}%",
                   replacements: {
                     PERCENT: _v0
@@ -2845,58 +2895,58 @@
                 })
               })
             })]
-          }), (0, _v7.jsx)(_v23.Text, {
+          }), (0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             fontSize: "12px",
             letterSpacing: "-0.24px",
             lineHeight: "1.4",
-            children: null === _v4 ? (0, _v24.translate)("Per month, billed annually plus taxes.") : (0, _v24.translate)({
+            children: null === _v4 ? (0, _v27.translate)("Per month, billed annually plus taxes.") : (0, _v27.translate)({
               singular: "Per month, billed annually at {PRICE}/year plus taxes.",
               replacements: {
                 PRICE: _v4.indieAnnual
               }
             })
-          }), (0, _v7.jsx)(_v32.Flex, {
+          }), (0, _v10.jsx)(_v35.Flex, {
             direction: "column",
             gap: "12px",
-            children: _v84.map(_v0 => (0, _v7.jsxs)(_v32.Flex, {
+            children: _v87.map(_v0 => (0, _v10.jsxs)(_v35.Flex, {
               align: "center",
               gap: "12px",
-              children: [(0, _v7.jsx)(_v12.Box, {
+              children: [(0, _v10.jsx)(_v15.Box, {
                 color: "text-primary",
                 flexShrink: 0,
                 children: _v0.icon
-              }), (0, _v7.jsx)(_v23.Text, {
+              }), (0, _v10.jsx)(_v26.Text, {
                 fontSize: "14px",
                 letterSpacing: "-0.42px",
                 lineHeight: "1.4",
                 children: _v0.label
               })]
             }, _v0.label))
-          }), null === _v4 ? null : (0, _v7.jsx)(_v23.Text, {
+          }), null === _v4 ? null : (0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             fontSize: "12px",
             letterSpacing: "-0.24px",
             lineHeight: "1.4",
-            children: null === _v5 ? (0, _v24.translate)({
+            children: null === _v5 ? (0, _v27.translate)({
               singular: "Your Professional plan renews at {PRICE}/year. By moving to Professional, you agree to our {TERMS}Terms{/TERMS} and {PRIVACY}Privacy Policy{/PRIVACY}.",
               replacements: {
                 PRICE: _v4.indieAnnual,
-                TERMS: _v85,
-                PRIVACY: _v86
+                TERMS: _v88,
+                PRIVACY: _v89
               }
-            }) : (0, _v24.translate)({
+            }) : (0, _v27.translate)({
               singular: "Your Professional plan renews at {PRICE}/year on {DATE}, unless you cancel before then. By moving to Professional, you agree to our {TERMS}Terms{/TERMS} and {PRIVACY}Privacy Policy{/PRIVACY}.",
               replacements: {
                 DATE: _v5,
                 PRICE: _v4.indieAnnual,
-                TERMS: _v85,
-                PRIVACY: _v86
+                TERMS: _v88,
+                PRIVACY: _v89
               }
             })
           })]
         })
-      }), (0, _v7.jsxs)(_v20.ModalFooter, {
+      }), (0, _v10.jsxs)(_v23.ModalFooter, {
         alignItems: "stretch",
         flexDirection: "column",
         gap: "8px",
@@ -2906,32 +2956,32 @@
           base: "24px",
           md: "32px"
         },
-        children: [_v1 ? (0, _v7.jsxs)(_v23.Text, {
+        children: [_v1 ? (0, _v10.jsxs)(_v26.Text, {
           color: "status-destructive-primary",
           fontSize: "13px",
           lineHeight: "1.4",
-          children: [(0, _v24.translate)("Turn on auto-renew to change your plan."), " ", (0, _v7.jsx)(_v75.Link, {
+          children: [(0, _v27.translate)("Turn on auto-renew to change your plan."), " ", (0, _v10.jsx)(_v78.Link, {
             href: "/settings/billing/membership_plan",
             variant: "inline-secondary",
-            children: (0, _v24.translate)("Manage auto-renew")
+            children: (0, _v27.translate)("Manage auto-renew")
           })]
-        }) : null, "error" === _v6 ? (0, _v7.jsx)(_v23.Text, {
+        }) : null, "error" === _v6 ? (0, _v10.jsx)(_v26.Text, {
           color: "status-destructive-primary",
           fontSize: "13px",
           lineHeight: "1.4",
-          children: (0, _v24.translate)("Something went wrong. We couldn't schedule your plan change. Try again.")
-        }) : null, (0, _v7.jsx)(_v14.Button, {
+          children: (0, _v27.translate)("Something went wrong. We couldn't schedule your plan change. Try again.")
+        }) : null, (0, _v10.jsx)(_v17.Button, {
           isDisabled: _v1,
           isLoading: "submitting" === _v6,
           onClick: _v3,
           size: "lg",
           width: "100%",
-          children: (0, _v24.translate)("Move to Professional")
-        }), (0, _v7.jsx)(_v14.Button, {
+          children: (0, _v27.translate)("Move to Professional")
+        }), (0, _v10.jsx)(_v17.Button, {
           onClick: _v2,
           size: "sm",
           variant: "tertiary",
-          children: (0, _v24.translate)({
+          children: (0, _v27.translate)({
             singular: "No thanks",
             dictionary: {
               es: {
@@ -2960,7 +3010,7 @@
         })]
       })]
     }),
-    _v89 = ({
+    _v92 = ({
       billingPlanId: _v0,
       discountPercent: _v1,
       isOpen: _v2,
@@ -2973,8 +3023,8 @@
           jwt: _v7,
           locale: _v8,
           xVimeoPage: _v9
-        } = (0, _v34.useGctlConfig)(),
-        [_v10, _v11] = (0, _v28.useState)("idle"),
+        } = (0, _v37.useGctlConfig)(),
+        [_v10, _v11] = (0, _v31.useState)("idle"),
         _v12 = ((_v0, _v1) => {
           if (void 0 === _v0) return null;
           let _v2 = new Date(_v0);
@@ -2986,14 +3036,14 @@
         })(_v3.endDate, _v8),
         _v13 = !1 === _v3.hasAutorenew,
         _v14 = "success" === _v10,
-        _v15 = (0, _v28.useCallback)(() => {
+        _v15 = (0, _v31.useCallback)(() => {
           "submitting" !== _v10 && (_v11("idle"), _v4());
         }, [_v4, _v10]),
-        _v16 = (0, _v28.useCallback)(async () => {
+        _v16 = (0, _v31.useCallback)(async () => {
           if (!_v13) {
             _v11("submitting");
             try {
-              await (0, _v82.putMeSubscriptionScheduledOrder)({
+              await (0, _v85.putMeSubscriptionScheduledOrder)({
                 where: {
                   subscriptionId: _v3.subscriptionId
                 },
@@ -3013,12 +3063,12 @@
             }
           }
         }, [_v0, _v6, _v13, _v7, _v8, _v3.subscriptionId, _v9]);
-      return (0, _v7.jsxs)(_v16.Modal, {
+      return (0, _v10.jsxs)(_v19.Modal, {
         isOpen: _v2,
         onClose: _v15,
         size: "lg",
-        children: [(0, _v7.jsx)(_v22.ModalOverlay, {}), (0, _v7.jsx)(_v15.LightMode, {
-          children: (0, _v7.jsx)(_v19.ModalContent, {
+        children: [(0, _v10.jsx)(_v25.ModalOverlay, {}), (0, _v10.jsx)(_v18.LightMode, {
+          children: (0, _v10.jsx)(_v22.ModalContent, {
             bg: "white",
             "data-theme": "light",
             maxW: {
@@ -3029,9 +3079,9 @@
               base: "24px",
               md: "32px"
             } : void 0,
-            children: _v14 ? (0, _v7.jsx)(_v87, {
+            children: _v14 ? (0, _v10.jsx)(_v90, {
               onClose: _v15
-            }) : (0, _v7.jsx)(_v88, {
+            }) : (0, _v10.jsx)(_v91, {
               discountPercent: _v1,
               isAutorenewOff: _v13,
               onClose: _v15,
@@ -3044,11 +3094,11 @@
         })]
       });
     };
-  var _v90 = _v0.i(0),
-    _v91 = _v0.i(0),
-    _v92 = _v0.i(0),
-    _v93 = _v0.i(0);
-  let _v94 = ({
+  var _v93 = _v0.i(0),
+    _v94 = _v0.i(0),
+    _v95 = _v0.i(0),
+    _v96 = _v0.i(0);
+  let _v97 = ({
       isOpen: _v0,
       onClose: _v1,
       pricing: _v2
@@ -3064,7 +3114,7 @@
         } = (() => {
           var _v0;
           let _v1,
-            _v2 = (0, _v13.useViewer)(),
+            _v2 = (0, _v16.useViewer)(),
             _v3 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
             _v4 = !!_v2?.user,
             {
@@ -3072,7 +3122,7 @@
               error: _v6,
               isLoading: _v7,
               mutate: _v8
-            } = (0, _v90.useGetMeCapabilities)(() => _v4 ? {
+            } = (0, _v93.useGetMeCapabilities)(() => _v4 ? {
               select: ["usePaymentsService"]
             } : null),
             {
@@ -3080,7 +3130,7 @@
               error: _v10,
               isLoading: _v11,
               mutate: _v12
-            } = (0, _v92.useGetUserSettingsBillingMembership)(() => null == _v3 ? null : {
+            } = (0, _v95.useGetUserSettingsBillingMembership)(() => null == _v3 ? null : {
               select: ["subscriptionId", "vendor", "endDate", "hasAutorenew"],
               where: {
                 userId: _v3
@@ -3093,7 +3143,7 @@
               error: _v16,
               isLoading: _v17,
               mutate: _v18
-            } = (0, _v91.useGetMeSubscriptionScheduledOrder)(() => null == _v14 ? null : {
+            } = (0, _v94.useGetMeSubscriptionScheduledOrder)(() => null == _v14 ? null : {
               select: ["billingPlanId", "renewalDate"],
               where: {
                 subscriptionId: _v14
@@ -3106,13 +3156,13 @@
               canRedeem: (_v1 = !!_v9?.subscriptionId && _v9?.vendor === "juno") || !0 === _v0,
               hasActivePsSub: _v1
             }),
-            _v21 = (0, _v28.useCallback)(() => {
+            _v21 = (0, _v31.useCallback)(() => {
               _v12(), _v8(), _v18();
             }, [_v8, _v12, _v18]);
           return {
             canRedeem: _v19,
             hasActivePsSub: _v20,
-            hasIndieScheduledChange: _v15?.billingPlanId === _v93.INDIE_PROGRAM_BILLING_PLAN_ID,
+            hasIndieScheduledChange: _v15?.billingPlanId === _v96.INDIE_PROGRAM_BILLING_PLAN_ID,
             isClaimContextError: !!(_v10 ?? _v6 ?? _v16),
             isClaimContextLoading: _v11 || _v7 || _v17,
             subscription: null == _v14 ? null : {
@@ -3123,22 +3173,22 @@
             revalidate: _v21
           };
         })(),
-        [_v10, _v11] = (0, _v28.useState)(null),
-        [_v12, _v13] = (0, _v28.useState)(!1),
-        [, _v14] = (0, _v29.default)(_v31.SELECTED_BILLING_PLAN_ID_STORAGE_KEY, void 0),
-        _v15 = (0, _v28.useCallback)(_v0 => {
-          _v14(_v0.billingPlanId), window.location.assign((0, _v30.buildCheckoutUrl)({
-            ..._v25.INDIE_PAYWALL,
+        [_v10, _v11] = (0, _v31.useState)(null),
+        [_v12, _v13] = (0, _v31.useState)(!1),
+        [, _v14] = (0, _v32.default)(_v34.SELECTED_BILLING_PLAN_ID_STORAGE_KEY, void 0),
+        _v15 = (0, _v31.useCallback)(_v0 => {
+          _v14(_v0.billingPlanId), window.location.assign((0, _v33.buildCheckoutUrl)({
+            ..._v28.INDIE_PAYWALL,
             tier: "professional",
             paywallTrigger: "indie_program_claim_offer"
           }, {
             indie_offer: "1"
           }));
         }, [_v14]),
-        _v16 = (0, _v28.useCallback)(() => {
+        _v16 = (0, _v31.useCallback)(() => {
           _v13(!1), _v1();
         }, [_v1]),
-        _v17 = (0, _v28.useCallback)(_v0 => {
+        _v17 = (0, _v31.useCallback)(_v0 => {
           if (_v16(), _v5) {
             _v13(!0), window.setTimeout(() => _v13(!1), 0);
             return;
@@ -3148,15 +3198,15 @@
             discountPercent: _v0.discountPercent
           });
         }, [_v16, _v5]),
-        _v18 = (0, _v28.useCallback)(() => _v11(null), []),
+        _v18 = (0, _v31.useCallback)(() => _v11(null), []),
         _v19 = null !== _v10 && null !== _v9 ? {
           billingPlanId: _v10.billingPlanId,
           discountPercent: _v10.discountPercent,
           membership: _v9
         } : null;
-      return (0, _v7.jsxs)(_v7.Fragment, {
-        children: [_v12 && !_v0 ? (0, _v7.jsx)(_v15.LightMode, {
-          children: (0, _v7.jsx)(_v12.Box, {
+      return (0, _v10.jsxs)(_v10.Fragment, {
+        children: [_v12 && !_v0 ? (0, _v10.jsx)(_v18.LightMode, {
+          children: (0, _v10.jsx)(_v15.Box, {
             bg: "white",
             borderRadius: "12px",
             bottom: "24px",
@@ -3169,12 +3219,12 @@
             role: "status",
             transform: "translateX(-50%)",
             zIndex: 2,
-            children: (0, _v7.jsx)(_v23.Text, {
+            children: (0, _v10.jsx)(_v26.Text, {
               fontSize: "14px",
-              children: (0, _v24.translate)("You already have a scheduled plan change")
+              children: (0, _v27.translate)("You already have a scheduled plan change")
             })
           })
-        }) : null, (0, _v7.jsx)(_v74, {
+        }) : null, (0, _v10.jsx)(_v77, {
           canRedeem: _v3,
           hasActivePsSub: _v4,
           isClaimContextError: _v6,
@@ -3185,7 +3235,7 @@
           onRetryClaimContext: _v8,
           onUpgrade: _v17,
           pricing: _v2
-        }), null === _v19 ? null : (0, _v7.jsx)(_v89, {
+        }), null === _v19 ? null : (0, _v10.jsx)(_v92, {
           ..._v19,
           isOpen: !0,
           onClose: _v18,
@@ -3193,7 +3243,7 @@
         })]
       });
     },
-    _v95 = _v0 => (0, _v7.jsx)(_v12.Box, {
+    _v98 = _v0 => (0, _v10.jsx)(_v15.Box, {
       w: "100%",
       maxW: "1440px",
       mx: "auto",
@@ -3203,10 +3253,10 @@
       },
       ..._v0
     });
-  var _v96 = _v0.i(0),
-    _v97 = _v0.i(0);
-  let _v98 = "transform 350ms cubic-bezier(.33, 0, .25, 1)",
-    _v99 = {
+  var _v99 = _v0.i(0),
+    _v100 = _v0.i(0);
+  let _v101 = "transform 350ms cubic-bezier(.33, 0, .25, 1)",
+    _v102 = {
       primary: {
         bg: "fill-brand",
         fill: "vimeoBlue.600",
@@ -3220,7 +3270,7 @@
         glow: void 0
       }
     },
-    _v100 = {
+    _v103 = {
       hero: {
         arrow: "26px",
         fontSize: "18px",
@@ -3252,8 +3302,8 @@
         width: "auto"
       }
     },
-    _v101 = _v0 => `${1.5 * _v0}px`,
-    _v102 = ({
+    _v104 = _v0 => `${1.5 * _v0}px`,
+    _v105 = ({
       children: _v0,
       href: _v1,
       onClick: _v2,
@@ -3265,11 +3315,11 @@
           fill: _v6,
           ink: _v7,
           glow: _v8
-        } = _v99[_v4],
-        _v9 = _v100[_v3];
-      return (0, _v7.jsxs)(_v14.Button, {
+        } = _v102[_v4],
+        _v9 = _v103[_v3];
+      return (0, _v10.jsxs)(_v17.Button, {
         alignItems: "center",
-        as: void 0 === _v1 ? void 0 : _v96.default,
+        as: void 0 === _v1 ? void 0 : _v99.default,
         borderRadius: "12px",
         display: "inline-flex",
         filter: _v9.glow ? _v8 : void 0,
@@ -3289,8 +3339,8 @@
           color: _v7,
           isolation: "isolate",
           "& svg": {
-            height: _v101(_v9.glyph),
-            width: _v101(_v9.glyph)
+            height: _v104(_v9.glyph),
+            width: _v104(_v9.glyph)
           },
           _active: {
             bgColor: _v5
@@ -3303,7 +3353,7 @@
             pointerEvents: "none",
             position: "absolute",
             transform: "translateX(100%)",
-            transition: _v98,
+            transition: _v101,
             zIndex: 0
           },
           _hover: {
@@ -3318,45 +3368,45 @@
         },
         variant: "brand",
         w: _v9.width,
-        children: [(0, _v7.jsx)(_v12.Box, {
+        children: [(0, _v10.jsx)(_v15.Box, {
           as: "span",
           zIndex: 1,
           children: _v0
-        }), (0, _v7.jsx)(_v12.Box, {
+        }), (0, _v10.jsx)(_v15.Box, {
           "aria-hidden": !0,
           flexShrink: 0,
           h: _v9.arrow,
           overflow: "hidden",
           w: _v9.arrow,
           zIndex: 1,
-          children: (0, _v7.jsxs)(_v12.Box, {
+          children: (0, _v10.jsxs)(_v15.Box, {
             className: "indie-cta-arrows",
             display: "flex",
             h: "100%",
-            transition: _v98,
+            transition: _v101,
             w: "200%",
-            children: [(0, _v7.jsx)(_v12.Box, {
+            children: [(0, _v10.jsx)(_v15.Box, {
               alignItems: "center",
               display: "flex",
               flex: "0 0 50%",
               justifyContent: "center",
               minW: "0",
-              children: (0, _v7.jsx)(_v97.ArrowRight, {})
-            }), (0, _v7.jsx)(_v12.Box, {
+              children: (0, _v10.jsx)(_v100.ArrowRight, {})
+            }), (0, _v10.jsx)(_v15.Box, {
               alignItems: "center",
               display: "flex",
               flex: "0 0 50%",
               justifyContent: "center",
               minW: "0",
-              children: (0, _v7.jsx)(_v97.ArrowRight, {})
+              children: (0, _v10.jsx)(_v100.ArrowRight, {})
             })]
           })
         })]
       });
     },
-    _v103 = ({
+    _v106 = ({
       onClaim: _v0
-    }) => (0, _v7.jsx)(_v12.Box, {
+    }) => (0, _v10.jsx)(_v15.Box, {
       as: "section",
       bg: "background",
       pb: {
@@ -3367,8 +3417,8 @@
         base: "3xl",
         md: "80px"
       },
-      children: (0, _v7.jsx)(_v95, {
-        children: (0, _v7.jsxs)(_v32.Flex, {
+      children: (0, _v10.jsx)(_v98, {
+        children: (0, _v10.jsxs)(_v35.Flex, {
           align: "center",
           bg: "black",
           borderRadius: "lg",
@@ -3382,14 +3432,14 @@
             md: "1200"
           },
           textAlign: "center",
-          children: [(0, _v7.jsx)(_v23.Text, {
+          children: [(0, _v10.jsx)(_v26.Text, {
             as: "h2",
             maxW: "750px",
             variant: {
               base: "heading-xl",
               md: "heading-3xl"
             },
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "The next film is yours to make.",
               dictionary: {
                 es: {
@@ -3415,14 +3465,14 @@
                 }
               }
             })
-          }), (0, _v7.jsx)(_v23.Text, {
+          }), (0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             mt: "md",
             variant: {
               base: "body-lg",
               md: "body-xl"
             },
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "Claim your indie discount and get back to what matters: the work.",
               dictionary: {
                 es: {
@@ -3448,13 +3498,13 @@
                 }
               }
             })
-          }), (0, _v7.jsx)(_v12.Box, {
+          }), (0, _v10.jsx)(_v15.Box, {
             mt: "2xl",
-            children: (0, _v7.jsx)(_v102, {
+            children: (0, _v10.jsx)(_v105, {
               onClick: _v0,
               size: "closing",
               tone: "primary",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "Claim your indie discount",
                 dictionary: {
                   es: {
@@ -3481,13 +3531,13 @@
                 }
               })
             })
-          }), (0, _v7.jsx)(_v23.Text, {
+          }), (0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             fontSize: "13px",
             letterSpacing: "-0.4px",
             lineHeight: "21.48px",
             mt: "md",
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "Limited spots available",
               dictionary: {
                 es: {
@@ -3517,207 +3567,249 @@
         })
       })
     });
-  var _v104 = _v0.i(0),
-    _v105 = _v0.i(0);
-  let _v106 = () => (0, _v7.jsx)(_v12.Box, {
-    as: "section",
-    bg: "background",
-    py: {
-      base: "3xl",
-      md: "124px"
+  var _v107 = _v0.i(0),
+    _v108 = _v0.i(0);
+  function _v109() {
+    return (_v109 = Object.assign.bind()).apply(null, arguments);
+  }
+  let _v110 = function (_v0) {
+      return _v31.createElement("svg", _v109({
+        xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "0 0 400 400"
+      }, _v0), _v6 || (_v6 = _v31.createElement("circle", {
+        cx: 200,
+        cy: 200,
+        r: 200
+      })), _v7 || (_v7 = _v31.createElement("path", {
+        d: "M123.2 51.8l10-11.2-15.2 1.6-10 11.2zm168.4 1.6l-10-11.2-14.8-1.6 10 11.2zM114 173.2V190h10.4v-30.8H110c-4.4 0-8-3.6-8-8v-36.4c0-4.4 3.2-8 7.6-8h19.2c4.4 0 8 3.2 8.4 7.6v20.4h-12.4v-16h-10.4v28h14.4c4.4 0 8 3.6 8.4 8v40c0 4.4-3.6 8-8.4 8H110c-4.4 0-8-3.6-8-8V174h12v-.8zm40.4-54.4h-10.8v-12.4h34v12.4h-10.8v83.6h-12.4v-83.6zm52.8 64.8h-13.6l-2 18.8h-12.4l10-95.6h22l10 95.6h-12l-2-18.8zm-12-12.4H206l-5.6-52.4-5.2 52.4zm33.6 31.2v-96h30.8v12.4h-18.4v26.4H254v12.4h-12.8v44.8h-12.4zm39.2 0v-96h30.8v12.4h-18.4v26.4h12.8v12.4h-12.8v44.8H268zm-140 12h26.8c4.4 0 8 3.6 8 8v36c0 4.4-3.6 8-8 8H140V310h-12v-95.6zm22.8 12.4H140v27.6h10.4l.4-27.6zm20.4-12.4h12.4V310h-12.4v-95.6zm45.6 28.8v-16.4h-10.4V298h10.4v-16.4h12.4v20.8c0 4.4-3.6 8-8.4 8H202c-4.4 0-8-3.6-8-8v-79.6c.4-4.4 3.6-7.6 8-8h18.8c4.4 0 8 3.6 8.4 8v20.4h-12.4zm34-28.8v36l9.6-36h12.8L260 258.8l14.8 51.2H262l-11.2-42v42h-12.4v-95.6h12.4zm21.7 135.5c-.9 2.1-1.9 4.2-2.6 5.6l.7-.3c.4-.2.9-.4 1.5-.7 1-.4 2.1-.9 3.1-1.5l5.9-3c.2-.1.3-.2.4-.2.3-.8 1.5-4 2.5-7l.9-2.6.9-3.2-.6.4c-.8.5-1.9 1.2-3 1.8l-1.2.7c-.6.3-1.1.6-1.7 1-.9.5-1.8 1-2.5 1.4l-1.8.9c-.1.6-1.2 3.7-2.5 6.7zm12.5 11.8l2-1c.8-.5 1.9-1.1 3-1.7.6-.3 1.1-.7 1.7-1l1.2-.7c1.3-.7 2.5-1.4 3.4-2.1l.8-.5-3.4-.4-2.9-.4c-3.4-.5-6.7-1.1-7.5-1.3-.1.1-.2.1-.4.2l-6.1 3.1c-1.1.6-2.2 1.1-3.2 1.5-.5.2-1 .4-1.4.7l-.7.3c1.4.4 3.8 1 6.1 1.6 3.1.9 6.5 1.6 7.4 1.7zm6.2-28.3c-.5.4-1 .7-1.3.9l-.3.2c-.2.8-1.1 3.9-2 7.1-.4 1.4-.9 2.7-1.3 3.9l-.7 2 2.7-1.6c.5-.3.9-.6 1.4-.9.3-.2.6-.4.8-.5l4.3-2.7c.6-.4 1-.7 1.4-.9l.4-.3c.2-.8 1.1-4.1 1.8-7.2.3-1.3.6-2.7.8-3.9.1-.4.1-.8.2-1.2l.2-.9-2.3 1.8c-.4.3-.9.6-1.3.9-.3.2-.5.4-.8.6l-4 2.7zm10 18.7l.4-.3c.4-.2.9-.6 1.5-1l4.4-3.1.9-.6c.5-.4 1-.7 1.5-1.1l2.7-2.1h-2.2c-1.3 0-2.7 0-4.2-.1-3.4-.2-6.8-.5-7.6-.5l-.4.3c-.5.3-.9.7-1.4 1l-4.3 2.8c-.3.2-.6.4-.8.5-.5.3-1 .7-1.5.9l-2.8 1.6.9.2c.4.1.8.1 1.2.2 1.3.2 2.7.5 4.1.6 3.3.3 6.8.6 7.6.7zm-33.2-5.5c-.6.3-1.2.5-1.7.8-.5.2-.9.4-1.4.6-1.1.5-2.1 1-3 1.3l-1.9.7-1.5 2.9c-.6 1.1-1.2 2.4-2 3.6-1.1 2-2.3 4-3.1 5.3l5.5-1.9 6.6-2.6c.2-.3.5-1 1-2 .6-1.3 1.4-3 2.2-4.8 1-2.1 1.9-4.2 2.4-5.5l-.6.3c-.6.5-1.5.9-2.5 1.3zm5.4 20.7c.5-.2 1-.5 1.5-.7.6-.3 1.2-.6 1.8-.8 1.1-.5 2.2-1 3.1-1.4l.8-.4c-1.5-.3-3.9-.9-6.3-1.5-1.9-.5-3.8-1-5.2-1.4-1-.3-1.8-.5-2.2-.6l-6.8 2.7-5.7 1.9c1.4.5 3.6 1.4 5.9 2.2 1.4.5 2.8 1 4 1.3.4.1.8.2 1.2.4l2.2.7 2.1-.8c1.1-.5 2.3-1 3.6-1.6zm-166.3-10l1.2.7c.6.3 1.2.7 1.7 1 1.1.6 2.1 1.2 3 1.7l2 1c.8-.2 4.3-.8 7.6-1.6 2.4-.6 4.7-1.2 6.1-1.6l-.7-.3c-.4-.2-.9-.4-1.5-.7-1-.4-2.1-.9-3.2-1.5l-6.1-3.1c-.2-.1-.3-.2-.4-.2-.8.2-4.1.8-7.5 1.3l-2.9.4-3.5.4.7.5c1 .6 2.2 1.3 3.5 2zm17.7-14.2l-1.7-.9c-.7-.4-1.6-.9-2.5-1.4-.5-.3-1.1-.6-1.7-1l-1.2-.7c-1.1-.6-2.2-1.2-3-1.8l-.6-.4.9 3.2.9 2.6c1 3.1 2.2 6.2 2.5 7 .1 0 .2.1.4.2l6 3.1c1 .6 2.1 1 3.1 1.5.5.2 1 .5 1.5.7l.7.3c-.6-1.3-1.6-3.5-2.6-5.6-1.3-3-2.4-6.1-2.7-6.8zm-27.9 7.8c.6.4 1.1.8 1.5 1l.4.3c.8-.1 4.4-.4 7.7-.8 1.4-.2 2.9-.4 4.1-.6.4-.1.8-.1 1.2-.2l.9-.2-2.8-1.6-1.5-.9c-.3-.2-.5-.4-.8-.5l-4.3-2.8c-.6-.4-1.1-.7-1.4-1l-.4-.2c-.8.1-4.2.3-7.7.5-1.5.1-2.9.1-4.2.1h-2.2l2.7 2.1c.5.4 1 .7 1.5 1.1l.9.6 4.4 3.1zm15.5-9.3c-.9-3.1-1.8-6.2-2-7.1l-.3-.2c-.3-.2-.8-.5-1.3-.9l-3.9-2.8c-.3-.2-.5-.4-.8-.5-.5-.3-.9-.6-1.3-1l-2.3-1.8.2.9c.1.3.1.7.2 1.2.2 1.2.5 2.6.8 3.9.7 3.1 1.6 6.4 1.8 7.2l.4.2c.3.2.8.6 1.4.9l4.3 2.7c.3.2.6.4.8.5.5.3 1 .6 1.4.9l2.7 1.6-.7-2c-.5-1-1-2.3-1.4-3.7zm27.2 25.6c2.3-.8 4.5-1.7 5.9-2.2l-5.6-1.9-6.8-2.7c-.3.1-1.1.4-2.2.6-1.4.4-3.3.9-5.2 1.4-2.4.6-4.7 1.2-6.3 1.5l.8.4c.9.4 1.9.9 3.1 1.4.6.3 1.2.5 1.8.8.5.2 1 .5 1.5.7 1.3.6 2.4 1.1 3.4 1.5l2.1.8 2.2-.7c.4-.1.7-.2 1.1-.4 1.4-.2 2.8-.6 4.2-1.2zm1.4-7.2l5.5 1.9c-.8-1.3-2-3.3-3.1-5.3-.7-1.2-1.4-2.5-2-3.6l-1.4-3-1.8-.7c-.9-.3-1.9-.8-3-1.3-.5-.2-.9-.4-1.4-.6-.6-.3-1.2-.5-1.8-.8-1-.4-1.9-.8-2.6-1.2l-.6-.3c.5 1.3 1.4 3.5 2.4 5.5.8 1.7 1.6 3.5 2.2 4.8.4 1 .8 1.6 1 2l6.6 2.6zm227.9-186.4l-.3-2.1-3.9-3.3-1.8-1.4c-1.9-1.4-3.7-2.8-4.9-3.6l1.2 5.4c.2 1.1.4 2.2.6 3.2.1.5.2 1 .2 1.5l.3 1.9 3.5 2.9c.5.4 1 .9 1.5 1.3l.6.5c1.7 1.6 3.4 3.2 4.4 4.3l-.5-5.8c-.1-1.2-.3-2.3-.5-3.4-.2-.4-.3-.9-.4-1.4zm10.9-8.9l-1.3-6.1c-.7 1.4-1.8 3.6-2.8 5.7l-1.3 2.5-2.4 4.2.3 2.1c.1.5.2 1 .2 1.6.2 1.1.4 2.3.5 3.5l.6 5.9c.8-1.2 2.2-3.2 3.5-5.2l.5-.7c.4-.6.8-1.2 1.1-1.8l2.4-4.2-.3-2.2c-.1-.5-.2-1.1-.3-1.7-.2-1.1-.4-2.3-.7-3.6zm-14.9-10.4c-.7-.5-3.5-2.3-6.2-4.1-1.2-.7-2.4-1.4-3.5-2-.4-.2-.7-.4-1-.6l-.8-.4 1 2.8c.2.5.3 1 .5 1.6.1.3.2.6.2.9l1.8 6.5c.3.2 1 .6 1.8 1.2 1.1.8 2.6 1.9 4.2 3 1.5 1.1 3.1 2.3 4.2 3.2.3.2.5.4.7.6l-1.2-5.7c-.1-.5-.2-1.1-.3-1.6-.3-1.2-.5-2.4-.8-3.3l-.6-2.1zm3.2-.9l.6 2c.3.9.6 2.2.8 3.4.1.5.2 1.1.3 1.6l1.3 5.8c.1-.2.3-.5.4-.8.7-1.3 1.6-3 2.5-4.8.9-1.8 1.8-3.6 2.4-4.9.5-1 .8-1.8 1-2.1l-2.1-7.4c-.1-.3-.2-.7-.3-1-.2-.6-.3-1.2-.5-1.7l-1.1-3.2-.3.9c-.1.4-.3.8-.4 1.2-.4 1.2-.9 2.5-1.5 3.9-1.4 3.3-2.8 6.4-3.1 7.1zm-8.5-15.4l-.2-.4c-.7-.4-3.8-2-6.7-3.4l-.9-.4c-1.4-.7-2.7-1.3-3.7-1.7l-.8-.3.3.6 3.7 8.8.7 1.9c.7.4 3.6 1.9 6.4 3.6l2.4 1.4 2.8 1.8-.2-.8c-.2-1-.6-2.1-1.1-3.3-.2-.5-.3-1-.5-1.5l-1.9-5.5c-.1-.3-.2-.6-.3-.8zm7.1-14.4l-.4-.8-.2.9c-.3 1.2-.7 2.7-1.2 4.4l-.3 1c-.9 3.3-2 6.5-2.2 7.3l.2.4.3.9 1.9 5.5c.2.5.3 1 .5 1.5.4 1.3.9 2.4 1.1 3.4l.2.7 1.4-3.2 1-2.7c1.2-3.2 2.3-6.5 2.6-7.3l-.8-2.1-4.1-9.9zm-16.6-2.9c-1.3-.5-3.1-1.2-4.9-1.8-2.2-.8-4.4-1.5-5.7-2l3.2 5.6c.3.5.5.9.8 1.4l1.8 3.8 3 1.2c1.1.5 2.5 1 3.8 1.7 2.1 1 4.2 2 5.5 2.7l-.3-.7c-.2-.4-.4-.9-.6-1.5-.4-1-.9-2.1-1.4-3.2l-3.2-6.4-2-.8zm12-6.6c-.3-.5-.6-1.1-.9-1.6l-3.6-6.4c-.2 1.5-.6 4-1 6.3-.3 2-.7 3.9-1 5.3l-.5 2.2 3.2 6.5c.5 1.1 1 2.3 1.4 3.3l.6 1.5.3.7c.4-1.4 1.1-3.7 1.8-6.1.4-1.4.7-2.8 1-4.1l.8-3.4-2.1-4.2zm-17.7-6.1l-1.1-1.8-2.9-.9c-1.3-.4-2.7-.8-4.2-1.1-2.3-.5-4.6-1-6-1.3l3.3 4.4 3.7 5.7c.8.2 4 1.1 7 2.2 2.2.7 4.4 1.6 5.8 2.1l-2.9-5.1c-.6-1.2-1.3-2.3-2-3.3-.3-.2-.5-.5-.7-.9zm6.4-12.5l-3.7-5c-.1 1.5-.1 4-.3 6.4-.1 1.6-.2 3.3-.4 4.6l-.3 3.1 1.2 1.8c.2.3.4.7.7 1 .7 1 1.4 2.1 2.1 3.4l2.9 5.2c.3-1.5.7-3.8 1.1-6.2.6-3.4.9-6.9 1-7.7l-4.3-6.6zM332.9 92c-.8-.2-4.1-.7-7.3-1.2-1.3-.2-2.7-.4-3.9-.5-.5 0-.9-.1-1.3-.1l-.9-.1 2 2.1c.4.4.7.8 1.1 1.3l4.9 5.9 2.1.4c1.4.3 3.2.7 5.1 1.1 1.9.4 3.7.9 5.2 1.2.3.1.6.2.9.2-.1-.2-.3-.4-.4-.6l-3-4.1c-.4-.5-.8-1.1-1.2-1.6-.7-.9-1.3-1.8-1.9-2.4l-1.4-1.6zm5.7-12.2c-.4-.5-.8-1-1.2-1.4l-2.3-2.5.1.9c0 .4.1.9.1 1.4.1 1.2.2 2.6.2 4.1.1 3.4.1 6.8.1 7.7l1.4 1.6c.6.7 1.2 1.6 1.9 2.5.4.5.8 1.1 1.2 1.6l3 4.1c.2.2.3.5.5.7 0-.3.1-.6.1-.9.1-1.4.2-3.4.3-5.3.1-2 .2-4 .2-5.5l.1-2.3-5.7-6.7zm-23.4 5.6l1.4 1.5c.8.1 4 .3 7.3.7l.8.1 2.1.3 3.3.5-.5-.6c-.7-.9-1.7-2-2.8-3.1l-5.4-5.8c-.8-.1-4.2-.3-7.5-.4h-1.2c-1.4-.1-2.8-.1-3.9-.1h-.9l.5.4 6.8 6.5zm7.1-22.3l-.7-.6.2.9c.2 1.2.4 2.7.6 4.3l.2 1.2c.5 3.4.8 6.7.9 7.6l.8.8 4.8 5.1c1.1 1.2 2.1 2.3 2.9 3.3l.5.6v-3.4c0-.7-.1-1.3-.1-2v-.8c-.2-3.4-.5-6.9-.6-7.7l-1.6-1.7-7.9-7.6zm-21.2 9.7l3.2 2.7 3.1-.1h4.3c2.3.1 4.6.2 6.1.3l-.6-.5c-.3-.3-.7-.7-1.2-1.1-.8-.7-1.6-1.6-2.5-2.3l-5.5-4.6h-2.2c-1.4.1-3.4.2-5.3.3-2.3.2-4.6.4-6 .5l6.6 4.8zm13-16.6l-7.1-5.4c.4 1.5 1 3.9 1.6 6.2.5 1.9.9 3.8 1.2 5.2l.4 2.2 5.5 4.7c.9.8 1.8 1.7 2.6 2.4.4.4.8.8 1.2 1.1l.6.6c-.2-1.5-.5-3.9-.8-6.3-.2-1.5-.5-3-.8-4.3l-.6-3.3-3.8-3.1zm51.1 187.3c.3-.9.5-1.7.5-2-.4-.8-1.9-3.8-3.5-6.6-.8-1.6-1.8-3.1-2.6-4.5l-.5-.8-.1.7c-.2 1.3-.6 2.9-1 4.7l-1.1 4.6c-.2.9-.4 1.6-.5 1.9.4.8 1.8 3.6 3.2 6.6.6 1.4 1.2 2.8 1.7 4l.7 1.7.5-1.5c.4-1.2.9-2.6 1.3-4.1l1.4-4.7zm14.7-10l-.7.6c-1.2 1.1-2.7 2.3-4.2 3.5-2.7 2.1-5.4 4.1-6.1 4.7-.1.3-.3 1.1-.6 2.1l-1.4 4.9c-.4 1.5-.9 3-1.3 4.2l-.5 1.5 1.6-1c1.1-.7 2.5-1.5 3.8-2.4 2.8-1.9 5.6-4 6.3-4.5.1-.3.3-1.1.6-2.2l1.2-5.3c.4-1.8.9-3.8 1.1-5.3l.2-.8zm-11-7.2c.1-.7.2-1.2.2-1.6l.1-.4c-.5-.7-2.3-3.5-4.1-6.2-.8-1.2-1.6-2.3-2.4-3.3l-1.2-1.5-.2 2.9-.9 7.3c-.1.5-.1 1-.2 1.6l-.1.4c.5.7 2.2 3.4 3.8 6.3.8 1.3 1.4 2.5 2 3.6l.9 1.8.7-3.1 1.4-7.8zm9.1-6.9c-2.5 2.4-4.9 4.7-5.6 5.3l-.1.4c-.1.5-.1 1-.3 1.7l-1.4 7.7-.7 3.1 1.6-1.2c1-.8 2.2-1.7 3.3-2.7 2.6-2.2 5.2-4.6 5.9-5.1l.1-.5c.1-.6.2-1.2.3-1.7l1-8.3.3-3.4-1.4 1.5c-.8 1.1-1.9 2.2-3 3.2zm-7.3-10.6c0-.4 0-.8.1-1.2v-.9c-.5-.7-2.6-3.3-4.7-5.8-.8-1-1.8-2-2.6-2.9l-.9-.9-.6-.6.1 2.9-.2 7.4c0 .9-.1 1.6-.1 2 .5.7 2.5 3.2 4.4 5.8 1.2 1.6 2.3 3.2 3 4.3l.5.8.1-.8c.2-1.4.4-3.3.5-5l.4-5.1zm12.5-9.5l-.1-3.4-.5.7c-.3.3-.5.7-.8 1.1-.7 1-1.6 2.1-2.6 3.2-2.2 2.6-4.4 5.2-5 5.8v.9c0 .4 0 .8-.1 1.3l-.4 5.1a63 63 0 01-.5 5.1l-.2.9.7-.6c1.2-1.1 2.6-2.4 3.8-3.8 2.4-2.5 4.8-5.1 5.3-5.7 0-.3.1-1.2.1-2.2l.3-8.4zM370.6 189l-.3-.3-1.3-1.2c-1-1-2.4-2.4-3.8-3.7-1.4-1.3-2.7-2.6-3.8-3.5l-.6-.6c0 .2 0 .5.1.8l.4 4.7c.1.6.1 1.3.2 1.9.1 1.1.2 2.1.2 2.9l.1 2c.6.6 2.8 2.9 5 5.4 1.4 1.5 2.6 3 3.5 4l.6.7v-.8c.1-1.3 0-2.9 0-4.7l-.3-7.6zm12-3.6c-.1-.7-.1-1.4-.2-2.1l-.5-5.3c0-.3-.1-.6-.1-.9-.1.2-.3.5-.5.8-.8 1.3-1.9 3-3 4.6-1.1 1.7-2.2 3.3-3 4.5l-1 1.4c-.1.2-.2.3-.3.4l.2 7.6c.1 1.8.1 3.5 0 4.9v.8l.6-.7c.9-1 2.2-2.6 3.4-4.1 2.1-2.7 4.2-5.5 4.7-6.2l-.1-2.3c0-1-.1-2.1-.2-3.4zm-82.2 152.4l.7-.5c.9-.6 2-1.4 3.1-2.3l.9-.7 1.5-1.2c.9-.7 1.7-1.4 2.4-1.9l1.6-1.4c.1-.8.7-4.1 1.1-7.3.2-2.3.4-4.6.5-6.1l-.5.5c-.3.3-.7.7-1.1 1-.7.7-1.5 1.5-2.4 2.2l-4.8 4.1-.3.3c-.1.8-.7 4-1.3 7.2l-.6 2.8-.8 3.3zm21.8-1.9c1-.8 1.9-1.7 2.7-2.5l1.2-1.2.6-.6c-1.5.1-4 .4-6.4.5-3.4.2-6.8.2-7.7.2l-1.6 1.4c-.7.6-1.6 1.3-2.5 2l-1.5 1.2-.9.7c-1.2.9-2.3 1.8-3.2 2.4l-.6.5 4 .2 2.3.1c3.4.1 7 .1 7.8.1l.3-.3 5.5-4.7zm1.4-31.7l-3.6 4.2-4.7 4.9c0 .4 0 1.1-.1 2.2-.1 1.4-.3 3.3-.4 5.2-.2 2.3-.5 4.7-.7 6.2l.6-.5c.7-.6 1.4-1.3 2.3-2.1.5-.4.9-.9 1.4-1.3l.9-.8c1-1 2-1.9 2.7-2.7l1.5-1.5.1-2.7c.1-1.3.2-3 .1-4.7 0-2.6 0-4.9-.1-6.4zm12 18.4l4.1-4.7c-1.5.3-3.9.7-6.3 1.1-1.7.3-3.5.5-4.9.7l-2.7.3-1.5 1.5c-.7.8-1.7 1.8-2.8 2.8l-.9.8c-.5.5-1 .9-1.4 1.4-.8.8-1.6 1.6-2.3 2.2l-.6.5c1.5 0 3.9-.1 6.3-.4 2-.2 4-.3 5.5-.5 1.1-.1 1.9-.2 2.3-.3l5.2-5.4zm-5.2-12.7c1.2-1.3 2.2-2.6 3.2-3.9l1.3-1.7-.1-2.2c0-1.4-.2-3.4-.4-5.2-.2-1.9-.4-3.8-.5-5.1l-.1-.9-3.2 4.5c-.6.9-1.4 1.8-2 2.6-.3.4-.7.8-.9 1.2l-1.2 1.6.1 2.1c.1 1.4.1 3.2.1 5.2v6.2c.2-.2.3-.4.5-.6l3.2-3.8zm14.9 1c.7-.9 1.5-1.9 2.2-3l3.6-5.1-.9.3c-1.5.4-3.4 1-5.3 1.5s-3.8 1-5.3 1.3l-2.2.5-1.3 1.7c-1 1.3-2.1 2.7-3.3 4l-3.4 3.9c-.2.2-.4.4-.5.6.3 0 .6-.1.9-.1 1.4-.2 3.3-.5 5.3-.9s3.9-.7 5.4-1l2.2-.5 1.4-1.8c.5-.4.8-.9 1.2-1.4zM345 290l-.3-2.2c-.3-1.6-.7-3.7-1-5.2-.4-1.9-.7-3.7-1-5-.1-.3-.1-.6-.2-.8-.1.2-.2.4-.4.6l-2.8 4.9c-.3.5-.5 1-.8 1.4l-2.3 3.5.3 2.1c.2 1.2.4 2.9.6 5.2.2 1.9.4 3.8.5 5.2 0 .3.1.6.1.9l3.4-4.8c.7-1 1.3-2 1.9-2.9.3-.5.6-.9.9-1.3l1.1-1.6zm16.1-3.3c-.3.1-.5.2-.9.4-1.4.6-3.3 1.3-5.1 2-2 .8-3.8 1.4-5.1 1.9l-2.2.7-1.2 1.8c-.3.4-.6.9-.9 1.4-.6.9-1.2 2-2 3l-3.4 4.8c.3-.1.6-.1.9-.2 1.4-.4 3.3-.9 5.2-1.4 2.3-.6 4-1.2 5.2-1.6l2.2-.7 2.6-4c.3-.5.6-1 .9-1.6l3.2-5.6c.3-.4.4-.6.6-.9zm-8-14.2c-.4-1.4-.9-3.2-1.5-5.1l-.4-1.2c-.4-1.4-.8-2.7-1.2-3.7l-.3-.8-.3.7c-.3.8-.7 1.6-1.2 2.6-.3.6-.5 1.2-.8 1.8l-.5 1.2c-.5 1.2-1 2.3-1.5 3.2l-.9 1.7.7 2.8c.3 1.3.7 2.8 1 4.4.5 2.2.9 4.6 1.2 6l2.9-5.1 3.3-6.4c-.1-.4-.3-1.1-.5-2.1zm15.8-2l.3-.8-.8.5c-1 .6-2.3 1.3-3.8 2l-1.1.6c-1.8.9-3.5 1.8-4.9 2.4-1 .5-1.7.8-2.1.9l-3.3 6.5-3 5.2c1.4-.5 3.6-1.3 5.9-2.2 1.6-.6 3.1-1.3 4.3-1.8l2.8-1.3 1-2c.5-1 1.1-2.3 1.7-3.7l1.4-3.1c.7-1.2 1.2-2.3 1.6-3.2zm-11.1-19.1c-.8-1.8-1.5-3.5-2.1-4.7l-.4-.8-.2.7c-.2.8-.5 1.8-.9 2.8-.2.6-.4 1.1-.6 1.7l-.6 1.8c-.3 1-.7 2-.9 2.7l-.7 1.8c.3.8 1.4 3.8 2.5 6.9.7 2.2 1.3 4.5 1.8 5.9l.3-.7c.2-.4.4-.9.7-1.4.4-1 .9-2.1 1.4-3.2l2.6-6.7c-.5-.6-1.7-3.8-2.9-6.8zm17 1c-1.1.8-2.8 1.9-4.6 3.1-2.9 1.9-5.8 3.6-6.5 4l-2.7 6.8c-.4 1.2-1 2.3-1.4 3.3-.2.5-.5 1-.7 1.4l-.3.7c1.3-.7 3.5-1.7 5.7-2.8 3-1.6 6-3.4 6.7-3.8l.8-2.1c.3-.9.7-2 1.1-3.2.2-.6.4-1.3.7-1.9.8-2.2 1.5-4.5 1.9-6l-.7.5zM289.4 64.2l1.6 1.1c.8-.1 4-.5 7.3-.8l.8-.1c.7-.1 1.4-.1 2.1-.2l3.3-.1-.6-.5c-.9-.8-2.1-1.6-3.4-2.5l-6.5-4.6c-.8.1-4.2.6-7.4 1.1l-1.2.2c-1.4.2-2.8.5-3.8.7l-.9.2.6.3 8.1 5.2zm2.1-22.9c.5 1.1.9 2.5 1.5 4l.4 1.2c1.1 3.2 2.1 6.4 2.4 7.2l.9.6 5.8 4.1c1.3.9 2.6 1.8 3.5 2.6l.6.5-.7-3.4c-.1-.6-.3-1.3-.5-2l-.2-.8c-.9-3.3-1.9-6.7-2.1-7.5l-1.9-1.3-9.9-6.1.2.9zM119.1 58.7l-.9-.2c-1.1-.2-2.4-.5-3.8-.7l-1.2-.2c-3.2-.5-6.6-1-7.4-1.1l-.4.2-6.1 4.4c-1.3.9-2.5 1.8-3.4 2.5l-.6.5 3.3.1c.7 0 1.4.1 2.1.2l.8.1c3.3.3 6.5.7 7.3.8l1.6-1.1 8.7-5.5zM98.7 46.6l-1.8 1.3c-.2.8-1.3 4.2-2.1 7.5l-.2.8c-.2.7-.4 1.3-.5 2l-.7 3.4.6-.5c.9-.8 2.2-1.7 3.5-2.6l6.6-4.7c.3-.8 1.3-4 2.4-7.2l.4-1.2c.5-1.5 1-2.9 1.5-4l.3-.8-.8.4-9.2 5.6zM21.4 176.4c.3.6.7 1.2 1.1 1.8l.5.7c1.3 2 2.7 4 3.5 5.2l.6-5.9c.2-1.2.4-2.5.5-3.6.1-.6.2-1.1.2-1.5l.3-2.1-2.4-4.2-1.3-2.6c-1.1-2.1-2.2-4.3-2.8-5.7l-1.3 6.1c-.3 1.3-.5 2.5-.6 3.7-.1.6-.2 1.2-.3 1.7l-.3 2.2 2.3 4.2zm8.9 2.2l-.5 5.8c1.1-1 2.8-2.7 4.4-4.3l.6-.5c.5-.5 1-.9 1.5-1.3l3.5-3 .3-1.9c.1-.5.2-1 .2-1.5.1-1 .3-2.1.6-3.2l1.2-5.4c-1.2.8-3 2.2-4.9 3.6l-2.9 2.2-2.9 2.4-.3 2.1c-.1.5-.2 1-.2 1.6-.3 1-.4 2.2-.6 3.4zM27 141.3l-.3-.9-1.1 3.2c-.2.6-.4 1.2-.5 1.8-.1.3-.2.7-.3 1l-2.1 7.4c.1.3.5 1.1 1 2.1.7 1.4 1.5 3.2 2.4 4.9.9 1.8 1.8 3.5 2.5 4.8.1.3.3.6.4.8l.2-.8 1.1-5c.1-.5.2-1.1.3-1.6.3-1.3.5-2.5.8-3.5l.6-2c-.3-.8-1.7-3.9-3.1-7.1-.6-1.4-1.1-2.7-1.5-3.9-.2-.5-.3-.9-.4-1.2zm6.8 18.4c-.1.5-.2 1.1-.3 1.6l-1.2 5.7c.2-.2.5-.4.7-.6 1.2-.9 2.7-2.1 4.2-3.2s3-2.2 4.2-3c.8-.6 1.5-1 1.8-1.2l1.8-6.5.3-.9c.1-.5.3-1.1.5-1.6l1-2.8-.8.4c-.3.2-.7.4-1 .6-1.1.6-2.3 1.3-3.4 2-2.7 1.7-5.5 3.6-6.2 4.1l-.6 2c-.5 1-.8 2.1-1 3.4zm-4.7-26.1l-.8 2.1c.3.8 1.4 4.2 2.6 7.3l1 2.6 1.4 3.2.2-.8c.2-1 .7-2.2 1.1-3.4.2-.5.3-1 .5-1.5l1.9-5.5c.1-.4.2-.7.3-.9l.2-.4c-.3-.8-1.3-4-2.2-7.3l-.3-1c-.5-1.6-.9-3.1-1.2-4.3l-.2-.9-.4.8-4.1 10zm7.5 15.5l-.2.8 2.8-1.8 2.5-1.4c2.8-1.6 5.7-3.2 6.4-3.6l.6-1.8 4-9.5-.8.3c-1 .4-2.3 1.1-3.7 1.7l-1 .5c-2.9 1.4-5.9 3-6.7 3.4l-.2.4c-.1.2-.2.5-.3.9l-1.9 5.4c-.2.5-.3 1-.5 1.5-.3 1.1-.7 2.2-1 3.2zm0-27.3c.3 1.3.6 2.7 1 4.1.7 2.4 1.3 4.7 1.8 6.1l.3-.7c.2-.4.4-.9.6-1.5.4-1 .9-2.2 1.4-3.3l3.2-6.5-.5-2.2c-.3-1.4-.6-3.4-1-5.3-.4-2.4-.8-4.8-1-6.3l-3.6 6.4c-.3.5-.6 1.1-.9 1.6l-2.1 4.3.8 3.3zm8.1 6.1c-.5 1.1-1 2.2-1.4 3.1l-.6 1.5-.3.7c1.3-.7 3.4-1.7 5.5-2.7 1.3-.6 2.7-1.2 3.8-1.7l3-1.2 1.8-3.8c.3-.5.5-.9.8-1.4l3.2-5.6c-1.3.4-3.5 1.2-5.7 2-1.8.6-3.6 1.3-5 1.8l-2 .8-3.1 6.5zm.3-26c.1.8.4 4.3 1 7.7.4 2.4.8 4.8 1.1 6.2l2.9-5.2c.6-1.2 1.4-2.3 2-3.3.2-.4.5-.7.7-1l1.2-1.8-.3-3.1c-.1-1.3-.3-3-.4-4.6-.1-2.4-.2-4.8-.3-6.4l-3.7 5.1-4.2 6.4zm7.9 10.4l-2.9 5.1c1.4-.5 3.6-1.3 5.8-2.1 3-1.1 6.2-2 7-2.2l3.7-5.6 3.3-4.5c-1.4.3-3.7.8-5.9 1.3-1.5.3-3 .8-4.2 1.1l-2.9.8-1.1 1.8c-.2.3-.4.7-.7 1l-2.1 3.3zm3-25.8l.1 2.3c0 1.5.1 3.5.2 5.5s.2 3.9.3 5.4c0 .3.1.6.1.9.1-.2.3-.4.5-.7l3-4.1c.4-.5.8-1.1 1.2-1.6.7-.9 1.3-1.8 1.9-2.5l1.4-1.6c0-.9 0-4.2.1-7.7 0-1.5.1-2.9.2-4.1 0-.5.1-.9.1-1.4l.1-.9-2.3 2.5c-.4.4-.8.9-1.2 1.4l-5.7 6.6zm8 9.6c-.4.5-.8 1.1-1.2 1.6l-3 4.1c-.2.2-.3.4-.5.6.3-.1.6-.2.9-.2 1.4-.4 3.3-.8 5.2-1.2 1.9-.4 3.7-.8 5.1-1.1l2.1-.4 4.9-5.9c.4-.4.7-.9 1-1.2l2-2.2-.9.1c-.4 0-.8.1-1.3.1-1.2.1-2.6.3-3.9.5-3.2.5-6.5 1.1-7.3 1.2l-1.3 1.6c-.5.6-1.1 1.5-1.8 2.4zm5.9-25.5l-1.5 1.6c-.1.8-.4 4.4-.6 7.8v.8c0 .7-.1 1.4-.1 2.1v3.4l.5-.6c.7-1 1.8-2.1 2.9-3.3l5.5-5.9c.1-.8.4-4.2.9-7.6l.2-1.3c.2-1.6.4-3.1.6-4.2l.2-.9-.7.6-7.9 7.5zm21.6 7.8c-1.1 0-2.5 0-3.9.1h-1.2c-3.2.1-6.6.4-7.5.4l-.3.3-5.2 5.5c-1.1 1.1-2.1 2.2-2.8 3.1l-.5.6 3.3-.5 2.1-.3.8-.1c3.3-.4 6.5-.6 7.3-.7l1.3-1.4 7.5-7.1-.9.1zm-9.3-19l-.7 3.3c-.2 1.3-.5 2.8-.8 4.3-.3 2.4-.6 4.8-.8 6.3l.6-.6c.4-.3.7-.7 1.2-1.1.8-.8 1.7-1.6 2.6-2.4l5.5-4.7.4-2.2c.3-1.4.8-3.3 1.2-5.3.6-2.3 1.2-4.7 1.6-6.2l-7.3 5.5-3.5 3.1zm23.3 8.5c-1.4-.1-3.7-.3-6-.5-1.9-.1-3.8-.2-5.3-.3h-2.2l-5.5 4.6c-.9.8-1.8 1.6-2.5 2.3-.4.4-.8.8-1.2 1.1l-.6.5c1.5-.1 3.8-.2 6.1-.3h4.3l3.1.1 3.2-2.7 6.6-4.8zM22.5 245c.3 1 .5 1.8.6 2.2.7.5 3.5 2.6 6.3 4.5 1.3.9 2.6 1.7 3.7 2.4l1.6 1-.5-1.5c-.4-1.2-.9-2.7-1.3-4.2l-1.4-4.9c-.3-1-.5-1.7-.6-2.1-.7-.5-3.4-2.5-6.1-4.7-1.5-1.2-3-2.4-4.2-3.5l-.7-.6.2.9c.2 1.5.7 3.5 1.1 5.3l1.3 5.2zm15.5 9l.7-1.7c.5-1.2 1-2.6 1.7-4 1.4-3 2.8-5.9 3.2-6.6-.1-.3-.3-1-.5-1.9l-1.1-4.7c-.4-1.7-.8-3.4-1-4.7l-.1-.7-.5.8c-.8 1.3-1.7 2.9-2.6 4.5-1.5 2.8-3.1 5.9-3.5 6.6.1.3.2 1.1.5 2l1.4 4.9c.4 1.5.9 2.9 1.3 4.1l.5 1.4zm-18.9-25.8l.1.5c.6.6 3.3 2.9 5.9 5.1 1.1 1 2.3 1.9 3.3 2.7l1.6 1.2-.7-3.1-1.4-7.8c-.1-.7-.2-1.3-.3-1.7l-.1-.4c-.6-.6-3.1-2.9-5.6-5.3-1.1-1.1-2.1-2.1-3-3.1l-1.4-1.5.3 3.4 1 8.2.3 1.8zm13.4 5.7l.7 3 .9-1.8c.6-1.1 1.2-2.4 2-3.7 1.7-2.8 3.4-5.5 3.8-6.3l-.1-.4c-.1-.5-.2-1.1-.2-1.6l-.9-7.3-.2-3-1.2 1.5c-.8 1-1.6 2.2-2.4 3.3-1.8 2.7-3.6 5.5-4.1 6.2l.1.4c0 .4.1 1 .2 1.6l1.4 8.1zM17 207.7c0 1.1.1 1.9.1 2.2.6.6 3 3.2 5.3 5.7 1.4 1.5 2.8 2.9 3.8 3.8l.8.6-.1-.8a63 63 0 01-.5-5.1L26 209c0-.5-.1-.9-.1-1.2v-1c-.6-.6-2.8-3.2-5-5.8-1-1.1-1.8-2.2-2.5-3.2-.3-.4-.6-.8-.8-1.1l-.6-.7-.1 3.4.1 8.3zm13.3 11.9l.5-.8c.9-1.4 1.9-2.8 3-4.3 1.9-2.6 3.9-5.2 4.4-5.8 0-.3-.1-1.1-.1-2l-.2-7.3.1-3-.6.6c-.3.3-.5.6-.9.9-.8.9-1.8 1.9-2.6 2.9-2.1 2.5-4.2 5.1-4.7 5.8v.9c0 .3 0 .7.1 1.2l.4 5.1c.1 1.8.3 3.6.5 5l.1.8zm-13.1-30.8l-.1 2.3c.5.7 2.6 3.5 4.7 6.2 1.2 1.6 2.5 3.1 3.4 4.2l.6.7v-.8c-.1-1.3 0-3.1 0-4.9l.2-7.5c-.1-.1-.2-.2-.3-.4l-1-1.4c-.8-1.2-2-2.8-3.1-4.5-1.1-1.7-2.2-3.3-3-4.6-.2-.3-.4-.5-.5-.8 0 .3-.1.5-.1.8l-.5 5.4c-.1.7-.1 1.4-.2 2.1 0 1.1-.1 2.2-.1 3.2zm11.9 12.4v.8l.6-.7c.8-1 2.1-2.5 3.5-4 2.2-2.4 4.4-4.7 5-5.4l.1-2c0-.8.1-1.9.2-2.9.1-.6.1-1.2.2-1.9l.4-4.8c0-.3 0-.5.1-.7l-.6.6c-1 .9-2.4 2.2-3.8 3.5-1.4 1.3-2.7 2.6-3.8 3.7l-1.3 1.2-.3.3-.2 7.5c-.1 1.8-.2 3.5-.1 4.8zm54.1 139.4c.1.1.3.2.4.3.8 0 4.4 0 7.8-.1l2.9-.1 3.4-.2-.6-.5c-.9-.6-2-1.5-3.2-2.4l-.9-.7-1.5-1.2c-.9-.7-1.8-1.4-2.5-2l-1.6-1.4c-.9 0-4.2-.1-7.7-.2-2.4-.2-4.8-.4-6.4-.5l.6.6c.4.3.8.7 1.2 1.2.8.8 1.8 1.7 2.7 2.5l5.4 4.7zm13.5-16.3l-4.8-4.2c-.9-.7-1.7-1.5-2.4-2.2-.4-.4-.8-.7-1.1-1l-.5-.5c.1 1.4.3 3.7.5 6.1.4 3.2.9 6.5 1.1 7.3l1.6 1.4c.7.6 1.5 1.2 2.4 1.9l1.5 1.2.9.7c1.1.9 2.2 1.7 3.1 2.3l.7.5-.8-3.2-.6-2.8c-.6-3.2-1.2-6.4-1.3-7.2-.1-.1-.2-.1-.3-.3zm-27 3.9c.3 0 1.2.2 2.3.3 1.5.1 3.5.3 5.5.5 2.4.2 4.8.3 6.3.4l-.6-.5c-.7-.6-1.5-1.4-2.3-2.2-.5-.4-.9-.9-1.4-1.4l-.9-.8c-1.1-1-2.1-2-2.8-2.8l-1.5-1.5-2.7-.3c-1.4-.2-3.2-.4-4.9-.7-2.3-.4-4.8-.9-6.3-1.1l4.1 4.7 5.2 5.4zm6.7-24c0 1.4-.1 3.7 0 6.1 0 1.7.1 3.4.1 4.7l.1 2.7 1.4 1.5c.7.8 1.7 1.7 2.7 2.7l.9.8c.5.5 1 .9 1.4 1.4.8.8 1.6 1.5 2.2 2.1l.6.5c-.2-1.5-.5-3.8-.7-6.2-.2-1.9-.3-3.8-.4-5.2-.1-1-.1-1.8-.1-2.2l-4.6-4.9-3.6-4zm-21.7 6.7c.4.5.7.9 1 1.3l1.4 1.8 2.2.5c1.4.3 3.4.7 5.4 1 1.9.3 3.9.7 5.3.9.3 0 .6.1.9.1-.2-.2-.3-.4-.5-.6L67 312c-1.2-1.3-2.3-2.7-3.3-4l-1.3-1.7-2.2-.5c-1.5-.3-3.3-.8-5.3-1.3-1.9-.5-3.8-1.1-5.3-1.5l-.9-.3 3.6 5.1c.9 1.2 1.7 2.2 2.4 3.1zm18.6-2.7c0-1.9 0-3.8.1-5.2l.1-2.2-1.2-1.5-.9-1.2c-.6-.8-1.3-1.7-2-2.6l-3.2-4.5-.1.9c-.2 1.4-.4 3.2-.5 5.1-.2 1.8-.4 3.8-.4 5.2l-.1 2.2 1.3 1.7c1 1.3 2 2.6 3.2 3.9l3.3 3.8c.2.2.4.4.5.6v-.9c-.1-1.5-.1-3.4-.1-5.3zm-25-8.7c1.2.4 3 1 5.2 1.6 1.9.5 3.8 1 5.2 1.4.3.1.6.2.9.2l-3.5-4.9c-.7-1-1.4-2-2-3-.3-.5-.6-.9-.9-1.3l-1.2-1.8-2-.7c-1.3-.5-3-1.1-5.1-1.9-1.9-.7-3.7-1.5-5.1-2-.3-.1-.6-.3-.9-.4.1.2.3.5.4.7l3.2 5.6c.3.6.6 1.1.9 1.6l2.6 4 2.3.9zm15.1-10.1l.3-2.1-2.3-3.5c-.3-.5-.6-.9-.8-1.4l-2.8-4.9c-.1-.2-.3-.4-.4-.6-.1.3-.1.5-.2.9-.3 1.3-.7 3.2-1 5-.4 2-.7 3.9-1 5.2l-.2 2 1.1 1.8c.3.4.5.8.9 1.3.6.9 1.2 1.9 1.9 2.9l3.4 4.8c0-.3 0-.6.1-.9.1-1.4.3-3.4.5-5.2.1-2.4.3-4.1.5-5.3zm-13.7-1.7l-3-5.2-3.3-6.5c-.3-.1-1.1-.5-2.1-.9-1.3-.6-3.1-1.5-4.8-2.4l-1.1-.6c-1.4-.7-2.7-1.4-3.8-2l-.8-.5.3.8c.4.9.9 2 1.4 3.2l1.3 3c.6 1.4 1.2 2.7 1.7 3.7l1 2 2.8 1.3c1.2.5 2.7 1.2 4.3 1.8 2.4.9 4.7 1.8 6.1 2.3zm4-7.8c.3-1.5.7-3.1 1-4.4l.7-2.8-.9-1.7c-.5-.9-1-2-1.5-3.2l-.5-1.2c-.3-.6-.5-1.2-.8-1.8-.4-1-.8-1.8-1.2-2.6l-.3-.7-.3.8c-.4 1-.8 2.3-1.2 3.7l-.4 1.2c-.5 1.8-1.1 3.6-1.5 5-.3 1-.5 1.8-.6 2.1l3.3 6.4 2.9 5c.4-1.2.9-3.5 1.3-5.8zM28.2 263l.8 2.1c.7.4 3.8 2.2 6.7 3.8 2.2 1.1 4.3 2.2 5.7 2.8l-.3-.7c-.2-.4-.4-.9-.7-1.4-.5-1-1-2.1-1.4-3.3l-2.7-6.8c-.7-.4-3.6-2.2-6.5-4-1.8-1.2-3.5-2.2-4.6-3.1l-.7-.5c.4 1.5 1.1 3.7 1.9 6 .2.6.4 1.3.7 1.9.4 1.2.7 2.3 1.1 3.2zm15.9 6.6l.3.7c.4-1.4 1.1-3.7 1.8-5.9 1-3.1 2.2-6.1 2.5-6.9l-.7-1.8c-.3-.8-.6-1.7-1-2.7l-.6-1.8c-.2-.6-.4-1.2-.6-1.7-.4-1-.7-2-.9-2.9l-.2-.7-.4.8c-.6 1.2-1.3 2.9-2.1 4.7-1.2 3-2.5 6.1-2.8 6.9L42 265c.4 1.1.9 2.2 1.4 3.2.3.5.5 1 .7 1.4zM151.2 29c.8 0 1.5 1.2 2.2 3.7.6 2.3 1.2 4.6 1.9 6.8.9 2.5 2.1 3.7 3.4 3.7 2.2 0 4.8-2 8-6.1 2.2-2.8 3.6-5.2 4.3-7.2.9-.6 1.4-1 1.6-1 .6 0 .9.4.9 1.3 0 .2-.3 1.5-1 3.8-.7 2.4-1 4.1-1.1 5.3 0 1.1.2 2 .8 2.7.6.7 1.4 1 2.5 1 2.3 0 4.6-1 7-3l.6-.6c.2.8.5 1.4.9 1.9 1 1.1 2.7 1.6 5.1 1.5-.3-.8-.4-2.1-.4-4 .1-2.1.7-4.2 1.7-6.2s1.9-3 2.8-3c1 0 1.5.6 1.4 1.9 0 .9-.2 1.9-.5 3s-.5 2.2-.5 3.3c-.1 1.8.3 3 1.2 3.8 1 .9 2.7 1.3 5.1 1.2-.4-.8-.5-1.9-.4-3.4.1-2.1.8-4.3 2.1-6.5 1.2-2.1 2.3-3.2 3.2-3.2.8 0 1.2.7 1.2 2 0 .9-.3 2.1-.6 3.6-.4 1.6-.6 2.9-.6 4-.1 2.5 1 3.7 3.3 3.7s4.6-1 7-3l.1-.1c.1.1.1.3.2.4 1.2 1.9 3.2 2.8 6 2.8 3.8 0 7.5-1.1 11.2-3.2.4-.2.8-.5 1.2-.7.2.5.5.9.8 1.3 1.4 1.8 3.5 2.6 6.2 2.6 3.3 0 6-1.2 8.3-3.5 2.2-2.3 3.4-5.1 3.5-8.2.1-2.3-.4-4.3-1.6-5.8-1.2-1.6-3.1-2.4-5.5-2.4-3.8 0-6.9 1.4-9.4 4.1-2.3 2.5-3.4 5.2-3.2 8.2 0 .2.1.4.1.6-.1.1-.3.1-.4.2-2.9 1.3-5.7 1.9-8.1 1.9-1.3 0-2.2-.4-2.8-1.3 3.4-.6 6.1-1.8 8.4-3.9 2.1-1.9 3-3.7 2.9-5.4-.2-2.8-2-4.1-5.4-4.1-3.7 0-6.9 1.4-9.6 4.2-2.5 2.5-3.7 5.2-3.7 8 0 .5 0 .9.1 1.3-.6.4-1 .6-1.3.6-.7 0-1.1-.1-1.2-.4-.2-.3-.2-.8-.2-1.5 0-.3.2-1.3.7-3.2.4-1.8.7-3.3.7-4.2.1-1.4-.2-2.5-.8-3.3-.7-.9-1.9-1.3-3.6-1.2-1.4.1-2.7.6-4 1.6-.8.6-1.5 1.3-2.3 2.2-.3.2-.5.5-.8.7 0-1.4-.2-2.5-.8-3.3-.7-.9-1.9-1.3-3.6-1.2-2 .2-3.8 1-5.4 2.3-.7.6-1.3 1.3-1.8 2.1.1-.3.1-.6.1-1 0-1.1-.3-2-.8-2.8-.6-.8-1.3-1.2-2.2-1.1-.5 0-1.5.7-3 2.1-2 1.9-3.1 2.9-3.3 3l1.2 1.4c1-.7 1.6-1.1 1.8-1.1.4 0 .5.3.5.9 0 .9-.2 2.1-.5 3.8-.2 1-.3 1.8-.4 2.6h-.1c-1.2 1-2.1 1.5-2.6 1.5-1.1 0-1.6-.7-1.6-2.2.5-3.2 1-5.9 1.5-8 .1-1.2-.1-2.3-.6-3-.5-.8-1.4-1.1-2.5-1-.7.1-1.8.8-3.3 2.1-.5.5-1 .9-1.6 1.4-.1-2.5-1.2-3.7-3.3-3.8-3.2-.1-5.4 1.7-6.5 5.4.6-.3 1.2-.4 1.7-.4 1.2 0 1.7.7 1.6 2-.1.8-.6 2-1.6 3.5s-1.7 2.3-2.2 2.3c-.6 0-1.2-1.2-1.7-3.5-.2-.7-.5-2.5-.9-5.3-.4-2.6-1.5-3.9-3.3-3.7-.8.1-1.9.8-3.4 2.1-1.1 1-2.2 2-3.4 3l1.1 1.4c.5-.5 1.1-.8 1.3-.8zm88.6 1.6c1.1-1.9 2.6-2.9 4.4-2.9.6 0 1 .4 1.3 1.2.3.8.4 1.6.4 2.6-.1 1.7-.6 3.3-1.5 4.8-1.1 1.8-2.4 2.8-4 2.8-.7 0-1.2-.4-1.6-1.1-.3-.7-.5-1.4-.5-2.3 0-1.9.5-3.6 1.5-5.1zm-20 4c0-1.3.6-2.7 1.7-4.1 1.1-1.4 2.1-2.1 3.2-2.1.8 0 1.2.5 1.1 1.4 0 .7-.6 1.6-1.6 2.7-1.2 1.3-2.7 2.2-4.4 2.8v-.7zm-43.2-14c1.3 0 2.4-.4 3.3-1.3.8-.8 1.3-1.6 1.3-2.5 0-.6-.2-1.2-.7-1.7-.5-.6-1.1-.9-1.8-.9-1.2 0-2.4.4-3.4 1.2-1 .8-1.5 1.7-1.6 2.6-.1 1.7.9 2.6 2.9 2.6z",
+        fill: "#fff"
+      })), _v8 || (_v8 = _v31.createElement("path", {
+        d: "M185 325.5c.2 0 .5 0 .7.1.2 0 .4.1.5.2.2.1.3.2.3.4.1.2.1.4.1.6 0 .2-.1.5-.2.7-.1.2-.3.3-.5.4.3.1.6.3.7.5.2.3.3.5.2.8 0 .2-.1.5-.2.7-.1.2-.2.4-.4.5l-.6.3c-.2.1-.5.1-.7.1h-2.6v-5.3h2.7zm-.2 2.1c.2 0 .4 0 .5-.2.1-.1.2-.3.2-.5 0-.1 0-.2-.1-.3 0-.1-.1-.1-.2-.2-.1 0-.2-.1-.3-.1h-1.4v1.2l1.3.1zm.1 2.2h.3c.1 0 .2-.1.3-.1l.2-.2c.1-.1.1-.2.1-.3 0-.2-.1-.4-.2-.6-.2-.1-.4-.2-.6-.2h-1.3v1.5l1.2-.1zm7.5-4.3v1h-2.8v1.1h2.6v.9h-2.6v1.3h2.9v1h-4v-5.3h3.9zm2.5 4c.1.1.1.2.3.3.1.1.2.1.4.2.1 0 .3 0 .4.1h.3c.1 0 .2-.1.3-.1.1 0 .2-.1.3-.2.1-.1.1-.2.1-.3s0-.3-.1-.3c-.1-.1-.2-.2-.4-.2-.2-.1-.3-.1-.5-.2l-.6-.2c-.2-.1-.4-.1-.6-.2-.2-.1-.4-.2-.5-.3-.2-.1-.3-.3-.4-.4-.1-.2-.1-.4-.1-.6 0-.3.1-.5.2-.7.1-.2.3-.4.5-.5.2-.1.4-.2.7-.3.2-.1.5-.1.7-.1.3 0 .5 0 .8.1.2.1.5.2.7.3.2.1.4.3.5.5.1.2.2.5.2.8H197c0-.1 0-.3-.1-.4 0-.1-.1-.2-.2-.2-.1-.1-.2-.1-.3-.1h-.7c-.1 0-.2.1-.3.1-.1 0-.1.1-.2.2s-.1.2-.1.3 0 .2.1.3l.2.2c.2.1.3.1.5.2l.8.2c.1 0 .3.1.4.1.2.1.4.1.5.2.2.1.3.3.4.5.1.2.2.5.2.7s0 .5-.1.7c-.1.2-.2.4-.4.6-.2.2-.4.3-.7.3-.3.1-.7.1-1 .1-.3 0-.6 0-.9-.1s-.5-.2-.7-.3c-.5-.3-.7-.9-.7-1.4h1.1c0-.2.1-.1.1.1zm4.3-3v-1h4.4v1H202v4.3h-1.2v-4.3h-1.6zm8.5.5c.1-.3.3-.6.5-.9.2-.3.5-.5.8-.6s.7-.2 1.1-.2c.4 0 .8.1 1.1.2s.6.3.8.6c.2.3.4.6.5.9.1.4.2.7.2 1.1s-.1.7-.2 1.1c-.1.3-.3.6-.5.9-.2.2-.5.4-.8.6-.3.2-.7.2-1.1.2-.4 0-.8-.1-1.1-.2-.3-.1-.6-.3-.8-.6-.2-.3-.4-.6-.5-.9-.1-.4-.2-.7-.2-1.1 0-.3.1-.7.2-1.1zm1.1 1.8c0 .2.1.4.2.6.1.2.3.3.4.4.4.2.9.2 1.3 0 .2-.1.3-.2.4-.4.1-.2.2-.4.2-.6.1-.2.1-.4.1-.7 0-.2 0-.5-.1-.7 0-.2-.1-.4-.2-.6-.1-.2-.3-.3-.4-.4-.4-.2-.9-.2-1.3 0-.2.1-.3.2-.4.4-.1.2-.2.4-.2.6-.1.2-.1.5-.1.7 0 .3 0 .5.1.7zm9.3-3.3v1h-2.6v1.2h2.2v.9h-2.2v2.2h-1.2v-5.3h3.8zm-39.2 8.4v-1h4.4v1h-1.6v4.4h-1.2v-4.4h-1.6zm6.9-1v2.1h2.2v-2.1h1.2v5.3H188v-2.3h-2.2v2.3h-1.2v-5.3h1.2zm9.1 0v1h-2.8v1.1h2.6v.9h-2.6v1.3h2.9v1h-4v-5.3h3.9zm3.9 0h1.3l1.2 2.1 1.2-2.1h1.3l-2 3.3v2.1h-1.1v-2.1l-1.9-3.3zm10.3 0v1h-2.8v1.1h2.6v.9h-2.6v1.3h2.9v1h-4v-5.3h3.9zm4.2 0l2 5.3h-1.2l-.4-1.2h-2l-.4 1.2h-1.2l2-5.3h1.2zm.1 3.3l-.7-2-.7 2h1.4zm6-3.3c.2 0 .4 0 .6.1.4.1.7.4.8.8.1.2.1.4.1.6 0 .3-.1.6-.2.8-.1.2-.4.4-.6.5.1 0 .2.1.3.2.1.1.2.2.2.3.1.1.1.2.1.4v1.1l.1.3c0 .1.1.2.1.3h-1.1c-.1-.2-.1-.4-.1-.6s0-.4-.1-.7c0-.2-.1-.4-.3-.6-.2-.1-.4-.2-.6-.2h-1.2v2.1h-1.2V333l3.1-.1zm-.4 2.5c.2 0 .4 0 .6-.2.2-.2.2-.4.2-.6 0-.2-.1-.4-.2-.6-.2-.1-.4-.2-.6-.2h-1.3v1.5h1.3v.1z"
+      })));
     },
-    children: (0, _v7.jsxs)(_v95, {
-      children: [(0, _v7.jsxs)(_v32.Flex, {
-        align: {
-          lg: "flex-end"
-        },
-        direction: {
-          base: "column",
-          lg: "row"
-        },
-        gap: {
-          base: "lg",
-          lg: "2xl"
-        },
-        justify: "space-between",
-        children: [(0, _v7.jsx)(_v23.Text, {
-          as: "h2",
-          variant: {
-            base: "heading-xl",
-            md: "heading-3xl"
+    _v111 = () => (0, _v10.jsx)(_v15.Box, {
+      as: "section",
+      bg: "background",
+      py: {
+        base: "3xl",
+        md: "124px"
+      },
+      children: (0, _v10.jsxs)(_v98, {
+        children: [(0, _v10.jsxs)(_v35.Flex, {
+          align: {
+            lg: "flex-end"
           },
-          children: (0, _v24.translate)({
-            singular: "Made to be seen.",
-            dictionary: {
-              es: {
-                singular: "Hecho para ser visto."
-              },
-              "de-DE": {
-                singular: "Gemacht, um gesehen zu werden."
-              },
-              "fr-FR": {
-                singular: "Conçu pour être vu."
-              },
-              "ja-JP": {
-                singular: "見られるために作られた。"
-              },
-              "ko-KR": {
-                singular: "보이기 위해 만들어졌습니다."
-              },
-              "pt-BR": {
-                singular: "Feito para ser visto."
-              },
-              "zh-CN": {
-                singular: "为被观看而生。"
-              }
-            }
-          })
-        }), (0, _v7.jsx)(_v23.Text, {
-          color: "text-secondary",
-          maxW: {
-            lg: "32%"
+          direction: {
+            base: "column",
+            lg: "row"
           },
-          variant: {
-            base: "body-lg",
-            md: "body-xl"
+          gap: {
+            base: "lg",
+            lg: "2xl"
           },
-          children: (0, _v24.translate)({
-            singular: "For years, Vimeo Staff Picks has championed the makers who see the world a little differently.",
-            dictionary: {
-              es: {
-                singular: "Durante años, Vimeo Staff Picks ha defendido a quienes ven el mundo de forma algo distinta."
-              },
-              "de-DE": {
-                singular: "Seit Jahren setzt sich Vimeo Staff Picks für die Macher ein, die die Welt ein wenig anders sehen."
-              },
-              "fr-FR": {
-                singular: "Depuis des années, Vimeo Staff Picks défend les créateurs qui voient le monde un peu différemment."
-              },
-              "ja-JP": {
-                singular: "長年にわたり、Vimeo Staff Picksは世界を少し違った見方で見る制作者たちを支援してきました。"
-              },
-              "ko-KR": {
-                singular: "수년간 Vimeo Staff Picks는 세상을 조금 다르게 보는 제작자들을 응원해 왔습니다."
-              },
-              "pt-BR": {
-                singular: "Por anos, o Vimeo Staff Picks tem apoiado os criadores que veem o mundo de forma um pouco diferente."
-              },
-              "zh-CN": {
-                singular: "多年来，Vimeo Staff Picks 一直支持那些以不同视角看世界的创作者。"
-              }
-            }
-          })
-        })]
-      }), (0, _v7.jsx)(_v104.Grid, {
-        gap: "md",
-        mt: {
-          base: "xl",
-          md: "2xl"
-        },
-        templateColumns: {
-          base: "1fr",
-          md: "repeat(3, 1fr)"
-        },
-        children: _v25.COMMUNITY_FILMS.map(({
-          author: _v0,
-          image: _v1,
-          title: _v2
-        }) => (0, _v7.jsxs)(_v12.Box, {
-          children: [(0, _v7.jsx)(_v12.Box, {
-            aspectRatio: "416 / 248",
-            bg: "fill-component",
-            borderRadius: "md",
-            overflow: "hidden",
-            children: (0, _v7.jsx)(_v105.Image, {
-              alt: "",
-              h: "100%",
-              objectFit: "cover",
-              src: _v1,
-              w: "100%"
-            })
-          }), (0, _v7.jsx)(_v23.Text, {
-            p: "sm",
-            textAlign: "right",
-            variant: "body-md",
-            children: (0, _v24.translate)({
-              singular: "{title} by {author}",
-              replacements: {
-                title: _v2,
-                author: _v0
-              },
+          justify: "space-between",
+          children: [(0, _v10.jsx)(_v26.Text, {
+            as: "h2",
+            variant: {
+              base: "heading-xl",
+              md: "heading-3xl"
+            },
+            children: (0, _v27.translate)({
+              singular: "Made to be seen.",
               dictionary: {
                 es: {
-                  singular: "{title} por {author}"
+                  singular: "Hecho para ser visto."
                 },
                 "de-DE": {
-                  singular: "{title} von {author}"
+                  singular: "Gemacht, um gesehen zu werden."
                 },
                 "fr-FR": {
-                  singular: "{title} par {author}"
+                  singular: "Conçu pour être vu."
                 },
                 "ja-JP": {
-                  singular: "{author}による{title}"
+                  singular: "見られるために作られた。"
                 },
                 "ko-KR": {
-                  singular: "{author}의 {title}"
+                  singular: "보이기 위해 만들어졌습니다."
                 },
                 "pt-BR": {
-                  singular: "{title} por {author}"
+                  singular: "Feito para ser visto."
                 },
                 "zh-CN": {
-                  singular: "{title} 由 {author}"
+                  singular: "为被观看而生。"
+                }
+              }
+            })
+          }), (0, _v10.jsx)(_v26.Text, {
+            color: "text-secondary",
+            maxW: {
+              lg: "32%"
+            },
+            variant: {
+              base: "body-lg",
+              md: "body-xl"
+            },
+            children: (0, _v27.translate)({
+              singular: "For years, Vimeo Staff Picks has championed the makers who see the world a little differently.",
+              dictionary: {
+                es: {
+                  singular: "Durante años, Vimeo Staff Picks ha defendido a quienes ven el mundo de forma algo distinta."
+                },
+                "de-DE": {
+                  singular: "Seit Jahren setzt sich Vimeo Staff Picks für die Macher ein, die die Welt ein wenig anders sehen."
+                },
+                "fr-FR": {
+                  singular: "Depuis des années, Vimeo Staff Picks défend les créateurs qui voient le monde un peu différemment."
+                },
+                "ja-JP": {
+                  singular: "長年にわたり、Vimeo Staff Picksは世界を少し違った見方で見る制作者たちを支援してきました。"
+                },
+                "ko-KR": {
+                  singular: "수년간 Vimeo Staff Picks는 세상을 조금 다르게 보는 제작자들을 응원해 왔습니다."
+                },
+                "pt-BR": {
+                  singular: "Por anos, o Vimeo Staff Picks tem apoiado os criadores que veem o mundo de forma um pouco diferente."
+                },
+                "zh-CN": {
+                  singular: "多年来，Vimeo Staff Picks 一直支持那些以不同视角看世界的创作者。"
                 }
               }
             })
           })]
-        }, _v1))
-      }), (0, _v7.jsx)(_v32.Flex, {
-        justify: "flex-end",
-        mt: {
-          base: "xl",
-          md: "2xl"
-        },
-        children: (0, _v7.jsx)(_v102, {
-          href: "/channels/staffpicks",
-          size: "compact",
-          tone: "secondary",
-          children: (0, _v24.translate)({
-            singular: "Discover Staff Picks",
-            dictionary: {
-              es: {
-                singular: "Descubre Staff Picks"
-              },
-              "de-DE": {
-                singular: "Staff Picks entdecken"
-              },
-              "fr-FR": {
-                singular: "Découvrez les Staff Picks"
-              },
-              "ja-JP": {
-                singular: "Staff Picksをチェックする"
-              },
-              "ko-KR": {
-                singular: "Staff Picks 둘러보기"
-              },
-              "pt-BR": {
-                singular: "Descubra Staff Picks"
-              },
-              "zh-CN": {
-                singular: "发现 Staff Picks"
+        }), (0, _v10.jsx)(_v107.Grid, {
+          gap: "md",
+          mt: {
+            base: "xl",
+            md: "2xl"
+          },
+          templateColumns: {
+            base: "1fr",
+            md: "repeat(3, 1fr)"
+          },
+          children: _v28.COMMUNITY_FILMS.map(({
+            author: _v0,
+            href: _v1,
+            image: _v2,
+            title: _v3
+          }) => (0, _v10.jsxs)(_v78.Link, {
+            _hover: {
+              textDecoration: "none"
+            },
+            display: "block",
+            href: _v1,
+            isExternal: !0,
+            children: [(0, _v10.jsxs)(_v15.Box, {
+              aspectRatio: "416 / 248",
+              bg: "fill-component",
+              borderRadius: "md",
+              overflow: "hidden",
+              position: "relative",
+              children: [(0, _v10.jsx)(_v108.Image, {
+                alt: "",
+                h: "100%",
+                objectFit: "cover",
+                src: _v2,
+                w: "100%"
+              }), (0, _v10.jsx)(_v15.Box, {
+                bottom: "md",
+                left: "md",
+                lineHeight: 0,
+                position: "absolute",
+                sx: {
+                  boxSize: "72px",
+                  "@media (min-width: 768px) and (max-width: 1100px)": {
+                    boxSize: "36px"
+                  }
+                },
+                children: (0, _v10.jsx)(_v110, {
+                  "aria-hidden": !0,
+                  height: "100%",
+                  width: "100%"
+                })
+              })]
+            }), (0, _v10.jsx)(_v26.Text, {
+              p: "sm",
+              textAlign: "right",
+              variant: "body-md",
+              children: (0, _v27.translate)({
+                singular: "{title} by {author}",
+                replacements: {
+                  title: _v3,
+                  author: _v0
+                },
+                dictionary: {
+                  es: {
+                    singular: "{title} por {author}"
+                  },
+                  "de-DE": {
+                    singular: "{title} von {author}"
+                  },
+                  "fr-FR": {
+                    singular: "{title} par {author}"
+                  },
+                  "ja-JP": {
+                    singular: "{author}による{title}"
+                  },
+                  "ko-KR": {
+                    singular: "{author}의 {title}"
+                  },
+                  "pt-BR": {
+                    singular: "{title} por {author}"
+                  },
+                  "zh-CN": {
+                    singular: "{title} 由 {author}"
+                  }
+                }
+              })
+            })]
+          }, _v2))
+        }), (0, _v10.jsx)(_v35.Flex, {
+          justify: "flex-end",
+          mt: {
+            base: "xl",
+            md: "2xl"
+          },
+          children: (0, _v10.jsx)(_v105, {
+            href: "/channels/staffpicks",
+            size: "compact",
+            tone: "secondary",
+            children: (0, _v27.translate)({
+              singular: "Discover Staff Picks",
+              dictionary: {
+                es: {
+                  singular: "Descubre Staff Picks"
+                },
+                "de-DE": {
+                  singular: "Staff Picks entdecken"
+                },
+                "fr-FR": {
+                  singular: "Découvrez les Staff Picks"
+                },
+                "ja-JP": {
+                  singular: "Staff Picksをチェックする"
+                },
+                "ko-KR": {
+                  singular: "Staff Picks 둘러보기"
+                },
+                "pt-BR": {
+                  singular: "Descubra Staff Picks"
+                },
+                "zh-CN": {
+                  singular: "发现 Staff Picks"
+                }
               }
-            }
+            })
           })
-        })
-      })]
-    })
-  });
-  var _v107 = _v0.i(0),
-    _v108 = _v0.i(0),
-    _v109 = _v0.i(0),
-    _v110 = _v0.i(0),
-    _v111 = _v0.i(0);
-  let _v112 = [{
-      question: (0, _v24.translate)({
+        })]
+      })
+    });
+  var _v112 = _v0.i(0),
+    _v113 = _v0.i(0),
+    _v114 = _v0.i(0),
+    _v115 = _v0.i(0),
+    _v116 = _v0.i(0);
+  let _v117 = [{
+      question: (0, _v27.translate)({
         singular: "Who is the Indie Program for?",
         dictionary: {
           es: {
@@ -3743,7 +3835,7 @@
           }
         }
       }),
-      answer: (0, _v24.translate)({
+      answer: (0, _v27.translate)({
         singular: "Independent filmmakers and people working toward a filmmaking career. Your films must be your own: you hold the rights and have full creative control, including final cut. Company channels and work made to someone else’s brief aren’t eligible.",
         dictionary: {
           es: {
@@ -3770,7 +3862,7 @@
         }
       })
     }, {
-      question: (0, _v24.translate)({
+      question: (0, _v27.translate)({
         singular: "How do I apply?",
         dictionary: {
           es: {
@@ -3796,7 +3888,7 @@
           }
         }
       }),
-      answer: (0, _v24.translate)({
+      answer: (0, _v27.translate)({
         singular: "Select “Claim your indie discount,” tell us about your filmmaking, share a profile or portfolio link, and confirm that you meet the eligibility requirements. No payment is taken when you apply.",
         dictionary: {
           es: {
@@ -3823,7 +3915,7 @@
         }
       })
     }, {
-      question: (0, _v24.translate)({
+      question: (0, _v27.translate)({
         singular: "How long does the discount last?",
         dictionary: {
           es: {
@@ -3849,7 +3941,7 @@
           }
         }
       }),
-      answer: (0, _v24.translate)({
+      answer: (0, _v27.translate)({
         singular: "Your indie discount has no expiry date. If you apply without meeting the program’s eligibility requirements, we may remove the discount.",
         dictionary: {
           es: {
@@ -3876,7 +3968,7 @@
         }
       })
     }, {
-      question: (0, _v24.translate)({
+      question: (0, _v27.translate)({
         singular: "I already have a Vimeo plan. Can I switch?",
         dictionary: {
           es: {
@@ -3902,7 +3994,7 @@
           }
         }
       }),
-      answer: (0, _v24.translate)({
+      answer: (0, _v27.translate)({
         singular: "Yes. Eligible existing members can move to the indie price at their next renewal. Before switching, check that Professional’s managed storage and seat limits and features suit your needs.",
         dictionary: {
           es: {
@@ -3929,7 +4021,7 @@
         }
       })
     }, {
-      question: (0, _v24.translate)({
+      question: (0, _v27.translate)({
         singular: "What happens when spots run out?",
         dictionary: {
           es: {
@@ -3955,7 +4047,7 @@
           }
         }
       }),
-      answer: (0, _v24.translate)({
+      answer: (0, _v27.translate)({
         singular: "The Indie Program has a limited number of spots. Once they’re all claimed, the discount is no longer available. You can still explore Vimeo’s other plans.",
         dictionary: {
           es: {
@@ -3982,7 +4074,7 @@
         }
       })
     }, {
-      question: (0, _v24.translate)({
+      question: (0, _v27.translate)({
         singular: "Can I upgrade later?",
         dictionary: {
           es: {
@@ -4008,7 +4100,7 @@
           }
         }
       }),
-      answer: (0, _v24.translate)({
+      answer: (0, _v27.translate)({
         singular: "Yes. You can move to another Vimeo plan if you need more storage or features. The Indie Program discount applies only to Vimeo Professional.",
         dictionary: {
           es: {
@@ -4035,15 +4127,15 @@
         }
       })
     }],
-    _v113 = () => (0, _v7.jsx)(_v12.Box, {
+    _v118 = () => (0, _v10.jsx)(_v15.Box, {
       as: "section",
       bg: "surface",
       py: {
         base: "3xl",
         md: "124px"
       },
-      children: (0, _v7.jsx)(_v95, {
-        children: (0, _v7.jsxs)(_v32.Flex, {
+      children: (0, _v10.jsx)(_v98, {
+        children: (0, _v10.jsxs)(_v35.Flex, {
           align: {
             lg: "flex-start"
           },
@@ -4056,7 +4148,7 @@
             lg: "2xl",
             xl: "80px"
           },
-          children: [(0, _v7.jsxs)(_v23.Text, {
+          children: [(0, _v10.jsxs)(_v26.Text, {
             as: "h2",
             flex: {
               base: "0 0 auto",
@@ -4066,7 +4158,7 @@
               base: "heading-xl",
               md: "heading-3xl"
             },
-            children: [(0, _v24.translate)({
+            children: [(0, _v27.translate)({
               singular: "Questions,",
               dictionary: {
                 es: {
@@ -4091,7 +4183,7 @@
                   singular: "有问题，"
                 }
               }
-            }), (0, _v7.jsx)("br", {}), (0, _v24.translate)({
+            }), (0, _v10.jsx)("br", {}), (0, _v27.translate)({
               singular: "answered.",
               dictionary: {
                 es: {
@@ -4117,7 +4209,7 @@
                 }
               }
             })]
-          }), (0, _v7.jsx)(_v107.Accordion, {
+          }), (0, _v10.jsx)(_v112.Accordion, {
             allowToggle: !0,
             borderColor: "rgba(193, 210, 223, 0.18)",
             borderTopWidth: "1px",
@@ -4125,12 +4217,12 @@
             flex: "1",
             gap: "0",
             minW: "0",
-            children: _v112.map(_v0 => (0, _v7.jsxs)(_v109.AccordionItem, {
+            children: _v117.map(_v0 => (0, _v10.jsxs)(_v114.AccordionItem, {
               bg: "transparent",
               borderBottomWidth: "1px",
               borderColor: "rgba(193, 210, 223, 0.18)",
               borderRadius: "0",
-              children: [(0, _v7.jsxs)(_v108.AccordionButton, {
+              children: [(0, _v10.jsxs)(_v113.AccordionButton, {
                 _hover: {
                   bg: "transparent"
                 },
@@ -4152,16 +4244,16 @@
                 },
                 px: "0",
                 py: "24px",
-                children: [(0, _v7.jsx)(_v12.Box, {
+                children: [(0, _v10.jsx)(_v15.Box, {
                   flex: "1",
                   textAlign: "left",
                   children: _v0.question
-                }), (0, _v7.jsxs)(_v12.Box, {
+                }), (0, _v10.jsxs)(_v15.Box, {
                   "aria-hidden": "true",
                   boxSize: "20px",
                   flex: "0 0 20px",
                   position: "relative",
-                  children: [(0, _v7.jsx)(_v66.Plus, {
+                  children: [(0, _v10.jsx)(_v69.Plus, {
                     boxSize: "20px",
                     left: "0",
                     position: "absolute",
@@ -4171,7 +4263,7 @@
                       }
                     },
                     top: "0"
-                  }), (0, _v7.jsx)(_v111.Minus, {
+                  }), (0, _v10.jsx)(_v116.Minus, {
                     boxSize: "20px",
                     left: "0",
                     position: "absolute",
@@ -4183,11 +4275,11 @@
                     top: "0"
                   })]
                 })]
-              }), (0, _v7.jsx)(_v110.AccordionPanel, {
+              }), (0, _v10.jsx)(_v115.AccordionPanel, {
                 pb: "24px",
                 pt: "0",
                 px: "0",
-                children: (0, _v7.jsx)(_v23.Text, {
+                children: (0, _v10.jsx)(_v26.Text, {
                   color: "text-secondary",
                   fontSize: "16px",
                   letterSpacing: "-0.4px",
@@ -4200,13 +4292,13 @@
         })
       })
     }),
-    _v114 = `url("data:image/svg+xml,${encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8' preserveAspectRatio='none'><path d='M2 4.8C22 3.5 40 5.6 62 4.4 84 3.4 104 5.5 126 4.3 148 3.4 166 5.4 186 4.2 191 4 195 4.2 198 5' fill='none' stroke='#13D4FE' stroke-linecap='round' stroke-width='1.5'/></svg>").replaceAll("'", "%27")}")`,
-    _v115 = ({
+    _v119 = `url("data:image/svg+xml,${encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8' preserveAspectRatio='none'><path d='M2 4.8C22 3.5 40 5.6 62 4.4 84 3.4 104 5.5 126 4.3 148 3.4 166 5.4 186 4.2 191 4 195 4.2 198 5' fill='none' stroke='#13D4FE' stroke-linecap='round' stroke-width='1.5'/></svg>").replaceAll("'", "%27")}")`,
+    _v120 = ({
       children: _v0
-    }) => (0, _v7.jsx)(_v12.Box, {
+    }) => (0, _v10.jsx)(_v15.Box, {
       as: "span",
       style: {
-        backgroundImage: _v114
+        backgroundImage: _v119
       },
       sx: {
         "&": {
@@ -4219,12 +4311,12 @@
       },
       children: _v0
     }),
-    _v116 = "srgb",
-    _v117 = "srgb-linear",
-    _v118 = "linear",
-    _v119 = "srgb",
-    _v120 = "300 es";
-  class _v121 {
+    _v121 = "srgb",
+    _v122 = "srgb-linear",
+    _v123 = "linear",
+    _v124 = "srgb",
+    _v125 = "300 es";
+  class _v126 {
     addEventListener(_v0, _v1) {
       void 0 === this._listeners && (this._listeners = {});
       let _v2 = this._listeners;
@@ -4255,20 +4347,20 @@
       }
     }
   }
-  let _v122 = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0a", "0b", "0c", "0d", "0e", "0f", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "1a", "1b", "1c", "1d", "1e", "1f", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "2a", "2b", "2c", "2d", "2e", "2f", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "3a", "3b", "3c", "3d", "3e", "3f", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "4a", "4b", "4c", "4d", "4e", "4f", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "5a", "5b", "5c", "5d", "5e", "5f", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "6a", "6b", "6c", "6d", "6e", "6f", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "7a", "7b", "7c", "7d", "7e", "7f", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "8a", "8b", "8c", "8d", "8e", "8f", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "9a", "9b", "9c", "9d", "9e", "9f", "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "aa", "ab", "ac", "ad", "ae", "af", "b0", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "ba", "bb", "bc", "bd", "be", "bf", "c0", "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "ca", "cb", "cc", "cd", "ce", "cf", "d0", "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "da", "db", "dc", "dd", "de", "df", "e0", "e1", "e2", "e3", "e4", "e5", "e6", "e7", "e8", "e9", "ea", "eb", "ec", "ed", "ee", "ef", "f0", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "fa", "fb", "fc", "fd", "fe", "ff"],
-    _v123 = Math.PI / 180,
-    _v124 = 180 / Math.PI;
-  function _v125() {
+  let _v127 = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "0a", "0b", "0c", "0d", "0e", "0f", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "1a", "1b", "1c", "1d", "1e", "1f", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "2a", "2b", "2c", "2d", "2e", "2f", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "3a", "3b", "3c", "3d", "3e", "3f", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "4a", "4b", "4c", "4d", "4e", "4f", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "5a", "5b", "5c", "5d", "5e", "5f", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "6a", "6b", "6c", "6d", "6e", "6f", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "7a", "7b", "7c", "7d", "7e", "7f", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "8a", "8b", "8c", "8d", "8e", "8f", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "9a", "9b", "9c", "9d", "9e", "9f", "a0", "a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "aa", "ab", "ac", "ad", "ae", "af", "b0", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "ba", "bb", "bc", "bd", "be", "bf", "c0", "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "ca", "cb", "cc", "cd", "ce", "cf", "d0", "d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9", "da", "db", "dc", "dd", "de", "df", "e0", "e1", "e2", "e3", "e4", "e5", "e6", "e7", "e8", "e9", "ea", "eb", "ec", "ed", "ee", "ef", "f0", "f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "fa", "fb", "fc", "fd", "fe", "ff"],
+    _v128 = Math.PI / 180,
+    _v129 = 180 / Math.PI;
+  function _v130() {
     let _v0 = 0 * Math.random() | 0,
       _v1 = 0 * Math.random() | 0,
       _v2 = 0 * Math.random() | 0,
       _v3 = 0 * Math.random() | 0;
-    return (_v122[255 & _v0] + _v122[_v0 >> 8 & 255] + _v122[_v0 >> 16 & 255] + _v122[_v0 >> 24 & 255] + "-" + _v122[255 & _v1] + _v122[_v1 >> 8 & 255] + "-" + _v122[_v1 >> 16 & 15 | 64] + _v122[_v1 >> 24 & 255] + "-" + _v122[63 & _v2 | 128] + _v122[_v2 >> 8 & 255] + "-" + _v122[_v2 >> 16 & 255] + _v122[_v2 >> 24 & 255] + _v122[255 & _v3] + _v122[_v3 >> 8 & 255] + _v122[_v3 >> 16 & 255] + _v122[_v3 >> 24 & 255]).toLowerCase();
+    return (_v127[255 & _v0] + _v127[_v0 >> 8 & 255] + _v127[_v0 >> 16 & 255] + _v127[_v0 >> 24 & 255] + "-" + _v127[255 & _v1] + _v127[_v1 >> 8 & 255] + "-" + _v127[_v1 >> 16 & 15 | 64] + _v127[_v1 >> 24 & 255] + "-" + _v127[63 & _v2 | 128] + _v127[_v2 >> 8 & 255] + "-" + _v127[_v2 >> 16 & 255] + _v127[_v2 >> 24 & 255] + _v127[255 & _v3] + _v127[_v3 >> 8 & 255] + _v127[_v3 >> 16 & 255] + _v127[_v3 >> 24 & 255]).toLowerCase();
   }
-  function _v126(_v0, _v1, _v2) {
+  function _v131(_v0, _v1, _v2) {
     return Math.max(_v1, Math.min(_v2, _v0));
   }
-  function _v127(_v0, _v1) {
+  function _v132(_v0, _v1) {
     switch (_v1.constructor) {
       case Float32Array:
         return _v0;
@@ -4288,7 +4380,7 @@
         throw Error("Invalid component type.");
     }
   }
-  function _v128(_v0, _v1) {
+  function _v133(_v0, _v1) {
     switch (_v1.constructor) {
       case Float32Array:
         return _v0;
@@ -4308,9 +4400,9 @@
         throw Error("Invalid component type.");
     }
   }
-  class _v129 {
+  class _v134 {
     constructor(_v0 = 0, _v1 = 0) {
-      _v129.prototype.isVector2 = !0, this.x = _v0, this.y = _v1;
+      _v134.prototype.isVector2 = !0, this.x = _v0, this.y = _v1;
     }
     get width() {
       return this.x;
@@ -4411,14 +4503,14 @@
       return this.x = Math.max(this.x, _v0.x), this.y = Math.max(this.y, _v0.y), this;
     }
     clamp(_v0, _v1) {
-      return this.x = _v126(this.x, _v0.x, _v1.x), this.y = _v126(this.y, _v0.y, _v1.y), this;
+      return this.x = _v131(this.x, _v0.x, _v1.x), this.y = _v131(this.y, _v0.y, _v1.y), this;
     }
     clampScalar(_v0, _v1) {
-      return this.x = _v126(this.x, _v0, _v1), this.y = _v126(this.y, _v0, _v1), this;
+      return this.x = _v131(this.x, _v0, _v1), this.y = _v131(this.y, _v0, _v1), this;
     }
     clampLength(_v0, _v1) {
       let _v2 = this.length();
-      return this.divideScalar(_v2 || 1).multiplyScalar(_v126(_v2, _v0, _v1));
+      return this.divideScalar(_v2 || 1).multiplyScalar(_v131(_v2, _v0, _v1));
     }
     floor() {
       return this.x = Math.floor(this.x), this.y = Math.floor(this.y), this;
@@ -4458,7 +4550,7 @@
     }
     angleTo(_v0) {
       let _v1 = Math.sqrt(this.lengthSq() * _v0.lengthSq());
-      return 0 === _v1 ? Math.PI / 2 : Math.acos(_v126(this.dot(_v0) / _v1, -1, 1));
+      return 0 === _v1 ? Math.PI / 2 : Math.acos(_v131(this.dot(_v0) / _v1, -1, 1));
     }
     distanceTo(_v0) {
       return Math.sqrt(this.distanceToSquared(_v0));
@@ -4506,7 +4598,7 @@
       yield this.x, yield this.y;
     }
   }
-  class _v130 {
+  class _v135 {
     constructor(_v0 = 0, _v1 = 0, _v2 = 0, _v3 = 1) {
       this.isQuaternion = !0, this._x = _v0, this._y = _v1, this._z = _v2, this._w = _v3;
     }
@@ -4663,7 +4755,7 @@
       return _v2 < 1e-8 ? (_v2 = 0, Math.abs(_v0.x) > Math.abs(_v0.z) ? (this._x = -_v0.y, this._y = _v0.x, this._z = 0) : (this._x = 0, this._y = -_v0.z, this._z = _v0.y)) : (this._x = _v0.y * _v1.z - _v0.z * _v1.y, this._y = _v0.z * _v1.x - _v0.x * _v1.z, this._z = _v0.x * _v1.y - _v0.y * _v1.x), this._w = _v2, this.normalize();
     }
     angleTo(_v0) {
-      return 2 * Math.acos(Math.abs(_v126(this.dot(_v0), -1, 1)));
+      return 2 * Math.acos(Math.abs(_v131(this.dot(_v0), -1, 1)));
     }
     rotateTowards(_v0, _v1) {
       let _v2 = this.angleTo(_v0);
@@ -4764,9 +4856,9 @@
       yield this._x, yield this._y, yield this._z, yield this._w;
     }
   }
-  class _v131 {
+  class _v136 {
     constructor(_v0 = 0, _v1 = 0, _v2 = 0) {
-      _v131.prototype.isVector3 = !0, this.x = _v0, this.y = _v1, this.z = _v2;
+      _v136.prototype.isVector3 = !0, this.x = _v0, this.y = _v1, this.z = _v2;
     }
     set(_v0, _v1, _v2) {
       return void 0 === _v2 && (_v2 = this.z), this.x = _v0, this.y = _v1, this.z = _v2, this;
@@ -4848,10 +4940,10 @@
       return this.x = _v0.x * _v1.x, this.y = _v0.y * _v1.y, this.z = _v0.z * _v1.z, this;
     }
     applyEuler(_v0) {
-      return this.applyQuaternion(_v133.setFromEuler(_v0));
+      return this.applyQuaternion(_v138.setFromEuler(_v0));
     }
     applyAxisAngle(_v0, _v1) {
-      return this.applyQuaternion(_v133.setFromAxisAngle(_v0, _v1));
+      return this.applyQuaternion(_v138.setFromAxisAngle(_v0, _v1));
     }
     applyMatrix3(_v0) {
       let _v1 = this.x,
@@ -4910,14 +5002,14 @@
       return this.x = Math.max(this.x, _v0.x), this.y = Math.max(this.y, _v0.y), this.z = Math.max(this.z, _v0.z), this;
     }
     clamp(_v0, _v1) {
-      return this.x = _v126(this.x, _v0.x, _v1.x), this.y = _v126(this.y, _v0.y, _v1.y), this.z = _v126(this.z, _v0.z, _v1.z), this;
+      return this.x = _v131(this.x, _v0.x, _v1.x), this.y = _v131(this.y, _v0.y, _v1.y), this.z = _v131(this.z, _v0.z, _v1.z), this;
     }
     clampScalar(_v0, _v1) {
-      return this.x = _v126(this.x, _v0, _v1), this.y = _v126(this.y, _v0, _v1), this.z = _v126(this.z, _v0, _v1), this;
+      return this.x = _v131(this.x, _v0, _v1), this.y = _v131(this.y, _v0, _v1), this.z = _v131(this.z, _v0, _v1), this;
     }
     clampLength(_v0, _v1) {
       let _v2 = this.length();
-      return this.divideScalar(_v2 || 1).multiplyScalar(_v126(_v2, _v0, _v1));
+      return this.divideScalar(_v2 || 1).multiplyScalar(_v131(_v2, _v0, _v1));
     }
     floor() {
       return this.x = Math.floor(this.x), this.y = Math.floor(this.y), this.z = Math.floor(this.z), this;
@@ -4977,14 +5069,14 @@
       return this.copy(_v0).multiplyScalar(_v2);
     }
     projectOnPlane(_v0) {
-      return _v132.copy(this).projectOnVector(_v0), this.sub(_v132);
+      return _v137.copy(this).projectOnVector(_v0), this.sub(_v137);
     }
     reflect(_v0) {
-      return this.sub(_v132.copy(_v0).multiplyScalar(2 * this.dot(_v0)));
+      return this.sub(_v137.copy(_v0).multiplyScalar(2 * this.dot(_v0)));
     }
     angleTo(_v0) {
       let _v1 = Math.sqrt(this.lengthSq() * _v0.lengthSq());
-      return 0 === _v1 ? Math.PI / 2 : Math.acos(_v126(this.dot(_v0) / _v1, -1, 1));
+      return 0 === _v1 ? Math.PI / 2 : Math.acos(_v131(this.dot(_v0) / _v1, -1, 1));
     }
     distanceTo(_v0) {
       return Math.sqrt(this.distanceToSquared(_v0));
@@ -5058,11 +5150,11 @@
       yield this.x, yield this.y, yield this.z;
     }
   }
-  let _v132 = new _v131(),
-    _v133 = new _v130();
-  class _v134 {
+  let _v137 = new _v136(),
+    _v138 = new _v135();
+  class _v139 {
     constructor(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8) {
-      _v134.prototype.isMatrix3 = !0, this.elements = [1, 0, 0, 0, 1, 0, 0, 0, 1], void 0 !== _v0 && this.set(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8);
+      _v139.prototype.isMatrix3 = !0, this.elements = [1, 0, 0, 0, 1, 0, 0, 0, 1], void 0 !== _v0 && this.set(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8);
     }
     set(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8) {
       let _v9 = this.elements;
@@ -5167,13 +5259,13 @@
       return this.set(_v2 * _v7, _v2 * _v8, -_v2 * (_v7 * _v5 + _v8 * _v6) + _v5 + _v0, -_v3 * _v8, _v3 * _v7, -_v3 * (-_v8 * _v5 + _v7 * _v6) + _v6 + _v1, 0, 0, 1), this;
     }
     scale(_v0, _v1) {
-      return this.premultiply(_v135.makeScale(_v0, _v1)), this;
+      return this.premultiply(_v140.makeScale(_v0, _v1)), this;
     }
     rotate(_v0) {
-      return this.premultiply(_v135.makeRotation(-_v0)), this;
+      return this.premultiply(_v140.makeRotation(-_v0)), this;
     }
     translate(_v0, _v1) {
-      return this.premultiply(_v135.makeTranslation(_v0, _v1)), this;
+      return this.premultiply(_v140.makeTranslation(_v0, _v1)), this;
     }
     makeTranslation(_v0, _v1) {
       return _v0.isVector2 ? this.set(1, 0, _v0.x, 0, 1, _v0.y, 0, 0, 1) : this.set(1, 0, _v0, 0, 1, _v1, 0, 0, 1), this;
@@ -5204,27 +5296,27 @@
       return new this.constructor().fromArray(this.elements);
     }
   }
-  let _v135 = new _v134();
-  function _v136(_v0) {
+  let _v140 = new _v139();
+  function _v141(_v0) {
     for (let _v0 = _v0.length - 1; _v0 >= 0; --_v0) if (_v0[_v0] >= 0) return !0;
     return !1;
   }
-  function _v137(_v0) {
+  function _v142(_v0) {
     return document.createElementNS("http://www.w3.org/1999/xhtml", _v0);
   }
   Int8Array, Uint8Array, Uint8ClampedArray, Int16Array, Uint16Array, Int32Array, Uint32Array, Float32Array, Float64Array;
-  let _v138 = {};
-  function _v139(_v0) {
-    _v0 in _v138 || (_v138[_v0] = !0, console.warn(_v0));
+  let _v143 = {};
+  function _v144(_v0) {
+    _v0 in _v143 || (_v143[_v0] = !0, console.warn(_v0));
   }
-  let _v140 = new _v134().set(.4123908, .3575843, .1804808, .212639, .7151687, .0721923, .0193308, .1191948, .9505322),
-    _v141 = new _v134().set(3.2409699, -1.5373832, -.4986108, -.9692436, 1.8759675, .0415551, .0556301, -.203977, 1.0569715),
-    _v142 = (_v3 = [.64, .33, .3, .6, .15, .06], _v4 = [.2126, .7152, .0722], _v5 = [.3127, .329], (_v2 = {
+  let _v145 = new _v139().set(.4123908, .3575843, .1804808, .212639, .7151687, .0721923, .0193308, .1191948, .9505322),
+    _v146 = new _v139().set(3.2409699, -1.5373832, -.4986108, -.9692436, 1.8759675, .0415551, .0556301, -.203977, 1.0569715),
+    _v147 = (_v3 = [.64, .33, .3, .6, .15, .06], _v4 = [.2126, .7152, .0722], _v5 = [.3127, .329], (_v2 = {
       enabled: !0,
-      workingColorSpace: _v117,
+      workingColorSpace: _v122,
       spaces: {},
       convert: function (_v0, _v1, _v2) {
-        return !1 !== this.enabled && _v1 !== _v2 && _v1 && _v2 && (this.spaces[_v1].transfer === _v119 && (_v0.r = _v143(_v0.r), _v0.g = _v143(_v0.g), _v0.b = _v143(_v0.b)), this.spaces[_v1].primaries !== this.spaces[_v2].primaries && (_v0.applyMatrix3(this.spaces[_v1].toXYZ), _v0.applyMatrix3(this.spaces[_v2].fromXYZ)), this.spaces[_v2].transfer === _v119 && (_v0.r = _v144(_v0.r), _v0.g = _v144(_v0.g), _v0.b = _v144(_v0.b))), _v0;
+        return !1 !== this.enabled && _v1 !== _v2 && _v1 && _v2 && (this.spaces[_v1].transfer === _v124 && (_v0.r = _v148(_v0.r), _v0.g = _v148(_v0.g), _v0.b = _v148(_v0.b)), this.spaces[_v1].primaries !== this.spaces[_v2].primaries && (_v0.applyMatrix3(this.spaces[_v1].toXYZ), _v0.applyMatrix3(this.spaces[_v2].fromXYZ)), this.spaces[_v2].transfer === _v124 && (_v0.r = _v149(_v0.r), _v0.g = _v149(_v0.g), _v0.b = _v149(_v0.b))), _v0;
       },
       workingToColorSpace: function (_v0, _v1) {
         return this.convert(_v0, this.workingColorSpace, _v1);
@@ -5236,7 +5328,7 @@
         return this.spaces[_v0].primaries;
       },
       getTransfer: function (_v0) {
-        return "" === _v0 ? _v118 : this.spaces[_v0].transfer;
+        return "" === _v0 ? _v123 : this.spaces[_v0].transfer;
       },
       getToneMappingMode: function (_v0) {
         return this.spaces[_v0].outputColorSpaceConfig.toneMappingMode || "standard";
@@ -5257,50 +5349,50 @@
         return this.spaces[_v0].workingColorSpaceConfig.unpackColorSpace;
       },
       fromWorkingColorSpace: function (_v0, _v1) {
-        return _v139("THREE.ColorManagement: .fromWorkingColorSpace() has been renamed to .workingToColorSpace()."), _v2.workingToColorSpace(_v0, _v1);
+        return _v144("THREE.ColorManagement: .fromWorkingColorSpace() has been renamed to .workingToColorSpace()."), _v2.workingToColorSpace(_v0, _v1);
       },
       toWorkingColorSpace: function (_v0, _v1) {
-        return _v139("THREE.ColorManagement: .toWorkingColorSpace() has been renamed to .colorSpaceToWorking()."), _v2.colorSpaceToWorking(_v0, _v1);
+        return _v144("THREE.ColorManagement: .toWorkingColorSpace() has been renamed to .colorSpaceToWorking()."), _v2.colorSpaceToWorking(_v0, _v1);
       }
     }).define({
-      [_v117]: {
+      [_v122]: {
         primaries: _v3,
         whitePoint: _v5,
-        transfer: _v118,
-        toXYZ: _v140,
-        fromXYZ: _v141,
+        transfer: _v123,
+        toXYZ: _v145,
+        fromXYZ: _v146,
         luminanceCoefficients: _v4,
         workingColorSpaceConfig: {
-          unpackColorSpace: _v116
+          unpackColorSpace: _v121
         },
         outputColorSpaceConfig: {
-          drawingBufferColorSpace: _v116
+          drawingBufferColorSpace: _v121
         }
       },
-      [_v116]: {
+      [_v121]: {
         primaries: _v3,
         whitePoint: _v5,
-        transfer: _v119,
-        toXYZ: _v140,
-        fromXYZ: _v141,
+        transfer: _v124,
+        toXYZ: _v145,
+        fromXYZ: _v146,
         luminanceCoefficients: _v4,
         outputColorSpaceConfig: {
-          drawingBufferColorSpace: _v116
+          drawingBufferColorSpace: _v121
         }
       }
     }), _v2);
-  function _v143(_v0) {
+  function _v148(_v0) {
     return _v0 < .04045 ? .0773993808 * _v0 : Math.pow(.9478672986 * _v0 + .0521327014, 2.4);
   }
-  function _v144(_v0) {
+  function _v149(_v0) {
     return _v0 < .0031308 ? 12.92 * _v0 : 1.055 * Math.pow(_v0, .41666) - .055;
   }
-  class _v145 {
+  class _v150 {
     static getDataURL(_v0, _v1 = "image/png") {
       let _v2;
       if (/^data:/i.test(_v0.src) || "u" < typeof HTMLCanvasElement) return _v0.src;
       if (_v0 instanceof HTMLCanvasElement) _v2 = _v0;else {
-        void 0 === _v1 && (_v1 = _v137("canvas")), _v1.width = _v0.width, _v1.height = _v0.height;
+        void 0 === _v1 && (_v1 = _v142("canvas")), _v1.width = _v0.width, _v1.height = _v0.height;
         let _v0 = _v1.getContext("2d");
         _v0 instanceof ImageData ? _v0.putImageData(_v0, 0, 0) : _v0.drawImage(_v0, 0, 0, _v0.width, _v0.height), _v2 = _v1;
       }
@@ -5308,19 +5400,19 @@
     }
     static sRGBToLinear(_v0) {
       if ("u" > typeof HTMLImageElement && _v0 instanceof HTMLImageElement || "u" > typeof HTMLCanvasElement && _v0 instanceof HTMLCanvasElement || "u" > typeof ImageBitmap && _v0 instanceof ImageBitmap) {
-        let _v0 = _v137("canvas");
+        let _v0 = _v142("canvas");
         _v0.width = _v0.width, _v0.height = _v0.height;
         let _v1 = _v0.getContext("2d");
         _v1.drawImage(_v0, 0, 0, _v0.width, _v0.height);
         let _v2 = _v1.getImageData(0, 0, _v0.width, _v0.height),
           _v3 = _v2.data;
-        for (let _v0 = 0; _v0 < _v3.length; _v0++) _v3[_v0] = 255 * _v143(_v3[_v0] / 255);
+        for (let _v0 = 0; _v0 < _v3.length; _v0++) _v3[_v0] = 255 * _v148(_v3[_v0] / 255);
         return _v1.putImageData(_v2, 0, 0), _v0;
       }
       if (!_v0.data) return console.warn("THREE.ImageUtils.sRGBToLinear(): Unsupported image type. No color space conversion applied."), _v0;
       {
         let _v0 = _v0.data.slice(0);
-        for (let _v0 = 0; _v0 < _v0.length; _v0++) _v0 instanceof Uint8Array || _v0 instanceof Uint8ClampedArray ? _v0[_v0] = Math.floor(255 * _v143(_v0[_v0] / 255)) : _v0[_v0] = _v143(_v0[_v0]);
+        for (let _v0 = 0; _v0 < _v0.length; _v0++) _v0 instanceof Uint8Array || _v0 instanceof Uint8ClampedArray ? _v0[_v0] = Math.floor(255 * _v148(_v0[_v0] / 255)) : _v0[_v0] = _v148(_v0[_v0]);
         return {
           data: _v0,
           width: _v0.width,
@@ -5329,12 +5421,12 @@
       }
     }
   }
-  let _v146 = 0;
-  class _v147 {
+  let _v151 = 0;
+  class _v152 {
     constructor(_v0 = null) {
       this.isSource = !0, Object.defineProperty(this, "id", {
-        value: _v146++
-      }), this.uuid = _v125(), this.data = _v0, this.dataReady = !0, this.version = 0;
+        value: _v151++
+      }), this.uuid = _v130(), this.data = _v0, this.dataReady = !0, this.version = 0;
     }
     getSize(_v0) {
       let _v1 = this.data;
@@ -5355,37 +5447,37 @@
         let _v0;
         if (Array.isArray(_v3)) {
           _v0 = [];
-          for (let _v0 = 0, _v1 = _v3.length; _v0 < _v1; _v0++) _v3[_v0].isDataTexture ? _v0.push(_v148(_v3[_v0].image)) : _v0.push(_v148(_v3[_v0]));
-        } else _v0 = _v148(_v3);
+          for (let _v0 = 0, _v1 = _v3.length; _v0 < _v1; _v0++) _v3[_v0].isDataTexture ? _v0.push(_v153(_v3[_v0].image)) : _v0.push(_v153(_v3[_v0]));
+        } else _v0 = _v153(_v3);
         _v2.url = _v0;
       }
       return _v1 || (_v0.images[this.uuid] = _v2), _v2;
     }
   }
-  function _v148(_v0) {
-    return "u" > typeof HTMLImageElement && _v0 instanceof HTMLImageElement || "u" > typeof HTMLCanvasElement && _v0 instanceof HTMLCanvasElement || "u" > typeof ImageBitmap && _v0 instanceof ImageBitmap ? _v145.getDataURL(_v0) : _v0.data ? {
+  function _v153(_v0) {
+    return "u" > typeof HTMLImageElement && _v0 instanceof HTMLImageElement || "u" > typeof HTMLCanvasElement && _v0 instanceof HTMLCanvasElement || "u" > typeof ImageBitmap && _v0 instanceof ImageBitmap ? _v150.getDataURL(_v0) : _v0.data ? {
       data: Array.from(_v0.data),
       width: _v0.width,
       height: _v0.height,
       type: _v0.data.constructor.name
     } : (console.warn("THREE.Texture: Unable to serialize Texture."), {});
   }
-  let _v149 = 0,
-    _v150 = new _v131();
-  class _v151 extends _v121 {
-    constructor(_v0 = _v151.DEFAULT_IMAGE, _v1 = _v151.DEFAULT_MAPPING, _v2 = 0, _v3 = 0, _v4 = 0, _v5 = 0, _v6 = 0, _v7 = 0, _v8 = _v151.DEFAULT_ANISOTROPY, _v9 = "") {
+  let _v154 = 0,
+    _v155 = new _v136();
+  class _v156 extends _v126 {
+    constructor(_v0 = _v156.DEFAULT_IMAGE, _v1 = _v156.DEFAULT_MAPPING, _v2 = 0, _v3 = 0, _v4 = 0, _v5 = 0, _v6 = 0, _v7 = 0, _v8 = _v156.DEFAULT_ANISOTROPY, _v9 = "") {
       super(), this.isTexture = !0, Object.defineProperty(this, "id", {
-        value: _v149++
-      }), this.uuid = _v125(), this.name = "", this.source = new _v147(_v0), this.mipmaps = [], this.mapping = _v1, this.channel = 0, this.wrapS = _v2, this.wrapT = _v3, this.magFilter = _v4, this.minFilter = _v5, this.anisotropy = _v8, this.format = _v6, this.internalFormat = null, this.type = _v7, this.offset = new _v129(0, 0), this.repeat = new _v129(1, 1), this.center = new _v129(0, 0), this.rotation = 0, this.matrixAutoUpdate = !0, this.matrix = new _v134(), this.generateMipmaps = !0, this.premultiplyAlpha = !1, this.flipY = !0, this.unpackAlignment = 4, this.colorSpace = _v9, this.userData = {}, this.updateRanges = [], this.version = 0, this.onUpdate = null, this.renderTarget = null, this.isRenderTargetTexture = !1, this.isArrayTexture = !!_v0 && !!_v0.depth && _v0.depth > 1, this.pmremVersion = 0;
+        value: _v154++
+      }), this.uuid = _v130(), this.name = "", this.source = new _v152(_v0), this.mipmaps = [], this.mapping = _v1, this.channel = 0, this.wrapS = _v2, this.wrapT = _v3, this.magFilter = _v4, this.minFilter = _v5, this.anisotropy = _v8, this.format = _v6, this.internalFormat = null, this.type = _v7, this.offset = new _v134(0, 0), this.repeat = new _v134(1, 1), this.center = new _v134(0, 0), this.rotation = 0, this.matrixAutoUpdate = !0, this.matrix = new _v139(), this.generateMipmaps = !0, this.premultiplyAlpha = !1, this.flipY = !0, this.unpackAlignment = 4, this.colorSpace = _v9, this.userData = {}, this.updateRanges = [], this.version = 0, this.onUpdate = null, this.renderTarget = null, this.isRenderTargetTexture = !1, this.isArrayTexture = !!_v0 && !!_v0.depth && _v0.depth > 1, this.pmremVersion = 0;
     }
     get width() {
-      return this.source.getSize(_v150).x;
+      return this.source.getSize(_v155).x;
     }
     get height() {
-      return this.source.getSize(_v150).y;
+      return this.source.getSize(_v155).y;
     }
     get depth() {
-      return this.source.getSize(_v150).z;
+      return this.source.getSize(_v155).z;
     }
     get image() {
       return this.source.data;
@@ -5495,10 +5587,10 @@
       !0 === _v0 && this.pmremVersion++;
     }
   }
-  _v151.DEFAULT_IMAGE = null, _v151.DEFAULT_MAPPING = 300, _v151.DEFAULT_ANISOTROPY = 1;
-  class _v152 {
+  _v156.DEFAULT_IMAGE = null, _v156.DEFAULT_MAPPING = 300, _v156.DEFAULT_ANISOTROPY = 1;
+  class _v157 {
     constructor(_v0 = 0, _v1 = 0, _v2 = 0, _v3 = 1) {
-      _v152.prototype.isVector4 = !0, this.x = _v0, this.y = _v1, this.z = _v2, this.w = _v3;
+      _v157.prototype.isVector4 = !0, this.x = _v0, this.y = _v1, this.z = _v2, this.w = _v3;
     }
     get width() {
       return this.z;
@@ -5655,14 +5747,14 @@
       return this.x = Math.max(this.x, _v0.x), this.y = Math.max(this.y, _v0.y), this.z = Math.max(this.z, _v0.z), this.w = Math.max(this.w, _v0.w), this;
     }
     clamp(_v0, _v1) {
-      return this.x = _v126(this.x, _v0.x, _v1.x), this.y = _v126(this.y, _v0.y, _v1.y), this.z = _v126(this.z, _v0.z, _v1.z), this.w = _v126(this.w, _v0.w, _v1.w), this;
+      return this.x = _v131(this.x, _v0.x, _v1.x), this.y = _v131(this.y, _v0.y, _v1.y), this.z = _v131(this.z, _v0.z, _v1.z), this.w = _v131(this.w, _v0.w, _v1.w), this;
     }
     clampScalar(_v0, _v1) {
-      return this.x = _v126(this.x, _v0, _v1), this.y = _v126(this.y, _v0, _v1), this.z = _v126(this.z, _v0, _v1), this.w = _v126(this.w, _v0, _v1), this;
+      return this.x = _v131(this.x, _v0, _v1), this.y = _v131(this.y, _v0, _v1), this.z = _v131(this.z, _v0, _v1), this.w = _v131(this.w, _v0, _v1), this;
     }
     clampLength(_v0, _v1) {
       let _v2 = this.length();
-      return this.divideScalar(_v2 || 1).multiplyScalar(_v126(_v2, _v0, _v1));
+      return this.divideScalar(_v2 || 1).multiplyScalar(_v131(_v2, _v0, _v1));
     }
     floor() {
       return this.x = Math.floor(this.x), this.y = Math.floor(this.y), this.z = Math.floor(this.z), this.w = Math.floor(this.w), this;
@@ -5722,7 +5814,7 @@
       yield this.x, yield this.y, yield this.z, yield this.w;
     }
   }
-  class _v153 extends _v121 {
+  class _v158 extends _v126 {
     constructor(_v0 = 1, _v1 = 1, _v2 = {}) {
       super(), _v2 = Object.assign({
         generateMipmaps: !1,
@@ -5737,8 +5829,8 @@
         count: 1,
         depth: 1,
         multiview: !1
-      }, _v2), this.isRenderTarget = !0, this.width = _v0, this.height = _v1, this.depth = _v2.depth, this.scissor = new _v152(0, 0, _v0, _v1), this.scissorTest = !1, this.viewport = new _v152(0, 0, _v0, _v1);
-      const _v3 = new _v151({
+      }, _v2), this.isRenderTarget = !0, this.width = _v0, this.height = _v1, this.depth = _v2.depth, this.scissor = new _v157(0, 0, _v0, _v1), this.scissorTest = !1, this.viewport = new _v157(0, 0, _v0, _v1);
+      const _v3 = new _v156({
         width: _v0,
         height: _v1,
         depth: _v2.depth
@@ -5786,7 +5878,7 @@
       for (let _v0 = 0, _v1 = _v0.textures.length; _v0 < _v1; _v0++) {
         this.textures[_v0] = _v0.textures[_v0].clone(), this.textures[_v0].isRenderTargetTexture = !0, this.textures[_v0].renderTarget = this;
         let _v0 = Object.assign({}, _v0.textures[_v0].image);
-        this.textures[_v0].source = new _v147(_v0);
+        this.textures[_v0].source = new _v152(_v0);
       }
       return this.depthBuffer = _v0.depthBuffer, this.stencilBuffer = _v0.stencilBuffer, this.resolveDepthBuffer = _v0.resolveDepthBuffer, this.resolveStencilBuffer = _v0.resolveStencilBuffer, null !== _v0.depthTexture && (this.depthTexture = _v0.depthTexture.clone()), this.samples = _v0.samples, this;
     }
@@ -5796,12 +5888,12 @@
       });
     }
   }
-  class _v154 extends _v153 {
+  class _v159 extends _v158 {
     constructor(_v0 = 1, _v1 = 1, _v2 = {}) {
       super(_v0, _v1, _v2), this.isWebGLRenderTarget = !0;
     }
   }
-  class _v155 extends _v151 {
+  class _v160 extends _v156 {
     constructor(_v0 = null, _v1 = 1, _v2 = 1, _v3 = 1) {
       super(null), this.isDataArrayTexture = !0, this.image = {
         data: _v0,
@@ -5817,8 +5909,8 @@
       this.layerUpdates.clear();
     }
   }
-  class _v156 {
-    constructor(_v0 = new _v131(Infinity, Infinity, Infinity), _v1 = new _v131(-1 / 0, -1 / 0, -1 / 0)) {
+  class _v161 {
+    constructor(_v0 = new _v136(Infinity, Infinity, Infinity), _v1 = new _v136(-1 / 0, -1 / 0, -1 / 0)) {
       this.isBox3 = !0, this.min = _v0, this.max = _v1;
     }
     set(_v0, _v1) {
@@ -5826,12 +5918,12 @@
     }
     setFromArray(_v0) {
       this.makeEmpty();
-      for (let _v0 = 0, _v1 = _v0.length; _v0 < _v1; _v0 += 3) this.expandByPoint(_v158.fromArray(_v0, _v0));
+      for (let _v0 = 0, _v1 = _v0.length; _v0 < _v1; _v0 += 3) this.expandByPoint(_v163.fromArray(_v0, _v0));
       return this;
     }
     setFromBufferAttribute(_v0) {
       this.makeEmpty();
-      for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0++) this.expandByPoint(_v158.fromBufferAttribute(_v0, _v0));
+      for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0++) this.expandByPoint(_v163.fromBufferAttribute(_v0, _v0));
       return this;
     }
     setFromPoints(_v0) {
@@ -5840,7 +5932,7 @@
       return this;
     }
     setFromCenterAndSize(_v0, _v1) {
-      let _v2 = _v158.copy(_v1).multiplyScalar(.5);
+      let _v2 = _v163.copy(_v1).multiplyScalar(.5);
       return this.min.copy(_v0).sub(_v2), this.max.copy(_v0).add(_v2), this;
     }
     setFromObject(_v0, _v1 = !1) {
@@ -5878,7 +5970,7 @@
       let _v2 = _v0.geometry;
       if (void 0 !== _v2) {
         let _v0 = _v2.getAttribute("position");
-        if (!0 === _v1 && void 0 !== _v0 && !0 !== _v0.isInstancedMesh) for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0++) !0 === _v0.isMesh ? _v0.getVertexPosition(_v0, _v158) : _v158.fromBufferAttribute(_v0, _v0), _v158.applyMatrix4(_v0.matrixWorld), this.expandByPoint(_v158);else void 0 !== _v0.boundingBox ? (null === _v0.boundingBox && _v0.computeBoundingBox(), _v159.copy(_v0.boundingBox)) : (null === _v2.boundingBox && _v2.computeBoundingBox(), _v159.copy(_v2.boundingBox)), _v159.applyMatrix4(_v0.matrixWorld), this.union(_v159);
+        if (!0 === _v1 && void 0 !== _v0 && !0 !== _v0.isInstancedMesh) for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0++) !0 === _v0.isMesh ? _v0.getVertexPosition(_v0, _v163) : _v163.fromBufferAttribute(_v0, _v0), _v163.applyMatrix4(_v0.matrixWorld), this.expandByPoint(_v163);else void 0 !== _v0.boundingBox ? (null === _v0.boundingBox && _v0.computeBoundingBox(), _v164.copy(_v0.boundingBox)) : (null === _v2.boundingBox && _v2.computeBoundingBox(), _v164.copy(_v2.boundingBox)), _v164.applyMatrix4(_v0.matrixWorld), this.union(_v164);
       }
       let _v3 = _v0.children;
       for (let _v0 = 0, _v1 = _v3.length; _v0 < _v1; _v0++) this.expandByObject(_v3[_v0], _v1);
@@ -5897,7 +5989,7 @@
       return _v0.max.x >= this.min.x && _v0.min.x <= this.max.x && _v0.max.y >= this.min.y && _v0.min.y <= this.max.y && _v0.max.z >= this.min.z && _v0.min.z <= this.max.z;
     }
     intersectsSphere(_v0) {
-      return this.clampPoint(_v0.center, _v158), _v158.distanceToSquared(_v0.center) <= _v0.radius * _v0.radius;
+      return this.clampPoint(_v0.center, _v163), _v163.distanceToSquared(_v0.center) <= _v0.radius * _v0.radius;
     }
     intersectsPlane(_v0) {
       let _v1, _v2;
@@ -5905,18 +5997,18 @@
     }
     intersectsTriangle(_v0) {
       if (this.isEmpty()) return !1;
-      this.getCenter(_v166), _v167.subVectors(this.max, _v166), _v160.subVectors(_v0.a, _v166), _v161.subVectors(_v0.b, _v166), _v162.subVectors(_v0.c, _v166), _v163.subVectors(_v161, _v160), _v164.subVectors(_v162, _v161), _v165.subVectors(_v160, _v162);
-      let _v1 = [0, -_v163.z, _v163.y, 0, -_v164.z, _v164.y, 0, -_v165.z, _v165.y, _v163.z, 0, -_v163.x, _v164.z, 0, -_v164.x, _v165.z, 0, -_v165.x, -_v163.y, _v163.x, 0, -_v164.y, _v164.x, 0, -_v165.y, _v165.x, 0];
-      return !!_v170(_v1, _v160, _v161, _v162, _v167) && !!_v170(_v1 = [1, 0, 0, 0, 1, 0, 0, 0, 1], _v160, _v161, _v162, _v167) && (_v168.crossVectors(_v163, _v164), _v170(_v1 = [_v168.x, _v168.y, _v168.z], _v160, _v161, _v162, _v167));
+      this.getCenter(_v171), _v172.subVectors(this.max, _v171), _v165.subVectors(_v0.a, _v171), _v166.subVectors(_v0.b, _v171), _v167.subVectors(_v0.c, _v171), _v168.subVectors(_v166, _v165), _v169.subVectors(_v167, _v166), _v170.subVectors(_v165, _v167);
+      let _v1 = [0, -_v168.z, _v168.y, 0, -_v169.z, _v169.y, 0, -_v170.z, _v170.y, _v168.z, 0, -_v168.x, _v169.z, 0, -_v169.x, _v170.z, 0, -_v170.x, -_v168.y, _v168.x, 0, -_v169.y, _v169.x, 0, -_v170.y, _v170.x, 0];
+      return !!_v175(_v1, _v165, _v166, _v167, _v172) && !!_v175(_v1 = [1, 0, 0, 0, 1, 0, 0, 0, 1], _v165, _v166, _v167, _v172) && (_v173.crossVectors(_v168, _v169), _v175(_v1 = [_v173.x, _v173.y, _v173.z], _v165, _v166, _v167, _v172));
     }
     clampPoint(_v0, _v1) {
       return _v1.copy(_v0).clamp(this.min, this.max);
     }
     distanceToPoint(_v0) {
-      return this.clampPoint(_v0, _v158).distanceTo(_v0);
+      return this.clampPoint(_v0, _v163).distanceTo(_v0);
     }
     getBoundingSphere(_v0) {
-      return this.isEmpty() ? _v0.makeEmpty() : (this.getCenter(_v0.center), _v0.radius = .5 * this.getSize(_v158).length()), _v0;
+      return this.isEmpty() ? _v0.makeEmpty() : (this.getCenter(_v0.center), _v0.radius = .5 * this.getSize(_v163).length()), _v0;
     }
     intersect(_v0) {
       return this.min.max(_v0.min), this.max.min(_v0.max), this.isEmpty() && this.makeEmpty(), this;
@@ -5925,7 +6017,7 @@
       return this.min.min(_v0.min), this.max.max(_v0.max), this;
     }
     applyMatrix4(_v0) {
-      return this.isEmpty() || (_v157[0].set(this.min.x, this.min.y, this.min.z).applyMatrix4(_v0), _v157[1].set(this.min.x, this.min.y, this.max.z).applyMatrix4(_v0), _v157[2].set(this.min.x, this.max.y, this.min.z).applyMatrix4(_v0), _v157[3].set(this.min.x, this.max.y, this.max.z).applyMatrix4(_v0), _v157[4].set(this.max.x, this.min.y, this.min.z).applyMatrix4(_v0), _v157[5].set(this.max.x, this.min.y, this.max.z).applyMatrix4(_v0), _v157[6].set(this.max.x, this.max.y, this.min.z).applyMatrix4(_v0), _v157[7].set(this.max.x, this.max.y, this.max.z).applyMatrix4(_v0), this.setFromPoints(_v157)), this;
+      return this.isEmpty() || (_v162[0].set(this.min.x, this.min.y, this.min.z).applyMatrix4(_v0), _v162[1].set(this.min.x, this.min.y, this.max.z).applyMatrix4(_v0), _v162[2].set(this.min.x, this.max.y, this.min.z).applyMatrix4(_v0), _v162[3].set(this.min.x, this.max.y, this.max.z).applyMatrix4(_v0), _v162[4].set(this.max.x, this.min.y, this.min.z).applyMatrix4(_v0), _v162[5].set(this.max.x, this.min.y, this.max.z).applyMatrix4(_v0), _v162[6].set(this.max.x, this.max.y, this.min.z).applyMatrix4(_v0), _v162[7].set(this.max.x, this.max.y, this.max.z).applyMatrix4(_v0), this.setFromPoints(_v162)), this;
     }
     translate(_v0) {
       return this.min.add(_v0), this.max.add(_v0), this;
@@ -5943,35 +6035,35 @@
       return this.min.fromArray(_v0.min), this.max.fromArray(_v0.max), this;
     }
   }
-  let _v157 = [new _v131(), new _v131(), new _v131(), new _v131(), new _v131(), new _v131(), new _v131(), new _v131()],
-    _v158 = new _v131(),
-    _v159 = new _v156(),
-    _v160 = new _v131(),
-    _v161 = new _v131(),
-    _v162 = new _v131(),
-    _v163 = new _v131(),
-    _v164 = new _v131(),
-    _v165 = new _v131(),
-    _v166 = new _v131(),
-    _v167 = new _v131(),
-    _v168 = new _v131(),
-    _v169 = new _v131();
-  function _v170(_v0, _v1, _v2, _v3, _v4) {
+  let _v162 = [new _v136(), new _v136(), new _v136(), new _v136(), new _v136(), new _v136(), new _v136(), new _v136()],
+    _v163 = new _v136(),
+    _v164 = new _v161(),
+    _v165 = new _v136(),
+    _v166 = new _v136(),
+    _v167 = new _v136(),
+    _v168 = new _v136(),
+    _v169 = new _v136(),
+    _v170 = new _v136(),
+    _v171 = new _v136(),
+    _v172 = new _v136(),
+    _v173 = new _v136(),
+    _v174 = new _v136();
+  function _v175(_v0, _v1, _v2, _v3, _v4) {
     for (let _v0 = 0, _v1 = _v0.length - 3; _v0 <= _v1; _v0 += 3) {
-      _v169.fromArray(_v0, _v0);
-      let _v0 = _v4.x * Math.abs(_v169.x) + _v4.y * Math.abs(_v169.y) + _v4.z * Math.abs(_v169.z),
-        _v1 = _v1.dot(_v169),
-        _v2 = _v2.dot(_v169),
-        _v3 = _v3.dot(_v169);
+      _v174.fromArray(_v0, _v0);
+      let _v0 = _v4.x * Math.abs(_v174.x) + _v4.y * Math.abs(_v174.y) + _v4.z * Math.abs(_v174.z),
+        _v1 = _v1.dot(_v174),
+        _v2 = _v2.dot(_v174),
+        _v3 = _v3.dot(_v174);
       if (Math.max(-Math.max(_v1, _v2, _v3), Math.min(_v1, _v2, _v3)) > _v0) return !1;
     }
     return !0;
   }
-  let _v171 = new _v156(),
-    _v172 = new _v131(),
-    _v173 = new _v131();
-  class _v174 {
-    constructor(_v0 = new _v131(), _v1 = -1) {
+  let _v176 = new _v161(),
+    _v177 = new _v136(),
+    _v178 = new _v136();
+  class _v179 {
+    constructor(_v0 = new _v136(), _v1 = -1) {
       this.isSphere = !0, this.center = _v0, this.radius = _v1;
     }
     set(_v0, _v1) {
@@ -5979,7 +6071,7 @@
     }
     setFromPoints(_v0, _v1) {
       let _v2 = this.center;
-      void 0 !== _v1 ? _v2.copy(_v1) : _v171.setFromPoints(_v0).getCenter(_v2);
+      void 0 !== _v1 ? _v2.copy(_v1) : _v176.setFromPoints(_v0).getCenter(_v2);
       let _v3 = 0;
       for (let _v0 = 0, _v1 = _v0.length; _v0 < _v1; _v0++) _v3 = Math.max(_v3, _v2.distanceToSquared(_v0[_v0]));
       return this.radius = Math.sqrt(_v3), this;
@@ -6024,17 +6116,17 @@
     }
     expandByPoint(_v0) {
       if (this.isEmpty()) return this.center.copy(_v0), this.radius = 0, this;
-      _v172.subVectors(_v0, this.center);
-      let _v1 = _v172.lengthSq();
+      _v177.subVectors(_v0, this.center);
+      let _v1 = _v177.lengthSq();
       if (_v1 > this.radius * this.radius) {
         let _v0 = Math.sqrt(_v1),
           _v1 = (_v0 - this.radius) * .5;
-        this.center.addScaledVector(_v172, _v1 / _v0), this.radius += _v1;
+        this.center.addScaledVector(_v177, _v1 / _v0), this.radius += _v1;
       }
       return this;
     }
     union(_v0) {
-      return _v0.isEmpty() || (this.isEmpty() ? this.copy(_v0) : !0 === this.center.equals(_v0.center) ? this.radius = Math.max(this.radius, _v0.radius) : (_v173.subVectors(_v0.center, this.center).setLength(_v0.radius), this.expandByPoint(_v172.copy(_v0.center).add(_v173)), this.expandByPoint(_v172.copy(_v0.center).sub(_v173)))), this;
+      return _v0.isEmpty() || (this.isEmpty() ? this.copy(_v0) : !0 === this.center.equals(_v0.center) ? this.radius = Math.max(this.radius, _v0.radius) : (_v178.subVectors(_v0.center, this.center).setLength(_v0.radius), this.expandByPoint(_v177.copy(_v0.center).add(_v178)), this.expandByPoint(_v177.copy(_v0.center).sub(_v178)))), this;
     }
     equals(_v0) {
       return _v0.center.equals(this.center) && _v0.radius === this.radius;
@@ -6052,16 +6144,16 @@
       return this.radius = _v0.radius, this.center.fromArray(_v0.center), this;
     }
   }
-  let _v175 = new _v131(),
-    _v176 = new _v131(),
-    _v177 = new _v131(),
-    _v178 = new _v131(),
-    _v179 = new _v131(),
-    _v180 = new _v131(),
-    _v181 = new _v131();
-  class _v182 {
+  let _v180 = new _v136(),
+    _v181 = new _v136(),
+    _v182 = new _v136(),
+    _v183 = new _v136(),
+    _v184 = new _v136(),
+    _v185 = new _v136(),
+    _v186 = new _v136();
+  class _v187 {
     constructor(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9, _v10, _v11, _v12, _v13, _v14, _v15) {
-      _v182.prototype.isMatrix4 = !0, this.elements = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1], void 0 !== _v0 && this.set(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9, _v10, _v11, _v12, _v13, _v14, _v15);
+      _v187.prototype.isMatrix4 = !0, this.elements = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1], void 0 !== _v0 && this.set(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9, _v10, _v11, _v12, _v13, _v14, _v15);
     }
     set(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9, _v10, _v11, _v12, _v13, _v14, _v15) {
       let _v16 = this.elements;
@@ -6071,7 +6163,7 @@
       return this.set(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1), this;
     }
     clone() {
-      return new _v182().fromArray(this.elements);
+      return new _v187().fromArray(this.elements);
     }
     copy(_v0) {
       let _v1 = this.elements,
@@ -6096,9 +6188,9 @@
     extractRotation(_v0) {
       let _v1 = this.elements,
         _v2 = _v0.elements,
-        _v3 = 1 / _v183.setFromMatrixColumn(_v0, 0).length(),
-        _v4 = 1 / _v183.setFromMatrixColumn(_v0, 1).length(),
-        _v5 = 1 / _v183.setFromMatrixColumn(_v0, 2).length();
+        _v3 = 1 / _v188.setFromMatrixColumn(_v0, 0).length(),
+        _v4 = 1 / _v188.setFromMatrixColumn(_v0, 1).length(),
+        _v5 = 1 / _v188.setFromMatrixColumn(_v0, 2).length();
       return _v1[0] = _v2[0] * _v3, _v1[1] = _v2[1] * _v3, _v1[2] = _v2[2] * _v3, _v1[3] = 0, _v1[4] = _v2[4] * _v4, _v1[5] = _v2[5] * _v4, _v1[6] = _v2[6] * _v4, _v1[7] = 0, _v1[8] = _v2[8] * _v5, _v1[9] = _v2[9] * _v5, _v1[10] = _v2[10] * _v5, _v1[11] = 0, _v1[12] = 0, _v1[13] = 0, _v1[14] = 0, _v1[15] = 1, this;
     }
     makeRotationFromEuler(_v0) {
@@ -6152,11 +6244,11 @@
       return _v1[3] = 0, _v1[7] = 0, _v1[11] = 0, _v1[12] = 0, _v1[13] = 0, _v1[14] = 0, _v1[15] = 1, this;
     }
     makeRotationFromQuaternion(_v0) {
-      return this.compose(_v185, _v0, _v186);
+      return this.compose(_v190, _v0, _v191);
     }
     lookAt(_v0, _v1, _v2) {
       let _v3 = this.elements;
-      return _v189.subVectors(_v0, _v1), 0 === _v189.lengthSq() && (_v189.z = 1), _v189.normalize(), _v187.crossVectors(_v2, _v189), 0 === _v187.lengthSq() && (1 === Math.abs(_v2.z) ? _v189.x += 1e-4 : _v189.z += 1e-4, _v189.normalize(), _v187.crossVectors(_v2, _v189)), _v187.normalize(), _v188.crossVectors(_v189, _v187), _v3[0] = _v187.x, _v3[4] = _v188.x, _v3[8] = _v189.x, _v3[1] = _v187.y, _v3[5] = _v188.y, _v3[9] = _v189.y, _v3[2] = _v187.z, _v3[6] = _v188.z, _v3[10] = _v189.z, this;
+      return _v194.subVectors(_v0, _v1), 0 === _v194.lengthSq() && (_v194.z = 1), _v194.normalize(), _v192.crossVectors(_v2, _v194), 0 === _v192.lengthSq() && (1 === Math.abs(_v2.z) ? _v194.x += 1e-4 : _v194.z += 1e-4, _v194.normalize(), _v192.crossVectors(_v2, _v194)), _v192.normalize(), _v193.crossVectors(_v194, _v192), _v3[0] = _v192.x, _v3[4] = _v193.x, _v3[8] = _v194.x, _v3[1] = _v192.y, _v3[5] = _v193.y, _v3[9] = _v194.y, _v3[2] = _v192.z, _v3[6] = _v193.z, _v3[10] = _v194.z, this;
     }
     multiply(_v0) {
       return this.multiplyMatrices(this, _v0);
@@ -6329,14 +6421,14 @@
     }
     decompose(_v0, _v1, _v2) {
       let _v3 = this.elements,
-        _v4 = _v183.set(_v3[0], _v3[1], _v3[2]).length(),
-        _v5 = _v183.set(_v3[4], _v3[5], _v3[6]).length(),
-        _v6 = _v183.set(_v3[8], _v3[9], _v3[10]).length();
-      0 > this.determinant() && (_v4 = -_v4), _v0.x = _v3[12], _v0.y = _v3[13], _v0.z = _v3[14], _v184.copy(this);
+        _v4 = _v188.set(_v3[0], _v3[1], _v3[2]).length(),
+        _v5 = _v188.set(_v3[4], _v3[5], _v3[6]).length(),
+        _v6 = _v188.set(_v3[8], _v3[9], _v3[10]).length();
+      0 > this.determinant() && (_v4 = -_v4), _v0.x = _v3[12], _v0.y = _v3[13], _v0.z = _v3[14], _v189.copy(this);
       let _v7 = 1 / _v4,
         _v8 = 1 / _v5,
         _v9 = 1 / _v6;
-      return _v184.elements[0] *= _v7, _v184.elements[1] *= _v7, _v184.elements[2] *= _v7, _v184.elements[4] *= _v8, _v184.elements[5] *= _v8, _v184.elements[6] *= _v8, _v184.elements[8] *= _v9, _v184.elements[9] *= _v9, _v184.elements[10] *= _v9, _v1.setFromRotationMatrix(_v184), _v2.x = _v4, _v2.y = _v5, _v2.z = _v6, this;
+      return _v189.elements[0] *= _v7, _v189.elements[1] *= _v7, _v189.elements[2] *= _v7, _v189.elements[4] *= _v8, _v189.elements[5] *= _v8, _v189.elements[6] *= _v8, _v189.elements[8] *= _v9, _v189.elements[9] *= _v9, _v189.elements[10] *= _v9, _v1.setFromRotationMatrix(_v189), _v2.x = _v4, _v2.y = _v5, _v2.z = _v6, this;
     }
     makePerspective(_v0, _v1, _v2, _v3, _v4, _v5, _v6 = 0, _v7 = !1) {
       let _v8,
@@ -6367,17 +6459,17 @@
       return _v0[_v1] = _v2[0], _v0[_v1 + 1] = _v2[1], _v0[_v1 + 2] = _v2[2], _v0[_v1 + 3] = _v2[3], _v0[_v1 + 4] = _v2[4], _v0[_v1 + 5] = _v2[5], _v0[_v1 + 6] = _v2[6], _v0[_v1 + 7] = _v2[7], _v0[_v1 + 8] = _v2[8], _v0[_v1 + 9] = _v2[9], _v0[_v1 + 10] = _v2[10], _v0[_v1 + 11] = _v2[11], _v0[_v1 + 12] = _v2[12], _v0[_v1 + 13] = _v2[13], _v0[_v1 + 14] = _v2[14], _v0[_v1 + 15] = _v2[15], _v0;
     }
   }
-  let _v183 = new _v131(),
-    _v184 = new _v182(),
-    _v185 = new _v131(0, 0, 0),
-    _v186 = new _v131(1, 1, 1),
-    _v187 = new _v131(),
-    _v188 = new _v131(),
-    _v189 = new _v131(),
-    _v190 = new _v182(),
-    _v191 = new _v130();
-  class _v192 {
-    constructor(_v0 = 0, _v1 = 0, _v2 = 0, _v3 = _v192.DEFAULT_ORDER) {
+  let _v188 = new _v136(),
+    _v189 = new _v187(),
+    _v190 = new _v136(0, 0, 0),
+    _v191 = new _v136(1, 1, 1),
+    _v192 = new _v136(),
+    _v193 = new _v136(),
+    _v194 = new _v136(),
+    _v195 = new _v187(),
+    _v196 = new _v135();
+  class _v197 {
+    constructor(_v0 = 0, _v1 = 0, _v2 = 0, _v3 = _v197.DEFAULT_ORDER) {
       this.isEuler = !0, this._x = _v0, this._y = _v1, this._z = _v2, this._order = _v3;
     }
     get x() {
@@ -6426,22 +6518,22 @@
         _v12 = _v3[10];
       switch (_v1) {
         case "XYZ":
-          this._y = Math.asin(_v126(_v6, -1, 1)), .9999999 > Math.abs(_v6) ? (this._x = Math.atan2(-_v9, _v12), this._z = Math.atan2(-_v5, _v4)) : (this._x = Math.atan2(_v11, _v8), this._z = 0);
+          this._y = Math.asin(_v131(_v6, -1, 1)), .9999999 > Math.abs(_v6) ? (this._x = Math.atan2(-_v9, _v12), this._z = Math.atan2(-_v5, _v4)) : (this._x = Math.atan2(_v11, _v8), this._z = 0);
           break;
         case "YXZ":
-          this._x = Math.asin(-_v126(_v9, -1, 1)), .9999999 > Math.abs(_v9) ? (this._y = Math.atan2(_v6, _v12), this._z = Math.atan2(_v7, _v8)) : (this._y = Math.atan2(-_v10, _v4), this._z = 0);
+          this._x = Math.asin(-_v131(_v9, -1, 1)), .9999999 > Math.abs(_v9) ? (this._y = Math.atan2(_v6, _v12), this._z = Math.atan2(_v7, _v8)) : (this._y = Math.atan2(-_v10, _v4), this._z = 0);
           break;
         case "ZXY":
-          this._x = Math.asin(_v126(_v11, -1, 1)), .9999999 > Math.abs(_v11) ? (this._y = Math.atan2(-_v10, _v12), this._z = Math.atan2(-_v5, _v8)) : (this._y = 0, this._z = Math.atan2(_v7, _v4));
+          this._x = Math.asin(_v131(_v11, -1, 1)), .9999999 > Math.abs(_v11) ? (this._y = Math.atan2(-_v10, _v12), this._z = Math.atan2(-_v5, _v8)) : (this._y = 0, this._z = Math.atan2(_v7, _v4));
           break;
         case "ZYX":
-          this._y = Math.asin(-_v126(_v10, -1, 1)), .9999999 > Math.abs(_v10) ? (this._x = Math.atan2(_v11, _v12), this._z = Math.atan2(_v7, _v4)) : (this._x = 0, this._z = Math.atan2(-_v5, _v8));
+          this._y = Math.asin(-_v131(_v10, -1, 1)), .9999999 > Math.abs(_v10) ? (this._x = Math.atan2(_v11, _v12), this._z = Math.atan2(_v7, _v4)) : (this._x = 0, this._z = Math.atan2(-_v5, _v8));
           break;
         case "YZX":
-          this._z = Math.asin(_v126(_v7, -1, 1)), .9999999 > Math.abs(_v7) ? (this._x = Math.atan2(-_v9, _v8), this._y = Math.atan2(-_v10, _v4)) : (this._x = 0, this._y = Math.atan2(_v6, _v12));
+          this._z = Math.asin(_v131(_v7, -1, 1)), .9999999 > Math.abs(_v7) ? (this._x = Math.atan2(-_v9, _v8), this._y = Math.atan2(-_v10, _v4)) : (this._x = 0, this._y = Math.atan2(_v6, _v12));
           break;
         case "XZY":
-          this._z = Math.asin(-_v126(_v5, -1, 1)), .9999999 > Math.abs(_v5) ? (this._x = Math.atan2(_v11, _v8), this._y = Math.atan2(_v6, _v4)) : (this._x = Math.atan2(-_v9, _v12), this._y = 0);
+          this._z = Math.asin(-_v131(_v5, -1, 1)), .9999999 > Math.abs(_v5) ? (this._x = Math.atan2(_v11, _v8), this._y = Math.atan2(_v6, _v4)) : (this._x = Math.atan2(-_v9, _v12), this._y = 0);
           break;
         default:
           console.warn("THREE.Euler: .setFromRotationMatrix() encountered an unknown order: " + _v1);
@@ -6449,13 +6541,13 @@
       return this._order = _v1, !0 === _v2 && this._onChangeCallback(), this;
     }
     setFromQuaternion(_v0, _v1, _v2) {
-      return _v190.makeRotationFromQuaternion(_v0), this.setFromRotationMatrix(_v190, _v1, _v2);
+      return _v195.makeRotationFromQuaternion(_v0), this.setFromRotationMatrix(_v195, _v1, _v2);
     }
     setFromVector3(_v0, _v1 = this._order) {
       return this.set(_v0.x, _v0.y, _v0.z, _v1);
     }
     reorder(_v0) {
-      return _v191.setFromEuler(this), this.setFromQuaternion(_v191, _v0);
+      return _v196.setFromEuler(this), this.setFromQuaternion(_v196, _v0);
     }
     equals(_v0) {
       return _v0._x === this._x && _v0._y === this._y && _v0._z === this._z && _v0._order === this._order;
@@ -6474,8 +6566,8 @@
       yield this._x, yield this._y, yield this._z, yield this._order;
     }
   }
-  _v192.DEFAULT_ORDER = "XYZ";
-  class _v193 {
+  _v197.DEFAULT_ORDER = "XYZ";
+  class _v198 {
     constructor() {
       this.mask = 1;
     }
@@ -6504,40 +6596,40 @@
       return (this.mask & 1 << _v0) != 0;
     }
   }
-  let _v194 = 0,
-    _v195 = new _v131(),
-    _v196 = new _v130(),
-    _v197 = new _v182(),
-    _v198 = new _v131(),
-    _v199 = new _v131(),
-    _v200 = new _v131(),
-    _v201 = new _v130(),
-    _v202 = new _v131(1, 0, 0),
-    _v203 = new _v131(0, 1, 0),
-    _v204 = new _v131(0, 0, 1),
-    _v205 = {
+  let _v199 = 0,
+    _v200 = new _v136(),
+    _v201 = new _v135(),
+    _v202 = new _v187(),
+    _v203 = new _v136(),
+    _v204 = new _v136(),
+    _v205 = new _v136(),
+    _v206 = new _v135(),
+    _v207 = new _v136(1, 0, 0),
+    _v208 = new _v136(0, 1, 0),
+    _v209 = new _v136(0, 0, 1),
+    _v210 = {
       type: "added"
     },
-    _v206 = {
+    _v211 = {
       type: "removed"
     },
-    _v207 = {
+    _v212 = {
       type: "childadded",
       child: null
     },
-    _v208 = {
+    _v213 = {
       type: "childremoved",
       child: null
     };
-  class _v209 extends _v121 {
+  class _v214 extends _v126 {
     constructor() {
       super(), this.isObject3D = !0, Object.defineProperty(this, "id", {
-        value: _v194++
-      }), this.uuid = _v125(), this.name = "", this.type = "Object3D", this.parent = null, this.children = [], this.up = _v209.DEFAULT_UP.clone();
-      const _v0 = new _v131(),
-        _v1 = new _v192(),
-        _v2 = new _v130(),
-        _v3 = new _v131(1, 1, 1);
+        value: _v199++
+      }), this.uuid = _v130(), this.name = "", this.type = "Object3D", this.parent = null, this.children = [], this.up = _v214.DEFAULT_UP.clone();
+      const _v0 = new _v136(),
+        _v1 = new _v197(),
+        _v2 = new _v135(),
+        _v3 = new _v136(1, 1, 1);
       _v1._onChange(function () {
         _v2.setFromEuler(_v1, !1);
       }), _v2._onChange(function () {
@@ -6564,12 +6656,12 @@
           value: _v3
         },
         modelViewMatrix: {
-          value: new _v182()
+          value: new _v187()
         },
         normalMatrix: {
-          value: new _v134()
+          value: new _v139()
         }
-      }), this.matrix = new _v182(), this.matrixWorld = new _v182(), this.matrixAutoUpdate = _v209.DEFAULT_MATRIX_AUTO_UPDATE, this.matrixWorldAutoUpdate = _v209.DEFAULT_MATRIX_WORLD_AUTO_UPDATE, this.matrixWorldNeedsUpdate = !1, this.layers = new _v193(), this.visible = !0, this.castShadow = !1, this.receiveShadow = !1, this.frustumCulled = !0, this.renderOrder = 0, this.animations = [], this.customDepthMaterial = void 0, this.customDistanceMaterial = void 0, this.userData = {};
+      }), this.matrix = new _v187(), this.matrixWorld = new _v187(), this.matrixAutoUpdate = _v214.DEFAULT_MATRIX_AUTO_UPDATE, this.matrixWorldAutoUpdate = _v214.DEFAULT_MATRIX_WORLD_AUTO_UPDATE, this.matrixWorldNeedsUpdate = !1, this.layers = new _v198(), this.visible = !0, this.castShadow = !1, this.receiveShadow = !1, this.frustumCulled = !0, this.renderOrder = 0, this.animations = [], this.customDepthMaterial = void 0, this.customDistanceMaterial = void 0, this.userData = {};
     }
     onBeforeShadow() {}
     onAfterShadow() {}
@@ -6594,49 +6686,49 @@
       this.quaternion.copy(_v0);
     }
     rotateOnAxis(_v0, _v1) {
-      return _v196.setFromAxisAngle(_v0, _v1), this.quaternion.multiply(_v196), this;
+      return _v201.setFromAxisAngle(_v0, _v1), this.quaternion.multiply(_v201), this;
     }
     rotateOnWorldAxis(_v0, _v1) {
-      return _v196.setFromAxisAngle(_v0, _v1), this.quaternion.premultiply(_v196), this;
+      return _v201.setFromAxisAngle(_v0, _v1), this.quaternion.premultiply(_v201), this;
     }
     rotateX(_v0) {
-      return this.rotateOnAxis(_v202, _v0);
+      return this.rotateOnAxis(_v207, _v0);
     }
     rotateY(_v0) {
-      return this.rotateOnAxis(_v203, _v0);
+      return this.rotateOnAxis(_v208, _v0);
     }
     rotateZ(_v0) {
-      return this.rotateOnAxis(_v204, _v0);
+      return this.rotateOnAxis(_v209, _v0);
     }
     translateOnAxis(_v0, _v1) {
-      return _v195.copy(_v0).applyQuaternion(this.quaternion), this.position.add(_v195.multiplyScalar(_v1)), this;
+      return _v200.copy(_v0).applyQuaternion(this.quaternion), this.position.add(_v200.multiplyScalar(_v1)), this;
     }
     translateX(_v0) {
-      return this.translateOnAxis(_v202, _v0);
+      return this.translateOnAxis(_v207, _v0);
     }
     translateY(_v0) {
-      return this.translateOnAxis(_v203, _v0);
+      return this.translateOnAxis(_v208, _v0);
     }
     translateZ(_v0) {
-      return this.translateOnAxis(_v204, _v0);
+      return this.translateOnAxis(_v209, _v0);
     }
     localToWorld(_v0) {
       return this.updateWorldMatrix(!0, !1), _v0.applyMatrix4(this.matrixWorld);
     }
     worldToLocal(_v0) {
-      return this.updateWorldMatrix(!0, !1), _v0.applyMatrix4(_v197.copy(this.matrixWorld).invert());
+      return this.updateWorldMatrix(!0, !1), _v0.applyMatrix4(_v202.copy(this.matrixWorld).invert());
     }
     lookAt(_v0, _v1, _v2) {
-      _v0.isVector3 ? _v198.copy(_v0) : _v198.set(_v0, _v1, _v2);
+      _v0.isVector3 ? _v203.copy(_v0) : _v203.set(_v0, _v1, _v2);
       let _v3 = this.parent;
-      this.updateWorldMatrix(!0, !1), _v199.setFromMatrixPosition(this.matrixWorld), this.isCamera || this.isLight ? _v197.lookAt(_v199, _v198, this.up) : _v197.lookAt(_v198, _v199, this.up), this.quaternion.setFromRotationMatrix(_v197), _v3 && (_v197.extractRotation(_v3.matrixWorld), _v196.setFromRotationMatrix(_v197), this.quaternion.premultiply(_v196.invert()));
+      this.updateWorldMatrix(!0, !1), _v204.setFromMatrixPosition(this.matrixWorld), this.isCamera || this.isLight ? _v202.lookAt(_v204, _v203, this.up) : _v202.lookAt(_v203, _v204, this.up), this.quaternion.setFromRotationMatrix(_v202), _v3 && (_v202.extractRotation(_v3.matrixWorld), _v201.setFromRotationMatrix(_v202), this.quaternion.premultiply(_v201.invert()));
     }
     add(_v0) {
       if (arguments.length > 1) {
         for (let _v0 = 0; _v0 < arguments.length; _v0++) this.add(arguments[_v0]);
         return this;
       }
-      return _v0 === this ? console.error("THREE.Object3D.add: object can't be added as a child of itself.", _v0) : _v0 && _v0.isObject3D ? (_v0.removeFromParent(), _v0.parent = this, this.children.push(_v0), _v0.dispatchEvent(_v205), _v207.child = _v0, this.dispatchEvent(_v207), _v207.child = null) : console.error("THREE.Object3D.add: object not an instance of THREE.Object3D.", _v0), this;
+      return _v0 === this ? console.error("THREE.Object3D.add: object can't be added as a child of itself.", _v0) : _v0 && _v0.isObject3D ? (_v0.removeFromParent(), _v0.parent = this, this.children.push(_v0), _v0.dispatchEvent(_v210), _v212.child = _v0, this.dispatchEvent(_v212), _v212.child = null) : console.error("THREE.Object3D.add: object not an instance of THREE.Object3D.", _v0), this;
     }
     remove(_v0) {
       if (arguments.length > 1) {
@@ -6644,7 +6736,7 @@
         return this;
       }
       let _v1 = this.children.indexOf(_v0);
-      return -1 !== _v1 && (_v0.parent = null, this.children.splice(_v1, 1), _v0.dispatchEvent(_v206), _v208.child = _v0, this.dispatchEvent(_v208), _v208.child = null), this;
+      return -1 !== _v1 && (_v0.parent = null, this.children.splice(_v1, 1), _v0.dispatchEvent(_v211), _v213.child = _v0, this.dispatchEvent(_v213), _v213.child = null), this;
     }
     removeFromParent() {
       let _v0 = this.parent;
@@ -6654,7 +6746,7 @@
       return this.remove(...this.children);
     }
     attach(_v0) {
-      return this.updateWorldMatrix(!0, !1), _v197.copy(this.matrixWorld).invert(), null !== _v0.parent && (_v0.parent.updateWorldMatrix(!0, !1), _v197.multiply(_v0.parent.matrixWorld)), _v0.applyMatrix4(_v197), _v0.removeFromParent(), _v0.parent = this, this.children.push(_v0), _v0.updateWorldMatrix(!1, !0), _v0.dispatchEvent(_v205), _v207.child = _v0, this.dispatchEvent(_v207), _v207.child = null, this;
+      return this.updateWorldMatrix(!0, !1), _v202.copy(this.matrixWorld).invert(), null !== _v0.parent && (_v0.parent.updateWorldMatrix(!0, !1), _v202.multiply(_v0.parent.matrixWorld)), _v0.applyMatrix4(_v202), _v0.removeFromParent(), _v0.parent = this, this.children.push(_v0), _v0.updateWorldMatrix(!1, !0), _v0.dispatchEvent(_v210), _v212.child = _v0, this.dispatchEvent(_v212), _v212.child = null, this;
     }
     getObjectById(_v0) {
       return this.getObjectByProperty("id", _v0);
@@ -6679,10 +6771,10 @@
       return this.updateWorldMatrix(!0, !1), _v0.setFromMatrixPosition(this.matrixWorld);
     }
     getWorldQuaternion(_v0) {
-      return this.updateWorldMatrix(!0, !1), this.matrixWorld.decompose(_v199, _v0, _v200), _v0;
+      return this.updateWorldMatrix(!0, !1), this.matrixWorld.decompose(_v204, _v0, _v205), _v0;
     }
     getWorldScale(_v0) {
-      return this.updateWorldMatrix(!0, !1), this.matrixWorld.decompose(_v199, _v201, _v0), _v0;
+      return this.updateWorldMatrix(!0, !1), this.matrixWorld.decompose(_v204, _v206, _v0), _v0;
     }
     getWorldDirection(_v0) {
       this.updateWorldMatrix(!0, !1);
@@ -6806,36 +6898,36 @@
       return this;
     }
   }
-  _v209.DEFAULT_UP = new _v131(0, 1, 0), _v209.DEFAULT_MATRIX_AUTO_UPDATE = !0, _v209.DEFAULT_MATRIX_WORLD_AUTO_UPDATE = !0;
-  let _v210 = new _v131(),
-    _v211 = new _v131(),
-    _v212 = new _v131(),
-    _v213 = new _v131(),
-    _v214 = new _v131(),
-    _v215 = new _v131(),
-    _v216 = new _v131(),
-    _v217 = new _v131(),
-    _v218 = new _v131(),
-    _v219 = new _v131(),
-    _v220 = new _v152(),
-    _v221 = new _v152(),
-    _v222 = new _v152();
-  class _v223 {
-    constructor(_v0 = new _v131(), _v1 = new _v131(), _v2 = new _v131()) {
+  _v214.DEFAULT_UP = new _v136(0, 1, 0), _v214.DEFAULT_MATRIX_AUTO_UPDATE = !0, _v214.DEFAULT_MATRIX_WORLD_AUTO_UPDATE = !0;
+  let _v215 = new _v136(),
+    _v216 = new _v136(),
+    _v217 = new _v136(),
+    _v218 = new _v136(),
+    _v219 = new _v136(),
+    _v220 = new _v136(),
+    _v221 = new _v136(),
+    _v222 = new _v136(),
+    _v223 = new _v136(),
+    _v224 = new _v136(),
+    _v225 = new _v157(),
+    _v226 = new _v157(),
+    _v227 = new _v157();
+  class _v228 {
+    constructor(_v0 = new _v136(), _v1 = new _v136(), _v2 = new _v136()) {
       this.a = _v0, this.b = _v1, this.c = _v2;
     }
     static getNormal(_v0, _v1, _v2, _v3) {
-      _v3.subVectors(_v2, _v1), _v210.subVectors(_v0, _v1), _v3.cross(_v210);
+      _v3.subVectors(_v2, _v1), _v215.subVectors(_v0, _v1), _v3.cross(_v215);
       let _v4 = _v3.lengthSq();
       return _v4 > 0 ? _v3.multiplyScalar(1 / Math.sqrt(_v4)) : _v3.set(0, 0, 0);
     }
     static getBarycoord(_v0, _v1, _v2, _v3, _v4) {
-      _v210.subVectors(_v3, _v1), _v211.subVectors(_v2, _v1), _v212.subVectors(_v0, _v1);
-      let _v5 = _v210.dot(_v210),
-        _v6 = _v210.dot(_v211),
-        _v7 = _v210.dot(_v212),
-        _v8 = _v211.dot(_v211),
-        _v9 = _v211.dot(_v212),
+      _v215.subVectors(_v3, _v1), _v216.subVectors(_v2, _v1), _v217.subVectors(_v0, _v1);
+      let _v5 = _v215.dot(_v215),
+        _v6 = _v215.dot(_v216),
+        _v7 = _v215.dot(_v217),
+        _v8 = _v216.dot(_v216),
+        _v9 = _v216.dot(_v217),
         _v10 = _v5 * _v8 - _v6 * _v6;
       if (0 === _v10) return _v4.set(0, 0, 0), null;
       let _v11 = 1 / _v10,
@@ -6844,16 +6936,16 @@
       return _v4.set(1 - _v12 - _v13, _v13, _v12);
     }
     static containsPoint(_v0, _v1, _v2, _v3) {
-      return null !== this.getBarycoord(_v0, _v1, _v2, _v3, _v213) && _v213.x >= 0 && _v213.y >= 0 && _v213.x + _v213.y <= 1;
+      return null !== this.getBarycoord(_v0, _v1, _v2, _v3, _v218) && _v218.x >= 0 && _v218.y >= 0 && _v218.x + _v218.y <= 1;
     }
     static getInterpolation(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7) {
-      return null === this.getBarycoord(_v0, _v1, _v2, _v3, _v213) ? (_v7.x = 0, _v7.y = 0, "z" in _v7 && (_v7.z = 0), "w" in _v7 && (_v7.w = 0), null) : (_v7.setScalar(0), _v7.addScaledVector(_v4, _v213.x), _v7.addScaledVector(_v5, _v213.y), _v7.addScaledVector(_v6, _v213.z), _v7);
+      return null === this.getBarycoord(_v0, _v1, _v2, _v3, _v218) ? (_v7.x = 0, _v7.y = 0, "z" in _v7 && (_v7.z = 0), "w" in _v7 && (_v7.w = 0), null) : (_v7.setScalar(0), _v7.addScaledVector(_v4, _v218.x), _v7.addScaledVector(_v5, _v218.y), _v7.addScaledVector(_v6, _v218.z), _v7);
     }
     static getInterpolatedAttribute(_v0, _v1, _v2, _v3, _v4, _v5) {
-      return _v220.setScalar(0), _v221.setScalar(0), _v222.setScalar(0), _v220.fromBufferAttribute(_v0, _v1), _v221.fromBufferAttribute(_v0, _v2), _v222.fromBufferAttribute(_v0, _v3), _v5.setScalar(0), _v5.addScaledVector(_v220, _v4.x), _v5.addScaledVector(_v221, _v4.y), _v5.addScaledVector(_v222, _v4.z), _v5;
+      return _v225.setScalar(0), _v226.setScalar(0), _v227.setScalar(0), _v225.fromBufferAttribute(_v0, _v1), _v226.fromBufferAttribute(_v0, _v2), _v227.fromBufferAttribute(_v0, _v3), _v5.setScalar(0), _v5.addScaledVector(_v225, _v4.x), _v5.addScaledVector(_v226, _v4.y), _v5.addScaledVector(_v227, _v4.z), _v5;
     }
     static isFrontFacing(_v0, _v1, _v2, _v3) {
-      return _v210.subVectors(_v2, _v1), _v211.subVectors(_v0, _v1), 0 > _v210.cross(_v211).dot(_v3);
+      return _v215.subVectors(_v2, _v1), _v216.subVectors(_v0, _v1), 0 > _v215.cross(_v216).dot(_v3);
     }
     set(_v0, _v1, _v2) {
       return this.a.copy(_v0), this.b.copy(_v1), this.c.copy(_v2), this;
@@ -6871,28 +6963,28 @@
       return this.a.copy(_v0.a), this.b.copy(_v0.b), this.c.copy(_v0.c), this;
     }
     getArea() {
-      return _v210.subVectors(this.c, this.b), _v211.subVectors(this.a, this.b), .5 * _v210.cross(_v211).length();
+      return _v215.subVectors(this.c, this.b), _v216.subVectors(this.a, this.b), .5 * _v215.cross(_v216).length();
     }
     getMidpoint(_v0) {
       return _v0.addVectors(this.a, this.b).add(this.c).multiplyScalar(1 / 3);
     }
     getNormal(_v0) {
-      return _v223.getNormal(this.a, this.b, this.c, _v0);
+      return _v228.getNormal(this.a, this.b, this.c, _v0);
     }
     getPlane(_v0) {
       return _v0.setFromCoplanarPoints(this.a, this.b, this.c);
     }
     getBarycoord(_v0, _v1) {
-      return _v223.getBarycoord(_v0, this.a, this.b, this.c, _v1);
+      return _v228.getBarycoord(_v0, this.a, this.b, this.c, _v1);
     }
     getInterpolation(_v0, _v1, _v2, _v3, _v4) {
-      return _v223.getInterpolation(_v0, this.a, this.b, this.c, _v1, _v2, _v3, _v4);
+      return _v228.getInterpolation(_v0, this.a, this.b, this.c, _v1, _v2, _v3, _v4);
     }
     containsPoint(_v0) {
-      return _v223.containsPoint(_v0, this.a, this.b, this.c);
+      return _v228.containsPoint(_v0, this.a, this.b, this.c);
     }
     isFrontFacing(_v0) {
-      return _v223.isFrontFacing(this.a, this.b, this.c, _v0);
+      return _v228.isFrontFacing(this.a, this.b, this.c, _v0);
     }
     intersectsBox(_v0) {
       return _v0.intersectsTriangle(this);
@@ -6903,32 +6995,32 @@
         _v4 = this.a,
         _v5 = this.b,
         _v6 = this.c;
-      _v214.subVectors(_v5, _v4), _v215.subVectors(_v6, _v4), _v217.subVectors(_v0, _v4);
-      let _v7 = _v214.dot(_v217),
-        _v8 = _v215.dot(_v217);
+      _v219.subVectors(_v5, _v4), _v220.subVectors(_v6, _v4), _v222.subVectors(_v0, _v4);
+      let _v7 = _v219.dot(_v222),
+        _v8 = _v220.dot(_v222);
       if (_v7 <= 0 && _v8 <= 0) return _v1.copy(_v4);
-      _v218.subVectors(_v0, _v5);
-      let _v9 = _v214.dot(_v218),
-        _v10 = _v215.dot(_v218);
+      _v223.subVectors(_v0, _v5);
+      let _v9 = _v219.dot(_v223),
+        _v10 = _v220.dot(_v223);
       if (_v9 >= 0 && _v10 <= _v9) return _v1.copy(_v5);
       let _v11 = _v7 * _v10 - _v9 * _v8;
-      if (_v11 <= 0 && _v7 >= 0 && _v9 <= 0) return _v2 = _v7 / (_v7 - _v9), _v1.copy(_v4).addScaledVector(_v214, _v2);
-      _v219.subVectors(_v0, _v6);
-      let _v12 = _v214.dot(_v219),
-        _v13 = _v215.dot(_v219);
+      if (_v11 <= 0 && _v7 >= 0 && _v9 <= 0) return _v2 = _v7 / (_v7 - _v9), _v1.copy(_v4).addScaledVector(_v219, _v2);
+      _v224.subVectors(_v0, _v6);
+      let _v12 = _v219.dot(_v224),
+        _v13 = _v220.dot(_v224);
       if (_v13 >= 0 && _v12 <= _v13) return _v1.copy(_v6);
       let _v14 = _v12 * _v8 - _v7 * _v13;
-      if (_v14 <= 0 && _v8 >= 0 && _v13 <= 0) return _v3 = _v8 / (_v8 - _v13), _v1.copy(_v4).addScaledVector(_v215, _v3);
+      if (_v14 <= 0 && _v8 >= 0 && _v13 <= 0) return _v3 = _v8 / (_v8 - _v13), _v1.copy(_v4).addScaledVector(_v220, _v3);
       let _v15 = _v9 * _v13 - _v12 * _v10;
-      if (_v15 <= 0 && _v10 - _v9 >= 0 && _v12 - _v13 >= 0) return _v216.subVectors(_v6, _v5), _v3 = (_v10 - _v9) / (_v10 - _v9 + (_v12 - _v13)), _v1.copy(_v5).addScaledVector(_v216, _v3);
+      if (_v15 <= 0 && _v10 - _v9 >= 0 && _v12 - _v13 >= 0) return _v221.subVectors(_v6, _v5), _v3 = (_v10 - _v9) / (_v10 - _v9 + (_v12 - _v13)), _v1.copy(_v5).addScaledVector(_v221, _v3);
       let _v16 = 1 / (_v15 + _v14 + _v11);
-      return _v2 = _v14 * _v16, _v3 = _v11 * _v16, _v1.copy(_v4).addScaledVector(_v214, _v2).addScaledVector(_v215, _v3);
+      return _v2 = _v14 * _v16, _v3 = _v11 * _v16, _v1.copy(_v4).addScaledVector(_v219, _v2).addScaledVector(_v220, _v3);
     }
     equals(_v0) {
       return _v0.a.equals(this.a) && _v0.b.equals(this.b) && _v0.c.equals(this.c);
     }
   }
-  let _v224 = {
+  let _v229 = {
       aliceblue: 0,
       antiquewhite: 0,
       aqua: 0,
@@ -7078,20 +7170,20 @@
       yellow: 0,
       yellowgreen: 0
     },
-    _v225 = {
+    _v230 = {
       h: 0,
       s: 0,
       l: 0
     },
-    _v226 = {
+    _v231 = {
       h: 0,
       s: 0,
       l: 0
     };
-  function _v227(_v0, _v1, _v2) {
+  function _v232(_v0, _v1, _v2) {
     return (_v2 < 0 && (_v2 += 1), _v2 > 1 && (_v2 -= 1), _v2 < 1 / 6) ? _v0 + (_v1 - _v0) * 6 * _v2 : _v2 < .5 ? _v1 : _v2 < 2 / 3 ? _v0 + (_v1 - _v0) * 6 * (2 / 3 - _v2) : _v0;
   }
-  class _v228 {
+  class _v233 {
     constructor(_v0, _v1, _v2) {
       return this.isColor = !0, this.r = 1, this.g = 1, this.b = 1, this.set(_v0, _v1, _v2);
     }
@@ -7101,21 +7193,21 @@
     setScalar(_v0) {
       return this.r = _v0, this.g = _v0, this.b = _v0, this;
     }
-    setHex(_v0, _v1 = _v116) {
-      return _v0 = Math.floor(_v0), this.r = (_v0 >> 16 & 255) / 255, this.g = (_v0 >> 8 & 255) / 255, this.b = (255 & _v0) / 255, _v142.colorSpaceToWorking(this, _v1), this;
+    setHex(_v0, _v1 = _v121) {
+      return _v0 = Math.floor(_v0), this.r = (_v0 >> 16 & 255) / 255, this.g = (_v0 >> 8 & 255) / 255, this.b = (255 & _v0) / 255, _v147.colorSpaceToWorking(this, _v1), this;
     }
-    setRGB(_v0, _v1, _v2, _v3 = _v142.workingColorSpace) {
-      return this.r = _v0, this.g = _v1, this.b = _v2, _v142.colorSpaceToWorking(this, _v3), this;
+    setRGB(_v0, _v1, _v2, _v3 = _v147.workingColorSpace) {
+      return this.r = _v0, this.g = _v1, this.b = _v2, _v147.colorSpaceToWorking(this, _v3), this;
     }
-    setHSL(_v0, _v1, _v2, _v3 = _v142.workingColorSpace) {
-      if (_v0 = (_v0 % 1 + 1) % 1, _v1 = _v126(_v1, 0, 1), _v2 = _v126(_v2, 0, 1), 0 === _v1) this.r = this.g = this.b = _v2;else {
+    setHSL(_v0, _v1, _v2, _v3 = _v147.workingColorSpace) {
+      if (_v0 = (_v0 % 1 + 1) % 1, _v1 = _v131(_v1, 0, 1), _v2 = _v131(_v2, 0, 1), 0 === _v1) this.r = this.g = this.b = _v2;else {
         let _v0 = _v2 <= .5 ? _v2 * (1 + _v1) : _v2 + _v1 - _v2 * _v1,
           _v1 = 2 * _v2 - _v0;
-        this.r = _v227(_v1, _v0, _v0 + 1 / 3), this.g = _v227(_v1, _v0, _v0), this.b = _v227(_v1, _v0, _v0 - 1 / 3);
+        this.r = _v232(_v1, _v0, _v0 + 1 / 3), this.g = _v232(_v1, _v0, _v0), this.b = _v232(_v1, _v0, _v0 - 1 / 3);
       }
-      return _v142.colorSpaceToWorking(this, _v3), this;
+      return _v147.colorSpaceToWorking(this, _v3), this;
     }
-    setStyle(_v0, _v1 = _v116) {
+    setStyle(_v0, _v1 = _v121) {
       let _v2;
       function _v3(_v0) {
         void 0 !== _v0 && 1 > parseFloat(_v0) && console.warn("THREE.Color: Alpha component of " + _v0 + " will be ignored.");
@@ -7146,8 +7238,8 @@
       } else if (_v0 && _v0.length > 0) return this.setColorName(_v0, _v1);
       return this;
     }
-    setColorName(_v0, _v1 = _v116) {
-      let _v2 = _v224[_v0.toLowerCase()];
+    setColorName(_v0, _v1 = _v121) {
+      let _v2 = _v229[_v0.toLowerCase()];
       return void 0 !== _v2 ? this.setHex(_v2, _v1) : console.warn("THREE.Color: Unknown color " + _v0), this;
     }
     clone() {
@@ -7157,10 +7249,10 @@
       return this.r = _v0.r, this.g = _v0.g, this.b = _v0.b, this;
     }
     copySRGBToLinear(_v0) {
-      return this.r = _v143(_v0.r), this.g = _v143(_v0.g), this.b = _v143(_v0.b), this;
+      return this.r = _v148(_v0.r), this.g = _v148(_v0.g), this.b = _v148(_v0.b), this;
     }
     copyLinearToSRGB(_v0) {
-      return this.r = _v144(_v0.r), this.g = _v144(_v0.g), this.b = _v144(_v0.b), this;
+      return this.r = _v149(_v0.r), this.g = _v149(_v0.g), this.b = _v149(_v0.b), this;
     }
     convertSRGBToLinear() {
       return this.copySRGBToLinear(this), this;
@@ -7168,18 +7260,18 @@
     convertLinearToSRGB() {
       return this.copyLinearToSRGB(this), this;
     }
-    getHex(_v0 = _v116) {
-      return _v142.workingToColorSpace(_v229.copy(this), _v0), 0 * Math.round(_v126(255 * _v229.r, 0, 255)) + 256 * Math.round(_v126(255 * _v229.g, 0, 255)) + Math.round(_v126(255 * _v229.b, 0, 255));
+    getHex(_v0 = _v121) {
+      return _v147.workingToColorSpace(_v234.copy(this), _v0), 0 * Math.round(_v131(255 * _v234.r, 0, 255)) + 256 * Math.round(_v131(255 * _v234.g, 0, 255)) + Math.round(_v131(255 * _v234.b, 0, 255));
     }
-    getHexString(_v0 = _v116) {
+    getHexString(_v0 = _v121) {
       return ("000000" + this.getHex(_v0).toString(16)).slice(-6);
     }
-    getHSL(_v0, _v1 = _v142.workingColorSpace) {
+    getHSL(_v0, _v1 = _v147.workingColorSpace) {
       let _v2, _v3;
-      _v142.workingToColorSpace(_v229.copy(this), _v1);
-      let _v4 = _v229.r,
-        _v5 = _v229.g,
-        _v6 = _v229.b,
+      _v147.workingToColorSpace(_v234.copy(this), _v1);
+      let _v4 = _v234.r,
+        _v5 = _v234.g,
+        _v6 = _v234.b,
         _v7 = Math.max(_v4, _v5, _v6),
         _v8 = Math.min(_v4, _v5, _v6),
         _v9 = (_v8 + _v7) / 2;
@@ -7199,18 +7291,18 @@
       }
       return _v0.h = _v2, _v0.s = _v3, _v0.l = _v9, _v0;
     }
-    getRGB(_v0, _v1 = _v142.workingColorSpace) {
-      return _v142.workingToColorSpace(_v229.copy(this), _v1), _v0.r = _v229.r, _v0.g = _v229.g, _v0.b = _v229.b, _v0;
+    getRGB(_v0, _v1 = _v147.workingColorSpace) {
+      return _v147.workingToColorSpace(_v234.copy(this), _v1), _v0.r = _v234.r, _v0.g = _v234.g, _v0.b = _v234.b, _v0;
     }
-    getStyle(_v0 = _v116) {
-      _v142.workingToColorSpace(_v229.copy(this), _v0);
-      let _v1 = _v229.r,
-        _v2 = _v229.g,
-        _v3 = _v229.b;
-      return _v0 !== _v116 ? `color(${_v0} ${_v1.toFixed(3)} ${_v2.toFixed(3)} ${_v3.toFixed(3)})` : `rgb(${Math.round(255 * _v1)},${Math.round(255 * _v2)},${Math.round(255 * _v3)})`;
+    getStyle(_v0 = _v121) {
+      _v147.workingToColorSpace(_v234.copy(this), _v0);
+      let _v1 = _v234.r,
+        _v2 = _v234.g,
+        _v3 = _v234.b;
+      return _v0 !== _v121 ? `color(${_v0} ${_v1.toFixed(3)} ${_v2.toFixed(3)} ${_v3.toFixed(3)})` : `rgb(${Math.round(255 * _v1)},${Math.round(255 * _v2)},${Math.round(255 * _v3)})`;
     }
     offsetHSL(_v0, _v1, _v2) {
-      return this.getHSL(_v225), this.setHSL(_v225.h + _v0, _v225.s + _v1, _v225.l + _v2);
+      return this.getHSL(_v230), this.setHSL(_v230.h + _v0, _v230.s + _v1, _v230.l + _v2);
     }
     add(_v0) {
       return this.r += _v0.r, this.g += _v0.g, this.b += _v0.b, this;
@@ -7238,10 +7330,10 @@
     }
     lerpHSL(_v0, _v1) {
       var _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9, _v10;
-      this.getHSL(_v225), _v0.getHSL(_v226);
-      let _v11 = (_v2 = _v225.h, _v3 = _v226.h, (1 - (_v4 = _v1)) * _v2 + _v4 * _v3),
-        _v12 = (_v5 = _v225.s, _v6 = _v226.s, (1 - (_v7 = _v1)) * _v5 + _v7 * _v6),
-        _v13 = (_v8 = _v225.l, _v9 = _v226.l, (1 - (_v10 = _v1)) * _v8 + _v10 * _v9);
+      this.getHSL(_v230), _v0.getHSL(_v231);
+      let _v11 = (_v2 = _v230.h, _v3 = _v231.h, (1 - (_v4 = _v1)) * _v2 + _v4 * _v3),
+        _v12 = (_v5 = _v230.s, _v6 = _v231.s, (1 - (_v7 = _v1)) * _v5 + _v7 * _v6),
+        _v13 = (_v8 = _v230.l, _v9 = _v231.l, (1 - (_v10 = _v1)) * _v8 + _v10 * _v9);
       return this.setHSL(_v11, _v12, _v13), this;
     }
     setFromVector3(_v0) {
@@ -7273,14 +7365,14 @@
       yield this.r, yield this.g, yield this.b;
     }
   }
-  let _v229 = new _v228();
-  _v228.NAMES = _v224;
-  let _v230 = 0;
-  class _v231 extends _v121 {
+  let _v234 = new _v233();
+  _v233.NAMES = _v229;
+  let _v235 = 0;
+  class _v236 extends _v126 {
     constructor() {
       super(), this.isMaterial = !0, Object.defineProperty(this, "id", {
-        value: _v230++
-      }), this.uuid = _v125(), this.name = "", this.type = "Material", this.blending = 1, this.side = 0, this.vertexColors = !1, this.opacity = 1, this.transparent = !1, this.alphaHash = !1, this.blendSrc = 204, this.blendDst = 205, this.blendEquation = 100, this.blendSrcAlpha = null, this.blendDstAlpha = null, this.blendEquationAlpha = null, this.blendColor = new _v228(0, 0, 0), this.blendAlpha = 0, this.depthFunc = 3, this.depthTest = !0, this.depthWrite = !0, this.stencilWriteMask = 255, this.stencilFunc = 519, this.stencilRef = 0, this.stencilFuncMask = 255, this.stencilFail = 0, this.stencilZFail = 0, this.stencilZPass = 0, this.stencilWrite = !1, this.clippingPlanes = null, this.clipIntersection = !1, this.clipShadows = !1, this.shadowSide = null, this.colorWrite = !0, this.precision = null, this.polygonOffset = !1, this.polygonOffsetFactor = 0, this.polygonOffsetUnits = 0, this.dithering = !1, this.alphaToCoverage = !1, this.premultipliedAlpha = !1, this.forceSinglePass = !1, this.allowOverride = !0, this.visible = !0, this.toneMapped = !0, this.userData = {}, this.version = 0, this._alphaTest = 0;
+        value: _v235++
+      }), this.uuid = _v130(), this.name = "", this.type = "Material", this.blending = 1, this.side = 0, this.vertexColors = !1, this.opacity = 1, this.transparent = !1, this.alphaHash = !1, this.blendSrc = 204, this.blendDst = 205, this.blendEquation = 100, this.blendSrcAlpha = null, this.blendDstAlpha = null, this.blendEquationAlpha = null, this.blendColor = new _v233(0, 0, 0), this.blendAlpha = 0, this.depthFunc = 3, this.depthTest = !0, this.depthWrite = !0, this.stencilWriteMask = 255, this.stencilFunc = 519, this.stencilRef = 0, this.stencilFuncMask = 255, this.stencilFail = 0, this.stencilZFail = 0, this.stencilZPass = 0, this.stencilWrite = !1, this.clippingPlanes = null, this.clipIntersection = !1, this.clipShadows = !1, this.shadowSide = null, this.colorWrite = !0, this.precision = null, this.polygonOffset = !1, this.polygonOffsetFactor = 0, this.polygonOffsetUnits = 0, this.dithering = !1, this.alphaToCoverage = !1, this.premultipliedAlpha = !1, this.forceSinglePass = !1, this.allowOverride = !0, this.visible = !0, this.toneMapped = !0, this.userData = {}, this.version = 0, this._alphaTest = 0;
     }
     get alphaTest() {
       return this._alphaTest;
@@ -7359,22 +7451,22 @@
       !0 === _v0 && this.version++;
     }
   }
-  class _v232 extends _v231 {
+  class _v237 extends _v236 {
     constructor(_v0) {
-      super(), this.isMeshBasicMaterial = !0, this.type = "MeshBasicMaterial", this.color = new _v228(0), this.map = null, this.lightMap = null, this.lightMapIntensity = 1, this.aoMap = null, this.aoMapIntensity = 1, this.specularMap = null, this.alphaMap = null, this.envMap = null, this.envMapRotation = new _v192(), this.combine = 0, this.reflectivity = 1, this.refractionRatio = .98, this.wireframe = !1, this.wireframeLinewidth = 1, this.wireframeLinecap = "round", this.wireframeLinejoin = "round", this.fog = !0, this.setValues(_v0);
+      super(), this.isMeshBasicMaterial = !0, this.type = "MeshBasicMaterial", this.color = new _v233(0), this.map = null, this.lightMap = null, this.lightMapIntensity = 1, this.aoMap = null, this.aoMapIntensity = 1, this.specularMap = null, this.alphaMap = null, this.envMap = null, this.envMapRotation = new _v197(), this.combine = 0, this.reflectivity = 1, this.refractionRatio = .98, this.wireframe = !1, this.wireframeLinewidth = 1, this.wireframeLinecap = "round", this.wireframeLinejoin = "round", this.fog = !0, this.setValues(_v0);
     }
     copy(_v0) {
       return super.copy(_v0), this.color.copy(_v0.color), this.map = _v0.map, this.lightMap = _v0.lightMap, this.lightMapIntensity = _v0.lightMapIntensity, this.aoMap = _v0.aoMap, this.aoMapIntensity = _v0.aoMapIntensity, this.specularMap = _v0.specularMap, this.alphaMap = _v0.alphaMap, this.envMap = _v0.envMap, this.envMapRotation.copy(_v0.envMapRotation), this.combine = _v0.combine, this.reflectivity = _v0.reflectivity, this.refractionRatio = _v0.refractionRatio, this.wireframe = _v0.wireframe, this.wireframeLinewidth = _v0.wireframeLinewidth, this.wireframeLinecap = _v0.wireframeLinecap, this.wireframeLinejoin = _v0.wireframeLinejoin, this.fog = _v0.fog, this;
     }
   }
-  let _v233 = new _v131(),
-    _v234 = new _v129(),
-    _v235 = 0;
-  class _v236 {
+  let _v238 = new _v136(),
+    _v239 = new _v134(),
+    _v240 = 0;
+  class _v241 {
     constructor(_v0, _v1, _v2 = !1) {
       if (Array.isArray(_v0)) throw TypeError("THREE.BufferAttribute: array should be a Typed Array.");
       this.isBufferAttribute = !0, Object.defineProperty(this, "id", {
-        value: _v235++
+        value: _v240++
       }), this.name = "", this.array = _v0, this.itemSize = _v1, this.count = void 0 !== _v0 ? _v0.length / _v1 : 0, this.normalized = _v2, this.usage = 0, this.updateRanges = [], this.gpuType = 0, this.version = 0;
     }
     onUploadCallback() {}
@@ -7405,19 +7497,19 @@
       return this.array.set(_v0), this;
     }
     applyMatrix3(_v0) {
-      if (2 === this.itemSize) for (let _v0 = 0, _v1 = this.count; _v0 < _v1; _v0++) _v234.fromBufferAttribute(this, _v0), _v234.applyMatrix3(_v0), this.setXY(_v0, _v234.x, _v234.y);else if (3 === this.itemSize) for (let _v0 = 0, _v1 = this.count; _v0 < _v1; _v0++) _v233.fromBufferAttribute(this, _v0), _v233.applyMatrix3(_v0), this.setXYZ(_v0, _v233.x, _v233.y, _v233.z);
+      if (2 === this.itemSize) for (let _v0 = 0, _v1 = this.count; _v0 < _v1; _v0++) _v239.fromBufferAttribute(this, _v0), _v239.applyMatrix3(_v0), this.setXY(_v0, _v239.x, _v239.y);else if (3 === this.itemSize) for (let _v0 = 0, _v1 = this.count; _v0 < _v1; _v0++) _v238.fromBufferAttribute(this, _v0), _v238.applyMatrix3(_v0), this.setXYZ(_v0, _v238.x, _v238.y, _v238.z);
       return this;
     }
     applyMatrix4(_v0) {
-      for (let _v0 = 0, _v1 = this.count; _v0 < _v1; _v0++) _v233.fromBufferAttribute(this, _v0), _v233.applyMatrix4(_v0), this.setXYZ(_v0, _v233.x, _v233.y, _v233.z);
+      for (let _v0 = 0, _v1 = this.count; _v0 < _v1; _v0++) _v238.fromBufferAttribute(this, _v0), _v238.applyMatrix4(_v0), this.setXYZ(_v0, _v238.x, _v238.y, _v238.z);
       return this;
     }
     applyNormalMatrix(_v0) {
-      for (let _v0 = 0, _v1 = this.count; _v0 < _v1; _v0++) _v233.fromBufferAttribute(this, _v0), _v233.applyNormalMatrix(_v0), this.setXYZ(_v0, _v233.x, _v233.y, _v233.z);
+      for (let _v0 = 0, _v1 = this.count; _v0 < _v1; _v0++) _v238.fromBufferAttribute(this, _v0), _v238.applyNormalMatrix(_v0), this.setXYZ(_v0, _v238.x, _v238.y, _v238.z);
       return this;
     }
     transformDirection(_v0) {
-      for (let _v0 = 0, _v1 = this.count; _v0 < _v1; _v0++) _v233.fromBufferAttribute(this, _v0), _v233.transformDirection(_v0), this.setXYZ(_v0, _v233.x, _v233.y, _v233.z);
+      for (let _v0 = 0, _v1 = this.count; _v0 < _v1; _v0++) _v238.fromBufferAttribute(this, _v0), _v238.transformDirection(_v0), this.setXYZ(_v0, _v238.x, _v238.y, _v238.z);
       return this;
     }
     set(_v0, _v1 = 0) {
@@ -7425,47 +7517,47 @@
     }
     getComponent(_v0, _v1) {
       let _v2 = this.array[_v0 * this.itemSize + _v1];
-      return this.normalized && (_v2 = _v127(_v2, this.array)), _v2;
+      return this.normalized && (_v2 = _v132(_v2, this.array)), _v2;
     }
     setComponent(_v0, _v1, _v2) {
-      return this.normalized && (_v2 = _v128(_v2, this.array)), this.array[_v0 * this.itemSize + _v1] = _v2, this;
+      return this.normalized && (_v2 = _v133(_v2, this.array)), this.array[_v0 * this.itemSize + _v1] = _v2, this;
     }
     getX(_v0) {
       let _v1 = this.array[_v0 * this.itemSize];
-      return this.normalized && (_v1 = _v127(_v1, this.array)), _v1;
+      return this.normalized && (_v1 = _v132(_v1, this.array)), _v1;
     }
     setX(_v0, _v1) {
-      return this.normalized && (_v1 = _v128(_v1, this.array)), this.array[_v0 * this.itemSize] = _v1, this;
+      return this.normalized && (_v1 = _v133(_v1, this.array)), this.array[_v0 * this.itemSize] = _v1, this;
     }
     getY(_v0) {
       let _v1 = this.array[_v0 * this.itemSize + 1];
-      return this.normalized && (_v1 = _v127(_v1, this.array)), _v1;
+      return this.normalized && (_v1 = _v132(_v1, this.array)), _v1;
     }
     setY(_v0, _v1) {
-      return this.normalized && (_v1 = _v128(_v1, this.array)), this.array[_v0 * this.itemSize + 1] = _v1, this;
+      return this.normalized && (_v1 = _v133(_v1, this.array)), this.array[_v0 * this.itemSize + 1] = _v1, this;
     }
     getZ(_v0) {
       let _v1 = this.array[_v0 * this.itemSize + 2];
-      return this.normalized && (_v1 = _v127(_v1, this.array)), _v1;
+      return this.normalized && (_v1 = _v132(_v1, this.array)), _v1;
     }
     setZ(_v0, _v1) {
-      return this.normalized && (_v1 = _v128(_v1, this.array)), this.array[_v0 * this.itemSize + 2] = _v1, this;
+      return this.normalized && (_v1 = _v133(_v1, this.array)), this.array[_v0 * this.itemSize + 2] = _v1, this;
     }
     getW(_v0) {
       let _v1 = this.array[_v0 * this.itemSize + 3];
-      return this.normalized && (_v1 = _v127(_v1, this.array)), _v1;
+      return this.normalized && (_v1 = _v132(_v1, this.array)), _v1;
     }
     setW(_v0, _v1) {
-      return this.normalized && (_v1 = _v128(_v1, this.array)), this.array[_v0 * this.itemSize + 3] = _v1, this;
+      return this.normalized && (_v1 = _v133(_v1, this.array)), this.array[_v0 * this.itemSize + 3] = _v1, this;
     }
     setXY(_v0, _v1, _v2) {
-      return _v0 *= this.itemSize, this.normalized && (_v1 = _v128(_v1, this.array), _v2 = _v128(_v2, this.array)), this.array[_v0 + 0] = _v1, this.array[_v0 + 1] = _v2, this;
+      return _v0 *= this.itemSize, this.normalized && (_v1 = _v133(_v1, this.array), _v2 = _v133(_v2, this.array)), this.array[_v0 + 0] = _v1, this.array[_v0 + 1] = _v2, this;
     }
     setXYZ(_v0, _v1, _v2, _v3) {
-      return _v0 *= this.itemSize, this.normalized && (_v1 = _v128(_v1, this.array), _v2 = _v128(_v2, this.array), _v3 = _v128(_v3, this.array)), this.array[_v0 + 0] = _v1, this.array[_v0 + 1] = _v2, this.array[_v0 + 2] = _v3, this;
+      return _v0 *= this.itemSize, this.normalized && (_v1 = _v133(_v1, this.array), _v2 = _v133(_v2, this.array), _v3 = _v133(_v3, this.array)), this.array[_v0 + 0] = _v1, this.array[_v0 + 1] = _v2, this.array[_v0 + 2] = _v3, this;
     }
     setXYZW(_v0, _v1, _v2, _v3, _v4) {
-      return _v0 *= this.itemSize, this.normalized && (_v1 = _v128(_v1, this.array), _v2 = _v128(_v2, this.array), _v3 = _v128(_v3, this.array), _v4 = _v128(_v4, this.array)), this.array[_v0 + 0] = _v1, this.array[_v0 + 1] = _v2, this.array[_v0 + 2] = _v3, this.array[_v0 + 3] = _v4, this;
+      return _v0 *= this.itemSize, this.normalized && (_v1 = _v133(_v1, this.array), _v2 = _v133(_v2, this.array), _v3 = _v133(_v3, this.array), _v4 = _v133(_v4, this.array)), this.array[_v0 + 0] = _v1, this.array[_v0 + 1] = _v2, this.array[_v0 + 2] = _v3, this.array[_v0 + 3] = _v4, this;
     }
     onUpload(_v0) {
       return this.onUploadCallback = _v0, this;
@@ -7483,33 +7575,33 @@
       return "" !== this.name && (_v0.name = this.name), 0 !== this.usage && (_v0.usage = this.usage), _v0;
     }
   }
-  class _v237 extends _v236 {
+  class _v242 extends _v241 {
     constructor(_v0, _v1, _v2) {
       super(new Uint16Array(_v0), _v1, _v2);
     }
   }
-  class _v238 extends _v236 {
+  class _v243 extends _v241 {
     constructor(_v0, _v1, _v2) {
       super(new Uint32Array(_v0), _v1, _v2);
     }
   }
-  class _v239 extends _v236 {
+  class _v244 extends _v241 {
     constructor(_v0, _v1, _v2) {
       super(new Float32Array(_v0), _v1, _v2);
     }
   }
-  let _v240 = 0,
-    _v241 = new _v182(),
-    _v242 = new _v209(),
-    _v243 = new _v131(),
-    _v244 = new _v156(),
-    _v245 = new _v156(),
-    _v246 = new _v131();
-  class _v247 extends _v121 {
+  let _v245 = 0,
+    _v246 = new _v187(),
+    _v247 = new _v214(),
+    _v248 = new _v136(),
+    _v249 = new _v161(),
+    _v250 = new _v161(),
+    _v251 = new _v136();
+  class _v252 extends _v126 {
     constructor() {
       super(), this.isBufferGeometry = !0, Object.defineProperty(this, "id", {
-        value: _v240++
-      }), this.uuid = _v125(), this.name = "", this.type = "BufferGeometry", this.index = null, this.indirect = null, this.attributes = {}, this.morphAttributes = {}, this.morphTargetsRelative = !1, this.groups = [], this.boundingBox = null, this.boundingSphere = null, this.drawRange = {
+        value: _v245++
+      }), this.uuid = _v130(), this.name = "", this.type = "BufferGeometry", this.index = null, this.indirect = null, this.attributes = {}, this.morphAttributes = {}, this.morphTargetsRelative = !1, this.groups = [], this.boundingBox = null, this.boundingSphere = null, this.drawRange = {
         start: 0,
         count: 1 / 0
       }, this.userData = {};
@@ -7518,7 +7610,7 @@
       return this.index;
     }
     setIndex(_v0) {
-      return Array.isArray(_v0) ? this.index = new (_v136(_v0) ? _v238 : _v237)(_v0, 1) : this.index = _v0, this;
+      return Array.isArray(_v0) ? this.index = new (_v141(_v0) ? _v243 : _v242)(_v0, 1) : this.index = _v0, this;
     }
     setIndirect(_v0) {
       return this.indirect = _v0, this;
@@ -7556,35 +7648,35 @@
       void 0 !== _v1 && (_v1.applyMatrix4(_v0), _v1.needsUpdate = !0);
       let _v2 = this.attributes.normal;
       if (void 0 !== _v2) {
-        let _v0 = new _v134().getNormalMatrix(_v0);
+        let _v0 = new _v139().getNormalMatrix(_v0);
         _v2.applyNormalMatrix(_v0), _v2.needsUpdate = !0;
       }
       let _v3 = this.attributes.tangent;
       return void 0 !== _v3 && (_v3.transformDirection(_v0), _v3.needsUpdate = !0), null !== this.boundingBox && this.computeBoundingBox(), null !== this.boundingSphere && this.computeBoundingSphere(), this;
     }
     applyQuaternion(_v0) {
-      return _v241.makeRotationFromQuaternion(_v0), this.applyMatrix4(_v241), this;
+      return _v246.makeRotationFromQuaternion(_v0), this.applyMatrix4(_v246), this;
     }
     rotateX(_v0) {
-      return _v241.makeRotationX(_v0), this.applyMatrix4(_v241), this;
+      return _v246.makeRotationX(_v0), this.applyMatrix4(_v246), this;
     }
     rotateY(_v0) {
-      return _v241.makeRotationY(_v0), this.applyMatrix4(_v241), this;
+      return _v246.makeRotationY(_v0), this.applyMatrix4(_v246), this;
     }
     rotateZ(_v0) {
-      return _v241.makeRotationZ(_v0), this.applyMatrix4(_v241), this;
+      return _v246.makeRotationZ(_v0), this.applyMatrix4(_v246), this;
     }
     translate(_v0, _v1, _v2) {
-      return _v241.makeTranslation(_v0, _v1, _v2), this.applyMatrix4(_v241), this;
+      return _v246.makeTranslation(_v0, _v1, _v2), this.applyMatrix4(_v246), this;
     }
     scale(_v0, _v1, _v2) {
-      return _v241.makeScale(_v0, _v1, _v2), this.applyMatrix4(_v241), this;
+      return _v246.makeScale(_v0, _v1, _v2), this.applyMatrix4(_v246), this;
     }
     lookAt(_v0) {
-      return _v242.lookAt(_v0), _v242.updateMatrix(), this.applyMatrix4(_v242.matrix), this;
+      return _v247.lookAt(_v0), _v247.updateMatrix(), this.applyMatrix4(_v247.matrix), this;
     }
     center() {
-      return this.computeBoundingBox(), this.boundingBox.getCenter(_v243).negate(), this.translate(_v243.x, _v243.y, _v243.z), this;
+      return this.computeBoundingBox(), this.boundingBox.getCenter(_v248).negate(), this.translate(_v248.x, _v248.y, _v248.z), this;
     }
     setFromPoints(_v0) {
       let _v1 = this.getAttribute("position");
@@ -7594,7 +7686,7 @@
           let _v0 = _v0[_v0];
           _v0.push(_v0.x, _v0.y, _v0.z || 0);
         }
-        this.setAttribute("position", new _v239(_v0, 3));
+        this.setAttribute("position", new _v244(_v0, 3));
       } else {
         let _v0 = Math.min(_v0.length, _v1.count);
         for (let _v0 = 0; _v0 < _v0; _v0++) {
@@ -7606,42 +7698,42 @@
       return this;
     }
     computeBoundingBox() {
-      null === this.boundingBox && (this.boundingBox = new _v156());
+      null === this.boundingBox && (this.boundingBox = new _v161());
       let _v0 = this.attributes.position,
         _v1 = this.morphAttributes.position;
       if (_v0 && _v0.isGLBufferAttribute) {
-        console.error("THREE.BufferGeometry.computeBoundingBox(): GLBufferAttribute requires a manual bounding box.", this), this.boundingBox.set(new _v131(-1 / 0, -1 / 0, -1 / 0), new _v131(Infinity, Infinity, Infinity));
+        console.error("THREE.BufferGeometry.computeBoundingBox(): GLBufferAttribute requires a manual bounding box.", this), this.boundingBox.set(new _v136(-1 / 0, -1 / 0, -1 / 0), new _v136(Infinity, Infinity, Infinity));
         return;
       }
       if (void 0 !== _v0) {
         if (this.boundingBox.setFromBufferAttribute(_v0), _v1) for (let _v0 = 0, _v1 = _v1.length; _v0 < _v1; _v0++) {
           let _v0 = _v1[_v0];
-          _v244.setFromBufferAttribute(_v0), this.morphTargetsRelative ? (_v246.addVectors(this.boundingBox.min, _v244.min), this.boundingBox.expandByPoint(_v246), _v246.addVectors(this.boundingBox.max, _v244.max), this.boundingBox.expandByPoint(_v246)) : (this.boundingBox.expandByPoint(_v244.min), this.boundingBox.expandByPoint(_v244.max));
+          _v249.setFromBufferAttribute(_v0), this.morphTargetsRelative ? (_v251.addVectors(this.boundingBox.min, _v249.min), this.boundingBox.expandByPoint(_v251), _v251.addVectors(this.boundingBox.max, _v249.max), this.boundingBox.expandByPoint(_v251)) : (this.boundingBox.expandByPoint(_v249.min), this.boundingBox.expandByPoint(_v249.max));
         }
       } else this.boundingBox.makeEmpty();
       (isNaN(this.boundingBox.min.x) || isNaN(this.boundingBox.min.y) || isNaN(this.boundingBox.min.z)) && console.error('THREE.BufferGeometry.computeBoundingBox(): Computed min/max have NaN values. The "position" attribute is likely to have NaN values.', this);
     }
     computeBoundingSphere() {
-      null === this.boundingSphere && (this.boundingSphere = new _v174());
+      null === this.boundingSphere && (this.boundingSphere = new _v179());
       let _v0 = this.attributes.position,
         _v1 = this.morphAttributes.position;
       if (_v0 && _v0.isGLBufferAttribute) {
-        console.error("THREE.BufferGeometry.computeBoundingSphere(): GLBufferAttribute requires a manual bounding sphere.", this), this.boundingSphere.set(new _v131(), 1 / 0);
+        console.error("THREE.BufferGeometry.computeBoundingSphere(): GLBufferAttribute requires a manual bounding sphere.", this), this.boundingSphere.set(new _v136(), 1 / 0);
         return;
       }
       if (_v0) {
         let _v0 = this.boundingSphere.center;
-        if (_v244.setFromBufferAttribute(_v0), _v1) for (let _v0 = 0, _v1 = _v1.length; _v0 < _v1; _v0++) {
+        if (_v249.setFromBufferAttribute(_v0), _v1) for (let _v0 = 0, _v1 = _v1.length; _v0 < _v1; _v0++) {
           let _v0 = _v1[_v0];
-          _v245.setFromBufferAttribute(_v0), this.morphTargetsRelative ? (_v246.addVectors(_v244.min, _v245.min), _v244.expandByPoint(_v246), _v246.addVectors(_v244.max, _v245.max), _v244.expandByPoint(_v246)) : (_v244.expandByPoint(_v245.min), _v244.expandByPoint(_v245.max));
+          _v250.setFromBufferAttribute(_v0), this.morphTargetsRelative ? (_v251.addVectors(_v249.min, _v250.min), _v249.expandByPoint(_v251), _v251.addVectors(_v249.max, _v250.max), _v249.expandByPoint(_v251)) : (_v249.expandByPoint(_v250.min), _v249.expandByPoint(_v250.max));
         }
-        _v244.getCenter(_v0);
+        _v249.getCenter(_v0);
         let _v1 = 0;
-        for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0++) _v246.fromBufferAttribute(_v0, _v0), _v1 = Math.max(_v1, _v0.distanceToSquared(_v246));
+        for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0++) _v251.fromBufferAttribute(_v0, _v0), _v1 = Math.max(_v1, _v0.distanceToSquared(_v251));
         if (_v1) for (let _v0 = 0, _v1 = _v1.length; _v0 < _v1; _v0++) {
           let _v0 = _v1[_v0],
             _v1 = this.morphTargetsRelative;
-          for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0++) _v246.fromBufferAttribute(_v0, _v0), _v1 && (_v243.fromBufferAttribute(_v0, _v0), _v246.add(_v243)), _v1 = Math.max(_v1, _v0.distanceToSquared(_v246));
+          for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0++) _v251.fromBufferAttribute(_v0, _v0), _v1 && (_v248.fromBufferAttribute(_v0, _v0), _v251.add(_v248)), _v1 = Math.max(_v1, _v0.distanceToSquared(_v251));
         }
         this.boundingSphere.radius = Math.sqrt(_v1), isNaN(this.boundingSphere.radius) && console.error('THREE.BufferGeometry.computeBoundingSphere(): Computed radius is NaN. The "position" attribute is likely to have NaN values.', this);
       }
@@ -7653,19 +7745,19 @@
       let _v2 = _v1.position,
         _v3 = _v1.normal,
         _v4 = _v1.uv;
-      !1 === this.hasAttribute("tangent") && this.setAttribute("tangent", new _v236(new Float32Array(4 * _v2.count), 4));
+      !1 === this.hasAttribute("tangent") && this.setAttribute("tangent", new _v241(new Float32Array(4 * _v2.count), 4));
       let _v5 = this.getAttribute("tangent"),
         _v6 = [],
         _v7 = [];
-      for (let _v0 = 0; _v0 < _v2.count; _v0++) _v6[_v0] = new _v131(), _v7[_v0] = new _v131();
-      let _v8 = new _v131(),
-        _v9 = new _v131(),
-        _v10 = new _v131(),
-        _v11 = new _v129(),
-        _v12 = new _v129(),
-        _v13 = new _v129(),
-        _v14 = new _v131(),
-        _v15 = new _v131(),
+      for (let _v0 = 0; _v0 < _v2.count; _v0++) _v6[_v0] = new _v136(), _v7[_v0] = new _v136();
+      let _v8 = new _v136(),
+        _v9 = new _v136(),
+        _v10 = new _v136(),
+        _v11 = new _v134(),
+        _v12 = new _v134(),
+        _v13 = new _v134(),
+        _v14 = new _v136(),
+        _v15 = new _v136(),
         _v16 = this.groups;
       0 === _v16.length && (_v16 = [{
         start: 0,
@@ -7681,10 +7773,10 @@
           isFinite(_v3) && (_v14.copy(_v9).multiplyScalar(_v13.y).addScaledVector(_v10, -_v12.y).multiplyScalar(_v3), _v15.copy(_v10).multiplyScalar(_v12.x).addScaledVector(_v9, -_v13.x).multiplyScalar(_v3), _v6[_v0].add(_v14), _v6[_v1].add(_v14), _v6[_v2].add(_v14), _v7[_v0].add(_v15), _v7[_v1].add(_v15), _v7[_v2].add(_v15));
         }(_v0.getX(_v0 + 0), _v0.getX(_v0 + 1), _v0.getX(_v0 + 2));
       }
-      let _v17 = new _v131(),
-        _v18 = new _v131(),
-        _v19 = new _v131(),
-        _v20 = new _v131();
+      let _v17 = new _v136(),
+        _v18 = new _v136(),
+        _v19 = new _v136(),
+        _v20 = new _v136();
       function _v21(_v0) {
         _v19.fromBufferAttribute(_v3, _v0), _v20.copy(_v19);
         let _v1 = _v6[_v0];
@@ -7704,15 +7796,15 @@
         _v1 = this.getAttribute("position");
       if (void 0 !== _v1) {
         let _v0 = this.getAttribute("normal");
-        if (void 0 === _v0) _v0 = new _v236(new Float32Array(3 * _v1.count), 3), this.setAttribute("normal", _v0);else for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0++) _v0.setXYZ(_v0, 0, 0, 0);
-        let _v1 = new _v131(),
-          _v2 = new _v131(),
-          _v3 = new _v131(),
-          _v4 = new _v131(),
-          _v5 = new _v131(),
-          _v6 = new _v131(),
-          _v7 = new _v131(),
-          _v8 = new _v131();
+        if (void 0 === _v0) _v0 = new _v241(new Float32Array(3 * _v1.count), 3), this.setAttribute("normal", _v0);else for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0++) _v0.setXYZ(_v0, 0, 0, 0);
+        let _v1 = new _v136(),
+          _v2 = new _v136(),
+          _v3 = new _v136(),
+          _v4 = new _v136(),
+          _v5 = new _v136(),
+          _v6 = new _v136(),
+          _v7 = new _v136(),
+          _v8 = new _v136();
         if (_v0) for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0 += 3) {
           let _v0 = _v0.getX(_v0 + 0),
             _v1 = _v0.getX(_v0 + 1),
@@ -7724,7 +7816,7 @@
     }
     normalizeNormals() {
       let _v0 = this.attributes.normal;
-      for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0++) _v246.fromBufferAttribute(_v0, _v0), _v246.normalize(), _v0.setXYZ(_v0, _v246.x, _v246.y, _v246.z);
+      for (let _v0 = 0, _v1 = _v0.count; _v0 < _v1; _v0++) _v251.fromBufferAttribute(_v0, _v0), _v251.normalize(), _v0.setXYZ(_v0, _v251.x, _v251.y, _v251.z);
     }
     toNonIndexed() {
       function _v0(_v0, _v1) {
@@ -7738,10 +7830,10 @@
           _v6 = _v0.isInterleavedBufferAttribute ? _v1[_v0] * _v0.data.stride + _v0.offset : _v1[_v0] * _v3;
           for (let _v0 = 0; _v0 < _v3; _v0++) _v5[_v7++] = _v2[_v6++];
         }
-        return new _v236(_v5, _v3, _v4);
+        return new _v241(_v5, _v3, _v4);
       }
       if (null === this.index) return console.warn("THREE.BufferGeometry.toNonIndexed(): BufferGeometry is already non-indexed."), this;
-      let _v1 = new _v247(),
+      let _v1 = new _v252(),
         _v2 = this.index.array,
         _v3 = this.attributes;
       for (let _v0 in _v3) {
@@ -7847,9 +7939,9 @@
       });
     }
   }
-  let _v248 = new _v182(),
-    _v249 = new class {
-      constructor(_v0 = new _v131(), _v1 = new _v131(0, 0, -1)) {
+  let _v253 = new _v187(),
+    _v254 = new class {
+      constructor(_v0 = new _v136(), _v1 = new _v136(0, 0, -1)) {
         this.origin = _v0, this.direction = _v1;
       }
       set(_v0, _v1) {
@@ -7865,7 +7957,7 @@
         return this.direction.copy(_v0).sub(this.origin).normalize(), this;
       }
       recast(_v0) {
-        return this.origin.copy(this.at(_v0, _v175)), this;
+        return this.origin.copy(this.at(_v0, _v180)), this;
       }
       closestPointToPoint(_v0, _v1) {
         _v1.subVectors(_v0, this.origin);
@@ -7876,17 +7968,17 @@
         return Math.sqrt(this.distanceSqToPoint(_v0));
       }
       distanceSqToPoint(_v0) {
-        let _v1 = _v175.subVectors(_v0, this.origin).dot(this.direction);
-        return _v1 < 0 ? this.origin.distanceToSquared(_v0) : (_v175.copy(this.origin).addScaledVector(this.direction, _v1), _v175.distanceToSquared(_v0));
+        let _v1 = _v180.subVectors(_v0, this.origin).dot(this.direction);
+        return _v1 < 0 ? this.origin.distanceToSquared(_v0) : (_v180.copy(this.origin).addScaledVector(this.direction, _v1), _v180.distanceToSquared(_v0));
       }
       distanceSqToSegment(_v0, _v1, _v2, _v3) {
         let _v4, _v5, _v6, _v7;
-        _v176.copy(_v0).add(_v1).multiplyScalar(.5), _v177.copy(_v1).sub(_v0).normalize(), _v178.copy(this.origin).sub(_v176);
+        _v181.copy(_v0).add(_v1).multiplyScalar(.5), _v182.copy(_v1).sub(_v0).normalize(), _v183.copy(this.origin).sub(_v181);
         let _v8 = .5 * _v0.distanceTo(_v1),
-          _v9 = -this.direction.dot(_v177),
-          _v10 = _v178.dot(this.direction),
-          _v11 = -_v178.dot(_v177),
-          _v12 = _v178.lengthSq(),
+          _v9 = -this.direction.dot(_v182),
+          _v10 = _v183.dot(this.direction),
+          _v11 = -_v183.dot(_v182),
+          _v12 = _v183.lengthSq(),
           _v13 = Math.abs(1 - _v9 * _v9);
         if (_v13 > 0) {
           if (_v4 = _v9 * _v11 - _v10, _v5 = _v9 * _v10 - _v11, _v7 = _v8 * _v13, _v4 >= 0) {
@@ -7898,12 +7990,12 @@
             } else _v6 = -(_v4 = Math.max(0, -(_v9 * (_v5 = -_v8) + _v10))) * _v4 + _v5 * (_v5 + 2 * _v11) + _v12;
           } else _v5 <= -_v7 ? (_v5 = (_v4 = Math.max(0, -(-_v9 * _v8 + _v10))) > 0 ? -_v8 : Math.min(Math.max(-_v8, -_v11), _v8), _v6 = -_v4 * _v4 + _v5 * (_v5 + 2 * _v11) + _v12) : _v5 <= _v7 ? (_v4 = 0, _v6 = (_v5 = Math.min(Math.max(-_v8, -_v11), _v8)) * (_v5 + 2 * _v11) + _v12) : (_v5 = (_v4 = Math.max(0, -(_v9 * _v8 + _v10))) > 0 ? _v8 : Math.min(Math.max(-_v8, -_v11), _v8), _v6 = -_v4 * _v4 + _v5 * (_v5 + 2 * _v11) + _v12);
         } else _v5 = _v9 > 0 ? -_v8 : _v8, _v6 = -(_v4 = Math.max(0, -(_v9 * _v5 + _v10))) * _v4 + _v5 * (_v5 + 2 * _v11) + _v12;
-        return _v2 && _v2.copy(this.origin).addScaledVector(this.direction, _v4), _v3 && _v3.copy(_v176).addScaledVector(_v177, _v5), _v6;
+        return _v2 && _v2.copy(this.origin).addScaledVector(this.direction, _v4), _v3 && _v3.copy(_v181).addScaledVector(_v182, _v5), _v6;
       }
       intersectSphere(_v0, _v1) {
-        _v175.subVectors(_v0.center, this.origin);
-        let _v2 = _v175.dot(this.direction),
-          _v3 = _v175.dot(_v175) - _v2 * _v2,
+        _v180.subVectors(_v0.center, this.origin);
+        let _v2 = _v180.dot(this.direction),
+          _v3 = _v180.dot(_v180) - _v2 * _v2,
           _v4 = _v0.radius * _v0.radius;
         if (_v3 > _v4) return null;
         let _v5 = Math.sqrt(_v4 - _v3),
@@ -7942,12 +8034,12 @@
         return (_v8 >= 0 ? (_v2 = (_v0.min.x - _v11.x) * _v8, _v3 = (_v0.max.x - _v11.x) * _v8) : (_v2 = (_v0.max.x - _v11.x) * _v8, _v3 = (_v0.min.x - _v11.x) * _v8), _v9 >= 0 ? (_v4 = (_v0.min.y - _v11.y) * _v9, _v5 = (_v0.max.y - _v11.y) * _v9) : (_v4 = (_v0.max.y - _v11.y) * _v9, _v5 = (_v0.min.y - _v11.y) * _v9), _v2 > _v5 || _v4 > _v3 || ((_v4 > _v2 || isNaN(_v2)) && (_v2 = _v4), (_v5 < _v3 || isNaN(_v3)) && (_v3 = _v5), _v10 >= 0 ? (_v6 = (_v0.min.z - _v11.z) * _v10, _v7 = (_v0.max.z - _v11.z) * _v10) : (_v6 = (_v0.max.z - _v11.z) * _v10, _v7 = (_v0.min.z - _v11.z) * _v10), _v2 > _v7 || _v6 > _v3 || ((_v6 > _v2 || _v2 != _v2) && (_v2 = _v6), (_v7 < _v3 || _v3 != _v3) && (_v3 = _v7), _v3 < 0))) ? null : this.at(_v2 >= 0 ? _v2 : _v3, _v1);
       }
       intersectsBox(_v0) {
-        return null !== this.intersectBox(_v0, _v175);
+        return null !== this.intersectBox(_v0, _v180);
       }
       intersectTriangle(_v0, _v1, _v2, _v3, _v4) {
         let _v5;
-        _v179.subVectors(_v1, _v0), _v180.subVectors(_v2, _v0), _v181.crossVectors(_v179, _v180);
-        let _v6 = this.direction.dot(_v181);
+        _v184.subVectors(_v1, _v0), _v185.subVectors(_v2, _v0), _v186.crossVectors(_v184, _v185);
+        let _v6 = this.direction.dot(_v186);
         if (_v6 > 0) {
           if (_v3) return null;
           _v5 = 1;
@@ -7955,12 +8047,12 @@
           if (!(_v6 < 0)) return null;
           _v5 = -1, _v6 = -_v6;
         }
-        _v178.subVectors(this.origin, _v0);
-        let _v7 = _v5 * this.direction.dot(_v180.crossVectors(_v178, _v180));
+        _v183.subVectors(this.origin, _v0);
+        let _v7 = _v5 * this.direction.dot(_v185.crossVectors(_v183, _v185));
         if (_v7 < 0) return null;
-        let _v8 = _v5 * this.direction.dot(_v179.cross(_v178));
+        let _v8 = _v5 * this.direction.dot(_v184.cross(_v183));
         if (_v8 < 0 || _v7 + _v8 > _v6) return null;
-        let _v9 = -_v5 * _v178.dot(_v181);
+        let _v9 = -_v5 * _v183.dot(_v186);
         return _v9 < 0 ? null : this.at(_v9 / _v6, _v4);
       }
       applyMatrix4(_v0) {
@@ -7973,17 +8065,17 @@
         return new this.constructor().copy(this);
       }
     }(),
-    _v250 = new _v174(),
-    _v251 = new _v131(),
-    _v252 = new _v131(),
-    _v253 = new _v131(),
-    _v254 = new _v131(),
-    _v255 = new _v131(),
-    _v256 = new _v131(),
-    _v257 = new _v131(),
-    _v258 = new _v131();
-  class _v259 extends _v209 {
-    constructor(_v0 = new _v247(), _v1 = new _v232()) {
+    _v255 = new _v179(),
+    _v256 = new _v136(),
+    _v257 = new _v136(),
+    _v258 = new _v136(),
+    _v259 = new _v136(),
+    _v260 = new _v136(),
+    _v261 = new _v136(),
+    _v262 = new _v136(),
+    _v263 = new _v136();
+  class _v264 extends _v214 {
+    constructor(_v0 = new _v252(), _v1 = new _v237()) {
       super(), this.isMesh = !0, this.type = "Mesh", this.geometry = _v0, this.material = _v1, this.morphTargetDictionary = void 0, this.morphTargetInfluences = void 0, this.count = 1, this.updateMorphTargets();
     }
     copy(_v0, _v1) {
@@ -8011,13 +8103,13 @@
       _v1.fromBufferAttribute(_v3, _v0);
       let _v6 = this.morphTargetInfluences;
       if (_v4 && _v6) {
-        _v256.set(0, 0, 0);
+        _v261.set(0, 0, 0);
         for (let _v0 = 0, _v1 = _v4.length; _v0 < _v1; _v0++) {
           let _v0 = _v6[_v0],
             _v1 = _v4[_v0];
-          0 !== _v0 && (_v255.fromBufferAttribute(_v1, _v0), _v5 ? _v256.addScaledVector(_v255, _v0) : _v256.addScaledVector(_v255.sub(_v1), _v0));
+          0 !== _v0 && (_v260.fromBufferAttribute(_v1, _v0), _v5 ? _v261.addScaledVector(_v260, _v0) : _v261.addScaledVector(_v260.sub(_v1), _v0));
         }
-        _v1.add(_v256);
+        _v1.add(_v261);
       }
       return _v1;
     }
@@ -8025,7 +8117,7 @@
       let _v2 = this.geometry,
         _v3 = this.material,
         _v4 = this.matrixWorld;
-      void 0 === _v3 || (null === _v2.boundingSphere && _v2.computeBoundingSphere(), _v250.copy(_v2.boundingSphere), _v250.applyMatrix4(_v4), _v249.copy(_v0.ray).recast(_v0.near), !1 === _v250.containsPoint(_v249.origin) && (null === _v249.intersectSphere(_v250, _v251) || _v249.origin.distanceToSquared(_v251) > (_v0.far - _v0.near) ** 2) || (_v248.copy(_v4).invert(), _v249.copy(_v0.ray).applyMatrix4(_v248), (null === _v2.boundingBox || !1 !== _v249.intersectsBox(_v2.boundingBox)) && this._computeIntersections(_v0, _v1, _v249)));
+      void 0 === _v3 || (null === _v2.boundingSphere && _v2.computeBoundingSphere(), _v255.copy(_v2.boundingSphere), _v255.applyMatrix4(_v4), _v254.copy(_v0.ray).recast(_v0.near), !1 === _v255.containsPoint(_v254.origin) && (null === _v254.intersectSphere(_v255, _v256) || _v254.origin.distanceToSquared(_v256) > (_v0.far - _v0.near) ** 2) || (_v253.copy(_v4).invert(), _v254.copy(_v0.ray).applyMatrix4(_v253), (null === _v2.boundingBox || !1 !== _v254.intersectsBox(_v2.boundingBox)) && this._computeIntersections(_v0, _v1, _v254)));
     }
     _computeIntersections(_v0, _v1, _v2) {
       let _v3,
@@ -8044,52 +8136,52 @@
             _v1 = _v5[_v0.materialIndex],
             _v2 = Math.max(_v0.start, _v12.start),
             _v3 = Math.min(_v6.count, Math.min(_v0.start + _v0.count, _v12.start + _v12.count));
-          for (let _v0 = _v2; _v0 < _v3; _v0 += 3) (_v3 = _v260(this, _v1, _v0, _v2, _v8, _v9, _v10, _v6.getX(_v0), _v6.getX(_v0 + 1), _v6.getX(_v0 + 2))) && (_v3.faceIndex = Math.floor(_v0 / 3), _v3.face.materialIndex = _v0.materialIndex, _v1.push(_v3));
+          for (let _v0 = _v2; _v0 < _v3; _v0 += 3) (_v3 = _v265(this, _v1, _v0, _v2, _v8, _v9, _v10, _v6.getX(_v0), _v6.getX(_v0 + 1), _v6.getX(_v0 + 2))) && (_v3.faceIndex = Math.floor(_v0 / 3), _v3.face.materialIndex = _v0.materialIndex, _v1.push(_v3));
         } else {
           let _v0 = Math.max(0, _v12.start),
             _v1 = Math.min(_v6.count, _v12.start + _v12.count);
-          for (let _v0 = _v0; _v0 < _v1; _v0 += 3) (_v3 = _v260(this, _v5, _v0, _v2, _v8, _v9, _v10, _v6.getX(_v0), _v6.getX(_v0 + 1), _v6.getX(_v0 + 2))) && (_v3.faceIndex = Math.floor(_v0 / 3), _v1.push(_v3));
+          for (let _v0 = _v0; _v0 < _v1; _v0 += 3) (_v3 = _v265(this, _v5, _v0, _v2, _v8, _v9, _v10, _v6.getX(_v0), _v6.getX(_v0 + 1), _v6.getX(_v0 + 2))) && (_v3.faceIndex = Math.floor(_v0 / 3), _v1.push(_v3));
         }
       } else if (void 0 !== _v7) if (Array.isArray(_v5)) for (let _v0 = 0, _v1 = _v11.length; _v0 < _v1; _v0++) {
         let _v0 = _v11[_v0],
           _v1 = _v5[_v0.materialIndex],
           _v2 = Math.max(_v0.start, _v12.start),
           _v3 = Math.min(_v7.count, Math.min(_v0.start + _v0.count, _v12.start + _v12.count));
-        for (let _v0 = _v2; _v0 < _v3; _v0 += 3) (_v3 = _v260(this, _v1, _v0, _v2, _v8, _v9, _v10, _v0, _v0 + 1, _v0 + 2)) && (_v3.faceIndex = Math.floor(_v0 / 3), _v3.face.materialIndex = _v0.materialIndex, _v1.push(_v3));
+        for (let _v0 = _v2; _v0 < _v3; _v0 += 3) (_v3 = _v265(this, _v1, _v0, _v2, _v8, _v9, _v10, _v0, _v0 + 1, _v0 + 2)) && (_v3.faceIndex = Math.floor(_v0 / 3), _v3.face.materialIndex = _v0.materialIndex, _v1.push(_v3));
       } else {
         let _v0 = Math.max(0, _v12.start),
           _v1 = Math.min(_v7.count, _v12.start + _v12.count);
-        for (let _v0 = _v0; _v0 < _v1; _v0 += 3) (_v3 = _v260(this, _v5, _v0, _v2, _v8, _v9, _v10, _v0, _v0 + 1, _v0 + 2)) && (_v3.faceIndex = Math.floor(_v0 / 3), _v1.push(_v3));
+        for (let _v0 = _v0; _v0 < _v1; _v0 += 3) (_v3 = _v265(this, _v5, _v0, _v2, _v8, _v9, _v10, _v0, _v0 + 1, _v0 + 2)) && (_v3.faceIndex = Math.floor(_v0 / 3), _v1.push(_v3));
       }
     }
   }
-  function _v260(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9) {
-    _v0.getVertexPosition(_v7, _v252), _v0.getVertexPosition(_v8, _v253), _v0.getVertexPosition(_v9, _v254);
+  function _v265(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9) {
+    _v0.getVertexPosition(_v7, _v257), _v0.getVertexPosition(_v8, _v258), _v0.getVertexPosition(_v9, _v259);
     let _v10 = function (_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7) {
       if (null === (1 === _v1.side ? _v3.intersectTriangle(_v6, _v5, _v4, !0, _v7) : _v3.intersectTriangle(_v4, _v5, _v6, 0 === _v1.side, _v7))) return null;
-      _v258.copy(_v7), _v258.applyMatrix4(_v0.matrixWorld);
-      let _v8 = _v2.ray.origin.distanceTo(_v258);
+      _v263.copy(_v7), _v263.applyMatrix4(_v0.matrixWorld);
+      let _v8 = _v2.ray.origin.distanceTo(_v263);
       return _v8 < _v2.near || _v8 > _v2.far ? null : {
         distance: _v8,
-        point: _v258.clone(),
+        point: _v263.clone(),
         object: _v0
       };
-    }(_v0, _v1, _v2, _v3, _v252, _v253, _v254, _v257);
+    }(_v0, _v1, _v2, _v3, _v257, _v258, _v259, _v262);
     if (_v10) {
-      let _v0 = new _v131();
-      _v223.getBarycoord(_v257, _v252, _v253, _v254, _v0), _v4 && (_v10.uv = _v223.getInterpolatedAttribute(_v4, _v7, _v8, _v9, _v0, new _v129())), _v5 && (_v10.uv1 = _v223.getInterpolatedAttribute(_v5, _v7, _v8, _v9, _v0, new _v129())), _v6 && (_v10.normal = _v223.getInterpolatedAttribute(_v6, _v7, _v8, _v9, _v0, new _v131()), _v10.normal.dot(_v3.direction) > 0 && _v10.normal.multiplyScalar(-1));
+      let _v0 = new _v136();
+      _v228.getBarycoord(_v262, _v257, _v258, _v259, _v0), _v4 && (_v10.uv = _v228.getInterpolatedAttribute(_v4, _v7, _v8, _v9, _v0, new _v134())), _v5 && (_v10.uv1 = _v228.getInterpolatedAttribute(_v5, _v7, _v8, _v9, _v0, new _v134())), _v6 && (_v10.normal = _v228.getInterpolatedAttribute(_v6, _v7, _v8, _v9, _v0, new _v136()), _v10.normal.dot(_v3.direction) > 0 && _v10.normal.multiplyScalar(-1));
       let _v1 = {
         a: _v7,
         b: _v8,
         c: _v9,
-        normal: new _v131(),
+        normal: new _v136(),
         materialIndex: 0
       };
-      _v223.getNormal(_v252, _v253, _v254, _v1.normal), _v10.face = _v1, _v10.barycoord = _v0;
+      _v228.getNormal(_v257, _v258, _v259, _v1.normal), _v10.face = _v1, _v10.barycoord = _v0;
     }
     return _v10;
   }
-  class _v261 extends _v247 {
+  class _v266 extends _v252 {
     constructor(_v0 = 1, _v1 = 1, _v2 = 1, _v3 = 1, _v4 = 1, _v5 = 1) {
       super(), this.type = "BoxGeometry", this.parameters = {
         width: _v0,
@@ -8117,7 +8209,7 @@
           _v17 = _v9 + 1,
           _v18 = 0,
           _v19 = 0,
-          _v20 = new _v131();
+          _v20 = new _v136();
         for (let _v0 = 0; _v0 < _v17; _v0++) {
           let _v0 = _v0 * _v12 - _v14;
           for (let _v0 = 0; _v0 < _v16; _v0++) {
@@ -8134,16 +8226,16 @@
         }
         _v6.addGroup(_v12, _v19, _v10), _v12 += _v19, _v11 += _v18;
       }
-      _v13("z", "y", "x", -1, -1, _v2, _v1, _v0, _v5 = Math.floor(_v5), _v4, 0), _v13("z", "y", "x", 1, -1, _v2, _v1, -_v0, _v5, _v4, 1), _v13("x", "z", "y", 1, 1, _v0, _v2, _v1, _v3, _v5, 2), _v13("x", "z", "y", 1, -1, _v0, _v2, -_v1, _v3, _v5, 3), _v13("x", "y", "z", 1, -1, _v0, _v1, _v2, _v3, _v4, 4), _v13("x", "y", "z", -1, -1, _v0, _v1, -_v2, _v3, _v4, 5), this.setIndex(_v7), this.setAttribute("position", new _v239(_v8, 3)), this.setAttribute("normal", new _v239(_v9, 3)), this.setAttribute("uv", new _v239(_v10, 2));
+      _v13("z", "y", "x", -1, -1, _v2, _v1, _v0, _v5 = Math.floor(_v5), _v4, 0), _v13("z", "y", "x", 1, -1, _v2, _v1, -_v0, _v5, _v4, 1), _v13("x", "z", "y", 1, 1, _v0, _v2, _v1, _v3, _v5, 2), _v13("x", "z", "y", 1, -1, _v0, _v2, -_v1, _v3, _v5, 3), _v13("x", "y", "z", 1, -1, _v0, _v1, _v2, _v3, _v4, 4), _v13("x", "y", "z", -1, -1, _v0, _v1, -_v2, _v3, _v4, 5), this.setIndex(_v7), this.setAttribute("position", new _v244(_v8, 3)), this.setAttribute("normal", new _v244(_v9, 3)), this.setAttribute("uv", new _v244(_v10, 2));
     }
     copy(_v0) {
       return super.copy(_v0), this.parameters = Object.assign({}, _v0.parameters), this;
     }
     static fromJSON(_v0) {
-      return new _v261(_v0.width, _v0.height, _v0.depth, _v0.widthSegments, _v0.heightSegments, _v0.depthSegments);
+      return new _v266(_v0.width, _v0.height, _v0.depth, _v0.widthSegments, _v0.heightSegments, _v0.depthSegments);
     }
   }
-  function _v262(_v0) {
+  function _v267(_v0) {
     let _v1 = {};
     for (let _v0 in _v0) for (let _v0 in _v1[_v0] = {}, _v0[_v0]) {
       let _v0 = _v0[_v0][_v0];
@@ -8151,19 +8243,19 @@
     }
     return _v1;
   }
-  function _v263(_v0) {
+  function _v268(_v0) {
     let _v1 = {};
     for (let _v0 = 0; _v0 < _v0.length; _v0++) {
-      let _v0 = _v262(_v0[_v0]);
+      let _v0 = _v267(_v0[_v0]);
       for (let _v0 in _v0) _v1[_v0] = _v0[_v0];
     }
     return _v1;
   }
-  function _v264(_v0) {
+  function _v269(_v0) {
     let _v1 = _v0.getRenderTarget();
-    return null === _v1 ? _v0.outputColorSpace : !0 === _v1.isXRRenderTarget ? _v1.texture.colorSpace : _v142.workingColorSpace;
+    return null === _v1 ? _v0.outputColorSpace : !0 === _v1.isXRRenderTarget ? _v1.texture.colorSpace : _v147.workingColorSpace;
   }
-  class _v265 extends _v231 {
+  class _v270 extends _v236 {
     constructor(_v0) {
       super(), this.isShaderMaterial = !0, this.type = "ShaderMaterial", this.defines = {}, this.uniforms = {}, this.uniformsGroups = [], this.vertexShader = "void main() {\n	gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );\n}", this.fragmentShader = "void main() {\n	gl_FragColor = vec4( 1.0, 0.0, 0.0, 1.0 );\n}", this.linewidth = 1, this.wireframe = !1, this.wireframeLinewidth = 1, this.fog = !1, this.lights = !1, this.clipping = !1, this.forceSinglePass = !0, this.extensions = {
         clipCullDistance: !1,
@@ -8175,7 +8267,7 @@
       }, this.index0AttributeName = void 0, this.uniformsNeedUpdate = !1, this.glslVersion = null, void 0 !== _v0 && this.setValues(_v0);
     }
     copy(_v0) {
-      return super.copy(_v0), this.fragmentShader = _v0.fragmentShader, this.vertexShader = _v0.vertexShader, this.uniforms = _v262(_v0.uniforms), this.uniformsGroups = function (_v0) {
+      return super.copy(_v0), this.fragmentShader = _v0.fragmentShader, this.vertexShader = _v0.vertexShader, this.uniforms = _v267(_v0.uniforms), this.uniformsGroups = function (_v0) {
         let _v1 = [];
         for (let _v0 = 0; _v0 < _v0.length; _v0++) _v1.push(_v0[_v0].clone());
         return _v1;
@@ -8216,9 +8308,9 @@
       return Object.keys(_v2).length > 0 && (_v1.extensions = _v2), _v1;
     }
   }
-  class _v266 extends _v209 {
+  class _v271 extends _v214 {
     constructor() {
-      super(), this.isCamera = !0, this.type = "Camera", this.matrixWorldInverse = new _v182(), this.projectionMatrix = new _v182(), this.projectionMatrixInverse = new _v182(), this.coordinateSystem = 0, this._reversedDepth = !1;
+      super(), this.isCamera = !0, this.type = "Camera", this.matrixWorldInverse = new _v187(), this.projectionMatrix = new _v187(), this.projectionMatrixInverse = new _v187(), this.coordinateSystem = 0, this._reversedDepth = !1;
     }
     get reversedDepth() {
       return this._reversedDepth;
@@ -8239,10 +8331,10 @@
       return new this.constructor().copy(this);
     }
   }
-  let _v267 = new _v131(),
-    _v268 = new _v129(),
-    _v269 = new _v129();
-  class _v270 extends _v266 {
+  let _v272 = new _v136(),
+    _v273 = new _v134(),
+    _v274 = new _v134();
+  class _v275 extends _v271 {
     constructor(_v0 = 50, _v1 = 1, _v2 = .1, _v3 = 0) {
       super(), this.isPerspectiveCamera = !0, this.type = "PerspectiveCamera", this.fov = _v0, this.zoom = 1, this.near = _v2, this.far = _v3, this.focus = 10, this.aspect = _v1, this.view = null, this.filmGauge = 35, this.filmOffset = 0, this.updateProjectionMatrix();
     }
@@ -8251,14 +8343,14 @@
     }
     setFocalLength(_v0) {
       let _v1 = .5 * this.getFilmHeight() / _v0;
-      this.fov = 2 * _v124 * Math.atan(_v1), this.updateProjectionMatrix();
+      this.fov = 2 * _v129 * Math.atan(_v1), this.updateProjectionMatrix();
     }
     getFocalLength() {
-      let _v0 = Math.tan(.5 * _v123 * this.fov);
+      let _v0 = Math.tan(.5 * _v128 * this.fov);
       return .5 * this.getFilmHeight() / _v0;
     }
     getEffectiveFOV() {
-      return 2 * _v124 * Math.atan(Math.tan(.5 * _v123 * this.fov) / this.zoom);
+      return 2 * _v129 * Math.atan(Math.tan(.5 * _v128 * this.fov) / this.zoom);
     }
     getFilmWidth() {
       return this.filmGauge * Math.min(this.aspect, 1);
@@ -8267,10 +8359,10 @@
       return this.filmGauge / Math.max(this.aspect, 1);
     }
     getViewBounds(_v0, _v1, _v2) {
-      _v267.set(-1, -1, .5).applyMatrix4(this.projectionMatrixInverse), _v1.set(_v267.x, _v267.y).multiplyScalar(-_v0 / _v267.z), _v267.set(1, 1, .5).applyMatrix4(this.projectionMatrixInverse), _v2.set(_v267.x, _v267.y).multiplyScalar(-_v0 / _v267.z);
+      _v272.set(-1, -1, .5).applyMatrix4(this.projectionMatrixInverse), _v1.set(_v272.x, _v272.y).multiplyScalar(-_v0 / _v272.z), _v272.set(1, 1, .5).applyMatrix4(this.projectionMatrixInverse), _v2.set(_v272.x, _v272.y).multiplyScalar(-_v0 / _v272.z);
     }
     getViewSize(_v0, _v1) {
-      return this.getViewBounds(_v0, _v268, _v269), _v1.subVectors(_v269, _v268);
+      return this.getViewBounds(_v0, _v273, _v274), _v1.subVectors(_v274, _v273);
     }
     setViewOffset(_v0, _v1, _v2, _v3, _v4, _v5) {
       this.aspect = _v0 / _v1, null === this.view && (this.view = {
@@ -8288,7 +8380,7 @@
     }
     updateProjectionMatrix() {
       let _v0 = this.near,
-        _v1 = _v0 * Math.tan(.5 * _v123 * this.fov) / this.zoom,
+        _v1 = _v0 * Math.tan(.5 * _v128 * this.fov) / this.zoom,
         _v2 = 2 * _v1,
         _v3 = this.aspect * _v2,
         _v4 = -.5 * _v3,
@@ -8306,20 +8398,20 @@
       return _v1.object.fov = this.fov, _v1.object.zoom = this.zoom, _v1.object.near = this.near, _v1.object.far = this.far, _v1.object.focus = this.focus, _v1.object.aspect = this.aspect, null !== this.view && (_v1.object.view = Object.assign({}, this.view)), _v1.object.filmGauge = this.filmGauge, _v1.object.filmOffset = this.filmOffset, _v1;
     }
   }
-  class _v271 extends _v209 {
+  class _v276 extends _v214 {
     constructor(_v0, _v1, _v2) {
       super(), this.type = "CubeCamera", this.renderTarget = _v2, this.coordinateSystem = null, this.activeMipmapLevel = 0;
-      const _v3 = new _v270(-90, 1, _v0, _v1);
+      const _v3 = new _v275(-90, 1, _v0, _v1);
       _v3.layers = this.layers, this.add(_v3);
-      const _v4 = new _v270(-90, 1, _v0, _v1);
+      const _v4 = new _v275(-90, 1, _v0, _v1);
       _v4.layers = this.layers, this.add(_v4);
-      const _v5 = new _v270(-90, 1, _v0, _v1);
+      const _v5 = new _v275(-90, 1, _v0, _v1);
       _v5.layers = this.layers, this.add(_v5);
-      const _v6 = new _v270(-90, 1, _v0, _v1);
+      const _v6 = new _v275(-90, 1, _v0, _v1);
       _v6.layers = this.layers, this.add(_v6);
-      const _v7 = new _v270(-90, 1, _v0, _v1);
+      const _v7 = new _v275(-90, 1, _v0, _v1);
       _v7.layers = this.layers, this.add(_v7);
-      const _v8 = new _v270(-90, 1, _v0, _v1);
+      const _v8 = new _v275(-90, 1, _v0, _v1);
       _v8.layers = this.layers, this.add(_v8);
     }
     updateCoordinateSystem() {
@@ -8347,7 +8439,7 @@
       _v2.texture.generateMipmaps = !1, _v0.setRenderTarget(_v2, 0, _v3), _v0.render(_v1, _v4), _v0.setRenderTarget(_v2, 1, _v3), _v0.render(_v1, _v5), _v0.setRenderTarget(_v2, 2, _v3), _v0.render(_v1, _v6), _v0.setRenderTarget(_v2, 3, _v3), _v0.render(_v1, _v7), _v0.setRenderTarget(_v2, 4, _v3), _v0.render(_v1, _v8), _v2.texture.generateMipmaps = _v14, _v0.setRenderTarget(_v2, 5, _v3), _v0.render(_v1, _v9), _v0.setRenderTarget(_v10, _v11, _v12), _v0.xr.enabled = _v13, _v2.texture.needsPMREMUpdate = !0;
     }
   }
-  class _v272 extends _v151 {
+  class _v277 extends _v156 {
     constructor(_v0 = [], _v1 = 301, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9) {
       super(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9), this.isCubeTexture = !0, this.flipY = !1;
     }
@@ -8358,7 +8450,7 @@
       this.image = _v0;
     }
   }
-  class _v273 extends _v154 {
+  class _v278 extends _v159 {
     constructor(_v0 = 1, _v1 = {}) {
       super(_v0, _v0, _v1), this.isWebGLCubeRenderTarget = !0;
       const _v2 = {
@@ -8366,7 +8458,7 @@
         height: _v0,
         depth: 1
       };
-      this.texture = new _v272([_v2, _v2, _v2, _v2, _v2, _v2]), this._setTextureOptions(_v1), this.texture.isRenderTargetTexture = !0;
+      this.texture = new _v277([_v2, _v2, _v2, _v2, _v2, _v2]), this._setTextureOptions(_v1), this.texture.isRenderTargetTexture = !0;
     }
     fromEquirectangularTexture(_v0, _v1) {
       this.texture.type = _v1.type, this.texture.colorSpace = _v1.colorSpace, this.texture.generateMipmaps = _v1.generateMipmaps, this.texture.minFilter = _v1.minFilter, this.texture.magFilter = _v1.magFilter;
@@ -8414,19 +8506,19 @@
 				}
 			`
         },
-        _v3 = new _v261(5, 5, 5),
-        _v4 = new _v265({
+        _v3 = new _v266(5, 5, 5),
+        _v4 = new _v270({
           name: "CubemapFromEquirect",
-          uniforms: _v262(_v2.uniforms),
+          uniforms: _v267(_v2.uniforms),
           vertexShader: _v2.vertexShader,
           fragmentShader: _v2.fragmentShader,
           side: 1,
           blending: 0
         });
       _v4.uniforms.tEquirect.value = _v1;
-      let _v5 = new _v259(_v3, _v4),
+      let _v5 = new _v264(_v3, _v4),
         _v6 = _v1.minFilter;
-      return 0 === _v1.minFilter && (_v1.minFilter = 0), new _v271(1, 10, this).update(_v0, _v5), _v1.minFilter = _v6, _v5.geometry.dispose(), _v5.material.dispose(), this;
+      return 0 === _v1.minFilter && (_v1.minFilter = 0), new _v276(1, 10, this).update(_v0, _v5), _v1.minFilter = _v6, _v5.geometry.dispose(), _v5.material.dispose(), this;
     }
     clear(_v0, _v1 = !0, _v2 = !0, _v3 = !0) {
       let _v4 = _v0.getRenderTarget();
@@ -8434,28 +8526,28 @@
       _v0.setRenderTarget(_v4);
     }
   }
-  class _v274 extends _v209 {
+  class _v279 extends _v214 {
     constructor() {
       super(), this.isGroup = !0, this.type = "Group";
     }
   }
-  let _v275 = {
+  let _v280 = {
     type: "move"
   };
-  class _v276 {
+  class _v281 {
     constructor() {
       this._targetRay = null, this._grip = null, this._hand = null;
     }
     getHandSpace() {
-      return null === this._hand && (this._hand = new _v274(), this._hand.matrixAutoUpdate = !1, this._hand.visible = !1, this._hand.joints = {}, this._hand.inputState = {
+      return null === this._hand && (this._hand = new _v279(), this._hand.matrixAutoUpdate = !1, this._hand.visible = !1, this._hand.joints = {}, this._hand.inputState = {
         pinching: !1
       }), this._hand;
     }
     getTargetRaySpace() {
-      return null === this._targetRay && (this._targetRay = new _v274(), this._targetRay.matrixAutoUpdate = !1, this._targetRay.visible = !1, this._targetRay.hasLinearVelocity = !1, this._targetRay.linearVelocity = new _v131(), this._targetRay.hasAngularVelocity = !1, this._targetRay.angularVelocity = new _v131()), this._targetRay;
+      return null === this._targetRay && (this._targetRay = new _v279(), this._targetRay.matrixAutoUpdate = !1, this._targetRay.visible = !1, this._targetRay.hasLinearVelocity = !1, this._targetRay.linearVelocity = new _v136(), this._targetRay.hasAngularVelocity = !1, this._targetRay.angularVelocity = new _v136()), this._targetRay;
     }
     getGripSpace() {
-      return null === this._grip && (this._grip = new _v274(), this._grip.matrixAutoUpdate = !1, this._grip.visible = !1, this._grip.hasLinearVelocity = !1, this._grip.linearVelocity = new _v131(), this._grip.hasAngularVelocity = !1, this._grip.angularVelocity = new _v131()), this._grip;
+      return null === this._grip && (this._grip = new _v279(), this._grip.matrixAutoUpdate = !1, this._grip.visible = !1, this._grip.hasLinearVelocity = !1, this._grip.linearVelocity = new _v136(), this._grip.hasAngularVelocity = !1, this._grip.angularVelocity = new _v136()), this._grip;
     }
     dispatchEvent(_v0) {
       return null !== this._targetRay && this._targetRay.dispatchEvent(_v0), null !== this._grip && this._grip.dispatchEvent(_v0), null !== this._hand && this._hand.dispatchEvent(_v0), this;
@@ -8503,21 +8595,21 @@
             target: this
           }));
         } else null !== _v7 && _v0.gripSpace && null !== (_v4 = _v1.getPose(_v0.gripSpace, _v2)) && (_v7.matrix.fromArray(_v4.transform.matrix), _v7.matrix.decompose(_v7.position, _v7.rotation, _v7.scale), _v7.matrixWorldNeedsUpdate = !0, _v4.linearVelocity ? (_v7.hasLinearVelocity = !0, _v7.linearVelocity.copy(_v4.linearVelocity)) : _v7.hasLinearVelocity = !1, _v4.angularVelocity ? (_v7.hasAngularVelocity = !0, _v7.angularVelocity.copy(_v4.angularVelocity)) : _v7.hasAngularVelocity = !1);
-        null !== _v6 && (null === (_v3 = _v1.getPose(_v0.targetRaySpace, _v2)) && null !== _v4 && (_v3 = _v4), null !== _v3 && (_v6.matrix.fromArray(_v3.transform.matrix), _v6.matrix.decompose(_v6.position, _v6.rotation, _v6.scale), _v6.matrixWorldNeedsUpdate = !0, _v3.linearVelocity ? (_v6.hasLinearVelocity = !0, _v6.linearVelocity.copy(_v3.linearVelocity)) : _v6.hasLinearVelocity = !1, _v3.angularVelocity ? (_v6.hasAngularVelocity = !0, _v6.angularVelocity.copy(_v3.angularVelocity)) : _v6.hasAngularVelocity = !1, this.dispatchEvent(_v275)));
+        null !== _v6 && (null === (_v3 = _v1.getPose(_v0.targetRaySpace, _v2)) && null !== _v4 && (_v3 = _v4), null !== _v3 && (_v6.matrix.fromArray(_v3.transform.matrix), _v6.matrix.decompose(_v6.position, _v6.rotation, _v6.scale), _v6.matrixWorldNeedsUpdate = !0, _v3.linearVelocity ? (_v6.hasLinearVelocity = !0, _v6.linearVelocity.copy(_v3.linearVelocity)) : _v6.hasLinearVelocity = !1, _v3.angularVelocity ? (_v6.hasAngularVelocity = !0, _v6.angularVelocity.copy(_v3.angularVelocity)) : _v6.hasAngularVelocity = !1, this.dispatchEvent(_v280)));
       }
       return null !== _v6 && (_v6.visible = null !== _v3), null !== _v7 && (_v7.visible = null !== _v4), null !== _v8 && (_v8.visible = null !== _v5), this;
     }
     _getHandJoint(_v0, _v1) {
       if (void 0 === _v0.joints[_v1.jointName]) {
-        let _v0 = new _v274();
+        let _v0 = new _v279();
         _v0.matrixAutoUpdate = !1, _v0.visible = !1, _v0.joints[_v1.jointName] = _v0, _v0.add(_v0);
       }
       return _v0.joints[_v1.jointName];
     }
   }
-  class _v277 extends _v209 {
+  class _v282 extends _v214 {
     constructor() {
-      super(), this.isScene = !0, this.type = "Scene", this.background = null, this.environment = null, this.fog = null, this.backgroundBlurriness = 0, this.backgroundIntensity = 1, this.backgroundRotation = new _v192(), this.environmentIntensity = 1, this.environmentRotation = new _v192(), this.overrideMaterial = null, "u" > typeof __THREE_DEVTOOLS__ && __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent("observe", {
+      super(), this.isScene = !0, this.type = "Scene", this.background = null, this.environment = null, this.fog = null, this.backgroundBlurriness = 0, this.backgroundIntensity = 1, this.backgroundRotation = new _v197(), this.environmentIntensity = 1, this.environmentRotation = new _v197(), this.overrideMaterial = null, "u" > typeof __THREE_DEVTOOLS__ && __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent("observe", {
         detail: this
       }));
     }
@@ -8529,11 +8621,11 @@
       return null !== this.fog && (_v1.object.fog = this.fog.toJSON()), this.backgroundBlurriness > 0 && (_v1.object.backgroundBlurriness = this.backgroundBlurriness), 1 !== this.backgroundIntensity && (_v1.object.backgroundIntensity = this.backgroundIntensity), _v1.object.backgroundRotation = this.backgroundRotation.toArray(), 1 !== this.environmentIntensity && (_v1.object.environmentIntensity = this.environmentIntensity), _v1.object.environmentRotation = this.environmentRotation.toArray(), _v1;
     }
   }
-  let _v278 = new _v131(),
-    _v279 = new _v131(),
-    _v280 = new _v134();
-  class _v281 {
-    constructor(_v0 = new _v131(1, 0, 0), _v1 = 0) {
+  let _v283 = new _v136(),
+    _v284 = new _v136(),
+    _v285 = new _v139();
+  class _v286 {
+    constructor(_v0 = new _v136(1, 0, 0), _v1 = 0) {
       this.isPlane = !0, this.normal = _v0, this.constant = _v1;
     }
     set(_v0, _v1) {
@@ -8546,7 +8638,7 @@
       return this.normal.copy(_v0), this.constant = -_v1.dot(this.normal), this;
     }
     setFromCoplanarPoints(_v0, _v1, _v2) {
-      let _v3 = _v278.subVectors(_v2, _v1).cross(_v279.subVectors(_v0, _v1)).normalize();
+      let _v3 = _v283.subVectors(_v2, _v1).cross(_v284.subVectors(_v0, _v1)).normalize();
       return this.setFromNormalAndCoplanarPoint(_v3, _v0), this;
     }
     copy(_v0) {
@@ -8569,7 +8661,7 @@
       return _v1.copy(_v0).addScaledVector(this.normal, -this.distanceToPoint(_v0));
     }
     intersectLine(_v0, _v1) {
-      let _v2 = _v0.delta(_v278),
+      let _v2 = _v0.delta(_v283),
         _v3 = this.normal.dot(_v2);
       if (0 === _v3) return 0 === this.distanceToPoint(_v0.start) ? _v1.copy(_v0.start) : null;
       let _v4 = -(_v0.start.dot(this.normal) + this.constant) / _v3;
@@ -8590,8 +8682,8 @@
       return _v0.copy(this.normal).multiplyScalar(-this.constant);
     }
     applyMatrix4(_v0, _v1) {
-      let _v2 = _v1 || _v280.getNormalMatrix(_v0),
-        _v3 = this.coplanarPoint(_v278).applyMatrix4(_v0),
+      let _v2 = _v1 || _v285.getNormalMatrix(_v0),
+        _v3 = this.coplanarPoint(_v283).applyMatrix4(_v0),
         _v4 = this.normal.applyMatrix3(_v2).normalize();
       return this.constant = -_v3.dot(_v4), this;
     }
@@ -8605,11 +8697,11 @@
       return new this.constructor().copy(this);
     }
   }
-  let _v282 = new _v174(),
-    _v283 = new _v129(.5, .5),
-    _v284 = new _v131();
-  class _v285 {
-    constructor(_v0 = new _v281(), _v1 = new _v281(), _v2 = new _v281(), _v3 = new _v281(), _v4 = new _v281(), _v5 = new _v281()) {
+  let _v287 = new _v179(),
+    _v288 = new _v134(.5, .5),
+    _v289 = new _v136();
+  class _v290 {
+    constructor(_v0 = new _v286(), _v1 = new _v286(), _v2 = new _v286(), _v3 = new _v286(), _v4 = new _v286(), _v5 = new _v286()) {
       this.planes = [_v0, _v1, _v2, _v3, _v4, _v5];
     }
     set(_v0, _v1, _v2, _v3, _v4, _v5) {
@@ -8644,14 +8736,14 @@
       return this;
     }
     intersectsObject(_v0) {
-      if (void 0 !== _v0.boundingSphere) null === _v0.boundingSphere && _v0.computeBoundingSphere(), _v282.copy(_v0.boundingSphere).applyMatrix4(_v0.matrixWorld);else {
+      if (void 0 !== _v0.boundingSphere) null === _v0.boundingSphere && _v0.computeBoundingSphere(), _v287.copy(_v0.boundingSphere).applyMatrix4(_v0.matrixWorld);else {
         let _v0 = _v0.geometry;
-        null === _v0.boundingSphere && _v0.computeBoundingSphere(), _v282.copy(_v0.boundingSphere).applyMatrix4(_v0.matrixWorld);
+        null === _v0.boundingSphere && _v0.computeBoundingSphere(), _v287.copy(_v0.boundingSphere).applyMatrix4(_v0.matrixWorld);
       }
-      return this.intersectsSphere(_v282);
+      return this.intersectsSphere(_v287);
     }
     intersectsSprite(_v0) {
-      return _v282.center.set(0, 0, 0), _v282.radius = .7071067811865476 + _v283.distanceTo(_v0.center), _v282.applyMatrix4(_v0.matrixWorld), this.intersectsSphere(_v282);
+      return _v287.center.set(0, 0, 0), _v287.radius = .7071067811865476 + _v288.distanceTo(_v0.center), _v287.applyMatrix4(_v0.matrixWorld), this.intersectsSphere(_v287);
     }
     intersectsSphere(_v0) {
       let _v1 = this.planes,
@@ -8664,7 +8756,7 @@
       let _v1 = this.planes;
       for (let _v0 = 0; _v0 < 6; _v0++) {
         let _v0 = _v1[_v0];
-        if (_v284.x = _v0.normal.x > 0 ? _v0.max.x : _v0.min.x, _v284.y = _v0.normal.y > 0 ? _v0.max.y : _v0.min.y, _v284.z = _v0.normal.z > 0 ? _v0.max.z : _v0.min.z, 0 > _v0.distanceToPoint(_v284)) return !1;
+        if (_v289.x = _v0.normal.x > 0 ? _v0.max.x : _v0.min.x, _v289.y = _v0.normal.y > 0 ? _v0.max.y : _v0.min.y, _v289.z = _v0.normal.z > 0 ? _v0.max.z : _v0.min.z, 0 > _v0.distanceToPoint(_v289)) return !1;
       }
       return !0;
     }
@@ -8677,7 +8769,7 @@
       return new this.constructor().copy(this);
     }
   }
-  class _v286 extends _v151 {
+  class _v291 extends _v156 {
     constructor(_v0, _v1, _v2, _v3, _v4 = 0, _v5 = 0, _v6, _v7, _v8) {
       super(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8), this.isVideoTexture = !0, this.generateMipmaps = !1, this._requestVideoFrameCallbackId = 0;
       const _v9 = this;
@@ -8696,12 +8788,12 @@
       0 !== this._requestVideoFrameCallbackId && this.source.data.cancelVideoFrameCallback(this._requestVideoFrameCallbackId), super.dispose();
     }
   }
-  class _v287 extends _v151 {
+  class _v292 extends _v156 {
     constructor(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8) {
       super(_v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8), this.isCanvasTexture = !0, this.needsUpdate = !0;
     }
   }
-  class _v288 extends _v151 {
+  class _v293 extends _v156 {
     constructor(_v0, _v1, _v2 = 0, _v3, _v4, _v5, _v6 = 0, _v7 = 0, _v8, _v9 = 0, _v10 = 1) {
       if (0 !== _v9 && 0 !== _v9) throw Error("DepthTexture format must be either THREE.DepthFormat or THREE.DepthStencilFormat");
       super({
@@ -8711,14 +8803,14 @@
       }, _v3, _v4, _v5, _v6, _v7, _v9, _v2, _v8), this.isDepthTexture = !0, this.flipY = !1, this.generateMipmaps = !1, this.compareFunction = null;
     }
     copy(_v0) {
-      return super.copy(_v0), this.source = new _v147(Object.assign({}, _v0.image)), this.compareFunction = _v0.compareFunction, this;
+      return super.copy(_v0), this.source = new _v152(Object.assign({}, _v0.image)), this.compareFunction = _v0.compareFunction, this;
     }
     toJSON(_v0) {
       let _v1 = super.toJSON(_v0);
       return null !== this.compareFunction && (_v1.compareFunction = this.compareFunction), _v1;
     }
   }
-  class _v289 extends _v151 {
+  class _v294 extends _v156 {
     constructor(_v0 = null) {
       super(), this.sourceTexture = _v0, this.isExternalTexture = !0;
     }
@@ -8726,7 +8818,7 @@
       return super.copy(_v0), this.sourceTexture = _v0.sourceTexture, this;
     }
   }
-  class _v290 {
+  class _v295 {
     constructor() {
       this.type = "Curve", this.arcLengthDivisions = 200, this.needsUpdate = !1, this.cacheArcLengths = null;
     }
@@ -8789,7 +8881,7 @@
       _v2 < 0 && (_v2 = 0), _v3 > 1 && (_v3 = 1);
       let _v4 = this.getPoint(_v2),
         _v5 = this.getPoint(_v3),
-        _v6 = _v1 || (_v4.isVector2 ? new _v129() : new _v131());
+        _v6 = _v1 || (_v4.isVector2 ? new _v134() : new _v136());
       return _v6.copy(_v5).sub(_v4).normalize(), _v6;
     }
     getTangentAt(_v0, _v1) {
@@ -8797,17 +8889,17 @@
       return this.getTangent(_v2, _v1);
     }
     computeFrenetFrames(_v0, _v1 = !1) {
-      let _v2 = new _v131(),
+      let _v2 = new _v136(),
         _v3 = [],
         _v4 = [],
         _v5 = [],
-        _v6 = new _v131(),
-        _v7 = new _v182();
+        _v6 = new _v136(),
+        _v7 = new _v187();
       for (let _v0 = 0; _v0 <= _v0; _v0++) {
         let _v0 = _v0 / _v0;
-        _v3[_v0] = this.getTangentAt(_v0, new _v131());
+        _v3[_v0] = this.getTangentAt(_v0, new _v136());
       }
-      _v4[0] = new _v131(), _v5[0] = new _v131();
+      _v4[0] = new _v136(), _v5[0] = new _v136();
       let _v8 = Number.MAX_VALUE,
         _v9 = Math.abs(_v3[0].x),
         _v10 = Math.abs(_v3[0].y),
@@ -8816,13 +8908,13 @@
       for (let _v0 = 1; _v0 <= _v0; _v0++) {
         if (_v4[_v0] = _v4[_v0 - 1].clone(), _v5[_v0] = _v5[_v0 - 1].clone(), _v6.crossVectors(_v3[_v0 - 1], _v3[_v0]), _v6.length() > Number.EPSILON) {
           _v6.normalize();
-          let _v0 = Math.acos(_v126(_v3[_v0 - 1].dot(_v3[_v0]), -1, 1));
+          let _v0 = Math.acos(_v131(_v3[_v0 - 1].dot(_v3[_v0]), -1, 1));
           _v4[_v0].applyMatrix4(_v7.makeRotationAxis(_v6, _v0));
         }
         _v5[_v0].crossVectors(_v3[_v0], _v4[_v0]);
       }
       if (!0 === _v1) {
-        let _v0 = Math.acos(_v126(_v4[0].dot(_v4[_v0]), -1, 1));
+        let _v0 = Math.acos(_v131(_v4[0].dot(_v4[_v0]), -1, 1));
         _v0 /= _v0, _v3[0].dot(_v6.crossVectors(_v4[0], _v4[_v0])) > 0 && (_v0 = -_v0);
         for (let _v0 = 1; _v0 <= _v0; _v0++) _v4[_v0].applyMatrix4(_v7.makeRotationAxis(_v3[_v0], _v0 * _v0)), _v5[_v0].crossVectors(_v3[_v0], _v4[_v0]);
       }
@@ -8852,11 +8944,11 @@
       return this.arcLengthDivisions = _v0.arcLengthDivisions, this;
     }
   }
-  class _v291 extends _v290 {
+  class _v296 extends _v295 {
     constructor(_v0 = 0, _v1 = 0, _v2 = 1, _v3 = 1, _v4 = 0, _v5 = 2 * Math.PI, _v6 = !1, _v7 = 0) {
       super(), this.isEllipseCurve = !0, this.type = "EllipseCurve", this.aX = _v0, this.aY = _v1, this.xRadius = _v2, this.yRadius = _v3, this.aStartAngle = _v4, this.aEndAngle = _v5, this.aClockwise = _v6, this.aRotation = _v7;
     }
-    getPoint(_v0, _v1 = new _v129()) {
+    getPoint(_v0, _v1 = new _v134()) {
       let _v2 = 2 * Math.PI,
         _v3 = this.aEndAngle - this.aStartAngle,
         _v4 = Math.abs(_v3) < Number.EPSILON;
@@ -8886,7 +8978,7 @@
       return super.fromJSON(_v0), this.aX = _v0.aX, this.aY = _v0.aY, this.xRadius = _v0.xRadius, this.yRadius = _v0.yRadius, this.aStartAngle = _v0.aStartAngle, this.aEndAngle = _v0.aEndAngle, this.aClockwise = _v0.aClockwise, this.aRotation = _v0.aRotation, this;
     }
   }
-  function _v292() {
+  function _v297() {
     let _v0 = 0,
       _v1 = 0,
       _v2 = 0,
@@ -8909,34 +9001,34 @@
       }
     };
   }
-  let _v293 = new _v131(),
-    _v294 = new _v292(),
-    _v295 = new _v292(),
-    _v296 = new _v292();
-  function _v297(_v0, _v1, _v2, _v3, _v4) {
+  let _v298 = new _v136(),
+    _v299 = new _v297(),
+    _v300 = new _v297(),
+    _v301 = new _v297();
+  function _v302(_v0, _v1, _v2, _v3, _v4) {
     let _v5 = (_v3 - _v1) * .5,
       _v6 = (_v4 - _v2) * .5,
       _v7 = _v0 * _v0;
     return _v0 * _v7 * (2 * _v2 - 2 * _v3 + _v5 + _v6) + (-3 * _v2 + 3 * _v3 - 2 * _v5 - _v6) * _v7 + _v5 * _v0 + _v2;
   }
-  function _v298(_v0, _v1, _v2, _v3) {
+  function _v303(_v0, _v1, _v2, _v3) {
     let _v4;
     return (_v4 = 1 - _v0) * _v4 * _v1 + 2 * (1 - _v0) * _v0 * _v2 + _v0 * _v0 * _v3;
   }
-  function _v299(_v0, _v1, _v2, _v3, _v4) {
+  function _v304(_v0, _v1, _v2, _v3, _v4) {
     let _v5, _v6;
     return (_v5 = 1 - _v0) * _v5 * _v5 * _v1 + 3 * (_v6 = 1 - _v0) * _v6 * _v0 * _v2 + 3 * (1 - _v0) * _v0 * _v0 * _v3 + _v0 * _v0 * _v0 * _v4;
   }
-  class _v300 extends _v290 {
-    constructor(_v0 = new _v129(), _v1 = new _v129(), _v2 = new _v129(), _v3 = new _v129()) {
+  class _v305 extends _v295 {
+    constructor(_v0 = new _v134(), _v1 = new _v134(), _v2 = new _v134(), _v3 = new _v134()) {
       super(), this.isCubicBezierCurve = !0, this.type = "CubicBezierCurve", this.v0 = _v0, this.v1 = _v1, this.v2 = _v2, this.v3 = _v3;
     }
-    getPoint(_v0, _v1 = new _v129()) {
+    getPoint(_v0, _v1 = new _v134()) {
       let _v2 = this.v0,
         _v3 = this.v1,
         _v4 = this.v2,
         _v5 = this.v3;
-      return _v1.set(_v299(_v0, _v2.x, _v3.x, _v4.x, _v5.x), _v299(_v0, _v2.y, _v3.y, _v4.y, _v5.y)), _v1;
+      return _v1.set(_v304(_v0, _v2.x, _v3.x, _v4.x, _v5.x), _v304(_v0, _v2.y, _v3.y, _v4.y, _v5.y)), _v1;
     }
     copy(_v0) {
       return super.copy(_v0), this.v0.copy(_v0.v0), this.v1.copy(_v0.v1), this.v2.copy(_v0.v2), this.v3.copy(_v0.v3), this;
@@ -8949,17 +9041,17 @@
       return super.fromJSON(_v0), this.v0.fromArray(_v0.v0), this.v1.fromArray(_v0.v1), this.v2.fromArray(_v0.v2), this.v3.fromArray(_v0.v3), this;
     }
   }
-  class _v301 extends _v290 {
-    constructor(_v0 = new _v129(), _v1 = new _v129()) {
+  class _v306 extends _v295 {
+    constructor(_v0 = new _v134(), _v1 = new _v134()) {
       super(), this.isLineCurve = !0, this.type = "LineCurve", this.v1 = _v0, this.v2 = _v1;
     }
-    getPoint(_v0, _v1 = new _v129()) {
+    getPoint(_v0, _v1 = new _v134()) {
       return 1 === _v0 ? _v1.copy(this.v2) : (_v1.copy(this.v2).sub(this.v1), _v1.multiplyScalar(_v0).add(this.v1)), _v1;
     }
     getPointAt(_v0, _v1) {
       return this.getPoint(_v0, _v1);
     }
-    getTangent(_v0, _v1 = new _v129()) {
+    getTangent(_v0, _v1 = new _v134()) {
       return _v1.subVectors(this.v2, this.v1).normalize();
     }
     getTangentAt(_v0, _v1) {
@@ -8976,15 +9068,15 @@
       return super.fromJSON(_v0), this.v1.fromArray(_v0.v1), this.v2.fromArray(_v0.v2), this;
     }
   }
-  class _v302 extends _v290 {
-    constructor(_v0 = new _v129(), _v1 = new _v129(), _v2 = new _v129()) {
+  class _v307 extends _v295 {
+    constructor(_v0 = new _v134(), _v1 = new _v134(), _v2 = new _v134()) {
       super(), this.isQuadraticBezierCurve = !0, this.type = "QuadraticBezierCurve", this.v0 = _v0, this.v1 = _v1, this.v2 = _v2;
     }
-    getPoint(_v0, _v1 = new _v129()) {
+    getPoint(_v0, _v1 = new _v134()) {
       let _v2 = this.v0,
         _v3 = this.v1,
         _v4 = this.v2;
-      return _v1.set(_v298(_v0, _v2.x, _v3.x, _v4.x), _v298(_v0, _v2.y, _v3.y, _v4.y)), _v1;
+      return _v1.set(_v303(_v0, _v2.x, _v3.x, _v4.x), _v303(_v0, _v2.y, _v3.y, _v4.y)), _v1;
     }
     copy(_v0) {
       return super.copy(_v0), this.v0.copy(_v0.v0), this.v1.copy(_v0.v1), this.v2.copy(_v0.v2), this;
@@ -8997,11 +9089,11 @@
       return super.fromJSON(_v0), this.v0.fromArray(_v0.v0), this.v1.fromArray(_v0.v1), this.v2.fromArray(_v0.v2), this;
     }
   }
-  class _v303 extends _v290 {
+  class _v308 extends _v295 {
     constructor(_v0 = []) {
       super(), this.isSplineCurve = !0, this.type = "SplineCurve", this.points = _v0;
     }
-    getPoint(_v0, _v1 = new _v129()) {
+    getPoint(_v0, _v1 = new _v134()) {
       let _v2 = this.points,
         _v3 = (_v2.length - 1) * _v0,
         _v4 = Math.floor(_v3),
@@ -9010,7 +9102,7 @@
         _v7 = _v2[_v4],
         _v8 = _v2[_v4 > _v2.length - 2 ? _v2.length - 1 : _v4 + 1],
         _v9 = _v2[_v4 > _v2.length - 3 ? _v2.length - 1 : _v4 + 2];
-      return _v1.set(_v297(_v5, _v6.x, _v7.x, _v8.x, _v9.x), _v297(_v5, _v6.y, _v7.y, _v8.y, _v9.y)), _v1;
+      return _v1.set(_v302(_v5, _v6.x, _v7.x, _v8.x, _v9.x), _v302(_v5, _v6.y, _v7.y, _v8.y, _v9.y)), _v1;
     }
     copy(_v0) {
       super.copy(_v0), this.points = [];
@@ -9033,12 +9125,12 @@
       super.fromJSON(_v0), this.points = [];
       for (let _v0 = 0, _v1 = _v0.points.length; _v0 < _v1; _v0++) {
         let _v0 = _v0.points[_v0];
-        this.points.push(new _v129().fromArray(_v0));
+        this.points.push(new _v134().fromArray(_v0));
       }
       return this;
     }
   }
-  class _v304 extends _v247 {
+  class _v309 extends _v252 {
     constructor(_v0 = 1, _v1 = 1, _v2 = 1, _v3 = 1) {
       super(), this.type = "PlaneGeometry", this.parameters = {
         width: _v0,
@@ -9072,16 +9164,16 @@
           _v3 = _v0 + 1 + _v8 * _v0;
         _v12.push(_v0, _v1, _v3), _v12.push(_v1, _v2, _v3);
       }
-      this.setIndex(_v12), this.setAttribute("position", new _v239(_v13, 3)), this.setAttribute("normal", new _v239(_v14, 3)), this.setAttribute("uv", new _v239(_v15, 2));
+      this.setIndex(_v12), this.setAttribute("position", new _v244(_v13, 3)), this.setAttribute("normal", new _v244(_v14, 3)), this.setAttribute("uv", new _v244(_v15, 2));
     }
     copy(_v0) {
       return super.copy(_v0), this.parameters = Object.assign({}, _v0.parameters), this;
     }
     static fromJSON(_v0) {
-      return new _v304(_v0.width, _v0.height, _v0.widthSegments, _v0.heightSegments);
+      return new _v309(_v0.width, _v0.height, _v0.widthSegments, _v0.heightSegments);
     }
   }
-  class _v305 extends _v231 {
+  class _v310 extends _v236 {
     constructor(_v0) {
       super(), this.isMeshDepthMaterial = !0, this.type = "MeshDepthMaterial", this.depthPacking = 0, this.map = null, this.alphaMap = null, this.displacementMap = null, this.displacementScale = 1, this.displacementBias = 0, this.wireframe = !1, this.wireframeLinewidth = 1, this.setValues(_v0);
     }
@@ -9089,7 +9181,7 @@
       return super.copy(_v0), this.depthPacking = _v0.depthPacking, this.map = _v0.map, this.alphaMap = _v0.alphaMap, this.displacementMap = _v0.displacementMap, this.displacementScale = _v0.displacementScale, this.displacementBias = _v0.displacementBias, this.wireframe = _v0.wireframe, this.wireframeLinewidth = _v0.wireframeLinewidth, this;
     }
   }
-  class _v306 extends _v231 {
+  class _v311 extends _v236 {
     constructor(_v0) {
       super(), this.isMeshDistanceMaterial = !0, this.type = "MeshDistanceMaterial", this.map = null, this.alphaMap = null, this.displacementMap = null, this.displacementScale = 1, this.displacementBias = 0, this.setValues(_v0);
     }
@@ -9097,10 +9189,10 @@
       return super.copy(_v0), this.map = _v0.map, this.alphaMap = _v0.alphaMap, this.displacementMap = _v0.displacementMap, this.displacementScale = _v0.displacementScale, this.displacementBias = _v0.displacementBias, this;
     }
   }
-  function _v307(_v0, _v1) {
+  function _v312(_v0, _v1) {
     return _v0 && _v0.constructor !== _v1 ? "number" == typeof _v1.BYTES_PER_ELEMENT ? new _v1(_v0) : Array.prototype.slice.call(_v0) : _v0;
   }
-  class _v308 {
+  class _v313 {
     constructor(_v0, _v1, _v2, _v3) {
       this.parameterPositions = _v0, this._cachedIndex = 0, this.resultBuffer = void 0 !== _v3 ? _v3 : new _v1.constructor(_v2), this.sampleValues = _v1, this.valueSize = _v2, this.settings = null, this.DefaultSettings_ = {};
     }
@@ -9165,7 +9257,7 @@
     }
     intervalChanged_() {}
   }
-  class _v309 extends _v308 {
+  class _v314 extends _v313 {
     constructor(_v0, _v1, _v2, _v3) {
       super(_v0, _v1, _v2, _v3), this._weightPrev = -0, this._offsetPrev = -0, this._weightNext = -0, this._offsetNext = -0, this.DefaultSettings_ = {
         endingStart: 0,
@@ -9223,7 +9315,7 @@
       return _v4;
     }
   }
-  class _v310 extends _v308 {
+  class _v315 extends _v313 {
     constructor(_v0, _v1, _v2, _v3) {
       super(_v0, _v1, _v2, _v3);
     }
@@ -9239,7 +9331,7 @@
       return _v4;
     }
   }
-  class _v311 extends _v308 {
+  class _v316 extends _v313 {
     constructor(_v0, _v1, _v2, _v3) {
       super(_v0, _v1, _v2, _v3);
     }
@@ -9247,11 +9339,11 @@
       return this.copySampleValue_(_v0 - 1);
     }
   }
-  class _v312 {
+  class _v317 {
     constructor(_v0, _v1, _v2, _v3) {
       if (void 0 === _v0) throw Error("THREE.KeyframeTrack: track name is undefined");
       if (void 0 === _v1 || 0 === _v1.length) throw Error("THREE.KeyframeTrack: no keyframes in track named " + _v0);
-      this.name = _v0, this.times = _v307(_v1, this.TimeBufferType), this.values = _v307(_v2, this.ValueBufferType), this.setInterpolation(_v3 || this.DefaultInterpolation);
+      this.name = _v0, this.times = _v312(_v1, this.TimeBufferType), this.values = _v312(_v2, this.ValueBufferType), this.setInterpolation(_v3 || this.DefaultInterpolation);
     }
     static toJSON(_v0) {
       let _v1,
@@ -9259,8 +9351,8 @@
       if (_v2.toJSON !== this.toJSON) _v1 = _v2.toJSON(_v0);else {
         _v1 = {
           name: _v0.name,
-          times: _v307(_v0.times, Array),
-          values: _v307(_v0.values, Array)
+          times: _v312(_v0.times, Array),
+          values: _v312(_v0.values, Array)
         };
         let _v0 = _v0.getInterpolation();
         _v0 !== _v0.DefaultInterpolation && (_v1.interpolation = _v0);
@@ -9268,13 +9360,13 @@
       return _v1.type = _v0.ValueTypeName, _v1;
     }
     InterpolantFactoryMethodDiscrete(_v0) {
-      return new _v311(this.times, this.values, this.getValueSize(), _v0);
+      return new _v316(this.times, this.values, this.getValueSize(), _v0);
     }
     InterpolantFactoryMethodLinear(_v0) {
-      return new _v310(this.times, this.values, this.getValueSize(), _v0);
+      return new _v315(this.times, this.values, this.getValueSize(), _v0);
     }
     InterpolantFactoryMethodSmooth(_v0) {
-      return new _v309(this.times, this.values, this.getValueSize(), _v0);
+      return new _v314(this.times, this.values, this.getValueSize(), _v0);
     }
     setInterpolation(_v0) {
       let _v1;
@@ -9413,22 +9505,22 @@
       return _v2.createInterpolant = this.createInterpolant, _v2;
     }
   }
-  _v312.prototype.ValueTypeName = "", _v312.prototype.TimeBufferType = Float32Array, _v312.prototype.ValueBufferType = Float32Array, _v312.prototype.DefaultInterpolation = 0;
-  class _v313 extends _v312 {
+  _v317.prototype.ValueTypeName = "", _v317.prototype.TimeBufferType = Float32Array, _v317.prototype.ValueBufferType = Float32Array, _v317.prototype.DefaultInterpolation = 0;
+  class _v318 extends _v317 {
     constructor(_v0, _v1, _v2) {
       super(_v0, _v1, _v2);
     }
   }
-  _v313.prototype.ValueTypeName = "bool", _v313.prototype.ValueBufferType = Array, _v313.prototype.DefaultInterpolation = 0, _v313.prototype.InterpolantFactoryMethodLinear = void 0, _v313.prototype.InterpolantFactoryMethodSmooth = void 0, class extends _v312 {
+  _v318.prototype.ValueTypeName = "bool", _v318.prototype.ValueBufferType = Array, _v318.prototype.DefaultInterpolation = 0, _v318.prototype.InterpolantFactoryMethodLinear = void 0, _v318.prototype.InterpolantFactoryMethodSmooth = void 0, class extends _v317 {
     constructor(_v0, _v1, _v2, _v3) {
       super(_v0, _v1, _v2, _v3);
     }
-  }.prototype.ValueTypeName = "color", class extends _v312 {
+  }.prototype.ValueTypeName = "color", class extends _v317 {
     constructor(_v0, _v1, _v2, _v3) {
       super(_v0, _v1, _v2, _v3);
     }
   }.prototype.ValueTypeName = "number";
-  class _v314 extends _v308 {
+  class _v319 extends _v313 {
     constructor(_v0, _v1, _v2, _v3) {
       super(_v0, _v1, _v2, _v3);
     }
@@ -9438,30 +9530,30 @@
         _v6 = this.valueSize,
         _v7 = (_v2 - _v1) / (_v3 - _v1),
         _v8 = _v0 * _v6;
-      for (let _v0 = _v8 + _v6; _v8 !== _v0; _v8 += 4) _v130.slerpFlat(_v4, 0, _v5, _v8 - _v6, _v5, _v8, _v7);
+      for (let _v0 = _v8 + _v6; _v8 !== _v0; _v8 += 4) _v135.slerpFlat(_v4, 0, _v5, _v8 - _v6, _v5, _v8, _v7);
       return _v4;
     }
   }
-  class _v315 extends _v312 {
+  class _v320 extends _v317 {
     constructor(_v0, _v1, _v2, _v3) {
       super(_v0, _v1, _v2, _v3);
     }
     InterpolantFactoryMethodLinear(_v0) {
-      return new _v314(this.times, this.values, this.getValueSize(), _v0);
+      return new _v319(this.times, this.values, this.getValueSize(), _v0);
     }
   }
-  _v315.prototype.ValueTypeName = "quaternion", _v315.prototype.InterpolantFactoryMethodSmooth = void 0;
-  class _v316 extends _v312 {
+  _v320.prototype.ValueTypeName = "quaternion", _v320.prototype.InterpolantFactoryMethodSmooth = void 0;
+  class _v321 extends _v317 {
     constructor(_v0, _v1, _v2) {
       super(_v0, _v1, _v2);
     }
   }
-  _v316.prototype.ValueTypeName = "string", _v316.prototype.ValueBufferType = Array, _v316.prototype.DefaultInterpolation = 0, _v316.prototype.InterpolantFactoryMethodLinear = void 0, _v316.prototype.InterpolantFactoryMethodSmooth = void 0, class extends _v312 {
+  _v321.prototype.ValueTypeName = "string", _v321.prototype.ValueBufferType = Array, _v321.prototype.DefaultInterpolation = 0, _v321.prototype.InterpolantFactoryMethodLinear = void 0, _v321.prototype.InterpolantFactoryMethodSmooth = void 0, class extends _v317 {
     constructor(_v0, _v1, _v2, _v3) {
       super(_v0, _v1, _v2, _v3);
     }
   }.prototype.ValueTypeName = "vector";
-  let _v317 = {
+  let _v322 = {
       enabled: !1,
       files: {},
       add: function (_v0, _v1) {
@@ -9477,7 +9569,7 @@
         this.files = {};
       }
     },
-    _v318 = new class {
+    _v323 = new class {
       constructor(_v0, _v1, _v2) {
         let _v3;
         const _v4 = this;
@@ -9512,9 +9604,9 @@
         };
       }
     }();
-  class _v319 {
+  class _v324 {
     constructor(_v0) {
-      this.manager = void 0 !== _v0 ? _v0 : _v318, this.crossOrigin = "anonymous", this.withCredentials = !1, this.path = "", this.resourcePath = "", this.requestHeader = {};
+      this.manager = void 0 !== _v0 ? _v0 : _v323, this.crossOrigin = "anonymous", this.withCredentials = !1, this.path = "", this.resourcePath = "", this.requestHeader = {};
     }
     load() {}
     loadAsync(_v0, _v1) {
@@ -9543,89 +9635,89 @@
       return this;
     }
   }
-  _v319.DEFAULT_MATERIAL_NAME = "__DEFAULT";
-  let _v320 = new WeakMap();
-  class _v321 extends _v319 {
+  _v324.DEFAULT_MATERIAL_NAME = "__DEFAULT";
+  let _v325 = new WeakMap();
+  class _v326 extends _v324 {
     constructor(_v0) {
       super(_v0);
     }
     load(_v0, _v1, _v2, _v3) {
       void 0 !== this.path && (_v0 = this.path + _v0), _v0 = this.manager.resolveURL(_v0);
       let _v4 = this,
-        _v5 = _v317.get(`image:${_v0}`);
+        _v5 = _v322.get(`image:${_v0}`);
       if (void 0 !== _v5) {
         if (!0 === _v5.complete) _v4.manager.itemStart(_v0), setTimeout(function () {
           _v1 && _v1(_v5), _v4.manager.itemEnd(_v0);
         }, 0);else {
-          let _v0 = _v320.get(_v5);
-          void 0 === _v0 && (_v0 = [], _v320.set(_v5, _v0)), _v0.push({
+          let _v0 = _v325.get(_v5);
+          void 0 === _v0 && (_v0 = [], _v325.set(_v5, _v0)), _v0.push({
             onLoad: _v1,
             onError: _v3
           });
         }
         return _v5;
       }
-      let _v6 = _v137("img");
+      let _v6 = _v142("img");
       function _v7() {
         _v9(), _v1 && _v1(this);
-        let _v0 = _v320.get(this) || [];
+        let _v0 = _v325.get(this) || [];
         for (let _v0 = 0; _v0 < _v0.length; _v0++) {
           let _v0 = _v0[_v0];
           _v0.onLoad && _v0.onLoad(this);
         }
-        _v320.delete(this), _v4.manager.itemEnd(_v0);
+        _v325.delete(this), _v4.manager.itemEnd(_v0);
       }
       function _v8(_v0) {
-        _v9(), _v3 && _v3(_v0), _v317.remove(`image:${_v0}`);
-        let _v1 = _v320.get(this) || [];
+        _v9(), _v3 && _v3(_v0), _v322.remove(`image:${_v0}`);
+        let _v1 = _v325.get(this) || [];
         for (let _v0 = 0; _v0 < _v1.length; _v0++) {
           let _v0 = _v1[_v0];
           _v0.onError && _v0.onError(_v0);
         }
-        _v320.delete(this), _v4.manager.itemError(_v0), _v4.manager.itemEnd(_v0);
+        _v325.delete(this), _v4.manager.itemError(_v0), _v4.manager.itemEnd(_v0);
       }
       function _v9() {
         _v6.removeEventListener("load", _v7, !1), _v6.removeEventListener("error", _v8, !1);
       }
-      return _v6.addEventListener("load", _v7, !1), _v6.addEventListener("error", _v8, !1), "data:" !== _v0.slice(0, 5) && void 0 !== this.crossOrigin && (_v6.crossOrigin = this.crossOrigin), _v317.add(`image:${_v0}`, _v6), _v4.manager.itemStart(_v0), _v6.src = _v0, _v6;
+      return _v6.addEventListener("load", _v7, !1), _v6.addEventListener("error", _v8, !1), "data:" !== _v0.slice(0, 5) && void 0 !== this.crossOrigin && (_v6.crossOrigin = this.crossOrigin), _v322.add(`image:${_v0}`, _v6), _v4.manager.itemStart(_v0), _v6.src = _v0, _v6;
     }
   }
-  class _v322 extends _v319 {
+  class _v327 extends _v324 {
     constructor(_v0) {
       super(_v0);
     }
     load(_v0, _v1, _v2, _v3) {
-      let _v4 = new _v151(),
-        _v5 = new _v321(this.manager);
+      let _v4 = new _v156(),
+        _v5 = new _v326(this.manager);
       return _v5.setCrossOrigin(this.crossOrigin), _v5.setPath(this.path), _v5.load(_v0, function (_v0) {
         _v4.image = _v0, _v4.needsUpdate = !0, void 0 !== _v1 && _v1(_v4);
       }, _v2, _v3), _v4;
     }
   }
   new WeakMap();
-  class _v323 extends _v270 {
+  class _v328 extends _v275 {
     constructor(_v0 = []) {
       super(), this.isArrayCamera = !0, this.isMultiViewCamera = !1, this.cameras = _v0;
     }
   }
-  let _v324 = "\\[\\]\\.:\\/",
-    _v325 = RegExp("[" + _v324 + "]", "g"),
-    _v326 = "[^" + _v324 + "]",
-    _v327 = "[^" + _v324.replace("\\.", "") + "]",
-    _v328 = RegExp("^" + /((?:WC+[\/:])*)/.source.replace("WC", _v326) + /(WCOD+)?/.source.replace("WCOD", _v327) + /(?:\.(WC+)(?:\[(.+)\])?)?/.source.replace("WC", _v326) + /\.(WC+)(?:\[(.+)\])?/.source.replace("WC", _v326) + "$"),
-    _v329 = ["material", "materials", "bones", "map"];
-  class _v330 {
+  let _v329 = "\\[\\]\\.:\\/",
+    _v330 = RegExp("[" + _v329 + "]", "g"),
+    _v331 = "[^" + _v329 + "]",
+    _v332 = "[^" + _v329.replace("\\.", "") + "]",
+    _v333 = RegExp("^" + /((?:WC+[\/:])*)/.source.replace("WC", _v331) + /(WCOD+)?/.source.replace("WCOD", _v332) + /(?:\.(WC+)(?:\[(.+)\])?)?/.source.replace("WC", _v331) + /\.(WC+)(?:\[(.+)\])?/.source.replace("WC", _v331) + "$"),
+    _v334 = ["material", "materials", "bones", "map"];
+  class _v335 {
     constructor(_v0, _v1, _v2) {
-      this.path = _v1, this.parsedPath = _v2 || _v330.parseTrackName(_v1), this.node = _v330.findNode(_v0, this.parsedPath.nodeName), this.rootNode = _v0, this.getValue = this._getValue_unbound, this.setValue = this._setValue_unbound;
+      this.path = _v1, this.parsedPath = _v2 || _v335.parseTrackName(_v1), this.node = _v335.findNode(_v0, this.parsedPath.nodeName), this.rootNode = _v0, this.getValue = this._getValue_unbound, this.setValue = this._setValue_unbound;
     }
     static create(_v0, _v1, _v2) {
-      return _v0 && _v0.isAnimationObjectGroup ? new _v330.Composite(_v0, _v1, _v2) : new _v330(_v0, _v1, _v2);
+      return _v0 && _v0.isAnimationObjectGroup ? new _v335.Composite(_v0, _v1, _v2) : new _v335(_v0, _v1, _v2);
     }
     static sanitizeNodeName(_v0) {
-      return _v0.replace(/\s/g, "_").replace(_v325, "");
+      return _v0.replace(/\s/g, "_").replace(_v330, "");
     }
     static parseTrackName(_v0) {
-      let _v1 = _v328.exec(_v0);
+      let _v1 = _v333.exec(_v0);
       if (null === _v1) throw Error("PropertyBinding: Cannot parse trackName: " + _v0);
       let _v2 = {
           nodeName: _v1[2],
@@ -9637,7 +9729,7 @@
         _v3 = _v2.nodeName && _v2.nodeName.lastIndexOf(".");
       if (void 0 !== _v3 && -1 !== _v3) {
         let _v0 = _v2.nodeName.substring(_v3 + 1);
-        -1 !== _v329.indexOf(_v0) && (_v2.nodeName = _v2.nodeName.substring(0, _v3), _v2.objectName = _v0);
+        -1 !== _v334.indexOf(_v0) && (_v2.nodeName = _v2.nodeName.substring(0, _v3), _v2.objectName = _v0);
       }
       if (null === _v2.propertyName || 0 === _v2.propertyName.length) throw Error("PropertyBinding: can not parse propertyName from trackName: " + _v0);
       return _v2;
@@ -9731,7 +9823,7 @@
         _v2 = _v1.objectName,
         _v3 = _v1.propertyName,
         _v4 = _v1.propertyIndex;
-      if (_v0 || (_v0 = _v330.findNode(this.rootNode, _v1.nodeName), this.node = _v0), this.getValue = this._getValue_unavailable, this.setValue = this._setValue_unavailable, !_v0) return void console.warn("THREE.PropertyBinding: No target node found for track: " + this.path + ".");
+      if (_v0 || (_v0 = _v335.findNode(this.rootNode, _v1.nodeName), this.node = _v0), this.getValue = this._getValue_unavailable, this.setValue = this._setValue_unavailable, !_v0) return void console.warn("THREE.PropertyBinding: No target node found for track: " + this.path + ".");
       if (_v2) {
         let _v0 = _v1.objectIndex;
         switch (_v2) {
@@ -9785,7 +9877,7 @@
       this.node = null, this.getValue = this._getValue_unbound, this.setValue = this._setValue_unbound;
     }
   }
-  function _v331(_v0, _v1, _v2, _v3) {
+  function _v336(_v0, _v1, _v2, _v3) {
     let _v4 = function (_v0) {
       switch (_v0) {
         case 0:
@@ -9891,7 +9983,7 @@
     }
     throw Error(`Unable to determine texture byte length for ${_v2} format.`);
   }
-  function _v332() {
+  function _v337() {
     let _v0 = null,
       _v1 = !1,
       _v2 = null,
@@ -9914,7 +10006,7 @@
       }
     };
   }
-  function _v333(_v0) {
+  function _v338(_v0) {
     let _v1 = new WeakMap();
     return {
       get: function (_v0) {
@@ -9977,9 +10069,9 @@
       }
     };
   }
-  _v330.Composite = class {
+  _v335.Composite = class {
     constructor(_v0, _v1, _v2) {
-      const _v3 = _v2 || _v330.parseTrackName(_v1);
+      const _v3 = _v2 || _v335.parseTrackName(_v1);
       this._targetGroup = _v0, this._bindings = _v0.subscribe_(_v1, _v3);
     }
     getValue(_v0, _v1) {
@@ -10000,21 +10092,21 @@
       let _v0 = this._bindings;
       for (let _v0 = this._targetGroup.nCachedObjects_, _v1 = _v0.length; _v0 !== _v1; ++_v0) _v0[_v0].unbind();
     }
-  }, _v330.prototype.BindingType = {
+  }, _v335.prototype.BindingType = {
     Direct: 0,
     EntireArray: 1,
     ArrayElement: 2,
     HasFromToArray: 3
-  }, _v330.prototype.Versioning = {
+  }, _v335.prototype.Versioning = {
     None: 0,
     NeedsUpdate: 1,
     MatrixWorldNeedsUpdate: 2
-  }, _v330.prototype.GetterByBindingType = [_v330.prototype._getValue_direct, _v330.prototype._getValue_array, _v330.prototype._getValue_arrayElement, _v330.prototype._getValue_toArray], _v330.prototype.SetterByBindingTypeAndVersioning = [[_v330.prototype._setValue_direct, _v330.prototype._setValue_direct_setNeedsUpdate, _v330.prototype._setValue_direct_setMatrixWorldNeedsUpdate], [_v330.prototype._setValue_array, _v330.prototype._setValue_array_setNeedsUpdate, _v330.prototype._setValue_array_setMatrixWorldNeedsUpdate], [_v330.prototype._setValue_arrayElement, _v330.prototype._setValue_arrayElement_setNeedsUpdate, _v330.prototype._setValue_arrayElement_setMatrixWorldNeedsUpdate], [_v330.prototype._setValue_fromArray, _v330.prototype._setValue_fromArray_setNeedsUpdate, _v330.prototype._setValue_fromArray_setMatrixWorldNeedsUpdate]], new Float32Array(1), "u" > typeof __THREE_DEVTOOLS__ && __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent("register", {
+  }, _v335.prototype.GetterByBindingType = [_v335.prototype._getValue_direct, _v335.prototype._getValue_array, _v335.prototype._getValue_arrayElement, _v335.prototype._getValue_toArray], _v335.prototype.SetterByBindingTypeAndVersioning = [[_v335.prototype._setValue_direct, _v335.prototype._setValue_direct_setNeedsUpdate, _v335.prototype._setValue_direct_setMatrixWorldNeedsUpdate], [_v335.prototype._setValue_array, _v335.prototype._setValue_array_setNeedsUpdate, _v335.prototype._setValue_array_setMatrixWorldNeedsUpdate], [_v335.prototype._setValue_arrayElement, _v335.prototype._setValue_arrayElement_setNeedsUpdate, _v335.prototype._setValue_arrayElement_setMatrixWorldNeedsUpdate], [_v335.prototype._setValue_fromArray, _v335.prototype._setValue_fromArray_setNeedsUpdate, _v335.prototype._setValue_fromArray_setMatrixWorldNeedsUpdate]], new Float32Array(1), "u" > typeof __THREE_DEVTOOLS__ && __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent("register", {
     detail: {
       revision: "180"
     }
   })), "u" > typeof window && (window.__THREE__ ? console.warn("WARNING: Multiple instances of Three.js being imported.") : window.__THREE__ = "180");
-  let _v334 = {
+  let _v339 = {
       alphahash_fragment: "#ifdef USE_ALPHAHASH\n	if ( diffuseColor.a < getAlphaHashThreshold( vPosition ) ) discard;\n#endif",
       alphahash_pars_fragment: "#ifdef USE_ALPHAHASH\n	const float ALPHA_HASH_SCALE = 0.05;\n	float hash2D( vec2 value ) {\n		return fract( 1.0e4 * sin( 17.0 * value.x + 0.1 * value.y ) * ( 0.1 + abs( sin( 13.0 * value.y + value.x ) ) ) );\n	}\n	float hash3D( vec3 value ) {\n		return hash2D( vec2( hash2D( value.xy ), value.z ) );\n	}\n	float getAlphaHashThreshold( vec3 position ) {\n		float maxDeriv = max(\n			length( dFdx( position.xyz ) ),\n			length( dFdy( position.xyz ) )\n		);\n		float pixScale = 1.0 / ( ALPHA_HASH_SCALE * maxDeriv );\n		vec2 pixScales = vec2(\n			exp2( floor( log2( pixScale ) ) ),\n			exp2( ceil( log2( pixScale ) ) )\n		);\n		vec2 alpha = vec2(\n			hash3D( floor( pixScales.x * position.xyz ) ),\n			hash3D( floor( pixScales.y * position.xyz ) )\n		);\n		float lerpFactor = fract( log2( pixScale ) );\n		float x = ( 1.0 - lerpFactor ) * alpha.x + lerpFactor * alpha.y;\n		float a = min( lerpFactor, 1.0 - lerpFactor );\n		vec3 cases = vec3(\n			x * x / ( 2.0 * a * ( 1.0 - a ) ),\n			( x - 0.5 * a ) / ( 1.0 - a ),\n			1.0 - ( ( 1.0 - x ) * ( 1.0 - x ) / ( 2.0 * a * ( 1.0 - a ) ) )\n		);\n		float threshold = ( x < ( 1.0 - a ) )\n			? ( ( x < a ) ? cases.x : cases.y )\n			: cases.z;\n		return clamp( threshold , 1.0e-6, 1.0 );\n	}\n#endif",
       alphamap_fragment: "#ifdef USE_ALPHAMAP\n	diffuseColor.a *= texture2D( alphaMap, vAlphaMapUv ).g;\n#endif",
@@ -10157,10 +10249,10 @@
       sprite_vert: "uniform float rotation;\nuniform vec2 center;\n#include <common>\n#include <uv_pars_vertex>\n#include <fog_pars_vertex>\n#include <logdepthbuf_pars_vertex>\n#include <clipping_planes_pars_vertex>\nvoid main() {\n	#include <uv_vertex>\n	vec4 mvPosition = modelViewMatrix[ 3 ];\n	vec2 scale = vec2( length( modelMatrix[ 0 ].xyz ), length( modelMatrix[ 1 ].xyz ) );\n	#ifndef USE_SIZEATTENUATION\n		bool isPerspective = isPerspectiveMatrix( projectionMatrix );\n		if ( isPerspective ) scale *= - mvPosition.z;\n	#endif\n	vec2 alignedPosition = ( position.xy - ( center - vec2( 0.5 ) ) ) * scale;\n	vec2 rotatedPosition;\n	rotatedPosition.x = cos( rotation ) * alignedPosition.x - sin( rotation ) * alignedPosition.y;\n	rotatedPosition.y = sin( rotation ) * alignedPosition.x + cos( rotation ) * alignedPosition.y;\n	mvPosition.xy += rotatedPosition;\n	gl_Position = projectionMatrix * mvPosition;\n	#include <logdepthbuf_vertex>\n	#include <clipping_planes_vertex>\n	#include <fog_vertex>\n}",
       sprite_frag: "uniform vec3 diffuse;\nuniform float opacity;\n#include <common>\n#include <uv_pars_fragment>\n#include <map_pars_fragment>\n#include <alphamap_pars_fragment>\n#include <alphatest_pars_fragment>\n#include <alphahash_pars_fragment>\n#include <fog_pars_fragment>\n#include <logdepthbuf_pars_fragment>\n#include <clipping_planes_pars_fragment>\nvoid main() {\n	vec4 diffuseColor = vec4( diffuse, opacity );\n	#include <clipping_planes_fragment>\n	vec3 outgoingLight = vec3( 0.0 );\n	#include <logdepthbuf_fragment>\n	#include <map_fragment>\n	#include <alphamap_fragment>\n	#include <alphatest_fragment>\n	#include <alphahash_fragment>\n	outgoingLight = diffuseColor.rgb;\n	#include <opaque_fragment>\n	#include <tonemapping_fragment>\n	#include <colorspace_fragment>\n	#include <fog_fragment>\n}"
     },
-    _v335 = {
+    _v340 = {
       common: {
         diffuse: {
-          value: new _v228(0)
+          value: new _v233(0)
         },
         opacity: {
           value: 1
@@ -10169,13 +10261,13 @@
           value: null
         },
         mapTransform: {
-          value: new _v134()
+          value: new _v139()
         },
         alphaMap: {
           value: null
         },
         alphaMapTransform: {
-          value: new _v134()
+          value: new _v139()
         },
         alphaTest: {
           value: 0
@@ -10186,7 +10278,7 @@
           value: null
         },
         specularMapTransform: {
-          value: new _v134()
+          value: new _v139()
         }
       },
       envmap: {
@@ -10194,7 +10286,7 @@
           value: null
         },
         envMapRotation: {
-          value: new _v134()
+          value: new _v139()
         },
         flipEnvMap: {
           value: -1
@@ -10217,7 +10309,7 @@
           value: 1
         },
         aoMapTransform: {
-          value: new _v134()
+          value: new _v139()
         }
       },
       lightmap: {
@@ -10228,7 +10320,7 @@
           value: 1
         },
         lightMapTransform: {
-          value: new _v134()
+          value: new _v139()
         }
       },
       bumpmap: {
@@ -10236,7 +10328,7 @@
           value: null
         },
         bumpMapTransform: {
-          value: new _v134()
+          value: new _v139()
         },
         bumpScale: {
           value: 1
@@ -10247,10 +10339,10 @@
           value: null
         },
         normalMapTransform: {
-          value: new _v134()
+          value: new _v139()
         },
         normalScale: {
-          value: new _v129(1, 1)
+          value: new _v134(1, 1)
         }
       },
       displacementmap: {
@@ -10258,7 +10350,7 @@
           value: null
         },
         displacementMapTransform: {
-          value: new _v134()
+          value: new _v139()
         },
         displacementScale: {
           value: 1
@@ -10272,7 +10364,7 @@
           value: null
         },
         emissiveMapTransform: {
-          value: new _v134()
+          value: new _v139()
         }
       },
       metalnessmap: {
@@ -10280,7 +10372,7 @@
           value: null
         },
         metalnessMapTransform: {
-          value: new _v134()
+          value: new _v139()
         }
       },
       roughnessmap: {
@@ -10288,7 +10380,7 @@
           value: null
         },
         roughnessMapTransform: {
-          value: new _v134()
+          value: new _v139()
         }
       },
       gradientmap: {
@@ -10307,7 +10399,7 @@
           value: 0
         },
         fogColor: {
-          value: new _v228(0)
+          value: new _v233(0)
         }
       },
       lights: {
@@ -10424,7 +10516,7 @@
       },
       points: {
         diffuse: {
-          value: new _v228(0)
+          value: new _v233(0)
         },
         opacity: {
           value: 1
@@ -10442,24 +10534,24 @@
           value: null
         },
         alphaMapTransform: {
-          value: new _v134()
+          value: new _v139()
         },
         alphaTest: {
           value: 0
         },
         uvTransform: {
-          value: new _v134()
+          value: new _v139()
         }
       },
       sprite: {
         diffuse: {
-          value: new _v228(0)
+          value: new _v233(0)
         },
         opacity: {
           value: 1
         },
         center: {
-          value: new _v129(.5, .5)
+          value: new _v134(.5, .5)
         },
         rotation: {
           value: 0
@@ -10468,53 +10560,53 @@
           value: null
         },
         mapTransform: {
-          value: new _v134()
+          value: new _v139()
         },
         alphaMap: {
           value: null
         },
         alphaMapTransform: {
-          value: new _v134()
+          value: new _v139()
         },
         alphaTest: {
           value: 0
         }
       }
     },
-    _v336 = {
+    _v341 = {
       basic: {
-        uniforms: _v263([_v335.common, _v335.specularmap, _v335.envmap, _v335.aomap, _v335.lightmap, _v335.fog]),
-        vertexShader: _v334.meshbasic_vert,
-        fragmentShader: _v334.meshbasic_frag
+        uniforms: _v268([_v340.common, _v340.specularmap, _v340.envmap, _v340.aomap, _v340.lightmap, _v340.fog]),
+        vertexShader: _v339.meshbasic_vert,
+        fragmentShader: _v339.meshbasic_frag
       },
       lambert: {
-        uniforms: _v263([_v335.common, _v335.specularmap, _v335.envmap, _v335.aomap, _v335.lightmap, _v335.emissivemap, _v335.bumpmap, _v335.normalmap, _v335.displacementmap, _v335.fog, _v335.lights, {
+        uniforms: _v268([_v340.common, _v340.specularmap, _v340.envmap, _v340.aomap, _v340.lightmap, _v340.emissivemap, _v340.bumpmap, _v340.normalmap, _v340.displacementmap, _v340.fog, _v340.lights, {
           emissive: {
-            value: new _v228(0)
+            value: new _v233(0)
           }
         }]),
-        vertexShader: _v334.meshlambert_vert,
-        fragmentShader: _v334.meshlambert_frag
+        vertexShader: _v339.meshlambert_vert,
+        fragmentShader: _v339.meshlambert_frag
       },
       phong: {
-        uniforms: _v263([_v335.common, _v335.specularmap, _v335.envmap, _v335.aomap, _v335.lightmap, _v335.emissivemap, _v335.bumpmap, _v335.normalmap, _v335.displacementmap, _v335.fog, _v335.lights, {
+        uniforms: _v268([_v340.common, _v340.specularmap, _v340.envmap, _v340.aomap, _v340.lightmap, _v340.emissivemap, _v340.bumpmap, _v340.normalmap, _v340.displacementmap, _v340.fog, _v340.lights, {
           emissive: {
-            value: new _v228(0)
+            value: new _v233(0)
           },
           specular: {
-            value: new _v228(0)
+            value: new _v233(0)
           },
           shininess: {
             value: 30
           }
         }]),
-        vertexShader: _v334.meshphong_vert,
-        fragmentShader: _v334.meshphong_frag
+        vertexShader: _v339.meshphong_vert,
+        fragmentShader: _v339.meshphong_frag
       },
       standard: {
-        uniforms: _v263([_v335.common, _v335.envmap, _v335.aomap, _v335.lightmap, _v335.emissivemap, _v335.bumpmap, _v335.normalmap, _v335.displacementmap, _v335.roughnessmap, _v335.metalnessmap, _v335.fog, _v335.lights, {
+        uniforms: _v268([_v340.common, _v340.envmap, _v340.aomap, _v340.lightmap, _v340.emissivemap, _v340.bumpmap, _v340.normalmap, _v340.displacementmap, _v340.roughnessmap, _v340.metalnessmap, _v340.fog, _v340.lights, {
           emissive: {
-            value: new _v228(0)
+            value: new _v233(0)
           },
           roughness: {
             value: 1
@@ -10526,34 +10618,34 @@
             value: 1
           }
         }]),
-        vertexShader: _v334.meshphysical_vert,
-        fragmentShader: _v334.meshphysical_frag
+        vertexShader: _v339.meshphysical_vert,
+        fragmentShader: _v339.meshphysical_frag
       },
       toon: {
-        uniforms: _v263([_v335.common, _v335.aomap, _v335.lightmap, _v335.emissivemap, _v335.bumpmap, _v335.normalmap, _v335.displacementmap, _v335.gradientmap, _v335.fog, _v335.lights, {
+        uniforms: _v268([_v340.common, _v340.aomap, _v340.lightmap, _v340.emissivemap, _v340.bumpmap, _v340.normalmap, _v340.displacementmap, _v340.gradientmap, _v340.fog, _v340.lights, {
           emissive: {
-            value: new _v228(0)
+            value: new _v233(0)
           }
         }]),
-        vertexShader: _v334.meshtoon_vert,
-        fragmentShader: _v334.meshtoon_frag
+        vertexShader: _v339.meshtoon_vert,
+        fragmentShader: _v339.meshtoon_frag
       },
       matcap: {
-        uniforms: _v263([_v335.common, _v335.bumpmap, _v335.normalmap, _v335.displacementmap, _v335.fog, {
+        uniforms: _v268([_v340.common, _v340.bumpmap, _v340.normalmap, _v340.displacementmap, _v340.fog, {
           matcap: {
             value: null
           }
         }]),
-        vertexShader: _v334.meshmatcap_vert,
-        fragmentShader: _v334.meshmatcap_frag
+        vertexShader: _v339.meshmatcap_vert,
+        fragmentShader: _v339.meshmatcap_frag
       },
       points: {
-        uniforms: _v263([_v335.points, _v335.fog]),
-        vertexShader: _v334.points_vert,
-        fragmentShader: _v334.points_frag
+        uniforms: _v268([_v340.points, _v340.fog]),
+        vertexShader: _v339.points_vert,
+        fragmentShader: _v339.points_frag
       },
       dashed: {
-        uniforms: _v263([_v335.common, _v335.fog, {
+        uniforms: _v268([_v340.common, _v340.fog, {
           scale: {
             value: 1
           },
@@ -10564,32 +10656,32 @@
             value: 2
           }
         }]),
-        vertexShader: _v334.linedashed_vert,
-        fragmentShader: _v334.linedashed_frag
+        vertexShader: _v339.linedashed_vert,
+        fragmentShader: _v339.linedashed_frag
       },
       depth: {
-        uniforms: _v263([_v335.common, _v335.displacementmap]),
-        vertexShader: _v334.depth_vert,
-        fragmentShader: _v334.depth_frag
+        uniforms: _v268([_v340.common, _v340.displacementmap]),
+        vertexShader: _v339.depth_vert,
+        fragmentShader: _v339.depth_frag
       },
       normal: {
-        uniforms: _v263([_v335.common, _v335.bumpmap, _v335.normalmap, _v335.displacementmap, {
+        uniforms: _v268([_v340.common, _v340.bumpmap, _v340.normalmap, _v340.displacementmap, {
           opacity: {
             value: 1
           }
         }]),
-        vertexShader: _v334.meshnormal_vert,
-        fragmentShader: _v334.meshnormal_frag
+        vertexShader: _v339.meshnormal_vert,
+        fragmentShader: _v339.meshnormal_frag
       },
       sprite: {
-        uniforms: _v263([_v335.sprite, _v335.fog]),
-        vertexShader: _v334.sprite_vert,
-        fragmentShader: _v334.sprite_frag
+        uniforms: _v268([_v340.sprite, _v340.fog]),
+        vertexShader: _v339.sprite_vert,
+        fragmentShader: _v339.sprite_frag
       },
       background: {
         uniforms: {
           uvTransform: {
-            value: new _v134()
+            value: new _v139()
           },
           t2D: {
             value: null
@@ -10598,8 +10690,8 @@
             value: 1
           }
         },
-        vertexShader: _v334.background_vert,
-        fragmentShader: _v334.background_frag
+        vertexShader: _v339.background_vert,
+        fragmentShader: _v339.background_frag
       },
       backgroundCube: {
         uniforms: {
@@ -10616,11 +10708,11 @@
             value: 1
           },
           backgroundRotation: {
-            value: new _v134()
+            value: new _v139()
           }
         },
-        vertexShader: _v334.backgroundCube_vert,
-        fragmentShader: _v334.backgroundCube_frag
+        vertexShader: _v339.backgroundCube_vert,
+        fragmentShader: _v339.backgroundCube_frag
       },
       cube: {
         uniforms: {
@@ -10634,8 +10726,8 @@
             value: 1
           }
         },
-        vertexShader: _v334.cube_vert,
-        fragmentShader: _v334.cube_frag
+        vertexShader: _v339.cube_vert,
+        fragmentShader: _v339.cube_frag
       },
       equirect: {
         uniforms: {
@@ -10643,13 +10735,13 @@
             value: null
           }
         },
-        vertexShader: _v334.equirect_vert,
-        fragmentShader: _v334.equirect_frag
+        vertexShader: _v339.equirect_vert,
+        fragmentShader: _v339.equirect_frag
       },
       distanceRGBA: {
-        uniforms: _v263([_v335.common, _v335.displacementmap, {
+        uniforms: _v268([_v340.common, _v340.displacementmap, {
           referencePosition: {
-            value: new _v131()
+            value: new _v136()
           },
           nearDistance: {
             value: 1
@@ -10658,24 +10750,24 @@
             value: 0
           }
         }]),
-        vertexShader: _v334.distanceRGBA_vert,
-        fragmentShader: _v334.distanceRGBA_frag
+        vertexShader: _v339.distanceRGBA_vert,
+        fragmentShader: _v339.distanceRGBA_frag
       },
       shadow: {
-        uniforms: _v263([_v335.lights, _v335.fog, {
+        uniforms: _v268([_v340.lights, _v340.fog, {
           color: {
-            value: new _v228(0)
+            value: new _v233(0)
           },
           opacity: {
             value: 1
           }
         }]),
-        vertexShader: _v334.shadow_vert,
-        fragmentShader: _v334.shadow_frag
+        vertexShader: _v339.shadow_vert,
+        fragmentShader: _v339.shadow_frag
       }
     };
-  _v336.physical = {
-    uniforms: _v263([_v336.standard.uniforms, {
+  _v341.physical = {
+    uniforms: _v268([_v341.standard.uniforms, {
       clearcoat: {
         value: 0
       },
@@ -10683,16 +10775,16 @@
         value: null
       },
       clearcoatMapTransform: {
-        value: new _v134()
+        value: new _v139()
       },
       clearcoatNormalMap: {
         value: null
       },
       clearcoatNormalMapTransform: {
-        value: new _v134()
+        value: new _v139()
       },
       clearcoatNormalScale: {
-        value: new _v129(1, 1)
+        value: new _v134(1, 1)
       },
       clearcoatRoughness: {
         value: 0
@@ -10701,7 +10793,7 @@
         value: null
       },
       clearcoatRoughnessMapTransform: {
-        value: new _v134()
+        value: new _v139()
       },
       dispersion: {
         value: 0
@@ -10713,7 +10805,7 @@
         value: null
       },
       iridescenceMapTransform: {
-        value: new _v134()
+        value: new _v139()
       },
       iridescenceIOR: {
         value: 1.3
@@ -10728,19 +10820,19 @@
         value: null
       },
       iridescenceThicknessMapTransform: {
-        value: new _v134()
+        value: new _v139()
       },
       sheen: {
         value: 0
       },
       sheenColor: {
-        value: new _v228(0)
+        value: new _v233(0)
       },
       sheenColorMap: {
         value: null
       },
       sheenColorMapTransform: {
-        value: new _v134()
+        value: new _v139()
       },
       sheenRoughness: {
         value: 1
@@ -10749,7 +10841,7 @@
         value: null
       },
       sheenRoughnessMapTransform: {
-        value: new _v134()
+        value: new _v139()
       },
       transmission: {
         value: 0
@@ -10758,10 +10850,10 @@
         value: null
       },
       transmissionMapTransform: {
-        value: new _v134()
+        value: new _v139()
       },
       transmissionSamplerSize: {
-        value: new _v129()
+        value: new _v134()
       },
       transmissionSamplerMap: {
         value: null
@@ -10773,22 +10865,22 @@
         value: null
       },
       thicknessMapTransform: {
-        value: new _v134()
+        value: new _v139()
       },
       attenuationDistance: {
         value: 0
       },
       attenuationColor: {
-        value: new _v228(0)
+        value: new _v233(0)
       },
       specularColor: {
-        value: new _v228(1, 1, 1)
+        value: new _v233(1, 1, 1)
       },
       specularColorMap: {
         value: null
       },
       specularColorMapTransform: {
-        value: new _v134()
+        value: new _v139()
       },
       specularIntensity: {
         value: 1
@@ -10797,32 +10889,32 @@
         value: null
       },
       specularIntensityMapTransform: {
-        value: new _v134()
+        value: new _v139()
       },
       anisotropyVector: {
-        value: new _v129()
+        value: new _v134()
       },
       anisotropyMap: {
         value: null
       },
       anisotropyMapTransform: {
-        value: new _v134()
+        value: new _v139()
       }
     }]),
-    vertexShader: _v334.meshphysical_vert,
-    fragmentShader: _v334.meshphysical_frag
+    vertexShader: _v339.meshphysical_vert,
+    fragmentShader: _v339.meshphysical_frag
   };
-  let _v337 = {
+  let _v342 = {
       r: 0,
       b: 0,
       g: 0
     },
-    _v338 = new _v192(),
-    _v339 = new _v182();
-  function _v340(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
+    _v343 = new _v197(),
+    _v344 = new _v187();
+  function _v345(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
     let _v7,
       _v8,
-      _v9 = new _v228(0),
+      _v9 = new _v233(0),
       _v10 = +(!0 !== _v5),
       _v11 = null,
       _v12 = 0,
@@ -10832,7 +10924,7 @@
       return _v1 && _v1.isTexture && (_v1 = (_v0.backgroundBlurriness > 0 ? _v2 : _v1).get(_v1)), _v1;
     }
     function _v15(_v0, _v1) {
-      _v0.getRGB(_v337, _v264(_v0)), _v3.buffers.color.setClear(_v337.r, _v337.g, _v337.b, _v1, _v6);
+      _v0.getRGB(_v342, _v269(_v0)), _v3.buffers.color.setClear(_v342.r, _v342.g, _v342.b, _v1, _v6);
     }
     return {
       getClearColor: function () {
@@ -10856,11 +10948,11 @@
       },
       addToRenderList: function (_v0, _v1) {
         let _v2 = _v14(_v1);
-        _v2 && (_v2.isCubeTexture || 306 === _v2.mapping) ? (void 0 === _v8 && ((_v8 = new _v259(new _v261(1, 1, 1), new _v265({
+        _v2 && (_v2.isCubeTexture || 306 === _v2.mapping) ? (void 0 === _v8 && ((_v8 = new _v264(new _v266(1, 1, 1), new _v270({
           name: "BackgroundCubeMaterial",
-          uniforms: _v262(_v336.backgroundCube.uniforms),
-          vertexShader: _v336.backgroundCube.vertexShader,
-          fragmentShader: _v336.backgroundCube.fragmentShader,
+          uniforms: _v267(_v341.backgroundCube.uniforms),
+          vertexShader: _v341.backgroundCube.vertexShader,
+          fragmentShader: _v341.backgroundCube.fragmentShader,
           side: 1,
           depthTest: !1,
           depthWrite: !1,
@@ -10872,11 +10964,11 @@
           get: function () {
             return this.uniforms.envMap.value;
           }
-        }), _v4.update(_v8)), _v338.copy(_v1.backgroundRotation), _v338.x *= -1, _v338.y *= -1, _v338.z *= -1, _v2.isCubeTexture && !1 === _v2.isRenderTargetTexture && (_v338.y *= -1, _v338.z *= -1), _v8.material.uniforms.envMap.value = _v2, _v8.material.uniforms.flipEnvMap.value = _v2.isCubeTexture && !1 === _v2.isRenderTargetTexture ? -1 : 1, _v8.material.uniforms.backgroundBlurriness.value = _v1.backgroundBlurriness, _v8.material.uniforms.backgroundIntensity.value = _v1.backgroundIntensity, _v8.material.uniforms.backgroundRotation.value.setFromMatrix4(_v339.makeRotationFromEuler(_v338)), _v8.material.toneMapped = _v142.getTransfer(_v2.colorSpace) !== _v119, (_v11 !== _v2 || _v12 !== _v2.version || _v13 !== _v0.toneMapping) && (_v8.material.needsUpdate = !0, _v11 = _v2, _v12 = _v2.version, _v13 = _v0.toneMapping), _v8.layers.enableAll(), _v0.unshift(_v8, _v8.geometry, _v8.material, 0, 0, null)) : _v2 && _v2.isTexture && (void 0 === _v7 && ((_v7 = new _v259(new _v304(2, 2), new _v265({
+        }), _v4.update(_v8)), _v343.copy(_v1.backgroundRotation), _v343.x *= -1, _v343.y *= -1, _v343.z *= -1, _v2.isCubeTexture && !1 === _v2.isRenderTargetTexture && (_v343.y *= -1, _v343.z *= -1), _v8.material.uniforms.envMap.value = _v2, _v8.material.uniforms.flipEnvMap.value = _v2.isCubeTexture && !1 === _v2.isRenderTargetTexture ? -1 : 1, _v8.material.uniforms.backgroundBlurriness.value = _v1.backgroundBlurriness, _v8.material.uniforms.backgroundIntensity.value = _v1.backgroundIntensity, _v8.material.uniforms.backgroundRotation.value.setFromMatrix4(_v344.makeRotationFromEuler(_v343)), _v8.material.toneMapped = _v147.getTransfer(_v2.colorSpace) !== _v124, (_v11 !== _v2 || _v12 !== _v2.version || _v13 !== _v0.toneMapping) && (_v8.material.needsUpdate = !0, _v11 = _v2, _v12 = _v2.version, _v13 = _v0.toneMapping), _v8.layers.enableAll(), _v0.unshift(_v8, _v8.geometry, _v8.material, 0, 0, null)) : _v2 && _v2.isTexture && (void 0 === _v7 && ((_v7 = new _v264(new _v309(2, 2), new _v270({
           name: "BackgroundMaterial",
-          uniforms: _v262(_v336.background.uniforms),
-          vertexShader: _v336.background.vertexShader,
-          fragmentShader: _v336.background.fragmentShader,
+          uniforms: _v267(_v341.background.uniforms),
+          vertexShader: _v341.background.vertexShader,
+          fragmentShader: _v341.background.fragmentShader,
           side: 0,
           depthTest: !1,
           depthWrite: !1,
@@ -10886,14 +10978,14 @@
           get: function () {
             return this.uniforms.t2D.value;
           }
-        }), _v4.update(_v7)), _v7.material.uniforms.t2D.value = _v2, _v7.material.uniforms.backgroundIntensity.value = _v1.backgroundIntensity, _v7.material.toneMapped = _v142.getTransfer(_v2.colorSpace) !== _v119, !0 === _v2.matrixAutoUpdate && _v2.updateMatrix(), _v7.material.uniforms.uvTransform.value.copy(_v2.matrix), (_v11 !== _v2 || _v12 !== _v2.version || _v13 !== _v0.toneMapping) && (_v7.material.needsUpdate = !0, _v11 = _v2, _v12 = _v2.version, _v13 = _v0.toneMapping), _v7.layers.enableAll(), _v0.unshift(_v7, _v7.geometry, _v7.material, 0, 0, null));
+        }), _v4.update(_v7)), _v7.material.uniforms.t2D.value = _v2, _v7.material.uniforms.backgroundIntensity.value = _v1.backgroundIntensity, _v7.material.toneMapped = _v147.getTransfer(_v2.colorSpace) !== _v124, !0 === _v2.matrixAutoUpdate && _v2.updateMatrix(), _v7.material.uniforms.uvTransform.value.copy(_v2.matrix), (_v11 !== _v2 || _v12 !== _v2.version || _v13 !== _v0.toneMapping) && (_v7.material.needsUpdate = !0, _v11 = _v2, _v12 = _v2.version, _v13 = _v0.toneMapping), _v7.layers.enableAll(), _v0.unshift(_v7, _v7.geometry, _v7.material, 0, 0, null));
       },
       dispose: function () {
         void 0 !== _v8 && (_v8.geometry.dispose(), _v8.material.dispose(), _v8 = void 0), void 0 !== _v7 && (_v7.geometry.dispose(), _v7.material.dispose(), _v7 = void 0);
       }
     };
   }
-  function _v341(_v0, _v1) {
+  function _v346(_v0, _v1) {
     let _v2 = _v0.getParameter(_v0.MAX_VERTEX_ATTRIBS),
       _v3 = {},
       _v4 = _v9(null),
@@ -11076,7 +11168,7 @@
       disableUnusedAttributes: _v13
     };
   }
-  function _v342(_v0, _v1, _v2) {
+  function _v347(_v0, _v1, _v2) {
     let _v3;
     function _v4(_v0, _v1, _v2) {
       0 !== _v2 && (_v0.drawArraysInstanced(_v3, _v0, _v1, _v2), _v2.update(_v1, _v3, _v2));
@@ -11102,7 +11194,7 @@
       }
     };
   }
-  function _v343(_v0, _v1, _v2, _v3) {
+  function _v348(_v0, _v1, _v2, _v3) {
     let _v4;
     function _v5(_v0) {
       if ("highp" === _v0) {
@@ -11151,14 +11243,14 @@
       maxSamples: _v0.getParameter(_v0.MAX_SAMPLES)
     };
   }
-  function _v344(_v0) {
+  function _v349(_v0) {
     let _v1 = this,
       _v2 = null,
       _v3 = 0,
       _v4 = !1,
       _v5 = !1,
-      _v6 = new _v281(),
-      _v7 = new _v134(),
+      _v6 = new _v286(),
+      _v7 = new _v139(),
       _v8 = {
         value: null,
         needsUpdate: !1
@@ -11201,7 +11293,7 @@
       } else _v5 ? _v9(null) : (_v8.value !== _v2 && (_v8.value = _v2, _v8.needsUpdate = _v3 > 0), _v1.numPlanes = _v3, _v1.numIntersection = 0);
     };
   }
-  function _v345(_v0) {
+  function _v350(_v0) {
     let _v1 = new WeakMap();
     function _v2(_v0, _v1) {
       return 303 === _v1 ? _v0.mapping = 301 : 304 === _v1 && (_v0.mapping = 302), _v0;
@@ -11220,7 +11312,7 @@
             let _v0 = _v0.image;
             if (!_v0 || !(_v0.height > 0)) return null;
             {
-              let _v0 = new _v273(_v0.height);
+              let _v0 = new _v278(_v0.height);
               return _v0.fromEquirectangularTexture(_v0, _v0), _v1.set(_v0, _v0), _v0.addEventListener("dispose", _v3), _v2(_v0.texture, _v0.mapping);
             }
           }
@@ -11232,8 +11324,8 @@
       }
     };
   }
-  let _v346 = [.125, .215, .35, .446, .526, .582],
-    _v347 = new class extends _v266 {
+  let _v351 = [.125, .215, .35, .446, .526, .582],
+    _v352 = new class extends _v271 {
       constructor(_v0 = -1, _v1 = 1, _v2 = 1, _v3 = -1, _v4 = .1, _v5 = 0) {
         super(), this.isOrthographicCamera = !0, this.type = "OrthographicCamera", this.zoom = 1, this.view = null, this.left = _v0, this.right = _v1, this.top = _v2, this.bottom = _v3, this.near = _v4, this.far = _v5, this.updateProjectionMatrix();
       }
@@ -11275,25 +11367,25 @@
         return _v1.object.zoom = this.zoom, _v1.object.left = this.left, _v1.object.right = this.right, _v1.object.top = this.top, _v1.object.bottom = this.bottom, _v1.object.near = this.near, _v1.object.far = this.far, null !== this.view && (_v1.object.view = Object.assign({}, this.view)), _v1;
       }
     }(),
-    _v348 = new _v228(),
-    _v349 = null,
-    _v350 = 0,
-    _v351 = 0,
-    _v352 = !1,
-    _v353 = (1 + Math.sqrt(5)) / 2,
-    _v354 = 1 / _v353,
-    _v355 = [new _v131(-_v353, _v354, 0), new _v131(_v353, _v354, 0), new _v131(-_v354, 0, _v353), new _v131(_v354, 0, _v353), new _v131(0, _v353, -_v354), new _v131(0, _v353, _v354), new _v131(-1, 1, -1), new _v131(1, 1, -1), new _v131(-1, 1, 1), new _v131(1, 1, 1)],
-    _v356 = new _v131();
-  class _v357 {
+    _v353 = new _v233(),
+    _v354 = null,
+    _v355 = 0,
+    _v356 = 0,
+    _v357 = !1,
+    _v358 = (1 + Math.sqrt(5)) / 2,
+    _v359 = 1 / _v358,
+    _v360 = [new _v136(-_v358, _v359, 0), new _v136(_v358, _v359, 0), new _v136(-_v359, 0, _v358), new _v136(_v359, 0, _v358), new _v136(0, _v358, -_v359), new _v136(0, _v358, _v359), new _v136(-1, 1, -1), new _v136(1, 1, -1), new _v136(-1, 1, 1), new _v136(1, 1, 1)],
+    _v361 = new _v136();
+  class _v362 {
     constructor(_v0) {
       this._renderer = _v0, this._pingPongRenderTarget = null, this._lodMax = 0, this._cubeSize = 0, this._lodPlanes = [], this._sizeLods = [], this._sigmas = [], this._blurMaterial = null, this._cubemapMaterial = null, this._equirectMaterial = null, this._compileMaterial(this._blurMaterial);
     }
     fromScene(_v0, _v1 = 0, _v2 = .1, _v3 = 100, _v4 = {}) {
       let {
         size: _v5 = 256,
-        position: _v6 = _v356
+        position: _v6 = _v361
       } = _v4;
-      _v349 = this._renderer.getRenderTarget(), _v350 = this._renderer.getActiveCubeFace(), _v351 = this._renderer.getActiveMipmapLevel(), _v352 = this._renderer.xr.enabled, this._renderer.xr.enabled = !1, this._setSize(_v5);
+      _v354 = this._renderer.getRenderTarget(), _v355 = this._renderer.getActiveCubeFace(), _v356 = this._renderer.getActiveMipmapLevel(), _v357 = this._renderer.xr.enabled, this._renderer.xr.enabled = !1, this._setSize(_v5);
       let _v7 = this._allocateTargets();
       return _v7.depthBuffer = !0, this._sceneToCubeUV(_v0, _v2, _v3, _v7, _v6), _v1 > 0 && this._blur(_v7, 0, 0, _v1), this._applyPMREM(_v7), this._cleanup(_v7), _v7;
     }
@@ -11304,10 +11396,10 @@
       return this._fromTexture(_v0, _v1);
     }
     compileCubemapShader() {
-      null === this._cubemapMaterial && (this._cubemapMaterial = _v361(), this._compileMaterial(this._cubemapMaterial));
+      null === this._cubemapMaterial && (this._cubemapMaterial = _v366(), this._compileMaterial(this._cubemapMaterial));
     }
     compileEquirectangularShader() {
-      null === this._equirectMaterial && (this._equirectMaterial = _v360(), this._compileMaterial(this._equirectMaterial));
+      null === this._equirectMaterial && (this._equirectMaterial = _v365(), this._compileMaterial(this._equirectMaterial));
     }
     dispose() {
       this._dispose(), null !== this._cubemapMaterial && this._cubemapMaterial.dispose(), null !== this._equirectMaterial && this._equirectMaterial.dispose();
@@ -11320,10 +11412,10 @@
       for (let _v0 = 0; _v0 < this._lodPlanes.length; _v0++) this._lodPlanes[_v0].dispose();
     }
     _cleanup(_v0) {
-      this._renderer.setRenderTarget(_v349, _v350, _v351), this._renderer.xr.enabled = _v352, _v0.scissorTest = !1, _v359(_v0, 0, 0, _v0.width, _v0.height);
+      this._renderer.setRenderTarget(_v354, _v355, _v356), this._renderer.xr.enabled = _v357, _v0.scissorTest = !1, _v364(_v0, 0, 0, _v0.width, _v0.height);
     }
     _fromTexture(_v0, _v1) {
-      301 === _v0.mapping || 302 === _v0.mapping ? this._setSize(0 === _v0.image.length ? 16 : _v0.image[0].width || _v0.image[0].image.width) : this._setSize(_v0.image.width / 4), _v349 = this._renderer.getRenderTarget(), _v350 = this._renderer.getActiveCubeFace(), _v351 = this._renderer.getActiveMipmapLevel(), _v352 = this._renderer.xr.enabled, this._renderer.xr.enabled = !1;
+      301 === _v0.mapping || 302 === _v0.mapping ? this._setSize(0 === _v0.image.length ? 16 : _v0.image[0].width || _v0.image[0].image.width) : this._setSize(_v0.image.width / 4), _v354 = this._renderer.getRenderTarget(), _v355 = this._renderer.getActiveCubeFace(), _v356 = this._renderer.getActiveMipmapLevel(), _v357 = this._renderer.xr.enabled, this._renderer.xr.enabled = !1;
       let _v2 = _v1 || this._allocateTargets();
       return this._textureToCubeUV(_v0, _v2), this._applyPMREM(_v2), this._cleanup(_v2), _v2;
     }
@@ -11336,13 +11428,13 @@
           generateMipmaps: !1,
           type: 0,
           format: 0,
-          colorSpace: _v117,
+          colorSpace: _v122,
           depthBuffer: !1
         },
-        _v3 = _v358(_v0, _v1, _v2);
+        _v3 = _v363(_v0, _v1, _v2);
       if (null === this._pingPongRenderTarget || this._pingPongRenderTarget.width !== _v0 || this._pingPongRenderTarget.height !== _v1) {
         var _v4;
-        null !== this._pingPongRenderTarget && this._dispose(), this._pingPongRenderTarget = _v358(_v0, _v1, _v2);
+        null !== this._pingPongRenderTarget && this._dispose(), this._pingPongRenderTarget = _v363(_v0, _v1, _v2);
         let {
           _lodMax: _v0
         } = this;
@@ -11355,12 +11447,12 @@
             _v2 = [],
             _v3 = [],
             _v4 = _v0,
-            _v5 = _v0 - 4 + 1 + _v346.length;
+            _v5 = _v0 - 4 + 1 + _v351.length;
           for (let _v0 = 0; _v0 < _v5; _v0++) {
             let _v0 = Math.pow(2, _v4);
             _v2.push(_v0);
             let _v1 = 1 / _v0;
-            _v0 > _v0 - 4 ? _v1 = _v346[_v0 - _v0 + 4 - 1] : 0 === _v0 && (_v1 = 0), _v3.push(_v1);
+            _v0 > _v0 - 4 ? _v1 = _v351[_v0 - _v0 + 4 - 1] : 0 === _v0 && (_v1 = 0), _v3.push(_v1);
             let _v2 = 1 / (_v0 - 2),
               _v3 = -_v2,
               _v4 = 1 + _v2,
@@ -11376,15 +11468,15 @@
               let _v3 = [_v0, _v0, _v0, _v0, _v0, _v0];
               _v8.set(_v3, 6 * _v0);
             }
-            let _v9 = new _v247();
-            _v9.setAttribute("position", new _v236(_v6, 3)), _v9.setAttribute("uv", new _v236(_v7, 2)), _v9.setAttribute("faceIndex", new _v236(_v8, 1)), _v1.push(_v9), _v4 > 4 && _v4--;
+            let _v9 = new _v252();
+            _v9.setAttribute("position", new _v241(_v6, 3)), _v9.setAttribute("uv", new _v241(_v7, 2)), _v9.setAttribute("faceIndex", new _v241(_v8, 1)), _v1.push(_v9), _v4 > 4 && _v4--;
           }
           return {
             lodPlanes: _v1,
             sizeLods: _v2,
             sigmas: _v3
           };
-        }(_v0)), this._blurMaterial = (_v4 = _v0, new _v265({
+        }(_v0)), this._blurMaterial = (_v4 = _v0, new _v270({
           name: "SphericalGaussianBlur",
           defines: {
             n: 20,
@@ -11412,10 +11504,10 @@
               value: 0
             },
             poleAxis: {
-              value: new _v131(0, 1, 0)
+              value: new _v136(0, 1, 0)
             }
           },
-          vertexShader: _v362(),
+          vertexShader: _v367(),
           fragmentShader: `
 
 			precision mediump float;
@@ -11485,44 +11577,44 @@
       return _v3;
     }
     _compileMaterial(_v0) {
-      let _v1 = new _v259(this._lodPlanes[0], _v0);
-      this._renderer.compile(_v1, _v347);
+      let _v1 = new _v264(this._lodPlanes[0], _v0);
+      this._renderer.compile(_v1, _v352);
     }
     _sceneToCubeUV(_v0, _v1, _v2, _v3, _v4) {
-      let _v5 = new _v270(90, 1, _v1, _v2),
+      let _v5 = new _v275(90, 1, _v1, _v2),
         _v6 = [1, -1, 1, 1, 1, 1],
         _v7 = [1, 1, 1, -1, -1, -1],
         _v8 = this._renderer,
         _v9 = _v8.autoClear,
         _v10 = _v8.toneMapping;
-      _v8.getClearColor(_v348), _v8.toneMapping = 0, _v8.autoClear = !1, _v8.state.buffers.depth.getReversed() && (_v8.setRenderTarget(_v3), _v8.clearDepth(), _v8.setRenderTarget(null));
-      let _v11 = new _v232({
+      _v8.getClearColor(_v353), _v8.toneMapping = 0, _v8.autoClear = !1, _v8.state.buffers.depth.getReversed() && (_v8.setRenderTarget(_v3), _v8.clearDepth(), _v8.setRenderTarget(null));
+      let _v11 = new _v237({
           name: "PMREM.Background",
           side: 1,
           depthWrite: !1,
           depthTest: !1
         }),
-        _v12 = new _v259(new _v261(), _v11),
+        _v12 = new _v264(new _v266(), _v11),
         _v13 = !1,
         _v14 = _v0.background;
-      _v14 ? _v14.isColor && (_v11.color.copy(_v14), _v0.background = null, _v13 = !0) : (_v11.color.copy(_v348), _v13 = !0);
+      _v14 ? _v14.isColor && (_v11.color.copy(_v14), _v0.background = null, _v13 = !0) : (_v11.color.copy(_v353), _v13 = !0);
       for (let _v0 = 0; _v0 < 6; _v0++) {
         let _v0 = _v0 % 3;
         0 === _v0 ? (_v5.up.set(0, _v6[_v0], 0), _v5.position.set(_v4.x, _v4.y, _v4.z), _v5.lookAt(_v4.x + _v7[_v0], _v4.y, _v4.z)) : 1 === _v0 ? (_v5.up.set(0, 0, _v6[_v0]), _v5.position.set(_v4.x, _v4.y, _v4.z), _v5.lookAt(_v4.x, _v4.y + _v7[_v0], _v4.z)) : (_v5.up.set(0, _v6[_v0], 0), _v5.position.set(_v4.x, _v4.y, _v4.z), _v5.lookAt(_v4.x, _v4.y, _v4.z + _v7[_v0]));
         let _v1 = this._cubeSize;
-        _v359(_v3, _v0 * _v1, _v0 > 2 ? _v1 : 0, _v1, _v1), _v8.setRenderTarget(_v3), _v13 && _v8.render(_v12, _v5), _v8.render(_v0, _v5);
+        _v364(_v3, _v0 * _v1, _v0 > 2 ? _v1 : 0, _v1, _v1), _v8.setRenderTarget(_v3), _v13 && _v8.render(_v12, _v5), _v8.render(_v0, _v5);
       }
       _v12.geometry.dispose(), _v12.material.dispose(), _v8.toneMapping = _v10, _v8.autoClear = _v9, _v0.background = _v14;
     }
     _textureToCubeUV(_v0, _v1) {
       let _v2 = this._renderer,
         _v3 = 301 === _v0.mapping || 302 === _v0.mapping;
-      _v3 ? (null === this._cubemapMaterial && (this._cubemapMaterial = _v361()), this._cubemapMaterial.uniforms.flipEnvMap.value = !1 === _v0.isRenderTargetTexture ? -1 : 1) : null === this._equirectMaterial && (this._equirectMaterial = _v360());
+      _v3 ? (null === this._cubemapMaterial && (this._cubemapMaterial = _v366()), this._cubemapMaterial.uniforms.flipEnvMap.value = !1 === _v0.isRenderTargetTexture ? -1 : 1) : null === this._equirectMaterial && (this._equirectMaterial = _v365());
       let _v4 = _v3 ? this._cubemapMaterial : this._equirectMaterial,
-        _v5 = new _v259(this._lodPlanes[0], _v4);
+        _v5 = new _v264(this._lodPlanes[0], _v4);
       _v4.uniforms.envMap.value = _v0;
       let _v6 = this._cubeSize;
-      _v359(_v1, 0, 0, 3 * _v6, 2 * _v6), _v2.setRenderTarget(_v1), _v2.render(_v5, _v347);
+      _v364(_v1, 0, 0, 3 * _v6, 2 * _v6), _v2.setRenderTarget(_v1), _v2.render(_v5, _v352);
     }
     _applyPMREM(_v0) {
       let _v1 = this._renderer,
@@ -11531,7 +11623,7 @@
       let _v3 = this._lodPlanes.length;
       for (let _v0 = 1; _v0 < _v3; _v0++) {
         let _v0 = Math.sqrt(this._sigmas[_v0] * this._sigmas[_v0] - this._sigmas[_v0 - 1] * this._sigmas[_v0 - 1]),
-          _v1 = _v355[(_v3 - _v0 - 1) % _v355.length];
+          _v1 = _v360[(_v3 - _v0 - 1) % _v360.length];
         this._blur(_v0, _v0 - 1, _v0, _v0, _v1);
       }
       _v1.autoClear = _v2;
@@ -11544,7 +11636,7 @@
       let _v7 = this._renderer,
         _v8 = this._blurMaterial;
       "latitudinal" !== _v5 && "longitudinal" !== _v5 && console.error("blur direction must be either latitudinal or longitudinal!");
-      let _v9 = new _v259(this._lodPlanes[_v3], _v8),
+      let _v9 = new _v264(this._lodPlanes[_v3], _v8),
         _v10 = _v8.uniforms,
         _v11 = this._sizeLods[_v2] - 1,
         _v12 = isFinite(_v4) ? Math.PI / (2 * _v11) : 2 * Math.PI / 39,
@@ -11566,25 +11658,25 @@
       _v10.dTheta.value = _v12, _v10.mipInt.value = _v17 - _v2;
       let _v18 = this._sizeLods[_v3],
         _v19 = 4 * (this._cubeSize - _v18);
-      _v359(_v1, 3 * _v18 * (_v3 > _v17 - 4 ? _v3 - _v17 + 4 : 0), _v19, 3 * _v18, 2 * _v18), _v7.setRenderTarget(_v1), _v7.render(_v9, _v347);
+      _v364(_v1, 3 * _v18 * (_v3 > _v17 - 4 ? _v3 - _v17 + 4 : 0), _v19, 3 * _v18, 2 * _v18), _v7.setRenderTarget(_v1), _v7.render(_v9, _v352);
     }
   }
-  function _v358(_v0, _v1, _v2) {
-    let _v3 = new _v154(_v0, _v1, _v2);
+  function _v363(_v0, _v1, _v2) {
+    let _v3 = new _v159(_v0, _v1, _v2);
     return _v3.texture.mapping = 306, _v3.texture.name = "PMREM.cubeUv", _v3.scissorTest = !0, _v3;
   }
-  function _v359(_v0, _v1, _v2, _v3, _v4) {
+  function _v364(_v0, _v1, _v2, _v3, _v4) {
     _v0.viewport.set(_v1, _v2, _v3, _v4), _v0.scissor.set(_v1, _v2, _v3, _v4);
   }
-  function _v360() {
-    return new _v265({
+  function _v365() {
+    return new _v270({
       name: "EquirectangularToCubeUV",
       uniforms: {
         envMap: {
           value: null
         }
       },
-      vertexShader: _v362(),
+      vertexShader: _v367(),
       fragmentShader: `
 
 			precision mediump float;
@@ -11610,8 +11702,8 @@
       depthWrite: !1
     });
   }
-  function _v361() {
-    return new _v265({
+  function _v366() {
+    return new _v270({
       name: "CubemapToCubeUV",
       uniforms: {
         envMap: {
@@ -11621,7 +11713,7 @@
           value: -1
         }
       },
-      vertexShader: _v362(),
+      vertexShader: _v367(),
       fragmentShader: `
 
 			precision mediump float;
@@ -11644,7 +11736,7 @@
       depthWrite: !1
     });
   }
-  function _v362() {
+  function _v367() {
     return `
 
 		precision mediump float;
@@ -11702,7 +11794,7 @@
 		}
 	`;
   }
-  function _v363(_v0) {
+  function _v368(_v0) {
     let _v1 = new WeakMap(),
       _v2 = null;
     function _v3(_v0) {
@@ -11720,7 +11812,7 @@
           if (_v1 || _v2) {
             let _v0 = _v1.get(_v0),
               _v1 = void 0 !== _v0 ? _v0.texture.pmremVersion : 0;
-            if (_v0.isRenderTargetTexture && _v0.pmremVersion !== _v1) return null === _v2 && (_v2 = new _v357(_v0)), (_v0 = _v1 ? _v2.fromEquirectangular(_v0, _v0) : _v2.fromCubemap(_v0, _v0)).texture.pmremVersion = _v0.pmremVersion, _v1.set(_v0, _v0), _v0.texture;
+            if (_v0.isRenderTargetTexture && _v0.pmremVersion !== _v1) return null === _v2 && (_v2 = new _v362(_v0)), (_v0 = _v1 ? _v2.fromEquirectangular(_v0, _v0) : _v2.fromCubemap(_v0, _v0)).texture.pmremVersion = _v0.pmremVersion, _v1.set(_v0, _v0), _v0.texture;
             {
               if (void 0 !== _v0) return _v0.texture;
               let _v0 = _v0.image;
@@ -11728,7 +11820,7 @@
                 let _v1 = 0;
                 for (let _v0 = 0; _v0 < 6; _v0++) void 0 !== _v0[_v0] && _v1++;
                 return 6 === _v1;
-              }(_v0) ? (null === _v2 && (_v2 = new _v357(_v0)), (_v0 = _v1 ? _v2.fromEquirectangular(_v0) : _v2.fromCubemap(_v0)).texture.pmremVersion = _v0.pmremVersion, _v1.set(_v0, _v0), _v0.addEventListener("dispose", _v3), _v0.texture) : null;
+              }(_v0) ? (null === _v2 && (_v2 = new _v362(_v0)), (_v0 = _v1 ? _v2.fromEquirectangular(_v0) : _v2.fromCubemap(_v0)).texture.pmremVersion = _v0.pmremVersion, _v1.set(_v0, _v0), _v0.addEventListener("dispose", _v3), _v0.texture) : null;
             }
           }
         }
@@ -11739,7 +11831,7 @@
       }
     };
   }
-  function _v364(_v0) {
+  function _v369(_v0) {
     let _v1 = {};
     function _v2(_v0) {
       let _v1;
@@ -11771,11 +11863,11 @@
       },
       get: function (_v0) {
         let _v1 = _v2(_v0);
-        return null === _v1 && _v139("THREE.WebGLRenderer: " + _v0 + " extension not supported."), _v1;
+        return null === _v1 && _v144("THREE.WebGLRenderer: " + _v0 + " extension not supported."), _v1;
       }
     };
   }
-  function _v365(_v0, _v1, _v2, _v3) {
+  function _v370(_v0, _v1, _v2, _v3) {
     let _v4 = {},
       _v5 = new WeakMap();
     function _v6(_v0) {
@@ -11810,7 +11902,7 @@
           _v1.push(_v0, _v1, _v1, _v2, _v2, _v0);
         }
       }
-      let _v5 = new (_v136(_v1) ? _v238 : _v237)(_v1, 1);
+      let _v5 = new (_v141(_v1) ? _v243 : _v242)(_v1, 1);
       _v5.version = _v4;
       let _v6 = _v5.get(_v0);
       _v6 && _v1.remove(_v6), _v5.set(_v0, _v5);
@@ -11833,7 +11925,7 @@
       }
     };
   }
-  function _v366(_v0, _v1, _v2) {
+  function _v371(_v0, _v1, _v2) {
     let _v3, _v4, _v5;
     function _v6(_v0, _v1, _v2) {
       0 !== _v2 && (_v0.drawElementsInstanced(_v3, _v1, _v4, _v0 * _v5, _v2), _v2.update(_v1, _v3, _v2));
@@ -11861,7 +11953,7 @@
       }
     };
   }
-  function _v367(_v0) {
+  function _v372(_v0) {
     let _v1 = {
       frame: 0,
       calls: 0,
@@ -11903,9 +11995,9 @@
       }
     };
   }
-  function _v368(_v0, _v1, _v2) {
+  function _v373(_v0, _v1, _v2) {
     let _v3 = new WeakMap(),
-      _v4 = new _v152();
+      _v4 = new _v157();
     return {
       update: function (_v0, _v1, _v2) {
         let _v3 = _v0.morphTargetInfluences,
@@ -11926,7 +12018,7 @@
             _v8 = 1;
           _v7 > _v1.maxTextureSize && (_v8 = Math.ceil(_v7 / _v1.maxTextureSize), _v7 = _v1.maxTextureSize);
           let _v9 = new Float32Array(_v7 * _v8 * 4 * _v5),
-            _v10 = new _v155(_v9, _v7, _v8, _v5);
+            _v10 = new _v160(_v9, _v7, _v8, _v5);
           _v10.type = 0, _v10.needsUpdate = !0;
           let _v11 = 4 * _v6;
           for (let _v0 = 0; _v0 < _v5; _v0++) {
@@ -11942,7 +12034,7 @@
           _v6 = {
             count: _v5,
             texture: _v10,
-            size: new _v129(_v7, _v8)
+            size: new _v134(_v7, _v8)
           }, _v3.set(_v1, _v6), _v1.addEventListener("dispose", function _v0() {
             _v10.dispose(), _v3.delete(_v1), _v1.removeEventListener("dispose", _v0);
           });
@@ -11957,7 +12049,7 @@
       }
     };
   }
-  function _v369(_v0, _v1, _v2, _v3) {
+  function _v374(_v0, _v1, _v2, _v3) {
     let _v4 = new WeakMap();
     function _v5(_v0) {
       let _v1 = _v0.target;
@@ -11979,10 +12071,10 @@
       }
     };
   }
-  let _v370 = new _v151(),
-    _v371 = new _v288(1, 1),
-    _v372 = new _v155(),
-    _v373 = new class extends _v151 {
+  let _v375 = new _v156(),
+    _v376 = new _v293(1, 1),
+    _v377 = new _v160(),
+    _v378 = new class extends _v156 {
       constructor(_v0 = null, _v1 = 1, _v2 = 1, _v3 = 1) {
         super(null), this.isData3DTexture = !0, this.image = {
           data: _v0,
@@ -11992,370 +12084,370 @@
         }, this.magFilter = 0, this.minFilter = 0, this.wrapR = 0, this.generateMipmaps = !1, this.flipY = !1, this.unpackAlignment = 1;
       }
     }(),
-    _v374 = new _v272(),
-    _v375 = [],
-    _v376 = [],
-    _v377 = new Float32Array(16),
-    _v378 = new Float32Array(9),
-    _v379 = new Float32Array(4);
-  function _v380(_v0, _v1, _v2) {
+    _v379 = new _v277(),
+    _v380 = [],
+    _v381 = [],
+    _v382 = new Float32Array(16),
+    _v383 = new Float32Array(9),
+    _v384 = new Float32Array(4);
+  function _v385(_v0, _v1, _v2) {
     let _v3 = _v0[0];
     if (_v3 <= 0 || _v3 > 0) return _v0;
     let _v4 = _v1 * _v2,
-      _v5 = _v375[_v4];
-    if (void 0 === _v5 && (_v5 = new Float32Array(_v4), _v375[_v4] = _v5), 0 !== _v1) {
+      _v5 = _v380[_v4];
+    if (void 0 === _v5 && (_v5 = new Float32Array(_v4), _v380[_v4] = _v5), 0 !== _v1) {
       _v3.toArray(_v5, 0);
       for (let _v0 = 1, _v1 = 0; _v0 !== _v1; ++_v0) _v1 += _v2, _v0[_v0].toArray(_v5, _v1);
     }
     return _v5;
   }
-  function _v381(_v0, _v1) {
+  function _v386(_v0, _v1) {
     if (_v0.length !== _v1.length) return !1;
     for (let _v0 = 0, _v1 = _v0.length; _v0 < _v1; _v0++) if (_v0[_v0] !== _v1[_v0]) return !1;
     return !0;
   }
-  function _v382(_v0, _v1) {
+  function _v387(_v0, _v1) {
     for (let _v0 = 0, _v1 = _v1.length; _v0 < _v1; _v0++) _v0[_v0] = _v1[_v0];
   }
-  function _v383(_v0, _v1) {
-    let _v2 = _v376[_v1];
-    void 0 === _v2 && (_v2 = new Int32Array(_v1), _v376[_v1] = _v2);
+  function _v388(_v0, _v1) {
+    let _v2 = _v381[_v1];
+    void 0 === _v2 && (_v2 = new Int32Array(_v1), _v381[_v1] = _v2);
     for (let _v0 = 0; _v0 !== _v1; ++_v0) _v2[_v0] = _v0.allocateTextureUnit();
     return _v2;
   }
-  function _v384(_v0, _v1) {
+  function _v389(_v0, _v1) {
     let _v2 = this.cache;
     _v2[0] !== _v1 && (_v0.uniform1f(this.addr, _v1), _v2[0] = _v1);
   }
-  function _v385(_v0, _v1) {
+  function _v390(_v0, _v1) {
     let _v2 = this.cache;
     if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y) && (_v0.uniform2f(this.addr, _v1.x, _v1.y), _v2[0] = _v1.x, _v2[1] = _v1.y);else {
-      if (_v381(_v2, _v1)) return;
-      _v0.uniform2fv(this.addr, _v1), _v382(_v2, _v1);
-    }
-  }
-  function _v386(_v0, _v1) {
-    let _v2 = this.cache;
-    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y || _v2[2] !== _v1.z) && (_v0.uniform3f(this.addr, _v1.x, _v1.y, _v1.z), _v2[0] = _v1.x, _v2[1] = _v1.y, _v2[2] = _v1.z);else if (void 0 !== _v1.r) (_v2[0] !== _v1.r || _v2[1] !== _v1.g || _v2[2] !== _v1.b) && (_v0.uniform3f(this.addr, _v1.r, _v1.g, _v1.b), _v2[0] = _v1.r, _v2[1] = _v1.g, _v2[2] = _v1.b);else {
-      if (_v381(_v2, _v1)) return;
-      _v0.uniform3fv(this.addr, _v1), _v382(_v2, _v1);
-    }
-  }
-  function _v387(_v0, _v1) {
-    let _v2 = this.cache;
-    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y || _v2[2] !== _v1.z || _v2[3] !== _v1.w) && (_v0.uniform4f(this.addr, _v1.x, _v1.y, _v1.z, _v1.w), _v2[0] = _v1.x, _v2[1] = _v1.y, _v2[2] = _v1.z, _v2[3] = _v1.w);else {
-      if (_v381(_v2, _v1)) return;
-      _v0.uniform4fv(this.addr, _v1), _v382(_v2, _v1);
-    }
-  }
-  function _v388(_v0, _v1) {
-    let _v2 = this.cache,
-      _v3 = _v1.elements;
-    if (void 0 === _v3) {
-      if (_v381(_v2, _v1)) return;
-      _v0.uniformMatrix2fv(this.addr, !1, _v1), _v382(_v2, _v1);
-    } else {
-      if (_v381(_v2, _v3)) return;
-      _v379.set(_v3), _v0.uniformMatrix2fv(this.addr, !1, _v379), _v382(_v2, _v3);
-    }
-  }
-  function _v389(_v0, _v1) {
-    let _v2 = this.cache,
-      _v3 = _v1.elements;
-    if (void 0 === _v3) {
-      if (_v381(_v2, _v1)) return;
-      _v0.uniformMatrix3fv(this.addr, !1, _v1), _v382(_v2, _v1);
-    } else {
-      if (_v381(_v2, _v3)) return;
-      _v378.set(_v3), _v0.uniformMatrix3fv(this.addr, !1, _v378), _v382(_v2, _v3);
-    }
-  }
-  function _v390(_v0, _v1) {
-    let _v2 = this.cache,
-      _v3 = _v1.elements;
-    if (void 0 === _v3) {
-      if (_v381(_v2, _v1)) return;
-      _v0.uniformMatrix4fv(this.addr, !1, _v1), _v382(_v2, _v1);
-    } else {
-      if (_v381(_v2, _v3)) return;
-      _v377.set(_v3), _v0.uniformMatrix4fv(this.addr, !1, _v377), _v382(_v2, _v3);
+      if (_v386(_v2, _v1)) return;
+      _v0.uniform2fv(this.addr, _v1), _v387(_v2, _v1);
     }
   }
   function _v391(_v0, _v1) {
     let _v2 = this.cache;
-    _v2[0] !== _v1 && (_v0.uniform1i(this.addr, _v1), _v2[0] = _v1);
+    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y || _v2[2] !== _v1.z) && (_v0.uniform3f(this.addr, _v1.x, _v1.y, _v1.z), _v2[0] = _v1.x, _v2[1] = _v1.y, _v2[2] = _v1.z);else if (void 0 !== _v1.r) (_v2[0] !== _v1.r || _v2[1] !== _v1.g || _v2[2] !== _v1.b) && (_v0.uniform3f(this.addr, _v1.r, _v1.g, _v1.b), _v2[0] = _v1.r, _v2[1] = _v1.g, _v2[2] = _v1.b);else {
+      if (_v386(_v2, _v1)) return;
+      _v0.uniform3fv(this.addr, _v1), _v387(_v2, _v1);
+    }
   }
   function _v392(_v0, _v1) {
     let _v2 = this.cache;
-    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y) && (_v0.uniform2i(this.addr, _v1.x, _v1.y), _v2[0] = _v1.x, _v2[1] = _v1.y);else {
-      if (_v381(_v2, _v1)) return;
-      _v0.uniform2iv(this.addr, _v1), _v382(_v2, _v1);
+    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y || _v2[2] !== _v1.z || _v2[3] !== _v1.w) && (_v0.uniform4f(this.addr, _v1.x, _v1.y, _v1.z, _v1.w), _v2[0] = _v1.x, _v2[1] = _v1.y, _v2[2] = _v1.z, _v2[3] = _v1.w);else {
+      if (_v386(_v2, _v1)) return;
+      _v0.uniform4fv(this.addr, _v1), _v387(_v2, _v1);
     }
   }
   function _v393(_v0, _v1) {
-    let _v2 = this.cache;
-    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y || _v2[2] !== _v1.z) && (_v0.uniform3i(this.addr, _v1.x, _v1.y, _v1.z), _v2[0] = _v1.x, _v2[1] = _v1.y, _v2[2] = _v1.z);else {
-      if (_v381(_v2, _v1)) return;
-      _v0.uniform3iv(this.addr, _v1), _v382(_v2, _v1);
+    let _v2 = this.cache,
+      _v3 = _v1.elements;
+    if (void 0 === _v3) {
+      if (_v386(_v2, _v1)) return;
+      _v0.uniformMatrix2fv(this.addr, !1, _v1), _v387(_v2, _v1);
+    } else {
+      if (_v386(_v2, _v3)) return;
+      _v384.set(_v3), _v0.uniformMatrix2fv(this.addr, !1, _v384), _v387(_v2, _v3);
     }
   }
   function _v394(_v0, _v1) {
-    let _v2 = this.cache;
-    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y || _v2[2] !== _v1.z || _v2[3] !== _v1.w) && (_v0.uniform4i(this.addr, _v1.x, _v1.y, _v1.z, _v1.w), _v2[0] = _v1.x, _v2[1] = _v1.y, _v2[2] = _v1.z, _v2[3] = _v1.w);else {
-      if (_v381(_v2, _v1)) return;
-      _v0.uniform4iv(this.addr, _v1), _v382(_v2, _v1);
+    let _v2 = this.cache,
+      _v3 = _v1.elements;
+    if (void 0 === _v3) {
+      if (_v386(_v2, _v1)) return;
+      _v0.uniformMatrix3fv(this.addr, !1, _v1), _v387(_v2, _v1);
+    } else {
+      if (_v386(_v2, _v3)) return;
+      _v383.set(_v3), _v0.uniformMatrix3fv(this.addr, !1, _v383), _v387(_v2, _v3);
     }
   }
   function _v395(_v0, _v1) {
-    let _v2 = this.cache;
-    _v2[0] !== _v1 && (_v0.uniform1ui(this.addr, _v1), _v2[0] = _v1);
+    let _v2 = this.cache,
+      _v3 = _v1.elements;
+    if (void 0 === _v3) {
+      if (_v386(_v2, _v1)) return;
+      _v0.uniformMatrix4fv(this.addr, !1, _v1), _v387(_v2, _v1);
+    } else {
+      if (_v386(_v2, _v3)) return;
+      _v382.set(_v3), _v0.uniformMatrix4fv(this.addr, !1, _v382), _v387(_v2, _v3);
+    }
   }
   function _v396(_v0, _v1) {
     let _v2 = this.cache;
-    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y) && (_v0.uniform2ui(this.addr, _v1.x, _v1.y), _v2[0] = _v1.x, _v2[1] = _v1.y);else {
-      if (_v381(_v2, _v1)) return;
-      _v0.uniform2uiv(this.addr, _v1), _v382(_v2, _v1);
-    }
+    _v2[0] !== _v1 && (_v0.uniform1i(this.addr, _v1), _v2[0] = _v1);
   }
   function _v397(_v0, _v1) {
     let _v2 = this.cache;
-    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y || _v2[2] !== _v1.z) && (_v0.uniform3ui(this.addr, _v1.x, _v1.y, _v1.z), _v2[0] = _v1.x, _v2[1] = _v1.y, _v2[2] = _v1.z);else {
-      if (_v381(_v2, _v1)) return;
-      _v0.uniform3uiv(this.addr, _v1), _v382(_v2, _v1);
+    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y) && (_v0.uniform2i(this.addr, _v1.x, _v1.y), _v2[0] = _v1.x, _v2[1] = _v1.y);else {
+      if (_v386(_v2, _v1)) return;
+      _v0.uniform2iv(this.addr, _v1), _v387(_v2, _v1);
     }
   }
   function _v398(_v0, _v1) {
     let _v2 = this.cache;
-    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y || _v2[2] !== _v1.z || _v2[3] !== _v1.w) && (_v0.uniform4ui(this.addr, _v1.x, _v1.y, _v1.z, _v1.w), _v2[0] = _v1.x, _v2[1] = _v1.y, _v2[2] = _v1.z, _v2[3] = _v1.w);else {
-      if (_v381(_v2, _v1)) return;
-      _v0.uniform4uiv(this.addr, _v1), _v382(_v2, _v1);
+    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y || _v2[2] !== _v1.z) && (_v0.uniform3i(this.addr, _v1.x, _v1.y, _v1.z), _v2[0] = _v1.x, _v2[1] = _v1.y, _v2[2] = _v1.z);else {
+      if (_v386(_v2, _v1)) return;
+      _v0.uniform3iv(this.addr, _v1), _v387(_v2, _v1);
     }
   }
-  function _v399(_v0, _v1, _v2) {
+  function _v399(_v0, _v1) {
+    let _v2 = this.cache;
+    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y || _v2[2] !== _v1.z || _v2[3] !== _v1.w) && (_v0.uniform4i(this.addr, _v1.x, _v1.y, _v1.z, _v1.w), _v2[0] = _v1.x, _v2[1] = _v1.y, _v2[2] = _v1.z, _v2[3] = _v1.w);else {
+      if (_v386(_v2, _v1)) return;
+      _v0.uniform4iv(this.addr, _v1), _v387(_v2, _v1);
+    }
+  }
+  function _v400(_v0, _v1) {
+    let _v2 = this.cache;
+    _v2[0] !== _v1 && (_v0.uniform1ui(this.addr, _v1), _v2[0] = _v1);
+  }
+  function _v401(_v0, _v1) {
+    let _v2 = this.cache;
+    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y) && (_v0.uniform2ui(this.addr, _v1.x, _v1.y), _v2[0] = _v1.x, _v2[1] = _v1.y);else {
+      if (_v386(_v2, _v1)) return;
+      _v0.uniform2uiv(this.addr, _v1), _v387(_v2, _v1);
+    }
+  }
+  function _v402(_v0, _v1) {
+    let _v2 = this.cache;
+    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y || _v2[2] !== _v1.z) && (_v0.uniform3ui(this.addr, _v1.x, _v1.y, _v1.z), _v2[0] = _v1.x, _v2[1] = _v1.y, _v2[2] = _v1.z);else {
+      if (_v386(_v2, _v1)) return;
+      _v0.uniform3uiv(this.addr, _v1), _v387(_v2, _v1);
+    }
+  }
+  function _v403(_v0, _v1) {
+    let _v2 = this.cache;
+    if (void 0 !== _v1.x) (_v2[0] !== _v1.x || _v2[1] !== _v1.y || _v2[2] !== _v1.z || _v2[3] !== _v1.w) && (_v0.uniform4ui(this.addr, _v1.x, _v1.y, _v1.z, _v1.w), _v2[0] = _v1.x, _v2[1] = _v1.y, _v2[2] = _v1.z, _v2[3] = _v1.w);else {
+      if (_v386(_v2, _v1)) return;
+      _v0.uniform4uiv(this.addr, _v1), _v387(_v2, _v1);
+    }
+  }
+  function _v404(_v0, _v1, _v2) {
     let _v3,
       _v4 = this.cache,
       _v5 = _v2.allocateTextureUnit();
-    _v4[0] !== _v5 && (_v0.uniform1i(this.addr, _v5), _v4[0] = _v5), this.type === _v0.SAMPLER_2D_SHADOW ? (_v371.compareFunction = 515, _v3 = _v371) : _v3 = _v370, _v2.setTexture2D(_v1 || _v3, _v5);
+    _v4[0] !== _v5 && (_v0.uniform1i(this.addr, _v5), _v4[0] = _v5), this.type === _v0.SAMPLER_2D_SHADOW ? (_v376.compareFunction = 515, _v3 = _v376) : _v3 = _v375, _v2.setTexture2D(_v1 || _v3, _v5);
   }
-  function _v400(_v0, _v1, _v2) {
+  function _v405(_v0, _v1, _v2) {
     let _v3 = this.cache,
       _v4 = _v2.allocateTextureUnit();
-    _v3[0] !== _v4 && (_v0.uniform1i(this.addr, _v4), _v3[0] = _v4), _v2.setTexture3D(_v1 || _v373, _v4);
+    _v3[0] !== _v4 && (_v0.uniform1i(this.addr, _v4), _v3[0] = _v4), _v2.setTexture3D(_v1 || _v378, _v4);
   }
-  function _v401(_v0, _v1, _v2) {
+  function _v406(_v0, _v1, _v2) {
     let _v3 = this.cache,
       _v4 = _v2.allocateTextureUnit();
-    _v3[0] !== _v4 && (_v0.uniform1i(this.addr, _v4), _v3[0] = _v4), _v2.setTextureCube(_v1 || _v374, _v4);
+    _v3[0] !== _v4 && (_v0.uniform1i(this.addr, _v4), _v3[0] = _v4), _v2.setTextureCube(_v1 || _v379, _v4);
   }
-  function _v402(_v0, _v1, _v2) {
+  function _v407(_v0, _v1, _v2) {
     let _v3 = this.cache,
       _v4 = _v2.allocateTextureUnit();
-    _v3[0] !== _v4 && (_v0.uniform1i(this.addr, _v4), _v3[0] = _v4), _v2.setTexture2DArray(_v1 || _v372, _v4);
-  }
-  function _v403(_v0, _v1) {
-    _v0.uniform1fv(this.addr, _v1);
-  }
-  function _v404(_v0, _v1) {
-    let _v2 = _v380(_v1, this.size, 2);
-    _v0.uniform2fv(this.addr, _v2);
-  }
-  function _v405(_v0, _v1) {
-    let _v2 = _v380(_v1, this.size, 3);
-    _v0.uniform3fv(this.addr, _v2);
-  }
-  function _v406(_v0, _v1) {
-    let _v2 = _v380(_v1, this.size, 4);
-    _v0.uniform4fv(this.addr, _v2);
-  }
-  function _v407(_v0, _v1) {
-    let _v2 = _v380(_v1, this.size, 4);
-    _v0.uniformMatrix2fv(this.addr, !1, _v2);
+    _v3[0] !== _v4 && (_v0.uniform1i(this.addr, _v4), _v3[0] = _v4), _v2.setTexture2DArray(_v1 || _v377, _v4);
   }
   function _v408(_v0, _v1) {
-    let _v2 = _v380(_v1, this.size, 9);
-    _v0.uniformMatrix3fv(this.addr, !1, _v2);
+    _v0.uniform1fv(this.addr, _v1);
   }
   function _v409(_v0, _v1) {
-    let _v2 = _v380(_v1, this.size, 16);
-    _v0.uniformMatrix4fv(this.addr, !1, _v2);
+    let _v2 = _v385(_v1, this.size, 2);
+    _v0.uniform2fv(this.addr, _v2);
   }
   function _v410(_v0, _v1) {
-    _v0.uniform1iv(this.addr, _v1);
+    let _v2 = _v385(_v1, this.size, 3);
+    _v0.uniform3fv(this.addr, _v2);
   }
   function _v411(_v0, _v1) {
-    _v0.uniform2iv(this.addr, _v1);
+    let _v2 = _v385(_v1, this.size, 4);
+    _v0.uniform4fv(this.addr, _v2);
   }
   function _v412(_v0, _v1) {
-    _v0.uniform3iv(this.addr, _v1);
+    let _v2 = _v385(_v1, this.size, 4);
+    _v0.uniformMatrix2fv(this.addr, !1, _v2);
   }
   function _v413(_v0, _v1) {
-    _v0.uniform4iv(this.addr, _v1);
+    let _v2 = _v385(_v1, this.size, 9);
+    _v0.uniformMatrix3fv(this.addr, !1, _v2);
   }
   function _v414(_v0, _v1) {
-    _v0.uniform1uiv(this.addr, _v1);
+    let _v2 = _v385(_v1, this.size, 16);
+    _v0.uniformMatrix4fv(this.addr, !1, _v2);
   }
   function _v415(_v0, _v1) {
-    _v0.uniform2uiv(this.addr, _v1);
+    _v0.uniform1iv(this.addr, _v1);
   }
   function _v416(_v0, _v1) {
-    _v0.uniform3uiv(this.addr, _v1);
+    _v0.uniform2iv(this.addr, _v1);
   }
   function _v417(_v0, _v1) {
+    _v0.uniform3iv(this.addr, _v1);
+  }
+  function _v418(_v0, _v1) {
+    _v0.uniform4iv(this.addr, _v1);
+  }
+  function _v419(_v0, _v1) {
+    _v0.uniform1uiv(this.addr, _v1);
+  }
+  function _v420(_v0, _v1) {
+    _v0.uniform2uiv(this.addr, _v1);
+  }
+  function _v421(_v0, _v1) {
+    _v0.uniform3uiv(this.addr, _v1);
+  }
+  function _v422(_v0, _v1) {
     _v0.uniform4uiv(this.addr, _v1);
   }
-  function _v418(_v0, _v1, _v2) {
+  function _v423(_v0, _v1, _v2) {
     let _v3 = this.cache,
       _v4 = _v1.length,
-      _v5 = _v383(_v2, _v4);
-    _v381(_v3, _v5) || (_v0.uniform1iv(this.addr, _v5), _v382(_v3, _v5));
-    for (let _v0 = 0; _v0 !== _v4; ++_v0) _v2.setTexture2D(_v1[_v0] || _v370, _v5[_v0]);
+      _v5 = _v388(_v2, _v4);
+    _v386(_v3, _v5) || (_v0.uniform1iv(this.addr, _v5), _v387(_v3, _v5));
+    for (let _v0 = 0; _v0 !== _v4; ++_v0) _v2.setTexture2D(_v1[_v0] || _v375, _v5[_v0]);
   }
-  function _v419(_v0, _v1, _v2) {
+  function _v424(_v0, _v1, _v2) {
     let _v3 = this.cache,
       _v4 = _v1.length,
-      _v5 = _v383(_v2, _v4);
-    _v381(_v3, _v5) || (_v0.uniform1iv(this.addr, _v5), _v382(_v3, _v5));
-    for (let _v0 = 0; _v0 !== _v4; ++_v0) _v2.setTexture3D(_v1[_v0] || _v373, _v5[_v0]);
+      _v5 = _v388(_v2, _v4);
+    _v386(_v3, _v5) || (_v0.uniform1iv(this.addr, _v5), _v387(_v3, _v5));
+    for (let _v0 = 0; _v0 !== _v4; ++_v0) _v2.setTexture3D(_v1[_v0] || _v378, _v5[_v0]);
   }
-  function _v420(_v0, _v1, _v2) {
+  function _v425(_v0, _v1, _v2) {
     let _v3 = this.cache,
       _v4 = _v1.length,
-      _v5 = _v383(_v2, _v4);
-    _v381(_v3, _v5) || (_v0.uniform1iv(this.addr, _v5), _v382(_v3, _v5));
-    for (let _v0 = 0; _v0 !== _v4; ++_v0) _v2.setTextureCube(_v1[_v0] || _v374, _v5[_v0]);
+      _v5 = _v388(_v2, _v4);
+    _v386(_v3, _v5) || (_v0.uniform1iv(this.addr, _v5), _v387(_v3, _v5));
+    for (let _v0 = 0; _v0 !== _v4; ++_v0) _v2.setTextureCube(_v1[_v0] || _v379, _v5[_v0]);
   }
-  function _v421(_v0, _v1, _v2) {
+  function _v426(_v0, _v1, _v2) {
     let _v3 = this.cache,
       _v4 = _v1.length,
-      _v5 = _v383(_v2, _v4);
-    _v381(_v3, _v5) || (_v0.uniform1iv(this.addr, _v5), _v382(_v3, _v5));
-    for (let _v0 = 0; _v0 !== _v4; ++_v0) _v2.setTexture2DArray(_v1[_v0] || _v372, _v5[_v0]);
+      _v5 = _v388(_v2, _v4);
+    _v386(_v3, _v5) || (_v0.uniform1iv(this.addr, _v5), _v387(_v3, _v5));
+    for (let _v0 = 0; _v0 !== _v4; ++_v0) _v2.setTexture2DArray(_v1[_v0] || _v377, _v5[_v0]);
   }
-  class _v422 {
+  class _v427 {
     constructor(_v0, _v1, _v2) {
       this.id = _v0, this.addr = _v2, this.cache = [], this.type = _v1.type, this.setValue = function (_v0) {
         switch (_v0) {
-          case 0:
-            return _v384;
-          case 0:
-            return _v385;
-          case 0:
-            return _v386;
-          case 0:
-            return _v387;
-          case 0:
-            return _v388;
           case 0:
             return _v389;
           case 0:
             return _v390;
           case 0:
-          case 0:
             return _v391;
-          case 0:
           case 0:
             return _v392;
           case 0:
-          case 0:
             return _v393;
-          case 0:
           case 0:
             return _v394;
           case 0:
             return _v395;
           case 0:
+          case 0:
             return _v396;
           case 0:
+          case 0:
             return _v397;
+          case 0:
           case 0:
             return _v398;
           case 0:
           case 0:
-          case 0:
-          case 0:
-          case 0:
             return _v399;
-          case 0:
-          case 0:
           case 0:
             return _v400;
           case 0:
-          case 0:
-          case 0:
-          case 0:
             return _v401;
           case 0:
-          case 0:
-          case 0:
-          case 0:
             return _v402;
+          case 0:
+            return _v403;
+          case 0:
+          case 0:
+          case 0:
+          case 0:
+          case 0:
+            return _v404;
+          case 0:
+          case 0:
+          case 0:
+            return _v405;
+          case 0:
+          case 0:
+          case 0:
+          case 0:
+            return _v406;
+          case 0:
+          case 0:
+          case 0:
+          case 0:
+            return _v407;
         }
       }(_v1.type);
     }
   }
-  class _v423 {
+  class _v428 {
     constructor(_v0, _v1, _v2) {
       this.id = _v0, this.addr = _v2, this.cache = [], this.type = _v1.type, this.size = _v1.size, this.setValue = function (_v0) {
         switch (_v0) {
-          case 0:
-            return _v403;
-          case 0:
-            return _v404;
-          case 0:
-            return _v405;
-          case 0:
-            return _v406;
-          case 0:
-            return _v407;
           case 0:
             return _v408;
           case 0:
             return _v409;
           case 0:
-          case 0:
             return _v410;
-          case 0:
           case 0:
             return _v411;
           case 0:
-          case 0:
             return _v412;
-          case 0:
           case 0:
             return _v413;
           case 0:
             return _v414;
           case 0:
+          case 0:
             return _v415;
           case 0:
+          case 0:
             return _v416;
+          case 0:
           case 0:
             return _v417;
           case 0:
           case 0:
-          case 0:
-          case 0:
-          case 0:
             return _v418;
-          case 0:
-          case 0:
           case 0:
             return _v419;
           case 0:
-          case 0:
-          case 0:
-          case 0:
             return _v420;
           case 0:
-          case 0:
-          case 0:
-          case 0:
             return _v421;
+          case 0:
+            return _v422;
+          case 0:
+          case 0:
+          case 0:
+          case 0:
+          case 0:
+            return _v423;
+          case 0:
+          case 0:
+          case 0:
+            return _v424;
+          case 0:
+          case 0:
+          case 0:
+          case 0:
+            return _v425;
+          case 0:
+          case 0:
+          case 0:
+          case 0:
+            return _v426;
         }
       }(_v1.type);
     }
   }
-  class _v424 {
+  class _v429 {
     constructor(_v0) {
       this.id = _v0, this.seq = [], this.map = {};
     }
@@ -12367,11 +12459,11 @@
       }
     }
   }
-  let _v425 = /(\w+)(\])?(\[|\.)?/g;
-  function _v426(_v0, _v1) {
+  let _v430 = /(\w+)(\])?(\[|\.)?/g;
+  function _v431(_v0, _v1) {
     _v0.seq.push(_v1), _v0.map[_v1.id] = _v1;
   }
-  class _v427 {
+  class _v432 {
     constructor(_v0, _v1) {
       this.seq = [], this.map = {};
       const _v2 = _v0.getProgramParameter(_v1, _v0.ACTIVE_UNIFORMS);
@@ -12381,19 +12473,19 @@
         !function (_v0, _v1, _v2) {
           let _v3 = _v0.name,
             _v4 = _v3.length;
-          for (_v425.lastIndex = 0;;) {
-            let _v0 = _v425.exec(_v3),
-              _v1 = _v425.lastIndex,
+          for (_v430.lastIndex = 0;;) {
+            let _v0 = _v430.exec(_v3),
+              _v1 = _v430.lastIndex,
               _v2 = _v0[1],
               _v3 = "]" === _v0[2],
               _v4 = _v0[3];
             if (_v3 && (_v2 |= 0), void 0 === _v4 || "[" === _v4 && _v1 + 2 === _v4) {
-              _v426(_v2, void 0 === _v4 ? new _v422(_v2, _v0, _v1) : new _v423(_v2, _v0, _v1));
+              _v431(_v2, void 0 === _v4 ? new _v427(_v2, _v0, _v1) : new _v428(_v2, _v0, _v1));
               break;
             }
             {
               let _v0 = _v2.map[_v2];
-              void 0 === _v0 && _v426(_v2, _v0 = new _v424(_v2)), _v2 = _v0;
+              void 0 === _v0 && _v431(_v2, _v0 = new _v429(_v2)), _v2 = _v0;
             }
           }
         }(_v0, _v1, this);
@@ -12423,13 +12515,13 @@
       return _v2;
     }
   }
-  function _v428(_v0, _v1, _v2) {
+  function _v433(_v0, _v1, _v2) {
     let _v3 = _v0.createShader(_v1);
     return _v0.shaderSource(_v3, _v2), _v0.compileShader(_v3), _v3;
   }
-  let _v429 = 0,
-    _v430 = new _v134();
-  function _v431(_v0, _v1, _v2) {
+  let _v434 = 0,
+    _v435 = new _v139();
+  function _v436(_v0, _v1, _v2) {
     let _v3 = _v0.getShaderParameter(_v1, _v0.COMPILE_STATUS),
       _v4 = (_v0.getShaderInfoLog(_v1) || "").trim();
     if (_v3 && "" === _v4) return "";
@@ -12450,40 +12542,40 @@
       }(_v0.getShaderSource(_v1), _v0);
     }
   }
-  let _v432 = new _v131();
-  function _v433(_v0) {
+  let _v437 = new _v136();
+  function _v438(_v0) {
     return "" !== _v0;
   }
-  function _v434(_v0, _v1) {
+  function _v439(_v0, _v1) {
     let _v2 = _v1.numSpotLightShadows + _v1.numSpotLightMaps - _v1.numSpotLightShadowsWithMaps;
     return _v0.replace(/NUM_DIR_LIGHTS/g, _v1.numDirLights).replace(/NUM_SPOT_LIGHTS/g, _v1.numSpotLights).replace(/NUM_SPOT_LIGHT_MAPS/g, _v1.numSpotLightMaps).replace(/NUM_SPOT_LIGHT_COORDS/g, _v2).replace(/NUM_RECT_AREA_LIGHTS/g, _v1.numRectAreaLights).replace(/NUM_POINT_LIGHTS/g, _v1.numPointLights).replace(/NUM_HEMI_LIGHTS/g, _v1.numHemiLights).replace(/NUM_DIR_LIGHT_SHADOWS/g, _v1.numDirLightShadows).replace(/NUM_SPOT_LIGHT_SHADOWS_WITH_MAPS/g, _v1.numSpotLightShadowsWithMaps).replace(/NUM_SPOT_LIGHT_SHADOWS/g, _v1.numSpotLightShadows).replace(/NUM_POINT_LIGHT_SHADOWS/g, _v1.numPointLightShadows);
   }
-  function _v435(_v0, _v1) {
+  function _v440(_v0, _v1) {
     return _v0.replace(/NUM_CLIPPING_PLANES/g, _v1.numClippingPlanes).replace(/UNION_CLIPPING_PLANES/g, _v1.numClippingPlanes - _v1.numClipIntersection);
   }
-  let _v436 = /^[ \t]*#include +<([\w\d./]+)>/gm;
-  function _v437(_v0) {
-    return _v0.replace(_v436, _v439);
+  let _v441 = /^[ \t]*#include +<([\w\d./]+)>/gm;
+  function _v442(_v0) {
+    return _v0.replace(_v441, _v444);
   }
-  let _v438 = new Map();
-  function _v439(_v0, _v1) {
-    let _v2 = _v334[_v1];
+  let _v443 = new Map();
+  function _v444(_v0, _v1) {
+    let _v2 = _v339[_v1];
     if (void 0 === _v2) {
-      let _v0 = _v438.get(_v1);
-      if (void 0 !== _v0) _v2 = _v334[_v0], console.warn('THREE.WebGLRenderer: Shader chunk "%s" has been deprecated. Use "%s" instead.', _v1, _v0);else throw Error("Can not resolve #include <" + _v1 + ">");
+      let _v0 = _v443.get(_v1);
+      if (void 0 !== _v0) _v2 = _v339[_v0], console.warn('THREE.WebGLRenderer: Shader chunk "%s" has been deprecated. Use "%s" instead.', _v1, _v0);else throw Error("Can not resolve #include <" + _v1 + ">");
     }
-    return _v437(_v2);
+    return _v442(_v2);
   }
-  let _v440 = /#pragma unroll_loop_start\s+for\s*\(\s*int\s+i\s*=\s*(\d+)\s*;\s*i\s*<\s*(\d+)\s*;\s*i\s*\+\+\s*\)\s*{([\s\S]+?)}\s+#pragma unroll_loop_end/g;
-  function _v441(_v0) {
-    return _v0.replace(_v440, _v442);
+  let _v445 = /#pragma unroll_loop_start\s+for\s*\(\s*int\s+i\s*=\s*(\d+)\s*;\s*i\s*<\s*(\d+)\s*;\s*i\s*\+\+\s*\)\s*{([\s\S]+?)}\s+#pragma unroll_loop_end/g;
+  function _v446(_v0) {
+    return _v0.replace(_v445, _v447);
   }
-  function _v442(_v0, _v1, _v2, _v3) {
+  function _v447(_v0, _v1, _v2, _v3) {
     let _v4 = "";
     for (let _v0 = parseInt(_v1); _v0 < parseInt(_v2); _v0++) _v4 += _v3.replace(/\[\s*i\s*\]/g, "[ " + _v0 + " ]").replace(/UNROLLED_LOOP_INDEX/g, _v0);
     return _v4;
   }
-  function _v443(_v0) {
+  function _v448(_v0) {
     let _v1 = `precision ${_v0.precision} float;
 	precision ${_v0.precision} int;
 	precision ${_v0.precision} sampler2D;
@@ -12504,7 +12596,7 @@
 	`;
     return "highp" === _v0.precision ? _v1 += "\n#define HIGH_PRECISION" : "mediump" === _v0.precision ? _v1 += "\n#define MEDIUM_PRECISION" : "lowp" === _v0.precision && (_v1 += "\n#define LOW_PRECISION"), _v1;
   }
-  function _v444(_v0, _v1, _v2, _v3) {
+  function _v449(_v0, _v1, _v2, _v3) {
     let _v4,
       _v5,
       _v6,
@@ -12553,7 +12645,7 @@
           maxMip: _v2
         };
       }(_v2),
-      _v19 = [_v2.extensionClipCullDistance ? "#extension GL_ANGLE_clip_cull_distance : require" : "", _v2.extensionMultiDraw ? "#extension GL_ANGLE_multi_draw : require" : ""].filter(_v433).join("\n"),
+      _v19 = [_v2.extensionClipCullDistance ? "#extension GL_ANGLE_clip_cull_distance : require" : "", _v2.extensionMultiDraw ? "#extension GL_ANGLE_multi_draw : require" : ""].filter(_v438).join("\n"),
       _v20 = function (_v0) {
         let _v1 = [];
         for (let _v0 in _v0) {
@@ -12564,9 +12656,9 @@
       }(_v11),
       _v21 = _v10.createProgram(),
       _v22 = _v2.glslVersion ? "#version " + _v2.glslVersion + "\n" : "";
-    if (_v2.isRawShaderMaterial) (_v4 = ["#define SHADER_TYPE " + _v2.shaderType, "#define SHADER_NAME " + _v2.shaderName, _v20].filter(_v433).join("\n")).length > 0 && (_v4 += "\n"), (_v5 = ["#define SHADER_TYPE " + _v2.shaderType, "#define SHADER_NAME " + _v2.shaderName, _v20].filter(_v433).join("\n")).length > 0 && (_v5 += "\n");else {
+    if (_v2.isRawShaderMaterial) (_v4 = ["#define SHADER_TYPE " + _v2.shaderType, "#define SHADER_NAME " + _v2.shaderName, _v20].filter(_v438).join("\n")).length > 0 && (_v4 += "\n"), (_v5 = ["#define SHADER_TYPE " + _v2.shaderType, "#define SHADER_NAME " + _v2.shaderName, _v20].filter(_v438).join("\n")).length > 0 && (_v5 += "\n");else {
       let _v0, _v1, _v2, _v3;
-      _v4 = [_v443(_v2), "#define SHADER_TYPE " + _v2.shaderType, "#define SHADER_NAME " + _v2.shaderName, _v20, _v2.extensionClipCullDistance ? "#define USE_CLIP_DISTANCE" : "", _v2.batching ? "#define USE_BATCHING" : "", _v2.batchingColor ? "#define USE_BATCHING_COLOR" : "", _v2.instancing ? "#define USE_INSTANCING" : "", _v2.instancingColor ? "#define USE_INSTANCING_COLOR" : "", _v2.instancingMorph ? "#define USE_INSTANCING_MORPH" : "", _v2.useFog && _v2.fog ? "#define USE_FOG" : "", _v2.useFog && _v2.fogExp2 ? "#define FOG_EXP2" : "", _v2.map ? "#define USE_MAP" : "", _v2.envMap ? "#define USE_ENVMAP" : "", _v2.envMap ? "#define " + _v16 : "", _v2.lightMap ? "#define USE_LIGHTMAP" : "", _v2.aoMap ? "#define USE_AOMAP" : "", _v2.bumpMap ? "#define USE_BUMPMAP" : "", _v2.normalMap ? "#define USE_NORMALMAP" : "", _v2.normalMapObjectSpace ? "#define USE_NORMALMAP_OBJECTSPACE" : "", _v2.normalMapTangentSpace ? "#define USE_NORMALMAP_TANGENTSPACE" : "", _v2.displacementMap ? "#define USE_DISPLACEMENTMAP" : "", _v2.emissiveMap ? "#define USE_EMISSIVEMAP" : "", _v2.anisotropy ? "#define USE_ANISOTROPY" : "", _v2.anisotropyMap ? "#define USE_ANISOTROPYMAP" : "", _v2.clearcoatMap ? "#define USE_CLEARCOATMAP" : "", _v2.clearcoatRoughnessMap ? "#define USE_CLEARCOAT_ROUGHNESSMAP" : "", _v2.clearcoatNormalMap ? "#define USE_CLEARCOAT_NORMALMAP" : "", _v2.iridescenceMap ? "#define USE_IRIDESCENCEMAP" : "", _v2.iridescenceThicknessMap ? "#define USE_IRIDESCENCE_THICKNESSMAP" : "", _v2.specularMap ? "#define USE_SPECULARMAP" : "", _v2.specularColorMap ? "#define USE_SPECULAR_COLORMAP" : "", _v2.specularIntensityMap ? "#define USE_SPECULAR_INTENSITYMAP" : "", _v2.roughnessMap ? "#define USE_ROUGHNESSMAP" : "", _v2.metalnessMap ? "#define USE_METALNESSMAP" : "", _v2.alphaMap ? "#define USE_ALPHAMAP" : "", _v2.alphaHash ? "#define USE_ALPHAHASH" : "", _v2.transmission ? "#define USE_TRANSMISSION" : "", _v2.transmissionMap ? "#define USE_TRANSMISSIONMAP" : "", _v2.thicknessMap ? "#define USE_THICKNESSMAP" : "", _v2.sheenColorMap ? "#define USE_SHEEN_COLORMAP" : "", _v2.sheenRoughnessMap ? "#define USE_SHEEN_ROUGHNESSMAP" : "", _v2.mapUv ? "#define MAP_UV " + _v2.mapUv : "", _v2.alphaMapUv ? "#define ALPHAMAP_UV " + _v2.alphaMapUv : "", _v2.lightMapUv ? "#define LIGHTMAP_UV " + _v2.lightMapUv : "", _v2.aoMapUv ? "#define AOMAP_UV " + _v2.aoMapUv : "", _v2.emissiveMapUv ? "#define EMISSIVEMAP_UV " + _v2.emissiveMapUv : "", _v2.bumpMapUv ? "#define BUMPMAP_UV " + _v2.bumpMapUv : "", _v2.normalMapUv ? "#define NORMALMAP_UV " + _v2.normalMapUv : "", _v2.displacementMapUv ? "#define DISPLACEMENTMAP_UV " + _v2.displacementMapUv : "", _v2.metalnessMapUv ? "#define METALNESSMAP_UV " + _v2.metalnessMapUv : "", _v2.roughnessMapUv ? "#define ROUGHNESSMAP_UV " + _v2.roughnessMapUv : "", _v2.anisotropyMapUv ? "#define ANISOTROPYMAP_UV " + _v2.anisotropyMapUv : "", _v2.clearcoatMapUv ? "#define CLEARCOATMAP_UV " + _v2.clearcoatMapUv : "", _v2.clearcoatNormalMapUv ? "#define CLEARCOAT_NORMALMAP_UV " + _v2.clearcoatNormalMapUv : "", _v2.clearcoatRoughnessMapUv ? "#define CLEARCOAT_ROUGHNESSMAP_UV " + _v2.clearcoatRoughnessMapUv : "", _v2.iridescenceMapUv ? "#define IRIDESCENCEMAP_UV " + _v2.iridescenceMapUv : "", _v2.iridescenceThicknessMapUv ? "#define IRIDESCENCE_THICKNESSMAP_UV " + _v2.iridescenceThicknessMapUv : "", _v2.sheenColorMapUv ? "#define SHEEN_COLORMAP_UV " + _v2.sheenColorMapUv : "", _v2.sheenRoughnessMapUv ? "#define SHEEN_ROUGHNESSMAP_UV " + _v2.sheenRoughnessMapUv : "", _v2.specularMapUv ? "#define SPECULARMAP_UV " + _v2.specularMapUv : "", _v2.specularColorMapUv ? "#define SPECULAR_COLORMAP_UV " + _v2.specularColorMapUv : "", _v2.specularIntensityMapUv ? "#define SPECULAR_INTENSITYMAP_UV " + _v2.specularIntensityMapUv : "", _v2.transmissionMapUv ? "#define TRANSMISSIONMAP_UV " + _v2.transmissionMapUv : "", _v2.thicknessMapUv ? "#define THICKNESSMAP_UV " + _v2.thicknessMapUv : "", _v2.vertexTangents && !1 === _v2.flatShading ? "#define USE_TANGENT" : "", _v2.vertexColors ? "#define USE_COLOR" : "", _v2.vertexAlphas ? "#define USE_COLOR_ALPHA" : "", _v2.vertexUv1s ? "#define USE_UV1" : "", _v2.vertexUv2s ? "#define USE_UV2" : "", _v2.vertexUv3s ? "#define USE_UV3" : "", _v2.pointsUvs ? "#define USE_POINTS_UV" : "", _v2.flatShading ? "#define FLAT_SHADED" : "", _v2.skinning ? "#define USE_SKINNING" : "", _v2.morphTargets ? "#define USE_MORPHTARGETS" : "", _v2.morphNormals && !1 === _v2.flatShading ? "#define USE_MORPHNORMALS" : "", _v2.morphColors ? "#define USE_MORPHCOLORS" : "", _v2.morphTargetsCount > 0 ? "#define MORPHTARGETS_TEXTURE_STRIDE " + _v2.morphTextureStride : "", _v2.morphTargetsCount > 0 ? "#define MORPHTARGETS_COUNT " + _v2.morphTargetsCount : "", _v2.doubleSided ? "#define DOUBLE_SIDED" : "", _v2.flipSided ? "#define FLIP_SIDED" : "", _v2.shadowMapEnabled ? "#define USE_SHADOWMAP" : "", _v2.shadowMapEnabled ? "#define " + _v14 : "", _v2.sizeAttenuation ? "#define USE_SIZEATTENUATION" : "", _v2.numLightProbes > 0 ? "#define USE_LIGHT_PROBES" : "", _v2.logarithmicDepthBuffer ? "#define USE_LOGARITHMIC_DEPTH_BUFFER" : "", _v2.reversedDepthBuffer ? "#define USE_REVERSED_DEPTH_BUFFER" : "", "uniform mat4 modelMatrix;", "uniform mat4 modelViewMatrix;", "uniform mat4 projectionMatrix;", "uniform mat4 viewMatrix;", "uniform mat3 normalMatrix;", "uniform vec3 cameraPosition;", "uniform bool isOrthographic;", "#ifdef USE_INSTANCING", "	attribute mat4 instanceMatrix;", "#endif", "#ifdef USE_INSTANCING_COLOR", "	attribute vec3 instanceColor;", "#endif", "#ifdef USE_INSTANCING_MORPH", "	uniform sampler2D morphTexture;", "#endif", "attribute vec3 position;", "attribute vec3 normal;", "attribute vec2 uv;", "#ifdef USE_UV1", "	attribute vec2 uv1;", "#endif", "#ifdef USE_UV2", "	attribute vec2 uv2;", "#endif", "#ifdef USE_UV3", "	attribute vec2 uv3;", "#endif", "#ifdef USE_TANGENT", "	attribute vec4 tangent;", "#endif", "#if defined( USE_COLOR_ALPHA )", "	attribute vec4 color;", "#elif defined( USE_COLOR )", "	attribute vec3 color;", "#endif", "#ifdef USE_SKINNING", "	attribute vec4 skinIndex;", "	attribute vec4 skinWeight;", "#endif", "\n"].filter(_v433).join("\n"), _v5 = [_v443(_v2), "#define SHADER_TYPE " + _v2.shaderType, "#define SHADER_NAME " + _v2.shaderName, _v20, _v2.useFog && _v2.fog ? "#define USE_FOG" : "", _v2.useFog && _v2.fogExp2 ? "#define FOG_EXP2" : "", _v2.alphaToCoverage ? "#define ALPHA_TO_COVERAGE" : "", _v2.map ? "#define USE_MAP" : "", _v2.matcap ? "#define USE_MATCAP" : "", _v2.envMap ? "#define USE_ENVMAP" : "", _v2.envMap ? "#define " + _v15 : "", _v2.envMap ? "#define " + _v16 : "", _v2.envMap ? "#define " + _v17 : "", _v18 ? "#define CUBEUV_TEXEL_WIDTH " + _v18.texelWidth : "", _v18 ? "#define CUBEUV_TEXEL_HEIGHT " + _v18.texelHeight : "", _v18 ? "#define CUBEUV_MAX_MIP " + _v18.maxMip + ".0" : "", _v2.lightMap ? "#define USE_LIGHTMAP" : "", _v2.aoMap ? "#define USE_AOMAP" : "", _v2.bumpMap ? "#define USE_BUMPMAP" : "", _v2.normalMap ? "#define USE_NORMALMAP" : "", _v2.normalMapObjectSpace ? "#define USE_NORMALMAP_OBJECTSPACE" : "", _v2.normalMapTangentSpace ? "#define USE_NORMALMAP_TANGENTSPACE" : "", _v2.emissiveMap ? "#define USE_EMISSIVEMAP" : "", _v2.anisotropy ? "#define USE_ANISOTROPY" : "", _v2.anisotropyMap ? "#define USE_ANISOTROPYMAP" : "", _v2.clearcoat ? "#define USE_CLEARCOAT" : "", _v2.clearcoatMap ? "#define USE_CLEARCOATMAP" : "", _v2.clearcoatRoughnessMap ? "#define USE_CLEARCOAT_ROUGHNESSMAP" : "", _v2.clearcoatNormalMap ? "#define USE_CLEARCOAT_NORMALMAP" : "", _v2.dispersion ? "#define USE_DISPERSION" : "", _v2.iridescence ? "#define USE_IRIDESCENCE" : "", _v2.iridescenceMap ? "#define USE_IRIDESCENCEMAP" : "", _v2.iridescenceThicknessMap ? "#define USE_IRIDESCENCE_THICKNESSMAP" : "", _v2.specularMap ? "#define USE_SPECULARMAP" : "", _v2.specularColorMap ? "#define USE_SPECULAR_COLORMAP" : "", _v2.specularIntensityMap ? "#define USE_SPECULAR_INTENSITYMAP" : "", _v2.roughnessMap ? "#define USE_ROUGHNESSMAP" : "", _v2.metalnessMap ? "#define USE_METALNESSMAP" : "", _v2.alphaMap ? "#define USE_ALPHAMAP" : "", _v2.alphaTest ? "#define USE_ALPHATEST" : "", _v2.alphaHash ? "#define USE_ALPHAHASH" : "", _v2.sheen ? "#define USE_SHEEN" : "", _v2.sheenColorMap ? "#define USE_SHEEN_COLORMAP" : "", _v2.sheenRoughnessMap ? "#define USE_SHEEN_ROUGHNESSMAP" : "", _v2.transmission ? "#define USE_TRANSMISSION" : "", _v2.transmissionMap ? "#define USE_TRANSMISSIONMAP" : "", _v2.thicknessMap ? "#define USE_THICKNESSMAP" : "", _v2.vertexTangents && !1 === _v2.flatShading ? "#define USE_TANGENT" : "", _v2.vertexColors || _v2.instancingColor || _v2.batchingColor ? "#define USE_COLOR" : "", _v2.vertexAlphas ? "#define USE_COLOR_ALPHA" : "", _v2.vertexUv1s ? "#define USE_UV1" : "", _v2.vertexUv2s ? "#define USE_UV2" : "", _v2.vertexUv3s ? "#define USE_UV3" : "", _v2.pointsUvs ? "#define USE_POINTS_UV" : "", _v2.gradientMap ? "#define USE_GRADIENTMAP" : "", _v2.flatShading ? "#define FLAT_SHADED" : "", _v2.doubleSided ? "#define DOUBLE_SIDED" : "", _v2.flipSided ? "#define FLIP_SIDED" : "", _v2.shadowMapEnabled ? "#define USE_SHADOWMAP" : "", _v2.shadowMapEnabled ? "#define " + _v14 : "", _v2.premultipliedAlpha ? "#define PREMULTIPLIED_ALPHA" : "", _v2.numLightProbes > 0 ? "#define USE_LIGHT_PROBES" : "", _v2.decodeVideoTexture ? "#define DECODE_VIDEO_TEXTURE" : "", _v2.decodeVideoTextureEmissive ? "#define DECODE_VIDEO_TEXTURE_EMISSIVE" : "", _v2.logarithmicDepthBuffer ? "#define USE_LOGARITHMIC_DEPTH_BUFFER" : "", _v2.reversedDepthBuffer ? "#define USE_REVERSED_DEPTH_BUFFER" : "", "uniform mat4 viewMatrix;", "uniform vec3 cameraPosition;", "uniform bool isOrthographic;", 0 !== _v2.toneMapping ? "#define TONE_MAPPING" : "", 0 !== _v2.toneMapping ? _v334.tonemapping_pars_fragment : "", 0 !== _v2.toneMapping ? function (_v0, _v1) {
+      _v4 = [_v448(_v2), "#define SHADER_TYPE " + _v2.shaderType, "#define SHADER_NAME " + _v2.shaderName, _v20, _v2.extensionClipCullDistance ? "#define USE_CLIP_DISTANCE" : "", _v2.batching ? "#define USE_BATCHING" : "", _v2.batchingColor ? "#define USE_BATCHING_COLOR" : "", _v2.instancing ? "#define USE_INSTANCING" : "", _v2.instancingColor ? "#define USE_INSTANCING_COLOR" : "", _v2.instancingMorph ? "#define USE_INSTANCING_MORPH" : "", _v2.useFog && _v2.fog ? "#define USE_FOG" : "", _v2.useFog && _v2.fogExp2 ? "#define FOG_EXP2" : "", _v2.map ? "#define USE_MAP" : "", _v2.envMap ? "#define USE_ENVMAP" : "", _v2.envMap ? "#define " + _v16 : "", _v2.lightMap ? "#define USE_LIGHTMAP" : "", _v2.aoMap ? "#define USE_AOMAP" : "", _v2.bumpMap ? "#define USE_BUMPMAP" : "", _v2.normalMap ? "#define USE_NORMALMAP" : "", _v2.normalMapObjectSpace ? "#define USE_NORMALMAP_OBJECTSPACE" : "", _v2.normalMapTangentSpace ? "#define USE_NORMALMAP_TANGENTSPACE" : "", _v2.displacementMap ? "#define USE_DISPLACEMENTMAP" : "", _v2.emissiveMap ? "#define USE_EMISSIVEMAP" : "", _v2.anisotropy ? "#define USE_ANISOTROPY" : "", _v2.anisotropyMap ? "#define USE_ANISOTROPYMAP" : "", _v2.clearcoatMap ? "#define USE_CLEARCOATMAP" : "", _v2.clearcoatRoughnessMap ? "#define USE_CLEARCOAT_ROUGHNESSMAP" : "", _v2.clearcoatNormalMap ? "#define USE_CLEARCOAT_NORMALMAP" : "", _v2.iridescenceMap ? "#define USE_IRIDESCENCEMAP" : "", _v2.iridescenceThicknessMap ? "#define USE_IRIDESCENCE_THICKNESSMAP" : "", _v2.specularMap ? "#define USE_SPECULARMAP" : "", _v2.specularColorMap ? "#define USE_SPECULAR_COLORMAP" : "", _v2.specularIntensityMap ? "#define USE_SPECULAR_INTENSITYMAP" : "", _v2.roughnessMap ? "#define USE_ROUGHNESSMAP" : "", _v2.metalnessMap ? "#define USE_METALNESSMAP" : "", _v2.alphaMap ? "#define USE_ALPHAMAP" : "", _v2.alphaHash ? "#define USE_ALPHAHASH" : "", _v2.transmission ? "#define USE_TRANSMISSION" : "", _v2.transmissionMap ? "#define USE_TRANSMISSIONMAP" : "", _v2.thicknessMap ? "#define USE_THICKNESSMAP" : "", _v2.sheenColorMap ? "#define USE_SHEEN_COLORMAP" : "", _v2.sheenRoughnessMap ? "#define USE_SHEEN_ROUGHNESSMAP" : "", _v2.mapUv ? "#define MAP_UV " + _v2.mapUv : "", _v2.alphaMapUv ? "#define ALPHAMAP_UV " + _v2.alphaMapUv : "", _v2.lightMapUv ? "#define LIGHTMAP_UV " + _v2.lightMapUv : "", _v2.aoMapUv ? "#define AOMAP_UV " + _v2.aoMapUv : "", _v2.emissiveMapUv ? "#define EMISSIVEMAP_UV " + _v2.emissiveMapUv : "", _v2.bumpMapUv ? "#define BUMPMAP_UV " + _v2.bumpMapUv : "", _v2.normalMapUv ? "#define NORMALMAP_UV " + _v2.normalMapUv : "", _v2.displacementMapUv ? "#define DISPLACEMENTMAP_UV " + _v2.displacementMapUv : "", _v2.metalnessMapUv ? "#define METALNESSMAP_UV " + _v2.metalnessMapUv : "", _v2.roughnessMapUv ? "#define ROUGHNESSMAP_UV " + _v2.roughnessMapUv : "", _v2.anisotropyMapUv ? "#define ANISOTROPYMAP_UV " + _v2.anisotropyMapUv : "", _v2.clearcoatMapUv ? "#define CLEARCOATMAP_UV " + _v2.clearcoatMapUv : "", _v2.clearcoatNormalMapUv ? "#define CLEARCOAT_NORMALMAP_UV " + _v2.clearcoatNormalMapUv : "", _v2.clearcoatRoughnessMapUv ? "#define CLEARCOAT_ROUGHNESSMAP_UV " + _v2.clearcoatRoughnessMapUv : "", _v2.iridescenceMapUv ? "#define IRIDESCENCEMAP_UV " + _v2.iridescenceMapUv : "", _v2.iridescenceThicknessMapUv ? "#define IRIDESCENCE_THICKNESSMAP_UV " + _v2.iridescenceThicknessMapUv : "", _v2.sheenColorMapUv ? "#define SHEEN_COLORMAP_UV " + _v2.sheenColorMapUv : "", _v2.sheenRoughnessMapUv ? "#define SHEEN_ROUGHNESSMAP_UV " + _v2.sheenRoughnessMapUv : "", _v2.specularMapUv ? "#define SPECULARMAP_UV " + _v2.specularMapUv : "", _v2.specularColorMapUv ? "#define SPECULAR_COLORMAP_UV " + _v2.specularColorMapUv : "", _v2.specularIntensityMapUv ? "#define SPECULAR_INTENSITYMAP_UV " + _v2.specularIntensityMapUv : "", _v2.transmissionMapUv ? "#define TRANSMISSIONMAP_UV " + _v2.transmissionMapUv : "", _v2.thicknessMapUv ? "#define THICKNESSMAP_UV " + _v2.thicknessMapUv : "", _v2.vertexTangents && !1 === _v2.flatShading ? "#define USE_TANGENT" : "", _v2.vertexColors ? "#define USE_COLOR" : "", _v2.vertexAlphas ? "#define USE_COLOR_ALPHA" : "", _v2.vertexUv1s ? "#define USE_UV1" : "", _v2.vertexUv2s ? "#define USE_UV2" : "", _v2.vertexUv3s ? "#define USE_UV3" : "", _v2.pointsUvs ? "#define USE_POINTS_UV" : "", _v2.flatShading ? "#define FLAT_SHADED" : "", _v2.skinning ? "#define USE_SKINNING" : "", _v2.morphTargets ? "#define USE_MORPHTARGETS" : "", _v2.morphNormals && !1 === _v2.flatShading ? "#define USE_MORPHNORMALS" : "", _v2.morphColors ? "#define USE_MORPHCOLORS" : "", _v2.morphTargetsCount > 0 ? "#define MORPHTARGETS_TEXTURE_STRIDE " + _v2.morphTextureStride : "", _v2.morphTargetsCount > 0 ? "#define MORPHTARGETS_COUNT " + _v2.morphTargetsCount : "", _v2.doubleSided ? "#define DOUBLE_SIDED" : "", _v2.flipSided ? "#define FLIP_SIDED" : "", _v2.shadowMapEnabled ? "#define USE_SHADOWMAP" : "", _v2.shadowMapEnabled ? "#define " + _v14 : "", _v2.sizeAttenuation ? "#define USE_SIZEATTENUATION" : "", _v2.numLightProbes > 0 ? "#define USE_LIGHT_PROBES" : "", _v2.logarithmicDepthBuffer ? "#define USE_LOGARITHMIC_DEPTH_BUFFER" : "", _v2.reversedDepthBuffer ? "#define USE_REVERSED_DEPTH_BUFFER" : "", "uniform mat4 modelMatrix;", "uniform mat4 modelViewMatrix;", "uniform mat4 projectionMatrix;", "uniform mat4 viewMatrix;", "uniform mat3 normalMatrix;", "uniform vec3 cameraPosition;", "uniform bool isOrthographic;", "#ifdef USE_INSTANCING", "	attribute mat4 instanceMatrix;", "#endif", "#ifdef USE_INSTANCING_COLOR", "	attribute vec3 instanceColor;", "#endif", "#ifdef USE_INSTANCING_MORPH", "	uniform sampler2D morphTexture;", "#endif", "attribute vec3 position;", "attribute vec3 normal;", "attribute vec2 uv;", "#ifdef USE_UV1", "	attribute vec2 uv1;", "#endif", "#ifdef USE_UV2", "	attribute vec2 uv2;", "#endif", "#ifdef USE_UV3", "	attribute vec2 uv3;", "#endif", "#ifdef USE_TANGENT", "	attribute vec4 tangent;", "#endif", "#if defined( USE_COLOR_ALPHA )", "	attribute vec4 color;", "#elif defined( USE_COLOR )", "	attribute vec3 color;", "#endif", "#ifdef USE_SKINNING", "	attribute vec4 skinIndex;", "	attribute vec4 skinWeight;", "#endif", "\n"].filter(_v438).join("\n"), _v5 = [_v448(_v2), "#define SHADER_TYPE " + _v2.shaderType, "#define SHADER_NAME " + _v2.shaderName, _v20, _v2.useFog && _v2.fog ? "#define USE_FOG" : "", _v2.useFog && _v2.fogExp2 ? "#define FOG_EXP2" : "", _v2.alphaToCoverage ? "#define ALPHA_TO_COVERAGE" : "", _v2.map ? "#define USE_MAP" : "", _v2.matcap ? "#define USE_MATCAP" : "", _v2.envMap ? "#define USE_ENVMAP" : "", _v2.envMap ? "#define " + _v15 : "", _v2.envMap ? "#define " + _v16 : "", _v2.envMap ? "#define " + _v17 : "", _v18 ? "#define CUBEUV_TEXEL_WIDTH " + _v18.texelWidth : "", _v18 ? "#define CUBEUV_TEXEL_HEIGHT " + _v18.texelHeight : "", _v18 ? "#define CUBEUV_MAX_MIP " + _v18.maxMip + ".0" : "", _v2.lightMap ? "#define USE_LIGHTMAP" : "", _v2.aoMap ? "#define USE_AOMAP" : "", _v2.bumpMap ? "#define USE_BUMPMAP" : "", _v2.normalMap ? "#define USE_NORMALMAP" : "", _v2.normalMapObjectSpace ? "#define USE_NORMALMAP_OBJECTSPACE" : "", _v2.normalMapTangentSpace ? "#define USE_NORMALMAP_TANGENTSPACE" : "", _v2.emissiveMap ? "#define USE_EMISSIVEMAP" : "", _v2.anisotropy ? "#define USE_ANISOTROPY" : "", _v2.anisotropyMap ? "#define USE_ANISOTROPYMAP" : "", _v2.clearcoat ? "#define USE_CLEARCOAT" : "", _v2.clearcoatMap ? "#define USE_CLEARCOATMAP" : "", _v2.clearcoatRoughnessMap ? "#define USE_CLEARCOAT_ROUGHNESSMAP" : "", _v2.clearcoatNormalMap ? "#define USE_CLEARCOAT_NORMALMAP" : "", _v2.dispersion ? "#define USE_DISPERSION" : "", _v2.iridescence ? "#define USE_IRIDESCENCE" : "", _v2.iridescenceMap ? "#define USE_IRIDESCENCEMAP" : "", _v2.iridescenceThicknessMap ? "#define USE_IRIDESCENCE_THICKNESSMAP" : "", _v2.specularMap ? "#define USE_SPECULARMAP" : "", _v2.specularColorMap ? "#define USE_SPECULAR_COLORMAP" : "", _v2.specularIntensityMap ? "#define USE_SPECULAR_INTENSITYMAP" : "", _v2.roughnessMap ? "#define USE_ROUGHNESSMAP" : "", _v2.metalnessMap ? "#define USE_METALNESSMAP" : "", _v2.alphaMap ? "#define USE_ALPHAMAP" : "", _v2.alphaTest ? "#define USE_ALPHATEST" : "", _v2.alphaHash ? "#define USE_ALPHAHASH" : "", _v2.sheen ? "#define USE_SHEEN" : "", _v2.sheenColorMap ? "#define USE_SHEEN_COLORMAP" : "", _v2.sheenRoughnessMap ? "#define USE_SHEEN_ROUGHNESSMAP" : "", _v2.transmission ? "#define USE_TRANSMISSION" : "", _v2.transmissionMap ? "#define USE_TRANSMISSIONMAP" : "", _v2.thicknessMap ? "#define USE_THICKNESSMAP" : "", _v2.vertexTangents && !1 === _v2.flatShading ? "#define USE_TANGENT" : "", _v2.vertexColors || _v2.instancingColor || _v2.batchingColor ? "#define USE_COLOR" : "", _v2.vertexAlphas ? "#define USE_COLOR_ALPHA" : "", _v2.vertexUv1s ? "#define USE_UV1" : "", _v2.vertexUv2s ? "#define USE_UV2" : "", _v2.vertexUv3s ? "#define USE_UV3" : "", _v2.pointsUvs ? "#define USE_POINTS_UV" : "", _v2.gradientMap ? "#define USE_GRADIENTMAP" : "", _v2.flatShading ? "#define FLAT_SHADED" : "", _v2.doubleSided ? "#define DOUBLE_SIDED" : "", _v2.flipSided ? "#define FLIP_SIDED" : "", _v2.shadowMapEnabled ? "#define USE_SHADOWMAP" : "", _v2.shadowMapEnabled ? "#define " + _v14 : "", _v2.premultipliedAlpha ? "#define PREMULTIPLIED_ALPHA" : "", _v2.numLightProbes > 0 ? "#define USE_LIGHT_PROBES" : "", _v2.decodeVideoTexture ? "#define DECODE_VIDEO_TEXTURE" : "", _v2.decodeVideoTextureEmissive ? "#define DECODE_VIDEO_TEXTURE_EMISSIVE" : "", _v2.logarithmicDepthBuffer ? "#define USE_LOGARITHMIC_DEPTH_BUFFER" : "", _v2.reversedDepthBuffer ? "#define USE_REVERSED_DEPTH_BUFFER" : "", "uniform mat4 viewMatrix;", "uniform vec3 cameraPosition;", "uniform bool isOrthographic;", 0 !== _v2.toneMapping ? "#define TONE_MAPPING" : "", 0 !== _v2.toneMapping ? _v339.tonemapping_pars_fragment : "", 0 !== _v2.toneMapping ? function (_v0, _v1) {
         let _v2;
         switch (_v1) {
           case 1:
@@ -12594,29 +12686,29 @@
             console.warn("THREE.WebGLProgram: Unsupported toneMapping:", _v1), _v2 = "Linear";
         }
         return "vec3 " + _v0 + "( vec3 color ) { return " + _v2 + "ToneMapping( color ); }";
-      }("toneMapping", _v2.toneMapping) : "", _v2.dithering ? "#define DITHERING" : "", _v2.opaque ? "#define OPAQUE" : "", _v334.colorspace_pars_fragment, (_v0 = function (_v0) {
-        _v142._getMatrix(_v430, _v142.workingColorSpace, _v0);
-        let _v1 = `mat3( ${_v430.elements.map(_v0 => _v0.toFixed(4))} )`;
-        switch (_v142.getTransfer(_v0)) {
-          case _v118:
+      }("toneMapping", _v2.toneMapping) : "", _v2.dithering ? "#define DITHERING" : "", _v2.opaque ? "#define OPAQUE" : "", _v339.colorspace_pars_fragment, (_v0 = function (_v0) {
+        _v147._getMatrix(_v435, _v147.workingColorSpace, _v0);
+        let _v1 = `mat3( ${_v435.elements.map(_v0 => _v0.toFixed(4))} )`;
+        switch (_v147.getTransfer(_v0)) {
+          case _v123:
             return [_v1, "LinearTransferOETF"];
-          case _v119:
+          case _v124:
             return [_v1, "sRGBTransferOETF"];
           default:
             return console.warn("THREE.WebGLProgram: Unsupported color space: ", _v0), [_v1, "LinearTransferOETF"];
         }
       }(_v2.outputColorSpace), `vec4 linearToOutputTexel( vec4 value ) {
 	return ${_v0[1]}( vec4( value.rgb * ${_v0[0]}, value.a ) );
-}`), (_v142.getLuminanceCoefficients(_v432), _v1 = _v432.x.toFixed(4), _v2 = _v432.y.toFixed(4), _v3 = _v432.z.toFixed(4), `float luminance( const in vec3 rgb ) {
+}`), (_v147.getLuminanceCoefficients(_v437), _v1 = _v437.x.toFixed(4), _v2 = _v437.y.toFixed(4), _v3 = _v437.z.toFixed(4), `float luminance( const in vec3 rgb ) {
 	const vec3 weights = vec3( ${_v1}, ${_v2}, ${_v3} );
 	return dot( weights, rgb );
-}`), _v2.useDepthPacking ? "#define DEPTH_PACKING " + _v2.depthPacking : "", "\n"].filter(_v433).join("\n");
+}`), _v2.useDepthPacking ? "#define DEPTH_PACKING " + _v2.depthPacking : "", "\n"].filter(_v438).join("\n");
     }
-    _v12 = _v435(_v12 = _v434(_v12 = _v437(_v12), _v2), _v2), _v13 = _v435(_v13 = _v434(_v13 = _v437(_v13), _v2), _v2), _v12 = _v441(_v12), _v13 = _v441(_v13), !0 !== _v2.isRawShaderMaterial && (_v22 = "#version 300 es\n", _v4 = [_v19, "#define attribute in\n#define varying out\n#define texture2D texture"].join("\n") + "\n" + _v4, _v5 = ["#define varying in", _v2.glslVersion === _v120 ? "" : "layout(location = 0) out highp vec4 pc_fragColor;", _v2.glslVersion === _v120 ? "" : "#define gl_FragColor pc_fragColor", "#define gl_FragDepthEXT gl_FragDepth\n#define texture2D texture\n#define textureCube texture\n#define texture2DProj textureProj\n#define texture2DLodEXT textureLod\n#define texture2DProjLodEXT textureProjLod\n#define textureCubeLodEXT textureLod\n#define texture2DGradEXT textureGrad\n#define texture2DProjGradEXT textureProjGrad\n#define textureCubeGradEXT textureGrad"].join("\n") + "\n" + _v5);
+    _v12 = _v440(_v12 = _v439(_v12 = _v442(_v12), _v2), _v2), _v13 = _v440(_v13 = _v439(_v13 = _v442(_v13), _v2), _v2), _v12 = _v446(_v12), _v13 = _v446(_v13), !0 !== _v2.isRawShaderMaterial && (_v22 = "#version 300 es\n", _v4 = [_v19, "#define attribute in\n#define varying out\n#define texture2D texture"].join("\n") + "\n" + _v4, _v5 = ["#define varying in", _v2.glslVersion === _v125 ? "" : "layout(location = 0) out highp vec4 pc_fragColor;", _v2.glslVersion === _v125 ? "" : "#define gl_FragColor pc_fragColor", "#define gl_FragDepthEXT gl_FragDepth\n#define texture2D texture\n#define textureCube texture\n#define texture2DProj textureProj\n#define texture2DLodEXT textureLod\n#define texture2DProjLodEXT textureProjLod\n#define textureCubeLodEXT textureLod\n#define texture2DGradEXT textureGrad\n#define texture2DProjGradEXT textureProjGrad\n#define textureCubeGradEXT textureGrad"].join("\n") + "\n" + _v5);
     let _v23 = _v22 + _v4 + _v12,
       _v24 = _v22 + _v5 + _v13,
-      _v25 = _v428(_v10, _v10.VERTEX_SHADER, _v23),
-      _v26 = _v428(_v10, _v10.FRAGMENT_SHADER, _v24);
+      _v25 = _v433(_v10, _v10.VERTEX_SHADER, _v23),
+      _v26 = _v433(_v10, _v10.FRAGMENT_SHADER, _v24);
     function _v27(_v0) {
       if (_v0.debug.checkShaderErrors) {
         let _v0 = _v10.getProgramInfoLog(_v21) || "",
@@ -12629,8 +12721,8 @@
           _v7 = !0;
         if (!1 === _v10.getProgramParameter(_v21, _v10.LINK_STATUS)) {
           if (_v6 = !1, "function" == typeof _v0.debug.onShaderError) _v0.debug.onShaderError(_v10, _v21, _v25, _v26);else {
-            let _v0 = _v431(_v10, _v25, "vertex"),
-              _v1 = _v431(_v10, _v26, "fragment");
+            let _v0 = _v436(_v10, _v25, "vertex"),
+              _v1 = _v436(_v10, _v26, "fragment");
             console.error("THREE.WebGLProgram: Shader Error " + _v10.getError() + " - VALIDATE_STATUS " + _v10.getProgramParameter(_v21, _v10.VALIDATE_STATUS) + "\n\nMaterial Name: " + _v0.name + "\nMaterial Type: " + _v0.type + "\n\nProgram Info Log: " + _v3 + "\n" + _v0 + "\n" + _v1);
           }
         } else "" !== _v3 ? console.warn("THREE.WebGLProgram: Program Info Log:", _v3) : ("" === _v4 || "" === _v5) && (_v7 = !1);
@@ -12647,7 +12739,7 @@
           }
         });
       }
-      _v10.deleteShader(_v25), _v10.deleteShader(_v26), _v6 = new _v427(_v10, _v21), _v7 = function (_v0, _v1) {
+      _v10.deleteShader(_v25), _v10.deleteShader(_v26), _v6 = new _v432(_v10, _v21), _v7 = function (_v0, _v1) {
         let _v2 = {},
           _v3 = _v0.getProgramParameter(_v1, _v0.ACTIVE_ATTRIBUTES);
         for (let _v0 = 0; _v0 < _v3; _v0++) {
@@ -12673,10 +12765,10 @@
       return !1 === _v28 && (_v28 = _v10.getProgramParameter(_v21, 0)), _v28;
     }, this.destroy = function () {
       _v3.releaseStatesOfProgram(this), _v10.deleteProgram(_v21), this.program = void 0;
-    }, this.type = _v2.shaderType, this.name = _v2.shaderName, this.id = _v429++, this.cacheKey = _v1, this.usedTimes = 1, this.program = _v21, this.vertexShader = _v25, this.fragmentShader = _v26, this;
+    }, this.type = _v2.shaderType, this.name = _v2.shaderName, this.id = _v434++, this.cacheKey = _v1, this.usedTimes = 1, this.program = _v21, this.vertexShader = _v25, this.fragmentShader = _v26, this;
   }
-  let _v445 = 0;
-  class _v446 {
+  let _v450 = 0;
+  class _v451 {
     constructor() {
       this.shaderCache = new Map(), this.materialCache = new Map();
     }
@@ -12709,17 +12801,17 @@
     _getShaderStage(_v0) {
       let _v1 = this.shaderCache,
         _v2 = _v1.get(_v0);
-      return void 0 === _v2 && (_v2 = new _v447(_v0), _v1.set(_v0, _v2)), _v2;
+      return void 0 === _v2 && (_v2 = new _v452(_v0), _v1.set(_v0, _v2)), _v2;
     }
   }
-  class _v447 {
+  class _v452 {
     constructor(_v0) {
-      this.id = _v445++, this.code = _v0, this.usedTimes = 0;
+      this.id = _v450++, this.code = _v0, this.usedTimes = 0;
     }
   }
-  function _v448(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
-    let _v7 = new _v193(),
-      _v8 = new _v446(),
+  function _v453(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
+    let _v7 = new _v198(),
+      _v8 = new _v451(),
       _v9 = new Set(),
       _v10 = [],
       _v11 = _v4.logarithmicDepthBuffer,
@@ -12762,7 +12854,7 @@
           _v16 = void 0 !== _v15 ? _v15.length : 0,
           _v17 = 0;
         if (void 0 !== _v10.morphAttributes.position && (_v17 = 1), void 0 !== _v10.morphAttributes.normal && (_v17 = 2), void 0 !== _v10.morphAttributes.color && (_v17 = 3), _v14) {
-          let _v0 = _v336[_v14];
+          let _v0 = _v341[_v14];
           _v5 = _v0.vertexShader, _v6 = _v0.fragmentShader;
         } else _v5 = _v0.vertexShader, _v6 = _v0.fragmentShader, _v8.update(_v0), _v7 = _v8.getVertexShaderID(_v0), _v8 = _v8.getFragmentShaderID(_v0);
         let _v18 = _v0.getRenderTarget(),
@@ -12824,7 +12916,7 @@
           instancingColor: _v20 && null !== _v4.instanceColor,
           instancingMorph: _v20 && null !== _v4.morphTexture,
           supportsVertexTextures: _v12,
-          outputColorSpace: null === _v18 ? _v0.outputColorSpace : !0 === _v18.isXRRenderTarget ? _v18.texture.colorSpace : _v117,
+          outputColorSpace: null === _v18 ? _v0.outputColorSpace : !0 === _v18.isXRRenderTarget ? _v18.texture.colorSpace : _v122,
           alphaToCoverage: !!_v0.alphaToCoverage,
           map: _v22,
           matcap: _v23,
@@ -12923,8 +13015,8 @@
           shadowMapEnabled: _v0.shadowMap.enabled && _v2.length > 0,
           shadowMapType: _v0.shadowMap.type,
           toneMapping: _v57,
-          decodeVideoTexture: _v22 && !0 === _v0.map.isVideoTexture && _v142.getTransfer(_v0.map.colorSpace) === _v119,
-          decodeVideoTextureEmissive: _v30 && !0 === _v0.emissiveMap.isVideoTexture && _v142.getTransfer(_v0.emissiveMap.colorSpace) === _v119,
+          decodeVideoTexture: _v22 && !0 === _v0.map.isVideoTexture && _v147.getTransfer(_v0.map.colorSpace) === _v124,
+          decodeVideoTextureEmissive: _v30 && !0 === _v0.emissiveMap.isVideoTexture && _v147.getTransfer(_v0.emissiveMap.colorSpace) === _v124,
           premultipliedAlpha: _v0.premultipliedAlpha,
           doubleSided: 2 === _v0.side,
           flipSided: 1 === _v0.side,
@@ -12947,7 +13039,7 @@
       getUniforms: function (_v0) {
         let _v1,
           _v2 = _v14[_v0.type];
-        return _v1 = _v2 ? _v262(_v336[_v2].uniforms) : _v0.uniforms;
+        return _v1 = _v2 ? _v267(_v341[_v2].uniforms) : _v0.uniforms;
       },
       acquireProgram: function (_v0, _v1) {
         let _v2;
@@ -12958,7 +13050,7 @@
             break;
           }
         }
-        return void 0 === _v2 && (_v2 = new _v444(_v0, _v1, _v0, _v5), _v10.push(_v2)), _v2;
+        return void 0 === _v2 && (_v2 = new _v449(_v0, _v1, _v0, _v5), _v10.push(_v2)), _v2;
       },
       releaseProgram: function (_v0) {
         if (0 == --_v0.usedTimes) {
@@ -12975,7 +13067,7 @@
       }
     };
   }
-  function _v449() {
+  function _v454() {
     let _v0 = new WeakMap();
     return {
       has: function (_v0) {
@@ -12996,13 +13088,13 @@
       }
     };
   }
-  function _v450(_v0, _v1) {
+  function _v455(_v0, _v1) {
     return _v0.groupOrder !== _v1.groupOrder ? _v0.groupOrder - _v1.groupOrder : _v0.renderOrder !== _v1.renderOrder ? _v0.renderOrder - _v1.renderOrder : _v0.material.id !== _v1.material.id ? _v0.material.id - _v1.material.id : _v0.z !== _v1.z ? _v0.z - _v1.z : _v0.id - _v1.id;
   }
-  function _v451(_v0, _v1) {
+  function _v456(_v0, _v1) {
     return _v0.groupOrder !== _v1.groupOrder ? _v0.groupOrder - _v1.groupOrder : _v0.renderOrder !== _v1.renderOrder ? _v0.renderOrder - _v1.renderOrder : _v0.z !== _v1.z ? _v1.z - _v0.z : _v0.id - _v1.id;
   }
-  function _v452() {
+  function _v457() {
     let _v0 = [],
       _v1 = 0,
       _v2 = [],
@@ -13044,24 +13136,24 @@
         }
       },
       sort: function (_v0, _v1) {
-        _v2.length > 1 && _v2.sort(_v0 || _v450), _v3.length > 1 && _v3.sort(_v1 || _v451), _v4.length > 1 && _v4.sort(_v1 || _v451);
+        _v2.length > 1 && _v2.sort(_v0 || _v455), _v3.length > 1 && _v3.sort(_v1 || _v456), _v4.length > 1 && _v4.sort(_v1 || _v456);
       }
     };
   }
-  function _v453() {
+  function _v458() {
     let _v0 = new WeakMap();
     return {
       get: function (_v0, _v1) {
         let _v2,
           _v3 = _v0.get(_v0);
-        return void 0 === _v3 ? (_v2 = new _v452(), _v0.set(_v0, [_v2])) : _v1 >= _v3.length ? (_v2 = new _v452(), _v3.push(_v2)) : _v2 = _v3[_v1], _v2;
+        return void 0 === _v3 ? (_v2 = new _v457(), _v0.set(_v0, [_v2])) : _v1 >= _v3.length ? (_v2 = new _v457(), _v3.push(_v2)) : _v2 = _v3[_v1], _v2;
       },
       dispose: function () {
         _v0 = new WeakMap();
       }
     };
   }
-  function _v454() {
+  function _v459() {
     let _v0 = {};
     return {
       get: function (_v0) {
@@ -13070,15 +13162,15 @@
         switch (_v0.type) {
           case "DirectionalLight":
             _v1 = {
-              direction: new _v131(),
-              color: new _v228()
+              direction: new _v136(),
+              color: new _v233()
             };
             break;
           case "SpotLight":
             _v1 = {
-              position: new _v131(),
-              direction: new _v131(),
-              color: new _v228(),
+              position: new _v136(),
+              direction: new _v136(),
+              color: new _v233(),
               distance: 0,
               coneCos: 0,
               penumbraCos: 0,
@@ -13087,38 +13179,38 @@
             break;
           case "PointLight":
             _v1 = {
-              position: new _v131(),
-              color: new _v228(),
+              position: new _v136(),
+              color: new _v233(),
               distance: 0,
               decay: 0
             };
             break;
           case "HemisphereLight":
             _v1 = {
-              direction: new _v131(),
-              skyColor: new _v228(),
-              groundColor: new _v228()
+              direction: new _v136(),
+              skyColor: new _v233(),
+              groundColor: new _v233()
             };
             break;
           case "RectAreaLight":
             _v1 = {
-              color: new _v228(),
-              position: new _v131(),
-              halfWidth: new _v131(),
-              halfHeight: new _v131()
+              color: new _v233(),
+              position: new _v136(),
+              halfWidth: new _v136(),
+              halfHeight: new _v136()
             };
         }
         return _v0[_v0.id] = _v1, _v1;
       }
     };
   }
-  let _v455 = 0;
-  function _v456(_v0, _v1) {
+  let _v460 = 0;
+  function _v461(_v0, _v1) {
     return 2 * !!_v1.castShadow - 2 * !!_v0.castShadow + +!!_v1.map - !!_v0.map;
   }
-  function _v457(_v0) {
+  function _v462(_v0) {
     let _v1,
-      _v2 = new _v454(),
+      _v2 = new _v459(),
       _v3 = (_v1 = {}, {
         get: function (_v0) {
           let _v1;
@@ -13131,7 +13223,7 @@
                 shadowBias: 0,
                 shadowNormalBias: 0,
                 shadowRadius: 1,
-                shadowMapSize: new _v129()
+                shadowMapSize: new _v134()
               };
               break;
             case "PointLight":
@@ -13140,7 +13232,7 @@
                 shadowBias: 0,
                 shadowNormalBias: 0,
                 shadowRadius: 1,
-                shadowMapSize: new _v129(),
+                shadowMapSize: new _v134(),
                 shadowCameraNear: 1,
                 shadowCameraFar: 0
               };
@@ -13184,10 +13276,10 @@
         numSpotLightShadowsWithMaps: 0,
         numLightProbes: 0
       };
-    for (let _v0 = 0; _v0 < 9; _v0++) _v4.probe.push(new _v131());
-    let _v5 = new _v131(),
-      _v6 = new _v182(),
-      _v7 = new _v182();
+    for (let _v0 = 0; _v0 < 9; _v0++) _v4.probe.push(new _v136());
+    let _v5 = new _v136(),
+      _v6 = new _v187(),
+      _v7 = new _v187();
     return {
       setup: function (_v0) {
         let _v1 = 0,
@@ -13205,7 +13297,7 @@
           _v12 = 0,
           _v13 = 0,
           _v14 = 0;
-        _v0.sort(_v456);
+        _v0.sort(_v461);
         for (let _v0 = 0, _v1 = _v0.length; _v0 < _v1; _v0++) {
           let _v0 = _v0[_v0],
             _v1 = _v0.color,
@@ -13248,9 +13340,9 @@
             _v0.skyColor.copy(_v0.color).multiplyScalar(_v2), _v0.groundColor.copy(_v0.groundColor).multiplyScalar(_v2), _v4.hemi[_v8] = _v0, _v8++;
           }
         }
-        _v7 > 0 && (!0 === _v0.has("OES_texture_float_linear") ? (_v4.rectAreaLTC1 = _v335.LTC_FLOAT_1, _v4.rectAreaLTC2 = _v335.LTC_FLOAT_2) : (_v4.rectAreaLTC1 = _v335.LTC_HALF_1, _v4.rectAreaLTC2 = _v335.LTC_HALF_2)), _v4.ambient[0] = _v1, _v4.ambient[1] = _v2, _v4.ambient[2] = _v3;
+        _v7 > 0 && (!0 === _v0.has("OES_texture_float_linear") ? (_v4.rectAreaLTC1 = _v340.LTC_FLOAT_1, _v4.rectAreaLTC2 = _v340.LTC_FLOAT_2) : (_v4.rectAreaLTC1 = _v340.LTC_HALF_1, _v4.rectAreaLTC2 = _v340.LTC_HALF_2)), _v4.ambient[0] = _v1, _v4.ambient[1] = _v2, _v4.ambient[2] = _v3;
         let _v15 = _v4.hash;
-        (_v15.directionalLength !== _v4 || _v15.pointLength !== _v5 || _v15.spotLength !== _v6 || _v15.rectAreaLength !== _v7 || _v15.hemiLength !== _v8 || _v15.numDirectionalShadows !== _v9 || _v15.numPointShadows !== _v10 || _v15.numSpotShadows !== _v11 || _v15.numSpotMaps !== _v12 || _v15.numLightProbes !== _v14) && (_v4.directional.length = _v4, _v4.spot.length = _v6, _v4.rectArea.length = _v7, _v4.point.length = _v5, _v4.hemi.length = _v8, _v4.directionalShadow.length = _v9, _v4.directionalShadowMap.length = _v9, _v4.pointShadow.length = _v10, _v4.pointShadowMap.length = _v10, _v4.spotShadow.length = _v11, _v4.spotShadowMap.length = _v11, _v4.directionalShadowMatrix.length = _v9, _v4.pointShadowMatrix.length = _v10, _v4.spotLightMatrix.length = _v11 + _v12 - _v13, _v4.spotLightMap.length = _v12, _v4.numSpotLightShadowsWithMaps = _v13, _v4.numLightProbes = _v14, _v15.directionalLength = _v4, _v15.pointLength = _v5, _v15.spotLength = _v6, _v15.rectAreaLength = _v7, _v15.hemiLength = _v8, _v15.numDirectionalShadows = _v9, _v15.numPointShadows = _v10, _v15.numSpotShadows = _v11, _v15.numSpotMaps = _v12, _v15.numLightProbes = _v14, _v4.version = _v455++);
+        (_v15.directionalLength !== _v4 || _v15.pointLength !== _v5 || _v15.spotLength !== _v6 || _v15.rectAreaLength !== _v7 || _v15.hemiLength !== _v8 || _v15.numDirectionalShadows !== _v9 || _v15.numPointShadows !== _v10 || _v15.numSpotShadows !== _v11 || _v15.numSpotMaps !== _v12 || _v15.numLightProbes !== _v14) && (_v4.directional.length = _v4, _v4.spot.length = _v6, _v4.rectArea.length = _v7, _v4.point.length = _v5, _v4.hemi.length = _v8, _v4.directionalShadow.length = _v9, _v4.directionalShadowMap.length = _v9, _v4.pointShadow.length = _v10, _v4.pointShadowMap.length = _v10, _v4.spotShadow.length = _v11, _v4.spotShadowMap.length = _v11, _v4.directionalShadowMatrix.length = _v9, _v4.pointShadowMatrix.length = _v10, _v4.spotLightMatrix.length = _v11 + _v12 - _v13, _v4.spotLightMap.length = _v12, _v4.numSpotLightShadowsWithMaps = _v13, _v4.numLightProbes = _v14, _v15.directionalLength = _v4, _v15.pointLength = _v5, _v15.spotLength = _v6, _v15.rectAreaLength = _v7, _v15.hemiLength = _v8, _v15.numDirectionalShadows = _v9, _v15.numPointShadows = _v10, _v15.numSpotShadows = _v11, _v15.numSpotMaps = _v12, _v15.numLightProbes = _v14, _v4.version = _v460++);
       },
       setupView: function (_v0, _v1) {
         let _v2 = 0,
@@ -13282,8 +13374,8 @@
       state: _v4
     };
   }
-  function _v458(_v0) {
-    let _v1 = new _v457(_v0),
+  function _v463(_v0) {
+    let _v1 = new _v462(_v0),
       _v2 = [],
       _v3 = [],
       _v4 = {
@@ -13312,28 +13404,28 @@
       }
     };
   }
-  function _v459(_v0) {
+  function _v464(_v0) {
     let _v1 = new WeakMap();
     return {
       get: function (_v0, _v1 = 0) {
         let _v2,
           _v3 = _v1.get(_v0);
-        return void 0 === _v3 ? (_v2 = new _v458(_v0), _v1.set(_v0, [_v2])) : _v1 >= _v3.length ? (_v2 = new _v458(_v0), _v3.push(_v2)) : _v2 = _v3[_v1], _v2;
+        return void 0 === _v3 ? (_v2 = new _v463(_v0), _v1.set(_v0, [_v2])) : _v1 >= _v3.length ? (_v2 = new _v463(_v0), _v3.push(_v2)) : _v2 = _v3[_v1], _v2;
       },
       dispose: function () {
         _v1 = new WeakMap();
       }
     };
   }
-  function _v460(_v0, _v1, _v2) {
-    let _v3 = new _v285(),
-      _v4 = new _v129(),
-      _v5 = new _v129(),
-      _v6 = new _v152(),
-      _v7 = new _v305({
+  function _v465(_v0, _v1, _v2) {
+    let _v3 = new _v290(),
+      _v4 = new _v134(),
+      _v5 = new _v134(),
+      _v6 = new _v157(),
+      _v7 = new _v310({
         depthPacking: 0
       }),
-      _v8 = new _v306(),
+      _v8 = new _v311(),
       _v9 = {},
       _v10 = _v2.maxTextureSize,
       _v11 = {
@@ -13341,7 +13433,7 @@
         1: 0,
         2: 2
       },
-      _v12 = new _v265({
+      _v12 = new _v270({
         defines: {
           VSM_SAMPLES: 8
         },
@@ -13350,7 +13442,7 @@
             value: null
           },
           resolution: {
-            value: new _v129()
+            value: new _v134()
           },
           radius: {
             value: 4
@@ -13361,9 +13453,9 @@
       }),
       _v13 = _v12.clone();
     _v13.defines.HORIZONTAL_PASS = 1;
-    let _v14 = new _v247();
-    _v14.setAttribute("position", new _v236(new Float32Array([-1, -1, .5, 3, -1, .5, -1, 3, .5]), 3));
-    let _v15 = new _v259(_v14, _v12),
+    let _v14 = new _v252();
+    _v14.setAttribute("position", new _v241(new Float32Array([-1, -1, .5, 3, -1, .5, -1, 3, .5]), 3));
+    let _v15 = new _v264(_v14, _v12),
       _v16 = this;
     this.enabled = !1, this.autoUpdate = !0, this.needsUpdate = !1, this.type = 1;
     let _v17 = this.type;
@@ -13411,7 +13503,7 @@
             minFilter: 0,
             magFilter: 0
           } : {};
-          null !== _v1.map && _v1.map.dispose(), _v1.map = new _v154(_v4.x, _v4.y, _v0), _v1.map.texture.name = _v0.name + ".shadowMap", _v1.camera.updateProjectionMatrix();
+          null !== _v1.map && _v1.map.dispose(), _v1.map = new _v159(_v4.x, _v4.y, _v0), _v1.map.texture.name = _v0.name + ".shadowMap", _v1.camera.updateProjectionMatrix();
         }
         _v0.setRenderTarget(_v1.map), _v0.clear();
         let _v3 = _v1.getViewportCount();
@@ -13444,13 +13536,13 @@
         }
         !0 !== _v1.isPointLightShadow && 3 === this.type && function (_v0, _v1) {
           let _v2 = _v1.update(_v15);
-          _v12.defines.VSM_SAMPLES !== _v0.blurSamples && (_v12.defines.VSM_SAMPLES = _v0.blurSamples, _v13.defines.VSM_SAMPLES = _v0.blurSamples, _v12.needsUpdate = !0, _v13.needsUpdate = !0), null === _v0.mapPass && (_v0.mapPass = new _v154(_v4.x, _v4.y)), _v12.uniforms.shadow_pass.value = _v0.map.texture, _v12.uniforms.resolution.value = _v0.mapSize, _v12.uniforms.radius.value = _v0.radius, _v0.setRenderTarget(_v0.mapPass), _v0.clear(), _v0.renderBufferDirect(_v1, null, _v2, _v12, _v15, null), _v13.uniforms.shadow_pass.value = _v0.mapPass.texture, _v13.uniforms.resolution.value = _v0.mapSize, _v13.uniforms.radius.value = _v0.radius, _v0.setRenderTarget(_v0.map), _v0.clear(), _v0.renderBufferDirect(_v1, null, _v2, _v13, _v15, null);
+          _v12.defines.VSM_SAMPLES !== _v0.blurSamples && (_v12.defines.VSM_SAMPLES = _v0.blurSamples, _v13.defines.VSM_SAMPLES = _v0.blurSamples, _v12.needsUpdate = !0, _v13.needsUpdate = !0), null === _v0.mapPass && (_v0.mapPass = new _v159(_v4.x, _v4.y)), _v12.uniforms.shadow_pass.value = _v0.map.texture, _v12.uniforms.resolution.value = _v0.mapSize, _v12.uniforms.radius.value = _v0.radius, _v0.setRenderTarget(_v0.mapPass), _v0.clear(), _v0.renderBufferDirect(_v1, null, _v2, _v12, _v15, null), _v13.uniforms.shadow_pass.value = _v0.mapPass.texture, _v13.uniforms.resolution.value = _v0.mapSize, _v13.uniforms.radius.value = _v0.radius, _v0.setRenderTarget(_v0.map), _v0.clear(), _v0.renderBufferDirect(_v1, null, _v2, _v13, _v15, null);
         }(_v1, _v2), _v1.needsUpdate = !1;
       }
       _v17 = this.type, _v16.needsUpdate = !1, _v0.setRenderTarget(_v3, _v4, _v5);
     };
   }
-  let _v461 = {
+  let _v466 = {
     0: 1,
     2: 6,
     4: 7,
@@ -13460,12 +13552,12 @@
     7: 4,
     5: 3
   };
-  function _v462(_v0, _v1) {
+  function _v467(_v0, _v1) {
     let _v2 = new function () {
         let _v0 = !1,
-          _v1 = new _v152(),
+          _v1 = new _v157(),
           _v2 = null,
-          _v3 = new _v152(0, 0, 0, 0);
+          _v3 = new _v157(0, 0, 0, 0);
         return {
           setMask: function (_v0) {
             _v2 === _v0 || _v0 || (_v0.colorMask(_v0, _v0, _v0, _v0), _v2 = _v0);
@@ -13506,7 +13598,7 @@
             _v2 === _v0 || _v0 || (_v0.depthMask(_v0), _v2 = _v0);
           },
           setFunc: function (_v0) {
-            if (_v1 && (_v0 = _v461[_v0]), _v3 !== _v0) {
+            if (_v1 && (_v0 = _v466[_v0]), _v3 !== _v0) {
               switch (_v0) {
                 case 0:
                   _v0.depthFunc(_v0.NEVER);
@@ -13596,7 +13688,7 @@
       _v17 = null,
       _v18 = null,
       _v19 = null,
-      _v20 = new _v228(0, 0, 0),
+      _v20 = new _v233(0, 0, 0),
       _v21 = 0,
       _v22 = !1,
       _v23 = null,
@@ -13612,8 +13704,8 @@
       _v32 = {},
       _v33 = _v0.getParameter(_v0.SCISSOR_BOX),
       _v34 = _v0.getParameter(_v0.VIEWPORT),
-      _v35 = new _v152().fromArray(_v33),
-      _v36 = new _v152().fromArray(_v34);
+      _v35 = new _v157().fromArray(_v33),
+      _v36 = new _v157().fromArray(_v34);
     function _v37(_v0, _v1, _v2, _v3) {
       let _v4 = new Uint8Array(4),
         _v5 = _v0.createTexture();
@@ -13851,15 +13943,15 @@
         !1 === _v36.equals(_v0) && (_v0.viewport(_v0.x, _v0.y, _v0.z, _v0.w), _v36.copy(_v0));
       },
       reset: function () {
-        _v0.disable(_v0.BLEND), _v0.disable(_v0.CULL_FACE), _v0.disable(_v0.DEPTH_TEST), _v0.disable(_v0.POLYGON_OFFSET_FILL), _v0.disable(_v0.SCISSOR_TEST), _v0.disable(_v0.STENCIL_TEST), _v0.disable(_v0.SAMPLE_ALPHA_TO_COVERAGE), _v0.blendEquation(_v0.FUNC_ADD), _v0.blendFunc(_v0.ONE, _v0.ZERO), _v0.blendFuncSeparate(_v0.ONE, _v0.ZERO, _v0.ONE, _v0.ZERO), _v0.blendColor(0, 0, 0, 0), _v0.colorMask(!0, !0, !0, !0), _v0.clearColor(0, 0, 0, 0), _v0.depthMask(!0), _v0.depthFunc(_v0.LESS), _v3.setReversed(!1), _v0.clearDepth(1), _v0.stencilMask(0), _v0.stencilFunc(_v0.ALWAYS, 0, 0), _v0.stencilOp(_v0.KEEP, _v0.KEEP, _v0.KEEP), _v0.clearStencil(0), _v0.cullFace(_v0.BACK), _v0.frontFace(_v0.CCW), _v0.polygonOffset(0, 0), _v0.activeTexture(_v0.TEXTURE0), _v0.bindFramebuffer(_v0.FRAMEBUFFER, null), _v0.bindFramebuffer(_v0.DRAW_FRAMEBUFFER, null), _v0.bindFramebuffer(_v0.READ_FRAMEBUFFER, null), _v0.useProgram(null), _v0.lineWidth(1), _v0.scissor(0, 0, _v0.canvas.width, _v0.canvas.height), _v0.viewport(0, 0, _v0.canvas.width, _v0.canvas.height), _v7 = {}, _v31 = null, _v32 = {}, _v8 = {}, _v9 = new WeakMap(), _v10 = [], _v11 = null, _v12 = !1, _v13 = null, _v14 = null, _v15 = null, _v16 = null, _v17 = null, _v18 = null, _v19 = null, _v20 = new _v228(0, 0, 0), _v21 = 0, _v22 = !1, _v23 = null, _v24 = null, _v25 = null, _v26 = null, _v27 = null, _v35.set(0, 0, _v0.canvas.width, _v0.canvas.height), _v36.set(0, 0, _v0.canvas.width, _v0.canvas.height), _v2.reset(), _v3.reset(), _v4.reset();
+        _v0.disable(_v0.BLEND), _v0.disable(_v0.CULL_FACE), _v0.disable(_v0.DEPTH_TEST), _v0.disable(_v0.POLYGON_OFFSET_FILL), _v0.disable(_v0.SCISSOR_TEST), _v0.disable(_v0.STENCIL_TEST), _v0.disable(_v0.SAMPLE_ALPHA_TO_COVERAGE), _v0.blendEquation(_v0.FUNC_ADD), _v0.blendFunc(_v0.ONE, _v0.ZERO), _v0.blendFuncSeparate(_v0.ONE, _v0.ZERO, _v0.ONE, _v0.ZERO), _v0.blendColor(0, 0, 0, 0), _v0.colorMask(!0, !0, !0, !0), _v0.clearColor(0, 0, 0, 0), _v0.depthMask(!0), _v0.depthFunc(_v0.LESS), _v3.setReversed(!1), _v0.clearDepth(1), _v0.stencilMask(0), _v0.stencilFunc(_v0.ALWAYS, 0, 0), _v0.stencilOp(_v0.KEEP, _v0.KEEP, _v0.KEEP), _v0.clearStencil(0), _v0.cullFace(_v0.BACK), _v0.frontFace(_v0.CCW), _v0.polygonOffset(0, 0), _v0.activeTexture(_v0.TEXTURE0), _v0.bindFramebuffer(_v0.FRAMEBUFFER, null), _v0.bindFramebuffer(_v0.DRAW_FRAMEBUFFER, null), _v0.bindFramebuffer(_v0.READ_FRAMEBUFFER, null), _v0.useProgram(null), _v0.lineWidth(1), _v0.scissor(0, 0, _v0.canvas.width, _v0.canvas.height), _v0.viewport(0, 0, _v0.canvas.width, _v0.canvas.height), _v7 = {}, _v31 = null, _v32 = {}, _v8 = {}, _v9 = new WeakMap(), _v10 = [], _v11 = null, _v12 = !1, _v13 = null, _v14 = null, _v15 = null, _v16 = null, _v17 = null, _v18 = null, _v19 = null, _v20 = new _v233(0, 0, 0), _v21 = 0, _v22 = !1, _v23 = null, _v24 = null, _v25 = null, _v26 = null, _v27 = null, _v35.set(0, 0, _v0.canvas.width, _v0.canvas.height), _v36.set(0, 0, _v0.canvas.width, _v0.canvas.height), _v2.reset(), _v3.reset(), _v4.reset();
       }
     };
   }
-  function _v463(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
+  function _v468(_v0, _v1, _v2, _v3, _v4, _v5, _v6) {
     let _v7,
       _v8 = _v1.has("WEBGL_multisampled_render_to_texture") ? _v1.get("WEBGL_multisampled_render_to_texture") : null,
       _v9 = "u" > typeof navigator && /OculusBrowser/g.test(navigator.userAgent),
-      _v10 = new _v129(),
+      _v10 = new _v134(),
       _v11 = new WeakMap(),
       _v12 = new WeakMap(),
       _v13 = !1;
@@ -13867,7 +13959,7 @@
       _v13 = "u" > typeof OffscreenCanvas && null !== new OffscreenCanvas(1, 1).getContext("2d");
     } catch (_v0) {}
     function _v14(_v0, _v1) {
-      return _v13 ? new OffscreenCanvas(_v0, _v1) : _v137("canvas");
+      return _v13 ? new OffscreenCanvas(_v0, _v1) : _v142("canvas");
     }
     function _v15(_v0, _v1, _v2) {
       let _v3 = 1,
@@ -13894,8 +13986,8 @@
       }
       let _v5 = _v1;
       if (_v1 === _v0.RED && (_v2 === _v0.FLOAT && (_v5 = _v0.R32F), _v2 === _v0.HALF_FLOAT && (_v5 = _v0.R16F), _v2 === _v0.UNSIGNED_BYTE && (_v5 = _v0.R8)), _v1 === _v0.RED_INTEGER && (_v2 === _v0.UNSIGNED_BYTE && (_v5 = _v0.R8UI), _v2 === _v0.UNSIGNED_SHORT && (_v5 = _v0.R16UI), _v2 === _v0.UNSIGNED_INT && (_v5 = _v0.R32UI), _v2 === _v0.BYTE && (_v5 = _v0.R8I), _v2 === _v0.SHORT && (_v5 = _v0.R16I), _v2 === _v0.INT && (_v5 = _v0.R32I)), _v1 === _v0.RG && (_v2 === _v0.FLOAT && (_v5 = _v0.RG32F), _v2 === _v0.HALF_FLOAT && (_v5 = _v0.RG16F), _v2 === _v0.UNSIGNED_BYTE && (_v5 = _v0.RG8)), _v1 === _v0.RG_INTEGER && (_v2 === _v0.UNSIGNED_BYTE && (_v5 = _v0.RG8UI), _v2 === _v0.UNSIGNED_SHORT && (_v5 = _v0.RG16UI), _v2 === _v0.UNSIGNED_INT && (_v5 = _v0.RG32UI), _v2 === _v0.BYTE && (_v5 = _v0.RG8I), _v2 === _v0.SHORT && (_v5 = _v0.RG16I), _v2 === _v0.INT && (_v5 = _v0.RG32I)), _v1 === _v0.RGB_INTEGER && (_v2 === _v0.UNSIGNED_BYTE && (_v5 = _v0.RGB8UI), _v2 === _v0.UNSIGNED_SHORT && (_v5 = _v0.RGB16UI), _v2 === _v0.UNSIGNED_INT && (_v5 = _v0.RGB32UI), _v2 === _v0.BYTE && (_v5 = _v0.RGB8I), _v2 === _v0.SHORT && (_v5 = _v0.RGB16I), _v2 === _v0.INT && (_v5 = _v0.RGB32I)), _v1 === _v0.RGBA_INTEGER && (_v2 === _v0.UNSIGNED_BYTE && (_v5 = _v0.RGBA8UI), _v2 === _v0.UNSIGNED_SHORT && (_v5 = _v0.RGBA16UI), _v2 === _v0.UNSIGNED_INT && (_v5 = _v0.RGBA32UI), _v2 === _v0.BYTE && (_v5 = _v0.RGBA8I), _v2 === _v0.SHORT && (_v5 = _v0.RGBA16I), _v2 === _v0.INT && (_v5 = _v0.RGBA32I)), _v1 === _v0.RGB && (_v2 === _v0.UNSIGNED_INT_5_9_9_9_REV && (_v5 = _v0.RGB9_E5), _v2 === _v0.UNSIGNED_INT_10F_11F_11F_REV && (_v5 = _v0.R11F_G11F_B10F)), _v1 === _v0.RGBA) {
-        let _v0 = _v4 ? _v118 : _v142.getTransfer(_v3);
-        _v2 === _v0.FLOAT && (_v5 = _v0.RGBA32F), _v2 === _v0.HALF_FLOAT && (_v5 = _v0.RGBA16F), _v2 === _v0.UNSIGNED_BYTE && (_v5 = _v0 === _v119 ? _v0.SRGB8_ALPHA8 : _v0.RGBA8), _v2 === _v0.UNSIGNED_SHORT_4_4_4_4 && (_v5 = _v0.RGBA4), _v2 === _v0.UNSIGNED_SHORT_5_5_5_1 && (_v5 = _v0.RGB5_A1);
+        let _v0 = _v4 ? _v123 : _v147.getTransfer(_v3);
+        _v2 === _v0.FLOAT && (_v5 = _v0.RGBA32F), _v2 === _v0.HALF_FLOAT && (_v5 = _v0.RGBA16F), _v2 === _v0.UNSIGNED_BYTE && (_v5 = _v0 === _v124 ? _v0.SRGB8_ALPHA8 : _v0.RGBA8), _v2 === _v0.UNSIGNED_SHORT_4_4_4_4 && (_v5 = _v0.RGBA4), _v2 === _v0.UNSIGNED_SHORT_5_5_5_1 && (_v5 = _v0.RGB5_A1);
       }
       return (_v5 === _v0.R16F || _v5 === _v0.R32F || _v5 === _v0.RG16F || _v5 === _v0.RG32F || _v5 === _v0.RGBA16F || _v5 === _v0.RGBA32F) && _v1.get("EXT_color_buffer_float"), _v5;
     }
@@ -14021,8 +14113,8 @@
       if (_v5.version !== _v6.__version || !0 === _v4) {
         let _v0;
         _v2.activeTexture(_v0.TEXTURE0 + _v2);
-        let _v1 = _v142.getPrimaries(_v142.workingColorSpace),
-          _v2 = "" === _v1.colorSpace ? null : _v142.getPrimaries(_v1.colorSpace),
+        let _v1 = _v147.getPrimaries(_v147.workingColorSpace),
+          _v2 = "" === _v1.colorSpace ? null : _v147.getPrimaries(_v1.colorSpace),
           _v3 = "" === _v1.colorSpace || _v1 === _v2 ? _v0.NONE : _v0.BROWSER_DEFAULT_WEBGL;
         _v0.pixelStorei(_v0.UNPACK_FLIP_Y_WEBGL, _v1.flipY), _v0.pixelStorei(_v0.UNPACK_PREMULTIPLY_ALPHA_WEBGL, _v1.premultiplyAlpha), _v0.pixelStorei(_v0.UNPACK_ALIGNMENT, _v1.unpackAlignment), _v0.pixelStorei(_v0.UNPACK_COLORSPACE_CONVERSION_WEBGL, _v3);
         let _v4 = _v15(_v1.image, !1, _v4.maxTextureSize);
@@ -14077,7 +14169,7 @@
               if (null !== _v5) {
                 if (_v9) {
                   if (_v11) if (_v1.layerUpdates.size > 0) {
-                    let _v0 = _v331(_v0.width, _v0.height, _v1.format, _v1.type);
+                    let _v0 = _v336(_v0.width, _v0.height, _v1.format, _v1.type);
                     for (let _v0 of _v1.layerUpdates) {
                       let _v0 = _v0.data.subarray(_v0 * _v0 / _v0.data.BYTES_PER_ELEMENT, (_v0 + 1) * _v0 / _v0.data.BYTES_PER_ELEMENT);
                       _v2.compressedTexSubImage3D(_v0.TEXTURE_2D_ARRAY, _v0, 0, 0, _v0, _v0.width, _v0.height, 1, _v5, _v0);
@@ -14094,7 +14186,7 @@
         } else if (_v1.isDataArrayTexture) {
           if (_v9) {
             if (_v10 && _v2.texStorage3D(_v0.TEXTURE_2D_ARRAY, _v12, _v7, _v4.width, _v4.height, _v4.depth), _v11) if (_v1.layerUpdates.size > 0) {
-              let _v0 = _v331(_v4.width, _v4.height, _v1.format, _v1.type);
+              let _v0 = _v336(_v4.width, _v4.height, _v1.format, _v1.type);
               for (let _v0 of _v1.layerUpdates) {
                 let _v0 = _v4.data.subarray(_v0 * _v0 / _v4.data.BYTES_PER_ELEMENT, (_v0 + 1) * _v0 / _v4.data.BYTES_PER_ELEMENT);
                 _v2.texSubImage3D(_v0.TEXTURE_2D_ARRAY, 0, 0, 0, _v0, _v4.width, _v4.height, 1, _v5, _v6, _v0);
@@ -14216,7 +14308,7 @@
       let _v2 = _v0.colorSpace,
         _v3 = _v0.format,
         _v4 = _v0.type;
-      return !0 === _v0.isCompressedTexture || !0 === _v0.isVideoTexture || _v2 !== _v117 && "" !== _v2 && (_v142.getTransfer(_v2) === _v119 ? (0 !== _v3 || 0 !== _v4) && console.warn("THREE.WebGLTextures: sRGB encoded textures have to use RGBAFormat and UnsignedByteType.") : console.error("THREE.WebGLTextures: Unsupported texture color space:", _v2)), _v1;
+      return !0 === _v0.isCompressedTexture || !0 === _v0.isVideoTexture || _v2 !== _v122 && "" !== _v2 && (_v147.getTransfer(_v2) === _v124 ? (0 !== _v3 || 0 !== _v4) && console.warn("THREE.WebGLTextures: sRGB encoded textures have to use RGBAFormat and UnsignedByteType.") : console.error("THREE.WebGLTextures: Unsupported texture color space:", _v2)), _v1;
     }
     function _v42(_v0) {
       return "u" > typeof HTMLImageElement && _v0 instanceof HTMLImageElement ? (_v10.width = _v0.naturalWidth || _v0.width, _v10.height = _v0.naturalHeight || _v0.height) : "u" > typeof VideoFrame && _v0 instanceof VideoFrame ? (_v10.width = _v0.displayWidth, _v10.height = _v0.displayHeight) : (_v10.width = _v0.width, _v10.height = _v0.height), _v10;
@@ -14243,8 +14335,8 @@
         if (_v4.version !== _v5.__version || !0 === _v3) {
           let _v0;
           _v2.activeTexture(_v0.TEXTURE0 + _v2);
-          let _v1 = _v142.getPrimaries(_v142.workingColorSpace),
-            _v2 = "" === _v1.colorSpace ? null : _v142.getPrimaries(_v1.colorSpace),
+          let _v1 = _v147.getPrimaries(_v147.workingColorSpace),
+            _v2 = "" === _v1.colorSpace ? null : _v147.getPrimaries(_v1.colorSpace),
             _v3 = "" === _v1.colorSpace || _v1 === _v2 ? _v0.NONE : _v0.BROWSER_DEFAULT_WEBGL;
           _v0.pixelStorei(_v0.UNPACK_FLIP_Y_WEBGL, _v1.flipY), _v0.pixelStorei(_v0.UNPACK_PREMULTIPLY_ALPHA_WEBGL, _v1.premultiplyAlpha), _v0.pixelStorei(_v0.UNPACK_ALIGNMENT, _v1.unpackAlignment), _v0.pixelStorei(_v0.UNPACK_COLORSPACE_CONVERSION_WEBGL, _v3);
           let _v4 = _v1.isCompressedTexture || _v1.image[0].isCompressedTexture,
@@ -14395,11 +14487,11 @@
       }
     }, this.setupDepthRenderbuffer = _v36, this.setupFrameBufferTexture = _v33, this.useMultisampledRTT = _v40;
   }
-  function _v464(_v0, _v1) {
+  function _v469(_v0, _v1) {
     return {
       convert: function (_v0, _v1 = "") {
         let _v2,
-          _v3 = _v142.getTransfer(_v1);
+          _v3 = _v147.getTransfer(_v1);
         if (0 === _v0) return _v0.UNSIGNED_BYTE;
         if (0 === _v0) return _v0.UNSIGNED_SHORT_4_4_4_4;
         if (0 === _v0) return _v0.UNSIGNED_SHORT_5_5_5_1;
@@ -14422,7 +14514,7 @@
         if (0 === _v0) return _v0.RG;
         if (0 === _v0) return _v0.RG_INTEGER;
         if (0 === _v0) return _v0.RGBA_INTEGER;
-        if (0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0) if (_v3 === _v119) {
+        if (0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0) if (_v3 === _v124) {
           if (null === (_v2 = _v1.get("WEBGL_compressed_texture_s3tc_srgb"))) return null;
           if (0 === _v0) return _v2.COMPRESSED_SRGB_S3TC_DXT1_EXT;
           if (0 === _v0) return _v2.COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT;
@@ -14444,29 +14536,29 @@
         }
         if (0 === _v0 || 0 === _v0 || 0 === _v0) {
           if (null === (_v2 = _v1.get("WEBGL_compressed_texture_etc"))) return null;
-          if (0 === _v0 || 0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ETC2 : _v2.COMPRESSED_RGB8_ETC2;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC : _v2.COMPRESSED_RGBA8_ETC2_EAC;
+          if (0 === _v0 || 0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ETC2 : _v2.COMPRESSED_RGB8_ETC2;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC : _v2.COMPRESSED_RGBA8_ETC2_EAC;
         }
         if (0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0 || 0 === _v0) {
           if (null === (_v2 = _v1.get("WEBGL_compressed_texture_astc"))) return null;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR : _v2.COMPRESSED_RGBA_ASTC_4x4_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR : _v2.COMPRESSED_RGBA_ASTC_5x4_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR : _v2.COMPRESSED_RGBA_ASTC_5x5_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_6x5_KHR : _v2.COMPRESSED_RGBA_ASTC_6x5_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR : _v2.COMPRESSED_RGBA_ASTC_6x6_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_8x5_KHR : _v2.COMPRESSED_RGBA_ASTC_8x5_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_8x6_KHR : _v2.COMPRESSED_RGBA_ASTC_8x6_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR : _v2.COMPRESSED_RGBA_ASTC_8x8_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_10x5_KHR : _v2.COMPRESSED_RGBA_ASTC_10x5_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_10x6_KHR : _v2.COMPRESSED_RGBA_ASTC_10x6_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR : _v2.COMPRESSED_RGBA_ASTC_10x8_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR : _v2.COMPRESSED_RGBA_ASTC_10x10_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR : _v2.COMPRESSED_RGBA_ASTC_12x10_KHR;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR : _v2.COMPRESSED_RGBA_ASTC_12x12_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR : _v2.COMPRESSED_RGBA_ASTC_4x4_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR : _v2.COMPRESSED_RGBA_ASTC_5x4_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR : _v2.COMPRESSED_RGBA_ASTC_5x5_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_6x5_KHR : _v2.COMPRESSED_RGBA_ASTC_6x5_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR : _v2.COMPRESSED_RGBA_ASTC_6x6_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_8x5_KHR : _v2.COMPRESSED_RGBA_ASTC_8x5_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_8x6_KHR : _v2.COMPRESSED_RGBA_ASTC_8x6_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR : _v2.COMPRESSED_RGBA_ASTC_8x8_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_10x5_KHR : _v2.COMPRESSED_RGBA_ASTC_10x5_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_10x6_KHR : _v2.COMPRESSED_RGBA_ASTC_10x6_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR : _v2.COMPRESSED_RGBA_ASTC_10x8_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR : _v2.COMPRESSED_RGBA_ASTC_10x10_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR : _v2.COMPRESSED_RGBA_ASTC_12x10_KHR;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR : _v2.COMPRESSED_RGBA_ASTC_12x12_KHR;
         }
         if (0 === _v0 || 0 === _v0 || 0 === _v0) {
           if (null === (_v2 = _v1.get("EXT_texture_compression_bptc"))) return null;
-          if (0 === _v0) return _v3 === _v119 ? _v2.COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT : _v2.COMPRESSED_RGBA_BPTC_UNORM_EXT;
+          if (0 === _v0) return _v3 === _v124 ? _v2.COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT : _v2.COMPRESSED_RGBA_BPTC_UNORM_EXT;
           if (0 === _v0) return _v2.COMPRESSED_RGB_BPTC_SIGNED_FLOAT_EXT;
           if (0 === _v0) return _v2.COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT;
         }
@@ -14481,13 +14573,13 @@
       }
     };
   }
-  let _v465 = `
+  let _v470 = `
 void main() {
 
 	gl_Position = vec4( position, 1.0 );
 
 }`,
-    _v466 = `
+    _v471 = `
 uniform sampler2DArray depthColor;
 uniform float depthWidth;
 uniform float depthHeight;
@@ -14507,22 +14599,22 @@ void main() {
 	}
 
 }`;
-  class _v467 {
+  class _v472 {
     constructor() {
       this.texture = null, this.mesh = null, this.depthNear = 0, this.depthFar = 0;
     }
     init(_v0, _v1) {
       if (null === this.texture) {
-        let _v0 = new _v289(_v0.texture);
+        let _v0 = new _v294(_v0.texture);
         (_v0.depthNear !== _v1.depthNear || _v0.depthFar !== _v1.depthFar) && (this.depthNear = _v0.depthNear, this.depthFar = _v0.depthFar), this.texture = _v0;
       }
     }
     getMesh(_v0) {
       if (null !== this.texture && null === this.mesh) {
         let _v0 = _v0.cameras[0].viewport,
-          _v1 = new _v265({
-            vertexShader: _v465,
-            fragmentShader: _v466,
+          _v1 = new _v270({
+            vertexShader: _v470,
+            fragmentShader: _v471,
             uniforms: {
               depthColor: {
                 value: this.texture
@@ -14535,7 +14627,7 @@ void main() {
               }
             }
           });
-        this.mesh = new _v259(new _v304(20, 20), _v1);
+        this.mesh = new _v264(new _v309(20, 20), _v1);
       }
       return this.mesh;
     }
@@ -14546,7 +14638,7 @@ void main() {
       return this.texture;
     }
   }
-  class _v468 extends _v121 {
+  class _v473 extends _v126 {
     constructor(_v0, _v1) {
       super();
       const _v2 = this;
@@ -14562,21 +14654,21 @@ void main() {
         _v12 = null,
         _v13 = null;
       const _v14 = "u" > typeof XRWebGLBinding,
-        _v15 = new _v467(),
+        _v15 = new _v472(),
         _v16 = {},
         _v17 = _v1.getContextAttributes();
       let _v18 = null,
         _v19 = null;
       const _v20 = [],
         _v21 = [],
-        _v22 = new _v129();
+        _v22 = new _v134();
       let _v23 = null;
-      const _v24 = new _v270();
-      _v24.viewport = new _v152();
-      const _v25 = new _v270();
-      _v25.viewport = new _v152();
+      const _v24 = new _v275();
+      _v24.viewport = new _v157();
+      const _v25 = new _v275();
+      _v25.viewport = new _v157();
       const _v26 = [_v24, _v25],
-        _v27 = new _v323();
+        _v27 = new _v328();
       let _v28 = null,
         _v29 = null;
       function _v30(_v0) {
@@ -14624,13 +14716,13 @@ void main() {
       }
       this.cameraAutoUpdate = !0, this.enabled = !1, this.isPresenting = !1, this.getController = function (_v0) {
         let _v1 = _v20[_v0];
-        return void 0 === _v1 && (_v1 = new _v276(), _v20[_v0] = _v1), _v1.getTargetRaySpace();
+        return void 0 === _v1 && (_v1 = new _v281(), _v20[_v0] = _v1), _v1.getTargetRaySpace();
       }, this.getControllerGrip = function (_v0) {
         let _v1 = _v20[_v0];
-        return void 0 === _v1 && (_v1 = new _v276(), _v20[_v0] = _v1), _v1.getGripSpace();
+        return void 0 === _v1 && (_v1 = new _v281(), _v20[_v0] = _v1), _v1.getGripSpace();
       }, this.getHand = function (_v0) {
         let _v1 = _v20[_v0];
-        return void 0 === _v1 && (_v1 = new _v276(), _v20[_v0] = _v1), _v1.getHandSpace();
+        return void 0 === _v1 && (_v1 = new _v281(), _v20[_v0] = _v1), _v1.getHandSpace();
       }, this.setFramebufferScaleFactor = function (_v0) {
         _v4 = _v0, !0 === _v2.isPresenting && console.warn("THREE.WebXRManager: Cannot change framebuffer scale while presenting.");
       }, this.setReferenceSpaceType = function (_v0) {
@@ -14661,10 +14753,10 @@ void main() {
             };
             _v11 = (_v10 = this.getBinding()).createProjectionLayer(_v3), _v3.updateRenderState({
               layers: [_v11]
-            }), _v0.setPixelRatio(1), _v0.setSize(_v11.textureWidth, _v11.textureHeight, !1), _v19 = new _v154(_v11.textureWidth, _v11.textureHeight, {
+            }), _v0.setPixelRatio(1), _v0.setSize(_v11.textureWidth, _v11.textureHeight, !1), _v19 = new _v159(_v11.textureWidth, _v11.textureHeight, {
               format: 0,
               type: 0,
-              depthTexture: new _v288(_v11.textureWidth, _v11.textureHeight, _v1, void 0, void 0, void 0, void 0, void 0, void 0, _v0),
+              depthTexture: new _v293(_v11.textureWidth, _v11.textureHeight, _v1, void 0, void 0, void 0, void 0, void 0, void 0, _v0),
               stencilBuffer: _v17.stencil,
               colorSpace: _v0.outputColorSpace,
               samples: 4 * !!_v17.antialias,
@@ -14681,7 +14773,7 @@ void main() {
             };
             _v12 = new XRWebGLLayer(_v3, _v1, _v0), _v3.updateRenderState({
               baseLayer: _v12
-            }), _v0.setPixelRatio(1), _v0.setSize(_v12.framebufferWidth, _v12.framebufferHeight, !1), _v19 = new _v154(_v12.framebufferWidth, _v12.framebufferHeight, {
+            }), _v0.setPixelRatio(1), _v0.setSize(_v12.framebufferWidth, _v12.framebufferHeight, !1), _v19 = new _v159(_v12.framebufferWidth, _v12.framebufferHeight, {
               format: 0,
               type: 0,
               colorSpace: _v0.outputColorSpace,
@@ -14699,8 +14791,8 @@ void main() {
       }, this.getDepthTexture = function () {
         return _v15.getDepthTexture();
       };
-      const _v33 = new _v131(),
-        _v34 = new _v131();
+      const _v33 = new _v136(),
+        _v34 = new _v136();
       function _v35(_v0, _v1) {
         null === _v1 ? _v0.matrixWorld.copy(_v0.matrix) : _v0.matrixWorld.multiplyMatrices(_v1.matrixWorld, _v0.matrix), _v0.matrixWorldInverse.copy(_v0.matrixWorld).invert();
       }
@@ -14735,7 +14827,7 @@ void main() {
               _v1 = _v7 + _v12;
             _v0.projectionMatrix.makePerspective(_v6 * _v10 - _v13, _v6 * _v11 + (_v3 - _v13), _v8 * _v7 / _v1 * _v0, _v9 * _v7 / _v1 * _v0, _v0, _v1), _v0.projectionMatrixInverse.copy(_v0.projectionMatrix).invert();
           }
-        }(_v27, _v24, _v25) : _v27.projectionMatrix.copy(_v24.projectionMatrix), _v1 = _v0, _v2 = _v27, null === (_v3 = _v6) ? _v1.matrix.copy(_v2.matrixWorld) : (_v1.matrix.copy(_v3.matrixWorld), _v1.matrix.invert(), _v1.matrix.multiply(_v2.matrixWorld)), _v1.matrix.decompose(_v1.position, _v1.quaternion, _v1.scale), _v1.updateMatrixWorld(!0), _v1.projectionMatrix.copy(_v2.projectionMatrix), _v1.projectionMatrixInverse.copy(_v2.projectionMatrixInverse), _v1.isPerspectiveCamera && (_v1.fov = 2 * _v124 * Math.atan(1 / _v1.projectionMatrix.elements[5]), _v1.zoom = 1);
+        }(_v27, _v24, _v25) : _v27.projectionMatrix.copy(_v24.projectionMatrix), _v1 = _v0, _v2 = _v27, null === (_v3 = _v6) ? _v1.matrix.copy(_v2.matrixWorld) : (_v1.matrix.copy(_v3.matrixWorld), _v1.matrix.invert(), _v1.matrix.multiply(_v2.matrixWorld)), _v1.matrix.decompose(_v1.position, _v1.quaternion, _v1.scale), _v1.updateMatrixWorld(!0), _v1.projectionMatrix.copy(_v2.projectionMatrix), _v1.projectionMatrixInverse.copy(_v2.projectionMatrixInverse), _v1.isPerspectiveCamera && (_v1.fov = 2 * _v129 * Math.atan(1 / _v1.projectionMatrix.elements[5]), _v1.zoom = 1);
       }, this.getCamera = function () {
         return _v27;
       }, this.getFoveation = function () {
@@ -14750,7 +14842,7 @@ void main() {
         return _v16[_v0];
       };
       let _v36 = null;
-      const _v37 = new _v332();
+      const _v37 = new _v337();
       _v37.setAnimationLoop(function (_v0, _v1) {
         if (_v9 = _v1.getViewerPose(_v8 || _v5), _v13 = _v1, null !== _v9) {
           let _v0 = _v9.views;
@@ -14765,7 +14857,7 @@ void main() {
               _v1 = _v0.viewport, 0 === _v0 && (_v0.setRenderTargetTextures(_v19, _v0.colorTexture, _v0.depthStencilTexture), _v0.setRenderTarget(_v19));
             }
             let _v2 = _v26[_v0];
-            void 0 === _v2 && ((_v2 = new _v270()).layers.enable(_v0), _v2.viewport = new _v152(), _v26[_v0] = _v2), _v2.matrix.fromArray(_v0.transform.matrix), _v2.matrix.decompose(_v2.position, _v2.quaternion, _v2.scale), _v2.projectionMatrix.fromArray(_v0.projectionMatrix), _v2.projectionMatrixInverse.copy(_v2.projectionMatrix).invert(), _v2.viewport.set(_v1.x, _v1.y, _v1.width, _v1.height), 0 === _v0 && (_v27.matrix.copy(_v2.matrix), _v27.matrix.decompose(_v27.position, _v27.quaternion, _v27.scale)), !0 === _v1 && _v27.cameras.push(_v2);
+            void 0 === _v2 && ((_v2 = new _v275()).layers.enable(_v0), _v2.viewport = new _v157(), _v26[_v0] = _v2), _v2.matrix.fromArray(_v0.transform.matrix), _v2.matrix.decompose(_v2.position, _v2.quaternion, _v2.scale), _v2.projectionMatrix.fromArray(_v0.projectionMatrix), _v2.projectionMatrixInverse.copy(_v2.projectionMatrix).invert(), _v2.viewport.set(_v1.x, _v1.y, _v1.width, _v1.height), 0 === _v0 && (_v27.matrix.copy(_v2.matrix), _v27.matrix.decompose(_v27.position, _v27.quaternion, _v27.scale)), !0 === _v1 && _v27.cameras.push(_v2);
           }
           let _v2 = _v3.enabledFeatures;
           if (_v2 && _v2.includes("depth-sensing") && "gpu-optimized" == _v3.depthUsage && _v14) {
@@ -14778,7 +14870,7 @@ void main() {
               let _v0 = _v0[_v0].camera;
               if (_v0) {
                 let _v0 = _v16[_v0];
-                _v0 || (_v0 = new _v289(), _v16[_v0] = _v0);
+                _v0 || (_v0 = new _v294(), _v16[_v0] = _v0);
                 let _v1 = _v10.getCameraImage(_v0);
                 _v0.sourceTexture = _v1;
               }
@@ -14799,9 +14891,9 @@ void main() {
       }, this.dispose = function () {};
     }
   }
-  let _v469 = new _v192(),
-    _v470 = new _v182();
-  function _v471(_v0, _v1) {
+  let _v474 = new _v197(),
+    _v475 = new _v187();
+  function _v476(_v0, _v1) {
     function _v2(_v0, _v1) {
       !0 === _v0.matrixAutoUpdate && _v0.updateMatrix(), _v1.value.copy(_v0.matrix);
     }
@@ -14810,11 +14902,11 @@ void main() {
       let _v2 = _v1.get(_v1),
         _v3 = _v2.envMap,
         _v4 = _v2.envMapRotation;
-      _v3 && (_v0.envMap.value = _v3, _v469.copy(_v4), _v469.x *= -1, _v469.y *= -1, _v469.z *= -1, _v3.isCubeTexture && !1 === _v3.isRenderTargetTexture && (_v469.y *= -1, _v469.z *= -1), _v0.envMapRotation.value.setFromMatrix4(_v470.makeRotationFromEuler(_v469)), _v0.flipEnvMap.value = _v3.isCubeTexture && !1 === _v3.isRenderTargetTexture ? -1 : 1, _v0.reflectivity.value = _v1.reflectivity, _v0.ior.value = _v1.ior, _v0.refractionRatio.value = _v1.refractionRatio), _v1.lightMap && (_v0.lightMap.value = _v1.lightMap, _v0.lightMapIntensity.value = _v1.lightMapIntensity, _v2(_v1.lightMap, _v0.lightMapTransform)), _v1.aoMap && (_v0.aoMap.value = _v1.aoMap, _v0.aoMapIntensity.value = _v1.aoMapIntensity, _v2(_v1.aoMap, _v0.aoMapTransform));
+      _v3 && (_v0.envMap.value = _v3, _v474.copy(_v4), _v474.x *= -1, _v474.y *= -1, _v474.z *= -1, _v3.isCubeTexture && !1 === _v3.isRenderTargetTexture && (_v474.y *= -1, _v474.z *= -1), _v0.envMapRotation.value.setFromMatrix4(_v475.makeRotationFromEuler(_v474)), _v0.flipEnvMap.value = _v3.isCubeTexture && !1 === _v3.isRenderTargetTexture ? -1 : 1, _v0.reflectivity.value = _v1.reflectivity, _v0.ior.value = _v1.ior, _v0.refractionRatio.value = _v1.refractionRatio), _v1.lightMap && (_v0.lightMap.value = _v1.lightMap, _v0.lightMapIntensity.value = _v1.lightMapIntensity, _v2(_v1.lightMap, _v0.lightMapTransform)), _v1.aoMap && (_v0.aoMap.value = _v1.aoMap, _v0.aoMapIntensity.value = _v1.aoMapIntensity, _v2(_v1.aoMap, _v0.aoMapTransform));
     }
     return {
       refreshFogUniforms: function (_v0, _v1) {
-        _v1.color.getRGB(_v0.fogColor.value, _v264(_v0)), _v1.isFog ? (_v0.fogNear.value = _v1.near, _v0.fogFar.value = _v1.far) : _v1.isFogExp2 && (_v0.fogDensity.value = _v1.density);
+        _v1.color.getRGB(_v0.fogColor.value, _v269(_v0)), _v1.isFog ? (_v0.fogNear.value = _v1.near, _v0.fogFar.value = _v1.far) : _v1.isFogExp2 && (_v0.fogDensity.value = _v1.density);
       },
       refreshMaterialUniforms: function (_v0, _v1, _v2, _v3, _v4) {
         var _v5, _v6, _v7, _v8, _v9, _v10, _v11, _v12, _v13, _v14, _v15, _v16, _v17, _v18, _v19, _v20, _v21, _v22, _v23, _v24, _v25, _v26, _v27;
@@ -14823,7 +14915,7 @@ void main() {
       }
     };
   }
-  function _v472(_v0, _v1, _v2, _v3) {
+  function _v477(_v0, _v1, _v2, _v3) {
     let _v4 = {},
       _v5 = {},
       _v6 = [],
@@ -14921,12 +15013,12 @@ void main() {
       }
     };
   }
-  class _v473 {
+  class _v478 {
     constructor(_v0 = {}) {
       let _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9, _v10, _v11, _v12, _v13, _v14, _v15, _v16, _v17, _v18, _v19, _v20, _v21, _v22, _v23, _v24, _v25;
       const {
         canvas: _v26 = function () {
-          let _v0 = _v137("canvas");
+          let _v0 = _v142("canvas");
           return _v0.style.display = "block", _v0;
         }(),
         context: _v27 = null,
@@ -14956,31 +15048,31 @@ void main() {
       }, this.autoClear = !0, this.autoClearColor = !0, this.autoClearDepth = !0, this.autoClearStencil = !0, this.sortObjects = !0, this.clippingPlanes = [], this.localClippingEnabled = !1, this.toneMapping = 0, this.toneMappingExposure = 1, this.transmissionResolutionScale = 1;
       const _v43 = this;
       let _v44 = !1;
-      this._outputColorSpace = _v116;
+      this._outputColorSpace = _v121;
       let _v45 = 0,
         _v46 = 0,
         _v47 = null,
         _v48 = -1,
         _v49 = null;
-      const _v50 = new _v152(),
-        _v51 = new _v152();
+      const _v50 = new _v157(),
+        _v51 = new _v157();
       let _v52 = null;
-      const _v53 = new _v228(0);
+      const _v53 = new _v233(0);
       let _v54 = 0,
         _v55 = _v26.width,
         _v56 = _v26.height,
         _v57 = 1,
         _v58 = null,
         _v59 = null;
-      const _v60 = new _v152(0, 0, _v55, _v56),
-        _v61 = new _v152(0, 0, _v55, _v56);
+      const _v60 = new _v157(0, 0, _v55, _v56),
+        _v61 = new _v157(0, 0, _v55, _v56);
       let _v62 = !1;
-      const _v63 = new _v285();
+      const _v63 = new _v290();
       let _v64 = !1,
         _v65 = !1;
-      const _v66 = new _v182(),
-        _v67 = new _v131(),
-        _v68 = new _v152(),
+      const _v66 = new _v187(),
+        _v67 = new _v136(),
+        _v68 = new _v157(),
         _v69 = {
           background: null,
           fog: null,
@@ -15014,10 +15106,10 @@ void main() {
         throw console.error("THREE.WebGLRenderer: " + _v0.message), _v0;
       }
       function _v74() {
-        (_v2 = new _v364(_v72)).init(), _v23 = new _v464(_v72, _v2), _v3 = new _v343(_v72, _v2, _v0, _v23), _v4 = new _v462(_v72, _v2), _v3.reversedDepthBuffer && _v36 && _v4.buffers.depth.setReversed(!0), _v5 = new _v367(_v72), _v6 = new _v449(), _v7 = new _v463(_v72, _v2, _v4, _v6, _v3, _v23, _v5), _v8 = new _v345(_v43), _v9 = new _v363(_v43), _v10 = new _v333(_v72), _v24 = new _v341(_v72, _v10), _v11 = new _v365(_v72, _v10, _v5, _v24), _v12 = new _v369(_v72, _v11, _v10, _v5), _v20 = new _v368(_v72, _v3, _v7), _v17 = new _v344(_v6), _v13 = new _v448(_v43, _v8, _v9, _v2, _v3, _v24, _v17), _v14 = new _v471(_v43, _v6), _v15 = new _v453(), _v16 = new _v459(_v2), _v19 = new _v340(_v43, _v8, _v9, _v4, _v12, _v1, _v32), _v18 = new _v460(_v43, _v12, _v3), _v25 = new _v472(_v72, _v5, _v3, _v4), _v21 = new _v342(_v72, _v2, _v5), _v22 = new _v366(_v72, _v2, _v5), _v5.programs = _v13.programs, _v43.capabilities = _v3, _v43.extensions = _v2, _v43.properties = _v6, _v43.renderLists = _v15, _v43.shadowMap = _v18, _v43.state = _v4, _v43.info = _v5;
+        (_v2 = new _v369(_v72)).init(), _v23 = new _v469(_v72, _v2), _v3 = new _v348(_v72, _v2, _v0, _v23), _v4 = new _v467(_v72, _v2), _v3.reversedDepthBuffer && _v36 && _v4.buffers.depth.setReversed(!0), _v5 = new _v372(_v72), _v6 = new _v454(), _v7 = new _v468(_v72, _v2, _v4, _v6, _v3, _v23, _v5), _v8 = new _v350(_v43), _v9 = new _v368(_v43), _v10 = new _v338(_v72), _v24 = new _v346(_v72, _v10), _v11 = new _v370(_v72, _v10, _v5, _v24), _v12 = new _v374(_v72, _v11, _v10, _v5), _v20 = new _v373(_v72, _v3, _v7), _v17 = new _v349(_v6), _v13 = new _v453(_v43, _v8, _v9, _v2, _v3, _v24, _v17), _v14 = new _v476(_v43, _v6), _v15 = new _v458(), _v16 = new _v464(_v2), _v19 = new _v345(_v43, _v8, _v9, _v4, _v12, _v1, _v32), _v18 = new _v465(_v43, _v12, _v3), _v25 = new _v477(_v72, _v5, _v3, _v4), _v21 = new _v347(_v72, _v2, _v5), _v22 = new _v371(_v72, _v2, _v5), _v5.programs = _v13.programs, _v43.capabilities = _v3, _v43.extensions = _v2, _v43.properties = _v6, _v43.renderLists = _v15, _v43.shadowMap = _v18, _v43.state = _v4, _v43.info = _v5;
       }
       _v74();
-      const _v75 = new _v468(_v43, _v72);
+      const _v75 = new _v473(_v43, _v72);
       function _v76(_v0) {
         _v0.preventDefault(), console.log("THREE.WebGLRenderer: Context Lost."), _v44 = !0;
       }
@@ -15129,7 +15221,7 @@ void main() {
             !0 !== _v1.isScene && (_v1 = _v69), _v7.resetTextureUnits();
             let _v7 = _v1.fog,
               _v8 = _v3.isMeshStandardMaterial ? _v1.environment : null,
-              _v9 = null === _v47 ? _v43.outputColorSpace : !0 === _v47.isXRRenderTarget ? _v47.texture.colorSpace : _v117,
+              _v9 = null === _v47 ? _v43.outputColorSpace : !0 === _v47.isXRRenderTarget ? _v47.texture.colorSpace : _v122,
               _v10 = (_v3.isMeshStandardMaterial ? _v9 : _v8).get(_v3.envMap || _v8),
               _v11 = !0 === _v3.vertexColors && !!_v2.attributes.color && 4 === _v2.attributes.color.itemSize,
               _v12 = !!_v2.attributes.tangent && (!!_v3.normalMap || _v3.anisotropy > 0),
@@ -15167,7 +15259,7 @@ void main() {
             }
             _v4.isBatchedMesh && (_v26.setOptional(_v72, _v4, "batchingTexture"), _v26.setValue(_v72, "batchingTexture", _v4._matricesTexture, _v7), _v26.setOptional(_v72, _v4, "batchingIdTexture"), _v26.setValue(_v72, "batchingIdTexture", _v4._indirectTexture, _v7), _v26.setOptional(_v72, _v4, "batchingColorTexture"), null !== _v4._colorsTexture && _v26.setValue(_v72, "batchingColorTexture", _v4._colorsTexture, _v7));
             let _v28 = _v2.morphAttributes;
-            if ((void 0 !== _v28.position || void 0 !== _v28.normal || void 0 !== _v28.color) && _v20.update(_v4, _v2, _v22), (_v24 || _v19.receiveShadow !== _v4.receiveShadow) && (_v19.receiveShadow = _v4.receiveShadow, _v26.setValue(_v72, "receiveShadow", _v4.receiveShadow)), _v3.isMeshGouraudMaterial && null !== _v3.envMap && (_v27.envMap.value = _v10, _v27.flipEnvMap.value = _v10.isCubeTexture && !1 === _v10.isRenderTargetTexture ? -1 : 1), _v3.isMeshStandardMaterial && null === _v3.envMap && null !== _v1.environment && (_v27.envMapIntensity.value = _v1.environmentIntensity), _v24 && (_v26.setValue(_v72, "toneMappingExposure", _v43.toneMappingExposure), _v19.needsLights && (_v5 = _v27, _v6 = _v25, _v5.ambientLightColor.needsUpdate = _v6, _v5.lightProbe.needsUpdate = _v6, _v5.directionalLights.needsUpdate = _v6, _v5.directionalLightShadows.needsUpdate = _v6, _v5.pointLights.needsUpdate = _v6, _v5.pointLightShadows.needsUpdate = _v6, _v5.spotLights.needsUpdate = _v6, _v5.spotLightShadows.needsUpdate = _v6, _v5.rectAreaLights.needsUpdate = _v6, _v5.hemisphereLights.needsUpdate = _v6), _v7 && !0 === _v3.fog && _v14.refreshFogUniforms(_v27, _v7), _v14.refreshMaterialUniforms(_v27, _v3, _v57, _v56, _v40.state.transmissionRenderTarget[_v0.id]), _v427.upload(_v72, _v91(_v19), _v27, _v7)), _v3.isShaderMaterial && !0 === _v3.uniformsNeedUpdate && (_v427.upload(_v72, _v91(_v19), _v27, _v7), _v3.uniformsNeedUpdate = !1), _v3.isSpriteMaterial && _v26.setValue(_v72, "center", _v4.center), _v26.setValue(_v72, "modelViewMatrix", _v4.modelViewMatrix), _v26.setValue(_v72, "normalMatrix", _v4.normalMatrix), _v26.setValue(_v72, "modelMatrix", _v4.matrixWorld), _v3.isShaderMaterial || _v3.isRawShaderMaterial) {
+            if ((void 0 !== _v28.position || void 0 !== _v28.normal || void 0 !== _v28.color) && _v20.update(_v4, _v2, _v22), (_v24 || _v19.receiveShadow !== _v4.receiveShadow) && (_v19.receiveShadow = _v4.receiveShadow, _v26.setValue(_v72, "receiveShadow", _v4.receiveShadow)), _v3.isMeshGouraudMaterial && null !== _v3.envMap && (_v27.envMap.value = _v10, _v27.flipEnvMap.value = _v10.isCubeTexture && !1 === _v10.isRenderTargetTexture ? -1 : 1), _v3.isMeshStandardMaterial && null === _v3.envMap && null !== _v1.environment && (_v27.envMapIntensity.value = _v1.environmentIntensity), _v24 && (_v26.setValue(_v72, "toneMappingExposure", _v43.toneMappingExposure), _v19.needsLights && (_v5 = _v27, _v6 = _v25, _v5.ambientLightColor.needsUpdate = _v6, _v5.lightProbe.needsUpdate = _v6, _v5.directionalLights.needsUpdate = _v6, _v5.directionalLightShadows.needsUpdate = _v6, _v5.pointLights.needsUpdate = _v6, _v5.pointLightShadows.needsUpdate = _v6, _v5.spotLights.needsUpdate = _v6, _v5.spotLightShadows.needsUpdate = _v6, _v5.rectAreaLights.needsUpdate = _v6, _v5.hemisphereLights.needsUpdate = _v6), _v7 && !0 === _v3.fog && _v14.refreshFogUniforms(_v27, _v7), _v14.refreshMaterialUniforms(_v27, _v3, _v57, _v56, _v40.state.transmissionRenderTarget[_v0.id]), _v432.upload(_v72, _v91(_v19), _v27, _v7)), _v3.isShaderMaterial && !0 === _v3.uniformsNeedUpdate && (_v432.upload(_v72, _v91(_v19), _v27, _v7), _v3.uniformsNeedUpdate = !1), _v3.isSpriteMaterial && _v26.setValue(_v72, "center", _v4.center), _v26.setValue(_v72, "modelViewMatrix", _v4.modelViewMatrix), _v26.setValue(_v72, "normalMatrix", _v4.normalMatrix), _v26.setValue(_v72, "modelMatrix", _v4.matrixWorld), _v3.isShaderMaterial || _v3.isRawShaderMaterial) {
               let _v0 = _v3.uniformsGroups;
               for (let _v0 = 0, _v1 = _v0.length; _v0 < _v1; _v0++) {
                 let _v0 = _v0[_v0];
@@ -15197,7 +15289,7 @@ void main() {
           void 0 === _v0 && (_v0 = 1), _v4.setLineWidth(_v0 * _v71()), _v4.isLineSegments ? _v16.setMode(_v72.LINES) : _v4.isLineLoop ? _v16.setMode(_v72.LINE_LOOP) : _v16.setMode(_v72.LINE_STRIP);
         } else _v4.isPoints ? _v16.setMode(_v72.POINTS) : _v4.isSprite && _v16.setMode(_v72.TRIANGLES);
         if (_v4.isBatchedMesh) {
-          if (null !== _v4._multiDrawInstances) _v139("THREE.WebGLRenderer: renderMultiDrawInstances has been deprecated and will be removed in r184. Append to renderMultiDraw arguments and use indirection."), _v16.renderMultiDrawInstances(_v4._multiDrawStarts, _v4._multiDrawCounts, _v4._multiDrawCount, _v4._multiDrawInstances);else if (_v2.get("WEBGL_multi_draw")) _v16.renderMultiDraw(_v4._multiDrawStarts, _v4._multiDrawCounts, _v4._multiDrawCount);else {
+          if (null !== _v4._multiDrawInstances) _v144("THREE.WebGLRenderer: renderMultiDrawInstances has been deprecated and will be removed in r184. Append to renderMultiDraw arguments and use indirection."), _v16.renderMultiDrawInstances(_v4._multiDrawStarts, _v4._multiDrawCounts, _v4._multiDrawCount, _v4._multiDrawInstances);else if (_v2.get("WEBGL_multi_draw")) _v16.renderMultiDraw(_v4._multiDrawStarts, _v4._multiDrawCounts, _v4._multiDrawCount);else {
             let _v0 = _v4._multiDrawStarts,
               _v1 = _v4._multiDrawCounts,
               _v2 = _v4._multiDrawCount,
@@ -15243,7 +15335,7 @@ void main() {
       function _v83() {
         _v84.start();
       }
-      const _v84 = new _v332();
+      const _v84 = new _v337();
       function _v85(_v0, _v1, _v2, _v3) {
         if (!1 === _v0.visible) return;
         if (_v0.layers.test(_v1.layers)) {
@@ -15278,7 +15370,7 @@ void main() {
       }
       function _v87(_v0, _v1, _v2, _v3) {
         if (null !== (!0 === _v2.isScene ? _v2.overrideMaterial : null)) return;
-        void 0 === _v40.state.transmissionRenderTarget[_v3.id] && (_v40.state.transmissionRenderTarget[_v3.id] = new _v154(1, 1, {
+        void 0 === _v40.state.transmissionRenderTarget[_v3.id] && (_v40.state.transmissionRenderTarget[_v3.id] = new _v159(1, 1, {
           generateMipmaps: !0,
           type: _v2.has("EXT_color_buffer_half_float") || _v2.has("EXT_color_buffer_float") ? 0 : 0,
           minFilter: 0,
@@ -15286,7 +15378,7 @@ void main() {
           stencilBuffer: _v29,
           resolveDepthBuffer: !1,
           resolveStencilBuffer: !1,
-          colorSpace: _v142.workingColorSpace
+          colorSpace: _v147.workingColorSpace
         }));
         let _v4 = _v40.state.transmissionRenderTarget[_v3.id],
           _v5 = _v3.viewport || _v50;
@@ -15350,7 +15442,7 @@ void main() {
       function _v91(_v0) {
         if (null === _v0.uniformsList) {
           let _v0 = _v0.currentProgram.getUniforms();
-          _v0.uniformsList = _v427.seqWithValue(_v0.seq, _v0.uniforms);
+          _v0.uniformsList = _v432.seqWithValue(_v0.seq, _v0.uniforms);
         }
         return _v0.uniformsList;
       }
@@ -15489,7 +15581,7 @@ void main() {
         _v95 = _v72.createFramebuffer();
       this.copyTextureToTexture = function (_v0, _v1, _v2 = null, _v3 = null, _v4 = 0, _v5 = null) {
         let _v6, _v7, _v8, _v9, _v10, _v11, _v12, _v13, _v14, _v15;
-        null === _v5 && (0 !== _v4 ? (_v139("WebGLRenderer: copyTextureToTexture function signature has changed to support src and dst mipmap levels."), _v5 = _v4, _v4 = 0) : _v5 = 0);
+        null === _v5 && (0 !== _v4 ? (_v144("WebGLRenderer: copyTextureToTexture function signature has changed to support src and dst mipmap levels."), _v5 = _v4, _v4 = 0) : _v5 = 0);
         let _v16 = _v0.isCompressedTexture ? _v0.mipmaps[_v5] : _v0.image;
         if (null !== _v2) _v6 = _v2.max.x - _v2.min.x, _v7 = _v2.max.y - _v2.min.y, _v8 = _v2.isBox3 ? _v2.max.z - _v2.min.z : 1, _v9 = _v2.min.x, _v10 = _v2.min.y, _v11 = _v2.isBox3 ? _v2.min.z : 0;else {
           let _v0 = Math.pow(2, -_v4);
@@ -15542,12 +15634,12 @@ void main() {
     set outputColorSpace(_v0) {
       this._outputColorSpace = _v0;
       let _v1 = this.getContext();
-      _v1.drawingBufferColorSpace = _v142._getDrawingBufferColorSpace(_v0), _v1.unpackColorSpace = _v142._getUnpackColorSpace();
+      _v1.drawingBufferColorSpace = _v147._getDrawingBufferColorSpace(_v0), _v1.unpackColorSpace = _v147._getUnpackColorSpace();
     }
   }
-  let _v474 = _v25.FILMS.reduce((_v0, _v1) => _v0 + _v1.width + 10, 0),
-    _v475 = _v25.FILMS.map((_v0, _v1) => _v25.FILMS.slice(0, _v1).reduce((_v0, _v1) => _v0 + _v1.width + 10, 0)),
-    _v476 = `
+  let _v479 = _v28.FILMS.reduce((_v0, _v1) => _v0 + _v1.width + 10, 0),
+    _v480 = _v28.FILMS.map((_v0, _v1) => _v28.FILMS.slice(0, _v1).reduce((_v0, _v1) => _v0 + _v1.width + 10, 0)),
+    _v481 = `
   uniform float u_halfWidth;
   uniform float u_designHalfWidth;
   uniform float u_depth;
@@ -15584,7 +15676,7 @@ void main() {
     gl_Position = projectionMatrix * viewMatrix * w;
   }
 `,
-    _v477 = `
+    _v482 = `
   uniform sampler2D u_film;
   uniform vec2 u_size;
   uniform float u_imageAspect;
@@ -15616,7 +15708,7 @@ void main() {
     #include <colorspace_fragment>
   }
 `,
-    _v478 = `
+    _v483 = `
   uniform sampler2D u_credit;
   varying vec2 vUv;
   void main() {
@@ -15626,14 +15718,14 @@ void main() {
     #include <colorspace_fragment>
   }
 `,
-    _v479 = () => {
-      let _v0 = (0, _v28.useRef)(null),
-        _v1 = (0, _v28.useRef)(null),
-        _v2 = (0, _v28.useRef)(null),
-        [_v3, _v4] = (0, _v28.useState)(null),
-        [_v5, _v6] = (0, _v28.useState)(!1),
-        [_v7, _v8] = (0, _v28.useState)(!1);
-      (0, _v28.useEffect)(() => {
+    _v484 = () => {
+      let _v0 = (0, _v31.useRef)(null),
+        _v1 = (0, _v31.useRef)(null),
+        _v2 = (0, _v31.useRef)(null),
+        [_v3, _v4] = (0, _v31.useState)(null),
+        [_v5, _v6] = (0, _v31.useState)(!1),
+        [_v7, _v8] = (0, _v31.useState)(!1);
+      (0, _v31.useEffect)(() => {
         if (!_v0.current || !_v1.current) return;
         let _v0 = (({
           canvas: _v0,
@@ -15643,7 +15735,7 @@ void main() {
         }) => {
           let _v4;
           try {
-            _v4 = new _v473({
+            _v4 = new _v478({
               canvas: _v0,
               alpha: !0,
               antialias: !0,
@@ -15652,14 +15744,14 @@ void main() {
           } catch {
             return null;
           }
-          _v4.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)), _v4.setClearColor(0, 0), _v4.outputColorSpace = _v116;
-          let _v5 = new _v277(),
-            _v6 = new _v270(53.4, 1, 1, 0),
-            _v7 = new _v322();
+          _v4.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2)), _v4.setClearColor(0, 0), _v4.outputColorSpace = _v121;
+          let _v5 = new _v282(),
+            _v6 = new _v275(53.4, 1, 1, 0),
+            _v7 = new _v327();
           _v7.setCrossOrigin("anonymous");
           let _v8 = [],
             _v9 = [],
-            _v10 = _v25.FILMS.map(_v0 => {
+            _v10 = _v28.FILMS.map(_v0 => {
               var _v1;
               let _v2,
                 _v3,
@@ -15673,14 +15765,14 @@ void main() {
                 _v11 = _v7.load(_v0.poster, _v0 => {
                   _v12.uniforms.u_imageAspect.value = _v0.image.width / _v0.image.height;
                 });
-              _v11.colorSpace = _v116, _v11.minFilter = 0, _v11.magFilter = 0;
-              let _v12 = new _v265({
+              _v11.colorSpace = _v121, _v11.minFilter = 0, _v11.magFilter = 0;
+              let _v12 = new _v270({
                   uniforms: {
                     u_film: {
                       value: _v11
                     },
                     u_size: {
-                      value: new _v129(_v0.width, 412)
+                      value: new _v134(_v0.width, 412)
                     },
                     u_imageAspect: {
                       value: 16 / 9
@@ -15704,16 +15796,16 @@ void main() {
                       value: 0
                     }
                   },
-                  vertexShader: _v476,
-                  fragmentShader: _v477,
+                  vertexShader: _v481,
+                  fragmentShader: _v482,
                   transparent: !0,
                   depthTest: !0,
                   depthWrite: !0,
                   side: 2
                 }),
-                _v13 = new _v259(new _v304(_v0.width, 412, 24, 24), _v12);
+                _v13 = new _v264(new _v309(_v0.width, 412, 24, 24), _v12);
               _v13.frustumCulled = !1, _v5.add(_v13);
-              let _v14 = (_v1 = _v12.uniforms, (_v2 = document.createElement("canvas")).width = 3 * _v0.width, _v2.height = 96, _v3 = !1, _v4 = 32, _v5 = _v2.getContext("2d"), (_v6 = new _v287(_v2)).colorSpace = _v116, _v6.minFilter = 0, _v6.magFilter = 0, _v6.generateMipmaps = !1, (_v7 = () => {
+              let _v14 = (_v1 = _v12.uniforms, (_v2 = document.createElement("canvas")).width = 3 * _v0.width, _v2.height = 96, _v3 = !1, _v4 = 32, _v5 = _v2.getContext("2d"), (_v6 = new _v292(_v2)).colorSpace = _v121, _v6.minFilter = 0, _v6.magFilter = 0, _v6.generateMipmaps = !1, (_v7 = () => {
                 if (_v5) {
                   if (_v5.setTransform(3, 0, 0, 3, 0, 0), _v5.clearRect(0, 0, _v0.width, _v4), _v5.textBaseline = "alphabetic", _v5.textAlign = "left", _v5.fillStyle = "#f9fafb", _v5.letterSpacing = "-0.4px", _v3) {
                     _v5.font = '500 26px "ABCRepro-Medium", sans-serif', _v5.fillText(_v0.title, 0, 26), _v5.fillStyle = "#b6c0cc", _v5.font = '350 24px "ABCRepro-Regular", sans-serif';
@@ -15734,7 +15826,7 @@ void main() {
                 }
               })(), _v8 = !1, Promise.all([document.fonts.load('500 20px "ABCRepro-Medium"'), document.fonts.load('350 18px "ABCRepro-Regular"')]).then(() => {
                 _v8 || _v7();
-              }).catch(() => void 0), _v9 = new _v265({
+              }).catch(() => void 0), _v9 = new _v270({
                 uniforms: {
                   u_credit: {
                     value: _v6
@@ -15744,16 +15836,16 @@ void main() {
                   u_depth: _v1.u_depth,
                   u_speed: _v1.u_speed
                 },
-                vertexShader: _v476,
-                fragmentShader: _v478,
+                vertexShader: _v481,
+                fragmentShader: _v483,
                 transparent: !0,
                 depthTest: !0,
                 depthWrite: !1,
                 side: 2
-              }), (_v10 = new _v259(new _v304(_v0.width, 32, 24, 4), _v9)).position.y = -236, _v10.frustumCulled = !1, {
+              }), (_v10 = new _v264(new _v309(_v0.width, 32, 24, 4), _v9)).position.y = -236, _v10.frustumCulled = !1, {
                 mesh: _v10,
                 setMobile: _v0 => {
-                  _v3 !== _v0 && (_v2.height = 3 * (_v4 = (_v3 = _v0) ? 108 : 32), _v10.geometry.dispose(), _v10.geometry = new _v304(_v0.width, _v4, 24, 4), _v10.position.y = -206 - (_v3 ? 22 : 14) - _v4 / 2, _v6.dispose(), (_v6 = new _v287(_v2)).colorSpace = _v116, _v6.minFilter = 0, _v6.magFilter = 0, _v6.generateMipmaps = !1, _v9.uniforms.u_credit.value = _v6, _v7());
+                  _v3 !== _v0 && (_v2.height = 3 * (_v4 = (_v3 = _v0) ? 108 : 32), _v10.geometry.dispose(), _v10.geometry = new _v309(_v0.width, _v4, 24, 4), _v10.position.y = -206 - (_v3 ? 22 : 14) - _v4 / 2, _v6.dispose(), (_v6 = new _v292(_v2)).colorSpace = _v121, _v6.minFilter = 0, _v6.magFilter = 0, _v6.generateMipmaps = !1, _v9.uniforms.u_credit.value = _v6, _v7());
                 },
                 dispose: () => {
                   _v8 = !0, _v10.geometry.dispose(), _v9.dispose(), _v6.dispose();
@@ -15762,8 +15854,8 @@ void main() {
               _v13.add(_v14.mesh), _v9.push(_v14);
               let _v15 = document.createElement("video");
               _v15.crossOrigin = "anonymous", _v15.src = _v0.video, _v15.poster = _v0.poster, _v15.muted = !0, _v15.defaultMuted = !0, _v15.loop = !0, _v15.autoplay = !0, _v15.playsInline = !0, _v15.preload = "auto", _v15.setAttribute("playsinline", "");
-              let _v16 = new _v286(_v15);
-              _v16.colorSpace = _v116, _v16.minFilter = 0, _v16.magFilter = 0, _v16.generateMipmaps = !1;
+              let _v16 = new _v291(_v15);
+              _v16.colorSpace = _v121, _v16.minFilter = 0, _v16.magFilter = 0, _v16.generateMipmaps = !1;
               let _v17 = () => {
                 _v15.readyState >= 2 && (_v12.uniforms.u_film.value = _v16, _v12.uniforms.u_imageAspect.value = _v15.videoWidth / _v15.videoHeight || 16 / 9, _v12.uniforms.u_cropScale.value = "SWELL" === _v0.title ? 1.55 : 1, _v12.uniforms.u_warmFilmGrade.value = +("SWELL" === _v0.title));
               };
@@ -15780,7 +15872,7 @@ void main() {
             _v14 = 0,
             _v15 = !1,
             _v16 = 1,
-            _v17 = _v474,
+            _v17 = _v479,
             _v18 = !1,
             _v19 = 0,
             _v20 = 0,
@@ -15794,17 +15886,17 @@ void main() {
             _v28 = 0,
             _v29 = performance.now(),
             _v30 = 0,
-            _v31 = _v0 => _v475[_v0] * _v16 + (_v15 ? 8 * _v0 : 0),
+            _v31 = _v0 => _v480[_v0] * _v16 + (_v15 ? 8 * _v0 : 0),
             _v32 = () => _v12 * (_v15 ? .085 : _v14 / 563 * .1),
             _v33 = () => {
-              _v12 = Math.min(_v11 = _v1.clientWidth || 0, 0), _v13 = (_v15 = _v11 <= 600) ? 340 : 563, _v17 = _v474 * (_v16 = _v15 ? .44 : 1) + (_v15 ? 8 * _v25.FILMS.length : 0);
+              _v12 = Math.min(_v11 = _v1.clientWidth || 0, 0), _v13 = (_v15 = _v11 <= 600) ? 340 : 563, _v17 = _v479 * (_v16 = _v15 ? .44 : 1) + (_v15 ? 8 * _v28.FILMS.length : 0);
               let _v0 = _v15 ? 80 : 240;
               _v14 = _v13 + 2 * _v0, _v2({
                 stageHeight: _v13,
                 canvasHeight: _v14,
                 canvasTop: -_v0,
                 mobile: _v15
-              }), _v18 && _v10[0].scale.x === _v16 || (_v20 = _v19 = _v15 ? _v11 / 2 - _v31(3) - _v25.FILMS[3].width / 2 * _v16 : (_v11 - _v25.FILMS[3].width) / 2 - _v475[3] - 153, _v18 = !0), _v4.setSize(_v11, _v14, !1), _v6.aspect = _v11 / _v14, _v6.position.set(0, 0, _v14 / 2 / Math.tan(_v6.fov / 2 * _v123)), _v6.updateProjectionMatrix(), _v10.forEach((_v0, _v1) => {
+              }), _v18 && _v10[0].scale.x === _v16 || (_v20 = _v19 = _v15 ? _v11 / 2 - _v31(3) - _v28.FILMS[3].width / 2 * _v16 : (_v11 - _v28.FILMS[3].width) / 2 - _v480[3] - 153, _v18 = !0), _v4.setSize(_v11, _v14, !1), _v6.aspect = _v11 / _v14, _v6.position.set(0, 0, _v14 / 2 / Math.tan(_v6.fov / 2 * _v128)), _v6.updateProjectionMatrix(), _v10.forEach((_v0, _v1) => {
                 _v0.scale.setScalar(_v16), _v0.position.y = 22 * !!_v15, _v9[_v1].setMobile(_v15), _v0.material.uniforms.u_halfWidth.value = _v11 / 2, _v0.material.uniforms.u_designHalfWidth.value = _v12 / 2, _v0.material.uniforms.u_depth.value = _v32();
               });
             },
@@ -15817,10 +15909,43 @@ void main() {
               _v3 = Math.abs(_v2 * Math.abs(_v2));
             _v21 += (_v3 - _v21) * .12, _v21 = Math.min(_v21, .45), _v10.forEach((_v0, _v1) => {
               let _v2;
-              _v0.position.x = (_v2 = _v31(_v1) + _v25.FILMS[_v1].width / 2 * _v16 + _v20) + Math.round((_v11 / 2 - _v2) / _v17) * _v17 - _v11 / 2, _v0.material.uniforms.u_speed.value = _v21, _v0.material.uniforms.u_depth.value = _v32() * (1 + 1.1 * _v21);
+              _v0.position.x = (_v2 = _v31(_v1) + _v28.FILMS[_v1].width / 2 * _v16 + _v20) + Math.round((_v11 / 2 - _v2) / _v17) * _v17 - _v11 / 2, _v0.material.uniforms.u_speed.value = _v21, _v0.material.uniforms.u_depth.value = _v32() * (1 + 1.1 * _v21);
             }), _v4.render(_v5, _v6), _v30 = requestAnimationFrame(_v35);
           };
-          return _v35(performance.now()), {
+          _v35(performance.now());
+          let _v36 = new _v136(),
+            _v37 = (_v0, _v1, _v2, _v3) => {
+              let _v4 = _v0 / _v2 * 1.15 - .2,
+                _v5 = -_v3 * Math.sin(Math.PI * _v4) * Math.exp(-_v4 * _v4);
+              return _v36.set(_v0, _v1 + .03 * _v0, _v5).project(_v6), {
+                x: (_v36.x + 1) / 2 * _v11,
+                y: (1 - _v36.y) / 2 * _v14
+              };
+            },
+            _v38 = (_v0, _v1) => {
+              let _v2 = _v11 / 2,
+                _v3 = _v32(),
+                _v4 = _v0.position.x,
+                _v5 = _v1.width * _v0.scale.x,
+                _v6 = 412 * _v0.scale.x,
+                _v7 = _v5 / 2,
+                _v8 = 1 / 0,
+                _v9 = -1 / 0;
+              for (let _v0 = 0; _v0 < 7; _v0 += 1) {
+                let _v0 = _v37(_v4 - _v7 + _v5 * _v0 / 6, _v0.position.y, _v2, _v3);
+                _v8 = Math.min(_v8, _v0.x), _v9 = Math.max(_v9, _v0.x);
+              }
+              let _v10 = _v37(_v4, _v0.position.y + _v6 / 2, _v2, _v3),
+                _v11 = _v37(_v4, _v0.position.y - _v6 / 2, _v2, _v3);
+              return {
+                minX: _v8,
+                maxX: _v9,
+                minY: _v10.y,
+                maxY: _v11.y,
+                centerX: (_v8 + _v9) / 2
+              };
+            };
+          return {
             beginDrag: _v0 => {
               if ("mouse" !== _v0.pointerType || 0 === _v0.button) {
                 _v8.forEach(({
@@ -15844,8 +15969,24 @@ void main() {
               }
               _v19 += _v27 = _v1 * (_v15 ? 1 : 1.5), _v26 = _v0.clientX, _v28 = performance.now();
             },
-            endDrag: () => {
-              _v23 && performance.now() - _v28 < 100 && (_v19 += 12 * _v27), _v22 = !1, _v23 = !1, _v3(!1);
+            endDrag: _v0 => {
+              let _v1 = _v0 && _v22 && !_v23 && 10 > Math.max(Math.abs(_v0.clientX - _v24), Math.abs(_v0.clientY - _v25)) ? (_v0 => {
+                let _v1 = _v0.getBoundingClientRect(),
+                  _v2 = _v0.clientX - _v1.left,
+                  _v3 = _v0.clientY - _v1.top,
+                  _v4 = null,
+                  _v5 = 1 / 0;
+                for (let _v0 = 0; _v0 < _v10.length; _v0 += 1) {
+                  let _v0 = _v28.FILMS[_v0];
+                  if (!_v0) continue;
+                  let _v1 = _v38(_v10[_v0], _v0);
+                  if (_v2 < _v1.minX || _v2 > _v1.maxX || _v3 < _v1.minY || _v3 > _v1.maxY) continue;
+                  let _v2 = Math.abs(_v2 - _v1.centerX);
+                  _v2 < _v5 && (_v4 = _v0, _v5 = _v2);
+                }
+                return _v4;
+              })(_v0) : null;
+              return _v23 && performance.now() - _v28 < 100 && (_v19 += 12 * _v27), _v22 = !1, _v23 = !1, _v3(!1), _v1;
             },
             dispose: () => {
               cancelAnimationFrame(_v30), _v34.disconnect(), _v9.forEach(_v0 => _v0.dispose()), _v10.forEach(_v0 => {
@@ -15882,14 +16023,17 @@ void main() {
           overflow: "hidden"
         }
       };
-      return (0, _v7.jsxs)(_v12.Box, {
+      return (0, _v10.jsxs)(_v15.Box, {
         ref: _v0,
         cursor: _v5 ? "grabbing" : "grab",
         onLostPointerCapture: () => _v2.current?.endDrag(),
         onPointerCancel: () => _v2.current?.endDrag(),
         onPointerDown: _v0 => _v2.current?.beginDrag(_v0.nativeEvent),
         onPointerMove: _v0 => _v2.current?.moveDrag(_v0.nativeEvent),
-        onPointerUp: () => _v2.current?.endDrag(),
+        onPointerUp: _v0 => {
+          let _v1 = _v2.current?.endDrag(_v0.nativeEvent);
+          _v1 && window.open(_v1.href, "_blank", "noopener,noreferrer");
+        },
         mt: {
           base: 0,
           md: "2xl"
@@ -15898,82 +16042,92 @@ void main() {
         sx: _v9,
         userSelect: "none",
         w: "100%",
-        children: [_v7 ? (0, _v7.jsx)(_v32.Flex, {
+        children: [_v7 ? (0, _v10.jsx)(_v35.Flex, {
           gap: "10px",
           overflow: "hidden",
           pt: "75px",
-          children: _v25.FILMS.map(_v0 => (0, _v7.jsxs)(_v12.Box, {
-            as: "figure",
+          children: _v28.FILMS.map(_v0 => (0, _v10.jsx)(_v78.Link, {
+            _hover: {
+              color: "inherit",
+              textDecoration: "none"
+            },
+            color: "inherit",
+            display: "block",
             flexShrink: "0",
-            m: "0",
-            children: [(0, _v7.jsx)(_v105.Image, {
-              alt: "",
-              borderRadius: "lg",
-              h: {
-                base: "183px",
-                md: "412px"
-              },
-              objectFit: "cover",
-              src: _v0.poster,
-              w: {
-                base: "320px",
-                md: "720px"
-              }
-            }), (0, _v7.jsxs)(_v32.Flex, {
-              align: "baseline",
-              color: "text-primary",
-              fontFamily: "heading",
-              fontSize: "20px",
-              fontWeight: "medium",
-              gap: "24px",
-              lineHeight: "26px",
-              mt: "14px",
-              whiteSpace: "nowrap",
-              children: [(0, _v7.jsx)(_v23.Text, {
-                as: "span",
-                children: _v0.title
-              }), (0, _v7.jsx)(_v23.Text, {
-                as: "span",
-                color: "text-secondary",
-                fontFamily: "body",
-                fontSize: "18px",
-                fontWeight: "regular",
-                lineHeight: "24px",
-                children: (0, _v24.translate)({
-                  singular: "by {author}",
-                  replacements: {
-                    author: _v0.author
-                  },
-                  dictionary: {
-                    es: {
-                      singular: "por {author}"
+            href: _v0.href,
+            isExternal: !0,
+            children: (0, _v10.jsxs)(_v15.Box, {
+              as: "figure",
+              m: "0",
+              children: [(0, _v10.jsx)(_v108.Image, {
+                alt: "",
+                borderRadius: "lg",
+                h: {
+                  base: "183px",
+                  md: "412px"
+                },
+                objectFit: "cover",
+                src: _v0.poster,
+                w: {
+                  base: "320px",
+                  md: "720px"
+                }
+              }), (0, _v10.jsxs)(_v35.Flex, {
+                align: "baseline",
+                color: "text-primary",
+                fontFamily: "heading",
+                fontSize: "20px",
+                fontWeight: "medium",
+                gap: "24px",
+                lineHeight: "26px",
+                mt: "14px",
+                whiteSpace: "nowrap",
+                children: [(0, _v10.jsx)(_v26.Text, {
+                  as: "span",
+                  children: _v0.title
+                }), (0, _v10.jsx)(_v26.Text, {
+                  as: "span",
+                  color: "text-secondary",
+                  fontFamily: "body",
+                  fontSize: "18px",
+                  fontWeight: "regular",
+                  lineHeight: "24px",
+                  children: (0, _v27.translate)({
+                    singular: "by {author}",
+                    replacements: {
+                      author: _v0.author
                     },
-                    "de-DE": {
-                      singular: "von {author}"
-                    },
-                    "fr-FR": {
-                      singular: "par {author}"
-                    },
-                    "ja-JP": {
-                      singular: "{author}による"
-                    },
-                    "ko-KR": {
-                      singular: "{author} 작성"
-                    },
-                    "pt-BR": {
-                      singular: "por {author}"
-                    },
-                    "zh-CN": {
-                      singular: "由 {author}"
+                    dictionary: {
+                      es: {
+                        singular: "por {author}"
+                      },
+                      "de-DE": {
+                        singular: "von {author}"
+                      },
+                      "fr-FR": {
+                        singular: "par {author}"
+                      },
+                      "ja-JP": {
+                        singular: "{author}による"
+                      },
+                      "ko-KR": {
+                        singular: "{author} 작성"
+                      },
+                      "pt-BR": {
+                        singular: "por {author}"
+                      },
+                      "zh-CN": {
+                        singular: "由 {author}"
+                      }
                     }
-                  }
-                })
+                  })
+                })]
               })]
-            })]
+            })
           }, _v0.title))
-        }) : (0, _v7.jsx)("canvas", {
+        }) : (0, _v10.jsx)("canvas", {
           ref: _v1,
-          "aria-label": `Vimeo Staff Picks: ${_v25.FILMS.map(_v0 => `${_v0.title} by ${_v0.author}`).join("; ")}`,
+          "aria-label": `Vimeo Staff Picks: ${_v28.FILMS.map(_v0 => `${_v0.title} by ${_v0.author}`).join("; ")}`,
           role: "img",
           style: {
             position: "absolute",
@@ -15984,7 +16138,7 @@ void main() {
             top: `${_v3?.canvasTop ?? -240}px`,
             pointerEvents: "none"
           }
-        }), (0, _v7.jsx)(_v23.Text, {
+        }), (0, _v10.jsx)(_v26.Text, {
           bottom: {
             base: "20px",
             md: "34px"
@@ -15998,7 +16152,7 @@ void main() {
           },
           variant: "body-sm",
           textTransform: "uppercase",
-          children: (0, _v24.translate)({
+          children: (0, _v27.translate)({
             singular: "Drag to explore Staff Picks",
             dictionary: {
               es: {
@@ -16027,18 +16181,18 @@ void main() {
         })]
       });
     },
-    _v480 = _v0 => (0, _v7.jsx)(_v115, {
+    _v485 = _v0 => (0, _v10.jsx)(_v120, {
       children: _v0
     }),
-    _v481 = ({
+    _v486 = ({
       onClaim: _v0
-    }) => (0, _v7.jsxs)(_v12.Box, {
+    }) => (0, _v10.jsxs)(_v15.Box, {
       as: "section",
       pt: "2xl",
-      children: [(0, _v7.jsx)(_v95, {
+      children: [(0, _v10.jsx)(_v98, {
         position: "relative",
         zIndex: 1,
-        children: (0, _v7.jsxs)(_v32.Flex, {
+        children: (0, _v10.jsxs)(_v35.Flex, {
           align: "center",
           direction: "column",
           gap: {
@@ -16050,17 +16204,17 @@ void main() {
             md: "1200"
           },
           textAlign: "center",
-          children: [(0, _v7.jsxs)(_v12.Box, {
-            children: [(0, _v7.jsxs)(_v23.Text, {
+          children: [(0, _v10.jsxs)(_v15.Box, {
+            children: [(0, _v10.jsxs)(_v26.Text, {
               as: "h1",
               variant: {
                 base: "heading-xl",
                 md: "heading-3xl"
               },
-              children: [(0, _v24.translate)({
+              children: [(0, _v27.translate)({
                 singular: "We're investing {UNDERLINE}$5 million{/UNDERLINE}",
                 replacements: {
-                  UNDERLINE: _v480
+                  UNDERLINE: _v485
                 },
                 dictionary: {
                   es: {
@@ -16085,7 +16239,7 @@ void main() {
                     singular: "我们将投资 {UNDERLINE}$5 million{/UNDERLINE}"
                   }
                 }
-              }), (0, _v7.jsx)("br", {}), (0, _v24.translate)({
+              }), (0, _v10.jsx)("br", {}), (0, _v27.translate)({
                 singular: "in indie filmmakers.",
                 dictionary: {
                   es: {
@@ -16108,14 +16262,14 @@ void main() {
                   }
                 }
               })]
-            }), (0, _v7.jsx)(_v23.Text, {
+            }), (0, _v10.jsx)(_v26.Text, {
               color: "text-secondary",
               mt: "lg",
               variant: {
                 base: "body-lg",
                 md: "body-xl"
               },
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "An exclusive discount on Vimeo Professional for independent creators.",
                 dictionary: {
                   es: {
@@ -16142,15 +16296,15 @@ void main() {
                 }
               })
             })]
-          }), (0, _v7.jsxs)(_v32.Flex, {
+          }), (0, _v10.jsxs)(_v35.Flex, {
             align: "center",
             direction: "column",
             gap: "md",
-            children: [(0, _v7.jsx)(_v102, {
+            children: [(0, _v10.jsx)(_v105, {
               onClick: _v0,
               size: "hero",
               tone: "primary",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "Claim your indie discount",
                 dictionary: {
                   es: {
@@ -16176,10 +16330,10 @@ void main() {
                   }
                 }
               })
-            }), (0, _v7.jsx)(_v23.Text, {
+            }), (0, _v10.jsx)(_v26.Text, {
               color: "text-secondary",
               variant: "body-lg",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "Limited spots available",
                 dictionary: {
                   es: {
@@ -16208,11 +16362,11 @@ void main() {
             })]
           })]
         })
-      }), (0, _v7.jsx)(_v479, {})]
+      }), (0, _v10.jsx)(_v484, {})]
     }),
-    _v482 = [{
+    _v487 = [{
       number: "01",
-      title: (0, _v24.translate)({
+      title: (0, _v27.translate)({
         singular: "Claim your discount",
         dictionary: {
           es: {
@@ -16238,7 +16392,7 @@ void main() {
           }
         }
       }),
-      description: (0, _v24.translate)({
+      description: (0, _v27.translate)({
         singular: "Start your application for the Indie Program.",
         dictionary: {
           es: {
@@ -16266,7 +16420,7 @@ void main() {
       })
     }, {
       number: "02",
-      title: (0, _v24.translate)({
+      title: (0, _v27.translate)({
         singular: "Tell us about your work",
         dictionary: {
           es: {
@@ -16292,7 +16446,7 @@ void main() {
           }
         }
       }),
-      description: (0, _v24.translate)({
+      description: (0, _v27.translate)({
         singular: "Answer a few questions and share your work.",
         dictionary: {
           es: {
@@ -16320,7 +16474,7 @@ void main() {
       })
     }, {
       number: "03",
-      title: (0, _v24.translate)({
+      title: (0, _v27.translate)({
         singular: "Start creating at the indie price",
         dictionary: {
           es: {
@@ -16346,7 +16500,7 @@ void main() {
           }
         }
       }),
-      description: (0, _v24.translate)({
+      description: (0, _v27.translate)({
         singular: "Make Vimeo Professional the home for what comes next.",
         dictionary: {
           es: {
@@ -16373,13 +16527,13 @@ void main() {
         }
       })
     }],
-    _v483 = () => (0, _v7.jsxs)(_v95, {
+    _v488 = () => (0, _v10.jsxs)(_v98, {
       as: "section",
       py: {
         base: "3xl",
         md: "105px"
       },
-      children: [(0, _v7.jsx)(_v23.Text, {
+      children: [(0, _v10.jsx)(_v26.Text, {
         as: "h2",
         fontSize: {
           base: "heading-xl",
@@ -16389,7 +16543,7 @@ void main() {
           base: "heading-xl",
           md: "heading-3xl"
         },
-        children: (0, _v24.translate)({
+        children: (0, _v27.translate)({
           singular: "Three steps. Then back to making.",
           dictionary: {
             es: {
@@ -16415,7 +16569,7 @@ void main() {
             }
           }
         })
-      }), (0, _v7.jsx)(_v32.Flex, {
+      }), (0, _v10.jsx)(_v35.Flex, {
         direction: {
           base: "column",
           md: "row"
@@ -16428,16 +16582,16 @@ void main() {
           base: "xl",
           md: "1200"
         },
-        children: _v482.map(_v0 => (0, _v7.jsxs)(_v12.Box, {
+        children: _v487.map(_v0 => (0, _v10.jsxs)(_v15.Box, {
           borderColor: "stroke",
           borderTopWidth: "2px",
           flex: "1",
           pt: "lg",
-          children: [(0, _v7.jsx)(_v23.Text, {
+          children: [(0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             variant: "body-lg",
             children: _v0.number
-          }), (0, _v7.jsx)(_v23.Text, {
+          }), (0, _v10.jsx)(_v26.Text, {
             fontSize: {
               base: "22px",
               md: "25px"
@@ -16449,7 +16603,7 @@ void main() {
             mt: "lg",
             variant: "heading-md",
             children: _v0.title
-          }), (0, _v7.jsx)(_v23.Text, {
+          }), (0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             mt: "md",
             variant: "body-lg",
@@ -16458,13 +16612,13 @@ void main() {
         }, _v0.number))
       })]
     }),
-    _v484 = () => (0, _v7.jsx)(_v95, {
+    _v489 = () => (0, _v10.jsx)(_v98, {
       as: "section",
       py: {
         base: "3xl",
         md: "142px"
       },
-      children: (0, _v7.jsxs)(_v32.Flex, {
+      children: (0, _v10.jsxs)(_v35.Flex, {
         align: {
           lg: "flex-start"
         },
@@ -16477,7 +16631,7 @@ void main() {
           lg: "2xl",
           xl: "80px"
         },
-        children: [(0, _v7.jsx)(_v23.Text, {
+        children: [(0, _v10.jsx)(_v26.Text, {
           as: "h2",
           flex: {
             base: "0 0 auto",
@@ -16491,7 +16645,7 @@ void main() {
             base: "heading-xl",
             md: "heading-3xl"
           },
-          children: (0, _v24.translate)({
+          children: (0, _v27.translate)({
             singular: "For the ones who make it anyway.",
             dictionary: {
               es: {
@@ -16517,7 +16671,7 @@ void main() {
               }
             }
           })
-        }), (0, _v7.jsxs)(_v32.Flex, {
+        }), (0, _v10.jsxs)(_v35.Flex, {
           direction: "column",
           flex: "1",
           gap: "xl",
@@ -16525,7 +16679,7 @@ void main() {
           pt: {
             lg: "sm"
           },
-          children: [(0, _v7.jsx)(_v23.Text, {
+          children: [(0, _v10.jsx)(_v26.Text, {
             fontFamily: "body",
             fontSize: {
               base: "20px",
@@ -16539,7 +16693,7 @@ void main() {
               base: "27px",
               md: "32.5px"
             },
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "Before the premieres and the credits, there was a story someone had to tell. Vimeo has always been the place where your work is treated right.",
               dictionary: {
                 es: {
@@ -16565,13 +16719,13 @@ void main() {
                 }
               }
             })
-          }), (0, _v7.jsx)(_v23.Text, {
+          }), (0, _v10.jsx)(_v26.Text, {
             color: "text-secondary",
             variant: {
               base: "body-lg",
               md: "body-xl"
             },
-            children: (0, _v24.translate)({
+            children: (0, _v27.translate)({
               singular: "From the first upload to the next Staff Pick, independent voices have shaped this community. The Indie Program is our way of making more room for them.",
               dictionary: {
                 es: {
@@ -16601,29 +16755,29 @@ void main() {
         })]
       })
     });
-  var _v485 = _v0.i(0),
-    _v486 = _v0.i(0),
-    _v487 = _v0.i(0),
-    _v488 = _v0.i(0);
-  let _v489 = () => {
-    let _v0 = (0, _v485.useRouter)(),
-      _v1 = (0, _v13.useViewer)(),
+  var _v490 = _v0.i(0),
+    _v491 = _v0.i(0),
+    _v492 = _v0.i(0),
+    _v493 = _v0.i(0);
+  let _v494 = () => {
+    let _v0 = (0, _v490.useRouter)(),
+      _v1 = (0, _v16.useViewer)(),
       _v2 = null === _v1,
       _v3 = !!_v1?.user;
-    return (0, _v7.jsx)(_v12.Box, {
+    return (0, _v10.jsx)(_v15.Box, {
       as: "footer",
       bg: "background",
-      children: (0, _v7.jsx)(_v95, {
+      children: (0, _v10.jsx)(_v98, {
         py: {
           base: "2xl",
           md: "3xl"
         },
-        children: (0, _v7.jsxs)(_v486.VStack, {
+        children: (0, _v10.jsxs)(_v491.VStack, {
           spacing: {
             base: "xl",
-            md: (0, _v76.rem)(80)
+            md: (0, _v79.rem)(80)
           },
-          children: [(0, _v7.jsxs)(_v104.Grid, {
+          children: [(0, _v10.jsxs)(_v107.Grid, {
             gap: {
               base: "2xl",
               md: "0"
@@ -16632,7 +16786,7 @@ void main() {
               base: "1fr",
               md: "repeat(6, 1fr)"
             },
-            children: [(0, _v7.jsxs)(_v486.VStack, {
+            children: [(0, _v10.jsxs)(_v491.VStack, {
               align: "flex-start",
               display: "inline-flex",
               gridColumn: {
@@ -16640,9 +16794,9 @@ void main() {
                 md: "1 / span 2"
               },
               spacing: "md",
-              children: [(0, _v7.jsx)(_v23.Text, {
+              children: [(0, _v10.jsx)(_v26.Text, {
                 variant: "heading-xl",
-                children: (0, _v24.translate)({
+                children: (0, _v27.translate)({
                   singular: "Get started for free",
                   dictionary: {
                     es: {
@@ -16665,17 +16819,17 @@ void main() {
                     }
                   }
                 })
-              }), (0, _v7.jsxs)(_v486.VStack, {
+              }), (0, _v10.jsxs)(_v491.VStack, {
                 as: "ul",
                 align: "flex-start",
                 spacing: "sm",
-                children: [(0, _v7.jsx)(_v75.Link, {
-                  href: (0, _v488.buildUpgradePlanUrl)({
+                children: [(0, _v10.jsx)(_v78.Link, {
+                  href: (0, _v493.buildUpgradePlanUrl)({
                     paywallTrigger: "footer_sign_up_widget_pricing_link",
                     paywallLocation: "footer",
                     paywallFeature: "general"
                   }),
-                  children: (0, _v24.translate)({
+                  children: (0, _v27.translate)({
                     singular: "Pricing",
                     dictionary: {
                       es: {
@@ -16701,9 +16855,9 @@ void main() {
                       }
                     }
                   })
-                }), (0, _v7.jsx)(_v75.Link, {
+                }), (0, _v10.jsx)(_v78.Link, {
                   href: "/enterprise/contact-us",
-                  children: (0, _v24.translate)({
+                  children: (0, _v27.translate)({
                     singular: "Contact sales",
                     dictionary: {
                       es: {
@@ -16729,9 +16883,9 @@ void main() {
                       }
                     }
                   })
-                }), (0, _v7.jsx)(_v75.Link, {
+                }), (0, _v10.jsx)(_v78.Link, {
                   href: "/watch-demo",
-                  children: (0, _v24.translate)({
+                  children: (0, _v27.translate)({
                     singular: "Watch demos",
                     dictionary: {
                       es: {
@@ -16758,11 +16912,11 @@ void main() {
                     }
                   })
                 })]
-              }), _v2 || _v3 ? null : (0, _v7.jsx)(_v14.Button, {
+              }), _v2 || _v3 ? null : (0, _v10.jsx)(_v17.Button, {
                 onClick: () => void _v0.push("/join"),
-                rightIcon: (0, _v7.jsx)(_v97.ArrowRight, {}),
+                rightIcon: (0, _v10.jsx)(_v100.ArrowRight, {}),
                 size: "lg",
-                children: (0, _v24.translate)({
+                children: (0, _v27.translate)({
                   singular: "Join",
                   dictionary: {
                     es: {
@@ -16789,7 +16943,7 @@ void main() {
                   }
                 })
               })]
-            }), (0, _v7.jsxs)(_v486.VStack, {
+            }), (0, _v10.jsxs)(_v491.VStack, {
               align: "flex-start",
               display: "inline-flex",
               gridColumn: {
@@ -16797,9 +16951,9 @@ void main() {
                 md: "5 / span 2"
               },
               spacing: "md",
-              children: [(0, _v7.jsx)(_v23.Text, {
+              children: [(0, _v10.jsx)(_v26.Text, {
                 variant: "heading-md",
-                children: (0, _v24.translate)({
+                children: (0, _v27.translate)({
                   singular: "24/7 customer support",
                   dictionary: {
                     es: {
@@ -16825,9 +16979,9 @@ void main() {
                     }
                   }
                 })
-              }), (0, _v7.jsx)(_v23.Text, {
+              }), (0, _v10.jsx)(_v26.Text, {
                 variant: "body-lg",
-                children: (0, _v24.translate)({
+                children: (0, _v27.translate)({
                   singular: "Our customer support team is available to help 24/7. Enterprise members also receive dedicated account managers and a guaranteed uptime SLA.",
                   dictionary: {
                     es: {
@@ -16853,13 +17007,13 @@ void main() {
                     }
                   }
                 })
-              }), (0, _v7.jsx)(_v14.Button, {
-                as: _v96.default,
+              }), (0, _v10.jsx)(_v17.Button, {
+                as: _v99.default,
                 href: "/help/contact",
-                rightIcon: (0, _v7.jsx)(_v97.ArrowRight, {}),
+                rightIcon: (0, _v10.jsx)(_v100.ArrowRight, {}),
                 size: "lg",
                 variant: "secondary",
-                children: (0, _v24.translate)({
+                children: (0, _v27.translate)({
                   singular: "Contact support",
                   dictionary: {
                     es: {
@@ -16887,7 +17041,7 @@ void main() {
                 })
               })]
             })]
-          }), (0, _v7.jsx)(_v487.Footer.Links, {}), (0, _v7.jsx)(_v487.Footer.Legal, {
+          }), (0, _v10.jsx)(_v492.Footer.Links, {}), (0, _v10.jsx)(_v492.Footer.Legal, {
             impressumQualifies: _v1?.impressumQualifies ?? !1,
             terminateContractQualifies: _v1?.terminateContractQualifies ?? !1
           })]
@@ -16895,38 +17049,38 @@ void main() {
       })
     });
   };
-  var _v490 = _v0.i(0),
-    _v491 = _v0.i(0),
-    _v492 = _v0.i(0),
-    _v493 = _v0.i(0),
-    _v494 = _v0.i(0),
-    _v495 = _v0.i(0),
-    _v496 = _v0.i(0);
-  let _v497 = (0, _v490.default)(async () => ({
+  var _v495 = _v0.i(0),
+    _v496 = _v0.i(0),
+    _v497 = _v0.i(0),
+    _v498 = _v0.i(0),
+    _v499 = _v0.i(0),
+    _v500 = _v0.i(0),
+    _v501 = _v0.i(0);
+  let _v502 = (0, _v495.default)(async () => ({
       default: (await _v0.A(0)).LoginJoinModal
     }), {
       loadableGenerated: {
         modules: [0]
       }
     }),
-    _v498 = () => {
-      let _v0 = (0, _v13.useViewer)(),
+    _v503 = () => {
+      let _v0 = (0, _v16.useViewer)(),
         _v1 = null === _v0,
         _v2 = !!_v0?.user,
-        _v3 = (0, _v495.useLoginJoinModalState)();
-      return (0, _v7.jsx)(_v491.Navigation, {
+        _v3 = (0, _v500.useLoginJoinModalState)();
+      return (0, _v10.jsx)(_v496.Navigation, {
         bgColor: "black",
         paddingX: "0",
         position: "sticky",
         top: "0",
         zIndex: "1100",
-        children: (0, _v7.jsxs)(_v95, {
+        children: (0, _v10.jsxs)(_v98, {
           alignItems: "center",
           display: "flex",
           justifyContent: "space-between",
-          children: [(0, _v7.jsx)(_v491.Navigation.LeftContent, {
-            children: (0, _v7.jsx)(_v75.Link, {
-              "aria-label": (0, _v24.translate)({
+          children: [(0, _v10.jsx)(_v496.Navigation.LeftContent, {
+            children: (0, _v10.jsx)(_v78.Link, {
+              "aria-label": (0, _v27.translate)({
                 singular: "Go to Vimeo home page",
                 dictionary: {
                   es: {
@@ -16955,23 +17109,23 @@ void main() {
               display: "flex",
               href: "/",
               variant: "secondary",
-              children: (0, _v7.jsx)(_v496.default, {
+              children: (0, _v10.jsx)(_v501.default, {
                 color: "text-primary",
-                width: (0, _v76.rem)(78)
+                width: (0, _v79.rem)(78)
               })
             })
-          }), (0, _v7.jsx)(_v491.Navigation.RightContent, {
-            children: (0, _v7.jsxs)(_v494.LoginJoinModalContext.Provider, {
+          }), (0, _v10.jsx)(_v496.Navigation.RightContent, {
+            children: (0, _v10.jsxs)(_v499.LoginJoinModalContext.Provider, {
               value: _v3,
-              children: [(0, _v7.jsx)(_v14.Button, {
-                as: _v96.default,
+              children: [(0, _v10.jsx)(_v17.Button, {
+                as: _v99.default,
                 display: {
                   base: "none",
                   md: "inline-flex"
                 },
                 href: "/enterprise/contact-us",
                 variant: "tertiary",
-                children: (0, _v24.translate)({
+                children: (0, _v27.translate)({
                   singular: "Contact sales",
                   dictionary: {
                     es: {
@@ -16997,17 +17151,17 @@ void main() {
                     }
                   }
                 })
-              }), !_v1 && !_v2 && (0, _v7.jsx)(_v493.Join, {}), (0, _v7.jsx)(_v492.AccountMenu, {
+              }), !_v1 && !_v2 && (0, _v10.jsx)(_v498.Join, {}), (0, _v10.jsx)(_v497.AccountMenu, {
                 hasThemeSupport: !1
-              }), _v3.modal && (0, _v7.jsx)(_v497, {})]
+              }), _v3.modal && (0, _v10.jsx)(_v502, {})]
             })
           })]
         })
       });
     };
-  var _v499 = _v0.i(0);
-  let _v500 = _v0 => Math.max(0, Math.min(1, _v0)),
-    _v501 = {
+  var _v504 = _v0.i(0);
+  let _v505 = _v0 => Math.max(0, Math.min(1, _v0)),
+    _v506 = {
       "--card-tilt-x": "0deg",
       "--card-tilt-y": "0deg",
       "--card-light-x": "50%",
@@ -17041,28 +17195,28 @@ void main() {
         opacity: 1
       }
     },
-    _v502 = {
+    _v507 = {
       position: "relative",
       zIndex: 1,
       transform: "translateZ(10px)"
     },
-    _v503 = ({
+    _v508 = ({
       pricing: _v0
     }) => {
-      let _v1 = (0, _v28.useRef)(null),
-        _v2 = (0, _v28.useCallback)(_v0 => {
+      let _v1 = (0, _v31.useRef)(null),
+        _v2 = (0, _v31.useCallback)(_v0 => {
           let _v1 = _v1.current;
           if (!_v1 || "touch" === _v0.pointerType) return;
           let _v2 = _v1.getBoundingClientRect(),
-            _v3 = _v500((_v0.clientX - _v2.left) / _v2.width),
-            _v4 = _v500((_v0.clientY - _v2.top) / _v2.height);
+            _v3 = _v505((_v0.clientX - _v2.left) / _v2.width),
+            _v4 = _v505((_v0.clientY - _v2.top) / _v2.height);
           _v1.style.setProperty("--card-tilt-x", `${(.5 - _v4) * 8}deg`), _v1.style.setProperty("--card-tilt-y", `${(_v3 - .5) * 10}deg`), _v1.style.setProperty("--card-light-x", `${100 * _v3}%`), _v1.style.setProperty("--card-light-y", `${100 * _v4}%`), _v1.dataset.active = "true";
         }, []),
-        _v3 = (0, _v28.useCallback)(() => {
+        _v3 = (0, _v31.useCallback)(() => {
           let _v0 = _v1.current;
           _v0 && (_v0.style.setProperty("--card-tilt-x", "0deg"), _v0.style.setProperty("--card-tilt-y", "0deg"), delete _v0.dataset.active);
         }, []);
-      return (0, _v7.jsx)(_v32.Flex, {
+      return (0, _v10.jsx)(_v35.Flex, {
         ref: _v1,
         borderRadius: "16px",
         flex: {
@@ -17073,19 +17227,19 @@ void main() {
         maxW: "570px",
         padding: "24px 42px",
         position: "relative",
-        sx: _v501,
+        sx: _v506,
         w: "100%",
         onPointerCancel: _v3,
         onPointerEnter: _v2,
         onPointerLeave: _v3,
         onPointerMove: _v2,
-        children: (0, _v7.jsxs)(_v32.Flex, {
+        children: (0, _v10.jsxs)(_v35.Flex, {
           direction: "column",
           flex: "1",
           justify: "space-between",
-          sx: _v502,
-          children: [(0, _v7.jsxs)(_v12.Box, {
-            children: [(0, _v7.jsx)(_v23.Text, {
+          sx: _v507,
+          children: [(0, _v10.jsxs)(_v15.Box, {
+            children: [(0, _v10.jsx)(_v26.Text, {
               fontFamily: "heading",
               fontSize: {
                 base: "17px",
@@ -17099,7 +17253,7 @@ void main() {
                 base: "24px",
                 md: "28px"
               },
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "Vimeo Professional  x  Indie Program",
                 dictionary: {
                   "de-DE": {
@@ -17107,12 +17261,12 @@ void main() {
                   }
                 }
               })
-            }), (0, _v7.jsx)(_v32.Flex, {
+            }), (0, _v10.jsx)(_v35.Flex, {
               align: "baseline",
               gap: "md",
               mt: "15px",
-              children: _v0 ? (0, _v7.jsxs)(_v7.Fragment, {
-                children: [(0, _v7.jsx)(_v23.Text, {
+              children: _v0 ? (0, _v10.jsxs)(_v10.Fragment, {
+                children: [(0, _v10.jsx)(_v26.Text, {
                   fontFamily: "heading",
                   fontSize: {
                     base: "66px",
@@ -17127,7 +17281,7 @@ void main() {
                     md: "100px"
                   },
                   children: _v0.indieMonthly
-                }), (0, _v7.jsx)(_v23.Text, {
+                }), (0, _v10.jsx)(_v26.Text, {
                   color: "#7e8894",
                   fontSize: {
                     base: "24px",
@@ -17137,7 +17291,7 @@ void main() {
                   lineHeight: "22.95px",
                   textDecoration: "line-through",
                   children: _v0.listMonthly
-                }), (0, _v7.jsx)(_v23.Text, {
+                }), (0, _v10.jsx)(_v26.Text, {
                   color: "text-secondary",
                   fontSize: {
                     base: "18px",
@@ -17145,7 +17299,7 @@ void main() {
                   },
                   letterSpacing: "-0.4px",
                   lineHeight: "29.7px",
-                  children: (0, _v24.translate)({
+                  children: (0, _v27.translate)({
                     singular: "/ month",
                     dictionary: {
                       es: {
@@ -17169,7 +17323,7 @@ void main() {
                     }
                   })
                 })]
-              }) : (0, _v7.jsx)(_v58.Skeleton, {
+              }) : (0, _v10.jsx)(_v61.Skeleton, {
                 borderRadius: "md",
                 h: {
                   base: "73px",
@@ -17181,18 +17335,18 @@ void main() {
                 }
               })
             })]
-          }), (0, _v7.jsxs)(_v32.Flex, {
+          }), (0, _v10.jsxs)(_v35.Flex, {
             direction: "column",
             gap: "md",
-            children: [(0, _v7.jsx)(_v23.Text, {
+            children: [(0, _v10.jsx)(_v26.Text, {
               fontSize: "14px",
               letterSpacing: "-0.35px",
               lineHeight: "20px",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "{included} seats included · Up to {maximum}",
                 replacements: {
-                  included: _v25.CORE_PLAN.includedSeats,
-                  maximum: _v25.CORE_PLAN.maximumSeats
+                  included: _v28.CORE_PLAN.includedSeats,
+                  maximum: _v28.CORE_PLAN.maximumSeats
                 },
                 dictionary: {
                   es: {
@@ -17218,12 +17372,12 @@ void main() {
                   }
                 }
               })
-            }), _v0 ? (0, _v7.jsx)(_v23.Text, {
+            }), _v0 ? (0, _v10.jsx)(_v26.Text, {
               color: "#7e8894",
               fontSize: "13px",
               letterSpacing: "-0.4px",
               lineHeight: "18.2px",
-              children: (0, _v24.translate)({
+              children: (0, _v27.translate)({
                 singular: "{discount}% off · {price}/year, billed annually.",
                 replacements: {
                   discount: _v0.discountPercent,
@@ -17253,7 +17407,7 @@ void main() {
                   }
                 }
               })
-            }) : (0, _v7.jsx)(_v58.Skeleton, {
+            }) : (0, _v10.jsx)(_v61.Skeleton, {
               h: "18.2px",
               w: "160px"
             })]
@@ -17261,62 +17415,62 @@ void main() {
         })
       });
     },
-    _v504 = [{
-      title: (0, _v24.translate)({
-        singular: "Unlimited total storage",
+    _v509 = [{
+      title: (0, _v27.translate)({
+        singular: "Unlimited public storage and bandwidth",
         dictionary: {
           es: {
-            singular: "Almacenamiento total ilimitado"
+            singular: "Almacenamiento y ancho de banda públicos ilimitados"
           },
           "de-DE": {
-            singular: "Unbegrenzter Gesamtspeicher"
+            singular: "Unbegrenzter öffentlicher Speicherplatz und Bandbreite"
           },
           "fr-FR": {
-            singular: "Stockage total illimité"
+            singular: "Stockage public illimité et bande passante illimitée"
           },
           "ja-JP": {
-            singular: "合計ストレージは無制限"
+            singular: "無制限の公開ストレージと帯域幅"
           },
           "ko-KR": {
-            singular: "총 무제한 스토리지"
+            singular: "공개 저장 공간 및 대역폭 무제한"
           },
           "pt-BR": {
-            singular: "Armazenamento total ilimitado"
+            singular: "Armazenamento público e largura de banda ilimitados"
           },
           "zh-CN": {
-            singular: "总存储无限"
+            singular: "无限公共存储和带宽"
           }
         }
       }),
-      description: (0, _v24.translate)({
-        singular: "7 TB managed storage for embeddable and non-public videos.",
+      description: (0, _v27.translate)({
+        singular: "7 TB managed storage.",
         dictionary: {
           es: {
-            singular: "7 TB de almacenamiento gestionado para vídeos insertables y no públicos."
+            singular: "7 TB de almacenamiento gestionado."
           },
           "de-DE": {
-            singular: "7 TB verwalteter Speicher für einbettbare und nicht-öffentliche Videos."
+            singular: "7 TB verwalteter Speicher."
           },
           "fr-FR": {
-            singular: "7 TB de stockage géré pour les vidéos intégrables et non publiques."
+            singular: "7 TB de stockage géré."
           },
           "ja-JP": {
-            singular: "埋め込み可能および非公開の動画向けに管理された7 TBのストレージ。"
+            singular: "7 TB の管理済みストレージ."
           },
           "ko-KR": {
-            singular: "임베드 가능 및 비공개 비디오용 관리 스토리지 7TB 제공."
+            singular: "7 TB 관리형 스토리지."
           },
           "pt-BR": {
-            singular: "7 TB de armazenamento gerenciado para vídeos incorporáveis e não públicos."
+            singular: "7 TB de armazenamento gerenciado."
           },
           "zh-CN": {
-            singular: "用于可嵌入和非公开视频的 7 TB 托管存储。"
+            singular: "7 TB 托管存储."
           }
         }
       }),
-      Icon: _v78.Database
+      Icon: _v81.Database
     }, {
-      title: (0, _v24.translate)({
+      title: (0, _v27.translate)({
         singular: "Share with confidence",
         dictionary: {
           es: {
@@ -17342,7 +17496,7 @@ void main() {
           }
         }
       }),
-      description: (0, _v24.translate)({
+      description: (0, _v27.translate)({
         singular: "Unlisted links, embed-only videos and domain-level embed privacy.",
         dictionary: {
           es: {
@@ -17368,35 +17522,35 @@ void main() {
           }
         }
       }),
-      Icon: _v499.Lock
+      Icon: _v504.Lock
     }, {
-      title: (0, _v24.translate)({
-        singular: "2 TB monthly bandwidth",
+      title: (0, _v27.translate)({
+        singular: "2 TB/mo managed bandwidth",
         dictionary: {
           es: {
-            singular: "2 TB de ancho de banda mensual"
+            singular: "2 TB/mes de ancho de banda gestionado"
           },
           "de-DE": {
-            singular: "2 TB monatliche Bandbreite"
+            singular: "2 TB/Monat verwaltete Bandbreite"
           },
           "fr-FR": {
-            singular: "2 TB de bande passante mensuelle"
+            singular: "2 TB/mo de bande passante gérée"
           },
           "ja-JP": {
-            singular: "月間帯域幅 2 TB"
+            singular: "2 TB/月 の管理帯域幅"
           },
           "ko-KR": {
-            singular: "월 2TB 대역폭"
+            singular: "2 TB/월 관리형 대역폭"
           },
           "pt-BR": {
-            singular: "2 TB de largura de banda mensal"
+            singular: "2 TB/mês de largura de banda gerenciada"
           },
           "zh-CN": {
-            singular: "每月 2 TB 带宽"
+            singular: "每月 2 TB 托管带宽"
           }
         }
       }),
-      description: (0, _v24.translate)({
+      description: (0, _v27.translate)({
         singular: "Stream and share your films with your audience.",
         dictionary: {
           es: {
@@ -17422,11 +17576,11 @@ void main() {
           }
         }
       }),
-      Icon: _v80.Speedometer
+      Icon: _v83.Speedometer
     }],
-    _v505 = ({
+    _v510 = ({
       pricing: _v0
-    }) => (0, _v7.jsx)(_v12.Box, {
+    }) => (0, _v10.jsx)(_v15.Box, {
       as: "section",
       bg: "surface",
       pb: {
@@ -17437,8 +17591,8 @@ void main() {
         base: "3xl",
         md: "112px"
       },
-      children: (0, _v7.jsxs)(_v95, {
-        children: [(0, _v7.jsxs)(_v23.Text, {
+      children: (0, _v10.jsxs)(_v98, {
+        children: [(0, _v10.jsxs)(_v26.Text, {
           as: "h2",
           fontSize: {
             base: "heading-xl",
@@ -17448,7 +17602,7 @@ void main() {
             base: "heading-xl",
             md: "heading-3xl"
           },
-          children: [(0, _v24.translate)({
+          children: [(0, _v27.translate)({
             singular: "Everything your film needs.",
             dictionary: {
               es: {
@@ -17473,7 +17627,7 @@ void main() {
                 singular: "您的影片所需的一切。"
               }
             }
-          }), (0, _v7.jsx)("br", {}), (0, _v24.translate)({
+          }), (0, _v10.jsx)("br", {}), (0, _v27.translate)({
             singular: "None of what it doesn’t.",
             dictionary: {
               "fr-FR": {
@@ -17484,7 +17638,7 @@ void main() {
               }
             }
           })]
-        }), (0, _v7.jsxs)(_v32.Flex, {
+        }), (0, _v10.jsxs)(_v35.Flex, {
           align: "stretch",
           direction: {
             base: "column",
@@ -17499,9 +17653,9 @@ void main() {
             base: "xl",
             md: "800"
           },
-          children: [(0, _v7.jsx)(_v503, {
+          children: [(0, _v10.jsx)(_v508, {
             pricing: _v0
-          }), (0, _v7.jsx)(_v32.Flex, {
+          }), (0, _v10.jsx)(_v35.Flex, {
             direction: "column",
             flex: {
               base: "0 0 auto",
@@ -17514,11 +17668,11 @@ void main() {
               lg: "lg"
             },
             w: "100%",
-            children: _v504.map(({
+            children: _v509.map(({
               title: _v0,
               description: _v1,
               Icon: _v2
-            }) => (0, _v7.jsxs)(_v32.Flex, {
+            }) => (0, _v10.jsxs)(_v35.Flex, {
               _last: {
                 borderBottomWidth: 0
               },
@@ -17527,22 +17681,22 @@ void main() {
               borderColor: "stroke",
               gap: "5",
               py: "lg",
-              children: [(0, _v7.jsx)(_v32.Flex, {
+              children: [(0, _v10.jsx)(_v35.Flex, {
                 align: "center",
                 bg: "rgba(190, 227, 248, 0.08)",
                 borderRadius: "md",
                 boxSize: "lg",
                 flex: "0 0 auto",
                 justify: "center",
-                children: (0, _v7.jsx)(_v2, {
+                children: (0, _v10.jsx)(_v2, {
                   "aria-hidden": "true",
                   boxSize: "xs",
                   color: "text-primary"
                 })
-              }), (0, _v7.jsxs)(_v12.Box, {
+              }), (0, _v10.jsxs)(_v15.Box, {
                 flex: "1",
                 minW: "0",
-                children: [(0, _v7.jsx)(_v23.Text, {
+                children: [(0, _v10.jsx)(_v26.Text, {
                   fontFamily: "heading",
                   fontSize: {
                     base: "20px",
@@ -17557,7 +17711,7 @@ void main() {
                     md: "25.3px"
                   },
                   children: _v0
-                }), (0, _v7.jsx)(_v23.Text, {
+                }), (0, _v10.jsx)(_v26.Text, {
                   color: "text-secondary",
                   fontSize: "16px",
                   letterSpacing: "-0.4px",
@@ -17571,13 +17725,13 @@ void main() {
         })]
       })
     });
-  var _v506 = _v0.i(0),
-    _v507 = _v0.i(0),
-    _v508 = _v0.i(0),
-    _v509 = _v0.i(0);
-  let _v510 = "indie-program:apply";
-  var _v511 = _v0.i(0);
-  let _v512 = () => {
+  var _v511 = _v0.i(0),
+    _v512 = _v0.i(0),
+    _v513 = _v0.i(0),
+    _v514 = _v0.i(0);
+  let _v515 = "indie-program:apply";
+  var _v516 = _v0.i(0);
+  let _v517 = () => {
     let {
         claim: _v0,
         isIndieAvailable: _v1,
@@ -17588,17 +17742,17 @@ void main() {
             isOpen: _v0,
             onOpen: _v1,
             onClose: _v2
-          } = (0, _v506.useDisclosure)(),
-          _v3 = (0, _v28.useContext)(_v507.ViewerContext),
+          } = (0, _v511.useDisclosure)(),
+          _v3 = (0, _v31.useContext)(_v512.ViewerContext),
           {
             canClaim: _v4,
             isLoading: _v5,
             sample: _v6
           } = (() => {
-            let _v0 = (0, _v509.useOrionSetting)("indie_program_enrollment"),
-              _v1 = (0, _v508.useOrionLoading)(),
-              [_v2, _v3] = (0, _v28.useState)(!1),
-              _v4 = (0, _v28.useCallback)(() => {
+            let _v0 = (0, _v514.useOrionSetting)("indie_program_enrollment"),
+              _v1 = (0, _v513.useOrionLoading)(),
+              [_v2, _v3] = (0, _v31.useState)(!1),
+              _v4 = (0, _v31.useCallback)(() => {
                 _v1 || _v3("open" === _v0);
               }, [_v0, _v1]);
             return {
@@ -17607,17 +17761,17 @@ void main() {
               sample: _v4
             };
           })(),
-          _v7 = (0, _v28.useRef)(!1),
-          _v8 = (0, _v28.useCallback)(() => {
+          _v7 = (0, _v31.useRef)(!1),
+          _v8 = (0, _v31.useCallback)(() => {
             try {
-              window.sessionStorage.removeItem(_v510);
+              window.sessionStorage.removeItem(_v515);
             } catch {}
             _v6(), _v1();
           }, [_v1, _v6]),
-          _v9 = (0, _v28.useCallback)(() => {
+          _v9 = (0, _v31.useCallback)(() => {
             if (!_v3?.user) {
               try {
-                window.sessionStorage.setItem(_v510, "1");
+                window.sessionStorage.setItem(_v515, "1");
               } catch {}
               let _v0 = new URL(window.location.href);
               window.location.href = `/log_in?redirect=${encodeURIComponent(`${_v0.pathname}${_v0.search}`)}`;
@@ -17629,12 +17783,12 @@ void main() {
             }
             _v8();
           }, [_v5, _v8, _v3]);
-        return (0, _v28.useEffect)(() => {
+        return (0, _v31.useEffect)(() => {
           _v7.current && !_v5 && (_v7.current = !1, _v8());
-        }, [_v5, _v8]), (0, _v28.useEffect)(() => {
+        }, [_v5, _v8]), (0, _v31.useEffect)(() => {
           if (_v3?.user != null && !_v5) {
             try {
-              if (null === window.sessionStorage.getItem(_v510)) return;
+              if (null === window.sessionStorage.getItem(_v515)) return;
             } catch {
               return;
             }
@@ -17647,35 +17801,35 @@ void main() {
           onClose: _v2
         };
       })(),
-      _v4 = (0, _v511.useIndiePricing)(),
-      _v5 = (0, _v13.useViewer)(),
+      _v4 = (0, _v516.useIndiePricing)(),
+      _v5 = (0, _v16.useViewer)(),
       _v6 = !_v5?.isFromCopyrightRestrictedRegion && !_v5?.isSimplifiedSite;
-    return (0, _v7.jsxs)(_v12.Box, {
+    return (0, _v10.jsxs)(_v15.Box, {
       bg: "black",
       color: "text-primary",
       overflowX: "clip",
-      children: [(0, _v7.jsx)(_v498, {}), (0, _v7.jsxs)(_v12.Box, {
+      children: [(0, _v10.jsx)(_v503, {}), (0, _v10.jsxs)(_v15.Box, {
         as: "main",
-        children: [(0, _v7.jsx)(_v481, {
+        children: [(0, _v10.jsx)(_v486, {
           onClaim: _v0
-        }), (0, _v7.jsx)(_v484, {}), (0, _v7.jsx)(_v505, {
+        }), (0, _v10.jsx)(_v489, {}), (0, _v10.jsx)(_v510, {
           pricing: _v4
-        }), (0, _v7.jsx)(_v483, {}), _v6 && (0, _v7.jsx)(_v106, {}), (0, _v7.jsx)(_v113, {}), (0, _v7.jsx)(_v103, {
+        }), (0, _v10.jsx)(_v488, {}), _v6 && (0, _v10.jsx)(_v111, {}), (0, _v10.jsx)(_v118, {}), (0, _v10.jsx)(_v106, {
           onClaim: _v0
         })]
-      }), (0, _v7.jsx)(_v489, {}), _v1 ? _v5?.user ? (0, _v7.jsx)(_v94, {
+      }), (0, _v10.jsx)(_v494, {}), _v1 ? _v5?.user ? (0, _v10.jsx)(_v97, {
         isOpen: _v2,
         onClose: _v3,
         pricing: _v4
-      }) : null : (0, _v7.jsx)(_v27, {
+      }) : null : (0, _v10.jsx)(_v30, {
         isOpen: _v2,
         onClose: _v3
       })]
     });
   };
-  (0, _v10.withPageSetup)(() => {
-    let _v0 = _v6.default.env.ENVIRONMENT?.startsWith("ci-") ?? !1;
-    return "production" !== (0, _v9.default)() || _v0 ? {
+  (0, _v13.withPageSetup)(() => {
+    let _v0 = _v9.default.env.ENVIRONMENT?.startsWith("ci-") ?? !1;
+    return "production" !== (0, _v12.default)() || _v0 ? {
       props: {
         forceTheme: "dark",
         isThemePersistent: !1
@@ -17685,13 +17839,13 @@ void main() {
     };
   }, {
     inlineViewer: "all"
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => (0, _v7.jsxs)(_v7.Fragment, {
-    children: [(0, _v7.jsxs)(_v8.default, {
-      children: [(0, _v7.jsx)("title", {
-        children: (0, _v11.translate)("Indie Program")
-      }), (0, _v7.jsx)("meta", {
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, () => (0, _v10.jsxs)(_v10.Fragment, {
+    children: [(0, _v10.jsxs)(_v11.default, {
+      children: [(0, _v10.jsx)("title", {
+        children: (0, _v14.translate)("Indie Program")
+      }), (0, _v10.jsx)("meta", {
         name: "description",
-        content: (0, _v11.translate)({
+        content: (0, _v14.translate)({
           singular: "An exclusive discount on Vimeo Professional for independent filmmakers and creators.",
           dictionary: {
             es: {
@@ -17718,6 +17872,6 @@ void main() {
           }
         })
       })]
-    }), (0, _v7.jsx)(_v512, {})]
+    }), (0, _v10.jsx)(_v517, {})]
   })], 0);
 }

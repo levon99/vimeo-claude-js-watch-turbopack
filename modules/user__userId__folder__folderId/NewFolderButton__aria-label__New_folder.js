@@ -57,6 +57,7 @@
         base: "none",
         md: "inline-flex"
       },
+      leftIcon: (0, _v1.jsx)(_v4.FolderPlus, {}),
       variant: "secondary",
       size: "md",
       onClick: _v0,

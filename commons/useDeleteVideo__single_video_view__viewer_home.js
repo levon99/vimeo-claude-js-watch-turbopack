@@ -445,7 +445,10 @@
           where: {
             videoId: _v0
           },
-          select: _v53
+          select: _v53,
+          query: {
+            responsive: !0
+          }
         }), {
           revalidateOnMount: !1,
           revalidateIfStale: !1,

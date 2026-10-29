@@ -4535,16 +4535,13 @@
                   singular: "Kostenlos"
                 },
                 "fr-FR": {
-                  singular: "Gratuit"
+                  singular: "Gratuit "
                 },
                 "ja-JP": {
                   singular: "無料"
                 },
                 "ko-KR": {
                   singular: "무료"
-                },
-                "pt-BR": {
-                  singular: "Grátis"
                 },
                 "zh-CN": {
                   singular: "免费"
@@ -5937,22 +5934,22 @@
                 singular: "Más popular"
               },
               "de-DE": {
-                singular: "Am beliebtesten"
+                singular: "Besonders beliebt"
               },
               "fr-FR": {
-                singular: "Le plus populaire"
+                singular: "Plus populaire"
               },
               "ja-JP": {
-                singular: "一番人気"
+                singular: "最も人気なプラン"
               },
               "ko-KR": {
-                singular: "가장 인기 있는"
+                singular: "인기"
               },
               "pt-BR": {
-                singular: "Mais popular"
+                singular: "Mais Popular"
               },
               "zh-CN": {
-                singular: "最受欢迎"
+                singular: "最热门"
               }
             }
           });

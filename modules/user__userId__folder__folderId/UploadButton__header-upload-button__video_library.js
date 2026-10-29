@@ -105,6 +105,7 @@
           base: "none",
           md: "inline-flex"
         },
+        leftIcon: (0, _v1.jsx)(_v6.Upload, {}),
         variant: "secondary",
         size: "md",
         onClick: _v11,

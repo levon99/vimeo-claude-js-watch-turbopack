@@ -3570,12 +3570,12 @@
         selectedItemType: _v79,
         title: _v82,
         storageSize: (0, _v18.bytesToSize)(_v78, 1)
-      };
+      },
+      _v85 = _v31 || _v23.length > 0 || _v29.length > 0;
     return (0, _v1.jsx)(_v21.Page, {
       children: (0, _v1.jsxs)(_v21.Page.Main, {
         children: [(0, _v1.jsxs)(_v21.Page.StickyTop, {
           children: [(0, _v1.jsx)(_v22.PageHeader, {
-            bottomBar: _v83,
             title: (0, _v13.translate)({
               singular: "Recently deleted",
               dictionary: {
@@ -3602,12 +3602,10 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v46, {}), (_v31 || _v23.length > 0 || _v29.length > 0) && (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(!_v8?.teamUser || _v8.teamUser.permissionLevel <= 2) && (0, _v1.jsx)(_v49, {
-              onEmptyTrash: _v67,
-              recentlyDeletedDiskSpace: _v74
-            }), (0, _v1.jsx)(_v77, {})]
-          })]
+          }), (0, _v1.jsx)(_v46, {}), _v85 && (!_v8?.teamUser || _v8.teamUser.permissionLevel <= 2) && (0, _v1.jsx)(_v49, {
+            onEmptyTrash: _v67,
+            recentlyDeletedDiskSpace: _v74
+          }), _v83, _v85 && (0, _v1.jsx)(_v77, {})]
         }), _v31 && (0, _v1.jsx)(_v9.Flex, {
           justifyContent: "center",
           alignItems: "center",

@@ -236,53 +236,53 @@
                 }
               }
             }), (0, _v21.translate)({
-              singular: "500 GB storage for Embeds and non-Public videos",
+              singular: "500 GB managed storage",
               dictionary: {
                 es: {
-                  singular: "500 GB de almacenamiento para Embeds y vídeos no públicos"
+                  singular: "500 GB de almacenamiento gestionado"
                 },
                 "de-DE": {
-                  singular: "500 GB Speicher für Einbettungen und nicht-öffentliche Videos"
+                  singular: "500 GB verwalteter Speicher"
                 },
                 "fr-FR": {
-                  singular: "500 Go de stockage pour les lecteurs intégrés et les vidéos non publiques"
+                  singular: "500 GB de stockage géré"
                 },
                 "ja-JP": {
-                  singular: "埋め込みと非公開動画用の500 GB ストレージ"
+                  singular: "500 GB のマネージドストレージ"
                 },
                 "ko-KR": {
-                  singular: "임베드 및 비공개 동영상용 500 GB 저장공간"
+                  singular: "500 GB 관리형 스토리지"
                 },
                 "pt-BR": {
-                  singular: "500 GB de armazenamento para Embeds e vídeos não públicos"
+                  singular: "500 GB de armazenamento gerenciado"
                 },
                 "zh-CN": {
-                  singular: "500 GB 存储，用于嵌入视频和非公开视频"
+                  singular: "500 GB 托管存储"
                 }
               }
             }), (0, _v21.translate)({
-              singular: "7 TB of Public Storage",
+              singular: "Unlimited public storage and bandwidth",
               dictionary: {
                 es: {
-                  singular: "7 TB de almacenamiento público"
+                  singular: "Almacenamiento y ancho de banda públicos ilimitados"
                 },
                 "de-DE": {
-                  singular: "7 TB öffentlicher Speicher"
+                  singular: "Unbegrenzter öffentlicher Speicherplatz und Bandbreite"
                 },
                 "fr-FR": {
-                  singular: "7 To de stockage public"
+                  singular: "Stockage public illimité et bande passante illimitée"
                 },
                 "ja-JP": {
-                  singular: "公開用ストレージ 7 TB"
+                  singular: "無制限の公開ストレージと帯域幅"
                 },
                 "ko-KR": {
-                  singular: "공개 저장 공간 7 TB"
+                  singular: "공개 저장 공간 및 대역폭 무제한"
                 },
                 "pt-BR": {
-                  singular: "7 TB de armazenamento público"
+                  singular: "Armazenamento público e largura de banda ilimitados"
                 },
                 "zh-CN": {
-                  singular: "7 TB 的公共存储"
+                  singular: "无限公共存储和带宽"
                 }
               }
             })];
@@ -313,53 +313,53 @@
                 }
               }
             }), (0, _v21.translate)({
-              singular: "7 TB storage for Embeds and non-Public videos",
+              singular: "7 TB managed storage",
               dictionary: {
                 es: {
-                  singular: "7 TB de almacenamiento para Embeds y vídeos no públicos"
+                  singular: "7 TB de almacenamiento gestionado"
                 },
                 "de-DE": {
-                  singular: "7 TB Speicher für Einbettungen und nicht-öffentliche Videos"
+                  singular: "7 TB verwalteter Speicher"
                 },
                 "fr-FR": {
-                  singular: "7 To de stockage pour les intégrations et les vidéos non publiques"
+                  singular: "7 TB de stockage géré"
                 },
                 "ja-JP": {
-                  singular: "埋め込みおよび非公開動画用 7 TB ストレージ"
+                  singular: "7 TB の管理済みストレージ"
                 },
                 "ko-KR": {
-                  singular: "임베드 및 비공개 동영상용 7 TB 저장 공간"
+                  singular: "7 TB 관리형 스토리지"
                 },
                 "pt-BR": {
-                  singular: "7 TB de armazenamento para incorporações e vídeos não públicos"
+                  singular: "7 TB de armazenamento gerenciado"
                 },
                 "zh-CN": {
-                  singular: "用于嵌入和非公开视频的 7 TB 存储空间"
+                  singular: "7 TB 托管存储"
                 }
               }
             }), (0, _v21.translate)({
-              singular: "7 TB of Public Storage",
+              singular: "Unlimited public storage and bandwidth",
               dictionary: {
                 es: {
-                  singular: "7 TB de almacenamiento público"
+                  singular: "Almacenamiento y ancho de banda públicos ilimitados"
                 },
                 "de-DE": {
-                  singular: "7 TB öffentlicher Speicher"
+                  singular: "Unbegrenzter öffentlicher Speicherplatz und Bandbreite"
                 },
                 "fr-FR": {
-                  singular: "7 To de stockage public"
+                  singular: "Stockage public illimité et bande passante illimitée"
                 },
                 "ja-JP": {
-                  singular: "公開用ストレージ 7 TB"
+                  singular: "無制限の公開ストレージと帯域幅"
                 },
                 "ko-KR": {
-                  singular: "공개 저장 공간 7 TB"
+                  singular: "공개 저장 공간 및 대역폭 무제한"
                 },
                 "pt-BR": {
-                  singular: "7 TB de armazenamento público"
+                  singular: "Armazenamento público e largura de banda ilimitados"
                 },
                 "zh-CN": {
-                  singular: "7 TB 的公共存储"
+                  singular: "无限公共存储和带宽"
                 }
               }
             })];
@@ -390,53 +390,53 @@
                 }
               }
             }), (0, _v21.translate)({
-              singular: "25 TB storage for Embeds and non-Public videos",
+              singular: "25 TB managed storage",
               dictionary: {
                 es: {
-                  singular: "25 TB de almacenamiento para Embeds y vídeos no públicos"
+                  singular: "25 TB de almacenamiento gestionado"
                 },
                 "de-DE": {
-                  singular: "25 TB Speicher für Einbettungen und nicht-öffentliche Videos"
+                  singular: "25 TB verwalteter Speicher"
                 },
                 "fr-FR": {
-                  singular: "25 To de stockage pour les intégrations et les vidéos non publiques"
+                  singular: "25 TB de stockage géré"
                 },
                 "ja-JP": {
-                  singular: "埋め込みおよび非公開動画用 25 TB ストレージ"
+                  singular: "25 TB のマネージドストレージ"
                 },
                 "ko-KR": {
-                  singular: "임베드 및 비공개 동영상용 25 TB 저장 공간"
+                  singular: "25 TB 관리형 스토리지"
                 },
                 "pt-BR": {
-                  singular: "25 TB de armazenamento para incorporações e vídeos não públicos"
+                  singular: "25 TB de armazenamento gerenciado"
                 },
                 "zh-CN": {
-                  singular: "用于嵌入和非公开视频的 25 TB 存储空间"
+                  singular: "25 TB 托管存储"
                 }
               }
             }), (0, _v21.translate)({
-              singular: "25 TB of Public Storage",
+              singular: "Unlimited public storage and bandwidth",
               dictionary: {
                 es: {
-                  singular: "25 TB de almacenamiento público"
+                  singular: "Almacenamiento y ancho de banda públicos ilimitados"
                 },
                 "de-DE": {
-                  singular: "25 TB öffentlicher Speicher"
+                  singular: "Unbegrenzter öffentlicher Speicherplatz und Bandbreite"
                 },
                 "fr-FR": {
-                  singular: "25 To de stockage public"
+                  singular: "Stockage public illimité et bande passante illimitée"
                 },
                 "ja-JP": {
-                  singular: "公開用ストレージ 25 TB"
+                  singular: "無制限の公開ストレージと帯域幅"
                 },
                 "ko-KR": {
-                  singular: "공개 저장 공간 25 TB"
+                  singular: "공개 저장 공간 및 대역폭 무제한"
                 },
                 "pt-BR": {
-                  singular: "25 TB de armazenamento público"
+                  singular: "Armazenamento público e largura de banda ilimitados"
                 },
                 "zh-CN": {
-                  singular: "25 TB 的公共存储"
+                  singular: "无限公共存储和带宽"
                 }
               }
             })];
@@ -467,53 +467,53 @@
                 }
               }
             }), (0, _v21.translate)({
-              singular: "10 TB storage for Embeds and non-Public videos",
+              singular: "10 TB managed storage",
               dictionary: {
                 es: {
-                  singular: "10 TB de almacenamiento para Embeds y vídeos no públicos"
+                  singular: "10 TB de almacenamiento gestionado"
                 },
                 "de-DE": {
-                  singular: "10 TB Speicher für Einbettungen und nicht-öffentliche Videos"
+                  singular: "10 TB verwalteter Speicher"
                 },
                 "fr-FR": {
-                  singular: "10 To de stockage pour les intégrations et les vidéos non publiques"
+                  singular: "10 TB de stockage géré"
                 },
                 "ja-JP": {
-                  singular: "埋め込みおよび非公開動画用 10 TB ストレージ"
+                  singular: "10 TB のマネージドストレージ"
                 },
                 "ko-KR": {
-                  singular: "임베드 및 비공개 동영상용 10 TB 저장 공간"
+                  singular: "10 TB 관리형 스토리지"
                 },
                 "pt-BR": {
-                  singular: "10 TB de armazenamento para incorporações e vídeos não públicos"
+                  singular: "10 TB de armazenamento gerenciado"
                 },
                 "zh-CN": {
-                  singular: "用于嵌入和非公开视频的 10 TB 存储空间"
+                  singular: "10 TB 托管存储"
                 }
               }
             }), (0, _v21.translate)({
-              singular: "7 TB of Public Storage",
+              singular: "Unlimited public storage and bandwidth",
               dictionary: {
                 es: {
-                  singular: "7 TB de almacenamiento público"
+                  singular: "Almacenamiento y ancho de banda públicos ilimitados"
                 },
                 "de-DE": {
-                  singular: "7 TB öffentlicher Speicher"
+                  singular: "Unbegrenzter öffentlicher Speicherplatz und Bandbreite"
                 },
                 "fr-FR": {
-                  singular: "7 To de stockage public"
+                  singular: "Stockage public illimité et bande passante illimitée"
                 },
                 "ja-JP": {
-                  singular: "公開用ストレージ 7 TB"
+                  singular: "無制限の公開ストレージと帯域幅"
                 },
                 "ko-KR": {
-                  singular: "공개 저장 공간 7 TB"
+                  singular: "공개 저장 공간 및 대역폭 무제한"
                 },
                 "pt-BR": {
-                  singular: "7 TB de armazenamento público"
+                  singular: "Armazenamento público e largura de banda ilimitados"
                 },
                 "zh-CN": {
-                  singular: "7 TB 的公共存储"
+                  singular: "无限公共存储和带宽"
                 }
               }
             })];

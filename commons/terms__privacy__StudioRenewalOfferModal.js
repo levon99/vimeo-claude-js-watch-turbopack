@@ -47,59 +47,59 @@
       _v16 = _v13?.restrictedVideoStorageLimit ?? null,
       _v17 = _v13?.bandwidth ?? null,
       _v18 = _v17?.quotaPeriod === "year" ? (0, _v18.translate)({
-        singular: "{AMOUNT} yearly bandwidth",
+        singular: "{AMOUNT}/yr managed bandwidth",
         replacements: {
           AMOUNT: _v17.periodicQuota ?? ""
         },
         dictionary: {
           es: {
-            singular: "{AMOUNT} de ancho de banda anual"
+            singular: "{AMOUNT}/yr ancho de banda gestionado"
           },
           "de-DE": {
-            singular: "{AMOUNT} Bandbreite pro Jahr"
+            singular: "{AMOUNT}/yr verwaltete Bandbreite"
           },
           "fr-FR": {
-            singular: "{AMOUNT} de bande passante annuelle"
+            singular: "{AMOUNT}/yr de bande passante gérée"
           },
           "ja-JP": {
-            singular: "{AMOUNT} の年間帯域幅"
+            singular: "{AMOUNT}/yr 管理対象帯域幅"
           },
           "ko-KR": {
-            singular: "{AMOUNT} 연간 대역폭"
+            singular: "{AMOUNT}/yr 관리형 대역폭"
           },
           "pt-BR": {
-            singular: "{AMOUNT} de largura de banda anual"
+            singular: "{AMOUNT}/ano de largura de banda gerenciada"
           },
           "zh-CN": {
-            singular: "{AMOUNT} 年带宽"
+            singular: "{AMOUNT}/yr 托管带宽"
           }
         }
       }) : (0, _v18.translate)({
-        singular: "{AMOUNT} monthly bandwidth",
+        singular: "{AMOUNT}/mo managed bandwidth",
         replacements: {
           AMOUNT: _v17?.periodicQuota ?? ""
         },
         dictionary: {
           es: {
-            singular: "{AMOUNT} de ancho de banda mensual"
+            singular: "{AMOUNT}/mo ancho de banda gestionado"
           },
           "de-DE": {
-            singular: "{AMOUNT} monatliche Bandbreite"
+            singular: "{AMOUNT}/mo verwaltete Bandbreite"
           },
           "fr-FR": {
-            singular: "{AMOUNT} de bande passante mensuelle"
+            singular: "{AMOUNT}/mo de bande passante gérée"
           },
           "ja-JP": {
-            singular: "{AMOUNT}の月間帯域幅"
+            singular: "{AMOUNT}/mo 管理対象帯域幅"
           },
           "ko-KR": {
-            singular: "{AMOUNT} 월간 대역폭"
+            singular: "{AMOUNT}/mo 관리형 대역폭"
           },
           "pt-BR": {
-            singular: "{AMOUNT} de largura de banda mensal"
+            singular: "{AMOUNT}/mês de largura de banda gerenciada"
           },
           "zh-CN": {
-            singular: "{AMOUNT} 每月带宽"
+            singular: "{AMOUNT}/mo 托管带宽"
           }
         }
       }),
@@ -385,31 +385,31 @@
                 variant: "body-md",
                 color: "text-secondary",
                 children: (0, _v18.translate)({
-                  singular: "{AMOUNT} managed storage for embeddable and non-Public videos",
+                  singular: "{AMOUNT} managed storage",
                   replacements: {
                     AMOUNT: _v16
                   },
                   dictionary: {
                     es: {
-                      singular: "{AMOUNT} de almacenamiento gestionado para vídeos incrustables y no públicos"
+                      singular: "{AMOUNT} de almacenamiento gestionado"
                     },
                     "de-DE": {
-                      singular: "{AMOUNT} verwalteter Speicher für einbettbare und nicht-öffentliche Videos"
+                      singular: "{AMOUNT} verwalteter Speicherplatz"
                     },
                     "fr-FR": {
-                      singular: "{AMOUNT} de stockage géré pour les vidéos intégrables et non publiques"
+                      singular: "{AMOUNT} de stockage géré"
                     },
                     "ja-JP": {
-                      singular: "{AMOUNT}の埋め込み可能および非公開動画向け管理ストレージ"
+                      singular: "{AMOUNT} 管理対象ストレージ"
                     },
                     "ko-KR": {
-                      singular: "{AMOUNT} 임베드 가능 및 비공개 동영상용 관리형 저장공간"
+                      singular: "{AMOUNT} 관리형 저장소"
                     },
                     "pt-BR": {
-                      singular: "{AMOUNT} de armazenamento gerenciado para vídeos incorporáveis e não públicos"
+                      singular: "{AMOUNT} de armazenamento gerenciado"
                     },
                     "zh-CN": {
-                      singular: "{AMOUNT} 托管存储，用于可嵌入和非公开视频"
+                      singular: "{AMOUNT} 托管存储"
                     }
                   }
                 })

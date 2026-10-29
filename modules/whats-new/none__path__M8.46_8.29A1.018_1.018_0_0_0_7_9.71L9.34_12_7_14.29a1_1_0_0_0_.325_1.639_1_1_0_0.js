@@ -841,22 +841,22 @@
                     singular: "Try for free",
                     dictionary: {
                       es: {
-                        singular: "Prueba gratuita"
+                        singular: "Probar gratis"
                       },
                       "de-DE": {
-                        singular: "Kostenlos testen"
+                        singular: "Gratis-Angebot"
                       },
                       "fr-FR": {
-                        singular: "Essayer gratuitement"
+                        singular: "Essai gratuit"
                       },
                       "ja-JP": {
                         singular: "無料で試す"
                       },
                       "ko-KR": {
-                        singular: "무료로 체험해 보기"
+                        singular: "무료 체험하기"
                       },
                       "pt-BR": {
-                        singular: "Experimente grátis"
+                        singular: "Teste gratuitamente"
                       },
                       "zh-CN": {
                         singular: "免费试用"

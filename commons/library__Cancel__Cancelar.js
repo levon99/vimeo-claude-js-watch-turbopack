@@ -230,6 +230,32 @@
           }
         }
       }),
+      fileStorageIsFull: (0, _v17.translate)({
+        singular: "You don't have enough storage left for this file.",
+        dictionary: {
+          es: {
+            singular: "No te queda suficiente espacio de almacenamiento para este archivo."
+          },
+          "de-DE": {
+            singular: "Für diese Datei ist nicht genügend Speicherplatz vorhanden."
+          },
+          "fr-FR": {
+            singular: "Il ne vous reste pas assez d'espace de stockage pour ce fichier."
+          },
+          "ja-JP": {
+            singular: "このファイルを保存するのに十分な空き容量がありません。"
+          },
+          "ko-KR": {
+            singular: "이 파일을 위해 남아 있는 저장 공간이 충분하지 않습니다."
+          },
+          "pt-BR": {
+            singular: "Você não tem espaço de armazenamento suficiente para este arquivo."
+          },
+          "zh-CN": {
+            singular: "您没有足够的剩余存储空间来保存此文件。"
+          }
+        }
+      }),
       expand: (0, _v17.translate)({
         singular: "Expand",
         dictionary: {
@@ -1596,7 +1622,7 @@
       let {
           initialSize: _v1 = -1,
           error: _v2 = null
-        } = _v0 || {},
+        } = _v0 ?? {},
         _v3 = _v20();
       if (null === _v2) return null;
       if (!_v2 && 0 === _v1) return {
@@ -1626,6 +1652,12 @@
           return {
             code: _v5.ERROR_CODES[_v2],
             description: _v3.storageIsFull
+          };
+        case "Your account doesn't have enough free space to upload this file. Go to vimeo.com/upgrade to get more.":
+        case "You have reached the storage limit for files and cannot upload more. Upgrade your plan for more storage.":
+          return {
+            code: _v5.ERROR_CODES[_v2],
+            description: _v3.fileStorageIsFull
           };
         case "analysis_failed":
           return {
@@ -1737,7 +1769,7 @@
         case _v5.ERRORS.FILE_TOO_SMALL:
         default:
           return {
-            code: _v5.ERROR_CODES[_v2] || "",
+            code: _v5.ERROR_CODES[_v2] ?? "",
             description: _v3.failed
           };
       }

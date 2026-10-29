@@ -1600,10 +1600,17 @@
 `;
   var _v101 = _v0.i(0),
     _v102 = _v0.i(0),
-    _v103 = _v0.i(0),
-    _v104 = _v0.i(0),
-    _v105 = _v0.i(0);
-  let _v106 = _v4.default.div.withConfig({
+    _v103 = _v0.i(0);
+  _v0.i(0);
+  var _v104 = (0, _v103.withIris)(function (_v0) {
+      return _v3.default.createElement(_v68.Input, (0, _v102.c)({
+        type: "radio"
+      }, _v0));
+    }),
+    _v105 = _v0.i(0),
+    _v106 = _v0.i(0),
+    _v107 = _v0.i(0);
+  let _v108 = _v4.default.div.withConfig({
       displayName: "styles__ModalContent",
       componentId: "sc-2e0fc84f-0"
     })`
@@ -1616,7 +1623,7 @@
   overflow: hidden;
   width: 100%;
 `,
-    _v107 = _v4.default.div.withConfig({
+    _v109 = _v4.default.div.withConfig({
       displayName: "styles__ContentWrapper",
       componentId: "sc-2e0fc84f-1"
     })`
@@ -1624,14 +1631,14 @@
   padding: ${(0, _v40.rem)(24)};
   background-color: ${_v48.core.color.surface.tertiary};
 `,
-    _v108 = _v4.default.div.withConfig({
+    _v110 = _v4.default.div.withConfig({
       displayName: "styles__HeaderWrapper",
       componentId: "sc-2e0fc84f-2"
     })`
   padding-bottom: ${(0, _v40.rem)(20)};
   justify-content: space-between;
 `,
-    _v109 = _v4.default.form.withConfig({
+    _v111 = _v4.default.form.withConfig({
       displayName: "styles__Options",
       componentId: "sc-2e0fc84f-3"
     })`
@@ -1640,7 +1647,7 @@
   flex-direction: column;
   gap: ${(0, _v40.rem)(18)};
 `,
-    _v110 = (0, _v4.default)(_v101.Modal).withConfig({
+    _v112 = (0, _v4.default)(_v101.Modal).withConfig({
       displayName: "styles__StyledModal",
       componentId: "sc-2e0fc84f-4"
     })`
@@ -1653,33 +1660,33 @@
     width: ${(0, _v40.rem)(800)};
   }
 `,
-    _v111 = (0, _v4.default)(_v39.Text).withConfig({
+    _v113 = (0, _v4.default)(_v39.Text).withConfig({
       displayName: "styles__Description",
       componentId: "sc-2e0fc84f-5"
     })`
   font-size: ${_v48.core.typography.size(200)};
 `,
-    _v112 = _v4.default.header.withConfig({
+    _v114 = _v4.default.header.withConfig({
       displayName: "styles__HeaderContainer",
       componentId: "sc-2e0fc84f-6"
     })`
   display: flex;
   justify-content: ${_v0 => _v0.justifyContent ?? "flex-start"};
 `,
-    _v113 = (0, _v4.default)(_v102.Radio).withConfig({
+    _v115 = (0, _v4.default)(_v104).withConfig({
       displayName: "styles__RadioButton",
       componentId: "sc-2e0fc84f-7"
     })`
   overflow-wrap: anywhere;
   padding-right: ${_v48.core.space(100)};
 `,
-    _v114 = (0, _v4.default)(_v104.Checkmark).withConfig({
+    _v116 = (0, _v4.default)(_v106.Checkmark).withConfig({
       displayName: "styles__CheckmarkIcon",
       componentId: "sc-2e0fc84f-8"
     })`
   margin: ${(0, _v40.rem)(4)} !important;
 `,
-    _v115 = (0, _v4.default)(_v103.Notice).withConfig({
+    _v117 = (0, _v4.default)(_v105.Notice).withConfig({
       displayName: "styles__Notice",
       componentId: "sc-2e0fc84f-9"
     })`
@@ -1687,7 +1694,7 @@
     padding-right: ${(0, _v40.rem)(4)};
   }
 `,
-    _v116 = (0, _v4.default)(_v16.Button).withConfig({
+    _v118 = (0, _v4.default)(_v16.Button).withConfig({
       displayName: "styles__DismissButton",
       componentId: "sc-2e0fc84f-10"
     })`
@@ -1695,18 +1702,18 @@
   right: ${(0, _v40.rem)(14)};
   top: ${(0, _v40.rem)(14)};
 `,
-    _v117 = (0, _v4.default)(_v105.Skeleton).withConfig({
+    _v119 = (0, _v4.default)(_v107.Skeleton).withConfig({
       displayName: "styles__LinkSkeleton",
       componentId: "sc-2e0fc84f-11"
     })`
   height: ${(0, _v40.rem)(36)};
 `,
-    _v118 = ({
+    _v120 = ({
       title: _v0,
       subTitle: _v1 = null,
       children: _v2
     }) => (0, _v1.jsxs)("div", {
-      children: [(0, _v1.jsxs)(_v112, {
+      children: [(0, _v1.jsxs)(_v114, {
         justifyContent: _v1 ? "space-between" : "flex-start",
         children: [(0, _v1.jsx)(_v19.Header, {
           size: "5",
@@ -1714,13 +1721,13 @@
         }), _v1]
       }), _v2]
     }),
-    _v119 = ({
+    _v121 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v4.ThemeProvider, {
       theme: _v5.applyCustomThemeSVV,
-      children: (0, _v1.jsx)(_v110, {
+      children: (0, _v1.jsx)(_v112, {
         active: !0,
-        content: (0, _v1.jsx)(_v106, {
+        content: (0, _v1.jsx)(_v108, {
           children: _v0
         })
       })
@@ -1817,17 +1824,17 @@
       _v35 = _v29 && _v28?.item?.status !== "completed",
       _v36 = !_v21 || "custom" === _v17 && (0 === _v13.length || !_v15) || _v35 || _v33,
       _v37 = _v28?.item?.sizes.find(_v0 => _v0.linkWithPlayButton);
-    return (0, _v1.jsxs)(_v119, {
-      children: [(0, _v1.jsxs)(_v107, {
-        children: [(0, _v1.jsxs)(_v108, {
+    return (0, _v1.jsxs)(_v121, {
+      children: [(0, _v1.jsxs)(_v109, {
+        children: [(0, _v1.jsxs)(_v110, {
           children: [(0, _v1.jsx)(_v19.Header, {
             size: "4",
             children: _v28
-          }), (0, _v1.jsx)(_v111, {
+          }), (0, _v1.jsx)(_v113, {
             size: 200,
             children: _v27
           })]
-        }), (0, _v1.jsxs)(_v109, {
+        }), (0, _v1.jsxs)(_v111, {
           onSubmit: _v0 => {
             let _v1;
             if (_v0.preventDefault(), !_v21) return null;
@@ -1865,7 +1872,7 @@
               }((_v6 = _v21.name, _v0 = _v3 ? ` href="${_v36(_v3)}"` : "", `<a style="display: block; text-align:center;"${_v0}><img src="${_v36(_v5)}" alt="${_v36(_v6 ?? "")}" style=" max-height:100%; max-width:100%;"/></a>`), "gmail" === _v11));
             }
           },
-          children: [(0, _v1.jsx)(_v118, {
+          children: [(0, _v1.jsx)(_v120, {
             title: _v25,
             children: _v27 && _v27?.data && (0, _v1.jsx)(_v79, {
               value: _v11,
@@ -1873,7 +1880,7 @@
               showUpsell: _v0,
               emailProviders: _v27.data
             })
-          }), (0, _v1.jsxs)(_v118, {
+          }), (0, _v1.jsxs)(_v120, {
             title: _v22,
             subTitle: _v26?.length ? (0, _v1.jsx)(_v67, {
               currentIndex: _v9 + 1,
@@ -1894,10 +1901,10 @@
               onChange: () => _v8(_v0 => !_v0),
               size: "sm"
             }) : null]
-          }), (0, _v1.jsx)(_v118, {
+          }), (0, _v1.jsx)(_v120, {
             title: _v31,
             children: (0, _v1.jsxs)("fieldset", {
-              children: [_v21 ? (0, _v1.jsx)(_v113, {
+              children: [_v21 ? (0, _v1.jsx)(_v115, {
                 label: (0, _v15.translate)({
                   singular: '"{TITLE}" on Vimeo',
                   replacements: {
@@ -1931,7 +1938,7 @@
                 value: "vimeo",
                 checked: "vimeo" === _v17,
                 onChange: _v0 => _v18(_v0.currentTarget.value)
-              }) : (0, _v1.jsx)(_v117, {}), (0, _v1.jsx)(_v113, {
+              }) : (0, _v1.jsx)(_v119, {}), (0, _v1.jsx)(_v115, {
                 label: (0, _v15.translate)({
                   singular: "Custom URL",
                   dictionary: {
@@ -1967,7 +1974,7 @@
                 onChange: _v0 => _v14(_v0.target.value),
                 onValid: () => _v16(!0),
                 onError: () => _v16(!1)
-              }), (0, _v1.jsx)(_v113, {
+              }), (0, _v1.jsx)(_v115, {
                 label: (0, _v15.translate)({
                   singular: "Do not link",
                   dictionary: {
@@ -2000,7 +2007,7 @@
                 onChange: _v0 => _v18(_v0.currentTarget.value)
               })]
             })
-          }), _v34 && (0, _v1.jsxs)(_v115, {
+          }), _v34 && (0, _v1.jsxs)(_v117, {
             format: "negative",
             icon: null,
             children: [_v33 && (0, _v1.jsx)(_v91, {}), _v21?.privacy?.view === "password" && !_v33 && (0, _v1.jsx)(_v89, {
@@ -2019,14 +2026,14 @@
             format: _v32 ? "upsell-new" : "primary",
             type: "submit",
             disabled: _v36 && !_v32,
-            icon: _v19 ? (0, _v1.jsx)(_v114, {}) : null,
+            icon: _v19 ? (0, _v1.jsx)(_v116, {}) : null,
             children: _v32 ? _v35 : _v19 ? _v24 : _v23
           })]
         })]
       }), (0, _v1.jsx)(_v92, {
         asset: _v28,
         showPlayButton: _v31
-      }), (0, _v1.jsx)(_v116, {
+      }), (0, _v1.jsx)(_v118, {
         format: "soft",
         size: "md",
         variant: "minimalTransparent",

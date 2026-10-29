@@ -50,10 +50,11 @@
         }, [_v2])
       });
     return _v0 => {
-      let _v1 = (0, _v8.getPrivacyTypeIconAndLabel)(_v0.privacy, _v3?.teamUser),
-        _v2 = Number(_v0.uri.split("/")[2]),
-        _v3 = _v1 ? () => _v4({
-          userId: _v2,
+      let _v1 = _v0.isColdStorage,
+        _v2 = _v1 ? (0, _v8.getPrivacyTypeIconAndLabel)("cold_storage") : (0, _v8.getPrivacyTypeIconAndLabel)(_v0.privacy, _v3?.teamUser),
+        _v3 = Number(_v0.uri.split("/")[2]),
+        _v4 = _v2 && !_v1 ? () => _v4({
+          userId: _v3,
           fileId: _v0.publicId,
           fileName: _v0.name,
           currentPrivacy: _v0.privacy,
@@ -61,14 +62,14 @@
           onSuccess: () => _v5()
         }) : void 0;
       return {
-        filePrivacy: _v1,
-        onPrivacyBadgeClick: _v3 ? () => {
+        filePrivacy: _v2,
+        onPrivacyBadgeClick: _v4 ? () => {
           _v6({
             fileId: _v0.publicId,
             contentType: _v0.contentType,
             badgeVariant: _v1,
             surface: _v0
-          }), _v3();
+          }), _v4();
         } : void 0
       };
     };

@@ -57,14 +57,15 @@
         _v5.forEach(_v0 => {
           let _v1 = _v0.video?.uri || _v0.liveEvent?.uri || _v0.folder?.uri || _v0.showcase?.uri || _v0.file?.uri;
           if (!_v1) return;
-          let _v2 = !!(_v0.video?.uri && _v0.video.isColdStorage);
-          if (_v2) {
+          let _v2 = !!(_v0.video?.uri && _v0.video.isColdStorage),
+            _v3 = _v2 || !!_v0.file?.isColdStorage;
+          if (_v3) {
             let _v0 = _v8 && !_v7 && !!_v0?.(_v0),
-              _v1 = _v8 && !_v7 && (!!_v2?.(_v0) || _v0);
-            return _v0 || _v1 ? (_v0 && _v0.add(_v1), _v1 && _v2.add(_v1), void _v4.push(_v4(_v0, _v1, !0, !0, _v2))) : void _v4.push(_v4(_v0, _v1, !1, !1, _v2));
+              _v1 = _v2 && _v8 && !_v7 && (!!_v2?.(_v0) || _v0);
+            return _v0 || _v1 ? (_v0 && _v0.add(_v1), _v1 && _v2.add(_v1), void _v4.push(_v4(_v0, _v1, !0, !0, _v3))) : void _v4.push(_v4(_v0, _v1, !1, !1, _v3));
           }
-          let _v3 = !1;
-          _v0?.(_v0) && (_v0.add(_v1), _v3 = !0), _v1?.(_v0) && (_v1.add(_v1), _v3 = !0), _v2?.(_v0) && (_v2.add(_v1), _v3 = !0), _v3?.(_v0) && (_v3.add(_v1), _v3 = !0), _v7 && (_v3 = !1), _v4.push(_v4(_v0, _v1, _v3, !0, _v2));
+          let _v4 = !1;
+          _v0?.(_v0) && (_v0.add(_v1), _v4 = !0), _v1?.(_v0) && (_v1.add(_v1), _v4 = !0), _v2?.(_v0) && (_v2.add(_v1), _v4 = !0), _v3?.(_v0) && (_v3.add(_v1), _v4 = !0), _v7 && (_v4 = !1), _v4.push(_v4(_v0, _v1, _v4, !0, _v3));
         });
         let _v5 = (0, _v3.mergeSets)(_v0, _v1, _v2, _v3);
         return {

@@ -18221,10 +18221,61 @@ ${_v9}
     });
   }
   function _v711({
+    timestamp: _v0
+  }) {
+    let [_v1, _v2] = (0, _v21.useState)(_v278.getAbsoluteNow);
+    (0, _v376.useInterval)(!0, () => _v2((0, _v278.getAbsoluteNow)()), {
+      period: 0
+    });
+    let _v3 = Math.max(0, Math.floor((_v1 - _v0) / 0));
+    return (0, _v17.jsx)(_v178.Text, {
+      color: "text-secondary",
+      variant: "body-sm",
+      children: (0, _v205.translate)({
+        singular: "Updated {COUNT} second ago",
+        plural: "Updated {COUNT} seconds ago",
+        count: _v3,
+        replacements: {
+          COUNT: _v3
+        },
+        dictionary: {
+          es: {
+            singular: "Actualizado hace {COUNT} segundo",
+            plural: "Actualizado hace {COUNT} segundos"
+          },
+          "de-DE": {
+            singular: "Aktualisiert vor {COUNT} Sekunde",
+            plural: "Aktualisiert vor {COUNT} Sekunden"
+          },
+          "fr-FR": {
+            singular: "Mis à jour il y a {COUNT} seconde",
+            plural: "Mis à jour il y a {COUNT} secondes"
+          },
+          "ja-JP": {
+            singular: "{COUNT}秒前に更新",
+            plural: "{COUNT}秒前に更新"
+          },
+          "ko-KR": {
+            singular: "{COUNT}초 전에 업데이트됨",
+            plural: "{COUNT}초 전에 업데이트됨"
+          },
+          "pt-BR": {
+            singular: "Atualizado há {COUNT} segundo",
+            plural: "Atualizado há {COUNT} segundos"
+          },
+          "zh-CN": {
+            singular: "更新于 {COUNT} 秒前",
+            plural: "更新于 {COUNT} 秒前"
+          }
+        }
+      })
+    });
+  }
+  function _v712({
     speakerHealth: _v0,
     outputHealth: _v1,
     isLive: _v2,
-    updatedSeconds: _v3
+    latestTimestamp: _v3
   }) {
     let _v4 = (0, _v705.combineStreamHealth)(_v0, _v1),
       {
@@ -18232,7 +18283,8 @@ ${_v9}
         description: _v6
       } = function ({
         health: _v0,
-        isLive: _v1
+        isLive: _v1,
+        hasSpeakers: _v2
       }) {
         return _v0 === _v579.EParticipantHealth.GOOD ? {
           title: (0, _v205.translate)({
@@ -18417,36 +18469,62 @@ ${_v9}
               }
             }
           }),
-          description: (0, _v205.translate)({
-            singular: "Stream health isn't available right now.",
+          description: _v2 ? (0, _v205.translate)({
+            singular: "Speakers aren't live yet.",
             dictionary: {
               es: {
-                singular: "El estado de la transmisión no está disponible en este momento."
+                singular: "Los oradores aún no están en vivo."
               },
               "de-DE": {
-                singular: "Der Stream-Status ist derzeit nicht verfügbar."
+                singular: "Sprecher sind noch nicht live."
               },
               "fr-FR": {
-                singular: "L'état du flux n'est pas disponible pour le moment."
+                singular: "Les intervenants ne sont pas encore en direct."
               },
               "ja-JP": {
-                singular: "ストリームの状態は現在確認できません。"
+                singular: "話者はまだライブではありません。"
               },
               "ko-KR": {
-                singular: "현재 스트림 상태를 확인할 수 없습니다."
+                singular: "발표자가 아직 라이브 상태가 아닙니다."
               },
               "pt-BR": {
-                singular: "O status da transmissão não está disponível no momento."
+                singular: "Os palestrantes ainda não estão ao vivo."
               },
               "zh-CN": {
-                singular: "目前无法获取直播流状态。"
+                singular: "发言者尚未开播。"
+              }
+            }
+          }) : (0, _v205.translate)({
+            singular: "Add speakers to the scene to check their connection.",
+            dictionary: {
+              es: {
+                singular: "Añade oradores a la escena para comprobar su conexión."
+              },
+              "de-DE": {
+                singular: "Fügen Sie der Szene Sprecher hinzu, um ihre Verbindung zu prüfen."
+              },
+              "fr-FR": {
+                singular: "Ajoutez des intervenants à la scène pour vérifier leur connexion."
+              },
+              "ja-JP": {
+                singular: "シーンに話者を追加すると、接続状況を確認できます。"
+              },
+              "ko-KR": {
+                singular: "장면에 발표자를 추가하면 연결 상태를 확인할 수 있습니다."
+              },
+              "pt-BR": {
+                singular: "Adicione palestrantes à cena para verificar a conexão deles."
+              },
+              "zh-CN": {
+                singular: "将发言者添加到场景中，即可检查他们的连接情况。"
               }
             }
           })
         };
       }({
         health: _v4,
-        isLive: _v2
+        isLive: _v2,
+        hasSpeakers: null !== _v0
       });
     return (0, _v17.jsxs)(_v94.Flex, {
       direction: "column",
@@ -18500,52 +18578,13 @@ ${_v9}
           color: "text-secondary",
           variant: "body-md",
           children: _v6
-        }), null === _v3 ? null : (0, _v17.jsx)(_v178.Text, {
-          color: "text-secondary",
-          variant: "body-sm",
-          children: (0, _v205.translate)({
-            singular: "Updated {COUNT} second ago",
-            plural: "Updated {COUNT} seconds ago",
-            count: _v3,
-            replacements: {
-              COUNT: _v3
-            },
-            dictionary: {
-              es: {
-                singular: "Actualizado hace {COUNT} segundo",
-                plural: "Actualizado hace {COUNT} segundos"
-              },
-              "de-DE": {
-                singular: "Aktualisiert vor {COUNT} Sekunde",
-                plural: "Aktualisiert vor {COUNT} Sekunden"
-              },
-              "fr-FR": {
-                singular: "Mis à jour il y a {COUNT} seconde",
-                plural: "Mis à jour il y a {COUNT} secondes"
-              },
-              "ja-JP": {
-                singular: "{COUNT}秒前に更新",
-                plural: "{COUNT}秒前に更新"
-              },
-              "ko-KR": {
-                singular: "{COUNT}초 전에 업데이트됨",
-                plural: "{COUNT}초 전에 업데이트됨"
-              },
-              "pt-BR": {
-                singular: "Atualizado há {COUNT} segundo",
-                plural: "Atualizado há {COUNT} segundos"
-              },
-              "zh-CN": {
-                singular: "更新于 {COUNT} 秒前",
-                plural: "更新于 {COUNT} 秒前"
-              }
-            }
-          })
+        }), null === _v3 ? null : (0, _v17.jsx)(_v711, {
+          timestamp: _v3
         })]
       })]
     });
   }
-  function _v712({
+  function _v713({
     row: _v0
   }) {
     let {
@@ -18607,7 +18646,7 @@ ${_v9}
       })]
     });
   }
-  function _v713({
+  function _v714({
     id: _v0,
     className: _v1,
     row: _v2,
@@ -18846,7 +18885,7 @@ ${_v9}
                 }),
                 value: (0, _v705.formatParticipantFrameRate)(_v3)
               })]
-            }), _v0 && !_v2.isScreen ? (0, _v17.jsx)(_v712, {
+            }), _v0 && !_v2.isScreen ? (0, _v17.jsx)(_v713, {
               row: _v2
             }) : null]
           })
@@ -18854,7 +18893,7 @@ ${_v9}
       })
     });
   }
-  function _v714({
+  function _v715({
     id: _v0 = (0, _v95.createDomName)("stream-health-tab"),
     className: _v1 = (0, _v95.createDomName)("stream-health-tab")
   }) {
@@ -18879,7 +18918,7 @@ ${_v9}
       _v16 = _v3.findIndex(_v0 => _v0.connectionType === _v579.EParticipantConnectionType.BROADCASTER),
       _v17 = _v3.filter(_v0 => _v0.health === _v579.EParticipantHealth.DEGRADED),
       _v18 = (0, _v705.getWorstParticipantHealth)(_v3),
-      _v19 = _v14 && _v5.length > 0 ? Math.max(0, Math.round((_v9 - Math.min(..._v5.map(_v0 => _v0.timestamp))) / 0)) : null,
+      _v19 = _v14 && _v5.length > 0 ? Math.max(..._v5.map(_v0 => _v0.timestamp)) : null,
       _v20 = _v14 ? (0, _v579.classifyStreamOutputHealth)(_v7, _v9) : null,
       _v21 = null !== _v7 && (0, _v579.isStreamOutputFresh)(_v7, _v9),
       _v22 = _v21 && null !== _v7 ? _v7.fps : null,
@@ -18906,11 +18945,11 @@ ${_v9}
           children: _v15 ? (0, _v17.jsx)(_v468.EmptyStatePlaceholder, {}) : (0, _v17.jsxs)(_v94.Flex, {
             direction: "column",
             gap: (0, _v61.rem)(24),
-            children: [(0, _v17.jsx)(_v711, {
+            children: [(0, _v17.jsx)(_v712, {
               speakerHealth: _v18,
               outputHealth: _v20,
               isLive: _v14,
-              updatedSeconds: _v19
+              latestTimestamp: _v19
             }), _v14 ? (0, _v17.jsxs)(_v94.Flex, {
               direction: "column",
               gap: (0, _v61.rem)(12),
@@ -19108,7 +19147,7 @@ ${_v9}
                 allowToggle: !0,
                 size: "lg",
                 width: "100%",
-                children: _v3.map(_v0 => (0, _v17.jsx)(_v713, {
+                children: _v3.map(_v0 => (0, _v17.jsx)(_v714, {
                   id: (0, _v95.createDomName)(_v0, _v0.id),
                   className: (0, _v95.createDomName)(_v1, "row"),
                   row: _v0,
@@ -19221,7 +19260,7 @@ ${_v9}
       }) : null]
     });
   }
-  function _v715({
+  function _v716({
     id: _v0 = (0, _v65.createLiveDomName)("rtc-panel-right"),
     className: _v1 = (0, _v65.createLiveDomName)("rtc-panel-right")
   }) {
@@ -19254,7 +19293,7 @@ ${_v9}
         isVisible: !0
       }, {
         id: _v202.ERightPanelId.STREAM_HEALTH,
-        content: _v714,
+        content: _v715,
         isVisible: _v6
       }], [_v6]);
     return (0, _v17.jsx)(_v679.RightPanel, {
@@ -19264,7 +19303,7 @@ ${_v9}
       isLoading: !_v2
     });
   }
-  function _v716() {
+  function _v717() {
     let _v0 = (0, _v107.useIsLiveDemoSubscription)();
     return (0, _v17.jsxs)(_v94.Flex, {
       id: (0, _v95.createDomName)("page"),
@@ -19305,45 +19344,45 @@ ${_v9}
               id: (0, _v95.createDomName)("footer")
             })
           })]
-        }), (0, _v17.jsx)(_v715, {
+        }), (0, _v17.jsx)(_v716, {
           id: (0, _v95.createDomName)("right-panel")
         })]
       }), (0, _v17.jsx)(_v108.ReactionOverlay, {})]
     });
   }
-  var _v717 = _v0.i(0),
-    _v718 = _v0.i(0),
+  var _v718 = _v0.i(0),
     _v719 = _v0.i(0),
     _v720 = _v0.i(0),
     _v721 = _v0.i(0),
     _v722 = _v0.i(0),
     _v723 = _v0.i(0),
-    _v724 = _v0.i(0);
-  let _v725 = [_v719.DebugControlManager, _v584.AudienceSpeakersManager, _v62.BroadcasterAgoraManager, _v49.BroadcasterFirebaseManager, _v691.ChatManager, _v63.ComposerSessionManager, _v169.ComposerSessionStatsManager, _v48.ComposerSessionStatusManager, _v50.ComposerSettingsManager, _v721.DestinationsManager, _v114.DragDropManager, _v722.EventAudioTracksManager, _v704.EventSettingsManager, _v81.GraphicsManager, _v135.GuestsManager, _v172.LocalMediaManager, _v720.ModuleManager, _v341.NotificationManager, _v78.PageEventsManager, _v203.PanelsManager, _v578.ParticipantHealthManager, _v208.PollManager, _v602.PresenceManager, _v171.QnAManager, _v434.ReactionManager, _v173.RemoteMediaManager, _v170.RoomScreenShareManager, _v56.SceneManager, _v723.TrackingManager, _v52.UserPreferencesManager],
-    _v726 = (0, _v28.createProvider)(_v725, {
+    _v724 = _v0.i(0),
+    _v725 = _v0.i(0);
+  let _v726 = [_v720.DebugControlManager, _v584.AudienceSpeakersManager, _v62.BroadcasterAgoraManager, _v49.BroadcasterFirebaseManager, _v691.ChatManager, _v63.ComposerSessionManager, _v169.ComposerSessionStatsManager, _v48.ComposerSessionStatusManager, _v50.ComposerSettingsManager, _v722.DestinationsManager, _v114.DragDropManager, _v723.EventAudioTracksManager, _v704.EventSettingsManager, _v81.GraphicsManager, _v135.GuestsManager, _v172.LocalMediaManager, _v721.ModuleManager, _v341.NotificationManager, _v78.PageEventsManager, _v203.PanelsManager, _v578.ParticipantHealthManager, _v208.PollManager, _v602.PresenceManager, _v171.QnAManager, _v434.ReactionManager, _v173.RemoteMediaManager, _v170.RoomScreenShareManager, _v56.SceneManager, _v724.TrackingManager, _v52.UserPreferencesManager],
+    _v727 = (0, _v28.createProvider)(_v726, {
       isCombined: _v33.liveApplicationConfig.USE_COMBINED_PROVIDERS
     });
-  function _v727({
+  function _v728({
     initialState: _v0,
     pageProps: _v1,
     children: _v2
   }) {
-    return (0, _v724.useScopeViewerProvision)(), (0, _v717.useScopeGctlProvision)(), (0, _v17.jsxs)(_v79.LiveGlobalsProvider, {
+    return (0, _v725.useScopeViewerProvision)(), (0, _v718.useScopeGctlProvision)(), (0, _v17.jsxs)(_v79.LiveGlobalsProvider, {
       initialState: _v0,
       pageProps: _v1,
       children: [(0, _v17.jsx)(_v557.PlayerContextProvider, {
         assetUrls: _v1.playerAssetUrls,
         type: _v558.PlayerType.BarebonePlayer,
-        children: (0, _v17.jsx)(_v726, {
+        children: (0, _v17.jsx)(_v727, {
           initialState: _v0,
           children: _v2
         })
-      }), (0, _v17.jsx)(_v718.FontsProvider, {
+      }), (0, _v17.jsx)(_v719.FontsProvider, {
         fonts: _v74.graphicsConfig.FONTS.ENABLED_FONTS
       })]
     });
   }
-  function _v728(_v0) {
+  function _v729(_v0) {
     let _v1 = (0, _v43.useViewer)(),
       _v2 = (0, _v36.useInitialRenderTime)(),
       _v3 = (0, _v44.useIsVpaas)(),
@@ -19415,10 +19454,10 @@ ${_v9}
     }), (0, _v41.isAgoraSupportedInBrowser)() && (!_v32.browserConfig.BROWSER?.isMobile || _v33.liveApplicationConfig.FEATURE.USE_MOBILE_ACCESS)) ? (0, _v17.jsx)(_v28.ScopeProvider, {
       children: (0, _v17.jsx)(_v31.ScopeErrorBoundary, {
         fallback: _v27,
-        children: (0, _v17.jsxs)(_v727, {
+        children: (0, _v17.jsxs)(_v728, {
           pageProps: _v0,
           initialState: _v5,
-          children: [(0, _v17.jsx)(_v716, {}), (0, _v17.jsx)(_v102, {})]
+          children: [(0, _v17.jsx)(_v717, {}), (0, _v17.jsx)(_v102, {})]
         })
       })
     }) : _v32.browserConfig.BROWSER?.isMobile ? (0, _v17.jsx)(_v30.MobileUnsupportedModal, {}) : (0, _v17.jsx)(_v29.BrowserUnsupportedModal, {});
@@ -19432,7 +19471,7 @@ ${_v9}
     return _v1 ? (0, _v17.jsx)(_v18.LiveErrorBoundary, {
       component: "LiveRtcRoot",
       componentHandler: _v27,
-      children: (0, _v17.jsx)(_v728, {
+      children: (0, _v17.jsx)(_v729, {
         ..._v0,
         sessionType: _v3,
         sessionId: _v2

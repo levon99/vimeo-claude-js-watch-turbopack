@@ -161,8 +161,9 @@
     _v39 = _v0.i(0),
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  let _v43 = ({
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0);
+  let _v44 = ({
       href: _v0
     }) => _v0 => (0, _v1.jsx)(_v32.Link, {
       href: _v0,
@@ -170,12 +171,11 @@
       textDecoration: "underline",
       children: _v0
     }),
-    _v44 = {
+    _v45 = {
       creator: "https://i.vimeocdn.com/custom_asset/d81bf3210ba59b3180a5a5ca5317af61",
       core: "https://i.vimeocdn.com/custom_asset/d81bf3210ba59b3180a5a5ca5317af61",
       professional: "https://i.vimeocdn.com/custom_asset/672f2b3f3ce61600976e835a33efd941"
     },
-    _v45 = /^(\d{4})-(\d{2})-(\d{2})/,
     _v46 = ({
       tier: _v0,
       variant: _v1,
@@ -212,7 +212,7 @@
       if ((0, _v3.useEffect)(() => {
         _v7?.(_v8);
       }, [_v8, _v7]), (0, _v3.useEffect)(() => () => _v7?.(!1), [_v7]), !_v8) return null;
-      let _v14 = _v44[_v0],
+      let _v14 = _v45[_v0],
         _v15 = "year" === _v4 ? (0, _v40.translate)({
           singular: "year",
           dictionary: {
@@ -316,17 +316,7 @@
           }
         }),
         _v17 = "" === _v15 ? _v3 : `${_v3}/${_v15}`,
-        _v18 = ((_v0, _v1) => {
-          let _v2 = _v0?.match(_v45);
-          if (!_v2) return _v0 ?? "";
-          let [, _v3, _v4, _v5] = _v2,
-            _v6 = new Date(Number(_v3), Number(_v4) - 1, Number(_v5), 12);
-          return new Intl.DateTimeFormat(_v1, {
-            year: "numeric",
-            month: "long",
-            day: "numeric"
-          }).format(_v6);
-        })(_v5, _v10);
+        _v18 = (0, _v43.formatRenewalDate)(_v5, _v10);
       return (0, _v1.jsxs)(_v33.Modal, {
         isOpen: _v8,
         onClose: _v13,
@@ -569,7 +559,7 @@
               children: "scheduled" === _v1 ? (0, _v40.translate)({
                 singular: "You can change your upcoming plan in your {BILLING_SETTINGS}Billing settings{/BILLING_SETTINGS}, or cancel before {RENEWAL_DATE} to avoid being charged—we've sent you an email with the full details.",
                 replacements: {
-                  BILLING_SETTINGS: _v43({
+                  BILLING_SETTINGS: _v44({
                     href: "/settings/billing"
                   }),
                   RENEWAL_DATE: _v18
@@ -600,7 +590,7 @@
               }) : (0, _v40.translate)({
                 singular: "You can change or cancel your new plan in your {BILLING_SETTINGS}Billing settings{/BILLING_SETTINGS}—we've sent you an email with the full details.",
                 replacements: {
-                  BILLING_SETTINGS: _v43({
+                  BILLING_SETTINGS: _v44({
                     href: "/settings/billing"
                   })
                 },
@@ -632,7 +622,7 @@
               variant: "body-md",
               color: "text-secondary",
               children: (0, _v1.jsx)(_v32.Link, {
-                href: "/blog/post/update-on-individual-plans",
+                href: "/blog/post/update-on-vimeo-plans",
                 variant: "inline-secondary",
                 textDecoration: "underline",
                 children: (0, _v40.translate)({
@@ -2398,7 +2388,7 @@
     _v149 = _v0.i(0),
     _v150 = _v0.i(0);
   let _v151 = new Set(["Owner", "Admin", "Contributor", "Contributor Plus"]),
-    _v152 = ["video.isColdStorage", "video.name", "video.uri", "video.user.name", "video.user.uri", "video.user.metadata.connections.projects.options", "video.user.pictures", "video.createdTime", "video.lastUserActionEventDate", "video.modifiedTime", "video.link", "video.password", "video.privacy.view", "video.privacy.originalView", "video.customMetadata", "video.isColdPrivacyRestricted", "video.configUrl", "video.download.codec", "video.download.rendition", "video.download.createdTime", "video.download.expires", "video.download.fps", "video.download.height", "video.download.link", "video.download.publicName", "video.download.quality", "video.download.size", "video.download.sizeShort", "video.download.sourceLink", "video.download.type", "video.download.videoFileId", "video.download.width", "video.embed", "video.pictures", "video.description", "video.metadata.canBeReplaced", "video.metadata.interactions.edit", "video.metadata.interactions.delete", "video.metadata.interactions.invite", "video.metadata.interactions.legalHold.uri", "video.parentProject.isPrivateToUser", "video.parentProject.name", "video.parentProject.uri", "video.reviewPage.link", "video.reviewLinks.uri", "video.reviewLinks.expiresOn", "video.manageLink", "video.canMoveToProject", "video.duration", "video.stats.plays", "file.allowDownloads", "file.canUserDelete", "file.canUserEdit", "file.contentType", "file.createdTime", "file.downloadUrl", "file.fileSize", "file.modifiedTime", "file.name", "file.parentFolder.isPrivateToUser", "file.parentFolder.uri", "file.password", "file.privacy", "file.publicId", "file.thumbnail.url", "file.uploadState", "file.uploader.name", "file.uploader.pictures", "file.uri"],
+    _v152 = ["video.isColdStorage", "video.name", "video.uri", "video.user.name", "video.user.uri", "video.user.metadata.connections.projects.options", "video.user.pictures", "video.createdTime", "video.lastUserActionEventDate", "video.modifiedTime", "video.link", "video.password", "video.privacy.view", "video.privacy.originalView", "video.customMetadata", "video.isColdPrivacyRestricted", "video.configUrl", "video.download.codec", "video.download.rendition", "video.download.createdTime", "video.download.expires", "video.download.fps", "video.download.height", "video.download.link", "video.download.publicName", "video.download.quality", "video.download.size", "video.download.sizeShort", "video.download.sourceLink", "video.download.type", "video.download.videoFileId", "video.download.width", "video.embed", "video.pictures", "video.description", "video.metadata.canBeReplaced", "video.metadata.interactions.edit", "video.metadata.interactions.delete", "video.metadata.interactions.invite", "video.metadata.interactions.legalHold.uri", "video.parentProject.isPrivateToUser", "video.parentProject.name", "video.parentProject.uri", "video.reviewPage.link", "video.reviewLinks.uri", "video.reviewLinks.expiresOn", "video.manageLink", "video.canMoveToProject", "video.duration", "video.stats.plays", "file.allowDownloads", "file.canUserDelete", "file.canUserEdit", "file.contentType", "file.createdTime", "file.downloadUrl", "file.fileSize", "file.isColdStorage", "file.modifiedTime", "file.name", "file.parentFolder.isPrivateToUser", "file.parentFolder.uri", "file.password", "file.privacy", "file.publicId", "file.thumbnail.url", "file.uploadState", "file.uploader.name", "file.uploader.pictures", "file.uri"],
     _v153 = ["hp_recents_number_of_videos", "hp_remove_search_params_results"],
     _v154 = (_v0, _v1, _v2 = !1, _v3 = !1) => ({
       query: {

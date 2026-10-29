@@ -64,6 +64,24 @@
         clip_owner_id: _v0.clipOwnerId,
         review_comment_reaction: _v0.reviewCommentReaction,
         is_reply: _v0.isReply
+      }), !0), [_v0]),
+      _v10 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_comment_reaction_removed", {
+        review_id: _v0.reviewId,
+        clip_id: _v0.clipId,
+        clip_owner_id: _v0.clipOwnerId,
+        review_comment_reaction: _v0.reviewCommentReaction,
+        is_reply: _v0.isReply
+      }), !0), [_v0]),
+      _v11 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_page_file_action_redirect", {
+        clip_id: _v0.clipId,
+        review_id: _v0.reviewId,
+        redirect: _v0.redirect
+      }), !0), [_v0]),
+      _v12 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("reviewer_signup_prompt_shown", {
+        review_id: _v0.reviewId,
+        clip_id: _v0.clipId,
+        clip_owner_id: _v0.clipOwnerId,
+        prompt_surface: _v0.promptSurface
       }), !0), [_v0]);
     return {
       trackReviewPageOpened: _v1,
@@ -75,17 +93,20 @@
       trackReviewCommentPosted: _v7,
       trackReviewCommentSortChanged: _v8,
       trackReviewCommentReactionAdded: _v9,
-      trackReviewCommentReactionRemoved: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_comment_reaction_removed", {
+      trackReviewCommentReactionRemoved: _v10,
+      trackReviewFileActionRedirect: _v11,
+      trackReviewerSignupPromptShown: _v12,
+      trackReviewerSignupPromptDismissed: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("reviewer_signup_prompt_dismissed", {
         review_id: _v0.reviewId,
         clip_id: _v0.clipId,
         clip_owner_id: _v0.clipOwnerId,
-        review_comment_reaction: _v0.reviewCommentReaction,
-        is_reply: _v0.isReply
+        prompt_surface: _v0.promptSurface
       }), !0), [_v0]),
-      trackReviewFileActionRedirect: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("review_page_file_action_redirect", {
-        clip_id: _v0.clipId,
+      trackReviewerSignupPromptClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("reviewer_signup_prompt_clicked", {
         review_id: _v0.reviewId,
-        redirect: _v0.redirect
+        clip_id: _v0.clipId,
+        clip_owner_id: _v0.clipOwnerId,
+        prompt_surface: _v0.promptSurface
       }), !0), [_v0])
     };
   }]);

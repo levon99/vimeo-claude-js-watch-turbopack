@@ -90,125 +90,39 @@
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
-    _v30 = _v0.i(0),
-    _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  let _v35 = ({
-    title: _v0,
-    body: _v1,
-    confirmLabel: _v2,
-    cancelLabel: _v3,
-    isConfirmLoading: _v4 = !1,
-    onCancel: _v5,
-    onConfirm: _v6
-  }) => (0, _v1.jsxs)(_v29.Modal, {
-    isOpen: !0,
-    onClose: _v5,
-    children: [(0, _v1.jsx)(_v34.ModalOverlay, {}), (0, _v1.jsxs)(_v31.ModalContent, {
-      children: [(0, _v1.jsx)(_v33.ModalHeader, {
-        children: _v0
-      }), (0, _v1.jsx)(_v30.ModalBody, {
-        children: _v1
-      }), (0, _v1.jsxs)(_v32.ModalFooter, {
-        children: [(0, _v1.jsx)(_v3.Button, {
-          onClick: _v5,
-          variant: "tertiary",
-          children: _v3 ?? (0, _v5.translate)({
-            singular: "Cancel",
-            dictionary: {
-              es: {
-                singular: "Cancelar"
-              },
-              "de-DE": {
-                singular: "Abbrechen"
-              },
-              "fr-FR": {
-                singular: "Annuler"
-              },
-              "ja-JP": {
-                singular: "キャンセル"
-              },
-              "ko-KR": {
-                singular: "취소"
-              },
-              "pt-BR": {
-                singular: "Cancelar"
-              },
-              "zh-CN": {
-                singular: "取消"
-              }
-            }
-          })
-        }), (0, _v1.jsx)(_v3.Button, {
-          isLoading: _v4,
-          onClick: _v6,
-          variant: "destructive",
-          children: _v2 ?? (0, _v5.translate)({
-            singular: "Delete",
-            dictionary: {
-              es: {
-                singular: "Eliminar"
-              },
-              "de-DE": {
-                singular: "Löschen"
-              },
-              "fr-FR": {
-                singular: "Supprimer"
-              },
-              "ja-JP": {
-                singular: "削除"
-              },
-              "ko-KR": {
-                singular: "삭제"
-              },
-              "pt-BR": {
-                singular: "Excluir"
-              },
-              "zh-CN": {
-                singular: "删除"
-              }
-            }
-          })
-        })]
-      })]
-    })]
-  });
-  var _v36 = _v0.i(0),
-    _v37 = _v0.i(0);
-  let _v38 = Object.values(_v37.Locales).filter(_v0 => _v0 !== _v37.Locales.zh),
-    _v39 = "title",
-    _v40 = "streamDescription",
-    _v41 = [_v39, _v40],
-    _v42 = "speakers",
-    _v43 = ["name", "role", "description"],
-    _v44 = /^[1-9][0-9]*$/,
-    _v45 = (_v0, _v1) => `${_v42}.${_v0}.${_v1}`,
-    _v46 = _v0 => null !== _v0 && "object" == typeof _v0 && !Array.isArray(_v0),
-    _v47 = _v0 => {
+    _v30 = _v0.i(0);
+  let _v31 = Object.values(_v30.Locales).filter(_v0 => _v0 !== _v30.Locales.zh),
+    _v32 = "title",
+    _v33 = "streamDescription",
+    _v34 = [_v32, _v33],
+    _v35 = "speakers",
+    _v36 = ["name", "role", "description"],
+    _v37 = /^[1-9][0-9]*$/,
+    _v38 = (_v0, _v1) => `${_v35}.${_v0}.${_v1}`,
+    _v39 = _v0 => null !== _v0 && "object" == typeof _v0 && !Array.isArray(_v0),
+    _v40 = _v0 => {
       let _v1;
-      return _v46(_v0) && "string" == typeof _v0.value && ("manual" === (_v1 = _v0.provenance) || "ai" === _v1);
+      return _v39(_v0) && "string" == typeof _v0.value && ("manual" === (_v1 = _v0.provenance) || "ai" === _v1);
     },
-    _v48 = _v0 => _v38.find(_v0 => _v0 === _v0) ?? null,
-    _v49 = _v0 => {
+    _v41 = _v0 => _v31.find(_v0 => _v0 === _v0) ?? null,
+    _v42 = _v0 => {
       let _v1 = {};
-      _v41.forEach(_v0 => {
+      _v34.forEach(_v0 => {
         let _v1 = _v0[_v0];
         void 0 !== _v1 && (_v1[_v0] = _v1);
       });
       let _v2 = {};
       return Object.entries(_v0).forEach(([_v0, _v1]) => {
         let [_v2, _v3, _v4] = _v0.split("."),
-          _v5 = _v43.find(_v0 => _v0 === _v4);
-        _v2 === _v42 && void 0 !== _v3 && void 0 !== _v5 && (_v2[_v3] = {
+          _v5 = _v36.find(_v0 => _v0 === _v4);
+        _v2 === _v35 && void 0 !== _v3 && void 0 !== _v5 && (_v2[_v3] = {
           ..._v2[_v3],
           [_v5]: _v1
         });
-      }), Object.keys(_v2).length > 0 && (_v1[_v42] = _v2), _v1;
+      }), Object.keys(_v2).length > 0 && (_v1[_v35] = _v2), _v1;
     },
-    _v50 = _v0 => "" !== _v0.title || "" !== _v0.streamDescription;
-  function _v51({
+    _v43 = _v0 => "" !== _v0.title || "" !== _v0.streamDescription;
+  function _v44({
     localizations: _v0,
     source: _v1,
     isSourceLoading: _v2,
@@ -231,12 +145,12 @@
         setPublished: _v16,
         removeLocale: _v17
       } = _v0,
-      _v18 = _v12 ?? (_v10 ? null : _v48(_v5)),
+      _v18 = _v12 ?? (_v10 ? null : _v41(_v5)),
       {
         translatedLocales: _v19,
         untranslatedLocales: _v20
       } = (0, _v9.useMemo)(() => {
-        let _v0 = _v38.filter(_v0 => _v0 !== _v18),
+        let _v0 = _v31.filter(_v0 => _v0 !== _v18),
           _v1 = _v0 => void 0 !== _v11[_v0];
         return {
           translatedLocales: _v0.filter(_v1),
@@ -251,7 +165,7 @@
         });
       }, [_v17, _v9]),
       _v22 = null == _v18,
-      _v23 = _v22 || _v13 || _v2 || 0 === _v20.length || !(_v50(_v1) || _v1.visibleSpeakers.length > 0);
+      _v23 = _v22 || _v13 || _v2 || 0 === _v20.length || !(_v43(_v1) || _v1.visibleSpeakers.length > 0);
     return (0, _v1.jsxs)(_v15.Flex, {
       direction: "column",
       gap: "md",
@@ -285,9 +199,9 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v26.MainLanguageSection, {
+      }), (0, _v1.jsx)(_v27.MainLanguageSection, {
         isDisabled: _v19.length > 0 || _v13,
-        locales: _v38,
+        locales: _v31,
         onChange: _v0 => void _v14(_v0),
         sourceLocale: _v18
       }), (0, _v1.jsxs)(_v15.Flex, {
@@ -360,7 +274,7 @@
               }
             })
           })]
-        }), _v19.map(_v0 => (0, _v1.jsx)(_v25.LocaleRow, {
+        }), _v19.map(_v0 => (0, _v1.jsx)(_v26.LocaleRow, {
           isSubmitting: _v15,
           locale: _v0,
           onEdit: () => _v3(_v0),
@@ -458,74 +372,21 @@
             }
           })
         })
-      }), null == _v6 ? null : (0, _v1.jsx)(_v35, {
-        body: (0, _v5.translate)({
-          singular: "This permanently deletes the {LANGUAGE} translation, including saved drafts. {LANGUAGE} will no longer be available to viewers.",
-          replacements: {
-            LANGUAGE: (0, _v27.getLocaleLabel)(_v6, _v5)
-          },
-          dictionary: {
-            es: {
-              singular: "Esto elimina permanentemente la traducción de {LANGUAGE}, incluidos los borradores guardados. {LANGUAGE} ya no estará disponible para los espectadores."
-            },
-            "de-DE": {
-              singular: "Dadurch wird die {LANGUAGE}-Übersetzung einschließlich gespeicherter Entwürfe dauerhaft gelöscht. {LANGUAGE} ist für Zuschauer nicht mehr verfügbar."
-            },
-            "fr-FR": {
-              singular: "Cette action supprime définitivement la traduction en {LANGUAGE}, y compris les brouillons enregistrés. {LANGUAGE} ne sera plus disponible pour les spectateurs."
-            },
-            "ja-JP": {
-              singular: "これにより、保存された下書きを含む{LANGUAGE}の翻訳が完全に削除されます。{LANGUAGE}は視聴者に表示されなくなります。"
-            },
-            "ko-KR": {
-              singular: "이 작업은 저장된 초안을 포함하여 {LANGUAGE} 번역을 영구적으로 삭제합니다. {LANGUAGE}는 시청자에게 더 이상 제공되지 않습니다."
-            },
-            "pt-BR": {
-              singular: "Isso exclui permanentemente a tradução em {LANGUAGE}, incluindo rascunhos salvos. {LANGUAGE} não estará mais disponível para os espectadores."
-            },
-            "zh-CN": {
-              singular: "这会永久删除 {LANGUAGE} 的翻译，包括已保存的草稿。{LANGUAGE} 将不再对观众可用。"
-            }
-          }
-        }),
-        isConfirmLoading: _v15,
+      }), null == _v6 ? null : (0, _v1.jsx)(_v25.DeleteTranslationModal, {
+        isDeleting: _v15,
+        isPublished: _v11[_v6]?.isPublished ?? !1,
         onCancel: () => _v7(null),
         onConfirm: () => _v21(_v6),
-        title: (0, _v5.translate)({
-          singular: "Delete translation",
-          dictionary: {
-            es: {
-              singular: "Eliminar traducción"
-            },
-            "de-DE": {
-              singular: "Übersetzung löschen"
-            },
-            "fr-FR": {
-              singular: "Supprimer la traduction"
-            },
-            "ja-JP": {
-              singular: "翻訳を削除"
-            },
-            "ko-KR": {
-              singular: "번역 삭제"
-            },
-            "pt-BR": {
-              singular: "Excluir tradução"
-            },
-            "zh-CN": {
-              singular: "删除翻译"
-            }
-          }
-        })
+        targetLocale: _v6
       })]
     });
   }
-  var _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0),
-    _v55 = _v0.i(0),
-    _v56 = _v0.i(0);
-  async function _v57({
+  var _v45 = _v0.i(0),
+    _v46 = _v0.i(0),
+    _v47 = _v0.i(0),
+    _v48 = _v0.i(0),
+    _v49 = _v0.i(0);
+  async function _v50({
     baseUrl: _v0,
     where: {
       liveEventId: _v1,
@@ -533,19 +394,19 @@
     },
     ..._v3
   }) {
-    return (0, _v55.measureLatency)("deleteLiveEventSpeakerProfile", "DELETE", async () => {
+    return (0, _v48.measureLatency)("deleteLiveEventSpeakerProfile", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/live_events/${_v1}/speaker_profiles/${_v2}`, {
         ..._v3,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
-  async function _v58({
+  async function _v51({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -555,20 +416,27 @@
     },
     ..._v5
   }) {
-    return (0, _v55.measureLatency)("patchLiveEventSpeakerProfile", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v3}/speaker_profiles/${_v4}?fields=${_v1.map(_v56.intoSnakeCase).join(",")}`, {
+    return (0, _v48.measureLatency)("patchLiveEventSpeakerProfile", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v3}/speaker_profiles/${_v4}?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PATCH",
-        body: JSON.stringify((0, _v56.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
-  var _v59 = _v0.i(0),
+  var _v52 = _v0.i(0),
+    _v53 = _v0.i(0),
+    _v54 = _v0.i(0),
+    _v55 = _v0.i(0),
+    _v56 = _v0.i(0),
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0),
     _v60 = _v0.i(0),
     _v61 = _v0.i(0),
     _v62 = _v0.i(0),
@@ -588,9 +456,8 @@
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
     _v78 = _v0.i(0),
-    _v79 = _v0.i(0),
-    _v80 = _v0.i(0);
-  let _v81 = _v0 => (0, _v1.jsx)(_v80.Icon, {
+    _v79 = _v0.i(0);
+  let _v80 = _v0 => (0, _v1.jsx)(_v79.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -601,33 +468,33 @@
       fill: "currentColor"
     })
   });
-  var _v82 = _v0.i(0),
+  var _v81 = _v0.i(0),
+    _v82 = _v0.i(0),
     _v83 = _v0.i(0),
     _v84 = _v0.i(0),
     _v85 = _v0.i(0),
     _v86 = _v0.i(0),
-    _v87 = _v0.i(0),
-    _v88 = _v0.i(0);
-  async function _v89({
+    _v87 = _v0.i(0);
+  async function _v88({
     baseUrl: _v0,
     where: {
       personProfileId: _v1
     },
     ..._v2
   }) {
-    return (0, _v55.measureLatency)("deletePersonProfile", "DELETE", async () => {
+    return (0, _v48.measureLatency)("deletePersonProfile", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/person_profiles/${_v1}`, {
         ..._v2,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
-  async function _v90({
+  async function _v89({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -636,20 +503,20 @@
     },
     ..._v4
   }) {
-    return (0, _v55.measureLatency)("patchPersonProfile", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/person_profiles/${_v3}?fields=${_v1.map(_v56.intoSnakeCase).join(",")}`, {
+    return (0, _v48.measureLatency)("patchPersonProfile", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/person_profiles/${_v3}?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "PATCH",
-        body: JSON.stringify((0, _v56.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
-  async function _v91({
+  async function _v90({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -658,19 +525,19 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v55.measureLatency)("getUserPersonProfiles", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/person_profiles?${(0, _v56.searchQueryString)(_v3)}&fields=${_v1.map(_v56.intoSnakeCase).join(",")}`, {
+    return (0, _v48.measureLatency)("getUserPersonProfiles", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/person_profiles?${(0, _v49.searchQueryString)(_v3)}&fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
-  async function _v92({
+  async function _v91({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -679,29 +546,29 @@
     },
     ..._v4
   }) {
-    return (0, _v55.measureLatency)("postUserPersonProfiles", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/person_profiles?fields=${_v1.map(_v56.intoSnakeCase).join(",")}`, {
+    return (0, _v48.measureLatency)("postUserPersonProfiles", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/person_profiles?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "POST",
-        body: JSON.stringify((0, _v56.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
-  var _v93 = _v0.i(0),
+  var _v92 = _v0.i(0),
+    _v93 = _v0.i(0),
     _v94 = _v0.i(0),
     _v95 = _v0.i(0),
     _v96 = _v0.i(0),
     _v97 = _v0.i(0),
     _v98 = _v0.i(0),
     _v99 = _v0.i(0),
-    _v100 = _v0.i(0),
-    _v101 = _v0.i(0);
-  async function _v102({
+    _v100 = _v0.i(0);
+  async function _v101({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -711,20 +578,20 @@
     },
     ..._v5
   }) {
-    return (0, _v55.measureLatency)("patchPersonProfilePicture", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/person_profiles/${_v3}/pictures/${_v4}?fields=${_v1.map(_v56.intoSnakeCase).join(",")}`, {
+    return (0, _v48.measureLatency)("patchPersonProfilePicture", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/person_profiles/${_v3}/pictures/${_v4}?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PATCH",
-        body: JSON.stringify((0, _v56.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
-  async function _v103({
+  async function _v102({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -732,38 +599,38 @@
     },
     ..._v3
   }) {
-    return (0, _v55.measureLatency)("postPersonProfilePictures", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/person_profiles/${_v2}/pictures?fields=${_v1.map(_v56.intoSnakeCase).join(",")}`, {
+    return (0, _v48.measureLatency)("postPersonProfilePictures", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/person_profiles/${_v2}/pictures?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "POST"
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
-  var _v104 = _v0.i(0),
-    _v105 = _v0.i(0);
-  let _v106 = ["uri", "link", "baseLink"];
-  async function _v107({
+  var _v103 = _v0.i(0),
+    _v104 = _v0.i(0);
+  let _v105 = ["uri", "link", "baseLink"];
+  async function _v106({
     baseUrl: _v0,
     headers: _v1,
     personProfileId: _v2,
     upload: _v3,
     activate: _v4 = !0
   }) {
-    let _v5 = await _v103({
+    let _v5 = await _v102({
       baseUrl: _v0,
       headers: _v1,
       where: {
         personProfileId: _v2
       },
-      select: _v106
+      select: _v105
     });
-    if (!_v5?.link) throw new _v105.LiveError("Thumbnail upload link missing in create response.", {
-      code: _v104.ELiveErrorCode.API_ERROR
+    if (!_v5?.link) throw new _v104.LiveError("Thumbnail upload link missing in create response.", {
+      code: _v103.ELiveErrorCode.API_ERROR
     });
     let _v6 = await fetch(_v5.link, {
       method: "PUT",
@@ -772,12 +639,12 @@
         "Content-Type": _v3.contentType
       }
     });
-    if (!_v6.ok) throw new _v56.NetworkError("Thumbnail upload failed.", _v6.status, _v6);
+    if (!_v6.ok) throw new _v49.NetworkError("Thumbnail upload failed.", _v6.status, _v6);
     let _v7 = _v5.uri.split("/").pop() ?? "";
-    if ("" === _v7) throw new _v105.LiveError("Could not resolve picture uid from created picture.", {
-      code: _v104.ELiveErrorCode.API_ERROR
+    if ("" === _v7) throw new _v104.LiveError("Could not resolve picture uid from created picture.", {
+      code: _v103.ELiveErrorCode.API_ERROR
     });
-    return _v4 && (await _v102({
+    return _v4 && (await _v101({
       baseUrl: _v0,
       headers: _v1,
       where: {
@@ -793,13 +660,13 @@
       pictureId: _v7
     };
   }
-  var _v108 = _v0.i(0),
+  var _v107 = _v0.i(0),
+    _v108 = _v0.i(0),
     _v109 = _v0.i(0),
     _v110 = _v0.i(0),
     _v111 = _v0.i(0),
-    _v112 = _v0.i(0),
-    _v113 = _v0.i(0);
-  function _v114({
+    _v112 = _v0.i(0);
+  function _v113({
     image: _v0,
     isOpen: _v1,
     onDismiss: _v2,
@@ -809,9 +676,9 @@
       [_v6, _v7] = (0, _v9.useState)(50),
       {
         width: _v8
-      } = (0, _v113.useWindowSize)(),
+      } = (0, _v112.useWindowSize)(),
       _v9 = (0, _v9.useRef)(null),
-      _v10 = (0, _v110.useBreakpointValue)({
+      _v10 = (0, _v109.useBreakpointValue)({
         base: 160,
         md: 200
       }) || 200,
@@ -828,14 +695,14 @@
       }, _v1.readAsDataURL(_v0), () => {
         _v0 = !0;
       };
-    }, [_v0]), (0, _v1.jsxs)(_v29.Modal, {
+    }, [_v0]), (0, _v1.jsxs)(_v62.Modal, {
       closeOnOverlayClick: !1,
       size: "lg",
       isCentered: !0,
       isOpen: _v1,
       onClose: _v2,
-      children: [(0, _v1.jsx)(_v34.ModalOverlay, {}), (0, _v1.jsxs)(_v31.ModalContent, {
-        children: [(0, _v1.jsx)(_v33.ModalHeader, {
+      children: [(0, _v1.jsx)(_v67.ModalOverlay, {}), (0, _v1.jsxs)(_v64.ModalContent, {
+        children: [(0, _v1.jsx)(_v66.ModalHeader, {
           children: (0, _v5.translate)({
             singular: "Upload speaker photo",
             dictionary: {
@@ -862,20 +729,20 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v30.ModalBody, {
+        }), (0, _v1.jsx)(_v63.ModalBody, {
           px: 0,
           display: "flex",
           flexDirection: "column",
           gap: "md",
           children: _v4 ? (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v111.ImageCrop, {
+            children: [(0, _v1.jsx)(_v110.ImageCrop, {
               ref: _v9,
               image: _v4,
               zoomRatio: (_v6 + _v11) / 100,
               imageCropCircleDiameter: _v10,
               windowWidth: _v8,
               cropShape: "square"
-            }), (0, _v1.jsx)(_v112.ImageCropSlider, {
+            }), (0, _v1.jsx)(_v111.ImageCropSlider, {
               value: _v6,
               onChange: _v7
             })]
@@ -886,11 +753,11 @@
               base: (0, _v16.rem)(366),
               md: (0, _v16.rem)(284)
             },
-            children: (0, _v1.jsx)(_v109.Spinner, {
+            children: (0, _v1.jsx)(_v108.Spinner, {
               size: "md"
             })
           })
-        }), (0, _v1.jsxs)(_v32.ModalFooter, {
+        }), (0, _v1.jsxs)(_v65.ModalFooter, {
           justifyContent: "flex-end",
           children: [(0, _v1.jsx)(_v3.Button, {
             onClick: _v2,
@@ -964,7 +831,7 @@
       })]
     });
   }
-  function _v115({
+  function _v114({
     id: _v0,
     fileName: _v1,
     fileSize: _v2,
@@ -976,7 +843,7 @@
       [_v8, _v9] = (0, _v9.useState)(),
       _v10 = (0, _v18.useToast)();
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v108.ImageUploader, {
+      children: [(0, _v1.jsx)(_v107.ImageUploader, {
         id: _v0,
         label: (0, _v5.translate)({
           singular: "Upload picture",
@@ -1100,7 +967,7 @@
             })
           }) : (_v9(_v1), _v7(!0));
         }
-      }), _v8 ? (0, _v1.jsx)(_v114, {
+      }), _v8 ? (0, _v1.jsx)(_v113, {
         image: _v8,
         isOpen: _v6,
         onDismiss: () => {
@@ -1112,7 +979,7 @@
       }) : null]
     });
   }
-  let _v116 = async (_v0, _v1) => {
+  let _v115 = async (_v0, _v1) => {
     try {
       let _v0 = await createImageBitmap(_v0),
         _v1 = document.createElement("canvas");
@@ -1126,7 +993,7 @@
       return URL.createObjectURL(_v0);
     }
   };
-  function _v117({
+  function _v116({
     initialSpeaker: _v0,
     isOpen: _v1,
     mode: _v2,
@@ -1138,11 +1005,11 @@
       [_v8, _v9] = (0, _v9.useState)(!1),
       [_v10, _v11] = (0, _v9.useState)(null),
       [_v12, _v13] = (0, _v9.useState)(null),
-      _v14 = (0, _v94.useSessionOwnerId)(),
+      _v14 = (0, _v93.useSessionOwnerId)(),
       {
         baseUrl: _v15,
         jwt: _v16
-      } = (0, _v59.useGctlConfig)(),
+      } = (0, _v52.useGctlConfig)(),
       _v17 = (0, _v18.useToast)(),
       {
         trackSingleEventCustomizationSpeakerSaved: _v18
@@ -1157,14 +1024,14 @@
             jwt: _v1,
             xVimeoPage: _v2,
             locale: _v3
-          } = (0, _v59.useGctlConfig)(),
-          [_v4, _v5] = (0, _v86.useInternalState)();
+          } = (0, _v52.useGctlConfig)(),
+          [_v4, _v5] = (0, _v85.useInternalState)();
         return [(0, _v9.useCallback)(async _v0 => {
           _v5({
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v92({
+            let _v0 = await _v91({
               ..._v0,
               baseUrl: _v0,
               headers: {
@@ -1194,20 +1061,20 @@
       }] = function () {
         let {
             mutate: _v0
-          } = (0, _v88.useSWRConfig)(),
+          } = (0, _v87.useSWRConfig)(),
           {
             baseUrl: _v1,
             jwt: _v2,
             xVimeoPage: _v3,
             locale: _v4
-          } = (0, _v59.useGctlConfig)(),
-          [_v5, _v6] = (0, _v86.useInternalState)();
+          } = (0, _v52.useGctlConfig)(),
+          [_v5, _v6] = (0, _v85.useInternalState)();
         return [(0, _v9.useCallback)(async _v0 => {
           _v6({
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v0(`/person_profiles/${_v0.where.personProfileId}${(0, _v86.serializeQuery)(_v0)}`, _v90({
+            let _v0 = await _v0(`/person_profiles/${_v0.where.personProfileId}${(0, _v85.serializeQuery)(_v0)}`, _v89({
               ..._v0,
               baseUrl: _v1,
               headers: {
@@ -1234,7 +1101,7 @@
         _v17({
           status: "error",
           duration: 0,
-          title: (0, _v62.getErrorToastTitle)(_v0, (0, _v5.translate)({
+          title: (0, _v55.getErrorToastTitle)(_v0, (0, _v5.translate)({
             singular: "Something went wrong saving, please check the input blanks and try again.",
             dictionary: {
               es: {
@@ -1264,7 +1131,7 @@
       },
       _v28 = (0, _v9.useEffectEvent)(async _v0 => {
         if (_v10 && null != _v15) try {
-          await _v107({
+          await _v106({
             baseUrl: _v15,
             headers: {
               Authorization: null != _v16 ? `jwt ${_v16}` : "",
@@ -1280,7 +1147,7 @@
           _v17({
             status: "error",
             duration: 0,
-            title: (0, _v62.getErrorToastTitle)(_v0, (0, _v5.translate)({
+            title: (0, _v55.getErrorToastTitle)(_v0, (0, _v5.translate)({
               singular: "Your speaker was saved, but the photo failed to upload.",
               dictionary: {
                 es: {
@@ -1331,7 +1198,7 @@
       if (null === _v10) return;
       let _v0 = null,
         _v1 = !1;
-      return _v116(_v10.file, _v10.crop).then(_v0 => {
+      return _v115(_v10.file, _v10.crop).then(_v0 => {
         _v1 ? URL.revokeObjectURL(_v0) : (_v0 = _v0, _v13(_v0));
       }), () => {
         _v1 = !0, null !== _v0 && URL.revokeObjectURL(_v0);
@@ -1343,14 +1210,14 @@
         [_v0]: _v1
       });
     };
-    return (0, _v1.jsxs)(_v29.Modal, {
+    return (0, _v1.jsxs)(_v62.Modal, {
       closeOnOverlayClick: !1,
       size: "lg",
       isCentered: !0,
       isOpen: _v1,
       onClose: _v4,
-      children: [(0, _v1.jsx)(_v34.ModalOverlay, {}), (0, _v1.jsxs)(_v31.ModalContent, {
-        children: [(0, _v1.jsx)(_v33.ModalHeader, {
+      children: [(0, _v1.jsx)(_v67.ModalOverlay, {}), (0, _v1.jsxs)(_v64.ModalContent, {
+        children: [(0, _v1.jsx)(_v66.ModalHeader, {
           children: "edit" === _v2 ? (0, _v5.translate)({
             singular: "Edit speaker",
             dictionary: {
@@ -1402,7 +1269,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v30.ModalBody, {
+        }), (0, _v1.jsx)(_v63.ModalBody, {
           display: "flex",
           flexDirection: "column",
           children: (0, _v1.jsxs)(_v15.Flex, {
@@ -1415,9 +1282,9 @@
               minWidth: 0,
               children: [(0, _v1.jsx)(_v15.Flex, {
                 direction: "column",
-                children: (0, _v1.jsxs)(_v52.FormControl, {
+                children: (0, _v1.jsxs)(_v45.FormControl, {
                   isInvalid: _v8,
-                  children: [(0, _v1.jsx)(_v53.FormLabel, {
+                  children: [(0, _v1.jsx)(_v46.FormLabel, {
                     htmlFor: "speaker-name",
                     children: (0, _v1.jsx)(_v17.Text, {
                       as: "span",
@@ -1446,7 +1313,7 @@
                         }
                       })
                     })
-                  }), (0, _v1.jsx)(_v98.Input, {
+                  }), (0, _v1.jsx)(_v97.Input, {
                     id: "speaker-name",
                     isInvalid: _v8,
                     maxLength: 120,
@@ -1478,9 +1345,9 @@
                       }
                     }),
                     value: _v6.name
-                  }), (0, _v1.jsx)(_v95.AnimatePresence, {
+                  }), (0, _v1.jsx)(_v94.AnimatePresence, {
                     children: _v8 ? (0, _v1.jsx)(_v15.Flex, {
-                      as: _v96.motion.div,
+                      as: _v95.motion.div,
                       initial: {
                         height: 0,
                         opacity: 0
@@ -1501,7 +1368,7 @@
                       },
                       overflow: "hidden",
                       mt: "xs",
-                      children: (0, _v1.jsx)(_v97.FormErrorMessage, {
+                      children: (0, _v1.jsx)(_v96.FormErrorMessage, {
                         variant: "error",
                         fontSize: "body-sm",
                         lineHeight: "body-sm",
@@ -1538,7 +1405,7 @@
                 })
               }), (0, _v1.jsxs)(_v15.Flex, {
                 direction: "column",
-                children: [(0, _v1.jsx)(_v53.FormLabel, {
+                children: [(0, _v1.jsx)(_v46.FormLabel, {
                   htmlFor: "speaker-role",
                   children: (0, _v1.jsxs)(_v15.Flex, {
                     as: "span",
@@ -1600,12 +1467,12 @@
                           }
                         }
                       }),
-                      children: (0, _v1.jsx)(_v100.InfoCircle, {
+                      children: (0, _v1.jsx)(_v99.InfoCircle, {
                         boxSize: (0, _v16.rem)(16)
                       })
                     })]
                   })
-                }), (0, _v1.jsx)(_v98.Input, {
+                }), (0, _v1.jsx)(_v97.Input, {
                   id: "speaker-role",
                   maxLength: 120,
                   onChange: _v0 => _v35("role", _v0.target.value),
@@ -1639,7 +1506,7 @@
                 })]
               }), (0, _v1.jsxs)(_v15.Flex, {
                 direction: "column",
-                children: [(0, _v1.jsx)(_v53.FormLabel, {
+                children: [(0, _v1.jsx)(_v46.FormLabel, {
                   htmlFor: "speaker-photo",
                   children: (0, _v1.jsxs)(_v15.Flex, {
                     as: "span",
@@ -1695,12 +1562,12 @@
                           }
                         }
                       }),
-                      children: (0, _v1.jsx)(_v100.InfoCircle, {
+                      children: (0, _v1.jsx)(_v99.InfoCircle, {
                         boxSize: (0, _v16.rem)(16)
                       })
                     })]
                   })
-                }), (0, _v1.jsx)(_v115, {
+                }), (0, _v1.jsx)(_v114, {
                   id: "speaker-photo",
                   fileName: _v10?.file.name,
                   fileSize: _v10 ? (_v0 => {
@@ -1722,7 +1589,7 @@
                 })]
               }), (0, _v1.jsxs)(_v15.Flex, {
                 direction: "column",
-                children: [(0, _v1.jsx)(_v53.FormLabel, {
+                children: [(0, _v1.jsx)(_v46.FormLabel, {
                   htmlFor: "speaker-description",
                   children: (0, _v1.jsxs)(_v15.Flex, {
                     as: "span",
@@ -1781,12 +1648,12 @@
                           }
                         }
                       }),
-                      children: (0, _v1.jsx)(_v100.InfoCircle, {
+                      children: (0, _v1.jsx)(_v99.InfoCircle, {
                         boxSize: (0, _v16.rem)(16)
                       })
                     })]
                   })
-                }), (0, _v1.jsx)(_v99.Textarea, {
+                }), (0, _v1.jsx)(_v98.Textarea, {
                   id: "speaker-description",
                   minHeight: (0, _v16.rem)(120),
                   onChange: _v0 => _v35("description", _v0.target.value),
@@ -1852,7 +1719,7 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v101.SpeakerProfileCard, {
+              }), (0, _v1.jsx)(_v100.SpeakerProfileCard, {
                 name: _v6.name.trim() || "Name (required)",
                 role: _v6.role,
                 description: _v6.description,
@@ -1860,7 +1727,7 @@
               })]
             })]
           })
-        }), (0, _v1.jsxs)(_v32.ModalFooter, {
+        }), (0, _v1.jsxs)(_v65.ModalFooter, {
           justifyContent: "flex-end",
           children: [(0, _v1.jsx)(_v3.Button, {
             isDisabled: _v30,
@@ -1956,7 +1823,87 @@
       })]
     });
   }
-  let _v118 = (0, _v16.rem)(56),
+  let _v117 = ({
+      title: _v0,
+      body: _v1,
+      confirmLabel: _v2,
+      cancelLabel: _v3,
+      isConfirmLoading: _v4 = !1,
+      onCancel: _v5,
+      onConfirm: _v6
+    }) => (0, _v1.jsxs)(_v62.Modal, {
+      isOpen: !0,
+      onClose: _v5,
+      children: [(0, _v1.jsx)(_v67.ModalOverlay, {}), (0, _v1.jsxs)(_v64.ModalContent, {
+        children: [(0, _v1.jsx)(_v66.ModalHeader, {
+          children: _v0
+        }), (0, _v1.jsx)(_v63.ModalBody, {
+          children: _v1
+        }), (0, _v1.jsxs)(_v65.ModalFooter, {
+          children: [(0, _v1.jsx)(_v3.Button, {
+            onClick: _v5,
+            variant: "tertiary",
+            children: _v3 ?? (0, _v5.translate)({
+              singular: "Cancel",
+              dictionary: {
+                es: {
+                  singular: "Cancelar"
+                },
+                "de-DE": {
+                  singular: "Abbrechen"
+                },
+                "fr-FR": {
+                  singular: "Annuler"
+                },
+                "ja-JP": {
+                  singular: "キャンセル"
+                },
+                "ko-KR": {
+                  singular: "취소"
+                },
+                "pt-BR": {
+                  singular: "Cancelar"
+                },
+                "zh-CN": {
+                  singular: "取消"
+                }
+              }
+            })
+          }), (0, _v1.jsx)(_v3.Button, {
+            isLoading: _v4,
+            onClick: _v6,
+            variant: "destructive",
+            children: _v2 ?? (0, _v5.translate)({
+              singular: "Delete",
+              dictionary: {
+                es: {
+                  singular: "Eliminar"
+                },
+                "de-DE": {
+                  singular: "Löschen"
+                },
+                "fr-FR": {
+                  singular: "Supprimer"
+                },
+                "ja-JP": {
+                  singular: "削除"
+                },
+                "ko-KR": {
+                  singular: "삭제"
+                },
+                "pt-BR": {
+                  singular: "Excluir"
+                },
+                "zh-CN": {
+                  singular: "删除"
+                }
+              }
+            })
+          })]
+        })]
+      })]
+    }),
+    _v118 = (0, _v16.rem)(56),
     _v119 = ["id", "name", "role", "description", "pictures.baseLink", "avatarCrop"],
     _v120 = ["id", "personProfile.id", "personProfile.name", "personProfile.role", "personProfile.description", "personProfile.pictures.baseLink", "personProfile.avatarCrop"];
   function _v121({
@@ -1965,7 +1912,7 @@
     eventId: _v2
   }) {
     let _v3 = _v2 > 0,
-      _v4 = (0, _v94.useSessionOwnerId)(),
+      _v4 = (0, _v93.useSessionOwnerId)(),
       _v5 = (0, _v18.useToast)(),
       {
         trackSingleEventCustomizationSpeakerVisibilityChanged: _v6,
@@ -1986,8 +1933,8 @@
             jwt: _v4,
             xVimeoPage: _v5,
             locale: _v6
-          } = (0, _v59.useGctlConfig)();
-        return (0, _v93.default)((_v0, _v1) => {
+          } = (0, _v52.useGctlConfig)();
+        return (0, _v92.default)((_v0, _v1) => {
           if (null === _v2 || _v1 && !_v1.paging.next) return null;
           let {
               perPage: _v2 = 25,
@@ -1999,11 +1946,11 @@
               perPage: _v2,
               ..._v4
             };
-          return [`/users/${_v2.where.userId}/person_profiles${(0, _v86.serializeQuery)({
+          return [`/users/${_v2.where.userId}/person_profiles${(0, _v85.serializeQuery)({
             query: _v5,
             select: _v2.select
           })}`, _v0];
-        }, null !== _v2 ? ([_v0, _v1]) => _v91({
+        }, null !== _v2 ? ([_v0, _v1]) => _v90({
           ..._v2,
           baseUrl: _v3,
           headers: {
@@ -2034,7 +1981,7 @@
       {
         data: _v20,
         mutate: _v21
-      } = (0, _v60.useGetLiveEventSpeakerProfiles)(() => _v3 ? {
+      } = (0, _v53.useGetLiveEventSpeakerProfiles)(() => _v3 ? {
         select: _v120,
         where: {
           liveEventId: _v2
@@ -2058,24 +2005,24 @@
       _v27 = _v0 => null === _v0 ? void 0 : _v23.find(_v0 => _v0.id === _v0) ?? _v18?.find(_v0 => _v0.id === _v0),
       _v28 = _v27(_v10),
       _v29 = _v27(_v12),
-      [_v30] = (0, _v60.usePostLiveEventSpeakerProfiles)(),
+      [_v30] = (0, _v53.usePostLiveEventSpeakerProfiles)(),
       [_v31] = function () {
         let {
             mutate: _v0
-          } = (0, _v88.useSWRConfig)(),
+          } = (0, _v87.useSWRConfig)(),
           {
             baseUrl: _v1,
             jwt: _v2,
             xVimeoPage: _v3,
             locale: _v4
-          } = (0, _v59.useGctlConfig)(),
-          [_v5, _v6] = (0, _v86.useInternalState)();
+          } = (0, _v52.useGctlConfig)(),
+          [_v5, _v6] = (0, _v85.useInternalState)();
         return [(0, _v9.useCallback)(async _v0 => {
           _v6({
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v0(`/live_events/${_v0.where.liveEventId}/speaker_profiles/${_v0.where.speakerProfileId}${(0, _v86.serializeQuery)(_v0)}`, _v57({
+            let _v0 = await _v0(`/live_events/${_v0.where.liveEventId}/speaker_profiles/${_v0.where.speakerProfileId}${(0, _v85.serializeQuery)(_v0)}`, _v50({
               ..._v0,
               baseUrl: _v1,
               headers: {
@@ -2101,20 +2048,20 @@
       [_v32] = function () {
         let {
             mutate: _v0
-          } = (0, _v88.useSWRConfig)(),
+          } = (0, _v87.useSWRConfig)(),
           {
             baseUrl: _v1,
             jwt: _v2,
             xVimeoPage: _v3,
             locale: _v4
-          } = (0, _v59.useGctlConfig)(),
-          [_v5, _v6] = (0, _v86.useInternalState)();
+          } = (0, _v52.useGctlConfig)(),
+          [_v5, _v6] = (0, _v85.useInternalState)();
         return [(0, _v9.useCallback)(async _v0 => {
           _v6({
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v0(`/person_profiles/${_v0.where.personProfileId}${(0, _v86.serializeQuery)(_v0)}`, _v89({
+            let _v0 = await _v0(`/person_profiles/${_v0.where.personProfileId}${(0, _v85.serializeQuery)(_v0)}`, _v88({
               ..._v0,
               baseUrl: _v1,
               headers: {
@@ -2247,7 +2194,7 @@
           _v5({
             status: "error",
             duration: 0,
-            title: (0, _v62.getErrorToastTitle)(_v0, (0, _v5.translate)({
+            title: (0, _v55.getErrorToastTitle)(_v0, (0, _v5.translate)({
               singular: "Something went wrong updating speaker visibility. Try again.",
               dictionary: {
                 es: {
@@ -2294,15 +2241,15 @@
         _v13(_v0);
       };
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v29.Modal, {
+      children: [(0, _v1.jsxs)(_v62.Modal, {
         closeOnOverlayClick: !1,
         size: "lg",
         isCentered: !0,
         isOpen: _v0,
         onClose: _v38,
-        children: [(0, _v1.jsx)(_v34.ModalOverlay, {}), (0, _v1.jsxs)(_v31.ModalContent, {
+        children: [(0, _v1.jsx)(_v67.ModalOverlay, {}), (0, _v1.jsxs)(_v64.ModalContent, {
           minWidth: (0, _v16.rem)(990),
-          children: [(0, _v1.jsxs)(_v33.ModalHeader, {
+          children: [(0, _v1.jsxs)(_v66.ModalHeader, {
             children: [(0, _v5.translate)({
               singular: "Manage visible speakers",
               dictionary: {
@@ -2328,17 +2275,17 @@
                   singular: "管理可见演讲者"
                 }
               }
-            }), (0, _v1.jsx)(_v69.ModalCloseButton, {
+            }), (0, _v1.jsx)(_v68.ModalCloseButton, {
               onClick: _v38
             })]
-          }), (0, _v1.jsxs)(_v30.ModalBody, {
+          }), (0, _v1.jsxs)(_v63.ModalBody, {
             display: "flex",
             flexDirection: "column",
             gap: "md",
-            children: [(0, _v1.jsx)(_v63.Alert, {
+            children: [(0, _v1.jsx)(_v56.Alert, {
               status: "info",
               overflow: "unset",
-              children: (0, _v1.jsx)(_v64.AlertDescription, {
+              children: (0, _v1.jsx)(_v57.AlertDescription, {
                 children: (0, _v1.jsx)(_v17.Text, {
                   variant: "body-sm",
                   children: (0, _v5.translate)({
@@ -2562,9 +2509,9 @@
                 })
               })
             }) : null]
-          }), (0, _v1.jsx)(_v32.ModalFooter, {})]
+          }), (0, _v1.jsx)(_v65.ModalFooter, {})]
         })]
-      }), null !== _v8 ? (0, _v1.jsx)(_v117, {
+      }), null !== _v8 ? (0, _v1.jsx)(_v116, {
         initialSpeaker: {
           name: "",
           role: "",
@@ -2624,7 +2571,7 @@
             }), _v21()));
           }
         }
-      }, "add-speaker-modal") : null, _v28 ? (0, _v1.jsx)(_v117, {
+      }, "add-speaker-modal") : null, _v28 ? (0, _v1.jsx)(_v116, {
         initialSpeaker: {
           id: _v28.id,
           name: _v28.name,
@@ -2641,7 +2588,7 @@
         onSaved: () => {
           _v16(), _v21();
         }
-      }, `edit-speaker-modal-${_v28.id}`) : null, _v29 ? (0, _v1.jsx)(_v35, {
+      }, `edit-speaker-modal-${_v28.id}`) : null, _v29 ? (0, _v1.jsx)(_v117, {
         title: (0, _v5.translate)({
           singular: 'Delete "{NAME}"?',
           replacements: {
@@ -2801,7 +2748,7 @@
               noOfLines: 1,
               variant: "heading-xs",
               children: _v0
-            }), (0, _v1.jsx)(_v76.ChevronDownSmall, {
+            }), (0, _v1.jsx)(_v75.ChevronDownSmall, {
               color: "icon-primary",
               transform: _v6 ? void 0 : "rotate(-90deg)"
             })]
@@ -2839,7 +2786,7 @@
             shouldWrapChildren: !0,
             children: (0, _v1.jsx)(_v3.Button, {
               isDisabled: _v4,
-              leftIcon: (0, _v1.jsx)(_v78.PlusCircle, {}),
+              leftIcon: (0, _v1.jsx)(_v77.PlusCircle, {}),
               onClick: _v5,
               size: "sm",
               variant: "secondary",
@@ -2871,14 +2818,14 @@
               })
             })
           })]
-        }), (0, _v1.jsx)(_v66.Collapse, {
+        }), (0, _v1.jsx)(_v59.Collapse, {
           in: _v6,
-          children: _v1 > 0 ? (0, _v1.jsxs)(_v70.Table, {
+          children: _v1 > 0 ? (0, _v1.jsxs)(_v69.Table, {
             variant: "unstyled",
-            children: [(0, _v1.jsx)(_v74.Thead, {
-              children: (0, _v1.jsxs)(_v75.Tr, {
+            children: [(0, _v1.jsx)(_v73.Thead, {
+              children: (0, _v1.jsxs)(_v74.Tr, {
                 color: "text-secondary",
-                children: [(0, _v1.jsx)(_v73.Th, {
+                children: [(0, _v1.jsx)(_v72.Th, {
                   backgroundColor: "fill-component",
                   borderStartRadius: "input-md",
                   px: "2",
@@ -2916,7 +2863,7 @@
                       })
                     })
                   })
-                }), (0, _v1.jsx)(_v73.Th, {
+                }), (0, _v1.jsx)(_v72.Th, {
                   backgroundColor: "fill-component",
                   px: "2",
                   py: "2",
@@ -2944,7 +2891,7 @@
                       }
                     })
                   })
-                }), (0, _v1.jsx)(_v73.Th, {
+                }), (0, _v1.jsx)(_v72.Th, {
                   backgroundColor: "fill-component",
                   px: "2",
                   py: "2",
@@ -2978,7 +2925,7 @@
                       }
                     })
                   })
-                }), (0, _v1.jsx)(_v73.Th, {
+                }), (0, _v1.jsx)(_v72.Th, {
                   backgroundColor: "fill-component",
                   px: "2",
                   py: "2",
@@ -3009,7 +2956,7 @@
                       }
                     })
                   })
-                }), (0, _v1.jsx)(_v73.Th, {
+                }), (0, _v1.jsx)(_v72.Th, {
                   backgroundColor: "fill-component",
                   borderEndRadius: "input-md",
                   px: "2",
@@ -3017,7 +2964,7 @@
                   width: "14%"
                 })]
               })
-            }), (0, _v1.jsx)(_v71.Tbody, {
+            }), (0, _v1.jsx)(_v70.Tbody, {
               children: _v3
             })]
           }) : (0, _v1.jsx)(_v17.Text, {
@@ -3094,8 +3041,8 @@
         }),
         _v11 = _v0.pictures?.baseLink,
         _v12 = _v0.avatarCrop && _v0.avatarCrop.width > 0 ? _v0.avatarCrop : null;
-      return (0, _v1.jsxs)(_v75.Tr, {
-        children: [(0, _v1.jsx)(_v72.Td, {
+      return (0, _v1.jsxs)(_v74.Tr, {
+        children: [(0, _v1.jsx)(_v71.Td, {
           px: "2",
           py: (0, _v16.rem)(10),
           width: "27%",
@@ -3103,13 +3050,13 @@
             align: "center",
             gap: (0, _v16.rem)(16),
             minWidth: 0,
-            children: [_v11 ? (0, _v1.jsx)(_v65.Box, {
+            children: [_v11 ? (0, _v1.jsx)(_v58.Box, {
               borderRadius: "input-md",
               flexShrink: 0,
               height: _v118,
               overflow: "hidden",
               width: _v118,
-              children: (0, _v1.jsx)(_v68.Image, {
+              children: (0, _v1.jsx)(_v61.Image, {
                 alt: _v0.name || "",
                 src: _v11,
                 ...(_v12 ? {
@@ -3122,7 +3069,7 @@
                   width: "100%"
                 })
               })
-            }) : (0, _v1.jsx)(_v65.Box, {
+            }) : (0, _v1.jsx)(_v58.Box, {
               width: _v118,
               height: _v118,
               display: "flex",
@@ -3131,18 +3078,18 @@
               borderRadius: "input-md",
               backgroundColor: "fill-component",
               color: "icon-secondary",
-              children: (0, _v1.jsx)(_v79.PersonUserFilled, {})
+              children: (0, _v1.jsx)(_v78.PersonUserFilled, {})
             }), (0, _v1.jsx)(_v17.Text, {
               noOfLines: 1,
               variant: "heading-xs",
               children: _v0.name
             })]
           })
-        }), (0, _v1.jsx)(_v72.Td, {
+        }), (0, _v1.jsx)(_v71.Td, {
           px: "2",
           py: (0, _v16.rem)(10),
           width: "13%",
-          children: (0, _v1.jsx)(_v65.Box, {
+          children: (0, _v1.jsx)(_v58.Box, {
             "aria-label": _v8 ? (0, _v5.translate)({
               singular: "Show on the event landing page",
               dictionary: {
@@ -3198,15 +3145,15 @@
             borderRadius: "sm",
             display: "inline-flex",
             p: (0, _v16.rem)(6),
-            children: _v8 ? (0, _v1.jsx)(_v81, {
+            children: _v8 ? (0, _v1.jsx)(_v80, {
               boxSize: (0, _v16.rem)(20),
               color: "text-tertiary"
-            }) : (0, _v1.jsx)(_v82.CloseXCircleFilled, {
+            }) : (0, _v1.jsx)(_v81.CloseXCircleFilled, {
               boxSize: (0, _v16.rem)(20),
               color: "text-tertiary"
             })
           })
-        }), (0, _v1.jsx)(_v72.Td, {
+        }), (0, _v1.jsx)(_v71.Td, {
           px: "2",
           py: (0, _v16.rem)(10),
           width: "17%",
@@ -3216,7 +3163,7 @@
             color: "text-secondary",
             children: _v0.role || "-"
           })
-        }), (0, _v1.jsx)(_v72.Td, {
+        }), (0, _v1.jsx)(_v71.Td, {
           px: "2",
           py: (0, _v16.rem)(10),
           width: "29%",
@@ -3226,7 +3173,7 @@
             color: "text-secondary",
             children: _v0.description || "-"
           })
-        }), (0, _v1.jsx)(_v72.Td, {
+        }), (0, _v1.jsx)(_v71.Td, {
           px: "2",
           py: (0, _v16.rem)(10),
           width: "14%",
@@ -3260,7 +3207,7 @@
                   }
                 }
               }),
-              children: (0, _v1.jsx)(_v67.IconButton, {
+              children: (0, _v1.jsx)(_v60.IconButton, {
                 "aria-label": (0, _v5.translate)({
                   singular: "Edit speaker details",
                   dictionary: {
@@ -3287,7 +3234,7 @@
                     }
                   }
                 }),
-                icon: (0, _v1.jsx)(_v77.EditSheet, {}),
+                icon: (0, _v1.jsx)(_v76.EditSheet, {}),
                 onClick: () => _v2(_v0.id),
                 size: "sm",
                 variant: "tertiary"
@@ -3322,9 +3269,9 @@
                   }
                 }
               }) : _v10,
-              children: (0, _v1.jsx)(_v67.IconButton, {
+              children: (0, _v1.jsx)(_v60.IconButton, {
                 "aria-label": _v10,
-                icon: _v8 ? (0, _v1.jsx)(_v83.EyeShut, {}) : (0, _v1.jsx)(_v84.Eye, {}),
+                icon: _v8 ? (0, _v1.jsx)(_v82.EyeShut, {}) : (0, _v1.jsx)(_v83.Eye, {}),
                 isDisabled: _v9,
                 isLoading: _v7,
                 onClick: () => _v3(_v0.id, _v1),
@@ -3358,7 +3305,7 @@
                   }
                 }
               }),
-              children: (0, _v1.jsx)(_v67.IconButton, {
+              children: (0, _v1.jsx)(_v60.IconButton, {
                 "aria-label": (0, _v5.translate)({
                   singular: "Delete speaker",
                   dictionary: {
@@ -3385,7 +3332,7 @@
                     }
                   }
                 }),
-                icon: (0, _v1.jsx)(_v85.TrashBin, {}),
+                icon: (0, _v1.jsx)(_v84.TrashBin, {}),
                 isLoading: _v6,
                 onClick: () => _v4(_v0.id),
                 size: "sm",
@@ -3417,7 +3364,7 @@
       {
         data: _v13,
         mutate: _v14
-      } = (0, _v60.useGetLiveEventSpeakerProfiles)(() => _v9 ? {
+      } = (0, _v53.useGetLiveEventSpeakerProfiles)(() => _v9 ? {
         select: _v125,
         where: {
           liveEventId: _v8
@@ -3434,15 +3381,15 @@
         jwt: _v17,
         xVimeoPage: _v18,
         locale: _v19
-      } = (0, _v59.useGctlConfig)(),
+      } = (0, _v52.useGctlConfig)(),
       _v20 = _v5;
     return null !== _v3 ? _v20 = "visible" === _v3 : _v15 && _v15.length > 0 && (_v20 = _v15.some(_v0 => "visible" === _v0.visibilityStatus)), (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v15.Flex, {
         direction: "column",
         gap: "md",
         width: "100%",
-        children: [(0, _v1.jsx)(_v52.FormControl, {
-          children: (0, _v1.jsxs)(_v53.FormLabel, {
+        children: [(0, _v1.jsx)(_v45.FormControl, {
+          children: (0, _v1.jsxs)(_v46.FormLabel, {
             alignItems: "center",
             cursor: "pointer",
             display: "flex",
@@ -3480,7 +3427,7 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v61.CircleTip, {
+              }), (0, _v1.jsx)(_v54.CircleTip, {
                 as: "span",
                 label: (0, _v5.translate)({
                   singular: "Speakers are shown in the event page with a dedicated section.",
@@ -3509,14 +3456,14 @@
                   }
                 })
               })]
-            }), (0, _v1.jsx)(_v54.Switch, {
+            }), (0, _v1.jsx)(_v47.Switch, {
               id: _v124,
               isChecked: _v20,
               isDisabled: null !== _v3,
               onChange: () => {
                 if (null !== _v3) return;
                 let _v0 = _v20 ? "hidden" : "visible";
-                (_v6("visible" === _v0), _v15 && 0 !== _v15.length) ? (_v4(_v0), Promise.all(_v15.map(_v0 => _v58({
+                (_v6("visible" === _v0), _v15 && 0 !== _v15.length) ? (_v4(_v0), Promise.all(_v15.map(_v0 => _v51({
                   baseUrl: _v16,
                   headers: {
                     "Content-Type": "application/json",
@@ -3538,7 +3485,7 @@
                   _v10({
                     status: "error",
                     duration: 0,
-                    title: (0, _v62.getErrorToastTitle)(_v0, (0, _v5.translate)({
+                    title: (0, _v55.getErrorToastTitle)(_v0, (0, _v5.translate)({
                       singular: "Something went wrong updating speaker visibility. Try again.",
                       dictionary: {
                         es: {
@@ -3762,7 +3709,7 @@
           padding: (0, _v16.rem)(8),
           type: "button",
           width: "100%",
-          children: [(0, _v1.jsx)(_v65.Box, {
+          children: [(0, _v1.jsx)(_v58.Box, {
             alignItems: "center",
             backgroundColor: "fill-component",
             borderRadius: (0, _v16.rem)(6),
@@ -3772,7 +3719,7 @@
             justifyContent: "center",
             overflow: "hidden",
             width: (0, _v16.rem)(48),
-            children: _v5.url ? (0, _v1.jsx)(_v65.Box, {
+            children: _v5.url ? (0, _v1.jsx)(_v58.Box, {
               alt: (0, _v5.translate)({
                 singular: "Custom logo",
                 dictionary: {
@@ -3912,11 +3859,11 @@
     onMarkUpToDate: _v4
   }) {
     let _v5 = _v1 || _v2;
-    return (0, _v1.jsxs)(_v63.Alert, {
+    return (0, _v1.jsxs)(_v56.Alert, {
       size: "sm",
       status: "warning",
       width: "100%",
-      children: [(0, _v1.jsx)(_v64.AlertDescription, {
+      children: [(0, _v1.jsx)(_v57.AlertDescription, {
         textStyle: "body-sm",
         children: (0, _v5.translate)({
           singular: "Some speakers have missing or outdated translations.",
@@ -4041,17 +3988,17 @@
     },
     ..._v5
   }) {
-    return (0, _v55.measureLatency)("putLiveEventLocalization", "PUT", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations/${_v4}?fields=${_v1.map(_v56.intoSnakeCase).join(",")}`, {
+    return (0, _v48.measureLatency)("putLiveEventLocalization", "PUT", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations/${_v4}?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PUT",
-        body: JSON.stringify((0, _v56.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
   async function _v141({
@@ -4062,16 +4009,16 @@
     },
     ..._v3
   }) {
-    return (0, _v55.measureLatency)("deleteLiveEventLocalization", "DELETE", async () => {
+    return (0, _v48.measureLatency)("deleteLiveEventLocalization", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/live_events/${_v1}/localizations/${_v2}`, {
         ..._v3,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
   async function _v142({
@@ -4084,17 +4031,17 @@
     },
     ..._v5
   }) {
-    return (0, _v55.measureLatency)("patchLiveEventLocalization", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations/${_v4}?fields=${_v1.map(_v56.intoSnakeCase).join(",")}`, {
+    return (0, _v48.measureLatency)("patchLiveEventLocalization", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations/${_v4}?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PATCH",
-        body: JSON.stringify((0, _v56.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
   async function _v143({
@@ -4105,16 +4052,16 @@
     },
     ..._v3
   }) {
-    return (0, _v55.measureLatency)("getLiveEventLocalizations", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v2}/localizations?fields=${_v1.map(_v56.intoSnakeCase).join(",")}`, {
+    return (0, _v48.measureLatency)("getLiveEventLocalizations", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v2}/localizations?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
   async function _v144({
@@ -4126,17 +4073,17 @@
     },
     ..._v4
   }) {
-    return (0, _v55.measureLatency)("patchLiveEventLocalizations", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations?fields=${_v1.map(_v56.intoSnakeCase).join(",")}`, {
+    return (0, _v48.measureLatency)("patchLiveEventLocalizations", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "PATCH",
-        body: JSON.stringify((0, _v56.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
   async function _v145({
@@ -4148,17 +4095,17 @@
     },
     ..._v4
   }) {
-    return (0, _v55.measureLatency)("postLiveEventLocalizationsTranslate", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations/translate?fields=${_v1.map(_v56.intoSnakeCase).join(",")}`, {
+    return (0, _v48.measureLatency)("postLiveEventLocalizationsTranslate", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations/translate?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "POST",
-        body: JSON.stringify((0, _v56.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v56.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v56.deepCamelCase)(_v1);
+      return (0, _v49.deepCamelCase)(_v1);
     });
   }
   var _v146 = _v0.i(0);
@@ -4199,7 +4146,7 @@
             jwt: _v3,
             xVimeoPage: _v4,
             locale: _v5
-          } = (0, _v59.useGctlConfig)(),
+          } = (0, _v52.useGctlConfig)(),
           _v6 = (0, _v9.useMemo)(() => ({
             baseUrl: _v2,
             headers: {
@@ -4223,8 +4170,8 @@
                 jwt: _v4,
                 xVimeoPage: _v5,
                 locale: _v6
-              } = (0, _v59.useGctlConfig)();
-            return (0, _v87.default)(_v2 ? `/live_events/${_v2.where.liveEventId}/localizations${(0, _v86.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v143({
+              } = (0, _v52.useGctlConfig)();
+            return (0, _v86.default)(_v2 ? `/live_events/${_v2.where.liveEventId}/localizations${(0, _v85.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v143({
               ..._v2,
               headers: {
                 ..._v2.headers,
@@ -4246,26 +4193,26 @@
           _v12 = (0, _v9.useMemo)(() => {
             let _v0;
             return _v0 = {}, _v11.forEach(_v0 => {
-              let _v1 = _v48(_v0.locale);
+              let _v1 = _v41(_v0.locale);
               null !== _v1 && (_v0[_v1] = {
                 isPublished: _v0.isPublished,
                 hasDraft: _v0.hasDraft,
                 isOutOfSync: _v0.isOutOfSync,
                 leaves: (_v0 => {
-                  if (!_v46(_v0)) return _v36.EMPTY_LEAVES;
+                  if (!_v39(_v0)) return _v29.EMPTY_LEAVES;
                   let _v1 = {};
-                  _v41.forEach(_v0 => {
+                  _v34.forEach(_v0 => {
                     let _v1 = _v0[_v0];
-                    _v47(_v1) && (_v1[_v0] = {
+                    _v40(_v1) && (_v1[_v0] = {
                       value: _v1.value,
                       provenance: _v1.provenance
                     });
                   });
-                  let _v2 = _v0[_v42];
-                  return _v46(_v2) && Object.entries(_v2).forEach(([_v0, _v1]) => {
-                    _v44.test(_v0) && _v46(_v1) && _v43.forEach(_v0 => {
+                  let _v2 = _v0[_v35];
+                  return _v39(_v2) && Object.entries(_v2).forEach(([_v0, _v1]) => {
+                    _v37.test(_v0) && _v39(_v1) && _v36.forEach(_v0 => {
                       let _v1 = _v1[_v0];
-                      _v47(_v1) && (_v1[_v45(_v0, _v0)] = {
+                      _v40(_v1) && (_v1[_v38(_v0, _v0)] = {
                         value: _v1.value,
                         provenance: _v1.provenance
                       });
@@ -4279,7 +4226,7 @@
           _v13 = (0, _v9.useMemo)(() => {
             let _v0 = {};
             return _v11.forEach(_v0 => {
-              let _v1 = _v48(_v0.locale),
+              let _v1 = _v41(_v0.locale),
                 _v2 = _v0.outOfSyncPaths;
               if (null === _v1 || !_v0.isPublished || !_v0.isOutOfSync || null === _v2) return;
               let _v3 = [..._v2.added, ..._v2.changed].filter(_v0 => _v0.startsWith("speakers."));
@@ -4328,7 +4275,7 @@
           }, [_v10]),
           [_v19, _v20] = (0, _v9.useState)(null),
           _v21 = null !== _v19,
-          _v22 = _v48(_v8?.sourceLocale),
+          _v22 = _v41(_v8?.sourceLocale),
           _v23 = _v19 ?? _v22,
           _v24 = (0, _v9.useCallback)(_v0 => _v0 === _v23 ? Promise.resolve(!0) : _v21 || _v0 <= 0 ? Promise.resolve(!1) : (_v20(_v0), _v144({
             ..._v6,
@@ -4354,7 +4301,7 @@
                   },
                   select: _v148,
                   variables: {
-                    values: _v49(_v1),
+                    values: _v42(_v1),
                     publish: _v2,
                     ...(void 0 === _v0 ? {} : {
                       version: _v0
@@ -4485,7 +4432,7 @@
                   },
                   select: _v148,
                   variables: {
-                    values: _v49(_v12[_v0]?.leaves ?? {}),
+                    values: _v42(_v12[_v0]?.leaves ?? {}),
                     publish: !0,
                     ...(void 0 === _v1 ? {} : {
                       version: _v1
@@ -4508,8 +4455,8 @@
               _v4,
               _v5 = (_v3 = {}, (_v4 = (_v0, _v1) => {
                 "" !== _v1.trim() && (_v3[_v0] = _v1);
-              })(_v39, _v0.title), _v4(_v40, _v0.streamDescription), _v0.visibleSpeakers.forEach(_v0 => {
-                _v43.forEach(_v0 => _v4(_v45(_v0.id, _v0), _v0[_v0]));
+              })(_v32, _v0.title), _v4(_v33, _v0.streamDescription), _v0.visibleSpeakers.forEach(_v0 => {
+                _v36.forEach(_v0 => _v4(_v38(_v0.id, _v0), _v0[_v0]));
               }), _v3),
               _v6 = void 0 === _v2 ? _v5 : Object.fromEntries(Object.entries(_v5).filter(([_v0]) => _v2.includes(_v0))),
               _v7 = Object.keys(_v6);
@@ -4750,12 +4697,12 @@
             jwt: _v4,
             xVimeoPage: _v5,
             locale: _v6
-          } = (0, _v59.useGctlConfig)(),
+          } = (0, _v52.useGctlConfig)(),
           {
             data: _v7,
             isLoading: _v8,
             mutate: _v9
-          } = (0, _v60.useGetLiveEventSpeakerProfiles)(() => _v1 ? {
+          } = (0, _v53.useGetLiveEventSpeakerProfiles)(() => _v1 ? {
             select: _v135,
             where: {
               liveEventId: _v0
@@ -4817,7 +4764,7 @@
             isAITranslating: _v12,
             translateLocales: _v13
           } = _v0,
-          _v14 = _v6 ?? (_v4 ? null : _v48(_v3)),
+          _v14 = _v6 ?? (_v4 ? null : _v41(_v3)),
           [_v15, _v16] = (0, _v9.useState)(!1),
           [_v17, _v18] = (0, _v9.useState)(null),
           [_v19, _v20] = (0, _v9.useState)([]),
@@ -4852,9 +4799,9 @@
                 }
               }
             }),
-            isDisabled: !_v50(_v25),
+            isDisabled: !_v43(_v25),
             fields: [{
-              path: _v39,
+              path: _v32,
               label: (0, _v5.translate)({
                 singular: "Title",
                 dictionary: {
@@ -4936,7 +4883,7 @@
               sourceValue: _v25.title,
               maxLength: 128
             }, {
-              path: _v40,
+              path: _v33,
               label: (0, _v5.translate)({
                 singular: "Description",
                 dictionary: {
@@ -5082,7 +5029,7 @@
                 fields: (_v2 = {
                   NUMBER: _v1 + 1
                 }, [{
-                  path: _v45(_v0.id, "name"),
+                  path: _v38(_v0.id, "name"),
                   label: (0, _v5.translate)({
                     singular: "Name",
                     dictionary: {
@@ -5163,7 +5110,7 @@
                   sourceValue: _v0.name,
                   maxLength: 120
                 }, {
-                  path: _v45(_v0.id, "role"),
+                  path: _v38(_v0.id, "role"),
                   label: (0, _v5.translate)({
                     singular: "Role",
                     dictionary: {
@@ -5247,7 +5194,7 @@
                   sourceValue: _v0.role,
                   maxLength: 120
                 }, {
-                  path: _v45(_v0.id, "description"),
+                  path: _v38(_v0.id, "description"),
                   label: (0, _v5.translate)({
                     singular: "Description",
                     dictionary: {
@@ -5336,7 +5283,7 @@
             untranslatedLocales: _v27,
             selectableLocales: _v28
           } = (0, _v9.useMemo)(() => {
-            let _v0 = _v38.filter(_v0 => _v0 !== _v14),
+            let _v0 = _v31.filter(_v0 => _v0 !== _v14),
               _v1 = _v0 => void 0 !== _v5[_v0];
             return {
               untranslatedLocales: _v0.filter(_v0 => !_v1(_v0)),
@@ -5366,7 +5313,7 @@
           _v33 = (0, _v9.useCallback)((_v0, _v1, _v2) => {
             _v22(_v0 => ({
               ..._v0,
-              [_v0]: (0, _v36.withTypedValue)(_v0[_v0], _v5[_v0]?.leaves, _v1, _v2)
+              [_v0]: (0, _v29.withTypedValue)(_v0[_v0], _v5[_v0]?.leaves, _v1, _v2)
             }));
           }, [_v5]),
           _v34 = (0, _v9.useCallback)(async _v0 => {
@@ -5668,7 +5615,7 @@
             children: _v5 ? (0, _v1.jsx)(_v21, {
               resourceId: String(_v4),
               resourceType: "event",
-              children: (0, _v1.jsx)(_v51, {
+              children: (0, _v1.jsx)(_v44, {
                 isSourceLoading: _v19,
                 localizations: _v10,
                 onAddLanguages: _v23,

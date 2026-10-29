@@ -1644,8 +1644,8 @@
           children: _v78.T_CONTACT_SALES
         })]
       }), _v25 ? (0, _v39.jsx)(_v70.CaptionsTranslations, {
-        isDisabled: _v49 || !_v57,
-        disabledTip: _v49 ? _v78.T_AUTO_CC_LOCKED_WHILE_LIVE : void 0,
+        isDisabled: _v49 || !_v57 || _v51,
+        disabledTip: _v52,
         selectedLanguages: _v43 ?? [],
         sourceLanguage: _v41,
         onChange: _v39,

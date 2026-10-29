@@ -209,17 +209,19 @@
       setAnnotationForm: () => Error("Not implemented")
     }),
     _v24 = ({
-      children: _v0
+      children: _v0,
+      onCommentPosted: _v1
     }) => {
-      let [_v1, _v2] = (0, _v2.useState)({
+      let [_v2, _v3] = (0, _v2.useState)({
           ..._v22
         }),
-        _v3 = (0, _v2.useMemo)(() => ({
-          annotationForm: _v1,
-          setAnnotationForm: _v2
-        }), [_v1, _v2]);
+        _v4 = (0, _v2.useMemo)(() => ({
+          annotationForm: _v2,
+          setAnnotationForm: _v3,
+          onCommentPosted: _v1
+        }), [_v2, _v3, _v1]);
       return (0, _v1.jsx)(_v23.Provider, {
-        value: _v3,
+        value: _v4,
         children: _v0
       });
     };
@@ -426,8 +428,9 @@
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
     _v43 = _v0.i(0),
-    _v44 = _v0.i(0);
-  let _v45 = {
+    _v44 = _v0.i(0),
+    _v45 = _v0.i(0);
+  let _v46 = {
       productContextFields: {
         product: "collaboration"
       },
@@ -435,7 +438,7 @@
         page_name: "single_video_view_manage"
       }
     },
-    _v46 = ({
+    _v47 = ({
       formRef: _v0,
       isDragging: _v1,
       accentColor: _v2,
@@ -447,83 +450,94 @@
         [_v8, _v9] = (0, _v2.useState)(!1),
         {
           annotationForm: _v10,
-          setAnnotationForm: _v11
+          setAnnotationForm: _v11,
+          onCommentPosted: _v12
         } = (0, _v2.useContext)(_v23),
-        _v12 = (0, _v2.useContext)(_v8.ViewerContext),
-        _v13 = (0, _v2.useRef)({}),
+        _v13 = (0, _v2.useContext)(_v8.ViewerContext),
+        _v14 = (0, _v2.useRef)({}),
         {
-          cache: _v14,
-          mutate: _v15
+          cache: _v15,
+          mutate: _v16
         } = (0, _v30.useSWRConfig)(),
         {
-          postComment: _v16,
-          postCommentLoading: _v17,
-          lastAddedComment: _v18
-        } = (0, _v39.usePostPrivateComment)(_v4, void 0, _v45, void 0, void 0, _v5),
+          postComment: _v17,
+          postCommentLoading: _v18,
+          lastAddedComment: _v19
+        } = (0, _v39.usePostPrivateComment)(_v4, void 0, _v46, void 0, void 0, _v5, _v12),
         {
-          videoData: _v19
+          videoData: _v20
         } = (0, _v41.useVideoData)(_v4, void 0, _v5),
         {
-          trackReviewNotePosted: _v20
+          trackReviewNotePosted: _v21
         } = (0, _v37.useReviewTracking)(),
         {
-          guestUser: _v21
+          guestUser: _v22
         } = (0, _v2.useContext)(_v40.guestLoginModalContext),
-        _v22 = (0, _v44.getStorageInstance)(),
-        _v23 = _v13?.current?.commentLength?.() ?? 0,
+        _v23 = (0, _v44.getStorageInstance)(),
+        _v24 = _v14?.current?.commentLength?.() ?? 0,
         {
-          value: _v24,
-          set: _v25,
-          remove: _v26
-        } = (0, _v35.default)(_v42.STASHED_COMMENTS_KEY, null, void 0, _v22),
-        _v27 = (0, _v2.useCallback)(_v0 => {
+          value: _v25,
+          set: _v26,
+          remove: _v27
+        } = (0, _v35.default)(_v42.STASHED_COMMENTS_KEY, null, void 0, _v23),
+        _v28 = (0, _v2.useCallback)(_v0 => {
           _v11(_v0 => ({
             ..._v0,
             text: _v0
           }));
         }, [_v11]),
-        _v28 = (0, _v2.useCallback)(() => {
-          Array.from(_v14?.keys() ?? []).filter(_v0 => _v0.includes("/private_comments")).forEach(_v0 => _v15(_v0));
-        }, [_v14, _v15]);
+        _v29 = (0, _v2.useCallback)(() => {
+          Array.from(_v15?.keys() ?? []).filter(_v0 => _v0.includes("/private_comments")).forEach(_v0 => _v16(_v0));
+        }, [_v15, _v16]);
       (0, _v2.useEffect)(() => {
-        _v7(_v17 || _v10.text.trim().length < 1 || _v23 > _v21.MAX_COMMENT_CHARACTERS);
-      }, [_v17, _v10.text, _v23]);
-      let _v29 = (0, _v2.useCallback)(_v0 => {
-        if (_v9(!0), !_v17) {
+        _v7(_v18 || _v10.text.trim().length < 1 || _v24 > _v21.MAX_COMMENT_CHARACTERS);
+      }, [_v18, _v10.text, _v24]);
+      let _v30 = (0, _v2.useCallback)(_v0 => {
+        if (_v9(!0), !_v18) {
           let _v0 = (0, _v43.sanitiseSpaceInRichtext)(_v0 ?? _v10.text),
             _v1 = {
               x: _v10.position.x,
               y: _v10.position.y
             };
-          _v12?.user || _v21 || _v25(JSON.stringify({
-            text: _v10.text,
-            isReply: !1
-          })), _v16(_v0, _v10.timecode, (({
+          if (!_v13?.user && !_v22) {
+            let _v0 = JSON.stringify({
+              text: _v10.text,
+              isReply: !1,
+              surface: "note"
+            });
+            (0, _v45.broadcastStashedComment)("note"), _v26(_v0);
+          }
+          _v17(_v0, _v10.timecode, (({
             x: _v0,
             y: _v1
           }) => ({
             x: parseFloat(_v0.toFixed(3)),
             y: parseFloat(_v1.toFixed(3))
-          }))(_v1)).then(() => {
-            _v28();
+          }))(_v1)).then(_v0 => {
+            _v0 && _v29();
           });
         }
-      }, [_v10, _v16, _v28, _v17]);
+      }, [_v10, _v17, _v29, _v18]);
       return (0, _v2.useEffect)(() => {
-        let _v0 = JSON.parse(_v24);
-        _v21 && !_v12?.user && !_v17 && _v0?.text && (_v29(_v0.text), _v26());
-      }, [_v21, _v17, _v10, _v12?.user]), (0, _v2.useEffect)(() => {
-        _v8 && _v29();
+        let _v0 = JSON.parse(_v25);
+        _v22 && !_v13?.user && !_v18 && _v0?.text && "note" === _v0.surface && (_v30(_v0.text), _v27());
+      }, [_v22, _v18, _v10, _v13?.user]), (0, _v2.useEffect)(() => {
+        let _v0 = _v0 => {
+          "note" !== _v0.detail && _v27();
+        };
+        return window.addEventListener(_v42.STASHED_COMMENTS_UPDATED_EVENT, _v0), () => window.removeEventListener(_v42.STASHED_COMMENTS_UPDATED_EVENT, _v0);
+      }, [_v27]), (0, _v2.useEffect)(() => {
+        _v8 && _v30();
       }, [_v8]), (0, _v2.useEffect)(() => {
-        _v18 && (_v11(_v22), _v5 && _v20({
+        _v19 && (_v11(_v22), _v5 && _v21({
           reviewId: _v5,
           clipId: _v4,
-          clipOwnerId: _v19?.user?.uri ? _v19.user.uri.split("/").pop() ?? null : null
+          clipOwnerId: _v20?.user?.uri ? _v20.user.uri.split("/").pop() ?? null : null
         }));
-      }, [_v18, _v11]), (0, _v1.jsxs)(_v48, {
+      }, [_v19, _v11]), (0, _v1.jsxs)(_v49, {
         ref: _v0,
         isDragging: _v1,
-        children: [(0, _v1.jsxs)(_v49, {
+        children: [(0, _v1.jsxs)(_v50, {
           children: [(0, _v1.jsx)(_v4.Button, {
             variant: "tertiary",
             _active: {
@@ -571,7 +585,7 @@
                 container: "video_review",
                 component: "player",
                 keyword: "add_comment_submit"
-              }), _v6 || _v29();
+              }), _v6 || _v30();
             },
             isDisabled: _v6,
             "aria-label": (0, _v5.translate)({
@@ -645,34 +659,34 @@
                   }
                 }
               }),
-              setCommentText: _v27,
-              richtextAreaRef: _v13,
-              customRichTextAreaStyles: _v47,
+              setCommentText: _v28,
+              richtextAreaRef: _v14,
+              customRichTextAreaStyles: _v48,
               annotationTimeCode: (0, _v36.secondsToTimecode)(_v10.timecode ?? 0, !0),
               setIsMentionActive: _v3,
               onSubmitComment: () => {
                 _v6 || _v9(!0);
               },
               onFocus: () => {
-                _v13?.current?.focusEnd();
+                _v14?.current?.focusEnd();
               },
               reviewId: _v5
             })
           })
-        }), _v23 > _v21.MAX_COMMENT_CHARACTERS && (0, _v1.jsx)(_v3.Box, {
+        }), _v24 > _v21.MAX_COMMENT_CHARACTERS && (0, _v1.jsx)(_v3.Box, {
           display: "flex",
           justifyContent: "flex-end",
           children: (0, _v1.jsxs)(_v33.Text, {
             variant: "body-sm",
             color: "status-destructive-primary",
             py: "xs",
-            children: [_v23, " / ", _v21.MAX_COMMENT_CHARACTERS, " ", (0, _v1.jsx)(_v34.VisuallyHidden, {
+            children: [_v24, " / ", _v21.MAX_COMMENT_CHARACTERS, " ", (0, _v1.jsx)(_v34.VisuallyHidden, {
               children: (0, _v5.translate)({
                 singular: "{overLimitCount} character over limit",
                 plural: "{overLimitCount} characters over limit",
-                count: Math.abs(_v23 - _v21.MAX_COMMENT_CHARACTERS),
+                count: Math.abs(_v24 - _v21.MAX_COMMENT_CHARACTERS),
                 replacements: {
-                  overLimitCount: Math.abs(_v23 - _v21.MAX_COMMENT_CHARACTERS)
+                  overLimitCount: Math.abs(_v24 - _v21.MAX_COMMENT_CHARACTERS)
                 },
                 dictionary: {
                   es: {
@@ -750,13 +764,13 @@
               isDisabled: _v6,
               variant: "primary",
               size: "sm",
-              isLoading: _v17,
+              isLoading: _v18,
               onClick: _v0 => {
                 _v0.preventDefault(), _v31.FatalAttraction.trackClick({
                   container: "video_review",
                   component: "player",
                   keyword: "add_comment_submit"
-                }), _v29();
+                }), _v30();
               },
               children: (0, _v5.translate)({
                 singular: "Post",
@@ -789,7 +803,7 @@
         })]
       });
     },
-    _v47 = {
+    _v48 = {
       "*:focus-visible": {
         outline: "none"
       },
@@ -804,7 +818,7 @@
       maxHeight: "225px",
       overflow: "auto"
     },
-    _v48 = (0, _v2.forwardRef)(({
+    _v49 = (0, _v2.forwardRef)(({
       isDragging: _v0,
       children: _v1
     }, _v2) => (0, _v1.jsx)(_v3.Box, {
@@ -854,7 +868,7 @@
       transform: _v0 ? "scale(0.95)" : "scale(1)",
       children: _v1
     })),
-    _v49 = ({
+    _v50 = ({
       children: _v0
     }) => (0, _v1.jsx)(_v3.Box, {
       display: {
@@ -875,7 +889,7 @@
       },
       children: _v0
     }),
-    _v50 = ({
+    _v51 = ({
       bounds: _v0,
       position: _v1,
       onDragStart: _v2,
@@ -996,7 +1010,7 @@
           buttonRef: _v12,
           boardRef: _v4,
           accentColor: _v7
-        }), (0, _v1.jsx)(_v46, {
+        }), (0, _v1.jsx)(_v47, {
           formRef: _v13,
           isDragging: _v8,
           accentColor: _v7,
@@ -1011,12 +1025,12 @@
     let _v3 = Array(_v1).fill(_v0).join("");
     return `${_v3}${_v2}`.slice(-1 * _v1);
   }).bind(null, "0", 2);
-  let _v51 = (_v0, _v1) => {
+  let _v52 = (_v0, _v1) => {
     let _v2 = +_v0 + _v1 / 2;
     return _v2 - _v2 % _v1;
   };
-  var _v52 = _v0.i(0);
-  let _v53 = {
+  var _v53 = _v0.i(0);
+  let _v54 = {
       productContextFields: {
         product: "collaboration"
       },
@@ -1024,7 +1038,7 @@
         page_name: "single_video_view_manage"
       }
     },
-    _v54 = _v0 => {
+    _v55 = _v0 => {
       let {
           playerMeasurements: _v1,
           playerContainerRef: _v2,
@@ -1060,13 +1074,13 @@
         [_v23, _v24] = (0, _v2.useState)(!1),
         {
           updateCommentPosition: _v25
-        } = (0, _v52.useEditPrivateComment)(_v5, _v17, void 0, _v53, void 0, void 0, _v7);
+        } = (0, _v53.useEditPrivateComment)(_v5, _v17, void 0, _v54, void 0, void 0, _v7);
       (0, _v2.useEffect)(() => {
         _v15(_v18.isShowing);
       }, [_v18.isShowing, _v15]);
       let _v26 = (0, _v2.useMemo)(() => _v9 && (_v8 || _v10) ? _v12?.filter(_v0 => {
           let _v1;
-          return _v1 = _v0?.timeCode ?? -1, _v51(_v1, .01) === _v51(_v9, .01);
+          return _v1 = _v0?.timeCode ?? -1, _v52(_v1, .01) === _v52(_v9, .01);
         }) : [], [_v9, _v12, _v8, _v10]),
         _v27 = {
           bottom: _v1.height,
@@ -1142,7 +1156,7 @@
             accentColor: _v3,
             showCheckmark: "open" !== _v0.status
           }, _v0.id);
-        }), !_v18.isShowing || _v6 ? null : (0, _v1.jsx)(_v50, {
+        }), !_v18.isShowing || _v6 ? null : (0, _v1.jsx)(_v51, {
           bounds: _v27,
           onDragStart: () => _v24(!0),
           onDragStop: _v28,
@@ -1160,7 +1174,7 @@
         })]
       });
     },
-    _v55 = ({
+    _v56 = ({
       zIndex: _v0,
       children: _v1,
       onClick: _v2
@@ -1186,9 +1200,9 @@
       onClick: _v2,
       children: _v1
     });
-  var _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  let _v58 = _v0 => {
+  var _v57 = _v0.i(0),
+    _v58 = _v0.i(0);
+  let _v59 = _v0 => {
     let {
         playerContainerRef: _v1,
         teamAccentColor: _v2,
@@ -1197,20 +1211,21 @@
         showSvvTimecodedComments: _v5,
         isViewOnly: _v6,
         reviewId: _v7,
-        videoAspectRatio: _v8
+        videoAspectRatio: _v8,
+        onCommentPosted: _v9
       } = _v0,
       {
-        activeComment: _v9
+        activeComment: _v10
       } = (0, _v2.useContext)(_v25.CommentsContext),
-      [_v10, _v11] = (0, _v2.useState)({
+      [_v11, _v12] = (0, _v2.useState)({
         width: 0,
         height: 0
       }),
-      _v12 = !_v5 || _v10.width < _v6.BREAKPOINTS.medium,
+      _v13 = !_v5 || _v11.width < _v6.BREAKPOINTS.medium,
       {
-        isPaused: _v13,
-        currentTime: _v14,
-        isSeeked: _v15
+        isPaused: _v14,
+        currentTime: _v15,
+        isSeeked: _v16
       } = (_v0 => {
         let [_v1, _v2] = (0, _v2.useState)(!1),
           [_v3, _v4] = (0, _v2.useState)(0),
@@ -1233,37 +1248,38 @@
           isSeeked: _v5
         };
       })(_v3),
-      _v16 = (0, _v2.useCallback)(() => {
-        _v1.current && _v11({
+      _v17 = (0, _v2.useCallback)(() => {
+        _v1.current && _v12({
           height: _v1.current.offsetHeight,
           width: _v1.current.offsetWidth
         });
       }, [_v1]),
-      _v17 = (0, _v2.useCallback)(() => {
-        document.fullscreenElement || _v16();
-      }, [_v16]);
-    (0, _v2.useEffect)(() => (window.addEventListener("resize", _v16), window.addEventListener("fullscreenchange", _v17), () => {
-      window.removeEventListener("resize", _v16), window.removeEventListener("fullscreenchange", _v17);
-    }), [_v17, _v16]), (0, _v2.useEffect)(() => {
-      _v1.current && (_v16(), setTimeout(() => {
+      _v18 = (0, _v2.useCallback)(() => {
+        document.fullscreenElement || _v17();
+      }, [_v17]);
+    (0, _v2.useEffect)(() => (window.addEventListener("resize", _v17), window.addEventListener("fullscreenchange", _v18), () => {
+      window.removeEventListener("resize", _v17), window.removeEventListener("fullscreenchange", _v18);
+    }), [_v18, _v17]), (0, _v2.useEffect)(() => {
+      _v1.current && (_v17(), setTimeout(() => {
         window.dispatchEvent(new Event("resize"));
       }, 0));
-    }, [_v1, _v16, _v1?.current?.offsetHeight, _v1?.current?.offsetWidth]), (0, _v2.useEffect)(() => {
-      _v3 && !_v13 && _v3?.ready?.(() => {
+    }, [_v1, _v17, _v1?.current?.offsetHeight, _v1?.current?.offsetWidth]), (0, _v2.useEffect)(() => {
+      _v3 && !_v14 && _v3?.ready?.(() => {
         _v3.pause();
       });
     }, []);
-    let _v18 = (0, _v2.useCallback)(() => {
+    let _v19 = (0, _v2.useCallback)(() => {
       _v3 && _v3?.ready?.(() => {
         _v3.play()?.catch(_v0 => {
           if (_v0 && "AbortError" !== _v0.name) throw _v0;
         });
       });
     }, [_v3]);
-    return _v12 ? null : _v14 || _v9 || _v6 ? (0, _v1.jsx)(_v55, {
+    return _v13 ? null : _v15 || _v10 || _v6 ? (0, _v1.jsx)(_v56, {
       children: (0, _v1.jsx)(_v24, {
-        children: (0, _v1.jsx)(_v54, {
-          playerMeasurements: _v10,
+        onCommentPosted: _v9,
+        children: (0, _v1.jsx)(_v55, {
+          playerMeasurements: _v11,
           playerContainerRef: _v1,
           accentColor: _v2 ?? "vimeoBlue.500",
           player: _v3,
@@ -1271,14 +1287,14 @@
           isViewOnly: _v6,
           reviewId: _v7,
           videoAspectRatio: _v8,
-          currentTime: _v14,
-          isPaused: _v13,
-          isSeeked: _v15
+          currentTime: _v15,
+          isPaused: _v14,
+          isSeeked: _v16
         })
       })
-    }) : (0, _v1.jsx)(_v55, {
+    }) : (0, _v1.jsx)(_v56, {
       zIndex: 2,
-      onClick: _v18,
+      onClick: _v19,
       children: (0, _v1.jsx)(_v3.Box, {
         display: "flex",
         alignItems: "center",
@@ -1292,7 +1308,7 @@
         children: (0, _v1.jsx)(_v4.Button, {
           variant: "primary",
           size: "lg",
-          onClick: _v18,
+          onClick: _v19,
           marginTop: {
             base: "0",
             md: "60px"
@@ -1330,11 +1346,11 @@
   _v0.s(["AnnotationsOverlay", 0, _v0 => {
     let {
         privacy: _v1
-      } = (0, _v56.useVideoPrivacy)(_v0.clipRequestId, void 0, _v0.reviewId),
-      _v2 = _v1?.view === "unlisted" || _v0.reviewId ? _v40.GuestLoginModal : _v57.LoginModal;
+      } = (0, _v57.useVideoPrivacy)(_v0.clipRequestId, void 0, _v0.reviewId),
+      _v2 = _v1?.view === "unlisted" || _v0.reviewId ? _v40.GuestLoginModal : _v58.LoginModal;
     return (0, _v1.jsx)(_v40.GuestLoginModalProvider, {
-      children: (0, _v1.jsxs)(_v57.LoginModalProvider, {
-        children: [(0, _v1.jsx)(_v58, {
+      children: (0, _v1.jsxs)(_v58.LoginModalProvider, {
+        children: [(0, _v1.jsx)(_v59, {
           ..._v0
         }), (0, _v1.jsx)(_v2, {})]
       })

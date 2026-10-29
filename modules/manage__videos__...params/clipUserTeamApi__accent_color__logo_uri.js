@@ -4444,16 +4444,16 @@
             singular: "Mensuel"
           },
           "ja-JP": {
-            singular: "月額"
+            singular: "月間"
           },
           "ko-KR": {
-            singular: "월간"
+            singular: "월별"
           },
           "pt-BR": {
-            singular: "Mensal"
+            singular: "Mensalmente"
           },
           "zh-CN": {
-            singular: "按月"
+            singular: "每月"
           }
         }
       }),

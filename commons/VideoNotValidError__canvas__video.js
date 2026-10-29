@@ -83,29 +83,31 @@
   var _v12 = _v0.i(0);
   let _v13 = "GET_UPLOAD_URLS",
     _v14 = "UPLOADING",
-    _v15 = "TRANSCODING";
-  var _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  class _v18 extends Error {
+    _v15 = "TRANSCODING",
+    _v16 = /^(?:[a-z][a-z0-9+.-]*:)?\/\//i,
+    _v17 = (_v0, _v1) => _v16.test(_v1) ? _v1.startsWith("//") ? `https:${_v1}` : _v1 : `https://${_v0.replace(/\/+$/, "")}/${_v1.replace(/^\/+/, "")}`;
+  var _v18 = _v0.i(0),
+    _v19 = _v0.i(0);
+  class _v20 extends Error {
     constructor(_v0 = "Pause Error") {
       super(_v0), this.name = this.constructor.name;
     }
   }
-  var _v19 = _v0.i(0),
-    _v20 = _v0.i(0);
-  let _v21 = () => ({
+  var _v21 = _v0.i(0),
+    _v22 = _v0.i(0);
+  let _v23 = () => ({
     isActive: (0, _v2.useCallback)(_v0 => -1 !== _v10.useUploaderStore.getState().uploads.findIndex(_v0 => _v0.id === _v0), [])
   });
-  var _v22 = _v0.i(0);
-  async function _v23(_v0, _v1, _v2 = 3) {
+  var _v24 = _v0.i(0);
+  async function _v25(_v0, _v1, _v2 = 3) {
     try {
       return await _v0();
     } catch (_v0) {
       if (_v0 instanceof _v6.CancelError || _v0?.name === "AbortError") throw new _v6.CancelError("Task was canceled");
-      if (_v1.retriesUsed !== _v2 && !(_v0 instanceof _v16.FatalError)) return _v1.retriesUsed++, await _v23(() => function (_v0, _v1, _v2 = function (_v0) {
+      if (_v1.retriesUsed !== _v2 && !(_v0 instanceof _v18.FatalError)) return _v1.retriesUsed++, await _v25(() => function (_v0, _v1, _v2 = function (_v0) {
         return 0 * Math.pow(2, _v0.retriesUsed) + Math.round(0 * Math.random());
       }(_v1)) {
-        let _v3 = (0, _v22.getLogger)("retryWithTimeout");
+        let _v3 = (0, _v24.getLogger)("retryWithTimeout");
         return new Promise((_v0, _v1) => {
           _v3.info(`scheduled retry #${_v1.retriesUsed} after ${_v2}ms`);
           let _v2 = setTimeout(() => {
@@ -119,8 +121,8 @@
       throw _v0;
     }
   }
-  let _v24 = _v0 => {
-    if (_v0 instanceof _v17.NetworkError) switch (_v0.status) {
+  let _v26 = _v0 => {
+    if (_v0 instanceof _v19.NetworkError) switch (_v0.status) {
       case 410:
         return "UploadLinkGoneError";
       case 409:
@@ -130,60 +132,60 @@
       default:
         return "NetworkError";
     }
-    return _v0 instanceof _v16.FatalError ? "FatalError" : _v0 instanceof TypeError ? "NoInternetError" : "EndpointError";
+    return _v0 instanceof _v18.FatalError ? "FatalError" : _v0 instanceof TypeError ? "NoInternetError" : "EndpointError";
   };
-  class _v25 extends Error {
+  class _v27 extends Error {
     schema;
     constructor(_v0 = "", _v1 = {}) {
       super(_v0), this.name = this.constructor.name, this.schema = JSON.stringify(_v1);
     }
   }
-  function _v26(_v0, _v1, _v2) {
+  function _v28(_v0, _v1, _v2) {
     if (_v1(_v0)) return _v0;
-    throw new _v25(`Failed to validate get upload urls response for service: ${_v2}`, {
+    throw new _v27(`Failed to validate get upload urls response for service: ${_v2}`, {
       validatorName: _v1.name,
       sourceData: _v0
     });
   }
-  function _v27(_v0) {
-    return _v36(_v0) && _v37(_v0.status) && _v36(_v0.gcs) && _v37(_v0.gcs.storageObjectId) && _v36(_v0.gcs.upload) && _v37(_v0.gcs.upload.gcsUid) && _v34(_v0.gcs.upload.gcs);
-  }
-  function _v28(_v0) {
-    return _v36(_v0) && _v37(_v0.uri) && _v36(_v0.upload) && _v37(_v0.upload.gcsUid) && _v37(_v0.upload.status) && _v34(_v0.upload.gcs) && _v36(_v0.transcode) && _v37(_v0.transcode.status);
-  }
   function _v29(_v0) {
-    return _v36(_v0) && _v37(_v0.uri) && _v33(_v0.upload);
+    return _v38(_v0) && _v39(_v0.status) && _v38(_v0.gcs) && _v39(_v0.gcs.storageObjectId) && _v38(_v0.gcs.upload) && _v39(_v0.gcs.upload.gcsUid) && _v36(_v0.gcs.upload.gcs);
   }
   function _v30(_v0) {
-    return _v36(_v0) && _v37(_v0.storageObjectId) && _v36(_v0.upload) && _v37(_v0.upload.uploadLink);
+    return _v38(_v0) && _v39(_v0.uri) && _v38(_v0.upload) && _v39(_v0.upload.gcsUid) && _v39(_v0.upload.status) && _v36(_v0.upload.gcs) && _v38(_v0.transcode) && _v39(_v0.transcode.status);
   }
   function _v31(_v0) {
-    return _v36(_v0) && _v37(_v0.storageObjectId) && _v33(_v0.upload);
+    return _v38(_v0) && _v39(_v0.uri) && _v35(_v0.upload);
   }
   function _v32(_v0) {
-    return _v36(_v0) && _v37(_v0.storageObjectId) && _v36(_v0.upload) && _v38(_v0.upload.size) && _v37(_v0.upload.gcsUid) && _v34(_v0.upload.gcs) && _v0.upload.approach === _v12.UPLOAD_APPROACH.GCS;
+    return _v38(_v0) && _v39(_v0.storageObjectId) && _v38(_v0.upload) && _v39(_v0.upload.uploadLink);
   }
   function _v33(_v0) {
-    return _v36(_v0) && _v37(_v0.uploadLink) && _v38(_v0.size) && _v0.approach === _v12.UPLOAD_APPROACH.TUS;
+    return _v38(_v0) && _v39(_v0.storageObjectId) && _v35(_v0.upload);
   }
   function _v34(_v0) {
-    return Array.isArray(_v0) && _v0.every(_v35);
+    return _v38(_v0) && _v39(_v0.storageObjectId) && _v38(_v0.upload) && _v40(_v0.upload.size) && _v39(_v0.upload.gcsUid) && _v36(_v0.upload.gcs) && _v0.upload.approach === _v12.UPLOAD_APPROACH.GCS;
   }
   function _v35(_v0) {
-    return !!_v36(_v0) && !!_v37(_v0.uploadLink) && (!("startByte" in _v0) || _v38(_v0.startByte)) && (!("endByte" in _v0) || _v38(_v0.endByte));
+    return _v38(_v0) && _v39(_v0.uploadLink) && _v40(_v0.size) && _v0.approach === _v12.UPLOAD_APPROACH.TUS;
   }
   function _v36(_v0) {
-    return "object" == typeof _v0 && null !== _v0;
+    return Array.isArray(_v0) && _v0.every(_v37);
   }
   function _v37(_v0) {
-    return "string" == typeof _v0;
+    return !!_v38(_v0) && !!_v39(_v0.uploadLink) && (!("startByte" in _v0) || _v40(_v0.startByte)) && (!("endByte" in _v0) || _v40(_v0.endByte));
   }
   function _v38(_v0) {
+    return "object" == typeof _v0 && null !== _v0;
+  }
+  function _v39(_v0) {
+    return "string" == typeof _v0;
+  }
+  function _v40(_v0) {
     return "number" == typeof _v0 && !isNaN(_v0);
   }
-  var _v39 = _v0.i(0),
-    _v40 = _v0.i(0);
-  function _v41(_v0, _v1, _v2, _v3 = function (_v0) {
+  var _v41 = _v0.i(0),
+    _v42 = _v0.i(0);
+  function _v43(_v0, _v1, _v2, _v3 = function (_v0) {
     return 0 * Math.pow(2, _v0.retriesUsed) + Math.round(0 * Math.random());
   }(_v1)) {
     return new Promise((_v0, _v1) => {
@@ -196,9 +198,9 @@
       };
     });
   }
-  let _v42 = "range";
-  var _v43 = _v0.i(0);
-  let _v44 = async (_v0, _v1, _v2, _v3) => {
+  let _v44 = "range";
+  var _v45 = _v0.i(0);
+  let _v46 = async (_v0, _v1, _v2, _v3) => {
       let _v4 = new FormData();
       _v4.append("method", "VIMEO"), _v4.append("token", _v0), _v4.append("settings", "1"), _v2 && _v4.append("teamToken", _v2), _v3 && _v4.append("partnerApp", _v3);
       let _v5 = await fetch(`//${_v1}/api/auth`, {
@@ -213,19 +215,19 @@
         if (!_v0) throw Error("`vmosessionid` header not found in response.");
         return _v5.json().then(_v0 => ({
           sessionId: _v0,
-          response: (0, _v20.camelizeDeep)(_v0)
+          response: (0, _v22.camelizeDeep)(_v0)
         }));
       }
       throw _v5;
     },
-    _v45 = async ({
+    _v47 = async ({
       teamUser: _v0,
       xsrft: _v1,
       magistoApiHost: _v2
     }) => {
       try {
         let _v0,
-          _v1 = _v0 && _v0.plainTextPermissionLevel !== _v43.TeamUserPermissionLevel.Viewer && _v0.plainTextPermissionLevel !== _v43.TeamUserPermissionLevel.Uploader,
+          _v1 = _v0 && _v0.plainTextPermissionLevel !== _v45.TeamUserPermissionLevel.Viewer && _v0.plainTextPermissionLevel !== _v45.TeamUserPermissionLevel.Uploader,
           _v2 = await (_v0 = ["public", "private", "create", "edit", "upload"], fetch("/_next/access_token", {
             body: JSON.stringify({
               scopes: _v0,
@@ -244,7 +246,7 @@
                 access_token: _v1,
                 magisto_team_token: _v2
               } = _v0;
-              return (0, _v20.camelizeDeep)({
+              return (0, _v22.camelizeDeep)({
                 ..._v1,
                 magisto_team_token: _v2
               });
@@ -253,16 +255,16 @@
           })),
           {
             sessionId: _v3
-          } = await _v44(_v2.token, _v2, _v2.magistoTeamToken);
+          } = await _v46(_v2.token, _v2, _v2.magistoTeamToken);
         return _v3;
       } catch (_v0) {
-        throw (0, _v22.getLogger)("getMagistoSessionId").error(_v0, {
+        throw (0, _v24.getLogger)("getMagistoSessionId").error(_v0, {
           category: "NETWORK",
           textError: "Failed getting magisto session id"
         }), _v0;
       }
     },
-    _v46 = {
+    _v48 = {
       url: "videos/<clipid>/versions/<versionid>/audiotracks",
       serviceName: _v12.UPLOAD_SERVICE.AUDIO_TRACKS,
       isVimeoApi: !0,
@@ -279,7 +281,7 @@
         }
       }
     },
-    _v47 = {
+    _v49 = {
       url: "api/services/branding/start",
       serviceName: _v12.UPLOAD_SERVICE.BRANDING_BUMPERS,
       shouldParseFile: !0,
@@ -303,7 +305,7 @@
         }
       }
     },
-    _v48 = {
+    _v50 = {
       url: "api/services/branding/start",
       serviceName: _v12.UPLOAD_SERVICE.BRANDING_BUMPERS,
       shouldParseFile: !0,
@@ -327,7 +329,7 @@
         }
       }
     },
-    _v49 = {
+    _v51 = {
       url: "/users/<userid>/create_assets",
       serviceName: _v12.UPLOAD_SERVICE.CREATE_MULTIMEDIA,
       isVimeoApi: !0,
@@ -343,7 +345,7 @@
         }
       }
     },
-    _v50 = {
+    _v52 = {
       url: "/users/<userid>/create_assets",
       serviceName: _v12.UPLOAD_SERVICE.IMAGE,
       isVimeoApi: !0,
@@ -358,7 +360,7 @@
         }
       }
     },
-    _v51 = {
+    _v53 = {
       url: "/users/<userid>/create_assets",
       serviceName: _v12.UPLOAD_SERVICE.CREATE_MULTIMEDIA,
       isVimeoApi: !0,
@@ -374,7 +376,7 @@
         }
       }
     },
-    _v52 = {
+    _v54 = {
       url: "/users/<userid>/create_assets",
       serviceName: _v12.UPLOAD_SERVICE.CREATE_MULTIMEDIA,
       isVimeoApi: !0,
@@ -390,7 +392,7 @@
         }
       }
     },
-    _v53 = {
+    _v55 = {
       url: "/users/<userid>/create_assets",
       serviceName: _v12.UPLOAD_SERVICE.CREATE_MULTIMEDIA,
       isVimeoApi: !0,
@@ -406,7 +408,7 @@
         }
       }
     },
-    _v54 = {
+    _v56 = {
       url: "api/services/branding/start",
       serviceName: _v12.UPLOAD_SERVICE.BRANDING_LOGO,
       shouldParseFile: !0,
@@ -428,7 +430,7 @@
         }
       }
     },
-    _v55 = {
+    _v57 = {
       url: "/users/<userid>/create_assets",
       serviceName: _v12.UPLOAD_SERVICE.IMAGE,
       isVimeoApi: !0,
@@ -443,8 +445,8 @@
         }
       }
     };
-  var _v56 = _v0.i(0),
-    _v57 = (_v0.i(0), _v0.i(0));
+  var _v58 = _v0.i(0),
+    _v59 = (_v0.i(0), _v0.i(0));
   _v0.s(["default", 0, ({
     children: _v0
   }) => {
@@ -453,7 +455,7 @@
       _v3,
       _v4,
       _v5 = (0, _v4.useViewer)(),
-      _v6 = (0, _v19.useLogger)("ArtifactsUploaderProvider"),
+      _v6 = (0, _v21.useLogger)("ArtifactsUploaderProvider"),
       _v7 = _v5?.user?.id;
     !function ({
       appType: _v0,
@@ -461,7 +463,7 @@
       userLocale: _v2 = null
     }) {
       (0, _v2.useEffect)(() => {
-        (0, _v56.updateTrackingConfig)({
+        (0, _v58.updateTrackingConfig)({
           APP_TYPE: _v0,
           USER_ID: _v1,
           USER_LOCALE: _v2
@@ -506,7 +508,7 @@
               switch (_v7.serviceName) {
                 case _v12.UPLOAD_SERVICE.BRANDING_BUMPERS:
                 case _v12.UPLOAD_SERVICE.BRANDING_LOGO:
-                  _v15 = await _v45({
+                  _v15 = await _v47({
                     teamUser: _v3,
                     xsrft: _v4,
                     magistoApiHost: _v2
@@ -596,7 +598,7 @@
                   };
                   break;
                 default:
-                  throw new _v25("Invalid upload service name");
+                  throw new _v27("Invalid upload service name");
               }
               return {
                 isVersionUrl: _v16,
@@ -611,14 +613,14 @@
           {
             runUploader: _v2
           } = function () {
-            let _v0 = (0, _v19.useLogger)("useRunUploader"),
+            let _v0 = (0, _v21.useLogger)("useRunUploader"),
               {
                 uploadToEndpoints: _v1
               } = function () {
-                let _v0 = (0, _v19.useLogger)("useGCSUploader"),
+                let _v0 = (0, _v21.useLogger)("useGCSUploader"),
                   _v1 = (0, _v2.useCallback)(_v0 => Math.round(performance.now() - _v0.uploadStartTime) / 0, []),
                   _v2 = (0, _v2.useCallback)((_v0, _v1, _v2 = {}) => {
-                    _v1.callbacks.onFailed?.(_v24(_v0)), _v0.error(_v0, {
+                    _v1.callbacks.onFailed?.(_v26(_v0)), _v0.error(_v0, {
                       errorMessage: _v0.message,
                       category: _v14,
                       method: "reportUploadFail",
@@ -685,7 +687,7 @@
                         uploadAttempt: _v3,
                         url: _v4
                       } = _v0.getState().endpointDescriptor;
-                      _v2(new _v16.FatalError(_v0), _v1, {
+                      _v2(new _v18.FatalError(_v0), _v1, {
                         uploadId: _v2,
                         uploadAttempt: _v3,
                         url: _v4
@@ -696,10 +698,10 @@
                   {
                     uploadToEndpoint: _v5
                   } = (() => {
-                    let _v0 = (0, _v19.useLogger)("useGCSEndpointUploader"),
+                    let _v0 = (0, _v21.useLogger)("useGCSEndpointUploader"),
                       {
                         isActive: _v1
-                      } = _v21(),
+                      } = _v23(),
                       _v2 = (0, _v2.useCallback)(_v0 => {
                         let _v1 = new AbortController();
                         return _v0.abortRequest = () => {
@@ -715,17 +717,17 @@
                           message: _v0.message,
                           method: "reportFail",
                           component: "useGCSEndpointUploader"
-                        }), _v3(_v1), _v1.callbacks.onFailed?.(_v24(_v0));
+                        }), _v3(_v1), _v1.callbacks.onFailed?.(_v26(_v0));
                       }, [_v3, _v0]),
                       _v5 = (0, _v2.useCallback)(_v0 => {
                         if (_v0.retriesUsed++, _v0.retriesUsed > 6) {
-                          let _v0 = new _v16.FatalError("Exceeded upload retries");
+                          let _v0 = new _v18.FatalError("Exceeded upload retries");
                           throw _v4(_v0, _v0), _v0;
                         }
-                        return _v0.retriesUsed > 4 ? (_v0.info("Exceeded range retries, restarting upload"), _v0.bytesUploaded = 0) : _v0.requestRange = !0, _v41(() => Promise.resolve(!0), _v0, _v0);
+                        return _v0.retriesUsed > 4 ? (_v0.info("Exceeded range retries, restarting upload"), _v0.bytesUploaded = 0) : _v0.requestRange = !0, _v43(() => Promise.resolve(!0), _v0, _v0);
                       }, [_v0, _v4]),
                       _v6 = (0, _v2.useCallback)(_v0 => {
-                        if (_v0 instanceof _v17.NetworkError) switch (_v0.status) {
+                        if (_v0 instanceof _v19.NetworkError) switch (_v0.status) {
                           case 400:
                           case 404:
                           case 403:
@@ -734,7 +736,7 @@
                           default:
                             return !1;
                         }
-                        return _v0 instanceof _v16.FatalError;
+                        return _v0 instanceof _v18.FatalError;
                       }, []),
                       _v7 = (0, _v2.useCallback)(_v0 => {
                         let [_v1, _v2] = _v0.split("-");
@@ -742,7 +744,7 @@
                         let _v3 = parseInt(_v2, 10);
                         return isNaN(_v3) ? (_v0.warn(`parseRangeHeader: finish isn't a number: ${_v3}`), !1) : _v3;
                       }, [_v0]),
-                      _v8 = (0, _v2.useCallback)(_v0 => _v0[_v42] ? _v7(_v0[_v42]) : (_v0.warn("parseHeadersForRange: no 'Range' header in Headers: ", {
+                      _v8 = (0, _v2.useCallback)(_v0 => _v0[_v44] ? _v7(_v0[_v44]) : (_v0.warn("parseHeadersForRange: no 'Range' header in Headers: ", {
                         headers: _v0
                       }), !1), [_v0, _v7]),
                       _v9 = (0, _v2.useCallback)(({
@@ -771,16 +773,16 @@
                       _v12 = (0, _v2.useCallback)((_v0, _v1) => {
                         if ("object" == typeof _v0 && null !== _v0 && void 0 !== _v0.isAxiosError) {
                           let _v0 = _v0;
-                          _v0 = new _v17.NetworkError(_v0.message, _v0.response?.status ?? 500);
+                          _v0 = new _v19.NetworkError(_v0.message, _v0.response?.status ?? 500);
                         }
                         let _v2 = _v0 instanceof Error ? _v0 : Error(String(_v0));
-                        if (_v2 instanceof _v6.CancelError || "AbortError" === _v2.name || _v40.default.isCancel(_v0)) throw new _v6.CancelError("Upload was cancelled");
+                        if (_v2 instanceof _v6.CancelError || "AbortError" === _v2.name || _v42.default.isCancel(_v0)) throw new _v6.CancelError("Upload was cancelled");
                         if (_v0.warn(`onRequestReject caught error: ${_v2.name}`, {
                           component: "useGCSEndpointUploader.onRequestReject",
                           errorMessage: _v2.message,
                           retriesUsed: _v1.retriesUsed
                         }), _v6(_v2)) throw _v4(_v2, _v1), _v2;
-                        return _v1.callbacks.onError?.(_v24(_v2)), _v0.warn("GCS upload - handled error", {
+                        return _v1.callbacks.onError?.(_v26(_v2)), _v0.warn("GCS upload - handled error", {
                           error: _v2
                         }), _v5(_v1);
                       }, [_v6, _v0, _v4, _v5]),
@@ -791,12 +793,12 @@
                           status: _v0.status,
                           statusText: _v0.statusText,
                           jsonResponse: _v0.data
-                        }), _v2) _v11(_v0.headers, _v1);else if (200 !== _v0.status && 201 !== _v0.status) throw new _v17.NetworkError("Bad GCS response status", _v0.status);
+                        }), _v2) _v11(_v0.headers, _v1);else if (200 !== _v0.status && 201 !== _v0.status) throw new _v19.NetworkError("Bad GCS response status", _v0.status);
                         return Promise.resolve(_v2);
                       }, [_v11, _v0]),
                       _v14 = (0, _v2.useCallback)((_v0, _v1, _v2, _v3) => {
                         let _v4 = _v2(_v0);
-                        return _v40.default.put(_v0.endpointDescriptor.url, _v3, {
+                        return _v42.default.put(_v0.endpointDescriptor.url, _v3, {
                           method: "PUT",
                           headers: {
                             "Content-Type": _v1,
@@ -888,7 +890,7 @@
                           return _v0.state = "uploading", _v0.callbacks.onUploading?.(), await _v22(_v0), _v20(_v0), _v0.state = "uploaded", _v0.callbacks.onUploaded?.(_v0.timeToUpload ?? 0, _v0.bytesUploaded, _v0.state), _v0.callbacks = {}, _v0.state;
                         } catch (_v0) {
                           if (_v0 instanceof _v6.CancelError) {
-                            if ("error" === _v0.state) throw new _v16.FatalError('Uploader cancelled in "error" state');
+                            if ("error" === _v0.state) throw new _v18.FatalError('Uploader cancelled in "error" state');
                             if ("paused" === _v0.state) throw _v0;
                             _v0.debug("statefulUpload intercepted CancelError", {
                               prevState: _v0.state
@@ -999,7 +1001,7 @@
                         finishedUploadEndpoints: _v0.finishedUploadEndpoints,
                         endpointUploadHandlers: _v0.endpointUploadHandlers
                       });
-                      let _v0 = new _v16.FatalError("Number of completed uploads not matching number of endpoints");
+                      let _v0 = new _v18.FatalError("Number of completed uploads not matching number of endpoints");
                       throw _v0.warn(_v0.message, {
                         category: _v14,
                         finishedUploadEndpoints: _v0.finishedUploadEndpoints,
@@ -1023,7 +1025,7 @@
                       return _v0.callbacks.onUploading?.(), await Promise.all(_v0), _v10(_v0), _v0.state = "uploaded", _v0.callbacks.onUploaded?.(_v0.timeToUpload ?? 0, _v0.bytesUploaded, _v0.state), _v0.callbacks = {}, _v0.state;
                     } catch (_v0) {
                       if (_v0 instanceof _v6.CancelError) {
-                        if ("error" === _v0.state) throw new _v16.FatalError('Uploader cancelled in "error" state');
+                        if ("error" === _v0.state) throw new _v18.FatalError('Uploader cancelled in "error" state');
                         if ("paused" === _v0.state) throw _v0;
                         _v0.debug("statefulUpload intercepted CancelError", {
                           prevState: _v0.state
@@ -1043,7 +1045,7 @@
                       _v5 = _v7(_v1, _v2),
                       _v6 = _v8(_v5);
                     if (!_v0.length) {
-                      let _v0 = new _v16.FatalError("Zero GCS upload endpoints provided");
+                      let _v0 = new _v18.FatalError("Zero GCS upload endpoints provided");
                       throw _v2(_v0, _v5), _v0;
                     }
                     return _v9(_v5, _v6(_v1, _v0, _v2, _v3)), {
@@ -1079,14 +1081,14 @@
               {
                 uploadToEndpoint: _v2
               } = function () {
-                let _v0 = (0, _v19.useLogger)("useTusUploader"),
+                let _v0 = (0, _v21.useLogger)("useTusUploader"),
                   {
                     isActive: _v1
-                  } = _v21(),
+                  } = _v23(),
                   _v2 = (0, _v2.useCallback)(_v0 => {
                     let _v1 = new AbortController();
                     return _v0.abortRequest = _v0 => {
-                      _v0.abortRequest = void 0, "pause" === _v0 ? _v1.abort(new _v18()) : _v1.abort();
+                      _v0.abortRequest = void 0, "pause" === _v0 ? _v1.abort(new _v20()) : _v1.abort();
                     }, _v1;
                   }, []),
                   _v3 = (0, _v2.useCallback)((_v0, _v1 = "cancel") => {
@@ -1103,7 +1105,7 @@
                           Accept: "application/vnd.vimeo.*+json;version=3.4"
                         }
                       });
-                      if (!_v0.ok) throw new _v17.NetworkError("Delete TUS upload failed", _v0.status, _v0);
+                      if (!_v0.ok) throw new _v19.NetworkError("Delete TUS upload failed", _v0.status, _v0);
                     } catch (_v0) {
                       _v0.error(_v0, {
                         category: _v14,
@@ -1133,10 +1135,10 @@
                         uploadLength: parseInt(_v2 || "")
                       };
                     }
-                    throw new _v17.NetworkError("Get upload status failed", _v2.status, _v2);
+                    throw new _v19.NetworkError("Get upload status failed", _v2.status, _v2);
                   }, [_v2]),
                   _v6 = (0, _v2.useCallback)(_v0 => {
-                    if (_v0 instanceof _v17.NetworkError) switch (_v0.status) {
+                    if (_v0 instanceof _v19.NetworkError) switch (_v0.status) {
                       case 404:
                       case 403:
                       case 410:
@@ -1144,7 +1146,7 @@
                       default:
                         return !1;
                     }
-                    return _v0 instanceof _v16.FatalError;
+                    return _v0 instanceof _v18.FatalError;
                   }, []),
                   _v7 = (0, _v2.useCallback)(_v0 => {
                     let {
@@ -1188,24 +1190,24 @@
                       message: _v0.message,
                       method: "reportFail",
                       component: "useTusUploader"
-                    }), _v3(_v1), _v1.callbacks.onFailed?.(_v24(_v0));
+                    }), _v3(_v1), _v1.callbacks.onFailed?.(_v26(_v0));
                   }, [_v3, _v0]),
                   _v10 = (0, _v2.useCallback)((_v0, _v1) => {
                     if (_v0.debug("[TUS retryWithBackoff]:", {
                       used: _v0.retriesUsed,
                       max: 4
-                    }), _v0.retriesUsed < 4) return _v0.retriesUsed++, _v0.requestUploadOffset = !0, _v41(_v1, _v0, _v0);
-                    let _v2 = new _v16.FatalError("Exceeded upload retries");
+                    }), _v0.retriesUsed < 4) return _v0.retriesUsed++, _v0.requestUploadOffset = !0, _v43(_v1, _v0, _v0);
+                    let _v2 = new _v18.FatalError("Exceeded upload retries");
                     throw _v9(_v2, _v0), _v2;
                   }, [_v9, _v0]),
                   _v11 = (0, _v2.useCallback)((_v0, _v1, _v2) => {
                     let _v3 = _v0 instanceof Error ? _v0 : Error(String(_v0));
                     if (_v0.warn("[onTusRequestError] caught ", {
                       error: _v0
-                    }), _v3 instanceof _v18) throw _v3;
-                    if (_v3 instanceof _v6.CancelError || "AbortError" === _v3.name || _v40.default.isCancel(_v0)) throw new _v6.CancelError("Upload was cancelled");
+                    }), _v3 instanceof _v20) throw _v3;
+                    if (_v3 instanceof _v6.CancelError || "AbortError" === _v3.name || _v42.default.isCancel(_v0)) throw new _v6.CancelError("Upload was cancelled");
                     if (_v6(_v3)) throw _v9(_v3, _v1), _v3;
-                    return _v1.callbacks.onError?.(_v24(_v3)), _v0.warn("TUS request - handled error", {
+                    return _v1.callbacks.onError?.(_v26(_v3)), _v0.warn("TUS request - handled error", {
                       error: _v3
                     }), _v10(_v1, _v2);
                   }, [_v6, _v0, _v9, _v10]),
@@ -1214,7 +1216,7 @@
                       _v3,
                       _v4 = _v2(_v1);
                     try {
-                      _v2 = await _v40.default.patch(_v1.uploadLink, _v0, {
+                      _v2 = await _v42.default.patch(_v1.uploadLink, _v0, {
                         headers: {
                           "Tus-Resumable": "1.0.0",
                           "Upload-Offset": `${_v1.uploadOffset}`,
@@ -1239,8 +1241,8 @@
                         errorMessage: _v3.message,
                         errorName: _v3.name,
                         errorInstance: _v3
-                      }), _v4.signal.reason instanceof _v18) throw _v4.signal.reason;
-                      if (_v0 instanceof _v6.CancelError || "AbortError" === _v0.name || _v40.default.isCancel(_v0)) throw _v0;
+                      }), _v4.signal.reason instanceof _v20) throw _v4.signal.reason;
+                      if (_v0 instanceof _v6.CancelError || "AbortError" === _v0.name || _v42.default.isCancel(_v0)) throw _v0;
                     }
                     if (_v2 && 204 === _v2.status) {
                       let _v0 = parseInt(_v2.headers["upload-offset"] || "");
@@ -1255,11 +1257,11 @@
                         serverOffset: _v0,
                         chunkSize: _v0.size
                       }), "missOffset";
-                      throw new _v16.FatalError("Chunk upload offset mismatch");
+                      throw new _v18.FatalError("Chunk upload offset mismatch");
                     }
                     {
-                      let _v0 = new _v17.NetworkError("Chunk upload failed", _v2 ? _v2.status : Number(_v3?.response?.status ?? -1));
-                      if (!_v1.requestUploadOffset) return _v1.callbacks.onError?.(_v24(_v0)), _v1.requestUploadOffset = !0, _v0.debug("TUS upload - handled error", {
+                      let _v0 = new _v19.NetworkError("Chunk upload failed", _v2 ? _v2.status : Number(_v3?.response?.status ?? -1));
+                      if (!_v1.requestUploadOffset) return _v1.callbacks.onError?.(_v26(_v0)), _v1.requestUploadOffset = !0, _v0.debug("TUS upload - handled error", {
                         networkError: _v0,
                         category: _v14,
                         method: "uploadChunk",
@@ -1285,7 +1287,7 @@
                         signal: _v1.signal
                       });
                     if (!_v2.ok) {
-                      let _v0 = new _v17.NetworkError("Finalize upload failed", _v2.status, _v2);
+                      let _v0 = new _v19.NetworkError("Finalize upload failed", _v2.status, _v2);
                       throw _v0.error(_v0, {
                         category: _v14,
                         method: "finalizeUpload",
@@ -1393,9 +1395,9 @@
                     try {
                       return _v0.state = "uploading", _v0.callbacks.onUploading?.(), await _v19(_v0), _v0.state = "uploaded", _v0.callbacks.onUploaded?.(_v0.timeToUpload ?? 0, _v0.uploadOffset, _v0.state), _v0.callbacks = {}, _v0.state;
                     } catch (_v0) {
-                      if (_v0 instanceof _v18) throw _v0;
-                      if (_v0 instanceof _v6.CancelError || "AbortError" === _v0.name || _v40.default.isCancel(_v0)) {
-                        if ("error" === _v0.state) throw new _v16.FatalError('Uploader cancelled in "error" state');
+                      if (_v0 instanceof _v20) throw _v0;
+                      if (_v0 instanceof _v6.CancelError || "AbortError" === _v0.name || _v42.default.isCancel(_v0)) {
+                        if ("error" === _v0.state) throw new _v18.FatalError('Uploader cancelled in "error" state');
                         if ("paused" === _v0.state) throw _v0;
                         _v0.debug("statefulUpload intercepted CancelError", {
                           prevState: _v0.state
@@ -1491,10 +1493,10 @@
               {
                 uploadToEndpoint: _v3
               } = function () {
-                let _v0 = (0, _v19.useLogger)("useImageUploader"),
+                let _v0 = (0, _v21.useLogger)("useImageUploader"),
                   {
                     isActive: _v1
-                  } = _v21(),
+                  } = _v23(),
                   _v2 = (0, _v2.useCallback)(_v0 => {
                     let _v1 = new AbortController();
                     return _v0.abortRequest = () => {
@@ -1522,7 +1524,7 @@
                   }, []),
                   _v6 = (0, _v2.useCallback)(async _v0 => {
                     let _v1 = _v2(_v0),
-                      _v2 = await _v40.default.put(_v0.uploadLink, _v0.file, {
+                      _v2 = await _v42.default.put(_v0.uploadLink, _v0.file, {
                         method: "PUT",
                         signal: _v1.signal,
                         onUploadProgress: ({
@@ -1531,10 +1533,10 @@
                           _v0.bytesUploaded = _v0, _v5(_v0);
                         }
                       });
-                    if (!_v2.status) throw new _v17.NetworkError("Image upload failed", _v2.status);
+                    if (!_v2.status) throw new _v19.NetworkError("Image upload failed", _v2.status);
                   }, [_v2, _v5]),
                   _v7 = (0, _v2.useCallback)(_v0 => {
-                    if (_v0 instanceof _v17.NetworkError) switch (_v0.status) {
+                    if (_v0 instanceof _v19.NetworkError) switch (_v0.status) {
                       case 400:
                       case 404:
                       case 403:
@@ -1544,7 +1546,7 @@
                       default:
                         return !1;
                     }
-                    return _v0 instanceof _v16.FatalError;
+                    return _v0 instanceof _v18.FatalError;
                   }, []),
                   _v8 = (0, _v2.useCallback)((_v0, _v1) => {
                     _v0.error(_v0, {
@@ -1552,18 +1554,18 @@
                       message: _v0.message,
                       method: "reportFail",
                       component: "useImageUploader"
-                    }), _v4(_v1), _v1.callbacks.onFailed?.(_v24(_v0));
+                    }), _v4(_v1), _v1.callbacks.onFailed?.(_v26(_v0));
                   }, [_v4, _v0]),
                   _v9 = (0, _v2.useCallback)(_v0 => {
-                    if (_v0.retriesUsed < 3) return _v0.retriesUsed++, _v41(() => Promise.resolve(), _v0, _v0);
-                    let _v1 = new _v16.FatalError("Exceeded upload retries");
+                    if (_v0.retriesUsed < 3) return _v0.retriesUsed++, _v43(() => Promise.resolve(), _v0, _v0);
+                    let _v1 = new _v18.FatalError("Exceeded upload retries");
                     throw _v8(_v1, _v0), _v1;
                   }, [_v0, _v8]),
                   _v10 = (0, _v2.useCallback)((_v0, _v1) => {
                     let _v2 = _v0 instanceof Error ? _v0 : Error(String(_v0));
-                    if (_v2 instanceof _v6.CancelError || "AbortError" === _v2.name || _v40.default.isCancel(_v0)) throw new _v6.CancelError("Upload was cancelled");
+                    if (_v2 instanceof _v6.CancelError || "AbortError" === _v2.name || _v42.default.isCancel(_v0)) throw new _v6.CancelError("Upload was cancelled");
                     if (_v7(_v2)) throw _v8(_v2, _v1), _v2;
-                    return _v1.callbacks.onError?.(_v24(_v2)), _v0.warn("Image upload - handled error", {
+                    return _v1.callbacks.onError?.(_v26(_v2)), _v0.warn("Image upload - handled error", {
                       error: _v2
                     }), _v9(_v1);
                   }, [_v7, _v0, _v8, _v9]),
@@ -1633,7 +1635,7 @@
                 setUploadHandle: _v6,
                 setUploadStatus: _v7
               } = (0, _v10.useUploaderStore)(_v0 => _v0.private),
-              _v8 = (0, _v2.useMemo)(() => (0, _v39.default)((_v0, _v1, _v2, _v3) => {
+              _v8 = (0, _v2.useMemo)(() => (0, _v41.default)((_v0, _v1, _v2, _v3) => {
                 _v0.debug(`[${_v0}] received upload progress from endpoint: `, {
                   ..._v3,
                   totalProgress: _v2
@@ -1736,15 +1738,15 @@
               }, [_v0, _v5, _v6, _v8, _v7, _v3, _v1, _v2])
             };
           }(),
-          _v3 = (0, _v19.useLogger)("useUploadForFile"),
+          _v3 = (0, _v21.useLogger)("useUploadForFile"),
           {
             getUploadUrls: _v4
           } = (() => {
             let {
                 isActive: _v0
-              } = _v21(),
+              } = _v23(),
               _v1 = _v11(),
-              _v2 = (0, _v19.useLogger)("useGetUploadUrls"),
+              _v2 = (0, _v21.useLogger)("useGetUploadUrls"),
               _v3 = (0, _v10.useUploaderStore)(_v0 => _v0.private.setAbortGetUrlsRequest),
               _v4 = (0, _v10.useUploaderStore)(_v0 => _v0.private.setRetryGetUrlsRequest),
               _v5 = (0, _v2.useCallback)((_v0, _v1) => {
@@ -1756,7 +1758,7 @@
                   switch (_v1.serviceName) {
                     case _v12.UPLOAD_SERVICE.BRANDING_BUMPERS:
                     case _v12.UPLOAD_SERVICE.BRANDING_LOGO:
-                      let _v0 = _v26(_v0, _v27, _v1.serviceName);
+                      let _v0 = _v28(_v0, _v29, _v1.serviceName);
                       return _v5 = _v0.gcs.upload.gcs, _v4 = _v0.gcs.storageObjectId, {
                         uploaderType: _v12.UPLOAD_APPROACH.GCS,
                         storageObjectId: _v4,
@@ -1765,7 +1767,7 @@
                       };
                     case _v12.UPLOAD_SERVICE.AUDIO_TRACKS:
                       if (_v1.uploadEndpointParams.upload.approach === _v12.UPLOAD_APPROACH.GCS) {
-                        let _v0 = _v26(_v0, _v28, _v1.serviceName);
+                        let _v0 = _v28(_v0, _v30, _v1.serviceName);
                         return _v5 = _v0.upload.gcs, _v4 = _v0.uri, {
                           uploaderType: _v12.UPLOAD_APPROACH.GCS,
                           storageObjectId: _v4,
@@ -1774,7 +1776,7 @@
                         };
                       }
                       {
-                        let _v0 = _v26(_v0, _v29, _v1.serviceName);
+                        let _v0 = _v28(_v0, _v31, _v1.serviceName);
                         return _v2 = _v0.upload.uploadLink, _v4 = _v0.uri, {
                           uploaderType: _v12.UPLOAD_APPROACH.TUS,
                           tusUploadLink: _v2,
@@ -1783,7 +1785,7 @@
                       }
                     case _v12.UPLOAD_SERVICE.CREATE_MULTIMEDIA:
                       if (_v1.uploadEndpointParams.upload.approach === _v12.UPLOAD_APPROACH.GCS) {
-                        let _v0 = _v26(_v0, _v32, _v1.serviceName);
+                        let _v0 = _v28(_v0, _v34, _v1.serviceName);
                         return _v5 = _v0.upload.gcs, _v4 = _v0.storageObjectId, {
                           uploaderType: _v12.UPLOAD_APPROACH.GCS,
                           storageObjectId: _v4,
@@ -1792,7 +1794,7 @@
                         };
                       }
                       {
-                        let _v0 = _v26(_v0, _v31, _v1.serviceName);
+                        let _v0 = _v28(_v0, _v33, _v1.serviceName);
                         return _v2 = _v0.upload.uploadLink, _v4 = _v0.storageObjectId, {
                           uploaderType: _v12.UPLOAD_APPROACH.TUS,
                           tusUploadLink: _v2,
@@ -1801,7 +1803,7 @@
                       }
                     case _v12.UPLOAD_SERVICE.IMAGE:
                     default:
-                      let _v1 = _v26(_v0, _v30, _v1.serviceName);
+                      let _v1 = _v28(_v0, _v32, _v1.serviceName);
                       return _v3 = _v1.upload.uploadLink, _v4 = _v1.storageObjectId, {
                         uploaderType: _v12.UPLOAD_APPROACH.IMAGE,
                         imageUploadLink: _v3,
@@ -1818,7 +1820,7 @@
                 }
               }, [_v2]),
               _v6 = (0, _v2.useCallback)(_v0 => {
-                if (_v0 instanceof _v17.NetworkError) {
+                if (_v0 instanceof _v19.NetworkError) {
                   let _v0 = {
                     category: _v13,
                     message: _v0.message,
@@ -1838,7 +1840,7 @@
                     })();
                   }).finally(() => _v2.error(_v0, _v0));
                 }
-                if (_v0 instanceof _v17.NetworkError && [400, 403, 404].includes(_v0.status)) throw new _v16.FatalError(_v0.message);
+                if (_v0 instanceof _v19.NetworkError && [400, 403, 404].includes(_v0.status)) throw new _v18.FatalError(_v0.message);
                 if (_v0 instanceof _v6.CancelError || _v0 instanceof Error && "AbortError" === _v0.name) throw new _v6.CancelError("Get upload urls request was cancelled");
                 throw _v0;
               }, [_v2]),
@@ -1861,7 +1863,7 @@
                   _v3({
                     uploadId: _v0,
                     abort: _v0 => {
-                      _v2.state = "canceled", _v0 ? _v5.abort(new _v16.FatalError("Simulate network fail")) : _v5.abort(), _v2.autoRetryCleanup?.();
+                      _v2.state = "canceled", _v0 ? _v5.abort(new _v18.FatalError("Simulate network fail")) : _v5.abort(), _v2.autoRetryCleanup?.();
                     }
                   });
                   let _v6 = {
@@ -1874,7 +1876,7 @@
                   };
                   _v0 && (_v6.headers.Accept = "application/vnd.vimeo.*+json;version=3.4.10"), _v1 && (_v6.headers["X-Requested-With"] = "XMLHttpRequest"), _v6.body = JSON.stringify(_v3);
                   let _v7 = await fetch(_v4, _v6);
-                  if (!_v7.ok) throw new _v17.NetworkError(`Failed to get upload urls for service with status text: ${_v7.statusText}`, _v7.status, _v7);
+                  if (!_v7.ok) throw new _v19.NetworkError(`Failed to get upload urls for service with status text: ${_v7.statusText}`, _v7.status, _v7);
                   if (!_v0(_v0)) throw new _v6.CancelError("Upload was cancelled");
                   _v2.debug("requestGetUploadUrls response: ", {
                     ok: _v7.ok,
@@ -1883,7 +1885,7 @@
                   let _v8 = await _v7.json();
                   return _v2.debug("requestGetUploadUrls json: ", {
                     json: JSON.stringify(_v8)
-                  }), (0, _v20.camelizeDeep)(_v8);
+                  }), (0, _v22.camelizeDeep)(_v8);
                 } catch (_v0) {
                   return _v6(_v0);
                 }
@@ -1893,7 +1895,7 @@
                   let _v0 = {
                       retriesUsed: 0
                     },
-                    _v1 = await _v23(() => _v7(_v0, _v1, _v0), _v0),
+                    _v1 = await _v25(() => _v7(_v0, _v1, _v0), _v0),
                     _v2 = _v5(_v1, _v1);
                   return _v2(_v2), _v2;
                 } catch (_v0) {
@@ -1916,10 +1918,10 @@
           {
             pollTranscodingStatus: _v5
           } = (() => {
-            let _v0 = (0, _v19.useLogger)("useTranscoding"),
+            let _v0 = (0, _v21.useLogger)("useTranscoding"),
               {
                 isActive: _v1
-              } = _v21(),
+              } = _v23(),
               _v2 = (0, _v2.useCallback)(async (_v0, _v1, _v2) => {
                 let _v3 = {};
                 _v1 ? (_v3.Authorization = `jwt ${_v1}`, _v3.Accept = "application/vnd.vimeo.*+json;version=3.4.10") : _v3["X-Requested-With"] = "XMLHttpRequest";
@@ -1928,9 +1930,9 @@
                   headers: _v3,
                   signal: _v2.signal
                 });
-                if (!_v4.ok) throw new _v17.NetworkError("Error polling asset transcode status", _v4.status, _v4);
+                if (!_v4.ok) throw new _v19.NetworkError("Error polling asset transcode status", _v4.status, _v4);
                 let _v5 = await _v4.json();
-                return (0, _v20.camelizeDeep)(_v5);
+                return (0, _v22.camelizeDeep)(_v5);
               }, []);
             return {
               pollTranscodingStatus: (0, _v2.useCallback)(({
@@ -2062,7 +2064,7 @@
                   "Content-Type": "application/json"
                 }
               });
-              if (!_v0.ok) throw new _v17.NetworkError("Failed to complete audio track", _v0.status, _v0);
+              if (!_v0.ok) throw new _v19.NetworkError("Failed to complete audio track", _v0.status, _v0);
             } catch (_v0) {
               _v3.error(_v0, {
                 category: "SET_ASSET_COMPLETE",
@@ -2076,7 +2078,7 @@
           _v13 = (0, _v2.useCallback)((_v0, _v1) => {
             let _v2 = _v0 instanceof Error ? _v0 : Error(String(_v0)),
               _v3 = _v6(_v1);
-            if (_v2 instanceof _v18) return _v3.warn(`Upload ${_v1} was paused, reason: PauseError`);
+            if (_v2 instanceof _v20) return _v3.warn(`Upload ${_v1} was paused, reason: PauseError`);
             if (_v2 instanceof _v6.CancelError || "AbortError" === _v2.name) if (_v3 === _v12.UPLOAD_PROCESS_STATUS.PAUSED) return _v3.warn(`Upload ${_v1} was paused while [${_v3}]`);else return _v11({
               id: _v1,
               status: _v12.UPLOAD_PROCESS_STATUS.CANCELLED
@@ -2121,7 +2123,7 @@
                   try {
                     let _v0;
                     if ("paused" === _v0) return void _v3.debug("Upload was paused by user.");
-                    if ("uploaded" !== _v0) throw _v3.warn(`Received unexpected uploader state: [${_v0}]`), new _v16.FatalError(`Received unexpected uploader state: [${_v0}]`);
+                    if ("uploaded" !== _v0) throw _v3.warn(`Received unexpected uploader state: [${_v0}]`), new _v18.FatalError(`Received unexpected uploader state: [${_v0}]`);
                     _v3.info("Finished uploads to URLs"), _v1.serviceName === _v12.UPLOAD_SERVICE.AUDIO_TRACKS && _v1.uploaderType === _v12.UPLOAD_APPROACH.GCS && (await _v12({
                       clipId: _v1,
                       jwt: _v3,
@@ -2131,7 +2133,7 @@
                       {
                         storageObjectId: _v2
                       } = _v1;
-                    if (_v1.serviceName === _v12.UPLOAD_SERVICE.BRANDING_BUMPERS ? _v1 = `https://${_v2}/${_v5.transcodingUrl}/${_v2}` : _v1.serviceName === _v12.UPLOAD_SERVICE.AUDIO_TRACKS && (_v1 = `https://${_v0}${_v2}`, _v0 = _v3), _v5.transcodingUrl) {
+                    if (_v1.serviceName === _v12.UPLOAD_SERVICE.BRANDING_BUMPERS ? _v1 = `https://${_v2}/${_v5.transcodingUrl}/${_v2}` : _v1.serviceName === _v12.UPLOAD_SERVICE.AUDIO_TRACKS && (_v1 = _v17(_v0, _v2), _v0 = _v3), _v5.transcodingUrl) {
                       _v3.info(`[Summary] Upload #${_v6} - start transcoding at ${new Date().toLocaleTimeString()}`, {
                         transcodingUrl: _v1
                       });
@@ -2225,22 +2227,22 @@
           switch (_v0) {
             case _v12.UPLOAD_TYPE_NAME.BUMPER_INTRO:
               _v5 = {
-                ..._v47
+                ..._v49
               };
               break;
             case _v12.UPLOAD_TYPE_NAME.BUMPER_OUTRO:
               _v5 = {
-                ..._v48
+                ..._v50
               };
               break;
             case _v12.UPLOAD_TYPE_NAME.LOGO:
               _v5 = {
-                ..._v54
+                ..._v56
               };
               break;
             case _v12.UPLOAD_TYPE_NAME.AUDIO_TRACKS:
               (_v5 = {
-                ..._v46
+                ..._v48
               }).url = _v3 ? `${_v3}/audiotracks` : _v5.url;
               break;
             case _v12.UPLOAD_TYPE_NAME.CREATE_AUDIO:
@@ -2249,47 +2251,47 @@
             case _v12.UPLOAD_TYPE_NAME.CREATE_SOUNDTRACK_ASSET:
             case _v12.UPLOAD_TYPE_NAME.CREATE_VIDEO_ASSET:
             case _v12.UPLOAD_TYPE_NAME.CREATE_BRANDING_ASSET:
-              if (!_v4) throw new _v25(`User ID is not provided for [${_v0}] asset type`);
+              if (!_v4) throw new _v27(`User ID is not provided for [${_v0}] asset type`);
               switch (_v0) {
                 case _v12.UPLOAD_TYPE_NAME.CREATE_IMAGE_ASSET:
-                  _v5 = {
-                    ..._v50
-                  };
-                  break;
-                case _v12.UPLOAD_TYPE_NAME.OVERLAY_THUMBNAIL:
-                  _v5 = {
-                    ..._v55
-                  };
-                  break;
-                case _v12.UPLOAD_TYPE_NAME.CREATE_AUDIO:
-                  _v5 = {
-                    ..._v53
-                  };
-                  break;
-                case _v12.UPLOAD_TYPE_NAME.CREATE_BRANDING_ASSET:
-                  _v5 = {
-                    ..._v49
-                  };
-                  break;
-                case _v12.UPLOAD_TYPE_NAME.CREATE_VIDEO_ASSET:
                   _v5 = {
                     ..._v52
                   };
                   break;
-                case _v12.UPLOAD_TYPE_NAME.CREATE_SOUNDTRACK_ASSET:
+                case _v12.UPLOAD_TYPE_NAME.OVERLAY_THUMBNAIL:
+                  _v5 = {
+                    ..._v57
+                  };
+                  break;
+                case _v12.UPLOAD_TYPE_NAME.CREATE_AUDIO:
+                  _v5 = {
+                    ..._v55
+                  };
+                  break;
+                case _v12.UPLOAD_TYPE_NAME.CREATE_BRANDING_ASSET:
                   _v5 = {
                     ..._v51
+                  };
+                  break;
+                case _v12.UPLOAD_TYPE_NAME.CREATE_VIDEO_ASSET:
+                  _v5 = {
+                    ..._v54
+                  };
+                  break;
+                case _v12.UPLOAD_TYPE_NAME.CREATE_SOUNDTRACK_ASSET:
+                  _v5 = {
+                    ..._v53
                   };
               }
               _v5.url = `/users/${_v4}/create_assets`;
               break;
             case _v12.UPLOAD_TYPE_NAME.CLIP:
-              throw new _v25(`[${_v0}] asset type upload is not supported.`);
+              throw new _v27(`[${_v0}] asset type upload is not supported.`);
             default:
-              throw new _v25(`Invalid asset type name provided: [${_v0}].`);
+              throw new _v27(`Invalid asset type name provided: [${_v0}].`);
           }
           let _v6 = _v5.isVimeoApi ? _v1 : _v2;
-          return _v6 && (_v5.url = new URL(_v5.url, `https://${_v6}`).href), _v5;
+          return _v6 && (_v5.url = _v17(_v6, _v5.url)), _v5;
         })({
           typeName: _v1,
           userId: _v7,
@@ -2392,7 +2394,7 @@
         }), 0 === _v11() && _v14(!1), _v6.info("Uploader Files", {
           section: "completed all scheduled upload processes",
           uploadProcessesLength: _v6.length
-        }), (0, _v57.normalizeUploads)(_v9);
+        }), (0, _v59.normalizeUploads)(_v9);
       }, [_v7, _v5?.apiUrl, _v5?.magistoApiHost, _v6, _v12, _v14, _v10, _v11, _v13, _v8, _v9, _v5?.teamUser, _v5?.xsrft, _v5?.jwt, _v15]),
       _v18 = (0, _v2.useMemo)(() => ({
         upload: _v17

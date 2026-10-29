@@ -222,28 +222,28 @@
         children: (0, _v1.jsx)(_v8.Text, {
           variant: "body-sm",
           children: (0, _v12.translate)({
-            singular: "This video doesn't count towards your Managed storage limit. All public, non-embeddable videos are on us.",
+            singular: "This video doesn't count towards your Managed storage limit. All public, non-embeddable videos are unlimited.",
             dictionary: {
               es: {
-                singular: "Este video no cuenta para su límite de almacenamiento Managed. Todos los videos públicos no incrustables corren por nuestra cuenta."
+                singular: "Este video no cuenta para su límite de almacenamiento Managed. Todos los videos públicos no incrustables son ilimitados."
               },
               "de-DE": {
-                singular: "Dieses Video zählt nicht zu Ihrem Managed storage-Limit. Alle öffentlichen, nicht einbettbaren Videos gehen auf unsere Kosten."
+                singular: "Dieses Video zählt nicht zu Ihrem Managed storage-Limit. Alle öffentlichen, nicht einbettbaren Videos sind unbegrenzt."
               },
               "fr-FR": {
-                singular: "Cette vidéo ne compte pas dans votre limite de stockage Managed. Toutes les vidéos publiques non intégrables sont à notre charge."
+                singular: "Cette vidéo ne compte pas dans votre limite de stockage Managed. Toutes les vidéos publiques non intégrables sont illimitées."
               },
               "ja-JP": {
-                singular: "この動画は Managed storage の上限にカウントされません。公開されている埋め込み不可の動画はすべて当社負担です。"
+                singular: "この動画は Managed storage の上限にカウントされません。公開されている埋め込み不可の動画はすべて無制限です。"
               },
               "ko-KR": {
-                singular: "이 비디오는 관리형 저장 용량 한도에 포함되지 않습니다. 공개이면서 임베드 불가한 모든 비디오는 당사에서 부담합니다."
+                singular: "이 비디오는 관리형 저장 용량 한도에 포함되지 않습니다. 공개이면서 임베드 불가한 모든 비디오는 무제한입니다."
               },
               "pt-BR": {
-                singular: "Este vídeo não conta para o seu limite de armazenamento Gerenciado. Todos os vídeos públicos não incorporáveis ficam por nossa conta."
+                singular: "Este vídeo não conta para o seu limite de armazenamento Gerenciado. Todos os vídeos públicos não incorporáveis são ilimitados."
               },
               "zh-CN": {
-                singular: "此视频不计入您的托管存储限制。所有公开且不可嵌入的视频由我们承担。"
+                singular: "此视频不计入您的托管存储限制。所有公开且不可嵌入的视频均不受限制。"
               }
             }
           })

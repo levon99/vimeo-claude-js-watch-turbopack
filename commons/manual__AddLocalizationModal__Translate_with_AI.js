@@ -148,6 +148,7 @@
       onClose: _v3,
       children: [(0, _v1.jsx)(_v13.ModalOverlay, {}), (0, _v1.jsxs)(_v10.ModalContent, {
         children: [(0, _v1.jsx)(_v12.ModalHeader, {
+          pb: "md",
           children: (0, _v21.translate)({
             singular: "Add translation",
             dictionary: {
@@ -180,6 +181,7 @@
           display: "flex",
           flexDirection: "column",
           gap: (0, _v18.rem)(24),
+          p: "lg",
           children: 1 === _v8 ? (0, _v1.jsxs)(_v1.Fragment, {
             children: [(0, _v1.jsx)(_v17.Text, {
               color: "text-tertiary",
@@ -428,6 +430,10 @@
             })]
           })
         }), (0, _v1.jsxs)(_v11.ModalFooter, {
+          borderColor: "stroke",
+          borderStyle: "solid",
+          borderTopWidth: "1px",
+          py: "md",
           children: [_v6 ? (0, _v1.jsx)(_v17.Text, {
             color: "text-secondary",
             flex: "1",

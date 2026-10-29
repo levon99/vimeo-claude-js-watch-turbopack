@@ -221,22 +221,22 @@
         },
         dictionary: {
           es: {
-            singular: "Obtener {PLAN_NAME}"
+            singular: "Obtén {PLAN_NAME}"
           },
           "de-DE": {
-            singular: "Hol dir {PLAN_NAME}"
+            singular: "Jetzt {PLAN_NAME} erhalten"
           },
           "fr-FR": {
-            singular: "Choisissez {PLAN_NAME}"
+            singular: "Obtenez {PLAN_NAME}"
           },
           "ja-JP": {
-            singular: "{PLAN_NAME}をスタート"
+            singular: "{PLAN_NAME} を申し込む"
           },
           "ko-KR": {
-            singular: "{PLAN_NAME} 가입하기"
+            singular: "지금 {PLAN_NAME} 이용하기"
           },
           "pt-BR": {
-            singular: "Compre o {PLAN_NAME}"
+            singular: "Obtenha {PLAN_NAME}"
           },
           "zh-CN": {
             singular: "获取 {PLAN_NAME}"

@@ -25,26 +25,27 @@
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
-    _v25 = _v0.i(0);
-  let _v26 = ({
+    _v25 = _v0.i(0),
+    _v26 = _v0.i(0);
+  let _v27 = ({
     label: _v0,
     panelProps: _v1,
     children: _v2
-  }) => (0, _v1.jsx)(_v24.AccordionItem, {
+  }) => (0, _v1.jsx)(_v25.AccordionItem, {
     bg: "transparent",
     border: "none",
     w: "100%",
     children: ({
       isExpanded: _v0
     }) => (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v23.AccordionButton, {
+      children: [(0, _v1.jsxs)(_v24.AccordionButton, {
         borderRadius: "sm",
         gap: "xs",
         justifyContent: "flex-start",
         pl: "0",
         pr: "xs",
         py: "xs",
-        children: [(0, _v1.jsx)(_v20.ChevronDownSmall, {
+        children: [(0, _v1.jsx)(_v21.ChevronDownSmall, {
           "aria-hidden": !0,
           boxSize: "2xs",
           color: "text-tertiary",
@@ -56,30 +57,30 @@
           variant: "heading-2xs",
           children: _v0
         })]
-      }), (0, _v1.jsx)(_v25.AccordionPanel, {
+      }), (0, _v1.jsx)(_v26.AccordionPanel, {
         pb: "0",
         ..._v1,
         children: _v2
       })]
     })
   });
-  var _v27 = _v0.i(0),
-    _v28 = _v0.i(0),
+  var _v28 = _v0.i(0),
     _v29 = _v0.i(0),
-    _v30 = _v0.i(0);
-  let _v31 = ({
+    _v30 = _v0.i(0),
+    _v31 = _v0.i(0);
+  let _v32 = ({
     onCancel: _v0,
     onDiscard: _v1
-  }) => (0, _v1.jsxs)(_v27.Modal, {
+  }) => (0, _v1.jsxs)(_v28.Modal, {
     isOpen: !0,
     onClose: _v0,
-    children: [(0, _v1.jsx)(_v15.ModalOverlay, {}), (0, _v1.jsxs)(_v29.ModalContent, {
+    children: [(0, _v1.jsx)(_v15.ModalOverlay, {}), (0, _v1.jsxs)(_v30.ModalContent, {
       borderRadius: "md",
-      children: [(0, _v1.jsx)(_v30.ModalHeader, {
+      children: [(0, _v1.jsx)(_v31.ModalHeader, {
         color: "text-primary",
         fontSize: "heading-md",
         padding: "lg",
-        children: (0, _v21.translate)({
+        children: (0, _v22.translate)({
           singular: "Discard changes?",
           dictionary: {
             es: {
@@ -105,11 +106,11 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v28.ModalBody, {
+      }), (0, _v1.jsx)(_v29.ModalBody, {
         color: "text-primary",
         fontSize: "body-md",
         padding: "0.5rem 1.5rem",
-        children: (0, _v21.translate)({
+        children: (0, _v22.translate)({
           singular: "If you continue, all unsaved changes will be permanently removed and cannot be recovered.",
           dictionary: {
             es: {
@@ -141,7 +142,7 @@
         children: [(0, _v1.jsx)(_v6.Button, {
           onClick: _v0,
           variant: "tertiary",
-          children: (0, _v21.translate)({
+          children: (0, _v22.translate)({
             singular: "Keep editing",
             dictionary: {
               es: {
@@ -170,7 +171,7 @@
         }), (0, _v1.jsx)(_v6.Button, {
           onClick: _v1,
           variant: "destructive",
-          children: (0, _v21.translate)({
+          children: (0, _v22.translate)({
             singular: "Discard",
             dictionary: {
               es: {
@@ -200,11 +201,11 @@
       })]
     })]
   });
-  var _v32 = _v0.i(0),
-    _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  let _v35 = (0, _v18.rem)(32),
-    _v36 = ({
+  var _v33 = _v0.i(0),
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0);
+  let _v36 = (0, _v18.rem)(32),
+    _v37 = ({
       source: _v0,
       target: _v1
     }) => (0, _v1.jsxs)(_v7.Flex, {
@@ -214,10 +215,10 @@
       children: [(0, _v1.jsx)(_v7.Flex, {
         align: "center",
         flex: "1",
-        minH: _v35,
+        minH: _v36,
         minW: 0,
         children: _v0
-      }), (0, _v1.jsx)(_v34.ArrowRight, {
+      }), (0, _v1.jsx)(_v35.ArrowRight, {
         "aria-hidden": !0,
         boxSize: "2xs",
         color: "text-primary",
@@ -226,23 +227,23 @@
         align: "center",
         flex: "1",
         gap: "xs",
-        minH: _v35,
+        minH: _v36,
         minW: 0,
         children: _v1
       })]
     }),
-    _v37 = ({
+    _v38 = ({
       field: _v0,
       value: _v1,
       onChange: _v2
-    }) => (0, _v1.jsx)(_v26, {
+    }) => (0, _v1.jsx)(_v27, {
       label: _v0.label,
       panelProps: {
         pt: "xs",
         px: "0"
       },
-      children: (0, _v1.jsx)(_v36, {
-        source: !0 === _v0.isMultiline ? (0, _v1.jsx)(_v33.Textarea, {
+      children: (0, _v1.jsx)(_v37, {
+        source: !0 === _v0.isMultiline ? (0, _v1.jsx)(_v34.Textarea, {
           "aria-label": _v0.sourceAriaLabel,
           isDisabled: !0,
           name: `${_v0.path}-source`,
@@ -253,7 +254,7 @@
             opacity: 1,
             cursor: "not-allowed"
           }
-        }) : (0, _v1.jsx)(_v32.Input, {
+        }) : (0, _v1.jsx)(_v33.Input, {
           "aria-label": _v0.sourceAriaLabel,
           isDisabled: !0,
           name: `${_v0.path}-source`,
@@ -263,7 +264,7 @@
             cursor: "not-allowed"
           }
         }),
-        target: !0 === _v0.isMultiline ? (0, _v1.jsx)(_v33.Textarea, {
+        target: !0 === _v0.isMultiline ? (0, _v1.jsx)(_v34.Textarea, {
           "aria-label": _v0.targetAriaLabel,
           maxLength: _v0.maxLength,
           name: _v0.path,
@@ -272,7 +273,7 @@
           resize: "none",
           rows: 3,
           value: _v1
-        }) : (0, _v1.jsx)(_v32.Input, {
+        }) : (0, _v1.jsx)(_v33.Input, {
           "aria-label": _v0.targetAriaLabel,
           maxLength: _v0.maxLength,
           name: _v0.path,
@@ -282,22 +283,23 @@
         })
       })
     });
-  var _v38 = _v0.i(0);
-  let _v39 = ({
+  var _v39 = _v0.i(0);
+  let _v40 = ({
     sourceLocale: _v0,
     isTranslating: _v1,
     onCancel: _v2,
     onConfirm: _v3
   }) => {
-    let _v4 = (0, _v22.useLocale)();
-    return (0, _v1.jsxs)(_v27.Modal, {
+    let _v4 = (0, _v23.useLocale)();
+    return (0, _v1.jsxs)(_v28.Modal, {
       closeOnEsc: !_v1,
       closeOnOverlayClick: !_v1,
       isOpen: !0,
       onClose: _v2,
-      children: [(0, _v1.jsx)(_v15.ModalOverlay, {}), (0, _v1.jsxs)(_v29.ModalContent, {
-        children: [(0, _v1.jsx)(_v30.ModalHeader, {
-          children: (0, _v21.translate)({
+      children: [(0, _v1.jsx)(_v15.ModalOverlay, {}), (0, _v1.jsxs)(_v30.ModalContent, {
+        children: [(0, _v1.jsx)(_v31.ModalHeader, {
+          pb: "md",
+          children: (0, _v22.translate)({
             singular: "Translate again",
             dictionary: {
               es: {
@@ -323,7 +325,8 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v28.ModalBody, {
+        }), (0, _v1.jsx)(_v29.ModalBody, {
+          p: "lg",
           children: (0, _v1.jsxs)(_v7.Flex, {
             direction: "column",
             gap: "lg",
@@ -331,10 +334,10 @@
             children: [(0, _v1.jsx)(_v16.Text, {
               color: "text-primary",
               variant: "body-md",
-              children: (0, _v21.translate)({
+              children: (0, _v22.translate)({
                 singular: "Generate a new AI translation from the latest {LANGUAGE} content? Your published version will remain live until you publish the new draft.",
                 replacements: {
-                  LANGUAGE: (0, _v38.getLocaleLabel)(_v0, _v4)
+                  LANGUAGE: (0, _v39.getLocaleLabel)(_v0, _v4)
                 },
                 dictionary: {
                   es: {
@@ -363,7 +366,7 @@
             }), (0, _v1.jsx)(_v16.Text, {
               color: "text-tertiary",
               variant: "body-sm",
-              children: (0, _v21.translate)({
+              children: (0, _v22.translate)({
                 singular: "AI doesn’t always get it right. Review translations before publishing.",
                 dictionary: {
                   es: {
@@ -392,11 +395,15 @@
             })]
           })
         }), (0, _v1.jsxs)(_v14.ModalFooter, {
+          borderColor: "stroke",
+          borderStyle: "solid",
+          borderTopWidth: "1px",
+          py: "md",
           children: [(0, _v1.jsx)(_v6.Button, {
             isDisabled: _v1,
             onClick: _v2,
             variant: "tertiary",
-            children: (0, _v21.translate)({
+            children: (0, _v22.translate)({
               singular: "Cancel",
               dictionary: {
                 es: {
@@ -427,7 +434,7 @@
             isLoading: _v1,
             onClick: _v3,
             variant: "primary",
-            children: (0, _v21.translate)({
+            children: (0, _v22.translate)({
               singular: "Generate",
               dictionary: {
                 es: {
@@ -458,10 +465,10 @@
       })]
     });
   };
-  var _v40 = _v0.i(0);
-  let _v41 = (0, _v18.rem)(0),
-    _v42 = (0, _v18.rem)(265),
-    _v43 = {
+  var _v41 = _v0.i(0);
+  let _v42 = (0, _v18.rem)(0),
+    _v43 = (0, _v18.rem)(265),
+    _v44 = {
       unsaved: "default",
       inProgress: "warning",
       savedDraft: "info",
@@ -484,24 +491,24 @@
     isSaving: _v12,
     isAiEnabled: _v13
   }) => {
-    let _v14 = (0, _v22.useLocale)(),
+    let _v14 = (0, _v23.useLocale)(),
       [_v15, _v16] = (0, _v2.useState)(!1),
       [_v17, _v18] = (0, _v2.useState)(!1),
       [_v19, _v20] = (0, _v2.useState)(() => (_v5.find(_v0 => !_v0.isDisabled) ?? _v5[0])?.id),
       _v21 = _v5.find(_v0 => _v0.id === _v19),
       _v22 = (0, _v2.useMemo)(() => _v4.some(_v0 => {
-        let _v1 = _v6[_v0]?.leaves ?? _v40.EMPTY_LEAVES;
-        return !(0, _v40.areLeavesEqual)((0, _v40.getWorkingLeaves)(_v1, _v7[_v0]), _v1);
+        let _v1 = _v6[_v0]?.leaves ?? _v41.EMPTY_LEAVES;
+        return !(0, _v41.areLeavesEqual)((0, _v41.getWorkingLeaves)(_v1, _v7[_v0]), _v1);
       }), [_v4, _v6, _v7]),
-      _v23 = (0, _v2.useMemo)(() => (0, _v40.getWorkingLeaves)(_v6[_v2]?.leaves, _v7[_v2]), [_v6, _v7, _v2]),
-      _v24 = (0, _v2.useMemo)(() => !(0, _v40.areLeavesEqual)(_v23, _v6[_v2]?.leaves ?? _v40.EMPTY_LEAVES), [_v6, _v2, _v23]),
-      _v25 = (0, _v2.useMemo)(() => (0, _v40.getLocaleStatus)(_v6[_v2], _v24), [_v6, _v2, _v24]),
+      _v23 = (0, _v2.useMemo)(() => (0, _v41.getWorkingLeaves)(_v6[_v2]?.leaves, _v7[_v2]), [_v6, _v7, _v2]),
+      _v24 = (0, _v2.useMemo)(() => !(0, _v41.areLeavesEqual)(_v23, _v6[_v2]?.leaves ?? _v41.EMPTY_LEAVES), [_v6, _v2, _v23]),
+      _v25 = (0, _v2.useMemo)(() => (0, _v41.getLocaleStatus)(_v6[_v2], _v24), [_v6, _v2, _v24]),
       _v26 = (0, _v2.useCallback)((_v0, _v1) => _v8(_v2, _v0, _v1), [_v8, _v2]),
       _v27 = (0, _v2.useCallback)(_v0 => {
         let _v1 = _v4.some(_v0 => {
           if (_v0 === _v2) return !1;
           let _v1 = _v6[_v0]?.leaves;
-          return void 0 === _v1 || !(0, _v40.areLeavesEqual)((0, _v40.getWorkingLeaves)(_v1, _v7[_v0]), _v1);
+          return void 0 === _v1 || !(0, _v41.areLeavesEqual)((0, _v41.getWorkingLeaves)(_v1, _v7[_v0]), _v1);
         });
         _v9(_v2, _v23, _v0).then(_v0 => {
           _v0 && !_v1 && _v0();
@@ -531,7 +538,7 @@
           leftIcon: (0, _v1.jsx)(_v19.AiSparkles, {}),
           onClick: () => _v16(!0),
           variant: "secondary",
-          children: (0, _v21.translate)({
+          children: (0, _v22.translate)({
             singular: "Translate again",
             dictionary: {
               es: {
@@ -567,7 +574,7 @@
             isDisabled: _v12 || _v11,
             onClick: _v28,
             variant: "tertiary",
-            children: (0, _v21.translate)({
+            children: (0, _v22.translate)({
               singular: "Discard changes",
               dictionary: {
                 es: {
@@ -599,9 +606,9 @@
               as: _v6.Button,
               isDisabled: !_v24 || _v11,
               isLoading: _v12,
-              rightIcon: (0, _v1.jsx)(_v20.ChevronDownSmall, {}),
+              rightIcon: (0, _v1.jsx)(_v21.ChevronDownSmall, {}),
               variant: "primary",
-              children: (0, _v21.translate)({
+              children: (0, _v22.translate)({
                 singular: "Save changes",
                 dictionary: {
                   es: {
@@ -630,7 +637,7 @@
             }), (0, _v1.jsxs)(_v11.MenuList, {
               children: [(0, _v1.jsx)(_v10.MenuItem, {
                 onClick: () => _v27(!0),
-                children: (0, _v21.translate)({
+                children: (0, _v22.translate)({
                   singular: "Save and publish",
                   dictionary: {
                     es: {
@@ -658,7 +665,7 @@
                 })
               }), (0, _v1.jsx)(_v10.MenuItem, {
                 onClick: () => _v27(!1),
-                children: (0, _v21.translate)({
+                children: (0, _v22.translate)({
                   singular: "Save as draft",
                   dictionary: {
                     es: {
@@ -695,10 +702,10 @@
         isOpen: !0,
         onClose: _v28,
         children: [(0, _v1.jsx)(_v15.ModalOverlay, {}), (0, _v1.jsxs)(_v12.ModalAdvancedContent, {
-          maxWidth: _v41,
-          width: _v41,
+          maxWidth: _v42,
+          width: _v42,
           children: [(0, _v1.jsx)(_v12.ModalAdvancedHeader, {
-            description: (0, _v21.translate)({
+            description: (0, _v22.translate)({
               singular: "Save your draft, then preview and publish when ready.",
               dictionary: {
                 es: {
@@ -724,7 +731,7 @@
                 }
               }
             }),
-            title: (0, _v21.translate)({
+            title: (0, _v22.translate)({
               singular: "Translate page content",
               dictionary: {
                 es: {
@@ -755,14 +762,14 @@
           }), (0, _v1.jsxs)(_v12.ModalAdvancedBody, {
             borderBottomWidth: "0",
             children: [(0, _v1.jsxs)(_v12.ModalAdvancedSidebar, {
-              maxW: _v42,
-              minW: _v42,
-              w: _v42,
+              maxW: _v43,
+              minW: _v43,
+              w: _v43,
               children: [(0, _v1.jsx)(_v16.Text, {
                 color: "text-secondary",
                 pb: "sm",
                 variant: "body-sm",
-                children: (0, _v21.translate)({
+                children: (0, _v22.translate)({
                   singular: "Sections",
                   dictionary: {
                     es: {
@@ -795,7 +802,7 @@
                   children: _v0.label
                 });
                 return _v0.isDisabled ? (0, _v1.jsx)(_v17.Tooltip, {
-                  label: (0, _v21.translate)({
+                  label: (0, _v22.translate)({
                     singular: "This section has no text to translate",
                     dictionary: {
                       es: {
@@ -848,15 +855,15 @@
                   px: "3",
                   py: "xs",
                   w: "100%",
-                  children: (0, _v1.jsx)(_v36, {
+                  children: (0, _v1.jsx)(_v37, {
                     source: (0, _v1.jsx)(_v16.Text, {
                       color: "text-primary",
                       noOfLines: 1,
                       variant: "heading-xs",
-                      children: (0, _v21.translate)({
+                      children: (0, _v22.translate)({
                         singular: "{LANGUAGE} (original)",
                         replacements: {
-                          LANGUAGE: (0, _v38.getLocaleLabel)(_v1, _v14)
+                          LANGUAGE: (0, _v39.getLocaleLabel)(_v1, _v14)
                         },
                         dictionary: {
                           "de-DE": {
@@ -879,20 +886,32 @@
                         children: [(0, _v1.jsx)(_v9.MenuButton, {
                           as: _v6.Button,
                           isDisabled: _v12,
-                          rightIcon: (0, _v1.jsx)(_v20.ChevronDownSmall, {}),
+                          rightIcon: (0, _v1.jsx)(_v21.ChevronDownSmall, {}),
                           size: "sm",
                           variant: "tertiary",
-                          children: (0, _v38.getLocaleLabel)(_v2, _v14)
+                          children: (0, _v39.getLocaleLabel)(_v2, _v14)
                         }), (0, _v1.jsx)(_v11.MenuList, {
                           children: _v4.map(_v0 => (0, _v1.jsx)(_v10.MenuItem, {
                             onClick: () => _v3(_v0),
-                            children: (0, _v38.getLocaleLabel)(_v0, _v14)
+                            children: (0, _v1.jsxs)(_v7.Flex, {
+                              align: "center",
+                              gap: "sm",
+                              justify: "space-between",
+                              w: "100%",
+                              children: [(0, _v1.jsx)(_v16.Text, {
+                                as: "span",
+                                variant: "body-md",
+                                children: (0, _v39.getLocaleLabel)(_v0, _v14)
+                              }), _v0 === _v2 ? (0, _v1.jsx)(_v20.Checkmark, {
+                                boxSize: (0, _v18.rem)(20)
+                              }) : null]
+                            })
                           }, _v0))
                         })]
                       }), (0, _v1.jsx)(_v4.Badge, {
                         size: "sm",
-                        variant: _v43[_v25],
-                        children: (0, _v40.getLocaleStatusLabel)(_v25)
+                        variant: _v44[_v25],
+                        children: (0, _v41.getLocaleStatusLabel)(_v25)
                       })]
                     })
                   })
@@ -906,7 +925,7 @@
                       allowMultiple: !0,
                       defaultIndex: [0, 1],
                       w: "100%",
-                      children: _v21.fields.map(_v0 => (0, _v1.jsx)(_v37, {
+                      children: _v21.fields.map(_v0 => (0, _v1.jsx)(_v38, {
                         field: _v0,
                         onChange: _v26,
                         value: _v23[_v0.path]?.value ?? ""
@@ -918,7 +937,7 @@
                       flexDirection: "column",
                       gap: "md",
                       w: "100%",
-                      children: _v21.groups.map(_v0 => (0, _v1.jsx)(_v26, {
+                      children: _v21.groups.map(_v0 => (0, _v1.jsx)(_v27, {
                         label: _v0.label,
                         panelProps: {
                           pt: "sm",
@@ -931,7 +950,7 @@
                           flexDirection: "column",
                           gap: "md",
                           w: "100%",
-                          children: _v0.fields.map(_v0 => (0, _v1.jsx)(_v37, {
+                          children: _v0.fields.map(_v0 => (0, _v1.jsx)(_v38, {
                             field: _v0,
                             onChange: _v26,
                             value: _v23[_v0.path]?.value ?? ""
@@ -952,16 +971,16 @@
               borderRightWidth: "1px",
               borderStyle: "solid",
               flexShrink: 0,
-              w: _v42
+              w: _v43
             }), _v30]
           })]
         })]
-      }), _v15 ? (0, _v1.jsx)(_v39, {
+      }), _v15 ? (0, _v1.jsx)(_v40, {
         isTranslating: _v11,
         onCancel: () => _v16(!1),
         onConfirm: _v29,
         sourceLocale: _v1
-      }) : null, _v17 ? (0, _v1.jsx)(_v31, {
+      }) : null, _v17 ? (0, _v1.jsx)(_v32, {
         onCancel: () => _v18(!1),
         onDiscard: _v0
       }) : null]

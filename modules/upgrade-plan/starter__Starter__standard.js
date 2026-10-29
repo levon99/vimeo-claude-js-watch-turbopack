@@ -18,8 +18,10 @@
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
     _v16 = _v0.i(0),
-    _v17 = _v0.i(0);
-  let _v18 = [{
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0),
+    _v19 = _v0.i(0);
+  let _v20 = [{
       tier: "starter",
       name: "Starter",
       previous: null
@@ -32,7 +34,7 @@
       name: "Advanced",
       previous: "Standard"
     }],
-    _v19 = {
+    _v21 = {
       maxWidth: 960,
       margin: "0 auto",
       padding: "32px 16px",
@@ -40,67 +42,67 @@
       lineHeight: 1.5,
       color: "#1a1a1a"
     },
-    _v20 = {
+    _v22 = {
       display: "flex",
       flexWrap: "wrap",
       gap: 16,
       margin: "16px 0 40px"
     },
-    _v21 = {
+    _v23 = {
       flex: "1 1 240px",
       border: "1px solid #d5d5d5",
       borderRadius: 8,
       padding: 20
     },
-    _v22 = {
+    _v24 = {
       fontSize: 22,
       fontWeight: 700,
       margin: "4px 0 12px"
     },
-    _v23 = {
+    _v25 = {
       fontWeight: 600,
       margin: "0 0 8px"
     },
-    _v24 = {
+    _v26 = {
       margin: 0,
       paddingLeft: 20
     },
-    _v25 = {
+    _v27 = {
       borderTop: "1px solid #e5e5e5",
       marginTop: 32,
       paddingTop: 16
     },
-    _v26 = {
+    _v28 = {
       marginBottom: 24
     },
-    _v27 = {
+    _v29 = {
       width: "100%",
       borderCollapse: "collapse",
       fontSize: 14
     },
-    _v28 = {
+    _v30 = {
       textAlign: "left",
       padding: "6px 10px",
       borderBottom: "1px solid #e5e5e5",
       verticalAlign: "top"
     },
-    _v29 = {
+    _v31 = {
       textAlign: "center",
       padding: "6px 10px",
       borderBottom: "1px solid #f0f0f0"
     },
-    _v30 = {
+    _v32 = {
       marginBottom: 16
     },
-    _v31 = {
+    _v33 = {
       fontWeight: 600,
       marginBottom: 4
     },
-    _v32 = _v0 => {
+    _v34 = _v0 => {
       let _v1 = "number" == typeof _v0 ? _v0 : parseFloat(_v0);
       return Number.isFinite(_v1) ? Number.isInteger(_v1) ? `$${_v1}` : `$${_v1.toFixed(2)}` : null;
     },
-    _v33 = (0, _v12.authAttributionUrl)("/join", (0, _v12.buildAuthAttribution)({
+    _v35 = (0, _v14.authAttributionUrl)("/join", (0, _v14.buildAuthAttribution)({
       flowId: null,
       entry: "pricing_free_plan",
       originRoute: "/upgrade-plan",
@@ -108,12 +110,12 @@
       initialIntent: "join",
       entryTimestamp: null
     })),
-    _v34 = () => (0, _v1.jsxs)(_v1.Fragment, {
+    _v36 = () => (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)("h1", {
-        children: _v13.PRIMARY_HEADERS.theUltimateAdFreePlayer
+        children: _v15.PRIMARY_HEADERS.theUltimateAdFreePlayer
       }), (0, _v1.jsx)("p", {
-        children: (0, _v1.jsx)(_v11.Link, {
-          href: _v33,
+        children: (0, _v1.jsx)(_v13.Link, {
+          href: _v35,
           children: (0, _v7.translate)({
             singular: "Sign up",
             dictionary: {
@@ -143,10 +145,10 @@
         })
       })]
     }),
-    _v35 = ({
+    _v37 = ({
       inVideoSize: _v0
     }) => (0, _v1.jsxs)("section", {
-      style: _v25,
+      style: _v27,
       children: [(0, _v1.jsx)("h2", {
         children: (0, _v7.translate)({
           singular: "Have questions?",
@@ -178,10 +180,10 @@
         style: {
           margin: 0
         },
-        children: (0, _v16.default)(_v0).map(_v0 => (0, _v1.jsxs)("div", {
-          style: _v30,
+        children: (0, _v18.default)(_v0).map(_v0 => (0, _v1.jsxs)("div", {
+          style: _v32,
           children: [(0, _v1.jsx)("dt", {
-            style: _v31,
+            style: _v33,
             children: _v0.question
           }), (0, _v1.jsx)("dd", {
             style: {
@@ -191,7 +193,7 @@
           })]
         }, _v0.id))
       }), (0, _v1.jsx)("p", {
-        children: (0, _v1.jsx)(_v11.Link, {
+        children: (0, _v1.jsx)(_v13.Link, {
           href: "/help/contact",
           children: (0, _v7.translate)({
             singular: "Contact support",
@@ -222,7 +224,7 @@
         })
       })]
     }),
-    _v36 = ({
+    _v38 = ({
       plansData: _v0,
       prices: _v1
     }) => {
@@ -254,37 +256,37 @@
         }),
         _v3 = _v0[0]?.metadata?.entitlements?.params?.videoStorageQuotaUnit === "video_size",
         _v4 = _v0.reduce((_v0, _v1) => (_v0[_v1.tier] = _v1.metadata.entitlements.params, _v0), {}),
-        _v5 = (0, _v14.default)(_v4);
+        _v5 = (0, _v16.default)(_v4);
       return (0, _v1.jsxs)("section", {
-        style: _v19,
-        children: [(0, _v1.jsx)(_v34, {}), (0, _v1.jsx)("div", {
-          style: _v20,
+        style: _v21,
+        children: [(0, _v1.jsx)(_v36, {}), (0, _v1.jsx)("div", {
+          style: _v22,
           children: _v0.map(_v0 => {
             let _v1 = (_v0 => {
                 let _v1 = _v0.priceFormatted?.annualMonthly;
                 if (_v1) return _v1;
                 let _v2 = _v0.price?.annualMonthly;
-                if ("number" == typeof _v2) return _v32(_v2);
+                if ("number" == typeof _v2) return _v34(_v2);
                 let _v3 = _v1?.[_v0.tier];
-                return _v3 ? _v32(_v3) : null;
+                return _v3 ? _v34(_v3) : null;
               })(_v0),
-              _v2 = (0, _v17.getCardFeatureSubhead)(_v0, _v0.tier),
-              _v3 = (0, _v17.getFeatureListByTier)(_v0.tier) ?? [];
+              _v2 = (0, _v19.getCardFeatureSubhead)(_v0, _v0.tier),
+              _v3 = (0, _v19.getFeatureListByTier)(_v0.tier) ?? [];
             return (0, _v1.jsxs)("div", {
-              style: _v21,
+              style: _v23,
               children: [(0, _v1.jsx)("h2", {
                 style: {
                   margin: 0
                 },
                 children: _v0.name
               }), _v1 ? (0, _v1.jsxs)("p", {
-                style: _v22,
+                style: _v24,
                 children: [_v1, " ", _v2]
               }) : null, _v2 ? (0, _v1.jsx)("p", {
-                style: _v23,
+                style: _v25,
                 children: _v2
               }) : null, (0, _v1.jsx)("ul", {
-                style: _v24,
+                style: _v26,
                 children: _v3.map((_v0, _v1) => (0, _v1.jsx)("li", {
                   children: _v0
                 }, `${_v0.tier}-${_v1}`))
@@ -292,7 +294,7 @@
             }, _v0.tier);
           })
         }), (0, _v1.jsxs)("section", {
-          style: _v25,
+          style: _v27,
           children: [(0, _v1.jsx)("h2", {
             children: (0, _v7.translate)({
               singular: "Compare plans",
@@ -321,19 +323,19 @@
               }
             })
           }), _v5.map(_v0 => (0, _v1.jsxs)("div", {
-            style: _v26,
+            style: _v28,
             children: [(0, _v1.jsx)("h3", {
               children: _v0.title
             }), (0, _v1.jsxs)("table", {
-              style: _v27,
+              style: _v29,
               children: [(0, _v1.jsx)("thead", {
                 children: (0, _v1.jsxs)("tr", {
                   children: [(0, _v1.jsx)("th", {
-                    style: _v28,
+                    style: _v30,
                     scope: "col"
                   }), _v0.map(_v0 => (0, _v1.jsx)("th", {
                     style: {
-                      ..._v28,
+                      ..._v30,
                       textAlign: "center"
                     },
                     scope: "col",
@@ -343,11 +345,11 @@
               }), (0, _v1.jsx)("tbody", {
                 children: _v0.list.map((_v0, _v1) => (0, _v1.jsxs)("tr", {
                   children: [(0, _v1.jsx)("th", {
-                    style: _v28,
+                    style: _v30,
                     scope: "row",
                     children: _v0.text
                   }), _v0.map(_v0 => (0, _v1.jsx)("td", {
-                    style: _v29,
+                    style: _v31,
                     children: ((_v0, _v1) => {
                       if (Array.isArray(_v0)) return _v0.includes(_v1) ? (0, _v7.translate)({
                         singular: "Included",
@@ -408,12 +410,12 @@
               })]
             })]
           }, _v0.id))]
-        }), (0, _v1.jsx)(_v35, {
+        }), (0, _v1.jsx)(_v37, {
           inVideoSize: _v3
         })]
       });
     },
-    _v37 = [{
+    _v39 = [{
       id: "video_player",
       title: (0, _v7.translate)({
         singular: "Video player",
@@ -441,7 +443,7 @@
           }
         }
       }),
-      features: _v15.VIDEO_PLAYER_FEATURES
+      features: _v17.VIDEO_PLAYER_FEATURES
     }, {
       id: "video_maker_and_editing_tools",
       title: (0, _v7.translate)({
@@ -470,7 +472,7 @@
           }
         }
       }),
-      features: _v15.EDITING_FEATURES
+      features: _v17.EDITING_FEATURES
     }, {
       id: "vimeo_ai",
       title: (0, _v7.translate)({
@@ -481,7 +483,7 @@
           }
         }
       }),
-      features: _v15.AI_FEATURES
+      features: _v17.AI_FEATURES
     }, {
       id: "virtual_events_and_webinars",
       title: (0, _v7.translate)({
@@ -510,7 +512,7 @@
           }
         }
       }),
-      features: _v15.WEBINARS_FEATURES
+      features: _v17.WEBINARS_FEATURES
     }, {
       id: "video_management_and_collaboration",
       title: (0, _v7.translate)({
@@ -539,7 +541,7 @@
           }
         }
       }),
-      features: _v15.COLLABORATION_FEATURES
+      features: _v17.COLLABORATION_FEATURES
     }, {
       id: "analytics",
       title: (0, _v7.translate)({
@@ -568,7 +570,7 @@
           }
         }
       }),
-      features: _v15.ANALYTICS_FEATURES
+      features: _v17.ANALYTICS_FEATURES
     }, {
       id: "marketing_and_distribution",
       title: (0, _v7.translate)({
@@ -597,7 +599,7 @@
           }
         }
       }),
-      features: _v15.MARKETING_FEATURES
+      features: _v17.MARKETING_FEATURES
     }, {
       id: "privacy_security_and_admin_controls",
       title: (0, _v7.translate)({
@@ -626,7 +628,7 @@
           }
         }
       }),
-      features: _v15.PRIVACY_FEATURES
+      features: _v17.PRIVACY_FEATURES
     }, {
       id: "priority_support",
       title: (0, _v7.translate)({
@@ -655,7 +657,7 @@
           }
         }
       }),
-      features: _v15.SUPPORT_FEATURES
+      features: _v17.SUPPORT_FEATURES
     }, {
       id: "enterprise_services",
       title: (0, _v7.translate)({
@@ -684,9 +686,9 @@
           }
         }
       }),
-      features: _v15.ENTERPRISE_FEATURES
+      features: _v17.ENTERPRISE_FEATURES
     }],
-    _v38 = ({
+    _v40 = ({
       prices: _v0
     }) => {
       let _v1 = (0, _v7.translate)({
@@ -716,27 +718,27 @@
         }
       });
       return (0, _v1.jsxs)("section", {
-        style: _v19,
-        children: [(0, _v1.jsx)(_v34, {}), (0, _v1.jsx)("div", {
-          style: _v20,
-          children: _v18.map(({
+        style: _v21,
+        children: [(0, _v1.jsx)(_v36, {}), (0, _v1.jsx)("div", {
+          style: _v22,
+          children: _v20.map(({
             tier: _v0,
             name: _v1,
             previous: _v2
           }) => {
             let _v3 = _v0?.[_v0];
             return (0, _v1.jsxs)("div", {
-              style: _v21,
+              style: _v23,
               children: [(0, _v1.jsx)("h2", {
                 style: {
                   margin: 0
                 },
                 children: _v1
               }), _v3 ? (0, _v1.jsxs)("p", {
-                style: _v22,
-                children: [_v32(_v3), " USD ", _v1]
+                style: _v24,
+                children: [_v34(_v3), " USD ", _v1]
               }) : null, (0, _v1.jsx)("p", {
-                style: _v23,
+                style: _v25,
                 children: _v2 ? (0, _v7.translate)({
                   singular: "Everything in {PLAN_NAME}, plus:",
                   replacements: {
@@ -744,38 +746,38 @@
                   },
                   dictionary: {
                     es: {
-                      singular: "Todo lo incluido en {PLAN_NAME}, más:"
+                      singular: "Todo lo incluido en {PLAN_NAME}, además:"
                     },
                     "de-DE": {
-                      singular: "Alles in {PLAN_NAME}, plus:"
+                      singular: "Alles in {PLAN_NAME} und zusätzlich:"
                     },
                     "fr-FR": {
-                      singular: "Tout ce qui est compris dans l'abonnement {PLAN_NAME}, plus :"
+                      singular: "Tout ce qui est inclus dans {PLAN_NAME}, plus :"
                     },
                     "ja-JP": {
-                      singular: "{PLAN_NAME}プランの全機能に加え："
+                      singular: "{PLAN_NAME} のすべてに加えて："
                     },
                     "ko-KR": {
-                      singular: "{PLAN_NAME}의 모든 기능 및 다음 기능:"
+                      singular: "{PLAN_NAME}에 포함된 모든 기능 및 추가:"
                     },
                     "pt-BR": {
-                      singular: "Tudo incluído no plano {PLAN_NAME}, mais:"
+                      singular: "Tudo em {PLAN_NAME}, mais:"
                     },
                     "zh-CN": {
-                      singular: "{PLAN_NAME} 中的所有功能，加上："
+                      singular: "{PLAN_NAME}, 另加:"
                     }
                   }
                 }) : (0, _v7.translate)({
                   singular: "Key features:",
                   dictionary: {
                     es: {
-                      singular: "Funciones clave:"
+                      singular: "Características clave:"
                     },
                     "de-DE": {
-                      singular: "Die wichtigsten Funktionen:"
+                      singular: "Hauptfunktionen:"
                     },
                     "fr-FR": {
-                      singular: "Fonctionnalités principales :"
+                      singular: "Principales fonctionnalités :"
                     },
                     "ja-JP": {
                       singular: "主な機能："
@@ -787,20 +789,20 @@
                       singular: "Principais recursos:"
                     },
                     "zh-CN": {
-                      singular: "主要特点："
+                      singular: "主要功能:"
                     }
                   }
                 })
               }), (0, _v1.jsx)("ul", {
-                style: _v24,
-                children: (_v17.CARD_FEATURE_LIST_MAP[_v0] ?? []).map((_v0, _v1) => (0, _v1.jsx)("li", {
+                style: _v26,
+                children: (_v19.CARD_FEATURE_LIST_MAP[_v0] ?? []).map((_v0, _v1) => (0, _v1.jsx)("li", {
                   children: _v0
                 }, `${_v0}-${_v1}`))
               })]
             }, _v0);
           })
         }), (0, _v1.jsxs)("section", {
-          style: _v25,
+          style: _v27,
           children: [(0, _v1.jsx)("h2", {
             children: (0, _v7.translate)({
               singular: "Compare plans",
@@ -829,7 +831,7 @@
               }
             })
           }), (0, _v1.jsxs)("div", {
-            style: _v26,
+            style: _v28,
             children: [(0, _v1.jsx)("h3", {
               children: (0, _v7.translate)({
                 singular: "Core features",
@@ -858,7 +860,7 @@
                 }
               })
             }), (0, _v1.jsx)("ul", {
-              style: _v24,
+              style: _v26,
               children: [(0, _v7.translate)({
                 singular: "Users",
                 dictionary: {
@@ -985,67 +987,70 @@
                 children: _v0
               }, `core-${_v1}`))
             })]
-          }), _v37.map(_v0 => (0, _v1.jsxs)("div", {
-            style: _v26,
+          }), _v39.map(_v0 => (0, _v1.jsxs)("div", {
+            style: _v28,
             children: [(0, _v1.jsx)("h3", {
               children: _v0.title
             }), (0, _v1.jsx)("ul", {
-              style: _v24,
+              style: _v26,
               children: _v0.features.map((_v0, _v1) => (0, _v1.jsx)("li", {
                 children: _v0.text
               }, `${_v0.id}-${_v1}`))
             })]
           }, _v0.id))]
-        }), (0, _v1.jsx)(_v35, {
+        }), (0, _v1.jsx)(_v37, {
           inVideoSize: !1
         })]
       });
     },
-    _v39 = ({
+    _v41 = ({
       plansData: _v0,
       prices: _v1
-    }) => _v0 && _v0.length > 0 ? (0, _v1.jsx)(_v36, {
+    }) => _v0 && _v0.length > 0 ? (0, _v1.jsx)(_v38, {
       plansData: _v0,
       prices: _v1
-    }) : (0, _v1.jsx)(_v38, {
+    }) : (0, _v1.jsx)(_v40, {
       prices: _v1
     });
-  var _v40 = _v0.i(0);
-  let _v41 = "https://vimeo.com",
-    _v42 = `${_v41}/upgrade-plan`,
-    _v43 = {
+  var _v42 = _v0.i(0);
+  let _v43 = "https://vimeo.com",
+    _v44 = `${_v43}/upgrade-plan`,
+    _v45 = {
       starter: "12.00",
       standard: "25.00",
       advanced: "75.00"
     },
-    _v44 = (_v0, _v1, _v2) => ({
+    _v46 = (_v0, _v1, _v2) => ({
       "@type": "ImageObject",
       url: `https://i.vimeocdn.com/custom_asset/${_v0}`,
       width: _v1,
       height: _v2
     }),
-    _v45 = {
+    _v47 = {
       "@type": "Organization",
       name: "Vimeo",
-      url: _v41,
-      logo: _v44("cbf0b6892f540132a1d1b8f1520a9d75", "2150", "860"),
+      url: _v43,
+      logo: _v46("cbf0b6892f540132a1d1b8f1520a9d75", "2150", "860"),
       sameAs: ["https://www.facebook.com/Vimeo/", "https://twitter.com/vimeo", "https://www.instagram.com/vimeo/", "https://en.wikipedia.org/wiki/Vimeo", "https://www.crunchbase.com/organization/vimeo", "https://www.tiktok.com/@vimeo", "https://www.linkedin.com/company/vimeo/"]
     },
-    _v46 = {
+    _v48 = {
       "@type": "QuantitativeValue",
       value: "1",
       unitCode: "MON"
     },
-    _v47 = ({
+    _v49 = ({
       plansData: _v0,
       prices: _v1
     }) => {
       let [_v2] = (0, _v4.useQueryParams)({
           v: _v3.NumberParam,
-          context: (0, _v3.createEnumParam)(Object.values(_v10.CONTEXT)),
-          campaign: _v3.StringParam
+          context: (0, _v3.createEnumParam)(Object.values(_v12.CONTEXT)),
+          campaign: _v3.StringParam,
+          [_v10.POST_CHECKOUT_URL_PARAM]: _v3.StringParam
         }),
-        _v3 = (0, _v7.translate)({
+        _v3 = _v2[_v10.POST_CHECKOUT_URL_PARAM],
+        _v4 = "string" == typeof _v3 && (0, _v9.isVimeoRedirectableUrl)(_v3) ? _v3 : void 0,
+        _v5 = (0, _v7.translate)({
           singular: "Pricing plans | From free plans to enterprise solutions",
           dictionary: {
             es: {
@@ -1071,7 +1076,7 @@
             }
           }
         }),
-        _v4 = (0, _v7.translate)({
+        _v6 = (0, _v7.translate)({
           singular: "Join the web’s most supportive community of creators and get high-quality tools for hosting, sharing, and streaming videos in gorgeous HD and 4K with no ads.",
           dictionary: {
             es: {
@@ -1100,10 +1105,10 @@
       return (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsxs)(_v2.default, {
           children: [(0, _v1.jsx)("title", {
-            children: _v3
+            children: _v5
           }), (0, _v1.jsx)("meta", {
             name: "description",
-            content: _v4
+            content: _v6
           }), (0, _v1.jsx)("meta", {
             property: "og:type",
             content: "video.other"
@@ -1112,19 +1117,19 @@
             content: "Vimeo"
           }), (0, _v1.jsx)("meta", {
             property: "og:url",
-            content: _v42
+            content: _v44
           }), (0, _v1.jsx)("meta", {
             property: "og:title",
-            content: _v3
+            content: _v5
           }), (0, _v1.jsx)("meta", {
             property: "og:description",
-            content: _v4
+            content: _v6
           }), (0, _v1.jsx)("meta", {
             name: "twitter:title",
-            content: _v3
+            content: _v5
           }), (0, _v1.jsx)("link", {
             rel: "canonical",
-            href: _v42
+            href: _v44
           })]
         }), (0, _v1.jsx)("div", {
           suppressHydrationWarning: !0,
@@ -1135,19 +1140,19 @@
                 mainEntity: {
                   "@context": "http://schema.org",
                   "@type": ["WebApplication", "Product", "SoftwareApplication"],
-                  "@id": _v41,
+                  "@id": _v43,
                   applicationCategory: ["BusinessApplication", "BrowserApplication", "EntertainmentApplication", "MultimediaApplication", "LifestyleApplication", "EducationalApplication", "CommunicationApplication", "ReferenceApplication"],
                   name: "Vimeo All-In-One Video Platform",
                   operatingSystem: "all",
                   browserRequirements: "Requires Javascript and HTML5 support",
-                  url: _v41,
-                  screenshot: _v44("d9ef877c80e240720926ee30e6ace39b", "1800", "1101"),
-                  image: [_v44("c406392768b237292f74f3e2099e5545", "1920", "1082"), _v44("650db19aec4d5633a6f5a1a2997bd058", "1921", "1081"), _v44("f884aa9bd76537bdb2f52e8017becdc0", "1920", "1080"), _v44("bc7ff4aaa44d52d6683d21e1d68c9913", "1920", "1080"), _v44("202c65b28d45af4812af604d1f2f629d", "1920", "1080")],
+                  url: _v43,
+                  screenshot: _v46("d9ef877c80e240720926ee30e6ace39b", "1800", "1101"),
+                  image: [_v46("c406392768b237292f74f3e2099e5545", "1920", "1082"), _v46("650db19aec4d5633a6f5a1a2997bd058", "1921", "1081"), _v46("f884aa9bd76537bdb2f52e8017becdc0", "1920", "1080"), _v46("bc7ff4aaa44d52d6683d21e1d68c9913", "1920", "1080"), _v46("202c65b28d45af4812af604d1f2f629d", "1920", "1080")],
                   description: "Unlock the power of video and join over 260M professionals, teams, and organizations who use Vimeo to create, collaborate and communicate.",
                   featureList: ["https://vimeo.com/solutions/video-monetization", "https://vimeo.com/solutions/communications", "https://vimeo.com/solutions/marketing", "https://vimeo.com/features/interactive-video", "https://vimeo.com/features/livestreaming", "https://vimeo.com/features/screen-recorder", "https://vimeo.com/create", "https://vimeo.com/stock", "https://vimeo.com/features/video-library", "https://vimeo.com/features/video-player", "https://vimeo.com/features/online-video-hosting", "https://vimeo.com/features/video-privacy", "https://vimeo.com/enterprise", "https://vimeo.com/features/virtual-events", "https://vimeo.com/features/video-analytics", "https://vimeo.com/ott"],
                   offers: {
                     "@type": "AggregateOffer",
-                    offeredBy: _v45,
+                    offeredBy: _v47,
                     highPrice: _v1.advanced,
                     lowPrice: "0.00",
                     offerCount: "4",
@@ -1164,48 +1169,49 @@
                       priceCurrency: "USD",
                       name: "Starter",
                       description: "Our Starter plan comes with 60 videos/seat/year; 2TB of bandwidth/month in the Vimeo player; In addition to the Free plan, Starter comes with Player embedding; Password protection; Video chaptering and SEO; Seamless video review tools with Time-coded notes; and Engagement and social analytics.",
-                      referenceQuantity: _v46
+                      referenceQuantity: _v48
                     }, {
                       "@type": "UnitPriceSpecification",
                       price: _v1.standard,
                       priceCurrency: "USD",
                       name: "Standard",
                       description: "Our Standard plan comes with 120 videos/seat/year, 2TB of bandwidth/month in the Vimeo player; In addition to the Starter plan, Standard comes with Branding in player and videos; Custom CTAs and end cards; Lead capture with custom forms; Premium templates for video creation; Stock photos, videos, and music; and Tools to sell videos online and worldwide.",
-                      referenceQuantity: _v46
+                      referenceQuantity: _v48
                     }, {
                       "@type": "UnitPriceSpecification",
                       price: _v1.advanced,
                       priceCurrency: "USD",
                       name: "Advanced",
                       description: "Our Advanced plan comes with 240 videos/seat/year, 2TB of bandwidth/month in the Vimeo player; In addition to the Standard plan, Advanced comes with Virtual events and webinars; Live Q&A, polls, and chats; Register up to 100 attendees per event; Branded invite & reminder emails; Real-time stream health; and Marketing integrations with Constant Contact, Hubspot, Mailchimp, Heap, and Campaign Monitor.",
-                      referenceQuantity: _v46
+                      referenceQuantity: _v48
                     }]
                   },
-                  creator: _v45
+                  creator: _v47
                 }
               }]
             })}</script>`
           }
         }), (0, _v1.jsx)("noscript", {
           suppressHydrationWarning: !0,
-          children: (0, _v1.jsx)(_v39, {
+          children: (0, _v1.jsx)(_v41, {
             plansData: _v0,
             prices: _v1
           })
-        }), (0, _v1.jsx)(_v9.default, {
+        }), (0, _v1.jsx)(_v11.default, {
           version: _v2.v,
           context: _v2.context,
-          campaign: _v2.campaign
+          campaign: _v2.campaign,
+          postCheckoutUrl: _v4
         })]
       });
     },
-    _v48 = ["starter", "standard", "advanced"],
-    _v49 = ["currency", "discount", "id", "metadata", "price", "promotion", "name", "uri", "tier", "priceFormatted"],
-    _v50 = async (_v0, _v1) => {
+    _v50 = ["starter", "standard", "advanced"],
+    _v51 = ["currency", "discount", "id", "metadata", "price", "promotion", "name", "uri", "tier", "priceFormatted"],
+    _v52 = async (_v0, _v1) => {
       try {
         let _v0 = await (0, _v6.getSubscriptionPlans)({
             baseUrl: _v0,
-            select: _v49,
+            select: _v51,
             query: {
               bypassTierHierarchy: !0,
               currency: "USD"
@@ -1227,19 +1233,19 @@
       }
     };
   (0, _v5.withPageSetup)(async _v0 => {
-    let _v1 = await _v50(_v0.baseUrl, _v0.jwt);
+    let _v1 = await _v52(_v0.baseUrl, _v0.jwt);
     return {
       props: {
         hasThemeSupport: !0,
         plansData: _v1,
         prices: (_v0 => {
-          if (!_v0) return _v43;
+          if (!_v0) return _v45;
           let _v1 = {
-            ..._v43
+            ..._v45
           };
-          for (let _v0 of _v48) {
+          for (let _v0 of _v50) {
             let _v0 = _v0.find(_v0 => _v0.tier === _v0)?.price?.annualMonthly;
-            if ("number" != typeof _v0) return _v43;
+            if ("number" != typeof _v0) return _v45;
             _v1[_v0] = _v0.toFixed(2);
           }
           return _v1;
@@ -1248,7 +1254,7 @@
     };
   }, {
     inlineViewer: "all"
-  }), _v47.getLayout = _v0 => (0, _v1.jsxs)(_v40.QueryParamProvider, {
+  }), _v49.getLayout = _v0 => (0, _v1.jsxs)(_v42.QueryParamProvider, {
     children: [_v0, (0, _v1.jsx)(_v8.StandardFooterLayout, {})]
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v47], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v49], 0);
 }

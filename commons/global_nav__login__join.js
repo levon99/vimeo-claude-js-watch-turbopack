@@ -35,6 +35,7 @@
       comments_reaction: ["comments", "reaction"],
       comments_report: ["comments", "report"],
       guest_review_login: ["guest_review", "login"],
+      guest_review_signup: ["guest_review", "signup"],
       search_public_library: ["search", "public_library"],
       search_watchlater: ["search", "watchlater"],
       feed_login: ["feed", "login"],

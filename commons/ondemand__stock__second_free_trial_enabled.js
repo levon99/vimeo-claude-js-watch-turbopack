@@ -26,8 +26,9 @@
     _v22 = _v0.i(0),
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
-    _v25 = _v0.i(0);
-  let _v26 = (0, _v2.default)(async () => {
+    _v25 = _v0.i(0),
+    _v26 = _v0.i(0);
+  let _v27 = (0, _v2.default)(async () => {
       let {
         Checkout: _v0
       } = await _v0.A(0);
@@ -39,7 +40,7 @@
         modules: [0]
       }
     }),
-    _v27 = {
+    _v28 = {
       promo: _v5.StringParam,
       currency: _v5.StringParam,
       action: _v5.StringParam,
@@ -51,13 +52,13 @@
       bandwidthPlanBSelected: _v5.StringParam,
       fdsource: _v5.StringParam
     },
-    _v28 = _v0 => {
-      let _v1 = (0, _v24.useViewer)(),
+    _v29 = _v0 => {
+      let _v1 = (0, _v25.useViewer)(),
         _v2 = (0, _v3.useRouter)(),
-        [_v3] = (0, _v6.useQueryParams)(_v27),
+        [_v3] = (0, _v6.useQueryParams)(_v28),
         {
           trackCheckoutOpen: _v4
-        } = (0, _v19.useCheckoutTracking)(_v0.iosUserId),
+        } = (0, _v20.useCheckoutTracking)(_v0.iosUserId),
         {
           trackFakeDoorCheckoutOpen: _v5
         } = (0, _v12.useFakeDoorCheckoutTracking)(),
@@ -94,48 +95,54 @@
         _v22 = _v17?.hasUsedStripeCheckout || !1,
         _v23 = _v17?.inAppSubscription,
         _v24 = "string" == typeof _v2.query.post_checkout_url ? _v2.query.post_checkout_url : void 0,
-        _v25 = _v24 && (0, _v21.isVimeoRedirectableUrl)(_v24) ? _v24 : void 0;
+        _v25 = _v24 && (0, _v22.isVimeoRedirectableUrl)(_v24) ? _v24 : void 0,
+        _v26 = "1" === _v2.query[_v18.ONBOARDING_CHECKOUT_FALLBACK_PARAM],
+        _v27 = (0, _v4.useMemo)(() => {
+          if (!_v26) return;
+          let _v0 = {};
+          return _v3.currency && (_v0.currency = _v3.currency), _v3.campaign && (_v0.campaign = _v3.campaign), 0 === Object.keys(_v0).length ? void 0 : _v0;
+        }, [_v26, _v3.campaign, _v3.currency]);
       (0, _v4.useEffect)(() => {
-        !_v8 && _v10 && _v2.replace((0, _v18.buildUpgradePlanUrl)({
+        !_v8 && _v10 && _v2.replace((0, _v19.buildUpgradePlanUrl)({
           paywallTrigger: "checkout_b2b_restricted_plan_redirect",
           paywallLocation: "checkout",
           paywallFeature: "b2b_repackaging",
           postCheckoutUrl: _v25
         }));
       }, [_v8, _v10, _v2, _v25]);
-      let _v26 = _v2.pathname.includes("/trial"),
-        _v27 = _v15.second_free_trial_enabled && !!_v17?.secondFreeTrialEligibility,
-        _v28 = _v26 && (_v17?.beenInFreeTrial || _v17?.isLapsed) && !_v27 && !_v18 && !_v19 && !_v16,
-        _v29 = null === _v7 || _v8 || _v10 || _v18 || _v19 || _v16 || void 0 === _v20 || _v11 && (!_v12 || !_v13),
-        _v30 = (0, _v9.getCheckoutPeriodicity)(_v11, _v12, !!_v0.isMonthly, _v0.isWeekly),
-        _v31 = _v15.checkout_default_payment_method,
-        _v32 = _v21 || _v22 || _v15.force_stripe_checkout ? _v10.PaymentFormTypes.TYPE_STRIPE : _v3.type ? Number(_v3.type) : "paypal" === _v31 ? _v10.PaymentFormTypes.TYPE_PAYPAL : _v10.PaymentFormTypes.TYPE_CREDIT_CARD,
-        _v33 = _v32 === _v10.PaymentFormTypes.TYPE_STRIPE ? "stripe" : _v32 === _v10.PaymentFormTypes.TYPE_PAYPAL ? "paypal" : "credit_card";
-      (0, _v20.usePicoEffect)(() => {
-        if (_v29) return !1;
+      let _v28 = _v2.pathname.includes("/trial"),
+        _v29 = _v15.second_free_trial_enabled && !!_v17?.secondFreeTrialEligibility,
+        _v30 = _v28 && (_v17?.beenInFreeTrial || _v17?.isLapsed) && !_v29 && !_v18 && !_v19 && !_v16,
+        _v31 = null === _v7 || _v8 || _v10 || _v18 || _v19 || _v16 || void 0 === _v20 || _v11 && (!_v12 || !_v13),
+        _v32 = (0, _v9.getCheckoutPeriodicity)(_v11, _v12, !!_v0.isMonthly, _v0.isWeekly),
+        _v33 = _v15.checkout_default_payment_method,
+        _v34 = _v21 || _v22 || _v15.force_stripe_checkout ? _v10.PaymentFormTypes.TYPE_STRIPE : _v3.type ? Number(_v3.type) : "paypal" === _v33 ? _v10.PaymentFormTypes.TYPE_PAYPAL : _v10.PaymentFormTypes.TYPE_CREDIT_CARD,
+        _v35 = _v34 === _v10.PaymentFormTypes.TYPE_STRIPE ? "stripe" : _v34 === _v10.PaymentFormTypes.TYPE_PAYPAL ? "paypal" : "credit_card";
+      (0, _v21.usePicoEffect)(() => {
+        if (_v31) return !1;
         _v4({
           tier: _v7,
-          periodicity: _v30,
-          isFreeTrial: _v26,
-          defaultPaymentMethod: _v33
+          periodicity: _v32,
+          isFreeTrial: _v28,
+          defaultPaymentMethod: _v35
         });
-      }, [_v29, _v7, _v30, _v26, _v33], {
+      }, [_v31, _v7, _v32, _v28, _v35], {
         once: !0
       });
-      let _v34 = _v29 || !_v14;
-      return ((0, _v20.usePicoEffect)(() => {
-        if (_v34 || !_v14) return !1;
+      let _v36 = _v31 || !_v14;
+      return ((0, _v21.usePicoEffect)(() => {
+        if (_v36 || !_v14) return !1;
         _v5(_v14);
-      }, [_v34, _v14], {
+      }, [_v36, _v14], {
         once: !0
-      }), _v28 && !_v14 && _v2.push((0, _v18.buildUpgradePlanUrl)({
+      }), _v30 && !_v14 && _v2.push((0, _v19.buildUpgradePlanUrl)({
         paywallTrigger: "checkout_lapsed_or_trial_upgrade_redirect",
         paywallLocation: "checkout",
         paywallFeature: "subscription",
         postCheckoutUrl: _v25
-      })), !_v7 || _v8 || _v10 || (_v23 && !_v11 && (window.location.href = "/settings/billing/membership_plan"), _v18 || _v19 || void 0 === _v20 || _v16 || !_v11 && "custom_self_serve" !== _v7 && !_v20 || _v11 && (!_v12 || !_v13))) ? null : (0, _v1.jsx)(_v26, {
+      })), !_v7 || _v8 || _v10 || (_v23 && !_v11 && (window.location.href = "/settings/billing/membership_plan"), _v18 || _v19 || void 0 === _v20 || _v16 || !_v11 && "custom_self_serve" !== _v7 && !_v20 || _v11 && (!_v12 || !_v13))) ? null : (0, _v1.jsx)(_v27, {
         ..._v0,
-        defaultPaymentType: _v32,
+        defaultPaymentType: _v34,
         isIndianUser: _v21,
         defaultPromoCodeId: _v3.promo ?? void 0,
         currencyQuery: _v3.currency ?? void 0,
@@ -147,14 +154,17 @@
         errorMessage: _v3.error ?? void 0,
         campaign: _v3.campaign ?? void 0,
         bandwidthPlanBSelected: _v3.bandwidthPlanBSelected ?? void 0,
-        fakeDoorConfig: _v14
+        fakeDoorConfig: _v14,
+        onboardingFallbackModal: _v26,
+        postCheckoutUrl: _v25,
+        switchCheckoutParams: _v27
       });
     };
   (0, _v13.withPageSetup)({
     inlineViewer: "all"
   }), _v0.s(["default", 0, _v0 => {
     let _v1 = (0, _v3.useRouter)(),
-      _v2 = (0, _v4.useContext)(_v23.ViewerContext),
+      _v2 = (0, _v4.useContext)(_v24.ViewerContext),
       _v3 = (0, _v4.useMemo)(() => {
         if (!_v1.query?.token) return null;
         try {
@@ -164,16 +174,16 @@
         }
       }, [_v1.query?.token]);
     return ((0, _v4.useEffect)(() => {
-      _v1.isReady && _v22.postCheckoutUrl.sync(_v1.query.post_checkout_url ?? null);
+      _v1.isReady && _v23.postCheckoutUrl.sync(_v1.query.post_checkout_url ?? null);
     }, [_v1.isReady, _v1.query.post_checkout_url]), _v1.isReady && _v2) ? _v2?.user || _v1.query?.token ? (0, _v1.jsx)(_v14.GctlProvider, {
       xVimeoPage: _v1.pathname,
       jwt: _v1.query?.token && !(0, _v9.isPayPalToken)(String(_v1.query?.token)) ? String(_v1.query?.token) : _v2?.jwt,
       baseUrl: _v2 ? `https://${_v2.apiUrl}` : "",
       locale: _v2?.locale,
-      children: (0, _v1.jsx)(_v25.QueryParamProvider, {
+      children: (0, _v1.jsx)(_v26.QueryParamProvider, {
         children: (0, _v1.jsx)(_v4.Suspense, {
           fallback: null,
-          children: (0, _v1.jsx)(_v28, {
+          children: (0, _v1.jsx)(_v29, {
             ..._v0,
             iosUserId: _v3?.user_id,
             b2bJwt: _v1.query?.token && !(0, _v9.isPayPalToken)(String(_v1.query.token)) ? String(_v1.query.token) : _v2?.jwt

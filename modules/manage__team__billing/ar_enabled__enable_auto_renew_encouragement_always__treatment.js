@@ -818,60 +818,60 @@
                   }
                 }),
                 storage: (0, _v16.translate)({
-                  singular: "{STORAGE} managed storage for embeddable and non-public videos",
+                  singular: "{STORAGE} managed storage",
                   replacements: {
                     STORAGE: _v3?.restrictedVideoStorageLimit ?? "30 GB"
                   },
                   dictionary: {
                     es: {
-                      singular: "{STORAGE} almacenamiento gestionado para vídeos incrustables y no públicos"
+                      singular: "{STORAGE} de almacenamiento gestionado"
                     },
                     "de-DE": {
-                      singular: "{STORAGE} verwalteter Speicher für einbettbare und nicht-öffentliche Videos"
+                      singular: "{STORAGE} verwalteter Speicher"
                     },
                     "fr-FR": {
-                      singular: "{STORAGE} stockage géré pour les vidéos intégrables et non publiques"
+                      singular: "{STORAGE} de stockage géré"
                     },
                     "ja-JP": {
-                      singular: "{STORAGE} の埋め込み可能な動画および非公開の動画向け管理ストレージ"
+                      singular: "{STORAGE} マネージドストレージ"
                     },
                     "ko-KR": {
-                      singular: "{STORAGE} 임베드 가능한 동영상 및 비공개 동영상을 위한 관리형 스토리지"
+                      singular: "{STORAGE} 관리형 스토리지"
                     },
                     "pt-BR": {
-                      singular: "{STORAGE} de armazenamento gerenciado para vídeos incorporáveis e não públicos"
+                      singular: "{STORAGE} de armazenamento gerenciado"
                     },
                     "zh-CN": {
-                      singular: "{STORAGE} 用于可嵌入和非公开视频的托管存储"
+                      singular: "{STORAGE} 托管存储"
                     }
                   }
                 }),
                 bandwidth: (0, _v16.translate)({
-                  singular: "{BANDWIDTH} monthly bandwidth",
+                  singular: "{BANDWIDTH}/mo managed bandwidth",
                   replacements: {
                     BANDWIDTH: _v3?.bandwidth?.periodicQuota ?? "1 TB"
                   },
                   dictionary: {
                     es: {
-                      singular: "{BANDWIDTH} de ancho de banda mensual"
+                      singular: "{BANDWIDTH}/mo de ancho de banda gestionado"
                     },
                     "de-DE": {
-                      singular: "{BANDWIDTH} monatliche Bandbreite"
+                      singular: "{BANDWIDTH}/Monat verwaltete Bandbreite"
                     },
                     "fr-FR": {
-                      singular: "{BANDWIDTH} bande passante mensuelle"
+                      singular: "{BANDWIDTH}/mo de bande passante gérée"
                     },
                     "ja-JP": {
-                      singular: "{BANDWIDTH}の月間帯域幅"
+                      singular: "{BANDWIDTH}/mo マネージド帯域幅"
                     },
                     "ko-KR": {
-                      singular: "{BANDWIDTH} 월간 대역폭"
+                      singular: "{BANDWIDTH}/mo 관리형 대역폭"
                     },
                     "pt-BR": {
-                      singular: "{BANDWIDTH} de banda mensal"
+                      singular: "{BANDWIDTH}/mo de largura de banda gerenciada"
                     },
                     "zh-CN": {
-                      singular: "{BANDWIDTH} 每月带宽"
+                      singular: "{BANDWIDTH}/月 托管带宽"
                     }
                   }
                 }),
@@ -1166,60 +1166,60 @@
                   }
                 }),
                 storage: (0, _v16.translate)({
-                  singular: "{STORAGE} managed storage for embeddable and non-public videos",
+                  singular: "{STORAGE} managed storage",
                   replacements: {
                     STORAGE: _v3?.restrictedVideoStorageLimit ?? "500 GB"
                   },
                   dictionary: {
                     es: {
-                      singular: "{STORAGE} almacenamiento gestionado para vídeos incrustables y no públicos"
+                      singular: "{STORAGE} de almacenamiento gestionado"
                     },
                     "de-DE": {
-                      singular: "{STORAGE} verwalteter Speicher für einbettbare und nicht-öffentliche Videos"
+                      singular: "{STORAGE} verwalteter Speicher"
                     },
                     "fr-FR": {
-                      singular: "{STORAGE} stockage géré pour les vidéos intégrables et non publiques"
+                      singular: "{STORAGE} de stockage géré"
                     },
                     "ja-JP": {
-                      singular: "{STORAGE} の埋め込み可能な動画および非公開の動画向け管理ストレージ"
+                      singular: "{STORAGE} マネージドストレージ"
                     },
                     "ko-KR": {
-                      singular: "{STORAGE} 임베드 가능한 동영상 및 비공개 동영상을 위한 관리형 스토리지"
+                      singular: "{STORAGE} 관리형 스토리지"
                     },
                     "pt-BR": {
-                      singular: "{STORAGE} de armazenamento gerenciado para vídeos incorporáveis e não públicos"
+                      singular: "{STORAGE} de armazenamento gerenciado"
                     },
                     "zh-CN": {
-                      singular: "{STORAGE} 用于可嵌入和非公开视频的托管存储"
+                      singular: "{STORAGE} 托管存储"
                     }
                   }
                 }),
                 bandwidth: (0, _v16.translate)({
-                  singular: "{BANDWIDTH} monthly bandwidth",
+                  singular: "{BANDWIDTH}/mo managed bandwidth",
                   replacements: {
                     BANDWIDTH: _v3?.bandwidth?.periodicQuota ?? "2 TB"
                   },
                   dictionary: {
                     es: {
-                      singular: "{BANDWIDTH} de ancho de banda mensual"
+                      singular: "{BANDWIDTH}/mo de ancho de banda gestionado"
                     },
                     "de-DE": {
-                      singular: "{BANDWIDTH} monatliche Bandbreite"
+                      singular: "{BANDWIDTH}/Monat verwaltete Bandbreite"
                     },
                     "fr-FR": {
-                      singular: "{BANDWIDTH} bande passante mensuelle"
+                      singular: "{BANDWIDTH}/mo de bande passante gérée"
                     },
                     "ja-JP": {
-                      singular: "{BANDWIDTH}の月間帯域幅"
+                      singular: "{BANDWIDTH}/mo マネージド帯域幅"
                     },
                     "ko-KR": {
-                      singular: "{BANDWIDTH} 월간 대역폭"
+                      singular: "{BANDWIDTH}/mo 관리형 대역폭"
                     },
                     "pt-BR": {
-                      singular: "{BANDWIDTH} de banda mensal"
+                      singular: "{BANDWIDTH}/mo de largura de banda gerenciada"
                     },
                     "zh-CN": {
-                      singular: "{BANDWIDTH} 每月带宽"
+                      singular: "{BANDWIDTH}/月 托管带宽"
                     }
                   }
                 }),
@@ -1529,60 +1529,60 @@
                   }
                 }),
                 storage: (0, _v16.translate)({
-                  singular: "{STORAGE} managed storage for embeddable and non-public videos",
+                  singular: "{STORAGE} managed storage",
                   replacements: {
                     STORAGE: _v3?.restrictedVideoStorageLimit ?? "7 TB"
                   },
                   dictionary: {
                     es: {
-                      singular: "{STORAGE} almacenamiento gestionado para vídeos incrustables y no públicos"
+                      singular: "{STORAGE} de almacenamiento gestionado"
                     },
                     "de-DE": {
-                      singular: "{STORAGE} verwalteter Speicher für einbettbare und nicht-öffentliche Videos"
+                      singular: "{STORAGE} verwalteter Speicher"
                     },
                     "fr-FR": {
-                      singular: "{STORAGE} stockage géré pour les vidéos intégrables et non publiques"
+                      singular: "{STORAGE} de stockage géré"
                     },
                     "ja-JP": {
-                      singular: "{STORAGE} の埋め込み可能な動画および非公開の動画向け管理ストレージ"
+                      singular: "{STORAGE} マネージドストレージ"
                     },
                     "ko-KR": {
-                      singular: "{STORAGE} 임베드 가능한 동영상 및 비공개 동영상을 위한 관리형 스토리지"
+                      singular: "{STORAGE} 관리형 스토리지"
                     },
                     "pt-BR": {
-                      singular: "{STORAGE} de armazenamento gerenciado para vídeos incorporáveis e não públicos"
+                      singular: "{STORAGE} de armazenamento gerenciado"
                     },
                     "zh-CN": {
-                      singular: "{STORAGE} 用于可嵌入和非公开视频的托管存储"
+                      singular: "{STORAGE} 托管存储"
                     }
                   }
                 }),
                 bandwidth: (0, _v16.translate)({
-                  singular: "{BANDWIDTH} monthly bandwidth",
+                  singular: "{BANDWIDTH}/mo managed bandwidth",
                   replacements: {
                     BANDWIDTH: _v3?.bandwidth?.periodicQuota ?? "2 TB"
                   },
                   dictionary: {
                     es: {
-                      singular: "{BANDWIDTH} de ancho de banda mensual"
+                      singular: "{BANDWIDTH}/mo de ancho de banda gestionado"
                     },
                     "de-DE": {
-                      singular: "{BANDWIDTH} monatliche Bandbreite"
+                      singular: "{BANDWIDTH}/Monat verwaltete Bandbreite"
                     },
                     "fr-FR": {
-                      singular: "{BANDWIDTH} bande passante mensuelle"
+                      singular: "{BANDWIDTH}/mo de bande passante gérée"
                     },
                     "ja-JP": {
-                      singular: "{BANDWIDTH}の月間帯域幅"
+                      singular: "{BANDWIDTH}/mo マネージド帯域幅"
                     },
                     "ko-KR": {
-                      singular: "{BANDWIDTH} 월간 대역폭"
+                      singular: "{BANDWIDTH}/mo 관리형 대역폭"
                     },
                     "pt-BR": {
-                      singular: "{BANDWIDTH} de banda mensal"
+                      singular: "{BANDWIDTH}/mo de largura de banda gerenciada"
                     },
                     "zh-CN": {
-                      singular: "{BANDWIDTH} 每月带宽"
+                      singular: "{BANDWIDTH}/月 托管带宽"
                     }
                   }
                 }),
@@ -3662,8 +3662,217 @@
       left: "20px",
       onClick: _v0
     }),
-    _v174 = _v0 => _v0 ? `url(${_v0})` : void 0,
+    _v174 = _v0 => {
+      let _v1 = _v0?.storageLimitBytes ?? null;
+      if (null !== _v1) return (_v0?.storageUsedBytes ?? 0) > _v1;
+      let _v2 = Math.max(_v0?.frozenVideosCount ?? 0, _v0?.frozenVideosPreview?.length ?? 0),
+        _v3 = Math.max(_v0?.frozenFilesCount ?? 0, _v0?.frozenFilesPreview?.length ?? 0);
+      return _v2 > 0 || _v3 > 0;
+    },
     _v175 = ({
+      frozenFilesCount: _v0,
+      storageLimitBytes: _v1,
+      files: _v2,
+      targetPlanName: _v3
+    }) => {
+      let _v4 = Math.max(_v0, _v2.length),
+        _v5 = (0, _v16.translate)({
+          singular: "{COUNT} file will be frozen",
+          plural: "{COUNT} files will be frozen",
+          count: _v4,
+          replacements: {
+            COUNT: (0, _v141.formatNumber)(_v4)
+          },
+          dictionary: {
+            es: {
+              singular: "{COUNT} archivo se congelará",
+              plural: "{COUNT} archivos se congelarán"
+            },
+            "de-DE": {
+              singular: "{COUNT} Datei wird eingefroren",
+              plural: "{COUNT} Dateien werden eingefroren"
+            },
+            "fr-FR": {
+              singular: "{COUNT} fichier sera gelé",
+              plural: "{COUNT} fichiers seront gelés"
+            },
+            "ja-JP": {
+              singular: "{COUNT}件のファイルが凍結されます",
+              plural: "{COUNT}件のファイルが凍結されます"
+            },
+            "ko-KR": {
+              singular: "{COUNT}개의 파일이 동결됩니다",
+              plural: "{COUNT}개의 파일이 동결됩니다"
+            },
+            "pt-BR": {
+              singular: "{COUNT} arquivo será congelado",
+              plural: "{COUNT} arquivos serão congelados"
+            },
+            "zh-CN": {
+              singular: "{COUNT} 个文件将被冻结",
+              plural: "{COUNT} 个文件将被冻结"
+            }
+          }
+        }),
+        _v6 = _v3 ?? (0, _v16.translate)({
+          singular: "free plan",
+          dictionary: {
+            es: {
+              singular: "plan gratuito"
+            },
+            "de-DE": {
+              singular: "kostenloser Plan"
+            },
+            "fr-FR": {
+              singular: "forfait gratuit"
+            },
+            "ja-JP": {
+              singular: "無料プラン"
+            },
+            "ko-KR": {
+              singular: "무료 플랜"
+            },
+            "pt-BR": {
+              singular: "plano gratuito"
+            },
+            "zh-CN": {
+              singular: "免费计划"
+            }
+          }
+        }),
+        _v7 = null !== _v1 ? (0, _v16.translate)({
+          singular: "Your files beyond the {PLAN} storage limit of {LIMIT} will be frozen and no longer accessible. Files are frozen before videos.",
+          replacements: {
+            PLAN: _v6,
+            LIMIT: (0, _v99.formatBytes)(_v1, !1)
+          },
+          dictionary: {
+            es: {
+              singular: "Los archivos que excedan el límite de almacenamiento de {LIMIT} del {PLAN} se congelarán y dejarán de ser accesibles. Los archivos se congelan antes que los vídeos."
+            },
+            "de-DE": {
+              singular: "Ihre Dateien, die das Speicherlimit von {LIMIT} Ihres {PLAN} überschreiten, werden eingefroren und sind nicht mehr zugänglich. Dateien werden vor Videos eingefroren."
+            },
+            "fr-FR": {
+              singular: "Vos fichiers dépassant la limite de stockage du {PLAN} de {LIMIT} seront gelés et ne seront plus accessibles. Les fichiers sont gelés avant les vidéos."
+            },
+            "ja-JP": {
+              singular: "{PLAN}のストレージ上限である{LIMIT}を超えるファイルは凍結され、アクセスできなくなります。ファイルは動画より先に凍結されます。"
+            },
+            "ko-KR": {
+              singular: "귀하의 {PLAN} 저장 한도인 {LIMIT}을 초과한 파일은 동결되어 더 이상 액세스할 수 없습니다. 파일은 동영상보다 먼저 동결됩니다."
+            },
+            "pt-BR": {
+              singular: "Seus arquivos além do limite de armazenamento do {PLAN} de {LIMIT} serão congelados e não estarão mais acessíveis. Os arquivos são congelados antes dos vídeos."
+            },
+            "zh-CN": {
+              singular: "超出 {PLAN} 的 {LIMIT} 存储限额的文件将被冻结并且无法访问。文件会先于视频被冻结。"
+            }
+          }
+        }) : (0, _v16.translate)({
+          singular: "Your files beyond the {PLAN} managed storage limit will be frozen and no longer accessible. Files are frozen before videos.",
+          replacements: {
+            PLAN: _v6
+          },
+          dictionary: {
+            es: {
+              singular: "Los archivos que excedan el límite de almacenamiento gestionado de {PLAN} se congelarán y dejarán de ser accesibles. Los archivos se congelan antes que los vídeos."
+            },
+            "de-DE": {
+              singular: "Ihre Dateien, die das von {PLAN} verwaltete Speicherlimit überschreiten, werden eingefroren und sind nicht mehr zugänglich. Dateien werden vor Videos eingefroren."
+            },
+            "fr-FR": {
+              singular: "Vos fichiers dépassant la limite de stockage gérée {PLAN} seront gelés et ne seront plus accessibles. Les fichiers sont gelés avant les vidéos."
+            },
+            "ja-JP": {
+              singular: "{PLAN}の管理対象ストレージ上限を超えるファイルは凍結され、アクセスできなくなります。ファイルは動画より先に凍結されます。"
+            },
+            "ko-KR": {
+              singular: "귀하의 {PLAN} 관리된 저장 한도를 초과한 파일은 동결되어 더 이상 액세스할 수 없습니다. 파일은 동영상보다 먼저 동결됩니다."
+            },
+            "pt-BR": {
+              singular: "Seus arquivos além do limite de armazenamento gerenciado do {PLAN} serão congelados e não estarão mais acessíveis. Os arquivos são congelados antes dos vídeos."
+            },
+            "zh-CN": {
+              singular: "超出 {PLAN} 托管存储限额的文件将被冻结并且无法访问。文件会先于视频被冻结。"
+            }
+          }
+        }),
+        _v8 = _v2.slice(0, 5),
+        _v9 = Math.max(_v4 - _v8.length, 0);
+      return (0, _v5.jsxs)(_v12.Flex, {
+        gap: "3",
+        align: "flex-start",
+        children: [(0, _v5.jsx)(_v13.CircleExclamationFilled, {
+          boxSize: "24px",
+          color: "status-caution-primary"
+        }), (0, _v5.jsxs)(_v165.Stack, {
+          spacing: "4",
+          flex: "1",
+          children: [(0, _v5.jsxs)(_v165.Stack, {
+            spacing: "1",
+            children: [(0, _v5.jsx)(_v33.Text, {
+              variant: "heading-sm",
+              children: _v5
+            }), (0, _v5.jsx)(_v33.Text, {
+              variant: "body-md",
+              color: "text-secondary",
+              children: _v7
+            })]
+          }), _v8.length > 0 && (0, _v5.jsxs)(_v165.Stack, {
+            spacing: "2",
+            children: [_v8.map(_v0 => (0, _v5.jsx)(_v33.Text, {
+              variant: "body-sm",
+              noOfLines: 1,
+              children: _v0.title
+            }, _v0.uri)), _v9 > 0 && (0, _v5.jsx)(_v33.Text, {
+              variant: "body-sm",
+              color: "text-secondary",
+              children: (0, _v16.translate)({
+                singular: "and {COUNT} other file",
+                plural: "and {COUNT} other files",
+                count: _v9,
+                replacements: {
+                  COUNT: (0, _v141.formatNumber)(_v9)
+                },
+                dictionary: {
+                  es: {
+                    singular: "y {COUNT} archivo más",
+                    plural: "y {COUNT} archivos más"
+                  },
+                  "de-DE": {
+                    singular: "und {COUNT} weitere Datei",
+                    plural: "und {COUNT} weitere Dateien"
+                  },
+                  "fr-FR": {
+                    singular: "et {COUNT} autre fichier",
+                    plural: "et {COUNT} autres fichiers"
+                  },
+                  "ja-JP": {
+                    singular: "およびほかに{COUNT}件のファイル",
+                    plural: "およびほかに{COUNT}件のファイル"
+                  },
+                  "ko-KR": {
+                    singular: "및 {COUNT}개의 다른 파일",
+                    plural: "및 {COUNT}개의 다른 파일"
+                  },
+                  "pt-BR": {
+                    singular: "e mais {COUNT} arquivo",
+                    plural: "e mais {COUNT} arquivos"
+                  },
+                  "zh-CN": {
+                    singular: "以及另外 {COUNT} 个文件",
+                    plural: "以及另外 {COUNT} 个文件"
+                  }
+                }
+              })
+            })]
+          })]
+        })]
+      });
+    },
+    _v176 = _v0 => _v0 ? `url(${_v0})` : void 0,
+    _v177 = ({
       frozenVideosCount: _v0,
       storageUsedBytes: _v1,
       storageLimitBytes: _v2,
@@ -3855,7 +4064,7 @@
         })]
       });
     },
-    _v176 = ({
+    _v178 = ({
       badgeLabel: _v0,
       count: _v1,
       title: _v2,
@@ -3865,7 +4074,7 @@
       let _v5 = _v4.length > 3,
         _v6 = Math.max(_v1, _v4.length),
         _v7 = _v5 ? _v4.slice(0, 2) : _v4,
-        _v8 = _v5 ? _v4.slice(2, 5).map(_v0 => _v174(_v0.thumbnail)).filter(_v0 => !!_v0) : [],
+        _v8 = _v5 ? _v4.slice(2, 5).map(_v0 => _v176(_v0.thumbnail)).filter(_v0 => !!_v0) : [],
         _v9 = Math.max(_v6 - 2, 0);
       return (0, _v5.jsxs)(_v12.Flex, {
         gap: "3",
@@ -3902,7 +4111,7 @@
                 position: "relative",
                 width: "100%",
                 children: [(0, _v5.jsx)(_v10.Box, {
-                  backgroundImage: _v174(_v0.thumbnail),
+                  backgroundImage: _v176(_v0.thumbnail),
                   backgroundPosition: "center",
                   backgroundSize: "cover",
                   position: "absolute",
@@ -4014,7 +4223,7 @@
         })]
       });
     },
-    _v177 = ({
+    _v179 = ({
       unlistedVideosCount: _v0,
       videos: _v1
     }) => {
@@ -4057,7 +4266,7 @@
             }
           }
         });
-      return (0, _v5.jsx)(_v176, {
+      return (0, _v5.jsx)(_v178, {
         badgeLabel: (0, _v16.translate)({
           singular: "Unlisted",
           dictionary: {
@@ -4147,7 +4356,7 @@
         videos: _v1
       });
     },
-    _v178 = ({
+    _v180 = ({
       frozenVideosCount: _v0,
       storageLimitBytes: _v1,
       videos: _v2,
@@ -4218,7 +4427,7 @@
             }
           }
         });
-      return (0, _v5.jsx)(_v176, {
+      return (0, _v5.jsx)(_v178, {
         count: _v4,
         title: _v5,
         description: null !== _v1 ? (0, _v16.translate)({
@@ -4282,19 +4491,21 @@
         videos: _v2
       });
     },
-    _v179 = ({
+    _v181 = ({
       warningData: _v0,
       targetPlanName: _v1
     }) => {
       let _v2 = _v0?.storageUsedBytes ?? 0,
         _v3 = _v0?.storageLimitBytes ?? null,
         _v4 = _v0?.frozenVideosPreview ?? [],
-        _v5 = _v0?.unlistedVideosPreview ?? [],
-        _v6 = Math.max(_v0?.frozenVideosCount ?? 0, _v4.length),
-        _v7 = Math.max(_v0?.unlistedVideosCount ?? 0, _v5.length),
-        _v8 = null !== _v3 ? _v2 > _v3 : _v6 > 0,
-        _v9 = _v7 > 0;
-      return _v8 || _v9 ? (0, _v5.jsxs)(_v10.Box, {
+        _v5 = _v0?.frozenFilesPreview ?? [],
+        _v6 = _v0?.unlistedVideosPreview ?? [],
+        _v7 = Math.max(_v0?.frozenVideosCount ?? 0, _v4.length),
+        _v8 = Math.max(_v0?.frozenFilesCount ?? 0, _v5.length),
+        _v9 = Math.max(_v0?.unlistedVideosCount ?? 0, _v6.length),
+        _v10 = _v174(_v0),
+        _v11 = _v9 > 0;
+      return _v10 || _v11 ? (0, _v5.jsxs)(_v10.Box, {
         backgroundColor: "color-mix(in srgb, var(--vimeo-colors-status-caution-primary) 10%, transparent);",
         paddingX: "24px",
         paddingY: "24px",
@@ -4302,19 +4513,24 @@
         overflow: "visible",
         children: [(0, _v5.jsxs)(_v165.Stack, {
           spacing: "8",
-          children: [_v8 && (_v9 && null !== _v3 ? (0, _v5.jsx)(_v175, {
-            frozenVideosCount: _v6,
+          children: [_v10 && (_v11 && null !== _v3 ? (0, _v5.jsx)(_v177, {
+            frozenVideosCount: _v7,
             storageUsedBytes: _v2,
             storageLimitBytes: _v3,
             targetPlanName: _v1
-          }) : (0, _v5.jsx)(_v178, {
-            frozenVideosCount: _v6,
+          }) : _v7 > 0 && (0, _v5.jsx)(_v180, {
+            frozenVideosCount: _v7,
             storageLimitBytes: _v3,
             videos: _v4,
             targetPlanName: _v1
-          })), _v9 && (0, _v5.jsx)(_v177, {
-            unlistedVideosCount: _v7,
-            videos: _v5
+          })), _v8 > 0 && (0, _v5.jsx)(_v175, {
+            frozenFilesCount: _v8,
+            storageLimitBytes: _v3,
+            files: _v5,
+            targetPlanName: _v1
+          }), _v11 && (0, _v5.jsx)(_v179, {
+            unlistedVideosCount: _v9,
+            videos: _v6
           })]
         }), (0, _v5.jsxs)(_v12.Flex, {
           position: "absolute",
@@ -4363,7 +4579,7 @@
         })]
       }) : null;
     },
-    _v180 = ({
+    _v182 = ({
       confirmTitle: _v0,
       confirmQuestion: _v1,
       warningData: _v2,
@@ -4374,12 +4590,9 @@
       onBack: _v7,
       isFinalStep: _v8 = !1
     }) => {
-      let _v9 = _v2?.storageUsedBytes ?? 0,
-        _v10 = _v2?.storageLimitBytes ?? null,
-        _v11 = _v2?.unlistedVideosCount ?? 0,
-        _v12 = _v2?.frozenVideosCount ?? 0,
-        _v13 = (null !== _v10 ? _v9 > _v10 : _v12 > 0) || _v11 > 0,
-        _v14 = [..._v3, (0, _v16.translate)({
+      let _v9 = _v2?.unlistedVideosCount ?? 0,
+        _v10 = _v174(_v2) || _v9 > 0,
+        _v11 = [..._v3, (0, _v16.translate)({
           singular: "...and much more",
           dictionary: {
             es: {
@@ -4405,7 +4618,7 @@
             }
           }
         })],
-        _v15 = _v14.length - 1;
+        _v12 = _v11.length - 1;
       return (0, _v5.jsxs)(_v10.Box, {
         sx: {
           WebkitFontSmoothing: "antialiased",
@@ -4432,12 +4645,12 @@
           paddingTop: "12px",
           paddingBottom: "0",
           overflowY: "auto",
-          children: [(0, _v5.jsx)(_v179, {
+          children: [(0, _v5.jsx)(_v181, {
             warningData: _v2
           }), (0, _v5.jsx)(_v10.Box, {
-            backgroundColor: _v13 ? "surface" : "color-mix(in srgb, var(--vimeo-colors-status-destructive-primary) 10%, transparent)",
+            backgroundColor: _v10 ? "surface" : "color-mix(in srgb, var(--vimeo-colors-status-destructive-primary) 10%, transparent)",
             paddingX: "60px",
-            paddingY: _v13 ? "20px" : "24px",
+            paddingY: _v10 ? "20px" : "24px",
             children: (0, _v5.jsxs)(_v165.Stack, {
               spacing: "4",
               width: "100%",
@@ -4477,8 +4690,8 @@
                 columnGap: "4",
                 rowGap: "6px",
                 width: "100%",
-                children: _v14.map((_v0, _v1) => {
-                  let _v2 = _v1 === _v15;
+                children: _v11.map((_v0, _v1) => {
+                  let _v2 = _v1 === _v12;
                   return (0, _v5.jsxs)(_v12.Flex, {
                     gap: "6px",
                     align: "center",
@@ -4599,9 +4812,9 @@
         })]
       });
     };
-  var _v181 = _v0.i(0),
-    _v182 = _v0.i(0);
-  let _v183 = _v0 => (0, _v5.jsx)(_v182.Icon, {
+  var _v183 = _v0.i(0),
+    _v184 = _v0.i(0);
+  let _v185 = _v0 => (0, _v5.jsx)(_v184.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -4616,15 +4829,15 @@
       })]
     })
   });
-  var _v184 = _v0.i(0);
-  let _v185 = ({
+  var _v186 = _v0.i(0);
+  let _v187 = ({
     isLoading: _v0,
     onAction: _v1,
     onSkip: _v2
   }) => {
     let _v3 = [{
       action: "upload",
-      icon: (0, _v5.jsx)(_v184.Upload, {
+      icon: (0, _v5.jsx)(_v186.Upload, {
         boxSize: "20px"
       }),
       title: (0, _v16.translate)({
@@ -4707,7 +4920,7 @@
       })
     }, {
       action: "record",
-      icon: (0, _v5.jsx)(_v183, {
+      icon: (0, _v5.jsx)(_v185, {
         boxSize: "20px"
       }),
       title: (0, _v16.translate)({
@@ -4790,7 +5003,7 @@
       })
     }, {
       action: "create",
-      icon: (0, _v5.jsx)(_v181.MagicWand, {
+      icon: (0, _v5.jsx)(_v183.MagicWand, {
         boxSize: "20px"
       }),
       title: (0, _v16.translate)({
@@ -5042,8 +5255,8 @@
       })]
     });
   };
-  var _v186 = _v0.i(0);
-  let _v187 = ({
+  var _v188 = _v0.i(0);
+  let _v189 = ({
     onContinue: _v0,
     onBookCallClicked: _v1,
     onBack: _v2
@@ -5120,7 +5333,7 @@
             flexShrink: 0,
             position: "relative",
             zIndex: "1",
-            children: (0, _v5.jsx)(_v186.Gift, {
+            children: (0, _v5.jsx)(_v188.Gift, {
               boxSize: "24px"
             })
           }), (0, _v5.jsxs)(_v12.Flex, {
@@ -5284,8 +5497,8 @@
       })
     })]
   });
-  var _v188 = _v0.i(0);
-  let _v189 = ({
+  var _v190 = _v0.i(0);
+  let _v191 = ({
       moreContext: _v0,
       onMoreContextChange: _v1,
       onContinue: _v2,
@@ -5371,7 +5584,7 @@
           spacing: "3",
           children: [(0, _v5.jsx)(_v10.Box, {
             height: "150px",
-            children: (0, _v5.jsx)(_v188.Textarea, {
+            children: (0, _v5.jsx)(_v190.Textarea, {
               placeholder: (0, _v16.translate)({
                 singular: "Write your feedback",
                 dictionary: {
@@ -5432,7 +5645,7 @@
               flexShrink: 0,
               position: "relative",
               zIndex: "1",
-              children: (0, _v5.jsx)(_v186.Gift, {
+              children: (0, _v5.jsx)(_v188.Gift, {
                 boxSize: "24px"
               })
             }), (0, _v5.jsxs)(_v12.Flex, {
@@ -5596,9 +5809,10 @@
         })
       })]
     }),
-    _v190 = ({
+    _v192 = ({
       onBack: _v0,
-      onConfirmRandomFreeze: _v1
+      onConfirmRandomFreeze: _v1,
+      frozenFilesCount: _v2 = 0
     }) => (0, _v5.jsxs)(_v5.Fragment, {
       children: [(0, _v5.jsx)(_v110.ModalHeader, {
         paddingLeft: "64px",
@@ -5664,6 +5878,49 @@
                 },
                 "zh-CN": {
                   singular: "如果您继续, Vimeo 将随机选择要冻结的视频. 要选择您想保留的视频, 请返回."
+                }
+              }
+            })
+          }), _v2 > 0 && (0, _v5.jsx)(_v33.Text, {
+            variant: {
+              base: "body-lg",
+              md: "body-md"
+            },
+            children: (0, _v16.translate)({
+              singular: "{COUNT} file will also be frozen.",
+              plural: "{COUNT} files will also be frozen.",
+              count: _v2,
+              replacements: {
+                COUNT: (0, _v141.formatNumber)(_v2)
+              },
+              dictionary: {
+                es: {
+                  singular: "{COUNT} archivo también se congelará.",
+                  plural: "{COUNT} archivos también se congelarán."
+                },
+                "de-DE": {
+                  singular: "{COUNT} Datei wird auch eingefroren.",
+                  plural: "{COUNT} Dateien werden auch eingefroren."
+                },
+                "fr-FR": {
+                  singular: "{COUNT} fichier sera également gelé.",
+                  plural: "{COUNT} fichiers seront également gelés."
+                },
+                "ja-JP": {
+                  singular: "さらに{COUNT}件のファイルも凍結されます。",
+                  plural: "さらに{COUNT}件のファイルも凍結されます。"
+                },
+                "ko-KR": {
+                  singular: "{COUNT}개의 파일도 동결됩니다.",
+                  plural: "{COUNT}개의 파일도 동결됩니다."
+                },
+                "pt-BR": {
+                  singular: "{COUNT} arquivo também será congelado.",
+                  plural: "{COUNT} arquivos também serão congelados."
+                },
+                "zh-CN": {
+                  singular: "{COUNT} 个文件也将被冻结。",
+                  plural: "{COUNT} 个文件也将被冻结。"
                 }
               }
             })
@@ -5754,8 +6011,8 @@
         })
       })]
     });
-  var _v191 = _v0.i(0);
-  let _v192 = ({
+  var _v193 = _v0.i(0);
+  let _v194 = ({
       videos: _v0,
       selectedStorageBytes: _v1,
       storageLimitBytes: _v2,
@@ -5764,15 +6021,17 @@
       onDeselectAll: _v5,
       onKeepPlan: _v6,
       onContinue: _v7,
-      onBack: _v8
+      onBack: _v8,
+      frozenFilesCount: _v9 = 0,
+      frozenFilesPreview: _v10 = []
     }) => {
-      let _v9 = _v0.filter(_v0 => _v0.selected).length,
-        _v10 = _v0.length,
-        _v11 = _v1 > _v2,
-        _v12 = _v2 > 0 ? Math.min(_v1 / _v2, 1) : 0,
-        _v13 = _v2 > 0 ? _v11 ? Math.min(_v2 / Math.max(_v1, 1), 1) : 1 : 0,
-        _v14 = `${100 * _v12}%`,
-        _v15 = `${100 * _v13}%`;
+      let _v11 = _v0.filter(_v0 => _v0.selected).length,
+        _v12 = _v0.length,
+        _v13 = _v1 > _v2,
+        _v14 = _v2 > 0 ? Math.min(_v1 / _v2, 1) : 0,
+        _v15 = _v2 > 0 ? _v13 ? Math.min(_v2 / Math.max(_v1, 1), 1) : 1 : 0,
+        _v16 = `${100 * _v14}%`,
+        _v17 = `${100 * _v15}%`;
       return (0, _v5.jsxs)(_v5.Fragment, {
         children: [(0, _v5.jsx)(_v110.ModalHeader, {
           paddingLeft: "64px",
@@ -5893,6 +6152,10 @@
                   }
                 })
               })]
+            }), _v9 > 0 && (0, _v5.jsx)(_v175, {
+              frozenFilesCount: _v9,
+              storageLimitBytes: _v2,
+              files: _v10
             }), (0, _v5.jsxs)(_v165.Stack, {
               spacing: "2",
               children: [(0, _v5.jsxs)(_v12.Flex, {
@@ -5974,7 +6237,7 @@
                 borderRadius: "999px",
                 backgroundColor: "button-secondary-default",
                 position: "relative",
-                children: [_v11 ? (0, _v5.jsxs)(_v5.Fragment, {
+                children: [_v13 ? (0, _v5.jsxs)(_v5.Fragment, {
                   children: [(0, _v5.jsx)(_v10.Box, {
                     position: "absolute",
                     inset: "0",
@@ -5985,7 +6248,7 @@
                     left: "0",
                     top: "0",
                     bottom: "0",
-                    width: _v15,
+                    width: _v17,
                     borderLeftRadius: "999px",
                     backgroundColor: "gray.400"
                   })]
@@ -6003,14 +6266,14 @@
                     left: "0",
                     top: "0",
                     bottom: "0",
-                    width: _v14,
-                    borderRadius: 1 === _v12 ? "999px" : void 0,
+                    width: _v16,
+                    borderRadius: 1 === _v14 ? "999px" : void 0,
                     borderLeftRadius: "999px",
                     backgroundColor: "status-positive-primary"
                   })]
                 }), (0, _v5.jsx)(_v10.Box, {
                   position: "absolute",
-                  left: _v15,
+                  left: _v17,
                   top: "-6px",
                   bottom: "-6px",
                   marginLeft: "-1px",
@@ -6035,10 +6298,10 @@
                   children: (0, _v16.translate)({
                     singular: "{COUNT} video selected / {TOTAL}",
                     plural: "{COUNT} videos selected / {TOTAL}",
-                    count: _v9,
+                    count: _v11,
                     replacements: {
-                      COUNT: _v9,
-                      TOTAL: _v10
+                      COUNT: _v11,
+                      TOTAL: _v12
                     },
                     dictionary: {
                       es: {
@@ -6134,7 +6397,7 @@
                         top: "8px",
                         left: "8px",
                         pointerEvents: "none",
-                        children: (0, _v5.jsx)(_v191.Checkbox, {
+                        children: (0, _v5.jsx)(_v193.Checkbox, {
                           size: "md",
                           isChecked: _v0.selected
                         })
@@ -6241,9 +6504,9 @@
         })]
       });
     },
-    _v193 = "Other";
-  var _v194 = _v0.i(0);
-  let _v195 = ({
+    _v195 = "Other";
+  var _v196 = _v0.i(0);
+  let _v197 = ({
     options: _v0,
     selectedOption: _v1,
     onSelectOption: _v2,
@@ -6325,7 +6588,7 @@
     }), (0, _v5.jsx)(_v106.ModalBody, {
       paddingTop: "32px",
       paddingBottom: "0",
-      children: (0, _v5.jsx)(_v194.RadioGroup, {
+      children: (0, _v5.jsx)(_v196.RadioGroup, {
         children: (0, _v5.jsx)(_v165.Stack, {
           spacing: "4",
           children: _v0.map(_v0 => {
@@ -6447,16 +6710,16 @@
       })
     })]
   });
-  var _v196 = _v0.i(0),
-    _v197 = _v0.i(0),
-    _v198 = _v0.i(0);
-  let _v199 = {
+  var _v198 = _v0.i(0),
+    _v199 = _v0.i(0),
+    _v200 = _v0.i(0);
+  let _v201 = {
       upload: "/upload",
       create: "/create/templates",
       record: "/record/start-recording",
       recordUnsupported: "/features/screen-recorder"
     },
-    _v200 = ({
+    _v202 = ({
       cancelSubscription: _v0,
       notification: _v1,
       uploadQuota: _v2,
@@ -6487,7 +6750,7 @@
             } = (0, _v54.useTriggeredBundleOffer)({
               trigger: "cancelation_flow",
               periodicity: _v1,
-              enabled: (0, _v197.isCancellationBundleOfferTier)(_v0.tier)
+              enabled: (0, _v199.isCancellationBundleOfferTier)(_v0.tier)
             });
           return (0, _v7.useMemo)(() => {
             if (null === _v2) return {
@@ -7272,7 +7535,7 @@
               }]
             }
           });
-          let _v2 = _v1.find(_v0 => _v0.value === _v193),
+          let _v2 = _v1.find(_v0 => _v0.value === _v195),
             _v3 = (_v0 => {
               let _v1 = [..._v0];
               for (let _v0 = _v1.length - 1; _v0 > 0; _v0 -= 1) {
@@ -7280,7 +7543,7 @@
                 [_v1[_v0], _v1[_v0]] = [_v1[_v0], _v1[_v0]];
               }
               return _v1;
-            })(_v1.filter(_v0 => _v0.value !== _v193));
+            })(_v1.filter(_v0 => _v0.value !== _v195));
           return _v2 && _v3.push(_v2), _v3;
         })({
           isAnnualPlan: _v59
@@ -7314,7 +7577,7 @@
           where: {
             userId: _v61
           },
-          select: ["frozenVideosCount", "frozenVideosPreview", "storageLimitBytes", "storageUsedBytes", "unlistedVideosCount", "unlistedVideosPreview"]
+          select: ["frozenFilesCount", "frozenFilesPreview", "frozenVideosCount", "frozenVideosPreview", "storageLimitBytes", "storageUsedBytes", "unlistedVideosCount", "unlistedVideosPreview"]
         } : null),
         {
           data: _v68,
@@ -7351,7 +7614,7 @@
               isValidating: _v6,
               size: _v7,
               setSize: _v8
-            } = (0, _v196.useGetUserVideosInfinite)(() => _v0 && _v1 ? {
+            } = (0, _v198.useGetUserVideosInfinite)(() => _v0 && _v1 ? {
               where: {
                 userId: _v0
               },
@@ -7625,7 +7888,7 @@
         _v98 = (0, _v7.useCallback)(async () => {
           if (!_v14 || !_v61) return void Promise.resolve(_v25());
           try {
-            let _v0 = await (0, _v198.requestMembershipInfo)(_v14, _v61);
+            let _v0 = await (0, _v200.requestMembershipInfo)(_v14, _v61);
             return _v26(_v0), _v0;
           } catch {
             Promise.resolve(_v25());
@@ -7714,7 +7977,7 @@
             });
             _v65(!0);
             try {
-              await (0, _v198.requestAcceptRejoinOffer)(_v14, _v4.subscriptionId), await _v98(), _v1({
+              await (0, _v200.requestAcceptRejoinOffer)(_v14, _v4.subscriptionId), await _v98(), _v1({
                 canShow: !0,
                 type: "primary",
                 text: _v103.T.CancellationOfferAcceptedSuccess
@@ -7832,7 +8095,7 @@
             base: "0",
             md: "auto"
           },
-          children: _v72 ? (0, _v5.jsx)(_v185, {
+          children: _v72 ? (0, _v5.jsx)(_v187, {
             isLoading: !_v73,
             onAction: _v0 => {
               _v43({
@@ -7840,7 +8103,7 @@
                 periodicity: _v96,
                 action: _v0
               });
-              let _v1 = "record" !== _v0 || _v14?.isRecordToolSupported ? _v199[_v0] : _v199.recordUnsupported;
+              let _v1 = "record" !== _v0 || _v14?.isRecordToolSupported ? _v201[_v0] : _v201.recordUnsupported;
               window.location.assign(_v1);
             },
             onSkip: () => {
@@ -7849,24 +8112,24 @@
                 periodicity: _v96
               }), _v52(!0);
             }
-          }) : "survey" === _v49 ? _v21 ? (0, _v5.jsx)(_v189, {
+          }) : "survey" === _v49 ? _v21 ? (0, _v5.jsx)(_v191, {
             moreContext: _v57,
             onMoreContextChange: _v58,
             onContinue: _v109,
             onBookCallClicked: _v110,
             onBack: _v113
-          }) : _v22 ? (0, _v5.jsx)(_v187, {
+          }) : _v22 ? (0, _v5.jsx)(_v189, {
             onContinue: _v109,
             onBookCallClicked: _v110,
             onBack: _v113
-          }) : (0, _v5.jsx)(_v195, {
+          }) : (0, _v5.jsx)(_v197, {
             options: _v60,
             selectedOption: _v55,
             onSelectOption: _v56,
             onContinue: _v109,
             onKeepPlan: _v112,
             onBack: _v113
-          }) : "lapsingSelection" === _v49 ? (0, _v5.jsx)(_v192, {
+          }) : "lapsingSelection" === _v49 ? (0, _v5.jsx)(_v194, {
             videos: _v75,
             selectedStorageBytes: _v77,
             storageLimitBytes: _v76,
@@ -7889,8 +8152,10 @@
                 _v54("confirm");
               }
             },
-            onBack: _v113
-          }) : "lapsingWarning" === _v49 ? (0, _v5.jsx)(_v190, {
+            onBack: _v113,
+            frozenFilesCount: _v66?.frozenFilesCount ?? 0,
+            frozenFilesPreview: _v66?.frozenFilesPreview ?? []
+          }) : "lapsingWarning" === _v49 ? (0, _v5.jsx)(_v192, {
             onBack: () => {
               _v36({
                 tier: _v95,
@@ -7902,7 +8167,8 @@
                 tier: _v95,
                 periodicity: _v96
               }), _v54("confirm");
-            }
+            },
+            frozenFilesCount: _v66?.frozenFilesCount ?? 0
           }) : "bundleOffer" === _v49 && null !== _v16 ? (0, _v5.jsx)(_v161, {
             bundleType: _v16.bundleType,
             price: _v16.price,
@@ -7912,7 +8178,7 @@
               _v108(_v50);
             },
             onExploreBundle: _v162.openBundleLibrary
-          }) : "confirm" === _v49 ? (0, _v5.jsx)(_v180, {
+          }) : "confirm" === _v49 ? (0, _v5.jsx)(_v182, {
             confirmTitle: _v90,
             confirmQuestion: _v91,
             warningData: _v23 && _v80 ? void 0 : _v66,
@@ -7948,9 +8214,9 @@
         })]
       });
     };
-  var _v201 = _v0.i(0),
-    _v202 = _v0.i(0);
-  function _v203({
+  var _v203 = _v0.i(0),
+    _v204 = _v0.i(0);
+  function _v205({
     cancelSubscription: _v0,
     notification: _v1,
     uploadQuota: _v2,
@@ -8114,7 +8380,7 @@
                     flexDirection: "row",
                     alignItems: "center",
                     gap: "1",
-                    children: [(0, _v5.jsx)(_v202.CircleExclamation, {
+                    children: [(0, _v5.jsx)(_v204.CircleExclamation, {
                       color: "red.600"
                     }), (0, _v5.jsx)(_v33.Text, {
                       variant: "heading-xs",
@@ -8178,7 +8444,7 @@
                     flexDirection: "row",
                     alignItems: "center",
                     gap: "1",
-                    children: [(0, _v5.jsx)(_v202.CircleExclamation, {
+                    children: [(0, _v5.jsx)(_v204.CircleExclamation, {
                       color: "red.600"
                     }), (0, _v5.jsx)(_v33.Text, {
                       variant: "heading-xs",
@@ -8243,7 +8509,7 @@
                   flexDirection: "row",
                   alignItems: "center",
                   gap: "1",
-                  children: [(0, _v5.jsx)(_v202.CircleExclamation, {
+                  children: [(0, _v5.jsx)(_v204.CircleExclamation, {
                     color: "red.600"
                   }), (0, _v5.jsx)(_v33.Text, {
                     variant: "heading-xs",
@@ -8279,7 +8545,7 @@
                   flexDirection: "row",
                   alignItems: "center",
                   gap: "1",
-                  children: [(0, _v5.jsx)(_v202.CircleExclamation, {
+                  children: [(0, _v5.jsx)(_v204.CircleExclamation, {
                     color: "red.600"
                   }), (0, _v5.jsx)(_v33.Text, {
                     variant: "heading-xs",
@@ -8379,7 +8645,7 @@
                       }), _v21();
                     },
                     variant: "secondary",
-                    children: [(0, _v5.jsx)(_v201.Bell, {}), (0, _v16.translate)({
+                    children: [(0, _v5.jsx)(_v203.Bell, {}), (0, _v16.translate)({
                       singular: "Remind me later",
                       dictionary: {
                         es: {
@@ -8453,17 +8719,17 @@
       })
     });
   }
-  var _v204 = _v0.i(0);
-  let _v205 = ({
+  var _v206 = _v0.i(0);
+  let _v207 = ({
       onClick: _v0
-    }) => (0, _v5.jsx)(_v204.CloseIconStyle, {
+    }) => (0, _v5.jsx)(_v206.CloseIconStyle, {
       "aria-label": "Close",
       icon: (0, _v5.jsx)(_v126.CloseX, {}),
       size: "sm",
       variant: "tertiary",
       onClick: _v0
     }),
-    _v206 = _v7.default.memo(({
+    _v208 = _v7.default.memo(({
       onClick: _v0,
       onBeforeCancel: _v1,
       cancelAutoRenew: _v2,
@@ -8611,9 +8877,9 @@
           _v71.current && (_v68.current = !1, _v11?.());
         }
       }, [_v70, _v11]), (0, _v5.jsxs)(_v5.Fragment, {
-        children: [_v64 && (0, _v5.jsx)(_v204.StyledModal, {
+        children: [_v64 && (0, _v5.jsx)(_v206.StyledModal, {
           active: _v12,
-          content: (0, _v5.jsxs)(_v204.ModalContent, {
+          content: (0, _v5.jsxs)(_v206.ModalContent, {
             children: [(0, _v5.jsxs)(_v154.Row, {
               justifyContent: "space-between",
               children: [(0, _v5.jsx)(_v154.Column, {
@@ -8625,7 +8891,7 @@
                   children: _v103.T.ConfirmCancel
                 })
               }), (0, _v5.jsx)(_v154.Column, {
-                children: (0, _v5.jsx)(_v205, {
+                children: (0, _v5.jsx)(_v207, {
                   onClick: () => {
                     _v44({
                       action_type: _v101.BillingActionTypes.CLICK,
@@ -8639,7 +8905,7 @@
               })]
             }), (0, _v5.jsx)(_v154.Row, {
               children: (0, _v5.jsx)(_v154.Column, {
-                children: (0, _v5.jsx)(_v204.StyledPrimaryParagraph, {
+                children: (0, _v5.jsx)(_v206.StyledPrimaryParagraph, {
                   size: "md",
                   children: _v103.T.CancelSubscriptionModalCancelMessage(_v31, _v50, _v51, (0, _v149.default)(_v56))
                 })
@@ -8647,7 +8913,7 @@
             }), (0, _v5.jsx)(_v154.Row, {
               children: (0, _v5.jsx)(_v154.Column, {
                 justifyContent: "flex-start",
-                children: (0, _v5.jsxs)(_v204.StyledList, {
+                children: (0, _v5.jsxs)(_v206.StyledList, {
                   children: [_v27 && !_v102.LegacyTiers.includes(_v27) && (0, _v5.jsx)("li", {
                     children: (0, _v5.jsxs)(_v154.Column, {
                       justifyContent: "flex-start",
@@ -8659,7 +8925,7 @@
                         height: (0, _v30.rem)(16),
                         width: (0, _v30.rem)(16),
                         color: "status-destructive-primary"
-                      }), (0, _v5.jsx)(_v204.ListItemText, {
+                      }), (0, _v5.jsx)(_v206.ListItemText, {
                         children: _v60 ? _v103.T.teamMemberSeats(_v14) : _v103.T.VideosPerSeatPerYear(_v42.periodic)
                       })]
                     })
@@ -8674,26 +8940,26 @@
                         height: (0, _v30.rem)(16),
                         width: (0, _v30.rem)(16),
                         color: "status-destructive-primary"
-                      }), (0, _v5.jsx)(_v204.ListItemText, {
+                      }), (0, _v5.jsx)(_v206.ListItemText, {
                         children: _v0
                       })]
                     })
                   }, _v1))]
                 })
               })
-            }), (0, _v5.jsx)(_v204.StyledSecondaryParagraph, {
+            }), (0, _v5.jsx)(_v206.StyledSecondaryParagraph, {
               size: "sm",
               children: _v55
-            }), (0, _v5.jsx)(_v204.StyledPrimaryParagraph, {
+            }), (0, _v5.jsx)(_v206.StyledPrimaryParagraph, {
               size: "md",
               children: _v61
-            }), (0, _v5.jsx)(_v204.StyledSecondaryParagraph, {
+            }), (0, _v5.jsx)(_v206.StyledSecondaryParagraph, {
               size: "sm",
               style: {
                 marginTop: _v55 || _v61 ? (0, _v30.rem)(20) : 0
               },
               children: _v62
-            }), (0, _v5.jsx)(_v204.StyledCancelButton, {
+            }), (0, _v5.jsx)(_v206.StyledCancelButton, {
               width: "full",
               variant: "destructive",
               isLoading: _v3,
@@ -8701,7 +8967,7 @@
                 _v2();
               },
               children: _v52 ? _v103.T.CancelPayment : _v103.T.TurnOffAutoRenew
-            }), (0, _v5.jsx)(_v204.StyledSettingsButton, {
+            }), (0, _v5.jsx)(_v206.StyledSettingsButton, {
               variant: "ghost",
               width: "full",
               isDisabled: _v3,
@@ -8718,12 +8984,12 @@
             })]
           }),
           onOpen: () => _v13(!1),
-          children: (0, _v5.jsx)(_v204.StyledCancelSubscriptionButton, {
+          children: (0, _v5.jsx)(_v206.StyledCancelSubscriptionButton, {
             variant: "link",
             onClick: _v66,
             children: _v25 ? _v103.T.CancelTrial : _v52 ? _v103.T.CancelNextScheduledPayment : _v103.T.CancelSubscription
           })
-        }), _v18 && (0, _v5.jsx)(_v200, {
+        }), _v18 && (0, _v5.jsx)(_v202, {
           uploadQuota: _v41,
           canUsePaymentsService: !!_v40,
           open: _v18,
@@ -8748,7 +9014,7 @@
           totalSeats: (_v39?.currentAssignedCount || 1) + (_v39?.currentUnassignedCount || 0),
           onBeforeCancel: _v1,
           initialStep: _v20
-        }), _v16 && (0, _v5.jsx)(_v203, {
+        }), _v16 && (0, _v5.jsx)(_v205, {
           uploadQuota: _v41,
           open: _v16,
           close: () => _v17(!1),
@@ -8765,8 +9031,8 @@
         })]
       });
     });
-  var _v207 = _v0.i(0);
-  let _v208 = ({
+  var _v209 = _v0.i(0);
+  let _v210 = ({
     showPostCancelSurvey: _v0,
     setShowPostCancelSurvey: _v1,
     membership: _v2
@@ -9072,7 +9338,7 @@
         }), (0, _v5.jsx)(_v107.ModalCloseButton, {
           onClick: _v11
         }), (0, _v5.jsxs)(_v106.ModalBody, {
-          children: [(0, _v5.jsx)(_v194.RadioGroup, {
+          children: [(0, _v5.jsx)(_v196.RadioGroup, {
             children: (0, _v5.jsxs)(_v165.Stack, {
               spacing: "2",
               children: [_v8.map(_v0 => (0, _v5.jsx)(_v80.Radio, {
@@ -9109,7 +9375,7 @@
                 })
               })]
             })
-          }), (0, _v5.jsx)(_v207.FormLabel, {
+          }), (0, _v5.jsx)(_v209.FormLabel, {
             marginTop: "4",
             fontSize: (0, _v30.rem)(14),
             children: (0, _v16.translate)({
@@ -9138,7 +9404,7 @@
                 }
               }
             })
-          }), (0, _v5.jsx)(_v188.Textarea, {
+          }), (0, _v5.jsx)(_v190.Textarea, {
             onChange: _v0 => _v7(_v0.target.value),
             value: _v6
           })]
@@ -9160,8 +9426,8 @@
       })]
     });
   };
-  var _v209 = _v0.i(0);
-  let _v210 = ({
+  var _v211 = _v0.i(0);
+  let _v212 = ({
       onSeeOtherPlans: _v0
     }) => (0, _v5.jsxs)(_v9.AlertRoot, {
       variant: "info",
@@ -9266,8 +9532,8 @@
         })
       })]
     }),
-    _v211 = ["no_plan_for_personal", "misclassified", "work_independently"],
-    _v212 = [{
+    _v213 = ["no_plan_for_personal", "misclassified", "work_independently"],
+    _v214 = [{
       value: "no_plan_for_personal",
       label: (0, _v16.translate)({
         singular: "I can't find a plan for my personal/small-scale activities",
@@ -9464,7 +9730,7 @@
         }
       })
     }],
-    _v213 = ({
+    _v215 = ({
       isOpen: _v0,
       onClose: _v1,
       onRequestIndividualPlans: _v2,
@@ -9526,7 +9792,7 @@
               tier: _v5.tier,
               periodicity: _v16,
               answer: _v8,
-              isWhitelistEligible: _v211.includes(_v8)
+              isWhitelistEligible: _v213.includes(_v8)
             }), _v15({
               variant: "success",
               isClosable: !0,
@@ -9556,7 +9822,7 @@
                   }
                 }
               })
-            }), _v211.includes(_v8)) {
+            }), _v213.includes(_v8)) {
               _v2("post_cancellation_survey"), _v1();
               return;
             }
@@ -9583,7 +9849,7 @@
               align: "stretch",
               children: [(0, _v5.jsxs)(_v9.Alert, {
                 status: "success",
-                children: [(0, _v5.jsx)(_v209.AlertTitle, {
+                children: [(0, _v5.jsx)(_v211.AlertTitle, {
                   children: (0, _v16.translate)({
                     singular: "Subscription cancelled",
                     dictionary: {
@@ -9671,18 +9937,18 @@
                       }
                     }
                   })
-                }), (0, _v5.jsx)(_v194.RadioGroup, {
+                }), (0, _v5.jsx)(_v196.RadioGroup, {
                   value: _v8 ?? void 0,
                   children: (0, _v5.jsx)(_v165.Stack, {
                     spacing: "3",
                     align: "stretch",
-                    children: _v212.map(_v0 => (0, _v5.jsx)(_v80.Radio, {
+                    children: _v214.map(_v0 => (0, _v5.jsx)(_v80.Radio, {
                       value: _v0.value,
                       onChange: () => _v19(_v0.value),
                       children: _v0.label
                     }, _v0.value))
                   })
-                }), _v10 && (0, _v5.jsx)(_v210, {
+                }), _v10 && (0, _v5.jsx)(_v212, {
                   onSeeOtherPlans: _v3
                 })]
               })]
@@ -9727,9 +9993,9 @@
         })]
       });
     };
-  var _v214 = _v0.i(0),
-    _v215 = _v0.i(0);
-  async function _v216({
+  var _v216 = _v0.i(0),
+    _v217 = _v0.i(0);
+  async function _v218({
     baseUrl: _v0,
     select: _v1,
     query: _v2,
@@ -9747,13 +10013,13 @@
       return (0, _v144.deepCamelCase)(_v1);
     });
   }
-  var _v217 = _v0.i(0);
-  let _v218 = {
+  var _v219 = _v0.i(0);
+  let _v220 = {
       professional: "creator",
       studio: "professional",
       production: "studio"
     },
-    _v219 = ({
+    _v221 = ({
       scheduledOrder: _v0,
       membership: _v1,
       onSuccess: _v2,
@@ -9761,9 +10027,9 @@
     }) => {
       let _v4 = function (_v0, _v1) {
           let _v2 = _v0?.productName?.toLowerCase().replace("vimeo ", "") ?? "";
-          if (_v218[_v2]) return _v218[_v2];
+          if (_v220[_v2]) return _v220[_v2];
           let _v3 = _v1.tier;
-          return _v3 && _v218[_v3] ? _v218[_v3] : null;
+          return _v3 && _v220[_v3] ? _v220[_v3] : null;
         }(_v0, _v1),
         {
           isOpen: _v5,
@@ -9784,7 +10050,7 @@
               xVimeoPage: _v4,
               locale: _v5
             } = (0, _v15.useGctlConfig)();
-          return (0, _v164.default)(_v1 ? `/me/subscription_plans/usage_check${(0, _v91.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v216({
+          return (0, _v164.default)(_v1 ? `/me/subscription_plans/usage_check${(0, _v91.serializeQuery)(_v1)}` : () => null, _v1 ? () => _v218({
             ..._v1,
             headers: {
               ..._v1.headers,
@@ -9817,59 +10083,59 @@
           bandwidth: _v14
         } = _v11.metadata?.entitlements?.params ?? {},
         _v15 = _v14?.quotaPeriod === "year" ? (0, _v16.translate)({
-          singular: "{AMOUNT} Annual Bandwidth",
+          singular: "{AMOUNT}/yr managed bandwidth",
           replacements: {
             AMOUNT: _v14?.periodicQuota ?? ""
           },
           dictionary: {
             es: {
-              singular: "{AMOUNT} de ancho de banda anual"
+              singular: "{AMOUNT}/yr ancho de banda gestionado"
             },
             "de-DE": {
-              singular: "{AMOUNT} jährliche Bandbreite"
+              singular: "{AMOUNT}/yr verwaltete Bandbreite"
             },
             "fr-FR": {
-              singular: "{AMOUNT} de bande passante annuelle"
+              singular: "{AMOUNT}/yr de bande passante gérée"
             },
             "ja-JP": {
-              singular: "{AMOUNT} の年間帯域"
+              singular: "{AMOUNT}/yr 管理対象帯域幅"
             },
             "ko-KR": {
-              singular: "{AMOUNT} 연간 대역폭"
+              singular: "{AMOUNT}/yr 관리형 대역폭"
             },
             "pt-BR": {
-              singular: "{AMOUNT} de largura de banda anual"
+              singular: "{AMOUNT}/ano de largura de banda gerenciada"
             },
             "zh-CN": {
-              singular: "{AMOUNT} 年度带宽"
+              singular: "{AMOUNT}/yr 托管带宽"
             }
           }
         }) : (0, _v16.translate)({
-          singular: "{AMOUNT} Monthly Bandwidth",
+          singular: "{AMOUNT}/mo managed bandwidth",
           replacements: {
             AMOUNT: _v14?.periodicQuota ?? ""
           },
           dictionary: {
             es: {
-              singular: "{AMOUNT} de ancho de banda mensual"
+              singular: "{AMOUNT}/mo ancho de banda gestionado"
             },
             "de-DE": {
-              singular: "{AMOUNT} monatliche Bandbreite"
+              singular: "{AMOUNT}/mo verwaltete Bandbreite"
             },
             "fr-FR": {
-              singular: "{AMOUNT} de bande passante mensuelle"
+              singular: "{AMOUNT}/mo de bande passante gérée"
             },
             "ja-JP": {
-              singular: "{AMOUNT} の月間帯域"
+              singular: "{AMOUNT}/mo 管理対象帯域幅"
             },
             "ko-KR": {
-              singular: "{AMOUNT} 월간 대역폭"
+              singular: "{AMOUNT}/mo 관리형 대역폭"
             },
             "pt-BR": {
-              singular: "{AMOUNT} de largura de banda mensal"
+              singular: "{AMOUNT}/mês de largura de banda gerenciada"
             },
             "zh-CN": {
-              singular: "{AMOUNT} 每月带宽"
+              singular: "{AMOUNT}/mo 托管带宽"
             }
           }
         }),
@@ -9962,7 +10228,7 @@
             display: "flex",
             alignItems: "center",
             gap: 2,
-            children: [(_v12 ?? 0) <= 1 ? (0, _v5.jsx)(_v215.PersonUser, {}) : (0, _v5.jsx)(_v114.Users, {}), (0, _v5.jsx)(_v33.Text, {
+            children: [(_v12 ?? 0) <= 1 ? (0, _v5.jsx)(_v217.PersonUser, {}) : (0, _v5.jsx)(_v114.Users, {}), (0, _v5.jsx)(_v33.Text, {
               variant: "body-sm",
               children: (0, _v16.translate)({
                 singular: "{AMOUNT} user",
@@ -10010,31 +10276,31 @@
             children: [(0, _v5.jsx)(_v112.ManagedStorage, {}), (0, _v5.jsx)(_v33.Text, {
               variant: "body-sm",
               children: (0, _v16.translate)({
-                singular: "{AMOUNT} storage for Embeds and non-Public videos",
+                singular: "{AMOUNT} managed storage",
                 replacements: {
                   AMOUNT: _v13
                 },
                 dictionary: {
                   es: {
-                    singular: "{AMOUNT} de almacenamiento para Embeds y videos no públicos"
+                    singular: "{AMOUNT} de almacenamiento gestionado"
                   },
                   "de-DE": {
-                    singular: "{AMOUNT} Speicher für Einbettungen und nicht-öffentliche Videos"
+                    singular: "{AMOUNT} verwalteter Speicherplatz"
                   },
                   "fr-FR": {
-                    singular: "{AMOUNT} de stockage pour les intégrations et les vidéos non publiques"
+                    singular: "{AMOUNT} de stockage géré"
                   },
                   "ja-JP": {
-                    singular: "{AMOUNT} の埋め込みおよび非公開ビデオ用ストレージ"
+                    singular: "{AMOUNT} 管理対象ストレージ"
                   },
                   "ko-KR": {
-                    singular: "{AMOUNT} 임베드 및 비공개 동영상용 저장 공간"
+                    singular: "{AMOUNT} 관리형 저장소"
                   },
                   "pt-BR": {
-                    singular: "{AMOUNT} de armazenamento para Embeds e vídeos não públicos"
+                    singular: "{AMOUNT} de armazenamento gerenciado"
                   },
                   "zh-CN": {
-                    singular: "{AMOUNT} 用于嵌入和非公开视频的存储空间"
+                    singular: "{AMOUNT} 托管存储"
                   }
                 }
               })
@@ -10085,7 +10351,7 @@
               }
             }
           })
-        }), (0, _v5.jsx)(_v217.DowngradeFlowModal, {
+        }), (0, _v5.jsx)(_v219.DowngradeFlowModal, {
           isOpen: _v5,
           onClose: _v7,
           onSuccess: _v2,
@@ -10100,26 +10366,26 @@
         })]
       });
     };
-  var _v220 = _v0.i(0);
-  let _v221 = ["studio", "core", "professional"],
-    _v222 = ["plus", "starter"],
-    _v223 = ["pro", "standard"],
-    _v224 = ["business"],
-    _v225 = ["advanced", "live_premium"],
-    _v226 = {
+  var _v222 = _v0.i(0);
+  let _v223 = ["studio", "core", "professional"],
+    _v224 = ["plus", "starter"],
+    _v225 = ["pro", "standard"],
+    _v226 = ["business"],
+    _v227 = ["advanced", "live_premium"],
+    _v228 = {
       professional: "creator",
       advanced: "professional"
     };
-  var _v227 = _v0.i(0),
-    _v228 = _v0.i(0),
-    _v229 = _v0.i(0),
+  var _v229 = _v0.i(0),
     _v230 = _v0.i(0),
     _v231 = _v0.i(0),
     _v232 = _v0.i(0),
     _v233 = _v0.i(0),
-    _v234 = _v0.i(0);
-  let _v235 = "/upgrade-plan",
-    _v236 = ({
+    _v234 = _v0.i(0),
+    _v235 = _v0.i(0),
+    _v236 = _v0.i(0);
+  let _v237 = "/upgrade-plan",
+    _v238 = ({
       isOpen: _v0,
       onClose: _v1,
       onBack: _v2,
@@ -10135,7 +10401,7 @@
       renewalPriceLabel: _v12,
       renewalMonthlyPriceLabel: _v13 = _v12,
       planFeatures: _v14,
-      exploreOtherOptionsHref: _v15 = _v235
+      exploreOtherOptionsHref: _v15 = _v237
     }) => {
       let _v16 = _v7.default.useRef(!1);
       _v7.default.useEffect(() => {
@@ -10281,59 +10547,59 @@
               variant: "heading-2xs",
               color: "text-secondary",
               children: _v0.bandwidthIsYearly ? (0, _v16.translate)({
-                singular: "{AMOUNT} of bandwidth per year",
+                singular: "{AMOUNT}/yr managed bandwidth",
                 replacements: {
                   AMOUNT: _v0.bandwidth
                 },
                 dictionary: {
                   es: {
-                    singular: "{AMOUNT} de ancho de banda por año"
+                    singular: "{AMOUNT}/yr ancho de banda gestionado"
                   },
                   "de-DE": {
-                    singular: "{AMOUNT} Bandbreite pro Jahr"
+                    singular: "{AMOUNT}/yr verwaltete Bandbreite"
                   },
                   "fr-FR": {
-                    singular: "{AMOUNT} de bande passante par an"
+                    singular: "{AMOUNT}/yr de bande passante gérée"
                   },
                   "ja-JP": {
-                    singular: "{AMOUNT} の年間帯域幅"
+                    singular: "{AMOUNT}/yr 管理対象帯域幅"
                   },
                   "ko-KR": {
-                    singular: "{AMOUNT}의 연간 대역폭"
+                    singular: "{AMOUNT}/yr 관리형 대역폭"
                   },
                   "pt-BR": {
-                    singular: "{AMOUNT} de largura de banda por ano"
+                    singular: "{AMOUNT}/ano de largura de banda gerenciada"
                   },
                   "zh-CN": {
-                    singular: "{AMOUNT} 年度带宽"
+                    singular: "{AMOUNT}/yr 托管带宽"
                   }
                 }
               }) : (0, _v16.translate)({
-                singular: "{AMOUNT} of bandwidth per month",
+                singular: "{AMOUNT}/mo managed bandwidth",
                 replacements: {
                   AMOUNT: _v0.bandwidth
                 },
                 dictionary: {
                   es: {
-                    singular: "{AMOUNT} de ancho de banda por mes"
+                    singular: "{AMOUNT}/mo ancho de banda gestionado"
                   },
                   "de-DE": {
-                    singular: "{AMOUNT} Bandbreite pro Monat"
+                    singular: "{AMOUNT}/mo verwaltete Bandbreite"
                   },
                   "fr-FR": {
-                    singular: "{AMOUNT} de bande passante par mois"
+                    singular: "{AMOUNT}/mo de bande passante gérée"
                   },
                   "ja-JP": {
-                    singular: "月あたり{AMOUNT}の帯域幅"
+                    singular: "{AMOUNT}/mo 管理対象帯域幅"
                   },
                   "ko-KR": {
-                    singular: "{AMOUNT}의 월별 대역폭"
+                    singular: "{AMOUNT}/mo 관리형 대역폭"
                   },
                   "pt-BR": {
-                    singular: "{AMOUNT} de largura de banda por mês"
+                    singular: "{AMOUNT}/mês de largura de banda gerenciada"
                   },
                   "zh-CN": {
-                    singular: "{AMOUNT} 每月带宽"
+                    singular: "{AMOUNT}/mo 托管带宽"
                   }
                 }
               })
@@ -10350,31 +10616,31 @@
               color: "text-secondary",
               flex: "1",
               children: (0, _v16.translate)({
-                singular: "{AMOUNT} storage for Embeds and non-Public videos",
+                singular: "{AMOUNT} managed storage",
                 replacements: {
                   AMOUNT: _v0.restrictedStorage
                 },
                 dictionary: {
                   es: {
-                    singular: "{AMOUNT} de almacenamiento para Embeds y videos no públicos"
+                    singular: "{AMOUNT} de almacenamiento gestionado"
                   },
                   "de-DE": {
-                    singular: "{AMOUNT} Speicher für Einbettungen und nicht-öffentliche Videos"
+                    singular: "{AMOUNT} verwalteter Speicherplatz"
                   },
                   "fr-FR": {
-                    singular: "{AMOUNT} de stockage pour les intégrations et les vidéos non publiques"
+                    singular: "{AMOUNT} de stockage géré"
                   },
                   "ja-JP": {
-                    singular: "{AMOUNT} の埋め込みおよび非公開ビデオ用ストレージ"
+                    singular: "{AMOUNT} 管理対象ストレージ"
                   },
                   "ko-KR": {
-                    singular: "{AMOUNT} 임베드 및 비공개 동영상용 저장 공간"
+                    singular: "{AMOUNT} 관리형 저장소"
                   },
                   "pt-BR": {
-                    singular: "{AMOUNT} de armazenamento para Embeds e vídeos não públicos"
+                    singular: "{AMOUNT} de armazenamento gerenciado"
                   },
                   "zh-CN": {
-                    singular: "{AMOUNT} 用于嵌入和非公开视频的存储空间"
+                    singular: "{AMOUNT} 托管存储"
                   }
                 }
               })
@@ -10405,7 +10671,7 @@
           },
           children: [(0, _v5.jsx)(_v124.IconButton, {
             "aria-label": "Go back",
-            icon: (0, _v5.jsx)(_v228.ChevronLeft, {}),
+            icon: (0, _v5.jsx)(_v230.ChevronLeft, {}),
             variant: "minimalTransparent",
             size: "sm",
             position: "absolute",
@@ -10587,16 +10853,13 @@
                         singular: "Kostenlos"
                       },
                       "fr-FR": {
-                        singular: "Gratuit"
+                        singular: "Gratuit "
                       },
                       "ja-JP": {
                         singular: "無料"
                       },
                       "ko-KR": {
                         singular: "무료"
-                      },
-                      "pt-BR": {
-                        singular: "Grátis"
                       },
                       "zh-CN": {
                         singular: "免费"
@@ -11030,9 +11293,9 @@
         })]
       });
     },
-    _v237 = "/terms",
-    _v238 = "/privacy",
-    _v239 = ({
+    _v239 = "/terms",
+    _v240 = "/privacy",
+    _v241 = ({
       isOpen: _v0,
       onClose: _v1,
       onDecline: _v2,
@@ -11057,7 +11320,7 @@
         _v18 = (_v10 = (0, _v17.useOrionSetting)("campaign_id_override_top_priority"), _v11 = (0, _v17.useOrionSetting)("campaign_id_override"), "rp_2026_high" === ("null" !== _v10 ? _v10 : _v11) ? "high" : "low"),
         _v19 = _v6?.productName?.toLowerCase().replace("vimeo ", ""),
         _v20 = _v6?.productId ?? _v7.productId,
-        _v21 = (0, _v220.isOctober2026Product)(_v20),
+        _v21 = (0, _v222.isOctober2026Product)(_v20),
         _v22 = _v21 ? "october_rollout" : _v18,
         _v23 = function ({
           tier: _v0,
@@ -11090,14 +11353,14 @@
               if (null == _v1) return null;
               if ("october_rollout" === _v2) {
                 var _v3, _v4;
-                return _v3 = _v0, _v4 = _v1, "core" === _v3 ? _v222.includes(_v4) ? 50 : null : "professional" !== _v3 ? null : _v222.includes(_v4) ? 80 : _v223.includes(_v4) ? 65 : _v224.includes(_v4) ? 15 : null;
+                return _v3 = _v0, _v4 = _v1, "core" === _v3 ? _v224.includes(_v4) ? 50 : null : "professional" !== _v3 ? null : _v224.includes(_v4) ? 80 : _v225.includes(_v4) ? 65 : _v226.includes(_v4) ? 15 : null;
               }
               let _v5 = "high" === _v2;
-              if ("core" === _v0) return _v222.includes(_v1) ? _v5 ? 70 : 60 : null;
+              if ("core" === _v0) return _v224.includes(_v1) ? _v5 ? 70 : 60 : null;
               if ("professional" === _v0) {
-                if (_v223.includes(_v1)) return _v5 ? 70 : 65;
-                if (_v224.includes(_v1)) return _v5 ? 50 : 30;
-                if (_v225.includes(_v1)) return _v5 ? 30 : null;
+                if (_v225.includes(_v1)) return _v5 ? 70 : 65;
+                if (_v226.includes(_v1)) return _v5 ? 50 : 30;
+                if (_v227.includes(_v1)) return _v5 ? 30 : null;
               }
               return null;
             }({
@@ -11111,7 +11374,7 @@
               discountPercent: _v0
             };
           }
-          let _v6 = _v0 ? _v226[_v0] : void 0;
+          let _v6 = _v0 ? _v228[_v0] : void 0;
           return _v6 ? {
             kind: "downgrade",
             targetTier: _v6
@@ -11131,14 +11394,14 @@
           b2b_cancellation_discount_type: _v26,
           b2c_cancellation_discount_offer_variant: _v27
         } = (0, _v61.useOrionSettingsFields)(["b2b_cancellation_discount_type", "b2c_cancellation_discount_offer_variant"]),
-        _v28 = (0, _v233.useOrionLoading)(),
+        _v28 = (0, _v235.useOrionLoading)(),
         _v29 = function ({
           arm: _v0,
           b2cArm: _v1,
           offerKind: _v2,
           effectiveTier: _v3
         }) {
-          return "core" === _v3 || "professional" === _v3 ? "more_prominent_plans" === _v1 ? "permanent_prominent" : "one-time" : "discount_match_lower" === _v2 && void 0 !== _v3 && _v221.includes(_v3) ? _v0 : null;
+          return "core" === _v3 || "professional" === _v3 ? "more_prominent_plans" === _v1 ? "permanent_prominent" : "one-time" : "discount_match_lower" === _v2 && void 0 !== _v3 && _v223.includes(_v3) ? _v0 : null;
         }({
           arm: _v26,
           b2cArm: _v27,
@@ -11158,13 +11421,13 @@
           let _v0 = ["creator", "core", "professional", "studio"];
           return _v19 && !_v0.includes(_v19) ? [..._v0, _v19] : _v0;
         }, [_v19]),
-        _v40 = (0, _v232.useCampaignIdOverride)(),
-        _v41 = (0, _v220.isJuly2026Product)(_v20),
+        _v40 = (0, _v234.useCampaignIdOverride)(),
+        _v41 = (0, _v222.isJuly2026Product)(_v20),
         _v42 = !!(_v19 && _v102.RepackagedTiers.includes(_v19)),
         _v43 = _v7.billingPeriod === _v102.UserPlanType.Year,
         _v44 = _v43 ? "year" : "month",
         _v45 = _v43 ? _v6?.originalMonthlyPrice?.amount ?? _v6?.monthlyPrice?.amount ?? null : _v6?.originalPrice?.amount ?? _v6?.price?.amount ?? null,
-        _v46 = (_v21 ? _v232.RP_2026_OCT_ROLLOUT_CAMPAIGN_ID : _v40) ?? (!_v28 && !_v40 && _v42 && _v41 ? _v232.RP_2026_LOW_CAMPAIGN_ID : void 0),
+        _v46 = (_v21 ? _v234.RP_2026_OCT_ROLLOUT_CAMPAIGN_ID : _v40) ?? (!_v28 && !_v40 && _v42 && _v41 ? _v234.RP_2026_LOW_CAMPAIGN_ID : void 0),
         {
           plans: _v47,
           isLoading: _v48
@@ -11177,12 +11440,12 @@
         {
           plans: _v50
         } = (0, _v115.useGetSubscriptionPlansDataResult)(_v39, void 0, !1, _v49 ? {
-          campaignId: _v232.RP_2026_HIGH_CAMPAIGN_ID
+          campaignId: _v234.RP_2026_HIGH_CAMPAIGN_ID
         } : void 0),
         {
           plans: _v51
         } = (0, _v115.useGetSubscriptionPlansDataResult)(_v39, void 0, !1, _v49 ? {
-          campaignId: _v232.RP_2026_LOW_CAMPAIGN_ID
+          campaignId: _v234.RP_2026_LOW_CAMPAIGN_ID
         } : void 0),
         {
           baseUrl: _v52,
@@ -11199,7 +11462,7 @@
         {
           trackUserScheduledDowngrade: _v61,
           trackDowngradeFailed: _v62
-        } = (0, _v234.usePricingTracking)(),
+        } = (0, _v236.usePricingTracking)(),
         {
           trackIndividualEligibilityCtaClicked: _v63
         } = (0, _v63.useIndividualEligibilityTracking)(),
@@ -11207,17 +11470,17 @@
         _v65 = _v7.subscriptionId,
         _v66 = (0, _v7.useMemo)(() => _v47 && _v36 ? _v47.find(_v0 => _v0.tier === _v36) ?? null : null, [_v47, _v36]),
         _v67 = (0, _v7.useMemo)(() => _v47?.find(_v0 => "professional" === _v0.tier) ?? null, [_v47]),
-        _v68 = (0, _v220.resolveB2CPriceMatch)({
+        _v68 = (0, _v222.resolveB2CPriceMatch)({
           scheduledProductId: _v20,
           renewalMonthlyPrice: _v45,
           billingPeriod: _v44,
           plans: _v47
-        }) ?? (0, _v220.resolveB2CPriceMatch)({
+        }) ?? (0, _v222.resolveB2CPriceMatch)({
           scheduledProductId: _v20,
           renewalMonthlyPrice: _v45,
           billingPeriod: _v44,
           plans: _v50
-        }) ?? (0, _v220.resolveB2CPriceMatch)({
+        }) ?? (0, _v222.resolveB2CPriceMatch)({
           scheduledProductId: _v20,
           renewalMonthlyPrice: _v45,
           billingPeriod: _v44,
@@ -11225,13 +11488,13 @@
         }),
         _v69 = _v68?.landedPlan ?? null,
         _v70 = null !== _v68,
-        _v71 = _v21 ? (0, _v220.findPlanRowByProductId)(_v47, _v20) ?? null : null,
+        _v71 = _v21 ? (0, _v222.findPlanRowByProductId)(_v47, _v20) ?? null : null,
         _v72 = _v21 ? _v23.discountPercent ?? null : null,
-        _v73 = _v21 ? (0, _v220.getBillingPlanSkuForProduct)(_v20, _v43 ? "year" : "month") : void 0,
+        _v73 = _v21 ? (0, _v222.getBillingPlanSkuForProduct)(_v20, _v43 ? "year" : "month") : void 0,
         _v74 = _v21 && null !== _v72 && null === _v71 && null != _v73,
         {
           data: _v75
-        } = (0, _v231.useGetMeSubscriptionProducts)(() => _v74 && null != _v73 && _v17 ? {
+        } = (0, _v233.useGetMeSubscriptionProducts)(() => _v74 && null != _v73 && _v17 ? {
           select: ["plans"],
           query: {
             billingPlanId: _v73,
@@ -11386,7 +11649,7 @@
             }
             _v57(!0);
             try {
-              await (0, _v230.putMeSubscriptionScheduledOrder)({
+              await (0, _v232.putMeSubscriptionScheduledOrder)({
                 where: {
                   subscriptionId: _v65
                 },
@@ -11485,7 +11748,7 @@
             }
             _v57(!0);
             try {
-              await (0, _v230.putMeSubscriptionScheduledOrder)({
+              await (0, _v232.putMeSubscriptionScheduledOrder)({
                 where: {
                   subscriptionId: _v65
                 },
@@ -11567,7 +11830,7 @@
         _v114 = _v74 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? null : (_v43 ? _v81?.priceFormatted?.annualMonthly : _v81?.priceFormatted?.monthly) ?? null,
         _v115 = _v74 ? _v6?.originalPrice?.amount ?? _v6?.price?.amount ?? null : (_v43 ? _v81?.price?.annual : _v81?.price?.monthly) ?? null,
         _v116 = _v74 ? _v6?.originalPrice?.currency ?? _v6?.price?.currency ?? null : _v81?.currency?.currencyCode ?? null,
-        _v117 = null != _v115 && null !== _v103 ? (0, _v227.resolveEffectiveDiscountedPrice)(_v115, _v103) : null,
+        _v117 = null != _v115 && null !== _v103 ? (0, _v229.resolveEffectiveDiscountedPrice)(_v115, _v103) : null,
         _v118 = null !== _v117 && _v116 ? new Intl.NumberFormat(_v55 ?? "en", {
           style: "currency",
           currency: _v116,
@@ -11617,8 +11880,8 @@
             DISCOUNTED_AMOUNT: _v118 ?? "",
             RENEWAL_DATE: _v112,
             ANNUAL_AMOUNT: _v113 ?? "",
-            TOS_URL: _v123(_v237, "tos"),
-            PP_URL: _v123(_v238, "privacy")
+            TOS_URL: _v123(_v239, "tos"),
+            PP_URL: _v123(_v240, "privacy")
           },
           dictionary: {
             es: {
@@ -11650,8 +11913,8 @@
             DISCOUNTED_AMOUNT: _v118 ?? "",
             RENEWAL_DATE: _v112,
             FULL_AMOUNT: _v113 ?? "",
-            TOS_URL: _v123(_v237, "tos"),
-            PP_URL: _v123(_v238, "privacy")
+            TOS_URL: _v123(_v239, "tos"),
+            PP_URL: _v123(_v240, "privacy")
           },
           dictionary: {
             es: {
@@ -11683,8 +11946,8 @@
             CTA: _v84,
             RENEWAL_DATE: _v112,
             FULL_PRICE: _v119 ?? "",
-            TOS_URL: _v123(_v237, "tos"),
-            PP_URL: _v123(_v238, "privacy")
+            TOS_URL: _v123(_v239, "tos"),
+            PP_URL: _v123(_v240, "privacy")
           },
           dictionary: {
             es: {
@@ -11715,8 +11978,8 @@
             CTA: _v84,
             RENEWAL_DATE: _v112,
             FULL_PRICE: _v119 ?? "",
-            TOS_URL: _v123(_v237, "tos"),
-            PP_URL: _v123(_v238, "privacy")
+            TOS_URL: _v123(_v239, "tos"),
+            PP_URL: _v123(_v240, "privacy")
           },
           dictionary: {
             es: {
@@ -11811,8 +12074,8 @@
                 DISCOUNTED_AMOUNT: _v118 ?? "",
                 RENEWAL_DATE: _v112,
                 PERIOD: _v1,
-                TOS_URL: _v123(_v237, "tos"),
-                PP_URL: _v123(_v238, "privacy")
+                TOS_URL: _v123(_v239, "tos"),
+                PP_URL: _v123(_v240, "privacy")
               },
               dictionary: {
                 es: {
@@ -11843,7 +12106,7 @@
       if (_v102) {
         let _v0 = _v7.billingPeriod === _v102.UserPlanType.Year,
           _v1 = _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v81?.priceFormatted?.annualMonthly ?? null : _v6?.originalPrice?.formatted ?? _v6?.price?.formatted ?? _v81?.priceFormatted?.monthly ?? null,
-          _v2 = _v70 ? _v68?.effectiveDiscountedPrice ?? null : null != _v99 && null !== _v103 ? (0, _v227.resolveEffectiveDiscountedPrice)(_v99, _v103) : null,
+          _v2 = _v70 ? _v68?.effectiveDiscountedPrice ?? null : null != _v99 && null !== _v103 ? (0, _v229.resolveEffectiveDiscountedPrice)(_v99, _v103) : null,
           _v3 = null !== _v2 && _v116 ? new Intl.NumberFormat(_v55 ?? "en", {
             style: "currency",
             currency: _v116,
@@ -11852,7 +12115,7 @@
           }).format(_v2) : null,
           _v4 = _v0 ? _v6?.originalPrice?.formatted ?? _v81?.priceFormatted?.annual ?? null : _v3,
           _v5 = _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v81?.priceFormatted?.annualMonthly ?? null : _v3;
-        return (0, _v5.jsx)(_v236, {
+        return (0, _v5.jsx)(_v238, {
           isOpen: _v0,
           onClose: _v1,
           onBack: _v3,
@@ -11881,7 +12144,7 @@
       if (_v80) {
         let _v0 = _v7.billingPeriod === _v102.UserPlanType.Year,
           _v1 = _v30 ? _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v81?.priceFormatted?.annualMonthly : _v6?.originalPrice?.formatted ?? _v6?.price?.formatted ?? _v81?.priceFormatted?.monthly : _v0 ? _v81?.priceFormatted?.annualMonthly : _v81?.priceFormatted?.monthly,
-          _v2 = _v70 ? _v68?.effectiveDiscountedPrice ?? null : null != _v99 && null !== _v103 ? (0, _v227.resolveEffectiveDiscountedPrice)(_v99, _v103) : null,
+          _v2 = _v70 ? _v68?.effectiveDiscountedPrice ?? null : null != _v99 && null !== _v103 ? (0, _v229.resolveEffectiveDiscountedPrice)(_v99, _v103) : null,
           _v3 = null !== _v2 && _v116 ? new Intl.NumberFormat(_v55 ?? "en", {
             style: "currency",
             currency: _v116,
@@ -11891,7 +12154,7 @@
         if (_v102) {
           let _v0 = _v0 ? _v6?.originalPrice?.formatted ?? _v81?.priceFormatted?.annual ?? null : _v3,
             _v1 = _v0 ? _v6?.originalMonthlyPrice?.formatted ?? _v6?.monthlyPrice?.formatted ?? _v81?.priceFormatted?.annualMonthly ?? null : _v3;
-          return (0, _v5.jsx)(_v236, {
+          return (0, _v5.jsx)(_v238, {
             isOpen: _v0,
             onClose: _v1,
             onBack: _v3,
@@ -11926,7 +12189,7 @@
             restrictedStorage: _v89,
             bandwidth: _v90,
             bandwidthIsYearly: _v91
-          }, _v1 = (_v0 = _v7.billingPeriod === _v102.UserPlanType.Year) ? _v81?.priceFormatted?.annualMonthly : _v81?.priceFormatted?.monthly, _v3 = null !== (_v2 = null != _v99 && null !== _v103 ? (0, _v227.resolveEffectiveDiscountedPrice)(_v99, _v103) : null) && _v116 ? new Intl.NumberFormat(_v55 ?? "en", {
+          }, _v1 = (_v0 = _v7.billingPeriod === _v102.UserPlanType.Year) ? _v81?.priceFormatted?.annualMonthly : _v81?.priceFormatted?.monthly, _v3 = null !== (_v2 = null != _v99 && null !== _v103 ? (0, _v229.resolveEffectiveDiscountedPrice)(_v99, _v103) : null) && _v116 ? new Intl.NumberFormat(_v55 ?? "en", {
             style: "currency",
             currency: _v116,
             minimumFractionDigits: 0,
@@ -12024,59 +12287,59 @@
                 variant: "heading-2xs",
                 color: "text-secondary",
                 children: _v0.bandwidthIsYearly ? (0, _v16.translate)({
-                  singular: "{AMOUNT} of bandwidth per year",
+                  singular: "{AMOUNT}/yr managed bandwidth",
                   replacements: {
                     AMOUNT: _v0.bandwidth
                   },
                   dictionary: {
                     es: {
-                      singular: "{AMOUNT} de ancho de banda por año"
+                      singular: "{AMOUNT}/yr ancho de banda gestionado"
                     },
                     "de-DE": {
-                      singular: "{AMOUNT} Bandbreite pro Jahr"
+                      singular: "{AMOUNT}/yr verwaltete Bandbreite"
                     },
                     "fr-FR": {
-                      singular: "{AMOUNT} de bande passante par an"
+                      singular: "{AMOUNT}/yr de bande passante gérée"
                     },
                     "ja-JP": {
-                      singular: "{AMOUNT} の年間帯域幅"
+                      singular: "{AMOUNT}/yr 管理対象帯域幅"
                     },
                     "ko-KR": {
-                      singular: "{AMOUNT}의 연간 대역폭"
+                      singular: "{AMOUNT}/yr 관리형 대역폭"
                     },
                     "pt-BR": {
-                      singular: "{AMOUNT} de largura de banda por ano"
+                      singular: "{AMOUNT}/ano de largura de banda gerenciada"
                     },
                     "zh-CN": {
-                      singular: "{AMOUNT} 年度带宽"
+                      singular: "{AMOUNT}/yr 托管带宽"
                     }
                   }
                 }) : (0, _v16.translate)({
-                  singular: "{AMOUNT} of bandwidth per month",
+                  singular: "{AMOUNT}/mo managed bandwidth",
                   replacements: {
                     AMOUNT: _v0.bandwidth
                   },
                   dictionary: {
                     es: {
-                      singular: "{AMOUNT} de ancho de banda por mes"
+                      singular: "{AMOUNT}/mo ancho de banda gestionado"
                     },
                     "de-DE": {
-                      singular: "{AMOUNT} Bandbreite pro Monat"
+                      singular: "{AMOUNT}/mo verwaltete Bandbreite"
                     },
                     "fr-FR": {
-                      singular: "{AMOUNT} de bande passante par mois"
+                      singular: "{AMOUNT}/mo de bande passante gérée"
                     },
                     "ja-JP": {
-                      singular: "月あたり{AMOUNT}の帯域幅"
+                      singular: "{AMOUNT}/mo 管理対象帯域幅"
                     },
                     "ko-KR": {
-                      singular: "{AMOUNT}의 월별 대역폭"
+                      singular: "{AMOUNT}/mo 관리형 대역폭"
                     },
                     "pt-BR": {
-                      singular: "{AMOUNT} de largura de banda por mês"
+                      singular: "{AMOUNT}/mês de largura de banda gerenciada"
                     },
                     "zh-CN": {
-                      singular: "{AMOUNT} 每月带宽"
+                      singular: "{AMOUNT}/mo 托管带宽"
                     }
                   }
                 })
@@ -12093,31 +12356,31 @@
                 color: "text-secondary",
                 flex: "1",
                 children: (0, _v16.translate)({
-                  singular: "{AMOUNT} storage for Embeds and non-Public videos",
+                  singular: "{AMOUNT} managed storage",
                   replacements: {
                     AMOUNT: _v0.restrictedStorage
                   },
                   dictionary: {
                     es: {
-                      singular: "{AMOUNT} de almacenamiento para Embeds y videos no públicos"
+                      singular: "{AMOUNT} de almacenamiento gestionado"
                     },
                     "de-DE": {
-                      singular: "{AMOUNT} Speicher für Einbettungen und nicht-öffentliche Videos"
+                      singular: "{AMOUNT} verwalteter Speicherplatz"
                     },
                     "fr-FR": {
-                      singular: "{AMOUNT} de stockage pour les intégrations et les vidéos non publiques"
+                      singular: "{AMOUNT} de stockage géré"
                     },
                     "ja-JP": {
-                      singular: "{AMOUNT} の埋め込みおよび非公開ビデオ用ストレージ"
+                      singular: "{AMOUNT} 管理対象ストレージ"
                     },
                     "ko-KR": {
-                      singular: "{AMOUNT} 임베드 및 비공개 동영상용 저장 공간"
+                      singular: "{AMOUNT} 관리형 저장소"
                     },
                     "pt-BR": {
-                      singular: "{AMOUNT} de armazenamento para Embeds e vídeos não públicos"
+                      singular: "{AMOUNT} de armazenamento gerenciado"
                     },
                     "zh-CN": {
-                      singular: "{AMOUNT} 用于嵌入和非公开视频的存储空间"
+                      singular: "{AMOUNT} 托管存储"
                     }
                   }
                 })
@@ -12144,7 +12407,7 @@
               px: 6,
               children: [(0, _v5.jsx)(_v124.IconButton, {
                 "aria-label": "Go back",
-                icon: (0, _v5.jsx)(_v228.ChevronLeft, {}),
+                icon: (0, _v5.jsx)(_v230.ChevronLeft, {}),
                 variant: "minimalTransparent",
                 size: "sm",
                 position: "absolute",
@@ -12256,16 +12519,13 @@
                             singular: "Kostenlos"
                           },
                           "fr-FR": {
-                            singular: "Gratuit"
+                            singular: "Gratuit "
                           },
                           "ja-JP": {
                             singular: "無料"
                           },
                           "ko-KR": {
                             singular: "무료"
-                          },
-                          "pt-BR": {
-                            singular: "Grátis"
                           },
                           "zh-CN": {
                             singular: "免费"
@@ -12627,7 +12887,7 @@
             p: 6,
             children: [(0, _v5.jsx)(_v124.IconButton, {
               "aria-label": "Go back",
-              icon: (0, _v5.jsx)(_v228.ChevronLeft, {}),
+              icon: (0, _v5.jsx)(_v230.ChevronLeft, {}),
               variant: "minimalTransparent",
               size: "sm",
               position: "absolute",
@@ -12905,7 +13165,7 @@
                   display: "flex",
                   alignItems: "center",
                   gap: 2,
-                  children: [_v87 <= 1 ? (0, _v5.jsx)(_v215.PersonUser, {}) : (0, _v5.jsx)(_v114.Users, {}), (0, _v5.jsx)(_v33.Text, {
+                  children: [_v87 <= 1 ? (0, _v5.jsx)(_v217.PersonUser, {}) : (0, _v5.jsx)(_v114.Users, {}), (0, _v5.jsx)(_v33.Text, {
                     variant: "body-sm",
                     children: _v88 ? (0, _v16.translate)({
                       singular: "{USERS} users + {ADMINS} admins",
@@ -12982,31 +13242,31 @@
                   children: [(0, _v5.jsx)(_v112.ManagedStorage, {}), (0, _v5.jsx)(_v33.Text, {
                     variant: "body-sm",
                     children: (0, _v16.translate)({
-                      singular: "{AMOUNT} storage for Embeds and non-Public videos",
+                      singular: "{AMOUNT} managed storage",
                       replacements: {
                         AMOUNT: _v89
                       },
                       dictionary: {
                         es: {
-                          singular: "{AMOUNT} de almacenamiento para Embeds y videos no públicos"
+                          singular: "{AMOUNT} de almacenamiento gestionado"
                         },
                         "de-DE": {
-                          singular: "{AMOUNT} Speicher für Einbettungen und nicht-öffentliche Videos"
+                          singular: "{AMOUNT} verwalteter Speicherplatz"
                         },
                         "fr-FR": {
-                          singular: "{AMOUNT} de stockage pour les intégrations et les vidéos non publiques"
+                          singular: "{AMOUNT} de stockage géré"
                         },
                         "ja-JP": {
-                          singular: "{AMOUNT} の埋め込みおよび非公開ビデオ用ストレージ"
+                          singular: "{AMOUNT} 管理対象ストレージ"
                         },
                         "ko-KR": {
-                          singular: "{AMOUNT} 임베드 및 비공개 동영상용 저장 공간"
+                          singular: "{AMOUNT} 관리형 저장소"
                         },
                         "pt-BR": {
-                          singular: "{AMOUNT} de armazenamento para Embeds e vídeos não públicos"
+                          singular: "{AMOUNT} de armazenamento gerenciado"
                         },
                         "zh-CN": {
-                          singular: "{AMOUNT} 用于嵌入和非公开视频的存储空间"
+                          singular: "{AMOUNT} 托管存储"
                         }
                       }
                     })
@@ -13015,62 +13275,62 @@
                   display: "flex",
                   alignItems: "center",
                   gap: 2,
-                  children: [(0, _v5.jsx)(_v229.Database, {}), (0, _v5.jsx)(_v33.Text, {
+                  children: [(0, _v5.jsx)(_v231.Database, {}), (0, _v5.jsx)(_v33.Text, {
                     variant: "body-sm",
                     children: _v91 ? (0, _v16.translate)({
-                      singular: "{AMOUNT} of bandwidth per year",
+                      singular: "{AMOUNT}/yr managed bandwidth",
                       replacements: {
                         AMOUNT: _v90
                       },
                       dictionary: {
                         es: {
-                          singular: "{AMOUNT} de ancho de banda por año"
+                          singular: "{AMOUNT}/yr ancho de banda gestionado"
                         },
                         "de-DE": {
-                          singular: "{AMOUNT} Bandbreite pro Jahr"
+                          singular: "{AMOUNT}/yr verwaltete Bandbreite"
                         },
                         "fr-FR": {
-                          singular: "{AMOUNT} de bande passante par an"
+                          singular: "{AMOUNT}/yr de bande passante gérée"
                         },
                         "ja-JP": {
-                          singular: "{AMOUNT} の年間帯域幅"
+                          singular: "{AMOUNT}/yr 管理対象帯域幅"
                         },
                         "ko-KR": {
-                          singular: "{AMOUNT}의 연간 대역폭"
+                          singular: "{AMOUNT}/yr 관리형 대역폭"
                         },
                         "pt-BR": {
-                          singular: "{AMOUNT} de largura de banda por ano"
+                          singular: "{AMOUNT}/ano de largura de banda gerenciada"
                         },
                         "zh-CN": {
-                          singular: "{AMOUNT} 年度带宽"
+                          singular: "{AMOUNT}/yr 托管带宽"
                         }
                       }
                     }) : (0, _v16.translate)({
-                      singular: "{AMOUNT} of bandwidth per month",
+                      singular: "{AMOUNT}/mo managed bandwidth",
                       replacements: {
                         AMOUNT: _v90
                       },
                       dictionary: {
                         es: {
-                          singular: "{AMOUNT} de ancho de banda por mes"
+                          singular: "{AMOUNT}/mo ancho de banda gestionado"
                         },
                         "de-DE": {
-                          singular: "{AMOUNT} Bandbreite pro Monat"
+                          singular: "{AMOUNT}/mo verwaltete Bandbreite"
                         },
                         "fr-FR": {
-                          singular: "{AMOUNT} de bande passante par mois"
+                          singular: "{AMOUNT}/mo de bande passante gérée"
                         },
                         "ja-JP": {
-                          singular: "月あたり{AMOUNT}の帯域幅"
+                          singular: "{AMOUNT}/mo 管理対象帯域幅"
                         },
                         "ko-KR": {
-                          singular: "{AMOUNT}의 월별 대역폭"
+                          singular: "{AMOUNT}/mo 관리형 대역폭"
                         },
                         "pt-BR": {
-                          singular: "{AMOUNT} de largura de banda por mês"
+                          singular: "{AMOUNT}/mês de largura de banda gerenciada"
                         },
                         "zh-CN": {
-                          singular: "{AMOUNT} 每月带宽"
+                          singular: "{AMOUNT}/mo 托管带宽"
                         }
                       }
                     })
@@ -13245,7 +13505,7 @@
           p: 6,
           children: [(0, _v5.jsx)(_v124.IconButton, {
             "aria-label": "Go back",
-            icon: (0, _v5.jsx)(_v228.ChevronLeft, {}),
+            icon: (0, _v5.jsx)(_v230.ChevronLeft, {}),
             variant: "minimalTransparent",
             size: "sm",
             position: "absolute",
@@ -13467,7 +13727,7 @@
                 display: "flex",
                 alignItems: "center",
                 gap: 2,
-                children: [_v129 <= 1 ? (0, _v5.jsx)(_v215.PersonUser, {}) : (0, _v5.jsx)(_v114.Users, {}), (0, _v5.jsx)(_v33.Text, {
+                children: [_v129 <= 1 ? (0, _v5.jsx)(_v217.PersonUser, {}) : (0, _v5.jsx)(_v114.Users, {}), (0, _v5.jsx)(_v33.Text, {
                   variant: "body-sm",
                   children: _v133 ? (0, _v16.translate)({
                     singular: "{USERS} users + {ADMINS} admins",
@@ -13544,31 +13804,31 @@
                 children: [(0, _v5.jsx)(_v112.ManagedStorage, {}), (0, _v5.jsx)(_v33.Text, {
                   variant: "body-sm",
                   children: (0, _v16.translate)({
-                    singular: "{AMOUNT} storage for Embeds and non-Public videos",
+                    singular: "{AMOUNT} managed storage",
                     replacements: {
                       AMOUNT: _v130
                     },
                     dictionary: {
                       es: {
-                        singular: "{AMOUNT} de almacenamiento para Embeds y videos no públicos"
+                        singular: "{AMOUNT} de almacenamiento gestionado"
                       },
                       "de-DE": {
-                        singular: "{AMOUNT} Speicher für Einbettungen und nicht-öffentliche Videos"
+                        singular: "{AMOUNT} verwalteter Speicherplatz"
                       },
                       "fr-FR": {
-                        singular: "{AMOUNT} de stockage pour les intégrations et les vidéos non publiques"
+                        singular: "{AMOUNT} de stockage géré"
                       },
                       "ja-JP": {
-                        singular: "{AMOUNT} の埋め込みおよび非公開ビデオ用ストレージ"
+                        singular: "{AMOUNT} 管理対象ストレージ"
                       },
                       "ko-KR": {
-                        singular: "{AMOUNT} 임베드 및 비공개 동영상용 저장 공간"
+                        singular: "{AMOUNT} 관리형 저장소"
                       },
                       "pt-BR": {
-                        singular: "{AMOUNT} de armazenamento para Embeds e vídeos não públicos"
+                        singular: "{AMOUNT} de armazenamento gerenciado"
                       },
                       "zh-CN": {
-                        singular: "{AMOUNT} 用于嵌入和非公开视频的存储空间"
+                        singular: "{AMOUNT} 托管存储"
                       }
                     }
                   })
@@ -13577,62 +13837,62 @@
                 display: "flex",
                 alignItems: "center",
                 gap: 2,
-                children: [(0, _v5.jsx)(_v229.Database, {}), (0, _v5.jsx)(_v33.Text, {
+                children: [(0, _v5.jsx)(_v231.Database, {}), (0, _v5.jsx)(_v33.Text, {
                   variant: "body-sm",
                   children: _v135 ? (0, _v16.translate)({
-                    singular: "{AMOUNT} of bandwidth per year",
+                    singular: "{AMOUNT}/yr managed bandwidth",
                     replacements: {
                       AMOUNT: _v134
                     },
                     dictionary: {
                       es: {
-                        singular: "{AMOUNT} de ancho de banda por año"
+                        singular: "{AMOUNT}/yr ancho de banda gestionado"
                       },
                       "de-DE": {
-                        singular: "{AMOUNT} Bandbreite pro Jahr"
+                        singular: "{AMOUNT}/yr verwaltete Bandbreite"
                       },
                       "fr-FR": {
-                        singular: "{AMOUNT} de bande passante par an"
+                        singular: "{AMOUNT}/yr de bande passante gérée"
                       },
                       "ja-JP": {
-                        singular: "{AMOUNT} の年間帯域幅"
+                        singular: "{AMOUNT}/yr 管理対象帯域幅"
                       },
                       "ko-KR": {
-                        singular: "{AMOUNT}의 연간 대역폭"
+                        singular: "{AMOUNT}/yr 관리형 대역폭"
                       },
                       "pt-BR": {
-                        singular: "{AMOUNT} de largura de banda por ano"
+                        singular: "{AMOUNT}/ano de largura de banda gerenciada"
                       },
                       "zh-CN": {
-                        singular: "{AMOUNT} 年度带宽"
+                        singular: "{AMOUNT}/yr 托管带宽"
                       }
                     }
                   }) : (0, _v16.translate)({
-                    singular: "{AMOUNT} of bandwidth per month",
+                    singular: "{AMOUNT}/mo managed bandwidth",
                     replacements: {
                       AMOUNT: _v134
                     },
                     dictionary: {
                       es: {
-                        singular: "{AMOUNT} de ancho de banda por mes"
+                        singular: "{AMOUNT}/mo ancho de banda gestionado"
                       },
                       "de-DE": {
-                        singular: "{AMOUNT} Bandbreite pro Monat"
+                        singular: "{AMOUNT}/mo verwaltete Bandbreite"
                       },
                       "fr-FR": {
-                        singular: "{AMOUNT} de bande passante par mois"
+                        singular: "{AMOUNT}/mo de bande passante gérée"
                       },
                       "ja-JP": {
-                        singular: "月あたり{AMOUNT}の帯域幅"
+                        singular: "{AMOUNT}/mo 管理対象帯域幅"
                       },
                       "ko-KR": {
-                        singular: "{AMOUNT}의 월별 대역폭"
+                        singular: "{AMOUNT}/mo 관리형 대역폭"
                       },
                       "pt-BR": {
-                        singular: "{AMOUNT} de largura de banda por mês"
+                        singular: "{AMOUNT}/mês de largura de banda gerenciada"
                       },
                       "zh-CN": {
-                        singular: "{AMOUNT} 每月带宽"
+                        singular: "{AMOUNT}/mo 托管带宽"
                       }
                     }
                   })
@@ -13724,10 +13984,10 @@
         })]
       });
     };
-  var _v240 = _v0.i(0),
-    _v241 = _v0.i(0),
-    _v242 = _v0.i(0);
-  let _v243 = ({
+  var _v242 = _v0.i(0),
+    _v243 = _v0.i(0),
+    _v244 = _v0.i(0);
+  let _v245 = ({
       children: _v0
     }) => (0, _v5.jsx)(_v10.Box, {
       sx: {
@@ -13740,7 +14000,7 @@
       minHeight: "0",
       children: _v0
     }),
-    _v244 = ({
+    _v246 = ({
       label: _v0,
       value: _v1,
       divider: _v2
@@ -13761,7 +14021,7 @@
         children: _v1
       })]
     }),
-    _v245 = ({
+    _v247 = ({
       membership: _v0,
       isOpen: _v1,
       onClose: _v2
@@ -13801,7 +14061,7 @@
           if (_v3 && _v0.subscriptionId && !_v17) {
             _v10.current = !0, _v7(_v9), _v18(!0);
             try {
-              let _v0 = await (0, _v198.requestSubscriptionWithdrawal)(_v3, _v0.subscriptionId, _v23);
+              let _v0 = await (0, _v200.requestSubscriptionWithdrawal)(_v3, _v0.subscriptionId, _v23);
               _v20(_v0), _v14("confirmation");
             } catch {
               _v4({
@@ -13998,7 +14258,7 @@
           borderRadius: "16px",
           margin: "auto",
           overflow: "hidden",
-          children: "info" === _v13 ? (0, _v5.jsxs)(_v243, {
+          children: "info" === _v13 ? (0, _v5.jsxs)(_v245, {
             children: [(0, _v5.jsx)(_v110.ModalHeader, {
               paddingX: {
                 base: "20px",
@@ -14097,7 +14357,7 @@
                         size: "sm",
                         children: _v27
                       })]
-                    }), (0, _v5.jsx)(_v244, {
+                    }), (0, _v5.jsx)(_v246, {
                       divider: !0,
                       label: (0, _v16.translate)({
                         singular: "Amount paid",
@@ -14130,7 +14390,7 @@
                         color: "text-primary",
                         children: _v28
                       })
-                    }), _v0.startDate && (0, _v5.jsx)(_v244, {
+                    }), _v0.startDate && (0, _v5.jsx)(_v246, {
                       divider: !0,
                       label: (0, _v16.translate)({
                         singular: "Payment date",
@@ -14225,8 +14485,8 @@
                       children: _v0
                     }, _v1))
                   })]
-                }), (0, _v5.jsxs)(_v240.FormControl, {
-                  children: [(0, _v5.jsxs)(_v207.FormLabel, {
+                }), (0, _v5.jsxs)(_v242.FormControl, {
+                  children: [(0, _v5.jsxs)(_v209.FormLabel, {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
@@ -14290,7 +14550,7 @@
                         }
                       })
                     })]
-                  }), (0, _v5.jsx)(_v241.Input, {
+                  }), (0, _v5.jsx)(_v243.Input, {
                     size: "lg",
                     type: "email",
                     value: _v15,
@@ -14379,7 +14639,7 @@
                 })]
               })
             })]
-          }) : (0, _v5.jsxs)(_v243, {
+          }) : (0, _v5.jsxs)(_v245, {
             children: [(0, _v5.jsx)(_v110.ModalHeader, {
               paddingTop: "40px",
               paddingBottom: "0",
@@ -14389,7 +14649,7 @@
               },
               children: (0, _v5.jsx)(_v12.Flex, {
                 justifyContent: "center",
-                children: (0, _v5.jsx)(_v242.CircleCheckFilled, {
+                children: (0, _v5.jsx)(_v244.CircleCheckFilled, {
                   boxSize: (0, _v30.rem)(56),
                   color: "status-positive-primary"
                 })
@@ -14578,8 +14838,8 @@
         })]
       });
     };
-  var _v246 = _v0.i(0);
-  async function _v247({
+  var _v248 = _v0.i(0);
+  async function _v249({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -14599,16 +14859,16 @@
       return (0, _v144.deepCamelCase)(_v1);
     });
   }
-  let _v248 = _v0 => _v0 && _v0.currency && Number.isFinite(_v0.amount) ? _v0 : null,
-    _v249 = (_v0, _v1) => (0, _v141.formatAmountWithCurrency)(_v0, _v1, 2 * !Number.isInteger(_v0)),
-    _v250 = _v0 => null !== _v0 && null !== _v248(_v0.total),
-    _v251 = _v0 => "expired" !== _v0.status.toLowerCase();
-  var _v252 = _v0.i(0);
-  let _v253 = [_v102.Tier.Creator, _v102.Tier.Core, _v102.Tier.Professional],
-    _v254 = [0, 0],
-    _v255 = [0, 0],
+  let _v250 = _v0 => _v0 && _v0.currency && Number.isFinite(_v0.amount) ? _v0 : null,
+    _v251 = (_v0, _v1) => (0, _v141.formatAmountWithCurrency)(_v0, _v1, 2 * !Number.isInteger(_v0)),
+    _v252 = _v0 => null !== _v0 && null !== _v250(_v0.total),
+    _v253 = _v0 => "expired" !== _v0.status.toLowerCase();
+  var _v254 = _v0.i(0);
+  let _v255 = [_v102.Tier.Creator, _v102.Tier.Core, _v102.Tier.Professional],
     _v256 = [0, 0],
-    _v257 = ({
+    _v257 = [0, 0],
+    _v258 = [0, 0],
+    _v259 = ({
       children: _v0,
       onRequestIndividualPlans: _v1,
       onChangePlanClick: _v2,
@@ -14699,7 +14959,7 @@
           scheduledProductId: _v37?.productId ?? _v14.productId
         }),
         _v55 = (_v44 || _v46) && _v27,
-        _v56 = _v38 && (0, _v246.isCorporateScheduledTier)(_v37?.productName),
+        _v56 = _v38 && (0, _v248.isCorporateScheduledTier)(_v37?.productName),
         _v57 = _v38 && _v14.tier === _v102.Tier.Advanced && "professional" === _v45,
         _v58 = "creator" === _v45,
         _v59 = _v28 && _v38 && !_v56 && !_v57 && !_v58,
@@ -14787,7 +15047,7 @@
           }
         }, [_v85, _v53, _v54.discount, _v54.studioPlan, _v60, _v79, _v80, _v81]),
         _v89 = _v0 => {
-          (_v73(), _v2 && _v0 && _v253.includes(_v0)) ? _v2(_v0) : window.open((0, _v62.buildUpgradePlanUrl)({
+          (_v73(), _v2 && _v0 && _v255.includes(_v0)) ? _v2(_v0) : window.open((0, _v62.buildUpgradePlanUrl)({
             paywallTrigger: "billing_card_change_plan_button",
             paywallLocation: "billing_card",
             paywallFeature: "billing"
@@ -14879,7 +15139,7 @@
                   xVimeoPage: _v5,
                   locale: _v6
                 } = (0, _v15.useGctlConfig)();
-              return (0, _v164.default)(_v2 ? `/users/${_v2.where.userId}/settings/billing/next_invoice${(0, _v91.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v247({
+              return (0, _v164.default)(_v2 ? `/users/${_v2.where.userId}/settings/billing/next_invoice${(0, _v91.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v249({
                 ..._v2,
                 headers: {
                   ..._v2.headers,
@@ -14901,7 +15161,7 @@
               revalidateOnReconnect: !1
             });
           return {
-            nextInvoice: null != _v4 && _v250(_v4) ? _v4 : null,
+            nextInvoice: null != _v4 && _v252(_v4) ? _v4 : null,
             isLoading: _v3 && _v5
           };
         })({
@@ -14918,7 +15178,7 @@
         _v111 = (0, _v7.useRef)(0),
         _v112 = !_v14.hasAutorenew,
         _v113 = !!_v14?.gracePeriodType,
-        _v114 = (0, _v252.getDisplayedGracePeriodEndDate)(_v14?.gracePeriodType, _v14?.originalEndDate, _v14?.endDate),
+        _v114 = (0, _v254.getDisplayedGracePeriodEndDate)(_v14?.gracePeriodType, _v14?.originalEndDate, _v14?.endDate),
         _v115 = (0, _v7.useMemo)(() => {
           let _v0 = {
             badge_msg: "",
@@ -15130,12 +15390,12 @@
         _v141 = null != _v14.additionalSeatPrice && null != _v14.basePlanPrice,
         _v142 = _v14.tier === _v102.Tier.Free ? 0 : _v141 ? _v14.basePlanPrice + _v14.additionalSeatPrice * _v140 : _v14.pricePerSeat * (_v101.OWNER + _v140),
         _v143 = _v14.tier === _v102.Tier.Free ? _v103.T.Free : (0, _v141.formatAmountWithCurrency)(_v142, _v14.currency, 0),
-        _v144 = (0, _v7.useMemo)(() => _v14.paymentServiceAddOns.filter(_v251).reduce((_v0, _v1) => _v0 + (_v1.amount?.amount ?? 0) * _v1.quantity, 0), [_v14]),
+        _v144 = (0, _v7.useMemo)(() => _v14.paymentServiceAddOns.filter(_v253).reduce((_v0, _v1) => _v0 + (_v1.amount?.amount ?? 0) * _v1.quantity, 0), [_v14]),
         _v145 = (0, _v141.formatAmountWithCurrency)(_v144, _v14.currency, 0),
         _v146 = _v144 > 0 && _v145 !== (0, _v141.formatAmountWithCurrency)(0, _v14.currency, 0) && !_v14.isReverseFreeTrial && _v14.status !== _v102.AccountStatus.Lapsed && !_v37,
         _v147 = _v146 ? _v144 : 0,
         _v148 = _v141 ? (0, _v141.formatAmountWithCurrency)(_v14.additionalSeatPrice, _v14.currency, 0) : (0, _v141.formatAmountWithCurrency)(_v14.pricePerSeat, _v14.currency, 0),
-        _v149 = _v38 ? _v41 && _v253.includes(_v41) ? _v41 : null : _v14.hasAutorenew && _v42 && _v253.includes(_v42) ? _v42 : null,
+        _v149 = _v38 ? _v41 && _v255.includes(_v41) ? _v41 : null : _v14.hasAutorenew && _v42 && _v255.includes(_v42) ? _v42 : null,
         {
           billedAnnually: _v150,
           billingPeriod: _v151,
@@ -15148,8 +15408,8 @@
           currency: _v14.currency
         }),
         _v153 = _v38 && _v37 ? _v37.productId : _v14.productId,
-        _v154 = null != _v153 && (_v255.includes(_v153) || _v256.includes(_v153)),
-        _v155 = null != _v153 && _v254.includes(_v153) ? "strict" : _v154 ? "july_2026" : "default",
+        _v154 = null != _v153 && (_v257.includes(_v153) || _v258.includes(_v153)),
+        _v155 = null != _v153 && _v256.includes(_v153) ? "strict" : _v154 ? "july_2026" : "default",
         _v156 = _v14.tier === _v102.Tier.Advanced ? "/enterprise/contact-us" : "/upgrade",
         _v157 = _v14.paymentMethod ?? _v14.suggestedPaymentMethod ?? _v15.find(_v0 => _v0.inUse) ?? _v15[0],
         _v158 = _v157 && (0, _v141.isPaymentExpired)(_v157),
@@ -15276,21 +15536,21 @@
           let _v0 = _v163;
           return _v185 === _v103.T.Month && _v37?.monthlyPrice?.formatted && (_v0 = _v37?.monthlyPrice?.formatted), _v185 === _v103.T.Year && _v37?.price?.formatted && (_v0 = _v37?.price?.formatted), _v0;
         }, [_v185, _v37?.monthlyPrice?.formatted, _v37?.price?.formatted, _v163]),
-        _v187 = _v250(_v104),
+        _v187 = _v252(_v104),
         _v188 = _v37?.billingPeriod === "year" && _v104?.source !== "open_invoice" ? 12 : 1,
         _v189 = (0, _v7.useMemo)(() => ((_v0, _v1, _v2 = 1) => {
           if (null === _v0) return _v1;
-          let _v3 = _v248(_v0.total);
-          return null === _v3 ? _v1 : _v249(_v3.amount / _v2, _v3.currency);
+          let _v3 = _v250(_v0.total);
+          return null === _v3 ? _v1 : _v251(_v3.amount / _v2, _v3.currency);
         })(_v104, _v186, _v188), [_v104, _v186, _v188]),
         _v190 = !!_v37?.discount || !!_v37?.discountPercent,
         _v191 = _v190 && !(_v187 && _v104?.source === "open_invoice"),
         _v192 = (0, _v7.useMemo)(() => _v187 && _v104?.source !== "open_invoice" ? ((_v0, _v1 = 1) => {
           if (null === _v0) return null;
-          let _v2 = _v248(_v0.total),
-            _v3 = _v248(_v0.subtotal),
-            _v4 = _v248(_v0.discount),
-            _v5 = _v248(_v0.tax);
+          let _v2 = _v250(_v0.total),
+            _v3 = _v250(_v0.subtotal),
+            _v4 = _v250(_v0.discount),
+            _v5 = _v250(_v0.tax);
           if (!_v2 || !_v3 || !_v4 || _v4.amount <= 0 || _v3.amount <= 0) return null;
           let _v6 = 1 - _v4.amount / _v3.amount;
           if (_v6 <= 0) return null;
@@ -15298,7 +15558,7 @@
             _v8 = (_v3.amount + _v7) / _v1,
             _v9 = Math.round(_v4.amount / _v3.amount * 100);
           return {
-            originalPrice: _v249(_v8, _v3.currency),
+            originalPrice: _v251(_v8, _v3.currency),
             percent: _v9 > 0 && _v9 < 100 ? _v9 : null
           };
         })(_v104, _v188) : null, [_v187, _v104, _v188]),
@@ -16049,14 +16309,14 @@
                     gap: 1,
                     flexWrap: "wrap",
                     justifyContent: "flex-start",
-                    children: [(0, _v5.jsx)(_v206, {
+                    children: [(0, _v5.jsx)(_v208, {
                       ..._v207
                     }), _v177 && (0, _v5.jsxs)(_v5.Fragment, {
                       children: [(0, _v5.jsx)(_v33.Text, {
                         variant: "body-sm",
                         color: "text-secondary",
                         children: _v103.T.Or
-                      }), (0, _v5.jsx)(_v204.StyledWithdrawSubscriptionButton, {
+                      }), (0, _v5.jsx)(_v206.StyledWithdrawSubscriptionButton, {
                         variant: "hyperminimal",
                         onClick: () => {
                           _v75({
@@ -16067,7 +16327,7 @@
                         children: _v103.T.WithdrawFromSubscription
                       })]
                     })]
-                  }), _v175 && (0, _v5.jsx)(_v208, {
+                  }), _v175 && (0, _v5.jsx)(_v210, {
                     showPostCancelSurvey: _v116,
                     setShowPostCancelSurvey: _v117,
                     membership: _v14,
@@ -16097,12 +16357,12 @@
               enableAutoRenew: _v136,
               tier: _v14.tier,
               billingPeriod: _v14.billingPeriod
-            }), _v177 && (0, _v5.jsx)(_v245, {
+            }), _v177 && (0, _v5.jsx)(_v247, {
               membership: _v14,
               isOpen: _v178,
               onClose: _v180
             })]
-          }), _v59 && (0, _v5.jsx)(_v219, {
+          }), _v59 && (0, _v5.jsx)(_v221, {
             scheduledOrder: _v37,
             membership: _v14,
             onSuccess: () => {
@@ -16129,7 +16389,7 @@
             alignItems: "center",
             gap: 0,
             display: _v174 || _v177 ? "inline-flex" : "none",
-            children: [(0, _v5.jsx)(_v206, {
+            children: [(0, _v5.jsx)(_v208, {
               ..._v207
             }), _v174 && _v177 && (0, _v5.jsx)(_v33.Text, {
               variant: "body-sm",
@@ -16137,7 +16397,7 @@
               pl: "2px",
               pr: "2px",
               children: _v103.T.Or
-            }), _v177 && (0, _v5.jsx)(_v204.StyledWithdrawSubscriptionButton, {
+            }), _v177 && (0, _v5.jsx)(_v206.StyledWithdrawSubscriptionButton, {
               variant: "hyperminimal",
               onClick: () => {
                 _v75({
@@ -16147,7 +16407,7 @@
               },
               children: _v103.T.WithdrawFromSubscription
             })]
-          }), _v175 && (0, _v5.jsx)(_v208, {
+          }), _v175 && (0, _v5.jsx)(_v210, {
             showPostCancelSurvey: _v116,
             setShowPostCancelSurvey: _v117,
             membership: _v14,
@@ -16155,7 +16415,7 @@
           })]
         }), "function" == typeof _v0 ? _v0({
           hasScheduledDowngrade: _v38
-        }) : _v0, (0, _v5.jsx)(_v239, {
+        }) : _v0, (0, _v5.jsx)(_v241, {
           isOpen: _v199,
           onClose: () => _v200(!1),
           onBack: () => {
@@ -16184,9 +16444,9 @@
           onRequestIndividualPlans: _v1 ? () => {
             _v200(!1), _v1();
           } : void 0
-        }), _v56 && "billing" === _v25 && (0, _v5.jsx)(_v214.CorporateUpgradeModal, {
+        }), _v56 && "billing" === _v25 && (0, _v5.jsx)(_v216.CorporateUpgradeModal, {
           productName: _v37?.productName ?? _v14.tierForDisplay
-        }), _v176 && (0, _v5.jsx)(_v213, {
+        }), _v176 && (0, _v5.jsx)(_v215, {
           isOpen: _v118,
           onClose: () => _v119(!1),
           onRequestIndividualPlans: _v0 => _v1?.(_v0 ?? "post_cancellation_survey"),
@@ -16226,16 +16486,16 @@
         })]
       });
     },
-    _v258 = "RENEWAL_SUCCESSFUL",
-    _v259 = "RENEWAL_FAILED",
-    _v260 = ({
+    _v260 = "RENEWAL_SUCCESSFUL",
+    _v261 = "RENEWAL_FAILED",
+    _v262 = ({
       locale: _v0,
       membership: _v1,
       noticeType: _v2,
       onClose: _v3
     }) => {
       let _v4 = _v1.tierForDisplay,
-        _v5 = _v2 === _v258,
+        _v5 = _v2 === _v260,
         _v6 = Intl.DateTimeFormat(_v0, {
           year: "numeric",
           month: "long",
@@ -16251,10 +16511,10 @@
         children: _v5 ? _v103.T.RenewalNotice.Success(_v4, _v6.format(_v7)) : _v103.T.RenewalNotice.Failure(_v4, _v6.format(_v7), `/checkout/${_v1.tier}/renew-now`)
       });
     };
-  var _v261 = _v0.i(0),
-    _v262 = _v0.i(0),
-    _v263 = _v0.i(0);
-  async function _v264({
+  var _v263 = _v0.i(0),
+    _v264 = _v0.i(0),
+    _v265 = _v0.i(0);
+  async function _v266({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -16276,7 +16536,7 @@
       return (0, _v144.deepCamelCase)(_v1);
     });
   }
-  function _v265({
+  function _v267({
     closeModal: _v0
   }) {
     let {
@@ -16314,7 +16574,7 @@
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v0(`/users/${_v0.where.userId}/seats${(0, _v91.serializeQuery)(_v0)}`, _v264({
+            let _v0 = await _v0(`/users/${_v0.where.userId}/seats${(0, _v91.serializeQuery)(_v0)}`, _v266({
               ..._v0,
               baseUrl: _v1,
               headers: {
@@ -16407,7 +16667,7 @@
       })]
     });
   }
-  let _v266 = _v7.default.memo(() => {
+  let _v268 = _v7.default.memo(() => {
     let {
         updateIsRemoveSeatsConfirmation: _v0
       } = (0, _v7.useContext)(_v140.ManageTeamDispatchCtx),
@@ -16415,14 +16675,14 @@
     return (0, _v5.jsx)(_v105.Modal, {
       isOpen: !0,
       onClose: _v1,
-      children: (0, _v5.jsx)(_v265, {
+      children: (0, _v5.jsx)(_v267, {
         closeModal: _v1
       })
     });
   });
-  var _v267 = _v0.i(0),
-    _v268 = _v0.i(0);
-  let _v269 = _v123.default.div.withConfig({
+  var _v269 = _v0.i(0),
+    _v270 = _v0.i(0);
+  let _v271 = _v123.default.div.withConfig({
       displayName: "style__ModalContent",
       componentId: "sc-11114d88-0"
     })`
@@ -16436,11 +16696,11 @@
   transform: translate(0%, 0%);
 
   min-width: ${(0, _v122.rem)(500)};
-  ${_v267.media.xmd`
+  ${_v269.media.xmd`
     min-width: ${(0, _v122.rem)(500)};
   `}
 `,
-    _v270 = (0, _v123.default)(_v11.Button).withConfig({
+    _v272 = (0, _v123.default)(_v11.Button).withConfig({
       displayName: "style__StyledDeleteSeatsButton",
       componentId: "sc-11114d88-1"
     })`
@@ -16455,14 +16715,14 @@
     color: var(--vimeo-colors-red-600);
   }
 `,
-    _v271 = (0, _v123.default)(_v127.Modal).withConfig({
+    _v273 = (0, _v123.default)(_v127.Modal).withConfig({
       displayName: "style__StyledModal",
       componentId: "sc-11114d88-2"
     })`
   box-shadow: none;
   min-height: ${(0, _v122.rem)(350)};
 `,
-    _v272 = (0, _v123.default)(_v125.Paragraph).withConfig({
+    _v274 = (0, _v123.default)(_v125.Paragraph).withConfig({
       displayName: "style__DisableRemoveSeatsModalParagraph",
       componentId: "sc-11114d88-3"
     })`
@@ -16472,49 +16732,49 @@
     color: var(--vimeo-colors-text-secondary);
   }
 `,
-    _v273 = _v123.default.div.withConfig({
+    _v275 = _v123.default.div.withConfig({
       displayName: "style__TextSection",
       componentId: "sc-11114d88-4"
     })`
   margin: ${(0, _v122.rem)(48)} ${(0, _v122.rem)(17)} ${(0, _v122.rem)(48)} ${(0, _v122.rem)(36)};
 `,
-    _v274 = (0, _v123.default)(_v268.CloseButton).withConfig({
+    _v276 = (0, _v123.default)(_v270.CloseButton).withConfig({
       displayName: "style__StyledCloseButton",
       componentId: "sc-11114d88-5"
     })`
   padding: 0;
   margin: ${(0, _v122.rem)(8)} 0;
 `;
-  function _v275({
+  function _v277({
     closeModal: _v0
   }) {
-    return (0, _v5.jsxs)(_v269, {
-      children: [(0, _v5.jsx)(_v274, {
+    return (0, _v5.jsxs)(_v271, {
+      children: [(0, _v5.jsx)(_v276, {
         className: "invite-modal-close-button",
         onClick: _v0
-      }), (0, _v5.jsx)(_v273, {
-        children: (0, _v5.jsx)(_v272, {
+      }), (0, _v5.jsx)(_v275, {
+        children: (0, _v5.jsx)(_v274, {
           size: "md",
           children: _v103.T.DisableSeatDeletion("/help/contact", () => void 0)
         })
       })]
     });
   }
-  let _v276 = _v7.default.memo(({
+  let _v278 = _v7.default.memo(({
     onClick: _v0
   }) => {
     let [_v1, _v2] = (0, _v7.useState)(!1),
       {
         trackBillingAction: _v3
       } = (0, _v7.useContext)(_v140.ManageTeamAnalytics),
-      _v4 = (0, _v7.useCallback)(() => (0, _v5.jsx)(_v275, {
+      _v4 = (0, _v7.useCallback)(() => (0, _v5.jsx)(_v277, {
         closeModal: () => _v2(!1)
       }), []);
-    return (0, _v5.jsx)(_v271, {
+    return (0, _v5.jsx)(_v273, {
       active: _v1,
       content: _v4(),
       onOpen: () => _v2(!1),
-      children: (0, _v5.jsx)(_v270, {
+      children: (0, _v5.jsx)(_v272, {
         variant: "link",
         onClick: () => {
           _v0?.(), _v2(!0), _v3({
@@ -16526,7 +16786,7 @@
       })
     });
   });
-  function _v277() {
+  function _v279() {
     let {
         membership: _v0,
         seatCount: _v1,
@@ -16595,8 +16855,8 @@
       })]
     });
   }
-  var _v278 = _v0.i(0);
-  function _v279() {
+  var _v280 = _v0.i(0);
+  function _v281() {
     let [_v0, _v1] = (0, _v7.useState)(1),
       {
         invitesRemaining: _v2,
@@ -16618,7 +16878,7 @@
     return (0, _v5.jsxs)(_v10.Box, {
       display: "flex",
       alignItems: "baseline",
-      children: [(0, _v5.jsxs)(_v278.NumberInput, {
+      children: [(0, _v5.jsxs)(_v280.NumberInput, {
         border: "input-stroke",
         defaultValue: 1,
         min: 1,
@@ -16627,14 +16887,14 @@
         width: (0, _v30.rem)("78px"),
         marginRight: (0, _v30.rem)("10px"),
         onChange: _v5,
-        children: [(0, _v5.jsx)(_v278.NumberInputField, {
+        children: [(0, _v5.jsx)(_v280.NumberInputField, {
           value: _v0
-        }), (0, _v5.jsxs)(_v278.NumberInputStepper, {
-          children: [(0, _v5.jsx)(_v278.NumberIncrementStepper, {
+        }), (0, _v5.jsxs)(_v280.NumberInputStepper, {
+          children: [(0, _v5.jsx)(_v280.NumberIncrementStepper, {
             _disabled: {
               color: "stroke"
             }
-          }), (0, _v5.jsx)(_v278.NumberDecrementStepper, {
+          }), (0, _v5.jsx)(_v280.NumberDecrementStepper, {
             _disabled: {
               color: "stroke"
             }
@@ -16647,7 +16907,7 @@
       })]
     });
   }
-  function _v280() {
+  function _v282() {
     return (0, _v5.jsxs)(_v10.Box, {
       paddingBottom: (0, _v30.rem)(24),
       display: "flex",
@@ -16658,10 +16918,10 @@
         size: "xs",
         alignItems: "flex-start",
         children: _v103.T.NumberOfSeats
-      }), (0, _v5.jsx)(_v279, {})]
+      }), (0, _v5.jsx)(_v281, {})]
     });
   }
-  function _v281({
+  function _v283({
     closeModal: _v0
   }) {
     let {
@@ -16677,7 +16937,7 @@
           right: "8px",
           onClick: _v0
         }), (0, _v5.jsxs)(_v106.ModalBody, {
-          children: [(0, _v5.jsx)(_v280, {}), (0, _v5.jsx)(_v277, {}), (0, _v5.jsx)(_v10.Box, {
+          children: [(0, _v5.jsx)(_v282, {}), (0, _v5.jsx)(_v279, {}), (0, _v5.jsx)(_v10.Box, {
             paddingTop: (0, _v30.rem)("16px"),
             fontSize: "body-sm",
             color: "text-secondary",
@@ -16703,7 +16963,7 @@
       })]
     });
   }
-  let _v282 = _v7.default.memo(({
+  let _v284 = _v7.default.memo(({
       onClick: _v0
     }) => {
       let [_v1, _v2, _v3] = function () {
@@ -16737,13 +16997,13 @@
         }), (0, _v5.jsx)(_v105.Modal, {
           isOpen: _v1,
           onClose: _v3,
-          children: (0, _v5.jsx)(_v281, {
+          children: (0, _v5.jsx)(_v283, {
             closeModal: _v3
           })
         })]
       });
     }),
-    _v283 = ({
+    _v285 = ({
       size: _v0
     }) => {
       let [_v1, _v2] = (0, _v7.useState)(!1),
@@ -16792,7 +17052,7 @@
         children: _v103.T.UpgradeButton
       });
     },
-    _v284 = ({
+    _v286 = ({
       hasScheduledDowngrade: _v0
     }) => {
       let {
@@ -16835,7 +17095,7 @@
         } = (0, _v18.useBillingTracking)(),
         {
           reason: _v23
-        } = (0, _v263.useIsSeatChangeBlocked)({
+        } = (0, _v265.useIsSeatChangeBlocked)({
           tier: _v8.tier,
           hasScheduledDowngrade: _v0
         }),
@@ -16848,7 +17108,7 @@
         _v29 = (_v15 ? _v9 : _v11) || _v11,
         _v30 = _v101.OWNER + _v13 + _v14 + _v1,
         _v31 = _v10 ? Math.max(0, _v10?.totalPurchasedCount - _v101.OWNER) : _v30 - _v101.OWNER,
-        _v32 = (0, _v7.useCallback)(() => 0 === _v31 || 0 === _v1 || _v8.tier && _v33(_v8.tier) ? null : _v1 > 0 && _v8.status === _v102.AccountStatus.Active && (_v8?.billingPeriod === _v102.UserPlanType.Month || _v8?.isFreeTrial ? (0, _v5.jsx)(_v282, {}) : (0, _v5.jsx)(_v276, {})), [_v1, _v8, _v31]);
+        _v32 = (0, _v7.useCallback)(() => 0 === _v31 || 0 === _v1 || _v8.tier && _v33(_v8.tier) ? null : _v1 > 0 && _v8.status === _v102.AccountStatus.Active && (_v8?.billingPeriod === _v102.UserPlanType.Month || _v8?.isFreeTrial ? (0, _v5.jsx)(_v284, {}) : (0, _v5.jsx)(_v278, {})), [_v1, _v8, _v31]);
       function _v33(_v0) {
         return _v102.SolutionTiers.includes(_v0);
       }
@@ -16894,7 +17154,7 @@
                 md: 0
               },
               children: "Lapsed" === _v8.status || _v8.tier === _v102.Tier.Free || _v16?.space?.unit === "video_size" ? _v103.T.SeatCount(_v11) : _v103.T.PaidSeats(_v8.nextCycle?.seatCount ?? _v30)
-            }), _v8.tier && !_v33(_v8.tier) ? (0, _v5.jsx)(_v261.Tooltip, {
+            }), _v8.tier && !_v33(_v8.tier) ? (0, _v5.jsx)(_v263.Tooltip, {
               shouldWrapChildren: !0,
               isDisabled: !_v25,
               label: _v25 ? _v24[0] : void 0,
@@ -16927,7 +17187,7 @@
                 },
                 children: _v103.T.AddSeats
               })
-            }) : (0, _v5.jsx)(_v262.Container, {
+            }) : (0, _v5.jsx)(_v264.Container, {
               bg: "upsell-secondary",
               borderRadius: "sm",
               children: (0, _v5.jsxs)(_v28.HStack, {
@@ -16937,7 +17197,7 @@
                 children: [(0, _v5.jsx)(_v33.Text, {
                   variant: "body-sm",
                   children: _v103.T.UpgradeToAddSeats
-                }), (0, _v5.jsx)(_v283, {
+                }), (0, _v5.jsx)(_v285, {
                   size: "xs"
                 })]
               })
@@ -17022,13 +17282,14 @@
               base: "center",
               md: "flex-end"
             },
-            children: [_v32(), _v5 && (0, _v5.jsx)(_v266, {})]
+            children: [_v32(), _v5 && (0, _v5.jsx)(_v268, {})]
           })]
         })
       });
     };
-  var _v285 = _v0.i(0);
-  function _v286({
+  var _v287 = _v0.i(0),
+    _v288 = _v0.i(0);
+  function _v289({
     tierLabel: _v0,
     isEligibleForIndividualPlans: _v1 = !1,
     onLearnMore: _v2,
@@ -17323,20 +17584,20 @@
       })]
     });
   }
-  var _v287 = _v0.i(0),
-    _v288 = _v0.i(0),
-    _v289 = _v0.i(0),
-    _v290 = _v0.i(0),
+  var _v290 = _v0.i(0),
     _v291 = _v0.i(0),
     _v292 = _v0.i(0),
     _v293 = _v0.i(0),
     _v294 = _v0.i(0),
-    _v295 = _v0.i(0);
-  let _v296 = ({
+    _v295 = _v0.i(0),
+    _v296 = _v0.i(0),
+    _v297 = _v0.i(0),
+    _v298 = _v0.i(0);
+  let _v299 = ({
       periodicity: _v0,
       children: _v1
     }) => {
-      let [_v2] = (0, _v7.useState)(() => (0, _v295.createBundleOfferStore)(!1, {
+      let [_v2] = (0, _v7.useState)(() => (0, _v298.createBundleOfferStore)(!1, {
           intercepts: !1
         })),
         {
@@ -17353,19 +17614,19 @@
           price: _v3.price,
           priceTier: _v3.priceTier
         });
-      }, [_v3, _v4, _v2]), (0, _v7.useEffect)(() => () => _v2.getState().reset(), [_v2]), (0, _v5.jsx)(_v294.BundleOfferStoreContext.Provider, {
+      }, [_v3, _v4, _v2]), (0, _v7.useEffect)(() => () => _v2.getState().reset(), [_v2]), (0, _v5.jsx)(_v297.BundleOfferStoreContext.Provider, {
         value: _v2,
         children: _v1
       });
     },
-    _v297 = ({
+    _v300 = ({
       periodicity: _v0
     }) => {
-      let _v1 = (0, _v294.useBundleOfferSelector)(_v0 => _v0.isEnabled),
-        _v2 = (0, _v294.useBundleOfferSelector)(_v0 => _v0.bundleType),
-        _v3 = (0, _v294.useBundleOfferSelector)(_v0 => _v0.price),
-        _v4 = (0, _v294.useBundleOfferSelector)(_v0 => _v0.isBundleActive),
-        _v5 = (0, _v294.useBundleOfferSelector)(_v0 => _v0.toggleBundle),
+      let _v1 = (0, _v297.useBundleOfferSelector)(_v0 => _v0.isEnabled),
+        _v2 = (0, _v297.useBundleOfferSelector)(_v0 => _v0.bundleType),
+        _v3 = (0, _v297.useBundleOfferSelector)(_v0 => _v0.price),
+        _v4 = (0, _v297.useBundleOfferSelector)(_v0 => _v0.isBundleActive),
+        _v5 = (0, _v297.useBundleOfferSelector)(_v0 => _v0.toggleBundle),
         {
           offer: _v6
         } = (0, _v54.useTriggeredBundleOffer)({
@@ -17379,7 +17640,7 @@
           base: (0, _v30.rem)(16),
           md: (0, _v30.rem)(24)
         },
-        children: (0, _v5.jsx)(_v293.BundleToggleBanner, {
+        children: (0, _v5.jsx)(_v296.BundleToggleBanner, {
           bundleType: _v2,
           isBundleActive: _v4,
           onToggleBundle: _v5,
@@ -17391,17 +17652,17 @@
         })
       }) : null;
     };
-  var _v298 = _v0.i(0);
-  let _v299 = ["creator", "core", "professional", "studio"],
-    _v300 = ["creator", "core", "professional"],
-    _v301 = new Set(["starter", "standard", "advanced", "creator", "core", "professional"]);
-  function _v302(_v0, _v1) {
+  var _v301 = _v0.i(0);
+  let _v302 = ["creator", "core", "professional", "studio"],
+    _v303 = ["creator", "core", "professional"],
+    _v304 = new Set(["starter", "standard", "advanced", "creator", "core", "professional"]);
+  function _v305(_v0, _v1) {
     let _v2 = _v1.indexOf(_v0);
     if (-1 === _v2) return [];
     let _v3 = Math.max(0, _v2 - 1);
     return _v1.slice(_v3, _v3 + 3);
   }
-  let _v303 = ({
+  let _v306 = ({
     isOpen: _v0,
     onClose: _v1,
     scheduledTier: _v2
@@ -17409,17 +17670,17 @@
     let _v3 = (0, _v7.useContext)(_v100.ViewerContext),
       {
         width: _v4
-      } = (0, _v288.useWindowSize)(),
+      } = (0, _v291.useWindowSize)(),
       _v5 = (0, _v61.useOrionSettingsFields)(["core_tier_enabled"]),
       {
         isLoading: _v6,
         showIndividualPlans: _v7
       } = (0, _v72.useB2BRepackagingContext)(),
-      _v8 = !_v6 && !(0, _v287.isB2BRepackagingPlanAvailable)(_v2, _v7);
+      _v8 = !_v6 && !(0, _v290.isB2BRepackagingPlanAvailable)(_v2, _v7);
     (0, _v7.useEffect)(() => {
       !_v6 && _v8 && _v1();
     }, [_v6, _v8, _v1]);
-    let _v9 = (0, _v7.useMemo)(() => _v5.core_tier_enabled ? _v302(_v2, _v299) : _v302("core" === _v2 ? "creator" : _v2, _v299.filter(_v0 => "core" !== _v0)), [_v2, _v5.core_tier_enabled]),
+    let _v9 = (0, _v7.useMemo)(() => _v5.core_tier_enabled ? _v305(_v2, _v302) : _v305("core" === _v2 ? "creator" : _v2, _v302.filter(_v0 => "core" !== _v0)), [_v2, _v5.core_tier_enabled]),
       {
         capabilities: {
           hasMonthlyBilling: _v10
@@ -17427,11 +17688,11 @@
         ready: _v11
       } = (0, _v88.useCapability)(["hasMonthlyBilling"]),
       _v12 = !(_v11 && _v10),
-      _v13 = (0, _v232.useCampaignIdOverride)(),
+      _v13 = (0, _v234.useCampaignIdOverride)(),
       {
         campaignId: _v14,
         isLoading: _v15
-      } = (0, _v291.useRepackagingCampaign)(_v13),
+      } = (0, _v294.useRepackagingCampaign)(_v13),
       _v16 = _v13 ?? _v14,
       _v17 = (0, _v115.useGetSubscriptionPlansData)(void 0, void 0, !0, {
         bypassTierHierarchy: !0,
@@ -17442,7 +17703,7 @@
       }),
       {
         data: _v18
-      } = (0, _v292.useSubscriptionPlansUsageCheck)(_v9),
+      } = (0, _v295.useSubscriptionPlansUsageCheck)(_v9),
       _v19 = (0, _v7.useMemo)(() => ({
         plans: _v9,
         showMonthlyDropdown: !1,
@@ -17451,7 +17712,7 @@
       }), [_v9]),
       _v20 = !!_v3?.user,
       _v21 = !!_v17 && _v11 && !_v15;
-    return !_v300.includes(_v2) || !_v3 || _v6 || _v8 ? null : (0, _v5.jsxs)(_v105.Modal, {
+    return !_v303.includes(_v2) || !_v3 || _v6 || _v8 ? null : (0, _v5.jsxs)(_v105.Modal, {
       isOpen: _v0,
       onClose: _v1,
       children: [(0, _v5.jsx)(_v111.ModalOverlay, {}), (0, _v5.jsxs)(_v108.ModalContent, {
@@ -17518,15 +17779,15 @@
           })
         }), (0, _v5.jsx)(_v106.ModalBody, {
           paddingTop: 0,
-          children: _v21 ? (0, _v5.jsxs)(_v296, {
+          children: _v21 ? (0, _v5.jsxs)(_v299, {
             periodicity: _v12 ? "annual" : "monthly",
-            children: [(0, _v5.jsx)(_v297, {
+            children: [(0, _v5.jsx)(_v300, {
               periodicity: _v12 ? "annual" : "monthly"
-            }), (0, _v5.jsx)(_v289.OverridesContextProvider, {
+            }), (0, _v5.jsx)(_v292.OverridesContextProvider, {
               showYearly: _v12,
               viewer: _v3,
               overrides: _v19,
-              children: (0, _v5.jsx)(_v290.PlansDataProvider, {
+              children: (0, _v5.jsx)(_v293.PlansDataProvider, {
                 overrides: _v19,
                 plansData: _v17,
                 isLoggedIn: _v20,
@@ -17537,7 +17798,7 @@
                 upcomingTier: _v2,
                 usageCheckData: _v18,
                 hideIndividualPlans: !1,
-                children: (0, _v5.jsx)(_v298.default, {
+                children: (0, _v5.jsx)(_v301.default, {
                   showYearly: _v12,
                   isBillingFreqToggleAvailable: !1,
                   isPageTopToggleVisible: !1,
@@ -17545,7 +17806,7 @@
                   isMobileBreakpoint: _v4 <= 0,
                   showCrossSellCard: !1,
                   badgePlan: "core",
-                  bundleStripTiers: _v301,
+                  bundleStripTiers: _v304,
                   bundleStripAvailableOnly: !0
                 })
               })
@@ -17598,8 +17859,9 @@
       })]
     });
   };
-  var _v304 = _v0.i(0);
-  function _v305() {
+  var _v307 = _v0.i(0);
+  let _v308 = new Set([_v102.Tier.Creator, _v102.Tier.Core, _v102.Tier.Professional]);
+  function _v309() {
     let _v0,
       _v1,
       _v2,
@@ -17638,7 +17900,7 @@
       {
         trackIndividualEligibilityCtaClicked: _v22
       } = (0, _v63.useIndividualEligibilityTracking)(),
-      _v23 = (0, _v61.useOrionSettingsFields)(["enable_auto_renew_encouragement_always", "campaign_id_override_top_priority", "campaign_id_override"]),
+      _v23 = (0, _v61.useOrionSettingsFields)(["enable_auto_renew_encouragement_always", "campaign_id_override_top_priority", "campaign_id_override", "show_repack_welcome_modal"]),
       {
         scheduledOrder: _v24,
         hasScheduledDowngrade: _v25,
@@ -17830,7 +18092,7 @@
       {
         open: _v35,
         modal: _v36
-      } = (0, _v304.useIndividualEligibilityModal)({
+      } = (0, _v307.useIndividualEligibilityModal)({
         initialStep: _v29 && !_v28 ? "not_qualified" : void 0
       }),
       [_v37, _v38] = (0, _v7.useState)(!1),
@@ -17838,22 +18100,23 @@
       _v41 = _v24?.productName?.toLowerCase().replace("vimeo ", "") ?? "",
       _v42 = _v25 && ("studio" === _v41 || "production" === _v41),
       _v43 = _v25 && _v7.tier === _v102.Tier.Advanced && "professional" === _v41,
+      _v44 = _v23.show_repack_welcome_modal && _v25 && void 0 !== _v26 && _v308.has(_v26) && !!_v24?.renewalDate,
       {
-        offer: _v44
+        offer: _v45
       } = (0, _v54.useTriggeredBundleOffer)({
         trigger: "b2b_studio_repackaging_bundle",
         periodicity: _v7.billingPeriod === _v102.UserPlanType.Month ? "monthly" : "annual"
       }),
-      _v45 = _v32 === _v102.Tier.Studio && null !== _v44,
-      _v46 = _v27 && _v33 && !_v28 || _v42,
-      _v47 = _v42 ? _v24?.productName ?? _v7.tierForDisplay ?? "" : _v7.tierForDisplay ?? "",
-      _v48 = _v27 && !_v28,
-      _v49 = !_v48 && _v30 ? (0, _v62.buildUpgradePlanUrl)({
+      _v46 = _v32 === _v102.Tier.Studio && null !== _v45,
+      _v47 = _v27 && _v33 && !_v28 || _v42,
+      _v48 = _v42 ? _v24?.productName ?? _v7.tierForDisplay ?? "" : _v7.tierForDisplay ?? "",
+      _v49 = _v27 && !_v28,
+      _v50 = !_v49 && _v30 ? (0, _v62.buildUpgradePlanUrl)({
         paywallTrigger: "billing_corporate_downgrade_check_plans_link",
         paywallLocation: "billing",
         paywallFeature: "corporate_downgrade"
       }) : void 0,
-      _v50 = (0, _v7.useMemo)(() => {
+      _v51 = (0, _v7.useMemo)(() => {
         if (!_v7) return !1;
         let {
           tier: _v0,
@@ -17863,21 +18126,21 @@
         } = _v7;
         return !!(_v0 && _v3 && _v1 && null !== _v2);
       }, [_v7]),
-      _v51 = !!_v7?.isStorageEntitlementSuspended,
-      _v52 = (0, _v55.useIsMobile)(),
+      _v52 = !!_v7?.isStorageEntitlementSuspended,
+      _v53 = (0, _v55.useIsMobile)(),
       {
-        isEligible: _v53
+        isEligible: _v54
       } = (0, _v20.useAutoRenewEncouragementEligibility)({
         skipRenewalWindow: _v23.enable_auto_renew_encouragement_always
       }),
-      _v54 = _v7.tier === _v102.Tier.Creator,
-      _v55 = (0, _v252.getDisplayedGracePeriodEndDate)(_v7?.gracePeriodType, _v7?.originalEndDate, _v7?.endDate);
+      _v55 = _v7.tier === _v102.Tier.Creator,
+      _v56 = (0, _v254.getDisplayedGracePeriodEndDate)(_v7?.gracePeriodType, _v7?.originalEndDate, _v7?.endDate);
     (0, _v7.useEffect)(() => {
-      null === _v19 || _v16(_v19 && "1" === _v19 ? _v258 : _v259);
+      null === _v19 || _v16(_v19 && "1" === _v19 ? _v260 : _v261);
     }, [_v19, _v16]);
-    let _v56 = _v4.query.survey;
+    let _v57 = _v4.query.survey;
     (0, _v7.useEffect)(() => {
-      if ("b2b_repack" !== _v56 || !_v31) return;
+      if ("b2b_repack" !== _v57 || !_v31) return;
       _v35("billing_deeplink");
       let _v0 = new URL(window.location.toString());
       _v0.searchParams.delete("survey");
@@ -17885,9 +18148,9 @@
       _v4.replace(_v1, void 0, {
         shallow: !0
       });
-    }, [_v56, _v31, _v35, _v4]);
-    let _v57 = "1" === _v4.query.cancel_flow,
-      _v58 = (0, _v7.useCallback)(() => {
+    }, [_v57, _v31, _v35, _v4]);
+    let _v58 = "1" === _v4.query.cancel_flow,
+      _v59 = (0, _v7.useCallback)(() => {
         let _v0 = new URL(window.location.toString());
         _v0.searchParams.delete("cancel_flow"), _v4.replace(_v0.pathname + _v0.search + _v0.hash, void 0, {
           shallow: !0
@@ -17907,8 +18170,8 @@
         })
       })
     });
-    let _v59 = _v10 && _v7 && (_v10 === _v259 || _v10 === _v258),
-      _v60 = !_v6;
+    let _v60 = _v10 && _v7 && (_v10 === _v261 || _v10 === _v260),
+      _v61 = !_v6;
     return (0, _v5.jsxs)(_v10.Box, {
       sx: {
         "& > * + *": {
@@ -17917,14 +18180,14 @@
       },
       children: [(0, _v5.jsx)(_v60.SettingsPageContentHeader, {
         title: _v103.T.Billing
-      }), _v45 && null !== _v44 && (0, _v5.jsx)(_v53, {
+      }), _v46 && null !== _v45 && (0, _v5.jsx)(_v53, {
         planName: "Studio",
-        bundleType: _v44.bundleType,
+        bundleType: _v45.bundleType,
         trackingSurface: "billing_page",
         onRedeem: () => {
           _v4.push(_v31.BUNDLE_LIBRARY_PATH);
         }
-      }), (0, _v5.jsx)(_v24, {}), _v60 && _v8.canShow && (0, _v5.jsx)(_v9.Alert, {
+      }), (0, _v5.jsx)(_v24, {}), _v61 && _v8.canShow && (0, _v5.jsx)(_v9.Alert, {
         status: "positive" === _v8.type ? "success" : "negative" === _v8.type ? "error" : "info",
         onClose: () => {
           _v15({
@@ -17939,7 +18202,7 @@
         children: (0, _v5.jsx)(_v8.AlertDescription, {
           children: _v8.text
         })
-      }), _v60 && _v9.canShow && (0, _v5.jsx)(_v9.Alert, {
+      }), _v61 && _v9.canShow && (0, _v5.jsx)(_v9.Alert, {
         status: "positive" === _v9.type ? "success" : "negative" === _v9.type ? "error" : "info",
         onClose: () => {
           _v17({
@@ -17956,7 +18219,7 @@
         children: (0, _v5.jsx)(_v8.AlertDescription, {
           children: _v103.T.Errors.MembershipInfoLoadError
         })
-      }), !_v6 && _v7.renewalDate && _v59 && (0, _v5.jsx)(_v260, {
+      }), !_v6 && _v7.renewalDate && _v60 && (0, _v5.jsx)(_v262, {
         locale: _v18?.locale,
         membership: _v7,
         noticeType: _v10,
@@ -17966,14 +18229,14 @@
             shallow: !0
           }), _v20(null), _v16(null);
         }
-      }), _v60 && _v10 && !_v54 && Object.values(_v65.NOTICE_TYPES).includes(_v10) && (0, _v5.jsx)(_v10.Box, {
+      }), _v61 && _v10 && !_v55 && Object.values(_v65.NOTICE_TYPES).includes(_v10) && (0, _v5.jsx)(_v10.Box, {
         mt: (0, _v30.rem)(4),
         children: (0, _v5.jsx)(_v64.PurchaseSeatsNotice, {
           noticeType: _v10,
           onClose: () => _v16(null),
           seatsCount: _v14
         })
-      }), _v50 && _v51 && (0, _v5.jsxs)(_v9.AlertRoot, {
+      }), _v51 && _v52 && (0, _v5.jsxs)(_v9.AlertRoot, {
         backgroundColor: "status-destructive-secondary",
         size: "sm",
         p: 4,
@@ -17989,7 +18252,7 @@
             gap: 0,
             align: "flex-start",
             children: (0, _v5.jsx)(_v8.AlertDescription, {
-              children: _v103.T.storageSuspendedBillingBanner(_v7?.tierForDisplay, _v55 ?? "")
+              children: _v103.T.storageSuspendedBillingBanner(_v7?.tierForDisplay, _v56 ?? "")
             })
           }), (0, _v5.jsx)(_v11.Button, {
             ml: 2,
@@ -18009,7 +18272,7 @@
             children: _v103.T.UpdatePaymentMethod
           })]
         })]
-      }), _v50 && !_v51 && (0, _v5.jsxs)(_v9.AlertRoot, {
+      }), _v51 && !_v52 && (0, _v5.jsxs)(_v9.AlertRoot, {
         backgroundColor: "status-destructive-secondary",
         size: "sm",
         p: 4,
@@ -18025,7 +18288,7 @@
             gap: 0,
             align: "flex-start",
             children: (0, _v5.jsx)(_v8.AlertDescription, {
-              children: _v52 ? _v103.T.gracePeriodMobile(_v7?.tierForDisplay, _v55 ?? "") : _v103.T.gracePeriodDesktop(_v7?.tierForDisplay, _v55 ?? "")
+              children: _v53 ? _v103.T.gracePeriodMobile(_v7?.tierForDisplay, _v56 ?? "") : _v103.T.gracePeriodDesktop(_v7?.tierForDisplay, _v56 ?? "")
             })
           }), (0, _v5.jsx)(_v11.Button, {
             ml: 2,
@@ -18045,7 +18308,7 @@
             children: _v103.T.UpdatePaymentMethod
           })]
         })]
-      }), (_v25 || _v34?.notice !== void 0) && !_v37 && !_v42 && (_v0 = _v24?.productName ?? _v7.tierForDisplay ?? "Vimeo", _v1 = _v34?.notice ? "status-info" : _v43 ? "status-positive" : "status-caution", _v2 = _v34?.notice ?? (_v43 ? _v103.T.PositiveDowngradeNotice(_v0) : _v103.T.DowngradeNotice(_v0)), _v3 = function (_v0) {
+      }), (_v25 || _v34?.notice !== void 0) && !_v37 && !_v42 && (_v0 = _v24?.productName ?? _v7.tierForDisplay ?? "Vimeo", _v1 = _v34?.notice ? "status-info" : _v43 ? "status-positive" : "status-caution", _v2 = function (_v0) {
         switch (_v0) {
           case "rp_2026":
           case "rp_2026_high":
@@ -18057,11 +18320,12 @@
           default:
             return "/upgrade-plan";
         }
-      }("null" !== _v23.campaign_id_override_top_priority ? _v23.campaign_id_override_top_priority : _v23.campaign_id_override), (0, _v5.jsxs)(_v9.AlertRoot, {
+      }("null" !== _v23.campaign_id_override_top_priority ? _v23.campaign_id_override_top_priority : _v23.campaign_id_override), _v3 = _v44 && !_v43 && _v34?.notice === void 0 ? _v103.T.ScheduledRepackagingNotice(_v0, (0, _v288.formatRenewalDate)(_v24?.renewalDate, _v18?.locale ?? "en")) : _v34?.notice ?? (_v43 ? _v103.T.PositiveDowngradeNotice(_v0) : _v103.T.DowngradeNotice(_v0)), (0, _v5.jsxs)(_v9.AlertRoot, {
         backgroundColor: `${_v1}-secondary`,
         borderRadius: "md",
         py: 3,
         px: 4,
+        alignItems: "center",
         sx: {
           paddingRight: "3rem"
         },
@@ -18074,13 +18338,13 @@
           alignItems: "center",
           width: "100%",
           children: [(0, _v5.jsx)(_v8.AlertDescription, {
-            children: _v2
+            children: _v3
           }), (0, _v5.jsx)(_v11.Button, {
             variant: "secondary",
             background: "white",
             size: "xs",
             as: "a",
-            href: _v3,
+            href: _v2,
             target: "_blank",
             rel: "noopener noreferrer",
             flexShrink: 0,
@@ -18095,22 +18359,22 @@
             transform: "translate(0, +4px)"
           })]
         })]
-      })), _v46 && (0, _v5.jsx)(_v10.Box, {
+      })), _v47 && (0, _v5.jsx)(_v10.Box, {
         mt: 4,
-        children: (0, _v5.jsx)(_v286, {
-          tierLabel: _v47,
+        children: (0, _v5.jsx)(_v289, {
+          tierLabel: _v48,
           isEligibleForIndividualPlans: _v28 && _v42,
           onLearnMore: () => {
             window.open("https://vimeo.com/studio-plan", "_blank", "noopener,noreferrer");
           },
-          onRequestEligibility: _v48 ? () => {
+          onRequestEligibility: _v49 ? () => {
             _v22({
               location: "billing_repackaging_banner"
             }), _v35("billing_repackaging_banner");
           } : void 0,
-          checkOtherPlansHref: _v49
+          checkOtherPlansHref: _v50
         })
-      }), _v36, !_v5 && (0, _v5.jsx)(_v257, {
+      }), _v36, !_v5 && (0, _v5.jsx)(_v259, {
         onRequestIndividualPlans: _v0 => {
           "post_cancellation_survey" === _v0 ? _v35("post_cancellation_survey", (0, _v56.translate)({
             singular: "Based on your previous answer, you may qualify for our Individual plans",
@@ -18140,21 +18404,21 @@
           })) : _v35("cancellation_offer");
         },
         onChangePlanClick: _v0 => _v40(_v0),
-        hideAutoRenewEnablement: _v53,
-        autoOpenCancelFlow: _v57,
-        onCancelFlowDeeplinkConsumed: _v58,
+        hideAutoRenewEnablement: _v54,
+        autoOpenCancelFlow: _v58,
+        onCancelFlowDeeplinkConsumed: _v59,
         planCopy: _v34?.plan,
         children: ({
           hasScheduledDowngrade: _v0
-        }) => _v11 && (0, _v5.jsx)(_v284, {
+        }) => _v11 && (0, _v5.jsx)(_v286, {
           hasScheduledDowngrade: _v0
         })
-      }), null !== _v39 && (0, _v5.jsx)(_v303, {
+      }), null !== _v39 && (0, _v5.jsx)(_v306, {
         isOpen: !0,
         scheduledTier: _v39,
         onClose: () => _v40(null)
       })]
     });
   }
-  _v305.getLayout = _v285.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v305], 0);
+  _v309.getLayout = _v287.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v309], 0);
 }

@@ -142,10 +142,10 @@
               singular: "{AMOUNT} de bande passante mensuelle"
             },
             "ja-JP": {
-              singular: "{AMOUNT}の月間帯域幅"
+              singular: "{AMOUNT} の月間帯域幅"
             },
             "ko-KR": {
-              singular: "{AMOUNT} 월간 대역폭"
+              singular: "{AMOUNT}의 월간 대역폭"
             },
             "pt-BR": {
               singular: "{AMOUNT} de largura de banda mensal"

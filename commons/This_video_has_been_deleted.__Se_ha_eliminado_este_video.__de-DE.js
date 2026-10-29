@@ -57,6 +57,32 @@
       }
     }),
     _v6 = (0, _v3.translate)({
+      singular: "This file has been deleted.",
+      dictionary: {
+        es: {
+          singular: "Este archivo ha sido eliminado."
+        },
+        "de-DE": {
+          singular: "Diese Datei wurde gelöscht."
+        },
+        "fr-FR": {
+          singular: "Ce fichier a été supprimé."
+        },
+        "ja-JP": {
+          singular: "このファイルは削除されました。"
+        },
+        "ko-KR": {
+          singular: "이 파일이 삭제되었습니다."
+        },
+        "pt-BR": {
+          singular: "Este arquivo foi excluído."
+        },
+        "zh-CN": {
+          singular: "该文件已被删除。"
+        }
+      }
+    }),
+    _v7 = (0, _v3.translate)({
       singular: "Embed code copied",
       dictionary: {
         es: {
@@ -82,7 +108,7 @@
         }
       }
     }),
-    _v7 = (0, _v3.translate)({
+    _v8 = (0, _v3.translate)({
       singular: "Link copied",
       dictionary: {
         es: {
@@ -108,7 +134,7 @@
         }
       }
     }),
-    _v8 = (0, _v3.translate)({
+    _v9 = (0, _v3.translate)({
       singular: "Link failed to copy",
       dictionary: {
         es: {
@@ -134,7 +160,7 @@
         }
       }
     }),
-    _v9 = (0, _v3.translate)({
+    _v10 = (0, _v3.translate)({
       singular: "Sorry, something weird happened. Please try again.",
       dictionary: {
         es: {
@@ -186,7 +212,7 @@
       }
     }
   });
-  let _v10 = (0, _v3.translate)({
+  let _v11 = (0, _v3.translate)({
     singular: "Moving this video to a shared folder will make it available to your team. You won't be able to make it private again.",
     dictionary: {
       es: {
@@ -263,7 +289,7 @@
       }
     }
   });
-  let _v11 = (0, _v3.translate)({
+  let _v12 = (0, _v3.translate)({
       singular: "Folder defaults saved",
       dictionary: {
         es: {
@@ -289,7 +315,7 @@
         }
       }
     }),
-    _v12 = {
+    _v13 = {
       StockVideo: (0, _v3.translate)({
         singular: "Stock does not count against your storage limit",
         dictionary: {
@@ -421,7 +447,7 @@
         }
       })
     },
-    _v13 = {
+    _v14 = {
       reaching: {
         ai_token: (0, _v3.translate)({
           singular: "You're reaching your AI credits limit",
@@ -556,7 +582,7 @@
         })
       }
     },
-    _v14 = (0, _v3.translate)({
+    _v15 = (0, _v3.translate)({
       singular: "As your account grows, so does your need for more AI credits.",
       dictionary: {
         es: {
@@ -582,7 +608,7 @@
         }
       }
     }),
-    _v15 = [(0, _v3.translate)({
+    _v16 = [(0, _v3.translate)({
       singular: "Instantly translate videos into dozens of languages to engage a worldwide audience",
       dictionary: {
         es: {
@@ -658,7 +684,7 @@
         }
       }
     })],
-    _v16 = (0, _v3.translate)({
+    _v17 = (0, _v3.translate)({
       singular: "As your account grows, so does your need for more storage space.",
       dictionary: {
         es: {
@@ -684,7 +710,7 @@
         }
       }
     }),
-    _v17 = [(0, _v3.translate)({
+    _v18 = [(0, _v3.translate)({
       singular: "Upload and store more high-quality videos",
       dictionary: {
         es: {
@@ -760,7 +786,7 @@
         }
       }
     })],
-    _v18 = (0, _v3.translate)({
+    _v19 = (0, _v3.translate)({
       singular: "Dedicated support, custom permissions, increased security, and a whole lot more.",
       dictionary: {
         es: {
@@ -786,7 +812,7 @@
         }
       }
     }),
-    _v19 = [(0, _v3.translate)({
+    _v20 = [(0, _v3.translate)({
       singular: "Unlimited videos",
       dictionary: {
         es: {
@@ -912,7 +938,7 @@
         }
       }
     })];
-  _v0.s(["VideoFileSizeTooltips", 0, _v12, "confirmMovePrivateVideoToTeamFolderMsg", 0, _v10, "deleteVideoFailed", 0, _v5, "deleteVideoSuccess", 0, _v4, "embedCodeCopySuccess", 0, _v6, "enterpriseAiDescription", 0, _v14, "enterpriseAiFeaturesList", 0, _v15, "enterpriseDefaultDescription", 0, _v18, "enterpriseDefaultFeaturesList", 0, _v19, "enterpriseHeader", 0, _v13, "enterpriseStorageDescription", 0, _v16, "enterpriseStorageFeaturesList", 0, _v17, "eventStartTimeText", 0, function (_v0) {
+  _v0.s(["VideoFileSizeTooltips", 0, _v13, "confirmMovePrivateVideoToTeamFolderMsg", 0, _v11, "deleteFileSuccess", 0, _v6, "deleteVideoFailed", 0, _v5, "deleteVideoSuccess", 0, _v4, "embedCodeCopySuccess", 0, _v7, "enterpriseAiDescription", 0, _v15, "enterpriseAiFeaturesList", 0, _v16, "enterpriseDefaultDescription", 0, _v19, "enterpriseDefaultFeaturesList", 0, _v20, "enterpriseHeader", 0, _v14, "enterpriseStorageDescription", 0, _v17, "enterpriseStorageFeaturesList", 0, _v18, "eventStartTimeText", 0, function (_v0) {
     return (0, _v3.translate)({
       singular: "Event starts {DATE}",
       replacements: {
@@ -942,7 +968,7 @@
         }
       }
     });
-  }, "folderDefaultsSaved", 0, _v11, "genericErrorMsg", 0, _v9, "getVideoFileSizeHeaderTooltip", 0, function () {
+  }, "folderDefaultsSaved", 0, _v12, "genericErrorMsg", 0, _v10, "getVideoFileSizeHeaderTooltip", 0, function () {
     return (0, _v3.translate)({
       singular: "Review the size of videos to keep track of storage usage. {LINK}Learn about storage{/LINK}",
       replacements: {
@@ -980,7 +1006,7 @@
         }
       }
     });
-  }, "linkCopyFailed", 0, _v8, "linkCopySuccess", 0, _v7, "numItemsText", 0, _v0 => "number" == typeof _v0 && Number.isFinite(_v0) ? (0, _v3.translate)({
+  }, "linkCopyFailed", 0, _v9, "linkCopySuccess", 0, _v8, "numItemsText", 0, _v0 => "number" == typeof _v0 && Number.isFinite(_v0) ? (0, _v3.translate)({
     singular: "{NUM_ITEMS} item",
     plural: "{NUM_ITEMS} items",
     count: _v0,

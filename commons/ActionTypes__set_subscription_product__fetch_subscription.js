@@ -10,6 +10,7 @@
     PAYMENT_METHODS: "fetch_payment_methods",
     SELECT_PAYMENT_METHOD: "select_payment_method",
     SET_BILLING_ADDRESS: "set_billing_address",
+    SET_BILLING_COUNTRY_SEEDED: "set_billing_country_seeded",
     SET_POSTAL_CODE_MISSING: "set_postal_code_missing",
     SET_COUNTRY_MISSING: "set_country_missing",
     SET_BILLING_PLAN: "set_billing_plan",

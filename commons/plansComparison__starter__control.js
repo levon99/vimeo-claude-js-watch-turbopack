@@ -224,7 +224,13 @@
     enable_indie_program_pricing_page_banner: !1,
     in_app_ticket_widget: !1,
     enable_single_event_action_menu: !1,
-    enable_single_event_localization: !1
+    enable_single_event_localization: !1,
+    onboarding_paywall_fallback_modal: "none",
+    onboarding_paywall_fallback_tier: "starter",
+    onboarding_checkout_fallback_modal: "none",
+    onboarding_checkout_fallback_tier: "starter",
+    enable_reviewer_signup_prompt: !1,
+    reviewer_signup_prompt_suppression_days: 3
   };
   function _v3(_v0) {
     return {
