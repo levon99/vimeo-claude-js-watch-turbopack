@@ -77,9 +77,9 @@
             chatType: _v19.EChatType.PUBLIC,
             isDisabled: !_v4
           })]
-        }) : (0, _v1.jsx)(_v32.EmptyStatePlaceholder, {
+        }) : (0, _v1.jsx)(_v32.PanelEmptyState, {
           icon: (0, _v1.jsx)(_v26.Chats, {
-            boxSize: "lg"
+            boxSize: (0, _v25.rem)(32)
           }),
           buttonLabel: _v28.translations.turnOn,
           description: _v28.translations.turnOnChatToEngageWithYourAudience,
@@ -139,10 +139,10 @@
           chatType: _v2,
           currentUserId: _v8,
           scrollBackground: _v7?.interaction?.backgroundColor || "background",
-          placeholder: (0, _v1.jsx)(_v32.EmptyStatePlaceholder, {
+          placeholder: (0, _v1.jsx)(_v32.PanelEmptyState, {
             id: (0, _v27.createInteractionDomName)(_v0, "chat-history-placeholder"),
             icon: (0, _v1.jsx)(_v26.Chats, {
-              boxSize: "lg"
+              boxSize: (0, _v25.rem)(32)
             }),
             description: _v28.translations.sendMessageToStartChat,
             control: null
@@ -152,11 +152,11 @@
           isDisabled: !_v4 || _v9,
           placeholderText: _v9 ? _v18.T_CHAT_BANNED : _v28.translations.sendMessage
         })]
-      }) : (0, _v1.jsx)(_v32.EmptyStatePlaceholder, {
+      }) : (0, _v1.jsx)(_v32.PanelEmptyState, {
         id: (0, _v27.createInteractionDomName)(_v0, "placeholder"),
         className: (0, _v27.createInteractionDomName)(_v1, "placeholder"),
         icon: (0, _v1.jsx)(_v26.Chats, {
-          boxSize: "lg"
+          boxSize: (0, _v25.rem)(32)
         }),
         control: null
       }) : (0, _v1.jsx)(_v31.ChatPreloader, {
@@ -386,6 +386,7 @@
                   width: "100%",
                   height: "100%",
                   buttonLabel: _v18.T_CREATE_POLL,
+                  title: 0 === _v0 ? _v28.translations.noActivePolls : void 0,
                   description: 0 === _v0 ? _v28.translations.createPollToInteractWithAudience : _v28.translations.noPollsArchived,
                   control: 0 === _v0,
                   history: 0 === _v0 ? _v5 : null,
@@ -429,12 +430,12 @@
             })
           }, _v0))
         }, _v22)]
-      }), (0, _v1.jsx)(_v24.Flex, {
+      }), (_v20[_v22]?.polls.length ?? 0) > 0 ? (0, _v1.jsx)(_v24.Flex, {
         position: "relative",
         children: (0, _v1.jsx)(_v54.HorizontalScrollShadow, {
           color: _v14?.interaction?.backgroundColor || "background"
         })
-      }), 0 === _v22 && 0 !== _v21.length ? (0, _v1.jsx)(_v52, {
+      }) : null, 0 === _v22 && 0 !== _v21.length ? (0, _v1.jsx)(_v52, {
         id: (0, _v27.createInteractionDomName)(_v0, "add-button"),
         onClick: _v24,
         children: _v28.translations.addPoll
@@ -443,6 +444,7 @@
       id: _v0,
       className: _v1,
       buttonLabel: _v18.T_CREATE_POLL,
+      title: _v28.translations.noActivePolls,
       description: _v28.translations.createPollToInteractWithAudience,
       history: _v5,
       maxWidth: (0, _v25.rem)(360),
@@ -810,12 +812,12 @@
                   })]
                 }, _v0.id);
               },
-              placeholder: (0, _v1.jsx)(_v32.EmptyStatePlaceholder, {
+              placeholder: (0, _v1.jsx)(_v32.PanelEmptyState, {
                 id: (0, _v27.createInteractionDomName)(_v0, _v0, "empty-placeholder"),
                 className: (0, _v27.createInteractionDomName)(_v0, _v0, "empty-placeholder"),
                 isWithPadding: !0,
                 icon: (0, _v1.jsx)(_v74.ReviewQuestion, {
-                  boxSize: "lg"
+                  boxSize: (0, _v25.rem)(32)
                 }),
                 description: _v0 === _v19.EQnaTab.PENDING ? _v18.T_NO_QUESTIONS_PENDING : _v18.T_NO_QUESTIONS_YET,
                 control: null
@@ -1077,10 +1079,10 @@
               onQuestionVoted: _v8
             })
           }, _v0.id),
-          placeholder: (0, _v1.jsx)(_v32.EmptyStatePlaceholder, {
+          placeholder: (0, _v1.jsx)(_v32.PanelEmptyState, {
             id: (0, _v27.createInteractionDomName)(_v0, "questions-list-placeholder"),
             icon: (0, _v1.jsx)(_v74.ReviewQuestion, {
-              boxSize: "lg"
+              boxSize: (0, _v25.rem)(32)
             }),
             control: null
           })
@@ -1103,10 +1105,10 @@
       alignItems: "center",
       height: "100%",
       textAlign: "center",
-      children: (0, _v1.jsx)(_v32.EmptyStatePlaceholder, {
+      children: (0, _v1.jsx)(_v32.PanelEmptyState, {
         id: (0, _v27.createInteractionDomName)(_v0, "questions-list-placeholder"),
         icon: (0, _v1.jsx)(_v74.ReviewQuestion, {
-          boxSize: "lg"
+          boxSize: (0, _v25.rem)(32)
         }),
         control: null
       })

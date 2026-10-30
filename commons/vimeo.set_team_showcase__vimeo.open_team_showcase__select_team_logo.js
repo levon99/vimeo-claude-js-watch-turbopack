@@ -11,6 +11,7 @@
     _v8 = ((_v1 = {}).SET_TEAM_SHOWCASE = "vimeo.set_team_showcase", _v1.OPEN_TEAM_SHOWCASE = "vimeo.open_team_showcase", _v1.UPLOAD_TEAM_LOGO = "select_team_logo", _v1.LOGO_EDIT_BUTTON = "vimeo.logo_edit_button", _v1.SCROLL_TEAM_LOGO = "scroll_team_logo", _v1.REMOVE_TEAM_LOGO = "remove_team_logo", _v1.LOGO_MODAL_CANCEL = "vimeo.click_cancel_logo_button", _v1.TEAM_SETTING_UPDATED = "team_settings_updated", _v1.SET_TEAM_ACCENT_COLOR = "set_team_accent_color", _v1.CHANGE_TEAM_MEMBER_ROLE = "change_team_member_role", _v1.REMOVE_TEAM_MEMBER = "remove_team_member_from_team", _v1.INVITE_NEW_TEAM_MEMBER = "invite_user_to_team", _v1.COPY_TEAM_INVITE_LINK = "vimeo.copy_team_invite_link", _v1.SEND_TEAM_INVITE_REMINDER = "vimeo.team_invite_reminder_sent", _v1.UPSELL_CLICK = "vimeo.click", _v1.GENERAL_CLICK = "vimeo.click", _v1.TOUR_POINT = "vimeo.team_management_onboarding", _v1.MANAGE_TEAM_PAGE_VIEW = "vimeo.team_management_pageview", _v1.ROLE_UPGRADE = "vimeo.team_role_event", _v1),
     _v9 = ((_v2 = {}).MEMBERS = "Team Members Page", _v2.GROUPS = "Team Groups Page", _v2.LOGO_MODAL = "Team Settings Page Logo Modal", _v2.SETTINGS = "Team Settings Page", _v2.INVITE_MODAL = "Invite Team User Modal", _v2),
     _v10 = ((_v3 = {}).INVITE_MODAL = "team_management_invite_modal", _v3.BILLING_PAGE_HEADER = "billing_page_header", _v3.FOLDER_SHARE_MODAL = "folder_share_modal", _v3);
+  let _v11 = ["CA", "US"];
   _v0.s(["AlbumsField", 0, ["name", "link", "privacy.view"], "BILLING_ACTION", 0, "vimeo.billing_action", "BILLING_ACTION_PAGE", 0, "team_membership", "BillingActionLocations", 0, {
     ACCOUNT_USAGE_MODAL_CLOSE_BUTTON: "account_usage_modal_close_button",
     ADD_NEW_CARD_BUTTON: "add_new_card_button",
@@ -69,8 +70,11 @@
     "custom-metadata": "custom-metadata",
     defaults: "defaults",
     presets: "presets"
-  }, "TRACK_UPSELL_FEATURE", 0, "contact_us_for_enterprise", "TRACK_UPSELL_LOCATIONS", () => _v10, "TeamEvents", () => _v8], 0);
-  var _v11 = _v0.i(0);
+  }, "TRACK_UPSELL_FEATURE", 0, "contact_us_for_enterprise", "TRACK_UPSELL_LOCATIONS", () => _v10, "TeamEvents", () => _v8, "isTaxExclusiveCountry", 0, _v0 => {
+    let _v1 = _v0?.trim().toUpperCase();
+    return void 0 !== _v1 && _v11.includes(_v1);
+  }], 0);
+  var _v12 = _v0.i(0);
   (0, _v6.translate)({
     singular: "Owner",
     dictionary: {
@@ -188,12 +192,12 @@
       }
     }
   });
-  let _v12 = (_v0, _v1, _v2) => _v1.length ? new Intl.NumberFormat(navigator.language, {
+  let _v13 = (_v0, _v1, _v2) => _v1.length ? new Intl.NumberFormat(navigator.language, {
       minimumFractionDigits: _v2,
       style: "currency",
       currency: _v1
     }).format(_v0).replace(String.fromCharCode(0), " ") : "",
-    _v13 = {
+    _v14 = {
       [_v7.PURCHASE_TRIGGERED_FROM.INVITE_MODAL]: !1,
       [_v7.PURCHASE_TRIGGERED_FROM.ROLE_CHANGE_MENU]: !0,
       [_v7.PURCHASE_TRIGGERED_FROM.BILLING_PAGE_ADD_SEATS]: !0,
@@ -206,7 +210,7 @@
       _v3 = (_v1.getMonth() + 1).toString(),
       _v4 = _v1.getDate().toString();
     return (1 === _v3.length ? "0" : "") + _v3 + "/" + (1 === _v4.length ? "0" : "") + _v4 + "/" + _v2;
-  }, "formatAmountWithCurrency", 0, _v12, "formatDate", 0, _v0 => new Date(null !== _v0.match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$/) ? _v0 : `${_v0} 12:00:00`).toLocaleDateString(navigator.language || "en-US", {
+  }, "formatAmountWithCurrency", 0, _v13, "formatDate", 0, _v0 => new Date(null !== _v0.match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$/) ? _v0 : `${_v0} 12:00:00`).toLocaleDateString(navigator.language || "en-US", {
     year: "numeric",
     month: "long",
     day: "numeric"
@@ -221,9 +225,9 @@
   }) => {
     let _v5 = !!(_v0 && _v1),
       _v6 = _v5 ? _v1?.billingPeriod : null,
-      _v7 = _v5 ? "year" === _v6 : _v2 === _v11.UserPlanType.Year,
+      _v7 = _v5 ? "year" === _v6 : _v2 === _v12.UserPlanType.Year,
       _v8 = _v7 ? "year" : "month";
-    if ("week" !== _v6 && (_v5 || _v2 !== _v11.UserPlanType.Week) || (_v8 = "week"), _v5) {
+    if ("week" !== _v6 && (_v5 || _v2 !== _v12.UserPlanType.Week) || (_v8 = "week"), _v5) {
       let _v0 = "week" !== _v6 && _v7 ? _v1?.monthlyPrice?.formatted : _v1?.price?.formatted;
       return {
         billedAnnually: _v7,
@@ -234,7 +238,7 @@
     return {
       billedAnnually: _v7,
       billingPeriod: _v8,
-      monthlyPrice: _v12(_v7 ? _v3 / 12 : _v3, _v4, 0)
+      monthlyPrice: _v13(_v7 ? _v3 / 12 : _v3, _v4, 0)
     };
   }, "getDaysBetween", 0, function (_v0, _v1) {
     let _v2 = "string" == typeof _v0 ? new Date(_v0) : _v0,
@@ -321,9 +325,9 @@
         singular: "仅限公司"
       }
     }
-  }), "getTrackingPeriodicity", 0, _v0 => _v0 === _v11.UserPlanType.Year ? "annual" : _v0 === _v11.UserPlanType.Week ? "weekly" : "monthly", "handleRemoveMember", 0, (_v0, _v1, _v2, _v3, _v4, _v5, _v6) => {
+  }), "getTrackingPeriodicity", 0, _v0 => _v0 === _v12.UserPlanType.Year ? "annual" : _v0 === _v12.UserPlanType.Week ? "weekly" : "monthly", "handleRemoveMember", 0, (_v0, _v1, _v2, _v3, _v4, _v5, _v6) => {
     _v0(), _v3({
-      currentModalInDisplay: _v11.TeamManagementModals.UNASSIGN_MEMBER_CONFIRM_MODAL,
+      currentModalInDisplay: _v12.TeamManagementModals.UNASSIGN_MEMBER_CONFIRM_MODAL,
       data: {
         removeMemberName: _v5 || "",
         deleteFromTeam: _v2,
@@ -337,15 +341,15 @@
     let _v1 = new Date(),
       _v2 = new Date();
     return _v2.setFullYear(0 + _v0.expirationYear, _v0.expirationMonth - 1, 1), _v2.getTime() < _v1.getTime();
-  }, "makeMembershipCall", 0, _v13, "mapMembershipResponse", 0, _v0 => ({
-    status: _v11.AccountStatus[(0, _v4.default)(String(_v0.status))],
-    tier: _v11.Tier[(0, _v5.default)(String(_v0.tier).replaceAll("_", " ")).replaceAll(" ", "")],
+  }, "makeMembershipCall", 0, _v14, "mapMembershipResponse", 0, _v0 => ({
+    status: _v12.AccountStatus[(0, _v4.default)(String(_v0.status))],
+    tier: _v12.Tier[(0, _v5.default)(String(_v0.tier).replaceAll("_", " ")).replaceAll(" ", "")],
     billingAddress: _v0.billingAddress ? {
       ..._v0.billingAddress,
       line1: _v0.billingAddress.line1 ?? _v0.billingAddress.line_1,
       line2: _v0.billingAddress.line2 ?? _v0.billingAddress.line_2
     } : void 0,
-    billingPeriod: _v11.UserPlanType[(0, _v4.default)(String(_v0.billingPeriod))],
+    billingPeriod: _v12.UserPlanType[(0, _v4.default)(String(_v0.billingPeriod))],
     defaultAutorenewRestrictionsYearlies: _v0?.defaultAutorenewRestrictionsYearlies,
     isWithdrawalEligible: _v0?.isWithdrawalEligible ?? !1,
     isFreeTrial: _v0?.isFreeTrial,
@@ -402,6 +406,7 @@
     live_pro: "Live Pro",
     live_business: "Live Business",
     creator: "Creator",
+    core: "Core",
     professional: "Professional",
     studio: "Studio",
     production: "Production"

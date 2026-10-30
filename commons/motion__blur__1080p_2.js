@@ -66,7 +66,7 @@
       NONE: "NONE"
     },
     AGORA: {
-      LOG_LEVEL: +(0, _v3.getLiveConfigValue)(_v1.localStorageConfig.LIVE.AGORA_LOG_LEVEL, 3),
+      LOG_LEVEL: Number((0, _v3.getLiveConfigValue)(_v1.localStorageConfig.LIVE.AGORA_LOG_LEVEL, 3)),
       DISABLE_WEB_AUDIO: (0, _v3.getLiveConfigValue)(_v1.localStorageConfig.LIVE.AGORA_DISABLE_WEB_AUDIO, !1),
       LOG_UPLOAD: !!(0, _v3.getLiveConfigValue)(_v1.localStorageConfig.LIVE.AGORA_LOG_UPLOAD, !0),
       USE_VIDEO_HARD_MUTE: !!(0, _v3.getLiveConfigValue)(_v1.localStorageConfig.LIVE.AGORA_VIDEO_HARD_MUTE, !0),

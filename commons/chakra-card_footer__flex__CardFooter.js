@@ -24,10 +24,5 @@
         ..._v4
       });
     });
-  _v0.s(["CardFooter", 0, _v6], 0);
-  var _v7 = _v0.i(0);
-  _v0.s(["usePrefersReducedMotion", 0, function (_v0) {
-    let [_v1] = (0, _v7.useMediaQuery)("(prefers-reduced-motion: reduce)", _v0);
-    return _v1;
-  }], 0);
+  _v0.s(["CardFooter", 0, _v6]);
 }

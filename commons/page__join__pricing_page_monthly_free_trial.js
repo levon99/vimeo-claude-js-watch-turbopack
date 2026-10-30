@@ -34,8 +34,11 @@
     _v31 = _v0.i(0),
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
-    _v34 = _v0.i(0);
-  let _v35 = (_v0, _v1, _v2) => (0, _v18.authAttributionUrl)(_v0, (0, _v18.buildAuthAttribution)({
+    _v34 = _v0.i(0),
+    _v35 = _v0.i(0),
+    _v36 = _v0.i(0),
+    _v37 = _v0.i(0);
+  let _v38 = (_v0, _v1, _v2) => (0, _v18.authAttributionUrl)(_v0, (0, _v18.buildAuthAttribution)({
     flowId: null,
     entry: _v1,
     originRoute: _v2,
@@ -59,24 +62,24 @@
   }) => {
     let _v12,
       _v13,
-      _v14,
-      _v15 = (0, _v10.useToast)(),
-      _v16 = (0, _v4.useContext)(_v32.OverridesContext),
+      _v14 = (0, _v10.useToast)(),
+      _v15 = (0, _v4.useContext)(_v35.OverridesContext),
       {
-        cardSurface: _v17,
-        compact: _v18
-      } = _v16,
-      _v19 = (0, _v31.getPlanCardPresentation)(_v17, _v18),
-      _v20 = (0, _v17.useOrionSettingsFields)(["pricing_page_monthly_free_trial", "second_free_trial_enabled"]),
-      _v21 = _v19.ctaSize,
+        cardSurface: _v16,
+        compact: _v17
+      } = _v15,
+      _v18 = (0, _v34.getPlanCardPresentation)(_v16, _v17),
+      _v19 = (0, _v17.useOrionSettingsFields)(["pricing_page_monthly_free_trial", "second_free_trial_enabled"]),
+      _v20 = _v18.ctaSize,
       {
-        isRepackagingData: _v22
-      } = (0, _v4.useContext)(_v33.PlansDataContext),
+        isRepackagingData: _v21,
+        plansData: _v22
+      } = (0, _v4.useContext)(_v36.PlansDataContext),
       {
         trackPricingPagePlanSelected: _v23
       } = (0, _v20.usePricingTracking)(),
-      _v24 = (0, _v34.useBundleOfferStore)(),
-      _v25 = (0, _v34.useBundleOfferSelector)(_v0 => !_v0.intercepts && _v0.isEnabled && _v0.isBundleActive),
+      _v24 = (0, _v37.useBundleOfferStore)(),
+      _v25 = (0, _v37.useBundleOfferSelector)(_v0 => !_v0.intercepts && _v0.isEnabled && _v0.isBundleActive),
       _v26 = _v0 => _v25 && !_v40 ? _v24.getState().reconcileCheckoutHref(_v0) ?? _v0 : _v0,
       _v27 = (0, _v2.useSearchParams)(),
       _v28 = (0, _v3.useRouter)(),
@@ -92,14 +95,14 @@
       } = _v1,
       _v40 = "enterprise" === _v39,
       _v41 = void 0 !== _v6 && _v39 === _v6,
-      _v42 = void 0 !== _v7 && ((0, _v22.getTierComparisonRank)(_v39) ?? 0) < ((0, _v22.getTierComparisonRank)(_v7) ?? 0) && "free" !== _v39,
-      _v43 = (0, _v28.useViewer)(),
+      _v42 = void 0 !== _v7 && ((0, _v24.getTierComparisonRank)(_v39) ?? 0) < ((0, _v24.getTierComparisonRank)(_v7) ?? 0) && "free" !== _v39,
+      _v43 = (0, _v31.useViewer)(),
       _v44 = _v43?.teamUser?.ownerId ?? _v43?.user?.id,
       {
         data: _v45,
         isLoading: _v46
       } = (0, _v15.useGetUserSettingsBillingMembership)(() => _v42 && null != _v44 ? {
-        select: ["subscriptionId", "hasAutorenew", "endDate", "gracePeriodType", "vendor"],
+        select: ["subscriptionId", "hasAutorenew", "endDate", "gracePeriodType", "vendor", "billingPeriod"],
         where: {
           userId: _v44
         }
@@ -110,10 +113,18 @@
         gracePeriodType: _v49,
         isInGracePeriod: _v50,
         supportsGraceDowngrade: _v51,
-        hasAutorenew: _v52
-      } = (0, _v29.getDowngradeSubscriptionState)(_v45, _v46),
-      _v53 = _v52 || _v35,
-      _v54 = (0, _v16.translate)({
+        hasAutorenew: _v52,
+        billingPeriod: _v53,
+        isWeeklyBilling: _v54
+      } = (0, _v32.getDowngradeSubscriptionState)(_v45, _v46),
+      _v55 = _v52 || _v35,
+      _v56 = _v53 === _v28.UserPlanType.Year ? _v28.UserPlanType.Year : _v53 === _v28.UserPlanType.Month ? _v28.UserPlanType.Month : _v4 ? _v28.UserPlanType.Year : _v28.UserPlanType.Month,
+      {
+        scheduledOrder: _v57
+      } = (0, _v29.useScheduledOrder)(_v47, _v7, _v55),
+      _v58 = (0, _v22.usePlanFeaturesForBillingPlan)(_v57?.billingPlanId),
+      _v59 = _v58?.restrictedVideoStorageLimit ?? (0, _v21.findPurchasedPlanForTier)(_v22, _v7)?.metadata?.entitlements?.params?.restrictedVideoStorageLimit,
+      _v60 = (0, _v16.translate)({
         singular: "Your next plan",
         dictionary: {
           es: {
@@ -139,7 +150,7 @@
           }
         }
       }),
-      _v55 = (0, _v16.translate)({
+      _v61 = (0, _v16.translate)({
         singular: "Current plan",
         dictionary: {
           es: {
@@ -165,7 +176,7 @@
           }
         }
       }),
-      _v56 = (0, _v16.translate)({
+      _v62 = (0, _v16.translate)({
         singular: "Downgrade",
         dictionary: {
           es: {
@@ -188,7 +199,7 @@
           }
         }
       }),
-      _v57 = (0, _v16.translate)({
+      _v63 = (0, _v16.translate)({
         singular: "Contact Sales",
         dictionary: {
           es: {
@@ -214,7 +225,7 @@
           }
         }
       }),
-      _v58 = (0, _v16.translate)({
+      _v64 = (0, _v16.translate)({
         singular: "Get {PLAN_NAME}",
         replacements: {
           PLAN_NAME: _v38
@@ -243,7 +254,7 @@
           }
         }
       }),
-      _v59 = (0, _v16.translate)({
+      _v65 = (0, _v16.translate)({
         singular: "Renew at {PERCENT}% discount",
         replacements: {
           PERCENT: _v8 ?? 0
@@ -274,16 +285,67 @@
       }),
       {
         capabilities: {
-          hasPaid: _v60,
-          hasMonthlyBilling: _v61,
-          inAppSubscription: _v62
+          hasPaid: _v66,
+          hasMonthlyBilling: _v67,
+          inAppSubscription: _v68
         }
       } = (0, _v12.useCapability)(["hasPaid", "hasMonthlyBilling", "inAppSubscription"]),
-      _v63 = _v42 && !_v5 && _v60 && (_v61 && _v4 || !_v61 && !_v4),
-      _v64 = _v42 && _v50 && (!_v47 || !_v51),
-      [_v65, _v66] = (0, _v13.default)(_v23.SELECTED_BILLING_PLAN_ID_STORAGE_KEY, ""),
-      _v67 = _v0 => {
-        let _v1 = !_v4 && _v20.pricing_page_monthly_free_trial ? _v0?.replace(/\/trial(\?|$)/, "/monthly/trial$1") : _v0,
+      _v69 = _v42 && !_v5 && _v66 && (_v67 && _v4 || !_v67 && !_v4),
+      _v70 = _v42 && _v54 ? (0, _v16.translate)({
+        singular: "Plan changes are not available on weekly plans",
+        dictionary: {
+          es: {
+            singular: "Los cambios de plan no están disponibles en planes semanales"
+          },
+          "de-DE": {
+            singular: "Planänderungen sind bei Wochenplänen nicht verfügbar"
+          },
+          "fr-FR": {
+            singular: "Les modifications d'abonnement ne sont pas disponibles pour les forfaits hebdomadaires."
+          },
+          "ja-JP": {
+            singular: "週次プランではプランの変更はできません"
+          },
+          "ko-KR": {
+            singular: "주간 요금제에서는 요금제 변경이 불가능합니다."
+          },
+          "pt-BR": {
+            singular: "Alterações de plano não estão disponíveis em planos semanais"
+          },
+          "zh-CN": {
+            singular: "周计划不支持更改"
+          }
+        }
+      }) : _v69 ? (0, _v16.translate)({
+        singular: "Downgrade is only available at your current billing period",
+        dictionary: {
+          es: {
+            singular: "El cambio a un plan inferior solo está disponible durante su período de facturación actual"
+          },
+          "de-DE": {
+            singular: "Eine Herabstufung ist nur während Ihres aktuellen Abrechnungszeitraums möglich."
+          },
+          "fr-FR": {
+            singular: "La rétrogradation n'est possible que pendant votre période de facturation en cours"
+          },
+          "ja-JP": {
+            singular: "ダウングレードは現在の請求期間中のみ可能です"
+          },
+          "ko-KR": {
+            singular: "다운그레이드는 현재 청구 기간에만 가능합니다"
+          },
+          "pt-BR": {
+            singular: "O downgrade só está disponível no seu ciclo de faturamento atual"
+          },
+          "zh-CN": {
+            singular: "降级仅在您当前的计费周期内可用"
+          }
+        }
+      }) : null,
+      _v71 = _v42 && _v50 && (!_v47 || !_v51),
+      [_v72, _v73] = (0, _v13.default)(_v25.SELECTED_BILLING_PLAN_ID_STORAGE_KEY, ""),
+      _v74 = _v0 => {
+        let _v1 = !_v4 && _v19.pricing_page_monthly_free_trial ? _v0?.replace(/\/trial(\?|$)/, "/monthly/trial$1") : _v0,
           _v2 = new URLSearchParams(_v27);
         _v2.delete(_v11.BUNDLE_OFFER_TOGGLE_PARAM);
         let _v3 = _v2.toString();
@@ -291,10 +353,10 @@
         let _v4 = _v1.includes("?") ? "&" : "?";
         return _v26(`${_v1}${_v4}${_v3}`);
       },
-      _v68 = !_v40 && !_v43?.user,
-      _v69 = (0, _v27.appendPostCheckoutUrl)(_v67(_v37.interactions?.purchase?.uri?.freeTrial), _v11),
-      _v70 = (0, _v4.useMemo)(() => _v68 && _v69 ? _v35(_v69, "pricing_free_trial", _v30) : _v69, [_v68, _v69, _v30]),
-      _v71 = (_v12 = _v37.interactions?.purchase?.uri?.[_v4 ? "annual" : "monthly"], _v13 = "", _v40 && _v3 ? _v13 = (_v0 => {
+      _v75 = !_v40 && !_v43?.user,
+      _v76 = (0, _v30.appendPostCheckoutUrl)(_v74(_v37.interactions?.purchase?.uri?.freeTrial), _v11),
+      _v77 = (0, _v4.useMemo)(() => _v75 && _v76 ? _v38(_v76, "pricing_free_trial", _v30) : _v76, [_v75, _v76, _v30]),
+      _v78 = (_v12 = _v37.interactions?.purchase?.uri?.[_v4 ? "annual" : "monthly"], _v13 = "", _v40 && _v3 ? _v13 = (_v0 => {
         switch (_v0) {
           case "vertical":
             return "?mkc=ent-upgrade-plan-card";
@@ -305,33 +367,33 @@
           default:
             return "";
         }
-      })(_v3) : _v16.ctaQueryParams && (_v13 = `?${_v16.ctaQueryParams}`), _v14 = _v60 && !_v61, _v5 && _v37?.purchasedProduct == null && !_v14 && (_v13.includes("?") ? _v13 += "&show_billing_plans=1" : _v13 = "?show_billing_plans=1"), (0, _v27.appendPostCheckoutUrl)(_v67(_v12 + _v13), _v11)),
-      _v72 = (0, _v4.useMemo)(() => _v68 && _v71 ? _v35(_v71, "pricing_purchase", _v30) : _v71, [_v68, _v71, _v30]),
-      _v73 = _v37?.interactions?.purchase?.status,
-      _v74 = _v37?.purchasedProduct?.isMonthly,
-      _v75 = _v16.ctaTreatment,
-      _v76 = (0, _v21.getEffectivePurchaseStatus)({
-        purchaseStatus: _v73,
+      })(_v3) : _v15.ctaQueryParams && (_v13 = `?${_v15.ctaQueryParams}`), _v5 && _v37?.purchasedProduct == null && !(_v66 && !_v67) && (_v13.includes("?") ? _v13 += "&show_billing_plans=1" : _v13 = "?show_billing_plans=1"), (0, _v30.appendPostCheckoutUrl)(_v74(_v12 + _v13), _v11)),
+      _v79 = (0, _v4.useMemo)(() => _v75 && _v78 ? _v38(_v78, "pricing_purchase", _v30) : _v78, [_v75, _v78, _v30]),
+      _v80 = _v37?.interactions?.purchase?.status,
+      _v81 = _v37?.purchasedProduct?.isMonthly,
+      _v82 = _v15.ctaTreatment,
+      _v83 = (0, _v23.getEffectivePurchaseStatus)({
+        purchaseStatus: _v80,
         tier: _v39,
         isViewingAnnual: _v4,
-        isPurchasedMonthly: _v74
+        isPurchasedMonthly: _v81
       }),
-      _v77 = "purchased" === _v76 && !_v41 && !_v42,
-      _v78 = _v22 && (_v41 || _v77),
-      _v79 = _v41 ? _v54 : _v78 ? _v55 : _v42 ? _v56 : _v40 ? _v57 : null != _v8 ? _v59 : _v58,
-      _v80 = _v0 => {
+      _v84 = "purchased" === _v83 && !_v41 && !_v42,
+      _v85 = _v21 && (_v41 || _v84),
+      _v86 = _v41 ? _v60 : _v85 ? _v61 : _v42 ? _v62 : _v40 ? _v63 : null != _v8 ? _v65 : _v64,
+      _v87 = _v0 => {
         let _v1 = _v4 ? _v0.id.annual : _v0.id.monthly;
-        _v0.metadata.isPsPlan && _v1 !== _v65 && _v66(_v1);
+        _v0.metadata.isPsPlan && _v1 !== _v72 && _v73(_v1);
       },
-      _v81 = !0 === _v16.hidePaidPlanSecondaryLinks,
-      _v82 = !_v20.second_free_trial_enabled && !!_v43?.user?.capabilities?.hasSecondFreeTrialEligibility,
-      _v83 = _v2 && !_v82,
-      _v84 = !_v81 && _v83 && !_v41 && !_v42,
-      _v85 = !_v81 && !_v41 && !_v42 && (_v83 || _v75 === _v30.CTA_TREATMENT.free_trial_secondary || _v75 === _v30.CTA_TREATMENT.free_trial_only) && _v75 !== _v30.CTA_TREATMENT.purchase_only,
-      _v86 = _v41 || "available" !== _v76 || _v62,
-      _v87 = _v4 ? "yearly" : "monthly",
-      _v88 = _v40 ? "contact_sales" : _v39,
-      _v89 = _v78 ? {
+      _v88 = !0 === _v15.hidePaidPlanSecondaryLinks,
+      _v89 = !_v19.second_free_trial_enabled && !!_v43?.user?.capabilities?.hasSecondFreeTrialEligibility,
+      _v90 = _v2 && !_v89,
+      _v91 = !_v88 && _v90 && !_v41 && !_v42,
+      _v92 = !_v88 && !_v41 && !_v42 && (_v90 || _v82 === _v33.CTA_TREATMENT.free_trial_secondary || _v82 === _v33.CTA_TREATMENT.free_trial_only) && _v82 !== _v33.CTA_TREATMENT.purchase_only,
+      _v93 = _v41 || "available" !== _v83 || _v68,
+      _v94 = _v4 ? "yearly" : "monthly",
+      _v95 = _v40 ? "contact_sales" : _v39,
+      _v96 = _v85 ? {
         variant: "secondary",
         bgColor: "transparent",
         borderColor: "darkBlueAlpha.300",
@@ -377,12 +439,12 @@
         }
       } : {
         variant: "tertiary",
-        bgColor: _v86 ? "text-primary" : "fill-brand",
+        bgColor: _v93 ? "text-primary" : "fill-brand",
         _hover: {
           backgroundColor: "vimeoBlue.300"
         },
         _dark: {
-          bgColor: _v86 ? "text-primary" : "vimeoBlue.500",
+          bgColor: _v93 ? "text-primary" : "vimeoBlue.500",
           color: "gray.900",
           _disabled: {
             bgColor: "stroke",
@@ -397,8 +459,8 @@
           pointerEvents: "none"
         }
       },
-      _v90 = (_v0, _v1, _v2, _v3) => {
-        if (!_v3 || !_v68) return void ((_v0, _v1) => {
+      _v97 = (_v0, _v1, _v2, _v3) => {
+        if (!_v3 || !_v75) return void ((_v0, _v1) => {
           if (!_v10) return _v1();
           let _v2 = _v0.currentTarget,
             _v3 = _v2 instanceof HTMLAnchorElement && _v2.href ? _v2.getAttribute("href") : null;
@@ -415,18 +477,18 @@
         }
         (0, _v14.isPlainLeftClick)(_v0) && (_v0.preventDefault(), window.location.assign(_v29(_v2, "join", _v3))), _v1();
       },
-      _v91 = (0, _v1.jsx)(_v6.Button, {
+      _v98 = (0, _v1.jsx)(_v6.Button, {
         as: "a",
-        size: _v21,
+        size: _v20,
         width: "100%",
-        href: _v40 ? _v71 : _v70,
+        href: _v40 ? _v78 : _v77,
         ...(!_v40 && {
           _hover: {
             backgroundColor: "vimeoBlue.300"
           }
         }),
         _dark: {
-          bgColor: _v40 || "free" === _v1.tier || _v86 ? "text-primary" : "vimeoBlue.500",
+          bgColor: _v40 || "free" === _v1.tier || _v93 ? "text-primary" : "vimeoBlue.500",
           color: "gray.900",
           _hover: {
             backgroundColor: _v40 ? "gray.200" : "vimeoBlue.300"
@@ -434,13 +496,13 @@
         },
         bgColor: _v40 ? "text-primary" : "fill-brand",
         variant: _v40 ? "primary" : "tertiary",
-        onClick: _v0 => _v90(_v0, () => {
+        onClick: _v0 => _v97(_v0, () => {
           _v23({
-            plan: _v88,
-            periodicity: _v87,
+            plan: _v95,
+            periodicity: _v94,
             freeTrial: !_v40
-          }), _v80(_v1);
-        }, "pricing_free_trial", _v69),
+          }), _v87(_v1);
+        }, "pricing_free_trial", _v76),
         ..._v0,
         children: _v40 ? (0, _v16.translate)({
           singular: "Contact sales",
@@ -492,7 +554,7 @@
               singular: "开始免费试用"
             }
           }
-        }) : _v16.paidPlanCtaLabel ?? (0, _v16.translate)({
+        }) : _v15.paidPlanCtaLabel ?? (0, _v16.translate)({
           singular: "Start free trial",
           dictionary: {
             es: {
@@ -519,7 +581,7 @@
           }
         })
       }),
-      _v92 = (0, _v1.jsx)(_v5.Box, {
+      _v99 = (0, _v1.jsx)(_v5.Box, {
         width: "100%",
         textAlign: "center",
         fontWeight: 500,
@@ -529,16 +591,16 @@
           singular: "or {A}purchase now{/A}",
           replacements: {
             A: _v0 => (0, _v1.jsx)(_v7.Link, {
-              href: _v72,
+              href: _v79,
               variant: "inline-primary",
               fontWeight: 500,
-              onClick: _v0 => _v90(_v0, () => {
+              onClick: _v0 => _v97(_v0, () => {
                 _v23({
-                  plan: _v88,
-                  periodicity: _v87,
+                  plan: _v95,
+                  periodicity: _v94,
                   freeTrial: !1
-                }), _v80(_v1);
-              }, "pricing_purchase", _v71),
+                }), _v87(_v1);
+              }, "pricing_purchase", _v78),
               children: _v0
             }, "purchase-now-link")
           },
@@ -567,62 +629,37 @@
           }
         })
       });
-    return _v75 !== _v30.CTA_TREATMENT.free_trial_primary || _v41 || _v42 ? (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(!_v75 || _v75 === _v30.CTA_TREATMENT.purchase_only || _v75 === _v30.CTA_TREATMENT.purchase_primary) && (_v42 ? (0, _v1.jsxs)(_v1.Fragment, {
+    return _v82 !== _v33.CTA_TREATMENT.free_trial_primary || _v41 || _v42 ? (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(!_v82 || _v82 === _v33.CTA_TREATMENT.purchase_only || _v82 === _v33.CTA_TREATMENT.purchase_primary) && (_v42 ? (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v8.Tooltip, {
-          label: (0, _v16.translate)({
-            singular: "Downgrade is only available at your current billing period",
-            dictionary: {
-              es: {
-                singular: "El cambio a un plan inferior solo está disponible durante su período de facturación actual"
-              },
-              "de-DE": {
-                singular: "Eine Herabstufung ist nur während Ihres aktuellen Abrechnungszeitraums möglich."
-              },
-              "fr-FR": {
-                singular: "La rétrogradation n'est possible que pendant votre période de facturation en cours"
-              },
-              "ja-JP": {
-                singular: "ダウングレードは現在の請求期間中のみ可能です"
-              },
-              "ko-KR": {
-                singular: "다운그레이드는 현재 청구 기간에만 가능합니다"
-              },
-              "pt-BR": {
-                singular: "O downgrade só está disponível no seu ciclo de faturamento atual"
-              },
-              "zh-CN": {
-                singular: "降级仅在您当前的计费周期内可用"
-              }
-            }
-          }),
-          isDisabled: !_v63,
+          label: _v70 ?? "",
+          isDisabled: null === _v70,
           placement: "top",
           children: (0, _v1.jsx)(_v5.Box, {
             children: (0, _v1.jsx)(_v6.Button, {
-              size: _v21,
+              size: _v20,
               width: "100%",
-              ..._v89,
-              isDisabled: _v63 || _v64,
+              ..._v96,
+              isDisabled: null !== _v70 || _v71,
               onClick: () => {
                 _v23({
-                  plan: _v88,
-                  periodicity: _v87,
+                  plan: _v95,
+                  periodicity: _v94,
                   freeTrial: !1
-                }), (0, _v29.shouldShowAutoRenewRetentionModal)(_v50, _v53) ? _v34(!0) : _v32(!0);
+                }), (0, _v32.shouldShowAutoRenewRetentionModal)(_v50, _v55) ? _v34(!0) : _v32(!0);
               },
               ..._v0,
-              children: _v79
+              children: _v86
             })
           })
-        }), (0, _v1.jsx)(_v24.AutoRenewRetentionModal, {
+        }), (0, _v1.jsx)(_v26.AutoRenewRetentionModal, {
           isOpen: _v33,
           onClose: () => _v34(!1),
           onAutoRenewEnabled: () => {
             _v36(!0), _v34(!1), _v32(!0);
           },
           onError: _v0 => {
-            _v15({
+            _v14({
               variant: "warning",
               title: _v0 ?? (0, _v16.translate)({
                 singular: "Something went wrong. Please try again.",
@@ -655,16 +692,17 @@
           subscriptionId: _v47,
           currentPlanName: _v7 ? _v7.charAt(0).toUpperCase() + _v7.slice(1) : "",
           currentTier: _v7 ?? "",
+          currentManagedStorage: _v59,
           targetTier: _v39,
           endDate: _v48
-        }), (0, _v1.jsx)(_v25.DowngradeFlowModal, {
+        }), (0, _v1.jsx)(_v27.DowngradeFlowModal, {
           isOpen: _v31,
           onClose: () => _v32(!1),
           onSuccess: () => {
             window.location.reload();
           },
           onError: _v0 => {
-            _v15({
+            _v14({
               variant: "warning",
               title: _v0 ?? (0, _v16.translate)({
                 singular: "Something went wrong. Please try again.",
@@ -697,45 +735,47 @@
           membership: {
             subscriptionId: _v47,
             tier: _v7,
-            billingPeriod: _v4 ? _v26.UserPlanType.Year : _v26.UserPlanType.Month,
+            billingPeriod: _v56,
             isFreeTrial: !1,
-            renewalDate: "",
-            hasAutorenew: _v53,
+            renewalDate: _v48,
+            hasAutorenew: _v55,
             gracePeriodType: _v51 ? _v49 : null
           },
           currentPlanName: _v7 ? _v7.charAt(0).toUpperCase() + _v7.slice(1) : "",
           currentTier: _v7,
+          currentManagedStorage: _v59,
           targetTier: _v39,
           targetPlanName: _v38,
-          targetBillingPlanId: (_v4 ? _v1.id.annual : _v1.id.monthly) ?? "",
-          totalSeats: 1
+          targetBillingPlanId: (_v56 === _v28.UserPlanType.Year ? _v1.id.annual : _v1.id.monthly) ?? "",
+          targetPlanData: _v1,
+          surface: "plan_card"
         })]
       }) : null != _v8 && _v9 ? (0, _v1.jsx)(_v6.Button, {
-        size: _v21,
+        size: _v20,
         width: "100%",
         onClick: () => {
           _v9();
         },
         ..._v0,
-        children: _v79
+        children: _v86
       }) : (0, _v1.jsx)(_v6.Button, {
         as: "a",
-        size: _v21,
+        size: _v20,
         width: "100%",
-        href: _v72,
-        isDisabled: _v86,
-        "aria-disabled": _v86,
-        ..._v89,
-        onClick: _v0 => _v90(_v0, () => {
+        href: _v79,
+        isDisabled: _v93,
+        "aria-disabled": _v93,
+        ..._v96,
+        onClick: _v0 => _v97(_v0, () => {
           _v23({
-            plan: _v88,
-            periodicity: _v87,
+            plan: _v95,
+            periodicity: _v94,
             freeTrial: !1
-          }), _v80(_v1);
-        }, "pricing_purchase", _v71),
+          }), _v87(_v1);
+        }, "pricing_purchase", _v78),
         ..._v0,
-        children: _v79
-      })), _v85 && (0, _v1.jsx)(() => !_v60 && (_v4 || _v20.pricing_page_monthly_free_trial) ? (0, _v1.jsx)(_v5.Box, {
+        children: _v86
+      })), _v92 && (0, _v1.jsx)(() => !_v66 && (_v4 || _v19.pricing_page_monthly_free_trial) ? (0, _v1.jsx)(_v5.Box, {
         width: "100%",
         textAlign: "center",
         fontWeight: 500,
@@ -745,16 +785,16 @@
           singular: "or {A}start free trial{/A}",
           replacements: {
             A: _v0 => (0, _v1.jsx)(_v7.Link, {
-              href: _v70,
+              href: _v77,
               variant: "inline-primary",
               fontWeight: 500,
-              onClick: _v0 => _v90(_v0, () => {
+              onClick: _v0 => _v97(_v0, () => {
                 _v23({
-                  plan: _v88,
-                  periodicity: _v87,
+                  plan: _v95,
+                  periodicity: _v94,
                   freeTrial: !0
-                }), _v80(_v1);
-              }, "pricing_free_trial", _v69),
+                }), _v87(_v1);
+              }, "pricing_free_trial", _v76),
               children: _v0
             }, "free-trial-link")
           },
@@ -784,20 +824,20 @@
         })
       }) : (0, _v1.jsx)(_v1.Fragment, {}), {})]
     }) : (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v91, _v84 && _v92]
+      children: [_v98, _v91 && _v99]
     });
   }], 0);
-  var _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0);
+  var _v39 = _v0.i(0),
+    _v40 = _v0.i(0),
+    _v41 = _v0.i(0);
   _v0.s(["default", 0, ({
     buttonProps: _v0,
     hrefRedirect: _v1 = "/home",
     onPurchaseIntercept: _v2
   }) => {
-    let _v3 = (0, _v4.useContext)(_v38.ViewerContext),
+    let _v3 = (0, _v4.useContext)(_v41.ViewerContext),
       [_v4, _v5] = (0, _v4.useState)(!1);
-    return (0, _v1.jsx)(_v36.LoginJoinModal, {
+    return (0, _v1.jsx)(_v39.LoginJoinModal, {
       type: "join",
       xsrft: _v3?.xsrft || "",
       shouldOptIntoMarketing: _v3?.shouldOptIntoMarketing,
@@ -810,7 +850,7 @@
       children: () => (0, _v1.jsx)(_v6.Button, {
         size: "lg",
         width: "100%",
-        isDisabled: _v3?.user?.account === _v37.AccountType.Free,
+        isDisabled: _v3?.user?.account === _v40.AccountType.Free,
         variant: "tertiary",
         onClick: () => {
           _v2 ? _v2(() => {
@@ -828,7 +868,7 @@
           color: "text-primary"
         },
         ..._v0,
-        children: _v3?.user?.account === _v37.AccountType.Free ? (0, _v16.translate)({
+        children: _v3?.user?.account === _v40.AccountType.Free ? (0, _v16.translate)({
           singular: "Current plan",
           dictionary: {
             es: {

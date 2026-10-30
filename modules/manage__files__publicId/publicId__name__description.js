@@ -27,19 +27,20 @@
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
     _v26 = _v0.i(0),
-    _v27 = _v0.i(0);
-  let _v28 = ["publicId", "uri", "name", "description", "contentType", "thumbnail.url", "fileSize", "width", "height", "privacy", "password", "allowDownloads", "downloadUrl", "createdTime", "modifiedTime", "metadata.connections.ancestorPath.name", "metadata.connections.ancestorPath.link", "parentFolder.name", "parentFolder.uri", "parentFolder.isPrivateToUser", "uploadState", "uploader.name", "canUserEdit", "canUserDelete"],
-    _v29 = () => void 0,
-    _v30 = _v0 => "object" == typeof _v0 && null !== _v0,
-    _v31 = _v0 => {
+    _v27 = _v0.i(0),
+    _v28 = _v0.i(0);
+  let _v29 = ["publicId", "uri", "name", "description", "contentType", "thumbnail.url", "fileSize", "width", "height", "privacy", "password", "allowDownloads", "downloadUrl", "createdTime", "modifiedTime", "metadata.connections.ancestorPath.name", "metadata.connections.ancestorPath.link", "parentFolder.name", "parentFolder.uri", "parentFolder.isPrivateToUser", "uploadState", "uploader.name", "canUserEdit", "canUserDelete"],
+    _v30 = () => void 0,
+    _v31 = _v0 => "object" == typeof _v0 && null !== _v0,
+    _v32 = _v0 => {
       try {
         let _v0 = JSON.parse(_v0);
-        if (_v30(_v0) && Array.isArray(_v0.ops)) return _v0.ops.filter(_v30).map(_v0 => "string" == typeof _v0.insert ? _v0.insert : "").join("").trim();
+        if (_v31(_v0) && Array.isArray(_v0.ops)) return _v0.ops.filter(_v31).map(_v0 => "string" == typeof _v0.insert ? _v0.insert : "").join("").trim();
       } catch {}
       return _v0;
     },
-    _v32 = {
-      video: (0, _v23.translate)({
+    _v33 = {
+      video: (0, _v24.translate)({
         singular: "Video",
         dictionary: {
           "fr-FR": {
@@ -59,7 +60,7 @@
           }
         }
       }),
-      document: (0, _v23.translate)({
+      document: (0, _v24.translate)({
         singular: "Document",
         dictionary: {
           es: {
@@ -82,7 +83,7 @@
           }
         }
       }),
-      image: (0, _v23.translate)({
+      image: (0, _v24.translate)({
         singular: "Image",
         dictionary: {
           es: {
@@ -105,7 +106,7 @@
           }
         }
       }),
-      audio: (0, _v23.translate)({
+      audio: (0, _v24.translate)({
         singular: "Audio",
         dictionary: {
           "ja-JP": {
@@ -123,21 +124,147 @@
         }
       })
     },
-    _v33 = ({
+    _v34 = {
+      video: (0, _v24.translate)({
+        singular: "Video details",
+        dictionary: {
+          es: {
+            singular: "Detalles del video"
+          },
+          "de-DE": {
+            singular: "Videodetails"
+          },
+          "fr-FR": {
+            singular: "Détails de la vidéo"
+          },
+          "ja-JP": {
+            singular: "動画の詳細情報"
+          },
+          "ko-KR": {
+            singular: "동영상 세부 사항"
+          },
+          "pt-BR": {
+            singular: "Detalhes do vídeo"
+          },
+          "zh-CN": {
+            singular: "视频详情"
+          }
+        }
+      }),
+      document: (0, _v24.translate)({
+        singular: "Document details",
+        dictionary: {
+          es: {
+            singular: "Detalles del documento"
+          },
+          "de-DE": {
+            singular: "Dokumentdetails"
+          },
+          "fr-FR": {
+            singular: "Détails du document"
+          },
+          "ja-JP": {
+            singular: "ドキュメントの詳細"
+          },
+          "ko-KR": {
+            singular: "문서 세부 정보"
+          },
+          "pt-BR": {
+            singular: "Detalhes do documento"
+          },
+          "zh-CN": {
+            singular: "文档详情"
+          }
+        }
+      }),
+      image: (0, _v24.translate)({
+        singular: "Image details",
+        dictionary: {
+          es: {
+            singular: "Detalles de la imagen"
+          },
+          "de-DE": {
+            singular: "Bilddetails"
+          },
+          "fr-FR": {
+            singular: "Détails de l'image"
+          },
+          "ja-JP": {
+            singular: "画像の詳細"
+          },
+          "ko-KR": {
+            singular: "이미지 세부 정보"
+          },
+          "pt-BR": {
+            singular: "Detalhes da imagem"
+          },
+          "zh-CN": {
+            singular: "图片详情"
+          }
+        }
+      }),
+      audio: (0, _v24.translate)({
+        singular: "Audio details",
+        dictionary: {
+          es: {
+            singular: "Detalles de audio"
+          },
+          "de-DE": {
+            singular: "Audiodetails"
+          },
+          "fr-FR": {
+            singular: "Détails audio"
+          },
+          "ja-JP": {
+            singular: "オーディオの詳細"
+          },
+          "ko-KR": {
+            singular: "오디오 세부 정보"
+          },
+          "pt-BR": {
+            singular: "Detalhes do áudio"
+          },
+          "zh-CN": {
+            singular: "音频详情"
+          }
+        }
+      })
+    },
+    _v35 = {
+      flexDirection: "column",
+      padding: "lg",
+      gap: "lg",
+      background: "surface",
+      borderRadius: "xl"
+    },
+    _v36 = ({
       label: _v0,
       placeholder: _v1,
       value: _v2,
       onSave: _v3,
       isReadOnly: _v4 = !1
     }) => (0, _v1.jsxs)(_v5.Flex, {
-      alignItems: "center",
-      gap: "lg",
-      children: [(0, _v1.jsx)(_v17.Text, {
+      alignItems: {
+        base: "stretch",
+        xl: "center"
+      },
+      flexDirection: {
+        base: "column",
+        xl: "row"
+      },
+      gap: {
+        base: "sm",
+        xl: "lg"
+      },
+      children: [(0, _v1.jsx)(_v18.Text, {
         flexShrink: 0,
         variant: "heading-xs",
-        width: "11rem",
+        width: {
+          base: "full",
+          xl: "11rem"
+        },
         children: _v0
-      }), (0, _v1.jsx)(_v16.Input, {
+      }), (0, _v1.jsx)(_v17.Input, {
         "aria-label": _v0,
         defaultValue: _v2,
         flexGrow: 1,
@@ -154,53 +281,53 @@
         variant: "outlined"
       }, _v2)]
     }),
-    _v34 = ({
+    _v37 = ({
       label: _v0,
       value: _v1
     }) => (0, _v1.jsxs)(_v5.Flex, {
       alignItems: "center",
       gap: "sm",
-      children: [(0, _v1.jsx)(_v17.Text, {
+      children: [(0, _v1.jsx)(_v18.Text, {
         color: "text-secondary",
         flexShrink: 0,
         variant: "body-md",
         width: "7.5rem",
         children: _v0
-      }), (0, _v1.jsx)(_v17.Text, {
+      }), (0, _v1.jsx)(_v18.Text, {
         variant: "body-md",
         children: _v1
       })]
     }),
-    _v35 = ({
+    _v38 = ({
       publicId: _v0,
       ownerId: _v1,
       file: _v2,
       onChanged: _v3
     }) => {
-      let _v4 = (0, _v18.useToast)(),
+      let _v4 = (0, _v19.useToast)(),
         _v5 = (0, _v15.useViewer)(),
         {
           capabilities: _v6
-        } = (0, _v20.useCapability)(["hasRichText"], _v5?.user?.uri),
+        } = (0, _v21.useCapability)(["hasRichText"], _v5?.user?.uri),
         {
           baseUrl: _v7,
           jwt: _v8,
           xVimeoPage: _v9,
           locale: _v10
-        } = (0, _v22.useGctlConfig)(),
-        _v11 = (0, _v26.useFormatDateTime)(),
+        } = (0, _v23.useGctlConfig)(),
+        _v11 = (0, _v27.useFormatDateTime)(),
         {
           trackFileMetadataEdited: _v12
         } = (0, _v13.useFileManageTracking)(),
         _v13 = !0 === _v6.hasRichText,
         _v14 = async (_v0, _v1) => {
           try {
-            await (0, _v21.patchUserFile)({
+            await (0, _v22.patchUserFile)({
               where: {
                 userId: _v1,
                 fileId: _v0
               },
-              select: _v28,
+              select: _v29,
               variables: _v1,
               baseUrl: _v7,
               headers: {
@@ -210,7 +337,7 @@
                 "Accept-Language": _v10 ?? "en"
               }
             }), _v4({
-              title: (0, _v23.translate)({
+              title: (0, _v24.translate)({
                 singular: "Changes saved",
                 dictionary: {
                   es: {
@@ -243,7 +370,7 @@
             });
           } catch {
             _v4({
-              title: (0, _v23.translate)({
+              title: (0, _v24.translate)({
                 singular: "Something went wrong",
                 dictionary: {
                   es: {
@@ -273,9 +400,9 @@
             });
           }
         },
-        _v15 = (0, _v19.getFileExtension)(_v2.name),
-        _v16 = null != _v2.fileSize && _v2.fileSize > 0 ? String((0, _v25.bytesToSize)(_v2.fileSize, 1)) : "",
-        _v17 = _v2.uploader.name ? (0, _v23.translate)({
+        _v15 = (0, _v20.getFileExtension)(_v2.name),
+        _v16 = null != _v2.fileSize && _v2.fileSize > 0 ? String((0, _v26.bytesToSize)(_v2.fileSize, 1)) : "",
+        _v17 = _v2.uploader.name ? (0, _v24.translate)({
           singular: "{date} by {name}",
           replacements: {
             date: _v11.getDisplayDate(_v2.createdTime),
@@ -305,61 +432,154 @@
             }
           }
         }) : _v11.getDisplayDate(_v2.createdTime),
-        _v18 = null != _v2.width && null != _v2.height ? (0, _v23.translate)({
+        _v18 = null != _v2.width && null != _v2.height ? (0, _v24.translate)({
           singular: "{width} x {height}",
           replacements: {
             width: _v2.width,
             height: _v2.height
           }
-        }) : null;
+        }) : null,
+        _v19 = (0, _v20.getContentTypeCategory)(_v2.contentType);
       return (0, _v1.jsxs)(_v5.Flex, {
         flexDirection: "column",
-        gap: "2xl",
-        pt: "md",
+        gap: "lg",
         children: [(0, _v1.jsxs)(_v5.Flex, {
-          flexDirection: "column",
-          gap: "md",
-          children: [(0, _v1.jsx)(_v33, {
-            isReadOnly: !_v2.canUserEdit,
-            label: (0, _v23.translate)({
-              singular: "Title",
-              dictionary: {
-                es: {
-                  singular: "Título"
-                },
-                "de-DE": {
-                  singular: "Titel"
-                },
-                "fr-FR": {
-                  singular: "Titre"
-                },
-                "ja-JP": {
-                  singular: "タイトル"
-                },
-                "ko-KR": {
-                  singular: "제목"
-                },
-                "pt-BR": {
-                  singular: "Título"
-                },
-                "zh-CN": {
-                  singular: "标题"
+          ..._v35,
+          children: [(0, _v1.jsx)(_v16.Header, {
+            size: "md",
+            mb: 0,
+            children: _v34[_v19]
+          }), (0, _v1.jsxs)(_v5.Flex, {
+            flexDirection: "column",
+            gap: "md",
+            children: [(0, _v1.jsx)(_v36, {
+              isReadOnly: !_v2.canUserEdit,
+              label: (0, _v24.translate)({
+                singular: "Title",
+                dictionary: {
+                  es: {
+                    singular: "Título"
+                  },
+                  "de-DE": {
+                    singular: "Titel"
+                  },
+                  "fr-FR": {
+                    singular: "Titre"
+                  },
+                  "ja-JP": {
+                    singular: "タイトル"
+                  },
+                  "ko-KR": {
+                    singular: "제목"
+                  },
+                  "pt-BR": {
+                    singular: "Título"
+                  },
+                  "zh-CN": {
+                    singular: "标题"
+                  }
                 }
-              }
-            }),
-            value: _v2.name,
-            onSave: _v0 => void _v14("title", {
-              name: _v0
-            })
-          }), _v13 ? (0, _v1.jsxs)(_v5.Flex, {
-            alignItems: "flex-start",
-            gap: "lg",
-            children: [(0, _v1.jsx)(_v17.Text, {
-              flexShrink: 0,
-              pt: "sm",
-              variant: "heading-xs",
-              width: "11rem",
-              children: (0, _v23.translate)({
+              }),
+              value: _v2.name,
+              onSave: _v0 => void _v14("title", {
+                name: _v0
+              })
+            }), _v13 ? (0, _v1.jsxs)(_v5.Flex, {
+              alignItems: {
+                base: "stretch",
+                xl: "flex-start"
+              },
+              flexDirection: {
+                base: "column",
+                xl: "row"
+              },
+              gap: {
+                base: "sm",
+                xl: "lg"
+              },
+              children: [(0, _v1.jsx)(_v18.Text, {
+                flexShrink: 0,
+                pt: {
+                  base: 0,
+                  xl: "sm"
+                },
+                variant: "heading-xs",
+                width: {
+                  base: "full",
+                  xl: "11rem"
+                },
+                children: (0, _v24.translate)({
+                  singular: "Description",
+                  dictionary: {
+                    es: {
+                      singular: "Descripción"
+                    },
+                    "de-DE": {
+                      singular: "Beschreibung"
+                    },
+                    "ja-JP": {
+                      singular: "説明"
+                    },
+                    "ko-KR": {
+                      singular: "설명"
+                    },
+                    "pt-BR": {
+                      singular: "Descrição"
+                    },
+                    "zh-CN": {
+                      singular: "描述"
+                    }
+                  }
+                })
+              }), _v2.canUserEdit ? (0, _v1.jsx)(_v5.Flex, {
+                flexGrow: 1,
+                minWidth: 0,
+                children: (0, _v1.jsx)(_v25.RichTextDescription, {
+                  maxLength: 0,
+                  onChange: _v30,
+                  onSave: _v0 => {
+                    _v0 !== _v2.description && _v14("description", {
+                      description: _v0
+                    });
+                  },
+                  placeholder: (0, _v24.translate)({
+                    singular: "Add description",
+                    dictionary: {
+                      es: {
+                        singular: "Agregar descripción"
+                      },
+                      "de-DE": {
+                        singular: "Beschreibung hinzufügen"
+                      },
+                      "fr-FR": {
+                        singular: "Ajouter une description"
+                      },
+                      "ja-JP": {
+                        singular: "説明を追加"
+                      },
+                      "ko-KR": {
+                        singular: "설명 추가"
+                      },
+                      "pt-BR": {
+                        singular: "Adicionar descrição"
+                      },
+                      "zh-CN": {
+                        singular: "添加描述"
+                      }
+                    }
+                  }),
+                  setIsTextAreaActive: _v30,
+                  value: _v2.description
+                }, _v2.description)
+              }) : (0, _v1.jsx)(_v18.Text, {
+                flexGrow: 1,
+                variant: "body-md",
+                whiteSpace: "pre-wrap",
+                children: _v32(_v2.description)
+              })]
+            }) : (0, _v1.jsx)(_v36, {
+              isReadOnly: !_v2.canUserEdit,
+              label: (0, _v24.translate)({
                 singular: "Description",
                 dictionary: {
                   es: {
@@ -381,117 +601,45 @@
                     singular: "描述"
                   }
                 }
-              })
-            }), _v2.canUserEdit ? (0, _v1.jsx)(_v5.Flex, {
-              flexGrow: 1,
-              minWidth: 0,
-              children: (0, _v1.jsx)(_v24.RichTextDescription, {
-                maxLength: 0,
-                onChange: _v29,
-                onSave: _v0 => {
-                  _v0 !== _v2.description && _v14("description", {
-                    description: _v0
-                  });
-                },
-                placeholder: (0, _v23.translate)({
-                  singular: "Add description",
-                  dictionary: {
-                    es: {
-                      singular: "Agregar descripción"
-                    },
-                    "de-DE": {
-                      singular: "Beschreibung hinzufügen"
-                    },
-                    "fr-FR": {
-                      singular: "Ajouter une description"
-                    },
-                    "ja-JP": {
-                      singular: "説明を追加"
-                    },
-                    "ko-KR": {
-                      singular: "설명 추가"
-                    },
-                    "pt-BR": {
-                      singular: "Adicionar descrição"
-                    },
-                    "zh-CN": {
-                      singular: "添加描述"
-                    }
+              }),
+              placeholder: (0, _v24.translate)({
+                singular: "Add description",
+                dictionary: {
+                  es: {
+                    singular: "Agregar descripción"
+                  },
+                  "de-DE": {
+                    singular: "Beschreibung hinzufügen"
+                  },
+                  "fr-FR": {
+                    singular: "Ajouter une description"
+                  },
+                  "ja-JP": {
+                    singular: "説明を追加"
+                  },
+                  "ko-KR": {
+                    singular: "설명 추가"
+                  },
+                  "pt-BR": {
+                    singular: "Adicionar descrição"
+                  },
+                  "zh-CN": {
+                    singular: "添加描述"
                   }
-                }),
-                setIsTextAreaActive: _v29,
-                value: _v2.description
-              }, _v2.description)
-            }) : (0, _v1.jsx)(_v17.Text, {
-              flexGrow: 1,
-              variant: "body-md",
-              whiteSpace: "pre-wrap",
-              children: _v31(_v2.description)
+                }
+              }),
+              value: _v32(_v2.description),
+              onSave: _v0 => void _v14("description", {
+                description: _v0
+              })
             })]
-          }) : (0, _v1.jsx)(_v33, {
-            isReadOnly: !_v2.canUserEdit,
-            label: (0, _v23.translate)({
-              singular: "Description",
-              dictionary: {
-                es: {
-                  singular: "Descripción"
-                },
-                "de-DE": {
-                  singular: "Beschreibung"
-                },
-                "ja-JP": {
-                  singular: "説明"
-                },
-                "ko-KR": {
-                  singular: "설명"
-                },
-                "pt-BR": {
-                  singular: "Descrição"
-                },
-                "zh-CN": {
-                  singular: "描述"
-                }
-              }
-            }),
-            placeholder: (0, _v23.translate)({
-              singular: "Add description",
-              dictionary: {
-                es: {
-                  singular: "Agregar descripción"
-                },
-                "de-DE": {
-                  singular: "Beschreibung hinzufügen"
-                },
-                "fr-FR": {
-                  singular: "Ajouter une description"
-                },
-                "ja-JP": {
-                  singular: "説明を追加"
-                },
-                "ko-KR": {
-                  singular: "설명 추가"
-                },
-                "pt-BR": {
-                  singular: "Adicionar descrição"
-                },
-                "zh-CN": {
-                  singular: "添加描述"
-                }
-              }
-            }),
-            value: _v31(_v2.description),
-            onSave: _v0 => void _v14("description", {
-              description: _v0
-            })
           })]
         }), (0, _v1.jsxs)(_v5.Flex, {
-          alignItems: "flex-start",
-          gap: "md",
-          children: [(0, _v1.jsx)(_v17.Text, {
-            flexShrink: 0,
-            variant: "heading-xs",
-            width: "11rem",
-            children: (0, _v23.translate)({
+          ..._v35,
+          children: [(0, _v1.jsx)(_v16.Header, {
+            size: "md",
+            mb: 0,
+            children: (0, _v24.translate)({
               singular: "File information",
               dictionary: {
                 es: {
@@ -519,10 +667,9 @@
             })
           }), (0, _v1.jsxs)(_v5.Flex, {
             flexDirection: "column",
-            flexGrow: 1,
             gap: "sm",
-            children: [null !== _v18 && (0, _v1.jsx)(_v34, {
-              label: (0, _v23.translate)({
+            children: [null !== _v18 && (0, _v1.jsx)(_v37, {
+              label: (0, _v24.translate)({
                 singular: "Resolution",
                 dictionary: {
                   es: {
@@ -549,8 +696,8 @@
                 }
               }),
               value: _v18
-            }), (0, _v1.jsx)(_v34, {
-              label: (0, _v23.translate)({
+            }), (0, _v1.jsx)(_v37, {
+              label: (0, _v24.translate)({
                 singular: "File size",
                 dictionary: {
                   es: {
@@ -577,8 +724,8 @@
                 }
               }),
               value: _v16
-            }), (0, _v1.jsx)(_v34, {
-              label: (0, _v23.translate)({
+            }), (0, _v1.jsx)(_v37, {
+              label: (0, _v24.translate)({
                 singular: "File type",
                 dictionary: {
                   es: {
@@ -604,9 +751,9 @@
                   }
                 }
               }),
-              value: _v32[(0, _v19.getContentTypeCategory)(_v2.contentType)]
-            }), "" !== _v15 && (0, _v1.jsx)(_v34, {
-              label: (0, _v23.translate)({
+              value: _v33[_v19]
+            }), "" !== _v15 && (0, _v1.jsx)(_v37, {
+              label: (0, _v24.translate)({
                 singular: "File format",
                 dictionary: {
                   es: {
@@ -633,8 +780,8 @@
                 }
               }),
               value: _v15
-            }), (0, _v1.jsx)(_v34, {
-              label: (0, _v23.translate)({
+            }), (0, _v1.jsx)(_v37, {
+              label: (0, _v24.translate)({
                 singular: "Uploaded",
                 dictionary: {
                   es: {
@@ -666,10 +813,7 @@
         })]
       });
     };
-  var _v36 = _v0.i(0),
-    _v37 = _v0.i(0),
-    _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
+  var _v39 = _v0.i(0),
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
@@ -687,24 +831,30 @@
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  let _v58 = ({
+    _v57 = _v0.i(0),
+    _v58 = _v0.i(0),
+    _v59 = _v0.i(0),
+    _v60 = _v0.i(0),
+    _v61 = _v0.i(0),
+    _v62 = _v0.i(0),
+    _v63 = _v0.i(0);
+  let _v64 = ({
     publicId: _v0,
     ownerId: _v1,
     file: _v2
   }) => {
-    let _v3 = (0, _v43.useRouter)(),
-      _v4 = (0, _v18.useToast)(),
+    let _v3 = (0, _v50.useRouter)(),
+      _v4 = (0, _v19.useToast)(),
       {
         baseUrl: _v5,
         jwt: _v6,
         xVimeoPage: _v7,
         locale: _v8
-      } = (0, _v22.useGctlConfig)(),
+      } = (0, _v23.useGctlConfig)(),
       {
         openCopyFileModal: _v9,
         copyModal: _v10
-      } = (0, _v57.useCopyFileFlow)(),
+      } = (0, _v63.useCopyFileFlow)(),
       {
         trackFileManageOverflowActionClicked: _v11,
         trackFileDeleted: _v12
@@ -723,7 +873,7 @@
       _v25 = async () => {
         _v15(!0);
         try {
-          await (0, _v21.deleteUserFile)({
+          await (0, _v22.deleteUserFile)({
             where: {
               userId: _v1,
               fileId: _v0
@@ -739,7 +889,7 @@
               "Accept-Language": _v8 ?? "en"
             }
           }), _v4({
-            title: (0, _v23.translate)({
+            title: (0, _v24.translate)({
               singular: "Moved to Recently Deleted",
               dictionary: {
                 es: {
@@ -772,7 +922,7 @@
           }), _v19(!1), _v3.push("/library");
         } catch {
           _v4({
-            title: (0, _v23.translate)({
+            title: (0, _v24.translate)({
               singular: "Something went wrong",
               dictionary: {
                 es: {
@@ -805,9 +955,9 @@
         }
       };
     return _v24 || _v20 || _v21 ? (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v45.Menu, {
-        children: [(0, _v1.jsx)(_v46.MenuButton, {
-          "aria-label": (0, _v23.translate)({
+      children: [(0, _v1.jsxs)(_v51.Menu, {
+        children: [(0, _v1.jsx)(_v52.MenuButton, {
+          "aria-label": (0, _v24.translate)({
             singular: "More actions",
             dictionary: {
               es: {
@@ -833,15 +983,15 @@
               }
             }
           }),
-          as: _v44.IconButton,
-          icon: (0, _v1.jsx)(_v52.EllipsisV, {}),
+          as: _v41.IconButton,
+          icon: (0, _v1.jsx)(_v58.EllipsisV, {}),
           size: "md",
           variant: "tertiary"
-        }), (0, _v1.jsxs)(_v49.MenuList, {
-          children: [_v24 && (0, _v1.jsxs)(_v48.MenuItem, {
+        }), (0, _v1.jsxs)(_v55.MenuList, {
+          children: [_v24 && (0, _v1.jsxs)(_v54.MenuItem, {
             as: "a",
             href: _v23,
-            icon: (0, _v1.jsx)(_v51.DownloadImport, {}),
+            icon: (0, _v1.jsx)(_v57.DownloadImport, {}),
             onClick: () => {
               _v11({
                 fileId: _v0,
@@ -853,7 +1003,7 @@
                 source: "actions_menu"
               });
             },
-            children: [(0, _v23.translate)({
+            children: [(0, _v24.translate)({
               singular: "Download",
               dictionary: {
                 es: {
@@ -879,8 +1029,8 @@
                 }
               }
             }), "…"]
-          }), _v20 && (0, _v1.jsx)(_v48.MenuItem, {
-            icon: (0, _v1.jsx)(_v53.FolderOpen, {}),
+          }), _v20 && (0, _v1.jsx)(_v54.MenuItem, {
+            icon: (0, _v1.jsx)(_v59.FolderOpen, {}),
             onClick: () => {
               _v11({
                 fileId: _v0,
@@ -888,7 +1038,7 @@
                 action: "move"
               }), _v17(!0);
             },
-            children: (0, _v23.translate)({
+            children: (0, _v24.translate)({
               singular: "Move…",
               dictionary: {
                 es: {
@@ -914,8 +1064,8 @@
                 }
               }
             })
-          }), _v22 && (0, _v1.jsx)(_v48.MenuItem, {
-            icon: (0, _v1.jsx)(_v50.CopyPortrait, {}),
+          }), _v22 && (0, _v1.jsx)(_v54.MenuItem, {
+            icon: (0, _v1.jsx)(_v56.CopyPortrait, {}),
             onClick: () => {
               _v11({
                 fileId: _v0,
@@ -923,7 +1073,7 @@
                 action: "make_a_copy"
               }), _v9(_v2);
             },
-            children: (0, _v23.translate)({
+            children: (0, _v24.translate)({
               singular: "Create a copy",
               dictionary: {
                 es: {
@@ -949,8 +1099,8 @@
                 }
               }
             })
-          }), (_v24 || _v20) && _v21 && (0, _v1.jsx)(_v47.MenuDivider, {}), _v21 && (0, _v1.jsx)(_v48.MenuItem, {
-            icon: (0, _v1.jsx)(_v54.TrashBin, {}),
+          }), (_v24 || _v20) && _v21 && (0, _v1.jsx)(_v53.MenuDivider, {}), _v21 && (0, _v1.jsx)(_v54.MenuItem, {
+            icon: (0, _v1.jsx)(_v60.TrashBin, {}),
             onClick: () => {
               _v11({
                 fileId: _v0,
@@ -958,7 +1108,7 @@
                 action: "delete"
               }), _v19(!0);
             },
-            children: (0, _v23.translate)({
+            children: (0, _v24.translate)({
               singular: "Delete",
               dictionary: {
                 es: {
@@ -986,7 +1136,7 @@
             })
           })]
         })]
-      }), (0, _v1.jsx)(_v56.MoveModal, {
+      }), (0, _v1.jsx)(_v62.MoveModal, {
         feature: "file_manage",
         location: "file_manage",
         isActive: _v16,
@@ -1003,7 +1153,7 @@
         teamOwnerId: _v1,
         onMoveSuccess: () => {
           _v4({
-            title: (0, _v23.translate)({
+            title: (0, _v24.translate)({
               singular: "Changes saved",
               dictionary: {
                 es: {
@@ -1033,7 +1183,7 @@
         },
         onMoveFailure: () => {
           _v4({
-            title: (0, _v23.translate)({
+            title: (0, _v24.translate)({
               singular: "Something went wrong",
               dictionary: {
                 es: {
@@ -1062,8 +1212,8 @@
             variant: "warning"
           });
         }
-      }), (0, _v1.jsx)(_v55.DeleteModal, {
-        headerContent: (0, _v23.translate)({
+      }), (0, _v1.jsx)(_v61.DeleteModal, {
+        headerContent: (0, _v24.translate)({
           singular: "Move to Recently deleted?",
           dictionary: {
             es: {
@@ -1096,7 +1246,7 @@
             }
           }
         }),
-        bodyContent: (0, _v23.translate)({
+        bodyContent: (0, _v24.translate)({
           singular: '"{NAME}" will be deleted forever after 30 days.',
           replacements: {
             NAME: _v2.name
@@ -1132,17 +1282,17 @@
       }), _v10]
     }) : (0, _v1.jsx)(_v1.Fragment, {});
   };
-  var _v59 = _v0.i(0),
-    _v60 = _v0.i(0),
-    _v61 = _v0.i(0);
-  let _v62 = () => {
-      let _v0 = (0, _v59.useColorModeValue)("slate.800", "white");
-      return (0, _v1.jsx)(_v61.VimeoV, {
-        height: (0, _v60.rem)(26.7),
+  var _v65 = _v0.i(0),
+    _v66 = _v0.i(0),
+    _v67 = _v0.i(0);
+  let _v68 = () => {
+      let _v0 = (0, _v65.useColorModeValue)("slate.800", "white");
+      return (0, _v1.jsx)(_v67.VimeoV, {
+        height: (0, _v66.rem)(26.7),
         color: _v0
       });
     },
-    _v63 = ({
+    _v69 = ({
       publicId: _v0,
       ownerId: _v1,
       file: _v2,
@@ -1151,19 +1301,50 @@
       let _v4 = (0, _v3.useRef)(null),
         {
           trackFileShareButtonClicked: _v5
-        } = (0, _v13.useFileManageTracking)();
-      return (0, _v1.jsxs)(_v39.Navigation, {
+        } = (0, _v13.useFileManageTracking)(),
+        _v6 = (0, _v45.useIsMobile)(),
+        _v7 = () => {
+          _v5({
+            fileId: _v0,
+            contentType: _v2.contentType,
+            source: "manage_header"
+          }), _v3();
+        };
+      return (0, _v1.jsxs)(_v46.Navigation, {
         id: "header",
-        children: [(0, _v1.jsx)(_v39.Navigation.LeftContent, {
+        paddingX: {
+          base: 2,
+          lg: "lg"
+        },
+        children: [(0, _v1.jsx)(_v46.Navigation.LeftContent, {
+          flex: "1",
+          minWidth: 0,
           children: (0, _v1.jsx)("div", {
             ref: _v4,
+            style: {
+              display: "flex",
+              flex: 1,
+              minWidth: 0
+            },
             children: (0, _v1.jsxs)(_v5.Flex, {
               alignItems: "center",
-              children: [(0, _v1.jsx)(_v41.default, {
-                vimeoLogo: (0, _v1.jsx)(_v62, {})
+              flex: "1",
+              minWidth: 0,
+              children: [(0, _v1.jsx)(_v48.default, {
+                vimeoLogo: (0, _v1.jsx)(_v68, {})
               }), (0, _v1.jsx)(_v4.Box, {
-                pl: "md",
-                children: (0, _v1.jsx)(_v38.ContentBreadcrumbs, {
+                flex: "1",
+                maxWidth: {
+                  base: "calc(100vw - 220px)",
+                  lg: "none"
+                },
+                minWidth: 0,
+                overflow: "hidden",
+                pl: {
+                  base: "sm",
+                  lg: "md"
+                },
+                children: (0, _v1.jsx)(_v44.ContentBreadcrumbs, {
                   ancestorPath: _v2.metadata.connections.ancestorPath,
                   ownerUri: `/users/${_v1}`,
                   page: "manage",
@@ -1172,21 +1353,49 @@
               })]
             })
           })
-        }), (0, _v1.jsx)(_v39.Navigation.RightContent, {
+        }), (0, _v1.jsx)(_v46.Navigation.RightContent, {
+          flexShrink: 0,
           children: (0, _v1.jsxs)(_v5.Flex, {
             alignItems: "center",
-            gap: "sm",
-            children: [_v2.canUserEdit && (0, _v1.jsx)(_v36.Button, {
-              leftIcon: (0, _v1.jsx)(_v37.Globe, {}),
-              onClick: () => {
-                _v5({
-                  fileId: _v0,
-                  contentType: _v2.contentType,
-                  source: "manage_header"
-                }), _v3();
-              },
+            gap: {
+              base: "xs",
+              lg: "sm"
+            },
+            children: [_v2.canUserEdit && (_v6 ? (0, _v1.jsx)(_v41.IconButton, {
+              "aria-label": (0, _v24.translate)({
+                singular: "Share",
+                dictionary: {
+                  es: {
+                    singular: "Compartir"
+                  },
+                  "de-DE": {
+                    singular: "Teilen"
+                  },
+                  "fr-FR": {
+                    singular: "Partager"
+                  },
+                  "ja-JP": {
+                    singular: "共有"
+                  },
+                  "ko-KR": {
+                    singular: "공유"
+                  },
+                  "pt-BR": {
+                    singular: "Compartilhar"
+                  },
+                  "zh-CN": {
+                    singular: "分享"
+                  }
+                }
+              }),
+              icon: (0, _v1.jsx)(_v43.Share, {}),
+              onClick: _v7,
+              variant: "primary"
+            }) : (0, _v1.jsx)(_v40.Button, {
+              leftIcon: (0, _v1.jsx)(_v43.Share, {}),
+              onClick: _v7,
               variant: "primary",
-              children: (0, _v23.translate)({
+              children: (0, _v24.translate)({
                 singular: "Share",
                 dictionary: {
                   es: {
@@ -1212,22 +1421,53 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v58, {
+            })), (0, _v1.jsx)(_v64, {
               file: _v2,
               ownerId: _v1,
               publicId: _v0
-            }), (0, _v1.jsx)(_v42.SearchField, {
+            }), _v6 ? (0, _v1.jsx)(_v41.IconButton, {
+              as: _v39.default,
+              href: "/search",
+              "aria-label": (0, _v24.translate)({
+                singular: "Search",
+                dictionary: {
+                  es: {
+                    singular: "Buscar"
+                  },
+                  "de-DE": {
+                    singular: "Suchen"
+                  },
+                  "fr-FR": {
+                    singular: "Chercher"
+                  },
+                  "ja-JP": {
+                    singular: "検索"
+                  },
+                  "ko-KR": {
+                    singular: "검색"
+                  },
+                  "pt-BR": {
+                    singular: "Pesquisar"
+                  },
+                  "zh-CN": {
+                    singular: "搜索"
+                  }
+                }
+              }),
+              icon: (0, _v1.jsx)(_v42.SearchMagnifier, {}),
+              variant: "tertiary"
+            }) : (0, _v1.jsx)(_v49.SearchField, {
               fadeOutLeftNav: !0,
               leftNavbarRef: _v4,
               withToggle: !0
-            }), (0, _v1.jsx)(_v40.AccountMenu, {})]
+            }), (0, _v1.jsx)(_v47.AccountMenu, {})]
           })
         })]
       });
     };
-  var _v64 = _v0.i(0),
-    _v65 = _v0.i(0);
-  let _v66 = ({
+  var _v70 = _v0.i(0),
+    _v71 = _v0.i(0);
+  let _v72 = ({
     ownerId: _v0,
     file: _v1,
     onClose: _v2,
@@ -1244,6 +1484,10 @@
     inset: {
       base: 0,
       lg: "auto"
+    },
+    marginBottom: {
+      base: 0,
+      lg: "lg"
     },
     overflowY: {
       base: "auto",
@@ -1265,9 +1509,9 @@
       alignItems: "center",
       justifyContent: "space-between",
       p: "lg",
-      children: [(0, _v1.jsx)(_v17.Text, {
+      children: [(0, _v1.jsx)(_v18.Text, {
         variant: "heading-sm",
-        children: (0, _v23.translate)({
+        children: (0, _v24.translate)({
           singular: "Share",
           dictionary: {
             es: {
@@ -1293,8 +1537,8 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v44.IconButton, {
-        "aria-label": (0, _v23.translate)({
+      }), (0, _v1.jsx)(_v41.IconButton, {
+        "aria-label": (0, _v24.translate)({
           singular: "Close",
           dictionary: {
             es: {
@@ -1320,7 +1564,7 @@
             }
           }
         }),
-        icon: (0, _v1.jsx)(_v64.CloseX, {}),
+        icon: (0, _v1.jsx)(_v70.CloseX, {}),
         onClick: _v2,
         size: "xs",
         variant: "tertiary"
@@ -1329,7 +1573,7 @@
       flexDirection: "column",
       px: "lg",
       pb: "lg",
-      children: (0, _v1.jsx)(_v65.FileShareSettings, {
+      children: (0, _v1.jsx)(_v71.FileShareSettings, {
         file: _v1,
         linkCopiedSource: "manage_share_panel",
         onChanged: _v3,
@@ -1339,15 +1583,15 @@
     })]
   });
   _v0.i(0);
-  var _v67 = _v0.i(0);
-  let _v68 = `(min-width: ${_v6.bokehTheme.breakpoints.lg})`,
-    _v69 = _v0 => {
-      let _v1 = _v7.safeWindow?.matchMedia(_v68);
+  var _v73 = _v0.i(0);
+  let _v74 = `(min-width: ${_v6.bokehTheme.breakpoints.lg})`,
+    _v75 = _v0 => {
+      let _v1 = _v7.safeWindow?.matchMedia(_v74);
       return void 0 === _v1 ? () => void 0 : (_v1.addEventListener("change", _v0), () => _v1.removeEventListener("change", _v0));
     },
-    _v70 = () => _v7.safeWindow?.matchMedia(_v68).matches ?? !1,
-    _v71 = () => !1,
-    _v72 = ({
+    _v76 = () => _v7.safeWindow?.matchMedia(_v74).matches ?? !1,
+    _v77 = () => !1,
+    _v78 = ({
       publicId: _v0
     }) => {
       let _v1 = (0, _v15.useViewer)(),
@@ -1360,12 +1604,12 @@
               error: _v3,
               isLoading: _v4,
               mutate: _v5
-            } = (0, _v27.useGetUserFile)(() => _v1?.user ? {
+            } = (0, _v28.useGetUserFile)(() => _v1?.user ? {
               where: {
                 userId: _v1.user.id,
                 fileId: _v0
               },
-              select: _v28
+              select: _v29
             } : null),
             _v6 = (0, _v3.useCallback)(() => {
               _v5();
@@ -1403,11 +1647,11 @@
             source: "preview"
           });
         }, [_v8, _v0, _v6]),
-        _v10 = (0, _v3.useSyncExternalStore)(_v69, _v70, _v71),
+        _v10 = (0, _v3.useSyncExternalStore)(_v75, _v76, _v77),
         [_v11, _v12] = (0, _v3.useState)(null),
         _v13 = _v11 ?? _v10;
       if ((0, _v3.useEffect)(() => {
-        let _v0 = _v7.safeWindow?.matchMedia(_v68);
+        let _v0 = _v7.safeWindow?.matchMedia(_v74);
         if (void 0 === _v0) return;
         let _v1 = _v0 => {
           _v0.matches || _v12(!1);
@@ -1425,7 +1669,7 @@
         direction: "column",
         height: "100dvh",
         overflow: "hidden",
-        children: [(0, _v1.jsx)(_v63, {
+        children: [(0, _v1.jsx)(_v69, {
           file: _v4.file,
           onShareClick: () => _v12(!_v13),
           ownerId: _v14,
@@ -1441,8 +1685,15 @@
           justifyContent: "space-between",
           minHeight: 0,
           overflow: "hidden",
-          paddingX: "lg",
-          paddingY: "lg",
+          paddingX: {
+            base: "md",
+            md: "lg"
+          },
+          paddingTop: "lg",
+          paddingBottom: {
+            base: "lg",
+            lg: "sm"
+          },
           position: "relative",
           children: [(0, _v1.jsx)(_v5.Flex, {
             flexDirection: "column",
@@ -1456,7 +1707,7 @@
               maxWidth: "56rem",
               minWidth: 0,
               width: "100%",
-              children: [(0, _v1.jsx)(_v67.FilePreview, {
+              children: [(0, _v1.jsx)(_v73.FilePreview, {
                 contentType: _v4.file.contentType,
                 downloadUrl: _v4.file.downloadUrl,
                 fileSize: _v4.file.fileSize,
@@ -1465,14 +1716,14 @@
                 onDownloadClick: _v9,
                 thumbnailUrl: _v4.file.thumbnail?.url,
                 width: _v4.file.width
-              }), (0, _v1.jsx)(_v35, {
+              }), (0, _v1.jsx)(_v38, {
                 file: _v4.file,
                 onChanged: _v4.refresh,
                 ownerId: _v14,
                 publicId: _v0
               })]
             })
-          }), _v13 && (0, _v1.jsx)(_v66, {
+          }), _v13 && (0, _v1.jsx)(_v72, {
             file: _v4.file,
             onChanged: _v4.refresh,
             onClose: () => _v12(!1),
@@ -1494,7 +1745,7 @@
     inlineViewer: !0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, ({
     publicId: _v0
-  }) => (0, _v1.jsx)(_v72, {
+  }) => (0, _v1.jsx)(_v78, {
     publicId: _v0
   }, _v0)], 0);
 }

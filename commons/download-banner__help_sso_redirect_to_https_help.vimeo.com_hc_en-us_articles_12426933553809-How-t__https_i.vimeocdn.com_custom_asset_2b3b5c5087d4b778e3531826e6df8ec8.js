@@ -1178,6 +1178,7 @@
                     height: "100%",
                     padding: `0 ${(0, _v43.rem)(24)} 0 0`,
                     buttonLabel: _v92.T_CREATE_POLL,
+                    title: 0 === _v0 ? _v57.translations.noActivePolls : void 0,
                     description: 0 === _v0 ? _v57.translations.createPollToInteractWithAudience : _v57.translations.noPollsArchived,
                     control: 0 === _v0,
                     history: 0 === _v0 ? _v4 : null,
@@ -1222,12 +1223,12 @@
               })
             }, _v0))
           }, _v21)]
-        }), (0, _v1.jsx)(_v77.Box, {
+        }), (_v19[_v21]?.polls.length ?? 0) > 0 ? (0, _v1.jsx)(_v77.Box, {
           position: "relative",
           children: (0, _v1.jsx)(_v156.HorizontalScrollShadow, {
             color: "surface"
           })
-        })]
+        }) : null]
       })]
     }) : (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v136.LeftPanelHeader, {
@@ -1258,6 +1259,7 @@
           id: _v0,
           className: _v1,
           buttonLabel: _v92.T_CREATE_POLL,
+          title: _v57.translations.noActivePolls,
           description: _v57.translations.createPollToInteractWithAudience,
           history: _v4,
           sx: (0, _v137.createTabWrapperStyle)(),
@@ -1451,12 +1453,12 @@
                     })]
                   }, _v0.id);
                 },
-                placeholder: (0, _v1.jsx)(_v173.EmptyStatePlaceholder, {
+                placeholder: (0, _v1.jsx)(_v173.PanelEmptyState, {
                   id: (0, _v49.createDomName)(_v0, _v0, "empty-placeholder"),
                   className: (0, _v49.createDomName)(_v0, _v0, "empty-placeholder"),
                   isWithPadding: !0,
                   icon: (0, _v1.jsx)(_v162.ReviewQuestion, {
-                    boxSize: "lg"
+                    boxSize: (0, _v43.rem)(32)
                   }),
                   description: _v0 === _v159.EQnaTab.PENDING ? _v92.T_NO_QUESTIONS_PENDING : _v92.T_NO_QUESTIONS_YET,
                   control: null
@@ -1858,10 +1860,10 @@
               chatType: _v159.EChatType.PUBLIC,
               isDisabled: !_v6
             })]
-          }) : (0, _v1.jsx)(_v173.EmptyStatePlaceholder, {
+          }) : (0, _v1.jsx)(_v173.PanelEmptyState, {
             id: (0, _v49.createDomName)(_v0, "placeholder"),
             icon: (0, _v1.jsx)(_v197.Chats, {
-              boxSize: "lg"
+              boxSize: (0, _v43.rem)(32)
             }),
             buttonLabel: _v57.translations.turnOn,
             description: _v57.translations.turnOnChatToEngageWithYourAudience,

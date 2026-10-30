@@ -133,6 +133,12 @@
       latestEligibleAccountCreationDate: "2026-10-19T00:00:00Z",
       order: 23,
       priority: "critical"
+    },
+    stream_health_intro: {
+      expirationDate: "2027-02-01T00:00:00Z",
+      latestEligibleAccountCreationDate: "2026-10-29T00:00:00Z",
+      order: 24,
+      priority: "normal"
     }
   }, "PRIORITY_RANK", 0, {
     critical: 4,

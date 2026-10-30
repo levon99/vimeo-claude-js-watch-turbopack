@@ -162,21 +162,22 @@
     _v40 = _v0.i(0),
     _v41 = _v0.i(0),
     _v42 = _v0.i(0),
-    _v43 = _v0.i(0);
-  let _v44 = ({
+    _v43 = _v0.i(0),
+    _v44 = _v0.i(0);
+  let _v45 = ({
       href: _v0
-    }) => _v0 => (0, _v1.jsx)(_v32.Link, {
+    }) => _v0 => (0, _v1.jsx)(_v33.Link, {
       href: _v0,
       variant: "inline-secondary",
       textDecoration: "underline",
       children: _v0
     }),
-    _v45 = {
+    _v46 = {
       creator: "https://i.vimeocdn.com/custom_asset/d81bf3210ba59b3180a5a5ca5317af61",
       core: "https://i.vimeocdn.com/custom_asset/d81bf3210ba59b3180a5a5ca5317af61",
       professional: "https://i.vimeocdn.com/custom_asset/672f2b3f3ce61600976e835a33efd941"
     },
-    _v46 = ({
+    _v47 = ({
       tier: _v0,
       variant: _v1,
       productName: _v2,
@@ -187,11 +188,11 @@
       onOpenChange: _v7
     }) => {
       let [_v8, _v9] = (0, _v3.useState)(!1),
-        _v10 = (0, _v42.useLocale)(),
+        _v10 = (0, _v43.useLocale)(),
         {
           trackRepackagingModalDisplayed: _v11,
           trackRepackagingModalDismissed: _v12
-        } = (0, _v41.useBillingTracking)();
+        } = (0, _v42.useBillingTracking)();
       (0, _v3.useEffect)(() => {
         if ("" !== _v6) try {
           null === localStorage.getItem(_v6) && (_v9(!0), _v11({
@@ -212,8 +213,8 @@
       if ((0, _v3.useEffect)(() => {
         _v7?.(_v8);
       }, [_v8, _v7]), (0, _v3.useEffect)(() => () => _v7?.(!1), [_v7]), !_v8) return null;
-      let _v14 = _v45[_v0],
-        _v15 = "year" === _v4 ? (0, _v40.translate)({
+      let _v14 = _v46[_v0],
+        _v15 = "year" === _v4 ? (0, _v41.translate)({
           singular: "year",
           dictionary: {
             es: {
@@ -238,7 +239,7 @@
               singular: "年"
             }
           }
-        }) : "month" === _v4 ? (0, _v40.translate)({
+        }) : "month" === _v4 ? (0, _v41.translate)({
           singular: "month",
           dictionary: {
             es: {
@@ -264,7 +265,7 @@
             }
           }
         }) : "",
-        _v16 = "year" === _v4 ? (0, _v40.translate)({
+        _v16 = "year" === _v4 ? (0, _v41.translate)({
           singular: "yearly",
           dictionary: {
             es: {
@@ -289,7 +290,7 @@
               singular: "每年"
             }
           }
-        }) : (0, _v40.translate)({
+        }) : (0, _v41.translate)({
           singular: "monthly",
           dictionary: {
             es: {
@@ -316,13 +317,13 @@
           }
         }),
         _v17 = "" === _v15 ? _v3 : `${_v3}/${_v15}`,
-        _v18 = (0, _v43.formatRenewalDate)(_v5, _v10);
-      return (0, _v1.jsxs)(_v33.Modal, {
+        _v18 = (0, _v44.formatRenewalDate)(_v5, _v10);
+      return (0, _v1.jsxs)(_v34.Modal, {
         isOpen: _v8,
         onClose: _v13,
         size: ["full", "md"],
         scrollBehavior: "outside",
-        children: [(0, _v1.jsx)(_v38.ModalOverlay, {}), (0, _v1.jsxs)(_v36.ModalContent, {
+        children: [(0, _v1.jsx)(_v39.ModalOverlay, {}), (0, _v1.jsxs)(_v37.ModalContent, {
           containerProps: {
             padding: {
               base: "0 !important"
@@ -357,23 +358,24 @@
             md: "auto"
           },
           overflow: "hidden",
-          children: [(0, _v1.jsx)(_v35.ModalCloseButton, {
+          children: [(0, _v1.jsx)(_v36.ModalCloseButton, {
             zIndex: 1
-          }), _v14 && (0, _v1.jsx)(_v31.Image, {
+          }), _v14 && (0, _v1.jsx)(_v32.Image, {
             src: _v14,
             alt: "",
             width: "100%",
             height: "220px",
             objectFit: "cover",
-            objectPosition: "center top"
-          }), (0, _v1.jsxs)(_v34.ModalBody, {
+            objectPosition: "center top",
+            mt: "36px"
+          }), (0, _v1.jsxs)(_v35.ModalBody, {
             px: "36px",
             pt: "40px",
             pb: 0,
-            children: [(0, _v1.jsx)(_v30.Header, {
+            children: [(0, _v1.jsx)(_v31.Header, {
               size: "md",
               mb: 4,
-              children: "scheduled" === _v1 ? (0, _v40.translate)({
+              children: "scheduled" === _v1 ? (0, _v41.translate)({
                 singular: "Meet your upcoming {PRODUCT_NAME} plan",
                 replacements: {
                   PRODUCT_NAME: _v2
@@ -401,7 +403,7 @@
                     singular: "查看您即将生效的 {PRODUCT_NAME} 计划"
                   }
                 }
-              }) : (0, _v40.translate)({
+              }) : (0, _v41.translate)({
                 singular: "Meet your new {PRODUCT_NAME} plan",
                 replacements: {
                   PRODUCT_NAME: _v2
@@ -430,11 +432,11 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v39.Text, {
+            }), (0, _v1.jsx)(_v40.Text, {
               variant: "body-md",
               color: "text-secondary",
               mb: 4,
-              children: "scheduled" === _v1 ? (0, _v40.translate)({
+              children: "scheduled" === _v1 ? (0, _v41.translate)({
                 singular: "We're introducing new plans to replace our old ones.",
                 dictionary: {
                   es: {
@@ -459,7 +461,7 @@
                     singular: "我们正在推出新的计划来替代原有计划。"
                   }
                 }
-              }) : (0, _v40.translate)({
+              }) : (0, _v41.translate)({
                 singular: "We've introduced new plans to replace our old ones.",
                 dictionary: {
                   es: {
@@ -485,11 +487,11 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v39.Text, {
+            }), (0, _v1.jsx)(_v40.Text, {
               variant: "body-md",
               color: "text-secondary",
               mb: 4,
-              children: "scheduled" === _v1 ? (0, _v40.translate)({
+              children: "scheduled" === _v1 ? (0, _v41.translate)({
                 singular: "To keep your account running with no interruptions, your account will renew on {RENEWAL_DATE} under the new {PRODUCT_NAME} plan, billed {BILLING_PERIOD} at {PRICE}, plus applicable taxes.",
                 replacements: {
                   RENEWAL_DATE: _v18,
@@ -520,7 +522,7 @@
                     singular: "为保证您的账户不会中断，您的账户将于 {RENEWAL_DATE} 在新的 {PRODUCT_NAME} 计划下续订，按 {BILLING_PERIOD} 收费，金额为 {PRICE}，另加适用税费。"
                   }
                 }
-              }) : (0, _v40.translate)({
+              }) : (0, _v41.translate)({
                 singular: "To keep your full storage and features, your account renewed on {RENEWAL_DATE} under the new {PRODUCT_NAME} plan, billed {BILLING_PERIOD} at {PRICE}, plus applicable taxes.",
                 replacements: {
                   RENEWAL_DATE: _v18,
@@ -552,14 +554,14 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v39.Text, {
+            }), (0, _v1.jsx)(_v40.Text, {
               variant: "body-md",
               color: "text-secondary",
               mb: 4,
-              children: "scheduled" === _v1 ? (0, _v40.translate)({
+              children: "scheduled" === _v1 ? (0, _v41.translate)({
                 singular: "You can change your upcoming plan in your {BILLING_SETTINGS}Billing settings{/BILLING_SETTINGS}, or cancel before {RENEWAL_DATE} to avoid being charged—we've sent you an email with the full details.",
                 replacements: {
-                  BILLING_SETTINGS: _v44({
+                  BILLING_SETTINGS: _v45({
                     href: "/settings/billing"
                   }),
                   RENEWAL_DATE: _v18
@@ -587,10 +589,10 @@
                     singular: "您可以在 {BILLING_SETTINGS}账单设置{/BILLING_SETTINGS} 中更改即将生效的计划，或在 {RENEWAL_DATE} 之前取消以避免被收费——我们已向您发送了包含全部详情的电子邮件。"
                   }
                 }
-              }) : (0, _v40.translate)({
+              }) : (0, _v41.translate)({
                 singular: "You can change or cancel your new plan in your {BILLING_SETTINGS}Billing settings{/BILLING_SETTINGS}—we've sent you an email with the full details.",
                 replacements: {
-                  BILLING_SETTINGS: _v44({
+                  BILLING_SETTINGS: _v45({
                     href: "/settings/billing"
                   })
                 },
@@ -618,14 +620,22 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v39.Text, {
-              variant: "body-md",
-              color: "text-secondary",
-              children: (0, _v1.jsx)(_v32.Link, {
+            })]
+          }), (0, _v1.jsx)(_v38.ModalFooter, {
+            px: "36px",
+            pt: "32px",
+            pb: "40px",
+            children: (0, _v1.jsxs)(_v30.Flex, {
+              direction: "column",
+              gap: "12px",
+              width: "100%",
+              children: [(0, _v1.jsx)(_v29.Button, {
+                as: "a",
                 href: "/blog/post/update-on-vimeo-plans",
-                variant: "inline-secondary",
-                textDecoration: "underline",
-                children: (0, _v40.translate)({
+                variant: "secondary",
+                size: "md",
+                width: "100%",
+                children: (0, _v41.translate)({
                   singular: "Learn more",
                   dictionary: {
                     es: {
@@ -651,58 +661,51 @@
                     }
                   }
                 })
-              })
-            })]
-          }), (0, _v1.jsx)(_v37.ModalFooter, {
-            px: "36px",
-            pt: "32px",
-            pb: "40px",
-            flexDirection: "column",
-            alignItems: "center",
-            children: (0, _v1.jsx)(_v29.Button, {
-              variant: "primary",
-              size: "md",
-              width: "100%",
-              onClick: _v13,
-              children: (0, _v40.translate)({
-                singular: "Got it",
-                dictionary: {
-                  es: {
-                    singular: "Entendido"
-                  },
-                  "de-DE": {
-                    singular: "Alles klar"
-                  },
-                  "fr-FR": {
-                    singular: "J'ai compris"
-                  },
-                  "ja-JP": {
-                    singular: "了解"
-                  },
-                  "ko-KR": {
-                    singular: "확인"
-                  },
-                  "pt-BR": {
-                    singular: "Entendi"
-                  },
-                  "zh-CN": {
-                    singular: "明白"
+              }), (0, _v1.jsx)(_v29.Button, {
+                variant: "primary",
+                size: "md",
+                width: "100%",
+                onClick: _v13,
+                children: (0, _v41.translate)({
+                  singular: "Got it",
+                  dictionary: {
+                    es: {
+                      singular: "Entendido"
+                    },
+                    "de-DE": {
+                      singular: "Alles klar"
+                    },
+                    "fr-FR": {
+                      singular: "J'ai compris"
+                    },
+                    "ja-JP": {
+                      singular: "了解"
+                    },
+                    "ko-KR": {
+                      singular: "확인"
+                    },
+                    "pt-BR": {
+                      singular: "Entendi"
+                    },
+                    "zh-CN": {
+                      singular: "明白"
+                    }
                   }
-                }
-              })
+                })
+              })]
             })
           })]
         })]
       });
     };
-  var _v47 = _v0.i(0),
-    _v48 = _v0.i(0);
-  let _v49 = {
+  var _v48 = _v0.i(0),
+    _v49 = _v0.i(0);
+  let _v50 = {
       creator: "Creator",
       core: "Core",
       professional: "Professional"
     },
-    _v50 = {
+    _v51 = {
       shouldRender: !1,
       variant: null,
       tier: null,
@@ -711,11 +714,11 @@
       billingPeriod: null,
       renewalDate: void 0
     };
-  function _v51(_v0) {
-    return _v0 === _v48.UserPlanType.Month ? "month" : _v0 === _v48.UserPlanType.Year ? "year" : null;
+  function _v52(_v0) {
+    return _v0 === _v49.UserPlanType.Month ? "month" : _v0 === _v49.UserPlanType.Year ? "year" : null;
   }
-  let _v52 = () => () => void 0,
-    _v53 = () => {
+  let _v53 = () => () => void 0,
+    _v54 = () => {
       if (!(0, _v28.isClientNonProduction)()) return null;
       try {
         let _v0 = localStorage.getItem("vimeo_repackaging_modal_force");
@@ -724,7 +727,7 @@
         return null;
       }
     },
-    _v54 = ({
+    _v55 = ({
       isSuppressed: _v0 = !1,
       onOpenChange: _v1
     } = {}) => {
@@ -758,13 +761,13 @@
               hasScheduledDowngrade: _v6,
               isScheduledOrderResolved: _v7,
               isScheduledOrderError: _v8
-            } = (0, _v47.useScheduledOrder)(_v0?.subscriptionId, _v0?.tier, _v0?.hasAutorenew);
-          if (!_v0 || !_v7 || _v8) return _v50;
+            } = (0, _v48.useScheduledOrder)(_v0?.subscriptionId, _v0?.tier, _v0?.hasAutorenew);
+          if (!_v0 || !_v7 || _v8) return _v51;
           let _v9 = "creator" === (_v3 = "string" == typeof (_v1 = _v0.tier) ? _v1.toLowerCase() : "") ? "creator" : "core" === _v3 ? "core" : "professional" === _v3 ? "professional" : null,
             _v10 = (_v2 = _v5?.productName, "creator" === (_v4 = _v2?.trim().toLowerCase().replace(/^vimeo\s+/, "") ?? "") ? "creator" : "core" === _v4 ? "core" : "professional" === _v4 ? "professional" : null),
-            _v11 = _v51(_v5?.billingPeriod),
+            _v11 = _v52(_v5?.billingPeriod),
             _v12 = _v5?.price?.formatted ?? _v5?.monthlyPrice?.formatted ?? "",
-            _v13 = _v51(_v0.billingPeriod),
+            _v13 = _v52(_v0.billingPeriod),
             _v14 = _v6 && !!_v10 && null === _v9 && !!_v12 && !!_v11 && !!_v5?.renewalDate,
             _v15 = function (_v0, _v1) {
               if (void 0 === _v0 || "" === _v0 || null === _v1) return null;
@@ -775,7 +778,7 @@
               let _v4 = new Date(_v2.getFullYear(), _v2.getMonth() + 1, 0).getDate();
               return _v2.setDate(Math.min(_v3, _v4)), _v2;
             }(_v0.renewalDate, _v13),
-            _v16 = null !== _v9 && _v0.status === _v48.AccountStatus.Active && _v0.hasAutorenew && !_v0.isFreeTrial && !_v6 && !!_v0.totalPriceForDisplay && !!_v13 && null !== _v15 && function (_v0, _v1 = Date.now()) {
+            _v16 = null !== _v9 && _v0.status === _v49.AccountStatus.Active && _v0.hasAutorenew && !_v0.isFreeTrial && !_v6 && !!_v0.totalPriceForDisplay && !!_v13 && null !== _v15 && function (_v0, _v1 = Date.now()) {
               let _v2 = _v1 - _v0.getTime();
               return _v2 >= 0 && _v2 <= 0;
             }(_v15);
@@ -783,7 +786,7 @@
             shouldRender: !0,
             variant: "scheduled",
             tier: _v10,
-            productName: _v49[_v10],
+            productName: _v50[_v10],
             formattedPrice: _v12,
             billingPeriod: _v11,
             renewalDate: _v5?.renewalDate
@@ -794,15 +797,15 @@
               shouldRender: !0,
               variant: "effective",
               tier: _v9,
-              productName: _v49[_v9],
+              productName: _v50[_v9],
               formattedPrice: _v0.totalPriceForDisplay,
               billingPeriod: _v13,
               renewalDate: null !== _v15 ? (_v0 = _v15.getFullYear(), _v1 = String(_v15.getMonth() + 1).padStart(2, "0"), _v2 = String(_v15.getDate()).padStart(2, "0"), `${_v0}-${_v1}-${_v2}`) : void 0
             };
           }
-          return _v50;
+          return _v51;
         }(_v8),
-        _v16 = (0, _v3.useSyncExternalStore)(_v52, _v53, () => null),
+        _v16 = (0, _v3.useSyncExternalStore)(_v53, _v54, () => null),
         _v17 = _v16 ?? (_v6 && null !== _v10 && _v9 ? _v10 : null),
         _v18 = null !== _v16 ? ((_v2 = new Date()).setDate(_v2.getDate() + ("scheduled" === _v16 ? 30 : -30)), {
           tier: "core",
@@ -822,7 +825,7 @@
         _v1?.(_v24 && _v25);
       }, [_v1, _v24, _v25]), !_v24 || null === _v17 || null === _v19 || null === _v16 && void 0 === _v4) return null;
       let _v27 = null !== _v16 ? `vimeo_repackaging_modal_${_v16}_forced` : `vimeo_repackaging_modal_${_v17}_seen_${_v4}`;
-      return (0, _v1.jsx)(_v46, {
+      return (0, _v1.jsx)(_v47, {
         tier: _v19,
         variant: _v17,
         productName: _v20,
@@ -833,8 +836,7 @@
         onOpenChange: _v26
       });
     };
-  var _v55 = _v0.i(0),
-    _v56 = _v0.i(0),
+  var _v56 = _v0.i(0),
     _v57 = _v0.i(0),
     _v58 = _v0.i(0),
     _v59 = _v0.i(0);
@@ -846,10 +848,10 @@
   function _v62({
     children: _v0
   }) {
-    return (0, _v1.jsx)(_v58.Flex, {
+    return (0, _v1.jsx)(_v30.Flex, {
       justifyContent: "center",
       backgroundColor: "background",
-      children: (0, _v1.jsx)(_v58.Flex, {
+      children: (0, _v1.jsx)(_v30.Flex, {
         maxW: _v60,
         w: "100%",
         padding: "300",
@@ -909,7 +911,7 @@
       }), {
         boxSize: "24px"
       }),
-      tag: () => (0, _v40.translate)({
+      tag: () => (0, _v41.translate)({
         singular: "Tips and donations",
         dictionary: {
           es: {
@@ -935,7 +937,7 @@
           }
         }
       }),
-      description: () => (0, _v40.translate)({
+      description: () => (0, _v41.translate)({
         singular: "Let viewers support your work with one-time contributions",
         dictionary: {
           es: {
@@ -973,7 +975,7 @@
       }), {
         boxSize: "24px"
       }),
-      tag: () => (0, _v40.translate)({
+      tag: () => (0, _v41.translate)({
         singular: "Paid subscriptions",
         dictionary: {
           es: {
@@ -999,7 +1001,7 @@
           }
         }
       }),
-      description: () => (0, _v40.translate)({
+      description: () => (0, _v41.translate)({
         singular: "Offer exclusive content to monthly supporters",
         dictionary: {
           es: {
@@ -1029,7 +1031,7 @@
       icon: (0, _v1.jsx)(_v79.ChartLine, {
         boxSize: "24px"
       }),
-      tag: () => (0, _v40.translate)({
+      tag: () => (0, _v41.translate)({
         singular: "Revenue dashboard",
         dictionary: {
           es: {
@@ -1055,7 +1057,7 @@
           }
         }
       }),
-      description: () => (0, _v40.translate)({
+      description: () => (0, _v41.translate)({
         singular: "Track your earnings and growth in one place",
         dictionary: {
           es: {
@@ -1091,19 +1093,19 @@
         _v5 = () => {
           _v3 && (_v2(_v3), _v4(""));
         };
-      return (0, _v1.jsxs)(_v33.Modal, {
+      return (0, _v1.jsxs)(_v34.Modal, {
         isOpen: _v0,
         onClose: _v1,
         size: "md",
-        children: [(0, _v1.jsx)(_v38.ModalOverlay, {}), (0, _v1.jsxs)(_v36.ModalContent, {
+        children: [(0, _v1.jsx)(_v39.ModalOverlay, {}), (0, _v1.jsxs)(_v37.ModalContent, {
           borderRadius: "20px",
           maxWidth: "480px",
           overflow: "clip",
-          children: [(0, _v1.jsx)(_v35.ModalCloseButton, {}), (0, _v1.jsx)(_v77.ModalHeader, {
+          children: [(0, _v1.jsx)(_v36.ModalCloseButton, {}), (0, _v1.jsx)(_v77.ModalHeader, {
             paddingBottom: "0",
-            children: (0, _v1.jsx)(_v39.Text, {
+            children: (0, _v1.jsx)(_v40.Text, {
               variant: "heading-md",
-              children: (0, _v40.translate)({
+              children: (0, _v41.translate)({
                 singular: "Earn directly from your audience",
                 dictionary: {
                   es: {
@@ -1130,10 +1132,10 @@
                 }
               })
             })
-          }), (0, _v1.jsxs)(_v34.ModalBody, {
-            children: [(0, _v1.jsx)(_v39.Text, {
+          }), (0, _v1.jsxs)(_v35.ModalBody, {
+            children: [(0, _v1.jsx)(_v40.Text, {
               variant: "body-lg",
-              children: (0, _v40.translate)({
+              children: (0, _v41.translate)({
                 singular: "We're building new ways for creators to monetize on Vimeo. Here's what's coming:",
                 dictionary: {
                   es: {
@@ -1159,21 +1161,21 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v58.Flex, {
+            }), (0, _v1.jsx)(_v30.Flex, {
               direction: "column",
               gap: "lg",
               paddingX: "sm",
               marginTop: "xl",
               children: _v81.map(_v0 => {
                 let _v1 = _v0.tag();
-                return (0, _v1.jsxs)(_v58.Flex, {
+                return (0, _v1.jsxs)(_v30.Flex, {
                   gap: "md",
                   align: "flex-start",
                   children: [(0, _v1.jsx)(_v73.Box, {
                     flexShrink: 0,
                     color: "text-secondary",
                     children: _v0.icon
-                  }), (0, _v1.jsxs)(_v58.Flex, {
+                  }), (0, _v1.jsxs)(_v30.Flex, {
                     direction: "column",
                     gap: "xs",
                     children: [(0, _v1.jsx)(_v78.Tag, {
@@ -1186,7 +1188,7 @@
                         fontWeight: "bold",
                         children: _v1
                       })
-                    }), (0, _v1.jsx)(_v39.Text, {
+                    }), (0, _v1.jsx)(_v40.Text, {
                       variant: "body-lg",
                       paddingX: "sm",
                       children: _v0.description()
@@ -1199,10 +1201,10 @@
               borderRadius: "md",
               padding: "lg",
               marginTop: "xl",
-              children: [(0, _v1.jsxs)(_v39.Text, {
+              children: [(0, _v1.jsxs)(_v40.Text, {
                 variant: "heading-sm",
                 fontWeight: "medium",
-                children: [(0, _v40.translate)({
+                children: [(0, _v41.translate)({
                   singular: "Be the first to try it.",
                   dictionary: {
                     es: {
@@ -1227,7 +1229,7 @@
                       singular: "率先体验。"
                     }
                   }
-                }), "\n", (0, _v40.translate)({
+                }), "\n", (0, _v41.translate)({
                   singular: "Join the waitlist for early access.",
                   dictionary: {
                     es: {
@@ -1271,7 +1273,7 @@
                     size: "md",
                     isDisabled: !_v3,
                     onClick: _v5,
-                    children: (0, _v40.translate)({
+                    children: (0, _v41.translate)({
                       singular: "Join the waitlist",
                       dictionary: {
                         es: {
@@ -1299,7 +1301,7 @@
                     })
                   })
                 })]
-              }), (0, _v1.jsxs)(_v58.Flex, {
+              }), (0, _v1.jsxs)(_v30.Flex, {
                 direction: "column",
                 gap: "sm",
                 marginTop: "md",
@@ -1318,7 +1320,7 @@
                   width: "100%",
                   isDisabled: !_v3,
                   onClick: _v5,
-                  children: (0, _v40.translate)({
+                  children: (0, _v41.translate)({
                     singular: "Join the waitlist",
                     dictionary: {
                       es: {
@@ -1551,7 +1553,7 @@
         updateError: _v16,
         patchCalled: _v17
       } = (() => {
-        let _v0 = (0, _v57.useViewer)(),
+        let _v0 = (0, _v58.useViewer)(),
           _v1 = _v0?.teamUser?.ownerId ?? _v0?.user?.id,
           {
             data: _v2,
@@ -1673,15 +1675,15 @@
         }
       }));
     };
-    return (0, _v1.jsxs)(_v33.Modal, {
+    return (0, _v1.jsxs)(_v34.Modal, {
       isOpen: _v1,
       onClose: _v2,
-      children: [(0, _v1.jsx)(_v38.ModalOverlay, {}), (0, _v1.jsxs)(_v36.ModalContent, {
+      children: [(0, _v1.jsx)(_v39.ModalOverlay, {}), (0, _v1.jsxs)(_v37.ModalContent, {
         maxWidth: (0, _v59.rem)(480),
         children: [(0, _v1.jsxs)(_v77.ModalHeader, {
           position: "relative",
           pt: "lg",
-          children: [(0, _v1.jsx)(_v30.Header, {
+          children: [(0, _v1.jsx)(_v31.Header, {
             size: "md",
             color: "text/primary",
             children: (0, _v87.translate)({
@@ -1710,10 +1712,10 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v35.ModalCloseButton, {
+          }), (0, _v1.jsx)(_v36.ModalCloseButton, {
             onClick: _v2
           })]
-        }), (0, _v1.jsxs)(_v34.ModalBody, {
+        }), (0, _v1.jsxs)(_v35.ModalBody, {
           py: "0",
           children: [(0, _v1.jsx)(_v73.Box, {
             py: "3",
@@ -1803,7 +1805,7 @@
               })
             }, _v0.value))
           })]
-        }), (0, _v1.jsx)(_v37.ModalFooter, {
+        }), (0, _v1.jsx)(_v38.ModalFooter, {
           height: "100%",
           py: "lg",
           children: (0, _v1.jsx)(_v29.Button, {
@@ -1875,7 +1877,7 @@
       planName: _v0,
       checkoutUrl: _v1,
       onCtaClick: _v2
-    }) => (0, _v1.jsxs)(_v58.Flex, {
+    }) => (0, _v1.jsxs)(_v30.Flex, {
       align: ["flex-start", "center"],
       justify: "space-between",
       direction: ["column", "row"],
@@ -1883,7 +1885,7 @@
       padding: "md",
       borderRadius: "12px",
       backgroundColor: "purple.50",
-      children: [(0, _v1.jsxs)(_v58.Flex, {
+      children: [(0, _v1.jsxs)(_v30.Flex, {
         align: "center",
         gap: "sm",
         children: [(0, _v1.jsx)(_v78.Tag, {
@@ -1895,7 +1897,7 @@
           children: (0, _v1.jsx)(_v78.TagLabel, {
             fontWeight: "bold",
             color: "white",
-            children: (0, _v40.translate)({
+            children: (0, _v41.translate)({
               singular: "Special Offer",
               dictionary: {
                 es: {
@@ -1922,10 +1924,10 @@
               }
             })
           })
-        }), (0, _v1.jsx)(_v39.Text, {
+        }), (0, _v1.jsx)(_v40.Text, {
           variant: "body-md",
           fontWeight: "bold",
-          children: (0, _v40.translate)({
+          children: (0, _v41.translate)({
             singular: "Want to try Vimeo without limits?",
             dictionary: {
               es: {
@@ -1959,7 +1961,7 @@
         width: ["100%", "auto"],
         onClick: _v2,
         variant: "primary",
-        children: (0, _v40.translate)({
+        children: (0, _v41.translate)({
           singular: "Try {PLAN_NAME} for free",
           replacements: {
             PLAN_NAME: _v0
@@ -1992,7 +1994,7 @@
     }),
     _v124 = ({
       onClick: _v0
-    }) => (0, _v1.jsxs)(_v58.Flex, {
+    }) => (0, _v1.jsxs)(_v30.Flex, {
       align: ["flex-start", "center"],
       justify: "space-between",
       direction: ["column", "row"],
@@ -2000,7 +2002,7 @@
       padding: "md",
       borderRadius: "12px",
       backgroundColor: "surface",
-      children: [(0, _v1.jsxs)(_v58.Flex, {
+      children: [(0, _v1.jsxs)(_v30.Flex, {
         align: "center",
         gap: "sm",
         children: [(0, _v1.jsx)(_v78.Tag, {
@@ -2011,7 +2013,7 @@
           },
           children: (0, _v1.jsx)(_v78.TagLabel, {
             fontWeight: "bold",
-            children: (0, _v40.translate)({
+            children: (0, _v41.translate)({
               singular: "New",
               dictionary: {
                 es: {
@@ -2038,10 +2040,10 @@
               }
             })
           })
-        }), (0, _v1.jsx)(_v39.Text, {
+        }), (0, _v1.jsx)(_v40.Text, {
           variant: "body-md",
           fontWeight: "bold",
-          children: (0, _v40.translate)({
+          children: (0, _v41.translate)({
             singular: "Ready to earn from your content?",
             dictionary: {
               es: {
@@ -2072,7 +2074,7 @@
         size: "sm",
         width: ["100%", "auto"],
         onClick: _v0,
-        children: (0, _v40.translate)({
+        children: (0, _v41.translate)({
           singular: "Monetize your content",
           dictionary: {
             es: {
@@ -2131,7 +2133,7 @@
           justifyContent: "space-between",
           children: [(0, _v1.jsx)(_v139.FormLabel, {
             htmlFor: `${_v1}-switch`,
-            children: (0, _v1.jsx)(_v39.Text, {
+            children: (0, _v1.jsx)(_v40.Text, {
               variant: "body-xl",
               color: "text-primary",
               fontSize: (0, _v59.rem)(16),
@@ -2162,7 +2164,7 @@
             color: "text-primary",
             variant: "secondary",
             "data-id": "customize_team_view_button",
-            children: (0, _v40.translate)({
+            children: (0, _v41.translate)({
               singular: "Team view",
               dictionary: {
                 es: {
@@ -2200,7 +2202,7 @@
             boxShadow: "none !important"
           },
           children: [(0, _v1.jsx)(_v140, {
-            title: (0, _v40.translate)({
+            title: (0, _v41.translate)({
               singular: "Featured content",
               dictionary: {
                 es: {
@@ -2231,7 +2233,7 @@
             widgetName: "Featured content",
             onOptionUpdate: _v1
           }), (0, _v1.jsx)(_v140, {
-            title: (0, _v40.translate)({
+            title: (0, _v41.translate)({
               singular: "Featured folders",
               dictionary: {
                 es: {
@@ -2262,7 +2264,7 @@
             widgetName: "Featured folders",
             onOptionUpdate: _v1
           }), (0, _v1.jsx)(_v140, {
-            title: (0, _v40.translate)({
+            title: (0, _v41.translate)({
               singular: "Watch history",
               dictionary: {
                 es: {
@@ -2293,7 +2295,7 @@
             widgetName: "Watch history",
             onOptionUpdate: _v1
           }), (0, _v1.jsx)(_v140, {
-            title: (0, _v40.translate)({
+            title: (0, _v41.translate)({
               singular: "Get inspired",
               dictionary: {
                 es: {
@@ -2324,7 +2326,7 @@
             widgetName: "Feed",
             onOptionUpdate: _v1
           }), (0, _v1.jsx)(_v140, {
-            title: (0, _v40.translate)({
+            title: (0, _v41.translate)({
               singular: "Watch",
               dictionary: {
                 es: {
@@ -2415,7 +2417,7 @@
       }
     });
   function _v155() {
-    let _v0 = (0, _v57.useViewer)(),
+    let _v0 = (0, _v58.useViewer)(),
       _v1 = (0, _v150.useUniversalHostingEnabled)(),
       {
         hp_recents_number_of_videos: _v2,
@@ -2460,7 +2462,7 @@
     _v159 = ({
       children: _v0
     }) => {
-      let _v1 = (0, _v57.useViewer)(),
+      let _v1 = (0, _v58.useViewer)(),
         _v2 = (0, _v150.useUniversalHostingEnabled)(),
         {
           hp_recents_number_of_videos: _v3,
@@ -2611,7 +2613,7 @@
           data: _v0,
           isLoading: _v1
         } = (_v0 => {
-          let _v1 = (0, _v57.useViewer)(),
+          let _v1 = (0, _v58.useViewer)(),
             _v2 = _v1?.teamUser?.ownerId ?? _v1?.user?.id,
             {
               isLoading: _v3,
@@ -2640,7 +2642,7 @@
             isLoading: _v4 ? _v8 : _v6
           };
         })([_v128, _v129, _v132, _v130, _v131]),
-        _v2 = (0, _v57.useViewer)(),
+        _v2 = (0, _v58.useViewer)(),
         _v3 = _v2?.teamUser?.ownerId ?? _v2?.user?.id,
         [_v4] = (0, _v125.usePatchTeamSettings)(),
         [_v5] = (0, _v126.usePatchWorkspaceSettings)(),
@@ -2673,11 +2675,11 @@
         onOptionUpdate: _v9
       });
     },
-    _v161 = () => (0, _v1.jsxs)(_v58.Flex, {
+    _v161 = () => (0, _v1.jsxs)(_v30.Flex, {
       justifyContent: "space-between",
-      children: [(0, _v1.jsx)(_v30.Header, {
+      children: [(0, _v1.jsx)(_v31.Header, {
         size: "xl",
-        children: (0, _v40.translate)({
+        children: (0, _v41.translate)({
           singular: "Home",
           dictionary: {
             es: {
@@ -2772,7 +2774,7 @@
           isOpen: _v2,
           onDismiss: _v3
         } = (() => {
-          let _v0 = (0, _v57.useViewer)(),
+          let _v0 = (0, _v58.useViewer)(),
             _v1 = _v0?.user?.id ?? null,
             {
               isRepackagedFree: _v2
@@ -2869,7 +2871,7 @@
         variant: "info",
         children: [(0, _v1.jsx)(_v170.AlertIcon, {
           children: (0, _v1.jsx)(_v175.InfoCircleFilled, {})
-        }), (0, _v1.jsxs)(_v58.Flex, {
+        }), (0, _v1.jsxs)(_v30.Flex, {
           alignItems: {
             base: "flex-start",
             md: "center"
@@ -2885,11 +2887,11 @@
           children: [(0, _v1.jsxs)(_v169.AlertDescription, {
             flex: "1",
             minWidth: 0,
-            children: [(0, _v1.jsx)(_v39.Text, {
+            children: [(0, _v1.jsx)(_v40.Text, {
               fontFamily: "'ABCRepro-Medium', sans-serif",
               fontWeight: "medium",
               variant: "body-lg",
-              children: (0, _v40.translate)({
+              children: (0, _v41.translate)({
                 singular: "You can now share all your work on Vimeo, for free.",
                 dictionary: {
                   es: {
@@ -2915,9 +2917,9 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v39.Text, {
+            }), (0, _v1.jsx)(_v40.Text, {
               variant: "body-md",
-              children: (0, _v40.translate)({
+              children: (0, _v41.translate)({
                 singular: "We've expanded the Free plan. You can now share as many videos as you like, with no ads—for free.",
                 dictionary: {
                   es: {
@@ -2956,7 +2958,7 @@
               size: "sm",
               target: "_blank",
               variant: "secondary",
-              children: (0, _v40.translate)({
+              children: (0, _v41.translate)({
                 singular: "Learn more",
                 dictionary: {
                   es: {
@@ -2983,7 +2985,7 @@
                 }
               })
             }), (0, _v1.jsx)(_v173.IconButton, {
-              "aria-label": (0, _v40.translate)({
+              "aria-label": (0, _v41.translate)({
                 singular: "Dismiss notice",
                 dictionary: {
                   es: {
@@ -3041,10 +3043,10 @@
       overflow: "hidden",
       bg: "#1a2744",
       w: "100%",
-      children: [(0, _v1.jsxs)(_v58.Flex, {
+      children: [(0, _v1.jsxs)(_v30.Flex, {
         direction: ["column", "column", "row"],
         minH: [(0, _v59.rem)(506), (0, _v59.rem)(602), (0, _v59.rem)(220)],
-        children: [(0, _v1.jsxs)(_v58.Flex, {
+        children: [(0, _v1.jsxs)(_v30.Flex, {
           direction: "column",
           justify: "center",
           gap: "md",
@@ -3063,7 +3065,7 @@
               fontSize: "body-sm",
               fontWeight: "semibold",
               lineHeight: "1.2",
-              children: (0, _v40.translate)({
+              children: (0, _v41.translate)({
                 singular: "What's new",
                 dictionary: {
                   es: {
@@ -3090,12 +3092,12 @@
                 }
               })
             })
-          }), (0, _v1.jsx)(_v39.Text, {
+          }), (0, _v1.jsx)(_v40.Text, {
             variant: "heading-lg",
             color: "white",
             fontSize: ["heading-md", "heading-lg"],
             lineHeight: "1.2",
-            children: (0, _v40.translate)({
+            children: (0, _v41.translate)({
               singular: "Fast video transfer, built for sharing",
               dictionary: {
                 es: {
@@ -3121,11 +3123,11 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v39.Text, {
+          }), (0, _v1.jsx)(_v40.Text, {
             variant: "body-md",
             color: "whiteAlpha.700",
             maxW: (0, _v59.rem)(480),
-            children: (0, _v40.translate)({
+            children: (0, _v41.translate)({
               singular: "Transfer high-quality video files fast, and share them with anyone through a simple link.",
               dictionary: {
                 es: {
@@ -3166,7 +3168,7 @@
                   entryPoint: "hero"
                 }), _v0?.();
               },
-              children: (0, _v40.translate)({
+              children: (0, _v41.translate)({
                 singular: "Try Transfer Now",
                 dictionary: {
                   es: {
@@ -3212,7 +3214,7 @@
           })
         })]
       }), (0, _v1.jsx)(_v173.IconButton, {
-        "aria-label": (0, _v40.translate)({
+        "aria-label": (0, _v41.translate)({
           singular: "Dismiss",
           dictionary: {
             es: {
@@ -3369,7 +3371,7 @@
         _v12 = _v5 || `quick_link${_v3.split("?")[0].replace(/[\/?-]/g, "_").replace(/_+$/, "")}`;
       return (0, _v1.jsx)(_v206.default, {
         href: _v3,
-        children: (0, _v1.jsxs)(_v58.Flex, {
+        children: (0, _v1.jsxs)(_v30.Flex, {
           alignItems: "center",
           backgroundColor: _v2 ? _v9 : "fill-surface",
           borderRadius: _v8.BoxBorderRadius,
@@ -3394,7 +3396,7 @@
             outlineColor: "fill-brand",
             outlineOffset: "1px"
           },
-          children: [(0, _v1.jsx)(_v58.Flex, {
+          children: [(0, _v1.jsx)(_v30.Flex, {
             flexShrink: 0,
             children: _v4
           }), (0, _v1.jsx)(_v73.Box, {
@@ -3560,7 +3562,7 @@
       });
       let _v2 = (0, _v215.useIsMobile)();
       return (0, _v1.jsx)(_v210, {
-        copy: (0, _v40.translate)({
+        copy: (0, _v41.translate)({
           singular: "{B}Create{/B} {C}new or from template{/C}",
           replacements: {
             B: _v0 => (0, _v1.jsx)(_v211, {
@@ -3667,7 +3669,7 @@
         webContextCopy: "host event or webinar"
       }), (0, _v1.jsx)(_v210, {
         copy: (0, _v1.jsx)("span", {
-          children: (0, _v40.translate)({
+          children: (0, _v41.translate)({
             singular: "{B}Host{/B} {C}event or webinar{/C}",
             replacements: {
               B: _v0 => (0, _v1.jsx)(_v211, {
@@ -3796,7 +3798,7 @@
       }, [_v7, _v6]), (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v210, {
           copy: (0, _v1.jsx)("span", {
-            children: (0, _v40.translate)({
+            children: (0, _v41.translate)({
               singular: "{B}Import{/B} {C}from Drive and more{/C}",
               replacements: {
                 B: _v0 => (0, _v1.jsx)(_v211, {
@@ -3910,7 +3912,7 @@
         productAnalyticsContextEntityType: null,
         webContextCopy: "record screen or webcam"
       }), (0, _v1.jsx)(_v210, {
-        copy: (0, _v40.translate)({
+        copy: (0, _v41.translate)({
           singular: "{B}Record{/B} {C}screen or webcam{/C}",
           replacements: {
             B: _v0 => (0, _v1.jsx)(_v211, {
@@ -3974,7 +3976,7 @@
         trackTransferEntryPointClicked: _v4
       } = (0, _v184.useFileTransferAdoptionTracking)();
     return (0, _v1.jsx)(_v210, {
-      copy: (0, _v40.translate)({
+      copy: (0, _v41.translate)({
         singular: "{B}Transfer{/B} {C}video files{/C}",
         replacements: {
           B: _v0 => (0, _v1.jsx)(_v211, {
@@ -4068,7 +4070,7 @@
         })]
       });
     }),
-    _v244 = (_v0, _v1) => _v1 ? (0, _v40.translate)({
+    _v244 = (_v0, _v1) => _v1 ? (0, _v41.translate)({
       singular: "{B}Upload{/B} {C}videos, images, docs, audio{/C}",
       replacements: {
         B: _v0 => (0, _v1.jsx)(_v211, {
@@ -4103,7 +4105,7 @@
           singular: "{B}上传{/B} {C}视频, 图像, 文档, 音频{/C}"
         }
       }
-    }) : (0, _v40.translate)({
+    }) : (0, _v41.translate)({
       singular: "{B}Upload{/B} {C}from computer{/C}",
       replacements: {
         B: _v0 => (0, _v1.jsx)(_v211, {
@@ -4187,7 +4189,7 @@
             }
           },
           modalConfig: {
-            headerText: (0, _v40.translate)({
+            headerText: (0, _v41.translate)({
               singular: "You've reached your storage limit",
               dictionary: {
                 es: {
@@ -4210,7 +4212,7 @@
                 }
               }
             }),
-            subHeaderText: (0, _v40.translate)({
+            subHeaderText: (0, _v41.translate)({
               singular: "To get more storage, upgrade your account",
               dictionary: {
                 es: {
@@ -4281,7 +4283,7 @@
     _v246 = ({
       size: _v0
     }) => {
-      let _v1 = (0, _v57.useViewer)(),
+      let _v1 = (0, _v58.useViewer)(),
         {
           trackHomepageActionCardClicked: _v2
         } = _v20(),
@@ -4403,7 +4405,7 @@
       productAnalyticsContextEntityType: null,
       webContextCopy: "watch videos on vimeo"
     }), (0, _v1.jsx)(_v210, {
-      copy: (0, _v40.translate)({
+      copy: (0, _v41.translate)({
         singular: "{B}Watch{/B} {C}videos on Vimeo{/C}",
         replacements: {
           B: _v0 => (0, _v1.jsx)(_v211, {
@@ -4475,7 +4477,7 @@
           hasWatch: _v17,
           isLoading: _v18
         } = (() => {
-          let _v0 = (0, _v57.useViewer)(),
+          let _v0 = (0, _v58.useViewer)(),
             {
               capabilities: _v1,
               loading: _v2,
@@ -4633,7 +4635,7 @@
     icon: _v4
   }) => {
     let _v5 = (0, _v207.useColorModeValue)("text-secondary", "text-primary");
-    return (0, _v1.jsx)(_v58.Flex, {
+    return (0, _v1.jsx)(_v30.Flex, {
       backgroundColor: "fill-surface",
       borderRadius: "lg",
       width: "100%",
@@ -4642,12 +4644,12 @@
       padding: "4",
       children: (0, _v1.jsxs)(_v269.VStack, {
         gap: 0,
-        children: [_v4, (0, _v1.jsx)(_v30.Header, {
+        children: [_v4, (0, _v1.jsx)(_v31.Header, {
           textAlign: "center",
           size: "md",
           color: _v5,
           children: _v1
-        }), (0, _v1.jsx)(_v39.Text, {
+        }), (0, _v1.jsx)(_v40.Text, {
           variant: "body-xl",
           textAlign: "center",
           fontSize: "lg",
@@ -4758,7 +4760,7 @@
           justifyContent: "center",
           alignItems: "center",
           children: _v3
-        }), (0, _v1.jsx)(_v30.Header, {
+        }), (0, _v1.jsx)(_v31.Header, {
           size: "md",
           justifyContent: "center",
           children: _v1 ? (0, _v266.translate)({
@@ -4812,7 +4814,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v39.Text, {
+        }), (0, _v1.jsx)(_v40.Text, {
           variant: "body-md",
           justifyContent: "center",
           children: _v1 ? (0, _v266.translate)({
@@ -4903,7 +4905,7 @@
         _v4 = _v0.metadata?.connections?.liveVideo?.status === "streaming",
         _v5 = _v0.pictures && _v0.pictures.sizes ? _v0.pictures.sizes[0].height : 56,
         _v6 = _v0.pictures && _v0.pictures.sizes ? _v0.pictures.sizes[0].width : 92;
-      return (0, _v1.jsxs)(_v58.Flex, {
+      return (0, _v1.jsxs)(_v30.Flex, {
         onClick: _v1,
         alignItems: "center",
         cursor: "pointer",
@@ -4913,7 +4915,7 @@
         children: [(0, _v1.jsxs)(_v73.Box, {
           marginRight: (0, _v59.rem)(20),
           position: "relative",
-          children: [(0, _v1.jsx)(_v58.Flex, {
+          children: [(0, _v1.jsx)(_v30.Flex, {
             position: "absolute",
             padding: `${(0, _v59.rem)(3)} ${(0, _v59.rem)(6)}`,
             backgroundColor: _v4 ? "red.500" : "gray.600",
@@ -4967,11 +4969,11 @@
                 }
               }
             })
-          }), _v0.pictures?.uri ? (0, _v1.jsx)(_v31.Image, {
+          }), _v0.pictures?.uri ? (0, _v1.jsx)(_v32.Image, {
             borderRadius: (0, _v59.rem)(3),
             alt: _v0.title,
             src: _v0.pictures.sizes[0].link
-          }) : (0, _v1.jsx)(_v58.Flex, {
+          }) : (0, _v1.jsx)(_v30.Flex, {
             borderRadius: (0, _v59.rem)(3),
             height: (0, _v59.rem)(_v5),
             width: (0, _v59.rem)(_v6),
@@ -4980,7 +4982,7 @@
         }), (0, _v1.jsxs)(_v73.Box, {
           marginRight: (0, _v59.rem)(20),
           position: "relative",
-          children: [(0, _v1.jsx)(_v30.Header, {
+          children: [(0, _v1.jsx)(_v31.Header, {
             size: "xs",
             marginBottom: (0, _v59.rem)(6),
             children: _v0.title
@@ -5032,7 +5034,7 @@
       children: [_v0, !_v1.loading && (0, _v1.jsxs)(_v172.HStack, {
         width: "100%",
         marginTop: "100",
-        children: [(0, _v1.jsx)(_v58.Flex, {
+        children: [(0, _v1.jsx)(_v30.Flex, {
           display: "flex",
           justifyContent: "flex-start",
           width: "50%",
@@ -5044,7 +5046,7 @@
             },
             icon: (0, _v1.jsx)(_v292.ChevronLeftSmall, {})
           })
-        }), (0, _v1.jsx)(_v58.Flex, {
+        }), (0, _v1.jsx)(_v30.Flex, {
           display: "flex",
           justifyContent: "flex-end",
           width: "50%",
@@ -5069,7 +5071,7 @@
           locale: _v4
         } = _v288(),
         _v5 = (_v3 = [92, 56], `//i.vimeocdn.com/video/default${void 0 !== _v3 && `_${_v3[0]}x${_v3[1]}`}.jpg`);
-      return (0, _v1.jsxs)(_v58.Flex, {
+      return (0, _v1.jsxs)(_v30.Flex, {
         cursor: "pointer",
         padding: `${(0, _v59.rem)(10)} 0`,
         alignItems: "center",
@@ -5079,14 +5081,14 @@
         onClick: _v1,
         children: [(0, _v1.jsx)(_v73.Box, {
           marginRight: (0, _v59.rem)(20),
-          children: (0, _v1.jsx)(_v31.Image, {
+          children: (0, _v1.jsx)(_v32.Image, {
             borderRadius: (0, _v59.rem)(3),
             alt: _v0.name,
             src: _v0.pictures && _v0.pictures.sizes ? _v0.pictures.sizes[0].link : _v5
           })
         }), (0, _v1.jsxs)(_v73.Box, {
           marginRight: (0, _v59.rem)(20),
-          children: [(0, _v1.jsx)(_v30.Header, {
+          children: [(0, _v1.jsx)(_v31.Header, {
             size: "xs",
             marginBottom: (0, _v59.rem)(6),
             children: _v0.name
@@ -5342,21 +5344,21 @@
       }
       return (0, _v3.useEffect)(() => {
         _v15(null), _v22();
-      }, [_v13, _v20, _v9]), (0, _v1.jsx)(_v33.Modal, {
+      }, [_v13, _v20, _v9]), (0, _v1.jsx)(_v34.Modal, {
         size: "md",
         isOpen: _v0,
         onClose: _v30,
         isCentered: !0,
-        children: (0, _v1.jsxs)(_v36.ModalContent, {
+        children: (0, _v1.jsxs)(_v37.ModalContent, {
           width: "100%",
           maxHeight: "80%",
           backgroundColor: _v28,
           children: [(0, _v1.jsx)(_v77.ModalHeader, {
-            children: (0, _v1.jsx)(_v30.Header, {
+            children: (0, _v1.jsx)(_v31.Header, {
               size: "md",
               children: "Select a video or live event"
             })
-          }), (0, _v1.jsx)(_v35.ModalCloseButton, {}), (0, _v1.jsx)(_v34.ModalBody, {
+          }), (0, _v1.jsx)(_v36.ModalCloseButton, {}), (0, _v1.jsx)(_v35.ModalBody, {
             width: "100%",
             height: "100%",
             children: (0, _v1.jsxs)(_v276.Tabs, {
@@ -5410,7 +5412,7 @@
                 })]
               })]
             })
-          }), (0, _v1.jsxs)(_v37.ModalFooter, {
+          }), (0, _v1.jsxs)(_v38.ModalFooter, {
             maxHeight: (0, _v59.rem)(70),
             justifyContent: "right",
             alignItems: "center",
@@ -6156,7 +6158,7 @@
               children: [(0, _v1.jsxs)(_v282.Stack, {
                 direction: "column",
                 spacing: _v43,
-                children: [(!!_v25 || _v13 && _v7) && (0, _v1.jsx)(_v39.Text, {
+                children: [(!!_v25 || _v13 && _v7) && (0, _v1.jsx)(_v40.Text, {
                   variant: "body-md",
                   color: "text-primary",
                   paddingTop: "0.375rem",
@@ -6165,7 +6167,7 @@
                   label: _v14,
                   "aria-label": "title-tooltip",
                   isDisabled: _v14?.length <= _v46,
-                  children: (0, _v1.jsx)(_v39.Text, {
+                  children: (0, _v1.jsx)(_v40.Text, {
                     variant: "body-xl",
                     as: "b",
                     fontSize: _v6,
@@ -6413,7 +6415,7 @@
           transform: "translateY(-2px)"
         },
         "data-group": !0,
-        children: [(0, _v1.jsx)(_v30.Header, {
+        children: [(0, _v1.jsx)(_v31.Header, {
           title: _v0,
           size: "xl",
           color: _v1 ? (0, _v281.readableColor)(_v1) : "white",
@@ -6569,14 +6571,14 @@
           })
         }), (0, _v1.jsx)(_v73.Box, {
           mt: (0, _v281.rem)(12),
-          children: (0, _v1.jsxs)(_v58.Flex, {
+          children: (0, _v1.jsxs)(_v30.Flex, {
             alignItems: "center",
             justify: "space-between",
             children: [(0, _v1.jsxs)(_v269.VStack, {
               alignItems: "flex-start",
               gap: "2",
               width: "100%",
-              children: [(0, _v1.jsx)(_v39.Text, {
+              children: [(0, _v1.jsx)(_v40.Text, {
                 variant: "body-xl",
                 title: _v3,
                 fontSize: (0, _v281.rem)(14),
@@ -6585,7 +6587,7 @@
                 maxWidth: "90%",
                 noOfLines: 1,
                 children: _v3
-              }), (0, _v1.jsx)(_v39.Text, {
+              }), (0, _v1.jsx)(_v40.Text, {
                 variant: "body-xl",
                 fontSize: (0, _v281.rem)(12),
                 fontWeight: "400",
@@ -7283,7 +7285,7 @@
       isSmall: _v0,
       onClick: _v1
     }) => _v0 ? (0, _v1.jsx)(_v305.Tooltip, {
-      label: (0, _v40.translate)({
+      label: (0, _v41.translate)({
         singular: "Clear watch history",
         dictionary: {
           es: {
@@ -7311,7 +7313,7 @@
       }),
       variant: "simple",
       children: (0, _v1.jsx)(_v173.IconButton, {
-        "aria-label": (0, _v40.translate)({
+        "aria-label": (0, _v41.translate)({
           singular: "Clear watch history",
           dictionary: {
             es: {
@@ -7343,7 +7345,7 @@
         variant: "secondary"
       })
     }) : (0, _v1.jsx)(_v29.Button, {
-      "aria-label": (0, _v40.translate)({
+      "aria-label": (0, _v41.translate)({
         singular: "Clear watch history",
         dictionary: {
           es: {
@@ -7378,7 +7380,7 @@
           opacity: 1
         }
       },
-      children: (0, _v40.translate)({
+      children: (0, _v41.translate)({
         singular: "Clear watch history",
         dictionary: {
           es: {
@@ -7406,7 +7408,7 @@
       })
     }),
     _v358 = {
-      CLEAR_HISTORY: (0, _v40.translate)({
+      CLEAR_HISTORY: (0, _v41.translate)({
         singular: "Clear history",
         dictionary: {
           es: {
@@ -7432,7 +7434,7 @@
           }
         }
       }),
-      CLEAR_WATCH_HISTORY: (0, _v40.translate)({
+      CLEAR_WATCH_HISTORY: (0, _v41.translate)({
         singular: "You're about to clear your previously watched and in-progress videos across apps or devices where you're logged in",
         dictionary: {
           es: {
@@ -7458,7 +7460,7 @@
           }
         }
       }),
-      CLEAR_WATCH_HISTORY_HEADER: (0, _v40.translate)({
+      CLEAR_WATCH_HISTORY_HEADER: (0, _v41.translate)({
         singular: "Clear watch history",
         dictionary: {
           es: {
@@ -7484,7 +7486,7 @@
           }
         }
       }),
-      CANCEL_CLEAR_WATCH_HISTORY: (0, _v40.translate)({
+      CANCEL_CLEAR_WATCH_HISTORY: (0, _v41.translate)({
         singular: "Cancel",
         dictionary: {
           es: {
@@ -7510,7 +7512,7 @@
           }
         }
       }),
-      EMPTY_WATCH_HISTORY: (0, _v40.translate)({
+      EMPTY_WATCH_HISTORY: (0, _v41.translate)({
         singular: "Videos you watch appear here",
         dictionary: {
           es: {
@@ -7536,7 +7538,7 @@
           }
         }
       }),
-      WATCH_HISTORY: (0, _v40.translate)({
+      WATCH_HISTORY: (0, _v41.translate)({
         singular: "Watch history",
         dictionary: {
           es: {
@@ -7697,7 +7699,7 @@
     _v376 = _v0.i(0);
   let _v377 = ["video.badge.type", "video.configUrl", "video.createdTime", "video.customMetadata", "video.duration", "video.isColdPrivacyRestricted", "video.isColdStorage", "video.link", "video.manageLink", "video.metadata.interactions.edit", "video.name", "video.password", "video.pictures.sizes.link", "video.privacy.view", "video.privacy.originalView", "video.stats.plays", "video.uri", "video.user.name", "video.user.pictures.sizes.link", "video.user.uri"];
   function _v378() {
-    let _v0 = (0, _v57.useViewer)(),
+    let _v0 = (0, _v58.useViewer)(),
       _v1 = _v0?.user?.id,
       {
         isOrionLoading: _v2,
@@ -7782,7 +7784,7 @@
         mutate: _v8
       } = _v378(),
       _v9 = (0, _v329.useNotification)(),
-      _v10 = (0, _v57.useViewer)(),
+      _v10 = (0, _v58.useViewer)(),
       _v11 = (0, _v374.useCopyVideoLink)({
         video: _v1,
         surface: "ellipsis_menu",
@@ -7792,7 +7794,7 @@
       _v12 = /http/.test(_v1?.link) ? _v1?.link : `${_v10?.vimeoHttpsUrl}${_v1?.link}`;
     return (0, _v3.useEffect)(() => {
       !_v4 || _v7 || _v2.current !== _v5 && (_v2.current += 1, _v6 ? (_v9({
-        content: (0, _v40.translate)({
+        content: (0, _v41.translate)({
           singular: "Error removing video",
           dictionary: {
             es: {
@@ -7820,7 +7822,7 @@
         }),
         status: "failure"
       }), _v0(!1)) : (_v0(!0), _v9({
-        content: (0, _v40.translate)({
+        content: (0, _v41.translate)({
           singular: "Video removed from history",
           dictionary: {
             es: {
@@ -7856,7 +7858,7 @@
         canShare: !1,
         canStar: !1,
         deleteIcon: (0, _v1.jsx)(_v356.MinusCircle, {}),
-        deleteOptionLabel: (0, _v40.translate)({
+        deleteOptionLabel: (0, _v41.translate)({
           singular: "Remove from history",
           dictionary: {
             es: {
@@ -7913,7 +7915,7 @@
           })
         }), (0, _v1.jsx)(_v334.ContentCard.HoverAction, {
           children: (0, _v1.jsx)(_v305.Tooltip, {
-            label: (0, _v40.translate)({
+            label: (0, _v41.translate)({
               singular: "Copy link",
               dictionary: {
                 es: {
@@ -7941,7 +7943,7 @@
             }),
             placement: "top",
             children: (0, _v1.jsx)(_v173.IconButton, {
-              "aria-label": (0, _v40.translate)({
+              "aria-label": (0, _v41.translate)({
                 singular: "Copy link",
                 dictionary: {
                   es: {
@@ -7982,17 +7984,17 @@
       video: _v1,
       position: _v2
     }) => {
-      let _v3 = (0, _v57.useViewer)(),
+      let _v3 = (0, _v58.useViewer)(),
         {
           trackHomepageWatchHistoryVideoClicked: _v4
         } = _v20(),
         _v5 = _v1?.stats?.plays ?? 0,
-        _v6 = (0, _v40.translate)({
+        _v6 = (0, _v41.translate)({
           singular: "{COUNT} view",
           plural: "{COUNT} views",
           count: Number(_v5),
           replacements: {
-            COUNT: (0, _v40.humanize)(_v5)
+            COUNT: (0, _v41.humanize)(_v5)
           },
           dictionary: {
             es: {
@@ -8035,7 +8037,7 @@
           timecodeInSeconds: _v1,
           video: _v2
         }) => {
-          let _v3 = (0, _v57.useViewer)(),
+          let _v3 = (0, _v58.useViewer)(),
             _v4 = (({
               referrer: _v0,
               timecodeInSeconds: _v1,
@@ -8167,7 +8169,7 @@
               text: _v358.WATCH_HISTORY
             },
             pt: 0
-          }), (0, _v1.jsx)(_v58.Flex, {
+          }), (0, _v1.jsx)(_v30.Flex, {
             alignItems: "center",
             backgroundColor: "fill-surface",
             borderRadius: "lg",
@@ -8181,7 +8183,7 @@
               gap: "md",
               children: [(0, _v1.jsx)(_v354.History, {
                 color: "text-secondary"
-              }), (0, _v1.jsx)(_v39.Text, {
+              }), (0, _v1.jsx)(_v40.Text, {
                 color: "text-secondary",
                 fontSize: {
                   base: "md",
@@ -8316,7 +8318,7 @@
       let {
           mutate: _v7
         } = _v155(),
-        _v8 = (0, _v57.useViewer)(),
+        _v8 = (0, _v58.useViewer)(),
         _v9 = (0, _v329.useNotification)(),
         {
           openShareFolderModal: _v10
@@ -8432,7 +8434,7 @@
             px: "sm",
             children: (0, _v1.jsx)(_v399.Action, {
               icon: (0, _v1.jsx)(_v7.TrashBin, {}),
-              label: (0, _v40.translate)({
+              label: (0, _v41.translate)({
                 singular: "Delete",
                 dictionary: {
                   es: {
@@ -8971,7 +8973,7 @@
           fillColor: _v2,
           "data-testid": "dismissed-widget-icon",
           children: _v1
-        }), (0, _v430.jsx)(_v39.Text, {
+        }), (0, _v430.jsx)(_v40.Text, {
           variant: "body-xl",
           "data-testid": "dismissed-widget-label",
           color: "text-secondary",
@@ -9105,7 +9107,7 @@
     },
     _v440 = ({
       text: _v0
-    }) => (0, _v1.jsx)(_v39.Text, {
+    }) => (0, _v1.jsx)(_v40.Text, {
       variant: "body-sm",
       fontWeight: "bold",
       children: _v0
@@ -9182,7 +9184,7 @@
       ..._v5
     }) => {
       let _v6 = _v0 === _v301;
-      return (0, _v1.jsxs)(_v58.Flex, {
+      return (0, _v1.jsxs)(_v30.Flex, {
         direction: "column",
         width: "100%",
         height: "100%",
@@ -9192,12 +9194,12 @@
           children: [!_v6 && (0, _v1.jsx)(_v439, {
             ..._v4
           }), (0, _v1.jsxs)(_v73.Box, {
-            children: [(0, _v1.jsx)(_v30.Header, {
+            children: [(0, _v1.jsx)(_v31.Header, {
               size: _v6 ? "md" : _v0 === _v300 ? "lg" : "xl",
               marginBottom: _v443[_v0],
               marginTop: _v6 ? "xl" : "lg",
               children: _v1
-            }), !_v6 && (0, _v1.jsx)(_v39.Text, {
+            }), !_v6 && (0, _v1.jsx)(_v40.Text, {
               variant: "body-xl",
               color: "text-secondary",
               lineHeight: "lg",
@@ -9502,7 +9504,7 @@
               })
             })
           }), _v11 && (0, _v1.jsx)(_v73.Box, {
-            children: (0, _v1.jsx)(_v30.Header, {
+            children: (0, _v1.jsx)(_v31.Header, {
               size: "sm",
               children: _v4
             })
@@ -10772,11 +10774,11 @@
         } = _v205(),
         _v6 = (0, _v2.useRouter)(),
         _v7 = (0, _v329.useNotification)(),
-        _v8 = (0, _v57.useViewer)(),
+        _v8 = (0, _v58.useViewer)(),
         _v9 = _v429(_v5),
         {
           getSampleVideoId: _v10
-        } = (_v1 = (0, _v57.useViewer)(), _v2 = async () => {
+        } = (_v1 = (0, _v58.useViewer)(), _v2 = async () => {
           let _v0 = await fetch("/_next/access_token", {
             body: JSON.stringify({
               source: "demo_video",
@@ -11004,7 +11006,7 @@
             notifyItemMoveSuccess: _v9,
             notifyItemMoveToWorkspaceSuccess: _v10
           } = (0, _v329.useNotifications)(),
-          _v11 = (0, _v57.useViewer)(),
+          _v11 = (0, _v58.useViewer)(),
           _v12 = (0, _v150.useUniversalHostingEnabled)(),
           _v13 = !!_v11?.teamUser || (_v11?.team?.currentTeamSize ?? 0) > 0,
           _v14 = (0, _v392.useFilePrivacyBadgeHandlers)({
@@ -11028,7 +11030,7 @@
         (0, _v389.useUploadLifecycle)((_v0, _v1) => {
           _v1.clipId && _v4();
         }, []);
-        let _v25 = _v24 ? (0, _v40.translate)({
+        let _v25 = _v24 ? (0, _v41.translate)({
             singular: "Team library",
             dictionary: {
               es: {
@@ -11053,7 +11055,7 @@
                 singular: "团队视频库"
               }
             }
-          }) : (0, _v40.translate)({
+          }) : (0, _v41.translate)({
             singular: "Library",
             dictionary: {
               es: {
@@ -11109,7 +11111,7 @@
             children: [(0, _v1.jsx)(_v322.PlaylistHeader, {
               pt: 0,
               header: {
-                text: (0, _v40.translate)({
+                text: (0, _v41.translate)({
                   singular: "Recents",
                   dictionary: {
                     es: {
@@ -11309,7 +11311,7 @@
             myFeedVideos: _v2,
             isLoading: _v3
           } = function () {
-            let _v0 = (0, _v57.useViewer)(),
+            let _v0 = (0, _v58.useViewer)(),
               {
                 data: _v1,
                 ..._v2
@@ -11338,7 +11340,7 @@
               ..._v2
             };
           }(),
-          _v4 = (0, _v57.useViewer)(),
+          _v4 = (0, _v58.useViewer)(),
           [_v5] = (0, _v319.useMediaQuery)("(max-width: 375px)"),
           _v6 = (0, _v207.useColorModeValue)("text-secondary", "text-primary");
         if (_v216("my_feed_widget", _v0, _v3, _v1, {
@@ -11357,7 +11359,7 @@
         if (_v2?.length === 0) return (0, _v1.jsx)(_v260, {
           height: (0, _v59.rem)(350),
           children: (0, _v1.jsx)(_v270, {
-            heading: (0, _v40.translate)({
+            heading: (0, _v41.translate)({
               singular: "Find something to watch",
               dictionary: {
                 es: {
@@ -11383,7 +11385,7 @@
                 }
               }
             }),
-            subheading: (0, _v40.translate)({
+            subheading: (0, _v41.translate)({
               singular: "See amazing videos from people you follow",
               dictionary: {
                 es: {
@@ -11409,7 +11411,7 @@
                 }
               }
             }),
-            btnText: (0, _v40.translate)({
+            btnText: (0, _v41.translate)({
               singular: "Browse all videos",
               dictionary: {
                 es: {
@@ -11448,12 +11450,12 @@
         });
         let _v7 = "/my-feed",
           _v8 = _v2?.map(_v0 => {
-            let _v1 = (0, _v40.translate)({
+            let _v1 = (0, _v41.translate)({
                 singular: "{COUNT} view",
                 plural: "{COUNT} views",
                 count: _v0?.stats?.plays ?? 0,
                 replacements: {
-                  COUNT: (0, _v40.humanize)(_v0?.stats?.plays ?? 0)
+                  COUNT: (0, _v41.humanize)(_v0?.stats?.plays ?? 0)
                 },
                 dictionary: {
                   es: {
@@ -11511,7 +11513,7 @@
                 window.location.href = _v7;
               },
               header: {
-                text: (0, _v40.translate)({
+                text: (0, _v41.translate)({
                   singular: "Get inspired",
                   dictionary: {
                     es: {
@@ -11693,7 +11695,7 @@
         onScreen: _v2,
         viewData: _v3
       }) => {
-        let _v4 = (0, _v57.useViewer)(),
+        let _v4 = (0, _v58.useViewer)(),
           _v5 = _v4?.teamUser?.ownerId ?? _v4?.user?.id ?? 0,
           {
             data: _v6,
@@ -11734,7 +11736,7 @@
       "cold-storage": ({
         viewData: _v0
       }) => {
-        let _v1 = (0, _v57.useViewer)(),
+        let _v1 = (0, _v58.useViewer)(),
           _v2 = _v1?.user?.id,
           _v3 = ((_v0, _v1 = 3) => {
             let {
@@ -11776,11 +11778,11 @@
           background: "fill-surface",
           justifyContent: "center",
           padding: "2xl",
-          children: (0, _v1.jsxs)(_v58.Flex, {
+          children: (0, _v1.jsxs)(_v30.Flex, {
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "column",
-            children: [(0, _v1.jsx)(_v58.Flex, {
+            children: [(0, _v1.jsx)(_v30.Flex, {
               position: "relative",
               height: "md",
               children: _v4?.slice(0, 3).map((_v0, _v1) => (0, _v1.jsxs)(_v73.Box, {
@@ -11795,7 +11797,7 @@
                   transformOrigin: "bottom left",
                   zIndex: 3 - _v1
                 },
-                children: [(0, _v1.jsx)(_v31.Image, {
+                children: [(0, _v1.jsx)(_v32.Image, {
                   src: _v0.pictures.sizes[0]?.link,
                   fallbackSrc: _v351,
                   boxSize: "29px",
@@ -11825,7 +11827,7 @@
                       }
                     }
                   })
-                }), 0 === _v1 && (0, _v1.jsx)(_v58.Flex, {
+                }), 0 === _v1 && (0, _v1.jsx)(_v30.Flex, {
                   justifyContent: "center",
                   alignItems: "center",
                   position: "absolute",
@@ -11842,7 +11844,7 @@
                   })
                 })]
               }, _v0.uri))
-            }), (0, _v1.jsx)(_v39.Text, {
+            }), (0, _v1.jsx)(_v40.Text, {
               color: "text-primary",
               variant: "heading-md",
               fontSize: "header-2xl",
@@ -11874,10 +11876,10 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v58.Flex, {
+            }), (0, _v1.jsx)(_v30.Flex, {
               flexDirection: "column",
               alignItems: "center",
-              children: (0, _v1.jsx)(_v39.Text, {
+              children: (0, _v1.jsx)(_v40.Text, {
                 color: "text-secondary",
                 variant: "body-md",
                 textAlign: "center",
@@ -12192,7 +12194,7 @@
         _v8 = !!_v5?.length;
       return (0, _v3.useEffect)(() => {
         _v6 && _v7({
-          title: (0, _v40.translate)({
+          title: (0, _v41.translate)({
             singular: "Check your network and refresh.",
             dictionary: {
               es: {
@@ -12317,7 +12319,7 @@
         welcomeOffer: _v10,
         suppressLegacyUpsell: _v11
       } = function () {
-        let _v0 = (0, _v57.useViewer)(),
+        let _v0 = (0, _v58.useViewer)(),
           {
             capabilities: {
               hasPaid: _v1,
@@ -12362,7 +12364,7 @@
         showIndividualPlans: _v12
       } = (0, _v72.useB2BRepackagingContext)(),
       _v13 = function () {
-        let _v0 = (0, _v57.useViewer)(),
+        let _v0 = (0, _v58.useViewer)(),
           _v1 = (0, _v98.useIsRepackFreeWithRepackagingCampaign)(),
           {
             default_modal_dismiss_offer_enabled: _v2,
@@ -12446,7 +12448,7 @@
           } = (0, _v70.useAutoRenewEncouragementTracking)(),
           {
             trackAutoRenewSwitchedOn: _v14
-          } = (0, _v41.useBillingTracking)(),
+          } = (0, _v42.useBillingTracking)(),
           {
             showEnableSuccessToast: _v15,
             showEnableFailureToast: _v16
@@ -12518,7 +12520,7 @@
             targetTier: "free",
             endDate: _v7,
             layout: "encouragement",
-            secondaryLabel: (0, _v40.translate)({
+            secondaryLabel: (0, _v41.translate)({
               singular: "Ignore",
               dictionary: {
                 es: {
@@ -12555,7 +12557,7 @@
         };
       }();
     (() => {
-      let _v0 = (0, _v57.useViewer)(),
+      let _v0 = (0, _v58.useViewer)(),
         _v1 = (0, _v3.useRef)(!1),
         {
           data: _v2
@@ -12583,7 +12585,7 @@
         free_trial_banner_tier: _v27
       } = (0, _v99.useOrionSettingsFields)(_v475);
     ((_v0 = !1) => {
-      let _v1 = (0, _v57.useViewer)(),
+      let _v1 = (0, _v58.useViewer)(),
         _v2 = (0, _v195.usePage)(),
         {
           open: _v3,
@@ -12620,7 +12622,7 @@
           templateType: "default",
           modalConfig: {
             mkcCode: "ent-upgrade-bottom",
-            headerText: (0, _v40.translate)({
+            headerText: (0, _v41.translate)({
               singular: "You’re all signed up! Get even more from Vimeo.",
               dictionary: {
                 es: {
@@ -12646,7 +12648,7 @@
                 }
               }
             }),
-            subHeaderText: (0, _v40.translate)({
+            subHeaderText: (0, _v41.translate)({
               singular: "Unlock our most powerful video tools with a free trial. Cancel anytime.",
               dictionary: {
                 es: {
@@ -12689,7 +12691,7 @@
         trackWaitlistJoin: _v32
       } = (0, _v105.useCreatorMonetisationTracking)(),
       _v33 = (0, _v4.useToast)(),
-      _v34 = (0, _v57.useViewer)(),
+      _v34 = (0, _v58.useViewer)(),
       _v35 = (0, _v97.useLibraryMergeAnnouncement)("home"),
       _v36 = "now" === _v35.active,
       {
@@ -12833,13 +12835,13 @@
         window.clearTimeout(_v1);
       };
     }, []);
-    let _v51 = !!(_v9 = (0, _v57.useViewer)()) && (!!_v9.user && !_v9.teamUser || !!_v9.teamUser && _v191.includes(_v9.teamUser.plainTextPermissionLevel)),
+    let _v51 = !!(_v9 = (0, _v58.useViewer)()) && (!!_v9.user && !_v9.teamUser || !!_v9.teamUser && _v191.includes(_v9.teamUser.plainTextPermissionLevel)),
       {
         isEnabled: _v52,
         targetUserId: _v53,
         privateFolderId: _v54
       } = function () {
-        let _v0 = (0, _v57.useViewer)(),
+        let _v0 = (0, _v58.useViewer)(),
           _v1 = !!_v0?.team,
           _v2 = _v0?.teamUser?.ownerId ?? _v0?.user?.id,
           {
@@ -12890,7 +12892,7 @@
               },
               onWaitlistJoin: _v0 => {
                 _v32(_v0), _v21(!1), _v33({
-                  title: (0, _v40.translate)({
+                  title: (0, _v41.translate)({
                     singular: "You're on the list! We'll be in touch when it's ready.",
                     dictionary: {
                       es: {
@@ -12947,7 +12949,7 @@
             surface: "homepage",
             targetUserId: _v52 ? _v53 : void 0,
             selectedFolderId: _v52 ? _v54 : void 0,
-            destinationText: _v57 || !_v56 || _v55 ? (0, _v40.translate)({
+            destinationText: _v57 || !_v56 || _v55 ? (0, _v41.translate)({
               singular: "My library",
               dictionary: {
                 es: {
@@ -12972,7 +12974,7 @@
                   singular: "我的视频库"
                 }
               }
-            }) : (0, _v40.translate)({
+            }) : (0, _v41.translate)({
               singular: "Library",
               dictionary: {
                 es: {
@@ -13000,7 +13002,7 @@
             }),
             disabled: !_v52,
             preserveWrapperWhenDisabled: !0,
-            children: (0, _v1.jsx)(_v58.Flex, {
+            children: (0, _v1.jsx)(_v30.Flex, {
               maxW: "1584",
               w: "100%",
               gap: "lg",
@@ -13097,7 +13099,7 @@
     _v500 = ({
       onOpenChange: _v0
     } = {}) => {
-      let _v1 = (0, _v57.useViewer)(),
+      let _v1 = (0, _v58.useViewer)(),
         _v2 = _v1?.teamUser?.ownerId ?? _v1?.user?.id,
         _v3 = (0, _v63.useOrionLoading)(),
         _v4 = (0, _v22.useOrionSetting)("card_verification_modal_variant"),
@@ -13270,7 +13272,7 @@
             element: "add_new_cta"
           });
         }, [_v12, _v4]);
-      return _v40 ? _v6 && (_v31 || !_v32) ? _v31 ? (0, _v1.jsxs)(_v33.Modal, {
+      return _v40 ? _v6 && (_v31 || !_v32) ? _v31 ? (0, _v1.jsxs)(_v34.Modal, {
         isOpen: _v8,
         size: "md",
         isCentered: !0,
@@ -13278,7 +13280,7 @@
         closeOnEsc: !1,
         closeOnOverlayClick: !1,
         onClose: () => void 0,
-        children: [(0, _v1.jsx)(_v38.ModalOverlay, {}), (0, _v1.jsx)(_v36.ModalContent, {
+        children: [(0, _v1.jsx)(_v39.ModalOverlay, {}), (0, _v1.jsx)(_v37.ModalContent, {
           maxWidth: {
             base: "calc(100vw - 32px)",
             md: "520px"
@@ -13293,7 +13295,7 @@
           },
           borderRadius: "20px",
           overflow: "hidden",
-          children: (0, _v1.jsx)(_v34.ModalBody, {
+          children: (0, _v1.jsx)(_v35.ModalBody, {
             px: "24px",
             pt: "24px",
             pb: "24px",
@@ -13304,7 +13306,7 @@
               gap: "24px",
               align: "stretch",
               children: [(0, _v1.jsxs)(_v73.Box, {
-                children: [(0, _v1.jsx)(_v39.Text, {
+                children: [(0, _v1.jsx)(_v40.Text, {
                   variant: "heading-md",
                   children: (0, _v14.translate)({
                     singular: "Confirm your card for future renewals",
@@ -13332,7 +13334,7 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v39.Text, {
+                }), (0, _v1.jsx)(_v40.Text, {
                   variant: "body-md",
                   color: "text-secondary",
                   mt: "8px",
@@ -13382,7 +13384,7 @@
                 }), (0, _v1.jsxs)(_v73.Box, {
                   flex: "1",
                   minW: 0,
-                  children: [(0, _v1.jsx)(_v39.Text, {
+                  children: [(0, _v1.jsx)(_v40.Text, {
                     variant: "heading-sm",
                     color: "text-primary",
                     children: (0, _v14.translate)({
@@ -13411,7 +13413,7 @@
                         }
                       }
                     })
-                  }), (0, _v1.jsx)(_v39.Text, {
+                  }), (0, _v1.jsx)(_v40.Text, {
                     variant: "body-sm",
                     color: "text-secondary",
                     mt: "2px",
@@ -13464,7 +13466,7 @@
             })
           })
         })]
-      }) : null : (0, _v1.jsxs)(_v33.Modal, {
+      }) : null : (0, _v1.jsxs)(_v34.Modal, {
         isOpen: !0,
         size: "md",
         isCentered: !0,
@@ -13472,7 +13474,7 @@
         closeOnEsc: !1,
         closeOnOverlayClick: !1,
         onClose: () => void 0,
-        children: [(0, _v1.jsx)(_v38.ModalOverlay, {}), (0, _v1.jsxs)(_v36.ModalContent, {
+        children: [(0, _v1.jsx)(_v39.ModalOverlay, {}), (0, _v1.jsxs)(_v37.ModalContent, {
           maxWidth: {
             base: "calc(100vw - 32px)",
             md: "480px"
@@ -13487,7 +13489,7 @@
           },
           borderRadius: "20px",
           overflow: "hidden",
-          children: [(0, _v1.jsx)(_v34.ModalBody, {
+          children: [(0, _v1.jsx)(_v35.ModalBody, {
             px: "24px",
             pt: "24px",
             pb: "8px",
@@ -13498,7 +13500,7 @@
               gap: "24px",
               align: "stretch",
               children: [(0, _v1.jsxs)(_v73.Box, {
-                children: [(0, _v1.jsx)(_v39.Text, {
+                children: [(0, _v1.jsx)(_v40.Text, {
                   variant: "heading-md",
                   children: (0, _v14.translate)({
                     singular: "Confirm your card for future renewals",
@@ -13526,7 +13528,7 @@
                       }
                     }
                   })
-                }), (0, _v1.jsx)(_v39.Text, {
+                }), (0, _v1.jsx)(_v40.Text, {
                   variant: "body-md",
                   color: "text-secondary",
                   mt: "8px",
@@ -13576,7 +13578,7 @@
                 }), (0, _v1.jsxs)(_v73.Box, {
                   flex: "1",
                   minW: 0,
-                  children: [(0, _v1.jsx)(_v39.Text, {
+                  children: [(0, _v1.jsx)(_v40.Text, {
                     variant: "heading-sm",
                     color: "text-primary",
                     children: (0, _v14.translate)({
@@ -13605,7 +13607,7 @@
                         }
                       }
                     })
-                  }), (0, _v1.jsx)(_v39.Text, {
+                  }), (0, _v1.jsx)(_v40.Text, {
                     variant: "body-sm",
                     color: "text-secondary",
                     mt: "2px",
@@ -13650,7 +13652,7 @@
                   gap: "8px",
                   children: [(0, _v1.jsx)(_v499, {
                     cardBrand: _v29
-                  }), (0, _v1.jsxs)(_v39.Text, {
+                  }), (0, _v1.jsxs)(_v40.Text, {
                     variant: "body-md",
                     color: "text-tertiary",
                     children: [_v29 ? `${_v29} ` : "", "••••", _v28]
@@ -13660,7 +13662,7 @@
                   px: "8px",
                   py: "3px",
                   borderRadius: "6px",
-                  children: (0, _v1.jsx)(_v39.Text, {
+                  children: (0, _v1.jsx)(_v40.Text, {
                     fontSize: "11px",
                     fontWeight: "500",
                     color: "background",
@@ -13695,7 +13697,7 @@
                 })]
               })]
             })
-          }), (0, _v1.jsx)(_v37.ModalFooter, {
+          }), (0, _v1.jsx)(_v38.ModalFooter, {
             px: "24px",
             pt: "20px",
             pb: "24px",
@@ -13807,7 +13809,7 @@
       _v19 = (0, _v3.useRef)(!1);
     return (0, _v3.useEffect)(() => {
       _v17 && (_v19.current = !1, _v18());
-    }, [_v17]), (0, _v1.jsxs)(_v33.Modal, {
+    }, [_v17]), (0, _v1.jsxs)(_v34.Modal, {
       isOpen: _v17,
       onClose: () => {
         _v11(), _v16();
@@ -13815,7 +13817,7 @@
       isCentered: !0,
       scrollBehavior: "outside",
       initialFocusRef: _v13,
-      children: [(0, _v1.jsx)(_v38.ModalOverlay, {}), (0, _v1.jsx)(_v36.ModalContent, {
+      children: [(0, _v1.jsx)(_v39.ModalOverlay, {}), (0, _v1.jsx)(_v37.ModalContent, {
         ref: _v13,
         tabIndex: -1,
         "aria-label": _v4,
@@ -13829,11 +13831,11 @@
         },
         margin: "auto",
         borderRadius: "lg",
-        children: (0, _v1.jsxs)(_v34.ModalBody, {
+        children: (0, _v1.jsxs)(_v35.ModalBody, {
           p: "0",
           children: [(0, _v1.jsx)(_v73.Box, {
             p: "sm",
-            children: (0, _v1.jsx)(_v58.Flex, {
+            children: (0, _v1.jsx)(_v30.Flex, {
               aspectRatio: 16 / 9,
               borderRadius: "md",
               overflow: "hidden",
@@ -13849,24 +13851,24 @@
                 }
               })
             })
-          }), (0, _v1.jsxs)(_v58.Flex, {
+          }), (0, _v1.jsxs)(_v30.Flex, {
             direction: "column",
             gap: "lg",
             p: "lg",
-            children: [(0, _v1.jsxs)(_v58.Flex, {
+            children: [(0, _v1.jsxs)(_v30.Flex, {
               direction: "column",
               gap: "md",
-              children: [(0, _v1.jsxs)(_v58.Flex, {
+              children: [(0, _v1.jsxs)(_v30.Flex, {
                 direction: "column",
                 gap: "md",
                 children: [(0, _v1.jsx)(_v309.Badge, {
                   variant: "new",
                   size: "sm",
                   children: _v3
-                }), (0, _v1.jsx)(_v58.Flex, {
+                }), (0, _v1.jsx)(_v30.Flex, {
                   direction: "column",
                   gap: "sm",
-                  children: (0, _v1.jsx)(_v30.Header, {
+                  children: (0, _v1.jsx)(_v31.Header, {
                     as: "h3",
                     variant: "heading-md",
                     fontSize: (0, _v59.rem)(24),
@@ -13883,11 +13885,11 @@
                 children: _v5.map(({
                   icon: _v0,
                   label: _v1
-                }) => (0, _v1.jsxs)(_v58.Flex, {
+                }) => (0, _v1.jsxs)(_v30.Flex, {
                   as: "li",
                   align: "center",
                   gap: "md",
-                  children: [(0, _v1.jsx)(_v58.Flex, {
+                  children: [(0, _v1.jsx)(_v30.Flex, {
                     align: "center",
                     justify: "center",
                     boxSize: "md",
@@ -13895,14 +13897,14 @@
                     borderRadius: "md",
                     bg: "fill-component",
                     children: _v0
-                  }), (0, _v1.jsx)(_v39.Text, {
+                  }), (0, _v1.jsx)(_v40.Text, {
                     variant: "heading-xs",
                     color: "text-secondary",
                     children: _v1
                   })]
                 }, _v1))
               })]
-            }), (0, _v1.jsxs)(_v58.Flex, {
+            }), (0, _v1.jsxs)(_v30.Flex, {
               justifyContent: "flex-end",
               gap: "sm",
               children: [(0, _v1.jsx)(_v29.Button, {
@@ -13995,7 +13997,7 @@
     }) => {
       let _v3 = (0, _v511.useBundleSurfaceTokens)(),
         _v4 = (0, _v512.getBundleActivationCluster)(_v0);
-      return (0, _v1.jsxs)(_v58.Flex, {
+      return (0, _v1.jsxs)(_v30.Flex, {
         direction: "column",
         gap: (0, _v59.rem)(12),
         width: "100%",
@@ -14014,11 +14016,11 @@
         }), (0, _v1.jsx)(_v513.BannerGlow, {
           geometry: _v510.GLOW_PURPLE,
           asset: _v509.default
-        }), (0, _v1.jsxs)(_v58.Flex, {
+        }), (0, _v1.jsxs)(_v30.Flex, {
           position: "relative",
           alignItems: "center",
           gap: (0, _v59.rem)(4),
-          children: [(0, _v1.jsx)(_v39.Text, {
+          children: [(0, _v1.jsx)(_v40.Text, {
             variant: "body-md",
             fontFamily: "heading",
             color: "text-primary",
@@ -14084,7 +14086,7 @@
               height: (0, _v59.rem)(14)
             })
           })]
-        }), (0, _v1.jsxs)(_v58.Flex, {
+        }), (0, _v1.jsxs)(_v30.Flex, {
           position: "relative",
           direction: "column",
           alignItems: "stretch",
@@ -14208,7 +14210,7 @@
     _v524 = _v0.i(0),
     _v525 = _v0.i(0);
   function _v526() {
-    return (0, _v1.jsx)(_v58.Flex, {
+    return (0, _v1.jsx)(_v30.Flex, {
       align: "center",
       justify: "center",
       width: "100%",
@@ -14230,7 +14232,7 @@
       return _v0.style.setProperty(_v527, String(0)), () => {
         _v1 ? _v0.style.setProperty(_v527, _v1) : _v0.style.removeProperty(_v527);
       };
-    }, []), (0, _v1.jsxs)(_v33.Modal, {
+    }, []), (0, _v1.jsxs)(_v34.Modal, {
       isOpen: !0,
       onClose: _v0,
       isCentered: !0,
@@ -14239,9 +14241,9 @@
       closeOnOverlayClick: !1,
       closeOnEsc: !1,
       autoFocus: !1,
-      children: [(0, _v1.jsx)(_v38.ModalOverlay, {
+      children: [(0, _v1.jsx)(_v39.ModalOverlay, {
         zIndex: 0
-      }), (0, _v1.jsx)(_v36.ModalContent, {
+      }), (0, _v1.jsx)(_v37.ModalContent, {
         containerProps: {
           zIndex: 0
         },
@@ -14268,7 +14270,7 @@
     name: _v0,
     src: _v1
   }) {
-    return (0, _v1.jsxs)(_v58.Flex, {
+    return (0, _v1.jsxs)(_v30.Flex, {
       direction: "column",
       align: "center",
       gap: (0, _v59.rem)(8),
@@ -14283,7 +14285,7 @@
         nameProps: {
           name: _v0
         }
-      }), (0, _v1.jsx)(_v39.Text, {
+      }), (0, _v1.jsx)(_v40.Text, {
         variant: "heading-xs",
         color: "text-primary",
         maxW: "100%",
@@ -14301,12 +14303,12 @@
     subtitle: _v3,
     onLogout: _v4
   }) {
-    return (0, _v1.jsxs)(_v58.Flex, {
+    return (0, _v1.jsxs)(_v30.Flex, {
       direction: "column",
       align: "center",
       gap: (0, _v59.rem)(24),
       width: "100%",
-      children: [(0, _v1.jsxs)(_v58.Flex, {
+      children: [(0, _v1.jsxs)(_v30.Flex, {
         direction: "column",
         align: "center",
         gap: (0, _v59.rem)(8),
@@ -14329,7 +14331,7 @@
           })]
         }), (0, _v1.jsxs)(_v73.Box, {
           textAlign: "center",
-          children: [(0, _v1.jsx)(_v39.Text, {
+          children: [(0, _v1.jsx)(_v40.Text, {
             variant: "body-md",
             color: "text-secondary",
             children: (0, _v14.translate)({
@@ -14358,13 +14360,13 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v39.Text, {
+          }), (0, _v1.jsx)(_v40.Text, {
             variant: "body-md",
             color: "text-secondary",
             children: (0, _v14.translate)({
               singular: "{LOGOUT}Log out{/LOGOUT} and sign in with another one.",
               replacements: {
-                LOGOUT: _v0 => (0, _v1.jsx)(_v32.Link, {
+                LOGOUT: _v0 => (0, _v1.jsx)(_v33.Link, {
                   as: "button",
                   type: "button",
                   onClick: _v4,
@@ -14402,17 +14404,17 @@
             })
           })]
         })]
-      }), (0, _v1.jsxs)(_v58.Flex, {
+      }), (0, _v1.jsxs)(_v30.Flex, {
         direction: "column",
         align: "flex-start",
         gap: (0, _v59.rem)(8),
         width: "100%",
-        children: [(0, _v1.jsx)(_v39.Text, {
+        children: [(0, _v1.jsx)(_v40.Text, {
           variant: "heading-md",
           color: "text-primary",
           width: "100%",
           children: _v2
-        }), _v3 ? (0, _v1.jsx)(_v39.Text, {
+        }), _v3 ? (0, _v1.jsx)(_v40.Text, {
           variant: "body-md",
           color: "text-primary",
           width: "100%",
@@ -14457,7 +14459,7 @@
           }
         }
       });
-    return (0, _v1.jsxs)(_v58.Flex, {
+    return (0, _v1.jsxs)(_v30.Flex, {
       align: "flex-start",
       gap: (0, _v59.rem)(6),
       p: (0, _v59.rem)(12),
@@ -14470,7 +14472,7 @@
         flexShrink: 0,
         "aria-hidden": !0
       }), (0, _v1.jsxs)(_v73.Box, {
-        children: [(0, _v1.jsx)(_v39.Text, {
+        children: [(0, _v1.jsx)(_v40.Text, {
           variant: "heading-xs",
           color: "text-primary",
           children: (0, _v14.translate)({
@@ -14499,7 +14501,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v39.Text, {
+        }), (0, _v1.jsx)(_v40.Text, {
           variant: "body-md",
           color: "text-secondary",
           children: _v2
@@ -14556,17 +14558,17 @@
           title: _v7,
           onLogout: _v6
         })
-      }), (0, _v1.jsx)(_v34.ModalBody, {
+      }), (0, _v1.jsx)(_v35.ModalBody, {
         px: (0, _v59.rem)(24),
         py: (0, _v59.rem)(20),
         children: (0, _v1.jsx)(_v534, {
           agencyUserId: _v1
         })
-      }), (0, _v1.jsx)(_v37.ModalFooter, {
+      }), (0, _v1.jsx)(_v38.ModalFooter, {
         px: (0, _v59.rem)(24),
         pt: "0",
         pb: (0, _v59.rem)(24),
-        children: (0, _v1.jsxs)(_v58.Flex, {
+        children: (0, _v1.jsxs)(_v30.Flex, {
           direction: "column",
           align: "center",
           gap: (0, _v59.rem)(8),
@@ -14773,12 +14775,12 @@
       }), (0, _v1.jsx)(_v73.Box, {
         px: (0, _v59.rem)(24),
         py: (0, _v59.rem)(20),
-        children: (0, _v1.jsxs)(_v58.Flex, {
+        children: (0, _v1.jsxs)(_v30.Flex, {
           direction: "column",
           align: "center",
           gap: (0, _v59.rem)(32),
           width: "100%",
-          children: [(0, _v1.jsx)(_v58.Flex, {
+          children: [(0, _v1.jsx)(_v30.Flex, {
             direction: "column",
             align: "flex-start",
             gap: (0, _v59.rem)(16),
@@ -15030,7 +15032,7 @@
                   }
                 }
               })
-            }].map(_v0 => (0, _v1.jsxs)(_v58.Flex, {
+            }].map(_v0 => (0, _v1.jsxs)(_v30.Flex, {
               gap: (0, _v59.rem)(12),
               align: "flex-start",
               width: "100%",
@@ -15038,17 +15040,17 @@
                 display: "flex",
                 flexShrink: 0,
                 children: _v0.icon
-              }), (0, _v1.jsxs)(_v58.Flex, {
+              }), (0, _v1.jsxs)(_v30.Flex, {
                 direction: "column",
                 align: "flex-start",
                 flex: "1",
                 minW: "0",
-                children: [(0, _v1.jsx)(_v39.Text, {
+                children: [(0, _v1.jsx)(_v40.Text, {
                   variant: "heading-xs",
                   color: "text-primary",
                   width: "100%",
                   children: _v0.title
-                }), (0, _v1.jsx)(_v39.Text, {
+                }), (0, _v1.jsx)(_v40.Text, {
                   variant: "body-md",
                   color: "text-secondary",
                   width: "100%",
@@ -15060,11 +15062,11 @@
             agencyUserId: _v1
           })]
         })
-      }), (0, _v1.jsx)(_v37.ModalFooter, {
+      }), (0, _v1.jsx)(_v38.ModalFooter, {
         px: (0, _v59.rem)(24),
         pt: "0",
         pb: (0, _v59.rem)(24),
-        children: (0, _v1.jsxs)(_v58.Flex, {
+        children: (0, _v1.jsxs)(_v30.Flex, {
           direction: "column",
           align: "center",
           gap: (0, _v59.rem)(8),
@@ -15126,7 +15128,7 @@
   };
   function _v543() {
     let _v0 = (0, _v176.useHasMounted)(),
-      _v1 = (0, _v57.useViewer)(),
+      _v1 = (0, _v58.useViewer)(),
       {
         payload: _v2
       } = (0, _v524.useManagedAccountsInvite)();
@@ -15137,7 +15139,7 @@
   function _v544({
     payload: _v0
   }) {
-    let _v1 = (0, _v57.useViewer)(),
+    let _v1 = (0, _v58.useViewer)(),
       {
         xsrft: _v2
       } = _v1 ?? {},
@@ -15735,7 +15737,7 @@
         }
       })
     }];
-    return (0, _v1.jsxs)(_v33.Modal, {
+    return (0, _v1.jsxs)(_v34.Modal, {
       isOpen: !0,
       onClose: () => void 0,
       autoFocus: !1,
@@ -15744,7 +15746,7 @@
       closeOnOverlayClick: !1,
       motionPreset: "scale",
       size: "md",
-      children: [(0, _v1.jsx)(_v38.ModalOverlay, {}), (0, _v1.jsx)(_v36.ModalContent, {
+      children: [(0, _v1.jsx)(_v39.ModalOverlay, {}), (0, _v1.jsx)(_v37.ModalContent, {
         role: "dialog",
         "aria-modal": "true",
         "aria-labelledby": "thanks" === _v0 ? _v553 : _v551,
@@ -15778,7 +15780,7 @@
               ease: "easeOut"
             },
             children: "form" === _v0 ? (0, _v1.jsxs)(_v73.Box, {
-              children: [(0, _v1.jsx)(_v39.Text, {
+              children: [(0, _v1.jsx)(_v40.Text, {
                 as: "p",
                 fontSize: (0, _v59.rem)(14),
                 fontWeight: 600,
@@ -15810,7 +15812,7 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v39.Text, {
+              }), (0, _v1.jsx)(_v40.Text, {
                 as: "h2",
                 id: _v551,
                 fontSize: (0, _v59.rem)(28),
@@ -15855,7 +15857,7 @@
                     value: _v0.value,
                     size: "md",
                     py: (0, _v59.rem)(8),
-                    children: (0, _v1.jsx)(_v39.Text, {
+                    children: (0, _v1.jsx)(_v40.Text, {
                       variant: "body-lg",
                       color: "text-primary",
                       children: _v0.label
@@ -15893,7 +15895,7 @@
                   },
                   children: (0, _v1.jsxs)(_v73.Box, {
                     pt: (0, _v59.rem)(20),
-                    children: [(0, _v1.jsx)(_v39.Text, {
+                    children: [(0, _v1.jsx)(_v40.Text, {
                       as: "label",
                       htmlFor: _v552,
                       display: "block",
@@ -16026,7 +16028,7 @@
                   }
                 })
               })]
-            }) : (0, _v1.jsxs)(_v58.Flex, {
+            }) : (0, _v1.jsxs)(_v30.Flex, {
               direction: "column",
               align: "center",
               textAlign: "center",
@@ -16043,7 +16045,7 @@
                   duration: .42,
                   ease: _v550
                 },
-                children: (0, _v1.jsx)(_v58.Flex, {
+                children: (0, _v1.jsx)(_v30.Flex, {
                   width: (0, _v59.rem)(64),
                   height: (0, _v59.rem)(64),
                   borderRadius: "50%",
@@ -16058,7 +16060,7 @@
                     height: 32
                   })
                 })
-              }), (0, _v1.jsx)(_v39.Text, {
+              }), (0, _v1.jsx)(_v40.Text, {
                 as: "h2",
                 id: _v553,
                 fontSize: (0, _v59.rem)(26),
@@ -16091,7 +16093,7 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v39.Text, {
+              }), (0, _v1.jsx)(_v40.Text, {
                 mt: (0, _v59.rem)(10),
                 fontSize: (0, _v59.rem)(15),
                 color: "text-tertiary",
@@ -16175,7 +16177,7 @@
         _v3,
         _v4,
         _v5 = (0, _v15.useManagedAccountsSuppression)(),
-        _v6 = (0, _v57.useViewer)(),
+        _v6 = (0, _v58.useViewer)(),
         _v7 = _v6?.user?.id,
         _v8 = _v6?.user?.capabilities?.hasPaid,
         _v9 = (0, _v63.useOrionLoading)(),
@@ -16229,12 +16231,12 @@
         _v24 = (0, _v3.useCallback)(() => {
           _v19(!0);
         }, []);
-      return _v5 || !_v14 ? null : (0, _v1.jsxs)(_v33.Modal, {
+      return _v5 || !_v14 ? null : (0, _v1.jsxs)(_v34.Modal, {
         isOpen: !0,
         onClose: _v23,
         size: "md",
         scrollBehavior: "outside",
-        children: [(0, _v1.jsx)(_v38.ModalOverlay, {}), (0, _v1.jsxs)(_v36.ModalContent, {
+        children: [(0, _v1.jsx)(_v39.ModalOverlay, {}), (0, _v1.jsxs)(_v37.ModalContent, {
           maxWidth: {
             base: "calc(100vw - 32px)",
             md: "520px"
@@ -16247,13 +16249,13 @@
           margin: "auto",
           overflow: "hidden",
           position: "relative",
-          children: [(0, _v1.jsx)(_v35.ModalCloseButton, {
+          children: [(0, _v1.jsx)(_v36.ModalCloseButton, {
             zIndex: 1
-          }), (0, _v1.jsxs)(_v34.ModalBody, {
+          }), (0, _v1.jsxs)(_v35.ModalBody, {
             px: "24px",
             pt: "48px",
             pb: "24px",
-            children: [(0, _v1.jsx)(_v39.Text, {
+            children: [(0, _v1.jsx)(_v40.Text, {
               variant: "heading-md",
               mb: "4px",
               children: (0, _v14.translate)({
@@ -16282,7 +16284,7 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v39.Text, {
+            }), (0, _v1.jsx)(_v40.Text, {
               variant: "body-sm",
               color: "text-secondary",
               mb: "16px",
@@ -16312,7 +16314,7 @@
                   }
                 }
               })
-            }), !_v18 && (0, _v1.jsx)(_v58.Flex, {
+            }), !_v18 && (0, _v1.jsx)(_v30.Flex, {
               justifyContent: "center",
               alignItems: "center",
               height: "500px",
@@ -16342,7 +16344,7 @@
       !function () {
         let _v0,
           _v1 = (0, _v2.useRouter)(),
-          _v2 = (0, _v57.useViewer)(),
+          _v2 = (0, _v58.useViewer)(),
           _v3 = (0, _v63.useOrionLoading)(),
           _v4 = (_v0 = (0, _v17.usePico)(), {
             trackHomeToWatchRedirectTriggered: (0, _v3.useCallback)(() => null !== _v0 && (_v0.track("home_to_watch_redirect_triggered", {}), !0), [_v0]),
@@ -16402,7 +16404,7 @@
           _v0(), _v1.replace("/watch");
         }, [_v19, _v10, _v9, _v8, _v20, _v1]);
       }();
-      let _v5 = (0, _v57.useViewer)(),
+      let _v5 = (0, _v58.useViewer)(),
         _v6 = (0, _v17.usePico)(),
         _v7 = (_v5?.teamUser?.ownerId ?? _v5?.user?.id) || 0,
         {
@@ -16546,7 +16548,7 @@
             _v2,
             _v3 = (0, _v22.useOrionSetting)("bi_product_sentiment_pulse_enabled"),
             _v4 = (0, _v63.useOrionLoading)(),
-            _v5 = (0, _v57.useViewer)(),
+            _v5 = (0, _v58.useViewer)(),
             _v6 = _v5?.user?.id ?? null,
             _v7 = _v5?.user?.account ?? "unknown",
             _v8 = (_v5?.location ?? "").toUpperCase() || "unknown",
@@ -16820,7 +16822,7 @@
         }), (0, _v1.jsx)(_v27, {
           isSuppressed: _v21,
           onOpenChange: _v30
-        }), (0, _v1.jsx)(_v54, {
+        }), (0, _v1.jsx)(_v55, {
           isSuppressed: _v21,
           onOpenChange: _v32
         }), (0, _v1.jsx)(_v8.BundleIntroModalContainer, {
@@ -16865,9 +16867,9 @@
     let {
       isAvailable: _v2
     } = _v11();
-    return (0, _v1.jsx)(_v56.VideoLibraryLayout, {
+    return (0, _v1.jsx)(_v57.VideoLibraryLayout, {
       hasSideNav: !0,
-      sideNavContent: (0, _v1.jsx)(_v55.SideNavContent, {
+      sideNavContent: (0, _v1.jsx)(_v56.SideNavContent, {
         surface: "home"
       }),
       bundlePromo: (0, _v1.jsx)(_v560, {}),

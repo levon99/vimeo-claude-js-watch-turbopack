@@ -155,6 +155,7 @@
     enable_whats_new_page: !0,
     enable_browser_studio_camera_position_presets: !1,
     enable_browser_studio_stream_health: !1,
+    enable_browser_studio_speakers_redesign: !1,
     enable_video_customization_v2_new_badge: !1,
     enable_email_defaults: !1,
     library_marketing_video_id: "control",
@@ -230,7 +231,8 @@
     onboarding_checkout_fallback_modal: "none",
     onboarding_checkout_fallback_tier: "starter",
     enable_reviewer_signup_prompt: !1,
-    reviewer_signup_prompt_suppression_days: 3
+    reviewer_signup_prompt_suppression_days: 3,
+    enable_stream_health_popover: !1
   };
   function _v3(_v0) {
     return {

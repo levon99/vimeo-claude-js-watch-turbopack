@@ -3555,11 +3555,13 @@
         _v0.content.focus = _v10.team.accentColor, _v0.formats.primary = _v10.team.accentColor, _v13(_v0);
       }, [_v10.team.accentColor]), (0, _v6.useEffect)(() => {
         if (_v7.current || null === _v6) return;
-        let [_v0, _v1, _v2] = (_v4?.get("product_id") ?? "").split("-");
+        let [_v0, _v1, _v2] = (_v4?.get("product_id") ?? "").split("-"),
+          _v3 = _v4?.get("is_indie_program") === "1";
         _v0 && _v1 && (_v7.current = !0, _v5({
           tier: _v0,
           periodicity: _v1,
-          isFreeTrial: "free" === _v2
+          isFreeTrial: "free" === _v2,
+          isIndieProgram: _v3
         }));
       }, [_v6, _v5, _v4]), _v10.sectionIndex === _v10.flow.length) return "onboarding" === _v18 && _v17 ? (0, _v4.jsx)(_v30, {}) : "onboarding" === _v18 && !1 === _v16.canSkipEmailVerification ? (0, _v4.jsx)(_v12.ThemeProvider, {
         theme: _v12,

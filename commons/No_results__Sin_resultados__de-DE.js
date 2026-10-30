@@ -31,9 +31,29 @@
       [_v7, _v8] = (0, _v7.useGetUserItemsLazy)(),
       _v9 = (0, _v2.useRef)(1),
       _v10 = (0, _v2.useRef)([]),
-      _v11 = _v13.default.privateToMeFolderUri.match(/\/([^\/]+)\/?$/)?.[1],
-      _v12 = _v8.loading || _v6.loading,
-      _v13 = (0, _v2.useMemo)(() => ({
+      _v11 = (0, _v2.useRef)(1),
+      _v12 = (0, _v2.useRef)([]),
+      _v13 = (0, _v2.useRef)(0),
+      _v14 = (0, _v2.useRef)(null),
+      [_v15, _v16] = (0, _v2.useState)(0),
+      [_v17, _v18] = (0, _v2.useState)(0),
+      _v19 = (0, _v2.useRef)(void 0),
+      _v20 = (0, _v2.useRef)(void 0),
+      _v21 = (0, _v2.useRef)({
+        page: 0,
+        total: 0
+      }),
+      _v22 = (0, _v2.useCallback)(_v0 => {
+        _v13.current += 1;
+        let _v1 = _v13.current;
+        _v14.current = _v1, _v16(_v1), _v0.finally(() => {
+          _v14.current === _v1 && (_v14.current = null), _v18(_v1);
+        });
+      }, []),
+      _v23 = _v17 === _v15 && !_v8.error,
+      _v24 = _v13.default.privateToMeFolderUri.match(/\/([^\/]+)\/?$/)?.[1],
+      _v25 = _v8.loading || _v6.loading,
+      _v26 = (0, _v2.useMemo)(() => ({
         select: _v9.libraryItemsQueryParams,
         query: {
           sort: _v2,
@@ -44,64 +64,111 @@
         },
         ..._v10.VIMEO_API_HEADERS
       }), [_v2, _v3]),
-      _v14 = (0, _v2.useMemo)(() => {
+      _v27 = (0, _v2.useMemo)(() => ({
+        includeFolderIds: _v1,
+        query: _v4,
+        perPage: _v11.MEDIA_LIBRARY_ITEMS_PER_PAGE
+      }), [_v4, _v1]),
+      _v28 = (0, _v2.useMemo)(() => {
         let {
             data: _v0
           } = _v4 ? _v8 : _v6,
           _v1 = _v0 ? [_v0].filter(_v0 => !!_v0).flatMap(_v0 => _v0?.data).filter(_v0 => _v0?.folder !== null) : [];
-        if (_v4) return _v1;
+        if (_v4) {
+          let _v0 = _v8.data?.page;
+          if (!(void 0 !== _v0 && _v0 !== _v11.current || !_v23)) if (1 === _v11.current) _v12.current = _v1;else {
+            let _v0 = new Set([..._v12.current, ..._v1]);
+            _v12.current = [..._v0];
+          }
+          return _v12.current;
+        }
         if (1 === _v9.current) _v10.current = _v1;else {
           let _v0 = new Set([..._v10.current, ..._v1]);
           _v10.current = [..._v0];
         }
         return _v10.current;
-      }, [_v4, _v8, _v6]);
+      }, [_v23, _v4, _v8, _v6]);
     (0, _v2.useEffect)(() => {
-      _v11 && (_v9.current = 1, _v5({
+      _v24 && (_v9.current = 1, _v5({
         where: {
           userId: _v13.default.teamOwnerId,
-          projectId: parseInt(_v1 || _v11)
+          projectId: parseInt(_v1 || _v24)
         },
-        ..._v13
+        ..._v26
       }));
-    }, [_v13, _v11, _v1]), (0, _v12.useDebouncedEffect)(() => {
-      _v4 && _v7({
+    }, [_v26, _v24, _v1]), (0, _v12.useDebouncedEffect)(() => {
+      _v4 && (_v11.current = 1, _v21.current = {
+        page: 0,
+        total: 0
+      }, _v19.current = _v4, _v22(_v7({
         where: {
           userId: _v13.default.teamOwnerId
         },
-        ..._v13,
-        query: {
-          includeFolderIds: _v1,
-          query: _v4
+        ..._v26,
+        query: _v27
+      })));
+    }, [_v26, _v4, _v1]);
+    let _v29 = (0, _v2.useCallback)(() => {
+        if (_v4) {
+          let {
+            loading: _v0,
+            data: _v1
+          } = _v8;
+          if (_v0 || null !== _v14.current) return;
+          let _v2 = _v23 && _v1?.page === _v11.current ? {
+            page: _v1.page,
+            total: _v1.total
+          } : _v21.current;
+          if (_v2.page === _v11.current) {
+            let _v0 = _v16(_v2.total, _v11.MEDIA_LIBRARY_ITEMS_PER_PAGE);
+            if (_v11.current >= _v0) return;
+            _v11.current++;
+          }
+          _v22(_v7({
+            where: {
+              userId: _v13.default.teamOwnerId
+            },
+            ..._v26,
+            query: {
+              ..._v27,
+              page: _v11.current
+            }
+          }));
+          return;
         }
+        let {
+            loading: _v0,
+            data: _v1,
+            error: _v2
+          } = _v6,
+          _v3 = _v16(_v1?.total || 0, _v11.MEDIA_LIBRARY_ITEMS_PER_PAGE);
+        !_v24 || _v0 || _v9.current >= _v3 || (!_v2 && _v9.current++, _v5({
+          where: {
+            userId: _v13.default.teamOwnerId,
+            projectId: parseInt(_v1 || _v24)
+          },
+          ..._v26,
+          query: {
+            ..._v26.query,
+            page: _v9.current
+          }
+        }));
+      }, [_v23, _v4, _v1, _v26, _v27, _v22, _v8, _v6]),
+      _v30 = _v8.data;
+    return (0, _v2.useEffect)(() => {
+      _v23 && _v30?.page === _v11.current && (_v21.current = {
+        page: _v30.page,
+        total: _v30.total
       });
-    }, [_v13, _v4, _v1]);
-    let _v15 = (0, _v2.useCallback)(() => {
-      let {
-          loading: _v0,
-          data: _v1,
-          error: _v2
-        } = _v6,
-        _v3 = _v16(_v1?.total || 0, _v11.MEDIA_LIBRARY_ITEMS_PER_PAGE);
-      !_v11 || _v4 || _v0 || _v9.current >= _v3 || (!_v2 && _v9.current++, _v5({
-        where: {
-          userId: _v13.default.teamOwnerId,
-          projectId: parseInt(_v1 || _v11)
-        },
-        ..._v13,
-        query: {
-          ..._v13.query,
-          page: _v9.current
-        }
-      }));
-    }, [_v4, _v1, _v13, _v6]);
-    return (0, _v1.jsx)(_v1.Fragment, {
-      children: _v12 || _v14 && 0 !== _v14.length ? (0, _v1.jsx)(_v17.Grid, {
-        itemRenderer: (_v0, _v1, _v2) => _v0(_v1, _v14[_v0], _v2),
+    }, [_v23, _v30]), (0, _v2.useEffect)(() => {
+      _v4 && _v4 === _v19.current && _v23 && !_v25 && _v30 && _v30 !== _v20.current && (_v20.current = _v30, _v30.page === _v11.current && _v30.data.length < _v11.MEDIA_LIBRARY_ITEMS_PER_PAGE && _v28.length < _v11.MEDIA_LIBRARY_ITEMS_PER_PAGE && _v11.current < _v11.MEDIA_LIBRARY_MAX_FILL_PAGE && _v29());
+    }, [_v29, _v23, _v25, _v28.length, _v4, _v30]), (0, _v1.jsx)(_v1.Fragment, {
+      children: _v25 || _v28 && 0 !== _v28.length ? (0, _v1.jsx)(_v17.Grid, {
+        itemRenderer: (_v0, _v1, _v2) => _v0(_v1, _v28[_v0], _v2),
         styleType: _v15.GridStyleType.LANDSCAPE,
-        items: _v14,
-        isLoading: _v12,
-        loadMoreItems: _v15
+        items: _v28,
+        isLoading: _v25,
+        loadMoreItems: _v29
       }) : (0, _v1.jsx)(_v18.InspectorPaddedRow, {
         padLeft: !1,
         padRight: !0,
@@ -233,8 +300,28 @@
       _v11 = (0, _v23.useAppSelector)(_v22.isEditingInteractiveOverlaySelector),
       _v12 = (0, _v2.useRef)(1),
       _v13 = (0, _v2.useRef)([]),
-      _v14 = _v6.loading || _v8.loading || _v10.loading,
-      _v15 = (0, _v2.useMemo)(() => ({
+      _v14 = (0, _v2.useRef)(1),
+      _v15 = (0, _v2.useRef)([]),
+      _v16 = (0, _v2.useRef)(0),
+      _v17 = (0, _v2.useRef)(null),
+      [_v18, _v19] = (0, _v2.useState)(0),
+      [_v20, _v21] = (0, _v2.useState)(0),
+      _v22 = (0, _v2.useRef)(void 0),
+      _v23 = (0, _v2.useRef)(void 0),
+      _v24 = (0, _v2.useRef)({
+        page: 0,
+        total: 0
+      }),
+      _v25 = (0, _v2.useCallback)(_v0 => {
+        _v16.current += 1;
+        let _v1 = _v16.current;
+        _v17.current = _v1, _v19(_v1), _v0.finally(() => {
+          _v17.current === _v1 && (_v17.current = null), _v21(_v1);
+        });
+      }, []),
+      _v26 = _v20 === _v18 && !_v10.error,
+      _v27 = _v6.loading || _v8.loading || _v10.loading,
+      _v28 = (0, _v2.useMemo)(() => ({
         select: _v9.libraryItemsQueryParams,
         query: {
           sort: _v2,
@@ -247,79 +334,125 @@
         },
         ..._v10.VIMEO_API_HEADERS
       }), [_v2, _v3, _v11]),
-      _v16 = (0, _v2.useMemo)(() => {
+      _v29 = (0, _v2.useMemo)(() => ({
+        includeFolderIds: _v1,
+        includeCaptionsResults: !0,
+        query: _v4,
+        ..._v28.query
+      }), [_v4, _v1, _v28]),
+      _v30 = (0, _v2.useMemo)(() => {
         let _v0 = _v8.data;
         _v1 && (_v0 = _v6.data), _v4 && (_v0 = _v10.data);
-        let _v1 = _v0 && !_v14 ? [_v0].filter(_v0 => !!_v0).flatMap(_v0 => _v0?.data).filter(_v0 => _v0?.folder !== null && _v0?.folder?.uri !== _v13.default.privateToMeFolderUri) : [];
-        if (_v4) return _v1;
+        let _v1 = _v0 && !_v27 ? [_v0].filter(_v0 => !!_v0).flatMap(_v0 => _v0?.data).filter(_v0 => _v0?.folder !== null && _v0?.folder?.uri !== _v13.default.privateToMeFolderUri) : [];
+        if (_v4) {
+          let _v0 = _v10.data?.page;
+          if (!(!_v27 && (void 0 !== _v0 && _v0 !== _v14.current || !_v26))) if (1 === _v14.current) _v15.current = _v1;else {
+            let _v0 = new Set([..._v15.current, ..._v1]);
+            _v15.current = [..._v0];
+          }
+          return _v15.current;
+        }
         if (1 === _v12.current) _v13.current = _v1;else {
           let _v0 = new Set([..._v13.current, ..._v1]);
           _v13.current = [..._v0];
         }
         return _v13.current;
-      }, [_v14, _v4, _v1, _v8.data, _v10.data, _v6.data]);
+      }, [_v26, _v27, _v4, _v1, _v8.data, _v10.data, _v6.data]);
     (0, _v2.useEffect)(() => {
       _v12.current = 1, _v1 ? _v5({
         where: {
           userId: _v13.default.teamOwnerId,
           projectId: parseInt(_v1)
         },
-        ..._v15
+        ..._v28
       }) : _v7({
         where: {
           userId: _v13.default.teamOwnerId
         },
-        ..._v15
+        ..._v28
       });
-    }, [_v15, _v1]), (0, _v12.useDebouncedEffect)(() => {
-      _v4 && _v9({
+    }, [_v28, _v1]), (0, _v12.useDebouncedEffect)(() => {
+      _v4 && (_v14.current = 1, _v24.current = {
+        page: 0,
+        total: 0
+      }, _v22.current = _v4, _v25(_v9({
         where: {
           userId: _v13.default.teamOwnerId
         },
-        ..._v15,
-        query: {
-          includeFolderIds: _v1,
-          includeCaptionsResults: !0,
-          query: _v4,
-          ..._v15.query
+        ..._v28,
+        query: _v29
+      })));
+    }, [_v4, _v2, _v1, _v28]);
+    let _v31 = (0, _v2.useCallback)(() => {
+        if (_v4) {
+          let {
+            loading: _v0,
+            data: _v1
+          } = _v10;
+          if (_v0 || null !== _v17.current) return;
+          let _v2 = _v26 && _v1?.page === _v14.current ? {
+            page: _v1.page,
+            total: _v1.total
+          } : _v24.current;
+          if (_v2.page === _v14.current) {
+            let _v0 = _v16(_v2.total, _v11.MEDIA_LIBRARY_ITEMS_PER_PAGE);
+            if (_v14.current >= _v0) return;
+            _v14.current++;
+          }
+          _v25(_v9({
+            where: {
+              userId: _v13.default.teamOwnerId
+            },
+            ..._v28,
+            query: {
+              ..._v29,
+              page: _v14.current
+            }
+          }));
+          return;
         }
+        let {
+            loading: _v0,
+            data: _v1,
+            error: _v2
+          } = _v1 ? _v6 : _v8,
+          _v3 = _v16(_v1?.total || 0, _v11.MEDIA_LIBRARY_ITEMS_PER_PAGE);
+        if (_v0 || _v12.current >= _v3) return;
+        !_v2 && _v12.current++;
+        let _v4 = {
+          ..._v28.query,
+          page: _v12.current
+        };
+        _v1 ? _v5({
+          where: {
+            userId: _v13.default.teamOwnerId,
+            projectId: parseInt(_v1)
+          },
+          ..._v28,
+          query: _v4
+        }) : _v7({
+          where: {
+            userId: _v13.default.teamOwnerId
+          },
+          ..._v28,
+          query: _v4
+        });
+      }, [_v26, _v4, _v1, _v28, _v29, _v25, _v8, _v10, _v6]),
+      _v32 = _v10.data;
+    return (0, _v2.useEffect)(() => {
+      _v26 && _v32?.page === _v14.current && (_v24.current = {
+        page: _v32.page,
+        total: _v32.total
       });
-    }, [_v4, _v2, _v1, _v15]);
-    let _v17 = (0, _v2.useCallback)(() => {
-      let {
-          loading: _v0,
-          data: _v1,
-          error: _v2
-        } = _v1 ? _v6 : _v8,
-        _v3 = _v16(_v1?.total || 0, _v11.MEDIA_LIBRARY_ITEMS_PER_PAGE);
-      if (_v4 || _v0 || _v12.current >= _v3) return;
-      !_v2 && _v12.current++;
-      let _v4 = {
-        ..._v15.query,
-        page: _v12.current
-      };
-      _v1 ? _v5({
-        where: {
-          userId: _v13.default.teamOwnerId,
-          projectId: parseInt(_v1)
-        },
-        ..._v15,
-        query: _v4
-      }) : _v7({
-        where: {
-          userId: _v13.default.teamOwnerId
-        },
-        ..._v15,
-        query: _v4
-      });
-    }, [_v4, _v1, _v15, _v8, _v6]);
-    return (0, _v1.jsx)(_v1.Fragment, {
-      children: _v14 || _v16.length ? (0, _v1.jsx)(_v17.Grid, {
-        itemRenderer: (_v0, _v1, _v2) => _v0(_v1, _v16[_v0], _v2),
+    }, [_v26, _v32]), (0, _v2.useEffect)(() => {
+      _v4 && _v4 === _v22.current && _v26 && !_v27 && _v32 && _v32 !== _v23.current && (_v23.current = _v32, _v32.page === _v14.current && _v32.data.length < _v11.MEDIA_LIBRARY_ITEMS_PER_PAGE && _v30.length < _v11.MEDIA_LIBRARY_ITEMS_PER_PAGE && _v14.current < _v11.MEDIA_LIBRARY_MAX_FILL_PAGE && _v31());
+    }, [_v31, _v26, _v27, _v30.length, _v4, _v32]), (0, _v1.jsx)(_v1.Fragment, {
+      children: _v27 || _v30.length ? (0, _v1.jsx)(_v17.Grid, {
+        itemRenderer: (_v0, _v1, _v2) => _v0(_v1, _v30[_v0], _v2),
         styleType: _v15.GridStyleType.LANDSCAPE,
-        items: _v16,
-        isLoading: _v14,
-        loadMoreItems: _v17
+        items: _v30,
+        isLoading: _v27,
+        loadMoreItems: _v31
       }) : (0, _v1.jsx)(_v18.InspectorPaddedRow, {
         padLeft: !1,
         children: _v4 ? (0, _v1.jsx)(_v19.default, {

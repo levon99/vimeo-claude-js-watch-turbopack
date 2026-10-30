@@ -75,82 +75,92 @@
       onMouseUp: _v24
     }, _v25) => {
       let _v26 = (0, _v2.useRef)(null),
-        _v27 = (0, _v2.useRef)(void 0),
-        _v28 = (0, _v2.useRef)(void 0),
-        [_v29, _v30] = (0, _v2.useState)(!0),
+        [_v27, _v28] = (0, _v2.useState)(!0),
+        [_v29, _v30] = (0, _v2.useState)(),
         [_v31, _v32] = (0, _v2.useState)(!0),
         [_v33, _v34] = (0, _v2.useState)(!1),
-        _v35 = (0, _v2.useCallback)(_v0 => {
+        [_v35, _v36] = (0, _v2.useState)(!1),
+        [_v37, _v38] = (0, _v2.useState)(!1),
+        _v39 = !!_v1 && _v29 === _v1,
+        _v40 = !!_v1 && !_v39,
+        _v41 = !!_v0 && (!_v40 || _v35),
+        _v42 = _v41 && _v33 && !_v31,
+        _v43 = (0, _v2.useCallback)(_v0 => {
           _v25 && ("function" == typeof _v25 ? _v25(_v0) : _v25.current = _v0), _v26.current = _v0;
         }, [_v25]);
       return (0, _v2.useEffect)(() => {
+        if (!_v33 || !_v6 || !_v0) return;
+        let _v0 = setTimeout(() => _v36(!0), _v7);
+        return () => clearTimeout(_v0);
+      }, [_v7, _v33, _v6, _v0]), (0, _v2.useEffect)(() => {
+        let _v0 = _v26.current;
+        if (!_v35 || !_v37 || !_v0) return;
+        let _v1 = _v2 ?? 0,
+          _v2 = _v3 ? Math.min(_v3, _v0.duration) : _v0.duration,
+          _v3 = _v1 + (_v2 - _v1) / 3;
+        isNaN(_v3) || (_v0.currentTime = _v3);
+        let _v4 = setInterval(() => {
+          let _v0 = Math.max(_v1, (_v0.currentTime + 1 / _v38.DEFAULT_FPS) % _v2);
+          Number.isFinite(_v0) && (_v0.currentTime = _v0);
+        }, 0 / _v38.DEFAULT_FPS);
+        return () => clearInterval(_v4);
+      }, [_v35, _v37, _v3, _v2]), (0, _v2.useEffect)(() => {
         _v26.current && _v2 && (_v26.current.currentTime = _v2);
-      }, [_v2]), (0, _v2.useEffect)(() => () => {
-        clearInterval(_v27.current), clearTimeout(_v28.current);
-      }, []), (0, _v2.useEffect)(() => {
+      }, [_v2]), (0, _v2.useEffect)(() => {
         _v1 && _v11 && (0, _v39.fetchToReloadCache)(_v1);
       }, [_v1, _v11]), (0, _v1.jsxs)(_v37.MediaViewContainer, {
         onMouseOver: () => {
-          if (_v34(!0), !_v6 || !_v26.current) return;
-          let _v0 = _v2 ?? 0,
-            _v1 = _v3 ? Math.min(_v3, _v26.current.duration) : _v26.current.duration,
-            _v2 = _v0 + (_v1 - _v0) / 3;
-          isNaN(_v2) || (_v26.current.currentTime = _v2), clearTimeout(_v28.current), _v28.current = setTimeout(() => {
-            _v26.current && (clearInterval(_v27.current), _v27.current = setInterval(() => {
-              if (!_v26.current) return;
-              let _v0 = Math.max(_v0, (_v26.current.currentTime + 1 / _v38.DEFAULT_FPS) % _v1);
-              Number.isFinite(_v0) && (_v26.current.currentTime = _v0);
-            }, 0 / _v38.DEFAULT_FPS));
-          }, _v7);
+          _v34(!0);
         },
         onMouseLeave: () => {
-          _v34(!1), _v6 && (clearInterval(_v27.current), clearTimeout(_v28.current));
+          _v34(!1), _v36(!1), _v40 && (_v38(!1), _v32(!0));
         },
         onMouseDown: _v23,
         onMouseUp: _v24,
-        children: [_v0 && (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v37.VideoElement, {
-            alignToCenter: _v10,
-            src: _v0,
-            muted: _v5,
-            volume: _v4,
-            loop: !0,
-            preload: _v9,
-            ref: _v35,
-            onError: _v21,
-            onLoadedData: _v20,
-            onTimeUpdate: _v17,
-            onCanPlay: () => {
-              _v32(!1), _v14?.();
-            },
-            onEnded: _v16,
-            onWaiting: () => {
-              _v32(!0), _v19?.();
-            },
-            onPlaying: _v13,
-            onPlay: _v12,
-            onPause: _v15,
-            onVolumeChange: _v18,
-            ...(_v11 && {
-              crossOrigin: "anonymous"
-            }),
-            style: _v8,
-            "data-segment-playing": _v33
-          }), _v31 && (_v2 ?? _v33) && (0, _v1.jsx)(_v41, {})]
-        }), _v1 && !(_v0 && _v33) && (0, _v1.jsxs)(_v1.Fragment, {
+        children: [_v41 && (0, _v1.jsx)(_v37.VideoElement, {
+          alignToCenter: _v10,
+          src: _v0,
+          muted: _v5,
+          volume: _v4,
+          loop: !0,
+          preload: _v9,
+          ref: _v43,
+          onError: _v21,
+          onLoadedMetadata: () => _v38(!0),
+          onLoadedData: _v20,
+          onTimeUpdate: _v17,
+          onCanPlay: () => {
+            _v32(!1), _v14?.();
+          },
+          onEnded: _v16,
+          onWaiting: () => {
+            _v32(!0), _v19?.();
+          },
+          onPlaying: _v13,
+          onPlay: _v12,
+          onPause: _v15,
+          onVolumeChange: _v18,
+          ...(_v11 && {
+            crossOrigin: "anonymous"
+          }),
+          style: _v8,
+          "data-segment-playing": _v33
+        }), _v1 && !_v42 && (0, _v1.jsxs)(_v1.Fragment, {
           children: [(0, _v1.jsx)(_v37.ImageElement, {
             src: _v1,
-            onError: _v21,
+            onError: () => {
+              _v30(_v1), _v21?.();
+            },
             onLoad: () => {
-              _v30(!1), _v22 && _v22();
+              _v28(!1), _v22 && _v22();
             },
             alignToCenter: _v10,
             style: _v8,
             ...(_v11 && {
               crossOrigin: "anonymous"
             })
-          }), _v29 && (0, _v1.jsx)(_v41, {})]
-        })]
+          }), _v27 && (0, _v1.jsx)(_v41, {})]
+        }), _v41 && _v31 && (_v2 ?? _v33) && (0, _v1.jsx)(_v41, {})]
       });
     });
   _v0.s(["MediaViewLoader", 0, _v41, "default", 0, _v42], 0);

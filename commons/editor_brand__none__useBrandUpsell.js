@@ -2791,5 +2791,5 @@
         })]
       })
     });
-  }], 0), _v0.s(["libraryItemsQueryParams", 0, ["video.duration", "video.name", "video.link", "video.files.link", "video.pictures", "video.uri", "video.privacy.view", "video.uploader.pictures", "video.download.link", "video.user.uri", "video.height", "video.width", "folder.metadata.connections.items.total", "folder.metadata.connections.items.uri", "folder.metadata.connections.parentFolder.uri", "folder.name", "folder.uri", "folder.privacy.view", "folder.isPrivateToUser", "folder.settings.color"]], 0), _v0.s(["MEDIA_LIBRARY_ITEMS_PER_PAGE", 0, 60], 0);
+  }], 0), _v0.s(["libraryItemsQueryParams", 0, ["video.duration", "video.name", "video.link", "video.files.link", "video.pictures", "video.uri", "video.privacy.view", "video.user.uri", "video.height", "video.width", "folder.metadata.connections.items.total", "folder.metadata.connections.items.uri", "folder.metadata.connections.parentFolder.uri", "folder.name", "folder.uri", "folder.privacy.view", "folder.isPrivateToUser", "folder.settings.color"]], 0), _v0.s(["MEDIA_LIBRARY_ITEMS_PER_PAGE", 0, 30, "MEDIA_LIBRARY_MAX_FILL_PAGE", 0, 5], 0);
 }

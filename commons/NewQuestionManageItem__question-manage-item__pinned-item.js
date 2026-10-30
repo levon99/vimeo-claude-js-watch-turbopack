@@ -622,12 +622,12 @@
         onClick: _v22,
         icon: "top" === _v18 ? (0, _v1.jsx)(_v30.ArrowUp, {}) : (0, _v1.jsx)(_v29.ArrowDown, {})
       }) : null]
-    }) : _v9 || (0, _v1.jsx)(_v47.EmptyStatePlaceholder, {
+    }) : _v9 || (0, _v1.jsx)(_v47.PanelEmptyState, {
       id: (0, _v46.createDomName)(_v0, "placeholder"),
       className: (0, _v46.createDomName)(_v1, "placeholder"),
       isWithPadding: !0,
       icon: (0, _v1.jsx)(_v31.ReviewQuestion, {
-        boxSize: "lg"
+        boxSize: (0, _v7.rem)(32)
       }),
       description: _v22.T_NO_QUESTIONS_YET,
       control: null

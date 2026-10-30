@@ -6455,38 +6455,67 @@
       _v9 = (0, _v167.useAppSelector)(_v341.overridesSelector),
       _v10 = (0, _v167.useAppSelector)(_v372.fontsSelector),
       _v11 = (0, _v167.useAppSelector)(_v174.shouldShowTestAssetsSelector),
-      [_v12, _v13] = (0, _v7.useState)(!1),
+      _v12 = (0, _v167.useAppSelector)(_v174.isInteractiveSelector),
+      _v13 = (0, _v167.useAppDispatch)(),
       [_v14, _v15] = (0, _v7.useState)(!1),
-      _v16 = (0, _v7.useRef)(-1),
+      [_v16, _v17] = (0, _v7.useState)(!1),
+      _v18 = (0, _v7.useRef)(-1),
       {
-        data: _v17
+        data: _v19
       } = (0, _v386.useFetchAssetsQuery)({
         isTest: _v11,
         select: ["animations", "fonts"]
       }),
       {
-        data: _v18
+        data: _v20
       } = (0, _v387.useFetchTransitionLibraryQuery)(),
       {
-        DFRef: _v19,
-        handleEnded: _v20,
-        handleTimeUpdate: _v21
+        DFRef: _v21,
+        handleEnded: _v22,
+        handleTimeUpdate: _v23
       } = (0, _v216.useDragonfly)(),
       {
-        alertMissingWebGL: _v22
+        alertMissingWebGL: _v24
       } = (0, _v161.useAlerts)(),
-      _v23 = (0, _v7.useCallback)(() => {
-        _v13(!0), setTimeout(() => {
-          _v13(!1);
+      _v25 = _v7.id,
+      _v26 = (0, _v7.useCallback)(async _v0 => {
+        let _v1 = _v13(_v248.storyboardApi.endpoints.fetchStoryboardSources.initiate({
+          videoHash: _v25,
+          isInteractive: _v12,
+          vimeoVideoId: (0, _v238.getVimeoVideoIdString)() ?? void 0
+        }, {
+          forceRefetch: !0
+        }));
+        try {
+          let _v0 = await _v1.unwrap(),
+            _v1 = _v0.find(_v0 => _v0.hash === _v0)?.previewUrl;
+          return _v1 || _v164.default.sendLog(_v158.PREVIEW_URL_NOT_REFRESHED, _v169.LogComponent.EDITOR_API_ERROR, {
+            sourceHash: _v0,
+            reason: "source_not_in_storyboard"
+          }), _v1;
+        } catch (_v0) {
+          _v164.default.sendLog(_v158.PREVIEW_URL_NOT_REFRESHED, _v169.LogComponent.EDITOR_API_ERROR, {
+            sourceHash: _v0,
+            reason: "request_failed",
+            error: _v0?.status ?? _v0?.message
+          });
+          return;
+        } finally {
+          _v1.unsubscribe();
+        }
+      }, [_v13, _v12, _v25]),
+      _v27 = (0, _v7.useCallback)(() => {
+        _v15(!0), setTimeout(() => {
+          _v15(!1);
         }, 0);
       }, []),
-      _v24 = (0, _v7.useCallback)(() => {
-        _v15(!0);
+      _v28 = (0, _v7.useCallback)(() => {
+        _v17(!0);
         let _v0 = performance.now();
-        _v385.default.setEditorLoadEnd(_v0), -1 !== _v16.current && (_v164.default.sendAction(_v245.EditorLoad, {
+        _v385.default.setEditorLoadEnd(_v0), -1 !== _v18.current && (_v164.default.sendAction(_v245.EditorLoad, {
           step: "end load dragonite",
-          durationMs: (0, _v389.durationSince)(_v16.current)
-        }), _v16.current = -1);
+          durationMs: (0, _v389.durationSince)(_v18.current)
+        }), _v18.current = -1);
         let _v1 = _v385.default.editorLoadStartTime;
         0 !== _v1 && (_v164.default.sendAction(_v245.EditorLoad, {
           step: "end load editor",
@@ -6497,43 +6526,46 @@
           })
         }), _v385.default.resetEditorLoadStart());
       }, []),
-      _v25 = _v17?.animations && _v10 && _v7.videoSessionId,
-      _v26 = Object.entries(_v9).filter(([, _v0]) => "compositionTiming" in _v0).map(([_v0]) => _v0);
+      _v29 = _v19?.animations && _v10 && _v7.videoSessionId,
+      _v30 = Object.entries(_v9).filter(([, _v0]) => "compositionTiming" in _v0).map(([_v0]) => _v0);
     return (0, _v7.useLayoutEffect)(() => {
-      _v25 && (_v16.current = performance.now(), _v164.default.sendAction(_v245.EditorLoad, {
+      _v29 && (_v18.current = performance.now(), _v164.default.sendAction(_v245.EditorLoad, {
         step: "start load dragonite"
       }));
-    }, [_v25]), (0, _v7.useLayoutEffect)(() => {
+    }, [_v29]), (0, _v7.useLayoutEffect)(() => {
       let _v0 = document.createElement("canvas");
-      _v0.getContext("webgl") || _v0.getContext("experimental-webgl") ? _v3(!0) : _v22();
-    }, [_v22]), (0, _v6.jsxs)(_v6.Fragment, {
-      children: [!_v12 && (0, _v6.jsxs)(_v6.Fragment, {
+      _v0.getContext("webgl") || _v0.getContext("experimental-webgl") ? _v3(!0) : _v24();
+    }, [_v24]), (0, _v6.jsxs)(_v6.Fragment, {
+      children: [!_v14 && (0, _v6.jsxs)(_v6.Fragment, {
         children: [(0, _v6.jsx)(_v204.Center, {
-          opacity: +!!_v14,
+          opacity: +!!_v16,
           position: "absolute",
           pointerEvents: "none",
-          children: _v25 && _v2 && (0, _v6.jsx)(_v384.Dragonite, {
-            ref: _v19,
+          children: _v29 && _v2 && (0, _v6.jsx)(_v384.Dragonite, {
+            ref: _v21,
             storyboard: _v7,
             elementsStatuses: _v8,
             width: _v0.width,
             height: _v0.height,
             startTimeOnMount: _v5,
-            bodymovinAnimations: _v17?.animations || [],
-            transitions: _v18?.items || [],
+            bodymovinAnimations: _v19?.animations || [],
+            transitions: _v20?.items || [],
             fonts: _v10 || {},
             isPlaying: !_v6,
             overrides: _v9,
-            trimmingElementIds: _v26,
+            trimmingElementIds: _v30,
             cropViewElementId: _v4,
             isShowLogs: _v1,
             isPosterMode: 0 === _v5,
-            onEnded: _v20,
-            onTimeUpdate: _v21,
-            onLoadedData: _v24,
-            onWebGLError: _v22
+            onEnded: _v22,
+            onTimeUpdate: _v23,
+            onLoadedData: _v28,
+            onWebGLError: _v24,
+            maxLocalUrlSourceDuration: _v247.MAX_LOCAL_URL_SOURCE_DURATION,
+            getFreshPreviewUrl: _v26,
+            releaseLocalUrlsOnUnmount: !0
           })
-        }), !_v14 && (0, _v6.jsx)(_v380, {})]
+        }), !_v16 && (0, _v6.jsx)(_v380, {})]
       }), _v1 && (0, _v6.jsx)(_v93.IconButton, {
         variant: "secondary",
         size: "xs",
@@ -6543,7 +6575,7 @@
         bottom: 8,
         zIndex: 0,
         icon: (0, _v6.jsx)(_v383.SyncRefresh, {}),
-        onClick: _v23
+        onClick: _v27
       })]
     });
   };
@@ -18084,12 +18116,16 @@
               isInteractive: _v13,
               vimeoVideoId: _v3
             }), !0), (0, _v238.setHashUrlParam)(_v2);
-          }) : _v47(() => _v19({})).then(({
-            storyboardId: _v0
+          }) : _v47(() => _v19({
+            includeStoryboard: !_v13
+          })).then(({
+            storyboardId: _v0,
+            storyboardResponse: _v1
           }) => {
             _v47(() => _v16({
               videoHash: _v0,
-              isInteractive: _v13
+              isInteractive: _v13,
+              initResponse: _v1
             }), !0), (0, _v238.setHashUrlParam)(_v0);
           })));
         }, [_v47, _v16, _v0, _v3, _v5, _v6, _v19, _v10, _v22, _v13, _v37, _v14, _v18, _v20, _v2]), (0, _v7.useEffect)(() => {

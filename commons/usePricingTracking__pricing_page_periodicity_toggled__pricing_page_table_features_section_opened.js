@@ -44,6 +44,22 @@
           price_segment: _v0.priceSegment ?? null,
           experiment_name: _v0.experimentName ?? null
         });
+      }, [_v0]),
+      _v7 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("downgrade_modal_downgrade_clicked", {
+          current_plan: _v0.currentPlan,
+          target_plan: _v0.targetPlan,
+          target_periodicity: _v0.targetPeriodicity
+        });
+      }, [_v0]),
+      _v8 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("downgrade_modal_step_viewed", {
+          step: _v0.step,
+          current_plan: _v0.currentPlan,
+          target_plan: _v0.targetPlan,
+          target_periodicity: _v0.targetPeriodicity,
+          surface: _v0.surface
+        });
       }, [_v0]);
     return {
       trackPricingPagePeriodicityToggled: _v1,
@@ -52,11 +68,14 @@
       trackPricingPageSeeBusinessTiersClicked: _v4,
       trackPricingPageSeeIndividualTiersClicked: _v5,
       trackUserScheduledDowngrade: _v6,
-      trackDowngradeModalDowngradeClicked: (0, _v1.useCallback)(_v0 => {
-        null !== _v0 && _v0.track("downgrade_modal_downgrade_clicked", {
+      trackDowngradeModalDowngradeClicked: _v7,
+      trackDowngradeModalStepViewed: _v8,
+      trackDowngradeModalContinued: (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("downgrade_modal_continued", {
           current_plan: _v0.currentPlan,
           target_plan: _v0.targetPlan,
-          target_periodicity: _v0.targetPeriodicity
+          target_periodicity: _v0.targetPeriodicity,
+          surface: _v0.surface
         });
       }, [_v0]),
       trackDowngradeFailed: (0, _v1.useCallback)(_v0 => {

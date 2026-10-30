@@ -264,16 +264,6 @@
       error_message: _v3(_v1)
     }),
     _v6 = !1;
-  function _v7(_v0) {
-    return "vgs_card" === _v0.type;
-  }
-  function _v8(_v0) {
-    let _v1 = _v0.split(".")[1];
-    if (!_v1) throw Error("Checkout token has no payload.");
-    let _v2 = JSON.parse(atob(_v1.replace(/-/g, "+").replace(/_/g, "/")));
-    if (!("object" == typeof _v2 && null !== _v2 && "string" == typeof _v2.product_id && "string" == typeof _v2.user_id && "string" == typeof _v2.reference_key && Array.isArray(_v2.authorized_payment_methods) && _v2.authorized_payment_methods.every(_v0 => _v7(_v0)) && (void 0 === _v2.expires_at || "number" == typeof _v2.expires_at) && (void 0 === _v2.hcaptcha_site_key || "string" == typeof _v2.hcaptcha_site_key))) throw Error("Checkout token is malformed.");
-    return _v2;
-  }
   _v0.s(["acquireCheckoutFailedLatch", 0, () => !_v6 && (_v6 = !0, !0), "canonicalMessageForCategory", 0, _v3, "classifyClientDecline", 0, _v0 => {
     switch (_v0.source) {
       case "zuora_hpm":
@@ -410,33 +400,5 @@
     }
   }, "isDeclineCategory", 0, _v0 => "string" == typeof _v0 && _v2.includes(_v0), "resetCheckoutFailedLatch", 0, () => {
     _v6 = !1;
-  }], 0), _v0.s(["decodeCheckoutToken", 0, _v8, "firstAuthorization", 0, function (_v0) {
-    let _v1 = _v0.authorized_payment_methods[0];
-    if (!_v1) throw Error("Checkout token authorizes no payment method.");
-    return _v1;
-  }, "isVgsCardAuthorization", 0, _v7], 0);
-  let _v9 = "juno_checkout_token";
-  function _v10() {
-    try {
-      sessionStorage.removeItem(_v9);
-    } catch {}
-  }
-  _v0.s(["clearCachedToken", 0, _v10, "readCachedToken", 0, function (_v0) {
-    try {
-      let _v0 = sessionStorage.getItem(_v9);
-      if (!_v0) return null;
-      let _v1 = JSON.parse(_v0);
-      if (!_v1.token || _v1.expiresAt <= Date.now() || void 0 === _v0 || _v8(_v1.token).user_id !== _v0) return _v10(), null;
-      return _v1.token;
-    } catch {
-      return _v10(), null;
-    }
-  }, "writeCachedToken", 0, function (_v0, _v1) {
-    try {
-      sessionStorage.setItem(_v9, JSON.stringify({
-        token: _v0,
-        expiresAt: _v1
-      }));
-    } catch {}
-  }], 0);
+  }]);
 }
