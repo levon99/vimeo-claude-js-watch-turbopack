@@ -10,7 +10,8 @@
     setLoadingSideNavFolderURIs: () => {},
     shouldShowSideNav: !1,
     isScrolling: !1,
-    teamOwnerId: 0
+    teamOwnerId: 0,
+    isPrivateToUser: void 0
   });
   _v0.s(["VideoLibraryLayoutContext", 0, _v1]);
 }

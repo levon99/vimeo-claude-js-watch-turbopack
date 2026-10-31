@@ -155,6 +155,34 @@
       })]
     });
   };
+  async function _v23({
+    userId: _v0,
+    folderId: _v1,
+    headers: _v2,
+    baseUrl: _v3
+  }) {
+    try {
+      let _v0 = await (0, _v13.getMePreferences)({
+        select: ["toid"],
+        headers: _v2,
+        baseUrl: _v3
+      });
+      _v0.toid && _v0.toid !== _v0 && (await (0, _v13.patchMePreferences)({
+        variables: {
+          teamUri: `/users/${_v0}`
+        },
+        select: ["toid"],
+        headers: _v2,
+        baseUrl: _v3
+      }));
+    } catch (_v0) {
+      _v6.serverLogger.warn({
+        err: _v0,
+        user_id: _v0,
+        folder_id: _v1
+      }, "Failed to update preferred team owner");
+    }
+  }
   (0, _v7.withPageSetup)(async _v0 => {
     let _v1 = _v0.params?.userId,
       _v2 = _v0.params?.folderId;
@@ -177,50 +205,22 @@
         select: _v11.FOLDER_SSR_META_FIELDS,
         headers: _v0.headers,
         baseUrl: _v0.baseUrl
-      }),
-      _v7 = (0, _v13.getMePreferences)({
-        select: ["toid"],
-        headers: _v0.headers,
-        baseUrl: _v0.baseUrl
       });
-    try {
-      let _v0 = (await _v7).toid;
-      _v0 && _v0 !== _v3 && (await (0, _v13.patchMePreferences)({
-        variables: {
-          teamUri: `/users/${_v3}`
-        },
-        select: ["toid"],
-        headers: _v0.headers,
-        baseUrl: _v0.baseUrl
-      }));
-    } catch (_v0) {
-      _v6.serverLogger.warn({
-        err: _v0,
-        user_id: _v3,
-        folder_id: _v4
-      }, "Failed to update preferred team owner");
-    }
+    await _v23({
+      userId: _v3,
+      folderId: _v4,
+      headers: _v0.headers,
+      baseUrl: _v0.baseUrl
+    });
     try {
       let _v0 = await _v6,
-        _v1 = _v0.isPrivateToUser ? "true" : "false",
-        _v2 = _v0.metadata.interactions.reviewRedirectLink;
-      if (_v2) return {
+        _v1 = _v0.metadata.interactions.reviewRedirectLink;
+      if (_v1) return {
         redirect: {
-          destination: _v2,
+          destination: _v1,
           permanent: !0
         }
       };
-      if (_v0.query.isPrivate !== _v1) {
-        let _v0 = new URLSearchParams();
-        return Object.entries(_v0.query).forEach(([_v0, _v1]) => {
-          "userId" !== _v0 && "folderId" !== _v0 && void 0 !== _v1 && _v0.set(_v0, String(_v1));
-        }), _v0.set("isPrivate", _v1), {
-          redirect: {
-            destination: `/user/${_v3}/folder/${_v4}?${_v0.toString()}`,
-            permanent: !1
-          }
-        };
-      }
       return {
         props: {
           ..._v5,
@@ -242,6 +242,7 @@
     inlinePlayerAssets: !0
   }), _v22.getLayout = (_v0, _v1) => (0, _v1.jsx)(_v19.VideoLibraryLayout, {
     hasUploader: _v1.hasUploader,
+    isPrivateToUser: _v1.folderData?.isPrivateToUser,
     searchContentAlignment: _v20.VIDEO_LIBRARY_PAGE_SEARCH_CONTENT_ALIGNMENT,
     sideNavContent: (0, _v1.jsx)(_v18.SideNavContent, {
       surface: "library"

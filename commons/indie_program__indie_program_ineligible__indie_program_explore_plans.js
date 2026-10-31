@@ -1,19 +1,21 @@
 {
   "use strict";
 
-  var _v1 = _v0.i(0);
-  let _v2 = {
+  var _v1 = _v0.i(0),
+    _v2 = _v0.i(0);
+  let _v3 = {
       paywallLocation: "indie_program",
       paywallFeature: "indie_program"
     },
-    _v3 = (0, _v1.buildUpgradePlanUrl)({
-      ..._v2,
+    _v4 = (0, _v1.buildUpgradePlanUrl)({
+      ..._v3,
       paywallTrigger: "indie_program_ineligible"
     }),
-    _v4 = (0, _v1.buildUpgradePlanUrl)({
-      ..._v2,
+    _v5 = (0, _v1.buildUpgradePlanUrl)({
+      ..._v3,
       paywallTrigger: "indie_program_explore_plans"
-    });
+    }),
+    _v6 = _v2.INDIE_PROGRAM_PRODUCT_ID;
   _v0.s(["COMMUNITY_FILMS", 0, [{
     image: "https://i.vimeocdn.com/custom_asset/1f380b295b65341cef451d9132fd2e92",
     title: "Ducks",
@@ -70,5 +72,5 @@
     video: "https://player.vimeo.com/progressive_redirect/playback/1236606995/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&signature=2866a7746c101e6646e4c390774ea6312fe7e5035bc39a42a6fca0b3fbe38f29",
     poster: "https://i.vimeocdn.com/video/2213153235-7de716366e4d3910469977dc774d2c2e7854cdd934c3858ad33ba45a87c90e3b-d",
     width: 720
-  }], "INDIE_INELIGIBLE_URL", 0, _v3, "INDIE_PAYWALL", 0, _v2, "INDIE_PRODUCT_ID", 0, 0, "INDIE_SOLD_OUT_URL", 0, _v4, "SUPPORT_URL", 0, "https://help.vimeo.com/hc/en-us/requests/new"]);
+  }], "INDIE_INELIGIBLE_URL", 0, _v4, "INDIE_PAYWALL", 0, _v3, "INDIE_PRODUCT_ID", 0, _v6, "INDIE_SOLD_OUT_URL", 0, _v5, "SUPPORT_URL", 0, "https://help.vimeo.com/hc/en-us/requests/new"]);
 }

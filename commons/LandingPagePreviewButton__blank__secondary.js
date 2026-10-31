@@ -90,39 +90,40 @@
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
-    _v30 = _v0.i(0);
-  let _v31 = Object.values(_v30.Locales).filter(_v0 => _v0 !== _v30.Locales.zh),
-    _v32 = "title",
-    _v33 = "streamDescription",
-    _v34 = [_v32, _v33],
-    _v35 = "speakers",
-    _v36 = ["name", "role", "description"],
-    _v37 = /^[1-9][0-9]*$/,
-    _v38 = (_v0, _v1) => `${_v35}.${_v0}.${_v1}`,
-    _v39 = _v0 => null !== _v0 && "object" == typeof _v0 && !Array.isArray(_v0),
-    _v40 = _v0 => {
+    _v30 = _v0.i(0),
+    _v31 = _v0.i(0);
+  let _v32 = Object.values(_v31.Locales).filter(_v0 => _v0 !== _v31.Locales.zh),
+    _v33 = "title",
+    _v34 = "streamDescription",
+    _v35 = [_v33, _v34],
+    _v36 = "speakers",
+    _v37 = ["name", "role", "description"],
+    _v38 = /^[1-9][0-9]*$/,
+    _v39 = (_v0, _v1) => `${_v36}.${_v0}.${_v1}`,
+    _v40 = _v0 => null !== _v0 && "object" == typeof _v0 && !Array.isArray(_v0),
+    _v41 = _v0 => {
       let _v1;
-      return _v39(_v0) && "string" == typeof _v0.value && ("manual" === (_v1 = _v0.provenance) || "ai" === _v1);
+      return _v40(_v0) && "string" == typeof _v0.value && ("manual" === (_v1 = _v0.provenance) || "ai" === _v1);
     },
-    _v41 = _v0 => _v31.find(_v0 => _v0 === _v0) ?? null,
-    _v42 = _v0 => {
-      let _v1 = {};
-      _v34.forEach(_v0 => {
+    _v42 = _v0 => _v32.find(_v0 => _v0 === _v0) ?? null,
+    _v43 = (_v0, _v1) => {
+      let _v2 = (0, _v30.foreignDocumentEntries)(_v1, [_v33, _v34, _v36]);
+      _v35.forEach(_v0 => {
         let _v1 = _v0[_v0];
-        void 0 !== _v1 && (_v1[_v0] = _v1);
+        void 0 !== _v1 && (_v2[_v0] = _v1);
       });
-      let _v2 = {};
+      let _v3 = {};
       return Object.entries(_v0).forEach(([_v0, _v1]) => {
         let [_v2, _v3, _v4] = _v0.split("."),
-          _v5 = _v36.find(_v0 => _v0 === _v4);
-        _v2 === _v35 && void 0 !== _v3 && void 0 !== _v5 && (_v2[_v3] = {
-          ..._v2[_v3],
+          _v5 = _v37.find(_v0 => _v0 === _v4);
+        _v2 === _v36 && void 0 !== _v3 && void 0 !== _v5 && (_v3[_v3] = {
+          ..._v3[_v3],
           [_v5]: _v1
         });
-      }), Object.keys(_v2).length > 0 && (_v1[_v35] = _v2), _v1;
+      }), Object.keys(_v3).length > 0 && (_v2[_v36] = _v3), _v2;
     },
-    _v43 = _v0 => "" !== _v0.title || "" !== _v0.streamDescription;
-  function _v44({
+    _v44 = _v0 => "" !== _v0.title || "" !== _v0.streamDescription;
+  function _v45({
     localizations: _v0,
     source: _v1,
     isSourceLoading: _v2,
@@ -145,12 +146,12 @@
         setPublished: _v16,
         removeLocale: _v17
       } = _v0,
-      _v18 = _v12 ?? (_v10 ? null : _v41(_v5)),
+      _v18 = _v12 ?? (_v10 ? null : _v42(_v5)),
       {
         translatedLocales: _v19,
         untranslatedLocales: _v20
       } = (0, _v9.useMemo)(() => {
-        let _v0 = _v31.filter(_v0 => _v0 !== _v18),
+        let _v0 = _v32.filter(_v0 => _v0 !== _v18),
           _v1 = _v0 => void 0 !== _v11[_v0];
         return {
           translatedLocales: _v0.filter(_v1),
@@ -165,7 +166,7 @@
         });
       }, [_v17, _v9]),
       _v22 = null == _v18,
-      _v23 = _v22 || _v13 || _v2 || 0 === _v20.length || !(_v43(_v1) || _v1.visibleSpeakers.length > 0);
+      _v23 = _v22 || _v13 || _v2 || 0 === _v20.length || !(_v44(_v1) || _v1.visibleSpeakers.length > 0);
     return (0, _v1.jsxs)(_v15.Flex, {
       direction: "column",
       gap: "md",
@@ -201,7 +202,7 @@
         })
       }), (0, _v1.jsx)(_v27.MainLanguageSection, {
         isDisabled: _v19.length > 0 || _v13,
-        locales: _v31,
+        locales: _v32,
         onChange: _v0 => void _v14(_v0),
         sourceLocale: _v18
       }), (0, _v1.jsxs)(_v15.Flex, {
@@ -381,12 +382,12 @@
       })]
     });
   }
-  var _v45 = _v0.i(0),
-    _v46 = _v0.i(0),
+  var _v46 = _v0.i(0),
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
-    _v49 = _v0.i(0);
-  async function _v50({
+    _v49 = _v0.i(0),
+    _v50 = _v0.i(0);
+  async function _v51({
     baseUrl: _v0,
     where: {
       liveEventId: _v1,
@@ -394,19 +395,19 @@
     },
     ..._v3
   }) {
-    return (0, _v48.measureLatency)("deleteLiveEventSpeakerProfile", "DELETE", async () => {
+    return (0, _v49.measureLatency)("deleteLiveEventSpeakerProfile", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/live_events/${_v1}/speaker_profiles/${_v2}`, {
         ..._v3,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  async function _v51({
+  async function _v52({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -416,21 +417,20 @@
     },
     ..._v5
   }) {
-    return (0, _v48.measureLatency)("patchLiveEventSpeakerProfile", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v3}/speaker_profiles/${_v4}?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
+    return (0, _v49.measureLatency)("patchLiveEventSpeakerProfile", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v3}/speaker_profiles/${_v4}?fields=${_v1.map(_v50.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PATCH",
-        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v50.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  var _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
+  var _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
@@ -456,8 +456,9 @@
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
     _v78 = _v0.i(0),
-    _v79 = _v0.i(0);
-  let _v80 = _v0 => (0, _v1.jsx)(_v79.Icon, {
+    _v79 = _v0.i(0),
+    _v80 = _v0.i(0);
+  let _v81 = _v0 => (0, _v1.jsx)(_v80.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -468,33 +469,33 @@
       fill: "currentColor"
     })
   });
-  var _v81 = _v0.i(0),
-    _v82 = _v0.i(0),
+  var _v82 = _v0.i(0),
     _v83 = _v0.i(0),
     _v84 = _v0.i(0),
     _v85 = _v0.i(0),
     _v86 = _v0.i(0),
-    _v87 = _v0.i(0);
-  async function _v88({
+    _v87 = _v0.i(0),
+    _v88 = _v0.i(0);
+  async function _v89({
     baseUrl: _v0,
     where: {
       personProfileId: _v1
     },
     ..._v2
   }) {
-    return (0, _v48.measureLatency)("deletePersonProfile", "DELETE", async () => {
+    return (0, _v49.measureLatency)("deletePersonProfile", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/person_profiles/${_v1}`, {
         ..._v2,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  async function _v89({
+  async function _v90({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -503,20 +504,20 @@
     },
     ..._v4
   }) {
-    return (0, _v48.measureLatency)("patchPersonProfile", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/person_profiles/${_v3}?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
+    return (0, _v49.measureLatency)("patchPersonProfile", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/person_profiles/${_v3}?fields=${_v1.map(_v50.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "PATCH",
-        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v50.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  async function _v90({
+  async function _v91({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -525,19 +526,19 @@
     query: _v3,
     ..._v4
   }) {
-    return (0, _v48.measureLatency)("getUserPersonProfiles", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/person_profiles?${(0, _v49.searchQueryString)(_v3)}&fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
+    return (0, _v49.measureLatency)("getUserPersonProfiles", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v2}/person_profiles?${(0, _v50.searchQueryString)(_v3)}&fields=${_v1.map(_v50.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  async function _v91({
+  async function _v92({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -546,29 +547,33 @@
     },
     ..._v4
   }) {
-    return (0, _v48.measureLatency)("postUserPersonProfiles", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/person_profiles?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
+    return (0, _v49.measureLatency)("postUserPersonProfiles", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/users/${_v3}/person_profiles?fields=${_v1.map(_v50.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "POST",
-        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v50.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  var _v92 = _v0.i(0),
-    _v93 = _v0.i(0),
+  var _v93 = _v0.i(0),
     _v94 = _v0.i(0),
     _v95 = _v0.i(0),
     _v96 = _v0.i(0),
     _v97 = _v0.i(0),
     _v98 = _v0.i(0),
     _v99 = _v0.i(0),
-    _v100 = _v0.i(0);
-  async function _v101({
+    _v100 = _v0.i(0),
+    _v101 = _v0.i(0),
+    _v102 = _v0.i(0),
+    _v103 = _v0.i(0),
+    _v104 = _v0.i(0),
+    _v105 = _v0.i(0);
+  async function _v106({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -578,20 +583,20 @@
     },
     ..._v5
   }) {
-    return (0, _v48.measureLatency)("patchPersonProfilePicture", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/person_profiles/${_v3}/pictures/${_v4}?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
+    return (0, _v49.measureLatency)("patchPersonProfilePicture", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/person_profiles/${_v3}/pictures/${_v4}?fields=${_v1.map(_v50.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PATCH",
-        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v50.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  async function _v102({
+  async function _v107({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -599,38 +604,38 @@
     },
     ..._v3
   }) {
-    return (0, _v48.measureLatency)("postPersonProfilePictures", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/person_profiles/${_v2}/pictures?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
+    return (0, _v49.measureLatency)("postPersonProfilePictures", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/person_profiles/${_v2}/pictures?fields=${_v1.map(_v50.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "POST"
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  var _v103 = _v0.i(0),
-    _v104 = _v0.i(0);
-  let _v105 = ["uri", "link", "baseLink"];
-  async function _v106({
+  var _v108 = _v0.i(0),
+    _v109 = _v0.i(0);
+  let _v110 = ["uri", "link", "baseLink"];
+  async function _v111({
     baseUrl: _v0,
     headers: _v1,
     personProfileId: _v2,
     upload: _v3,
     activate: _v4 = !0
   }) {
-    let _v5 = await _v102({
+    let _v5 = await _v107({
       baseUrl: _v0,
       headers: _v1,
       where: {
         personProfileId: _v2
       },
-      select: _v105
+      select: _v110
     });
-    if (!_v5?.link) throw new _v104.LiveError("Thumbnail upload link missing in create response.", {
-      code: _v103.ELiveErrorCode.API_ERROR
+    if (!_v5?.link) throw new _v109.LiveError("Thumbnail upload link missing in create response.", {
+      code: _v108.ELiveErrorCode.API_ERROR
     });
     let _v6 = await fetch(_v5.link, {
       method: "PUT",
@@ -639,12 +644,12 @@
         "Content-Type": _v3.contentType
       }
     });
-    if (!_v6.ok) throw new _v49.NetworkError("Thumbnail upload failed.", _v6.status, _v6);
+    if (!_v6.ok) throw new _v50.NetworkError("Thumbnail upload failed.", _v6.status, _v6);
     let _v7 = _v5.uri.split("/").pop() ?? "";
-    if ("" === _v7) throw new _v104.LiveError("Could not resolve picture uid from created picture.", {
-      code: _v103.ELiveErrorCode.API_ERROR
+    if ("" === _v7) throw new _v109.LiveError("Could not resolve picture uid from created picture.", {
+      code: _v108.ELiveErrorCode.API_ERROR
     });
-    return _v4 && (await _v101({
+    return _v4 && (await _v106({
       baseUrl: _v0,
       headers: _v1,
       where: {
@@ -660,13 +665,94 @@
       pictureId: _v7
     };
   }
-  var _v107 = _v0.i(0),
-    _v108 = _v0.i(0),
-    _v109 = _v0.i(0),
-    _v110 = _v0.i(0),
-    _v111 = _v0.i(0),
-    _v112 = _v0.i(0);
-  function _v113({
+  let _v112 = ({
+    title: _v0,
+    body: _v1,
+    confirmLabel: _v2,
+    cancelLabel: _v3,
+    isConfirmLoading: _v4 = !1,
+    confirmVariant: _v5 = "destructive",
+    onCancel: _v6,
+    onConfirm: _v7
+  }) => (0, _v1.jsxs)(_v63.Modal, {
+    isOpen: !0,
+    onClose: _v6,
+    children: [(0, _v1.jsx)(_v68.ModalOverlay, {}), (0, _v1.jsxs)(_v65.ModalContent, {
+      children: [(0, _v1.jsx)(_v67.ModalHeader, {
+        children: _v0
+      }), (0, _v1.jsx)(_v64.ModalBody, {
+        children: _v1
+      }), (0, _v1.jsxs)(_v66.ModalFooter, {
+        children: [(0, _v1.jsx)(_v3.Button, {
+          onClick: _v6,
+          variant: "tertiary",
+          children: _v3 ?? (0, _v5.translate)({
+            singular: "Cancel",
+            dictionary: {
+              es: {
+                singular: "Cancelar"
+              },
+              "de-DE": {
+                singular: "Abbrechen"
+              },
+              "fr-FR": {
+                singular: "Annuler"
+              },
+              "ja-JP": {
+                singular: "キャンセル"
+              },
+              "ko-KR": {
+                singular: "취소"
+              },
+              "pt-BR": {
+                singular: "Cancelar"
+              },
+              "zh-CN": {
+                singular: "取消"
+              }
+            }
+          })
+        }), (0, _v1.jsx)(_v3.Button, {
+          isLoading: _v4,
+          onClick: _v7,
+          variant: _v5,
+          children: _v2 ?? (0, _v5.translate)({
+            singular: "Delete",
+            dictionary: {
+              es: {
+                singular: "Eliminar"
+              },
+              "de-DE": {
+                singular: "Löschen"
+              },
+              "fr-FR": {
+                singular: "Supprimer"
+              },
+              "ja-JP": {
+                singular: "削除"
+              },
+              "ko-KR": {
+                singular: "삭제"
+              },
+              "pt-BR": {
+                singular: "Excluir"
+              },
+              "zh-CN": {
+                singular: "删除"
+              }
+            }
+          })
+        })]
+      })]
+    })]
+  });
+  var _v113 = _v0.i(0),
+    _v114 = _v0.i(0),
+    _v115 = _v0.i(0),
+    _v116 = _v0.i(0),
+    _v117 = _v0.i(0),
+    _v118 = _v0.i(0);
+  function _v119({
     image: _v0,
     isOpen: _v1,
     onDismiss: _v2,
@@ -676,9 +762,9 @@
       [_v6, _v7] = (0, _v9.useState)(50),
       {
         width: _v8
-      } = (0, _v112.useWindowSize)(),
+      } = (0, _v118.useWindowSize)(),
       _v9 = (0, _v9.useRef)(null),
-      _v10 = (0, _v109.useBreakpointValue)({
+      _v10 = (0, _v115.useBreakpointValue)({
         base: 160,
         md: 200
       }) || 200,
@@ -695,14 +781,14 @@
       }, _v1.readAsDataURL(_v0), () => {
         _v0 = !0;
       };
-    }, [_v0]), (0, _v1.jsxs)(_v62.Modal, {
+    }, [_v0]), (0, _v1.jsxs)(_v63.Modal, {
       closeOnOverlayClick: !1,
       size: "lg",
       isCentered: !0,
       isOpen: _v1,
       onClose: _v2,
-      children: [(0, _v1.jsx)(_v67.ModalOverlay, {}), (0, _v1.jsxs)(_v64.ModalContent, {
-        children: [(0, _v1.jsx)(_v66.ModalHeader, {
+      children: [(0, _v1.jsx)(_v68.ModalOverlay, {}), (0, _v1.jsxs)(_v65.ModalContent, {
+        children: [(0, _v1.jsx)(_v67.ModalHeader, {
           children: (0, _v5.translate)({
             singular: "Upload speaker photo",
             dictionary: {
@@ -729,20 +815,20 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v63.ModalBody, {
+        }), (0, _v1.jsx)(_v64.ModalBody, {
           px: 0,
           display: "flex",
           flexDirection: "column",
           gap: "md",
           children: _v4 ? (0, _v1.jsxs)(_v1.Fragment, {
-            children: [(0, _v1.jsx)(_v110.ImageCrop, {
+            children: [(0, _v1.jsx)(_v116.ImageCrop, {
               ref: _v9,
               image: _v4,
               zoomRatio: (_v6 + _v11) / 100,
               imageCropCircleDiameter: _v10,
               windowWidth: _v8,
               cropShape: "square"
-            }), (0, _v1.jsx)(_v111.ImageCropSlider, {
+            }), (0, _v1.jsx)(_v117.ImageCropSlider, {
               value: _v6,
               onChange: _v7
             })]
@@ -753,11 +839,11 @@
               base: (0, _v16.rem)(366),
               md: (0, _v16.rem)(284)
             },
-            children: (0, _v1.jsx)(_v108.Spinner, {
+            children: (0, _v1.jsx)(_v114.Spinner, {
               size: "md"
             })
           })
-        }), (0, _v1.jsxs)(_v65.ModalFooter, {
+        }), (0, _v1.jsxs)(_v66.ModalFooter, {
           justifyContent: "flex-end",
           children: [(0, _v1.jsx)(_v3.Button, {
             onClick: _v2,
@@ -831,7 +917,7 @@
       })]
     });
   }
-  function _v114({
+  function _v120({
     id: _v0,
     fileName: _v1,
     fileSize: _v2,
@@ -843,7 +929,7 @@
       [_v8, _v9] = (0, _v9.useState)(),
       _v10 = (0, _v18.useToast)();
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsx)(_v107.ImageUploader, {
+      children: [(0, _v1.jsx)(_v113.ImageUploader, {
         id: _v0,
         label: (0, _v5.translate)({
           singular: "Upload picture",
@@ -967,7 +1053,7 @@
             })
           }) : (_v9(_v1), _v7(!0));
         }
-      }), _v8 ? (0, _v1.jsx)(_v113, {
+      }), _v8 ? (0, _v1.jsx)(_v119, {
         image: _v8,
         isOpen: _v6,
         onDismiss: () => {
@@ -979,7 +1065,7 @@
       }) : null]
     });
   }
-  let _v115 = async (_v0, _v1) => {
+  let _v121 = async (_v0, _v1) => {
     try {
       let _v0 = await createImageBitmap(_v0),
         _v1 = document.createElement("canvas");
@@ -993,45 +1079,48 @@
       return URL.createObjectURL(_v0);
     }
   };
-  function _v116({
+  function _v122({
     initialSpeaker: _v0,
     isOpen: _v1,
     mode: _v2,
     speakerSection: _v3,
     onClose: _v4,
-    onSaved: _v5
+    onSaved: _v5,
+    onSavedAndTranslate: _v6
   }) {
-    let [_v6, _v7] = (0, _v9.useState)(_v0),
-      [_v8, _v9] = (0, _v9.useState)(!1),
-      [_v10, _v11] = (0, _v9.useState)(null),
-      [_v12, _v13] = (0, _v9.useState)(null),
-      _v14 = (0, _v93.useSessionOwnerId)(),
+    let [_v7, _v8] = (0, _v9.useState)(_v0),
+      [_v9, _v10] = (0, _v9.useState)(!1),
+      [_v11, _v12] = (0, _v9.useState)(null),
+      [_v13, _v14] = (0, _v9.useState)(null),
+      _v15 = (0, _v9.useRef)(!1),
+      [_v16, _v17] = (0, _v9.useState)(!1),
+      _v18 = (0, _v94.useSessionOwnerId)(),
       {
-        baseUrl: _v15,
-        jwt: _v16
-      } = (0, _v52.useGctlConfig)(),
-      _v17 = (0, _v18.useToast)(),
+        baseUrl: _v19,
+        jwt: _v20
+      } = (0, _v53.useGctlConfig)(),
+      _v21 = (0, _v18.useToast)(),
       {
-        trackSingleEventCustomizationSpeakerSaved: _v18
+        trackSingleEventCustomizationSpeakerSaved: _v22
       } = (0, _v23.useSingleEventCustomizationTracking)(),
-      [_v19, {
-        data: _v20,
-        error: _v21,
-        loading: _v22
+      [_v23, {
+        data: _v24,
+        error: _v25,
+        loading: _v26
       }] = function () {
         let {
             baseUrl: _v0,
             jwt: _v1,
             xVimeoPage: _v2,
             locale: _v3
-          } = (0, _v52.useGctlConfig)(),
-          [_v4, _v5] = (0, _v85.useInternalState)();
+          } = (0, _v53.useGctlConfig)(),
+          [_v4, _v5] = (0, _v86.useInternalState)();
         return [(0, _v9.useCallback)(async _v0 => {
           _v5({
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v91({
+            let _v0 = await _v92({
               ..._v0,
               baseUrl: _v0,
               headers: {
@@ -1054,27 +1143,27 @@
           }
         }, [_v0, _v2, _v1, _v3, _v5]), _v4];
       }(),
-      [_v23, {
-        data: _v24,
-        error: _v25,
-        loading: _v26
+      [_v27, {
+        data: _v28,
+        error: _v29,
+        loading: _v30
       }] = function () {
         let {
             mutate: _v0
-          } = (0, _v87.useSWRConfig)(),
+          } = (0, _v88.useSWRConfig)(),
           {
             baseUrl: _v1,
             jwt: _v2,
             xVimeoPage: _v3,
             locale: _v4
-          } = (0, _v52.useGctlConfig)(),
-          [_v5, _v6] = (0, _v85.useInternalState)();
+          } = (0, _v53.useGctlConfig)(),
+          [_v5, _v6] = (0, _v86.useInternalState)();
         return [(0, _v9.useCallback)(async _v0 => {
           _v6({
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v0(`/person_profiles/${_v0.where.personProfileId}${(0, _v85.serializeQuery)(_v0)}`, _v89({
+            let _v0 = await _v0(`/person_profiles/${_v0.where.personProfileId}${(0, _v86.serializeQuery)(_v0)}`, _v90({
               ..._v0,
               baseUrl: _v1,
               headers: {
@@ -1097,11 +1186,11 @@
           }
         }, [_v1, _v3, _v2, _v4, _v6]), _v5];
       }(),
-      _v27 = _v0 => {
-        _v17({
+      _v31 = _v0 => {
+        _v21({
           status: "error",
           duration: 0,
-          title: (0, _v55.getErrorToastTitle)(_v0, (0, _v5.translate)({
+          title: (0, _v56.getErrorToastTitle)(_v0, (0, _v5.translate)({
             singular: "Something went wrong saving, please check the input blanks and try again.",
             dictionary: {
               es: {
@@ -1129,25 +1218,25 @@
           }))
         });
       },
-      _v28 = (0, _v9.useEffectEvent)(async _v0 => {
-        if (_v10 && null != _v15) try {
-          await _v106({
-            baseUrl: _v15,
+      _v32 = (0, _v9.useEffectEvent)(async _v0 => {
+        if (_v11 && null != _v19) try {
+          await _v111({
+            baseUrl: _v19,
             headers: {
-              Authorization: null != _v16 ? `jwt ${_v16}` : "",
+              Authorization: null != _v20 ? `jwt ${_v20}` : "",
               "Content-Type": "application/json"
             },
             personProfileId: _v0,
             upload: {
-              body: _v10.file,
-              contentType: _v10.file.type
+              body: _v11.file,
+              contentType: _v11.file.type
             }
           });
         } catch (_v0) {
-          _v17({
+          _v21({
             status: "error",
             duration: 0,
-            title: (0, _v55.getErrorToastTitle)(_v0, (0, _v5.translate)({
+            title: (0, _v56.getErrorToastTitle)(_v0, (0, _v5.translate)({
               singular: "Your speaker was saved, but the photo failed to upload.",
               dictionary: {
                 es: {
@@ -1175,49 +1264,86 @@
             }))
           });
         }
-        _v18({
+        _v22({
           speakerAction: "add" === _v2 ? "created" : "edited",
           speakerSection: "add" === _v2 ? _v3 ?? null : null
-        }), _v5(_v0), _v4();
+        }), _v5(_v0);
+        try {
+          _v15.current && (await _v6?.(_v0));
+        } finally {
+          _v4();
+        }
       }),
-      _v29 = _v20 ?? _v24,
-      _v30 = _v22 || _v26 || null != _v29;
+      _v33 = _v24 ?? _v28,
+      _v34 = _v26 || _v30 || null != _v33,
+      _v35 = _v7.name !== _v0.name || _v7.role !== _v0.role || _v7.description !== _v0.description || null !== _v11;
     (0, _v9.useEffect)(() => {
-      _v29 && _v28(_v29.id);
-    }, [_v29]);
-    let _v31 = _v21 ?? _v25,
-      _v32 = (0, _v9.useRef)(null),
-      _v33 = (0, _v9.useEffectEvent)(_v0 => _v27(_v0));
+      _v33 && _v32(_v33.id);
+    }, [_v33]);
+    let _v36 = _v25 ?? _v29,
+      _v37 = (0, _v9.useRef)(null),
+      _v38 = (0, _v9.useEffectEvent)(_v0 => _v31(_v0));
     (0, _v9.useEffect)(() => {
-      null !== _v31 && _v32.current !== _v31 && (_v32.current = _v31, _v33(_v31));
-    }, [_v31]);
-    let _v34 = (0, _v9.useMemo)(() => null !== _v10 ? URL.createObjectURL(_v10.file) : null, [_v10]);
+      null !== _v36 && _v37.current !== _v36 && (_v37.current = _v36, _v38(_v36));
+    }, [_v36]);
+    let _v39 = (0, _v9.useMemo)(() => null !== _v11 ? URL.createObjectURL(_v11.file) : null, [_v11]);
     (0, _v9.useEffect)(() => () => {
-      null !== _v34 && URL.revokeObjectURL(_v34);
-    }, [_v34]), (0, _v9.useEffect)(() => {
-      if (null === _v10) return;
+      null !== _v39 && URL.revokeObjectURL(_v39);
+    }, [_v39]), (0, _v9.useEffect)(() => {
+      if (null === _v11) return;
       let _v0 = null,
         _v1 = !1;
-      return _v115(_v10.file, _v10.crop).then(_v0 => {
-        _v1 ? URL.revokeObjectURL(_v0) : (_v0 = _v0, _v13(_v0));
+      return _v121(_v11.file, _v11.crop).then(_v0 => {
+        _v1 ? URL.revokeObjectURL(_v0) : (_v0 = _v0, _v14(_v0));
       }), () => {
         _v1 = !0, null !== _v0 && URL.revokeObjectURL(_v0);
       };
-    }, [_v10]);
-    let _v35 = (_v0, _v1) => {
-      "name" === _v0 && "" !== _v1.trim() && _v9(!1), _v7({
-        ..._v6,
-        [_v0]: _v1
-      });
-    };
-    return (0, _v1.jsxs)(_v62.Modal, {
+    }, [_v11]);
+    let _v40 = (_v0, _v1) => {
+        "name" === _v0 && "" !== _v1.trim() && _v10(!1), _v8({
+          ..._v7,
+          [_v0]: _v1
+        });
+      },
+      _v41 = (_v0 = !1) => {
+        if (_v34) return;
+        let _v1 = _v7.name.trim();
+        if ("" === _v1) return void _v10(!0);
+        _v15.current = _v0;
+        let _v2 = {
+          name: _v1,
+          role: _v7.role.trim() || null,
+          description: _v7.description.trim() || null,
+          ...(null !== _v11 ? {
+            avatarCrop: _v11.crop
+          } : {})
+        };
+        if ("edit" === _v2) {
+          let _v0 = _v0.id;
+          return null == _v0 ? void _v31(null) : void _v27({
+            select: ["id"],
+            where: {
+              personProfileId: _v0
+            },
+            variables: _v2
+          });
+        }
+        _v18 <= 0 ? _v31(null) : _v23({
+          select: ["id"],
+          where: {
+            userId: _v18
+          },
+          variables: _v2
+        });
+      };
+    return (0, _v1.jsxs)(_v63.Modal, {
       closeOnOverlayClick: !1,
       size: "lg",
       isCentered: !0,
       isOpen: _v1,
       onClose: _v4,
-      children: [(0, _v1.jsx)(_v67.ModalOverlay, {}), (0, _v1.jsxs)(_v64.ModalContent, {
-        children: [(0, _v1.jsx)(_v66.ModalHeader, {
+      children: [(0, _v1.jsx)(_v68.ModalOverlay, {}), (0, _v1.jsxs)(_v65.ModalContent, {
+        children: [(0, _v1.jsx)(_v67.ModalHeader, {
           children: "edit" === _v2 ? (0, _v5.translate)({
             singular: "Edit speaker",
             dictionary: {
@@ -1269,7 +1395,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v63.ModalBody, {
+        }), (0, _v1.jsx)(_v64.ModalBody, {
           display: "flex",
           flexDirection: "column",
           children: (0, _v1.jsxs)(_v15.Flex, {
@@ -1282,9 +1408,9 @@
               minWidth: 0,
               children: [(0, _v1.jsx)(_v15.Flex, {
                 direction: "column",
-                children: (0, _v1.jsxs)(_v45.FormControl, {
-                  isInvalid: _v8,
-                  children: [(0, _v1.jsx)(_v46.FormLabel, {
+                children: (0, _v1.jsxs)(_v46.FormControl, {
+                  isInvalid: _v9,
+                  children: [(0, _v1.jsx)(_v47.FormLabel, {
                     htmlFor: "speaker-name",
                     children: (0, _v1.jsx)(_v17.Text, {
                       as: "span",
@@ -1313,11 +1439,11 @@
                         }
                       })
                     })
-                  }), (0, _v1.jsx)(_v97.Input, {
+                  }), (0, _v1.jsx)(_v98.Input, {
                     id: "speaker-name",
-                    isInvalid: _v8,
+                    isInvalid: _v9,
                     maxLength: 120,
-                    onChange: _v0 => _v35("name", _v0.target.value),
+                    onChange: _v0 => _v40("name", _v0.target.value),
                     placeholder: (0, _v5.translate)({
                       singular: "Add name",
                       dictionary: {
@@ -1344,10 +1470,10 @@
                         }
                       }
                     }),
-                    value: _v6.name
-                  }), (0, _v1.jsx)(_v94.AnimatePresence, {
-                    children: _v8 ? (0, _v1.jsx)(_v15.Flex, {
-                      as: _v95.motion.div,
+                    value: _v7.name
+                  }), (0, _v1.jsx)(_v95.AnimatePresence, {
+                    children: _v9 ? (0, _v1.jsx)(_v15.Flex, {
+                      as: _v96.motion.div,
                       initial: {
                         height: 0,
                         opacity: 0
@@ -1368,7 +1494,7 @@
                       },
                       overflow: "hidden",
                       mt: "xs",
-                      children: (0, _v1.jsx)(_v96.FormErrorMessage, {
+                      children: (0, _v1.jsx)(_v97.FormErrorMessage, {
                         variant: "error",
                         fontSize: "body-sm",
                         lineHeight: "body-sm",
@@ -1405,7 +1531,7 @@
                 })
               }), (0, _v1.jsxs)(_v15.Flex, {
                 direction: "column",
-                children: [(0, _v1.jsx)(_v46.FormLabel, {
+                children: [(0, _v1.jsx)(_v47.FormLabel, {
                   htmlFor: "speaker-role",
                   children: (0, _v1.jsxs)(_v15.Flex, {
                     as: "span",
@@ -1467,15 +1593,15 @@
                           }
                         }
                       }),
-                      children: (0, _v1.jsx)(_v99.InfoCircle, {
+                      children: (0, _v1.jsx)(_v104.InfoCircle, {
                         boxSize: (0, _v16.rem)(16)
                       })
                     })]
                   })
-                }), (0, _v1.jsx)(_v97.Input, {
+                }), (0, _v1.jsx)(_v98.Input, {
                   id: "speaker-role",
                   maxLength: 120,
-                  onChange: _v0 => _v35("role", _v0.target.value),
+                  onChange: _v0 => _v40("role", _v0.target.value),
                   placeholder: (0, _v5.translate)({
                     singular: "Add role",
                     dictionary: {
@@ -1502,11 +1628,11 @@
                       }
                     }
                   }),
-                  value: _v6.role
+                  value: _v7.role
                 })]
               }), (0, _v1.jsxs)(_v15.Flex, {
                 direction: "column",
-                children: [(0, _v1.jsx)(_v46.FormLabel, {
+                children: [(0, _v1.jsx)(_v47.FormLabel, {
                   htmlFor: "speaker-photo",
                   children: (0, _v1.jsxs)(_v15.Flex, {
                     as: "span",
@@ -1562,34 +1688,34 @@
                           }
                         }
                       }),
-                      children: (0, _v1.jsx)(_v99.InfoCircle, {
+                      children: (0, _v1.jsx)(_v104.InfoCircle, {
                         boxSize: (0, _v16.rem)(16)
                       })
                     })]
                   })
-                }), (0, _v1.jsx)(_v114, {
+                }), (0, _v1.jsx)(_v120, {
                   id: "speaker-photo",
-                  fileName: _v10?.file.name,
-                  fileSize: _v10 ? (_v0 => {
+                  fileName: _v11?.file.name,
+                  fileSize: _v11 ? (_v0 => {
                     if (_v0 < 0) return `${_v0} B`;
                     if (_v0 < 0) return `${Math.max(1, Math.round(_v0 / 0))} KB`;
                     let _v1 = _v0 / 0;
                     return _v1 < 10 ? `${_v1.toFixed(1)} MB` : `${Math.round(_v1)} MB`;
-                  })(_v10.file.size) : void 0,
-                  previewSrc: _v12 || _v34 || void 0,
+                  })(_v11.file.size) : void 0,
+                  previewSrc: _v13 || _v39 || void 0,
                   onCropSaved: (_v0, _v1) => {
-                    _v11({
+                    _v12({
                       file: _v0,
                       crop: _v1
-                    }), _v13(null);
+                    }), _v14(null);
                   },
                   onRemove: () => {
-                    _v11(null), _v13(null);
+                    _v12(null), _v14(null);
                   }
                 })]
               }), (0, _v1.jsxs)(_v15.Flex, {
                 direction: "column",
-                children: [(0, _v1.jsx)(_v46.FormLabel, {
+                children: [(0, _v1.jsx)(_v47.FormLabel, {
                   htmlFor: "speaker-description",
                   children: (0, _v1.jsxs)(_v15.Flex, {
                     as: "span",
@@ -1648,15 +1774,15 @@
                           }
                         }
                       }),
-                      children: (0, _v1.jsx)(_v99.InfoCircle, {
+                      children: (0, _v1.jsx)(_v104.InfoCircle, {
                         boxSize: (0, _v16.rem)(16)
                       })
                     })]
                   })
-                }), (0, _v1.jsx)(_v98.Textarea, {
+                }), (0, _v1.jsx)(_v103.Textarea, {
                   id: "speaker-description",
                   minHeight: (0, _v16.rem)(120),
-                  onChange: _v0 => _v35("description", _v0.target.value),
+                  onChange: _v0 => _v40("description", _v0.target.value),
                   placeholder: (0, _v5.translate)({
                     singular: "Add description",
                     dictionary: {
@@ -1685,7 +1811,7 @@
                   }),
                   maxLength: 255,
                   resize: "none",
-                  value: _v6.description
+                  value: _v7.description
                 })]
               })]
             }), (0, _v1.jsxs)(_v15.Flex, {
@@ -1719,18 +1845,18 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v100.SpeakerProfileCard, {
-                name: _v6.name.trim() || "Name (required)",
-                role: _v6.role,
-                description: _v6.description,
-                thumbnailUrl: _v34 ?? _v6.picture?.baseLink
+              }), (0, _v1.jsx)(_v105.SpeakerProfileCard, {
+                name: _v7.name.trim() || "Name (required)",
+                role: _v7.role,
+                description: _v7.description,
+                thumbnailUrl: _v39 ?? _v7.picture?.baseLink
               })]
             })]
           })
-        }), (0, _v1.jsxs)(_v65.ModalFooter, {
+        }), (0, _v1.jsxs)(_v66.ModalFooter, {
           justifyContent: "flex-end",
           children: [(0, _v1.jsx)(_v3.Button, {
-            isDisabled: _v30,
+            isDisabled: _v34,
             onClick: _v4,
             variant: "secondary",
             children: (0, _v5.translate)({
@@ -1759,38 +1885,137 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v3.Button, {
-            isLoading: _v30,
-            onClick: () => {
-              if (_v30) return;
-              let _v0 = _v6.name.trim();
-              if ("" === _v0) return void _v9(!0);
-              let _v1 = {
-                name: _v0,
-                role: _v6.role.trim() || null,
-                description: _v6.description.trim() || null,
-                ...(null !== _v10 ? {
-                  avatarCrop: _v10.crop
-                } : {})
-              };
-              if ("edit" === _v2) {
-                let _v0 = _v0.id;
-                return null == _v0 ? void _v27(null) : void _v23({
-                  select: ["id"],
-                  where: {
-                    personProfileId: _v0
+          }), void 0 !== _v6 ? (0, _v1.jsxs)(_v99.Menu, {
+            placement: "top-end",
+            children: [(0, _v1.jsx)(_v100.MenuButton, {
+              as: _v3.Button,
+              isDisabled: !_v35,
+              isLoading: _v34,
+              rightIcon: (0, _v1.jsx)(_v76.ChevronDownSmall, {}),
+              variant: "primary",
+              children: (0, _v5.translate)({
+                singular: "Save",
+                dictionary: {
+                  es: {
+                    singular: "Guardar"
                   },
-                  variables: _v1
-                });
-              }
-              _v14 <= 0 ? _v27(null) : _v19({
-                select: ["id"],
-                where: {
-                  userId: _v14
-                },
-                variables: _v1
-              });
-            },
+                  "de-DE": {
+                    singular: "Speichern"
+                  },
+                  "fr-FR": {
+                    singular: "Enregistrer"
+                  },
+                  "ja-JP": {
+                    singular: "保存"
+                  },
+                  "ko-KR": {
+                    singular: "저장"
+                  },
+                  "pt-BR": {
+                    singular: "Salvar"
+                  },
+                  "zh-CN": {
+                    singular: "保存"
+                  }
+                }
+              })
+            }), (0, _v1.jsxs)(_v102.MenuList, {
+              children: [(0, _v1.jsx)(_v101.MenuItem, {
+                onClick: () => _v41(),
+                children: (0, _v5.translate)({
+                  singular: "Save",
+                  dictionary: {
+                    es: {
+                      singular: "Guardar"
+                    },
+                    "de-DE": {
+                      singular: "Speichern"
+                    },
+                    "fr-FR": {
+                      singular: "Enregistrer"
+                    },
+                    "ja-JP": {
+                      singular: "保存"
+                    },
+                    "ko-KR": {
+                      singular: "저장"
+                    },
+                    "pt-BR": {
+                      singular: "Salvar"
+                    },
+                    "zh-CN": {
+                      singular: "保存"
+                    }
+                  }
+                })
+              }), (0, _v1.jsx)(_v101.MenuItem, {
+                onClick: () => _v17(!0),
+                children: (0, _v1.jsxs)(_v15.Flex, {
+                  align: "center",
+                  gap: "sm",
+                  justify: "space-between",
+                  width: "100%",
+                  children: [(0, _v5.translate)({
+                    singular: "Save and translate with AI",
+                    dictionary: {
+                      es: {
+                        singular: "Guardar y traducir con IA"
+                      },
+                      "de-DE": {
+                        singular: "Speichern und mit KI übersetzen"
+                      },
+                      "fr-FR": {
+                        singular: "Enregistrer et traduire avec l'IA"
+                      },
+                      "ja-JP": {
+                        singular: "保存してAIで翻訳"
+                      },
+                      "ko-KR": {
+                        singular: "저장 및 AI로 번역"
+                      },
+                      "pt-BR": {
+                        singular: "Salvar e traduzir com IA"
+                      },
+                      "zh-CN": {
+                        singular: "保存并使用 AI 翻译"
+                      }
+                    }
+                  }), (0, _v1.jsx)(_v55.CircleTip, {
+                    as: "span",
+                    label: (0, _v5.translate)({
+                      singular: "Automatically translate changes to this speaker’s role and description into the languages enabled for each event where they appear.",
+                      dictionary: {
+                        es: {
+                          singular: "Traducir automáticamente los cambios en el rol y la descripción de este ponente a los idiomas habilitados para cada evento en el que aparezca."
+                        },
+                        "de-DE": {
+                          singular: "Änderungen an der Rolle und Beschreibung dieses Sprechers automatisch in die für jede Veranstaltung aktivierten Sprachen übersetzen, in denen er bzw. sie auftritt."
+                        },
+                        "fr-FR": {
+                          singular: "Traduire automatiquement les modifications apportées au rôle et à la description de cet intervenant dans les langues activées pour chaque événement où il apparaît."
+                        },
+                        "ja-JP": {
+                          singular: "このスピーカーの役割と説明への変更を、そのスピーカーが登場する各イベントで有効になっている言語に自動的に翻訳します。"
+                        },
+                        "ko-KR": {
+                          singular: "이 발표자의 역할 및 설명에 대한 변경 사항을 해당 발표자가 등장하는 각 이벤트에서 활성화된 언어로 자동으로 번역합니다."
+                        },
+                        "pt-BR": {
+                          singular: "Traduzir automaticamente as alterações no papel e na descrição deste palestrante para os idiomas habilitados em cada evento em que ele(a) aparecer."
+                        },
+                        "zh-CN": {
+                          singular: "自动将对该演讲者的角色和简介所做的更改翻译为其出现在每个活动中所启用的语言。"
+                        }
+                      }
+                    })
+                  })]
+                })
+              })]
+            })]
+          }) : (0, _v1.jsx)(_v3.Button, {
+            isDisabled: !_v35,
+            isLoading: _v34,
+            onClick: () => _v41(),
             variant: "primary",
             children: (0, _v5.translate)({
               singular: "Save",
@@ -1820,112 +2045,372 @@
             })
           })]
         })]
-      })]
+      }), _v16 ? (0, _v1.jsx)(_v112, {
+        body: (0, _v5.translate)({
+          singular: "Your changes will be saved, then the speaker's name, role and description will be translated with AI in every event they're on. Published languages update right away, and the speaker's existing translations are replaced, including ones edited by hand.",
+          dictionary: {
+            es: {
+              singular: "Tus cambios se guardarán y, a continuación, el nombre, el cargo y la descripción del ponente se traducirán con IA en cada evento en el que participe. Los idiomas publicados se actualizarán de inmediato y las traducciones existentes del ponente serán reemplazadas, incluidas las editadas manualmente."
+            },
+            "de-DE": {
+              singular: "Ihre Änderungen werden gespeichert, danach werden der Name, die Rolle und die Beschreibung des Sprechers in jeder Veranstaltung, an der er teilnimmt, mit KI übersetzt. Veröffentlichte Sprachen werden sofort aktualisiert, und die vorhandenen Übersetzungen des Sprechers werden ersetzt, einschließlich der manuell bearbeiteten."
+            },
+            "fr-FR": {
+              singular: "Vos modifications seront enregistrées, puis le nom, le rôle et la description de l'intervenant seront traduits avec l'IA dans chaque événement auquel il participe. Les langues publiées sont mises à jour immédiatement, et les traductions existantes de l'intervenant sont remplacées, y compris celles modifiées manuellement."
+            },
+            "ja-JP": {
+              singular: "変更は保存され、その後スピーカーが参加しているすべてのイベントで名前・役割・説明がAIで翻訳されます。公開済みの言語はすぐに更新され、手動で編集されたものを含め既存の翻訳は上書きされます。"
+            },
+            "ko-KR": {
+              singular: "변경 사항이 저장된 후, 해당 발표자가 참여한 모든 이벤트에서 발표자의 이름, 직함 및 설명이 AI로 번역됩니다. 게시된 언어는 즉시 업데이트되며, 수동으로 편집된 항목을 포함해 발표자의 기존 번역이 모두 대체됩니다."
+            },
+            "pt-BR": {
+              singular: "Suas alterações serão salvas e, em seguida, o nome, o cargo e a descrição do palestrante serão traduzidos com IA em todos os eventos em que participa. Os idiomas publicados são atualizados imediatamente, e as traduções existentes do palestrante serão substituídas, inclusive as editadas manualmente."
+            },
+            "zh-CN": {
+              singular: "您的更改将被保存，然后该演讲者在其参与的每个活动中的姓名、角色和简介都将使用 AI 进行翻译。已发布的语言会立即更新，且该演讲者现有的翻译（包括手动编辑过的）将被替换。"
+            }
+          }
+        }),
+        confirmLabel: (0, _v5.translate)({
+          singular: "Save and translate",
+          dictionary: {
+            es: {
+              singular: "Guardar y traducir"
+            },
+            "de-DE": {
+              singular: "Speichern und übersetzen"
+            },
+            "fr-FR": {
+              singular: "Enregistrer et traduire"
+            },
+            "ja-JP": {
+              singular: "保存して翻訳"
+            },
+            "ko-KR": {
+              singular: "저장 및 번역"
+            },
+            "pt-BR": {
+              singular: "Salvar e traduzir"
+            },
+            "zh-CN": {
+              singular: "保存并翻译"
+            }
+          }
+        }),
+        confirmVariant: "primary",
+        onCancel: () => _v17(!1),
+        onConfirm: () => {
+          _v17(!1), _v41(!0);
+        },
+        title: (0, _v5.translate)({
+          singular: "Translate this speaker with AI?",
+          dictionary: {
+            es: {
+              singular: "¿Traducir a este ponente con IA?"
+            },
+            "de-DE": {
+              singular: "Diesen Sprecher mit KI übersetzen?"
+            },
+            "fr-FR": {
+              singular: "Traduire cet intervenant avec l'IA ?"
+            },
+            "ja-JP": {
+              singular: "このスピーカーをAIで翻訳しますか？"
+            },
+            "ko-KR": {
+              singular: "이 발표자를 AI로 번역하시겠습니까?"
+            },
+            "pt-BR": {
+              singular: "Traduzir este palestrante com IA?"
+            },
+            "zh-CN": {
+              singular: "使用 AI 翻译此演讲者吗？"
+            }
+          }
+        })
+      }) : null]
     });
   }
-  let _v117 = ({
-      title: _v0,
-      body: _v1,
-      confirmLabel: _v2,
-      cancelLabel: _v3,
-      isConfirmLoading: _v4 = !1,
-      onCancel: _v5,
-      onConfirm: _v6
-    }) => (0, _v1.jsxs)(_v62.Modal, {
-      isOpen: !0,
-      onClose: _v5,
-      children: [(0, _v1.jsx)(_v67.ModalOverlay, {}), (0, _v1.jsxs)(_v64.ModalContent, {
-        children: [(0, _v1.jsx)(_v66.ModalHeader, {
-          children: _v0
-        }), (0, _v1.jsx)(_v63.ModalBody, {
-          children: _v1
-        }), (0, _v1.jsxs)(_v65.ModalFooter, {
-          children: [(0, _v1.jsx)(_v3.Button, {
-            onClick: _v5,
-            variant: "tertiary",
-            children: _v3 ?? (0, _v5.translate)({
-              singular: "Cancel",
-              dictionary: {
-                es: {
-                  singular: "Cancelar"
-                },
-                "de-DE": {
-                  singular: "Abbrechen"
-                },
-                "fr-FR": {
-                  singular: "Annuler"
-                },
-                "ja-JP": {
-                  singular: "キャンセル"
-                },
-                "ko-KR": {
-                  singular: "취소"
-                },
-                "pt-BR": {
-                  singular: "Cancelar"
-                },
-                "zh-CN": {
-                  singular: "取消"
-                }
-              }
-            })
-          }), (0, _v1.jsx)(_v3.Button, {
-            isLoading: _v4,
-            onClick: _v6,
-            variant: "destructive",
-            children: _v2 ?? (0, _v5.translate)({
-              singular: "Delete",
-              dictionary: {
-                es: {
-                  singular: "Eliminar"
-                },
-                "de-DE": {
-                  singular: "Löschen"
-                },
-                "fr-FR": {
-                  singular: "Supprimer"
-                },
-                "ja-JP": {
-                  singular: "削除"
-                },
-                "ko-KR": {
-                  singular: "삭제"
-                },
-                "pt-BR": {
-                  singular: "Excluir"
-                },
-                "zh-CN": {
-                  singular: "删除"
-                }
-              }
-            })
-          })]
-        })]
-      })]
-    }),
-    _v118 = (0, _v16.rem)(56),
-    _v119 = ["id", "name", "role", "description", "pictures.baseLink", "avatarCrop"],
-    _v120 = ["id", "personProfile.id", "personProfile.name", "personProfile.role", "personProfile.description", "personProfile.pictures.baseLink", "personProfile.avatarCrop"];
-  function _v121({
+  async function _v123({
+    baseUrl: _v0,
+    select: _v1,
+    variables: _v2,
+    where: {
+      personProfileId: _v3
+    },
+    ..._v4
+  }) {
+    return (0, _v49.measureLatency)("postPersonProfileLocalizationsTranslate", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/person_profiles/${_v3}/localizations/translate?fields=${_v1.map(_v50.intoSnakeCase).join(",")}`, {
+        ..._v4,
+        method: "POST",
+        body: JSON.stringify((0, _v50.deepSnakeCase)(_v2))
+      });
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
+      if (204 === _v0.status) return null;
+      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
+      let _v1 = await _v0.json();
+      return (0, _v50.deepCamelCase)(_v1);
+    });
+  }
+  let _v124 = ["results.liveEventId", "results.locale", "results.status", "results.reason"],
+    _v125 = ["published", "drafted"],
+    _v126 = (0, _v16.rem)(56),
+    _v127 = ["id", "name", "role", "description", "pictures.baseLink", "avatarCrop"],
+    _v128 = ["id", "personProfile.id", "personProfile.name", "personProfile.role", "personProfile.description", "personProfile.pictures.baseLink", "personProfile.avatarCrop"];
+  function _v129({
     isOpen: _v0,
     onClose: _v1,
-    eventId: _v2
+    eventId: _v2,
+    isAiTranslationEnabled: _v3 = !1,
+    onSpeakerTranslated: _v4
   }) {
-    let _v3 = _v2 > 0,
-      _v4 = (0, _v93.useSessionOwnerId)(),
-      _v5 = (0, _v18.useToast)(),
+    let _v5 = (() => {
+        let {
+            baseUrl: _v0,
+            jwt: _v1,
+            xVimeoPage: _v2,
+            locale: _v3
+          } = (0, _v53.useGctlConfig)(),
+          _v4 = (0, _v18.useToast)();
+        return (0, _v9.useCallback)(async (_v0, _v1) => {
+          let _v2,
+            _v3 = () => {
+              _v4({
+                isClosable: !0,
+                title: (0, _v5.translate)({
+                  singular: "Something went wrong. Your translations were not created.",
+                  dictionary: {
+                    es: {
+                      singular: "Algo salió mal. No se crearon tus traducciones."
+                    },
+                    "de-DE": {
+                      singular: "Etwas ist schiefgelaufen. Ihre Übersetzungen wurden nicht erstellt."
+                    },
+                    "fr-FR": {
+                      singular: "Une erreur s'est produite. Vos traductions n'ont pas été créées."
+                    },
+                    "ja-JP": {
+                      singular: "問題が発生しました。翻訳は作成されませんでした。"
+                    },
+                    "ko-KR": {
+                      singular: "문제가 발생했습니다. 번역이 생성되지 않았습니다."
+                    },
+                    "pt-BR": {
+                      singular: "Algo deu errado. Suas traduções não foram criadas."
+                    },
+                    "zh-CN": {
+                      singular: "出现问题。未能创建翻译。"
+                    }
+                  }
+                }),
+                variant: "warning"
+              });
+            };
+          try {
+            ({
+              results: _v2
+            } = await _v123({
+              baseUrl: _v0,
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: null != _v1 && "" !== _v1 ? `jwt ${_v1}` : "",
+                "Vimeo-Page": `${_v2}`,
+                "Accept-Language": _v3 ?? "en"
+              },
+              select: _v124,
+              where: {
+                personProfileId: _v0
+              },
+              variables: null != _v1 ? {
+                liveEventId: _v1
+              } : void 0
+            }));
+          } catch {
+            _v3();
+            return;
+          }
+          if (!Array.isArray(_v2)) return void _v3();
+          let _v4 = _v2.filter(({
+              status: _v0
+            }) => "failed" === _v0).length,
+            _v5 = new Set(_v2.filter(({
+              status: _v0
+            }) => _v125.includes(_v0)).map(_v0 => _v0.liveEventId)).size,
+            _v6 = _v2.filter(({
+              reason: _v0
+            }) => "too_many_events" === _v0).length;
+          _v5 > 0 && _v4({
+            isClosable: !0,
+            title: (0, _v5.translate)({
+              singular: "Speaker translated in {COUNT} event",
+              plural: "Speaker translated in {COUNT} events",
+              count: _v5,
+              replacements: {
+                COUNT: _v5
+              },
+              dictionary: {
+                es: {
+                  singular: "Ponente traducido en {COUNT} evento",
+                  plural: "Ponente traducido en {COUNT} eventos"
+                },
+                "de-DE": {
+                  singular: "Sprecher in {COUNT} Veranstaltung übersetzt",
+                  plural: "Sprecher in {COUNT} Veranstaltungen übersetzt"
+                },
+                "fr-FR": {
+                  singular: "Intervenant traduit dans {COUNT} événement",
+                  plural: "Intervenant traduit dans {COUNT} événements"
+                },
+                "ja-JP": {
+                  singular: "スピーカーは{COUNT}件のイベントで翻訳されました",
+                  plural: "スピーカーは{COUNT}件のイベントで翻訳されました"
+                },
+                "ko-KR": {
+                  singular: "{COUNT}개의 이벤트에서 발표자가 번역되었습니다.",
+                  plural: "{COUNT}개의 이벤트에서 발표자가 번역되었습니다."
+                },
+                "pt-BR": {
+                  singular: "Palestrante traduzido em {COUNT} evento",
+                  plural: "Palestrante traduzido em {COUNT} eventos"
+                },
+                "zh-CN": {
+                  singular: "已在 {COUNT} 个活动中翻译该演讲者",
+                  plural: "已在 {COUNT} 个活动中翻译该演讲者"
+                }
+              }
+            }),
+            variant: "success"
+          }), _v4 > 0 && _v4({
+            isClosable: !0,
+            title: (0, _v5.translate)({
+              singular: '{COUNT} translation could not be saved. Edit the speaker and choose "Save and translate with AI" to retry.',
+              plural: '{COUNT} translations could not be saved. Edit the speaker and choose "Save and translate with AI" to retry.',
+              count: _v4,
+              replacements: {
+                COUNT: _v4
+              },
+              dictionary: {
+                es: {
+                  singular: '{COUNT} traducción no se pudo guardar. Edita al ponente y elige "Guardar y traducir con IA" para reintentar.',
+                  plural: '{COUNT} traducciones no se pudieron guardar. Edita al ponente y elige "Guardar y traducir con IA" para reintentar.'
+                },
+                "de-DE": {
+                  singular: '{COUNT} Übersetzung konnte nicht gespeichert werden. Bearbeite den Sprecher und wähle "Speichern und mit KI übersetzen", um es erneut zu versuchen.',
+                  plural: '{COUNT} Übersetzungen konnten nicht gespeichert werden. Bearbeite den Sprecher und wähle "Speichern und mit KI übersetzen", um es erneut zu versuchen.'
+                },
+                "fr-FR": {
+                  singular: "{COUNT} traduction n'a pas pu être enregistrée. Modifiez l'intervenant et choisissez \"Enregistrer et traduire avec l'IA\" pour réessayer.",
+                  plural: "{COUNT} traductions n'ont pas pu être enregistrées. Modifiez l'intervenant et choisissez \"Enregistrer et traduire avec l'IA\" pour réessayer."
+                },
+                "ja-JP": {
+                  singular: '{COUNT}件の翻訳を保存できませんでした。スピーカーを編集して"保存してAIで翻訳"を選択して再試行してください。',
+                  plural: '{COUNT}件の翻訳を保存できませんでした。スピーカーを編集して"保存してAIで翻訳"を選択して再試行してください。'
+                },
+                "ko-KR": {
+                  singular: '{COUNT}개의 번역을 저장하지 못했습니다. 발표자를 편집한 다음 재시도하려면 "저장 및 AI로 번역"을 선택하세요.',
+                  plural: '{COUNT}개의 번역을 저장하지 못했습니다. 발표자를 편집한 다음 재시도하려면 "저장 및 AI로 번역"을 선택하세요.'
+                },
+                "pt-BR": {
+                  singular: '{COUNT} tradução não pôde ser salva. Edite o palestrante e escolha "Salvar e traduzir com IA" para tentar novamente.',
+                  plural: '{COUNT} traduções não puderam ser salvas. Edite o palestrante e escolha "Salvar e traduzir com IA" para tentar novamente.'
+                },
+                "zh-CN": {
+                  singular: '{COUNT} 个翻译未能保存。编辑该演讲者并选择 "保存并使用 AI 翻译" 以重试。',
+                  plural: '{COUNT} 个翻译未能保存。编辑该演讲者并选择 "保存并使用 AI 翻译" 以重试。'
+                }
+              }
+            }),
+            variant: "warning"
+          }), _v6 > 0 && _v4({
+            isClosable: !0,
+            title: (0, _v5.translate)({
+              singular: "{COUNT} more event was not updated. Translate this speaker from that event’s settings.",
+              plural: "{COUNT} more events were not updated. Translate this speaker from those events’ settings.",
+              count: _v6,
+              replacements: {
+                COUNT: _v6
+              },
+              dictionary: {
+                es: {
+                  singular: "{COUNT} evento más no se actualizó. Traduce a este ponente desde la configuración de ese evento.",
+                  plural: "{COUNT} eventos más no se actualizaron. Traduce a este ponente desde la configuración de esos eventos."
+                },
+                "de-DE": {
+                  singular: "{COUNT} weitere Veranstaltung wurde nicht aktualisiert. Übersetze diesen Sprecher in den Einstellungen dieser Veranstaltung.",
+                  plural: "{COUNT} weitere Veranstaltungen wurden nicht aktualisiert. Übersetze diesen Sprecher in den Einstellungen dieser Veranstaltungen."
+                },
+                "fr-FR": {
+                  singular: "{COUNT} autre événement n'a pas été mis à jour. Traduisez cet intervenant depuis les paramètres de cet événement.",
+                  plural: "{COUNT} autres événements n'ont pas été mis à jour. Traduisez cet intervenant depuis les paramètres de ces événements."
+                },
+                "ja-JP": {
+                  singular: "{COUNT}件のイベントは更新されませんでした。該当イベントの設定からこのスピーカーを翻訳してください。",
+                  plural: "{COUNT}件のイベントは更新されませんでした。該当イベントの設定からこのスピーカーを翻訳してください。"
+                },
+                "ko-KR": {
+                  singular: "{COUNT}개의 추가 이벤트가 업데이트되지 않았습니다. 해당 이벤트의 설정에서 이 발표자를 번역하세요.",
+                  plural: "{COUNT}개의 추가 이벤트가 업데이트되지 않았습니다. 해당 이벤트들의 설정에서 이 발표자를 번역하세요."
+                },
+                "pt-BR": {
+                  singular: "{COUNT} outro evento não foi atualizado. Traduza este palestrante nas configurações desse evento.",
+                  plural: "{COUNT} outros eventos não foram atualizados. Traduza este palestrante nas configurações desses eventos."
+                },
+                "zh-CN": {
+                  singular: "另有 {COUNT} 个活动未更新。请从该活动的设置中翻译此演讲者。",
+                  plural: "另有 {COUNT} 个活动未更新。请从那些活动的设置中翻译此演讲者。"
+                }
+              }
+            }),
+            variant: "warning"
+          }), _v5 > 0 || _v4 > 0 || _v6 > 0 || _v4({
+            isClosable: !0,
+            title: (0, _v5.translate)({
+              singular: "This speaker isn't on any event with translations to update.",
+              dictionary: {
+                es: {
+                  singular: "Este ponente no participa en ningún evento con traducciones para actualizar."
+                },
+                "de-DE": {
+                  singular: "Dieser Sprecher ist bei keiner Veranstaltung, bei der Übersetzungen aktualisiert werden könnten."
+                },
+                "fr-FR": {
+                  singular: "Cet intervenant n'est présent dans aucun événement avec des traductions à mettre à jour."
+                },
+                "ja-JP": {
+                  singular: "このスピーカーは、翻訳を更新するイベントに含まれていません。"
+                },
+                "ko-KR": {
+                  singular: "이 발표자는 번역을 업데이트할 이벤트에 등록되어 있지 않습니다."
+                },
+                "pt-BR": {
+                  singular: "Este palestrante não está em nenhum evento com traduções para atualizar."
+                },
+                "zh-CN": {
+                  singular: "该演讲者未出现在任何需要更新翻译的活动中。"
+                }
+              }
+            }),
+            variant: "warning"
+          });
+        }, [_v0, _v1, _v2, _v3, _v4]);
+      })(),
+      _v6 = _v2 > 0,
+      _v7 = (0, _v94.useSessionOwnerId)(),
+      _v8 = (0, _v18.useToast)(),
       {
-        trackSingleEventCustomizationSpeakerVisibilityChanged: _v6,
-        trackSingleEventCustomizationSpeakerDeleted: _v7
+        trackSingleEventCustomizationSpeakerVisibilityChanged: _v9,
+        trackSingleEventCustomizationSpeakerDeleted: _v10
       } = (0, _v23.useSingleEventCustomizationTracking)(),
-      [_v8, _v9] = (0, _v9.useState)(null),
-      [_v10, _v11] = (0, _v9.useState)(null),
-      [_v12, _v13] = (0, _v9.useState)(null),
+      [_v11, _v12] = (0, _v9.useState)(null),
+      [_v13, _v14] = (0, _v9.useState)(null),
+      [_v15, _v16] = (0, _v9.useState)(null),
       {
-        data: _v14,
-        isValidating: _v15,
-        mutate: _v16,
-        setSize: _v17
+        data: _v17,
+        isValidating: _v18,
+        mutate: _v19,
+        setSize: _v20
       } = function (_v0, _v1) {
         let _v2 = "function" == typeof _v0 ? _v0() : _v0,
           {
@@ -1933,8 +2418,8 @@
             jwt: _v4,
             xVimeoPage: _v5,
             locale: _v6
-          } = (0, _v52.useGctlConfig)();
-        return (0, _v92.default)((_v0, _v1) => {
+          } = (0, _v53.useGctlConfig)();
+        return (0, _v93.default)((_v0, _v1) => {
           if (null === _v2 || _v1 && !_v1.paging.next) return null;
           let {
               perPage: _v2 = 25,
@@ -1946,11 +2431,11 @@
               perPage: _v2,
               ..._v4
             };
-          return [`/users/${_v2.where.userId}/person_profiles${(0, _v85.serializeQuery)({
+          return [`/users/${_v2.where.userId}/person_profiles${(0, _v86.serializeQuery)({
             query: _v5,
             select: _v2.select
           })}`, _v0];
-        }, null !== _v2 ? ([_v0, _v1]) => _v90({
+        }, null !== _v2 ? ([_v0, _v1]) => _v91({
           ..._v2,
           baseUrl: _v3,
           headers: {
@@ -1965,10 +2450,10 @@
             page: _v1 + 1
           }
         }) : null, _v1);
-      }(() => _v4 <= 0 ? null : {
-        select: _v119,
+      }(() => _v7 <= 0 ? null : {
+        select: _v127,
         where: {
-          userId: _v4
+          userId: _v7
         },
         query: {
           perPage: 25
@@ -1976,13 +2461,13 @@
       }, {
         revalidateOnFocus: !1
       }),
-      _v18 = (0, _v9.useMemo)(() => _v14?.flatMap(_v0 => _v0.data), [_v14]),
-      _v19 = _v14?.[_v14.length - 1]?.paging.next != null,
+      _v21 = (0, _v9.useMemo)(() => _v17?.flatMap(_v0 => _v0.data), [_v17]),
+      _v22 = _v17?.[_v17.length - 1]?.paging.next != null,
       {
-        data: _v20,
-        mutate: _v21
-      } = (0, _v53.useGetLiveEventSpeakerProfiles)(() => _v3 ? {
-        select: _v120,
+        data: _v23,
+        mutate: _v24
+      } = (0, _v54.useGetLiveEventSpeakerProfiles)(() => _v6 ? {
+        select: _v128,
         where: {
           liveEventId: _v2
         },
@@ -1992,37 +2477,37 @@
       } : null, {
         revalidateOnFocus: !1
       }),
-      _v22 = (0, _v9.useMemo)(() => {
+      _v25 = (0, _v9.useMemo)(() => {
         let _v0 = new Map();
-        return _v20?.data.forEach(_v0 => {
+        return _v23?.data.forEach(_v0 => {
           _v0.set(_v0.personProfile.id, _v0.id);
         }), _v0;
-      }, [_v20]),
-      _v23 = (0, _v9.useMemo)(() => _v20?.data.map(_v0 => _v0.personProfile) ?? [], [_v20]),
-      _v24 = (0, _v9.useMemo)(() => _v18?.filter(_v0 => !_v22.has(_v0.id)) ?? [], [_v18, _v22]),
-      _v25 = _v20?.total ?? _v23.length,
-      _v26 = _v25 >= 25,
-      _v27 = _v0 => null === _v0 ? void 0 : _v23.find(_v0 => _v0.id === _v0) ?? _v18?.find(_v0 => _v0.id === _v0),
-      _v28 = _v27(_v10),
-      _v29 = _v27(_v12),
-      [_v30] = (0, _v53.usePostLiveEventSpeakerProfiles)(),
-      [_v31] = function () {
+      }, [_v23]),
+      _v26 = (0, _v9.useMemo)(() => _v23?.data.map(_v0 => _v0.personProfile) ?? [], [_v23]),
+      _v27 = (0, _v9.useMemo)(() => _v21?.filter(_v0 => !_v25.has(_v0.id)) ?? [], [_v21, _v25]),
+      _v28 = _v23?.total ?? _v26.length,
+      _v29 = _v28 >= 25,
+      _v30 = _v0 => null === _v0 ? void 0 : _v26.find(_v0 => _v0.id === _v0) ?? _v21?.find(_v0 => _v0.id === _v0),
+      _v31 = _v30(_v13),
+      _v32 = _v30(_v15),
+      [_v33] = (0, _v54.usePostLiveEventSpeakerProfiles)(),
+      [_v34] = function () {
         let {
             mutate: _v0
-          } = (0, _v87.useSWRConfig)(),
+          } = (0, _v88.useSWRConfig)(),
           {
             baseUrl: _v1,
             jwt: _v2,
             xVimeoPage: _v3,
             locale: _v4
-          } = (0, _v52.useGctlConfig)(),
-          [_v5, _v6] = (0, _v85.useInternalState)();
+          } = (0, _v53.useGctlConfig)(),
+          [_v5, _v6] = (0, _v86.useInternalState)();
         return [(0, _v9.useCallback)(async _v0 => {
           _v6({
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v0(`/live_events/${_v0.where.liveEventId}/speaker_profiles/${_v0.where.speakerProfileId}${(0, _v85.serializeQuery)(_v0)}`, _v50({
+            let _v0 = await _v0(`/live_events/${_v0.where.liveEventId}/speaker_profiles/${_v0.where.speakerProfileId}${(0, _v86.serializeQuery)(_v0)}`, _v51({
               ..._v0,
               baseUrl: _v1,
               headers: {
@@ -2045,23 +2530,23 @@
           }
         }, [_v1, _v3, _v2, _v4, _v6]), _v5];
       }(),
-      [_v32] = function () {
+      [_v35] = function () {
         let {
             mutate: _v0
-          } = (0, _v87.useSWRConfig)(),
+          } = (0, _v88.useSWRConfig)(),
           {
             baseUrl: _v1,
             jwt: _v2,
             xVimeoPage: _v3,
             locale: _v4
-          } = (0, _v52.useGctlConfig)(),
-          [_v5, _v6] = (0, _v85.useInternalState)();
+          } = (0, _v53.useGctlConfig)(),
+          [_v5, _v6] = (0, _v86.useInternalState)();
         return [(0, _v9.useCallback)(async _v0 => {
           _v6({
             type: "REQUEST"
           });
           try {
-            let _v0 = await _v0(`/person_profiles/${_v0.where.personProfileId}${(0, _v85.serializeQuery)(_v0)}`, _v88({
+            let _v0 = await _v0(`/person_profiles/${_v0.where.personProfileId}${(0, _v86.serializeQuery)(_v0)}`, _v89({
               ..._v0,
               baseUrl: _v1,
               headers: {
@@ -2084,12 +2569,12 @@
           }
         }, [_v1, _v3, _v2, _v4, _v6]), _v5];
       }(),
-      [_v33, _v34] = (0, _v9.useState)(new Set()),
-      [_v35, _v36] = (0, _v9.useState)(new Set()),
-      _v37 = (_v0, _v1) => {
-        if (!_v3 || _v33.has(_v0)) return;
+      [_v36, _v37] = (0, _v9.useState)(new Set()),
+      [_v38, _v39] = (0, _v9.useState)(new Set()),
+      _v40 = (_v0, _v1) => {
+        if (!_v6 || _v36.has(_v0)) return;
         let _v2 = null !== _v1;
-        !_v2 && _v26 ? _v5({
+        !_v2 && _v29 ? _v8({
           title: (0, _v5.translate)({
             singular: "You can show up to {MAX} speakers on the event landing page. Hide one to show another.",
             replacements: {
@@ -2119,12 +2604,12 @@
               }
             }
           })
-        }) : (_v34(_v0 => new Set(_v0).add(_v0)), (_v2 ? _v31({
+        }) : (_v37(_v0 => new Set(_v0).add(_v0)), (_v2 ? _v34({
           where: {
             liveEventId: _v2,
             speakerProfileId: _v1
           }
-        }) : _v30({
+        }) : _v33({
           select: ["id"],
           where: {
             liveEventId: _v2
@@ -2133,9 +2618,9 @@
             personProfileId: _v0
           }
         })).then(() => {
-          _v6({
+          _v9({
             newStatus: !_v2
-          }), _v21(), _v5({
+          }), _v24(), _v8({
             status: "success",
             duration: 0,
             title: _v2 ? (0, _v5.translate)({
@@ -2191,10 +2676,10 @@
             })
           });
         }).catch(_v0 => {
-          _v5({
+          _v8({
             status: "error",
             duration: 0,
-            title: (0, _v55.getErrorToastTitle)(_v0, (0, _v5.translate)({
+            title: (0, _v56.getErrorToastTitle)(_v0, (0, _v5.translate)({
               singular: "Something went wrong updating speaker visibility. Try again.",
               dictionary: {
                 es: {
@@ -2222,34 +2707,37 @@
             }))
           });
         }).finally(() => {
-          _v34(_v0 => {
+          _v37(_v0 => {
             let _v1 = new Set(_v0);
             return _v1.delete(_v0), _v1;
           });
         }));
       },
-      _v38 = () => {
-        _v9(null), _v11(null), _v13(null), _v1();
+      _v41 = () => {
+        _v12(null), _v14(null), _v16(null), _v1();
       },
-      _v39 = _v0 => {
-        _v11(null), _v9(_v0);
+      _v42 = _v0 => {
+        _v14(null), _v12(_v0);
       },
-      _v40 = _v0 => {
-        _v9(null), _v11(_v0);
+      _v43 = _v0 => {
+        _v12(null), _v14(_v0);
       },
-      _v41 = _v0 => {
-        _v13(_v0);
+      _v44 = async _v0 => {
+        await _v5(_v0, _v6 ? _v2 : void 0), _v4?.();
+      },
+      _v45 = _v0 => {
+        _v16(_v0);
       };
     return (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v62.Modal, {
+      children: [(0, _v1.jsxs)(_v63.Modal, {
         closeOnOverlayClick: !1,
         size: "lg",
         isCentered: !0,
         isOpen: _v0,
-        onClose: _v38,
-        children: [(0, _v1.jsx)(_v67.ModalOverlay, {}), (0, _v1.jsxs)(_v64.ModalContent, {
+        onClose: _v41,
+        children: [(0, _v1.jsx)(_v68.ModalOverlay, {}), (0, _v1.jsxs)(_v65.ModalContent, {
           minWidth: (0, _v16.rem)(990),
-          children: [(0, _v1.jsxs)(_v66.ModalHeader, {
+          children: [(0, _v1.jsxs)(_v67.ModalHeader, {
             children: [(0, _v5.translate)({
               singular: "Manage visible speakers",
               dictionary: {
@@ -2275,17 +2763,17 @@
                   singular: "管理可见演讲者"
                 }
               }
-            }), (0, _v1.jsx)(_v68.ModalCloseButton, {
-              onClick: _v38
+            }), (0, _v1.jsx)(_v69.ModalCloseButton, {
+              onClick: _v41
             })]
-          }), (0, _v1.jsxs)(_v63.ModalBody, {
+          }), (0, _v1.jsxs)(_v64.ModalBody, {
             display: "flex",
             flexDirection: "column",
             gap: "md",
-            children: [(0, _v1.jsx)(_v56.Alert, {
+            children: [(0, _v1.jsx)(_v57.Alert, {
               status: "info",
               overflow: "unset",
-              children: (0, _v1.jsx)(_v57.AlertDescription, {
+              children: (0, _v1.jsx)(_v58.AlertDescription, {
                 children: (0, _v1.jsx)(_v17.Text, {
                   variant: "body-sm",
                   children: (0, _v5.translate)({
@@ -2316,13 +2804,13 @@
                   })
                 })
               })
-            }), (0, _v1.jsx)(_v122, {
+            }), (0, _v1.jsx)(_v130, {
               title: (0, _v5.translate)({
                 singular: "Visible speaker ({COUNT}/{MAX})",
                 plural: "Visible speakers ({COUNT}/{MAX})",
-                count: _v25,
+                count: _v28,
                 replacements: {
-                  COUNT: _v25,
+                  COUNT: _v28,
                   MAX: 25
                 },
                 dictionary: {
@@ -2356,7 +2844,7 @@
                   }
                 }
               }),
-              speakersCount: _v23.length,
+              speakersCount: _v26.length,
               emptyStateText: (0, _v5.translate)({
                 singular: "No speakers are visible on the event landing page yet.",
                 dictionary: {
@@ -2383,25 +2871,25 @@
                   }
                 }
               }),
-              isAddDisabled: _v26,
-              onAddClick: () => _v39("visible"),
-              children: _v23.map(_v0 => (0, _v1.jsx)(_v123, {
+              isAddDisabled: _v29,
+              onAddClick: () => _v42("visible"),
+              children: _v26.map(_v0 => (0, _v1.jsx)(_v131, {
                 profile: _v0,
-                attachedSpeakerId: _v22.get(_v0.id) ?? null,
-                onOpenEditSpeakerModal: _v40,
-                onToggleAddedToEvent: _v37,
-                onSetDeleteCandidateId: _v41,
-                isAtSpeakerLimit: _v26,
-                isDeleting: _v35.has(_v0.id),
-                isToggling: _v33.has(_v0.id)
+                attachedSpeakerId: _v25.get(_v0.id) ?? null,
+                onOpenEditSpeakerModal: _v43,
+                onToggleAddedToEvent: _v40,
+                onSetDeleteCandidateId: _v45,
+                isAtSpeakerLimit: _v29,
+                isDeleting: _v38.has(_v0.id),
+                isToggling: _v36.has(_v0.id)
               }, _v0.id))
-            }), (0, _v1.jsx)(_v122, {
+            }), (0, _v1.jsx)(_v130, {
               title: (0, _v5.translate)({
                 singular: "Available speaker ({COUNT})",
                 plural: "Available speakers ({COUNT})",
-                count: _v24.length,
+                count: _v27.length,
                 replacements: {
-                  COUNT: _v24.length
+                  COUNT: _v27.length
                 },
                 dictionary: {
                   es: {
@@ -2434,7 +2922,7 @@
                   }
                 }
               }),
-              speakersCount: _v24.length,
+              speakersCount: _v27.length,
               emptyStateText: (0, _v5.translate)({
                 singular: "All added speakers are currently visible on the event landing page.",
                 dictionary: {
@@ -2461,23 +2949,23 @@
                   }
                 }
               }),
-              onAddClick: () => _v39("available"),
-              children: _v24.map(_v0 => (0, _v1.jsx)(_v123, {
+              onAddClick: () => _v42("available"),
+              children: _v27.map(_v0 => (0, _v1.jsx)(_v131, {
                 profile: _v0,
                 attachedSpeakerId: null,
-                onOpenEditSpeakerModal: _v40,
-                onToggleAddedToEvent: _v37,
-                onSetDeleteCandidateId: _v41,
-                isAtSpeakerLimit: _v26,
-                isDeleting: _v35.has(_v0.id),
-                isToggling: _v33.has(_v0.id)
+                onOpenEditSpeakerModal: _v43,
+                onToggleAddedToEvent: _v40,
+                onSetDeleteCandidateId: _v45,
+                isAtSpeakerLimit: _v29,
+                isDeleting: _v38.has(_v0.id),
+                isToggling: _v36.has(_v0.id)
               }, _v0.id))
-            }), _v19 ? (0, _v1.jsx)(_v15.Flex, {
+            }), _v22 ? (0, _v1.jsx)(_v15.Flex, {
               justify: "center",
               children: (0, _v1.jsx)(_v3.Button, {
-                isLoading: _v15,
+                isLoading: _v18,
                 onClick: () => {
-                  _v17(_v0 => _v0 + 1);
+                  _v20(_v0 => _v0 + 1);
                 },
                 size: "sm",
                 variant: "secondary",
@@ -2509,9 +2997,9 @@
                 })
               })
             }) : null]
-          }), (0, _v1.jsx)(_v65.ModalFooter, {})]
+          }), (0, _v1.jsx)(_v66.ModalFooter, {})]
         })]
-      }), null !== _v8 ? (0, _v1.jsx)(_v116, {
+      }), null !== _v11 ? (0, _v1.jsx)(_v122, {
         initialSpeaker: {
           name: "",
           role: "",
@@ -2521,13 +3009,13 @@
         },
         isOpen: !0,
         mode: "add",
-        speakerSection: _v8,
+        speakerSection: _v11,
         onClose: () => {
-          _v9(null);
+          _v12(null);
         },
         onSaved: _v0 => {
-          if (_v16(), _v3 && "visible" === _v8) {
-            if (_v26) return void _v5({
+          if (_v19(), _v6 && "visible" === _v11) {
+            if (_v29) return void _v8({
               title: (0, _v5.translate)({
                 singular: "Speaker added to Available speakers. You can show up to {MAX} speakers on the event landing page.",
                 replacements: {
@@ -2558,7 +3046,7 @@
                 }
               })
             });
-            _v30({
+            _v33({
               select: ["id"],
               where: {
                 liveEventId: _v2
@@ -2566,33 +3054,34 @@
               variables: {
                 personProfileId: _v0
               }
-            }).then(() => (_v6({
+            }).then(() => (_v9({
               newStatus: !0
-            }), _v21()));
+            }), _v24()));
           }
         }
-      }, "add-speaker-modal") : null, _v28 ? (0, _v1.jsx)(_v116, {
+      }, "add-speaker-modal") : null, _v31 ? (0, _v1.jsx)(_v122, {
         initialSpeaker: {
-          id: _v28.id,
-          name: _v28.name,
-          role: _v28.role || "",
-          description: _v28.description || "",
-          picture: _v28.pictures,
-          avatarCrop: _v28.avatarCrop
+          id: _v31.id,
+          name: _v31.name,
+          role: _v31.role || "",
+          description: _v31.description || "",
+          picture: _v31.pictures,
+          avatarCrop: _v31.avatarCrop
         },
-        isOpen: null !== _v28,
+        isOpen: null !== _v31,
         mode: "edit",
         onClose: () => {
-          _v11(null);
+          _v14(null);
         },
         onSaved: () => {
-          _v16(), _v21();
-        }
-      }, `edit-speaker-modal-${_v28.id}`) : null, _v29 ? (0, _v1.jsx)(_v117, {
+          _v19(), _v24();
+        },
+        onSavedAndTranslate: _v3 ? _v44 : void 0
+      }, `edit-speaker-modal-${_v31.id}`) : null, _v32 ? (0, _v1.jsx)(_v112, {
         title: (0, _v5.translate)({
           singular: 'Delete "{NAME}"?',
           replacements: {
-            NAME: _v29.name
+            NAME: _v32.name
           },
           dictionary: {
             es: {
@@ -2644,25 +3133,25 @@
             }
           }
         }),
-        onCancel: () => _v13(null),
+        onCancel: () => _v16(null),
         onConfirm: () => {
-          null !== _v12 && (_v35.has(_v12) || (_v36(_v0 => new Set(_v0).add(_v12)), _v32({
+          null !== _v15 && (_v38.has(_v15) || (_v39(_v0 => new Set(_v0).add(_v15)), _v35({
             where: {
-              personProfileId: _v12
+              personProfileId: _v15
             }
           }).then(() => {
-            _v7(), _v16(), _v21();
+            _v10(), _v19(), _v24();
           }).finally(() => {
-            _v36(_v0 => {
+            _v39(_v0 => {
               let _v1 = new Set(_v0);
-              return _v1.delete(_v12), _v1;
+              return _v1.delete(_v15), _v1;
             });
-          })), _v13(null));
+          })), _v16(null));
         }
       }) : null]
     });
   }
-  let _v122 = ({
+  let _v130 = ({
       title: _v0,
       speakersCount: _v1,
       emptyStateText: _v2,
@@ -2748,7 +3237,7 @@
               noOfLines: 1,
               variant: "heading-xs",
               children: _v0
-            }), (0, _v1.jsx)(_v75.ChevronDownSmall, {
+            }), (0, _v1.jsx)(_v76.ChevronDownSmall, {
               color: "icon-primary",
               transform: _v6 ? void 0 : "rotate(-90deg)"
             })]
@@ -2786,7 +3275,7 @@
             shouldWrapChildren: !0,
             children: (0, _v1.jsx)(_v3.Button, {
               isDisabled: _v4,
-              leftIcon: (0, _v1.jsx)(_v77.PlusCircle, {}),
+              leftIcon: (0, _v1.jsx)(_v78.PlusCircle, {}),
               onClick: _v5,
               size: "sm",
               variant: "secondary",
@@ -2818,14 +3307,14 @@
               })
             })
           })]
-        }), (0, _v1.jsx)(_v59.Collapse, {
+        }), (0, _v1.jsx)(_v60.Collapse, {
           in: _v6,
-          children: _v1 > 0 ? (0, _v1.jsxs)(_v69.Table, {
+          children: _v1 > 0 ? (0, _v1.jsxs)(_v70.Table, {
             variant: "unstyled",
-            children: [(0, _v1.jsx)(_v73.Thead, {
-              children: (0, _v1.jsxs)(_v74.Tr, {
+            children: [(0, _v1.jsx)(_v74.Thead, {
+              children: (0, _v1.jsxs)(_v75.Tr, {
                 color: "text-secondary",
-                children: [(0, _v1.jsx)(_v72.Th, {
+                children: [(0, _v1.jsx)(_v73.Th, {
                   backgroundColor: "fill-component",
                   borderStartRadius: "input-md",
                   px: "2",
@@ -2863,7 +3352,7 @@
                       })
                     })
                   })
-                }), (0, _v1.jsx)(_v72.Th, {
+                }), (0, _v1.jsx)(_v73.Th, {
                   backgroundColor: "fill-component",
                   px: "2",
                   py: "2",
@@ -2891,7 +3380,7 @@
                       }
                     })
                   })
-                }), (0, _v1.jsx)(_v72.Th, {
+                }), (0, _v1.jsx)(_v73.Th, {
                   backgroundColor: "fill-component",
                   px: "2",
                   py: "2",
@@ -2925,7 +3414,7 @@
                       }
                     })
                   })
-                }), (0, _v1.jsx)(_v72.Th, {
+                }), (0, _v1.jsx)(_v73.Th, {
                   backgroundColor: "fill-component",
                   px: "2",
                   py: "2",
@@ -2956,7 +3445,7 @@
                       }
                     })
                   })
-                }), (0, _v1.jsx)(_v72.Th, {
+                }), (0, _v1.jsx)(_v73.Th, {
                   backgroundColor: "fill-component",
                   borderEndRadius: "input-md",
                   px: "2",
@@ -2964,7 +3453,7 @@
                   width: "14%"
                 })]
               })
-            }), (0, _v1.jsx)(_v70.Tbody, {
+            }), (0, _v1.jsx)(_v71.Tbody, {
               children: _v3
             })]
           }) : (0, _v1.jsx)(_v17.Text, {
@@ -2976,7 +3465,7 @@
         })]
       });
     },
-    _v123 = ({
+    _v131 = ({
       profile: _v0,
       attachedSpeakerId: _v1,
       onOpenEditSpeakerModal: _v2,
@@ -3041,8 +3530,8 @@
         }),
         _v11 = _v0.pictures?.baseLink,
         _v12 = _v0.avatarCrop && _v0.avatarCrop.width > 0 ? _v0.avatarCrop : null;
-      return (0, _v1.jsxs)(_v74.Tr, {
-        children: [(0, _v1.jsx)(_v71.Td, {
+      return (0, _v1.jsxs)(_v75.Tr, {
+        children: [(0, _v1.jsx)(_v72.Td, {
           px: "2",
           py: (0, _v16.rem)(10),
           width: "27%",
@@ -3050,13 +3539,13 @@
             align: "center",
             gap: (0, _v16.rem)(16),
             minWidth: 0,
-            children: [_v11 ? (0, _v1.jsx)(_v58.Box, {
+            children: [_v11 ? (0, _v1.jsx)(_v59.Box, {
               borderRadius: "input-md",
               flexShrink: 0,
-              height: _v118,
+              height: _v126,
               overflow: "hidden",
-              width: _v118,
-              children: (0, _v1.jsx)(_v61.Image, {
+              width: _v126,
+              children: (0, _v1.jsx)(_v62.Image, {
                 alt: _v0.name || "",
                 src: _v11,
                 ...(_v12 ? {
@@ -3069,27 +3558,27 @@
                   width: "100%"
                 })
               })
-            }) : (0, _v1.jsx)(_v58.Box, {
-              width: _v118,
-              height: _v118,
+            }) : (0, _v1.jsx)(_v59.Box, {
+              width: _v126,
+              height: _v126,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               borderRadius: "input-md",
               backgroundColor: "fill-component",
               color: "icon-secondary",
-              children: (0, _v1.jsx)(_v78.PersonUserFilled, {})
+              children: (0, _v1.jsx)(_v79.PersonUserFilled, {})
             }), (0, _v1.jsx)(_v17.Text, {
               noOfLines: 1,
               variant: "heading-xs",
               children: _v0.name
             })]
           })
-        }), (0, _v1.jsx)(_v71.Td, {
+        }), (0, _v1.jsx)(_v72.Td, {
           px: "2",
           py: (0, _v16.rem)(10),
           width: "13%",
-          children: (0, _v1.jsx)(_v58.Box, {
+          children: (0, _v1.jsx)(_v59.Box, {
             "aria-label": _v8 ? (0, _v5.translate)({
               singular: "Show on the event landing page",
               dictionary: {
@@ -3145,15 +3634,15 @@
             borderRadius: "sm",
             display: "inline-flex",
             p: (0, _v16.rem)(6),
-            children: _v8 ? (0, _v1.jsx)(_v80, {
+            children: _v8 ? (0, _v1.jsx)(_v81, {
               boxSize: (0, _v16.rem)(20),
               color: "text-tertiary"
-            }) : (0, _v1.jsx)(_v81.CloseXCircleFilled, {
+            }) : (0, _v1.jsx)(_v82.CloseXCircleFilled, {
               boxSize: (0, _v16.rem)(20),
               color: "text-tertiary"
             })
           })
-        }), (0, _v1.jsx)(_v71.Td, {
+        }), (0, _v1.jsx)(_v72.Td, {
           px: "2",
           py: (0, _v16.rem)(10),
           width: "17%",
@@ -3163,7 +3652,7 @@
             color: "text-secondary",
             children: _v0.role || "-"
           })
-        }), (0, _v1.jsx)(_v71.Td, {
+        }), (0, _v1.jsx)(_v72.Td, {
           px: "2",
           py: (0, _v16.rem)(10),
           width: "29%",
@@ -3173,7 +3662,7 @@
             color: "text-secondary",
             children: _v0.description || "-"
           })
-        }), (0, _v1.jsx)(_v71.Td, {
+        }), (0, _v1.jsx)(_v72.Td, {
           px: "2",
           py: (0, _v16.rem)(10),
           width: "14%",
@@ -3207,7 +3696,7 @@
                   }
                 }
               }),
-              children: (0, _v1.jsx)(_v60.IconButton, {
+              children: (0, _v1.jsx)(_v61.IconButton, {
                 "aria-label": (0, _v5.translate)({
                   singular: "Edit speaker details",
                   dictionary: {
@@ -3234,7 +3723,7 @@
                     }
                   }
                 }),
-                icon: (0, _v1.jsx)(_v76.EditSheet, {}),
+                icon: (0, _v1.jsx)(_v77.EditSheet, {}),
                 onClick: () => _v2(_v0.id),
                 size: "sm",
                 variant: "tertiary"
@@ -3269,9 +3758,9 @@
                   }
                 }
               }) : _v10,
-              children: (0, _v1.jsx)(_v60.IconButton, {
+              children: (0, _v1.jsx)(_v61.IconButton, {
                 "aria-label": _v10,
-                icon: _v8 ? (0, _v1.jsx)(_v82.EyeShut, {}) : (0, _v1.jsx)(_v83.Eye, {}),
+                icon: _v8 ? (0, _v1.jsx)(_v83.EyeShut, {}) : (0, _v1.jsx)(_v84.Eye, {}),
                 isDisabled: _v9,
                 isLoading: _v7,
                 onClick: () => _v3(_v0.id, _v1),
@@ -3305,7 +3794,7 @@
                   }
                 }
               }),
-              children: (0, _v1.jsx)(_v60.IconButton, {
+              children: (0, _v1.jsx)(_v61.IconButton, {
                 "aria-label": (0, _v5.translate)({
                   singular: "Delete speaker",
                   dictionary: {
@@ -3332,7 +3821,7 @@
                     }
                   }
                 }),
-                icon: (0, _v1.jsx)(_v84.TrashBin, {}),
+                icon: (0, _v1.jsx)(_v85.TrashBin, {}),
                 isLoading: _v6,
                 onClick: () => _v4(_v0.id),
                 size: "sm",
@@ -3343,31 +3832,32 @@
         })]
       }, _v0.id);
     },
-    _v124 = "manage-speakers-field-show-speakers",
-    _v125 = ["id", "visibilityStatus"];
-  function _v126({
-    onSpeakersChange: _v0
+    _v132 = "manage-speakers-field-show-speakers",
+    _v133 = ["id", "visibilityStatus"];
+  function _v134({
+    onSpeakersChange: _v0,
+    isAiTranslationEnabled: _v1
   } = {}) {
-    let [_v1, _v2] = (0, _v9.useState)(!1),
-      [_v3, _v4] = (0, _v9.useState)(null),
-      [_v5, _v6] = (0, _v9.useState)(!1),
+    let [_v2, _v3] = (0, _v9.useState)(!1),
+      [_v4, _v5] = (0, _v9.useState)(null),
+      [_v6, _v7] = (0, _v9.useState)(!1),
       {
-        sessionId: _v7
+        sessionId: _v8
       } = (0, _v2.useManager)(_v7.ComposerSessionManager),
-      _v8 = Number(_v7),
-      _v9 = _v8 > 0,
-      _v10 = (0, _v18.useToast)(),
+      _v9 = Number(_v8),
+      _v10 = _v9 > 0,
+      _v11 = (0, _v18.useToast)(),
       {
-        trackSingleEventCustomizationSpeakersToggled: _v11,
-        trackSingleEventCustomizationManageSpeakersClicked: _v12
+        trackSingleEventCustomizationSpeakersToggled: _v12,
+        trackSingleEventCustomizationManageSpeakersClicked: _v13
       } = (0, _v23.useSingleEventCustomizationTracking)(),
       {
-        data: _v13,
-        mutate: _v14
-      } = (0, _v53.useGetLiveEventSpeakerProfiles)(() => _v9 ? {
-        select: _v125,
+        data: _v14,
+        mutate: _v15
+      } = (0, _v54.useGetLiveEventSpeakerProfiles)(() => _v10 ? {
+        select: _v133,
         where: {
-          liveEventId: _v8
+          liveEventId: _v9
         },
         query: {
           perPage: 100
@@ -3375,25 +3865,25 @@
       } : null, {
         revalidateOnFocus: !1
       }),
-      _v15 = _v13?.data,
+      _v16 = _v14?.data,
       {
-        baseUrl: _v16,
-        jwt: _v17,
-        xVimeoPage: _v18,
-        locale: _v19
-      } = (0, _v52.useGctlConfig)(),
-      _v20 = _v5;
-    return null !== _v3 ? _v20 = "visible" === _v3 : _v15 && _v15.length > 0 && (_v20 = _v15.some(_v0 => "visible" === _v0.visibilityStatus)), (0, _v1.jsxs)(_v1.Fragment, {
+        baseUrl: _v17,
+        jwt: _v18,
+        xVimeoPage: _v19,
+        locale: _v20
+      } = (0, _v53.useGctlConfig)(),
+      _v21 = _v6;
+    return null !== _v4 ? _v21 = "visible" === _v4 : _v16 && _v16.length > 0 && (_v21 = _v16.some(_v0 => "visible" === _v0.visibilityStatus)), (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v15.Flex, {
         direction: "column",
         gap: "md",
         width: "100%",
-        children: [(0, _v1.jsx)(_v45.FormControl, {
-          children: (0, _v1.jsxs)(_v46.FormLabel, {
+        children: [(0, _v1.jsx)(_v46.FormControl, {
+          children: (0, _v1.jsxs)(_v47.FormLabel, {
             alignItems: "center",
             cursor: "pointer",
             display: "flex",
-            htmlFor: _v124,
+            htmlFor: _v132,
             justifyContent: "space-between",
             margin: "0",
             children: [(0, _v1.jsxs)(_v15.Flex, {
@@ -3427,7 +3917,7 @@
                     }
                   }
                 })
-              }), (0, _v1.jsx)(_v54.CircleTip, {
+              }), (0, _v1.jsx)(_v55.CircleTip, {
                 as: "span",
                 label: (0, _v5.translate)({
                   singular: "Speakers are shown in the event page with a dedicated section.",
@@ -3456,36 +3946,36 @@
                   }
                 })
               })]
-            }), (0, _v1.jsx)(_v47.Switch, {
-              id: _v124,
-              isChecked: _v20,
-              isDisabled: null !== _v3,
+            }), (0, _v1.jsx)(_v48.Switch, {
+              id: _v132,
+              isChecked: _v21,
+              isDisabled: null !== _v4,
               onChange: () => {
-                if (null !== _v3) return;
-                let _v0 = _v20 ? "hidden" : "visible";
-                (_v6("visible" === _v0), _v15 && 0 !== _v15.length) ? (_v4(_v0), Promise.all(_v15.map(_v0 => _v51({
-                  baseUrl: _v16,
+                if (null !== _v4) return;
+                let _v0 = _v21 ? "hidden" : "visible";
+                (_v7("visible" === _v0), _v16 && 0 !== _v16.length) ? (_v5(_v0), Promise.all(_v16.map(_v0 => _v52({
+                  baseUrl: _v17,
                   headers: {
                     "Content-Type": "application/json",
-                    Authorization: _v17 ? `jwt ${_v17}` : "",
-                    "Vimeo-Page": `${_v18}`,
-                    "Accept-Language": _v19 ?? "en"
+                    Authorization: _v18 ? `jwt ${_v18}` : "",
+                    "Vimeo-Page": `${_v19}`,
+                    "Accept-Language": _v20 ?? "en"
                   },
-                  select: _v125,
+                  select: _v133,
                   where: {
-                    liveEventId: _v8,
+                    liveEventId: _v9,
                     speakerProfileId: _v0.id
                   },
                   variables: {
                     visibilityStatus: _v0
                   }
-                }))).then(() => (_v11({
+                }))).then(() => (_v12({
                   newStatus: "visible" === _v0
-                }), _v0?.(), _v14())).catch(_v0 => {
-                  _v10({
+                }), _v0?.(), _v15())).catch(_v0 => {
+                  _v11({
                     status: "error",
                     duration: 0,
-                    title: (0, _v55.getErrorToastTitle)(_v0, (0, _v5.translate)({
+                    title: (0, _v56.getErrorToastTitle)(_v0, (0, _v5.translate)({
                       singular: "Something went wrong updating speaker visibility. Try again.",
                       dictionary: {
                         es: {
@@ -3513,17 +4003,17 @@
                     }))
                   });
                 }).finally(() => {
-                  _v4(null);
-                })) : _v11({
+                  _v5(null);
+                })) : _v12({
                   newStatus: "visible" === _v0
                 });
               }
             })]
           })
         }), (0, _v1.jsx)(_v3.Button, {
-          isDisabled: !_v20 || !_v9,
+          isDisabled: !_v21 || !_v10,
           onClick: () => {
-            _v12(), _v2(!0);
+            _v13(), _v3(!0);
           },
           size: "sm",
           variant: "secondary",
@@ -3555,24 +4045,26 @@
             }
           })
         })]
-      }), _v1 ? (0, _v1.jsx)(_v121, {
-        isOpen: _v1,
+      }), _v2 ? (0, _v1.jsx)(_v129, {
+        isOpen: _v2,
         onClose: () => {
-          _v2(!1), _v0?.();
+          _v3(!1), _v0?.();
         },
-        eventId: _v8
+        eventId: _v9,
+        isAiTranslationEnabled: _v1,
+        onSpeakerTranslated: _v0
       }) : null]
     });
   }
-  var _v127 = _v0.i(0),
-    _v128 = _v0.i(0),
-    _v129 = _v0.i(0);
-  let _v130 = {
+  var _v135 = _v0.i(0),
+    _v136 = _v0.i(0),
+    _v137 = _v0.i(0);
+  let _v138 = {
     type: "vimeo",
     uri: null,
     url: null
   };
-  function _v131() {
+  function _v139() {
     let {
         settings: {
           value: _v0
@@ -3585,7 +4077,7 @@
       {
         trackSingleEventCustomizationLogoChanged: _v4
       } = (0, _v23.useSingleEventCustomizationTracking)(),
-      _v5 = _v0?.landingPageLogo ?? _v130,
+      _v5 = _v0?.landingPageLogo ?? _v138,
       _v6 = [{
         label: (0, _v5.translate)({
           singular: "None",
@@ -3675,7 +4167,7 @@
       direction: "column",
       gap: (0, _v16.rem)(16),
       width: "100%",
-      children: [(0, _v1.jsx)(_v127.Select, {
+      children: [(0, _v1.jsx)(_v135.Select, {
         defaultValue: [_v5.type],
         items: _v6,
         onValueChange: _v0 => {
@@ -3695,7 +4187,7 @@
           }));
         },
         withPortal: !1
-      }), "custom" === _v5.type ? (0, _v1.jsx)(_v129.LogoPickerBrandKit, {
+      }), "custom" === _v5.type ? (0, _v1.jsx)(_v137.LogoPickerBrandKit, {
         LogoPickerControlComponent: () => (0, _v1.jsxs)(_v15.Flex, {
           align: "center",
           as: "button",
@@ -3709,7 +4201,7 @@
           padding: (0, _v16.rem)(8),
           type: "button",
           width: "100%",
-          children: [(0, _v1.jsx)(_v58.Box, {
+          children: [(0, _v1.jsx)(_v59.Box, {
             alignItems: "center",
             backgroundColor: "fill-component",
             borderRadius: (0, _v16.rem)(6),
@@ -3719,7 +4211,7 @@
             justifyContent: "center",
             overflow: "hidden",
             width: (0, _v16.rem)(48),
-            children: _v5.url ? (0, _v1.jsx)(_v58.Box, {
+            children: _v5.url ? (0, _v1.jsx)(_v59.Box, {
               alt: (0, _v5.translate)({
                 singular: "Custom logo",
                 dictionary: {
@@ -3751,7 +4243,7 @@
               objectFit: "contain",
               src: _v5.url,
               width: "100%"
-            }) : (0, _v1.jsx)(_v128.Upload, {
+            }) : (0, _v1.jsx)(_v136.Upload, {
               boxSize: 20,
               color: "text-primary"
             })
@@ -3835,7 +4327,7 @@
       }) : null]
     });
   }
-  let _v132 = {
+  let _v140 = {
     _active: {
       bgColor: "whiteAlpha.900"
     },
@@ -3851,7 +4343,7 @@
     color: "gray.900",
     size: "xs"
   };
-  function _v133({
+  function _v141({
     isAiEnabled: _v0,
     isTranslating: _v1,
     isSubmitting: _v2,
@@ -3859,11 +4351,11 @@
     onMarkUpToDate: _v4
   }) {
     let _v5 = _v1 || _v2;
-    return (0, _v1.jsxs)(_v56.Alert, {
+    return (0, _v1.jsxs)(_v57.Alert, {
       size: "sm",
       status: "warning",
       width: "100%",
-      children: [(0, _v1.jsx)(_v57.AlertDescription, {
+      children: [(0, _v1.jsx)(_v58.AlertDescription, {
         textStyle: "body-sm",
         children: (0, _v5.translate)({
           singular: "Some speakers have missing or outdated translations.",
@@ -3896,7 +4388,7 @@
         mt: "xs",
         flexWrap: "wrap",
         children: [_v0 ? (0, _v1.jsx)(_v3.Button, {
-          ..._v132,
+          ..._v140,
           isDisabled: _v5,
           isLoading: _v1,
           onClick: _v3,
@@ -3927,7 +4419,7 @@
             }
           })
         }) : null, (0, _v1.jsx)(_v3.Button, {
-          ..._v132,
+          ..._v140,
           isDisabled: _v5,
           isLoading: _v2,
           onClick: _v4,
@@ -3961,13 +4453,13 @@
       })]
     });
   }
-  var _v134 = _v0.i(0);
-  let _v135 = ["id", "personProfile.name", "personProfile.role", "personProfile.description"],
-    _v136 = {
+  var _v142 = _v0.i(0);
+  let _v143 = ["id", "personProfile.name", "personProfile.role", "personProfile.description"],
+    _v144 = {
       perPage: 100,
       visibilityStatus: "visible"
     },
-    _v137 = _v0 => _v0?.data?.map(({
+    _v145 = _v0 => _v0?.data?.map(({
       id: _v0,
       personProfile: _v1
     }) => ({
@@ -3976,9 +4468,9 @@
       role: _v1.role ?? "",
       description: _v1.description ?? ""
     })) ?? [];
-  var _v138 = _v0.i(0),
-    _v139 = _v0.i(0);
-  async function _v140({
+  var _v146 = _v0.i(0),
+    _v147 = _v0.i(0);
+  async function _v148({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -3988,20 +4480,20 @@
     },
     ..._v5
   }) {
-    return (0, _v48.measureLatency)("putLiveEventLocalization", "PUT", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations/${_v4}?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
+    return (0, _v49.measureLatency)("putLiveEventLocalization", "PUT", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations/${_v4}?fields=${_v1.map(_v50.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PUT",
-        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v50.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  async function _v141({
+  async function _v149({
     baseUrl: _v0,
     where: {
       liveEventId: _v1,
@@ -4009,19 +4501,19 @@
     },
     ..._v3
   }) {
-    return (0, _v48.measureLatency)("deleteLiveEventLocalization", "DELETE", async () => {
+    return (0, _v49.measureLatency)("deleteLiveEventLocalization", "DELETE", async () => {
       let _v0 = await fetch(`${_v0}/live_events/${_v1}/localizations/${_v2}`, {
         ..._v3,
         method: "DELETE"
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  async function _v142({
+  async function _v150({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -4031,20 +4523,20 @@
     },
     ..._v5
   }) {
-    return (0, _v48.measureLatency)("patchLiveEventLocalization", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations/${_v4}?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
+    return (0, _v49.measureLatency)("patchLiveEventLocalization", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations/${_v4}?fields=${_v1.map(_v50.intoSnakeCase).join(",")}`, {
         ..._v5,
         method: "PATCH",
-        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v50.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  async function _v143({
+  async function _v151({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -4052,19 +4544,19 @@
     },
     ..._v3
   }) {
-    return (0, _v48.measureLatency)("getLiveEventLocalizations", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v2}/localizations?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
+    return (0, _v49.measureLatency)("getLiveEventLocalizations", "GET", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v2}/localizations?fields=${_v1.map(_v50.intoSnakeCase).join(",")}`, {
         ..._v3,
         method: "GET"
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  async function _v144({
+  async function _v152({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -4073,20 +4565,20 @@
     },
     ..._v4
   }) {
-    return (0, _v48.measureLatency)("patchLiveEventLocalizations", "PATCH", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
+    return (0, _v49.measureLatency)("patchLiveEventLocalizations", "PATCH", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations?fields=${_v1.map(_v50.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "PATCH",
-        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v50.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  async function _v145({
+  async function _v153({
     baseUrl: _v0,
     select: _v1,
     variables: _v2,
@@ -4095,30 +4587,30 @@
     },
     ..._v4
   }) {
-    return (0, _v48.measureLatency)("postLiveEventLocalizationsTranslate", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations/translate?fields=${_v1.map(_v49.intoSnakeCase).join(",")}`, {
+    return (0, _v49.measureLatency)("postLiveEventLocalizationsTranslate", "POST", async () => {
+      let _v0 = await fetch(`${_v0}/live_events/${_v3}/localizations/translate?fields=${_v1.map(_v50.intoSnakeCase).join(",")}`, {
         ..._v4,
         method: "POST",
-        body: JSON.stringify((0, _v49.deepSnakeCase)(_v2))
+        body: JSON.stringify((0, _v50.deepSnakeCase)(_v2))
       });
-      if (!_v0.ok) throw new _v49.NetworkError("A network error occurred", _v0.status, _v0);
+      if (!_v0.ok) throw new _v50.NetworkError("A network error occurred", _v0.status, _v0);
       if (204 === _v0.status) return null;
       if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
       let _v1 = await _v0.json();
-      return (0, _v49.deepCamelCase)(_v1);
+      return (0, _v50.deepCamelCase)(_v1);
     });
   }
-  var _v146 = _v0.i(0);
-  let _v147 = ["sourceLocale", "availableLocales", "locales.locale", "locales.isPublished", "locales.values", "locales.draftValues", "locales.hasDraft", "locales.isOutOfSync", "locales.version", "locales.outOfSyncPaths", "aiTranslationEnabled"],
-    _v148 = ["locale", "isPublished", "values", "draftValues", "hasDraft", "isOutOfSync", "version", "outOfSyncPaths"],
-    _v149 = {
+  var _v154 = _v0.i(0);
+  let _v155 = ["sourceLocale", "availableLocales", "locales.locale", "locales.isPublished", "locales.values", "locales.draftValues", "locales.hasDraft", "locales.isOutOfSync", "locales.version", "locales.outOfSyncPaths", "aiTranslationEnabled"],
+    _v156 = ["locale", "isPublished", "values", "draftValues", "hasDraft", "isOutOfSync", "version", "outOfSyncPaths"],
+    _v157 = {
       sourceLocale: null,
       availableLocales: [],
       locales: [],
       aiTranslationEnabled: !1
     },
-    _v150 = (_v0, _v1) => {
-      let _v2 = _v0 ?? _v149,
+    _v158 = (_v0, _v1) => {
+      let _v2 = _v0 ?? _v157,
         _v3 = _v2.locales.some(_v0 => _v0.locale === _v1.locale);
       return {
         ..._v2,
@@ -4126,27 +4618,28 @@
         locales: _v3 ? _v2.locales.map(_v0 => _v0.locale === _v1.locale ? _v1 : _v0) : [..._v2.locales, _v1]
       };
     };
-  var _v151 = _v0.i(0);
-  let _v152 = new Set(["translations"]);
+  var _v159 = _v0.i(0);
+  let _v160 = new Set(["translations"]);
   _v0.s(["LandingPageSettings", 0, function () {
-    let _v0 = (0, _v22.useOrionSettingsFields)(["release_single_event_customization", "enable_single_event_localization"]),
+    let _v0 = (0, _v22.useOrionSettingsFields)(["release_single_event_customization", "enable_single_event_localization", "enable_event_series_in_dev_features"]),
       _v1 = _v0.release_single_event_customization,
       _v2 = _v0.enable_single_event_localization,
+      _v3 = _v0.enable_event_series_in_dev_features,
       {
-        sessionId: _v3
+        sessionId: _v4
       } = (0, _v2.useManager)(_v7.ComposerSessionManager),
-      _v4 = Number(_v3),
-      _v5 = _v2 && _v4 > 0,
-      _v6 = ["navbar", ...(_v1 ? ["speakers"] : []), ...(_v2 ? ["translations"] : [])],
-      [_v7, _v8] = (0, _v9.useState)(_v152),
-      _v9 = _v6.flatMap((_v0, _v1) => _v7.has(_v0) ? [_v1] : []),
-      _v10 = ((_v0, _v1 = !0) => {
+      _v5 = Number(_v4),
+      _v6 = _v2 && _v5 > 0,
+      _v7 = ["navbar", ...(_v1 ? ["speakers"] : []), ...(_v2 ? ["translations"] : [])],
+      [_v8, _v9] = (0, _v9.useState)(_v160),
+      _v10 = _v7.flatMap((_v0, _v1) => _v8.has(_v0) ? [_v1] : []),
+      _v11 = ((_v0, _v1 = !0) => {
         let {
             baseUrl: _v2,
             jwt: _v3,
             xVimeoPage: _v4,
             locale: _v5
-          } = (0, _v52.useGctlConfig)(),
+          } = (0, _v53.useGctlConfig)(),
           _v6 = (0, _v9.useMemo)(() => ({
             baseUrl: _v2,
             headers: {
@@ -4170,8 +4663,8 @@
                 jwt: _v4,
                 xVimeoPage: _v5,
                 locale: _v6
-              } = (0, _v52.useGctlConfig)();
-            return (0, _v86.default)(_v2 ? `/live_events/${_v2.where.liveEventId}/localizations${(0, _v85.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v143({
+              } = (0, _v53.useGctlConfig)();
+            return (0, _v87.default)(_v2 ? `/live_events/${_v2.where.liveEventId}/localizations${(0, _v86.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v151({
               ..._v2,
               headers: {
                 ..._v2.headers,
@@ -4183,36 +4676,36 @@
               baseUrl: _v3
             }) : null, _v1);
           }(() => _v1 && _v0 > 0 ? {
-            select: _v147,
+            select: _v155,
             where: _v7
           } : null, {
             shouldRetryOnError: !1,
             revalidateOnFocus: !1
           }),
-          _v11 = _v8?.locales ?? _v149.locales,
+          _v11 = _v8?.locales ?? _v157.locales,
           _v12 = (0, _v9.useMemo)(() => {
             let _v0;
             return _v0 = {}, _v11.forEach(_v0 => {
-              let _v1 = _v41(_v0.locale);
+              let _v1 = _v42(_v0.locale);
               null !== _v1 && (_v0[_v1] = {
                 isPublished: _v0.isPublished,
                 hasDraft: _v0.hasDraft,
                 isOutOfSync: _v0.isOutOfSync,
                 leaves: (_v0 => {
-                  if (!_v39(_v0)) return _v29.EMPTY_LEAVES;
+                  if (!_v40(_v0)) return _v29.EMPTY_LEAVES;
                   let _v1 = {};
-                  _v34.forEach(_v0 => {
+                  _v35.forEach(_v0 => {
                     let _v1 = _v0[_v0];
-                    _v40(_v1) && (_v1[_v0] = {
+                    _v41(_v1) && (_v1[_v0] = {
                       value: _v1.value,
                       provenance: _v1.provenance
                     });
                   });
-                  let _v2 = _v0[_v35];
-                  return _v39(_v2) && Object.entries(_v2).forEach(([_v0, _v1]) => {
-                    _v37.test(_v0) && _v39(_v1) && _v36.forEach(_v0 => {
+                  let _v2 = _v0[_v36];
+                  return _v40(_v2) && Object.entries(_v2).forEach(([_v0, _v1]) => {
+                    _v38.test(_v0) && _v40(_v1) && _v37.forEach(_v0 => {
                       let _v1 = _v1[_v0];
-                      _v40(_v1) && (_v1[_v38(_v0, _v0)] = {
+                      _v41(_v1) && (_v1[_v39(_v0, _v0)] = {
                         value: _v1.value,
                         provenance: _v1.provenance
                       });
@@ -4226,7 +4719,7 @@
           _v13 = (0, _v9.useMemo)(() => {
             let _v0 = {};
             return _v11.forEach(_v0 => {
-              let _v1 = _v41(_v0.locale),
+              let _v1 = _v42(_v0.locale),
                 _v2 = _v0.outOfSyncPaths;
               if (null === _v1 || !_v0.isPublished || !_v0.isOutOfSync || null === _v2) return;
               let _v3 = [..._v2.added, ..._v2.changed].filter(_v0 => _v0.startsWith("speakers."));
@@ -4234,16 +4727,20 @@
             }), _v0;
           }, [_v11]),
           _v14 = (0, _v9.useCallback)(_v0 => _v11.find(_v0 => _v0.locale === _v0)?.version, [_v11]),
-          _v15 = (0, _v18.useToast)(),
-          _v16 = (0, _v9.useCallback)(_v0 => {
-            _v15({
+          _v15 = (0, _v9.useCallback)(_v0 => {
+            let _v1 = _v11.find(_v0 => _v0.locale === _v0);
+            return void 0 === _v1 ? void 0 : _v1.hasDraft ? _v1.draftValues : _v1.values;
+          }, [_v11]),
+          _v16 = (0, _v18.useToast)(),
+          _v17 = (0, _v9.useCallback)(_v0 => {
+            _v16({
               isClosable: !0,
               title: _v0,
               variant: "warning"
             });
-          }, [_v15]),
-          _v17 = (0, _v9.useCallback)(() => {
-            _v16((0, _v5.translate)({
+          }, [_v16]),
+          _v18 = (0, _v9.useCallback)(() => {
+            _v17((0, _v5.translate)({
               singular: "Something went wrong. Your changes were not saved.",
               dictionary: {
                 es: {
@@ -4269,48 +4766,48 @@
                 }
               }
             }));
-          }, [_v16]),
-          _v18 = (0, _v9.useCallback)(() => {
+          }, [_v17]),
+          _v19 = (0, _v9.useCallback)(() => {
             _v10();
           }, [_v10]),
-          [_v19, _v20] = (0, _v9.useState)(null),
-          _v21 = null !== _v19,
-          _v22 = _v41(_v8?.sourceLocale),
-          _v23 = _v19 ?? _v22,
-          _v24 = (0, _v9.useCallback)(_v0 => _v0 === _v23 ? Promise.resolve(!0) : _v21 || _v0 <= 0 ? Promise.resolve(!1) : (_v20(_v0), _v144({
+          [_v20, _v21] = (0, _v9.useState)(null),
+          _v22 = null !== _v20,
+          _v23 = _v42(_v8?.sourceLocale),
+          _v24 = _v20 ?? _v23,
+          _v25 = (0, _v9.useCallback)(_v0 => _v0 === _v24 ? Promise.resolve(!0) : _v22 || _v0 <= 0 ? Promise.resolve(!1) : (_v21(_v0), _v152({
             ..._v6,
             where: _v7,
-            select: _v147,
+            select: _v155,
             variables: {
               sourceLocale: _v0
             }
           }).then(_v0 => _v10(_v0, {
             revalidate: !1
-          })).then(() => !0).catch(() => (_v17(), !1)).finally(() => _v20(null))), [_v23, _v21, _v0, _v6, _v7, _v10, _v17]),
-          [_v25, _v26] = (0, _v9.useState)(!1),
-          _v27 = (0, _v9.useCallback)(async (_v0, _v1, _v2) => {
-            if (null === _v22 || _v25) return !1;
-            _v26(!0);
+          })).then(() => !0).catch(() => (_v18(), !1)).finally(() => _v21(null))), [_v24, _v22, _v0, _v6, _v7, _v10, _v18]),
+          [_v26, _v27] = (0, _v9.useState)(!1),
+          _v28 = (0, _v9.useCallback)(async (_v0, _v1, _v2) => {
+            if (null === _v23 || _v26) return !1;
+            _v27(!0);
             try {
               let _v0 = _v14(_v0),
-                _v1 = await _v140({
+                _v1 = await _v148({
                   ..._v6,
                   where: {
                     ..._v7,
                     locale: _v0
                   },
-                  select: _v148,
+                  select: _v156,
                   variables: {
-                    values: _v42(_v1),
+                    values: _v43(_v1, _v15(_v0)),
                     publish: _v2,
                     ...(void 0 === _v0 ? {} : {
                       version: _v0
                     })
                   }
                 });
-              return await _v10(_v0 => _v150(_v0, _v1), {
+              return await _v10(_v0 => _v158(_v0, _v1), {
                 revalidate: !1
-              }), _v15({
+              }), _v16({
                 isClosable: !0,
                 title: _v2 ? (0, _v5.translate)({
                   singular: "Translation published",
@@ -4366,17 +4863,17 @@
                 variant: "success"
               }), !0;
             } catch {
-              return _v17(), _v10(), !1;
+              return _v18(), _v10(), !1;
             } finally {
-              _v26(!1);
+              _v27(!1);
             }
-          }, [_v22, _v25, _v14, _v6, _v7, _v10, _v15, _v17]),
-          _v28 = (0, _v9.useCallback)(async _v0 => {
+          }, [_v23, _v26, _v14, _v15, _v6, _v7, _v10, _v16, _v18]),
+          _v29 = (0, _v9.useCallback)(async _v0 => {
             if (void 0 === _v14(_v0)) return !0;
-            if (_v25) return !1;
-            _v26(!0);
+            if (_v26) return !1;
+            _v27(!0);
             try {
-              return await _v141({
+              return await _v149({
                 ..._v6,
                 where: {
                   ..._v7,
@@ -4390,49 +4887,49 @@
                 revalidate: !1
               }), !0;
             } catch {
-              return _v17(), !1;
+              return _v18(), !1;
             } finally {
-              _v26(!1);
+              _v27(!1);
             }
-          }, [_v14, _v25, _v6, _v7, _v10, _v17]),
-          _v29 = (0, _v9.useCallback)((_v0, _v1) => {
+          }, [_v14, _v26, _v6, _v7, _v10, _v18]),
+          _v30 = (0, _v9.useCallback)((_v0, _v1) => {
             let _v2 = _v14(_v0);
-            void 0 === _v2 || _v25 || (_v26(!0), _v142({
+            void 0 === _v2 || _v26 || (_v27(!0), _v150({
               ..._v6,
               where: {
                 ..._v7,
                 locale: _v0
               },
-              select: _v148,
+              select: _v156,
               variables: {
                 state: _v1 ? "published" : "unpublished",
                 version: _v2
               }
-            }).then(_v0 => _v10(_v0 => _v150(_v0, _v0), {
+            }).then(_v0 => _v10(_v0 => _v158(_v0, _v0), {
               revalidate: !1
             })).catch(() => {
-              _v17(), _v10();
-            }).finally(() => _v26(!1)));
-          }, [_v14, _v25, _v6, _v7, _v10, _v17]),
-          _v30 = (0, _v9.useCallback)(async () => {
+              _v18(), _v10();
+            }).finally(() => _v27(!1)));
+          }, [_v14, _v26, _v6, _v7, _v10, _v18]),
+          _v31 = (0, _v9.useCallback)(async () => {
             let _v0 = Object.keys(_v12).filter(_v0 => {
               let _v1 = _v12[_v0];
               return void 0 !== _v1 && _v1.isPublished && _v1.isOutOfSync && !_v1.hasDraft;
             });
-            if (null === _v22 || _v25 || 0 === _v0.length) return !1;
-            _v26(!0);
+            if (null === _v23 || _v26 || 0 === _v0.length) return !1;
+            _v27(!0);
             try {
               let _v0 = await Promise.all(_v0.map(_v0 => {
                 let _v1 = _v14(_v0);
-                return _v140({
+                return _v148({
                   ..._v6,
                   where: {
                     ..._v7,
                     locale: _v0
                   },
-                  select: _v148,
+                  select: _v156,
                   variables: {
-                    values: _v42(_v12[_v0]?.leaves ?? {}),
+                    values: _v43(_v12[_v0]?.leaves ?? {}, _v15(_v0)),
                     publish: !0,
                     ...(void 0 === _v1 ? {} : {
                       version: _v1
@@ -4440,28 +4937,28 @@
                   }
                 });
               }));
-              return await _v10(_v0 => _v0.reduce(_v150, _v0 ?? _v149), {
+              return await _v10(_v0 => _v0.reduce(_v158, _v0 ?? _v157), {
                 revalidate: !1
               }), !0;
             } catch {
-              return _v17(), _v10(), !1;
+              return _v18(), _v10(), !1;
             } finally {
-              _v26(!1);
+              _v27(!1);
             }
-          }, [_v12, _v22, _v25, _v14, _v6, _v7, _v10, _v17]),
-          [_v31, _v32] = (0, _v9.useState)(!1),
-          _v33 = (0, _v9.useCallback)(async (_v0, _v1, _v2) => {
+          }, [_v12, _v23, _v26, _v14, _v15, _v6, _v7, _v10, _v18]),
+          [_v32, _v33] = (0, _v9.useState)(!1),
+          _v34 = (0, _v9.useCallback)(async (_v0, _v1, _v2) => {
             let _v3,
               _v4,
               _v5 = (_v3 = {}, (_v4 = (_v0, _v1) => {
                 "" !== _v1.trim() && (_v3[_v0] = _v1);
-              })(_v32, _v0.title), _v4(_v33, _v0.streamDescription), _v0.visibleSpeakers.forEach(_v0 => {
-                _v36.forEach(_v0 => _v4(_v38(_v0.id, _v0), _v0[_v0]));
+              })(_v33, _v0.title), _v4(_v34, _v0.streamDescription), _v0.visibleSpeakers.forEach(_v0 => {
+                _v37.forEach(_v0 => _v4(_v39(_v0.id, _v0), _v0[_v0]));
               }), _v3),
               _v6 = void 0 === _v2 ? _v5 : Object.fromEntries(Object.entries(_v5).filter(([_v0]) => _v2.includes(_v0))),
               _v7 = Object.keys(_v6);
-            if (0 === _v1.length || _v31) return null;
-            if (0 === _v7.length) return _v16((0, _v5.translate)({
+            if (0 === _v1.length || _v32) return null;
+            if (0 === _v7.length) return _v17((0, _v5.translate)({
               singular: "There is no text to translate yet.",
               dictionary: {
                 es: {
@@ -4487,7 +4984,7 @@
                 }
               }
             })), null;
-            if (null === _v22) return _v16((0, _v5.translate)({
+            if (null === _v23) return _v17((0, _v5.translate)({
               singular: "Please set a main language before translating.",
               dictionary: {
                 es: {
@@ -4513,9 +5010,9 @@
                 }
               }
             })), null;
-            _v32(!0);
+            _v33(!0);
             try {
-              let _v0 = await _v145({
+              let _v0 = await _v153({
                   ..._v6,
                   where: _v7,
                   select: ["requestId", "translations"],
@@ -4527,8 +5024,8 @@
                 {
                   edits: _v1,
                   incomplete: _v2
-                } = (0, _v146.parseAITranslationResults)(_v0.translations, _v1, _v7);
-              if (!_v1.some(_v0 => void 0 !== _v1[_v0])) return _v16((0, _v5.translate)({
+                } = (0, _v154.parseAITranslationResults)(_v0.translations, _v1, _v7);
+              if (!_v1.some(_v0 => void 0 !== _v1[_v0])) return _v17((0, _v5.translate)({
                 singular: "Something went wrong. Your translations were not created.",
                 dictionary: {
                   es: {
@@ -4554,7 +5051,7 @@
                   }
                 }
               })), null;
-              return _v2 && _v16((0, _v5.translate)({
+              return _v2 && _v17((0, _v5.translate)({
                 singular: "Some text could not be translated. Check it before publishing.",
                 dictionary: {
                   es: {
@@ -4581,7 +5078,7 @@
                 }
               })), _v1;
             } catch {
-              return _v16((0, _v5.translate)({
+              return _v17((0, _v5.translate)({
                 singular: "Something went wrong. Your translations were not created.",
                 dictionary: {
                   es: {
@@ -4608,13 +5105,13 @@
                 }
               })), null;
             } finally {
-              _v32(!1);
+              _v33(!1);
             }
-          }, [_v31, _v22, _v6, _v7, _v16]),
-          _v34 = (0, _v9.useCallback)(async _v0 => {
+          }, [_v32, _v23, _v6, _v7, _v17]),
+          _v35 = (0, _v9.useCallback)(async _v0 => {
             let _v1 = Object.keys(_v13),
               _v2 = [...new Set(_v1.flatMap(_v0 => _v13[_v0] ?? []))],
-              _v3 = await _v33(_v0, _v1, _v2);
+              _v3 = await _v34(_v0, _v1, _v2);
             if (null === _v3) return null;
             let _v4 = {};
             _v1.forEach(_v0 => {
@@ -4623,7 +5120,7 @@
               _v2.length > 0 && (_v4[_v0] = Object.fromEntries(_v2));
             });
             let _v5 = _v1.filter(_v0 => void 0 !== _v4[_v0]);
-            return 0 === _v5.length ? (_v16((0, _v5.translate)({
+            return 0 === _v5.length ? (_v17((0, _v5.translate)({
               singular: "Something went wrong. Your translations were not created.",
               dictionary: {
                 es: {
@@ -4652,40 +5149,40 @@
               locales: _v5,
               edits: _v4
             };
-          }, [_v13, _v33, _v16]);
+          }, [_v13, _v34, _v17]);
         return {
           isLoading: _v9,
           savedLocales: _v12,
-          sourceLocale: _v23,
-          isSubmittingSourceLocale: _v21,
-          changeSourceLocale: _v24,
-          isSubmitting: _v25,
-          saveLocale: _v27,
-          setPublished: _v29,
-          removeLocale: _v28,
+          sourceLocale: _v24,
+          isSubmittingSourceLocale: _v22,
+          changeSourceLocale: _v25,
+          isSubmitting: _v26,
+          saveLocale: _v28,
+          setPublished: _v30,
+          removeLocale: _v29,
           isAiEnabled: _v8?.aiTranslationEnabled ?? !1,
-          isAITranslating: _v31,
-          translateLocales: _v33,
+          isAITranslating: _v32,
+          translateLocales: _v34,
           hasSpeakerOutOfSync: Object.keys(_v13).length > 0,
-          translateOutOfSyncSpeakers: _v34,
-          republishLocales: _v30,
-          revalidate: _v18
+          translateOutOfSyncSpeakers: _v35,
+          republishLocales: _v31,
+          revalidate: _v19
         };
-      })(_v4, _v5),
+      })(_v5, _v6),
       {
-        isAiEnabled: _v11,
-        isAITranslating: _v12,
-        isSubmitting: _v13,
-        hasSpeakerOutOfSync: _v14,
-        translateOutOfSyncSpeakers: _v15,
-        republishLocales: _v16,
-        revalidate: _v17
-      } = _v10,
+        isAiEnabled: _v12,
+        isAITranslating: _v13,
+        isSubmitting: _v14,
+        hasSpeakerOutOfSync: _v15,
+        translateOutOfSyncSpeakers: _v16,
+        republishLocales: _v17,
+        revalidate: _v18
+      } = _v11,
       {
-        source: _v18,
-        isSourceLoading: _v19,
-        revalidateSpeakers: _v20,
-        getLiveEventLocalizationSource: _v21
+        source: _v19,
+        isSourceLoading: _v20,
+        revalidateSpeakers: _v21,
+        getLiveEventLocalizationSource: _v22
       } = ((_v0, _v1 = !0) => {
         let {
             settings: {
@@ -4697,23 +5194,23 @@
             jwt: _v4,
             xVimeoPage: _v5,
             locale: _v6
-          } = (0, _v52.useGctlConfig)(),
+          } = (0, _v53.useGctlConfig)(),
           {
             data: _v7,
             isLoading: _v8,
             mutate: _v9
-          } = (0, _v53.useGetLiveEventSpeakerProfiles)(() => _v1 ? {
-            select: _v135,
+          } = (0, _v54.useGetLiveEventSpeakerProfiles)(() => _v1 ? {
+            select: _v143,
             where: {
               liveEventId: _v0
             },
-            query: _v136
+            query: _v144
           } : null, {
             revalidateOnFocus: !1
           }),
           _v10 = _v2?.title ?? "",
           _v11 = _v2?.streamDescription ?? "",
-          _v12 = (0, _v9.useMemo)(() => _v137(_v7), [_v7]);
+          _v12 = (0, _v9.useMemo)(() => _v145(_v7), [_v7]);
         return {
           source: (0, _v9.useMemo)(() => ({
             title: _v10,
@@ -4725,7 +5222,7 @@
           getLiveEventLocalizationSource: (0, _v9.useCallback)(async () => ({
             title: _v10,
             streamDescription: _v11,
-            visibleSpeakers: _v137(await (0, _v134.getLiveEventSpeakerProfiles)({
+            visibleSpeakers: _v145(await (0, _v142.getLiveEventSpeakerProfiles)({
               baseUrl: _v3,
               headers: {
                 "Content-Type": "application/json",
@@ -4733,19 +5230,19 @@
                 "Vimeo-Page": `${_v5}`,
                 "Accept-Language": _v6 ?? "en"
               },
-              select: _v135,
+              select: _v143,
               where: {
                 liveEventId: _v0
               },
-              query: _v136
+              query: _v144
             }))
           }), [_v3, _v4, _v5, _v6, _v0, _v10, _v11])
         };
-      })(_v4, _v5 && _v7.has("translations")),
+      })(_v5, _v6 && _v8.has("translations")),
       {
-        openEditor: _v22,
-        openLocalePicker: _v23,
-        modals: _v24
+        openEditor: _v23,
+        openLocalePicker: _v24,
+        modals: _v25
       } = (({
         localizations: _v0,
         source: _v1,
@@ -4764,7 +5261,7 @@
             isAITranslating: _v12,
             translateLocales: _v13
           } = _v0,
-          _v14 = _v6 ?? (_v4 ? null : _v41(_v3)),
+          _v14 = _v6 ?? (_v4 ? null : _v42(_v3)),
           [_v15, _v16] = (0, _v9.useState)(!1),
           [_v17, _v18] = (0, _v9.useState)(null),
           [_v19, _v20] = (0, _v9.useState)([]),
@@ -4799,9 +5296,9 @@
                 }
               }
             }),
-            isDisabled: !_v43(_v25),
+            isDisabled: !_v44(_v25),
             fields: [{
-              path: _v32,
+              path: _v33,
               label: (0, _v5.translate)({
                 singular: "Title",
                 dictionary: {
@@ -4883,7 +5380,7 @@
               sourceValue: _v25.title,
               maxLength: 128
             }, {
-              path: _v33,
+              path: _v34,
               label: (0, _v5.translate)({
                 singular: "Description",
                 dictionary: {
@@ -5029,7 +5526,7 @@
                 fields: (_v2 = {
                   NUMBER: _v1 + 1
                 }, [{
-                  path: _v38(_v0.id, "name"),
+                  path: _v39(_v0.id, "name"),
                   label: (0, _v5.translate)({
                     singular: "Name",
                     dictionary: {
@@ -5110,7 +5607,7 @@
                   sourceValue: _v0.name,
                   maxLength: 120
                 }, {
-                  path: _v38(_v0.id, "role"),
+                  path: _v39(_v0.id, "role"),
                   label: (0, _v5.translate)({
                     singular: "Role",
                     dictionary: {
@@ -5194,7 +5691,7 @@
                   sourceValue: _v0.role,
                   maxLength: 120
                 }, {
-                  path: _v38(_v0.id, "description"),
+                  path: _v39(_v0.id, "description"),
                   label: (0, _v5.translate)({
                     singular: "Description",
                     dictionary: {
@@ -5283,7 +5780,7 @@
             untranslatedLocales: _v27,
             selectableLocales: _v28
           } = (0, _v9.useMemo)(() => {
-            let _v0 = _v31.filter(_v0 => _v0 !== _v14),
+            let _v0 = _v32.filter(_v0 => _v0 !== _v14),
               _v1 = _v0 => void 0 !== _v5[_v0];
             return {
               untranslatedLocales: _v0.filter(_v0 => !_v1(_v0)),
@@ -5331,7 +5828,7 @@
           openEditor: _v29,
           openLocalePicker: _v30,
           modals: (0, _v1.jsxs)(_v1.Fragment, {
-            children: [_v15 ? (0, _v1.jsx)(_v138.AddLocalizationModal, {
+            children: [_v15 ? (0, _v1.jsx)(_v146.AddLocalizationModal, {
               aiStartModeDescription: (0, _v5.translate)({
                 singular: "Create a draft of your event page content. You can review and edit it before it’s public.",
                 dictionary: {
@@ -5389,7 +5886,7 @@
               isTranslating: _v12 || _v7,
               onClose: () => _v16(!1),
               onConfirm: _v31
-            }) : null, null == _v17 || null == _v14 ? null : (0, _v1.jsx)(_v139.LocalizationModal, {
+            }) : null, null == _v17 || null == _v14 ? null : (0, _v1.jsx)(_v147.LocalizationModal, {
               edits: _v21,
               isAiEnabled: _v11,
               isSaving: _v9,
@@ -5408,27 +5905,27 @@
           })
         };
       })({
-        localizations: _v10,
-        source: _v18,
-        revalidateSpeakers: _v20
+        localizations: _v11,
+        source: _v19,
+        revalidateSpeakers: _v21
       }),
-      _v25 = _v1 && _v14,
-      _v26 = (0, _v9.useCallback)(() => {
-        _v5 && (_v17(), _v20());
-      }, [_v5, _v17, _v20]),
-      _v27 = (0, _v18.useToast)(),
+      _v26 = _v1 && _v15,
+      _v27 = (0, _v9.useCallback)(() => {
+        _v6 && (_v18(), _v21());
+      }, [_v6, _v18, _v21]),
+      _v28 = (0, _v18.useToast)(),
       {
-        trackSingleEventCustomizationSpeakersTranslateAiClicked: _v28,
-        trackSingleEventCustomizationSpeakersMarkedUpToDate: _v29
+        trackSingleEventCustomizationSpeakersTranslateAiClicked: _v29,
+        trackSingleEventCustomizationSpeakersMarkedUpToDate: _v30
       } = (0, _v23.useSingleEventCustomizationTracking)(),
-      [_v30, _v31] = (0, _v9.useState)(!1),
-      _v32 = (0, _v9.useCallback)(async () => {
-        _v31(!0);
+      [_v31, _v32] = (0, _v9.useState)(!1),
+      _v33 = (0, _v9.useCallback)(async () => {
+        _v32(!0);
         let _v0 = null;
         try {
-          _v0 = await _v21();
+          _v0 = await _v22();
         } catch {
-          _v27({
+          _v28({
             isClosable: !0,
             title: (0, _v5.translate)({
               singular: "Something went wrong. Your translations were not created.",
@@ -5460,11 +5957,11 @@
           });
           return;
         } finally {
-          _v31(!1);
+          _v32(!1);
         }
-        let _v1 = await _v15(_v0);
-        null !== _v1 && _v22(_v1.locales, _v1.edits, _v0);
-      }, [_v21, _v27, _v15, _v22]);
+        let _v1 = await _v16(_v0);
+        null !== _v1 && _v23(_v1.locales, _v1.edits, _v0);
+      }, [_v22, _v28, _v16, _v23]);
     return (0, _v1.jsxs)(_v15.Flex, {
       direction: "column",
       gap: (0, _v16.rem)(16),
@@ -5500,10 +5997,10 @@
         })
       }), (0, _v1.jsxs)(_v10.Accordion, {
         allowMultiple: !0,
-        index: _v9,
+        index: _v10,
         onChange: _v0 => {
-          _v8(new Set((Array.isArray(_v0) ? _v0 : [_v0]).flatMap(_v0 => {
-            let _v1 = _v6[_v0];
+          _v9(new Set((Array.isArray(_v0) ? _v0 : [_v0]).flatMap(_v0 => {
+            let _v1 = _v7[_v0];
             return void 0 === _v1 ? [] : [_v1];
           })));
         },
@@ -5541,7 +6038,7 @@
               }), (0, _v1.jsx)(_v12.AccordionIcon, {})]
             })
           }), (0, _v1.jsx)(_v14.AccordionPanel, {
-            children: (0, _v1.jsx)(_v131, {})
+            children: (0, _v1.jsx)(_v139, {})
           })]
         }), _v1 ? (0, _v1.jsxs)(_v13.AccordionItem, {
           children: [(0, _v1.jsx)(_v17.Text, {
@@ -5550,10 +6047,10 @@
               children: [(0, _v1.jsxs)(_v15.Flex, {
                 align: "center",
                 gap: (0, _v16.rem)(6),
-                children: [_v25 ? (0, _v1.jsx)(_v19.CircleExclamation, {
+                children: [_v26 ? (0, _v1.jsx)(_v19.CircleExclamation, {
                   boxSize: (0, _v16.rem)(24),
                   color: "status-caution-primary"
-                }) : null, _v151.translations.speakers]
+                }) : null, _v159.translations.speakers]
               }), (0, _v1.jsx)(_v12.AccordionIcon, {})]
             })
           }), (0, _v1.jsx)(_v14.AccordionPanel, {
@@ -5561,22 +6058,23 @@
               direction: "column",
               gap: "md",
               width: "100%",
-              children: [_v25 ? (0, _v1.jsx)(_v133, {
-                isAiEnabled: _v11,
-                isSubmitting: _v13,
-                isTranslating: _v30 || _v12,
+              children: [_v26 ? (0, _v1.jsx)(_v141, {
+                isAiEnabled: _v12,
+                isSubmitting: _v14,
+                isTranslating: _v31 || _v13,
                 onMarkUpToDate: () => {
-                  _v29({
-                    liveEventId: String(_v4)
-                  }), _v16();
+                  _v30({
+                    liveEventId: String(_v5)
+                  }), _v17();
                 },
                 onTranslate: () => {
-                  _v28({
-                    liveEventId: String(_v4)
-                  }), _v32();
+                  _v29({
+                    liveEventId: String(_v5)
+                  }), _v33();
                 }
-              }) : null, (0, _v1.jsx)(_v126, {
-                onSpeakersChange: _v26
+              }) : null, (0, _v1.jsx)(_v134, {
+                isAiTranslationEnabled: _v3 && _v6 && _v12,
+                onSpeakersChange: _v27
               })]
             })
           })]
@@ -5612,20 +6110,20 @@
               }), (0, _v1.jsx)(_v12.AccordionIcon, {})]
             })
           }), (0, _v1.jsx)(_v14.AccordionPanel, {
-            children: _v5 ? (0, _v1.jsx)(_v21, {
-              resourceId: String(_v4),
+            children: _v6 ? (0, _v1.jsx)(_v21, {
+              resourceId: String(_v5),
               resourceType: "event",
-              children: (0, _v1.jsx)(_v44, {
-                isSourceLoading: _v19,
-                localizations: _v10,
-                onAddLanguages: _v23,
-                onEditLocale: _v0 => _v22([_v0]),
-                source: _v18
+              children: (0, _v1.jsx)(_v45, {
+                isSourceLoading: _v20,
+                localizations: _v11,
+                onAddLanguages: _v24,
+                onEditLocale: _v0 => _v23([_v0]),
+                source: _v19
               })
             }) : null
           })]
         }) : null]
-      }), _v24]
+      }), _v25]
     });
   }], 0);
 }

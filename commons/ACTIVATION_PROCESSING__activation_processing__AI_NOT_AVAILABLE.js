@@ -70,6 +70,7 @@
     SUBTITLING: "subtitling"
   }, "USER_CONFIRMED_LOCATION_KEY", 0, "user_confirmed_location", "VIDEO_TRANSLATIONS_STEPS", 0, {
     TYPE_SELECTION: "type_selection",
+    MODEL_SELECTION: "model_selection",
     SUBTITLING: "subtitling",
     DUBBING: "dubbing"
   }, "VIEWER_QNA_ANSWER_PLACEHOLDER_ANIMATION", 0, _v3, "VideoDetailsPresets", 0, {

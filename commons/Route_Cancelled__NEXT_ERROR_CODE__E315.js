@@ -1012,20 +1012,19 @@
         {
           pathname: _v5,
           query: _v6
-        } = _v3,
-        _v7 = _v5;
+        } = _v3;
       if (!1 === _v2.locale) {
         _v3.pathname = _v5 = (0, _v13.normalizeLocalePath)(_v5, this.locales).pathname, _v0 = (0, _v21.formatWithValidation)(_v3);
         let _v0 = (0, _v17.parseRelativeUrl)(_v1),
           _v1 = (0, _v13.normalizeLocalePath)(_v0.pathname, this.locales);
         _v0.pathname = _v1.pathname, _v2.locale = _v1.detectedLocale || this.defaultLocale, _v1 = (0, _v21.formatWithValidation)(_v0);
       }
-      let _v8 = await this.pageLoader.getPageList(),
-        _v9 = _v1,
-        _v10 = void 0 !== _v2.locale ? _v2.locale || void 0 : this.locale,
-        _v11 = await _v43({
+      let _v7 = await this.pageLoader.getPageList(),
+        _v8 = _v1,
+        _v9 = void 0 !== _v2.locale ? _v2.locale || void 0 : this.locale,
+        _v10 = await _v43({
           asPath: _v1,
-          locale: _v10,
+          locale: _v9,
           router: this
         });
       if (_v1.startsWith("/")) {
@@ -1033,45 +1032,19 @@
         ({
           __rewrites: _v0
         } = await (0, _v9.getClientBuildManifest)());
-        let _v1 = _v3((0, _v27.addBasePath)((0, _v24.addLocale)(_v1, this.locale), !0), _v8, _v0, _v3.query, _v0 => _v46(_v0, _v8), this.locales);
+        let _v1 = _v3((0, _v27.addBasePath)((0, _v24.addLocale)(_v1, this.locale), !0), _v7, _v0, _v3.query, _v0 => _v46(_v0, _v7), this.locales);
         if (_v1.externalDest) return;
-        _v11 || (_v9 = (0, _v25.removeLocale)((0, _v26.removeBasePath)(_v1.asPath), this.locale)), _v1.matchedPage && _v1.resolvedHref && (_v3.pathname = _v5 = _v1.resolvedHref, _v11 || (_v0 = (0, _v21.formatWithValidation)(_v3)));
+        _v10 || (_v8 = (0, _v25.removeLocale)((0, _v26.removeBasePath)(_v1.asPath), this.locale)), _v1.matchedPage && _v1.resolvedHref && (_v3.pathname = _v5 = _v1.resolvedHref, _v10 || (_v0 = (0, _v21.formatWithValidation)(_v3)));
       }
-      _v3.pathname = _v46(_v3.pathname, _v8), (0, _v16.isDynamicRoute)(_v3.pathname) && (_v5 = _v3.pathname, _v3.pathname = _v5, Object.assign(_v6, (0, _v18.getRouteMatcher)((0, _v19.getRouteRegex)(_v3.pathname))((0, _v23.parsePath)(_v1).pathname) || {}), _v11 || (_v0 = (0, _v21.formatWithValidation)(_v3)));
-      let _v12 = await _v47({
-        fetchData: () => _v50({
-          dataHref: this.pageLoader.getDataHref({
-            href: (0, _v21.formatWithValidation)({
-              pathname: _v7,
-              query: _v6
-            }),
-            skipInterpolation: !0,
-            asPath: _v9,
-            locale: _v10
-          }),
-          hasMiddleware: !0,
-          isServerRender: !1,
-          parseJSON: !0,
-          inflightCache: this.sdc,
-          persistCache: !this.isPreview,
-          isPrefetch: !0
-        }),
-        asPath: _v1,
-        locale: _v10,
-        router: this
-      });
-      if (_v12?.effect.type === "rewrite" && (_v3.pathname = _v12.effect.resolvedHref, _v5 = _v12.effect.resolvedHref, _v6 = {
-        ..._v6,
-        ..._v12.effect.parsedAs.query
-      }, _v9 = _v12.effect.parsedAs.pathname, _v0 = (0, _v21.formatWithValidation)(_v3)), _v12?.effect.type === "redirect-external") return;
-      let _v13 = (0, _v8.removeTrailingSlash)(_v5);
-      (await this._bfl(_v1, _v9, _v2.locale, !0)) && (this.components[_v4] = {
+      _v3.pathname = _v46(_v3.pathname, _v7), (0, _v16.isDynamicRoute)(_v3.pathname) && (_v5 = _v3.pathname, _v3.pathname = _v5, Object.assign(_v6, (0, _v18.getRouteMatcher)((0, _v19.getRouteRegex)(_v3.pathname))((0, _v23.parsePath)(_v1).pathname) || {}), _v10 || (_v0 = (0, _v21.formatWithValidation)(_v3)));
+      let _v11 = (0, _v8.removeTrailingSlash)(_v5);
+      (await this._bfl(_v1, _v8, _v2.locale, !0)) && (this.components[_v4] = {
         __appRouter: !0
-      }), await Promise.all([this.pageLoader._isSsg(_v13).then(_v0 => !!_v0 && _v50({
-        dataHref: _v12?.json ? _v12?.dataHref : this.pageLoader.getDataHref({
+      }), await Promise.all([this.pageLoader._isSsg(_v11).then(_v0 => !!_v0 && _v50({
+        dataHref: this.pageLoader.getDataHref({
           href: _v0,
-          asPath: _v9,
-          locale: _v10
+          asPath: _v8,
+          locale: _v9
         }),
         isServerRender: !1,
         parseJSON: !0,
@@ -1079,7 +1052,7 @@
         persistCache: !this.isPreview,
         isPrefetch: !0,
         unstable_skipClientCache: _v2.unstable_skipClientCache || _v2.priority && !0
-      }).then(() => !1).catch(() => !1)), this.pageLoader[_v2.priority ? "loadPage" : "prefetch"](_v13)]);
+      }).then(() => !1).catch(() => !1)), this.pageLoader[_v2.priority ? "loadPage" : "prefetch"](_v11)]);
     }
     async fetchComponent(_v0) {
       let _v1 = _v53({

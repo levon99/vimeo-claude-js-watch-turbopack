@@ -111,7 +111,8 @@
   });
   _v0.s(["AccountDictionaryCheckbox", 0, ({
     isChecked: _v0,
-    onChange: _v1
+    onChange: _v1,
+    variant: _v2 = "subtitles"
   }) => (0, _v1.jsx)(_v3.Checkbox, {
     size: "md",
     alignItems: "flex-start",
@@ -152,7 +153,32 @@
       }), (0, _v1.jsx)(_v9.Text, {
         variant: "body-sm",
         color: "text-secondary",
-        children: (0, _v11.translate)({
+        children: "dubbing" === _v2 ? (0, _v11.translate)({
+          singular: "Apply your glossary terms, translations, and custom rules when generating dubbing.",
+          dictionary: {
+            es: {
+              singular: "Aplique sus términos de glosario, traducciones y reglas personalizadas al generar el doblaje."
+            },
+            "de-DE": {
+              singular: "Wenden Sie Ihre Glossarbegriffe, Übersetzungen und benutzerdefinierten Regeln bei der Erstellung der Synchronisation an."
+            },
+            "fr-FR": {
+              singular: "Appliquez vos termes de glossaire, vos traductions et vos règles personnalisées lors de la génération du doublage."
+            },
+            "ja-JP": {
+              singular: "吹き替えを生成する際に、用語集の用語、翻訳、およびカスタムルールを適用してください。"
+            },
+            "ko-KR": {
+              singular: "더빙을 생성할 때 용어집의 용어, 번역 및 사용자 지정 규칙을 적용하세요."
+            },
+            "pt-BR": {
+              singular: "Aplique os termos do seu glossário, traduções e regras personalizadas ao gerar a dublagem."
+            },
+            "zh-CN": {
+              singular: "生成配音时应用您的术语表条目、翻译和自定义规则。"
+            }
+          }
+        }) : (0, _v11.translate)({
           singular: "Apply your glossary terms, translations, and custom rules when generating subtitles.",
           dictionary: {
             es: {
@@ -181,18 +207,7 @@
       })]
     })
   }), "AccountDictionaryPriceInfo", 0, _v12], 0);
-  var _v13 = _v0.i(0),
-    _v14 = _v0.i(0),
-    _v15 = _v0.i(0),
-    _v16 = _v0.i(0),
-    _v17 = _v0.i(0),
-    _v18 = _v0.i(0),
-    _v19 = _v0.i(0),
-    _v20 = _v0.i(0),
-    _v21 = _v0.i(0),
-    _v22 = _v0.i(0),
-    _v23 = _v0.i(0);
-  class _v24 {
+  class _v13 {
     code;
     localized;
     native;
@@ -203,7 +218,18 @@
     getKey = () => `${this.code}${this.accent ? `-${this.accent.key}` : ""}`;
     getDisplayLabel = () => `${this.localized}${this.accent ? ` - ${this.accent.label}` : ""}`;
   }
-  _v0.s(["TranslationLanguage", 0, _v24], 0);
+  _v0.s(["TranslationLanguage", 0, _v13], 0);
+  var _v14 = _v0.i(0),
+    _v15 = _v0.i(0),
+    _v16 = _v0.i(0),
+    _v17 = _v0.i(0),
+    _v18 = _v0.i(0),
+    _v19 = _v0.i(0),
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0),
+    _v23 = _v0.i(0),
+    _v24 = _v0.i(0);
   let _v25 = "original",
     _v26 = ({
       menuKey: _v0,
@@ -215,32 +241,39 @@
       onReplaceLanguage: _v6,
       hasOriginalTranslationsAccents: _v7 = !1
     }) => {
-      let _v8 = (0, _v13.useCallback)(_v0 => {
-          let _v1 = _v0.lastIndexOf("-"),
-            _v2 = _v0.substring(0, _v1),
-            _v3 = _v0.substring(_v1 + 1),
-            _v4 = _v3.find(_v0 => _v0.code == _v2),
-            _v5 = _v4?.accents?.find(_v0 => _v0.key == _v3);
-          if (_v4 && _v5) {
-            let _v0 = new _v24(_v4.code, _v4.localized, _v4.native, {
-              label: String(_v5.label),
-              key: String(_v5.key)
+      let _v8 = (0, _v14.useCallback)(_v0 => {
+          let _v1 = _v3.find(_v0 => _v0.code === _v0);
+          if (_v1) {
+            let _v0 = new _v13(_v1.code, _v1.localized, _v1.native);
+            _v1 ? _v6(_v1, _v0) : _v4(_v0);
+            return;
+          }
+          let _v2 = _v0.lastIndexOf("-"),
+            _v3 = _v0.substring(0, _v2),
+            _v4 = _v0.substring(_v2 + 1),
+            _v5 = _v3.find(_v0 => _v0.code == _v3),
+            _v6 = _v5?.accents?.find(_v0 => _v0.key == _v4);
+          if (_v5 && _v6) {
+            let _v0 = new _v13(_v5.code, _v5.localized, _v5.native, {
+              label: String(_v6.label),
+              key: String(_v6.key)
             });
             _v1 ? _v6(_v1, _v0) : _v4(_v0);
           }
         }, [_v3, _v6, _v4, _v1]),
-        _v9 = (0, _v13.useCallback)((_v0, _v1) => `${_v0}-${_v1}`, []),
-        _v10 = (0, _v13.useCallback)(_v0 => {
+        _v9 = (0, _v14.useCallback)((_v0, _v1) => `${_v0}-${_v1}`, []),
+        _v10 = (0, _v14.useCallback)(_v0 => {
           let _v1 = _v0.detail.target;
           _v1.id?.includes(_v0) && _v0.preventDefault();
         }, [_v0]),
-        _v11 = (0, _v13.useMemo)(() => (0, _v1.jsx)(_v14.NestedMenuContent, {
+        _v11 = (0, _v14.useMemo)(() => (0, _v1.jsx)(_v15.NestedMenuContent, {
           maxH: (0, _v8.rem)(220),
           w: "100%",
           children: _v3.map(_v0 => {
             let _v1 = _v0?.accents?.find(_v0 => _v0.key === _v25),
-              _v2 = _v9(_v0.code, String(_v1?.key));
-            return _v2?.some(_v0 => _v0.code === _v0.code) ? (0, _v1.jsx)(_v14.NestedMenu, {
+              _v2 = _v9(_v0.code, String(_v1?.key)),
+              _v3 = _v2?.some(_v0 => _v0.code === _v0.code);
+            return _v0.accents?.length ? _v3 ? (0, _v1.jsx)(_v15.NestedMenu, {
               lazyMount: !0,
               id: `${_v0}-${_v0.code}`,
               positioning: {
@@ -249,15 +282,15 @@
               },
               unmountOnExit: !0,
               closeOnSelect: !0,
-              children: (0, _v1.jsx)(_v14.NestedMenuTriggerItem, {
+              children: (0, _v1.jsx)(_v15.NestedMenuTriggerItem, {
                 children: (0, _v1.jsx)(_v4.Flex, {
                   width: "100%",
                   h: "100%",
                   alignItems: "center",
                   justifyContent: "space-between",
                   opacity: .4,
-                  children: (0, _v1.jsx)(_v16.Tooltip, {
-                    label: _v23.thisLanguageAlreadyAdded,
+                  children: (0, _v1.jsx)(_v17.Tooltip, {
+                    label: _v24.thisLanguageAlreadyAdded,
                     placement: "top",
                     children: (0, _v1.jsxs)(_v4.Flex, {
                       justifyContent: "space-between",
@@ -265,7 +298,7 @@
                       children: [(0, _v1.jsx)(_v4.Flex, {
                         gap: "sm",
                         children: _v0.localized
-                      }), (0, _v1.jsx)(_v20.ChevronRightSmall, {
+                      }), (0, _v1.jsx)(_v21.ChevronRightSmall, {
                         height: 20,
                         width: 20
                       })]
@@ -273,7 +306,7 @@
                   })
                 })
               })
-            }, `${_v0}-${_v0.code}`) : (0, _v1.jsxs)(_v14.NestedMenu, {
+            }, `${_v0}-${_v0.code}`) : (0, _v1.jsxs)(_v15.NestedMenu, {
               lazyMount: !0,
               id: `${_v0}-${_v0.code}`,
               positioning: {
@@ -283,7 +316,7 @@
               onSelect: _v0 => _v8(_v0.value),
               unmountOnExit: !0,
               closeOnSelect: !0,
-              children: [(0, _v1.jsx)(_v14.NestedMenuTriggerItem, {
+              children: [(0, _v1.jsx)(_v15.NestedMenuTriggerItem, {
                 children: (0, _v1.jsxs)(_v4.Flex, {
                   width: "100%",
                   alignItems: "center",
@@ -292,32 +325,32 @@
                   children: [(0, _v1.jsx)(_v4.Flex, {
                     gap: "sm",
                     children: _v0.localized
-                  }), (0, _v1.jsx)(_v20.ChevronRightSmall, {
+                  }), (0, _v1.jsx)(_v21.ChevronRightSmall, {
                     height: 20,
                     width: 20
                   })]
                 })
-              }), (0, _v1.jsx)(_v15.NestedMenuPortal, {
-                children: (0, _v1.jsx)(_v14.NestedMenuPositioner, {
+              }), (0, _v1.jsx)(_v16.NestedMenuPortal, {
+                children: (0, _v1.jsx)(_v15.NestedMenuPositioner, {
                   style: {
-                    zIndex: _v22.Z_INDEX.BOKEH_DROPDOWN_MENU
+                    zIndex: _v23.Z_INDEX.BOKEH_DROPDOWN_MENU
                   },
-                  children: (0, _v1.jsxs)(_v14.NestedMenuContent, {
+                  children: (0, _v1.jsxs)(_v15.NestedMenuContent, {
                     children: [_v7 && _v1 && (0, _v1.jsxs)(_v1.Fragment, {
-                      children: [(0, _v1.jsx)(_v14.NestedMenuItem, {
+                      children: [(0, _v1.jsx)(_v15.NestedMenuItem, {
                         value: _v2,
                         id: _v2,
                         children: _v1.label
-                      }), (0, _v1.jsx)(_v14.NestedMenuDivider, {})]
-                    }), (0, _v1.jsxs)(_v14.NestedMenuItemGroup, {
-                      children: [(0, _v1.jsx)(_v14.NestedMenuItemGroupLabel, {
-                        children: (0, _v1.jsxs)(_v17.HStack, {
+                      }), (0, _v1.jsx)(_v15.NestedMenuDivider, {})]
+                    }), (0, _v1.jsxs)(_v15.NestedMenuItemGroup, {
+                      children: [(0, _v1.jsx)(_v15.NestedMenuItemGroupLabel, {
+                        children: (0, _v1.jsxs)(_v18.HStack, {
                           alignItems: "center",
                           gap: "xs",
                           children: [(0, _v1.jsx)(_v2.Box, {
-                            children: _v23.aiVoices
-                          }), (0, _v1.jsx)(_v16.Tooltip, {
-                            label: _v23.aiVoicesTooltipText,
+                            children: _v24.aiVoices
+                          }), (0, _v1.jsx)(_v17.Tooltip, {
+                            label: _v24.aiVoicesTooltipText,
                             placement: "top",
                             maxW: (0, _v8.rem)(280),
                             children: (0, _v1.jsx)(_v2.Box, {
@@ -331,7 +364,7 @@
                         })
                       }), _v0?.accents?.filter(_v0 => _v0.key !== _v25).map(_v0 => {
                         let _v1 = _v9(_v0.code, String(_v0.key));
-                        return (0, _v1.jsx)(_v14.NestedMenuItem, {
+                        return (0, _v1.jsx)(_v15.NestedMenuItem, {
                           value: _v1,
                           id: _v1,
                           children: _v0.label
@@ -341,6 +374,14 @@
                   })
                 })
               })]
+            }, `${_v0}-${_v0.code}`) : (0, _v1.jsx)(_v15.NestedMenuItem, {
+              id: `${_v0}-${_v0.code}`,
+              value: _v0.code,
+              disabled: _v3,
+              children: (0, _v1.jsx)(_v4.Flex, {
+                gap: "sm",
+                children: _v0.localized
+              })
             }, `${_v0}-${_v0.code}`);
           })
         }, _v0), [_v3, _v9, _v0, _v8, _v2, _v7]);
@@ -352,7 +393,7 @@
         children: [(0, _v1.jsx)(_v2.Box, {
           w: "100%",
           overflow: "hidden",
-          children: (0, _v1.jsxs)(_v14.NestedMenu, {
+          children: (0, _v1.jsxs)(_v15.NestedMenu, {
             id: `${_v0}-parent`,
             unmountOnExit: !0,
             closeOnSelect: !0,
@@ -362,7 +403,8 @@
               sameWidth: !0
             },
             onFocusOutside: _v10,
-            children: [(0, _v1.jsx)(_v14.NestedMenuTrigger, {
+            onSelect: _v0 => _v8(_v0.value),
+            children: [(0, _v1.jsx)(_v15.NestedMenuTrigger, {
               variant: "tertiary",
               fontSize: (0, _v8.rem)(12),
               w: "100%",
@@ -383,29 +425,29 @@
                   flexGrow: "1",
                   textAlign: "left",
                   whiteSpace: "nowrap",
-                  children: _v1 ? _v1.getDisplayLabel() : _v23.selectLanguage
-                }), (0, _v1.jsx)(_v19.ChevronDown, {
+                  children: _v1 ? _v1.getDisplayLabel() : _v24.selectLanguage
+                }), (0, _v1.jsx)(_v20.ChevronDown, {
                   height: 20,
                   width: 20
                 })]
               })
-            }), (0, _v1.jsx)(_v15.NestedMenuPortal, {
-              children: (0, _v1.jsx)(_v14.NestedMenuPositioner, {
+            }), (0, _v1.jsx)(_v16.NestedMenuPortal, {
+              children: (0, _v1.jsx)(_v15.NestedMenuPositioner, {
                 style: {
-                  zIndex: _v22.Z_INDEX.BOKEH_DROPDOWN_MENU
+                  zIndex: _v23.Z_INDEX.BOKEH_DROPDOWN_MENU
                 },
                 children: _v11
               })
             })]
           })
-        }, `${_v0}-parent`), (0, _v1.jsx)(_v16.Tooltip, {
-          label: _v23.remove,
+        }, `${_v0}-parent`), (0, _v1.jsx)(_v17.Tooltip, {
+          label: _v24.remove,
           placement: "top",
           isDisabled: !_v1,
-          children: (0, _v1.jsx)(_v18.IconButton, {
+          children: (0, _v1.jsx)(_v19.IconButton, {
             "aria-label": "Remove language",
             isDisabled: !_v1,
-            icon: (0, _v1.jsx)(_v21.CloseX, {}),
+            icon: (0, _v1.jsx)(_v22.CloseX, {}),
             size: "md",
             onClick: _v1 ? () => _v5(_v1) : void 0,
             variant: "secondary"
@@ -420,14 +462,14 @@
     onUnmount: _v3,
     hasOriginalTranslationsAccents: _v4 = !1
   }) => {
-    (0, _v13.useEffect)(() => _v3 && _v3(), [_v3]);
-    let _v5 = (0, _v13.useCallback)(_v0 => {
+    (0, _v14.useEffect)(() => _v3 && _v3(), [_v3]);
+    let _v5 = (0, _v14.useCallback)(_v0 => {
         _v2([..._v0, _v0]);
       }, [_v2, _v0]),
-      _v6 = (0, _v13.useCallback)(_v0 => {
+      _v6 = (0, _v14.useCallback)(_v0 => {
         _v2(_v0.filter(_v0 => _v0.getKey() !== _v0.getKey()));
       }, [_v2, _v0]),
-      _v7 = (0, _v13.useCallback)((_v0, _v1) => {
+      _v7 = (0, _v14.useCallback)((_v0, _v1) => {
         let _v2 = _v0.findIndex(_v0 => _v0.getKey() === _v0.getKey());
         if (-1 !== _v2) {
           let _v0 = [..._v0];

@@ -439,23 +439,24 @@
     };
   }
   var _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  let _v43 = () => Promise.resolve(_v42.isMobile ? "mobile" : _v42.isTablet ? "tablet" : _v42.isDesktop ? "desktop" : "unknown");
-  var _v44 = _v0.i(0);
-  let _v45 = () => async () => _v46(),
-    _v46 = () => {
+    _v42 = _v0.i(0),
+    _v43 = _v0.i(0);
+  let _v44 = () => Promise.resolve(_v43.isMobile ? "mobile" : _v43.isTablet ? "tablet" : _v43.isDesktop ? "desktop" : "unknown");
+  var _v45 = _v0.i(0);
+  let _v46 = () => async () => _v47(),
+    _v47 = () => {
       let _v0;
       return (_v0 = "LOCAL_STORAGE_ID_PICOX_ID", () => {
         let _v0 = window.localStorage.getItem(_v0);
         if (null == _v0) {
-          let _v0 = (0, _v44.v4)();
+          let _v0 = (0, _v45.v4)();
           return window.localStorage.setItem(_v0, _v0), _v0;
         }
         return _v0;
       })();
     };
-  _v0.s(["picoXLocalStorageId", 0, _v45, "readPicoXLocalStorageId", 0, _v46], 0);
-  let _v47 = {
+  _v0.s(["picoXLocalStorageId", 0, _v46, "readPicoXLocalStorageId", 0, _v47], 0);
+  let _v48 = {
       trace(..._v0) {
         console.trace("[Orion]", ..._v0);
       },
@@ -475,7 +476,7 @@
         console.error("[Orion]", ..._v0);
       }
     },
-    _v48 = {
+    _v49 = {
       trace() {},
       info() {},
       debug() {},
@@ -483,7 +484,7 @@
       error() {},
       fatal() {}
     },
-    _v49 = {
+    _v50 = {
       production: "https://vimeo.com/flarepoint",
       staging: "https://vimeo.com/flarepoint"
     };
@@ -494,7 +495,7 @@
   }) => {
     let _v3,
       _v4,
-      _v5 = _v1 ? _v47 : _v48,
+      _v5 = _v1 ? _v48 : _v49,
       _v6 = (0, _v8.useViewer)(),
       _v7 = !_v6,
       _v8 = null,
@@ -602,11 +603,11 @@
             defaultSegmentations: {},
             deviceAttributeGetters: {
               isLoggedIn: () => Promise.resolve(!!_v13.current),
-              localStorageId: _v45(),
-              deviceType: _v43
+              localStorageId: _v46(),
+              deviceType: _v44
             },
             logger: _v5,
-            baseUrl: _v49[_v1],
+            baseUrl: _v50[_v1],
             shouldReturnDefaultsImmediately: !("u" < typeof navigator) && /(?:google|bing|msn|facebook)bot[-imagevdo]{0,6}|bingpreview|gptbot|slack(?:bot)?(?:-imgproxy|-linkexpanding)?/i.test(navigator.userAgent),
             fetcher: (..._v0) => fetch(..._v0),
             userIdGenerator: _v0 => Promise.resolve(["localStorageId", "vimeoUserId", "vuid", "teamOwnerId"].filter(_v0 => void 0 !== _v0[_v0]).map(_v0 => _v0[_v0]).join("_")),
@@ -641,27 +642,29 @@
         }, 0));
       Promise.race([_v1(), _v2]).finally(() => clearTimeout(_v0));
     }, [_v21, _v3, _v8]);
-    let _v33 = (0, _v7.useMemo)(() => 0 === Object.keys(_v30).length ? _v26 : {
-      ..._v26,
-      settings: {
-        ..._v26.settings,
-        ..._v30
-      }
-    }, [_v26, _v30]);
+    let _v33 = (0, _v7.useMemo)(() => (0, _v42.getOrionEnvironmentOverrides)(), []),
+      _v34 = (0, _v7.useMemo)(() => 0 === Object.keys(_v33).length && 0 === Object.keys(_v30).length ? _v26 : {
+        ..._v26,
+        settings: {
+          ..._v26.settings,
+          ..._v33,
+          ..._v30
+        }
+      }, [_v26, _v30, _v33]);
     (0, _v7.useEffect)(() => {
       _v31.setState({
         client: _v21,
-        identity: _v33,
+        identity: _v34,
         isLoadingResponse: _v28
       });
-    }, [_v31, _v21, _v33, _v28]);
-    let _v34 = _v33.settings.orion_free_override;
+    }, [_v31, _v21, _v34, _v28]);
+    let _v35 = _v34.settings.orion_free_override;
     return (0, _v7.useEffect)(() => {
-      !_v28 && _v34 && _v6.default.set("orion_free_override", "1", {
+      !_v28 && _v35 && _v6.default.set("orion_free_override", "1", {
         sameSite: "none",
         secure: !0
       });
-    }, [_v28, _v34]), (0, _v5.jsx)(_v41.OrionStoreContext.Provider, {
+    }, [_v28, _v35]), (0, _v5.jsx)(_v41.OrionStoreContext.Provider, {
       value: _v31,
       children: _v0
     });

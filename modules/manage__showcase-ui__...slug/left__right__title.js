@@ -1500,7 +1500,8 @@
           setLoadingSideNavFolderURIs: () => void 0,
           shouldShowSideNav: !0,
           isScrolling: !1,
-          teamOwnerId: _v1
+          teamOwnerId: _v1,
+          isPrivateToUser: void 0
         }), [_v2, _v4, _v1]);
       return (0, _v1.jsx)(_v1.Fragment, {
         children: !1 === _v0 && (0, _v1.jsx)(_v99.VideoLibraryLayoutContext.Provider, {

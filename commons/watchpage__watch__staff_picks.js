@@ -36,6 +36,7 @@
         referrer_page: _v0.referrerPage,
         watch_page_viewer_auth_status: _v0.watchPageViewerAuthStatus,
         watch_page_arm: _v0.watchPageArm ?? "control",
+        watch_for_you_variant: _v0.watchForYouVariant ?? "control",
         ...(void 0 !== _v0.watchPageUrl ? {
           url: _v0.watchPageUrl
         } : {}),

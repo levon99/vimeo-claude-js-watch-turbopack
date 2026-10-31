@@ -17,7 +17,6 @@
     _v0.isRequired = _v0;
     var _v2 = {
       array: _v0,
-      bigint: _v0,
       bool: _v0,
       func: _v0,
       number: _v0,
