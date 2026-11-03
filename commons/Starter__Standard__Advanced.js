@@ -21,13 +21,13 @@
     _v18 = _v0.i(0),
     _v19 = _v0.i(0);
   let _v20 = {
-      starter: .9931,
+      starter: .993125,
       standard: .9967,
       advanced: .9989,
-      creator: .9908,
-      core: .9966,
-      professional: .9988,
-      studio: .99979375
+      creator: 1 - .99 / 108,
+      core: 1 - .99 / 294,
+      professional: 1 - .99 / 852,
+      studio: 1 - .99 / 0
     },
     _v21 = {
       starter: "Starter",

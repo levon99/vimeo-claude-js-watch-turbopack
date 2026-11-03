@@ -9,7 +9,8 @@
   let _v6 = (_v0, _v1) => !_v1 && _v4.SEAT_TIER_PLANS.includes(_v0.tier) && _v0.metadata.entitlements?.params?.videoStorageQuotaUnit === "video_size",
     _v7 = _v4.PLANS_ORDER,
     _v8 = _v0 => null != _v0 ? _v7[_v0] ?? -1 : -1,
-    _v9 = _v0 => _v4.SEAT_TIER_PLANS.includes(_v0);
+    _v9 = [_v4.PLANS.STARTER, _v4.PLANS.PLUS, _v4.PLANS.CREATOR],
+    _v10 = _v0 => _v4.SEAT_TIER_PLANS.includes(_v0);
   _v0.s(["appendExtraQueryParams", 0, (_v0, _v1) => {
     if (!_v0 || !_v1 || 0 === Object.keys(_v1).length) return _v0;
     let _v2 = new URLSearchParams(_v1);
@@ -104,7 +105,7 @@
           _v3 = _v2.entitlements?.params?.videoStorageQuotaPeriod,
           _v4 = _v2.entitlements?.params?.videoStoragePeriodicQuota || _v2.entitlements?.params?.videoStorageQuotaCap,
           _v5 = "free" === _v1 && null !== _v4 ? _v4 : _v2.entitlements?.params?.videoStoragePeriodicQuota || 0;
-        return "lifetime" !== _v3 || _v9(_v1) ? "pro" === _v1 || "plus" === _v1 ? (0, _v1.translate)({
+        return "lifetime" !== _v3 || _v10(_v1) ? "pro" === _v1 || "plus" === _v1 ? (0, _v1.translate)({
           singular: "{AMOUNT} / week",
           replacements: {
             AMOUNT: _v5
@@ -178,7 +179,7 @@
   }, "getVuid", 0, () => {
     let _v0 = document.cookie.match(/vuid=(\w+\.\w+);?/);
     return _v0 && _v0.length >= 2 ? _v0[1] : null;
-  }, "hasDisplayPlan", 0, _v0 => _v0 && _v0.hasOwnProperty("displayPlan"), "isEligibleForFreeTrial", 0, (_v0, _v1 = !1) => !!_v1 || (_v0.membership?.type === _v4.PLANS.FREE || _v0.membership?.type === _v4.PLANS.BASIC) && !_v0.membership?.subscription?.trial?.hasBeenInFreeTrial, "isRepackagingTier", 0, _v0 => (0, _v3.isRepackagingSelfServeTier)(_v0), "isSeatTierPlan", 0, _v9, "isSeatTierWithStorageQuota", 0, _v6, "isUserPlanHigherOrEqualThan", 0, (_v0, _v1) => {
+  }, "hasDisplayPlan", 0, _v0 => _v0 && _v0.hasOwnProperty("displayPlan"), "isEligibleForFreeTrial", 0, (_v0, _v1 = !1) => !!_v1 || (_v0.membership?.type === _v4.PLANS.FREE || _v0.membership?.type === _v4.PLANS.BASIC) && !_v0.membership?.subscription?.trial?.hasBeenInFreeTrial, "isRepackagingTier", 0, _v0 => (0, _v3.isRepackagingSelfServeTier)(_v0), "isSeatTierPlan", 0, _v10, "isSeatTierWithStorageQuota", 0, _v6, "isUserPlanHigherOrEqualThan", 0, (_v0, _v1) => {
     let _v2 = ((_v0, _v1) => {
       if (!_v0 || !_v1) return null;
       let _v2 = _v4.PLANS_ORDER[_v0],
@@ -186,5 +187,5 @@
       return void 0 === _v2 || void 0 === _v3 ? null : _v2 > _v3 ? 1 : _v2 < _v3 ? -1 : 0;
     })(_v0, _v1);
     return 1 === _v2 || 0 === _v2;
-  }, "shouldReserveSecondaryLinkSlot", 0, (_v0, _v1, _v2) => "free_trial_secondary" === _v0 && !!_v1 || "purchase_secondary" === _v0 && !1 !== _v2, "shouldShowBillingFrequencyCopy", 0, (_v0, _v1, _v2, _v3 = !1) => !_v6(_v1, _v2) || _v0 && _v3, "showMonthlyPlans", 0, (_v0, _v1 = !1) => _v9(_v0[0]?.tier) && (_v1 || void 0 !== _v0.find(_v0 => _v0.metadata?.purchasedProduct?.isMonthly)), "showRecommendedBadge", 0, (_v0, _v1, _v2) => 0 === (_v2 && [_v4.PLANS.STARTER, _v4.PLANS.PLUS].includes(_v2) ? _v1 - 1 : _v1) && (_v4.SEAT_TIER_PLANS.includes(_v0.tier) || _v4.LEGACY_PLANS.includes(_v0.tier)) && _v0.tier !== _v4.PLANS.STARTER && _v0.tier !== _v4.PLANS.PLUS]);
+  }, "shouldReserveSecondaryLinkSlot", 0, (_v0, _v1, _v2) => "free_trial_secondary" === _v0 && !!_v1 || "purchase_secondary" === _v0 && !1 !== _v2, "shouldShowBillingFrequencyCopy", 0, (_v0, _v1, _v2, _v3 = !1) => !_v6(_v1, _v2) || _v0 && _v3, "showMonthlyPlans", 0, (_v0, _v1 = !1) => _v10(_v0[0]?.tier) && (_v1 || void 0 !== _v0.find(_v0 => _v0.metadata?.purchasedProduct?.isMonthly)), "showRecommendedBadge", 0, (_v0, _v1, _v2) => 0 === (_v2 && _v9.includes(_v2) ? _v1 - 1 : _v1) && (_v4.SEAT_TIER_PLANS.includes(_v0.tier) || _v4.LEGACY_PLANS.includes(_v0.tier)) && !_v9.includes(_v0.tier)]);
 }

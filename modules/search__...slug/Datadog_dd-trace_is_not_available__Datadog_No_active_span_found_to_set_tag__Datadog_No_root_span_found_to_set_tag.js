@@ -2284,10 +2284,10 @@
           singular: "Virtual events and webinars",
           dictionary: {
             es: {
-              singular: "Eventos virtuales y webinars"
+              singular: "Eventos virtuales y seminarios web"
             },
             "de-DE": {
-              singular: "Virtuelle Veranstaltungen und Webinare"
+              singular: "Virtuelle Events und Webinare"
             },
             "fr-FR": {
               singular: "Événements virtuels et webinaires"
@@ -2302,7 +2302,7 @@
               singular: "Eventos virtuais e webinars"
             },
             "zh-CN": {
-              singular: "虚拟活动与网络研讨会"
+              singular: "虚拟活动和网络研讨会"
             }
           }
         }), (0, _v48.translate)({
@@ -9064,69 +9064,70 @@
         } = (0, _v3.useContext)(_v19),
         _v4 = _v261(),
         _v5 = (0, _v260.useOrionSetting)("enable_fuzzy_public_search"),
-        _v6 = _v244(),
-        _v7 = _v1?.user?.id,
-        _v8 = _v7?.toString() ?? null,
-        _v9 = _v1?.teamUser?.ownerId?.toString() ?? null,
-        _v10 = _v1?.user?.preferences?.enablePublicSmartSearch === !0,
-        _v11 = _v10 && (!_v6.type || _v6.type === _v58.options.clip.value),
-        _v12 = (0, _v259.useOrionLoading)(),
-        _v13 = _v1?.apiUrl ? _v8 : "__viewer_pending__",
-        [_v14, _v15] = (0, _v3.useState)(() => ({
-          userId: _v13,
-          teamOwnerId: _v9,
-          finished: !_v12
+        _v6 = (0, _v260.useOrionSetting)("enable_public_smart_search"),
+        _v7 = _v244(),
+        _v8 = _v1?.user?.id,
+        _v9 = _v8?.toString() ?? null,
+        _v10 = _v1?.teamUser?.ownerId?.toString() ?? null,
+        _v11 = !!_v8 && (_v1?.user?.preferences?.enablePublicSmartSearch === !0 || _v6),
+        _v12 = _v11 && (!_v7.type || _v7.type === _v58.options.clip.value),
+        _v13 = (0, _v259.useOrionLoading)(),
+        _v14 = _v1?.apiUrl ? _v9 : "__viewer_pending__",
+        [_v15, _v16] = (0, _v3.useState)(() => ({
+          userId: _v14,
+          teamOwnerId: _v10,
+          finished: !_v13
         }));
-      _v14.userId !== _v13 || _v14.teamOwnerId !== _v9 ? _v15({
-        userId: _v13,
-        teamOwnerId: _v9,
-        finished: !_v12
-      }) : _v14.finished || _v12 || _v15({
-        userId: _v13,
-        teamOwnerId: _v9,
+      _v15.userId !== _v14 || _v15.teamOwnerId !== _v10 ? _v16({
+        userId: _v14,
+        teamOwnerId: _v10,
+        finished: !_v13
+      }) : _v15.finished || _v13 || _v16({
+        userId: _v14,
+        teamOwnerId: _v10,
         finished: !0
       });
-      let _v16 = _v11 && !_v14.finished;
+      let _v17 = _v12 && !_v15.finished;
       (0, _v3.useEffect)(() => {
-        if (!_v11 || _v14.finished) return;
-        let _v0 = _v14.userId,
-          _v1 = _v14.teamOwnerId,
+        if (!_v12 || _v15.finished) return;
+        let _v0 = _v15.userId,
+          _v1 = _v15.teamOwnerId,
           _v2 = setTimeout(() => {
-            _v15(_v0 => _v0.userId === _v0 && _v0.teamOwnerId === _v1 ? {
+            _v16(_v0 => _v0.userId === _v0 && _v0.teamOwnerId === _v1 ? {
               ..._v0,
               finished: !0
             } : _v0);
           }, 500);
         return () => clearTimeout(_v2);
-      }, [_v11, _v14.finished, _v14.teamOwnerId, _v14.userId]);
-      let _v17 = _v10 ? 15 : 24,
+      }, [_v12, _v15.finished, _v15.teamOwnerId, _v15.userId]);
+      let _v18 = _v11 ? 15 : 24,
         {
-          query: _v18,
-          page: _v19,
-          uploaded: _v20,
-          type: _v21,
-          live: _v22,
-          hdr: _v23,
-          vimeo360: _v24,
-          price: _v25,
-          license: _v26,
-          resolution: _v27,
-          duration: _v28,
-          collection: _v29,
-          category: _v30,
-          follow: _v31,
-          updated: _v32,
-          sort: _v33
-        } = _v6,
-        _v34 = _v2 === _v126,
+          query: _v19,
+          page: _v20,
+          uploaded: _v21,
+          type: _v22,
+          live: _v23,
+          hdr: _v24,
+          vimeo360: _v25,
+          price: _v26,
+          license: _v27,
+          resolution: _v28,
+          duration: _v29,
+          collection: _v30,
+          category: _v31,
+          follow: _v32,
+          updated: _v33,
+          sort: _v34
+        } = _v7,
+        _v35 = _v2 === _v126,
         {
-          data: _v35,
-          isLoading: _v36,
-          mutate: _v37,
-          error: _v38
+          data: _v36,
+          isLoading: _v37,
+          mutate: _v38,
+          error: _v39
         } = _v258(() => {
-          if (!_v0.isReady || !_v1?.apiUrl || !_v34 || _v3 || _v4 || _v16) return null;
-          let [_v0, _v1] = _v117(_v33);
+          if (!_v0.isReady || !_v1?.apiUrl || !_v35 || _v3 || _v4 || _v17) return null;
+          let [_v0, _v1] = _v117(_v34);
           return {
             select: (_v0 => {
               switch (_v0) {
@@ -9141,35 +9142,36 @@
                 default:
                   return _v95;
               }
-            })(_v21),
+            })(_v22),
             headers: {
               Accept: "application/vnd.vimeo.*+json;version=3.3"
             },
             query: {
-              filterType: _v21 ? _v58.options[_v21].value : _v58.options.clip.value,
-              query: _v18,
-              page: _v19,
-              perPage: _v17,
-              filterUploaded: _v20 && _v56.options[_v20].value,
-              filterLive: _v22 && _v59.options[_v22].value,
-              filterHdr: _v23 && _v60.options[_v23].value,
-              filterVimeo_360: _v24 && _v61.options[_v24].value,
-              filterPrice: _v25 && _v62.options[_v25].value,
-              filterLicense: _v26 && _v63.options[_v26].value,
-              filterResolution: _v27 && _v64.options[_v27].value,
-              filterStaffpicked: _v29 && !0,
-              filterDuration: _v28 && _v65.options[_v28].value,
-              filterCategory: _v30,
-              filterFollows: _v31 && _v7,
-              filterLastUpdated: _v32 && _v57.options[_v32].value,
-              sizes: _v21 === _v58.options.ondemand.value ? ["296x744"] : void 0,
+              filterType: _v22 ? _v58.options[_v22].value : _v58.options.clip.value,
+              query: _v19,
+              page: _v20,
+              perPage: _v18,
+              filterUploaded: _v21 && _v56.options[_v21].value,
+              filterLive: _v23 && _v59.options[_v23].value,
+              filterHdr: _v24 && _v60.options[_v24].value,
+              filterVimeo_360: _v25 && _v61.options[_v25].value,
+              filterPrice: _v26 && _v62.options[_v26].value,
+              filterLicense: _v27 && _v63.options[_v27].value,
+              filterResolution: _v28 && _v64.options[_v28].value,
+              filterStaffpicked: _v30 && !0,
+              filterDuration: _v29 && _v65.options[_v29].value,
+              filterCategory: _v31,
+              filterFollows: _v32 && _v8,
+              filterLastUpdated: _v33 && _v57.options[_v33].value,
+              sizes: _v22 === _v58.options.ondemand.value ? ["296x744"] : void 0,
               sort: _v0,
               direction: _v1,
-              facets: _v11 ? void 0 : "type",
-              fetchUserProfile: _v21 === _v58.options.people.value ? "1" : void 0,
+              facets: _v12 ? void 0 : "type",
+              fetchUserProfile: _v22 === _v58.options.people.value ? "1" : void 0,
               precision: 0,
               fuzzy: _v5,
-              cursor: _v6.cursor
+              smartSearch: !!_v12 || void 0,
+              cursor: _v7.cursor
             }
           };
         }, {
@@ -9180,12 +9182,12 @@
           keepPreviousData: !0
         });
       return {
-        data: _v35,
-        isLoading: _v36,
-        mutate: _v37,
-        error: _v38,
-        perPage: _v17,
-        isSmartClipSearch: _v11,
+        data: _v36,
+        isLoading: _v37,
+        mutate: _v38,
+        error: _v39,
+        perPage: _v18,
+        isSmartClipSearch: _v12,
         publicResultCount: (_v0 => {
           if (!(_v0 instanceof Array)) return;
           let _v1 = {};
@@ -9194,7 +9196,7 @@
             total: _v1
           } of _v0) _v0 && (_v1[_v0] = _v1);
           return _v1;
-        })(_v35?.facets?.type?.options)
+        })(_v36?.facets?.type?.options)
       };
     };
   var _v263 = _v0.i(0);

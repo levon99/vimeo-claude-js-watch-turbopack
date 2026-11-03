@@ -72,5 +72,5 @@
     video: "https://player.vimeo.com/progressive_redirect/playback/1236606995/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&signature=2866a7746c101e6646e4c390774ea6312fe7e5035bc39a42a6fca0b3fbe38f29",
     poster: "https://i.vimeocdn.com/video/2213153235-7de716366e4d3910469977dc774d2c2e7854cdd934c3858ad33ba45a87c90e3b-d",
     width: 720
-  }], "INDIE_INELIGIBLE_URL", 0, _v4, "INDIE_PAYWALL", 0, _v3, "INDIE_PRODUCT_ID", 0, _v6, "INDIE_SOLD_OUT_URL", 0, _v5, "SUPPORT_URL", 0, "https://help.vimeo.com/hc/en-us/requests/new"]);
+  }], "INDIE_INELIGIBLE_URL", 0, _v4, "INDIE_PAYWALL", 0, _v3, "INDIE_PRODUCT_ID", 0, _v6, "INDIE_SOLD_OUT_URL", 0, _v5, "PROFESSIONAL_DETAILS_URL", 0, "https://help.vimeo.com/hc/en-us/articles/49786887852049-About-the-Vimeo-Professional-plan", "SUPPORT_URL", 0, "https://help.vimeo.com/hc/en-us/requests/new"]);
 }

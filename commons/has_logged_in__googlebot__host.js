@@ -3,52 +3,54 @@
 
   var _v1 = _v0.i(0),
     _v2 = _v0.i(0),
-    _v3 = _v0.i(0);
-  let _v4 = _v0 => !_v9(_v0),
-    _v5 = _v0 => {
+    _v3 = _v0.i(0),
+    _v4 = _v0.i(0);
+  let _v5 = _v0 => !_v10(_v0),
+    _v6 = _v0 => {
       if ("function" == typeof _v0.cookies?.get) return _v0.cookies.get("has_logged_in")?.value === "1";
       let _v1 = _v0.cookies;
       return _v1?.has_logged_in === "1";
     },
-    _v6 = _v0 => _v0.toLowerCase().includes("googlebot"),
-    _v7 = _v0 => {
+    _v7 = _v0 => _v0.toLowerCase().includes("googlebot"),
+    _v8 = _v0 => {
       let _v1 = "function" == typeof _v0.headers?.get ? _v0.headers.get("host") : _v0.headers?.host;
       return _v1 ? _v1.toLowerCase().split(":")[0].replace(/^www\./, "") : "";
     },
-    _v8 = _v0 => {
+    _v9 = _v0 => {
+      if ((0, _v4.isDevRegionOverrideEnabled)() && "china" === (0, _v4.getDevRegionModeFromHeaders)(_v0.headers)) return !0;
       let _v1 = ("function" == typeof _v0.headers?.get ? _v0.headers.get("vimeo-environment-tld") || "" : _v0.headers?.["vimeo-environment-tld"] ?? "").trim().toLowerCase();
       return "cn" === _v1 || "hk" === _v1;
     },
-    _v9 = _v0 => {
+    _v10 = _v0 => {
       if ("function" == typeof _v0.cookies?.get) return null != _v0.cookies.get("vimeo");
       let _v1 = _v0.cookies;
       if (_v1 && null != _v1.vimeo) return !0;
       let _v2 = _v0.headers?.cookie;
       return "string" == typeof _v2 && /(?:^|;\s*)vimeo=/.test(_v2);
     };
-  _v0.s(["getRequestHost", 0, _v7, "hasLoggedIn", 0, _v5, "isChinaRestrictedRequest", 0, _v8, "isGooglebot", 0, _v6, "isLoggedOut", 0, _v4], 0);
-  let _v10 = 5,
-    _v11 = "x-cdn-cc-managed";
-  _v0.s(["CDN_CC_MANAGED", 0, _v11, "setCacheHeaders", 0, (_v0, _v1, {
+  _v0.s(["getRequestHost", 0, _v8, "hasLoggedIn", 0, _v6, "isChinaRestrictedRequest", 0, _v9, "isGooglebot", 0, _v7, "isLoggedOut", 0, _v5], 0);
+  let _v11 = 5,
+    _v12 = "x-cdn-cc-managed";
+  _v0.s(["CDN_CC_MANAGED", 0, _v12, "setCacheHeaders", 0, (_v0, _v1, {
     ttl: _v2 = 0,
-    cdnTtl: _v3 = _v10,
+    cdnTtl: _v3 = _v11,
     keys: _v4
   }) => {
-    if (!_v4(_v0)) return;
+    if (!_v5(_v0)) return;
     let _v5 = !!_v0.headers["x-varnish"];
-    if (0 === _v2 ? (_v1.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"), _v5 || (_v1.setHeader("CDN-Cache-Control", "no-store"), _v1.setHeader(_v11, "1"))) : _v5 ? (_v1.setHeader("Cache-Control", `max-age=${_v2}`), _v1.setHeader("Expires", new Date(Date.now() + 0 * _v2).toUTCString())) : (_v1.setHeader("Cache-Control", "no-store"), _v1.setHeader("CDN-Cache-Control", `max-age=${_v3}`), _v1.setHeader(_v11, "1")), _v4 && Object.keys(_v4).length > 0) {
+    if (0 === _v2 ? (_v1.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"), _v5 || (_v1.setHeader("CDN-Cache-Control", "no-store"), _v1.setHeader(_v12, "1"))) : _v5 ? (_v1.setHeader("Cache-Control", `max-age=${_v2}`), _v1.setHeader("Expires", new Date(Date.now() + 0 * _v2).toUTCString())) : (_v1.setHeader("Cache-Control", "no-store"), _v1.setHeader("CDN-Cache-Control", `max-age=${_v3}`), _v1.setHeader(_v12, "1")), _v4 && Object.keys(_v4).length > 0) {
       let _v0 = Object.entries(_v4).map(([_v0, _v1]) => `${_v0}:${_v1}`);
       _v5 && _v1.setHeader("X-HashTwo", _v0), _v1.setHeader("Cache-Tag", _v0.join(","));
     }
   }], 0);
-  var _v12 = _v0.i(0);
-  function _v13(_v0, _v1) {
+  var _v13 = _v0.i(0);
+  function _v14(_v0, _v1) {
     if (void 0 === _v1) return _v0;
     let [_v2, _v3 = ""] = _v1.split("?"),
       _v4 = new URLSearchParams(_v3),
       _v5 = new URLSearchParams();
     if (_v4.forEach((_v0, _v1) => {
-      "t_lp" !== _v1 && _v12.ATTRIBUTION_PARAM_NAMES.includes(_v1) && "" !== _v0 && _v5.set(_v1, _v0);
+      "t_lp" !== _v1 && _v13.ATTRIBUTION_PARAM_NAMES.includes(_v1) && "" !== _v0 && _v5.set(_v1, _v0);
     }), 0 == [..._v5].length) return _v0;
     _v5.set("t_lp", `${_v2}?${_v5.toString()}`);
     let _v6 = _v5.toString(),
@@ -56,30 +58,30 @@
       _v8 = `${_v0}${_v7}${_v6}`;
     return _v8.length > 0 ? _v0 : _v8;
   }
-  var _v14 = _v0.i(0);
-  let _v15 = ["cookie", "crossroads-jwt", "crossroads-language", "user-agent"];
-  function _v16(_v0) {
+  var _v15 = _v0.i(0);
+  let _v16 = ["cookie", "crossroads-jwt", "crossroads-language", "user-agent"];
+  function _v17(_v0) {
     let _v1 = _v0.query?.player_branch;
     return "string" == typeof _v1 && _v1 ? `?${new URLSearchParams({
       player_branch: _v1
     })}` : "";
   }
-  function _v17(_v0) {
+  function _v18(_v0) {
     let _v1 = {
       ..._v0.headers,
       Accept: "application/json"
     };
-    for (let _v0 of _v15) {
+    for (let _v0 of _v16) {
       let _v0 = _v0.req.headers[_v0];
       _v0 && (_v1[_v0] = Array.isArray(_v0) ? _v0.join("; ") : _v0);
     }
     return _v1;
   }
-  async function _v18(_v0, _v1) {
+  async function _v19(_v0, _v1) {
     if (!_v1) return null;
-    let _v2 = _v17(_v0);
+    let _v2 = _v18(_v0);
     try {
-      let _v0 = await fetch(`https://${_v1}/_next/viewer${_v16(_v0)}`, {
+      let _v0 = await fetch(`https://${_v1}/_next/viewer${_v17(_v0)}`, {
         headers: _v2
       });
       if (!_v0.ok) return null;
@@ -90,11 +92,11 @@
       return console.warn("withPageSetup: failed to fetch viewer for inline bootstrap", _v0), null;
     }
   }
-  async function _v19(_v0, _v1) {
+  async function _v20(_v0, _v1) {
     if (!_v1) return null;
-    let _v2 = _v17(_v0);
+    let _v2 = _v18(_v0);
     try {
-      let _v0 = await fetch(`https://${_v1}/_next/player_assets${_v16(_v0)}`, {
+      let _v0 = await fetch(`https://${_v1}/_next/player_assets${_v17(_v0)}`, {
         headers: _v2
       });
       if (!_v0.ok) return null;
@@ -105,9 +107,9 @@
       return console.warn("withPageSetup: failed to fetch player assets", _v0), null;
     }
   }
-  async function _v20(_v0, _v1) {
+  async function _v21(_v0, _v1) {
     if (!_v1) return null;
-    let _v2 = _v17(_v0);
+    let _v2 = _v18(_v0);
     try {
       let _v0 = await fetch(`https://${_v1}/_next/modbox`, {
         headers: _v2
@@ -121,10 +123,10 @@
       return console.warn("withPageSetup: failed to fetch modbox panel", _v0), null;
     }
   }
-  async function _v21(_v0) {
+  async function _v22(_v0) {
     let _v1 = _v0.vimeoConfig.get("vimeo_url");
     if (!_v1) return null;
-    let _v2 = _v17(_v0);
+    let _v2 = _v18(_v0);
     try {
       let _v0 = await fetch(`https://${_v1}/_next/create_preloads`, {
         headers: _v2
@@ -137,10 +139,10 @@
       return console.warn("withPageSetup: failed to fetch create preloads", _v0), null;
     }
   }
-  var _v22 = _v0.i(0),
-    _v23 = _v0.i(0),
-    _v24 = _v0.i(0);
-  let _v25 = {
+  var _v23 = _v0.i(0),
+    _v24 = _v0.i(0),
+    _v25 = _v0.i(0);
+  let _v26 = {
       en: "en",
       es: "es",
       fr: "fr-FR",
@@ -150,11 +152,11 @@
       ko: "ko-KR",
       zh: "zh-CN"
     },
-    _v26 = _v0 => Object.hasOwn(_v25, _v0) ? _v25[_v0] : "",
-    _v27 = new Set(Object.values(_v25)),
-    _v28 = _v0 => _v0 && _v27.has(_v0) ? _v0 : "other",
-    _v29 = async () => _v23.default.getConfig(),
-    _v30 = async _v0 => {
+    _v27 = _v0 => Object.hasOwn(_v26, _v0) ? _v26[_v0] : "",
+    _v28 = new Set(Object.values(_v26)),
+    _v29 = _v0 => _v0 && _v28.has(_v0) ? _v0 : "other",
+    _v30 = async () => _v24.default.getConfig(),
+    _v31 = async _v0 => {
       if ("false" === _v1.default.env.APP_MINT_CROSSROADS_JWT) return _v0.headers["crossroads-jwt"];
       let {
           mintCrossroadsJwt: _v1
@@ -162,8 +164,8 @@
         _v2 = await _v1(_v0.headers.cookie);
       return _v0.headers["crossroads-jwt"] = _v2, _v2;
     },
-    _v31 = async (_v0, _v1) => {
-      let _v2 = await _v30(_v0.req),
+    _v32 = async (_v0, _v1) => {
+      let _v2 = await _v31(_v0.req),
         _v3 = {
           "Content-Type": "application/json",
           Authorization: `jwt ${_v2}`
@@ -203,7 +205,7 @@
     return "function" == typeof _v0 ? (_v2 = _v0, _v3 = _v1) : (_v3 = _v0, _v2 = () => ({
       props: {}
     })), async function (_v0) {
-      let _v1 = _v4(_v0.req);
+      let _v1 = _v5(_v0.req);
       _v3?.noIndex && _v0.res.setHeader("X-Robots-Tag", "noindex"), _v3?.inlineViewer && _v1 && (_v0.req.headers["x-varnish"] ? _v0.res.setHeader("Cache-Control", "public, max-age=600") : (_v0.res.setHeader("Cache-Control", "no-store"), _v0.res.setHeader("CDN-Cache-Control", "max-age=5")));
       let _v2 = _v1.default.hrtime.bigint(),
         _v3 = function (_v0, _v1) {
@@ -256,7 +258,7 @@
       });
       let _v8 = (_v0, _v1, _v2 = 302, _v3) => {
           let _v4 = !!_v3?.googleBotPermanentRedirect && _v3?.redirect != null,
-            _v5 = _v4 && _v6(_v0.req.headers["user-agent"] ?? ""),
+            _v5 = _v4 && _v7(_v0.req.headers["user-agent"] ?? ""),
             _v6 = _v1.split("?")[0],
             _v7 = _v5 ? 308 : _v2;
           return _v3.metrics.counter("vimeo_nextjs_ssr_auth_redirect_total", {
@@ -277,7 +279,7 @@
           _v1,
           _v2,
           _v3,
-          _v4 = (_v0 = _v0.req.headers["crossroads-language"] || _v0.locale || "en", (0, _v22.setLocale)(_v0), (_v0 => {
+          _v4 = (_v0 = _v0.req.headers["crossroads-language"] || _v0.locale || "en", (0, _v23.setLocale)(_v0), (_v0 => {
             try {
               var _v1, _v2, _v3;
               let _v0,
@@ -287,14 +289,14 @@
                   edge: _v3,
                   parity: _v4
                 } = (_v1 = _v0.req.cookies?.language ?? null, _v2 = _v0.req.headers["accept-language"] ?? null, _v3 = _v1 ?? null, {
-                  local: _v0 = (_v1 ? _v26(_v1.toLowerCase().split("-")[0]) : "") || function (_v0) {
+                  local: _v0 = (_v1 ? _v27(_v1.toLowerCase().split("-")[0]) : "") || function (_v0) {
                     if (!_v0) return "";
-                    for (let _v0 of new _v24.default({
+                    for (let _v0 of new _v25.default({
                       headers: {
                         "accept-language": _v0
                       }
                     }).languages()) {
-                      let _v0 = _v26(_v0.toLowerCase().split("-")[0]);
+                      let _v0 = _v27(_v0.toLowerCase().split("-")[0]);
                       if (_v0) return _v0;
                     }
                     return "";
@@ -304,27 +306,27 @@
                 });
               _v3.metrics.counter("vimeo_nextjs_lang_parity_total", {
                 parity: "edge_absent" !== _v4 ? _v4 : void 0 === _v1 ? "chain_skipped" : "edge_empty",
-                local: _v28(_v2),
-                edge: _v28(_v3)
+                local: _v29(_v2),
+                edge: _v29(_v3)
               });
             } catch {}
           })(_v0), _v0),
-          _v5 = _v8(_v0.req),
-          _v6 = await _v29(),
-          _v7 = await _v31(_v0, _v6),
+          _v5 = _v9(_v0.req),
+          _v6 = await _v30(),
+          _v7 = await _v32(_v0, _v6),
           _v8 = _v0 => {
             let _v1 = _v3?.redirect;
-            if ("function" != typeof _v1) return _v1 ?? _v13(_v0, _v0.resolvedUrl);
+            if ("function" != typeof _v1) return _v1 ?? _v14(_v0, _v0.resolvedUrl);
             try {
-              return _v1(_v7) || _v13(_v0, _v0.resolvedUrl);
+              return _v1(_v7) || _v14(_v0, _v0.resolvedUrl);
             } catch (_v0) {
-              return console.warn("withPageSetup: redirect function threw; using fallback", _v0), _v13(_v0, _v0.resolvedUrl);
+              return console.warn("withPageSetup: redirect function threw; using fallback", _v0), _v14(_v0, _v0.resolvedUrl);
             }
           };
         if (!(!_v3?.requireLogin && !_v3?.capability && !_v3?.staffOnly)) {
           if (_v1) {
             console.log("requireLogin: User is logged-out");
-            let _v0 = _v8(_v5(_v7.req) ? "/log_in" : "/join");
+            let _v0 = _v8(_v6(_v7.req) ? "/log_in" : "/join");
             return _v8("logged_out", _v0);
           }
           if (!_v7.jwt) return console.log("requireLogin: Missing JWT"), _v8("missing_jwt", _v8("/log_in"));
@@ -358,15 +360,15 @@
           _v12 = !!_v3?.inlineMagistoResources,
           _v13 = !!(_v3?.inlineModbox && !_v1),
           _v14 = _v7.vimeoConfig.get("vimeo_url"),
-          _v15 = _v14 ? (_v1 = (_v10 = String(_v14)).toLowerCase().replace(/^www\./, ""), _v2 = _v7(_v7.req), _v7.req.headers["vimeo-environment-id"] && _v2 && _v2 !== _v1 ? _v2 : _v10) : null,
-          _v16 = _v9 ? _v18(_v7, _v15) : null,
-          _v17 = _v10 ? _v19(_v7, _v15) : null,
-          _v18 = _v11 ? _v21(_v7) : null,
-          _v19 = _v12 ? (_v3 = _v7.vimeoConfig.get("api.creation.magisto.host")) ? (0, _v14.buildMagistoResourceUrls)(String(_v3)) : (console.warn("withPageSetup: api.creation.magisto.host missing from config"), null) : null,
-          _v20 = _v13 ? _v20(_v7, _v15) : null,
+          _v15 = _v14 ? (_v1 = (_v10 = String(_v14)).toLowerCase().replace(/^www\./, ""), _v2 = _v8(_v7.req), _v7.req.headers["vimeo-environment-id"] && _v2 && _v2 !== _v1 ? _v2 : _v10) : null,
+          _v16 = _v9 ? _v19(_v7, _v15) : null,
+          _v17 = _v10 ? _v20(_v7, _v15) : null,
+          _v18 = _v11 ? _v22(_v7) : null,
+          _v19 = _v12 ? (_v3 = _v7.vimeoConfig.get("api.creation.magisto.host")) ? (0, _v15.buildMagistoResourceUrls)(String(_v3)) : (console.warn("withPageSetup: api.creation.magisto.host missing from config"), null) : null,
+          _v20 = _v13 ? _v21(_v7, _v15) : null,
           _v21 = await _v2(_v7),
           _v22 = _v0.res?.getHeader?.("Cache-Control");
-        "string" == typeof _v22 && _v22.includes("no-store") && !_v0.res?.getHeader?.(_v11) && _v0.res.setHeader("CDN-Cache-Control", "no-store"), _v7(function (_v0, _v1) {
+        "string" == typeof _v22 && _v22.includes("no-store") && !_v0.res?.getHeader?.(_v12) && _v0.res.setHeader("CDN-Cache-Control", "no-store"), _v7(function (_v0, _v1) {
           if ("redirect" in _v0) {
             let {
               redirect: _v0
@@ -405,7 +407,7 @@
       } catch (_v0) {
         throw _v7("500", "error", _v9 ?? _v5()), _v0;
       } finally {
-        _v0.res?.headersSent || _v0.res?.removeHeader?.(_v11), _v3.metrics.gaugeDec("vimeo_nextjs_http_requests_active");
+        _v0.res?.headersSent || _v0.res?.removeHeader?.(_v12), _v3.metrics.gaugeDec("vimeo_nextjs_http_requests_active");
       }
     };
   }], 0);

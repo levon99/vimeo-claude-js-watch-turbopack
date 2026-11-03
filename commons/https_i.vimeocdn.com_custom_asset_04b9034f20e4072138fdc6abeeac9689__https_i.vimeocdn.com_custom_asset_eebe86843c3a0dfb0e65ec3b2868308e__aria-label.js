@@ -136,7 +136,7 @@
               }
             })
           }), (0, _v1.jsx)(_v15.Text, {
-            variant: "body-sm",
+            variant: "body-lg",
             color: "text-secondary",
             marginTop: "sm",
             textAlign: "left",

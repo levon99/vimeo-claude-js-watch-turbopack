@@ -2728,41 +2728,83 @@
     _v101 = _v0.i(0),
     _v102 = _v0.i(0),
     _v103 = _v0.i(0),
-    _v104 = _v0.i(0);
-  let _v105 = ["starter", "standard", "advanced"],
-    _v106 = [],
-    _v107 = {
+    _v104 = _v0.i(0),
+    _v105 = _v0.i(0),
+    _v106 = _v0.i(0);
+  function _v107() {
+    let _v0 = (0, _v105.useCampaignIdOverride)(),
+      _v1 = (0, _v91.useOrionLoading)(),
+      {
+        campaignId: _v2,
+        isLoading: _v3
+      } = (0, _v106.useRepackagingCampaign)(_v0),
+      _v4 = _v0 ?? _v2;
+    return {
+      isRepackagingLineup: null !== _v4 && _v105.REPACKAGING_CAMPAIGN_IDS.includes(_v4),
+      campaignId: _v4,
+      isLoading: _v1 || _v3
+    };
+  }
+  var _v108 = _v0.i(0);
+  let _v109 = ["starter", "standard", "advanced"],
+    _v110 = [..._v109],
+    _v111 = _v100.REPACKAGING_INDIVIDUAL_VIEW_TIERS.filter(_v0 => "free" !== _v0),
+    _v112 = [],
+    _v113 = ["yearly"],
+    _v114 = {
       paywallTrigger: "registration_survey_comparison_page_at_dismiss",
       paywallLocation: "registration_survey",
       paywallType: "page",
       paywallFeature: "registration_survey"
     };
-  function _v108({
+  function _v115({
     onDismiss: _v0,
-    postCheckoutUrl: _v1
+    postCheckoutUrl: _v1,
+    tier: _v2
   }) {
-    let _v2 = (0, _v20.useViewer)(),
+    let _v3 = (0, _v20.useViewer)(),
       {
-        width: _v3
-      } = (0, _v100.useWindowSize)(),
-      _v4 = (0, _v27.useGetSubscriptionPlansData)([..._v105]),
+        width: _v4
+      } = (0, _v101.useWindowSize)(),
+      _v5 = (0, _v13.useOrionSettingsFields)(["core_tier_enabled"]),
       {
-        trackPaywallCtaClicked: _v5,
-        trackPaywallDismissed: _v6
-      } = (0, _v39.usePaywallTracking)({
-        ..._v107,
-        paywallStyle: "onboarding_comparison_page",
-        paywallPlansDisplayed: [..._v105],
-        paywallPeriodicitiesDisplayed: ["yearly"],
-        isVisible: null !== _v2 && void 0 !== _v4
-      }),
-      _v7 = _v4 ?? _v106,
-      _v8 = (0, _v8.useMemo)(() => _v105.reduce((_v0, _v1) => {
-        let _v2 = _v7.find(_v0 => _v0.tier === _v1);
+        isRepackagingLineup: _v6,
+        campaignId: _v7,
+        isLoading: _v8
+      } = _v107(),
+      _v9 = (0, _v8.useMemo)(() => _v6 ? _v5.core_tier_enabled ? _v111 : _v111.filter(_v0 => "core" !== _v0) : _v109, [_v6, _v5.core_tier_enabled]),
+      _v10 = (0, _v8.useMemo)(() => {
+        if (_v6 && null !== _v7) return {
+          bypassTierHierarchy: !0,
+          campaignId: _v7,
+          usePaymentsService: !0
+        };
+      }, [_v7, _v6]),
+      _v11 = (0, _v27.useGetSubscriptionPlansData)(_v6 ? void 0 : _v110, void 0, !0, _v10),
+      _v12 = _v11 ?? _v112,
+      _v13 = (0, _v8.useMemo)(() => _v9.reduce((_v0, _v1) => {
+        let _v2 = _v12.find(_v0 => _v0.tier === _v1);
         return void 0 !== _v2 && _v0.push(_v2), _v0;
-      }, []), [_v7]),
-      _v9 = _v3 < 768,
-      _v10 = (0, _v8.useMemo)(() => ({
+      }, []), [_v9, _v12]),
+      _v14 = (0, _v8.useMemo)(() => _v13.map(_v0 => _v0.tier), [_v13]),
+      _v15 = void 0 !== _v2 && _v14.includes(_v2) ? _v2 : _v14[_v14.length - 1],
+      {
+        trackPaywallCtaClicked: _v16,
+        trackPaywallDismissed: _v17
+      } = (0, _v39.usePaywallTracking)({
+        ..._v114,
+        paywallStyle: "onboarding_comparison_page",
+        paywallPlansDisplayed: _v14,
+        paywallPeriodicitiesDisplayed: _v113,
+        isVisible: null !== _v3 && void 0 !== _v11 && !_v8
+      }),
+      _v18 = (0, _v8.useEffectEvent)(_v0),
+      _v19 = (0, _v8.useRef)(!1);
+    (0, _v8.useEffect)(() => {
+      _v8 || void 0 === _v11 || _v13.length > 0 || _v19.current || (_v19.current = !0, _v18());
+    }, [_v8, _v13.length, _v11]);
+    let _v20 = _v4 < 768,
+      _v21 = (0, _v8.useMemo)(() => ({
         cardSurface: "onboarding",
         showCardBorder: !0,
         showMonthlyDropdown: !1,
@@ -2795,16 +2837,16 @@
         hidePaidPlanSecondaryLinks: !0,
         ctaTreatment: "free_trial_primary"
       }), []),
-      _v11 = (0, _v8.useMemo)(() => ({
-        plansData: _v7,
-        isFlatRateData: (0, _v104.areFlatRatePlans)(_v7),
+      _v22 = (0, _v8.useMemo)(() => ({
+        plansData: _v12,
+        isFlatRateData: (0, _v108.areFlatRatePlans)(_v12),
         isSolutionData: !1,
-        isRepackagingData: !1,
+        isRepackagingData: _v6,
         downgradeEnabled: !1,
         hideFreePlan: !0,
         hideIndividualPlans: !1
-      }), [_v7]);
-    return null === _v2 || void 0 === _v4 ? null : (0, _v1.jsxs)(_v23.Box, {
+      }), [_v6, _v12]);
+    return null === _v3 || void 0 === _v11 || _v8 ? null : (0, _v1.jsxs)(_v23.Box, {
       width: "100%",
       children: [(0, _v1.jsx)(_v35.PlansComparisonPaywallNavigation, {
         dismissButtonPosition: "top_right",
@@ -2835,7 +2877,7 @@
           }
         }),
         onDismiss: () => {
-          _v6(), _v0();
+          _v17(), _v0();
         }
       }), (0, _v1.jsxs)(_v9.Flex, {
         direction: "column",
@@ -2875,25 +2917,26 @@
               }
             })
           })
-        }), (0, _v1.jsx)(_v102.OverridesContext.Provider, {
-          value: _v10,
-          children: (0, _v1.jsx)(_v103.PlansDataContext.Provider, {
-            value: _v11,
+        }), (0, _v1.jsx)(_v103.OverridesContext.Provider, {
+          value: _v21,
+          children: (0, _v1.jsx)(_v104.PlansDataContext.Provider, {
+            value: _v22,
             children: (0, _v1.jsx)(_v23.Box, {
-              display: _v9 ? "block" : "table",
+              display: _v20 ? "block" : "table",
               width: "100%",
               paddingY: "md",
               paddingX: "lg",
-              sx: _v9 ? void 0 : {
+              sx: _v20 ? void 0 : {
                 tableLayout: "fixed"
               },
-              children: _v8.map(_v0 => (0, _v1.jsx)(_v101.PlanCard, {
+              children: _v13.map(_v0 => (0, _v1.jsx)(_v102.PlanCard, {
                 planData: _v0,
-                showBadge: "advanced" === _v0.tier,
+                showBadge: _v0.tier === _v15,
                 showYearly: !0,
                 isBillingFreqToggleAvailable: !1,
                 showStrikePrice: !1,
-                isMobileBreakpoint: _v9,
+                isMobileBreakpoint: _v20,
+                planView: "individual",
                 ignoreCurrentPlanState: !0,
                 postCheckoutUrl: _v1
               }, _v0.tier))
@@ -2904,7 +2947,7 @@
             as: "a",
             href: "/upgrade-plan",
             variant: "minimal",
-            onClick: () => _v5("compare_features"),
+            onClick: () => _v16("compare_features"),
             children: (0, _v99.translate)({
               singular: "Compare all plan features",
               dictionary: {
@@ -2936,52 +2979,66 @@
       })]
     });
   }
-  var _v109 = _v0.i(0),
-    _v110 = _v0.i(0),
-    _v111 = _v0.i(0);
-  let _v112 = [],
-    _v113 = {
+  var _v116 = _v0.i(0),
+    _v117 = _v0.i(0),
+    _v118 = _v0.i(0),
+    _v119 = _v0.i(0);
+  let _v120 = "starter",
+    _v121 = "creator",
+    _v122 = ["starter", "standard", "advanced"],
+    _v123 = _v100.REPACKAGING_INDIVIDUAL_VIEW_TIERS.filter(_v0 => "free" !== _v0),
+    _v124 = [],
+    _v125 = {
       paywallTrigger: "registration_survey_downsell_page_at_dismiss",
       paywallLocation: "registration_survey",
       paywallType: "page",
       paywallFeature: "registration_survey"
     };
-  function _v114({
+  function _v126({
     onDismiss: _v0,
     postCheckoutUrl: _v1,
-    tier: _v2 = "starter"
+    tier: _v2 = _v120
   }) {
     let _v3 = (0, _v20.useViewer)(),
-      _v4 = (0, _v13.useOrionSettingsFields)(["onboarding_paywall_default_periodicity", "onboarding_paywall_monthly_free_trial"]),
-      _v5 = (0, _v27.useGetSubscriptionPlansData)([_v2]),
-      [_v6, _v7] = (0, _v8.useState)(!1),
-      _v8 = "monthly" === _v4.onboarding_paywall_default_periodicity,
-      _v9 = !_v8 || _v4.onboarding_paywall_monthly_free_trial,
-      _v10 = (0, _v8.useMemo)(() => (_v5 ?? _v112).find(_v0 => _v0.tier === _v2), [_v5, _v2]),
+      _v4 = (0, _v13.useOrionSettingsFields)(["onboarding_paywall_default_periodicity", "onboarding_paywall_monthly_free_trial", "core_tier_enabled"]),
       {
-        trackPaywallCtaClicked: _v11,
-        trackPaywallDismissed: _v12
+        isRepackagingLineup: _v5,
+        isLoading: _v6
+      } = _v107(),
+      _v7 = function (_v0, _v1, _v2) {
+        if (!_v1) return _v122.includes(_v0) ? _v0 : _v120;
+        let _v3 = "core" !== _v0 || _v2 ? _v0 : _v121;
+        return _v123.includes(_v3) ? _v3 : _v121;
+      }(_v2, _v5, _v4.core_tier_enabled),
+      _v8 = (0, _v27.useGetSubscriptionPlansData)([_v7]),
+      [_v9, _v10] = (0, _v8.useState)(!1),
+      _v11 = "monthly" === _v4.onboarding_paywall_default_periodicity,
+      _v12 = !_v11 || _v4.onboarding_paywall_monthly_free_trial,
+      _v13 = (0, _v8.useMemo)(() => (_v8 ?? _v124).find(_v0 => _v0.tier === _v7), [_v8, _v7]),
+      {
+        trackPaywallCtaClicked: _v14,
+        trackPaywallDismissed: _v15
       } = (0, _v39.usePaywallTracking)({
-        ..._v113,
+        ..._v125,
         paywallStyle: "onboarding_downsell_page",
-        paywallPlansDisplayed: [_v2],
-        paywallPeriodicitiesDisplayed: [_v8 ? "monthly" : "yearly"],
-        isVisible: null !== _v3 && void 0 !== _v5 && void 0 !== _v10
+        paywallPlansDisplayed: [_v7],
+        paywallPeriodicitiesDisplayed: [_v11 ? "monthly" : "yearly"],
+        isVisible: null !== _v3 && void 0 !== _v8 && void 0 !== _v13 && !_v6
       }),
-      _v13 = (0, _v8.useRef)(!1);
+      _v16 = (0, _v8.useRef)(!1);
     (0, _v8.useEffect)(() => {
-      null === _v3 || void 0 === _v5 || void 0 !== _v10 || _v13.current || (_v13.current = !0, _v0());
-    }, [_v0, _v10, _v5, _v3]);
-    let _v14 = _v8 ? _v10?.priceFormatted.monthly : _v10?.priceFormatted.annualMonthly,
-      _v15 = _v10 ? (0, _v110.buildCheckoutUrl)({
-        ..._v113,
-        tier: _v2,
-        isMonthly: _v8,
-        isTrial: _v6,
+      !_v6 && (null === _v3 || void 0 === _v8 || void 0 !== _v13 || _v16.current || (_v16.current = !0, _v0()));
+    }, [_v6, _v0, _v13, _v8, _v3]);
+    let _v17 = _v11 ? _v13?.priceFormatted.monthly : _v13?.priceFormatted.annualMonthly,
+      _v18 = _v13 ? (0, _v117.buildCheckoutUrl)({
+        ..._v125,
+        tier: _v7,
+        isMonthly: _v11,
+        isTrial: _v9,
         postCheckoutUrl: _v1
       }) : void 0;
-    if (null === _v3 || void 0 === _v5 || void 0 === _v10) return null;
-    let _v16 = (0, _v111.getFeatureListByTier)(_v2) ?? [];
+    if (null === _v3 || void 0 === _v8 || void 0 === _v13 || _v6) return null;
+    let _v19 = (0, _v118.getFeatureListByTier)(_v7, !1, !1, _v5, !!_v5 && (0, _v119.isCreatorV2)(_v8), _v13.metadata.entitlements?.params, !!_v5 && (0, _v119.isCreatorSharingLimited)(_v8)) ?? [];
     return (0, _v1.jsxs)(_v23.Box, {
       width: "100%",
       children: [(0, _v1.jsx)(_v35.PlansComparisonPaywallNavigation, {
@@ -3013,21 +3070,21 @@
           }
         }),
         onDismiss: () => {
-          _v12(), _v0();
+          _v15(), _v0();
         }
       }), (0, _v1.jsx)(_v23.Box, {
         marginTop: (0, _v98.rem)(32),
-        children: (0, _v1.jsx)(_v109.DownsellOfferCard, {
-          plan: _v10,
-          displayPrice: _v14,
-          isMonthly: _v8,
-          showFreeTrialOption: _v9,
-          freeTrialSelected: _v6,
-          onFreeTrialChange: _v7,
-          features: _v16,
-          checkoutUrl: _v15,
+        children: (0, _v1.jsx)(_v116.DownsellOfferCard, {
+          plan: _v13,
+          displayPrice: _v17,
+          isMonthly: _v11,
+          showFreeTrialOption: _v12,
+          freeTrialSelected: _v9,
+          onFreeTrialChange: _v10,
+          features: _v19,
+          checkoutUrl: _v18,
           onCtaClick: () => {
-            _v11(_v6 ? "free_trial" : "primary");
+            _v14(_v9 ? "free_trial" : "primary");
           }
         })
       })]
@@ -3099,12 +3156,13 @@
             }
           });
         case "comparison_modal_at_dismiss":
-          return (0, _v1.jsx)(_v108, {
+          return (0, _v1.jsx)(_v115, {
             onDismiss: _v4,
-            postCheckoutUrl: _v2
+            postCheckoutUrl: _v2,
+            tier: _v1
           });
         case "downsell_at_dismiss":
-          return (0, _v1.jsx)(_v114, {
+          return (0, _v1.jsx)(_v126, {
             onDismiss: _v4,
             postCheckoutUrl: _v2,
             tier: _v1

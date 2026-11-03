@@ -174,7 +174,14 @@
       _v19 = null === _v18 ? "" : function (_v0) {
         switch (_v0) {
           case "core":
-            return (0, _v21.translate)("Core");
+            return (0, _v21.translate)({
+              singular: "Core",
+              dictionary: {
+                "ko-KR": {
+                  singular: "코어"
+                }
+              }
+            });
           case "professional":
             return (0, _v21.translate)("Professional");
           case "studio":

@@ -18289,7 +18289,7 @@ ${_v9}
   }
   function _v719({
     health: _v0,
-    hasSpeakers: _v1,
+    speakerHealth: _v1,
     isLive: _v2,
     latestTimestamp: _v3
   }) {
@@ -18298,8 +18298,8 @@ ${_v9}
       description: _v5
     } = function ({
       health: _v0,
-      isLive: _v1,
-      hasSpeakers: _v2
+      speakerHealth: _v1,
+      isLive: _v2
     }) {
       return _v0 === _v579.EParticipantHealth.GOOD ? {
         title: (0, _v205.translate)({
@@ -18328,7 +18328,7 @@ ${_v9}
             }
           }
         }),
-        description: _v1 ? (0, _v205.translate)({
+        description: _v2 ? (0, _v205.translate)({
           singular: "The stream is running smoothly.",
           dictionary: {
             es: {
@@ -18406,7 +18406,32 @@ ${_v9}
             }
           }
         }),
-        description: _v1 ? (0, _v205.translate)({
+        description: _v1 === _v579.EParticipantHealth.DEGRADED ? (0, _v205.translate)({
+          singular: "Some speakers' connection is unstable.",
+          dictionary: {
+            es: {
+              singular: "La conexión de algunos ponentes es inestable."
+            },
+            "de-DE": {
+              singular: "Die Verbindung einiger Sprecher ist instabil."
+            },
+            "fr-FR": {
+              singular: "La connexion de certains intervenants est instable."
+            },
+            "ja-JP": {
+              singular: "一部のスピーカーの接続が不安定です。"
+            },
+            "ko-KR": {
+              singular: "일부 발표자의 연결이 불안정합니다."
+            },
+            "pt-BR": {
+              singular: "A conexão de alguns palestrantes está instável."
+            },
+            "zh-CN": {
+              singular: "部分发言者的连接不稳定。"
+            }
+          }
+        }) : (0, _v205.translate)({
           singular: "The stream is experiencing an issue.",
           dictionary: {
             es: {
@@ -18429,31 +18454,6 @@ ${_v9}
             },
             "zh-CN": {
               singular: "流出现了问题。"
-            }
-          }
-        }) : (0, _v205.translate)({
-          singular: "Some connections need attention.",
-          dictionary: {
-            es: {
-              singular: "Algunas conexiones necesitan atención."
-            },
-            "de-DE": {
-              singular: "Einige Verbindungen benötigen Aufmerksamkeit."
-            },
-            "fr-FR": {
-              singular: "Certaines connexions nécessitent votre attention."
-            },
-            "ja-JP": {
-              singular: "一部の接続に注意が必要です。"
-            },
-            "ko-KR": {
-              singular: "일부 연결에 주의가 필요합니다."
-            },
-            "pt-BR": {
-              singular: "Algumas conexões precisam de atenção."
-            },
-            "zh-CN": {
-              singular: "部分连接需要关注。"
             }
           }
         })
@@ -18484,32 +18484,7 @@ ${_v9}
             }
           }
         }),
-        description: _v2 ? (0, _v205.translate)({
-          singular: "Speakers aren't live yet.",
-          dictionary: {
-            es: {
-              singular: "Los oradores aún no están en vivo."
-            },
-            "de-DE": {
-              singular: "Sprecher sind noch nicht live."
-            },
-            "fr-FR": {
-              singular: "Les intervenants ne sont pas encore en direct."
-            },
-            "ja-JP": {
-              singular: "話者はまだライブではありません。"
-            },
-            "ko-KR": {
-              singular: "발표자가 아직 라이브 상태가 아닙니다."
-            },
-            "pt-BR": {
-              singular: "Os palestrantes ainda não estão ao vivo."
-            },
-            "zh-CN": {
-              singular: "发言者尚未开播。"
-            }
-          }
-        }) : (0, _v205.translate)({
+        description: null === _v1 ? (0, _v205.translate)({
           singular: "Add speakers to the scene to check their connection.",
           dictionary: {
             es: {
@@ -18534,12 +18509,37 @@ ${_v9}
               singular: "将发言者添加到场景中，即可检查他们的连接情况。"
             }
           }
+        }) : (0, _v205.translate)({
+          singular: "Speakers aren't live yet.",
+          dictionary: {
+            es: {
+              singular: "Los oradores aún no están en vivo."
+            },
+            "de-DE": {
+              singular: "Sprecher sind noch nicht live."
+            },
+            "fr-FR": {
+              singular: "Les intervenants ne sont pas encore en direct."
+            },
+            "ja-JP": {
+              singular: "話者はまだライブではありません。"
+            },
+            "ko-KR": {
+              singular: "발표자가 아직 라이브 상태가 아닙니다."
+            },
+            "pt-BR": {
+              singular: "Os palestrantes ainda não estão ao vivo."
+            },
+            "zh-CN": {
+              singular: "发言者尚未开播。"
+            }
+          }
         })
       };
     }({
       health: _v0,
-      isLive: _v2,
-      hasSpeakers: _v1
+      speakerHealth: _v1,
+      isLive: _v2
     });
     return (0, _v17.jsxs)(_v94.Flex, {
       direction: "column",
@@ -19004,7 +19004,7 @@ ${_v9}
             gap: (0, _v61.rem)(24),
             children: [(0, _v17.jsx)(_v719, {
               health: _v25,
-              hasSpeakers: null !== _v18,
+              speakerHealth: _v18,
               isLive: _v14,
               latestTimestamp: _v19
             }), _v14 ? (0, _v17.jsxs)(_v94.Flex, {

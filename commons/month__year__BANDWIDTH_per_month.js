@@ -599,22 +599,22 @@
         singular: "Custom intros and outros",
         dictionary: {
           es: {
-            singular: "Introducciones y cierres personalizados"
+            singular: "Introducciones y finales personalizados"
           },
           "de-DE": {
-            singular: "Benutzerdefinierte Intros und Outros"
+            singular: "Eigene Intros und Outros"
           },
           "fr-FR": {
-            singular: "Personnaliser les intros et les outros"
+            singular: "Intros et outros personnalisés"
           },
           "ja-JP": {
-            singular: "カスタムイントロおよびアウトロ"
+            singular: "カスタムのイントロとアウトロ"
           },
           "ko-KR": {
-            singular: "커스텀 인트로 및 아우트로"
+            singular: "맞춤 인트로 및 아웃트로"
           },
           "pt-BR": {
-            singular: "Introduções e telas pós-vídeo customizadas"
+            singular: "Intros e outros personalizados"
           },
           "zh-CN": {
             singular: "自定义片头和片尾"
@@ -6083,10 +6083,10 @@
       singular: "Virtual events and webinars",
       dictionary: {
         es: {
-          singular: "Eventos virtuales y webinars"
+          singular: "Eventos virtuales y seminarios web"
         },
         "de-DE": {
-          singular: "Virtuelle Veranstaltungen und Webinare"
+          singular: "Virtuelle Events und Webinare"
         },
         "fr-FR": {
           singular: "Événements virtuels et webinaires"
@@ -6101,7 +6101,7 @@
           singular: "Eventos virtuais e webinars"
         },
         "zh-CN": {
-          singular: "虚拟活动与网络研讨会"
+          singular: "虚拟活动和网络研讨会"
         }
       }
     }),
@@ -7368,25 +7368,25 @@
       singular: "Embed domain level privacy",
       dictionary: {
         es: {
-          singular: "Incorpore privacidad a nivel de dominio"
+          singular: "Privacidad a nivel de dominio para incrustaciones"
         },
         "de-DE": {
-          singular: "Integriere Datenschutz auf Domain-Ebene."
+          singular: "Einbettungs-Datenschutz auf Domain-Ebene"
         },
         "fr-FR": {
-          singular: "Intégrer la confidentialité au niveau du domaine"
+          singular: "Confidentialité des intégrations par domaine"
         },
         "ja-JP": {
-          singular: "埋め込み動画のドメインレベルでのプライバシー"
+          singular: "ドメイン単位の埋め込みプライバシー"
         },
         "ko-KR": {
-          singular: "도메인 수준 프라이버시 임베드"
+          singular: "임베드 도메인 수준의 개인정보 보호"
         },
         "pt-BR": {
-          singular: "Incorpore privacidade no nível de domínio"
+          singular: "Privacidade em nível de domínio para incorporação"
         },
         "zh-CN": {
-          singular: "嵌入域名级隐私"
+          singular: "嵌入域级隐私"
         }
       }
     }),

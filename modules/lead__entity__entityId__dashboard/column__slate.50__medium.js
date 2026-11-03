@@ -871,10 +871,10 @@
       singular: "Virtual events and webinars",
       dictionary: {
         es: {
-          singular: "Eventos virtuales y webinars"
+          singular: "Eventos virtuales y seminarios web"
         },
         "de-DE": {
-          singular: "Virtuelle Veranstaltungen und Webinare"
+          singular: "Virtuelle Events und Webinare"
         },
         "fr-FR": {
           singular: "Événements virtuels et webinaires"
@@ -889,7 +889,7 @@
           singular: "Eventos virtuais e webinars"
         },
         "zh-CN": {
-          singular: "虚拟活动与网络研讨会"
+          singular: "虚拟活动和网络研讨会"
         }
       }
     }), (0, _v10.translate)({
@@ -944,10 +944,10 @@
       singular: "Virtual events and webinars",
       dictionary: {
         es: {
-          singular: "Eventos virtuales y webinars"
+          singular: "Eventos virtuales y seminarios web"
         },
         "de-DE": {
-          singular: "Virtuelle Veranstaltungen und Webinare"
+          singular: "Virtuelle Events und Webinare"
         },
         "fr-FR": {
           singular: "Événements virtuels et webinaires"
@@ -962,7 +962,7 @@
           singular: "Eventos virtuais e webinars"
         },
         "zh-CN": {
-          singular: "虚拟活动与网络研讨会"
+          singular: "虚拟活动和网络研讨会"
         }
       }
     }), (0, _v10.translate)({

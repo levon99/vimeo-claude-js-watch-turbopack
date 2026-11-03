@@ -2531,8 +2531,9 @@
     });
   }
   _v0.i(0), _v0.i(0);
-  var _v120 = _v0.i(0);
-  let _v121 = ({
+  var _v120 = _v0.i(0),
+    _v121 = _v0.i(0);
+  let _v122 = ({
     currentStep: _v0,
     totalStep: _v1
   }) => {
@@ -2549,7 +2550,7 @@
         zIndex: 100,
         pointerEvents: "none",
         children: _v2.StepXofY(_v0, _v1)
-      }), (0, _v1.jsx)(_v120.Progress, {
+      }), (0, _v1.jsx)(_v121.Progress, {
         pointerEvents: "none",
         zIndex: 1,
         colorScheme: _v7,
@@ -2564,8 +2565,8 @@
       })]
     });
   };
-  var _v122 = _v0.i(0);
-  let _v123 = _v0 => (0, _v1.jsx)(_v122.Icon, {
+  var _v123 = _v0.i(0);
+  let _v124 = _v0 => (0, _v1.jsx)(_v123.Icon, {
     viewBox: "0 0 24 24",
     ..._v0,
     fill: "none",
@@ -2574,8 +2575,8 @@
       fill: "currentColor"
     })
   });
-  _v0.s(["Asterisk", 0, _v123], 0);
-  let _v124 = (0, _v2.forwardRef)(({
+  _v0.s(["Asterisk", 0, _v124], 0);
+  let _v125 = (0, _v2.forwardRef)(({
     content: _v0,
     editable: _v1 = !1,
     maxCharacter: _v2 = 0,
@@ -2641,8 +2642,8 @@
       })
     });
   });
-  _v0.s(["EditableTextWithRTF", 0, _v124], 0);
-  let _v125 = (0, _v2.forwardRef)(({
+  _v0.s(["EditableTextWithRTF", 0, _v125], 0);
+  let _v126 = (0, _v2.forwardRef)(({
     index: _v0,
     isRequired: _v1,
     label: _v2,
@@ -2688,11 +2689,11 @@
                 textDecorationColor: "white"
               }
             },
-            children: [(0, _v1.jsx)(_v124, {
+            children: [(0, _v1.jsx)(_v125, {
               ref: _v12,
               fontSize: (0, _v10.rem)(11),
               content: _v2
-            }), _v1 && (0, _v1.jsx)(_v123, {
+            }), _v1 && (0, _v1.jsx)(_v124, {
               marginLeft: (0, _v10.rem)(4),
               boxSize: (0, _v10.rem)(10),
               color: "red",
@@ -2705,8 +2706,8 @@
       })
     });
   });
-  var _v126 = _v0.i(0);
-  let _v127 = (0, _v2.forwardRef)(({
+  var _v127 = _v0.i(0);
+  let _v128 = (0, _v2.forwardRef)(({
       options: _v0 = [],
       placeholder: _v1,
       selected: _v2,
@@ -2788,7 +2789,7 @@
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
                 children: _v1
-              }), _v3 && (0, _v1.jsx)(_v128, {})]
+              }), _v3 && (0, _v1.jsx)(_v129, {})]
             }), (0, _v1.jsx)(_v3.Box, {
               fontSize: "body-md",
               overflow: "hidden",
@@ -2808,12 +2809,12 @@
               textOverflow: "ellipsis",
               whiteSpace: "nowrap",
               children: _v1
-            }), _v3 && (0, _v1.jsx)(_v128, {})]
+            }), _v3 && (0, _v1.jsx)(_v129, {})]
           }), (0, _v1.jsx)(_v3.Box, {
             position: "absolute",
             top: (0, _v10.rem)(15),
             right: (0, _v10.rem)(10),
-            children: (0, _v1.jsx)(_v126.ChevronDown, {
+            children: (0, _v1.jsx)(_v127.ChevronDown, {
               width: (0, _v10.rem)(18)
             })
           })]
@@ -2823,13 +2824,13 @@
         })]
       });
     }),
-    _v128 = () => (0, _v1.jsx)(_v3.Box, {
+    _v129 = () => (0, _v1.jsx)(_v3.Box, {
       as: "span",
       pl: (0, _v10.rem)(2),
       color: "red.500",
       children: "*"
     }),
-    _v129 = ({
+    _v130 = ({
       field: _v0,
       value: _v1,
       onSaveValue: _v2,
@@ -2844,7 +2845,7 @@
         _v10 = (0, _v22.useViewerStrings)();
       if (!_v0) return null;
       let _v11 = (0, _v16.resolveLocalizedField)(_v0, _v8, _v9);
-      return (0, _v1.jsx)(_v130, {
+      return (0, _v1.jsx)(_v131, {
         children: (() => {
           let {
             type: _v0,
@@ -2872,7 +2873,7 @@
             case _v26.CustomFieldTypes.Dropdown:
               {
                 let _v0 = null != _v1 && "object" == typeof _v1 ? _v2?.options?.find(_v0 => (_v0.optionValue ?? _v0.optionLabel) === (_v1.optionValue ?? _v1.optionLabel)) : void 0;
-                return (0, _v1.jsx)(_v127, {
+                return (0, _v1.jsx)(_v128, {
                   onSelectedChanged: _v0 => {
                     _v2(_v0);
                   },
@@ -2888,7 +2889,7 @@
                 });
               }
             case _v26.CustomFieldTypes.Checkbox:
-              return (0, _v1.jsx)(_v125, {
+              return (0, _v1.jsx)(_v126, {
                 index: _v4,
                 label: _v11.metadata?.description || "",
                 isRequired: _v11.isRequired,
@@ -2911,29 +2912,29 @@
         })()
       });
     },
-    _v130 = _v0 => (0, _v1.jsx)(_v3.Box, {
+    _v131 = _v0 => (0, _v1.jsx)(_v3.Box, {
       mb: "md",
       width: "100%",
       mt: (0, _v10.rem)(2),
       ..._v0,
       children: _v0.children
     }),
-    _v131 = "30px",
-    _v132 = _v67.keyframes`
+    _v132 = "30px",
+    _v133 = _v67.keyframes`
   0%{
     transform: translateY(0);
     opacity: 1;
   }
   100%{
-    transform: translateY(-${_v131});
+    transform: translateY(-${_v132});
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
 `,
-    _v133 = _v67.keyframes`
+    _v134 = _v67.keyframes`
   0% {
-    transform: translateY(${_v131});
+    transform: translateY(${_v132});
      opacity: 0;
    }
    100% {
@@ -2941,9 +2942,9 @@
      opacity: 1;
    }
 `,
-    _v134 = _v67.keyframes`
+    _v135 = _v67.keyframes`
 0% {
-    transform: translateY(-${_v131});
+    transform: translateY(-${_v132});
     opacity: 0;
   }
   100% {
@@ -2951,19 +2952,19 @@
     opacity: 1;
   }
 `,
-    _v135 = _v67.keyframes`
+    _v136 = _v67.keyframes`
   0% {
     transform: translateY(0);
     opacity: 1;
   }
   100% {
-    transform: translateY(${_v131});
+    transform: translateY(${_v132});
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
 `,
-    _v136 = ({
+    _v137 = ({
       onSaveValue: _v0,
       onEnterKeyPressed: _v1,
       onCheckboxChecked: _v2,
@@ -3007,9 +3008,9 @@
               top: 0,
               left: 0,
               width: "100%",
-              animation: "up" === _v7.current ? _v2 ? `${_v133} .2s forwards` : `${_v132} .2s forwards` : _v2 ? `${_v134} .2s forwards` : `${_v135} .2s forwards`,
+              animation: "up" === _v7.current ? _v2 ? `${_v134} .2s forwards` : `${_v133} .2s forwards` : _v2 ? `${_v135} .2s forwards` : `${_v136} .2s forwards`,
               visibility: [_v15, _v16].includes(_v1) ? "visible" : "hidden",
-              children: (0, _v1.jsx)(_v129, {
+              children: (0, _v1.jsx)(_v130, {
                 value: _v8.find(_v0 => _v0.cid === _v0?.cid)?.value,
                 onSaveValue: _v0 => _v0(_v0, _v1),
                 onEnterKeyPressed: _v0 => _v1(_v0, _v0.cid),
@@ -3026,7 +3027,7 @@
           checked: _v9,
           error: _v10,
           onChange: _v0 => _v2(_v0)
-        }), (0, _v1.jsxs)(_v137, {
+        }), (0, _v1.jsxs)(_v138, {
           children: [0 !== _v15 && (0, _v1.jsx)(_v4.Flex, {
             flex: 1,
             children: (0, _v1.jsx)(_v99, {
@@ -3104,7 +3105,7 @@
         })]
       });
     },
-    _v137 = _v0 => (0, _v1.jsx)(_v4.Flex, {
+    _v138 = _v0 => (0, _v1.jsx)(_v4.Flex, {
       justifyContent: "center",
       width: "100%",
       gap: (0, _v10.rem)(8),
@@ -3113,7 +3114,7 @@
       ..._v0,
       children: _v0.children
     }),
-    _v138 = ({
+    _v139 = ({
       onSaveValue: _v0,
       onEnterKeyPressed: _v1,
       onCheckboxChecked: _v2,
@@ -3134,7 +3135,7 @@
         _v14 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.customFields);
       return (0, _v1.jsxs)(_v3.Box, {
         py: "md",
-        children: [_v14.map((_v0, _v1) => (0, _v1.jsx)(_v129, {
+        children: [_v14.map((_v0, _v1) => (0, _v1.jsx)(_v130, {
           value: _v6.find(_v0 => _v0.cid === _v0?.cid)?.value,
           onSaveValue: _v0 => _v0(_v0, _v1),
           onEnterKeyPressed: _v0 => _v1(_v0, _v0.cid),
@@ -3148,7 +3149,7 @@
           error: _v9,
           checked: _v10,
           onChange: _v0 => _v2(_v0)
-        }), (0, _v1.jsx)(_v139, {
+        }), (0, _v1.jsx)(_v140, {
           children: (0, _v1.jsx)(_v99, {
             role: _v26.BUTTON_ROLES.PRIMARY,
             onClick: _v3,
@@ -3207,7 +3208,7 @@
         })]
       });
     },
-    _v139 = _v0 => (0, _v1.jsx)(_v4.Flex, {
+    _v140 = _v0 => (0, _v1.jsx)(_v4.Flex, {
       justifyContent: "center",
       width: "100%",
       gap: (0, _v10.rem)(8),
@@ -3216,57 +3217,60 @@
       ..._v0,
       children: _v0.children
     }),
-    _v140 = ({
+    _v141 = ({
       setLeadUuid: _v0
     }) => {
-      let _v1 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.alignment),
-        _v2 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.layout),
-        _v3 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.joinPageTitle.tagsResolved),
-        _v4 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.joinPageTitle.tagsUnresolved) || "",
-        _v5 = _v19("joinPageTitle", _v3),
-        _v6 = _v20("joinPageTitle", _v4),
-        _v7 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.logo),
-        _v8 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.customFields),
-        _v9 = (0, _v2.useRef)(null),
-        _v10 = (0, _v17.useGlobalStore)(_v0 => _v0.setSideMenuType),
-        _v11 = _v21(),
+      let _v1,
+        _v2,
+        _v3 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.alignment),
+        _v4 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.layout),
+        _v5 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.joinPageTitle.tagsResolved),
+        _v6 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.joinPageTitle.tagsUnresolved) || "",
+        _v7 = _v19("joinPageTitle", _v5),
+        _v8 = _v20("joinPageTitle", _v6),
+        _v9 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.logo),
+        _v10 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.customFields),
+        _v11 = (0, _v2.useRef)(null),
+        _v12 = (0, _v17.useGlobalStore)(_v0 => _v0.setSideMenuType),
+        _v13 = (_v1 = (0, _v17.useGlobalStore)(_v0 => _v0.viewerLanguage), _v2 = (0, _v120.matchLocale)((0, _v30.useLocale)()), _v1 ?? _v2),
+        _v14 = _v21(),
         {
-          editor: _v12,
-          setEditor: _v13
+          editor: _v15,
+          setEditor: _v16
         } = (0, _v13.useRichTextContext)(),
-        _v14 = (0, _v17.useGlobalStore)(_v0 => _v0.setCurrentSelectedFieldIndex),
-        _v15 = (0, _v17.useGlobalStore)(_v0 => _v0.currentSelectedFieldIndex),
-        _v16 = (0, _v17.useGlobalStore)(_v0 => _v0.setEmailAddressCached),
-        _v17 = (0, _v17.useGlobalStore)(_v0 => _v0.emailAddressCached),
+        _v17 = (0, _v17.useGlobalStore)(_v0 => _v0.setCurrentSelectedFieldIndex),
+        _v18 = (0, _v17.useGlobalStore)(_v0 => _v0.currentSelectedFieldIndex),
+        _v19 = (0, _v17.useGlobalStore)(_v0 => _v0.setEmailAddressCached),
+        _v20 = (0, _v17.useGlobalStore)(_v0 => _v0.emailAddressCached),
         {
-          previewMode: _v18
+          previewMode: _v21
         } = (0, _v2.useContext)(_v12.PreviewContext),
-        _v19 = (0, _v2.useRef)("up"),
-        _v20 = (0, _v2.useRef)([]),
-        [_v21, _v22] = (0, _v2.useState)(!1),
-        [_v23, _v24] = (0, _v2.useState)(!1),
-        [_v25, _v26] = (0, _v2.useState)(),
-        _v27 = (0, _v2.useRef)(null),
-        [_v28, _v29] = _v86(),
+        _v22 = (0, _v2.useRef)("up"),
+        _v23 = (0, _v2.useRef)([]),
+        [_v24, _v25] = (0, _v2.useState)(!1),
+        [_v26, _v27] = (0, _v2.useState)(!1),
+        [_v28, _v29] = (0, _v2.useState)(),
+        _v30 = (0, _v2.useRef)(null),
+        [_v31, _v32] = _v86(),
         {
-          isMiniaturePreview: _v30
+          isMiniaturePreview: _v33
         } = (0, _v12.usePreviewContext)(),
-        [_v31, _v32] = (0, _v2.useState)([]),
-        _v33 = (0, _v17.useGlobalStore)(_v0 => _v0.entityType),
-        _v34 = (0, _v17.useGlobalStore)(_v0 => _v0.entityId),
-        _v35 = (0, _v17.useGlobalStore)(_v0 => _v0.authRoomPassword),
-        _v36 = (0, _v17.useGlobalStore)(_v0 => _v0.pageReferrer),
+        [_v34, _v35] = (0, _v2.useState)([]),
+        _v36 = (0, _v17.useGlobalStore)(_v0 => _v0.entityType),
+        _v37 = (0, _v17.useGlobalStore)(_v0 => _v0.entityId),
+        _v38 = (0, _v17.useGlobalStore)(_v0 => _v0.authRoomPassword),
+        _v39 = (0, _v17.useGlobalStore)(_v0 => _v0.pageReferrer),
         {
-          currentPageType: _v37
+          currentPageType: _v40
         } = (0, _v2.useContext)(_v11.CurrentPageContext),
         {
-          setPreviewType: _v38,
-          autoFocusField: _v39
+          setPreviewType: _v41,
+          autoFocusField: _v42
         } = (0, _v2.useContext)(_v12.PreviewContext),
-        _v40 = _v91(_v26.FEATURES.CONFIRMATION_VIEW),
-        _v41 = (0, _v22.useViewerStrings)(),
-        [_v42, _v43] = (0, _v2.useState)(_v37 === _v26.PAGE_TYPES.REGISTRATION && _v39),
-        [_v44, _v45] = function () {
+        _v43 = _v91(_v26.FEATURES.CONFIRMATION_VIEW),
+        _v44 = (0, _v22.useViewerStrings)(),
+        [_v45, _v46] = (0, _v2.useState)(_v40 === _v26.PAGE_TYPES.REGISTRATION && _v42),
+        [_v47, _v48] = function () {
           let {
               baseUrl: _v0,
               jwt: _v1,
@@ -3303,78 +3307,78 @@
           }, [_v0, _v2, _v1, _v3, _v5]), _v4];
         }(),
         {
-          refreshConfirmationPageHTML: _v46,
-          refreshConfirmationPageHTMLState: _v47
+          refreshConfirmationPageHTML: _v49,
+          refreshConfirmationPageHTMLState: _v50
         } = _v93(),
-        [_v48, _v49] = (0, _v2.useState)(!1),
-        _v50 = (0, _v79.useToast)(),
-        _v51 = _v45.loading || _v47.loading,
-        _v52 = (0, _v2.useCallback)(() => {
-          _v9.current?.getHTML() !== _v6 && _v37 === _v26.PAGE_TYPES.ADMIN && _v11("joinPageTitle", _v4, _v9.current?.getHTML());
-        }, [_v37, _v6, _v4, _v11]),
-        _v53 = (_v0, _v1) => {
-          let _v2 = _v31.findIndex(_v0 => _v0.cid === _v1),
-            _v3 = [..._v31];
+        [_v51, _v52] = (0, _v2.useState)(!1),
+        _v53 = (0, _v79.useToast)(),
+        _v54 = _v48.loading || _v50.loading,
+        _v55 = (0, _v2.useCallback)(() => {
+          _v11.current?.getHTML() !== _v8 && _v40 === _v26.PAGE_TYPES.ADMIN && _v14("joinPageTitle", _v6, _v11.current?.getHTML());
+        }, [_v40, _v8, _v6, _v14]),
+        _v56 = (_v0, _v1) => {
+          let _v2 = _v34.findIndex(_v0 => _v0.cid === _v1),
+            _v3 = [..._v34];
           _v2 >= 0 ? _v3[_v2] = {
             cid: _v1,
             value: _v0
           } : _v3.push({
             cid: _v1,
             value: _v0
-          }), _v32(_v3);
-          let _v4 = _v8.find(_v0 => _v0.cid === _v1);
-          _v4?.name === _v26.FORM_FIELD_NAME_VALUES.EMAIL && _v16(_v0);
+          }), _v35(_v3);
+          let _v4 = _v10.find(_v0 => _v0.cid === _v1);
+          _v4?.name === _v26.FORM_FIELD_NAME_VALUES.EMAIL && _v19(_v0);
         },
-        _v54 = async () => {
-          let _v0 = _v20.current[_v15],
-            _v1 = _v8[_v15];
-          if (_v26(void 0), _v1?.type === _v26.CustomFieldTypes.Description || _v0?.validate()) if (_v1.name === _v26.FORM_FIELD_NAME_VALUES.EMAIL && _v37 === _v26.PAGE_TYPES.REGISTRATION) {
-            let _v0 = (0, _v88.getEntityCookiePassword)(_v34, _v33) ?? _v35;
-            await _v28({
+        _v57 = async () => {
+          let _v0 = _v23.current[_v18],
+            _v1 = _v10[_v18];
+          if (_v29(void 0), _v1?.type === _v26.CustomFieldTypes.Description || _v0?.validate()) if (_v1.name === _v26.FORM_FIELD_NAME_VALUES.EMAIL && _v40 === _v26.PAGE_TYPES.REGISTRATION) {
+            let _v0 = (0, _v88.getEntityCookiePassword)(_v37, _v36) ?? _v38;
+            await _v31({
               select: [],
               query: {
                 ...(_v0 && {
                   password: _v0
                 }),
-                ...(_v36 && {
-                  referrer: _v36
+                ...(_v39 && {
+                  referrer: _v39
                 })
               },
               variables: {
                 email: _v0?.getValue() || ""
               },
               where: {
-                resourceId: _v34,
-                resourceType: _v6.ENTITY_TO_PATH_MAP[_v33]
+                resourceId: _v37,
+                resourceType: _v6.ENTITY_TO_PATH_MAP[_v36]
               }
             });
-          } else _v19.current = "up", _v14(_v15 + 1);
+          } else _v22.current = "up", _v17(_v18 + 1);
         },
-        _v55 = async () => {
+        _v58 = async () => {
           let _v0, _v1, _v2, _v3, _v4, _v5, _v6, _v7, _v8, _v9;
-          _v37 === _v26.PAGE_TYPES.ADMIN ? _v38(_v26.PREVIEW_TYPE.CONFIRMATION) : (_v26(void 0), _v0 = _v8.find(_v0 => _v0.name === _v26.FORM_FIELD_NAME_VALUES.FIRST_NAME)?.cid, _v1 = _v8.find(_v0 => _v0.name === _v26.FORM_FIELD_NAME_VALUES.LAST_NAME)?.cid, _v2 = _v8.find(_v0 => _v0.name === _v26.FORM_FIELD_NAME_VALUES.EMAIL)?.cid, _v3 = _v31.find(_v0 => _v0.cid === _v0)?.value, _v4 = _v31.find(_v0 => _v0.cid === _v1)?.value, _v5 = _v31.find(_v0 => _v0.cid === _v2)?.value, _v6 = [_v26.FORM_FIELD_NAME_VALUES.EMAIL, _v26.FORM_FIELD_NAME_VALUES.FIRST_NAME, _v26.FORM_FIELD_NAME_VALUES.LAST_NAME], _v7 = _v8.filter(_v0 => !_v6.includes(_v0.name) && _v0.type !== _v26.CustomFieldTypes.Description).map(_v0 => {
+          _v40 === _v26.PAGE_TYPES.ADMIN ? _v41(_v26.PREVIEW_TYPE.CONFIRMATION) : (_v29(void 0), _v0 = _v10.find(_v0 => _v0.name === _v26.FORM_FIELD_NAME_VALUES.FIRST_NAME)?.cid, _v1 = _v10.find(_v0 => _v0.name === _v26.FORM_FIELD_NAME_VALUES.LAST_NAME)?.cid, _v2 = _v10.find(_v0 => _v0.name === _v26.FORM_FIELD_NAME_VALUES.EMAIL)?.cid, _v3 = _v34.find(_v0 => _v0.cid === _v0)?.value, _v4 = _v34.find(_v0 => _v0.cid === _v1)?.value, _v5 = _v34.find(_v0 => _v0.cid === _v2)?.value, _v6 = [_v26.FORM_FIELD_NAME_VALUES.EMAIL, _v26.FORM_FIELD_NAME_VALUES.FIRST_NAME, _v26.FORM_FIELD_NAME_VALUES.LAST_NAME], _v7 = _v10.filter(_v0 => !_v6.includes(_v0.name) && _v0.type !== _v26.CustomFieldTypes.Description).map(_v0 => {
             var _v1;
             let _v2;
             return {
-              [_v0.name]: (_v1 = _v0.cid, "string" == typeof (_v2 = _v31.find(_v0 => _v0.cid === _v1)?.value) || "boolean" == typeof _v2 ? _v2 : _v2?.optionValue ?? _v2?.optionLabel)
+              [_v0.name]: (_v1 = _v0.cid, "string" == typeof (_v2 = _v34.find(_v0 => _v0.cid === _v1)?.value) || "boolean" == typeof _v2 ? _v2 : _v2?.optionValue ?? _v2?.optionLabel)
             };
           }), _v8 = {}, _v7.forEach(_v0 => {
             for (let [, _v0] of Object.entries(_v0)) ("string" == typeof _v0 && _v0.length > 0 || "boolean" == typeof _v0 && _v0) && (_v8 = {
               ..._v8,
               ..._v0
             });
-          }), _v9 = (0, _v88.getEntityCookiePassword)(_v34, _v33) ?? _v35, _v44({
+          }), _v9 = (0, _v88.getEntityCookiePassword)(_v37, _v36) ?? _v38, _v47({
             where: {
-              resourceId: _v34,
-              resourceType: _v6.ENTITY_TO_PATH_MAP[_v33]
+              resourceId: _v37,
+              resourceType: _v6.ENTITY_TO_PATH_MAP[_v36]
             },
             select: [],
             query: {
               ...(_v9 && {
                 password: _v9
               }),
-              ...(_v36 && {
-                referrer: _v36
+              ...(_v39 && {
+                referrer: _v39
               })
             },
             variables: {
@@ -3383,161 +3387,162 @@
               email: _v5,
               data: JSON.stringify(_v8),
               sourceMetadata: {
-                url: window.location.href
+                url: window.location.href,
+                locale: _v13
               },
               timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
             }
           }));
         },
-        _v56 = async () => {
-          let _v0 = _v8.every((_v0, _v1) => _v0.type === _v26.CustomFieldTypes.Description || _v20.current[_v1]?.validate() === !0);
-          _v24(!_v21), _v27.current?.shakeError(), _v21 && _v0 && _v55();
+        _v59 = async () => {
+          let _v0 = _v10.every((_v0, _v1) => _v0.type === _v26.CustomFieldTypes.Description || _v23.current[_v1]?.validate() === !0);
+          _v27(!_v24), _v30.current?.shakeError(), _v24 && _v0 && _v58();
         },
-        _v57 = async () => {
-          let _v0 = _v8[_v8.length - 1],
-            _v1 = _v0?.type === _v26.CustomFieldTypes.Description || _v20.current[_v8.length - 1]?.validate();
-          _v24(!_v21), _v27.current?.shakeError(), _v21 && _v1 && _v55();
+        _v60 = async () => {
+          let _v0 = _v10[_v10.length - 1],
+            _v1 = _v0?.type === _v26.CustomFieldTypes.Description || _v23.current[_v10.length - 1]?.validate();
+          _v27(!_v24), _v30.current?.shakeError(), _v24 && _v1 && _v58();
         },
-        _v58 = _v0 => {
-          _v22(_v0), _v24(!_v0);
+        _v61 = _v0 => {
+          _v25(_v0), _v27(!_v0);
         },
-        _v59 = (_v0, _v1) => {
-          void 0 !== _v0 && void 0 !== _v1 && _v53(_v0, _v1), _v15 < _v8.length - 1 ? _v54() : _v57();
+        _v62 = (_v0, _v1) => {
+          void 0 !== _v0 && void 0 !== _v1 && _v56(_v0, _v1), _v18 < _v10.length - 1 ? _v57() : _v60();
         },
-        _v60 = (_v0, _v1) => {
-          _v53(_v0, _v8[_v1].cid), _v43(!0);
+        _v63 = (_v0, _v1) => {
+          _v56(_v0, _v10[_v1].cid), _v46(!0);
         };
       (0, _v2.useEffect)(() => {
         let {
           error: _v0,
           data: _v1,
           loading: _v2
-        } = _v29;
+        } = _v32;
         !_v2 && (_v0 || _v1) && async function () {
           try {
             let _v0 = await _v0?.res?.json(),
               _v1 = (0, _v80.deepCamelCase)(_v0)?.errorCode;
-            if (_v1 === _v26.LOGIN_ERROR_CODES.INVALID_EMAIL) return void _v26(_v41.InvalidEmailAddress);
+            if (_v1 === _v26.LOGIN_ERROR_CODES.INVALID_EMAIL) return void _v29(_v44.InvalidEmailAddress);
             if (_v1?.uri || _v1 === _v26.LOGIN_ERROR_CODES.NOT_REGISTERED) {
               let _v0 = _v17.useGlobalStore.getState().currentSelectedFieldIndex + 1;
-              _v19.current = "up", _v14(_v0);
+              _v22.current = "up", _v17(_v0);
             }
           } catch (_v0) {}
         }();
-      }, [_v29, _v14, _v41.InvalidEmailAddress]), (0, _v2.useEffect)(() => {
-        if (_v37 === _v26.PAGE_TYPES.ADMIN) {
-          let _v0 = _v12?.view.state.selection;
-          _v9.current?.setHTML(_v6), _v0 && _v12?.chain().setTextSelection({
+      }, [_v32, _v17, _v44.InvalidEmailAddress]), (0, _v2.useEffect)(() => {
+        if (_v40 === _v26.PAGE_TYPES.ADMIN) {
+          let _v0 = _v15?.view.state.selection;
+          _v11.current?.setHTML(_v8), _v0 && _v15?.chain().setTextSelection({
             from: _v0.from,
             to: _v0.to
           }).run();
         }
-      }, [_v6, _v37]), (0, _v2.useEffect)(() => {
-        _v37 === _v26.PAGE_TYPES.REGISTRATION && _v9.current?.setHTML(_v5);
-      }, [_v5, _v37]), (0, _v2.useEffect)(() => {
-        _v15 > _v8.length - 1 && _v14(Math.max(_v8.length - 1, 0));
-      }, [_v8]), (0, _v2.useEffect)(() => {
-        let _v0 = _v8.find(_v0 => _v0.name === _v26.FORM_FIELD_NAME_VALUES.EMAIL)?.cid;
-        void 0 !== _v0 && _v32([{
+      }, [_v8, _v40]), (0, _v2.useEffect)(() => {
+        _v40 === _v26.PAGE_TYPES.REGISTRATION && _v11.current?.setHTML(_v7);
+      }, [_v7, _v40]), (0, _v2.useEffect)(() => {
+        _v18 > _v10.length - 1 && _v17(Math.max(_v10.length - 1, 0));
+      }, [_v10]), (0, _v2.useEffect)(() => {
+        let _v0 = _v10.find(_v0 => _v0.name === _v26.FORM_FIELD_NAME_VALUES.EMAIL)?.cid;
+        void 0 !== _v0 && _v35([{
           cid: _v0,
-          value: _v17
+          value: _v20
         }]);
       }, []), (0, _v2.useEffect)(() => {
-        _v24(!1);
-      }, [_v2]), (0, _v2.useEffect)(() => {
+        _v27(!1);
+      }, [_v4]), (0, _v2.useEffect)(() => {
         !async function () {
           try {
             let {
                 error: _v0
-              } = _v45,
+              } = _v48,
               _v1 = await _v0?.res?.json(),
               _v2 = (0, _v80.deepCamelCase)(_v1)?.errorCode;
-            _v26.REGISTRATION_FULL_ERROR_CODE.includes(_v2) ? _v38(_v26.PREVIEW_TYPE.FORM_FULL) : (_v0 || _v47.error) && (_v2 === _v26.LOGIN_ERROR_CODES.INVALID_EMAIL ? _v26(_v41.InvalidEmailAddress) : _v50({
-              title: _v41.UhOhThereWasAProblem,
+            _v26.REGISTRATION_FULL_ERROR_CODE.includes(_v2) ? _v41(_v26.PREVIEW_TYPE.FORM_FULL) : (_v0 || _v50.error) && (_v2 === _v26.LOGIN_ERROR_CODES.INVALID_EMAIL ? _v29(_v44.InvalidEmailAddress) : _v53({
+              title: _v44.UhOhThereWasAProblem,
               status: "error"
             }));
           } catch (_v0) {}
         }();
-      }, [_v45.error, _v47.error]), (0, _v2.useEffect)(() => {
-        !_v45.loading && _v45.data?.uri && (_v40 ? _v46((0, _v89.getLastUuidFromUri)(_v45.data.uri)) : ((0, _v88.setCookie)(_v34, (0, _v89.getLastUuidFromUri)(_v45.data.uri)), _v0?.((0, _v89.getLastUuidFromUri)(_v45.data.uri))), _v49(!0));
-      }, [_v45, _v34, _v40, _v38, _v0]), (0, _v2.useEffect)(() => {
-        _v48 && !_v47.loading && _v47.data && _v45.data?.uri && ((0, _v88.setCookie)(_v34, (0, _v89.getLastUuidFromUri)(_v45.data.uri)), _v0 && _v0((0, _v89.getLastUuidFromUri)(_v45.data.uri)), _v38(_v26.PREVIEW_TYPE.CONFIRMATION), _v14(0));
-      }, [_v47, _v38, _v0, _v34, _v48, _v45]);
-      let _v61 = (0, _v2.useRef)(_v31);
-      return _v61.current = _v31, (0, _v2.useEffect)(() => {
+      }, [_v48.error, _v50.error]), (0, _v2.useEffect)(() => {
+        !_v48.loading && _v48.data?.uri && (_v43 ? _v49((0, _v89.getLastUuidFromUri)(_v48.data.uri)) : ((0, _v88.setCookie)(_v37, (0, _v89.getLastUuidFromUri)(_v48.data.uri)), _v0?.((0, _v89.getLastUuidFromUri)(_v48.data.uri))), _v52(!0));
+      }, [_v48, _v37, _v43, _v41, _v0]), (0, _v2.useEffect)(() => {
+        _v51 && !_v50.loading && _v50.data && _v48.data?.uri && ((0, _v88.setCookie)(_v37, (0, _v89.getLastUuidFromUri)(_v48.data.uri)), _v0 && _v0((0, _v89.getLastUuidFromUri)(_v48.data.uri)), _v41(_v26.PREVIEW_TYPE.CONFIRMATION), _v17(0));
+      }, [_v50, _v41, _v0, _v37, _v51, _v48]);
+      let _v64 = (0, _v2.useRef)(_v34);
+      return _v64.current = _v34, (0, _v2.useEffect)(() => {
         let _v0 = [];
-        _v61.current.forEach(_v0 => {
-          let _v1 = _v8.find(_v0 => _v0.cid === _v0.cid)?.type,
+        _v64.current.forEach(_v0 => {
+          let _v1 = _v10.find(_v0 => _v0.cid === _v0.cid)?.type,
             _v2 = _v1 === _v26.CustomFieldTypes.Text && "string" == typeof _v0.value,
             _v3 = _v1 === _v26.CustomFieldTypes.Dropdown && "object" == typeof _v0.value,
             _v4 = _v1 === _v26.CustomFieldTypes.Checkbox && "boolean" == typeof _v0.value;
           (_v2 || _v3 || _v4) && _v0.push(_v0);
-        }), _v0.length !== _v61.current.length && _v32(_v0);
-      }, [_v8]), (0, _v1.jsxs)(_v1.Fragment, {
+        }), _v0.length !== _v64.current.length && _v35(_v0);
+      }, [_v10]), (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v75, {
-          previewMode: _v18,
-          align: _v1,
+          previewMode: _v21,
+          align: _v3,
           onMouseDownCapture: _v0 => {
-            _v0.target == _v0.currentTarget && (_v10(_v26.SIDE_MENU_CONTENT.SETTINGS), _v13(null));
+            _v0.target == _v0.currentTarget && (_v12(_v26.SIDE_MENU_CONTENT.SETTINGS), _v16(null));
           },
-          isMiniaturePreview: _v30,
+          isMiniaturePreview: _v33,
           children: (0, _v1.jsxs)(_v74, {
             py: "3xl",
             maxWidth: _v26.PREVIEW_FORM_FIELDS_WIDTH + 8,
-            children: [_v7.isActive && (0, _v1.jsx)(_v77, {
-              showColorOnHover: _v37 === _v26.PAGE_TYPES.ADMIN,
+            children: [_v9.isActive && (0, _v1.jsx)(_v77, {
+              showColorOnHover: _v40 === _v26.PAGE_TYPES.ADMIN,
               variant: "minimal",
-              ...(_v7.isLinkActive && (_v7.customLink?.length ?? 0) > 0 && _v37 === _v26.PAGE_TYPES.REGISTRATION ? {
-                href: _v7.customLink || "",
+              ...(_v9.isLinkActive && (_v9.customLink?.length ?? 0) > 0 && _v40 === _v26.PAGE_TYPES.REGISTRATION ? {
+                href: _v9.customLink || "",
                 target: "_blank"
               } : {}),
               children: (0, _v1.jsx)(_v76, {
-                src: _v7.url
+                src: _v9.url
               })
             }), (0, _v1.jsx)(_v66, {
-              ref: _v9,
-              saveChanges: _v52,
-              onBlur: _v52,
+              ref: _v11,
+              saveChanges: _v55,
+              onBlur: _v55,
               overRideFontSize: !0,
-              content: _v37 === _v26.PAGE_TYPES.ADMIN ? _v6 : _v5
+              content: _v40 === _v26.PAGE_TYPES.ADMIN ? _v8 : _v7
             }), (0, _v1.jsx)(_v3.Box, {
               px: "xs",
               children: (0, _v1.jsx)(_v32, {})
             }), (0, _v1.jsx)(_v3.Box, {
               px: "xs",
-              children: _v2 === _v26.FORM_LAYOUT_OPTIONS.SINGLE_STEP_FORM ? (0, _v1.jsx)(_v138, {
-                onSaveValue: _v60,
-                onEnterKeyPressed: _v59,
-                onCheckboxChecked: _v58,
-                onSingleStepSubmit: _v56,
-                fieldElementRefs: _v20,
-                agreeCheckboxRef: _v27,
-                inputtedData: _v31,
-                autoFocus: _v42,
-                apiError: _v25,
-                agreeCheckboxNotCheckedError: _v23,
-                agreeCheckboxChecked: _v21,
-                disableButton: _v51
-              }) : (0, _v1.jsx)(_v136, {
-                animationDirection: _v19,
-                inputtedData: _v31,
-                onSaveValue: _v60,
-                onEnterKeyPressed: _v59,
-                fieldElementRefs: _v20,
-                agreeCheckboxRef: _v27,
-                agreeCheckboxChecked: _v21,
-                agreeCheckboxNotCheckedError: _v23,
-                onCheckboxChecked: _v58,
-                onNextClick: _v54,
-                checkValidEmailStateLoading: _v29.loading,
-                onMultiStepSubmit: _v57,
-                disableButton: _v51,
-                autoFocus: _v42,
-                apiError: _v25
+              children: _v4 === _v26.FORM_LAYOUT_OPTIONS.SINGLE_STEP_FORM ? (0, _v1.jsx)(_v139, {
+                onSaveValue: _v63,
+                onEnterKeyPressed: _v62,
+                onCheckboxChecked: _v61,
+                onSingleStepSubmit: _v59,
+                fieldElementRefs: _v23,
+                agreeCheckboxRef: _v30,
+                inputtedData: _v34,
+                autoFocus: _v45,
+                apiError: _v28,
+                agreeCheckboxNotCheckedError: _v26,
+                agreeCheckboxChecked: _v24,
+                disableButton: _v54
+              }) : (0, _v1.jsx)(_v137, {
+                animationDirection: _v22,
+                inputtedData: _v34,
+                onSaveValue: _v63,
+                onEnterKeyPressed: _v62,
+                fieldElementRefs: _v23,
+                agreeCheckboxRef: _v30,
+                agreeCheckboxChecked: _v24,
+                agreeCheckboxNotCheckedError: _v26,
+                onCheckboxChecked: _v61,
+                onNextClick: _v57,
+                checkValidEmailStateLoading: _v32.loading,
+                onMultiStepSubmit: _v60,
+                disableButton: _v54,
+                autoFocus: _v45,
+                apiError: _v28
               })
             })]
           })
-        }), _v2 === _v26.FORM_LAYOUT_OPTIONS.MULTI_STEP_FORM && (0, _v1.jsx)(_v3.Box, {
+        }), _v4 === _v26.FORM_LAYOUT_OPTIONS.MULTI_STEP_FORM && (0, _v1.jsx)(_v3.Box, {
           position: "absolute",
           left: 0,
           bottom: 0,
@@ -3545,14 +3550,14 @@
           pb: (0, _v10.rem)(26),
           px: "lg",
           pointerEvents: "none",
-          children: (0, _v1.jsx)(_v121, {
-            currentStep: _v15 + 1,
-            totalStep: _v8.length
+          children: (0, _v1.jsx)(_v122, {
+            currentStep: _v18 + 1,
+            totalStep: _v10.length
           })
         })]
       });
     },
-    _v141 = () => {
+    _v142 = () => {
       let _v0 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.logo),
         _v1 = (0, _v17.useGlobalStore)(_v0 => _v0.leadCapture.alignment),
         _v2 = (0, _v17.useGlobalStore)(_v0 => _v0.entity.title),
@@ -3682,9 +3687,9 @@
           disableBackground: _v1 === _v26.PREVIEW_TYPE.FORM_FULL,
           children: [_v1 === _v26.PREVIEW_TYPE.CONFIRMATION && _v4 !== _v6.ENTITY_TYPE.SHOWCASE && (0, _v1.jsx)(_v78, {}), _v1 === _v26.PREVIEW_TYPE.LOGIN_SCREEN && (0, _v1.jsx)(_v118, {
             setLeadUuid: _v0
-          }), _v1 === _v26.PREVIEW_TYPE.FORM && (0, _v1.jsx)(_v140, {
+          }), _v1 === _v26.PREVIEW_TYPE.FORM && (0, _v1.jsx)(_v141, {
             setLeadUuid: _v0
-          }), _v1 === _v26.PREVIEW_TYPE.FORM_FULL && (0, _v1.jsx)(_v141, {})]
+          }), _v1 === _v26.PREVIEW_TYPE.FORM_FULL && (0, _v1.jsx)(_v142, {})]
         })
       }), _v3 && (0, _v1.jsx)(_v4.Flex, {
         position: "absolute",
