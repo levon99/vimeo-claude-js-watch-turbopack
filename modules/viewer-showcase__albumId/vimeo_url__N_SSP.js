@@ -12,13 +12,13 @@
     albumId: _v0,
     showcaseMetadata: _v1
   }) => (0, _v1.jsxs)(_v1.Fragment, {
-    children: [(0, _v1.jsx)(_v6.ShowcaseHead, {
+    children: [(0, _v1.jsx)(_v5.ShowcaseHead, {
       showcaseMetadata: _v1
-    }), (0, _v1.jsx)(_v5.ViewerShowcasesAuthorization, {
+    }), (0, _v1.jsx)(_v4.ViewerShowcasesAuthorization, {
       albumIdOrUrl: _v0
     })]
   });
-  (0, _v3.withPageSetup)(async ({
+  (0, _v2.withPageSetup)(async ({
     params: _v0,
     vimeoConfig: _v1
   }) => {
@@ -42,8 +42,8 @@
     staffOnly: !0,
     inlineViewer: !0,
     inlinePlayerAssets: !0
-  }), _v8.getLayout = _v0 => (0, _v1.jsx)(_v2.ErrorBoundary, {
-    errorPage: _v4.ErrorPage,
+  }), _v8.getLayout = _v0 => (0, _v1.jsx)(_v6.RouteErrorBoundary, {
+    errorPage: _v3.ErrorPage,
     children: _v0
   }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v8], 0);
 }

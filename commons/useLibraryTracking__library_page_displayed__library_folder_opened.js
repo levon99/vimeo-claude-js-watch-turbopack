@@ -79,32 +79,42 @@
         library_type: _v0.libraryType,
         library_level_action: _v0.libraryLevelAction
       }), !0), [_v0]),
-      _v12 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_displayed", {
+      _v12 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_add_videos_clicked", {
+        library_type: _v0.libraryType,
+        folder_id: _v0.folderId,
+        location: _v0.location
+      }), !0), [_v0]),
+      _v13 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_videos_added_to_folder", {
+        library_type: _v0.libraryType,
+        folder_id: _v0.folderId,
+        added_videos_count: _v0.addedVideosCount
+      }), !0), [_v0]),
+      _v14 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_displayed", {
         library_type: (0, _v4.deriveLibraryType)({
           hasContentSpaceEnabled: _v2
         }),
         video_id: _v0.videoId,
         entry_point: _v0.entryPoint
       }), !0), [_v0, _v2]),
-      _v13 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_clicked", {
+      _v15 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_clicked", {
         library_type: (0, _v4.deriveLibraryType)({
           hasContentSpaceEnabled: _v2
         }),
         video_id: _v0.videoId,
         entry_point: _v0.entryPoint
       }), !0), [_v0, _v2]),
-      _v14 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_dismissed", {
+      _v16 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_marketing_card_dismissed", {
         library_type: (0, _v4.deriveLibraryType)({
           hasContentSpaceEnabled: _v2
         }),
         video_id: _v0.videoId,
         entry_point: _v0.entryPoint
       }), !0), [_v0, _v2]),
-      _v15 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_select_all_banner_displayed", {
+      _v17 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_select_all_banner_displayed", {
         library_type: _v0.libraryType,
         library_select_all_banner_items_count: _v0.itemsCount ?? 0
       }), !0), [_v0]),
-      _v16 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_select_all_banner_select_all_clicked", {
+      _v18 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_select_all_banner_select_all_clicked", {
         library_type: _v0.libraryType,
         library_select_all_banner_items_count: _v0.itemsCount ?? 0
       }), !0), [_v0]);
@@ -118,11 +128,13 @@
       trackFilterByCustomMetadata: _v9,
       trackLibrarySortChanged: _v10,
       trackLibraryLevelActionClicked: _v11,
-      trackLibraryMarketingCardDisplayed: _v12,
-      trackLibraryMarketingCardClicked: _v13,
-      trackLibraryMarketingCardDismissed: _v14,
-      trackLibrarySelectAllBannerDisplayed: _v15,
-      trackLibrarySelectAllBannerSelectAllClicked: _v16,
+      trackLibraryAddVideosClicked: _v12,
+      trackLibraryVideosAddedToFolder: _v13,
+      trackLibraryMarketingCardDisplayed: _v14,
+      trackLibraryMarketingCardClicked: _v15,
+      trackLibraryMarketingCardDismissed: _v16,
+      trackLibrarySelectAllBannerDisplayed: _v17,
+      trackLibrarySelectAllBannerSelectAllClicked: _v18,
       trackLibrarySelectAllBannerClearAllClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("library_select_all_banner_clear_all_clicked", {
         library_type: _v0.libraryType
       }), !0), [_v0]),

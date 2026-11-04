@@ -5688,58 +5688,58 @@
     }
   });
   let _v189 = (0, _v3.translate)({
-      singular: "AI voices",
-      dictionary: {
-        es: {
-          singular: "Voces de IA"
-        },
-        "de-DE": {
-          singular: "KI-Stimmen"
-        },
-        "fr-FR": {
-          singular: "Voix d'IA"
-        },
-        "ja-JP": {
-          singular: "AI音声"
-        },
-        "ko-KR": {
-          singular: "AI 음성"
-        },
-        "pt-BR": {
-          singular: "Vozes de IA"
-        },
-        "zh-CN": {
-          singular: "AI 声音"
-        }
+    singular: "AI voices",
+    dictionary: {
+      es: {
+        singular: "Voces de IA"
+      },
+      "de-DE": {
+        singular: "KI-Stimmen"
+      },
+      "fr-FR": {
+        singular: "Voix d'IA"
+      },
+      "ja-JP": {
+        singular: "AI音声"
+      },
+      "ko-KR": {
+        singular: "AI 음성"
+      },
+      "pt-BR": {
+        singular: "Vozes de IA"
+      },
+      "zh-CN": {
+        singular: "AI 声音"
       }
-    }),
-    _v190 = (0, _v3.translate)({
-      singular: "Search languages",
-      dictionary: {
-        es: {
-          singular: "Buscar idiomas"
-        },
-        "de-DE": {
-          singular: "Sprachen suchen"
-        },
-        "fr-FR": {
-          singular: "Rechercher des langues"
-        },
-        "ja-JP": {
-          singular: "言語を検索"
-        },
-        "ko-KR": {
-          singular: "언어 검색"
-        },
-        "pt-BR": {
-          singular: "Pesquisar idiomas"
-        },
-        "zh-CN": {
-          singular: "搜索语言"
-        }
+    }
+  });
+  (0, _v3.translate)({
+    singular: "Search languages",
+    dictionary: {
+      es: {
+        singular: "Buscar idiomas"
+      },
+      "de-DE": {
+        singular: "Sprachen suchen"
+      },
+      "fr-FR": {
+        singular: "Rechercher des langues"
+      },
+      "ja-JP": {
+        singular: "言語を検索"
+      },
+      "ko-KR": {
+        singular: "언어 검색"
+      },
+      "pt-BR": {
+        singular: "Pesquisar idiomas"
+      },
+      "zh-CN": {
+        singular: "搜索语言"
       }
-    }),
-    _v191 = (0, _v3.translate)({
+    }
+  });
+  let _v190 = (0, _v3.translate)({
       singular: "Select language",
       dictionary: {
         es: {
@@ -5765,7 +5765,7 @@
         }
       }
     }),
-    _v192 = (0, _v3.translate)({
+    _v191 = (0, _v3.translate)({
       singular: "Remove",
       dictionary: {
         es: {
@@ -5791,7 +5791,7 @@
         }
       }
     }),
-    _v193 = (0, _v3.translate)({
+    _v192 = (0, _v3.translate)({
       singular: "Auto",
       dictionary: {
         es: {
@@ -5814,7 +5814,7 @@
         }
       }
     }),
-    _v194 = (0, _v3.translate)({
+    _v193 = (0, _v3.translate)({
       singular: "Number of speakers",
       dictionary: {
         es: {
@@ -5840,7 +5840,7 @@
         }
       }
     }),
-    _v195 = (0, _v3.translate)("Dubbing model");
+    _v194 = (0, _v3.translate)("Dubbing model");
   (0, _v3.translate)({
     singular: "Standard",
     dictionary: {
@@ -5877,7 +5877,7 @@
       }
     }
   });
-  let _v196 = (0, _v3.translate)({
+  let _v195 = (0, _v3.translate)({
       singular: "What do you want to generate",
       dictionary: {
         es: {
@@ -5903,7 +5903,7 @@
         }
       }
     }),
-    _v197 = (0, _v3.translate)({
+    _v196 = (0, _v3.translate)({
       singular: "Dubbing and subtitles",
       dictionary: {
         es: {
@@ -5929,7 +5929,7 @@
         }
       }
     }),
-    _v198 = (0, _v3.translate)({
+    _v197 = (0, _v3.translate)({
       singular: "Dubbing PRO",
       dictionary: {
         "pt-BR": {
@@ -5937,7 +5937,7 @@
         }
       }
     }),
-    _v199 = (0, _v3.translate)({
+    _v198 = (0, _v3.translate)({
       singular: "Legacy",
       dictionary: {
         "pt-BR": {
@@ -5945,7 +5945,7 @@
         }
       }
     }),
-    _v200 = (0, _v3.translate)({
+    _v199 = (0, _v3.translate)({
       singular: "New",
       dictionary: {
         es: {
@@ -5971,8 +5971,8 @@
         }
       }
     }),
-    _v201 = (0, _v3.translate)("PRO"),
-    _v202 = (0, _v3.translate)({
+    _v200 = (0, _v3.translate)("PRO"),
+    _v201 = (0, _v3.translate)({
       singular: "Source",
       dictionary: {
         es: {
@@ -5995,7 +5995,7 @@
         }
       }
     }),
-    _v203 = (0, _v3.translate)({
+    _v202 = (0, _v3.translate)({
       singular: "Our highest-quality model for natural-sounding voices, expressive delivery, and more accurate translations.",
       dictionary: {
         es: {
@@ -6021,7 +6021,7 @@
         }
       }
     }),
-    _v204 = (0, _v3.translate)({
+    _v203 = (0, _v3.translate)({
       singular: "Improved voice cloning",
       dictionary: {
         es: {
@@ -6047,7 +6047,7 @@
         }
       }
     }),
-    _v205 = (0, _v3.translate)({
+    _v204 = (0, _v3.translate)({
       singular: "Preserves emotion and tone",
       dictionary: {
         es: {
@@ -6073,7 +6073,7 @@
         }
       }
     }),
-    _v206 = (0, _v3.translate)({
+    _v205 = (0, _v3.translate)({
       singular: "Supports 94 languages",
       dictionary: {
         es: {
@@ -6099,7 +6099,7 @@
         }
       }
     }),
-    _v207 = (0, _v3.translate)({
+    _v206 = (0, _v3.translate)({
       singular: "Supports your custom dictionary",
       dictionary: {
         es: {
@@ -6125,7 +6125,7 @@
         }
       }
     }),
-    _v208 = (0, _v3.translate)({
+    _v207 = (0, _v3.translate)({
       singular: "Uses your video's Vimeo transcript, so your transcript edits are reflected in the dubbed audio.",
       dictionary: {
         es: {
@@ -6151,7 +6151,7 @@
         }
       }
     }),
-    _v209 = (0, _v3.translate)({
+    _v208 = (0, _v3.translate)({
       singular: "Translate",
       dictionary: {
         es: {
@@ -6177,7 +6177,7 @@
         }
       }
     }),
-    _v210 = (0, _v3.translate)({
+    _v209 = (0, _v3.translate)({
       singular: " for ",
       dictionary: {
         es: {
@@ -6203,7 +6203,189 @@
         }
       }
     }),
+    _v210 = (0, _v3.translate)({
+      singular: "Select Dubbing and subtitles or Subtitles only.",
+      dictionary: {
+        es: {
+          singular: "Selecciona doblaje y subtítulos o solo subtítulos."
+        },
+        "de-DE": {
+          singular: "Wählen Sie Synchronisation und Untertitel oder Nur Untertitel."
+        },
+        "fr-FR": {
+          singular: "Sélectionnez Doublage et sous-titres ou uniquement les sous-titres."
+        },
+        "ja-JP": {
+          singular: "吹替と字幕、または字幕のみを選択してください。"
+        },
+        "ko-KR": {
+          singular: "더빙 및 자막 또는 자막만 선택하세요."
+        },
+        "pt-BR": {
+          singular: "Selecione Dublagem e legendas ou apenas legendas."
+        },
+        "zh-CN": {
+          singular: "选择配音和字幕或仅字幕."
+        }
+      }
+    }),
     _v211 = (0, _v3.translate)({
+      singular: "Add a language to continue.",
+      dictionary: {
+        es: {
+          singular: "Agrega un idioma para continuar."
+        },
+        "de-DE": {
+          singular: "Fügen Sie eine Sprache hinzu, um fortzufahren."
+        },
+        "fr-FR": {
+          singular: "Ajoutez une langue pour continuer."
+        },
+        "ja-JP": {
+          singular: "続行するには言語を追加してください。"
+        },
+        "ko-KR": {
+          singular: "계속하려면 언어를 추가하세요."
+        },
+        "pt-BR": {
+          singular: "Adicione um idioma para continuar."
+        },
+        "zh-CN": {
+          singular: "添加一种语言以继续."
+        }
+      }
+    }),
+    _v212 = (0, _v3.translate)({
+      singular: "Wait for the current translation to finish to add more languages.",
+      dictionary: {
+        es: {
+          singular: "Espera a que la traducción actual termine para añadir más idiomas."
+        },
+        "de-DE": {
+          singular: "Warten Sie, bis die aktuelle Übersetzung abgeschlossen ist, bevor Sie weitere Sprachen hinzufügen."
+        },
+        "fr-FR": {
+          singular: "Attendez que la traduction en cours soit terminée pour ajouter d'autres langues."
+        },
+        "ja-JP": {
+          singular: "現在の翻訳が完了するまで待ってから、他の言語を追加してください。"
+        },
+        "ko-KR": {
+          singular: "더 많은 언어를 추가하려면 현재 번역이 완료될 때까지 기다리세요."
+        },
+        "pt-BR": {
+          singular: "Aguarde a conclusão da tradução atual para adicionar mais idiomas."
+        },
+        "zh-CN": {
+          singular: "请等待当前翻译完成后再添加更多语言。"
+        }
+      }
+    }),
+    _v213 = (0, _v3.translate)({
+      singular: "Choose source subtitles to continue.",
+      dictionary: {
+        es: {
+          singular: "Elige subtítulos de origen para continuar."
+        },
+        "de-DE": {
+          singular: "Wählen Sie Quelluntertitel aus, um fortzufahren."
+        },
+        "fr-FR": {
+          singular: "Choisissez les sous-titres source pour continuer."
+        },
+        "ja-JP": {
+          singular: "続行するにはソース字幕を選択してください。"
+        },
+        "ko-KR": {
+          singular: "계속하려면 원본 자막을 선택하세요."
+        },
+        "pt-BR": {
+          singular: "Escolha as legendas de origem para continuar."
+        },
+        "zh-CN": {
+          singular: "选择源字幕以继续."
+        }
+      }
+    }),
+    _v214 = (0, _v3.translate)({
+      singular: "Wait for the estimate to finish.",
+      dictionary: {
+        es: {
+          singular: "Espera a que la estimación termine."
+        },
+        "de-DE": {
+          singular: "Warten Sie, bis die Schätzung abgeschlossen ist."
+        },
+        "fr-FR": {
+          singular: "Attendez que l'estimation soit terminée."
+        },
+        "ja-JP": {
+          singular: "見積もりが完了するまでお待ちください。"
+        },
+        "ko-KR": {
+          singular: "견적이 완료될 때까지 기다리세요."
+        },
+        "pt-BR": {
+          singular: "Aguarde a estimativa terminar."
+        },
+        "zh-CN": {
+          singular: "等待估算完成."
+        }
+      }
+    }),
+    _v215 = (0, _v3.translate)({
+      singular: "Add credits to continue.",
+      dictionary: {
+        es: {
+          singular: "Agrega créditos para continuar."
+        },
+        "de-DE": {
+          singular: "Guthaben hinzufügen, um fortzufahren."
+        },
+        "fr-FR": {
+          singular: "Ajoutez des crédits pour continuer."
+        },
+        "ja-JP": {
+          singular: "続行するにはクレジットを追加してください。"
+        },
+        "ko-KR": {
+          singular: "계속하려면 크레딧을 추가하세요."
+        },
+        "pt-BR": {
+          singular: "Adicione créditos para continuar."
+        },
+        "zh-CN": {
+          singular: "添加积分以继续."
+        }
+      }
+    }),
+    _v216 = (0, _v3.translate)({
+      singular: "Translations aren’t available for this video.",
+      dictionary: {
+        es: {
+          singular: "Las traducciones no están disponibles para este vídeo."
+        },
+        "de-DE": {
+          singular: "Für dieses Video sind keine Übersetzungen verfügbar."
+        },
+        "fr-FR": {
+          singular: "Les traductions ne sont pas disponibles pour cette vidéo."
+        },
+        "ja-JP": {
+          singular: "この動画の翻訳は利用できません。"
+        },
+        "ko-KR": {
+          singular: "이 동영상에 대한 번역을 사용할 수 없습니다."
+        },
+        "pt-BR": {
+          singular: "As traduções não estão disponíveis para este vídeo."
+        },
+        "zh-CN": {
+          singular: "该视频暂无翻译可用."
+        }
+      }
+    }),
+    _v217 = (0, _v3.translate)({
       singular: "Use a library voice that matches the selected language and accent.",
       dictionary: {
         es: {
@@ -6229,7 +6411,7 @@
         }
       }
     }),
-    _v212 = (0, _v3.translate)({
+    _v218 = (0, _v3.translate)({
       singular: "This language has already been added",
       dictionary: {
         es: {
@@ -6255,7 +6437,7 @@
         }
       }
     }),
-    _v213 = (0, _v3.translate)({
+    _v219 = (0, _v3.translate)({
       singular: "Unavailable for videos lower than 360p resolution",
       dictionary: {
         es: {
@@ -6281,7 +6463,7 @@
         }
       }
     }),
-    _v214 = (0, _v3.translate)({
+    _v220 = (0, _v3.translate)({
       singular: "Translate for",
       dictionary: {
         es: {
@@ -6307,7 +6489,7 @@
         }
       }
     }),
-    _v215 = (0, _v3.translate)({
+    _v221 = (0, _v3.translate)({
       singular: "Preview translations",
       dictionary: {
         es: {
@@ -6417,7 +6599,7 @@
         singular: "正在渲染音频 · 最多可能需要 {TIME} 分钟 · 您可以离开此页面"
       }
     }
-  }), "activatingTranslationSubtitling", 0, _v97, "activationFailed", 0, _v54, "activationInProgress", 0, _v25, "activationRetryable", 0, _v53, "addCredits", 0, _v183, "advancedFeaturesList", 0, _v28, "advancedSubHeading", 0, _v27, "ai", 0, _v185, "aiCanBeInaccurate", 0, _v112, "aiCanBeWrong", 0, _v111, "aiIsAnalyzing", 0, _v56, "aiPanelDescription", 0, _v113, "aiTranslationUnsupportedLanguage", 0, _v93, "aiTranslationsUnavailableLongVideo", 0, _v89, "aiTranslationsUnavailableLongVideoExt", 0, _v90, "aiUnavailable", 0, () => (0, _v3.translate)({
+  }), "activatingTranslationSubtitling", 0, _v97, "activationFailed", 0, _v54, "activationInProgress", 0, _v25, "activationRetryable", 0, _v53, "addCredits", 0, _v183, "addCreditsTooltip", 0, _v215, "addLanguageTooltip", 0, _v211, "advancedFeaturesList", 0, _v28, "advancedSubHeading", 0, _v27, "ai", 0, _v185, "aiCanBeInaccurate", 0, _v112, "aiCanBeWrong", 0, _v111, "aiIsAnalyzing", 0, _v56, "aiPanelDescription", 0, _v113, "aiTranslationUnsupportedLanguage", 0, _v93, "aiTranslationsUnavailableLongVideo", 0, _v89, "aiTranslationsUnavailableLongVideoExt", 0, _v90, "aiUnavailable", 0, () => (0, _v3.translate)({
     singular: "AI is unavailable. We couldn’t detect a transcript for this video. {A}Learn more{/A}",
     replacements: {
       A: _v0 => (0, _v1.jsx)(_v2.Link, {
@@ -6483,7 +6665,7 @@
         singular: "AI 不可用。这段视频的转录太短了。{A}了解更多{/A}"
       }
     }
-  }), "aiVoices", 0, _v189, "aiVoicesTooltipText", 0, _v211, "aiWillBeAvailable", 0, _v26, "allTranslationsFailedErrorMessage", 0, _v167, "allowViewersToAskAi", 0, _v116, "allowViewersToAskAiSubtitle", 0, _v121, "alreadyExistingTranslationWarning", 0, _v0 => (0, _v3.translate)({
+  }), "aiVoices", 0, _v189, "aiVoicesTooltipText", 0, _v217, "aiWillBeAvailable", 0, _v26, "allTranslationsFailedErrorMessage", 0, _v167, "allowViewersToAskAi", 0, _v116, "allowViewersToAskAiSubtitle", 0, _v121, "alreadyExistingTranslationWarning", 0, _v0 => (0, _v3.translate)({
     singular: "There’s already a translation of this video in {LANGUAGE}. Do you want to replace it?",
     replacements: {
       LANGUAGE: _v0
@@ -6511,7 +6693,7 @@
         singular: "已经有此视频的 {LANGUAGE} 翻译。您想要替换它吗？"
       }
     }
-  }), "alreadyExistingTranslationsWarning", 0, _v162, "answer", 0, _v68, "applyAllVideoDetails", 0, _v148, "applyDescription", 0, _v146, "applyTag", 0, _v147, "applyTitle", 0, _v145, "askAboutThisVideo", 0, _v71, "askQuestionAction", 0, _v30, "askVimeoAi", 0, _v99, "askVimeoAiSubtitle", 0, _v100, "audioAndSubtitles", 0, _v158, "auto", 0, _v193, "bad", 0, _v22, "cancelTranslation", 0, _v163, "ccSubtitles", 0, _v92, "changesSaved", 0, _v66, "chapterPresetCustom", 0, _v130, "chapterPresetCustomPlaceholder", 0, _v132, "chapterPresetCustomSubtitle", 0, _v131, "chapterPresetFineGrained", 0, _v126, "chapterPresetFineGrainedSubtitle", 0, _v127, "chapterPresetHighLevel", 0, _v128, "chapterPresetHighLevelSubtitle", 0, _v129, "chapterPresetSelectionLabel", 0, _v123, "chapterPresetStandard", 0, _v124, "chapterPresetStandardSubtitle", 0, _v125, "chaptersActivatingAi", 0, _v52, "chaptersGenerationFailed", 0, _v57, "chaptersSavedSuccessfully", 0, (_v0, _v1) => (0, _v3.translate)({
+  }), "alreadyExistingTranslationsWarning", 0, _v162, "answer", 0, _v68, "applyAllVideoDetails", 0, _v148, "applyDescription", 0, _v146, "applyTag", 0, _v147, "applyTitle", 0, _v145, "askAboutThisVideo", 0, _v71, "askQuestionAction", 0, _v30, "askVimeoAi", 0, _v99, "askVimeoAiSubtitle", 0, _v100, "audioAndSubtitles", 0, _v158, "auto", 0, _v192, "bad", 0, _v22, "cancelTranslation", 0, _v163, "ccSubtitles", 0, _v92, "changesSaved", 0, _v66, "chapterPresetCustom", 0, _v130, "chapterPresetCustomPlaceholder", 0, _v132, "chapterPresetCustomSubtitle", 0, _v131, "chapterPresetFineGrained", 0, _v126, "chapterPresetFineGrainedSubtitle", 0, _v127, "chapterPresetHighLevel", 0, _v128, "chapterPresetHighLevelSubtitle", 0, _v129, "chapterPresetSelectionLabel", 0, _v123, "chapterPresetStandard", 0, _v124, "chapterPresetStandardSubtitle", 0, _v125, "chaptersActivatingAi", 0, _v52, "chaptersGenerationFailed", 0, _v57, "chaptersSavedSuccessfully", 0, (_v0, _v1) => (0, _v3.translate)({
     singular: "{COUNT} of {TOTAL} chapter saved",
     plural: "{COUNT} of {TOTAL} chapters saved",
     count: _v1,
@@ -6586,7 +6768,7 @@
         plural: "{COUNT} 章"
       }
     }
-  }), "chooseAQuestion", 0, _v98, "clearChat", 0, _v38, "cont", 0, _v109, "contactSales", 0, _v169, "contactVimeoToBuyCredits", 0, _v171, "continueText", 0, _v88, "copied", 0, _v19, "copy", 0, _v20, "copyLink", 0, _v73, "createSubtitleAndSpokenTranslations", 0, _v80, "createSubtitlesUsingTranscript", 0, _v159, "creditsLeft", 0, _v0 => (0, _v3.translate)({
+  }), "chooseAQuestion", 0, _v98, "chooseSourceSubtitlesTooltip", 0, _v213, "clearChat", 0, _v38, "cont", 0, _v109, "contactSales", 0, _v169, "contactVimeoToBuyCredits", 0, _v171, "continueText", 0, _v88, "copied", 0, _v19, "copy", 0, _v20, "copyLink", 0, _v73, "createSubtitleAndSpokenTranslations", 0, _v80, "createSubtitlesUsingTranscript", 0, _v159, "creditsLeft", 0, _v0 => (0, _v3.translate)({
     count: _v0,
     singular: "{CREDITS} credit remaining",
     plural: "{CREDITS} credits remaining",
@@ -6896,7 +7078,7 @@
       default:
         return "";
     }
-  }, "discard", 0, _v23, "discardAll", 0, _v156, "dubbingAndSubtitles", 0, _v197, "dubbingModel", 0, _v195, "dubbingModelLegacy", 0, _v199, "dubbingModelPro", 0, _v198, "dubbingProTooltipDescription", 0, _v203, "dubbingProTooltipFeatureDictionary", 0, _v207, "dubbingProTooltipFeatureEmotion", 0, _v205, "dubbingProTooltipFeatureLanguages", 0, _v206, "dubbingProTooltipFeatureVoice", 0, _v204, "dubbingProTooltipFootnote", 0, _v208, "dubbingV2RequiresTranscript", 0, _v86, "enterpriseFeaturesList", 0, _v181, "errorMessageFailedToCreate", 0, _v43, "errorMessageFailedToGenerate", 0, _v44, "errorMessageNetwork", 0, _v46, "errorMessageNoResult", 0, _v45, "errorOccurred", 0, _v75, "exitFullscreen", 0, _v16, "failed", 0, _v5, "failedToAskTheVimeoAi", 0, _v70, "failedToSave", 0, _v72, "feedback", 0, _v11, "forCopy", 0, _v210, "fullscreen", 0, _v15, "generateChapters", 0, _v35, "generateChaptersSubtitle", 0, _v118, "generateHighlightPrompts", 0, _v29, "generateHighlightReel", 0, _v36, "generateHighlightsSubtitle", 0, _v120, "generatePreview", 0, _v82, "generateQnA", 0, _v47, "generateVideoSummary", 0, _v33, "generateVideoSummarySubtitle", 0, _v117, "generatingAnswer", 0, _v69, "generatingPreview", 0, _v83, "generatingPreviewDescription", 0, _v84, "good", 0, _v21, "highlightActivatingAi", 0, _v51, "highlightAskForEdits", 0, _v37, "highlightReelSectionTitle", 0, _v64, "highlightsSectionTitle", 0, _v63, "learnAboutRequirements", 0, _v101, "legacyEnterpriseFeaturesList", 0, _v178, "legacyOnlyLanguagesAlert", 0, (_v0, _v1) => {
+  }, "discard", 0, _v23, "discardAll", 0, _v156, "dubbingAndSubtitles", 0, _v196, "dubbingModel", 0, _v194, "dubbingModelLegacy", 0, _v198, "dubbingModelPro", 0, _v197, "dubbingProTooltipDescription", 0, _v202, "dubbingProTooltipFeatureDictionary", 0, _v206, "dubbingProTooltipFeatureEmotion", 0, _v204, "dubbingProTooltipFeatureLanguages", 0, _v205, "dubbingProTooltipFeatureVoice", 0, _v203, "dubbingProTooltipFootnote", 0, _v207, "dubbingV2RequiresTranscript", 0, _v86, "enterpriseFeaturesList", 0, _v181, "errorMessageFailedToCreate", 0, _v43, "errorMessageFailedToGenerate", 0, _v44, "errorMessageNetwork", 0, _v46, "errorMessageNoResult", 0, _v45, "errorOccurred", 0, _v75, "exitFullscreen", 0, _v16, "failed", 0, _v5, "failedToAskTheVimeoAi", 0, _v70, "failedToSave", 0, _v72, "feedback", 0, _v11, "forCopy", 0, _v209, "fullscreen", 0, _v15, "generateChapters", 0, _v35, "generateChaptersSubtitle", 0, _v118, "generateHighlightPrompts", 0, _v29, "generateHighlightReel", 0, _v36, "generateHighlightsSubtitle", 0, _v120, "generatePreview", 0, _v82, "generateQnA", 0, _v47, "generateVideoSummary", 0, _v33, "generateVideoSummarySubtitle", 0, _v117, "generatingAnswer", 0, _v69, "generatingPreview", 0, _v83, "generatingPreviewDescription", 0, _v84, "good", 0, _v21, "highlightActivatingAi", 0, _v51, "highlightAskForEdits", 0, _v37, "highlightReelSectionTitle", 0, _v64, "highlightsSectionTitle", 0, _v63, "learnAboutRequirements", 0, _v101, "legacyEnterpriseFeaturesList", 0, _v178, "legacyOnlyLanguagesAlert", 0, (_v0, _v1) => {
     let _v2 = _v0.length,
       _v3 = {
         LANGUAGES: _v0.join(", ")
@@ -6938,41 +7120,41 @@
       }
     }) : (0, _v3.translate)({
       count: _v2,
-      singular: "{LANGUAGES} is only available with Legacy dubbing.",
-      plural: "{LANGUAGES} are only available with Legacy dubbing.",
+      singular: "{LANGUAGES} will be dubbed with Legacy.",
+      plural: "{LANGUAGES} will be dubbed with Legacy.",
       replacements: _v3,
       dictionary: {
         es: {
-          singular: "{LANGUAGES} solo está disponible con doblaje Legacy.",
-          plural: "{LANGUAGES} solo están disponibles con doblaje Legacy."
+          singular: "{LANGUAGES} se doblará con Legacy.",
+          plural: "{LANGUAGES} se doblarán con Legacy."
         },
         "de-DE": {
-          singular: "{LANGUAGES} ist nur mit Legacy dubbing verfügbar.",
-          plural: "{LANGUAGES} sind nur mit Legacy dubbing verfügbar."
+          singular: "{LANGUAGES} werden mit Legacy vertont.",
+          plural: "{LANGUAGES} werden mit Legacy vertont."
         },
         "fr-FR": {
-          singular: "{LANGUAGES} n'est disponible qu'avec le doublage Legacy.",
-          plural: "{LANGUAGES} ne sont disponibles qu'avec le doublage Legacy."
+          singular: "{LANGUAGES} seront doublés avec Legacy.",
+          plural: "{LANGUAGES} seront doublés avec Legacy."
         },
         "ja-JP": {
-          singular: "{LANGUAGES} は Legacy dubbing のみで利用可能です。",
-          plural: "{LANGUAGES} は Legacy dubbing のみで利用可能です。"
+          singular: "{LANGUAGES} は Legacy によって吹き替えされます。",
+          plural: "{LANGUAGES} は Legacy によって吹き替えされます。"
         },
         "ko-KR": {
-          singular: "{LANGUAGES}은(는) Legacy dubbing에서만 제공됩니다.",
-          plural: "{LANGUAGES}은(는) Legacy dubbing에서만 제공됩니다."
+          singular: "{LANGUAGES}는 Legacy로 더빙됩니다.",
+          plural: "{LANGUAGES}는 Legacy로 더빙됩니다."
         },
         "pt-BR": {
-          singular: "{LANGUAGES} está disponível apenas com Legacy dubbing.",
-          plural: "{LANGUAGES} estão disponíveis apenas com Legacy dubbing."
+          singular: "{LANGUAGES} será dublado com Legacy.",
+          plural: "{LANGUAGES} serão dublados com Legacy."
         },
         "zh-CN": {
-          singular: "{LANGUAGES} 仅适用于 Legacy dubbing。",
-          plural: "{LANGUAGES} 仅适用于 Legacy dubbing。"
+          singular: "{LANGUAGES} 将使用 Legacy 进行配音。",
+          plural: "{LANGUAGES} 将使用 Legacy 进行配音。"
         }
       }
     });
-  }, "locationError", 0, _v104, "locationPlaceholder", 0, _v102, "locationTitle", 0, _v103, "logIn", 0, _v78, "needMoreCredits", 0, _v85, "newBadge", 0, _v200, "no", 0, _v108, "noSpeechWasDetected", 0, _v0 => (0, _v3.translate)({
+  }, "locationError", 0, _v104, "locationPlaceholder", 0, _v102, "locationTitle", 0, _v103, "logIn", 0, _v78, "needMoreCredits", 0, _v85, "newBadge", 0, _v199, "no", 0, _v108, "noSpeechWasDetected", 0, _v0 => (0, _v3.translate)({
     singular: "Some AI features require a transcript. No speech was detected in this video, so no transcript was generated. {A}Try transcribing again{/A}.",
     replacements: {
       A: _v0 => (0, _v1.jsx)(_v2.Link, {
@@ -7039,7 +7221,7 @@
         singular: "非英语转录不太可能产生准确的结果。{A}了解更多{/A}"
       }
     }
-  }), "numberOfSpeakers", 0, _v194, "ok", 0, _v170, "original", 0, _v166, "pause", 0, _v14, "play", 0, _v13, "playMoment", 0, _v65, "plusFeaturesList", 0, _v174, "premiumFeaturesList", 0, _v177, "premiumSubHeader", 0, _v176, "previewTranslations", 0, _v215, "proBadge", 0, _v201, "proFeaturesList", 0, _v175, "proOnlyLanguagesAlert", 0, (_v0, _v1) => {
+  }), "numberOfSpeakers", 0, _v193, "ok", 0, _v170, "original", 0, _v166, "pause", 0, _v14, "play", 0, _v13, "playMoment", 0, _v65, "plusFeaturesList", 0, _v174, "premiumFeaturesList", 0, _v177, "premiumSubHeader", 0, _v176, "previewTranslations", 0, _v221, "proBadge", 0, _v200, "proFeaturesList", 0, _v175, "proOnlyLanguagesAlert", 0, (_v0, _v1) => {
     let _v2 = _v0.length,
       _v3 = {
         LANGUAGES: _v0.join(", ")
@@ -7081,37 +7263,37 @@
       }
     }) : (0, _v3.translate)({
       count: _v2,
-      singular: "{LANGUAGES} requires Dubbing PRO.",
-      plural: "{LANGUAGES} require Dubbing PRO.",
+      singular: "{LANGUAGES} will be dubbed with Dubbing PRO.",
+      plural: "{LANGUAGES} will be dubbed with Dubbing PRO.",
       replacements: _v3,
       dictionary: {
         es: {
-          singular: "{LANGUAGES} requiere Dubbing PRO.",
-          plural: "{LANGUAGES} requieren Dubbing PRO."
+          singular: "{LANGUAGES} se doblará con Dubbing PRO.",
+          plural: "{LANGUAGES} se doblarán con Dubbing PRO."
         },
         "de-DE": {
-          singular: "{LANGUAGES} erfordert Dubbing PRO.",
-          plural: "{LANGUAGES} erfordern Dubbing PRO."
+          singular: "{LANGUAGES} werden mit Dubbing PRO vertont.",
+          plural: "{LANGUAGES} werden mit Dubbing PRO vertont."
         },
         "fr-FR": {
-          singular: "{LANGUAGES} requiert Dubbing PRO.",
-          plural: "{LANGUAGES} requièrent Dubbing PRO."
+          singular: "{LANGUAGES} seront doublés avec Dubbing PRO.",
+          plural: "{LANGUAGES} seront doublés avec Dubbing PRO."
         },
         "ja-JP": {
-          singular: "{LANGUAGES} は Dubbing PRO が必要です.",
-          plural: "{LANGUAGES} は Dubbing PRO が必要です."
+          singular: "{LANGUAGES} は Dubbing PRO によって吹き替えされます。",
+          plural: "{LANGUAGES} は Dubbing PRO によって吹き替えされます。"
         },
         "ko-KR": {
-          singular: "{LANGUAGES}에는 Dubbing PRO가 필요합니다.",
-          plural: "{LANGUAGES}에는 Dubbing PRO가 필요합니다."
+          singular: "{LANGUAGES}는 Dubbing PRO로 더빙됩니다.",
+          plural: "{LANGUAGES}는 Dubbing PRO로 더빙됩니다."
         },
         "pt-BR": {
-          singular: "{LANGUAGES} requer Dubbing PRO.",
-          plural: "{LANGUAGES} requerem Dubbing PRO."
+          singular: "{LANGUAGES} será dublado com Dubbing PRO.",
+          plural: "{LANGUAGES} serão dublados com Dubbing PRO."
         },
         "zh-CN": {
-          singular: "{LANGUAGES} 需要 Dubbing PRO。",
-          plural: "{LANGUAGES} 需要 Dubbing PRO。"
+          singular: "{LANGUAGES} 将使用 Dubbing PRO 进行配音。",
+          plural: "{LANGUAGES} 将使用 Dubbing PRO 进行配音。"
         }
       }
     });
@@ -7156,7 +7338,7 @@
         singular: "通过使用 Vimeo AI，即表示您同意我们的{TERMS}服务条款{/TERMS}并认可我们的{PRIVACY}隐私政策{/PRIVACY}。"
       }
     }
-  }), "questionSectionTitle", 0, _v60, "reachOutToYourVimeoAccountOwner", 0, _v172, "recap", 0, _v67, "refresh", 0, _v76, "related", 0, _v74, "remove", 0, _v192, "replace", 0, _v10, "replaceExistingTranslation", 0, _v160, "replaceExistingTranslations", 0, _v161, "restrictionMessage", 0, _v105, "retryPreparation", 0, _v34, "save", 0, _v9, "saveAsNewVideo", 0, _v58, "searchLanguages", 0, _v190, "selectLanguage", 0, _v191, "selectLanguages", 0, _v81, "selectTranscript", 0, _v186, "settings", 0, _v4, "someFeaturesUnavailableWhileTranscribing", 0, _v187, "someTranslationsFailedErrorMessage", 0, (_v0, _v1) => (0, _v3.translate)({
+  }), "questionSectionTitle", 0, _v60, "reachOutToYourVimeoAccountOwner", 0, _v172, "recap", 0, _v67, "refresh", 0, _v76, "related", 0, _v74, "remove", 0, _v191, "replace", 0, _v10, "replaceExistingTranslation", 0, _v160, "replaceExistingTranslations", 0, _v161, "restrictionMessage", 0, _v105, "retryPreparation", 0, _v34, "save", 0, _v9, "saveAsNewVideo", 0, _v58, "selectLanguage", 0, _v190, "selectLanguages", 0, _v81, "selectTranscript", 0, _v186, "selectTranslationTypeTooltip", 0, _v210, "settings", 0, _v4, "someFeaturesUnavailableWhileTranscribing", 0, _v187, "someTranslationsFailedErrorMessage", 0, (_v0, _v1) => (0, _v3.translate)({
     singular: "Unable to translate this video into {LANGUAGES_LIST}, so {TOKENS_AMOUNT} credits have been returned",
     replacements: {
       LANGUAGES_LIST: _v0.join(", "),
@@ -7185,7 +7367,7 @@
         singular: "无法将此视频翻译成{LANGUAGES_LIST}，因此 {TOKENS_AMOUNT} 积分已被退回"
       }
     }
-  }), "sourceLabel", 0, _v202, "standardFeaturesList", 0, _v180, "starterFeaturesList", 0, _v179, "statusMessageAnalyzingVideo", 0, _v39, "statusMessageCreatingHighlight", 0, _v40, "statusMessageHighlightReady", 0, _v42, "statusMessageProcessingHighlight", 0, _v41, "stillYourLocation", 0, _v0 => (0, _v3.translate)({
+  }), "sourceLabel", 0, _v201, "standardFeaturesList", 0, _v180, "starterFeaturesList", 0, _v179, "statusMessageAnalyzingVideo", 0, _v39, "statusMessageCreatingHighlight", 0, _v40, "statusMessageHighlightReady", 0, _v42, "statusMessageProcessingHighlight", 0, _v41, "stillYourLocation", 0, _v0 => (0, _v3.translate)({
     singular: "Do you still reside in {CURRENT_LOCATION}?",
     replacements: {
       CURRENT_LOCATION: _v0
@@ -7213,7 +7395,7 @@
         singular: "您还住在{CURRENT_LOCATION}吗？"
       }
     }
-  }), "subtitlesOnly", 0, _v157, "summarySectionTitle", 0, _v59, "tags", 0, _v8, "thisLanguageAlreadyAdded", 0, _v212, "title", 0, _v6, "toPurchaseMoreAICreditsMailto", 0, () => (0, _v3.translate)({
+  }), "subtitlesOnly", 0, _v157, "summarySectionTitle", 0, _v59, "tags", 0, _v8, "thisLanguageAlreadyAdded", 0, _v218, "title", 0, _v6, "toPurchaseMoreAICreditsMailto", 0, () => (0, _v3.translate)({
     singular: "To purchase more AI credits, please reach out to your Account Manager or email {A}sales@vimeo.com{/A}.",
     replacements: {
       A: _v0 => (0, _v1.jsx)(_v2.Link, {
@@ -7246,7 +7428,7 @@
         singular: "要购买更多 AI 点数，请联系您的客户经理或发送电子邮件至 {A}sales@vimeo.com{/A}。"
       }
     }
-  }), "transcriptIsTooShort", 0, _v150, "transcriptNotDetected", 0, _v153, "translateCopy", 0, _v209, "translateFor", 0, _v214, "translateFrom", 0, _v165, "translateFromTypes", 0, _v184, "translateTo", 0, _v164, "translateVideo", 0, _v79, "translateVideoSubtitle", 0, _v119, "translationSaved", 0, _v110, "translationTakingLongerThanExpected", 0, _v96, "translationsDisclaimer", 0, _v87, "translationsFinishAndSave", 0, _v94, "translationsPreviewTooltipText", 0, _v91, "translationsSubtitlesAndAudioDubs", 0, _v0 => (0, _v3.translate)({
+  }), "transcriptIsTooShort", 0, _v150, "transcriptNotDetected", 0, _v153, "translateCopy", 0, _v208, "translateFor", 0, _v220, "translateFrom", 0, _v165, "translateFromTypes", 0, _v184, "translateTo", 0, _v164, "translateVideo", 0, _v79, "translateVideoSubtitle", 0, _v119, "translationInProgressTooltip", 0, _v212, "translationSaved", 0, _v110, "translationTakingLongerThanExpected", 0, _v96, "translationsDisclaimer", 0, _v87, "translationsFinishAndSave", 0, _v94, "translationsPreviewTooltipText", 0, _v91, "translationsSubtitlesAndAudioDubs", 0, _v0 => (0, _v3.translate)({
     singular: "1 language",
     plural: "{COUNT} languages",
     count: _v0,
@@ -7283,7 +7465,7 @@
         plural: "{COUNT} 种语言"
       }
     }
-  }), "translationsUnavailableWhileTranscoding", 0, _v154, "tryAgain", 0, _v168, "unavailableForThisVideosLanguage", 0, _v151, "unavailableUntilTranscriptIsReady", 0, _v149, "unlockAITools", 0, _v182, "unlockAdvancedAIVideoTools", 0, _v173, "unsupportedResolutionForHighlights", 0, _v213, "unsupportedSourceLanguage", 0, _v155, "updateProfile", 0, _v106, "upgrade", 0, _v12, "uploadFile", 0, _v188, "videoCantBeTranscribed", 0, (_v0, _v1) => (0, _v3.translate)({
+  }), "translationsUnavailableTooltip", 0, _v216, "translationsUnavailableWhileTranscoding", 0, _v154, "tryAgain", 0, _v168, "unavailableForThisVideosLanguage", 0, _v151, "unavailableUntilTranscriptIsReady", 0, _v149, "unlockAITools", 0, _v182, "unlockAdvancedAIVideoTools", 0, _v173, "unsupportedResolutionForHighlights", 0, _v219, "unsupportedSourceLanguage", 0, _v155, "updateProfile", 0, _v106, "upgrade", 0, _v12, "uploadFile", 0, _v188, "videoCantBeTranscribed", 0, (_v0, _v1) => (0, _v3.translate)({
     singular: "Videos in {LANGUAGE} can’t be transcribed. If this audio isn’t {LANGUAGE}, try {A}transcribing the video again{/A}.",
     replacements: {
       LANGUAGE: _v0,
@@ -7318,5 +7500,5 @@
         singular: "无法转录 {LANGUAGE} 语言的视频。如果此音频不是 {LANGUAGE}，请尝试{A}重新转录视频{/A}。"
       }
     }
-  }), "videoChapters", 0, _v122, "videoDetailsPresetConcise", 0, _v134, "videoDetailsPresetConciseSubtitle", 0, _v135, "videoDetailsPresetCustom", 0, _v142, "videoDetailsPresetCustomPlaceholder", 0, _v144, "videoDetailsPresetCustomSubtitle", 0, _v143, "videoDetailsPresetMarketing", 0, _v136, "videoDetailsPresetMarketingSubtitle", 0, _v137, "videoDetailsPresetSelectionLabel", 0, _v133, "videoDetailsPresetTechnical", 0, _v138, "videoDetailsPresetTechnicalSubtitle", 0, _v139, "videoDetailsPresetTraining", 0, _v140, "videoDetailsPresetTrainingSubtitle", 0, _v141, "videoInfoSection", 0, _v114, "videoSummaryFailed", 0, _v32, "vimeoAi", 0, _v31, "volumeOff", 0, _v18, "volumeOn", 0, _v17, "whatDoYouWantToGenerate", 0, _v196, "yes", 0, _v107, "youMustBeLoggedIn", 0, _v77]);
+  }), "videoChapters", 0, _v122, "videoDetailsPresetConcise", 0, _v134, "videoDetailsPresetConciseSubtitle", 0, _v135, "videoDetailsPresetCustom", 0, _v142, "videoDetailsPresetCustomPlaceholder", 0, _v144, "videoDetailsPresetCustomSubtitle", 0, _v143, "videoDetailsPresetMarketing", 0, _v136, "videoDetailsPresetMarketingSubtitle", 0, _v137, "videoDetailsPresetSelectionLabel", 0, _v133, "videoDetailsPresetTechnical", 0, _v138, "videoDetailsPresetTechnicalSubtitle", 0, _v139, "videoDetailsPresetTraining", 0, _v140, "videoDetailsPresetTrainingSubtitle", 0, _v141, "videoInfoSection", 0, _v114, "videoSummaryFailed", 0, _v32, "vimeoAi", 0, _v31, "volumeOff", 0, _v18, "volumeOn", 0, _v17, "waitForEstimateTooltip", 0, _v214, "whatDoYouWantToGenerate", 0, _v195, "yes", 0, _v107, "youMustBeLoggedIn", 0, _v77]);
 }

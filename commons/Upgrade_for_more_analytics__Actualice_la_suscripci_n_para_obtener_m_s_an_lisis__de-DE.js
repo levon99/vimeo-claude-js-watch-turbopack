@@ -245,60 +245,17 @@
       return (0, _v58.deepCamelCase)(_v1);
     });
   }
-  async function _v64({
-    baseUrl: _v0,
-    select: _v1,
-    where: {
-      userId: _v2
-    },
-    query: _v3,
-    ..._v4
-  }) {
-    return (0, _v57.measureLatency)("getUserAnalyticsWidgets", "GET", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v2}/analytics/widgets?${(0, _v58.searchQueryString)(_v3)}&fields=${_v1.map(_v58.intoSnakeCase).join(",")}`, {
-        ..._v4,
-        method: "GET"
-      });
-      if (!_v0.ok) throw new _v58.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v58.deepCamelCase)(_v1);
-    });
-  }
-  async function _v65({
-    baseUrl: _v0,
-    select: _v1,
-    variables: _v2,
-    where: {
-      userId: _v3
-    },
-    ..._v4
-  }) {
-    return (0, _v57.measureLatency)("postUserAnalyticsWidgets", "POST", async () => {
-      let _v0 = await fetch(`${_v0}/users/${_v3}/analytics/widgets?fields=${_v1.map(_v58.intoSnakeCase).join(",")}`, {
-        ..._v4,
-        method: "POST",
-        body: JSON.stringify((0, _v58.deepSnakeCase)(_v2))
-      });
-      if (!_v0.ok) throw new _v58.NetworkError("A network error occurred", _v0.status, _v0);
-      if (204 === _v0.status) return null;
-      if (!_v0.headers.get("content-type")?.match(/^application\/(.+)?json$/)) throw Error("Expected JSON response");
-      let _v1 = await _v0.json();
-      return (0, _v58.deepCamelCase)(_v1);
-    });
-  }
-  var _v66 = _v0.i(0),
+  var _v64 = _v0.i(0),
+    _v65 = _v0.i(0),
+    _v66 = _v0.i(0),
     _v67 = _v0.i(0),
     _v68 = _v0.i(0),
     _v69 = _v0.i(0),
     _v70 = _v0.i(0),
     _v71 = _v0.i(0),
-    _v72 = _v0.i(0),
-    _v73 = _v0.i(0),
-    _v74 = _v0.i(0);
-  let _v75 = "30rem",
-    _v76 = (0, _v29.translate)({
+    _v72 = _v0.i(0);
+  let _v73 = "30rem",
+    _v74 = (0, _v29.translate)({
       singular: "Add widget to custom analytics",
       dictionary: {
         es: {
@@ -324,7 +281,7 @@
         }
       }
     }),
-    _v77 = (0, _v29.translate)({
+    _v75 = (0, _v29.translate)({
       singular: "Add this widget to your custom analytics dashboard to keep it handy. Once saved, it’ll be visible to everyone on your team whenever they return to this page.",
       dictionary: {
         es: {
@@ -350,7 +307,7 @@
         }
       }
     }),
-    _v78 = (0, _v29.translate)({
+    _v76 = (0, _v29.translate)({
       singular: "Not now",
       dictionary: {
         es: {
@@ -376,7 +333,7 @@
         }
       }
     }),
-    _v79 = (0, _v29.translate)({
+    _v77 = (0, _v29.translate)({
       singular: "Add to custom analytics",
       dictionary: {
         es: {
@@ -402,104 +359,104 @@
         }
       }
     }),
-    _v80 = ({
+    _v78 = ({
       isOpen: _v0,
       isSaving: _v1,
       onConfirm: _v2,
       onClose: _v3
-    }) => (0, _v3.jsxs)(_v69.Modal, {
+    }) => (0, _v3.jsxs)(_v67.Modal, {
       isOpen: _v0,
       onClose: _v3,
       size: "sm",
       isCentered: !0,
-      children: [(0, _v3.jsx)(_v74.ModalOverlay, {}), (0, _v3.jsxs)(_v71.ModalContent, {
-        width: _v75,
-        maxWidth: _v75,
+      children: [(0, _v3.jsx)(_v72.ModalOverlay, {}), (0, _v3.jsxs)(_v69.ModalContent, {
+        width: _v73,
+        maxWidth: _v73,
         borderRadius: "xl",
         overflow: "hidden",
-        children: [(0, _v3.jsx)(_v73.ModalHeader, {
+        children: [(0, _v3.jsx)(_v71.ModalHeader, {
           paddingTop: "1.5rem",
           paddingX: "1.5rem",
           paddingBottom: "1rem",
-          children: _v76
-        }), (0, _v3.jsx)(_v70.ModalBody, {
+          children: _v74
+        }), (0, _v3.jsx)(_v68.ModalBody, {
           paddingX: "1.5rem",
           children: (0, _v3.jsx)(_v45.Text, {
             variant: "body-md",
-            children: _v77
+            children: _v75
           })
-        }), (0, _v3.jsxs)(_v72.ModalFooter, {
+        }), (0, _v3.jsxs)(_v70.ModalFooter, {
           paddingTop: "1rem",
           paddingBottom: "1.5rem",
-          children: [(0, _v3.jsx)(_v68.Button, {
+          children: [(0, _v3.jsx)(_v66.Button, {
             variant: "tertiary",
             onClick: _v3,
-            children: _v78
-          }), (0, _v3.jsx)(_v68.Button, {
+            children: _v76
+          }), (0, _v3.jsx)(_v66.Button, {
             variant: "primary",
             isDisabled: _v1,
             onClick: _v2,
-            children: _v79
+            children: _v77
           })]
         })]
       })]
     });
-  var _v81 = _v0.i(0),
+  var _v79 = _v0.i(0),
+    _v80 = _v0.i(0),
+    _v81 = _v0.i(0),
     _v82 = _v0.i(0),
     _v83 = _v0.i(0),
     _v84 = _v0.i(0),
     _v85 = _v0.i(0),
-    _v86 = _v0.i(0),
-    _v87 = _v0.i(0),
-    _v88 = _v0.i(0);
-  let _v89 = new Set(["line", "bar", "donut", "metric_card", "table", "combo", "heatmap"]),
-    _v90 = _v0 => "string" == typeof _v0 && _v89.has(_v0),
-    _v91 = new Set(["sessions", "bandwidth", "teams", "retention", "live", "storage"]),
-    _v92 = new Set(["video", "member", "user_video"]),
-    _v93 = _v0 => "string" == typeof _v0 && _v92.has(_v0),
-    _v94 = ["id", "title", "chartType", "note", "query", "createdTime"],
-    _v95 = ["status", "title", "chartType", "note", "description", "query", "suggestions", "aiAnalyticsWidgetQuota", "aiAnalyticsWidgetQuota.available", "aiAnalyticsWidgetQuota.period", "aiAnalyticsWidgetQuota.remaining", "aiAnalyticsWidgetQuota.resetDate", "aiAnalyticsWidgetQuota.used"],
-    _v96 = _v0 => _v0?.available === void 0 || void 0 === _v0.remaining || void 0 === _v0.used ? null : {
+    _v86 = _v0.i(0);
+  let _v87 = new Set(["line", "bar", "donut", "metric_card", "table", "combo", "heatmap"]),
+    _v88 = _v0 => "string" == typeof _v0 && _v87.has(_v0),
+    _v89 = new Set(["sessions", "bandwidth", "teams", "retention", "live", "storage"]),
+    _v90 = new Set(["video", "member", "user_video"]),
+    _v91 = _v0 => "string" == typeof _v0 && _v90.has(_v0),
+    _v92 = ["id", "title", "chartType", "note", "query", "createdTime"],
+    _v93 = ["status", "title", "chartType", "note", "description", "query", "suggestions", "aiAnalyticsWidgetQuota", "aiAnalyticsWidgetQuota.available", "aiAnalyticsWidgetQuota.period", "aiAnalyticsWidgetQuota.remaining", "aiAnalyticsWidgetQuota.resetDate", "aiAnalyticsWidgetQuota.used"],
+    _v94 = _v0 => _v0?.available === void 0 || void 0 === _v0.remaining || void 0 === _v0.used ? null : {
       available: _v0.available,
       remaining: _v0.remaining,
       used: _v0.used
     },
-    _v97 = _v0 => null !== _v0 && _v0.remaining <= 0,
-    _v98 = "22.5rem",
-    _v99 = ["metadata.connections.video.title", "metadata.connections.video.duration", "metadata.connections.video.created_time", "metadata.connections.video.likes", "metadata.connections.video.comments"],
-    _v100 = {
-      sessions: _v99,
-      teams: _v99.filter(_v0 => "metadata.connections.video.likes" !== _v0 && "metadata.connections.video.comments" !== _v0),
+    _v95 = _v0 => null !== _v0 && _v0.remaining <= 0,
+    _v96 = "22.5rem",
+    _v97 = ["metadata.connections.video.title", "metadata.connections.video.duration", "metadata.connections.video.created_time", "metadata.connections.video.likes", "metadata.connections.video.comments"],
+    _v98 = {
+      sessions: _v97,
+      teams: _v97.filter(_v0 => "metadata.connections.video.likes" !== _v0 && "metadata.connections.video.comments" !== _v0),
       bandwidth: [],
       retention: [],
       live: [],
       storage: []
     },
-    _v101 = _v0 => {
-      let _v1 = _v100[_v0.dataset];
+    _v99 = _v0 => {
+      let _v1 = _v98[_v0.dataset];
       return _v0.fields.filter(_v0 => _v1.includes(_v0));
     },
-    _v102 = _v0 => {
+    _v100 = _v0 => {
       let _v1 = _v0.trim();
       if (/^\d+$/.test(_v1)) return _v1;
       let _v2 = /^(?:\/users\/\d+)?\/videos\/(\d+)(?::[^/]*)?$/.exec(_v1);
       return null === _v2 ? null : _v2[1];
     },
-    _v103 = _v0 => "string" == typeof _v0 && _v0.length > 0 && _v0.length <= 255,
-    _v104 = (_v0, _v1) => Array.isArray(_v0) && _v0.length <= _v1 && _v0.every(_v103),
-    _v105 = _v0 => (0, _v55.isRecord)(_v0) && _v103(_v0.field) && _v104(_v0.values, 50),
-    _v106 = _v0 => {
+    _v101 = _v0 => "string" == typeof _v0 && _v0.length > 0 && _v0.length <= 255,
+    _v102 = (_v0, _v1) => Array.isArray(_v0) && _v0.length <= _v1 && _v0.every(_v101),
+    _v103 = _v0 => (0, _v55.isRecord)(_v0) && _v101(_v0.field) && _v102(_v0.values, 50),
+    _v104 = _v0 => {
       var _v1, _v2;
       let _v3;
-      if (!(0, _v55.isRecord)(_v0) || !("string" == typeof (_v3 = _v0.dataset) && _v91.has(_v3))) return null;
+      if (!(0, _v55.isRecord)(_v0) || !("string" == typeof (_v3 = _v0.dataset) && _v89.has(_v3))) return null;
       let _v4 = _v0.dataset,
         _v5 = _v0.dimensions;
-      if (!_v104(_v5, 10)) return null;
+      if (!_v102(_v5, 10)) return null;
       let _v6 = _v0.metrics;
-      if (!_v104(_v6, 10) || 0 === _v6.length) return null;
-      let _v7 = Array.isArray(_v1 = _v0.filters) && !(_v1.length > 20) && _v1.every(_v105) ? _v1 : null;
+      if (!_v102(_v6, 10) || 0 === _v6.length) return null;
+      let _v7 = Array.isArray(_v1 = _v0.filters) && !(_v1.length > 20) && _v1.every(_v103) ? _v1 : null;
       if (null === _v7) return null;
-      let _v8 = null == (_v2 = _v0.fields) ? [] : _v104(_v2, 20) ? _v2 : null;
+      let _v8 = null == (_v2 = _v0.fields) ? [] : _v102(_v2, 20) ? _v2 : null;
       if (null === _v8) return null;
       let _v9 = "string" == typeof _v0.timeInterval ? _v0.timeInterval : "string" == typeof _v0.time_interval ? _v0.time_interval : null,
         _v10 = "string" == typeof _v0.sort ? _v0.sort : null;
@@ -515,9 +472,9 @@
         limit: "number" == typeof _v0.limit && Number.isFinite(_v0.limit) && _v0.limit >= 1 ? Math.min(Math.floor(_v0.limit), 0) : 10
       };
     },
-    _v107 = _v0 => {
-      if (!(0, _v55.isRecord)(_v0) || "number" != typeof _v0.id || "string" != typeof _v0.title || !_v90(_v0.chartType)) return null;
-      let _v1 = _v106(_v0.query);
+    _v105 = _v0 => {
+      if (!(0, _v55.isRecord)(_v0) || "number" != typeof _v0.id || "string" != typeof _v0.title || !_v88(_v0.chartType)) return null;
+      let _v1 = _v104(_v0.query);
       return null === _v1 ? null : {
         id: _v0.id,
         title: _v0.title,
@@ -527,10 +484,10 @@
         createdTime: "string" == typeof _v0.createdTime && "" !== _v0.createdTime ? _v0.createdTime : null
       };
     },
-    _v108 = new Set(["bucket", "dimension", "time"]),
-    _v109 = "query",
-    _v110 = "not_supported",
-    _v111 = (0, _v29.translate)({
+    _v106 = new Set(["bucket", "dimension", "time"]),
+    _v107 = "query",
+    _v108 = "not_supported",
+    _v109 = (0, _v29.translate)({
       singular: "Need more? Contact sales to make them unlimited.",
       dictionary: {
         es: {
@@ -556,7 +513,7 @@
         }
       }
     }),
-    _v112 = (0, _v29.translate)({
+    _v110 = (0, _v29.translate)({
       singular: "Contact sales to go unlimited.",
       dictionary: {
         es: {
@@ -582,7 +539,7 @@
         }
       }
     }),
-    _v113 = (0, _v29.translate)({
+    _v111 = (0, _v29.translate)({
       singular: "Contact sales",
       dictionary: {
         es: {
@@ -608,15 +565,15 @@
         }
       }
     }),
-    _v114 = "/enterprise/contact-us",
-    _v115 = ({
+    _v112 = "/enterprise/contact-us",
+    _v113 = ({
       quota: _v0
     }) => {
       let _v1,
-        _v2 = (0, _v87.useColorModeValue)("purple.50", "purple.900");
-      if (_v97(_v0)) {
+        _v2 = (0, _v85.useColorModeValue)("purple.50", "purple.900");
+      if (_v95(_v0)) {
         let _v0;
-        return (0, _v3.jsxs)(_v85.AlertRoot, {
+        return (0, _v3.jsxs)(_v83.AlertRoot, {
           backgroundColor: "status-caution-secondary",
           borderRadius: "lg",
           width: "100%",
@@ -625,8 +582,8 @@
           paddingY: "2",
           gap: "2",
           alignItems: "center",
-          children: [(0, _v3.jsx)(_v84.AlertIcon, {
-            children: (0, _v3.jsx)(_v88.CircleExclamationFilled, {
+          children: [(0, _v3.jsx)(_v82.AlertIcon, {
+            children: (0, _v3.jsx)(_v86.CircleExclamationFilled, {
               color: "status-caution-primary"
             })
           }), (0, _v3.jsxs)(_v6.Flex, {
@@ -636,7 +593,7 @@
             children: [(0, _v3.jsxs)(_v6.Flex, {
               direction: "column",
               flex: 1,
-              children: [(0, _v3.jsx)(_v86.AlertTitle, {
+              children: [(0, _v3.jsx)(_v84.AlertTitle, {
                 color: "text-primary",
                 fontSize: "heading-xs",
                 lineHeight: "1.4",
@@ -678,20 +635,20 @@
                     }
                   }
                 }))
-              }), (0, _v3.jsx)(_v83.AlertDescription, {
+              }), (0, _v3.jsx)(_v81.AlertDescription, {
                 color: "text-primary",
                 fontSize: "body-sm",
                 lineHeight: "1.2",
-                children: _v112
+                children: _v110
               })]
-            }), (0, _v3.jsx)(_v68.Button, {
+            }), (0, _v3.jsx)(_v66.Button, {
               as: "a",
-              href: _v114,
+              href: _v112,
               variant: "secondary",
               background: "input-fill",
               size: "xs",
               flexShrink: 0,
-              children: _v113
+              children: _v111
             })]
           })]
         });
@@ -755,28 +712,28 @@
           }), (0, _v3.jsx)(_v45.Text, {
             variant: "body-sm",
             color: "text-primary",
-            children: _v111
+            children: _v109
           })]
-        }), (0, _v3.jsx)(_v68.Button, {
+        }), (0, _v3.jsx)(_v66.Button, {
           as: "a",
-          href: _v114,
+          href: _v112,
           variant: "upsell",
           size: "xs",
           flexShrink: 0,
-          children: _v113
+          children: _v111
         })]
       });
     };
-  var _v116 = _v0.i(0),
-    _v117 = _v0.i(0),
-    _v118 = _v0.i(0),
-    _v119 = _v0.i(0);
-  let _v120 = {
+  var _v114 = _v0.i(0),
+    _v115 = _v0.i(0),
+    _v116 = _v0.i(0),
+    _v117 = _v0.i(0);
+  let _v118 = {
       "&:hover": {
         bg: "fill-component"
       }
     },
-    _v121 = ({
+    _v119 = ({
       text: _v0,
       onClick: _v1,
       isDisabled: _v2 = !1
@@ -791,7 +748,7 @@
       paddingY: "2",
       borderRadius: "md",
       backgroundColor: "transparent",
-      sx: _v2 ? void 0 : _v120,
+      sx: _v2 ? void 0 : _v118,
       cursor: _v2 ? "not-allowed" : "pointer",
       opacity: _v2 ? .4 : 1,
       onMouseDown: _v0 => {
@@ -803,19 +760,19 @@
         textAlign: "start",
         noOfLines: 1,
         children: _v0
-      }), (0, _v3.jsx)(_v119.ArrowRight, {
+      }), (0, _v3.jsx)(_v117.ArrowRight, {
         boxSize: "1.25rem",
         color: "text-primary",
         flexShrink: 0
       })]
     }),
-    _v122 = null,
-    _v123 = () => () => void 0,
-    _v124 = {
+    _v120 = null,
+    _v121 = () => () => void 0,
+    _v122 = {
       duration: .35,
       ease: "easeOut"
     },
-    _v125 = ({
+    _v123 = ({
       suggestion: _v0,
       isDisabled: _v1,
       onSelect: _v2
@@ -830,19 +787,19 @@
           return () => window.clearInterval(_v1);
         }, [_v0]), _v0.slice(0, _v1);
       })(_v0);
-      return (0, _v3.jsx)(_v121, {
+      return (0, _v3.jsx)(_v119, {
         text: _v3,
         isDisabled: _v1,
         onClick: () => _v2(_v0)
       });
     },
-    _v126 = ({
+    _v124 = ({
       suggestions: _v0,
       isDisabled: _v1 = !1,
       onSelect: _v2
     }) => {
-      let _v3 = !0 === (0, _v118.useReducedMotion)(),
-        _v4 = (0, _v4.useSyncExternalStore)(_v123, () => _v122 ??= (_v0 => {
+      let _v3 = !0 === (0, _v116.useReducedMotion)(),
+        _v4 = (0, _v4.useSyncExternalStore)(_v121, () => _v120 ??= (_v0 => {
           let _v1 = [..._v0];
           for (let _v0 = _v1.length - 1; _v0 > 0; _v0 -= 1) {
             let _v0 = Math.floor(Math.random() * (_v0 + 1));
@@ -866,7 +823,7 @@
         direction: "column",
         gap: "1",
         width: "100%",
-        children: _v4.map(_v0 => (0, _v3.jsx)(_v121, {
+        children: _v4.map(_v0 => (0, _v3.jsx)(_v119, {
           text: _v0,
           isDisabled: _v1,
           onClick: () => _v2(_v0)
@@ -880,10 +837,10 @@
         gap: "1",
         width: "100%",
         overflow: "hidden",
-        children: (0, _v3.jsx)(_v116.AnimatePresence, {
+        children: (0, _v3.jsx)(_v114.AnimatePresence, {
           initial: !1,
           mode: "popLayout",
-          children: _v10.map(_v0 => (0, _v3.jsx)(_v117.motion.div, {
+          children: _v10.map(_v0 => (0, _v3.jsx)(_v115.motion.div, {
             layout: !0,
             initial: {
               opacity: 0,
@@ -897,8 +854,8 @@
               opacity: 0,
               y: -12
             },
-            transition: _v124,
-            children: (0, _v3.jsx)(_v125, {
+            transition: _v122,
+            children: (0, _v3.jsx)(_v123, {
               suggestion: _v0,
               isDisabled: _v1,
               onSelect: _v2
@@ -907,16 +864,16 @@
         })
       });
     };
-  var _v127 = _v0.i(0),
-    _v128 = _v0.i(0),
-    _v129 = _v0.i(0);
-  let _v130 = ({
+  var _v125 = _v0.i(0),
+    _v126 = _v0.i(0),
+    _v127 = _v0.i(0);
+  let _v128 = ({
       credits: _v0,
       isCreditTrialActive: _v1
     }) => (0, _v3.jsxs)(_v6.Flex, {
       alignItems: "center",
       gap: "1",
-      children: [(0, _v3.jsx)(_v129.VimeoCoin, {
+      children: [(0, _v3.jsx)(_v127.VimeoCoin, {
         boxSize: "0.75rem",
         color: "text-primary",
         transform: "translateY(-0.5px)"
@@ -1006,7 +963,7 @@
         })
       })]
     }),
-    _v131 = (0, _v29.translate)({
+    _v129 = (0, _v29.translate)({
       singular: "Send",
       dictionary: {
         es: {
@@ -1032,7 +989,7 @@
         }
       }
     }),
-    _v132 = ({
+    _v130 = ({
       prompt: _v0,
       onPromptChange: _v1,
       onSubmit: _v2,
@@ -1063,7 +1020,7 @@
       onSubmit: _v0 => {
         _v0.preventDefault(), _v5 || _v3 || _v0.trim().length > 0 && _v2(_v0.trim());
       },
-      children: [(0, _v3.jsx)(_v127.Input, {
+      children: [(0, _v3.jsx)(_v125.Input, {
         ref: _v7,
         placeholder: _v4,
         value: _v0,
@@ -1090,22 +1047,22 @@
         alignItems: "center",
         gap: "3",
         padding: "3",
-        children: [(0, _v3.jsx)(_v130, {
+        children: [(0, _v3.jsx)(_v128, {
           credits: 50,
           isCreditTrialActive: _v6
         }), (0, _v3.jsx)(_v39.IconButton, {
           size: "sm",
           variant: "primary",
-          "aria-label": _v131,
+          "aria-label": _v129,
           type: "submit",
           icon: _v3 ? (0, _v3.jsx)(_v10.Spinner, {
             size: "xs"
-          }) : (0, _v3.jsx)(_v128.Send, {}),
+          }) : (0, _v3.jsx)(_v126.Send, {}),
           isDisabled: _v5 || _v3 || 0 === _v0.trim().length
         })]
       })]
     }),
-    _v133 = [(0, _v29.translate)({
+    _v131 = [(0, _v29.translate)({
       singular: "Which videos are trending on mobile devices right now?",
       dictionary: {
         es: {
@@ -1306,7 +1263,7 @@
         }
       }
     })],
-    _v134 = (0, _v29.translate)({
+    _v132 = (0, _v29.translate)({
       singular: "Vimeo AI",
       dictionary: {
         "fr-FR": {
@@ -1314,7 +1271,7 @@
         }
       }
     }),
-    _v135 = (0, _v29.translate)({
+    _v133 = (0, _v29.translate)({
       singular: "Custom analytics",
       dictionary: {
         es: {
@@ -1340,7 +1297,7 @@
         }
       }
     }),
-    _v136 = (0, _v29.translate)({
+    _v134 = (0, _v29.translate)({
       singular: "Generate and combine data widgets into {ITALIC}your own{/ITALIC} custom dashboard.",
       replacements: {
         ITALIC: _v0 => (0, _v3.jsx)(_v45.Text, {
@@ -1373,7 +1330,7 @@
         }
       }
     }),
-    _v137 = (0, _v29.translate)({
+    _v135 = (0, _v29.translate)({
       singular: "Create a custom widget...",
       dictionary: {
         es: {
@@ -1399,7 +1356,7 @@
         }
       }
     }),
-    _v138 = (0, _v29.translate)({
+    _v136 = (0, _v29.translate)({
       singular: "Top videos by views in the last 30 days",
       dictionary: {
         es: {
@@ -1425,17 +1382,17 @@
         }
       }
     }),
-    _v139 = (0, _v29.translate)({
+    _v137 = (0, _v29.translate)({
       singular: "By using Vimeo AI, you agree to our {TERMS}Terms of Service{/TERMS} and acknowledge our {PRIVACY}Privacy Policy{/PRIVACY}.",
       replacements: {
-        TERMS: _v0 => (0, _v3.jsx)(_v82.Link, {
+        TERMS: _v0 => (0, _v3.jsx)(_v80.Link, {
           isExternal: !0,
           href: "https://vimeo.com/legal/",
           color: "text-secondary",
           textDecoration: "underline",
           children: _v0
         }, "terms-link"),
-        PRIVACY: _v0 => (0, _v3.jsx)(_v82.Link, {
+        PRIVACY: _v0 => (0, _v3.jsx)(_v80.Link, {
           isExternal: !0,
           href: "https://vimeo.com/legal/privacy/policy",
           color: "text-secondary",
@@ -1467,7 +1424,7 @@
         }
       }
     }),
-    _v140 = ({
+    _v138 = ({
       prompt: _v0,
       onPromptChange: _v1,
       onSubmit: _v2,
@@ -1475,7 +1432,7 @@
       isCreditTrialActive: _v4,
       promptQuota: _v5
     }) => {
-      let _v6 = _v97(_v5);
+      let _v6 = _v95(_v5);
       return (0, _v3.jsxs)(_v6.Flex, {
         direction: "column",
         alignItems: "center",
@@ -1488,27 +1445,27 @@
           gap: "md",
           paddingX: "3",
           textAlign: "center",
-          children: [(0, _v3.jsx)(_v81.Badge, {
+          children: [(0, _v3.jsx)(_v79.Badge, {
             variant: "new",
             size: "sm",
-            children: _v134
+            children: _v132
           }), (0, _v3.jsxs)(_v6.Flex, {
             direction: "column",
             gap: "0",
             children: [(0, _v3.jsx)(_v38.Header, {
               size: "lg",
-              children: _v135
+              children: _v133
             }), (0, _v3.jsx)(_v45.Text, {
               variant: "body-lg",
               color: "text-secondary",
-              children: _v136
+              children: _v134
             })]
           })]
         }), (0, _v3.jsxs)(_v6.Flex, {
           direction: "column",
           gap: "3",
           width: "100%",
-          children: [null !== _v5 ? (0, _v3.jsx)(_v115, {
+          children: [null !== _v5 ? (0, _v3.jsx)(_v113, {
             quota: _v5
           }) : null, (0, _v3.jsx)(_v5.Box, {
             backgroundColor: "fill-component",
@@ -1520,16 +1477,16 @@
             children: (0, _v3.jsxs)(_v6.Flex, {
               direction: "column",
               gap: "1",
-              children: [(0, _v3.jsx)(_v132, {
+              children: [(0, _v3.jsx)(_v130, {
                 prompt: _v0,
                 onPromptChange: _v1,
                 onSubmit: _v0 => _v2(_v0, "input"),
                 isSubmitting: _v3,
-                placeholder: _v6 ? _v138 : _v137,
+                placeholder: _v6 ? _v136 : _v135,
                 isDisabled: _v6,
                 isCreditTrialActive: _v4
-              }), _v6 ? null : (0, _v3.jsx)(_v126, {
-                suggestions: _v133,
+              }), _v6 ? null : (0, _v3.jsx)(_v124, {
+                suggestions: _v131,
                 isDisabled: _v3,
                 onSelect: _v0 => _v2(_v0, "suggestion")
               })]
@@ -1538,14 +1495,14 @@
             variant: "body-sm",
             color: "text-secondary",
             textAlign: "center",
-            children: _v139
+            children: _v137
           })]
         })]
       });
     };
-  var _v141 = _v0.i(0),
-    _v142 = _v0.i(0);
-  let _v143 = (0, _v29.translate)({
+  var _v139 = _v0.i(0),
+    _v140 = _v0.i(0);
+  let _v141 = (0, _v29.translate)({
       singular: "Share feedback",
       dictionary: {
         es: {
@@ -1571,7 +1528,7 @@
         }
       }
     }),
-    _v144 = (0, _v29.translate)({
+    _v142 = (0, _v29.translate)({
       singular: "We'd love to hear what went well or how we can improve",
       dictionary: {
         es: {
@@ -1597,7 +1554,7 @@
         }
       }
     }),
-    _v145 = (0, _v29.translate)({
+    _v143 = (0, _v29.translate)({
       singular: "Enter your feedback",
       dictionary: {
         es: {
@@ -1623,7 +1580,7 @@
         }
       }
     }),
-    _v146 = (0, _v29.translate)({
+    _v144 = (0, _v29.translate)({
       singular: "Submit",
       dictionary: {
         es: {
@@ -1649,7 +1606,7 @@
         }
       }
     }),
-    _v147 = (0, _v29.translate)({
+    _v145 = (0, _v29.translate)({
       singular: "Thanks for your feedback",
       dictionary: {
         es: {
@@ -1675,7 +1632,7 @@
         }
       }
     }),
-    _v148 = ({
+    _v146 = ({
       isOpen: _v0,
       onClose: _v1,
       trackingContext: _v2
@@ -1690,66 +1647,66 @@
       let _v8 = () => {
         _v7(""), _v1();
       };
-      return (0, _v3.jsxs)(_v69.Modal, {
+      return (0, _v3.jsxs)(_v67.Modal, {
         isOpen: !0,
         onClose: () => {
           _v4(_v2), _v8();
         },
         isCentered: !0,
-        children: [(0, _v3.jsx)(_v74.ModalOverlay, {}), (0, _v3.jsxs)(_v71.ModalContent, {
+        children: [(0, _v3.jsx)(_v72.ModalOverlay, {}), (0, _v3.jsxs)(_v69.ModalContent, {
           maxWidth: "30rem",
           borderRadius: "lg",
           overflow: "hidden",
-          children: [(0, _v3.jsx)(_v141.ModalCloseButton, {}), (0, _v3.jsxs)(_v73.ModalHeader, {
+          children: [(0, _v3.jsx)(_v139.ModalCloseButton, {}), (0, _v3.jsxs)(_v71.ModalHeader, {
             paddingTop: "lg",
             paddingX: "lg",
             paddingBottom: "0",
             children: [(0, _v3.jsx)(_v38.Header, {
               size: "md",
-              children: _v143
+              children: _v141
             }), (0, _v3.jsx)(_v45.Text, {
               variant: "body-md",
               color: "text-secondary",
               paddingTop: "1",
-              children: _v144
+              children: _v142
             })]
-          }), (0, _v3.jsx)(_v70.ModalBody, {
+          }), (0, _v3.jsx)(_v68.ModalBody, {
             paddingX: "lg",
             paddingTop: "lg",
             paddingBottom: "lg",
-            children: (0, _v3.jsx)(_v142.Textarea, {
+            children: (0, _v3.jsx)(_v140.Textarea, {
               value: _v6,
               onChange: _v0 => _v7(_v0.target.value),
-              placeholder: _v145,
-              "aria-label": _v145,
+              placeholder: _v143,
+              "aria-label": _v143,
               minHeight: "7.5rem",
               width: "100%",
               resize: "none"
             })
-          }), (0, _v3.jsx)(_v72.ModalFooter, {
+          }), (0, _v3.jsx)(_v70.ModalFooter, {
             paddingX: "lg",
             paddingTop: "0",
             paddingBottom: "lg",
-            children: (0, _v3.jsx)(_v68.Button, {
+            children: (0, _v3.jsx)(_v66.Button, {
               onClick: () => {
                 let _v0 = _v6.trim();
                 0 !== _v0.length && (_v3({
                   comment: _v0,
                   context: _v2
                 }), _v5({
-                  title: _v147,
+                  title: _v145,
                   variant: "neutral",
                   isClosable: !1
                 }), _v8());
               },
               isDisabled: 0 === _v6.trim().length,
-              children: _v146
+              children: _v144
             })
           })]
         })]
       });
     },
-    _v149 = (0, _v29.translate)({
+    _v147 = (0, _v29.translate)({
       singular: "You don’t have permission to view this data.",
       dictionary: {
         es: {
@@ -1775,7 +1732,7 @@
         }
       }
     }),
-    _v150 = () => (0, _v3.jsx)(_v6.Flex, {
+    _v148 = () => (0, _v3.jsx)(_v6.Flex, {
       height: "100%",
       alignItems: "center",
       justifyContent: "center",
@@ -1783,19 +1740,19 @@
         variant: "body-md",
         color: "text-secondary",
         textAlign: "center",
-        children: _v149
+        children: _v147
       })
     });
-  var _v151 = _v0.i(0),
-    _v152 = _v0.i(0);
-  let _v153 = {
+  var _v149 = _v0.i(0),
+    _v150 = _v0.i(0);
+  let _v151 = {
       duration: .25,
       ease: "easeOut"
     },
-    _v154 = {
+    _v152 = {
       duration: 0
     },
-    _v155 = (0, _v29.translate)({
+    _v153 = (0, _v29.translate)({
       singular: "New data widget",
       dictionary: {
         es: {
@@ -1817,11 +1774,11 @@
           singular: "Novo widget de dados"
         },
         "zh-CN": {
-          singular: "新建数据小部件"
+          singular: "新数据小部件"
         }
       }
     }),
-    _v156 = (0, _v29.translate)({
+    _v154 = (0, _v29.translate)({
       singular: "Generate a new custom data widget...",
       dictionary: {
         es: {
@@ -1847,7 +1804,7 @@
         }
       }
     }),
-    _v157 = (0, _v29.translate)({
+    _v155 = (0, _v29.translate)({
       singular: "Top videos by views in the last 30 days",
       dictionary: {
         es: {
@@ -1873,7 +1830,7 @@
         }
       }
     }),
-    _v158 = (0, _v29.translate)({
+    _v156 = (0, _v29.translate)({
       singular: "Close",
       dictionary: {
         es: {
@@ -1899,7 +1856,7 @@
         }
       }
     }),
-    _v159 = {
+    _v157 = {
       "@keyframes ai-overlay-panel-in": {
         from: {
           opacity: 0,
@@ -1911,7 +1868,7 @@
         }
       }
     },
-    _v160 = {
+    _v158 = {
       "@keyframes ai-overlay-panel-out": {
         from: {
           opacity: 1,
@@ -1923,7 +1880,7 @@
         }
       }
     },
-    _v161 = {
+    _v159 = {
       "@keyframes ai-overlay-trigger-in": {
         from: {
           opacity: 0,
@@ -1935,7 +1892,7 @@
         }
       }
     },
-    _v162 = {
+    _v160 = {
       "@keyframes ai-overlay-trigger-out": {
         from: {
           opacity: 1,
@@ -1947,7 +1904,7 @@
         }
       }
     },
-    _v163 = ({
+    _v161 = ({
       onExpand: _v0,
       isExiting: _v1
     }) => (0, _v3.jsx)(_v5.Box, {
@@ -1958,7 +1915,7 @@
       left: "50%",
       pointerEvents: "auto",
       transform: "translateX(-50%)",
-      "aria-label": _v155,
+      "aria-label": _v153,
       onClick: _v0,
       display: "flex",
       alignItems: "center",
@@ -1971,7 +1928,7 @@
       boxShadow: "md",
       sx: {
         animation: `ai-overlay-trigger-${_v1 ? "out" : "in"} 240ms cubic-bezier(0.4, 0, 0.2, 1) forwards`,
-        ...(_v1 ? _v162 : _v161)
+        ...(_v1 ? _v160 : _v159)
       },
       _hover: {
         backgroundColor: "fill-component"
@@ -1986,12 +1943,12 @@
         backgroundColor: "surface",
         borderWidth: "1px",
         borderColor: "stroke",
-        children: (0, _v3.jsx)(_v151.AiSparkles, {
+        children: (0, _v3.jsx)(_v149.AiSparkles, {
           boxSize: "1.25rem"
         })
       })
     }),
-    _v164 = ({
+    _v162 = ({
       isSubmitting: _v0,
       hasWidgets: _v1,
       isCreditTrialActive: _v2,
@@ -2000,8 +1957,8 @@
       onPromptChange: _v5,
       onSubmit: _v6
     }) => {
-      let _v7 = !0 === (0, _v118.useReducedMotion)(),
-        _v8 = _v97(_v3),
+      let _v7 = !0 === (0, _v116.useReducedMotion)(),
+        _v8 = _v95(_v3),
         [_v9, _v10] = (0, _v4.useState)(!1),
         [_v11, _v12] = (0, _v4.useState)(!0),
         _v13 = !_v8 && (_v9 || !_v1),
@@ -2074,9 +2031,9 @@
           width: "30rem",
           sx: {
             animation: `ai-overlay-panel-${_v11 ? "in" : "out"} 240ms cubic-bezier(0.4, 0, 0.2, 1) forwards`,
-            ...(_v11 ? _v159 : _v160)
+            ...(_v11 ? _v157 : _v158)
           },
-          children: [null !== _v3 ? (0, _v3.jsx)(_v115, {
+          children: [null !== _v3 ? (0, _v3.jsx)(_v113, {
             quota: _v3
           }) : null, (0, _v3.jsxs)(_v5.Box, {
             width: "100%",
@@ -2095,19 +2052,19 @@
               gap: "1",
               paddingLeft: "2",
               paddingRight: "px",
-              children: [(0, _v3.jsx)(_v151.AiSparkles, {
+              children: [(0, _v3.jsx)(_v149.AiSparkles, {
                 boxSize: "1.25rem"
               }), (0, _v3.jsx)(_v45.Text, {
                 variant: "heading-xs",
                 color: "text-primary",
                 flex: 1,
                 noOfLines: 1,
-                children: _v155
+                children: _v153
               }), (0, _v3.jsx)(_v39.IconButton, {
                 size: "xs",
                 variant: "tertiary",
-                "aria-label": _v158,
-                icon: (0, _v3.jsx)(_v152.CloseXSmall, {}),
+                "aria-label": _v156,
+                icon: (0, _v3.jsx)(_v150.CloseXSmall, {}),
                 onMouseDown: _v0 => {
                   _v0.preventDefault();
                 },
@@ -2115,9 +2072,9 @@
                   _v20.current?.blur(), _v19(!1);
                 }
               })]
-            }), (0, _v3.jsx)(_v116.AnimatePresence, {
+            }), (0, _v3.jsx)(_v114.AnimatePresence, {
               initial: !1,
-              children: _v13 ? (0, _v3.jsx)(_v117.motion.div, {
+              children: _v13 ? (0, _v3.jsx)(_v115.motion.div, {
                 initial: {
                   opacity: 0,
                   height: 0
@@ -2130,22 +2087,22 @@
                   opacity: 0,
                   height: 0
                 },
-                transition: _v7 ? _v154 : _v153,
+                transition: _v7 ? _v152 : _v151,
                 style: {
                   overflow: "hidden"
                 },
-                children: (0, _v3.jsx)(_v126, {
-                  suggestions: _v133,
+                children: (0, _v3.jsx)(_v124, {
+                  suggestions: _v131,
                   isDisabled: _v0,
                   onSelect: _v0 => _v24(_v0, "suggestion")
                 })
               }, "suggestions") : null
-            }), (0, _v3.jsx)(_v132, {
+            }), (0, _v3.jsx)(_v130, {
               prompt: _v4,
               onPromptChange: _v5,
               onSubmit: _v0 => _v24(_v0, "input"),
               isSubmitting: _v0,
-              placeholder: _v8 ? _v157 : _v156,
+              placeholder: _v8 ? _v155 : _v154,
               isDisabled: _v8,
               isCreditTrialActive: _v2,
               inputRef: _v20,
@@ -2153,27 +2110,27 @@
               onBlur: () => _v10(!1)
             })]
           })]
-        }) : null, _v18 ? (0, _v3.jsx)(_v163, {
+        }) : null, _v18 ? (0, _v3.jsx)(_v161, {
           onExpand: () => _v19(!0),
           isExiting: _v11
         }) : null]
       });
     };
-  var _v165 = _v21,
+  var _v163 = _v21,
+    _v164 = _v0.i(0),
+    _v165 = _v0.i(0),
     _v166 = _v0.i(0),
     _v167 = _v0.i(0),
     _v168 = _v0.i(0),
     _v169 = _v0.i(0),
     _v170 = _v0.i(0),
-    _v171 = _v0.i(0),
-    _v172 = _v0.i(0),
-    _v173 = _v0.i(0);
-  let _v174 = new Set(["total", "all-time"]),
-    _v175 = new Set(["hour", "day", "week", "month", "year"]),
-    _v176 = _v0 => "string" == typeof _v0 && _v175.has(_v0),
-    _v177 = _v0 => _v0.dimensions.filter(_v0 => !_v174.has(_v0) && !_v176(_v0)),
-    _v178 = _v0 => null !== _v0.timeInterval && _v176(_v0.timeInterval) ? _v0.timeInterval : null,
-    _v179 = (0, _v29.translate)({
+    _v171 = _v0.i(0);
+  let _v172 = new Set(["total", "all-time"]),
+    _v173 = new Set(["hour", "day", "week", "month", "year"]),
+    _v174 = _v0 => "string" == typeof _v0 && _v173.has(_v0),
+    _v175 = _v0 => _v0.dimensions.filter(_v0 => !_v172.has(_v0) && !_v174(_v0)),
+    _v176 = _v0 => null !== _v0.timeInterval && _v174(_v0.timeInterval) ? _v0.timeInterval : null,
+    _v177 = (0, _v29.translate)({
       singular: "Metrics",
       dictionary: {
         es: {
@@ -2199,7 +2156,7 @@
         }
       }
     }),
-    _v180 = (0, _v29.translate)({
+    _v178 = (0, _v29.translate)({
       singular: "Grouping",
       dictionary: {
         es: {
@@ -2225,7 +2182,7 @@
         }
       }
     }),
-    _v181 = (0, _v29.translate)({
+    _v179 = (0, _v29.translate)({
       singular: "Sorting",
       dictionary: {
         es: {
@@ -2251,7 +2208,7 @@
         }
       }
     }),
-    _v182 = (0, _v29.translate)({
+    _v180 = (0, _v29.translate)({
       singular: "Interval",
       dictionary: {
         es: {
@@ -2277,7 +2234,7 @@
         }
       }
     }),
-    _v183 = {
+    _v181 = {
       views: () => (0, _v29.translate)({
         singular: "views",
         dictionary: {
@@ -2845,7 +2802,7 @@
         }
       })
     },
-    _v184 = {
+    _v182 = {
       video: () => (0, _v29.translate)({
         singular: "video",
         dictionary: {
@@ -3494,7 +3451,7 @@
         }
       })
     },
-    _v185 = {
+    _v183 = {
       time: () => (0, _v29.translate)({
         singular: "date",
         dictionary: {
@@ -4304,7 +4261,7 @@
         }
       })
     },
-    _v186 = {
+    _v184 = {
       content: () => (0, _v29.translate)({
         singular: "Videos",
         dictionary: {
@@ -4664,7 +4621,7 @@
         }
       })
     },
-    _v187 = {
+    _v185 = {
       hour: () => (0, _v29.translate)({
         singular: "hourly",
         dictionary: {
@@ -4796,7 +4753,7 @@
         }
       })
     },
-    _v188 = {
+    _v186 = {
       mobile: () => (0, _v29.translate)({
         singular: "mobile",
         dictionary: {
@@ -5046,10 +5003,10 @@
         }
       })
     },
-    _v189 = (_v0, _v1) => (_v0[_v1] ?? (() => _v1.replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/_/g, " ").toLowerCase()))(),
-    _v190 = _v0 => !_v174.has(_v0) && !_v176(_v0),
-    _v191 = ["time", "day", "week", "month", "year"],
-    _v192 = (0, _v29.translate)({
+    _v187 = (_v0, _v1) => (_v0[_v1] ?? (() => _v1.replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/_/g, " ").toLowerCase()))(),
+    _v188 = _v0 => !_v172.has(_v0) && !_v174(_v0),
+    _v189 = ["time", "day", "week", "month", "year"],
+    _v190 = (0, _v29.translate)({
       singular: "Chart details",
       dictionary: {
         es: {
@@ -5075,19 +5032,19 @@
         }
       }
     }),
-    _v193 = ({
+    _v191 = ({
       spec: _v0
     }) => {
       let _v1 = (0, _v4.useMemo)(() => {
         var _v0;
         let _v1, _v2, _v3, _v4, _v5;
-        return _v1 = [], (_v2 = (_v0 = _v0).metrics.map(_v0 => _v189(_v183, _v0))).length > 0 && _v1.push({
+        return _v1 = [], (_v2 = (_v0 = _v0).metrics.map(_v0 => _v187(_v181, _v0))).length > 0 && _v1.push({
           kind: "metric",
-          label: _v179,
+          label: _v177,
           value: _v2.join(", ")
-        }), (_v3 = _v0.dimensions.filter(_v190).map(_v0 => _v189(_v184, _v0))).length > 0 && _v1.push({
+        }), (_v3 = _v0.dimensions.filter(_v188).map(_v0 => _v187(_v182, _v0))).length > 0 && _v1.push({
           kind: "breakdown",
-          label: _v180,
+          label: _v178,
           value: (0, _v29.translate)({
             singular: "by {values}",
             replacements: {
@@ -5118,11 +5075,11 @@
             }
           })
         }), null !== (_v4 = (_v0 => {
-          if (null === _v0.sort || "default" === _v0.sort || _v191.includes(_v0.sort)) return null;
-          let _v1 = _v189(_v185, _v0.sort);
+          if (null === _v0.sort || "default" === _v0.sort || _v189.includes(_v0.sort)) return null;
+          let _v1 = _v187(_v183, _v0.sort);
           return {
             kind: "sort",
-            label: _v181,
+            label: _v179,
             value: "desc" === _v0.direction ? (0, _v29.translate)({
               singular: "by {value}, highest first",
               replacements: {
@@ -5183,32 +5140,32 @@
           };
         })(_v0)) && _v1.push(_v4), _v1.push(..._v0.filters.filter(_v0 => _v0.values.length > 0).map(_v0 => ({
           kind: "filter",
-          label: _v189(_v186, _v0.field),
-          value: ("content" === _v0.field ? _v0.values : _v0.values.map(_v0 => _v188[_v0]?.() ?? _v0)).join(", ")
+          label: _v187(_v184, _v0.field),
+          value: ("content" === _v0.field ? _v0.values : _v0.values.map(_v0 => _v186[_v0]?.() ?? _v0)).join(", ")
         }))), null !== (_v5 = (_v0 => {
-          if (null !== _v0.timeInterval && _v0.timeInterval in _v187) return _v189(_v187, _v0.timeInterval);
-          let _v1 = _v0.dimensions.find(_v176);
-          return void 0 !== _v1 ? _v189(_v187, _v1) : null;
+          if (null !== _v0.timeInterval && _v0.timeInterval in _v185) return _v187(_v185, _v0.timeInterval);
+          let _v1 = _v0.dimensions.find(_v174);
+          return void 0 !== _v1 ? _v187(_v185, _v1) : null;
         })(_v0)) && _v1.push({
           kind: "time_grouping",
-          label: _v182,
+          label: _v180,
           value: _v5
         }), _v1;
       }, [_v0]);
-      return 0 === _v1.length ? null : (0, _v3.jsxs)(_v169.Popover, {
+      return 0 === _v1.length ? null : (0, _v3.jsxs)(_v167.Popover, {
         placement: "bottom-start",
         isLazy: !0,
-        children: [(0, _v3.jsx)(_v172.PopoverTrigger, {
-          children: (0, _v3.jsx)(_v68.Button, {
+        children: [(0, _v3.jsx)(_v170.PopoverTrigger, {
+          children: (0, _v3.jsx)(_v66.Button, {
             size: "sm",
             variant: "tertiary",
-            leftIcon: (0, _v3.jsx)(_v173.InfoCircle, {}),
-            children: _v192
+            leftIcon: (0, _v3.jsx)(_v171.InfoCircle, {}),
+            children: _v190
           })
-        }), (0, _v3.jsx)(_v171.PopoverContent, {
+        }), (0, _v3.jsx)(_v169.PopoverContent, {
           padding: "0",
           maxWidth: "15rem",
-          children: (0, _v3.jsx)(_v170.PopoverBody, {
+          children: (0, _v3.jsx)(_v168.PopoverBody, {
             paddingX: "0",
             paddingY: "1",
             children: (0, _v3.jsx)(_v6.Flex, {
@@ -5246,7 +5203,7 @@
         })]
       });
     },
-    _v194 = _v0 => (0, _v3.jsx)(_v52.Icon, {
+    _v192 = _v0 => (0, _v3.jsx)(_v52.Icon, {
       viewBox: "0 0 24 24",
       ..._v0,
       fill: "none",
@@ -5259,7 +5216,7 @@
         })]
       })
     }),
-    _v195 = (0, _v29.translate)({
+    _v193 = (0, _v29.translate)({
       singular: "Share feedback",
       dictionary: {
         es: {
@@ -5285,78 +5242,78 @@
         }
       }
     }),
-    _v196 = ({
+    _v194 = ({
       onClick: _v0,
       size: _v1 = "sm"
-    }) => (0, _v3.jsx)(_v68.Button, {
+    }) => (0, _v3.jsx)(_v66.Button, {
       variant: "tertiary",
       size: _v1,
-      leftIcon: (0, _v3.jsx)(_v194, {}),
+      leftIcon: (0, _v3.jsx)(_v192, {}),
       onClick: _v0,
-      children: _v195
+      children: _v193
     });
-  var _v197 = _v0.i(0),
+  var _v195 = _v0.i(0),
+    _v196 = _v0.i(0),
+    _v197 = _v0.i(0),
     _v198 = _v0.i(0),
     _v199 = _v0.i(0),
     _v200 = _v0.i(0),
     _v201 = _v0.i(0),
     _v202 = _v0.i(0),
-    _v203 = _v0.i(0),
-    _v204 = _v0.i(0),
-    _v205 = _v0.i(0);
-  let _v206 = "label",
-    _v207 = ["var(--vimeo-colors-vimeoBlue-600)", "var(--vimeo-colors-vimeoBlue-400)", "var(--vimeo-colors-vimeoBlue-200)", "var(--vimeo-colors-vimeoBlue-300)", "var(--vimeo-colors-vimeoBlue-500)", "var(--vimeo-colors-vimeoBlue-700)", "var(--vimeo-colors-vimeoBlue-100)", "var(--vimeo-colors-vimeoBlue-800)"],
-    _v208 = _v0 => _v207[_v0 % _v207.length],
-    _v209 = () => (0, _v4.useContext)(_v28.ViewerContext)?.locale ?? "en",
-    _v210 = _v0 => Object.keys(_v0.rows[0]?.values ?? {}),
-    _v211 = _v0 => _v0.replace(/\./g, " ").replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/_/g, " ").replace(/^./, _v0 => _v0.toUpperCase()),
-    _v212 = (_v0, _v1) => new Intl.NumberFormat(_v1, {
+    _v203 = _v0.i(0);
+  let _v204 = "label",
+    _v205 = ["var(--vimeo-colors-vimeoBlue-600)", "var(--vimeo-colors-vimeoBlue-400)", "var(--vimeo-colors-vimeoBlue-200)", "var(--vimeo-colors-vimeoBlue-300)", "var(--vimeo-colors-vimeoBlue-500)", "var(--vimeo-colors-vimeoBlue-700)", "var(--vimeo-colors-vimeoBlue-100)", "var(--vimeo-colors-vimeoBlue-800)"],
+    _v206 = _v0 => _v205[_v0 % _v205.length],
+    _v207 = () => (0, _v4.useContext)(_v28.ViewerContext)?.locale ?? "en",
+    _v208 = _v0 => Object.keys(_v0.rows[0]?.values ?? {}),
+    _v209 = _v0 => _v0.replace(/\./g, " ").replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/_/g, " ").replace(/^./, _v0 => _v0.toUpperCase()),
+    _v210 = (_v0, _v1) => new Intl.NumberFormat(_v1, {
       maximumFractionDigits: 2
     }).format(_v0),
-    _v213 = ["byte", "kilobyte", "megabyte", "gigabyte", "terabyte"],
-    _v214 = {
+    _v211 = ["byte", "kilobyte", "megabyte", "gigabyte", "terabyte"],
+    _v212 = {
       storage_bytes: "bytes",
       storage_free_bytes: "bytes",
       storage_pct: "percent"
     },
-    _v215 = _v0 => void 0 === _v0 ? null : _v214[_v0] ?? null,
-    _v216 = _v0 => {
+    _v213 = _v0 => void 0 === _v0 ? null : _v212[_v0] ?? null,
+    _v214 = _v0 => {
       if (0 === _v0.length) return null;
-      let _v1 = _v215(_v0[0]);
-      return null === _v1 ? null : _v0.every(_v0 => _v215(_v0) === _v1) ? _v1 : null;
+      let _v1 = _v213(_v0[0]);
+      return null === _v1 ? null : _v0.every(_v0 => _v213(_v0) === _v1) ? _v1 : null;
     },
-    _v217 = (_v0, _v1) => {
+    _v215 = (_v0, _v1) => {
       let _v2 = _v0,
         _v3 = 0;
-      for (; Math.abs(Math.round(_v2)) >= 0 && _v3 < _v213.length - 1;) _v2 /= 0, _v3 += 1;
+      for (; Math.abs(Math.round(_v2)) >= 0 && _v3 < _v211.length - 1;) _v2 /= 0, _v3 += 1;
       return new Intl.NumberFormat(_v1, {
         style: "unit",
-        unit: _v213[_v3],
+        unit: _v211[_v3],
         unitDisplay: 0 === _v3 ? "long" : "narrow",
         maximumFractionDigits: +(0 !== _v3)
       }).format(_v2);
     },
-    _v218 = (_v0, _v1) => new Intl.NumberFormat(_v1, {
+    _v216 = (_v0, _v1) => new Intl.NumberFormat(_v1, {
       style: "percent",
       maximumFractionDigits: 2
     }).format(_v0 / 100),
-    _v219 = (_v0, _v1, _v2) => {
+    _v217 = (_v0, _v1, _v2) => {
       if (null == _v0) return "—";
-      switch (_v215(_v2)) {
+      switch (_v213(_v2)) {
         case "bytes":
-          return _v217(_v0, _v1);
+          return _v215(_v0, _v1);
         case "percent":
-          return _v218(_v0, _v1);
+          return _v216(_v0, _v1);
         default:
-          return _v212(_v0, _v1);
+          return _v210(_v0, _v1);
       }
     },
-    _v220 = (_v0, _v1, _v2 = null) => {
+    _v218 = (_v0, _v1, _v2 = null) => {
       switch (_v2) {
         case "bytes":
-          return _v217(_v0, _v1);
+          return _v215(_v0, _v1);
         case "percent":
-          return _v218(_v0, _v1);
+          return _v216(_v0, _v1);
         default:
           return new Intl.NumberFormat(_v1, {
             notation: "compact",
@@ -5364,10 +5321,10 @@
           }).format(_v0);
       }
     },
-    _v221 = _v0 => null === _v0 ? 40 : 72,
-    _v222 = /^([\d.]+)px$/,
-    _v223 = /^([\d.]+)rem$/,
-    _v224 = (_v0, _v1, _v2 = null, _v3 = !1) => {
+    _v219 = _v0 => null === _v0 ? 40 : 72,
+    _v220 = /^([\d.]+)px$/,
+    _v221 = /^([\d.]+)rem$/,
+    _v222 = (_v0, _v1, _v2 = null, _v3 = !1) => {
       let _v4 = new Date(_v0);
       if (!_v0.includes("T") || Number.isNaN(_v4.getTime())) return _v0;
       switch (_v2) {
@@ -5400,15 +5357,15 @@
       });
       return `${_v5} ${_v6}`;
     },
-    _v225 = _v0 => _v0.rows.map(_v0 => ({
-      [_v206]: _v0.label ?? "",
+    _v223 = _v0 => _v0.rows.map(_v0 => ({
+      [_v204]: _v0.label ?? "",
       ..._v0.values
     })),
-    _v226 = ({
+    _v224 = ({
       label: _v0,
       items: _v1
     }) => {
-      let _v2 = (0, _v87.useColorModeValue)("gray.200", "gray.600");
+      let _v2 = (0, _v85.useColorModeValue)("gray.200", "gray.600");
       return (0, _v3.jsxs)(_v5.Box, {
         padding: "0.5rem 0.75rem",
         boxSizing: "border-box",
@@ -5440,7 +5397,7 @@
           lineHeight: "0.9rem",
           flexDirection: "row",
           justifyContent: "space-between",
-          children: [(0, _v3.jsx)(_v205.CircleShapeFilled, {
+          children: [(0, _v3.jsx)(_v203.CircleShapeFilled, {
             boxSize: "0.5rem",
             position: "relative",
             top: "0.156rem",
@@ -5471,13 +5428,13 @@
         }, _v0.id))]
       });
     },
-    _v227 = ({
+    _v225 = ({
       active: _v0,
       label: _v1,
       payload: _v2,
       labelFormatter: _v3
     }) => {
-      let _v4 = _v209();
+      let _v4 = _v207();
       if (!0 !== _v0 || void 0 === _v2 || 0 === _v2.length) return null;
       let _v5 = null == _v1 ? null : void 0 !== _v3 ? _v3(String(_v1)) : String(_v1),
         _v6 = _v2.map(_v0 => {
@@ -5488,20 +5445,20 @@
           return {
             id: "" === _v4 ? String(_v0.name ?? "") : _v4,
             color: _v0.color ?? _v0.payload?.fill ?? "",
-            name: _v0.name ?? _v211(_v4),
-            value: _v219(_v3, _v4, _v4)
+            name: _v0.name ?? _v209(_v4),
+            value: _v217(_v3, _v4, _v4)
           };
         });
-      return (0, _v3.jsx)(_v226, {
+      return (0, _v3.jsx)(_v224, {
         label: _v5,
         items: _v6
       });
     },
-    _v228 = (_v0, _v1) => {
+    _v226 = (_v0, _v1) => {
       let _v2 = String(_v0 ?? "");
       return void 0 === _v1 ? _v2 : _v1(_v2);
     },
-    _v229 = ({
+    _v227 = ({
       x: _v0 = 0,
       y: _v1 = 0,
       payload: _v2,
@@ -5516,10 +5473,10 @@
         fill: "text-tertiary",
         textAnchor: "middle",
         dy: "0.75rem",
-        children: _v228(_v2?.value, _v3)
+        children: _v226(_v2?.value, _v3)
       })
     }),
-    _v230 = ({
+    _v228 = ({
       x: _v0 = 0,
       y: _v1 = 0,
       payload: _v2,
@@ -5537,28 +5494,28 @@
         fill: "text-tertiary",
         textAnchor: _v6,
         dy: "0.35em",
-        children: _v228(_v2?.value, _v3)
+        children: _v226(_v2?.value, _v3)
       })
     }),
-    _v231 = {
+    _v229 = {
       top: 4,
       right: 8,
       bottom: 0,
       left: 0
     },
-    _v232 = ({
+    _v230 = ({
       data: _v0
     }) => {
       let _v1 = (0, _v8.useToken)("semanticTokens", "colors.stroke"),
         _v2 = (0, _v8.useToken)("fontSizes", "body-sm"),
         _v3 = (0, _v8.useToken)("fontSizes", "body-xs"),
-        _v4 = _v209(),
-        _v5 = (0, _v4.useMemo)(() => _v210(_v0), [_v0]),
-        _v6 = (0, _v4.useMemo)(() => _v216(_v5), [_v5]),
+        _v4 = _v207(),
+        _v5 = (0, _v4.useMemo)(() => _v208(_v0), [_v0]),
+        _v6 = (0, _v4.useMemo)(() => _v214(_v5), [_v5]),
         [_v7, _v8] = (0, _v4.useState)(null),
         _v9 = (0, _v4.useMemo)(() => {
           let _v0 = _v0.rows.length > 20 ? _v0.rows.slice(0, 20) : _v0.rows;
-          return _v225({
+          return _v223({
             ..._v0,
             rows: _v0
           });
@@ -5568,10 +5525,10 @@
           if (_v0 <= 0) return 6;
           let _v3 = _v0 / _v1 * .8;
           return _v3 >= _v2 ? null : Math.max(6, _v3);
-        })(_v7 - (30 + _v231.top + _v231.bottom + 24 * (_v5.length > 1)), _v9.length, (_v0 => {
-          let _v1 = _v222.exec(_v0);
+        })(_v7 - (30 + _v229.top + _v229.bottom + 24 * (_v5.length > 1)), _v9.length, (_v0 => {
+          let _v1 = _v220.exec(_v0);
           if (null !== _v1) return Number.parseFloat(_v1[1]);
-          let _v2 = _v223.exec(_v0);
+          let _v2 = _v221.exec(_v0);
           if (null === _v2) return 16;
           let _v3 = Number.parseFloat(getComputedStyle(document.documentElement).fontSize);
           return Number.parseFloat(_v2[1]) * (Number.isNaN(_v3) ? 16 : _v3);
@@ -5579,145 +5536,145 @@
         _v11 = (0, _v4.useCallback)((_v0, _v1) => {
           _v8(_v1);
         }, []);
-      return (0, _v3.jsx)(_v201.ResponsiveContainer, {
+      return (0, _v3.jsx)(_v199.ResponsiveContainer, {
         width: "100%",
         height: "100%",
         onResize: _v11,
-        children: (0, _v3.jsxs)(_v198.BarChart, {
+        children: (0, _v3.jsxs)(_v196.BarChart, {
           data: _v9,
           layout: "vertical",
-          margin: _v231,
-          children: [(0, _v3.jsx)(_v199.CartesianGrid, {
+          margin: _v229,
+          children: [(0, _v3.jsx)(_v197.CartesianGrid, {
             horizontal: !1,
             stroke: _v1
-          }), (0, _v3.jsx)(_v203.XAxis, {
+          }), (0, _v3.jsx)(_v201.XAxis, {
             type: "number",
             axisLine: {
               stroke: "var(--vimeo-colors-stroke)"
             },
             tickLine: !1,
             height: 30,
-            tick: (0, _v3.jsx)(_v229, {
-              formatValue: _v0 => _v220(Number(_v0), _v4, _v6)
+            tick: (0, _v3.jsx)(_v227, {
+              formatValue: _v0 => _v218(Number(_v0), _v4, _v6)
             })
-          }), (0, _v3.jsx)(_v204.YAxis, {
+          }), (0, _v3.jsx)(_v202.YAxis, {
             type: "category",
-            dataKey: _v206,
+            dataKey: _v204,
             axisLine: !1,
             tickLine: !1,
             width: 140,
             interval: 0,
-            tick: (0, _v3.jsx)(_v230, {
+            tick: (0, _v3.jsx)(_v228, {
               fontSize: _v10 ?? void 0
             })
-          }), (0, _v3.jsx)(_v202.Tooltip, {
+          }), (0, _v3.jsx)(_v200.Tooltip, {
             cursor: !1,
-            content: (0, _v3.jsx)(_v227, {})
-          }), _v5.length > 1 && (0, _v3.jsx)(_v200.Legend, {
+            content: (0, _v3.jsx)(_v225, {})
+          }), _v5.length > 1 && (0, _v3.jsx)(_v198.Legend, {
             wrapperStyle: {
               fontSize: _v2
             }
-          }), _v5.map((_v0, _v1) => (0, _v3.jsx)(_v197.Bar, {
+          }), _v5.map((_v0, _v1) => (0, _v3.jsx)(_v195.Bar, {
             dataKey: _v0,
-            name: _v211(_v0),
-            fill: _v208(_v1)
+            name: _v209(_v0),
+            fill: _v206(_v1)
           }, _v0))]
         })
       });
     };
-  var _v233 = _v0.i(0),
-    _v234 = _v0.i(0);
-  let _v235 = {
+  var _v231 = _v0.i(0),
+    _v232 = _v0.i(0);
+  let _v233 = {
       top: 4,
       right: 8,
       bottom: 0,
       left: 0
     },
-    _v236 = ({
+    _v234 = ({
       data: _v0
     }) => {
       let _v1 = (0, _v8.useToken)("semanticTokens", "colors.stroke"),
         _v2 = (0, _v8.useToken)("fontSizes", "body-xs"),
-        _v3 = _v209(),
-        [_v4, ..._v5] = _v210(_v0),
-        _v6 = _v216(void 0 === _v4 ? [] : [_v4]),
-        _v7 = _v216(_v5),
+        _v3 = _v207(),
+        [_v4, ..._v5] = _v208(_v0),
+        _v6 = _v214(void 0 === _v4 ? [] : [_v4]),
+        _v7 = _v214(_v5),
         _v8 = _v0.timeInterval;
-      return (0, _v3.jsx)(_v201.ResponsiveContainer, {
+      return (0, _v3.jsx)(_v199.ResponsiveContainer, {
         width: "100%",
         height: "100%",
-        children: (0, _v3.jsxs)(_v233.ComposedChart, {
-          data: _v225(_v0),
-          margin: _v235,
-          children: [(0, _v3.jsx)(_v199.CartesianGrid, {
+        children: (0, _v3.jsxs)(_v231.ComposedChart, {
+          data: _v223(_v0),
+          margin: _v233,
+          children: [(0, _v3.jsx)(_v197.CartesianGrid, {
             vertical: !1,
             stroke: _v1
-          }), (0, _v3.jsx)(_v203.XAxis, {
-            dataKey: _v206,
+          }), (0, _v3.jsx)(_v201.XAxis, {
+            dataKey: _v204,
             axisLine: {
               stroke: "var(--vimeo-colors-stroke)"
             },
             tickLine: !1,
             minTickGap: 40,
-            tick: (0, _v3.jsx)(_v229, {
-              formatValue: _v0 => _v224(_v0, _v3, _v8)
+            tick: (0, _v3.jsx)(_v227, {
+              formatValue: _v0 => _v222(_v0, _v3, _v8)
             }),
             tickMargin: 8
-          }), (0, _v3.jsx)(_v204.YAxis, {
+          }), (0, _v3.jsx)(_v202.YAxis, {
             yAxisId: "left",
             axisLine: !1,
             tickLine: !1,
-            width: _v221(_v6),
-            tick: (0, _v3.jsx)(_v230, {
-              formatValue: _v0 => _v220(Number(_v0), _v3, _v6)
+            width: _v219(_v6),
+            tick: (0, _v3.jsx)(_v228, {
+              formatValue: _v0 => _v218(Number(_v0), _v3, _v6)
             })
-          }), _v5.length > 0 && (0, _v3.jsx)(_v204.YAxis, {
+          }), _v5.length > 0 && (0, _v3.jsx)(_v202.YAxis, {
             yAxisId: "right",
             orientation: "right",
             axisLine: !1,
             tickLine: !1,
-            width: _v221(_v7),
-            tick: (0, _v3.jsx)(_v230, {
-              formatValue: _v0 => _v220(Number(_v0), _v3, _v7)
+            width: _v219(_v7),
+            tick: (0, _v3.jsx)(_v228, {
+              formatValue: _v0 => _v218(Number(_v0), _v3, _v7)
             })
-          }), (0, _v3.jsx)(_v202.Tooltip, {
+          }), (0, _v3.jsx)(_v200.Tooltip, {
             cursor: !1,
-            content: (0, _v3.jsx)(_v227, {
-              labelFormatter: _v0 => _v224(_v0, _v3, _v8)
+            content: (0, _v3.jsx)(_v225, {
+              labelFormatter: _v0 => _v222(_v0, _v3, _v8)
             })
-          }), _v5.length > 0 && (0, _v3.jsx)(_v200.Legend, {
+          }), _v5.length > 0 && (0, _v3.jsx)(_v198.Legend, {
             wrapperStyle: {
               fontSize: _v2
             }
-          }), void 0 !== _v4 && (0, _v3.jsx)(_v197.Bar, {
+          }), void 0 !== _v4 && (0, _v3.jsx)(_v195.Bar, {
             yAxisId: "left",
             dataKey: _v4,
-            name: _v211(_v4),
-            fill: _v208(0)
-          }), _v5.map((_v0, _v1) => (0, _v3.jsx)(_v234.Line, {
+            name: _v209(_v4),
+            fill: _v206(0)
+          }), _v5.map((_v0, _v1) => (0, _v3.jsx)(_v232.Line, {
             yAxisId: "right",
             type: "monotone",
             dataKey: _v0,
-            name: _v211(_v0),
-            stroke: _v208(_v1 + 1),
+            name: _v209(_v0),
+            stroke: _v206(_v1 + 1),
             strokeWidth: 2,
             dot: !1
           }, _v0))]
         })
       });
     };
-  var _v237 = _v0.i(0),
+  var _v235 = _v0.i(0),
+    _v236 = _v0.i(0),
+    _v237 = _v0.i(0),
     _v238 = _v0.i(0),
     _v239 = _v0.i(0),
-    _v240 = _v0.i(0),
-    _v241 = _v0.i(0),
-    _v242 = _v0.i(0);
-  let _v243 = ({
+    _v240 = _v0.i(0);
+  let _v241 = ({
     data: _v0
   }) => {
-    let _v1 = _v209(),
-      _v2 = (0, _v87.useColorModeValue)("gray.100", "gray.750"),
-      _v3 = (0, _v4.useMemo)(() => _v210(_v0), [_v0]),
+    let _v1 = _v207(),
+      _v2 = (0, _v85.useColorModeValue)("gray.100", "gray.750"),
+      _v3 = (0, _v4.useMemo)(() => _v208(_v0), [_v0]),
       _v4 = (0, _v4.useMemo)(() => {
         let _v0 = (0, _v29.translate)({
             singular: "Time",
@@ -5786,7 +5743,7 @@
             label: _v1
           } : {
             id: _v2,
-            label: _v211(_v2)
+            label: _v209(_v2)
           };
         });
       }, [_v0]);
@@ -5798,13 +5755,13 @@
       children: (0, _v3.jsx)(_v5.Box, {
         height: "100%",
         overflowY: "auto",
-        children: (0, _v3.jsxs)(_v237.Table, {
+        children: (0, _v3.jsxs)(_v235.Table, {
           size: "sm",
           variant: "unstyled",
           sx: {
             padding: 0
           },
-          children: [(0, _v3.jsx)(_v241.Thead, {
+          children: [(0, _v3.jsx)(_v239.Thead, {
             position: "sticky",
             top: 0,
             zIndex: 1,
@@ -5824,20 +5781,20 @@
                 overflowWrap: "anywhere"
               }
             },
-            children: (0, _v3.jsxs)(_v242.Tr, {
-              children: [_v4.map(_v0 => (0, _v3.jsx)(_v240.Th, {
+            children: (0, _v3.jsxs)(_v240.Tr, {
+              children: [_v4.map(_v0 => (0, _v3.jsx)(_v238.Th, {
                 backgroundColor: _v2,
                 children: _v0.label
-              }, _v0.id)), _v3.map(_v0 => (0, _v3.jsx)(_v240.Th, {
+              }, _v0.id)), _v3.map(_v0 => (0, _v3.jsx)(_v238.Th, {
                 isNumeric: !0,
                 backgroundColor: _v2,
-                children: _v211(_v0)
+                children: _v209(_v0)
               }, _v0))]
             })
-          }), (0, _v3.jsx)(_v238.Tbody, {
+          }), (0, _v3.jsx)(_v236.Tbody, {
             children: _v0.rows.map(_v0 => {
               let _v1 = JSON.stringify([_v0.labels, _v0.values]);
-              return (0, _v3.jsxs)(_v242.Tr, {
+              return (0, _v3.jsxs)(_v240.Tr, {
                 sx: {
                   "& > td": {
                     borderBottom: "1px solid var(--vimeo-colors-stroke)"
@@ -5846,23 +5803,23 @@
                 children: [_v4.map((_v0, _v1) => {
                   var _v2, _v3, _v4;
                   let _v5;
-                  return (0, _v3.jsx)(_v239.Td, {
+                  return (0, _v3.jsx)(_v237.Td, {
                     px: "2",
                     py: "2",
                     children: (0, _v3.jsx)(_v45.Text, {
                       textStyle: "body-md",
                       color: "text-secondary",
-                      children: (_v2 = _v0.labels, _v3 = _v0.labelKind, _v4 = _v0.timeInterval, _v5 = _v2[_v1] ?? "", 0 === _v1 && "time" === _v3 ? _v224(_v5, _v1, _v4) : _v5)
+                      children: (_v2 = _v0.labels, _v3 = _v0.labelKind, _v4 = _v0.timeInterval, _v5 = _v2[_v1] ?? "", 0 === _v1 && "time" === _v3 ? _v222(_v5, _v1, _v4) : _v5)
                     })
                   }, `${_v1}-${_v0.id}`);
-                }), _v3.map(_v0 => (0, _v3.jsx)(_v239.Td, {
+                }), _v3.map(_v0 => (0, _v3.jsx)(_v237.Td, {
                   isNumeric: !0,
                   px: "2",
                   py: "2",
                   children: (0, _v3.jsx)(_v45.Text, {
                     textStyle: "body-md",
                     color: "text-secondary",
-                    children: _v219(_v0.values[_v0], _v1, _v0)
+                    children: _v217(_v0.values[_v0], _v1, _v0)
                   })
                 }, _v0))]
               }, _v1);
@@ -5872,31 +5829,31 @@
       })
     });
   };
-  var _v244 = _v0.i(0),
-    _v245 = _v0.i(0),
-    _v246 = _v0.i(0),
-    _v247 = _v0.i(0);
-  let _v248 = ({
+  var _v242 = _v0.i(0),
+    _v243 = _v0.i(0),
+    _v244 = _v0.i(0),
+    _v245 = _v0.i(0);
+  let _v246 = ({
       active: _v0,
       payload: _v1,
       metric: _v2
     }) => {
-      let _v3 = _v209(),
+      let _v3 = _v207(),
         _v4 = _v1?.[0];
       if (!0 !== _v0 || void 0 === _v4) return null;
       let _v5 = _v4.value ?? 0,
         _v6 = _v4.color ?? ((0, _v55.isRecord)(_v4.payload) && "string" == typeof _v4.payload.fill ? _v4.payload.fill : "");
-      return (0, _v3.jsx)(_v226, {
+      return (0, _v3.jsx)(_v224, {
         label: _v4.name,
         items: [{
           id: _v2,
           color: _v6,
-          name: _v211(_v2),
-          value: _v219(_v5, _v3, _v2)
+          name: _v209(_v2),
+          value: _v217(_v5, _v3, _v2)
         }]
       });
     },
-    _v249 = ({
+    _v247 = ({
       data: _v0
     }) => {
       let _v1 = (0, _v8.useToken)("semanticTokens", "colors.stroke"),
@@ -5928,41 +5885,41 @@
             }
           }
         }),
-        [_v5] = _v210(_v0),
+        [_v5] = _v208(_v0),
         _v6 = (0, _v4.useMemo)(() => {
           if (void 0 === _v5) return null;
           let _v0 = [..._v0.rows].sort((_v0, _v1) => (_v1.values[_v5] ?? 0) - (_v0.values[_v5] ?? 0)),
             _v1 = _v0.slice(0, 12),
             _v2 = _v0.slice(12);
           return [..._v1.map((_v0, _v1) => ({
-            [_v206]: _v0.label ?? _v4,
+            [_v204]: _v0.label ?? _v4,
             value: _v0.values[_v5] ?? 0,
-            fill: _v247.MULTI_LINE_GRAPH_COLORS[_v1 % _v247.MULTI_LINE_GRAPH_COLORS.length]
+            fill: _v245.MULTI_LINE_GRAPH_COLORS[_v1 % _v245.MULTI_LINE_GRAPH_COLORS.length]
           })), ...(_v2.length > 0 ? [{
-            [_v206]: _v4,
+            [_v204]: _v4,
             value: _v2.reduce((_v0, _v1) => _v0 + (_v1.values[_v5] ?? 0), 0),
-            fill: _v247.MULTI_LINE_GRAPH_COLORS[_v1.length % _v247.MULTI_LINE_GRAPH_COLORS.length]
+            fill: _v245.MULTI_LINE_GRAPH_COLORS[_v1.length % _v245.MULTI_LINE_GRAPH_COLORS.length]
           }] : [])];
         }, [_v0.rows, _v5, _v4]);
-      return null === _v6 || void 0 === _v5 ? null : (0, _v3.jsx)(_v201.ResponsiveContainer, {
+      return null === _v6 || void 0 === _v5 ? null : (0, _v3.jsx)(_v199.ResponsiveContainer, {
         width: "100%",
         height: "100%",
-        children: (0, _v3.jsxs)(_v246.PieChart, {
-          children: [(0, _v3.jsx)(_v245.Pie, {
+        children: (0, _v3.jsxs)(_v244.PieChart, {
+          children: [(0, _v3.jsx)(_v243.Pie, {
             data: _v6,
             dataKey: "value",
-            nameKey: _v206,
+            nameKey: _v204,
             innerRadius: "55%",
             outerRadius: "80%",
             stroke: _v1,
-            children: _v6.map(_v0 => (0, _v3.jsx)(_v244.Cell, {
+            children: _v6.map(_v0 => (0, _v3.jsx)(_v242.Cell, {
               fill: _v0.fill
-            }, _v0[_v206]))
-          }), (0, _v3.jsx)(_v202.Tooltip, {
-            content: (0, _v3.jsx)(_v248, {
+            }, _v0[_v204]))
+          }), (0, _v3.jsx)(_v200.Tooltip, {
+            content: (0, _v3.jsx)(_v246, {
               metric: _v5
             })
-          }), (0, _v3.jsx)(_v200.Legend, {
+          }), (0, _v3.jsx)(_v198.Legend, {
             wrapperStyle: {
               fontSize: _v3,
               color: _v2
@@ -5971,19 +5928,19 @@
         })
       });
     },
-    _v250 = "var(--vimeo-colors-vimeoBlue-600)",
-    _v251 = _v0 => {
+    _v248 = "var(--vimeo-colors-vimeoBlue-600)",
+    _v249 = _v0 => {
       let _v1 = new Set(),
         _v2 = [];
       for (let _v0 of _v0) _v1.has(_v0) || (_v1.add(_v0), _v2.push(_v0));
       return _v2;
     },
-    _v252 = (_v0, _v1) => JSON.stringify([_v0, _v1]),
-    _v253 = ({
+    _v250 = (_v0, _v1) => JSON.stringify([_v0, _v1]),
+    _v251 = ({
       data: _v0
     }) => {
-      let _v1 = _v209(),
-        _v2 = _v210(_v0)[0],
+      let _v1 = _v207(),
+        _v2 = _v208(_v0)[0],
         _v3 = _v0.timeInterval,
         _v4 = (0, _v4.useRef)(null),
         [_v5, _v6] = (0, _v4.useState)(null),
@@ -5993,14 +5950,14 @@
           value: void 0 !== _v2 ? _v0.values[_v2] ?? 0 : 0
         })), [_v0.rows, _v2]),
         _v8 = (0, _v4.useMemo)(() => {
-          let _v0 = _v251(_v7.map(_v0 => _v0.x));
+          let _v0 = _v249(_v7.map(_v0 => _v0.x));
           return "time" !== _v0.labelKind ? _v0 : [..._v0].sort((_v0, _v1) => Date.parse(_v0) - Date.parse(_v1));
         }, [_v7, _v0.labelKind]),
-        _v9 = (0, _v4.useMemo)(() => _v251(_v7.map(_v0 => _v0.y)), [_v7]),
+        _v9 = (0, _v4.useMemo)(() => _v249(_v7.map(_v0 => _v0.y)), [_v7]),
         _v10 = (0, _v4.useMemo)(() => _v7.reduce((_v0, _v1) => Math.max(_v0, _v1.value), 0), [_v7]),
         _v11 = (0, _v4.useMemo)(() => {
           let _v0 = new Map();
-          for (let _v0 of _v7) _v0.set(_v252(_v0.x, _v0.y), _v0.value);
+          for (let _v0 of _v7) _v0.set(_v250(_v0.x, _v0.y), _v0.value);
           return _v0;
         }, [_v7]);
       return (0, _v3.jsxs)(_v5.Box, {
@@ -6011,7 +5968,7 @@
           height: "100%",
           overflow: "auto",
           role: "img",
-          "aria-label": _v2 ? _v211(_v2) : "",
+          "aria-label": _v2 ? _v209(_v2) : "",
           children: (0, _v3.jsxs)(_v5.Box, {
             display: "grid",
             gap: "1px",
@@ -6021,7 +5978,7 @@
               color: "text-secondary",
               textAlign: "center",
               noOfLines: 1,
-              children: _v224(_v0, _v1, _v3, !0)
+              children: _v222(_v0, _v1, _v3, !0)
             }, `x-${_v0}`)), _v9.map(_v0 => (0, _v3.jsxs)(_v5.Box, {
               display: "contents",
               children: [(0, _v3.jsx)(_v45.Text, {
@@ -6031,7 +5988,7 @@
                 title: _v0,
                 children: _v0
               }), _v8.map(_v0 => {
-                let _v1 = _v11.get(_v252(_v0, _v0));
+                let _v1 = _v11.get(_v250(_v0, _v0));
                 return (0, _v3.jsx)(_v5.Box, {
                   onMouseEnter: _v0 => {
                     void 0 !== _v1 && ((_v0, _v1, _v2, _v3) => {
@@ -6058,12 +6015,12 @@
                   },
                   onMouseLeave: () => _v6(null),
                   sx: {
-                    backgroundColor: void 0 === _v1 ? "transparent" : _v250,
+                    backgroundColor: void 0 === _v1 ? "transparent" : _v248,
                     opacity: void 0 === _v1 ? 1 : 0 === _v10 ? .08 : .08 + _v1 / _v10 * .92
                   },
                   borderRadius: "sm",
                   minH: "1.5rem"
-                }, _v252(_v0, _v0));
+                }, _v250(_v0, _v0));
               })]
             }, `row-${_v0}`))]
           })
@@ -6074,95 +6031,95 @@
           transform: _v5.below ? "translate(-50%, 0.25rem)" : "translate(-50%, calc(-100% - 0.25rem))",
           pointerEvents: "none",
           zIndex: 1,
-          children: (0, _v3.jsx)(_v226, {
-            label: `${_v224(_v5.x, _v1, _v3)} \xb7 ${_v5.y}`,
+          children: (0, _v3.jsx)(_v224, {
+            label: `${_v222(_v5.x, _v1, _v3)} \xb7 ${_v5.y}`,
             items: [{
               id: _v2 ?? "value",
-              color: _v250,
-              name: void 0 !== _v2 ? _v211(_v2) : "",
-              value: _v212(_v5.value, _v1)
+              color: _v248,
+              name: void 0 !== _v2 ? _v209(_v2) : "",
+              value: _v210(_v5.value, _v1)
             }]
           })
         })]
       });
     };
-  var _v254 = _v0.i(0),
-    _v255 = _v0.i(0),
-    _v256 = _v0.i(0);
-  let _v257 = {
+  var _v252 = _v0.i(0),
+    _v253 = _v0.i(0),
+    _v254 = _v0.i(0);
+  let _v255 = {
       top: 4,
       right: 8,
       bottom: 0,
       left: 0
     },
-    _v258 = ({
+    _v256 = ({
       data: _v0
     }) => {
       let _v1 = (0, _v8.useToken)("semanticTokens", "colors.stroke"),
         _v2 = (0, _v8.useToken)("fontSizes", "body-xs"),
-        _v3 = _v209(),
-        _v4 = _v210(_v0),
-        _v5 = _v216(_v4),
+        _v3 = _v207(),
+        _v4 = _v208(_v0),
+        _v5 = _v214(_v4),
         _v6 = _v0.timeInterval;
-      return (0, _v3.jsx)(_v201.ResponsiveContainer, {
+      return (0, _v3.jsx)(_v199.ResponsiveContainer, {
         width: "100%",
         height: "100%",
-        children: (0, _v3.jsxs)(_v254.LineChart, {
-          data: _v225(_v0),
-          margin: _v257,
-          children: [(0, _v3.jsx)(_v199.CartesianGrid, {
+        children: (0, _v3.jsxs)(_v252.LineChart, {
+          data: _v223(_v0),
+          margin: _v255,
+          children: [(0, _v3.jsx)(_v197.CartesianGrid, {
             vertical: !1,
             stroke: _v1
-          }), (0, _v3.jsx)(_v203.XAxis, {
-            dataKey: _v206,
+          }), (0, _v3.jsx)(_v201.XAxis, {
+            dataKey: _v204,
             axisLine: {
               stroke: "var(--vimeo-colors-stroke)"
             },
             tickLine: !1,
             minTickGap: 40,
-            tick: (0, _v3.jsx)(_v229, {
-              formatValue: _v0 => _v224(_v0, _v3, _v6)
+            tick: (0, _v3.jsx)(_v227, {
+              formatValue: _v0 => _v222(_v0, _v3, _v6)
             }),
             tickMargin: 8
-          }), (0, _v3.jsx)(_v204.YAxis, {
+          }), (0, _v3.jsx)(_v202.YAxis, {
             axisLine: !1,
             tickLine: !1,
-            width: _v221(_v5),
-            tick: (0, _v3.jsx)(_v230, {
-              formatValue: _v0 => _v220(Number(_v0), _v3, _v5)
+            width: _v219(_v5),
+            tick: (0, _v3.jsx)(_v228, {
+              formatValue: _v0 => _v218(Number(_v0), _v3, _v5)
             })
-          }), (0, _v3.jsx)(_v202.Tooltip, {
+          }), (0, _v3.jsx)(_v200.Tooltip, {
             cursor: {
               strokeDasharray: "3 3"
             },
-            content: (0, _v3.jsx)(_v227, {
-              labelFormatter: _v0 => _v224(_v0, _v3, _v6)
+            content: (0, _v3.jsx)(_v225, {
+              labelFormatter: _v0 => _v222(_v0, _v3, _v6)
             })
-          }), _v4.length > 1 && (0, _v3.jsx)(_v200.Legend, {
+          }), _v4.length > 1 && (0, _v3.jsx)(_v198.Legend, {
             wrapperStyle: {
               fontSize: _v2
             }
-          }), _v4.map((_v0, _v1) => (0, _v3.jsx)(_v234.Line, {
+          }), _v4.map((_v0, _v1) => (0, _v3.jsx)(_v232.Line, {
             type: "monotone",
             dataKey: _v0,
-            name: _v211(_v0),
-            dot: (0, _v3.jsx)(_v256.Dot, {}),
-            activeDot: (0, _v3.jsx)(_v255.ActiveDot, {
-              stroke: _v208(_v1)
+            name: _v209(_v0),
+            dot: (0, _v3.jsx)(_v254.Dot, {}),
+            activeDot: (0, _v3.jsx)(_v253.ActiveDot, {
+              stroke: _v206(_v1)
             }),
-            stroke: _v208(_v1),
+            stroke: _v206(_v1),
             strokeWidth: 2
           }, _v0))]
         })
       });
     },
-    _v259 = ({
+    _v257 = ({
       data: _v0
     }) => {
-      let _v1 = _v209(),
+      let _v1 = _v207(),
         [_v2] = _v0.rows;
       if (void 0 === _v2) return null;
-      let _v3 = _v210(_v0);
+      let _v3 = _v208(_v0);
       return (0, _v3.jsx)(_v6.Flex, {
         height: "100%",
         width: "100%",
@@ -6175,7 +6132,7 @@
           gridTemplateColumns: 1 === _v3.length ? "1fr" : "repeat(2, minmax(0, 1fr))",
           gap: "md",
           children: _v3.map(_v0 => {
-            let _v1 = _v211(_v0);
+            let _v1 = _v209(_v0);
             return (0, _v3.jsxs)(_v6.Flex, {
               direction: "column",
               justifyContent: "space-between",
@@ -6184,7 +6141,7 @@
               padding: "md",
               borderRadius: "md",
               backgroundColor: "fill-component",
-              children: [(0, _v3.jsx)(_v167.Tooltip, {
+              children: [(0, _v3.jsx)(_v165.Tooltip, {
                 label: _v1,
                 placement: "top",
                 hasArrow: !0,
@@ -6198,55 +6155,55 @@
                 })
               }), (0, _v3.jsx)(_v45.Text, {
                 variant: "heading-lg",
-                children: _v219(_v2.values[_v0], _v1, _v0)
+                children: _v217(_v2.values[_v0], _v1, _v0)
               })]
             }, _v0);
           })
         })
       });
     },
-    _v260 = (0, _v4.memo)(({
+    _v258 = (0, _v4.memo)(({
       chartType: _v0,
       data: _v1
     }) => {
       switch (_v0) {
         case "line":
-          return (0, _v3.jsx)(_v258, {
+          return (0, _v3.jsx)(_v256, {
             data: _v1
           });
         case "bar":
-          return (0, _v3.jsx)(_v232, {
+          return (0, _v3.jsx)(_v230, {
             data: _v1
           });
         case "donut":
-          return (0, _v3.jsx)(_v249, {
+          return (0, _v3.jsx)(_v247, {
             data: _v1
           });
         case "metric_card":
-          return (0, _v3.jsx)(_v259, {
+          return (0, _v3.jsx)(_v257, {
             data: _v1
           });
         case "table":
-          return (0, _v3.jsx)(_v243, {
+          return (0, _v3.jsx)(_v241, {
             data: _v1
           });
         case "combo":
-          return (0, _v3.jsx)(_v236, {
+          return (0, _v3.jsx)(_v234, {
             data: _v1
           });
         case "heatmap":
-          return (0, _v3.jsx)(_v253, {
+          return (0, _v3.jsx)(_v251, {
             data: _v1
           });
         default:
           throw Error("Unhandled chart type");
       }
     });
-  var _v261 = _v0.i(0),
-    _v262 = _v0.i(0),
-    _v263 = _v0.i(0),
-    _v264 = _v0.i(0);
-  async function _v265({
+  var _v259 = _v0.i(0),
+    _v260 = _v0.i(0),
+    _v261 = _v0.i(0),
+    _v262 = _v0.i(0);
+  async function _v263({
     baseUrl: _v0,
     select: _v1,
     where: {
@@ -6267,6 +6224,8 @@
       return (0, _v58.deepCamelCase)(_v1);
     });
   }
+  var _v264 = _v0.i(0),
+    _v265 = _v0.i(0);
   function _v266(_v0, _v1) {
     let _v2 = "function" == typeof _v0 ? _v0() : _v0,
       {
@@ -6275,7 +6234,7 @@
         xVimeoPage: _v5,
         locale: _v6
       } = (0, _v61.useGctlConfig)();
-    return (0, _v66.default)(_v2 ? `/users/${_v2.where.userId}/analytics/bandwidth${(0, _v56.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v265({
+    return (0, _v264.default)(_v2 ? `/users/${_v2.where.userId}/analytics/bandwidth${(0, _v56.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v263({
       ..._v2,
       headers: {
         ..._v2.headers,
@@ -6353,7 +6312,7 @@
     _v275 = (_v0, _v1, _v2) => {
       var _v3;
       let _v4;
-      return !!(0, _v55.isRecord)(_v0) && "number" == typeof _v0.expiresAt && (_v2 || _v0.expiresAt > _v1) && "number" == typeof _v0.lastAccessedAt && "number" == typeof _v0.byteSize && "number" == typeof _v0.userId && (_v3 = _v0.data, !!(0, _v55.isRecord)(_v3) && Array.isArray(_v3.dimensions) && _v3.dimensions.every(_v0 => "string" == typeof _v0) && "string" == typeof (_v4 = _v3.labelKind) && _v108.has(_v4) && (null === _v3.timeInterval || _v176(_v3.timeInterval)) && "boolean" == typeof _v3.hasMore && Array.isArray(_v3.rows) && _v3.rows.every(_v0 => !!(0, _v55.isRecord)(_v0) && (null === _v0.label || "string" == typeof _v0.label) && Array.isArray(_v0.labels) && _v0.labels.every(_v0 => null === _v0 || "string" == typeof _v0) && (0, _v55.isRecord)(_v0.values) && Object.values(_v0.values).every(_v0 => null === _v0 || "number" == typeof _v0)));
+      return !!(0, _v55.isRecord)(_v0) && "number" == typeof _v0.expiresAt && (_v2 || _v0.expiresAt > _v1) && "number" == typeof _v0.lastAccessedAt && "number" == typeof _v0.byteSize && "number" == typeof _v0.userId && (_v3 = _v0.data, !!(0, _v55.isRecord)(_v3) && Array.isArray(_v3.dimensions) && _v3.dimensions.every(_v0 => "string" == typeof _v0) && "string" == typeof (_v4 = _v3.labelKind) && _v106.has(_v4) && (null === _v3.timeInterval || _v174(_v3.timeInterval)) && "boolean" == typeof _v3.hasMore && Array.isArray(_v3.rows) && _v3.rows.every(_v0 => !!(0, _v55.isRecord)(_v0) && (null === _v0.label || "string" == typeof _v0.label) && Array.isArray(_v0.labels) && _v0.labels.every(_v0 => null === _v0 || "string" == typeof _v0) && (0, _v55.isRecord)(_v0.values) && Object.values(_v0.values).every(_v0 => null === _v0 || "number" == typeof _v0)));
     },
     _v276 = (_v0, _v1, {
       at: _v2 = Date.now()
@@ -6614,8 +6573,8 @@
     },
     _v294 = (_v0, _v1) => {
       if ("retention" === _v0.dataset) return _v293;
-      let _v2 = _v178(_v0) ?? _v0.dimensions.find(_v176) ?? null,
-        _v3 = _v0.dimensions.filter(_v0 => !_v176(_v0) && !_v174.has(_v0));
+      let _v2 = _v176(_v0) ?? _v0.dimensions.find(_v174) ?? null,
+        _v3 = _v0.dimensions.filter(_v0 => !_v174(_v0) && !_v172.has(_v0));
       if (null !== _v2 && _v3.length > 0) return {
         perPage: 0,
         pages: 10
@@ -6822,7 +6781,7 @@
             case "retention":
               {
                 let _v0,
-                  _v1 = void 0 === (_v0 = _v304(_v0.filters)[0]) ? null : _v102(_v0);
+                  _v1 = void 0 === (_v0 = _v304(_v0.filters)[0]) ? null : _v100(_v0);
                 if (null === _v1 || "" === _v1) return null;
                 return {
                   dataset: "retention",
@@ -6835,7 +6794,7 @@
               }
             case "live":
               {
-                let _v0 = _v304(_v0.filters).map(_v102).filter(_v0 => null !== _v0);
+                let _v0 = _v304(_v0.filters).map(_v100).filter(_v0 => null !== _v0);
                 if (0 === _v0.length) return null;
                 return {
                   dataset: "live",
@@ -6968,15 +6927,15 @@
           }
         }), [_v18]),
         _v20 = (0, _v4.useMemo)(() => Array.from(new Set([..._v0.spec.metrics, ...(_v0 => {
-          let _v1 = _v177(_v0),
-            _v2 = _v178(_v0);
+          let _v1 = _v175(_v0),
+            _v2 = _v176(_v0);
           switch (_v0.dataset) {
             case "bandwidth":
               return _v1.length > 0 ? ["dimensionName"] : [];
             case "teams":
               {
-                let _v0 = _v1.map(_v0 => _v93(_v0) ? _v283[_v0] : _v0);
-                return (null !== _v2 || _v0.dimensions.some(_v176)) && _v0.push("range.startDate"), [..._v0, ..._v101(_v0)];
+                let _v0 = _v1.map(_v0 => _v91(_v0) ? _v283[_v0] : _v0);
+                return (null !== _v2 || _v0.dimensions.some(_v174)) && _v0.push("range.startDate"), [..._v0, ..._v99(_v0)];
               }
             case "live":
             case "retention":
@@ -6989,7 +6948,7 @@
             case "sessions":
               {
                 let _v0 = _v1.map(_v0 => _v282[_v0] ?? _v0);
-                return null !== _v2 && _v0.push("startDate"), [..._v0, ..._v101(_v0)];
+                return null !== _v2 && _v0.push("startDate"), [..._v0, ..._v99(_v0)];
               }
             default:
               {
@@ -7002,7 +6961,7 @@
         _v22 = _v2 && _v8 && null !== _v11 && !_v21,
         _v23 = _v22 && null === _v12,
         _v24 = _v10?.pages ?? 1,
-        _v25 = (0, _v264.useGetUserAnalyticsInfinite)(() => _v11?.dataset === "sessions" && _v23 ? {
+        _v25 = (0, _v262.useGetUserAnalyticsInfinite)(() => _v11?.dataset === "sessions" && _v23 ? {
           select: _v20,
           where: _v0.where,
           query: _v11
@@ -7018,7 +6977,7 @@
               xVimeoPage: _v5,
               locale: _v6
             } = (0, _v61.useGctlConfig)();
-          return (0, _v67.default)((_v0, _v1) => {
+          return (0, _v265.default)((_v0, _v1) => {
             if (null === _v2 || _v1 && !_v1.paging.next) return null;
             let {
                 perPage: _v2 = 25,
@@ -7034,7 +6993,7 @@
               query: _v5,
               select: _v2.select
             })}`, _v0];
-          }, null !== _v2 ? ([_v0, _v1]) => _v265({
+          }, null !== _v2 ? ([_v0, _v1]) => _v263({
             ..._v2,
             baseUrl: _v3,
             headers: {
@@ -7057,7 +7016,7 @@
           ..._v19,
           initialSize: _v24
         }),
-        _v27 = (0, _v263.useGetTeamAnalyticsInfinite)(() => _v11?.dataset === "teams" && _v23 ? {
+        _v27 = (0, _v261.useGetTeamAnalyticsInfinite)(() => _v11?.dataset === "teams" && _v23 ? {
           select: _v20,
           where: _v0.where,
           query: _v11
@@ -7073,7 +7032,7 @@
               xVimeoPage: _v5,
               locale: _v6
             } = (0, _v61.useGctlConfig)();
-          return (0, _v67.default)((_v0, _v1) => {
+          return (0, _v265.default)((_v0, _v1) => {
             if (null === _v2 || _v1 && !_v1.paging.next) return null;
             let {
                 perPage: _v2 = 25,
@@ -7125,7 +7084,7 @@
               xVimeoPage: _v5,
               locale: _v6
             } = (0, _v61.useGctlConfig)();
-          return (0, _v66.default)(_v2 ? `/users/${_v2.where.userId}/analytics/live${(0, _v56.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v268({
+          return (0, _v264.default)(_v2 ? `/users/${_v2.where.userId}/analytics/live${(0, _v56.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v268({
             ..._v2,
             headers: {
               ..._v2.headers,
@@ -7225,10 +7184,10 @@
           }
           switch (_v1.dataset) {
             case "sessions":
-              return _v16 = _v2, _v17 = _v15, _v3 = _v177(_v1), _v4 = _v101(_v1), _v5 = null !== _v178(_v1), {
+              return _v16 = _v2, _v17 = _v15, _v3 = _v175(_v1), _v4 = _v99(_v1), _v5 = null !== _v176(_v1), {
                 dimensions: [..._v3, ..._v4.map(_v286)],
                 labelKind: _v5 ? "time" : "dimension",
-                timeInterval: _v178(_v1),
+                timeInterval: _v176(_v1),
                 hasMore: _v17?.next != null,
                 rows: _v16.filter(_v55.isRecord).map(_v0 => {
                   let _v1 = [...(_v5 ? ["string" == typeof _v0.startDate ? _v0.startDate : null] : []), ..._v3.map(_v0 => ((_v0, _v1) => {
@@ -7245,10 +7204,10 @@
                 })
               };
             case "bandwidth":
-              return _v18 = _v2, _v19 = _v15, _v6 = _v177(_v1), {
+              return _v18 = _v2, _v19 = _v15, _v6 = _v175(_v1), {
                 dimensions: _v6,
-                labelKind: (_v7 = null !== _v178(_v1)) ? "time" : "dimension",
-                timeInterval: _v178(_v1),
+                labelKind: (_v7 = null !== _v176(_v1)) ? "time" : "dimension",
+                timeInterval: _v176(_v1),
                 hasMore: _v19?.next != null,
                 rows: _v18.filter(_v55.isRecord).map(_v0 => {
                   let _v1 = [...(_v7 ? ["string" == typeof _v0.startDate ? _v0.startDate : null] : []), ...(_v6.length > 0 ? ["string" == typeof _v0.dimensionName ? _v0.dimensionName : null] : [])];
@@ -7260,8 +7219,8 @@
                 })
               };
             case "teams":
-              return _v20 = _v2, _v21 = _v15, _v8 = _v1.dimensions.filter(_v93), _v9 = _v1.dimensions.filter(_v176), {
-                dimensions: [..._v8, ...(_v10 = _v101(_v1)).map(_v286)],
+              return _v20 = _v2, _v21 = _v15, _v8 = _v1.dimensions.filter(_v91), _v9 = _v1.dimensions.filter(_v174), {
+                dimensions: [..._v8, ...(_v10 = _v99(_v1)).map(_v286)],
                 labelKind: _v9.length > 0 ? "time" : "dimension",
                 timeInterval: _v9[0] ?? null,
                 hasMore: _v21?.next != null,
@@ -7302,10 +7261,10 @@
                 })
               };
             case "storage":
-              return _v23 = _v2, _v24 = _v15, _v13 = _v177(_v1), {
+              return _v23 = _v2, _v24 = _v15, _v13 = _v175(_v1), {
                 dimensions: _v13,
-                labelKind: (_v14 = null !== _v178(_v1)) ? "time" : "dimension",
-                timeInterval: _v178(_v1),
+                labelKind: (_v14 = null !== _v176(_v1)) ? "time" : "dimension",
+                timeInterval: _v176(_v1),
                 hasMore: _v24?.next != null,
                 rows: _v23.filter(_v55.isRecord).map(_v0 => {
                   let _v1 = _v13[0],
@@ -7350,8 +7309,8 @@
             _v4 = [...(_v0 = Object.keys(_v39.rows[0].values), _v1 = "dimension" !== _v39.labelKind, _v2 = _v310[_v39.labelKind], [..._v39.rows[0].labels.map((_v0, _v1) => {
               if (0 === _v1 && _v1) return _v2;
               let _v2 = _v39.dimensions[_v1 - !!_v1];
-              return void 0 === _v2 ? _v2 : _v211(_v2);
-            }), ..._v0.map(_v211)])],
+              return void 0 === _v2 ? _v2 : _v209(_v2);
+            }), ..._v0.map(_v209)])],
             _v5 = _v39.rows.map(_v0 => [..._v0.labels.map(_v0 => {
               let _v1;
               return _v1 = _v0 ?? "", _v307.test(_v1) ? `'${_v1}` : _v1;
@@ -7359,7 +7318,7 @@
             _v6 = null != _v1 ? _v1.from.slice(0, 10) : null,
             _v7 = null != _v1 ? _v1.to.slice(0, 10) : null,
             _v8 = _v7 ? "ai_chart_all_time.csv" : null !== _v6 && null !== _v7 ? `ai_chart_${_v6}_to_${_v7}.csv` : "ai_chart.csv";
-          _v277((0, _v262.stringify)([_v4, ..._v5]), _v8);
+          _v277((0, _v260.stringify)([_v4, ..._v5]), _v8);
         }, [_v39, _v1, _v7]);
       return {
         isLoading: _v14 || null === _v12 && (_v34 || _v35),
@@ -7382,8 +7341,8 @@
           if (null === _v2 || 0 === _v2.rows.length || 0 === Object.keys(_v2.rows[0].values).length) return null;
           if ("retention" === _v1.dataset) return "table" === _v0 ? "table" : "line";
           if ("live" === _v1.dataset) return "table" === _v0 ? "table" : "metric_card";
-          let _v3 = _v177(_v1),
-            _v4 = null !== _v178(_v1) || _v1.dimensions.some(_v176);
+          let _v3 = _v175(_v1),
+            _v4 = null !== _v176(_v1) || _v1.dimensions.some(_v174);
           if ("storage" === _v1.dataset) {
             let _v0 = _v1.dimensions[0] ?? "total";
             switch (_v0) {
@@ -8027,17 +7986,17 @@
       onShareFeedback: _v14
     }) => {
       let _v15 = (0, _v46.useToast)(),
-        _v16 = (0, _v4.useMemo)(() => ((_v0 = _v165.DateTime.utc()) => {
+        _v16 = (0, _v4.useMemo)(() => ((_v0 = _v163.DateTime.utc()) => {
           let _v1 = _v0 => _v337(_v0.minus({
             days: _v0
           }), _v0);
           return [{
             value: "today",
-            label: _v261.T_TODAY,
+            label: _v259.T_TODAY,
             range: _v337(_v0, _v0)
           }, {
             value: "yesterday",
-            label: _v261.T_YESTERDAY,
+            label: _v259.T_YESTERDAY,
             range: _v337(_v0.minus({
               days: 1
             }), _v0.minus({
@@ -8045,11 +8004,11 @@
             }))
           }, {
             value: "last_7",
-            label: (0, _v261.T_LAST_N_DAYS)(7),
+            label: (0, _v259.T_LAST_N_DAYS)(7),
             range: _v1(7)
           }, {
             value: "last_30",
-            label: (0, _v261.T_LAST_N_DAYS)(30),
+            label: (0, _v259.T_LAST_N_DAYS)(30),
             range: _v1(30)
           }];
         })(), []),
@@ -8096,7 +8055,7 @@
         _v33 = _v9?.title ?? _v0.title,
         _v34 = _v9?.note ?? _v0.note;
       return (0, _v3.jsxs)(_v3.Fragment, {
-        children: [(0, _v3.jsx)(_v73.ModalHeader, {
+        children: [(0, _v3.jsx)(_v71.ModalHeader, {
           paddingTop: "lg",
           paddingX: "lg",
           paddingBottom: "md",
@@ -8113,7 +8072,7 @@
               children: _v34
             })]
           })
-        }), (0, _v3.jsx)(_v70.ModalBody, {
+        }), (0, _v3.jsx)(_v68.ModalBody, {
           paddingTop: "0",
           paddingX: "lg",
           paddingBottom: "lg",
@@ -8124,7 +8083,7 @@
             flex: 1,
             minHeight: 0,
             minWidth: 0,
-            children: [_v5 ? (0, _v3.jsxs)(_v85.AlertRoot, {
+            children: [_v5 ? (0, _v3.jsxs)(_v83.AlertRoot, {
               backgroundColor: "status-caution-secondary",
               borderRadius: "lg",
               width: "100%",
@@ -8133,8 +8092,8 @@
               paddingY: "2",
               gap: "2",
               alignItems: "center",
-              children: [(0, _v3.jsx)(_v84.AlertIcon, {
-                children: (0, _v3.jsx)(_v88.CircleExclamationFilled, {
+              children: [(0, _v3.jsx)(_v82.AlertIcon, {
+                children: (0, _v3.jsx)(_v86.CircleExclamationFilled, {
                   color: "status-caution-primary"
                 })
               }), (0, _v3.jsxs)(_v6.Flex, {
@@ -8144,18 +8103,18 @@
                 children: [(0, _v3.jsxs)(_v6.Flex, {
                   direction: "column",
                   flex: 1,
-                  children: [(0, _v3.jsx)(_v86.AlertTitle, {
+                  children: [(0, _v3.jsx)(_v84.AlertTitle, {
                     color: "text-primary",
                     fontSize: "heading-xs",
                     lineHeight: "1.4",
                     children: _v6 ? _v327 : _v329
-                  }), (0, _v3.jsx)(_v83.AlertDescription, {
+                  }), (0, _v3.jsx)(_v81.AlertDescription, {
                     color: "text-primary",
                     fontSize: "body-sm",
                     lineHeight: "1.2",
                     children: _v6 ? _v328 : _v330
                   })]
-                }), (0, _v3.jsx)(_v68.Button, {
+                }), (0, _v3.jsx)(_v66.Button, {
                   as: "a",
                   href: "/enterprise/contact-us",
                   variant: "secondary",
@@ -8165,7 +8124,7 @@
                   children: _v331
                 })]
               })]
-            }) : null !== _v7 ? (0, _v3.jsx)(_v115, {
+            }) : null !== _v7 ? (0, _v3.jsx)(_v113, {
               quota: _v7
             }) : null, null !== _v0.description && "" !== _v0.description && (0, _v3.jsx)(_v45.Text, {
               variant: "body-md",
@@ -8185,14 +8144,14 @@
                   height: "2rem",
                   paddingX: "2",
                   color: "text-secondary",
-                  children: [(0, _v3.jsx)(_v168.Calendar, {}), (0, _v3.jsx)(_v45.Text, {
+                  children: [(0, _v3.jsx)(_v166.Calendar, {}), (0, _v3.jsx)(_v45.Text, {
                     variant: "body-sm",
                     color: "text-secondary",
                     children: _v332
                   })]
-                }) : (0, _v3.jsx)(_v166.Select, {
+                }) : (0, _v3.jsx)(_v164.Select, {
                   size: "sm",
-                  leftIcon: (0, _v3.jsx)(_v168.Calendar, {}),
+                  leftIcon: (0, _v3.jsx)(_v166.Calendar, {}),
                   items: _v32,
                   value: null !== _v31 ? [_v31] : [],
                   onValueChange: _v0 => {
@@ -8203,13 +8162,13 @@
               }), (0, _v3.jsxs)(_v6.Flex, {
                 alignItems: "center",
                 gap: "4",
-                children: [(0, _v3.jsx)(_v193, {
+                children: [(0, _v3.jsx)(_v191, {
                   spec: _v0.query
                 }), (0, _v3.jsx)(_v37.Divider, {
                   orientation: "vertical",
                   height: "0.75rem",
                   borderColor: "stroke"
-                }), (0, _v3.jsx)(_v167.Tooltip, {
+                }), (0, _v3.jsx)(_v165.Tooltip, {
                   label: _v314,
                   placement: "bottom",
                   children: (0, _v3.jsx)(_v39.IconButton, {
@@ -8232,7 +8191,7 @@
                   children: [(0, _v3.jsxs)(_v6.Flex, {
                     alignItems: "center",
                     gap: "1",
-                    children: [(0, _v3.jsx)(_v167.Tooltip, {
+                    children: [(0, _v3.jsx)(_v165.Tooltip, {
                       label: _v315,
                       placement: "bottom",
                       children: (0, _v3.jsx)(_v39.IconButton, {
@@ -8247,7 +8206,7 @@
                           });
                         }
                       })
-                    }), (0, _v3.jsx)(_v167.Tooltip, {
+                    }), (0, _v3.jsx)(_v165.Tooltip, {
                       label: _v316,
                       placement: "bottom",
                       children: (0, _v3.jsx)(_v39.IconButton, {
@@ -8269,7 +8228,7 @@
                       })
                     })]
                   }), null !== _v9 ? (0, _v3.jsxs)(_v3.Fragment, {
-                    children: [(0, _v3.jsx)(_v167.Tooltip, {
+                    children: [(0, _v3.jsx)(_v165.Tooltip, {
                       label: _v317,
                       placement: "bottom",
                       children: (0, _v3.jsx)(_v39.IconButton, {
@@ -8279,7 +8238,7 @@
                         icon: (0, _v3.jsx)(_v48.EditPencil, {}),
                         onClick: () => _v12(_v9)
                       })
-                    }), (0, _v3.jsx)(_v167.Tooltip, {
+                    }), (0, _v3.jsx)(_v165.Tooltip, {
                       label: _v318,
                       placement: "bottom",
                       children: (0, _v3.jsx)(_v39.IconButton, {
@@ -8290,7 +8249,7 @@
                         onClick: () => _v13(_v9)
                       })
                     })]
-                  }) : void 0 !== _v11 && (0, _v3.jsx)(_v68.Button, {
+                  }) : void 0 !== _v11 && (0, _v3.jsx)(_v66.Button, {
                     size: "sm",
                     variant: "primary",
                     onClick: () => _v11(_v0),
@@ -8303,7 +8262,7 @@
               flex: 1,
               minHeight: 0,
               minWidth: 0,
-              children: "denied" === _v20 || _v24 ? (0, _v3.jsx)(_v150, {}) : _v22 ? (0, _v3.jsx)(_v44.Skeleton, {
+              children: "denied" === _v20 || _v24 ? (0, _v3.jsx)(_v148, {}) : _v22 ? (0, _v3.jsx)(_v44.Skeleton, {
                 height: "100%",
                 borderRadius: "md"
               }) : _v23 ? (0, _v3.jsx)(_v6.Flex, {
@@ -8324,7 +8283,7 @@
                   color: "text-secondary",
                   children: _v323
                 })
-              }) : (0, _v3.jsx)(_v260, {
+              }) : (0, _v3.jsx)(_v258, {
                 chartType: _v29,
                 data: _v25
               }) : (0, _v3.jsx)(_v6.Flex, {
@@ -8358,14 +8317,14 @@
             color: "text-secondary",
             flex: 1,
             children: _v333
-          }), (0, _v3.jsx)(_v196, {
+          }), (0, _v3.jsx)(_v194, {
             onClick: _v14
           })]
         })]
       });
     },
     _v340 = () => (0, _v3.jsxs)(_v3.Fragment, {
-      children: [(0, _v3.jsx)(_v73.ModalHeader, {
+      children: [(0, _v3.jsx)(_v71.ModalHeader, {
         paddingTop: "lg",
         paddingX: "lg",
         paddingBottom: "md",
@@ -8379,7 +8338,7 @@
             borderRadius: "12px"
           })
         })
-      }), (0, _v3.jsx)(_v70.ModalBody, {
+      }), (0, _v3.jsx)(_v68.ModalBody, {
         paddingTop: "0",
         paddingX: "lg",
         paddingBottom: "lg",
@@ -8442,7 +8401,7 @@
         textAlign: "start",
         noOfLines: 2,
         children: _v0
-      }), (0, _v3.jsx)(_v119.ArrowRight, {
+      }), (0, _v3.jsx)(_v117.ArrowRight, {
         boxSize: "1.25rem",
         color: "text-primary",
         flexShrink: 0
@@ -8452,7 +8411,7 @@
       suggestions: _v0,
       onTrySuggestion: _v1,
       showSuggestions: _v2
-    }) => (0, _v3.jsx)(_v70.ModalBody, {
+    }) => (0, _v3.jsx)(_v68.ModalBody, {
       paddingTop: "0",
       paddingX: "lg",
       paddingBottom: "lg",
@@ -8488,7 +8447,7 @@
             alignItems: "center",
             gap: "1",
             paddingX: "1",
-            children: [(0, _v3.jsx)(_v151.AiSparkles, {
+            children: [(0, _v3.jsx)(_v149.AiSparkles, {
               boxSize: "1.25rem",
               color: "text-secondary"
             }), (0, _v3.jsx)(_v45.Text, {
@@ -8511,7 +8470,7 @@
     }),
     _v344 = ({
       message: _v0
-    }) => (0, _v3.jsx)(_v70.ModalBody, {
+    }) => (0, _v3.jsx)(_v68.ModalBody, {
       paddingTop: "0",
       paddingX: "lg",
       paddingBottom: "lg",
@@ -8542,22 +8501,22 @@
     }) => {
       let _v8 = null === _v0 && !_v1 && null === _v2 && null !== _v6;
       if (null === _v0 && !_v1 && null === _v2 && !_v8) return null;
-      let _v9 = _v97(_v7.promptQuota);
-      return (0, _v3.jsxs)(_v69.Modal, {
+      let _v9 = _v95(_v7.promptQuota);
+      return (0, _v3.jsxs)(_v67.Modal, {
         isOpen: !0,
         onClose: _v4,
         size: "xl",
         isCentered: !0,
         scrollBehavior: "inside",
         autoFocus: !1,
-        children: [(0, _v3.jsx)(_v74.ModalOverlay, {}), (0, _v3.jsxs)(_v71.ModalContent, {
+        children: [(0, _v3.jsx)(_v72.ModalOverlay, {}), (0, _v3.jsxs)(_v69.ModalContent, {
           width: _v334,
           maxWidth: _v334,
           height: "37.5rem",
           borderRadius: "lg",
           overflow: "hidden",
           "data-testid": _v1 ? "preview-modal-loading" : null === _v0 ? null !== _v2 ? "preview-modal-not-supported" : _v8 ? "preview-modal-error" : "preview-modal-loading" : void 0,
-          children: [(0, _v3.jsx)(_v141.ModalCloseButton, {
+          children: [(0, _v3.jsx)(_v139.ModalCloseButton, {
             size: "md",
             onClick: _v4
           }), null !== _v2 ? (0, _v3.jsx)(_v343, {
@@ -8684,35 +8643,35 @@
       isOpen: _v0,
       onConfirm: _v1,
       onClose: _v2
-    }) => (0, _v3.jsxs)(_v69.Modal, {
+    }) => (0, _v3.jsxs)(_v67.Modal, {
       isOpen: _v0,
       onClose: _v2,
       size: "sm",
       isCentered: !0,
-      children: [(0, _v3.jsx)(_v74.ModalOverlay, {}), (0, _v3.jsxs)(_v71.ModalContent, {
+      children: [(0, _v3.jsx)(_v72.ModalOverlay, {}), (0, _v3.jsxs)(_v69.ModalContent, {
         width: _v346,
         maxWidth: _v346,
         borderRadius: "xl",
         overflow: "hidden",
-        children: [(0, _v3.jsx)(_v73.ModalHeader, {
+        children: [(0, _v3.jsx)(_v71.ModalHeader, {
           paddingTop: "1.5rem",
           paddingX: "1.5rem",
           paddingBottom: "1rem",
           children: _v347
-        }), (0, _v3.jsx)(_v70.ModalBody, {
+        }), (0, _v3.jsx)(_v68.ModalBody, {
           paddingX: "1.5rem",
           children: (0, _v3.jsx)(_v45.Text, {
             variant: "body-md",
             children: _v348
           })
-        }), (0, _v3.jsxs)(_v72.ModalFooter, {
+        }), (0, _v3.jsxs)(_v70.ModalFooter, {
           paddingTop: "1rem",
           paddingBottom: "1.5rem",
-          children: [(0, _v3.jsx)(_v68.Button, {
+          children: [(0, _v3.jsx)(_v66.Button, {
             variant: "tertiary",
             onClick: _v2,
             children: _v349
-          }), (0, _v3.jsx)(_v68.Button, {
+          }), (0, _v3.jsx)(_v66.Button, {
             variant: "primary",
             onClick: _v1,
             children: _v350
@@ -8835,40 +8794,40 @@
       let [_v6, _v7] = (0, _v4.useState)(_v1);
       if (!_v0) return null;
       let _v8 = _v6.trim();
-      return (0, _v3.jsxs)(_v69.Modal, {
+      return (0, _v3.jsxs)(_v67.Modal, {
         isOpen: !0,
         onClose: _v5,
         size: "sm",
         isCentered: !0,
-        children: [(0, _v3.jsx)(_v74.ModalOverlay, {}), (0, _v3.jsxs)(_v71.ModalContent, {
+        children: [(0, _v3.jsx)(_v72.ModalOverlay, {}), (0, _v3.jsxs)(_v69.ModalContent, {
           width: _v354,
           maxWidth: _v354,
           borderRadius: "xl",
           overflow: "hidden",
-          children: [(0, _v3.jsx)(_v73.ModalHeader, {
+          children: [(0, _v3.jsx)(_v71.ModalHeader, {
             paddingTop: "1.5rem",
             paddingX: "1.5rem",
             paddingBottom: "1rem",
             children: _v355
-          }), (0, _v3.jsx)(_v70.ModalBody, {
+          }), (0, _v3.jsx)(_v68.ModalBody, {
             paddingX: "1.5rem",
             children: (0, _v3.jsxs)(_v352.FormControl, {
               children: [(0, _v3.jsx)(_v353.FormLabel, {
                 children: _v356
-              }), (0, _v3.jsx)(_v127.Input, {
+              }), (0, _v3.jsx)(_v125.Input, {
                 value: _v6,
                 onChange: _v0 => _v7(_v0.target.value),
                 maxLength: 255
               })]
             })
-          }), (0, _v3.jsxs)(_v72.ModalFooter, {
+          }), (0, _v3.jsxs)(_v70.ModalFooter, {
             paddingTop: "1rem",
             paddingBottom: "1.5rem",
-            children: [(0, _v3.jsx)(_v68.Button, {
+            children: [(0, _v3.jsx)(_v66.Button, {
               variant: "tertiary",
               onClick: _v5,
               children: _v357
-            }), (0, _v3.jsx)(_v68.Button, {
+            }), (0, _v3.jsx)(_v66.Button, {
               variant: "primary",
               isDisabled: _v2 || "" === _v8 || _v8 === _v1,
               onClick: () => _v4(_v8),
@@ -8968,11 +8927,11 @@
       }
     }),
     _v363 = () => {
-      let _v0 = (0, _v87.useColorModeValue)("purple.50", "purple.900");
+      let _v0 = (0, _v85.useColorModeValue)("purple.50", "purple.900");
       return (0, _v3.jsx)(_v35.Card, {
         size: "lg",
         width: "100%",
-        height: _v98,
+        height: _v96,
         backgroundColor: _v0,
         display: "flex",
         alignItems: "center",
@@ -8997,7 +8956,7 @@
               color: "text-secondary",
               children: _v361
             })]
-          }), (0, _v3.jsx)(_v68.Button, {
+          }), (0, _v3.jsx)(_v66.Button, {
             as: "a",
             href: "/enterprise/contact-us",
             variant: "upsell",
@@ -9226,7 +9185,7 @@
               xVimeoPage: _v5,
               locale: _v6
             } = (0, _v61.useGctlConfig)();
-          return (0, _v66.default)(_v2 ? `/users/${_v2.where.userId}/projects/${_v2.where.projectId}/videos${(0, _v56.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v390.getUserProjectVideos)({
+          return (0, _v264.default)(_v2 ? `/users/${_v2.where.userId}/projects/${_v2.where.projectId}/videos${(0, _v56.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v390.getUserProjectVideos)({
             ..._v2,
             headers: {
               ..._v2.headers,
@@ -9265,7 +9224,7 @@
           let _v0 = _v7?.length && _v2.length && _v7?.filter(_v0 => _v401({
             videosSelectedCount: _v6,
             type: _v0.type,
-            selectLimit: _v247.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER,
+            selectLimit: _v245.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER,
             itemsCount: _v20 || 0,
             isSelected: _v2.findIndex(_v0 => _v400(_v0, _v0)) > -1,
             canEdit: _v0.canEdit ?? !1
@@ -9284,7 +9243,7 @@
         _v23 = _v21 || _v22 || _v17 || _v401({
           videosSelectedCount: _v6,
           type: _v3.type,
-          selectLimit: _v247.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER,
+          selectLimit: _v245.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER,
           itemsCount: _v20 || 0,
           isSelected: _v12,
           canEdit: _v3.canEdit ?? !1
@@ -9304,12 +9263,12 @@
           isDisabled: _v23,
           isChecked: _v12,
           onChange: _v19
-        }) : (0, _v3.jsx)(_v167.Tooltip, {
+        }) : (0, _v3.jsx)(_v165.Tooltip, {
           placement: "right-end",
           label: _v3.canEdit ? (0, _v29.translate)({
             singular: "Limit of {LIMIT} reached. Remove selections to add more.",
             replacements: {
-              LIMIT: _v247.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER.toString()
+              LIMIT: _v245.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER.toString()
             },
             dictionary: {
               es: {
@@ -9463,7 +9422,7 @@
               height: "3.375rem",
               marginRight: "0",
               children: _v9 === _v386.VIDEO ? (0, _v3.jsx)(_v5.Box, {
-                background: `url(${_v247.DEFAULT_VIDEO_THUMBNAIL})`,
+                background: `url(${_v245.DEFAULT_VIDEO_THUMBNAIL})`,
                 backgroundSize: "contain",
                 height: "100%",
                 width: "100%",
@@ -9770,13 +9729,13 @@
           _v1[_v23.findIndex(_v0 => _v400(_v0, _v0))] = _v0, _v25([..._v1]);
         },
         _v32 = (0, _v4.useMemo)(() => _v16.reduce((_v0, _v1) => _v1.type === _v386.VIDEO ? _v0 + 1 : _v1.type === _v386.FOLDER && _v1.itemCount ? _v0 + _v1?.itemCount : _v0, 0), [_v16]);
-      return (0, _v3.jsxs)(_v169.Popover, {
+      return (0, _v3.jsxs)(_v167.Popover, {
         isLazy: !0,
         placement: "bottom",
         isOpen: _v7,
         onClose: _v29,
-        children: [(0, _v3.jsx)(_v172.PopoverTrigger, {
-          children: (0, _v3.jsx)(_v68.Button, {
+        children: [(0, _v3.jsx)(_v170.PopoverTrigger, {
+          children: (0, _v3.jsx)(_v66.Button, {
             isDisabled: _v1,
             onClick: () => {
               if (_v9) return _v10(!1);
@@ -9814,7 +9773,7 @@
             })} ${_v18?.length > 0 ? ` - ${_v18?.length}` : ""}`
           })
         }), (0, _v3.jsx)(_v379.Portal, {
-          children: (0, _v3.jsx)(_v171.PopoverContent, {
+          children: (0, _v3.jsx)(_v169.PopoverContent, {
             minWidth: "42.331rem",
             padding: "0",
             ref: _v6,
@@ -10067,7 +10026,7 @@
                                   _v2 = _v401({
                                     videosSelectedCount: _v0,
                                     type: _v0.type,
-                                    selectLimit: _v247.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER,
+                                    selectLimit: _v245.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER,
                                     itemsCount: _v0.itemCount || 0,
                                     isSelected: _v1,
                                     canEdit: _v0.canEdit ?? !1
@@ -10092,7 +10051,7 @@
                         alignItems: "center",
                         justifyContent: "center",
                         padding: "1rem 0",
-                        children: (0, _v3.jsx)(_v68.Button, {
+                        children: (0, _v3.jsx)(_v66.Button, {
                           onClick: () => _v24(!0),
                           size: "sm",
                           variant: "tertiary",
@@ -10277,7 +10236,7 @@
                   children: (0, _v29.translate)({
                     singular: "You may select up to {LIMIT} videos.",
                     replacements: {
-                      LIMIT: _v247.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER.toString()
+                      LIMIT: _v245.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER.toString()
                     },
                     dictionary: {
                       es: {
@@ -10307,7 +10266,7 @@
                   justifyContent: "center",
                   alignItems: "center",
                   gap: "1rem",
-                  children: [(0, _v3.jsx)(_v68.Button, {
+                  children: [(0, _v3.jsx)(_v66.Button, {
                     size: "sm",
                     onClick: _v29,
                     variant: "secondary",
@@ -10337,7 +10296,7 @@
                         }
                       }
                     })
-                  }), (0, _v3.jsx)(_v68.Button, {
+                  }), (0, _v3.jsx)(_v66.Button, {
                     size: "sm",
                     variant: "primary",
                     isDisabled: 0 === _v16.length,
@@ -10471,7 +10430,7 @@
       } = (0, _v13.useAnalyticsTracking)(),
       _v19 = _v17?.locale ?? "en-US",
       [_v20] = (0, _v9.useMediaQuery)("(min-width: 62rem)"),
-      _v21 = _v13 === _v376.Reports.AI ? _v247.AI_DATE_RANGE_MAX_SPAN_DAYS : void 0,
+      _v21 = _v13 === _v376.Reports.AI ? _v245.AI_DATE_RANGE_MAX_SPAN_DAYS : void 0,
       _v22 = (0, _v4.useMemo)(() => ({
         locale: _v19,
         month: "short",
@@ -10504,15 +10463,15 @@
       padding: "md"
     }) : (0, _v3.jsx)(_v5.Box, {
       ref: _v14,
-      children: (0, _v3.jsxs)(_v169.Popover, {
+      children: (0, _v3.jsxs)(_v167.Popover, {
         placement: "bottom-end",
         isOpen: _v15,
         onClose: () => {
           _v11 && (_v9(_v11?.label), _v16(!1));
         },
         isLazy: !0,
-        children: [(0, _v3.jsx)(_v172.PopoverTrigger, {
-          children: (0, _v3.jsx)(_v68.Button, {
+        children: [(0, _v3.jsx)(_v170.PopoverTrigger, {
+          children: (0, _v3.jsx)(_v66.Button, {
             onClick: () => _v16(_v0 => !_v0),
             rightIcon: (0, _v3.jsx)(_v382.ChevronDownSmall, {}),
             isDisabled: _v5,
@@ -10520,7 +10479,7 @@
             isActive: _v15,
             children: _v8
           })
-        }), (0, _v3.jsx)(_v171.PopoverContent, {
+        }), (0, _v3.jsx)(_v169.PopoverContent, {
           padding: "0",
           children: (0, _v3.jsx)(_v410.DateRangePicker, {
             defaultRange: _v27,
@@ -10549,7 +10508,7 @@
               if (_v1) return _v9(_v1?.label);
               let _v2 = _v21.DateTime.fromISO(_v0?.[0]?.toString()),
                 _v3 = _v21.DateTime.fromISO(_v0?.[1]?.toString());
-              return _v2?.isValid || _v3?.isValid ? _v9(`${_v2.setLocale(_v19).toLocaleString(_v22)} - ${_v3?.isValid ? _v3.setLocale(_v19).toLocaleString(_v22) : ""}`) : _v9(_v261.T_SELECT_DATE_RANGE);
+              return _v2?.isValid || _v3?.isValid ? _v9(`${_v2.setLocale(_v19).toLocaleString(_v22)} - ${_v3?.isValid ? _v3.setLocale(_v19).toLocaleString(_v22) : ""}`) : _v9(_v259.T_SELECT_DATE_RANGE);
             }
           })
         })]
@@ -10660,7 +10619,7 @@
               boxSize: "0.875rem",
               color: "text-secondary"
             })
-          }), (0, _v3.jsx)(_v127.Input, {
+          }), (0, _v3.jsx)(_v125.Input, {
             outline: "none",
             paddingLeft: "2rem",
             placeholder: _v4,
@@ -10682,7 +10641,7 @@
               children: _v0.name
             })
           }, _v0.id))
-        }), _v13 && (0, _v3.jsx)(_v68.Button, {
+        }), _v13 && (0, _v3.jsx)(_v66.Button, {
           marginTop: "0.5rem",
           size: "heading-2xs",
           variant: "tertiary",
@@ -11145,7 +11104,7 @@
           data: _v13,
           error: _v14,
           isLoading: _v15
-        } = (0, _v264.useGetUserAnalytics)(() => _v10 ? null : {
+        } = (0, _v262.useGetUserAnalytics)(() => _v10 ? null : {
           select: ["audioTrackLanguage", "views"],
           where: {
             userId: _v5.id
@@ -11251,7 +11210,7 @@
           data: _v12,
           error: _v13,
           isLoading: _v14
-        } = (0, _v264.useGetUserAnalytics)(() => _v9 ? null : {
+        } = (0, _v262.useGetUserAnalytics)(() => _v9 ? null : {
           select: ["audioTrackType", "audioTrackProvenance", "views"],
           where: {
             userId: _v5.id
@@ -11355,7 +11314,7 @@
         data: _v12,
         error: _v13,
         isLoading: _v14
-      } = (0, _v264.useGetUserAnalytics)(() => _v9 ? null : {
+      } = (0, _v262.useGetUserAnalytics)(() => _v9 ? null : {
         select: ["deviceType", "views"],
         where: {
           userId: _v5.id
@@ -11470,7 +11429,7 @@
       setListOfExpandedItems: _v11,
       children: _v12
     }) => (0, _v3.jsxs)(_v3.Fragment, {
-      children: [(0, _v3.jsxs)(_v68.Button, {
+      children: [(0, _v3.jsxs)(_v66.Button, {
         onClick: () => {
           _v6(), _v10(!0);
         },
@@ -11510,7 +11469,7 @@
         onClose: () => {
           _v7(), _v10(!1);
         },
-        children: [(0, _v3.jsx)(_v456.DrawerOverlay, {}), (0, _v3.jsx)(_v117.motion.div, {
+        children: [(0, _v3.jsx)(_v456.DrawerOverlay, {}), (0, _v3.jsx)(_v115.motion.div, {
           drag: "y",
           dragConstraints: {
             top: 0,
@@ -11586,7 +11545,7 @@
                 width: "100%",
                 padding: "0.5rem",
                 gap: "0.5rem",
-                children: [_v3 && (0, _v3.jsx)(_v68.Button, {
+                children: [_v3 && (0, _v3.jsx)(_v66.Button, {
                   width: "100%",
                   size: "md",
                   variant: "tertiary",
@@ -11619,7 +11578,7 @@
                       }
                     }
                   })
-                }), (0, _v3.jsx)(_v68.Button, {
+                }), (0, _v3.jsx)(_v66.Button, {
                   width: "100%",
                   size: "md",
                   variant: "primary",
@@ -11676,7 +11635,7 @@
           onClose: _v11
         } = (0, _v448.useDisclosure)(),
         [_v12, _v13] = (0, _v4.useState)(!1),
-        _v14 = (0, _v87.useColorModeValue)("#F2F5F7", "#3D4751"),
+        _v14 = (0, _v85.useColorModeValue)("#F2F5F7", "#3D4751"),
         [_v15, _v16] = (0, _v4.useState)([0, 1, 2, 3, 4, 5, 6, 7, 8]);
       return ((0, _v381.useOutsideClick)({
         enabled: !_v3,
@@ -11698,12 +11657,12 @@
         children: _v0
       }) : (0, _v3.jsx)(_v5.Box, {
         ref: _v6,
-        children: (0, _v3.jsxs)(_v169.Popover, {
+        children: (0, _v3.jsxs)(_v167.Popover, {
           placement: "bottom-end",
           isOpen: _v12,
           isLazy: !0,
-          children: [(0, _v3.jsx)(_v172.PopoverTrigger, {
-            children: (0, _v3.jsxs)(_v68.Button, {
+          children: [(0, _v3.jsx)(_v170.PopoverTrigger, {
+            children: (0, _v3.jsxs)(_v66.Button, {
               onClick: () => _v13(_v0 => !_v0),
               "data-id": "analyticsFilterPanel",
               leftIcon: (0, _v3.jsx)(_v449.Filter, {}),
@@ -11736,7 +11695,7 @@
                 }
               }), " ", _v1 > 0 && `(${_v1})`]
             })
-          }), (0, _v3.jsxs)(_v171.PopoverContent, {
+          }), (0, _v3.jsxs)(_v169.PopoverContent, {
             width: "18.125rem",
             padding: "0",
             overflow: "hidden",
@@ -11798,7 +11757,7 @@
               padding: "0.5rem",
               gap: "0.5rem",
               flexShrink: 0,
-              children: [_v2 && (0, _v3.jsx)(_v68.Button, {
+              children: [_v2 && (0, _v3.jsx)(_v66.Button, {
                 width: "100%",
                 size: "sm",
                 variant: "tertiary",
@@ -11831,7 +11790,7 @@
                     }
                   }
                 })
-              }), (0, _v3.jsx)(_v68.Button, {
+              }), (0, _v3.jsx)(_v66.Button, {
                 width: "100%",
                 size: "sm",
                 variant: "primary",
@@ -11964,7 +11923,7 @@
           data: _v12,
           error: _v13,
           isLoading: _v14
-        } = (0, _v264.useGetUserAnalytics)(() => _v9 ? null : {
+        } = (0, _v262.useGetUserAnalytics)(() => _v9 ? null : {
           select: ["country", "views"],
           where: {
             userId: _v5.id
@@ -12093,7 +12052,7 @@
           data: _v12,
           error: _v13,
           isLoading: _v14
-        } = (0, _v264.useGetUserAnalytics)(() => _v9 ? null : {
+        } = (0, _v262.useGetUserAnalytics)(() => _v9 ? null : {
           select: ["embedDomain", "views"],
           where: {
             userId: _v5.id
@@ -12202,10 +12161,10 @@
     },
     _v462 = [{
       id: "live",
-      name: _v247.STREAMING_TYPES_DISPLAY_MAP.Live
+      name: _v245.STREAMING_TYPES_DISPLAY_MAP.Live
     }, {
       id: "video",
-      name: _v247.STREAMING_TYPES_DISPLAY_MAP.Non_live
+      name: _v245.STREAMING_TYPES_DISPLAY_MAP.Non_live
     }],
     _v463 = ({
       selectedItemsToApply: _v0,
@@ -12267,7 +12226,7 @@
           data: _v13,
           error: _v14,
           isLoading: _v15
-        } = (0, _v264.useGetUserAnalytics)(() => _v10 ? null : {
+        } = (0, _v262.useGetUserAnalytics)(() => _v10 ? null : {
           select: ["textTrackLanguage", "views"],
           where: {
             userId: _v5.id
@@ -12373,7 +12332,7 @@
           data: _v12,
           error: _v13,
           isLoading: _v14
-        } = (0, _v264.useGetUserAnalytics)(() => _v9 ? null : {
+        } = (0, _v262.useGetUserAnalytics)(() => _v9 ? null : {
           select: ["textTrackType", "textTrackProvenance", "views"],
           where: {
             userId: _v5.id
@@ -12531,7 +12490,7 @@
               xVimeoPage: _v5,
               locale: _v6
             } = (0, _v61.useGctlConfig)();
-          return (0, _v66.default)(_v2 ? `/me/workspaces${(0, _v56.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v468.getMeWorkspaces)({
+          return (0, _v264.default)(_v2 ? `/me/workspaces${(0, _v56.serializeQuery)(_v2)}` : () => null, _v2 ? () => (0, _v468.getMeWorkspaces)({
             ..._v2,
             headers: {
               ..._v2.headers,
@@ -12569,12 +12528,12 @@
       let _v13 = _v5?.length;
       return (0, _v3.jsx)(_v5.Box, {
         ref: _v4,
-        children: (0, _v3.jsxs)(_v169.Popover, {
+        children: (0, _v3.jsxs)(_v167.Popover, {
           placement: "bottom-end",
           isOpen: _v7,
           isLazy: !0,
-          children: [(0, _v3.jsx)(_v172.PopoverTrigger, {
-            children: (0, _v3.jsx)(_v68.Button, {
+          children: [(0, _v3.jsx)(_v170.PopoverTrigger, {
+            children: (0, _v3.jsx)(_v66.Button, {
               onClick: () => _v8(_v0 => !_v0),
               variant: "tertiary",
               isActive: _v7 || _v13 > 0,
@@ -12588,7 +12547,7 @@
                 })
               })
             })
-          }), (0, _v3.jsx)(_v171.PopoverContent, {
+          }), (0, _v3.jsx)(_v169.PopoverContent, {
             width: "13.75rem",
             minWidth: "13.75rem",
             minHeight: "14rem",
@@ -12625,7 +12584,7 @@
                 justifyContent: "flex-end",
                 children: (0, _v3.jsxs)(_v6.Flex, {
                   gap: "0.75rem",
-                  children: [(0, _v3.jsx)(_v68.Button, {
+                  children: [(0, _v3.jsx)(_v66.Button, {
                     isDisabled: _v10 || !!_v11,
                     size: "sm",
                     variant: "tertiary",
@@ -12664,7 +12623,7 @@
                         }
                       }
                     })
-                  }), (0, _v3.jsx)(_v68.Button, {
+                  }), (0, _v3.jsx)(_v66.Button, {
                     isDisabled: _v10 || !!_v11 || !_v13,
                     size: "sm",
                     variant: "primary",
@@ -12878,7 +12837,7 @@
                 if (_v23(_v0), _v21(_v1), _v1) return _v19(_v1?.label);
                 let _v2 = _v21.DateTime.fromISO(_v0?.[0]?.toString()),
                   _v3 = _v21.DateTime.fromISO(_v0?.[1]?.toString());
-                return _v2?.isValid || _v3?.isValid ? _v19(`${_v2.setLocale(_v26).toLocaleString(_v27)} - ${_v3?.isValid ? _v3.setLocale(_v26).toLocaleString(_v27) : ""}`) : _v19(_v261.T_SELECT_DATE_RANGE);
+                return _v2?.isValid || _v3?.isValid ? _v19(`${_v2.setLocale(_v26).toLocaleString(_v27)} - ${_v3?.isValid ? _v3.setLocale(_v26).toLocaleString(_v27) : ""}`) : _v19(_v259.T_SELECT_DATE_RANGE);
               },
               activePreset: _v20,
               setActivePreset: _v21
@@ -12966,7 +12925,7 @@
           showFilterPanel: _v12,
           headerActions: _v13
         } = _v0,
-        _v14 = (0, _v87.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
+        _v14 = (0, _v85.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
         _v15 = (0, _v24.matchPath)(location.pathname, "/analytics/bandwidth"),
         {
           trackAnalyticsBandwidthViewChanged: _v16
@@ -12990,17 +12949,17 @@
               children: _v2
             }), _v5 && (0, _v3.jsx)(_v5.Box, {
               position: "relative",
-              children: (0, _v3.jsxs)(_v169.Popover, {
+              children: (0, _v3.jsxs)(_v167.Popover, {
                 placement: "right",
                 trigger: "hover",
-                children: [(0, _v3.jsx)(_v172.PopoverTrigger, {
-                  children: (0, _v3.jsx)(_v173.InfoCircle, {
+                children: [(0, _v3.jsx)(_v170.PopoverTrigger, {
+                  children: (0, _v3.jsx)(_v171.InfoCircle, {
                     color: "text-tertiary",
                     boxSize: "0.75rem",
                     marginTop: "-1.7rem",
                     marginLeft: "-0.5rem"
                   })
-                }), (0, _v3.jsx)(_v171.PopoverContent, {
+                }), (0, _v3.jsx)(_v169.PopoverContent, {
                   children: _v5
                 })]
               })
@@ -13023,7 +12982,7 @@
                       analyticsBandwidthView: "date"
                     });
                   },
-                  children: _v261.T_VIEW_BY_DATE
+                  children: _v259.T_VIEW_BY_DATE
                 }), (0, _v3.jsx)(_v373.Tab, {
                   as: _v372.Link,
                   to: "/analytics/bandwidth/video",
@@ -13037,7 +12996,7 @@
                       analyticsBandwidthView: "video"
                     });
                   },
-                  children: _v261.T_VIEW_BY_VIDEO
+                  children: _v259.T_VIEW_BY_VIDEO
                 })]
               })
             })]
@@ -13075,15 +13034,15 @@
     _v478 = () => "",
     _v479 = _v0 => {
       if (Array.isArray(_v0)) return _v0.flatMap(_v0 => {
-        let _v1 = _v107(_v0);
+        let _v1 = _v105(_v0);
         return null === _v1 ? [] : [_v1];
       });
       if ((0, _v55.isRecord)(_v0)) {
         if (Array.isArray(_v0.data)) return _v0.data.flatMap(_v0 => {
-          let _v1 = _v107(_v0);
+          let _v1 = _v105(_v0);
           return null === _v1 ? [] : [_v1];
         });
-        let _v0 = _v107(_v0);
+        let _v0 = _v105(_v0);
         if (null !== _v0) return [_v0];
       }
       return [];
@@ -13578,7 +13537,7 @@
         scrollMargin: "1.5rem",
         size: "lg",
         width: "100%",
-        height: _v98,
+        height: _v96,
         paddingTop: "md",
         paddingLeft: "lg",
         paddingRight: "lg",
@@ -13683,7 +13642,7 @@
           }), (0, _v3.jsx)(_v5.Box, {
             flex: 1,
             minHeight: 0,
-            children: "denied" === _v15 || _v18 ? (0, _v3.jsx)(_v150, {}) : _v16 ? (0, _v3.jsx)(_v44.Skeleton, {
+            children: "denied" === _v15 || _v18 ? (0, _v3.jsx)(_v148, {}) : _v16 ? (0, _v3.jsx)(_v44.Skeleton, {
               height: "100%",
               borderRadius: "md"
             }) : _v17 ? (0, _v3.jsx)(_v6.Flex, {
@@ -13695,7 +13654,7 @@
                 color: "text-secondary",
                 children: _v483
               })
-            }) : null !== _v19 && _v24 && null !== _v23 ? (0, _v3.jsx)(_v260, {
+            }) : null !== _v19 && _v24 && null !== _v23 ? (0, _v3.jsx)(_v258, {
               chartType: _v23,
               data: _v19
             }) : (0, _v3.jsx)(_v6.Flex, {
@@ -13766,9 +13725,9 @@
             if (!(_v0 => {
               if (!(0, _v55.isRecord)(_v0)) return !1;
               let _v1 = void 0 === _v0.widgetId || null === _v0.widgetId || "number" == typeof _v0.widgetId && Number.isInteger(_v0.widgetId);
-              return "string" == typeof _v0.title && _v90(_v0.chartType) && (null === _v0.note || "string" == typeof _v0.note) && _v1 && null !== _v106(_v0.query);
+              return "string" == typeof _v0.title && _v88(_v0.chartType) && (null === _v0.note || "string" == typeof _v0.note) && _v1 && null !== _v104(_v0.query);
             })(_v3)) return null;
-            let _v4 = _v106(_v3.query);
+            let _v4 = _v104(_v3.query);
             if (null === _v4) return null;
             return {
               title: _v3.title,
@@ -13843,42 +13802,7 @@
             }
           }, [_v1, _v3, _v2, _v4, _v6]), _v5];
         }(),
-        [_v43, _v44] = function () {
-          let {
-              baseUrl: _v0,
-              jwt: _v1,
-              xVimeoPage: _v2,
-              locale: _v3
-            } = (0, _v61.useGctlConfig)(),
-            [_v4, _v5] = (0, _v56.useInternalState)();
-          return [(0, _v4.useCallback)(async _v0 => {
-            _v5({
-              type: "REQUEST"
-            });
-            try {
-              let _v0 = await _v65({
-                ..._v0,
-                baseUrl: _v0,
-                headers: {
-                  ..._v0.headers,
-                  "Content-Type": "application/json",
-                  Authorization: _v1 ? `jwt ${_v1}` : "",
-                  "Vimeo-Page": `${_v2}`,
-                  "Accept-Language": _v3 ?? "en"
-                }
-              });
-              _v5({
-                type: "SUCCESS",
-                payload: _v0
-              });
-            } catch (_v0) {
-              _v5({
-                type: "FAILURE",
-                payload: _v0
-              });
-            }
-          }, [_v0, _v2, _v1, _v3, _v5]), _v4];
-        }(),
+        [_v43, _v44] = (0, _v64.usePostUserAnalyticsWidgets)(),
         [_v45, _v46] = function () {
           let {
               mutate: _v0
@@ -13963,14 +13887,14 @@
       }, [_v42.data, _v11]);
       let _v49 = (0, _v4.useMemo)(() => null === _v42.error && void 0 !== _v42.data ? (_v0 => {
           if (!(0, _v55.isRecord)(_v0)) return null;
-          if (_v0.status === _v110) {
+          if (_v0.status === _v108) {
             let _v0 = _v0.suggestions;
             return Array.isArray(_v0) && 0 !== _v0.length && _v0.every(_v0 => "string" == typeof _v0) ? {
-              status: _v110,
+              status: _v108,
               suggestions: _v0
             } : null;
           }
-          if (_v0.status !== _v109) return null;
+          if (_v0.status !== _v107) return null;
           let {
             title: _v1,
             chartType: _v2,
@@ -13978,10 +13902,10 @@
             description: _v4,
             query: _v5
           } = _v0;
-          if ("string" != typeof _v1 || "string" != typeof _v2 || !_v90(_v2)) return null;
-          let _v6 = _v106(_v5);
+          if ("string" != typeof _v1 || "string" != typeof _v2 || !_v88(_v2)) return null;
+          let _v6 = _v104(_v5);
           return null === _v6 ? null : {
-            status: _v109,
+            status: _v107,
             spec: {
               title: _v1,
               chartType: _v2,
@@ -14016,7 +13940,7 @@
         }
         if (_v60.current) return;
         _v60.current = !0;
-        let _v1 = (_v0 = _v96(_v42.data?.aiAnalyticsWidgetQuota) ?? _v6, !0 !== _v7.hasWeeklyLimit || null === _v0 ? _v7 : {
+        let _v1 = (_v0 = _v94(_v42.data?.aiAnalyticsWidgetQuota) ?? _v6, !0 !== _v7.hasWeeklyLimit || null === _v0 ? _v7 : {
             ..._v7,
             weeklyLimit: _v0.available,
             weeklyUsed: _v0.used,
@@ -14056,12 +13980,12 @@
         });
       }, [_v7, _v42.called, _v42.data, _v42.error, _v42.loading, _v49, _v6, _v17]);
       let _v61 = (_v0, _v1 = "input") => {
-          _v52 || _v97(_v6) || (_v16({
+          _v52 || _v95(_v6) || (_v16({
             prompt: _v0,
             promptSource: _v1,
             context: _v7
           }), _v31.current = _v0, _v19(!1), _v51(null), _v23(null), _v29(!0), _v39(null), _v41({
-            select: _v95,
+            select: _v93,
             where: {
               userId: _v2
             },
@@ -14133,13 +14057,13 @@
             flex: 1,
             children: [_v62 ? (0, _v3.jsx)(_v475, {
               reportType: _v376.Reports.AI,
-              title: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_AI],
+              title: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_AI],
               subtitle: _v494,
               state: _v0,
               dispatch: _v1,
               reportFilters: [],
-              calendarPresets: _v247.CALENDAR_PRESETS[_v376.Reports.AI],
-              headerActions: (0, _v3.jsx)(_v196, {
+              calendarPresets: _v245.CALENDAR_PRESETS[_v376.Reports.AI],
+              headerActions: (0, _v3.jsx)(_v194, {
                 size: "md",
                 onClick: _v66
               })
@@ -14191,7 +14115,7 @@
                 flex: 1,
                 alignItems: "center",
                 justifyContent: "center",
-                children: (0, _v3.jsx)(_v140, {
+                children: (0, _v3.jsx)(_v138, {
                   prompt: _v32,
                   onPromptChange: _v33,
                   onSubmit: _v61,
@@ -14208,13 +14132,13 @@
                   variant: "body-md",
                   color: "text-secondary",
                   children: _v495
-                }), (0, _v3.jsx)(_v196, {
+                }), (0, _v3.jsx)(_v194, {
                   onClick: _v66
                 })]
               })]
             })]
           })
-        }), _v62 ? (0, _v3.jsx)(_v164, {
+        }), _v62 ? (0, _v3.jsx)(_v162, {
           isSubmitting: _v52,
           hasWidgets: _v62,
           isCreditTrialActive: _v5,
@@ -14244,12 +14168,12 @@
           onDeleteWidget: _v67,
           onShareFeedback: _v66,
           onClose: _v64
-        }), (0, _v3.jsx)(_v80, {
+        }), (0, _v3.jsx)(_v78, {
           isOpen: null !== _v22,
           isSaving: _v53,
           onConfirm: () => {
             null !== _v22 && (_v53 || (_v59.current = !1, _v43({
-              select: _v94,
+              select: _v92,
               where: {
                 userId: _v2
               },
@@ -14272,7 +14196,7 @@
               ..._v0,
               title: _v0
             } : _v0)), _v47({
-              select: _v94,
+              select: _v92,
               where: {
                 userId: _v2,
                 widgetId: _v24.id
@@ -14298,7 +14222,7 @@
           onClose: () => {
             _v21(null);
           }
-        }), (0, _v3.jsx)(_v148, {
+        }), (0, _v3.jsx)(_v146, {
           isOpen: _v26,
           onClose: () => _v27(!1),
           trackingContext: _v7
@@ -14309,8 +14233,10 @@
       state: _v0,
       dispatch: _v1
     }) => {
-      let _v2 = _v0.userInUse.id,
-        _v3 = (_v0 => {
+      let _v2,
+        _v3,
+        _v4 = _v0.userInUse.id,
+        _v5 = (_v0 => {
           let _v1 = (0, _v365.useViewer)(),
             {
               capabilities: _v2,
@@ -14331,82 +14257,63 @@
               storage: _v370(_v0)
             };
           }, [_v2.canViewBandwidthAnalyticsReports, _v2.hasTeamAnalytics, _v3, _v0, _v1]);
-        })(_v2),
+        })(_v4),
         {
-          trackAnalyticsAiDashboardDisplayed: _v4
+          trackAnalyticsAiDashboardDisplayed: _v6
         } = (0, _v13.useAnalyticsTracking)(),
         {
           capabilities: {
-            aiAnalyticsCreditTrial: _v5
+            aiAnalyticsCreditTrial: _v7
           },
-          ready: _v6,
-          error: _v7
-        } = (0, _v11.useCapability)(["aiAnalyticsCreditTrial"], _v2),
+          ready: _v8,
+          error: _v9
+        } = (0, _v11.useCapability)(["aiAnalyticsCreditTrial"], _v4),
         {
-          data: _v8,
-          isLoading: _v9,
-          mutate: _v10
+          data: _v10,
+          isLoading: _v11,
+          mutate: _v12
         } = (0, _v23.useGetUser)(() => ({
           where: {
-            userId: _v2
+            userId: _v4
           },
           select: ["aiAnalyticsAccess", "aiAnalyticsWidgetQuota", "aiAnalyticsWidgetQuota.available", "aiAnalyticsWidgetQuota.period", "aiAnalyticsWidgetQuota.remaining", "aiAnalyticsWidgetQuota.resetDate", "aiAnalyticsWidgetQuota.used"]
         })),
-        _v11 = _v8?.aiAnalyticsAccess,
-        _v12 = "free" === _v11 || "full" === _v11,
-        _v13 = "full" === _v11,
+        _v13 = _v10?.aiAnalyticsAccess,
+        _v14 = (0, _v65.isAiAnalyticsAccess)(_v13),
+        _v15 = "full" === _v13,
         {
-          data: _v14,
-          isLoading: _v15,
-          isValidating: _v16,
-          mutate: _v17
-        } = function (_v0, _v1) {
-          let _v2 = "function" == typeof _v0 ? _v0() : _v0,
-            {
-              baseUrl: _v3,
-              jwt: _v4,
-              xVimeoPage: _v5,
-              locale: _v6
-            } = (0, _v61.useGctlConfig)();
-          return (0, _v66.default)(_v2 ? `/users/${_v2.where.userId}/analytics/widgets${(0, _v56.serializeQuery)(_v2)}` : () => null, _v2 ? () => _v64({
-            ..._v2,
-            headers: {
-              ..._v2.headers,
-              "Content-Type": "application/json",
-              Authorization: _v4 ? `jwt ${_v4}` : "",
-              "Vimeo-Page": `${_v5}`,
-              "Accept-Language": _v6 ?? "en"
-            },
-            baseUrl: _v3
-          }) : null, _v1);
-        }(() => _v12 ? {
-          select: _v94,
+          data: _v16,
+          isLoading: _v17,
+          isValidating: _v18,
+          mutate: _v19
+        } = (_v2 = () => _v14 ? {
+          select: _v92,
           where: {
-            userId: _v2
+            userId: _v4
           }
-        } : null, {
+        } : null, _v3 = {
           revalidateOnFocus: !1
-        }),
-        _v18 = _v15 || _v9 || !_v6 && null === _v7,
-        _v19 = (0, _v4.useMemo)(() => _v479(_v14), [_v14]),
-        _v20 = (0, _v4.useMemo)(() => _v13 ? null : _v96(_v8?.aiAnalyticsWidgetQuota), [_v13, _v8]),
-        _v21 = (0, _v4.useMemo)(() => {
+        }, (0, _v64.useGetUserAnalyticsWidgets)(_v2, _v3)),
+        _v20 = _v17 || _v11 || !_v8 && null === _v9,
+        _v21 = (0, _v4.useMemo)(() => _v479(_v16), [_v16]),
+        _v22 = (0, _v4.useMemo)(() => _v15 ? null : _v94(_v10?.aiAnalyticsWidgetQuota), [_v15, _v10]),
+        _v23 = (0, _v4.useMemo)(() => {
           let _v0;
-          return _v0 = !_v13, {
-            access: _v13 ? "full" : "free",
-            ...(void 0 === _v5 ? {} : {
-              isCreditTrialActive: _v5
+          return _v0 = !_v15, {
+            access: _v15 ? "full" : "free",
+            ...(void 0 === _v7 ? {} : {
+              isCreditTrialActive: _v7
             }),
             hasWeeklyLimit: _v0,
-            ...(_v0 && null !== _v20 ? {
-              weeklyLimit: _v20.available,
-              weeklyUsed: _v20.used,
-              weeklyRemaining: _v20.remaining
+            ...(_v0 && null !== _v22 ? {
+              weeklyLimit: _v22.available,
+              weeklyUsed: _v22.used,
+              weeklyRemaining: _v22.remaining
             } : {})
           };
-        }, [_v5, _v13, _v20]),
-        _v22 = (0, _v4.useCallback)(_v0 => {
-          _v17(_v0 => {
+        }, [_v7, _v15, _v22]),
+        _v24 = (0, _v4.useCallback)(_v0 => {
+          _v19(_v0 => {
             let _v1 = _v0(_v479(_v0));
             return {
               total: _v1.length,
@@ -14423,52 +14330,52 @@
           }, {
             revalidate: !1
           });
-        }, [_v17]),
-        _v23 = (0, _v4.useCallback)(() => {
-          _v17();
-        }, [_v17]),
-        _v24 = (0, _v4.useCallback)(_v0 => {
-          _v10(_v0 => void 0 === _v0 ? _v0 : {
+        }, [_v19]),
+        _v25 = (0, _v4.useCallback)(() => {
+          _v19();
+        }, [_v19]),
+        _v26 = (0, _v4.useCallback)(_v0 => {
+          _v12(_v0 => void 0 === _v0 ? _v0 : {
             ..._v0,
             aiAnalyticsWidgetQuota: _v0
           }, {
             revalidate: !1
           });
-        }, [_v10]);
+        }, [_v12]);
       return ((0, _v14.usePicoEffect)(() => {
-        if (!_v12 || _v18 || _v16) return !1;
-        _v4({
-          widgetCount: _v19.length,
-          hasWidgets: _v19.length > 0,
-          context: _v21
+        if (!_v14 || _v20 || _v18) return !1;
+        _v6({
+          widgetCount: _v21.length,
+          hasWidgets: _v21.length > 0,
+          context: _v23
         });
-      }, [_v21, _v12, _v18, _v16, _v19.length], {
+      }, [_v23, _v14, _v20, _v18, _v21.length], {
         once: !0
       }), (0, _v4.useEffect)(() => {
         _v1({
           type: _v376.REPORT_ACTION_TYPE.UPDATE_LOADING_STATE,
           payload: !1
         });
-      }, [_v1]), _v18) ? (0, _v3.jsx)(_v6.Flex, {
+      }, [_v1]), _v20) ? (0, _v3.jsx)(_v6.Flex, {
         height: "31.25rem",
         alignItems: "center",
         justifyContent: "center",
         children: (0, _v3.jsx)(_v10.Spinner, {
           size: "md"
         })
-      }) : _v12 ? (0, _v3.jsx)(_v498, {
+      }) : _v14 ? (0, _v3.jsx)(_v498, {
         state: _v0,
         dispatch: _v1,
-        userId: _v2,
-        widgets: _v19,
-        hasFullAiAccess: _v13,
-        isCreditTrialActive: !0 === _v5,
-        promptQuota: _v20,
-        analyticsAiContext: _v21,
-        datasetAccess: _v3,
-        onUpdateWidgets: _v22,
-        onRefreshWidgets: _v23,
-        onSyncQuota: _v24
+        userId: _v4,
+        widgets: _v21,
+        hasFullAiAccess: _v15,
+        isCreditTrialActive: !0 === _v7,
+        promptQuota: _v22,
+        analyticsAiContext: _v23,
+        datasetAccess: _v5,
+        onUpdateWidgets: _v24,
+        onRefreshWidgets: _v25,
+        onSyncQuota: _v26
       }) : (0, _v3.jsx)(_v27.ErrorPage, {
         error: new _v25.ResourceNotFoundError()
       });
@@ -14490,7 +14397,7 @@
             combinedBandwidth: _v1 ? Number(_v1.combinedBandwidth) : 0
           };
         });
-      return (0, _v31.sortHandler)("name", _v247.SORT_VALUE.ASCENDING_ORDER, _v3);
+      return (0, _v31.sortHandler)("name", _v245.SORT_VALUE.ASCENDING_ORDER, _v3);
     },
     _v504 = (_v0, _v1) => {
       if (!_v0) return [];
@@ -14548,9 +14455,9 @@
         }), {});
       return _v7 = {
         ..._v7,
-        [_v247.TOTAL_ROW_ID]: {
-          cid: _v247.TOTAL_ROW_ID,
-          name: _v247.TOTAL_ROW_NAME,
+        [_v245.TOTAL_ROW_ID]: {
+          cid: _v245.TOTAL_ROW_ID,
+          name: _v245.TOTAL_ROW_NAME,
           ..._v6
         }
       }, _v5?.map(_v0 => {
@@ -14597,7 +14504,7 @@
         return {
           type: _v376.TablePayloadItemType.DEVICE,
           id: _v0?.deviceType ?? (_v0?.browserName || _v0?.osName || ""),
-          name: (_v0?.deviceType && _v247.DEVICE_NAMES_DISPLAY_MAP[_v0.deviceType]) ?? (0, _v443.default)(_v0?.deviceType) ?? "",
+          name: (_v0?.deviceType && _v245.DEVICE_NAMES_DISPLAY_MAP[_v0.deviceType]) ?? (0, _v443.default)(_v0?.deviceType) ?? "",
           plays: _v0?.views ?? 0,
           drm_licenses_used: _v0?.drmLicensesUsed ?? 0,
           loads: _v0?.impressions ?? 0,
@@ -14609,8 +14516,8 @@
           averageviewpercentage: _v0?.meanPercentWatched ?? 0,
           averageviewduration: _v0?.meanSecondsWatched ?? 0,
           totalviewduration: _v0?.totalSecondsWatched ?? 0,
-          browserName: (_v1?.toLowerCase() && _v247.DEVICE_NAMES_DISPLAY_MAP[_v1.toLowerCase()]) ?? (0, _v443.default)(_v1),
-          osName: (_v2?.toLowerCase() && _v247.DEVICE_NAMES_DISPLAY_MAP[_v2.toLowerCase()]) ?? (0, _v443.default)(_v2)
+          browserName: (_v1?.toLowerCase() && _v245.DEVICE_NAMES_DISPLAY_MAP[_v1.toLowerCase()]) ?? (0, _v443.default)(_v1),
+          osName: (_v2?.toLowerCase() && _v245.DEVICE_NAMES_DISPLAY_MAP[_v2.toLowerCase()]) ?? (0, _v443.default)(_v2)
         };
       }),
       urlToDownloadCSV: _v0.exportLink,
@@ -14748,7 +14655,7 @@
         }
         throw Error(`[VA] Invalid Report Types to getBandwidthDataProcessor for ${_v0}`);
       })(_v0),
-      _v15 = (0, _v4.useMemo)(() => _v3 ? _v1.selectedItemsForGraph.filter(_v0 => _v0.id !== _v247.TOTAL_ROW_ID).map(_v0 => _v0.id) : [], [_v3, _v1.selectedItemsForGraph]),
+      _v15 = (0, _v4.useMemo)(() => _v3 ? _v1.selectedItemsForGraph.filter(_v0 => _v0.id !== _v245.TOTAL_ROW_ID).map(_v0 => _v0.id) : [], [_v3, _v1.selectedItemsForGraph]),
       _v16 = (0, _v4.useMemo)(() => (0, _v31.getFiltersObjectForAPI)(_v2, _v8), [_v2, _v8]),
       _v17 = (0, _v4.useMemo)(() => _v3 ? {
         ..._v16,
@@ -14779,7 +14686,7 @@
         errorRetryInterval: 0,
         errorRetryCount: 1
       }),
-      _v22 = !!_v3 && _v1.selectedItemsForGraph.find(_v0 => _v0.id === _v247.TOTAL_ROW_ID),
+      _v22 = !!_v3 && _v1.selectedItemsForGraph.find(_v0 => _v0.id === _v245.TOTAL_ROW_ID),
       _v23 = (0, _v4.useMemo)(() => ["combinedBandwidth", "liveBandwidth", "videoBandwidth", "startDate"], []),
       {
         data: _v24,
@@ -14857,7 +14764,7 @@
     }, [_v18, _v19]);
     let _v24 = (0, _v4.useMemo)(() => (0, _v31.getFiltersObjectForAPI)(_v2, _v7), [_v2, _v7]),
       _v25 = (0, _v4.useMemo)(() => ["combinedBandwidth", "liveBandwidth", "videoBandwidth", "startDate"], []),
-      _v26 = (0, _v4.useMemo)(() => _v247.BANDWIDTH_REPORT_SORT_MAP[_v1.primaryDimensions.bandwidth], [_v1.primaryDimensions.bandwidth]),
+      _v26 = (0, _v4.useMemo)(() => _v245.BANDWIDTH_REPORT_SORT_MAP[_v1.primaryDimensions.bandwidth], [_v1.primaryDimensions.bandwidth]),
       {
         data: _v27,
         isValidating: _v28,
@@ -15002,13 +14909,13 @@
         }
       }
       let _v22 = _v5.length >= 4;
-      return (0, _v3.jsxs)(_v169.Popover, {
+      return (0, _v3.jsxs)(_v167.Popover, {
         isLazy: !0,
         placement: "bottom-end",
         isOpen: _v12,
         onClose: _v20,
-        children: [(0, _v3.jsx)(_v172.PopoverTrigger, {
-          children: (0, _v3.jsxs)(_v68.Button, {
+        children: [(0, _v3.jsx)(_v170.PopoverTrigger, {
+          children: (0, _v3.jsxs)(_v66.Button, {
             isDisabled: _v7,
             onClick: () => {
               if (_v14) return _v15(!1);
@@ -15020,7 +14927,7 @@
             children: [_v2, _v6.length > 0 && ` - ${_v6.length}`]
           })
         }), (0, _v3.jsx)(_v379.Portal, {
-          children: (0, _v3.jsx)(_v171.PopoverContent, {
+          children: (0, _v3.jsx)(_v169.PopoverContent, {
             maxHeight: "25rem",
             width: _v1 || "20rem",
             borderWidth: "none",
@@ -15035,7 +14942,7 @@
                 children: [_v22 && (0, _v3.jsxs)(_v418.InputGroup, {
                   marginBottom: "1.25rem",
                   position: "relative",
-                  children: [(0, _v3.jsx)(_v127.Input, {
+                  children: [(0, _v3.jsx)(_v125.Input, {
                     placeholder: _v3,
                     size: "md",
                     value: _v10,
@@ -15048,7 +14955,7 @@
                       _v11(_v1);
                     }
                   }), (0, _v3.jsx)(_v419.InputRightElement, {
-                    children: _v10.length > 0 ? (0, _v3.jsx)(_v152.CloseXSmall, {
+                    children: _v10.length > 0 ? (0, _v3.jsx)(_v150.CloseXSmall, {
                       cursor: "pointer",
                       onClick: () => _v11("")
                     }) : (0, _v3.jsx)(_v422.SearchMagnifier, {})
@@ -15220,7 +15127,7 @@
                   children: _v18.length > 0 && (0, _v3.jsxs)("span", {
                     children: [_v18.length, " selected"]
                   })
-                }), (0, _v3.jsx)(_v68.Button, {
+                }), (0, _v3.jsx)(_v66.Button, {
                   size: "sm",
                   variant: "secondary",
                   marginRight: "1rem",
@@ -15251,7 +15158,7 @@
                       }
                     }
                   })
-                }), (0, _v3.jsx)(_v68.Button, {
+                }), (0, _v3.jsx)(_v66.Button, {
                   size: "sm",
                   variant: "primary",
                   marginRight: "1rem",
@@ -15294,12 +15201,12 @@
     },
     _v528 = () => (0, _v3.jsx)(_v5.Box, {}),
     _v529 = [{
-      name: _v247.STREAMING_TYPES_DISPLAY_MAP.Live,
+      name: _v245.STREAMING_TYPES_DISPLAY_MAP.Live,
       id: "live",
       prepend: "",
       color: ""
     }, {
-      name: _v247.STREAMING_TYPES_DISPLAY_MAP.Non_live,
+      name: _v245.STREAMING_TYPES_DISPLAY_MAP.Non_live,
       id: "video",
       prepend: "",
       color: ""
@@ -15312,7 +15219,7 @@
         filterKey: _v4
       } = _v0;
       return (0, _v3.jsx)(_v527, {
-        name: _v247.DISPLAY_MAP.type,
+        name: _v245.DISPLAY_MAP.type,
         placeholderText: (0, _v29.translate)({
           singular: "Filter by streaming type",
           dictionary: {
@@ -15381,7 +15288,7 @@
           {
             data: _v14,
             error: _v15
-          } = (0, _v264.useGetUserAnalytics)(() => _v12 ? null : {
+          } = (0, _v262.useGetUserAnalytics)(() => _v12 ? null : {
             select: ["embedDomain"],
             where: {
               userId: _v7.id
@@ -15433,7 +15340,7 @@
             id: _v0?.embedDomain
           })) ?? []);
         }, [_v14, _v15]), (0, _v3.jsx)(_v527, {
-          name: _v247.DISPLAY_MAP.source,
+          name: _v245.DISPLAY_MAP.source,
           placeholderText: (0, _v29.translate)({
             singular: "Filter by source URL",
             dictionary: {
@@ -15496,7 +15403,7 @@
           {
             data: _v14,
             error: _v15
-          } = (0, _v264.useGetUserAnalytics)(() => _v12 ? null : {
+          } = (0, _v262.useGetUserAnalytics)(() => _v12 ? null : {
             select: ["deviceType"],
             where: {
               userId: _v1.id
@@ -15519,11 +15426,11 @@
           });
         return (0, _v4.useEffect)(() => {
           _v15 ? (0, _v385.logError)("Trouble retrieving Device Filter data", _v15) : _v11((_v14?.data && _v14.data.map(_v0 => ({
-            name: _v0.deviceType && _v247.DEVICE_DISPLAY_MAP[_v247.DEVICE_TYPES[_v0.deviceType]] ? _v247.DEVICE_DISPLAY_MAP[_v247.DEVICE_TYPES[_v0.deviceType]] : (0, _v443.default)(_v0.deviceType),
+            name: _v0.deviceType && _v245.DEVICE_DISPLAY_MAP[_v245.DEVICE_TYPES[_v0.deviceType]] ? _v245.DEVICE_DISPLAY_MAP[_v245.DEVICE_TYPES[_v0.deviceType]] : (0, _v443.default)(_v0.deviceType),
             id: _v0.deviceType
           }))) ?? []);
         }, [_v14, _v15]), (0, _v3.jsx)(_v527, {
-          name: _v247.DISPLAY_MAP.device,
+          name: _v245.DISPLAY_MAP.device,
           placeholderText: (0, _v29.translate)({
             singular: "Filter by device type",
             dictionary: {
@@ -15586,7 +15493,7 @@
           {
             data: _v14,
             error: _v15
-          } = (0, _v264.useGetUserAnalytics)(() => _v12 ? null : {
+          } = (0, _v262.useGetUserAnalytics)(() => _v12 ? null : {
             select: ["country"],
             where: {
               userId: _v1.id
@@ -15638,7 +15545,7 @@
             id: _v0?.country?.code
           })) ?? []);
         }, [_v14, _v15]), (0, _v3.jsx)(_v527, {
-          name: _v247.DISPLAY_MAP.region,
+          name: _v245.DISPLAY_MAP.region,
           placeholderText: (0, _v29.translate)({
             singular: "Filter by region name",
             dictionary: {
@@ -15739,10 +15646,10 @@
     }) => "REJECTED" == _v0 ? (0, _v3.jsx)(_v522.Paragraph, {
       size: "md",
       color: "status-destructive-primary",
-      children: "POST" == _v1 ? _v261.T_EXPORT_CSV_MODAL.unableToExport : _v261.T_EXPORT_CSV_MODAL.unableToExportUseEmail
+      children: "POST" == _v1 ? _v259.T_EXPORT_CSV_MODAL.unableToExport : _v259.T_EXPORT_CSV_MODAL.unableToExportUseEmail
     }) : _v2 ? (0, _v3.jsx)(_v522.Paragraph, {
       size: "md",
-      children: _v261.T_EXPORT_CSV_MODAL.secondaryDimensionInfo(_v2)
+      children: _v259.T_EXPORT_CSV_MODAL.secondaryDimensionInfo(_v2)
     }) : null,
     _v538 = ({
       reportType: _v0,
@@ -15764,22 +15671,22 @@
         {
           trackAnalyticsDataExported: _v15
         } = (0, _v13.useAnalyticsTracking)();
-      return (0, _v3.jsxs)(_v69.Modal, {
+      return (0, _v3.jsxs)(_v67.Modal, {
         isOpen: _v7,
         onClose: _v9,
-        children: [(0, _v3.jsx)(_v74.ModalOverlay, {}), (0, _v3.jsxs)(_v71.ModalContent, {
+        children: [(0, _v3.jsx)(_v72.ModalOverlay, {}), (0, _v3.jsxs)(_v69.ModalContent, {
           borderRadius: "xl",
           maxW: "30rem",
-          children: [(0, _v3.jsx)(_v73.ModalHeader, {
+          children: [(0, _v3.jsx)(_v71.ModalHeader, {
             paddingTop: "1.5rem",
             paddingBottom: "0rem",
             children: (0, _v3.jsx)(_v38.Header, {
               size: "md",
-              children: _v261.T_EXPORT_CSV_MODAL.header
+              children: _v259.T_EXPORT_CSV_MODAL.header
             })
-          }), (0, _v3.jsx)(_v141.ModalCloseButton, {
+          }), (0, _v3.jsx)(_v139.ModalCloseButton, {
             size: "md"
-          }), (0, _v3.jsxs)(_v70.ModalBody, {
+          }), (0, _v3.jsxs)(_v68.ModalBody, {
             paddingTop: "0rem",
             paddingBottom: "1rem",
             display: "flex",
@@ -15787,14 +15694,14 @@
             gap: "1.25rem",
             children: [(0, _v3.jsx)(_v522.Paragraph, {
               size: "md",
-              children: _v261.T_EXPORT_CSV_MODAL.emailAddress(_v1 || "")
+              children: _v259.T_EXPORT_CSV_MODAL.emailAddress(_v1 || "")
             }), (0, _v3.jsx)(_v522.Paragraph, {
               size: "md",
-              children: _v261.T_EXPORT_CSV_MODAL.reportExport(_v0)
+              children: _v259.T_EXPORT_CSV_MODAL.reportExport(_v0)
             }), (0, _v3.jsxs)(_v5.Box, {
               children: [(0, _v3.jsx)(_v522.Paragraph, {
                 size: "md",
-                children: _v261.T_EXPORT_CSV_MODAL.dateRange(_v2.toLocaleString(), _v3.toLocaleString())
+                children: _v259.T_EXPORT_CSV_MODAL.dateRange(_v2.toLocaleString(), _v3.toLocaleString())
               }), _v531.filter(({
                 filterKey: _v0
               }) => _v0 in _v4 && _v4[_v0].length > 0 && _v0 !== _v525.Filters.WORKSPACES).map(({
@@ -15808,15 +15715,15 @@
               exportMethod: _v12,
               secondaryDimension: _v8
             })]
-          }), (0, _v3.jsxs)(_v72.ModalFooter, {
+          }), (0, _v3.jsxs)(_v70.ModalFooter, {
             paddingTop: "0rem",
             paddingBottom: "1.5rem",
-            children: [(0, _v3.jsx)(_v68.Button, {
+            children: [(0, _v3.jsx)(_v66.Button, {
               onClick: () => {
                 _v9();
               },
               variant: "tertiary",
-              children: _v261.T_EXPORT_CSV_MODAL.close
+              children: _v259.T_EXPORT_CSV_MODAL.close
             }), (0, _v3.jsx)(_v539, {
               exportMethod: _v12,
               isLoading: "LOADING" == _v10,
@@ -15865,13 +15772,13 @@
                     method: _v12
                   });
                   if (!_v1.ok) throw _v14({
-                    title: _v261.T_EXPORT_CSV_MODAL.unableToExport
+                    title: _v259.T_EXPORT_CSV_MODAL.unableToExport
                   }), Error("export failed");
                   (_v15({
                     analyticsReportType: _v0,
                     analyticsDataExportedTarget: "POST" === _v12 ? "email" : "download"
                   }), "POST" === _v12) ? _v14({
-                    title: _v261.T_EXPORT_CSV_MODAL.exportProcessing
+                    title: _v259.T_EXPORT_CSV_MODAL.exportProcessing
                   }) : await _v526(_v1, _v534[_v0] ?? "analytics_export.csv");
                 })().then(_v9).catch(() => _v11("REJECTED"));
               }
@@ -15883,13 +15790,13 @@
     _v539 = _v0 => {
       let _v1 = [{
           value: "POST",
-          button: _v261.T_EXPORT_CSV_MODAL.emailExport,
-          tooltip: _v261.T_EXPORT_CSV_MODAL.reliableForAll,
+          button: _v259.T_EXPORT_CSV_MODAL.emailExport,
+          tooltip: _v259.T_EXPORT_CSV_MODAL.reliableForAll,
           icon: (0, _v3.jsx)(_v524.Envelope, {})
         }, {
           value: "GET",
-          button: _v261.T_EXPORT_CSV_MODAL.download,
-          tooltip: _v261.T_EXPORT_CSV_MODAL.fasterForSmaller,
+          button: _v259.T_EXPORT_CSV_MODAL.download,
+          tooltip: _v259.T_EXPORT_CSV_MODAL.fasterForSmaller,
           icon: (0, _v3.jsx)(_v47.DownloadImport, {})
         }],
         _v2 = "POST" == _v0.exportMethod ? _v1[0] : _v1[1];
@@ -15914,7 +15821,7 @@
               onChange: _v0.onChange,
               children: _v1.map(_v0 => (0, _v3.jsx)(_v518.MenuItemOption, {
                 value: _v0.value,
-                children: (0, _v3.jsx)(_v167.Tooltip, {
+                children: (0, _v3.jsx)(_v165.Tooltip, {
                   label: _v0.tooltip,
                   placement: "top",
                   children: (0, _v3.jsxs)(_v5.Box, {
@@ -15960,7 +15867,7 @@
           [_v525.Filters.AUDIO_LANGUAGE]: _v2,
           [_v525.Filters.AUDIO_TYPE_AND_PROVENANCE]: _v2
         }[_v0]();
-      return _v5 > 0 ? _v261.T_EXPORT_CSV_MODAL.filterRowOverflow(_v0, _v4, _v5) : _v261.T_EXPORT_CSV_MODAL.filterRow(_v0, _v4);
+      return _v5 > 0 ? _v259.T_EXPORT_CSV_MODAL.filterRowOverflow(_v0, _v4, _v5) : _v259.T_EXPORT_CSV_MODAL.filterRow(_v0, _v4);
     },
     _v541 = ({
       reportType: _v0,
@@ -15977,7 +15884,7 @@
           trackAnalyticsExportDataClicked: _v10
         } = (0, _v13.useAnalyticsTracking)();
       return (0, _v3.jsxs)(_v3.Fragment, {
-        children: [(0, _v3.jsx)(_v68.Button, {
+        children: [(0, _v3.jsx)(_v66.Button, {
           size: _v7,
           variant: "secondary",
           leftIcon: (0, _v3.jsx)(_v520.ArrowToBottom, {}),
@@ -15988,7 +15895,7 @@
               analyticsReportType: _v0
             });
           },
-          children: _v247.DISPLAY_MAP.export
+          children: _v245.DISPLAY_MAP.export
         }), _v8 && (0, _v3.jsx)(_v538, {
           reportType: _v0,
           emailAddress: _v1,
@@ -16031,13 +15938,13 @@
           justifyContent: "flex-start",
           children: [(0, _v3.jsxs)(_v40.Menu, {
             children: [(0, _v3.jsx)(_v41.MenuButton, {
-              as: _v68.Button,
+              as: _v66.Button,
               "data-id": "analyticsSecondaryDimension",
               size: "sm",
               variant: "secondary",
               textAlign: "left",
               rightIcon: (0, _v3.jsx)(_v382.ChevronDownSmall, {}),
-              children: _v2 ? _v247.TABLE_SEGMENT_NAME_DISPLAY_MAP[_v2] : _v261.T_VIEW_BREAKDOWN_BY
+              children: _v2 ? _v245.TABLE_SEGMENT_NAME_DISPLAY_MAP[_v2] : _v259.T_VIEW_BREAKDOWN_BY
             }), (0, _v3.jsx)(_v43.MenuList, {
               children: (0, _v3.jsx)(_v519.MenuOptionGroup, {
                 type: "radio",
@@ -16074,11 +15981,11 @@
                   }
                 })(_v0, _v3)).map(_v0 => (0, _v3.jsx)(_v518.MenuItemOption, {
                   value: _v0,
-                  children: _v247.TABLE_SEGMENT_NAME_DISPLAY_MAP[_v0]
+                  children: _v245.TABLE_SEGMENT_NAME_DISPLAY_MAP[_v0]
                 }, _v0))
               }, _v2)
             })]
-          }), _v2 && (0, _v3.jsx)(_v68.Button, {
+          }), _v2 && (0, _v3.jsx)(_v66.Button, {
             size: "sm",
             variant: "tertiary",
             marginLeft: "md",
@@ -16137,15 +16044,15 @@
     }) => {
       let [_v1, _v2] = (0, _v4.useState)(!1);
       return (0, _v3.jsxs)(_v3.Fragment, {
-        children: [(0, _v3.jsx)(_v68.Button, {
+        children: [(0, _v3.jsx)(_v66.Button, {
           variant: "upsell",
           leftIcon: (0, _v3.jsx)(_v520.ArrowToBottom, {}),
           size: _v0,
           onClick: () => _v2(!0),
-          children: _v247.UPSELL_TEXT.export
+          children: _v245.UPSELL_TEXT.export
         }), _v1 && (0, _v3.jsx)(_v33, {
           onClose: () => _v2(!1),
-          headerText: _v247.UPSELL_TEXT.export,
+          headerText: _v245.UPSELL_TEXT.export,
           subHeaderText: (0, _v29.translate)({
             singular: "Get access to robust analytics and privacy tools",
             dictionary: {
@@ -16218,13 +16125,13 @@
           return _v2;
         }, {}) : _v0?.length === 1 ? _v0[0] : (0, _v551.default)(_v1, "[0]");
       }, [_v1]),
-      _v11 = !!_v2.find(_v0 => _v0.id === _v247.TOTAL_ROW_ID),
+      _v11 = !!_v2.find(_v0 => _v0.id === _v245.TOTAL_ROW_ID),
       _v12 = _v2.length >= 10 || _v8 || _v9,
       _v13 = (0, _v4.useMemo)(() => ![_v376.Reports.BANDWIDTH_DATE, _v376.Reports.DATE].includes(_v3), [_v3]),
       _v14 = (0, _v29.translate)({
         singular: "Report Total limit is {MAX} videos.",
         replacements: {
-          MAX: _v247.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER
+          MAX: _v245.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER
         },
         dictionary: {
           es: {
@@ -16329,8 +16236,8 @@
                   cursor: _v11 || _v2.length < 10 ? "pointer" : "not-allowed",
                   onClick: _v0 => {
                     _v0.preventDefault(), _v4({
-                      id: _v247.TOTAL_ROW_ID,
-                      name: _v247.TOTAL_ROW_NAME,
+                      id: _v245.TOTAL_ROW_ID,
+                      name: _v245.TOTAL_ROW_NAME,
                       type: (_v0 => {
                         switch (_v0) {
                           case _v376.Reports.VIDEO:
@@ -16375,7 +16282,7 @@
                 alignItems: "center",
                 height: "2rem",
                 marginLeft: _v13 ? "0.7rem" : "0",
-                children: (0, _v3.jsx)(_v167.Tooltip, {
+                children: (0, _v3.jsx)(_v165.Tooltip, {
                   placement: "right",
                   label: _v15,
                   children: (0, _v3.jsx)(_v45.Text, {
@@ -16384,7 +16291,7 @@
                     fontWeight: "bold",
                     fontSize: "0.9rem",
                     variant: "body-xl",
-                    children: _v247.TOTAL_ROW_NAME
+                    children: _v245.TOTAL_ROW_NAME
                   })
                 })
               })]
@@ -16442,7 +16349,7 @@
                   color: "text-primary"
                 }
               });
-            _v0.isSortable || _v4 ? !_v3 || _v6 || _v7 || (_v11 = _v2.sortValue === _v247.SORT_VALUE.ASCENDING_ORDER ? (0, _v3.jsx)(_v5.Box, {
+            _v0.isSortable || _v4 ? !_v3 || _v6 || _v7 || (_v11 = _v2.sortValue === _v245.SORT_VALUE.ASCENDING_ORDER ? (0, _v3.jsx)(_v5.Box, {
               height: "auto",
               title: (0, _v29.translate)({
                 singular: "up arrow signifying ascending sort",
@@ -16523,7 +16430,7 @@
               _groupHover: {
                 color: "text-primary"
               },
-              children: _v0.displayName ? _v0.displayName : _v247.SOCIAL_DISPLAY_MAP[_v0.name] ?? _v0.name
+              children: _v0.displayName ? _v0.displayName : _v245.SOCIAL_DISPLAY_MAP[_v0.name] ?? _v0.name
             });
             return (0, _v3.jsxs)(_v5.Box, {
               as: "th",
@@ -16588,8 +16495,8 @@
                 top: "1.8rem",
                 position: "relative",
                 children: _v11
-              }), _v556.includes(_v0.name) ? _v12 : (0, _v3.jsx)(_v167.Tooltip, {
-                label: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP[_v0.name],
+              }), _v556.includes(_v0.name) ? _v12 : (0, _v3.jsx)(_v165.Tooltip, {
+                label: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP[_v0.name],
                 placement: "top",
                 children: (0, _v3.jsx)(_v5.Box, {
                   children: _v12
@@ -16736,7 +16643,7 @@
     _v563 = (_v0, _v1, _v2) => {
       if (_v1 > 1) return _v0.cityName;
       if (_v2 === _v376.TablePayloadItemType.SOURCE_URL && _v0.type === _v376.TablePayloadItemType.SOURCE_URL) return _v0.name;
-      if (_v2 === _v376.TablePayloadItemType.STREAMING_TYPE && _v0.type === _v376.TablePayloadItemType.STREAMING_TYPE) return "live" === _v0.name ? _v247.STREAMING_TYPES_DISPLAY_MAP.Live : _v247.STREAMING_TYPES_DISPLAY_MAP.Non_live;
+      if (_v2 === _v376.TablePayloadItemType.STREAMING_TYPE && _v0.type === _v376.TablePayloadItemType.STREAMING_TYPE) return "live" === _v0.name ? _v245.STREAMING_TYPES_DISPLAY_MAP.Live : _v245.STREAMING_TYPES_DISPLAY_MAP.Non_live;
       let _v3 = _v0.browserName || _v0.osName || _v0.path || _v0.regionName,
         _v4 = _v564(_v0.type);
       return _v3 && "unknown" === _v3.toLowerCase() ? (0, _v29.translate)({
@@ -16891,8 +16798,8 @@
       });
     },
     _v566 = () => {
-      let _v0 = (0, _v87.useColorModeValue)("whiteAlpha.600", "lightBlueAlpha.50"),
-        _v1 = (0, _v87.useColorModeValue)("surface", "lightBlueAlpha.100"),
+      let _v0 = (0, _v85.useColorModeValue)("whiteAlpha.600", "lightBlueAlpha.50"),
+        _v1 = (0, _v85.useColorModeValue)("surface", "lightBlueAlpha.100"),
         _v2 = {
           name: "11em"
         },
@@ -16994,7 +16901,7 @@
           fields: _v3,
           sortState: {
             columnName: "id",
-            sortValue: _v247.SORT_VALUE.SORTABLE
+            sortValue: _v245.SORT_VALUE.SORTABLE
           },
           tableLayoutData: _v2,
           isDatePayloadItemVisible: !1,
@@ -17116,10 +17023,10 @@
         _v20 = _v3.filter(_v0 => _v0.isVisible).map(_v0 => _v0.name),
         _v21 = (0, _v4.useMemo)(() => _v2.filters[_v2.reportGroup], [_v2.filters, _v2.reportGroup]),
         [_v22, _v23] = (0, _v4.useState)(!1),
-        [_v24, _v25] = (0, _v4.useState)([..._v247.MULTI_LINE_GRAPH_COLORS]),
+        [_v24, _v25] = (0, _v4.useState)([..._v245.MULTI_LINE_GRAPH_COLORS]),
         [_v26, _v27] = (0, _v4.useState)({
           columnName: "plays" === _v8 ? "views" : _v8,
-          sortValue: _v247.SORT_VALUE.DECENDING_ORDER
+          sortValue: _v245.SORT_VALUE.DECENDING_ORDER
         }),
         [_v28, _v29] = (0, _v4.useState)(null),
         [_v30, _v31] = (0, _v4.useState)(0),
@@ -17129,7 +17036,7 @@
           data: _v37,
           loading: _v38,
           error: _v39
-        }] = (0, _v264.useGetUserAnalyticsLazy)(),
+        }] = (0, _v262.useGetUserAnalyticsLazy)(),
         _v40 = !!_v37?.data?.[0]?.metadata?.connections?.video,
         {
           data: _v41,
@@ -17174,11 +17081,11 @@
         _v29(null), _v33(null);
       }, [_v21]), (0, _v4.useEffect)(() => {
         let _v0 = _v10.map(_v0 => _v0.color);
-        _v25([..._v247.MULTI_LINE_GRAPH_COLORS.filter(_v0 => -1 === _v0.findIndex(_v0 => _v0 === _v0))]);
+        _v25([..._v245.MULTI_LINE_GRAPH_COLORS.filter(_v0 => -1 === _v0.findIndex(_v0 => _v0 === _v0))]);
       }, [_v10]), (0, _v4.useEffect)(() => {
         _v27({
           columnName: "plays" === _v8 ? "views" : _v8,
-          sortValue: _v247.SORT_VALUE.DECENDING_ORDER
+          sortValue: _v245.SORT_VALUE.DECENDING_ORDER
         });
       }, [_v8, _v28]), (0, _v4.useEffect)(() => {
         _v39 && (_v23(() => !0), _v43({
@@ -17265,7 +17172,7 @@
           let _v2 = [];
           if (_v1) _v2 = _v10.filter(_v0 => _v0.id !== _v0.id || (_v24.unshift(_v0.color), !1));else if (_v10.length < 10) {
             let _v0 = _v24.shift() ?? "";
-            _v0.id === _v247.TOTAL_ROW_ID && (_v0 = (0, _v31.getTotalRowColor)()), _v2 = [..._v10, {
+            _v0.id === _v245.TOTAL_ROW_ID && (_v0 = (0, _v31.getTotalRowColor)()), _v2 = [..._v10, {
               name: _v0.name,
               id: _v0.id,
               prepend: _v0.prepend ?? "",
@@ -17280,7 +17187,7 @@
         _v46 = (_v0, _v1) => {
           let _v2,
             _v3 = _v3.find(_v0 => _v0.apiName === _v1);
-          _v3 && (_v3.isSortable || "name" === _v3.name && _v44) && (_v2 = _v1 === _v26.columnName ? _v26.sortValue === _v247.SORT_VALUE.ASCENDING_ORDER ? _v247.SORT_VALUE.DECENDING_ORDER : _v247.SORT_VALUE.ASCENDING_ORDER : _v247.SORT_VALUE.DECENDING_ORDER, _v27({
+          _v3 && (_v3.isSortable || "name" === _v3.name && _v44) && (_v2 = _v1 === _v26.columnName ? _v26.sortValue === _v245.SORT_VALUE.ASCENDING_ORDER ? _v245.SORT_VALUE.DECENDING_ORDER : _v245.SORT_VALUE.ASCENDING_ORDER : _v245.SORT_VALUE.DECENDING_ORDER, _v27({
             columnName: _v1,
             sortValue: _v2
           }), _v11(_v3.name, _v2, _v34));
@@ -17315,7 +17222,7 @@
                 };
               return _v3.forEach(_v0 => {
                 var _v1, _v2;
-                _v7[_v0] && _v7[_v0].length > 0 && (_v1 = _v0, _v2 = _v4, (_v1 !== _v376.Filters.CONTENT || _v2 !== _v376.TablePayloadItemType.VIDEO) && (_v1 !== _v376.Filters.SOURCE_URL || _v2 !== _v376.TablePayloadItemType.SOURCE_URL) && (_v1 !== _v376.Filters.DEVICE || _v2 !== _v376.TablePayloadItemType.DEVICE) && (_v1 !== _v376.Filters.REGION || _v2 !== _v376.TablePayloadItemType.REGION) && 1) && (_v11.query[`filter_${_v247.FILTER_LIST_STRING_MAP[_v0]}`] = _v7[_v0] ? _v7[_v0].map(_v0 => _v0.id).join(",") : "");
+                _v7[_v0] && _v7[_v0].length > 0 && (_v1 = _v0, _v2 = _v4, (_v1 !== _v376.Filters.CONTENT || _v2 !== _v376.TablePayloadItemType.VIDEO) && (_v1 !== _v376.Filters.SOURCE_URL || _v2 !== _v376.TablePayloadItemType.SOURCE_URL) && (_v1 !== _v376.Filters.DEVICE || _v2 !== _v376.TablePayloadItemType.DEVICE) && (_v1 !== _v376.Filters.REGION || _v2 !== _v376.TablePayloadItemType.REGION) && 1) && (_v11.query[`filter_${_v245.FILTER_LIST_STRING_MAP[_v0]}`] = _v7[_v0] ? _v7[_v0].map(_v0 => _v0.id).join(",") : "");
               }), _v11;
             })(_v2.userInUse.id, _v2.filters[_v2.reportGroup], ((_v0, _v1, _v2, _v3, _v4) => {
               let _v5 = null,
@@ -17431,9 +17338,9 @@
             });
           }
         },
-        _v48 = (0, _v87.useColorModeValue)("whiteAlpha.600", "lightBlueAlpha.50"),
-        _v49 = (0, _v87.useColorModeValue)("surface", "#181E22"),
-        _v50 = (0, _v87.useColorModeValue)("#FAFAFB", "#141A1E");
+        _v48 = (0, _v85.useColorModeValue)("whiteAlpha.600", "lightBlueAlpha.50"),
+        _v49 = (0, _v85.useColorModeValue)("surface", "#181E22"),
+        _v50 = (0, _v85.useColorModeValue)("#FAFAFB", "#141A1E");
       if (!_v34.length || _v17 || _v16) return (0, _v3.jsx)(_v5.Box, {
         margin: "2rem",
         children: _v17 ? (0, _v3.jsx)(_v5.Box, {
@@ -17474,7 +17381,7 @@
                   fontSize: "body-sm",
                   color: "text-tertiary",
                   variant: "body-xl",
-                  children: _v261.T_NO_DATA
+                  children: _v259.T_NO_DATA
                 })
               })
             })]
@@ -17576,10 +17483,10 @@
                     if ((0 > Number(_v2) || void 0 === _v2 || isNaN(_v2)) && "platform" !== _v1) return "-";
                     let _v3 = Number(_v0[_v1]);
                     if (!isNaN(_v3)) {
-                      if (_v1 === _v247.TABLE_FIELD_SOCIAL_TOTAL_TIME_WATCHED || _v1 === _v247.TABLE_FIELD_SOCIAL_MEAN_WATCH_TIME) return (0, _v547.formatDuration)(0 * _v2);
+                      if (_v1 === _v245.TABLE_FIELD_SOCIAL_TOTAL_TIME_WATCHED || _v1 === _v245.TABLE_FIELD_SOCIAL_MEAN_WATCH_TIME) return (0, _v547.formatDuration)(0 * _v2);
                       _v2 = _v3.toLocaleString(), Number.isInteger(_v3) || (_v2 = Number(_v3.toFixed(2)).toLocaleString());
                     }
-                    return _v1 === _v247.TABLE_FIELD_SOCIAL_MEAN_PERCENT_WATCHED && (_v2 += "%"), _v2;
+                    return _v1 === _v245.TABLE_FIELD_SOCIAL_MEAN_PERCENT_WATCHED && (_v2 += "%"), _v2;
                   })(_v0, _v0)
                 })]
               }, `td-${_v1}`);
@@ -17630,7 +17537,7 @@
               children: _v51(_v34)
             })]
           })
-        }), (_v15 || _v14) && (0, _v3.jsx)(_v68.Button, {
+        }), (_v15 || _v14) && (0, _v3.jsx)(_v66.Button, {
           width: "100%",
           marginTop: "1rem",
           size: "xl",
@@ -17683,12 +17590,12 @@
         as: "p",
         fontSize: "0.875rem",
         variant: "body-xl",
-        children: _v247.BANDWIDTH_INFO_TEXT
+        children: _v245.BANDWIDTH_INFO_TEXT
       }), (0, _v3.jsx)(_v45.Text, {
         as: "p",
         fontSize: "0.875rem",
         variant: "body-xl",
-        children: (0, _v3.jsxs)(_v82.Link, {
+        children: (0, _v3.jsxs)(_v80.Link, {
           color: "inherit",
           href: "https://vimeo.zendesk.com/hc/en-us/articles/360037761072-Bandwidth-on-Vimeo-",
           target: "_blank",
@@ -17805,13 +17712,13 @@
         flexDirection: "column",
         position: "relative",
         children: [(0, _v3.jsx)(_v475, {
-          title: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_BANDWIDTH],
+          title: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_BANDWIDTH],
           infoPopUpContent: (0, _v3.jsx)(_v572, {}),
           reportFilters: _v5,
           state: _v1,
           dispatch: _v2,
           calendarMinDate: _v573,
-          calendarPresets: _v247.CALENDAR_PRESETS[_v3],
+          calendarPresets: _v245.CALENDAR_PRESETS[_v3],
           reportType: _v3,
           SubHeaderLink: _v18,
           leftAlignFilters: !0
@@ -17837,12 +17744,12 @@
         }), (0, _v3.jsx)(_v570, {
           isLoading: _v16,
           payload: _v15,
-          YAxisText: _v247.BANDWIDTH_GRAPH_YAXIS_TEXT,
+          YAxisText: _v245.BANDWIDTH_GRAPH_YAXIS_TEXT,
           isError: _v19
         }), (0, _v3.jsx)(_v569, {
           state: _v1,
           payload: _v8,
-          primaryDimension: _v1.primaryDimensions[_v247.REPORT_GROUP_MAP[_v3]],
+          primaryDimension: _v1.primaryDimensions[_v245.REPORT_GROUP_MAP[_v3]],
           reportType: _v3,
           reportFilterKeys: [],
           totalRowStats: _v9,
@@ -17942,18 +17849,18 @@
         position: "relative",
         alignItems: "stretch",
         children: [(0, _v3.jsx)(_v475, {
-          title: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_BANDWIDTH],
+          title: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_BANDWIDTH],
           infoPopUpContent: (0, _v3.jsx)(_v572, {}),
           reportFilters: _v4,
           state: _v1,
           dispatch: _v2,
           calendarMinDate: _v578,
-          calendarPresets: _v247.CALENDAR_PRESETS[_v579],
+          calendarPresets: _v245.CALENDAR_PRESETS[_v579],
           reportType: _v579
         }), _v22 ? (0, _v3.jsxs)(_v3.Fragment, {
           children: [(0, _v3.jsx)(_v576, {
             reportType: _v579,
-            visibleMetric: _v1.primaryDimensions[_v247.REPORT_GROUP_MAP[_v579]],
+            visibleMetric: _v1.primaryDimensions[_v245.REPORT_GROUP_MAP[_v579]],
             payload: _v17,
             resetTablePage: _v14,
             selectedDataItems: _v1.selectedItemsForGraph,
@@ -17961,7 +17868,7 @@
             metrics: (0, _v31.tableFieldsToGraphMetrics)(_v3),
             selectedAggregateInterval: _v376.AggregateIntervalType.NONE,
             hideAggregateInteralSelector: !0,
-            YAxisText: _v247.BANDWIDTH_GRAPH_YAXIS_TEXT,
+            YAxisText: _v245.BANDWIDTH_GRAPH_YAXIS_TEXT,
             startDate: _v5,
             endDate: _v6,
             isGraphError: _v21,
@@ -17969,7 +17876,7 @@
           }), (0, _v3.jsx)(_v569, {
             state: _v1,
             payload: _v9,
-            primaryDimension: _v1.primaryDimensions[_v247.REPORT_GROUP_MAP[_v579]],
+            primaryDimension: _v1.primaryDimensions[_v245.REPORT_GROUP_MAP[_v579]],
             reportType: _v579,
             totalRowStats: _v10,
             loadMoreData: _v14,
@@ -18005,7 +17912,7 @@
             })
           }), (0, _v3.jsx)(_v576, {
             reportType: _v579,
-            visibleMetric: _v1.primaryDimensions[_v247.REPORT_GROUP_MAP[_v579]],
+            visibleMetric: _v1.primaryDimensions[_v245.REPORT_GROUP_MAP[_v579]],
             payload: _v17,
             resetTablePage: _v14,
             selectedDataItems: _v1.selectedItemsForGraph,
@@ -18013,14 +17920,14 @@
             metrics: (0, _v31.tableFieldsToGraphMetrics)(_v3),
             selectedAggregateInterval: _v376.AggregateIntervalType.NONE,
             hideAggregateInteralSelector: !0,
-            YAxisText: _v247.BANDWIDTH_GRAPH_YAXIS_TEXT,
+            YAxisText: _v245.BANDWIDTH_GRAPH_YAXIS_TEXT,
             startDate: _v5,
             endDate: _v6,
             isGraphError: _v21
           }), (0, _v3.jsx)(_v569, {
             state: _v1,
             payload: _v9,
-            primaryDimension: _v1.primaryDimensions[_v247.REPORT_GROUP_MAP[_v579]],
+            primaryDimension: _v1.primaryDimensions[_v245.REPORT_GROUP_MAP[_v579]],
             reportType: _v579,
             totalRowStats: _v10,
             loadMoreData: _v14,
@@ -18410,7 +18317,7 @@
                 lineHeight: "1.5",
                 children: _v0[_v1]
               })
-            }), (0, _v3.jsx)(_v167.Tooltip, {
+            }), (0, _v3.jsx)(_v165.Tooltip, {
               label: _v0[_v2]?.toLocaleString(),
               placement: "auto",
               modifiers: [{
@@ -18526,7 +18433,7 @@
           data: _v8,
           isLoading: _v9,
           error: _v10
-        } = (0, _v264.useGetUserAnalytics)(() => _v6 ? null : {
+        } = (0, _v262.useGetUserAnalytics)(() => _v6 ? null : {
           select: _v591,
           where: {
             userId: _v0
@@ -18758,7 +18665,7 @@
           data: _v6,
           isLoading: _v7,
           error: _v8
-        } = (0, _v264.useGetUserAnalytics)(() => _v4 ? null : {
+        } = (0, _v262.useGetUserAnalytics)(() => _v4 ? null : {
           select: _v1,
           where: {
             userId: _v2
@@ -18802,7 +18709,7 @@
               children: [(0, _v3.jsx)(_v38.Header, {
                 size: "md",
                 children: _v1
-              }), (0, _v3.jsx)(_v167.Tooltip, {
+              }), (0, _v3.jsx)(_v165.Tooltip, {
                 label: _v2,
                 placement: "top",
                 maxWidth: "15rem",
@@ -18813,7 +18720,7 @@
                   textWrap: "pretty"
                 },
                 children: (0, _v3.jsx)(_v5.Box, {
-                  children: (0, _v3.jsx)(_v173.InfoCircle, {
+                  children: (0, _v3.jsx)(_v171.InfoCircle, {
                     boxSize: ".75rem",
                     color: "text-secondary"
                   })
@@ -18861,7 +18768,7 @@
       } = _v610[_v2];
       null == _v3 ? (_v4 = "-", _v5 = "-") : (_v4 = _v8 ? _v8(_v3, _v6?.locale) : _v3.toLocaleString(), _v5 = _v9 ? _v9(_v3) : (0, _v595.formatDisplayNumber)(_v3, _v6?.locale || "en"));
       let _v10 = _v7.length + _v4.length;
-      return (0, _v3.jsx)(_v167.Tooltip, {
+      return (0, _v3.jsx)(_v165.Tooltip, {
         label: (0, _v3.jsxs)(_v5.Box, {
           alignItems: _v10 > 50 ? "flex-start" : "center",
           minWidth: "9.25rem",
@@ -19107,7 +19014,7 @@
       onMouseEnter: _v7
     }) => {
       let _v8 = (0, _v4.useMemo)(() => _v0?.reduce((_v0, _v1) => _v0 + _v1[_v1], 0), [_v0, _v1]),
-        _v9 = (0, _v87.useColorModeValue)("slate.100", "grayscale.800"),
+        _v9 = (0, _v85.useColorModeValue)("slate.100", "grayscale.800"),
         _v10 = (0, _v613.useDashboardColors)(),
         _v11 = (0, _v614.useOtherColor)();
       return _v3 ? (0, _v3.jsx)(_v5.Box, {
@@ -19128,7 +19035,7 @@
         marginBottom: "0.375rem",
         children: _v0?.map((_v0, _v1) => {
           let _v2 = Math.ceil(_v0?.[_v1] / (_v8 ?? 0) * 100);
-          return (0, _v3.jsx)(_v167.Tooltip, {
+          return (0, _v3.jsx)(_v165.Tooltip, {
             label: (0, _v3.jsxs)(_v6.Flex, {
               minWidth: "9.25rem",
               gap: "1rem",
@@ -19216,7 +19123,7 @@
               alignItems: "center",
               width: "100%",
               gap: ".5rem",
-              children: [(0, _v3.jsx)(_v205.CircleShapeFilled, {
+              children: [(0, _v3.jsx)(_v203.CircleShapeFilled, {
                 height: "0.375rem",
                 width: "0.375rem",
                 color: _v10[_v1] ?? _v11
@@ -19247,7 +19154,7 @@
             alignItems: "center",
             width: "100%",
             gap: ".5rem",
-            children: [(0, _v3.jsx)(_v205.CircleShapeFilled, {
+            children: [(0, _v3.jsx)(_v203.CircleShapeFilled, {
               height: "0.375rem",
               width: "0.375rem",
               color: "grayscale.500"
@@ -19365,7 +19272,7 @@
               data: _v10,
               isLoading: _v11,
               error: _v12
-            } = (0, _v264.useGetUserAnalytics)(() => _v8 ? null : {
+            } = (0, _v262.useGetUserAnalytics)(() => _v8 ? null : {
               select: ["views", "country"],
               where: {
                 userId: _v0
@@ -19389,7 +19296,7 @@
               data: _v13,
               isLoading: _v14,
               error: _v15
-            } = (0, _v264.useGetUserAnalytics)(() => _v8 ? null : {
+            } = (0, _v262.useGetUserAnalytics)(() => _v8 ? null : {
               select: ["views"],
               where: {
                 userId: _v0
@@ -19534,7 +19441,7 @@
               data: _v10,
               isLoading: _v11,
               error: _v12
-            } = (0, _v264.useGetUserAnalytics)(() => _v8 ? null : {
+            } = (0, _v262.useGetUserAnalytics)(() => _v8 ? null : {
               select: ["embedDomain", "views"],
               where: {
                 userId: _v0
@@ -19558,7 +19465,7 @@
               data: _v13,
               isLoading: _v14,
               error: _v15
-            } = (0, _v264.useGetUserAnalytics)(() => _v8 ? null : {
+            } = (0, _v262.useGetUserAnalytics)(() => _v8 ? null : {
               select: ["views"],
               where: {
                 userId: _v0
@@ -19796,7 +19703,7 @@
       isLoading: _v2,
       hasError: _v3
     }) => {
-      let _v4 = (0, _v87.useColorModeValue)("grayscale.100", "grayscale.700");
+      let _v4 = (0, _v85.useColorModeValue)("grayscale.100", "grayscale.700");
       return _v2 ? (0, _v3.jsx)(_v593.BokehSkeleton, {
         height: "100%",
         width: "100%",
@@ -19904,7 +19811,7 @@
       thumbnailLinks: _v8
     }) => {
       let _v9 = (0, _v4.useContext)(_v28.ViewerContext),
-        _v10 = (0, _v87.useColorModeValue)("slate.50", "grayscale.800");
+        _v10 = (0, _v85.useColorModeValue)("slate.50", "grayscale.800");
       return _v4 ? (0, _v3.jsx)(_v593.BokehSkeleton, {
         height: "100%",
         width: "100%",
@@ -19914,7 +19821,7 @@
         gap: "1.75rem",
         children: _v0?.map((_v0, _v1) => {
           let _v2 = _v0.metadata?.connections.video;
-          return _v2 ? (0, _v3.jsx)(_v167.Tooltip, {
+          return _v2 ? (0, _v3.jsx)(_v165.Tooltip, {
             gutter: -6,
             label: (0, _v3.jsx)(_v633, {
               createdTime: _v2.createdTime,
@@ -20029,7 +19936,7 @@
             data: _v8,
             isLoading: _v9,
             error: _v10
-          } = (0, _v264.useGetUserAnalytics)(() => _v6 ? null : {
+          } = (0, _v262.useGetUserAnalytics)(() => _v6 ? null : {
             select: _v623,
             where: {
               userId: _v0
@@ -20144,11 +20051,11 @@
           flexDirection: "column",
           children: [(0, _v3.jsx)(_v475, {
             reportType: _v376.Reports.DASHBOARD,
-            title: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_DASHBOARD],
+            title: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_DASHBOARD],
             state: _v1,
             dispatch: _v2,
             reportFilters: _v531,
-            calendarPresets: _v247.CALENDAR_PRESETS.dashboard,
+            calendarPresets: _v245.CALENDAR_PRESETS.dashboard,
             marginX: 0,
             showFilterPanel: !0
           }), (0, _v3.jsx)(_v608, {
@@ -20286,8 +20193,8 @@
     },
     _v646 = {
       id: "audio_track_column",
-      header: _v247.DISPLAY_MAP.audioTrack,
-      entrypoint: _v641(_v261.T_ALL_LANGUAGES),
+      header: _v245.DISPLAY_MAP.audioTrack,
+      entrypoint: _v641(_v259.T_ALL_LANGUAGES),
       initialCell: _v644,
       refine: _v0 => {
         if (_v0 === _v644) return _v645;
@@ -20305,10 +20212,10 @@
     },
     _v649 = {
       id: "date_column",
-      header: _v247.DISPLAY_MAP.date,
+      header: _v245.DISPLAY_MAP.date,
       isSortable: !0,
       remoteSortOverride: "time",
-      entrypoint: _v641(_v261.T_ALL_DATES),
+      entrypoint: _v641(_v259.T_ALL_DATES),
       initialCell: {
         dimensions: ["total"],
         extraParams: {
@@ -20330,7 +20237,7 @@
       dimensions: ["device_type"],
       fields: ["deviceType"],
       render: _v0 => (0, _v3.jsx)(_v639, {
-        value: _v0.data.deviceType ? _v247.DEVICE_DISPLAY_MAP[_v247.DEVICE_TYPES[_v0.data.deviceType]] : "",
+        value: _v0.data.deviceType ? _v245.DEVICE_DISPLAY_MAP[_v245.DEVICE_TYPES[_v0.data.deviceType]] : "",
         ..._v0
       }),
       toFilter: (_v0, _v1) => ({
@@ -20350,11 +20257,11 @@
     },
     _v653 = {
       id: "device_column",
-      header: _v247.DISPLAY_MAP.device,
-      entrypoint: _v641(_v261.T_ALL_DEVICES),
+      header: _v245.DISPLAY_MAP.device,
+      entrypoint: _v641(_v259.T_ALL_DEVICES),
       initialCell: _v650,
       refine: (_v0, _v1) => {
-        if (_v0 === _v650) return _v1.deviceType && _v247.DEVICE_TYPES[_v1.deviceType] === _v247.DEVICE_TYPES.desktop ? _v651 : _v652;
+        if (_v0 === _v650) return _v1.deviceType && _v245.DEVICE_TYPES[_v1.deviceType] === _v245.DEVICE_TYPES.desktop ? _v651 : _v652;
       }
     },
     _v654 = {
@@ -20382,8 +20289,8 @@
     },
     _v657 = {
       id: "region_column",
-      header: _v247.DISPLAY_MAP.region,
-      entrypoint: _v641(_v261.T_ALL_REGIONS),
+      header: _v245.DISPLAY_MAP.region,
+      entrypoint: _v641(_v259.T_ALL_REGIONS),
       initialCell: _v654,
       refine: _v0 => {
         switch (_v0) {
@@ -20410,8 +20317,8 @@
     },
     _v660 = {
       id: "source_column",
-      header: _v247.DISPLAY_MAP.source,
-      entrypoint: _v641(_v261.T_ALL_SOURCES),
+      header: _v245.DISPLAY_MAP.source,
+      entrypoint: _v641(_v259.T_ALL_SOURCES),
       initialCell: _v658,
       refine: _v0 => {
         if (_v0 === _v658) return _v659;
@@ -20419,13 +20326,13 @@
     },
     _v661 = {
       id: "streaming_type_column",
-      header: _v247.DISPLAY_MAP.streamingType,
-      entrypoint: _v641(_v261.T_ALL_STREAMING_TYPES),
+      header: _v245.DISPLAY_MAP.streamingType,
+      entrypoint: _v641(_v259.T_ALL_STREAMING_TYPES),
       initialCell: {
         dimensions: ["streaming_type"],
         fields: ["streamingType"],
         render: _v0 => (0, _v3.jsx)(_v639, {
-          value: _v0.data.streamingType ? "live" === _v0.data.streamingType ? _v247.STREAMING_TYPES_DISPLAY_MAP.Live : _v247.STREAMING_TYPES_DISPLAY_MAP.Non_live : "",
+          value: _v0.data.streamingType ? "live" === _v0.data.streamingType ? _v245.STREAMING_TYPES_DISPLAY_MAP.Live : _v245.STREAMING_TYPES_DISPLAY_MAP.Non_live : "",
           ..._v0
         }),
         toFilter: (_v0, _v1) => ({
@@ -20457,8 +20364,8 @@
     },
     _v664 = {
       id: "text_track_column",
-      header: _v247.DISPLAY_MAP.subtitlesAndCaptions,
-      entrypoint: _v641(_v261.T_ALL_LANGUAGES),
+      header: _v245.DISPLAY_MAP.subtitlesAndCaptions,
+      entrypoint: _v641(_v259.T_ALL_LANGUAGES),
       initialCell: _v662,
       refine: _v0 => {
         if (_v0 === _v662) return _v663;
@@ -20476,7 +20383,7 @@
       let _v7 = (0, _v647.useLocale)(),
         _v8 = _v5 ? _v21.DateTime.fromISO(_v5).setLocale(_v7).toLocaleString(_v21.DateTime.DATE_MED) : "",
         _v9 = _v6 ? _v21.DateTime.fromISO(_v6).setLocale(_v7).toLocaleString(_v21.DateTime.DATE_MED) : "",
-        _v10 = _v9 ? (0, _v261.T_STREAMED_ON_DATE)(_v9) : _v8 ? (0, _v261.T_UPLOADED_DATE)(_v8) : "";
+        _v10 = _v9 ? (0, _v259.T_STREAMED_ON_DATE)(_v9) : _v8 ? (0, _v259.T_UPLOADED_DATE)(_v8) : "";
       return (0, _v3.jsxs)(_v6.Flex, {
         marginTop: _v0 ? "md" : void 0,
         marginBottom: _v0 ? "md" : void 0,
@@ -20484,7 +20391,7 @@
         gap: "0.75rem",
         alignItems: "center",
         title: _v1,
-        children: [(0, _v3.jsxs)(_v82.Link, {
+        children: [(0, _v3.jsxs)(_v80.Link, {
           position: "relative",
           href: _v4,
           isExternal: !0,
@@ -20510,7 +20417,7 @@
         }), (0, _v3.jsxs)(_v6.Flex, {
           direction: "column",
           gap: "0.125rem",
-          children: [(0, _v3.jsx)(_v82.Link, {
+          children: [(0, _v3.jsx)(_v80.Link, {
             href: _v4,
             isExternal: !0,
             noOfLines: 1,
@@ -20540,8 +20447,8 @@
     }),
     _v667 = {
       id: "video_column",
-      header: _v247.DISPLAY_MAP.video,
-      entrypoint: _v641(_v261.T_ALL_VIDEOS),
+      header: _v245.DISPLAY_MAP.video,
+      entrypoint: _v641(_v259.T_ALL_VIDEOS),
       initialCell: {
         dimensions: ["video"],
         fields: ["metadata.connections.video.uri", "metadata.connections.video.title", "metadata.connections.video.manageLink", "metadata.connections.video.duration", "metadata.connections.video.createdTime", "metadata.connections.video.live.streamStartTime", "metadata.connections.video.live.streamEndTime"],
@@ -20590,66 +20497,66 @@
     _v672 = {
       metrics: ["views"],
       sort: "views",
-      header: _v247.SOCIAL_DISPLAY_MAP.plays,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.plays,
+      header: _v245.SOCIAL_DISPLAY_MAP.plays,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.plays,
       render: _v670("views")
     },
     _v673 = {
       metrics: ["drmLicensesUsed"],
       sort: "drmLicensesUsed",
-      header: _v247.SOCIAL_DISPLAY_MAP.drm_licenses_used,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.drm_licenses_used,
+      header: _v245.SOCIAL_DISPLAY_MAP.drm_licenses_used,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.drm_licenses_used,
       hideWhenEmpty: !0,
       render: _v670("drmLicensesUsed")
     },
     _v674 = {
       metrics: ["impressions"],
       sort: "impressions",
-      header: _v247.SOCIAL_DISPLAY_MAP.loads,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.loads,
+      header: _v245.SOCIAL_DISPLAY_MAP.loads,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.loads,
       render: _v670("impressions")
     },
     _v675 = {
       metrics: ["thirdPartyImpressions"],
       sort: "thirdPartyImpressions",
-      header: _v247.SOCIAL_DISPLAY_MAP.third_party_impressions,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.third_party_impressions,
+      header: _v245.SOCIAL_DISPLAY_MAP.third_party_impressions,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.third_party_impressions,
       hideWhenEmpty: !0,
       render: _v670("thirdPartyImpressions")
     },
     _v676 = {
       metrics: ["uniqueImpressions"],
       sort: "uniqueImpressions",
-      header: _v247.SOCIAL_DISPLAY_MAP.unique_loads,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.unique_loads,
+      header: _v245.SOCIAL_DISPLAY_MAP.unique_loads,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.unique_loads,
       render: _v670("uniqueImpressions")
     },
     _v677 = {
       metrics: ["uniqueViewers"],
       sort: "uniqueViewers",
-      header: _v247.SOCIAL_DISPLAY_MAP.unique_viewers,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.uniqueViewers2025,
+      header: _v245.SOCIAL_DISPLAY_MAP.unique_viewers,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.uniqueViewers2025,
       render: _v670("uniqueViewers")
     },
     _v678 = {
       metrics: ["totalSecondsWatched"],
       sort: "totalSecondsWatched",
-      header: _v247.SOCIAL_DISPLAY_MAP.totalviewduration,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.totalviewduration,
+      header: _v245.SOCIAL_DISPLAY_MAP.totalviewduration,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.totalviewduration,
       render: _v671("totalSecondsWatched")
     },
     _v679 = {
       metrics: ["meanSecondsWatched"],
       sort: "meanSecondsWatched",
-      header: _v247.SOCIAL_DISPLAY_MAP.averageviewduration,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.averageviewduration,
+      header: _v245.SOCIAL_DISPLAY_MAP.averageviewduration,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.averageviewduration,
       render: _v671("meanSecondsWatched")
     },
     _v680 = {
       metrics: ["meanPercentWatched"],
       sort: "meanPercentWatched",
-      header: _v247.SOCIAL_DISPLAY_MAP.averageviewpercentage,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.averageviewpercentage,
+      header: _v245.SOCIAL_DISPLAY_MAP.averageviewpercentage,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.averageviewpercentage,
       render: _v669("meanPercentWatched", _v0 => (_v0 / 100).toLocaleString(void 0, {
         style: "percent"
       }))
@@ -20657,109 +20564,109 @@
     _v681 = {
       metrics: ["finishes"],
       sort: "finishes",
-      header: _v247.SOCIAL_DISPLAY_MAP.finishes,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.finishes,
+      header: _v245.SOCIAL_DISPLAY_MAP.finishes,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.finishes,
       render: _v670("finishes")
     },
     _v682 = {
       metrics: ["downloads"],
       sort: "downloads",
-      header: _v247.SOCIAL_DISPLAY_MAP.downloads,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.downloads,
+      header: _v245.SOCIAL_DISPLAY_MAP.downloads,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.downloads,
       render: _v670("downloads")
     },
     _v683 = {
       metrics: ["metadata.connections.video.likes"],
       sort: "metadata.connections.video.likes",
-      header: _v247.SOCIAL_DISPLAY_MAP.likes,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.likes,
+      header: _v245.SOCIAL_DISPLAY_MAP.likes,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.likes,
       render: _v670("metadata.connections.video.likes")
     },
     _v684 = {
       metrics: ["metadata.connections.video.comments"],
       sort: "metadata.connections.video.comments",
-      header: _v247.SOCIAL_DISPLAY_MAP.comments,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.comments,
+      header: _v245.SOCIAL_DISPLAY_MAP.comments,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.comments,
       render: _v670("metadata.connections.video.comments")
     },
     _v685 = {
       metrics: ["uniqueViews"],
       sort: "uniqueViews",
-      header: _v247.SOCIAL_DISPLAY_MAP.plays,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.uniqueViews,
+      header: _v245.SOCIAL_DISPLAY_MAP.plays,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.uniqueViews,
       render: _v670("uniqueViews")
     },
     _v686 = {
       metrics: ["totalSecondsWatchedIncludingRepeats"],
       sort: "totalSecondsWatchedIncludingRepeats",
-      header: _v247.SOCIAL_DISPLAY_MAP.totalTimeWatchedInclRepeats,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.totalTimeWatchedInclRepeats,
+      header: _v245.SOCIAL_DISPLAY_MAP.totalTimeWatchedInclRepeats,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.totalTimeWatchedInclRepeats,
       render: _v669("totalSecondsWatchedIncludingRepeats", _v547.formatDuration)
     },
     _v687 = {
       metrics: ["thumbsWidgetClicks"],
       sort: "thumbsWidgetClicks",
-      header: _v247.SOCIAL_DISPLAY_MAP.totalThumbsVotes,
+      header: _v245.SOCIAL_DISPLAY_MAP.totalThumbsVotes,
       render: _v670("thumbsWidgetClicks")
     },
     _v688 = {
       metrics: ["thumbsUpClicks"],
       sort: "thumbsUpClicks",
-      header: _v247.SOCIAL_DISPLAY_MAP.totalThumbsUpVotes,
+      header: _v245.SOCIAL_DISPLAY_MAP.totalThumbsUpVotes,
       render: _v670("thumbsUpClicks")
     },
     _v689 = {
       metrics: ["thumbsDownClicks"],
       sort: "thumbsDownClicks",
-      header: _v247.SOCIAL_DISPLAY_MAP.totalThumbsDownVotes,
+      header: _v245.SOCIAL_DISPLAY_MAP.totalThumbsDownVotes,
       render: _v670("thumbsDownClicks")
     },
     _v690 = {
       metrics: ["thumbsWidgetAverageRating"],
       sort: "thumbsWidgetAverageRating",
-      header: _v247.SOCIAL_DISPLAY_MAP.avgThumbsRating,
+      header: _v245.SOCIAL_DISPLAY_MAP.avgThumbsRating,
       render: _v670("thumbsWidgetAverageRating")
     },
     _v691 = {
       metrics: ["rankingWidgetClicks"],
       sort: "rankingWidgetClicks",
-      header: _v247.SOCIAL_DISPLAY_MAP.totalStarsVotes,
+      header: _v245.SOCIAL_DISPLAY_MAP.totalStarsVotes,
       render: _v670("rankingWidgetClicks")
     },
     _v692 = {
       metrics: ["oneStarClicks"],
       sort: "oneStarClicks",
-      header: _v247.SOCIAL_DISPLAY_MAP.totalOneStarVotes,
+      header: _v245.SOCIAL_DISPLAY_MAP.totalOneStarVotes,
       render: _v670("oneStarClicks")
     },
     _v693 = {
       metrics: ["twoStarClicks"],
       sort: "twoStarClicks",
-      header: _v247.SOCIAL_DISPLAY_MAP.totalTwoStarVotes,
+      header: _v245.SOCIAL_DISPLAY_MAP.totalTwoStarVotes,
       render: _v670("twoStarClicks")
     },
     _v694 = {
       metrics: ["threeStarClicks"],
       sort: "threeStarClicks",
-      header: _v247.SOCIAL_DISPLAY_MAP.totalThreeStarVotes,
+      header: _v245.SOCIAL_DISPLAY_MAP.totalThreeStarVotes,
       render: _v670("threeStarClicks")
     },
     _v695 = {
       metrics: ["fourStarClicks"],
       sort: "fourStarClicks",
-      header: _v247.SOCIAL_DISPLAY_MAP.totalFourStarVotes,
+      header: _v245.SOCIAL_DISPLAY_MAP.totalFourStarVotes,
       render: _v670("fourStarClicks")
     },
     _v696 = {
       metrics: ["fiveStarClicks"],
       sort: "fiveStarClicks",
-      header: _v247.SOCIAL_DISPLAY_MAP.totalFiveStarVotes,
+      header: _v245.SOCIAL_DISPLAY_MAP.totalFiveStarVotes,
       render: _v670("fiveStarClicks")
     },
     _v697 = {
       metrics: ["rankingWidgetAverageRating"],
       sort: "rankingWidgetAverageRating",
-      header: _v247.SOCIAL_DISPLAY_MAP.avgStarsRating,
+      header: _v245.SOCIAL_DISPLAY_MAP.avgStarsRating,
       render: _v670("rankingWidgetAverageRating")
     },
     _v698 = [_v672, _v680, _v681],
@@ -20799,7 +20706,7 @@
           isValidating: _v10,
           error: _v11,
           setSize: _v12
-        } = (0, _v264.useGetUserAnalyticsInfinite)(() => _v6 || !_v8 ? null : {
+        } = (0, _v262.useGetUserAnalyticsInfinite)(() => _v6 || !_v8 ? null : {
           ..._v8,
           query: {
             ..._v8.query,
@@ -20963,7 +20870,7 @@
         {
           data: _v9,
           error: _v10
-        } = (0, _v264.useGetUserAnalytics)(() => _v6 ? null : {
+        } = (0, _v262.useGetUserAnalytics)(() => _v6 ? null : {
           select: _v8.flatMap(_v0 => _v0.metrics),
           where: {
             userId: _v0
@@ -21011,7 +20918,7 @@
     _v714 = ({
       children: _v0,
       ..._v1
-    }) => (0, _v3.jsx)(_v237.Table, {
+    }) => (0, _v3.jsx)(_v235.Table, {
       variant: "simple",
       ..._v1,
       children: _v0
@@ -21019,14 +20926,14 @@
     _v715 = ({
       children: _v0,
       ..._v1
-    }) => (0, _v3.jsx)(_v241.Thead, {
+    }) => (0, _v3.jsx)(_v239.Thead, {
       ..._v1,
       children: _v0
     }),
     _v716 = (0, _v4.memo)(({
       children: _v0,
       ..._v1
-    }) => (0, _v3.jsx)(_v242.Tr, {
+    }) => (0, _v3.jsx)(_v240.Tr, {
       bg: "surface",
       ..._v1,
       children: _v0
@@ -21060,7 +20967,7 @@
     _v719 = ({
       children: _v0,
       ..._v1
-    }) => (0, _v3.jsx)(_v238.Tbody, {
+    }) => (0, _v3.jsx)(_v236.Tbody, {
       fontSize: "body-md",
       ..._v1,
       children: _v0
@@ -21072,7 +20979,7 @@
     }) => {
       let _v3 = (0, _v4.useMemo)(() => _v725(_v0), [_v0]),
         _v4 = (0, _v4.useMemo)(() => _v725(_v0 + 1), [_v0]);
-      return (0, _v3.jsx)(_v242.Tr, {
+      return (0, _v3.jsx)(_v240.Tr, {
         ..._v3,
         _hover: _v4,
         ..._v2,
@@ -21086,7 +20993,7 @@
       ..._v3
     }) => {
       let _v4 = _v723(_v1, _v3.width);
-      return (0, _v3.jsx)(_v239.Td, {
+      return (0, _v3.jsx)(_v237.Td, {
         ..._v3,
         ...(_v0 && _v4),
         children: _v2
@@ -21099,7 +21006,7 @@
       ..._v3
     }) => {
       let _v4 = _v723(_v1, _v3.width);
-      return (0, _v3.jsx)(_v240.Th, {
+      return (0, _v3.jsx)(_v238.Th, {
         ..._v3,
         ...(_v0 && _v4),
         children: _v2
@@ -21245,7 +21152,7 @@
           onClick: () => {
             _v5.setColumn(_v0);
           },
-          children: (0, _v3.jsx)(_v167.Tooltip, {
+          children: (0, _v3.jsx)(_v165.Tooltip, {
             label: _v0.tooltip,
             placement: "top",
             children: _v0.header
@@ -21260,7 +21167,7 @@
           paddingLeft: "lg",
           paddingRight: "md",
           children: _v6 && (0, _v3.jsx)(_v738, {
-            selectionId: _v247.TOTAL_ROW_ID,
+            selectionId: _v245.TOTAL_ROW_ID,
             dispatch: _v3,
             selectedItems: _v4
           })
@@ -21270,10 +21177,10 @@
           _hover: {
             textColor: "text-primary"
           },
-          children: 0 === _v1 && (0, _v3.jsx)(_v167.Tooltip, {
-            label: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.total,
+          children: 0 === _v1 && (0, _v3.jsx)(_v165.Tooltip, {
+            label: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.total,
             placement: "top",
-            children: _v247.DISPLAY_MAP.total
+            children: _v245.DISPLAY_MAP.total
           })
         }, _v0.id)), _v1.map(_v0 => (0, _v3.jsx)(_v722, {
           width: _v728,
@@ -21398,7 +21305,7 @@
           {
             data: _v8,
             error: _v9
-          } = (0, _v264.useGetUserAnalytics)(() => _v4 || !_v7 ? null : {
+          } = (0, _v262.useGetUserAnalytics)(() => _v4 || !_v7 ? null : {
             ..._v7,
             query: {
               ..._v7.query,
@@ -21638,7 +21545,7 @@
       _v9,
       {
         primaryDimensions: {
-          [_v247.REPORT_GROUP_MAP[_v0]]: _v10
+          [_v245.REPORT_GROUP_MAP[_v0]]: _v10
         },
         selectedItemsForGraph: _v11,
         selectedAggregateInterval: _v12
@@ -21669,11 +21576,11 @@
         }
       }, [_v0]),
       _v19 = [...(_v376.AggregateIntervalType.WEEK ? ["startDate", "endDate"] : ["startDate"]), _v10, ...(_v3.length ? _v3 : [])],
-      _v20 = _v247.REPORT_GROUP_BY_FILTER_MAP[_v0],
+      _v20 = _v245.REPORT_GROUP_BY_FILTER_MAP[_v0],
       _v21 = {
-        [`filter_${_v20}`]: _v11.filter(_v0 => _v0.id !== _v247.TOTAL_ROW_ID).map(_v0 => `${_v0.prepend}${_v0.id}`).join(",").split(",")
+        [`filter_${_v20}`]: _v11.filter(_v0 => _v0.id !== _v245.TOTAL_ROW_ID).map(_v0 => `${_v0.prepend}${_v0.id}`).join(",").split(",")
       },
-      _v22 = _v11.find(_v0 => _v0.id === _v247.TOTAL_ROW_ID),
+      _v22 = _v11.find(_v0 => _v0.id === _v245.TOTAL_ROW_ID),
       _v23 = Math.ceil(_v14.diff(_v13, "days").toObject().days ?? 0),
       _v24 = _v11.length * _v23,
       {
@@ -21684,7 +21591,7 @@
         data: _v27,
         isLoading: _v28,
         error: _v29
-      } = (0, _v264.useGetUserAnalytics)(() => _v25 || !_v11.length || _v5 ? null : {
+      } = (0, _v262.useGetUserAnalytics)(() => _v25 || !_v11.length || _v5 ? null : {
         select: _v19,
         where: {
           userId: _v1.userInUse.id
@@ -21711,7 +21618,7 @@
         data: _v30,
         isLoading: _v31,
         error: _v32
-      } = (0, _v264.useGetUserAnalytics)(() => _v25 || !_v22 || !_v11.length || _v5 ? null : {
+      } = (0, _v262.useGetUserAnalytics)(() => _v25 || !_v22 || !_v11.length || _v5 ? null : {
         select: _v19,
         where: {
           userId: _v1.userInUse.id
@@ -21751,9 +21658,9 @@
         return {
           ..._v0,
           [_v2]: {
-            [_v247.TOTAL_ROW_ID]: {
-              cid: _v247.TOTAL_ROW_ID,
-              name: _v247.TOTAL_ROW_NAME,
+            [_v245.TOTAL_ROW_ID]: {
+              cid: _v245.TOTAL_ROW_ID,
+              name: _v245.TOTAL_ROW_NAME,
               range: {
                 start_date: _v2,
                 end_date: _v3
@@ -21857,11 +21764,11 @@
       }, [_v28, _v7, _v20, _v21]);
       let _v30 = [{
           color: (0, _v31.getTotalRowColor)(),
-          id: _v247.DATE_LINE_ID,
-          name: _v247.DATE_LINE_NAME,
+          id: _v245.DATE_LINE_ID,
+          name: _v245.DATE_LINE_NAME,
           prepend: ""
         }],
-        _v31 = _v3 === _v247.REPORT_TYPE_DATE ? _v30 : _v6.selectedItemsForGraph,
+        _v31 = _v3 === _v245.REPORT_TYPE_DATE ? _v30 : _v6.selectedItemsForGraph,
         _v32 = (0, _v4.useMemo)(() => (_v18 ?? _v9).map(_v0 => ({
           label: _v0.header,
           value: _v0.sort
@@ -21874,13 +21781,13 @@
           reportFilters: _v4,
           state: _v6,
           dispatch: _v7,
-          calendarPresets: _v247.CALENDAR_PRESETS[_v3],
+          calendarPresets: _v245.CALENDAR_PRESETS[_v3],
           showFilterPanel: !0
         }), (0, _v3.jsx)(_v5.Box, {
           position: "relative",
           children: (0, _v3.jsx)(_v743, {
             reportType: _v3,
-            visibleMetric: _v6.primaryDimensions[_v247.REPORT_GROUP_MAP[_v3]],
+            visibleMetric: _v6.primaryDimensions[_v245.REPORT_GROUP_MAP[_v3]],
             payload: _v27,
             resetTablePage: () => void 0,
             selectedAggregateInterval: _v6.selectedAggregateInterval,
@@ -21919,7 +21826,7 @@
             hasError: _v22 || _v17,
             hasSelectableRows: _v10,
             paddingRight: "xl"
-          }, _v6.primaryDimensions.vimeo + "-" + _v15.map(_v0 => _v0.id).join("-")), (_v23 || _v21) && void 0 !== _v20 && (0, _v3.jsx)(_v68.Button, {
+          }, _v6.primaryDimensions.vimeo + "-" + _v15.map(_v0 => _v0.id).join("-")), (_v23 || _v21) && void 0 !== _v20 && (0, _v3.jsx)(_v66.Button, {
             width: "calc(100% - 2rem)",
             marginTop: "1rem",
             size: "xl",
@@ -22008,12 +21915,12 @@
     _v747 = (_v0, _v1) => _v1 && _v1.length ? Object.fromEntries(Object.entries((0, _v637.default)(_v1, _v0 => _v21.DateTime.fromISO(_v0?.startDate, {
       zone: "utc"
     }).toISODate())).map(([_v0, _v1]) => [_v0, _v1.reduce((_v0, _v1) => {
-      let _v2 = _v0[_v247.DATE_LINE_ID];
+      let _v2 = _v0[_v245.DATE_LINE_ID];
       return {
         ..._v0,
-        [_v247.DATE_LINE_ID]: {
-          cid: _v247.DATE_LINE_ID,
-          name: _v247.DATE_LINE_NAME,
+        [_v245.DATE_LINE_ID]: {
+          cid: _v245.DATE_LINE_ID,
+          name: _v245.DATE_LINE_NAME,
           range: {
             start_date: _v1?.startDate ? _v21.DateTime.fromISO(_v1?.startDate, {
               zone: "utc"
@@ -22038,7 +21945,7 @@
         apiPath: `users/${_v1.userInUse.id}/videos/stats`,
         reportType: _v376.Reports.DATE,
         reportFilters: _v531,
-        reportName: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_DATE],
+        reportName: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_DATE],
         tableLayoutData: _v746,
         tableFields: _v515.DateReportTableFields,
         graphDataProcessor: _v747,
@@ -22097,7 +22004,7 @@
         apiPath: `users/${_v1.userInUse.id}/videos/stats`,
         reportType: _v376.Reports.DEVICE,
         reportFilters: _v531,
-        reportName: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_DEVICE],
+        reportName: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_DEVICE],
         tableLayoutData: _v749,
         tableFields: _v515.DeviceReportTableFields,
         graphDataProcessor: _v751,
@@ -22126,7 +22033,7 @@
         }, [_v0])
       };
     },
-    _v755 = [_v261.T_VIDEO_URL, _v261.T_VIDEO_TITLE, _v261.T_VIDEO_UPLOAD_DATE],
+    _v755 = [_v259.T_VIDEO_URL, _v259.T_VIDEO_TITLE, _v259.T_VIDEO_UPLOAD_DATE],
     _v756 = Array.from({
       length: 100
     }, (_v0, _v1) => (0, _v29.translate)({
@@ -22168,7 +22075,7 @@
       let {
         trackEngagementExportClicked: _v5
       } = _v754();
-      return (0, _v3.jsx)(_v68.Button, {
+      return (0, _v3.jsx)(_v66.Button, {
         size: "sm",
         variant: "secondary",
         leftIcon: (0, _v3.jsx)(_v520.ArrowToBottom, {}),
@@ -22194,7 +22101,7 @@
                 }
                 _v5.push(_v2);
               }
-              return (0, _v262.stringify)(_v5);
+              return (0, _v260.stringify)(_v5);
             })(_v0, _v1, _v4),
             _v1 = _v2.startDate.toISODate(),
             _v2 = _v2.endDate.toISODate();
@@ -22237,23 +22144,23 @@
       length: 100
     }, () => 0),
     _v760 = () => {
-      let _v0 = (0, _v87.useColorModeValue)("gray.50", "gray.700");
+      let _v0 = (0, _v85.useColorModeValue)("gray.50", "gray.700");
       return (0, _v3.jsxs)(_v5.Box, {
         padding: "0.75rem",
         maxWidth: "22rem",
         fontSize: "0.875rem",
         children: [(0, _v3.jsx)(_v45.Text, {
           marginBottom: "0.75rem",
-          children: _v261.T_ENGAGEMENT_INFO_GRAPH
+          children: _v259.T_ENGAGEMENT_INFO_GRAPH
         }), (0, _v3.jsx)(_v45.Text, {
           marginBottom: "0.75rem",
-          children: _v261.T_ENGAGEMENT_INFO_MEASURE
+          children: _v259.T_ENGAGEMENT_INFO_MEASURE
         }), (0, _v3.jsx)(_v45.Text, {
           marginBottom: "0.75rem",
-          children: _v261.T_ENGAGEMENT_INFO_SCRUBBING
+          children: _v259.T_ENGAGEMENT_INFO_SCRUBBING
         }), (0, _v3.jsx)(_v45.Text, {
           marginBottom: "0.75rem",
-          children: _v261.T_ENGAGEMENT_INFO_MULTI_VIDEO
+          children: _v259.T_ENGAGEMENT_INFO_MULTI_VIDEO
         }), (0, _v3.jsxs)(_v5.Box, {
           backgroundColor: _v0,
           padding: "0.5rem 0.75rem",
@@ -22263,16 +22170,16 @@
             fontWeight: "bold",
             marginBottom: "0.25rem",
             children: (0, _v3.jsx)("strong", {
-              children: _v261.T_AXIS_LEGEND
+              children: _v259.T_AXIS_LEGEND
             })
           }), (0, _v3.jsxs)(_v45.Text, {
             children: [(0, _v3.jsx)("strong", {
-              children: _v261.T_Y_AXIS
-            }), " ", _v261.T_Y_AXIS_LABEL]
+              children: _v259.T_Y_AXIS
+            }), " ", _v259.T_Y_AXIS_LABEL]
           }), (0, _v3.jsxs)(_v45.Text, {
             children: [(0, _v3.jsx)("strong", {
-              children: _v261.T_X_AXIS
-            }), " ", _v261.T_X_AXIS_LABEL]
+              children: _v259.T_X_AXIS
+            }), " ", _v259.T_X_AXIS_LABEL]
           })]
         })]
       });
@@ -22362,7 +22269,7 @@
                 width: _v728,
                 direction: _v7 === _v0 ? _v9 : "none",
                 onClick: () => _v12(_v0),
-                children: (0, _v3.jsx)(_v167.Tooltip, {
+                children: (0, _v3.jsx)(_v165.Tooltip, {
                   label: _v0.tooltip,
                   placement: "top",
                   children: _v0.header
@@ -22388,10 +22295,10 @@
                 sticky: !0,
                 stickyBorder: !0,
                 textColor: "text-secondary",
-                children: (0, _v3.jsx)(_v167.Tooltip, {
-                  label: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.total,
+                children: (0, _v3.jsx)(_v165.Tooltip, {
+                  label: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.total,
                   placement: "top",
-                  children: _v247.DISPLAY_MAP.total
+                  children: _v245.DISPLAY_MAP.total
                 })
               }), _v1.map(_v0 => (0, _v3.jsx)(_v722, {
                 width: _v728,
@@ -22548,7 +22455,7 @@
               }), _v0.map(_v0 => (0, _v3.jsx)(_v724, {
                 width: _v728,
                 direction: "none",
-                children: (0, _v3.jsx)(_v167.Tooltip, {
+                children: (0, _v3.jsx)(_v165.Tooltip, {
                   label: _v0.tooltip,
                   placement: "top",
                   children: _v0.header
@@ -22567,7 +22474,7 @@
         children: _v1 ? (0, _v3.jsx)(_v469.GeneralErrorMessage, {}) : (0, _v3.jsx)(_v45.Text, {
           variant: "body-sm",
           color: "text-secondary",
-          children: _v261.T_NO_DATA
+          children: _v259.T_NO_DATA
         })
       })]
     }),
@@ -22658,7 +22565,7 @@
         position: "absolute",
         height: "100%",
         width: "100%",
-        children: (0, _v3.jsx)(_v201.ResponsiveContainer, {
+        children: (0, _v3.jsx)(_v199.ResponsiveContainer, {
           children: (0, _v3.jsxs)(_v766.AreaChart, {
             data: _v0,
             margin: {
@@ -22684,10 +22591,10 @@
                   stopOpacity: 0
                 })]
               })
-            }), (0, _v3.jsx)(_v199.CartesianGrid, {
+            }), (0, _v3.jsx)(_v197.CartesianGrid, {
               vertical: !1,
               stroke: _v3
-            }), (0, _v3.jsx)(_v203.XAxis, {
+            }), (0, _v3.jsx)(_v201.XAxis, {
               dataKey: "start",
               ticks: _v767,
               tickFormatter: _v0 => `${_v0}%`,
@@ -22698,13 +22605,13 @@
                 fill: _v4
               },
               label: {
-                value: _v261.T_PERCENT_OF_VIDEO,
+                value: _v259.T_PERCENT_OF_VIDEO,
                 position: "insideBottom",
                 offset: -10,
                 fontSize: 12,
                 fill: _v4
               }
-            }), (0, _v3.jsx)(_v204.YAxis, {
+            }), (0, _v3.jsx)(_v202.YAxis, {
               axisLine: !1,
               tickLine: !1,
               tick: {
@@ -22714,7 +22621,7 @@
               tickFormatter: _v0 => _v769(_v0),
               width: 60,
               label: {
-                value: _v261.T_TOTAL_VIEWS,
+                value: _v259.T_TOTAL_VIEWS,
                 angle: -90,
                 position: "insideLeft",
                 offset: 10,
@@ -22731,7 +22638,7 @@
               stroke: _v1,
               strokeWidth: 3,
               fill: "url(#engagementGradient)"
-            }), (0, _v3.jsx)(_v202.Tooltip, {
+            }), (0, _v3.jsx)(_v200.Tooltip, {
               content: (0, _v3.jsx)(_v770, {
                 videoCount: _v2
               })
@@ -22746,7 +22653,7 @@
       ..._v1
     }) => {
       let _v2 = (0, _v4.useContext)(_v28.ViewerContext),
-        _v3 = (0, _v87.useColorModeValue)("gray.600", "gray.300"),
+        _v3 = (0, _v85.useColorModeValue)("gray.600", "gray.300"),
         _v4 = _v1?.payload?.[0]?.payload;
       if (!_v2 || !_v4) return null;
       let _v5 = (0, _v547.formatDisplayNumber)(Number(_v4.views), _v2.locale);
@@ -22757,7 +22664,7 @@
         borderRadius: "0.5rem",
         backdropFilter: "blur(1.25rem)",
         color: "text-button-inverted",
-        children: (0, _v261.T_VIEWS_AT_POINT)(_v5, _v4.start, _v0)
+        children: (0, _v259.T_VIEWS_AT_POINT)(_v5, _v4.start, _v0)
       });
     },
     _v771 = ({
@@ -22772,8 +22679,8 @@
     _v772 = {
       metrics: ["views"],
       sort: "views",
-      header: _v247.DISPLAY_MAP.plays,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.plays,
+      header: _v245.DISPLAY_MAP.plays,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.plays,
       render: _v0 => (0, _v3.jsx)(_v771, {
         value: (_v0.views ?? 0).toLocaleString()
       })
@@ -22781,8 +22688,8 @@
     _v773 = {
       metrics: ["meanPercentWatched"],
       sort: "meanPercentWatched",
-      header: _v247.DISPLAY_MAP.watched,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.averageviewpercentage,
+      header: _v245.DISPLAY_MAP.watched,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.averageviewpercentage,
       render: _v0 => (0, _v3.jsx)(_v771, {
         value: `${Math.round(_v0.meanPercentWatched ?? 0)}%`
       })
@@ -22790,8 +22697,8 @@
     _v774 = {
       metrics: ["views", "finishes"],
       sort: "completionRate",
-      header: _v261.T_AVG_COMPLETION_RATE,
-      tooltip: _v247.TABLE_HEADERS_INFO_DISPLAY_MAP.completionRate,
+      header: _v259.T_AVG_COMPLETION_RATE,
+      tooltip: _v245.TABLE_HEADERS_INFO_DISPLAY_MAP.completionRate,
       render: _v0 => {
         let _v1 = Math.round(_v0.completionRate ?? 0);
         return (0, _v3.jsx)(_v771, {
@@ -23085,12 +22992,12 @@
         width: "100%",
         children: [(0, _v3.jsx)(_v475, {
           reportType: _v376.Reports.ENGAGEMENT,
-          title: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_ENGAGEMENT],
+          title: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_ENGAGEMENT],
           infoPopUpContent: (0, _v3.jsx)(_v760, {}),
           reportFilters: _v533,
           state: _v0,
           dispatch: _v1,
-          calendarPresets: _v247.CALENDAR_PRESETS[_v376.Reports.ENGAGEMENT],
+          calendarPresets: _v245.CALENDAR_PRESETS[_v376.Reports.ENGAGEMENT],
           showFilterPanel: !0
         }), (0, _v3.jsx)(_v5.Box, {
           display: "block",
@@ -23138,7 +23045,7 @@
             isLoading: void 0 === _v15,
             hasError: _v12,
             totalRow: _v9
-          }), (_v13 || _v11) && void 0 !== _v15 && (0, _v3.jsx)(_v68.Button, {
+          }), (_v13 || _v11) && void 0 !== _v15 && (0, _v3.jsx)(_v66.Button, {
             width: "calc(100% - 2rem)",
             marginTop: "1rem",
             size: "xl",
@@ -23237,7 +23144,7 @@
         apiPath: `users/${_v1.userInUse.id}/videos/stats`,
         reportType: _v376.Reports.REGION,
         reportFilters: _v531,
-        reportName: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_REGION],
+        reportName: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_REGION],
         tableLayoutData: _v778,
         tableFields: _v515.RegionReportTableFields,
         graphDataProcessor: _v780,
@@ -23295,7 +23202,7 @@
         apiPath: `users/${_v1.userInUse.id}/videos/stats`,
         reportType: _v376.Reports.SOURCE,
         reportFilters: _v531,
-        reportName: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_SOURCE],
+        reportName: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_SOURCE],
         tableLayoutData: _v782,
         tableFields: _v515.SourceReportTableFields,
         graphDataProcessor: _v784,
@@ -23430,7 +23337,8 @@
         userOrVideoId: _v5
       };
     },
-    _v803 = _v0 => {
+    _v803 = Error("Something went wrong!"),
+    _v804 = _v0 => {
       let _v1,
         {
           userInUse: _v2,
@@ -23474,7 +23382,7 @@
           where: {
             userId: _v7
           },
-          select: [_v247.NON_TOURPOINT_USER_PREFERENCES.TEAM_ACTIVITY_ANALYTICS]
+          select: [_v245.NON_TOURPOINT_USER_PREFERENCES.TEAM_ACTIVITY_ANALYTICS]
         }, {
           errorRetryCount: 1
         });
@@ -23492,22 +23400,22 @@
             _v6.push(_v0);
           } else _v6.push("/analytics");
         }
-      }) : _v10?.res?.status !== 404 && _v13?.res?.status !== 404 && _v8 && _v12?.[_v247.NON_TOURPOINT_USER_PREFERENCES.TEAM_ACTIVITY_ANALYTICS] ? _v10 || _v13 ? (0, _v3.jsx)(_v27.ErrorPage, {
-        error: Error("Something went wrong!")
+      }) : _v10?.res?.status !== 404 && _v13?.res?.status !== 404 && _v8 && _v12?.[_v245.NON_TOURPOINT_USER_PREFERENCES.TEAM_ACTIVITY_ANALYTICS] ? _v10 || _v13 ? (0, _v3.jsx)(_v27.ErrorPage, {
+        error: _v803
       }) : (0, _v3.jsx)(_v3.Fragment, {
         children: _v4
       }) : (0, _v3.jsx)(_v27.ErrorPage, {
         error: new _v25.UnauthorizedError()
       });
     };
-  var _v804 = _v0.i(0),
-    _v805 = _v0.i(0),
-    _v806 = _v0.i(0);
-  let _v807 = ["meanPercentWatched", "uniqueMembers", "uniqueVideos", "views", "range.startDate", "range.endDate"],
-    _v808 = ["meanPercentWatched", "uniqueMembers", "uniqueVideos", "views", "range.startDate", "range.endDate", "completions", "netTimeCompleted", "netPercentageCompleted", "totalSecondsWatched"],
-    _v809 = ["uniqueMembers", "metadata.connections.video.uri", "metadata.connections.video.title", "metadata.connections.video.duration", "metadata.connections.video.createdTime", "metadata.connections.video.manageLink"],
-    _v810 = ["uniqueVideos", "metadata.connections.user.uri", "metadata.connections.user.email", "metadata.connections.user.name", "metadata.connections.user.picture", "metadata.connections.video.duration"],
-    _v811 = (_v0, _v1) => {
+  var _v805 = _v0.i(0),
+    _v806 = _v0.i(0),
+    _v807 = _v0.i(0);
+  let _v808 = ["meanPercentWatched", "uniqueMembers", "uniqueVideos", "views", "range.startDate", "range.endDate"],
+    _v809 = ["meanPercentWatched", "uniqueMembers", "uniqueVideos", "views", "range.startDate", "range.endDate", "completions", "netTimeCompleted", "netPercentageCompleted", "totalSecondsWatched"],
+    _v810 = ["uniqueMembers", "metadata.connections.video.uri", "metadata.connections.video.title", "metadata.connections.video.duration", "metadata.connections.video.createdTime", "metadata.connections.video.manageLink"],
+    _v811 = ["uniqueVideos", "metadata.connections.user.uri", "metadata.connections.user.email", "metadata.connections.user.name", "metadata.connections.user.picture", "metadata.connections.video.duration"],
+    _v812 = (_v0, _v1) => {
       let {
           isOrionLoading: _v2,
           queryParam: _v3
@@ -23525,8 +23433,8 @@
           data: _v11,
           isLoading: _v12,
           error: _v13
-        } = (0, _v263.useGetTeamAnalytics)(() => _v2 ? null : {
-          select: _v807,
+        } = (0, _v261.useGetTeamAnalytics)(() => _v2 ? null : {
+          select: _v808,
           where: {
             userId: _v1
           },
@@ -23542,8 +23450,8 @@
           data: _v14,
           isLoading: _v15,
           error: _v16
-        } = (0, _v263.useGetTeamAnalytics)(() => _v2 ? null : {
-          select: _v807,
+        } = (0, _v261.useGetTeamAnalytics)(() => _v2 ? null : {
+          select: _v808,
           where: {
             userId: _v1
           },
@@ -23560,7 +23468,7 @@
           data: _v18,
           isLoading: _v19,
           error: _v20
-        } = (0, _v805.useGetUserTeammembers)({
+        } = (0, _v806.useGetUserTeammembers)({
           select: ["uri"],
           where: {
             userId: _v1
@@ -23573,7 +23481,7 @@
           data: _v21,
           isLoading: _v22,
           error: _v23
-        } = (0, _v806.useGetUserVideos)({
+        } = (0, _v807.useGetUserVideos)({
           select: ["uri"],
           where: {
             userId: _v1
@@ -23597,7 +23505,7 @@
         isError: _v13 || _v16 || _v20 || _v23
       };
     },
-    _v812 = (_v0, _v1, _v2, _v3, _v4) => {
+    _v813 = (_v0, _v1, _v2, _v3, _v4) => {
       let {
           isOrionLoading: _v5,
           queryParam: _v6
@@ -23614,9 +23522,9 @@
           let _v0 = ["meanPercentWatched", "views", "completions", "netPercentageCompleted", "netTimeCompleted", "totalSecondsWatched"];
           switch (_v0) {
             case _v795:
-              return [..._v0, ..._v810, ...(1 == _v1.length ? ["viewedSegments"] : [])];
+              return [..._v0, ..._v811, ...(1 == _v1.length ? ["viewedSegments"] : [])];
             case _v796:
-              return [..._v0, ..._v809, ...(1 === _v2.length ? ["viewedSegments"] : [])];
+              return [..._v0, ..._v810, ...(1 === _v2.length ? ["viewedSegments"] : [])];
             default:
               return _v0;
           }
@@ -23625,7 +23533,7 @@
           data: _v14,
           isLoading: _v15,
           error: _v16
-        } = (0, _v263.useGetTeamAnalytics)(() => _v5 ? null : {
+        } = (0, _v261.useGetTeamAnalytics)(() => _v5 ? null : {
           select: _v13,
           where: {
             userId: _v2
@@ -23646,8 +23554,8 @@
           data: _v17,
           isLoading: _v18,
           error: _v19
-        } = (0, _v263.useGetTeamAnalytics)(() => _v5 ? null : {
-          select: _v808,
+        } = (0, _v261.useGetTeamAnalytics)(() => _v5 ? null : {
+          select: _v809,
           where: {
             userId: _v2
           },
@@ -23664,7 +23572,7 @@
           data: _v21,
           isLoading: _v22,
           error: _v23
-        } = (0, _v805.useGetUserTeammembers)(() => _v20 && _v2 ? {
+        } = (0, _v806.useGetUserTeammembers)(() => _v20 && _v2 ? {
           select: ["user.uri", "user.pictures.sizes.link"],
           where: {
             userId: _v2
@@ -23707,7 +23615,7 @@
         isError: _v16 || _v19 || _v28 || _v23
       };
     },
-    _v813 = ({
+    _v814 = ({
       children: _v0,
       ..._v1
     }) => (0, _v3.jsx)(_v6.Flex, {
@@ -23722,12 +23630,12 @@
       ..._v1,
       children: _v0
     }),
-    _v814 = ({
+    _v815 = ({
       isVideoView: _v0,
       columns: _v1 = 7
     }) => {
-      let _v2 = (0, _v87.useColorModeValue)("whiteAlpha.600", "lightBlueAlpha.50"),
-        _v3 = (0, _v87.useColorModeValue)("surface", "#181E22");
+      let _v2 = (0, _v85.useColorModeValue)("whiteAlpha.600", "lightBlueAlpha.50"),
+        _v3 = (0, _v85.useColorModeValue)("surface", "#181E22");
       return (0, _v3.jsxs)(_v5.Box, {
         as: "tbody",
         children: [(0, _v3.jsxs)(_v6.Flex, {
@@ -23739,7 +23647,7 @@
           whiteSpace: "nowrap",
           minHeight: "4.125rem",
           padding: "inherit",
-          children: [(0, _v3.jsx)(_v813, {
+          children: [(0, _v3.jsx)(_v814, {
             as: "td",
             position: "sticky",
             left: "0",
@@ -23755,11 +23663,11 @@
             children: (0, _v3.jsx)(_v38.Header, {
               size: "xs",
               fontWeight: 500,
-              children: _v261.T_TOTAL
+              children: _v259.T_TOTAL
             })
           }), Array.from({
             length: _v1
-          }, (_v0, _v1) => (0, _v3.jsx)(_v813, {
+          }, (_v0, _v1) => (0, _v3.jsx)(_v814, {
             as: "td",
             justifyContent: "flex-end",
             children: (0, _v3.jsx)(_v44.Skeleton, {
@@ -23786,7 +23694,7 @@
               borderBottomLeftRadius: "1.5rem"
             }
           },
-          children: [_v0 ? (0, _v3.jsxs)(_v813, {
+          children: [_v0 ? (0, _v3.jsxs)(_v814, {
             minWidth: "25rem",
             borderRightColor: "stroke",
             borderRightWidth: "0.063rem",
@@ -23809,7 +23717,7 @@
                 height: "1.25rem"
               })
             })]
-          }) : (0, _v3.jsxs)(_v813, {
+          }) : (0, _v3.jsxs)(_v814, {
             minWidth: "25rem",
             borderRightColor: "stroke",
             borderRightWidth: "0.063rem",
@@ -23834,7 +23742,7 @@
             })]
           }), Array.from({
             length: _v1
-          }, (_v0, _v1) => (0, _v3.jsx)(_v813, {
+          }, (_v0, _v1) => (0, _v3.jsx)(_v814, {
             as: "td",
             justifyContent: "flex-end",
             children: (0, _v3.jsx)(_v44.Skeleton, {
@@ -23845,7 +23753,7 @@
         }, _v0))]
       });
     },
-    _v815 = ({
+    _v816 = ({
       title: _v0,
       statValue: _v1,
       tooltipContent: _v2,
@@ -23868,7 +23776,7 @@
         children: [(0, _v3.jsx)(_v38.Header, {
           size: "md",
           children: _v0
-        }), _v2 && (0, _v3.jsx)(_v167.Tooltip, {
+        }), _v2 && (0, _v3.jsx)(_v165.Tooltip, {
           "aria-label": "snapshot tooltip",
           label: _v2,
           placement: "bottom-end",
@@ -23876,7 +23784,7 @@
           marginLeft: "1rem",
           marginTop: "-1rem",
           children: (0, _v3.jsx)(_v5.Box, {
-            children: (0, _v3.jsx)(_v173.InfoCircle, {
+            children: (0, _v3.jsx)(_v171.InfoCircle, {
               boxSize: "0.75rem",
               marginTop: "0",
               marginLeft: "0.5rem",
@@ -23900,11 +23808,11 @@
         }) : "-"
       }), _v5]
     }),
-    _v816 = ({
+    _v817 = ({
       totalTimeInSeconds: _v0,
       timeSegments: _v1
     }) => {
-      let _v2 = (0, _v87.useColorModeValue)("darkBlueAlpha.200", "input-fill");
+      let _v2 = (0, _v85.useColorModeValue)("darkBlueAlpha.200", "input-fill");
       return (0, _v3.jsx)(_v5.Box, {
         width: "100%",
         height: "0.5rem",
@@ -23930,7 +23838,7 @@
         })
       });
     },
-    _v817 = ({
+    _v818 = ({
       title: _v0,
       subtitle: _v1,
       path: _v2,
@@ -23939,9 +23847,9 @@
       manageLink: _v5,
       hasDetailButton: _v6
     }) => {
-      let _v7 = (0, _v87.useColorModeValue)("#FAFAFB", "#141A1E"),
-        _v8 = (0, _v87.useColorModeValue)("surface", "#181E22");
-      return (0, _v3.jsxs)(_v813, {
+      let _v7 = (0, _v85.useColorModeValue)("#FAFAFB", "#141A1E"),
+        _v8 = (0, _v85.useColorModeValue)("surface", "#181E22");
+      return (0, _v3.jsxs)(_v814, {
         as: "td",
         position: "sticky",
         left: "0",
@@ -23964,7 +23872,7 @@
           overflow: "hidden",
           textOverflow: "ellipsis",
           whiteSpace: "nowrap",
-          children: [_v2 ? (0, _v3.jsx)(_v82.Link, {
+          children: [_v2 ? (0, _v3.jsx)(_v80.Link, {
             fontWeight: "700",
             textDecoration: "none",
             variant: "primary",
@@ -24000,11 +23908,11 @@
         })]
       });
     },
-    _v818 = ({
+    _v819 = ({
       user: _v0,
       path: _v1,
       userThumbnailMap: _v2
-    }) => (0, _v3.jsx)(_v817, {
+    }) => (0, _v3.jsx)(_v818, {
       title: _v0?.name ?? "",
       subtitle: _v0?.email,
       path: _v1,
@@ -24027,7 +23935,7 @@
         })
       })
     }),
-    _v819 = ({
+    _v820 = ({
       video: _v0,
       videoThumbnailMap: _v1,
       path: _v2,
@@ -24036,9 +23944,9 @@
     }) => {
       let _v5 = (0, _v647.useLocale)(),
         _v6 = _v0?.createdTime ? _v21.DateTime.fromISO(_v0?.createdTime).setLocale(_v5).toLocaleString(_v21.DateTime.DATE_MED) : "";
-      return (0, _v3.jsx)(_v817, {
+      return (0, _v3.jsx)(_v818, {
         title: _v0?.title ?? "",
-        subtitle: (0, _v261.T_UPLOADED_DATE)(_v6),
+        subtitle: (0, _v259.T_UPLOADED_DATE)(_v6),
         path: _v2 ?? "",
         openLinkInNewTab: _v3,
         manageLink: _v0?.manageLink,
@@ -24071,7 +23979,7 @@
         })
       });
     },
-    _v820 = ({
+    _v821 = ({
       item: _v0,
       uniqueValue: _v1,
       showTimeSegmentBar: _v2,
@@ -24079,8 +23987,8 @@
       children: _v4,
       duration: _v5
     }) => {
-      let _v6 = (0, _v87.useColorModeValue)("whiteAlpha.600", "lightBlueAlpha.50"),
-        _v7 = (0, _v87.useColorModeValue)("surface", "#181E22"),
+      let _v6 = (0, _v85.useColorModeValue)("whiteAlpha.600", "lightBlueAlpha.50"),
+        _v7 = (0, _v85.useColorModeValue)("surface", "#181E22"),
         _v8 = _v5 ?? (_v0?.metadata?.connections?.video?.duration || 0);
       return (0, _v3.jsxs)(_v6.Flex, {
         as: "tr",
@@ -24101,19 +24009,19 @@
             borderBottomLeftRadius: "1.5rem"
           }
         },
-        children: [_v4, _v3 && (0, _v3.jsx)(_v813, {
+        children: [_v4, _v3 && (0, _v3.jsx)(_v814, {
           as: "td",
           justifyContent: "flex-end",
           children: _v1 ?? 0
-        }), (0, _v3.jsx)(_v813, {
+        }), (0, _v3.jsx)(_v814, {
           as: "td",
           justifyContent: "flex-end",
           children: _v0?.views ?? 0
-        }), (0, _v3.jsx)(_v813, {
+        }), (0, _v3.jsx)(_v814, {
           as: "td",
           justifyContent: "flex-end",
           children: _v0?.completions ?? 0
-        }), (0, _v3.jsx)(_v813, {
+        }), (0, _v3.jsx)(_v814, {
           as: "td",
           children: (0, _v3.jsxs)(_v5.Box, {
             display: "flex",
@@ -24125,7 +24033,7 @@
               minWidth: "4.604rem",
               flexGrow: "1",
               marginRight: "0.5rem",
-              children: (0, _v3.jsx)(_v816, {
+              children: (0, _v3.jsx)(_v817, {
                 timeSegments: _v0?.viewedSegments ? JSON.parse(`[${_v0?.viewedSegments}]`) : [],
                 totalTimeInSeconds: _v8
               })
@@ -24136,25 +24044,25 @@
               children: [(0, _v31.formatPercent)(_v0?.netPercentageCompleted ?? 0), "%"]
             })]
           })
-        }), (0, _v3.jsx)(_v813, {
+        }), (0, _v3.jsx)(_v814, {
           as: "td",
           justifyContent: "flex-end",
           children: (0, _v547.formatDurationPretty)(_v0?.netTimeCompleted ?? 0)
-        }), (0, _v3.jsx)(_v813, {
+        }), (0, _v3.jsx)(_v814, {
           as: "td",
           justifyContent: "flex-end",
           children: (0, _v547.formatDurationPretty)(_v0?.totalSecondsWatched ?? 0)
-        }), (0, _v3.jsxs)(_v813, {
+        }), (0, _v3.jsxs)(_v814, {
           as: "td",
           justifyContent: "flex-end",
           children: [(0, _v31.formatPercent)(_v0?.meanPercentWatched ?? 0), "%"]
         })]
       });
     },
-    _v821 = ({
+    _v822 = ({
       isTableDataError: _v0
     }) => {
-      let _v1 = (0, _v87.useColorModeValue)("whiteAlpha.600", "lightBlueAlpha.50");
+      let _v1 = (0, _v85.useColorModeValue)("whiteAlpha.600", "lightBlueAlpha.50");
       return (0, _v3.jsx)(_v417.Center, {
         minHeight: "15rem",
         background: _v1,
@@ -24163,11 +24071,11 @@
           fontSize: "body-sm",
           color: "text-tertiary",
           variant: "body-xl",
-          children: _v261.T_NO_DATA
+          children: _v259.T_NO_DATA
         })
       });
     },
-    _v822 = ({
+    _v823 = ({
       label: _v0,
       isSortable: _v1,
       sortValue: _v2,
@@ -24197,7 +24105,7 @@
         borderTopLeftRadius: "1.5rem"
       },
       onClick: _v3,
-      children: [(0, _v3.jsx)(_v167.Tooltip, {
+      children: [(0, _v3.jsx)(_v165.Tooltip, {
         label: _v4,
         maxWidth: "15rem",
         placement: "bottom-start",
@@ -24231,9 +24139,9 @@
         })
       })]
     });
-  var _v823 = _v0.i(0),
-    _v824 = _v0.i(0);
-  let _v825 = ({
+  var _v824 = _v0.i(0),
+    _v825 = _v0.i(0);
+  let _v826 = ({
       totalItems: _v0,
       currentPageForTableData: _v1,
       setCurrentPageForTableData: _v2
@@ -24247,7 +24155,7 @@
         gap: "0.5rem",
         children: [(0, _v3.jsx)(_v39.IconButton, {
           "aria-label": "chevron left icon button",
-          icon: (0, _v3.jsx)(_v823.ChevronLeft, {}),
+          icon: (0, _v3.jsx)(_v824.ChevronLeft, {}),
           size: "xs",
           variant: "tertiary",
           isDisabled: 1 === _v1,
@@ -24284,7 +24192,7 @@
           onClick: () => _v2(_v1 + 1)
         }), (0, _v3.jsx)(_v39.IconButton, {
           "aria-label": "chevron right icon button",
-          icon: (0, _v3.jsx)(_v824.ChevronRight, {}),
+          icon: (0, _v3.jsx)(_v825.ChevronRight, {}),
           size: "xs",
           variant: "tertiary",
           isDisabled: _v1 >= _v0 / 50,
@@ -24296,10 +24204,10 @@
         fontSize: "0.875rem",
         fontWeight: "500",
         marginTop: "0.5rem",
-        children: (0, _v261.T_OF_PAGES_STYLED)((_v1 - 1) * 50 + 1, 50 * _v1 > _v0 ? _v0 : 50 * _v1, _v0)
+        children: (0, _v259.T_OF_PAGES_STYLED)((_v1 - 1) * 50 + 1, 50 * _v1 > _v0 ? _v0 : 50 * _v1, _v0)
       })]
     }),
-    _v826 = ({
+    _v827 = ({
       uniqueValue: _v0,
       views: _v1,
       averagePercentWatched: _v2,
@@ -24317,7 +24225,7 @@
       whiteSpace: "nowrap",
       minHeight: "4.125rem",
       padding: "inherit",
-      children: [(0, _v3.jsx)(_v813, {
+      children: [(0, _v3.jsx)(_v814, {
         as: "td",
         position: "sticky",
         left: "0",
@@ -24333,9 +24241,9 @@
         children: (0, _v3.jsx)(_v38.Header, {
           size: "xs",
           fontWeight: 500,
-          children: _v261.T_TOTAL
+          children: _v259.T_TOTAL
         })
-      }), _v7 && (0, _v3.jsx)(_v813, {
+      }), _v7 && (0, _v3.jsx)(_v814, {
         as: "td",
         justifyContent: "flex-end",
         children: (0, _v3.jsx)(_v38.Header, {
@@ -24343,7 +24251,7 @@
           fontWeight: 500,
           children: _v0 ?? 0
         })
-      }), (0, _v3.jsx)(_v813, {
+      }), (0, _v3.jsx)(_v814, {
         as: "td",
         justifyContent: "flex-end",
         children: (0, _v3.jsx)(_v38.Header, {
@@ -24351,7 +24259,7 @@
           fontWeight: 500,
           children: _v1 ?? 0
         })
-      }), (0, _v3.jsx)(_v813, {
+      }), (0, _v3.jsx)(_v814, {
         as: "td",
         justifyContent: "flex-end",
         children: (0, _v3.jsx)(_v38.Header, {
@@ -24359,7 +24267,7 @@
           fontWeight: 500,
           children: _v3 ?? 0
         })
-      }), (0, _v3.jsx)(_v813, {
+      }), (0, _v3.jsx)(_v814, {
         as: "td",
         justifyContent: "flex-end",
         children: (0, _v3.jsxs)(_v38.Header, {
@@ -24367,7 +24275,7 @@
           fontWeight: 500,
           children: [(0, _v31.formatPercent)(_v4 ?? 0), "%"]
         })
-      }), (0, _v3.jsx)(_v813, {
+      }), (0, _v3.jsx)(_v814, {
         as: "td",
         justifyContent: "flex-end",
         children: (0, _v3.jsx)(_v38.Header, {
@@ -24375,7 +24283,7 @@
           fontWeight: 500,
           children: (0, _v547.formatDurationPretty)(_v5 ?? 0)
         })
-      }), (0, _v3.jsx)(_v813, {
+      }), (0, _v3.jsx)(_v814, {
         as: "td",
         justifyContent: "flex-end",
         children: (0, _v3.jsx)(_v38.Header, {
@@ -24383,7 +24291,7 @@
           fontWeight: 500,
           children: (0, _v547.formatDurationPretty)(_v6 ?? 0)
         })
-      }), (0, _v3.jsx)(_v813, {
+      }), (0, _v3.jsx)(_v814, {
         as: "td",
         justifyContent: "flex-end",
         children: (0, _v3.jsxs)(_v38.Header, {
@@ -24393,7 +24301,7 @@
         })
       })]
     }),
-    _v827 = ({
+    _v828 = ({
       reportName: _v0,
       children: _v1
     }) => (0, _v3.jsxs)(_v6.Flex, {
@@ -24410,7 +24318,7 @@
         children: [(0, _v3.jsx)(_v38.Header, {
           size: "xl",
           children: _v0
-        }), (0, _v3.jsx)(_v82.Link, {
+        }), (0, _v3.jsx)(_v80.Link, {
           as: "a",
           color: "text-secondary",
           fontSize: "0.875rem",
@@ -24421,13 +24329,13 @@
           _hover: {
             color: "text-secondary"
           },
-          children: _v261.T_TEAM_HC_LINK
+          children: _v259.T_TEAM_HC_LINK
         })]
       }), (0, _v3.jsx)(_v5.Box, {
         children: _v1
       })]
     }),
-    _v828 = (0, _v500.default)(async () => {
+    _v829 = (0, _v500.default)(async () => {
       let {
         SmallAreaChart: _v0
       } = await _v0.A(0);
@@ -24444,7 +24352,7 @@
         marginTop: "0.7rem"
       })
     });
-  function _v829({
+  function _v830({
     userInUse: _v0,
     pageFilters: _v1,
     dispatch: _v2,
@@ -24460,7 +24368,7 @@
       [_v9, _v10] = (0, _v4.useState)(""),
       [_v11, _v12] = (0, _v4.useState)(null),
       [_v13] = (0, _v8.useToken)("semanticTokens", ["colors.fill-brand"]),
-      _v14 = (0, _v87.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
+      _v14 = (0, _v85.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
       {
         capabilities: {
           canExportAnalyticsCsv: _v15
@@ -24491,7 +24399,7 @@
         totalItems: _v28,
         isLoading: _v29,
         isError: _v30
-      } = _v812(_v1, _v8, _v7, _v20, _v22),
+      } = _v813(_v1, _v8, _v7, _v20, _v22),
       {
         uniqueMembers: _v31,
         uniqueVideos: _v32,
@@ -24504,7 +24412,7 @@
         isTotalTeamMembersLoading: _v39,
         isTotalVideosLoading: _v40,
         isError: _v41
-      } = _v811(_v1, _v7),
+      } = _v812(_v1, _v7),
       _v42 = _v31 && _v35 && _v35 > 0 ? (_v31 / _v35 * 100).toFixed(1) : 0,
       _v43 = _v32 && _v36 && _v36 > 0 ? (_v32 / _v36 * 100).toFixed(1) : 0,
       _v44 = _v15 && _v16 && _v25 && _v26?.rows?.length;
@@ -24514,8 +24422,8 @@
       minHeight: "100vh",
       paddingBottom: "2.5rem",
       width: "100%",
-      children: [(0, _v3.jsx)(_v827, {
-        reportName: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_TEAM],
+      children: [(0, _v3.jsx)(_v828, {
+        reportName: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_TEAM],
         children: _v44 ? (0, _v3.jsx)(_v541, {
           viewer: _v5,
           reportType: _v376.Reports.TEAM,
@@ -24547,7 +24455,7 @@
               },
               fontSize: "heading-xs",
               onClick: () => _v19("users", "videos"),
-              children: _v261.T_VIDEOS
+              children: _v259.T_VIDEOS
             }), (0, _v3.jsx)(_v373.Tab, {
               _selected: {
                 color: "text-primary",
@@ -24555,7 +24463,7 @@
               },
               fontSize: "heading-xs",
               onClick: () => _v19("videos", "users"),
-              children: _v261.T_MEMBERS
+              children: _v259.T_MEMBERS
             })]
           })
         }), (0, _v3.jsxs)(_v6.Flex, {
@@ -24569,7 +24477,7 @@
           }), (0, _v3.jsx)(_v411, {
             userInUse: _v0,
             filters: _v1,
-            calendarPresets: _v247.CALENDAR_PRESETS[_v376.Reports.TEAM],
+            calendarPresets: _v245.CALENDAR_PRESETS[_v376.Reports.TEAM],
             dispatch: _v2,
             rangeText: _v9,
             setRangeText: _v10,
@@ -24601,19 +24509,19 @@
         overflowX: "scroll",
         children: [(_v41 || _v30) && (0, _v3.jsx)(_v5.Box, {
           paddingRight: "1.5rem",
-          children: (0, _v3.jsx)(_v85.Alert, {
+          children: (0, _v3.jsx)(_v83.Alert, {
             status: "error",
             marginBottom: "1.5rem",
             borderRadius: "0.75rem",
             alignItems: "center",
-            children: (0, _v3.jsx)(_v83.AlertDescription, {
+            children: (0, _v3.jsx)(_v81.AlertDescription, {
               sx: {
                 a: {
                   textDecoration: "none",
                   color: _v13
                 }
               },
-              children: (0, _v261.T_ERROR_MESSAGE)()
+              children: (0, _v259.T_ERROR_MESSAGE)()
             })
           })
         }), (0, _v3.jsxs)(_v6.Flex, {
@@ -24624,9 +24532,9 @@
           flexShrink: "1",
           flexWrap: "wrap",
           paddingRight: "1.5rem",
-          children: [(0, _v3.jsx)(_v815, {
-            title: _v261.T_VIEWERS,
-            tooltipContent: _v261.T_VIEWERS_TOOLTIP,
+          children: [(0, _v3.jsx)(_v816, {
+            title: _v259.T_VIEWERS,
+            tooltipContent: _v259.T_VIEWERS_TOOLTIP,
             locale: _v0.locale,
             isLoading: _v37,
             statValue: _v31,
@@ -24644,7 +24552,7 @@
               children: [(0, _v3.jsx)(_v522.Paragraph, {
                 size: "md",
                 color: "text-secondary",
-                children: null != _v35 ? (0, _v261.T_SNAPSHOT_MEMBERS_COUNT)(_v35, _v0.locale) : "-"
+                children: null != _v35 ? (0, _v259.T_SNAPSHOT_MEMBERS_COUNT)(_v35, _v0.locale) : "-"
               }), (0, _v3.jsx)(_v6.Flex, {
                 justifyContent: "center",
                 alignItems: "center",
@@ -24652,15 +24560,15 @@
                 fontSize: "0.75rem",
                 color: "text-secondary",
                 marginTop: "1rem",
-                children: (0, _v3.jsx)(_v804.Progress, {
+                children: (0, _v3.jsx)(_v805.Progress, {
                   width: "100%",
                   value: Number(_v42) || 0
                 })
               })]
             })
-          }), (0, _v3.jsx)(_v815, {
-            title: _v261.T_VIDEOS_VIEWED,
-            tooltipContent: _v261.T_VIDEOS_VIEWED_TOOLTIP,
+          }), (0, _v3.jsx)(_v816, {
+            title: _v259.T_VIDEOS_VIEWED,
+            tooltipContent: _v259.T_VIDEOS_VIEWED_TOOLTIP,
             locale: _v0.locale,
             isLoading: _v37,
             statValue: _v32,
@@ -24678,7 +24586,7 @@
               children: [(0, _v3.jsx)(_v522.Paragraph, {
                 size: "md",
                 color: "text-secondary",
-                children: null != _v36 ? (0, _v261.T_SNAPSHOT_VIDEOS_COUNT)(_v36, _v0.locale) : "-"
+                children: null != _v36 ? (0, _v259.T_SNAPSHOT_VIDEOS_COUNT)(_v36, _v0.locale) : "-"
               }), (0, _v3.jsx)(_v6.Flex, {
                 justifyContent: "center",
                 alignItems: "center",
@@ -24686,15 +24594,15 @@
                 fontSize: "0.75rem",
                 color: "text-secondary",
                 marginTop: "1rem",
-                children: (0, _v3.jsx)(_v804.Progress, {
+                children: (0, _v3.jsx)(_v805.Progress, {
                   width: "100%",
                   value: Number(_v43) || 0
                 })
               })]
             })
-          }), (0, _v3.jsx)(_v815, {
-            title: _v261.T_TOTAL_VIEWS,
-            tooltipContent: _v261.T_TOTAL_VIEWS_TOOLTIP,
+          }), (0, _v3.jsx)(_v816, {
+            title: _v259.T_TOTAL_VIEWS,
+            tooltipContent: _v259.T_TOTAL_VIEWS_TOOLTIP,
             locale: _v0.locale,
             isLoading: _v37,
             statValue: _v33,
@@ -24707,7 +24615,7 @@
                 height: "3.5rem",
                 width: "100%",
                 marginTop: "0.7rem"
-              }) : (0, _v3.jsx)(_v828, {
+              }) : (0, _v3.jsx)(_v829, {
                 color: _v13,
                 stopOpacity: .2,
                 strokeWidth: 2,
@@ -24746,57 +24654,57 @@
                   borderTopColor: "none",
                   borderRadius: "1.5rem 1.5rem 0 0",
                   whiteSpace: "nowrap",
-                  children: [(0, _v3.jsx)(_v822, {
-                    label: _v261.T_NAME,
+                  children: [(0, _v3.jsx)(_v823, {
+                    label: _v259.T_NAME,
                     isSortable: !1,
                     sortValue: "none"
-                  }), _v8 === _v795 && (0, _v3.jsx)(_v822, {
-                    label: _v261.T_VIDEOS_VIEWED,
+                  }), _v8 === _v795 && (0, _v3.jsx)(_v823, {
+                    label: _v259.T_VIDEOS_VIEWED,
                     onClick: () => _v24("uniqueVideos"),
                     isSortable: !0,
                     sortValue: "uniqueVideos" === _v22.columnName ? _v22.value : "none",
-                    tooltipContent: _v261.T_VIDEOS_VIEWED_TOOLTIP
-                  }), _v8 === _v796 && (0, _v3.jsx)(_v822, {
-                    label: _v261.T_VIEWERS,
+                    tooltipContent: _v259.T_VIDEOS_VIEWED_TOOLTIP
+                  }), _v8 === _v796 && (0, _v3.jsx)(_v823, {
+                    label: _v259.T_VIEWERS,
                     isSortable: !0,
                     onClick: () => _v24("uniqueMembers"),
                     sortValue: "uniqueMembers" === _v22.columnName ? _v22.value : "none",
-                    tooltipContent: _v261.T_VIEWERS_TOOLTIP
-                  }), (0, _v3.jsx)(_v822, {
-                    label: _v261.T_VIEWS,
+                    tooltipContent: _v259.T_VIEWERS_TOOLTIP
+                  }), (0, _v3.jsx)(_v823, {
+                    label: _v259.T_VIEWS,
                     isSortable: !0,
                     onClick: () => _v24("views"),
                     sortValue: "views" === _v22.columnName ? _v22.value : "none",
-                    tooltipContent: _v261.T_VIEWS_TOOLTIP
-                  }), (0, _v3.jsx)(_v822, {
-                    label: _v261.T_COMPLETIONS,
+                    tooltipContent: _v259.T_VIEWS_TOOLTIP
+                  }), (0, _v3.jsx)(_v823, {
+                    label: _v259.T_COMPLETIONS,
                     isSortable: !1,
-                    tooltipContent: _v261.T_COMPLETIONS_TOOLTIP
-                  }), (0, _v3.jsx)(_v822, {
-                    label: _v261.T_NET_PERCENT_COMPLETED,
+                    tooltipContent: _v259.T_COMPLETIONS_TOOLTIP
+                  }), (0, _v3.jsx)(_v823, {
+                    label: _v259.T_NET_PERCENT_COMPLETED,
                     isSortable: !1,
-                    tooltipContent: _v261.T_NET_PERCENT_COMPLETED_TOOLTIP
-                  }), (0, _v3.jsx)(_v822, {
-                    label: _v261.T_NET_TIME_COMPLETED,
+                    tooltipContent: _v259.T_NET_PERCENT_COMPLETED_TOOLTIP
+                  }), (0, _v3.jsx)(_v823, {
+                    label: _v259.T_NET_TIME_COMPLETED,
                     isSortable: !1,
-                    tooltipContent: _v261.T_NET_TIME_COMPLETED_TOOLTIP
-                  }), (0, _v3.jsx)(_v822, {
-                    label: _v261.T_TOTAL_TIME_WATCHED,
+                    tooltipContent: _v259.T_NET_TIME_COMPLETED_TOOLTIP
+                  }), (0, _v3.jsx)(_v823, {
+                    label: _v259.T_TOTAL_TIME_WATCHED,
                     isSortable: !1,
-                    tooltipContent: _v261.T_TOTAL_TIME_WATCHED_TOOLTIP
-                  }), (0, _v3.jsx)(_v822, {
-                    label: _v261.T_AVG_PERCENT_WATCHED,
+                    tooltipContent: _v259.T_TOTAL_TIME_WATCHED_TOOLTIP
+                  }), (0, _v3.jsx)(_v823, {
+                    label: _v259.T_AVG_PERCENT_WATCHED,
                     isSortable: !0,
-                    tooltipContent: _v261.T_AVG_PERCENT_WATCHED_TOOLTIP,
+                    tooltipContent: _v259.T_AVG_PERCENT_WATCHED_TOOLTIP,
                     onClick: () => _v24("meanPercentWatched"),
                     sortValue: "meanPercentWatched" === _v22.columnName ? _v22.value : "none"
                   })]
                 })
-              }), _v29 ? (0, _v3.jsx)(_v814, {
+              }), _v29 ? (0, _v3.jsx)(_v815, {
                 isVideoView: _v8 === _v796
               }) : (0, _v3.jsxs)(_v5.Box, {
                 as: "tbody",
-                children: [(0, _v3.jsx)(_v826, {
+                children: [(0, _v3.jsx)(_v827, {
                   uniqueValue: _v8 === _v795 ? _v27?.uniqueVideos : _v27?.uniqueMembers,
                   views: _v27?.views,
                   averagePercentWatched: _v27?.meanPercentWatched,
@@ -24804,29 +24712,29 @@
                   netPercentageCompleted: _v27?.netPercentageCompleted,
                   netTimeCompleted: _v27?.netTimeCompleted,
                   totalSecondsWatched: _v27?.totalSecondsWatched
-                }), _v26?.rows?.length ? _v26?.rows?.map((_v0, _v1) => _v8 === _v795 && _v0?.metadata?.connections?.user ? (0, _v3.jsx)(_v820, {
+                }), _v26?.rows?.length ? _v26?.rows?.map((_v0, _v1) => _v8 === _v795 && _v0?.metadata?.connections?.user ? (0, _v3.jsx)(_v821, {
                   item: _v0,
                   uniqueValue: _v0?.uniqueVideos,
-                  children: (0, _v3.jsx)(_v818, {
+                  children: (0, _v3.jsx)(_v819, {
                     user: _v0?.metadata?.connections?.user,
                     userThumbnailMap: _v26?.userThumbnailMap,
                     path: (0, _v31.getMemberDetailReportUrlPath)(_v0?.metadata?.connections?.user)
                   })
-                }, _v1) : _v0?.metadata?.connections?.video && (0, _v3.jsx)(_v820, {
+                }, _v1) : _v0?.metadata?.connections?.video && (0, _v3.jsx)(_v821, {
                   item: _v0,
                   uniqueValue: _v0?.uniqueMembers,
-                  children: (0, _v3.jsx)(_v819, {
+                  children: (0, _v3.jsx)(_v820, {
                     video: _v0?.metadata?.connections?.video,
                     videoThumbnailMap: _v26?.videoThumbnailMap,
                     path: (0, _v31.getVideoDetailReportUrlPath)(_v0?.metadata?.connections?.video),
                     hasDetailButton: !0
                   })
-                }, _v1)) : (0, _v3.jsx)(_v821, {
+                }, _v1)) : (0, _v3.jsx)(_v822, {
                   isTableDataError: _v30
                 })]
               })]
             })
-          }), (0, _v3.jsx)(_v825, {
+          }), (0, _v3.jsx)(_v826, {
             currentPageForTableData: _v20,
             totalItems: _v28,
             setCurrentPageForTableData: _v21
@@ -24835,7 +24743,7 @@
       })]
     });
   }
-  let _v830 = {
+  let _v831 = {
       [_v376.REPORT_ACTION_TYPE.SET_FILTER_LIST]: (_v0, _v1) => {
         let {
             pageFilters: _v2
@@ -24871,10 +24779,10 @@
         };
       }
     },
-    _v831 = (_v0, _v1) => _v830[_v1.type] ? _v830[_v1.type](_v0, _v1) : _v0;
-  var _v832 = _v0.i(0);
-  let _v833 = ["uri", "pictures", "name", "description", "duration", "manageLink"],
-    _v834 = ({
+    _v832 = (_v0, _v1) => _v831[_v1.type] ? _v831[_v1.type](_v0, _v1) : _v0;
+  var _v833 = _v0.i(0);
+  let _v834 = ["uri", "pictures", "name", "description", "duration", "manageLink"],
+    _v835 = ({
       userId: _v0,
       teamOwnerId: _v1,
       onUserDetailsError: _v2
@@ -24883,7 +24791,7 @@
         data: _v3,
         isLoading: _v4,
         error: _v5
-      } = (0, _v805.useGetUserTeammembers)(() => _v0 && _v1 ? {
+      } = (0, _v806.useGetUserTeammembers)(() => _v0 && _v1 ? {
         select: ["user.name", "user.pictures", "email"],
         where: {
           userId: _v1
@@ -24897,7 +24805,7 @@
         _v5 ? _v2(!0) : _v2(!1);
       }, [_v2, _v5]);
       let _v6 = _v3?.data?.[0];
-      return (0, _v3.jsx)(_v836, {
+      return (0, _v3.jsx)(_v837, {
         title: _v6?.user?.name || "-",
         subtitle: _v6?.email || "-",
         isLoading: _v4,
@@ -24915,18 +24823,18 @@
         })
       });
     },
-    _v835 = ({
+    _v836 = ({
       videoMetadata: _v0,
       isLoading: _v1
-    }) => (0, _v3.jsx)(_v836, {
+    }) => (0, _v3.jsx)(_v837, {
       title: _v0?.name || "",
-      subtitle: (0, _v3.jsx)(_v82.Link, {
+      subtitle: (0, _v3.jsx)(_v80.Link, {
         fontSize: "body-sm",
         href: `${_v0?.manageLink}`,
         textDecoration: "underline",
         target: "_blank",
         color: "text-secondary",
-        children: _v261.T_VIEW_VIDEO_DETAILS
+        children: _v259.T_VIEW_VIDEO_DETAILS
       }),
       isLoading: _v1,
       link: _v0?.manageLink,
@@ -24935,7 +24843,7 @@
         width: "6.125rem",
         minWidth: "6.125rem",
         borderRadius: "0.25rem"
-      }) : (0, _v3.jsx)(_v82.Link, {
+      }) : (0, _v3.jsx)(_v80.Link, {
         href: `${_v0?.manageLink}`,
         target: "_blank",
         children: (0, _v3.jsx)(_v5.Box, {
@@ -24948,7 +24856,7 @@
         })
       })
     }),
-    _v836 = ({
+    _v837 = ({
       title: _v0,
       subtitle: _v1,
       isLoading: _v2,
@@ -24965,11 +24873,11 @@
           marginRight: "1.25rem",
           cursor: "pointer",
           onClick: () => _v5.back(),
-          children: (0, _v3.jsx)(_v832.ChevronLeftSmall, {
+          children: (0, _v3.jsx)(_v833.ChevronLeftSmall, {
             boxSize: "2.5rem"
           })
         }), _v4 ? (0, _v3.jsxs)(_v3.Fragment, {
-          children: [_v3, (0, _v3.jsx)(_v837, {
+          children: [_v3, (0, _v3.jsx)(_v838, {
             title: _v0,
             subtitle: _v1,
             isLoading: _v2,
@@ -24978,7 +24886,7 @@
         }) : (0, _v3.jsxs)(_v6.Flex, {
           marginLeft: "1rem",
           alignItems: "center",
-          children: [_v3, (0, _v3.jsx)(_v837, {
+          children: [_v3, (0, _v3.jsx)(_v838, {
             title: _v0,
             subtitle: _v1,
             isLoading: _v2
@@ -24986,7 +24894,7 @@
         })]
       });
     },
-    _v837 = ({
+    _v838 = ({
       title: _v0,
       subtitle: _v1,
       isLoading: _v2,
@@ -25009,7 +24917,7 @@
       alignItems: "flex-start",
       justifyContent: "center",
       direction: "column",
-      children: [_v3 ? (0, _v3.jsx)(_v82.Link, {
+      children: [_v3 ? (0, _v3.jsx)(_v80.Link, {
         href: _v3,
         target: "_blank",
         rel: "noopener noreferrer",
@@ -25036,7 +24944,7 @@
         children: _v1
       })]
     }),
-    _v838 = (0, _v500.default)(async () => {
+    _v839 = (0, _v500.default)(async () => {
       let {
         SmallAreaChart: _v0
       } = await _v0.A(0);
@@ -25053,7 +24961,7 @@
         marginTop: "0.7rem"
       })
     });
-  function _v839({
+  function _v840({
     userInUse: _v0,
     pageFilters: _v1,
     organizationInternalId: _v2,
@@ -25076,12 +24984,12 @@
         },
         ready: _v18
       } = (0, _v11.useCapability)(["canExportAnalyticsCsv"], _v0?.id),
-      [_v19, _v20] = (0, _v4.useReducer)(_v831, {
+      [_v19, _v20] = (0, _v4.useReducer)(_v832, {
         pageFilters: _v1
       }),
       {
         data: _v21
-      } = (0, _v805.useGetUserTeammembers)(() => _v7 && _v5 ? {
+      } = (0, _v806.useGetUserTeammembers)(() => _v7 && _v5 ? {
         select: ["user.name"],
         where: {
           userId: _v5
@@ -25120,7 +25028,7 @@
         totalItems: _v28,
         isLoading: _v29,
         isError: _v30
-      } = _v812(_v19.pageFilters, _v6, _v5, _v8, _v22),
+      } = _v813(_v19.pageFilters, _v6, _v5, _v8, _v22),
       {
         meanPercentWatched: _v31,
         uniqueVideos: _v32,
@@ -25131,7 +25039,7 @@
         isGraphDataLoading: _v37,
         isTotalVideosLoading: _v38,
         isError: _v39
-      } = _v811(_v19.pageFilters, _v5),
+      } = _v812(_v19.pageFilters, _v5),
       _v40 = _v32 && _v35 ? (_v32 / _v35 * 100).toFixed(1) : 0,
       _v41 = _v17 && _v18 && _v25 && _v26?.rows?.length;
     return (0, _v3.jsxs)(_v5.Box, {
@@ -25140,8 +25048,8 @@
       minHeight: "100vh",
       paddingBottom: "2.5rem",
       width: "100%",
-      children: [(0, _v3.jsx)(_v827, {
-        reportName: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_TEAM],
+      children: [(0, _v3.jsx)(_v828, {
+        reportName: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_TEAM],
         children: _v41 ? (0, _v3.jsx)(_v541, {
           viewer: _v4,
           reportType: _v376.Reports.TEAM,
@@ -25168,7 +25076,7 @@
           }), (0, _v3.jsx)(_v411, {
             userInUse: _v0,
             filters: _v19.pageFilters,
-            calendarPresets: _v247.CALENDAR_PRESETS[_v376.Reports.TEAM],
+            calendarPresets: _v245.CALENDAR_PRESETS[_v376.Reports.TEAM],
             dispatch: _v20,
             rangeText: _v12,
             setRangeText: _v13,
@@ -25208,26 +25116,26 @@
           marginRight: "1.5rem",
           marginBottom: "1.5rem",
           minWidth: "25rem",
-          children: (0, _v3.jsx)(_v834, {
+          children: (0, _v3.jsx)(_v835, {
             userId: _v7,
             teamOwnerId: _v5,
             onUserDetailsError: _v0 => _v11(_v0)
           })
         }), (_v39 || _v30 || _v10) && (0, _v3.jsx)(_v5.Box, {
           paddingRight: "1.5rem",
-          children: (0, _v3.jsx)(_v85.Alert, {
+          children: (0, _v3.jsx)(_v83.Alert, {
             status: "error",
             marginBottom: "1.5rem",
             borderRadius: "0.75rem",
             alignItems: "center",
-            children: (0, _v3.jsx)(_v83.AlertDescription, {
+            children: (0, _v3.jsx)(_v81.AlertDescription, {
               sx: {
                 a: {
                   textDecoration: "none",
                   color: _v16
                 }
               },
-              children: (0, _v261.T_ERROR_MESSAGE)()
+              children: (0, _v259.T_ERROR_MESSAGE)()
             })
           })
         }), (0, _v3.jsxs)(_v6.Flex, {
@@ -25238,9 +25146,9 @@
           flexShrink: "1",
           flexWrap: "wrap",
           paddingRight: "1.5rem",
-          children: [(0, _v3.jsx)(_v815, {
-            title: _v261.T_VIDEOS_VIEWED,
-            tooltipContent: _v261.T_VIDEOS_VIEWED_MEMBER_TOOLTIP,
+          children: [(0, _v3.jsx)(_v816, {
+            title: _v259.T_VIDEOS_VIEWED,
+            tooltipContent: _v259.T_VIDEOS_VIEWED_MEMBER_TOOLTIP,
             locale: _v0.locale,
             isLoading: _v36,
             statValue: _v32,
@@ -25258,7 +25166,7 @@
               children: [(0, _v3.jsx)(_v522.Paragraph, {
                 size: "md",
                 color: "text-secondary",
-                children: null != _v35 ? (0, _v261.T_SNAPSHOT_VIDEOS_COUNT)(_v35, _v0.locale) : "-"
+                children: null != _v35 ? (0, _v259.T_SNAPSHOT_VIDEOS_COUNT)(_v35, _v0.locale) : "-"
               }), (0, _v3.jsx)(_v6.Flex, {
                 justifyContent: "center",
                 alignItems: "center",
@@ -25266,15 +25174,15 @@
                 fontSize: "0.75rem",
                 color: "text-secondary",
                 marginTop: "1rem",
-                children: (0, _v3.jsx)(_v804.Progress, {
+                children: (0, _v3.jsx)(_v805.Progress, {
                   width: "100%",
                   value: Number(_v40)
                 })
               })]
             })
-          }), (0, _v3.jsx)(_v815, {
-            title: _v261.T_TOTAL_VIEWS,
-            tooltipContent: _v261.T_TOTAL_VIEWS_MEMBER_TOOLTIP,
+          }), (0, _v3.jsx)(_v816, {
+            title: _v259.T_TOTAL_VIEWS,
+            tooltipContent: _v259.T_TOTAL_VIEWS_MEMBER_TOOLTIP,
             locale: _v0.locale,
             isLoading: _v36,
             statValue: _v33,
@@ -25287,7 +25195,7 @@
                 height: "3.5rem",
                 width: "100%",
                 marginTop: "0.7rem"
-              }) : (0, _v3.jsx)(_v838, {
+              }) : (0, _v3.jsx)(_v839, {
                 color: _v16,
                 stopOpacity: .2,
                 strokeWidth: 2,
@@ -25296,9 +25204,9 @@
                 isAnimationActive: !1
               })
             })
-          }), (0, _v3.jsx)(_v815, {
-            title: _v261.T_AVG_PERCENT_WATCHED,
-            tooltipContent: _v261.T_AVG_PERCENT_WATCHED_MEMBER_TOOLTIP,
+          }), (0, _v3.jsx)(_v816, {
+            title: _v259.T_AVG_PERCENT_WATCHED,
+            tooltipContent: _v259.T_AVG_PERCENT_WATCHED_MEMBER_TOOLTIP,
             locale: _v0.locale,
             styleFormat: "percent",
             isLoading: _v36,
@@ -25314,7 +25222,7 @@
               fontSize: "0.75rem",
               color: "text-secondary",
               marginTop: "2.8rem",
-              children: (0, _v3.jsx)(_v804.Progress, {
+              children: (0, _v3.jsx)(_v805.Progress, {
                 width: "100%",
                 value: _v31 ?? 0
               })
@@ -25347,45 +25255,45 @@
                 borderTopColor: "none",
                 borderRadius: "1.5rem 1.5rem 0 0",
                 whiteSpace: "nowrap",
-                children: [(0, _v3.jsx)(_v822, {
-                  label: _v261.T_NAME,
+                children: [(0, _v3.jsx)(_v823, {
+                  label: _v259.T_NAME,
                   isSortable: !1,
                   sortValue: "none"
-                }), (0, _v3.jsx)(_v822, {
-                  label: _v261.T_VIEWS,
+                }), (0, _v3.jsx)(_v823, {
+                  label: _v259.T_VIEWS,
                   isSortable: !0,
                   onClick: () => _v24("views"),
                   sortValue: "views" === _v22.columnName ? _v22.value : "none",
-                  tooltipContent: _v261.T_VIEWS_TOOLTIP
-                }), (0, _v3.jsx)(_v822, {
-                  label: _v261.T_COMPLETIONS,
+                  tooltipContent: _v259.T_VIEWS_TOOLTIP
+                }), (0, _v3.jsx)(_v823, {
+                  label: _v259.T_COMPLETIONS,
                   isSortable: !1,
-                  tooltipContent: _v261.T_COMPLETIONS_TOOLTIP
-                }), (0, _v3.jsx)(_v822, {
-                  label: _v261.T_NET_PERCENT_COMPLETED,
+                  tooltipContent: _v259.T_COMPLETIONS_TOOLTIP
+                }), (0, _v3.jsx)(_v823, {
+                  label: _v259.T_NET_PERCENT_COMPLETED,
                   isSortable: !1,
-                  tooltipContent: _v261.T_NET_PERCENT_COMPLETED_DETAIL_TOOLTIP
-                }), (0, _v3.jsx)(_v822, {
-                  label: _v261.T_NET_TIME_COMPLETED,
+                  tooltipContent: _v259.T_NET_PERCENT_COMPLETED_DETAIL_TOOLTIP
+                }), (0, _v3.jsx)(_v823, {
+                  label: _v259.T_NET_TIME_COMPLETED,
                   isSortable: !1,
-                  tooltipContent: _v261.T_NET_TIME_COMPLETED_DETAIL_TOOLTIP
-                }), (0, _v3.jsx)(_v822, {
-                  label: _v261.T_TOTAL_TIME_WATCHED,
+                  tooltipContent: _v259.T_NET_TIME_COMPLETED_DETAIL_TOOLTIP
+                }), (0, _v3.jsx)(_v823, {
+                  label: _v259.T_TOTAL_TIME_WATCHED,
                   isSortable: !1,
-                  tooltipContent: _v261.T_TOTAL_TIME_WATCHED_TOOLTIP
-                }), (0, _v3.jsx)(_v822, {
-                  label: _v261.T_AVG_PERCENT_WATCHED,
+                  tooltipContent: _v259.T_TOTAL_TIME_WATCHED_TOOLTIP
+                }), (0, _v3.jsx)(_v823, {
+                  label: _v259.T_AVG_PERCENT_WATCHED,
                   isSortable: !0,
-                  tooltipContent: _v261.T_AVG_PERCENT_WATCHED_TOOLTIP,
+                  tooltipContent: _v259.T_AVG_PERCENT_WATCHED_TOOLTIP,
                   onClick: () => _v24("meanPercentWatched"),
                   sortValue: "meanPercentWatched" === _v22.columnName ? _v22.value : "none"
                 })]
-              }), _v29 ? (0, _v3.jsx)(_v814, {
+              }), _v29 ? (0, _v3.jsx)(_v815, {
                 isVideoView: !0,
                 columns: 6
               }) : (0, _v3.jsxs)(_v5.Box, {
                 as: "tbody",
-                children: [(0, _v3.jsx)(_v826, {
+                children: [(0, _v3.jsx)(_v827, {
                   views: _v27?.views,
                   averagePercentWatched: _v27?.meanPercentWatched,
                   completions: _v27?.completions,
@@ -25393,22 +25301,22 @@
                   netTimeCompleted: _v27?.netTimeCompleted,
                   totalSecondsWatched: _v27?.totalSecondsWatched,
                   showUniqueValue: !1
-                }), _v26?.rows?.length ? _v26?.rows?.map((_v0, _v1) => (0, _v3.jsx)(_v820, {
+                }), _v26?.rows?.length ? _v26?.rows?.map((_v0, _v1) => (0, _v3.jsx)(_v821, {
                   item: _v0,
                   showTimeSegmentBar: !0,
                   showUniqueValue: !1,
-                  children: (0, _v3.jsx)(_v819, {
+                  children: (0, _v3.jsx)(_v820, {
                     video: _v0?.metadata?.connections?.video,
                     videoThumbnailMap: _v26?.videoThumbnailMap,
                     path: _v0?.metadata?.connections?.video?.manageLink ?? "",
                     openLinkInNewTab: !0
                   })
-                }, _v1)) : (0, _v3.jsx)(_v821, {
+                }, _v1)) : (0, _v3.jsx)(_v822, {
                   isTableDataError: _v30
                 })]
               })]
             })
-          }), (0, _v3.jsx)(_v825, {
+          }), (0, _v3.jsx)(_v826, {
             currentPageForTableData: _v8,
             totalItems: _v28,
             setCurrentPageForTableData: _v9
@@ -25417,8 +25325,8 @@
       })]
     });
   }
-  var _v840 = _v0.i(0);
-  let _v841 = (0, _v500.default)(async () => {
+  var _v841 = _v0.i(0);
+  let _v842 = (0, _v500.default)(async () => {
     let {
       SmallAreaChart: _v0
     } = await _v0.A(0);
@@ -25435,7 +25343,7 @@
       marginTop: "0.7rem"
     })
   });
-  function _v842({
+  function _v843({
     userInUse: _v0,
     pageFilters: _v1,
     organizationInternalId: _v2,
@@ -25457,12 +25365,12 @@
         },
         ready: _v16
       } = (0, _v11.useCapability)(["canExportAnalyticsCsv"], _v0?.id),
-      [_v17, _v18] = (0, _v4.useReducer)(_v831, {
+      [_v17, _v18] = (0, _v4.useReducer)(_v832, {
         pageFilters: _v1
       }),
       {
         data: _v19
-      } = (0, _v840.useGetVideo)(() => _v7 ? {
+      } = (0, _v841.useGetVideo)(() => _v7 ? {
         select: ["name"],
         where: {
           videoId: _v7
@@ -25494,8 +25402,8 @@
         data: _v23,
         isLoading: _v24,
         error: _v25
-      } = (0, _v840.useGetVideo)(() => _v7 ? {
-        select: _v833,
+      } = (0, _v841.useGetVideo)(() => _v7 ? {
+        select: _v834,
         where: {
           videoId: _v7
         }
@@ -25507,7 +25415,7 @@
         totalItems: _v29,
         isLoading: _v30,
         isError: _v31
-      } = _v812(_v17.pageFilters, _v6, _v5, _v8, _v20),
+      } = _v813(_v17.pageFilters, _v6, _v5, _v8, _v20),
       {
         meanPercentWatched: _v32,
         uniqueMembers: _v33,
@@ -25518,7 +25426,7 @@
         isGraphDataLoading: _v38,
         isTotalTeamMembersLoading: _v39,
         isError: _v40
-      } = _v811(_v17.pageFilters, _v5),
+      } = _v812(_v17.pageFilters, _v5),
       _v41 = _v33 && _v36 ? (_v33 / _v36 * 100).toFixed(1) : 0,
       _v42 = _v15 && _v16 && _v26 && _v27?.rows?.length;
     return (0, _v3.jsxs)(_v5.Box, {
@@ -25527,8 +25435,8 @@
       minHeight: "100vh",
       paddingBottom: "2.5rem",
       width: "100%",
-      children: [(0, _v3.jsx)(_v827, {
-        reportName: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_TEAM],
+      children: [(0, _v3.jsx)(_v828, {
+        reportName: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_TEAM],
         children: _v42 ? (0, _v3.jsx)(_v541, {
           viewer: _v4,
           reportType: _v376.Reports.TEAM,
@@ -25555,7 +25463,7 @@
           }), (0, _v3.jsx)(_v411, {
             userInUse: _v0,
             filters: _v17?.pageFilters,
-            calendarPresets: _v247.CALENDAR_PRESETS[_v376.Reports.TEAM],
+            calendarPresets: _v245.CALENDAR_PRESETS[_v376.Reports.TEAM],
             dispatch: _v18,
             rangeText: _v10,
             setRangeText: _v11,
@@ -25585,25 +25493,25 @@
           marginBottom: "1.5rem",
           marginRight: "1.5rem",
           minWidth: "25rem",
-          children: (0, _v3.jsx)(_v835, {
+          children: (0, _v3.jsx)(_v836, {
             videoMetadata: _v23,
             isLoading: !_v24 && _v25
           })
         }), (_v40 || _v31 || _v25) && (0, _v3.jsx)(_v5.Box, {
           paddingRight: "1.5rem",
-          children: (0, _v3.jsx)(_v85.Alert, {
+          children: (0, _v3.jsx)(_v83.Alert, {
             status: "error",
             marginBottom: "1.5rem",
             borderRadius: "0.75rem",
             alignItems: "center",
-            children: (0, _v3.jsx)(_v83.AlertDescription, {
+            children: (0, _v3.jsx)(_v81.AlertDescription, {
               sx: {
                 a: {
                   textDecoration: "none",
                   color: _v14
                 }
               },
-              children: (0, _v261.T_ERROR_MESSAGE)()
+              children: (0, _v259.T_ERROR_MESSAGE)()
             })
           })
         }), (0, _v3.jsxs)(_v6.Flex, {
@@ -25614,9 +25522,9 @@
           flexShrink: "1",
           flexWrap: "wrap",
           paddingRight: "1.5rem",
-          children: [(0, _v3.jsx)(_v815, {
-            title: _v261.T_VIEWERS,
-            tooltipContent: _v261.T_VIEWERS_VIDEO_TOOLTIP,
+          children: [(0, _v3.jsx)(_v816, {
+            title: _v259.T_VIEWERS,
+            tooltipContent: _v259.T_VIEWERS_VIDEO_TOOLTIP,
             locale: _v0.locale,
             isLoading: _v37,
             statValue: _v33,
@@ -25634,7 +25542,7 @@
               children: [(0, _v3.jsx)(_v522.Paragraph, {
                 size: "md",
                 color: "text-secondary",
-                children: null != _v36 ? (0, _v261.T_SNAPSHOT_MEMBERS_COUNT)(_v36, _v0.locale) : "-"
+                children: null != _v36 ? (0, _v259.T_SNAPSHOT_MEMBERS_COUNT)(_v36, _v0.locale) : "-"
               }), (0, _v3.jsx)(_v6.Flex, {
                 justifyContent: "center",
                 alignItems: "center",
@@ -25642,15 +25550,15 @@
                 fontSize: "0.75rem",
                 color: "text-secondary",
                 marginTop: "1rem",
-                children: (0, _v3.jsx)(_v804.Progress, {
+                children: (0, _v3.jsx)(_v805.Progress, {
                   width: "100%",
                   value: Number(_v41)
                 })
               })]
             })
-          }), (0, _v3.jsx)(_v815, {
-            title: _v261.T_TOTAL_VIEWS,
-            tooltipContent: _v261.T_TOTAL_VIEWS_VIDEO_TOOLTIP,
+          }), (0, _v3.jsx)(_v816, {
+            title: _v259.T_TOTAL_VIEWS,
+            tooltipContent: _v259.T_TOTAL_VIEWS_VIDEO_TOOLTIP,
             locale: _v0.locale,
             isLoading: _v37,
             statValue: _v34,
@@ -25663,7 +25571,7 @@
                 height: "3.5rem",
                 width: "100%",
                 marginTop: "0.7rem"
-              }) : (0, _v3.jsx)(_v841, {
+              }) : (0, _v3.jsx)(_v842, {
                 color: _v14,
                 stopOpacity: .2,
                 strokeWidth: 2,
@@ -25672,9 +25580,9 @@
                 isAnimationActive: !1
               })
             })
-          }), (0, _v3.jsx)(_v815, {
-            title: _v261.T_AVG_PERCENT_WATCHED,
-            tooltipContent: _v261.T_AVG_PERCENT_WATCHED_VIDEO_TOOLTIP,
+          }), (0, _v3.jsx)(_v816, {
+            title: _v259.T_AVG_PERCENT_WATCHED,
+            tooltipContent: _v259.T_AVG_PERCENT_WATCHED_VIDEO_TOOLTIP,
             locale: _v0.locale,
             styleFormat: "percent",
             isLoading: _v37,
@@ -25690,7 +25598,7 @@
               fontSize: "0.75rem",
               color: "text-secondary",
               marginTop: "2.8rem",
-              children: (0, _v3.jsx)(_v804.Progress, {
+              children: (0, _v3.jsx)(_v805.Progress, {
                 width: "100%",
                 value: Number(_v32)
               })
@@ -25723,45 +25631,45 @@
                 borderTopColor: "none",
                 borderRadius: "1.5rem 1.5rem 0 0",
                 whiteSpace: "nowrap",
-                children: [(0, _v3.jsx)(_v822, {
-                  label: _v261.T_NAME,
+                children: [(0, _v3.jsx)(_v823, {
+                  label: _v259.T_NAME,
                   isSortable: !1,
                   sortValue: "none"
-                }), (0, _v3.jsx)(_v822, {
-                  label: _v261.T_VIEWS,
+                }), (0, _v3.jsx)(_v823, {
+                  label: _v259.T_VIEWS,
                   isSortable: !0,
                   onClick: () => _v22("views"),
                   sortValue: "views" === _v20.columnName ? _v20.value : "none",
-                  tooltipContent: _v261.T_VIEWS_TOOLTIP
-                }), (0, _v3.jsx)(_v822, {
-                  label: _v261.T_COMPLETIONS,
+                  tooltipContent: _v259.T_VIEWS_TOOLTIP
+                }), (0, _v3.jsx)(_v823, {
+                  label: _v259.T_COMPLETIONS,
                   isSortable: !1,
-                  tooltipContent: _v261.T_COMPLETIONS_TOOLTIP
-                }), (0, _v3.jsx)(_v822, {
-                  label: _v261.T_NET_PERCENT_COMPLETED,
+                  tooltipContent: _v259.T_COMPLETIONS_TOOLTIP
+                }), (0, _v3.jsx)(_v823, {
+                  label: _v259.T_NET_PERCENT_COMPLETED,
                   isSortable: !1,
-                  tooltipContent: _v261.T_NET_PERCENT_COMPLETED_DETAIL_TOOLTIP
-                }), (0, _v3.jsx)(_v822, {
-                  label: _v261.T_NET_TIME_COMPLETED,
+                  tooltipContent: _v259.T_NET_PERCENT_COMPLETED_DETAIL_TOOLTIP
+                }), (0, _v3.jsx)(_v823, {
+                  label: _v259.T_NET_TIME_COMPLETED,
                   isSortable: !1,
-                  tooltipContent: _v261.T_NET_TIME_COMPLETED_DETAIL_TOOLTIP
-                }), (0, _v3.jsx)(_v822, {
-                  label: _v261.T_TOTAL_TIME_WATCHED,
+                  tooltipContent: _v259.T_NET_TIME_COMPLETED_DETAIL_TOOLTIP
+                }), (0, _v3.jsx)(_v823, {
+                  label: _v259.T_TOTAL_TIME_WATCHED,
                   isSortable: !1,
-                  tooltipContent: _v261.T_TOTAL_TIME_WATCHED_TOOLTIP
-                }), (0, _v3.jsx)(_v822, {
-                  label: _v261.T_AVG_PERCENT_WATCHED,
+                  tooltipContent: _v259.T_TOTAL_TIME_WATCHED_TOOLTIP
+                }), (0, _v3.jsx)(_v823, {
+                  label: _v259.T_AVG_PERCENT_WATCHED,
                   isSortable: !0,
-                  tooltipContent: _v261.T_AVG_PERCENT_WATCHED_TOOLTIP,
+                  tooltipContent: _v259.T_AVG_PERCENT_WATCHED_TOOLTIP,
                   onClick: () => _v22("meanPercentWatched"),
                   sortValue: "meanPercentWatched" === _v20.columnName ? _v20.value : "none"
                 })]
-              }), _v30 || _v24 ? (0, _v3.jsx)(_v814, {
+              }), _v30 || _v24 ? (0, _v3.jsx)(_v815, {
                 isVideoView: !1,
                 columns: 6
               }) : (0, _v3.jsxs)(_v5.Box, {
                 as: "tbody",
-                children: [(0, _v3.jsx)(_v826, {
+                children: [(0, _v3.jsx)(_v827, {
                   views: _v28?.views,
                   averagePercentWatched: _v28?.meanPercentWatched,
                   completions: _v28?.completions,
@@ -25769,21 +25677,21 @@
                   netTimeCompleted: _v28?.netTimeCompleted,
                   totalSecondsWatched: _v28?.totalSecondsWatched,
                   showUniqueValue: !1
-                }), _v27?.rows?.length ? _v27?.rows?.map((_v0, _v1) => (0, _v3.jsx)(_v820, {
+                }), _v27?.rows?.length ? _v27?.rows?.map((_v0, _v1) => (0, _v3.jsx)(_v821, {
                   item: _v0,
                   showTimeSegmentBar: !0,
                   duration: _v23?.duration,
                   showUniqueValue: !1,
-                  children: (0, _v3.jsx)(_v818, {
+                  children: (0, _v3.jsx)(_v819, {
                     user: _v0?.metadata?.connections?.user,
                     userThumbnailMap: _v27?.userThumbnailMap
                   })
-                }, _v1)) : (0, _v3.jsx)(_v821, {
+                }, _v1)) : (0, _v3.jsx)(_v822, {
                   isTableDataError: _v31
                 })]
               })]
             })
-          }), (0, _v3.jsx)(_v825, {
+          }), (0, _v3.jsx)(_v826, {
             currentPageForTableData: _v8,
             totalItems: _v29,
             setCurrentPageForTableData: _v9
@@ -25792,7 +25700,7 @@
       })]
     });
   }
-  let _v843 = (0, _v500.default)(async () => {
+  let _v844 = (0, _v500.default)(async () => {
       let {
         LazyMultiLineGraph: _v0
       } = await _v0.A(0);
@@ -25805,8 +25713,8 @@
       },
       loading: () => (0, _v3.jsx)("div", {})
     }),
-    _v844 = ["metadata.connections.video.uri", "metadata.connections.video.title"],
-    _v845 = [{
+    _v845 = ["metadata.connections.video.uri", "metadata.connections.video.title"],
+    _v846 = [{
       label: (0, _v29.translate)({
         singular: "Total thumbs votes",
         dictionary: {
@@ -25919,7 +25827,7 @@
       }),
       value: "rankingWidgetAverageRating"
     }],
-    _v846 = (_v0, _v1) => _v1 && _v1.length ? Object.fromEntries(Object.entries((0, _v637.default)(_v1, _v0 => _v21.DateTime.fromISO(_v0?.startDate, {
+    _v847 = (_v0, _v1) => _v1 && _v1.length ? Object.fromEntries(Object.entries((0, _v637.default)(_v1, _v0 => _v21.DateTime.fromISO(_v0?.startDate, {
       zone: "utc"
     }).toISODate())).map(([_v0, _v1]) => [_v0, _v1.reduce((_v0, _v1) => ({
       ..._v0,
@@ -25937,7 +25845,7 @@
         [_v0]: Number((0, _v502.default)(_v1, _v0))
       }
     }), {})])) : {};
-  function _v847({
+  function _v848({
     state: _v0,
     dispatch: _v1
   }) {
@@ -25967,7 +25875,7 @@
         graphData: _v14,
         isLoading: _v15,
         isError: _v16
-      } = _v742(_v376.Reports.VIDEO_RATING, _v0, _v846, _v844, _v531, void 0 === _v9);
+      } = _v742(_v376.Reports.VIDEO_RATING, _v0, _v847, _v845, _v531, void 0 === _v9);
     return (0, _v4.useEffect)(() => {
       void 0 !== _v9 && _v1({
         type: _v376.REPORT_ACTION_TYPE.SET_GRAPH_ITEMS,
@@ -25990,23 +25898,23 @@
       width: "100%",
       children: [(0, _v3.jsx)(_v475, {
         reportType: _v376.Reports.VIDEO_RATING,
-        title: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_VIDEO_RATING],
+        title: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_VIDEO_RATING],
         reportFilters: _v531,
         state: _v0,
         dispatch: _v1,
-        calendarPresets: _v247.CALENDAR_PRESETS[_v376.Reports.VIDEO_RATING],
+        calendarPresets: _v245.CALENDAR_PRESETS[_v376.Reports.VIDEO_RATING],
         showFilterPanel: !0
       }), (0, _v3.jsx)(_v5.Box, {
         position: "relative",
-        children: (0, _v3.jsx)(_v843, {
+        children: (0, _v3.jsx)(_v844, {
           reportType: _v376.Reports.VIDEO_RATING,
-          visibleMetric: _v0.primaryDimensions[_v247.REPORT_GROUP_MAP[_v376.Reports.VIDEO_RATING]],
+          visibleMetric: _v0.primaryDimensions[_v245.REPORT_GROUP_MAP[_v376.Reports.VIDEO_RATING]],
           payload: _v14,
           resetTablePage: () => void 0,
           selectedAggregateInterval: _v0.selectedAggregateInterval,
           selectedDataItems: _v0.selectedItemsForGraph,
           dispatch: _v1,
-          metrics: _v845,
+          metrics: _v846,
           startDate: _v2,
           endDate: _v3,
           isGraphError: _v16,
@@ -26026,7 +25934,7 @@
           hasError: _v11 || _v6,
           hasSelectableRows: !0,
           paddingRight: "xl"
-        }, _v0.primaryDimensions.vimeo + "-" + _v4.map(_v0 => _v0.id).join("-")), (_v12 || _v10) && void 0 !== _v9 && (0, _v3.jsx)(_v68.Button, {
+        }, _v0.primaryDimensions.vimeo + "-" + _v4.map(_v0 => _v0.id).join("-")), (_v12 || _v10) && void 0 !== _v9 && (0, _v3.jsx)(_v66.Button, {
           width: "calc(100% - 2rem)",
           marginTop: "1rem",
           size: "xl",
@@ -26076,8 +25984,8 @@
       })]
     });
   }
-  let _v848 = _v699.concat(_v683, _v684),
-    _v849 = {
+  let _v849 = _v699.concat(_v683, _v684),
+    _v850 = {
       type: _v376.TablePayloadItemType.VIDEO,
       id: "0em",
       name: "36em",
@@ -26095,8 +26003,8 @@
       averageviewduration: "15em",
       averageviewpercentage: "15em"
     },
-    _v850 = ["metadata.connections.video.uri", "metadata.connections.video.title"],
-    _v851 = (_v0, _v1) => _v1 && _v1.length ? Object.fromEntries(Object.entries((0, _v637.default)(_v1, _v0 => _v21.DateTime.fromISO(_v0?.startDate, {
+    _v851 = ["metadata.connections.video.uri", "metadata.connections.video.title"],
+    _v852 = (_v0, _v1) => _v1 && _v1.length ? Object.fromEntries(Object.entries((0, _v637.default)(_v1, _v0 => _v21.DateTime.fromISO(_v0?.startDate, {
       zone: "utc"
     }).toISODate())).map(([_v0, _v1]) => [_v0, _v1.reduce((_v0, _v1) => ({
       ..._v0,
@@ -26114,7 +26022,7 @@
         [_v0]: +(0, _v502.default)(_v1, _v0)
       }
     }), {})])) : {};
-  function _v852(_v0) {
+  function _v853(_v0) {
     let {
       state: _v1,
       dispatch: _v2
@@ -26126,17 +26034,17 @@
         apiPath: `users/${_v1.userInUse.id}/videos/stats`,
         reportType: _v376.Reports.VIDEO,
         reportFilters: _v531,
-        reportName: _v247.REPORT_NAME_DISPLAY_MAP[_v247.REPORT_TYPE_VIDEO],
-        tableLayoutData: _v849,
+        reportName: _v245.REPORT_NAME_DISPLAY_MAP[_v245.REPORT_TYPE_VIDEO],
+        tableLayoutData: _v850,
         tableFields: _v515.VideoReportTableFields,
-        graphDataProcessor: _v851,
-        graphFields: _v850,
+        graphDataProcessor: _v852,
+        graphFields: _v851,
         primaryDimensionColumn: _v667,
-        metricColumns: _v848
+        metricColumns: _v849
       })
     });
   }
-  let _v853 = ({
+  let _v854 = ({
       state: _v0,
       dispatch: _v1,
       hasAnalyticsAdvanced: _v2,
@@ -26211,7 +26119,7 @@
           render: () => (0, _v3.jsx)(_v32, {
             showUpsell: !_v2,
             visitedRoutes: _v11,
-            children: (0, _v3.jsx)(_v852, {
+            children: (0, _v3.jsx)(_v853, {
               state: _v0,
               dispatch: _v1
             })
@@ -26269,11 +26177,11 @@
         }), (0, _v3.jsx)(_v24.Route, {
           exact: !0,
           path: _v12("/analytics/teams/:teamOwnerId/users/:userOrVideoId"),
-          render: () => (0, _v3.jsx)(_v803, {
+          render: () => (0, _v3.jsx)(_v804, {
             userInUse: _v0.userInUse,
             isOrg: !!(_v6 && _v5),
             visitedRoutes: _v11,
-            children: (0, _v3.jsx)(_v839, {
+            children: (0, _v3.jsx)(_v840, {
               userInUse: _v0.userInUse,
               pageFilters: _v0.filters[_v376.ReportGroup.VIMEO],
               organizationInternalId: _v6,
@@ -26283,11 +26191,11 @@
         }), (0, _v3.jsx)(_v24.Route, {
           exact: !0,
           path: _v12("/analytics/teams/:teamOwnerId/videos/:userOrVideoId"),
-          render: () => (0, _v3.jsx)(_v803, {
+          render: () => (0, _v3.jsx)(_v804, {
             userInUse: _v0.userInUse,
             isOrg: !!(_v6 && _v5),
             visitedRoutes: _v11,
-            children: (0, _v3.jsx)(_v842, {
+            children: (0, _v3.jsx)(_v843, {
               organizationInternalId: _v6,
               organizationUuid: _v5,
               userInUse: _v0.userInUse,
@@ -26297,11 +26205,11 @@
         }), (0, _v3.jsx)(_v24.Route, {
           exact: !0,
           path: _v12("/analytics/teams/:teamOwnerId/users"),
-          render: () => (0, _v3.jsx)(_v803, {
+          render: () => (0, _v3.jsx)(_v804, {
             userInUse: _v0.userInUse,
             isOrg: !!(_v6 && _v5),
             visitedRoutes: _v11,
-            children: (0, _v3.jsx)(_v829, {
+            children: (0, _v3.jsx)(_v830, {
               organizationInternalId: _v6,
               organizationUuid: _v5,
               userInUse: _v0.userInUse,
@@ -26312,11 +26220,11 @@
         }), (0, _v3.jsx)(_v24.Route, {
           exact: !0,
           path: _v12("/analytics/teams/:teamOwnerId/videos"),
-          render: () => (0, _v3.jsx)(_v803, {
+          render: () => (0, _v3.jsx)(_v804, {
             userInUse: _v0.userInUse,
             isOrg: !!(_v6 && _v5),
             visitedRoutes: _v11,
-            children: (0, _v3.jsx)(_v829, {
+            children: (0, _v3.jsx)(_v830, {
               organizationInternalId: _v6,
               organizationUuid: _v5,
               userInUse: _v0.userInUse,
@@ -26330,7 +26238,7 @@
           render: () => (0, _v3.jsx)(_v32, {
             showUpsell: !_v2,
             visitedRoutes: _v11,
-            children: (0, _v3.jsx)(_v847, {
+            children: (0, _v3.jsx)(_v848, {
               state: _v0,
               dispatch: _v1
             })
@@ -26353,11 +26261,11 @@
         })]
       });
     },
-    _v854 = () => (0, _v3.jsx)(_v85.Alert, {
+    _v855 = () => (0, _v3.jsx)(_v83.Alert, {
       variant: "info",
       display: "flex",
       alignItems: "center",
-      children: (0, _v3.jsx)(_v83.AlertDescription, {
+      children: (0, _v3.jsx)(_v81.AlertDescription, {
         sx: {
           a: {
             color: "vimeoBlue.500"
@@ -26399,19 +26307,19 @@
         })
       })
     }),
-    _v855 = (_v0, _v1) => {
+    _v856 = (_v0, _v1) => {
       let _v2 = Object.assign({}, _v0.filters[_v0.reportGroup]);
       switch (_v1.type) {
         case _v376.REPORT_ACTION_TYPE.SET_GRAPH_ITEMS:
           let _v0 = _v0.selectedItemsForGraph.reduce((_v0, _v1) => (_v0[_v1.id] = _v1, _v0), {});
-          _v0.selectedItemsForGraph.find(_v0 => _v0.id === _v247.TOTAL_ROW_ID) && _v1.isInitialLoad && _v1.payload.unshift({
-            id: _v247.TOTAL_ROW_ID,
-            name: _v247.TOTAL_ROW_NAME,
+          _v0.selectedItemsForGraph.find(_v0 => _v0.id === _v245.TOTAL_ROW_ID) && _v1.isInitialLoad && _v1.payload.unshift({
+            id: _v245.TOTAL_ROW_ID,
+            name: _v245.TOTAL_ROW_NAME,
             type: _v1.payload?.[0]?.type
           });
           let _v1 = _v1.payload.reduce((_v0, _v1) => _v0[_v1.id]?.color ? [..._v0, _v0[_v1.id].color] : _v0, []),
-            _v2 = _v247.MULTI_LINE_GRAPH_COLORS.filter(_v0 => -1 === _v1.findIndex(_v0 => _v0 === _v0)),
-            _v3 = _v1.payload.findIndex(_v0 => _v0.id === _v247.TOTAL_ROW_ID);
+            _v2 = _v245.MULTI_LINE_GRAPH_COLORS.filter(_v0 => -1 === _v1.findIndex(_v0 => _v0 === _v0)),
+            _v3 = _v1.payload.findIndex(_v0 => _v0.id === _v245.TOTAL_ROW_ID);
           if (_v3 >= 0) {
             let _v0 = _v1.payload.splice(_v3, 1);
             _v1.payload.push(..._v0);
@@ -26420,7 +26328,7 @@
             name: _v0.name,
             id: _v0.id,
             prepend: _v0.prepend ?? "",
-            color: _v0.id === _v247.TOTAL_ROW_ID ? (0, _v31.getTotalRowColor)() : _v2.shift() ?? ""
+            color: _v0.id === _v245.TOTAL_ROW_ID ? (0, _v31.getTotalRowColor)() : _v2.shift() ?? ""
           });
           return {
             ..._v0,
@@ -26549,8 +26457,8 @@
           };
       }
     };
-  var _v856 = _v0.i(0);
-  let _v857 = ({
+  var _v857 = _v0.i(0);
+  let _v858 = ({
     viewer: _v0,
     userId: _v1,
     history: _v2,
@@ -26582,11 +26490,11 @@
         filterLists: []
       },
       [_v17, _v18] = (0, _v4.useState)(!1),
-      [_v19, _v20] = (0, _v4.useReducer)(_v855, {
+      [_v19, _v20] = (0, _v4.useReducer)(_v856, {
         reportGroup: _v376.ReportGroup.VIMEO,
         primaryDimensions: {
-          [_v376.ReportGroup.VIMEO]: _v247.TABLE_FIELD_VIEWS,
-          [_v376.ReportGroup.BANDWIDTH]: _v247.BANDWIDTH_REPORT_TABLE_FIELDS[0]
+          [_v376.ReportGroup.VIMEO]: _v245.TABLE_FIELD_VIEWS,
+          [_v376.ReportGroup.BANDWIDTH]: _v245.BANDWIDTH_REPORT_TABLE_FIELDS[0]
         },
         filters: {
           [_v376.ReportGroup.VIMEO]: _v15,
@@ -26661,7 +26569,7 @@
       let _v3 = _v1 === _v548.TeamUserPermissionLevel.Contributor || _v1 === _v548.TeamUserPermissionLevel.ContributorPlus,
         {
           data: _v4
-        } = (0, _v806.useGetUserVideos)(() => _v3 ? {
+        } = (0, _v807.useGetUserVideos)(() => _v3 ? {
           where: {
             userId: _v0
           },
@@ -26677,15 +26585,15 @@
         _v2({
           type: _v376.REPORT_ACTION_TYPE.UPDATE_USER_IN_USE,
           payload: {
-            isUserWithVideoLimit: (_v4?.total ?? 0) > _v247.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER && _v3
+            isUserWithVideoLimit: (_v4?.total ?? 0) > _v245.MAX_NO_OF_VIDEOS_FOR_NETWORK_TRANSFER && _v3
           }
         });
       }, [_v1, _v4?.total, _v2, _v3]);
     })(_v19.userInUse.id, _v19.userInUse.teamUserRole, _v20), (_v0 => {
       let {
         data: _v1
-      } = (0, _v856.useGetMePreferences)({
-        select: _v247.TOUR_POINT_USER_PREFERENCES_KEYS
+      } = (0, _v857.useGetMePreferences)({
+        select: _v245.TOUR_POINT_USER_PREFERENCES_KEYS
       });
       (0, _v4.useEffect)(() => {
         _v0({
@@ -26748,7 +26656,7 @@
       children: (0, _v3.jsxs)(_v5.Box, {
         minWidth: "100%",
         maxWidth: "100%",
-        children: [_v17 && (0, _v31.shouldShowContentLimitAppliedNotice)(_v19.userInUse.isUserWithVideoLimit, _v2?.location?.pathname) && (0, _v3.jsx)(_v854, {}), !!_v19.userInUse.id && (0, _v3.jsx)(_v853, {
+        children: [_v17 && (0, _v31.shouldShowContentLimitAppliedNotice)(_v19.userInUse.isUserWithVideoLimit, _v2?.location?.pathname) && (0, _v3.jsx)(_v855, {}), !!_v19.userInUse.id && (0, _v3.jsx)(_v854, {
           state: _v19,
           dispatch: _v20,
           playerAssetUrls: _v3,
@@ -26761,11 +26669,11 @@
       })
     });
   };
-  var _v858 = _v0.i(0),
-    _v859 = _v0.i(0),
+  var _v859 = _v0.i(0),
     _v860 = _v0.i(0),
-    _v861 = _v0.i(0);
-  let _v862 = ({
+    _v861 = _v0.i(0),
+    _v862 = _v0.i(0);
+  let _v863 = ({
       userId: _v0,
       organizationInternalId: _v1,
       organizationUuid: _v2,
@@ -26802,27 +26710,28 @@
           select: ["aiAnalyticsAccess"]
         } : null),
         _v17 = _v16?.aiAnalyticsAccess,
+        _v18 = (0, _v65.isAiAnalyticsAccess)(_v17),
         {
-          data: _v18
+          data: _v19
         } = (0, _v786.useGetUserPreferences)(() => _v8 ? {
           where: {
             userId: _v8
           },
           select: ["taa"]
         } : null),
-        _v19 = (0, _v87.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
-        _v20 = (0, _v7.rem)(40),
-        _v21 = `${(0, _v7.rem)(8)} ${(0, _v7.rem)(16)}`,
-        _v22 = (0, _v7.rem)(12),
-        _v23 = (0, _v7.rem)(4),
-        _v24 = _v0 => _v2 ? _v0.replace("/analytics", "/manage/organization/analytics") : _v0,
-        _v25 = _v18?.taa,
-        _v26 = _v10 || _v15,
-        _v27 = _v1 && _v2 ? _v1 : _v4?.teamUser?.ownerId || _v4?.user?.id,
-        _v28 = !!(0, _v24.matchPath)(location.pathname, {
-          path: [_v24("/analytics/teams/:teamOwnerId/users"), _v24("/analytics/teams/:teamOwnerId/videos")]
+        _v20 = (0, _v85.useColorModeValue)("darkBlueAlpha.200", "lightBlueAlpha.300"),
+        _v21 = (0, _v7.rem)(40),
+        _v22 = `${(0, _v7.rem)(8)} ${(0, _v7.rem)(16)}`,
+        _v23 = (0, _v7.rem)(12),
+        _v24 = (0, _v7.rem)(4),
+        _v25 = _v0 => _v2 ? _v0.replace("/analytics", "/manage/organization/analytics") : _v0,
+        _v26 = _v19?.taa,
+        _v27 = _v10 || _v15,
+        _v28 = _v1 && _v2 ? _v1 : _v4?.teamUser?.ownerId || _v4?.user?.id,
+        _v29 = !!(0, _v24.matchPath)(location.pathname, {
+          path: [_v25("/analytics/teams/:teamOwnerId/users"), _v25("/analytics/teams/:teamOwnerId/videos")]
         })?.isExact,
-        _v29 = !_v26 && _v25 && (_v12 || _v13);
+        _v30 = !_v27 && _v26 && (_v12 || _v13);
       return (0, _v3.jsx)(_v6.Flex, {
         flexGrow: "1",
         direction: "column",
@@ -26833,73 +26742,73 @@
             display: "flex",
             flexDirection: "column",
             py: 0,
-            children: (0, _v3.jsxs)(_v859.ResizableSideNav.MenuItems, {
-              children: [_v2 && (0, _v3.jsx)(_v82.Link, {
+            children: (0, _v3.jsxs)(_v860.ResizableSideNav.MenuItems, {
+              children: [_v2 && (0, _v3.jsx)(_v80.Link, {
                 as: _v372.Link,
                 to: _v2 ? "/manage/organization/members" : "/",
-                children: (0, _v3.jsxs)(_v68.Button, {
+                children: (0, _v3.jsxs)(_v66.Button, {
                   width: "100%",
-                  minHeight: _v20,
-                  padding: _v21,
-                  borderRadius: _v22,
+                  minHeight: _v21,
+                  padding: _v22,
+                  borderRadius: _v23,
                   justifyContent: "flex-start",
                   marginTop: (0, _v7.rem)(8),
                   variant: "tertiary",
                   fontWeight: "400",
-                  children: [(0, _v3.jsx)(_v858.ArrowLeft, {
+                  children: [(0, _v3.jsx)(_v859.ArrowLeft, {
                     paddingRight: "0.3rem"
                   }), (0, _v3.jsx)(_v45.Text, {
                     variant: "body-xl",
                     fontSize: (0, _v7.rem)(14),
-                    children: _v2 ? _v261.T_BACK_TO_SETTINGS : _v261.T_BACK_TO_HOME
+                    children: _v2 ? _v259.T_BACK_TO_SETTINGS : _v259.T_BACK_TO_HOME
                   })]
                 })
-              }), (0, _v3.jsx)(_v82.Link, {
+              }), (0, _v3.jsx)(_v80.Link, {
                 as: _v372.Link,
-                to: _v24("/analytics"),
+                to: _v25("/analytics"),
                 onClick: () => {
                   _v6({
                     analyticsReportType: "dashboard"
                   });
                 },
-                children: (0, _v3.jsx)(_v68.Button, {
+                children: (0, _v3.jsx)(_v66.Button, {
                   width: "100%",
-                  minHeight: _v20,
-                  padding: _v21,
-                  borderRadius: _v22,
+                  minHeight: _v21,
+                  padding: _v22,
+                  borderRadius: _v23,
                   justifyContent: "flex-start",
                   variant: "tertiary",
-                  isActive: location.pathname === _v24("/analytics"),
+                  isActive: location.pathname === _v25("/analytics"),
                   fontWeight: "400",
                   _active: {
-                    backgroundColor: `${_v19} !important`
+                    backgroundColor: `${_v20} !important`
                   },
                   onClick: _v5,
                   children: (0, _v3.jsx)(_v45.Text, {
                     fontSize: (0, _v7.rem)(14),
                     variant: "body-xl",
-                    children: _v247.DISPLAY_MAP.dashboard
+                    children: _v245.DISPLAY_MAP.dashboard
                   })
                 })
-              }), _v7.enable_ai_analytics_dashboard && ("free" === _v17 || "full" === _v17) && (0, _v3.jsx)(_v82.Link, {
+              }), _v7.enable_ai_analytics_dashboard && _v18 && (0, _v3.jsx)(_v80.Link, {
                 as: _v372.Link,
-                to: _v24("/analytics/ai"),
+                to: _v25("/analytics/ai"),
                 onClick: () => {
                   _v6({
-                    analyticsReportType: _v247.REPORT_TYPE_AI
+                    analyticsReportType: _v245.REPORT_TYPE_AI
                   });
                 },
-                children: (0, _v3.jsx)(_v68.Button, {
+                children: (0, _v3.jsx)(_v66.Button, {
                   width: "100%",
-                  minHeight: _v20,
-                  padding: _v21,
-                  borderRadius: _v22,
+                  minHeight: _v21,
+                  padding: _v22,
+                  borderRadius: _v23,
                   justifyContent: "flex-start",
                   variant: "tertiary",
-                  isActive: location.pathname === _v24("/analytics/ai"),
+                  isActive: location.pathname === _v25("/analytics/ai"),
                   fontWeight: "400",
                   _active: {
-                    backgroundColor: `${_v19} !important`
+                    backgroundColor: `${_v20} !important`
                   },
                   onClick: _v5,
                   children: (0, _v3.jsxs)(_v6.Flex, {
@@ -26938,7 +26847,7 @@
                             }
                           }
                         })
-                      }), (0, _v3.jsx)(_v151.AiSparkles, {
+                      }), (0, _v3.jsx)(_v149.AiSparkles, {
                         sx: {
                           "&&": {
                             width: (0, _v7.rem)(20),
@@ -26946,7 +26855,7 @@
                           }
                         }
                       })]
-                    }), (0, _v3.jsx)(_v81.Badge, {
+                    }), (0, _v3.jsx)(_v79.Badge, {
                       variant: "new",
                       size: "sm",
                       children: (0, _v29.translate)({
@@ -26978,9 +26887,9 @@
                     })]
                   })
                 })
-              }), !_v15 && !_v11 && (0, _v3.jsx)(_v861.SmallUpgradeBanner, {
+              }), !_v15 && !_v11 && (0, _v3.jsx)(_v862.SmallUpgradeBanner, {
                 button: {
-                  label: _v261.T_UPGRADE,
+                  label: _v259.T_UPGRADE,
                   onClick: () => {
                     _v3(!0);
                   }
@@ -26989,56 +26898,56 @@
                   borderRadius: (0, _v7.rem)(8),
                   overflow: "hidden"
                 },
-                cta: _v261.T_BASIC_UPSELL,
+                cta: _v259.T_BASIC_UPSELL,
                 sideNav: !0
               }), (0, _v3.jsx)(_v45.Text, {
                 variant: "heading-2xs",
                 color: "text-tertiary",
                 padding: `${(0, _v7.rem)(4)} ${(0, _v7.rem)(8)}`,
-                children: _v261.T_REPORTS_SIDE_NAV
+                children: _v259.T_REPORTS_SIDE_NAV
               }), (0, _v3.jsxs)(_v6.Flex, {
                 direction: "column",
-                gap: _v23,
+                gap: _v24,
                 paddingTop: "0",
-                children: [_v247.REPORT_LINKS.map((_v0, _v1) => (0, _v3.jsx)(_v82.Link, {
+                children: [_v245.REPORT_LINKS.map((_v0, _v1) => (0, _v3.jsx)(_v80.Link, {
                   as: _v372.Link,
-                  to: _v24("/analytics/" + _v0),
+                  to: _v25("/analytics/" + _v0),
                   onClick: () => {
                     _v6({
                       analyticsReportType: _v0
                     });
                   },
-                  children: (0, _v3.jsx)(_v68.Button, {
+                  children: (0, _v3.jsx)(_v66.Button, {
                     width: "100%",
-                    minHeight: _v20,
-                    padding: _v21,
-                    borderRadius: _v22,
+                    minHeight: _v21,
+                    padding: _v22,
+                    borderRadius: _v23,
                     justifyContent: "flex-start",
                     variant: "tertiary",
-                    isActive: !!(0, _v24.matchPath)(location.pathname, _v24(`/analytics/${_v0}`))?.isExact,
+                    isActive: !!(0, _v24.matchPath)(location.pathname, _v25(`/analytics/${_v0}`))?.isExact,
                     _active: {
-                      backgroundColor: `${_v19} !important`
+                      backgroundColor: `${_v20} !important`
                     },
                     onClick: _v5,
                     children: (0, _v3.jsx)(_v45.Text, {
                       variant: "body-xl",
                       fontSize: (0, _v7.rem)(14),
-                      children: _v247.DISPLAY_MAP[_v0]
+                      children: _v245.DISPLAY_MAP[_v0]
                     })
                   })
-                }, _v0 + _v1)), _v29 && (0, _v3.jsx)(_v68.Button, {
+                }, _v0 + _v1)), _v30 && (0, _v3.jsx)(_v66.Button, {
                   as: _v372.Link,
-                  to: _v24(`/analytics/teams/${_v27}/videos`),
+                  to: _v25(`/analytics/teams/${_v28}/videos`),
                   width: "100%",
-                  minHeight: _v20,
-                  padding: _v21,
-                  borderRadius: _v22,
+                  minHeight: _v21,
+                  padding: _v22,
+                  borderRadius: _v23,
                   justifyContent: "flex-start",
                   variant: "tertiary",
-                  isActive: _v28,
+                  isActive: _v29,
                   _active: {
                     fontWeight: "500",
-                    backgroundColor: `${_v19} !important`
+                    backgroundColor: `${_v20} !important`
                   },
                   onClick: () => {
                     _v6({
@@ -27077,25 +26986,25 @@
                       })
                     }), _v13 && (0, _v3.jsx)(_v5.Box, {
                       noMargin: !0,
-                      as: _v860.UpgradeBadge,
+                      as: _v861.UpgradeBadge,
                       onClick: _v0 => {
                         _v0.preventDefault(), _v0.stopPropagation(), _v3(!0);
                       }
                     })]
                   })
-                }), _v14 && (0, _v3.jsx)(_v68.Button, {
+                }), _v14 && (0, _v3.jsx)(_v66.Button, {
                   as: _v372.Link,
-                  to: _v24("/analytics/video-rating"),
+                  to: _v25("/analytics/video-rating"),
                   width: "100%",
-                  minHeight: _v20,
-                  padding: _v21,
-                  borderRadius: _v22,
+                  minHeight: _v21,
+                  padding: _v22,
+                  borderRadius: _v23,
                   justifyContent: "flex-start",
                   variant: "tertiary",
-                  isActive: !!(0, _v24.matchPath)(location.pathname, _v24("/analytics/video-rating"))?.isExact,
+                  isActive: !!(0, _v24.matchPath)(location.pathname, _v25("/analytics/video-rating"))?.isExact,
                   _active: {
                     fontWeight: "500",
-                    backgroundColor: `${_v19} !important`
+                    backgroundColor: `${_v20} !important`
                   },
                   onClick: () => {
                     _v5();
@@ -27130,19 +27039,19 @@
                       }
                     })
                   })
-                }), (0, _v3.jsx)(_v68.Button, {
+                }), (0, _v3.jsx)(_v66.Button, {
                   as: _v372.Link,
-                  to: _v24("/analytics/bandwidth"),
+                  to: _v25("/analytics/bandwidth"),
                   width: "100%",
-                  minHeight: _v20,
-                  padding: _v21,
-                  borderRadius: _v22,
+                  minHeight: _v21,
+                  padding: _v22,
+                  borderRadius: _v23,
                   justifyContent: "flex-start",
                   variant: "tertiary",
-                  isActive: !!(0, _v24.matchPath)(location.pathname, _v24("/analytics/bandwidth")),
+                  isActive: !!(0, _v24.matchPath)(location.pathname, _v25("/analytics/bandwidth")),
                   _active: {
                     fontWeight: "500",
-                    backgroundColor: `${_v19} !important`
+                    backgroundColor: `${_v20} !important`
                   },
                   onClick: () => {
                     _v6({
@@ -27184,14 +27093,14 @@
                       })
                     })
                   })
-                }), !_v26 && _v9 && (0, _v3.jsx)(_v82.Link, {
+                }), !_v27 && _v9 && (0, _v3.jsx)(_v80.Link, {
                   as: "a",
                   href: `/stats/ondemand?user_id=${_v0}`,
-                  children: (0, _v3.jsx)(_v68.Button, {
+                  children: (0, _v3.jsx)(_v66.Button, {
                     width: "100%",
-                    minHeight: _v20,
-                    padding: _v21,
-                    borderRadius: _v22,
+                    minHeight: _v21,
+                    padding: _v22,
+                    borderRadius: _v23,
                     justifyContent: "flex-start",
                     variant: "tertiary",
                     children: (0, _v3.jsx)(_v45.Text, {
@@ -27214,11 +27123,12 @@
         })
       });
     },
-    _v863 = {
+    _v864 = _v4.useLayoutEffect,
+    _v865 = {
       contentMaxWidth: (0, _v7.rem)(0),
       contentInlineStart: (0, _v7.rem)(24)
     },
-    _v864 = {
+    _v866 = {
       contentMaxWidth: "100cqw",
       contentInlineStart: (0, _v7.rem)(24)
     };
@@ -27229,50 +27139,55 @@
     playerAssetUrls: _v3,
     organizationInternalId: _v4
   }) => {
-    let [_v5, _v6] = (0, _v4.useState)(!1),
-      _v7 = _v0?.user?.id,
+    let _v5,
+      _v6,
+      [_v7, _v8] = (0, _v4.useState)(!1),
+      _v9 = _v0?.user?.id,
       {
-        trackAnalyticsPageDisplayed: _v8
+        trackAnalyticsPageDisplayed: _v10
       } = (0, _v13.useAnalyticsTracking)();
-    (0, _v14.usePicoEffect)(() => {
-      _v8();
+    _v5 = (0, _v22.useRouter)().asPath, _v6 = (0, _v4.useRef)(void 0), _v864(() => {
+      let _v0 = _v6.current !== _v5;
+      _v6.current = _v5, _v2 && _v0 && `${_v2.location.pathname}${_v2.location.search}${_v2.location.hash}` !== _v5 && _v2.replace(_v5);
+    }, [_v2, _v5]), (0, _v14.usePicoEffect)(() => {
+      _v10();
     }, [], {
       once: !0
     });
     let {
         capabilities: {
-          hasAdvancedStats: _v9
+          hasAdvancedStats: _v11
         },
-        ready: _v10
-      } = (0, _v11.useCapability)(["hasAdvancedStats"], _v7),
-      [_v11] = (0, _v8.useToken)("breakpoints", ["lg"]),
-      [_v12] = (0, _v9.useMediaQuery)([`(max-width: ${_v11})`]),
-      _v13 = !_v0 || !_v7 || !_v3 || !_v10,
-      _v14 = _v2?.location.pathname,
-      _v15 = _v14?.includes("/v2/") ? void 0 : _v14?.endsWith("/analytics") ? _v863 : _v864,
+        ready: _v12
+      } = (0, _v11.useCapability)(["hasAdvancedStats"], _v9),
+      [_v13] = (0, _v8.useToken)("breakpoints", ["lg"]),
+      [_v14] = (0, _v9.useMediaQuery)([`(max-width: ${_v13})`]),
+      _v15 = !_v0 || !_v9 || !_v3 || !_v12,
+      _v16 = _v2?.location.pathname,
+      _v17 = _v16?.includes("/v2/") ? void 0 : _v16?.endsWith("/analytics") ? _v865 : _v866,
       {
-        isOpen: _v16,
-        toggle: _v17,
-        open: _v18,
-        close: _v19,
-        collapsed: _v20
+        isOpen: _v18,
+        toggle: _v19,
+        open: _v20,
+        close: _v21,
+        collapsed: _v22
       } = (0, _v19.useSideNavSurfaceState)({
         surface: "analytics",
-        userId: _v7,
-        isMobile: _v12,
+        userId: _v9,
+        isMobile: _v14,
         persist: !1
       }),
-      _v21 = (0, _v20.useTrackSidebarToggled)(),
-      _v22 = (0, _v4.useCallback)(_v0 => (0, _v3.jsx)(_v862, {
+      _v23 = (0, _v20.useTrackSidebarToggled)(),
+      _v24 = (0, _v4.useCallback)(_v0 => (0, _v3.jsx)(_v863, {
         viewer: _v0,
         userId: _v0,
         organizationInternalId: _v4,
         organizationUuid: _v1,
-        setShowUpsellModal: _v6,
+        setShowUpsellModal: _v8,
         onNavClick: () => {
-          _v12 && _v19();
+          _v14 && _v21();
         }
-      }), [_v0, _v4, _v1, _v12, _v19]);
+      }), [_v0, _v4, _v1, _v14, _v21]);
     return (0, _v3.jsxs)(_v6.Flex, {
       width: "100vw",
       height: "100vh",
@@ -27280,54 +27195,54 @@
       children: [(0, _v3.jsx)(_v18.UpsellModalProvider, {
         children: (0, _v3.jsx)(_v17.TransferFileModalProvider, {
           children: (0, _v3.jsx)(_v16.SecondarySideNav, {
-            isOpen: _v16,
-            isMobile: _v12,
-            collapsed: _v20,
-            onClose: _v17,
+            isOpen: _v18,
+            isMobile: _v14,
+            collapsed: _v22,
+            onClose: _v19,
             hideWhatsNew: !0,
-            children: _v13 ? (0, _v3.jsx)(_v6.Flex, {
+            children: _v15 ? (0, _v3.jsx)(_v6.Flex, {
               alignItems: "center",
               height: "100%",
               justifyContent: "center",
               children: (0, _v3.jsx)(_v10.Spinner, {
                 size: "md"
               })
-            }) : _v22(_v7)
+            }) : _v24(_v9)
           })
         })
       }), (0, _v3.jsx)(_v6.Flex, {
         flexDirection: "column",
         flex: "1 1 auto",
         width: "50%",
-        sx: _v15 ? {
+        sx: _v17 ? {
           containerType: "inline-size"
         } : void 0,
         children: (0, _v3.jsxs)(_v5.Box, {
           overflowY: "auto",
           children: [(0, _v3.jsx)(_v12.DefaultNavigation, {
-            setIsSideNavActive: _v12 ? () => {
-              _v21("open", _v12), _v18();
+            setIsSideNavActive: _v14 ? () => {
+              _v23("open", _v14), _v20();
             } : void 0,
-            isSideNavActive: _v16,
-            hasSideNavLayout: !_v12,
-            searchContentAlignment: _v15
-          }), _v13 ? (0, _v3.jsx)(_v6.Flex, {
+            isSideNavActive: _v18,
+            hasSideNavLayout: !_v14,
+            searchContentAlignment: _v17
+          }), _v15 ? (0, _v3.jsx)(_v6.Flex, {
             height: "31.25rem",
             alignItems: "center",
             justifyContent: "center",
             children: (0, _v3.jsx)(_v10.Spinner, {
               size: "md"
             })
-          }) : (0, _v3.jsx)(_v857, {
+          }) : (0, _v3.jsx)(_v858, {
             history: _v2,
-            userId: _v7,
+            userId: _v9,
             viewer: _v0,
             playerAssetUrls: _v3,
-            hasAdvancedStats: !!_v9,
+            hasAdvancedStats: !!_v11,
             organizationInternalId: _v4,
             organizationUuid: _v1,
-            showUpsellModal: _v5,
-            setShowUpsellModal: _v6
+            showUpsellModal: _v7,
+            setShowUpsellModal: _v8
           }), (0, _v3.jsx)(_v5.Box, {
             children: _v0 && (0, _v3.jsx)(_v15.EssentialFooter, {
               ..._v0,

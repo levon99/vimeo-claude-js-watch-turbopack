@@ -30,21 +30,20 @@
     _v27 = _v0.i(0),
     _v28 = _v0.i(0),
     _v29 = _v0.i(0),
-    _v30 = _v0.i(0),
-    _v31 = _v0.i(0);
-  let _v32 = 16 / 9;
-  var _v33 = _v0.i(0),
+    _v30 = _v0.i(0);
+  let _v31 = 16 / 9;
+  var _v32 = _v0.i(0),
+    _v33 = _v0.i(0),
     _v34 = _v0.i(0),
     _v35 = _v0.i(0),
     _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
-    _v39 = _v0.i(0),
-    _v40 = _v0.i(0);
-  let _v41 = (0, _v6.rem)(20),
-    _v42 = (0, _v6.rem)(16),
-    _v43 = (0, _v6.rem)(544);
-  function _v44({
+    _v39 = _v0.i(0);
+  let _v40 = (0, _v6.rem)(20),
+    _v41 = (0, _v6.rem)(16),
+    _v42 = (0, _v6.rem)(544);
+  function _v43({
     file: _v0,
     isSaving: _v1,
     onChange: _v2,
@@ -58,7 +57,7 @@
       return _v7(_v0), () => {
         _v0 && URL.revokeObjectURL(_v0);
       };
-    }, [_v0]), (0, _v3.jsxs)(_v35.Modal, {
+    }, [_v0]), (0, _v3.jsxs)(_v34.Modal, {
       isOpen: null !== _v0,
       onClose: _v3,
       onCloseComplete: _v5,
@@ -66,20 +65,20 @@
       closeOnOverlayClick: !_v1,
       isCentered: !0,
       size: "lg",
-      children: [(0, _v3.jsx)(_v39.ModalOverlay, {}), (0, _v3.jsxs)(_v37.ModalContent, {
-        maxWidth: _v43,
-        borderRadius: _v41,
-        children: [(0, _v3.jsx)(_v36.ModalBody, {
+      children: [(0, _v3.jsx)(_v38.ModalOverlay, {}), (0, _v3.jsxs)(_v36.ModalContent, {
+        maxWidth: _v42,
+        borderRadius: _v40,
+        children: [(0, _v3.jsx)(_v35.ModalBody, {
           padding: (0, _v6.rem)(8),
-          children: (0, _v3.jsx)(_v33.AspectRatio, {
-            ratio: _v32,
+          children: (0, _v3.jsx)(_v32.AspectRatio, {
+            ratio: _v31,
             width: "100%",
-            borderRadius: _v42,
+            borderRadius: _v41,
             overflow: "hidden",
             backgroundColor: "black",
-            children: _v6 ? (0, _v3.jsx)(_v17.Image, {
+            children: _v6 ? (0, _v3.jsx)(_v16.Image, {
               src: _v6,
-              alt: (0, _v24.translate)({
+              alt: (0, _v23.translate)({
                 singular: "Thumbnail preview",
                 dictionary: {
                   es: {
@@ -108,12 +107,12 @@
               width: "100%",
               height: "100%",
               objectFit: "contain"
-            }) : (0, _v3.jsx)(_v15.Box, {
+            }) : (0, _v3.jsx)(_v14.Box, {
               width: "100%",
               height: "100%"
             })
           })
-        }), (0, _v3.jsx)(_v38.ModalFooter, {
+        }), (0, _v3.jsx)(_v37.ModalFooter, {
           paddingTop: (0, _v6.rem)(16),
           paddingBottom: (0, _v6.rem)(24),
           paddingX: (0, _v6.rem)(24),
@@ -121,13 +120,13 @@
             align: "center",
             gap: (0, _v6.rem)(12),
             width: "100%",
-            children: [(0, _v3.jsx)(_v34.Button, {
+            children: [(0, _v3.jsx)(_v33.Button, {
               variant: "secondary",
               size: "md",
-              leftIcon: (0, _v3.jsx)(_v40.Redo, {}),
+              leftIcon: (0, _v3.jsx)(_v39.Redo, {}),
               onClick: _v2,
               isDisabled: _v1,
-              children: (0, _v24.translate)({
+              children: (0, _v23.translate)({
                 singular: "Change",
                 dictionary: {
                   es: {
@@ -159,12 +158,12 @@
               align: "center",
               gap: (0, _v6.rem)(12),
               minWidth: 0,
-              children: [(0, _v3.jsx)(_v34.Button, {
+              children: [(0, _v3.jsx)(_v33.Button, {
                 variant: "tertiary",
                 size: "md",
                 onClick: _v3,
                 isDisabled: _v1,
-                children: (0, _v24.translate)({
+                children: (0, _v23.translate)({
                   singular: "Cancel",
                   dictionary: {
                     es: {
@@ -190,12 +189,12 @@
                     }
                   }
                 })
-              }), (0, _v3.jsx)(_v34.Button, {
+              }), (0, _v3.jsx)(_v33.Button, {
                 variant: "primary",
                 size: "md",
                 onClick: _v4,
                 isLoading: _v1,
-                children: (0, _v24.translate)({
+                children: (0, _v23.translate)({
                   singular: "Save",
                   dictionary: {
                     es: {
@@ -228,13 +227,13 @@
       })]
     });
   }
-  var _v45 = _v0.i(0),
-    _v46 = _v0.i(0);
-  function _v47() {
-    return (_v47 = Object.assign.bind()).apply(null, arguments);
+  var _v44 = _v0.i(0),
+    _v45 = _v0.i(0);
+  function _v46() {
+    return (_v46 = Object.assign.bind()).apply(null, arguments);
   }
-  let _v48 = function (_v0) {
-      return _v5.createElement("svg", _v47({
+  let _v47 = function (_v0) {
+      return _v5.createElement("svg", _v46({
         viewBox: "0 0 24 24",
         fill: "none",
         xmlns: "http://www.w3.org/2000/svg"
@@ -250,55 +249,55 @@
         fill: "currentColor"
       })));
     },
-    _v49 = (0, _v6.rem)(8),
-    _v50 = (0, _v6.rem)(8);
-  function _v51({
+    _v48 = (0, _v6.rem)(8),
+    _v49 = (0, _v6.rem)(8);
+  function _v50({
     thumbnails: _v0,
     activeUri: _v1,
     isLoading: _v2,
     onSelect: _v3
   }) {
-    return _v2 ? (0, _v3.jsx)(_v15.Box, {
+    return _v2 ? (0, _v3.jsx)(_v14.Box, {
       display: "grid",
       gridTemplateColumns: "repeat(2, 1fr)",
-      gap: _v50,
+      gap: _v49,
       width: "100%",
       children: Array.from({
         length: 4
-      }).map((_v0, _v1) => (0, _v3.jsx)(_v33.AspectRatio, {
-        ratio: _v32,
+      }).map((_v0, _v1) => (0, _v3.jsx)(_v32.AspectRatio, {
+        ratio: _v31,
         width: "100%",
         children: (0, _v3.jsx)(_v8.BokehSkeleton, {
           width: "100%",
           height: "100%",
-          borderRadius: _v49
+          borderRadius: _v48
         })
       }, _v1))
-    }) : (0, _v3.jsx)(_v15.Box, {
+    }) : (0, _v3.jsx)(_v14.Box, {
       display: "grid",
       gridTemplateColumns: "repeat(2, 1fr)",
-      gap: _v50,
+      gap: _v49,
       width: "100%",
       children: _v0.map(_v0 => {
         let _v1 = !!(_v1 && _v0.uri === _v1);
-        return (0, _v3.jsx)(_v15.Box, {
+        return (0, _v3.jsx)(_v14.Box, {
           as: "button",
           type: "button",
           width: "100%",
           padding: 0,
-          borderRadius: _v49,
+          borderRadius: _v48,
           borderWidth: "2px",
           borderStyle: "solid",
           borderColor: _v1 ? "stroke-focus" : "transparent",
           overflow: "hidden",
           cursor: "pointer",
           onClick: () => _v3(_v0),
-          children: (0, _v3.jsx)(_v33.AspectRatio, {
-            ratio: _v32,
+          children: (0, _v3.jsx)(_v32.AspectRatio, {
+            ratio: _v31,
             width: "100%",
-            children: (0, _v3.jsx)(_v17.Image, {
+            children: (0, _v3.jsx)(_v16.Image, {
               src: _v0.baseLink,
-              alt: (0, _v24.translate)({
+              alt: (0, _v23.translate)({
                 singular: "Saved thumbnail",
                 dictionary: {
                   es: {
@@ -334,12 +333,12 @@
       })
     });
   }
-  let _v52 = (0, _v6.rem)(233),
-    _v53 = {
+  let _v51 = (0, _v6.rem)(233),
+    _v52 = {
       width: 20,
       height: 20
     };
-  function _v54({
+  function _v53({
     thumbnails: _v0,
     activeUri: _v1,
     isLoading: _v2,
@@ -347,10 +346,10 @@
     onSelectThumbnail: _v4
   }) {
     let _v5 = _v2 || _v0.length > 0;
-    return (0, _v3.jsx)(_v46.Portal, {
-      children: (0, _v3.jsx)(_v45.PopoverContent, {
-        width: _v52,
-        maxWidth: _v52,
+    return (0, _v3.jsx)(_v45.Portal, {
+      children: (0, _v3.jsx)(_v44.PopoverContent, {
+        width: _v51,
+        maxWidth: _v51,
         maxHeight: (0, _v6.rem)(300),
         padding: (0, _v6.rem)(8),
         borderRadius: (0, _v6.rem)(12),
@@ -374,17 +373,17 @@
           width: "100%",
           flex: "1",
           minHeight: 0,
-          children: [(0, _v3.jsx)(_v34.Button, {
+          children: [(0, _v3.jsx)(_v33.Button, {
             variant: "secondary",
             size: "md",
             width: "100%",
             flexShrink: 0,
-            leftIcon: (0, _v3.jsx)(_v48, {
-              style: _v53
+            leftIcon: (0, _v3.jsx)(_v47, {
+              style: _v52
             }),
             iconSpacing: (0, _v6.rem)(6),
             onClick: _v3,
-            children: (0, _v24.translate)({
+            children: (0, _v23.translate)({
               singular: "Upload image",
               dictionary: {
                 es: {
@@ -416,10 +415,10 @@
             width: "100%",
             flex: "1",
             minHeight: 0,
-            children: [(0, _v3.jsx)(_v21.Text, {
+            children: [(0, _v3.jsx)(_v20.Text, {
               variant: "body-sm",
               color: "text-tertiary",
-              children: (0, _v24.translate)({
+              children: (0, _v23.translate)({
                 singular: "Previously used",
                 dictionary: {
                   es: {
@@ -445,12 +444,12 @@
                   }
                 }
               })
-            }), (0, _v3.jsx)(_v15.Box, {
+            }), (0, _v3.jsx)(_v14.Box, {
               flex: "1",
               minHeight: 0,
               width: "100%",
               overflowY: "auto",
-              children: (0, _v3.jsx)(_v51, {
+              children: (0, _v3.jsx)(_v50, {
                 thumbnails: _v0,
                 activeUri: _v1,
                 isLoading: _v2,
@@ -462,10 +461,10 @@
       })
     });
   }
-  let _v55 = (0, _v6.rem)(48),
-    _v56 = (0, _v6.rem)(12),
-    _v57 = (0, _v6.rem)(8);
-  function _v58() {
+  let _v54 = (0, _v6.rem)(48),
+    _v55 = (0, _v6.rem)(12),
+    _v56 = (0, _v6.rem)(8);
+  function _v57() {
     let {
         settings: {
           value: _v0
@@ -477,17 +476,17 @@
           deactivateThumbnail: _v4
         }
       } = (0, _v4.useManager)(_v11.EventSettingsManager),
-      _v5 = (0, _v22.useToast)(),
+      _v5 = (0, _v21.useToast)(),
       {
         trackLiveStreamBasicsChanged: _v6,
         trackLiveStreamBasicsThumbnailSelectClicked: _v7
-      } = (0, _v13.useLiveStreamBroadcasterTracking)(),
+      } = (0, _v12.useLiveStreamBroadcasterTracking)(),
       _v8 = (0, _v5.useCallback)((_v0, _v1) => {
         _v5({
           status: "error",
           duration: 0,
-          title: (0, _v29.getErrorToastTitle)(_v0, _v1, {
-            403: (0, _v24.translate)({
+          title: (0, _v28.getErrorToastTitle)(_v0, _v1, {
+            403: (0, _v23.translate)({
               singular: "You don't have permission to change this event's thumbnail.",
               dictionary: {
                 es: {
@@ -572,13 +571,13 @@
       _v33 = (0, _v5.useCallback)(_v0 => {
         let _v1 = _v0.target.files?.[0];
         if (_v0.target.value = "", _v1) {
-          if (_v1.size > _v28.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT) return void _v5({
+          if (_v1.size > _v27.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT) return void _v5({
             status: "error",
             duration: 0,
-            title: (0, _v24.translate)({
+            title: (0, _v23.translate)({
               singular: "Your file can’t be uploaded because it exceeds the size limit of {FILE_SIZE_LIMIT}MB",
               replacements: {
-                FILE_SIZE_LIMIT: _v28.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT_MB
+                FILE_SIZE_LIMIT: _v27.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT_MB
               },
               dictionary: {
                 es: {
@@ -609,14 +608,14 @@
         }
       }, [_v5]),
       _v34 = (0, _v5.useCallback)(async _v0 => {
-        if (!_v13.current && !(0 >= (0, _v30.parseThumbnailIdFromUrl)(_v0.uri))) {
+        if (!_v13.current && !(0 >= (0, _v29.parseThumbnailIdFromUrl)(_v0.uri))) {
           _v13.current = !0, _v15(!1), _v11("activate");
           try {
             await _v3(_v0), _v6({
               liveStreamBasicsField: "thumbnail"
             }), _v19(null), await _v27();
           } catch (_v0) {
-            _v8(_v0, (0, _v24.translate)({
+            _v8(_v0, (0, _v23.translate)({
               singular: "Couldn't update the thumbnail. Please try again.",
               dictionary: {
                 es: {
@@ -671,7 +670,7 @@
               active: !0
             }, ...(_v0 ?? []).filter(_v0 => _v0.uri !== _v0.uri)]), await _v27();
           } catch (_v0) {
-            _v8(_v0, (0, _v24.translate)({
+            _v8(_v0, (0, _v23.translate)({
               singular: "Couldn't save the thumbnail. Please try again.",
               dictionary: {
                 es: {
@@ -704,7 +703,7 @@
       }, [_v16, _v2, _v27, _v8, _v6]),
       _v40 = (0, _v5.useCallback)(async () => {
         if (_v13.current) return;
-        let _v0 = (0, _v30.parseThumbnailIdFromUrl)(_v0?.pictures?.uri);
+        let _v0 = (0, _v29.parseThumbnailIdFromUrl)(_v0?.pictures?.uri);
         if (!(_v0 <= 0)) {
           _v13.current = !0, _v11("remove");
           try {
@@ -712,7 +711,7 @@
               liveStreamBasicsField: "thumbnail"
             }), _v19(null), await _v27();
           } catch (_v0) {
-            _v8(_v0, (0, _v24.translate)({
+            _v8(_v0, (0, _v23.translate)({
               singular: "Couldn't remove the thumbnail. Please try again.",
               dictionary: {
                 es: {
@@ -757,12 +756,12 @@
       direction: "column",
       width: "100%",
       marginTop: (0, _v6.rem)(16),
-      children: [(0, _v3.jsx)(_v18.Paragraph, {
+      children: [(0, _v3.jsx)(_v17.Paragraph, {
         size: "md",
         color: "text-primary",
         fontWeight: "bold",
         marginBottom: (0, _v6.rem)(8),
-        children: (0, _v24.translate)({
+        children: (0, _v23.translate)({
           singular: "Thumbnail",
           dictionary: {
             es: {
@@ -788,7 +787,7 @@
             }
           }
         })
-      }), (0, _v3.jsxs)(_v19.Popover, {
+      }), (0, _v3.jsxs)(_v18.Popover, {
         isOpen: _v14 && !_v16,
         onClose: () => _v15(!1),
         placement: "left-start",
@@ -796,7 +795,7 @@
         preventOverflow: !0,
         gutter: 8,
         isLazy: !0,
-        children: [(0, _v3.jsx)(_v20.PopoverAnchor, {
+        children: [(0, _v3.jsx)(_v19.PopoverAnchor, {
           children: _v43 && _v42 ? (0, _v3.jsxs)(_v7.Flex, {
             align: "center",
             gap: (0, _v6.rem)(16),
@@ -807,11 +806,11 @@
             borderWidth: "1px",
             borderStyle: "solid",
             borderColor: "input-stroke",
-            borderRadius: _v56,
+            borderRadius: _v55,
             backgroundColor: "fill-surface",
-            children: [(0, _v3.jsx)(_v17.Image, {
+            children: [(0, _v3.jsx)(_v16.Image, {
               src: _v42.baseLink,
-              alt: (0, _v24.translate)({
+              alt: (0, _v23.translate)({
                 singular: "Event thumbnail",
                 dictionary: {
                   es: {
@@ -837,9 +836,9 @@
                   }
                 }
               }),
-              boxSize: _v55,
+              boxSize: _v54,
               objectFit: "cover",
-              borderRadius: _v57,
+              borderRadius: _v56,
               backgroundColor: "background",
               flexShrink: 0
             }), (0, _v3.jsx)(_v7.Flex, {
@@ -848,23 +847,23 @@
               flex: "1",
               minWidth: 0,
               children: _v18 ? (0, _v3.jsxs)(_v3.Fragment, {
-                children: [(0, _v3.jsx)(_v21.Text, {
+                children: [(0, _v3.jsx)(_v20.Text, {
                   variant: "body-md",
                   fontWeight: "medium",
                   color: "text-primary",
                   noOfLines: 1,
                   children: _v18.name
-                }), (0, _v3.jsx)(_v21.Text, {
+                }), (0, _v3.jsx)(_v20.Text, {
                   variant: "body-sm",
                   color: "text-secondary",
-                  children: (0, _v31.bytesToSize)(_v18.size)
+                  children: (0, _v30.bytesToSize)(_v18.size)
                 })]
               }) : null
             }), (0, _v3.jsxs)(_v7.Flex, {
               align: "center",
               gap: (0, _v6.rem)(8),
-              children: [(0, _v3.jsx)(_v16.IconButton, {
-                "aria-label": (0, _v24.translate)({
+              children: [(0, _v3.jsx)(_v15.IconButton, {
+                "aria-label": (0, _v23.translate)({
                   singular: "Reselect thumbnail",
                   dictionary: {
                     es: {
@@ -890,14 +889,14 @@
                     }
                   }
                 }),
-                icon: (0, _v3.jsx)(_v26.default, {}),
+                icon: (0, _v3.jsx)(_v25.default, {}),
                 variant: "tertiary",
                 size: "sm",
                 borderRadius: (0, _v6.rem)(8),
                 isDisabled: _v12,
                 onClick: _v32
-              }), (0, _v3.jsx)(_v16.IconButton, {
-                "aria-label": (0, _v24.translate)({
+              }), (0, _v3.jsx)(_v15.IconButton, {
+                "aria-label": (0, _v23.translate)({
                   singular: "Remove thumbnail",
                   dictionary: {
                     es: {
@@ -923,7 +922,7 @@
                     }
                   }
                 }),
-                icon: (0, _v3.jsx)(_v25.default, {}),
+                icon: (0, _v3.jsx)(_v24.default, {}),
                 variant: "tertiary",
                 size: "sm",
                 borderRadius: (0, _v6.rem)(8),
@@ -932,7 +931,7 @@
                 onClick: _v40
               })]
             })]
-          }) : (0, _v3.jsxs)(_v15.Box, {
+          }) : (0, _v3.jsxs)(_v14.Box, {
             as: "button",
             type: "button",
             display: "flex",
@@ -945,7 +944,7 @@
             borderWidth: "1px",
             borderStyle: "solid",
             borderColor: "input-stroke",
-            borderRadius: _v56,
+            borderRadius: _v55,
             backgroundColor: "fill-surface",
             cursor: _v12 ? "not-allowed" : "pointer",
             opacity: _v12 ? .6 : 1,
@@ -956,11 +955,11 @@
               position: "relative",
               align: "center",
               justify: "center",
-              boxSize: _v55,
-              borderRadius: _v57,
+              boxSize: _v54,
+              borderRadius: _v56,
               overflow: "hidden",
               flexShrink: 0,
-              children: [(0, _v3.jsx)(_v27.default, {
+              children: [(0, _v3.jsx)(_v26.default, {
                 width: "100%",
                 height: "100%",
                 preserveAspectRatio: "xMidYMid meet",
@@ -968,7 +967,7 @@
                   position: "absolute",
                   inset: 0
                 }
-              }), (0, _v3.jsx)(_v23.Image, {
+              }), (0, _v3.jsx)(_v22.Image, {
                 color: "text-secondary",
                 style: {
                   position: "relative"
@@ -977,11 +976,11 @@
             }), (0, _v3.jsxs)(_v7.Flex, {
               direction: "column",
               gap: (0, _v6.rem)(2),
-              children: [(0, _v3.jsx)(_v21.Text, {
+              children: [(0, _v3.jsx)(_v20.Text, {
                 variant: "body-md",
                 fontWeight: "medium",
                 color: "text-primary",
-                children: (0, _v24.translate)({
+                children: (0, _v23.translate)({
                   singular: "Select thumbnail",
                   dictionary: {
                     es: {
@@ -1007,13 +1006,13 @@
                     }
                   }
                 })
-              }), (0, _v3.jsx)(_v21.Text, {
+              }), (0, _v3.jsx)(_v20.Text, {
                 variant: "body-sm",
                 color: "text-secondary",
-                children: (0, _v24.translate)({
+                children: (0, _v23.translate)({
                   singular: "Max size {FILE_SIZE_LIMIT}MB",
                   replacements: {
-                    FILE_SIZE_LIMIT: _v28.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT_MB
+                    FILE_SIZE_LIMIT: _v27.graphicsConfig.UPLOADS.THUMBNAIL_FILE_UPLOAD_LIMIT_MB
                   },
                   dictionary: {
                     es: {
@@ -1042,7 +1041,7 @@
               })]
             })]
           })
-        }), (0, _v3.jsx)(_v54, {
+        }), (0, _v3.jsx)(_v53, {
           thumbnails: _v22 ?? [],
           activeUri: _v43 ? _v42?.uri : void 0,
           isLoading: _v24,
@@ -1055,7 +1054,7 @@
         accept: "image/png,image/x-png,image/jpeg,.jpg,.jpeg,.png",
         onChange: _v33,
         hidden: !0
-      }), (0, _v3.jsx)(_v44, {
+      }), (0, _v3.jsx)(_v43, {
         file: _v16,
         isSaving: "upload" === _v10,
         onChange: _v36,
@@ -1065,9 +1064,9 @@
       })]
     });
   }
-  var _v59 = _v0.i(0);
+  var _v58 = _v0.i(0);
   _v0.s(["BasicSettings", 0, function ({
-    id: _v0 = (0, _v59.createLiveDomName)("basic-settings")
+    id: _v0 = (0, _v58.createLiveDomName)("basic-settings")
   }) {
     let {
         settings: {
@@ -1079,54 +1078,53 @@
       } = (0, _v4.useManager)(_v11.EventSettingsManager),
       {
         trackLiveStreamBasicsChanged: _v3
-      } = (0, _v13.useLiveStreamBroadcasterTracking)(),
-      _v4 = (0, _v12.useOrionSettingsFields)(["enable_live_event_basics_thumbnail"]),
-      [_v5, _v6] = (0, _v5.useState)(_v1?.title ?? null),
-      [_v7, _v8] = (0, _v5.useState)(_v1?.streamDescription ?? null),
-      [_v9, _v10] = (0, _v5.useState)(!1),
-      [_v11, _v12] = (0, _v5.useState)(!1),
-      [_v13, _v14] = (0, _v5.useState)(!1),
-      [_v15, _v16] = (0, _v5.useState)(!1),
-      [_v17, _v18] = (0, _v5.useState)(0),
-      [_v19, _v20] = (0, _v5.useState)(0);
+      } = (0, _v12.useLiveStreamBroadcasterTracking)(),
+      [_v4, _v5] = (0, _v5.useState)(_v1?.title ?? null),
+      [_v6, _v7] = (0, _v5.useState)(_v1?.streamDescription ?? null),
+      [_v8, _v9] = (0, _v5.useState)(!1),
+      [_v10, _v11] = (0, _v5.useState)(!1),
+      [_v12, _v13] = (0, _v5.useState)(!1),
+      [_v14, _v15] = (0, _v5.useState)(!1),
+      [_v16, _v17] = (0, _v5.useState)(0),
+      [_v18, _v19] = (0, _v5.useState)(0);
     (0, _v5.useEffect)(() => {
-      _v1?.title && _v6(_v1?.title);
+      _v1?.title && _v5(_v1?.title);
     }, [_v1?.title]), (0, _v5.useEffect)(() => {
-      null !== _v5 && _v5 === _v1?.title && _v9 && _v10(!1), null === _v7 && _v1?.streamDescription && _v8(_v1.streamDescription), null !== _v7 && _v7 === _v1?.streamDescription && _v11 && _v12(!1);
-    }, [_v1?.title, _v1?.streamDescription, _v5, _v6, _v7, _v8, _v9, _v11, _v10, _v12]);
-    let _v21 = (0, _v5.useCallback)(_v0 => {
-        _v6(_v0);
-      }, [_v6]),
-      _v22 = (0, _v5.useCallback)(_v0 => {
-        _v8(_v0);
-      }, [_v8]),
+      null !== _v4 && _v4 === _v1?.title && _v8 && _v9(!1), null === _v6 && _v1?.streamDescription && _v7(_v1.streamDescription), null !== _v6 && _v6 === _v1?.streamDescription && _v10 && _v11(!1);
+    }, [_v1?.title, _v1?.streamDescription, _v4, _v5, _v6, _v7, _v8, _v10, _v9, _v11]);
+    let _v20 = (0, _v5.useCallback)(_v0 => {
+        _v5(_v0);
+      }, [_v5]),
+      _v21 = (0, _v5.useCallback)(_v0 => {
+        _v7(_v0);
+      }, [_v7]),
+      _v22 = (0, _v5.useCallback)(() => {
+        _v1?.title && (_v5(_v1.title), _v17(_v0 => _v0 + 1));
+      }, [_v1?.title, _v5]),
       _v23 = (0, _v5.useCallback)(() => {
-        _v1?.title && (_v6(_v1.title), _v18(_v0 => _v0 + 1));
-      }, [_v1?.title, _v6]),
+        _v7(_v1?.streamDescription ?? ""), _v19(_v0 => _v0 + 1);
+      }, [_v1?.streamDescription, _v7]),
       _v24 = (0, _v5.useCallback)(() => {
-        _v8(_v1?.streamDescription ?? ""), _v20(_v0 => _v0 + 1);
-      }, [_v1?.streamDescription, _v8]),
-      _v25 = (0, _v5.useCallback)(() => {
-        let _v0 = _v5 ? _v5.trim() : "";
-        _v0.length > 0 && !_v9 && (_v2({
+        let _v0 = _v4 ? _v4.trim() : "";
+        _v0.length > 0 && !_v8 && (_v2({
           title: _v0,
           ...(_v1?.automaticallyTitleStream ? {} : {
             streamTitle: _v0
           })
-        }), _v10(!0), _v3({
+        }), _v9(!0), _v3({
           liveStreamBasicsField: "title"
-        })), _v6(_v0);
-      }, [_v5, _v2, _v9, _v10, _v6, _v3, _v1?.automaticallyTitleStream]),
-      _v26 = (0, _v5.useCallback)(() => {
-        let _v0 = _v7?.trim() ?? "";
-        _v11 || (_v2({
+        })), _v5(_v0);
+      }, [_v4, _v2, _v8, _v9, _v5, _v3, _v1?.automaticallyTitleStream]),
+      _v25 = (0, _v5.useCallback)(() => {
+        let _v0 = _v6?.trim() ?? "";
+        _v10 || (_v2({
           streamDescription: _v0
-        }), _v12(!0), _v3({
+        }), _v11(!0), _v3({
           liveStreamBasicsField: "description"
-        }), _v8(_v0));
-      }, [_v7, _v2, _v11, _v12, _v3]),
-      _v27 = _v1?.title !== _v5,
-      _v28 = _v1?.streamDescription !== _v7 && ("" !== _v7 || _v1?.streamDescription !== null);
+        }), _v7(_v0));
+      }, [_v6, _v2, _v10, _v11, _v3]),
+      _v26 = _v1?.title !== _v4,
+      _v27 = _v1?.streamDescription !== _v6 && ("" !== _v6 || _v1?.streamDescription !== null);
     return (0, _v3.jsxs)(_v7.Flex, {
       id: _v0,
       direction: "column",
@@ -1137,17 +1135,17 @@
         width: "100%",
         marginBottom: (0, _v6.rem)(16),
         children: (0, _v3.jsx)(_v10.EventTitle, {
-          title: _v5,
+          title: _v4,
           required: !0,
-          onChange: _v21,
-          onSetTitleInvalid: _v14,
-          children: _v27 ? (0, _v3.jsx)(_v14.BasicSettingsControls, {
-            isLoading: _v9,
-            isDisabled: !_v5 || _v13,
-            onCancelClick: _v23,
-            onSaveClick: _v25
+          onChange: _v20,
+          onSetTitleInvalid: _v13,
+          children: _v26 ? (0, _v3.jsx)(_v13.BasicSettingsControls, {
+            isLoading: _v8,
+            isDisabled: !_v4 || _v12,
+            onCancelClick: _v22,
+            onSaveClick: _v24
           }) : null
-        }, _v17)
+        }, _v16)
       }) : (0, _v3.jsx)(_v8.BokehSkeleton, {
         height: (0, _v6.rem)(91),
         borderRadius: (0, _v6.rem)(4),
@@ -1157,33 +1155,33 @@
         width: "100%",
         children: (0, _v3.jsx)(_v9.EventDescription, {
           fieldHeight: (0, _v6.rem)(80),
-          description: _v7,
-          onChange: _v22,
-          onSetDescriptionInvalid: _v16,
-          children: _v28 ? (0, _v3.jsx)(_v14.BasicSettingsControls, {
-            onCancelClick: _v24,
-            onSaveClick: _v26,
-            isLoading: _v11,
-            isDisabled: _v15
+          description: _v6,
+          onChange: _v21,
+          onSetDescriptionInvalid: _v15,
+          children: _v27 ? (0, _v3.jsx)(_v13.BasicSettingsControls, {
+            onCancelClick: _v23,
+            onSaveClick: _v25,
+            isLoading: _v10,
+            isDisabled: _v14
           }) : null
-        }, _v19)
+        }, _v18)
       }) : (0, _v3.jsx)(_v8.BokehSkeleton, {
         borderRadius: (0, _v6.rem)(4),
         height: (0, _v6.rem)(104)
-      }), _v4.enable_live_event_basics_thumbnail ? (0, _v3.jsx)(_v58, {}) : null]
+      }), (0, _v3.jsx)(_v57, {})]
     });
   }], 0);
-  var _v60 = _v0.i(0),
-    _v61 = _v0.i(0);
+  var _v59 = _v0.i(0),
+    _v60 = _v0.i(0);
   _v0.s(["DictionaryIntroLiveEventsAnnouncement", 0, function ({
     children: _v0
   }) {
-    let _v1 = (0, _v61.useSessionOwnerId)();
-    return (0, _v3.jsx)(_v60.AccountDictionaryAnnouncement, {
+    let _v1 = (0, _v60.useSessionOwnerId)();
+    return (0, _v3.jsx)(_v59.AccountDictionaryAnnouncement, {
       surface: "live_events",
       ownerUserId: _v1 > 0 ? _v1 : null,
       placement: "left-start",
-      title: (0, _v24.translate)({
+      title: (0, _v23.translate)({
         singular: "Create your custom dictionary",
         dictionary: {
           es: {
@@ -1209,7 +1207,7 @@
           }
         }
       }),
-      body: (0, _v24.translate)({
+      body: (0, _v23.translate)({
         singular: "Define your brand names, product terms, and acronyms once, and they'll be applied consistently in live captions.",
         dictionary: {
           es: {
@@ -1235,7 +1233,7 @@
           }
         }
       }),
-      acknowledgeLabel: (0, _v24.translate)({
+      acknowledgeLabel: (0, _v23.translate)({
         singular: "Set up dictionary",
         dictionary: {
           es: {
@@ -1270,40 +1268,40 @@
       children: _v0
     });
   }], 0);
-  var _v62 = _v0.i(0),
+  var _v61 = _v0.i(0),
+    _v62 = _v0.i(0),
     _v63 = _v0.i(0),
     _v64 = _v0.i(0),
     _v65 = _v0.i(0),
-    _v66 = _v0.i(0),
-    _v67 = _v0.i(0);
-  let _v68 = [{
+    _v66 = _v0.i(0);
+  let _v67 = [{
     key: "chatMaxMessageLength",
-    label: _v67.translations.chatMaxMessageLength,
+    label: _v66.translations.chatMaxMessageLength,
     min: 1,
     max: 512,
     fallback: 512
   }, {
     key: "chatRateLimitMaxMessages",
-    label: _v67.translations.chatMessagesPerWindow,
+    label: _v66.translations.chatMessagesPerWindow,
     min: 1,
     max: 5,
     fallback: 5
   }, {
     key: "chatRateLimitWindowSeconds",
-    label: _v67.translations.chatRateLimitWindowSeconds,
+    label: _v66.translations.chatRateLimitWindowSeconds,
     min: 10,
     max: 0,
     fallback: 10
   }, {
     key: "chatRateLimitCooldownSeconds",
-    label: _v67.translations.chatCooldownSeconds,
+    label: _v66.translations.chatCooldownSeconds,
     min: 30,
     max: 0,
     fallback: 30
   }];
   _v0.s(["EngagementSettings", 0, function ({
-    id: _v0 = (0, _v66.createDomName)("engagement-settings"),
-    className: _v1 = (0, _v66.createDomName)("engagement-settings")
+    id: _v0 = (0, _v65.createDomName)("engagement-settings"),
+    className: _v1 = (0, _v65.createDomName)("engagement-settings")
   }) {
     var _v2;
     let _v3,
@@ -1317,7 +1315,7 @@
       } = (0, _v4.useManager)(_v11.EventSettingsManager),
       [_v6, _v7] = (0, _v5.useState)({}),
       _v8 = {
-        ...(_v2 = _v4?.interactionToolsSettings, _v3 = {}, _v68.forEach(({
+        ...(_v2 = _v4?.interactionToolsSettings, _v3 = {}, _v67.forEach(({
           key: _v0,
           fallback: _v1
         }) => {
@@ -1331,22 +1329,22 @@
       direction: "column",
       gap: (0, _v6.rem)(16),
       width: "100%",
-      children: _v68.map(_v0 => {
+      children: _v67.map(_v0 => {
         let _v1 = Number(_v8[_v0.key]),
           _v2 = !Number.isFinite(_v1) || _v1 < _v0.min || _v1 > _v0.max;
-        return (0, _v3.jsxs)(_v62.FormControl, {
+        return (0, _v3.jsxs)(_v61.FormControl, {
           isInvalid: _v2,
-          children: [(0, _v3.jsx)(_v64.FormLabel, {
+          children: [(0, _v3.jsx)(_v63.FormLabel, {
             color: "text-primary",
             fontWeight: "bold",
             role: "heading",
-            children: (0, _v3.jsx)(_v18.Paragraph, {
+            children: (0, _v3.jsx)(_v17.Paragraph, {
               size: "md",
               color: "text-primary",
               fontWeight: "bold",
               children: _v0.label
             })
-          }), (0, _v3.jsx)(_v65.Input, {
+          }), (0, _v3.jsx)(_v64.Input, {
             type: "number",
             inputMode: "numeric",
             size: "sm",
@@ -1373,8 +1371,8 @@
                 }
               }, ["interactionToolsSettings"]));
             }
-          }), _v2 ? (0, _v3.jsx)(_v63.FormErrorMessage, {
-            children: (0, _v24.translate)({
+          }), _v2 ? (0, _v3.jsx)(_v62.FormErrorMessage, {
+            children: (0, _v23.translate)({
               singular: "Value must be between {MIN} and {MAX}",
               replacements: {
                 MIN: () => String(_v0.min),
@@ -1412,10 +1410,10 @@
       height: (0, _v6.rem)(180)
     });
   }], 0);
-  var _v69 = _v0.i(0),
-    _v70 = _v0.i(0),
-    _v71 = _v0.i(0);
-  function _v72({
+  var _v68 = _v0.i(0),
+    _v69 = _v0.i(0),
+    _v70 = _v0.i(0);
+  function _v71({
     id: _v0,
     className: _v1,
     level: _v2,
@@ -1428,11 +1426,11 @@
       _v8 = _v7 ? Math.round(_v2 / 100 * 16) : 0,
       _v9 = (0, _v5.useMemo)(() => Array.from({
         length: 16
-      }, (_v0, _v1) => (0, _v3.jsx)(_v15.Box, {
+      }, (_v0, _v1) => (0, _v3.jsx)(_v14.Box, {
         flex: "1",
         height: (0, _v6.rem)(8),
         borderRadius: (0, _v6.rem)(2),
-        background: _v1 >= _v8 ? _v71.INACTIVE_METER_COLOR : _v1 < 8 ? _v71.CONNECTED_STATUS_COLOR : _v1 < 12 ? _v71.CAUTION_STATUS_COLOR : _v71.FAILED_STATUS_COLOR,
+        background: _v1 >= _v8 ? _v70.INACTIVE_METER_COLOR : _v1 < 8 ? _v70.CONNECTED_STATUS_COLOR : _v1 < 12 ? _v70.CAUTION_STATUS_COLOR : _v70.FAILED_STATUS_COLOR,
         transition: "background 0.08s linear"
       }, `segment-${_v1}`)), [_v8]);
     return (0, _v3.jsxs)(_v7.Flex, {
@@ -1441,12 +1439,12 @@
       align: "center",
       gap: (0, _v6.rem)(12),
       paddingY: (0, _v6.rem)(8),
-      children: [_v7 ? (0, _v3.jsx)(_v70.MicOn, {
+      children: [_v7 ? (0, _v3.jsx)(_v69.MicOn, {
         boxSize: 20
-      }) : (0, _v3.jsx)(_v69.MicOff, {
+      }) : (0, _v3.jsx)(_v68.MicOff, {
         boxSize: 20,
-        color: _v71.FAILED_STATUS_COLOR
-      }), void 0 === _v5 ? null : (0, _v3.jsx)(_v21.Text, {
+        color: _v70.FAILED_STATUS_COLOR
+      }), void 0 === _v5 ? null : (0, _v3.jsx)(_v20.Text, {
         variant: "body-md",
         children: _v5
       }), (0, _v3.jsx)(_v7.Flex, {
@@ -1462,10 +1460,10 @@
       })]
     });
   }
-  _v0.s(["AudioLevelMeter", 0, _v72], 0);
-  var _v73 = _v0.i(0),
-    _v74 = _v0.i(0);
-  function _v75(_v0, _v1, _v2 = 15) {
+  _v0.s(["AudioLevelMeter", 0, _v71], 0);
+  var _v72 = _v0.i(0),
+    _v73 = _v0.i(0);
+  function _v74(_v0, _v1, _v2 = 15) {
     let [_v3, _v4] = (0, _v5.useState)(0),
       _v5 = (0, _v5.useRef)(0),
       _v6 = (0, _v5.useRef)(_v2);
@@ -1477,7 +1475,7 @@
     (0, _v5.useEffect)(() => {
       if (!_v7) return;
       let _v0 = function (_v0, _v1) {
-        if (!_v74.browserConfig.FEATURE.CAN_USE_AUDIO_CONTEXT) return {
+        if (!_v73.browserConfig.FEATURE.CAN_USE_AUDIO_CONTEXT) return {
           stop: () => void 0
         };
         let _v2 = new AudioContext(),
@@ -1530,45 +1528,45 @@
       hasTrack: _v9
     };
   }
-  function _v76(_v0 = 15) {
+  function _v75(_v0 = 15) {
     let {
       audio: _v1
-    } = (0, _v4.useManager)(_v73.LocalMediaManager);
-    return _v75(_v1.track, _v1.isMuted, _v0);
+    } = (0, _v4.useManager)(_v72.LocalMediaManager);
+    return _v74(_v1.track, _v1.isMuted, _v0);
   }
-  _v0.s(["useAudioLevel", 0, _v75, "useHostAudioLevel", 0, _v76], 0), _v0.s(["HostAudioSettings", 0, function ({
-    id: _v0 = (0, _v66.createDomName)("host-audio-settings"),
-    className: _v1 = (0, _v66.createDomName)("host-audio-settings")
+  _v0.s(["useAudioLevel", 0, _v74, "useHostAudioLevel", 0, _v75], 0), _v0.s(["HostAudioSettings", 0, function ({
+    id: _v0 = (0, _v65.createDomName)("host-audio-settings"),
+    className: _v1 = (0, _v65.createDomName)("host-audio-settings")
   }) {
     let {
       level: _v2,
       isMuted: _v3,
       hasTrack: _v4
-    } = _v76();
-    return (0, _v3.jsx)(_v72, {
+    } = _v75();
+    return (0, _v3.jsx)(_v71, {
       id: _v0,
       className: _v1,
       level: _v2,
       isMuted: _v3,
       hasTrack: _v4,
-      label: _v67.translations.host,
-      meterLabel: _v67.translations.microphoneLevel
+      label: _v66.translations.host,
+      meterLabel: _v66.translations.microphoneLevel
     });
   }], 0);
-  var _v77 = _v0.i(0),
+  var _v76 = _v0.i(0),
+    _v77 = _v0.i(0),
     _v78 = _v0.i(0),
     _v79 = _v0.i(0),
     _v80 = _v0.i(0),
     _v81 = _v0.i(0),
     _v82 = _v0.i(0),
-    _v83 = _v0.i(0),
-    _v84 = _v0.i(0);
-  let _v85 = {
+    _v83 = _v0.i(0);
+  let _v84 = {
       showLatestArchivedClip: "show_latest_archived_clip",
       eventSchedule: "event_schedule",
       schedule: "schedule"
     },
-    _v86 = 0;
+    _v85 = 0;
   _v0.s(["PlayerSettings", 0, function () {
     let {
         settings: {
@@ -1584,27 +1582,27 @@
           value: _v3,
           isLoading: _v4
         }
-      } = (0, _v4.useManager)(_v80.ComposerSessionManager),
+      } = (0, _v4.useManager)(_v79.ComposerSessionManager),
       {
         scheduledStartTime: _v5
-      } = (0, _v4.useManager)(_v81.ComposerSessionStatusManager),
+      } = (0, _v4.useManager)(_v80.ComposerSessionStatusManager),
       {
         trackLiveStreamDestinationActionClicked: _v6
-      } = (0, _v13.useLiveStreamBroadcasterTracking)(),
+      } = (0, _v12.useLiveStreamBroadcasterTracking)(),
       {
         trackSingleEventCustomizationPlayerSettingToggled: _v7
-      } = (0, _v84.useSingleEventCustomizationTracking)(),
+      } = (0, _v83.useSingleEventCustomizationTracking)(),
       [_v8, _v9] = (0, _v5.useState)({}),
-      _v10 = (0, _v22.useToast)(),
+      _v10 = (0, _v21.useToast)(),
       _v11 = _v3?.appearanceLink?.uri,
       _v12 = !!_v11,
-      _v13 = (0, _v83.getThumbnail)(_v3?.thumbnail.sizes),
+      _v13 = (0, _v82.getThumbnail)(_v3?.thumbnail.sizes),
       _v14 = _v0?.embed,
-      _v15 = _v0?.status === _v82.ENTITY_STATUS.ENDED,
+      _v15 = _v0?.status === _v81.ENTITY_STATUS.ENDED,
       _v16 = [{
         key: "showLatestArchivedClip",
         switchId: "player-settings-show-latest-recording",
-        label: (0, _v24.translate)({
+        label: (0, _v23.translate)({
           singular: "Show latest recording",
           dictionary: {
             es: {
@@ -1630,7 +1628,7 @@
             }
           }
         }),
-        tip: (0, _v24.translate)({
+        tip: (0, _v23.translate)({
           singular: "Play the most recent recording while viewers wait for the event to start.",
           dictionary: {
             es: {
@@ -1659,7 +1657,7 @@
       }, {
         key: "eventSchedule",
         switchId: "player-settings-show-event-date-time",
-        label: (0, _v24.translate)({
+        label: (0, _v23.translate)({
           singular: "Show event date & time",
           dictionary: {
             es: {
@@ -1685,7 +1683,7 @@
             }
           }
         }),
-        tip: (0, _v24.translate)({
+        tip: (0, _v23.translate)({
           singular: "Display this event's start date and time before it goes live.",
           dictionary: {
             es: {
@@ -1714,7 +1712,7 @@
       }, {
         key: "schedule",
         switchId: "player-settings-show-recurring-schedule",
-        label: (0, _v24.translate)({
+        label: (0, _v23.translate)({
           singular: "Show recurring schedule",
           dictionary: {
             es: {
@@ -1740,7 +1738,7 @@
             }
           }
         }),
-        tip: (0, _v24.translate)({
+        tip: (0, _v23.translate)({
           singular: "Display the repeat schedule for recurring events.",
           dictionary: {
             es: {
@@ -1777,10 +1775,10 @@
         children: [(0, _v3.jsxs)(_v7.Flex, {
           direction: "column",
           gap: "sm",
-          children: [(0, _v3.jsx)(_v21.Text, {
+          children: [(0, _v3.jsx)(_v20.Text, {
             variant: "heading-xs",
             color: "text-tertiary",
-            children: _v67.translations.preview
+            children: _v66.translations.preview
           }), (0, _v3.jsx)(_v7.Flex, {
             justifyContent: "center",
             alignItems: "center",
@@ -1800,28 +1798,28 @@
               height: "100%",
               background: "rgba(0, 0, 0, 0.64)",
               children: null != _v5 && "" !== _v5 ? (0, _v3.jsxs)(_v3.Fragment, {
-                children: [(0, _v3.jsx)(_v18.Paragraph, {
+                children: [(0, _v3.jsx)(_v17.Paragraph, {
                   color: "white",
                   size: "md",
-                  children: _v67.translations.thisEventIsScheduledFor
-                }), (0, _v3.jsx)(_v77.Header, {
+                  children: _v66.translations.thisEventIsScheduledFor
+                }), (0, _v3.jsx)(_v76.Header, {
                   color: "white",
                   size: "md",
-                  children: new Date(_v5).toLocaleString((0, _v24.getCurrentLocale)(), {
+                  children: new Date(_v5).toLocaleString((0, _v23.getCurrentLocale)(), {
                     month: "long",
                     day: "numeric",
                     hour: "numeric",
                     minute: "numeric"
                   })
                 })]
-              }) : (0, _v3.jsx)(_v18.Paragraph, {
+              }) : (0, _v3.jsx)(_v17.Paragraph, {
                 color: "white",
                 size: "md",
-                children: _v67.translations.thisEventHasNotStartedYet
+                children: _v66.translations.thisEventHasNotStartedYet
               })
             })
           })]
-        }), (0, _v3.jsx)(_v34.Button, {
+        }), (0, _v3.jsx)(_v33.Button, {
           as: "a",
           href: _v11 ?? void 0,
           isDisabled: !_v12,
@@ -1835,7 +1833,7 @@
               liveStreamDestinationAction: "customize"
             });
           },
-          children: (0, _v24.translate)({
+          children: (0, _v23.translate)({
             singular: "Customize appearance",
             dictionary: {
               es: {
@@ -1865,10 +1863,10 @@
       }), (0, _v3.jsxs)(_v7.Flex, {
         direction: "column",
         gap: "xs",
-        children: [(0, _v3.jsx)(_v21.Text, {
+        children: [(0, _v3.jsx)(_v20.Text, {
           variant: "heading-xs",
           color: "text-tertiary",
-          children: (0, _v24.translate)({
+          children: (0, _v23.translate)({
             singular: "Preferences",
             dictionary: {
               es: {
@@ -1899,8 +1897,8 @@
           switchId: _v1,
           label: _v2,
           tip: _v3
-        }) => (0, _v3.jsx)(_v62.FormControl, {
-          children: (0, _v3.jsxs)(_v64.FormLabel, {
+        }) => (0, _v3.jsx)(_v61.FormControl, {
+          children: (0, _v3.jsxs)(_v63.FormLabel, {
             alignItems: "center",
             cursor: _v15 ? "not-allowed" : "pointer",
             display: "flex",
@@ -1911,22 +1909,22 @@
             children: [(0, _v3.jsxs)(_v7.Flex, {
               align: "center",
               gap: "xs",
-              children: [(0, _v3.jsx)(_v21.Text, {
+              children: [(0, _v3.jsx)(_v20.Text, {
                 variant: "heading-xs",
                 children: _v2
-              }), (0, _v3.jsx)(_v79.CircleTip, {
+              }), (0, _v3.jsx)(_v78.CircleTip, {
                 as: "span",
                 label: _v3,
                 placement: "left"
               })]
-            }), (0, _v3.jsx)(_v78.Switch, {
+            }), (0, _v3.jsx)(_v77.Switch, {
               id: _v1,
               isChecked: _v8[_v0]?.value ?? !!_v14[_v0],
               isDisabled: _v15,
               onChange: _v0 => {
                 var _v1;
                 let _v2, _v3;
-                return _v1 = _v0.currentTarget.checked, _v2 = ++_v86, _v3 = () => _v9(_v0 => _v0[_v0]?.requestId === _v2 ? {
+                return _v1 = _v0.currentTarget.checked, _v2 = ++_v85, _v3 = () => _v9(_v0 => _v0[_v0]?.requestId === _v2 ? {
                   ..._v0,
                   [_v0]: void 0
                 } : _v0), void (_v9(_v0 => ({
@@ -1941,12 +1939,12 @@
                   }
                 }, _v11.EventSettingsManager.EVENT_PLAYER_FIELDS).then(() => {
                   _v3(), _v7({
-                    playerSetting: _v85[_v0],
+                    playerSetting: _v84[_v0],
                     newStatus: _v1
                   }), _v10({
                     status: "success",
                     duration: 0,
-                    title: _v1 ? (0, _v24.translate)({
+                    title: _v1 ? (0, _v23.translate)({
                       singular: "{feature} enabled",
                       replacements: {
                         feature: _v2
@@ -1974,7 +1972,7 @@
                           singular: "{feature} 已启用"
                         }
                       }
-                    }) : (0, _v24.translate)({
+                    }) : (0, _v23.translate)({
                       singular: "{feature} disabled",
                       replacements: {
                         feature: _v2
@@ -2007,7 +2005,7 @@
                 }).catch(_v0 => (_v10({
                   status: "error",
                   duration: 0,
-                  title: (0, _v29.getErrorToastTitle)(_v0, (0, _v24.translate)({
+                  title: (0, _v28.getErrorToastTitle)(_v0, (0, _v23.translate)({
                     singular: "Something went wrong updating your player settings. Try again.",
                     dictionary: {
                       es: {
@@ -2047,13 +2045,13 @@
       })]
     });
   }], 0);
-  var _v87 = _v0.i(0),
+  var _v86 = _v0.i(0),
+    _v87 = _v0.i(0),
     _v88 = _v0.i(0),
     _v89 = _v0.i(0),
     _v90 = _v0.i(0),
-    _v91 = _v0.i(0),
-    _v92 = _v0.i(0);
-  function _v93({
+    _v91 = _v0.i(0);
+  function _v92({
     id: _v0,
     label: _v1,
     tooltip: _v2,
@@ -2066,7 +2064,7 @@
       _v8 = (0, _v5.useCallback)(_v0 => {
         _v0.stopPropagation();
       }, []);
-    return (0, _v3.jsxs)(_v64.FormLabel, {
+    return (0, _v3.jsxs)(_v63.FormLabel, {
       htmlFor: _v6,
       display: "flex",
       alignItems: "center",
@@ -2077,11 +2075,11 @@
       children: [(0, _v3.jsxs)(_v7.Flex, {
         alignItems: "center",
         gap: (0, _v6.rem)(8),
-        children: [(0, _v3.jsx)(_v21.Text, {
+        children: [(0, _v3.jsx)(_v20.Text, {
           variant: "body-md",
           color: _v7 ? "text-tertiary" : "text-primary",
           children: _v1
-        }), (0, _v3.jsx)(_v92.BokehTooltip, {
+        }), (0, _v3.jsx)(_v91.BokehTooltip, {
           label: _v2,
           placement: "bottom",
           maxWidth: (0, _v6.rem)(300),
@@ -2091,13 +2089,13 @@
             width: (0, _v6.rem)(16),
             cursor: "pointer",
             onClick: _v8,
-            children: (0, _v3.jsx)(_v91.InfoCircle, {
+            children: (0, _v3.jsx)(_v90.InfoCircle, {
               boxSize: (0, _v6.rem)(16),
               color: "text-tertiary"
             })
           })
         })]
-      }), (0, _v3.jsx)(_v78.Switch, {
+      }), (0, _v3.jsx)(_v77.Switch, {
         id: _v6,
         size: "sm",
         isChecked: _v3,
@@ -2106,7 +2104,7 @@
       })]
     });
   }
-  function _v94({
+  function _v93({
     canUsePersonalizedViewerWatermarking: _v0,
     canUseForensicWatermarking: _v1,
     isPersonalizedViewerWatermarkingEnabled: _v2,
@@ -2127,10 +2125,10 @@
         children: [(0, _v3.jsxs)(_v7.Flex, {
           alignItems: "center",
           gap: (0, _v6.rem)(8),
-          children: [(0, _v3.jsx)(_v21.Text, {
+          children: [(0, _v3.jsx)(_v20.Text, {
             variant: "heading-xs",
             color: "text-primary",
-            children: (0, _v24.translate)({
+            children: (0, _v23.translate)({
               singular: "Content protection",
               dictionary: {
                 es: {
@@ -2156,13 +2154,13 @@
                 }
               }
             })
-          }), (0, _v3.jsx)(_v90.Badge, {
+          }), (0, _v3.jsx)(_v89.Badge, {
             variant: "new",
             size: "xs",
             height: (0, _v6.rem)(14),
             lineHeight: 1.2,
             py: 0,
-            children: (0, _v24.translate)({
+            children: (0, _v23.translate)({
               singular: "New",
               dictionary: {
                 es: {
@@ -2189,10 +2187,10 @@
               }
             })
           })]
-        }), (0, _v3.jsx)(_v21.Text, {
+        }), (0, _v3.jsx)(_v20.Text, {
           variant: "body-sm",
           color: "text-secondary",
-          children: (0, _v24.translate)({
+          children: (0, _v23.translate)({
             singular: "Protect your live event from unauthorized sharing. Protection won't apply to event recordings.",
             dictionary: {
               es: {
@@ -2222,9 +2220,9 @@
       }), (0, _v3.jsxs)(_v7.Flex, {
         direction: "column",
         gap: (0, _v6.rem)(12),
-        children: [_v0 ? (0, _v3.jsx)(_v93, {
+        children: [_v0 ? (0, _v3.jsx)(_v92, {
           id: "viewer-watermarking",
-          label: (0, _v24.translate)({
+          label: (0, _v23.translate)({
             singular: "Viewer watermarking",
             dictionary: {
               es: {
@@ -2250,7 +2248,7 @@
               }
             }
           }),
-          tooltip: (0, _v24.translate)({
+          tooltip: (0, _v23.translate)({
             singular: "Display viewer-specific information on the video to discourage unauthorized sharing and recordings.",
             dictionary: {
               es: {
@@ -2279,9 +2277,9 @@
           isChecked: _v4,
           isEnabled: _v2,
           onChange: _v6
-        }) : null, _v1 ? (0, _v3.jsx)(_v93, {
+        }) : null, _v1 ? (0, _v3.jsx)(_v92, {
           id: "forensic-watermarking",
-          label: (0, _v24.translate)({
+          label: (0, _v23.translate)({
             singular: "Forensic watermarking",
             dictionary: {
               es: {
@@ -2307,7 +2305,7 @@
               }
             }
           }),
-          tooltip: (0, _v24.translate)({
+          tooltip: (0, _v23.translate)({
             singular: "Embed an invisible watermark in the video and audio to help trace unauthorized recordings back to a viewer.",
             dictionary: {
               es: {
@@ -2340,42 +2338,42 @@
       })]
     });
   }
-  var _v95 = _v0.i(0),
-    _v96 = _v0.i(0),
-    _v97 = _v0.i(0);
-  function _v98({
+  var _v94 = _v0.i(0),
+    _v95 = _v0.i(0),
+    _v96 = _v0.i(0);
+  function _v97({
     contentRating: _v0,
     isDisabled: _v1 = !1,
     onChange: _v2
   }) {
     let _v3 = (0, _v5.useMemo)(() => {
-        let _v0 = _v97.GeneralContentRatingVariants.Unrated;
-        return _v0.some(_v0 => _v97.MatureContentRatingArray.includes(_v0)) && (_v0 = _v97.GeneralContentRatingVariants.Mature), _v0.includes(_v97.GeneralContentRatingVariants.Safe) && (_v0 = _v97.GeneralContentRatingVariants.Safe), _v97.ContentRatingOptions.find(_v0 => _v0.value === _v0);
+        let _v0 = _v96.GeneralContentRatingVariants.Unrated;
+        return _v0.some(_v0 => _v96.MatureContentRatingArray.includes(_v0)) && (_v0 = _v96.GeneralContentRatingVariants.Mature), _v0.includes(_v96.GeneralContentRatingVariants.Safe) && (_v0 = _v96.GeneralContentRatingVariants.Safe), _v96.ContentRatingOptions.find(_v0 => _v0.value === _v0);
       }, [_v0]),
-      _v4 = (0, _v5.useMemo)(() => _v0.includes(_v97.EventContentRating.Advertisement), [_v0]),
+      _v4 = (0, _v5.useMemo)(() => _v0.includes(_v96.EventContentRating.Advertisement), [_v0]),
       _v5 = (0, _v5.useCallback)(_v0 => {
-        let _v1 = _v4 ? [_v97.EventContentRating.Advertisement] : [];
-        _v0 === _v97.GeneralContentRatingVariants.Safe ? _v1.push(_v97.EventContentRating.Safe) : _v0 === _v97.GeneralContentRatingVariants.Mature ? _v1 = [..._v1, ..._v97.MatureContentRatingArray] : _v1.push(_v97.EventContentRating.Unrated), _v2(_v1);
+        let _v1 = _v4 ? [_v96.EventContentRating.Advertisement] : [];
+        _v0 === _v96.GeneralContentRatingVariants.Safe ? _v1.push(_v96.EventContentRating.Safe) : _v0 === _v96.GeneralContentRatingVariants.Mature ? _v1 = [..._v1, ..._v96.MatureContentRatingArray] : _v1.push(_v96.EventContentRating.Unrated), _v2(_v1);
       }, [_v4, _v2]),
       _v6 = (0, _v5.useCallback)(_v0 => {
         let _v1 = [..._v0],
           _v2 = _v1.indexOf(_v0);
-        _v2 > -1 ? _v1.splice(_v2, 1) : _v1.push(_v0), _v1.length === +!!_v4 && _v1.push(_v97.EventContentRating.Safe), _v2(_v1);
+        _v2 > -1 ? _v1.splice(_v2, 1) : _v1.push(_v0), _v1.length === +!!_v4 && _v1.push(_v96.EventContentRating.Safe), _v2(_v1);
       }, [_v0, _v4, _v2]),
       _v7 = (0, _v5.useCallback)(() => {
         let _v0 = [..._v0],
-          _v1 = _v0.indexOf(_v97.EventContentRating.Advertisement);
-        _v1 > -1 ? _v0.splice(_v1, 1) : _v0.push(_v97.EventContentRating.Advertisement), _v2(_v0);
+          _v1 = _v0.indexOf(_v96.EventContentRating.Advertisement);
+        _v1 > -1 ? _v0.splice(_v1, 1) : _v0.push(_v96.EventContentRating.Advertisement), _v2(_v0);
       }, [_v0, _v2]);
     return (0, _v3.jsxs)(_v7.Flex, {
       position: "relative",
       direction: "column",
       "data-testid": "event-content-rating",
-      children: [(0, _v3.jsx)(_v77.Header, {
+      children: [(0, _v3.jsx)(_v76.Header, {
         size: "xs",
         marginBottom: (0, _v6.rem)(8),
         color: "text-primary",
-        children: (0, _v24.translate)({
+        children: (0, _v23.translate)({
           singular: "Select content rating",
           dictionary: {
             es: {
@@ -2401,14 +2399,14 @@
             }
           }
         })
-      }), (0, _v3.jsx)(_v18.Paragraph, {
+      }), (0, _v3.jsx)(_v17.Paragraph, {
         size: "sm",
         color: "text-secondary",
         marginBottom: (0, _v6.rem)(12),
-        children: (0, _v24.translate)({
+        children: (0, _v23.translate)({
           singular: "Content ratings are required. They help keep Vimeo safe and ensure your intended audience can view your video. {A}Learn more{/A}",
           replacements: {
-            A: _v0 => (0, _v3.jsx)(_v21.Text, {
+            A: _v0 => (0, _v3.jsx)(_v20.Text, {
               variant: "body-xl",
               color: "blue.500",
               cursor: "pointer",
@@ -2444,10 +2442,10 @@
             }
           }
         })
-      }), (0, _v3.jsx)(_v96.Select, {
+      }), (0, _v3.jsx)(_v95.Select, {
         onValueChange: _v0 => _v5(_v0.value[0]),
-        items: _v97.ContentRatingOptions.filter(_v0 => _v0.visible),
-        placeholder: (0, _v24.translate)({
+        items: _v96.ContentRatingOptions.filter(_v0 => _v0.visible),
+        placeholder: (0, _v23.translate)({
           singular: "Select rating",
           dictionary: {
             es: {
@@ -2476,18 +2474,18 @@
         size: "sm",
         variant: "withCheck",
         value: [_v3.value]
-      }), _v3.value === _v97.GeneralContentRatingVariants.Mature ? (0, _v3.jsxs)(_v7.Flex, {
+      }), _v3.value === _v96.GeneralContentRatingVariants.Mature ? (0, _v3.jsxs)(_v7.Flex, {
         direction: "column",
         paddingTop: (0, _v6.rem)(18),
         paddingBottom: (0, _v6.rem)(20),
         gap: (0, _v6.rem)(16),
         borderBottom: "1px solid",
         borderColor: "stroke",
-        children: [(0, _v3.jsx)(_v18.Paragraph, {
+        children: [(0, _v3.jsx)(_v17.Paragraph, {
           size: "sm",
           color: "text-secondary",
           background: "transparent",
-          children: (0, _v24.translate)({
+          children: (0, _v23.translate)({
             singular: "Select one or more of the following:",
             dictionary: {
               es: {
@@ -2513,14 +2511,14 @@
               }
             }
           })
-        }), _v97.MatureContentRatingOptions.map(_v0 => (0, _v3.jsx)(_v95.Checkbox, {
+        }), _v96.MatureContentRatingOptions.map(_v0 => (0, _v3.jsx)(_v94.Checkbox, {
           isDisabled: _v1,
           onChange: () => _v6(_v0.value),
           isChecked: _v0.includes(_v0.value),
           name: _v0.value,
           id: `${_v0.value}-checkbox`,
           value: _v0.value,
-          children: (0, _v3.jsx)(_v21.Text, {
+          children: (0, _v3.jsx)(_v20.Text, {
             variant: "body-xl",
             fontSize: (0, _v6.rem)(14),
             color: "text-primary",
@@ -2529,18 +2527,18 @@
         }, `${_v0.value}-checkbox`))]
       }) : null, (0, _v3.jsxs)(_v7.Flex, {
         direction: "column",
-        children: [(0, _v3.jsx)(_v95.Checkbox, {
+        children: [(0, _v3.jsx)(_v94.Checkbox, {
           isDisabled: _v1,
           name: "ads",
           margin: `${(0, _v6.rem)(8)} 0`,
-          value: _v97.EventContentRating.Advertisement,
+          value: _v96.EventContentRating.Advertisement,
           isChecked: _v4,
           onChange: _v7,
-          children: (0, _v3.jsx)(_v21.Text, {
+          children: (0, _v3.jsx)(_v20.Text, {
             variant: "body-xl",
             fontSize: (0, _v6.rem)(12),
             color: "text-primary",
-            children: (0, _v24.translate)({
+            children: (0, _v23.translate)({
               singular: "This video contains an advertisement",
               dictionary: {
                 es: {
@@ -2567,9 +2565,9 @@
               }
             })
           })
-        }), _v4 ? null : (0, _v3.jsx)(_v88.Alert, {
-          children: (0, _v3.jsx)(_v89.AlertDescription, {
-            children: (0, _v24.translate)({
+        }), _v4 ? null : (0, _v3.jsx)(_v87.Alert, {
+          children: (0, _v3.jsx)(_v88.AlertDescription, {
+            children: (0, _v23.translate)({
               singular: "If this video contains advertisements, you are required to indicate so",
               dictionary: {
                 es: {
@@ -2600,18 +2598,18 @@
       })]
     });
   }
-  var _v99 = _v0.i(0),
+  var _v98 = _v0.i(0),
+    _v99 = _v0.i(0),
     _v100 = _v0.i(0),
     _v101 = _v0.i(0),
-    _v102 = _v0.i(0),
-    _v103 = _v0.i(0);
-  let _v104 = {
+    _v102 = _v0.i(0);
+  let _v103 = {
       EMBED_PRIVACY_NOWHERE: "private",
       EMBED_PRIVACY_ANYWHERE: "public",
       EMBED_PRIVACY_SPECIFIC_DOMAINS: "whitelist"
     },
-    _v105 = {
-      [_v104.EMBED_PRIVACY_NOWHERE]: (0, _v24.translate)({
+    _v104 = {
+      [_v103.EMBED_PRIVACY_NOWHERE]: (0, _v23.translate)({
         singular: "Nowhere",
         dictionary: {
           es: {
@@ -2637,7 +2635,7 @@
           }
         }
       }),
-      [_v104.EMBED_PRIVACY_ANYWHERE]: (0, _v24.translate)({
+      [_v103.EMBED_PRIVACY_ANYWHERE]: (0, _v23.translate)({
         singular: "Anywhere",
         dictionary: {
           es: {
@@ -2663,7 +2661,7 @@
           }
         }
       }),
-      [_v104.EMBED_PRIVACY_SPECIFIC_DOMAINS]: (0, _v24.translate)({
+      [_v103.EMBED_PRIVACY_SPECIFIC_DOMAINS]: (0, _v23.translate)({
         singular: "Specific domains",
         dictionary: {
           es: {
@@ -2690,7 +2688,7 @@
         }
       })
     };
-  function _v106({
+  function _v105({
     embedPrivacy: _v0,
     domains: _v1,
     showNotice: _v2 = !1,
@@ -2715,11 +2713,11 @@
           _v2 = _v1.indexOf(_v0);
         _v1.splice(_v2, 1), _v7(_v0, _v1);
       }, [_v1, _v0, _v7]),
-      _v17 = (0, _v5.useMemo)(() => Object.values(_v104).map(_v0 => ({
-        label: _v105[_v0],
+      _v17 = (0, _v5.useMemo)(() => Object.values(_v103).map(_v0 => ({
+        label: _v104[_v0],
         value: _v0
       })), []);
-    return (0, _v102.useOutsideClick)({
+    return (0, _v101.useOutsideClick)({
       enabled: _v10,
       ref: _v12,
       handler: () => {
@@ -2740,11 +2738,11 @@
           flexShrink: 0,
           alignItems: "center",
           gap: (0, _v6.rem)(4),
-          children: [(0, _v3.jsx)(_v77.Header, {
+          children: [(0, _v3.jsx)(_v76.Header, {
             size: "xs",
             color: "text-primary",
             letterSpacing: "-0.03em",
-            children: (0, _v24.translate)({
+            children: (0, _v23.translate)({
               singular: "Embed privacy",
               dictionary: {
                 es: {
@@ -2770,8 +2768,8 @@
                 }
               }
             })
-          }), (0, _v3.jsx)(_v92.BokehTooltip, {
-            label: _v5 && _v6 ? _v6 : (0, _v24.translate)({
+          }), (0, _v3.jsx)(_v91.BokehTooltip, {
+            label: _v5 && _v6 ? _v6 : (0, _v23.translate)({
               singular: "Where can the video be embedded?",
               dictionary: {
                 es: {
@@ -2803,21 +2801,21 @@
               height: (0, _v6.rem)(16),
               width: (0, _v6.rem)(16),
               cursor: "pointer",
-              children: (0, _v3.jsx)(_v91.InfoCircle, {
+              children: (0, _v3.jsx)(_v90.InfoCircle, {
                 boxSize: (0, _v6.rem)(16),
                 color: "text-tertiary"
               })
             })
           })]
-        }), (0, _v3.jsxs)(_v15.Box, {
+        }), (0, _v3.jsxs)(_v14.Box, {
           width: "100%",
-          children: [(0, _v3.jsx)(_v15.Box, {
+          children: [(0, _v3.jsx)(_v14.Box, {
             position: "relative",
-            children: (0, _v3.jsx)(_v96.Select, {
+            children: (0, _v3.jsx)(_v95.Select, {
               onValueChange: _v0 => _v14(_v0.value[0]),
               items: _v17,
               withPortal: !1,
-              placeholder: (0, _v24.translate)({
+              placeholder: (0, _v23.translate)({
                 singular: "Select rating",
                 dictionary: {
                   es: {
@@ -2849,29 +2847,29 @@
               disabled: _v5,
               children: ({
                 label: _v0
-              }) => (0, _v3.jsx)(_v96.SelectItem, {
+              }) => (0, _v3.jsx)(_v95.SelectItem, {
                 display: "flex",
                 width: "100%",
-                children: (0, _v3.jsx)(_v92.BokehTooltip, {
+                children: (0, _v3.jsx)(_v91.BokehTooltip, {
                   shouldWrapChildren: !1,
                   placement: "bottom",
                   maxWidth: (0, _v6.rem)(300),
                   label: _v6,
                   isDisabled: !_v4 || _v4 && !_v6,
-                  children: (0, _v3.jsx)(_v96.SelectItemText, {
+                  children: (0, _v3.jsx)(_v95.SelectItemText, {
                     children: _v0
                   })
                 })
               })
             })
-          }), _v0 === _v104.EMBED_PRIVACY_SPECIFIC_DOMAINS ? (0, _v3.jsxs)(_v7.Flex, {
+          }), _v0 === _v103.EMBED_PRIVACY_SPECIFIC_DOMAINS ? (0, _v3.jsxs)(_v7.Flex, {
             position: "relative",
             direction: "column",
             width: "100%",
             marginTop: (0, _v6.rem)(8),
-            children: [(0, _v3.jsxs)(_v100.InputGroup, {
+            children: [(0, _v3.jsxs)(_v99.InputGroup, {
               size: "sm",
-              children: [(0, _v3.jsx)(_v65.Input, {
+              children: [(0, _v3.jsx)(_v64.Input, {
                 onChange: _v0 => {
                   _v9(_v0.target.value);
                 },
@@ -2881,10 +2879,10 @@
                 onKeyDown: _v0 => {
                   "Enter" === _v0.key && _v15();
                 }
-              }), (0, _v3.jsx)(_v101.InputRightElement, {
+              }), (0, _v3.jsx)(_v100.InputRightElement, {
                 cursor: _v13 ? "pointer" : "not-allowed",
                 onClick: _v13 ? _v15 : void 0,
-                children: (0, _v3.jsx)(_v103.PlusCircle, {
+                children: (0, _v3.jsx)(_v102.PlusCircle, {
                   color: _v13 ? "text-primary" : "text-secondary"
                 })
               })]
@@ -2892,20 +2890,20 @@
               flexWrap: "wrap",
               gap: (0, _v6.rem)(4),
               marginTop: (0, _v6.rem)(8),
-              children: _v1.map((_v0, _v1) => (0, _v3.jsxs)(_v99.Tag, {
+              children: _v1.map((_v0, _v1) => (0, _v3.jsxs)(_v98.Tag, {
                 size: "sm",
-                children: [(0, _v3.jsx)(_v99.TagLabel, {
+                children: [(0, _v3.jsx)(_v98.TagLabel, {
                   fontSize: (0, _v6.rem)(14),
                   children: _v0
-                }), !_v5 && (0, _v3.jsx)(_v99.TagCloseButton, {
+                }), !_v5 && (0, _v3.jsx)(_v98.TagCloseButton, {
                   onClick: () => _v16(_v0)
                 })]
               }, `${_v0}-idx:${_v1}`))
             })]
-          }, `domains-${_v1.length}`) : null, _v2 ? (0, _v3.jsx)(_v88.Alert, {
+          }, `domains-${_v1.length}`) : null, _v2 ? (0, _v3.jsx)(_v87.Alert, {
             marginTop: (0, _v6.rem)(8),
-            children: (0, _v3.jsx)(_v89.AlertDescription, {
-              children: (0, _v24.translate)({
+            children: (0, _v3.jsx)(_v88.AlertDescription, {
+              children: (0, _v23.translate)({
                 singular: "When link privacy is set to Private, the embedded event won’t be visible to everyone",
                 dictionary: {
                   es: {
@@ -2937,13 +2935,13 @@
       })
     });
   }
-  var _v107 = _v0.i(0),
+  var _v106 = _v0.i(0),
+    _v107 = _v0.i(0),
     _v108 = _v0.i(0),
     _v109 = _v0.i(0),
     _v110 = _v0.i(0),
-    _v111 = _v0.i(0),
-    _v112 = _v0.i(0);
-  function _v113({
+    _v111 = _v0.i(0);
+  function _v112({
     privacy: _v0,
     allowedPrivacies: _v1,
     password: _v2,
@@ -2963,28 +2961,28 @@
     return (0, _v3.jsxs)(_v7.Flex, {
       direction: "column",
       gap: (0, _v6.rem)(8),
-      children: [(0, _v3.jsx)(_v112.EventPrivacy, {
+      children: [(0, _v3.jsx)(_v111.EventPrivacy, {
         selectedPrivacy: _v6,
         allowedPrivacies: _v1,
         isDisabled: _v4,
         disabledTip: _v3,
         onPrivacySelect: _v10
-      }, `view-${_v6}`), _v6 === _v82.EStreamPrivacy.PASSWORD && (0, _v3.jsx)(_v111.EventPassword, {
+      }, `view-${_v6}`), _v6 === _v81.EStreamPrivacy.PASSWORD && (0, _v3.jsx)(_v110.EventPassword, {
         isDisabled: _v4,
         onChange: _v11,
         password: _v8
       }, `pass-${_v2}`)]
     });
   }
-  var _v114 = _v0.i(0),
-    _v115 = _v0.i(0);
-  let _v116 = ["link", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "streamPrivacy.unlistedHash"],
-    _v117 = ["personalizedViewerWatermarking"],
-    _v118 = ["forensicWatermarking"];
+  var _v113 = _v0.i(0),
+    _v114 = _v0.i(0);
+  let _v115 = ["link", "embed.chatEmbedSource", "embed.embedProperties.sourceUrl", "streamPrivacy.unlistedHash"],
+    _v116 = ["personalizedViewerWatermarking"],
+    _v117 = ["forensicWatermarking"];
   _v0.s(["PrivacySettings", 0, function ({
     canUsePersonalizedViewerWatermarking: _v0 = !1,
     canUseForensicWatermarking: _v1 = !1,
-    id: _v2 = (0, _v59.createLiveDomName)("privacy-settings"),
+    id: _v2 = (0, _v58.createLiveDomName)("privacy-settings"),
     onlyShowStreamPrivacy: _v3 = !1
   }) {
     let {
@@ -3000,24 +2998,24 @@
       _v10 = _v4.value?.streamPrivacy?.embed,
       _v11 = _v4.value?.streamPassword,
       _v12 = _v4.value?.contentRating,
-      _v13 = (0, _v108.useIsLiveDemoSubscription)(),
+      _v13 = (0, _v107.useIsLiveDemoSubscription)(),
       {
         trackPrivacyChanged: _v14
-      } = (0, _v109.useViewPrivacyChangeTracking)(),
+      } = (0, _v108.useViewPrivacyChangeTracking)(),
       {
         trackLiveStreamPrivacyChanged: _v15
-      } = (0, _v13.useLiveStreamBroadcasterTracking)(),
+      } = (0, _v12.useLiveStreamBroadcasterTracking)(),
       _v16 = !!_v4.value?.fromShowcase,
       _v17 = _v4.value?.album?.id,
       _v18 = !_v16 && !_v8.find(_v0 => _v0 === _v9),
       _v19 = (0, _v5.useMemo)(() => _v5.value || [], [_v5.value]),
       _v20 = (0, _v5.useCallback)((_v0, _v1) => {
-        (_v9 !== _v0 || _v11 !== _v1) && (_v0 !== _v82.EStreamPrivacy.PASSWORD || _v1.length) && _v6({
+        (_v9 !== _v0 || _v11 !== _v1) && (_v0 !== _v81.EStreamPrivacy.PASSWORD || _v1.length) && _v6({
           streamPrivacy: {
             view: _v0
           },
-          streamPassword: _v0 === _v82.EStreamPrivacy.PASSWORD ? _v1 : void 0
-        }, _v116).then(() => {
+          streamPassword: _v0 === _v81.EStreamPrivacy.PASSWORD ? _v1 : void 0
+        }, _v115).then(() => {
           _v9 !== _v0 && (_v14({
             entityType: "live_event",
             previousPrivacy: _v9 ?? null,
@@ -3033,7 +3031,7 @@
           streamPrivacy: {
             embed: _v0
           }
-        }, _v116), _v15({
+        }, _v115), _v15({
           liveStreamPrivacyType: "embed_privacy",
           liveStreamPrivacyValue: String(_v0)
         })), _v1 !== _v19 && _v7(_v1);
@@ -3049,45 +3047,45 @@
       _v23 = (0, _v5.useCallback)(_v0 => {
         _v6({
           personalizedViewerWatermarking: _v0
-        }, _v117);
+        }, _v116);
       }, [_v6]),
       _v24 = (0, _v5.useCallback)(_v0 => {
         _v6({
           forensicWatermarking: _v0
-        }, _v118);
+        }, _v117);
       }, [_v6]),
       {
         tooltip: _v25,
         isDisabled: _v26
-      } = (0, _v110.useGetEditEmbedPrivacyDisabled)(),
+      } = (0, _v109.useGetEditEmbedPrivacyDisabled)(),
       _v27 = (0, _v3.jsxs)(_v3.Fragment, {
-        children: [_v16 && _v17 ? (0, _v3.jsx)(_v88.Alert, {
-          children: (0, _v3.jsxs)(_v89.AlertDescription, {
+        children: [_v16 && _v17 ? (0, _v3.jsx)(_v87.Alert, {
+          children: (0, _v3.jsxs)(_v88.AlertDescription, {
             margin: 0,
-            children: [_v115.sharedTranslations.showcasePrivacyNotice, " ", (0, _v3.jsx)(_v21.Text, {
-              href: _v107.vimeoConfig.PATH.SHOWCASE_MANAGE_URL(_v17),
+            children: [_v114.sharedTranslations.showcasePrivacyNotice, " ", (0, _v3.jsx)(_v20.Text, {
+              href: _v106.vimeoConfig.PATH.SHOWCASE_MANAGE_URL(_v17),
               target: "_blank",
               variant: "body-md",
               color: "blue.500",
               textDecoration: "underline",
               as: "a",
-              children: _v115.sharedTranslations.manageShowcase
+              children: _v114.sharedTranslations.manageShowcase
             })]
           })
-        }) : null, _v18 ? (0, _v3.jsx)(_v88.Alert, {
-          children: (0, _v3.jsx)(_v89.AlertDescription, {
+        }) : null, _v18 ? (0, _v3.jsx)(_v87.Alert, {
+          children: (0, _v3.jsx)(_v88.AlertDescription, {
             margin: 0,
-            children: _v115.sharedTranslations.eventPrivacyFrozen
+            children: _v114.sharedTranslations.eventPrivacyFrozen
           })
         }) : null]
       }),
-      _v28 = _v9 && _v8 ? (0, _v3.jsx)(_v113, {
+      _v28 = _v9 && _v8 ? (0, _v3.jsx)(_v112, {
         isDisabled: _v13 || _v16,
-        disabledTip: _v13 ? _v114.rtmpTranslations.viewPrivacyDemoDisabledTip : void 0,
+        disabledTip: _v13 ? _v113.rtmpTranslations.viewPrivacyDemoDisabledTip : void 0,
         privacy: _v9,
         allowedPrivacies: _v8,
         password: _v11,
-        onChange: (0, _v87.default)(_v20, 0)
+        onChange: (0, _v86.default)(_v20, 0)
       }) : (0, _v3.jsx)(_v8.BokehSkeleton, {
         height: (0, _v6.rem)(110),
         borderRadius: (0, _v6.rem)(4)
@@ -3112,19 +3110,19 @@
       children: [_v27, (0, _v3.jsxs)(_v7.Flex, {
         direction: "column",
         gap: (0, _v6.rem)(24),
-        children: [_v28, _v10 ? (0, _v3.jsx)(_v106, {
+        children: [_v28, _v10 ? (0, _v3.jsx)(_v105, {
           isDisabled: _v13 || _v16 || _v26,
           isSelectDisabled: _v26,
-          disabledTip: _v13 ? _v114.rtmpTranslations.embedPrivacyDemoDisabledTip : _v26 ? _v25 : void 0,
+          disabledTip: _v13 ? _v113.rtmpTranslations.embedPrivacyDemoDisabledTip : _v26 ? _v25 : void 0,
           embedPrivacy: _v10,
           domains: _v19,
-          showNotice: _v9 === _v82.EStreamPrivacy.NOBODY,
+          showNotice: _v9 === _v81.EStreamPrivacy.NOBODY,
           onChange: _v21
         }) : (0, _v3.jsx)(_v8.BokehSkeleton, {
           height: (0, _v6.rem)(200),
           borderRadius: (0, _v6.rem)(4)
         })]
-      }), _v0 || _v1 ? (0, _v3.jsx)(_v94, {
+      }), _v0 || _v1 ? (0, _v3.jsx)(_v93, {
         canUsePersonalizedViewerWatermarking: _v0,
         canUseForensicWatermarking: _v1,
         isPersonalizedViewerWatermarkingEnabled: !0,
@@ -3133,7 +3131,7 @@
         isForensicWatermarkingChecked: !!_v4.value?.forensicWatermarking,
         onPersonalizedViewerWatermarkingChange: _v23,
         onForensicWatermarkingChange: _v24
-      }) : null, _v12 ? (0, _v3.jsx)(_v98, {
+      }) : null, _v12 ? (0, _v3.jsx)(_v97, {
         contentRating: _v12,
         isDisabled: !1,
         onChange: _v22
@@ -3143,13 +3141,13 @@
       })]
     });
   }], 0);
-  var _v119 = _v0.i(0),
-    _v120 = _v0.i(0),
-    _v121 = _v0.i(0);
+  var _v118 = _v0.i(0),
+    _v119 = _v0.i(0),
+    _v120 = _v0.i(0);
   _v0.s(["useFailsafeUpgradeModal", 0, function ({
     canOpen: _v0 = !0
   } = {}) {
-    return (0, _v121.useUpgradeModal)({
+    return (0, _v120.useUpgradeModal)({
       canOpen: _v0,
       tracking: {
         params: {
@@ -3169,17 +3167,17 @@
       templateType: "enterprise",
       modalConfig: {
         mkcCode: "109813",
-        enterpriseTitle: _v119.T_GO_LIVE_WITH_PEACE_OF_MIND,
-        enterpriseSubtitle: _v119.T_ADD_FAIL_SAFE_STREAMING,
-        customFeaturesList: (0, _v3.jsx)(_v120.UpsellFeaturesList, {
-          featuresList: _v119.T_FAIL_SAFE_STREAMING_FEATURES
+        enterpriseTitle: _v118.T_GO_LIVE_WITH_PEACE_OF_MIND,
+        enterpriseSubtitle: _v118.T_ADD_FAIL_SAFE_STREAMING,
+        customFeaturesList: (0, _v3.jsx)(_v119.UpsellFeaturesList, {
+          featuresList: _v118.T_FAIL_SAFE_STREAMING_FEATURES
         })
       }
     });
   }], 0), _v0.s(["useUnlimitedStreamUpgradeModal", 0, function ({
     canOpen: _v0 = !0
   } = {}) {
-    return (0, _v121.useUpgradeModal)({
+    return (0, _v120.useUpgradeModal)({
       canOpen: _v0,
       tracking: {
         params: {
@@ -3199,16 +3197,16 @@
       templateType: "enterprise",
       modalConfig: {
         mkcCode: "109754",
-        enterpriseTitle: _v119.T_STREAM_WITHOUT_INTERRUPTIONS,
-        enterpriseSubtitle: _v119.T_CREATE_CONTINUOUS_STREAM,
-        customFeaturesList: (0, _v3.jsx)(_v120.UpsellFeaturesList, {
-          featuresList: _v119.T_UNLIMITED_DURATION_FEATURES
+        enterpriseTitle: _v118.T_STREAM_WITHOUT_INTERRUPTIONS,
+        enterpriseSubtitle: _v118.T_CREATE_CONTINUOUS_STREAM,
+        customFeaturesList: (0, _v3.jsx)(_v119.UpsellFeaturesList, {
+          featuresList: _v118.T_UNLIMITED_DURATION_FEATURES
         })
       }
     });
   }], 0);
-  var _v122 = _v0.i(0),
-    _v123 = _v0.i(0);
+  var _v121 = _v0.i(0),
+    _v122 = _v0.i(0);
   _v0.s(["useTimeBasedDismissableNotification", 0, function ({
     storedKey: _v0,
     cooldownMs: _v1 = 0,
@@ -3216,12 +3214,12 @@
   }) {
     let [_v3, _v4] = (0, _v5.useState)(() => {
       if (_v2) return !1;
-      let _v0 = (0, _v122.getFromLocalStorage)(_v0),
+      let _v0 = (0, _v121.getFromLocalStorage)(_v0),
         _v1 = _v0 ? Number(_v0) : null;
-      return !_v1 || _v1 < (0, _v123.getAbsoluteNow)() - _v1;
+      return !_v1 || _v1 < (0, _v122.getAbsoluteNow)() - _v1;
     });
     return [_v3, (0, _v5.useCallback)(() => {
-      (0, _v122.setLocalStorageItem)(_v0, (0, _v123.getAbsoluteNow)()), _v4(!1);
+      (0, _v121.setLocalStorageItem)(_v0, (0, _v122.getAbsoluteNow)()), _v4(!1);
     }, [_v0])];
   }], 0);
 }

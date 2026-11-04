@@ -98,7 +98,7 @@
         let _v1 = _v2 ?? 0,
           _v2 = _v3 ? Math.min(_v3, _v0.duration) : _v0.duration,
           _v3 = _v1 + (_v2 - _v1) / 3;
-        isNaN(_v3) || (_v0.currentTime = _v3);
+        Number.isFinite(_v3) && (_v0.currentTime = _v3);
         let _v4 = setInterval(() => {
           let _v0 = Math.max(_v1, (_v0.currentTime + 1 / _v38.DEFAULT_FPS) % _v2);
           Number.isFinite(_v0) && (_v0.currentTime = _v0);
@@ -160,7 +160,7 @@
               crossOrigin: "anonymous"
             })
           }), _v27 && (0, _v1.jsx)(_v41, {})]
-        }), _v41 && _v31 && (_v2 ?? _v33) && (0, _v1.jsx)(_v41, {})]
+        }), _v41 && _v31 && (void 0 !== _v2 || _v33) && (0, _v1.jsx)(_v41, {})]
       });
     });
   _v0.s(["MediaViewLoader", 0, _v41, "default", 0, _v42], 0);

@@ -149,6 +149,10 @@
             let _v4 = {
               storyboard: (0, _v3.lowerCaseUnderscore)({
                 ..._v0,
+                layers: (0, _v20.removeUnplaceableElements)(_v0.layers, {
+                  storyboardId: _v0.id,
+                  flow: "save"
+                }),
                 sources: _v0.sources.map(_v0 => "streamyard" !== _v0.service ? _v0 : {
                   ..._v0,
                   previewUrl: "",

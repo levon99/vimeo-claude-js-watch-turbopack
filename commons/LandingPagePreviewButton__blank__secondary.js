@@ -67,22 +67,9 @@
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
-    _v20 = _v0.i(0);
-  let _v21 = ({
-    resourceType: _v0,
-    resourceId: _v1,
-    children: _v2
-  }) => {
-    let _v3 = (0, _v9.useMemo)(() => ({
-      resourceType: _v0,
-      resourceId: _v1
-    }), [_v0, _v1]);
-    return (0, _v1.jsx)(_v20.LocalizationTrackingContext.Provider, {
-      value: _v3,
-      children: _v2
-    });
-  };
-  var _v22 = _v0.i(0),
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0),
+    _v22 = _v0.i(0),
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
@@ -135,7 +122,7 @@
       {
         trackLocalizationAddLanguagesClicked: _v8,
         trackLocalizationDeleted: _v9
-      } = (0, _v20.useLocalizationResourceTracking)(),
+      } = (0, _v27.useLocalizationResourceTracking)(),
       {
         isLoading: _v10,
         savedLocales: _v11,
@@ -200,7 +187,7 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v27.MainLanguageSection, {
+      }), (0, _v1.jsx)(_v26.MainLanguageSection, {
         isDisabled: _v19.length > 0 || _v13,
         locales: _v32,
         onChange: _v0 => void _v14(_v0),
@@ -275,7 +262,7 @@
               }
             })
           })]
-        }), _v19.map(_v0 => (0, _v1.jsx)(_v26.LocaleRow, {
+        }), _v19.map(_v0 => (0, _v1.jsx)(_v25.LocaleRow, {
           isSubmitting: _v15,
           locale: _v0,
           onEdit: () => _v3(_v0),
@@ -283,7 +270,7 @@
           onRemove: () => _v7(_v0),
           savedLocale: _v11[_v0]
         }, _v0))]
-      }), (0, _v1.jsx)(_v24.Tooltip, {
+      }), (0, _v1.jsx)(_v23.Tooltip, {
         isDisabled: !_v22 && _v20.length > 0,
         label: _v22 ? (0, _v5.translate)({
           singular: "Choose a main language first",
@@ -373,7 +360,7 @@
             }
           })
         })
-      }), null == _v6 ? null : (0, _v1.jsx)(_v25.DeleteTranslationModal, {
+      }), null == _v6 ? null : (0, _v1.jsx)(_v24.DeleteTranslationModal, {
         isDeleting: _v15,
         isPublished: _v11[_v6]?.isPublished ?? !1,
         onCancel: () => _v7(null),
@@ -1102,7 +1089,7 @@
       _v21 = (0, _v18.useToast)(),
       {
         trackSingleEventCustomizationSpeakerSaved: _v22
-      } = (0, _v23.useSingleEventCustomizationTracking)(),
+      } = (0, _v22.useSingleEventCustomizationTracking)(),
       [_v23, {
         data: _v24,
         error: _v25,
@@ -1566,7 +1553,7 @@
                           }
                         }
                       })
-                    }), (0, _v1.jsx)(_v24.Tooltip, {
+                    }), (0, _v1.jsx)(_v23.Tooltip, {
                       label: (0, _v5.translate)({
                         singular: "Role appears on the event page",
                         dictionary: {
@@ -1661,7 +1648,7 @@
                           }
                         }
                       })
-                    }), (0, _v1.jsx)(_v24.Tooltip, {
+                    }), (0, _v1.jsx)(_v23.Tooltip, {
                       label: (0, _v5.translate)({
                         singular: "Photo appears on the event page",
                         dictionary: {
@@ -1747,7 +1734,7 @@
                           }
                         }
                       })
-                    }), (0, _v1.jsx)(_v24.Tooltip, {
+                    }), (0, _v1.jsx)(_v23.Tooltip, {
                       label: (0, _v5.translate)({
                         singular: "Description appears on the event page",
                         dictionary: {
@@ -2402,7 +2389,7 @@
       {
         trackSingleEventCustomizationSpeakerVisibilityChanged: _v9,
         trackSingleEventCustomizationSpeakerDeleted: _v10
-      } = (0, _v23.useSingleEventCustomizationTracking)(),
+      } = (0, _v22.useSingleEventCustomizationTracking)(),
       [_v11, _v12] = (0, _v9.useState)(null),
       [_v13, _v14] = (0, _v9.useState)(null),
       [_v15, _v16] = (0, _v9.useState)(null),
@@ -3241,7 +3228,7 @@
               color: "icon-primary",
               transform: _v6 ? void 0 : "rotate(-90deg)"
             })]
-          }), (0, _v1.jsx)(_v24.Tooltip, {
+          }), (0, _v1.jsx)(_v23.Tooltip, {
             label: _v4 ? (0, _v5.translate)({
               singular: "You can show up to {MAX} speakers on the event landing page. Hide one to show another.",
               replacements: {
@@ -3669,7 +3656,7 @@
           children: (0, _v1.jsxs)(_v15.Flex, {
             gap: "1",
             justify: "flex-end",
-            children: [(0, _v1.jsx)(_v24.Tooltip, {
+            children: [(0, _v1.jsx)(_v23.Tooltip, {
               label: (0, _v5.translate)({
                 singular: "Edit speaker details",
                 dictionary: {
@@ -3728,7 +3715,7 @@
                 size: "sm",
                 variant: "tertiary"
               })
-            }), (0, _v1.jsx)(_v24.Tooltip, {
+            }), (0, _v1.jsx)(_v23.Tooltip, {
               label: _v9 ? (0, _v5.translate)({
                 singular: "You can show up to {MAX} speakers on the event landing page. Hide one to show another.",
                 replacements: {
@@ -3767,7 +3754,7 @@
                 size: "sm",
                 variant: "tertiary"
               })
-            }), (0, _v1.jsx)(_v24.Tooltip, {
+            }), (0, _v1.jsx)(_v23.Tooltip, {
               label: (0, _v5.translate)({
                 singular: "Delete speaker",
                 dictionary: {
@@ -3850,7 +3837,7 @@
       {
         trackSingleEventCustomizationSpeakersToggled: _v12,
         trackSingleEventCustomizationManageSpeakersClicked: _v13
-      } = (0, _v23.useSingleEventCustomizationTracking)(),
+      } = (0, _v22.useSingleEventCustomizationTracking)(),
       {
         data: _v14,
         mutate: _v15
@@ -4076,7 +4063,7 @@
       [_v2, _v3] = (0, _v9.useState)(!1),
       {
         trackSingleEventCustomizationLogoChanged: _v4
-      } = (0, _v23.useSingleEventCustomizationTracking)(),
+      } = (0, _v22.useSingleEventCustomizationTracking)(),
       _v5 = _v0?.landingPageLogo ?? _v138,
       _v6 = [{
         label: (0, _v5.translate)({
@@ -4621,19 +4608,18 @@
   var _v159 = _v0.i(0);
   let _v160 = new Set(["translations"]);
   _v0.s(["LandingPageSettings", 0, function () {
-    let _v0 = (0, _v22.useOrionSettingsFields)(["release_single_event_customization", "enable_single_event_localization", "enable_event_series_in_dev_features"]),
-      _v1 = _v0.release_single_event_customization,
-      _v2 = _v0.enable_single_event_localization,
-      _v3 = _v0.enable_event_series_in_dev_features,
+    let _v0 = (0, _v21.useOrionSettingsFields)(["enable_single_event_localization", "enable_event_series_in_dev_features"]),
+      _v1 = _v0.enable_single_event_localization,
+      _v2 = _v0.enable_event_series_in_dev_features,
       {
-        sessionId: _v4
+        sessionId: _v3
       } = (0, _v2.useManager)(_v7.ComposerSessionManager),
-      _v5 = Number(_v4),
-      _v6 = _v2 && _v5 > 0,
-      _v7 = ["navbar", ...(_v1 ? ["speakers"] : []), ...(_v2 ? ["translations"] : [])],
-      [_v8, _v9] = (0, _v9.useState)(_v160),
-      _v10 = _v7.flatMap((_v0, _v1) => _v8.has(_v0) ? [_v1] : []),
-      _v11 = ((_v0, _v1 = !0) => {
+      _v4 = Number(_v3),
+      _v5 = _v1 && _v4 > 0,
+      _v6 = ["navbar", "speakers", ...(_v1 ? ["translations"] : [])],
+      [_v7, _v8] = (0, _v9.useState)(_v160),
+      _v9 = _v6.flatMap((_v0, _v1) => _v7.has(_v0) ? [_v1] : []),
+      _v10 = ((_v0, _v1 = !0) => {
         let {
             baseUrl: _v2,
             jwt: _v3,
@@ -5168,21 +5154,21 @@
           republishLocales: _v31,
           revalidate: _v19
         };
-      })(_v5, _v6),
+      })(_v4, _v5),
       {
-        isAiEnabled: _v12,
-        isAITranslating: _v13,
-        isSubmitting: _v14,
-        hasSpeakerOutOfSync: _v15,
-        translateOutOfSyncSpeakers: _v16,
-        republishLocales: _v17,
-        revalidate: _v18
-      } = _v11,
+        isAiEnabled: _v11,
+        isAITranslating: _v12,
+        isSubmitting: _v13,
+        hasSpeakerOutOfSync: _v14,
+        translateOutOfSyncSpeakers: _v15,
+        republishLocales: _v16,
+        revalidate: _v17
+      } = _v10,
       {
-        source: _v19,
-        isSourceLoading: _v20,
-        revalidateSpeakers: _v21,
-        getLiveEventLocalizationSource: _v22
+        source: _v18,
+        isSourceLoading: _v19,
+        revalidateSpeakers: _v20,
+        getLiveEventLocalizationSource: _v21
       } = ((_v0, _v1 = !0) => {
         let {
             settings: {
@@ -5238,11 +5224,11 @@
             }))
           }), [_v3, _v4, _v5, _v6, _v0, _v10, _v11])
         };
-      })(_v5, _v6 && _v8.has("translations")),
+      })(_v4, _v5 && _v7.has("translations")),
       {
-        openEditor: _v23,
-        openLocalePicker: _v24,
-        modals: _v25
+        openEditor: _v22,
+        openLocalePicker: _v23,
+        modals: _v24
       } = (({
         localizations: _v0,
         source: _v1,
@@ -5905,27 +5891,26 @@
           })
         };
       })({
-        localizations: _v11,
-        source: _v19,
-        revalidateSpeakers: _v21
+        localizations: _v10,
+        source: _v18,
+        revalidateSpeakers: _v20
       }),
-      _v26 = _v1 && _v15,
-      _v27 = (0, _v9.useCallback)(() => {
-        _v6 && (_v18(), _v21());
-      }, [_v6, _v18, _v21]),
-      _v28 = (0, _v18.useToast)(),
+      _v25 = (0, _v9.useCallback)(() => {
+        _v5 && (_v17(), _v20());
+      }, [_v5, _v17, _v20]),
+      _v26 = (0, _v18.useToast)(),
       {
-        trackSingleEventCustomizationSpeakersTranslateAiClicked: _v29,
-        trackSingleEventCustomizationSpeakersMarkedUpToDate: _v30
-      } = (0, _v23.useSingleEventCustomizationTracking)(),
-      [_v31, _v32] = (0, _v9.useState)(!1),
-      _v33 = (0, _v9.useCallback)(async () => {
-        _v32(!0);
+        trackSingleEventCustomizationSpeakersTranslateAiClicked: _v27,
+        trackSingleEventCustomizationSpeakersMarkedUpToDate: _v28
+      } = (0, _v22.useSingleEventCustomizationTracking)(),
+      [_v29, _v30] = (0, _v9.useState)(!1),
+      _v31 = (0, _v9.useCallback)(async () => {
+        _v30(!0);
         let _v0 = null;
         try {
-          _v0 = await _v22();
+          _v0 = await _v21();
         } catch {
-          _v28({
+          _v26({
             isClosable: !0,
             title: (0, _v5.translate)({
               singular: "Something went wrong. Your translations were not created.",
@@ -5957,11 +5942,11 @@
           });
           return;
         } finally {
-          _v32(!1);
+          _v30(!1);
         }
-        let _v1 = await _v16(_v0);
-        null !== _v1 && _v23(_v1.locales, _v1.edits, _v0);
-      }, [_v22, _v28, _v16, _v23]);
+        let _v1 = await _v15(_v0);
+        null !== _v1 && _v22(_v1.locales, _v1.edits, _v0);
+      }, [_v21, _v26, _v15, _v22]);
     return (0, _v1.jsxs)(_v15.Flex, {
       direction: "column",
       gap: (0, _v16.rem)(16),
@@ -5997,10 +5982,10 @@
         })
       }), (0, _v1.jsxs)(_v10.Accordion, {
         allowMultiple: !0,
-        index: _v10,
+        index: _v9,
         onChange: _v0 => {
-          _v9(new Set((Array.isArray(_v0) ? _v0 : [_v0]).flatMap(_v0 => {
-            let _v1 = _v7[_v0];
+          _v8(new Set((Array.isArray(_v0) ? _v0 : [_v0]).flatMap(_v0 => {
+            let _v1 = _v6[_v0];
             return void 0 === _v1 ? [] : [_v1];
           })));
         },
@@ -6040,14 +6025,14 @@
           }), (0, _v1.jsx)(_v14.AccordionPanel, {
             children: (0, _v1.jsx)(_v139, {})
           })]
-        }), _v1 ? (0, _v1.jsxs)(_v13.AccordionItem, {
+        }), (0, _v1.jsxs)(_v13.AccordionItem, {
           children: [(0, _v1.jsx)(_v17.Text, {
             variant: "heading-xs",
             children: (0, _v1.jsxs)(_v11.AccordionButton, {
               children: [(0, _v1.jsxs)(_v15.Flex, {
                 align: "center",
                 gap: (0, _v16.rem)(6),
-                children: [_v26 ? (0, _v1.jsx)(_v19.CircleExclamation, {
+                children: [_v14 ? (0, _v1.jsx)(_v19.CircleExclamation, {
                   boxSize: (0, _v16.rem)(24),
                   color: "status-caution-primary"
                 }) : null, _v159.translations.speakers]
@@ -6058,27 +6043,27 @@
               direction: "column",
               gap: "md",
               width: "100%",
-              children: [_v26 ? (0, _v1.jsx)(_v141, {
-                isAiEnabled: _v12,
-                isSubmitting: _v14,
-                isTranslating: _v31 || _v13,
+              children: [_v14 ? (0, _v1.jsx)(_v141, {
+                isAiEnabled: _v11,
+                isSubmitting: _v13,
+                isTranslating: _v29 || _v12,
                 onMarkUpToDate: () => {
-                  _v30({
-                    liveEventId: String(_v5)
-                  }), _v17();
+                  _v28({
+                    liveEventId: String(_v4)
+                  }), _v16();
                 },
                 onTranslate: () => {
-                  _v29({
-                    liveEventId: String(_v5)
-                  }), _v33();
+                  _v27({
+                    liveEventId: String(_v4)
+                  }), _v31();
                 }
               }) : null, (0, _v1.jsx)(_v134, {
-                isAiTranslationEnabled: _v3 && _v6 && _v12,
-                onSpeakersChange: _v27
+                isAiTranslationEnabled: _v2 && _v5 && _v11,
+                onSpeakersChange: _v25
               })]
             })
           })]
-        }) : null, _v2 ? (0, _v1.jsxs)(_v13.AccordionItem, {
+        }), _v1 ? (0, _v1.jsxs)(_v13.AccordionItem, {
           children: [(0, _v1.jsx)(_v17.Text, {
             variant: "heading-xs",
             children: (0, _v1.jsxs)(_v11.AccordionButton, {
@@ -6110,20 +6095,21 @@
               }), (0, _v1.jsx)(_v12.AccordionIcon, {})]
             })
           }), (0, _v1.jsx)(_v14.AccordionPanel, {
-            children: _v6 ? (0, _v1.jsx)(_v21, {
-              resourceId: String(_v5),
+            children: _v5 ? (0, _v1.jsx)(_v20.LocalizationTrackingProvider, {
+              resourceId: String(_v4),
               resourceType: "event",
+              surface: "page",
               children: (0, _v1.jsx)(_v45, {
-                isSourceLoading: _v20,
-                localizations: _v11,
-                onAddLanguages: _v24,
-                onEditLocale: _v0 => _v23([_v0]),
-                source: _v19
+                isSourceLoading: _v19,
+                localizations: _v10,
+                onAddLanguages: _v23,
+                onEditLocale: _v0 => _v22([_v0]),
+                source: _v18
               })
             }) : null
           })]
         }) : null]
-      }), _v25]
+      }), _v24]
     });
   }], 0);
 }

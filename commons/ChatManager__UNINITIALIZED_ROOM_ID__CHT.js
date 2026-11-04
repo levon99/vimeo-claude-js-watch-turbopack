@@ -202,10 +202,16 @@
               });
             },
             onStatusChange: _v0 => {
-              _v0 !== this.context.isEnabled && this.setContext({
-                isEnabled: _v0,
-                enabledAt: (0, _v13.getAbsoluteNow)()
-              });
+              let _v1 = this.context.isEnabled;
+              if (_v0 !== _v1) {
+                let _v0 = _v0 && !1 === _v1;
+                this.setContext({
+                  isEnabled: _v0,
+                  ...(_v0 ? {
+                    enabledAt: (0, _v13.getAbsoluteNow)()
+                  } : {})
+                });
+              }
             }
           }), await this.proxyTransport.start(), this.IS_DISPOSED || !this.isProxyOnly && !this.metaChatEnabledRef) return void this.log.info("Manager disposed during proxy startup, skipping subscriptions");
           let _v3 = this.isProxyOnly || !this.metaChatEnabledRef ? [] : [(0, _v5.subscribeToChatStatus)(this, this.metaChatEnabledRef)];

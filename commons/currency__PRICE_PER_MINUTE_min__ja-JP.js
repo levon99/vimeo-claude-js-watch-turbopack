@@ -922,42 +922,6 @@
             singular: "当您的点数用尽时，您将通过默认支付方式为使用量付费。 {LINK}了解详情{/LINK}"
           }
         }
-      }),
-      _v62 = (0, _v63.translate)({
-        replacements: {
-          LINK: _v0 => (0, _v39.jsx)(_v55.Text, {
-            as: "a",
-            fontSize: "inherit",
-            textDecoration: "underline",
-            href: "https://vimeo.com/legal/transparency/ai/live-caption-translations",
-            target: "_blank",
-            children: _v0
-          }, "ai-disclaimer-learn-more")
-        },
-        singular: "Captions and translations are AI-generated and may contain inaccuracies. {LINK}Learn more{/LINK}",
-        dictionary: {
-          es: {
-            singular: "Los subtítulos y las traducciones son generados por IA y pueden contener imprecisiones. {LINK}Más información{/LINK}"
-          },
-          "de-DE": {
-            singular: "Untertitel und Übersetzungen werden mithilfe von KI erstellt und können Ungenauigkeiten enthalten. {LINK}Mehr erfahren{/LINK}"
-          },
-          "fr-FR": {
-            singular: "Les sous-titres et les traductions sont générés par l'IA et peuvent contenir des inexactitudes. {LINK}En savoir plus{/LINK}"
-          },
-          "ja-JP": {
-            singular: "字幕と翻訳はAIによって生成されており、不正確な場合があります. {LINK}詳しくはこちら{/LINK}"
-          },
-          "ko-KR": {
-            singular: "자막과 번역은 AI로 생성되었으며 부정확할 수 있습니다. {LINK}자세히 알아보기{/LINK}"
-          },
-          "pt-BR": {
-            singular: "Legendas e traduções são geradas por IA e podem conter imprecisões. {LINK}Saiba mais{/LINK}"
-          },
-          "zh-CN": {
-            singular: "字幕和翻译由 AI 生成，可能包含不准确之处。 {LINK}了解详情{/LINK}"
-          }
-        }
       });
     if (_v24) {
       let _v0 = _v55 + (_v46 ? 0 : _v54),
@@ -1479,17 +1443,13 @@
             variant: "body-sm",
             color: "text-secondary",
             children: _v30 ? _v61 : _v60
-          }) : null, _v42 ? (0, _v39.jsx)(_v55.Text, {
-            variant: "body-sm",
-            color: "text-secondary",
-            children: _v62
           }) : null]
         }) : null, _v34]
       });
     }
-    let _v63 = Number((100 - (_v45 ?? 0) / (_v44 ?? 1) * 100).toFixed(2)),
-      _v64 = _v47 === _v79.EEventLatency.Low || _v56 || _v10 || !_v22,
-      _v65 = (0, _v63.translate)({
+    let _v62 = Number((100 - (_v45 ?? 0) / (_v44 ?? 1) * 100).toFixed(2)),
+      _v63 = _v47 === _v79.EEventLatency.Low || _v56 || _v10 || !_v22,
+      _v64 = (0, _v63.translate)({
         replacements: {
           NUMBER: _v55
         },
@@ -1518,7 +1478,7 @@
           }
         }
       }),
-      _v66 = (0, _v81.inline)(() => _v49 ? _v78.T_AUTO_CC_LOCKED_WHILE_LIVE : _v10 ? _v78.T_AUTO_CC_IS_NOT_AVAILABLE_FOR_DEMO : _v56 ? _v78.T_AUTO_CC_PLAN_LIMIT_REACHED : _v22 ? _v47 === _v79.EEventLatency.Low ? (0, _v78.T_AUTO_CC_LOW_LATENCY_STREAM_TIP)() : "" : (0, _v63.translate)({
+      _v65 = (0, _v81.inline)(() => _v49 ? _v78.T_AUTO_CC_LOCKED_WHILE_LIVE : _v10 ? _v78.T_AUTO_CC_IS_NOT_AVAILABLE_FOR_DEMO : _v56 ? _v78.T_AUTO_CC_PLAN_LIMIT_REACHED : _v22 ? _v47 === _v79.EEventLatency.Low ? (0, _v78.T_AUTO_CC_LOW_LATENCY_STREAM_TIP)() : "" : (0, _v63.translate)({
         singular: "You are not permitted to enable auto CC for live events. Please ask your team owner to change this if needed.",
         dictionary: {
           es: {
@@ -1586,10 +1546,10 @@
         location: _v79.ESettingsLocation.Settings,
         value: _v42 && !_v56,
         language: _v41,
-        isDisabled: _v64,
+        isDisabled: _v63,
         isLocked: _v49,
         isLoading: _v11,
-        disabledTip: _v66,
+        disabledTip: _v65,
         onChange: _v37
       }), _v58, _v59, _v46 || _v10 || _v12 ? null : (0, _v39.jsxs)(_v48.Flex, {
         direction: "column",
@@ -1613,7 +1573,7 @@
           margin: `${(0, _v56.rem)(4)} 0`,
           size: "sm",
           variant: "neutral",
-          value: _v63,
+          value: _v62,
           sx: {
             "& > div": {
               background: "upsell-primary"
@@ -1779,16 +1739,12 @@
           status: "warning",
           children: (0, _v39.jsx)(_v57.AlertDescription, {
             fontSize: "body-sm",
-            children: _v65
+            children: _v64
           })
         }) : null, (0, _v39.jsx)(_v55.Text, {
           variant: "body-sm",
           color: "text-secondary",
           children: _v30 ? _v61 : _v60
-        }), (0, _v39.jsx)(_v55.Text, {
-          variant: "body-sm",
-          color: "text-secondary",
-          children: _v62
         })]
       }) : null, _v34, _v9]
     });

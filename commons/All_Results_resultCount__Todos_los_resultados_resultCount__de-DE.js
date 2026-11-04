@@ -709,17 +709,18 @@
       [_v20, _v21] = (0, _v2.useState)(),
       _v22 = (0, _v17.useDebouncedValue)(_v20, 400),
       [_v23, _v24] = (0, _v2.useState)(null),
+      [_v25, _v26] = (0, _v2.useState)(!1),
       {
-        colorMode: _v25
+        colorMode: _v27
       } = (0, _v13.useColorMode)(),
       {
-        contentSpaceEnabled: _v26,
-        notTeamGatedContentSpaceEnabled: _v27,
-        loading: _v28
+        contentSpaceEnabled: _v28,
+        notTeamGatedContentSpaceEnabled: _v29,
+        loading: _v30
       } = (0, _v16.useContentSpaceEnabled)(_v4),
-      _v29 = !_v28 && _v27 && !_v26,
+      _v31 = !_v30 && _v29 && !_v28,
       {
-        data: _v30
+        data: _v32
       } = (0, _v20.useGetUserProject)(() => {
         if (!_v4 || _v3 || !_v2) return null;
         let _v0 = (0, _v45.getProjectId)({
@@ -733,12 +734,12 @@
           select: ["isPrivateToUser", "metadata.connections.ancestorPath", "metadata.connections.folders.total", "metadata.connections.folders.uri", "privacy", "name", "uri"]
         } : null;
       }),
-      _v31 = _v3 ?? _v30 ?? null,
+      _v33 = _v3 ?? _v32 ?? null,
       {
-        data: _v32,
-        isValidating: _v33,
-        size: _v34,
-        setSize: _v35
+        data: _v34,
+        isValidating: _v35,
+        size: _v36,
+        setSize: _v37
       } = (0, _v21.useGetUserProjectsInfinite)(() => _v22 ? null : {
         query: {
           perPage: 20,
@@ -753,10 +754,10 @@
         revalidateOnFocus: !1
       }),
       {
-        data: _v36,
-        isValidating: _v37,
-        size: _v38,
-        setSize: _v39
+        data: _v38,
+        isValidating: _v39,
+        size: _v40,
+        setSize: _v41
       } = (0, _v19.useGetUserItemsInfinite)(() => _v22 ? {
         query: {
           filter: "folder",
@@ -771,11 +772,11 @@
       } : null, {
         revalidateOnFocus: !1
       }),
-      _v40 = (0, _v2.useMemo)(() => [], []),
-      _v41 = 0;
-    _v36 && (_v41 = (_v40 = _v36.flatMap(_v0 => _v0.data).map(_v0 => _v0.folder).filter(_v0 => _v0 && _v0?.metadata?.interactions.uploadVideo)).length), _v32 && (_v40 = _v32.flatMap(_v0 => _v0.data).filter(_v0 => null !== _v0)), _v40 = (0, _v2.useMemo)(() => _v7 && _v7?.metadata?.connections?.ancestorPath.length === 0 ? [_v7, ..._v40] : _v40, [_v40, _v7]);
-    let _v42 = _v37 && !_v40.length,
-      _v43 = (0, _v1.jsxs)(_v3.Box, {
+      _v42 = (0, _v2.useMemo)(() => [], []),
+      _v43 = 0;
+    _v38 && (_v43 = (_v42 = _v38.flatMap(_v0 => _v0.data).map(_v0 => _v0.folder).filter(_v0 => _v0 && _v0?.metadata?.interactions.uploadVideo)).length), _v34 && (_v42 = _v34.flatMap(_v0 => _v0.data).filter(_v0 => null !== _v0)), _v42 = (0, _v2.useMemo)(() => _v7 && _v7?.metadata?.connections?.ancestorPath.length === 0 ? [_v7, ..._v42] : _v42, [_v42, _v7]);
+    let _v44 = _v39 && !_v42.length,
+      _v45 = (0, _v1.jsxs)(_v3.Box, {
         height: _v11 ? "100%" : (0, _v11.rem)(320),
         padding: "sm",
         children: [(0, _v1.jsx)(_v3.Box, {
@@ -813,18 +814,20 @@
             value: _v20
           })
         }), (0, _v1.jsx)(_v23, {
-          project: _v23 || _v31,
-          searchResultCount: _v41
+          project: _v23 || _v33,
+          searchResultCount: _v43
         }), (0, _v1.jsx)(_v42, {
-          loading: _v42 || _v28,
-          folders: _v40,
-          setSelectedFolder: _v1,
+          loading: _v44 || _v30,
+          folders: _v42,
+          setSelectedFolder: _v0 => {
+            _v1?.(_v0), _v26(!1);
+          },
           setFocusedFolder: _v24,
           handleLoadMore: () => {
-            _v22 && _v36?.[0]?.paging.next ? _v37 || _v39(_v38 + 1) : _v33 || _v35(_v34 + 1);
+            _v22 && _v38?.[0]?.paging.next ? _v39 || _v41(_v40 + 1) : _v35 || _v37(_v36 + 1);
           },
-          selectedFolder: _v31,
-          canSelectRoot: !!_v8 && !_v29,
+          selectedFolder: _v33,
+          canSelectRoot: !!_v8 && !_v31,
           addNewFolder: _v7,
           multiSelect: _v11,
           selectedFolderList: _v12,
@@ -832,28 +835,30 @@
           autoSelectParent: _v14
         })]
       }),
-      _v44 = _v33 && 1 === _v34 || _v9;
+      _v46 = _v35 && 1 === _v36 || _v9;
     return ((0, _v2.useEffect)(() => {
-      _v15 && _v15(_v44);
-    }, [_v15, _v44]), _v11) ? (0, _v1.jsx)(_v1.Fragment, {
-      children: _v43
+      _v15 && _v15(_v46);
+    }, [_v15, _v46]), _v11) ? (0, _v1.jsx)(_v1.Fragment, {
+      children: _v45
     }) : (0, _v1.jsxs)(_v7.Popover, {
       placement: _v0,
+      isOpen: _v25,
       onOpen: () => {
-        window.setTimeout(() => {
+        _v26(!0), window.setTimeout(() => {
           _v19?.current?.focus();
         }, 50);
       },
+      onClose: () => _v26(!1),
       children: [(0, _v1.jsx)(_v10.PopoverTrigger, {
         children: _v18 ? (0, _v1.jsx)(_v4.Button, {
           fontWeight: "normal",
           minWidth: (0, _v11.rem)(210),
-          isLoading: _v44,
-          isDisabled: _v44 || _v10,
-          rightIcon: _v44 ? void 0 : (0, _v1.jsx)(_v14.ChevronDown, {
+          isLoading: _v46,
+          isDisabled: _v46 || _v10,
+          rightIcon: _v46 ? void 0 : (0, _v1.jsx)(_v14.ChevronDown, {
             boxSize: _v17 ? "auto" : "14px !important"
           }),
-          variant: _v17 && "dark" === _v25 ? "secondary" : "tertiary",
+          variant: _v17 && "dark" === _v27 ? "secondary" : "tertiary",
           "data-id": "select_location_dropdown_box",
           width: (0, _v11.rem)(_v16 || 210),
           outline: "1px solid",
@@ -861,9 +866,9 @@
           border: "none",
           outlineColor: "input-stroke !important",
           borderRadius: "md",
-          justifyContent: _v44 ? "center" : "space-between",
+          justifyContent: _v46 ? "center" : "space-between",
           paddingRight: "md",
-          backgroundColor: _v17 && "dark" === _v25 ? "none" : "surface !important",
+          backgroundColor: _v17 && "dark" === _v27 ? "none" : "surface !important",
           transition: "all 120ms ease-in-out 0s",
           _hover: {
             outlineColor: "input-stroke-hover !important"
@@ -873,31 +878,31 @@
             outlineColor: ["rgba(249, 250, 251, 1) !important", "rgba(14, 18, 22, 0.9) !important"]
           },
           children: (0, _v1.jsx)(_v46, {
-            selectedFolder: _v31,
+            selectedFolder: _v33,
             placeholderText: _v5
           })
         }) : (0, _v1.jsx)(_v4.Button, {
           fontWeight: "normal",
           minWidth: (0, _v11.rem)(210),
-          isLoading: _v44,
-          isDisabled: _v44 || _v10,
-          rightIcon: _v44 ? void 0 : (0, _v1.jsx)(_v15.ChevronDownSmall, {}),
+          isLoading: _v46,
+          isDisabled: _v46 || _v10,
+          rightIcon: _v46 ? void 0 : (0, _v1.jsx)(_v15.ChevronDownSmall, {}),
           variant: "tertiary",
           "data-id": "select_location_dropdown_box",
           width: (0, _v11.rem)(_v16 || 210),
           borderColor: "fill-component !important",
           borderRadius: "xs",
-          justifyContent: _v44 ? "center" : "space-between",
+          justifyContent: _v46 ? "center" : "space-between",
           paddingRight: "sm",
           children: (0, _v1.jsx)(_v46, {
-            selectedFolder: _v31,
+            selectedFolder: _v33,
             placeholderText: _v5
           })
         })
       }), (0, _v1.jsx)(_v9.PopoverContent, {
         ref: _v19,
         children: (0, _v1.jsx)(_v8.PopoverBody, {
-          children: _v43
+          children: _v45
         })
       })]
     });

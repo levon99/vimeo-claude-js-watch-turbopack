@@ -20,7 +20,7 @@
     LogsInWithSso: "logs_in_with_sso",
     LogsInWithEmailAndPassword: "logs_in_with_email_and_password",
     HasLearnerId: "has_learner_id"
-  }, "MemberStatus", () => _v8, "RepackagedTiers", 0, ["creator", "core", "professional", "studio", "production"], "SolutionTiers", 0, ["pro_solution", "team", "team_live"], "TeamManagementModals", () => _v9, "TeamRole", 0, {
+  }, "MemberStatus", () => _v8, "SolutionTiers", 0, ["pro_solution", "team", "team_live"], "TeamManagementModals", () => _v9, "TeamRole", 0, {
     Owner: "Owner",
     Admin: "Admin",
     Contributor: "Contributor",

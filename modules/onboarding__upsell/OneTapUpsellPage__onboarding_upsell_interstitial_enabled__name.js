@@ -42,12 +42,15 @@
             isLoading: _v3,
             showIndividualPlans: _v4
           } = (0, _v22.useB2BRepackagingContext)(),
-          _v5 = (0, _v25.useCampaignIdOverride)(),
-          _v6 = !!_v1.onboarding_upsell_interstitial_enabled,
           {
-            data: _v7,
-            error: _v8
-          } = (0, _v23.useGetMeSubscriptionPlans)(() => _v0?.user ? {
+            campaignId: _v5,
+            isLoading: _v6
+          } = (0, _v25.useCampaignIdOverride)(),
+          _v7 = !!_v1.onboarding_upsell_interstitial_enabled,
+          {
+            data: _v8,
+            error: _v9
+          } = (0, _v23.useGetMeSubscriptionPlans)(() => !_v0?.user || _v6 ? null : {
             select: ["id", "name", "tier", "currency", "price", "priceFormatted", "metadata"],
             query: {
               vuid: _v0.vuid,
@@ -55,41 +58,41 @@
                 campaignId: _v5
               } : {})
             }
-          } : null),
-          _v9 = (0, _v24.cheapPreGate)(_v0, _v6),
-          _v10 = _v0?.teamUser?.accountType ?? _v0?.user?.account,
-          _v11 = _v10 ? (0, _v2.default)(_v10) : null;
-        if (_v2 || _v3) return {
+          }),
+          _v10 = (0, _v24.cheapPreGate)(_v0, _v7),
+          _v11 = _v0?.teamUser?.accountType ?? _v0?.user?.account,
+          _v12 = _v11 ? (0, _v2.default)(_v11) : null;
+        if (_v2 || _v3 || _v6) return {
           status: "loading"
         };
-        if (!_v9 || !_v11 || _v8) return {
+        if (!_v10 || !_v12 || _v9) return {
           status: "ineligible"
         };
-        let _v12 = _v7?.data;
-        if (!_v12) return {
+        let _v13 = _v8?.data;
+        if (!_v13) return {
           status: "loading"
         };
-        let _v13 = (0, _v21.filterB2BRepackagingPlans)(_v12, _v4),
+        let _v14 = (0, _v21.filterB2BRepackagingPlans)(_v13, _v4),
           {
-            tier: _v14,
-            displayName: _v15
+            tier: _v15,
+            displayName: _v16
           } = (0, _v28.getRecommendedTierDisplayName)({
-            currentTier: _v11,
+            currentTier: _v12,
             tierSetting: "one_up",
             variant: "generic",
-            plansData: _v13
+            plansData: _v14
           }),
-          _v16 = _v14 ? _v13.find(_v0 => _v0.tier === _v14) : void 0;
-        if (!_v14 || !_v16) return {
+          _v17 = _v15 ? _v14.find(_v0 => _v0.tier === _v15) : void 0;
+        if (!_v15 || !_v17) return {
           status: "ineligible"
         };
-        let _v17 = _v13.find(_v0 => _v0.metadata?.interactions?.purchase?.status === "purchased");
+        let _v18 = _v14.find(_v0 => _v0.metadata?.interactions?.purchase?.status === "purchased");
         return {
           status: "eligible",
-          oneUpTier: _v14,
-          oneUpDisplayName: _v15 ?? "",
-          plan: _v16,
-          isMonthly: !!_v17?.metadata?.purchasedProduct?.isMonthly
+          oneUpTier: _v15,
+          oneUpDisplayName: _v16 ?? "",
+          plan: _v17,
+          isMonthly: !!_v18?.metadata?.purchasedProduct?.isMonthly
         };
       }(),
       _v3 = (0, _v20.useViewer)(),

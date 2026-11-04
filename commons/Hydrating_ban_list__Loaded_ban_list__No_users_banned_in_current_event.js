@@ -196,11 +196,18 @@
     };
   }, "subscribeToChatStatus", 0, function (_v0, _v1) {
     let _v2 = _v0 => {
-      let _v1 = !!_v0.val();
-      _v1 !== _v0.context.isEnabled && (_v0.log.info("Chat status change:", _v1), _v0.setContext({
-        isEnabled: !!_v1,
-        enabledAt: (0, _v9.getAbsoluteNow)()
-      }));
+      let _v1 = !!_v0.val(),
+        _v2 = _v0.context.isEnabled;
+      if (_v1 !== _v2) {
+        _v0.log.info("Chat status change:", _v1);
+        let _v0 = _v1 && !1 === _v2;
+        _v0.setContext({
+          isEnabled: _v1,
+          ...(_v0 ? {
+            enabledAt: (0, _v9.getAbsoluteNow)()
+          } : {})
+        });
+      }
     };
     return (0, _v5.onRefEvent)(_v0.firebase, _v1, "value", _v2, "chat-status"), () => (0, _v5.offRefEvent)(_v0.firebase, _v1, "value", _v2);
   }]);

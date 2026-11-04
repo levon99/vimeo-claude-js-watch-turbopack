@@ -93,7 +93,9 @@
       [_v3.EChatType.PUBLIC]: _v1.ChatManager.createNewChatDescriptor(),
       [_v3.EChatType.BACKSTAGE]: _v1.ChatManager.createNewChatDescriptor(),
       isEnabled: null,
+      enabledAt: null,
       isHydrated: !1,
+      hydratedAt: null,
       config: {
         roomId: -1,
         isCreator: !1

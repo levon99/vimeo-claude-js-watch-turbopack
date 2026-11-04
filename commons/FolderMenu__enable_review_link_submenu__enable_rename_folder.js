@@ -41,64 +41,65 @@
     size: _v0,
     disabled: _v1,
     onClick: _v2,
-    canEdit: _v3,
-    canShare: _v4,
-    onShare: _v5,
-    canDelete: _v6,
-    onDelete: _v7,
-    canMove: _v8,
-    onMove: _v9,
-    canBulkPrivacyChange: _v10,
-    onBulkPrivacyChange: _v11,
-    onCopyLink: _v12,
-    onCopyLinkAsync: _v13,
-    folderLink: _v14,
-    canEditFolderSettings: _v15,
-    onFolderSettings: _v16,
-    onFolderDefaults: _v17,
-    analyticsPageLink: _v18,
-    onClickAnalyticsLink: _v19,
-    hasFolderDefaultsUpsell: _v20,
-    hasShareUpsell: _v21,
-    hasSlackIntegration: _v22,
-    isConnectedToSlack: _v23,
-    onSlackIntegration: _v24,
-    deleteIcon: _v25 = (0, _v1.jsx)(_v15.TrashBin, {
+    onOpenChange: _v3,
+    canEdit: _v4,
+    canShare: _v5,
+    onShare: _v6,
+    canDelete: _v7,
+    onDelete: _v8,
+    canMove: _v9,
+    onMove: _v10,
+    canBulkPrivacyChange: _v11,
+    onBulkPrivacyChange: _v12,
+    onCopyLink: _v13,
+    onCopyLinkAsync: _v14,
+    folderLink: _v15,
+    canEditFolderSettings: _v16,
+    onFolderSettings: _v17,
+    onFolderDefaults: _v18,
+    analyticsPageLink: _v19,
+    onClickAnalyticsLink: _v20,
+    hasFolderDefaultsUpsell: _v21,
+    hasShareUpsell: _v22,
+    hasSlackIntegration: _v23,
+    isConnectedToSlack: _v24,
+    onSlackIntegration: _v25,
+    deleteIcon: _v26 = (0, _v1.jsx)(_v15.TrashBin, {
       boxSize: _v36
     }),
-    canStar: _v26 = !0,
-    onStarClick: _v27,
-    starIcon: _v28 = (0, _v1.jsx)(_v14.Star, {
+    canStar: _v27 = !0,
+    onStarClick: _v28,
+    starIcon: _v29 = (0, _v1.jsx)(_v14.Star, {
       boxSize: _v36
     }),
-    starIconLabel: _v29,
-    placement: _v30,
-    usePortal: _v31,
-    zIndex: _v32,
-    onRename: _v33,
-    handleTranslateVideo: _v34,
-    canTranslateVideos: _v35,
-    canCreateReviewLink: _v36,
-    onCreateReviewLink: _v37,
-    canCopyReviewPageLink: _v38,
-    reviewPageLink: _v39,
-    onCopyReviewPageLink: _v40,
-    canManageReviewLinks: _v41,
-    onManageReviewLinks: _v42,
-    hasProhibitMultipleReviewLinks: _v43,
-    canAddToShowcase: _v44,
-    showAddToShowcase: _v45,
-    onAddToShowcase: _v46
+    starIconLabel: _v30,
+    placement: _v31,
+    usePortal: _v32,
+    zIndex: _v33,
+    onRename: _v34,
+    handleTranslateVideo: _v35,
+    canTranslateVideos: _v36,
+    canCreateReviewLink: _v37,
+    onCreateReviewLink: _v38,
+    canCopyReviewPageLink: _v39,
+    reviewPageLink: _v40,
+    onCopyReviewPageLink: _v41,
+    canManageReviewLinks: _v42,
+    onManageReviewLinks: _v43,
+    hasProhibitMultipleReviewLinks: _v44,
+    canAddToShowcase: _v45,
+    showAddToShowcase: _v46,
+    onAddToShowcase: _v47
   }) => {
-    let _v47 = (0, _v27.useOrionSettingsFields)(["enable_review_link_submenu", "enable_rename_folder", "enable_folder_defaults_intro_popover"]),
-      _v48 = (0, _v24.useIsMobile)(),
-      _v49 = !_v48,
-      _v50 = (0, _v29.useViewer)(),
+    let _v48 = (0, _v27.useOrionSettingsFields)(["enable_review_link_submenu", "enable_rename_folder", "enable_folder_defaults_intro_popover"]),
+      _v49 = (0, _v24.useIsMobile)(),
+      _v50 = !_v49,
+      _v51 = (0, _v29.useViewer)(),
       {
-        capabilities: _v51
-      } = (0, _v23.useCapability)(["folderUploadPresets"], _v50?.teamUser?.ownerId ?? _v50?.user?.id),
-      _v52 = !0 === _v51.folderUploadPresets,
-      _v53 = _v52 && _v47.enable_folder_defaults_intro_popover && (0, _v1.jsx)(_v3.Badge, {
+        capabilities: _v52
+      } = (0, _v23.useCapability)(["folderUploadPresets"], _v51?.teamUser?.ownerId ?? _v51?.user?.id),
+      _v53 = !0 === _v52.folderUploadPresets,
+      _v54 = _v53 && _v48.enable_folder_defaults_intro_popover && (0, _v1.jsx)(_v3.Badge, {
         variant: "new",
         size: "sm",
         children: (0, _v1.jsx)(_v6.Text, {
@@ -132,9 +133,9 @@
           })
         })
       }),
-      _v54 = _v3 && !_v43 && (_v36 || _v38 || _v41),
-      _v55 = {
-        share: _v4 ? {
+      _v55 = _v4 && !_v44 && (_v37 || _v39 || _v42),
+      _v56 = {
+        share: _v5 ? {
           icon: (0, _v1.jsx)(_v13.Share, {
             boxSize: _v36
           }),
@@ -164,15 +165,15 @@
               }
             }
           }),
-          onClick: _v5,
-          badge: _v21 && (0, _v1.jsx)(_v26.UpgradeBadge, {
+          onClick: _v6,
+          badge: _v22 && (0, _v1.jsx)(_v26.UpgradeBadge, {
             noMargin: !0,
             name: "folder_menu_share_upgrade_button",
             location: "folder_menu"
           })
         } : void 0,
-        copyLink: _v14 || _v13 ? {
-          content: _v14 ?? "",
+        copyLink: _v15 || _v14 ? {
+          content: _v15 ?? "",
           label: (0, _v25.translate)({
             singular: "Copy link",
             dictionary: {
@@ -199,39 +200,39 @@
               }
             }
           }),
-          onClick: _v12,
-          onCopyAsync: _v13
+          onClick: _v13,
+          onCopyAsync: _v14
         } : void 0,
-        reviewLinkSubmenu: _v54 && _v47.enable_review_link_submenu ? {
+        reviewLinkSubmenu: _v55 && _v48.enable_review_link_submenu ? {
           icon: (0, _v1.jsx)(_v32.REVIEW_LINK_ICON, {
             boxSize: _v36
           }),
-          label: _v41 ? _v32.REVIEW_LINKS_COPY : _v32.REVIEW_LINK_COPY
+          label: _v42 ? _v32.REVIEW_LINKS_COPY : _v32.REVIEW_LINK_COPY
         } : void 0,
-        copyReviewLink: _v38 ? {
-          content: _v39,
+        copyReviewLink: _v39 ? {
+          content: _v40,
           icon: (0, _v1.jsx)(_v32.COPY_REVIEW_LINK_ICON, {
             boxSize: _v36
           }),
           label: _v32.COPY_REVIEW_LINK_COPY,
-          onClick: _v40
+          onClick: _v41
         } : void 0,
-        manageReviewLinks: _v41 ? {
+        manageReviewLinks: _v42 ? {
           icon: (0, _v1.jsx)(_v32.MANAGE_REVIEW_LINKS_ICON, {
             boxSize: _v36
           }),
           label: _v32.MANAGE_REVIEW_LINKS_COPY,
-          onClick: _v42
+          onClick: _v43
         } : void 0,
-        createReviewLink: _v54 ? {
+        createReviewLink: _v55 ? {
           icon: (0, _v1.jsx)(_v32.CREATE_NEW_REVIEW_LINK_ICON, {
             boxSize: _v36
           }),
           label: _v32.CREATE_NEW_REVIEW_LINK_COPY,
-          onClick: _v37,
-          isDisabled: !_v36
+          onClick: _v38,
+          isDisabled: !_v37
         } : void 0,
-        reviewPages: _v41 ? {
+        reviewPages: _v42 ? {
           icon: (0, _v1.jsx)(_v20.ReviewCheck, {
             boxSize: _v36
           }),
@@ -261,9 +262,9 @@
               }
             }
           }),
-          onClick: _v42
+          onClick: _v43
         } : void 0,
-        createReviewLinksLegacy: _v47.enable_review_link_submenu || !_v3 || _v43 ? void 0 : {
+        createReviewLinksLegacy: _v48.enable_review_link_submenu || !_v4 || _v44 ? void 0 : {
           icon: (0, _v1.jsx)(_v17.Link, {
             boxSize: _v36
           }),
@@ -293,9 +294,9 @@
               }
             }
           }),
-          onClick: _v42
+          onClick: _v43
         },
-        analytics: _v3 && _v18 && !_v48 ? {
+        analytics: _v4 && _v19 && !_v49 ? {
           icon: (0, _v1.jsx)(_v7.Analytics, {
             boxSize: _v36
           }),
@@ -325,10 +326,10 @@
               }
             }
           }),
-          href: _v18,
-          onClick: _v19
+          href: _v19,
+          onClick: _v20
         } : void 0,
-        bulkPrivacy: _v10 ? {
+        bulkPrivacy: _v11 ? {
           icon: (0, _v1.jsx)(_v9.Eye, {
             boxSize: _v36
           }),
@@ -358,9 +359,9 @@
               }
             }
           }),
-          onClick: _v11
+          onClick: _v12
         } : void 0,
-        addToShowcase: _v45 && _v46 ? {
+        addToShowcase: _v46 && _v47 ? {
           icon: (0, _v1.jsx)(_v21._3GridLeftLayout, {
             boxSize: _v36
           }),
@@ -390,11 +391,11 @@
               }
             }
           }),
-          onClick: _v46,
-          showTooltip: !_v44,
-          tooltipCopy: _v44 ? void 0 : (0, _v25.translate)("Folders added to a Showcase must contain between 1 and 100 items.")
+          onClick: _v47,
+          showTooltip: !_v45,
+          tooltipCopy: _v45 ? void 0 : (0, _v25.translate)("Folders added to a Showcase must contain between 1 and 100 items.")
         } : void 0,
-        move: _v8 ? {
+        move: _v9 ? {
           icon: (0, _v1.jsx)(_v11.FolderOpen, {
             boxSize: _v36
           }),
@@ -424,9 +425,9 @@
               }
             }
           }),
-          onClick: _v9
+          onClick: _v10
         } : void 0,
-        rename: _v15 && _v33 && _v47.enable_rename_folder ? {
+        rename: _v16 && _v34 && _v48.enable_rename_folder ? {
           icon: (0, _v1.jsx)(_v10.RenamePencil, {
             boxSize: _v36
           }),
@@ -456,9 +457,9 @@
               }
             }
           }),
-          onClick: _v33
+          onClick: _v34
         } : void 0,
-        changeColor: _v15 ? {
+        changeColor: _v16 ? {
           icon: (0, _v1.jsx)(_v8.ColorPicker, {
             boxSize: _v36
           }),
@@ -488,9 +489,9 @@
               }
             }
           }),
-          onClick: _v16
+          onClick: _v17
         } : void 0,
-        folderDefaults: _v15 ? {
+        folderDefaults: _v16 ? {
           icon: (0, _v1.jsx)(_v12.SettingsGear, {
             boxSize: _v36
           }),
@@ -520,14 +521,14 @@
               }
             }
           }),
-          onClick: _v17,
-          badge: _v20 ? (0, _v1.jsx)(_v26.UpgradeBadge, {
+          onClick: _v18,
+          badge: _v21 ? (0, _v1.jsx)(_v26.UpgradeBadge, {
             noMargin: !0,
             name: "folder_menu_defaults_upgrade_button",
             location: "folder_menu"
-          }) : _v53
+          }) : _v54
         } : void 0,
-        folderStyle: _v15 ? {
+        folderStyle: _v16 ? {
           icon: (0, _v1.jsx)(_v18.Palette, {
             boxSize: _v36
           }),
@@ -557,9 +558,9 @@
               }
             }
           }),
-          onClick: _v16
+          onClick: _v17
         } : void 0,
-        slack: _v22 && !_v48 ? {
+        slack: _v23 && !_v49 ? {
           icon: (0, _v1.jsx)(_v4.Box, {
             sx: {
               "*": {
@@ -573,7 +574,7 @@
               }
             })
           }),
-          label: _v23 ? (0, _v25.translate)({
+          label: _v24 ? (0, _v25.translate)({
             singular: "Slack settings",
             dictionary: {
               es: {
@@ -624,9 +625,9 @@
               }
             }
           }),
-          onClick: _v24
+          onClick: _v25
         } : void 0,
-        folderSettings: _v15 ? {
+        folderSettings: _v16 ? {
           icon: (0, _v1.jsx)(_v12.SettingsGear, {
             boxSize: _v36
           }),
@@ -656,9 +657,9 @@
               }
             }
           }),
-          onClick: _v16
+          onClick: _v17
         } : void 0,
-        translate: _v35 ? {
+        translate: _v36 ? {
           icon: (0, _v1.jsx)(_v16.AiSparkles, {
             boxSize: _v36
           }),
@@ -688,20 +689,20 @@
               }
             }
           }),
-          onClick: _v34
+          onClick: _v35
         } : void 0,
-        star: _v26 ? {
-          icon: (0, _v2.cloneElement)(_v28, {
+        star: _v27 ? {
+          icon: (0, _v2.cloneElement)(_v29, {
             style: {
               width: _v36,
               height: _v36
             }
           }),
-          label: _v29 || "",
-          onClick: _v27
+          label: _v30 || "",
+          onClick: _v28
         } : void 0,
-        delete: _v6 ? {
-          icon: _v25,
+        delete: _v7 ? {
+          icon: _v26,
           label: (0, _v25.translate)({
             singular: "Delete",
             dictionary: {
@@ -728,72 +729,72 @@
               }
             }
           }),
-          onClick: _v7
+          onClick: _v8
         } : void 0
       };
-    if (!(_v4 || _v14 || _v13 || _v3 && _v18 || _v8 || _v22 || _v15 || _v26 || _v6 || _v45)) return (0, _v1.jsx)(_v1.Fragment, {});
-    let _v56 = (0, _v1.jsxs)(_v1.Fragment, {
-        children: [_v55.copyReviewLink && (_v39 ? (0, _v1.jsx)(_v35.CopyAction, {
-          ..._v55.copyReviewLink,
-          content: _v39
+    if (!(_v5 || _v15 || _v14 || _v4 && _v19 || _v9 || _v23 || _v16 || _v27 || _v7 || _v46)) return (0, _v1.jsx)(_v1.Fragment, {});
+    let _v57 = (0, _v1.jsxs)(_v1.Fragment, {
+        children: [_v56.copyReviewLink && (_v40 ? (0, _v1.jsx)(_v35.CopyAction, {
+          ..._v56.copyReviewLink,
+          content: _v40
         }) : (0, _v1.jsx)(_v33.Action, {
-          ..._v55.copyReviewLink
-        })), _v55.manageReviewLinks && (0, _v1.jsx)(_v33.Action, {
-          ..._v55.manageReviewLinks
-        }), _v55.createReviewLink && (0, _v1.jsx)(_v33.Action, {
-          ..._v55.createReviewLink
-        }), _v55.reviewPages && (0, _v1.jsx)(_v33.Action, {
-          ..._v55.reviewPages
+          ..._v56.copyReviewLink
+        })), _v56.manageReviewLinks && (0, _v1.jsx)(_v33.Action, {
+          ..._v56.manageReviewLinks
+        }), _v56.createReviewLink && (0, _v1.jsx)(_v33.Action, {
+          ..._v56.createReviewLink
+        }), _v56.reviewPages && (0, _v1.jsx)(_v33.Action, {
+          ..._v56.reviewPages
         })]
       }),
-      _v57 = [_v55.share && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.share
-      }, "share"), _v55.copyLink && (0, _v1.jsx)(_v35.CopyAction, {
-        ..._v55.copyLink
-      }, "copyLink"), _v55.reviewLinkSubmenu && (_v48 ? (0, _v1.jsx)(_v2.default.Fragment, {
-        children: _v56
+      _v58 = [_v56.share && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.share
+      }, "share"), _v56.copyLink && (0, _v1.jsx)(_v35.CopyAction, {
+        ..._v56.copyLink
+      }, "copyLink"), _v56.reviewLinkSubmenu && (_v49 ? (0, _v1.jsx)(_v2.default.Fragment, {
+        children: _v57
       }, "reviewLinkSubmenu") : (0, _v1.jsx)(_v33.MenuAction, {
-        ..._v55.reviewLinkSubmenu,
-        children: _v56
-      }, "reviewLinkSubmenu")), _v55.createReviewLinksLegacy && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.createReviewLinksLegacy
+        ..._v56.reviewLinkSubmenu,
+        children: _v57
+      }, "reviewLinkSubmenu")), _v56.createReviewLinksLegacy && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.createReviewLinksLegacy
       }, "createReviewLinksLegacy")],
-      _v58 = _v49 ? [_v55.analytics && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.analytics
-      }, "analytics"), _v55.translate && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.translate
-      }, "translate")] : [_v55.analytics && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.analytics
-      }, "analytics"), _v55.bulkPrivacy && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.bulkPrivacy
+      _v59 = _v50 ? [_v56.analytics && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.analytics
+      }, "analytics"), _v56.translate && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.translate
+      }, "translate")] : [_v56.analytics && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.analytics
+      }, "analytics"), _v56.bulkPrivacy && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.bulkPrivacy
       }, "bulkPrivacy")],
-      _v59 = _v55.folderDefaults && (_v52 ? (0, _v1.jsx)(_v33.Action, {
-        ..._v55.folderDefaults
+      _v60 = _v56.folderDefaults && (_v53 ? (0, _v1.jsx)(_v33.Action, {
+        ..._v56.folderDefaults
       }) : (0, _v1.jsx)(_v28.FeatureFlag, {
         feature: "folder_defaults",
         checkLocalStorage: !0,
         children: (0, _v1.jsx)(_v33.Action, {
-          ..._v55.folderDefaults
+          ..._v56.folderDefaults
         })
       })),
-      _v60 = [[_v55.rename && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.rename
-      }, "rename"), _v55.folderStyle && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.folderStyle
+      _v61 = [[_v56.rename && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.rename
+      }, "rename"), _v56.folderStyle && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.folderStyle
       }, "folderStyle")]].map(_v31.createSection).filter(_v0 => !!_v0.length),
-      _v61 = [[_v55.move && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.move
-      }, "move"), _v55.addToShowcase && (0, _v1.jsx)(_v34.ActionWithTooltip, {
-        ..._v55.addToShowcase
-      }, "addToShowcase"), _v55.star && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.star
+      _v62 = [[_v56.move && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.move
+      }, "move"), _v56.addToShowcase && (0, _v1.jsx)(_v34.ActionWithTooltip, {
+        ..._v56.addToShowcase
+      }, "addToShowcase"), _v56.star && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.star
       }, "star")]].map(_v31.createSection).filter(_v0 => !!_v0.length),
-      _v62 = [[_v59, _v55.bulkPrivacy && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.bulkPrivacy
-      }, "bulkPrivacy"), _v55.slack && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.slack
+      _v63 = [[_v60, _v56.bulkPrivacy && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.bulkPrivacy
+      }, "bulkPrivacy"), _v56.slack && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.slack
       }, "slack")]].map(_v31.createSection).filter(_v0 => !!_v0.length),
-      _v63 = [_v57, _v58, _v49 ? [_v60.length > 0 && (0, _v1.jsx)(_v33.MenuAction, {
+      _v64 = [_v58, _v59, _v50 ? [_v61.length > 0 && (0, _v1.jsx)(_v33.MenuAction, {
         icon: (0, _v1.jsx)(_v19.EditPencil, {
           boxSize: _v36
         }),
@@ -823,12 +824,12 @@
             }
           }
         }),
-        children: _v60.map((_v0, _v1) => (0, _v1.jsx)(_v31.SectionRenderer, {
+        children: _v61.map((_v0, _v1) => (0, _v1.jsx)(_v31.SectionRenderer, {
           section: _v0,
           index: _v1,
           px: "0"
         }, _v1))
-      }, "editFolder"), _v61.length > 0 && (0, _v1.jsx)(_v33.MenuAction, {
+      }, "editFolder"), _v62.length > 0 && (0, _v1.jsx)(_v33.MenuAction, {
         icon: (0, _v1.jsx)(_v11.FolderOpen, {
           boxSize: _v36
         }),
@@ -858,12 +859,12 @@
             }
           }
         }),
-        children: _v61.map((_v0, _v1) => (0, _v1.jsx)(_v31.SectionRenderer, {
+        children: _v62.map((_v0, _v1) => (0, _v1.jsx)(_v31.SectionRenderer, {
           section: _v0,
           index: _v1,
           px: "0"
         }, _v1))
-      }, "organize"), _v62.length > 0 && (0, _v1.jsx)(_v33.MenuAction, {
+      }, "organize"), _v63.length > 0 && (0, _v1.jsx)(_v33.MenuAction, {
         icon: (0, _v1.jsx)(_v12.SettingsGear, {
           boxSize: _v36
         }),
@@ -893,43 +894,44 @@
             }
           }
         }),
-        badge: _v53,
-        children: _v62.map((_v0, _v1) => (0, _v1.jsx)(_v31.SectionRenderer, {
+        badge: _v54,
+        children: _v63.map((_v0, _v1) => (0, _v1.jsx)(_v31.SectionRenderer, {
           section: _v0,
           index: _v1,
           px: "0"
         }, _v1))
-      }, "folderSettings")] : [_v55.addToShowcase && (0, _v1.jsx)(_v34.ActionWithTooltip, {
-        ..._v55.addToShowcase
-      }, "addToShowcase"), _v55.move && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.move
-      }, "move"), _v55.rename && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.rename
-      }, "rename"), _v55.changeColor && (0, _v1.jsx)(_v28.FeatureFlag, {
+      }, "folderSettings")] : [_v56.addToShowcase && (0, _v1.jsx)(_v34.ActionWithTooltip, {
+        ..._v56.addToShowcase
+      }, "addToShowcase"), _v56.move && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.move
+      }, "move"), _v56.rename && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.rename
+      }, "rename"), _v56.changeColor && (0, _v1.jsx)(_v28.FeatureFlag, {
         feature: "change_color",
         checkLocalStorage: !0,
         children: (0, _v1.jsx)(_v33.Action, {
-          ..._v55.changeColor
+          ..._v56.changeColor
         })
-      }, "changeColor"), _v59, _v55.slack && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.slack
-      }, "slack"), _v55.folderSettings && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.folderSettings
-      }, "folderSettings"), _v55.translate && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.translate
-      }, "translate"), _v55.star && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.star
-      }, "star")], [_v55.delete && (0, _v1.jsx)(_v33.Action, {
-        ..._v55.delete
+      }, "changeColor"), _v60, _v56.slack && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.slack
+      }, "slack"), _v56.folderSettings && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.folderSettings
+      }, "folderSettings"), _v56.translate && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.translate
+      }, "translate"), _v56.star && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.star
+      }, "star")], [_v56.delete && (0, _v1.jsx)(_v33.Action, {
+        ..._v56.delete
       }, "delete")]].map(_v31.createSection).filter(_v0 => !!_v0.length);
     return (0, _v1.jsx)(_v30.ActionsMenu, {
-      placement: _v30,
-      usePortal: _v31,
+      placement: _v31,
+      usePortal: _v32,
       onClick: _v2,
+      onOpenChange: _v3,
       disabled: _v1,
       size: _v0,
-      zIndex: _v32,
-      children: _v63.map((_v0, _v1) => (0, _v1.jsx)(_v31.SectionRenderer, {
+      zIndex: _v33,
+      children: _v64.map((_v0, _v1) => (0, _v1.jsx)(_v31.SectionRenderer, {
         section: _v0,
         index: _v1
       }, _v1))

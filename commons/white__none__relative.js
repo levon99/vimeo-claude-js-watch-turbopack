@@ -404,11 +404,17 @@
         {
           shouldReorder: _v16
         } = (0, _v54.useColdStoragePlanReorder)(),
-        _v17 = (0, _v14.useCampaignIdOverride)(),
-        _v18 = _v0.onClose;
+        {
+          campaignId: _v17,
+          isLoading: _v18
+        } = (0, _v14.useCampaignIdOverride)(),
+        _v19 = _v0.onClose;
       (0, _v2.useEffect)(() => {
-        let _v0 = !1,
-          _v1 = async () => await _v58(_v2, _v3.jwt),
+        let _v0 = !1;
+        if (_v18) return () => {
+          _v0 = !0;
+        };
+        let _v1 = async () => await _v58(_v2, _v3.jwt),
           _v2 = async () => await _v59(_v2, _v3, _v17, _v12 ?? !1);
         return (async () => {
           try {
@@ -427,153 +433,153 @@
         })(), () => {
           _v0 = !0;
         };
-      }, [_v0.tracking, _v2, _v3, _v17, _v4, _v12]);
-      let _v19 = _v14.userData?.membership?.type,
+      }, [_v0.tracking, _v2, _v3, _v17, _v18, _v4, _v12]);
+      let _v20 = _v14.userData?.membership?.type,
         {
-          isEligible: _v20,
-          isLoading: _v21
+          isEligible: _v21,
+          isLoading: _v22
         } = (0, _v6.useIsPermanentDiscountOfferEligible)(),
         {
-          studioPlan: _v22,
-          professionalPlan: _v23
+          studioPlan: _v23,
+          professionalPlan: _v24
         } = (0, _v6.usePermanentDiscountOfferPlans)(_v14.plansData),
-        _v24 = (0, _v2.useMemo)(() => null != _v22 ? (0, _v4.resolveStudioRenewalDiscount)({
-          studioPlan: _v22,
-          professionalPlan: _v23 ?? null,
+        _v25 = (0, _v2.useMemo)(() => null != _v23 ? (0, _v4.resolveStudioRenewalDiscount)({
+          studioPlan: _v23,
+          professionalPlan: _v24 ?? null,
           isAnnual: !(0, _v49.showMonthlyPlans)(_v14.plansData ?? [])
-        }) : null, [_v22, _v23, _v14.plansData]),
-        _v25 = "default" === _v0.templateType && _v20 && null != _v24,
-        _v26 = _v0.templateType;
-      _v69.includes(_v0.templateType) || _v19 !== _v44.PLANS.ADVANCED && _v19 !== _v44.PLANS.PREMIUM && _v19 !== _v44.PLANS.TEAM_LIVE && _v19 !== _v44.PLANS.CUSTOM_SELF_SERVE && _v19 !== _v44.PLANS.STUDIO && _v19 !== _v44.PLANS.PRODUCTION || (0, _v49.hasDisplayPlan)(_v0.modalConfig) && _v0.modalConfig?.displayPlan || (_v26 = "enterprise"), _v25 && (_v26 = _v0.templateType);
-      let _v27 = _v0.tracking.paywallTracking.paywallFeature,
-        _v28 = _v0.tracking.paywallTracking.paywallTrigger,
-        _v29 = _v0.bundleOffer?.mode === "claim",
-        _v30 = _v63(_v5),
-        _v31 = _v64(_v5),
-        _v32 = _v67(_v28),
-        _v33 = _v65(_v27, _v5),
-        _v34 = "privacy" !== _v33 || _v32 ? _v33 : "generic",
-        _v35 = "limits_only_bsp" === _v5 && "generic" === _v34,
-        _v36 = _v28?.toLowerCase() ?? "",
-        _v37 = _v36.includes("cold_storage") || _v36.includes("cold_privacy"),
-        _v38 = (0, _v2.useMemo)(() => _v14.plansData ? (0, _v3.filterB2BRepackagingPlans)(_v14.plansData, _v13) : null, [_v14.plansData, _v13]),
-        _v39 = _v14.userData?.membership?.type && _v38 ? (0, _v29.resolveRecommendedTier)({
+        }) : null, [_v23, _v24, _v14.plansData]),
+        _v26 = "default" === _v0.templateType && _v21 && null != _v25,
+        _v27 = _v0.templateType;
+      _v69.includes(_v0.templateType) || _v20 !== _v44.PLANS.ADVANCED && _v20 !== _v44.PLANS.PREMIUM && _v20 !== _v44.PLANS.TEAM_LIVE && _v20 !== _v44.PLANS.CUSTOM_SELF_SERVE && _v20 !== _v44.PLANS.STUDIO && _v20 !== _v44.PLANS.PRODUCTION || (0, _v49.hasDisplayPlan)(_v0.modalConfig) && _v0.modalConfig?.displayPlan || (_v27 = "enterprise"), _v26 && (_v27 = _v0.templateType);
+      let _v28 = _v0.tracking.paywallTracking.paywallFeature,
+        _v29 = _v0.tracking.paywallTracking.paywallTrigger,
+        _v30 = _v0.bundleOffer?.mode === "claim",
+        _v31 = _v63(_v5),
+        _v32 = _v64(_v5),
+        _v33 = _v67(_v29),
+        _v34 = _v65(_v28, _v5),
+        _v35 = "privacy" !== _v34 || _v33 ? _v34 : "generic",
+        _v36 = "limits_only_bsp" === _v5 && "generic" === _v35,
+        _v37 = _v29?.toLowerCase() ?? "",
+        _v38 = _v37.includes("cold_storage") || _v37.includes("cold_privacy"),
+        _v39 = (0, _v2.useMemo)(() => _v14.plansData ? (0, _v3.filterB2BRepackagingPlans)(_v14.plansData, _v13) : null, [_v14.plansData, _v13]),
+        _v40 = _v14.userData?.membership?.type && _v39 ? (0, _v29.resolveRecommendedTier)({
           currentTier: _v14.userData?.membership?.type,
-          tierSetting: _v37 ? _v6 : _v7,
-          plansData: _v38,
+          tierSetting: _v38 ? _v6 : _v7,
+          plansData: _v39,
           excludePlans: _v0.modalConfig?.excludePlans,
-          variant: _v34
+          variant: _v35
         }) : null,
-        _v40 = "bsp_cards_generic_and_bsp_limits" === _v5 || "bsp_table_generic_and_bsp_limits" === _v5,
-        _v41 = "generic" === _v34 && _v40 && ![_v44.PLANS.STARTER, _v44.PLANS.STANDARD, _v44.PLANS.ADVANCED].includes(_v39),
-        _v42 = "generic" === _v34 && _v40,
-        _v43 = !_v29 && _v30 && "default" === _v0.templateType && "enterprise" !== _v26 && !_v25 && !!_v39 && !_v35 && !_v41,
-        _v44 = _v43 && !_v31 && !_v42,
-        _v45 = (0, _v24.useLimitPaywallBundleOffer)({
-          enabled: _v44
+        _v41 = "bsp_cards_generic_and_bsp_limits" === _v5 || "bsp_table_generic_and_bsp_limits" === _v5,
+        _v42 = "generic" === _v35 && _v41 && ![_v44.PLANS.STARTER, _v44.PLANS.STANDARD, _v44.PLANS.ADVANCED].includes(_v40),
+        _v43 = "generic" === _v35 && _v41,
+        _v44 = !_v30 && _v31 && "default" === _v0.templateType && "enterprise" !== _v27 && !_v26 && !!_v40 && !_v36 && !_v42,
+        _v45 = _v44 && !_v32 && !_v43,
+        _v46 = (0, _v24.useLimitPaywallBundleOffer)({
+          enabled: _v45
         }),
-        _v46 = _v42 ? "760px" : _v31 ? "480px" : null !== _v45 ? "600px" : "560px",
-        _v47 = "enterprise" === _v26 || "default" === _v26 && "enterprise" === _v19 ? "enterprise_modal" : "default" === _v26 ? "default_modal" : "custom_modal",
-        _v48 = _v43 ? _v66(_v5, _v34) : _v47,
-        _v49 = _v14.userData?.membership?.type ?? null,
-        _v50 = (0, _v2.useMemo)(() => _v43 && _v39 ? _v42 ? [_v49, _v39].filter(Boolean) : [_v39] : void 0, [_v43, _v42, _v39, _v49]),
-        _v51 = _v43 ? _v31 ? _v70 : _v42 ? "bsp_table_generic_and_bsp_limits" === _v5 ? _v71 : _v70 : void 0 : void 0,
-        _v52 = _v43 ? _v50 ?? [] : [],
-        _v53 = _v43 ? _v51 ?? [] : [],
-        _v54 = _v0.tracking.paywallTracking,
+        _v47 = _v43 ? "760px" : _v32 ? "480px" : null !== _v46 ? "600px" : "560px",
+        _v48 = "enterprise" === _v27 || "default" === _v27 && "enterprise" === _v20 ? "enterprise_modal" : "default" === _v27 ? "default_modal" : "custom_modal",
+        _v49 = _v44 ? _v66(_v5, _v35) : _v48,
+        _v50 = _v14.userData?.membership?.type ?? null,
+        _v51 = (0, _v2.useMemo)(() => _v44 && _v40 ? _v43 ? [_v50, _v40].filter(Boolean) : [_v40] : void 0, [_v44, _v43, _v40, _v50]),
+        _v52 = _v44 ? _v32 ? _v70 : _v43 ? "bsp_table_generic_and_bsp_limits" === _v5 ? _v71 : _v70 : void 0 : void 0,
+        _v53 = _v44 ? _v51 ?? [] : [],
+        _v54 = _v44 ? _v52 ?? [] : [],
+        _v55 = _v0.tracking.paywallTracking,
         {
           capabilities: {
-            hasSecondFreeTrialEligibility: _v55
+            hasSecondFreeTrialEligibility: _v56
           }
         } = (0, _v13.useCapability)(_v8 ? ["hasSecondFreeTrialEligibility"] : []),
-        _v56 = !!_v14.userData && (0, _v49.isEligibleForFreeTrial)(_v14.userData, _v8 && !!_v55),
-        _v57 = !!_v14.plansData && _v68({
-          paywallFeature: _v27,
+        _v57 = !!_v14.userData && (0, _v49.isEligibleForFreeTrial)(_v14.userData, _v8 && !!_v56),
+        _v58 = !!_v14.plansData && _v68({
+          paywallFeature: _v28,
           plansData: _v14.plansData
         }),
-        _v58 = !_v29 && !_v25 && (_v43 || "default" === _v26 && "enterprise" !== _v19),
-        _v59 = _v56 && (_v14.plansData ?? []).some(_v28.hasFreeTrialPurchasePath),
+        _v59 = !_v30 && !_v26 && (_v44 || "default" === _v27 && "enterprise" !== _v20),
+        _v60 = _v57 && (_v14.plansData ?? []).some(_v28.hasFreeTrialPurchasePath),
         {
-          isResolving: _v60,
-          variant: _v61,
-          accountAddress: _v62
+          isResolving: _v61,
+          variant: _v62,
+          accountAddress: _v63
         } = (0, _v23.usePaywallOneTap)({
-          isPaywallReady: _v58 && _v14.isShowing && !_v59
+          isPaywallReady: _v59 && _v14.isShowing && !_v60
         }),
-        _v63 = _v61 ? _v14.plansData?.find(_v0 => String(_v0.tier) === _v23.ONE_TAP_TIER) : void 0,
-        _v64 = _v61 && _v63 ? {
-          variant: _v61,
-          plan: _v63
+        _v64 = _v62 ? _v14.plansData?.find(_v0 => String(_v0.tier) === _v23.ONE_TAP_TIER) : void 0,
+        _v65 = _v62 && _v64 ? {
+          variant: _v62,
+          plan: _v64
         } : null,
         {
-          trackPaywallDismissed: _v65,
-          trackPaywallCtaClicked: _v66
+          trackPaywallDismissed: _v66,
+          trackPaywallCtaClicked: _v67
         } = (0, _v26.usePaywallTracking)({
           ..._v0.tracking.paywallTracking,
-          paywallStyle: _v64 ? "one_tap_upsell" : _v48,
-          paywallPlansDisplayed: _v64 ? [_v23.ONE_TAP_TIER] : _v52,
-          paywallPeriodicitiesDisplayed: _v64 ? [_v64.variant.isMonthly ? "monthly" : "yearly"] : _v53,
-          isVisible: _v14.isShowing && "offer" !== _v0.templateType && (_v43 || "default_modal" !== _v47)
+          paywallStyle: _v65 ? "one_tap_upsell" : _v49,
+          paywallPlansDisplayed: _v65 ? [_v23.ONE_TAP_TIER] : _v53,
+          paywallPeriodicitiesDisplayed: _v65 ? [_v65.variant.isMonthly ? "monthly" : "yearly"] : _v54,
+          isVisible: _v14.isShowing && "offer" !== _v0.templateType && (_v44 || "default_modal" !== _v48)
         }),
-        _v67 = (0, _v2.useCallback)(() => {
-          _v65(), "default" === _v26 && window.dispatchEvent(new CustomEvent(_v60.DEFAULT_MODAL_DISMISSED_EVENT)), _v18();
-        }, [_v18, _v26, _v65]),
-        _v68 = "default" === _v26 && !_v43 && "enterprise" !== _v19,
-        _v69 = _v14.plansData?.some(_v0 => _v0.tier === _v44.PLANS.STARTER || _v0.tier === _v44.PLANS.PLUS) ?? !1,
-        _v70 = _v14.isShowing && _v16 && _v68 && _v69,
+        _v68 = (0, _v2.useCallback)(() => {
+          _v66(), "default" === _v27 && window.dispatchEvent(new CustomEvent(_v60.DEFAULT_MODAL_DISMISSED_EVENT)), _v19();
+        }, [_v19, _v27, _v66]),
+        _v69 = "default" === _v27 && !_v44 && "enterprise" !== _v20,
+        _v70 = _v14.plansData?.some(_v0 => _v0.tier === _v44.PLANS.STARTER || _v0.tier === _v44.PLANS.PLUS) ?? !1,
+        _v71 = _v14.isShowing && _v16 && _v69 && _v70,
         {
-          trackColdStoragePlanReorderDisplayed: _v71
+          trackColdStoragePlanReorderDisplayed: _v72
         } = (0, _v25.useColdStorageReorderTracking)(),
-        _v72 = (0, _v2.useRef)(!1);
+        _v73 = (0, _v2.useRef)(!1);
       switch ((0, _v2.useEffect)(() => {
-        _v70 && !_v72.current && (_v72.current = !0, _v71({
+        _v71 && !_v73.current && (_v73.current = !0, _v72({
           surface: "upsell_modal"
         }));
-      }, [_v70, _v71]), _v26) {
+      }, [_v71, _v72]), _v27) {
         case "default":
-          _v1 = _v64 && _v62 ? (0, _v1.jsx)(_v19.OneTapPaywallModal, {
-            plan: _v64.plan,
-            onClose: _v67,
-            billingAddress: _v62,
-            paywallTracking: _v54,
-            ..._v64.variant
-          }) : _v43 && _v39 ? (0, _v1.jsxs)(_v8.Modal, {
+          _v1 = _v65 && _v63 ? (0, _v1.jsx)(_v19.OneTapPaywallModal, {
+            plan: _v65.plan,
+            onClose: _v68,
+            billingAddress: _v63,
+            paywallTracking: _v55,
+            ..._v65.variant
+          }) : _v44 && _v40 ? (0, _v1.jsxs)(_v8.Modal, {
             isOpen: !0,
-            onClose: _v67,
-            size: _v31 ? "md" : ["full", "md"],
+            onClose: _v68,
+            size: _v32 ? "md" : ["full", "md"],
             scrollBehavior: "inside",
             children: [(0, _v1.jsx)(_v12.ModalOverlay, {}), (0, _v1.jsxs)(_v11.ModalContent, {
               containerProps: {
                 padding: {
-                  base: _v31 ? "16px !important" : "0 !important"
+                  base: _v32 ? "16px !important" : "0 !important"
                 }
               },
               maxWidth: {
-                base: _v31 ? "100%" : "100vw",
-                md: _v46
+                base: _v32 ? "100%" : "100vw",
+                md: _v47
               },
               width: {
                 base: "100%",
-                md: _v46
+                md: _v47
               },
               height: {
-                base: _v31 ? "auto" : "100dvh",
+                base: _v32 ? "auto" : "100dvh",
                 md: "auto"
               },
               minH: {
-                base: _v31 ? "auto" : "100dvh",
+                base: _v32 ? "auto" : "100dvh",
                 md: "auto"
               },
               maxH: {
-                base: _v31 ? "92dvh" : "100dvh",
-                md: _v31 ? "92vh" : "90vh"
+                base: _v32 ? "92dvh" : "100dvh",
+                md: _v32 ? "92vh" : "90vh"
               },
               borderRadius: {
-                base: _v31 ? "16px" : "0",
+                base: _v32 ? "16px" : "0",
                 md: "16px"
               },
               margin: {
-                base: _v31 ? "auto" : "0",
+                base: _v32 ? "auto" : "0",
                 md: "auto"
               },
               overflow: "hidden",
@@ -652,29 +658,29 @@
                     }
                   })({
                     kind: _v5,
-                    paywallTracking: _v54,
-                    variant: _v34,
-                    tier: _v39,
+                    paywallTracking: _v55,
+                    variant: _v35,
+                    tier: _v40,
                     currentTier: _v14.userData?.membership?.type ?? null,
-                    privacyOption: _v32,
-                    isUserEligibleForFreeTrial: _v56,
+                    privacyOption: _v33,
+                    isUserEligibleForFreeTrial: _v57,
                     showOtherPlans: _v9,
                     defaultPeriodicity: _v10,
                     monthlyFreeTrial: _v11,
-                    onCtaClick: _v66
+                    onCtaClick: _v67
                   })
                 })
               })]
             })]
-          }) : _v25 && _v22 ? (0, _v1.jsx)(_v33.default, {
-            studioPlan: _v22,
-            professionalPlan: _v23,
+          }) : _v26 && _v23 ? (0, _v1.jsx)(_v33.default, {
+            studioPlan: _v23,
+            professionalPlan: _v24,
             isAnnual: !(0, _v49.showMonthlyPlans)(_v14.plansData ?? []),
-            onClose: _v67,
+            onClose: _v68,
             tracking: _v0.tracking
-          }) : "enterprise" === _v19 ? (0, _v1.jsx)(_v53, {
+          }) : "enterprise" === _v20 ? (0, _v1.jsx)(_v53, {
             userData: _v14.userData,
-            onClose: _v67,
+            onClose: _v68,
             tracking: _v0.tracking,
             modalConfig: _v0.modalConfig
           }) : (0, _v1.jsx)(_v32.default, {
@@ -683,23 +689,23 @@
             modalConfig: {
               hidePlansSummary: !0,
               ..._v0.modalConfig,
-              suppressAllPaidPlansBanner: _v57
+              suppressAllPaidPlansBanner: _v58
             },
             bundleOffer: _v0.bundleOffer,
-            onClose: _v18,
+            onClose: _v19,
             tracking: _v0.tracking
           });
           break;
         case "feature":
           _v1 = (0, _v1.jsx)(_v31.default, {
             modalConfig: _v0.modalConfig,
-            onClose: _v67
+            onClose: _v68
           });
           break;
         case "enterprise":
           _v1 = (0, _v1.jsx)(_v53, {
             userData: _v14.userData,
-            onClose: _v67,
+            onClose: _v68,
             tracking: _v0.tracking,
             modalConfig: _v0.modalConfig
           });
@@ -707,7 +713,7 @@
         default:
           _v1 = null;
       }
-      return !_v14.isShowing || _v58 && _v60 || _v21 ? null : (0, _v1.jsx)(_v30.default.Provider, {
+      return !_v14.isShowing || _v59 && _v61 || _v22 ? null : (0, _v1.jsx)(_v30.default.Provider, {
         value: {
           ..._v0.tracking,
           device_type: (0, _v49.getDeviceType)(),

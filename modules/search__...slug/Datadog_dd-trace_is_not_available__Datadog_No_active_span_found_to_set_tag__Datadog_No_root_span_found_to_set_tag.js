@@ -9334,22 +9334,23 @@
           isAiRequest: _v6,
           hasAgenticSearch: _v7,
           filters: _v8,
-          searchType: _v9
+          searchType: _v9,
+          isSmartSearch: _v10
         } = _v267(),
-        _v10 = _v7 ? null : _v1,
+        _v11 = _v7 ? null : _v1,
         {
-          trackSearchResultsPage: _v11,
-          trackSearchResultHover: _v12,
-          trackSearchResultClick: _v13,
-          trackSearchWatchLater: _v14,
-          trackSearchFilter: _v15,
-          trackSearchSorting: _v16,
-          trackSearchModeSwitch: _v17,
-          trackNotificationView: _v18,
-          trackNotificationAction: _v19,
-          trackViewGenerateAiSearch: _v20,
-          trackAiSearchWidgetActions: _v21,
-          trackThumbsRate: _v22
+          trackSearchResultsPage: _v12,
+          trackSearchResultHover: _v13,
+          trackSearchResultClick: _v14,
+          trackSearchWatchLater: _v15,
+          trackSearchFilter: _v16,
+          trackSearchSorting: _v17,
+          trackSearchModeSwitch: _v18,
+          trackNotificationView: _v19,
+          trackNotificationAction: _v20,
+          trackViewGenerateAiSearch: _v21,
+          trackAiSearchWidgetActions: _v22,
+          trackThumbsRate: _v23
         } = (0, _v12.useSearchTracking)();
       return {
         sendHoverEvent: ({
@@ -9357,9 +9358,9 @@
           position: _v1,
           uri: _v2
         }) => {
-          _v12({
+          _v13({
             searchId: (0, _v251.default)(_v5, _v29),
-            searchText: _v10,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultsPageNumber: _v3,
             resultPosition: _v1,
@@ -9375,9 +9376,9 @@
           position: _v1,
           uri: _v2
         }) => {
-          _v13({
+          _v14({
             searchId: (0, _v251.default)(_v5, _v29),
-            searchText: _v10,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultsPageNumber: _v3,
             resultPosition: _v1,
@@ -9385,23 +9386,25 @@
             entityType: _v0,
             orderBy: _v2,
             resultsQty: _v4,
-            isAiRequest: _v6
+            isAiRequest: _v6,
+            smartSearch: _v10
           });
         },
         sendMomentClickEvent: ({
           position: _v0,
           entityId: _v1
         }) => {
-          _v13({
+          _v14({
             searchId: (0, _v251.default)(_v5, _v29),
-            searchText: _v10,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultPosition: _v0,
             entityId: _v1,
             entityType: "video",
             orderBy: _v2,
             resultsQty: _v4,
-            isAiRequest: _v6
+            isAiRequest: _v6,
+            smartSearch: _v10
           });
         },
         sendWatchLaterEvent: ({
@@ -9409,9 +9412,9 @@
           position: _v1,
           uri: _v2
         }) => {
-          _v14({
+          _v15({
             searchId: (0, _v251.default)(_v5, _v29),
-            searchText: _v10,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultsPageNumber: _v3,
             resultPosition: _v1,
@@ -9426,9 +9429,9 @@
           valueName: _v1,
           previousValue: _v2
         }) => {
-          _v15({
+          _v16({
             searchId: (0, _v251.default)(_v5, _v29),
-            searchText: _v10,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultsPageNumber: _v3,
             previousValue: _v2,
@@ -9443,9 +9446,9 @@
           value: _v0,
           previousValue: _v1
         }) => {
-          _v16({
+          _v17({
             searchId: (0, _v251.default)(_v5, _v29),
-            searchText: _v10,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultsPageNumber: _v3,
             previousValue: [_v1],
@@ -9462,52 +9465,53 @@
             _v3 = (0, _v251.default)(_v5, _v29),
             _v4 = _v1.length && !_v0 ? _v1 : null,
             _v5 = _v2.length && !_v0 ? _v2 : null;
-          _v11({
+          _v12({
             searchId: _v3,
-            searchText: _v10,
+            searchText: _v11,
             resultsPageNumber: _v0 ? null : _v3,
             orderBy: _v2,
             resultsQty: _v4,
             filters: _v4,
             filterValues: _v5,
-            searchType: _v9
+            searchType: _v9,
+            smartSearch: _v10
           });
         },
         sendModeSwitchEvent: ({
           copy: _v0
         }) => {
-          _v17({
+          _v18({
             searchId: (0, _v251.default)(_v5, _v29),
-            searchText: _v10,
+            searchText: _v11,
             defaultSearchType: _v0,
             resultsQty: _v4,
             copy: _v0
           });
         },
         sendNotificationView: () => {
-          _v18({
-            notificationName: "search_load_error",
-            notificationCopy: _v30
-          });
-        },
-        sendNotificationAction: () => {
           _v19({
             notificationName: "search_load_error",
             notificationCopy: _v30
           });
         },
+        sendNotificationAction: () => {
+          _v20({
+            notificationName: "search_load_error",
+            notificationCopy: _v30
+          });
+        },
         sendGenerateAiSearch: () => {
-          _v20();
+          _v21();
         },
         sendAiSearchAction: (_v0, _v1) => {
-          _v21({
+          _v22({
             copy: _v0,
             videoId: _v103(_v1)
           });
         },
         sendThumbsRate: (_v0, _v1) => {
           let _v2 = _v103(_v1);
-          (_v0.thumbsUp || _v0.thumbsDown) && _v22({
+          (_v0.thumbsUp || _v0.thumbsDown) && _v23({
             ratedFeature: "ai_search",
             isPositive: _v0.thumbsUp,
             videoId: _v2
@@ -9535,37 +9539,39 @@
           }
         } = _v244(),
         {
-          data: _v10
+          data: _v10,
+          isSmartClipSearch: _v11
         } = _v262(),
         {
           filters: {
-            query: _v11 = null,
-            sort: _v12 = null,
-            page: _v13,
-            ..._v14
+            query: _v12 = null,
+            sort: _v13 = null,
+            page: _v14,
+            ..._v15
           }
         } = _v137(),
         {
-          data: _v15
+          data: _v16
         } = _v264(),
-        _v16 = () => {
+        _v17 = () => {
           if (!_v0?.user) return _v126;
           if (!_v4) return _v125;
           let _v0 = _v0.user.account.toLowerCase();
           return "free" !== _v0 && "basic" !== _v0 || _v3 || _v0?.teamUser?.ownerId ? _v125 : _v126;
         };
       return _v1 === _v125 ? {
-        query: _v11,
-        sort: _v12 ?? _v77.relevance.value,
-        page: _v13,
-        total: _v15?.total ?? null,
-        uuidStr: _v11 || "",
+        query: _v12,
+        sort: _v13 ?? _v77.relevance.value,
+        page: _v14,
+        total: _v16?.total ?? null,
+        uuidStr: _v12 || "",
         feature: _v2,
-        defaultSearchType: _v16(),
+        defaultSearchType: _v17(),
         isAiRequest: !1,
         hasAgenticSearch: _v5,
-        filters: _v14,
-        searchType: _v1
+        filters: _v15,
+        searchType: _v1,
+        isSmartSearch: !1
       } : {
         query: _v6,
         sort: _v7 ?? _v77.relevance.value,
@@ -9573,11 +9579,12 @@
         total: _v10?.total ?? null,
         uuidStr: _v6 || "",
         feature: _v2,
-        defaultSearchType: _v16(),
+        defaultSearchType: _v17(),
         isAiRequest: null,
         hasAgenticSearch: !1,
         filters: _v9,
-        searchType: _v1
+        searchType: _v1,
+        isSmartSearch: _v11
       };
     };
   var _v268 = _v0.i(0),

@@ -53,7 +53,7 @@
         id: _v0,
         className: _v1,
         isVisible: !!_v10 && _v11,
-        width: (0, _v6.rem)(324),
+        width: (0, _v6.rem)(360),
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

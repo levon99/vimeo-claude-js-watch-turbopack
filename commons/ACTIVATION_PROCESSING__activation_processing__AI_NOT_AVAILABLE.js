@@ -82,6 +82,7 @@
     CUSTOM: "custom"
   }, "Z_INDEX", 0, {
     BOKEH_MODAL: 0,
-    BOKEH_DROPDOWN_MENU: 0
+    BOKEH_DROPDOWN_MENU: 0,
+    BOKEH_NESTED_DROPDOWN_MENU: 0
   }]);
 }

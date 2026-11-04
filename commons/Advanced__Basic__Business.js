@@ -76,7 +76,8 @@
       flatRate: _v9
     },
     _v11 = (_v0, _v1) => _v10[_v1].includes(_v0),
-    _v12 = _v0 => "free" !== _v0 && _v11(_v0, "repackaging");
+    _v12 = _v0 => "free" !== _v0 && _v11(_v0, "repackaging"),
+    _v13 = new Set(["advanced", "basic", "business", "customSelfServe", "liveBusiness", "livePremium", "livePro", "plus", "pro", "producer", "proUnlimited", "standard", "starter"]);
   _v0.s(["DEFAULT_TIER_ORDER", 0, _v4, "FLAT_RATE_TIER_ORDER", 0, _v9, "LEGACY_TIER_ORDER", 0, _v5, "REPACKAGING_TIER_ORDER", 0, _v6, "SELF_SERVE_TIER_ORDER", 0, _v8, "SOLUTION_TIER_ORDER", 0, _v7, "getNextTierInFamily", 0, (_v0, _v1) => {
     let _v2 = _v10[_v1],
       _v3 = _v2.indexOf(_v0);
@@ -85,5 +86,5 @@
     let _v2 = _v10[_v1],
       _v3 = _v2.indexOf(_v0);
     return _v3 < 0 ? [] : _v2.slice(_v3);
-  }, "isFlatRateTier", 0, _v0 => _v11(_v0, "flatRate"), "isPaidRepackagingTier", 0, _v12, "isRepackagingSelfServeTier", 0, _v0 => _v12(_v0) && "enterprise" !== _v0, "isSolutionTier", 0, _v0 => _v11(_v0, "solution"), "isTierInFamily", 0, _v11, "normalizeTier", 0, _v0 => _v0.toLowerCase().replace(/_([a-z])/g, (_v0, _v1) => _v1.toUpperCase())]);
+  }, "isFlatRateTier", 0, _v0 => _v11(_v0, "flatRate"), "isLegacyPaidTier", 0, _v0 => _v13.has(_v0), "isPaidRepackagingTier", 0, _v12, "isRepackagingSelfServeTier", 0, _v0 => _v12(_v0) && "enterprise" !== _v0, "isSolutionTier", 0, _v0 => _v11(_v0, "solution"), "isTierInFamily", 0, _v11, "normalizeTier", 0, _v0 => _v0.toLowerCase().replace(/_([a-z])/g, (_v0, _v1) => _v1.toUpperCase())]);
 }

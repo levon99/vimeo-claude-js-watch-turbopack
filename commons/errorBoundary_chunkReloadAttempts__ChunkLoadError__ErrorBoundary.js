@@ -36,6 +36,11 @@
         });
       }), this.props.onError?.(_v0, _v1));
     }
+    componentDidUpdate(_v0, _v1) {
+      _v1.error && _v0.resetKey !== this.props.resetKey && this.setState({
+        error: null
+      });
+    }
     render() {
       if (this.state.error && this.props.errorPage) {
         let {

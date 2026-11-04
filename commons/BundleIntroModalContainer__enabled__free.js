@@ -28,13 +28,16 @@
         enabled: _v4
       }),
       _v7 = (0, _v7.useViewer)(),
-      _v8 = (0, _v3.useCampaignIdOverride)(),
-      _v9 = (0, _v6.normalizeTier)(_v7?.teamUser?.accountType?.toString() ?? _v7?.user?.account?.toString() ?? ""),
-      _v10 = (0, _v6.isPaidRepackagingTier)(_v9) || null !== _v8 && _v3.REPACKAGING_CAMPAIGN_IDS.includes(_v8),
-      _v11 = _v4 && !_v6 && !_v5 && !_v0 && !_v10,
       {
-        isOpen: _v12,
-        dismiss: _v13
+        campaignId: _v8,
+        isLoading: _v9
+      } = (0, _v3.useCampaignIdOverride)(),
+      _v10 = (0, _v6.normalizeTier)(_v7?.teamUser?.accountType?.toString() ?? _v7?.user?.account?.toString() ?? ""),
+      _v11 = (0, _v6.isPaidRepackagingTier)(_v10) || null !== _v8 && _v3.REPACKAGING_CAMPAIGN_IDS.includes(_v8),
+      _v12 = _v4 && !_v6 && !_v5 && !_v0 && !_v11 && !_v9,
+      {
+        isOpen: _v13,
+        dismiss: _v14
       } = (({
         enabled: _v0
       }) => {
@@ -64,48 +67,48 @@
           dismiss: (0, _v2.useCallback)(() => _v4(!1), [])
         };
       })({
-        enabled: _v11
+        enabled: _v12
       });
     (0, _v2.useEffect)(() => {
-      _v1?.(_v12 && _v11);
-    }, [_v11, _v12, _v1]);
+      _v1?.(_v13 && _v12);
+    }, [_v12, _v13, _v1]);
     let {
-        trackBundleIntroModalDisplayed: _v14,
-        trackBundleIntroModalCtaClick: _v15,
-        trackBundleIntroModalDismissed: _v16
+        trackBundleIntroModalDisplayed: _v15,
+        trackBundleIntroModalCtaClick: _v16,
+        trackBundleIntroModalDismissed: _v17
       } = (0, _v4.useBundleTracking)(),
-      _v17 = (0, _v10.useBundleExperimentKey)(),
-      _v18 = "enabled" === _v3.status ? _v3.bundleType : null;
-    (0, _v5.usePicoEffect)(() => !!_v12 && !!_v11 && null !== _v18 && (_v14({
+      _v18 = (0, _v10.useBundleExperimentKey)(),
+      _v19 = "enabled" === _v3.status ? _v3.bundleType : null;
+    (0, _v5.usePicoEffect)(() => !!_v13 && !!_v12 && null !== _v19 && (_v15({
       surface: "weekly_intro",
-      bundleType: _v18,
+      bundleType: _v19,
       bundlePrice: "free",
-      experimentKey: _v17
-    }), !0), [_v12, _v11, _v18, _v14, _v17], {
+      experimentKey: _v18
+    }), !0), [_v13, _v12, _v19, _v15, _v18], {
       once: !0
     });
-    let _v19 = (0, _v2.useCallback)(_v0 => {
-        null !== _v18 && _v16({
+    let _v20 = (0, _v2.useCallback)(_v0 => {
+        null !== _v19 && _v17({
           surface: "weekly_intro",
-          bundleType: _v18,
+          bundleType: _v19,
           bundlePrice: "free",
           dismissMethod: _v0,
-          experimentKey: _v17
-        }), _v13();
-      }, [_v18, _v16, _v13, _v17]),
-      _v20 = (0, _v2.useCallback)(() => {
-        null !== _v18 && _v15({
+          experimentKey: _v18
+        }), _v14();
+      }, [_v19, _v17, _v14, _v18]),
+      _v21 = (0, _v2.useCallback)(() => {
+        null !== _v19 && _v16({
           surface: "weekly_intro",
-          bundleType: _v18,
+          bundleType: _v19,
           bundlePrice: "free",
-          experimentKey: _v17
-        }), _v13(), (0, _v13.openBundleLibrary)();
-      }, [_v18, _v15, _v13, _v17]);
-    return null === _v18 ? null : (0, _v1.jsx)(_v8.BundleIntroModal, {
-      isOpen: _v12 && _v11,
-      bundleType: _v18,
-      onCtaClick: _v20,
-      onDismiss: _v19,
+          experimentKey: _v18
+        }), _v14(), (0, _v13.openBundleLibrary)();
+      }, [_v19, _v16, _v14, _v18]);
+    return null === _v19 ? null : (0, _v1.jsx)(_v8.BundleIntroModal, {
+      isOpen: _v13 && _v12,
+      bundleType: _v19,
+      onCtaClick: _v21,
+      onDismiss: _v20,
       productDescriptionsVariant: _v2
     });
   }], 0);

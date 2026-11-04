@@ -55,35 +55,41 @@
     _v12 = _v0.i(0),
     _v13 = _v0.i(0);
   let _v14 = (_v0, _v1, _v2 = !0, _v3) => {
-      let _v4 = (0, _v11.useCampaignIdOverride)(),
-        _v5 = {
+      let {
+          campaignId: _v4,
+          isLoading: _v5,
+          showLegacyPlans: _v6
+        } = (0, _v11.useCampaignIdOverride)(),
+        _v7 = {
           includeTax: (0, _v12.useOrionSettingsFields)(["show_tax_inclusive_prices"]).show_tax_inclusive_prices ?? !1,
           filter: _v0 ? _v0.map(_v0 => (0, _v3.intoSnakeCase)(_v0)) : void 0,
           promos: _v1 ? (0, _v2.encodeJson)(_v1) : void 0
         };
-      _v3 && (_v5 = {
-        ..._v5,
+      if (_v3 && (_v7 = {
+        ..._v7,
         ..._v3
-      });
-      let _v6 = _v4 ?? _v5.campaignId;
-      return _v6 && (_v5.campaignId = _v6), _v15(_v5, _v2);
+      }), _v6) delete _v7.campaignId;else {
+        let _v0 = _v4 ?? _v7.campaignId;
+        _v0 && (_v7.campaignId = _v0);
+      }
+      return _v15(_v7, _v2, _v5);
     },
-    _v15 = (_v0, _v1) => {
-      let _v2 = (0, _v1.useContext)(_v13.ViewerContext),
+    _v15 = (_v0, _v1, _v2) => {
+      let _v3 = (0, _v1.useContext)(_v13.ViewerContext),
         {
-          data: _v3,
-          error: _v4,
-          isLoading: _v5
-        } = (_v2?.user && _v1 ? _v4.useGetMeSubscriptionPlans : _v10)(() => _v2 ? (_v0.country = _v0.country ?? _v2.location ?? void 0, _v2.vuid && (_v0.vuid = _v2.vuid), {
+          data: _v4,
+          error: _v5,
+          isLoading: _v6
+        } = (_v3?.user && _v1 ? _v4.useGetMeSubscriptionPlans : _v10)(() => !_v3 || _v2 ? null : (_v0.country = _v0.country ?? _v3.location ?? void 0, _v3.vuid && (_v0.vuid = _v3.vuid), {
           select: ["currency", "discount", "id", "metadata", "price", "promotion", "name", "uri", "tier", "priceFormatted"],
           query: _v0
-        }) : null);
-      return _v3 && _v3.data ? {
-        plans: _v3.data,
+        }));
+      return _v4 && _v4.data ? {
+        plans: _v4.data,
         isLoading: !1
-      } : (_v4 && console.error("Unable to retrieve data from Subscription Plans Api", _v4), {
+      } : (_v5 && console.error("Unable to retrieve data from Subscription Plans Api", _v5), {
         plans: void 0,
-        isLoading: _v5
+        isLoading: _v2 || _v6
       });
     };
   _v0.s(["useGetSubscriptionPlansData", 0, (_v0, _v1, _v2 = !0, _v3) => _v14(_v0, _v1, _v2, _v3).plans, "useGetSubscriptionPlansDataResult", 0, _v14], 0);

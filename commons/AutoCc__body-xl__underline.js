@@ -53,36 +53,36 @@
             as: "a",
             fontSize: "sm",
             textDecoration: "underline",
-            href: _v14.AUTO_CC_ZENDESK_LINK,
+            href: _v14.AI_CAPTION_TRANSLATIONS_LEGAL_LINK,
             target: "_blank",
             sx: {
               textWrap: "nowrap"
             },
             children: _v0
-          }, "captions-will-show")
+          }, "ai-disclaimer-learn-more")
         },
-        singular: "Captions will not show in the stream preview but are available to viewers. {LINK}Learn more{/LINK}",
+        singular: "Captions and translations are AI-generated and may contain inaccuracies. {LINK}Learn more{/LINK}",
         dictionary: {
           es: {
-            singular: "Los subtítulos no se mostrarán en la vista previa de la transmisión, pero están disponibles para los espectadores. {LINK}Más información{/LINK}"
+            singular: "Los subtítulos y las traducciones son generados por IA y pueden contener inexactitudes. {LINK}Más información{/LINK}"
           },
           "de-DE": {
-            singular: "Untertitel werden in der Stream‑Vorschau nicht angezeigt, sind aber für Zuschauer verfügbar. {LINK}Mehr erfahren{/LINK}"
+            singular: "Untertitel und Übersetzungen sind KI-generiert und können Ungenauigkeiten enthalten. {LINK}Mehr erfahren{/LINK}"
           },
           "fr-FR": {
-            singular: "Les sous‑titres ne s'afficheront pas dans l'aperçu du stream mais sont disponibles pour les spectateurs. {LINK}En savoir plus{/LINK}"
+            singular: "Les sous-titres et les traductions sont générés par l'IA et peuvent contenir des inexactitudes. {LINK}En savoir plus{/LINK}"
           },
           "ja-JP": {
-            singular: "キャプションは配信プレビューには表示されませんが、視聴者は利用できます。{LINK}詳細はこちら{/LINK}"
+            singular: "字幕と翻訳はAIにより生成されており、誤りが含まれる場合があります。 {LINK}詳細はこちら{/LINK}"
           },
           "ko-KR": {
-            singular: "자막은 스트림 미리보기에는 표시되지 않지만 시청자는 이용할 수 있습니다. {LINK}자세히 알아보기{/LINK}"
+            singular: "자막과 번역은 AI에 의해 생성되며 부정확할 수 있습니다. {LINK}자세히 알아보기{/LINK}"
           },
           "pt-BR": {
-            singular: "As legendas não aparecerão na pré-visualização da transmissão, mas estão disponíveis para os espectadores. {LINK}Saiba mais{/LINK}"
+            singular: "Legendas e traduções são geradas por IA e podem conter imprecisões. {LINK}Saiba mais{/LINK}"
           },
           "zh-CN": {
-            singular: "字幕不会显示在流预览中，但观众可以使用。{LINK}了解更多{/LINK}"
+            singular: "字幕和翻译由 AI 生成，可能包含不准确之处. {LINK}了解更多{/LINK}"
           }
         }
       });

@@ -244,6 +244,9 @@
   async function _v41(_v0) {
     return new File([await _v0.arrayBuffer()], _v0.name);
   }
+  let _v42 = _v0 => _v31.default.getState().loading.loadingItemFromFile.some(({
+    id: _v0
+  }) => _v0 === _v0);
   _v0.s(["useLocalFile", 0, () => {
     let _v0 = (0, _v32.useAppDispatch)(),
       _v1 = (0, _v32.useAppSelector)(_v30.videoSessionIdSelector),
@@ -372,8 +375,8 @@
           imageElement: _v4
         }));
         let _v5 = await _v12(_v0, _v1);
-        _v1 && _v2[_v1] || _v0((0, _v30.addSourceAction)(_v5)), _v9(_v4, !0);
-      }, [_v12, _v2, _v8, _v9, _v0, _v11]),
+        (0, _v30.storyboardIdSelector)(_v31.default.getState()) === _v3 && (_v1 && _v2[_v1] || _v0((0, _v30.addSourceAction)(_v5)), _v9(_v4, !0));
+      }, [_v12, _v2, _v8, _v9, _v0, _v3, _v11]),
       _v18 = (0, _v1.useCallback)(async ({
         source: _v0,
         elementId: _v1
@@ -563,11 +566,20 @@
         }
       }, [_v0, _v14, _v3, _v16, _v1]),
       _v25 = (0, _v1.useCallback)(async _v0 => {
+        try {
+          return await _v24(_v0), !0;
+        } catch (_v0) {
+          if (!_v42(_v0.itemId)) return !1;
+          throw _v0;
+        }
+      }, [_v24]),
+      _v26 = (0, _v1.useCallback)(async _v0 => {
         let _v1 = await fetch(_v0.data.url),
           _v2 = await _v1.blob(),
           _v3 = new File([_v2], _v0.data.name, {
             type: _v2.type
           });
+        if (!_v42(_v0.id)) return;
         _v0((0, _v29.updateLoadingItemAction)({
           id: _v0.id,
           item: {
@@ -576,15 +588,15 @@
         }));
         let _v4 = (0, _v16.getItemType)(_v11.UploadMediaOrigin.BROWSER, _v3);
         if (!_v4) throw Error(_v9.UPLOAD_FILE_TYPE_ERROR);
-        await _v24({
+        await _v25({
           file: _v3,
           itemId: _v0.id,
           mediaItem: _v0.data,
           itemType: _v4,
           isHotspot: !1
         });
-      }, [_v0, _v24]),
-      _v26 = (0, _v1.useCallback)(async _v0 => {
+      }, [_v0, _v25]),
+      _v27 = (0, _v1.useCallback)(async _v0 => {
         let _v1 = await fetch(_v0.data.url),
           _v2 = await _v1.blob(),
           _v3 = new File([_v2], _v0.data.name, {
@@ -608,7 +620,7 @@
           item: _v4,
           canBeUseLocally: !1
         }));
-        let _v5 = (_v2 === _v11.UploadQueueFileType.IMAGE ? Promise.resolve(!1) : _v40(_v0, !0)).then(async _v0 => !!_v0 && (_v0((0, _v29.updateLoadingItemAction)({
+        let _v5 = (_v2 === _v11.UploadQueueFileType.IMAGE ? Promise.resolve(!1) : _v40(_v0, !0)).then(async _v0 => !!_v0 && !!_v42(_v3) && (_v0((0, _v29.updateLoadingItemAction)({
           id: _v3,
           item: {
             canBeUseLocally: _v0
@@ -621,26 +633,26 @@
           fileName: _v0.name,
           error: _v0 instanceof Error ? _v0.message : String(_v0)
         }), !1));
-        await _v24({
+        (await _v25({
           file: _v0,
           itemId: _v3,
           mediaItem: _v4,
           itemType: _v2,
           isHotspot: _v1.isHotspot ?? !1,
           beforeSourceSwap: _v5
-        }), _v1.addToStoryboard && !(await _v5) && _v17({
+        })) && _v1.addToStoryboard && !(await _v5) && _v17({
           mediaItem: _v4,
           sourceHash: _v3,
           addItemAsHotspot: _v1.isHotspot
         });
-      }, [_v6, _v0, _v17, _v24]),
+      }, [_v6, _v0, _v17, _v25]),
       initialUploadLocalSoundFile: _v23,
       addMediaItemToStoryboard: _v17,
       addPreparedMediaSourceToStoryboard: _v18,
       replacePreparedMediaSource: _v19,
       addSoundItemToStoryboard: _v20,
-      retryUploadLocalMediaFile: _v25,
-      retryUploadLocalSoundFile: _v26,
+      retryUploadLocalMediaFile: _v26,
+      retryUploadLocalSoundFile: _v27,
       deleteFailedLocalMediaFile: _v21
     };
   }], 0);

@@ -32,10 +32,9 @@
     _v29 = _v0.i(0),
     _v30 = _v0.i(0),
     _v31 = _v0.i(0),
-    _v32 = _v0.i(0),
-    _v33 = _v0.i(0);
-  function _v34({
-    id: _v0 = (0, _v27.createInteractionDomName)("chat-manage")
+    _v32 = _v0.i(0);
+  function _v33({
+    id: _v0 = (0, _v26.createInteractionDomName)("chat-manage")
   }) {
     let {
         isEnabled: _v1,
@@ -48,7 +47,7 @@
         connectionStatuses: {
           isInteractionConnected: _v4
         }
-      } = (0, _v2.useManager)(_v33.InteractionFirebaseManager),
+      } = (0, _v2.useManager)(_v32.InteractionFirebaseManager),
       {
         initialState: _v5
       } = (0, _v12.useLiveGlobals)(),
@@ -56,52 +55,52 @@
       _v7 = (0, _v3.useCallback)(() => {
         _v2();
       }, [_v2]);
-    return (0, _v1.jsx)(_v23.Box, {
+    return (0, _v1.jsx)(_v22.Box, {
       id: _v0,
       flexDirection: "column",
       flexGrow: 1,
       maxHeight: "100%",
       overflowY: "hidden",
-      children: null !== _v1 && _v6 ? (0, _v1.jsx)(_v24.Flex, {
+      children: null !== _v1 && _v6 ? (0, _v1.jsx)(_v23.Flex, {
         flexDirection: "column",
         flexGrow: 1,
         height: "100%",
         overflowY: "hidden",
-        padding: `0 ${(0, _v25.rem)(16)} ${(0, _v25.rem)(16)} ${(0, _v25.rem)(16)}`,
+        padding: `0 ${(0, _v24.rem)(16)} ${(0, _v24.rem)(16)} ${(0, _v24.rem)(16)}`,
         children: _v5?.interaction?.isStandalone ? _v1 ? (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v29.ChatHistory, {
+          children: [(0, _v1.jsx)(_v28.ChatHistory, {
             chatType: _v19.EChatType.PUBLIC,
             currentUserId: _v6,
             scrollBackground: _v5?.interaction?.backgroundColor || "background"
-          }), (0, _v1.jsx)(_v30.ChatInput, {
+          }), (0, _v1.jsx)(_v29.ChatInput, {
             chatType: _v19.EChatType.PUBLIC,
             isDisabled: !_v4
           })]
-        }) : (0, _v1.jsx)(_v32.PanelEmptyState, {
-          icon: (0, _v1.jsx)(_v26.Chats, {
-            boxSize: (0, _v25.rem)(32)
+        }) : (0, _v1.jsx)(_v31.PanelEmptyState, {
+          icon: (0, _v1.jsx)(_v25.Chats, {
+            boxSize: (0, _v24.rem)(32)
           }),
-          buttonLabel: _v28.translations.turnOn,
-          description: _v28.translations.turnOnChatToEngageWithYourAudience,
+          buttonLabel: _v27.translations.turnOn,
+          description: _v27.translations.turnOnChatToEngageWithYourAudience,
           onButtonClick: _v7
         }) : (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v29.ChatHistory, {
+          children: [(0, _v1.jsx)(_v28.ChatHistory, {
             chatType: _v19.EChatType.PUBLIC,
             currentUserId: _v6,
             scrollBackground: _v5?.interaction?.backgroundColor || "background"
-          }), (0, _v1.jsx)(_v30.ChatInput, {
+          }), (0, _v1.jsx)(_v29.ChatInput, {
             chatType: _v19.EChatType.PUBLIC,
             isDisabled: !_v4
           })]
         })
-      }) : (0, _v1.jsx)(_v31.ChatPreloader, {
-        id: (0, _v27.createInteractionDomName)(_v0, "preloader")
+      }) : (0, _v1.jsx)(_v30.ChatPreloader, {
+        id: (0, _v26.createInteractionDomName)(_v0, "preloader")
       })
     });
   }
-  function _v35({
-    id: _v0 = (0, _v27.createInteractionDomName)("chat-view"),
-    className: _v1 = (0, _v27.createInteractionDomName)("chat-view"),
+  function _v34({
+    id: _v0 = (0, _v26.createInteractionDomName)("chat-view"),
+    className: _v1 = (0, _v26.createInteractionDomName)("chat-view"),
     chatType: _v2
   }) {
     let {
@@ -109,7 +108,7 @@
         connectionStatuses: {
           isInteractionConnected: _v4
         }
-      } = (0, _v2.useManager)(_v33.InteractionFirebaseManager, ({
+      } = (0, _v2.useManager)(_v32.InteractionFirebaseManager, ({
         interactionCredentials: _v0
       }) => [_v0]),
       {
@@ -123,49 +122,50 @@
       } = (0, _v12.useLiveGlobals)(),
       _v8 = _v3?.user?.id,
       _v9 = !!_v8 && Object.values(_v6 ?? {}).some(_v0 => _v0.userId === _v8);
-    return (0, _v1.jsx)(_v24.Flex, {
+    return (0, _v1.jsx)(_v23.Flex, {
       id: _v0,
       flexGrow: 1,
       flexDirection: "column",
       overflow: "hidden",
-      paddingTop: (0, _v25.rem)(4),
-      children: _v8 ? _v5 ? (0, _v1.jsxs)(_v24.Flex, {
-        id: (0, _v27.createInteractionDomName)(_v0, "content"),
+      paddingTop: (0, _v24.rem)(4),
+      children: _v8 ? _v5 ? (0, _v1.jsxs)(_v23.Flex, {
+        id: (0, _v26.createInteractionDomName)(_v0, "content"),
         flexDirection: "column",
         flexGrow: 1,
         height: "100%",
-        padding: `0 ${(0, _v25.rem)(16)} ${(0, _v25.rem)(16)} ${(0, _v25.rem)(16)}`,
-        children: [(0, _v1.jsx)(_v29.ChatHistory, {
+        padding: `0 ${(0, _v24.rem)(16)} ${(0, _v24.rem)(16)} ${(0, _v24.rem)(16)}`,
+        children: [(0, _v1.jsx)(_v28.ChatHistory, {
           chatType: _v2,
           currentUserId: _v8,
           scrollBackground: _v7?.interaction?.backgroundColor || "background",
-          placeholder: (0, _v1.jsx)(_v32.PanelEmptyState, {
-            id: (0, _v27.createInteractionDomName)(_v0, "chat-history-placeholder"),
-            icon: (0, _v1.jsx)(_v26.Chats, {
-              boxSize: (0, _v25.rem)(32)
+          placeholder: (0, _v1.jsx)(_v31.PanelEmptyState, {
+            id: (0, _v26.createInteractionDomName)(_v0, "chat-history-placeholder"),
+            icon: (0, _v1.jsx)(_v25.Chats, {
+              boxSize: (0, _v24.rem)(32)
             }),
-            description: _v28.translations.sendMessageToStartChat,
+            description: _v27.translations.sendMessageToStartChat,
             control: null
           })
-        }), _v7?.interaction?.feature?.isComposerHidden ? null : (0, _v1.jsx)(_v30.ChatInput, {
+        }), _v7?.interaction?.feature?.isComposerHidden ? null : (0, _v1.jsx)(_v29.ChatInput, {
           chatType: _v2,
           isDisabled: !_v4 || _v9,
-          placeholderText: _v9 ? _v18.T_CHAT_BANNED : _v28.translations.sendMessage
+          placeholderText: _v9 ? _v18.T_CHAT_BANNED : _v27.translations.sendMessage
         })]
-      }) : (0, _v1.jsx)(_v32.PanelEmptyState, {
-        id: (0, _v27.createInteractionDomName)(_v0, "placeholder"),
-        className: (0, _v27.createInteractionDomName)(_v1, "placeholder"),
-        icon: (0, _v1.jsx)(_v26.Chats, {
-          boxSize: (0, _v25.rem)(32)
+      }) : (0, _v1.jsx)(_v31.PanelEmptyState, {
+        id: (0, _v26.createInteractionDomName)(_v0, "placeholder"),
+        className: (0, _v26.createInteractionDomName)(_v1, "placeholder"),
+        icon: (0, _v1.jsx)(_v25.Chats, {
+          boxSize: (0, _v24.rem)(32)
         }),
         control: null
-      }) : (0, _v1.jsx)(_v31.ChatPreloader, {
-        id: (0, _v27.createInteractionDomName)(_v0, "preloader")
+      }) : (0, _v1.jsx)(_v30.ChatPreloader, {
+        id: (0, _v26.createInteractionDomName)(_v0, "preloader")
       })
     });
   }
-  _v0.s(["ChatManage", 0, _v34], 0), _v0.s(["ChatView", 0, _v35], 0);
-  var _v36 = _v0.i(0),
+  _v0.s(["ChatManage", 0, _v33], 0), _v0.s(["ChatView", 0, _v34], 0);
+  var _v35 = _v0.i(0),
+    _v36 = _v0.i(0),
     _v37 = _v0.i(0),
     _v38 = _v0.i(0),
     _v39 = _v0.i(0),
@@ -179,31 +179,30 @@
     _v47 = _v0.i(0),
     _v48 = _v0.i(0),
     _v49 = _v0.i(0),
-    _v50 = _v0.i(0),
-    _v51 = _v0.i(0);
-  function _v52({
-    id: _v0 = (0, _v51.createDomName)("create-button-minimized"),
-    className: _v1 = (0, _v51.createDomName)("create-button-minimized"),
+    _v50 = _v0.i(0);
+  function _v51({
+    id: _v0 = (0, _v50.createDomName)("create-button-minimized"),
+    className: _v1 = (0, _v50.createDomName)("create-button-minimized"),
     isDisabled: _v2,
     withBottomMargin: _v3,
-    icon: _v4 = (0, _v1.jsx)(_v50.Plus, {
-      width: (0, _v25.rem)(16),
-      maxWidth: (0, _v25.rem)(16)
+    icon: _v4 = (0, _v1.jsx)(_v49.Plus, {
+      width: (0, _v24.rem)(16),
+      maxWidth: (0, _v24.rem)(16)
     }),
     children: _v5,
     onClick: _v6
   }) {
-    return (0, _v1.jsx)(_v24.Flex, {
+    return (0, _v1.jsx)(_v23.Flex, {
       id: _v0,
       className: _v1,
       alignItems: "center",
-      borderRadius: (0, _v25.rem)(4),
+      borderRadius: (0, _v24.rem)(4),
       justifyContent: "center",
       color: "stroke",
-      margin: `${(0, _v25.rem)(16)} 0 ${_v3 ? (0, _v25.rem)(16) : 0} 0`,
-      children: (0, _v1.jsx)(_v49.Button, {
-        id: (0, _v51.createDomName)(_v0, "target"),
-        className: (0, _v51.createDomName)(_v1, "target"),
+      margin: `${(0, _v24.rem)(16)} 0 ${_v3 ? (0, _v24.rem)(16) : 0} 0`,
+      children: (0, _v1.jsx)(_v48.Button, {
+        id: (0, _v50.createDomName)(_v0, "target"),
+        className: (0, _v50.createDomName)(_v1, "target"),
         variant: "primary",
         isDisabled: _v2,
         leftIcon: _v4,
@@ -213,42 +212,42 @@
       })
     });
   }
-  var _v53 = _v0.i(0),
+  var _v52 = _v0.i(0),
+    _v53 = _v0.i(0),
     _v54 = _v0.i(0),
     _v55 = _v0.i(0),
-    _v56 = _v0.i(0),
-    _v57 = _v0.i(0);
-  let _v58 = {
+    _v56 = _v0.i(0);
+  let _v57 = {
     position: "relative",
     flexGrow: 1,
     flexDirection: "column",
     height: "100%",
     overflow: "hidden",
-    padding: (0, _v25.rem)(24)
+    padding: (0, _v24.rem)(24)
   };
-  function _v59() {
+  function _v58() {
     return {
-      padding: `${(0, _v25.rem)(16)} ${(0, _v25.rem)(8)}`,
+      padding: `${(0, _v24.rem)(16)} ${(0, _v24.rem)(8)}`,
       height: "100%",
       overflowY: "auto",
       overflowX: "visible",
       "@supports (-moz-appearance: none)": {
-        paddingRight: (0, _v25.rem)(20)
+        paddingRight: (0, _v24.rem)(20)
       }
     };
   }
-  let _v60 = (0, _v57.createPollInteractionObject)({
+  let _v59 = (0, _v56.createPollInteractionObject)({
     id: "",
     question: "",
     state: _v19.EPollState.DRAFT,
     createdAt: 0,
-    options: [(0, _v57.createPollOptionInteractionObject)({
-      id: (0, _v36.v4)(),
+    options: [(0, _v56.createPollOptionInteractionObject)({
+      id: (0, _v35.v4)(),
       text: ""
     }, {
       validate: !1
-    }), (0, _v57.createPollOptionInteractionObject)({
-      id: (0, _v36.v4)(),
+    }), (0, _v56.createPollOptionInteractionObject)({
+      id: (0, _v35.v4)(),
       text: ""
     }, {
       validate: !1
@@ -256,9 +255,9 @@
   }, {
     validate: !1
   });
-  function _v61({
-    id: _v0 = (0, _v27.createInteractionDomName)("poll-manage"),
-    className: _v1 = (0, _v27.createInteractionDomName)("poll-manage")
+  function _v60({
+    id: _v0 = (0, _v26.createInteractionDomName)("poll-manage"),
+    className: _v1 = (0, _v26.createInteractionDomName)("poll-manage")
   }) {
     let {
         isHydrated: _v2,
@@ -279,7 +278,7 @@
       } = (0, _v12.useLiveGlobals)(),
       {
         setIsHeaderEnabled: _v15
-      } = (0, _v55.useResponsiveSidebarContext)(),
+      } = (0, _v54.useResponsiveSidebarContext)(),
       _v16 = (0, _v3.useMemo)(() => Object.values(_v4), [_v4]),
       _v17 = _v16.some(_v0 => _v0.state === _v19.EPollState.OPENED),
       _v18 = _v16.some(_v0 => _v0.state === _v19.EPollState.CLOSED),
@@ -289,7 +288,7 @@
         activePolls: _v21,
         activePanelId: _v22,
         setActivePanelId: _v23
-      } = (0, _v46.usePollPanels)(_v4),
+      } = (0, _v45.usePollPanels)(_v4),
       _v24 = (0, _v3.useCallback)(() => {
         _v15(!1), _v11(!0);
       }, [_v15]),
@@ -326,76 +325,76 @@
         _v13(null), _v15(!0);
       }, [_v15]),
       _v33 = (0, _v3.useCallback)(_v0 => (_v13(null), _v15(!0), _v7(_v0.id, _v0)), [_v15, _v7]),
-      _v34 = (0, _v56.useScrollbarStyles)();
-    return _v10 ? (0, _v1.jsx)(_v23.Box, {
+      _v34 = (0, _v55.useScrollbarStyles)();
+    return _v10 ? (0, _v1.jsx)(_v22.Box, {
       id: _v0,
       className: _v1,
-      sx: _v59(),
-      children: (0, _v1.jsx)(_v44.PollForm, {
-        poll: _v60,
+      sx: _v58(),
+      children: (0, _v1.jsx)(_v43.PollForm, {
+        poll: _v59,
         onClose: _v30,
         onSubmit: _v31
       })
-    }) : _v12 ? (0, _v1.jsx)(_v23.Box, {
+    }) : _v12 ? (0, _v1.jsx)(_v22.Box, {
       id: _v0,
       className: _v1,
-      sx: _v59(),
-      children: (0, _v1.jsx)(_v44.PollForm, {
+      sx: _v58(),
+      children: (0, _v1.jsx)(_v43.PollForm, {
         poll: _v12,
         onClose: _v32,
         onSubmit: _v33
       })
-    }) : _v2 ? _v16.length ? (0, _v1.jsxs)(_v24.Flex, {
+    }) : _v2 ? _v16.length ? (0, _v1.jsxs)(_v23.Flex, {
       id: _v0,
       className: _v1,
-      sx: _v58,
-      children: [(0, _v1.jsxs)(_v37.Tabs, {
+      sx: _v57,
+      children: [(0, _v1.jsxs)(_v36.Tabs, {
         size: "sm",
-        sx: _v53.TABS_STYLES,
+        sx: _v52.TABS_STYLES,
         onChange: _v23,
-        children: [(0, _v1.jsxs)(_v38.TabList, {
+        children: [(0, _v1.jsxs)(_v37.TabList, {
           children: [_v20.map(({
             id: _v0,
             label: _v1
-          }) => (0, _v1.jsx)(_v39.Tab, {
-            className: (0, _v27.createInteractionDomName)(_v0, _v0, "tab"),
+          }) => (0, _v1.jsx)(_v38.Tab, {
+            className: (0, _v26.createInteractionDomName)(_v0, _v0, "tab"),
             children: _v1
-          }, _v0)), (0, _v1.jsx)(_v37.TabIndicator, {})]
-        }), (0, _v1.jsx)(_v40.TabPanels, {
-          sx: _v53.TAB_PANELS_STYLES,
+          }, _v0)), (0, _v1.jsx)(_v36.TabIndicator, {})]
+        }), (0, _v1.jsx)(_v39.TabPanels, {
+          sx: _v52.TAB_PANELS_STYLES,
           children: _v20.map(({
             id: _v0,
             polls: _v1
-          }) => (0, _v1.jsx)(_v41.TabPanel, {
-            className: (0, _v27.createInteractionDomName)(_v0, _v0, "tab-panel"),
-            sx: _v53.TAB_PANEL_STYLES,
-            children: (0, _v1.jsx)(_v23.Box, {
-              id: (0, _v27.createInteractionDomName)(_v0, _v0, "scroll"),
+          }) => (0, _v1.jsx)(_v40.TabPanel, {
+            className: (0, _v26.createInteractionDomName)(_v0, _v0, "tab-panel"),
+            sx: _v52.TAB_PANEL_STYLES,
+            children: (0, _v1.jsx)(_v22.Box, {
+              id: (0, _v26.createInteractionDomName)(_v0, _v0, "scroll"),
               sx: {
-                ...(0, _v53.createTabListScrollStyle)({
+                ...(0, _v52.createTabListScrollStyle)({
                   fullWidth: !0
                 }),
                 ..._v34
               },
-              children: (0, _v1.jsx)(_v23.Box, {
-                id: (0, _v27.createInteractionDomName)(_v0, _v0, "column"),
-                sx: (0, _v53.createTabListColumnStyle)(!0),
-                children: 0 === _v1.length ? (0, _v1.jsx)(_v47.PollEmptyState, {
-                  id: (0, _v27.createInteractionDomName)(_v0, _v0, "empty-placeholder"),
-                  className: (0, _v27.createInteractionDomName)(_v0, _v0, "empty-placeholder"),
+              children: (0, _v1.jsx)(_v22.Box, {
+                id: (0, _v26.createInteractionDomName)(_v0, _v0, "column"),
+                sx: (0, _v52.createTabListColumnStyle)(!0),
+                children: 0 === _v1.length ? (0, _v1.jsx)(_v46.PollEmptyState, {
+                  id: (0, _v26.createInteractionDomName)(_v0, _v0, "empty-placeholder"),
+                  className: (0, _v26.createInteractionDomName)(_v0, _v0, "empty-placeholder"),
                   width: "100%",
                   height: "100%",
                   buttonLabel: _v18.T_CREATE_POLL,
-                  title: 0 === _v0 ? _v28.translations.noActivePolls : void 0,
-                  description: 0 === _v0 ? _v28.translations.createPollToInteractWithAudience : _v28.translations.noPollsArchived,
+                  title: 0 === _v0 ? _v27.translations.noActivePolls : void 0,
+                  description: 0 === _v0 ? _v27.translations.createPollToInteractWithAudience : _v27.translations.noPollsArchived,
                   control: 0 === _v0,
                   history: 0 === _v0 ? _v5 : null,
                   onCreateClick: _v24
                 }) : _v1.map(_v0 => {
                   var _v1;
-                  return (0, _v1.jsx)(_v23.Box, {
-                    sx: _v53.TAB_LIST_COLUMN_ROW_ITEM_STYLE,
-                    children: (0, _v1.jsx)(_v45.PollItem, {
+                  return (0, _v1.jsx)(_v22.Box, {
+                    sx: _v52.TAB_LIST_COLUMN_ROW_ITEM_STYLE,
+                    children: (0, _v1.jsx)(_v44.PollItem, {
                       poll: _v0,
                       isAnyPollPublished: _v18,
                       canOpenPoll: _v19,
@@ -410,18 +409,18 @@
                         onPollDelete: _v29
                       }, _v0.state === _v19.EPollState.DRAFT ? [{
                         key: "edit",
-                        label: _v28.translations.edit,
+                        label: _v27.translations.edit,
                         onClick: () => {
                           _v1.onPollEdit(_v0);
                         },
-                        icon: (0, _v1.jsx)(_v42.EditPencil, {})
+                        icon: (0, _v1.jsx)(_v41.EditPencil, {})
                       }, {
                         key: "delete",
-                        label: _v28.translations.remove,
+                        label: _v27.translations.remove,
                         onClick: () => {
                           _v1.onPollDelete(_v0.id);
                         },
-                        icon: (0, _v1.jsx)(_v43.TrashBin, {})
+                        icon: (0, _v1.jsx)(_v42.TrashBin, {})
                       }] : [])
                     })
                   }, _v0.id);
@@ -430,49 +429,49 @@
             })
           }, _v0))
         }, _v22)]
-      }), (_v20[_v22]?.polls.length ?? 0) > 0 ? (0, _v1.jsx)(_v24.Flex, {
+      }), (_v20[_v22]?.polls.length ?? 0) > 0 ? (0, _v1.jsx)(_v23.Flex, {
         position: "relative",
-        children: (0, _v1.jsx)(_v54.HorizontalScrollShadow, {
+        children: (0, _v1.jsx)(_v53.HorizontalScrollShadow, {
           color: _v14?.interaction?.backgroundColor || "background"
         })
-      }) : null, 0 === _v22 && 0 !== _v21.length ? (0, _v1.jsx)(_v52, {
-        id: (0, _v27.createInteractionDomName)(_v0, "add-button"),
+      }) : null, 0 === _v22 && 0 !== _v21.length ? (0, _v1.jsx)(_v51, {
+        id: (0, _v26.createInteractionDomName)(_v0, "add-button"),
         onClick: _v24,
-        children: _v28.translations.addPoll
+        children: _v27.translations.addPoll
       }) : null]
-    }) : (0, _v1.jsx)(_v47.PollEmptyState, {
+    }) : (0, _v1.jsx)(_v46.PollEmptyState, {
       id: _v0,
       className: _v1,
       buttonLabel: _v18.T_CREATE_POLL,
-      title: _v28.translations.noActivePolls,
-      description: _v28.translations.createPollToInteractWithAudience,
+      title: _v27.translations.noActivePolls,
+      description: _v27.translations.createPollToInteractWithAudience,
       history: _v5,
-      maxWidth: (0, _v25.rem)(360),
-      sx: _v58,
+      maxWidth: (0, _v24.rem)(360),
+      sx: _v57,
       onCreateClick: _v24
-    }) : (0, _v1.jsx)(_v24.Flex, {
+    }) : (0, _v1.jsx)(_v23.Flex, {
       id: _v0,
       className: _v1,
-      sx: _v58,
-      children: (0, _v1.jsx)(_v48.BlockingLoadingWrapper, {
-        id: (0, _v27.createInteractionDomName)(_v0, "loader"),
+      sx: _v57,
+      children: (0, _v1.jsx)(_v47.BlockingLoadingWrapper, {
+        id: (0, _v26.createInteractionDomName)(_v0, "loader"),
         opacity: .1,
         withAnimation: !0
       })
     });
   }
-  _v0.s(["PollManage", 0, _v61], 0);
-  var _v62 = _v0.i(0),
-    _v63 = _v0.i(0),
-    _v64 = _v0.i(0);
-  function _v65({
-    id: _v0 = (0, _v27.createInteractionDomName)("poll-results"),
+  _v0.s(["PollManage", 0, _v60], 0);
+  var _v61 = _v0.i(0),
+    _v62 = _v0.i(0),
+    _v63 = _v0.i(0);
+  function _v64({
+    id: _v0 = (0, _v26.createInteractionDomName)("poll-results"),
     poll: _v1
   }) {
     let _v2 = _v1.options.reduce((_v0, _v1) => _v0 + _v1.votesCount, 0);
     return (0, _v1.jsx)(_v1.Fragment, {
-      children: _v1.options.map((_v0, _v1) => (0, _v1.jsx)(_v64.PollOptionVotesBar, {
-        id: (0, _v27.createInteractionDomName)(_v0, "option", _v1),
+      children: _v1.options.map((_v0, _v1) => (0, _v1.jsx)(_v63.PollOptionVotesBar, {
+        id: (0, _v26.createInteractionDomName)(_v0, "option", _v1),
         option: _v0,
         state: _v1.state,
         totalCount: _v2,
@@ -480,18 +479,18 @@
       }, _v0.id))
     });
   }
-  var _v66 = _v0.i(0),
+  var _v65 = _v0.i(0),
+    _v66 = _v0.i(0),
     _v67 = _v0.i(0),
-    _v68 = _v0.i(0),
-    _v69 = _v0.i(0);
-  function _v70({
+    _v68 = _v0.i(0);
+  function _v69({
     id: _v0,
-    className: _v1 = (0, _v51.createDomName)("poll-option-votes"),
+    className: _v1 = (0, _v50.createDomName)("poll-option-votes"),
     option: _v2,
     isBold: _v3 = !1
   }) {
-    let _v4 = (0, _v67.useColorModeValue)("slate.200", "grayscale.700");
-    return (0, _v1.jsxs)(_v24.Flex, {
+    let _v4 = (0, _v66.useColorModeValue)("slate.200", "grayscale.700");
+    return (0, _v1.jsxs)(_v23.Flex, {
       id: _v0,
       className: _v1,
       width: "100%",
@@ -499,73 +498,73 @@
       position: "relative",
       direction: "column",
       justifyContent: "center",
-      children: [(0, _v1.jsx)(_v24.Flex, {
+      children: [(0, _v1.jsx)(_v23.Flex, {
         width: "100%",
         justifyContent: "space-between",
-        margin: `${(0, _v25.rem)(4)} 0`,
-        padding: `${(0, _v25.rem)(4)} 0`,
-        children: (0, _v1.jsxs)(_v24.Flex, {
+        margin: `${(0, _v24.rem)(4)} 0`,
+        padding: `${(0, _v24.rem)(4)} 0`,
+        children: (0, _v1.jsxs)(_v23.Flex, {
           overflow: "hidden",
           alignItems: "center",
-          children: [(0, _v1.jsx)(_v69.Text, {
-            className: (0, _v51.createDomName)(_v1, "option-text"),
+          children: [(0, _v1.jsx)(_v68.Text, {
+            className: (0, _v50.createDomName)(_v1, "option-text"),
             variant: "body-xl",
             fontSize: "text-sm",
-            lineHeight: (0, _v25.rem)(18),
-            marginRight: (0, _v25.rem)(8),
+            lineHeight: (0, _v24.rem)(18),
+            marginRight: (0, _v24.rem)(8),
             children: _v2.text
-          }), _v2.isVotedByMe ? (0, _v1.jsx)(_v68.Checkmark, {
-            className: (0, _v51.createDomName)(_v1, "your-answer-icon"),
+          }), _v2.isVotedByMe ? (0, _v1.jsx)(_v67.Checkmark, {
+            className: (0, _v50.createDomName)(_v1, "your-answer-icon"),
             "data-testid": "yourAnswerIcon",
-            height: (0, _v25.rem)(14)
+            height: (0, _v24.rem)(14)
           }) : null]
         })
-      }), (0, _v1.jsx)(_v24.Flex, {
-        className: (0, _v51.createDomName)(_v1, "bar"),
+      }), (0, _v1.jsx)(_v23.Flex, {
+        className: (0, _v50.createDomName)(_v1, "bar"),
         overflow: "hidden",
-        borderRadius: _v3 ? (0, _v25.rem)(8) : (0, _v25.rem)(4),
-        height: _v3 ? (0, _v25.rem)(8) : (0, _v25.rem)(4),
+        borderRadius: _v3 ? (0, _v24.rem)(8) : (0, _v24.rem)(4),
+        height: _v3 ? (0, _v24.rem)(8) : (0, _v24.rem)(4),
         backgroundColor: _v4,
-        children: (0, _v1.jsx)(_v24.Flex, {
+        children: (0, _v1.jsx)(_v23.Flex, {
           position: "absolute",
           width: 0,
           zIndex: 5,
-          borderRadius: _v3 ? (0, _v25.rem)(8) : (0, _v25.rem)(4),
-          height: _v3 ? (0, _v25.rem)(8) : (0, _v25.rem)(4),
+          borderRadius: _v3 ? (0, _v24.rem)(8) : (0, _v24.rem)(4),
+          height: _v3 ? (0, _v24.rem)(8) : (0, _v24.rem)(4),
           background: "status-info-primary"
         })
       })]
     });
   }
-  function _v71({
-    id: _v0 = (0, _v27.createInteractionDomName)("poll-vote"),
+  function _v70({
+    id: _v0 = (0, _v26.createInteractionDomName)("poll-vote"),
     poll: _v1,
     isVotedOption: _v2,
     onSetVote: _v3
   }) {
     let _v4 = _v1.options.some(_v0 => _v0.isVotedByMe),
-      _v5 = (0, _v67.useColorModeValue)("slate.400", "grayscale.700"),
-      _v6 = (0, _v67.useColorModeValue)("slate.400", "grayscale.600"),
-      _v7 = (0, _v67.useColorModeValue)("slate.50", "grayscale.700"),
+      _v5 = (0, _v66.useColorModeValue)("slate.400", "grayscale.700"),
+      _v6 = (0, _v66.useColorModeValue)("slate.400", "grayscale.600"),
+      _v7 = (0, _v66.useColorModeValue)("slate.50", "grayscale.700"),
       _v8 = (0, _v3.useCallback)((_v0, _v1) => {
         _v3(_v0, _v1);
       }, [_v3]);
     return _v4 ? (0, _v1.jsxs)(_v1.Fragment, {
-      children: [_v1.options.map((_v0, _v1) => (0, _v1.jsx)(_v70, {
-        id: (0, _v27.createInteractionDomName)(_v0, "option", _v1),
+      children: [_v1.options.map((_v0, _v1) => (0, _v1.jsx)(_v69, {
+        id: (0, _v26.createInteractionDomName)(_v0, "option", _v1),
         option: _v0,
         isBold: !0
-      }, _v0.id)), (0, _v1.jsx)(_v66.Paragraph, {
+      }, _v0.id)), (0, _v1.jsx)(_v65.Paragraph, {
         size: "sm",
         color: "text-secondary",
-        children: _v28.translations.waitingForFinalResults
+        children: _v27.translations.waitingForFinalResults
       })]
     }) : (0, _v1.jsx)(_v1.Fragment, {
-      children: _v1.options.map((_v0, _v1) => (0, _v1.jsx)(_v49.Button, {
-        id: (0, _v27.createInteractionDomName)(_v0, "option", _v1),
+      children: _v1.options.map((_v0, _v1) => (0, _v1.jsx)(_v48.Button, {
+        id: (0, _v26.createInteractionDomName)(_v0, "option", _v1),
         "aria-label": _v0.text,
         variant: "tertiary",
-        rightIcon: _v0.isVotedByMe ? (0, _v1.jsx)(_v68.Checkmark, {}) : void 0,
+        rightIcon: _v0.isVotedByMe ? (0, _v1.jsx)(_v67.Checkmark, {}) : void 0,
         isDisabled: _v2,
         width: "100%",
         justifyContent: "space-between",
@@ -588,18 +587,18 @@
       }, _v0.id))
     });
   }
-  let _v72 = {
+  let _v71 = {
     position: "relative",
     width: "100%",
     height: "100%",
-    padding: (0, _v25.rem)(24),
+    padding: (0, _v24.rem)(24),
     flexDirection: "column",
     alignSelf: "flex-start",
-    rowGap: (0, _v25.rem)(16),
+    rowGap: (0, _v24.rem)(16),
     overflow: "auto"
   };
-  function _v73({
-    id: _v0 = (0, _v27.createInteractionDomName)("poll-view")
+  function _v72({
+    id: _v0 = (0, _v26.createInteractionDomName)("poll-view")
   }) {
     let {
         isHydrated: _v1,
@@ -608,59 +607,60 @@
         pollActions: _v4
       } = (0, _v2.useManager)(_v14.PollManager),
       _v5 = _v3 ? _v2[_v3] : null;
-    if (!_v1) return (0, _v1.jsx)(_v24.Flex, {
+    if (!_v1) return (0, _v1.jsx)(_v23.Flex, {
       id: _v0,
-      sx: _v72,
-      children: (0, _v1.jsx)(_v48.BlockingLoadingWrapper, {
+      sx: _v71,
+      children: (0, _v1.jsx)(_v47.BlockingLoadingWrapper, {
         opacity: .1,
         withAnimation: !0
       })
     });
-    if (!_v5) return (0, _v1.jsxs)(_v24.Flex, {
+    if (!_v5) return (0, _v1.jsxs)(_v23.Flex, {
       alignItems: "center",
       justifyContent: "center",
       flexDirection: "column",
       margin: "auto",
-      children: [(0, _v1.jsx)(_v63.ChartGrowthAlt, {
+      children: [(0, _v1.jsx)(_v62.ChartGrowthAlt, {
         boxSize: "lg"
-      }), (0, _v1.jsx)(_v24.Flex, {
-        id: (0, _v27.createInteractionDomName)(_v0, "placeholder"),
+      }), (0, _v1.jsx)(_v23.Flex, {
+        id: (0, _v26.createInteractionDomName)(_v0, "placeholder"),
         alignItems: "center",
         justifyContent: "center",
         height: "100%",
         color: "text-secondary",
         textAlign: "center",
         flexGrow: 1,
-        margin: `${(0, _v25.rem)(16)} 0`,
-        children: _v28.translations.noPollCurrentlyAvailable
+        margin: `${(0, _v24.rem)(16)} 0`,
+        children: _v27.translations.noPollCurrentlyAvailable
       })]
     });
     let _v6 = _v5.options.some(_v0 => _v0.isVotedByMe),
       _v7 = _v5.state === _v19.EPollState.OPENED;
-    return (0, _v1.jsxs)(_v24.Flex, {
+    return (0, _v1.jsxs)(_v23.Flex, {
       id: _v0,
-      sx: _v72,
-      children: [(0, _v1.jsx)(_v62.Header, {
-        id: (0, _v27.createInteractionDomName)(_v0, "question"),
+      sx: _v71,
+      children: [(0, _v1.jsx)(_v61.Header, {
+        id: (0, _v26.createInteractionDomName)(_v0, "question"),
         size: "sm",
         margin: 0,
         sx: {
           wordWrap: "break-word"
         },
         children: _v5.question
-      }), _v7 ? (0, _v1.jsx)(_v71, {
-        id: (0, _v27.createInteractionDomName)(_v0, "votes"),
+      }), _v7 ? (0, _v1.jsx)(_v70, {
+        id: (0, _v26.createInteractionDomName)(_v0, "votes"),
         poll: _v5,
         onSetVote: _v4.voteForPollOption,
         isVotedOption: _v6
-      }) : (0, _v1.jsx)(_v65, {
-        id: (0, _v27.createInteractionDomName)(_v0, "results"),
+      }) : (0, _v1.jsx)(_v64, {
+        id: (0, _v26.createInteractionDomName)(_v0, "results"),
         poll: _v5
       })]
     });
   }
-  _v0.s(["PollView", 0, _v73], 0);
-  var _v74 = _v0.i(0),
+  _v0.s(["PollView", 0, _v72], 0);
+  var _v73 = _v0.i(0),
+    _v74 = _v0.i(0),
     _v75 = _v0.i(0),
     _v76 = _v0.i(0),
     _v77 = _v0.i(0),
@@ -670,10 +670,9 @@
     _v81 = _v0.i(0),
     _v82 = _v0.i(0),
     _v83 = _v0.i(0),
-    _v84 = _v0.i(0),
-    _v85 = _v0.i(0);
-  function _v86({
-    id: _v0 = (0, _v27.createInteractionDomName)("qna-manage")
+    _v84 = _v0.i(0);
+  function _v85({
+    id: _v0 = (0, _v26.createInteractionDomName)("qna-manage")
   }) {
     let {
         isHydrated: _v1,
@@ -693,7 +692,7 @@
         connectionStatuses: {
           isInteractionConnected: _v11
         }
-      } = (0, _v2.useManager)(_v33.InteractionFirebaseManager),
+      } = (0, _v2.useManager)(_v32.InteractionFirebaseManager),
       {
         initialState: _v12
       } = (0, _v12.useLiveGlobals)(),
@@ -703,19 +702,19 @@
         selectedQuestionElement: _v15,
         onSelectedQuestion: _v16,
         onDeselectQuestion: _v17
-      } = (0, _v84.useQnaResponding)(),
+      } = (0, _v83.useQnaResponding)(),
       {
         panels: _v18,
         currentQuestions: _v19,
         activePanelId: _v20,
         setActivePanelId: _v21
-      } = (0, _v80.useQnaPanels)(),
+      } = (0, _v79.useQnaPanels)(),
       {
         getIdByIndex: _v22,
         getIndexById: _v23
-      } = (0, _v81.useTabsMapping)(_v18),
-      _v24 = (0, _v82.useSimpleNotification)(),
-      _v25 = null !== _v13 && (0, _v83.canReplyQuestion)(_v19.find(_v0 => _v0.id === _v13)) && !(0, _v83.hasQuestionReplies)(_v13 ? _v4?.[_v13] : void 0),
+      } = (0, _v80.useTabsMapping)(_v18),
+      _v24 = (0, _v81.useSimpleNotification)(),
+      _v25 = null !== _v13 && (0, _v82.canReplyQuestion)(_v19.find(_v0 => _v0.id === _v13)) && !(0, _v82.hasQuestionReplies)(_v13 ? _v4?.[_v13] : void 0),
       _v26 = (0, _v3.useCallback)(_v0 => {
         _v5(_v0.id), _v24({
           message: _v18.T_QUESTION_APPROVED
@@ -749,36 +748,36 @@
       _v32 = (0, _v3.useCallback)(_v0 => {
         _v21(_v22(_v0)), _v17();
       }, [_v22, _v17, _v21]);
-    return _v1 ? _v2 ? (0, _v1.jsxs)(_v24.Flex, {
+    return _v1 ? _v2 ? (0, _v1.jsxs)(_v23.Flex, {
       id: _v0,
       direction: "column",
       grow: 1,
       maxHeight: "100%",
       overflow: "hidden",
-      padding: (0, _v25.rem)(24),
-      children: [(0, _v1.jsxs)(_v37.Tabs, {
+      padding: (0, _v24.rem)(24),
+      children: [(0, _v1.jsxs)(_v36.Tabs, {
         size: "sm",
-        sx: _v53.TABS_STYLES,
+        sx: _v52.TABS_STYLES,
         index: _v23(_v20),
         onChange: _v32,
-        children: [(0, _v1.jsxs)(_v38.TabList, {
+        children: [(0, _v1.jsxs)(_v37.TabList, {
           children: [_v18.map(({
             id: _v0,
             label: _v1
-          }) => (0, _v1.jsx)(_v39.Tab, {
-            className: (0, _v27.createInteractionDomName)(_v0, _v0, "tab"),
+          }) => (0, _v1.jsx)(_v38.Tab, {
+            className: (0, _v26.createInteractionDomName)(_v0, _v0, "tab"),
             children: _v1
-          }, _v0)), (0, _v1.jsx)(_v37.TabIndicator, {})]
-        }), (0, _v1.jsx)(_v40.TabPanels, {
-          sx: _v53.TAB_PANELS_STYLES,
+          }, _v0)), (0, _v1.jsx)(_v36.TabIndicator, {})]
+        }), (0, _v1.jsx)(_v39.TabPanels, {
+          sx: _v52.TAB_PANELS_STYLES,
           children: _v18.map(({
             id: _v0,
             questions: _v1
-          }) => (0, _v1.jsx)(_v41.TabPanel, {
-            className: (0, _v27.createInteractionDomName)(_v0, _v0, "tab-panel"),
-            sx: _v53.TAB_PANEL_STYLES,
-            children: (0, _v1.jsx)(_v78.QuestionsList, {
-              id: (0, _v27.createInteractionDomName)(_v0, _v0, "questions-list"),
+          }) => (0, _v1.jsx)(_v40.TabPanel, {
+            className: (0, _v26.createInteractionDomName)(_v0, _v0, "tab-panel"),
+            sx: _v52.TAB_PANEL_STYLES,
+            children: (0, _v1.jsx)(_v77.QuestionsList, {
+              id: (0, _v26.createInteractionDomName)(_v0, _v0, "questions-list"),
               tabId: _v0,
               selectedQuestionElement: _v15,
               questions: _v1,
@@ -787,10 +786,10 @@
               isManagementAccessed: !0,
               scrollBackground: _v12?.interaction?.backgroundColor || "background",
               itemRenderer: _v0 => {
-                let _v1 = _v13 === _v0.id ? _v85.FOCUSED_STATE_COLOR : "transparent";
-                return (0, _v1.jsxs)(_v23.Box, {
-                  sx: _v53.TAB_LIST_COLUMN_ROW_ITEM_STYLE,
-                  children: [(0, _v1.jsx)(_v77.NewQuestionManageItem, {
+                let _v1 = _v13 === _v0.id ? _v84.FOCUSED_STATE_COLOR : "transparent";
+                return (0, _v1.jsxs)(_v22.Box, {
+                  sx: _v52.TAB_LIST_COLUMN_ROW_ITEM_STYLE,
+                  children: [(0, _v1.jsx)(_v76.NewQuestionManageItem, {
                     question: _v0,
                     isActive: _v0.id === _v13,
                     isPinned: _v0.id === _v3,
@@ -803,7 +802,7 @@
                     onQuestionPin: _v29,
                     onQuestionUnPin: _v30,
                     onDeleteQuestionReply: _v31
-                  }), (0, _v1.jsx)(_v75.SceneItemOverlay, {
+                  }), (0, _v1.jsx)(_v74.SceneItemOverlay, {
                     size: "sm",
                     width: 2,
                     borderRadius: 8,
@@ -812,12 +811,12 @@
                   })]
                 }, _v0.id);
               },
-              placeholder: (0, _v1.jsx)(_v32.PanelEmptyState, {
-                id: (0, _v27.createInteractionDomName)(_v0, _v0, "empty-placeholder"),
-                className: (0, _v27.createInteractionDomName)(_v0, _v0, "empty-placeholder"),
+              placeholder: (0, _v1.jsx)(_v31.PanelEmptyState, {
+                id: (0, _v26.createInteractionDomName)(_v0, _v0, "empty-placeholder"),
+                className: (0, _v26.createInteractionDomName)(_v0, _v0, "empty-placeholder"),
                 isWithPadding: !0,
-                icon: (0, _v1.jsx)(_v74.ReviewQuestion, {
-                  boxSize: (0, _v25.rem)(32)
+                icon: (0, _v1.jsx)(_v73.ReviewQuestion, {
+                  boxSize: (0, _v24.rem)(32)
                 }),
                 description: _v0 === _v19.EQnaTab.PENDING ? _v18.T_NO_QUESTIONS_PENDING : _v18.T_NO_QUESTIONS_YET,
                 control: null
@@ -825,49 +824,50 @@
             })
           }, _v0))
         }, _v20)]
-      }), (0, _v1.jsxs)(_v23.Box, {
-        id: (0, _v27.createInteractionDomName)(_v0, "controls"),
+      }), (0, _v1.jsxs)(_v22.Box, {
+        id: (0, _v26.createInteractionDomName)(_v0, "controls"),
         position: "relative",
         width: "100%",
-        children: [(0, _v1.jsx)(_v54.HorizontalScrollShadow, {
+        children: [(0, _v1.jsx)(_v53.HorizontalScrollShadow, {
           color: _v12?.interaction?.backgroundColor || "background"
-        }), _v25 ? (0, _v1.jsx)(_v76.QnaReplyForm, {
-          id: (0, _v27.createInteractionDomName)(_v0, "reply-form"),
+        }), _v25 ? (0, _v1.jsx)(_v75.QnaReplyForm, {
+          id: (0, _v26.createInteractionDomName)(_v0, "reply-form"),
           selectedQuestionId: _v13,
           isApproveNeeded: _v14 === _v19.EQuestionState.PENDING,
           onDismiss: _v17
         }) : null]
       })]
-    }) : (0, _v1.jsxs)(_v24.Flex, {
+    }) : (0, _v1.jsxs)(_v23.Flex, {
       id: _v0,
       direction: "column",
       grow: 1,
       overflowY: "hidden",
       position: "relative",
       height: "100%",
-      padding: `0 ${(0, _v25.rem)(24)} ${(0, _v25.rem)(24)} ${(0, _v25.rem)(24)}`,
-      children: [(0, _v1.jsx)(_v79.SessionInactive, {}), (0, _v1.jsx)(_v23.Box, {
-        id: (0, _v27.createInteractionDomName)(_v0, "session-controls"),
+      padding: `0 ${(0, _v24.rem)(24)} ${(0, _v24.rem)(24)} ${(0, _v24.rem)(24)}`,
+      children: [(0, _v1.jsx)(_v78.SessionInactive, {}), (0, _v1.jsx)(_v22.Box, {
+        id: (0, _v26.createInteractionDomName)(_v0, "session-controls"),
         position: "relative",
         width: "100%"
       })]
-    }) : (0, _v1.jsx)(_v24.Flex, {
+    }) : (0, _v1.jsx)(_v23.Flex, {
       id: _v0,
       direction: "column",
       grow: 1,
       overflowY: "hidden",
       position: "relative",
       height: "100%",
-      padding: `0 ${(0, _v25.rem)(24)} ${(0, _v25.rem)(24)} ${(0, _v25.rem)(24)}`,
-      children: (0, _v1.jsx)(_v48.BlockingLoadingWrapper, {
-        id: (0, _v27.createInteractionDomName)(_v0, "loader"),
+      padding: `0 ${(0, _v24.rem)(24)} ${(0, _v24.rem)(24)} ${(0, _v24.rem)(24)}`,
+      children: (0, _v1.jsx)(_v47.BlockingLoadingWrapper, {
+        id: (0, _v26.createInteractionDomName)(_v0, "loader"),
         opacity: .1,
         withAnimation: !0
       })
     });
   }
-  _v0.s(["QnaManage", 0, _v86], 0);
-  var _v87 = _v0.i(0),
+  _v0.s(["QnaManage", 0, _v85], 0);
+  var _v86 = _v0.i(0),
+    _v87 = _v0.i(0),
     _v88 = _v0.i(0),
     _v89 = _v0.i(0),
     _v90 = _v0.i(0),
@@ -875,11 +875,10 @@
     _v92 = _v0.i(0),
     _v93 = _v0.i(0),
     _v94 = _v0.i(0),
-    _v95 = _v0.i(0),
-    _v96 = _v0.i(0);
-  function _v97({
-    id: _v0 = (0, _v51.createDomName)("qna-question-input-form"),
-    className: _v1 = (0, _v51.createDomName)("qna-question-input-form"),
+    _v95 = _v0.i(0);
+  function _v96({
+    id: _v0 = (0, _v50.createDomName)("qna-question-input-form"),
+    className: _v1 = (0, _v50.createDomName)("qna-question-input-form"),
     isDisabled: _v2 = !1
   }) {
     let {
@@ -892,7 +891,7 @@
       [_v6, _v7] = (0, _v3.useState)(""),
       [_v8, _v9] = (0, _v3.useState)(!1),
       [_v10, _v11] = (0, _v3.useState)(!1),
-      _v12 = (0, _v82.useSimpleNotification)(),
+      _v12 = (0, _v81.useSimpleNotification)(),
       _v13 = (0, _v3.useCallback)(_v0 => {
         _v7(_v0.target.value);
       }, []),
@@ -900,12 +899,12 @@
         _v9(_v0 => !_v0), _v5.current?.focus();
       }, [_v9]),
       _v15 = (0, _v3.useCallback)(async _v0 => {
-        if ((_v0.preventDefault(), _v0.stopPropagation(), _v6.length && !(_v6.length > _v94.interactionToolsConfig.QNA.MAX_QUESTION_LENGTH)) && !_v10) {
+        if ((_v0.preventDefault(), _v0.stopPropagation(), _v6.length && !(_v6.length > _v93.interactionToolsConfig.QNA.MAX_QUESTION_LENGTH)) && !_v10) {
           _v11(!0);
           try {
             await _v4.submitQuestion(_v6, _v8), _v7(""), _v12({
               message: _v18.T_QUESTION_SUBMITTED
-            }), setTimeout(() => _v11(!1), _v94.interactionToolsConfig.QNA.QUESTION_ASKING_THROTTLE);
+            }), setTimeout(() => _v11(!1), _v93.interactionToolsConfig.QNA.QUESTION_ASKING_THROTTLE);
           } catch (_v0) {
             _v11(!1);
           }
@@ -919,81 +918,81 @@
         }
       }, []),
       _v17 = !_v2,
-      _v18 = !!(_v17 && _v6.length && _v6.length <= _v94.interactionToolsConfig.QNA.MAX_QUESTION_LENGTH && !_v10),
-      _v19 = _v94.interactionToolsConfig.QNA.MAX_QUESTION_LENGTH - _v6.length,
+      _v18 = !!(_v17 && _v6.length && _v6.length <= _v93.interactionToolsConfig.QNA.MAX_QUESTION_LENGTH && !_v10),
+      _v19 = _v93.interactionToolsConfig.QNA.MAX_QUESTION_LENGTH - _v6.length,
       _v20 = _v19 <= 20,
       _v21 = _v19 < 0;
-    return (0, _v1.jsxs)(_v23.Box, {
+    return (0, _v1.jsxs)(_v22.Box, {
       id: _v0,
       className: _v1,
       as: "form",
       display: "flex",
       flexDirection: "column",
       width: "100%",
-      paddingTop: (0, _v25.rem)(8),
+      paddingTop: (0, _v24.rem)(8),
       onSubmit: _v15,
-      onKeyUp: _v95.stopEventPropagation,
-      onKeyDown: _v95.stopEventPropagation,
-      onKeyPress: _v95.stopEventPropagation,
-      children: [(0, _v1.jsxs)(_v24.Flex, {
-        id: (0, _v51.createDomName)(_v0, "title"),
-        className: (0, _v51.createDomName)(_v1, "title"),
+      onKeyUp: _v94.stopEventPropagation,
+      onKeyDown: _v94.stopEventPropagation,
+      onKeyPress: _v94.stopEventPropagation,
+      children: [(0, _v1.jsxs)(_v23.Flex, {
+        id: (0, _v50.createDomName)(_v0, "title"),
+        className: (0, _v50.createDomName)(_v1, "title"),
         justifyContent: "space-between",
         alignItems: "center",
-        marginBottom: (0, _v25.rem)(12),
+        marginBottom: (0, _v24.rem)(12),
         color: "text-primary",
         fontSize: "text-xs",
         fontWeight: "bold",
         children: [(0, _v1.jsx)("div", {
           children: _v18.T_ASK_QUESTION
-        }), _v3 ? null : (0, _v1.jsxs)(_v24.Flex, {
+        }), _v3 ? null : (0, _v1.jsxs)(_v23.Flex, {
           alignItems: "center",
-          gap: (0, _v25.rem)(8),
-          children: [(0, _v1.jsx)(_v24.Flex, {
+          gap: (0, _v24.rem)(8),
+          children: [(0, _v1.jsx)(_v23.Flex, {
             fontSize: "text-xs",
             fontWeight: 500,
             children: _v18.T_ANONYMOUS
-          }), (0, _v1.jsx)(_v91.Switch, {
-            id: (0, _v51.createDomName)(_v0, "anonymous-toggle"),
-            className: (0, _v51.createDomName)(_v1, "anonymous-toggle"),
+          }), (0, _v1.jsx)(_v90.Switch, {
+            id: (0, _v50.createDomName)(_v0, "anonymous-toggle"),
+            className: (0, _v50.createDomName)(_v1, "anonymous-toggle"),
             size: "sm",
             isChecked: _v8,
             onChange: _v14
           })]
         })]
-      }), (0, _v1.jsxs)(_v87.InputGroup, {
-        id: (0, _v51.createDomName)(_v0, "controls"),
-        className: (0, _v51.createDomName)(_v1, "controls"),
-        children: [_v93.browserConfig.BROWSER?.isMobile ? null : (0, _v1.jsx)(_v88.InputLeftElement, {
-          children: (0, _v1.jsx)(_v96.EmojiButton, {
-            id: (0, _v51.createDomName)(_v0, "emoji-button"),
-            className: (0, _v51.createDomName)(_v1, "emoji-button"),
+      }), (0, _v1.jsxs)(_v86.InputGroup, {
+        id: (0, _v50.createDomName)(_v0, "controls"),
+        className: (0, _v50.createDomName)(_v1, "controls"),
+        children: [_v92.browserConfig.BROWSER?.isMobile ? null : (0, _v1.jsx)(_v87.InputLeftElement, {
+          children: (0, _v1.jsx)(_v95.EmojiButton, {
+            id: (0, _v50.createDomName)(_v0, "emoji-button"),
+            className: (0, _v50.createDomName)(_v1, "emoji-button"),
             inputRef: _v5,
             isSubmitted: _v10,
             placement: "top-start",
             isDisabled: !_v17,
             onEmojiSelect: _v16
           })
-        }), (0, _v1.jsx)(_v89.Input, {
-          id: (0, _v51.createDomName)(_v0, "input"),
-          className: (0, _v51.createDomName)(_v1, "input"),
+        }), (0, _v1.jsx)(_v88.Input, {
+          id: (0, _v50.createDomName)(_v0, "input"),
+          className: (0, _v50.createDomName)(_v1, "input"),
           ref: _v5,
-          maxLength: _v94.interactionToolsConfig.QNA.MAX_QUESTION_LENGTH,
+          maxLength: _v93.interactionToolsConfig.QNA.MAX_QUESTION_LENGTH,
           value: _v6,
           autoComplete: "off",
           isDisabled: !_v17,
           size: "md",
           onChange: _v13
-        }), (0, _v1.jsx)(_v88.InputRightElement, {
-          children: (0, _v1.jsx)(_v90.IconButton, {
-            id: (0, _v51.createDomName)(_v0, "send-button"),
-            className: (0, _v51.createDomName)(_v1, "send-button"),
+        }), (0, _v1.jsx)(_v87.InputRightElement, {
+          children: (0, _v1.jsx)(_v89.IconButton, {
+            id: (0, _v50.createDomName)(_v0, "send-button"),
+            className: (0, _v50.createDomName)(_v1, "send-button"),
             "aria-label": "qna-submit-button",
             "data-chat-submit": !0,
             type: "submit",
             size: "sm",
             variant: "tertiary",
-            icon: (0, _v1.jsx)(_v92.Send, {}),
+            icon: (0, _v1.jsx)(_v91.Send, {}),
             isDisabled: !_v18,
             transition: "none",
             _hover: {
@@ -1001,36 +1000,36 @@
             }
           })
         })]
-      }), (0, _v1.jsx)(_v24.Flex, {
-        id: (0, _v51.createDomName)(_v0, "info"),
-        className: (0, _v51.createDomName)(_v1, "info"),
+      }), (0, _v1.jsx)(_v23.Flex, {
+        id: (0, _v50.createDomName)(_v0, "info"),
+        className: (0, _v50.createDomName)(_v1, "info"),
         justifyContent: "space-between",
         alignContent: "center",
         width: "100%",
-        children: (0, _v1.jsxs)(_v24.Flex, {
-          id: (0, _v51.createDomName)(_v0, "characters-count"),
-          className: (0, _v51.createDomName)(_v1, "characters-count"),
+        children: (0, _v1.jsxs)(_v23.Flex, {
+          id: (0, _v50.createDomName)(_v0, "characters-count"),
+          className: (0, _v50.createDomName)(_v1, "characters-count"),
           as: "span",
           alignItems: "center",
           fontSize: "text-xs",
           lineHeight: "text-xs",
-          padding: `${(0, _v25.rem)(8)} 0 0`,
+          padding: `${(0, _v24.rem)(8)} 0 0`,
           fontWeight: _v20 || _v21 ? "bold" : 400,
-          color: _v21 ? _v85.FAILED_STATUS_COLOR : "text-secondary",
+          color: _v21 ? _v84.FAILED_STATUS_COLOR : "text-secondary",
           children: [_v19, " ", _v18.T_CHARACTERS]
         })
       })]
     });
   }
-  var _v98 = _v0.i(0);
-  function _v99({
-    id: _v0 = (0, _v27.createInteractionDomName)("qna-view")
+  var _v97 = _v0.i(0);
+  function _v98({
+    id: _v0 = (0, _v26.createInteractionDomName)("qna-view")
   }) {
     let {
         connectionStatuses: {
           isInteractionConnected: _v1
         }
-      } = (0, _v2.useManager)(_v33.InteractionFirebaseManager),
+      } = (0, _v2.useManager)(_v32.InteractionFirebaseManager),
       {
         activeSession: _v2,
         activeSessionQuestions: _v3,
@@ -1047,31 +1046,31 @@
       } = (0, _v12.useLiveGlobals)(),
       {
         activeQuestions: _v10
-      } = (0, _v84.useQnaQuestions)(_v4, _v3);
-    return _v6 ? _v2 ? (0, _v1.jsxs)(_v24.Flex, {
+      } = (0, _v83.useQnaQuestions)(_v4, _v3);
+    return _v6 ? _v2 ? (0, _v1.jsxs)(_v23.Flex, {
       id: _v0,
       position: "relative",
       direction: "column",
       grow: 1,
       maxHeight: "100%",
       overflowY: "hidden",
-      padding: `${(0, _v25.rem)(24)} ${(0, _v25.rem)(24)} 0 ${(0, _v25.rem)(24)}`,
-      children: [(0, _v1.jsx)(_v24.Flex, {
-        id: (0, _v27.createInteractionDomName)(_v0, "questions-panel"),
+      padding: `${(0, _v24.rem)(24)} ${(0, _v24.rem)(24)} 0 ${(0, _v24.rem)(24)}`,
+      children: [(0, _v1.jsx)(_v23.Flex, {
+        id: (0, _v26.createInteractionDomName)(_v0, "questions-panel"),
         direction: "column",
         grow: 1,
         overflow: "hidden",
-        rowGap: (0, _v25.rem)(16),
-        children: (0, _v1.jsx)(_v78.QuestionsList, {
-          id: (0, _v27.createInteractionDomName)(_v0, "questions-list"),
+        rowGap: (0, _v24.rem)(16),
+        children: (0, _v1.jsx)(_v77.QuestionsList, {
+          id: (0, _v26.createInteractionDomName)(_v0, "questions-list"),
           tabId: _v19.EQnaTab.ACTIVE,
           questions: _v10,
           fullWidth: !0,
           pinnedQuestionId: _v5,
           scrollBackground: _v9?.interaction?.backgroundColor || "background",
-          itemRenderer: _v0 => (0, _v1.jsx)(_v23.Box, {
-            sx: _v53.TAB_LIST_COLUMN_ROW_ITEM_STYLE,
-            children: (0, _v1.jsx)(_v98.NewQuestionViewItem, {
+          itemRenderer: _v0 => (0, _v1.jsx)(_v22.Box, {
+            sx: _v52.TAB_LIST_COLUMN_ROW_ITEM_STYLE,
+            children: (0, _v1.jsx)(_v97.NewQuestionViewItem, {
               question: _v0,
               isPinned: _v0.id === _v5,
               hasVoteButton: !0,
@@ -1079,54 +1078,55 @@
               onQuestionVoted: _v8
             })
           }, _v0.id),
-          placeholder: (0, _v1.jsx)(_v32.PanelEmptyState, {
-            id: (0, _v27.createInteractionDomName)(_v0, "questions-list-placeholder"),
-            icon: (0, _v1.jsx)(_v74.ReviewQuestion, {
-              boxSize: (0, _v25.rem)(32)
+          placeholder: (0, _v1.jsx)(_v31.PanelEmptyState, {
+            id: (0, _v26.createInteractionDomName)(_v0, "questions-list-placeholder"),
+            icon: (0, _v1.jsx)(_v73.ReviewQuestion, {
+              boxSize: (0, _v24.rem)(32)
             }),
             control: null
           })
         })
-      }), (0, _v1.jsxs)(_v23.Box, {
-        id: (0, _v27.createInteractionDomName)(_v0, "input-wrapper"),
+      }), (0, _v1.jsxs)(_v22.Box, {
+        id: (0, _v26.createInteractionDomName)(_v0, "input-wrapper"),
         position: "relative",
         width: "100%",
-        paddingBottom: (0, _v25.rem)(16),
-        children: [(0, _v1.jsx)(_v54.HorizontalScrollShadow, {
+        paddingBottom: (0, _v24.rem)(16),
+        children: [(0, _v1.jsx)(_v53.HorizontalScrollShadow, {
           color: _v9?.interaction?.backgroundColor || "background"
-        }), (0, _v1.jsx)(_v97, {
-          id: (0, _v27.createInteractionDomName)(_v0, "input-form"),
+        }), (0, _v1.jsx)(_v96, {
+          id: (0, _v26.createInteractionDomName)(_v0, "input-form"),
           isDisabled: !_v1
         })]
       })]
-    }) : (0, _v1.jsx)(_v24.Flex, {
+    }) : (0, _v1.jsx)(_v23.Flex, {
       id: _v0,
       justifyContent: "center",
       alignItems: "center",
       height: "100%",
       textAlign: "center",
-      children: (0, _v1.jsx)(_v32.PanelEmptyState, {
-        id: (0, _v27.createInteractionDomName)(_v0, "questions-list-placeholder"),
-        icon: (0, _v1.jsx)(_v74.ReviewQuestion, {
-          boxSize: (0, _v25.rem)(32)
+      children: (0, _v1.jsx)(_v31.PanelEmptyState, {
+        id: (0, _v26.createInteractionDomName)(_v0, "questions-list-placeholder"),
+        icon: (0, _v1.jsx)(_v73.ReviewQuestion, {
+          boxSize: (0, _v24.rem)(32)
         }),
         control: null
       })
-    }) : (0, _v1.jsx)(_v24.Flex, {
+    }) : (0, _v1.jsx)(_v23.Flex, {
       id: _v0,
       justifyContent: "center",
       alignItems: "center",
       height: "100%",
       textAlign: "center",
-      children: (0, _v1.jsx)(_v48.BlockingLoadingWrapper, {
-        id: (0, _v27.createInteractionDomName)(_v0, "loader"),
+      children: (0, _v1.jsx)(_v47.BlockingLoadingWrapper, {
+        id: (0, _v26.createInteractionDomName)(_v0, "loader"),
         opacity: .1,
         withAnimation: !0
       })
     });
   }
-  _v0.s(["QnaView", 0, _v99], 0);
-  var _v100 = _v0.i(0),
+  _v0.s(["QnaView", 0, _v98], 0);
+  var _v99 = _v0.i(0),
+    _v100 = _v0.i(0),
     _v101 = _v0.i(0),
     _v102 = _v0.i(0),
     _v103 = _v0.i(0),
@@ -1135,12 +1135,11 @@
     _v106 = _v0.i(0),
     _v107 = _v0.i(0),
     _v108 = _v0.i(0),
-    _v109 = _v0.i(0),
-    _v110 = _v0.i(0);
-  let _v111 = (0, _v3.lazy)(() => _v0.A(0).then(_v0 => ({
+    _v109 = _v0.i(0);
+  let _v110 = (0, _v3.lazy)(() => _v0.A(0).then(_v0 => ({
       default: _v0.EmojiPanel
     }))),
-    _v112 = [{
+    _v111 = [{
       emoji: "❤️",
       label: "Heart"
     }, {
@@ -1165,12 +1164,12 @@
       emoji: "🎉",
       label: "Party"
     }];
-  function _v113() {
+  function _v112() {
     if ("u" < typeof document) return null;
     let _v0 = document.fullscreenElement ?? document.webkitFullscreenElement;
     return _v0 instanceof HTMLElement ? _v0 : null;
   }
-  function _v114() {
+  function _v113() {
     let {
         isEnabled: _v0,
         isRateLimited: _v1,
@@ -1182,11 +1181,11 @@
         isOpen: _v3,
         onOpen: _v4,
         onClose: _v5
-      } = (0, _v107.useDisclosure)(),
+      } = (0, _v106.useDisclosure)(),
       _v6 = (0, _v3.useRef)(null),
-      [_v7, _v8] = (0, _v3.useState)(_v113);
+      [_v7, _v8] = (0, _v3.useState)(_v112);
     (0, _v3.useEffect)(() => {
-      let _v0 = () => _v8(_v113());
+      let _v0 = () => _v8(_v112());
       return document.addEventListener("fullscreenchange", _v0), document.addEventListener("webkitfullscreenchange", _v0), () => {
         document.removeEventListener("fullscreenchange", _v0), document.removeEventListener("webkitfullscreenchange", _v0);
       };
@@ -1197,7 +1196,7 @@
     (0, _v3.useEffect)(() => {
       _v1 && _v3 && _v5();
     }, [_v1, _v3, _v5]);
-    let _v10 = (0, _v106.useBreakpointValue)({
+    let _v10 = (0, _v105.useBreakpointValue)({
         base: !0,
         md: !1
       }) ?? !1,
@@ -1208,7 +1207,7 @@
         "string" != typeof _v0?.native || "" === _v0.native || _v1 || _v2(_v0.native);
       }, [_v1, _v2]);
     if (!0 !== _v0) return null;
-    let _v13 = (0, _v109.translate)({
+    let _v13 = (0, _v108.translate)({
       singular: "Emoji break! Try again in a moment.",
       dictionary: {
         es: {
@@ -1234,7 +1233,7 @@
         }
       }
     });
-    return (0, _v1.jsxs)(_v24.Flex, {
+    return (0, _v1.jsxs)(_v23.Flex, {
       flexDirection: {
         base: "row",
         md: "column"
@@ -1267,21 +1266,21 @@
         },
         scrollbarWidth: "none"
       },
-      children: [_v112.map(({
+      children: [_v111.map(({
         emoji: _v0,
         label: _v1
       }) => {
         let _v2 = _v1 ? _v13 : _v1;
-        return (0, _v1.jsx)(_v110.BokehTooltip, {
+        return (0, _v1.jsx)(_v109.BokehTooltip, {
           label: _v2,
           placement: "left",
           shouldWrapChildren: !0,
-          children: (0, _v1.jsx)(_v23.Box, {
+          children: (0, _v1.jsx)(_v22.Box, {
             as: "button",
-            width: (0, _v25.rem)(44),
-            height: (0, _v25.rem)(44),
+            width: (0, _v24.rem)(44),
+            height: (0, _v24.rem)(44),
             flexShrink: 0,
-            fontSize: (0, _v25.rem)(28),
+            fontSize: (0, _v24.rem)(28),
             lineHeight: 1,
             cursor: _v1 ? "not-allowed" : "pointer",
             opacity: _v1 ? .4 : 1,
@@ -1303,7 +1302,7 @@
             children: _v0
           })
         }, _v0);
-      }), (0, _v1.jsxs)(_v100.Popover, {
+      }), (0, _v1.jsxs)(_v99.Popover, {
         isLazy: !0,
         placement: _v10 ? "top-end" : "left-end",
         gutter: 16,
@@ -1312,9 +1311,9 @@
         isOpen: _v3 && !_v1,
         onOpen: _v4,
         onClose: _v5,
-        children: [(0, _v1.jsx)(_v103.PopoverTrigger, {
-          children: (0, _v1.jsx)(_v90.IconButton, {
-            "aria-label": _v1 ? _v13 : (0, _v109.translate)({
+        children: [(0, _v1.jsx)(_v102.PopoverTrigger, {
+          children: (0, _v1.jsx)(_v89.IconButton, {
+            "aria-label": _v1 ? _v13 : (0, _v108.translate)({
               singular: "More emojis",
               dictionary: {
                 es: {
@@ -1345,28 +1344,28 @@
             variant: "tertiary",
             borderRadius: "sm",
             flexShrink: 0,
-            icon: (0, _v1.jsx)(_v108.EllipsisH, {}),
+            icon: (0, _v1.jsx)(_v107.EllipsisH, {}),
             isDisabled: _v1
           })
-        }), (0, _v1.jsx)(_v104.Portal, {
+        }), (0, _v1.jsx)(_v103.Portal, {
           containerRef: _v9,
-          children: (0, _v1.jsx)(_v102.PopoverContent, {
+          children: (0, _v1.jsx)(_v101.PopoverContent, {
             padding: 0,
             zIndex: "popover",
-            children: (0, _v1.jsx)(_v101.PopoverBody, {
-              width: (0, _v25.rem)(326),
-              height: (0, _v25.rem)(260),
+            children: (0, _v1.jsx)(_v100.PopoverBody, {
+              width: (0, _v24.rem)(326),
+              height: (0, _v24.rem)(260),
               children: (0, _v1.jsx)(_v3.Suspense, {
-                fallback: (0, _v1.jsx)(_v24.Flex, {
+                fallback: (0, _v1.jsx)(_v23.Flex, {
                   justifyContent: "center",
                   alignItems: "center",
                   width: "100%",
                   height: "100%",
-                  children: (0, _v1.jsx)(_v105.Spinner, {
+                  children: (0, _v1.jsx)(_v104.Spinner, {
                     size: "xs"
                   })
                 }),
-                children: (0, _v1.jsx)(_v111, {
+                children: (0, _v1.jsx)(_v110, {
                   ref: _v6,
                   isOpen: _v3,
                   onSelect: _v12
@@ -1378,7 +1377,7 @@
       })]
     });
   }
-  function _v115({
+  function _v114({
     id: _v0 = "reactions-manage"
   }) {
     let {
@@ -1391,16 +1390,16 @@
       _v4 = (0, _v3.useCallback)(() => {
         _v1 ? _v3() : _v2();
       }, [_v1, _v2, _v3]);
-    return (0, _v1.jsxs)(_v24.Flex, {
+    return (0, _v1.jsxs)(_v23.Flex, {
       id: _v0,
       alignItems: "center",
       justifyContent: "space-between",
-      padding: (0, _v25.rem)(16),
-      gap: (0, _v25.rem)(12),
-      children: [(0, _v1.jsx)(_v69.Text, {
+      padding: (0, _v24.rem)(16),
+      gap: (0, _v24.rem)(12),
+      children: [(0, _v1.jsx)(_v68.Text, {
         variant: "heading-xs",
         children: "Emoji reactions"
-      }), (0, _v1.jsx)(_v91.Switch, {
+      }), (0, _v1.jsx)(_v90.Switch, {
         size: "sm",
         id: "reactions-toggle",
         "aria-label": "Enable emoji reactions",
@@ -1438,34 +1437,33 @@
       } = (0, _v2.useManager)(_v15.QnAManager, ({
         activeSessionId: _v0
       }) => [_v0]),
-      _v7 = (0, _v22.useIsVpaas)(),
+      _v7 = (0, _v21.useIsVpaas)(),
       {
         isEnabled: _v8
       } = (0, _v2.useManager)(_v16.ReactionManager, ({
         isEnabled: _v0
       }) => [_v0]),
       _v9 = (0, _v20.checkModuleIsActive)(_v1?.feature?.module, _v19.EInteractionModule.REACTIONS),
-      _v10 = (0, _v21.useOrionSettingsFields)(["enable_live_reactions"]),
-      _v11 = !!(_v2?.isCreator && !_v1?.feature?.isManagementDisabled || _v7 && _v2?.capabilities?.canUseQnaModeration),
-      _v12 = _v0 === _v19.EInteractionModule.CHAT || _v11 || !!_v3,
-      _v13 = _v0 === _v19.EInteractionModule.POLL || _v11 || !!(_v5 && _v4[_v5]),
-      _v14 = _v0 === _v19.EInteractionModule.QNA || _v11 || !!_v6,
-      _v15 = _v9 && (_v0 === _v19.EInteractionModule.REACTIONS || _v11 && _v10.enable_live_reactions || !0 === _v8),
-      _v16 = (0, _v3.useMemo)(() => {
+      _v10 = !!(_v2?.isCreator && !_v1?.feature?.isManagementDisabled || _v7 && _v2?.capabilities?.canUseQnaModeration),
+      _v11 = _v0 === _v19.EInteractionModule.CHAT || _v10 || !!_v3,
+      _v12 = _v0 === _v19.EInteractionModule.POLL || _v10 || !!(_v5 && _v4[_v5]),
+      _v13 = _v0 === _v19.EInteractionModule.QNA || _v10 || !!_v6,
+      _v14 = _v9 && (_v0 === _v19.EInteractionModule.REACTIONS || _v10 || !0 === _v8),
+      _v15 = (0, _v3.useMemo)(() => {
         let _v0 = {
             id: _v19.EInteractionModule.CHAT,
             label: _v18.T_CHAT,
             icon: (0, _v1.jsx)(_v9.PanelChatIcon, {
               isActive: _v0 === _v19.EInteractionModule.CHAT,
-              isManagementAccessed: _v11
+              isManagementAccessed: _v10
             }),
             header: _v18.T_CHAT,
-            headerMenu: _v11 ? (0, _v1.jsx)(_v6.ChatSettingsButton, {
+            headerMenu: _v10 ? (0, _v1.jsx)(_v6.ChatSettingsButton, {
               buttonIcon: (0, _v1.jsx)(_v4.EllipsisV, {})
             }) : void 0,
-            Content: _v11 ? _v34 : ({
+            Content: _v10 ? _v33 : ({
               id: _v0
-            }) => (0, _v1.jsx)(_v35, {
+            }) => (0, _v1.jsx)(_v34, {
               id: _v0,
               chatType: _v19.EChatType.PUBLIC
             })
@@ -1477,46 +1475,46 @@
               isActive: _v0 === _v19.EInteractionModule.POLL
             }),
             header: _v18.T_POLLS,
-            headerMenu: _v11 ? (0, _v1.jsx)(_v7.PollSettingsButton, {
+            headerMenu: _v10 ? (0, _v1.jsx)(_v7.PollSettingsButton, {
               buttonIcon: (0, _v1.jsx)(_v4.EllipsisV, {})
             }) : void 0,
-            Content: _v11 ? _v61 : _v73
+            Content: _v10 ? _v60 : _v72
           },
           _v2 = {
             id: _v19.EInteractionModule.QNA,
             label: _v18.T_QNA,
             icon: (0, _v1.jsx)(_v11.PanelQnaIcon, {
               isActive: _v0 === _v19.EInteractionModule.QNA,
-              isManagementAccessed: _v11
+              isManagementAccessed: _v10
             }),
             header: _v18.T_QNA,
-            headerMenu: _v11 ? (0, _v1.jsx)(_v8.QnaSettingsButton, {
+            headerMenu: _v10 ? (0, _v1.jsx)(_v8.QnaSettingsButton, {
               buttonIcon: (0, _v1.jsx)(_v4.EllipsisV, {})
             }) : void 0,
-            Content: _v11 ? _v86 : _v99
+            Content: _v10 ? _v85 : _v98
           },
           _v3 = {
             id: _v19.EInteractionModule.REACTIONS,
             label: "Reactions",
             icon: (0, _v1.jsx)(_v5.Smile, {}),
-            header: _v11 ? "Reactions" : void 0,
-            panelWidth: _v11 ? void 0 : 60,
-            panelAutoHeight: !_v11,
-            Content: _v11 ? _v115 : _v114
+            header: _v10 ? "Reactions" : void 0,
+            panelWidth: _v10 ? void 0 : 60,
+            panelAutoHeight: !_v10,
+            Content: _v10 ? _v114 : _v113
           };
-        return [].concat(_v12 ? _v0 : [], _v13 ? _v1 : [], _v14 ? _v2 : [], _v15 ? _v3 : []);
-      }, [_v11, _v12, _v13, _v14, _v15, _v0]),
-      [_v17, _v18] = (0, _v3.useState)([]),
-      _v19 = (0, _v3.useCallback)(_v0 => {
-        _v0 && _v18(_v0 => [..._v0, _v0]);
+        return [].concat(_v11 ? _v0 : [], _v12 ? _v1 : [], _v13 ? _v2 : [], _v14 ? _v3 : []);
+      }, [_v10, _v11, _v12, _v13, _v14, _v0]),
+      [_v16, _v17] = (0, _v3.useState)([]),
+      _v18 = (0, _v3.useCallback)(_v0 => {
+        _v0 && _v17(_v0 => [..._v0, _v0]);
       }, []),
-      _v20 = (0, _v3.useCallback)(_v0 => {
-        _v0 && _v18(_v0 => _v0.filter(_v0 => _v0.id !== _v0));
+      _v19 = (0, _v3.useCallback)(_v0 => {
+        _v0 && _v17(_v0 => _v0.filter(_v0 => _v0.id !== _v0));
       }, []);
     return {
-      items: (0, _v3.useMemo)(() => [..._v16, ..._v17], [_v16, _v17]),
-      addItem: _v19,
-      removeItem: _v20
+      items: (0, _v3.useMemo)(() => [..._v15, ..._v16], [_v15, _v16]),
+      addItem: _v18,
+      removeItem: _v19
     };
   }], 0);
 }

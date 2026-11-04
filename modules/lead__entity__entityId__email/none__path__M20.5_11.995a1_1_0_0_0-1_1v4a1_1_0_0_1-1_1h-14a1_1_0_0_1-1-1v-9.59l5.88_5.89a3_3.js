@@ -117,7 +117,65 @@
   }
   var _v48 = _v0.i(0),
     _v49 = _v0.i(0);
-  let _v50 = ({
+  let _v50 = _v0 => ({
+      email_localization_event_id: _v0.eventId,
+      email_localization_main_language: _v0.mainLanguage
+    }),
+    _v51 = () => {
+      let _v0 = (0, _v49.usePico)(),
+        _v1 = (0, _v2.useCallback)(_v0 => {
+          _v0?.track("email_localization_languages_added", {
+            ..._v50(_v0),
+            email_localization_added_languages: _v0.addedLanguages,
+            email_localization_added_language_count: _v0.addedLanguages.length,
+            email_localization_start_mode: _v0.startMode,
+            email_localization_enabled_languages_count: _v0.enabledLanguagesCount
+          });
+        }, [_v0]),
+        _v2 = (0, _v2.useCallback)(_v0 => {
+          _v0?.track("email_localization_ai_translation_completed", {
+            ..._v50(_v0),
+            email_localization_translation_trigger: _v0.trigger,
+            email_localization_target_languages: _v0.targetLanguages,
+            email_localization_target_language_count: _v0.targetLanguages.length,
+            email_localization_success: _v0.success,
+            email_localization_failed_language_count: _v0.failedLanguageCount
+          });
+        }, [_v0]),
+        _v3 = (0, _v2.useCallback)(_v0 => {
+          _v0?.track("email_localization_saved", {
+            ..._v50(_v0),
+            email_localization_save_trigger: _v0.trigger,
+            email_localization_saved_languages: _v0.savedLanguages,
+            email_localization_saved_language_count: _v0.savedLanguages.length,
+            email_localization_success: _v0.success,
+            email_localization_email_count: _v0.emailCount
+          });
+        }, [_v0]);
+      return {
+        trackEmailLocalizationLanguagesAdded: _v1,
+        trackEmailLocalizationAiTranslationCompleted: _v2,
+        trackEmailLocalizationSaved: _v3,
+        trackEmailLocalizationPreviewLanguageChanged: (0, _v2.useCallback)(_v0 => {
+          _v0?.track("email_localization_preview_language_changed", {
+            ..._v50(_v0),
+            email_localization_preview_language: _v0.previewLanguage,
+            email_localization_is_main_language: _v0.isMainLanguage,
+            live_stream_email_type: _v0.emailType
+          });
+        }, [_v0]),
+        trackEmailLocalizationTestSent: (0, _v2.useCallback)(_v0 => {
+          _v0?.track("email_localization_test_sent", {
+            ..._v50(_v0),
+            email_localization_language: _v0.language,
+            live_stream_email_type: _v0.emailType,
+            email_localization_success: _v0.success
+          });
+        }, [_v0])
+      };
+    };
+  var _v52 = _v0.i(0);
+  let _v53 = ({
     clearAllTextSelections: _v0
   }) => {
     let _v1 = (0, _v22.useViewer)(),
@@ -139,8 +197,13 @@
         data: _v14
       }] = _v47(),
       {
-        previewLocale: _v15
-      } = (0, _v49.useEmailLocalization)();
+        previewLocale: _v15,
+        localizations: _v16
+      } = (0, _v52.useEmailLocalization)(),
+      {
+        trackEmailLocalizationTestSent: _v17
+      } = _v51(),
+      _v18 = (0, _v2.useRef)(null);
     (0, _v2.useEffect)(() => {
       _v8({
         where: {
@@ -149,35 +212,46 @@
         select: ["email"]
       });
     }, [_v2?.uri]);
-    let _v16 = _v3.emailTemplateType === _v28.EMAIL_TYPES.REMINDER && _v3.selectedReminderId !== _v28.LEGACY_REMINDER_ID,
-      _v17 = _v16 && !_v6(_v3.selectedReminderId);
+    let _v19 = _v3.emailTemplateType === _v28.EMAIL_TYPES.REMINDER && _v3.selectedReminderId !== _v28.LEGACY_REMINDER_ID,
+      _v20 = _v19 && !_v6(_v3.selectedReminderId);
     return (0, _v2.useEffect)(() => {
-      !_v12 && (_v13 ? _v7({
-        title: _v34.default.SomethingWentWrong,
-        status: "error"
-      }) : _v14 && _v7({
-        status: "success",
-        title: (0, _v15.translate)({
-          singular: "Successfully sent to {EMAIL}",
-          replacements: {
-            EMAIL: _v9?.email
-          },
-          dictionary: {
-            "fr-FR": {
-              singular: "Envoi réussi à {EMAIL}"
+      if (!_v12) {
+        _v13 ? _v7({
+          title: _v34.default.SomethingWentWrong,
+          status: "error"
+        }) : _v14 && _v7({
+          status: "success",
+          title: (0, _v15.translate)({
+            singular: "Successfully sent to {EMAIL}",
+            replacements: {
+              EMAIL: _v9?.email
             },
-            "ja-JP": {
-              singular: "{EMAIL}に正常に送信されました"
-            },
-            "ko-KR": {
-              singular: "{EMAIL}(으)로 성공적으로 전송되었습니다."
-            },
-            "zh-CN": {
-              singular: "已成功发送至 {EMAIL}"
+            dictionary: {
+              "fr-FR": {
+                singular: "Envoi réussi à {EMAIL}"
+              },
+              "ja-JP": {
+                singular: "{EMAIL}に正常に送信されました"
+              },
+              "ko-KR": {
+                singular: "{EMAIL}(으)로 성공적으로 전송되었습니다."
+              },
+              "zh-CN": {
+                singular: "已成功发送至 {EMAIL}"
+              }
             }
-          }
-        })
-      }));
+          })
+        });
+        let _v0 = _v18.current,
+          _v1 = !!_v13;
+        null !== _v0 && (_v1 || _v14) && (_v18.current = null, _v17({
+          eventId: _v10 ?? "",
+          mainLanguage: _v16.sourceLocale,
+          language: _v0,
+          emailType: _v28.PICO_EMAIL_TYPES[_v3.emailTemplateType],
+          success: !_v1
+        }));
+      }
     }, [_v12, _v13, _v14]), (0, _v1.jsxs)(_v7.Flex, {
       children: [(0, _v1.jsx)(_v36.Button, {
         size: "sm",
@@ -220,9 +294,9 @@
             leftIcon: (0, _v1.jsx)(_v39, {}),
             onClick: () => {
               if (_v10) {
-                _v0();
+                _v0(), _v18.current = _v15;
                 let _v0 = {
-                  ...(_v16 ? {
+                  ...(_v19 ? {
                     type: _v28.CONFIGURABLE_REMINDER_EMAIL_TYPE,
                     reminderId: _v3.selectedReminderId
                   } : {
@@ -243,17 +317,14 @@
               }
             },
             isLoading: _v12,
-            isDisabled: _v12 || _v17,
+            isDisabled: _v12 || _v20,
             children: _v34.default.SendTest
           })
         })
       })]
     });
   };
-  var _v51 = _v0.i(0),
-    _v52 = _v0.i(0),
-    _v53 = _v0.i(0),
-    _v54 = _v0.i(0),
+  var _v54 = _v0.i(0),
     _v55 = _v0.i(0),
     _v56 = _v0.i(0),
     _v57 = _v0.i(0),
@@ -273,19 +344,22 @@
     _v71 = _v0.i(0),
     _v72 = _v0.i(0),
     _v73 = _v0.i(0),
-    _v74 = _v0.i(0);
-  let _v75 = ({
+    _v74 = _v0.i(0),
+    _v75 = _v0.i(0),
+    _v76 = _v0.i(0),
+    _v77 = _v0.i(0);
+  let _v78 = ({
     isOpen: _v0,
     onClose: _v1,
     onConfirm: _v2,
     isLoading: _v3
-  }) => (0, _v1.jsxs)(_v58.Modal, {
+  }) => (0, _v1.jsxs)(_v61.Modal, {
     isOpen: _v0,
     onClose: _v1,
     isCentered: !0,
     size: "md",
-    children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
-      children: [(0, _v1.jsx)(_v74.ModalCloseButton, {}), (0, _v1.jsx)(_v62.ModalHeader, {
+    children: [(0, _v1.jsx)(_v66.ModalOverlay, {}), (0, _v1.jsxs)(_v63.ModalContent, {
+      children: [(0, _v1.jsx)(_v77.ModalCloseButton, {}), (0, _v1.jsx)(_v65.ModalHeader, {
         children: (0, _v15.translate)({
           singular: "Remove reminder email",
           dictionary: {
@@ -312,7 +386,7 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v59.ModalBody, {
+      }), (0, _v1.jsx)(_v62.ModalBody, {
         children: (0, _v1.jsx)(_v11.Paragraph, {
           size: "md",
           children: (0, _v15.translate)({
@@ -342,10 +416,10 @@
             }
           })
         })
-      }), (0, _v1.jsx)(_v61.ModalFooter, {
+      }), (0, _v1.jsx)(_v64.ModalFooter, {
         borderTop: "1px solid",
         borderColor: "stroke",
-        children: (0, _v1.jsxs)(_v52.HStack, {
+        children: (0, _v1.jsxs)(_v55.HStack, {
           children: [(0, _v1.jsx)(_v36.Button, {
             variant: "tertiary",
             isLoading: _v3,
@@ -410,7 +484,7 @@
       })]
     })]
   });
-  function _v76({
+  function _v79({
     children: _v0,
     onOpen: _v1,
     ..._v2
@@ -422,7 +496,7 @@
       children: _v0
     });
   }
-  function _v77({
+  function _v80({
     index: _v0,
     children: _v1,
     selected: _v2,
@@ -449,7 +523,7 @@
       children: _v1
     });
   }
-  let _v78 = ({
+  let _v81 = ({
     children: _v0,
     forwardRef: _v1,
     ..._v2
@@ -479,7 +553,7 @@
         onClick: _v0 => {
           _v0.stopPropagation(), _v4(_v1);
         },
-        children: (0, _v1.jsx)(_v77, {
+        children: (0, _v1.jsx)(_v80, {
           onKeyUp: _v5,
           index: _v1,
           selected: _v3 === _v1,
@@ -506,8 +580,8 @@
       })]
     });
   };
-  var _v79 = _v0.i(0);
-  let _v80 = () => {
+  var _v82 = _v0.i(0);
+  let _v83 = () => {
     let {
         emailState: _v0,
         dispatch: _v1,
@@ -534,10 +608,10 @@
       } = (0, _v20.useLiveStreamBroadcasterTracking)(),
       {
         getEmailData: _v19
-      } = (0, _v2.useContext)(_v72.EmailContext),
+      } = (0, _v2.useContext)(_v75.EmailContext),
       {
         isEnabled: _v20
-      } = (0, _v49.useEmailLocalization)(),
+      } = (0, _v52.useEmailLocalization)(),
       _v21 = _v0.reminders.length >= _v28.MAX_REMINDERS ? (0, _v15.translate)({
         singular: "Maximum of {max} reminders reached",
         replacements: {
@@ -595,7 +669,7 @@
       [_v22, _v23] = (0, _v2.useState)(!1),
       [_v24, _v25] = (0, _v2.useState)(null),
       [_v26, _v27] = (0, _v2.useState)(null),
-      [_v28, _v29] = (0, _v70.useDeleteUserLiveEventEmailReminder)(),
+      [_v28, _v29] = (0, _v73.useDeleteUserLiveEventEmailReminder)(),
       _v30 = (0, _v2.useRef)(null),
       _v31 = _v5 === _v28.ENTITY_STATUS.ENDED,
       _v32 = _v31 || _v0.reminders.length >= _v28.MAX_REMINDERS,
@@ -699,7 +773,7 @@
         children: (0, _v15.translate)({
           singular: "Sent automatically on {DATE}",
           replacements: {
-            DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn || _v6 || void 0, _v36, _v35)
+            DATE: (0, _v74.getIntlDate)(_v0.followUpSendOn || _v6 || void 0, _v36, _v35)
           },
           dictionary: {
             "fr-FR": {
@@ -722,7 +796,7 @@
         children: (0, _v15.translate)({
           singular: "Sent manually on {DATE} by {NAME}",
           replacements: {
-            DATE: (0, _v71.getIntlDate)(_v0.followUpSendOn, _v36, _v35),
+            DATE: (0, _v74.getIntlDate)(_v0.followUpSendOn, _v36, _v35),
             NAME: _v0.followUpSender.name || ""
           },
           dictionary: {
@@ -779,13 +853,13 @@
           });
         },
         extra: _v42
-      }, ...[..._v0.reminders].sort((_v0, _v1) => (0, _v79.offsetToSignedSeconds)(_v0.offset) - (0, _v79.offsetToSignedSeconds)(_v1.offset)).map(_v0 => {
+      }, ...[..._v0.reminders].sort((_v0, _v1) => (0, _v82.offsetToSignedSeconds)(_v0.offset) - (0, _v82.offsetToSignedSeconds)(_v1.offset)).map(_v0 => {
         let _v1 = _v0.id === _v28.LEGACY_REMINDER_ID;
         return {
           key: _v0.id,
           kind: _v28.EMAIL_TYPES.REMINDER,
           label: _v34.default.EmailTabName(_v28.EMAIL_TYPES.REMINDER, 1),
-          sublabel: (0, _v79.getReminderOffsetLabel)(_v0.offset),
+          sublabel: (0, _v82.getReminderOffsetLabel)(_v0.offset),
           enabled: _v0.enabled,
           active: _v0.emailTemplateType === _v28.EMAIL_TYPES.REMINDER && _v0.selectedReminderId === _v0.id,
           pico: "reminder",
@@ -811,7 +885,7 @@
         pb: "sm",
         alignItems: "center",
         justifyContent: "space-between",
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v54.Header, {
           size: "md",
           children: (0, _v15.translate)({
             singular: "Email",
@@ -854,7 +928,7 @@
             })
           }), !_v20 && (0, _v1.jsx)(_v12.Tooltip, {
             label: _v21,
-            children: (0, _v1.jsx)(_v53.IconButton, {
+            children: (0, _v1.jsx)(_v56.IconButton, {
               size: "sm",
               variant: "tertiary",
               "aria-label": (0, _v15.translate)({
@@ -883,7 +957,7 @@
                   }
                 }
               }),
-              icon: (0, _v1.jsx)(_v68.Plus, {}),
+              icon: (0, _v1.jsx)(_v71.Plus, {}),
               isDisabled: _v32,
               onClick: () => _v23(!0)
             })
@@ -920,8 +994,8 @@
             }
           }
         })
-      }), (0, _v1.jsx)(_v78, {
-        children: _v43.map(_v0 => (0, _v1.jsx)(_v76, {
+      }), (0, _v1.jsx)(_v81, {
+        children: _v43.map(_v0 => (0, _v1.jsx)(_v79, {
           active: _v0.active,
           onOpen: _v0.onSelect,
           label: (0, _v1.jsxs)(_v5.Box, {
@@ -934,11 +1008,11 @@
                 gap: (0, _v13.rem)(8),
                 flex: 1,
                 minWidth: 0,
-                children: [_v0.enabled ? (0, _v1.jsx)(_v64.CircleCheck, {
+                children: [_v0.enabled ? (0, _v1.jsx)(_v67.CircleCheck, {
                   boxSize: (0, _v13.rem)(24),
                   color: "status-positive-primary",
                   flexShrink: 0
-                }) : (0, _v1.jsx)(_v67.MinusCircle, {
+                }) : (0, _v1.jsx)(_v70.MinusCircle, {
                   boxSize: (0, _v13.rem)(24),
                   color: "text-primary",
                   flexShrink: 0
@@ -949,7 +1023,7 @@
                     alignItems: "center",
                     gap: (0, _v13.rem)(4),
                     maxWidth: "100%",
-                    children: [(0, _v1.jsx)(_v51.Header, {
+                    children: [(0, _v1.jsx)(_v54.Header, {
                       size: "xs",
                       noOfLines: 1,
                       minWidth: 0,
@@ -978,9 +1052,9 @@
                     children: _v0.sublabel
                   })]
                 })]
-              }), (0, _v1.jsxs)(_v54.Menu, {
-                children: [(0, _v1.jsx)(_v55.MenuButton, {
-                  as: _v53.IconButton,
+              }), (0, _v1.jsxs)(_v57.Menu, {
+                children: [(0, _v1.jsx)(_v58.MenuButton, {
+                  as: _v56.IconButton,
                   "aria-label": (0, _v15.translate)({
                     singular: "Email options",
                     dictionary: {
@@ -1007,16 +1081,16 @@
                       }
                     }
                   }),
-                  icon: (0, _v1.jsx)(_v66.EllipsisH, {
+                  icon: (0, _v1.jsx)(_v69.EllipsisH, {
                     w: "xs",
                     fontSize: "text"
                   }),
                   variant: "tertiary",
                   size: "xs",
                   onClick: _v0 => _v0.stopPropagation()
-                }), (0, _v1.jsxs)(_v57.MenuList, {
-                  children: [_v0.onEdit && (0, _v1.jsx)(_v56.MenuItem, {
-                    icon: (0, _v1.jsx)(_v65.EditPencil, {}),
+                }), (0, _v1.jsxs)(_v60.MenuList, {
+                  children: [_v0.onEdit && (0, _v1.jsx)(_v59.MenuItem, {
+                    icon: (0, _v1.jsx)(_v68.EditPencil, {}),
                     onClick: _v0 => {
                       _v0.stopPropagation(), _v0.onEdit?.();
                     },
@@ -1046,8 +1120,8 @@
                         }
                       }
                     })
-                  }), (0, _v1.jsx)(_v56.MenuItem, {
-                    icon: _v0.enabled ? (0, _v1.jsx)(_v67.MinusCircle, {}) : (0, _v1.jsx)(_v64.CircleCheck, {}),
+                  }), (0, _v1.jsx)(_v59.MenuItem, {
+                    icon: _v0.enabled ? (0, _v1.jsx)(_v70.MinusCircle, {}) : (0, _v1.jsx)(_v67.CircleCheck, {}),
                     isDisabled: _v31 && !(_v0.kind === _v28.EMAIL_TYPES.FOLLOWUP && _v41),
                     onClick: _v0 => {
                       _v0.stopPropagation(), _v0.onToggle();
@@ -1103,8 +1177,8 @@
                         }
                       }
                     })
-                  }), _v0.onDelete && (0, _v1.jsx)(_v56.MenuItem, {
-                    icon: (0, _v1.jsx)(_v69.TrashBin, {}),
+                  }), _v0.onDelete && (0, _v1.jsx)(_v59.MenuItem, {
+                    icon: (0, _v1.jsx)(_v72.TrashBin, {}),
                     onClick: _v0 => {
                       _v0.stopPropagation(), _v0.onDelete?.();
                     },
@@ -1150,7 +1224,7 @@
           children: (0, _v1.jsx)(_v36.Button, {
             width: "100%",
             variant: "primary",
-            leftIcon: (0, _v1.jsx)(_v68.Plus, {}),
+            leftIcon: (0, _v1.jsx)(_v71.Plus, {}),
             isDisabled: _v32,
             onClick: () => _v23(!0),
             children: (0, _v15.translate)({
@@ -1181,23 +1255,23 @@
             })
           })
         })
-      }), _v41 && (0, _v1.jsxs)(_v58.Modal, {
+      }), _v41 && (0, _v1.jsxs)(_v61.Modal, {
         isOpen: _v9,
         onClose: () => _v10(!1),
         isCentered: !0,
         size: "md",
-        children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
-          children: [(0, _v1.jsx)(_v62.ModalHeader, {
+        children: [(0, _v1.jsx)(_v66.ModalOverlay, {}), (0, _v1.jsxs)(_v63.ModalContent, {
+          children: [(0, _v1.jsx)(_v65.ModalHeader, {
             children: _v34.default.FollowUpModalHeader
-          }), (0, _v1.jsx)(_v59.ModalBody, {
+          }), (0, _v1.jsx)(_v62.ModalBody, {
             children: (0, _v1.jsx)(_v11.Paragraph, {
               size: "md",
               children: _v34.default.FollowUpModalDescription
             })
-          }), (0, _v1.jsx)(_v61.ModalFooter, {
+          }), (0, _v1.jsx)(_v64.ModalFooter, {
             borderTop: "1px solid",
             borderColor: "stroke",
-            children: (0, _v1.jsxs)(_v52.HStack, {
+            children: (0, _v1.jsxs)(_v55.HStack, {
               children: [(0, _v1.jsx)(_v36.Button, {
                 variant: "tertiary",
                 onClick: () => _v10(!1),
@@ -1222,7 +1296,7 @@
           })]
         })]
       }), _v4 && (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v73.ReminderTimingModal, {
+        children: [(0, _v1.jsx)(_v76.ReminderTimingModal, {
           isOpen: _v22,
           onClose: () => _v23(!1),
           onSave: _v0 => {
@@ -1236,12 +1310,12 @@
             }), _v33("created", _v0);
           },
           usedOffsets: _v0.reminders.map(_v0 => _v0.offset)
-        }, _v22 ? "add-timing-open" : "add-timing-closed"), (0, _v1.jsx)(_v75, {
+        }, _v22 ? "add-timing-open" : "add-timing-closed"), (0, _v1.jsx)(_v78, {
           isOpen: !!_v24,
           onClose: () => _v25(null),
           onConfirm: () => _v34(),
           isLoading: _v29.loading
-        }), (0, _v1.jsx)(_v73.ReminderTimingModal, {
+        }), (0, _v1.jsx)(_v76.ReminderTimingModal, {
           isOpen: !!_v26,
           title: (0, _v15.translate)({
             singular: "Edit timing",
@@ -1285,9 +1359,9 @@
       })]
     });
   };
-  var _v81 = _v0.i(0),
-    _v82 = _v0.i(0);
-  let _v83 = () => {
+  var _v84 = _v0.i(0),
+    _v85 = _v0.i(0);
+  let _v86 = () => {
     let {
         emailState: _v0
       } = (0, _v24.useEmailCustomization)(),
@@ -1304,7 +1378,7 @@
       _v7 = _v1 && !_v2 ? _v1 : _v6?.name,
       {
         t: _v8
-      } = (0, _v82.usePreviewChrome)(),
+      } = (0, _v85.usePreviewChrome)(),
       _v9 = _v4 === _v17.ENTITY_TYPE.EVENT;
     return (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsx)(_v7.Flex, {
@@ -1358,14 +1432,14 @@
       })]
     });
   };
-  var _v84 = _v0.i(0),
-    _v85 = _v0.i(0),
-    _v86 = _v0.i(0),
-    _v87 = _v0.i(0),
+  var _v87 = _v0.i(0),
     _v88 = _v0.i(0),
     _v89 = _v0.i(0),
-    _v90 = _v0.i(0);
-  let _v91 = () => {
+    _v90 = _v0.i(0),
+    _v91 = _v0.i(0),
+    _v92 = _v0.i(0),
+    _v93 = _v0.i(0);
+  let _v94 = () => {
     let {
         emailState: _v0,
         dispatch: _v1,
@@ -1393,7 +1467,7 @@
         hasMagicLinks: _v17
       } = (0, _v23.useEntityCapability)(),
       _v18 = !(_v28.TRAIL_STATUS === _v11?.membership?.subscription?.trial?.status || _v15 || !_v16),
-      _v19 = (0, _v2.useMemo)(() => !_v7 || (0, _v90.isValidUrl)(_v9 || ""), [_v7, _v9]),
+      _v19 = (0, _v2.useMemo)(() => !_v7 || (0, _v93.isValidUrl)(_v9 || ""), [_v7, _v9]),
       _v20 = _v0 => {
         _v1({
           type: _v32.ACTION_TYPE.SET_BUTTON_INFO,
@@ -1416,11 +1490,11 @@
         customLink: _v9
       });
     }, [_v19, _v9, _v8, _v7, _v4]), (0, _v1.jsxs)(_v5.Box, {
-      children: [(0, _v1.jsx)(_v51.Header, {
+      children: [(0, _v1.jsx)(_v54.Header, {
         size: "md",
         mb: (0, _v13.rem)(30),
         children: _v34.default.Button
-      }), (0, _v1.jsx)(_v51.Header, {
+      }), (0, _v1.jsx)(_v54.Header, {
         size: "xs",
         mb: "sm",
         children: _v34.default.Text
@@ -1446,25 +1520,25 @@
       }), (0, _v1.jsxs)(_v5.Box, {
         pt: (0, _v13.rem)(20),
         pb: "md",
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v54.Header, {
           size: "xs",
           mb: "md",
           children: _v34.default.URL
-        }), (0, _v1.jsxs)(_v88.Stack, {
+        }), (0, _v1.jsxs)(_v91.Stack, {
           spacing: (0, _v13.rem)(16),
-          children: [(0, _v1.jsx)(_v87.Radio, {
+          children: [(0, _v1.jsx)(_v90.Radio, {
             name: "link",
             isChecked: !_v7,
             onChange: _v21,
             children: _v34.default.VimeoLink
-          }), (0, _v1.jsx)(_v87.Radio, {
+          }), (0, _v1.jsx)(_v90.Radio, {
             name: "link",
             isChecked: !!_v7,
             onChange: _v21,
             isDisabled: !_v18,
             children: _v34.default.CustomLink
           })]
-        }), _v3 === _v17.ENTITY_TYPE.EVENT && _v17 && _v7 && (0, _v1.jsx)(_v89.Text, {
+        }), _v3 === _v17.ENTITY_TYPE.EVENT && _v17 && _v7 && (0, _v1.jsx)(_v92.Text, {
           variant: "body-sm",
           mt: "md",
           color: "text-secondary",
@@ -1477,7 +1551,7 @@
           isDisabled: !_v7,
           onChange: _v0 => {
             let _v1 = _v0.target.value;
-            _v10((0, _v90.isValidUrl)((0, _v90.appendProtocol)(_v1)) ? (0, _v90.appendProtocol)(_v1) : _v1);
+            _v10((0, _v93.isValidUrl)((0, _v93.appendProtocol)(_v1)) ? (0, _v93.appendProtocol)(_v1) : _v1);
           },
           maxLength: _v28.EMAIL_MAX_LENGTH.LINK,
           value: _v7 ? _v9 || "" : (() => {
@@ -1493,17 +1567,14 @@
           })(),
           onFocus: () => _v5(!0),
           onBlur: () => _v5(!1)
-        }), !_v19 && (0, _v1.jsx)(_v86.FormErrorMessage, {
+        }), !_v19 && (0, _v1.jsx)(_v89.FormErrorMessage, {
           py: (0, _v13.rem)(12),
           children: _v34.default.InvalidURL
         })]
       })]
     });
   };
-  var _v92 = _v0.i(0),
-    _v93 = _v0.i(0),
-    _v94 = _v0.i(0),
-    _v95 = _v0.i(0),
+  var _v95 = _v0.i(0),
     _v96 = _v0.i(0),
     _v97 = _v0.i(0),
     _v98 = _v0.i(0),
@@ -1516,8 +1587,11 @@
     _v105 = _v0.i(0),
     _v106 = _v0.i(0),
     _v107 = _v0.i(0),
-    _v108 = _v0.i(0);
-  function _v109() {
+    _v108 = _v0.i(0),
+    _v109 = _v0.i(0),
+    _v110 = _v0.i(0),
+    _v111 = _v0.i(0);
+  function _v112() {
     let {
       innerWidth: _v0,
       innerHeight: _v1
@@ -1528,11 +1602,11 @@
       isMobileOrTablet: _v0 <= _v28.TABLET_SIZE || document.body.clientWidth <= _v28.TABLET_SIZE
     };
   }
-  function _v110() {
-    let [_v0, _v1] = (0, _v2.useState)(_v109());
+  function _v113() {
+    let [_v0, _v1] = (0, _v2.useState)(_v112());
     return (0, _v2.useEffect)(() => {
       let _v0 = () => {
-        _v1(_v109());
+        _v1(_v112());
       };
       return window.addEventListener("resize", _v0), () => window.removeEventListener("resize", _v0);
     }, []), {
@@ -1540,7 +1614,7 @@
       canShowOverlay: () => !0
     };
   }
-  let _v111 = ({
+  let _v114 = ({
       selectedColor: _v0,
       handleOnChange: _v1,
       title: _v2,
@@ -1549,7 +1623,7 @@
       justifyContent: "space-between",
       alignItems: "center",
       mt: (0, _v13.rem)(25),
-      children: [(0, _v1.jsx)(_v51.Header, {
+      children: [(0, _v1.jsx)(_v54.Header, {
         size: "xs",
         children: _v2
       }), (0, _v1.jsxs)(_v7.Flex, {
@@ -1558,18 +1632,18 @@
           pr: (0, _v13.rem)(10),
           size: "md",
           children: _v0?.toUpperCase()
-        }), (0, _v1.jsx)(_v107.ColorPickerBrandKit, {
+        }), (0, _v1.jsx)(_v110.ColorPickerBrandKit, {
           onChange: _v1,
           color: _v0,
           onClose: () => _v3?.(_v0),
           productName: "registration",
-          children: (0, _v1.jsx)(_v114, {
+          children: (0, _v1.jsx)(_v117, {
             color: _v0
           })
         })]
       })]
     }),
-    _v112 = ({
+    _v115 = ({
       emailTemplate: _v0,
       emailToolBar: _v1,
       handleOnClick: _v2,
@@ -1586,7 +1660,7 @@
           } = (0, _v33.useConfigStore)(_v0 => _v0),
           [_v6, {
             data: _v7
-          }] = (0, _v108.useGetLeadCaptureResourceIdFormLazy)();
+          }] = (0, _v111.useGetLeadCaptureResourceIdFormLazy)();
         return (0, _v2.useEffect)(() => {
           _v4 && _v5 && _v6({
             where: {
@@ -1613,7 +1687,7 @@
       })();
       return (0, _v1.jsxs)(_v5.Box, {
         mt: (0, _v13.rem)(30),
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v54.Header, {
           mb: (0, _v13.rem)(5),
           size: "xs",
           children: _v34.default.PersonalizedTags
@@ -1626,7 +1700,7 @@
           flexWrap: "wrap",
           mt: (0, _v13.rem)(20),
           ref: _v3,
-          children: _v4.map((_v0, _v1) => (0, _v1.jsx)(_v105.Tag, {
+          children: _v4.map((_v0, _v1) => (0, _v1.jsx)(_v108.Tag, {
             size: "md",
             onClick: () => {
               _v2(_v0);
@@ -1640,7 +1714,7 @@
         })]
       });
     },
-    _v113 = ({
+    _v116 = ({
       title: _v0,
       values: _v1,
       selectedValue: _v2,
@@ -1651,12 +1725,12 @@
         windowDimensions: {
           width: _v5
         }
-      } = _v110();
+      } = _v113();
       return (0, _v1.jsxs)(_v7.Flex, {
         justifyContent: "space-between",
         alignItems: "center",
         mt: (0, _v13.rem)(25),
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v54.Header, {
           size: "xs",
           minW: (0, _v13.rem)(61),
           children: _v0
@@ -1664,7 +1738,7 @@
           flex: 1,
           children: (0, _v1.jsx)(_v5.Box, {
             width: "100%",
-            children: (0, _v1.jsx)(_v104.Select, {
+            children: (0, _v1.jsx)(_v107.Select, {
               size: "md",
               value: _v2 ? [_v2] : [],
               items: _v1.map(_v0 => ({
@@ -1674,18 +1748,18 @@
               onValueChange: _v0 => _v3(_v0.value[0]),
               children: _v0 => {
                 let _v1;
-                return (0, _v1.jsx)(_v104.SelectItem, {
+                return (0, _v1.jsx)(_v107.SelectItem, {
                   display: "flex",
                   pointerEvents: _v0.value === _v28.EMAIL_TEXT_STYLE.MIXED ? "none" : "all",
                   opacity: _v0.value === _v28.EMAIL_TEXT_STYLE.MIXED ? .5 : 1,
                   children: (0, _v1.jsxs)(_v7.Flex, {
                     alignItems: "center",
-                    children: [(0, _v1.jsx)(_v106.CheckmarkFilled, {
+                    children: [(0, _v1.jsx)(_v109.CheckmarkFilled, {
                       boxSize: (0, _v13.rem)(14),
                       mr: (0, _v13.rem)(10),
                       color: "blue.500",
                       visibility: _v2 === _v0.value ? "visible" : "hidden"
-                    }), (0, _v1.jsx)(_v104.SelectItemText, {
+                    }), (0, _v1.jsx)(_v107.SelectItemText, {
                       children: (_v1 = _v0.label, _v4 ? (0, _v2.createElement)(_v28.EMAIL_TEXT_STYLE_VALUES[_v1], null, _v34.default.EmailTextStyle[_v1]) : _v34.default.EmailTextSize[_v1])
                     })]
                   })
@@ -1696,7 +1770,7 @@
         })]
       });
     },
-    _v114 = ({
+    _v117 = ({
       color: _v0,
       ..._v1
     }) => (0, _v1.jsx)(_v5.Box, {
@@ -1712,9 +1786,9 @@
       ..._v1,
       children: _v1.children
     });
-  var _v115 = _v0.i(0),
-    _v116 = _v0.i(0);
-  let _v117 = ({
+  var _v118 = _v0.i(0),
+    _v119 = _v0.i(0);
+  let _v120 = ({
       inline: _v0 = !1
     } = {}) => {
       let {
@@ -1753,9 +1827,9 @@
           });
         }, [_v2, _v18]),
         _v24 = (0, _v2.useCallback)(() => {
-          let _v0 = !_v16 || (0, _v90.isValidUrl)(_v16);
+          let _v0 = !_v16 || (0, _v93.isValidUrl)(_v16);
           if (_v6(_v0), _v0 || !_v16) {
-            let _v0 = _v16 ? (0, _v90.appendProtocol)(_v16) : "";
+            let _v0 = _v16 ? (0, _v93.appendProtocol)(_v16) : "";
             _v17(_v0), _v2({
               type: _v32.ACTION_TYPE.SET_FOOTER_POLICY,
               payload: _v0
@@ -1775,11 +1849,11 @@
         _v17(_v9), _v19(_v11), _v6(!0), _v8(!0);
       }, [_v15, _v3]);
       let _v26 = () => (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsxs)(_v118, {
-          children: [(0, _v1.jsx)(_v89.Text, {
+        children: [(0, _v1.jsxs)(_v121, {
+          children: [(0, _v1.jsx)(_v92.Text, {
             variant: "body-md",
             children: _v34.default.FooterReplayMail
-          }), (0, _v1.jsx)(_v116.Switch, {
+          }), (0, _v1.jsx)(_v119.Switch, {
             onChange: _v22(_v28.EMAIL_TOGGLE_MAP.FOOTER_REPLY_MAIL),
             size: "sm",
             isChecked: _v10,
@@ -1794,14 +1868,14 @@
             placeholder: "email@address.com",
             maxLength: _v28.EMAIL_MAX_LENGTH.LINK,
             value: _v18 || ""
-          }, "email-field"), (0, _v1.jsx)(_v86.FormErrorMessage, {
+          }, "email-field"), (0, _v1.jsx)(_v89.FormErrorMessage, {
             children: _v34.default.PleaseEnterValidEmail
           })]
-        }), (0, _v1.jsxs)(_v118, {
-          children: [(0, _v1.jsx)(_v89.Text, {
+        }), (0, _v1.jsxs)(_v121, {
+          children: [(0, _v1.jsx)(_v92.Text, {
             variant: "body-md",
             children: _v34.default.FooterCompanyAddress
-          }), (0, _v1.jsx)(_v116.Switch, {
+          }), (0, _v1.jsx)(_v119.Switch, {
             onChange: _v22(_v28.EMAIL_TOGGLE_MAP.FOOTER_COMPANY_ADDRESS),
             size: "sm",
             isChecked: _v12,
@@ -1820,11 +1894,11 @@
               maxCharacters: _v28.EMAIL_MAX_LENGTH.FOOTER_ADDRESS
             })
           })]
-        }), (0, _v1.jsxs)(_v118, {
-          children: [(0, _v1.jsx)(_v89.Text, {
+        }), (0, _v1.jsxs)(_v121, {
+          children: [(0, _v1.jsx)(_v92.Text, {
             variant: "body-md",
             children: _v34.default.FooterPolicyLink
-          }), (0, _v1.jsx)(_v116.Switch, {
+          }), (0, _v1.jsx)(_v119.Switch, {
             onChange: _v22(_v28.EMAIL_TOGGLE_MAP.FOOTER_POLICY_LINK),
             size: "sm",
             isChecked: _v14,
@@ -1839,7 +1913,7 @@
             placeholder: _v34.default.EnterValidURL,
             maxLength: _v28.EMAIL_MAX_LENGTH.LINK,
             value: _v16 || ""
-          }, "link-field"), (0, _v1.jsx)(_v86.FormErrorMessage, {
+          }, "link-field"), (0, _v1.jsx)(_v89.FormErrorMessage, {
             children: _v34.default.InvalidURL
           })]
         })]
@@ -1847,39 +1921,39 @@
       return _v0 ? (0, _v1.jsxs)(_v5.Box, {
         mt: (0, _v13.rem)(25),
         ref: _v20,
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v54.Header, {
           size: "xs",
           mb: (0, _v13.rem)(10),
           children: _v34.default.Footer
         }), _v26()]
-      }) : (0, _v1.jsxs)(_v99.Popover, {
+      }) : (0, _v1.jsxs)(_v102.Popover, {
         isOpen: _v3,
-        children: [(0, _v1.jsx)(_v115.PopoverTrigger, {
+        children: [(0, _v1.jsx)(_v118.PopoverTrigger, {
           children: (0, _v1.jsxs)(_v7.Flex, {
             cursor: "pointer",
             mt: (0, _v13.rem)(25),
             justifyContent: "space-between",
             alignItems: "center",
             onClick: () => _v4(!_v3),
-            children: [(0, _v1.jsx)(_v51.Header, {
+            children: [(0, _v1.jsx)(_v54.Header, {
               size: "xs",
               children: _v34.default.Footer
             }), (0, _v1.jsx)(_v7.Flex, {
               borderRadius: "input-xs",
               p: "xs",
               background: _v3 ? "stroke" : "",
-              children: (0, _v1.jsx)(_v65.EditPencil, {})
+              children: (0, _v1.jsx)(_v68.EditPencil, {})
             })]
           })
-        }), (0, _v1.jsx)(_v101.PopoverContent, {
+        }), (0, _v1.jsx)(_v104.PopoverContent, {
           children: (0, _v1.jsxs)(_v5.Box, {
             width: (0, _v13.rem)(320),
             pt: "px",
             pr: "lg",
             pb: "lg",
             ref: _v20,
-            children: [(0, _v1.jsx)(_v118, {
-              children: (0, _v1.jsx)(_v51.Header, {
+            children: [(0, _v1.jsx)(_v121, {
+              children: (0, _v1.jsx)(_v54.Header, {
                 size: "xs",
                 children: _v34.default.Footer
               })
@@ -1888,7 +1962,7 @@
         })]
       });
     },
-    _v118 = _v0 => (0, _v1.jsx)(_v7.Flex, {
+    _v121 = _v0 => (0, _v1.jsx)(_v7.Flex, {
       justifyContent: "space-between",
       mb: (0, _v13.rem)(10),
       alignItems: "center",
@@ -1896,12 +1970,12 @@
       ..._v0,
       children: _v0.children
     });
-  var _v119 = _v0.i(0),
-    _v120 = _v0.i(0),
-    _v121 = _v0.i(0),
-    _v122 = _v0.i(0);
-  let _v123 = _v0 => {
-    let _v1 = (0, _v119.useCache)(),
+  var _v122 = _v0.i(0),
+    _v123 = _v0.i(0),
+    _v124 = _v0.i(0),
+    _v125 = _v0.i(0);
+  let _v126 = _v0 => {
+    let _v1 = (0, _v122.useCache)(),
       {
         canAccessCustomLogo: _v2
       } = (0, _v23.useEntityCapability)(),
@@ -1920,12 +1994,12 @@
         data: _v14,
         error: _v15,
         loading: _v16
-      }] = (0, _v121.useGetUserTeamLogosLazy)(),
+      }] = (0, _v124.useGetUserTeamLogosLazy)(),
       [_v17, {
         data: _v18,
         error: _v19,
         loading: _v20
-      }] = (0, _v120.useGetUserCustomlogosLazy)();
+      }] = (0, _v123.useGetUserCustomlogosLazy)();
     return (0, _v2.useEffect)(() => {
       if (!_v5) return;
       let _v0 = (0, _v48.getUserIdFromUri)(_v4?.uri);
@@ -1960,7 +2034,7 @@
       }
     }, [_v14, _v18, _v1]), (0, _v2.useEffect)(() => {
       if (_v8?.items) if (_v12 && _v12 !== _v28.FALLBACK_PLAYER_CUSTOM_LOGO) {
-        let _v0 = (0, _v122.findLogoIndex)(_v8.items, _v12);
+        let _v0 = (0, _v125.findLogoIndex)(_v8.items, _v12);
         _v7(_v0), _v10 && _v10 < 0 && _v11(_v0);
       } else _v7(0);
     }, [_v12, _v10, _v8]), (0, _v2.useEffect)(() => {
@@ -1980,30 +2054,32 @@
       customLogoResponse: _v8
     };
   };
-  var _v124 = _v0.i(0),
-    _v125 = _v0.i(0),
-    _v126 = _v0.i(0),
-    _v127 = _v0.i(0),
+  var _v127 = _v0.i(0),
     _v128 = _v0.i(0),
     _v129 = _v0.i(0),
     _v130 = _v0.i(0),
     _v131 = _v0.i(0),
     _v132 = _v0.i(0),
-    _v133 = _v0.i(0);
-  let _v134 = ({
+    _v133 = _v0.i(0),
+    _v134 = _v0.i(0),
+    _v135 = _v0.i(0),
+    _v136 = _v0.i(0),
+    _v137 = _v0.i(0),
+    _v138 = _v0.i(0);
+  let _v139 = ({
     targetLocale: _v0,
     isDeleting: _v1,
     onCancel: _v2,
     onConfirm: _v3
   }) => {
-    let _v4 = (0, _v132.useLocale)();
-    return (0, _v1.jsxs)(_v58.Modal, {
+    let _v4 = (0, _v137.useLocale)();
+    return (0, _v1.jsxs)(_v61.Modal, {
       closeOnEsc: !_v1,
       closeOnOverlayClick: !_v1,
       isOpen: !0,
       onClose: _v2,
-      children: [(0, _v1.jsx)(_v63.ModalOverlay, {}), (0, _v1.jsxs)(_v60.ModalContent, {
-        children: [(0, _v1.jsx)(_v62.ModalHeader, {
+      children: [(0, _v1.jsx)(_v66.ModalOverlay, {}), (0, _v1.jsxs)(_v63.ModalContent, {
+        children: [(0, _v1.jsx)(_v65.ModalHeader, {
           children: (0, _v15.translate)({
             singular: "Delete translation",
             dictionary: {
@@ -2030,14 +2106,14 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v59.ModalBody, {
-          children: (0, _v1.jsx)(_v89.Text, {
+        }), (0, _v1.jsx)(_v62.ModalBody, {
+          children: (0, _v1.jsx)(_v92.Text, {
             color: "text-primary",
             variant: "body-md",
             children: (0, _v15.translate)({
               singular: "Registrants who chose {LANGUAGE} will receive your emails in the main language instead. Event page translations and other languages won’t change.",
               replacements: {
-                LANGUAGE: (0, _v133.getLocaleLabel)(_v0, _v4)
+                LANGUAGE: (0, _v138.getLocaleLabel)(_v0, _v4)
               },
               dictionary: {
                 es: {
@@ -2064,7 +2140,7 @@
               }
             })
           })
-        }), (0, _v1.jsxs)(_v61.ModalFooter, {
+        }), (0, _v1.jsxs)(_v64.ModalFooter, {
           children: [(0, _v1.jsx)(_v36.Button, {
             isDisabled: _v1,
             onClick: _v2,
@@ -2131,9 +2207,9 @@
       })]
     });
   };
-  var _v135 = _v0.i(0),
-    _v136 = _v0.i(0);
-  let _v137 = ({
+  var _v140 = _v0.i(0),
+    _v141 = _v0.i(0);
+  let _v142 = ({
     isAiEnabled: _v0,
     isBusy: _v1,
     onMarkUpToDate: _v2,
@@ -2146,7 +2222,7 @@
     size: "sm",
     status: "warning",
     variant: "warning",
-    children: [(0, _v1.jsx)(_v135.AlertIcon, {
+    children: [(0, _v1.jsx)(_v140.AlertIcon, {
       fontSize: (0, _v13.rem)(20),
       children: (0, _v1.jsx)(_v14.InfoCircle, {})
     }), (0, _v1.jsxs)(_v7.Flex, {
@@ -2158,7 +2234,7 @@
         flex: "1",
         minW: 0,
         pr: "xs",
-        children: [(0, _v1.jsx)(_v136.AlertTitle, {
+        children: [(0, _v1.jsx)(_v141.AlertTitle, {
           children: (0, _v15.translate)({
             singular: "This translation is out of date",
             dictionary: {
@@ -2308,26 +2384,26 @@
       })]
     })]
   });
-  var _v138 = _v0.i(0),
-    _v139 = _v0.i(0),
-    _v140 = _v0.i(0),
-    _v141 = _v0.i(0),
-    _v142 = _v0.i(0),
-    _v143 = _v0.i(0),
+  var _v143 = _v0.i(0),
     _v144 = _v0.i(0),
-    _v145 = _v0.i(0);
-  let _v146 = _v0 => _v0.preventDefault(),
-    _v147 = ({
+    _v145 = _v0.i(0),
+    _v146 = _v0.i(0),
+    _v147 = _v0.i(0),
+    _v148 = _v0.i(0),
+    _v149 = _v0.i(0),
+    _v150 = _v0.i(0);
+  let _v151 = _v0 => _v0.preventDefault(),
+    _v152 = ({
       editor: _v0,
       canLink: _v1,
       isLinking: _v2,
       setIsLinking: _v3
     }) => {
       let [_v4, _v5] = (0, _v2.useState)(""),
-        _v6 = "" === _v4 || (0, _v90.isValidUrl)(_v4),
+        _v6 = "" === _v4 || (0, _v93.isValidUrl)(_v4),
         _v7 = () => {
           "" !== _v4 && _v6 && _v0.chain().focus().extendMarkRange("link").setLink({
-            href: (0, _v90.appendProtocol)(_v4)
+            href: (0, _v93.appendProtocol)(_v4)
           }).run(), _v3(!1);
         };
       return (0, _v1.jsx)(_v7.Flex, {
@@ -2351,7 +2427,7 @@
               value: _v4,
               width: (0, _v13.rem)(200)
             })
-          }), _v0.isActive("link") ? (0, _v1.jsx)(_v53.IconButton, {
+          }), _v0.isActive("link") ? (0, _v1.jsx)(_v56.IconButton, {
             "aria-label": (0, _v15.translate)({
               singular: "Remove link",
               dictionary: {
@@ -2378,14 +2454,14 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v143.LinkBroken, {}),
+            icon: (0, _v1.jsx)(_v148.LinkBroken, {}),
             onClick: () => {
               _v0.chain().focus().extendMarkRange("link").unsetLink().run(), _v3(!1);
             },
-            onMouseDown: _v146,
+            onMouseDown: _v151,
             size: "sm",
             variant: "tertiary"
-          }) : null, (0, _v1.jsx)(_v53.IconButton, {
+          }) : null, (0, _v1.jsx)(_v56.IconButton, {
             "aria-label": (0, _v15.translate)({
               singular: "Save link",
               dictionary: {
@@ -2412,15 +2488,15 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v106.CheckmarkFilled, {}),
+            icon: (0, _v1.jsx)(_v109.CheckmarkFilled, {}),
             isDisabled: "" === _v4 || !_v6,
             onClick: _v7,
-            onMouseDown: _v146,
+            onMouseDown: _v151,
             size: "sm",
             variant: "tertiary"
           })]
         }) : (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v53.IconButton, {
+          children: [(0, _v1.jsx)(_v56.IconButton, {
             "aria-label": (0, _v15.translate)({
               singular: "Bold",
               dictionary: {
@@ -2447,12 +2523,12 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v140.Bold, {}),
+            icon: (0, _v1.jsx)(_v145.Bold, {}),
             onClick: () => _v0.chain().focus().toggleBold().run(),
-            onMouseDown: _v146,
+            onMouseDown: _v151,
             size: "sm",
             variant: _v0.isActive("bold") ? "blur" : "tertiary"
-          }), (0, _v1.jsx)(_v53.IconButton, {
+          }), (0, _v1.jsx)(_v56.IconButton, {
             "aria-label": (0, _v15.translate)({
               singular: "Italic",
               dictionary: {
@@ -2479,12 +2555,12 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v141.Italic, {}),
+            icon: (0, _v1.jsx)(_v146.Italic, {}),
             onClick: () => _v0.chain().focus().toggleItalic().run(),
-            onMouseDown: _v146,
+            onMouseDown: _v151,
             size: "sm",
             variant: _v0.isActive("italic") ? "blur" : "tertiary"
-          }), (0, _v1.jsx)(_v53.IconButton, {
+          }), (0, _v1.jsx)(_v56.IconButton, {
             "aria-label": (0, _v15.translate)({
               singular: "Underline",
               dictionary: {
@@ -2511,12 +2587,12 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v144.Underline, {}),
+            icon: (0, _v1.jsx)(_v149.Underline, {}),
             onClick: () => _v0.chain().focus().toggleUnderline().run(),
-            onMouseDown: _v146,
+            onMouseDown: _v151,
             size: "sm",
             variant: _v0.isActive("underline") ? "blur" : "tertiary"
-          }), _v1 ? (0, _v1.jsx)(_v53.IconButton, {
+          }), _v1 ? (0, _v1.jsx)(_v56.IconButton, {
             "aria-label": (0, _v15.translate)({
               singular: "Link",
               dictionary: {
@@ -2537,21 +2613,21 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v142.Link, {}),
+            icon: (0, _v1.jsx)(_v147.Link, {}),
             onClick: () => {
               let {
                 href: _v0
               } = _v0.getAttributes("link");
               _v5("string" == typeof _v0 ? _v0 : ""), _v3(!0);
             },
-            onMouseDown: _v146,
+            onMouseDown: _v151,
             size: "sm",
             variant: _v0.isActive("link") ? "blur" : "tertiary"
           }) : null]
         })
       });
     },
-    _v148 = ({
+    _v153 = ({
       value: _v0,
       onChange: _v1,
       "aria-label": _v2,
@@ -2564,8 +2640,8 @@
         } = (0, _v23.useEntityCapability)(),
         _v7 = (0, _v2.useMemo)(() => new DOMParser().parseFromString(_v5, "text/html").body.textContent?.trim() ?? "", [_v5]),
         [_v8, _v9] = (0, _v2.useState)(!1),
-        _v10 = (0, _v139.useEditor)({
-          extensions: [...(0, _v145.getEmailEditorExtensions)(_v3), _v138.default.configure({
+        _v10 = (0, _v144.useEditor)({
+          extensions: [...(0, _v150.getEmailEditorExtensions)(_v3), _v143.default.configure({
             placeholder: _v7
           })],
           content: _v0,
@@ -2618,140 +2694,192 @@
         _focusWithin: {
           borderColor: "focus-alt"
         },
-        children: [null !== _v10 && !_v4 && (_v10.isFocused || _v8) ? (0, _v1.jsx)(_v147, {
+        children: [null !== _v10 && !_v4 && (_v10.isFocused || _v8) ? (0, _v1.jsx)(_v152, {
           canLink: !0 === _v6,
           editor: _v10,
           isLinking: _v8,
           setIsLinking: _v9
-        }) : null, (0, _v1.jsx)(_v139.EditorContent, {
+        }) : null, (0, _v1.jsx)(_v144.EditorContent, {
           editor: _v10
         })]
       });
     };
-  var _v149 = _v0.i(0);
-  let _v150 = Object.values(_v130.Locales),
-    _v151 = (0, _v13.rem)(0),
-    _v152 = _v0 => (0, _v1.jsx)(_v148, {
+  var _v154 = _v0.i(0);
+  let _v155 = Object.values(_v135.Locales),
+    _v156 = (0, _v13.rem)(0),
+    _v157 = _v0 => (0, _v1.jsx)(_v153, {
       ..._v0
     }),
-    _v153 = () => {
+    _v158 = () => {
+      let _v0 = (0, _v33.useConfigStore)(_v0 => _v0.entityId);
+      return (0, _v1.jsx)(_v132.LocalizationTrackingProvider, {
+        resourceId: _v0 ?? "",
+        resourceType: "event",
+        surface: "emails",
+        children: (0, _v1.jsx)(_v159, {})
+      });
+    },
+    _v159 = () => {
       let {
           emailState: _v0
         } = (0, _v24.useEmailCustomization)(),
         {
           localizations: _v1,
-          translatedLocales: _v2
-        } = (0, _v49.useEmailLocalization)(),
+          translatedLocales: _v2,
+          emailKeys: _v3
+        } = (0, _v52.useEmailLocalization)(),
+        _v4 = (0, _v33.useConfigStore)(_v0 => _v0.entityId),
         {
-          isLoading: _v3,
-          savedLocales: _v4,
-          sourceLocale: _v5,
-          isSubmittingSourceLocale: _v6,
-          configureSourceLocale: _v7,
-          aiTranslationEnabled: _v8,
-          isTranslating: _v9,
-          translate: _v10,
-          isSaving: _v11,
-          saveLocales: _v12,
-          markUpToDate: _v13,
-          deleteLocale: _v14
+          trackLocalizationAddLanguagesClicked: _v5,
+          trackLocalizationDeleted: _v6
+        } = (0, _v134.useLocalizationResourceTracking)(),
+        {
+          trackEmailLocalizationLanguagesAdded: _v7,
+          trackEmailLocalizationAiTranslationCompleted: _v8,
+          trackEmailLocalizationSaved: _v9
+        } = _v51(),
+        {
+          isLoading: _v10,
+          savedLocales: _v11,
+          sourceLocale: _v12,
+          isSubmittingSourceLocale: _v13,
+          configureSourceLocale: _v14,
+          aiTranslationEnabled: _v15,
+          isTranslating: _v16,
+          translate: _v17,
+          isSaving: _v18,
+          saveLocales: _v19,
+          markUpToDate: _v20,
+          deleteLocale: _v21
         } = _v1,
-        _v15 = (0, _v131.matchLocale)((0, _v132.useLocale)()),
-        [_v16, _v17] = (0, _v2.useState)(null),
-        _v18 = _v5 ?? _v16 ?? _v15,
-        [_v19, _v20] = (0, _v2.useState)(!1),
-        [_v21, _v22] = (0, _v2.useState)(null),
+        _v22 = (0, _v136.matchLocale)((0, _v137.useLocale)()),
         [_v23, _v24] = (0, _v2.useState)(null),
-        [_v25, _v26] = (0, _v2.useState)([]),
-        [_v27, _v28] = (0, _v2.useState)({}),
+        _v25 = _v12 ?? _v23 ?? _v22,
+        _v26 = (0, _v2.useMemo)(() => ({
+          eventId: _v4 ?? "",
+          mainLanguage: _v25
+        }), [_v4, _v25]),
+        [_v27, _v28] = (0, _v2.useState)(!1),
+        [_v29, _v30] = (0, _v2.useState)(null),
+        [_v31, _v32] = (0, _v2.useState)(null),
+        [_v33, _v34] = (0, _v2.useState)([]),
+        [_v35, _v36] = (0, _v2.useState)({}),
         {
-          untranslatedLocales: _v29,
-          editableLocales: _v30,
-          targetLocaleCount: _v31
+          untranslatedLocales: _v37,
+          editableLocales: _v38,
+          targetLocaleCount: _v39
         } = (0, _v2.useMemo)(() => {
-          let _v0 = _v150.filter(_v0 => _v0 !== _v18),
-            _v1 = _v0 => void 0 !== _v4[_v0];
+          let _v0 = _v155.filter(_v0 => _v0 !== _v25),
+            _v1 = _v0 => void 0 !== _v11[_v0];
           return {
             untranslatedLocales: _v0.filter(_v0 => !_v1(_v0)),
-            editableLocales: _v0.filter(_v0 => _v1(_v0) || _v25.includes(_v0)),
+            editableLocales: _v0.filter(_v0 => _v1(_v0) || _v33.includes(_v0)),
             targetLocaleCount: _v0.length
           };
-        }, [_v18, _v4, _v25]),
-        _v32 = (0, _v2.useMemo)(() => (0, _v149.buildEmailLocalizationSections)(_v0, _v152), [_v0]),
-        _v33 = (0, _v2.useMemo)(() => (0, _v149.getEmailSourceStrings)(_v0), [_v0]),
-        _v34 = Object.keys(_v33).length > 0,
-        _v35 = (0, _v2.useCallback)(() => {
-          _v24(null), _v26([]), _v28({});
+        }, [_v25, _v11, _v33]),
+        _v40 = (0, _v2.useMemo)(() => (0, _v154.buildEmailLocalizationSections)(_v0, _v157), [_v0]),
+        _v41 = (0, _v2.useMemo)(() => (0, _v154.getEmailSourceStrings)(_v0), [_v0]),
+        _v42 = Object.keys(_v41).length > 0,
+        _v43 = (0, _v2.useCallback)(() => {
+          _v32(null), _v34([]), _v36({});
         }, []),
-        _v36 = (0, _v2.useCallback)(_v0 => {
-          _v26(_v0), _v20(!1), _v24(_v0[0] ?? null);
+        _v44 = (0, _v2.useCallback)(_v0 => {
+          _v34(_v0), _v28(!1), _v32(_v0[0] ?? null);
         }, []),
-        _v37 = (0, _v2.useCallback)(async _v0 => {
-          let _v1 = await _v10(_v0, _v33);
-          return null !== _v1 && (_v28(_v0 => {
+        _v45 = (0, _v2.useCallback)(async (_v0, _v1) => {
+          let _v2 = await _v17(_v0, _v41);
+          return _v8({
+            ..._v26,
+            trigger: _v1,
+            targetLanguages: [..._v0],
+            success: null !== _v2,
+            failedLanguageCount: null === _v2 ? _v0.length : _v0.filter(_v0 => void 0 === _v2[_v0]).length
+          }), null !== _v2 && (_v36(_v0 => {
             let _v1 = {
               ..._v0
             };
             return _v0.forEach(_v0 => {
-              let _v1 = _v1[_v0];
+              let _v1 = _v2[_v0];
               void 0 !== _v1 && (_v1[_v0] = {
                 ..._v0[_v0],
                 ..._v1
               });
             }), _v1;
           }), !0);
-        }, [_v33, _v10]),
-        _v38 = (0, _v2.useCallback)((_v0, _v1) => {
-          let _v2 = _v30.flatMap(_v0 => {
-            let _v1 = _v4[_v0]?.leaves ?? _v126.EMPTY_LEAVES,
-              _v2 = _v0 === _v0 ? _v1 : (0, _v126.getWorkingLeaves)(_v1, _v27[_v0]);
-            return (0, _v126.areLeavesEqual)(_v2, _v1) ? [] : [{
+        }, [_v41, _v17, _v8, _v26]),
+        _v46 = (0, _v2.useCallback)((_v0, _v1, _v2) => _v9({
+          ..._v26,
+          trigger: _v0,
+          savedLanguages: [..._v1],
+          success: _v2,
+          emailCount: _v3.length
+        }), [_v9, _v26, _v3.length]),
+        _v47 = (0, _v2.useCallback)(async (_v0, _v1) => {
+          let _v2 = _v38.flatMap(_v0 => {
+              let _v1 = _v11[_v0]?.leaves ?? _v129.EMPTY_LEAVES,
+                _v2 = _v0 === _v0 ? _v1 : (0, _v129.getWorkingLeaves)(_v1, _v35[_v0]);
+              return (0, _v129.areLeavesEqual)(_v2, _v1) ? [] : [{
+                locale: _v0,
+                leaves: _v2
+              }];
+            }),
+            _v3 = 0 === _v2.length ? [{
               locale: _v0,
-              leaves: _v2
-            }];
-          });
-          return _v12(0 === _v2.length ? [{
-            locale: _v0,
-            leaves: _v1
-          }] : _v2);
-        }, [_v30, _v4, _v27, _v12]),
-        _v39 = (0, _v2.useCallback)((_v0, _v1, _v2) => {
-          _v28(_v0 => ({
+              leaves: _v1
+            }] : _v2,
+            _v4 = await _v19(_v3);
+          return _v46("save", _v3.map(_v0 => _v0.locale), _v4), _v4;
+        }, [_v38, _v11, _v35, _v19, _v46]),
+        _v48 = (0, _v2.useCallback)(_v0 => {
+          _v20(_v0).then(_v0 => _v46("mark_up_to_date", [_v0], _v0));
+        }, [_v20, _v46]),
+        _v49 = (0, _v2.useCallback)((_v0, _v1, _v2) => {
+          _v36(_v0 => ({
             ..._v0,
-            [_v0]: (0, _v126.withTypedValue)(_v0[_v0], _v4[_v0]?.leaves, _v1, _v2)
+            [_v0]: (0, _v129.withTypedValue)(_v0[_v0], _v11[_v0]?.leaves, _v1, _v2)
           }));
-        }, [_v4]),
-        _v40 = (0, _v2.useCallback)((_v0, _v1) => {
-          "manual" !== _v1 && _v8 ? _v37(_v0).then(_v0 => {
-            _v0 && _v36(_v0);
-          }) : _v36(_v0);
-        }, [_v36, _v37, _v8]),
-        _v41 = (0, _v2.useCallback)(_v0 => {
-          _v37([_v0]).then(_v0 => {
-            _v0 && _v24(_v0);
+        }, [_v11]),
+        _v50 = (0, _v2.useCallback)((_v0, _v1) => {
+          let _v2 = "manual" === _v1 || !_v15;
+          (_v7({
+            ..._v26,
+            addedLanguages: [..._v0],
+            startMode: _v2 ? "manual" : "ai",
+            enabledLanguagesCount: _v2.length + _v0.length
+          }), _v2) ? _v44(_v0) : _v45(_v0, "add_languages").then(_v0 => {
+            _v0 && _v44(_v0);
           });
-        }, [_v37]),
-        _v42 = (0, _v2.useCallback)(_v0 => {
-          _v14(_v0).then(_v0 => {
-            _v0 && _v22(null);
+        }, [_v44, _v45, _v15, _v7, _v26, _v2.length]),
+        _v51 = (0, _v2.useCallback)(_v0 => {
+          _v45([_v0], "update_with_ai_row").then(_v0 => {
+            _v0 && _v32(_v0);
           });
-        }, [_v14]),
-        _v43 = (0, _v2.useCallback)(_v0 => {
-          null === _v5 ? _v17(_v0) : _v7(_v0);
-        }, [_v5, _v7]),
-        _v44 = (0, _v2.useCallback)(() => {
-          null !== _v5 || null === _v18 ? _v20(!0) : _v7(_v18).then(_v0 => {
-            _v0 && _v20(!0);
+        }, [_v45]),
+        _v52 = (0, _v2.useCallback)(_v0 => {
+          _v21(_v0).then(_v0 => {
+            _v0 && (_v6({
+              locale: _v0
+            }), _v30(null));
           });
-        }, [_v5, _v18, _v7]),
-        _v45 = null === _v18,
-        _v46 = _v45 || 0 === _v29.length || !_v34,
-        _v47 = null === _v23 ? void 0 : _v4[_v23];
+        }, [_v21, _v6]),
+        _v53 = (0, _v2.useCallback)(_v0 => {
+          null === _v12 ? _v24(_v0) : _v14(_v0);
+        }, [_v12, _v14]),
+        _v54 = (0, _v2.useCallback)(() => {
+          (_v5({
+            availableLocaleCount: _v37.length
+          }), null !== _v12 || null === _v25) ? _v28(!0) : _v14(_v25).then(_v0 => {
+            _v0 && _v28(!0);
+          });
+        }, [_v12, _v25, _v14, _v5, _v37.length]),
+        _v55 = null === _v25,
+        _v56 = _v55 || 0 === _v37.length || !_v42,
+        _v57 = null === _v31 ? void 0 : _v11[_v31];
       return (0, _v1.jsxs)(_v7.Flex, {
         direction: "column",
         gap: (0, _v13.rem)(12),
         w: "100%",
-        children: [(0, _v1.jsx)(_v89.Text, {
+        children: [(0, _v1.jsx)(_v92.Text, {
           color: "text-secondary",
           variant: "body-sm",
           children: (0, _v15.translate)({
@@ -2780,11 +2908,11 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v129.MainLanguageSection, {
-          isDisabled: _v2.length > 0 || _v6,
-          locales: _v150,
-          onChange: _v43,
-          sourceLocale: _v18
+        }), (0, _v1.jsx)(_v133.MainLanguageSection, {
+          isDisabled: _v2.length > 0 || _v13,
+          locales: _v155,
+          onChange: _v53,
+          sourceLocale: _v25
         }), (0, _v1.jsxs)(_v7.Flex, {
           direction: "column",
           gap: (0, _v13.rem)(8),
@@ -2792,7 +2920,7 @@
           children: [(0, _v1.jsxs)(_v7.Flex, {
             align: "center",
             gap: (0, _v13.rem)(8),
-            children: [(0, _v1.jsx)(_v89.Text, {
+            children: [(0, _v1.jsx)(_v92.Text, {
               color: "text-primary",
               variant: "heading-xs",
               children: (0, _v15.translate)({
@@ -2821,14 +2949,14 @@
                   }
                 }
               })
-            }), (0, _v1.jsx)(_v89.Text, {
+            }), (0, _v1.jsx)(_v92.Text, {
               color: "text-secondary",
               variant: "body-md",
               children: (0, _v15.translate)({
                 singular: "{COUNT} of {MAX}",
                 replacements: {
                   COUNT: _v2.length,
-                  MAX: _v31
+                  MAX: _v39
                 },
                 dictionary: {
                   es: {
@@ -2855,16 +2983,16 @@
                 }
               })
             })]
-          }), _v3 ? null : _v2.map(_v0 => {
-            let _v1 = _v4[_v0],
+          }), _v10 ? null : _v2.map(_v0 => {
+            let _v1 = _v11[_v0],
               _v2 = _v1?.isOutOfSync === !0;
-            return (0, _v1.jsx)(_v127.LocaleRow, {
+            return (0, _v1.jsx)(_v130.LocaleRow, {
               actionsLayout: "inline",
-              isSubmitting: _v11 || _v9,
+              isSubmitting: _v18 || _v16,
               locale: _v0,
-              onEdit: () => _v24(_v0),
-              onRemove: () => _v22(_v0),
-              onUpdateWithAi: _v8 ? () => _v41(_v0) : void 0,
+              onEdit: () => _v32(_v0),
+              onRemove: () => _v30(_v0),
+              onUpdateWithAi: _v15 ? () => _v51(_v0) : void 0,
               savedLocale: _v1,
               statusLabel: _v2 ? (0, _v15.translate)({
                 singular: "Out of date",
@@ -2919,8 +3047,8 @@
               })
             }, _v0);
           }), (0, _v1.jsx)(_v12.Tooltip, {
-            isDisabled: !_v46,
-            label: _v45 ? (0, _v15.translate)({
+            isDisabled: !_v56,
+            label: _v55 ? (0, _v15.translate)({
               singular: "Choose a main language first",
               dictionary: {
                 es: {
@@ -2945,7 +3073,7 @@
                   singular: "请先选择主语言"
                 }
               }
-            }) : _v34 ? (0, _v15.translate)({
+            }) : _v42 ? (0, _v15.translate)({
               singular: "Other languages are not supported",
               dictionary: {
                 es: {
@@ -2997,8 +3125,8 @@
               }
             }),
             children: (0, _v1.jsx)(_v36.Button, {
-              isDisabled: _v46,
-              onClick: _v44,
+              isDisabled: _v56,
+              onClick: _v54,
               variant: "secondary",
               w: "100%",
               children: (0, _v15.translate)({
@@ -3029,7 +3157,7 @@
               })
             })
           })]
-        }), _v19 ? (0, _v1.jsx)(_v125.AddLocalizationModal, {
+        }), _v27 ? (0, _v1.jsx)(_v128.AddLocalizationModal, {
           aiStartModeDescription: (0, _v15.translate)({
             singular: "Let AI translate all the content. You can review and edit it before you save.",
             dictionary: {
@@ -3056,7 +3184,7 @@
               }
             }
           }),
-          availableLocales: _v29,
+          availableLocales: _v37,
           description: (0, _v15.translate)({
             singular: "Add a language to translate every text in emails. Empty fields will use the default language.",
             dictionary: {
@@ -3083,10 +3211,10 @@
               }
             }
           }),
-          isAiEnabled: _v8,
-          isTranslating: _v9,
-          onClose: () => _v20(!1),
-          onConfirm: _v40,
+          isAiEnabled: _v15,
+          isTranslating: _v16,
+          onClose: () => _v28(!1),
+          onConfirm: _v50,
           title: (0, _v15.translate)({
             singular: "Translate emails",
             dictionary: {
@@ -3113,21 +3241,21 @@
               }
             }
           })
-        }) : null, null === _v21 ? null : (0, _v1.jsx)(_v134, {
-          isDeleting: _v11,
-          onCancel: () => _v22(null),
-          onConfirm: () => _v42(_v21),
-          targetLocale: _v21
-        }), null === _v23 || null === _v5 ? null : (0, _v1.jsx)(_v128.LocalizationModal, {
-          alertSlot: _v47?.isOutOfSync === !0 ? (0, _v1.jsx)(_v137, {
-            isAiEnabled: _v8,
-            isBusy: _v11 || _v9,
-            onMarkUpToDate: () => void _v13(_v23),
-            onUpdateWithAi: () => void _v37([_v23])
+        }) : null, null === _v29 ? null : (0, _v1.jsx)(_v139, {
+          isDeleting: _v18,
+          onCancel: () => _v30(null),
+          onConfirm: () => _v52(_v29),
+          targetLocale: _v29
+        }), null === _v31 || null === _v12 ? null : (0, _v1.jsx)(_v131.LocalizationModal, {
+          alertSlot: _v57?.isOutOfSync === !0 ? (0, _v1.jsx)(_v142, {
+            isAiEnabled: _v15,
+            isBusy: _v18 || _v16,
+            onMarkUpToDate: () => _v48(_v31),
+            onUpdateWithAi: () => void _v45([_v31], "update_with_ai_editor")
           }) : void 0,
           description: null,
-          edits: _v27,
-          introSlot: (0, _v1.jsx)(_v89.Text, {
+          edits: _v35,
+          introSlot: (0, _v1.jsx)(_v92.Text, {
             color: "text-secondary",
             variant: "body-sm",
             children: (0, _v15.translate)({
@@ -3157,19 +3285,19 @@
               }
             })
           }),
-          isAiEnabled: _v8,
-          isSaving: _v11,
-          isTranslating: _v9,
+          isAiEnabled: _v15,
+          isSaving: _v18,
+          isTranslating: _v16,
           layout: "flat",
-          onClose: _v35,
-          onFieldChange: _v39,
-          onSave: _v38,
-          onTargetLocaleChange: _v24,
-          onTranslateAgain: () => _v37([_v23]),
+          onClose: _v43,
+          onFieldChange: _v49,
+          onSave: _v47,
+          onTargetLocaleChange: _v32,
+          onTranslateAgain: () => _v45([_v31], "translate_again"),
           saveMode: "publish",
-          savedLocales: _v4,
-          sections: _v32,
-          selectableLocales: _v30,
+          savedLocales: _v11,
+          sections: _v40,
+          selectableLocales: _v38,
           sidebarLabel: (0, _v15.translate)({
             singular: "Emails",
             dictionary: {
@@ -3196,8 +3324,8 @@
               }
             }
           }),
-          sourceLocale: _v5,
-          targetLocale: _v23,
+          sourceLocale: _v12,
+          targetLocale: _v31,
           title: (0, _v15.translate)({
             singular: "Translate emails",
             dictionary: {
@@ -3224,24 +3352,24 @@
               }
             }
           }),
-          width: _v151
+          width: _v156
         })]
       });
     };
-  var _v154 = _v0.i(0),
-    _v155 = _v0.i(0);
-  let _v156 = Date.UTC(0, 0, 1),
-    _v157 = ({
+  var _v160 = _v0.i(0),
+    _v161 = _v0.i(0);
+  let _v162 = Date.UTC(0, 0, 1),
+    _v163 = ({
       label: _v0,
       isOutOfDate: _v1 = !1,
       isNew: _v2 = !1,
       children: _v3
-    }) => (0, _v1.jsxs)(_v95.AccordionItem, {
+    }) => (0, _v1.jsxs)(_v98.AccordionItem, {
       backgroundColor: "fill-component",
       border: "none",
       borderRadius: "md",
       overflow: "hidden",
-      children: [(0, _v1.jsxs)(_v93.AccordionButton, {
+      children: [(0, _v1.jsxs)(_v96.AccordionButton, {
         px: (0, _v13.rem)(12),
         py: (0, _v13.rem)(12),
         children: [(0, _v1.jsxs)(_v7.Flex, {
@@ -3249,7 +3377,7 @@
           flex: 1,
           gap: (0, _v13.rem)(8),
           minWidth: 0,
-          children: [_v1 && (0, _v1.jsx)(_v102.CircleExclamation, {
+          children: [_v1 && (0, _v1.jsx)(_v105.CircleExclamation, {
             "aria-label": (0, _v15.translate)({
               singular: "A translation is out of date",
               dictionary: {
@@ -3279,11 +3407,11 @@
             boxSize: (0, _v13.rem)(16),
             color: "status-caution-primary",
             flexShrink: 0
-          }), (0, _v1.jsx)(_v51.Header, {
+          }), (0, _v1.jsx)(_v54.Header, {
             size: "xs",
             noOfLines: 1,
             children: _v0
-          }), _v2 && (0, _v1.jsx)(_v97.Badge, {
+          }), _v2 && (0, _v1.jsx)(_v100.Badge, {
             size: "sm",
             variant: "new",
             children: (0, _v15.translate)({
@@ -3313,15 +3441,15 @@
               }
             })
           })]
-        }), (0, _v1.jsx)(_v94.AccordionIcon, {})]
-      }), (0, _v1.jsx)(_v96.AccordionPanel, {
+        }), (0, _v1.jsx)(_v97.AccordionIcon, {})]
+      }), (0, _v1.jsx)(_v99.AccordionPanel, {
         px: (0, _v13.rem)(16),
         pt: (0, _v13.rem)(12),
         pb: (0, _v13.rem)(20),
         children: _v3
       })]
     }),
-    _v158 = () => {
+    _v164 = () => {
       let {
           emailState: _v0,
           dispatch: _v1
@@ -3336,7 +3464,7 @@
           isEnabled: _v4,
           localizations: _v5,
           translatedLocales: _v6
-        } = (0, _v49.useEmailLocalization)(),
+        } = (0, _v52.useEmailLocalization)(),
         _v7 = _v4 && _v3,
         _v8 = _v6.some(_v0 => _v5.savedLocales[_v0]?.isOutOfSync === !0),
         _v9 = (0, _v33.useConfigStore)(_v0 => _v0.onNavigateToAttendeePage),
@@ -3353,17 +3481,17 @@
           selectedLogoIndex: _v21,
           isLoadingLogos: _v22,
           ownerUserId: _v23
-        } = _v123(_v0),
+        } = _v126(_v0),
         _v24 = (0, _v2.useCallback)(_v0 => {
           _v1({
             type: _v32.ACTION_TYPE.SET_CUSTOM_LOGO_IMAGE,
-            payload: (0, _v122.getCustomLogoImagePayload)(_v0)
+            payload: (0, _v125.getCustomLogoImagePayload)(_v0)
           });
         }, [_v1]),
         [_v25, _v26] = (0, _v2.useState)(),
         {
           isUploading: _v27
-        } = (0, _v124.useTeamLogoUpload)(_v25, _v24, _v28.EMAIL_LOGOS_CACHE_KEY, _v23),
+        } = (0, _v127.useTeamLogoUpload)(_v25, _v24, _v28.EMAIL_LOGOS_CACHE_KEY, _v23),
         _v28 = () => _v1({
           type: _v32.ACTION_TYPE.SET_CUSTOM_LOGO_IMAGE,
           payload: {
@@ -3384,7 +3512,7 @@
         _v38.current && !_v27 && (_v33(null), _v35(!1)), _v38.current = _v27;
       }, [_v27]);
       let _v39 = (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v111, {
+          children: [(0, _v1.jsx)(_v114, {
             handleOnChange: _v0 => {
               (0, _v48.isValidHex)(_v0) && _v1({
                 type: _v32.ACTION_TYPE.SET_COLOR,
@@ -3395,16 +3523,16 @@
             title: _v34.default.AccentColor
           }), (0, _v1.jsxs)(_v5.Box, {
             mt: (0, _v13.rem)(12),
-            children: [(0, _v1.jsx)(_v51.Header, {
+            children: [(0, _v1.jsx)(_v54.Header, {
               size: "xs",
               mb: (0, _v13.rem)(10),
               children: _v34.default.Logo
-            }), (0, _v1.jsxs)(_v99.Popover, {
+            }), (0, _v1.jsxs)(_v102.Popover, {
               placement: "bottom-start",
               isLazy: !0,
               isOpen: _v12,
               onClose: () => _v13(!1),
-              children: [(0, _v1.jsx)(_v100.PopoverAnchor, {
+              children: [(0, _v1.jsx)(_v103.PopoverAnchor, {
                 children: _v29 ? (0, _v1.jsxs)(_v7.Flex, {
                   align: "center",
                   gap: (0, _v13.rem)(12),
@@ -3419,7 +3547,7 @@
                   backgroundColor: "fill-surface",
                   cursor: _v2 ? "pointer" : "default",
                   onClick: _v30,
-                  children: [(0, _v1.jsx)(_v98.Image, {
+                  children: [(0, _v1.jsx)(_v101.Image, {
                     src: _v0.customLogo?.url ?? void 0,
                     alt: _v34.default.Logo,
                     boxSize: (0, _v13.rem)(48),
@@ -3430,9 +3558,9 @@
                   }), (0, _v1.jsx)(_v5.Box, {
                     flex: "1",
                     minW: 0
-                  }), (0, _v1.jsx)(_v53.IconButton, {
+                  }), (0, _v1.jsx)(_v56.IconButton, {
                     "aria-label": _v34.default.Remove,
-                    icon: (0, _v1.jsx)(_v85.CloseX, {}),
+                    icon: (0, _v1.jsx)(_v88.CloseX, {}),
                     variant: "tertiary",
                     size: "sm",
                     isDisabled: !_v2,
@@ -3467,27 +3595,27 @@
                     borderRadius: (0, _v13.rem)(8),
                     backgroundColor: "fill-component",
                     flexShrink: 0,
-                    children: (0, _v1.jsx)(_v103.Image, {
+                    children: (0, _v1.jsx)(_v106.Image, {
                       color: "text-secondary"
                     })
                   }), (0, _v1.jsxs)(_v7.Flex, {
                     direction: "column",
                     gap: (0, _v13.rem)(2),
-                    children: [(0, _v1.jsx)(_v89.Text, {
+                    children: [(0, _v1.jsx)(_v92.Text, {
                       variant: "body-md",
                       fontFamily: "heading",
                       color: "text-primary",
                       children: _v34.default.SelectLogo
-                    }), (0, _v1.jsx)(_v89.Text, {
+                    }), (0, _v1.jsx)(_v92.Text, {
                       variant: "body-sm",
                       color: "text-secondary",
                       children: _v34.default.LogoFormatHint
                     })]
                   })]
                 })
-              }), (0, _v1.jsx)(_v101.PopoverContent, {
+              }), (0, _v1.jsx)(_v104.PopoverContent, {
                 borderRadius: "sm",
-                children: (0, _v1.jsx)(_v155.LogoPickerContainer, {
+                children: (0, _v1.jsx)(_v161.LogoPickerContainer, {
                   ownerUserId: _v23,
                   uploadVariant: "image-uploader",
                   onUploadClick: _v36,
@@ -3512,7 +3640,7 @@
                 let _v1 = _v0.target.files?.[0];
                 _v0.target.value = "", _v1 && (_v13(!1), _v33(_v1));
               }
-            }), (0, _v1.jsx)(_v154.LogoConfirmModal, {
+            }), (0, _v1.jsx)(_v160.LogoConfirmModal, {
               file: _v32,
               isSaving: _v34,
               onChange: _v36,
@@ -3600,8 +3728,8 @@
           })
         });
       if (_v4) {
-        let _v0 = _v7 && Date.now() < _v156;
-        return (0, _v1.jsxs)(_v84.Panel, {
+        let _v0 = _v7 && Date.now() < _v162;
+        return (0, _v1.jsxs)(_v87.Panel, {
           isVisible: !0,
           motionProps: {
             initial: !1
@@ -3615,11 +3743,11 @@
           sx: {
             minHeight: "100%"
           },
-          children: [(0, _v1.jsx)(_v84.PanelHeader, {
+          children: [(0, _v1.jsx)(_v87.PanelHeader, {
             px: (0, _v13.rem)(16),
             pt: (0, _v13.rem)(24),
             pb: (0, _v13.rem)(4),
-            children: (0, _v1.jsx)(_v51.Header, {
+            children: (0, _v1.jsx)(_v54.Header, {
               size: "md",
               children: (0, _v15.translate)({
                 singular: "Emails settings",
@@ -3648,17 +3776,17 @@
                 }
               })
             })
-          }), (0, _v1.jsxs)(_v84.PanelBody, {
+          }), (0, _v1.jsxs)(_v87.PanelBody, {
             px: (0, _v13.rem)(16),
             pt: (0, _v13.rem)(12),
             pb: (0, _v13.rem)(24),
-            children: [(0, _v1.jsxs)(_v92.Accordion, {
+            children: [(0, _v1.jsxs)(_v95.Accordion, {
               allowMultiple: !0,
               defaultIndex: _v0 ? [2] : [0],
               display: "flex",
               flexDirection: "column",
               gap: (0, _v13.rem)(8),
-              children: [(0, _v1.jsx)(_v157, {
+              children: [(0, _v1.jsx)(_v163, {
                 label: (0, _v15.translate)({
                   singular: "Brand",
                   dictionary: {
@@ -3686,7 +3814,7 @@
                   }
                 }),
                 children: _v39
-              }), _v3 && (0, _v1.jsx)(_v157, {
+              }), _v3 && (0, _v1.jsx)(_v163, {
                 label: (0, _v15.translate)({
                   singular: "Footer",
                   dictionary: {
@@ -3713,10 +3841,10 @@
                     }
                   }
                 }),
-                children: (0, _v1.jsx)(_v117, {
+                children: (0, _v1.jsx)(_v120, {
                   inline: !0
                 })
-              }), _v7 && (0, _v1.jsx)(_v157, {
+              }), _v7 && (0, _v1.jsx)(_v163, {
                 label: (0, _v15.translate)({
                   singular: "Translations",
                   dictionary: {
@@ -3745,13 +3873,13 @@
                 }),
                 isNew: _v0,
                 isOutOfDate: _v8,
-                children: (0, _v1.jsx)(_v153, {})
+                children: (0, _v1.jsx)(_v158, {})
               })]
             }), _v40]
           })]
         });
       }
-      return (0, _v1.jsxs)(_v84.Panel, {
+      return (0, _v1.jsxs)(_v87.Panel, {
         isVisible: !0,
         background: "fill-surface",
         borderRadius: "md",
@@ -3761,15 +3889,15 @@
         sx: {
           minHeight: "100%"
         },
-        children: [(0, _v1.jsx)(_v84.PanelHeader, {
+        children: [(0, _v1.jsx)(_v87.PanelHeader, {
           px: (0, _v13.rem)(16),
           pt: (0, _v13.rem)(24),
           pb: (0, _v13.rem)(4),
-          children: (0, _v1.jsx)(_v51.Header, {
+          children: (0, _v1.jsx)(_v54.Header, {
             size: "md",
             children: _v34.default.General
           })
-        }), (0, _v1.jsxs)(_v84.PanelBody, {
+        }), (0, _v1.jsxs)(_v87.PanelBody, {
           px: (0, _v13.rem)(16),
           pt: 0,
           pb: (0, _v13.rem)(24),
@@ -3778,15 +3906,15 @@
               borderTop: `${(0, _v13.rem)(1)} solid`,
               borderColor: "stroke",
               mt: (0, _v13.rem)(24)
-            }), (0, _v1.jsx)(_v117, {
+            }), (0, _v1.jsx)(_v120, {
               inline: !0
             })]
           }), _v40]
         })]
       });
     };
-  var _v159 = _v0.i(0);
-  let _v160 = () => {
+  var _v165 = _v0.i(0);
+  let _v166 = () => {
       let {
           emailState: _v0,
           dispatch: _v1
@@ -3814,27 +3942,27 @@
           selectedLogoIndex: _v19,
           isLoadingLogos: _v20,
           ownerUserId: _v21
-        } = _v123(_v0),
+        } = _v126(_v0),
         _v22 = (0, _v2.useCallback)(_v0 => {
           _v1({
             type: _v32.ACTION_TYPE.SET_CUSTOM_LOGO_IMAGE,
-            payload: (0, _v122.getCustomLogoImagePayload)(_v0)
+            payload: (0, _v125.getCustomLogoImagePayload)(_v0)
           });
         }, [_v1]),
         [_v23, _v24] = (0, _v2.useState)(),
         {
           isUploading: _v25
-        } = (0, _v124.useTeamLogoUpload)(_v23, _v22, _v28.EMAIL_LOGOS_CACHE_KEY, _v21);
+        } = (0, _v127.useTeamLogoUpload)(_v23, _v22, _v28.EMAIL_LOGOS_CACHE_KEY, _v21);
       return (0, _v2.useEffect)(() => {
         _v13(!_v11);
       }, [_v11]), (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v54.Header, {
           mb: (0, _v13.rem)(30),
           size: "md",
           children: _v34.default.General
         }), _v11 && (0, _v1.jsxs)(_v5.Box, {
           mb: (0, _v13.rem)(0),
-          children: [(0, _v1.jsx)(_v51.Header, {
+          children: [(0, _v1.jsx)(_v54.Header, {
             mb: "sm",
             size: "xs",
             children: _v34.default.FromGeneral
@@ -3871,7 +3999,7 @@
               })
             })]
           })]
-        }), (0, _v1.jsx)(_v111, {
+        }), (0, _v1.jsx)(_v114, {
           handleOnChange: _v0 => {
             (0, _v48.isValidHex)(_v0) && _v1 && _v1({
               type: _v32.ACTION_TYPE.SET_COLOR,
@@ -3887,14 +4015,14 @@
           justifyContent: "space-between",
           alignItems: "center",
           mt: (0, _v13.rem)(25),
-          children: [(0, _v1.jsx)(_v51.Header, {
+          children: [(0, _v1.jsx)(_v54.Header, {
             size: "xs",
             children: _v34.default.Logo
-          }), (0, _v1.jsxs)(_v99.Popover, {
+          }), (0, _v1.jsxs)(_v102.Popover, {
             placement: "bottom-start",
             isLazy: !0,
             isOpen: _v7,
-            children: [(0, _v1.jsx)(_v115.PopoverTrigger, {
+            children: [(0, _v1.jsx)(_v118.PopoverTrigger, {
               children: (0, _v1.jsx)("div", {
                 ref: _v9,
                 children: _v0.customLogo?.url ? (0, _v1.jsx)(_v5.Box, {
@@ -3924,16 +4052,16 @@
                     mr: (0, _v13.rem)(10),
                     size: "md",
                     children: _v34.default.Add
-                  }), (0, _v1.jsx)(_v159.PlusCircle, {
+                  }), (0, _v1.jsx)(_v165.PlusCircle, {
                     boxSize: (0, _v13.rem)(28)
                   })]
                 })
               })
-            }), (0, _v1.jsx)(_v101.PopoverContent, {
+            }), (0, _v1.jsx)(_v104.PopoverContent, {
               borderRadius: "sm",
               children: (0, _v1.jsx)("div", {
                 ref: _v10,
-                children: (0, _v1.jsx)(_v155.LogoPickerContainer, {
+                children: (0, _v1.jsx)(_v161.LogoPickerContainer, {
                   ownerUserId: _v21,
                   onUnsetLogo: () => _v1({
                     type: _v32.ACTION_TYPE.SET_CUSTOM_LOGO_IMAGE,
@@ -3954,7 +4082,7 @@
               })
             })]
           })]
-        }), _v11 && (0, _v1.jsx)(_v117, {}), _v12 && (0, _v1.jsx)(_v3.Alert, {
+        }), _v11 && (0, _v1.jsx)(_v120, {}), _v12 && (0, _v1.jsx)(_v3.Alert, {
           mt: (0, _v13.rem)(20),
           onClose: () => _v13(!1),
           children: (0, _v1.jsx)(_v4.AlertDescription, {
@@ -3994,7 +4122,7 @@
         })]
       });
     },
-    _v161 = ({
+    _v167 = ({
       dynamicTagRef: _v0
     }) => {
       let {
@@ -4003,11 +4131,11 @@
         activeContentKey: _v3
       } = (0, _v24.useEmailCustomization)();
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v54.Header, {
           size: "md",
           mb: (0, _v13.rem)(5),
           children: _v34.default.SubjectGeneral
-        }), (0, _v1.jsx)(_v112, {
+        }), (0, _v1.jsx)(_v115, {
           emailTemplate: _v1.emailTemplateType,
           emailToolBar: _v28.EMAIL_TOOLBAR_TYPES.SUBJECT,
           handleOnClick: _v0 => {
@@ -4033,13 +4161,13 @@
         })]
       });
     };
-  var _v162 = _v0.i(0),
-    _v163 = _v0.i(0),
-    _v164 = _v0.i(0),
-    _v165 = _v0.i(0),
-    _v166 = _v0.i(0),
-    _v167 = _v0.i(0);
-  let _v168 = _v0 => {
+  var _v168 = _v0.i(0),
+    _v169 = _v0.i(0),
+    _v170 = _v0.i(0),
+    _v171 = _v0.i(0),
+    _v172 = _v0.i(0),
+    _v173 = _v0.i(0);
+  let _v174 = _v0 => {
       let {
         LEFT: _v1,
         CENTER: _v2,
@@ -4053,7 +4181,7 @@
         textAlign: _v3
       }) ? _v3 : null;
     },
-    _v169 = ({
+    _v175 = ({
       editorStates: _v0
     }) => {
       let {
@@ -4067,7 +4195,7 @@
         } = _v1,
         _v6 = _v4 === _v28.EMAIL_TOOLBAR_TYPES.BODY || _v4 === _v28.EMAIL_TOOLBAR_TYPES.TITLE,
         _v7 = _v6 ? _v0[_v5][_v4] : null,
-        _v8 = _v168(_v7),
+        _v8 = _v174(_v7),
         _v9 = (_v0 => {
           let {
             NUMBERED: _v1,
@@ -4124,14 +4252,14 @@
         windowDimensions: {
           width: _v24
         }
-      } = _v110();
+      } = _v113();
       (0, _v2.useEffect)(() => {
         _v15(!1), _v20(!1);
       }, [_v24]);
       let _v25 = _v0 => () => {
           let _v0 = "",
             _v1 = _v11 ? _v7?.chain().selectAll().focus() : _v7?.chain().focus();
-          _v168(_v7) === _v0 ? _v1?.unsetTextAlign().run() : (_v0 = _v0, _v1?.setTextAlign(_v0).run()), _v2({
+          _v174(_v7) === _v0 ? _v1?.unsetTextAlign().run() : (_v0 = _v0, _v1?.setTextAlign(_v0).run()), _v2({
             type: _v4 === _v28.EMAIL_TOOLBAR_TYPES.TITLE ? _v32.ACTION_TYPE.SET_HEADER_TEXT_ALIGN : _v32.ACTION_TYPE.SET_BODY_TEXT_ALIGN,
             payload: {
               text: _v0,
@@ -4149,7 +4277,7 @@
           }), _v0 === _v28.EMAIL_LIST_FORMAT.NUMBERED ? _v7?.chain().focus().toggleOrderedList().run() : _v7?.chain().focus().toggleBulletList().run();
         };
       return (0, _v1.jsxs)(_v1.Fragment, {
-        children: [(0, _v1.jsx)(_v51.Header, {
+        children: [(0, _v1.jsx)(_v54.Header, {
           size: "md",
           mb: "md",
           children: _v34.default.Text
@@ -4181,7 +4309,7 @@
               }
             }
           })
-        }), (0, _v1.jsx)(_v113, {
+        }), (0, _v1.jsx)(_v116, {
           title: _v34.default.Size,
           isActive: _v19,
           handleDropDownClick: () => _v20(!_v19),
@@ -4200,7 +4328,7 @@
             let _v1 = _v11 ? _v7?.chain().selectAll().focus() : _v7?.chain().focus();
             _v1?.setFontSize(_v28.EMAIL_TEXT_SIZE_VALUES[_v0]).run(), _v20(!1);
           }
-        }), (0, _v1.jsx)(_v113, {
+        }), (0, _v1.jsx)(_v116, {
           title: _v34.default.Style,
           isActive: _v14,
           handleDropDownClick: () => _v15(!_v14),
@@ -4224,7 +4352,7 @@
         }), (0, _v1.jsxs)(_v7.Flex, {
           justifyContent: "space-between",
           mt: (0, _v13.rem)(25),
-          children: [(0, _v1.jsx)(_v51.Header, {
+          children: [(0, _v1.jsx)(_v54.Header, {
             mt: (0, _v13.rem)(10),
             size: "xs",
             children: _v34.default.Format
@@ -4241,22 +4369,22 @@
             },
             children: [(0, _v1.jsxs)(_v7.Flex, {
               gap: (0, _v13.rem)(4),
-              children: [(0, _v1.jsx)(_v53.IconButton, {
+              children: [(0, _v1.jsx)(_v56.IconButton, {
                 "aria-label": "align left",
                 variant: _v8 === _v28.EMAIL_TEXT_FORMAT.LEFT ? "secondary" : "tertiary",
                 onClick: _v25(_v28.EMAIL_TEXT_FORMAT.LEFT),
-                icon: (0, _v1.jsx)(_v164.AlignLeft, {})
-              }), (0, _v1.jsx)(_v53.IconButton, {
+                icon: (0, _v1.jsx)(_v170.AlignLeft, {})
+              }), (0, _v1.jsx)(_v56.IconButton, {
                 "aria-label": "align center",
                 variant: _v8 === _v28.EMAIL_TEXT_FORMAT.CENTER ? "secondary" : "tertiary",
                 onClick: _v25(_v28.EMAIL_TEXT_FORMAT.CENTER),
-                icon: (0, _v1.jsx)(_v163.AlignCenter, {})
-              }), (0, _v1.jsx)(_v53.IconButton, {
+                icon: (0, _v1.jsx)(_v169.AlignCenter, {})
+              }), (0, _v1.jsx)(_v56.IconButton, {
                 "aria-label": "align right",
                 variant: _v8 === _v28.EMAIL_TEXT_FORMAT.RIGHT ? "secondary" : "tertiary",
                 onClick: _v25(_v28.EMAIL_TEXT_FORMAT.RIGHT),
-                icon: (0, _v1.jsx)(_v165.AlignRight, {})
-              }), (0, _v1.jsx)(_v162.Divider, {
+                icon: (0, _v1.jsx)(_v171.AlignRight, {})
+              }), (0, _v1.jsx)(_v168.Divider, {
                 display: {
                   base: "none",
                   "2xl": "block"
@@ -4267,20 +4395,20 @@
               })]
             }), (0, _v1.jsxs)(_v7.Flex, {
               gap: (0, _v13.rem)(4),
-              children: [(0, _v1.jsx)(_v53.IconButton, {
+              children: [(0, _v1.jsx)(_v56.IconButton, {
                 "aria-label": "bullet points",
                 variant: _v9 === _v28.EMAIL_LIST_FORMAT.BULLETED ? "secondary" : "tertiary",
                 onClick: _v26(_v28.EMAIL_LIST_FORMAT.BULLETED),
-                icon: (0, _v1.jsx)(_v166.ListUl, {})
-              }), (0, _v1.jsx)(_v53.IconButton, {
+                icon: (0, _v1.jsx)(_v172.ListUl, {})
+              }), (0, _v1.jsx)(_v56.IconButton, {
                 "aria-label": "number points",
                 variant: _v9 === _v28.EMAIL_LIST_FORMAT.NUMBERED ? "secondary" : "tertiary",
                 onClick: _v26(_v28.EMAIL_LIST_FORMAT.NUMBERED),
-                icon: (0, _v1.jsx)(_v167.NumberedList, {})
+                icon: (0, _v1.jsx)(_v173.NumberedList, {})
               })]
             })]
           })]
-        }), (0, _v1.jsx)(_v111, {
+        }), (0, _v1.jsx)(_v114, {
           handleOnChange: _v0 => {
             let _v1 = _v6 ? _v0[_v5][_v4] : null;
             if (_v1) {
@@ -4288,7 +4416,7 @@
               _v1.state.selection.empty && _v12.from !== _v12.to && _v0.setTextSelection(_v12), _v0.run();
             }
           },
-          selectedColor: (0, _v145.convertColorToHex)(_v10),
+          selectedColor: (0, _v150.convertColorToHex)(_v10),
           title: _v34.default.Color,
           onSubmit: _v0 => {
             _v2({
@@ -4299,9 +4427,9 @@
               }
             });
           }
-        }), (0, _v1.jsx)(_v162.Divider, {
+        }), (0, _v1.jsx)(_v168.Divider, {
           mt: (0, _v13.rem)(30)
-        }), (0, _v1.jsx)(_v112, {
+        }), (0, _v1.jsx)(_v115, {
           emailTemplate: _v5,
           emailToolBar: _v4,
           handleOnClick: _v0 => {
@@ -4310,7 +4438,7 @@
         })]
       });
     },
-    _v170 = ({
+    _v176 = ({
       editorStates: _v0,
       dynamicTagRef: _v1
     }) => {
@@ -4321,7 +4449,7 @@
         _v4 = (0, _v19.useOrionSettingsFields)(["enable_email_section_redesign"]).enable_email_section_redesign,
         _v5 = _v0 => (0, _v1.jsxs)(_v5.Box, {
           position: "relative",
-          children: [(0, _v1.jsx)(_v53.IconButton, {
+          children: [(0, _v1.jsx)(_v56.IconButton, {
             "aria-label": (0, _v15.translate)({
               singular: "Close",
               dictionary: {
@@ -4348,7 +4476,7 @@
                 }
               }
             }),
-            icon: (0, _v1.jsx)(_v85.CloseX, {}),
+            icon: (0, _v1.jsx)(_v88.CloseX, {}),
             position: "absolute",
             top: 0,
             right: 0,
@@ -4360,7 +4488,7 @@
             })
           }), _v0]
         }),
-        _v6 = _v0 => _v4 ? (0, _v1.jsx)(_v84.Panel, {
+        _v6 = _v0 => _v4 ? (0, _v1.jsx)(_v87.Panel, {
           isVisible: !0,
           motionProps: {
             initial: !1
@@ -4374,7 +4502,7 @@
           sx: {
             minHeight: "100%"
           },
-          children: (0, _v1.jsx)(_v84.PanelBody, {
+          children: (0, _v1.jsx)(_v87.PanelBody, {
             px: (0, _v13.rem)(16),
             pt: (0, _v13.rem)(24),
             pb: (0, _v13.rem)(24),
@@ -4388,46 +4516,51 @@
           md: `${(0, _v13.rem)(26)}`
         },
         children: {
-          [_v28.EMAIL_TOOLBAR_TYPES.GENERAL]: _v4 ? (0, _v1.jsx)(_v158, {}) : (0, _v1.jsx)(_v160, {}),
-          [_v28.EMAIL_TOOLBAR_TYPES.BUTTON]: _v6(_v5((0, _v1.jsx)(_v91, {}))),
-          [_v28.EMAIL_TOOLBAR_TYPES.TITLE]: _v6(_v5((0, _v1.jsx)(_v169, {
+          [_v28.EMAIL_TOOLBAR_TYPES.GENERAL]: _v4 ? (0, _v1.jsx)(_v164, {}) : (0, _v1.jsx)(_v166, {}),
+          [_v28.EMAIL_TOOLBAR_TYPES.BUTTON]: _v6(_v5((0, _v1.jsx)(_v94, {}))),
+          [_v28.EMAIL_TOOLBAR_TYPES.TITLE]: _v6(_v5((0, _v1.jsx)(_v175, {
             editorStates: _v0
           }))),
-          [_v28.EMAIL_TOOLBAR_TYPES.BODY]: _v6(_v5((0, _v1.jsx)(_v169, {
+          [_v28.EMAIL_TOOLBAR_TYPES.BODY]: _v6(_v5((0, _v1.jsx)(_v175, {
             editorStates: _v0
           }))),
-          [_v28.EMAIL_TOOLBAR_TYPES.SUBJECT]: _v6(_v5((0, _v1.jsx)(_v161, {
+          [_v28.EMAIL_TOOLBAR_TYPES.SUBJECT]: _v6(_v5((0, _v1.jsx)(_v167, {
             dynamicTagRef: _v1
           })))
         }[_v2.emailToolbar]
       });
     };
-  var _v171 = _v0.i(0),
-    _v172 = _v0.i(0),
-    _v173 = _v0.i(0),
-    _v174 = _v0.i(0);
-  let _v175 = ({
+  var _v177 = _v0.i(0),
+    _v178 = _v0.i(0),
+    _v179 = _v0.i(0),
+    _v180 = _v0.i(0);
+  let _v181 = ({
     clearAllTextSelections: _v0
   }) => {
-    let _v1 = (0, _v132.useLocale)(),
+    let _v1 = (0, _v137.useLocale)(),
       {
-        dispatch: _v2
+        dispatch: _v2,
+        emailState: _v3
       } = (0, _v24.useEmailCustomization)(),
       {
-        isEnabled: _v3,
-        localizations: _v4,
-        translatedLocales: _v5,
-        previewLocale: _v6,
-        setPreviewLocale: _v7
-      } = (0, _v49.useEmailLocalization)(),
+        isEnabled: _v4,
+        localizations: _v5,
+        translatedLocales: _v6,
+        previewLocale: _v7,
+        setPreviewLocale: _v8
+      } = (0, _v52.useEmailLocalization)(),
       {
-        sourceLocale: _v8
-      } = _v4;
-    if (!_v3 || null === _v8 || 0 === _v5.length) return null;
-    let _v9 = _v6 ?? _v8;
-    return (0, _v1.jsxs)(_v54.Menu, {
+        sourceLocale: _v9
+      } = _v5,
+      _v10 = (0, _v33.useConfigStore)(_v0 => _v0.entityId),
+      {
+        trackEmailLocalizationPreviewLanguageChanged: _v11
+      } = _v51();
+    if (!_v4 || null === _v9 || 0 === _v6.length) return null;
+    let _v12 = _v7 ?? _v9;
+    return (0, _v1.jsxs)(_v57.Menu, {
       placement: "bottom-start",
-      children: [(0, _v1.jsx)(_v55.MenuButton, {
+      children: [(0, _v1.jsx)(_v58.MenuButton, {
         "aria-label": (0, _v15.translate)({
           singular: "Preview language",
           dictionary: {
@@ -4455,28 +4588,34 @@
           }
         }),
         as: _v36.Button,
-        leftIcon: (0, _v1.jsx)(_v174.Translate, {}),
-        rightIcon: (0, _v1.jsx)(_v173.ChevronDownSmall, {}),
+        leftIcon: (0, _v1.jsx)(_v180.Translate, {}),
+        rightIcon: (0, _v1.jsx)(_v179.ChevronDownSmall, {}),
         size: "sm",
         variant: "secondary",
-        children: (0, _v133.getLocaleLabel)(_v9, _v1)
-      }), (0, _v1.jsx)(_v57.MenuList, {
-        children: (0, _v1.jsxs)(_v172.MenuOptionGroup, {
+        children: (0, _v138.getLocaleLabel)(_v12, _v1)
+      }), (0, _v1.jsx)(_v60.MenuList, {
+        children: (0, _v1.jsxs)(_v178.MenuOptionGroup, {
           onChange: _v0 => {
-            let _v1 = [_v8, ..._v5].find(_v0 => _v0 === _v0);
-            void 0 !== _v1 && _v1 !== _v9 && (_v0(), _v2({
+            let _v1 = [_v9, ..._v6].find(_v0 => _v0 === _v0);
+            void 0 !== _v1 && _v1 !== _v12 && (_v0(), _v2({
               type: _v32.ACTION_TYPE.SET_EMAIL_TOOL_BAR,
               payload: _v28.EMAIL_TOOLBAR_TYPES.GENERAL
-            }), _v7(_v1 === _v8 ? null : _v1));
+            }), _v8(_v1 === _v9 ? null : _v1), _v11({
+              eventId: _v10 ?? "",
+              mainLanguage: _v9,
+              previewLanguage: _v1,
+              isMainLanguage: _v1 === _v9,
+              emailType: _v28.PICO_EMAIL_TYPES[_v3.emailTemplateType]
+            }));
           },
           type: "radio",
-          value: _v9,
-          children: [(0, _v1.jsx)(_v171.MenuItemOption, {
-            value: _v8,
+          value: _v12,
+          children: [(0, _v1.jsx)(_v177.MenuItemOption, {
+            value: _v9,
             children: (0, _v15.translate)({
               singular: "{LANGUAGE} (original)",
               replacements: {
-                LANGUAGE: (0, _v133.getLocaleLabel)(_v8, _v1)
+                LANGUAGE: (0, _v138.getLocaleLabel)(_v9, _v1)
               },
               dictionary: {
                 "de-DE": {
@@ -4493,17 +4632,17 @@
                 }
               }
             })
-          }), _v5.map(_v0 => (0, _v1.jsx)(_v171.MenuItemOption, {
+          }), _v6.map(_v0 => (0, _v1.jsx)(_v177.MenuItemOption, {
             value: _v0,
-            children: (0, _v133.getLocaleLabel)(_v0, _v1)
+            children: (0, _v138.getLocaleLabel)(_v0, _v1)
           }, _v0))]
         })
       })]
     });
   };
-  var _v176 = _v0.i(0),
-    _v177 = _v0.i(0);
-  let _v178 = ({
+  var _v182 = _v0.i(0),
+    _v183 = _v0.i(0);
+  let _v184 = ({
       clearAllTextSelections: _v0
     }) => {
       let {
@@ -4518,8 +4657,8 @@
         };
       return (0, _v1.jsxs)(_v7.Flex, {
         gap: (0, _v13.rem)(4),
-        children: [(0, _v1.jsx)(_v53.IconButton, {
-          icon: (0, _v1.jsx)(_v176.Desktop, {}),
+        children: [(0, _v1.jsx)(_v56.IconButton, {
+          icon: (0, _v1.jsx)(_v182.Desktop, {}),
           "aria-label": (0, _v15.translate)({
             singular: "Desktop preview",
             dictionary: {
@@ -4549,8 +4688,8 @@
           size: "sm",
           variant: _v1.previewMode === _v28.EMAIL_PREVIEW_MODE.WEB ? "secondary" : "tertiary",
           onClick: () => _v3(_v28.EMAIL_PREVIEW_MODE.WEB)
-        }), (0, _v1.jsx)(_v53.IconButton, {
-          icon: (0, _v1.jsx)(_v177.MobilePhone, {}),
+        }), (0, _v1.jsx)(_v56.IconButton, {
+          icon: (0, _v1.jsx)(_v183.MobilePhone, {}),
           "aria-label": (0, _v15.translate)({
             singular: "Mobile preview",
             dictionary: {
@@ -4583,7 +4722,7 @@
         })]
       });
     },
-    _v179 = () => {
+    _v185 = () => {
       let [_v0, _v1] = (0, _v2.useState)(!1),
         {
           emailState: _v2,
@@ -4757,7 +4896,7 @@
             maxWidth: (0, _v13.rem)(400),
             background: "fill-surface",
             borderRadius: "xl",
-            children: (0, _v1.jsx)(_v80, {})
+            children: (0, _v1.jsx)(_v83, {})
           }), (0, _v1.jsx)(_v5.Box, {
             flex: 5,
             minWidth: 0,
@@ -4791,12 +4930,12 @@
                   children: [(0, _v1.jsxs)(_v7.Flex, {
                     alignItems: "center",
                     gap: (0, _v13.rem)(8),
-                    children: [(0, _v1.jsx)(_v175, {
+                    children: [(0, _v1.jsx)(_v181, {
                       clearAllTextSelections: _v38
-                    }), (0, _v1.jsx)(_v178, {
+                    }), (0, _v1.jsx)(_v184, {
                       clearAllTextSelections: _v38
                     })]
-                  }), (0, _v1.jsx)(_v50, {
+                  }), (0, _v1.jsx)(_v53, {
                     clearAllTextSelections: _v38
                   })]
                 }), (0, _v1.jsx)(_v7.Flex, {
@@ -4855,7 +4994,7 @@
                       color: "text-secondary",
                       size: "md",
                       children: _v34.default.Subject
-                    }), (0, _v1.jsx)(_v180, {
+                    }), (0, _v1.jsx)(_v186, {
                       isDisabled: !_v12,
                       showHoverState: _v12,
                       children: _v11?.subject ?? _v8
@@ -4914,7 +5053,7 @@
                       color: "text-secondary",
                       size: "md",
                       children: _v34.default.From
-                    }), (0, _v1.jsx)(_v180, {
+                    }), (0, _v1.jsx)(_v186, {
                       isDisabled: !_v12,
                       showHoverState: _v12,
                       onClick: () => {
@@ -5037,7 +5176,7 @@
                       transition: "0.5s",
                       p: _v2.previewMode === _v28.EMAIL_PREVIEW_MODE.WEB ? `${(0, _v13.rem)(22)} ${(0, _v13.rem)(95)} ${(0, _v13.rem)(45)}` : `${(0, _v13.rem)(22)} ${(0, _v13.rem)(20)} ${(0, _v13.rem)(45)}`,
                       width: _v2.previewMode === _v28.EMAIL_PREVIEW_MODE.WEB ? "90%" : "100%",
-                      children: (0, _v1.jsx)(_v81.EmailTemplate, {
+                      children: (0, _v1.jsx)(_v84.EmailTemplate, {
                         editorStates: _v6,
                         canEdit: _v12
                       })
@@ -5057,7 +5196,7 @@
                         type: _v32.ACTION_TYPE.SET_EMAIL_TOOL_BAR,
                         payload: _v28.EMAIL_TOOLBAR_TYPES.GENERAL
                       }),
-                      children: (0, _v1.jsx)(_v83, {})
+                      children: (0, _v1.jsx)(_v86, {})
                     })]
                   })]
                 })
@@ -5071,7 +5210,7 @@
             maxWidth: (0, _v13.rem)(400),
             background: "fill-surface",
             borderRadius: "xl",
-            children: (0, _v1.jsx)(_v170, {
+            children: (0, _v1.jsx)(_v176, {
               editorStates: _v6,
               dynamicTagRef: _v32
             })
@@ -5079,7 +5218,7 @@
         })
       });
     },
-    _v180 = _v0 => (0, _v1.jsx)(_v5.Box, {
+    _v186 = _v0 => (0, _v1.jsx)(_v5.Box, {
       ml: (0, _v13.rem)(18),
       wordBreak: "break-all",
       fontSize: "body-md",
@@ -5094,7 +5233,7 @@
       ..._v0,
       children: _v0.children
     });
-  var _v181 = _v0.i(0);
+  var _v187 = _v0.i(0);
   _v0.s(["LeadEmail", 0, ({
     entityId: _v0,
     entityType: _v1,
@@ -5130,11 +5269,11 @@
     }, [_v0, _v1, _v5, _v6, _v7, _v11, _v12, _v4, _v8, _v9]), _v0 && _v1) ? (0, _v1.jsx)(_v26.default, {
       children: (0, _v1.jsx)(_v29.default, {
         children: (0, _v1.jsx)(_v23.default, {
-          children: (0, _v1.jsx)(_v72.default, {
+          children: (0, _v1.jsx)(_v75.default, {
             onSaveStateChange: _v10,
-            children: (0, _v1.jsx)(_v181.UndoRedoContextProvider, {
-              children: (0, _v1.jsx)(_v49.EmailLocalizationProvider, {
-                children: (0, _v1.jsx)(_v179, {})
+            children: (0, _v1.jsx)(_v187.UndoRedoContextProvider, {
+              children: (0, _v1.jsx)(_v52.EmailLocalizationProvider, {
+                children: (0, _v1.jsx)(_v185, {})
               })
             })
           })

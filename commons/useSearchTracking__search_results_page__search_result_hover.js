@@ -14,7 +14,8 @@
           results_qty: _v0.resultsQty,
           filters: _v0.filters,
           filter_values: _v0.filterValues,
-          search_type: _v0.searchType
+          search_type: _v0.searchType,
+          smart_search: _v0.smartSearch
         });
       }, [_v0]),
       _v2 = (0, _v1.useCallback)(_v0 => {
@@ -42,7 +43,8 @@
           entity_type: _v0.entityType,
           order_by: _v0.orderBy,
           results_qty: _v0.resultsQty,
-          is_ai_request: _v0.isAiRequest
+          is_ai_request: _v0.isAiRequest,
+          smart_search: _v0.smartSearch
         });
       }, [_v0]),
       _v4 = (0, _v1.useCallback)(_v0 => {

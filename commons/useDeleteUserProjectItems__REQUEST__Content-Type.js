@@ -139,5 +139,40 @@
         });
       }
     }, [_v1, _v3, _v2, _v4, _v6]), _v5];
+  }, "usePostUserProjectItems", 0, function () {
+    let {
+        baseUrl: _v0,
+        jwt: _v1,
+        xVimeoPage: _v2,
+        locale: _v3
+      } = (0, _v7.useGctlConfig)(),
+      [_v4, _v5] = (0, _v1.useInternalState)();
+    return [(0, _v3.useCallback)(async _v0 => {
+      _v5({
+        type: "REQUEST"
+      });
+      try {
+        let _v0 = await (0, _v2.postUserProjectItems)({
+          ..._v0,
+          baseUrl: _v0,
+          headers: {
+            ..._v0.headers,
+            "Content-Type": "application/json",
+            Authorization: _v1 ? `jwt ${_v1}` : "",
+            "Vimeo-Page": `${_v2}`,
+            "Accept-Language": _v3 ?? "en"
+          }
+        });
+        _v5({
+          type: "SUCCESS",
+          payload: _v0
+        });
+      } catch (_v0) {
+        _v5({
+          type: "FAILURE",
+          payload: _v0
+        });
+      }
+    }, [_v0, _v2, _v1, _v3, _v5]), _v4];
   }]);
 }

@@ -123,33 +123,37 @@
     scheduledProductId: _v2
   }) {
     let _v3 = (0, _v1.useContext)(_v4.ViewerContext),
-      _v4 = (0, _v3.useCampaignIdOverride)(),
-      _v5 = _v4 ?? (!_v4 && _v7(_v2) ? _v3.RP_2026_LOW_CAMPAIGN_ID : void 0),
       {
-        data: _v6
-      } = (0, _v2.useGetSubscriptionPlans)(() => _v3 && _v0 ? {
+        campaignId: _v4,
+        isLoading: _v5,
+        showLegacyPlans: _v6
+      } = (0, _v3.useCampaignIdOverride)(),
+      _v7 = _v6 || _v5 ? void 0 : _v4 ?? (!_v4 && _v7(_v2) ? _v3.RP_2026_LOW_CAMPAIGN_ID : void 0),
+      {
+        data: _v8
+      } = (0, _v2.useGetSubscriptionPlans)(() => !_v3 || !_v0 || _v6 || _v5 ? null : {
         select: _v14,
         query: {
           filter: _v15,
-          ...(_v5 ? {
-            campaignId: _v5
+          ...(_v7 ? {
+            campaignId: _v7
           } : {}),
           ...(_v3.vuid ? {
             vuid: _v3.vuid
           } : {})
         }
-      } : null),
-      _v7 = (0, _v1.useMemo)(() => _v6?.data ?? null, [_v6]),
-      _v8 = (0, _v1.useMemo)(() => _v7?.find(_v0 => "studio" === _v0.tier) ?? null, [_v7]),
-      _v9 = (0, _v1.useMemo)(() => _v7?.find(_v0 => "professional" === _v0.tier) ?? null, [_v7]);
+      }),
+      _v9 = (0, _v1.useMemo)(() => _v8?.data ?? null, [_v8]),
+      _v10 = (0, _v1.useMemo)(() => _v9?.find(_v0 => "studio" === _v0.tier) ?? null, [_v9]),
+      _v11 = (0, _v1.useMemo)(() => _v9?.find(_v0 => "professional" === _v0.tier) ?? null, [_v9]);
     return {
-      discount: (0, _v1.useMemo)(() => null != _v8 ? (0, _v13.resolveStudioRenewalDiscount)({
-        studioPlan: _v8,
-        professionalPlan: _v9,
+      discount: (0, _v1.useMemo)(() => null != _v10 ? (0, _v13.resolveStudioRenewalDiscount)({
+        studioPlan: _v10,
+        professionalPlan: _v11,
         isAnnual: _v1
-      }) : null, [_v8, _v9, _v1]),
-      studioPlan: _v8,
-      isLoading: _v0 && void 0 === _v6
+      }) : null, [_v10, _v11, _v1]),
+      studioPlan: _v10,
+      isLoading: _v0 && void 0 === _v8
     };
   }], 0);
 }

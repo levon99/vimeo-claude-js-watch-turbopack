@@ -219,22 +219,22 @@
         singular: "Are you sure?",
         dictionary: {
           es: {
-            singular: "¿Estás seguro(a)?"
+            singular: "¿Estás seguro?"
           },
           "de-DE": {
-            singular: "Bist du dir sicher?"
+            singular: "Sind Sie sicher?"
           },
           "fr-FR": {
-            singular: "Êtes-vous sûr ?"
+            singular: "Êtes-vous sûr ?"
           },
           "ja-JP": {
             singular: "よろしいですか？"
           },
           "ko-KR": {
-            singular: "정말로 실행할까요?"
+            singular: "정말로 하시겠습니까?"
           },
           "pt-BR": {
-            singular: "Você tem certeza?"
+            singular: "Tem certeza?"
           },
           "zh-CN": {
             singular: "您确定吗？"

@@ -98,7 +98,8 @@
           id: "error-page-search"
         })]
       })]
-    }));
+    })),
+    _v22 = [_v8.RateLimitError, _v8.ResourceNotFoundError, _v8.ForbiddenError, _v8.UnauthorizedError, _v8.NotAvailableError];
   _v0.s(["ErrorPage", 0, function (_v0) {
     let {
         error: _v1,
@@ -129,7 +130,7 @@
         errorType: "technical_difficulties",
         errorPageErrorCode: null
       };
-    switch ((0, _v13.usePicoEffect)(() => {
+    (0, _v13.usePicoEffect)(() => {
       if (!_v3) return !1;
       _v5({
         errorPageType: "vimeo_next",
@@ -137,13 +138,17 @@
       });
     }, [_v3], {
       once: !0
-    }), _v1.constructor) {
+    });
+    let _v8 = _v3 && !_v22.includes(_v1.constructor);
+    switch ((0, _v3.useEffect)(() => {
+      _v8 && window.DD_RUM && window.DD_RUM.onReady(() => {
+        window.DD_RUM.addError(_v1, {
+          component: "TechnicalDifficulties"
+        });
+      });
+    }, [_v1, _v8]), _v1.constructor) {
       default:
-        return _v3 && window.DD_RUM && window.DD_RUM.onReady(() => {
-          window.DD_RUM.addError(_v1, {
-            component: "TechnicalDifficulties"
-          });
-        }), (0, _v1.jsx)(_v6, {
+        return (0, _v1.jsx)(_v6, {
           title: (0, _v9.translate)({
             singular: "Technical Difficulties",
             dictionary: {

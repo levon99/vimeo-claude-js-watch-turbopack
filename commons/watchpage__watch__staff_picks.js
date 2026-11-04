@@ -70,7 +70,17 @@
         watch_section: _v0.watchSection,
         watch_section_id: _v0.watchSectionId,
         watch_video_position: _v0.watchVideoPosition,
-        watch_page_arm: _v0.watchPageArm ?? "control"
+        watch_page_arm: _v0.watchPageArm ?? "control",
+        watch_for_you_variant: _v0.watchForYouVariant ?? "control",
+        ...(void 0 !== _v0.watchSectionPosition ? {
+          watch_section_position: _v0.watchSectionPosition
+        } : {}),
+        ...(void 0 !== _v0.watchPage ? {
+          watch_page: _v0.watchPage
+        } : {}),
+        ...(void 0 !== _v0.watchVisitId ? {
+          watch_visit_id: _v0.watchVisitId
+        } : {})
       })), !0), [_v0]),
       _v9 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_header_clicked", _v4({
         watch_section: _v0.watchSection,
@@ -82,7 +92,17 @@
         watch_channel_name: _v0.watchChannelName,
         watch_channel_id: _v0.watchChannelId,
         watch_section_follow_effect: _v0.watchSectionFollowEffect,
-        watch_page_arm: _v0.watchPageArm ?? "control"
+        watch_page_arm: _v0.watchPageArm ?? "control",
+        watch_for_you_variant: _v0.watchForYouVariant ?? "control",
+        ...(void 0 !== _v0.watchSectionPosition ? {
+          watch_section_position: _v0.watchSectionPosition
+        } : {}),
+        ...(void 0 !== _v0.watchPage ? {
+          watch_page: _v0.watchPage
+        } : {}),
+        ...(void 0 !== _v0.watchVisitId ? {
+          watch_visit_id: _v0.watchVisitId
+        } : {})
       })), !0), [_v0]),
       _v11 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_impression", _v4({
         watch_section: _v0.watchSection,
@@ -94,7 +114,17 @@
         watch_section: _v0.watchSection,
         watch_section_id: _v0.watchSectionId,
         watch_video_position: _v0.watchVideoPosition,
-        watch_page_arm: _v0.watchPageArm ?? "control"
+        watch_page_arm: _v0.watchPageArm ?? "control",
+        watch_for_you_variant: _v0.watchForYouVariant ?? "control",
+        ...(void 0 !== _v0.watchSectionPosition ? {
+          watch_section_position: _v0.watchSectionPosition
+        } : {}),
+        ...(void 0 !== _v0.watchPage ? {
+          watch_page: _v0.watchPage
+        } : {}),
+        ...(void 0 !== _v0.watchVisitId ? {
+          watch_visit_id: _v0.watchVisitId
+        } : {})
       })), !0), [_v0]),
       _v13 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_feed_video_played", _v4({
         clip_id: _v0.clipId,
@@ -102,7 +132,17 @@
         watch_section_id: _v0.watchSectionId,
         watch_video_position: _v0.watchVideoPosition,
         watch_page_arm: _v0.watchPageArm ?? "control",
-        is_autoplay: _v0.isAutoplay
+        watch_for_you_variant: _v0.watchForYouVariant ?? "control",
+        is_autoplay: _v0.isAutoplay,
+        ...(void 0 !== _v0.watchSectionPosition ? {
+          watch_section_position: _v0.watchSectionPosition
+        } : {}),
+        ...(void 0 !== _v0.watchPage ? {
+          watch_page: _v0.watchPage
+        } : {}),
+        ...(void 0 !== _v0.watchVisitId ? {
+          watch_visit_id: _v0.watchVisitId
+        } : {})
       })), !0), [_v0]),
       _v14 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_hero_slide_impression", {
         clip_id: _v0.clipId,
@@ -120,7 +160,11 @@
         watch_section_direction: _v0.watchSectionDirection,
         watch_section_page: _v0.watchSectionPage,
         watch_section_carousel_method: _v0.watchSectionMethod ?? "arrow",
-        watch_page_arm: _v0.watchPageArm ?? "control"
+        watch_page_arm: _v0.watchPageArm ?? "control",
+        watch_for_you_variant: _v0.watchForYouVariant ?? "control",
+        ...(void 0 !== _v0.watchVisitId ? {
+          watch_visit_id: _v0.watchVisitId
+        } : {})
       })), !0), [_v0]),
       _v17 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_hero_clicked", {
         clip_id: _v0.clipId,
@@ -145,6 +189,7 @@
           watch_max_scroll_depth_percent: _v2.watchMaxScrollDepthPercent,
           watch_sections_reached: _v2.watchSectionsReached,
           watch_page_arm: _v2.watchPageArm ?? "control",
+          watch_for_you_variant: _v2.watchForYouVariant ?? "control",
           ...(void 0 !== _v2.watchVisitId ? {
             watch_visit_id: _v2.watchVisitId
           } : {})
@@ -161,6 +206,34 @@
         watch_search_query: _v0.watchSearchQuery,
         watch_search_selection_type: _v0.watchSearchSelectionType,
         watch_search_time_to_find_ms: _v0.watchSearchTimeToFindMs
+      }), !0), [_v0]),
+      _v22 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_category_tab_clicked", {
+        watch_section: _v0.watchSection,
+        watch_section_id: _v0.watchSectionId,
+        watch_category_tab_position: _v0.watchCategoryTabPosition,
+        watch_page_arm: _v0.watchPageArm,
+        watch_for_you_variant: _v0.watchForYouVariant ?? "control",
+        ...(void 0 !== _v0.watchVisitId ? {
+          watch_visit_id: _v0.watchVisitId
+        } : {})
+      }), !0), [_v0]),
+      _v23 = (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_feed_action_clicked", {
+        clip_id: _v0.clipId,
+        watch_feed_action: _v0.watchFeedAction,
+        watch_section: _v0.watchSection,
+        watch_section_id: _v0.watchSectionId,
+        watch_video_position: _v0.watchVideoPosition,
+        watch_page_arm: _v0.watchPageArm,
+        watch_for_you_variant: _v0.watchForYouVariant ?? "control",
+        ...(void 0 !== _v0.watchSectionPosition ? {
+          watch_section_position: _v0.watchSectionPosition
+        } : {}),
+        ...(void 0 !== _v0.watchPage ? {
+          watch_page: _v0.watchPage
+        } : {}),
+        ...(void 0 !== _v0.watchVisitId ? {
+          watch_visit_id: _v0.watchVisitId
+        } : {})
       }), !0), [_v0]);
     return {
       trackLoggedOutBannerDisplayed: _v1,
@@ -184,20 +257,45 @@
       trackWatchPageExited: _v19,
       trackWatchPageLineupRendered: _v20,
       trackWatchSearchSubmitted: _v21,
-      trackWatchCategoryTabClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_category_tab_clicked", {
+      trackWatchCategoryTabClicked: _v22,
+      trackWatchFeedActionClicked: _v23,
+      trackWatchSectionRendered: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_section_rendered", _v4({
         watch_section: _v0.watchSection,
         watch_section_id: _v0.watchSectionId,
-        watch_category_tab_position: _v0.watchCategoryTabPosition,
-        watch_page_arm: _v0.watchPageArm
-      }), !0), [_v0]),
-      trackWatchFeedActionClicked: (0, _v1.useCallback)(_v0 => null !== _v0 && (_v0.track("watch_feed_action_clicked", {
-        clip_id: _v0.clipId,
-        watch_feed_action: _v0.watchFeedAction,
-        watch_section: _v0.watchSection,
-        watch_section_id: _v0.watchSectionId,
-        watch_video_position: _v0.watchVideoPosition,
-        watch_page_arm: _v0.watchPageArm
-      }), !0), [_v0])
+        watch_section_position: _v0.watchSectionPosition,
+        watch_page: _v0.watchPage,
+        watch_clip_ids: _v0.watchClipIds,
+        watch_clip_count: _v0.watchClipCount,
+        watch_page_arm: _v0.watchPageArm ?? "control",
+        watch_for_you_variant: _v0.watchForYouVariant ?? "control",
+        ...(void 0 !== _v0.watchVisitId ? {
+          watch_visit_id: _v0.watchVisitId
+        } : {})
+      })), !0), [_v0]),
+      trackWatchSectionExited: (0, _v1.useCallback)(_v0 => {
+        if (null === _v0) return !1;
+        let {
+          sendImmediately: _v1,
+          ..._v2
+        } = _v0;
+        return _v0.track("watch_section_exited", _v4({
+          watch_section: _v2.watchSection,
+          watch_section_id: _v2.watchSectionId,
+          watch_section_position: _v2.watchSectionPosition,
+          watch_max_scroll_depth_percent: _v2.watchMaxScrollDepthPercent,
+          watch_max_video_position: _v2.watchMaxVideoPosition,
+          watch_pages_loaded: _v2.watchPagesLoaded,
+          watch_active_time_ms: _v2.watchActiveTimeMs,
+          watch_exit_reason: _v2.watchExitReason,
+          watch_page_arm: _v2.watchPageArm ?? "control",
+          watch_for_you_variant: _v2.watchForYouVariant ?? "control",
+          ...(void 0 !== _v2.watchVisitId ? {
+            watch_visit_id: _v2.watchVisitId
+          } : {})
+        }), void 0, !0 === _v1 ? {
+          delivery: "immediate"
+        } : void 0), !0;
+      }, [_v0])
     };
   }]);
 }

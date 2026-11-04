@@ -183,9 +183,19 @@
   function _v40(_v0) {
     return "number" == typeof _v0 && !isNaN(_v0);
   }
-  var _v41 = _v0.i(0),
-    _v42 = _v0.i(0);
-  function _v43(_v0, _v1, _v2, _v3 = function (_v0) {
+  let _v41 = async _v0 => {
+    let _v1;
+    try {
+      return await Promise.race([_v0(), new Promise(_v0 => {
+        _v1 = setTimeout(() => _v0(void 0), 0);
+      })]);
+    } finally {
+      clearTimeout(_v1);
+    }
+  };
+  var _v42 = _v0.i(0),
+    _v43 = _v0.i(0);
+  function _v44(_v0, _v1, _v2, _v3 = function (_v0) {
     return 0 * Math.pow(2, _v0.retriesUsed) + Math.round(0 * Math.random());
   }(_v1)) {
     return new Promise((_v0, _v1) => {
@@ -198,9 +208,9 @@
       };
     });
   }
-  let _v44 = "range";
-  var _v45 = _v0.i(0);
-  let _v46 = async (_v0, _v1, _v2, _v3) => {
+  let _v45 = "range";
+  var _v46 = _v0.i(0);
+  let _v47 = async (_v0, _v1, _v2, _v3) => {
       let _v4 = new FormData();
       _v4.append("method", "VIMEO"), _v4.append("token", _v0), _v4.append("settings", "1"), _v2 && _v4.append("teamToken", _v2), _v3 && _v4.append("partnerApp", _v3);
       let _v5 = await fetch(`//${_v1}/api/auth`, {
@@ -220,14 +230,14 @@
       }
       throw _v5;
     },
-    _v47 = async ({
+    _v48 = async ({
       teamUser: _v0,
       xsrft: _v1,
       magistoApiHost: _v2
     }) => {
       try {
         let _v0,
-          _v1 = _v0 && _v0.plainTextPermissionLevel !== _v45.TeamUserPermissionLevel.Viewer && _v0.plainTextPermissionLevel !== _v45.TeamUserPermissionLevel.Uploader,
+          _v1 = _v0 && _v0.plainTextPermissionLevel !== _v46.TeamUserPermissionLevel.Viewer && _v0.plainTextPermissionLevel !== _v46.TeamUserPermissionLevel.Uploader,
           _v2 = await (_v0 = ["public", "private", "create", "edit", "upload"], fetch("/_next/access_token", {
             body: JSON.stringify({
               scopes: _v0,
@@ -255,7 +265,7 @@
           })),
           {
             sessionId: _v3
-          } = await _v46(_v2.token, _v2, _v2.magistoTeamToken);
+          } = await _v47(_v2.token, _v2, _v2.magistoTeamToken);
         return _v3;
       } catch (_v0) {
         throw (0, _v24.getLogger)("getMagistoSessionId").error(_v0, {
@@ -264,7 +274,7 @@
         }), _v0;
       }
     },
-    _v48 = {
+    _v49 = {
       url: "videos/<clipid>/versions/<versionid>/audiotracks",
       serviceName: _v12.UPLOAD_SERVICE.AUDIO_TRACKS,
       isVimeoApi: !0,
@@ -281,7 +291,7 @@
         }
       }
     },
-    _v49 = {
+    _v50 = {
       url: "api/services/branding/start",
       serviceName: _v12.UPLOAD_SERVICE.BRANDING_BUMPERS,
       shouldParseFile: !0,
@@ -305,7 +315,7 @@
         }
       }
     },
-    _v50 = {
+    _v51 = {
       url: "api/services/branding/start",
       serviceName: _v12.UPLOAD_SERVICE.BRANDING_BUMPERS,
       shouldParseFile: !0,
@@ -329,7 +339,7 @@
         }
       }
     },
-    _v51 = {
+    _v52 = {
       url: "/users/<userid>/create_assets",
       serviceName: _v12.UPLOAD_SERVICE.CREATE_MULTIMEDIA,
       isVimeoApi: !0,
@@ -345,7 +355,7 @@
         }
       }
     },
-    _v52 = {
+    _v53 = {
       url: "/users/<userid>/create_assets",
       serviceName: _v12.UPLOAD_SERVICE.IMAGE,
       isVimeoApi: !0,
@@ -360,7 +370,7 @@
         }
       }
     },
-    _v53 = {
+    _v54 = {
       url: "/users/<userid>/create_assets",
       serviceName: _v12.UPLOAD_SERVICE.CREATE_MULTIMEDIA,
       isVimeoApi: !0,
@@ -376,7 +386,7 @@
         }
       }
     },
-    _v54 = {
+    _v55 = {
       url: "/users/<userid>/create_assets",
       serviceName: _v12.UPLOAD_SERVICE.CREATE_MULTIMEDIA,
       isVimeoApi: !0,
@@ -392,7 +402,7 @@
         }
       }
     },
-    _v55 = {
+    _v56 = {
       url: "/users/<userid>/create_assets",
       serviceName: _v12.UPLOAD_SERVICE.CREATE_MULTIMEDIA,
       isVimeoApi: !0,
@@ -408,7 +418,7 @@
         }
       }
     },
-    _v56 = {
+    _v57 = {
       url: "api/services/branding/start",
       serviceName: _v12.UPLOAD_SERVICE.BRANDING_LOGO,
       shouldParseFile: !0,
@@ -430,7 +440,7 @@
         }
       }
     },
-    _v57 = {
+    _v58 = {
       url: "/users/<userid>/create_assets",
       serviceName: _v12.UPLOAD_SERVICE.IMAGE,
       isVimeoApi: !0,
@@ -445,8 +455,8 @@
         }
       }
     };
-  var _v58 = _v0.i(0),
-    _v59 = (_v0.i(0), _v0.i(0));
+  var _v59 = _v0.i(0),
+    _v60 = (_v0.i(0), _v0.i(0));
   _v0.s(["default", 0, ({
     children: _v0
   }) => {
@@ -463,7 +473,7 @@
       userLocale: _v2 = null
     }) {
       (0, _v2.useEffect)(() => {
-        (0, _v58.updateTrackingConfig)({
+        (0, _v59.updateTrackingConfig)({
           APP_TYPE: _v0,
           USER_ID: _v1,
           USER_LOCALE: _v2
@@ -487,113 +497,114 @@
                     magistoApiHost: _v2,
                     teamUser: _v3,
                     xsrft: _v4,
-                    jwt: _v5
+                    getJwt: _v5,
+                    refreshJwt: _v6
                   },
-                  uploadProcess: _v6,
-                  urlsEndpointClient: _v7
+                  uploadProcess: _v7,
+                  urlsEndpointClient: _v8
                 } = _v0,
                 {
-                  file: _v8,
+                  file: _v9,
                   fileData: {
-                    width: _v9,
-                    height: _v10,
-                    size: _v11,
-                    duration: _v12,
-                    name: _v13
+                    width: _v10,
+                    height: _v11,
+                    size: _v12,
+                    duration: _v13,
+                    name: _v14
                   },
-                  params: _v14 = {}
-                } = _v6,
-                _v15 = "",
-                _v16 = !1;
-              switch (_v7.serviceName) {
+                  params: _v15 = {}
+                } = _v7,
+                _v16 = "",
+                _v17 = !1;
+              switch (_v8.serviceName) {
                 case _v12.UPLOAD_SERVICE.BRANDING_BUMPERS:
                 case _v12.UPLOAD_SERVICE.BRANDING_LOGO:
-                  _v15 = await _v47({
+                  _v16 = await _v48({
                     teamUser: _v3,
                     xsrft: _v4,
                     magistoApiHost: _v2
                   });
-                  let _v0 = _v6.apiConfiguration;
+                  let _v0 = _v7.apiConfiguration;
                   _v1 = {
-                    ..._v7.params,
-                    ..._v14,
+                    ..._v8.params,
+                    ..._v15,
                     ..._v0,
-                    filename: `${_v13}`,
+                    filename: `${_v14}`,
                     metadata: {
-                      ..._v7.params.metadata,
-                      ..._v14?.metadata,
+                      ..._v8.params.metadata,
+                      ..._v15?.metadata,
                       ..._v0?.metadata,
                       asset_meta: {
-                        size: _v11,
-                        width: _v9,
-                        height: _v10,
-                        duration: _v12
+                        size: _v12,
+                        width: _v10,
+                        height: _v11,
+                        duration: _v13
                       }
                     }
                   };
                   break;
                 case _v12.UPLOAD_SERVICE.AUDIO_TRACKS:
-                  let _v1 = _v6.apiConfiguration,
-                    _v2 = _v1?.upload?.approach ?? _v14?.upload?.approach ?? _v12.UPLOAD_APPROACH.GCS,
+                  let _v1 = _v7.apiConfiguration,
+                    _v2 = _v1?.upload?.approach ?? _v15?.upload?.approach ?? _v12.UPLOAD_APPROACH.GCS,
                     _v3 = {
-                      ..._v7.params,
-                      ..._v14,
+                      ..._v8.params,
+                      ..._v15,
                       ..._v1,
                       upload: {
-                        ..._v14?.upload,
+                        ..._v15?.upload,
                         approach: _v2,
-                        mime_type: _v8.type,
-                        size: _v11
+                        mime_type: _v9.type,
+                        size: _v12
                       }
                     };
-                  _v16 = _v7.serviceName === _v12.UPLOAD_SERVICE.AUDIO_TRACKS, _v1 = _v3;
+                  _v17 = _v8.serviceName === _v12.UPLOAD_SERVICE.AUDIO_TRACKS, _v1 = _v3;
                   break;
                 case _v12.UPLOAD_SERVICE.CREATE_MULTIMEDIA:
-                  let _v4 = _v6.apiConfiguration;
-                  if (_v14?.upload?.approach === _v12.UPLOAD_APPROACH.GCS || _v4?.approach === _v12.UPLOAD_APPROACH.GCS) {
-                    let _v0 = _v7.params,
-                      _v1 = _v6.apiConfiguration,
-                      _v2 = _v1?.upload.bucket ?? _v14?.upload?.bucket ?? _v0.upload.bucket,
-                      _v3 = _v1?.upload.max_parallel_requests ?? _v14?.upload?.max_parallel_requests ?? 1;
+                  let _v4 = _v7.apiConfiguration;
+                  if (_v15?.upload?.approach === _v12.UPLOAD_APPROACH.GCS || _v4?.approach === _v12.UPLOAD_APPROACH.GCS) {
+                    let _v0 = _v8.params,
+                      _v1 = _v7.apiConfiguration,
+                      _v2 = _v1?.upload.bucket ?? _v15?.upload?.bucket ?? _v0.upload.bucket,
+                      _v3 = _v1?.upload.max_parallel_requests ?? _v15?.upload?.max_parallel_requests ?? 1;
                     _v1 = {
                       upload: {
-                        ..._v14?.upload,
+                        ..._v15?.upload,
                         ..._v1?.upload,
-                        size: `${_v11}`,
+                        size: `${_v12}`,
                         approach: _v12.UPLOAD_APPROACH.GCS,
-                        mime_type: _v8.type,
+                        mime_type: _v9.type,
                         bucket: _v2,
                         max_parallel_requests: _v3,
-                        type: _v7.uploadTypeName
+                        type: _v8.uploadTypeName
                       }
                     };
                   } else {
-                    let _v0 = _v6.apiConfiguration,
+                    let _v0 = _v7.apiConfiguration,
                       _v1 = {
-                        ..._v14?.upload,
+                        ..._v15?.upload,
                         ..._v0?.upload,
                         bucket: void 0
                       };
                     delete _v1.bucket, _v1 = {
                       upload: {
                         ..._v1,
-                        size: `${_v11}`,
+                        size: `${_v12}`,
                         approach: _v12.UPLOAD_APPROACH.TUS,
-                        mime_type: _v8.type,
-                        type: _v7.uploadTypeName
+                        mime_type: _v9.type,
+                        type: _v8.uploadTypeName
                       }
                     };
                   }
                   break;
                 case _v12.UPLOAD_SERVICE.IMAGE:
-                  let _v5 = _v6.apiConfiguration;
+                  let _v5 = _v7.apiConfiguration;
                   _v1 = {
                     upload: {
-                      ..._v14.upload,
+                      ..._v15.upload,
                       ..._v5.upload,
-                      size: `${_v11}`,
-                      mime_type: _v8.type,
-                      type: _v7.uploadTypeName
+                      size: `${_v12}`,
+                      mime_type: _v9.type,
+                      type: _v8.uploadTypeName
                     }
                   };
                   break;
@@ -601,12 +612,13 @@
                   throw new _v27("Invalid upload service name");
               }
               return {
-                isVersionUrl: _v16,
+                isVersionUrl: _v17,
                 uploadEndpointParams: _v1,
-                url: _v7.url,
-                magistoSessionId: _v7.isMagistoApi ? _v15 : "",
-                jwt: _v7.isVimeoApi ? _v5 : "",
-                serviceName: _v7.serviceName
+                url: _v8.url,
+                magistoSessionId: _v8.isMagistoApi ? _v16 : "",
+                getJwt: _v8.isVimeoApi ? _v5 : void 0,
+                refreshJwt: _v8.isVimeoApi ? _v6 : void 0,
+                serviceName: _v8.serviceName
               };
             }, [])
           },
@@ -724,7 +736,7 @@
                           let _v0 = new _v18.FatalError("Exceeded upload retries");
                           throw _v4(_v0, _v0), _v0;
                         }
-                        return _v0.retriesUsed > 4 ? (_v0.info("Exceeded range retries, restarting upload"), _v0.bytesUploaded = 0) : _v0.requestRange = !0, _v43(() => Promise.resolve(!0), _v0, _v0);
+                        return _v0.retriesUsed > 4 ? (_v0.info("Exceeded range retries, restarting upload"), _v0.bytesUploaded = 0) : _v0.requestRange = !0, _v44(() => Promise.resolve(!0), _v0, _v0);
                       }, [_v0, _v4]),
                       _v6 = (0, _v2.useCallback)(_v0 => {
                         if (_v0 instanceof _v19.NetworkError) switch (_v0.status) {
@@ -744,7 +756,7 @@
                         let _v3 = parseInt(_v2, 10);
                         return isNaN(_v3) ? (_v0.warn(`parseRangeHeader: finish isn't a number: ${_v3}`), !1) : _v3;
                       }, [_v0]),
-                      _v8 = (0, _v2.useCallback)(_v0 => _v0[_v44] ? _v7(_v0[_v44]) : (_v0.warn("parseHeadersForRange: no 'Range' header in Headers: ", {
+                      _v8 = (0, _v2.useCallback)(_v0 => _v0[_v45] ? _v7(_v0[_v45]) : (_v0.warn("parseHeadersForRange: no 'Range' header in Headers: ", {
                         headers: _v0
                       }), !1), [_v0, _v7]),
                       _v9 = (0, _v2.useCallback)(({
@@ -776,7 +788,7 @@
                           _v0 = new _v19.NetworkError(_v0.message, _v0.response?.status ?? 500);
                         }
                         let _v2 = _v0 instanceof Error ? _v0 : Error(String(_v0));
-                        if (_v2 instanceof _v6.CancelError || "AbortError" === _v2.name || _v42.default.isCancel(_v0)) throw new _v6.CancelError("Upload was cancelled");
+                        if (_v2 instanceof _v6.CancelError || "AbortError" === _v2.name || _v43.default.isCancel(_v0)) throw new _v6.CancelError("Upload was cancelled");
                         if (_v0.warn(`onRequestReject caught error: ${_v2.name}`, {
                           component: "useGCSEndpointUploader.onRequestReject",
                           errorMessage: _v2.message,
@@ -798,7 +810,7 @@
                       }, [_v11, _v0]),
                       _v14 = (0, _v2.useCallback)((_v0, _v1, _v2, _v3) => {
                         let _v4 = _v2(_v0);
-                        return _v42.default.put(_v0.endpointDescriptor.url, _v3, {
+                        return _v43.default.put(_v0.endpointDescriptor.url, _v3, {
                           method: "PUT",
                           headers: {
                             "Content-Type": _v1,
@@ -1196,7 +1208,7 @@
                     if (_v0.debug("[TUS retryWithBackoff]:", {
                       used: _v0.retriesUsed,
                       max: 4
-                    }), _v0.retriesUsed < 4) return _v0.retriesUsed++, _v0.requestUploadOffset = !0, _v43(_v1, _v0, _v0);
+                    }), _v0.retriesUsed < 4) return _v0.retriesUsed++, _v0.requestUploadOffset = !0, _v44(_v1, _v0, _v0);
                     let _v2 = new _v18.FatalError("Exceeded upload retries");
                     throw _v9(_v2, _v0), _v2;
                   }, [_v9, _v0]),
@@ -1205,7 +1217,7 @@
                     if (_v0.warn("[onTusRequestError] caught ", {
                       error: _v0
                     }), _v3 instanceof _v20) throw _v3;
-                    if (_v3 instanceof _v6.CancelError || "AbortError" === _v3.name || _v42.default.isCancel(_v0)) throw new _v6.CancelError("Upload was cancelled");
+                    if (_v3 instanceof _v6.CancelError || "AbortError" === _v3.name || _v43.default.isCancel(_v0)) throw new _v6.CancelError("Upload was cancelled");
                     if (_v6(_v3)) throw _v9(_v3, _v1), _v3;
                     return _v1.callbacks.onError?.(_v26(_v3)), _v0.warn("TUS request - handled error", {
                       error: _v3
@@ -1216,7 +1228,7 @@
                       _v3,
                       _v4 = _v2(_v1);
                     try {
-                      _v2 = await _v42.default.patch(_v1.uploadLink, _v0, {
+                      _v2 = await _v43.default.patch(_v1.uploadLink, _v0, {
                         headers: {
                           "Tus-Resumable": "1.0.0",
                           "Upload-Offset": `${_v1.uploadOffset}`,
@@ -1242,7 +1254,7 @@
                         errorName: _v3.name,
                         errorInstance: _v3
                       }), _v4.signal.reason instanceof _v20) throw _v4.signal.reason;
-                      if (_v0 instanceof _v6.CancelError || "AbortError" === _v0.name || _v42.default.isCancel(_v0)) throw _v0;
+                      if (_v0 instanceof _v6.CancelError || "AbortError" === _v0.name || _v43.default.isCancel(_v0)) throw _v0;
                     }
                     if (_v2 && 204 === _v2.status) {
                       let _v0 = parseInt(_v2.headers["upload-offset"] || "");
@@ -1396,7 +1408,7 @@
                       return _v0.state = "uploading", _v0.callbacks.onUploading?.(), await _v19(_v0), _v0.state = "uploaded", _v0.callbacks.onUploaded?.(_v0.timeToUpload ?? 0, _v0.uploadOffset, _v0.state), _v0.callbacks = {}, _v0.state;
                     } catch (_v0) {
                       if (_v0 instanceof _v20) throw _v0;
-                      if (_v0 instanceof _v6.CancelError || "AbortError" === _v0.name || _v42.default.isCancel(_v0)) {
+                      if (_v0 instanceof _v6.CancelError || "AbortError" === _v0.name || _v43.default.isCancel(_v0)) {
                         if ("error" === _v0.state) throw new _v18.FatalError('Uploader cancelled in "error" state');
                         if ("paused" === _v0.state) throw _v0;
                         _v0.debug("statefulUpload intercepted CancelError", {
@@ -1524,7 +1536,7 @@
                   }, []),
                   _v6 = (0, _v2.useCallback)(async _v0 => {
                     let _v1 = _v2(_v0),
-                      _v2 = await _v42.default.put(_v0.uploadLink, _v0.file, {
+                      _v2 = await _v43.default.put(_v0.uploadLink, _v0.file, {
                         method: "PUT",
                         signal: _v1.signal,
                         onUploadProgress: ({
@@ -1557,13 +1569,13 @@
                     }), _v4(_v1), _v1.callbacks.onFailed?.(_v26(_v0));
                   }, [_v4, _v0]),
                   _v9 = (0, _v2.useCallback)(_v0 => {
-                    if (_v0.retriesUsed < 3) return _v0.retriesUsed++, _v43(() => Promise.resolve(), _v0, _v0);
+                    if (_v0.retriesUsed < 3) return _v0.retriesUsed++, _v44(() => Promise.resolve(), _v0, _v0);
                     let _v1 = new _v18.FatalError("Exceeded upload retries");
                     throw _v8(_v1, _v0), _v1;
                   }, [_v0, _v8]),
                   _v10 = (0, _v2.useCallback)((_v0, _v1) => {
                     let _v2 = _v0 instanceof Error ? _v0 : Error(String(_v0));
-                    if (_v2 instanceof _v6.CancelError || "AbortError" === _v2.name || _v42.default.isCancel(_v0)) throw new _v6.CancelError("Upload was cancelled");
+                    if (_v2 instanceof _v6.CancelError || "AbortError" === _v2.name || _v43.default.isCancel(_v0)) throw new _v6.CancelError("Upload was cancelled");
                     if (_v7(_v2)) throw _v8(_v2, _v1), _v2;
                     return _v1.callbacks.onError?.(_v26(_v2)), _v0.warn("Image upload - handled error", {
                       error: _v2
@@ -1635,7 +1647,7 @@
                 setUploadHandle: _v6,
                 setUploadStatus: _v7
               } = (0, _v10.useUploaderStore)(_v0 => _v0.private),
-              _v8 = (0, _v2.useMemo)(() => (0, _v41.default)((_v0, _v1, _v2, _v3) => {
+              _v8 = (0, _v2.useMemo)(() => (0, _v42.default)((_v0, _v1, _v2, _v3) => {
                 _v0.debug(`[${_v0}] received upload progress from endpoint: `, {
                   ..._v3,
                   totalProgress: _v2
@@ -1849,43 +1861,49 @@
                   let {
                     isVersionUrl: _v0,
                     magistoSessionId: _v1,
-                    jwt: _v2,
-                    uploadEndpointParams: _v3,
-                    url: _v4
+                    getJwt: _v2,
+                    refreshJwt: _v3,
+                    uploadEndpointParams: _v4,
+                    url: _v5
                   } = _v1;
                   _v2.debug("requestGetUploadUrls before request: ", {
                     isVersionUrl: _v0,
                     magistoSessionId: _v1,
-                    uploadEndpointParams: _v3,
-                    url: _v4
+                    uploadEndpointParams: _v4,
+                    url: _v5
                   });
-                  let _v5 = new AbortController();
+                  let _v6 = new AbortController();
                   _v3({
                     uploadId: _v0,
                     abort: _v0 => {
-                      _v2.state = "canceled", _v0 ? _v5.abort(new _v18.FatalError("Simulate network fail")) : _v5.abort(), _v2.autoRetryCleanup?.();
+                      _v2.state = "canceled", _v0 ? _v6.abort(new _v18.FatalError("Simulate network fail")) : _v6.abort(), _v2.autoRetryCleanup?.();
                     }
                   });
-                  let _v6 = {
-                    method: "POST",
-                    headers: {
-                      Authorization: _v2 ? `jwt ${_v2}` : `${_v1}`,
-                      "Content-Type": "application/json"
-                    },
-                    signal: _v5.signal
-                  };
-                  _v0 && (_v6.headers.Accept = "application/vnd.vimeo.*+json;version=3.4.10"), _v1 && (_v6.headers["X-Requested-With"] = "XMLHttpRequest"), _v6.body = JSON.stringify(_v3);
-                  let _v7 = await fetch(_v4, _v6);
-                  if (!_v7.ok) throw new _v19.NetworkError(`Failed to get upload urls for service with status text: ${_v7.statusText}`, _v7.status, _v7);
+                  let _v7 = _v2?.(),
+                    _v8 = {
+                      method: "POST",
+                      headers: {
+                        Authorization: _v7 ? `jwt ${_v7}` : `${_v1}`,
+                        "Content-Type": "application/json"
+                      },
+                      signal: _v6.signal
+                    };
+                  _v0 && (_v8.headers.Accept = "application/vnd.vimeo.*+json;version=3.4.10"), _v1 && (_v8.headers["X-Requested-With"] = "XMLHttpRequest"), _v8.body = JSON.stringify(_v4);
+                  let _v9 = await fetch(_v5, _v8);
+                  if (401 === _v9.status && _v3 && !_v2.jwtRefreshed) {
+                    let _v0 = await _v41(_v3);
+                    _v0 && _v0 !== _v7 && (_v2.jwtRefreshed = !0, _v8.headers.Authorization = `jwt ${_v0}`, _v9 = await fetch(_v5, _v8));
+                  }
+                  if (!_v9.ok) throw new _v19.NetworkError(`Failed to get upload urls for service with status text: ${_v9.statusText}`, _v9.status, _v9);
                   if (!_v0(_v0)) throw new _v6.CancelError("Upload was cancelled");
                   _v2.debug("requestGetUploadUrls response: ", {
-                    ok: _v7.ok,
-                    status: _v7.status
+                    ok: _v9.ok,
+                    status: _v9.status
                   });
-                  let _v8 = await _v7.json();
+                  let _v10 = await _v9.json();
                   return _v2.debug("requestGetUploadUrls json: ", {
-                    json: JSON.stringify(_v8)
-                  }), (0, _v22.camelizeDeep)(_v8);
+                    json: JSON.stringify(_v10)
+                  }), (0, _v22.camelizeDeep)(_v10);
                 } catch (_v0) {
                   return _v6(_v0);
                 }
@@ -2103,7 +2121,7 @@
                 },
                 api: {
                   magistoApiHost: _v2,
-                  jwt: _v3
+                  getJwt: _v3
                 },
                 uploadProcess: _v4,
                 urlsEndpointClient: _v5
@@ -2126,14 +2144,14 @@
                     if ("uploaded" !== _v0) throw _v3.warn(`Received unexpected uploader state: [${_v0}]`), new _v18.FatalError(`Received unexpected uploader state: [${_v0}]`);
                     _v3.info("Finished uploads to URLs"), _v1.serviceName === _v12.UPLOAD_SERVICE.AUDIO_TRACKS && _v1.uploaderType === _v12.UPLOAD_APPROACH.GCS && (await _v12({
                       clipId: _v1,
-                      jwt: _v3,
+                      jwt: _v3(),
                       vimeoUploadId: _v1.gcsUid
                     }));
                     let _v1 = _v5.transcodingUrl ?? "",
                       {
                         storageObjectId: _v2
                       } = _v1;
-                    if (_v1.serviceName === _v12.UPLOAD_SERVICE.BRANDING_BUMPERS ? _v1 = `https://${_v2}/${_v5.transcodingUrl}/${_v2}` : _v1.serviceName === _v12.UPLOAD_SERVICE.AUDIO_TRACKS && (_v1 = _v17(_v0, _v2), _v0 = _v3), _v5.transcodingUrl) {
+                    if (_v1.serviceName === _v12.UPLOAD_SERVICE.BRANDING_BUMPERS ? _v1 = `https://${_v2}/${_v5.transcodingUrl}/${_v2}` : _v1.serviceName === _v12.UPLOAD_SERVICE.AUDIO_TRACKS && (_v1 = _v17(_v0, _v2), _v0 = _v3()), _v5.transcodingUrl) {
                       _v3.info(`[Summary] Upload #${_v6} - start transcoding at ${new Date().toLocaleTimeString()}`, {
                         transcodingUrl: _v1
                       });
@@ -2202,11 +2220,14 @@
       _v13 = (0, _v10.useUploaderStore)(_v0 => _v0.private.setConfig),
       _v14 = (0, _v10.useUploaderStore)(_v0 => _v0.private.setIsUploading),
       _v15 = (0, _v10.useUploaderStore)(_v0 => _v0.public.clearUpload),
-      _v16 = (0, _v2.useRef)(!1);
+      _v16 = (0, _v2.useRef)(!1),
+      _v17 = (0, _v2.useRef)(_v5);
     (0, _v2.useEffect)(() => (_v16.current = !0, () => {
       _v16.current = !1;
-    }), []);
-    let _v17 = (0, _v2.useCallback)(async ({
+    }), []), (0, _v2.useEffect)(() => {
+      _v17.current = _v5;
+    }, [_v5]);
+    let _v18 = (0, _v2.useCallback)(async ({
         uploadedFiles: _v0,
         typeName: _v1,
         uploaderConfig: _v2,
@@ -2227,22 +2248,22 @@
           switch (_v0) {
             case _v12.UPLOAD_TYPE_NAME.BUMPER_INTRO:
               _v5 = {
-                ..._v49
+                ..._v50
               };
               break;
             case _v12.UPLOAD_TYPE_NAME.BUMPER_OUTRO:
               _v5 = {
-                ..._v50
+                ..._v51
               };
               break;
             case _v12.UPLOAD_TYPE_NAME.LOGO:
               _v5 = {
-                ..._v56
+                ..._v57
               };
               break;
             case _v12.UPLOAD_TYPE_NAME.AUDIO_TRACKS:
               (_v5 = {
-                ..._v48
+                ..._v49
               }).url = _v3 ? `${_v3}/audiotracks` : _v5.url;
               break;
             case _v12.UPLOAD_TYPE_NAME.CREATE_AUDIO:
@@ -2255,32 +2276,32 @@
               switch (_v0) {
                 case _v12.UPLOAD_TYPE_NAME.CREATE_IMAGE_ASSET:
                   _v5 = {
-                    ..._v52
+                    ..._v53
                   };
                   break;
                 case _v12.UPLOAD_TYPE_NAME.OVERLAY_THUMBNAIL:
                   _v5 = {
-                    ..._v57
+                    ..._v58
                   };
                   break;
                 case _v12.UPLOAD_TYPE_NAME.CREATE_AUDIO:
                   _v5 = {
-                    ..._v55
+                    ..._v56
                   };
                   break;
                 case _v12.UPLOAD_TYPE_NAME.CREATE_BRANDING_ASSET:
                   _v5 = {
-                    ..._v51
+                    ..._v52
                   };
                   break;
                 case _v12.UPLOAD_TYPE_NAME.CREATE_VIDEO_ASSET:
                   _v5 = {
-                    ..._v54
+                    ..._v55
                   };
                   break;
                 case _v12.UPLOAD_TYPE_NAME.CREATE_SOUNDTRACK_ASSET:
                   _v5 = {
-                    ..._v53
+                    ..._v54
                   };
               }
               _v5.url = `/users/${_v4}/create_assets`;
@@ -2374,7 +2395,8 @@
               api: {
                 teamUser: _v5?.teamUser,
                 xsrft: _v5?.xsrft ?? "",
-                jwt: _v5?.jwt,
+                getJwt: () => _v17.current?.jwt,
+                refreshJwt: () => _v17.current?.refreshJwt?.() ?? Promise.resolve(void 0),
                 magistoApiHost: _v5?.magistoApiHost ?? ""
               }
             }), _v6.info(`[Finished] task for Upload #${_v0.id} (status: ${_v0}). Took ${(Date.now() - _v1) / 0} seconds.`);
@@ -2394,13 +2416,13 @@
         }), 0 === _v11() && _v14(!1), _v6.info("Uploader Files", {
           section: "completed all scheduled upload processes",
           uploadProcessesLength: _v6.length
-        }), (0, _v59.normalizeUploads)(_v9);
-      }, [_v7, _v5?.apiUrl, _v5?.magistoApiHost, _v6, _v12, _v14, _v10, _v11, _v13, _v8, _v9, _v5?.teamUser, _v5?.xsrft, _v5?.jwt, _v15]),
-      _v18 = (0, _v2.useMemo)(() => ({
-        upload: _v17
-      }), [_v17]);
+        }), (0, _v60.normalizeUploads)(_v9);
+      }, [_v7, _v5?.apiUrl, _v5?.magistoApiHost, _v6, _v12, _v14, _v10, _v11, _v13, _v8, _v9, _v5?.teamUser, _v5?.xsrft, _v15]),
+      _v19 = (0, _v2.useMemo)(() => ({
+        upload: _v18
+      }), [_v18]);
     return (0, _v1.jsx)(_v5.ArtifactsUploaderContext.Provider, {
-      value: _v18,
+      value: _v19,
       children: _v0
     });
   }], 0);

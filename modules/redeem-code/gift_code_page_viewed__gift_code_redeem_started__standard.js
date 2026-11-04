@@ -291,13 +291,16 @@
     }, [_v0, _v6], {
       once: !0
     });
-    let _v7 = (0, _v19.useCampaignIdOverride)(),
+    let {
+        campaignId: _v7,
+        isLoading: _v8
+      } = (0, _v19.useCampaignIdOverride)(),
       {
-        data: _v8,
-        isLoading: _v9,
-        error: _v10,
-        mutate: _v11
-      } = (0, _v18.useGetMeSubscriptionProducts)(() => _v1 ? {
+        data: _v9,
+        isLoading: _v10,
+        error: _v11,
+        mutate: _v12
+      } = (0, _v18.useGetMeSubscriptionProducts)(() => !_v1 || _v8 ? null : {
         select: _v17.SUBSCRIPTION_PRODUCT_FIELDS,
         query: {
           country: _v1.location,
@@ -307,18 +310,18 @@
           } : {}),
           vuid: _v1.vuid
         }
-      } : null, {
+      }, {
         revalidateIfStale: !1,
         revalidateOnFocus: !1,
         revalidateOnReconnect: !1
       }),
-      _v12 = _v8 ? _v8.data?.[0] : void 0,
-      _v13 = _v12?.plans?.annual,
-      _v14 = void 0 !== _v13 && "available" === _v13.metadata.status,
+      _v13 = _v9 ? _v9.data?.[0] : void 0,
+      _v14 = _v13?.plans?.annual,
+      _v15 = void 0 !== _v14 && "available" === _v14.metadata.status,
       {
-        redeem: _v15,
-        isSubmitting: _v16,
-        state: _v17
+        redeem: _v16,
+        isSubmitting: _v17,
+        state: _v18
       } = (({
         product: _v0
       }) => {
@@ -453,19 +456,19 @@
           state: _v3
         };
       })({
-        product: _v12
+        product: _v13
       }),
-      _v18 = "" === _v2.trim(),
-      _v19 = (0, _v4.useCallback)(() => {
-        _v18 ? _v5(!0) : _v14 ? _v15({
-          billingPlanId: _v13.id,
+      _v19 = "" === _v2.trim(),
+      _v20 = (0, _v4.useCallback)(() => {
+        _v19 ? _v5(!0) : _v15 ? _v16({
+          billingPlanId: _v14.id,
           giftCode: _v2
-        }) : _v15({
+        }) : _v16({
           billingPlanId: null,
           giftCode: _v2
         });
-      }, [_v13, _v2, _v18, _v14, _v15]),
-      _v20 = (0, _v4.useMemo)(() => _v4 ? (0, _v6.translate)({
+      }, [_v14, _v2, _v19, _v15, _v16]),
+      _v21 = (0, _v4.useMemo)(() => _v4 ? (0, _v6.translate)({
         singular: "Please enter your gift code.",
         dictionary: {
           es: {
@@ -490,9 +493,9 @@
             singular: "请输入您的礼品码。"
           }
         }
-      }) : "failed" === _v17.kind ? _v17.userMessage : null, [_v17, _v4]),
-      _v21 = null !== _v20;
-    return _v9 ? null : null != _v10 ? (0, _v1.jsx)(_v12.Flex, {
+      }) : "failed" === _v18.kind ? _v18.userMessage : null, [_v18, _v4]),
+      _v22 = null !== _v21;
+    return _v10 || _v8 ? null : null != _v11 ? (0, _v1.jsx)(_v12.Flex, {
       minHeight: "100vh",
       bg: "surface",
       justifyContent: "center",
@@ -565,7 +568,7 @@
           })
         }), (0, _v1.jsx)(_v11.Button, {
           variant: "primary",
-          onClick: () => void _v11(),
+          onClick: () => void _v12(),
           "data-testid": "catalog-retry",
           children: (0, _v6.translate)({
             singular: "Try again",
@@ -691,18 +694,18 @@
                   }
                 })
               })]
-            }), _v21 && (0, _v1.jsx)(_v8.Alert, {
+            }), _v22 && (0, _v1.jsx)(_v8.Alert, {
               status: "error",
               "data-testid": "redeem-error",
               children: (0, _v1.jsx)(_v9.AlertDescription, {
-                children: _v20
+                children: _v21
               })
             }), (0, _v1.jsx)("form", {
               onSubmit: _v0 => {
-                _v0.preventDefault(), _v19();
+                _v0.preventDefault(), _v20();
               },
               children: (0, _v1.jsx)("fieldset", {
-                disabled: _v16,
+                disabled: _v17,
                 style: {
                   border: "none",
                   padding: 0,
@@ -743,14 +746,14 @@
                     onValueChange: _v0 => {
                       _v3(_v0), _v4 && _v5(!1);
                     },
-                    isInvalid: _v21,
+                    isInvalid: _v22,
                     "data-testid": "gift-code-input"
                   }), (0, _v1.jsx)(_v11.Button, {
                     type: "submit",
                     variant: "primary",
                     size: "lg",
                     width: "100%",
-                    isLoading: _v16,
+                    isLoading: _v17,
                     "data-testid": "redeem-submit",
                     children: (0, _v6.translate)({
                       singular: "Redeem",

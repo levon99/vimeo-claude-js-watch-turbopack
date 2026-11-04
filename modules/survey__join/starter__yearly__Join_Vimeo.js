@@ -2732,8 +2732,10 @@
     _v105 = _v0.i(0),
     _v106 = _v0.i(0);
   function _v107() {
-    let _v0 = (0, _v105.useCampaignIdOverride)(),
-      _v1 = (0, _v91.useOrionLoading)(),
+    let {
+        campaignId: _v0,
+        isLoading: _v1
+      } = (0, _v105.useCampaignIdOverride)(),
       {
         campaignId: _v2,
         isLoading: _v3

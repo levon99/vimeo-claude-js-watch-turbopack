@@ -493,58 +493,55 @@
     }, {
       privacy: "team",
       title: (0, _v10.translate)({
-        singular: "Private",
+        singular: "Team",
         dictionary: {
           es: {
-            singular: "Privado"
-          },
-          "de-DE": {
-            singular: "Privat"
+            singular: "Equipo"
           },
           "fr-FR": {
-            singular: "Privé"
+            singular: "Équipe"
           },
           "ja-JP": {
-            singular: "プライベート"
+            singular: "チーム"
           },
           "ko-KR": {
-            singular: "비공개"
+            singular: "팀"
           },
           "pt-BR": {
-            singular: "Privado"
+            singular: "Equipe"
           },
           "zh-CN": {
-            singular: "私密"
+            singular: "团队"
           }
         }
       }),
       description: (0, _v10.translate)({
-        singular: "Only you and people with access can view",
+        singular: "All team members can find and view",
         dictionary: {
           es: {
-            singular: "Solo usted y las personas con acceso pueden verla"
+            singular: "Todos los miembros del equipo pueden encontrar y ver"
           },
           "de-DE": {
-            singular: "Nur Sie und Personen mit Zugriff können sie ansehen"
+            singular: "Alle Teammitglieder können finden und ansehen"
           },
           "fr-FR": {
-            singular: "Uniquement vous et les personnes disposant d'un accès peuvent consulter"
+            singular: "Tous les membres de l'équipe peuvent trouver et visionner"
           },
           "ja-JP": {
-            singular: "あなたとアクセス権を持つ人のみが閲覧できます"
+            singular: "チームの全メンバーが見つけて閲覧できます"
           },
           "ko-KR": {
-            singular: "귀하와 접근 권한이 있는 사람만 볼 수 있습니다"
+            singular: "모든 팀 구성원은 찾고 볼 수 있습니다"
           },
           "pt-BR": {
-            singular: "Somente você e pessoas com acesso podem visualizar"
+            singular: "Todos os membros da equipe podem encontrar e visualizar"
           },
           "zh-CN": {
-            singular: "只有你和有访问权限的人可以查看"
+            singular: "所有团队成员均可查找并查看"
           }
         }
       }),
-      icon: (0, _v1.jsx)(_v6.Lock, {
+      icon: (0, _v1.jsx)(_v2.Building, {
         boxSize: "xs"
       })
     }, {

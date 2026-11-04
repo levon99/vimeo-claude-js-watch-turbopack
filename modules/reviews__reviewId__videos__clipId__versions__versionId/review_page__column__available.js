@@ -26,9 +26,8 @@
     _v23 = _v0.i(0),
     _v24 = _v0.i(0),
     _v25 = _v0.i(0),
-    _v26 = _v0.i(0),
-    _v27 = _v0.i(0);
-  function _v28({
+    _v26 = _v0.i(0);
+  function _v27({
     videoId: _v0,
     reviewId: _v1,
     currentVersionId: _v2,
@@ -41,52 +40,52 @@
         hasEnterprise: _v7,
         sequenceNumber: _v8,
         totalVersionsCount: _v9
-      } = (0, _v22.useVideoData)(_v0.toString(), _v1),
+      } = (0, _v21.useVideoData)(_v0.toString(), _v1),
       {
         data: _v10,
         isLoading: _v11
-      } = (0, _v21.useGetVideoVersion)({
+      } = (0, _v20.useGetVideoVersion)({
         versionId: _v2,
         videoId: _v0,
         reviewId: _v1
       }),
-      _v12 = (0, _v14.usePathname)(),
-      [_v13, _v14] = (0, _v15.useState)(!1),
+      _v12 = (0, _v13.usePathname)(),
+      [_v13, _v14] = (0, _v14.useState)(!1),
       _v15 = _v11 || !_v10?.downloadConfig,
-      [_v16, _v17] = (0, _v15.useState)(!0),
-      _v18 = (0, _v18.useIsMobile)(),
+      [_v16, _v17] = (0, _v14.useState)(!0),
+      _v18 = (0, _v17.useIsMobile)(),
       {
         allowComments: _v19,
         showAllVersions: _v20,
         allowDownloads: _v21,
         showResolvedComments: _v22,
         allowStatusChange: _v23
-      } = (0, _v15.useContext)(_v13.ReviewLinkContext),
-      _v24 = (0, _v15.useMemo)(() => ({
+      } = (0, _v14.useContext)(_v12.ReviewLinkContext),
+      _v24 = (0, _v14.useMemo)(() => ({
         webContextFields: {
           page_name: "review_page",
           path: _v12
         },
         videoContextFields: {
           video_privacy: _v5?.privacy?.view,
-          video_owner_id: (0, _v23.idFromUri)(_v5?.user.uri),
+          video_owner_id: (0, _v22.idFromUri)(_v5?.user.uri),
           video_id: _v0,
           content_rating: _v5?.contentRating,
           video_version_id: _v2
         },
         folderContextFields: {
-          folder_id: (0, _v23.idFromUri)(_v5?.parentProject?.uri),
-          access_permission_to_folder: (0, _v23.getPermissionToFolder)(_v5?.parentProject?.metadata?.interactions)
+          folder_id: (0, _v22.idFromUri)(_v5?.parentProject?.uri),
+          access_permission_to_folder: (0, _v22.getPermissionToFolder)(_v5?.parentProject?.metadata?.interactions)
         }
       }), [_v0, _v12, _v5?.contentRating, _v5?.privacy?.view, _v5?.parentProject?.metadata?.interactions, _v5?.parentProject?.uri, _v5?.user.uri, _v2]),
-      _v25 = (0, _v23.idFromUri)(_v5?.user.uri)?.toString() ?? null,
+      _v25 = (0, _v22.idFromUri)(_v5?.user.uri)?.toString() ?? null,
       _v26 = _v0 => {
         _v17(_v0 => !_v0);
       };
-    return _v6 || _v11 ? (0, _v1.jsx)(_v27.default, {}) : (0, _v1.jsxs)(_v1.Fragment, {
-      children: [(0, _v1.jsxs)(_v16.Flex, {
+    return _v6 || _v11 ? (0, _v1.jsx)(_v26.default, {}) : (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsxs)(_v15.Flex, {
         direction: "column",
-        children: [(0, _v1.jsx)(_v20.ReviewHeader, {
+        children: [(0, _v1.jsx)(_v19.ReviewHeader, {
           videoName: _v5?.name ?? "",
           videoId: _v0,
           reviewId: _v1,
@@ -96,13 +95,13 @@
           isDownloadDisabled: _v15,
           analyticsProps: _v24,
           toggleDrawer: _v26,
-          currentVersionSequenceNumber: _v10?.sequenceNumber ?? _v26.DEFAULT_VERSION_NUMBER,
+          currentVersionSequenceNumber: _v10?.sequenceNumber ?? _v25.DEFAULT_VERSION_NUMBER,
           totalVersionsCount: _v9,
           isDeleted: _v4,
-          versionId: (0, _v23.idFromUri)(_v10?.uri),
+          versionId: (0, _v22.idFromUri)(_v10?.uri),
           reviewStatus: _v5?.reviewStatus,
           showReviewStatus: _v23,
-          redirectUri: (0, _v23.formVersionRedirectUri)(_v2, _v0.toString(), void 0, _v1, !0),
+          redirectUri: (0, _v22.formVersionRedirectUri)(_v2, _v0.toString(), void 0, _v1, !0),
           showComments: _v19,
           showDownload: _v21,
           showAllVersions: _v20,
@@ -110,14 +109,14 @@
           showDeleteVersion: !1,
           showNewVersion: !1,
           isVideoProcessing: _v5?.status !== "available"
-        }), (0, _v1.jsx)(_v17.CommentContextProvider, {
-          children: (0, _v1.jsx)(_v24.ReviewPlayerContainer, {
+        }), (0, _v1.jsx)(_v16.CommentContextProvider, {
+          children: (0, _v1.jsx)(_v23.ReviewPlayerContainer, {
             videoVersionWidth: _v10?.width || 0,
             videoVersionHeight: _v10?.height || 0,
             isLoading: _v11,
             clipId: _v0.toString(),
             closeDrawer: _v26,
-            videoVersionUri: (0, _v23.formVersionRedirectUri)(_v2, _v0.toString(), void 0, _v1),
+            videoVersionUri: (0, _v22.formVersionRedirectUri)(_v2, _v0.toString(), void 0, _v1),
             showComments: _v16 && _v19,
             videoName: _v5?.name || "",
             createdBy: _v10?.user?.name || "",
@@ -138,7 +137,7 @@
             clipOwnerId: _v25,
             videoContentAspectRatio: _v5?.width != null && _v5.width > 0 && _v5?.height != null && _v5.height > 0 ? _v5.width / _v5.height : void 0
           })
-        }), !_v15 && (0, _v1.jsx)(_v19.DownloadVersionModal, {
+        }), !_v15 && (0, _v1.jsx)(_v18.DownloadVersionModal, {
           isOpen: _v13,
           onClose: () => _v14(!1),
           videoId: _v0,
@@ -147,10 +146,10 @@
           versionUri: _v10.uri,
           pageName: _v24?.webContextFields?.page_name
         })]
-      }), !_v18 && (0, _v1.jsx)(_v25.ReviewFooter, {})]
+      }), !_v18 && (0, _v1.jsx)(_v24.ReviewFooter, {})]
     });
   }
-  function _v29({
+  function _v28({
     videoId: _v0,
     reviewId: _v1,
     versionId: _v2,
@@ -158,14 +157,14 @@
     embedPlayerConfigUrl: _v4,
     isVersionDeleted: _v5
   }) {
-    return (0, _v1.jsx)(_v13.ReviewLinkContextProvider, {
+    return (0, _v1.jsx)(_v12.ReviewLinkContextProvider, {
       resourceId: _v0,
       resourceType: "clip",
       reviewId: _v1,
-      children: (0, _v1.jsx)(_v11.PlayerContextProvider, {
-        type: _v12.PlayerType.VimeoPlayer,
+      children: (0, _v1.jsx)(_v10.PlayerContextProvider, {
+        type: _v11.PlayerType.VimeoPlayer,
         assetUrls: _v3,
-        children: (0, _v1.jsx)(_v28, {
+        children: (0, _v1.jsx)(_v27, {
           videoId: _v0,
           reviewId: _v1,
           currentVersionId: _v2,
@@ -175,43 +174,50 @@
       })
     });
   }
-  var _v30 = _v0.i(0),
+  var _v29 = _v0.i(0),
+    _v30 = _v0.i(0),
     _v31 = _v0.i(0);
   let _v32 = ({
-    videoId: _v0,
-    reviewId: _v1,
-    reviewLinkPassword: _v2,
-    versionId: _v3,
-    playerAssetUrls: _v4,
-    embedPlayerConfigUrl: _v5,
-    isVersionDeleted: _v6,
-    showNotFoundPage: _v7
-  }) => _v7 ? (0, _v1.jsxs)(_v1.Fragment, {
-    children: [(0, _v1.jsx)(_v2.default, {
-      children: (0, _v1.jsx)("meta", {
-        name: "robots",
-        content: "noindex,nofollow"
-      })
-    }), (0, _v1.jsx)(_v30.default, {}), (0, _v1.jsx)(_v10.ErrorPageWithHeader, {
-      error: new _v5.ResourceNotFoundError()
-    }), ";"]
-  }) : _v4 ? _v0 && _v1 && _v3 ? (0, _v1.jsxs)(_v1.Fragment, {
-    children: [(0, _v1.jsx)(_v2.default, {
-      children: (0, _v1.jsx)("meta", {
-        name: "robots",
-        content: "noindex,nofollow"
-      })
-    }), (0, _v1.jsx)(_v29, {
+      error: _v0
+    }) => (0, _v1.jsx)(_v9.ErrorPageWithHeader, {
+      useBokeh: !0,
+      error: _v0
+    }),
+    _v33 = ({
       videoId: _v0,
       reviewId: _v1,
       reviewLinkPassword: _v2,
       versionId: _v3,
       playerAssetUrls: _v4,
       embedPlayerConfigUrl: _v5,
-      isVersionDeleted: _v6
-    })]
-  }) : null : (0, _v1.jsx)(_v27.default, {});
-  (0, _v6.withPageSetup)(async _v0 => {
+      isVersionDeleted: _v6,
+      showNotFoundPage: _v7
+    }) => _v7 ? (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsx)(_v2.default, {
+        children: (0, _v1.jsx)("meta", {
+          name: "robots",
+          content: "noindex,nofollow"
+        })
+      }), (0, _v1.jsx)(_v29.default, {}), (0, _v1.jsx)(_v9.ErrorPageWithHeader, {
+        error: new _v4.ResourceNotFoundError()
+      }), ";"]
+    }) : _v4 ? _v0 && _v1 && _v3 ? (0, _v1.jsxs)(_v1.Fragment, {
+      children: [(0, _v1.jsx)(_v2.default, {
+        children: (0, _v1.jsx)("meta", {
+          name: "robots",
+          content: "noindex,nofollow"
+        })
+      }), (0, _v1.jsx)(_v28, {
+        videoId: _v0,
+        reviewId: _v1,
+        reviewLinkPassword: _v2,
+        versionId: _v3,
+        playerAssetUrls: _v4,
+        embedPlayerConfigUrl: _v5,
+        isVersionDeleted: _v6
+      })]
+    }) : null : (0, _v1.jsx)(_v26.default, {});
+  (0, _v5.withPageSetup)(async _v0 => {
     let _v1, _v2;
     if (_v0.res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"), !_v0.query.reviewId || Array.isArray(_v0.query.reviewId) || !_v0.query.clipId || Array.isArray(_v0.query.clipId) || !_v0.query.versionId || Array.isArray(_v0.query.versionId)) return {
       notFound: !0
@@ -235,7 +241,7 @@
       },
       _v9 = !0;
     try {
-      _v9 = !!(_v2 = await (0, _v8.getVideoReviewLink)({
+      _v9 = !!(_v2 = await (0, _v7.getVideoReviewLink)({
         headers: _v7,
         baseUrl: _v0.baseUrl,
         where: {
@@ -267,7 +273,7 @@
       notFound: !0
     };
     try {
-      let [_v0, _v1] = await Promise.all([(0, _v9.getVideoVersion)({
+      let [_v0, _v1] = await Promise.all([(0, _v8.getVideoVersion)({
         headers: _v7,
         baseUrl: _v0.baseUrl,
         where: {
@@ -276,7 +282,7 @@
         },
         query: _v8,
         select: ["uri", "filename", "isPlayable", "isDeleted", "embedPlayerConfigUrl", "active"]
-      }), (0, _v7.getVideo)({
+      }), (0, _v6.getVideo)({
         headers: _v0.headers,
         baseUrl: _v0.baseUrl,
         where: {
@@ -323,18 +329,15 @@
   }, {
     inlineViewer: "all",
     inlinePlayerAssets: !0
-  }), _v32.getLayout = (_v0, _v1) => {
+  }), _v33.getLayout = (_v0, _v1) => {
     let _v2 = "dark" === _v1.forceTheme ? (0, _v1.jsx)(_v3.Box, {
       color: "text-primary",
       display: "contents",
       children: _v0
     }) : _v0;
-    return (0, _v1.jsx)(_v4.ErrorBoundary, {
-      errorPage: _v0 => (0, _v1.jsx)(_v10.ErrorPageWithHeader, {
-        useBokeh: !0,
-        ..._v0
-      }),
+    return (0, _v1.jsx)(_v30.RouteErrorBoundary, {
+      errorPage: _v32,
       children: _v2
     });
-  }, _v0.s(["__N_SSP", 0, !0, "default", 0, _v32], 0);
+  }, _v0.s(["__N_SSP", 0, !0, "default", 0, _v33], 0);
 }

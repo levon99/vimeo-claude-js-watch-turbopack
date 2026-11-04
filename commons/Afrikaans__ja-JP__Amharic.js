@@ -1512,7 +1512,7 @@
     nativeName: "isiZulu",
     value: "zu"
   }];
-  _v0.s(["AUTO_CC_ZENDESK_LINK", 0, "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426960030353-Automatic-closed-captioning-for-live-events", "AutoCcOptions", 0, _v2, "DICTIONARY_HELP_CENTER_LINK", 0, "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/51019307091985", "MAX_AUTO_CC_KEYWORD_COUNT", 0, 50, "getEstimatedLiveCreditRates", 0, function (_v0, _v1, _v2) {
+  _v0.s(["AI_CAPTION_TRANSLATIONS_LEGAL_LINK", 0, "https://vimeo.com/legal/transparency/ai/live-caption-translations", "AUTO_CC_ZENDESK_LINK", 0, "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/12426960030353-Automatic-closed-captioning-for-live-events", "AutoCcOptions", 0, _v2, "DICTIONARY_HELP_CENTER_LINK", 0, "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/51019307091985", "MAX_AUTO_CC_KEYWORD_COUNT", 0, 50, "getEstimatedLiveCreditRates", 0, function (_v0, _v1, _v2) {
     return {
       captions: _v0 ?? 10,
       translations: _v1 ?? 20 * _v2

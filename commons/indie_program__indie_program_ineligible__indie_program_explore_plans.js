@@ -52,9 +52,9 @@
     poster: "https://i.vimeocdn.com/video/2213153283-c6b10e645bae40bdf439c2796232e58d04e50babba3c7a418bc2fb4eeaef8ad8-d",
     width: 720
   }, {
-    title: "Mini mini pokke",
+    title: "In the Big Yard Inside the Teeny-Weeny Pocket",
     href: "https://vimeo.com/1187230980",
-    author: "yuko yuki",
+    author: "Yoko Yuki",
     video: "https://player.vimeo.com/progressive_redirect/playback/1236606962/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&signature=bdf1b764925720d4705b7c00f154a062333f765748e0ac7832789ec87b052c55",
     poster: "https://i.vimeocdn.com/video/2213153213-e3b37fe1a66c18f50ca5f37187b78dbd70e608b774a389dc36b8e84df3769576-d",
     width: 720

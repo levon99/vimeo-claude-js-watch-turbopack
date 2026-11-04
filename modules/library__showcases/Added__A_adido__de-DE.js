@@ -776,16 +776,16 @@
       }
     }),
     _v56 = (0, _v8.translate)({
-      singular: "Search showcase",
+      singular: "Search showcases",
       dictionary: {
         es: {
-          singular: "Buscar presentación"
+          singular: "Buscar presentaciones"
         },
         "de-DE": {
-          singular: "Präsentation suchen"
+          singular: "Präsentationen durchsuchen"
         },
         "fr-FR": {
-          singular: "Rechercher une présentation"
+          singular: "Rechercher dans les présentations"
         },
         "ja-JP": {
           singular: "ショーケースを検索"
@@ -794,10 +794,10 @@
           singular: "쇼케이스 검색"
         },
         "pt-BR": {
-          singular: "Pesquisar vitrine"
+          singular: "Pesquisar vitrines"
         },
         "zh-CN": {
-          singular: "搜索展示"
+          singular: "搜索橱窗"
         }
       }
     }),

@@ -527,7 +527,8 @@
           clip_id: _v0.clipId,
           generation_id: _v0.generationId,
           source: _v0.source,
-          product_selection_shown: _v0.productSelectionShown
+          product_selection_shown: _v0.productSelectionShown,
+          step: _v0.step ?? null
         });
       }, [_v0]),
       _v60 = (0, _v1.useCallback)(_v0 => {
@@ -541,30 +542,126 @@
           language_count: _v0.languageCount,
           speaker_count: _v0.speakerCount,
           preview_enabled: _v0.previewEnabled,
-          submit_action: _v0.submitAction
+          submit_action: _v0.submitAction,
+          dubbing_model: _v0.dubbingModel ?? null,
+          dubbing_api_version: _v0.dubbingApiVersion ?? null
         });
       }, [_v0]),
       _v61 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("video_manage_vimeo_ai_translate_dubbing_model_selected", {
+          clip_id: _v0.clipId,
+          generation_id: _v0.generationId,
+          source: _v0.source,
+          model: _v0.model
+        });
+      }, [_v0]),
+      _v62 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("video_manage_vimeo_ai_translate_dubbing_pro_tooltip_shown", {
+          clip_id: _v0.clipId,
+          generation_id: _v0.generationId,
+          source: _v0.source
+        });
+      }, [_v0]),
+      _v63 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("video_manage_vimeo_ai_translate_product_selected", {
+          clip_id: _v0.clipId,
+          generation_id: _v0.generationId,
+          source: _v0.source,
+          product_type: _v0.productType
+        });
+      }, [_v0]),
+      _v64 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("video_manage_vimeo_ai_translate_language_added", {
+          clip_id: _v0.clipId,
+          generation_id: _v0.generationId,
+          source: _v0.source,
+          language_code: _v0.languageCode,
+          accent: _v0.accent,
+          is_pro_only: _v0.isProOnly,
+          selection_method: _v0.selectionMethod,
+          language_count: _v0.languageCount
+        });
+      }, [_v0]),
+      _v65 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("video_manage_vimeo_ai_translate_language_removed", {
+          clip_id: _v0.clipId,
+          generation_id: _v0.generationId,
+          source: _v0.source,
+          language_code: _v0.languageCode,
+          accent: _v0.accent,
+          is_pro_only: _v0.isProOnly,
+          reason: _v0.reason,
+          language_count: _v0.languageCount
+        });
+      }, [_v0]),
+      _v66 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("video_manage_vimeo_ai_translate_source_language_selected", {
+          clip_id: _v0.clipId,
+          generation_id: _v0.generationId,
+          source: _v0.source,
+          source_language_code: _v0.sourceLanguageCode,
+          target_language_codes: _v0.targetLanguageCodes
+        });
+      }, [_v0]),
+      _v67 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("video_manage_vimeo_ai_translate_speakers_changed", {
+          clip_id: _v0.clipId,
+          generation_id: _v0.generationId,
+          source: _v0.source,
+          speaker_count: _v0.speakerCount
+        });
+      }, [_v0]),
+      _v68 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("video_manage_vimeo_ai_translate_preview_started", {
+          clip_id: _v0.clipId,
+          generation_id: _v0.generationId,
+          source: _v0.source,
+          target_language_codes: _v0.targetLanguageCodes,
+          language_count: _v0.languageCount,
+          credits_used: _v0.creditsUsed
+        });
+      }, [_v0]),
+      _v69 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("video_manage_vimeo_ai_translate_preview_shown", {
+          clip_id: _v0.clipId,
+          generation_id: _v0.generationId,
+          source: _v0.source,
+          target_language_codes: _v0.targetLanguageCodes,
+          language_count: _v0.languageCount,
+          preview_count: _v0.previewCount
+        });
+      }, [_v0]),
+      _v70 = (0, _v1.useCallback)(_v0 => {
+        null !== _v0 && _v0.track("video_manage_vimeo_ai_translate_preview_discarded", {
+          clip_id: _v0.clipId,
+          generation_id: _v0.generationId,
+          source: _v0.source,
+          target_language_codes: _v0.targetLanguageCodes,
+          language_count: _v0.languageCount,
+          reason: _v0.reason
+        });
+      }, [_v0]),
+      _v71 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_vimeo_ai_upsell_triggered", {
           clip_id: _v0.clipId,
           feature: _v0.feature,
           upsell_name: _v0.upsellName
         });
       }, [_v0]),
-      _v62 = (0, _v1.useCallback)(_v0 => {
+      _v72 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_vimeo_ai_upsell_impression", {
           clip_id: _v0.clipId,
           feature: _v0.feature,
           upsell_name: _v0.upsellName
         });
       }, [_v0]),
-      _v63 = (0, _v1.useCallback)(_v0 => {
+      _v73 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_vimeo_ai_upsell_contact_sales_clicked", {
           clip_id: _v0.clipId,
           feature: _v0.feature
         });
       }, [_v0]),
-      _v64 = (0, _v1.useCallback)(_v0 => {
+      _v74 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_languages_track_toggled", {
           clip_id: _v0.clipId,
           track_type: _v0.trackType,
@@ -572,86 +669,86 @@
           enabled: _v0.enabled
         });
       }, [_v0]),
-      _v65 = (0, _v1.useCallback)(_v0 => {
+      _v75 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_languages_track_edited", {
           clip_id: _v0.clipId,
           track_type: _v0.trackType,
           language_code: _v0.languageCode
         });
       }, [_v0]),
-      _v66 = (0, _v1.useCallback)(_v0 => {
+      _v76 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_languages_track_retranscribe_clicked", {
           clip_id: _v0.clipId,
           track_type: _v0.trackType,
           language_code: _v0.languageCode
         });
       }, [_v0]),
-      _v67 = (0, _v1.useCallback)(_v0 => {
+      _v77 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_form_tab_switched", {
           clip_id: _v0.clipId,
           video_manage_interactivity_registration_form_tab: _v0.tab
         });
       }, [_v0]),
-      _v68 = (0, _v1.useCallback)(_v0 => {
+      _v78 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_form_preset_changed", {
           clip_id: _v0.clipId,
           video_manage_interactivity_registration_form_preset_action: _v0.action
         });
       }, [_v0]),
-      _v69 = (0, _v1.useCallback)(_v0 => {
+      _v79 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_form_connect_providers", {
           clip_id: _v0.clipId
         });
       }, [_v0]),
-      _v70 = (0, _v1.useCallback)(_v0 => {
+      _v80 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_form_placement_changed", {
           clip_id: _v0.clipId,
           video_manage_interactivity_registration_form_placement: _v0.placement
         });
       }, [_v0]),
-      _v71 = (0, _v1.useCallback)(_v0 => {
+      _v81 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_form_setting_toggled", {
           clip_id: _v0.clipId,
           video_manage_interactivity_registration_form_setting: _v0.setting,
           video_manage_interactivity_registration_form_setting_new_status: _v0.newStatus
         });
       }, [_v0]),
-      _v72 = (0, _v1.useCallback)(_v0 => {
+      _v82 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_form_section_switched", {
           clip_id: _v0.clipId,
           video_manage_interactivity_registration_form_section: _v0.section
         });
       }, [_v0]),
-      _v73 = (0, _v1.useCallback)(_v0 => {
+      _v83 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_form_field_added", {
           clip_id: _v0.clipId,
           video_manage_interactivity_registration_form_field_type: _v0.fieldType
         });
       }, [_v0]),
-      _v74 = (0, _v1.useCallback)(_v0 => {
+      _v84 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_form_hidden_field_added", {
           clip_id: _v0.clipId,
           video_manage_interactivity_registration_form_hidden_field_type: _v0.fieldType
         });
       }, [_v0]),
-      _v75 = (0, _v1.useCallback)(_v0 => {
+      _v85 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_form_privacy_policy_changed", {
           clip_id: _v0.clipId
         });
       }, [_v0]),
-      _v76 = (0, _v1.useCallback)(_v0 => {
+      _v86 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_form_appearance_changed", {
           clip_id: _v0.clipId,
           video_manage_interactivity_registration_form_appearance_setting: _v0.setting
         });
       }, [_v0]),
-      _v77 = (0, _v1.useCallback)(_v0 => {
+      _v87 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_form_preview_type_changed", {
           clip_id: _v0.clipId,
           video_manage_interactivity_registration_form_preview_type: _v0.previewType
         });
       }, [_v0]),
-      _v78 = (0, _v1.useCallback)(_v0 => {
+      _v88 = (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_form_preview_device_changed", {
           clip_id: _v0.clipId,
           video_manage_interactivity_registration_form_preview_device: _v0.device
@@ -733,24 +830,34 @@
       trackVideoManageVimeoAiAskAiMomentPlayed: _v58,
       trackVideoManageVimeoAiTranslateSettingsShown: _v59,
       trackVideoManageVimeoAiTranslateSaved: _v60,
-      trackVideoManageVimeoAiUpsellTriggered: _v61,
-      trackVideoManageVimeoAiUpsellImpression: _v62,
-      trackVideoManageVimeoAiUpsellContactSalesClicked: _v63,
-      trackVideoManageLanguagesTrackToggled: _v64,
-      trackVideoManageLanguagesTrackEdited: _v65,
-      trackVideoManageLanguagesTrackRetranscribeClicked: _v66,
-      trackVideoManageInteractivityRegistrationFormTabSwitched: _v67,
-      trackVideoManageInteractivityRegistrationFormPresetChanged: _v68,
-      trackVideoManageInteractivityRegistrationFormConnectProviders: _v69,
-      trackVideoManageInteractivityRegistrationFormPlacementChanged: _v70,
-      trackVideoManageInteractivityRegistrationFormSettingToggled: _v71,
-      trackVideoManageInteractivityRegistrationFormSectionSwitched: _v72,
-      trackVideoManageInteractivityRegistrationFormFieldAdded: _v73,
-      trackVideoManageInteractivityRegistrationFormHiddenFieldAdded: _v74,
-      trackVideoManageInteractivityRegistrationFormPrivacyPolicyChanged: _v75,
-      trackVideoManageInteractivityRegistrationFormAppearanceChanged: _v76,
-      trackVideoManageInteractivityRegistrationFormPreviewTypeChanged: _v77,
-      trackVideoManageInteractivityRegistrationFormPreviewDeviceChanged: _v78,
+      trackVideoManageVimeoAiTranslateDubbingModelSelected: _v61,
+      trackVideoManageVimeoAiTranslateDubbingProTooltipShown: _v62,
+      trackVideoManageVimeoAiTranslateProductSelected: _v63,
+      trackVideoManageVimeoAiTranslateLanguageAdded: _v64,
+      trackVideoManageVimeoAiTranslateLanguageRemoved: _v65,
+      trackVideoManageVimeoAiTranslateSourceLanguageSelected: _v66,
+      trackVideoManageVimeoAiTranslateSpeakersChanged: _v67,
+      trackVideoManageVimeoAiTranslatePreviewStarted: _v68,
+      trackVideoManageVimeoAiTranslatePreviewShown: _v69,
+      trackVideoManageVimeoAiTranslatePreviewDiscarded: _v70,
+      trackVideoManageVimeoAiUpsellTriggered: _v71,
+      trackVideoManageVimeoAiUpsellImpression: _v72,
+      trackVideoManageVimeoAiUpsellContactSalesClicked: _v73,
+      trackVideoManageLanguagesTrackToggled: _v74,
+      trackVideoManageLanguagesTrackEdited: _v75,
+      trackVideoManageLanguagesTrackRetranscribeClicked: _v76,
+      trackVideoManageInteractivityRegistrationFormTabSwitched: _v77,
+      trackVideoManageInteractivityRegistrationFormPresetChanged: _v78,
+      trackVideoManageInteractivityRegistrationFormConnectProviders: _v79,
+      trackVideoManageInteractivityRegistrationFormPlacementChanged: _v80,
+      trackVideoManageInteractivityRegistrationFormSettingToggled: _v81,
+      trackVideoManageInteractivityRegistrationFormSectionSwitched: _v82,
+      trackVideoManageInteractivityRegistrationFormFieldAdded: _v83,
+      trackVideoManageInteractivityRegistrationFormHiddenFieldAdded: _v84,
+      trackVideoManageInteractivityRegistrationFormPrivacyPolicyChanged: _v85,
+      trackVideoManageInteractivityRegistrationFormAppearanceChanged: _v86,
+      trackVideoManageInteractivityRegistrationFormPreviewTypeChanged: _v87,
+      trackVideoManageInteractivityRegistrationFormPreviewDeviceChanged: _v88,
       trackVideoManageInteractivityRegistrationRegistrantsActionClicked: (0, _v1.useCallback)(_v0 => {
         null !== _v0 && _v0.track("video_manage_interactivity_registration_registrants_action_clicked", {
           clip_id: _v0.clipId,

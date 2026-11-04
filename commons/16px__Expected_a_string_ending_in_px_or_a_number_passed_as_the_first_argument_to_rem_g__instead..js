@@ -3571,7 +3571,7 @@
     signal: _v1
   }) {
     let _v2 = {
-        storyboard: (0, _v272.lowerCaseUnderscore)((0, _v241.prepareInteractiveStoryboardForSave)(_v0, _v271.default.originalStoryboard))
+        storyboard: (0, _v272.lowerCaseUnderscore)((0, _v241.prepareInteractiveStoryboardForSave)(_v0, _v271.default.originalStoryboard, "interactive_viddata_preview"))
       },
       _v3 = (0, _v252.getVimeoVideoId)(),
       _v4 = `https://${_v230.default.vimeoApiUrl}/videos/${_v3}/storyboards/${_v0.id}/viddata/preview`,
@@ -4243,7 +4243,7 @@
           });else if (_v16 && !_v1) {
             let _v0 = _v24(_v10?.isEditingOverlay ? (0, _v241.prepareInteractiveOverlayEditorStoryboardForSave)(_v5, _v10) : _v5);
             _v25({
-              storyboard: _v8 ? (0, _v241.prepareInteractiveStoryboardForSave)(_v0, _v271.default.originalStoryboard) : _v0,
+              storyboard: _v8 ? (0, _v241.prepareInteractiveStoryboardForSave)(_v0, _v271.default.originalStoryboard, "interactive_autosave") : _v0,
               vimeoVideoId: _v16,
               isInteractive: _v8
             });
@@ -4301,7 +4301,7 @@
               try {
                 let _v0 = _v11(_v2),
                   _v1 = {
-                    ...(0, _v241.prepareInteractiveStoryboardForSave)(_v0, _v271.default.originalStoryboard),
+                    ...(0, _v241.prepareInteractiveStoryboardForSave)(_v0, _v271.default.originalStoryboard, "interactive_save"),
                     ...(_v6.current && {
                       id: _v6.current
                     })
@@ -17770,11 +17770,17 @@
                     code: _v4,
                     target: _v5
                   } = _v0,
-                  _v6 = _v224.default.getState().storyboard.layers,
-                  _v7 = (0, _v251.getDurationFromLayers)(_v6);
+                  _v6 = _v224.default.getState(),
+                  _v7 = _v6.storyboard.layers,
+                  _v8 = (0, _v251.getDurationFromLayers)(_v7),
+                  _v9 = (0, _v305.previewDurationSelector)(_v6);
                 if (!_v5 && !_v7 && !_v6) {
                   if ((_v4 === _v501.KEYBOARD_KEYS.TAB && (_v19.current = !0, window.removeEventListener("mouseup", _v20), window.addEventListener("mouseup", _v20)), !_v5.classList?.contains("ql-editor")) && !_v721.INPUT_TAGS.includes(_v5.tagName)) {
-                    if (_v4 !== _v501.KEYBOARD_KEYS.SPACE || 0 === _v7 || _v19.current || (_v0.stopPropagation(), _v0.preventDefault(), document.activeElement?.blur(), _v4 ? (_v7 === _v10.current?.currentTime && _v13(0), _v11()) : _v12()), _v4 === _v501.KEYBOARD_KEYS.ESC && (_v19.current = !1, window.removeEventListener("mouseup", _v20), document.activeElement?.blur()), _v721.TAB_TRIGGERED_TAGS.includes(_v5.tagName) && !_v19.current && _v4 !== _v501.KEYBOARD_KEYS.M) {
+                    if (_v4 === _v501.KEYBOARD_KEYS.SPACE && 0 !== _v8 && !_v19.current) if (_v0.stopPropagation(), _v0.preventDefault(), document.activeElement?.blur(), _v4) {
+                      let _v0 = _v10.current?.currentTime;
+                      void 0 !== _v0 && (0, _v251.isPlayheadAtEnd)(_v0, _v9) && _v13(0), _v11();
+                    } else _v12();
+                    if (_v4 === _v501.KEYBOARD_KEYS.ESC && (_v19.current = !1, window.removeEventListener("mouseup", _v20), document.activeElement?.blur()), _v721.TAB_TRIGGERED_TAGS.includes(_v5.tagName) && !_v19.current && _v4 !== _v501.KEYBOARD_KEYS.M) {
                       _v0.stopPropagation(), _v0.preventDefault();
                       return;
                     }
@@ -17825,7 +17831,7 @@
                       assetType: "transition"
                     }), _v16()), _v3.length > 0 && (_v1 && "KeyV" === _v4 || _v3 && "KeyV" === _v4) && _v0((0, _v725.pasteCopiedElementsThunkAction)()), _v1.length > 0 && (_v1 && "KeyD" === _v4 || _v3 && "KeyD" === _v4) && (_v0.preventDefault(), _v0((0, _v723.duplicateSelectedElementsThunkAction)())), (_v1 || _v3) && "KeyA" === _v4) {
                       _v0.preventDefault();
-                      let _v0 = (0, _v423.getAllSelectableElements)(_v6).map(_v0 => _v0.id);
+                      let _v0 = (0, _v423.getAllSelectableElements)(_v7).map(_v0 => _v0.id);
                       _v0.length > 0 && _v0((0, _v366.selectCEsAction)({
                         ceIds: _v0,
                         isMultiSelect: !1

@@ -4883,15 +4883,18 @@
               tier: _v3,
               renewalDate: _v4
             } = (0, _v159.useUpcomingTier)(),
-            _v5 = (0, _v161.useCampaignIdOverride)(),
-            _v6 = _v2?.tier,
-            _v7 = void 0 !== _v6 && _v3 === _v163 && _v6 !== _v163,
-            _v8 = null !== _v5 && _v161.REPACKAGING_CAMPAIGN_IDS.includes(_v5),
-            _v9 = void 0 !== _v6 && _v162.includes(_v6);
+            {
+              campaignId: _v5,
+              isLoading: _v6
+            } = (0, _v161.useCampaignIdOverride)(),
+            _v7 = _v2?.tier,
+            _v8 = void 0 !== _v7 && _v3 === _v163 && _v7 !== _v163,
+            _v9 = null !== _v5 && _v161.REPACKAGING_CAMPAIGN_IDS.includes(_v5),
+            _v10 = void 0 !== _v7 && _v162.includes(_v7);
           return {
-            showClaimCta: !_v7 && (_v6 === _v163 || _v9 && !_v8),
-            isStudioOrScheduledStudio: _v6 === _v163 || _v7,
-            isScheduledStudio: _v7,
+            showClaimCta: !_v6 && !_v8 && (_v7 === _v163 || _v10 && !_v9),
+            isStudioOrScheduledStudio: _v7 === _v163 || _v8,
+            isScheduledStudio: _v8,
             daysToRenewal: ((_v0, _v1 = Date.now()) => {
               if (void 0 === _v0) return null;
               let _v2 = Date.parse(_v0);
