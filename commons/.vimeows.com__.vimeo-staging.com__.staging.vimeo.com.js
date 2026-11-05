@@ -150,6 +150,7 @@
     video_page_customization_v1: !1,
     release_event_series_v1: !1,
     enable_event_series_in_dev_features: !1,
+    enable_landing_page_embed: !1,
     enable_event_series_announcement: !1,
     analytics_freshness_refactored: !1,
     enable_svv_redesign: !1,
@@ -250,7 +251,8 @@
     enable_homepage_starred_carousel: !1,
     disable_starred_sidebar_list: !1,
     enable_watch_for_you: !1,
-    enable_add_videos_to_folder: !1
+    enable_add_videos_to_folder: !1,
+    satellite_upload_paywall_tier: "core"
   };
   function _v6(_v0) {
     return {

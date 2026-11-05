@@ -17874,17 +17874,18 @@ ${_v9}
     _v702 = _v0.i(0),
     _v703 = _v0.i(0),
     _v704 = _v0.i(0),
-    _v705 = _v0.i(0);
-  function _v706(_v0, _v1) {
+    _v705 = _v0.i(0),
+    _v706 = _v0.i(0);
+  function _v707(_v0, _v1) {
     let _v2 = (0, _v21.useRef)(!1);
     (0, _v21.useEffect)(() => {
       _v0 && !_v2.current && _v1(), _v2.current = _v0;
     }, [_v0, _v1]);
   }
-  var _v707 = _v0.i(0),
-    _v708 = _v0.i(0),
-    _v709 = _v0.i(0);
-  let _v710 = () => {
+  var _v708 = _v0.i(0),
+    _v709 = _v0.i(0),
+    _v710 = _v0.i(0);
+  let _v711 = () => {
     let _v0 = (0, _v76.usePico)(),
       _v1 = (0, _v21.useCallback)(_v0 => {
         _v0?.track("stream_health_browser_studio_panel_opened", {
@@ -17911,20 +17912,21 @@ ${_v9}
       }, [_v0])
     };
   };
-  var _v711 = _v0.i(0);
-  function _v712({
+  var _v712 = _v0.i(0);
+  function _v713({
     samples: _v0
   }) {
     let {
         ReCharts: _v1,
         loadError: _v2
-      } = (0, _v711.useReCharts)(),
-      _v3 = (0, _v223.useColorModeValue)("#000000", "#ffffff");
+      } = (0, _v712.useReCharts)(),
+      _v3 = (0, _v223.useColorModeValue)("#68727c", "#7e8894");
     return _v2 || !_v1 || _v0.length < 2 ? null : (0, _v17.jsx)(_v94.Flex, {
       width: "100%",
       direction: "column",
       shrink: 0,
-      fontSize: "text-sm",
+      fontFamily: "body",
+      fontSize: "body-sm",
       children: (0, _v17.jsx)(_v1.ResponsiveContainer, {
         width: "100%",
         height: "100%",
@@ -17934,6 +17936,12 @@ ${_v9}
           width: 500,
           height: 240,
           data: [..._v0],
+          margin: {
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0
+          },
           children: [(0, _v17.jsx)(_v1.CartesianGrid, {
             strokeDasharray: "2 2",
             vertical: !1
@@ -17945,7 +17953,7 @@ ${_v9}
             tickLine: !1,
             type: "category",
             dataKey: "timestamp",
-            stroke: "#a3a3a3",
+            stroke: _v3,
             tickFormatter: _v0 => new Date(_v0).toLocaleTimeString("en", {
               hour: "numeric",
               minute: "numeric"
@@ -17954,32 +17962,32 @@ ${_v9}
             axisLine: !1,
             tickLine: !1,
             domain: [0, 60],
-            width: 30,
+            width: 26,
             stroke: _v3
           }), (0, _v17.jsx)(_v1.Line, {
             dot: !1,
             strokeWidth: 2,
             type: "linear",
             dataKey: "fps",
-            stroke: "#00adef",
+            stroke: _v124.VIMEO_BLUE,
             isAnimationActive: !1
           })]
         })
       })
     });
   }
-  let _v713 = {
+  let _v714 = {
       [_v579.EParticipantConnectionType.BROADCASTER]: "host",
       [_v579.EParticipantConnectionType.GUEST]: "guest",
       [_v579.EParticipantConnectionType.BROADCASTER_SCREEN]: "host_screen",
       [_v579.EParticipantConnectionType.GUEST_SCREEN]: "guest_screen"
     },
-    _v714 = {
+    _v715 = {
       [_v579.EParticipantHealth.GOOD]: "good",
       [_v579.EParticipantHealth.DEGRADED]: "degraded",
       [_v579.EParticipantHealth.NO_DATA]: "no_data"
     },
-    _v715 = {
+    _v716 = {
       [_v53.EEventLatency.Low]: {
         label: (0, _v205.translate)({
           singular: "Low",
@@ -18128,7 +18136,7 @@ ${_v9}
         })
       }
     };
-  function _v716({
+  function _v717({
     label: _v0,
     value: _v1,
     adornment: _v2
@@ -18152,7 +18160,7 @@ ${_v9}
       })]
     });
   }
-  function _v717({
+  function _v718({
     names: _v0
   }) {
     let _v1 = new Intl.ListFormat((0, _v205.getCurrentLocale)(), {
@@ -18225,7 +18233,16 @@ ${_v9}
       })]
     });
   }
-  function _v718({
+  let _v719 = _v702.keyframes`
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+`;
+  function _v720({
     timestamp: _v0
   }) {
     let [_v1, _v2] = (0, _v21.useState)(_v278.getAbsoluteNow);
@@ -18233,50 +18250,65 @@ ${_v9}
       period: 0
     });
     let _v3 = Math.max(0, Math.floor((_v1 - _v0) / 0));
-    return (0, _v17.jsx)(_v177.Text, {
-      color: "text-secondary",
-      variant: "body-sm",
-      children: (0, _v205.translate)({
-        singular: "Updated {COUNT} second ago",
-        plural: "Updated {COUNT} seconds ago",
-        count: _v3,
-        replacements: {
-          COUNT: _v3
-        },
-        dictionary: {
-          es: {
-            singular: "Actualizado hace {COUNT} segundo",
-            plural: "Actualizado hace {COUNT} segundos"
-          },
-          "de-DE": {
-            singular: "Aktualisiert vor {COUNT} Sekunde",
-            plural: "Aktualisiert vor {COUNT} Sekunden"
-          },
-          "fr-FR": {
-            singular: "Mis à jour il y a {COUNT} seconde",
-            plural: "Mis à jour il y a {COUNT} secondes"
-          },
-          "ja-JP": {
-            singular: "{COUNT}秒前に更新",
-            plural: "{COUNT}秒前に更新"
-          },
-          "ko-KR": {
-            singular: "{COUNT}초 전에 업데이트됨",
-            plural: "{COUNT}초 전에 업데이트됨"
-          },
-          "pt-BR": {
-            singular: "Atualizado há {COUNT} segundo",
-            plural: "Atualizado há {COUNT} segundos"
-          },
-          "zh-CN": {
-            singular: "更新于 {COUNT} 秒前",
-            plural: "更新于 {COUNT} 秒前"
+    return (0, _v17.jsxs)(_v94.Flex, {
+      alignItems: "center",
+      gap: (0, _v61.rem)(6),
+      children: [(0, _v17.jsx)(_v116.Box, {
+        width: (0, _v61.rem)(6),
+        height: (0, _v61.rem)(6),
+        borderRadius: "full",
+        bg: "text-tertiary",
+        sx: {
+          animation: `${_v719} 1.5s ease-in-out infinite`,
+          "@media (prefers-reduced-motion: reduce)": {
+            animation: "none"
           }
         }
-      })
+      }), (0, _v17.jsx)(_v177.Text, {
+        color: "text-tertiary",
+        variant: "body-sm",
+        children: (0, _v205.translate)({
+          singular: "Updated {COUNT} second ago",
+          plural: "Updated {COUNT} seconds ago",
+          count: _v3,
+          replacements: {
+            COUNT: _v3
+          },
+          dictionary: {
+            es: {
+              singular: "Actualizado hace {COUNT} segundo",
+              plural: "Actualizado hace {COUNT} segundos"
+            },
+            "de-DE": {
+              singular: "Aktualisiert vor {COUNT} Sekunde",
+              plural: "Aktualisiert vor {COUNT} Sekunden"
+            },
+            "fr-FR": {
+              singular: "Mis à jour il y a {COUNT} seconde",
+              plural: "Mis à jour il y a {COUNT} secondes"
+            },
+            "ja-JP": {
+              singular: "{COUNT}秒前に更新",
+              plural: "{COUNT}秒前に更新"
+            },
+            "ko-KR": {
+              singular: "{COUNT}초 전에 업데이트됨",
+              plural: "{COUNT}초 전에 업데이트됨"
+            },
+            "pt-BR": {
+              singular: "Atualizado há {COUNT} segundo",
+              plural: "Atualizado há {COUNT} segundos"
+            },
+            "zh-CN": {
+              singular: "更新于 {COUNT} 秒前",
+              plural: "更新于 {COUNT} 秒前"
+            }
+          }
+        })
+      })]
     });
   }
-  function _v719({
+  function _v721({
     health: _v0,
     speakerHealth: _v1,
     isLive: _v2,
@@ -18532,7 +18564,7 @@ ${_v9}
     });
     return (0, _v17.jsxs)(_v94.Flex, {
       direction: "column",
-      gap: (0, _v61.rem)(12),
+      gap: (0, _v61.rem)(8),
       children: [(0, _v17.jsx)(_v177.Text, {
         color: "text-secondary",
         variant: "heading-xs",
@@ -18564,31 +18596,35 @@ ${_v9}
         })
       }), (0, _v17.jsxs)(_v94.Flex, {
         direction: "column",
-        gap: (0, _v61.rem)(4),
+        gap: (0, _v61.rem)(12),
         children: [(0, _v17.jsxs)(_v94.Flex, {
-          alignItems: "center",
-          gap: (0, _v61.rem)(8),
-          children: [(0, _v17.jsx)(_v125.Header, {
-            size: "md",
-            margin: 0,
-            children: _v4
-          }), (0, _v17.jsx)(_v703.CircleShapeFilled, {
-            color: (0, _v709.getParticipantHealthColor)(_v0),
-            width: (0, _v61.rem)(10),
-            height: (0, _v61.rem)(10),
-            "data-color": _v0
+          direction: "column",
+          gap: (0, _v61.rem)(2),
+          children: [(0, _v17.jsxs)(_v94.Flex, {
+            alignItems: "center",
+            gap: (0, _v61.rem)(8),
+            children: [(0, _v17.jsx)(_v125.Header, {
+              size: "md",
+              margin: 0,
+              children: _v4
+            }), (0, _v17.jsx)(_v704.CircleShapeFilled, {
+              color: (0, _v710.getParticipantHealthColor)(_v0),
+              width: (0, _v61.rem)(10),
+              height: (0, _v61.rem)(10),
+              "data-color": _v0
+            })]
+          }), (0, _v17.jsx)(_v177.Text, {
+            color: "text-secondary",
+            variant: "body-md",
+            children: _v5
           })]
-        }), (0, _v17.jsx)(_v177.Text, {
-          color: "text-secondary",
-          variant: "body-md",
-          children: _v5
-        }), null === _v3 ? null : (0, _v17.jsx)(_v718, {
+        }), null === _v3 ? null : (0, _v17.jsx)(_v720, {
           timestamp: _v3
         })]
       })]
     });
   }
-  function _v720({
+  function _v722({
     row: _v0
   }) {
     let {
@@ -18608,7 +18644,7 @@ ${_v9}
         _v4 = _v0.connectionType === _v579.EParticipantConnectionType.BROADCASTER,
         _v5 = (0, _v135.formatConnectionUidByType)(_v38.EAgoraConnectionType.GUEST, _v0.participantId),
         _v6 = _v2.find(_v0 => _v0.uid === _v5)?.audio ?? null;
-      return (0, _v707.useAudioLevel)(_v4 ? _v1.track : _v6, _v4 ? _v1.isMuted : _v3[_v0.participantId]?.isAudioMuted ?? !1);
+      return (0, _v708.useAudioLevel)(_v4 ? _v1.track : _v6, _v4 ? _v1.isMuted : _v3[_v0.participantId]?.isAudioMuted ?? !1);
     }(_v0);
     return (0, _v17.jsxs)(_v94.Flex, {
       direction: "column",
@@ -18642,7 +18678,7 @@ ${_v9}
             }
           }
         })
-      }), (0, _v17.jsx)(_v705.AudioLevelMeter, {
+      }), (0, _v17.jsx)(_v706.AudioLevelMeter, {
         level: _v1,
         isMuted: _v2,
         hasTrack: _v3,
@@ -18650,7 +18686,7 @@ ${_v9}
       })]
     });
   }
-  function _v721({
+  function _v723({
     id: _v0,
     className: _v1,
     row: _v2,
@@ -18659,13 +18695,13 @@ ${_v9}
   }) {
     let {
         trackStreamHealthBrowserStudioSpeakerOpened: _v5
-      } = _v710(),
+      } = _v711(),
       _v6 = !_v2.isScreen && (0, _v579.isCameraFpsLow)(_v2.fps),
       _v7 = (0, _v21.useCallback)(_v0 => () => {
         _v0 || _v5({
           sessionState: _v4,
-          speakerRole: _v713[_v2.connectionType],
-          speakerHealth: _v714[_v2.health]
+          speakerRole: _v714[_v2.connectionType],
+          speakerHealth: _v715[_v2.health]
         });
       }, [_v5, _v4, _v2.connectionType, _v2.health]);
     return (0, _v17.jsx)(_v700.AccordionItem, {
@@ -18736,8 +18772,8 @@ ${_v9}
                   singular: "{name} (屏幕)"
                 }
               }
-            }) : _v2.name, (0, _v17.jsx)(_v703.CircleShapeFilled, {
-              color: (0, _v709.getParticipantHealthColor)(_v2.health),
+            }) : _v2.name, (0, _v17.jsx)(_v704.CircleShapeFilled, {
+              color: (0, _v710.getParticipantHealthColor)(_v2.health),
               width: (0, _v61.rem)(8),
               height: (0, _v61.rem)(8),
               "data-color": _v2.health
@@ -18750,7 +18786,7 @@ ${_v9}
             gap: (0, _v61.rem)(12),
             children: [(0, _v17.jsxs)(_v94.Flex, {
               gap: (0, _v61.rem)(12),
-              children: [(0, _v17.jsx)(_v716, {
+              children: [(0, _v17.jsx)(_v717, {
                 label: (0, _v205.translate)({
                   singular: "Current bitrate",
                   dictionary: {
@@ -18777,8 +18813,8 @@ ${_v9}
                     }
                   }
                 }),
-                value: (0, _v709.formatParticipantBitrate)(_v2.bitrateKbps)
-              }), (0, _v17.jsx)(_v716, {
+                value: (0, _v710.formatParticipantBitrate)(_v2.bitrateKbps)
+              }), (0, _v17.jsx)(_v717, {
                 label: (0, _v205.translate)({
                   singular: "Video resolution",
                   dictionary: {
@@ -18805,11 +18841,11 @@ ${_v9}
                     }
                   }
                 }),
-                value: (0, _v709.formatParticipantResolution)(_v2.width, _v2.height)
+                value: (0, _v710.formatParticipantResolution)(_v2.width, _v2.height)
               })]
             }), (0, _v17.jsxs)(_v94.Flex, {
               gap: (0, _v61.rem)(12),
-              children: [(0, _v17.jsx)(_v716, {
+              children: [(0, _v17.jsx)(_v717, {
                 label: (0, _v205.translate)({
                   singular: "Frame rate",
                   dictionary: {
@@ -18836,7 +18872,7 @@ ${_v9}
                     }
                   }
                 }),
-                value: (0, _v709.formatParticipantFrameRate)(_v2.fps),
+                value: (0, _v710.formatParticipantFrameRate)(_v2.fps),
                 adornment: _v6 ? (0, _v17.jsx)(_v200.BokehTooltip, {
                   label: (0, _v205.translate)({
                     singular: "Camera video is expected to run at {fps} fps.",
@@ -18867,12 +18903,12 @@ ${_v9}
                       }
                     }
                   }),
-                  children: (0, _v17.jsx)(_v702.CircleExclamation, {
+                  children: (0, _v17.jsx)(_v703.CircleExclamation, {
                     color: _v124.IMPAIRED_STATUS_COLOR,
                     boxSize: (0, _v61.rem)(16)
                   })
                 }) : void 0
-              }), (0, _v17.jsx)(_v716, {
+              }), (0, _v17.jsx)(_v717, {
                 label: (0, _v205.translate)({
                   singular: "Average frame rate",
                   dictionary: {
@@ -18899,9 +18935,9 @@ ${_v9}
                     }
                   }
                 }),
-                value: (0, _v709.formatParticipantFrameRate)(_v3)
+                value: (0, _v710.formatParticipantFrameRate)(_v3)
               })]
-            }), _v0 && !_v2.isScreen ? (0, _v17.jsx)(_v720, {
+            }), _v0 && !_v2.isScreen ? (0, _v17.jsx)(_v722, {
               row: _v2
             }) : null]
           })
@@ -18909,12 +18945,12 @@ ${_v9}
       })
     });
   }
-  function _v722({
+  function _v724({
     id: _v0 = (0, _v95.createDomName)("stream-health-tab"),
     className: _v1 = (0, _v95.createDomName)("stream-health-tab")
   }) {
     let _v2 = (0, _v292.useScrollbarStyles)(),
-      _v3 = (0, _v704.useStreamHealthRows)(),
+      _v3 = (0, _v705.useStreamHealthRows)(),
       {
         isHydrated: _v4,
         samples: _v5,
@@ -18926,33 +18962,33 @@ ${_v9}
       {
         liveComposerStatuses: _v10
       } = (0, _v28.useManager)(_v48.ComposerSessionStatusManager),
-      _v11 = (0, _v28.useManager)(_v708.EventSettingsManager),
+      _v11 = (0, _v28.useManager)(_v709.EventSettingsManager),
       _v12 = _v11?.settings.value?.latency,
-      _v13 = void 0 === _v12 ? null : _v715[_v12],
+      _v13 = void 0 === _v12 ? null : _v716[_v12],
       _v14 = _v10.isSessionLive,
       _v15 = !_v4 && _v14,
       _v16 = _v3.findIndex(_v0 => _v0.connectionType === _v579.EParticipantConnectionType.BROADCASTER),
       _v17 = _v3.filter(_v0 => _v0.health === _v579.EParticipantHealth.DEGRADED),
-      _v18 = (0, _v709.getWorstParticipantHealth)(_v3),
+      _v18 = (0, _v710.getWorstParticipantHealth)(_v3),
       _v19 = _v14 && _v5.length > 0 ? Math.max(..._v5.map(_v0 => _v0.timestamp)) : null,
       _v20 = _v14 ? (0, _v579.classifyStreamOutputHealth)(_v7, _v9) : null,
-      _v21 = null !== _v7 && (0, _v579.isStreamOutputFresh)(_v7, _v9),
+      _v21 = _v14 && null !== _v7 && (0, _v579.isStreamOutputFresh)(_v7, _v9),
       _v22 = _v21 && null !== _v7 ? _v7.fps : null,
       _v23 = _v21 ? (0, _v579.averageStreamOutputFps)(_v8, _v9) : null,
       _v24 = _v21 && null !== _v7 ? _v7.bitrateKbps : null,
-      _v25 = (0, _v709.combineStreamHealth)(_v18, _v20),
+      _v25 = (0, _v710.combineStreamHealth)(_v18, _v20),
       _v26 = _v14 ? "live" : "pre_live",
       _v27 = _v17.length > 0,
       _v28 = _v20 === _v579.EParticipantHealth.DEGRADED,
       {
         trackStreamHealthBrowserStudioPanelOpened: _v29,
         trackStreamHealthBrowserStudioWarningShown: _v30
-      } = _v710(),
+      } = _v711(),
       _v31 = (0, _v21.useRef)(!1);
     (0, _v21.useEffect)(() => {
       _v31.current || (_v31.current = !0, _v29({
         sessionState: _v26,
-        status: _v714[_v25],
+        status: _v715[_v25],
         speakerCount: _v3.length
       }));
     }, [_v29, _v26, _v25, _v3.length]);
@@ -18970,7 +19006,7 @@ ${_v9}
           degradedSpeakerCount: 0
         });
       }, [_v30, _v26]);
-    return _v706(_v27, _v32), _v706(_v28, _v33), (0, _v17.jsxs)(_v116.Box, {
+    return _v707(_v27, _v32), _v707(_v28, _v33), (0, _v17.jsxs)(_v116.Box, {
       id: _v0,
       className: _v1,
       sx: (0, _v403.createTabWrapperStyle)({
@@ -18986,179 +19022,226 @@ ${_v9}
         className: (0, _v95.createDomName)(_v1, "content"),
         children: (0, _v17.jsx)(_v94.Flex, {
           direction: "column",
-          overflowY: "scroll",
+          overflowY: "auto",
           sx: _v2,
           children: _v15 ? (0, _v17.jsx)(_v581.EmptyStatePlaceholder, {}) : (0, _v17.jsxs)(_v94.Flex, {
             direction: "column",
             gap: (0, _v61.rem)(24),
-            children: [(0, _v17.jsx)(_v719, {
+            children: [(0, _v17.jsx)(_v721, {
               health: _v25,
               speakerHealth: _v18,
               isLive: _v14,
               latestTimestamp: _v19
-            }), _v14 ? (0, _v17.jsxs)(_v94.Flex, {
+            }), (0, _v17.jsxs)(_v94.Flex, {
               direction: "column",
               gap: (0, _v61.rem)(12),
-              children: [(0, _v17.jsx)(_v177.Text, {
-                color: "text-secondary",
-                variant: "heading-xs",
-                children: (0, _v205.translate)({
-                  singular: "Stream metrics",
-                  dictionary: {
-                    es: {
-                      singular: "Métricas de transmisión"
-                    },
-                    "de-DE": {
-                      singular: "Stream-Metriken"
-                    },
-                    "fr-FR": {
-                      singular: "Indicateurs de stream"
-                    },
-                    "ja-JP": {
-                      singular: "ストリームメトリック"
-                    },
-                    "ko-KR": {
-                      singular: "스트림 측정 항목"
-                    },
-                    "pt-BR": {
-                      singular: "Métricas da transmissão"
-                    },
-                    "zh-CN": {
-                      singular: "视频流指标"
-                    }
-                  }
-                })
-              }), (0, _v17.jsx)(_v712, {
-                samples: _v8
-              }), (0, _v17.jsxs)(_v94.Flex, {
-                gap: (0, _v61.rem)(12),
-                children: [(0, _v17.jsx)(_v716, {
-                  label: (0, _v205.translate)({
-                    singular: "Frame rate",
+              children: [(0, _v17.jsxs)(_v94.Flex, {
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "100%",
+                children: [(0, _v17.jsx)(_v177.Text, {
+                  color: "text-secondary",
+                  variant: "heading-xs",
+                  children: (0, _v205.translate)({
+                    singular: "Stream metrics",
                     dictionary: {
                       es: {
-                        singular: "Frecuencia de fotogramas"
+                        singular: "Métricas de transmisión"
                       },
                       "de-DE": {
-                        singular: "Bildrate"
+                        singular: "Stream-Metriken"
                       },
                       "fr-FR": {
-                        singular: "Fréquence d'images"
+                        singular: "Indicateurs de stream"
                       },
                       "ja-JP": {
-                        singular: "フレームレート"
+                        singular: "ストリームメトリック"
                       },
                       "ko-KR": {
-                        singular: "프레임 레이트"
+                        singular: "스트림 측정 항목"
                       },
                       "pt-BR": {
-                        singular: "Quadros por segundo"
+                        singular: "Métricas da transmissão"
                       },
                       "zh-CN": {
-                        singular: "帧率"
+                        singular: "视频流指标"
                       }
                     }
-                  }),
-                  value: (0, _v709.formatStreamFrameRate)(_v22)
-                }), (0, _v17.jsx)(_v716, {
-                  label: (0, _v205.translate)({
-                    singular: "Average frame rate",
-                    dictionary: {
-                      es: {
-                        singular: "Frecuencia de fotogramas promedio"
-                      },
-                      "de-DE": {
-                        singular: "Durchschnittliche Bildfrequenz"
-                      },
-                      "fr-FR": {
-                        singular: "Fréquence d'images moyenne"
-                      },
-                      "ja-JP": {
-                        singular: "フレームレート平均値"
-                      },
-                      "ko-KR": {
-                        singular: "평균 프레임 레이트"
-                      },
-                      "pt-BR": {
-                        singular: "Taxa média de quadros"
-                      },
-                      "zh-CN": {
-                        singular: "平均帧率"
+                  })
+                }), _v14 ? (0, _v17.jsxs)(_v94.Flex, {
+                  alignItems: "center",
+                  gap: (0, _v61.rem)(8),
+                  children: [(0, _v17.jsx)(_v116.Box, {
+                    width: (0, _v61.rem)(8),
+                    height: (0, _v61.rem)(8),
+                    borderRadius: "full",
+                    bg: _v124.VIMEO_BLUE
+                  }), (0, _v17.jsx)(_v177.Text, {
+                    color: "text-primary",
+                    variant: "body-sm",
+                    children: (0, _v205.translate)({
+                      singular: "Frame rate",
+                      dictionary: {
+                        es: {
+                          singular: "Frecuencia de fotogramas"
+                        },
+                        "de-DE": {
+                          singular: "Bildrate"
+                        },
+                        "fr-FR": {
+                          singular: "Fréquence d'images"
+                        },
+                        "ja-JP": {
+                          singular: "フレームレート"
+                        },
+                        "ko-KR": {
+                          singular: "프레임 레이트"
+                        },
+                        "pt-BR": {
+                          singular: "Quadros por segundo"
+                        },
+                        "zh-CN": {
+                          singular: "帧率"
+                        }
                       }
-                    }
-                  }),
-                  value: (0, _v709.formatStreamFrameRate)(_v23)
-                })]
-              }), (0, _v17.jsxs)(_v94.Flex, {
-                gap: (0, _v61.rem)(12),
-                children: [(0, _v17.jsx)(_v716, {
-                  label: (0, _v205.translate)({
-                    singular: "Current bitrate",
-                    dictionary: {
-                      es: {
-                        singular: "Tasa de bits actual"
-                      },
-                      "de-DE": {
-                        singular: "Aktuelle Bitrate"
-                      },
-                      "fr-FR": {
-                        singular: "Débit actuel"
-                      },
-                      "ja-JP": {
-                        singular: "現在のビットレート"
-                      },
-                      "ko-KR": {
-                        singular: "현재 비트레이트"
-                      },
-                      "pt-BR": {
-                        singular: "Taxa de bits atual"
-                      },
-                      "zh-CN": {
-                        singular: "当前码率"
-                      }
-                    }
-                  }),
-                  value: (0, _v709.formatParticipantBitrate)(_v24)
-                }), (0, _v17.jsx)(_v716, {
-                  label: (0, _v205.translate)({
-                    singular: "Latency",
-                    dictionary: {
-                      es: {
-                        singular: "Latencia"
-                      },
-                      "de-DE": {
-                        singular: "Latenz"
-                      },
-                      "fr-FR": {
-                        singular: "Latence"
-                      },
-                      "ja-JP": {
-                        singular: "レイテンシ"
-                      },
-                      "ko-KR": {
-                        singular: "지연"
-                      },
-                      "pt-BR": {
-                        singular: "Latência"
-                      },
-                      "zh-CN": {
-                        singular: "延迟"
-                      }
-                    }
-                  }),
-                  value: _v13?.label ?? _v709.PARTICIPANT_HEALTH_UNAVAILABLE,
-                  adornment: _v13 ? (0, _v17.jsx)(_v200.BokehTooltip, {
-                    label: _v13.estimate,
-                    children: (0, _v17.jsx)(_v345.InfoCircle, {
-                      boxSize: (0, _v61.rem)(16),
-                      color: "text-tertiary"
                     })
-                  }) : void 0
+                  })]
+                }) : null]
+              }), _v14 ? (0, _v17.jsx)(_v713, {
+                samples: _v8
+              }) : null, (0, _v17.jsxs)(_v94.Flex, {
+                direction: "column",
+                gap: (0, _v61.rem)(24),
+                children: [(0, _v17.jsxs)(_v94.Flex, {
+                  gap: (0, _v61.rem)(16),
+                  children: [(0, _v17.jsx)(_v717, {
+                    label: (0, _v205.translate)({
+                      singular: "Frame rate",
+                      dictionary: {
+                        es: {
+                          singular: "Frecuencia de fotogramas"
+                        },
+                        "de-DE": {
+                          singular: "Bildrate"
+                        },
+                        "fr-FR": {
+                          singular: "Fréquence d'images"
+                        },
+                        "ja-JP": {
+                          singular: "フレームレート"
+                        },
+                        "ko-KR": {
+                          singular: "프레임 레이트"
+                        },
+                        "pt-BR": {
+                          singular: "Quadros por segundo"
+                        },
+                        "zh-CN": {
+                          singular: "帧率"
+                        }
+                      }
+                    }),
+                    value: (0, _v710.formatStreamFrameRate)(_v22)
+                  }), (0, _v17.jsx)(_v717, {
+                    label: (0, _v205.translate)({
+                      singular: "Average frame rate",
+                      dictionary: {
+                        es: {
+                          singular: "Frecuencia de fotogramas promedio"
+                        },
+                        "de-DE": {
+                          singular: "Durchschnittliche Bildfrequenz"
+                        },
+                        "fr-FR": {
+                          singular: "Fréquence d'images moyenne"
+                        },
+                        "ja-JP": {
+                          singular: "フレームレート平均値"
+                        },
+                        "ko-KR": {
+                          singular: "평균 프레임 레이트"
+                        },
+                        "pt-BR": {
+                          singular: "Taxa média de quadros"
+                        },
+                        "zh-CN": {
+                          singular: "平均帧率"
+                        }
+                      }
+                    }),
+                    value: (0, _v710.formatStreamFrameRate)(_v23)
+                  })]
+                }), (0, _v17.jsxs)(_v94.Flex, {
+                  gap: (0, _v61.rem)(16),
+                  children: [(0, _v17.jsx)(_v717, {
+                    label: (0, _v205.translate)({
+                      singular: "Current bitrate",
+                      dictionary: {
+                        es: {
+                          singular: "Tasa de bits actual"
+                        },
+                        "de-DE": {
+                          singular: "Aktuelle Bitrate"
+                        },
+                        "fr-FR": {
+                          singular: "Débit actuel"
+                        },
+                        "ja-JP": {
+                          singular: "現在のビットレート"
+                        },
+                        "ko-KR": {
+                          singular: "현재 비트레이트"
+                        },
+                        "pt-BR": {
+                          singular: "Taxa de bits atual"
+                        },
+                        "zh-CN": {
+                          singular: "当前码率"
+                        }
+                      }
+                    }),
+                    value: (0, _v710.formatParticipantBitrate)(_v24)
+                  }), (0, _v17.jsx)(_v717, {
+                    label: (0, _v205.translate)({
+                      singular: "Latency",
+                      dictionary: {
+                        es: {
+                          singular: "Latencia"
+                        },
+                        "de-DE": {
+                          singular: "Latenz"
+                        },
+                        "fr-FR": {
+                          singular: "Latence"
+                        },
+                        "ja-JP": {
+                          singular: "レイテンシ"
+                        },
+                        "ko-KR": {
+                          singular: "지연"
+                        },
+                        "pt-BR": {
+                          singular: "Latência"
+                        },
+                        "zh-CN": {
+                          singular: "延迟"
+                        }
+                      }
+                    }),
+                    value: _v14 ? _v13?.label ?? _v710.PARTICIPANT_HEALTH_UNAVAILABLE : _v710.PARTICIPANT_HEALTH_UNAVAILABLE,
+                    adornment: _v14 && _v13 ? (0, _v17.jsx)(_v200.BokehTooltip, {
+                      label: _v13.estimate,
+                      children: (0, _v17.jsx)(_v345.InfoCircle, {
+                        boxSize: (0, _v61.rem)(16),
+                        color: "text-tertiary"
+                      })
+                    }) : void 0
+                  })]
                 })]
               })]
-            }) : null, (0, _v17.jsxs)(_v94.Flex, {
+            }), (0, _v17.jsxs)(_v94.Flex, {
               direction: "column",
-              gap: (0, _v61.rem)(12),
+              gap: (0, _v61.rem)(8),
               children: [(0, _v17.jsx)(_v177.Text, {
                 color: "text-secondary",
                 variant: "heading-xs",
@@ -19193,41 +19276,47 @@ ${_v9}
                 allowToggle: !0,
                 size: "lg",
                 width: "100%",
-                children: _v3.map(_v0 => (0, _v17.jsx)(_v721, {
+                children: _v3.map(_v0 => (0, _v17.jsx)(_v723, {
                   id: (0, _v95.createDomName)(_v0, _v0.id),
                   className: (0, _v95.createDomName)(_v1, "row"),
                   row: _v0,
                   averageFps: (0, _v579.averageParticipantFps)(_v6[_v0.id] ?? [], _v9),
                   sessionState: _v26
                 }, _v0.id))
-              }) : (0, _v17.jsx)(_v177.Text, {
-                color: "text-secondary",
-                variant: "body-md",
-                children: (0, _v205.translate)({
-                  singular: "No speakers in the scene.",
-                  dictionary: {
-                    es: {
-                      singular: "No hay hablantes en la escena."
-                    },
-                    "de-DE": {
-                      singular: "Keine Sprecher in der Szene."
-                    },
-                    "fr-FR": {
-                      singular: "Aucun intervenant dans la scène."
-                    },
-                    "ja-JP": {
-                      singular: "シーンに話者がいません。"
-                    },
-                    "ko-KR": {
-                      singular: "장면에 화자가 없습니다."
-                    },
-                    "pt-BR": {
-                      singular: "Não há locutores na cena."
-                    },
-                    "zh-CN": {
-                      singular: "场景中没有说话者。"
+              }) : (0, _v17.jsx)(_v94.Flex, {
+                alignItems: "center",
+                justifyContent: "center",
+                minHeight: (0, _v61.rem)(120),
+                width: "100%",
+                children: (0, _v17.jsx)(_v177.Text, {
+                  color: "text-tertiary",
+                  variant: "body-md",
+                  children: (0, _v205.translate)({
+                    singular: "No speakers in the scene.",
+                    dictionary: {
+                      es: {
+                        singular: "No hay hablantes en la escena."
+                      },
+                      "de-DE": {
+                        singular: "Keine Sprecher in der Szene."
+                      },
+                      "fr-FR": {
+                        singular: "Aucun intervenant dans la scène."
+                      },
+                      "ja-JP": {
+                        singular: "シーンに話者がいません。"
+                      },
+                      "ko-KR": {
+                        singular: "장면에 화자가 없습니다."
+                      },
+                      "pt-BR": {
+                        singular: "Não há locutores na cena."
+                      },
+                      "zh-CN": {
+                        singular: "场景中没有说话者。"
+                      }
                     }
-                  }
+                  })
                 })
               })]
             })]
@@ -19236,7 +19325,7 @@ ${_v9}
       }), _v17.length > 0 ? (0, _v17.jsx)(_v116.Box, {
         paddingX: (0, _v61.rem)(16),
         paddingBottom: (0, _v61.rem)(16),
-        children: (0, _v17.jsx)(_v717, {
+        children: (0, _v17.jsx)(_v718, {
           names: _v17.map(_v0 => _v0.name)
         })
       }) : null, _v20 === _v579.EParticipantHealth.DEGRADED ? (0, _v17.jsx)(_v116.Box, {
@@ -19304,10 +19393,75 @@ ${_v9}
             })
           })]
         })
-      }) : null]
+      }) : null, _v14 ? null : (0, _v17.jsx)(_v116.Box, {
+        paddingX: (0, _v61.rem)(16),
+        paddingBottom: (0, _v61.rem)(16),
+        children: (0, _v17.jsxs)(_v322.Alert, {
+          status: "info",
+          flexDirection: "column",
+          alignItems: "stretch",
+          width: "100%",
+          children: [(0, _v17.jsx)(_v323.AlertTitle, {
+            children: (0, _v205.translate)({
+              singular: "Metrics not available yet",
+              dictionary: {
+                es: {
+                  singular: "Métricas aún no disponibles"
+                },
+                "de-DE": {
+                  singular: "Metriken noch nicht verfügbar"
+                },
+                "fr-FR": {
+                  singular: "Les métriques ne sont pas encore disponibles"
+                },
+                "ja-JP": {
+                  singular: "メトリクスはまだ利用できません"
+                },
+                "ko-KR": {
+                  singular: "메트릭을 아직 확인할 수 없습니다"
+                },
+                "pt-BR": {
+                  singular: "Métricas ainda não estão disponíveis"
+                },
+                "zh-CN": {
+                  singular: "指标尚不可用"
+                }
+              }
+            })
+          }), (0, _v17.jsx)(_v549.AlertDescription, {
+            color: "text-secondary",
+            children: (0, _v205.translate)({
+              singular: "Stream metrics will be available once your event goes live.",
+              dictionary: {
+                es: {
+                  singular: "Las métricas de la transmisión estarán disponibles una vez que su evento esté en vivo."
+                },
+                "de-DE": {
+                  singular: "Stream‑Metriken sind verfügbar, sobald Ihre Veranstaltung live ist."
+                },
+                "fr-FR": {
+                  singular: "Les métriques du flux seront disponibles dès que votre événement sera en direct."
+                },
+                "ja-JP": {
+                  singular: "イベントがライブになると、ストリームのメトリクスが利用可能になります。"
+                },
+                "ko-KR": {
+                  singular: "이벤트가 라이브로 전환되면 스트림 메트릭을 사용할 수 있습니다."
+                },
+                "pt-BR": {
+                  singular: "As métricas de streaming estarão disponíveis assim que seu evento ficar ao vivo."
+                },
+                "zh-CN": {
+                  singular: "您的活动开始直播后，流指标将可用。"
+                }
+              }
+            })
+          })]
+        })
+      })]
     });
   }
-  function _v723({
+  function _v725({
     id: _v0 = (0, _v65.createLiveDomName)("rtc-panel-right"),
     className: _v1 = (0, _v65.createLiveDomName)("rtc-panel-right")
   }) {
@@ -19340,7 +19494,7 @@ ${_v9}
         isVisible: !0
       }, {
         id: _v202.ERightPanelId.STREAM_HEALTH,
-        content: _v722,
+        content: _v724,
         isVisible: _v6
       }], [_v6]);
     return (0, _v17.jsx)(_v682.RightPanel, {
@@ -19350,7 +19504,7 @@ ${_v9}
       isLoading: !_v2
     });
   }
-  function _v724() {
+  function _v726() {
     let _v0 = (0, _v107.useIsLiveDemoSubscription)();
     return (0, _v17.jsxs)(_v94.Flex, {
       id: (0, _v95.createDomName)("page"),
@@ -19391,45 +19545,45 @@ ${_v9}
               id: (0, _v95.createDomName)("footer")
             })
           })]
-        }), (0, _v17.jsx)(_v723, {
+        }), (0, _v17.jsx)(_v725, {
           id: (0, _v95.createDomName)("right-panel")
         })]
       }), (0, _v17.jsx)(_v108.ReactionOverlay, {})]
     });
   }
-  var _v725 = _v0.i(0),
-    _v726 = _v0.i(0),
-    _v727 = _v0.i(0),
+  var _v727 = _v0.i(0),
     _v728 = _v0.i(0),
     _v729 = _v0.i(0),
     _v730 = _v0.i(0),
     _v731 = _v0.i(0),
-    _v732 = _v0.i(0);
-  let _v733 = [_v727.DebugControlManager, _v587.AudienceSpeakersManager, _v62.BroadcasterAgoraManager, _v49.BroadcasterFirebaseManager, _v694.ChatManager, _v63.ComposerSessionManager, _v168.ComposerSessionStatsManager, _v48.ComposerSessionStatusManager, _v50.ComposerSettingsManager, _v729.DestinationsManager, _v114.DragDropManager, _v730.EventAudioTracksManager, _v708.EventSettingsManager, _v81.GraphicsManager, _v134.GuestsManager, _v171.LocalMediaManager, _v728.ModuleManager, _v340.NotificationManager, _v78.PageEventsManager, _v203.PanelsManager, _v578.ParticipantHealthManager, _v208.PollManager, _v605.PresenceManager, _v170.QnAManager, _v434.ReactionManager, _v172.RemoteMediaManager, _v169.RoomScreenShareManager, _v56.SceneManager, _v731.TrackingManager, _v52.UserPreferencesManager],
-    _v734 = (0, _v28.createProvider)(_v733, {
+    _v732 = _v0.i(0),
+    _v733 = _v0.i(0),
+    _v734 = _v0.i(0);
+  let _v735 = [_v729.DebugControlManager, _v587.AudienceSpeakersManager, _v62.BroadcasterAgoraManager, _v49.BroadcasterFirebaseManager, _v694.ChatManager, _v63.ComposerSessionManager, _v168.ComposerSessionStatsManager, _v48.ComposerSessionStatusManager, _v50.ComposerSettingsManager, _v731.DestinationsManager, _v114.DragDropManager, _v732.EventAudioTracksManager, _v709.EventSettingsManager, _v81.GraphicsManager, _v134.GuestsManager, _v171.LocalMediaManager, _v730.ModuleManager, _v340.NotificationManager, _v78.PageEventsManager, _v203.PanelsManager, _v578.ParticipantHealthManager, _v208.PollManager, _v605.PresenceManager, _v170.QnAManager, _v434.ReactionManager, _v172.RemoteMediaManager, _v169.RoomScreenShareManager, _v56.SceneManager, _v733.TrackingManager, _v52.UserPreferencesManager],
+    _v736 = (0, _v28.createProvider)(_v735, {
       isCombined: _v33.liveApplicationConfig.USE_COMBINED_PROVIDERS
     });
-  function _v735({
+  function _v737({
     initialState: _v0,
     pageProps: _v1,
     children: _v2
   }) {
-    return (0, _v732.useScopeViewerProvision)(), (0, _v725.useScopeGctlProvision)(), (0, _v17.jsxs)(_v79.LiveGlobalsProvider, {
+    return (0, _v734.useScopeViewerProvision)(), (0, _v727.useScopeGctlProvision)(), (0, _v17.jsxs)(_v79.LiveGlobalsProvider, {
       initialState: _v0,
       pageProps: _v1,
       children: [(0, _v17.jsx)(_v557.PlayerContextProvider, {
         assetUrls: _v1.playerAssetUrls,
         type: _v558.PlayerType.BarebonePlayer,
-        children: (0, _v17.jsx)(_v734, {
+        children: (0, _v17.jsx)(_v736, {
           initialState: _v0,
           children: _v2
         })
-      }), (0, _v17.jsx)(_v726.FontsProvider, {
+      }), (0, _v17.jsx)(_v728.FontsProvider, {
         fonts: _v74.graphicsConfig.FONTS.ENABLED_FONTS
       })]
     });
   }
-  function _v736(_v0) {
+  function _v738(_v0) {
     let _v1 = (0, _v43.useViewer)(),
       _v2 = (0, _v36.useInitialRenderTime)(),
       _v3 = (0, _v44.useIsVpaas)(),
@@ -19501,10 +19655,10 @@ ${_v9}
     }), (0, _v41.isAgoraSupportedInBrowser)() && (!_v32.browserConfig.BROWSER?.isMobile || _v33.liveApplicationConfig.FEATURE.USE_MOBILE_ACCESS)) ? (0, _v17.jsx)(_v28.ScopeProvider, {
       children: (0, _v17.jsx)(_v31.ScopeErrorBoundary, {
         fallback: _v27,
-        children: (0, _v17.jsxs)(_v735, {
+        children: (0, _v17.jsxs)(_v737, {
           pageProps: _v0,
           initialState: _v5,
-          children: [(0, _v17.jsx)(_v724, {}), (0, _v17.jsx)(_v102, {})]
+          children: [(0, _v17.jsx)(_v726, {}), (0, _v17.jsx)(_v102, {})]
         })
       })
     }) : _v32.browserConfig.BROWSER?.isMobile ? (0, _v17.jsx)(_v30.MobileUnsupportedModal, {}) : (0, _v17.jsx)(_v29.BrowserUnsupportedModal, {});
@@ -19518,7 +19672,7 @@ ${_v9}
     return _v1 ? (0, _v17.jsx)(_v18.LiveErrorBoundary, {
       component: "LiveRtcRoot",
       componentHandler: _v27,
-      children: (0, _v17.jsx)(_v736, {
+      children: (0, _v17.jsx)(_v738, {
         ..._v0,
         sessionType: _v3,
         sessionId: _v2

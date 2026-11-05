@@ -207,6 +207,8 @@
     bansPollIntervalMs;
     revealIntervalMs;
     timers = new Map();
+    pollFailingSince = new Map();
+    unavailablePolls = new Set();
     pendingReveal = new Set();
     revealTimer;
     revealPerTick = 0;
@@ -399,8 +401,10 @@
       let _v3 = this.timers.get(_v0);
       _v3 && clearTimeout(_v3);
       let _v4 = async () => {
-        if (!this.isDisposed) try {
-          await _v2();
+        if (this.isDisposed) return;
+        let _v0 = (0, _v4.getAbsoluteNow)();
+        try {
+          await _v2(), this.onPollSucceeded(_v0);
         } catch (_v0) {
           (0, _v6.trackLiveError)(_v0, {
             method: "ProxyChatTransport.schedulePoll",
@@ -409,12 +413,35 @@
               roomId: this.roomId,
               poll: _v0
             }
-          });
+          }), this.onPollFailed(_v0, _v0, _v0);
         } finally {
           this.isDisposed || this.timers.set(_v0, setTimeout(() => void _v4(), _v1));
         }
       };
       this.timers.set(_v0, setTimeout(() => void _v4(), _v1));
+    }
+    onPollFailed(_v0, _v1, _v2) {
+      if (this.isDisposed) return;
+      let _v3 = this.pollFailingSince.get(_v0) ?? _v1;
+      this.pollFailingSince.set(_v0, _v3);
+      let _v4 = (0, _v4.getAbsoluteNow)() - _v3;
+      this.unavailablePolls.has(_v0) || _v4 < 0 || (this.unavailablePolls.add(_v0), (0, _v6.trackLiveError)(_v2, {
+        method: "ProxyChatTransport.unavailable",
+        category: _v5.ELiveErrorCategory.INTERACTION,
+        data: {
+          roomId: this.roomId,
+          poll: _v0,
+          failingForMs: _v4
+        }
+      }));
+    }
+    onPollSucceeded(_v0) {
+      let _v1 = this.pollFailingSince.get(_v0);
+      !this.isDisposed && void 0 !== _v1 && (this.pollFailingSince.delete(_v0), this.unavailablePolls.delete(_v0) && (0, _v6.trackLiveAction)("proxy_chat_recovered", {
+        roomId: this.roomId,
+        poll: _v0,
+        downtimeMs: (0, _v4.getAbsoluteNow)() - _v1
+      }));
     }
     syncBuffer() {
       let _v0 = {};

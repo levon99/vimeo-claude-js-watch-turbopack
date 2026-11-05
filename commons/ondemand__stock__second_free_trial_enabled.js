@@ -81,7 +81,7 @@
           isValidating: _v19
         } = (0, _v15.useGetMeCapabilities)(() => {
           if (!_v1) return null;
-          let _v0 = ["usePaymentsService", "beenInFreeTrial", "isLapsed", "useStripeCheckout", "hasUsedStripeCheckout", "inAppSubscription"];
+          let _v0 = ["usePaymentsService", "isJunoCheckoutEligible", "beenInFreeTrial", "isLapsed", "useStripeCheckout", "hasUsedStripeCheckout", "inAppSubscription"];
           return _v15.second_free_trial_enabled && _v0.push("secondFreeTrialEligibility"), {
             select: _v0
           };
@@ -148,6 +148,7 @@
         currencyQuery: _v3.currency ?? void 0,
         plan: _v7,
         canUsePaymentsService: _v20,
+        isJunoCheckoutEligible: _v17?.isJunoCheckoutEligible,
         creatorProductAction: _v12,
         creatorProductId: _v13,
         inPlayer: !!_v3.player ?? !1,

@@ -3931,10 +3931,10 @@
                 src: _v2,
                 w: "100%"
               }), (0, _v9.jsx)(_v14.Box, {
-                bottom: "md",
                 left: "md",
                 lineHeight: 0,
                 position: "absolute",
+                top: "md",
                 sx: {
                   boxSize: "72px",
                   "@media (min-width: 768px) and (max-width: 1100px)": {

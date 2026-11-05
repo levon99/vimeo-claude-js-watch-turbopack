@@ -26008,7 +26008,7 @@
                 videoHash: _v15,
                 updateMetadata: _v74,
                 panelRef: _v112,
-                onOpenTranslationPanel: _v157,
+                onOpenTranslationPanel: _v154 ? _v157 : void 0,
                 isRedesign: _v18.enable_svv_redesign,
                 isUiRefresh: _v18.ask_ai_panel_ui_refresh,
                 onClose: () => {

@@ -3937,24 +3937,7 @@
       return _v2;
     },
     _v180 = _v0 => _v0?.paging.next != null && "" !== _v0.paging.next && void 0 !== _v177(_v0),
-    _v181 = ({
-      query: _v0,
-      baseUrl: _v1,
-      jwt: _v2,
-      xVimeoPage: _v3,
-      locale: _v4
-    }) => _v171({
-      select: _v172.WATCH_GRID_FIELDS,
-      query: _v0,
-      baseUrl: _v1,
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: _v2 ? `jwt ${_v2}` : "",
-        "Vimeo-Page": `${_v3}`,
-        "Accept-Language": _v4 ?? "en"
-      }
-    }),
-    _v182 = (_v0, _v1, _v2) => ({
+    _v181 = (_v0, _v1, _v2) => ({
       watchSection: _v0.section.slug,
       watchSectionId: _v0.section.id,
       watchSectionPosition: _v0.section.position,
@@ -3968,13 +3951,13 @@
       watchVisitId: _v0.visitId,
       sendImmediately: "tab_switch" !== _v2
     }),
-    _v183 = _v0 => `watch_tabbed_snapshot:${_v0}`,
-    _v184 = {
+    _v182 = _v0 => `watch_tabbed_snapshot:${_v0}`,
+    _v183 = {
       t1: _v172.WATCH_GRID_FIELDS,
       t2: _v172.WATCH_POST_FIELDS
     },
-    _v185 = (0, _v71.rem)(64);
-  function _v186({
+    _v184 = (0, _v71.rem)(64);
+  function _v185({
     playerAssetUrls: _v0,
     arm: _v1,
     watchForYouEnabled: _v2
@@ -4052,7 +4035,7 @@
             return void 0 !== _v0 && "navigation" === _v0.entryType && "back_forward" === _v0.type;
           })()) return null;
           try {
-            let _v0 = window.sessionStorage.getItem(_v183(_v0));
+            let _v0 = window.sessionStorage.getItem(_v182(_v0));
             return null === _v0 ? null : ((_v0, _v1) => {
               try {
                 let _v0 = JSON.parse(_v0);
@@ -4074,7 +4057,7 @@
         return (0, _v11.useEffect)(() => {
           null !== _v2 && (_v0 => {
             try {
-              window.sessionStorage.removeItem(_v183(_v0));
+              window.sessionStorage.removeItem(_v182(_v0));
             } catch {}
           })(_v0);
         }, [_v0, _v2]), _v2;
@@ -4099,10 +4082,13 @@
             xVimeoPage: _v3,
             locale: _v4
           } = (0, _v30.useGctlConfig)(),
-          _v5 = (0, _v11.useCallback)((_v0, _v1) => _v0 && (!(_v0 > 0) || _v180(_v1)) ? {
+          _v5 = (0, _v21.useOptionalViewer)(),
+          _v6 = _v5?.user?.id ?? null,
+          _v7 = null === _v6 ? "anon" : String(_v6),
+          _v8 = (0, _v11.useCallback)((_v0, _v1) => _v0 && (!(_v0 > 0) || _v180(_v1)) ? {
             endpoint: "/watch/for_you",
             baseUrl: _v1,
-            jwt: _v2,
+            identityKey: _v7,
             locale: _v4 ?? "en",
             xVimeoPage: _v3,
             query: {
@@ -4113,62 +4099,73 @@
                 resultSetId: _v177(_v1)
               } : {})
             }
-          } : null, [_v0, _v1, _v2, _v4, _v3]),
+          } : null, [_v0, _v1, _v7, _v4, _v3]),
+          _v9 = (0, _v11.useCallback)(_v0 => _v171({
+            select: _v172.WATCH_GRID_FIELDS,
+            query: _v0.query,
+            baseUrl: _v0.baseUrl,
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: void 0 !== _v2 && "" !== _v2 ? `jwt ${_v2}` : "",
+              "Vimeo-Page": `${_v0.xVimeoPage}`,
+              "Accept-Language": _v0.locale
+            }
+          }), [_v2]),
           {
-            data: _v6,
-            error: _v7,
-            size: _v8,
-            setSize: _v9,
-            isLoading: _v10
-          } = (0, _v29.default)(_v5, _v181, {
+            data: _v10,
+            error: _v11,
+            size: _v12,
+            setSize: _v13,
+            isLoading: _v14
+          } = (0, _v29.default)(_v8, _v9, {
             revalidateOnFocus: !1,
             revalidateOnReconnect: !1,
             revalidateFirstPage: !1,
             persistSize: !1,
             shouldRetryOnError: !1
           }),
-          _v11 = (0, _v11.useMemo)(() => _v6?.map(_v0 => _v0.data) ?? [], [_v6]),
-          _v12 = (0, _v11.useMemo)(() => _v11.flatMap(_v0 => _v0), [_v11]),
-          _v13 = (0, _v11.useMemo)(() => {
+          _v15 = (0, _v11.useMemo)(() => _v10?.map(_v0 => _v0.data) ?? [], [_v10]),
+          _v16 = (0, _v11.useMemo)(() => _v15.flatMap(_v0 => _v0), [_v15]),
+          _v17 = (0, _v11.useMemo)(() => {
             let _v0 = new Map();
-            for (let _v0 of _v6 ?? []) for (let [_v0, _v1] of Object.entries(_v178(_v0))) {
+            for (let _v0 of _v10 ?? []) for (let [_v0, _v1] of Object.entries(_v178(_v0))) {
               let _v0 = Number(_v0);
               Number.isInteger(_v0) && _v0.set(_v0, _v1);
             }
             return _v0;
-          }, [_v6]),
-          _v14 = (0, _v11.useMemo)(() => {
+          }, [_v10]),
+          _v18 = (0, _v11.useMemo)(() => {
             let _v0 = new Map();
-            for (let _v0 of _v6 ?? []) for (let [_v0, _v1] of Object.entries(_v179(_v0))) {
+            for (let _v0 of _v10 ?? []) for (let [_v0, _v1] of Object.entries(_v179(_v0))) {
               let _v0 = Number(_v0);
               Number.isInteger(_v0) && _v0.set(_v0, _v1);
             }
             return _v0;
-          }, [_v6]),
-          _v15 = _v6?.length ?? 0,
-          _v16 = _v6?.[_v15 - 1],
-          _v17 = _v8 > _v15,
-          _v18 = !_v0 || void 0 !== _v7 || !_v10 && !_v180(_v16),
-          _v19 = (0, _v11.useCallback)(() => {
-            !_v17 && !_v18 && _v180(_v16) && _v9(_v0 => Math.max(_v0, _v15 + 1));
-          }, [_v17, _v18, _v16, _v15, _v9]),
-          _v20 = (0, _v11.useRef)(null);
+          }, [_v10]),
+          _v19 = _v10?.length ?? 0,
+          _v20 = _v10?.[_v19 - 1],
+          _v21 = _v12 > _v19,
+          _v22 = !_v0 || void 0 !== _v11 || !_v14 && !_v180(_v20),
+          _v23 = (0, _v11.useCallback)(() => {
+            !_v21 && !_v22 && _v180(_v20) && _v13(_v0 => Math.max(_v0, _v19 + 1));
+          }, [_v21, _v22, _v20, _v19, _v13]),
+          _v24 = (0, _v11.useRef)(null);
         return (0, _v11.useEffect)(() => {
-          if (_v16?.data.length !== 0 || _v17 || _v10 || _v18) return;
-          let _v0 = [_v1, _v4 ?? "en", _v3, _v2, _v15, _v16.page].join("|");
-          _v20.current !== _v0 && (_v20.current = _v0, _v19());
-        }, [_v1, _v2, _v18, _v17, _v10, _v16, _v19, _v4, _v15, _v3]), {
-          videos: _v12,
-          pages: _v11,
-          sourcesByClipId: _v13,
-          scoresByClipId: _v14,
-          isLoading: _v10,
-          isDone: _v18,
-          loadMore: _v19,
-          pageCount: _v15,
+          if (_v20?.data.length !== 0 || _v21 || _v14 || _v22) return;
+          let _v0 = [_v1, _v4 ?? "en", _v3, _v7, _v19, _v20.page].join("|");
+          _v24.current !== _v0 && (_v24.current = _v0, _v23());
+        }, [_v1, _v7, _v22, _v21, _v14, _v20, _v23, _v4, _v19, _v3]), {
+          videos: _v16,
+          pages: _v15,
+          sourcesByClipId: _v17,
+          scoresByClipId: _v18,
+          isLoading: _v14,
+          isDone: _v22,
+          loadMore: _v23,
+          pageCount: _v19,
           setPageCount: (0, _v11.useCallback)(_v0 => {
-            _v9(Math.max(1, _v0));
-          }, [_v9])
+            _v13(Math.max(1, _v0));
+          }, [_v13])
         };
       })(_v29 && null !== _v3),
       _v31 = ((_v0, _v1) => {
@@ -4208,7 +4205,7 @@
           pageCount: _v2?.length ?? 0,
           setPageCount: _v9
         };
-      })(_v29 || _v24 ? null : _v28, _v184[_v1]),
+      })(_v29 || _v24 ? null : _v28, _v183[_v1]),
       {
         videos: _v32,
         pages: _v33,
@@ -4289,7 +4286,7 @@
           _v12 = (0, _v11.useCallback)(_v0 => {
             let _v1 = _v8.current,
               _v2 = _v7.current;
-            null === _v1 || _v1.flushed || null === _v2 || (_v1.flushed = !0, _v6(_v9.current ?? _v182(_v1, _v2, _v0)));
+            null === _v1 || _v1.flushed || null === _v2 || (_v1.flushed = !0, _v6(_v9.current ?? _v181(_v1, _v2, _v0)));
           }, [_v6]);
         (0, _v11.useLayoutEffect)(() => {
           let _v0 = _v8.current;
@@ -4313,7 +4310,7 @@
           };
         }, [_v1, _v2, _v3, _v4, _v5, _v0, _v12]), (0, _v11.useLayoutEffect)(() => (_v9.current = null, () => {
           let _v0 = _v8.current;
-          null === _v0 || _v0.flushed || (_v9.current = _v182(_v0, _v7.current ?? window, "navigation"));
+          null === _v0 || _v0.flushed || (_v9.current = _v181(_v0, _v7.current ?? window, "navigation"));
         }), []);
         let _v13 = (0, _v11.useEffectEvent)(_v0 => _v12(_v0));
         return (0, _v11.useEffect)(() => {
@@ -4380,7 +4377,7 @@
             scrollTop: _v82(_v81(_v0.current))
           };
           try {
-            window.sessionStorage.setItem(_v183(_v1), JSON.stringify(_v0));
+            window.sessionStorage.setItem(_v182(_v1), JSON.stringify(_v0));
           } catch {}
         };
         return window.addEventListener("pagehide", _v0), _v5.events.on("beforeHistoryChange", _v0), () => {
@@ -4417,7 +4414,7 @@
           gap: "lg",
           minHeight: "100%",
           flexGrow: 1,
-          children: [(0, _v1.jsx)(_v187, {
+          children: [(0, _v1.jsx)(_v186, {
             type: _v19.PlayerType.BarebonePlayer,
             assetUrls: _v0,
             children: (0, _v1.jsxs)(_v13.Flex, {
@@ -4427,7 +4424,7 @@
               flexGrow: 1,
               children: [(0, _v1.jsx)(_v34.Box, {
                 position: "sticky",
-                top: _v185,
+                top: _v184,
                 zIndex: 1,
                 bg: "background",
                 w: "100%",
@@ -4475,7 +4472,7 @@
       })
     });
   }
-  let _v187 = ({
+  let _v186 = ({
     children: _v0,
     assetUrls: _v1,
     type: _v2
@@ -4484,7 +4481,7 @@
     type: _v2,
     children: _v0
   }) : _v0;
-  function _v188({
+  function _v187({
     playerAssetUrls: _v0
   }) {
     let {
@@ -4493,11 +4490,11 @@
       {
         settings: _v2
       } = _v1;
-    return "t1" === _v2.watch_page_categories_arm ? (0, _v1.jsx)(_v186, {
+    return "t1" === _v2.watch_page_categories_arm ? (0, _v1.jsx)(_v185, {
       playerAssetUrls: _v0,
       arm: "t1",
       watchForYouEnabled: _v2.enable_watch_for_you
-    }) : "t2" === _v2.watch_page_categories_arm ? (0, _v1.jsx)(_v186, {
+    }) : "t2" === _v2.watch_page_categories_arm ? (0, _v1.jsx)(_v185, {
       playerAssetUrls: _v0,
       arm: "t2",
       watchForYouEnabled: _v2.enable_watch_for_you
@@ -4505,7 +4502,7 @@
       playerAssetUrls: _v0
     });
   }
-  let _v189 = ({
+  let _v188 = ({
     playerAssetUrls: _v0
   }) => (0, _v1.jsxs)(_v1.Fragment, {
     children: [(0, _v1.jsxs)(_v2.default, {
@@ -4617,11 +4614,11 @@
         rel: "canonical",
         href: "https://vimeo.com/watch"
       })]
-    }), (0, _v1.jsx)(_v188, {
+    }), (0, _v1.jsx)(_v187, {
       playerAssetUrls: _v0
     })]
   });
-  _v189.getLayout = _v3.getLayout, (0, _v5.withPageSetup)(async _v0 => (await (0, _v4.isFromCopyrightRestrictedRegion)(_v0)) ? {
+  _v188.getLayout = _v3.getLayout, (0, _v5.withPageSetup)(async _v0 => (await (0, _v4.isFromCopyrightRestrictedRegion)(_v0)) ? {
     redirect: {
       destination: "/europeanfilmacademy",
       permanent: !1
@@ -4634,5 +4631,5 @@
   }, {
     inlineViewer: "all",
     inlinePlayerAssets: !0
-  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v189], 0);
+  }), _v0.s(["__N_SSP", 0, !0, "default", 0, _v188], 0);
 }

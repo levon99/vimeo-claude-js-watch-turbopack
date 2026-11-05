@@ -81,17 +81,16 @@
     _v32 = _v0.i(0),
     _v33 = _v0.i(0),
     _v34 = _v0.i(0),
-    _v35 = _v0.i(0),
-    _v36 = _v0.i(0);
-  let _v37 = (_v0, _v1) => {},
-    _v38 = {
+    _v35 = _v0.i(0);
+  let _v36 = (_v0, _v1) => {},
+    _v37 = {
       iconSize: (0, _v17.rem)(24),
       iconMarginRight: (0, _v17.rem)(12),
       borderRadius: (0, _v17.rem)(12),
       paddingX: (0, _v17.rem)(8),
       paddingLeft: (0, _v17.rem)(6)
     },
-    _v39 = ({
+    _v38 = ({
       icon: _v0,
       label: _v1,
       link: _v2,
@@ -101,10 +100,10 @@
       let _v5 = (0, _v12.useViewer)(),
         {
           trackSidebarNavClicked: _v6
-        } = (0, _v35.useWatchTracking)(),
+        } = (0, _v34.useWatchTracking)(),
         _v7 = _v2.slice(1) + "_link",
         _v8 = _v0 => {
-          _v0?.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer"), document.getElementsByClassName(_v7)[0].blur(), _v37({
+          _v0?.preventDefault(), window.open(_v2, "_blank", "noopener,noreferrer"), document.getElementsByClassName(_v7)[0].blur(), _v36({
             target: _v3,
             targetPath: _v2,
             copy: _v3.split("_").join(" ")
@@ -120,8 +119,8 @@
         onKeyDown: _v0 => {
           "Enter" === _v0.key && _v8(_v0);
         },
-        children: (0, _v1.jsx)(_v36.MenuItem, {
-          ..._v38,
+        children: (0, _v1.jsx)(_v35.MenuItem, {
+          ..._v37,
           className: _v7,
           icon: _v0,
           label: _v1,
@@ -135,7 +134,7 @@
         })
       });
     },
-    _v40 = ({
+    _v39 = ({
       userId: _v0,
       navContext: _v1
     }) => {
@@ -146,11 +145,8 @@
         _v4 = (0, _v12.useViewer)(),
         {
           trackSidebarNavClicked: _v5
-        } = (0, _v35.useWatchTracking)(),
-        {
-          watch_page_categories_arm: _v6
-        } = (0, _v34.useOrionSettingsFields)(["watch_page_categories_arm"]),
-        _v7 = [{
+        } = (0, _v34.useWatchTracking)(),
+        _v6 = [{
           key: "explore",
           label: (0, _v33.translate)({
             singular: "Explore",
@@ -219,7 +215,7 @@
           copy: "Staff Picks",
           destination: "staff_picks",
           active: "staffpicks" === _v3
-        }, ...("t1" === _v6 || "t2" === _v6 ? [] : [{
+        }, {
           key: "feed",
           label: (0, _v33.translate)({
             singular: "Feed",
@@ -246,7 +242,7 @@
           copy: "Feed",
           destination: "my_feed",
           active: "my-feed" === _v3
-        }])];
+        }];
       return (0, _v1.jsx)(_v3.Box, {
         style: {
           flexGrow: 1,
@@ -260,17 +256,17 @@
             customStyles: {
               gap: (0, _v17.rem)(2)
             },
-            children: _v7.map(_v0 => (0, _v1.jsx)(_v3.Box, {
+            children: _v6.map(_v0 => (0, _v1.jsx)(_v3.Box, {
               as: "li",
               listStyleType: "none",
-              children: (0, _v1.jsx)(_v36.MenuItem, {
-                ..._v38,
+              children: (0, _v1.jsx)(_v35.MenuItem, {
+                ..._v37,
                 icon: _v0.active ? _v0.iconActive : _v0.icon,
                 label: _v0.label,
                 active: _v0.active,
                 href: _v0.href,
                 onClick: () => {
-                  _v37({
+                  _v36({
                     target: _v0.target,
                     targetPath: _v0.targetPath,
                     copy: _v0.copy
@@ -381,7 +377,7 @@
                 label: _v1,
                 link: _v2,
                 target: _v3
-              }) => (0, _v1.jsx)(_v39, {
+              }) => (0, _v1.jsx)(_v38, {
                 icon: _v0,
                 label: _v1,
                 link: _v2,
@@ -505,7 +501,7 @@
               label: _v1,
               link: _v2,
               target: _v3
-            }) => (0, _v1.jsx)(_v39, {
+            }) => (0, _v1.jsx)(_v38, {
               icon: _v0,
               label: _v1,
               link: _v2,
@@ -516,9 +512,9 @@
         })
       });
     },
-    _v41 = (0, _v2.createContext)(256);
-  _v0.s(["SideNavWidthContext", 0, _v41], 0);
-  let _v42 = ({
+    _v40 = (0, _v2.createContext)(256);
+  _v0.s(["SideNavWidthContext", 0, _v40], 0);
+  let _v41 = ({
     children: _v0
   }) => {
     let _v1 = (0, _v12.useViewer)(),
@@ -555,7 +551,7 @@
               onClose: _v5,
               isMobile: _v3,
               hideWhatsNew: !0,
-              children: (0, _v1.jsx)(_v40, {
+              children: (0, _v1.jsx)(_v39, {
                 userId: _v1?.user?.id,
                 navContext: "watchpage"
               })
@@ -573,7 +569,7 @@
           } : void 0,
           isSideNavActive: _v4,
           hasSideNavLayout: !_v3
-        }), (0, _v1.jsx)(_v41.Provider, {
+        }), (0, _v1.jsx)(_v40.Provider, {
           value: _v10,
           children: _v0
         }), _v3 && _v4 && (0, _v1.jsx)(_v3.Box, {
@@ -593,7 +589,7 @@
       })]
     });
   };
-  _v0.s(["getLayout", 0, _v0 => (0, _v1.jsx)(_v42, {
+  _v0.s(["getLayout", 0, _v0 => (0, _v1.jsx)(_v41, {
     children: _v0
   })], 0);
 }

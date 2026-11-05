@@ -54,7 +54,7 @@
         singular: "周"
       }
     }
-  })}` : "" : "", "getCheckoutPeriodicity", 0, (_v0, _v1, _v2, _v3) => _v0 ? _v5(_v1) : _v3 ? "weekly" : _v2 ? "monthly" : "annual", "getErrorRedirectPath", 0, (_v0, _v1, _v2) => {
+  })}` : "" : "", "getCheckoutPeriodicity", 0, (_v0, _v1, _v2, _v3) => _v0 ? _v5(_v1) : _v3 ? "weekly" : _v2 ? "monthly" : "annual", "getEffectiveCheckoutExperience", 0, (_v0, _v1) => "wetransferInspired" === _v0 && !1 === _v1 ? "disclosureVisiblePriceCompliantV2" : _v0, "getErrorRedirectPath", 0, (_v0, _v1, _v2) => {
     if (_v0 && _v4(_v0)) try {
       let _v0 = _v1 ?? (document?.referrer !== "" ? document?.referrer : `${window.location.origin}/ondemand`),
         _v1 = new URL(_v0, window.location.origin);

@@ -15,8 +15,9 @@
     _v12 = _v0.i(0),
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
-    _v15 = _v0.i(0);
-  let _v16 = {
+    _v15 = _v0.i(0),
+    _v16 = _v0.i(0);
+  let _v17 = {
     variant: "inline-primary",
     fontSize: "inherit",
     cursor: "pointer"
@@ -27,13 +28,17 @@
     onConfirm: _v2,
     isLoading: _v3
   }) => {
-    let _v4 = (0, _v15.useViewer)(),
-      _v5 = (0, _v14.useOrionSettingsFields)(["enable_team_defaults_page", "enable_workspace_defaults_page"]),
+    let _v4 = (0, _v16.useViewer)(),
+      _v5 = (0, _v15.useOrionSettingsFields)(["enable_team_defaults_page", "enable_workspace_defaults_page"]),
       _v6 = _v4?.teamUser?.ownerId,
       _v7 = void 0 !== _v6 && _v6 !== _v4?.user?.id,
-      _v8 = (0, _v12.getVideoDefaultsUrl)({
+      {
+        capabilities: _v8
+      } = (0, _v12.useCapability)(["hasEnterprise"], _v6),
+      _v9 = (0, _v13.getVideoDefaultsUrl)({
         isTeamOwned: _v7,
         isWorkspaceTeam: !!_v4?.teamUser?.isWorkspace,
+        isEnterpriseTeam: !!_v8.hasEnterprise,
         enableTeamDefaultsPage: _v5.enable_team_defaults_page,
         enableWorkspaceDefaultsPage: _v5.enable_workspace_defaults_page
       });
@@ -45,7 +50,7 @@
         children: [(0, _v1.jsx)(_v9.ModalHeader, {
           children: (0, _v1.jsxs)(_v3.Header, {
             size: "md",
-            children: [" ", (0, _v13.translate)({
+            children: [" ", (0, _v14.translate)({
               singular: "Create review links automatically",
               dictionary: {
                 es: {
@@ -76,12 +81,12 @@
           paddingBottom: "md",
           children: (0, _v1.jsx)(_v11.Text, {
             variant: "body-md",
-            children: (0, _v13.translate)({
+            children: (0, _v14.translate)({
               singular: "Turn on this setting to automatically generate a review link for every new video. You can always update this setting in {LINK}upload defaults{/LINK}. Links will expire after 30 days.",
               replacements: {
                 LINK: _v0 => (0, _v1.jsx)(_v4.Link, {
-                  ..._v16,
-                  href: _v8,
+                  ..._v17,
+                  href: _v9,
                   children: _v0
                 })
               },
@@ -114,7 +119,7 @@
           children: [(0, _v1.jsx)(_v2.Button, {
             variant: "tertiary",
             onClick: _v1,
-            children: (0, _v13.translate)({
+            children: (0, _v14.translate)({
               singular: "Not now",
               dictionary: {
                 es: {
@@ -144,7 +149,7 @@
             variant: "primary",
             onClick: _v2,
             isLoading: _v3,
-            children: (0, _v13.translate)({
+            children: (0, _v14.translate)({
               singular: "Turn on setting",
               dictionary: {
                 es: {
@@ -175,8 +180,8 @@
       })]
     });
   }], 0);
-  var _v17 = _v0.i(0),
-    _v18 = _v0.i(0);
+  var _v18 = _v0.i(0),
+    _v19 = _v0.i(0);
   _v0.s(["CreateReviewLinkModal", 0, ({
     isOpen: _v0,
     resourceId: _v1,
@@ -193,8 +198,8 @@
     onClose: _v6,
     children: (0, _v1.jsx)(_v10.ModalOverlay, {
       children: (0, _v1.jsxs)(_v7.ModalContent, {
-        width: (0, _v17.rem)(480),
-        maxW: (0, _v17.rem)(480),
+        width: (0, _v18.rem)(480),
+        maxW: (0, _v18.rem)(480),
         children: [(0, _v1.jsx)(_v9.ModalHeader, {
           pt: "md",
           pb: "lg",
@@ -202,7 +207,7 @@
           children: (0, _v1.jsx)(_v11.Text, {
             variant: "heading-md",
             color: "text-primary",
-            children: "edit" === _v8 ? (0, _v13.translate)({
+            children: "edit" === _v8 ? (0, _v14.translate)({
               singular: "Manage review link",
               dictionary: {
                 es: {
@@ -227,7 +232,7 @@
                   singular: "管理审阅链接"
                 }
               }
-            }) : (0, _v13.translate)({
+            }) : (0, _v14.translate)({
               singular: "Create review link",
               dictionary: {
                 es: {
@@ -263,7 +268,7 @@
             color: "text-secondary",
             paddingX: "lg",
             pb: "md",
-            children: (0, _v13.translate)({
+            children: (0, _v14.translate)({
               singular: "Share a Review link to gather time-coded comments and keep feedback connected to the video.",
               dictionary: {
                 es: {
@@ -289,7 +294,7 @@
                 }
               }
             })
-          }), (0, _v1.jsx)(_v18.ReviewLinkForm, {
+          }), (0, _v1.jsx)(_v19.ReviewLinkForm, {
             resourceId: _v1,
             resourceType: _v2,
             resourceName: _v3,

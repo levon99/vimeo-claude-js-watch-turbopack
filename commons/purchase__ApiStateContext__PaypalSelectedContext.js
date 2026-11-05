@@ -22,6 +22,7 @@
       order: void 0,
       subscriptionProduct: void 0,
       canUsePaymentsService: !0,
+      isJunoCheckoutEligible: !0,
       errorMessage: void 0,
       storePaymentMethod: !1
     },
