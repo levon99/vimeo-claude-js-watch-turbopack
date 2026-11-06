@@ -16,7 +16,8 @@
     _v13 = _v0.i(0),
     _v14 = _v0.i(0),
     _v15 = _v0.i(0),
-    _v16 = _v0.i(0);
+    _v16 = _v0.i(0),
+    _v17 = _v0.i(0);
   _v0.s(["AutoCc", 0, function ({
     value: _v0 = !1,
     language: _v1 = null,
@@ -197,35 +198,72 @@
           flexGrow: 1,
           children: [_v5 === _v15.ESettingsLocation.Wizard ? (0, _v1.jsx)(_v12.Captions, {
             boxSize: 20
-          }) : null, (0, _v1.jsx)(_v8.Text, {
-            color: "text-primary",
-            variant: "heading-xs",
-            children: (0, _v13.translate)({
-              singular: "Auto-captions",
-              dictionary: {
-                es: {
-                  singular: "Subtítulos automáticos"
-                },
-                "de-DE": {
-                  singular: "Automatische Untertitel"
-                },
-                "fr-FR": {
-                  singular: "Sous-titres automatiques"
-                },
-                "ja-JP": {
-                  singular: "自動キャプション"
-                },
-                "ko-KR": {
-                  singular: "자동 자막"
-                },
-                "pt-BR": {
-                  singular: "Legendas automáticas"
-                },
-                "zh-CN": {
-                  singular: "自动字幕"
+          }) : null, (0, _v1.jsxs)(_v3.Flex, {
+            alignItems: "center",
+            gap: (0, _v4.rem)(4),
+            children: [(0, _v1.jsx)(_v8.Text, {
+              color: "text-primary",
+              variant: "heading-xs",
+              children: (0, _v13.translate)({
+                singular: "Auto-captions",
+                dictionary: {
+                  es: {
+                    singular: "Subtítulos automáticos"
+                  },
+                  "de-DE": {
+                    singular: "Automatische Untertitel"
+                  },
+                  "fr-FR": {
+                    singular: "Sous-titres automatiques"
+                  },
+                  "ja-JP": {
+                    singular: "自動キャプション"
+                  },
+                  "ko-KR": {
+                    singular: "자동 자막"
+                  },
+                  "pt-BR": {
+                    singular: "Legendas automáticas"
+                  },
+                  "zh-CN": {
+                    singular: "自动字幕"
+                  }
                 }
-              }
-            })
+              })
+            }), (0, _v1.jsx)(_v5.Box, {
+              as: "span",
+              display: "inline-flex",
+              onClick: _v0 => _v0.preventDefault(),
+              children: (0, _v1.jsx)(_v17.CircleTip, {
+                as: "span",
+                label: (0, _v13.translate)({
+                  singular: "Enabling captions may increase the latency by an additional 20s",
+                  dictionary: {
+                    es: {
+                      singular: "Habilitar los subtítulos puede aumentar la latencia en 20s adicionales"
+                    },
+                    "de-DE": {
+                      singular: "Das Aktivieren von Untertiteln kann die Latenz um zusätzliche 20s erhöhen."
+                    },
+                    "fr-FR": {
+                      singular: "L'activation des sous-titres peut augmenter la latence de 20s supplémentaires"
+                    },
+                    "ja-JP": {
+                      singular: "字幕を有効にすると、レイテンシがさらに20秒増加する可能性があります"
+                    },
+                    "ko-KR": {
+                      singular: "자막을 활성화하면 지연 시간이 추가로 20초 증가할 수 있습니다"
+                    },
+                    "pt-BR": {
+                      singular: "Ativar legendas pode aumentar a latência em mais 20s"
+                    },
+                    "zh-CN": {
+                      singular: "启用字幕可能会使延迟额外增加 20 秒"
+                    }
+                  }
+                })
+              })
+            })]
           }), _v6 ? (0, _v1.jsx)(_v7.Badge, {
             size: "sm",
             variant: "upgrade",

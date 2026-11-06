@@ -55,6 +55,7 @@
 - https://vimeo.com/demo/translations/dont-wait-for-branch-translation
 - https://vimeo.com/demo/translations/no-variants
 - https://vimeo.com/desktop-required
+- https://vimeo.com/e/event/[...params]
 - https://vimeo.com/enterprise-contact-us-modal
 - https://vimeo.com/enterprise-contact-us-upsell-modal
 - https://vimeo.com/enterprise-lohp

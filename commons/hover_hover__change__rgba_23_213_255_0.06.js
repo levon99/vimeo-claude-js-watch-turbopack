@@ -82,11 +82,11 @@
         backgroundColor: _v3 || _v2 ? _v17 : "transparent",
         borderColor: _v3 || _v2 ? "vimeoBlue.500" : "transparent",
         borderRadius: "lg",
-        borderWidth: ".125rem",
+        borderWidth: (0, _v13.rem)(2),
         direction: "column",
         gap: "0.5rem",
         opacity: _v1 ? .5 : 1,
-        padding: "0.5rem",
+        padding: (0, _v13.rem)(8),
         role: "group",
         transition: "background-color 0.2s ease, border-color 0.2s ease",
         _hover: {
@@ -437,13 +437,14 @@
     alt: _v0,
     src: _v1,
     srcSet: _v2,
-    aspectRatio: _v3 = "16 / 9",
-    opacity: _v4 = 1,
-    isLocked: _v5 = !1,
-    isPasswordLocked: _v6 = !1,
-    onClick: _v7
+    sizes: _v3,
+    aspectRatio: _v4 = "16 / 9",
+    opacity: _v5 = 1,
+    isLocked: _v6 = !1,
+    isPasswordLocked: _v7 = !1,
+    onClick: _v8
   }) => (0, _v1.jsxs)(_v5.Box, {
-    opacity: _v4,
+    opacity: _v5,
     position: "relative",
     isolation: "isolate",
     width: "100%",
@@ -451,13 +452,14 @@
     borderRadius: "md",
     overflow: "hidden",
     backgroundColor: "background",
-    onClick: _v5 ? void 0 : _v7,
-    children: [_v5 && (0, _v1.jsx)(_v36, {}), (0, _v1.jsx)(_v5.Box, {
+    onClick: _v6 ? void 0 : _v8,
+    children: [_v6 && (0, _v1.jsx)(_v36, {}), (0, _v1.jsx)(_v5.Box, {
       as: "img",
       alt: _v0,
       src: _v1,
       srcSet: _v2,
-      opacity: _v4,
+      sizes: _v3,
+      opacity: _v5,
       position: "relative",
       inset: "0",
       width: "100%",
@@ -466,10 +468,10 @@
       borderWidth: "1px",
       borderStyle: "solid",
       borderColor: "stroke",
-      aspectRatio: _v3,
+      aspectRatio: _v4,
       objectFit: "cover",
-      style: _v6 ? _v20.PASSWORD_LOCKED_IMAGE_STYLE : void 0
-    }), _v6 && (0, _v1.jsx)(_v20.PasswordLockedOverlay, {})]
+      style: _v7 ? _v20.PASSWORD_LOCKED_IMAGE_STYLE : void 0
+    }), _v7 && (0, _v1.jsx)(_v20.PasswordLockedOverlay, {})]
   }), _v30.DefaultThumbnail = ({
     children: _v0,
     background: _v1,
@@ -820,5 +822,5 @@
       })
     })]
   });
-  _v0.s(["ContentCard", 0, _v30], 0);
+  _v0.s(["CONTENT_CARD_INSET", 0, 10, "ContentCard", 0, _v30], 0);
 }

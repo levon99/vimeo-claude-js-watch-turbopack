@@ -640,7 +640,7 @@
       });
       if (!_v3.ok) {
         let _v0 = await _v3.json().catch(() => void 0);
-        throw new _v9.NetworkError("A network error occurred", _v3.status, _v0);
+        throw new _v9.NetworkError("A network error occurred", _v3.status, (0, _v9.deepCamelCase)(_v0));
       }
       let _v4 = await _v3.json();
       return (0, _v9.deepCamelCase)(_v4);

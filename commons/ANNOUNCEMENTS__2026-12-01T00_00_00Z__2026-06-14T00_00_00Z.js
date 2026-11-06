@@ -139,6 +139,12 @@
       latestEligibleAccountCreationDate: "2026-10-29T00:00:00Z",
       order: 24,
       priority: "normal"
+    },
+    enterprise_october_update: {
+      expirationDate: "2026-12-05T00:00:00Z",
+      latestEligibleAccountCreationDate: "2026-10-29T00:00:00Z",
+      order: 25,
+      priority: "high"
     }
   }, "PRIORITY_RANK", 0, {
     critical: 4,

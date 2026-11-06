@@ -17043,9 +17043,10 @@
   };
   var _v306 = _v0.i(0),
     _v307 = _v0.i(0),
-    _v308 = _v0.i(0);
-  let _v309 = new Set([_v107.Tier.Creator, _v107.Tier.Core, _v107.Tier.Professional]);
-  function _v310() {
+    _v308 = _v0.i(0),
+    _v309 = _v0.i(0);
+  let _v310 = new Set([_v107.Tier.Creator, _v107.Tier.Core, _v107.Tier.Professional]);
+  function _v311() {
     let _v0,
       _v1,
       _v2,
@@ -17249,7 +17250,7 @@
       {
         open: _v39,
         modal: _v40
-      } = (0, _v308.useIndividualEligibilityModal)({
+      } = (0, _v309.useIndividualEligibilityModal)({
         initialStep: _v33 && !_v32 ? "not_qualified" : void 0
       }),
       [_v41, _v42] = (0, _v7.useState)(!1),
@@ -17259,9 +17260,9 @@
       _v47 = _v7.productId === _v56.REPACK_FREE_PRODUCT_ID || void 0 !== _v7.tier && _v108.RepackagedTiers.includes(_v7.tier),
       _v48 = null !== _v24 && _v65.REPACKAGING_CAMPAIGN_IDS.includes(_v24),
       _v49 = _v28?.productId === _v56.REPACK_FREE_PRODUCT_ID || void 0 !== _v30 && _v108.RepackagedTiers.includes(_v30),
-      _v50 = !_v6 && !_v25 && !_v26 && _v34 && _v48 && !_v27 && !_v47 && !_v49,
+      _v50 = (0, _v306.isRepackagingAnnouncementActive)() && !_v6 && !_v25 && !_v26 && _v34 && _v48 && !_v27 && !_v47 && !_v49,
       _v51 = _v29 && _v7.tier === _v107.Tier.Advanced && "professional" === _v45,
-      _v52 = _v23.show_repack_welcome_modal && _v29 && void 0 !== _v30 && _v309.has(_v30) && !!_v28?.renewalDate,
+      _v52 = _v23.show_repack_welcome_modal && _v29 && void 0 !== _v30 && _v310.has(_v30) && !!_v28?.renewalDate,
       {
         offer: _v53
       } = (0, _v54.useTriggeredBundleOffer)({
@@ -17341,9 +17342,9 @@
       },
       children: [(0, _v5.jsx)(_v64.SettingsPageContentHeader, {
         title: _v109.T.Billing
-      }), _v50 && (0, _v5.jsx)(_v307.RepackagingAnnouncementBanner, {
+      }), _v50 && (0, _v5.jsx)(_v308.RepackagingAnnouncementBanner, {
         surface: "billing",
-        learnMoreHref: _v306.REPACKAGING_LEARN_MORE_URL,
+        learnMoreHref: _v307.REPACKAGING_LEARN_MORE_URL,
         onLearnMoreClick: _v21
       }), _v54 && null !== _v53 && (0, _v5.jsx)(_v53, {
         planName: "Studio",
@@ -17497,7 +17498,7 @@
             background: "white",
             size: "xs",
             as: "a",
-            href: _v306.REPACKAGING_LEARN_MORE_URL,
+            href: _v307.REPACKAGING_LEARN_MORE_URL,
             target: "_blank",
             rel: "noopener noreferrer",
             flexShrink: 0,
@@ -17576,5 +17577,5 @@
       })]
     });
   }
-  _v310.getLayout = _v286.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v310], 0);
+  _v311.getLayout = _v286.getLayout, _v0.s(["__N_SSP", 0, !0, "default", 0, _v311], 0);
 }

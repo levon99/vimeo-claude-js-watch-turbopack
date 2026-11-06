@@ -1349,7 +1349,7 @@
             select: ["creditsPerMinute"]
           });
         return Promise.all([_v1(), _v1("v2")]).then(([_v0, _v1]) => {
-          _v0 && (_v17(_v0.creditsPerMinute || 20), _v19(_v1.creditsPerMinute || 150));
+          _v0 && (_v17(_v0.creditsPerMinute || 20), _v19(_v1.creditsPerMinute || 120));
         }).catch(() => void 0), () => {
           _v0 = !1;
         };
@@ -1857,7 +1857,7 @@
               onChange: _v49,
               onProTooltipShown: _v11,
               priceV1: _v27 || 20,
-              priceV2: _v28 || 150,
+              priceV2: _v28 || 120,
               badgeLabel: _v40
             })]
           }), _v35 && (0, _v1.jsx)(_v12.Box, {

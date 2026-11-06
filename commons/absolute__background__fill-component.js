@@ -33,36 +33,38 @@
       clipId: _v1,
       configUrl: _v2,
       playerInitEvent: _v3,
-      isHovering: _v4,
-      quality: _v5,
-      objectFit: _v6,
-      setIsPlayerReady: _v7,
-      setIsPlayerBroken: _v8,
-      isDefaultPicture: _v9,
-      thumbnailSrc: _v10,
-      thumbnailSrcSet: _v11,
-      aspectRatio: _v12,
-      isPlayerReady: _v13,
-      isPlayerBroken: _v14,
-      isColdStorage: _v15,
-      isPasswordLocked: _v16,
-      spinnerSize: _v17,
-      defaultIconProps: _v18,
-      thumbnailClickEvent: _v19,
-      isSelectable: _v20,
-      selectionType: _v21,
-      hoverActions: _v22,
-      videoPrivacy: _v23,
-      privacyBadgeVariant: _v24,
-      onPrivacyBadgeClick: _v25,
-      privacyBadgeTooltip: _v26,
-      managedStorageIndicator: _v27,
-      tagText: _v28,
-      tagTextVariant: _v29,
-      tagTextStyles: _v30,
-      topLeftDecoration: _v31,
-      topRightDecoration: _v32,
-      progress: _v33
+      onPreviewPlay: _v4,
+      isHovering: _v5,
+      quality: _v6,
+      objectFit: _v7,
+      setIsPlayerReady: _v8,
+      setIsPlayerBroken: _v9,
+      isDefaultPicture: _v10,
+      thumbnailSrc: _v11,
+      thumbnailSrcSet: _v12,
+      thumbnailSizes: _v13,
+      aspectRatio: _v14,
+      isPlayerReady: _v15,
+      isPlayerBroken: _v16,
+      isColdStorage: _v17,
+      isPasswordLocked: _v18,
+      spinnerSize: _v19,
+      defaultIconProps: _v20,
+      thumbnailClickEvent: _v21,
+      isSelectable: _v22,
+      selectionType: _v23,
+      hoverActions: _v24,
+      videoPrivacy: _v25,
+      privacyBadgeVariant: _v26,
+      onPrivacyBadgeClick: _v27,
+      privacyBadgeTooltip: _v28,
+      managedStorageIndicator: _v29,
+      tagText: _v30,
+      tagTextVariant: _v31,
+      tagTextStyles: _v32,
+      topLeftDecoration: _v33,
+      topRightDecoration: _v34,
+      progress: _v35
     }) => (0, _v1.jsxs)(_v1.Fragment, {
       children: [_v0 && (0, _v1.jsx)(_v1.Fragment, {
         children: (0, _v1.jsx)(_v5.Box, {
@@ -75,14 +77,15 @@
             clipId: _v1,
             configUrl: _v2,
             initEvent: _v3,
-            isHovering: _v4,
-            quality: _v5,
-            objectFit: _v6,
-            setIsPlayerReady: _v7,
-            setIsPlayerBroken: _v8
+            isHovering: _v5,
+            onPreviewPlay: _v4,
+            quality: _v6,
+            objectFit: _v7,
+            setIsPlayerReady: _v8,
+            setIsPlayerBroken: _v9
           })
         })
-      }), _v9 ? (0, _v1.jsx)(_v5.Box, {
+      }), _v10 ? (0, _v1.jsx)(_v5.Box, {
         background: "background",
         width: "100%",
         height: "100%",
@@ -90,32 +93,33 @@
         inset: "0",
         border: "0",
         borderRadius: "md",
-        opacity: _v13 && _v4 ? 0 : 1,
+        opacity: _v15 && _v5 ? 0 : 1,
         children: (0, _v1.jsx)(_v5.Box, {
           background: "background",
           opacity: "0.6",
           children: (0, _v1.jsx)(_v14.ContentCard.DefaultThumbnail, {
             background: "fill-component",
-            isLocked: _v15,
-            onClick: _v19,
+            isLocked: _v17,
+            onClick: _v21,
             children: (0, _v1.jsx)(_v12.PlayerFilled, {
               color: "text-secondary",
               boxSize: "2xl",
               opacity: "0.4",
-              ..._v18
+              ..._v20
             })
           })
         })
       }) : (0, _v1.jsx)(_v14.ContentCard.Thumbnail, {
         alt: "",
-        src: _v10,
-        srcSet: _v11,
-        aspectRatio: _v12,
-        opacity: _v13 && _v4 ? 0 : 1,
-        isLocked: _v15,
-        isPasswordLocked: _v16,
-        onClick: _v19
-      }), _v4 && !_v13 && !_v14 && !_v15 && !_v16 && (0, _v1.jsx)(_v6.Flex, {
+        src: _v11,
+        srcSet: _v12,
+        sizes: _v13,
+        aspectRatio: _v14,
+        opacity: _v15 && _v5 ? 0 : 1,
+        isLocked: _v17,
+        isPasswordLocked: _v18,
+        onClick: _v21
+      }), _v5 && !_v15 && !_v16 && !_v17 && !_v18 && (0, _v1.jsx)(_v6.Flex, {
         height: "100%",
         width: "100%",
         alignItems: "center",
@@ -123,40 +127,40 @@
         position: "absolute",
         top: "0",
         background: "transparent",
-        onClick: _v19,
+        onClick: _v21,
         children: (0, _v1.jsx)(_v8.Spinner, {
-          size: _v17
+          size: _v19
         })
-      }), _v20 && (0, _v1.jsx)(_v6.Flex, {
+      }), _v22 && (0, _v1.jsx)(_v6.Flex, {
         position: "absolute",
         top: "8px",
         left: "8px",
         onClick: _v0 => {
           _v0.stopPropagation();
         },
-        children: "checkbox" === _v21 ? (0, _v1.jsx)(_v14.ContentCard.SelectCheckbox, {
+        children: "checkbox" === _v23 ? (0, _v1.jsx)(_v14.ContentCard.SelectCheckbox, {
           size: "md"
         }) : (0, _v1.jsx)(_v14.ContentCard.SelectRadio, {
           size: "lg"
         })
-      }), _v22, (0, _v1.jsx)(_v14.ContentCard.PrivacyBadge, {
-        privacy: _v23,
-        variant: _v24,
-        onClick: _v25,
+      }), _v24, (0, _v1.jsx)(_v14.ContentCard.PrivacyBadge, {
+        privacy: _v25,
+        variant: _v26,
+        onClick: _v27,
         layout: "overlay",
-        tooltipLabel: _v26
-      }), _v27, !!_v28 && (0, _v1.jsx)(_v14.ContentCard.Badge, {
-        variant: _v29,
-        sx: _v30,
-        children: _v28
-      }), _v31 && (0, _v1.jsx)(_v14.ContentCard.Badge, {
+        tooltipLabel: _v28
+      }), _v29, !!_v30 && (0, _v1.jsx)(_v14.ContentCard.Badge, {
+        variant: _v31,
+        sx: _v32,
+        children: _v30
+      }), _v33 && (0, _v1.jsx)(_v14.ContentCard.Badge, {
         bgColor: "transparent",
         backdropFilter: "none",
         top: (0, _v11.rem)(16),
         left: (0, _v11.rem)(8),
         border: "none",
-        children: _v31
-      }), _v32 && (0, _v1.jsx)(_v14.ContentCard.Badge, {
+        children: _v33
+      }), _v34 && (0, _v1.jsx)(_v14.ContentCard.Badge, {
         bgColor: "transparent",
         backdropFilter: "none",
         top: (0, _v11.rem)(16),
@@ -164,14 +168,14 @@
         bottom: "auto",
         left: "auto",
         border: "none",
-        children: _v32
-      }), _v33 > 0 && (0, _v1.jsx)(_v7.Progress, {
-        "aria-label": `${_v33}% complete`,
+        children: _v34
+      }), _v35 > 0 && (0, _v1.jsx)(_v7.Progress, {
+        "aria-label": `${_v35}% complete`,
         bottom: "0",
         left: "4px",
         position: "absolute",
         size: "xs",
-        value: _v33,
+        value: _v35,
         width: "calc(100% - 8px)",
         sx: {
           bgColor: "gray.500",
@@ -187,92 +191,94 @@
     isDefaultPicture: _v3,
     thumbnailSrc: _v4,
     thumbnailSrcSet: _v5,
-    avatarSrc: _v6,
-    avatarName: _v7,
-    showAvatar: _v8 = !0,
-    showAvatarInSubtitle: _v9 = !1,
-    typeIcon: _v10,
-    tagText: _v11,
-    tagTextStyles: _v12,
-    tagTextVariant: _v13,
-    actionsMenu: _v14,
-    hoverActions: _v15,
-    isSelectable: _v16 = !1,
-    isSelected: _v17 = !1,
-    onClick: _v18,
-    onToggleSelected: _v19,
-    onMouseEnter: _v20,
-    playerInitEvent: _v21 = "hover",
-    selectionType: _v22 = "checkbox",
-    clipId: _v23,
-    configUrl: _v24,
-    quality: _v25,
-    objectFit: _v26,
-    aspectRatio: _v27,
-    spinnerSize: _v28 = "md",
-    topLeftDecoration: _v29,
-    topRightDecoration: _v30,
-    belowThumbnail: _v31,
-    titleStyles: _v32,
-    defaultIconProps: _v33,
-    tabIndex: _v34,
-    creator: _v35,
-    shouldUseNextLink: _v36 = !0,
-    hasPlayOnHover: _v37 = !0,
-    progress: _v38 = 0,
-    hasFollow: _v39,
-    followSource: _v40,
-    isColdStorage: _v41 = !1,
-    lockedTooltipLabel: _v42,
-    isPasswordLocked: _v43 = !1,
-    videoPrivacy: _v44,
-    privacyBadgeVariant: _v45 = "default",
-    onPrivacyBadgeClick: _v46,
-    privacyBadgeTooltip: _v47,
-    managedStorageIndicator: _v48,
-    editableTitle: _v49,
-    isEditingContentTitle: _v50
+    thumbnailSizes: _v6,
+    avatarSrc: _v7,
+    avatarName: _v8,
+    showAvatar: _v9 = !0,
+    showAvatarInSubtitle: _v10 = !1,
+    typeIcon: _v11,
+    tagText: _v12,
+    tagTextStyles: _v13,
+    tagTextVariant: _v14,
+    actionsMenu: _v15,
+    hoverActions: _v16,
+    isSelectable: _v17 = !1,
+    isSelected: _v18 = !1,
+    onClick: _v19,
+    onToggleSelected: _v20,
+    onMouseEnter: _v21,
+    playerInitEvent: _v22 = "hover",
+    selectionType: _v23 = "checkbox",
+    clipId: _v24,
+    configUrl: _v25,
+    quality: _v26,
+    objectFit: _v27,
+    aspectRatio: _v28,
+    spinnerSize: _v29 = "md",
+    topLeftDecoration: _v30,
+    topRightDecoration: _v31,
+    belowThumbnail: _v32,
+    titleStyles: _v33,
+    defaultIconProps: _v34,
+    tabIndex: _v35,
+    creator: _v36,
+    shouldUseNextLink: _v37 = !0,
+    hasPlayOnHover: _v38 = !0,
+    onPreviewPlay: _v39,
+    progress: _v40 = 0,
+    hasFollow: _v41,
+    followSource: _v42,
+    isColdStorage: _v43 = !1,
+    lockedTooltipLabel: _v44,
+    isPasswordLocked: _v45 = !1,
+    videoPrivacy: _v46,
+    privacyBadgeVariant: _v47 = "default",
+    onPrivacyBadgeClick: _v48,
+    privacyBadgeTooltip: _v49,
+    managedStorageIndicator: _v50,
+    editableTitle: _v51,
+    isEditingContentTitle: _v52
   }) => {
-    let _v51 = (0, _v13.useOrionSetting)("enable_uploader_tooltip"),
-      [_v52, _v53] = (0, _v3.useState)(!1),
+    let _v53 = (0, _v13.useOrionSetting)("enable_uploader_tooltip"),
       [_v54, _v55] = (0, _v3.useState)(!1),
       [_v56, _v57] = (0, _v3.useState)(!1),
-      _v58 = "sm" === _v28,
-      _v59 = () => void 0,
-      _v60 = null,
-      _v61 = _v0 => _v7 && _v51 ? (0, _v1.jsx)(_v10.Tooltip, {
-        label: _v7,
+      [_v58, _v59] = (0, _v3.useState)(!1),
+      _v60 = "sm" === _v29,
+      _v61 = () => void 0,
+      _v62 = null,
+      _v63 = _v0 => _v8 && _v53 ? (0, _v1.jsx)(_v10.Tooltip, {
+        label: _v8,
         children: (0, _v1.jsx)(_v5.Box, {
           display: "inline-flex",
           pointerEvents: "auto",
           children: _v0
         })
       }) : _v0;
-    "" !== _v6 && (_v8 || _v9) && (_v60 = _v61((0, _v1.jsx)(_v4.Avatar, {
-      alt: _v7 ?? "",
+    "" !== _v7 && (_v9 || _v10) && (_v62 = _v63((0, _v1.jsx)(_v4.Avatar, {
+      alt: _v8 ?? "",
       size: "xs",
-      src: _v6,
+      src: _v7,
       nameProps: {
-        name: _v7 ?? ""
+        name: _v8 ?? ""
       }
     })));
-    let _v62 = null;
-    "" !== _v6 && _v9 && (_v62 = _v61((0, _v1.jsx)(_v5.Box, {
+    let _v64 = null;
+    "" !== _v7 && _v10 && (_v64 = _v63((0, _v1.jsx)(_v5.Box, {
       boxSize: "0.875rem",
       display: "inline-flex",
       children: (0, _v1.jsx)(_v4.Avatar, {
-        alt: _v7 ?? "",
+        alt: _v8 ?? "",
         size: "auto",
-        src: _v6,
+        src: _v7,
         nameProps: {
-          name: _v7 ?? ""
+          name: _v8 ?? ""
         }
       })
     })));
-    let _v63 = _v9 && null != _v62 ? (0, _v1.jsxs)(_v6.Flex, {
+    let _v65 = _v10 && null != _v64 ? (0, _v1.jsxs)(_v6.Flex, {
       alignItems: "center",
       gap: "xs",
-      children: [_v62, (0, _v1.jsx)(_v9.Text, {
+      children: [_v64, (0, _v1.jsx)(_v9.Text, {
         variant: "body-sm",
         color: "text-tertiary",
         noOfLines: 1,
@@ -280,115 +286,119 @@
       })]
     }) : _v1;
     return (0, _v1.jsx)(_v14.ContentCard, {
-      isSelected: _v17,
-      onClick: _v18,
-      onToggleSelected: _v19,
+      isSelected: _v18,
+      onClick: _v19,
+      onToggleSelected: _v20,
       href: _v2,
       ariaLabel: "Video card",
-      tabIndex: _v34,
-      shouldUseNextLink: _v36,
-      hoverZIndex: _v41 && _v42 || _v35?.showCard ? 25 : void 0,
+      tabIndex: _v35,
+      shouldUseNextLink: _v37,
+      hoverZIndex: _v43 && _v44 || _v36?.showCard ? 25 : void 0,
       onMouseEnter: _v0 => {
-        _v20?.(_v0), _v37 && _v57(!0);
+        _v21?.(_v0), _v38 && _v59(!0);
       },
-      onMouseLeave: _v37 ? () => {
-        _v57(!1);
+      onMouseLeave: _v38 ? () => {
+        _v59(!1);
       } : void 0,
-      isEditingContentTitle: _v50,
+      isEditingContentTitle: _v52,
       children: (0, _v1.jsxs)(_v1.Fragment, {
         children: [(0, _v1.jsx)(_v14.ContentCard.Body, {
-          aspectRatio: _v27,
-          children: _v41 && _v42 ? (0, _v1.jsx)(_v15.ColdStorageThumbTooltip, {
-            label: _v42,
-            compactGridTooltip: _v58,
+          aspectRatio: _v28,
+          children: _v43 && _v44 ? (0, _v1.jsx)(_v15.ColdStorageThumbTooltip, {
+            label: _v44,
+            compactGridTooltip: _v60,
             children: (0, _v1.jsx)(_v17, {
-              hasPlayOnHover: _v37,
-              clipId: _v23,
-              configUrl: _v24,
-              playerInitEvent: _v21,
-              isHovering: _v56,
-              quality: _v25,
-              objectFit: _v26,
-              setIsPlayerReady: _v53,
-              setIsPlayerBroken: _v55,
+              hasPlayOnHover: _v38,
+              clipId: _v24,
+              configUrl: _v25,
+              playerInitEvent: _v22,
+              onPreviewPlay: _v39,
+              isHovering: _v58,
+              quality: _v26,
+              objectFit: _v27,
+              setIsPlayerReady: _v55,
+              setIsPlayerBroken: _v57,
               isDefaultPicture: !!_v3,
               thumbnailSrc: _v4,
               thumbnailSrcSet: _v5,
-              aspectRatio: _v27,
-              isPlayerReady: _v52,
-              isPlayerBroken: _v54,
-              isColdStorage: _v41,
-              isPasswordLocked: _v43,
-              spinnerSize: _v28,
-              defaultIconProps: _v33,
-              thumbnailClickEvent: _v59,
-              isSelectable: _v16,
-              selectionType: _v22,
-              hoverActions: _v15,
-              videoPrivacy: _v44,
-              privacyBadgeVariant: _v45,
-              onPrivacyBadgeClick: _v46,
-              privacyBadgeTooltip: _v47,
-              managedStorageIndicator: _v48,
-              tagText: _v11,
-              tagTextVariant: _v13,
-              tagTextStyles: _v12,
-              topLeftDecoration: _v29,
-              topRightDecoration: _v30,
-              progress: _v38
+              thumbnailSizes: _v6,
+              aspectRatio: _v28,
+              isPlayerReady: _v54,
+              isPlayerBroken: _v56,
+              isColdStorage: _v43,
+              isPasswordLocked: _v45,
+              spinnerSize: _v29,
+              defaultIconProps: _v34,
+              thumbnailClickEvent: _v61,
+              isSelectable: _v17,
+              selectionType: _v23,
+              hoverActions: _v16,
+              videoPrivacy: _v46,
+              privacyBadgeVariant: _v47,
+              onPrivacyBadgeClick: _v48,
+              privacyBadgeTooltip: _v49,
+              managedStorageIndicator: _v50,
+              tagText: _v12,
+              tagTextVariant: _v14,
+              tagTextStyles: _v13,
+              topLeftDecoration: _v30,
+              topRightDecoration: _v31,
+              progress: _v40
             })
           }) : (0, _v1.jsx)(_v17, {
-            hasPlayOnHover: _v37,
-            clipId: _v23,
-            configUrl: _v24,
-            playerInitEvent: _v21,
-            isHovering: _v56,
-            quality: _v25,
-            objectFit: _v26,
-            setIsPlayerReady: _v53,
-            setIsPlayerBroken: _v55,
+            hasPlayOnHover: _v38,
+            clipId: _v24,
+            configUrl: _v25,
+            playerInitEvent: _v22,
+            onPreviewPlay: _v39,
+            isHovering: _v58,
+            quality: _v26,
+            objectFit: _v27,
+            setIsPlayerReady: _v55,
+            setIsPlayerBroken: _v57,
             isDefaultPicture: !!_v3,
             thumbnailSrc: _v4,
             thumbnailSrcSet: _v5,
-            aspectRatio: _v27,
-            isPlayerReady: _v52,
-            isPlayerBroken: _v54,
-            isColdStorage: _v41,
-            isPasswordLocked: _v43,
-            spinnerSize: _v28,
-            defaultIconProps: _v33,
-            thumbnailClickEvent: _v59,
-            isSelectable: _v16,
-            selectionType: _v22,
-            hoverActions: _v15,
-            videoPrivacy: _v44,
-            privacyBadgeVariant: _v45,
-            onPrivacyBadgeClick: _v46,
-            privacyBadgeTooltip: _v47,
-            managedStorageIndicator: _v48,
-            tagText: _v11,
-            tagTextVariant: _v13,
-            tagTextStyles: _v12,
-            topLeftDecoration: _v29,
-            topRightDecoration: _v30,
-            progress: _v38
+            thumbnailSizes: _v6,
+            aspectRatio: _v28,
+            isPlayerReady: _v54,
+            isPlayerBroken: _v56,
+            isColdStorage: _v43,
+            isPasswordLocked: _v45,
+            spinnerSize: _v29,
+            defaultIconProps: _v34,
+            thumbnailClickEvent: _v61,
+            isSelectable: _v17,
+            selectionType: _v23,
+            hoverActions: _v16,
+            videoPrivacy: _v46,
+            privacyBadgeVariant: _v47,
+            onPrivacyBadgeClick: _v48,
+            privacyBadgeTooltip: _v49,
+            managedStorageIndicator: _v50,
+            tagText: _v12,
+            tagTextVariant: _v14,
+            tagTextStyles: _v13,
+            topLeftDecoration: _v30,
+            topRightDecoration: _v31,
+            progress: _v40
           })
-        }), _v31, (0, _v1.jsx)(_v14.ContentCard.Footer, {
-          actions: _v14,
-          avatar: null != _v10 ? void 0 : _v60,
-          leadingIcon: _v10,
+        }), _v32, (0, _v1.jsx)(_v14.ContentCard.Footer, {
+          actions: _v15,
+          avatar: null != _v11 ? void 0 : _v62,
+          leadingIcon: _v11,
           title: _v0,
-          subtitle: _v63,
-          isLocked: _v41,
-          titleStyles: _v32,
-          creator: _v35,
+          subtitle: _v65,
+          isLocked: _v43,
+          titleStyles: _v33,
+          creator: _v36,
           href: _v2,
-          shouldUseNextLink: _v36,
+          shouldUseNextLink: _v37,
           onTitleClick: () => void 0,
-          editableTitle: _v49,
-          isEditingContentTitle: _v50,
-          hasFollow: _v39,
-          followSource: _v40
+          editableTitle: _v51,
+          isEditingContentTitle: _v52,
+          hasFollow: _v41,
+          followSource: _v42
         })]
       })
     });

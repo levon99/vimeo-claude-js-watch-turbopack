@@ -1455,7 +1455,6 @@
     ManageVideos: "/manage/videos",
     MVV: "/user/[userId]/folder/[folderId]",
     OrganizationAnalytics: "/manage/organization/analytics",
-    OrganizationAnalyticsAi: "/manage/organization/analytics/ai",
     SharedWithMe: "/shared-with-me",
     Showcases: "/library/showcases",
     EventSeries: "/library/event_series",

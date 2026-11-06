@@ -92,29 +92,28 @@
       _v20 = (0, _v45.useOrionSetting)("enable_analytics_ai_default_landing"),
       _v21 = _v19 && _v20,
       {
-        hasAccess: _v22,
-        href: _v23
-      } = (0, _v59.useAnalyticsAiDestination)({
+        hasAccess: _v22
+      } = (0, _v59.useAnalyticsAiAccess)({
         enabled: _v21 && !_v17 && _v16 > 0
       }),
       {
-        starredItemsData: _v24,
-        isLoading: _v25,
-        starredListError: _v26
+        starredItemsData: _v23,
+        isLoading: _v24,
+        starredListError: _v25
       } = (0, _v63.useStarredItemDataContext)(),
-      _v27 = !_v25 && !_v26 && _v24.length > 0,
+      _v26 = !_v24 && !_v25 && _v23.length > 0,
       {
-        capabilities: _v28,
-        loading: _v29
+        capabilities: _v27,
+        loading: _v28
       } = (0, _v36.useCapability)(["canContributorAccessShowcase", "hasSharedWithMe", "hasVideoLibraryShowcases", "hasVideoManagerLiveEventsMenu", "hasWatchButton", "hasUseVimeoStreaming"], _v16),
       {
-        capabilities: _v30,
-        loading: _v31
+        capabilities: _v29,
+        loading: _v30
       } = (0, _v36.useCapability)(["hasSimplifiedEnterpriseAccount"]),
       {
-        contentSpaceEnabled: _v32
+        contentSpaceEnabled: _v31
       } = (0, _v35.useContentSpaceEnabled)(_v16),
-      _v33 = _v32 ? (0, _v43.translate)({
+      _v32 = _v31 ? (0, _v43.translate)({
         singular: "Team library",
         dictionary: {
           es: {
@@ -166,18 +165,18 @@
         }
       }),
       {
-        data: _v34,
-        isLoading: _v35
-      } = (0, _v40.useGetUserFoldersPrivateToMe)(() => _v16 && _v32 ? {
+        data: _v33,
+        isLoading: _v34
+      } = (0, _v40.useGetUserFoldersPrivateToMe)(() => _v16 && _v31 ? {
         where: {
           ownerId: _v16
         },
         select: ["uri"]
       } : null),
       {
-        data: _v36,
-        isLoading: _v37
-      } = (0, _v41.useGetUserOttSites)(() => _v16 && _v28.hasUseVimeoStreaming ? {
+        data: _v35,
+        isLoading: _v36
+      } = (0, _v41.useGetUserOttSites)(() => _v16 && _v27.hasUseVimeoStreaming ? {
         where: {
           userId: _v16
         },
@@ -187,11 +186,11 @@
           sort: "date"
         }
       } : null),
-      _v38 = _v36?.data[0]?.externalAdminUrl,
+      _v37 = _v35?.data[0]?.externalAdminUrl,
       {
-        data: _v39,
-        isLoading: _v40
-      } = (0, _v42.useGetUserTeamsSharedItems)(() => _v28.hasSharedWithMe && _v6?.user?.id ? {
+        data: _v38,
+        isLoading: _v39
+      } = (0, _v42.useGetUserTeamsSharedItems)(() => _v27.hasSharedWithMe && _v6?.user?.id ? {
         select: ["type"],
         where: {
           userId: _v6.user.id
@@ -203,26 +202,25 @@
           Accept: "application/vnd.vimeo.*+json;version=3.4.1"
         }
       } : null),
-      _v41 = !!_v39?.data?.length,
+      _v40 = !!_v38?.data?.length,
       {
-        data: _v42,
-        isLoading: _v43,
-        mutate: _v44
+        data: _v41,
+        isLoading: _v42,
+        mutate: _v43
       } = (0, _v39.useGetMePreferences)({
-        select: _v59.ANALYTICS_ME_PREFERENCES_FIELDS
+        select: ["rdtim", "spdot"]
       }),
-      [_v45] = (0, _v39.usePatchMePreferences)(),
-      _v46 = !!_v42?.orguid,
-      _v47 = _v21 && _v22 ? `${_v23}?ref=sidebar` : `${_v46 ? _v61.Path.OrganizationAnalytics : _v61.Path.Analytics}?ref=sidebar`,
-      _v48 = (0, _v52.useIsNewSidebarUser)(),
+      [_v44] = (0, _v39.usePatchMePreferences)(),
+      _v45 = _v21 && _v22 ? `${_v61.Path.AnalyticsAi}?ref=sidebar` : `${_v61.Path.Analytics}?ref=sidebar`,
+      _v46 = (0, _v52.useIsNewSidebarUser)(),
       {
-        maximizeVideoFileTransferAdoption: _v49
+        maximizeVideoFileTransferAdoption: _v47
       } = (0, _v44.useAdoptionSettings)(),
       {
-        openTransferFileModal: _v50
+        openTransferFileModal: _v48
       } = (0, _v57.useTransferFileModal)(),
       {
-        trackTransferEntryPointClicked: _v51
+        trackTransferEntryPointClicked: _v49
       } = (0, _v48.useFileTransferAdoptionTracking)();
     return {
       appSections: (0, _v3.useMemo)(() => {
@@ -262,7 +260,7 @@
           }),
           _v18 = _v6?.isSimplifiedSite ?? !1,
           _v19 = _v6?.isFromCopyrightRestrictedRegion ?? !1,
-          _v20 = !_v31 && !_v6?.isEnterpriseSite && !_v18 && !_v30?.hasSimplifiedEnterpriseAccount && _v28.hasWatchButton && !_v19,
+          _v20 = !_v30 && !_v6?.isEnterpriseSite && !_v18 && !_v29?.hasSimplifiedEnterpriseAccount && _v27.hasWatchButton && !_v19,
           _v21 = {
             key: "home",
             label: (0, _v43.translate)({
@@ -295,8 +293,8 @@
             active: (_v1 = _v61.Path.Home, _v5.pathname === _v1),
             ..._v17("sidebar_home", _v61.Path.Home, "home")
           },
-          _v22 = null != _v34 && (_v2 = _v61.Path.MVV, _v5.pathname === _v2) && !0 === _v2,
-          _v23 = _v34 ? {
+          _v22 = null != _v33 && (_v2 = _v61.Path.MVV, _v5.pathname === _v2) && !0 === _v2,
+          _v23 = _v33 ? {
             key: "my_library",
             label: (0, _v43.translate)({
               singular: "My library",
@@ -325,7 +323,7 @@
               }
             }),
             icon: _v22 ? (0, _v1.jsx)(_v21.MyLibraryFilled, {}) : (0, _v1.jsx)(_v20.MyLibrary, {}),
-            href: (0, _v62.getFolderPageUriFromApiUri)(_v34.uri),
+            href: (0, _v62.getFolderPageUriFromApiUri)(_v33.uri),
             prefetch: !1,
             active: _v22,
             onClick: () => {
@@ -335,13 +333,13 @@
           _v24 = (_v3 = _v61.Path.TeamLibrary, _v5.pathname === _v3 || (_v4 = _v61.Path.MVV, _v5.pathname === _v4 && !_v22)),
           _v25 = {
             key: "library",
-            label: _v33,
-            icon: _v24 ? _v32 ? (0, _v1.jsx)(_v27.TeamLibraryFilled, {}) : (0, _v1.jsx)(_v33.VideosStackFilled, {}) : _v32 ? (0, _v1.jsx)(_v26.TeamLibrary, {}) : (0, _v1.jsx)(_v32.VideosStack, {}),
+            label: _v32,
+            icon: _v24 ? _v31 ? (0, _v1.jsx)(_v27.TeamLibraryFilled, {}) : (0, _v1.jsx)(_v33.VideosStackFilled, {}) : _v31 ? (0, _v1.jsx)(_v26.TeamLibrary, {}) : (0, _v1.jsx)(_v32.VideosStack, {}),
             active: _v24,
             dataId: "home_side_nav_libary_menu_item",
-            ..._v17("sidebar_library", `${_v61.Path.TeamLibrary}?library_referrer=sidebar`, _v32 ? "team_library" : "my_library")
+            ..._v17("sidebar_library", `${_v61.Path.TeamLibrary}?library_referrer=sidebar`, _v31 ? "team_library" : "my_library")
           },
-          _v26 = _v28.hasSharedWithMe && _v41 ? {
+          _v26 = _v27.hasSharedWithMe && _v40 ? {
             key: "shared_with_me",
             label: (0, _v43.translate)({
               singular: "Shared with me",
@@ -378,7 +376,7 @@
               _v16("shared_with_me"), _v15();
             }
           } : null,
-          _v27 = _v28.hasVideoManagerLiveEventsMenu ? {
+          _v27 = _v27.hasVideoManagerLiveEventsMenu ? {
             key: "live_events",
             label: (0, _v43.translate)({
               singular: "Live events",
@@ -506,7 +504,7 @@
               });
             }
           } : null,
-          _v31 = _v28.hasVideoLibraryShowcases ? {
+          _v31 = _v27.hasVideoLibraryShowcases ? {
             key: "showcases",
             label: (0, _v43.translate)({
               singular: "Showcases",
@@ -545,7 +543,7 @@
           _v32 = () => {
             _v15();
           },
-          _v33 = _v38 ? {
+          _v33 = _v37 ? {
             key: "streaming_site",
             label: (0, _v43.translate)({
               singular: "Streaming site",
@@ -574,11 +572,11 @@
               }
             }),
             icon: (0, _v1.jsx)(_v23.PurchaseVideo, {}),
-            href: _v38,
+            href: _v37,
             dataId: "home_side_nav_streaming_site_menu_item",
             showActionOnHover: !0,
             action: (0, _v1.jsx)(_v6.Link, {
-              href: _v38,
+              href: _v37,
               onClick: _v0 => {
                 _v32(), _v0.stopPropagation();
               },
@@ -619,8 +617,8 @@
             icon: _v34 ? (0, _v1.jsx)(_v11.AnalyticsFilled, {}) : (0, _v1.jsx)(_v10.Analytics, {}),
             active: _v34,
             prefetch: !1,
-            ..._v17("sidebar_analytics", _v47, "analytics")
-          }, !_v17 && _v16 && _v49 ? {
+            ..._v17("sidebar_analytics", _v45, "analytics")
+          }, !_v17 && _v16 && _v47 ? {
             key: "transfer",
             label: (0, _v43.translate)({
               singular: "Transfer file",
@@ -651,9 +649,9 @@
             icon: (0, _v1.jsx)(_v17.FileUpload, {}),
             action: (0, _v1.jsx)(_v50.NewBadge, {}),
             onClick: () => {
-              _v51({
+              _v49({
                 entryPoint: "side_bar"
-              }), _v50("side_bar"), _v15();
+              }), _v48("side_bar"), _v15();
             }
           } : null, !_v6?.teamUser || _v6.teamUser.permissionLevel <= _v61.RECENTLY_DELETED_MAX_PERMISSION_LEVEL ? {
             key: "recently_deleted",
@@ -686,13 +684,13 @@
             icon: (_v13 = _v61.Path.RecentlyDeleted, _v5.pathname === _v13) ? (0, _v1.jsx)(_v29.TrashBinFilled, {}) : (0, _v1.jsx)(_v28.TrashBin, {}),
             prefetch: !1,
             active: (_v14 = _v61.Path.RecentlyDeleted, _v5.pathname === _v14),
-            action: void 0 === _v42 || _v42.rdtim ? void 0 : (0, _v1.jsx)(_v34.NewFeatureDot, {
+            action: void 0 === _v41 || _v41.rdtim ? void 0 : (0, _v1.jsx)(_v34.NewFeatureDot, {
               m: (0, _v9.rem)(6)
             }),
             ..._v17("sidebar_recently_deleted", _v61.Path.RecentlyDeleted, "recently_deleted")
           } : null].filter(Boolean),
           _v36 = _v20 ? (0, _v54.getWatchSectionItems)().map(_v0 => {
-            let _v1 = "staff_picks" === _v0.key && void 0 !== _v42 && !_v42.spdot && !_v48;
+            let _v1 = "staff_picks" === _v0.key && void 0 !== _v41 && !_v41.spdot && !_v46;
             return {
               key: _v0.key,
               label: _v0.label,
@@ -704,12 +702,12 @@
                 m: (0, _v9.rem)(6)
               }) : void 0,
               onClick: () => {
-                _v16(_v0.destination), _v15(), _v1 && (_v44({
-                  ..._v42,
+                _v16(_v0.destination), _v15(), _v1 && (_v43({
+                  ..._v41,
                   spdot: !0
                 }, {
                   revalidate: !1
-                }), _v45({
+                }), _v44({
                   select: ["spdot"],
                   variables: {
                     spdot: 1
@@ -718,11 +716,11 @@
               }
             };
           }) : [],
-          _v37 = _v32 ? [_v25, ...(_v23 ? [_v23] : []), ...(_v26 ? [_v26] : [])] : [_v25, ...(_v26 ? [_v26] : []), ..._v35];
-        return [_v36.length > 0 ? [_v21, ..._v36] : [_v21, ..._v37], ...(_v36.length > 0 ? [_v37] : []), ...(_v32 ? [_v35] : [])].filter(_v0 => _v0.length > 0);
-      }, [_v0, _v4, _v1, _v5, _v18, _v6, _v8, _v7, _v17, _v16, _v31, _v30, _v28, _v34, _v2, _v32, _v33, _v9, _v10, _v12, _v11, _v38, _v41, _v49, _v50, _v51, _v42, _v44, _v45, _v48, _v47]),
-      hasStarredItems: _v27,
-      isInitialLoading: _v29 || _v31 || _v35 || _v37 || _v43 || _v40,
+          _v37 = _v31 ? [_v25, ...(_v23 ? [_v23] : []), ...(_v26 ? [_v26] : [])] : [_v25, ...(_v26 ? [_v26] : []), ..._v35];
+        return [_v36.length > 0 ? [_v21, ..._v36] : [_v21, ..._v37], ...(_v36.length > 0 ? [_v37] : []), ...(_v31 ? [_v35] : [])].filter(_v0 => _v0.length > 0);
+      }, [_v0, _v4, _v1, _v5, _v18, _v6, _v8, _v7, _v17, _v16, _v30, _v29, _v27, _v33, _v2, _v31, _v32, _v9, _v10, _v12, _v11, _v37, _v40, _v47, _v48, _v49, _v41, _v43, _v44, _v46, _v45]),
+      hasStarredItems: _v26,
+      isInitialLoading: _v28 || _v30 || _v34 || _v36 || _v42 || _v39,
       isMobile: _v4,
       modals: _v13 && (0, _v1.jsx)(_v55.EventSeriesContactSalesModal, {
         onClose: () => _v14(!1),

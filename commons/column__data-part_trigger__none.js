@@ -321,9 +321,20 @@
     setCurrentColor: _v16,
     currentColorType: _v17,
     currentCustomColor: _v18,
-    useSolidAndGradientColors: _v19
+    useSolidAndGradientColors: _v19,
+    onCustomColorCommit: _v20
   }) {
-    let _v20 = _v0 => _v17 === _v34.ColorType.BRAND && _v12.toLowerCase() === _v0.toLowerCase();
+    let _v21 = (0, _v38.isHexColor)(_v18) ? _v18 : "",
+      _v22 = _v17 === _v34.ColorType.GRADIENT || !!_v19 && !(0, _v38.isHexColor)(_v12),
+      [_v23, _v24] = (0, _v2.useState)(_v21),
+      _v25 = (0, _v2.useRef)(!1);
+    (0, _v2.useEffect)(() => {
+      _v25.current || _v24(_v21);
+    }, [_v21]);
+    let _v26 = () => {
+        _v25.current = !1, _v24(_v21);
+      },
+      _v27 = _v0 => _v17 === _v34.ColorType.BRAND && _v12.toLowerCase() === _v0.toLowerCase();
     return (0, _v1.jsxs)(_v6.Flex, {
       direction: "column",
       gap: "sm",
@@ -404,16 +415,16 @@
               children: (0, _v1.jsx)(_v4.ColorPickerSwatchTrigger, {
                 value: _v0.hex,
                 onClick: () => _v15?.(_v0),
-                "data-active": _v20(_v0.hex) ? "true" : void 0,
-                "data-state": _v20(_v0.hex) ? "checked" : "unchecked",
+                "data-active": _v27(_v0.hex) ? "true" : void 0,
+                "data-state": _v27(_v0.hex) ? "checked" : "unchecked",
                 children: (0, _v1.jsx)(_v4.ColorPickerSwatch, {
                   style: {
                     width: (0, _v9.rem)(22),
                     height: (0, _v9.rem)(22)
                   },
                   value: _v0.hex,
-                  "data-active": _v20(_v0.hex) ? "true" : void 0,
-                  "data-state": _v20(_v0.hex) ? "checked" : "unchecked"
+                  "data-active": _v27(_v0.hex) ? "true" : void 0,
+                  "data-state": _v27(_v0.hex) ? "checked" : "unchecked"
                 })
               })
             })
@@ -695,24 +706,64 @@
           isSelected: _v17 === _v34.ColorType.CUSTOM
         }), (0, _v1.jsx)(_v23.Input, {
           size: "sm",
-          isReadOnly: !0,
-          value: _v18
+          "aria-label": (0, _v17.translate)({
+            singular: "Choose custom color",
+            dictionary: {
+              es: {
+                singular: "Elija un color personalizado"
+              },
+              "de-DE": {
+                singular: "Benutzerdefinierte Farbe auswählen"
+              },
+              "fr-FR": {
+                singular: "Choisir une couleur personnalisée"
+              },
+              "ja-JP": {
+                singular: "カスタムカラーを選択"
+              },
+              "ko-KR": {
+                singular: "커스텀 색상 선택"
+              },
+              "pt-BR": {
+                singular: "Escolher cor customizada"
+              },
+              "zh-CN": {
+                singular: "选择自定义颜色"
+              }
+            }
+          }),
+          isReadOnly: _v22,
+          value: _v22 ? _v18 : _v23,
+          onFocus: () => {
+            _v25.current = !0;
+          },
+          onBlur: _v26,
+          onChange: _v0 => _v24(_v0.target.value),
+          onKeyDown: _v0 => {
+            if ("Enter" !== _v0.key || _v0.nativeEvent.isComposing || _v22) return;
+            _v0.preventDefault();
+            let _v1 = _v23.trim();
+            (0, _v38.isHexColor)(_v1) ? (_v25.current = !1, _v20?.(_v1)) : _v26();
+          }
         })]
       })]
     });
   }
-  var _v40 = _v0.i(0);
-  function _v41({
+  var _v40 = _v0.i(0),
+    _v41 = _v0.i(0);
+  function _v42({
     onSave: _v0,
-    onCancel: _v1,
-    isAddingBrandColor: _v2,
-    brandKitName: _v3,
-    isLoading: _v4
+    onConfirm: _v1,
+    onCancel: _v2,
+    isAddingBrandColor: _v3,
+    brandKitName: _v4,
+    isLoading: _v5
   }) {
+    let _v6 = (0, _v41.useColorPickerContext)();
     return (0, _v1.jsxs)(_v6.Flex, {
       gap: "3",
       flexDir: "column",
-      children: [_v2 && (0, _v1.jsx)(_v25.Text, {
+      children: [_v3 && (0, _v1.jsx)(_v25.Text, {
         textAlign: "start",
         variant: "heading-xs",
         children: (0, _v17.translate)({
@@ -740,7 +791,7 @@
               singular: "添加颜色到 "
             }
           }
-        }) + _v3
+        }) + _v4
       }), (0, _v1.jsx)(_v4.ColorPickerArea, {}), (0, _v1.jsx)(_v40.Grid, {
         gap: "200",
         children: (0, _v1.jsx)(_v6.Flex, {
@@ -756,7 +807,23 @@
         gap: "3",
         height: "sm",
         children: [(0, _v1.jsx)(_v4.ColorPickerChannelInput, {
-          channel: "hex"
+          channel: "hex",
+          onKeyDown: _v0 => {
+            let _v1;
+            if ("Enter" !== _v0.key || _v0.nativeEvent.isComposing) return;
+            let _v2 = (_v1 = _v0.currentTarget.value.trim()).startsWith("#") ? _v1 : `#${_v1}`,
+              _v3 = (0, _v38.isHexColor)(_v2);
+            if (!_v3) {
+              if (!_v3) return;
+              _v0.preventDefault(), _v6.setValue(_v2), _v1();
+              return;
+            }
+            if (_v5) {
+              _v3 && _v0.preventDefault();
+              return;
+            }
+            _v3 && (_v0.preventDefault(), _v6.setValue(_v2), _v0(_v2));
+          }
         }), (0, _v1.jsx)(_v4.ColorPickerEyeDropperTrigger, {
           style: {
             paddingRight: "sm",
@@ -764,13 +831,13 @@
           },
           size: "sm"
         })]
-      }), _v2 && (0, _v1.jsxs)(_v6.Flex, {
+      }), _v3 && (0, _v1.jsxs)(_v6.Flex, {
         gap: "sm",
         children: [(0, _v1.jsx)(_v26.Button, {
           size: "sm",
           variant: "secondary",
           width: "50%",
-          onClick: _v1,
+          onClick: _v2,
           children: (0, _v17.translate)({
             singular: "Cancel",
             dictionary: {
@@ -798,11 +865,11 @@
             }
           })
         }), (0, _v1.jsx)(_v26.Button, {
-          isLoading: _v4,
+          isLoading: _v5,
           size: "sm",
           variant: "primary",
           width: "50%",
-          onClick: _v0,
+          onClick: () => _v0(),
           children: (0, _v17.translate)({
             singular: "Add",
             dictionary: {
@@ -855,12 +922,13 @@
       [_v20, _v21] = (0, _v2.useState)(!1),
       _v22 = (0, _v38.determineColor)(_v4, _v5, _v11),
       [_v23, _v24] = (0, _v2.useState)(_v22 || _v31.DEFAULT_BRANDING_COLOR),
-      [_v25, _v26] = (0, _v2.useState)(_v11 === _v34.ColorType.CUSTOM ? _v23 : _v31.DEFAULT_BRANDING_COLOR),
+      [_v25, _v26] = (0, _v2.useState)((0, _v38.isHexColor)(_v23) ? _v23 : _v31.DEFAULT_BRANDING_COLOR),
       _v27 = _v2.default.Children.toArray(_v0),
       _v28 = _v27.find(_v0 => _v2.default.isValidElement(_v0) && _v0.type === _v4.ColorPickerLabel),
       _v29 = _v27.filter(_v0 => _v2.default.isValidElement(_v0) && _v0.type !== _v4.ColorPickerLabel);
     (0, _v2.useEffect)(() => {
-      _v24((0, _v38.determineColor)(_v4, _v5, _v11));
+      let _v0 = (0, _v38.determineColor)(_v4, _v5, _v11);
+      _v24(_v0), (0, _v38.isHexColor)(_v0) && _v26(_v0);
     }, [_v4, _v5, _v11]);
     let _v30 = (0, _v2.useContext)(_v22.ViewerContext),
       _v31 = _v30?.teamUser?.ownerId || _v30?.user?.id,
@@ -951,7 +1019,8 @@
           hasManageBranding: _v57
         }
       } = (0, _v11.useCapability)(["hasManageBranding"], _v31),
-      _v58 = async () => {
+      _v58 = async _v0 => {
+        let _v1 = _v0 ?? _v23;
         try {
           _v31 && (await _v41({
             where: {
@@ -960,11 +1029,11 @@
             },
             select: ["name"],
             variables: {
-              hex: _v23,
+              hex: _v1,
               name: `Color ${_v53.length + 1}`
             }
           })), _v35({
-            itemId: _v23,
+            itemId: _v1,
             brandName: _v49?.name || "",
             brandId: _v18,
             ownershipEntity: _v37,
@@ -1114,7 +1183,7 @@
                         });
                       },
                       onColorClick: _v0 => {
-                        _v24(_v0.hex), _v1?.(_v0.hex), _v51(_v34.ColorType.BRAND), _v12?.({
+                        _v24(_v0.hex), _v26(_v0.hex), _v1?.(_v0.hex), _v51(_v34.ColorType.BRAND), _v12?.({
                           value: _v0.hex,
                           type: _v34.ColorType.BRAND
                         }), _v36({
@@ -1128,11 +1197,20 @@
                           product: _v8
                         });
                       },
+                      onCustomColorCommit: _v0 => {
+                        _v0.toLowerCase() !== _v25.toLowerCase() && (_v24(_v0), _v26(_v0), _v51(_v34.ColorType.CUSTOM), _v1?.(_v0), _v12?.({
+                          value: _v0,
+                          type: _v34.ColorType.CUSTOM
+                        })), _v17(_v34.ColorPickerMode.SWATCHES), _v21(!1);
+                      },
                       useSolidAndGradientColors: _v10
-                    }) : (0, _v1.jsx)(_v41, {
+                    }) : (0, _v1.jsx)(_v42, {
                       isAddingBrandColor: _v16 === _v34.ColorPickerMode.BRANDKIT,
                       brandKitName: _v49?.name || "",
                       onSave: _v58,
+                      onConfirm: () => {
+                        _v17(_v34.ColorPickerMode.SWATCHES), _v21(!1);
+                      },
                       onCancel: () => {
                         _v17(_v34.ColorPickerMode.SWATCHES), _v21(!1);
                       },
