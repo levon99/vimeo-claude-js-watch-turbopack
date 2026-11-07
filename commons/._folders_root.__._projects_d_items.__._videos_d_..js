@@ -102,7 +102,7 @@
   let _v14 = () => Promise.reject(Error("not implemented yet")),
     _v15 = {
       REVIEW_LINKS_PANEL: _v4.ShareModalState.Review,
-      INVITE_PANEL: _v4.ShareModalState.Default,
+      INVITE_PANEL: _v4.ShareModalState.PeopleAccessList,
       CREATE_REVIEW_LINK_MODAL: _v4.ShareModalState.CreateReviewLink
     },
     _v16 = {

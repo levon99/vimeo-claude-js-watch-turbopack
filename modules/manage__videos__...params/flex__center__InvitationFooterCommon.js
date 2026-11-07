@@ -12,12 +12,13 @@
     _v9 = _v0.i(0),
     _v10 = _v0.i(0),
     _v11 = _v0.i(0),
-    _v12 = _v0.i(0);
-  let _v13 = {
+    _v12 = _v0.i(0),
+    _v13 = _v0.i(0);
+  let _v14 = {
       maxWidth: 374,
       width: "100%"
     },
-    _v14 = {
+    _v15 = {
       display: "flex",
       justifyContent: "center"
     };
@@ -27,24 +28,25 @@
         sendInvites: _v1,
         isInviteButtonDisabled: _v2
       } = (0, _v9.useInvitation)(),
-      _v3 = (0, _v10.useGlobalStore)(({
+      _v3 = (0, _v10.useParentScreen)(_v13.ShareModalState.Invitation),
+      _v4 = (0, _v11.useGlobalStore)(({
         screen: _v0
       }) => _v0.actions.setMainScreen),
-      _v4 = (0, _v10.useGlobalStore)(({
+      _v5 = (0, _v11.useGlobalStore)(({
         invite: _v0
       }) => _v0.actions.clearSelectedTeamMembers),
-      _v5 = (0, _v10.useGlobalStore)(({
+      _v6 = (0, _v11.useGlobalStore)(({
         membership: _v0
       }) => _v0.data.isFreeTrial);
     return _v0 ? (0, _v1.jsx)(_v3.Box, {
-      sx: _v14,
+      sx: _v15,
       children: (0, _v1.jsx)(_v4.Button, {
         onClick: () => {
-          _v3(_v12.ShareModalState.Purchase);
+          _v4(_v13.ShareModalState.Purchase);
         },
         variant: "upsell",
-        sx: _v13,
-        children: _v5 ? _v11.T.AddSeats : _v11.T.PurchaseSeat
+        sx: _v14,
+        children: _v6 ? _v12.T.AddSeats : _v12.T.PurchaseSeat
       })
     }) : (0, _v1.jsxs)(_v5.HStack, {
       justifyContent: "flex-end",
@@ -60,7 +62,7 @@
             container: "folder_share_modal",
             component: "add_team_members",
             keyword: "cancel"
-          }), _v4(), _v3(_v12.ShareModalState.Default);
+          }), _v5(), _v4(_v3);
         },
         children: (0, _v7.translate)({
           singular: "Cancel",

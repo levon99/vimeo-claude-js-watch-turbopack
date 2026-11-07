@@ -86,6 +86,18 @@
         });
       }, [_v0]),
       _v12 = (0, _v1.useCallback)(_v0 => {
+        _v0?.track("event_series_embed_configured", {
+          event_series_id: _v0.eventSeriesId,
+          event_series_embed_privacy: _v0.embedPrivacy
+        });
+      }, [_v0]),
+      _v13 = (0, _v1.useCallback)(_v0 => {
+        _v0?.track("event_series_embed_sizing_changed", {
+          event_series_id: _v0.eventSeriesId,
+          event_series_embed_sizing: _v0.embedSizing
+        });
+      }, [_v0]),
+      _v14 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("event_series_localization_action", {
           event_series_id: _v0.eventSeriesId,
           event_series_localization_action: _v0.action,
@@ -94,13 +106,13 @@
           event_series_translation_incomplete: _v0.translationIncomplete ?? !1
         });
       }, [_v0]),
-      _v13 = (0, _v1.useCallback)(_v0 => {
+      _v15 = (0, _v1.useCallback)(_v0 => {
         _v0?.track("event_series_add_modal_displayed", {
           live_event_id: _v0.liveEventId
         });
       }, [_v0]);
     return {
-      trackEventSeriesAddModalDisplayed: _v13,
+      trackEventSeriesAddModalDisplayed: _v15,
       trackEventSeriesAddModalSelectionChanged: (0, _v1.useCallback)(_v0 => {
         _v0?.track("event_series_add_modal_selection_changed", {
           live_event_id: _v0.liveEventId,
@@ -126,7 +138,9 @@
       trackEventSeriesSectionSaved: _v9,
       trackEventSeriesSettingChanged: _v10,
       trackEventSeriesShareActionClicked: _v11,
-      trackEventSeriesLocalizationAction: _v12
+      trackEventSeriesEmbedConfigured: _v12,
+      trackEventSeriesEmbedSizingChanged: _v13,
+      trackEventSeriesLocalizationAction: _v14
     };
   }]);
 }

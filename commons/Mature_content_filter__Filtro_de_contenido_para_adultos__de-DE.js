@@ -113,29 +113,29 @@
         }
       }
     }), (0, _v20.translate)({
-      singular: "Made with {ICON} in Tel Aviv",
+      singular: "Made with {ICON} in Milan",
       replacements: _v33,
       dictionary: {
         es: {
-          singular: "Hecho con {ICON} en Tel Aviv"
+          singular: "Hecho con {ICON} en Milán"
         },
         "de-DE": {
-          singular: "Mit {ICON} in Tel Aviv erstellt"
+          singular: "Mit {ICON} in Mailand erstellt"
         },
         "fr-FR": {
-          singular: "Créé avec {ICON} à Tel-Aviv"
+          singular: "Fait avec {ICON} à Milan"
         },
         "ja-JP": {
-          singular: "テルアビブで{ICON}を使用して作成"
+          singular: "ミラノで{ICON}を使用して作成"
         },
         "ko-KR": {
-          singular: "텔아비브에서 {ICON}(으)로 제작"
+          singular: "밀라노에서 {ICON}(으)로 제작"
         },
         "pt-BR": {
-          singular: "Feito com {ICON} em Tel Aviv"
+          singular: "Feito com {ICON} em Milão"
         },
         "zh-CN": {
-          singular: "在特拉维夫用 {ICON} 制作"
+          singular: "在米兰用 {ICON} 制作"
         }
       }
     }), (0, _v20.translate)({

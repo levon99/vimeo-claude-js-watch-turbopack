@@ -290,7 +290,7 @@
         }, [_v20, _v2, _v1, _v15, _v16, _v19]),
         _v22 = {
           ...(() => {
-            if (_v7 === _v22.ShareModalState.InheritedAccessList) {
+            if (_v7 === _v22.ShareModalState.InheritedAccessList || _v7 === _v22.ShareModalState.PeopleAccessList) {
               let _v0 = {
                 minHeight: (0, _v8.rem)(265),
                 maxHeight: "60dvh"

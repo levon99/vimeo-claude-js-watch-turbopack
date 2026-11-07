@@ -8903,16 +8903,10 @@
         children: [_v1.map((_v0, _v1) => (0, _v1.jsx)(_v430, {
           item: _v0,
           index: _v1
-        }, _v0.uri)), !0 !== _v3 && void 0 !== _v4 && (!0 === _v5 ? (0, _v1.jsxs)(_v1.Fragment, {
-          children: [(0, _v1.jsx)(_v92.Box, {
-            w: (0, _v60.rem)(292),
-            minW: (0, _v60.rem)(292),
-            children: (0, _v1.jsx)(_v426.LoadingCard, {})
-          }), (0, _v1.jsx)(_v92.Box, {
-            w: (0, _v60.rem)(292),
-            minW: (0, _v60.rem)(292),
-            children: (0, _v1.jsx)(_v426.LoadingCard, {})
-          })]
+        }, _v0.uri)), !0 !== _v3 && void 0 !== _v4 && (!0 === _v5 ? (0, _v1.jsx)(_v92.Box, {
+          w: (0, _v60.rem)(292),
+          minW: (0, _v60.rem)(292),
+          children: (0, _v1.jsx)(_v426.LoadingCard, {})
         }) : (0, _v1.jsx)(_v92.Box, {
           w: (0, _v60.rem)(1),
           minW: (0, _v60.rem)(1),

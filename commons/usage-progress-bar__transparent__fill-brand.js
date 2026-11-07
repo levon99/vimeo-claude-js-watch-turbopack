@@ -69,28 +69,29 @@
     _v66 = _v0.i(0),
     _v67 = _v0.i(0),
     _v68 = _v0.i(0),
-    _v69 = _v0.i(0);
-  function _v70(_v0) {
+    _v69 = _v0.i(0),
+    _v70 = _v0.i(0);
+  function _v71(_v0) {
     return _v0 && Number.isFinite(_v0) ? Math.round(_v0 / 60) : 0;
   }
-  function _v71({
+  function _v72({
     className: _v0 = (0, _v37.createDomName)("usage-progress-bar"),
     title: _v1,
     tip: _v2,
     currentValue: _v3,
     maxValue: _v4
   }) {
-    let [_v5, _v6] = (0, _v68.inline)(() => {
+    let [_v5, _v6] = (0, _v69.inline)(() => {
         if (!Number.isFinite(_v3) || !Number.isFinite(_v4)) return ["transparent", 0];
         let _v0 = Number((_v3 / _v4 * 100).toFixed(2));
         return _v0 < 70 ? ["fill-brand", _v0] : ["status-destructive-primary", Math.min(_v0, 100)];
       }),
-      [_v7, _v8] = (0, _v68.inline)(() => {
+      [_v7, _v8] = (0, _v69.inline)(() => {
         if (!Number.isFinite(_v3)) return ["", 0];
         let _v0 = _v3 % 60;
         return [((_v3 - _v0) / 60).toLocaleString(), _v0];
       }),
-      _v9 = (0, _v68.inline)(() => Number.isFinite(_v4) && 0 !== _v4 ? Math.round(_v4 / 60).toLocaleString() : "");
+      _v9 = (0, _v69.inline)(() => Number.isFinite(_v4) && 0 !== _v4 ? Math.round(_v4 / 60).toLocaleString() : "");
     return (0, _v2.jsxs)(_v12.Flex, {
       direction: "column",
       className: (0, _v37.createDomName)(_v0, "usage-progress-bar"),
@@ -109,7 +110,7 @@
               textWrap: "nowrap"
             },
             children: _v1
-          }), (0, _v2.jsx)(_v59.CircleTip, {
+          }), (0, _v2.jsx)(_v60.CircleTip, {
             width: (0, _v15.rem)(360),
             iconBoxSize: 12,
             as: "span",
@@ -144,7 +145,7 @@
       })]
     });
   }
-  function _v72({
+  function _v73({
     id: _v0 = (0, _v37.createDomName)("streaming-4k"),
     className: _v1 = (0, _v37.createDomName)("streaming-4k")
   }) {
@@ -164,9 +165,9 @@
         viewingTime: _v10,
         maxStreamingTime: _v11,
         maxViewingTime: _v12
-      } = (_v2 = _v8?.liveQuota, _v3 = _v70(_v2?.hiResStreaming?.remaining), _v4 = _v70(_v2?.hiResStreaming?.maximum), _v5 = (0, _v68.inline)(() => _v3 < 0 ? Math.abs(_v3) + _v4 : Math.max(_v4 - _v3, 0)), _v6 = _v70(_v2?.hiResViewing?.remaining), _v7 = _v70(_v2?.hiResViewing?.maximum), {
+      } = (_v2 = _v8?.liveQuota, _v3 = _v71(_v2?.hiResStreaming?.remaining), _v4 = _v71(_v2?.hiResStreaming?.maximum), _v5 = (0, _v69.inline)(() => _v3 < 0 ? Math.abs(_v3) + _v4 : Math.max(_v4 - _v3, 0)), _v6 = _v71(_v2?.hiResViewing?.remaining), _v7 = _v71(_v2?.hiResViewing?.maximum), {
         streamingTime: _v5,
-        viewingTime: (0, _v68.inline)(() => _v6 < 0 ? Math.abs(_v6) + _v7 : Math.max(_v7 - _v6, 0)),
+        viewingTime: (0, _v69.inline)(() => _v6 < 0 ? Math.abs(_v6) + _v7 : Math.max(_v7 - _v6, 0)),
         maxStreamingTime: _v4,
         maxViewingTime: _v7
       });
@@ -183,17 +184,17 @@
         gap: (0, _v15.rem)(4),
         fontWeight: "bold",
         size: "md",
-        children: [_v35.T_4K_STREAMING, (0, _v2.jsx)(_v59.CircleTip, {
+        children: [_v35.T_4K_STREAMING, (0, _v2.jsx)(_v60.CircleTip, {
           width: (0, _v15.rem)(350),
           as: "span",
           label: _v35.T_4K_STREAMING_TOOLTIP
         })]
-      }), (0, _v2.jsx)(_v71, {
+      }), (0, _v2.jsx)(_v72, {
         title: _v35.T_4K_VIEWING_TIME,
         tip: _v35.T_4K_VIEWING_TIME_TOOLTIP,
         currentValue: _v10,
         maxValue: _v12
-      }), (0, _v2.jsx)(_v71, {
+      }), (0, _v2.jsx)(_v72, {
         title: _v35.T_4K_STREAMING_TIME,
         tip: _v35.T_4K_STREAMING_TIME_TOOLTIP,
         currentValue: _v9,
@@ -206,17 +207,17 @@
       })]
     });
   }
-  var _v73 = _v0.i(0),
-    _v74 = _v0.i(0),
+  var _v74 = _v0.i(0),
     _v75 = _v0.i(0),
-    _v76 = _v0.i(0);
-  function _v77({
+    _v76 = _v0.i(0),
+    _v77 = _v0.i(0);
+  function _v78({
     button: _v0,
     title: _v1,
     description: _v2,
     onClose: _v3
   }) {
-    let _v4 = (0, _v76.useColorModeValue)("upsell-secondary", "purple.800");
+    let _v4 = (0, _v77.useColorModeValue)("upsell-secondary", "purple.800");
     return (0, _v2.jsxs)(_v12.Flex, {
       position: "relative",
       direction: "column",
@@ -231,7 +232,7 @@
       }), _v2 ? (0, _v2.jsx)(_v14.Paragraph, {
         size: "md",
         children: _v2
-      }) : null, (0, _v2.jsx)(_v54.Button, {
+      }) : null, (0, _v2.jsx)(_v55.Button, {
         as: "a",
         role: "button",
         target: _v0?.href ? "_blank" : "_self",
@@ -240,7 +241,7 @@
         size: "sm",
         onClick: _v0.onClick,
         children: _v0.label
-      }), _v3 ? (0, _v2.jsx)(_v75.CloseButton, {
+      }), _v3 ? (0, _v2.jsx)(_v76.CloseButton, {
         position: "absolute",
         right: (0, _v15.rem)(16),
         top: (0, _v15.rem)(16),
@@ -251,7 +252,7 @@
       }) : null]
     });
   }
-  function _v78({
+  function _v79({
     onDismiss: _v0
   }) {
     let {
@@ -260,7 +261,7 @@
       } = function ({
         canOpen: _v0 = !0
       } = {}) {
-        return (0, _v73.useUpgradeModal)({
+        return (0, _v74.useUpgradeModal)({
           canOpen: _v0,
           templateType: "enterprise",
           tracking: {
@@ -279,8 +280,8 @@
           },
           modalConfig: {
             mkcCode: "113177",
-            enterpriseTitle: _v74.T_UNLOCK_4K_STREAMING,
-            enterpriseSubtitle: _v74.T_DELIVER_LIVE_BROADCASTS,
+            enterpriseTitle: _v75.T_UNLOCK_4K_STREAMING,
+            enterpriseSubtitle: _v75.T_DELIVER_LIVE_BROADCASTS,
             customFeaturesList: (0, _v2.jsxs)(_v12.Flex, {
               margin: `${(0, _v15.rem)(8)} 0 0 ${(0, _v15.rem)(16)}`,
               as: "ul",
@@ -291,10 +292,10 @@
               color: "white",
               children: [(0, _v2.jsx)(_v14.Paragraph, {
                 as: "li",
-                children: _v74.T_PRO_POLISHED_LOOK
+                children: _v75.T_PRO_POLISHED_LOOK
               }), (0, _v2.jsx)(_v14.Paragraph, {
                 as: "li",
-                children: _v74.T_MORE_IMMERSIVE_LIFELIKE_EXP
+                children: _v75.T_MORE_IMMERSIVE_LIFELIKE_EXP
               })]
             })
           }
@@ -304,18 +305,18 @@
         _v0();
       }, [_v0]);
     return (0, _v2.jsxs)(_v2.Fragment, {
-      children: [(0, _v2.jsx)(_v77, {
+      children: [(0, _v2.jsx)(_v78, {
         button: {
           label: _v35.T_CONTACT_US,
           onClick: _v1
         },
-        title: _v74.T_UNLOCK_4K_STREAMING,
-        description: _v74.T_STREAM_CRISP_PRO_VIDEOS,
+        title: _v75.T_UNLOCK_4K_STREAMING,
+        description: _v75.T_STREAM_CRISP_PRO_VIDEOS,
         onClose: _v3
       }), _v2]
     });
   }
-  function _v79({
+  function _v80({
     id: _v0 = (0, _v37.createDomName)("live-settings-production"),
     className: _v1 = (0, _v37.createDomName)("live-settings-production")
   }) {
@@ -336,22 +337,22 @@
         streamMode: _v7,
         liveComposerStatuses: _v8
       } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
-      _v9 = (0, _v3.useManager)(_v65.EventAudioTracksManager),
+      _v9 = (0, _v3.useManager)(_v66.EventAudioTracksManager),
       {
         trackLiveStreamLatencyChanged: _v10
-      } = (0, _v38.useLiveStreamBroadcasterTracking)(),
-      _v11 = (0, _v69.useLogger)("🥪settings-production"),
+      } = (0, _v39.useLiveStreamBroadcasterTracking)(),
+      _v11 = (0, _v70.useLogger)("🥪settings-production"),
       {
         open: _v12,
         upgradeModal: _v13
-      } = (0, _v60.useFailsafeUpgradeModal)(),
+      } = (0, _v61.useFailsafeUpgradeModal)(),
       {
         open: _v14,
         upgradeModal: _v15
-      } = (0, _v61.useUnlimitedStreamUpgradeModal)(),
-      [_v16, _v17] = (0, _v64.useTimeBasedDismissableNotification)({
+      } = (0, _v62.useUnlimitedStreamUpgradeModal)(),
+      [_v16, _v17] = (0, _v65.useTimeBasedDismissableNotification)({
         forceHide: !!_v3?.owner?.capabilities?.hasUhdStreaming,
-        storedKey: _v63.localStorageConfig.MARKETING.STREAMING_4K_UPSELL
+        storedKey: _v64.localStorageConfig.MARKETING.STREAMING_4K_UPSELL
       }),
       _v18 = (0, _v4.useCallback)(_v0 => {
         if (_v0 !== _v5?.latency) {
@@ -359,8 +360,8 @@
           let _v0 = {
             latency: _v0
           };
-          _v0 === _v67.ELatency.LOW && (_v0.autoCcEnabled = !1), _v6.updateLiveEventSettings(_v0, _v34.EventSettingsManager.EVENT_SETTINGS_PRODUCTION_FIELDS), _v10({
-            liveStreamLatency: _v0 === _v67.ELatency.LOW ? "low" : _v0 === _v67.ELatency.FAIL_SAFE ? "fail_safe" : "standard"
+          _v0 === _v68.ELatency.LOW && (_v0.autoCcEnabled = !1), _v6.updateLiveEventSettings(_v0, _v34.EventSettingsManager.EVENT_SETTINGS_PRODUCTION_FIELDS), _v10({
+            liveStreamLatency: _v0 === _v68.ELatency.LOW ? "low" : _v0 === _v68.ELatency.FAIL_SAFE ? "fail_safe" : "standard"
           });
         }
       }, [_v5?.latency, _v11, _v6, _v10]),
@@ -403,7 +404,7 @@
       direction: "column",
       width: "100%",
       gap: (0, _v15.rem)(8),
-      children: (0, _v68.range)(4).map(_v0 => (0, _v2.jsx)(_v57.BokehSkeleton, {
+      children: (0, _v69.range)(4).map(_v0 => (0, _v2.jsx)(_v58.BokehSkeleton, {
         height: (0, _v15.rem)(80),
         borderRadius: (0, _v15.rem)(4)
       }, _v0))
@@ -417,7 +418,7 @@
       _v27 = !!_v3?.owner?.capabilities?.hasDisableAutoArchiving,
       _v28 = !!_v3?.owner?.capabilities?.hasUnlimitedLiveEventDuration,
       _v29 = !_v26,
-      _v30 = (0, _v68.inline)(() => {
+      _v30 = (0, _v69.inline)(() => {
         if (_v8.isSessionLive || !_v5?.disableAutoArchiving || !_v3?.owner?.capabilities?.hasUnlimitedLiveEventDuration) return !0;
         let _v0 = !_v5?.unlimitedDuration && _v2 !== _v36.EComposerApplicationType.RTMP;
         return !!(_v5?.dvr && !_v4.canUseExtendedStreamWithDVR || !_v5?.disableAutoArchiving || _v0);
@@ -432,14 +433,14 @@
       direction: "column",
       width: "100%",
       children: [_v7 === _v36.EComposerStreamModeType.RECORD ? null : (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsx)(_v62.EventLatency, {
+        children: [(0, _v2.jsx)(_v63.EventLatency, {
           isMutationAllowed: !1,
           isDisabled: _v8.isSessionLive,
           viewType: "dropdown",
           capabilities: _v3?.owner?.capabilities ?? {},
           streamingMethod: _v24,
           latency: _v23,
-          location: _v66.ESettingsLocation.Settings,
+          location: _v67.ESettingsLocation.Settings,
           label: (0, _v2.jsxs)(_v12.Flex, {
             alignItems: "center",
             gap: (0, _v15.rem)(4),
@@ -447,7 +448,7 @@
             children: [(0, _v2.jsx)(_v13.Header, {
               size: "xs",
               children: _v35.T_LATENCY
-            }), (0, _v2.jsx)(_v59.CircleTip, {
+            }), (0, _v2.jsx)(_v60.CircleTip, {
               as: "span",
               width: (0, _v15.rem)(300),
               label: _v35.T_LATENCY_TIP,
@@ -456,7 +457,7 @@
           }),
           onLatencyChange: _v18,
           onFailSafeUpsell: _v12
-        }), (0, _v2.jsx)(_v51.Divider, {
+        }), (0, _v2.jsx)(_v52.Divider, {
           borderColor: "stroke",
           marginTop: (0, _v15.rem)(24)
         })]
@@ -467,7 +468,7 @@
         gap: (0, _v15.rem)(16),
         marginTop: (0, _v15.rem)(16),
         children: [_v29 ? (0, _v2.jsx)(_v2.Fragment, {
-          children: (0, _v2.jsxs)(_v52.FormLabel, {
+          children: (0, _v2.jsxs)(_v53.FormLabel, {
             id: (0, _v37.createDomName)(_v0, "archiving-form"),
             htmlFor: (0, _v37.createDomName)(_v0, "archiving"),
             display: "flex",
@@ -483,20 +484,20 @@
               gap: (0, _v15.rem)(4),
               fontWeight: "bold",
               size: "md",
-              children: [_v40.translations.recordEventFeature, (0, _v2.jsx)(_v59.CircleTip, {
+              children: [_v41.translations.recordEventFeature, (0, _v2.jsx)(_v60.CircleTip, {
                 as: "span",
-                label: _v40.translations.recordEventFeatureTip
+                label: _v41.translations.recordEventFeatureTip
               })]
-            }), (0, _v2.jsx)(_v58.BokehTooltip, {
+            }), (0, _v2.jsx)(_v59.BokehTooltip, {
               shouldWrapChildren: !1,
-              label: (0, _v68.inline)(() => {
+              label: (0, _v69.inline)(() => {
                 if (_v34 && !(_v8.isSessionLive || _v8.isSessionInitializing)) {
-                  if (_v5?.dvr && !_v4.canUseExtendedStreamWithDVR) return _v40.translations.recordEventRequiredForDvr;else if (_v5?.unlimitedDuration) return _v40.translations.recordEventUnlimitedNotSupported;
+                  if (_v5?.dvr && !_v4.canUseExtendedStreamWithDVR) return _v41.translations.recordEventRequiredForDvr;else if (_v5?.unlimitedDuration) return _v41.translations.recordEventUnlimitedNotSupported;
                 }
                 return null;
               }),
               children: (0, _v2.jsx)(_v12.Flex, {
-                children: (0, _v2.jsx)(_v53.Switch, {
+                children: (0, _v2.jsx)(_v54.Switch, {
                   id: (0, _v37.createDomName)(_v0, "archiving-switch"),
                   isDisabled: _v34,
                   isChecked: !_v5?.disableAutoArchiving,
@@ -506,17 +507,17 @@
               })
             })]
           })
-        }) : null, _v29 && _v5?.disableAutoArchiving ? (0, _v2.jsx)(_v56.Alert, {
+        }) : null, _v29 && _v5?.disableAutoArchiving ? (0, _v2.jsx)(_v57.Alert, {
           id: (0, _v37.createDomName)(_v0, "archiving-form-notice"),
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
           margin: 0,
-          children: (0, _v2.jsx)(_v55.AlertDescription, {
+          children: (0, _v2.jsx)(_v56.AlertDescription, {
             children: _v35.T_ANALYTICS_RECORDING_NOTICE
           })
         }) : null, _v26 ? null : (0, _v2.jsx)(_v2.Fragment, {
-          children: (0, _v2.jsxs)(_v52.FormLabel, {
+          children: (0, _v2.jsxs)(_v53.FormLabel, {
             id: (0, _v37.createDomName)(_v0, "dvr-form"),
             htmlFor: (0, _v37.createDomName)(_v0, "dvr"),
             display: "flex",
@@ -532,18 +533,18 @@
               gap: (0, _v15.rem)(4),
               fontWeight: "bold",
               size: "md",
-              children: [_v35.T_DVR, (0, _v2.jsx)(_v59.CircleTip, {
+              children: [_v35.T_DVR, (0, _v2.jsx)(_v60.CircleTip, {
                 as: "span",
                 label: _v35.T_DVR_TIP
               })]
-            }), (0, _v2.jsx)(_v58.BokehTooltip, {
+            }), (0, _v2.jsx)(_v59.BokehTooltip, {
               shouldWrapChildren: !1,
-              label: (0, _v68.inline)(() => {
+              label: (0, _v69.inline)(() => {
                 if (_v33 && !_v8.isSessionLive) if (_v32) return _v35.T_DVR_REQUIRED_FOR_LANGUAGE_FEATURES;else if (_v5?.disableAutoArchiving) return _v35.T_DVR_IS_NOT_SUPPORTED_WITHOUT_ARCHIVE;else if (_v5?.unlimitedDuration) return _v35.T_DVR_IS_NOT_SUPPORTED_WITH_UNLIMITED_DURATION;else return _v35.T_DVR_IS_NOT_SUPPORTED_WITH_LOW_LATENCY;
                 return null;
               }),
               children: (0, _v2.jsx)(_v12.Flex, {
-                children: (0, _v2.jsx)(_v53.Switch, {
+                children: (0, _v2.jsx)(_v54.Switch, {
                   id: (0, _v37.createDomName)(_v0, "dvr"),
                   isChecked: _v5?.dvr,
                   isDisabled: _v33,
@@ -554,7 +555,7 @@
             })]
           })
         }), _v25 || _v26 ? null : (0, _v2.jsxs)(_v2.Fragment, {
-          children: [(0, _v2.jsxs)(_v52.FormLabel, {
+          children: [(0, _v2.jsxs)(_v53.FormLabel, {
             id: (0, _v37.createDomName)(_v0, "unlimited-duration-form"),
             htmlFor: (0, _v37.createDomName)(_v0, "unlimited-duration"),
             display: "flex",
@@ -570,46 +571,46 @@
               gap: (0, _v15.rem)(4),
               fontWeight: "bold",
               size: "md",
-              children: [_v40.translations.unlimitedDurationFeature, (0, _v2.jsx)(_v59.CircleTip, {
+              children: [_v41.translations.unlimitedDurationFeature, (0, _v2.jsx)(_v60.CircleTip, {
                 as: "span",
-                label: _v40.translations.unlimitedDurationFeatureTip
+                label: _v41.translations.unlimitedDurationFeatureTip
               })]
-            }), (0, _v2.jsx)(_v58.BokehTooltip, {
+            }), (0, _v2.jsx)(_v59.BokehTooltip, {
               shouldWrapChildren: !1,
-              label: (0, _v68.inline)(() => {
+              label: (0, _v69.inline)(() => {
                 if (_v28 && _v30 && !_v8.isSessionLive) {
-                  if (_v2 !== _v36.EComposerApplicationType.RTMP) return _v40.translations.unlimitedRequiresRTMP;else if (_v5?.dvr && !_v4.canUseExtendedStreamWithDVR) return _v40.translations.unlimitedNotSupportedWithDvr;else if (!_v5?.disableAutoArchiving) return _v40.translations.unlimitedNotSupportedWithArchive;
+                  if (_v2 !== _v36.EComposerApplicationType.RTMP) return _v41.translations.unlimitedRequiresRTMP;else if (_v5?.dvr && !_v4.canUseExtendedStreamWithDVR) return _v41.translations.unlimitedNotSupportedWithDvr;else if (!_v5?.disableAutoArchiving) return _v41.translations.unlimitedNotSupportedWithArchive;
                 }
                 return null;
               }),
               children: (0, _v2.jsx)(_v12.Flex, {
-                children: _v28 ? (0, _v2.jsx)(_v53.Switch, {
+                children: _v28 ? (0, _v2.jsx)(_v54.Switch, {
                   id: (0, _v37.createDomName)(_v0, "unlimited-duration-switch"),
                   isDisabled: _v30,
                   isChecked: _v5?.unlimitedDuration,
                   size: "sm",
                   onChange: _v20
-                }) : (0, _v2.jsx)(_v54.Button, {
+                }) : (0, _v2.jsx)(_v55.Button, {
                   id: (0, _v37.createDomName)(_v0, "unlimited-duration-upsell"),
                   size: "xs",
                   variant: "upsell",
                   onClick: _v14,
-                  children: _v40.translations.upgrade
+                  children: _v41.translations.upgrade
                 })
               })
             })]
-          }), _v5?.unlimitedDuration ? (0, _v2.jsx)(_v56.Alert, {
+          }), _v5?.unlimitedDuration ? (0, _v2.jsx)(_v57.Alert, {
             id: (0, _v37.createDomName)(_v0, "extended-stream-srt-notice"),
             className: (0, _v37.createDomName)(_v0, "extended-stream-srt-notice"),
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",
             margin: 0,
-            children: (0, _v2.jsx)(_v55.AlertDescription, {
-              children: _v40.translations.extendedStreamSupportSrtNotice
+            children: (0, _v2.jsx)(_v56.AlertDescription, {
+              children: _v41.translations.extendedStreamSupportSrtNotice
             })
           }) : null]
-        }), _v25 ? null : (0, _v2.jsxs)(_v52.FormLabel, {
+        }), _v25 ? null : (0, _v2.jsxs)(_v53.FormLabel, {
           id: (0, _v37.createDomName)(_v0, "streaming-auto-stop-form"),
           htmlFor: (0, _v37.createDomName)(_v0, "streaming-auto-stop"),
           display: "flex",
@@ -623,36 +624,36 @@
             gap: (0, _v15.rem)(4),
             fontWeight: "bold",
             size: "md",
-            children: [_v40.translations.autoStop, (0, _v2.jsx)(_v59.CircleTip, {
+            children: [_v41.translations.autoStop, (0, _v2.jsx)(_v60.CircleTip, {
               as: "span",
-              label: _v40.translations.endEventDirectly
+              label: _v41.translations.endEventDirectly
             })]
-          }), (0, _v2.jsx)(_v53.Switch, {
+          }), (0, _v2.jsx)(_v54.Switch, {
             id: (0, _v37.createDomName)(_v0, "streaming-auto-stop-switch"),
             isChecked: _v5?.streamingAutoStop,
             size: "sm",
             onChange: _v22
           })]
-        }), _v16 ? (0, _v2.jsx)(_v78, {
+        }), _v16 ? (0, _v2.jsx)(_v79, {
           onDismiss: _v17
         }) : null, _v3?.owner?.capabilities?.hasUhdStreaming ? (0, _v2.jsxs)(_v2.Fragment, {
-          children: [(0, _v2.jsx)(_v51.Divider, {
+          children: [(0, _v2.jsx)(_v52.Divider, {
             borderColor: "stroke",
             marginY: (0, _v15.rem)(4)
-          }), (0, _v2.jsx)(_v72, {})]
+          }), (0, _v2.jsx)(_v73, {})]
         }) : null]
       }), _v15, _v13]
     });
   }
-  var _v80 = _v0.i(0),
-    _v81 = _v0.i(0);
-  let _v82 = (0, _v4.lazy)(() => _v0.A(0).then(_v0 => ({
+  var _v81 = _v0.i(0),
+    _v82 = _v0.i(0);
+  let _v83 = (0, _v4.lazy)(() => _v0.A(0).then(_v0 => ({
       default: _v0.LiveRegistrationTab
     }))),
-    _v83 = (0, _v4.lazy)(() => _v0.A(0).then(_v0 => ({
+    _v84 = (0, _v4.lazy)(() => _v0.A(0).then(_v0 => ({
       default: _v0.RegistrationToast
     })));
-  function _v84() {
+  function _v85() {
     let {
         sessionInfo: {
           value: _v0
@@ -669,7 +670,7 @@
         }
       } = (0, _v3.useManager)(_v34.EventSettingsManager),
       _v5 = (0, _v4.useMemo)(() => _v3.value?.schedule ?? null, [_v3.value?.schedule]),
-      _v6 = (0, _v80.useToast)(),
+      _v6 = (0, _v81.useToast)(),
       _v7 = _v0?.registrationFormLink?.uri,
       _v8 = _v0?.registrationEmailLink?.uri,
       _v9 = _v0?.registrationTableLink?.uri,
@@ -679,7 +680,7 @@
       {
         trackLiveStreamRegistrationToggled: _v13,
         trackLiveStreamRegistrationSectionClicked: _v14
-      } = (0, _v38.useLiveStreamBroadcasterTracking)(),
+      } = (0, _v39.useLiveStreamBroadcasterTracking)(),
       _v15 = (0, _v4.useCallback)(_v0 => {
         _v4({
           schedule: _v0
@@ -699,7 +700,7 @@
             title: "",
             render: () => (0, _v2.jsx)(_v4.Suspense, {
               fallback: null,
-              children: (0, _v2.jsx)(_v83, {
+              children: (0, _v2.jsx)(_v84, {
                 hasRegistration: _v0,
                 onClickUndo: () => {
                   _v6.closeAll(), _v16(!_v0);
@@ -713,7 +714,7 @@
       }, [_v5, _v13, _v4]);
     return (0, _v2.jsx)(_v4.Suspense, {
       fallback: null,
-      children: (0, _v2.jsx)(_v82, {
+      children: (0, _v2.jsx)(_v83, {
         isRegistrationOn: _v3.value?.hasRegistration,
         setIsRegistrationOn: _v16,
         sessionId: Number(_v1),
@@ -739,13 +740,13 @@
         },
         schedule: _v5,
         onScheduleChange: _v15,
-        status: _v3.value?.status || (_v10 ? _v66.ENTITY_STATUS.STARTED : _v66.ENTITY_STATUS.EMPTY),
+        status: _v3.value?.status || (_v10 ? _v67.ENTITY_STATUS.STARTED : _v67.ENTITY_STATUS.EMPTY),
         canCompleteEvent: !_v10 && _v11,
         isLoading: _v3.isLoading,
         eventOwnerUserId: _v12,
         padding: 0,
         paddingUpsell: 0,
-        getBreadCrumb: _v0 => (0, _v2.jsx)(_v81.LiveBreadcrumb, {
+        getBreadCrumb: _v0 => (0, _v2.jsx)(_v82.LiveBreadcrumb, {
           isLive: _v10,
           title: _v0,
           sessionInfo: _v0
@@ -753,8 +754,8 @@
       })
     });
   }
-  var _v85 = _v0.i(0);
-  function _v86() {
+  var _v86 = _v0.i(0);
+  function _v87() {
     let {
         settings: _v0,
         actions: {
@@ -763,7 +764,7 @@
       } = (0, _v3.useManager)(_v34.EventSettingsManager),
       {
         trackLiveStreamScheduleConfigured: _v2
-      } = (0, _v38.useLiveStreamBroadcasterTracking)(),
+      } = (0, _v39.useLiveStreamBroadcasterTracking)(),
       _v3 = (0, _v4.useMemo)(() => _v0.value?.schedule ?? null, [_v0.value?.schedule]),
       _v4 = (0, _v4.useCallback)(_v0 => {
         _v1({
@@ -774,7 +775,7 @@
           liveStreamRecurringEvent: !!_v0?.rrule
         });
       }, [_v1, _v2]);
-    return (0, _v2.jsx)(_v85.EventSchedule, {
+    return (0, _v2.jsx)(_v86.EventSchedule, {
       isLoading: _v0.isLoading,
       isMutationAllowed: !0,
       isVertical: !0,
@@ -784,8 +785,7 @@
       onChange: _v4
     });
   }
-  var _v87 = _v0.i(0),
-    _v88 = _v0.i(0),
+  var _v88 = _v0.i(0),
     _v89 = _v0.i(0),
     _v90 = _v0.i(0),
     _v91 = _v0.i(0),
@@ -807,8 +807,9 @@
     _v107 = _v0.i(0),
     _v108 = _v0.i(0),
     _v109 = _v0.i(0),
-    _v110 = _v0.i(0);
-  function _v111({
+    _v110 = _v0.i(0),
+    _v111 = _v0.i(0);
+  function _v112({
     id: _v0,
     className: _v1,
     value: _v2,
@@ -835,31 +836,31 @@
             pointerEvents: "auto"
           }
         },
-        children: (0, _v2.jsx)(_v105.Select, {
+        children: (0, _v2.jsx)(_v106.Select, {
           size: "md",
           placeholder: _v35.T_SELECT_LANGUAGE,
           value: _v6 ? [_v6] : [],
           items: _v5,
           onValueChange: _v9
         })
-      }), (0, _v2.jsx)(_v109.IconButton, {
+      }), (0, _v2.jsx)(_v110.IconButton, {
         isDisabled: !_v4,
         "aria-label": _v6 ? (0, _v35.T_REMOVE_LANGUAGE)(_v6) : "",
         size: "md",
         variant: "secondary",
-        icon: (0, _v2.jsx)(_v110.CloseXSmall, {}),
+        icon: (0, _v2.jsx)(_v111.CloseXSmall, {}),
         onClick: _v8
       })]
     });
   }
-  function _v112({
+  function _v113({
     id: _v0 = (0, _v37.createDomName)("tracks-management-modal"),
     className: _v1 = (0, _v37.createDomName)("tracks-management-modal"),
     onClose: _v2
   }) {
     let {
         panelActions: _v3
-      } = (0, _v3.useManager)(_v97.PanelsManager),
+      } = (0, _v3.useManager)(_v98.PanelsManager),
       {
         audioTracksActions: _v4,
         eventLanguages: {
@@ -869,7 +870,7 @@
         availableLanguages: {
           value: _v7
         }
-      } = (0, _v3.useManager)(_v65.EventAudioTracksManager),
+      } = (0, _v3.useManager)(_v66.EventAudioTracksManager),
       {
         sessionInfo: {
           value: _v8
@@ -883,10 +884,10 @@
           value: _v10
         }
       } = (0, _v3.useManager)(_v34.EventSettingsManager),
-      [_v11, _v12] = (0, _v4.useState)(_v5?.primary ?? _v108.liveApplicationConfig.AUDIO_TRACKS.DEFAULT_LANGUAGE),
+      [_v11, _v12] = (0, _v4.useState)(_v5?.primary ?? _v109.liveApplicationConfig.AUDIO_TRACKS.DEFAULT_LANGUAGE),
       [_v13, _v14] = (0, _v4.useState)(_v5?.secondary ?? []),
-      _v15 = (0, _v39.useIsVpaas)(),
-      _v16 = _v8?.liveQuota?.maxEventAudioTracks ?? _v108.liveApplicationConfig.AUDIO_TRACKS.DEFAULT_LANGUAGES_COUNT,
+      _v15 = (0, _v40.useIsVpaas)(),
+      _v16 = _v8?.liveQuota?.maxEventAudioTracks ?? _v109.liveApplicationConfig.AUDIO_TRACKS.DEFAULT_LANGUAGES_COUNT,
       _v17 = _v9.isSessionLive,
       _v18 = !!(_v9.isSessionActive && _v10?.rtmpPreview),
       _v19 = !_v15 && _v13.length >= _v16 && !_v8?.owner?.capabilities?.hasEnterprise,
@@ -915,33 +916,33 @@
         await _v4.updateEventLanguages({
           primaryAudioTrack: _v11,
           audioTracks: _v13
-        }), _v2(), _v3.setRightPanel(_v13.length > 0 ? _v95.ERightPanelId.AUDIO_TRACKS : _v95.ERightPanelId.EVENT_SETTINGS);
+        }), _v2(), _v3.setRightPanel(_v13.length > 0 ? _v96.ERightPanelId.AUDIO_TRACKS : _v96.ERightPanelId.EVENT_SETTINGS);
       }, [_v4, _v13, _v11, _v2, _v3]);
-    return (0, _v2.jsxs)(_v100.Modal, {
+    return (0, _v2.jsxs)(_v101.Modal, {
       isOpen: !0,
       onClose: _v2,
-      children: [(0, _v2.jsx)(_v104.ModalOverlay, {}), (0, _v2.jsxs)(_v102.ModalContent, {
+      children: [(0, _v2.jsx)(_v105.ModalOverlay, {}), (0, _v2.jsxs)(_v103.ModalContent, {
         id: _v0,
         className: _v1,
         minWidth: (0, _v15.rem)(480),
-        children: [(0, _v2.jsx)(_v99.ModalHeader, {
+        children: [(0, _v2.jsx)(_v100.ModalHeader, {
           children: _v35.T_ADD_LANGUAGE_STREAMS
-        }), (0, _v2.jsx)(_v101.ModalCloseButton, {}), (0, _v2.jsxs)(_v98.ModalBody, {
+        }), (0, _v2.jsx)(_v102.ModalCloseButton, {}), (0, _v2.jsxs)(_v99.ModalBody, {
           gap: (0, _v15.rem)(16),
           display: "flex",
           flexDirection: "column",
           children: [(0, _v2.jsx)(_v14.Paragraph, {
             size: "md",
             children: (0, _v35.T_SELECT_LANGUAGES_TO_CREATE)(_v28.vimeoConfig.SUPPORT.MULTIPLE_AUDIO_TRACKS_LIVE)
-          }), _v18 || _v17 ? (0, _v2.jsx)(_v56.Alert, {
+          }), _v18 || _v17 ? (0, _v2.jsx)(_v57.Alert, {
             id: (0, _v37.createDomName)(_v0, "notice"),
             className: (0, _v37.createDomName)(_v1, "notice"),
             width: "auto",
             alignItems: "center",
             marginTop: (0, _v15.rem)(8),
             paddingY: (0, _v15.rem)(8),
-            children: (0, _v2.jsx)(_v55.AlertDescription, {
-              children: (0, _v2.jsx)(_v92.Text, {
+            children: (0, _v2.jsx)(_v56.AlertDescription, {
+              children: (0, _v2.jsx)(_v93.Text, {
                 variant: "body-sm",
                 children: _v35.T_PRIMARY_TRACK_CANNOT_BE_CHANGED_WHILE_SESSION_ACTIVE
               })
@@ -952,7 +953,7 @@
                 pointerEvents: "auto"
               }
             },
-            children: (0, _v2.jsx)(_v105.Select, {
+            children: (0, _v2.jsx)(_v106.Select, {
               id: (0, _v37.createDomName)(_v0, "primary-select"),
               className: (0, _v37.createDomName)(_v1, "primary-select"),
               size: "md",
@@ -971,30 +972,30 @@
               children: [(0, _v2.jsx)(_v14.Paragraph, {
                 size: "lg",
                 children: (0, _v35.T_INTERPRETER_LANGUAGES_RANGE)(_v13.length, _v16)
-              }), _v19 ? (0, _v2.jsx)(_v106.Link, {
+              }), _v19 ? (0, _v2.jsx)(_v107.Link, {
                 target: "_blank",
                 rel: "noreferrer",
                 marginLeft: "auto",
                 href: _v28.vimeoConfig.SUPPORT.UPGRADE_YOUR_PLAN_DIRECT,
-                children: (0, _v2.jsx)(_v107.Badge, {
+                children: (0, _v2.jsx)(_v108.Badge, {
                   cursor: "pointer",
                   size: "sm",
                   color: "white",
                   background: "upsell-primary",
-                  children: _v74.T_UPGRADE_FOR_MORE
+                  children: _v75.T_UPGRADE_FOR_MORE
                 })
               }) : null]
             }), (0, _v2.jsxs)(_v12.Flex, {
               direction: "column",
               gap: (0, _v15.rem)(12),
-              children: [_v13.map((_v0, _v1) => (0, _v2.jsx)(_v111, {
+              children: [_v13.map((_v0, _v1) => (0, _v2.jsx)(_v112, {
                 id: (0, _v37.createDomName)(_v0, "language-select", _v1),
                 className: (0, _v37.createDomName)(_v1, "language-select"),
                 options: _v21,
                 value: _v0,
                 onRemove: _v24,
                 onSelect: _v23
-              }, _v0)), _v13.length < _v16 ? (0, _v2.jsx)(_v111, {
+              }, _v0)), _v13.length < _v16 ? (0, _v2.jsx)(_v112, {
                 id: (0, _v37.createDomName)(_v0, "language-select-new"),
                 className: (0, _v37.createDomName)(_v1, "language-select-new"),
                 onSelect: _v22,
@@ -1005,12 +1006,12 @@
               }) : null]
             })]
           }) : null]
-        }), (0, _v2.jsxs)(_v103.ModalFooter, {
-          children: [(0, _v2.jsx)(_v54.Button, {
+        }), (0, _v2.jsxs)(_v104.ModalFooter, {
+          children: [(0, _v2.jsx)(_v55.Button, {
             variant: "secondary",
             onClick: _v2,
             children: _v35.T_CANCEL
-          }), (0, _v2.jsx)(_v54.Button, {
+          }), (0, _v2.jsx)(_v55.Button, {
             variant: "primary",
             isDisabled: _v17,
             isLoading: _v6,
@@ -1021,18 +1022,18 @@
       })]
     });
   }
-  function _v113({
+  function _v114({
     id: _v0 = (0, _v37.createDomName)("audio-tracks-settings"),
     className: _v1 = (0, _v37.createDomName)("audio-tracks-settings")
   }) {
     let {
         panelActions: _v2
-      } = (0, _v3.useManager)(_v97.PanelsManager),
+      } = (0, _v3.useManager)(_v98.PanelsManager),
       {
         eventLanguages: {
           value: _v3
         }
-      } = (0, _v3.useManager)(_v65.EventAudioTracksManager),
+      } = (0, _v3.useManager)(_v66.EventAudioTracksManager),
       {
         liveComposerStatuses: _v4
       } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
@@ -1045,17 +1046,17 @@
       _v7 = !!_v5?.dvr,
       _v8 = _v6 ? _v35.T_U_CANT_ADD_REMOVE_DURING_BROADCAST : _v7 ? "" : _v35.T_FEATURE_DISABLED_WHEN_DVR_DISABLED,
       _v9 = (0, _v4.useCallback)(() => {
-        _v2.setRightPanel(_v95.ERightPanelId.AUDIO_TRACKS);
+        _v2.setRightPanel(_v96.ERightPanelId.AUDIO_TRACKS);
       }, [_v2]),
-      [_v10, _v11] = (0, _v64.useTimeBasedDismissableNotification)({
-        storedKey: _v63.localStorageConfig.MARKETING.MULTI_TRACK_INFO_NOTICE
+      [_v10, _v11] = (0, _v65.useTimeBasedDismissableNotification)({
+        storedKey: _v64.localStorageConfig.MARKETING.MULTI_TRACK_INFO_NOTICE
       }),
-      _v12 = (0, _v96.useLiveLocalizationTrialExpiry)(),
+      _v12 = (0, _v97.useLiveLocalizationTrialExpiry)(),
       {
         isOpen: _v13,
         onOpen: _v14,
         onClose: _v15
-      } = (0, _v93.useDisclosure)();
+      } = (0, _v94.useDisclosure)();
     return (0, _v2.jsxs)(_v12.Flex, {
       id: _v0,
       className: _v1,
@@ -1069,18 +1070,18 @@
         gap: (0, _v15.rem)(4),
         fontWeight: "bold",
         size: "xs",
-        children: [_v35.T_LANGUAGE_STREAMS, (0, _v2.jsx)(_v59.CircleTip, {
+        children: [_v35.T_LANGUAGE_STREAMS, (0, _v2.jsx)(_v60.CircleTip, {
           as: "span",
           label: _v35.T_CREATE_RTMP_STREAMS_TOOLTIP
-        }), _v12 ? (0, _v2.jsx)(_v94.ExclusiveAccessBadge, {}) : null]
-      }), _v3?.secondary?.length ? (0, _v2.jsx)(_v54.Button, {
+        }), _v12 ? (0, _v2.jsx)(_v95.ExclusiveAccessBadge, {}) : null]
+      }), _v3?.secondary?.length ? (0, _v2.jsx)(_v55.Button, {
         onClick: _v9,
         size: "sm",
         variant: "secondary",
         children: _v35.T_VIEW_STREAMS
-      }) : (0, _v2.jsx)(_v58.BokehTooltip, {
+      }) : (0, _v2.jsx)(_v59.BokehTooltip, {
         label: _v8,
-        children: (0, _v2.jsx)(_v54.Button, {
+        children: (0, _v2.jsx)(_v55.Button, {
           width: "100%",
           isDisabled: _v6 || !_v7,
           size: "sm",
@@ -1088,7 +1089,7 @@
           onClick: _v14,
           children: _v35.T_ADD_STREAM
         })
-      }), _v10 ? (0, _v2.jsx)(_v56.Alert, {
+      }), _v10 ? (0, _v2.jsx)(_v57.Alert, {
         id: (0, _v37.createDomName)(_v0, "notice"),
         className: (0, _v37.createDomName)(_v1, "notice"),
         width: "auto",
@@ -1096,8 +1097,8 @@
         marginTop: (0, _v15.rem)(8),
         paddingY: (0, _v15.rem)(8),
         onClose: _v11,
-        children: (0, _v2.jsx)(_v55.AlertDescription, {
-          children: (0, _v2.jsx)(_v92.Text, {
+        children: (0, _v2.jsx)(_v56.AlertDescription, {
+          children: (0, _v2.jsx)(_v93.Text, {
             href: _v28.vimeoConfig.SUPPORT.MULTIPLE_AUDIO_TRACKS_LIVE,
             target: "_blank",
             variant: "body-sm",
@@ -1106,42 +1107,42 @@
             children: _v35.T_SETTING_UP_STREAMS
           })
         })
-      }) : null, _v13 ? (0, _v2.jsx)(_v112, {
+      }) : null, _v13 ? (0, _v2.jsx)(_v113, {
         onClose: _v15
       }) : null]
     });
   }
-  _v0.s(["TracksManagementModal", 0, _v112], 0);
-  var _v114 = _v0.i(0),
-    _v115 = ((_v1 = {}).RTMPS = "RTMPS", _v1.RTMP = "RTMP", _v1.SRT = "SRT", _v1);
-  let _v116 = ["RTMPS", "RTMP", "SRT"],
-    _v117 = "•".repeat(36),
-    _v118 = "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/34702537912465/";
-  function _v119() {
+  _v0.s(["TracksManagementModal", 0, _v113], 0);
+  var _v115 = _v0.i(0),
+    _v116 = ((_v1 = {}).RTMPS = "RTMPS", _v1.RTMP = "RTMP", _v1.SRT = "SRT", _v1);
+  let _v117 = ["RTMPS", "RTMP", "SRT"],
+    _v118 = "•".repeat(36),
+    _v119 = "/help/sso?redirect_to=https://help.vimeo.com/hc/en-us/articles/34702537912465/";
+  function _v120() {
     let {
         initialState: {
           sessionType: _v0,
           sessionId: _v1
         }
       } = (0, _v26.useLiveGlobals)(),
-      _v2 = `${_v63.localStorageConfig.LIVE.PREFERRED_ENCODER_MODE}-${_v0}-${_v1}`,
-      [_v3, _v4] = (0, _v4.useState)(() => (0, _v114.getFromLocalStorage)(_v2) ?? 0),
+      _v2 = `${_v64.localStorageConfig.LIVE.PREFERRED_ENCODER_MODE}-${_v0}-${_v1}`,
+      [_v3, _v4] = (0, _v4.useState)(() => (0, _v115.getFromLocalStorage)(_v2) ?? 0),
       _v5 = (0, _v4.useCallback)(_v0 => {
-        _v4(_v0), (0, _v114.setLocalStorageItem)(_v2, _v0);
+        _v4(_v0), (0, _v115.setLocalStorageItem)(_v2, _v0);
       }, [_v2]),
-      _v6 = _v116[_v3] ?? 0;
+      _v6 = _v117[_v3] ?? 0;
     return {
       tabIndex: _v3,
       setTabIndex: _v5,
       selectedMode: _v6
     };
   }
-  _v0.s(["EEncoderMode", () => _v115, "ENCODER_MODE_TAB_ORDER", 0, _v116, "SECRET_STREAM_KEY_VALUE", 0, _v117, "SRT_INFO_LINK", 0, _v118], 0), _v0.s(["useEncoderTabState", 0, _v119], 0);
-  var _v120 = _v0.i(0);
-  let _v121 = "•".repeat(36);
-  var _v122 = _v0.i(0),
-    _v123 = _v0.i(0);
-  function _v124({
+  _v0.s(["EEncoderMode", () => _v116, "ENCODER_MODE_TAB_ORDER", 0, _v117, "SECRET_STREAM_KEY_VALUE", 0, _v118, "SRT_INFO_LINK", 0, _v119], 0), _v0.s(["useEncoderTabState", 0, _v120], 0);
+  var _v121 = _v0.i(0);
+  let _v122 = "•".repeat(36);
+  var _v123 = _v0.i(0),
+    _v124 = _v0.i(0);
+  function _v125({
     id: _v0 = (0, _v37.createDomName)("stream-connection-info"),
     className: _v1 = (0, _v37.createDomName)("stream-connection-info"),
     url: _v2,
@@ -1157,22 +1158,22 @@
     onCopyKey: _v12,
     onCopyBackupKey: _v13
   }) {
-    let _v14 = (0, _v122.useIsLiveDemoSubscription)(),
-      _v15 = (0, _v39.useIsVpaas)(),
+    let _v14 = (0, _v123.useIsLiveDemoSubscription)(),
+      _v15 = (0, _v40.useIsVpaas)(),
       {
         open: _v16,
         upgradeModal: _v17
       } = function ({
         canOpen: _v0 = !0
       } = {}) {
-        return (0, _v73.useUpgradeModal)({
+        return (0, _v74.useUpgradeModal)({
           canOpen: _v0,
           modalConfig: {
             mkcCode: "110461",
-            enterpriseTitle: _v74.T_GO_LIVE_WITH_PEACE_OF_MIND,
-            enterpriseSubtitle: _v74.T_ADD_BACKUP_STREAM_IN_CASE_OF_DOWN,
-            customFeaturesList: (0, _v2.jsx)(_v123.UpsellFeaturesList, {
-              featuresList: _v74.T_BACKUP_STREAM_UPSELL_FEATURES
+            enterpriseTitle: _v75.T_GO_LIVE_WITH_PEACE_OF_MIND,
+            enterpriseSubtitle: _v75.T_ADD_BACKUP_STREAM_IN_CASE_OF_DOWN,
+            customFeaturesList: (0, _v2.jsx)(_v124.UpsellFeaturesList, {
+              featuresList: _v75.T_BACKUP_STREAM_UPSELL_FEATURES
             })
           },
           templateType: "enterprise",
@@ -1198,7 +1199,7 @@
     return (0, _v2.jsxs)(_v12.Flex, {
       direction: "column",
       gap: (0, _v15.rem)(16),
-      children: [_v2 ? (0, _v2.jsx)(_v120.CopyField, {
+      children: [_v2 ? (0, _v2.jsx)(_v121.CopyField, {
         id: (0, _v37.createDomName)(_v0, "url"),
         className: (0, _v37.createDomName)(_v1, "url"),
         title: (0, _v2.jsx)(_v13.Header, {
@@ -1206,12 +1207,12 @@
           children: _v35.T_STREAM_URL
         }),
         value: _v2,
-        placeholder: _v121,
+        placeholder: _v122,
         copiedMessage: _v3,
         size: "sm",
         onCopyClick: _v11
       }) : null, _v4 ? (0, _v2.jsxs)(_v2.Fragment, {
-        children: [(0, _v2.jsx)(_v120.CopyField, {
+        children: [(0, _v2.jsx)(_v121.CopyField, {
           id: (0, _v37.createDomName)(_v0, "key"),
           className: (0, _v37.createDomName)(_v1, "key"),
           isPassword: !0,
@@ -1220,11 +1221,11 @@
             children: (0, _v35.T_STREAM_ID)(_v5)
           }),
           value: _v4,
-          placeholder: _v121,
+          placeholder: _v122,
           copiedMessage: _v9 ?? (0, _v35.T_COPIED_STREAM_ID)(_v5),
           size: "sm",
           onCopyClick: _v12
-        }), (0, _v2.jsx)(_v120.CopyField, {
+        }), (0, _v2.jsx)(_v121.CopyField, {
           id: (0, _v37.createDomName)(_v0, "backup-key"),
           className: (0, _v37.createDomName)(_v1, "backup-key"),
           isPassword: !0,
@@ -1236,10 +1237,10 @@
             children: [(0, _v2.jsx)(_v13.Header, {
               size: "xs",
               children: (0, _v35.T_BACKUP_STREAM_ID)(_v5)
-            }), (0, _v2.jsx)(_v59.CircleTip, {
+            }), (0, _v2.jsx)(_v60.CircleTip, {
               as: "span",
               label: _v35.T_AUTOMATICALLY_USED_IF_YOU_PRIMARY_STREAM_FAILS
-            }), _v15 || _v14 || _v6 || _v7 ? null : (0, _v2.jsx)(_v107.Badge, {
+            }), _v15 || _v14 || _v6 || _v7 ? null : (0, _v2.jsx)(_v108.Badge, {
               cursor: "pointer",
               size: "sm",
               color: "white",
@@ -1250,7 +1251,7 @@
             })]
           }),
           value: _v8,
-          placeholder: _v121,
+          placeholder: _v122,
           copiedMessage: _v6 ? _v10 ?? (0, _v35.T_COPIED_BACKUP_STREAM_ID)(_v5) : _v35.T_PLEASE_CONTACT_US_TO_UPGRADE_PLAN,
           size: "sm",
           onCopyClick: _v13
@@ -1258,10 +1259,10 @@
       }) : null, _v17]
     });
   }
-  _v0.s(["StreamConnectionInfo", 0, _v124], 0);
-  var _v125 = _v0.i(0),
-    _v126 = _v0.i(0);
-  function _v127({
+  _v0.s(["StreamConnectionInfo", 0, _v125], 0);
+  var _v126 = _v0.i(0),
+    _v127 = _v0.i(0);
+  function _v128({
     id: _v0 = (0, _v37.createDomName)("live-encoder-mode-panel"),
     className: _v1 = (0, _v37.createDomName)("live-encoder-mode-panel"),
     mode: _v2
@@ -1301,54 +1302,54 @@
         {
           liveComposerStatuses: _v5
         } = (0, _v3.useManager)(_v32.ComposerSessionStatusManager),
-        _v6 = _v1?.latency === _v67.ELatency.FAIL_SAFE,
+        _v6 = _v1?.latency === _v68.ELatency.FAIL_SAFE,
         _v7 = !!_v4?.owner?.capabilities?.canUseBackupStream,
-        _v8 = _v0 === _v115.SRT,
+        _v8 = _v0 === _v116.SRT,
         _v9 = _v5.isSessionRequested || _v5.isSessionUpdating || _v5.isSessionActive,
         _v10 = _v1?.rtmpLink ?? "",
         _v11 = _v1?.rtmpsLink ?? "",
         _v12 = _v1?.srtLink ?? "",
         _v13 = _v1?.streamKey ?? "",
-        _v14 = _v7 ? `${_v13}_backup` : _v117,
-        _v15 = _v0 === _v115.SRT ? _v1?.srtEncryptionEnabled : null,
-        _v16 = _v0 === _v115.SRT ? _v1?.srtPassphrase : null,
+        _v14 = _v7 ? `${_v13}_backup` : _v118,
+        _v15 = _v0 === _v116.SRT ? _v1?.srtEncryptionEnabled : null,
+        _v16 = _v0 === _v116.SRT ? _v1?.srtPassphrase : null,
         _v17 = (0, _v4.useCallback)(() => {
           switch (_v0) {
-            case _v115.RTMP:
-              _v6 ? (0, _v125.copyTextToClipboard)(_v28.vimeoConfig.PATH.FAIL_SAFE_RTMP_URL) : (0, _v125.copyTextToClipboard)(_v10);
+            case _v116.RTMP:
+              _v6 ? (0, _v126.copyTextToClipboard)(_v28.vimeoConfig.PATH.FAIL_SAFE_RTMP_URL) : (0, _v126.copyTextToClipboard)(_v10);
               return;
-            case _v115.RTMPS:
-              (0, _v125.copyTextToClipboard)(_v11);
+            case _v116.RTMPS:
+              (0, _v126.copyTextToClipboard)(_v11);
               return;
-            case _v115.SRT:
-              (0, _v125.copyTextToClipboard)(_v12);
+            case _v116.SRT:
+              (0, _v126.copyTextToClipboard)(_v12);
               return;
           }
         }, [_v0, _v6, _v10, _v11, _v12]),
         _v18 = (0, _v4.useCallback)(() => {
           switch (_v0) {
-            case _v115.RTMP:
-            case _v115.RTMPS:
-            case _v115.SRT:
-              (0, _v125.copyTextToClipboard)(_v13);
+            case _v116.RTMP:
+            case _v116.RTMPS:
+            case _v116.SRT:
+              (0, _v126.copyTextToClipboard)(_v13);
               return;
           }
         }, [_v0, _v13]),
         _v19 = (0, _v4.useCallback)(() => {
           if (_v7) switch (_v0) {
-            case _v115.RTMP:
-            case _v115.RTMPS:
-            case _v115.SRT:
-              (0, _v125.copyTextToClipboard)(_v14);
+            case _v116.RTMP:
+            case _v116.RTMPS:
+            case _v116.SRT:
+              (0, _v126.copyTextToClipboard)(_v14);
               return;
           }
         }, [_v7, _v0, _v14]),
         _v20 = (0, _v4.useCallback)(() => {
           switch (_v0) {
-            case _v115.RTMP:
-            case _v115.RTMPS:
-              throw new _v126.LiveError("Unexpected encryption passphrase toggle.");
-            case _v115.SRT:
+            case _v116.RTMP:
+            case _v116.RTMPS:
+              throw new _v127.LiveError("Unexpected encryption passphrase toggle.");
+            case _v116.SRT:
               _v3.updateLiveEventSettings({
                 srtEncryptionEnabled: !_v15
               }, ["srtEncryptionEnabled", "srtPassphrase"], !0);
@@ -1357,16 +1358,16 @@
         }, [_v3, _v0, _v15]),
         _v21 = (0, _v4.useCallback)(() => {
           switch (_v0) {
-            case _v115.RTMP:
-            case _v115.RTMPS:
-              throw new _v126.LiveError("Unexpected encryption passphrase copy.");
-            case _v115.SRT:
-              _v16 && (0, _v125.copyTextToClipboard)(_v16);
+            case _v116.RTMP:
+            case _v116.RTMPS:
+              throw new _v127.LiveError("Unexpected encryption passphrase copy.");
+            case _v116.SRT:
+              _v16 && (0, _v126.copyTextToClipboard)(_v16);
               return;
           }
         }, [_v0, _v16]);
       switch (_v0) {
-        case _v115.RTMP:
+        case _v116.RTMP:
           return {
             url: _v6 ? _v28.vimeoConfig.PATH.FAIL_SAFE_RTMP_URL : _v10,
             key: _v13,
@@ -1375,7 +1376,7 @@
             isEncryptionEnabled: _v15,
             encryptionPassphrase: _v16,
             infoNoticeText: null,
-            keyLabel: _v40.translations.key,
+            keyLabel: _v41.translations.key,
             canUseBackupStream: _v7,
             canUseEncryption: _v8,
             isEncryptionToggleDisabled: _v9,
@@ -1385,7 +1386,7 @@
             onToggleEncryption: _v20,
             onCopyEncryptionPassphrase: _v21
           };
-        case _v115.RTMPS:
+        case _v116.RTMPS:
           return {
             url: _v11,
             key: _v13,
@@ -1393,8 +1394,8 @@
             isLoading: _v2,
             isEncryptionEnabled: _v15,
             encryptionPassphrase: _v16,
-            infoNoticeText: _v6 ? _v40.translations.protocolNotSupportedNotice(_v0) : void 0,
-            keyLabel: _v40.translations.key,
+            infoNoticeText: _v6 ? _v41.translations.protocolNotSupportedNotice(_v0) : void 0,
+            keyLabel: _v41.translations.key,
             canUseBackupStream: _v7,
             canUseEncryption: _v8,
             isEncryptionToggleDisabled: _v9,
@@ -1404,7 +1405,7 @@
             onToggleEncryption: _v20,
             onCopyEncryptionPassphrase: _v21
           };
-        case _v115.SRT:
+        case _v116.SRT:
           return {
             url: _v12,
             key: _v13,
@@ -1412,8 +1413,8 @@
             isLoading: _v2,
             isEncryptionEnabled: _v15,
             encryptionPassphrase: _v16,
-            infoNoticeText: _v6 ? _v40.translations.protocolNotSupportedNotice(_v0) : _v40.translations.srtHelpNotification(_v118),
-            keyLabel: _v40.translations.id,
+            infoNoticeText: _v6 ? _v41.translations.protocolNotSupportedNotice(_v0) : _v41.translations.srtHelpNotification(_v119),
+            keyLabel: _v41.translations.id,
             canUseBackupStream: _v7,
             canUseEncryption: _v8,
             isEncryptionToggleDisabled: _v9,
@@ -1432,27 +1433,27 @@
       className: _v1,
       direction: "column",
       gap: (0, _v15.rem)(16),
-      children: [_v13 ? (0, _v2.jsx)(_v56.Alert, {
+      children: [_v13 ? (0, _v2.jsx)(_v57.Alert, {
         id: (0, _v37.createDomName)(_v0, "notice"),
         className: (0, _v37.createDomName)(_v1, "notice"),
         width: "auto",
         alignItems: "center",
         paddingY: (0, _v15.rem)(8),
-        children: (0, _v2.jsx)(_v55.AlertDescription, {
+        children: (0, _v2.jsx)(_v56.AlertDescription, {
           children: _v13
         })
-      }) : null, (0, _v2.jsx)(_v124, {
+      }) : null, (0, _v2.jsx)(_v125, {
         url: _v3,
         copiedUrlMessage: (0, _v35.T_COPIED_URL)(_v2),
         streamKey: _v7,
         keyLabel: _v8,
         canUseBackupStream: _v4,
-        forceHide: _v2 === _v115.SRT,
+        forceHide: _v2 === _v116.SRT,
         keyBackup: _v6,
         onCopyUrl: _v14,
         onCopyKey: _v15,
         onCopyBackupKey: _v16
-      }), _v5 ? (0, _v2.jsxs)(_v52.FormLabel, {
+      }), _v5 ? (0, _v2.jsxs)(_v53.FormLabel, {
         id: (0, _v37.createDomName)(_v0, "encryption-form"),
         className: (0, _v37.createDomName)(_v1, "encryption-form"),
         display: "flex",
@@ -1467,11 +1468,11 @@
           gap: (0, _v15.rem)(4),
           fontWeight: "bold",
           size: "xs",
-          children: [_v35.T_ENCRYPTION, (0, _v2.jsx)(_v59.CircleTip, {
+          children: [_v35.T_ENCRYPTION, (0, _v2.jsx)(_v60.CircleTip, {
             as: "span",
             label: _v35.T_ENCRYPTION_PROTECT_STREAM
           })]
-        }), (0, _v2.jsx)(_v53.Switch, {
+        }), (0, _v2.jsx)(_v54.Switch, {
           id: (0, _v37.createDomName)(_v0, "encryption-switch"),
           className: (0, _v37.createDomName)(_v1, "encryption-switch"),
           isDisabled: _v10 || _v12,
@@ -1482,7 +1483,7 @@
       }) : null, _v5 && _v11 && _v9 ? (0, _v2.jsx)(_v10.Box, {
         width: "100%",
         marginTop: (0, _v15.rem)(8),
-        children: (0, _v2.jsx)(_v120.CopyField, {
+        children: (0, _v2.jsx)(_v121.CopyField, {
           id: (0, _v37.createDomName)(_v0, "encryption-passphrase"),
           className: (0, _v37.createDomName)(_v1, "encryption-passphrase"),
           title: (0, _v2.jsx)(_v13.Header, {
@@ -1490,7 +1491,7 @@
             children: _v35.T_PASSPHRASE
           }),
           value: _v9,
-          placeholder: _v117,
+          placeholder: _v118,
           isPassword: !0,
           copiedMessage: _v35.T_COPIED_PASSPHRASE,
           size: "sm",
@@ -1499,7 +1500,7 @@
       }) : null]
     });
   }
-  function _v128({
+  function _v129({
     id: _v0 = (0, _v37.createDomName)("encoder-mode-panels"),
     className: _v1 = (0, _v37.createDomName)("encoder-mode-panels")
   }) {
@@ -1513,52 +1514,52 @@
         content: _v2 ? (0, _v2.jsxs)(_v12.Flex, {
           direction: "column",
           gap: (0, _v15.rem)(16),
-          children: [(0, _v2.jsx)(_v127, {
-            mode: _v115.RTMPS
-          }), (0, _v2.jsx)(_v113, {})]
-        }) : (0, _v2.jsx)(_v127, {
-          mode: _v115.RTMPS
+          children: [(0, _v2.jsx)(_v128, {
+            mode: _v116.RTMPS
+          }), (0, _v2.jsx)(_v114, {})]
+        }) : (0, _v2.jsx)(_v128, {
+          mode: _v116.RTMPS
         }),
-        id: _v115.RTMPS
+        id: _v116.RTMPS
       }, {
         label: _v35.T_RTMP,
         content: _v2 ? (0, _v2.jsxs)(_v12.Flex, {
           direction: "column",
           gap: (0, _v15.rem)(16),
-          children: [(0, _v2.jsx)(_v127, {
-            mode: _v115.RTMP
-          }), (0, _v2.jsx)(_v113, {})]
-        }) : (0, _v2.jsx)(_v127, {
-          mode: _v115.RTMP
+          children: [(0, _v2.jsx)(_v128, {
+            mode: _v116.RTMP
+          }), (0, _v2.jsx)(_v114, {})]
+        }) : (0, _v2.jsx)(_v128, {
+          mode: _v116.RTMP
         }),
-        id: _v115.RTMP
+        id: _v116.RTMP
       }, {
         label: _v35.T_SRT,
-        content: (0, _v2.jsx)(_v127, {
-          mode: _v115.SRT
+        content: (0, _v2.jsx)(_v128, {
+          mode: _v116.SRT
         }),
-        id: _v115.SRT
+        id: _v116.SRT
       }], [_v2]),
       {
         tabIndex: _v4,
         setTabIndex: _v5
-      } = _v119();
-    return (0, _v2.jsxs)(_v88.Tabs, {
+      } = _v120();
+    return (0, _v2.jsxs)(_v89.Tabs, {
       id: (0, _v37.createDomName)(_v0, "tabs"),
       className: (0, _v37.createDomName)(_v1, "tabs"),
       size: "sm",
       defaultIndex: _v4,
       onChange: _v5,
       isLazy: !0,
-      children: [(0, _v2.jsxs)(_v89.TabList, {
-        children: [_v3.map(_v0 => (0, _v2.jsx)(_v87.Tab, {
+      children: [(0, _v2.jsxs)(_v90.TabList, {
+        children: [_v3.map(_v0 => (0, _v2.jsx)(_v88.Tab, {
           id: (0, _v37.createDomName)(_v0.id, "tab"),
           children: _v0.label
-        }, _v0.id)), (0, _v2.jsx)(_v88.TabIndicator, {})]
-      }), (0, _v2.jsx)(_v91.TabPanels, {
+        }, _v0.id)), (0, _v2.jsx)(_v89.TabIndicator, {})]
+      }), (0, _v2.jsx)(_v92.TabPanels, {
         id: (0, _v37.createDomName)(_v0, "panel"),
         height: "100%",
-        children: _v3.map(_v0 => (0, _v2.jsx)(_v90.TabPanel, {
+        children: _v3.map(_v0 => (0, _v2.jsx)(_v91.TabPanel, {
           display: "flex",
           height: "100%",
           flexDirection: "column",
@@ -1568,10 +1569,10 @@
       })]
     });
   }
-  var _v129 = _v0.i(0);
-  function _v130({
-    id: _v0 = (0, _v129.createLiveDomName)("stream-settings-tab"),
-    className: _v1 = (0, _v129.createLiveDomName)("stream-settings-tab")
+  var _v130 = _v0.i(0);
+  function _v131({
+    id: _v0 = (0, _v130.createLiveDomName)("stream-settings-tab"),
+    className: _v1 = (0, _v130.createLiveDomName)("stream-settings-tab")
   }) {
     let {
         settings: {
@@ -1592,40 +1593,40 @@
       direction: "column",
       width: "100%",
       gap: (0, _v15.rem)(16),
-      children: [(0, _v2.jsxs)(_v52.FormLabel, {
-        id: (0, _v129.createLiveDomName)(_v0, "stream-preview-toggle-form"),
-        className: (0, _v129.createLiveDomName)(_v1, "stream-preview-toggle-form"),
-        htmlFor: (0, _v129.createLiveDomName)(_v0, "stream-preview-toggle"),
+      children: [(0, _v2.jsxs)(_v53.FormLabel, {
+        id: (0, _v130.createLiveDomName)(_v0, "stream-preview-toggle-form"),
+        className: (0, _v130.createLiveDomName)(_v1, "stream-preview-toggle-form"),
+        htmlFor: (0, _v130.createLiveDomName)(_v0, "stream-preview-toggle"),
         display: "flex",
         justifyContent: "space-between",
         margin: 0,
         cursor: "pointer",
         columnGap: (0, _v15.rem)(8),
         children: [(0, _v2.jsxs)(_v14.Paragraph, {
-          id: (0, _v129.createLiveDomName)(_v0, "stream-preview-toggle-label"),
-          className: (0, _v129.createLiveDomName)(_v1, "stream-preview-toggle-label"),
+          id: (0, _v130.createLiveDomName)(_v0, "stream-preview-toggle-label"),
+          className: (0, _v130.createLiveDomName)(_v1, "stream-preview-toggle-label"),
           display: "flex",
           gap: (0, _v15.rem)(4),
           fontWeight: "bold",
           size: "md",
-          children: [_v40.translations.previewStreamBeforeGoingLive, (0, _v2.jsx)(_v59.CircleTip, {
+          children: [_v41.translations.previewStreamBeforeGoingLive, (0, _v2.jsx)(_v60.CircleTip, {
             as: "span",
             placement: "top-end",
-            label: _v40.translations.previewStreamBeforeGoingLiveTooltip
+            label: _v41.translations.previewStreamBeforeGoingLiveTooltip
           })]
-        }), (0, _v2.jsx)(_v53.Switch, {
-          id: (0, _v129.createLiveDomName)(_v0, "stream-preview-toggle"),
-          className: (0, _v129.createLiveDomName)(_v1, "stream-preview-toggle"),
+        }), (0, _v2.jsx)(_v54.Switch, {
+          id: (0, _v130.createLiveDomName)(_v0, "stream-preview-toggle"),
+          className: (0, _v130.createLiveDomName)(_v1, "stream-preview-toggle"),
           size: "sm",
           isChecked: !!_v2?.rtmpPreview,
           isDisabled: !!_v3 || _v5.isSessionLive,
           onChange: _v6
         })]
-      }), (0, _v2.jsx)(_v128, {})]
+      }), (0, _v2.jsx)(_v129, {})]
     });
   }
-  var _v131 = _v0.i(0);
-  let _v132 = new Set([_v131.EAccordionItemId.STREAM, _v131.EAccordionItemId.BASICS, _v131.EAccordionItemId.SCHEDULE]);
+  var _v132 = _v0.i(0);
+  let _v133 = new Set([_v132.EAccordionItemId.STREAM, _v132.EAccordionItemId.BASICS, _v132.EAccordionItemId.SCHEDULE]);
   _v0.s(["EventSettingsTab", 0, function ({
     id: _v0 = (0, _v37.createDomName)("event-settings-tab"),
     className: _v1 = (0, _v37.createDomName)("event-settings-tab"),
@@ -1647,7 +1648,7 @@
       _v8 = !!_v7?.connections?.ott?.value?.isConnected,
       {
         trackLiveStreamSettingsSectionClicked: _v9
-      } = (0, _v38.useLiveStreamBroadcasterTracking)(),
+      } = (0, _v39.useLiveStreamBroadcasterTracking)(),
       _v10 = _v4 === _v36.EComposerStreamModeType.RECORD,
       _v11 = !_v6 && !!(_v5?.app?.uri && _v28.vimeoConfig.STREAMYARD_APP_URIS.includes(_v5.app.uri)),
       _v12 = _v11 && !_v8,
@@ -1659,127 +1660,129 @@
           sessionApplicationType: _v16
         }
       } = (0, _v26.useLiveGlobals)(),
-      _v17 = (0, _v39.useIsVpaas)(),
+      _v17 = (0, _v40.useIsVpaas)(),
       _v18 = !_v17 && !_v10,
-      _v19 = (0, _v48.useIsHostAudioMeterAvailable)(),
+      _v19 = (0, _v49.useIsHostAudioMeterAvailable)(),
       _v20 = (0, _v31.useSessionOwnerId)(),
       {
         capabilities: _v21
       } = (0, _v19.useCapability)(["hasLiveAutoCcAiCredits", "hasAdminForcedPreset", "hasLiveAutoTranslation", "hasCanUsePersonalizedViewerWatermarking", "hasCanUseForensicWatermarking"], _v20 || null),
       _v22 = !!_v21.hasLiveAutoCcAiCredits || !!_v21.hasLiveAutoTranslation,
-      _v23 = !!_v21.hasAdminForcedPreset,
-      _v24 = !!_v21.hasCanUsePersonalizedViewerWatermarking,
-      _v25 = !!_v21.hasCanUseForensicWatermarking,
-      _v26 = _v18 && !_v2,
-      _v27 = (0, _v4.useMemo)(() => [_v16 === _v36.EComposerApplicationType.RTMP ? {
-        id: _v131.EAccordionItemId.STREAM,
-        title: _v40.translations.stream,
-        content: (0, _v2.jsx)(_v130, {})
+      _v23 = (0, _v38.useOrionSetting)("enable_personalized_viewer_watermarking"),
+      _v24 = (0, _v38.useOrionSetting)("enable_forensic_watermarking"),
+      _v25 = !!_v21.hasAdminForcedPreset,
+      _v26 = !!_v21.hasCanUsePersonalizedViewerWatermarking && _v23,
+      _v27 = !!_v21.hasCanUseForensicWatermarking && _v24,
+      _v28 = _v18 && !_v2,
+      _v29 = (0, _v4.useMemo)(() => [_v16 === _v36.EComposerApplicationType.RTMP ? {
+        id: _v132.EAccordionItemId.STREAM,
+        title: _v41.translations.stream,
+        content: (0, _v2.jsx)(_v131, {})
       } : null, _v17 ? null : {
-        id: _v131.EAccordionItemId.BASICS,
-        title: _v40.translations.basics,
-        content: (0, _v2.jsx)(_v44.BasicSettings, {})
+        id: _v132.EAccordionItemId.BASICS,
+        title: _v41.translations.basics,
+        content: (0, _v2.jsx)(_v45.BasicSettings, {})
       }, _v19 && !_v2 ? {
-        id: _v131.EAccordionItemId.AUDIO,
-        title: _v40.translations.audio,
-        content: (0, _v2.jsx)(_v47.HostAudioSettings, {})
+        id: _v132.EAccordionItemId.AUDIO,
+        title: _v41.translations.audio,
+        content: (0, _v2.jsx)(_v48.HostAudioSettings, {})
       } : null, _v18 ? {
-        id: _v131.EAccordionItemId.PRIVACY,
-        title: _v40.translations.privacy,
-        content: (0, _v2.jsx)(_v50.PrivacySettings, {
-          canUsePersonalizedViewerWatermarking: _v24,
-          canUseForensicWatermarking: _v25
+        id: _v132.EAccordionItemId.PRIVACY,
+        title: _v41.translations.privacy,
+        content: (0, _v2.jsx)(_v51.PrivacySettings, {
+          canUsePersonalizedViewerWatermarking: _v26,
+          canUseForensicWatermarking: _v27
         })
-      } : null, _v26 ? {
-        id: _v131.EAccordionItemId.SCHEDULE,
-        title: _v40.translations.schedule,
-        content: (0, _v2.jsx)(_v86, {})
-      } : null, _v26 ? {
-        id: _v131.EAccordionItemId.PRODUCTION,
-        title: _v40.translations.production,
-        content: (0, _v2.jsx)(_v79, {})
+      } : null, _v28 ? {
+        id: _v132.EAccordionItemId.SCHEDULE,
+        title: _v41.translations.schedule,
+        content: (0, _v2.jsx)(_v87, {})
+      } : null, _v28 ? {
+        id: _v132.EAccordionItemId.PRODUCTION,
+        title: _v41.translations.production,
+        content: (0, _v2.jsx)(_v80, {})
       } : null, _v2 || _v10 ? null : {
-        id: _v131.EAccordionItemId.AUTO_CC,
+        id: _v132.EAccordionItemId.AUTO_CC,
         title: _v22 ? (0, _v2.jsxs)(_v12.Flex, {
           alignItems: "center",
           gap: (0, _v15.rem)(4),
           children: [(0, _v2.jsx)(_v16.AiSparkles, {
             boxSize: 20
-          }), _v40.translations.captions]
-        }) : _v40.translations.closedCaptions,
-        content: (0, _v2.jsx)(_v43.AutoCcSettings, {})
+          }), _v41.translations.captions]
+        }) : _v41.translations.closedCaptions,
+        content: (0, _v2.jsx)(_v44.AutoCcSettings, {})
       }, _v18 && !_v13 ? {
-        id: _v131.EAccordionItemId.REGISTRATION,
-        title: _v23 && !_v14 ? (0, _v2.jsxs)(_v12.Flex, {
+        id: _v132.EAccordionItemId.REGISTRATION,
+        title: _v25 && !_v14 ? (0, _v2.jsxs)(_v12.Flex, {
           alignItems: "center",
           gap: (0, _v15.rem)(4),
           children: [(0, _v2.jsx)(_v17.InfoCircleFilled, {
             boxSize: 25,
             color: "status-caution-primary"
-          }), _v40.translations.registration]
-        }) : _v40.translations.registration,
-        content: (0, _v2.jsx)(_v84, {})
-      } : null, _v26 ? {
-        id: _v131.EAccordionItemId.PLAYER,
-        title: _v40.translations.player,
-        content: (0, _v2.jsx)(_v49.PlayerSettings, {})
-      } : null, _v26 ? {
-        id: _v131.EAccordionItemId.DESTINATIONS,
-        title: _v40.translations.destinations,
-        content: (0, _v2.jsx)(_v42.Destinations, {
+          }), _v41.translations.registration]
+        }) : _v41.translations.registration,
+        content: (0, _v2.jsx)(_v85, {})
+      } : null, _v28 ? {
+        id: _v132.EAccordionItemId.PLAYER,
+        title: _v41.translations.player,
+        content: (0, _v2.jsx)(_v50.PlayerSettings, {})
+      } : null, _v28 ? {
+        id: _v132.EAccordionItemId.DESTINATIONS,
+        title: _v41.translations.destinations,
+        content: (0, _v2.jsx)(_v43.Destinations, {
           isStreamYardEvent: _v11,
           hideVimeoDestination: !0
         })
       } : null, _v18 && _v15 ? {
-        id: _v131.EAccordionItemId.AVAILABILITY,
-        title: _v40.translations.availability,
-        content: (0, _v2.jsx)(_v41.LiveEventAvailability, {})
+        id: _v132.EAccordionItemId.AVAILABILITY,
+        title: _v41.translations.availability,
+        content: (0, _v2.jsx)(_v42.LiveEventAvailability, {})
       } : null, _v18 ? {
-        id: _v131.EAccordionItemId.ENGAGEMENT,
-        title: _v40.translations.engagementSettings,
-        content: (0, _v2.jsx)(_v46.EngagementSettings, {})
-      } : null].filter(_v0 => null != _v0), [_v16, _v17, _v18, _v19, _v13, _v15, _v26, _v2, _v10, _v22, _v23, _v14, _v11, _v24, _v25]),
-      _v28 = _v0 => null != _v0 && (_v11 && _v132.has(_v0) || _v0 === _v131.EAccordionItemId.DESTINATIONS && _v12),
-      _v29 = (_v11 ? _v27.find(_v0 => !_v28(_v0.id))?.id : void 0) ?? _v27[0]?.id ?? "",
+        id: _v132.EAccordionItemId.ENGAGEMENT,
+        title: _v41.translations.engagementSettings,
+        content: (0, _v2.jsx)(_v47.EngagementSettings, {})
+      } : null].filter(_v0 => null != _v0), [_v16, _v17, _v18, _v19, _v13, _v15, _v28, _v2, _v10, _v22, _v25, _v14, _v11, _v26, _v27]),
+      _v30 = _v0 => null != _v0 && (_v11 && _v133.has(_v0) || _v0 === _v132.EAccordionItemId.DESTINATIONS && _v12),
+      _v31 = (_v11 ? _v29.find(_v0 => !_v30(_v0.id))?.id : void 0) ?? _v29[0]?.id ?? "",
       {
-        activeIndex: _v30,
-        getIdByIndex: _v31,
-        onActiveIndexChange: _v32
-      } = (0, _v20.useControlledAccordion)(_v27, (0, _v21.getDefaultAccordionId)(_v29), [_v27]),
-      _v33 = _v30 >= 0 && _v28(_v27[_v30]?.id) ? _v27.findIndex(_v0 => !_v28(_v0.id)) : _v30,
-      _v34 = (0, _v4.useCallback)(_v0 => {
-        _v32(_v0);
+        activeIndex: _v32,
+        getIdByIndex: _v33,
+        onActiveIndexChange: _v34
+      } = (0, _v20.useControlledAccordion)(_v29, (0, _v21.getDefaultAccordionId)(_v31), [_v29]),
+      _v35 = _v32 >= 0 && _v30(_v29[_v32]?.id) ? _v29.findIndex(_v0 => !_v30(_v0.id)) : _v32,
+      _v36 = (0, _v4.useCallback)(_v0 => {
+        _v34(_v0);
         let _v1 = function (_v0) {
           switch (_v0) {
-            case _v131.EAccordionItemId.BASICS:
+            case _v132.EAccordionItemId.BASICS:
               return "basics";
-            case _v131.EAccordionItemId.PRIVACY:
+            case _v132.EAccordionItemId.PRIVACY:
               return "privacy";
-            case _v131.EAccordionItemId.SCHEDULE:
+            case _v132.EAccordionItemId.SCHEDULE:
               return "schedule";
-            case _v131.EAccordionItemId.PRODUCTION:
+            case _v132.EAccordionItemId.PRODUCTION:
               return "production";
-            case _v131.EAccordionItemId.AUTO_CC:
+            case _v132.EAccordionItemId.AUTO_CC:
               return "closed_captions";
-            case _v131.EAccordionItemId.REGISTRATION:
+            case _v132.EAccordionItemId.REGISTRATION:
               return "registration";
-            case _v131.EAccordionItemId.DESTINATIONS:
+            case _v132.EAccordionItemId.DESTINATIONS:
               return "destinations";
-            case _v131.EAccordionItemId.PLAYER:
+            case _v132.EAccordionItemId.PLAYER:
               return "player";
             default:
               return null;
           }
-        }(_v31(_v0));
+        }(_v33(_v0));
         null !== _v1 && _v9({
           liveStreamSettingsSection: _v1
         });
-      }, [_v31, _v32, _v9]),
-      _v35 = (0, _v29.useScrollbarStyles)({
+      }, [_v33, _v34, _v9]),
+      _v37 = (0, _v29.useScrollbarStyles)({
         width: (0, _v15.rem)(0),
         scrollbarColor: "transparent"
       }),
-      _v36 = _v27?.length === 0 && _v17 && _v10;
+      _v38 = _v29?.length === 0 && _v17 && _v10;
     return (0, _v2.jsxs)(_v10.Box, {
       id: _v0,
       className: _v1,
@@ -1789,12 +1792,12 @@
       children: [(0, _v2.jsx)(_v24.RightPanelHeader, {
         id: (0, _v37.createDomName)(_v0, "header"),
         className: (0, _v37.createDomName)(_v1, "header"),
-        label: _v40.translations.settings,
+        label: _v41.translations.settings,
         rightControls: (0, _v2.jsx)(_v23.RightPanelDismiss, {})
       }), (0, _v2.jsx)(_v22.RightPanelContent, {
         id: (0, _v37.createDomName)(_v0, "content"),
         className: (0, _v37.createDomName)(_v1, "content"),
-        children: _v36 ? (0, _v2.jsxs)(_v11.Center, {
+        children: _v38 ? (0, _v2.jsxs)(_v11.Center, {
           flexDirection: "column",
           gap: "sm",
           height: "100%",
@@ -1819,15 +1822,15 @@
           id: (0, _v37.createDomName)(_v0, "scroll"),
           className: (0, _v37.createDomName)(_v0, "scroll"),
           overflowY: "scroll",
-          sx: _v35,
+          sx: _v37,
           children: (0, _v2.jsx)(_v5.Accordion, {
-            index: _v33,
+            index: _v35,
             allowToggle: !0,
             reduceMotion: _v27.environmentConfig.IS_LOCAL_DEV,
             size: "lg",
-            onChange: _v34,
-            children: _v27.map((_v0, _v1) => {
-              let _v2 = _v28(_v0.id),
+            onChange: _v36,
+            children: _v29.map((_v0, _v1) => {
+              let _v2 = _v30(_v0.id),
                 _v3 = (0, _v2.jsxs)(_v8.AccordionItem, {
                   id: _v0.id,
                   isDisabled: _v2,
@@ -1839,10 +1842,10 @@
                       children: [_v0.title, (0, _v2.jsx)(_v7.AccordionIcon, {})]
                     })
                   }), (0, _v2.jsx)(_v9.AccordionPanel, {
-                    children: _v1 !== _v33 || _v2 ? null : _v0.content
+                    children: _v1 !== _v35 || _v2 ? null : _v0.content
                   })]
                 }, _v0.id);
-              return _v0.id === _v131.EAccordionItemId.AUTO_CC ? (0, _v2.jsx)(_v45.DictionaryIntroLiveEventsAnnouncement, {
+              return _v0.id === _v132.EAccordionItemId.AUTO_CC ? (0, _v2.jsx)(_v46.DictionaryIntroLiveEventsAnnouncement, {
                 children: _v3
               }, _v0.id) : _v3;
             })

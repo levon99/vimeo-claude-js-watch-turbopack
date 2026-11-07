@@ -7221,51 +7221,56 @@
         singular: "非英语转录不太可能产生准确的结果。{A}了解更多{/A}"
       }
     }
-  }), "numberOfSpeakers", 0, _v193, "ok", 0, _v170, "original", 0, _v166, "pause", 0, _v14, "play", 0, _v13, "playMoment", 0, _v65, "plusFeaturesList", 0, _v174, "premiumFeaturesList", 0, _v177, "premiumSubHeader", 0, _v176, "previewTranslations", 0, _v221, "proBadge", 0, _v200, "proFeaturesList", 0, _v175, "proOnlyLanguagesAlert", 0, (_v0, _v1) => {
-    let _v2 = _v0.length,
-      _v3 = {
-        LANGUAGES: _v0.join(", ")
-      };
+  }), "numberOfSpeakers", 0, _v193, "ok", 0, _v170, "original", 0, _v166, "pause", 0, _v14, "play", 0, _v13, "playMoment", 0, _v65, "plusFeaturesList", 0, _v174, "premiumFeaturesList", 0, _v177, "premiumSubHeader", 0, _v176, "previewTranslations", 0, _v221, "proBadge", 0, _v200, "proFeaturesList", 0, _v175, "proOnlyLanguagesAlert", 0, (_v0, _v1, _v2 = "en") => {
+    let _v3 = _v0.length,
+      _v4 = new Intl.ListFormat(_v2, {
+        style: "long",
+        type: "conjunction"
+      }).format(_v0);
     return _v1 ? (0, _v3.translate)({
-      count: _v2,
-      singular: "{LANGUAGES} requires Dubbing PRO. The other languages will be dubbed with Legacy.",
-      plural: "{LANGUAGES} require Dubbing PRO. The other languages will be dubbed with Legacy.",
-      replacements: _v3,
+      count: _v3,
+      singular: "{LANGUAGES} will use Dubbing PRO, as Legacy doesn’t support it. All other languages will use Legacy.",
+      plural: "{LANGUAGES} will use Dubbing PRO, as Legacy doesn’t support them. All other languages will use Legacy.",
+      replacements: {
+        LANGUAGES: _v4
+      },
       dictionary: {
         es: {
-          singular: "{LANGUAGES} requiere Dubbing PRO. Los demás idiomas se doblarán con Legacy.",
-          plural: "{LANGUAGES} requieren Dubbing PRO. Los demás idiomas se doblarán con Legacy."
+          singular: "{LANGUAGES} usará Dubbing PRO, ya que Legacy no lo admite. Todos los demás idiomas usarán Legacy.",
+          plural: "{LANGUAGES} usarán Dubbing PRO, ya que Legacy no los admite. Todos los demás idiomas usarán Legacy."
         },
         "de-DE": {
-          singular: "{LANGUAGES} erfordert Dubbing PRO. Die übrigen Sprachen werden mit Legacy synchronisiert.",
-          plural: "{LANGUAGES} erfordern Dubbing PRO. Die übrigen Sprachen werden mit Legacy synchronisiert."
+          singular: "{LANGUAGES} verwendet Dubbing PRO, da Legacy dafür keine Unterstützung bietet. Alle anderen Sprachen verwenden Legacy.",
+          plural: "{LANGUAGES} verwenden Dubbing PRO, da Legacy dafür keine Unterstützung bietet. Alle anderen Sprachen verwenden Legacy."
         },
         "fr-FR": {
-          singular: "{LANGUAGES} requiert Dubbing PRO. Les autres langues seront doublées avec Legacy.",
-          plural: "{LANGUAGES} requièrent Dubbing PRO. Les autres langues seront doublées avec Legacy."
+          singular: "{LANGUAGES} utilisera Dubbing PRO, car Legacy ne le prend pas en charge. Toutes les autres langues utiliseront Legacy.",
+          plural: "{LANGUAGES} utiliseront Dubbing PRO, car Legacy ne les prend pas en charge. Toutes les autres langues utiliseront Legacy."
         },
         "ja-JP": {
-          singular: "{LANGUAGES} は Dubbing PRO が必要です. その他の言語は Legacy で吹き替えられます.",
-          plural: "{LANGUAGES} は Dubbing PRO が必要です. その他の言語は Legacy で吹き替えられます."
+          singular: "{LANGUAGES} は Legacy が対応していないため、Dubbing PRO を使用します。他のすべての言語は Legacy を使用します。",
+          plural: "{LANGUAGES} は Legacy が対応していないため、Dubbing PRO を使用します。他のすべての言語は Legacy を使用します。"
         },
         "ko-KR": {
-          singular: "{LANGUAGES}에는 Dubbing PRO가 필요합니다. 다른 언어는 Legacy로 더빙됩니다.",
-          plural: "{LANGUAGES}에는 Dubbing PRO가 필요합니다. 다른 언어는 Legacy로 더빙됩니다."
+          singular: "{LANGUAGES}는 Legacy가 지원하지 않으므로 Dubbing PRO를 사용합니다. 다른 모든 언어는 Legacy를 사용합니다.",
+          plural: "{LANGUAGES}는 Legacy가 지원하지 않으므로 Dubbing PRO를 사용합니다. 다른 모든 언어는 Legacy를 사용합니다."
         },
         "pt-BR": {
-          singular: "{LANGUAGES} requer Dubbing PRO. As outras línguas serão dubladas com Legacy.",
-          plural: "{LANGUAGES} requerem Dubbing PRO. As outras línguas serão dubladas com Legacy."
+          singular: "{LANGUAGES} usará Dubbing PRO, pois o Legacy não o suporta. Todos os outros idiomas usarão Legacy.",
+          plural: "{LANGUAGES} usarão Dubbing PRO, pois o Legacy não os suporta. Todos os outros idiomas usarão Legacy."
         },
         "zh-CN": {
-          singular: "{LANGUAGES} 需要 Dubbing PRO。其他语言将使用 Legacy 进行配音。",
-          plural: "{LANGUAGES} 需要 Dubbing PRO。其他语言将使用 Legacy 进行配音。"
+          singular: "{LANGUAGES} 将使用 Dubbing PRO，因为 Legacy 不支持它。所有其他语言将使用 Legacy。",
+          plural: "{LANGUAGES} 将使用 Dubbing PRO，因为 Legacy 不支持它们。所有其他语言将使用 Legacy。"
         }
       }
     }) : (0, _v3.translate)({
-      count: _v2,
+      count: _v3,
       singular: "{LANGUAGES} will be dubbed with Dubbing PRO.",
       plural: "{LANGUAGES} will be dubbed with Dubbing PRO.",
-      replacements: _v3,
+      replacements: {
+        LANGUAGES: _v4
+      },
       dictionary: {
         es: {
           singular: "{LANGUAGES} se doblará con Dubbing PRO.",
@@ -7297,7 +7302,93 @@
         }
       }
     });
-  }, "qnaSectionTitle", 0, _v62, "qnaTermAndConditions", 0, () => (0, _v3.translate)({
+  }, "proOnlyLanguagesTooltip", 0, _v0 => 1 === _v0.length ? (0, _v3.translate)({
+    singular: "{LANGUAGE} requires Dubbing PRO",
+    replacements: {
+      LANGUAGE: _v0[0]
+    },
+    dictionary: {
+      es: {
+        singular: "{LANGUAGE} requiere Dubbing PRO"
+      },
+      "de-DE": {
+        singular: "{LANGUAGE} benötigt Dubbing PRO"
+      },
+      "fr-FR": {
+        singular: "{LANGUAGE} nécessite Dubbing PRO"
+      },
+      "ja-JP": {
+        singular: "{LANGUAGE} は Dubbing PRO を必要とします"
+      },
+      "ko-KR": {
+        singular: "{LANGUAGE}는 Dubbing PRO가 필요합니다"
+      },
+      "pt-BR": {
+        singular: "{LANGUAGE} requer Dubbing PRO"
+      },
+      "zh-CN": {
+        singular: "{LANGUAGE} 需要 Dubbing PRO"
+      }
+    }
+  }) : 2 === _v0.length ? (0, _v3.translate)({
+    singular: "{LANGUAGE_1} and {LANGUAGE_2} require Dubbing PRO",
+    replacements: {
+      LANGUAGE_1: _v0[0],
+      LANGUAGE_2: _v0[1]
+    },
+    dictionary: {
+      es: {
+        singular: "{LANGUAGE_1} y {LANGUAGE_2} requieren Dubbing PRO"
+      },
+      "de-DE": {
+        singular: "{LANGUAGE_1} und {LANGUAGE_2} benötigen Dubbing PRO"
+      },
+      "fr-FR": {
+        singular: "{LANGUAGE_1} et {LANGUAGE_2} nécessitent Dubbing PRO"
+      },
+      "ja-JP": {
+        singular: "{LANGUAGE_1} と {LANGUAGE_2} は Dubbing PRO を必要とします"
+      },
+      "ko-KR": {
+        singular: "{LANGUAGE_1} 및 {LANGUAGE_2}는 Dubbing PRO가 필요합니다"
+      },
+      "pt-BR": {
+        singular: "{LANGUAGE_1} e {LANGUAGE_2} requerem Dubbing PRO"
+      },
+      "zh-CN": {
+        singular: "{LANGUAGE_1} 和 {LANGUAGE_2} 需要 Dubbing PRO"
+      }
+    }
+  }) : (0, _v3.translate)({
+    singular: "{LANGUAGES} and {COUNT} more require Dubbing PRO",
+    replacements: {
+      LANGUAGES: _v0.slice(0, 2).join(", "),
+      COUNT: _v0.length - 2
+    },
+    dictionary: {
+      es: {
+        singular: "{LANGUAGES} y {COUNT} más requieren Dubbing PRO"
+      },
+      "de-DE": {
+        singular: "{LANGUAGES} und {COUNT} weitere benötigen Dubbing PRO"
+      },
+      "fr-FR": {
+        singular: "{LANGUAGES} et {COUNT} autres nécessitent Dubbing PRO"
+      },
+      "ja-JP": {
+        singular: "{LANGUAGES} とさらに{COUNT}件が Dubbing PRO を必要とします"
+      },
+      "ko-KR": {
+        singular: "{LANGUAGES} 및 추가 {COUNT}개 언어는 Dubbing PRO가 필요합니다"
+      },
+      "pt-BR": {
+        singular: "{LANGUAGES} e mais {COUNT} requerem Dubbing PRO"
+      },
+      "zh-CN": {
+        singular: "{LANGUAGES} 以及另外 {COUNT} 种语言需要 Dubbing PRO"
+      }
+    }
+  }), "qnaSectionTitle", 0, _v62, "qnaTermAndConditions", 0, () => (0, _v3.translate)({
     singular: "By using Vimeo AI, you agree to our {TERMS}Terms of Service{/TERMS} and acknowledge our {PRIVACY}Privacy Policy{/PRIVACY}.",
     replacements: {
       TERMS: _v0 => (0, _v1.jsx)(_v2.Link, {

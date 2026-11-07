@@ -20,7 +20,8 @@
     _v17 = _v0.i(0),
     _v18 = _v0.i(0),
     _v19 = _v0.i(0),
-    _v20 = _v0.i(0);
+    _v20 = _v0.i(0),
+    _v21 = _v0.i(0);
   _v0.s(["useInvitation", 0, () => {
     let {
         logError: _v0
@@ -32,11 +33,11 @@
             jwt: _v1,
             xVimeoPage: _v2,
             locale: _v3
-          } = (0, _v18.useGctlConfig)(),
-          [_v4, _v5] = (0, _v19.useInternalState)();
+          } = (0, _v19.useGctlConfig)(),
+          [_v4, _v5] = (0, _v20.useInternalState)();
         return [(0, _v1.useCallback)(async _v0 => (_v5({
           type: "REQUEST"
-        }), (0, _v17.postUserTeammembers)({
+        }), (0, _v18.postUserTeammembers)({
           ..._v0,
           baseUrl: _v0,
           headers: {
@@ -50,7 +51,7 @@
           type: "SUCCESS",
           payload: _v0
         }), _v0)).catch(_v0 => {
-          throw (0, _v20.trackError)(_v0, {
+          throw (0, _v21.trackError)(_v0, {
             additionalData: {
               action: "post_user_teammembers",
               userId: _v0.where?.userId
@@ -167,16 +168,17 @@
         },
         shareSurface: _v41 = "panel"
       } = (0, _v1.useContext)(_v12.ResourceConfigContext),
-      _v42 = _v40?.();
+      _v42 = _v40?.(),
+      _v43 = (0, _v17.useParentScreen)(_v14.ShareModalState.Invitation);
     (0, _v1.useEffect)(() => {
-      _v11.length < 1 && !_v13 && _v12.length < 1 && _v24(_v14.ShareModalState.Default);
-    }, [_v12.length, _v13, _v11.length, _v24]);
-    let [_v43, _v44] = (0, _v15.shouldShowTeamNotice)(_v25, _v8, _v14, _v11),
-      _v45 = (0, _v15.getActiveUpsell)(_v32, _v33, _v11, _v8 ?? 0, _v15),
-      _v46 = (0, _v15.shouldShowUpsell)(_v45, _v11),
-      _v47 = (0, _v15.shouldShowPurchaseNotice)(_v7, _v14, _v25, _v11, _v15 ?? _v25.currentUnassignedSeatCount),
-      _v48 = _v46 || _v44 || _v43 || _v1 || !_v28 && _v12.length < 1 || !_v9 && !_v16,
-      _v49 = (0, _v1.useCallback)(async (_v0, _v1) => {
+      _v11.length < 1 && !_v13 && _v12.length < 1 && _v24(_v43);
+    }, [_v12.length, _v13, _v11.length, _v43, _v24]);
+    let [_v44, _v45] = (0, _v15.shouldShowTeamNotice)(_v25, _v8, _v14, _v11),
+      _v46 = (0, _v15.getActiveUpsell)(_v32, _v33, _v11, _v8 ?? 0, _v15),
+      _v47 = (0, _v15.shouldShowUpsell)(_v46, _v11),
+      _v48 = (0, _v15.shouldShowPurchaseNotice)(_v7, _v14, _v25, _v11, _v15 ?? _v25.currentUnassignedSeatCount),
+      _v49 = _v47 || _v45 || _v44 || _v1 || !_v28 && _v12.length < 1 || !_v9 && !_v16,
+      _v50 = (0, _v1.useCallback)(async (_v0, _v1) => {
         if (!_v34) return null;
         let _v2 = _v14.rawLabel || _v14.label,
           _v3 = _v42?.inviteNewUsers ? _v42.inviteNewUsers(_v0, _v2) : _v0.map(_v0 => {
@@ -331,7 +333,7 @@
           }
         }
       }, [_v20, _v17, _v26, _v34, _v42, _v3, _v0, _v23, _v22, _v14, _v31, _v10, _v30, _v36, _v5, _v37, _v39, _v41, _v21, _v29]),
-      _v50 = (0, _v1.useCallback)(async (_v0, _v1) => {
+      _v51 = (0, _v1.useCallback)(async (_v0, _v1) => {
         let _v2 = _v0.applicablePermissionPolicies.find(_v0 => _v11.PERMISSION_POLICY_NAME_TO_PERMISSION_LEVELS[_v0.name].value === _v14.value),
           {
             type: _v3,
@@ -457,7 +459,7 @@
         }
         _v3 === _v11.EntityTypes.AllTeam ? (await _v35(), _v36()) : (_v36(), window.dispatchEvent(new CustomEvent("RSM_PERMISSION_CREATED"))), _v20(), _v21("");
       }, [_v20, _v17, _v42, _v0, _v14.value, _v10, _v35, _v36, _v5, _v21, _v6, _v31, _v37, _v39, _v41]),
-      _v51 = (0, _v1.useCallback)(async (_v0, _v1) => {
+      _v52 = (0, _v1.useCallback)(async (_v0, _v1) => {
         let _v2 = [],
           _v3 = [];
         _v0.forEach(_v0 => {
@@ -556,7 +558,7 @@
       }, [_v20, _v17, _v0, _v31, _v10, _v30, _v4, _v5, _v39, _v21, _v29]);
     return {
       isInviting: _v1,
-      isInviteButtonDisabled: _v48,
+      isInviteButtonDisabled: _v49,
       sendInvites: async () => {
         if (_v3.FatalAttraction.trackClick({
           container: "folder_share_modal",
@@ -576,14 +578,14 @@
             role: _v4 ? _v14.value : null
           });
         }
-        _v12.length ? (await _v51(_v12, _v16), _v24(_v14.ShareModalState.Default), _v27()) : _v11.length ? await _v49(_v11, _v18) : _v13 && (await _v50(_v13, _v18)), _v2(!1), _v19(!0);
+        _v12.length ? (await _v52(_v12, _v16), _v24(_v43), _v27()) : _v11.length ? await _v50(_v11, _v18) : _v13 && (await _v51(_v13, _v18)), _v2(!1), _v19(!0);
       },
       shouldSendEmail: _v18,
-      showPurchaseNotice: _v47,
-      showViewerNotice: _v43,
-      showSeatNotice: _v44,
-      showUpsell: _v46,
-      activeUpsell: _v45
+      showPurchaseNotice: _v48,
+      showViewerNotice: _v44,
+      showSeatNotice: _v45,
+      showUpsell: _v47,
+      activeUpsell: _v46
     };
   }], 0);
 }

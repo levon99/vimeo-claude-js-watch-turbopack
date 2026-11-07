@@ -18,7 +18,9 @@
     } : {};
   }, "isDubbingProEnabledByEnvironment", 0, _v4], 0);
   let _v5 = {
+    enable_forensic_watermarking: !1,
     enable_fuzzy_public_search: !1,
+    enable_personalized_viewer_watermarking: !1,
     enable_public_smart_search: !1,
     enable_subscription_withdrawal: !1,
     enable_team_defaults_page: !1,

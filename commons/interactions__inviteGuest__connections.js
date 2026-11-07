@@ -56,12 +56,34 @@
     guestsSettingsRef = null;
     sessionApplicationType;
     sessionType;
+    interactionIdentity = null;
+    pendingInteractionIdentityName = null;
+    static RENAME_RETRY_DELAYS_MS = [0, 0, 0];
+    renameRetryTimer = null;
+    renameRetryAttempt = 0;
+    renameRetryTarget = null;
     log = new _v3.Logger("🦤GST");
     constructor(_v0) {
       if (super(), !_v0?.sessionApplicationType || !_v0?.sessionType) throw new _v17.LiveError("Init failed, application type required.", {
         data: _v0
       });
       this.sessionApplicationType = _v0.sessionApplicationType, this.sessionType = _v0.sessionType;
+    }
+    onProvisionEnded() {
+      this.clearRenameRetry(), super.onProvisionEnded();
+    }
+    clearRenameRetry() {
+      null !== this.renameRetryTimer && (clearTimeout(this.renameRetryTimer), this.renameRetryTimer = null);
+    }
+    scheduleRenameRetry(_v0) {
+      let _v1 = this.interactionIdentity,
+        _v2 = this.context.guests[_v0]?.name;
+      if (this.sessionApplicationType !== _v14.EComposerApplicationType.GUEST || !_v1 || _v0 !== _v1.id || !_v2 || _v2 === _v1.displayName || null !== this.renameRetryTimer) return;
+      if (this.renameRetryAttempt >= _v21.RENAME_RETRY_DELAYS_MS.length) return void this.log.warn("Guest rename retry budget exhausted:", _v0);
+      let _v3 = _v21.RENAME_RETRY_DELAYS_MS[this.renameRetryAttempt];
+      this.renameRetryAttempt += 1, this.renameRetryTimer = setTimeout(() => {
+        this.renameRetryTimer = null, this.syncOwnSeatIdentity(_v0, this.context.guests[_v0]?.name);
+      }, _v3);
     }
     async createGuest(_v0) {
       return (0, _v20.withLiveErrorTracking)(() => (0, _v4.createGuest)(this, _v0), {
@@ -148,6 +170,42 @@
         inviteGuest: _v0.interactions.inviteGuest
       }) : this.log.info("Skipping api connection for guest manager");
     }
+    onInteractionApplicationReady({
+      data: {
+        user: _v0
+      }
+    }) {
+      this.sessionApplicationType === _v14.EComposerApplicationType.GUEST && (this.interactionIdentity = {
+        id: _v0.id,
+        displayName: _v0.displayName
+      }, this.pendingInteractionIdentityName = null, this.syncOwnSeatIdentity(_v0.id, this.context.guests[_v0.id]?.name));
+    }
+    syncOwnSeatIdentity(_v0, _v1) {
+      let _v2 = this.interactionIdentity;
+      this.sessionApplicationType === _v14.EComposerApplicationType.GUEST && _v2 && _v0 === _v2.id && _v1 && _v1 !== _v2.displayName && _v1 !== this.pendingInteractionIdentityName && (_v1 !== this.renameRetryTarget && (this.renameRetryTarget = _v1, this.renameRetryAttempt = 0), this.clearRenameRetry(), this.pendingInteractionIdentityName = _v1, this.emitSignal({
+        type: _v9.ELiveSignal.GUEST_SELF_RENAMED,
+        data: {
+          guestId: _v0,
+          name: _v1
+        }
+      }));
+    }
+    onInteractionIdentityRefreshed({
+      data: {
+        user: _v0
+      }
+    }) {
+      if (this.sessionApplicationType === _v14.EComposerApplicationType.GUEST) {
+        if (this.pendingInteractionIdentityName = null, _v0) {
+          this.interactionIdentity = {
+            id: _v0.id,
+            displayName: _v0.displayName
+          }, this.renameRetryAttempt = 0, this.renameRetryTarget = null, this.clearRenameRetry(), this.syncOwnSeatIdentity(_v0.id, this.context.guests[_v0.id]?.name);
+          return;
+        }
+        this.interactionIdentity && this.scheduleRenameRetry(this.interactionIdentity.id);
+      }
+    }
     onChatApplicationReady({
       data: {
         firebase: _v0,
@@ -172,7 +230,7 @@
         }), _v3.emitSignal({
           type: _v9.EAgoraSignal.ALLOWED_REMOTE_GUEST_ADDED,
           data: _v2
-        });
+        }), _v3.syncOwnSeatIdentity(_v0.key, _v2.name);
       }, _v10 = _v0 => {
         let _v1 = _v0.val(),
           {
@@ -195,13 +253,14 @@
         let {
             guests: _v1
           } = _v3.context,
-          _v2 = _v0.val();
+          _v2 = _v0.val(),
+          _v3 = _v0.key;
         _v3.log.info("Event guest updated:", _v0.key), _v3.setContext({
           guests: {
             ..._v1,
-            [_v0.key]: _v2
+            [_v3]: _v2
           }
-        });
+        }), _v3.syncOwnSeatIdentity(_v3, _v2.name);
       }, (0, _v7.onRefEvent)(_v3.firebase, _v4, "child_added", _v9, "guests-list"), (0, _v7.onRefEvent)(_v3.firebase, _v4, "child_removed", _v10, "guests-list"), (0, _v7.onRefEvent)(_v3.firebase, _v4, "child_changed", _v11, "guests-list"), () => {
         (0, _v7.offRefEvent)(_v3.firebase, _v4, "child_added", _v9), (0, _v7.offRefEvent)(_v3.firebase, _v4, "child_removed", _v10), (0, _v7.offRefEvent)(_v3.firebase, _v4, "child_changed", _v11);
       }), (_v5 = this, _v6 = this.guestsSettingsRef, _v12 = _v0 => {
@@ -237,13 +296,14 @@
           }
         }), _v15(_v2.remoteRequest, _v0.key);
       }, _v15 = (_v0, _v1) => {
-        if (!_v0) return;
-        let {
-          data: _v2
-        } = _v5.queryDataSync({
-          type: _v8.ELiveConnectionQuery.CURRENT_CONNECTION_MEDIA_UID
-        });
-        _v1 === (0, _v6.parseUidFromAgora)(_v2) && (_v0 === _v5.EGuestMuteState.GUEST_MUTE_REQUESTED ? _v5.emitSignal({
+        _v0 && _v1 === function (_v0) {
+          let {
+            data: _v1
+          } = _v0.queryDataSync({
+            type: _v8.ELiveConnectionQuery.CURRENT_CONNECTION_MEDIA_UID
+          });
+          return (0, _v6.parseUidFromAgora)(_v1);
+        }(_v5) && (_v0 === _v5.EGuestMuteState.GUEST_MUTE_REQUESTED ? _v5.emitSignal({
           type: _v9.EGuestMuteSignal.GUEST_MUTE_REQUESTED,
           data: {
             guestId: _v1
@@ -293,5 +353,5 @@
       }) : _v16.CallablePlaceholder]);
     }
   }
-  (0, _v1._)([(0, _v2.OnQuery)(_v8.ELiveConnectionQuery.IS_REMOTE_ALLOWED_IN_ROOM)], _v21.prototype, "onCheckRoomMediaAccess", null), (0, _v1._)([(0, _v2.OnQuery)(_v8.ELiveGraphicsQuery.GUEST_ITEM)], _v21.prototype, "onGetGuestInformation", null), (0, _v1._)([(0, _v2.OnSignal)(_v9.EGuestMuteSignal.GUEST_MUTE_ACKNOWLEDGED), (0, _v2.OnSignal)(_v9.EGuestMuteSignal.GUEST_UNMUTE_ACKNOWLEDGED)], _v21.prototype, "onGuestMuteAcknowledgement", null), (0, _v1._)([(0, _v2.OnSignal)(_v9.ELiveSignal.COMPOSER_SESSION_READY)], _v21.prototype, "onComposerSessionReady", null), (0, _v1._)([(0, _v2.OnSignal)(_v9.ELiveRealtimeSignal.FIREBASE_COMPOSER_APP_READY)], _v21.prototype, "onChatApplicationReady", null), _v0.s(["GuestsManager", 0, _v21], 0);
+  (0, _v1._)([(0, _v2.OnQuery)(_v8.ELiveConnectionQuery.IS_REMOTE_ALLOWED_IN_ROOM)], _v21.prototype, "onCheckRoomMediaAccess", null), (0, _v1._)([(0, _v2.OnQuery)(_v8.ELiveGraphicsQuery.GUEST_ITEM)], _v21.prototype, "onGetGuestInformation", null), (0, _v1._)([(0, _v2.OnSignal)(_v9.EGuestMuteSignal.GUEST_MUTE_ACKNOWLEDGED), (0, _v2.OnSignal)(_v9.EGuestMuteSignal.GUEST_UNMUTE_ACKNOWLEDGED)], _v21.prototype, "onGuestMuteAcknowledgement", null), (0, _v1._)([(0, _v2.OnSignal)(_v9.ELiveSignal.COMPOSER_SESSION_READY)], _v21.prototype, "onComposerSessionReady", null), (0, _v1._)([(0, _v2.OnSignal)(_v9.ELiveRealtimeSignal.FIREBASE_INTERACTION_APP_READY)], _v21.prototype, "onInteractionApplicationReady", null), (0, _v1._)([(0, _v2.OnSignal)(_v9.ELiveRealtimeSignal.FIREBASE_INTERACTION_IDENTITY_REFRESHED)], _v21.prototype, "onInteractionIdentityRefreshed", null), (0, _v1._)([(0, _v2.OnSignal)(_v9.ELiveRealtimeSignal.FIREBASE_COMPOSER_APP_READY)], _v21.prototype, "onChatApplicationReady", null), _v0.s(["GuestsManager", 0, _v21], 0);
 }

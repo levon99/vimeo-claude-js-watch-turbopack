@@ -22,7 +22,10 @@
     _v19 = () => (0, _v1.jsx)(_v7.Tag, {
       size: "sm",
       bg: "fill-brand",
-      color: "text-primary",
+      color: "gray.900",
+      _dark: {
+        bg: "fill-brand"
+      },
       borderRadius: "xs",
       h: (0, _v10.rem)(14),
       px: (0, _v10.rem)(6),
@@ -45,30 +48,31 @@
   }) => {
     let [_v7, _v8] = (0, _v2.useState)(""),
       [_v9, _v10] = (0, _v2.useState)(0),
-      _v11 = (0, _v2.useRef)(null),
-      _v12 = _v1.filter(_v0 => {
+      [_v11, _v12] = (0, _v2.useState)(!1),
+      _v13 = (0, _v2.useRef)(null),
+      _v14 = _v1.filter(_v0 => {
         let _v1 = _v7.trim().toLowerCase();
         return 0 === _v1.length || _v0.localized.toLowerCase().includes(_v1) || _v0.native.toLowerCase().includes(_v1) || _v0.code.toLowerCase().includes(_v1);
       }),
-      _v13 = _v0 => ({
+      _v15 = _v0 => ({
         key: String(_v0.key),
         label: String(_v0.label)
       }),
-      _v14 = _v0 => {
+      _v16 = _v0 => {
         let _v1 = _v0.accents?.find(_v0 => _v0.key === _v18),
           _v2 = _v0.accents?.find(_v0 => "auto" === _v0.key);
         return (_v3 ? _v1 : void 0) ?? _v2 ?? _v0.accents?.[0];
       },
-      _v15 = (_v0, _v1) => {
+      _v17 = (_v0, _v1) => {
         _v4(_v0, _v1), _v8(""), _v10(0), requestAnimationFrame(() => {
-          _v11.current?.querySelector('[role="menuitem"]')?.focus();
+          _v13.current?.querySelector('[role="menuitem"]')?.focus();
         });
       };
     return (0, _v2.useEffect)(() => {
       if (!_v7) return;
-      let _v0 = _v11.current?.querySelectorAll('[role="menuitem"]');
+      let _v0 = _v13.current?.querySelectorAll('[role="menuitem"]');
       _v0?.item(_v9)?.focus();
-    }, [_v12.length, _v9, _v7]), (0, _v1.jsxs)(_v5.NestedMenu, {
+    }, [_v14.length, _v9, _v7]), (0, _v1.jsxs)(_v5.NestedMenu, {
       closeOnSelect: !1,
       positioning: {
         placement: "bottom-start",
@@ -77,7 +81,7 @@
       onOpenChange: ({
         open: _v0
       }) => {
-        _v0 || _v8(""), _v10(0);
+        _v12(_v0), _v0 || _v8(""), _v10(0);
       },
       children: [(0, _v1.jsx)(_v5.NestedMenuTrigger, {
         variant: "tertiary",
@@ -91,12 +95,14 @@
         borderWidth: (0, _v10.rem)(1),
         borderColor: "input-stroke",
         borderRadius: "md",
-        backgroundColor: "input-fill !important",
+        backgroundColor: "fill-component !important",
         justifyContent: "flex-start",
         fontWeight: "regular",
+        outline: _v11 ? "2px solid" : void 0,
+        outlineColor: _v11 ? "focus-alt" : void 0,
         outlineOffset: (0, _v10.rem)(-2),
         _hover: {
-          backgroundColor: "input-fill !important"
+          backgroundColor: "fill-component-hover !important"
         },
         children: (0, _v1.jsxs)(_v4.Flex, {
           flexWrap: "wrap",
@@ -156,30 +162,30 @@
                 return;
               }
               if ("ArrowDown" === _v0.key && _v7) {
-                _v0.preventDefault(), _v10(_v0 => Math.min(_v0 + 1, Math.max(_v12.length - 1, 0)));
+                _v0.preventDefault(), _v10(_v0 => Math.min(_v0 + 1, Math.max(_v14.length - 1, 0)));
                 return;
               }
               if ("ArrowUp" === _v0.key && _v7) {
                 _v0.preventDefault(), _v10(_v0 => Math.max(_v0 - 1, 0));
                 return;
               }
-              if ("Enter" === _v0.key && _v7 && _v12.length) {
+              if ("Enter" === _v0.key && _v7 && _v14.length) {
                 _v0.preventDefault();
-                let _v0 = _v12[Math.min(_v9, _v12.length - 1)],
-                  _v1 = _v14(_v0);
-                _v15(_v0, _v1 ? _v13(_v1) : void 0);
+                let _v0 = _v14[Math.min(_v9, _v14.length - 1)],
+                  _v1 = _v16(_v0);
+                _v17(_v0, _v1 ? _v15(_v1) : void 0);
                 return;
               }
               1 !== _v0.key.length || _v0.metaKey || _v0.ctrlKey || _v0.altKey || (_v0.preventDefault(), _v8(_v0 => _v0 + _v0.key), _v10(0));
             },
             children: (0, _v1.jsx)(_v3.Box, {
-              ref: _v11,
-              children: _v12.map(_v0 => {
+              ref: _v13,
+              children: _v14.map(_v0 => {
                 let _v1,
                   _v2 = !!_v0.accents?.length,
                   _v3 = (_v1 = _v0.code, _v0.some(_v0 => _v0.code === _v1)),
                   _v4 = _v0.accents?.find(_v0 => _v0.key === _v18),
-                  _v5 = _v14(_v0),
+                  _v5 = _v16(_v0),
                   _v6 = (0, _v1.jsxs)(_v4.Flex, {
                     alignItems: "center",
                     gap: (0, _v10.rem)(6),
@@ -201,7 +207,7 @@
                       w: "100%",
                       gap: (0, _v10.rem)(8),
                       onClick: _v0 => {
-                        _v0.target.closest("[data-language-chevron]") || (_v0.preventDefault(), _v0.stopPropagation(), _v5 ? _v15(_v0, _v13(_v5)) : _v15(_v0));
+                        _v0.target.closest("[data-language-chevron]") || (_v0.preventDefault(), _v0.stopPropagation(), _v5 ? _v17(_v0, _v15(_v5)) : _v17(_v0));
                       },
                       children: [_v6, (0, _v1.jsx)(_v3.Box, {
                         as: "span",
@@ -221,7 +227,7 @@
                         children: [_v3 && _v4 && (0, _v1.jsxs)(_v1.Fragment, {
                           children: [(0, _v1.jsx)(_v5.NestedMenuItem, {
                             value: `${_v0.code}-original`,
-                            onClick: () => _v15(_v0, _v13(_v4)),
+                            onClick: () => _v17(_v0, _v15(_v4)),
                             children: _v4.label
                           }), (0, _v1.jsx)(_v5.NestedMenuDivider, {})]
                         }), (0, _v1.jsxs)(_v5.NestedMenuItemGroup, {
@@ -244,7 +250,7 @@
                             })
                           }), _v0.accents?.filter(_v0 => _v0.key !== _v18).map(_v0 => (0, _v1.jsx)(_v5.NestedMenuItem, {
                             value: `${_v0.code}-${_v0.key}`,
-                            onClick: () => _v15(_v0, _v13(_v0)),
+                            onClick: () => _v17(_v0, _v15(_v0)),
                             children: _v0.label
                           }, _v0.key))]
                         })]
@@ -253,7 +259,7 @@
                   })]
                 }, _v0.code) : (0, _v1.jsx)(_v5.NestedMenuItem, {
                   value: _v0.code,
-                  onClick: () => _v15(_v0),
+                  onClick: () => _v17(_v0),
                   children: (0, _v1.jsxs)(_v4.Flex, {
                     alignItems: "center",
                     justifyContent: "space-between",

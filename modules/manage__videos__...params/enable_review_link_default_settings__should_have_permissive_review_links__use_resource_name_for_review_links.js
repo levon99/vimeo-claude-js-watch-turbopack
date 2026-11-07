@@ -57,7 +57,7 @@
     }) => {
       let _v11 = (0, _v18.useOrionSettingsFields)(["enable_review_link_default_settings", "should_have_permissive_review_links", "use_resource_name_for_review_links"]),
         _v12 = (0, _v22.useCanUpSell)(),
-        _v13 = _v9 || _v12 && _v11.should_have_permissive_review_links,
+        _v13 = _v12 && (_v9 || _v11.should_have_permissive_review_links),
         _v14 = _v12 && !_v13,
         _v15 = (0, _v13.useIsMobile)(),
         _v16 = (0, _v20.useViewer)(),

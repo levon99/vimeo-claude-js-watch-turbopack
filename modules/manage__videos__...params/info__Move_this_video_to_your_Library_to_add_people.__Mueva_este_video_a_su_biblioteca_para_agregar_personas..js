@@ -27,11 +27,14 @@
     _v24 = _v0.i(0),
     _v25 = _v0.i(0);
   let _v26 = () => {
-    let {
-        canEdit: _v0,
-        canInvite: _v1,
-        isPrivateToUser: _v2,
-        resourceType: _v3
+    let _v0 = (0, _v4.useGlobalStore)(({
+        screen: _v0
+      }) => _v0.main),
+      {
+        canEdit: _v1,
+        canInvite: _v2,
+        isPrivateToUser: _v3,
+        resourceType: _v4
       } = (0, _v4.useGlobalStore)((0, _v9.useShallow)(({
         resourceProps: _v0
       }) => ({
@@ -41,59 +44,59 @@
         resourceType: _v0.resourceType
       }))),
       {
-        teamPermissions: _v4,
-        isLoadingMore: _v5,
-        isValidating: _v6,
-        isInitLoading: _v7,
-        revalidateTeamPermissions: _v8,
-        loadMoreTeamPermissions: _v9,
-        canLoadMore: _v10
+        teamPermissions: _v5,
+        isLoadingMore: _v6,
+        isValidating: _v7,
+        isInitLoading: _v8,
+        revalidateTeamPermissions: _v9,
+        loadMoreTeamPermissions: _v10,
+        canLoadMore: _v11
       } = (0, _v22.useGetTeamPermissions)({
         query: {
           accessType: _v22.ACCESS_TYPE.EXPLICIT,
           entityTypes: [_v20.EntityTypes.TeamUser, _v20.EntityTypes.TeamGroup],
           excludeResourceCreator: !0
         },
-        shouldSkip: () => !_v1
+        shouldSkip: () => !_v2
       }),
       {
-        modalFooterRef: _v11
+        modalFooterRef: _v12
       } = (0, _v2.useContext)(_v24.RefsState),
       {
-        contentSpaceEnabled: _v12,
-        isCapabilitiesLoaded: _v13
+        contentSpaceEnabled: _v13,
+        isCapabilitiesLoaded: _v14
       } = (0, _v4.useGlobalStore)((0, _v9.useShallow)(({
         capabilities: _v0
       }) => ({
         contentSpaceEnabled: _v0.data.contentSpaceEnabled,
         isCapabilitiesLoaded: _v0.isCapabilitiesLoaded
       }))),
-      _v14 = (0, _v4.useGlobalStore)(_v0 => _v0.teamPermissions.actions.setTeamPermissionsData),
-      _v15 = (0, _v4.useGlobalStore)(_v0 => _v0.teamPermissions.actions.setRevalidateTeamPermissions),
-      _v16 = (0, _v4.useGlobalStore)(_v0 => _v0.teamPermissions.actions.setLoadMoreTeamPermissions),
+      _v15 = (0, _v4.useGlobalStore)(_v0 => _v0.teamPermissions.actions.setTeamPermissionsData),
+      _v16 = (0, _v4.useGlobalStore)(_v0 => _v0.teamPermissions.actions.setRevalidateTeamPermissions),
+      _v17 = (0, _v4.useGlobalStore)(_v0 => _v0.teamPermissions.actions.setLoadMoreTeamPermissions),
       {
         footer: {
-          TeamListFooter: _v17
+          TeamListFooter: _v18
         }
       } = (0, _v2.useContext)(_v23.ResourceConfigContext),
-      _v18 = (0, _v21.useGetCreator)();
+      _v19 = (0, _v21.useGetCreator)();
     return ((0, _v2.useEffect)(() => {
-      let _v0 = !_v5 && _v6,
-        _v1 = _v7 || _v0;
-      _v14({
-        data: _v4,
-        isInitTeamPermissionsLoading: _v7,
+      let _v0 = !_v6 && _v7,
+        _v1 = _v8 || _v0;
+      _v15({
+        data: _v5,
+        isInitTeamPermissionsLoading: _v8,
         isTeamPermissionsLoading: _v1,
-        isFetchingMoreTeamPermissions: _v5
+        isFetchingMoreTeamPermissions: _v6
       });
-    }, [_v7, _v5, _v6, _v14, _v4]), (0, _v2.useEffect)(() => {
-      _v15(_v8), _v16(_v9);
-    }, [_v9, _v8, _v16, _v15]), _v3 !== _v5.ResourceType.Video || _v0) ? (0, _v1.jsxs)(_v1.Fragment, {
+    }, [_v8, _v6, _v7, _v15, _v5]), (0, _v2.useEffect)(() => {
+      _v16(_v9), _v17(_v10);
+    }, [_v10, _v9, _v17, _v16]), _v4 !== _v5.ResourceType.Video || _v1) ? (0, _v1.jsxs)(_v1.Fragment, {
       children: [(0, _v1.jsxs)(_v11.Box, {
         sx: _v25.XPaddingStyle,
         children: [(0, _v1.jsx)(_v18.TeamListHeader, {
           isUpsellShowing: !1
-        }), (0, _v1.jsx)(_v17.Search, {}), _v13 && _v2 && !_v12 && (0, _v1.jsx)(_v11.Box, {
+        }), (0, _v1.jsx)(_v17.Search, {}), _v14 && _v3 && !_v13 && (0, _v1.jsx)(_v11.Box, {
           pb: (0, _v14.rem)(8),
           children: (0, _v1.jsx)(_v10.Alert, {
             status: "info",
@@ -127,7 +130,7 @@
               })
             })
           })
-        }), (0, _v1.jsx)(_v12.Header, {
+        }), _v0 !== _v5.ShareModalState.PeopleAccessList && (0, _v1.jsx)(_v12.Header, {
           className: "team-permissions-list-header",
           size: "sm",
           pt: (0, _v14.rem)(8),
@@ -160,21 +163,21 @@
             }
           })
         }), (0, _v1.jsx)(_v19.TeamPermissionsList, {
-          teamPermissions: _v4,
-          creator: _v18,
-          canInvite: _v1,
-          canLoadMorePermissions: _v10
+          teamPermissions: _v5,
+          creator: _v19,
+          canInvite: _v2,
+          canLoadMorePermissions: _v11
         })]
-      }), _v17 && (0, _v1.jsxs)(_v13.Portal, {
-        containerRef: _v11,
+      }), _v18 && (0, _v1.jsxs)(_v13.Portal, {
+        containerRef: _v12,
         children: [(0, _v1.jsx)(_v16.CustomDivider, {}), (0, _v1.jsx)(_v11.Box, {
           sx: _v25.XPaddingStyle,
-          children: (0, _v1.jsx)(_v17, {})
+          children: (0, _v1.jsx)(_v18, {})
         })]
       })]
-    }) : _v17 ? (0, _v1.jsx)(_v11.Box, {
+    }) : _v18 ? (0, _v1.jsx)(_v11.Box, {
       sx: _v25.XPaddingStyle,
-      children: (0, _v1.jsx)(_v17, {})
+      children: (0, _v1.jsx)(_v18, {})
     }) : null;
   };
   var _v27 = _v0.i(0),
@@ -992,6 +995,7 @@
     }, [_v2]), (0, _v2.useCallback)(() => {
       switch (_v1) {
         case _v5.ShareModalState.Default:
+        case _v5.ShareModalState.PeopleAccessList:
           return _v0 || !_v3 ? (0, _v1.jsx)(_v26, {}) : (0, _v1.jsx)(_v64, {});
         case _v5.ShareModalState.Invitation:
           return (0, _v1.jsx)(_v7.InvitationScreen, {});

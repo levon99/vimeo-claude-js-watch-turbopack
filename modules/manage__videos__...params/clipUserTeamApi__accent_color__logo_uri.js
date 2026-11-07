@@ -25635,7 +25635,7 @@
                     })]
                   }), (0, _v16.jsxs)(_v134.Flex, {
                     gap: _v18.enable_svv_redesign ? "8px" : "xs",
-                    children: [_v130?.name === _v152.LANGUAGES && (0, _v16.jsx)(_v763, {
+                    children: [_v130?.name === _v152.LANGUAGES && !_v155 && (0, _v16.jsx)(_v763, {
                       videoId: _v17,
                       languagePanelRef: _v97,
                       isRedesign: _v154
